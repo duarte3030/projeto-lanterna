@@ -1,0 +1,14 @@
+# ROMs e saves nunca entram no repo
+*.gba
+*.gbc
+*.sav
+*.srm
+*.ips
+*.ups
+*.bps
+
+# build
+*.o
+*.map
+*.sym
+.DS_Store
