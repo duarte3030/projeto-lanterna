@@ -6393,7 +6393,7 @@ static u8 PrintPreEvolutions(u8 taskId, enum Species species)
     return numPreEvolutions;
 }
 
-#define EVO_SCREEN_LVL_DIGITS 2
+#define EVO_SCREEN_LVL_DIGITS 3 // ponytail: 3 desde que MAX_LEVEL passou de 100.
 #define EVO_SCREEN_CRITS_DIGITS 1
 #define EVO_SCREEN_DMG_DIGITS 2
 

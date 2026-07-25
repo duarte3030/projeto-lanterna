@@ -16877,3 +16877,7478 @@ Double Battle: No
 Kyogre
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+/* ponytail: treinadores de Sinnoh usados por algum mapa.
+   Gerado a partir de trainers_sinnoh.party, que veio de pret/pokeplatinum.
+   Comentario em bloco porque este formato nao aceita barra dupla. */
+
+=== TRAINER_SINNOH_ACE_TRAINER_ABEL ===
+Name: Abel
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Glalie
+Level: 59
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Hail
+- Ice Beam
+- Sheer Cold
+- Crunch
+
+Crobat
+Level: 60
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Air Slash
+- Poison Fang
+- Confuse Ray
+- Shadow Ball
+
+=== TRAINER_SINNOH_ACE_TRAINER_ALICIA ===
+Name: Alicia
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Sneasel
+Level: 40
+IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
+- Icy Wind
+- Slash
+- Screech
+- Faint Attack
+
+Sneasel
+Level: 43
+IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
+- Icy Wind
+- Slash
+- Screech
+- Faint Attack
+
+=== TRAINER_SINNOH_ACE_TRAINER_ALLEN ===
+Name: Allen
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Gastly
+Level: 21
+IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
+- Night Shade
+- Sucker Punch
+- Curse
+- Confuse Ray
+
+Gastly
+Level: 22
+IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
+- Night Shade
+- Sucker Punch
+- Hypnosis
+- Confuse Ray
+
+Haunter
+Level: 24
+IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
+- Shadow Ball
+- Confuse Ray
+- Curse
+- Mean Look
+
+=== TRAINER_SINNOH_ACE_TRAINER_ALYSSA ===
+Name: Alyssa
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Aipom
+Level: 32
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Swift
+- Water Pulse
+- Shock Wave
+- Aerial Ace
+
+Girafarig
+Level: 32
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Double Hit
+- Psybeam
+- Assurance
+- Light Screen
+
+Grotle
+Level: 33
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Mega Drain
+- Bite
+- Curse
+
+=== TRAINER_SINNOH_ACE_TRAINER_ANTON ===
+Name: Anton
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Glalie
+Level: 44
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Ice Beam
+- Crunch
+
+=== TRAINER_SINNOH_ACE_TRAINER_ARTHUR ===
+Name: Arthur
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Gastrodon
+Level: 54
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Muddy Water
+- Recover
+- Toxic
+- Water Pulse
+
+Beedrill
+Level: 54
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Poison Jab
+- U Turn
+- Aerial Ace
+- Swords Dance
+
+Electrode
+Level: 55
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Thunderbolt
+- Hyper Beam
+- Endure
+- Explosion
+
+=== TRAINER_SINNOH_ACE_TRAINER_BLAKE ===
+Name: Blake
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Ambipom
+Level: 39
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Double Hit
+- U Turn
+- Sand Attack
+- Screech
+
+Porygon2
+Level: 40
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Psybeam
+- Signal Beam
+- Conversion 2
+- Recover
+
+=== TRAINER_SINNOH_ACE_TRAINER_BRANDI ===
+Name: Brandi
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Marowak
+Level: 54
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Bone Rush
+- Stone Edge
+- Swords Dance
+- Endeavor
+
+Kangaskhan
+Level: 57
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Dizzy Punch
+- Crunch
+- Outrage
+- Earthquake
+
+=== TRAINER_SINNOH_ACE_TRAINER_BREANNA ===
+Name: Breanna
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Bronzor
+Level: 35
+IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
+- Gyro Ball
+- Extrasensory
+- Confuse Ray
+
+Bronzor
+Level: 36
+IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
+- Gyro Ball
+- Extrasensory
+- Confuse Ray
+
+Bronzor
+Level: 38
+IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
+- Gyro Ball
+- Extrasensory
+- Confuse Ray
+
+=== TRAINER_SINNOH_ACE_TRAINER_BRENDA ===
+Name: Brenda
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Lopunny
+Level: 38
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Kirlia
+Level: 36
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Medicham
+Level: 35
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_ACE_TRAINER_BRENNA ===
+Name: Brenna
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Sneasel
+Level: 40
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Ice Shard
+- Slash
+- Faint Attack
+- Quick Attack
+
+Snorunt
+Level: 40
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Ice Fang
+- Crunch
+- Hail
+
+Snover
+Level: 41
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Ice Shard
+- Wood Hammer
+- Ingrain
+- Grass Whistle
+
+=== TRAINER_SINNOH_ACE_TRAINER_CATHERINE ===
+Name: Catherine
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Haunter
+Level: 23
+IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
+- Night Shade
+- Confuse Ray
+- Sucker Punch
+- Curse
+
+Misdreavus
+Level: 24
+IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
+- Psybeam
+- Pain Split
+- Confuse Ray
+- Spite
+
+=== TRAINER_SINNOH_ACE_TRAINER_CESAR ===
+Name: Cesar
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Scizor
+Level: 40
+IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
+- Metal Claw
+- X Scissor
+- Slash
+- Pursuit
+
+=== TRAINER_SINNOH_ACE_TRAINER_CLARICE ===
+Name: Clarice
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Swalot
+Level: 53
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Gunk Shot
+- Yawn
+- Body Slam
+- Protect
+
+Ninetales
+Level: 54
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Will O Wisp
+- Flamethrower
+- Dark Pulse
+- Extrasensory
+
+Magnezone
+Level: 56
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Flash Cannon
+- Mirror Coat
+- Discharge
+- Hyper Beam
+
+=== TRAINER_SINNOH_ACE_TRAINER_DALTON ===
+Name: Dalton
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Electabuzz
+Level: 40
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Thunderbolt
+- Swift
+- Quick Attack
+- Thunder Wave
+
+Magmar
+Level: 40
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Flamethrower
+- Faint Attack
+- Smog
+- Will O Wisp
+
+=== TRAINER_SINNOH_ACE_TRAINER_DANA ===
+Name: Dana
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Mightyena
+Level: 55
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Crunch
+- Sucker Punch
+- Iron Tail
+- Scary Face
+
+Kirlia
+Level: 56
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Psychic
+- Magical Leaf
+- Shock Wave
+- Shadow Ball
+
+=== TRAINER_SINNOH_ACE_TRAINER_DEANNA ===
+Name: Deanna
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Flaaffy
+Level: 55
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Discharge
+- Power Gem
+- Signal Beam
+- Light Screen
+
+Tropius
+Level: 56
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Solar Beam
+- Air Slash
+- Synthesis
+- Sunny Day
+
+=== TRAINER_SINNOH_ACE_TRAINER_DENNIS ===
+Name: Dennis
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Gligar
+Level: 24
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Screech
+- Faint Attack
+- Quick Attack
+- Poison Sting
+
+Buizel
+Level: 24
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Aqua Jet
+- Swift
+- Pursuit
+- Quick Attack
+
+Drifblim
+Level: 25
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Swallow
+- Gust
+- Stockpile
+- Ominous Wind
+
+=== TRAINER_SINNOH_ACE_TRAINER_DESTINY ===
+Name: Destiny
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Electabuzz
+Level: 47
+IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
+- Thunderbolt
+- Shock Wave
+- Quick Attack
+- Iron Tail
+
+Raichu
+Level: 48
+IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
+- Thunderbolt
+- Dig
+- Thunder Wave
+- Light Screen
+
+=== TRAINER_SINNOH_ACE_TRAINER_ERNEST ===
+Name: Ernest
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Scyther
+Level: 32
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Slash
+- Wing Attack
+- Pursuit
+- Quick Attack
+
+Probopass
+Level: 31
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Thunder Wave
+- Rock Slide
+- Magnet Bomb
+- Iron Defense
+
+Luxio
+Level: 34
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Thunderbolt
+- Crunch
+- Swagger
+- Double Team
+
+=== TRAINER_SINNOH_ACE_TRAINER_FELIX ===
+Name: Felix
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Dusclops
+Level: 55
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Shadow Sneak
+- Payback
+- Curse
+- Will O Wisp
+
+Salamence
+Level: 56
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Dragon Claw
+- Aerial Ace
+- Zen Headbutt
+- Crunch
+
+=== TRAINER_SINNOH_ACE_TRAINER_GARRETT ===
+Name: Garrett
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Mr Mime
+Level: 37
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Psybeam
+- Mimic
+- Reflect
+- Light Screen
+
+Dusclops
+Level: 39
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Will O Wisp
+- Shadow Punch
+- Pursuit
+- Confuse Ray
+
+Scyther
+Level: 39
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Slash
+- X Scissor
+- Quick Attack
+- Fury Cutter
+
+=== TRAINER_SINNOH_ACE_TRAINER_GRAHAM ===
+Name: Graham
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Tyrogue
+Level: 55
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Hitmonchan
+Level: 59
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_ACE_TRAINER_HENRY ===
+Name: Henry
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Rhydon
+Level: 47
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Stone Edge
+- Earthquake
+- Hammer Arm
+- Take Down
+
+Carnivine
+Level: 48
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Wring Out
+- Crunch
+- Faint Attack
+- Ingrain
+
+=== TRAINER_SINNOH_ACE_TRAINER_ISAIAH ===
+Name: Isaiah
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Piloswine
+Level: 44
+IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
+- Earthquake
+- Fury Attack
+- Ice Fang
+- Ancient Power
+
+=== TRAINER_SINNOH_ACE_TRAINER_JAKE ===
+Name: Jake
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Staraptor
+Level: 35
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Take Down
+- Aerial Ace
+- Endeavor
+- Quick Attack
+
+Girafarig
+Level: 36
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Double Hit
+- Psychic
+
+=== TRAINER_SINNOH_ACE_TRAINER_JAMIE ===
+Name: Jamie
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Metagross
+Level: 60
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Meteor Mash
+- Hammer Arm
+- Psychic
+- Magnet Rise
+
+=== TRAINER_SINNOH_ACE_TRAINER_JASMIN ===
+Name: Jasmin
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Drapion
+Level: 61
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Cross Poison
+- Crunch
+- X Scissor
+- Aerial Ace
+
+=== TRAINER_SINNOH_ACE_TRAINER_JONAH ===
+Name: Jonah
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Quagsire
+Level: 35
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Staraptor
+Level: 36
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Hippopotas
+Level: 38
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_ACE_TRAINER_JOSE ===
+Name: Jose
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Golduck
+Level: 56
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Hydro Pump
+- Brick Break
+- Zen Headbutt
+- Screech
+
+Sandslash
+Level: 56
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Earthquake
+- Crush Claw
+- Poison Jab
+- Sand Tomb
+
+Manectric
+Level: 57
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Thunder Fang
+- Fire Fang
+- Quick Attack
+- Giga Impact
+
+=== TRAINER_SINNOH_ACE_TRAINER_KASSANDRA ===
+Name: Kassandra
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Jumpluff
+Level: 58
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Memento
+- Giga Drain
+- Toxic
+- Bounce
+
+Onix
+Level: 58
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Stone Edge
+- Earthquake
+- Iron Tail
+- Dragon Breath
+
+Ampharos
+Level: 59
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Thunder Punch
+- Power Gem
+- Signal Beam
+- Fire Punch
+
+=== TRAINER_SINNOH_ACE_TRAINER_KEENAN ===
+Name: Keenan
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Primeape
+Level: 58
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Electabuzz
+Level: 58
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Banette
+Level: 59
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_ACE_TRAINER_LAURA ===
+Name: Laura
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Tropius
+Level: 42
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Air Slash
+- Body Slam
+- Magical Leaf
+- Sweet Scent
+
+=== TRAINER_SINNOH_ACE_TRAINER_MARIA ===
+Name: Maria
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Golduck
+Level: 38
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Water Pulse
+- Confusion
+- Disable
+- Screech
+
+Rapidash
+Level: 39
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Fire Blast
+- Take Down
+- Fury Attack
+- Will O Wisp
+
+Sudowoodo
+Level: 38
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Rock Slide
+- Low Kick
+- Flail
+- Endure
+
+=== TRAINER_SINNOH_ACE_TRAINER_MARIAH ===
+Name: Mariah
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Blissey
+Level: 45
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Double Edge
+- Sing
+- Softboiled
+- Light Screen
+
+Glalie
+Level: 46
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Ice Beam
+- Crunch
+- Headbutt
+- Shadow Ball
+
+Magnezone
+Level: 48
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Discharge
+- Flash Cannon
+- Thunder Wave
+- Barrier
+
+=== TRAINER_SINNOH_ACE_TRAINER_MAYA ===
+Name: Maya
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Roselia
+Level: 24
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Toxic Spikes
+- Giga Drain
+- Leech Seed
+
+Ralts
+Level: 24
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Psychic
+- Magical Leaf
+- Calm Mind
+- Double Team
+
+Lickitung
+Level: 25
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Supersonic
+- Stomp
+- Rollout
+- Defense Curl
+
+=== TRAINER_SINNOH_ACE_TRAINER_MEAGAN ===
+Name: Meagan
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Delcatty
+Level: 57
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Fake Out
+- Captivate
+- Faint Attack
+- Double Edge
+
+Abomasnow
+Level: 58
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Ice Shard
+- Avalanche
+- Razor Leaf
+- Water Pulse
+
+=== TRAINER_SINNOH_ACE_TRAINER_MICAH ===
+Name: Micah
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Metang
+Level: 55
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Bullet Punch
+- Zen Headbutt
+- Pursuit
+- Meteor Mash
+
+Ludicolo
+Level: 56
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Water Pulse
+- Zen Headbutt
+- Energy Ball
+- Fake Out
+
+=== TRAINER_SINNOH_ACE_TRAINER_MIKAYLA ===
+Name: Mikayla
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Seviper
+Level: 56
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Night Slash
+- Poison Fang
+- Wring Out
+- Glare
+
+Persian
+Level: 56
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Night Slash
+- Power Gem
+- Faint Attack
+- Fake Out
+
+Absol
+Level: 56
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Night Slash
+- Psycho Cut
+- Slash
+- Quick Attack
+
+=== TRAINER_SINNOH_ACE_TRAINER_MOIRA ===
+Name: Moira
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Sandslash
+Level: 56
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Slash
+- Gyro Ball
+- Dig
+- X Scissor
+
+Gastrodon
+Level: 56
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Muddy Water
+- Recover
+- Body Slam
+- Protect
+
+Claydol
+Level: 57
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Earthquake
+- Psychic
+- Ancient Power
+- Cosmic Power
+
+=== TRAINER_SINNOH_ACE_TRAINER_MONIQUE ===
+Name: Monique
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Luxray
+Level: 58
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Discharge
+- Crunch
+- Thunder Wave
+- Facade
+
+Ursaring
+Level: 59
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Hammer Arm
+- Stone Edge
+- Swords Dance
+- Giga Impact
+
+Gliscor
+Level: 58
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Aerial Ace
+- X Scissor
+- Earthquake
+- Quick Attack
+
+=== TRAINER_SINNOH_ACE_TRAINER_NATASHA ===
+Name: Natasha
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Wigglytuff
+Level: 58
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Hyper Voice
+- Reflect
+- Light Screen
+- Shadow Ball
+
+Gardevoir
+Level: 59
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Psychic
+- Magical Leaf
+- Calm Mind
+- Focus Blast
+
+Medicham
+Level: 58
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Recover
+- Force Palm
+- Psychic
+- Rock Slide
+
+=== TRAINER_SINNOH_ACE_TRAINER_OLIVIA ===
+Name: Olivia
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Kirlia
+Level: 38
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Future Sight
+- Psychic
+- Magical Leaf
+- Lucky Chant
+
+Seaking
+Level: 39
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Waterfall
+- Poison Jab
+- Supersonic
+- Aqua Ring
+
+Buneary
+Level: 38
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Dizzy Punch
+- Quick Attack
+- Jump Kick
+- Shadow Ball
+
+=== TRAINER_SINNOH_ACE_TRAINER_OMAR ===
+Name: Omar
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Mamoswine
+Level: 45
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Blizzard
+- Ice Fang
+- Rock Slide
+- Giga Impact
+
+Mothim
+Level: 46
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Silver Wind
+- Air Slash
+- Psychic
+- Toxic
+
+Rampardos
+Level: 48
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Head Smash
+- Zen Headbutt
+- Ancient Power
+- Screech
+
+=== TRAINER_SINNOH_ACE_TRAINER_QUINN ===
+Name: Quinn
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Pinsir
+Level: 55
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Superpower
+- X Scissor
+- Swords Dance
+- Rock Tomb
+
+Lanturn
+Level: 56
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Discharge
+- Signal Beam
+- Surf
+- Confuse Ray
+
+=== TRAINER_SINNOH_ACE_TRAINER_RODOLFO ===
+Name: Rodolfo
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Starmie
+Level: 55
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Water Pulse
+- Recover
+- Psychic
+- Swift
+
+Vibrava
+Level: 56
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Dragon Breath
+- Earthquake
+- Faint Attack
+- Screech
+
+=== TRAINER_SINNOH_ACE_TRAINER_RUBEN ===
+Name: Ruben
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Nuzleaf
+Level: 56
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Extrasensory
+- Fake Out
+- Faint Attack
+- Razor Leaf
+
+Gyarados
+Level: 57
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Aqua Tail
+- Hydro Pump
+- Dragon Dance
+- Ice Fang
+
+=== TRAINER_SINNOH_ACE_TRAINER_SANDRA ===
+Name: Sandra
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Dugtrio
+Level: 55
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Raichu
+Level: 54
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Ninetales
+Level: 54
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_ACE_TRAINER_SAUL ===
+Name: Saul
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Tauros
+Level: 61
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Thrash
+- Zen Headbutt
+- Swagger
+- Payback
+
+=== TRAINER_SINNOH_ACE_TRAINER_SAVANNAH ===
+Name: Savannah
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Snorunt
+Level: 39
+IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
+- Ice Fang
+- Crunch
+- Hail
+- Protect
+
+Snorunt
+Level: 40
+IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
+- Ice Fang
+- Crunch
+- Hail
+- Protect
+
+Glalie
+Level: 42
+IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
+- Ice Fang
+- Crunch
+- Hail
+- Protect
+
+=== TRAINER_SINNOH_ACE_TRAINER_SERGIO ===
+Name: Sergio
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Snover
+Level: 41
+IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
+- Ice Shard
+- Swagger
+- Icy Wind
+- Wood Hammer
+
+Sneasel
+Level: 42
+IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
+- Icy Wind
+- Slash
+- Faint Attack
+- Quick Attack
+
+=== TRAINER_SINNOH_ACE_TRAINER_SHANNON ===
+Name: Shannon
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Cherrim
+Level: 34
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Petal Dance
+- Magical Leaf
+- Leech Seed
+
+Azumarill
+Level: 34
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Double Edge
+- Bubble Beam
+- Aqua Ring
+
+Lopunny
+Level: 35
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Jump Kick
+- Quick Attack
+- Charm
+
+=== TRAINER_SINNOH_ACE_TRAINER_SKYLAR ===
+Name: Skylar
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Loudred
+Level: 58
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Hyper Voice
+- Bite
+- Supersonic
+- Screech
+
+Rampardos
+Level: 59
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Head Smash
+- Zen Headbutt
+- Ancient Power
+- Screech
+
+Pelipper
+Level: 58
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Air Slash
+- Water Pulse
+- Roost
+- Quick Attack
+
+=== TRAINER_SINNOH_ACE_TRAINER_STEFAN ===
+Name: Stefan
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Pupitar
+Level: 58
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Torterra
+Level: 61
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_ACE_TRAINER_SYDNEY ===
+Name: Sydney
+Class: Cooltrainer 2
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Clefable
+Level: 47
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Meteor Mash
+- Reflect
+- Light Screen
+- Gravity
+
+Torterra
+Level: 48
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Earthquake
+- Crunch
+- Leech Seed
+- Synthesis
+
+=== TRAINER_SINNOH_ACE_TRAINER_ZACHERY ===
+Name: Zachery
+Class: Cooltrainer
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Electabuzz
+Level: 47
+IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
+- Thunderbolt
+- Shock Wave
+- Quick Attack
+- Iron Tail
+
+Magneton
+Level: 48
+IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
+- Thunderbolt
+- Tri Attack
+- Mirror Shot
+
+=== TRAINER_SINNOH_AROMA_LADY_ELIZABETH ===
+Name: Elizabeth
+Class: Aroma Lady
+Pic: Aroma Lady
+Gender: Female
+Double Battle: No
+
+Roselia
+Level: 14
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Growth
+- Mega Drain
+
+=== TRAINER_SINNOH_AROMA_LADY_HANNAH ===
+Name: Hannah
+Class: Aroma Lady
+Pic: Aroma Lady
+Gender: Female
+Double Battle: No
+
+Roselia
+Level: 18
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Combee
+Level: 22
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_AROMA_LADY_TAYLOR ===
+Name: Taylor
+Class: Aroma Lady
+Pic: Aroma Lady
+Gender: Female
+Double Battle: No
+
+Budew
+Level: 9
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Cherubi
+Level: 11
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_ARTIST_WILLIAM ===
+Name: William
+Class: Painter Frlg
+Pic: Painter Frlg
+Gender: Male
+Double Battle: No
+
+Mime Jr
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Bonsly
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_BATTLE_GIRL_HELEN ===
+Name: Helen
+Class: Battle Girl
+Pic: Battle Girl
+Gender: Female
+Double Battle: No
+
+Machop
+Level: 21
+IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+
+Meditite
+Level: 21
+IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+
+=== TRAINER_SINNOH_BATTLE_GIRL_KELSEY ===
+Name: Kelsey
+Class: Battle Girl
+Pic: Battle Girl
+Gender: Female
+Double Battle: No
+
+Machop
+Level: 15
+IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+
+=== TRAINER_SINNOH_BATTLE_GIRL_TYLER ===
+Name: Tyler
+Class: Battle Girl
+Pic: Battle Girl
+Gender: Female
+Double Battle: No
+
+Medicham
+Level: 38
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_BEAUTY_CYNDY ===
+Name: Cyndy
+Class: Beauty
+Pic: Beauty
+Gender: Female
+Double Battle: No
+
+Glameow
+Level: 29
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_BEAUTY_DEVON ===
+Name: Devon
+Class: Beauty
+Pic: Beauty
+Gender: Female
+Double Battle: No
+
+Wormadam
+Level: 24
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Wormadam
+Level: 24
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Wormadam
+Level: 24
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_BEAUTY_NICOLA ===
+Name: Nicola
+Class: Beauty
+Pic: Beauty
+Gender: Female
+Double Battle: No
+
+Lopunny
+Level: 45
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_BELLE_AND_PA_AVA_AND_MATT ===
+Name: Ava & Matt
+Class: Old Couple
+Pic: Old Couple
+Gender: Male
+Double Battle: Yes
+
+Ponyta
+Level: 24
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Rapidash
+Level: 24
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_BELLE_AND_PA_BETH_AND_BOB ===
+Name: Beth & Bob
+Class: Old Couple
+Pic: Old Couple
+Gender: Male
+Double Battle: Yes
+
+Ponyta
+Level: 23
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Ponyta
+Level: 23
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_BIRD_KEEPER_ALEXANDRA ===
+Name: Alexandra
+Class: Bird Keeper
+Pic: Bird Keeper
+Gender: Male
+Double Battle: No
+
+Starly
+Level: 17
+IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+
+Hoothoot
+Level: 17
+IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+
+=== TRAINER_SINNOH_BIRD_KEEPER_AUDREY ===
+Name: Audrey
+Class: Bird Keeper
+Pic: Bird Keeper
+Gender: Male
+Double Battle: No
+
+Taillow
+Level: 51
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Farfetchd
+Level: 53
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Pidgeot
+Level: 55
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_BIRD_KEEPER_AUTUMN ===
+Name: Autumn
+Class: Bird Keeper
+Pic: Bird Keeper
+Gender: Male
+Double Battle: No
+
+Murkrow
+Level: 54
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Xatu
+Level: 54
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_BIRD_KEEPER_BRIANNA ===
+Name: Brianna
+Class: Bird Keeper
+Pic: Bird Keeper
+Gender: Male
+Double Battle: No
+
+Hoothoot
+Level: 31
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Noctowl
+Level: 33
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_BIRD_KEEPER_GENEVA ===
+Name: Geneva
+Class: Bird Keeper
+Pic: Bird Keeper
+Gender: Male
+Double Battle: No
+
+Fearow
+Level: 55
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Xatu
+Level: 57
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_BIRD_KEEPER_HANA ===
+Name: Hana
+Class: Bird Keeper
+Pic: Bird Keeper
+Gender: Male
+Double Battle: No
+
+Noctowl
+Level: 45
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Togetic
+Level: 47
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_BIRD_KEEPER_KATHERINE ===
+Name: Katherine
+Class: Bird Keeper
+Pic: Bird Keeper
+Gender: Male
+Double Battle: No
+
+Noctowl
+Level: 34
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_BIRD_KEEPER_KRYSTAL ===
+Name: Krystal
+Class: Bird Keeper
+Pic: Bird Keeper
+Gender: Male
+Double Battle: No
+
+Staravia
+Level: 55
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Fearow
+Level: 57
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Noctowl
+Level: 59
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_BLACK_BELT_ADAM ===
+Name: Adam
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+Machoke
+Level: 34
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_BLACK_BELT_CARL ===
+Name: Carl
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+Tyrogue
+Level: 55
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Hitmonlee
+Level: 59
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_BLACK_BELT_COLBY ===
+Name: Colby
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+Machoke
+Level: 23
+IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
+- Karate Chop
+- Leer
+- Foresight
+
+Machoke
+Level: 25
+IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
+- Low Kick
+- Foresight
+
+Machoke
+Level: 27
+IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
+- Submission
+- Leer
+- Foresight
+
+=== TRAINER_SINNOH_BLACK_BELT_DARREN ===
+Name: Darren
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+Machop
+Level: 25
+IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
+- Karate Chop
+- Foresight
+
+Meditite
+Level: 25
+IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
+- Confusion
+- Force Palm
+
+Machoke
+Level: 25
+IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
+- Karate Chop
+- Foresight
+
+=== TRAINER_SINNOH_BLACK_BELT_DAVID ===
+Name: David
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+Steelix
+Level: 35
+IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
+- Iron Tail
+- Rock Slide
+- Sandstorm
+- Screech
+
+Steelix
+Level: 37
+IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
+- Iron Tail
+- Rock Slide
+- Sandstorm
+- Screech
+
+=== TRAINER_SINNOH_BLACK_BELT_DAVON ===
+Name: Davon
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+Tyrogue
+Level: 54
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Makuhita
+Level: 54
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Machamp
+Level: 57
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_BLACK_BELT_DEREK ===
+Name: Derek
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+Croagunk
+Level: 26
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_BLACK_BELT_EDDIE ===
+Name: Eddie
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+Mankey
+Level: 51
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Machoke
+Level: 53
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Infernape
+Level: 55
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_BLACK_BELT_GREGORY ===
+Name: Gregory
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+Machop
+Level: 23
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Machop
+Level: 23
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Machop
+Level: 23
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_BLACK_BELT_GRIFFIN ===
+Name: Griffin
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+Breloom
+Level: 58
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Spore
+- Mach Punch
+- Seed Bomb
+- Sky Uppercut
+
+Medicham
+Level: 58
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Detect
+- Psychic
+- Hi Jump Kick
+- Ice Punch
+
+=== TRAINER_SINNOH_BLACK_BELT_JARRETT ===
+Name: Jarrett
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+Machamp
+Level: 60
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Cross Chop
+- Fire Punch
+- Ice Punch
+- Thunder Punch
+
+=== TRAINER_SINNOH_BLACK_BELT_JEFFERY ===
+Name: Jeffery
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+Heracross
+Level: 28
+IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
+- Brick Break
+- Aerial Ace
+- Leer
+
+=== TRAINER_SINNOH_BLACK_BELT_KENDAL ===
+Name: Kendal
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+Toxicroak
+Level: 38
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_BLACK_BELT_KYLE ===
+Name: Kyle
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+Machop
+Level: 23
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_BLACK_BELT_LUKE ===
+Name: Luke
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+Croagunk
+Level: 37
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Riolu
+Level: 37
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Machoke
+Level: 37
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_BLACK_BELT_MILES ===
+Name: Miles
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+Machamp
+Level: 48
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_BLACK_BELT_NATHANIEL ===
+Name: Nathaniel
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+Croagunk
+Level: 21
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Meditite
+Level: 24
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Machop
+Level: 24
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_BLACK_BELT_PHILIP ===
+Name: Philip
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+Machoke
+Level: 40
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_BLACK_BELT_RAFAEL ===
+Name: Rafael
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+Croagunk
+Level: 26
+IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
+- Swagger
+- Revenge
+- Faint Attack
+
+Machoke
+Level: 26
+IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
+- Karate Chop
+- Foresight
+
+=== TRAINER_SINNOH_BLACK_BELT_RAY ===
+Name: Ray
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+Breloom
+Level: 58
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Seed Bomb
+- Mach Punch
+- Sky Uppercut
+- Spore
+
+Toxicroak
+Level: 58
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Sludge Bomb
+- Nasty Plot
+- Focus Blast
+- Dark Pulse
+
+=== TRAINER_SINNOH_BLACK_BELT_RICKY ===
+Name: Ricky
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+Steelix
+Level: 38
+IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
+- Iron Tail
+- Taunt
+- Torment
+- Screech
+
+=== TRAINER_SINNOH_BLACK_BELT_SEAN ===
+Name: Sean
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+Croagunk
+Level: 31
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Meditite
+Level: 31
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Machoke
+Level: 31
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_BLACK_BELT_WILLIE ===
+Name: Willie
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+Heracross
+Level: 54
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Machamp
+Level: 54
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_BREEDER_ALBERT ===
+Name: Albert
+Class: Pkmn Breeder
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Budew
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Bonsly
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Pichu
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Eevee
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_BREEDER_AMBER ===
+Name: Amber
+Class: Pkmn Breeder
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Magby
+Level: 23
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Togepi
+Level: 23
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_BREEDER_JENNIFER ===
+Name: Jennifer
+Class: Pkmn Breeder
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Budew
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Mime Jr
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Cleffa
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Eevee
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_BREEDER_KAHLIL ===
+Name: Kahlil
+Class: Pkmn Breeder
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Elekid
+Level: 23
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Happiny
+Level: 23
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_BUG_CATCHER_BRANDON ===
+Name: Brandon
+Class: Bug Catcher
+Pic: Bug Catcher
+Gender: Male
+Double Battle: No
+
+Wurmple
+Level: 10
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Tackle
+- String Shot
+- Poison Sting
+
+Kricketot
+Level: 11
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Bide
+
+=== TRAINER_SINNOH_BUG_CATCHER_DONALD ===
+Name: Donald
+Class: Bug Catcher
+Pic: Bug Catcher
+Gender: Male
+Double Battle: No
+
+Burmy
+Level: 14
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+
+Burmy
+Level: 14
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+
+=== TRAINER_SINNOH_BUG_CATCHER_JACK ===
+Name: Jack
+Class: Bug Catcher
+Pic: Bug Catcher
+Gender: Male
+Double Battle: No
+
+Wurmple
+Level: 11
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Tackle
+- String Shot
+- Poison Sting
+
+Silcoon
+Level: 13
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Tackle
+- String Shot
+- Poison Sting
+- Harden
+
+Beautifly
+Level: 15
+IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+- Tackle
+- Poison Sting
+- Absorb
+- Gust
+
+=== TRAINER_SINNOH_BUG_CATCHER_PHILLIP ===
+Name: Phillip
+Class: Bug Catcher
+Pic: Bug Catcher
+Gender: Male
+Double Battle: No
+
+Wurmple
+Level: 11
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Tackle
+- String Shot
+- Poison Sting
+
+Cascoon
+Level: 13
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Tackle
+- String Shot
+- Poison Sting
+- Harden
+
+Dustox
+Level: 15
+IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+- Tackle
+- Poison Sting
+- Confusion
+- Gust
+
+=== TRAINER_SINNOH_CAMPER_ANTHONY ===
+Name: Anthony
+Class: Camper
+Pic: Camper
+Gender: Male
+Double Battle: No
+
+Chimchar
+Level: 22
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_CAMPER_CURTIS ===
+Name: Curtis
+Class: Camper
+Pic: Camper
+Gender: Male
+Double Battle: No
+
+Starly
+Level: 7
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Shinx
+Level: 7
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_CAMPER_DIEGO ===
+Name: Diego
+Class: Camper
+Pic: Camper
+Gender: Male
+Double Battle: No
+
+Aipom
+Level: 22
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_CAMPER_DREW ===
+Name: Drew
+Class: Camper
+Pic: Camper
+Gender: Male
+Double Battle: No
+
+Gastly
+Level: 27
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Payback
+- Sucker Punch
+- Confuse Ray
+
+Gastly
+Level: 27
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Sucker Punch
+- Night Shade
+- Confuse Ray
+
+Gastly
+Level: 27
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Night Shade
+- Payback
+- Confuse Ray
+
+=== TRAINER_SINNOH_CAMPER_JACOB ===
+Name: Jacob
+Class: Camper
+Pic: Camper
+Gender: Male
+Double Battle: No
+
+Ponyta
+Level: 14
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Ember
+- Tackle
+
+=== TRAINER_SINNOH_CAMPER_LAWRENCE ===
+Name: Lawrence
+Class: Camper
+Pic: Camper
+Gender: Male
+Double Battle: No
+
+Aipom
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Floatzel
+Level: 36
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_CAMPER_PARKER ===
+Name: Parker
+Class: Camper
+Pic: Camper
+Gender: Male
+Double Battle: No
+
+Buizel
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Water Gun
+- Swift
+- Quick Attack
+
+Shinx
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Spark
+- Bite
+
+=== TRAINER_SINNOH_CAMPER_ZACKARY ===
+Name: Zackary
+Class: Camper
+Pic: Camper
+Gender: Male
+Double Battle: No
+
+Aipom
+Level: 14
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_COLLECTOR_BRADY ===
+Name: Brady
+Class: Collector
+Pic: Collector
+Gender: Male
+Double Battle: No
+
+Skorupi
+Level: 21
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Tangela
+Level: 21
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Yanma
+Level: 21
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Carnivine
+Level: 21
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Croagunk
+Level: 21
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Tropius
+Level: 21
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_COLLECTOR_DEAN ===
+Name: Dean
+Class: Collector
+Pic: Collector
+Gender: Male
+Double Battle: No
+
+Umbreon
+Level: 27
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Espeon
+Level: 27
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_COLLECTOR_DOUGLAS ===
+Name: Douglas
+Class: Collector
+Pic: Collector
+Gender: Male
+Double Battle: No
+
+Jolteon
+Level: 24
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Vaporeon
+Level: 24
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Flareon
+Level: 24
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_COLLECTOR_EDWIN ===
+Name: Edwin
+Class: Collector
+Pic: Collector
+Gender: Male
+Double Battle: No
+
+Munchlax
+Level: 25
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_COLLECTOR_FERNANDO ===
+Name: Fernando
+Class: Collector
+Pic: Collector
+Gender: Male
+Double Battle: No
+
+Heracross
+Level: 25
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_COLLECTOR_IVAN ===
+Name: Ivan
+Class: Collector
+Pic: Collector
+Gender: Male
+Double Battle: No
+
+Togetic
+Level: 35
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_COLLECTOR_JAMAL ===
+Name: Jamal
+Class: Collector
+Pic: Collector
+Gender: Male
+Double Battle: No
+
+Porygon
+Level: 27
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_COLLECTOR_TERRY ===
+Name: Terry
+Class: Collector
+Pic: Collector
+Gender: Male
+Double Battle: No
+
+Gible
+Level: 22
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_COWGIRL_SHELLEY ===
+Name: Shelley
+Class: Picnicker
+Pic: Picnicker
+Gender: Female
+Double Battle: No
+
+Ponyta
+Level: 23
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_CYCLIST_AXEL ===
+Name: Axel
+Class: Triathlete
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Pikachu
+Level: 21
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_CYCLIST_JAMES ===
+Name: James
+Class: Triathlete
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Ponyta
+Level: 21
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_CYCLIST_JOHN ===
+Name: John
+Class: Triathlete
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Starly
+Level: 18
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Staravia
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_CYCLIST_KAYLA ===
+Name: Kayla
+Class: Triathlete
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Pikachu
+Level: 21
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_CYCLIST_MEGAN ===
+Name: Megan
+Class: Triathlete
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Staravia
+Level: 21
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_CYCLIST_NICOLE ===
+Name: Nicole
+Class: Triathlete
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Starly
+Level: 17
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Starly
+Level: 18
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Starly
+Level: 19
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_CYCLIST_RACHEL ===
+Name: Rachel
+Class: Triathlete
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Ponyta
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Shinx
+Level: 18
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_CYCLIST_RYAN ===
+Name: Ryan
+Class: Triathlete
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Shinx
+Level: 21
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_DOUBLE_TEAM_AL_AND_KAY ===
+Name: Al & Kay
+Class: Sis And Bro
+Pic: Sis And Bro
+Gender: Male
+Double Battle: Yes
+
+Staraptor
+Level: 50
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Close Combat
+- Brave Bird
+- Growl
+- Quick Attack
+
+Ambipom
+Level: 50
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Double Hit
+- Aerial Ace
+- Shock Wave
+- Water Pulse
+
+=== TRAINER_SINNOH_DOUBLE_TEAM_JO_AND_PAT ===
+Name: Jo & Pat
+Class: Sis And Bro
+Pic: Sis And Bro
+Gender: Male
+Double Battle: Yes
+
+Lumineon
+Level: 50
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Water Pulse
+- Aqua Ring
+- Captivate
+- Silver Wind
+
+Rapidash
+Level: 50
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Fire Blast
+- Stomp
+- Quick Attack
+- Iron Tail
+
+=== TRAINER_SINNOH_DOUBLE_TEAM_ZAC_AND_JEN ===
+Name: Zac & Jen
+Class: Sis And Bro
+Pic: Sis And Bro
+Gender: Male
+Double Battle: Yes
+
+Gyarados
+Level: 36
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Raichu
+Level: 36
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_DRAGON_TAMER_CLINTON ===
+Name: Clinton
+Class: Dragon Tamer
+Pic: Dragon Tamer
+Gender: Male
+Double Battle: No
+
+Gible
+Level: 43
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Swablu
+Level: 45
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Gabite
+Level: 47
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_DRAGON_TAMER_DARIEN ===
+Name: Darien
+Class: Dragon Tamer
+Pic: Dragon Tamer
+Gender: Male
+Double Battle: No
+
+Dragonite
+Level: 60
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_DRAGON_TAMER_DRAKE ===
+Name: Drake
+Class: Dragon Tamer
+Pic: Dragon Tamer
+Gender: Male
+Double Battle: No
+
+Gible
+Level: 57
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Gabite
+Level: 57
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Dragonair
+Level: 57
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_DRAGON_TAMER_GEOFFREY ===
+Name: Geoffrey
+Class: Dragon Tamer
+Pic: Dragon Tamer
+Gender: Male
+Double Battle: No
+
+Gabite
+Level: 53
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Altaria
+Level: 55
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_DRAGON_TAMER_HAYDEN ===
+Name: Hayden
+Class: Dragon Tamer
+Pic: Dragon Tamer
+Gender: Male
+Double Battle: No
+
+Altaria
+Level: 56
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Seadra
+Level: 56
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_DRAGON_TAMER_JOE ===
+Name: Joe
+Class: Dragon Tamer
+Pic: Dragon Tamer
+Gender: Male
+Double Battle: No
+
+Dratini
+Level: 52
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Gabite
+Level: 56
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_DRAGON_TAMER_KEEGAN ===
+Name: Keegan
+Class: Dragon Tamer
+Pic: Dragon Tamer
+Gender: Male
+Double Battle: No
+
+Trapinch
+Level: 55
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Vibrava
+Level: 57
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_DRAGON_TAMER_KENNY ===
+Name: Kenny
+Class: Dragon Tamer
+Pic: Dragon Tamer
+Gender: Male
+Double Battle: No
+
+Bagon
+Level: 57
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Shelgon
+Level: 57
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Vibrava
+Level: 57
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_DRAGON_TAMER_ONDREJ ===
+Name: Ondrej
+Class: Dragon Tamer
+Pic: Dragon Tamer
+Gender: Male
+Double Battle: No
+
+Altaria
+Level: 45
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Gabite
+Level: 47
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_DRAGON_TAMER_PATRICK ===
+Name: Patrick
+Class: Dragon Tamer
+Pic: Dragon Tamer
+Gender: Male
+Double Battle: No
+
+Gible
+Level: 34
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_DRAGON_TAMER_STANLEY ===
+Name: Stanley
+Class: Dragon Tamer
+Pic: Dragon Tamer
+Gender: Male
+Double Battle: No
+
+Dratini
+Level: 55
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Altaria
+Level: 57
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_FISHERMAN_ALEC ===
+Name: Alec
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+Magikarp
+Level: 42
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Gyarados
+Level: 45
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_FISHERMAN_ANDREW ===
+Name: Andrew
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+Magikarp
+Level: 8
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Magikarp
+Level: 10
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Magikarp
+Level: 12
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Magikarp
+Level: 12
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Magikarp
+Level: 14
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Magikarp
+Level: 16
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_FISHERMAN_BRETT ===
+Name: Brett
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+Magikarp
+Level: 43
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Finneon
+Level: 42
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Feebas
+Level: 42
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_FISHERMAN_CODY ===
+Name: Cody
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+Barboach
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Gyarados
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_FISHERMAN_COLE ===
+Name: Cole
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+Gyarados
+Level: 43
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Remoraid
+Level: 40
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Gyarados
+Level: 43
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_FISHERMAN_CORY ===
+Name: Cory
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+Finneon
+Level: 30
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Finneon
+Level: 32
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Finneon
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_FISHERMAN_ERICK ===
+Name: Erick
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+Goldeen
+Level: 28
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Water Pulse
+- Peck
+- Flail
+- Supersonic
+
+Seaking
+Level: 31
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Water Pulse
+- Fury Attack
+- Flail
+- Supersonic
+
+Gyarados
+Level: 31
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Thrash
+- Bite
+
+=== TRAINER_SINNOH_FISHERMAN_GEORGE ===
+Name: George
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+Magikarp
+Level: 41
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Finneon
+Level: 41
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Remoraid
+Level: 41
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Gyarados
+Level: 42
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_FISHERMAN_JOSEPH ===
+Name: Joseph
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+Goldeen
+Level: 17
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_FISHERMAN_JOSH ===
+Name: Josh
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+Goldeen
+Level: 27
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Goldeen
+Level: 27
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_FISHERMAN_JUAN ===
+Name: Juan
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+Gyarados
+Level: 29
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_FISHERMAN_KENNETH ===
+Name: Kenneth
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+Remoraid
+Level: 25
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Remoraid
+Level: 25
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Gyarados
+Level: 28
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_FISHERMAN_LUC ===
+Name: Luc
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+Remoraid
+Level: 29
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Remoraid
+Level: 29
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Remoraid
+Level: 30
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Gyarados
+Level: 31
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Remoraid
+Level: 31
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_FISHERMAN_MIGUEL ===
+Name: Miguel
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+Gyarados
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Gyarados
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_FISHERMAN_TRAVIS ===
+Name: Travis
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+Barboach
+Level: 24
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Barboach
+Level: 25
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Gyarados
+Level: 26
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Barboach
+Level: 25
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_FISHERMAN_WALTER ===
+Name: Walter
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+Whiscash
+Level: 33
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Water Pulse
+- Magnitude
+
+=== TRAINER_SINNOH_FISHERMAN_ZACHARY ===
+Name: Zachary
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+Magikarp
+Level: 14
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Goldeen
+Level: 16
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Magikarp
+Level: 14
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_1F ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Glameow
+Level: 41
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_2F_1 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Glameow
+Level: 37
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Murkrow
+Level: 38
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Croagunk
+Level: 39
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_2F_2 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Golbat
+Level: 40
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Golbat
+Level: 38
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_2F_3 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Golbat
+Level: 39
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Houndour
+Level: 39
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_3F_1 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Stunky
+Level: 41
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_3F_2 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Murkrow
+Level: 39
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Stunky
+Level: 39
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_3F_3 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Stunky
+Level: 38
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Croagunk
+Level: 40
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_3F_4 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Croagunk
+Level: 38
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Stunky
+Level: 38
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Glameow
+Level: 38
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_B2F_1 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Golbat
+Level: 41
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_B2F_2 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Houndour
+Level: 38
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Murkrow
+Level: 40
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_LAKE_VALOR_1 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Golbat
+Level: 37
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_LAKE_VALOR_2 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Croagunk
+Level: 33
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Glameow
+Level: 33
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Stunky
+Level: 33
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Houndour
+Level: 33
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_LAKE_VALOR_3 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Glameow
+Level: 35
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Murkrow
+Level: 35
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_LAKE_VERITY_1 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Croagunk
+Level: 37
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_LAKE_VERITY_2 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Glameow
+Level: 33
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Fury Swipes
+- Faint Attack
+- Growl
+- Fake Out
+
+Golbat
+Level: 33
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Air Cutter
+- Wing Attack
+- Bite
+- Supersonic
+
+Murkrow
+Level: 36
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Faint Attack
+- Night Shade
+- Wing Attack
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_LAKE_VERITY_3 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Stunky
+Level: 35
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Houndour
+Level: 35
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_LAKE_VERITY_4 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Houndour
+Level: 34
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Glameow
+Level: 36
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_3F_1 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Murkrow
+Level: 43
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_3F_2 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Stunky
+Level: 43
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_4F_1 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Houndour
+Level: 40
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Golbat
+Level: 40
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Houndour
+Level: 40
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_4F_2 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Stunky
+Level: 42
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Golbat
+Level: 40
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_5F_1 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Glameow
+Level: 41
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Golbat
+Level: 41
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_5F_2 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Houndour
+Level: 40
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Glameow
+Level: 42
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_6F ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Golbat
+Level: 39
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Croagunk
+Level: 40
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Murkrow
+Level: 41
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_TUNNEL_ROOM_1 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Croagunk
+Level: 38
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Stunky
+Level: 40
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Croagunk
+Level: 42
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_TUNNEL_ROOM_2 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Golbat
+Level: 43
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_TUNNEL_ROOM_3 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Murkrow
+Level: 39
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Glameow
+Level: 42
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Murkrow
+Level: 39
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_TEAM_GALACTIC_ETERNA_BUILDING_1F_1 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Zubat
+Level: 17
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Stunky
+Level: 17
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_TEAM_GALACTIC_ETERNA_BUILDING_1F_2 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Zubat
+Level: 16
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Glameow
+Level: 18
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_TEAM_GALACTIC_ETERNA_BUILDING_2F_1 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Croagunk
+Level: 19
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_TEAM_GALACTIC_ETERNA_BUILDING_2F_2 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Glameow
+Level: 19
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_TEAM_GALACTIC_ETERNA_BUILDING_3F ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Stunky
+Level: 16
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Croagunk
+Level: 16
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Glameow
+Level: 16
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_VALLEY_WINDWORKS_2 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Zubat
+Level: 13
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_VALLEY_WINDWORKS_3 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Glameow
+Level: 11
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Stunky
+Level: 11
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_GENTLEMAN_JEREMY ===
+Name: Jeremy
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Items: Full Restore
+Double Battle: No
+
+Chatot
+Level: 27
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_GUITARIST_JERRY ===
+Name: Jerry
+Class: Guitarist
+Pic: Guitarist
+Gender: Male
+Double Battle: No
+
+Magnemite
+Level: 44
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+
+Luxio
+Level: 44
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+
+Luxio
+Level: 44
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+
+=== TRAINER_SINNOH_GUITARIST_LONNIE ===
+Name: Lonnie
+Class: Guitarist
+Pic: Guitarist
+Gender: Male
+Double Battle: No
+
+Raichu
+Level: 47
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Thunderbolt
+- Slam
+- Thunder Wave
+- Quick Attack
+
+=== TRAINER_SINNOH_GUITARIST_PRESTON ===
+Name: Preston
+Class: Guitarist
+Pic: Guitarist
+Gender: Male
+Double Battle: No
+
+Luxio
+Level: 45
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+
+Luxio
+Level: 45
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+
+=== TRAINER_SINNOH_GUITARIST_TONY ===
+Name: Tony
+Class: Guitarist
+Pic: Guitarist
+Gender: Male
+Double Battle: No
+
+Kricketune
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Magnemite
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_HIKER_ALEXANDER ===
+Name: Alexander
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Graveler
+Level: 38
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Probopass
+Level: 40
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_HIKER_DAMON ===
+Name: Damon
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Nosepass
+Level: 35
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Onix
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Steelix
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_HIKER_DANIEL ===
+Name: Daniel
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Geodude
+Level: 10
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Geodude
+Level: 11
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Geodude
+Level: 12
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_HIKER_JONATHAN ===
+Name: Jonathan
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Onix
+Level: 22
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_HIKER_JUSTIN ===
+Name: Justin
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Geodude
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Nosepass
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_HIKER_KEVIN ===
+Name: Kevin
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Geodude
+Level: 17
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Geodude
+Level: 17
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Onix
+Level: 19
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Geodude
+Level: 19
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_HIKER_LORENZO ===
+Name: Lorenzo
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Onix
+Level: 22
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_HIKER_LOUIS ===
+Name: Louis
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Geodude
+Level: 14
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Onix
+Level: 18
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_HIKER_MAURICE ===
+Name: Maurice
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Graveler
+Level: 35
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Rhyhorn
+Level: 35
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_HIKER_NICHOLAS ===
+Name: Nicholas
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Onix
+Level: 14
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_HIKER_REGINALD ===
+Name: Reginald
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Geodude
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Geodude
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_HIKER_ROBERT ===
+Name: Robert
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Nosepass
+Level: 22
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_HIKER_THEODORE ===
+Name: Theodore
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Onix
+Level: 18
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Onix
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_JOGGER_CRAIG ===
+Name: Craig
+Class: Triathlete
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Luxio
+Level: 22
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Luxio
+Level: 24
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_JOGGER_RAUL ===
+Name: Raul
+Class: Triathlete
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Staravia
+Level: 23
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_JOGGER_RICHARD ===
+Name: Richard
+Class: Triathlete
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Luxio
+Level: 23
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_JOGGER_SCOTT ===
+Name: Scott
+Class: Triathlete
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Staravia
+Level: 25
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_JOGGER_WYATT ===
+Name: Wyatt
+Class: Triathlete
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Pikachu
+Level: 24
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_LADY_MELISSA ===
+Name: Melissa
+Class: Lady
+Pic: Lady
+Gender: Female
+Items: Full Restore
+Double Battle: No
+
+Cherubi
+Level: 27
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_LASS_BRIANA ===
+Name: Briana
+Class: Lass
+Pic: Lass
+Gender: Female
+Double Battle: No
+
+Pachirisu
+Level: 16
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_LASS_CASSIDY ===
+Name: Cassidy
+Class: Lass
+Pic: Lass
+Gender: Female
+Double Battle: No
+
+Buneary
+Level: 22
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_LASS_KAITLIN ===
+Name: Kaitlin
+Class: Lass
+Pic: Lass
+Gender: Female
+Double Battle: No
+
+Bidoof
+Level: 4
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Budew
+Level: 4
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Starly
+Level: 4
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Abra
+Level: 4
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_LASS_MADELINE ===
+Name: Madeline
+Class: Lass
+Pic: Lass
+Gender: Female
+Double Battle: No
+
+Psyduck
+Level: 8
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_LASS_MOLLY ===
+Name: Molly
+Class: Lass
+Pic: Lass
+Gender: Female
+Double Battle: No
+
+Misdreavus
+Level: 23
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Pain Split
+- Psybeam
+- Confuse Ray
+
+=== TRAINER_SINNOH_LASS_NATALIE ===
+Name: Natalie
+Class: Lass
+Pic: Lass
+Gender: Female
+Double Battle: No
+
+Bidoof
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_LASS_SAMANTHA ===
+Name: Samantha
+Class: Lass
+Pic: Lass
+Gender: Female
+Double Battle: No
+
+Budew
+Level: 7
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_LASS_SARAH ===
+Name: Sarah
+Class: Lass
+Pic: Lass
+Gender: Female
+Double Battle: No
+
+Shinx
+Level: 7
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_NINJA_BOY_BRENNAN ===
+Name: Brennan
+Class: Ninja Boy
+Pic: Ninja Boy
+Gender: Male
+Double Battle: No
+
+Zubat
+Level: 30
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Skorupi
+Level: 32
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_NINJA_BOY_BRUCE ===
+Name: Bruce
+Class: Ninja Boy
+Pic: Ninja Boy
+Gender: Male
+Double Battle: No
+
+Stunky
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_NINJA_BOY_DAVIDO ===
+Name: Davido
+Class: Ninja Boy
+Pic: Ninja Boy
+Gender: Male
+Double Battle: No
+
+Mothim
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_NINJA_BOY_ETHAN ===
+Name: Ethan
+Class: Ninja Boy
+Pic: Ninja Boy
+Gender: Male
+Double Battle: No
+
+Skorupi
+Level: 37
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Golbat
+Level: 37
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_NINJA_BOY_FABIAN ===
+Name: Fabian
+Class: Ninja Boy
+Pic: Ninja Boy
+Gender: Male
+Double Battle: No
+
+Croagunk
+Level: 31
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Croagunk
+Level: 31
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_NINJA_BOY_JOEL ===
+Name: Joel
+Class: Ninja Boy
+Pic: Ninja Boy
+Gender: Male
+Double Battle: No
+
+Zubat
+Level: 29
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Skorupi
+Level: 29
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Stunky
+Level: 29
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Golbat
+Level: 29
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_NINJA_BOY_MATTHEW ===
+Name: Matthew
+Class: Ninja Boy
+Pic: Ninja Boy
+Gender: Male
+Double Battle: No
+
+Golbat
+Level: 39
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_NINJA_BOY_NATHAN ===
+Name: Nathan
+Class: Ninja Boy
+Pic: Ninja Boy
+Gender: Male
+Double Battle: No
+
+Stunky
+Level: 31
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Golbat
+Level: 31
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_NINJA_BOY_NICK ===
+Name: Nick
+Class: Ninja Boy
+Pic: Ninja Boy
+Gender: Male
+Double Battle: No
+
+Skorupi
+Level: 32
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Croagunk
+Level: 30
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_NINJA_BOY_ZACH ===
+Name: Zach
+Class: Ninja Boy
+Pic: Ninja Boy
+Gender: Male
+Double Battle: No
+
+Zubat
+Level: 14
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Zubat
+Level: 14
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Zubat
+Level: 14
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_PARASOL_LADY_ALEXA ===
+Name: Alexa
+Class: Parasol Lady
+Pic: Parasol Lady
+Gender: Female
+Double Battle: No
+
+Goldeen
+Level: 27
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Bibarel
+Level: 27
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_PARASOL_LADY_SABRINA ===
+Name: Sabrina
+Class: Parasol Lady
+Pic: Parasol Lady
+Gender: Female
+Double Battle: No
+
+Wooper
+Level: 26
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Quagsire
+Level: 28
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_PI_CARLOS ===
+Name: Carlos
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Double Battle: No
+
+Goldeen
+Level: 30
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Horn Drill
+- Flail
+
+=== TRAINER_SINNOH_PICNICKER_ANA ===
+Name: Ana
+Class: Picnicker
+Pic: Picnicker
+Gender: Male
+Double Battle: No
+
+Hoothoot
+Level: 22
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_PICNICKER_CHEYENNE ===
+Name: Cheyenne
+Class: Picnicker
+Pic: Picnicker
+Gender: Male
+Double Battle: No
+
+Drifloon
+Level: 28
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Spit Up
+- Swallow
+- Stockpile
+
+Misdreavus
+Level: 28
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Psybeam
+- Astonish
+- Confuse Ray
+
+=== TRAINER_SINNOH_PICNICKER_DIANA ===
+Name: Diana
+Class: Picnicker
+Pic: Picnicker
+Gender: Male
+Double Battle: No
+
+Bidoof
+Level: 9
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_PICNICKER_KARINA ===
+Name: Karina
+Class: Picnicker
+Pic: Picnicker
+Gender: Male
+Double Battle: No
+
+Piplup
+Level: 14
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Bubble
+- Peck
+
+=== TRAINER_SINNOH_PICNICKER_LAUREN ===
+Name: Lauren
+Class: Picnicker
+Pic: Picnicker
+Gender: Male
+Double Battle: No
+
+Pachirisu
+Level: 22
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Spark
+- Quick Attack
+- Charm
+
+=== TRAINER_SINNOH_PICNICKER_SIENA ===
+Name: Siena
+Class: Picnicker
+Pic: Picnicker
+Gender: Male
+Double Battle: No
+
+Bidoof
+Level: 12
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Pachirisu
+Level: 12
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_PICNICKER_SUMMER ===
+Name: Summer
+Class: Picnicker
+Pic: Picnicker
+Gender: Male
+Double Battle: No
+
+Raichu
+Level: 37
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_PICNICKER_TORI ===
+Name: Tori
+Class: Picnicker
+Pic: Picnicker
+Gender: Male
+Double Battle: No
+
+Psyduck
+Level: 22
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_POKE_KID_DANIELLE ===
+Name: Danielle
+Class: Lass
+Pic: Lass
+Gender: Male
+Double Battle: No
+
+Pichu
+Level: 22
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_POKE_KID_JANET ===
+Name: Janet
+Class: Lass
+Pic: Lass
+Gender: Male
+Double Battle: No
+
+Pikachu
+Level: 42
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Pikachu
+Level: 42
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_POKE_KID_MEGHAN ===
+Name: Meghan
+Class: Lass
+Pic: Lass
+Gender: Male
+Double Battle: No
+
+Pikachu
+Level: 42
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+
+Pikachu
+Level: 42
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+
+Pikachu
+Level: 42
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+
+Pikachu
+Level: 42
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+
+=== TRAINER_SINNOH_POKEFAN_LEONARD ===
+Name: Leonard
+Class: Pokefan
+Pic: Hiker
+Gender: Male
+Items: Full Heal / Super Potion
+Double Battle: No
+
+Pichu @ Sitrus Berry
+Level: 19
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Pichu @ Sitrus Berry
+Level: 19
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Pikachu @ Sitrus Berry
+Level: 22
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_POKEFAN_REBEKAH ===
+Name: Rebekah
+Class: Pokefan
+Pic: Hiker
+Gender: Female
+Items: Full Heal / Super Potion
+Double Battle: No
+
+Bonsly @ Sitrus Berry
+Level: 23
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_POLICEMAN_ALEX ===
+Name: Alex
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Double Battle: No
+
+Hoothoot
+Level: 25
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Machop
+Level: 25
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_POLICEMAN_BOBBY ===
+Name: Bobby
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Double Battle: No
+
+Hoothoot
+Level: 24
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Machop
+Level: 26
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_POLICEMAN_CALEB ===
+Name: Caleb
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Double Battle: No
+
+Hoothoot
+Level: 23
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Machop
+Level: 27
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_POLICEMAN_DANNY ===
+Name: Danny
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Double Battle: No
+
+Hoothoot
+Level: 26
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Machop
+Level: 28
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_POLICEMAN_DYLAN ===
+Name: Dylan
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Double Battle: No
+
+Hoothoot
+Level: 26
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Machop
+Level: 24
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_POLICEMAN_THOMAS ===
+Name: Thomas
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Double Battle: No
+
+Noctowl
+Level: 43
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Machoke
+Level: 43
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_PSYCHIC_ABIGAIL ===
+Name: Abigail
+Class: Psychic
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Chingling
+Level: 23
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Drifloon
+Level: 25
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Kirlia
+Level: 27
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_PSYCHIC_BRITTNEY ===
+Name: Brittney
+Class: Psychic
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Drowzee
+Level: 55
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Alakazam
+Level: 57
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_PSYCHIC_BRYCE ===
+Name: Bryce
+Class: Psychic
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Haunter
+Level: 43
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Gardevoir
+Level: 46
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Gengar
+Level: 46
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_PSYCHIC_CHELSEY ===
+Name: Chelsey
+Class: Psychic
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Lunatone
+Level: 57
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Gardevoir
+Level: 59
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_PSYCHIC_CORBIN ===
+Name: Corbin
+Class: Psychic
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Xatu
+Level: 56
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Gallade
+Level: 56
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_PSYCHIC_DAISY ===
+Name: Daisy
+Class: Psychic
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Slowpoke
+Level: 52
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Slowbro
+Level: 56
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_PSYCHIC_DEANDRE ===
+Name: Deandre
+Class: Psychic
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Dusknoir
+Level: 56
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Shadow Punch
+- Fire Punch
+- Ice Punch
+- Thunder Punch
+
+=== TRAINER_SINNOH_PSYCHIC_DESIREE ===
+Name: Desiree
+Class: Psychic
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Mr Mime
+Level: 54
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Psychic
+- Reflect
+- Light Screen
+- Drain Punch
+
+Mismagius
+Level: 54
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Shadow Ball
+- Magical Leaf
+- Aerial Ace
+- Shock Wave
+
+=== TRAINER_SINNOH_PSYCHIC_ELIJAH ===
+Name: Elijah
+Class: Psychic
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Abra
+Level: 17
+IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+- Hidden Power
+
+=== TRAINER_SINNOH_PSYCHIC_KENDRA ===
+Name: Kendra
+Class: Psychic
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Chimecho
+Level: 52
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Extrasensory
+- Shadow Ball
+- Energy Ball
+- Charge Beam
+
+Haunter
+Level: 52
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Shadow Punch
+- Dark Pulse
+- Confuse Ray
+- Toxic
+
+Gengar
+Level: 55
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Shadow Ball
+- Dark Pulse
+- Frustration
+- Sludge Bomb
+
+=== TRAINER_SINNOH_PSYCHIC_KODY ===
+Name: Kody
+Class: Psychic
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Meditite
+Level: 17
+IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+- Confusion
+- Bide
+- Meditate
+
+=== TRAINER_SINNOH_PSYCHIC_LANDON ===
+Name: Landon
+Class: Psychic
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Shuppet
+Level: 53
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Shadow Ball
+- Will O Wisp
+- Sucker Punch
+- Confuse Ray
+
+Alakazam
+Level: 55
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Psychic
+- Future Sight
+- Recover
+- Focus Blast
+
+=== TRAINER_SINNOH_PSYCHIC_LINDSEY ===
+Name: Lindsey
+Class: Psychic
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Abra
+Level: 17
+IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+- Hidden Power
+
+=== TRAINER_SINNOH_PSYCHIC_MAXWELL ===
+Name: Maxwell
+Class: Psychic
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Misdreavus
+Level: 58
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Haunter
+Level: 54
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_PSYCHIC_MITCHELL ===
+Name: Mitchell
+Class: Psychic
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Duskull
+Level: 26
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Kadabra
+Level: 26
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_PSYCHIC_RACHAEL ===
+Name: Rachael
+Class: Psychic
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Psyduck
+Level: 17
+IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+- Confusion
+- Water Gun
+- Scratch
+
+=== TRAINER_SINNOH_PSYCHIC_STERLING ===
+Name: Sterling
+Class: Psychic
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Solrock
+Level: 57
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Gallade
+Level: 59
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_PSYCHIC_VALENCIA ===
+Name: Valencia
+Class: Psychic
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Chimecho
+Level: 44
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Absol
+Level: 45
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Dusknoir
+Level: 46
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_RANCHER_MARCO ===
+Name: Marco
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Ponyta
+Level: 24
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_RANGER_ALLISON ===
+Name: Allison
+Class: Pkmn Ranger
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Marill
+Level: 29
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Leafeon
+Level: 29
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_RANGER_ASHLEE ===
+Name: Ashlee
+Class: Pkmn Ranger
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Linoone
+Level: 55
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Arbok
+Level: 55
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_RANGER_DESHAWN ===
+Name: Deshawn
+Class: Pkmn Ranger
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Spinda
+Level: 54
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Kecleon
+Level: 54
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Granbull
+Level: 54
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_RANGER_DWAYNE ===
+Name: Dwayne
+Class: Pkmn Ranger
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Skarmory
+Level: 54
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Golduck
+Level: 54
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Donphan
+Level: 54
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_RANGER_FELICIA ===
+Name: Felicia
+Class: Pkmn Ranger
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Skiploom
+Level: 59
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Lopunny
+Level: 59
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_RANGER_JEFFREY ===
+Name: Jeffrey
+Class: Pkmn Ranger
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Monferno
+Level: 31
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_RANGER_KRISTA ===
+Name: Krista
+Class: Pkmn Ranger
+Pic: Hiker
+Gender: Female
+Double Battle: No
+
+Lairon
+Level: 57
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Marowak
+Level: 57
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_RANGER_KYLER ===
+Name: Kyler
+Class: Pkmn Ranger
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Exeggcute
+Level: 55
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Zangoose
+Level: 55
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Empoleon
+Level: 58
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_RANGER_TAYLOR ===
+Name: Taylor
+Class: Pkmn Ranger
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Carnivine
+Level: 28
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Luxio
+Level: 30
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_SINNOH_RICH_BOY_JASON ===
+Name: Jason
+Class: Rich Boy
+Pic: Rich Boy
+Gender: Male
+Items: Full Restore
+Double Battle: No
+
+Prinplup
+Level: 27
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_RICH_BOY_TREY ===
+Name: Trey
+Class: Rich Boy
+Pic: Rich Boy
+Gender: Male
+Items: Full Restore
+Double Battle: No
+
+Luxray
+Level: 45
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_ROUGHNECK_KIRBY ===
+Name: Kirby
+Class: Cue Ball Frlg
+Pic: Cue Ball Frlg
+Gender: Male
+Double Battle: No
+
+Cleffa
+Level: 23
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_RUIN_MANIAC_BRYAN ===
+Name: Bryan
+Class: Ruin Maniac
+Pic: Ruin Maniac
+Gender: Male
+Double Battle: No
+
+Bronzor
+Level: 24
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Cranidos
+Level: 26
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_RUIN_MANIAC_CALVIN ===
+Name: Calvin
+Class: Ruin Maniac
+Pic: Ruin Maniac
+Gender: Male
+Double Battle: No
+
+Bronzor
+Level: 23
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Shieldon
+Level: 23
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_RUIN_MANIAC_GERALD ===
+Name: Gerald
+Class: Ruin Maniac
+Pic: Ruin Maniac
+Gender: Male
+Double Battle: No
+
+Geodude
+Level: 19
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Bronzor
+Level: 21
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_RUIN_MANIAC_HARRY ===
+Name: Harry
+Class: Ruin Maniac
+Pic: Ruin Maniac
+Gender: Male
+Double Battle: No
+
+Bronzor
+Level: 28
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Bronzor
+Level: 30
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Bronzor
+Level: 32
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_RUIN_MANIAC_KARL ===
+Name: Karl
+Class: Ruin Maniac
+Pic: Ruin Maniac
+Gender: Male
+Double Battle: No
+
+Geodude
+Level: 19
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Geodude
+Level: 21
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Bronzor
+Level: 23
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_RUIN_MANIAC_LARRY ===
+Name: Larry
+Class: Ruin Maniac
+Pic: Ruin Maniac
+Gender: Male
+Double Battle: No
+
+Aerodactyl
+Level: 57
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_RUIN_MANIAC_RONALD ===
+Name: Ronald
+Class: Ruin Maniac
+Pic: Ruin Maniac
+Gender: Male
+Double Battle: No
+
+Shieldon
+Level: 27
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SAILOR_DAMIAN ===
+Name: Damian
+Class: Sailor
+Pic: Sailor
+Gender: Male
+Double Battle: No
+
+Wingull
+Level: 31
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Water Pulse
+- Wing Attack
+- Quick Attack
+
+Pelipper
+Level: 31
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Water Pulse
+- Wing Attack
+- Quick Attack
+
+=== TRAINER_SINNOH_SAILOR_LUTHER ===
+Name: Luther
+Class: Sailor
+Pic: Sailor
+Gender: Male
+Double Battle: No
+
+Wingull
+Level: 41
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Machoke
+Level: 42
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Gastrodon
+Level: 43
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SAILOR_MARC ===
+Name: Marc
+Class: Sailor
+Pic: Sailor
+Gender: Male
+Double Battle: No
+
+Mantyke
+Level: 45
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SAILOR_PAUL ===
+Name: Paul
+Class: Sailor
+Pic: Sailor
+Gender: Male
+Double Battle: No
+
+Tentacool
+Level: 31
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Pelipper
+Level: 31
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Machoke
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SAILOR_SAMSON ===
+Name: Samson
+Class: Sailor
+Pic: Sailor
+Gender: Male
+Double Battle: No
+
+Wingull
+Level: 29
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Water Pulse
+- Wing Attack
+- Supersonic
+
+Shellos
+Level: 30
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Water Pulse
+- Mud Bomb
+- Rain Dance
+
+Golduck
+Level: 31
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Fury Swipes
+- Confusion
+- Water Pulse
+
+=== TRAINER_SINNOH_SAILOR_SKYLER ===
+Name: Skyler
+Class: Sailor
+Pic: Sailor
+Gender: Male
+Double Battle: No
+
+Mantyke
+Level: 32
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Machoke
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SAILOR_ZACHARIAH ===
+Name: Zachariah
+Class: Sailor
+Pic: Sailor
+Gender: Male
+Double Battle: No
+
+Pelipper
+Level: 40
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Machoke
+Level: 42
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Gastrodon
+Level: 44
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SCHOOL_KID_CHANCE ===
+Name: Chance
+Class: School Kid
+Pic: Hiker
+Gender: Male
+Items: X Defense
+Double Battle: No
+
+Gastly
+Level: 23
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Night Shade
+- Sucker Punch
+- Confuse Ray
+- Hypnosis
+
+=== TRAINER_SINNOH_SCHOOL_KID_FORREST ===
+Name: Forrest
+Class: School Kid
+Pic: Hiker
+Gender: Male
+Items: X Speed
+Double Battle: No
+
+Magneton
+Level: 47
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Thunderbolt
+- Tri Attack
+- Mirror Shot
+
+=== TRAINER_SINNOH_SCHOOL_KID_MACKENZIE ===
+Name: Mackenzie
+Class: School Kid
+Pic: Hiker
+Gender: Female
+Items: Super Potion
+Double Battle: No
+
+Drifloon
+Level: 21
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Payback
+- Gust
+- Astonish
+- Minimize
+
+Drifloon
+Level: 21
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Spit Up
+- Swallow
+- Stockpile
+
+=== TRAINER_SINNOH_SCHOOL_KID_TIERA ===
+Name: Tiera
+Class: School Kid
+Pic: Hiker
+Gender: Female
+Items: Hyper Potion
+Double Battle: No
+
+Pachirisu
+Level: 47
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Last Resort
+- Super Fang
+- Discharge
+- Sweet Kiss
+
+=== TRAINER_SINNOH_SCIENTIST_DARRIUS ===
+Name: Darrius
+Class: Scientist Frlg
+Pic: Scientist Frlg
+Gender: Male
+Items: X Special
+Double Battle: No
+
+Porygon2
+Level: 42
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Psychic
+- Signal Beam
+- Ice Beam
+- Tri Attack
+
+=== TRAINER_SINNOH_SCIENTIST_FREDRICK ===
+Name: Fredrick
+Class: Scientist Frlg
+Pic: Scientist Frlg
+Gender: Male
+Items: X Defense
+Double Battle: No
+
+Kirlia
+Level: 40
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Psychic
+- Magical Leaf
+- Hypnosis
+- Future Sight
+
+Kadabra
+Level: 40
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Psychic
+- Psycho Cut
+- Thunder Wave
+- Recover
+
+=== TRAINER_SINNOH_SCIENTIST_SHAUN ===
+Name: Shaun
+Class: Scientist Frlg
+Pic: Scientist Frlg
+Gender: Male
+Items: X Attack
+Double Battle: No
+
+Magnemite
+Level: 30
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Spark
+- Magnet Bomb
+
+Kadabra
+Level: 26
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Psybeam
+- Disable
+- Kinesis
+- Thunder Punch
+
+=== TRAINER_SINNOH_SCIENTIST_STEFANO ===
+Name: Stefano
+Class: Scientist Frlg
+Pic: Scientist Frlg
+Gender: Male
+Items: X Defense
+Double Battle: No
+
+Kadabra
+Level: 30
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Psybeam
+- Disable
+- Kinesis
+- Ice Punch
+
+=== TRAINER_SINNOH_SCIENTIST_TRAVON ===
+Name: Travon
+Class: Scientist Frlg
+Pic: Scientist Frlg
+Gender: Male
+Items: X Special
+Double Battle: No
+
+Kadabra
+Level: 20
+IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+- Confusion
+
+=== TRAINER_SINNOH_SKIER_ANDREA ===
+Name: Andrea
+Class: Picnicker
+Pic: Picnicker
+Gender: Female
+Double Battle: No
+
+Snover
+Level: 39
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SKIER_BJORN ===
+Name: Bjorn
+Class: Camper
+Pic: Camper
+Gender: Male
+Double Battle: No
+
+Swinub
+Level: 36
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Sneasel
+Level: 38
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SKIER_BRADLEY ===
+Name: Bradley
+Class: Camper
+Pic: Camper
+Gender: Male
+Double Battle: No
+
+Snorunt
+Level: 36
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Swinub
+Level: 36
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Snover
+Level: 36
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SKIER_EDWARD ===
+Name: Edward
+Class: Camper
+Pic: Camper
+Gender: Male
+Double Battle: No
+
+Sneasel
+Level: 39
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SKIER_KAITLYN ===
+Name: Kaitlyn
+Class: Picnicker
+Pic: Picnicker
+Gender: Female
+Double Battle: No
+
+Swinub
+Level: 36
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Snover
+Level: 38
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SKIER_LEXIE ===
+Name: Lexie
+Class: Picnicker
+Pic: Picnicker
+Gender: Female
+Double Battle: No
+
+Piloswine
+Level: 37
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Glaceon
+Level: 37
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SKIER_MADISON ===
+Name: Madison
+Class: Picnicker
+Pic: Picnicker
+Gender: Female
+Double Battle: No
+
+Snorunt
+Level: 39
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SKIER_SHAWN ===
+Name: Shawn
+Class: Camper
+Pic: Camper
+Gender: Male
+Double Battle: No
+
+Snover
+Level: 35
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Snover
+Level: 36
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Snover
+Level: 37
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SOCIALITE_REINA ===
+Name: Reina
+Class: Lady
+Pic: Lady
+Gender: Male
+Items: Full Restore
+Double Battle: No
+
+Roselia
+Level: 27
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_ADRIAN ===
+Name: Adrian
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Double Battle: No
+
+Remoraid
+Level: 32
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Tentacool
+Level: 30
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Octillery
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_AUBREE ===
+Name: Aubree
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Double Battle: No
+
+Bibarel
+Level: 43
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Azumarill
+Level: 43
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_CASSANDRA ===
+Name: Cassandra
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Double Battle: No
+
+Lumineon
+Level: 44
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Pelipper
+Level: 42
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_CLAIRE ===
+Name: Claire
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Double Battle: No
+
+Floatzel
+Level: 35
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_COLTON ===
+Name: Colton
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Double Battle: No
+
+Wingull
+Level: 40
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Octillery
+Level: 44
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Pelipper
+Level: 44
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_CRYSTAL ===
+Name: Crystal
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Double Battle: No
+
+Wingull
+Level: 42
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Seaking
+Level: 44
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_DILLON ===
+Name: Dillon
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Double Battle: No
+
+Remoraid
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Floatzel
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_ERICA ===
+Name: Erica
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Double Battle: No
+
+Finneon
+Level: 35
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_ERIK ===
+Name: Erik
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Double Battle: No
+
+Tentacruel
+Level: 35
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_EVAN ===
+Name: Evan
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Double Battle: No
+
+Golduck
+Level: 32
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Golduck
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_FRANCISCO ===
+Name: Francisco
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Double Battle: No
+
+Tentacool
+Level: 41
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Golduck
+Level: 45
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_GABRIELLE ===
+Name: Gabrielle
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Double Battle: No
+
+Golduck
+Level: 45
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_GLENN ===
+Name: Glenn
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Double Battle: No
+
+Octillery
+Level: 53
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Poliwhirl
+Level: 53
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_HALEY ===
+Name: Haley
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Double Battle: No
+
+Psyduck
+Level: 31
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Azumarill
+Level: 35
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_JESSICA ===
+Name: Jessica
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Double Battle: No
+
+Goldeen
+Level: 30
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Goldeen
+Level: 30
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Goldeen
+Level: 31
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Seaking
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_JOANNA ===
+Name: Joanna
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Double Battle: No
+
+Luvdisc
+Level: 52
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Lapras
+Level: 54
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_KATELYN ===
+Name: Katelyn
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Double Battle: No
+
+Buizel
+Level: 32
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Aqua Jet
+- Sonic Boom
+- Quick Attack
+- Attract
+
+Medicham
+Level: 32
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Confusion
+- Brick Break
+- Meditate
+- Light Screen
+
+Seaking
+Level: 32
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Water Pulse
+- Horn Attack
+- Aqua Ring
+- Captivate
+
+=== TRAINER_SINNOH_SWIMMER_KURT ===
+Name: Kurt
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Double Battle: No
+
+Krabby
+Level: 51
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Corphish
+Level: 51
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Kingler
+Level: 54
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_LYDIA ===
+Name: Lydia
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Double Battle: No
+
+Marill
+Level: 54
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Spheal
+Level: 54
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Wailmer
+Level: 54
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_MALLORY ===
+Name: Mallory
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Double Battle: No
+
+Surskit
+Level: 52
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Lombre
+Level: 54
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_MARY ===
+Name: Mary
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Double Battle: No
+
+Finneon
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Pelipper
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_MIRANDA ===
+Name: Miranda
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Double Battle: No
+
+Lumineon
+Level: 45
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_OSCAR ===
+Name: Oscar
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Double Battle: No
+
+Mantyke
+Level: 41
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Remoraid
+Level: 42
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Mantine
+Level: 43
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_PAIGE ===
+Name: Paige
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Double Battle: No
+
+Marill
+Level: 41
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Wingull
+Level: 42
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Golduck
+Level: 43
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_RICARDO ===
+Name: Ricardo
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Double Battle: No
+
+Tentacruel
+Level: 45
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_SAM ===
+Name: Sam
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Double Battle: No
+
+Sealeo
+Level: 53
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Gastrodon
+Level: 53
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_SHELTIN ===
+Name: Sheltin
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Double Battle: No
+
+Gyarados
+Level: 32
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Gyarados
+Level: 32
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Gyarados
+Level: 32
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_SOPHIA ===
+Name: Sophia
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Double Battle: No
+
+Delibird
+Level: 53
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Mantine
+Level: 53
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_TROY ===
+Name: Troy
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Double Battle: No
+
+Gyarados
+Level: 45
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_VANESSA ===
+Name: Vanessa
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Double Battle: No
+
+Golduck
+Level: 35
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_VINCENT ===
+Name: Vincent
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Double Battle: No
+
+Pelipper
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Gastrodon
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_WADE ===
+Name: Wade
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Double Battle: No
+
+Carvanha
+Level: 53
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Carvanha
+Level: 53
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Sharpedo
+Level: 56
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_SWIMMER_WESLEY ===
+Name: Wesley
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Double Battle: No
+
+Floatzel
+Level: 43
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Tentacruel
+Level: 43
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_TUBER_CAITLYN ===
+Name: Caitlyn
+Class: Tuber F
+Pic: Tuber F
+Gender: Female
+Double Battle: No
+
+Azurill
+Level: 27
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Water Gun
+- Slam
+- Charm
+
+Marill
+Level: 29
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Bubble Beam
+- Rollout
+- Defense Curl
+- Aqua Ring
+
+Azumarill
+Level: 31
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Bubble Beam
+- Double Edge
+- Rollout
+- Aqua Ring
+
+=== TRAINER_SINNOH_TUBER_CHELSEA ===
+Name: Chelsea
+Class: Tuber F
+Pic: Tuber F
+Gender: Female
+Double Battle: No
+
+Marill
+Level: 28
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_TUBER_CONNER ===
+Name: Conner
+Class: Tuber M
+Pic: Tuber M
+Gender: Male
+Double Battle: No
+
+Remoraid
+Level: 44
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_TUBER_HOLLY ===
+Name: Holly
+Class: Tuber F
+Pic: Tuber F
+Gender: Female
+Double Battle: No
+
+Remoraid
+Level: 44
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_TUBER_JACKY ===
+Name: Jacky
+Class: Tuber M
+Pic: Tuber M
+Gender: Male
+Double Battle: No
+
+Bibarel
+Level: 32
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Water Gun
+- Rollout
+- Hyper Fang
+- Yawn
+
+=== TRAINER_SINNOH_TUBER_JARED ===
+Name: Jared
+Class: Tuber M
+Pic: Tuber M
+Gender: Male
+Double Battle: No
+
+Shellos
+Level: 25
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Shellos
+Level: 25
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Shellos
+Level: 26
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_TUBER_MARIEL ===
+Name: Mariel
+Class: Tuber F
+Pic: Tuber F
+Gender: Female
+Double Battle: No
+
+Marill
+Level: 31
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Marill
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_TUBER_TRENTON ===
+Name: Trenton
+Class: Tuber M
+Pic: Tuber M
+Gender: Male
+Double Battle: No
+
+Shellos
+Level: 31
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Shellos
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_TWINS_EMMA_AND_LIL ===
+Name: Emma & Lil
+Class: Twins
+Pic: Twins
+Gender: Male
+Double Battle: Yes
+
+Bonsly
+Level: 22
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Mime Jr
+Level: 22
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_TWINS_LIV_AND_LIZ ===
+Name: Liv & Liz
+Class: Twins
+Pic: Twins
+Gender: Male
+Double Battle: Yes
+
+Pachirisu
+Level: 11
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Pachirisu
+Level: 11
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_TWINS_TERI_AND_TIA ===
+Name: Teri & Tia
+Class: Twins
+Pic: Twins
+Gender: Male
+Double Battle: Yes
+
+Pikachu
+Level: 23
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Clefairy
+Level: 23
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_VETERAN_ARMANDO ===
+Name: Armando
+Class: Expert
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Muk
+Level: 53
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Acid Armor
+- Toxic
+- Sludge Bomb
+- Dark Pulse
+
+Mightyena
+Level: 53
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Sucker Punch
+- Taunt
+- Assurance
+- Take Down
+
+Lickitung
+Level: 56
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Power Whip
+- Giga Impact
+- Surf
+- Fire Blast
+
+=== TRAINER_SINNOH_VETERAN_BRENDEN ===
+Name: Brenden
+Class: Expert
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Forretress
+Level: 54
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Flash Cannon
+- Rock Slide
+- Stealth Rock
+- Toxic Spikes
+
+Gyarados
+Level: 54
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Earthquake
+- Aqua Tail
+- Ice Fang
+- Dragon Pulse
+
+Hippowdon
+Level: 54
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Dig
+- Crunch
+- Protect
+- Rest
+
+=== TRAINER_SINNOH_VETERAN_BRIAN ===
+Name: Brian
+Class: Expert
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Tangela
+Level: 32
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Ingrain
+- Giga Drain
+- Ancient Power
+- Toxic
+
+Ponyta
+Level: 32
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Fire Spin
+- Stomp
+- Take Down
+
+Buizel
+Level: 32
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Aqua Jet
+- Whirlpool
+- Pursuit
+- Quick Attack
+
+=== TRAINER_SINNOH_VETERAN_CLAYTON ===
+Name: Clayton
+Class: Expert
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Staraptor
+Level: 47
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Brave Bird
+- Quick Attack
+- Double Team
+- Growl
+
+Lickilicky
+Level: 47
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Slam
+- Power Whip
+- Earthquake
+- Brick Break
+
+=== TRAINER_SINNOH_VETERAN_EDGAR ===
+Name: Edgar
+Class: Expert
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Porygon Z
+Level: 46
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Hyper Beam
+- Signal Beam
+- Psychic
+- Thunderbolt
+
+Tangrowth
+Level: 46
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Power Whip
+- Mega Drain
+- Toxic
+- Slam
+
+Empoleon
+Level: 46
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Brine
+- Drill Peck
+- Metal Claw
+- Growl
+
+=== TRAINER_SINNOH_VETERAN_GRANT ===
+Name: Grant
+Class: Expert
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Riolu
+Level: 34
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Force Palm
+- Quick Attack
+- Counter
+- Screech
+
+Staraptor
+Level: 34
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Aerial Ace
+- Take Down
+- Quick Attack
+- Growl
+
+Graveler
+Level: 34
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Earthquake
+- Rock Slide
+- Rock Polish
+- Defense Curl
+
+=== TRAINER_SINNOH_VETERAN_HARLAN ===
+Name: Harlan
+Class: Expert
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Raticate
+Level: 57
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Endeavor
+- Super Fang
+- Crunch
+- Quick Attack
+
+Drifblim
+Level: 58
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Explosion
+- Shadow Ball
+- Toxic
+- Fly
+
+Shiftry
+Level: 59
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Leaf Storm
+- Faint Attack
+- Extrasensory
+- Quick Attack
+
+=== TRAINER_SINNOH_VETERAN_TERRELL ===
+Name: Terrell
+Class: Expert
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Parasect
+Level: 53
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- X Scissor
+- Giga Drain
+- Spore
+- Slash
+
+Rhydon
+Level: 54
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Hammer Arm
+- Stone Edge
+- Earthquake
+- Megahorn
+
+Magmar
+Level: 55
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Fire Blast
+- Confuse Ray
+- Iron Tail
+- Focus Blast
+
+=== TRAINER_SINNOH_WAITRESS_KATI ===
+Name: Kati
+Class: Lady
+Pic: Lady
+Gender: Male
+Double Battle: No
+
+Clefairy
+Level: 25
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_WORKER_BRADEN ===
+Name: Braden
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Steelix
+Level: 37
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_WORKER_BRENDON ===
+Name: Brendon
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Geodude
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Geodude
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Machoke
+Level: 36
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_WORKER_COLIN ===
+Name: Colin
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Geodude
+Level: 6
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Machop
+Level: 8
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_WORKER_CONRAD ===
+Name: Conrad
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Magmar
+Level: 35
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_WORKER_DILLAN ===
+Name: Dillan
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Machop
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Machoke
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_WORKER_GARY ===
+Name: Gary
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Magnemite
+Level: 37
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Spark
+- Magnet Bomb
+
+=== TRAINER_SINNOH_WORKER_GERARDO ===
+Name: Gerardo
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Magnemite
+Level: 35
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Supersonic
+- Magnet Bomb
+- Spark
+
+Magnemite
+Level: 35
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Thunder Wave
+- Magnet Bomb
+- Spark
+
+=== TRAINER_SINNOH_WORKER_HOLDEN ===
+Name: Holden
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Magnemite
+Level: 32
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Magnemite
+Level: 32
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Magnemite
+Level: 32
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_WORKER_JACKSON ===
+Name: Jackson
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Magnemite
+Level: 34
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Magnet Bomb
+- Spark
+- Thunder Wave
+
+Magnemite
+Level: 34
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Magnet Bomb
+- Spark
+- Thunder Wave
+
+Magnemite
+Level: 34
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Magnet Bomb
+- Spark
+- Thunder Wave
+
+=== TRAINER_SINNOH_WORKER_MASON ===
+Name: Mason
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Geodude
+Level: 9
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_WORKER_NOEL ===
+Name: Noel
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Magnemite
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Magnemite
+Level: 36
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_WORKER_QUENTIN ===
+Name: Quentin
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Magnemite
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Machop
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Graveler
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_YOUNG_COUPLE_MIKE_AND_NAT ===
+Name: Mike & Nat
+Class: Young Couple
+Pic: Young Couple
+Gender: Male
+Double Battle: Yes
+
+Murkrow
+Level: 23
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Misdreavus
+Level: 23
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_YOUNG_COUPLE_TY_AND_SUE ===
+Name: Ty & Sue
+Class: Young Couple
+Pic: Young Couple
+Gender: Male
+Double Battle: Yes
+
+Buneary
+Level: 23
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Foresight
+- Jump Kick
+- Quick Attack
+- Defense Curl
+
+Buizel
+Level: 23
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Aqua Jet
+- Swift
+- Pursuit
+- Sonic Boom
+
+=== TRAINER_SINNOH_YOUNGSTER_AUSTIN ===
+Name: Austin
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Double Battle: No
+
+Buizel
+Level: 18
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Luxio
+Level: 18
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Gligar
+Level: 21
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_YOUNGSTER_DALLAS ===
+Name: Dallas
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Double Battle: No
+
+Shinx
+Level: 8
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_YOUNGSTER_DARIUS ===
+Name: Darius
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Double Battle: No
+
+Geodude
+Level: 9
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Tackle
+- Defense Curl
+
+Onix
+Level: 9
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Rock Throw
+- Tackle
+- Harden
+
+=== TRAINER_SINNOH_YOUNGSTER_DONNY ===
+Name: Donny
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Double Battle: No
+
+Gastly
+Level: 20
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Sucker Punch
+- Night Shade
+- Confuse Ray
+- Curse
+
+Drifloon
+Level: 22
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Spit Up
+- Swallow
+- Stockpile
+
+=== TRAINER_SINNOH_YOUNGSTER_JONATHON ===
+Name: Jonathon
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Double Battle: No
+
+Geodude
+Level: 11
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Tackle
+- Defense Curl
+
+=== TRAINER_SINNOH_YOUNGSTER_LOGAN ===
+Name: Logan
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Double Battle: No
+
+Burmy
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Tackle
+
+=== TRAINER_SINNOH_YOUNGSTER_MICHAEL ===
+Name: Michael
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Double Battle: No
+
+Kricketot
+Level: 7
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Zubat
+Level: 6
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_YOUNGSTER_OLIVER ===
+Name: Oliver
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Double Battle: No
+
+Mothim
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Barboach
+Level: 19
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Chatot
+Level: 21
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_YOUNGSTER_SEBASTIAN ===
+Name: Sebastian
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Double Battle: No
+
+Machop
+Level: 8
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Low Kick
+- Leer
+
+=== TRAINER_SINNOH_YOUNGSTER_TRISTAN ===
+Name: Tristan
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Double Battle: No
+
+Starly
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_YOUNGSTER_TYLER ===
+Name: Tyler
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Double Battle: No
+
+Magikarp
+Level: 8
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+
+=== TRAINER_SINNOH_YOUNGSTER_WAYNE ===
+Name: Wayne
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Double Battle: No
+
+Staravia
+Level: 17
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Shellos
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Ponyta
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+
+/* ponytail: lideres, Elite dos Quatro e campea de Sinnoh. */
+
+=== TRAINER_SINNOH_CHAMPION_CYNTHIA ===
+Name: Cynthia
+Class: Champion
+Pic: Hiker
+Gender: Male
+Items: Full Restore / Full Restore / Full Restore / Full Restore
+Double Battle: No
+
+Spiritomb @ None
+Level: 58
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Dark Pulse
+- Psychic
+- Silver Wind
+- Shadow Ball
+
+Roserade @ None
+Level: 58
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Energy Ball
+- Sludge Bomb
+- Toxic
+- Extrasensory
+
+Togekiss @ None
+Level: 60
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Air Slash
+- Aura Sphere
+- Water Pulse
+- Shock Wave
+
+Lucario @ None
+Level: 60
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Aura Sphere
+- Extreme Speed
+- Shadow Ball
+- Stone Edge
+
+Milotic @ None
+Level: 58
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Surf
+- Ice Beam
+- Mirror Coat
+- Dragon Pulse
+
+Garchomp @ Sitrus Berry
+Level: 62
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Dragon Rush
+- Earthquake
+- Flamethrower
+- Giga Impact
+
+=== TRAINER_SINNOH_ELITE_FOUR_AARON ===
+Name: Aaron
+Class: Elite Four
+Pic: Hiker
+Gender: Female
+Items: Full Restore / Full Restore
+Double Battle: No
+
+Yanmega @ None
+Level: 49
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Air Slash
+- Bug Buzz
+- U Turn
+- Double Team
+
+Scizor @ None
+Level: 49
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Iron Head
+- X Scissor
+- Night Slash
+- Quick Attack
+
+Vespiquen @ None
+Level: 50
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Attack Order
+- Defend Order
+- Heal Order
+- Power Gem
+
+Heracross @ None
+Level: 51
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Megahorn
+- Close Combat
+- Night Slash
+- Stone Edge
+
+Drapion @ Sitrus Berry
+Level: 53
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- X Scissor
+- Cross Poison
+- Ice Fang
+- Aerial Ace
+
+=== TRAINER_SINNOH_ELITE_FOUR_BERTHA ===
+Name: Bertha
+Class: Elite Four
+Pic: Hiker
+Gender: Female
+Items: Full Restore / Full Restore
+Double Battle: No
+
+Whiscash @ None
+Level: 50
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Earth Power
+- Aqua Tail
+- Zen Headbutt
+- Sandstorm
+
+Gliscor @ None
+Level: 53
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Earthquake
+- Ice Fang
+- Fire Fang
+- Thunder Fang
+
+Hippowdon @ None
+Level: 52
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Earthquake
+- Stone Edge
+- Crunch
+- Yawn
+
+Golem @ None
+Level: 52
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Earthquake
+- Fire Punch
+- Thunder Punch
+- Sandstorm
+
+Rhyperior @ Sitrus Berry
+Level: 55
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Earthquake
+- Rock Wrecker
+- Megahorn
+- Avalanche
+
+=== TRAINER_SINNOH_ELITE_FOUR_FLINT ===
+Name: Flint
+Class: Elite Four
+Pic: Hiker
+Gender: Female
+Items: Full Restore / Full Restore
+Double Battle: No
+
+Houndoom @ None
+Level: 52
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Flamethrower
+- Sludge Bomb
+- Dark Pulse
+- Sunny Day
+
+Flareon @ None
+Level: 55
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Overheat
+- Giga Impact
+- Quick Attack
+- Will O Wisp
+
+Rapidash @ None
+Level: 53
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Flare Blitz
+- Solar Beam
+- Bounce
+- Sunny Day
+
+Infernape @ None
+Level: 55
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Flare Blitz
+- Thunder Punch
+- Mach Punch
+- Earthquake
+
+Magmortar @ Sitrus Berry
+Level: 57
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Flamethrower
+- Thunderbolt
+- Solar Beam
+- Hyper Beam
+
+=== TRAINER_SINNOH_ELITE_FOUR_LUCIAN ===
+Name: Lucian
+Class: Elite Four
+Pic: Hiker
+Gender: Female
+Items: Full Restore / Full Restore
+Double Battle: No
+
+Mr Mime @ None
+Level: 53
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Psychic
+- Thunderbolt
+- Reflect
+- Light Screen
+
+Espeon @ None
+Level: 55
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Psychic
+- Shadow Ball
+- Quick Attack
+- Signal Beam
+
+Bronzong @ None
+Level: 54
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Psychic
+- Gyro Ball
+- Earthquake
+- Calm Mind
+
+Alakazam @ None
+Level: 56
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Psychic
+- Energy Ball
+- Focus Blast
+- Recover
+
+Gallade @ Sitrus Berry
+Level: 59
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Drain Punch
+- Psycho Cut
+- Leaf Blade
+- Stone Edge
+
+=== TRAINER_SINNOH_LEADER_BYRON ===
+Name: Byron
+Class: Leader
+Pic: Hiker
+Gender: Male
+Items: Hyper Potion / Full Restore
+Double Battle: No
+
+Magneton @ None
+Level: 37
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Flash Cannon
+- Thunderbolt
+- Tri Attack
+- Metal Sound
+
+Steelix @ None
+Level: 38
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Flash Cannon
+- Ice Fang
+- Earthquake
+- Sandstorm
+
+Bastiodon @ Sitrus Berry
+Level: 41
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Metal Burst
+- Stone Edge
+- Iron Defense
+- Taunt
+
+=== TRAINER_SINNOH_LEADER_CANDICE ===
+Name: Candice
+Class: Leader
+Pic: Hiker
+Gender: Male
+Items: Hyper Potion / Full Restore
+Double Battle: No
+
+Sneasel @ None
+Level: 40
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Slash
+- Aerial Ace
+- Faint Attack
+- Ice Shard
+
+Piloswine @ None
+Level: 40
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Avalanche
+- Stone Edge
+- Earthquake
+- Hail
+
+Abomasnow @ None
+Level: 42
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Avalanche
+- Wood Hammer
+- Water Pulse
+- Focus Blast
+
+Froslass @ Sitrus Berry
+Level: 44
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Blizzard
+- Double Team
+- Shadow Ball
+- Psychic
+
+=== TRAINER_SINNOH_LEADER_FANTINA ===
+Name: Fantina
+Class: Leader
+Pic: Hiker
+Gender: Female
+Items: Super Potion / Super Potion
+Double Battle: No
+
+Duskull @ None
+Level: 24
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Will O Wisp
+- Pursuit
+- Shadow Sneak
+- Future Sight
+
+Haunter @ None
+Level: 24
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Shadow Claw
+- Sucker Punch
+- Hypnosis
+- Confuse Ray
+
+Mismagius @ Sitrus Berry
+Level: 26
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Shadow Ball
+- Psybeam
+- Magical Leaf
+- Confuse Ray
+
+=== TRAINER_SINNOH_LEADER_GARDENIA ===
+Name: Gardenia
+Class: Leader
+Pic: Hiker
+Gender: Male
+Items: Super Potion / Super Potion
+Double Battle: No
+
+Turtwig @ None
+Level: 20
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Grass Knot
+- Razor Leaf
+- Sunny Day
+- Reflect
+
+Cherrim @ None
+Level: 20
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Grass Knot
+- Leech Seed
+- Magical Leaf
+- Safeguard
+
+Roserade @ Sitrus Berry
+Level: 22
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Grass Knot
+- Magical Leaf
+- Poison Sting
+- Stun Spore
+
+=== TRAINER_SINNOH_LEADER_MAYLENE ===
+Name: Maylene
+Class: Leader
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Meditite @ None
+Level: 28
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Drain Punch
+- Confusion
+- Rock Tomb
+- Fake Out
+
+Machoke @ None
+Level: 29
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Karate Chop
+- Rock Tomb
+- Strength
+- Focus Energy
+
+Lucario @ None
+Level: 32
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Drain Punch
+- Force Palm
+- Metal Claw
+- Bone Rush
+
+=== TRAINER_SINNOH_LEADER_ROARK ===
+Name: Roark
+Class: Leader
+Pic: Hiker
+Gender: Male
+Items: Potion / Potion
+Double Battle: No
+
+Geodude
+Level: 12
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Stealth Rock
+- Rock Throw
+
+Onix
+Level: 12
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Stealth Rock
+- Rock Throw
+- Screech
+
+Cranidos
+Level: 14
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Headbutt
+- Pursuit
+- Leer
+
+=== TRAINER_SINNOH_LEADER_VOLKNER ===
+Name: Volkner
+Class: Leader
+Pic: Hiker
+Gender: Male
+Items: Hyper Potion / Full Restore
+Double Battle: No
+
+Jolteon @ None
+Level: 46
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Thunder Wave
+- Charge Beam
+- Iron Tail
+- Quick Attack
+
+Raichu @ None
+Level: 46
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Charge Beam
+- Focus Blast
+- Signal Beam
+- Quick Attack
+
+Luxray @ None
+Level: 48
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Ice Fang
+- Thunder Fang
+- Crunch
+- Fire Fang
+
+Electivire @ Sitrus Berry
+Level: 50
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Thunder Punch
+- Fire Punch
+- Quick Attack
+- Giga Impact
+
+=== TRAINER_SINNOH_LEADER_WAKE ===
+Name: Wake
+Class: Leader
+Pic: Hiker
+Gender: Male
+Items: Hyper Potion / Hyper Potion
+Double Battle: No
+
+Gyarados @ None
+Level: 33
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Waterfall
+- Brine
+- Bite
+- Twister
+
+Quagsire @ None
+Level: 34
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Mud Shot
+- Rock Tomb
+- Water Pulse
+- Yawn
+
+Floatzel @ Sitrus Berry
+Level: 37
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Brine
+- Ice Fang
+- Crunch
+- Aqua Jet
+

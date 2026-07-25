@@ -750,7 +750,7 @@ UNUSED static const struct BoxPokemon sBoxPokemonConstantsFit =
     },
     .secure.substructs[3].type3 = {
         .metLocation = min(MAPSEC_COUNT, min(METLOC_SPECIAL_EGG, min(METLOC_IN_GAME_TRADE, METLOC_FATEFUL_ENCOUNTER))),
-        .metLevel = MAX_LEVEL,
+        .metLevel = MAX_MET_LEVEL,
         .metGame = NUM_VERSIONS, // NOTE: NUM_VERSIONS is inclusive!
         .dynamaxLevel = MAX_DYNAMAX_LEVEL,
         .otGender = GENDER_COUNT - 1,
@@ -764,7 +764,7 @@ UNUSED static const struct BoxPokemon sBoxPokemonConstantsFit =
     },
 };
 
-STATIC_ASSERT(MAX_LEVEL <= 100, PokemonSubstruct0_experience_PotentiallyTooSmall); // Maximum of ~2 million exp.
+STATIC_ASSERT(MAX_LEVEL <= 255, PokemonSubstruct0_experience_PotentiallyTooSmall); // experience tem 26 bits (67 milhoes); acima de 255 o nivel nao cabe no u8 usado em todo o codigo.
 
 static u32 CompressStatus(u32 status)
 {
@@ -2759,7 +2759,10 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
             SET8(GetSubstruct3(boxMon)->metLocation);
             break;
         case MON_DATA_MET_LEVEL:
-            SET8(GetSubstruct3(boxMon)->metLevel);
+            // ponytail: metLevel tem 7 bits e o Substruct3 esta lotado. E so o texto
+            // "encontrado no nivel X" da tela de resumo, entao satura em 127 em vez
+            // de custar 2 bytes por Pokemon em todas as caixas.
+            GetSubstruct3(boxMon)->metLevel = min(*data, MAX_MET_LEVEL);
             break;
         case MON_DATA_MET_GAME:
             SET8(GetSubstruct3(boxMon)->metGame);

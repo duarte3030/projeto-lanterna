@@ -1091,7 +1091,23 @@ static void Task_HandleMainMenuAPressed(u8 taskId)
 
             gPlttBufferUnfaded[0] = RGB_BLACK;
             gPlttBufferFaded[0] = RGB_BLACK;
+#if DEV_SKIP_INTRO
+            // ponytail: modo de desenvolvimento. Pula a fala do professor, a
+            // escolha de genero e a digitacao do nome, e cai direto no mapa.
+            // Testar mapa nao deveria custar dois minutos de cutscene.
+            // Desligue DEV_SKIP_INTRO em include/config/debug.h para voltar ao normal.
+            gSaveBlock2Ptr->playerGender = MALE;
+            // Indice constante faz o compilador enxergar o tamanho exato da
+            // string e reclamar da copia de PLAYER_NAME_LENGTH bytes; usar
+            // Random, como a introducao normal faz, evita isso.
+            NewGameBirchSpeech_SetDefaultPlayerName(Random() % NUM_PRESET_NAMES);
+            FreeAllWindowBuffers();
+            SetMainCallback2(CB2_NewGame);
+            DestroyTask(taskId);
+            return;
+#else
             gTasks[taskId].func = Task_NewGameBirchSpeech_Init;
+#endif
             break;
         case ACTION_CONTINUE:
             gPlttBufferUnfaded[0] = RGB_BLACK;

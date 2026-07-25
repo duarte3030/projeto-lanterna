@@ -1,5 +1,6 @@
 #ifndef GUARD_GLOBAL_FIELDMAP_H
 #define GUARD_GLOBAL_FIELDMAP_H
+#include "constants/sinnoh_ids.h" // ponytail: ids de evento de Sinnoh, ver o proprio arquivo
 
 // Masks/shifts for blocks in the map grid
 // Map grid blocks consist of a 10 bit metatile id, a 2 bit collision value, and a 4 bit elevation value

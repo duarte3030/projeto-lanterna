@@ -1,0 +1,88 @@
+{
+  "id": "MAP_ACUITY_LAKEFRONT",
+  "name": "AcuityLakefront",
+  "layout": "LAYOUT_ACUITY_LAKEFRONT",
+  "music": "MUS_RG_ROUTE24",
+  "region_map_section": "MAPSEC_SINNOH_NORTH",
+  "requires_flash": false,
+  "weather": "WEATHER_SNOW",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_ROUTE217",
+      "offset": -2,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_SNOWPOINT_CITY",
+      "offset": -2,
+      "direction": "right"
+    }
+  ],
+  "object_events": [
+    {
+      "local_id": "LOCALID_ACUITY_LAKEFRONT_HIKER",
+      "graphics_id": "OBJ_EVENT_GFX_HIKER",
+      "x": 22,
+      "y": 24,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "AcuityLakefront_EventScript_Hiker",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_ACUITY_LAKEFRONT_POKEFAN",
+      "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",
+      "x": 24,
+      "y": 25,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "AcuityLakefront_EventScript_Pokefan",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_ACUITY_LAKEFRONT_LASS",
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "x": 18,
+      "y": 27,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "AcuityLakefront_EventScript_Lass",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_ACUITY_LAKEFRONT_GENTLEMAN",
+      "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+      "x": 20,
+      "y": 28,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "AcuityLakefront_EventScript_Gentleman",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": []
+}

@@ -2,6 +2,14 @@
 #define GUARD_CONFIG_DEBUG_H
 
 // Overworld Debug
+// ponytail: modo de montagem. Jogo novo cai direto no mapa, sem professor, sem
+// escolha de genero, sem nome, sem cutscene da mae. So enquanto o hack esta
+// sendo montado; deixe FALSE antes de qualquer versao jogavel.
+#define DEV_SKIP_INTRO                  TRUE
+#define DEV_START_X                     5  // posicao no mapa de partida
+#define DEV_START_Y                     3
+#define DEV_START_MAP                   MAP_SUNYSHORE_CITY_GYM // para onde o jogo novo warpa
+
 #define DEBUG_OVERWORLD_MENU            DISABLED_ON_RELEASE // Enables an overworld debug menu to change flags, variables, giving Pokémon and more, accessed by holding R and pressing START while in the overworld by default.
 #define DEBUG_OVERWORLD_HELD_KEYS       (R_BUTTON)          // The keys required to be held to open the debug menu.
 #define DEBUG_OVERWORLD_TRIGGER_EVENT   pressedStartButton  // The event that opens the menu when holding the key(s) defined in DEBUG_OVERWORLD_HELD_KEYS.

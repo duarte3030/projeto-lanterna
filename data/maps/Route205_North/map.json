@@ -1,0 +1,150 @@
+{
+  "id": "MAP_ROUTE205_NORTH",
+  "name": "Route205_North",
+  "layout": "LAYOUT_ROUTE205_NORTH",
+  "music": "MUS_RG_ROUTE3",
+  "region_map_section": "MAPSEC_SINNOH_WEST",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_ROUTE205_SOUTH",
+      "offset": -20,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_ETERNA_CITY",
+      "offset": 0,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_VALLEY_WINDWORKS",
+      "offset": 9,
+      "direction": "down"
+    }
+  ],
+  "object_events": [
+    {
+      "local_id": "LOCALID_ROUTE205NORTH_FISHERMAN",
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+      "x": 65,
+      "y": 12,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route205_North_EventScript_Fisherman",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_ROUTE205NORTH_ANDREW",
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+      "x": 66,
+      "y": 14,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route205_North_EventScript_Andrew",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_ROUTE205NORTH_JOSEPH",
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+      "x": 67,
+      "y": 16,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route205_North_EventScript_Joseph",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_ROUTE205NORTH_ZACHARY",
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+      "x": 68,
+      "y": 18,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route205_North_EventScript_Zachary",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_ROUTE205NORTH_TRAINER1",
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+      "x": 64,
+      "y": 11,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Route205_North_EventScript_Trainer1",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_ROUTE205NORTH_TRAINER2",
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+      "x": 65,
+      "y": 13,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Route205_North_EventScript_Trainer2",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_ROUTE205NORTH_TRAINER3",
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+      "x": 66,
+      "y": 15,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Route205_North_EventScript_Trainer3",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 46,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_ETERNA_FOREST",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 46,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_ETERNA_FOREST",
+      "dest_warp_id": "3"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

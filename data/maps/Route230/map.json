@@ -1,0 +1,116 @@
+{
+    "id": "MAP_ROUTE230",
+    "name": "Route230",
+    "layout": "LAYOUT_ROUTE230",
+    "music": "MUS_ROUTE120",
+    "region_map_section": "MAPSEC_SINNOH_WEST",
+    "requires_flash": false,
+    "weather": "WEATHER_SUNNY",
+    "map_type": "MAP_TYPE_ROUTE",
+    "allow_cycling": true,
+    "allow_escaping": false,
+    "allow_running": true,
+    "show_map_name": true,
+    "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+    "connections": [
+        {
+            "map": "MAP_FIGHT_AREA",
+            "offset": 2,
+            "direction": "left"
+        },
+        {
+            "map": "MAP_ROUTE229",
+            "offset": 2,
+            "direction": "right"
+        }
+    ],
+    "object_events": [
+        {
+            "local_id": "LOCALID_ROUTE230_SWIMMER_GLENN",
+            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
+            "x": 26,
+            "y": 0,
+            "elevation": 3,
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "movement_range_x": 1,
+            "movement_range_y": 1,
+            "trainer_type": "TRAINER_TYPE_NORMAL",
+            "trainer_sight_or_berry_tree_id": "4",
+            "script": "Route230_EventScript_SwimmerGlenn",
+            "flag": "0"
+        },
+        {
+            "local_id": "LOCALID_ROUTE230_SWIMMER_JOANNA",
+            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
+            "x": 49,
+            "y": 1,
+            "elevation": 3,
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "movement_range_x": 1,
+            "movement_range_y": 1,
+            "trainer_type": "TRAINER_TYPE_NORMAL",
+            "trainer_sight_or_berry_tree_id": "4",
+            "script": "Route230_EventScript_SwimmerJoanna",
+            "flag": "0"
+        },
+        {
+            "local_id": "LOCALID_ROUTE230_SWIMMER_KURT",
+            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
+            "x": 81,
+            "y": 3,
+            "elevation": 3,
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "movement_range_x": 1,
+            "movement_range_y": 1,
+            "trainer_type": "TRAINER_TYPE_NORMAL",
+            "trainer_sight_or_berry_tree_id": "4",
+            "script": "Route230_EventScript_SwimmerKurt",
+            "flag": "0"
+        },
+        {
+            "local_id": "LOCALID_ROUTE230_SWIMMER_SOPHIA",
+            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
+            "x": 13,
+            "y": 6,
+            "elevation": 3,
+            "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
+            "movement_range_x": 0,
+            "movement_range_y": 1,
+            "trainer_type": "TRAINER_TYPE_NORMAL",
+            "trainer_sight_or_berry_tree_id": "4",
+            "script": "Route230_EventScript_SwimmerSophia",
+            "flag": "0"
+        },
+        {
+            "local_id": "LOCALID_ROUTE230_SWIMMER_SAM",
+            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
+            "x": 40,
+            "y": 2,
+            "elevation": 3,
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "trainer_type": "TRAINER_TYPE_NORMAL",
+            "trainer_sight_or_berry_tree_id": "4",
+            "script": "Route230_EventScript_SwimmerSam",
+            "flag": "0"
+        },
+        {
+            "local_id": "LOCALID_ROUTE230_SWIMMER_MALLORY",
+            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
+            "x": 66,
+            "y": 4,
+            "elevation": 3,
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "trainer_type": "TRAINER_TYPE_NORMAL",
+            "trainer_sight_or_berry_tree_id": "4",
+            "script": "Route230_EventScript_SwimmerMallory",
+            "flag": "0"
+        }
+    ],
+    "warp_events": [],
+    "coord_events": [],
+    "bg_events": []
+}

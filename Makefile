@@ -27,7 +27,12 @@ KEEP_TEMPS  ?= 0
 
 # `File name`.gba
 FILE_NAME := poke$(BUILD_NAME)
-BUILD_DIR := build
+# ponytail: build.nosync, e nao build, porque este repo mora dentro de ~/Documents,
+# que o iCloud Drive sincroniza. O build escreve milhares de arquivos por minuto,
+# o iCloud tenta sincronizar no meio da escrita e resolve o conflito criando
+# copias "nome 2.o". Ja apareceram 258 delas, e o espaco no nome faz o make
+# desistir SEM IMPRIMIR ERRO NENHUM. Pasta terminada em .nosync o iCloud ignora.
+BUILD_DIR := build.nosync
 
 # Compares the ROM to a checksum of the original - only makes sense using when non-modern
 COMPARE     ?= 0

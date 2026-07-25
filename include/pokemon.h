@@ -133,14 +133,18 @@ struct PokemonSubstruct0
     enum Type teraType:5; // 30 types.
     u16 heldItem:10; // 1023 items.
     u16 unused_02:6;
-    u32 experience:21;
-    u32 nickname11:8; // 11th character of nickname.
-    u32 unused_04:3;
+    // ponytail: campos reordenados para o teto de nivel 255, sem crescer o substruct.
+    // experience precisa de 26 bits (52,7 milhoes no nivel 255). Com nickname11:8 ao
+    // lado dava 34 bits e estourava o u32, empurrando o substruct de 12 para 16 bytes
+    // e derrubando o STATIC_ASSERT de RecordedBattleSave. Trocando o vizinho por
+    // pokeball:6 fecha 32 bits exatos, e os dois caracteres de apelido passam a
+    // dividir um u16. Total continua 96 bits.
+    u32 experience:26;
+    u32 pokeball:6; // 63 balls.
     u8 ppBonuses;
     u8 friendship;
-    u16 pokeball:6; // 63 balls.
+    u16 nickname11:8; // 11th character of nickname.
     u16 nickname12:8; // 12th character of nickname.
-    u16 unused_0A:2;
 };
 
 struct PokemonSubstruct1

@@ -153,7 +153,8 @@ enum __attribute__((packed)) Stat
 #define MAX_GIFT_RIBBON 64
 
 #define MIN_LEVEL 1
-#define MAX_LEVEL 100
+#define MAX_LEVEL 255
+#define MAX_MET_LEVEL 127 // metLevel do PokemonSubstruct3 tem 7 bits.
 
 #define MAX_DYNAMAX_LEVEL 10
 

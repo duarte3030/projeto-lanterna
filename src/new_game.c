@@ -48,9 +48,12 @@
 #include "mystery_gift.h"
 #include "union_room_chat.h"
 #include "constants/map_groups.h"
+#include "constants/heal_locations.h"
+#include "constants/species.h"
 #include "constants/items.h"
 #include "difficulty.h"
 #include "follower_npc.h"
+#include "script_pokemon_util.h"
 
 extern const u8 EventScript_ResetAllMapFlags[];
 extern const u8 EventScript_ResetAllMapFlagsFrlg[];
@@ -135,10 +138,20 @@ static void ClearFrontierRecord(void)
 
 static void WarpToTruck(void)
 {
+    // ponytail: jogo novo comeca em Twinleaf, em Sinnoh, enquanto a regiao esta
+    // sendo montada. Testar por menu de debug custava tres passos e um humano
+    // lendo numero de grupo; assim basta apertar "novo jogo".
+    // Para voltar ao inicio do Emerald, restaure MAP_INSIDE_OF_TRUCK abaixo.
+#if DEV_SKIP_INTRO
+    // ponytail: sem introducao, o jogo comeca direto no mapa de desenvolvimento.
+    // O caminhao existe so para a cutscene de abertura; pulando ela, ele nao serve.
+    SetWarpDestination(MAP_GROUP(DEV_START_MAP), MAP_NUM(DEV_START_MAP), WARP_ID_NONE, DEV_START_X, DEV_START_Y);
+#else
     if (IS_FRLG)
         SetWarpDestination(MAP_GROUP(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), MAP_NUM(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), WARP_ID_NONE, 6, 6);
     else
         SetWarpDestination(MAP_GROUP(MAP_INSIDE_OF_TRUCK), MAP_NUM(MAP_INSIDE_OF_TRUCK), WARP_ID_NONE, -1, -1);
+#endif
     WarpIntoMap();
 }
 
@@ -234,6 +247,26 @@ void NewGameInitData(void)
     ResetItemFlags();
     ResetDexNav();
     ClearFollowerNPCData();
+    // ponytail: Dynamax e Terastal ligados desde o começo do jogo. Se um dia
+    // virarem recompensa de história, tire estas duas linhas e dê FlagSet no
+    // script do evento que libera cada um.
+    FlagSet(B_FLAG_DYNAMAX_BATTLE);
+    FlagSet(B_FLAG_TERA_ORB_CHARGED);
+#if DEV_SKIP_INTRO
+    // ponytail: sem introducao ninguem recebe inicial nem define ponto de cura.
+    // Sem time nao da para testar batalha, e ao desmaiar o jogo mandava o
+    // jogador para a casa da mae em Hoenn, que e o padrao do Emerald.
+    SetLastHealLocationWarp(HEAL_LOCATION_OREBURGH_CITY);
+    {
+        static const enum Species timeDeTeste[] = {
+            SPECIES_INFERNAPE, SPECIES_EMPOLEON, SPECIES_TORTERRA,
+            SPECIES_STARAPTOR, SPECIES_LUXRAY,   SPECIES_GARCHOMP,
+        };
+        u32 i;
+        for (i = 0; i < ARRAY_COUNT(timeDeTeste); i++)
+            ScriptGiveMon(timeDeTeste[i], 25, ITEM_NONE);
+    }
+#endif
 }
 
 static void ResetMiniGamesRecords(void)

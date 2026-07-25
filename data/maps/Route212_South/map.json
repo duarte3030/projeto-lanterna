@@ -1,0 +1,97 @@
+{
+  "id": "MAP_ROUTE212_SOUTH",
+  "name": "Route212_South",
+  "layout": "LAYOUT_ROUTE212_SOUTH",
+  "music": "MUS_RG_ROUTE3",
+  "region_map_section": "MAPSEC_SINNOH_WEST",
+  "requires_flash": false,
+  "weather": "WEATHER_RAIN",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_PASTORIA_CITY",
+      "offset": -32,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE212_NORTH",
+      "offset": 0,
+      "direction": "up"
+    }
+  ],
+  "object_events": [
+    {
+      "local_id": "LOCALID_ROUTE212_SOUTH_SCHOOL_KID",
+      "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+      "x": 25,
+      "y": 12,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route212_South_EventScript_SchoolKid",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_ROUTE212_SOUTH_LADY",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
+      "x": 49,
+      "y": 11,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route212_South_EventScript_Lady",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_ROUTE212_SOUTH_COLLECTOR",
+      "graphics_id": "OBJ_EVENT_GFX_MANIAC",
+      "x": 58,
+      "y": 11,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route212_South_EventScript_Collector",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_ROUTE212_SOUTH_FISHERMAN",
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+      "x": 77,
+      "y": 13,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route212_South_EventScript_Fisherman",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 25,
+      "y": 23,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route212_South_EventScript_ShardsSign"
+    }
+  ]
+}

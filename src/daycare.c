@@ -418,7 +418,7 @@ static u8 GetNumLevelsGainedFromSteps(struct DaycareMon *daycareMon)
 static u8 GetNumLevelsGainedForDaycareMon(struct DaycareMon *daycareMon)
 {
     u8 numLevelsGained = GetNumLevelsGainedFromSteps(daycareMon);
-    ConvertIntToDecimalStringN(gStringVar2, numLevelsGained, STR_CONV_MODE_LEFT_ALIGN, 2);
+    ConvertIntToDecimalStringN(gStringVar2, numLevelsGained, STR_CONV_MODE_LEFT_ALIGN, 3); // ponytail: da pra ganhar mais de 99 niveis.
     GetBoxMonNickname(&daycareMon->mon, gStringVar1);
     return numLevelsGained;
 }

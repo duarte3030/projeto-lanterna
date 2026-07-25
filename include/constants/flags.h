@@ -2449,4 +2449,27 @@
 #endif // TESTING
 
 
+
+// ponytail: viagem entre regioes. Cada Elite dos Quatro derrotada liga a flag da
+// regiao seguinte, e o marinheiro do cais monta o menu de destinos lendo estas
+// tres. Ida e volta sem gastar var: a flag ja diz tudo que o menu precisa saber.
+// RESERVADAS. Nao reutilizar para outra coisa, ver Pokemon Claude/SINNOH-PADRAO.md
+#define FLAG_REGIAO_JOHTO_LIBERADA   FLAG_UNUSED_0x022
+#define FLAG_REGIAO_HOENN_LIBERADA   FLAG_UNUSED_0x023
+#define FLAG_REGIAO_SINNOH_LIBERADA  FLAG_UNUSED_0x024
+
+
+// ponytail: insignias de Sinnoh. As oito de Hoenn (FLAG_BADGE01_GET e seguintes)
+// continuam de Hoenn: quando as quatro regioes existirem, cada uma precisa das
+// suas. RESERVADAS, ver Pokemon Claude/SINNOH-PADRAO.md.
+#define FLAG_INSIGNIA_SINNOH_1  FLAG_UNUSED_0x025  // Roark,   Oreburgh
+#define FLAG_INSIGNIA_SINNOH_2  FLAG_UNUSED_0x026  // Gardenia, Eterna
+#define FLAG_INSIGNIA_SINNOH_3  FLAG_UNUSED_0x027  // Maylene,  Veilstone
+#define FLAG_INSIGNIA_SINNOH_4  FLAG_UNUSED_0x028  // Wake,     Pastoria
+#define FLAG_INSIGNIA_SINNOH_5  FLAG_UNUSED_0x029  // Fantina,  Hearthome
+#define FLAG_INSIGNIA_SINNOH_6  FLAG_UNUSED_0x02A  // Byron,    Canalave
+#define FLAG_INSIGNIA_SINNOH_7  FLAG_UNUSED_0x02B  // Candice,  Snowpoint
+#define FLAG_INSIGNIA_SINNOH_8  FLAG_UNUSED_0x02C  // Volkner,  Sunyshore
+#define FLAG_ELITE_SINNOH_VENCIDA FLAG_UNUSED_0x02D
+
 #endif // GUARD_CONSTANTS_FLAGS_H

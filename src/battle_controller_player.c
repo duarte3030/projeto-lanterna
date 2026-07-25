@@ -1429,7 +1429,9 @@ static void Task_GiveExpToMon(u8 taskId)
         enum Species species = GetMonData(mon, MON_DATA_SPECIES);
         u8 level = GetMonData(mon, MON_DATA_LEVEL);
         u32 currExp = GetMonData(mon, MON_DATA_EXP);
-        u32 nextLvlExp = gExperienceTables[gSpeciesInfo[species].growthRate][level + 1];
+        // ponytail: a tabela vai ate MAX_LEVEL, entao [level + 1] sai dela quando o
+        // Pokemon ja esta no teto. Bug herdado do pret, inofensivo so por sorte.
+        u32 nextLvlExp = gExperienceTables[gSpeciesInfo[species].growthRate][min(level + 1, MAX_LEVEL)];
         u32 expAfterGain = currExp + gainedExp;
         u32 oldMaxHP = GetMonData(mon, MON_DATA_MAX_HP);
 
