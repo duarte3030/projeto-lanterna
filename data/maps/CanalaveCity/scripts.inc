@@ -30,11 +30,12 @@ CanalaveCity_EventScript_SailorEldritch::
 	lock
 	faceplayer
 	msgbox CanalaveCity_Text_WhereTo, MSGBOX_DEFAULT
-	multichoice 0, 0, MULTI_BOAT_FROM_CANALAVE, FALSE
+	multichoice 0, 0, MULTI_BOAT_DESTINATIONS, FALSE
 	switch VAR_RESULT
 	case 0, CanalaveCity_EventScript_SailToOlivine
 	case 1, CanalaveCity_EventScript_SailToSlateport
 	case 2, CanalaveCity_EventScript_SailToVermilion
+	case 3, CanalaveCity_EventScript_SailToVirbank
 	msgbox CanalaveCity_Text_ComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -126,3 +127,13 @@ CanalaveCity_Text_GymSign:
 
 CanalaveCity_Text_LibrarySign:
 	.string "CANALAVE LIBRARY$"
+
+CanalaveCity_EventScript_SailToVirbank::
+	msgbox CanalaveCity_Text_SettingSailToVirbank, MSGBOX_DEFAULT
+	closemessage
+	warpsilent MAP_UNOVA_VIRBANK_PORT, 4, 6
+	release
+	end
+
+CanalaveCity_Text_SettingSailToVirbank:
+	.string "Zarpando para Virbank City em Unova!$"

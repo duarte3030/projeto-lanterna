@@ -82,34 +82,16 @@ static const struct MenuAction MultichoiceList_BrineyOffDewford[] =
     {gText_Exit},
 };
 
-// Balsa entre regioes. A ordem de cada lista bate, item a item, com os
-// "case 0/1/2" do scripts.inc do porto correspondente.
-static const struct MenuAction MultichoiceList_BoatFromVermilion[] =
+// Os cinco destinos do barco que liga as regioes. A ordem aqui e a ordem dos
+// `case` nos quatro portos; mudar a ordem exige mudar os quatro.
+static const struct MenuAction MultichoiceList_CincoRegioesBarco[] =
 {
-    {COMPOUND_STRING("OLIVINE CITY")},
-    {COMPOUND_STRING("SLATEPORT CITY")},
-    {COMPOUND_STRING("CANALAVE CITY")},
-};
-
-static const struct MenuAction MultichoiceList_BoatFromOlivine[] =
-{
-    {COMPOUND_STRING("VERMILION CITY")},
-    {COMPOUND_STRING("SLATEPORT CITY")},
-    {COMPOUND_STRING("CANALAVE CITY")},
-};
-
-static const struct MenuAction MultichoiceList_BoatFromSlateport[] =
-{
-    {COMPOUND_STRING("OLIVINE CITY")},
-    {COMPOUND_STRING("VERMILION CITY")},
-    {COMPOUND_STRING("CANALAVE CITY")},
-};
-
-static const struct MenuAction MultichoiceList_BoatFromCanalave[] =
-{
-    {COMPOUND_STRING("OLIVINE CITY")},
-    {COMPOUND_STRING("SLATEPORT CITY")},
-    {COMPOUND_STRING("VERMILION CITY")},
+    {COMPOUND_STRING("OLIVINE")},
+    {COMPOUND_STRING("SLATEPORT")},
+    {COMPOUND_STRING("VERMILION")},
+    {COMPOUND_STRING("VIRBANK")},
+    {COMPOUND_STRING("CANALAVE")},
+    {gText_Exit},
 };
 
 static const struct MenuAction MultichoiceList_ViewedPaintings[] =
@@ -1180,10 +1162,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_BIKE]                       = MULTICHOICE(MultichoiceList_Bike),
     [MULTI_STATUS_INFO]                = MULTICHOICE(MultichoiceList_StatusInfo),
     [MULTI_BRINEY_OFF_DEWFORD]         = MULTICHOICE(MultichoiceList_BrineyOffDewford),
-    [MULTI_BOAT_FROM_VERMILION]        = MULTICHOICE(MultichoiceList_BoatFromVermilion),
-    [MULTI_BOAT_FROM_OLIVINE]          = MULTICHOICE(MultichoiceList_BoatFromOlivine),
-    [MULTI_BOAT_FROM_SLATEPORT]        = MULTICHOICE(MultichoiceList_BoatFromSlateport),
-    [MULTI_BOAT_FROM_CANALAVE]         = MULTICHOICE(MultichoiceList_BoatFromCanalave),
+    [MULTI_CINCO_REGIOES_BARCO]        = MULTICHOICE(MultichoiceList_CincoRegioesBarco),
     [MULTI_UNUSED_15]                  = MULTICHOICE(MultichoiceList_Exit),
     [MULTI_VIEWED_PAINTINGS]           = MULTICHOICE(MultichoiceList_ViewedPaintings),
     [MULTI_YESNOINFO]                  = MULTICHOICE(MultichoiceList_YesNoInfo),

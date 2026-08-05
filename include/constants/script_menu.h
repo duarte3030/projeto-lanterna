@@ -169,13 +169,7 @@ enum
     MULTI_HOF_VICTORIES_QUIT,
     MULTI_EGGS_VICTORIES_QUIT,
     MULTI_HOF_EGGS_VICTORIES_QUIT,
-    // Balsa entre regioes. Uma lista por porto, porque cada porto oferece as
-    // OUTRAS tres cidades e a ordem tem que bater, item a item, com os
-    // "case 0/1/2" que ja estao no scripts.inc daquele porto.
-    MULTI_BOAT_FROM_VERMILION,
-    MULTI_BOAT_FROM_OLIVINE,
-    MULTI_BOAT_FROM_SLATEPORT,
-    MULTI_BOAT_FROM_CANALAVE,
+    MULTI_CINCO_REGIOES_BARCO,
 };
 
 #define MULTI_NONE 255
@@ -243,9 +237,14 @@ enum
 };
 
 
-// (Removido o alias MULTI_BOAT_DESTINATIONS -> MULTI_BRINEY_OFF_DEWFORD: aquela
-// lista tem DUAS linhas, "DEWFORD" e "EXIT", entao a balsa entre regioes exibia
-// nome errado em todo destino e o terceiro destino era inalcancavel. Cada porto
-// agora usa a sua propria MULTI_BOAT_FROM_*.)
+// O padrao do upstream aponta para MULTI_BRINEY_OFF_DEWFORD, que tem DUAS
+// entradas ("DEWFORD" e "Sair"). Os quatro portos que ligam as regioes deste
+// hack (Canalave, Olivine, Slateport, Vermilion) fazem `switch` em case 0, 1 e
+// 2, ou seja, a terceira opcao nunca existiu no menu e a segunda era "Sair".
+// O menu do barco entre regioes estava mentindo desde que foi escrito.
+// Medido em 05/08/2026, ao acrescentar Unova como quarto destino.
+#ifndef MULTI_BOAT_DESTINATIONS
+#define MULTI_BOAT_DESTINATIONS MULTI_CINCO_REGIOES_BARCO
+#endif
 
 #endif //GUARD_SCRIPT_MENU_CONSTANTS_H

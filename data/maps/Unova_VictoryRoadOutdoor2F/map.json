@@ -1,0 +1,241 @@
+{
+  "id": "MAP_UNOVA_VICTORY_ROAD_OUTDOOR_2F",
+  "name": "Unova_VictoryRoadOutdoor2F",
+  "layout": "LAYOUT_UNOVA_VICTORY_ROAD_OUTDOOR_2F",
+  "music": "MUS_VICTORY_ROAD",
+  "region_map_section": "MAPSEC_UNOVA_VICTORY_ROAD",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 20,
+      "y": 8,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 13,
+      "y": 17,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_PP_MAX",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEMS_UNOVA_START + 0x0CB"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 16,
+      "y": 21,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_MAX_REVIVE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEMS_UNOVA_START + 0x0CC"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 28,
+      "y": 19,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_MAX_ELIXIR",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEMS_UNOVA_START + 0x0CD"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+      "x": 18,
+      "y": 3,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_VictoryRoadOutdoor2F_EventScript_Npc4",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",
+      "x": 20,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_VictoryRoadOutdoor2F_EventScript_Npc5",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M",
+      "x": 6,
+      "y": 31,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_VictoryRoadOutdoor2F_EventScript_Npc6",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F",
+      "x": 35,
+      "y": 13,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_VictoryRoadOutdoor2F_EventScript_Npc7",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
+      "x": 29,
+      "y": 35,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_VictoryRoadOutdoor2F_EventScript_Npc8",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_4",
+      "x": 22,
+      "y": 15,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_VictoryRoadOutdoor2F_EventScript_Npc9",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
+      "x": 35,
+      "y": 26,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_VictoryRoadOutdoor2F_EventScript_Npc10",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F",
+      "x": 5,
+      "y": 18,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_VictoryRoadOutdoor2F_EventScript_Npc11",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 9,
+      "y": 34,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 37,
+      "y": 34,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 17,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 29,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_VICTORY_ROAD_CAVE_3F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 17,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_VICTORY_ROAD_CAVE_3F",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 19,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_VICTORY_ROAD_CAVE_3F",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 18,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_VICTORY_ROAD_OUTDOOR_2F",
+      "dest_warp_id": "7"
+    },
+    {
+      "x": 16,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_VICTORY_ROAD_OUTDOOR_2F",
+      "dest_warp_id": "7"
+    },
+    {
+      "x": 23,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_VICTORY_ROAD_CASTLE_OUTSIDE",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

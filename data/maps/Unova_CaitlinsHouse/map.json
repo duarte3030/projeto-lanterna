@@ -1,0 +1,62 @@
+{
+  "id": "MAP_UNOVA_CAITLINS_HOUSE",
+  "name": "Unova_CaitlinsHouse",
+  "layout": "LAYOUT_UNOVA_CAITLINS_HOUSE",
+  "music": "MUS_FALLARBOR",
+  "region_map_section": "MAPSEC_UNOVA_UNDELLA_TOWN",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
+      "x": 3,
+      "y": 2,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_CaitlinsHouse_EventScript_Npc0",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GLACIA",
+      "x": 5,
+      "y": 11,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_CaitlinsHouse_EventScript_Npc1",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 4,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_UNDELLA_TOWN",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 5,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_UNDELLA_TOWN",
+      "dest_warp_id": "6"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

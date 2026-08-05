@@ -1,0 +1,102 @@
+{
+  "id": "MAP_UNOVA_VICTORY_ROAD_GROVE",
+  "name": "Unova_VictoryRoadGrove",
+  "layout": "LAYOUT_UNOVA_VICTORY_ROAD_GROVE",
+  "music": "MUS_VICTORY_ROAD",
+  "region_map_section": "MAPSEC_UNOVA_VICTORY_ROAD",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 17,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_MAX_REVIVE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEMS_UNOVA_START + 0x0CE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 5,
+      "y": 23,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_BRIGHT_POWDER",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEMS_UNOVA_START + 0x0CF"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M",
+      "x": 11,
+      "y": 12,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_VictoryRoadGrove_EventScript_Npc2",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F",
+      "x": 11,
+      "y": 20,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_VictoryRoadGrove_EventScript_Npc3",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 13,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 14,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 5,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_VICTORY_ROAD_OUTDOOR_1F",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 6,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_VICTORY_ROAD_OUTDOOR_1F",
+      "dest_warp_id": "7"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

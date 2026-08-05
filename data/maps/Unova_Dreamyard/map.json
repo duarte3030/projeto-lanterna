@@ -1,0 +1,223 @@
+{
+  "id": "MAP_UNOVA_DREAMYARD",
+  "name": "Unova_Dreamyard",
+  "layout": "LAYOUT_UNOVA_DREAMYARD",
+  "music": "MUS_MT_PYRE",
+  "region_map_section": "MAPSEC_UNOVA_DREAMYARD",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 10,
+      "y": 20,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 27,
+      "y": 12,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_MOON_STONE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEMS_UNOVA_START + 0x0AE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 25,
+      "y": 3,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_LEVEL_BALL",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEMS_UNOVA_START + 0x0AF"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 22,
+      "y": 26,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_PP_UP",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEMS_UNOVA_START + 0x0B0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 9,
+      "y": 7,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_WIDE_LENS",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEMS_UNOVA_START + 0x0B1"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 12,
+      "y": 9,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_TM_PSYCHIC",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEMS_UNOVA_START + 0x0B2"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+      "x": 29,
+      "y": 27,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_Dreamyard_EventScript_Npc6",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+      "x": 25,
+      "y": 33,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_Dreamyard_EventScript_Npc7",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "x": 16,
+      "y": 3,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_Dreamyard_EventScript_Npc8",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 1,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_STRIATON_CITY",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 1,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_STRIATON_CITY",
+      "dest_warp_id": "7"
+    },
+    {
+      "x": 10,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_DREAMYARD",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 13,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_DREAMYARD_B1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 13,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_DREAMYARD_B1F",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 37,
+      "y": 28,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_DREAMYARD_B1F",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 37,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_DREAMYARD_B1F",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 37,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_DREAMYARD_B1F",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 37,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_DREAMYARD_B1F",
+      "dest_warp_id": "5"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [
+    {
+      "type": "hidden_item",
+      "x": 18,
+      "y": 13,
+      "elevation": 3,
+      "item": "ITEM_MAX_POTION",
+      "flag": "FLAG_ITEMS_UNOVA_START + 0x0AC",
+      "quantity": 1,
+      "underfoot": false
+    },
+    {
+      "type": "hidden_item",
+      "x": 6,
+      "y": 27,
+      "elevation": 3,
+      "item": "ITEM_REVIVE",
+      "flag": "FLAG_ITEMS_UNOVA_START + 0x0AD",
+      "quantity": 1,
+      "underfoot": false
+    }
+  ]
+}

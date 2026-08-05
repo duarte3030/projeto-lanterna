@@ -5,11 +5,12 @@ OlivinePort_EventScript_Sailor::
 	lock
 	faceplayer
 	msgbox OlivinePort_Text_WhereTo, MSGBOX_DEFAULT
-	multichoice 0, 0, MULTI_BOAT_FROM_OLIVINE, FALSE
+	multichoice 0, 0, MULTI_BOAT_DESTINATIONS, FALSE
 	switch VAR_RESULT
-	case 0, OlivinePort_EventScript_SailToVermilion
 	case 1, OlivinePort_EventScript_SailToSlateport
-	case 2, OlivinePort_EventScript_SailToCanalave
+	case 2, OlivinePort_EventScript_SailToVermilion
+	case 3, OlivinePort_EventScript_SailToVirbank
+	case 4, OlivinePort_EventScript_SailToCanalave
 	msgbox OlivinePort_Text_ComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -52,3 +53,13 @@ OlivinePort_Text_SettingSailToCanalave:
 
 OlivinePort_Text_ComeAgain:
 	.string "Volte quando quiser navegar entre as regioes.$"
+
+OlivinePort_EventScript_SailToVirbank::
+	msgbox OlivinePort_Text_SettingSailToVirbank, MSGBOX_DEFAULT
+	closemessage
+	warpsilent MAP_UNOVA_VIRBANK_PORT, 4, 6
+	release
+	end
+
+OlivinePort_Text_SettingSailToVirbank:
+	.string "Zarpando para Virbank City em Unova!$"

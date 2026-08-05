@@ -1,0 +1,74 @@
+{
+  "id": "MAP_UNOVA_GIANT_CHASM_1F",
+  "name": "Unova_GiantChasm1F",
+  "layout": "LAYOUT_UNOVA_GIANT_CHASM_1F",
+  "music": "MUS_RG_MT_MOON",
+  "region_map_section": "MAPSEC_UNOVA_GIANT_CHASM",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 2,
+      "y": 16,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_PARALYZE_HEAL",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEMS_UNOVA_START + 0x001"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 15,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_R_22",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_R_13",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_R_23_EAST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 11,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_GIANT_CHASM_ROOMS",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [
+    {
+      "type": "hidden_item",
+      "x": 5,
+      "y": 14,
+      "elevation": 3,
+      "item": "ITEM_FULL_HEAL",
+      "flag": "FLAG_ITEMS_UNOVA_START + 0x000",
+      "quantity": 1,
+      "underfoot": false
+    }
+  ]
+}

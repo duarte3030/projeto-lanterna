@@ -1,4 +1,23 @@
+## Conteúdo de terceiros usado neste hack
+
+### Unova, dos 291 mapas ao texto dos NPCs
+
+A região de Unova deste hack foi portada de **Black and White 3: Genesis**, o
+projeto pokecrystal de **Azure_Keys** (github.com/AzureKeys/BW3G). Vieram de lá
+a planta e a colisão dos 291 mapas, os warps, os objetos, as placas e o texto
+dos diálogos. A conversão de gen 2 para gen 3 é de `dev_scripts/importa_unova.py`
+neste repositório, mas o desenho dos mapas e a escrita são do projeto original.
+
+Arte de tiles do BW3G, creditada pelo autor no projeto de origem:
+**Rangi**, **PiaCarrot**, **Bloodless**, **Bees**, **JaceDeane**, **Morlock** e
+**Luna**.
+
+(Os tiles em si NÃO foram importados: os mapas de Unova usam os tilesets que
+este hack já tinha, de Hoenn e Sinnoh. O crédito de arte fica registrado porque
+a leitura da colisão veio dos arquivos de tileset do BW3G.)
+
 ## Credits ✨
+
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/en/reference/emoji-key/)):
 

@@ -1,0 +1,26 @@
+{
+  "id": "MAP_UNOVA_ICIRRUS_CITY_SOUTH_CONNECTION_DUMMY",
+  "name": "Unova_IcirrusCitySouthConnectionDummy",
+  "layout": "LAYOUT_UNOVA_ICIRRUS_CITY_SOUTH_CONNECTION_DUMMY",
+  "music": "MUS_FORTREE",
+  "region_map_section": "MAPSEC_UNOVA_ICIRRUS_CITY",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_TOWN",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_UNOVA_ICIRRUS_CITY_SOUTH",
+      "offset": 2,
+      "direction": "down"
+    }
+  ],
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": []
+}

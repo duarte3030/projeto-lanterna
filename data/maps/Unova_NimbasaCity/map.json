@@ -1,0 +1,308 @@
+{
+  "id": "MAP_UNOVA_NIMBASA_CITY",
+  "name": "Unova_NimbasaCity",
+  "layout": "LAYOUT_UNOVA_NIMBASA_CITY",
+  "music": "MUS_LILYCOVE",
+  "region_map_section": "MAPSEC_UNOVA_NIMBASA_CITY",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_TOWN",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 16,
+      "y": 15,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_RED_SHARD",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEMS_UNOVA_START + 0x108"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+      "x": 20,
+      "y": 24,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 4,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_NimbasaCity_EventScript_Npc1",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
+      "x": 25,
+      "y": 10,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 4,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_NimbasaCity_EventScript_Npc2",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
+      "x": 31,
+      "y": 25,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 3,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_NimbasaCity_EventScript_Npc3",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "x": 25,
+      "y": 24,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_NimbasaCity_EventScript_Npc4",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+      "x": 16,
+      "y": 18,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_NimbasaCity_EventScript_Npc5",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
+      "x": 12,
+      "y": 24,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 3,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_NimbasaCity_EventScript_Npc6",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F",
+      "x": 16,
+      "y": 10,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 4,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_NimbasaCity_EventScript_Npc7",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+      "x": 30,
+      "y": 19,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 4,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_NimbasaCity_EventScript_Npc8",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 39,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_R_16_NIMBASA_GATE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 39,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_R_16_NIMBASA_GATE",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 15,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_NIMBASA_POKECENTER_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 21,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_NIMBASA_TM_MART",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 9,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_NIMBASA_VITAMIN_MART",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 31,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_NIMBASA_BALL_MART",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_R_5_NIMBASA_GATE",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_R_5_NIMBASA_GATE",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 29,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_R_4_NIMBASA_GATE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 30,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_R_4_NIMBASA_GATE",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 10,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_NIMBASA_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 24,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_NIMBASA_SUBWAY",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 10,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_NIMBASA_NAME_RATER",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 25,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_NIMBASA_SUBWAY",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 33,
+      "y": 22,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_NIMBASA_PARK_OUTSIDE",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 33,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_NIMBASA_PARK_OUTSIDE",
+      "dest_warp_id": "3"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Unova_NimbasaCity_EventScript_Placa0"
+    },
+    {
+      "type": "sign",
+      "x": 38,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Unova_NimbasaCity_EventScript_Placa1"
+    },
+    {
+      "type": "sign",
+      "x": 28,
+      "y": 29,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Unova_NimbasaCity_EventScript_Placa2"
+    },
+    {
+      "type": "sign",
+      "x": 26,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Unova_NimbasaCity_EventScript_Placa3"
+    },
+    {
+      "type": "sign",
+      "x": 32,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Unova_NimbasaCity_EventScript_Placa4"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Unova_NimbasaCity_EventScript_Placa5"
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Unova_NimbasaCity_EventScript_Placa6"
+    }
+  ]
+}
