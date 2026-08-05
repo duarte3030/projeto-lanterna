@@ -1977,7 +1977,21 @@
 //
 // Faixas em uso hoje: Kanto 1400-1799 e 2200-2273, Unova 1367-1379 e 1800-2147.
 // Johto entra em 2274-2599, e sobra 2600-2999 para o que vier.
-#define MAX_TRAINERS_COUNT_EMERALD 3000
+// Baixado de 3000 para 2500 em 05/08/2026, por espaco de ROM.
+//
+// CORRECAO DE UMA CONTA MINHA: quando subi este numero eu medi so o custo de
+// SAVE ("200 vagas = 200 flags = 25 bytes") e apresentei como se fosse o custo
+// todo. O lado da ROM eu nunca tinha medido, e ele e ordens de grandeza maior:
+// sTrainerSlides e sTestTrainerSlides sao dimensionados por ESTE numero, nao
+// pelo uso, e junto com gTrainers dao ~324 bytes de ROM por vaga.
+//
+// Subir de 1400 para 3000 custou cerca de 506 KB de ROM. Baixar para 2500
+// devolve ~162 KB.
+//
+// 2500 e folga de verdade: o maior id em uso hoje e 2417 (Johto de rota vai ate
+// 2417), entao sobram 82 vagas. Se precisar de mais, meca o custo de ROM ANTES
+// de subir, e nao so o de save.
+#define MAX_TRAINERS_COUNT_EMERALD 2500
 
 #if IS_FRLG
 #define TRAINERS_COUNT                      TRAINERS_COUNT_FRLG
