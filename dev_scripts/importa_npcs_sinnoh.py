@@ -284,6 +284,12 @@ def main():
             continue
         ja = {(o.get("x"), o.get("y")) for o in (d.get("object_events") or [])}
         ja |= {(o.get("x"), o.get("y")) for o in (d.get("bg_events") or [])}
+        # ponytail: NÃO tratar tile de warp como ocupado. Parecia defeito ter
+        # placa em cima de porta, e 4 chegaram a ser removidas em 05/08/2026.
+        # Medido depois, contra o jogo original: nós temos 30 de 2376 placas
+        # sobre warp (1,26%), o pokeemerald vanilla tem 19 de 720 (2,64%) e o
+        # pokefirered 5 de 702 (0,71%). O vanilla tem o DOBRO da nossa taxa:
+        # é padrão do jogo, não defeito, e filtrar tiraria placa boa.
         novos_obj, novas_placas = [], []
 
         for e in fonte.get("object_events", []):

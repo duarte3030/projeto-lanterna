@@ -61,10 +61,15 @@ trancando estrada, lendário de lago, Barry aparecendo depois de um gatilho.
 Trazer isso sem a flag põe **bloqueio permanente** no caminho do jogador, então
 a política é não trazer.
 
-**Para fechar:** mapear cada história de Sinnoh para uma flag da faixa
-`0x294`-`0x2AB` (24 flags reservadas, de `dev_scripts/flags_livres.py`) e trazer
-o objeto junto com o script que acende a flag. Nenhuma dessas 24 foi usada nesta
-sessão.
+**A faixa `0x294`-`0x2AB` (24 flags, de `dev_scripts/flags_livres.py`) fica
+RESERVADA e intacta.** Decisão confirmada em 05/08/2026: gastar flag agora não
+resolve nada, porque o que remove o NPC da estrada é a CENA, não a flag. Trazer o
+grunt da Galáctica de volta com uma flag que nada acende tranca a estrada para
+sempre, que é exatamente o que as 39 pedras de Strength fizeram com uma caverna
+de Unova.
+
+**Para fechar:** a flag só se gasta junto com o script que a acende. Portar a
+cena, acender a flag no fim dela, e só então trazer o objeto.
 
 ## 4. 84 `coord_events` (gatilhos) não vieram
 
