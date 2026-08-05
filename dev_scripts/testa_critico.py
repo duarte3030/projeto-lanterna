@@ -566,8 +566,14 @@ def confere_treinadores():
         print(f"[FALHA] {n} vale {frlg[n]} em opponents_frlg.h e {principal[n]} em "
               "opponents.h. Um dos dois scripts luta com o treinador errado.")
 
-    if not apelidos and not colisoes:
-        print("nenhum apelido e nenhuma colisão de constante de treinador")
+    # Reprova por apelido USADO, não por apelido existir. Sobram 370 nomes de
+    # Kanto que nenhum script referencia, e eles são inertes: não há mapa que
+    # possa entregar o treinador errado. A primeira versão reprovava por eles, e
+    # o portão nunca podia ficar verde, o que treina todo mundo a ignorar a
+    # saída. Foi assim que dois crashes sobreviveram a seis agentes nesta sessão.
+    if not usados and not colisoes:
+        print(f"nenhum apelido usado por script, e nenhuma colisão "
+              f"({len(apelidos)} apelidos inertes, sem mapa que os cite)")
         return 0
     return 1
 
