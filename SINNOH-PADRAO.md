@@ -56,3 +56,31 @@ em ordem de utilidade:
 
 Quem for gastar var: tente as três acima primeiro, e escreva aqui o motivo de
 não terem servido.
+
+## Flags tiradas do stub de FRLG (registro, para não colidir)
+
+Flag de Kanto não é "livre por padrão": `include/constants/flags.h` só inclui
+`flags_frlg.h` dentro de `#if IS_FRLG`, e nesta build `IS_FRLG` é 0. No ramo
+`#else` as 532 flags de Kanto viram o literal **0**, e `GetFlagPointer(0)`
+devolve `NULL`. Consequência medida: `setflag` é no-op, `FlagGet` é sempre
+`FALSE`, e todo objeto de Kanto escondido por flag **nasce sempre**, às vezes em
+cima do caminho do jogador.
+
+Quem precisar de uma dessas flags tira ela do stub, uma a uma, apontando para um
+`FLAG_UNUSED_*` sem dono, e **registra aqui**.
+
+| Flag | Número | Quem tirou do stub | Por quê |
+|---|---|---|---|
+| `FLAG_HIDE_OAK_IN_HIS_LAB` | `FLAG_UNUSED_0x1DE` | abertura de Pallet, 05/08/2026 | o Oak tem que estar fora do laboratório até o jogador ser parado na saída norte |
+| `FLAG_HIDE_OAK_IN_PALLET_TOWN` | `FLAG_UNUSED_0x1DF` | abertura de Pallet, 05/08/2026 | com a flag em 0 ele nascia em (10,8) e **trancava a fileira 8**, o único caminho da casa até a rota 1 |
+
+Sobram `FLAG_UNUSED_0x1E0` a `0x1E3` nesse bloco. A abertura de Pallet gastou
+**zero var**: `VAR_MAP_SCENE_PALLET_TOWN_OAK` e
+`VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB` já existem em `vars_frlg.h`.
+
+Cuidado que fica de aviso: essas duas vars de FRLG são `0x4050` e `0x4055`, que
+em `vars.h` são `VAR_LITTLEROOT_TOWN_STATE` e `VAR_VERDANTURF_TOWN_STATE`. A
+segunda está marcada como não usada, mas a **primeira é de Hoenn e é usada**: a
+cena do Oak em Pallet Town e o estado de Littleroot escrevem no mesmo lugar.
+Não atrapalha a abertura de Kanto, mas quem for ligar a chegada em Hoenn precisa
+resolver isso antes.
