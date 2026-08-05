@@ -188,7 +188,13 @@ def main():
     base = os.path.join(REPO, "data/maps")
     for nome in sorted(os.listdir(base)):
         # ponytail: "_Frlg" e mapa de Kanto que casa com o prefixo Route2 sem ser de Sinnoh
-        if nome.endswith("_Frlg") or not (
+        # ponytail: ate 05/08/2026 isto so olhava prefixo de Sinnoh (mais os 8
+        # ginasios de Johto), entao os 103 mapas de Johto e os 17 da Galactica
+        # nunca foram verificados por ninguem. Agora varre TUDO que nao seja de
+        # FRLG; --so-sinnoh volta ao comportamento antigo.
+        if nome.endswith("_Frlg"):
+            continue
+        if "--so-sinnoh" in sys.argv and not (
                 any(nome.startswith(p) for p in PREFIXOS_SINNOH) or nome in GINASIOS_JOHTO):
             continue
         caminho = os.path.join(base, nome, "map.json")
