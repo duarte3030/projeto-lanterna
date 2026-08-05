@@ -1781,7 +1781,6 @@
 #define TRAINER_UNOVA_YOUNGSTER_R2                           2147
 // <<< treinadores de rota de Unova (gerado) <<<
 
-#define TRAINERS_COUNT_EMERALD     1380
 
 // ponytail: TRAINERS_COUNT nao e "quantos treinadores existem", e o TAMANHO do
 // array: include/data.h declara gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT], e
