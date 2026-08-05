@@ -14,9 +14,16 @@ src/field_control_avatar.c chama `IsWarpMetatileBehavior`). Warp em cima de
 MB_NORMAL e decoracao: o jogador pisa e nada acontece.
 
 Medido em 05/08/2026: dos 771 warps de Johto, **12 disparavam**. Os tres warps
-de Olivine (farol, ginasio e loja) estao todos em comportamento 0, MB_NORMAL.
-Causa: os layouts de Johto declaram tileset de Sinnoh, entao o id de metatile
-que veio da fonte de Johto resolve para outro tile na tabela de Sinnoh.
+de Olivine (farol, ginasio e loja) estavam todos em comportamento 0, MB_NORMAL.
+Causa: os layouts de Johto declaravam tileset de Sinnoh, entao o id de metatile
+que veio da fonte de Johto resolvia para outro tile na tabela de Sinnoh.
+Consertado por dev_scripts/importa_tilesets_johto.py; Johto foi a 701 (90,9%).
+
+Placar depois de o corte primario/secundario passar a sair da constante do motor
+e nao do tamanho do arquivo (ver a QUARTA ARMADILHA la embaixo):
+    Hoenn 91,0%   Johto 90,9%   Sinnoh 86,0%   Unova 78,6%   Kanto 69,9%
+Os numeros antigos de Hoenn (49,3%), Sinnoh (70,8%) e Unova (39,4%) eram desta
+ferramenta mentindo, nao do jogo.
 
 Terceira vez nesta sessao que a mesma familia de erro aparece: o validador
 conferia uma camada mais rasa que a da afirmacao. "O warp existe" nao e "o warp
@@ -161,8 +168,21 @@ def main():
                 falta = lay.get("primary_tileset") if prim is None else lay.get("secondary_tileset")
                 mudos.append((m, f"tileset {falta} sem pasta"))
                 continue
-            # o corte primario/secundario e o tamanho do proprio primario
-            corte = n_prim or 512
+            # QUARTA ARMADILHA, medida em 05/08/2026. O corte primario/secundario
+            # NAO e o tamanho do arquivo do primario: e a CONSTANTE que o motor
+            # usa, `GetNumMetatilesInPrimary` (src/fieldmap.c), 512 no Emerald e
+            # 640 no ramo grande (FRLG e Johto). Os dois so coincidem quando o
+            # primario esta cheio.
+            #
+            # `gTileset_Building` tem 8 metatiles no arquivo, e e o primario de
+            # quase todo interior de Hoenn. Com o corte tirado do arquivo, o
+            # metatile 513 virava indice 505 do secundario em vez de indice 1, e
+            # o validador acusava "alem da tabela". Eram 723 dos 769 warps que
+            # Hoenn aparecia devendo: o jogo estava certo, a medicao e que estava
+            # errada. Ler o tamanho do arquivo parecia mais seguro que cravar um
+            # numero, e era justamente o contrario.
+            versao = lay.get("layout_version", "")
+            corte = 640 if versao in ("frlg", "johto") else 512
             ruins = []
             for i, wp in enumerate(warps):
                 x, y = wp.get("x", 0), wp.get("y", 0)
@@ -219,6 +239,10 @@ def demo():
     # 640 nos tilesets de Johto e de FRLG
     assert tabela_de_atributos("gTileset_JohtoGeneral")[1] == 640
     assert tabela_de_atributos("gTileset_GeneralSinnoh")[1] == 512
+    # ...mas o corte NAO sai desse numero. gTileset_Building tem 8 metatiles no
+    # arquivo e e primario de quase todo interior de Hoenn: o motor continua
+    # cortando em 512. Confundir os dois custou 723 falsos positivos.
+    assert tabela_de_atributos("gTileset_Building")[1] < 512
     print("demo ok")
 
 
