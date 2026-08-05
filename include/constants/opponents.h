@@ -1817,7 +1817,20 @@
 // em 13388 de 15872. Nao e escasso desde que 16 bases secretas foram devolvidas;
 // racionar aqui seria repetir o erro que quase deixou Kanto com o ginasio de
 // Pewter entregando um montanhista de Hoenn.
-#define MAX_TRAINERS_COUNT_EMERALD 2400
+// Subido de 2400 para 3000 em 05/08/2026, para os treinadores de rota de Johto.
+//
+// Johto tinha 69 treinadores contra 474 de Kanto e 361 de Unova: a regiao veio
+// inteira de fonte, com mapas, warps e ginasios, mas as rotas ficaram vazias.
+// Os ~300 que faltam vem do hns, a mesma fonte de onde vieram os mapas.
+//
+// Custo medido: 600 vagas = 600 flags = 75 bytes de SaveBlock1, que esta em
+// 13412 de 15872. Subi com folga de proposito, para nao ter que subir de novo:
+// cada mudanca aqui invalida save, e a janela em que isso e de graca fecha
+// quando o Gui receber a primeira build que ele va jogar.
+//
+// Faixas em uso hoje: Kanto 1400-1799 e 2200-2273, Unova 1367-1379 e 1800-2147.
+// Johto entra em 2274-2599, e sobra 2600-2999 para o que vier.
+#define MAX_TRAINERS_COUNT_EMERALD 3000
 
 #if IS_FRLG
 #define TRAINERS_COUNT                      TRAINERS_COUNT_FRLG
