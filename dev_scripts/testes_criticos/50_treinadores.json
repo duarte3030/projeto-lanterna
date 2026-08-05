@@ -35,13 +35,13 @@
   },
   {
     "id": "T12.4",
-    "nome": "SEGUNDA FAIXA DE KANTO: o Jerome da Rota 21 Sul abre batalha com id acima de 2200, que só existe porque MAX_TRAINERS_COUNT_EMERALD subiu para 2400. Prova que id acima do teto antigo não vira TRAINER_NONE em SanitizeTrainerId nem estoura o array. A flag 0xDA0 é a de treinador derrotado do Roland (0x500 + 2208), que fica no caminho com MOVEMENT_TYPE_WANDER_AROUND e intercepta antes",
-    "flags": ["0xDA0"],
-    "warp": "MAP_ROUTE21_SOUTH",
-    "roteiro": "16:DOWN*14,300:NADA",
+    "nome": "SEGUNDA FAIXA DE KANTO: a Irene da Rota 20 abre batalha com o id 2200, o primeiro da faixa que só existe porque MAX_TRAINERS_COUNT_EMERALD subiu para 2400. Prova que id acima do teto antigo não vira TRAINER_NONE no SanitizeTrainerId nem estoura o gTrainers. O caso é ela e não um vizinho por um motivo: NENHUM treinador que anda pode virar caso. Quem tem WANDER, WALK_SEQUENCE ou até FACE_LEFT_AND_RIGHT muda a linha de visão entre uma rodada e outra, então o caso passa sozinho e falha no meio da bateria, o que é pior que caso vermelho, porque ensina a ignorar vermelho. A primeira versão deste caso era o Jerome da Rota 21 Sul e falhou por isso: acender a flag de derrotado do Roland não resolve, porque um NPC que anda pode estar em qualquer lugar quando o roteiro passa. A Irene é FACE_LEFT, posição e direção fixas, o warp 1 cai a UM passo da linha de visão dela, e o NPC móvel mais próximo está a treze tiles",
+    "warp": "MAP_ROUTE20",
+    "warp_id": 1,
+    "roteiro": "16:DOWN*3,300:NADA",
     "prova": {
-      "mapa": "MAP_ROUTE21_SOUTH",
-      "oponente": "TRAINER_SWIMMER_MALE_JEROME",
+      "mapa": "MAP_ROUTE20",
+      "oponente": "TRAINER_PICNICKER_IRENE",
       "oponente_faixa": [2200, 2399]
     }
   }
