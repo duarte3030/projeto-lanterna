@@ -82,6 +82,18 @@ static const struct MenuAction MultichoiceList_BrineyOffDewford[] =
     {gText_Exit},
 };
 
+// Os cinco destinos do barco que liga as regioes. A ordem aqui e a ordem dos
+// `case` nos quatro portos; mudar a ordem exige mudar os quatro.
+static const struct MenuAction MultichoiceList_CincoRegioesBarco[] =
+{
+    {COMPOUND_STRING("OLIVINE")},
+    {COMPOUND_STRING("SLATEPORT")},
+    {COMPOUND_STRING("VERMILION")},
+    {COMPOUND_STRING("VIRBANK")},
+    {COMPOUND_STRING("CANALAVE")},
+    {gText_Exit},
+};
+
 static const struct MenuAction MultichoiceList_ViewedPaintings[] =
 {
     {COMPOUND_STRING("Saw it")},
@@ -1150,6 +1162,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_BIKE]                       = MULTICHOICE(MultichoiceList_Bike),
     [MULTI_STATUS_INFO]                = MULTICHOICE(MultichoiceList_StatusInfo),
     [MULTI_BRINEY_OFF_DEWFORD]         = MULTICHOICE(MultichoiceList_BrineyOffDewford),
+    [MULTI_CINCO_REGIOES_BARCO]        = MULTICHOICE(MultichoiceList_CincoRegioesBarco),
     [MULTI_UNUSED_15]                  = MULTICHOICE(MultichoiceList_Exit),
     [MULTI_VIEWED_PAINTINGS]           = MULTICHOICE(MultichoiceList_ViewedPaintings),
     [MULTI_YESNOINFO]                  = MULTICHOICE(MultichoiceList_YesNoInfo),

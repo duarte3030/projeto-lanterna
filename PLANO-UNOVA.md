@@ -72,3 +72,40 @@ pelas cidades grandes. Mapa primeiro, arte quando couber.
 **Galar fica fora desta ROM.** A ROM do autor já usa 30,2 de 32 MB só com Galar,
 e lá o custo real é arte, não mapa. Se um dia entrar, é ROM separada, e o caminho
 certo é falar com o Phantonomy antes.
+
+---
+
+## Estado em 05/08/2026: a região entrou
+
+Feito por `dev_scripts/importa_unova.py` (roda de novo e regenera tudo do zero,
+é determinístico). Medido nesta sessão, não estimado:
+
+| item | número | como conferi |
+|---|---|---|
+| mapas | **291** | `ls data/maps/Unova_* \| wc -l` |
+| geometria e colisão | **152.388 metatiles, 0 errados** | releitura do `map.bin` gravado contra o `.ablk` da fonte |
+| warps | 1067, **0 quebrados** | `valida_conectividade.py` |
+| placas, NPCs, textos | 175, 1061, 944 | saída do import |
+| Pokecenters que curam, lojas | 18, 18 | `jumpstd pokecenternurse` e `scalingmart` |
+| tabelas de selvagem | 87 | `wild_encounters.json` |
+| ROM | 85,62% (era 84,25%) | saída do `make`, +452 KB |
+| flags gastas | **0** | ver `SEM_FLAG` no import |
+| save | compatível | `guarda_save.py` |
+
+### O que ficou de fora, e por quê
+
+1. **334 item balls e 133 itens escondidos.** Cada um exige uma flag própria
+   (senão o item renasce a cada entrada no mapa). São 467 flags, e o pool
+   `FLAG_UNUSED_*` inteiro tem 251. Criar número de flag novo cresce `flags[]`
+   dentro do SaveBlock1 e invalida save. **Precisa de decisão do dono** sobre
+   orçamento de flag antes de entrar.
+2. **209 `coord_event`** (gatilhos de cena). Cada um é uma cutscene do enredo do
+   BW3G; portar exige traduzir o bytecode de script de gen 2, que é trabalho
+   diferente de geometria.
+3. **361 treinadores** entraram como NPC que fala o texto de "ao ser visto", sem
+   batalha. Batalha exige entrada em `trainers.party` e time montado.
+4. **365 NPCs mudos**: script de gen 2 que não é `jumptextfaceplayer`, `writetext`
+   nem `trainer` (troca, elevador, estante, estátua de ginásio).
+5. **Elevadores**: 7 warps apagados de propósito. No gen 2 o elevador não tem
+   warp de volta, quem decide o destino é o painel; convertido ao pé da letra o
+   jogador entrava e não saía.

@@ -274,8 +274,9 @@ SlateportCity_Harbor_EventScript_SailorNoAbnormalWeather::
 	multichoice 0, 0, MULTI_BOAT_DESTINATIONS, FALSE
 	switch VAR_RESULT
 	case 0, SlateportCity_Harbor_EventScript_SailToOlivine
-	case 1, SlateportCity_Harbor_EventScript_SailToVermilion
-	case 2, SlateportCity_Harbor_EventScript_SailToCanalave
+	case 2, SlateportCity_Harbor_EventScript_SailToVermilion
+	case 3, SlateportCity_Harbor_EventScript_SailToVirbank
+	case 4, SlateportCity_Harbor_EventScript_SailToCanalave
 	msgbox SlateportCity_Harbor_Text_ComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -580,3 +581,13 @@ SlateportCity_Harbor_Text_HandedScannerToStern:
 SlateportCity_Harbor_Text_ThisWillHelpResearch:
 	.string "CAPT. STERN: Thanks, {PLAYER}{KUN}!\n"
 	.string "This will help our research a lot!$"
+
+SlateportCity_Harbor_EventScript_SailToVirbank::
+	msgbox SlateportCity_Harbor_Text_SettingSailToVirbank, MSGBOX_DEFAULT
+	closemessage
+	warpsilent MAP_UNOVA_VIRBANK_PORT, 4, 6
+	release
+	end
+
+SlateportCity_Harbor_Text_SettingSailToVirbank:
+	.string "Zarpando para Virbank City em Unova!$"

@@ -32,6 +32,14 @@ import sys
 
 CRYSTAL = "/tmp/claude-501/pcrystal"
 
+# Fonte corrente. O caminho do pokecrystal continua sendo o padrao; quem converte
+# outro projeto pokecrystal (o BW3G, em /tmp/bw3g-probe, cujos blocos sao .ablk)
+# so troca estas duas variaveis antes de chamar `converte`. Medido em 05/08/2026:
+# o .ablk e byte por bloco igual ao .blk, 198 dos 200 mapas com blocos proprios
+# batem exato com `map_const NOME, w, h`.
+FONTE = CRYSTAL
+EXT = ".blk"
+
 # Colisão do gen 2 -> classe. O gen 2 tem dezenas de nomes; o que importa para
 # jogabilidade é andável, bloqueado, água, grama, e os especiais que mudam o
 # comportamento (escada, balcão, warp).
@@ -61,7 +69,7 @@ def classe_de(nome):
 
 def dimensoes(nome_mapa):
     """(largura, altura) em BLOCOS, lidas da constante, não adivinhadas."""
-    texto = open(os.path.join(CRYSTAL, "constants/map_constants.asm")).read()
+    texto = open(os.path.join(FONTE, "constants/map_constants.asm")).read()
     # NomeDoMapa -> NOME_DO_MAPA. Separar SO minuscula->maiuscula: incluir digito
     # na regra transforma "B1F" em "B1_F" e nada casa. Este erro apareceu tres
     # vezes nesta sessao, em tres scripts diferentes.
@@ -80,7 +88,7 @@ def tileset_do_mapa(nome_mapa):
     `map Nome, TILESET_X, ...`. Usar o arquivo errado faz a colisao sair como
     ruido, e o mapa parece convertido mas e lixo.
     """
-    texto = open(os.path.join(CRYSTAL, "data/maps/maps.asm")).read()
+    texto = open(os.path.join(FONTE, "data/maps/maps.asm")).read()
     m = re.search(rf"^\s*map\s+{nome_mapa},\s*TILESET_(\w+),", texto, re.M)
     if not m:
         raise SystemExit(f"nao achei o tileset de {nome_mapa} em maps.asm")
@@ -90,7 +98,7 @@ def tileset_do_mapa(nome_mapa):
 def colisao_do_tileset(arquivo_collision):
     """bloco -> (q_cima_esq, q_cima_dir, q_baixo_esq, q_baixo_dir) em classes."""
     tabela = {}
-    caminho = os.path.join(CRYSTAL, "data/tilesets", arquivo_collision)
+    caminho = os.path.join(FONTE, "data/tilesets", arquivo_collision)
     for linha in open(caminho):
         m = re.match(r"\s*tilecoll\s+(\w+),\s*(\w+),\s*(\w+),\s*(\w+)\s*;\s*([0-9a-fA-F]+)", linha)
         if m:
@@ -104,13 +112,13 @@ def metatile_gen3(classe, paleta):
     return paleta.get(classe, paleta["parede"])
 
 
-def converte(nome_mapa, paleta, arquivo_collision=None):
-    """Devolve (largura_metatiles, altura_metatiles, bytes do map.bin)."""
-    lb, hb = dimensoes(nome_mapa)
-    blocos = open(os.path.join(CRYSTAL, "maps", nome_mapa + ".blk"), "rb").read()
-    if len(blocos) != lb * hb:
-        raise SystemExit(f"{nome_mapa}: .blk tem {len(blocos)} bytes, constante diz {lb}x{hb}={lb*hb}")
-    tab = colisao_do_tileset(arquivo_collision or tileset_do_mapa(nome_mapa))
+def converte_blocos(blocos, lb, hb, tab, paleta):
+    """O nucleo: blocos crus + dimensoes + tabela de colisao -> bytes do map.bin.
+
+    Separado de `converte` porque o importador da Unova ja tem os blocos em mao
+    (varios mapas do BW3G COMPARTILHAM o mesmo .ablk, entao o nome do mapa nao
+    serve para achar o arquivo) e ja sabe as dimensoes.
+    """
     lm, hm = lb * 2, hb * 2
     saida = bytearray(lm * hm * 2)
     for by in range(hb):
@@ -122,6 +130,16 @@ def converte(nome_mapa, paleta, arquivo_collision=None):
                 # formato do pokeemerald: 10 bits de metatile, 2 de colisao, 4 de elevacao
                 struct.pack_into("<H", saida, (y * lm + x) * 2, (mt & 0x3FF) | ((col & 3) << 10))
     return lm, hm, bytes(saida)
+
+
+def converte(nome_mapa, paleta, arquivo_collision=None):
+    """Devolve (largura_metatiles, altura_metatiles, bytes do map.bin)."""
+    lb, hb = dimensoes(nome_mapa)
+    blocos = open(os.path.join(FONTE, "maps", nome_mapa + EXT), "rb").read()
+    if len(blocos) != lb * hb:
+        raise SystemExit(f"{nome_mapa}: {EXT} tem {len(blocos)} bytes, constante diz {lb}x{hb}={lb*hb}")
+    tab = colisao_do_tileset(arquivo_collision or tileset_do_mapa(nome_mapa))
+    return converte_blocos(blocos, lb, hb, tab, paleta)
 
 
 # Paleta provisória: metatiles do tileset que os interiores de Johto já usam.

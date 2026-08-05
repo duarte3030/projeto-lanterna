@@ -317,7 +317,8 @@ VermilionCity_EventScript_InternationalFerry::
 	switch VAR_RESULT
 	case 0, VermilionCity_EventScript_SailToOlivine
 	case 1, VermilionCity_EventScript_SailToSlateport
-	case 2, VermilionCity_EventScript_SailToCanalave
+	case 3, VermilionCity_EventScript_SailToVirbank
+	case 4, VermilionCity_EventScript_SailToCanalave
 	msgbox VermilionCity_Text_ComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -446,3 +447,12 @@ VermilionCity_Text_Route2AideHasPackageForYou::
 	.string "If you're in the ROUTE 2 area,\n"
 	.string "please look for him.$"
 
+VermilionCity_EventScript_SailToVirbank::
+	msgbox VermilionCity_Text_SettingSailToVirbank, MSGBOX_DEFAULT
+	closemessage
+	warpsilent MAP_UNOVA_VIRBANK_PORT, 4, 6
+	release
+	end
+
+VermilionCity_Text_SettingSailToVirbank:
+	.string "Zarpando para Virbank City em Unova!$"

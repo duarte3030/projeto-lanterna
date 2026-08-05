@@ -1,0 +1,35 @@
+{
+  "id": "MAP_UNOVA_FERRY_RIGHT",
+  "name": "Unova_FerryRight",
+  "layout": "LAYOUT_UNOVA_FERRY_RIGHT",
+  "music": "MUS_CABLE_CAR",
+  "region_map_section": "MAPSEC_UNOVA_VIRBANK_CITY",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [],
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 0,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_CASTELIA_PORT",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 17,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_VIRBANK_PORT",
+      "dest_warp_id": "2"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

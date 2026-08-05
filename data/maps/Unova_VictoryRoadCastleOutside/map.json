@@ -1,0 +1,35 @@
+{
+  "id": "MAP_UNOVA_VICTORY_ROAD_CASTLE_OUTSIDE",
+  "name": "Unova_VictoryRoadCastleOutside",
+  "layout": "LAYOUT_UNOVA_VICTORY_ROAD_CASTLE_OUTSIDE",
+  "music": "MUS_VICTORY_ROAD",
+  "region_map_section": "MAPSEC_UNOVA_VICTORY_ROAD",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [],
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 3,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_VICTORY_ROAD_OUTDOOR_2F",
+      "dest_warp_id": "8"
+    },
+    {
+      "x": 18,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_NS_ROOM",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

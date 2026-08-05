@@ -1,0 +1,49 @@
+{
+  "id": "MAP_UNOVA_DRAGONSPIRAL_TOWER_OUTSIDE",
+  "name": "Unova_DragonspiralTowerOutside",
+  "layout": "LAYOUT_UNOVA_DRAGONSPIRAL_TOWER_OUTSIDE",
+  "music": "MUS_MT_PYRE",
+  "region_map_section": "MAPSEC_UNOVA_DRAGONSPIRAL_TOWER",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [],
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 6,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_ICIRRUS_CITY_NORTH",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 7,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_ICIRRUS_CITY_NORTH",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 6,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_DRAGONSPIRAL_TOWER_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_DRAGONSPIRAL_TOWER_1F",
+      "dest_warp_id": "1"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

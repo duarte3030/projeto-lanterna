@@ -1,0 +1,138 @@
+{
+  "id": "MAP_UNOVA_TWIST_MOUNTAIN_2F",
+  "name": "Unova_TwistMountain2F",
+  "layout": "LAYOUT_UNOVA_TWIST_MOUNTAIN_2F",
+  "music": "MUS_VICTORY_ROAD",
+  "region_map_section": "MAPSEC_UNOVA_TWIST_MOUNTAIN",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M",
+      "x": 29,
+      "y": 26,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_TwistMountain2F_EventScript_Npc3",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+      "x": 4,
+      "y": 9,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_TwistMountain2F_EventScript_Npc4",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",
+      "x": 5,
+      "y": 20,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_TwistMountain2F_EventScript_Npc5",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 37,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_TWIST_MOUNTAIN_1F",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 5,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_TWIST_MOUNTAIN_1F",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 17,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_TWIST_MOUNTAIN_3F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 31,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_TWIST_MOUNTAIN_3F",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 5,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_TWIST_MOUNTAIN_OUTSIDE",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 13,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_TWIST_MOUNTAIN_OUTSIDE",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 37,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_TWIST_MOUNTAIN_OUTSIDE",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 15,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_TWIST_MOUNTAIN_OUTSIDE",
+      "dest_warp_id": "7"
+    },
+    {
+      "x": 17,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_TWIST_MOUNTAIN_OUTSIDE",
+      "dest_warp_id": "8"
+    },
+    {
+      "x": 25,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_TWIST_MOUNTAIN_OUTSIDE",
+      "dest_warp_id": "9"
+    },
+    {
+      "x": 31,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_TWIST_MOUNTAIN_GENESECT_ROOM",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}
