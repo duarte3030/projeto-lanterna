@@ -104,10 +104,63 @@ def carrega_mapas():
     return por_nome, por_id
 
 
-def carrega_flags():
-    caminho = os.path.join(RAIZ, "include", "constants", "flags.h")
-    padrao = re.compile(r"^#define\s+(FLAG_[A-Z0-9_]+)\s+(0[xX][0-9A-Fa-f]+|\d+)\s*$", re.M)
-    return {n: int(v, 0) for n, v in padrao.findall(open(caminho).read())}
+_FLAGS_CACHE = {}
+
+
+def carrega_flags(src=None):
+    """Nome de flag -> número, resolvido pelo PRÉ-PROCESSADOR, não por regex.
+
+    A primeira versão lia só `#define FLAG_X 0x123` cru, e isso resolvia 1301
+    dos 2377 defines: ficavam de fora `(TEMP_FLAGS_START + 0x1)`, os apelidos
+    (`FLAG_A FLAG_UNUSED_0x0AB`) e qualquer linha com comentário no fim. O
+    agente de Johto teve que escrever hexadecimal cru nos casos por causa disso.
+    Regex não avalia expressão de C; o `cpp` avalia. Aqui ele faz o trabalho.
+    """
+    src = src or RAIZ
+    if src in _FLAGS_CACHE:
+        return _FLAGS_CACHE[src]
+    caminho = os.path.join(src, "include", "constants", "flags.h")
+    nomes = sorted(set(re.findall(r"^#define\s+(FLAG_[A-Z0-9_]+)\b", open(caminho).read(), re.M)))
+    tmp = "/tmp/claude-501/frenteA/offsets"
+    os.makedirs(tmp, exist_ok=True)
+    fonte = os.path.join(tmp, "flags.c")
+    with open(fonte, "w") as f:
+        f.write('#include "constants/flags.h"\n')
+        for n in nomes:
+            # o nome vai como STRING: dentro de @@X@@ o cpp expandia o próprio
+            # nome e o rótulo sumia. String literal não é macro-expandida.
+            f.write(f'"{n}" {n}\n')
+    r = subprocess.run(["cc", "-E", "-P", "-iquote", "include", "-DMODERN=1",
+                        "-DTESTING=0", "-DEMERALD", fonte],
+                       cwd=src, capture_output=True, text=True)
+    tabela = {}
+    for linha in r.stdout.splitlines():
+        m = re.match(r'^"(FLAG_[A-Z0-9_]+)"\s+(.+?)\s*$', linha)
+        if not m:
+            continue
+        expr = m.group(2)
+        # depois do cpp sobra só aritmética; recusa qualquer coisa que não seja
+        # número e operador, para não virar eval de código arbitrário
+        if not re.fullmatch(r"[0-9a-fA-FxX()+\-*/<>|&~^ ]+", expr):
+            continue
+        try:
+            tabela[m.group(1)] = int(eval(expr, {"__builtins__": {}}, {}))  # noqa: S307
+        except Exception:                                                   # noqa: BLE001
+            continue
+    # O cpp resolve as expressões, o regex resolve os `#define FLAG_X 0x123`
+    # crus. Nenhum dos dois pega tudo: ~270 flags saem do cpp ainda com
+    # identificador dentro (dependem de enum, que o pré-processador não conhece).
+    # Por isso os dois SOMAM, com o cpp por cima, em vez de um substituir o
+    # outro. A primeira versão substituía, e um limiar de 90% jogava fora as 1678
+    # que o cpp acertava para ficar com as 1332 do regex.
+    padrao = re.compile(r"^#define\s+(FLAG_[A-Z0-9_]+)\s+(0[xX][0-9A-Fa-f]+|\d+)", re.M)
+    final = {n: int(v, 0) for n, v in padrao.findall(open(caminho).read())}
+    final.update(tabela)
+    if r.returncode != 0:
+        print(f"AVISO: cpp falhou em {caminho}, só o regex valeu. "
+              f"stderr: {r.stderr[-200:]}")
+    _FLAGS_CACHE[src] = final
+    return final
 
 
 def carrega_layouts():
