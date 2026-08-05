@@ -51,6 +51,39 @@ já aceitou para o demake de Galar. Ver pergunta 70.
 
 ## 2. Estado medido hoje
 
+> **Medição de 05/08/2026, fim da segunda noite.** A tabela original desta seção
+> ficou abaixo como registro do ponto de partida; ela NÃO vale mais. Números de
+> agora, todos por comando (`ESTADO.md` tem a versão completa):
+>
+> | medida | valor |
+> |---|---|
+> | ROM | 31.476.792 B = **93,81% de 32 MB** (1,98 MB livres) |
+> | mapas | **1616** |
+> | treinadores com time próprio | **2346** |
+> | grupos de mapa que carregam | **101 de 101** |
+> | flags livres no pool | **184** |
+>
+> Completude contra a fonte de cada região (`dev_scripts/completude.py`),
+> 100% = tão completo quanto o jogo de origem:
+>
+> | região | mapas | objetos | warps | placas |
+> |---|---|---|---|---|
+> | Kanto | 98,1% | 100,1% | 100,0% | 100,0% |
+> | Johto | 63,6% | 93,9% | 100,0% | 96,0% |
+> | Hoenn | 100,0% | 100,1% | 100,0% | 100,0% |
+> | Sinnoh | **25,6%** | 88,0% | **61,8%** | 107,6% |
+> | Unova | 94,2% | 98,5% | 98,9% | 76,9% |
+>
+> Hoenn é o controle: nossa Hoenn é o vanilla intocado, então tem que dar 100%.
+>
+> **O "aperto de ROM" que este documento anunciou não existia.** Os 93 KB de
+> margem eram até uma linha de 95% inventada como aviso, não até o teto de
+> 32 MB. Unova completa cabe, o resto de Sinnoh cabe.
+>
+> **Sinnoh é o que sobrou de grande, e é caro:** os 455 mapas que faltam existem
+> só no `pokeplatinum`, em formato de DS. O `fontes-mapas/sinnoh`, que é GBA e
+> seria barato, tem 133 mapas próprios de Sinnoh e **os 133 já estão na ROM**.
+
 Build limpo, último commit de conteúdo `755f50cc7c`.
 
 | medida | valor | comando |
