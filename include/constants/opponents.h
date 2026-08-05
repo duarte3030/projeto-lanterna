@@ -1338,8 +1338,31 @@
 #define TRAINER_SINNOH_GALACTIC_BOSS_CYRUS_SPEAR_PILLAR         1314
 #define TRAINER_SINNOH_COMMANDER_SATURN_GALACTIC_HQ             1315
 
-#define TRAINERS_COUNT_EMERALD     1316
-#define MAX_TRAINERS_COUNT_EMERALD 1330
+// ponytail: Equipe Rocket de Johto, portada de fontes-mapas/hns.
+// Times em src/data/trainers.party (acervo em trainers_johto.party).
+#define TRAINER_JOHTO_ROCKET_GRUNT_WELL_1                       1316
+#define TRAINER_JOHTO_ROCKET_GRUNT_WELL_2                       1317
+#define TRAINER_JOHTO_ROCKET_ETO                                1318
+#define TRAINER_JOHTO_ROCKET_PROTON                             1319
+#define TRAINER_JOHTO_ROCKET_GRUNT_RADIO_1F                     1320
+#define TRAINER_JOHTO_ROCKET_GRUNT_RADIO_2F_1                   1321
+#define TRAINER_JOHTO_ROCKET_GRUNT_RADIO_2F_2                   1322
+#define TRAINER_JOHTO_ROCKET_GRUNT_RADIO_3F_1                   1323
+#define TRAINER_JOHTO_ROCKET_GRUNT_RADIO_3F_2                   1324
+#define TRAINER_JOHTO_ROCKET_PROTON_RADIO_4F                    1325
+#define TRAINER_JOHTO_ROCKET_PETREL                             1326
+#define TRAINER_JOHTO_ROCKET_ARIANA                             1327
+#define TRAINER_JOHTO_ROCKET_ARCHER                             1328
+
+// ponytail: sobra UMA vaga (1329) ate MAX_TRAINERS_COUNT_EMERALD. Quem for
+// portar mais historia de Johto precisa subir o MAX antes, e subir o MAX mexe
+// no tamanho do saveblock.
+#define TRAINERS_COUNT_EMERALD     1329
+// ponytail: teto elevado em 05/08/2026. Estava em 1330 com 1329 em uso, ou seja,
+// UMA vaga sobrando no jogo inteiro, e a historia de Johto ja tinha deixado 7
+// Rockets de fora por falta de vaga. Cada vaga custa 1 bit de flag de treinador
+// no saveblock; 1400 da folga sem chegar perto do limite de flags.
+#define MAX_TRAINERS_COUNT_EMERALD 1400
 
 #if IS_FRLG
 #define TRAINERS_COUNT                      TRAINERS_COUNT_FRLG

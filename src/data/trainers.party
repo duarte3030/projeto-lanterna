@@ -25273,3 +25273,346 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Revenge
 - Poison Jab
 - Faint Attack
+
+/* ponytail: Equipe Rocket do Slowpoke Well (Azalea), portada de
+   fontes-mapas/hns: sParty_Grunt21, sParty_Grunt22, sParty_Eto e sParty_Grunt
+   (o time do PROTON_1). Sem golpe listado porque no hns eles usam
+   NO_ITEM_DEFAULT_MOVES. Classe e pic sao os de Kanto (FRLG), que esta build
+   compila fora de #if. */
+
+=== TRAINER_JOHTO_ROCKET_GRUNT_WELL_1 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_RATTATA
+Level: 9
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RATTATA
+Level: 11
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ROCKET_GRUNT_WELL_2 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_RATTATA
+Level: 9
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ZUBAT
+Level: 9
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ROCKET_ETO ===
+Name: Eto
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_ELEKID
+Level: 11
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAGBY
+Level: 11
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SMOOCHUM
+Level: 11
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ROCKET_PROTON ===
+Name: Proton
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_KOFFING
+Level: 12
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SLOWPOKE
+Level: 13
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_HOUNDOUR
+Level: 15
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+/* ponytail: Equipe Rocket da Torre Radio de Goldenrod, portada de
+   fontes-mapas/hns (sParty_Grunt2, Grunt3, Grunt5, Grunt6, Grunt7, Proton2,
+   Petrel_2, Ariana2 e Archer_2). Os grunts sem golpe listado usam
+   NO_ITEM_DEFAULT_MOVES no hns. */
+
+=== TRAINER_JOHTO_ROCKET_GRUNT_RADIO_1F ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_RATICATE
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RATICATE
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RATICATE
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ROCKET_GRUNT_RADIO_2F_1 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_WEEZING
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MUK
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ROCKET_GRUNT_RADIO_2F_2 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_GLIGAR
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_HYPNO
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ROCKET_GRUNT_RADIO_3F_1 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_AIPOM
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MURKROW
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FORRETRESS
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ROCKET_GRUNT_RADIO_3F_2 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_MUK
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_VENOMOTH
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ROCKET_PROTON_RADIO_4F ===
+Name: Proton
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Items: ITEM_FULL_RESTORE / ITEM_FULL_RESTORE
+Gender: Male
+Double Battle: No
+
+SPECIES_MUK
+Level: 36
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_SLUDGE_BOMB
+- MOVE_POUND
+- MOVE_ACID_ARMOR
+- MOVE_MINIMIZE
+
+SPECIES_NIDOQUEEN
+Level: 37
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_SLUDGE_BOMB
+- MOVE_DOUBLE_KICK
+- MOVE_THUNDER_PUNCH
+- MOVE_BODY_SLAM
+
+SPECIES_WEEZING
+Level: 36
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_SLUDGE_BOMB
+- MOVE_SELF_DESTRUCT
+- MOVE_HAZE
+- MOVE_TACKLE
+
+SPECIES_NIDOKING
+Level: 37
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_SLUDGE_BOMB
+- MOVE_DOUBLE_KICK
+- MOVE_ICE_PUNCH
+- MOVE_THRASH
+
+SPECIES_RHYDON
+Level: 38
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_EARTHQUAKE
+- MOVE_SURF
+- MOVE_FISSURE
+- MOVE_ROCK_SLIDE
+
+=== TRAINER_JOHTO_ROCKET_PETREL ===
+Name: Petrel
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_FORRETRESS
+Level: 38
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_PIN_MISSILE
+- MOVE_EXPLOSION
+- MOVE_SPIKES
+- MOVE_SPIKE_CANNON
+
+SPECIES_PUPITAR
+Level: 38
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_ROCK_SLIDE
+- MOVE_SCREECH
+- MOVE_BITE
+- MOVE_THRASH
+
+SPECIES_MAGCARGO
+Level: 39
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_SMOG
+- MOVE_FLAMETHROWER
+- MOVE_ROCK_SLIDE
+- MOVE_CURSE
+
+SPECIES_CLOYSTER
+Level: 38
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_ICE_BEAM
+- MOVE_CLAMP
+- MOVE_SPIKE_CANNON
+- MOVE_SURF
+
+=== TRAINER_JOHTO_ROCKET_ARIANA ===
+Name: Ariana
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_ARBOK
+Level: 39
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_SCREECH
+- MOVE_BITE
+- MOVE_GLARE
+- MOVE_SLUDGE_BOMB
+
+SPECIES_PERSIAN
+Level: 40
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_BITE
+- MOVE_SCREECH
+- MOVE_CHARM
+- MOVE_SLASH
+
+SPECIES_VILEPLUME
+Level: 39
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_SLEEP_POWDER
+- MOVE_SLUDGE_BOMB
+- MOVE_STUN_SPORE
+- MOVE_GIGA_DRAIN
+
+SPECIES_GYARADOS
+Level: 40
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_STRENGTH
+- MOVE_TWISTER
+- MOVE_GUST
+- MOVE_SURF
+
+SPECIES_MURKROW
+Level: 40
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_PURSUIT
+- MOVE_TOXIC
+- MOVE_FAINT_ATTACK
+- MOVE_FLY
+
+=== TRAINER_JOHTO_ROCKET_ARCHER ===
+Name: Archer
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_PORYGON_Z
+Level: 39
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_TRI_ATTACK
+- MOVE_ZAP_CANNON
+- MOVE_FLAMETHROWER
+- MOVE_ICE_BEAM
+
+SPECIES_TAUROS
+Level: 38
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_HEADBUTT
+- MOVE_ROCK_SMASH
+- MOVE_PURSUIT
+- MOVE_FRUSTRATION
+
+SPECIES_GYARADOS
+Level: 39
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_BITE
+- MOVE_STRENGTH
+- MOVE_GUST
+- MOVE_SURF
+
+SPECIES_HOUNDOOM
+Level: 38
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_BITE
+- MOVE_SMOG
+- MOVE_ROAR
+- MOVE_FLAMETHROWER
+
+SPECIES_SLOWBRO
+Level: 40
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_CONFUSION
+- MOVE_CURSE
+- MOVE_AMNESIA
+- MOVE_SURF

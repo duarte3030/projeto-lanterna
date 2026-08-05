@@ -2491,6 +2491,22 @@
 #define FLAG_INSIGNIA_JOHTO_7  FLAG_UNUSED_0x036  // Pryce,   Mahogany Town
 #define FLAG_INSIGNIA_JOHTO_8  FLAG_UNUSED_0x037  // Clair,   Blackthorn City
 
+// ponytail: pendencias da Galactica que so davam para fechar com flag (item 3 e 4
+// de PENDENCIAS-GALACTICA.md). Zero var. RESERVADAS, ver SINNOH-PADRAO.md.
+#define FLAG_GALACTICA_ETERNA          FLAG_UNUSED_0x038  // vencer a Jupiter some com os grunts da rua de Eterna
+#define FLAG_GALACTICA_LAKE_TRIO_FREED FLAG_UNUSED_0x039  // o botao do QG ja soltou Uxie, Mesprit e Azelf
+#define FLAG_CAUGHT_DIALGA             FLAG_UNUSED_0x03A  // a fenda do tempo do Spear Pillar ja foi resolvida
+#define FLAG_CAUGHT_PALKIA             FLAG_UNUSED_0x03B  // a fenda do espaco do Spear Pillar ja foi resolvida
+#define FLAG_GALACTICA_QG_CHAVE        FLAG_UNUSED_0x03C  // recebeu a Galactic Key: some com os dois guardas de porta do QG
+
+// Historia da Equipe Rocket em Johto, portada do hns em 05/08/2026. Flag, e nao
+// var: o hns guarda tudo em VAR_<CIDADE>_STATE, e sobram ~22 vars no jogo inteiro
+// para quatro regioes. Cada cena aqui pergunta "ja aconteceu?" com uma flag.
+#define FLAG_HIDE_AZALEA_TOWN_ROCKETS            FLAG_UNUSED_0x03D  // Rocket expulsa do Slowpoke Well
+#define FLAG_HIDE_GOLDENROD_ROCKETS              FLAG_UNUSED_0x03E  // Rocket expulsa de Goldenrod
+#define FLAG_HIDE_GOLDENROD_RADIO_TOWER_1F_ROCKET FLAG_UNUSED_0x03F // Torre Radio retomada
+#define FLAG_ENABLE_RADIO                        FLAG_UNUSED_0x040  // radio liberado depois da Torre
+
 #ifndef FLAG_NIGHT_POKEMON
 #define FLAG_NIGHT_POKEMON 0x4000
 #endif

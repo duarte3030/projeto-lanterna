@@ -10,6 +10,19 @@
 #include "tv.h"
 #include "constants/heal_locations.h"
 
+// ponytail: para onde o "Continue" cai depois dos creditos. HEAL_LOCATION_NONE
+// quer dizer "usa o padrao de Hoenn", que e o que os dois Halls da Fama antigos
+// esperam. O Hall da Fama de Sinnoh chama SetGameClearHealLocation com
+// VAR_0x8004 logo antes de GameClear, senao o jogador terminaria a liga de
+// Sinnoh e acordaria no quarto dele em Littleroot. Vale para uma chamada so:
+// GameClear zera de volta depois de usar.
+static u8 sGameClearHealLocation = HEAL_LOCATION_NONE;
+
+void SetGameClearHealLocation(void)
+{
+    sGameClearHealLocation = gSpecialVar_0x8004;
+}
+
 int GameClear(void)
 {
     int i;
@@ -36,10 +49,14 @@ int GameClear(void)
 
     SetContinueGameWarpStatus();
 
-    if (gSaveBlock2Ptr->playerGender == MALE)
+    if (sGameClearHealLocation != HEAL_LOCATION_NONE)
+        SetContinueGameWarpToHealLocation(sGameClearHealLocation);
+    else if (gSaveBlock2Ptr->playerGender == MALE)
         SetContinueGameWarpToHealLocation(HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F);
     else
         SetContinueGameWarpToHealLocation(HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE_2F);
+
+    sGameClearHealLocation = HEAL_LOCATION_NONE;
 
     ribbonGet = FALSE;
 

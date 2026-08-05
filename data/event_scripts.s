@@ -670,6 +670,7 @@ gStdScripts_End::
 	.include "data/maps/SinnohLeague_FlintsRoom/scripts.inc"
 	.include "data/maps/SinnohLeague_LuciansRoom/scripts.inc"
 	.include "data/maps/SinnohLeague_ChampionsRoom/scripts.inc"
+	.include "data/maps/SinnohLeague_HallOfFame/scripts.inc"
 	.include "data/maps/GalacticHQ_1F/scripts.inc"
 	.include "data/maps/GalacticHQ_2F/scripts.inc"
 	.include "data/maps/GalacticHQ_3F/scripts.inc"

@@ -245,7 +245,12 @@ def main():
                     alterou = True
 
         for ev in objs + d.get("bg_events", []):
-            if ev.get("script") and ev["script"] not in ("0", "NULL") and ev["script"] + "::" not in scripts_txt:
+            # ponytail: "0", "0x0" e "NULL" querem dizer "objeto sem script", que e
+            # normal. Contar isso como rotulo faltando gerou 765 falsos positivos
+            # na primeira varredura do jogo inteiro, e chegou a assustar um agente.
+            SEM_SCRIPT = ("0", "0x0", "0X0", "NULL", "null")
+            if ev.get("script") and str(ev["script"]) not in SEM_SCRIPT \
+                    and ev["script"] + "::" not in scripts_txt:
                 total["script"] += 1
                 print(f"  {nome}: script {ev['script']} NAO existe no scripts.inc")
 

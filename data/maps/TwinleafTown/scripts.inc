@@ -16,10 +16,19 @@ TwinleafTown_EventScript_Guitarist::
 	release
 	end
 
+@ Barry. Antes do inicial ele e quem manda o jogador para SANDGEM; depois,
+@ ele ja foi embora e so provoca. Falas do Platinum, twinleaf_town.json e
+@ twinleaf_town_player_house_2f.json.
 TwinleafTown_EventScript_Rival::
 	lock
 	faceplayer
+	goto_if_set FLAG_SYS_POKEMON_GET, TwinleafTown_EventScript_RivalAfter
 	msgbox TwinleafTown_Text_Rival, MSGBOX_DEFAULT
+	release
+	end
+
+TwinleafTown_EventScript_RivalAfter::
+	msgbox TwinleafTown_Text_RivalAfter, MSGBOX_DEFAULT
 	release
 	end
 
@@ -42,9 +51,25 @@ TwinleafTown_Text_Guitarist:
 	.string "and then they gradually grow up...$"
 
 TwinleafTown_Text_Rival:
-	.string "You're finally up!\p"
-	.string "Come on, we're going to see the\n"
-	.string "PROFESSOR. Try to keep up!$"
+	.string "Hey, {PLAYER}!\p"
+	.string "Did you just see the TV?\n"
+	.string "Sure you did!\p"
+	.string "PROF. ROWAN's that really important\n"
+	.string "guy who studies POKéMON, right?\p"
+	.string "That means he must have lots and\n"
+	.string "lots of POKéMON.\p"
+	.string "So, if we ask him, I bet he'd give\n"
+	.string "us some POKéMON!\p"
+	.string "We're going to go see PROF. ROWAN\n"
+	.string "in SANDGEM TOWN, north of here.\p"
+	.string "OK, {PLAYER}? If you're late, I'm\n"
+	.string "fining you ¥10 million!$"
+
+TwinleafTown_Text_RivalAfter:
+	.string "How do you like that?\n"
+	.string "PROF. ROWAN's really nice.\p"
+	.string "On TV, he seems so stern and\n"
+	.string "scary.$"
 
 TwinleafTown_Text_Collector:
 	.string "This town is small, but the air here\n"

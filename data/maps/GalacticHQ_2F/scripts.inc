@@ -1,9 +1,42 @@
 @ QG da Galactica, 2F: alojamento dos grunts.
 @ Texto de pret/pokeplatinum, res/text/galactic_hq_2f.json.
 @ Layout emprestado do Centro Espacial de Mossdeep. Warps sao os do mapa de Hoenn.
+@
+@ ponytail: a Galactic Key entrou aqui, e ela e a unica porta do QG inteiro. A
+@ chave esta numa Poke Ball do dormitorio (2,8) e o grunt de (13,2) fica em cima
+@ do unico tile que da acesso a porta do 3F, entao ninguem sobe sem pegar a
+@ chave primeiro. Quem some com os dois guardas (aqui e no 3F) e a mesma
+@ FLAG_GALACTICA_QG_CHAVE, que a propria Poke Ball liga: `finditem` acende a flag
+@ do objeto de onde o item saiu. Zero var, e nenhuma porta precisou de coord_event.
 
 GalacticHQ_2F_MapScripts::
 	.byte 0
+
+@ O guarda sai andando na hora em que o jogador mostra a chave. Sem isto ele so
+@ sumiria na proxima entrada no mapa, porque o campo "flag" do objeto so e lido
+@ quando o mapa carrega.
+GalacticHQ_2F_EventScript_DoorGrunt::
+	lock
+	faceplayer
+	checkitem ITEM_GALACTIC_KEY
+	goto_if_eq VAR_RESULT, FALSE, GalacticHQ_2F_EventScript_DoorGruntNoKey
+	msgbox GalacticHQ_2F_Text_WhereDidYouGetThatKey, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_GALACTIC_HQ_2F_DOOR_GRUNT, GalacticHQ_2F_Movement_StepAside
+	waitmovement 0
+	removeobject LOCALID_GALACTIC_HQ_2F_DOOR_GRUNT
+	release
+	end
+
+GalacticHQ_2F_EventScript_DoorGruntNoKey::
+	msgbox GalacticHQ_2F_Text_NobodyGoesUpWithoutTheKey, MSGBOX_DEFAULT
+	release
+	end
+
+GalacticHQ_2F_Movement_StepAside:
+	walk_down
+	walk_down
+	step_end
 
 GalacticHQ_2F_EventScript_Grunt1::
 	trainerbattle_single TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_2F_1, GalacticHQ_2F_Text_Grunt1Intro, GalacticHQ_2F_Text_Grunt1Defeat
@@ -38,6 +71,19 @@ GalacticHQ_2F_EventScript_Report::
 	msgbox GalacticHQ_2F_Text_PutReportBack, MSGBOX_DEFAULT
 	releaseall
 	end
+
+GalacticHQ_2F_Text_NobodyGoesUpWithoutTheKey:
+	.string "Hold it right there.\p"
+	.string "The stairs to the third floor stay\n"
+	.string "locked, and nobody walks past me\l"
+	.string "without the Galactic Key.$"
+
+GalacticHQ_2F_Text_WhereDidYouGetThatKey:
+	.string "Hold it right there. Nobody walks\n"
+	.string "past me without the...\p"
+	.string "...the Galactic Key.\p"
+	.string "Where did you get that?\n"
+	.string "Fine. Fine! Go on up, then.$"
 
 GalacticHQ_2F_Text_Grunt1Intro:
 	.string "This is the Team Galactic nap\n"

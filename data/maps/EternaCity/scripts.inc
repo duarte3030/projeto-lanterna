@@ -3,7 +3,21 @@
 @ flag de historia (FLAG_HIDE_ETERNA_CITY_*), que este agente nao pode inventar.
 
 EternaCity_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, EternaCity_OnTransition
 	.byte 0
+
+@ ponytail: os tres grunts da rua somem depois da Jupiter, igual Jubilife faz com
+@ FLAG_GALACTICA_JUBILIFE. A cena da Jupiter mora em outro mapa (o 4F do predio),
+@ que nao e desta tarefa, entao quem liga a flag e este ON_TRANSITION: ele le a
+@ flag de derrota que o jogo ja grava e traduz para FLAG_GALACTICA_ETERNA, que e
+@ o campo "flag" dos tres objetos. Zero var.
+EternaCity_OnTransition:
+	call_if_defeated TRAINER_SINNOH_COMMANDER_JUPITER_ETERNA_BUILDING, EternaCity_EventScript_HideGalacticGrunts
+	end
+
+EternaCity_EventScript_HideGalacticGrunts::
+	setflag FLAG_GALACTICA_ETERNA
+	return
 
 EternaCity_EventScript_BreederM::
 	msgbox EternaCity_Text_BreederM, MSGBOX_NPC

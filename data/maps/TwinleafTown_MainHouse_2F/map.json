@@ -32,6 +32,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "TwinleafTown_MainHouse_2F_EventScript_PC"
+    },
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "TwinleafTown_MainHouse_2F_EventScript_TV"
     }
   ]
 }

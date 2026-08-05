@@ -46,27 +46,28 @@ Platinum: Kadabra 34, Bronzor 34, Toxicroak 36) e trocar a chamada. As três
 consultas `goto_if_defeated` do mesmo arquivo, e as duas de
 `GalacticHQ_1F/scripts.inc`, passam a apontar para a constante nova.
 
-## 3. Flags que fariam a cena parar de se repetir
+## 3. ~~Flags que fariam a cena parar de se repetir~~ FEITO em 04/08/2026
 
-Nada disso quebra o jogo, mas deixa cena repetível. Nenhuma foi criada porque
-`include/constants/flags.h` estava com outro agente.
+As quatro flags foram criadas (0x38 a 0x3B) e estão registradas em
+`SINNOH-PADRAO.md`. Detalhe:
 
-| Flag sugerida | O que resolve | Arquivo |
-|---|---|---|
-| `FLAG_GALACTICA_LAKE_TRIO_FREED` | hoje o botão que solta Uxie/Mesprit/Azelf pode ser apertado quantas vezes o jogador quiser; a mensagem de "já apertou" é decidida pela flag de derrota do Saturn | `data/maps/GalacticHQ_ControlRoom/scripts.inc` |
-| `FLAG_CAUGHT_DIALGA` / `FLAG_CAUGHT_PALKIA` | os encontros nas fendas do Spear Pillar são repetíveis: sem flag, `setwildbattle`+`dowildbattle` roda de novo toda vez que se fala com a fenda | `data/maps/SpearPillar_Dialga/scripts.inc`, `data/maps/SpearPillar_Palkia/scripts.inc` |
-| `FLAG_GALACTICA_ETERNA` | esconder os três grunts da rua de Eterna depois da Jupiter, como Jubilife já faz com `FLAG_GALACTICA_JUBILIFE` | `data/maps/EternaCity/scripts.inc` |
+| Flag | O que resolve |
+|---|---|
+| `FLAG_GALACTICA_LAKE_TRIO_FREED` (0x39) | o botão solta os três Pokémon uma vez só; depois responde que o console está morto |
+| `FLAG_CAUGHT_DIALGA` (0x3A) / `FLAG_CAUGHT_PALKIA` (0x3B) | a fenda fecha em vitória ou captura. Fuga, derrota e teleporte deixam a fenda aberta de propósito, senão uma Poké Ball errada apagaria o lendário do save |
+| `FLAG_GALACTICA_ETERNA` (0x38) | os três grunts da rua de Eterna somem depois da Jupiter. Quem liga a flag é um `ON_TRANSITION` novo em `EternaCity/scripts.inc`, que lê a flag de derrota da Jupiter, porque a cena dela mora no 4F do prédio (mapa de outro dono) |
 
-## 4. Itens-chave que ficaram de fora
+## 4. ~~Itens-chave que ficaram de fora~~ FEITO em 04/08/2026
 
-Nenhum item novo foi criado (exigiria flag de "já peguei" e entrada em
-`include/constants/items.h`).
+- **Galactic Key**: `ITEM_GALACTIC_KEY` (id 874) existe, está numa Poké Ball em
+  `GalacticHQ_2F` (2,8), e dois guardas com `FLAG_GALACTICA_QG_CHAVE` (0x3C) ficam
+  em cima do único tile de acesso às escadas de (13,1) no 2F e de (3,1) no 3F.
+- **Storage Key**: reusa `ITEM_STORAGE_KEY` (a de Hoenn, mesmo nome). O Looker
+  entrega a chave, e a porta enferrujada agora exige o item.
+- **HM Fly**: entregue pela porta enferrujada, marcada por `FLAG_RECEIVED_HM_FLY`,
+  que já existia e ninguém lia.
 
-- **Galactic Key**: no Platinum destranca as portas do 3F e do B2F do QG. Aqui as
-  portas estão abertas e os grunts continuam com a fala original sobre a chave.
-- **Storage Key** e a **HM Fly** do armazém de Veilstone: o Looker abre a porta
-  na fala, sem item, e a HM não é entregue.
-  Arquivo: `data/maps/VeilstoneCity_GalacticWarehouse/scripts.inc`.
+Tudo detalhado em `SINNOH-PADRAO.md`.
 
 ## 5. Bug pré-existente que NÃO foi tocado (é de outro dono)
 
@@ -97,3 +98,10 @@ Motivo de warp não disparar: `src/field_control_avatar.c`,
 - **Escada do Mt Coronet para o Spear Pillar** (`MtCoronet_1F_North_Room2`, tile
   (15,3)) está sempre aberta. Trancar até a hora certa da história pediria flag
   ou var.
+
+## 7. Hall da Fama de Sinnoh: FEITO em 04/08/2026
+
+`MAP_SINNOH_LEAGUE_HALL_OF_FAME` existe. Vencer a Cynthia leva o jogador para lá,
+o time é registrado e o "Continue" pós-créditos cai em Sandgem Town, não em
+Littleroot. Precisou de um special novo (`SetGameClearHealLocation`), porque
+`GameClear` cravava a volta em Hoenn. Ver `SINNOH-PADRAO.md`.

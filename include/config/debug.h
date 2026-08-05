@@ -5,7 +5,9 @@
 // ponytail: modo de montagem. Jogo novo cai direto no mapa, sem professor, sem
 // escolha de genero, sem nome, sem cutscene da mae. So enquanto o hack esta
 // sendo montado; deixe FALSE antes de qualquer versao jogavel.
-#define DEV_SKIP_INTRO                  TRUE
+// FALSE desde 05/08/2026: a abertura de Sinnoh (quarto em Twinleaf -> mae ->
+// Barry -> Rota 201 -> laboratorio do Rowan em Sandgem) ja existe e e jogavel.
+#define DEV_SKIP_INTRO                  FALSE
 #define DEV_START_X                     7  // posicao no mapa de partida
 #define DEV_START_Y                     6
 #define DEV_START_MAP                   MAP_OREBURGH_CITY_POKEMON_CENTER_1F // para onde o jogo novo warpa

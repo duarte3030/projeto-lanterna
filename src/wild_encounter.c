@@ -650,6 +650,15 @@ bool8 StandardWildEncounter(u16 curMetatileBehavior, u16 prevMetatileBehavior)
     if (sWildEncountersDisabled == TRUE)
         return FALSE;
 
+    // ponytail: sem nenhum Pokemon no time nao existe batalha possivel; deixar
+    // passar trava o jogo. Em Hoenn isso nunca acontecia porque a historia so
+    // solta o jogador no mato depois do inicial. Em Sinnoh a Rota 201 fica
+    // entre a casa do jogador e o laboratorio do Rowan, entao da para pisar na
+    // grama antes de ter time. Guarda unica, no ponto por onde todo encontro
+    // aleatorio de grama e agua passa.
+    if (gPartiesCount[B_TRAINER_PLAYER] == 0)
+        return FALSE;
+
     headerId = GetCurrentMapWildMonHeaderId();
     if (headerId == HEADER_NONE)
     {

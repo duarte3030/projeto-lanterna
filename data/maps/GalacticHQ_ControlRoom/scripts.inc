@@ -3,12 +3,11 @@
 @ Texto de pret/pokeplatinum, res/text/galactic_hq_control_room.json.
 @ Layout emprestado do Centro Espacial de Mossdeep, 2F.
 @
-@ ponytail: "o botao ja foi apertado" NAO usa flag nova. Quem responde e a flag
-@ de treinador do Saturn, que o jogo grava de graca: enquanto ele nao cair, as
-@ maquinas dizem que os Pokemon estao presos e o botao nao obedece; depois da
-@ derrota dele, o botao solta os tres e as maquinas passam a falar no passado.
-@ Efeito colateral aceito: o botao pode ser apertado de novo. Uma flag propria
-@ (FLAG_GALACTICA_LAKE_TRIO_FREED) resolveria, e esta em PENDENCIAS-GALACTICA.md.
+@ ponytail: quem decide se as maquinas ainda estao cheias continua sendo a flag
+@ de treinador do Saturn, que o jogo grava de graca. O botao, esse sim, ganhou
+@ FLAG_GALACTICA_LAKE_TRIO_FREED: sem ela dava para soltar os tres Pokemon
+@ quantas vezes o jogador quisesse. Agora solta uma vez, e depois responde que o
+@ console esta morto.
 @
 @ Saturn reusa TRAINER_SINNOH_COMMANDER_SATURN_GALACTIC_HQ, que ja existe. Se o
 @ jogador tiver batido nele em Valor Cavern antes, esta cena ja nasce vencida.
@@ -44,6 +43,7 @@ GalacticHQ_ControlRoom_EventScript_CharonAfter::
 
 GalacticHQ_ControlRoom_EventScript_Button::
 	lockall
+	goto_if_set FLAG_GALACTICA_LAKE_TRIO_FREED, GalacticHQ_ControlRoom_EventScript_ButtonSpent
 	goto_if_defeated TRAINER_SINNOH_COMMANDER_SATURN_GALACTIC_HQ, GalacticHQ_ControlRoom_EventScript_PressButton
 	msgbox GalacticHQ_ControlRoom_Text_AskPressButton, MSGBOX_DEFAULT
 	msgbox GalacticHQ_ControlRoom_Text_AlreadyPressedButton, MSGBOX_DEFAULT
@@ -53,6 +53,12 @@ GalacticHQ_ControlRoom_EventScript_Button::
 GalacticHQ_ControlRoom_EventScript_PressButton::
 	msgbox GalacticHQ_ControlRoom_Text_AskPressButton, MSGBOX_DEFAULT
 	msgbox GalacticHQ_ControlRoom_Text_PlayerPressedButton, MSGBOX_DEFAULT
+	setflag FLAG_GALACTICA_LAKE_TRIO_FREED
+	releaseall
+	end
+
+GalacticHQ_ControlRoom_EventScript_ButtonSpent::
+	msgbox GalacticHQ_ControlRoom_Text_ButtonIsDead, MSGBOX_DEFAULT
 	releaseall
 	end
 
@@ -182,6 +188,11 @@ GalacticHQ_ControlRoom_Text_AskPressButton:
 GalacticHQ_ControlRoom_Text_PlayerPressedButton:
 	.string "{PLAYER} pressed the button and\n"
 	.string "set the Pokémon free.$"
+
+GalacticHQ_ControlRoom_Text_ButtonIsDead:
+	.string "The machines stand open and empty.\p"
+	.string "The button clicks, and nothing\n"
+	.string "answers it.$"
 
 GalacticHQ_ControlRoom_Text_AlreadyPressedButton:
 	.string "The button does not respond.\n"

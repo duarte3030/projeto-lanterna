@@ -1,9 +1,14 @@
+@ Abertura de Sinnoh. Os simbolos continuam com o nome gText_Birch_* porque
+@ src/main_menu.c os chama por nome; so o texto mudou, para as falas do
+@ Professor Rowan em Pokemon Platinum (res/text/rowan_intro.json, pokeplatinum).
+
 gText_Birch_Welcome::
-	.string "Hi! Sorry to keep you waiting!\p"
+	.string "Hello there!\p"
+	.string "It's so very nice to meet you!\p"
 	.string "Welcome to the world of POKéMON!\p"
-	.string "My name is BIRCH.\p"
-	.string "But everyone calls me the POKéMON\n"
-	.string "PROFESSOR.\p"
+	.string "My name is ROWAN.\p"
+	.string "However, everyone just calls me\n"
+	.string "the POKéMON PROFESSOR.\p"
 	.string "$"
 
 gText_Birch_Pokemon::
@@ -14,48 +19,48 @@ gText_Birch_Pokemon::
 gText_Birch_MainSpeech::
 	.string "This world is widely inhabited by\n"
 	.string "creatures known as POKéMON.\p"
-	.string "We humans live alongside POKéMON,\n"
-	.string "at times as friendly playmates, and\l"
-	.string "at times as cooperative workmates.\p"
-	.string "And sometimes, we band together\n"
-	.string "and battle others like us.\p"
-	.string "But despite our closeness, we don't\n"
-	.string "know everything about POKéMON.\p"
-	.string "In fact, there are many, many\n"
-	.string "secrets surrounding POKéMON.\p"
-	.string "To unravel POKéMON mysteries,\n"
-	.string "I've been undertaking research.\l"
-	.string "That's what I do.\p"
+	.string "We humans live alongside POKéMON\n"
+	.string "as friends.\p"
+	.string "At times we play together, and at\n"
+	.string "other times we work together.\p"
+	.string "Some people use their POKéMON to\n"
+	.string "battle and develop closer bonds\l"
+	.string "with them.\p"
+	.string "What do I do?\p"
+	.string "I conduct research so that we may\n"
+	.string "learn more about POKéMON.\p"
 	.string "$"
 
 gText_Birch_AndYouAre::
-	.string "And you are?$"
+	.string "Now, why don't you tell me a\n"
+	.string "little bit about yourself?$"
 
 gText_Birch_BoyOrGirl::
 	.string "Are you a boy?\n"
 	.string "Or are you a girl?$"
 
 gText_Birch_WhatsYourName::
-	.string "All right.\n"
-	.string "What's your name?$"
+	.string "Tell me, what is your name?$"
 
 gText_Birch_SoItsPlayer::
-	.string "So it's {PLAYER}{KUN}?$"
+	.string "Your name is {PLAYER}{KUN}?$"
 
 gText_Birch_YourePlayer::
-	.string "Ah, okay!\p"
-	.string "You're {PLAYER}{KUN} who's moving to my\n"
-	.string "hometown of LITTLEROOT.\l"
-	.string "I get it now!\p"
+	.string "OK...\p"
+	.string "So, you're {PLAYER}{KUN}?\p"
+	.string "A fine name that is!\p"
 	.string "$"
 
 gText_Birch_AreYouReady::
-	.string "All right, are you ready?\p"
-	.string "Your very own adventure is about\n"
-	.string "to unfold.\p"
-	.string "Take courage, and leap into the\n"
-	.string "world of POKéMON where dreams,\l"
-	.string "adventure, and friendships await!\p"
-	.string "Well, I'll be expecting you later.\n"
-	.string "Come see me in my POKéMON LAB.\p"
+	.string "All right, {PLAYER}{KUN}, the time\n"
+	.string "has come.\p"
+	.string "Your very own tale of grand\n"
+	.string "adventure is about to unfold.\p"
+	.string "On your journey, you will meet\n"
+	.string "countless POKéMON and people.\p"
+	.string "I'm sure that along the way you\n"
+	.string "will discover many things, perhaps\l"
+	.string "even something about yourself.\p"
+	.string "Now, go on, leap into the world of\n"
+	.string "POKéMON!\p"
 	.string "$"

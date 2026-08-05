@@ -15832,6 +15832,26 @@ const struct ItemInfo gItemsInfo[] =
         .iconPic = gItemIcon_PokeshiDoll,
         .iconPalette = gItemIconPalette_PokeshiDoll,
     },
+
+    // ponytail: chave do QG da Galactica, em Veilstone. Icone e paleta emprestados
+    // da Basement Key: e a mesma arte de chave velha, e desenhar um icone novo nao
+    // muda nada no jogo. A Storage Key do armazem NAO virou item novo: a de Hoenn
+    // (ITEM_STORAGE_KEY) ja existe com esse nome exato e faz o mesmo servico.
+    [ITEM_GALACTIC_KEY] =
+    {
+        .name = ITEM_NAME("Galactic Key"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Unlocks the doors\n"
+            "inside Team Galac-\n"
+            "tic's Veilstone HQ."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_BasementKey,
+        .iconPalette = gItemIconPalette_OldKey,
+    },
 };
 
 #undef ITEM_NAME

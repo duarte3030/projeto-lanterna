@@ -154,7 +154,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "EternaCity_EventScript_GalacticGrunt1",
-      "flag": "0"
+      "flag": "FLAG_GALACTICA_ETERNA"
     },
     {
       "local_id": "LOCALID_ETERNA_GALACTIC_GRUNT_2",
@@ -168,7 +168,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "EternaCity_EventScript_GalacticGrunt2",
-      "flag": "0"
+      "flag": "FLAG_GALACTICA_ETERNA"
     },
     {
       "local_id": "LOCALID_ETERNA_GALACTIC_GRUNT_3",
@@ -182,7 +182,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EternaCity_EventScript_GalacticGrunt3",
-      "flag": "0"
+      "flag": "FLAG_GALACTICA_ETERNA"
     }
   ],
   "warp_events": [

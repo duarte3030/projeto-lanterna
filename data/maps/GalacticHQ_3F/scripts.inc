@@ -2,10 +2,11 @@
 @ Texto de pret/pokeplatinum, res/text/galactic_hq_3f.json.
 @ Layout emprestado do estaleiro do Stern, em Slateport.
 @
-@ ponytail: no Platinum a porta do fundo exige a Galactic Key. Item-chave novo e
-@ flag nova estao fora do escopo desta tarefa, entao a porta esta aberta e o
-@ grunt que a guarda continua com a fala original sobre a chave. A pendencia
-@ esta em PENDENCIAS-GALACTICA.md.
+@ ponytail: no Platinum a porta do fundo exige a Galactic Key, e agora exige aqui
+@ tambem. O KeyGrunt saiu de (4,2), onde so falava, para (3,2), que e o unico
+@ tile de acesso a escada de (3,1) para os subsolos. Mostrar ITEM_GALACTIC_KEY
+@ faz ele sair da frente; FLAG_GALACTICA_QG_CHAVE (a mesma que a Poke Ball do 2F
+@ liga) impede que ele volte. Chave unica para as duas portas, como no original.
 
 GalacticHQ_3F_MapScripts::
 	.byte 0
@@ -31,8 +32,27 @@ GalacticHQ_3F_EventScript_Grunt4::
 	end
 
 GalacticHQ_3F_EventScript_KeyGrunt::
-	msgbox GalacticHQ_3F_Text_DoorsOpenWithSpecialKey, MSGBOX_NPC
+	lock
+	faceplayer
+	checkitem ITEM_GALACTIC_KEY
+	goto_if_eq VAR_RESULT, FALSE, GalacticHQ_3F_EventScript_KeyGruntNoKey
+	msgbox GalacticHQ_3F_Text_SoTheKeyIsGone, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_GALACTIC_HQ_3F_KEY_GRUNT, GalacticHQ_3F_Movement_StepAside
+	waitmovement 0
+	removeobject LOCALID_GALACTIC_HQ_3F_KEY_GRUNT
+	release
 	end
+
+GalacticHQ_3F_EventScript_KeyGruntNoKey::
+	msgbox GalacticHQ_3F_Text_DoorsOpenWithSpecialKey, MSGBOX_DEFAULT
+	release
+	end
+
+GalacticHQ_3F_Movement_StepAside:
+	walk_right
+	walk_right
+	step_end
 
 GalacticHQ_3F_EventScript_Credo::
 	msgbox GalacticHQ_3F_Text_TeamGalacticCredo, MSGBOX_SIGN
@@ -81,6 +101,13 @@ GalacticHQ_3F_Text_DoorsOpenWithSpecialKey:
 	.string "Now, if I was a comedy relief sort\n"
 	.string "of bad guy, I'd tell you...\p"
 	.string "But I really don't know!$"
+
+GalacticHQ_3F_Text_SoTheKeyIsGone:
+	.string "These doors only open with a\n"
+	.string "special key, and...\p"
+	.string "...and you are holding it.\p"
+	.string "How? Who let a kid get hold of\n"
+	.string "the Galactic Key?$"
 
 GalacticHQ_3F_Text_TeamGalacticCredo:
 	.string "The Team Galactic credo!\n"

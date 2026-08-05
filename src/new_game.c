@@ -150,7 +150,9 @@ static void WarpToTruck(void)
     if (IS_FRLG)
         SetWarpDestination(MAP_GROUP(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), MAP_NUM(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), WARP_ID_NONE, 6, 6);
     else
-        SetWarpDestination(MAP_GROUP(MAP_INSIDE_OF_TRUCK), MAP_NUM(MAP_INSIDE_OF_TRUCK), WARP_ID_NONE, -1, -1);
+        // Sinnoh: o jogo comeca no quarto do jogador, em Twinleaf Town. Nao ha
+        // mudanca nem caminhao aqui; Platinum abre com o jogador ja em casa.
+        SetWarpDestination(MAP_GROUP(MAP_TWINLEAF_TOWN_MAIN_HOUSE_2F), MAP_NUM(MAP_TWINLEAF_TOWN_MAIN_HOUSE_2F), WARP_ID_NONE, 4, 3);
 #endif
     WarpIntoMap();
 }
@@ -252,10 +254,13 @@ void NewGameInitData(void)
     // script do evento que libera cada um.
     FlagSet(B_FLAG_DYNAMAX_BATTLE);
     FlagSet(B_FLAG_TERA_ORB_CHARGED);
+    // Ponto de cura inicial de Sinnoh. Sem isto, desmaiar manda o jogador para
+    // a casa da mae em Hoenn, que e o padrao do Emerald. Sandgem e o primeiro
+    // Centro Pokemon que o jogador alcanca, e onde fica o laboratorio do Rowan.
+    SetLastHealLocationWarp(HEAL_LOCATION_SANDGEM_TOWN);
 #if DEV_SKIP_INTRO
-    // ponytail: sem introducao ninguem recebe inicial nem define ponto de cura.
-    // Sem time nao da para testar batalha, e ao desmaiar o jogo mandava o
-    // jogador para a casa da mae em Hoenn, que e o padrao do Emerald.
+    // ponytail: sem introducao ninguem recebe inicial. Sem time nao da para
+    // testar batalha.
     SetLastHealLocationWarp(HEAL_LOCATION_OREBURGH_CITY);
     {
         static const enum Species timeDeTeste[] = {

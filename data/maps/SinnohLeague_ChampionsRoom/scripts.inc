@@ -1,9 +1,10 @@
 @ Sala da campea Cynthia. Layout emprestado da sala do campeao de Hoenn.
 @
-@ ponytail: a porta do fundo NAO abre. Ela leva ao Hall da Fama de Hoenn, que
-@ dispara creditos e devolve o jogador para Littleroot. Enquanto Sinnoh nao
-@ tiver Hall da Fama proprio, vencer a Cynthia liga FLAG_ELITE_SINNOH_VENCIDA
-@ (a unica reservada para isto em SINNOH-PADRAO.md) e o jogador volta andando.
+@ ponytail: Sinnoh agora tem Hall da Fama proprio
+@ (MAP_SINNOH_LEAGUE_HALL_OF_FAME), entao a cena termina la e nao no de Hoenn.
+@ A porta do fundo continua NAO sendo warp, de proposito: quem leva o jogador
+@ para dentro e o `warp` da derrota da Cynthia. Porta de verdade deixaria entrar
+@ antes de bater nela, e um par de warp a mais para quebrar.
 
 SinnohLeague_ChampionsRoom_MapScripts::
 	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, SinnohLeague_ChampionsRoom_OnWarp
@@ -32,6 +33,9 @@ SinnohLeague_ChampionsRoom_EventScript_Defeated::
 	playfanfare MUS_OBTAIN_BADGE
 	msgbox SinnohLeague_ChampionsRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT
 	waitfanfare
+	closemessage
+	warp MAP_SINNOH_LEAGUE_HALL_OF_FAME, 7, 12
+	waitstate
 	release
 	end
 

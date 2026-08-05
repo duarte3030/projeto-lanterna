@@ -293,6 +293,9 @@ gSpecials::
 	def_special LookThroughPorthole, waitstate=1
 	def_special DoSoftReset
 	def_special GameClear, waitstate=1
+	@ Sinnoh: VAR_0x8004 = heal location para onde o "Continue" volta depois dos
+	@ creditos. Chamar logo antes de GameClear. Ver SINNOH-PADRAO.md.
+	def_special SetGameClearHealLocation
 	def_special MoveElevator, waitstate=1
 	def_special ShowGlassWorkshopMenu
 	def_special SpawnCameraObject

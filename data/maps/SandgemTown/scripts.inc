@@ -55,10 +55,15 @@ SandgemTown_Text_BreederF:
 	.string "The PROFESSOR studies POKéMON\n"
 	.string "evolution. Fascinating stuff!$"
 
+@ Fala do Platinum, sandgem_town.json (SandgemTown_Text_RowansComeBack). Este
+@ NPC era um segundo ROWAN na rua, com o sprite do professor, enquanto o ROWAN
+@ de verdade esta no laboratorio; virou morador comentando a volta dele.
 SandgemTown_Text_Professor:
-	.string "Ah, a new face in SANDGEM!\p"
-	.string "If you ever want to know more about\n"
-	.string "POKéMON, my lab is always open.$"
+	.string "PROFESSOR ROWAN's come back to town!\p"
+	.string "It must be, like, four years since\n"
+	.string "he left.\p"
+	.string "They say he was doing his research\n"
+	.string "somewhere else all this time.$"
 
 SandgemTown_Text_Rival:
 	.string "Hey! You're heading to the lab too?\p"

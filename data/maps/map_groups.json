@@ -1643,7 +1643,8 @@
     "SinnohLeague_BerthasRoom",
     "SinnohLeague_FlintsRoom",
     "SinnohLeague_LuciansRoom",
-    "SinnohLeague_ChampionsRoom"
+    "SinnohLeague_ChampionsRoom",
+    "SinnohLeague_HallOfFame"
   ],
   "gMapGroup_TeamGalactic": [
     "GalacticHQ_1F",

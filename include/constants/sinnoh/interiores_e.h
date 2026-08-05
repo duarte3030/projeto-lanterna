@@ -14,9 +14,17 @@
 #define LOCALID_RIVALHOUSEF1_EXPERT 1
 #define LOCALID_RIVALHOUSEF1_TWIN 2
 
-// SandgemTown_House1 (sprite POKEMON_BREEDER inexistente; usado POKEFAN como substituto)
-#define LOCALID_HOUSE1_BREEDER_M 1
-#define LOCALID_HOUSE1_BREEDER_F 2
+// SandgemTown_House1 e o LABORATORIO DE POKEMON DO PROFESSOR ROWAN.
+// Sinnoh nao ganhou mapa proprio de laboratorio porque data/layouts/layouts.json
+// e data/maps/map_groups.json estavam com outro agente; ver PENDENCIAS-INTRO.md.
+// Sprites: ROWAN nao existe no GBA, usado PROF_BIRCH; BARRY nao existe,
+// usado RICH_BOY (mesma troca que SandgemTown ja fazia).
+#define LOCALID_ROWAN_LAB_ROWAN 1
+#define LOCALID_ROWAN_LAB_ASSISTANT 2
+#define LOCALID_ROWAN_LAB_RIVAL 3
+#define LOCALID_ROWAN_LAB_BALL_TURTWIG 4
+#define LOCALID_ROWAN_LAB_BALL_CHIMCHAR 5
+#define LOCALID_ROWAN_LAB_BALL_PIPLUP 6
 
 // SandgemTown_PokemonCenter_1F
 #define LOCALID_SANDGEM_POKECENTER1F_NURSE 1
