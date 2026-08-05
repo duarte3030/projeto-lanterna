@@ -83,3 +83,5 @@ Unova_CasteliaPlazaRestaurant_Text_CasteliaPlazaRestaurantBlockerText::
 	.string "\nbeyond here are"
 	.string "\pfor residents"
 	.string "\nonly.$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py

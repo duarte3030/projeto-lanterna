@@ -80,3 +80,14 @@ Unova_VirbankGym_Text_MusicianVirbankGym2BeatenText::
 	.string "Argh! The happy"
 	.string "\ntimes always end"
 	.string "\lso quickly!$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+@ jumpstd gymstatue1 do BW3G: nome do mapa + "#MON GYM"
+Unova_VirbankGym_EventScript_EstatuaGinasio::
+	msgbox Unova_VirbankGym_Text_EstatuaGinasio, MSGBOX_SIGN
+	end
+
+Unova_VirbankGym_Text_EstatuaGinasio::
+	.string "VIRBANK CITY\n"
+	.string "POKéMON GYM$"

@@ -123,3 +123,12 @@ Unova_Rt5_Text_R5CharlesSeenText::
 	.string "\nchallenge me…?"
 	.string "\pPrepare… to be…"
 	.string "\nheartbroken…$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+@ Gruta escondida do BW3G (tier 1). ponytail: la ela reenche
+@ todo dia; aqui e uma flag e o item sai uma vez so.
+Unova_Rt5_EventScript_Gruta4B9::
+	goto_if_set FLAG_UNOVA_GRUTA_R5, Unova_EventScript_GrutaVazia
+	setflag FLAG_UNOVA_GRUTA_R5
+	goto Unova_EventScript_GrutaTier1

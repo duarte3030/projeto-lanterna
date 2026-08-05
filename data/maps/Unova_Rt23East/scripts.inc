@@ -116,3 +116,12 @@ Unova_Rt23East_Text_AceTrainerF1R23BeatenText::
 	.string "\nPOKéMON are"
 	.string "\pglimmering with"
 	.string "\nstrength!$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+@ Gruta escondida do BW3G (tier 3). ponytail: la ela reenche
+@ todo dia; aqui e uma flag e o item sai uma vez so.
+Unova_Rt23East_EventScript_Gruta4C2::
+	goto_if_set FLAG_UNOVA_GRUTA_R23, Unova_EventScript_GrutaVazia
+	setflag FLAG_UNOVA_GRUTA_R23
+	goto Unova_EventScript_GrutaTier3

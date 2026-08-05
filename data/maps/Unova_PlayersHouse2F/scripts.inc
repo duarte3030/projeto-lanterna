@@ -12,3 +12,5 @@ Unova_PlayersHouse2F_Text_PlayersRadioText4::
 	.string "There's nothing"
 	.string "\ninteresting on"
 	.string "\lthe radio…$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py

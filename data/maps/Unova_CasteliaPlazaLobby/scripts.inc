@@ -63,3 +63,15 @@ Unova_CasteliaPlazaLobby_Text_CasteliaPlazaLobbyTeacherText::
 	.string "\pI feel like the"
 	.string "\nodds are better"
 	.string "\lsomehow.$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+@ jumpstd elevatorbutton do BW3G: som e nada mais, igual la
+Unova_EventScript_BotaoElevador::
+	lockall
+	playse SE_PIN
+	delay 15
+	playse SE_DING_DONG
+	waitse
+	releaseall
+	end

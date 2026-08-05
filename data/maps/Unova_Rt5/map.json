@@ -238,6 +238,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Unova_Rt5_EventScript_Placa1"
+    },
+    {
+      "type": "sign",
+      "x": 31,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Unova_Rt5_EventScript_Gruta4B9"
+    },
+    {
+      "type": "sign",
+      "x": 32,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Unova_Rt5_EventScript_Gruta4B9"
     }
   ]
 }

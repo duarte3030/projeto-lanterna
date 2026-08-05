@@ -43,3 +43,12 @@ Unova_R22_Text_R22LassText::
 	.string "\lof this path."
 	.string "\pBe careful if"
 	.string "\nyou go in there!$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+@ Gruta escondida do BW3G (tier 1). ponytail: la ela reenche
+@ todo dia; aqui e uma flag e o item sai uma vez so.
+Unova_R22_EventScript_Gruta4B7::
+	goto_if_set FLAG_UNOVA_GRUTA_R22, Unova_EventScript_GrutaVazia
+	setflag FLAG_UNOVA_GRUTA_R22
+	goto Unova_EventScript_GrutaTier1

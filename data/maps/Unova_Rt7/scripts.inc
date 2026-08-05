@@ -100,3 +100,12 @@ Unova_Rt7_Text_PkmnBreederFR7BeatenText::
 	.string "\nto you in the"
 	.string "\plove and care"
 	.string "\ndepartment!$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+@ Gruta escondida do BW3G (tier 3). ponytail: la ela reenche
+@ todo dia; aqui e uma flag e o item sai uma vez so.
+Unova_Rt7_EventScript_Gruta4C0::
+	goto_if_set FLAG_UNOVA_GRUTA_R7, Unova_EventScript_GrutaVazia
+	setflag FLAG_UNOVA_GRUTA_R7
+	goto Unova_EventScript_GrutaTier3

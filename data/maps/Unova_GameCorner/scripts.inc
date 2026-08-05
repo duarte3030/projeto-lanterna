@@ -103,3 +103,125 @@ Unova_GameCorner_Text_GameCornerPokefanMText::
 	.string "\nearn enough coins…"
 	.string "\pGambling sure is"
 	.string "\ntough!$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+Unova_GameCorner_EventScript_Maquina0::
+	setvar VAR_0x8004, 0
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina1::
+	setvar VAR_0x8004, 1
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina2::
+	setvar VAR_0x8004, 2
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina3::
+	setvar VAR_0x8004, 3
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina4::
+	setvar VAR_0x8004, 4
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina5::
+	setvar VAR_0x8004, 5
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina6::
+	setvar VAR_0x8004, 6
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina7::
+	setvar VAR_0x8004, 7
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina8::
+	setvar VAR_0x8004, 8
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina9::
+	setvar VAR_0x8004, 9
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina10::
+	setvar VAR_0x8004, 10
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina11::
+	setvar VAR_0x8004, 11
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina12::
+	setvar VAR_0x8004, 0
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina13::
+	setvar VAR_0x8004, 1
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina14::
+	setvar VAR_0x8004, 2
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina15::
+	setvar VAR_0x8004, 3
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina16::
+	setvar VAR_0x8004, 4
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina17::
+	setvar VAR_0x8004, 5
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina18::
+	setvar VAR_0x8004, 6
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina19::
+	setvar VAR_0x8004, 7
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina20::
+	setvar VAR_0x8004, 8
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina21::
+	setvar VAR_0x8004, 9
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina22::
+	setvar VAR_0x8004, 10
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina23::
+	setvar VAR_0x8004, 11
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina24::
+	setvar VAR_0x8004, 0
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina25::
+	setvar VAR_0x8004, 1
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina26::
+	setvar VAR_0x8004, 2
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina27::
+	setvar VAR_0x8004, 3
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina28::
+	setvar VAR_0x8004, 4
+	goto Unova_EventScript_CacaNiquel
+
+Unova_GameCorner_EventScript_Maquina29::
+	setvar VAR_0x8004, 5
+	goto Unova_EventScript_CacaNiquel

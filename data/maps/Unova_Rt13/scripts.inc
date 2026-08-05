@@ -114,3 +114,12 @@ Unova_Rt13_Text_SchoolKidFR13SeenText::
 Unova_Rt13_Text_SchoolKidFR13BeatenText::
 	.string "Oh, no!"
 	.string "\nHow could I lose?$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+@ Gruta escondida do BW3G (tier 1). ponytail: la ela reenche
+@ todo dia; aqui e uma flag e o item sai uma vez so.
+Unova_Rt13_EventScript_Gruta4B8::
+	goto_if_set FLAG_UNOVA_GRUTA_R13, Unova_EventScript_GrutaVazia
+	setflag FLAG_UNOVA_GRUTA_R13
+	goto Unova_EventScript_GrutaTier1

@@ -153,3 +153,12 @@ Unova_Rt6_Text_ScientistFR6BeatenText::
 	.string "\nable to understand"
 	.string "\ptheir trainers'"
 	.string "\norders?$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+@ Gruta escondida do BW3G (tier 3). ponytail: la ela reenche
+@ todo dia; aqui e uma flag e o item sai uma vez so.
+Unova_Rt6_EventScript_Gruta4BF::
+	goto_if_set FLAG_UNOVA_GRUTA_R6, Unova_EventScript_GrutaVazia
+	setflag FLAG_UNOVA_GRUTA_R6
+	goto Unova_EventScript_GrutaTier3

@@ -142,3 +142,20 @@ Unova_PinwheelForest_Text_PinwheelOfficerText::
 	.string "\pWe're not letting"
 	.string "\nanyone through"
 	.string "\lright now.$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+Unova_EventScript_GrutaTier2::
+	lockall
+	msgbox Unova_Text_AchouGruta, MSGBOX_DEFAULT
+	randomelement ITEM_RED_SHARD, ITEM_BLUE_SHARD, ITEM_GREEN_SHARD, ITEM_YELLOW_SHARD, ITEM_DAMP_ROCK, ITEM_HEAT_ROCK, ITEM_SMOOTH_ROCK, ITEM_ICY_ROCK, ITEM_BIG_PEARL, ITEM_BIG_PEARL, ITEM_PROTEIN, ITEM_IRON, ITEM_CARBOS, ITEM_CALCIUM, ITEM_HP_UP, ITEM_ELIXIR
+	giveitem VAR_RESULT
+	releaseall
+	end
+
+@ Gruta escondida do BW3G (tier 2). ponytail: la ela reenche
+@ todo dia; aqui e uma flag e o item sai uma vez so.
+Unova_PinwheelForest_EventScript_Gruta4B6::
+	goto_if_set FLAG_UNOVA_GRUTA_PINWHEELFOREST, Unova_EventScript_GrutaVazia
+	setflag FLAG_UNOVA_GRUTA_PINWHEELFOREST
+	goto Unova_EventScript_GrutaTier2

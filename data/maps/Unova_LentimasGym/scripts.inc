@@ -109,3 +109,14 @@ Unova_LentimasGym_Text_HexManiacLentimasGym4AfterText::
 	.string "\pghosts. It's great"
 	.string "\nif you're into the"
 	.string "\lsupernatural!$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+@ jumpstd gymstatue1 do BW3G: nome do mapa + "#MON GYM"
+Unova_LentimasGym_EventScript_EstatuaGinasio::
+	msgbox Unova_LentimasGym_Text_EstatuaGinasio, MSGBOX_SIGN
+	end
+
+Unova_LentimasGym_Text_EstatuaGinasio::
+	.string "LENTIMAS TOWN\n"
+	.string "POKéMON GYM$"

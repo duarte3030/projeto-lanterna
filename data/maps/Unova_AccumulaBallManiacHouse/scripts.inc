@@ -27,3 +27,5 @@ Unova_AccumulaBallManiacHouse_Text_AccumulaBallManiacIntroText::
 	.string "\nwould you like a"
 	.string "\psample of my fine"
 	.string "\nPOKéBALLs?$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py

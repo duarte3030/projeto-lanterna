@@ -113,3 +113,20 @@ Unova_LostlornForest_Text_LassLostlornBeatenText::
 	.string "\nconsidered losing"
 	.string "\pbefore going into"
 	.string "\nbattle!$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+Unova_EventScript_GrutaTier1::
+	lockall
+	msgbox Unova_Text_AchouGruta, MSGBOX_DEFAULT
+	randomelement ITEM_RED_SHARD, ITEM_RED_SHARD, ITEM_BLUE_SHARD, ITEM_BLUE_SHARD, ITEM_GREEN_SHARD, ITEM_GREEN_SHARD, ITEM_YELLOW_SHARD, ITEM_YELLOW_SHARD, ITEM_MOOMOO_MILK, ITEM_MOOMOO_MILK, ITEM_PEARL, ITEM_PEARL, ITEM_ETHER, ITEM_ETHER, ITEM_REVIVE, ITEM_REVIVE
+	giveitem VAR_RESULT
+	releaseall
+	end
+
+@ Gruta escondida do BW3G (tier 1). ponytail: la ela reenche
+@ todo dia; aqui e uma flag e o item sai uma vez so.
+Unova_LostlornForest_EventScript_Gruta4B5::
+	goto_if_set FLAG_UNOVA_GRUTA_LOSTLORN, Unova_EventScript_GrutaVazia
+	setflag FLAG_UNOVA_GRUTA_LOSTLORN
+	goto Unova_EventScript_GrutaTier1

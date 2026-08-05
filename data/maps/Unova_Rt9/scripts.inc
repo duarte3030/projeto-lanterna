@@ -82,3 +82,12 @@ Unova_Rt9_Text_Roughneck2R9BeatenText::
 	.string "\nneed a trainer who"
 	.string "\pis quite that"
 	.string "\nstrong!$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+@ Gruta escondida do BW3G (tier 3). ponytail: la ela reenche
+@ todo dia; aqui e uma flag e o item sai uma vez so.
+Unova_Rt9_EventScript_Gruta4C1::
+	goto_if_set FLAG_UNOVA_GRUTA_R9, Unova_EventScript_GrutaVazia
+	setflag FLAG_UNOVA_GRUTA_R9
+	goto Unova_EventScript_GrutaTier3

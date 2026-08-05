@@ -103,3 +103,14 @@ Unova_MistraltonGym1F_Text_MistraltonGymGuyText::
 	.string "\lsky!"
 	.string "\pRocks and ice"
 	.string "\nwill work too.$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+@ jumpstd gymstatue1 do BW3G: nome do mapa + "#MON GYM"
+Unova_MistraltonGym1F_EventScript_EstatuaGinasio::
+	msgbox Unova_MistraltonGym1F_Text_EstatuaGinasio, MSGBOX_SIGN
+	end
+
+Unova_MistraltonGym1F_Text_EstatuaGinasio::
+	.string "MISTRALTON CITY\n"
+	.string "POKéMON GYM$"

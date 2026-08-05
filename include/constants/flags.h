@@ -1730,6 +1730,24 @@
 #define FLAG_HIDE_NUGGET_BRIDGE_ROCKET                     FLAG_UNUSED_0x2A0
 #define FLAG_HIDE_BILL_CLEFAIRY                            FLAG_UNUSED_0x021
 #define FLAG_HIDE_BILL_HUMAN_SEA_COTTAGE                   FLAG_UNUSED_0x04D
+// Grutas escondidas de Unova (dev_scripts/importa_placas_unova.py).
+// Faixa 0x4B4 a 0x4EE, reservada a essa frente em 05/08/2026.
+#define FLAG_UNOVA_GRUTA_GIANTCHASMB1F            FLAG_UNUSED_0x4B4
+#define FLAG_UNOVA_GRUTA_LOSTLORN                 FLAG_UNUSED_0x4B5
+#define FLAG_UNOVA_GRUTA_PINWHEELFOREST           FLAG_UNUSED_0x4B6
+#define FLAG_UNOVA_GRUTA_R22                      FLAG_UNUSED_0x4B7
+#define FLAG_UNOVA_GRUTA_R13                      FLAG_UNUSED_0x4B8
+#define FLAG_UNOVA_GRUTA_R5                       FLAG_UNUSED_0x4B9
+#define FLAG_UNOVA_GRUTA_R19                      FLAG_UNUSED_0x4BA
+#define FLAG_UNOVA_GRUTA_FLOCCESYRANCH            FLAG_UNUSED_0x4BB
+#define FLAG_UNOVA_GRUTA_R3                       FLAG_UNUSED_0x4BC
+#define FLAG_UNOVA_GRUTA_R2                       FLAG_UNUSED_0x4BD
+#define FLAG_UNOVA_GRUTA_R18                      FLAG_UNUSED_0x4BE
+#define FLAG_UNOVA_GRUTA_R6                       FLAG_UNUSED_0x4BF
+#define FLAG_UNOVA_GRUTA_R7                       FLAG_UNUSED_0x4C0
+#define FLAG_UNOVA_GRUTA_R9                       FLAG_UNUSED_0x4C1
+#define FLAG_UNOVA_GRUTA_R23                      FLAG_UNUSED_0x4C2
+
 #define FLAG_HIDE_TOWER_FUJI                               FLAG_UNUSED_0x4A1
 #define FLAG_HIDE_POKEHOUSE_FUJI                           FLAG_UNUSED_0x2A6
 #define FLAG_HIDE_LIFT_KEY                                 FLAG_UNUSED_0x26B

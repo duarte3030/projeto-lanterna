@@ -31,3 +31,5 @@ Unova_CasteliaPlazaPrizeRoom_Text_CasteliaPlazaPrizeRoomRangerFText::
 	.string "\pMaybe if I had"
 	.string "\nthem, I could join"
 	.string "\lBURGH's GYM…$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py

@@ -152,3 +152,14 @@ Unova_OpelucidGym_Text_OpelucidGymGuyText::
 	.string "\nlike the cold, so"
 	.string "\ptry using ice-type"
 	.string "\nmoves too!$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+@ jumpstd gymstatue1 do BW3G: nome do mapa + "#MON GYM"
+Unova_OpelucidGym_EventScript_EstatuaGinasio::
+	msgbox Unova_OpelucidGym_Text_EstatuaGinasio, MSGBOX_SIGN
+	end
+
+Unova_OpelucidGym_Text_EstatuaGinasio::
+	.string "OPELUCID CITY\n"
+	.string "POKéMON GYM$"

@@ -85,3 +85,14 @@ Unova_HumilauGym_Text_SwimmerFHumilauGymBeatenText::
 	.string "How can this be?"
 	.string "\nI wasn't being"
 	.string "\lcareless at all!$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+@ jumpstd gymstatue1 do BW3G: nome do mapa + "#MON GYM"
+Unova_HumilauGym_EventScript_EstatuaGinasio::
+	msgbox Unova_HumilauGym_Text_EstatuaGinasio, MSGBOX_SIGN
+	end
+
+Unova_HumilauGym_Text_EstatuaGinasio::
+	.string "HUMILAU CITY\n"
+	.string "POKéMON GYM$"

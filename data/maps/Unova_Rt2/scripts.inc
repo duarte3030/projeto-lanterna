@@ -141,3 +141,12 @@ Unova_Rt2_Text_TwinsR2BeatenText::
 	.string "Uh oh… My POKéMON"
 	.string "\nisn't looking so"
 	.string "\lwell…$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+@ Gruta escondida do BW3G (tier 2). ponytail: la ela reenche
+@ todo dia; aqui e uma flag e o item sai uma vez so.
+Unova_Rt2_EventScript_Gruta4BD::
+	goto_if_set FLAG_UNOVA_GRUTA_R2, Unova_EventScript_GrutaVazia
+	setflag FLAG_UNOVA_GRUTA_R2
+	goto Unova_EventScript_GrutaTier2

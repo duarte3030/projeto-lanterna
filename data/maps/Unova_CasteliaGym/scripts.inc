@@ -133,3 +133,14 @@ Unova_CasteliaGym_Text_HarlequinCasteliaGym5BeatenText::
 	.string "Your battle style"
 	.string "\nis almost as"
 	.string "\lartistic as BURGH!$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+@ jumpstd gymstatue1 do BW3G: nome do mapa + "#MON GYM"
+Unova_CasteliaGym_EventScript_EstatuaGinasio::
+	msgbox Unova_CasteliaGym_Text_EstatuaGinasio, MSGBOX_SIGN
+	end
+
+Unova_CasteliaGym_Text_EstatuaGinasio::
+	.string "CASTELIA CITY\n"
+	.string "POKéMON GYM$"

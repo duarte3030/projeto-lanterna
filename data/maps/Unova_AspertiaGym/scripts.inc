@@ -79,3 +79,14 @@ Unova_AspertiaGym_Text_LassAspertiaGymAfterText::
 	.string "I have to learn"
 	.string "\neven more about"
 	.string "\lmy POKéMON!$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+@ jumpstd gymstatue1 do BW3G: nome do mapa + "#MON GYM"
+Unova_AspertiaGym_EventScript_EstatuaGinasio::
+	msgbox Unova_AspertiaGym_Text_EstatuaGinasio, MSGBOX_SIGN
+	end
+
+Unova_AspertiaGym_Text_EstatuaGinasio::
+	.string "ASPERTIA CITY\n"
+	.string "POKéMON GYM$"

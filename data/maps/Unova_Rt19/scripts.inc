@@ -101,3 +101,12 @@ Unova_Rt19_Text_BakerR19BeatenText::
 	.string "\nwith your victory?"
 	.string "\pOr are you"
 	.string "\nunsatisfied?$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+@ Gruta escondida do BW3G (tier 2). ponytail: la ela reenche
+@ todo dia; aqui e uma flag e o item sai uma vez so.
+Unova_Rt19_EventScript_Gruta4BA::
+	goto_if_set FLAG_UNOVA_GRUTA_R19, Unova_EventScript_GrutaVazia
+	setflag FLAG_UNOVA_GRUTA_R19
+	goto Unova_EventScript_GrutaTier2

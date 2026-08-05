@@ -136,5 +136,22 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 31,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Unova_OpelucidGym_EventScript_EstatuaGinasio"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 31,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Unova_OpelucidGym_EventScript_EstatuaGinasio"
+    }
+  ]
 }

@@ -73,3 +73,32 @@ Unova_GiantChasmB1F_Text_HikerGiantChasmSeenText::
 
 Unova_GiantChasmB1F_Text_HikerGiantChasmBeatenText::
 	.string "Hi-ho…$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+Unova_EventScript_GrutaTier3::
+	lockall
+	msgbox Unova_Text_AchouGruta, MSGBOX_DEFAULT
+	randomelement ITEM_DAMP_ROCK, ITEM_DAMP_ROCK, ITEM_HEAT_ROCK, ITEM_HEAT_ROCK, ITEM_SMOOTH_ROCK, ITEM_SMOOTH_ROCK, ITEM_ICY_ROCK, ITEM_ICY_ROCK, ITEM_PROTEIN, ITEM_IRON, ITEM_CARBOS, ITEM_CALCIUM, ITEM_PP_UP, ITEM_MAX_ELIXIR, ITEM_MAX_REVIVE, ITEM_RARE_CANDY
+	giveitem VAR_RESULT
+	releaseall
+	end
+
+Unova_EventScript_GrutaVazia::
+	msgbox Unova_Text_GrutaVazia, MSGBOX_SIGN
+	end
+
+Unova_Text_GrutaVazia::
+	.string "There's nothing\n"
+	.string "here anymore.$"
+
+Unova_Text_AchouGruta::
+	.string "Hey! It's a\n"
+	.string "hidden grotto!$"
+
+@ Gruta escondida do BW3G (tier 3). ponytail: la ela reenche
+@ todo dia; aqui e uma flag e o item sai uma vez so.
+Unova_GiantChasmB1F_EventScript_Gruta4B4::
+	goto_if_set FLAG_UNOVA_GRUTA_GIANTCHASMB1F, Unova_EventScript_GrutaVazia
+	setflag FLAG_UNOVA_GRUTA_GIANTCHASMB1F
+	goto Unova_EventScript_GrutaTier3

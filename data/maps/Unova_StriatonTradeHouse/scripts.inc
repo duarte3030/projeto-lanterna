@@ -4,3 +4,5 @@ Unova_StriatonTradeHouse_MapScripts::
 	.byte 0
 
 
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py

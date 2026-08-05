@@ -193,3 +193,14 @@ Unova_StriatonGym_Text_Waitress2StriatonGymAfterText::
 	.string "At a place like"
 	.string "\nthis, it's good to"
 	.string "\lstay hydrated!$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+@ jumpstd gymstatue1 do BW3G: nome do mapa + "#MON GYM"
+Unova_StriatonGym_EventScript_EstatuaGinasio::
+	msgbox Unova_StriatonGym_Text_EstatuaGinasio, MSGBOX_SIGN
+	end
+
+Unova_StriatonGym_Text_EstatuaGinasio::
+	.string "STRIATON CITY\n"
+	.string "POKéMON GYM$"

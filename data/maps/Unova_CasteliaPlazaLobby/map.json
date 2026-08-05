@@ -99,6 +99,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Unova_CasteliaPlazaLobby_EventScript_Placa0"
+    },
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 0,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Unova_EventScript_BotaoElevador"
     }
   ]
 }

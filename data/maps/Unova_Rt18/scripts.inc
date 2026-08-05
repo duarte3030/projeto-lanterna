@@ -81,3 +81,12 @@ Unova_Rt18_Text_BackpackerFR18BeatenText::
 	.string "There's still so"
 	.string "\nmuch more to"
 	.string "\llearn!$"
+
+@ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+@ Gruta escondida do BW3G (tier 2). ponytail: la ela reenche
+@ todo dia; aqui e uma flag e o item sai uma vez so.
+Unova_Rt18_EventScript_Gruta4BE::
+	goto_if_set FLAG_UNOVA_GRUTA_R18, Unova_EventScript_GrutaVazia
+	setflag FLAG_UNOVA_GRUTA_R18
+	goto Unova_EventScript_GrutaTier2
