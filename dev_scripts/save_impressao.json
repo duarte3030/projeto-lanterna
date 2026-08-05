@@ -4041,6 +4041,10 @@
    80,
    1
   ],
+  "SandgemTown_RowanLab": [
+   80,
+   6
+  ],
   "ScorchedSlab": [
    24,
    73
@@ -6470,9 +6474,9 @@
    1
   ]
  },
- "sizeof_saveblock1": 13488,
+ "sizeof_saveblock1": 13496,
  "structs": {
-  "SaveBlock1": "19927651d2a5579f",
+  "SaveBlock1": "f90f0a1baed70dd7",
   "SaveBlock2": "ec3552860cc5cce7",
   "SaveBlock3": "598ad3d9ee1b4cea"
  }

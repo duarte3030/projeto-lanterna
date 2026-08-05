@@ -1205,8 +1205,12 @@ struct SaveBlock1
     u32 towerChallengeId;
     struct TrainerTower trainerTower[NUM_TOWER_CHALLENGE_TYPES];
 #endif //FREE_TRAINER_TOWER
-#if IS_FRLG
+    // A abertura do Carvalho pergunta o nome do rival, e ela roda nesta ROM
+    // desde 05/08/2026 (o jogo comeca em Pallet). Fora do gate de FRLG por isso.
+    // Fica no FIM do SaveBlock1 de proposito: e append, entao nenhum campo
+    // existente muda de offset e a save do Gui continua valendo.
     u8 rivalName[PLAYER_NAME_LENGTH + 1];
+#if IS_FRLG
     struct DaycareMon route5DayCareMon;
 #endif
     // sizeof: 0x3???

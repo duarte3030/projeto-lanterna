@@ -1077,7 +1077,9 @@ static void Task_HandleMainMenuAPressed(u8 taskId)
         {
         case ACTION_NEW_GAME:
         default:
-            if (IS_FRLG)
+            // A abertura passa a ser SEMPRE a do Carvalho: o jogo comeca em
+            // Pallet Town (decisao 66), entao a fala do Birch com um Lotad
+            // apresentava a regiao errada.
             {
                 DestroyTask(taskId);
                 FreeAllWindowBuffers();

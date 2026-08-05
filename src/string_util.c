@@ -478,10 +478,10 @@ static const u8 *ExpandPlaceholder_KunChan(void)
 
 static const u8 *ExpandPlaceholder_RivalName(void)
 {
-#if IS_FRLG
+    // Sem gate de FRLG desde 05/08/2026: quem digita este nome e a abertura do
+    // Carvalho, que agora roda em toda partida nova.
     if (gSaveBlock1Ptr->rivalName[0] != EOS)
         return gSaveBlock1Ptr->rivalName;
-#endif
 
     if (gSaveBlock2Ptr->playerGender == MALE)
         return (IS_FRLG ? gText_ExpandedPlaceholder_Green : gText_ExpandedPlaceholder_May);

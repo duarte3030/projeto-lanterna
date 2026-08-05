@@ -22,7 +22,10 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
-#if IS_FRLG
+// Sem gate de FRLG desde 05/08/2026: o jogo comeca em Pallet Town, entao a
+// abertura e a do CARVALHO, nao a do Birch. A arte ja estava toda em
+// graphics/oak_speech/; o que faltava era so o arquivo inteiro estar dentro
+// de um #if que nunca era verdade numa build Emerald.
 
 #define INTRO_SPECIES SPECIES_NIDORAN_F
 
@@ -2190,4 +2193,4 @@ static void GetDefaultName(u8 hasPlayerBeenNamed, u8 nameChoice)
 #undef tUnusedState
 #undef tFadeTimer
 
-#endif // IS_FRLG
+
