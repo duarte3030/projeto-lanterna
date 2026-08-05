@@ -1934,10 +1934,19 @@ void CB2_NewGame(void)
     PlayTimeCounter_Start();
     ScriptContext_Init();
     UnlockPlayerFieldControls();
-    if (IS_FRLG)
-        gFieldCallback = FieldCB_WarpExitFadeFromBlack;
-    else
+    // A cutscene do caminhao pertence ao mapa do caminhao, e a nenhum outro.
+    // Quem decidia era `IS_FRLG`, que aqui e 0, entao ela rodava na casa de
+    // Pallet: tela tremendo, barulho de caminhao e, pior, a PALETA ZERADA, que
+    // e o `CpuFastFill(0, gPlttBufferFaded, ...)` de ExecuteTruckSequence
+    // (src/field_special_scene.c:267) contando com o fim da cena para
+    // restaurar. Com a cena rodando fora do lugar, ninguem restaura, e todo NPC
+    // aparece com cor trocada. Os dois sintomas eram o mesmo bug.
+    // A condicao certa e o MAPA, nao a versao: assim vale para qualquer comeco.
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_INSIDE_OF_TRUCK)
+     && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_INSIDE_OF_TRUCK))
         gFieldCallback = ExecuteTruckSequence;
+    else
+        gFieldCallback = FieldCB_WarpExitFadeFromBlack;
     gFieldCallback2 = NULL;
     DoMapLoadLoop(&gMain.state);
     SetFieldVBlankCallback();
