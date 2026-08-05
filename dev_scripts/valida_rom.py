@@ -81,12 +81,29 @@ def main():
         problemas.append(
             (f"{len(sumidos)} mapas declarados NAO entraram na ROM", sumidos))
 
-    # 2. layout declarado que nao virou entrada
+    # 2. layout declarado que nao virou entrada.
+    # Separar dois casos que a primeira versao juntava, e por isso o gate acusava
+    # 146 problemas antigos a cada rodada, escondendo os novos:
+    #   - SEM DADO EM DISCO: layout declarado no JSON cujo border.bin nem existe.
+    #     Sao restos de variante (Suicune, Raikou, Modern, Old) que nunca tiveram
+    #     geometria. Nao e regressao, e o gerador pula de proposito.
+    #   - COM DADO E MESMO ASSIM FORA: esse e o bug de verdade, o que derrubou
+    #     Kanto. O arquivo existe e o build nao emitiu.
     nomes_inc = set(re.findall(r"^(\w+)::", layouts_inc, re.M))
-    lay_sumidos = [l["name"] for l in layouts if l["name"] not in nomes_inc]
-    if lay_sumidos:
+    sem_dado, com_dado = [], []
+    for l in layouts:
+        if l["name"] in nomes_inc:
+            continue
+        bp = l.get("border_filepath", "")
+        (com_dado if bp and os.path.exists(f"{RAIZ}/{bp}") else sem_dado).append(l["name"])
+    lay_sumidos = sem_dado + com_dado
+    if com_dado:
         problemas.append(
-            (f"{len(lay_sumidos)} layouts declarados NAO entraram na ROM", lay_sumidos))
+            (f"{len(com_dado)} layouts TEM dado em disco e NAO entraram na ROM",
+             com_dado))
+    if sem_dado:
+        print(f"(informativo: {len(sem_dado)} layouts declarados sem border.bin em "
+              f"disco, restos de variante; o gerador pula de proposito)")
 
     # 3. tileset citado que nao existe como simbolo
     simbolos = simbolos_da_rom()
@@ -103,13 +120,19 @@ def main():
             problemas.append(
                 (f"{len(faltando)} tilesets citados NAO existem na ROM", faltando))
 
-    # 4. blockdata citado sem arquivo em disco
+    # 4. blockdata citado sem arquivo em disco.
+    # So e problema se o layout CHEGOU na ROM assim: aí o jogo tem uma entrada
+    # apontando para nada. Layout sem dado que tambem ficou fora da tabela ja foi
+    # contado como informativo no item 2, e repetir aqui era o que fazia o gate
+    # acusar 146 itens antigos toda vez.
     sem_arquivo = [l["name"] for l in layouts
                    if l.get("blockdata_filepath")
-                   and not os.path.exists(f"{RAIZ}/{l['blockdata_filepath']}")]
+                   and not os.path.exists(f"{RAIZ}/{l['blockdata_filepath']}")
+                   and l["name"] in nomes_inc]
     if sem_arquivo:
         problemas.append(
-            (f"{len(sem_arquivo)} layouts com blockdata inexistente", sem_arquivo))
+            (f"{len(sem_arquivo)} layouts NA ROM com blockdata inexistente",
+             sem_arquivo))
 
     print(f"declarados: {len(declarados)} mapas, {len(layouts)} layouts")
     print(f"na ROM:     {len(declarados)-len(sumidos)} mapas, "

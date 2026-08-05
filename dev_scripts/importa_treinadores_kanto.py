@@ -123,6 +123,7 @@ def parse_trainers(texto):
             "class": campo(r"\.trainerClass\s*=\s*(\w+)"),
             "pic": campo(r"\.trainerPic\s*=\s*(\w+)"),
             "name": campo(r'\.trainerName\s*=\s*_\("([^"]*)"\)') or "",
+            "music": campo(r"(TRAINER_ENCOUNTER_MUSIC_\w+)"),
             "female": "F_TRAINER_FEMALE" in corpo,
             "double": ".doubleBattle = TRUE" in corpo,
             "ai": re.findall(r"AI_SCRIPT_\w+", corpo),
@@ -165,6 +166,12 @@ def blocos_party(nome, t, mons, ctx):
         L.append(f"Class: {classe}")
     L.append(f"Pic: {pic}")
     L.append("Gender: " + ("Female" if t["female"] else "Male"))
+    # encounterMusic_gender junta o jingle e o bit de sexo no mesmo campo; aqui
+    # sao duas linhas. Sem esta, todo treinador de Kanto entra com o jingle padrao.
+    if t["music"] and t["music"] in ctx["musicas"]:
+        L.append(f"Music: {t['music']}")
+    elif t["music"]:
+        avisos.append(f"{nome}: musica {t['music']} nao existe aqui")
     itens = [i for i in t["items"] if i != "ITEM_NONE" and i in ctx["itens"]]
     if itens:
         L.append("Items: " + " / ".join(itens))
@@ -259,8 +266,12 @@ def main():
         "itens": constantes("include/constants/items.h", "ITEM_"),
         "classes": constantes("include/constants/trainers.h", "TRAINER_CLASS_"),
         "pics": constantes("include/constants/trainers.h", "TRAINER_PIC_"),
+        "musicas": constantes("include/constants/trainers.h", "TRAINER_ENCOUNTER_MUSIC_"),
     }
-    ja_tem = set(re.findall(r"^=== (TRAINER_\w+) ===", le(PARTY), re.M))
+    # So o que existe FORA do acervo desta ferramenta conta como "ja tem time":
+    # o bloco que ela mesma escreveu vai ser substituido, entao nao bloqueia nada.
+    anterior = le(PARTY).split(f"/*{MARCA}")[0]
+    ja_tem = set(re.findall(r"^=== (TRAINER_\w+) ===", anterior, re.M))
 
     linhas, avisos, ok, fora = [], [], [], []
     for nome in quero:
