@@ -24,7 +24,7 @@ troca de nome.
 | Johto | `fontes-mapas/hns` (Heart n Soul) | pokeemerald | demake GBA | **sim, já usado** |
 | Johto/Kanto | `pret/pokecrystal` | disassembly gen 2 | 254 mapas em `.blk` | **sim, conversor pronto** |
 | Galar | hacks de SwSh em GBA (abaixo) | ROM compilada | região real, 44 bancos | **tecnicamente sim** |
-| Unova | nenhuma | — | não existe port nem decomp | **não** |
+| Unova | `Pokemon BW Genesis (v1.2).gbc` | ROM compilada gen 2 | regiao real, ver abaixo | **possivel** |
 | Paldea | nenhuma | — | — | **não** |
 | Kalos | nenhuma | — | os hacks avaliados sao Hoenn ou Johto renomeados | **nao** |
 
@@ -89,6 +89,38 @@ trabalho de outra pessoa.
 Isso não é impedimento técnico e a decisão é do dono do projeto. Mas se Galar
 entrar, o mínimo é **creditar o autor** no README e nos créditos do jogo, como o
 projeto já faz com o `hns` e o port de Sinnoh.
+
+---
+
+## Unova: existe fonte, e e gen 2 (achado em 05/08/2026)
+
+`Pokemon BW Genesis (v1.2).gbc` — demake de Black e White em Game Boy Color,
+2 MB, sobre o Crystal. **Corrige o que este documento dizia antes**: eu havia
+escrito que nao existia fonte nenhuma de Unova, e existe.
+
+Medido:
+- **17 de 20 nomes de Unova**, com Castelia 42x, Nimbasa 27x, Driftveil 23x,
+  Opelucid 18x.
+- **Johto praticamente sumiu**: Violet 2x, Goldenrod 1x, Kanto quase zero. Nao
+  renomearam mapa, SUBSTITUIRAM. Numa ROM de 2 MB, os ~250 mapas de Johto deram
+  lugar aos de Unova.
+- O texto dos mapas cita Undella Town, Lacunosa Town, Route 13, Skyarrow Bridge,
+  Nacrene City, Castelia Game Plaza, Battle Company, **Team Plasma** e **Virbank
+  City** (conteudo de Black 2). E dialogo de mapa, espalhado pelos bancos de
+  script, nao nome solto.
+
+**Por que isso importa mais que o Galar:** e gen 2, o mesmo formato que
+`dev_scripts/demake_gen2.py` ja converte, provado hoje no esconderijo de
+Mahogany, que saiu com geometria e posicoes de warp exatas.
+
+**O que falta para usar:** e ROM compilada, nao fonte. No `pokecrystal` temos
+`.blk` com dimensao declarada em constante; aqui seria preciso achar as tabelas
+de cabecalho de mapa dentro do binario. Tentativa inicial saiu desalinhada.
+E resolvivel, mas e engenharia reversa de verdade.
+
+**Antes de raspar binario, procurar fonte publica do BW Genesis.** Se existir, vem
+script e texto junto, o que o binario nao da de graca. Mesma consideracao de
+autoria do demake de Galar.
 
 ---
 
