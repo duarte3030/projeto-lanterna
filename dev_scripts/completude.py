@@ -29,6 +29,7 @@ o unico jeito de garantir isso e casar MAPA A MAPA pelo nome.
 Regiao sem fonte em disco aparece como "sem fonte", nunca como 100%. Nao saber e
 um resultado; fingir que sabe foi o erro que esta sessao cometeu a noite toda.
 """
+import glob
 import json
 import os
 import re
@@ -42,7 +43,12 @@ REGIOES = {
     "Johto":  {"grupo": "Johto",          "fonte": f"{FONTES}/hns"},
     "Hoenn":  {"grupo": "TownsAndRoutes", "fonte": f"{FONTES}/pokeemerald"},
     "Sinnoh": {"grupo": "Sinnoh",         "fonte": f"{FONTES}/sinnoh"},
-    "Unova":  {"grupo": "Unova",          "fonte": None},
+    # BW3G e pokecrystal (gen 2). O formato e outro, mas e legivel: cada mapa
+    # tem um .asm com warp_event, bg_event e object_event em macro. Eu tinha
+    # marcado "sem fonte" por nao ter escrito o leitor, o que e diferente de nao
+    # dar para medir. Ver le_gen2().
+    "Unova":  {"grupo": "Unova",          "fonte": "/tmp/bw3g-probe",
+               "gen2": True},
 }
 
 CAMPOS = [("object_events", "objetos (NPC, item)"),
@@ -72,7 +78,28 @@ def normaliza(nome):
     """Nosso 'PalletTown_Frlg' e o 'PalletTown' da fonte sao o mesmo mapa."""
     n = re.sub(r"_Frlg$", "", nome)
     n = re.sub(r"_johto$", "", n, flags=re.I)
+    n = re.sub(r"^Unova_", "", n)          # Unova_AccumulaTown == AccumulaTown
     return n.lower().replace("_", "")
+
+
+def le_gen2(caminho):
+    """Conta eventos num mapa de pokecrystal (.asm com macros).
+
+    O gen 2 guarda os eventos como linhas de macro no proprio .asm do mapa:
+        warp_event  4, 6, R_2_ACCUMULA_GATE, 3
+        bg_event   24, 14, BGEVENT_READ, AccumulaTownSign
+        object_event 19, 9, SPRITE_POKEFAN_M, ...
+    Contar linha de macro e a leitura certa aqui, e da o mesmo numero que o
+    map.json de gen 3 daria depois de convertido.
+    """
+    if not os.path.exists(caminho):
+        return None
+    txt = open(caminho, errors="ignore").read()
+    return {
+        "warp_events": len(re.findall(r"^\s*warp_event\b", txt, re.M)),
+        "bg_events": len(re.findall(r"^\s*bg_event\b", txt, re.M)),
+        "object_events": len(re.findall(r"^\s*object_event\b", txt, re.M)),
+    }
 
 
 def eventos(raiz, mapa):
@@ -103,7 +130,12 @@ def main():
             print(f"{nome:8} {len(nossos):>8} sem fonte" + " " * 30)
             continue
 
-        deles = {normaliza(m): m for m in todos_os_mapas(fonte)}
+        gen2 = cfg.get("gen2")
+        if gen2:
+            deles = {normaliza(os.path.basename(f)[:-4]): os.path.basename(f)[:-4]
+                     for f in glob.glob(f"{fonte}/maps/*.asm")}
+        else:
+            deles = {normaliza(m): m for m in todos_os_mapas(fonte)}
         nossos = nossos_da_regiao(nosso_mg, cfg["grupo"])
         casados = [(m, deles[normaliza(m)]) for m in nossos if normaliza(m) in deles]
         # Mapas que a FONTE tem e nos nao.
@@ -122,7 +154,9 @@ def main():
         soma_f = {c: 0 for c, _ in CAMPOS}
         piores = []
         for meu, seu in casados:
-            a, b = eventos(RAIZ, meu), eventos(fonte, seu)
+            a = eventos(RAIZ, meu)
+            b = (le_gen2(f"{fonte}/maps/{seu}.asm") if gen2
+                 else eventos(fonte, seu))
             if not a or not b:
                 continue
             for c, _ in CAMPOS:
@@ -134,8 +168,15 @@ def main():
                     piores.append((r, meu, a["object_events"], b["object_events"]))
 
         def p(c):
-            return (f"{100*soma_n[c]/soma_f[c]:5.1f}%"
-                    if soma_f[c] else "  n/a ")
+            # ARMADILHA: denominador zero nao e "nao da para medir", e um FATO
+            # sobre a fonte. A fonte de Sinnoh tem 2778 objetos no total e ZERO
+            # nos 69 mapas de cidade de Sinnoh: os objetos dela sao todos de
+            # Hoenn. Ou seja, nao ha NPC de Sinnoh para importar dali, e quem
+            # quiser fechar essa lacuna tem que ir no pokeplatinum.
+            # Imprimir "n/a" escondia isso; agora diz que a fonte esta vazia.
+            if not soma_f[c]:
+                return "fonte 0" if soma_n[c] else "  --  "
+            return f"{100*soma_n[c]/soma_f[c]:5.1f}%"
         # mapas: o denominador e o que a fonte tem daquela regiao, e para as
         # fontes que sao o jogo inteiro isso e o total delas
         pm = 100.0 * len(casados) / max(1, len(casados) + len(so_na_fonte))
