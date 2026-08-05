@@ -142,3 +142,13 @@ Route45_Text_QuentinBeaten:
 Route45_Text_QuentinAfter:
 	.string "Have you been to the TRAINER HILL?\p"
 	.string "I never, ever lose there, but…$"
+
+@ Placas trazidas do hns por dev_scripts/importa_placas_johto.py
+
+Route45_EventScript_Sign::
+	msgbox Route45_Text_Sign, MSGBOX_SIGN
+	end
+
+Route45_Text_Sign::
+    .string "ROUTE 45\n"
+    .string "MOUNTAIN RD. AHEAD$"

@@ -54,3 +54,16 @@ Route37_Text_GregBeaten:
 Route37_Text_GregAfter:
 	.string "Putting POKéMON to sleep or paralyz-\n"
 	.string "ing them are good battle techniques.$"
+
+@ Placas trazidas do hns por dev_scripts/importa_placas_johto.py
+
+Route37_EventScript_Sign::
+	lock
+	msgbox Route37_Text_Sign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+Route37_Text_Sign::
+	.string "ROUTE 37\n"
+	.string "ECRUTEAK CITY AHEAD$"

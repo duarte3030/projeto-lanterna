@@ -136,3 +136,38 @@ Route32_Text_BirdkeeperPeterBeaten:
 Route32_Text_BirdkeeperPeterAfter:
 	.string "I should train again at the\n"
 	.string "GYM in VIOLET CITY.$"
+
+@ Placas trazidas do hns por dev_scripts/importa_placas_johto.py
+
+Route32_EventScript_Sign1::
+	lock
+	msgbox Route32_Text_Sign1, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+Route32_EventScript_Sign2::
+	lock
+	msgbox Route32_Text_Sign2, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+Route32_EventScript_Sign3::
+	lock
+	msgbox Route32_Text_Sign3, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+Route32_Text_Sign1::
+	.string "ROUTE 32\p"
+	.string "VIOLET CITY - AZALEA TOWN$"
+
+Route32_Text_Sign2::
+	.string "RUINS OF ALPH\n"
+	.string "EAST ENTRANCE$"
+
+Route32_Text_Sign3::
+	.string "UNION CAVE\n"
+	.string "AHEAD$"

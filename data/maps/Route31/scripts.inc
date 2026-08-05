@@ -21,3 +21,26 @@ Route31_Text_Bugcatcher_WadeAfter:
 	.string "you have six with you.\p"
 	.string "If you catch one, it'll go to\n"
 	.string "your BOX automatically.$"
+
+@ Placas trazidas do hns por dev_scripts/importa_placas_johto.py
+
+Route31_EventScript_DarkCaveSign::
+	lock
+	msgbox Route31_Text_DarkCaveSign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+Route31_EventScript_Sign::
+	lock
+	msgbox Route31_Text_Sign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+Route31_Text_DarkCaveSign::
+	.string "DARK CAVE$"
+
+Route31_Text_Sign::
+	.string "ROUTE 31\p"
+	.string "VIOLET CITY - CHERRYGROVE CITY$"

@@ -148,3 +148,25 @@ Route35_Text_PolicemanDirkAfter:
 	.string "You know, night time is fun in its\n"
 	.string "own ways.\p"
 	.string "But don't overdo it, OK?$"
+
+@ Placas trazidas do hns por dev_scripts/importa_placas_johto.py
+
+Route35_EventScript_Sign1::
+	lock
+	msgbox Route35_Text_Sign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+Route35_EventScript_Sign2::
+	lock
+	msgbox Route35_Text_Sign2, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+Route35_Text_Sign::
+	.string "ROUTE 35$"
+
+Route35_Text_Sign2::
+	.string "NATIONAL PARK GATE$"

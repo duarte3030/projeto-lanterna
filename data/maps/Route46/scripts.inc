@@ -54,3 +54,16 @@ Route46_Text_ErinAfter:
 	.string "I've been to many GYMS, but the\n"
 	.string "GYM in GOLDENROD is my favorite.\p"
 	.string "It's filled with pretty flowers!$"
+
+@ Placas trazidas do hns por dev_scripts/importa_placas_johto.py
+
+Route46_EventScript_Sign::
+	lock
+	msgbox Route46_Text_Sign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+Route46_Text_Sign::
+	.string "ROUTE 46\n"
+	.string "MOUNTAIN RD. AHEAD$"

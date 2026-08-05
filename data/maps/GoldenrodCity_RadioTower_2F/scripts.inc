@@ -66,3 +66,26 @@ RadioTower2F_Text_Teacher:
 RadioTower2F_Text_SuperNerd:
 	.string "You can listen to the radio\n"
 	.string "anywhere. Tune in!$"
+
+@ Placas trazidas do hns por dev_scripts/importa_placas_johto.py
+
+GoldenrodCity_RadioTower_2F_EventScript_Sign1::
+	lock
+	msgbox GoldenrodCity_RadioTower_2F_Text_SalesSign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+GoldenrodCity_RadioTower_2F_EventScript_Sign2::
+	lock
+	msgbox GoldenrodCity_RadioTower_2F_Text_OakTalkSign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+GoldenrodCity_RadioTower_2F_Text_OakTalkSign::
+	.string "PROF.OAK'S POKéMON TALK\p"
+	.string "The Hottest Show on the Air!$"
+
+GoldenrodCity_RadioTower_2F_Text_SalesSign::
+	.string "2F SALES$"

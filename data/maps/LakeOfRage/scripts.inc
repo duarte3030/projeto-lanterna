@@ -73,3 +73,20 @@ LakeOfRage_Text_LoisBeaten:
 LakeOfRage_Text_LoisAfter:
 	.string "Come to think of it, I've seen a\n"
 	.string "pink BUTTERFREE.$"
+
+@ Placas trazidas do hns por dev_scripts/importa_placas_johto.py
+
+LakeOfRage_EventScript_Sign1::
+	msgbox LakeOfRage_Text_Sign, MSGBOX_SIGN
+	end
+
+LakeOfRage_EventScript_Sign2::
+	msgbox LakeOfRage_Text_FishingGuruSign, MSGBOX_SIGN
+	end
+
+LakeOfRage_Text_FishingGuruSign::
+    .string "FISHING GURU'S HOUSE$"
+
+LakeOfRage_Text_Sign::
+    .string "LAKE OF RAGE,\n"
+    .string "also known as GYARADOS LAKE.$"

@@ -77,3 +77,19 @@ RadioTower1F_Text_ReceptionistWelcome:
 RadioTower1F_Text_ReceptionistNoTours:
 	.string "Hello. I'm sorry, but we're not\n"
 	.string "offering any tours today.$"
+
+@ Placas trazidas do hns por dev_scripts/importa_placas_johto.py
+
+GoldenrodCity_RadioTower_1F_EventScript_Sign::
+	lock
+	msgbox RadioTower1F_Text_Directory, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+RadioTower1F_Text_Directory::
+    .string "1F RECEPTION\n"
+    .string "2F SALES\p"
+    .string "3F PERSONNEL\n"
+    .string "4F PRODUCTION\p"
+    .string "5F DIRECTOR'S OFFICE$"

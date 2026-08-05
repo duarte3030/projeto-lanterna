@@ -131,3 +131,21 @@ Route44_Text_CybilAfter:
 	.string "many battles.\p"
 	.string "I battled a lot to become what I\n"
 	.string "am today--an elite.$"
+
+@ Placas trazidas do hns por dev_scripts/importa_placas_johto.py
+
+Route44_EventScript_Sign1::
+	msgbox Route44_Text_Sign1, MSGBOX_SIGN
+	end
+
+Route44_EventScript_Sign2::
+	msgbox Route44_Text_Sign2, MSGBOX_SIGN
+	end
+
+Route44_Text_Sign1::
+    .string "ROUTE 44\n"
+    .string "ICE PATH AHEAD$"
+
+Route44_Text_Sign2::
+    .string "ROUTE 44\p"
+    .string "MAHOGANY TOWN - BLACKTHORN CITY$"

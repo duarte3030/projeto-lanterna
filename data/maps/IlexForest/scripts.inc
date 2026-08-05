@@ -22,3 +22,18 @@ IlexForest_Text_BugcatcherWayneAfter:
 	.string "HEADBUTT.\p"
 	.string "I ought to use HEADBUTT in other\n"
 	.string "places too.$"
+
+@ Placas trazidas do hns por dev_scripts/importa_placas_johto.py
+
+IlexForest_EventScript_Sign::
+	lock
+	msgbox IlexForest_Text_Signpost MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+IlexForest_Text_Signpost::
+	.string "ILEX FOREST is so overgrown with\n"
+	.string "trees that you can't see the sky.\p"
+	.string "Please watch out for items that may\n"
+	.string "have been dropped.$"

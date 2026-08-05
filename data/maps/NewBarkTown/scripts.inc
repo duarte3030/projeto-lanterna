@@ -57,3 +57,43 @@ NewBarkTown_Text_Silver1:
 
 NewBarkTown_Text_Silver2:
 	.string "…What are you staring at?$"
+
+@ Placas trazidas do hns por dev_scripts/importa_placas_johto.py
+
+NewBarkTown_EventScript_Door::
+	msgbox NewBarkTown_Text_Door, MSGBOX_SIGN
+	end
+
+NewBarkTown_EventScript_ElmsHouseMailbox::
+	msgbox NewBarkTown_Text_ElmsHouse, MSGBOX_SIGN
+	end
+
+NewBarkTown_EventScript_LabSign::
+	msgbox NewBarkTown_Text_LabSign, MSGBOX_SIGN
+	end
+
+NewBarkTown_EventScript_PlayersHouseMailbox::
+	msgbox NewBarkTown_Text_PlayersHouse, MSGBOX_SIGN
+	end
+
+NewBarkTown_EventScript_TownSign::
+	msgbox NewBarkTown_Text_Sign, MSGBOX_SIGN
+	closemessage
+	end
+
+NewBarkTown_Text_Door::
+	.string "The door is locked.$"
+
+NewBarkTown_Text_ElmsHouse::
+	.string "PROF.ELM'S HOUSE$"
+
+NewBarkTown_Text_LabSign::
+	.string "PROF.ELM'S LAB$"
+
+NewBarkTown_Text_PlayersHouse::
+	.string "{PLAYER}'S HOUSE$"
+
+NewBarkTown_Text_Sign::
+	.string "NEW BARK TOWN\p"
+	.string "The Town Where the Winds of\n"
+	.string "a New Beginning Blow$"

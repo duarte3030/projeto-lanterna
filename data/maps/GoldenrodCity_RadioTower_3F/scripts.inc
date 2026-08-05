@@ -54,3 +54,25 @@ RadioTower3F_Text_PleaseSave:
 	.string "But the DIRECTOR can open it.\p"
 	.string "He's up on the fifth floor.\p"
 	.string "Please save him!$"
+
+@ Placas trazidas do hns por dev_scripts/importa_placas_johto.py
+
+GoldenrodCity_RadioTower_3F_EventScript_Sign1::
+	lock
+	msgbox GoldenrodCity_RadioTower_3F_Text_PersonnelSign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+GoldenrodCity_RadioTower_3F_EventScript_Sign2::
+	lock
+	msgbox GoldenrodCity_RadioTower_3F_Text_PokemonMusicSign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+GoldenrodCity_RadioTower_3F_Text_PersonnelSign::
+	.string "3F PERSONNEL$"
+
+GoldenrodCity_RadioTower_3F_Text_PokemonMusicSign::
+	.string "POKéMON MUSIC with Host DJ BEN$"

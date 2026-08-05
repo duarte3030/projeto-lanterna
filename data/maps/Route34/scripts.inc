@@ -149,3 +149,42 @@ Route34_Text_KateAfter:
 	.string "KATE: I'm sorry we jumped you.\p"
 	.string "We never expected anyone to find\n"
 	.string "us here. You sure startled us.$"
+
+@ Placas trazidas do hns por dev_scripts/importa_placas_johto.py
+
+Route34_EventScript_Sign1::
+	lock
+	msgbox Route34_Text_Sign_Route34, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+Route34_EventScript_Sign2::
+	lock
+	msgbox Route34_Text_Sign_DayCare, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+Route34_EventScript_Sign3::
+	lock
+	msgbox Route34_Text_TrainerTips, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+Route34_Text_Sign_DayCare::
+	.string "DAY-CARE\p"
+	.string "LET US RAISE YOUR POKéMON FOR YOU!$"
+
+Route34_Text_Sign_Route34::
+	.string "ROUTE 34\n"
+	.string "GOLDENROD CITY - AZALEA TOWN\p"
+	.string "ILEX FOREST SOMEWHERE BETWEEN$"
+
+Route34_Text_TrainerTips::
+	.string "TRAINER TIPS\p"
+	.string "BERRY trees grow new BERRIES\n"
+	.string "several times a day.\p"
+	.string "Note which trees bear which\n"
+	.string "BERRIES.$"

@@ -124,3 +124,13 @@ Route27_Text_ScottBeaten:
 Route27_Text_ScottAfter:
 	.string "Just like in fishing, it's all over\n"
 	.string "in POKéMON if you give up.$"
+
+@ Placas trazidas do hns por dev_scripts/importa_placas_johto.py
+
+Route27_EventScript_TohjoFallsSign::
+    msgbox TohjoFalls_Text_Sign, MSGBOX_SIGN
+    end
+
+TohjoFalls_Text_Sign::
+    .string "TOHJO FALLS\p"
+    .string "THE LINK BETWEEN KANTO AND JOHTO$"

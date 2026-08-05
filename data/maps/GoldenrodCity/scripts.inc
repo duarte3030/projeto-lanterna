@@ -68,3 +68,98 @@ GoldenrodCity_Text_SilverAfter:
 	.string "I won't give up my dream of\n"
 	.string "becoming the world's best\l"
 	.string "POKéMON trainer!$"
+
+@ Placas trazidas do hns por dev_scripts/importa_placas_johto.py
+
+GoldenrodCity_EventScript_NameRaterSign::
+	msgbox GoldenrodCity_Text_NameRaterSign, MSGBOX_SIGN
+	end
+
+GoldenrodCity_EventScript_SignBike::
+	lock
+	msgbox GoldenrodCity_Text_BikeShopSign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+GoldenrodCity_EventScript_SignDept::
+	lock
+	msgbox GoldenrodCity_Text_DeptStoreSign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+GoldenrodCity_EventScript_SignFlower::
+	lock
+	msgbox GoldenrodCity_Text_FlowerShopSign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+GoldenrodCity_EventScript_SignGameCorner::
+	lock
+	msgbox GoldenrodCity_Text_GameCornerSign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+GoldenrodCity_EventScript_SignGym::
+	lock
+	msgbox GoldenrodCity_Text_GymSign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+GoldenrodCity_EventScript_SignRadio::
+	lock
+	msgbox GoldenrodCity_Text_RadioTowerSign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+GoldenrodCity_EventScript_SignTrain::
+	lock
+	msgbox GoldenrodCity_Text_StationSign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+GoldenrodCity_EventScript_SignUnderground::
+	lock
+	msgbox GoldenrodCity_Text_UndergroundSouthSign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+GoldenrodCity_Text_BikeShopSign::
+	.string "The World is a Cycle Path!\n"
+	.string "BIKE SHOP$"
+
+GoldenrodCity_Text_DeptStoreSign::
+	.string "Full Selection of POKéMON Goods!\p"
+	.string "GOLDENROD CITY DEPT.STORE$"
+
+GoldenrodCity_Text_FlowerShopSign::
+	.string "Blooming Beautiful FLOWER SHOP$"
+
+GoldenrodCity_Text_GameCornerSign::
+	.string "Your Playground!\p"
+	.string "GOLDENROD CITY GAME CORNER$"
+
+GoldenrodCity_Text_GymSign::
+	.string "GOLDENROD CITY POKéMON GYM\n"
+	.string "LEADER: WHITNEY\p"
+	.string "The Incredibly Pretty Girl!$"
+
+GoldenrodCity_Text_NameRaterSign::
+	.string "NAME RATER\p"
+	.string "Get Your POKéMON Nicknames Rated$"
+
+GoldenrodCity_Text_RadioTowerSign::
+	.string "GOLDENROD CITY RADIO TOWER$"
+
+GoldenrodCity_Text_StationSign::
+	.string "GOLDENROD CITY STATION$"
+
+GoldenrodCity_Text_UndergroundSouthSign::
+	.string "UNDERGROUND ENTRANCE$"

@@ -43,3 +43,25 @@ RadioTower4F_Text_DJMary:
 	.string "MARY: Why? Why do I have to suffer\n"
 	.string "through this?\p"
 	.string "MEOWTH, help me!$"
+
+@ Placas trazidas do hns por dev_scripts/importa_placas_johto.py
+
+GoldenrodCity_RadioTower_4F4_EventScript_Sign1::
+	lock
+	msgbox GoldenrodCity_RadioTower_4F4_Text_Studio2Sign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+GoldenrodCity_RadioTower_4F4_EventScript_Sign2::
+	lock
+	msgbox GoldenrodCity_RadioTower_4F4_Text_ProductionSign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+GoldenrodCity_RadioTower_4F4_Text_ProductionSign::
+	.string "4F PRODUCTION$"
+
+GoldenrodCity_RadioTower_4F4_Text_Studio2Sign::
+	.string "4F STUDIO 2$"

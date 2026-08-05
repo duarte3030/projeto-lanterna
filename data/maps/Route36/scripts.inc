@@ -35,3 +35,31 @@ Route36_Text_SchoolboyAfter:
 	.string "Darn. I study five hours a day too.\p"
 	.string "There's more to learning than just\n"
 	.string "reading books.$"
+
+@ Placas trazidas do hns por dev_scripts/importa_placas_johto.py
+
+Route36_EventScript_Sign::
+	lock
+	msgbox Route36_Text_Sign_RuinsNorth, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+Route36_EventScript_Sign2::
+	lock
+	msgbox Route36_Text_Tips1, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+Route36_Text_Sign_RuinsNorth::
+	.string "RUINS OF ALPH\n"
+	.string "NORTH ENTRANCE$"
+
+Route36_Text_Tips1::
+	.string "TRAINER TIPS\n"
+	.string "POKéMON stats vary--even within\l"
+	.string "the same species.\p"
+	.string "Their stats may be similar at first.\p"
+	.string "However, differences will become\n"
+	.string "pronounced as the POKéMON grow.$"

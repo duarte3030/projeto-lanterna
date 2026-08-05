@@ -115,3 +115,28 @@ Route38_Text_OliviaAfter:
 	.string "beauty and health,\p"
 	.string "but inconveniently, they\n"
 	.string "only sell one bottle at a time.$"
+
+@ Placas trazidas do hns por dev_scripts/importa_placas_johto.py
+
+Route38_EventScript_Sign1::
+	lock
+	msgbox Route38_Text_Sign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+Route38_EventScript_Sign2::
+	lock
+	msgbox Route38_Text_WaterSign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+Route38_Text_Sign::
+	.string "ROUTE 38\p"
+	.string "OLIVINE CITY - ECRUTEAK CITY$"
+
+Route38_Text_WaterSign::
+	.string "NO SWIMMING OR FISHING.\n"
+	.string "WATER FOR FARMING ONLY.\p"
+	.string "-ECRUTEAK COUNCIL$"

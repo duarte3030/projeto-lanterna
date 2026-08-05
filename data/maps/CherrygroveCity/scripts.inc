@@ -61,3 +61,17 @@ CherrygroveCity_Text_SilverAfter:
 	.string "My name's ???.\p"
 	.string "I'm going to be the world's\n"
 	.string "greatest POKéMON trainer.$"
+
+@ Placas trazidas do hns por dev_scripts/importa_placas_johto.py
+
+CherryGroveCity_EventScript_Sign::
+	lock
+	msgbox CherrygroveCity_Text_CitySign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+CherrygroveCity_Text_CitySign::
+	.string "CHERRYGROVE CITY\p"
+	.string "The City of Cute, Fragrant\n"
+	.string "Flowers$"

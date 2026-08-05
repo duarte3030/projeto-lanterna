@@ -101,3 +101,15 @@ BurnedTower_1F_Text_SilverAfter:
 	.string "…Aw, whatever.\p"
 	.string "You would never be able to catch a\n"
 	.string "legendary POKéMON anyway.$"
+
+@ Placas trazidas do hns por dev_scripts/importa_placas_johto.py
+
+RuinsOfAlph_PuzzleAndRewardChambers_MapScript_StatueDescription::
+	lock
+	msgbox RuinsOfAlph_PuzzleAndRewardChambers_Text_Statue, MSGBOX_DEFAULT
+	release
+	end
+
+RuinsOfAlph_PuzzleAndRewardChambers_Text_Statue::
+	.string "It's a replica of an ancient\n"
+	.string "POKéMON.$"

@@ -115,3 +115,18 @@ NewBarkTown_Lab_Text_WillYouTakeThisOne:
 NewBarkTown_Lab_Text_ReceivedStarter:
 	.string "{PLAYER} received the\n"
 	.string "{STR_VAR_1}!$"
+
+@ Placas trazidas do hns por dev_scripts/importa_placas_johto.py
+
+NewBarkTown_Lab_EventScript_HealingMachine1::
+	lock
+	goto_if_set FLAG_SYS_POKEMON_GET, NewBarkTown_Lab_EventScript_HealingMachine2
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_SeriousLookingMachine, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+NewBarkTown_Lab_EventScript_HealingMachine2::
+	call Common_EventScript_OutOfCenterPartyHeal
+	release
+	end
