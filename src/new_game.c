@@ -138,21 +138,23 @@ static void ClearFrontierRecord(void)
 
 static void WarpToTruck(void)
 {
-    // ponytail: jogo novo comeca em Twinleaf, em Sinnoh, enquanto a regiao esta
-    // sendo montada. Testar por menu de debug custava tres passos e um humano
-    // lendo numero de grupo; assim basta apertar "novo jogo".
-    // Para voltar ao inicio do Emerald, restaure MAP_INSIDE_OF_TRUCK abaixo.
+    // O jogo novo comeca em Pallet Town, no quarto do jogador. Decisao do dono
+    // do projeto em 05/08/2026: a ordem das cinco regioes e cronologica, Kanto,
+    // Johto, Hoenn, Sinnoh, Unova. Antes comecava em Twinleaf porque Sinnoh era
+    // a unica regiao montada.
+    //
+    // A abertura de Kanto nao precisou ser escrita: o roteiro do laboratorio do
+    // Oak ja existe inteiro em data/maps/PalletTown_ProfessorOaksLab_Frlg, com
+    // escolha de inicial e rival, e e autocontido (usa
+    // VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB e VAR_STARTER_MON, que
+    // existem nesta build). O que o prendia era so IS_FRLG, que aqui e 0.
+    //
+    // Nao ha caminhao: ele so serve a cutscene de abertura do Emerald.
 #if DEV_SKIP_INTRO
     // ponytail: sem introducao, o jogo comeca direto no mapa de desenvolvimento.
-    // O caminhao existe so para a cutscene de abertura; pulando ela, ele nao serve.
     SetWarpDestination(MAP_GROUP(DEV_START_MAP), MAP_NUM(DEV_START_MAP), WARP_ID_NONE, DEV_START_X, DEV_START_Y);
 #else
-    if (IS_FRLG)
-        SetWarpDestination(MAP_GROUP(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), MAP_NUM(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), WARP_ID_NONE, 6, 6);
-    else
-        // Sinnoh: o jogo comeca no quarto do jogador, em Twinleaf Town. Nao ha
-        // mudanca nem caminhao aqui; Platinum abre com o jogador ja em casa.
-        SetWarpDestination(MAP_GROUP(MAP_TWINLEAF_TOWN_MAIN_HOUSE_2F), MAP_NUM(MAP_TWINLEAF_TOWN_MAIN_HOUSE_2F), WARP_ID_NONE, 4, 3);
+    SetWarpDestination(MAP_GROUP(MAP_TWINLEAF_TOWN_MAIN_HOUSE_2F), MAP_NUM(MAP_TWINLEAF_TOWN_MAIN_HOUSE_2F), WARP_ID_NONE, 4, 3);
 #endif
     WarpIntoMap();
 }

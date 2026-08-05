@@ -28,7 +28,7 @@ const struct Tileset gTileset_SecretBaseRedCave =
 const struct Tileset *const gTilesetPointer_SecretBase = &gTileset_SecretBase;
 const struct Tileset *const gTilesetPointer_SecretBaseRedCave = &gTileset_SecretBaseRedCave;
 
-#if !IS_FRLG
+// Kanto so aparece se os dois conjuntos de tileset forem compilados.
 
 const struct Tileset gTileset_General =
 {
@@ -1034,7 +1034,7 @@ const struct Tileset gTileset_Pasos =
     .metatileAttributes = gMetatileAttributes_Pasos,
     .callback = NULL,
 };
-#else
+// (antes: #else de #if !IS_FRLG, que deixava os tilesets de FRLG fora)
 
 // FRLG tilesets
 const struct Tileset gTileset_BuildingFrlg =
@@ -1741,4 +1741,4 @@ const struct Tileset gTileset_HallOfFame =
     .callback = NULL,
 };
 
-#endif // IS_FRLG
+// (antes: #endif de #if !IS_FRLG)

@@ -6,6 +6,22 @@ Uso:
     python3 dev_scripts/testa_critico.py T2              # roda só os casos T2.*
     python3 dev_scripts/testa_critico.py --lista         # lista sem rodar
     python3 dev_scripts/testa_critico.py --rom outra.gba # ROM congelada
+    python3 dev_scripts/testa_critico.py --censo         # varre TODOS os grupos de mapa
+
+T11, a save do Gui sobrevive à atualização da ROM
+-------------------------------------------------
+Precisa de duas builds e das duas árvores de fonte correspondentes, porque os
+offsets dentro do SaveBlock1 têm que ser lidos de CADA uma (ver
+`offsets_da_fonte`). Guarde a ROM antiga com um `include/` ao lado dela:
+
+    python3 dev_scripts/testa_critico.py T11 \
+        --rom  ~/roms/antiga/pokeemerald.gba  --src  ~/roms/antiga \
+        --rom2 pokeemerald.gba                --src2 .
+
+T11.1 joga e salva, T11.2 confere que a save volta na mesma ROM (é o controle
+que prova que o .sav está mesmo sendo lido), e T11.3 carrega a MESMA save na
+ROM nova. Sem `--rom2`, o T11.3 é PULADO e dito em voz alta, nunca contado
+como passou.
 
 Por que este arquivo existe
 ---------------------------

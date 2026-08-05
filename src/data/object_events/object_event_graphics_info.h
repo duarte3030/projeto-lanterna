@@ -4467,7 +4467,9 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ApricornTree = {
     .images = sPicTable_ApricornTree,
 };
 
-#if IS_FRLG
+// Sprites de FRLG compilados sempre. Com Kanto dentro desta ROM, 124 dos
+// 129 sprites que os mapas dela usam ficavam sem grafico, e id sem grafico
+// derruba o jogo para a tela de titulo. Foi esse o crash de duas sessoes.
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedNormal = {
     .tileTag = TAG_NONE,
@@ -7224,4 +7226,4 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SSAnne = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
-#endif // IS_FRLG
+// (antes: #endif de #if IS_FRLG)

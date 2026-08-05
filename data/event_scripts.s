@@ -767,7 +767,8 @@ gStdScripts_End::
 	.include "data/maps/CanalaveCity_Gym/scripts.inc"
 	.include "data/maps/SnowpointCity_Gym/scripts.inc"
 	.include "data/maps/SunyshoreCity_Gym/scripts.inc"
-.if IS_FRLG
+@ Os 418 scripts de Kanto ficavam fechados aqui por .if IS_FRLG. Nesta ROM as
+@ cinco regioes convivem, entao Kanto precisa dos scripts dela compilados.
 
 @ FRLG scripts
 	.include "data/maps/BattleColosseum_2P_Frlg/scripts.inc"
@@ -1214,7 +1215,7 @@ gStdScripts_End::
 	.include "data/scripts/flavor_text.inc"
 	.include "data/scripts/pkmn_center_nurse_frlg.inc"
 
-.endif
+@ (antes: .endif do .if IS_FRLG que fechava os scripts de Kanto)
 
 	.include "data/scripts/std_msgbox.inc"
 	.include "data/scripts/trainer_battle.inc"

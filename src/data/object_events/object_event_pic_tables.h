@@ -1359,7 +1359,9 @@ static const struct SpriteFrameImage sPicTable_ApricornTree[] = {
     overworld_frame(gObjectEventPic_ApricornTree, 2, 2, 0),
 };
 
-#if IS_FRLG
+// Sprites de FRLG compilados sempre. Com Kanto dentro desta ROM, 124 dos
+// 129 sprites que os mapas dela usam ficavam sem grafico, e id sem grafico
+// derruba o jogo para a tela de titulo. Foi esse o crash de duas sessoes.
 
 static const struct SpriteFrameImage sPicTable_RedNormal[] = {
     overworld_frame(gObjectEventPic_RedNormal, 2, 4, 0),
@@ -3026,4 +3028,4 @@ static const struct SpriteFrameImage sPicTable_MomFrlg[] = {
     overworld_frame(gObjectEventPic_MomFrlg, 2, 4, 2),
 };
 
-#endif // IS_FRLG
+// (antes: #endif de #if IS_FRLG)

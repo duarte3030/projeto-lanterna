@@ -1,0 +1,284 @@
+[
+  {
+    "id": "T6.1",
+    "nome": "Porto de Olivine (Johto), de onde parte o barco para Hoenn, carrega",
+    "warp": "MAP_OLIVINE_CITY_PORT_INSIDE",
+    "prova": {
+      "mapa": "MAP_OLIVINE_CITY_PORT_INSIDE",
+      "layout": "LAYOUT_OLIVINE_CITY_PORT_INSIDE"
+    }
+  },
+  {
+    "id": "T6.2",
+    "nome": "JOHTO PARA HOENN FALHA: uma OBJ_EVENT_GFX_ITEM_BALL em (8,16) tranca o unico tile vizinho do marinheiro de Olivine (8,17); o jogador para em (8,15) e nunca fala com ele",
+    "warp": "MAP_OLIVINE_CITY_PORT_INSIDE",
+    "roteiro": "20:DOWN*12,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN,60:NADA,20:A,900:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_SLATEPORT_CITY_HARBOR",
+      "layout": "LAYOUT_HARBOR"
+    }
+  },
+  {
+    "id": "T7.1",
+    "nome": "Liga de Hoenn: Ever Grande City carrega",
+    "warp": "MAP_EVER_GRANDE_CITY",
+    "prova": {"mapa": "MAP_EVER_GRANDE_CITY", "layout": "LAYOUT_EVER_GRANDE_CITY"}
+  },
+  {
+    "id": "T7.2",
+    "nome": "Liga de Hoenn: Victory Road 1F carrega",
+    "warp": "MAP_VICTORY_ROAD_1F",
+    "prova": {"mapa": "MAP_VICTORY_ROAD_1F", "layout": "LAYOUT_VICTORY_ROAD_1F"}
+  },
+  {
+    "id": "T7.3",
+    "nome": "Liga de Hoenn: saguão da Liga (Pokemon League 1F) carrega",
+    "warp": "MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F",
+      "layout": "LAYOUT_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F"
+    }
+  },
+  {
+    "id": "T7.4",
+    "nome": "Liga de Hoenn: sala do Sidney (Elite dos Quatro 1) carrega",
+    "warp": "MAP_EVER_GRANDE_CITY_SIDNEYS_ROOM",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY_SIDNEYS_ROOM",
+      "layout": "LAYOUT_EVER_GRANDE_CITY_SIDNEYS_ROOM"
+    }
+  },
+  {
+    "id": "T7.5",
+    "nome": "Liga de Hoenn: sala do Drake (Elite dos Quatro 4) carrega",
+    "warp": "MAP_EVER_GRANDE_CITY_DRAKES_ROOM",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY_DRAKES_ROOM",
+      "layout": "LAYOUT_EVER_GRANDE_CITY_DRAKES_ROOM"
+    }
+  },
+  {
+    "id": "T7.6",
+    "nome": "Liga de Hoenn: sala do campeão (Steven) carrega",
+    "warp": "MAP_EVER_GRANDE_CITY_CHAMPIONS_ROOM",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY_CHAMPIONS_ROOM",
+      "layout": "LAYOUT_EVER_GRANDE_CITY_CHAMPIONS_ROOM"
+    }
+  },
+  {
+    "id": "T7.7",
+    "nome": "Liga de Hoenn: Hall da Fama carrega",
+    "warp": "MAP_EVER_GRANDE_CITY_HALL_OF_FAME",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY_HALL_OF_FAME",
+      "layout": "LAYOUT_EVER_GRANDE_CITY_HALL_OF_FAME"
+    }
+  },
+  {
+    "id": "T8.1",
+    "nome": "Porto de Slateport (Hoenn), de onde deveria partir o barco para Sinnoh, carrega",
+    "warp": "MAP_SLATEPORT_CITY_HARBOR",
+    "prova": {"mapa": "MAP_SLATEPORT_CITY_HARBOR", "layout": "LAYOUT_HARBOR"}
+  },
+  {
+    "id": "T8.2",
+    "nome": "FALHA: 1a opção do barco de Slateport (deveria dar Olivine, Johto) derruba o jogo, warpsilent sem waitstate, SRC/SCRIPT.C:79 LEAVING SCRIPT WHILE A WARP IS IN PROGRESS",
+    "warp": "MAP_SLATEPORT_CITY_HARBOR",
+    "roteiro": "20:UP*2,20:LEFT*10,30:NADA,20:A,900:NADA,20:A,120:NADA,20:A,900:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_OLIVINE_CITY_PORT_INSIDE",
+      "layout": "LAYOUT_OLIVINE_CITY_PORT_INSIDE"
+    }
+  },
+  {
+    "id": "T8.3",
+    "nome": "HOENN PARA SINNOH FALHA: a 3a opção (Canalave) não existe. MULTI_BOAT_DESTINATIONS cai no #ifndef de include/constants/script_menu.h e vira MULTI_BRINEY_OFF_DEWFORD, um menu de 2 itens, DEWFORD e EXIT. Medido: DOWN duas vezes não dá a volta, para no item 1 (EXIT) e zarpa para Vermilion, Kanto. Sinnoh é inalcançável de barco desde Hoenn",
+    "warp": "MAP_SLATEPORT_CITY_HARBOR",
+    "roteiro": "20:UP*2,20:LEFT*10,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*2,60:NADA,20:A,900:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_CANALAVE_CITY",
+      "layout": "LAYOUT_CANALAVE_CITY"
+    }
+  },
+  {
+    "id": "T8.4",
+    "nome": "Canalave City (Sinnoh), o destino do barco de Slateport, carrega",
+    "warp": "MAP_CANALAVE_CITY",
+    "warp_id": 1,
+    "prova": {"mapa": "MAP_CANALAVE_CITY", "layout": "LAYOUT_CANALAVE_CITY"}
+  },
+  {
+    "id": "T8.5",
+    "nome": "FALHA: volta SINNOH PARA HOENN, o marinheiro de Canalave é alcançável e o menu abre, mas a 2a opção (Slateport) cai no mesmo warpsilent sem waitstate",
+    "warp": "MAP_CANALAVE_CITY",
+    "warp_id": 1,
+    "roteiro": "20:DOWN*20,20:LEFT*20,20:RIGHT*4,20:UP*12,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN,60:NADA,20:A,900:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_SLATEPORT_CITY_HARBOR",
+      "layout": "LAYOUT_HARBOR"
+    }
+  },
+  {
+    "id": "T9.1",
+    "nome": "Galáctica: QG de Veilstone 1F carrega",
+    "warp": "MAP_GALACTIC_HQ_1F",
+    "prova": {"mapa": "MAP_GALACTIC_HQ_1F", "layout": "LAYOUT_LILYCOVE_CITY_CONTEST_LOBBY"}
+  },
+  {
+    "id": "T9.2",
+    "nome": "Galáctica: sala de controle do QG (Saturn e o botão do trio dos lagos) carrega",
+    "warp": "MAP_GALACTIC_HQ_CONTROL_ROOM",
+    "prova": {
+      "mapa": "MAP_GALACTIC_HQ_CONTROL_ROOM",
+      "layout": "LAYOUT_MOSSDEEP_CITY_SPACE_CENTER_2F"
+    }
+  },
+  {
+    "id": "T9.3",
+    "nome": "Galáctica: 4F do prédio de Eterna (cena da Jupiter) carrega",
+    "warp": "MAP_TEAM_GALACTIC_ETERNA_BUILDING_4F",
+    "prova": {
+      "mapa": "MAP_TEAM_GALACTIC_ETERNA_BUILDING_4F",
+      "layout": "LAYOUT_MT_PYRE_5F"
+    }
+  },
+  {
+    "id": "T9.4",
+    "nome": "Galáctica: armazém de Veilstone carrega",
+    "warp": "MAP_VEILSTONE_CITY_GALACTIC_WAREHOUSE",
+    "prova": {"mapa": "MAP_VEILSTONE_CITY_GALACTIC_WAREHOUSE"}
+  },
+  {
+    "id": "T9.5",
+    "nome": "Spear Pillar carrega",
+    "warp": "MAP_SPEAR_PILLAR",
+    "prova": {"mapa": "MAP_SPEAR_PILLAR", "layout": "LAYOUT_SKY_PILLAR_TOP"}
+  },
+  {
+    "id": "T9.6",
+    "nome": "Spear Pillar distorcido (depois da queda do Cyrus) carrega",
+    "warp": "MAP_SPEAR_PILLAR_DISTORTED",
+    "prova": {
+      "mapa": "MAP_SPEAR_PILLAR_DISTORTED",
+      "layout": "LAYOUT_SKY_PILLAR_TOP_CLEAN"
+    }
+  },
+  {
+    "id": "T9.7",
+    "nome": "Spear Pillar: fenda do tempo (Dialga) carrega",
+    "warp": "MAP_SPEAR_PILLAR_DIALGA",
+    "prova": {"mapa": "MAP_SPEAR_PILLAR_DIALGA", "layout": "LAYOUT_CAVE_OF_ORIGIN_B1F"}
+  },
+  {
+    "id": "T9.8",
+    "nome": "Spear Pillar: fenda do espaço (Palkia) carrega",
+    "warp": "MAP_SPEAR_PILLAR_PALKIA",
+    "prova": {"mapa": "MAP_SPEAR_PILLAR_PALKIA"}
+  },
+  {
+    "id": "T9.9",
+    "nome": "Liga de Sinnoh: entrada carrega",
+    "warp": "MAP_SINNOH_LEAGUE_ENTRANCE",
+    "prova": {
+      "mapa": "MAP_SINNOH_LEAGUE_ENTRANCE",
+      "layout": "LAYOUT_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F"
+    }
+  },
+  {
+    "id": "T9.10",
+    "nome": "Liga de Sinnoh: sala do Aaron (Elite dos Quatro 1) carrega",
+    "warp": "MAP_SINNOH_LEAGUE_AARONS_ROOM",
+    "prova": {
+      "mapa": "MAP_SINNOH_LEAGUE_AARONS_ROOM",
+      "layout": "LAYOUT_EVER_GRANDE_CITY_SIDNEYS_ROOM"
+    }
+  },
+  {
+    "id": "T9.11",
+    "nome": "Liga de Sinnoh: sala do Lucian (Elite dos Quatro 4) carrega",
+    "warp": "MAP_SINNOH_LEAGUE_LUCIANS_ROOM",
+    "prova": {"mapa": "MAP_SINNOH_LEAGUE_LUCIANS_ROOM"}
+  },
+  {
+    "id": "T9.12",
+    "nome": "Liga de Sinnoh: sala da campeã Cynthia carrega",
+    "warp": "MAP_SINNOH_LEAGUE_CHAMPIONS_ROOM",
+    "prova": {
+      "mapa": "MAP_SINNOH_LEAGUE_CHAMPIONS_ROOM",
+      "layout": "LAYOUT_EVER_GRANDE_CITY_CHAMPIONS_ROOM"
+    }
+  },
+  {
+    "id": "T9.13",
+    "nome": "Liga de Sinnoh: Hall da Fama carrega, e antes da cerimônia FLAG_SYS_GAME_CLEAR (0xA7C) está apagada",
+    "warp": "MAP_SINNOH_LEAGUE_HALL_OF_FAME",
+    "prova": {
+      "mapa": "MAP_SINNOH_LEAGUE_HALL_OF_FAME",
+      "layout": "LAYOUT_EVER_GRANDE_CITY_HALL_OF_FAME",
+      "flags_apagadas": ["0xA7C"]
+    }
+  },
+  {
+    "id": "T9.14",
+    "nome": "EVENTO POR FLAG: a cerimônia do Hall da Fama de Sinnoh roda até o fim e acende FLAG_SYS_GAME_CLEAR (0xA7C), que só o special GameClear liga (não existe nenhum setflag dela em data/, nem no Cheat start). Roteiro sem campo warp: usa Cheat start do menu de debug para ter time (com time vazio a cerimônia estoura em OUT OF SPRITE SLOTS, e isso vale igual no Hall da Fama de Hoenn) e depois digita o warp 99/6 na mão, porque flags e warp do harness rodam antes do roteiro. Se MAP_SINNOH_LEAGUE_HALL_OF_FAME deixar de ser 99/6, este caso falha na prova de mapa, e é o sinal de que o número mudou. VAR_TEMP_1 ficou fora da prova de propósito: ClearTempFieldEventData zera ela quando a tela do Hall da Fama entra, então o valor é uma corrida",
+    "roteiro": "40:R+START!,60:NADA,20:A,40:NADA,20:DOWN*6,20:A,240:NADA,20:B,60:NADA,40:R+START!,60:NADA,20:A,40:NADA,20:DOWN,20:A,60:NADA,12:RIGHT,12:RIGHT,12:LEFT,12:UP*9,12:LEFT,12:UP*9,20:A,40:NADA,12:RIGHT,12:RIGHT,12:LEFT,12:LEFT,12:UP*6,20:A,40:NADA,12:RIGHT,12:RIGHT,12:LEFT,12:LEFT,20:A,300:NADA,180:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,1200:NADA",
+    "prova": {
+      "mapa": "MAP_SINNOH_LEAGUE_HALL_OF_FAME",
+      "layout": "LAYOUT_EVER_GRANDE_CITY_HALL_OF_FAME",
+      "time_min": 1,
+      "flags_acesas": ["0xA7C"]
+    }
+  },
+  {
+    "id": "T9.15",
+    "nome": "EVENTO POR FLAG: vencer a Jupiter do prédio de Eterna (flag de treinador 0xA1F) acende FLAG_GALACTICA_ETERNA (0x38) no ON_TRANSITION da cidade",
+    "flags": ["0xA1F"],
+    "warp": "MAP_ETERNA_CITY",
+    "prova": {
+      "mapa": "MAP_ETERNA_CITY",
+      "layout": "LAYOUT_ETERNA_CITY",
+      "flags_acesas": ["0x38"]
+    }
+  },
+  {
+    "id": "T9.16",
+    "nome": "Controle do T9.15: sem a Jupiter derrotada, FLAG_GALACTICA_ETERNA (0x38) continua apagada",
+    "warp": "MAP_ETERNA_CITY",
+    "prova": {
+      "mapa": "MAP_ETERNA_CITY",
+      "layout": "LAYOUT_ETERNA_CITY",
+      "flags_apagadas": ["0x38"]
+    }
+  },
+  {
+    "id": "T9.17",
+    "nome": "Ginásio de Eterna: sair pela porta volta para Eterna City",
+    "warp": "MAP_ETERNA_CITY_GYM",
+    "roteiro": "20:DOWN*6,180:NADA",
+    "prova": {"mapa": "MAP_ETERNA_CITY", "layout": "LAYOUT_ETERNA_CITY"}
+  },
+  {
+    "id": "T9.18",
+    "nome": "Ginásio de Veilstone: sair pela porta volta para Veilstone City",
+    "warp": "MAP_VEILSTONE_CITY_GYM",
+    "roteiro": "20:DOWN*6,180:NADA",
+    "prova": {"mapa": "MAP_VEILSTONE_CITY", "layout": "LAYOUT_VEILSTONE_CITY"}
+  },
+  {
+    "id": "T9.19",
+    "nome": "Entrar no ginásio de Eterna funciona: PENDENCIAS-GALACTICA item 5 está desatualizado. O tile (22,44) tem colisão 1, mas TryDoorWarp roda no input antes da colisão, então a porta dispara",
+    "warp": "MAP_ETERNA_CITY",
+    "warp_id": 1,
+    "roteiro": "20:DOWN*2,20:UP*4,180:NADA",
+    "prova": {"mapa": "MAP_ETERNA_CITY_GYM", "layout": "LAYOUT_ETERNA_CITY_GYM"}
+  },
+  {
+    "id": "T9.20",
+    "nome": "Entrar no ginásio de Veilstone funciona: mesmo caso do T9.19, o warp de (8,36) dispara apesar da colisão 1",
+    "warp": "MAP_VEILSTONE_CITY",
+    "warp_id": 4,
+    "roteiro": "20:DOWN*2,20:UP*4,180:NADA",
+    "prova": {"mapa": "MAP_VEILSTONE_CITY_GYM", "layout": "LAYOUT_VEILSTONE_CITY_GYM"}
+  }
+]

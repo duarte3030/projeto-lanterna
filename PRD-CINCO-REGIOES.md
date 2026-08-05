@@ -77,12 +77,14 @@ Mapas por região:
 | Sinnoh | 96 | começo, 8 ginásios, Galáctica, Elite, Cynthia, Hall da Fama |
 | **Unova** | **0** | não existe |
 
-**Ligação entre regiões (medido):** `data/maps/CanalaveCity/scripts.inc` tem o
-marinheiro com três destinos reais, `MAP_OLIVINE_CITY_PORT_INSIDE`,
-`MAP_SLATEPORT_CITY_HARBOR` e `MAP_VERMILION_CITY`. Confirmei que
-`MAP_VERMILION_CITY` é mesmo o Vermilion de Kanto: a pasta é
-`data/maps/VermilionCity_Frlg` e a constante é sem sufixo
-(`include/constants/map_groups.h:800`). **As quatro regiões estão ligadas.**
+**CORREÇÃO, 05/08/2026: eram três regiões, não quatro. Kanto nunca esteve na
+ROM.** Ver seção 11.
+
+**Ligação entre regiões:** `data/maps/CanalaveCity/scripts.inc` tem o marinheiro
+com três destinos, `MAP_OLIVINE_CITY_PORT_INSIDE`, `MAP_SLATEPORT_CITY_HARBOR` e
+`MAP_VERMILION_CITY`. A constante existe e aponta para a pasta
+`data/maps/VermilionCity_Frlg`. O que eu não conferi na hora foi se esse mapa
+chega a existir dentro da ROM. Não chegava.
 
 **Início:** `src/new_game.c:155` manda para `MAP_TWINLEAF_TOWN_MAIN_HOUSE_2F`.
 Existe um ramo em `:151` apontando para `MAP_PALLET_TOWN_PLAYERS_HOUSE_2F`.
@@ -373,3 +375,92 @@ As duas frentes correm juntas desde o começo:
 A frente A acha bug no que já está pronto enquanto a B constrói o que falta.
 Cada uma com faixa de flag própria e exclusiva, porque agentes em paralelo já
 colidiram em faixa de flag hoje.
+
+---
+
+## 11. Kanto nunca esteve na ROM (achado de 05/08/2026)
+
+O achado mais caro da sessão, e o mais mal medido antes dele.
+
+### O sintoma
+
+Liguei o começo do jogo em Pallet Town. O leitor de EWRAM confirmou
+`mapa=38.1 pos=6,6`, exatamente o destino pedido. **A tela veio preta, com só o
+sprite do jogador.** Sprite é OAM e não depende de layout; o fundo é que não
+existia.
+
+### A causa, em três camadas
+
+| camada | o que estava fechado | efeito |
+|---|---|---|
+| `src/data/tilesets/graphics.h:1986` | `#if IS_FRLG` em volta dos gráficos | 0 tileset de FRLG na ROM |
+| `src/data/tilesets/headers.h:1037` | `#else` de `#if !IS_FRLG` | structs `Tileset` fora |
+| `src/data/tilesets/metatiles.h:268` | `#else` de `#if !IS_FRLG` | metatiles fora |
+| `tools/mapjson/mapjson.cpp:783` | `layout_version != "emerald"` → `continue` | **344 layouts descartados** |
+| `tools/mapjson/mapjson.cpp:743` | `region != "REGION_HOENN"` → `invalid_maps` | **421 mapas descartados** |
+
+Os dois filtros do `mapjson` existem no upstream porque lá se builda Emerald
+**ou** FireRed. Aqui a ROM é uma só, com cinco regiões de propósito, então o
+filtro jogava Kanto inteira fora **sem imprimir uma linha**.
+
+Sinnoh e Johto escapavam por acidente: têm o campo `region` vazio, que cai no
+padrão `REGION_HOENN`.
+
+### Por que nenhum validador pegou
+
+Porque **todos eles leem o JSON, não a ROM.**
+
+- `valida_conectividade.py` andava `map_groups.json` e jurava que Kanto era
+  alcançável de barco. O warp existia, a constante existia, o mapa não.
+- A contagem de 1327 mapas era de entradas no JSON. Na ROM havia 906.
+- `layouts.json` tinha 1305 layouts; `layouts.inc` gerado tinha 815. **A
+  diferença de 490 nunca foi olhada por ninguém.**
+
+Isso é o mesmo erro das cinco lições do handoff, numa camada nova: eu verifiquei
+na camada do dado de entrada, não na camada da afirmação. A afirmação era "Kanto
+está no jogo", e a única prova válida era abrir Kanto no emulador.
+
+**Regra que sai daqui: todo validador precisa de um par que leia o artefato
+construído.** Contar linha de JSON não prova nada sobre a ROM.
+
+### O conserto: sete camadas, não uma
+
+Cada camada só aparecia depois de abrir a anterior. Nenhuma delas imprimia
+aviso; todas simplesmente deixavam Kanto de fora.
+
+| # | onde | o que fechava | como apareceu |
+|---|---|---|---|
+| 1 | `graphics.h:1986` | `#if IS_FRLG` nos gráficos de tileset | 0 símbolo de tileset FRLG na ROM |
+| 2 | `headers.h:1037` | `#else` de `#if !IS_FRLG` | structs `Tileset` fora |
+| 3 | `metatiles.h:268` | `#else` de `#if !IS_FRLG` | erro de compilação `gMetatiles_*_Frlg undeclared` |
+| 4 | `mapjson.cpp:783` | `layout_version != "emerald"` | 344 layouts descartados calados |
+| 5 | `mapjson.cpp:743` | `region != "REGION_HOENN"` | 421 mapas descartados calados |
+| 6 | `flags.h:2158` a `2347` | 190 `FLAG_HIDDEN_ITEM_*` valendo `0` | montador aborta 182 vezes com "flag 0 is too small" |
+| 7 | `event_scripts.s:770` | `.if IS_FRLG` nos 418 includes de script | 417 `undefined reference to *_MapScripts` |
+| 8 | 4 arquivos de `object_events/` | `#if IS_FRLG` nos sprites | 124 dos 129 sprites usados por Kanto sem gráfico, em 1649 objetos |
+
+A camada 8 é a mais perigosa das oito, porque **não dá erro de compilação**: id
+de sprite sem gráfico faz o jogo reiniciar na tela de título. É exatamente o
+crash que já custou duas sessões, esperando em 1649 objetos.
+
+### O que a camada 6 obrigou a decidir
+
+As 190 flags de item escondido de Kanto valiam `0` porque, numa build Emerald,
+Kanto não existia. Para valerem, `FLAGS_COUNT` tem que crescer, e crescer
+`flags[]` empurra tudo depois dele no SaveBlock1 e **invalida save**.
+
+**Feito agora, de uma vez, e de propósito.** É a única janela em que sai de
+graça: o Gui ainda não começou as 50 horas, e o requisito dele é que a save
+sobreviva a partir do momento em que ele começar. A reserva de Unova (467 flags
+para 334 item balls e 133 escondidos) entrou junto, no mesmo crescimento, porque
+fazer duas vezes custaria a save.
+
+```c
+#define FLAG_HIDDEN_ITEMS_FRLG_START  (DAILY_FLAGS_END + 1)
+#define NUM_HIDDEN_ITEMS_FRLG         0xBE   // 190, Kanto
+#define FLAG_ITEMS_UNOVA_START        (FLAG_HIDDEN_ITEMS_FRLG_START + NUM_HIDDEN_ITEMS_FRLG)
+#define NUM_ITEMS_UNOVA               0x1D3  // 467, Unova
+```
+
+Depois disto, `guarda_save.py --gravar` fixa a nova linha de base, e a promessa
+passa a valer para sempre.

@@ -306,9 +306,6 @@ VermilionCity_Text_SnorlaxBlockingRoute12::
 	.string "LAVENDER TOWN.\p"
 	.string "VERMILION POLICE$"
 
-VermilionCity_Text_PokemonFanClubSign::
-	.string "POKéMON ARENA$"
-
 VermilionCity_EventScript_InternationalFerry::
 	lock
 	faceplayer

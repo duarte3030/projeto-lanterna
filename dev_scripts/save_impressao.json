@@ -5306,7 +5306,7 @@
    1
   ]
  },
- "sizeof_saveblock1": 15764,
+ "sizeof_saveblock1": 15848,
  "structs": {
   "SaveBlock1": "19927651d2a5579f",
   "SaveBlock2": "ec3552860cc5cce7",
