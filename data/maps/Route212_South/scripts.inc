@@ -44,3 +44,26 @@ Route212_South_Text_ShardsSign:
 	.string "WANTED: SHARDS!\n"
 	.string "Bring your finds to the antique shop\l"
 	.string "in PASTORIA for a nice reward.$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route212_South_EventScript_Placa1::
+	msgbox Route212_South_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route212_South_Text_Placa1:
+	.string "Rt. 212\nPastoria City$"
+
+Route212_South_EventScript_Placa2::
+	msgbox Route212_South_Text_Placa2, MSGBOX_SIGN
+	end
+
+Route212_South_Text_Placa2:
+	.string "Shards Wanted\nPokémon Moves Taught$"
+
+Route212_South_EventScript_Placa3::
+	msgbox Route212_South_Text_Placa3, MSGBOX_SIGN
+	end
+
+Route212_South_Text_Placa3:
+	.string "Trainer Tips\pIf you get stuck in the bog, you can\ncount on being there a while.\pThere's no need to panic.\nJust struggle and squirm for a bit.\pBicycles cannot be ridden on marshy\nground, incidentally.$"

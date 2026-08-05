@@ -163,3 +163,12 @@ Route224_Text_Trainer8Defeat:
 Route224_Text_Trainer8Post:
 	.string "It's been several years since I left\nthe Dragon's Den.\pI've got to say, your Pokémon are\nin the top class for toughness.$"
 
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route224_EventScript_Placa8::
+	msgbox Route224_Text_Placa8, MSGBOX_SIGN
+	end
+
+Route224_Text_Placa8:
+	.string "The surface is unmarked.\nIt is polished like a mirror.$"

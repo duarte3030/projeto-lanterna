@@ -259,3 +259,40 @@ JubilifeCity_Text_RowanCollectAllBadges:
 	.string "Doing so, you will be sure to\n"
 	.string "encounter lots of Pokémon.\p"
 	.string "Take care now.$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+JubilifeCity_EventScript_Placa5::
+	msgbox JubilifeCity_Text_Placa5, MSGBOX_SIGN
+	end
+
+JubilifeCity_Text_Placa5:
+	.string "Jubilife Condominiums\nTenants Wanted!$"
+
+JubilifeCity_EventScript_Placa6::
+	msgbox JubilifeCity_Text_Placa6, MSGBOX_SIGN
+	end
+
+JubilifeCity_Text_Placa6:
+	.string "The Pokétch Company\nPokémon Watches for the World!$"
+
+JubilifeCity_EventScript_Placa7::
+	msgbox JubilifeCity_Text_Placa7, MSGBOX_SIGN
+	end
+
+JubilifeCity_Text_Placa7:
+	.string "Jubilife TV\nThe Fun-and-Games TV Station!$"
+
+JubilifeCity_EventScript_Placa8::
+	msgbox JubilifeCity_Text_Placa8, MSGBOX_SIGN
+	end
+
+JubilifeCity_Text_Placa8:
+	.string "Trainers' School\nThe First Step for Trainers!$"
+
+JubilifeCity_EventScript_Placa9::
+	msgbox JubilifeCity_Text_Placa9, MSGBOX_SIGN
+	end
+
+JubilifeCity_Text_Placa9:
+	.string "The Global Terminal\nYour Gateway to the Whole World!$"

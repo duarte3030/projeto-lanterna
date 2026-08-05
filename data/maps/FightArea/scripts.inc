@@ -71,3 +71,19 @@ FightArea_Text_SailorOferece:
 
 FightArea_Text_SailorZarpa:
 	.string "Zarpando para Snowpoint City!$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+FightArea_EventScript_Placa2::
+	msgbox FightArea_Text_Placa2, MSGBOX_SIGN
+	end
+
+FightArea_Text_Placa2:
+	.string "Rt. 225 Ahead\nA Road of Challenges$"
+
+FightArea_EventScript_Placa3::
+	msgbox FightArea_Text_Placa3, MSGBOX_SIGN
+	end
+
+FightArea_Text_Placa3:
+	.string "Battle Frontier Ahead\nAim to Win Glory with Pokémon!$"

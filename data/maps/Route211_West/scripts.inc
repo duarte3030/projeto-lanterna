@@ -24,3 +24,19 @@ Route211_West_Text_Hiker:
 Route211_West_Text_NinjaBoy:
 	.string "Heh, you found me. I like to\n"
 	.string "hide in the tall grass.$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route211_West_EventScript_Placa1::
+	msgbox Route211_West_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route211_West_Text_Placa1:
+	.string "Rt. 211\nMt. Coronet$"
+
+Route211_West_EventScript_Placa2::
+	msgbox Route211_West_Text_Placa2, MSGBOX_SIGN
+	end
+
+Route211_West_Text_Placa2:
+	.string "Rt. 211\nEterna City$"

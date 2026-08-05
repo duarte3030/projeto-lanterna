@@ -129,3 +129,12 @@ Route221_Text_Trainer6Defeat:
 Route221_Text_Trainer6Post:
 	.string "Beaten in battle, but not in spirit.\nThat's the mark of a real Ace Trainer.\n$"
 
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route221_EventScript_Placa1::
+	msgbox Route221_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route221_Text_Placa1:
+	.string "Pal Park\nA Place for New Beginnings$"

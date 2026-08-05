@@ -26,3 +26,12 @@ VerityLakefront_Text_TrainerTipsSign:
 	.string "TRAINER TIP\n"
 	.string "A POKéMON's mood can change how\l"
 	.string "well it battles for you.$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+VerityLakefront_EventScript_Placa1::
+	msgbox VerityLakefront_Text_Placa1, MSGBOX_SIGN
+	end
+
+VerityLakefront_Text_Placa1:
+	.string "Lake Verity Ahead\pAccording to legend, this lake is home\nto the Pokémon said to be 'The Being of\pEmotion.'\pIt is because of this Pokémon that\npeople can experience sorrow and joy.$"

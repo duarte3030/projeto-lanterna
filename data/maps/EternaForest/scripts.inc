@@ -173,3 +173,19 @@ EternaForest_Text_Trainer8Defeat:
 EternaForest_Text_Trainer8Post:
 	.string "Forests are mystifying... They seem\n"
 	.string "to gather such unexplainable energy.$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+EternaForest_EventScript_Placa1::
+	msgbox EternaForest_Text_Placa1, MSGBOX_SIGN
+	end
+
+EternaForest_Text_Placa1:
+	.string "The Eterna Forest\nWhere Time Flows Eternally$"
+
+EternaForest_EventScript_Placa2::
+	msgbox EternaForest_Text_Placa2, MSGBOX_SIGN
+	end
+
+EternaForest_Text_Placa2:
+	.string "Trainer Tips!\pIn forests and caves, there are many\nitems on the ground that cannot be\pseen in the murky darkness.\pTake the time to search carefully!$"

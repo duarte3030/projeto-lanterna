@@ -204,7 +204,7 @@
       "y": 27,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "SunyshoreCity_EventScript_Placa1",
       "origem": "pokeplatinum"
     },
     {
@@ -222,7 +222,7 @@
       "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "SunyshoreCity_EventScript_Placa3",
       "origem": "pokeplatinum"
     },
     {
@@ -231,7 +231,7 @@
       "y": 54,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "SunyshoreCity_EventScript_Placa4",
       "origem": "pokeplatinum"
     },
     {
@@ -240,7 +240,7 @@
       "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "SunyshoreCity_EventScript_Placa5",
       "origem": "pokeplatinum"
     },
     {
@@ -249,7 +249,7 @@
       "y": 34,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "SunyshoreCity_EventScript_Placa6",
       "origem": "pokeplatinum"
     },
     {
@@ -258,7 +258,7 @@
       "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "SunyshoreCity_EventScript_Placa7",
       "origem": "pokeplatinum"
     },
     {

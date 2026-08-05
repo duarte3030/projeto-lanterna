@@ -72,3 +72,26 @@ SandgemTown_Text_Rival:
 SandgemTown_Text_TownSign:
 	.string "SANDGEM TOWN\n"
 	.string "Where the Winds of New Beginnings Blow$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+SandgemTown_EventScript_Placa1::
+	msgbox SandgemTown_Text_Placa1, MSGBOX_SIGN
+	end
+
+SandgemTown_Text_Placa1:
+	.string "Pokémon Research Lab$"
+
+SandgemTown_EventScript_Placa4::
+	msgbox SandgemTown_Text_Placa4, MSGBOX_SIGN
+	end
+
+SandgemTown_Text_Placa4:
+	.string "Heal Your Pokémon!\nPokémon Center$"
+
+SandgemTown_EventScript_Placa5::
+	msgbox SandgemTown_Text_Placa5, MSGBOX_SIGN
+	end
+
+SandgemTown_Text_Placa5:
+	.string "All Your Item Needs Fulfilled!\nPokémon Mart$"

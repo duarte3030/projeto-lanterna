@@ -138,3 +138,40 @@ CanalaveCity_EventScript_SailToVirbank::
 
 CanalaveCity_Text_SettingSailToVirbank:
 	.string "Zarpando para Virbank City em Unova!$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+CanalaveCity_EventScript_Placa1::
+	msgbox CanalaveCity_Text_Placa1, MSGBOX_SIGN
+	end
+
+CanalaveCity_Text_Placa1:
+	.string "Canalave Library$"
+
+CanalaveCity_EventScript_Placa2::
+	msgbox CanalaveCity_Text_Placa2, MSGBOX_SIGN
+	end
+
+CanalaveCity_Text_Placa2:
+	.string "Canalave City Pokémon Gym\nLeader: Byron\pThe Man with the Steel Body!$"
+
+CanalaveCity_EventScript_Placa3::
+	msgbox CanalaveCity_Text_Placa3, MSGBOX_SIGN
+	end
+
+CanalaveCity_Text_Placa3:
+	.string "Canalave Dock$"
+
+CanalaveCity_EventScript_Placa5::
+	msgbox CanalaveCity_Text_Placa5, MSGBOX_SIGN
+	end
+
+CanalaveCity_Text_Placa5:
+	.string "Sailor Eldritch's House$"
+
+CanalaveCity_EventScript_Placa6::
+	msgbox CanalaveCity_Text_Placa6, MSGBOX_SIGN
+	end
+
+CanalaveCity_Text_Placa6:
+	.string "Harbor Inn\nA Roost for Restless Sailors\p'Enjoy sweet dreams in our\nsumptuous beds!'$"

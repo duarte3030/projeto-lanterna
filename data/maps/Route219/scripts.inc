@@ -53,3 +53,12 @@ Route219_Text_Trainer2Defeat:
 Route219_Text_Trainer2Post:
 	.string "My mommy said that Professor Rowan\nis really kindhearted.$"
 
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route219_EventScript_Placa1::
+	msgbox Route219_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route219_Text_Placa1:
+	.string "Rt. 219\nSandgem Beach$"

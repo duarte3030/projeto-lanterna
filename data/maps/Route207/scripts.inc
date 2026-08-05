@@ -137,3 +137,26 @@ Route207_Text_Trainer6Defeat:
 Route207_Text_Trainer6Post:
 	.string "Yup! Good going!\n"
 	.string "I like the way you battle!$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route207_EventScript_Placa1::
+	msgbox Route207_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route207_Text_Placa1:
+	.string "Rt. 207\nOreburgh City$"
+
+Route207_EventScript_Placa2::
+	msgbox Route207_Text_Placa2, MSGBOX_SIGN
+	end
+
+Route207_Text_Placa2:
+	.string "Rt. 207\nMt. Coronet$"
+
+Route207_EventScript_Placa3::
+	msgbox Route207_Text_Placa3, MSGBOX_SIGN
+	end
+
+Route207_Text_Placa3:
+	.string "Trainer Tips\pPokémon may become immobilized if\nthey are asleep or paralyzed.\pIf it happens to your Pokémon,\nit could be disastrous.\pIf your opponent's Pokémon can't\nmove, it's a big opportunity!$"

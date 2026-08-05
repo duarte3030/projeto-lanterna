@@ -52,3 +52,26 @@ Route205_South_Text_Siena:
 Route205_South_Text_Nicholas:
 	.string "The VALLEY WINDWORKS is just\n"
 	.string "past here. It generates power.$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route205_South_EventScript_Placa1::
+	msgbox Route205_South_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route205_South_Text_Placa1:
+	.string "Rt. 205\nFloaroma Town$"
+
+Route205_South_EventScript_Placa2::
+	msgbox Route205_South_Text_Placa2, MSGBOX_SIGN
+	end
+
+Route205_South_Text_Placa2:
+	.string "Rt. 205\nEterna Forest$"
+
+Route205_South_EventScript_Placa3::
+	msgbox Route205_South_Text_Placa3, MSGBOX_SIGN
+	end
+
+Route205_South_Text_Placa3:
+	.string "Trainer Tips!\pThe items placed in your Bag are\nautomatically sorted to the\pappropriate pockets.\pIt's very convenient!\nIt's a Trainer's best friend!$"

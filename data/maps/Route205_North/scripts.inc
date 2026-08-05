@@ -90,3 +90,19 @@ Route205_North_Text_Trainer3Defeat:
 Route205_North_Text_Trainer3Post:
 	.string "My feet are tangled, too!\n"
 	.string "Ouch! Ouch!$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route205_North_EventScript_Placa1::
+	msgbox Route205_North_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route205_North_Text_Placa1:
+	.string "Rt. 205\nEterna Forest$"
+
+Route205_North_EventScript_Placa2::
+	msgbox Route205_North_Text_Placa2, MSGBOX_SIGN
+	end
+
+Route205_North_Text_Placa2:
+	.string "Rt. 205\nEterna City$"

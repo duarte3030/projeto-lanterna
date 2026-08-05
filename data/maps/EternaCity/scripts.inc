@@ -166,3 +166,40 @@ EternaCity_Text_Grunt3:
 	.string "like that.\p"
 	.string "And don't waste your time coming\n"
 	.string "to our HQ in Veilstone.$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+EternaCity_EventScript_Placa1::
+	msgbox EternaCity_Text_Placa1, MSGBOX_SIGN
+	end
+
+EternaCity_Text_Placa1:
+	.string "Eterna City Pokémon Gym\nLeader: Gardenia\pMaster of Vivid Plant Pokémon!$"
+
+EternaCity_EventScript_Placa2::
+	msgbox EternaCity_Text_Placa2, MSGBOX_SIGN
+	end
+
+EternaCity_Text_Placa2:
+	.string "Rad Rickshaw's Cycle Shop\nGet On and Ride!$"
+
+EternaCity_EventScript_Placa4::
+	msgbox EternaCity_Text_Placa4, MSGBOX_SIGN
+	end
+
+EternaCity_Text_Placa4:
+	.string "Team Galactic Eterna Building\nWe Want Your Pokémon!$"
+
+EternaCity_EventScript_Placa6::
+	msgbox EternaCity_Text_Placa6, MSGBOX_SIGN
+	end
+
+EternaCity_Text_Placa6:
+	.string "Underground Man's House\nGoin' Down for Adventure!$"
+
+EternaCity_EventScript_Placa7::
+	msgbox EternaCity_Text_Placa7, MSGBOX_SIGN
+	end
+
+EternaCity_Text_Placa7:
+	.string "Eterna Condominiums\nName-Rating Services Available$"

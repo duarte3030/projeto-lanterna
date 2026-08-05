@@ -107,3 +107,19 @@ Route226_Text_DragonTamerStanleyPost:
 Route226_Text_SignSurvivalArea:
 	.string "SURVIVAL AREA\n"
 	.string "This way, to the west.$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route226_EventScript_Placa1::
+	msgbox Route226_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route226_Text_Placa1:
+	.string "Rt. 226\nSurvival Area$"
+
+Route226_EventScript_Placa2::
+	msgbox Route226_Text_Placa2, MSGBOX_SIGN
+	end
+
+Route226_Text_Placa2:
+	.string "Rt. 227\nRt. 228$"

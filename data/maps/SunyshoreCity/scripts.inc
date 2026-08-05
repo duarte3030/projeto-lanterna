@@ -53,3 +53,47 @@ SunyshoreCity_Text_Worker:
 SunyshoreCity_Text_Sailor2:
 	.string "Ships come and go from SUNYSHORE\n"
 	.string "all day long.$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+SunyshoreCity_EventScript_Placa1::
+	msgbox SunyshoreCity_Text_Placa1, MSGBOX_SIGN
+	end
+
+SunyshoreCity_Text_Placa1:
+	.string "Sunyshore Market\nA Selection of the World's Seals$"
+
+SunyshoreCity_EventScript_Placa3::
+	msgbox SunyshoreCity_Text_Placa3, MSGBOX_SIGN
+	end
+
+SunyshoreCity_Text_Placa3:
+	.string "Sunyshore City Pokémon Gym\nLeader: Volkner\pThe Shining, Shocking Star$"
+
+SunyshoreCity_EventScript_Placa4::
+	msgbox SunyshoreCity_Text_Placa4, MSGBOX_SIGN
+	end
+
+SunyshoreCity_Text_Placa4:
+	.string "Vista Lighthouse\nThe Beacon That Lights Sinnoh$"
+
+SunyshoreCity_EventScript_Placa5::
+	msgbox SunyshoreCity_Text_Placa5, MSGBOX_SIGN
+	end
+
+SunyshoreCity_Text_Placa5:
+	.string "Julia's House\nDelightful Ribbons for Pokémon$"
+
+SunyshoreCity_EventScript_Placa6::
+	msgbox SunyshoreCity_Text_Placa6, MSGBOX_SIGN
+	end
+
+SunyshoreCity_Text_Placa6:
+	.string "Pokémon Rock\nSunyshore's Heritage Site$"
+
+SunyshoreCity_EventScript_Placa7::
+	msgbox SunyshoreCity_Text_Placa7, MSGBOX_SIGN
+	end
+
+SunyshoreCity_Text_Placa7:
+	.string "It's a blank sign painted white.$"

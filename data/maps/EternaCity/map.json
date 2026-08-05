@@ -344,7 +344,7 @@
       "y": 42,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "EternaCity_EventScript_Placa1",
       "origem": "pokeplatinum"
     },
     {
@@ -353,7 +353,7 @@
       "y": 24,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "EternaCity_EventScript_Placa2",
       "origem": "pokeplatinum"
     },
     {
@@ -371,7 +371,7 @@
       "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "EternaCity_EventScript_Placa4",
       "origem": "pokeplatinum"
     },
     {
@@ -389,7 +389,7 @@
       "y": 15,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "EternaCity_EventScript_Placa6",
       "origem": "pokeplatinum"
     },
     {
@@ -398,7 +398,7 @@
       "y": 31,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "EternaCity_EventScript_Placa7",
       "origem": "pokeplatinum"
     },
     {

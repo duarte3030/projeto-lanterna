@@ -152,3 +152,33 @@ Route208_Text_Trainer7Defeat:
 Route208_Text_Trainer7Post:
 	.string "That battle will surely become a\n"
 	.string "stupendous masterpiece painting!\pI shall title it...\p“My Pokémon Is Fight”!$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route208_EventScript_Placa1::
+	msgbox Route208_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route208_Text_Placa1:
+	.string "Rt. 208\nHearthome City$"
+
+Route208_EventScript_Placa2::
+	msgbox Route208_Text_Placa2, MSGBOX_SIGN
+	end
+
+Route208_Text_Placa2:
+	.string "Berry Master's House\nFree Berries Available$"
+
+Route208_EventScript_Placa3::
+	msgbox Route208_Text_Placa3, MSGBOX_SIGN
+	end
+
+Route208_Text_Placa3:
+	.string "Rt. 208\nMt. Coronet$"
+
+Route208_EventScript_Placa4::
+	msgbox Route208_Text_Placa4, MSGBOX_SIGN
+	end
+
+Route208_Text_Placa4:
+	.string "Trainer Tips\pAfter a Berry is planted, watch the\ncolor of the soil.\pIf the soil is dark, it means it has\nplenty of moisture.\pIf the soil is lighter in color,\nwater it with your Sprayduck.$"

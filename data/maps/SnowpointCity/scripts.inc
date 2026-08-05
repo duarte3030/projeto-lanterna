@@ -112,3 +112,12 @@ SnowpointCity_Text_SailorZarpa:
 
 SnowpointCity_Text_SailorRecusa:
 	.string "Quando mudar de ideia, e so chamar.$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+SnowpointCity_EventScript_Placa2::
+	msgbox SnowpointCity_Text_Placa2, MSGBOX_SIGN
+	end
+
+SnowpointCity_Text_Placa2:
+	.string "Snowpoint City Pokémon Gym\nLeader: Candice\pThe Diamond Dust Girl!$"

@@ -161,3 +161,12 @@ Route217_Text_Trainer9Defeat:
 Route217_Text_Trainer9Post:
 	.string "Around these parts, perhaps because\nof all the snow, there are many\pfolktales of hauntings...\n$"
 
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route217_EventScript_Placa1::
+	msgbox Route217_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route217_Text_Placa1:
+	.string "Rt. 217\nLake Acuity$"

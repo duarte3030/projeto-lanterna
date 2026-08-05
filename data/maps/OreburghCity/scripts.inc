@@ -97,3 +97,26 @@ OreburghCity_Text_GymSign:
 	.string "OREBURGH CITY POKéMON GYM\n"
 	.string "LEADER: ROARK\p"
 	.string "The Cliff Crag Pokémon Gym$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+OreburghCity_EventScript_Placa2::
+	msgbox OreburghCity_Text_Placa2, MSGBOX_SIGN
+	end
+
+OreburghCity_Text_Placa2:
+	.string "Oreburgh City Pokémon Gym\nLeader: Roark\p'Call me Roark the Rock!'$"
+
+OreburghCity_EventScript_Placa3::
+	msgbox OreburghCity_Text_Placa3, MSGBOX_SIGN
+	end
+
+OreburghCity_Text_Placa3:
+	.string "Oreburgh Mining Museum\n'Coal Mining and You!'$"
+
+OreburghCity_EventScript_Placa4::
+	msgbox OreburghCity_Text_Placa4, MSGBOX_SIGN
+	end
+
+OreburghCity_Text_Placa4:
+	.string "Oreburgh Mine\nBeware of Busy Pokémon!$"

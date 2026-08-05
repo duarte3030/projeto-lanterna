@@ -163,3 +163,19 @@ Route225_Text_SignFightArea:
 Route225_Text_SignSurvivalArea:
 	.string "SURVIVAL AREA\n"
 	.string "This way, to the east.$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route225_EventScript_Placa1::
+	msgbox Route225_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route225_Text_Placa1:
+	.string "Rt. 225\nFight Area$"
+
+Route225_EventScript_Placa2::
+	msgbox Route225_Text_Placa2, MSGBOX_SIGN
+	end
+
+Route225_Text_Placa2:
+	.string "Rt. 225\nSurvival Area$"

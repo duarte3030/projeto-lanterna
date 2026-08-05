@@ -185,3 +185,19 @@ Route210_North_Text_Trainer11Defeat:
 Route210_North_Text_Trainer11Post:
 	.string "Why? Is it because my training isn't\n"
 	.string "enough?!$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route210_North_EventScript_Placa1::
+	msgbox Route210_North_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route210_North_Text_Placa1:
+	.string "Rt. 210\nCelestic Town$"
+
+Route210_North_EventScript_Placa2::
+	msgbox Route210_North_Text_Placa2, MSGBOX_SIGN
+	end
+
+Route210_North_Text_Placa2:
+	.string "Grandma Wilma's House$"

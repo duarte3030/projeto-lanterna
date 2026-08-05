@@ -95,3 +95,61 @@ HearthomeCity_Text_ContestHallSign:
 HearthomeCity_Text_GymSign:
 	.string "HEARTHOME CITY POKéMON GYM\p"
 	.string "The Normal-Type Beauty Style!$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+HearthomeCity_EventScript_Placa1::
+	msgbox HearthomeCity_Text_Placa1, MSGBOX_SIGN
+	end
+
+HearthomeCity_Text_Placa1:
+	.string "Rt. 208\nRt. 212$"
+
+HearthomeCity_EventScript_Placa2::
+	msgbox HearthomeCity_Text_Placa2, MSGBOX_SIGN
+	end
+
+HearthomeCity_Text_Placa2:
+	.string "Rt. 209\nSolaceon Town$"
+
+HearthomeCity_EventScript_Placa3::
+	msgbox HearthomeCity_Text_Placa3, MSGBOX_SIGN
+	end
+
+HearthomeCity_Text_Placa3:
+	.string "Amity Square West Gate\nStroll with Your Pokémon!$"
+
+HearthomeCity_EventScript_Placa4::
+	msgbox HearthomeCity_Text_Placa4, MSGBOX_SIGN
+	end
+
+HearthomeCity_Text_Placa4:
+	.string "Pokémon Contest Hall\nCalling All Enthusiasts!$"
+
+HearthomeCity_EventScript_Placa5::
+	msgbox HearthomeCity_Text_Placa5, MSGBOX_SIGN
+	end
+
+HearthomeCity_Text_Placa5:
+	.string "Amity Square East Gate\nStroll with Your Pokémon!$"
+
+HearthomeCity_EventScript_Placa6::
+	msgbox HearthomeCity_Text_Placa6, MSGBOX_SIGN
+	end
+
+HearthomeCity_Text_Placa6:
+	.string "Pokémon Fan Club\nAll Trainers Welcome$"
+
+HearthomeCity_EventScript_Placa7::
+	msgbox HearthomeCity_Text_Placa7, MSGBOX_SIGN
+	end
+
+HearthomeCity_Text_Placa7:
+	.string "Hearthome City Pokémon Gym\nLeader: Fantina\pThe Alluring, Soulful Dancer!$"
+
+HearthomeCity_EventScript_Placa9::
+	msgbox HearthomeCity_Text_Placa9, MSGBOX_SIGN
+	end
+
+HearthomeCity_Text_Placa9:
+	.string "The Poffin House\nDelicious Poffins--Smiles for All$"

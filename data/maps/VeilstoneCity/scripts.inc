@@ -114,3 +114,82 @@ VeilstoneCity_Text_GalacticGrunt:
 	.string "Veilstone, but don't waste your\l"
 	.string "time. You'll never get in.\p"
 	.string "Now, if you'll excuse me.$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+VeilstoneCity_EventScript_Placa2::
+	msgbox VeilstoneCity_Text_Placa2, MSGBOX_SIGN
+	end
+
+VeilstoneCity_Text_Placa2:
+	.string "Galactic Warehouse\nNO TRESPASSING!$"
+
+VeilstoneCity_EventScript_Placa3::
+	msgbox VeilstoneCity_Text_Placa3, MSGBOX_SIGN
+	end
+
+VeilstoneCity_Text_Placa3:
+	.string "Galactic Veilstone Building\nWe Dream of the Universe!$"
+
+VeilstoneCity_EventScript_Placa4::
+	msgbox VeilstoneCity_Text_Placa4, MSGBOX_SIGN
+	end
+
+VeilstoneCity_Text_Placa4:
+	.string "Veilstone Department Store\nA Shop Full of Dreams!$"
+
+VeilstoneCity_EventScript_Placa5::
+	msgbox VeilstoneCity_Text_Placa5, MSGBOX_SIGN
+	end
+
+VeilstoneCity_Text_Placa5:
+	.string "Veilstone City Pokémon Gym\nLeader: Maylene\pThe Barefoot, Fighting Genius!$"
+
+VeilstoneCity_EventScript_Placa6::
+	msgbox VeilstoneCity_Text_Placa6, MSGBOX_SIGN
+	end
+
+VeilstoneCity_Text_Placa6:
+	.string "Veilstone Game Corner\nAim for an Explosion of Luck!$"
+
+VeilstoneCity_EventScript_Placa7::
+	msgbox VeilstoneCity_Text_Placa7, MSGBOX_SIGN
+	end
+
+VeilstoneCity_Text_Placa7:
+	.string "Prize Exchange\nCoins Exchanged for Prizes!$"
+
+VeilstoneCity_EventScript_Placa8::
+	msgbox VeilstoneCity_Text_Placa8, MSGBOX_SIGN
+	end
+
+VeilstoneCity_Text_Placa8:
+	.string "Visit Beautiful Lake Valor!\nRight off Rt. 214!$"
+
+VeilstoneCity_EventScript_Placa11::
+	msgbox VeilstoneCity_Text_Placa11, MSGBOX_SIGN
+	end
+
+VeilstoneCity_Text_Placa11:
+	.string "Touching the meteorite boosted\nthe Speed of a certain Pokémon.$"
+
+VeilstoneCity_EventScript_Placa12::
+	msgbox VeilstoneCity_Text_Placa12, MSGBOX_SIGN
+	end
+
+VeilstoneCity_Text_Placa12:
+	.string "Touching the meteorite heightened\nthe defensive capabilities of\pa certain Pokémon.$"
+
+VeilstoneCity_EventScript_Placa13::
+	msgbox VeilstoneCity_Text_Placa13, MSGBOX_SIGN
+	end
+
+VeilstoneCity_Text_Placa13:
+	.string "Touching the meteorite heightened\nthe offensive capabilities of\pa certain Pokémon.$"
+
+VeilstoneCity_EventScript_Placa14::
+	msgbox VeilstoneCity_Text_Placa14, MSGBOX_SIGN
+	end
+
+VeilstoneCity_Text_Placa14:
+	.string "Touching the meteorite balanced out\nthe attributes of a certain Pokémon.$"

@@ -145,3 +145,19 @@ Route228_Text_AceTrainerMeaganDefeat:
 Route228_Text_AceTrainerMeaganPost:
 	.string "I heard that somewhere there's\n"
 	.string "someone who teaches Pokémon moves.$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route228_EventScript_Placa1::
+	msgbox Route228_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route228_Text_Placa1:
+	.string "Rt. 228\nRt. 226$"
+
+Route228_EventScript_Placa2::
+	msgbox Route228_Text_Placa2, MSGBOX_SIGN
+	end
+
+Route228_Text_Placa2:
+	.string "Rt. 228\nRt. 229$"

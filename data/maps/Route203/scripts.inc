@@ -123,3 +123,33 @@ Route203_Text_Trainer5Defeat:
 Route203_Text_Trainer5Post:
 	.string "I'm collecting lots of Gym Badges.\nThey're so sparkly and pretty!$"
 
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route203_EventScript_Placa1::
+	msgbox Route203_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route203_Text_Placa1:
+	.string "Rt. 203\nJubilife City$"
+
+Route203_EventScript_Placa2::
+	msgbox Route203_Text_Placa2, MSGBOX_SIGN
+	end
+
+Route203_Text_Placa2:
+	.string "Rt. 203\nOreburgh City$"
+
+Route203_EventScript_Placa3::
+	msgbox Route203_Text_Placa3, MSGBOX_SIGN
+	end
+
+Route203_Text_Placa3:
+	.string "Trainer Tips!\pIf a Pokémon is about to evolve,\nit can be instantly stopped.\pPress the B Button during evolution\nto startle the Pokémon into stopping.\pThat is how evolution can be\ncanceled.$"
+
+Route203_EventScript_Placa4::
+	msgbox Route203_Text_Placa4, MSGBOX_SIGN
+	end
+
+Route203_Text_Placa4:
+	.string "Trainer Tips!\pPokémon moves use energy called\nPower Points, or PP for short.\pIf the PP of moves runs low, head for\nany Pokémon Center.$"

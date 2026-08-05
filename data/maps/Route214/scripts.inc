@@ -172,3 +172,19 @@ Route214_Text_Trainer9Defeat:
 Route214_Text_Trainer9Post:
 	.string "You might be tough, but let down\nyour guard at your own risk!\n$"
 
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route214_EventScript_Placa1::
+	msgbox Route214_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route214_Text_Placa1:
+	.string "Rt. 214\nVeilstone City$"
+
+Route214_EventScript_Placa2::
+	msgbox Route214_Text_Placa2, MSGBOX_SIGN
+	end
+
+Route214_Text_Placa2:
+	.string "Rt. 214\nLake Valor$"

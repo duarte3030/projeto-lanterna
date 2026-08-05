@@ -154,3 +154,19 @@ Route216_Text_Trainer9Defeat:
 Route216_Text_Trainer9Post:
 	.string "It's so cold here, but here you are,\nso full of energy.\pI guess you kids are made tougher\nthan people my age.\n$"
 
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route216_EventScript_Placa1::
+	msgbox Route216_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route216_Text_Placa1:
+	.string "Rt. 216\nMt. Coronet$"
+
+Route216_EventScript_Placa2::
+	msgbox Route216_Text_Placa2, MSGBOX_SIGN
+	end
+
+Route216_Text_Placa2:
+	.string "Snowbound Lodge\nA Warm Bed and Little Else$"

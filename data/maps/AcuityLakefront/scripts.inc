@@ -61,3 +61,12 @@ AcuityLakefront_Text_GalacticGrunt2:
 	.string "When they blew up Lake Valor, a\n"
 	.string "cavern appeared in the middle of\l"
 	.string "this lake!$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+AcuityLakefront_EventScript_Placa1::
+	msgbox AcuityLakefront_Text_Placa1, MSGBOX_SIGN
+	end
+
+AcuityLakefront_Text_Placa1:
+	.string "Lake Acuity ahead$"

@@ -83,3 +83,12 @@ Route229_Text_Pokefan:
 	.string "miss me? I wish I had a new nugget\l"
 	.string "of wisdom to share with you, but\p"
 	.string "alas, I don't!$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route229_EventScript_Placa1::
+	msgbox Route229_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route229_Text_Placa1:
+	.string "Rt. 229\nResort Area$"

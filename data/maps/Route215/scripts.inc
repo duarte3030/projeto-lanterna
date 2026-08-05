@@ -159,3 +159,26 @@ Route215_Text_Trainer8Defeat:
 Route215_Text_Trainer8Post:
 	.string "Sticking to one's own goal is more\nimportant than it seems.\pIf you match your goal with someone\nelse, you'll lose your identity.\n$"
 
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route215_EventScript_Placa1::
+	msgbox Route215_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route215_Text_Placa1:
+	.string "Celestic Town\nSolaceon Town$"
+
+Route215_EventScript_Placa2::
+	msgbox Route215_Text_Placa2, MSGBOX_SIGN
+	end
+
+Route215_Text_Placa2:
+	.string "Rt. 215\nVeilstone City$"
+
+Route215_EventScript_Placa3::
+	msgbox Route215_Text_Placa3, MSGBOX_SIGN
+	end
+
+Route215_Text_Placa3:
+	.string "Trainer Tips\pPokémon attacks are classified as\nbeing either physical or special.\pA physical attack is based on the\nAttack stat of the Pokémon.\pLikewise, a special attack is based\non the Special Attack stat.$"

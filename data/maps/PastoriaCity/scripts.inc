@@ -100,3 +100,26 @@ PastoriaCity_Text_GreatMarshSign:
 PastoriaCity_Text_GymSign:
 	.string "PASTORIA CITY POKéMON GYM\p"
 	.string "The Water-Type Technique Style!$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+PastoriaCity_EventScript_Placa2::
+	msgbox PastoriaCity_Text_Placa2, MSGBOX_SIGN
+	end
+
+PastoriaCity_Text_Placa2:
+	.string "Pastoria City Pokémon Gym\nLeader: Crasher Wake\pThe Torrential Masked Master!$"
+
+PastoriaCity_EventScript_Placa3::
+	msgbox PastoriaCity_Text_Placa3, MSGBOX_SIGN
+	end
+
+PastoriaCity_Text_Placa3:
+	.string "Pastoria Great Marsh\nObservatory Gate$"
+
+PastoriaCity_EventScript_Placa4::
+	msgbox PastoriaCity_Text_Placa4, MSGBOX_SIGN
+	end
+
+PastoriaCity_Text_Placa4:
+	.string "Try the Safari Game in\nPastoria's Great Marsh!$"

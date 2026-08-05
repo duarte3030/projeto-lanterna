@@ -62,3 +62,19 @@ ResortArea_Text_VillaSign:
 	.string "VILLA\n"
 	.string "A getaway for trainers and their\n"
 	.string "Pokémon.$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+ResortArea_EventScript_Placa2::
+	msgbox ResortArea_Text_Placa2, MSGBOX_SIGN
+	end
+
+ResortArea_Text_Placa2:
+	.string "The Ribbon Syndicate\nMembers Only$"
+
+ResortArea_EventScript_Placa3::
+	msgbox ResortArea_Text_Placa3, MSGBOX_SIGN
+	end
+
+ResortArea_Text_Placa3:
+	.string "A Somewhat Impressive Villa$"

@@ -86,3 +86,12 @@ Route227_Text_AceTrainerMikaylaPost:
 Route227_Text_SignArrow:
 	.string "ROUTE 226\n"
 	.string "This way, to the south.$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route227_EventScript_Placa1::
+	msgbox Route227_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route227_Text_Placa1:
+	.string "Rt. 227\nStark Mountain$"

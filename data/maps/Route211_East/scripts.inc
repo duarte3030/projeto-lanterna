@@ -99,3 +99,26 @@ Route211_East_Text_Trainer4Defeat:
 Route211_East_Text_Trainer4Post:
 	.string "Celestic Town is an old town.\n"
 	.string "I'm sure to find something cool.$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route211_East_EventScript_Placa1::
+	msgbox Route211_East_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route211_East_Text_Placa1:
+	.string "Trainer Tips\pEven Veterans can get lost inside of\nMt. Coronet.\pTrainers should check their supply\nof medicine and items before trying\pto venture through.$"
+
+Route211_East_EventScript_Placa2::
+	msgbox Route211_East_Text_Placa2, MSGBOX_SIGN
+	end
+
+Route211_East_Text_Placa2:
+	.string "Rt. 211\nMt. Coronet$"
+
+Route211_East_EventScript_Placa3::
+	msgbox Route211_East_Text_Placa3, MSGBOX_SIGN
+	end
+
+Route211_East_Text_Placa3:
+	.string "Rt. 211\nCelestic Town$"

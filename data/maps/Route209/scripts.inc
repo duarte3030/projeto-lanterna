@@ -133,3 +133,54 @@ Route209_Text_Trainer6Defeat:
 Route209_Text_Trainer6Post:
 	.string "I don't want to be a Trainer.\n"
 	.string "I want to be a Pokémon!$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route209_EventScript_Placa1::
+	msgbox Route209_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route209_Text_Placa1:
+	.string "Rt. 209\nHearthome City$"
+
+Route209_EventScript_Placa2::
+	msgbox Route209_Text_Placa2, MSGBOX_SIGN
+	end
+
+Route209_Text_Placa2:
+	.string "Rt. 209\nSolaceon Town$"
+
+Route209_EventScript_Placa3::
+	msgbox Route209_Text_Placa3, MSGBOX_SIGN
+	end
+
+Route209_Text_Placa3:
+	.string "Trainer Tips\pYou may register one of the Key\nItems in your Bag for instant use.\pSimply press the Y Button to use the\nregistered item instantly.$"
+
+Route209_EventScript_Placa6::
+	msgbox Route209_Text_Placa6, MSGBOX_SIGN
+	end
+
+Route209_Text_Placa6:
+	.string "There is a broken, crumbling tower\nmade of stone...\pThere seems to be a spot that would\nbe a perfect fit for the Odd Keystone.\pWould you like to use the Odd\nKeystone?$"
+
+Route209_EventScript_Placa7::
+	msgbox Route209_Text_Placa7, MSGBOX_SIGN
+	end
+
+Route209_Text_Placa7:
+	.string "There is a broken, crumbling tower\nmade of stone...\pThere seems to be a spot that would\nbe a perfect fit for the Odd Keystone.\pWould you like to use the Odd\nKeystone?$"
+
+Route209_EventScript_Placa8::
+	msgbox Route209_Text_Placa8, MSGBOX_SIGN
+	end
+
+Route209_Text_Placa8:
+	.string "There is a broken, crumbling tower\nmade of stone...\pThere seems to be a spot that would\nbe a perfect fit for the Odd Keystone.\pWould you like to use the Odd\nKeystone?$"
+
+Route209_EventScript_Placa9::
+	msgbox Route209_Text_Placa9, MSGBOX_SIGN
+	end
+
+Route209_Text_Placa9:
+	.string "There is a broken, crumbling tower\nmade of stone...\pThere seems to be a spot that would\nbe a perfect fit for the Odd Keystone.\pWould you like to use the Odd\nKeystone?$"

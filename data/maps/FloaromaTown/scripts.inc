@@ -86,3 +86,19 @@ FloaromaTown_Text_Camper:
 FloaromaTown_Text_TownSign:
 	.string "FLOAROMA TOWN\n"
 	.string "A Sea of Flowers$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+FloaromaTown_EventScript_Placa2::
+	msgbox FloaromaTown_Text_Placa2, MSGBOX_SIGN
+	end
+
+FloaromaTown_Text_Placa2:
+	.string "Pick a Peck of Colors Flower Shop\nFree Berries Available$"
+
+FloaromaTown_EventScript_Placa3::
+	msgbox FloaromaTown_Text_Placa3, MSGBOX_SIGN
+	end
+
+FloaromaTown_Text_Placa3:
+	.string "Floaroma Meadow Ahead\nHoney Available$"

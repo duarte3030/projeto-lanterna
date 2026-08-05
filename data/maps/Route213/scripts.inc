@@ -172,3 +172,26 @@ Route213_Text_Trainer9Defeat:
 Route213_Text_Trainer9Post:
 	.string "Maybe I'll go work out down at the\nrestaurant again.\pThat place gets different people in\nevery day, and they all like battles.\n$"
 
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route213_EventScript_Placa1::
+	msgbox Route213_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route213_Text_Placa1:
+	.string "Rt. 213\nPastoria City$"
+
+Route213_EventScript_Placa2::
+	msgbox Route213_Text_Placa2, MSGBOX_SIGN
+	end
+
+Route213_Text_Placa2:
+	.string "Dr. Footstep's House\nFootprints Reveal All$"
+
+Route213_EventScript_Placa3::
+	msgbox Route213_Text_Placa3, MSGBOX_SIGN
+	end
+
+Route213_Text_Placa3:
+	.string "Hotel Grand Lake\nAnother World on Lake Valor$"

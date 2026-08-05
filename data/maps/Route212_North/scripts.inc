@@ -171,3 +171,26 @@ Route212_North_Text_Trainer8Defeat:
 Route212_North_Text_Trainer8Post:
 	.string "Your toughness is too much!\n"
 	.string "I'm in serious trouble!$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route212_North_EventScript_Placa1::
+	msgbox Route212_North_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route212_North_Text_Placa1:
+	.string "Rt. 212\nHearthome City$"
+
+Route212_North_EventScript_Placa2::
+	msgbox Route212_North_Text_Placa2, MSGBOX_SIGN
+	end
+
+Route212_North_Text_Placa2:
+	.string "Pokémon Mansion\nPlease Visit for Pokémon Viewings$"
+
+Route212_North_EventScript_Placa3::
+	msgbox Route212_North_Text_Placa3, MSGBOX_SIGN
+	end
+
+Route212_North_Text_Placa3:
+	.string "Trainer Tips\pThe items in the Bag can be\nreorganized by pressing SELECT.$"

@@ -90,3 +90,26 @@ Route202_Text_Trainer3Defeat:
 Route202_Text_Trainer3Post:
 	.string "It was fun battling!\n"
 	.string "Yup! I'm going to battle everyone!$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route202_EventScript_Placa1::
+	msgbox Route202_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route202_Text_Placa1:
+	.string "Rt. 202\nSandgem Town$"
+
+Route202_EventScript_Placa2::
+	msgbox Route202_Text_Placa2, MSGBOX_SIGN
+	end
+
+Route202_Text_Placa2:
+	.string "Rt. 202\nJubilife City$"
+
+Route202_EventScript_Placa3::
+	msgbox Route202_Text_Placa3, MSGBOX_SIGN
+	end
+
+Route202_Text_Placa3:
+	.string "Trainer Tips!\pAll Pokémon that are involved in\na battle earn Exp. Points!\pThe more your Pokémon battle,\nthe stronger they will become.$"

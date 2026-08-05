@@ -76,3 +76,19 @@ SolaceonTown_Text_DayCareSign:
 
 SolaceonTown_Text_NewsPressSign:
 	.string "SOLACEON TOWN POKéMON NEWS PRESS$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+SolaceonTown_EventScript_Placa2::
+	msgbox SolaceonTown_Text_Placa2, MSGBOX_SIGN
+	end
+
+SolaceonTown_Text_Placa2:
+	.string "Pokémon Day Care\nLet Us Raise Your Pokémon$"
+
+SolaceonTown_EventScript_Placa3::
+	msgbox SolaceonTown_Text_Placa3, MSGBOX_SIGN
+	end
+
+SolaceonTown_Text_Placa3:
+	.string "Pokémon News Press\nWanted: Pro Pokémon Catcher!$"

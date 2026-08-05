@@ -100,3 +100,19 @@ Route218_Text_Trainer4Defeat:
 Route218_Text_Trainer4Post:
 	.string "I'm too torn up to sing anymore...\nI am so cool that way...\n$"
 
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route218_EventScript_Placa1::
+	msgbox Route218_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route218_Text_Placa1:
+	.string "Rt. 218\nJubilife City$"
+
+Route218_EventScript_Placa2::
+	msgbox Route218_Text_Placa2, MSGBOX_SIGN
+	end
+
+Route218_Text_Placa2:
+	.string "Rt. 218\nCanalave City$"

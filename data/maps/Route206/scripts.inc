@@ -204,3 +204,19 @@ Route206_Text_Trainer9Defeat:
 Route206_Text_Trainer9Post:
 	.string "We Hikers are bighearted guys!\n"
 	.string "Losing doesn't bother us!$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route206_EventScript_Placa1::
+	msgbox Route206_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route206_Text_Placa1:
+	.string "Rt. 206\nOreburgh City$"
+
+Route206_EventScript_Placa2::
+	msgbox Route206_Text_Placa2, MSGBOX_SIGN
+	end
+
+Route206_Text_Placa2:
+	.string "Rt. 206\nEterna City$"

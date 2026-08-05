@@ -108,3 +108,12 @@ Route230_Text_SwimmerMalloryDefeat:
 
 Route230_Text_SwimmerMalloryPost:
 	.string "A mermaid's tears are so salty...$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route230_EventScript_Placa1::
+	msgbox Route230_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route230_Text_Placa1:
+	.string "Rt. 230\nFight Area$"

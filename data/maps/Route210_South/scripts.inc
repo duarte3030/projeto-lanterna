@@ -32,3 +32,19 @@ Route210_South_Text_Rancher:
 Route210_South_Text_Belle:
 	.string "Pa and I raise Miltank here.\n"
 	.string "Come say hi anytime.$"
+
+@ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
+
+Route210_South_EventScript_Placa1::
+	msgbox Route210_South_Text_Placa1, MSGBOX_SIGN
+	end
+
+Route210_South_Text_Placa1:
+	.string "Rt. 210\nSolaceon Town$"
+
+Route210_South_EventScript_Placa2::
+	msgbox Route210_South_Text_Placa2, MSGBOX_SIGN
+	end
+
+Route210_South_Text_Placa2:
+	.string "Café Cabin\nFreshly Squeezed Milk$"
