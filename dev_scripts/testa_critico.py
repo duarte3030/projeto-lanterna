@@ -7,6 +7,7 @@ Uso:
     python3 dev_scripts/testa_critico.py --lista         # lista sem rodar
     python3 dev_scripts/testa_critico.py --rom outra.gba # ROM congelada
     python3 dev_scripts/testa_critico.py --censo         # varre TODOS os grupos de mapa
+    python3 dev_scripts/testa_critico.py --treinadores   # acusa constante de treinador falsa
 
 T11, a save do Gui sobrevive à atualização da ROM
 -------------------------------------------------
@@ -403,6 +404,63 @@ def censo(rom, simbolos, offsets, por_nome, por_id, layouts, trabalhadores=6):
     return 1 if ruins else 0
 
 
+def confere_treinadores():
+    """Acusa constante de treinador que é apelido de OUTRO treinador.
+
+    `include/constants/opponents_frlg.h` numera os treinadores de Kanto de 0 a
+    623, e `include/constants/opponents.h` numera os de Hoenn, Johto e Sinnoh de
+    0 a 1366, no MESMO espaço. Quem só tem nome ali e não tem entrada em
+    `src/data/trainers.party` não é um treinador: é um apelido que aponta para
+    quem já ocupa aquele id. `TRAINER_YOUNGSTER_BEN` (Kanto, 1) é
+    `TRAINER_SAWYER_1` (Hoenn, 1).
+
+    Isso ficou inerte enquanto os 418 includes de Kanto estavam atrás do
+    `.if IS_FRLG` de data/event_scripts.s. Abrindo o portão, cada batalha de
+    treinador de Kanto passa a chamar o treinador errado, e o jogo não reclama:
+    o id existe, o time existe, só é de outra pessoa. Nenhum teste de tela pega
+    isso, e nenhum aviso de compilação também, porque os nomes são únicos.
+
+    Roda sem ROM e sem emulador: é fato de compilação.
+    """
+    def defines(caminho):
+        return dict(re.findall(r"^#define (TRAINER_[A-Z0-9_]+)\s+(\d+)\s*$",
+                               open(os.path.join(RAIZ, caminho)).read(), re.M))
+
+    frlg = defines("include/constants/opponents_frlg.h")
+    principal = defines("include/constants/opponents.h")
+    party = set(re.findall(r"^=== (TRAINER_[A-Z0-9_]+) ===",
+                           open(os.path.join(RAIZ, "src/data/trainers.party")).read(), re.M))
+    por_id = {int(v): k for k, v in principal.items()}
+
+    apelidos = {n: int(v) for n, v in frlg.items() if n not in party}
+    usados = set()
+    for arq in glob.glob(os.path.join(RAIZ, "data/maps/*/scripts.inc")):
+        texto = open(arq, errors="ignore").read()
+        for nome in re.findall(r"\bTRAINER_[A-Z0-9_]+\b", texto):
+            if nome in apelidos:
+                usados.add((os.path.basename(os.path.dirname(arq)), nome))
+
+    print(f"constantes de treinador em opponents_frlg.h: {len(frlg)}")
+    print(f"  sem time próprio em trainers.party (apelidam outro treinador): {len(apelidos)}")
+    print(f"  desses, usados por script de mapa: {len({n for _, n in usados})} "
+          f"em {len({m for m, _ in usados})} mapas")
+    for mapa, nome in sorted(usados)[:10]:
+        print(f"    {mapa:38} {nome:34} -> id {apelidos[nome]} = "
+              f"{por_id.get(apelidos[nome], '?')}")
+    if len(usados) > 10:
+        print(f"    ... e mais {len(usados) - 10}")
+
+    colisoes = [n for n in frlg if n in principal and frlg[n] != principal[n]]
+    for n in colisoes:
+        print(f"[FALHA] {n} vale {frlg[n]} em opponents_frlg.h e {principal[n]} em "
+              "opponents.h. Um dos dois scripts luta com o treinador errado.")
+
+    if not apelidos and not colisoes:
+        print("nenhum apelido e nenhuma colisão de constante de treinador")
+        return 0
+    return 1
+
+
 def carrega_casos():
     casos = []
     for arq in sorted(glob.glob(os.path.join(CASOS_DIR, "*.json"))):
@@ -443,6 +501,8 @@ def main():
     faz_censo = "--censo" in args
     if faz_censo:
         args.remove("--censo")
+    if "--treinadores" in args:
+        return confere_treinadores()
     filtro = args[0] if args else None
 
     mapfile = os.path.splitext(rom)[0] + ".map"
