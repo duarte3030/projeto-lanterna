@@ -32,8 +32,9 @@ Tres armadilhas medidas em 05/08/2026, e como este script escapa de cada uma:
 Compatibilidade de save (requisito do dono, 05/08/2026): a save guarda a posicao
 como par de indices (mapGroup, mapNum). Este script SO ACRESCENTA, nunca
 reordena: grupos novos vao para o FIM de `group_order`, mapas novos para o fim
-do grupo novo, MAPSEC nova para o fim de `region_map_sections.json`. E nao gasta
-NENHUMA flag (ver `SEM_FLAG` abaixo).
+do grupo novo, MAPSEC nova para o fim de `region_map_sections.json`. As unicas
+flags que ele gasta saem da faixa que o dono reservou para itens de Unova em
+05/08/2026 (`FLAG_ITEMS_UNOVA_START`, 467 delas), nunca do pool `FLAG_UNUSED_*`.
 """
 import json
 import os
@@ -54,12 +55,24 @@ PREFIXO = "Unova_"          # nome do mapa e da pasta
 PREFIXO_ID = "MAP_UNOVA_"   # constante do mapa
 PREFIXO_LAYOUT = "LAYOUT_UNOVA_"
 
-# Por que nada aqui gasta flag: o campo `flag` de object_event fica "0" (objeto
-# sempre visivel), warps e placas nao usam flag, e as duas familias que EXIGEM
-# uma flag por unidade (338 item balls e 136 itens escondidos) ficaram de fora,
-# porque 474 flags nao existem no pool FLAG_UNUSED e criar numero novo cresce
-# flags[] dentro do SaveBlock1 e invalida a save de quem esta jogando.
+# NPC, placa e warp nao gastam flag: o campo `flag` do object_event fica "0", o
+# que quer dizer "sempre visivel". Quem gasta flag e so item (bola e escondido),
+# e por obrigacao: sem flag propria o item renasce a cada entrada no mapa.
 SEM_FLAG = "0"
+
+# Faixa de flag reservada para os itens de Unova pelo dono do projeto em
+# 05/08/2026: FLAG_ITEMS_UNOVA_START + 0x000 ate + 0x1D2, 467 flags, ja dentro de
+# FLAGS_COUNT. Cada bola de item e cada item escondido PRECISA de uma flag
+# propria, senao renasce a cada entrada no mapa e vira duplicador infinito.
+# Nao usar FLAG_UNUSED_* para isto: o dono pediu explicitamente a faixa nova.
+NUM_ITEMS_UNOVA = 0x1D3
+
+
+def flag_de_item(contador):
+    """Consome a proxima flag da faixa reservada. `contador` e uma lista de 1."""
+    i = contador[0]
+    contador[0] += 1
+    return f"FLAG_ITEMS_UNOVA_START + 0x{i:03X}"
 
 # Landmark do BW3G -> qual das tres MAPSEC de Unova. MAPSEC e u8 e esta com 212
 # de 255 em uso, por isso a regiao inteira cabe em tres, com apelido por cidade
@@ -279,6 +292,81 @@ def le_eventos(asm, rotulo=None):
     return ev
 
 
+# Item do gen 2 -> item deste build. A regra e "ITEM_" + o nome; a tabela abaixo
+# so lista as excecoes, conferidas contra include/constants/items.h e
+# src/data/items.h (os TM moram no segundo, gerados por macro, e nao aparecem no
+# primeiro: grep so no header de constantes da falso negativo).
+#
+# Este build tem apenas os 50 TM de Hoenn. Os 11 TM de gen 4 e 5 que o BW3G usa
+# nao existem aqui e viram o TM mais proximo em tipo e papel; a troca esta na
+# coluna de comentario para quem quiser refinar depois.
+ITEM_TROCA = {
+    "PARLYZ_HEAL": "ITEM_PARALYZE_HEAL", "ELIXER": "ITEM_ELIXIR",
+    "MAX_ELIXER": "ITEM_MAX_ELIXIR", "NEVERMELTICE": "ITEM_NEVER_MELT_ICE",
+    "BLACKGLASSES": "ITEM_BLACK_GLASSES", "TWISTEDSPOON": "ITEM_TWISTED_SPOON",
+    "SILVERPOWDER": "ITEM_SILVER_POWDER", "TINYMUSHROOM": "ITEM_TINY_MUSHROOM",
+    "BRIGHTPOWDER": "ITEM_BRIGHT_POWDER", "BLACKBELT": "ITEM_BLACK_BELT",
+    "S_S_TICKET": "ITEM_SS_TICKET",
+    "TM_SOLARBEAM": "ITEM_TM_SOLAR_BEAM", "TM_PSYCHIC_M": "ITEM_TM_PSYCHIC",
+    "SHELL_STONE": "ITEM_WATER_STONE",          # pedra de evolucao propria do BW3G
+    "TM_DAZZLINGLEAM": "ITEM_TM_PSYCHIC",       # nao ha TM de Fada neste build
+    "TM_DREAM_EATER": "ITEM_TM_PSYCHIC",
+    "TM_FLASH_CANNON": "ITEM_TM_STEEL_WING",
+    "TM_FOCUS_BLAST": "ITEM_TM_BRICK_BREAK",
+    "TM_ROCK_SLIDE": "ITEM_TM_ROCK_TOMB",
+    "TM_STONE_EDGE": "ITEM_TM_ROCK_TOMB",
+    "TM_SHADOW_CLAW": "ITEM_TM_SHADOW_BALL",
+    "TM_SWORDS_DANCE": "ITEM_TM_BULK_UP",
+    "TM_WILD_CHARGE": "ITEM_TM_THUNDERBOLT",
+    "TM_WILL_O_WISP": "ITEM_TM_FLAMETHROWER",
+    "TM_X_SCISSOR": "ITEM_TM_AERIAL_ACE",       # nao ha TM de Inseto neste build
+}
+
+
+def _itens_do_build():
+    """Todo ITEM_* que existe nesta build.
+
+    Le os DOIS arquivos de proposito: os TM sao gerados por macro e so aparecem
+    em src/data/items.h, e ITEM_X_DEFEND / ITEM_X_SPECIAL so existem como apelido
+    de gen 5 em include/constants/items.h. Conferir num arquivo so da falso
+    negativo, e o erro sai la no `ld` como "undefined reference", com o mapa
+    inteiro ja gerado. Aconteceu com ITEM_X_SPECIAL_ATTACK, que eu inventei.
+    """
+    tem = set()
+    for f in ("include/constants/items.h", "src/data/items.h"):
+        tem |= set(re.findall(r"\b(ITEM_[A-Z0-9_]+)\b", open(f"{RAIZ}/{f}").read()))
+    return tem
+
+
+ITENS_DO_BUILD = _itens_do_build()
+
+
+def item_gen3(nome):
+    i = ITEM_TROCA.get(nome, "ITEM_" + nome)
+    if i not in ITENS_DO_BUILD:
+        raise SystemExit(f"item {nome} virou {i}, que nao existe nesta build; "
+                         f"acrescente em ITEM_TROCA")
+    return i
+
+
+def item_do_script(asm, rotulo):
+    """(item, quantidade, escondido) do rotulo apontado por um OBJECTTYPE_ITEMBALL
+    ou por um bg_event BGEVENT_ITEM. None se o rotulo nao for de item."""
+    m = re.search(rf"^{rotulo}:+\s*$", asm, re.M)
+    if not m:
+        return None
+    for ln in asm[m.end():].splitlines()[:6]:
+        if re.match(r"^\w+:", ln):
+            break
+        m2 = re.match(r"\s*itemball\s+(\w+)(?:,\s*(\d+))?", ln)
+        if m2:
+            return item_gen3(m2.group(1)), int(m2.group(2) or 1), False
+        m2 = re.match(r"\s*hiddenitem\s+(\w+)", ln)
+        if m2:
+            return item_gen3(m2.group(1)), 1, True
+    return None
+
+
 # A volta de barco. O BW3G nao tem porto para fora de Unova, entao o marinheiro
 # do retorno e o unico conteudo que este import ACRESCENTA em vez de portar.
 # Fica aqui, e nao editado a mao no map.json gerado, senao a proxima rodada do
@@ -405,6 +493,7 @@ def main(gravar):
     blocos = le_blocos_compartilhados()
     atrib = le_conexoes()
     idx_asm = indice_asm()
+    flag_item = [0]   # contador da faixa reservada, ver flag_de_item
     sprite, movimento, musica, destino, paleta = carrega_tabelas()
 
     # const do BW3G -> nome do mapa aqui. Precisa estar pronto ANTES de gerar,
@@ -416,7 +505,7 @@ def main(gravar):
 
     stats = dict(mapas=0, blocos_faltando=0, ajuste_tamanho=0, warps=0, placas=0,
                  objetos=0, textos=0, itemball=0, item_escondido=0, coord=0,
-                 conexoes=0, sem_texto=0, enfermeira=0, loja=0, marinheiro=0)
+                 conexoes=0, sem_texto=0, enfermeira=0, loja=0, marinheiro=0, item_sem_flag=0)
     saida_layouts, saida_grupos, saida_incs = [], [], []
 
     for gnome, mapas in grupos:
@@ -487,7 +576,15 @@ def main(gravar):
             usados, corpo = {}, []
             for i, (x, y, kind, script) in enumerate(ev["bg"]):
                 if kind == "ITEM":
-                    stats["item_escondido"] += 1     # exige uma flag por item: pendente
+                    it = item_do_script(asm, script)
+                    if it and flag_item[0] < NUM_ITEMS_UNOVA:
+                        mapa["bg_events"].append({
+                            "type": "hidden_item", "x": x, "y": y, "elevation": 3,
+                            "item": it[0], "flag": flag_de_item(flag_item),
+                            "quantity": it[1], "underfoot": False})
+                        stats["item_escondido"] += 1
+                    else:
+                        stats["item_sem_flag"] += 1
                     continue
                 t = resolve_texto(asm, script, textos)
                 if not t:
@@ -503,7 +600,24 @@ def main(gravar):
 
             for i, o in enumerate(ev["obj"]):
                 if o["tipo"] == "ITEMBALL":
-                    stats["itemball"] += 1           # exige uma flag por bola: pendente
+                    it = item_do_script(asm, o["script"])
+                    if it and flag_item[0] < NUM_ITEMS_UNOVA:
+                        # o motor le o item de `trainer_sight_or_berry_tree_id` e a
+                        # quantidade de `movement_range_x` (src/item_ball.c), e o
+                        # `removeobject` do Std_FindItem acende a flag do objeto,
+                        # que e o que impede a bola de renascer a cada entrada
+                        mapa["object_events"].append({
+                            "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+                            "x": o["x"], "y": o["y"], "elevation": 3,
+                            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+                            "movement_range_x": it[1], "movement_range_y": 1,
+                            "trainer_type": "TRAINER_TYPE_NONE",
+                            "trainer_sight_or_berry_tree_id": it[0],
+                            "script": "Common_EventScript_FindItem",
+                            "flag": flag_de_item(flag_item)})
+                        stats["itemball"] += 1
+                    else:
+                        stats["item_sem_flag"] += 1
                     continue
                 std = jumpstd_de(asm, o["script"])
                 t = resolve_texto(asm, o["script"], textos)

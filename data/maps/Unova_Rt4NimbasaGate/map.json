@@ -85,5 +85,16 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "hidden_item",
+      "x": 0,
+      "y": 15,
+      "elevation": 3,
+      "item": "ITEM_RARE_CANDY",
+      "flag": "FLAG_ITEMS_UNOVA_START + 0x109",
+      "quantity": 1,
+      "underfoot": false
+    }
+  ]
 }

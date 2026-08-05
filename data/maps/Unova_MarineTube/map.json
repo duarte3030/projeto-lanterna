@@ -163,5 +163,26 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "hidden_item",
+      "x": 5,
+      "y": 10,
+      "elevation": 3,
+      "item": "ITEM_FULL_RESTORE",
+      "flag": "FLAG_ITEMS_UNOVA_START + 0x0F9",
+      "quantity": 1,
+      "underfoot": false
+    },
+    {
+      "type": "hidden_item",
+      "x": 8,
+      "y": 18,
+      "elevation": 3,
+      "item": "ITEM_ETHER",
+      "flag": "FLAG_ITEMS_UNOVA_START + 0x0FA",
+      "quantity": 1,
+      "underfoot": false
+    }
+  ]
 }

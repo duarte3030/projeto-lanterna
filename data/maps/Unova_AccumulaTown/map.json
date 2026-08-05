@@ -191,6 +191,16 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Unova_AccumulaTown_EventScript_Placa0"
+    },
+    {
+      "type": "hidden_item",
+      "x": 10,
+      "y": 9,
+      "elevation": 3,
+      "item": "ITEM_MAX_REPEL",
+      "flag": "FLAG_ITEMS_UNOVA_START + 0x167",
+      "quantity": 1,
+      "underfoot": false
     }
   ]
 }
