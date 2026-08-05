@@ -67,3 +67,7 @@ tools/aif2pcm/aif2pcm
 __pycache__
 .map_version
 build.nosync/
+
+# ROMs de DS usadas como fonte de dados. Nunca entram no repo: sao 640 MB e o
+# GitHub recusa arquivo acima de 100 MB. Ficam soltas na pasta de proposito.
+*.nds
