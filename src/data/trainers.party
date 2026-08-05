@@ -24352,3 +24352,77 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Crunch
 - Aqua Jet
 
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_JUBILIFE_CITY_1 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Stunky
+Level: 11
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_JUBILIFE_CITY_2 ===
+Name: Grunt
+Class: Team Magma
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Glameow
+Level: 11
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_COMMANDER_MARS_VALLEY_WINDWORKS ===
+Name: Mars
+Class: Magma Admin
+Pic: Magma Admin
+Gender: Male
+Double Battle: No
+
+Zubat @ None
+Level: 15
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Bite
+- Leech Life
+- Toxic
+
+Purugly @ Oran Berry
+Level: 17
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Faint Attack
+- Scratch
+- Fake Out
+
+=== TRAINER_SINNOH_COMMANDER_SATURN_VALOR_CAVERN ===
+Name: Saturn
+Class: Magma Admin
+Pic: Magma Admin
+Gender: Male
+Double Battle: No
+
+Golbat @ None
+Level: 38
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Air Cutter
+- Bite
+- Toxic
+- Supersonic
+
+Bronzor @ None
+Level: 38
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Gyro Ball
+- Shadow Ball
+- Rock Tomb
+- Iron Defense
+
+Toxicroak @ Sitrus Berry
+Level: 40
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Poison Jab
+- Revenge
+- Mud Bomb
+- Faint Attack

@@ -99,3 +99,18 @@ VeilstoneCity_Text_MeteoriteSign:
 
 VeilstoneCity_Text_DepartmentStoreSign:
 	.string "VEILSTONE DEPARTMENT STORE$"
+
+@ Historia: a Galactica em Veilstone. O QG (galactic_hq_*) e o armazem ainda nao
+@ existem como mapa, entao o grunt so guarda a rua. Texto de pret/pokeplatinum,
+@ res/text/lake_acuity.json e veilstone_city.json.
+
+VeilstoneCity_EventScript_GalacticGrunt::
+	msgbox VeilstoneCity_Text_GalacticGrunt, MSGBOX_NPC
+	end
+
+VeilstoneCity_Text_GalacticGrunt:
+	.string "This is Team Galactic's turf.\p"
+	.string "Our headquarters is right here in\n"
+	.string "Veilstone, but don't waste your\l"
+	.string "time. You'll never get in.\p"
+	.string "Now, if you'll excuse me.$"

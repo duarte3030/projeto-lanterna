@@ -2472,6 +2472,13 @@
 #define FLAG_INSIGNIA_SINNOH_8  FLAG_UNUSED_0x02C  // Volkner,  Sunyshore
 #define FLAG_ELITE_SINNOH_VENCIDA FLAG_UNUSED_0x02D
 
+// ponytail: historia da Equipe Galactica em Sinnoh. Uma flag por cena encerrada,
+// nunca contador em var. Cada uma tambem some com os NPCs daquela cena, porque o
+// campo "flag" do object_event esconde o objeto quando a flag esta ligada.
+// RESERVADAS, ver Pokemon Claude/SINNOH-PADRAO.md.
+#define FLAG_GALACTICA_JUBILIFE   FLAG_UNUSED_0x02E  // Rowan e os dois grunts em Jubilife
+#define FLAG_GALACTICA_WINDWORKS  FLAG_UNUSED_0x02F  // Mars e os grunts da usina
+
 #ifndef FLAG_NIGHT_POKEMON
 #define FLAG_NIGHT_POKEMON 0x4000
 #endif

@@ -1287,7 +1287,13 @@
 #define TRAINER_SINNOH_LEADER_VOLKNER                           1269
 #define TRAINER_SINNOH_LEADER_WAKE                              1270
 
-#define TRAINERS_COUNT_EMERALD     1271
+// ponytail: historia da Equipe Galactica. Times copiados de trainers_sinnoh.party.
+#define TRAINER_SINNOH_GALACTIC_GRUNT_JUBILIFE_CITY_1            1271
+#define TRAINER_SINNOH_GALACTIC_GRUNT_JUBILIFE_CITY_2            1272
+#define TRAINER_SINNOH_COMMANDER_MARS_VALLEY_WINDWORKS           1273
+#define TRAINER_SINNOH_COMMANDER_SATURN_VALOR_CAVERN             1274
+
+#define TRAINERS_COUNT_EMERALD     1275
 #define MAX_TRAINERS_COUNT_EMERALD 1280
 
 #if IS_FRLG

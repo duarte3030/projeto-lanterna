@@ -94,3 +94,60 @@ EternaCity_Text_GymSign:
 	.string "ETERNA CITY POKéMON GYM\n"
 	.string "Leader: GARDENIA\p"
 	.string "The Grass-Type Endurance Style!$"
+
+@ ---------------------------------------------------------------------------
+@ Historia: a Equipe Galactica instalada em Eterna.
+@ Texto de pret/pokeplatinum, res/text/eterna_city.json. O predio deles
+@ (team_galactic_eterna_building_*) NAO existe neste hack, entao a porta continua
+@ fechada e os grunts ficam do lado de fora, que e o que explica a porta fechada.
+@ Sem flag e sem var: sao treinadores comuns, o jogo ja lembra quem foi derrotado.
+
+EternaCity_EventScript_GalacticGrunt1::
+	trainerbattle_single TRAINER_SINNOH_GALACTIC_GRUNT_TEAM_GALACTIC_ETERNA_BUILDING_1F_1, EternaCity_Text_Grunt1Intro, EternaCity_Text_Grunt1Defeat
+	msgbox EternaCity_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+EternaCity_EventScript_GalacticGrunt2::
+	trainerbattle_single TRAINER_SINNOH_GALACTIC_GRUNT_TEAM_GALACTIC_ETERNA_BUILDING_1F_2, EternaCity_Text_Grunt2Intro, EternaCity_Text_Grunt2Defeat
+	msgbox EternaCity_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+EternaCity_EventScript_GalacticGrunt3::
+	msgbox EternaCity_Text_Grunt3, MSGBOX_NPC
+	end
+
+EternaCity_Text_Grunt1Intro:
+	.string "Hey! You there, kid!\n"
+	.string "Stay away from that Pokémon statue!\p"
+	.string "Team Galactic is conducting an\n"
+	.string "official investigation here!$"
+
+EternaCity_Text_Grunt1Defeat:
+	.string "You're no ordinary kid...$"
+
+EternaCity_Text_Grunt1PostBattle:
+	.string "Our Commander Jupiter is up in the\n"
+	.string "building. You'll never get past\l"
+	.string "that door.$"
+
+EternaCity_Text_Grunt2Intro:
+	.string "Have you seen our building?\p"
+	.string "Team Galactic is so stinking rich\n"
+	.string "that we can have one built\l"
+	.string "instantly!$"
+
+EternaCity_Text_Grunt2Defeat:
+	.string "You're going to regret this!$"
+
+EternaCity_Text_Grunt2PostBattle:
+	.string "Team Galactic is going to do\n"
+	.string "something huge for everyone's sake.\p"
+	.string "That's why you should keep out of\n"
+	.string "Team Galactic's way.$"
+
+EternaCity_Text_Grunt3:
+	.string "Don't come whining about poor\n"
+	.string "Pokémon and other trivial junk\l"
+	.string "like that.\p"
+	.string "And don't waste your time coming\n"
+	.string "to our HQ in Veilstone.$"
