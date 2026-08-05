@@ -132,6 +132,7 @@ CanalaveCity_EventScript_SailToVirbank::
 	msgbox CanalaveCity_Text_SettingSailToVirbank, MSGBOX_DEFAULT
 	closemessage
 	warpsilent MAP_UNOVA_VIRBANK_PORT, 4, 6
+	waitstate
 	release
 	end
 

@@ -10,10 +10,13 @@
   },
   {
     "id": "T4.2",
-    "nome": "FALHA CONHECIDA (cai junto com T4.1): a balsa de Vermilion, o unico embarque de Kanto para Johto, desembarca no Porto de Olivine",
+    "nome": "KANTO PARA JOHTO, a cadeia inteira: campeao de Kanto (FLAG_SYS_GAME_CLEAR, que o Hall da Fama de Kanto acende pelo special EnterHallOfFame), o assistente do Prof. Carvalho no cais entrega o PASSE TRI, e so entao a balsa de Vermilion zarpa e desembarca no Porto de Olivine",
+    "flags": [
+      "FLAG_SYS_GAME_CLEAR"
+    ],
     "warp": "MAP_VERMILION_CITY",
     "warp_id": 4,
-    "roteiro": "16:DOWN*7,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,16:DOWN,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,240:NADA",
+    "roteiro": "16:DOWN*3,30:NADA,16:RIGHT,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,60:NADA,16:DOWN,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,300:NADA,8:A,300:NADA,8:A,300:NADA",
     "prova": {
       "mapa": "MAP_OLIVINE_CITY_PORT_INSIDE",
       "layout": "LAYOUT_OLIVINE_CITY_PORT_INSIDE"
@@ -154,6 +157,28 @@
     "prova": {
       "mapa": "MAP_OLIVINE_CITY_LIGHTHOUSE",
       "layout": "LAYOUT_OLIVINE_CITY_LIGHTHOUSE"
+    }
+  },
+  {
+    "id": "T4.5",
+    "nome": "CONTROLE do T4.2: sem falar com o assistente (logo, sem o PASSE TRI) a balsa de Vermilion recusa o embarque e o jogador continua em Kanto",
+    "warp": "MAP_VERMILION_CITY",
+    "warp_id": 4,
+    "roteiro": "16:DOWN*4,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,300:NADA,8:A,300:NADA,8:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERMILION_CITY",
+      "layout": "LAYOUT_VERMILION_CITY"
+    }
+  },
+  {
+    "id": "T4.6",
+    "nome": "CONTROLE do T4.2, par A/B exato: MESMO roteiro de botoes do T4.2, so que sem acender FLAG_SYS_GAME_CLEAR. O assistente entao nao entrega o PASSE TRI e a balsa recusa, entao o jogador continua em Vermilion. E este par que prova o portao: sozinho, 'continuou em Kanto' passaria com o script inteiro quebrado",
+    "warp": "MAP_VERMILION_CITY",
+    "warp_id": 4,
+    "roteiro": "16:DOWN*3,30:NADA,16:RIGHT,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,60:NADA,16:DOWN,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,300:NADA,8:A,300:NADA,8:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERMILION_CITY",
+      "layout": "LAYOUT_VERMILION_CITY"
     }
   }
 ]

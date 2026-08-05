@@ -102,9 +102,9 @@
   },
   {
     "id": "T8.3",
-    "nome": "HOENN PARA SINNOH: a 3a opcao do barco de Slateport leva a Canalave City. FALHA na ROM congelada (4322cb72f9): MULTI_BOAT_DESTINATIONS caia no #ifndef de include/constants/script_menu.h e virava MULTI_BRINEY_OFF_DEWFORD, um menu de 2 itens (DEWFORD e EXIT). Medido: DOWN duas vezes nao da a volta, para no item 1 e zarpa para Vermilion, Kanto; Sinnoh era inalcancavel de barco desde Hoenn. A arvore de trabalho ja tem MULTI_BOAT_FROM_SLATEPORT com os tres destinos na mesma ordem dos case, nao verificado em ROM por este agente",
+    "nome": "HOENN PARA SINNOH: o marinheiro do Porto de Slateport leva o jogador a Canalave City. CANALAVE e o item 4 do MULTI_CINCO_REGIOES_BARCO (OLIVINE, SLATEPORT, VERMILION, VIRBANK, CANALAVE, Sair) e Slateport pula o proprio case 1, entao sao QUATRO DOWN. O roteiro antigo tinha dois, escrito quando o menu ainda caia no MULTI_BRINEY_OFF_DEWFORD de duas linhas, e com a lista certa dois DOWN param em VERMILION, ou seja o caso zarpava para Kanto",
     "warp": "MAP_SLATEPORT_CITY_HARBOR",
-    "roteiro": "20:UP*2,20:LEFT*10,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*2,60:NADA,20:A,900:NADA,20:A,300:NADA",
+    "roteiro": "20:UP*2,20:LEFT*10,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*4,60:NADA,20:A,900:NADA,20:A,300:NADA",
     "prova": {
       "mapa": "MAP_CANALAVE_CITY",
       "layout": "LAYOUT_CANALAVE_CITY"

@@ -257,19 +257,17 @@ SlateportCity_Harbor_Movement_BoardFerryNorth:
 	walk_up
 	step_end
 
+@ ARMADILHA DE PROGRESSAO, medida em 05/08/2026: este marinheiro herdou o
+@ portao do clima anormal do Emerald original (com FLAG_SYS_GAME_CLEAR aceso e
+@ Kyogre/Groudon vivos, ele se recusava a zarpar). Na ordem cronologica das
+@ cinco regioes, o Hall da Fama de KANTO acende FLAG_SYS_GAME_CLEAR muito antes
+@ de Hoenn, entao Hoenn virava beco sem saida: entrava-se de barco e nao se
+@ saia. A balsa entre regioes nao pode depender do estado dos lendarios de
+@ Hoenn. O SS Tidal, que e quem tem esse portao de verdade, continua no
+@ CaptStern e no FerryAttendant, intocados.
 SlateportCity_Harbor_EventScript_Sailor::
 	lock
 	faceplayer
-	goto_if_unset FLAG_SYS_GAME_CLEAR, SlateportCity_Harbor_EventScript_SailorNoAbnormalWeather
-	setvar VAR_0x8004, 0
-	call_if_set FLAG_DEFEATED_KYOGRE, SlateportCity_Harbor_EventScript_CountDefeatedLegendary
-	call_if_set FLAG_DEFEATED_GROUDON, SlateportCity_Harbor_EventScript_CountDefeatedLegendary
-	goto_if_eq VAR_0x8004, 2, SlateportCity_Harbor_EventScript_SailorNoAbnormalWeather  @ Defeated both
-	msgbox SlateportCity_Harbor_Text_AbnormalWeather, MSGBOX_DEFAULT
-	release
-	end
-
-SlateportCity_Harbor_EventScript_SailorNoAbnormalWeather::
 	msgbox SlateportCity_Harbor_Text_WhereTo, MSGBOX_DEFAULT
 	multichoice 0, 0, MULTI_BOAT_DESTINATIONS, FALSE
 	switch VAR_RESULT
@@ -300,7 +298,7 @@ SlateportCity_Harbor_EventScript_SailToVermilion::
 SlateportCity_Harbor_EventScript_SailToCanalave::
 	msgbox SlateportCity_Harbor_Text_SettingSailToCanalave, MSGBOX_DEFAULT
 	closemessage
-	warpsilent MAP_CANALAVE_CITY, 10, 10
+	warpsilent MAP_CANALAVE_CITY, 17, 49
 	waitstate
 	release
 	end
@@ -319,10 +317,6 @@ SlateportCity_Harbor_Text_SettingSailToCanalave:
 
 SlateportCity_Harbor_Text_ComeAgain:
 	.string "Volte quando quiser navegar.$"
-
-SlateportCity_Harbor_EventScript_CountDefeatedLegendary::
-	addvar VAR_0x8004, 1
-	return
 
 SlateportCity_Harbor_EventScript_FatMan::
 	msgbox SlateportCity_Harbor_Text_SubTooSmallForMe, MSGBOX_NPC
@@ -469,16 +463,6 @@ SlateportCity_Harbor_Text_LoveToGoDeepUnderwaterSomeday:
 	.string "I'd love to go deep underwater like\n"
 	.string "that someday.$"
 
-SlateportCity_Harbor_Text_AbnormalWeather:
-	.string "For a ship to sail safely, we need to\n"
-	.string "know about the weather!\p"
-	.string "Speaking of weather, I heard something\n"
-	.string "from a guy at the WEATHER INSTITUTE.\p"
-	.string "He was saying abnormal weather has\n"
-	.string "been reported all over the place!\p"
-	.string "You should visit the WEATHER INSTITUTE\n"
-	.string "and ask around!$"
-
 SlateportCity_Harbor_Text_SubTooSmallForMe:
 	.string "I wanted to go with CAPT. STERN on\n"
 	.string "the ocean floor exploration.\p"
@@ -589,6 +573,7 @@ SlateportCity_Harbor_EventScript_SailToVirbank::
 	msgbox SlateportCity_Harbor_Text_SettingSailToVirbank, MSGBOX_DEFAULT
 	closemessage
 	warpsilent MAP_UNOVA_VIRBANK_PORT, 4, 6
+	waitstate
 	release
 	end
 

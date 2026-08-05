@@ -25,6 +25,7 @@ Unova_VirbankPort_EventScript_ZarparOlivine::
 	msgbox Unova_VirbankPort_Text_ZarparOlivine, MSGBOX_DEFAULT
 	closemessage
 	warpsilent MAP_OLIVINE_CITY_PORT_INSIDE, 8, 17
+	waitstate
 	release
 	end
 
@@ -35,6 +36,7 @@ Unova_VirbankPort_EventScript_ZarparSlateport::
 	msgbox Unova_VirbankPort_Text_ZarparSlateport, MSGBOX_DEFAULT
 	closemessage
 	warpsilent MAP_SLATEPORT_CITY_HARBOR, 8, 14
+	waitstate
 	release
 	end
 
@@ -45,6 +47,7 @@ Unova_VirbankPort_EventScript_ZarparVermilion::
 	msgbox Unova_VirbankPort_Text_ZarparVermilion, MSGBOX_DEFAULT
 	closemessage
 	warpsilent MAP_VERMILION_CITY, 15, 10
+	waitstate
 	release
 	end
 
@@ -54,7 +57,8 @@ Unova_VirbankPort_Text_ZarparVermilion:
 Unova_VirbankPort_EventScript_ZarparCanalave::
 	msgbox Unova_VirbankPort_Text_ZarparCanalave, MSGBOX_DEFAULT
 	closemessage
-	warpsilent MAP_CANALAVE_CITY, 10, 10
+	warpsilent MAP_CANALAVE_CITY, 17, 49
+	waitstate
 	release
 	end
 

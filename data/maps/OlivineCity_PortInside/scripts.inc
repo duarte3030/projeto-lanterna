@@ -34,7 +34,7 @@ OlivinePort_EventScript_SailToSlateport::
 OlivinePort_EventScript_SailToCanalave::
 	msgbox OlivinePort_Text_SettingSailToCanalave, MSGBOX_DEFAULT
 	closemessage
-	warpsilent MAP_CANALAVE_CITY, 10, 10
+	warpsilent MAP_CANALAVE_CITY, 17, 49
 	waitstate
 	release
 	end
@@ -58,6 +58,7 @@ OlivinePort_EventScript_SailToVirbank::
 	msgbox OlivinePort_Text_SettingSailToVirbank, MSGBOX_DEFAULT
 	closemessage
 	warpsilent MAP_UNOVA_VIRBANK_PORT, 4, 6
+	waitstate
 	release
 	end
 

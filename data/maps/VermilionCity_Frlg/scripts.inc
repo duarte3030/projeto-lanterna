@@ -306,9 +306,22 @@ VermilionCity_Text_SnorlaxBlockingRoute12::
 	.string "LAVENDER TOWN.\p"
 	.string "VERMILION POLICE$"
 
+@ Portao da travessia Kanto -> Johto (teste T4). O passe e um ITEM, nao uma
+@ flag: a faixa de flag reservada a este agente (FLAG_UNUSED_0x030 a 0x03F) ja
+@ estava inteira em uso pelas insignias de Johto, pela Galactica e pelos Rockets
+@ de Johto, e item chave nao gasta flag nem var nenhuma.
 VermilionCity_EventScript_InternationalFerry::
 	lock
 	faceplayer
+	checkitem ITEM_TRI_PASS
+	goto_if_eq VAR_RESULT, TRUE, VermilionCity_EventScript_FerryMenu
+	@ Quem visita as ilhas Sevii TROCA o PASSE TRI pelo ARCO-IRIS
+	@ (removeitem em OneIsland_PokemonCenter_1F_Frlg/scripts.inc:320). Aceitar
+	@ os dois evita perder a travessia entre regioes para sempre.
+	checkitem ITEM_RAINBOW_PASS
+	goto_if_eq VAR_RESULT, FALSE, VermilionCity_EventScript_FerrySemPasse
+
+VermilionCity_EventScript_FerryMenu::
 	msgbox VermilionCity_Text_WhereTo, MSGBOX_DEFAULT
 	multichoice 0, 0, MULTI_BOAT_DESTINATIONS, FALSE
 	switch VAR_RESULT
@@ -339,10 +352,58 @@ VermilionCity_EventScript_SailToSlateport::
 VermilionCity_EventScript_SailToCanalave::
 	msgbox VermilionCity_Text_SettingSailToCanalave, MSGBOX_DEFAULT
 	closemessage
-	warpsilent MAP_CANALAVE_CITY, 10, 10
+	warpsilent MAP_CANALAVE_CITY, 17, 49
 	waitstate
 	release
 	end
+
+VermilionCity_EventScript_FerrySemPasse::
+	msgbox VermilionCity_Text_FerrySemPasse, MSGBOX_DEFAULT
+	release
+	end
+
+@ O gatilho da travessia: o assistente do Prof. Carvalho so entrega o PASSE TRI
+@ depois do Hall da Fama de Kanto, que e quem acende FLAG_SYS_GAME_CLEAR (o
+@ special EnterHallOfFame, src/post_battle_event_funcs.c:126). NAO usar
+@ FLAG_DEFEATED_CHAMP: em include/constants/flags.h:2401 ela vale 0, e um
+@ apelido morto herdado do FireRed, do mesmo tipo dos 623 treinadores falsos.
+VermilionCity_EventScript_AssistenteDoCarvalho::
+	lock
+	faceplayer
+	goto_if_unset FLAG_SYS_GAME_CLEAR, VermilionCity_EventScript_AssistenteAindaNao
+	checkitem ITEM_TRI_PASS
+	goto_if_eq VAR_RESULT, TRUE, VermilionCity_EventScript_AssistenteJaEntregou
+	checkitem ITEM_RAINBOW_PASS
+	goto_if_eq VAR_RESULT, TRUE, VermilionCity_EventScript_AssistenteJaEntregou
+	msgbox VermilionCity_Text_AssistenteEntrega, MSGBOX_DEFAULT
+	giveitem ITEM_TRI_PASS
+	release
+	end
+
+VermilionCity_EventScript_AssistenteAindaNao::
+	msgbox VermilionCity_Text_AssistenteAindaNao, MSGBOX_DEFAULT
+	release
+	end
+
+VermilionCity_EventScript_AssistenteJaEntregou::
+	msgbox VermilionCity_Text_AssistenteJaEntregou, MSGBOX_DEFAULT
+	release
+	end
+
+VermilionCity_Text_FerrySemPasse:
+	.string "So embarca quem tem o PASSE TRI.\pO assistente do PROF. CARVALHO\n"
+	.string "esta aqui no cais, procure ele.$"
+
+VermilionCity_Text_AssistenteAindaNao:
+	.string "Sou assistente do PROF. CARVALHO.\pEle guarda um passe de navio para\n"
+	.string "quem vencer a LIGA de KANTO.$"
+
+VermilionCity_Text_AssistenteEntrega:
+	.string "Voce venceu a LIGA de KANTO!\pO PROF. CARVALHO mandou lhe entregar\n"
+	.string "isto, para conhecer JOHTO.$"
+
+VermilionCity_Text_AssistenteJaEntregou:
+	.string "O PASSE TRI ja esta com voce.\nBoa viagem!$"
 
 VermilionCity_Text_WhereTo:
 	.string "Bem-vindo ao Porto de Vermilion City em Kanto!\nPara onde gostaria de navegar?$"
@@ -451,6 +512,7 @@ VermilionCity_EventScript_SailToVirbank::
 	msgbox VermilionCity_Text_SettingSailToVirbank, MSGBOX_DEFAULT
 	closemessage
 	warpsilent MAP_UNOVA_VIRBANK_PORT, 4, 6
+	waitstate
 	release
 	end
 

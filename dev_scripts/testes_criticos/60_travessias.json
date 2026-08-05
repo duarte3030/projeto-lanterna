@@ -1,0 +1,34 @@
+[
+  {
+    "id": "T10.1",
+    "nome": "SINNOH PARA UNOVA: o marinheiro Eldritch de Canalave leva o jogador ao Porto de Virbank. VIRBANK e o item 3 do MULTI_CINCO_REGIOES_BARCO (OLIVINE, SLATEPORT, VERMILION, VIRBANK, CANALAVE, Sair), e Canalave pula o proprio case 4, entao sao tres DOWN",
+    "warp": "MAP_CANALAVE_CITY",
+    "warp_id": 1,
+    "roteiro": "20:DOWN*20,20:LEFT*20,20:RIGHT*4,20:UP*12,30:NADA,20:A,300:NADA,20:A,120:NADA,20:DOWN*3,60:NADA,20:A,300:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VIRBANK_PORT",
+      "layout": "LAYOUT_UNOVA_VIRBANK_PORT"
+    }
+  },
+  {
+    "id": "T10.2",
+    "nome": "UNOVA PARA SINNOH, a volta, provada como IDA E VOLTA: Canalave -> Virbank -> Canalave. E ida e volta porque o Porto de Virbank nao aceita warp de debug: os tres warps dele caem em cima de outro warp ou fora do mapa 10x8 (o warp 0 larga o jogador em (4,8), abaixo do mapa, e o passo seguinte re-dispara o warp para Virbank City). CANALAVE e o item 4 da lista e Virbank pula o proprio case 3, entao sao quatro DOWN. Antes deste conserto, nenhum dos quatro warpsilent deste porto tinha waitstate",
+    "warp": "MAP_CANALAVE_CITY",
+    "warp_id": 1,
+    "roteiro": "20:DOWN*20,20:LEFT*20,20:RIGHT*4,20:UP*12,30:NADA,20:A,300:NADA,20:A,120:NADA,20:DOWN*3,60:NADA,20:A,300:NADA,20:A,300:NADA,16:RIGHT*5,30:NADA,16:UP,30:NADA,20:A,300:NADA,20:A,120:NADA,20:DOWN*4,60:NADA,20:A,300:NADA,20:A,300:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_CANALAVE_CITY",
+      "layout": "LAYOUT_CANALAVE_CITY"
+    }
+  },
+  {
+    "id": "T10.3",
+    "nome": "JOHTO PARA KANTO, a volta do T4.2: o marinheiro do Porto de Olivine leva o jogador a Vermilion City. VERMILION e o item 2 da lista e Olivine pula o proprio case 0, entao sao dois DOWN. Nao ha portao de passe nesta direcao: o PASSE TRI so e cobrado em Vermilion, para nao trancar quem ja esta fora de Kanto",
+    "warp": "MAP_OLIVINE_CITY_PORT_INSIDE",
+    "roteiro": "16:DOWN*12,30:NADA,20:A,300:NADA,20:A,120:NADA,20:DOWN*2,60:NADA,20:A,300:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERMILION_CITY",
+      "layout": "LAYOUT_VERMILION_CITY"
+    }
+  }
+]
