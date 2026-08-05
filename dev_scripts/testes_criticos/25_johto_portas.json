@@ -1,6 +1,6 @@
 [
   {
-    "id": "T13.1",
+    "id": "T14.1",
     "nome": "Johto: o jogador ENTRA no ginasio de Violet pela porta (warp so dispara se o metatile embaixo for de porta)",
     "warp": "MAP_VIOLET_CITY",
     "warp_id": 7,
@@ -11,7 +11,7 @@
     }
   },
   {
-    "id": "T13.2",
+    "id": "T14.2",
     "nome": "Johto: o jogador ENTRA no ginasio de Azalea pela porta",
     "warp": "MAP_AZALEA_TOWN",
     "warp_id": 6,
@@ -22,7 +22,7 @@
     }
   },
   {
-    "id": "T13.3",
+    "id": "T14.3",
     "nome": "Johto: o jogador ENTRA no ginasio de Goldenrod pela porta",
     "warp": "MAP_GOLDENROD_CITY",
     "warp_id": 4,
@@ -33,7 +33,7 @@
     }
   },
   {
-    "id": "T13.4",
+    "id": "T14.4",
     "nome": "Johto: o jogador ENTRA no Centro Pokemon de Violet pela porta",
     "warp": "MAP_VIOLET_CITY",
     "warp_id": 2,
@@ -44,7 +44,7 @@
     }
   },
   {
-    "id": "T13.5",
+    "id": "T14.5",
     "nome": "Johto: o jogador ENTRA no farol de Olivine pela porta (o warp que estava em MB_NORMAL no diagnostico)",
     "warp": "MAP_OLIVINE_CITY",
     "warp_id": 0,
