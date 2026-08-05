@@ -25,6 +25,7 @@ Região de cada treinador, e como é decidida (nunca por chute):
 O id vem dos headers, não do arquivo de times: `trainers.party` só tem o nome.
 """
 import argparse
+import hashlib
 import os
 import re
 import statistics
@@ -140,7 +141,14 @@ def main():
     args = p.parse_args()
 
     ids = ids_dos_headers()
-    linhas = open(PARTY).read().splitlines(keepends=True)
+    bruto = open(PARTY).read()
+    # Impressão do arquivo no momento da leitura. Vários agentes escrevem em
+    # trainers.party ao mesmo tempo (o port de Kanto e o de Unova rodaram nesta
+    # madrugada), e reescrever 40 mil linhas por cima de quem estava no meio de
+    # um append apaga o trabalho do outro. Se a impressão mudar entre ler e
+    # gravar, este script desiste em vez de clobberar.
+    impressao = hashlib.sha256(bruto.encode()).hexdigest()
+    linhas = bruto.splitlines(keepends=True)
     achados, sem_regiao = varre(linhas, ids)
     antes = resumo(achados)
     imprime("CURVA ATUAL (nível de cada Pokémon de treinador)", antes)
@@ -176,6 +184,11 @@ def main():
     if args.seco:
         print("(--seco: nada escrito)")
         return 0
+    agora = hashlib.sha256(open(PARTY).read().encode()).hexdigest()
+    if agora != impressao:
+        print("ABORTADO: trainers.party mudou embaixo de mim enquanto eu media. "
+              "Outro agente está escrevendo nele. Rode de novo depois.")
+        return 1
     with open(PARTY, "w") as f:
         f.writelines(linhas)
     print(f"escrito em {PARTY}")

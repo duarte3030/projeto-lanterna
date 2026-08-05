@@ -1,0 +1,65 @@
+[
+  {
+    "id": "T13.1",
+    "nome": "KANTO entrega o trio: a Poke Bola do meio no laboratorio do Oak da o SQUIRTLE, o time sobe para 1 e VAR_STARTER_MON (0x4023) passa a valer 1. A var e pre-carregada com 99 de proposito: se o script nao escrevesse nada, ela continuaria 99 e o caso falharia. Comparar com 0 nao provaria nada, porque 0 e o valor de fabrica da var",
+    "vars": {"0x4055": 2, "0x4023": 99},
+    "warp": "MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB",
+    "roteiro": "16:UP*8,30:NADA,16:RIGHT*4,30:NADA,16:UP,30:NADA,20:A,120:NADA,20:A,180:NADA,20:A*6,180:NADA,20:B*6,240:NADA",
+    "prova": {
+      "mapa": "MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB",
+      "time_min": 1,
+      "vars": {"0x4023": 1}
+    }
+  },
+  {
+    "id": "T13.2",
+    "nome": "JOHTO entrega o trio: a Poke Bola do meio no laboratorio do ELM da o CYNDAQUIL, o time sobe para 1 e VAR_STARTER_MON passa a valer 1. Este mapa nao entregava inicial nenhum antes de 05/08/2026",
+    "vars": {"0x4023": 99},
+    "warp": "MAP_NEW_BARK_TOWN_LAB",
+    "roteiro": "16:UP*8,30:NADA,16:RIGHT*4,30:NADA,16:UP,30:NADA,20:A,120:NADA,20:A,180:NADA,20:A*6,180:NADA,20:B*6,240:NADA",
+    "prova": {
+      "mapa": "MAP_NEW_BARK_TOWN_LAB",
+      "time_min": 1,
+      "vars": {"0x4023": 1},
+      "flags_acesas": ["FLAG_INICIAL_JOHTO"]
+    }
+  },
+  {
+    "id": "T13.3",
+    "nome": "SINNOH entrega o trio E ESCREVE A VAR: a Poke Bola do meio no laboratorio do ROWAN da o CHIMCHAR e VAR_STARTER_MON passa a valer 1. Antes de 05/08/2026 este script dava o Pokemon e NAO escrevia a var, e foi por isso que o time do rival de Johto teve que ser fixo",
+    "vars": {"0x4023": 99},
+    "warp": "MAP_SANDGEM_TOWN_HOUSE1",
+    "roteiro": "16:UP*3,30:NADA,16:RIGHT*2,30:NADA,16:UP,30:NADA,20:A,120:NADA,20:A,180:NADA,20:A*6,180:NADA,20:B*6,240:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN_HOUSE1",
+      "time_min": 1,
+      "vars": {"0x4023": 1},
+      "flags_acesas": ["FLAG_INICIAL_SINNOH"]
+    }
+  },
+  {
+    "id": "T13.4",
+    "nome": "UNOVA entrega o trio: a Poke Bola do meio no laboratorio de Nuvema da o TEPIG, o time sobe para 1 e VAR_STARTER_MON passa a valer 1. Este mapa nao entregava inicial nenhum antes de 05/08/2026",
+    "vars": {"0x4023": 99},
+    "warp": "MAP_UNOVA_NUVEMA_LAB",
+    "roteiro": "16:RIGHT*3,30:NADA,16:UP*4,30:NADA,16:LEFT*2,30:NADA,16:UP,30:NADA,20:A,120:NADA,20:A,180:NADA,20:A*6,180:NADA,20:B*6,240:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_NUVEMA_LAB",
+      "time_min": 1,
+      "vars": {"0x4023": 1},
+      "flags_acesas": ["FLAG_INICIAL_UNOVA"]
+    }
+  },
+  {
+    "id": "T13.5",
+    "nome": "CONTROLE dos quatro acima: entrar no laboratorio do ROWAN e NAO falar com bola nenhuma deixa VAR_STARTER_MON no valor de sentinela 99 e o time em 0. E este caso que prova que a prova dos outros mede a escrita da var, e nao o valor de fabrica dela",
+    "vars": {"0x4023": 99},
+    "warp": "MAP_SANDGEM_TOWN_HOUSE1",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN_HOUSE1",
+      "time": 0,
+      "vars": {"0x4023": 99},
+      "flags_apagadas": ["FLAG_INICIAL_SINNOH"]
+    }
+  }
+]
