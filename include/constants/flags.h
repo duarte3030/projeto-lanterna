@@ -2507,6 +2507,14 @@
 #define FLAG_HIDE_GOLDENROD_RADIO_TOWER_1F_ROCKET FLAG_UNUSED_0x03F // Torre Radio retomada
 #define FLAG_ENABLE_RADIO                        FLAG_UNUSED_0x040  // radio liberado depois da Torre
 
+// Esconderijo da Rocket em MAHOGANY, portado do pokecrystal em 05/08/2026.
+// Quatro flags, zero var. As duas portas trancadas abrem por setmetatile no
+// ON_LOAD, e quem lembra das senhas e o goto_if_defeated dos dois grunts.
+#define FLAG_MAHOGANY_HIDEOUT_STAIRS             FLAG_UNUSED_0x041  // LANCE abriu o chao da loja de Mahogany
+#define FLAG_MAHOGANY_HIDEOUT_DOOR_B2F           FLAG_UNUSED_0x042  // porta do transmissor, B2F (14,12)/(15,12)
+#define FLAG_MAHOGANY_HIDEOUT_DOOR_B3F           FLAG_UNUSED_0x043  // porta do escritorio, B3F (10,9)/(11,9)
+#define FLAG_HIDE_MAHOGANY_HIDEOUT_ROCKETS       FLAG_UNUSED_0x044  // transmissor desligado: esvazia o esconderijo
+
 #ifndef FLAG_NIGHT_POKEMON
 #define FLAG_NIGHT_POKEMON 0x4000
 #endif

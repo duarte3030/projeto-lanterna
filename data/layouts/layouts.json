@@ -14836,6 +14836,39 @@
       "secondary_tileset": "gTileset_CableClub",
       "border_filepath": "data/layouts/EverGrandeCity_HallOfFame/border.bin",
       "blockdata_filepath": "data/layouts/EverGrandeCity_HallOfFame/map.bin"
+    },
+    {
+      "id": "LAYOUT_MAHOGANY_HIDEOUT_B1F",
+      "name": "MahoganyHideout_B1F_Layout",
+      "width": 30,
+      "height": 18,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/MahoganyHideout_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/MahoganyHideout_B1F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_MAHOGANY_HIDEOUT_B2F",
+      "name": "MahoganyHideout_B2F_Layout",
+      "width": 30,
+      "height": 18,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/MahoganyHideout_B2F/border.bin",
+      "blockdata_filepath": "data/layouts/MahoganyHideout_B2F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_MAHOGANY_HIDEOUT_B3F",
+      "name": "MahoganyHideout_B3F_Layout",
+      "width": 30,
+      "height": 18,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/MahoganyHideout_B3F/border.bin",
+      "blockdata_filepath": "data/layouts/MahoganyHideout_B3F/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

@@ -25616,3 +25616,471 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - MOVE_CURSE
 - MOVE_AMNESIA
 - MOVE_SURF
+
+/* ponytail: esconderijo da Rocket em MAHOGANY, portado do pokecrystal
+   (data/trainers/parties.asm: GRUNTM 16/17/18/19/28, GRUNTF 5, SCIENTIST
+   JED/ROSS/MITCH, EXECUTIVEM 4, EXECUTIVEF 2). Os TRAINERTYPE_NORMAL do gen 2
+   nao listam golpe, entao esses ficam sem golpe aqui tambem. Classe e pic sao
+   os de Kanto (FRLG), que esta build compila fora de #if. */
+
+=== TRAINER_JOHTO_ROCKET_GRUNT_MAHOGANY_1 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_RATTATA
+Level: 16
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RATTATA
+Level: 16
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RATTATA
+Level: 16
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RATTATA
+Level: 16
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_SCIENTIST_JED ===
+Name: Jed
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_MAGNEMITE
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAGNEMITE
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAGNEMITE
+Level: 20
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ROCKET_GRUNT_MAHOGANY_2 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_GOLBAT
+Level: 18
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ROCKET_GRUNT_MAHOGANY_3 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_RATTATA
+Level: 17
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ZUBAT
+Level: 17
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RATTATA
+Level: 17
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ROCKET_GRUNT_MAHOGANY_4 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_VENONAT
+Level: 18
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_VENONAT
+Level: 18
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ROCKET_ARIANA_MAHOGANY ===
+Name: Ariana
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_ARBOK
+Level: 23
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_WRAP
+- MOVE_LEER
+- MOVE_POISON_STING
+- MOVE_BITE
+
+SPECIES_GLOOM
+Level: 23
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_ABSORB
+- MOVE_SWEET_SCENT
+- MOVE_SLEEP_POWDER
+- MOVE_ACID
+
+SPECIES_MURKROW
+Level: 25
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_PECK
+- MOVE_PURSUIT
+- MOVE_HAZE
+
+=== TRAINER_JOHTO_ROCKET_GRUNT_MAHOGANY_5 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_EKANS
+Level: 18
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- MOVE_WRAP
+- MOVE_LEER
+- MOVE_POISON_STING
+- MOVE_BITE
+
+SPECIES_GLOOM
+Level: 18
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- MOVE_ABSORB
+- MOVE_SWEET_SCENT
+- MOVE_STUN_SPORE
+- MOVE_SLEEP_POWDER
+
+=== TRAINER_JOHTO_ROCKET_GRUNT_MAHOGANY_6 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_RATICATE
+Level: 19
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_SCIENTIST_ROSS ===
+Name: Ross
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_KOFFING
+Level: 22
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_KOFFING
+Level: 22
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_SCIENTIST_MITCH ===
+Name: Mitch
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_DITTO
+Level: 24
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ROCKET_PETREL_MAHOGANY ===
+Name: Petrel
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_ZUBAT
+Level: 22
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+SPECIES_RATICATE
+Level: 24
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+SPECIES_KOFFING
+Level: 22
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_SAGE_CHOW ===
+Name: Chow
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+Bellsprout @ None
+Level: 3
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Sunkern @ None
+Level: 3
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Bellsprout @ None
+Level: 3
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_SAGE_NICO ===
+Name: Nico
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+Bellsprout @ None
+Level: 3
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Hoppip @ None
+Level: 4
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Bellsprout @ None
+Level: 3
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_SAGE_EDMOND ===
+Name: Edmond
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+Bellsprout @ None
+Level: 3
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Bellsprout @ None
+Level: 3
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Bellsprout @ None
+Level: 3
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_SAGE_JIN ===
+Name: Jin
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+Bellsprout @ None
+Level: 6
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_SAGE_NEAL ===
+Name: Neal
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+Bellsprout @ None
+Level: 6
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_SAGE_TROY ===
+Name: Troy
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+Hoppip @ None
+Level: 7
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Bellsprout @ None
+Level: 7
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_SAGE_LI ===
+Name: Li
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+Oddish @ None
+Level: 7
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Sunkern @ None
+Level: 8
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Bellsprout @ None
+Level: 9
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_FIREBREATHER_NARD ===
+Name: Nard
+Class: Kindler
+Pic: Kindler
+Gender: Male
+Double Battle: No
+
+Charmeleon @ None
+Level: 21
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_BURGLAR_RICHARDO ===
+Name: Richardo
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+Koffing @ None
+Level: 20
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Growlithe @ None
+Level: 19
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_SAILOR_HUEY ===
+Name: Huey
+Class: Sailor
+Pic: Sailor
+Gender: Male
+Double Battle: No
+
+Poliwhirl @ None
+Level: 20
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Machop @ None
+Level: 22
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_GENTLEMAN_ALFRED ===
+Name: Alfred
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Double Battle: No
+
+Noctowl @ None
+Level: 22
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_BIRD_KEEPER_THEO ===
+Name: Theo
+Class: Bird Keeper
+Pic: Bird Keeper
+Gender: Male
+Double Battle: No
+
+Murkrow @ None
+Level: 23
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_SAILOR_TERRELL ===
+Name: Terrell
+Class: Sailor
+Pic: Sailor
+Gender: Male
+Double Battle: No
+
+Poliwhirl @ None
+Level: 24
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_GENTLEMAN_PRESTON ===
+Name: Preston
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Double Battle: No
+
+Growlithe @ None
+Level: 22
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Vulpix @ None
+Level: 22
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_SAILOR_KENT ===
+Name: Kent
+Class: Sailor
+Pic: Sailor
+Gender: Male
+Double Battle: No
+
+Shellder @ None
+Level: 23
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Chinchou @ None
+Level: 23
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_LASS_CONNIE ===
+Name: Connie
+Class: Lass
+Pic: Lass
+Gender: Female
+Double Battle: No
+
+Ponyta @ None
+Level: 21
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Weepinbell @ None
+Level: 22
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_SAILOR_ERNEST ===
+Name: Ernest
+Class: Sailor
+Pic: Sailor
+Gender: Male
+Double Battle: No
+
+Machop @ None
+Level: 22
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Poliwhirl @ None
+Level: 24
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Quagsire @ None
+Level: 24
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_BIRD_KEEPER_DENIS ===
+Name: Denis
+Class: Bird Keeper
+Pic: Bird Keeper
+Gender: Male
+Double Battle: No
+
+Pidgeotto @ None
+Level: 24
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Fearow @ None
+Level: 24
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe

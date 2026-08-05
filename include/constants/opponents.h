@@ -1354,10 +1354,41 @@
 #define TRAINER_JOHTO_ROCKET_ARIANA                             1327
 #define TRAINER_JOHTO_ROCKET_ARCHER                             1328
 
-// ponytail: sobra UMA vaga (1329) ate MAX_TRAINERS_COUNT_EMERALD. Quem for
-// portar mais historia de Johto precisa subir o MAX antes, e subir o MAX mexe
-// no tamanho do saveblock.
-#define TRAINERS_COUNT_EMERALD     1329
+// ponytail: esconderijo da Rocket em MAHOGANY, portado do pokecrystal
+// (data/trainers/parties.asm) em 05/08/2026. Onze vagas.
+#define TRAINER_JOHTO_ROCKET_GRUNT_MAHOGANY_1                   1329
+#define TRAINER_JOHTO_SCIENTIST_JED                             1330
+#define TRAINER_JOHTO_ROCKET_GRUNT_MAHOGANY_2                   1331
+#define TRAINER_JOHTO_ROCKET_GRUNT_MAHOGANY_3                   1332
+#define TRAINER_JOHTO_ROCKET_GRUNT_MAHOGANY_4                   1333
+#define TRAINER_JOHTO_ROCKET_ARIANA_MAHOGANY                    1334
+#define TRAINER_JOHTO_ROCKET_GRUNT_MAHOGANY_5                   1335
+#define TRAINER_JOHTO_ROCKET_GRUNT_MAHOGANY_6                   1336
+#define TRAINER_JOHTO_SCIENTIST_ROSS                            1337
+#define TRAINER_JOHTO_SCIENTIST_MITCH                           1338
+#define TRAINER_JOHTO_ROCKET_PETREL_MAHOGANY                    1339
+
+// ponytail: sobram 60 vagas (1340 a 1399) ate MAX_TRAINERS_COUNT_EMERALD.
+#define TRAINER_SAGE_CHOW                                    1340
+#define TRAINER_SAGE_NICO                                    1341
+#define TRAINER_SAGE_EDMOND                                  1342
+#define TRAINER_SAGE_JIN                                     1343
+#define TRAINER_SAGE_NEAL                                    1344
+#define TRAINER_SAGE_TROY                                    1345
+#define TRAINER_SAGE_LI                                      1346
+#define TRAINER_FIREBREATHER_NARD                            1347
+#define TRAINER_BURGLAR_RICHARDO                             1348
+#define TRAINER_SAILOR_HUEY                                  1349
+#define TRAINER_GENTLEMAN_ALFRED                             1350
+#define TRAINER_BIRD_KEEPER_THEO                             1351
+#define TRAINER_SAILOR_TERRELL                               1352
+#define TRAINER_GENTLEMAN_PRESTON                            1353
+#define TRAINER_SAILOR_KENT                                  1354
+#define TRAINER_LASS_CONNIE                                  1355
+#define TRAINER_SAILOR_ERNEST                                1356
+#define TRAINER_BIRD_KEEPER_DENIS                            1357
+
+#define TRAINERS_COUNT_EMERALD     1358
 // ponytail: teto elevado em 05/08/2026. Estava em 1330 com 1329 em uso, ou seja,
 // UMA vaga sobrando no jogo inteiro, e a historia de Johto ja tinha deixado 7
 // Rockets de fora por falta de vaga. Cada vaga custa 1 bit de flag de treinador
