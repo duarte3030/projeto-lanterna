@@ -1,0 +1,57 @@
+[
+  {
+    "id": "T13.1",
+    "nome": "Johto: o jogador ENTRA no ginasio de Violet pela porta (warp so dispara se o metatile embaixo for de porta)",
+    "warp": "MAP_VIOLET_CITY",
+    "warp_id": 7,
+    "roteiro": "120:NADA,20:UP,20:UP,20:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_VIOLET_CITY_GYM",
+      "layout": "LAYOUT_VIOLET_CITY_GYM"
+    }
+  },
+  {
+    "id": "T13.2",
+    "nome": "Johto: o jogador ENTRA no ginasio de Azalea pela porta",
+    "warp": "MAP_AZALEA_TOWN",
+    "warp_id": 6,
+    "roteiro": "120:NADA,20:UP,20:UP,20:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_AZALEA_TOWN_GYM",
+      "layout": "LAYOUT_AZALEA_TOWN_GYM"
+    }
+  },
+  {
+    "id": "T13.3",
+    "nome": "Johto: o jogador ENTRA no ginasio de Goldenrod pela porta",
+    "warp": "MAP_GOLDENROD_CITY",
+    "warp_id": 4,
+    "roteiro": "120:NADA,20:UP,20:UP,20:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_GOLDENROD_CITY_GYM",
+      "layout": "LAYOUT_GOLDENROD_CITY_GYM"
+    }
+  },
+  {
+    "id": "T13.4",
+    "nome": "Johto: o jogador ENTRA no Centro Pokemon de Violet pela porta",
+    "warp": "MAP_VIOLET_CITY",
+    "warp_id": 2,
+    "roteiro": "120:NADA,20:UP,20:UP,20:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_VIOLET_CITY_POKEMON_CENTER",
+      "layout": "LAYOUT_VIOLET_CITY_POKEMON_CENTER"
+    }
+  },
+  {
+    "id": "T13.5",
+    "nome": "Johto: o jogador ENTRA no farol de Olivine pela porta (o warp que estava em MB_NORMAL no diagnostico)",
+    "warp": "MAP_OLIVINE_CITY",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP,20:UP,20:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_OLIVINE_CITY_LIGHTHOUSE",
+      "layout": "LAYOUT_OLIVINE_CITY_LIGHTHOUSE"
+    }
+  }
+]

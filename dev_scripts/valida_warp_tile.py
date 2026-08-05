@@ -24,6 +24,7 @@ funciona".
 """
 import json
 import os
+import re
 import struct
 import sys
 
@@ -49,21 +50,40 @@ COMPORTA_WARP = {14, 15, 27, 28, 41, 96, 97, 98, 99, 100,
 NOME = {0: "MB_NORMAL", 96: "MB_LADDER", 104: "MB_ANIMATED_DOOR"}
 
 
+# TERCEIRA ARMADILHA, achada em 05/08/2026: a pasta do tileset NAO sai do nome do
+# simbolo. `gTileset_Route38Farmland` mora em `secondary/route_38_farmland` e
+# `gTileset_TrainerHillCourtyard` mora em `secondary/battle_tower_outer`. A
+# conversao CamelCase -> snake_case errava esses casos, `pasta_do_tileset`
+# devolvia None e o `continue` la embaixo descartava o mapa INTEIRO sem avisar:
+# 27 warps de Johto sumiam da conta em vez de aparecer como problema.
+# Agora o caminho vem do proprio INCBIN de src/data/tilesets/metatiles.h, que e
+# o mesmo dado que o build usa.
+def _mapa_de_pastas():
+    mt = open(f"{RAIZ}/src/data/tilesets/metatiles.h").read()
+    sym2dir = dict(re.findall(
+        r'gMetatiles_(\w+)\[\]\s*=\s*INCBIN_U16\("(data/tilesets/\w+/\w+)/metatiles\.bin"\)',
+        mt))
+    hdr = open(f"{RAIZ}/src/data/tilesets/headers.h").read()
+    fora = {}
+    for nome, corpo in re.findall(
+            r'const struct Tileset gTileset_(\w+)\s*=\s*\{(.*?)\};', hdr, re.S):
+        m = re.search(r'\.metatiles\s*=\s*gMetatiles_(\w+)', corpo)
+        if m and m.group(1) in sym2dir:
+            fora["gTileset_" + nome] = f"{RAIZ}/{sym2dir[m.group(1)]}"
+    return fora
+
+
+PASTAS = None
+
+
 def pasta_do_tileset(tileset):
     """gTileset_GeneralSinnoh -> data/tilesets/<sub>/general_sinnoh, ou None."""
+    global PASTAS
     if not tileset or tileset == "0":
         return ""
-    nome = tileset.replace("gTileset_", "")
-    snake = ""
-    for i, c in enumerate(nome):
-        if c.isupper() and i:
-            snake += "_"
-        snake += c.lower()
-    for sub in ("primary", "secondary"):
-        d = f"{RAIZ}/data/tilesets/{sub}/{snake}"
-        if os.path.isdir(d):
-            return d
-    return None
+    if PASTAS is None:
+        PASTAS = _mapa_de_pastas()
+    return PASTAS.get(tileset)
 
 
 def tabela_de_atributos(tileset):
@@ -113,6 +133,7 @@ def main():
 
     total = ok = 0
     por_mapa = {}
+    mudos = []   # mapa descartado antes de conferir warp: isso e cegueira, nao zero
     for grp in grupos["group_order"]:
         if filtro and filtro not in grp.lower():
             continue
@@ -126,15 +147,19 @@ def main():
                 continue
             lay = layouts.get(d.get("layout"))
             if not lay:
+                mudos.append((m, f"layout {d.get('layout')} nao existe"))
                 continue
             bp = f"{RAIZ}/{lay.get('blockdata_filepath', '')}"
             if not os.path.exists(bp):
+                mudos.append((m, "sem blockdata"))
                 continue
             blk = open(bp, "rb").read()
             w, h = lay["width"], lay["height"]
             prim, n_prim = atributos(lay.get("primary_tileset"))
             seg, _ = atributos(lay.get("secondary_tileset"))
             if prim is None or seg is None:
+                falta = lay.get("primary_tileset") if prim is None else lay.get("secondary_tileset")
+                mudos.append((m, f"tileset {falta} sem pasta"))
                 continue
             # o corte primario/secundario e o tamanho do proprio primario
             corte = n_prim or 512
@@ -161,6 +186,11 @@ def main():
 
     print(f"warps conferidos: {total}, disparam de verdade: {ok} "
           f"({100*ok/total:.1f}%)" if total else "nenhum warp")
+    if mudos:
+        print(f"\n{len(mudos)} mapas NAO conferidos (nao contam como zero, contam "
+              f"como cegueira):")
+        for m, motivo in mudos[:10]:
+            print(f"      {m}: {motivo}")
     if not por_mapa:
         print("\nTODO WARP ESTA EM TILE QUE DISPARA.")
         return 0
@@ -174,19 +204,21 @@ def main():
 
 
 def demo():
-    """A conversao de nome de tileset e o ponto que quebra calado."""
-    for entrada, esperado in [("gTileset_GeneralSinnoh", "general_sinnoh"),
-                              ("gTileset_Petalburg", "petalburg"),
-                              ("gTileset_BuildingFrlg", "building_frlg")]:
-        nome = entrada.replace("gTileset_", "")
-        snake = ""
-        for i, c in enumerate(nome):
-            if c.isupper() and i:
-                snake += "_"
-            snake += c.lower()
-        assert snake == esperado, (entrada, snake, esperado)
+    """A resolucao da pasta do tileset e o ponto que quebra calado."""
+    # sai do INCBIN, nao de conversao de nome
+    assert pasta_do_tileset("gTileset_GeneralSinnoh").endswith(
+        "data/tilesets/primary/general_sinnoh")
+    assert pasta_do_tileset("gTileset_Petalburg").endswith(
+        "data/tilesets/secondary/petalburg")
+    # o caso que a conversao CamelCase -> snake_case errava: o digito colado
+    assert pasta_do_tileset("gTileset_Route38Farmland").endswith(
+        "data/tilesets/secondary/route38_farmland")
     # comportamento de porta entra, MB_NORMAL nao
     assert 104 in COMPORTA_WARP and 0 not in COMPORTA_WARP
+    # o corte primario/secundario sai do tamanho do arquivo: 512 no Emerald,
+    # 640 nos tilesets de Johto e de FRLG
+    assert tabela_de_atributos("gTileset_JohtoGeneral")[1] == 640
+    assert tabela_de_atributos("gTileset_GeneralSinnoh")[1] == 512
     print("demo ok")
 
 

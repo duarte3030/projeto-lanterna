@@ -121,7 +121,11 @@ struct MapLayout
     bool8 isFrlg;
     u8 borderWidth;
     u8 borderHeight;
-    u8 padding;
+    // Tileset primario de 640 metatiles / 640 tiles / 7 paletas, como o de FRLG,
+    // mas com atributo de metatile de 2 bytes e portas/escadas no formato Emerald.
+    // E o formato dos tilesets de Johto vindos do hns. Ocupa o antigo `padding`,
+    // que nao era lido em lugar nenhum.
+    bool8 bigPrimary;
 };
 
 struct BackupMapLayout

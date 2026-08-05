@@ -426,19 +426,23 @@ u8 MapGridGetCollisionAt(int x, int y)
     return UNPACK_COLLISION(block);
 }
 
+// `isFrlg` continua significando "atributo de 4 bytes, porta e escada de FRLG".
+// `bigPrimary` significa so "o primario tem 640 metatiles / 640 tiles / 7 paletas",
+// que e o caso dos tilesets de Johto. Onde a pergunta e sobre o TAMANHO do
+// primario, os dois valem; onde e sobre o FORMATO do dado, so `isFrlg`.
 u32 GetNumTilesInPrimary(struct MapLayout const *mapLayout)
 {
-    return mapLayout->isFrlg ? NUM_TILES_IN_PRIMARY_FRLG : NUM_TILES_IN_PRIMARY;
+    return (mapLayout->isFrlg || mapLayout->bigPrimary) ? NUM_TILES_IN_PRIMARY_FRLG : NUM_TILES_IN_PRIMARY;
 }
 
 u32 GetNumMetatilesInPrimary(struct MapLayout const *mapLayout)
 {
-    return mapLayout->isFrlg ? NUM_METATILES_IN_PRIMARY_FRLG : NUM_METATILES_IN_PRIMARY;
+    return (mapLayout->isFrlg || mapLayout->bigPrimary) ? NUM_METATILES_IN_PRIMARY_FRLG : NUM_METATILES_IN_PRIMARY;
 }
 
 u32 GetNumPalsInPrimary(struct MapLayout const *mapLayout)
 {
-    return mapLayout->isFrlg ? NUM_PALS_IN_PRIMARY_FRLG : NUM_PALS_IN_PRIMARY;
+    return (mapLayout->isFrlg || mapLayout->bigPrimary) ? NUM_PALS_IN_PRIMARY_FRLG : NUM_PALS_IN_PRIMARY;
 }
 
 u32 MapGridGetMetatileIdAt(int x, int y)
