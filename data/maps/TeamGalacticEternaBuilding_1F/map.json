@@ -89,6 +89,15 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "TeamGalacticEternaBuilding_1F_EventScript_PathSign"
+    },
+    {
+      "type": "sign",
+      "x": 19,
+      "y": 0,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Sinnoh_EventScript_PlacaImportada",
+      "origem": "pokeplatinum"
     }
   ]
 }

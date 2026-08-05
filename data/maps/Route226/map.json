@@ -99,6 +99,76 @@
       "trainer_sight_or_berry_tree_id": "4",
       "script": "Route226_EventScript_DragonTamerStanley",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
+      "x": 57,
+      "y": 22,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "0",
+      "origem": "pokeplatinum"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+      "x": 16,
+      "y": 16,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 4,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "0",
+      "origem": "pokeplatinum"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
+      "x": 36,
+      "y": 11,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "0",
+      "origem": "pokeplatinum"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+      "x": 35,
+      "y": 10,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "0",
+      "origem": "pokeplatinum"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
+      "x": 90,
+      "y": 21,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "0",
+      "origem": "pokeplatinum"
     }
   ],
   "warp_events": [
@@ -119,6 +189,69 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route226_EventScript_SignSurvivalArea"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Sinnoh_EventScript_PlacaImportada",
+      "origem": "pokeplatinum"
+    },
+    {
+      "type": "sign",
+      "x": 91,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Sinnoh_EventScript_PlacaImportada",
+      "origem": "pokeplatinum"
+    },
+    {
+      "type": "sign",
+      "x": 44,
+      "y": 25,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Sinnoh_EventScript_PlacaImportada",
+      "origem": "pokeplatinum"
+    },
+    {
+      "type": "sign",
+      "x": 48,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Sinnoh_EventScript_PlacaImportada",
+      "origem": "pokeplatinum"
+    },
+    {
+      "type": "sign",
+      "x": 54,
+      "y": 14,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Sinnoh_EventScript_PlacaImportada",
+      "origem": "pokeplatinum"
+    },
+    {
+      "type": "sign",
+      "x": 53,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Sinnoh_EventScript_PlacaImportada",
+      "origem": "pokeplatinum"
+    },
+    {
+      "type": "sign",
+      "x": 75,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Sinnoh_EventScript_PlacaImportada",
+      "origem": "pokeplatinum"
     }
   ]
 }

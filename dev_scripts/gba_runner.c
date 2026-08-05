@@ -235,7 +235,20 @@ static unsigned g_largura = 0, g_altura = 0;
 static const char *g_saida = NULL;
 static void salva_png(const uint32_t *, int, int, const char *);
 
+/* Cada passo do roteiro tambem despeja o ESTADO, nao so o PNG. Sem isto o
+   runner so mostra o estado ANTES do roteiro e o do fim, e "o jogador andou"
+   fica indemonstravel: a diferenca entre os dois inclui o warp. Com um dump por
+   passo da para exigir duas posicoes distintas DENTRO do mapa final, que e a
+   prova de que o jogo continua respondendo ao controle. */
+static struct mCore *g_core = NULL;
+static void dump_estado(struct mCore *core, const char *rotulo);
+
 static void salva_passo(int indice) {
+    if (g_dump_estado && g_core) {
+        char rot[32];
+        snprintf(rot, sizeof(rot), "passo%02d", indice);
+        dump_estado(g_core, rot);
+    }
     if (g_sem_png || !g_framebuffer || !g_saida) return;
     char caminho[1024];
     const char *ponto = strrchr(g_saida, '.');
@@ -409,6 +422,7 @@ int main(int argc, char **argv) {
 
     core->reset(core);
 
+    g_core = core;
     roda_quadros(core, -1, quadros_iniciais);
     if (g_dump_estado) dump_estado(core, "passo00");
     executa_roteiro(core, roteiro);

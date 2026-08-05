@@ -42,7 +42,13 @@ REGIOES = {
     "Kanto":  {"grupo": "Frlg",           "fonte": f"{FONTES}/pokefirered"},
     "Johto":  {"grupo": "Johto",          "fonte": f"{FONTES}/hns"},
     "Hoenn":  {"grupo": "TownsAndRoutes", "fonte": f"{FONTES}/pokeemerald"},
-    "Sinnoh": {"grupo": "Sinnoh",         "fonte": f"{FONTES}/sinnoh"},
+    # Sinnoh saiu de fontes-mapas/sinnoh para o pokeplatinum em 05/08/2026. O
+    # motivo esta na ARMADILHA da funcao p(): a fonte antiga tem ZERO NPC nos
+    # mapas de Sinnoh, entao ela media "objetos" contra um denominador vazio e
+    # imprimia "fonte 0". O pokeplatinum tem os 2278 objetos de verdade, so que
+    # em outro formato (events_*.json ligados por MAP_HEADER). Ver le_plat().
+    "Sinnoh": {"grupo": "Sinnoh",         "fonte": f"{FONTES}/pokeplatinum",
+               "plat": True},
     # BW3G e pokecrystal (gen 2). O formato e outro, mas e legivel: cada mapa
     # tem um .asm com warp_event, bg_event e object_event em macro. Eu tinha
     # marcado "sem fonte" por nao ter escrito o leitor, o que e diferente de nao
@@ -102,6 +108,35 @@ def le_gen2(caminho):
     }
 
 
+def mapas_so_na_fonte(deles, nosso_mg):
+    return [m for k, m in deles.items()
+            if k not in {normaliza(x) for x in nosso_mg}]
+
+
+def le_plat(fonte, header):
+    """Conta eventos num mapa do pokeplatinum (formato de DS).
+
+    O mapa la nao guarda os eventos: guarda o NOME do arquivo de eventos, em
+    include/data/map_headers.h. Placa de rua no Platinum e object_event com
+    grafico de SIGNBOARD, nao bg_event, entao ela e contada como placa aqui,
+    senao o denominador de "placas" fica quase zero e a coluna mente para cima.
+    """
+    import importa_npcs_sinnoh as I
+    arq = I.headers_do_platinum().get(header)
+    if not arq:
+        return None
+    p = f"{fonte}/res/field/events/{arq[0]}.json"
+    if not os.path.exists(p):
+        return None
+    d = json.load(open(p))
+    objs = d.get("object_events") or []
+    placas = [o for o in objs
+              if any(t in o.get("graphics_id", "") for t in I.GRAFICOS_PLACA)]
+    return {"object_events": len(objs) - len(placas),
+            "warp_events": len(d.get("warp_events") or []),
+            "bg_events": len(d.get("bg_events") or []) + len(placas)}
+
+
 def eventos(raiz, mapa):
     p = f"{raiz}/data/maps/{mapa}/map.json"
     if not os.path.exists(p):
@@ -130,14 +165,29 @@ def main():
             print(f"{nome:8} {len(nossos):>8} sem fonte" + " " * 30)
             continue
 
-        gen2 = cfg.get("gen2")
-        if gen2:
-            deles = {normaliza(os.path.basename(f)[:-4]): os.path.basename(f)[:-4]
-                     for f in glob.glob(f"{fonte}/maps/*.asm")}
+        gen2, plat = cfg.get("gen2"), cfg.get("plat")
+        if plat:
+            sys.path.insert(0, os.path.join(RAIZ, "dev_scripts"))
+            import importa_npcs_sinnoh as I
+            heads = I.headers_do_platinum()
+            deles = {}
+            for h in heads:
+                deles.setdefault(I.chave(h), h)
+            nossos = I.nossos_mapas_sinnoh()
+            casados = [(m, I.APELIDOS.get(m) or deles.get(I.chave(m)))
+                       for m in nossos]
+            casados = [(m, h) for m, h in casados if h in heads]
+            casadas_norm = {I.chave(h) for _, h in casados}
+            so_na_fonte = [h for k, h in deles.items() if k not in casadas_norm]
         else:
-            deles = {normaliza(m): m for m in todos_os_mapas(fonte)}
-        nossos = nossos_da_regiao(nosso_mg, cfg["grupo"])
-        casados = [(m, deles[normaliza(m)]) for m in nossos if normaliza(m) in deles]
+            if gen2:
+                deles = {normaliza(os.path.basename(f)[:-4]): os.path.basename(f)[:-4]
+                         for f in glob.glob(f"{fonte}/maps/*.asm")}
+            else:
+                deles = {normaliza(m): m for m in todos_os_mapas(fonte)}
+            nossos = nossos_da_regiao(nosso_mg, cfg["grupo"])
+            casados = [(m, deles[normaliza(m)]) for m in nossos if normaliza(m) in deles]
+            so_na_fonte = mapas_so_na_fonte(deles, nosso_mg)
         # Mapas que a FONTE tem e nos nao.
         #
         # ARMADILHA: o denominador tem que descontar o que ja veio por OUTRA
@@ -147,16 +197,15 @@ def main():
         # mapas, quando o que falta de verdade e outra coisa. Nos importamos
         # Kanto do pokefirered, entao eles JA ESTAO no jogo.
         # Por isso o desconto e contra TODOS os nossos mapas, nao so os da regiao.
-        todos_nossos_norm = {normaliza(m) for m in nosso_mg}
-        so_na_fonte = [m for k, m in deles.items() if k not in todos_nossos_norm]
 
         soma_n = {c: 0 for c, _ in CAMPOS}
         soma_f = {c: 0 for c, _ in CAMPOS}
         piores = []
         for meu, seu in casados:
             a = eventos(RAIZ, meu)
-            b = (le_gen2(f"{fonte}/maps/{seu}.asm") if gen2
-                 else eventos(fonte, seu))
+            b = (le_plat(fonte, seu) if plat else
+                 le_gen2(f"{fonte}/maps/{seu}.asm") if gen2 else
+                 eventos(fonte, seu))
             if not a or not b:
                 continue
             for c, _ in CAMPOS:

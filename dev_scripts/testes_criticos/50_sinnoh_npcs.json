@@ -1,0 +1,46 @@
+[
+  {
+    "id": "T50.1",
+    "nome": "Jubilife City carrega com os 25 NPC e as 13 placas trazidas do pokeplatinum, e o jogador anda dentro dela",
+    "warp": "MAP_JUBILIFE_CITY",
+    "roteiro": "40:NADA,20:DOWN*4,20:LEFT*4,40:NADA",
+    "prova": {
+      "mapa": "MAP_JUBILIFE_CITY",
+      "layout": "LAYOUT_JUBILIFE_CITY",
+      "andou": true
+    }
+  },
+  {
+    "id": "T50.2",
+    "nome": "Oreburgh City carrega com 23 NPC e 11 placas, e o jogador anda dentro dela",
+    "warp": "MAP_OREBURGH_CITY",
+    "roteiro": "40:NADA,20:DOWN*4,20:RIGHT*4,40:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_CITY",
+      "layout": "LAYOUT_OREBURGH_CITY",
+      "andou": true
+    }
+  },
+  {
+    "id": "T50.3",
+    "nome": "Eterna City carrega com 19 NPC e 14 placas, e o jogador anda dentro dela",
+    "warp": "MAP_ETERNA_CITY",
+    "roteiro": "40:NADA,20:UP*3,20:RIGHT*3,40:NADA",
+    "prova": {
+      "mapa": "MAP_ETERNA_CITY",
+      "layout": "LAYOUT_ETERNA_CITY",
+      "andou": true
+    }
+  },
+  {
+    "id": "T50.4",
+    "nome": "Sandgem Town, mapa de Sinnoh que NAO ganhou NPC novo, continua carregando. Controle: se T50.1 a T50.3 passassem e este falhasse, o problema seria da regiao, nao da importacao",
+    "warp": "MAP_SANDGEM_TOWN",
+    "roteiro": "40:NADA,20:DOWN*3,40:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN",
+      "layout": "LAYOUT_SANDGEM_TOWN",
+      "andou": true
+    }
+  }
+]

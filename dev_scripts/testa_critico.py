@@ -445,6 +445,22 @@ def confere(caso, estados, por_nome, por_id, tabela_flags, layouts, treinadores=
         if atual not in aceitos:
             falhas.append(f"mapa fora da lista aceita: obtido {nome_atual}")
 
+    # "andou": prova que o jogo continua RESPONDENDO, não só que carregou.
+    # ponytail: "não travou" é critério proibido aqui. Um mapa cheio de NPC novo
+    # pode carregar e depois congelar (sprite sem gráfico anda e reinicia), e a
+    # tela preta do reset também "não trava". Se a posição do jogador mudou entre
+    # o primeiro e o último ESTADO, alguém andou, e para andar o jogo tem que
+    # estar rodando o loop de campo com os objetos do mapa vivos.
+    if prova.get("andou"):
+        # Só valem os estados JÁ dentro do mapa final: o próprio warp muda a
+        # posição, e contar com ele faria a prova passar com o jogo congelado.
+        aqui = [(e.get("x"), e.get("y")) for e in estados
+                if (e.get("grupo"), e.get("num")) == atual]
+        if len(set(aqui)) < 2:
+            falhas.append(f"jogador NÃO andou: posição ficou em {aqui[-1:] or '?'} "
+                          f"nos {len(aqui)} estados lidos dentro de {nome_atual}. "
+                          "O mapa carregou mas o jogo não respondeu ao controle.")
+
     if "time" in prova and final["timevivo"] != prova["time"]:
         falhas.append(f"time com {final['timevivo']} Pokémon, esperado {prova['time']}")
 
