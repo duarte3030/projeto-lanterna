@@ -971,7 +971,7 @@ static void CB2_GiveStarter(void)
     // entregue depois de Kanto e Johto inteiras seria inutil no minuto seguinte.
     // A batalha de tutorial contra o ZIGZAGOON logo abaixo continua funcionando;
     // ela so fica facil, que e o que ja acontece com quem chega ali com time.
-    ScriptGiveMon(starterMon, 38, ITEM_NONE);
+    ScriptGiveMon(starterMon, 93, ITEM_NONE);
     ResetTasks();
     PlayBattleBGM();
     SetMainCallback2(CB2_StartFirstBattle);

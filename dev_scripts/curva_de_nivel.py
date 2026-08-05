@@ -34,21 +34,42 @@ import sys
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PARTY = os.path.join(RAIZ, "src", "data", "trainers.party")
 
+
+def _teto():
+    """MAX_LEVEL lido da fonte. Nunca cravar: esta build usa 255, nao 100."""
+    h = open(os.path.join(RAIZ, "include", "constants", "pokemon.h")).read()
+    m = re.search(r"^#define\s+MAX_LEVEL\s+(\d+)", h, re.M)
+    if not m:
+        raise SystemExit("nao achei MAX_LEVEL em include/constants/pokemon.h")
+    return int(m.group(1))
+
+
+TETO = _teto()
+
 # Ordem cronológica (decisão 66) e a faixa de nível que cada região passa a ter.
 # O topo de uma região é o piso da seguinte: o jogador não perde poder ao trocar
 # de continente, e o primeiro treinador da região nova não é um paredão.
+# CORRIGIDO em 05/08/2026. A primeira versao espremia as cinco regioes dentro de
+# 100 e derrubava a Elite dos Quatro de Kanto de 75 para 40. Eu assumi teto 100 e
+# nao conferi: esta build tem MAX_LEVEL 255 (include/constants/pokemon.h:156),
+# com as 256 entradas por curva de crescimento ja feitas em
+# src/data/pokemon/experience_tables.h e um STATIC_ASSERT em src/pokemon.c:767
+# guardando o limite do u8. O trabalho de expansao ja estava pronto e eu ignorei.
+#
+# Com 255 cada regiao ganha ~50 niveis e nenhuma precisa ser comprimida: Kanto
+# fica praticamente na faixa original do FireRed.
 ALVO = {
-    "Kanto":  (3, 40),
-    "Johto":  (22, 58),
-    "Hoenn":  (40, 72),
-    "Sinnoh": (58, 86),
-    "Unova":  (72, 100),
+    "Kanto":  (3, 50),
+    "Johto":  (45, 100),
+    "Hoenn":  (95, 150),
+    "Sinnoh": (145, 200),
+    "Unova":  (195, 255),
 }
 # O piso da região seguinte fica ABAIXO do teto da anterior de propósito: quem
 # desembarca numa região nova chega mais forte que os primeiros treinadores dela
 # e sobe até o topo da faixa lutando. Sem essa sobreposição, cada travessia de
 # barco seria um paredão. O inicial de cada região é entregue no piso menos 2
-# (Johto 20, Hoenn 38, Sinnoh 55, Unova 70), para nascer útil e não pronto.
+# (Johto 43, Hoenn 93, Sinnoh 143, Unova 193), para nascer útil e não pronto.
 ORDEM = ["Kanto", "Johto", "Hoenn", "Sinnoh", "Unova"]
 
 CABECA = re.compile(r"^=== (TRAINER_[A-Z0-9_]+) ===\s*$")
@@ -131,7 +152,11 @@ def transforma(nivel, origem, destino):
     if o_max == o_min:
         return d_min
     novo = d_min + (nivel - o_min) * (d_max - d_min) / (o_max - o_min)
-    return max(2, min(100, round(novo)))
+    # O teto vem de include/constants/pokemon.h, nao de 100 cravado. Com 100 aqui
+    # e alvo ate 255, Hoenn, Sinnoh e Unova sairam TODAS achatadas em 100: 4951
+    # niveis reescritos e tres regioes viradas uma constante. O grampo nao deu
+    # erro nenhum, so mentiu, e so a tabela de depois denunciou.
+    return max(2, min(TETO, round(novo)))
 
 
 def main():
