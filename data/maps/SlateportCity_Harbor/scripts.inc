@@ -270,9 +270,51 @@ SlateportCity_Harbor_EventScript_Sailor::
 	end
 
 SlateportCity_Harbor_EventScript_SailorNoAbnormalWeather::
-	msgbox SlateportCity_Harbor_Text_LoveToGoDeepUnderwaterSomeday, MSGBOX_DEFAULT
+	msgbox SlateportCity_Harbor_Text_WhereTo, MSGBOX_DEFAULT
+	multichoice 0, 0, MULTI_BOAT_DESTINATIONS, FALSE
+	switch VAR_RESULT
+	case 0, SlateportCity_Harbor_EventScript_SailToOlivine
+	case 1, SlateportCity_Harbor_EventScript_SailToVermilion
+	case 2, SlateportCity_Harbor_EventScript_SailToCanalave
+	msgbox SlateportCity_Harbor_Text_ComeAgain, MSGBOX_DEFAULT
 	release
 	end
+
+SlateportCity_Harbor_EventScript_SailToOlivine::
+	msgbox SlateportCity_Harbor_Text_SettingSailToOlivine, MSGBOX_DEFAULT
+	closemessage
+	warpsilent MAP_OLIVINE_CITY_PORT_INSIDE, 8, 17
+	release
+	end
+
+SlateportCity_Harbor_EventScript_SailToVermilion::
+	msgbox SlateportCity_Harbor_Text_SettingSailToVermilion, MSGBOX_DEFAULT
+	closemessage
+	warpsilent MAP_VERMILION_CITY, 15, 10
+	release
+	end
+
+SlateportCity_Harbor_EventScript_SailToCanalave::
+	msgbox SlateportCity_Harbor_Text_SettingSailToCanalave, MSGBOX_DEFAULT
+	closemessage
+	warpsilent MAP_CANALAVE_CITY, 10, 10
+	release
+	end
+
+SlateportCity_Harbor_Text_WhereTo:
+	.string "Bem-vindo ao Porto de Slateport City em Hoenn!\nPara onde gostaria de navegar?$"
+
+SlateportCity_Harbor_Text_SettingSailToOlivine:
+	.string "Zarpando para Olivine City em Johto!$"
+
+SlateportCity_Harbor_Text_SettingSailToVermilion:
+	.string "Zarpando para Vermilion City em Kanto!$"
+
+SlateportCity_Harbor_Text_SettingSailToCanalave:
+	.string "Zarpando para Canalave City em Sinnoh!$"
+
+SlateportCity_Harbor_Text_ComeAgain:
+	.string "Volte quando quiser navegar.$"
 
 SlateportCity_Harbor_EventScript_CountDefeatedLegendary::
 	addvar VAR_0x8004, 1

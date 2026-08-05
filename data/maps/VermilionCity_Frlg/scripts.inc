@@ -307,6 +307,58 @@ VermilionCity_Text_SnorlaxBlockingRoute12::
 	.string "VERMILION POLICE$"
 
 VermilionCity_Text_PokemonFanClubSign::
+	.string "POKéMON ARENA$"
+
+VermilionCity_EventScript_InternationalFerry::
+	lock
+	faceplayer
+	msgbox VermilionCity_Text_WhereTo, MSGBOX_DEFAULT
+	multichoice 0, 0, MULTI_BOAT_DESTINATIONS, FALSE
+	switch VAR_RESULT
+	case 0, VermilionCity_EventScript_SailToOlivine
+	case 1, VermilionCity_EventScript_SailToSlateport
+	case 2, VermilionCity_EventScript_SailToCanalave
+	msgbox VermilionCity_Text_ComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+VermilionCity_EventScript_SailToOlivine::
+	msgbox VermilionCity_Text_SettingSailToOlivine, MSGBOX_DEFAULT
+	closemessage
+	warpsilent MAP_OLIVINE_CITY_PORT_INSIDE, 8, 17
+	release
+	end
+
+VermilionCity_EventScript_SailToSlateport::
+	msgbox VermilionCity_Text_SettingSailToSlateport, MSGBOX_DEFAULT
+	closemessage
+	warpsilent MAP_SLATEPORT_CITY_HARBOR, 8, 14
+	release
+	end
+
+VermilionCity_EventScript_SailToCanalave::
+	msgbox VermilionCity_Text_SettingSailToCanalave, MSGBOX_DEFAULT
+	closemessage
+	warpsilent MAP_CANALAVE_CITY, 10, 10
+	release
+	end
+
+VermilionCity_Text_WhereTo:
+	.string "Bem-vindo ao Porto de Vermilion City em Kanto!\nPara onde gostaria de navegar?$"
+
+VermilionCity_Text_SettingSailToOlivine:
+	.string "Zarpando para Olivine City em Johto!$"
+
+VermilionCity_Text_SettingSailToSlateport:
+	.string "Zarpando para Slateport City em Hoenn!$"
+
+VermilionCity_Text_SettingSailToCanalave:
+	.string "Zarpando para Canalave City em Sinnoh!$"
+
+VermilionCity_Text_ComeAgain:
+	.string "Volte quando quiser navegar.$"
+
+VermilionCity_Text_PokemonFanClubSign::
 	.string "POKéMON FAN CLUB\n"
 	.string "All POKéMON fans welcome!$"
 

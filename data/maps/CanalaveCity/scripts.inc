@@ -27,8 +27,53 @@ CanalaveCity_EventScript_OldMan::
 	end
 
 CanalaveCity_EventScript_SailorEldritch::
-	msgbox CanalaveCity_Text_SailorEldritch, MSGBOX_NPC
+	lock
+	faceplayer
+	msgbox CanalaveCity_Text_WhereTo, MSGBOX_DEFAULT
+	multichoice 0, 0, MULTI_BOAT_DESTINATIONS, FALSE
+	switch VAR_RESULT
+	case 0, CanalaveCity_EventScript_SailToOlivine
+	case 1, CanalaveCity_EventScript_SailToSlateport
+	case 2, CanalaveCity_EventScript_SailToVermilion
+	msgbox CanalaveCity_Text_ComeAgain, MSGBOX_DEFAULT
+	release
 	end
+
+CanalaveCity_EventScript_SailToOlivine::
+	msgbox CanalaveCity_Text_SettingSailToOlivine, MSGBOX_DEFAULT
+	closemessage
+	warpsilent MAP_OLIVINE_CITY_PORT_INSIDE, 8, 17
+	release
+	end
+
+CanalaveCity_EventScript_SailToSlateport::
+	msgbox CanalaveCity_Text_SettingSailToSlateport, MSGBOX_DEFAULT
+	closemessage
+	warpsilent MAP_SLATEPORT_CITY_HARBOR, 8, 14
+	release
+	end
+
+CanalaveCity_EventScript_SailToVermilion::
+	msgbox CanalaveCity_Text_SettingSailToVermilion, MSGBOX_DEFAULT
+	closemessage
+	warpsilent MAP_VERMILION_CITY, 15, 10
+	release
+	end
+
+CanalaveCity_Text_WhereTo:
+	.string "Bem-vindo ao Porto de Canalave City em Sinnoh!\nPara onde gostaria de navegar?$"
+
+CanalaveCity_Text_SettingSailToOlivine:
+	.string "Zarpando para Olivine City em Johto!$"
+
+CanalaveCity_Text_SettingSailToSlateport:
+	.string "Zarpando para Slateport City em Hoenn!$"
+
+CanalaveCity_Text_SettingSailToVermilion:
+	.string "Zarpando para Vermilion City em Kanto!$"
+
+CanalaveCity_Text_ComeAgain:
+	.string "Volte quando quiser navegar.$"
 
 CanalaveCity_EventScript_GymSign::
 	msgbox CanalaveCity_Text_GymSign, MSGBOX_SIGN

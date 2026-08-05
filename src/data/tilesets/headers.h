@@ -51,6 +51,8 @@ const struct Tileset gTileset_GeneralSinnoh =
     .metatileAttributes = gMetatileAttributes_GeneralSinnoh,
     .callback = InitTilesetAnim_General,
 };
+// gTileset_SinnohWest removido: nunca teve tiles, paletas, metatiles nem pasta em
+// data/tilesets/, e nenhum layout apontava para ele. Só quebrava o link.
 
 const struct Tileset gTileset_Petalburg =
 {

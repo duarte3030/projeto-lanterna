@@ -152,7 +152,7 @@ def main():
                     alterou = True
 
         for ev in objs + d.get("bg_events", []):
-            if ev.get("script") and ev["script"] + "::" not in scripts_txt:
+            if ev.get("script") and ev["script"] not in ("0", "NULL") and ev["script"] + "::" not in scripts_txt:
                 total["script"] += 1
                 print(f"  {nome}: script {ev['script']} NAO existe no scripts.inc")
 

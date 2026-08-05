@@ -2066,6 +2066,12 @@ const u16 ALIGNED(4) gTilesetPalettes_GeneralSinnoh[][16] =
 
 const u32 gTilesetTiles_GeneralSinnoh[] = INCGFX_U32("data/tilesets/primary/general_sinnoh/tiles.png", ".4bpp.smol");
 
+// O tileset de Unova ainda nao foi importado: nao existe fonte em fontes-mapas e
+// data/tilesets/primary/general_unova/ nunca foi criado. As declaracoes
+// gTilesetPalettes_GeneralUnova e gTilesetTiles_GeneralUnova viviam aqui, nao eram
+// usadas por nenhum header de tileset, e quebravam o build inteiro no gbagfx.
+// Quando o tileset for importado de verdade, o bloco volta junto com os arquivos.
+
 // trade/egg hatch
 
 const u16 gTradeGba_Pal[] = INCGFX_U16("graphics/trade/gba.pal", ".gbapal");

@@ -619,4 +619,8 @@ enum
 // '(C)ompressed (E)vent'
 #define COMP_OW_TILE_TAG_BASE 0xCE00
 
+#ifndef OBJ_EVENT_GFX_MON_BASE
+#define OBJ_EVENT_GFX_MON_BASE OBJ_EVENT_GFX_POKE_BALL
+#endif
+
 #endif  // GUARD_CONSTANTS_EVENT_OBJECTS_H
