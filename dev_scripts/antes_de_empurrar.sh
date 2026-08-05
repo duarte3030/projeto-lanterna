@@ -9,31 +9,43 @@
 # Uso:
 #     bash dev_scripts/antes_de_empurrar.sh
 #
-# Ele guarda as mudancas nao commitadas, builda o HEAD limpo, roda os
-# validadores e o teste de emulador, e devolve as mudancas no fim, sempre,
-# inclusive se algo falhar.
-
+# COMO ELE ISOLA O HEAD, e por que nao usa `git stash`
+# ----------------------------------------------------
+# A primeira versao guardava as mudancas com `git stash -u`, buildava e devolvia
+# no fim. Isso destruiu trabalho de verdade em 05/08/2026: com varios agentes
+# escrevendo na mesma arvore, o stash de um levou junto os arquivos de outro, e
+# o `pop` caiu no `git add -A` de uma terceira sessao. O agente que perdeu os
+# arquivos so descobriu conferindo byte a byte o que tinha ido parar no commit
+# alheio.
+#
+# Agora ele cria uma WORKTREE descartavel no HEAD. A arvore de trabalho de
+# ninguem e tocada, e o build e do commit, nao do instante.
 set -uo pipefail
 cd "$(dirname "$0")/.." || exit 1
+REPO=$(pwd)
 export DEVKITARM="${DEVKITARM:-$HOME/toolchains/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi}"
 LOG=/tmp/antes_de_empurrar.log
 FALHAS=0
 
-guardou=0
-if [ -n "$(git status --porcelain)" ]; then
-    git stash -q -u && guardou=1
-    echo "mudancas nao commitadas guardadas no stash"
+WT=$(mktemp -d /tmp/verifica-head.XXXXXX)
+rm -rf "$WT"
+if ! git worktree add --detach -q "$WT" HEAD 2>/dev/null; then
+    echo "nao consegui criar worktree em $WT; abortando sem tocar na sua arvore"
+    exit 1
 fi
-
-devolve() {
-    [ "$guardou" = 1 ] && git stash pop -q 2>/dev/null && echo "stash devolvido"
+limpa() {
+    cd "$REPO" || return
+    git worktree remove --force "$WT" 2>/dev/null || rm -rf "$WT"
 }
-trap devolve EXIT
+trap limpa EXIT
+
+cd "$WT" || exit 1
+echo "verificando o HEAD em worktree isolada (sua arvore nao foi tocada)"
 
 passo() {  # passo "nome" "comando"
-    # ponytail: `eval` aqui engolia as aspas simples de um grep por "'sprite': 0"
-    # e o passo falhava com o jogo inteiro certo. Validador com falso positivo e
-    # pior que validador nenhum: ensina a ignorar a saida. Use bash -c.
+    # ponytail: `eval` engolia as aspas simples de um grep por "'sprite': 0" e o
+    # passo falhava com o jogo inteiro certo. Validador com falso positivo e pior
+    # que validador nenhum: ensina a ignorar a saida. Por isso bash -c.
     printf '%-34s' "$1"
     if bash -c "$2" > "$LOG" 2>&1; then
         echo "ok"
@@ -54,12 +66,12 @@ passo "o declarado entrou na ROM"  "python3 dev_scripts/valida_rom.py"
 passo "conectividade"              "python3 dev_scripts/valida_conectividade.py 2>&1 | grep -q 'warps quebrados: 0'"
 passo "sprites e objetos"          "python3 dev_scripts/valida_mapas_sinnoh.py 2>&1 | grep -qE \"'sprite': 0\""
 
-if [ -x dev_scripts/testa_critico.py ] || [ -f dev_scripts/testa_critico.py ]; then
-    passo "treinador sem time"     "python3 dev_scripts/testa_critico.py --treinadores"
-fi
-if [ -f dev_scripts/testa_percurso.py ]; then
-    passo "percurso no emulador"   "python3 dev_scripts/testa_percurso.py"
-fi
+[ -f dev_scripts/valida_warp_tile.py ] && \
+    passo "warp em tile que dispara" "python3 dev_scripts/valida_warp_tile.py"
+[ -f dev_scripts/testa_critico.py ] && \
+    passo "treinador sem time"       "python3 dev_scripts/testa_critico.py --treinadores"
+[ -f dev_scripts/testa_percurso.py ] && \
+    passo "percurso no emulador"     "python3 dev_scripts/testa_percurso.py"
 
 echo
 if [ "$FALHAS" = 0 ]; then

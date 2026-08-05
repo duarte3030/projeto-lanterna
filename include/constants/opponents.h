@@ -1809,7 +1809,15 @@
 // O teto real nao e este numero, e o SaveBlock1: 13288 de 15872 B depois de
 // devolver 16 bases secretas. 800 vagas custam 100 B. Conferir com
 // dev_scripts/guarda_save.py, que o compilador nao avisa quando estoura.
-#define MAX_TRAINERS_COUNT_EMERALD 2200
+// Subido de 2200 para 2400 em 05/08/2026. Kanto precisa de 474 treinadores com
+// time proprio (253 dos scripts de mapa e 221 do data/scripts/trainers_frlg.inc,
+// que ninguem tinha varrido), e a faixa 1400-1799 so tem 400 vagas.
+//
+// Custo real, medido: 200 vagas = 200 flags = 25 bytes de SaveBlock1, que esta
+// em 13388 de 15872. Nao e escasso desde que 16 bases secretas foram devolvidas;
+// racionar aqui seria repetir o erro que quase deixou Kanto com o ginasio de
+// Pewter entregando um montanhista de Hoenn.
+#define MAX_TRAINERS_COUNT_EMERALD 2400
 
 #if IS_FRLG
 #define TRAINERS_COUNT                      TRAINERS_COUNT_FRLG
