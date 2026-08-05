@@ -1429,7 +1429,20 @@
 // UMA vaga sobrando no jogo inteiro, e a historia de Johto ja tinha deixado 7
 // Rockets de fora por falta de vaga. Cada vaga custa 1 bit de flag de treinador
 // no saveblock; 1400 da folga sem chegar perto do limite de flags.
-#define MAX_TRAINERS_COUNT_EMERALD 1400
+// Subido de 1400 para 2200 em 05/08/2026. Cada vaga de treinador e uma flag
+// dentro de flags[], no SaveBlock1, entao mexer aqui INVALIDA save. Foi feito
+// na mesma janela em que FLAGS_COUNT cresceu e SECRET_BASES_COUNT encolheu, de
+// proposito: enquanto o Gui nao comecou a jogar, quebrar sai de graca.
+//
+// Por que 2200: Kanto precisa de 253 treinadores com time proprio (sem isso os
+// 8 lideres, a Elite dos Quatro, o rival e o Giovanni sao apelidos apontando
+// para treinadores de Hoenn, e o ginasio de Pewter da um montanhista), e Unova
+// tem 357 esperando vaga. 1367 em uso + 253 + 357 = 1977, e o resto e folga.
+//
+// O teto real nao e este numero, e o SaveBlock1: 13288 de 15872 B depois de
+// devolver 16 bases secretas. 800 vagas custam 100 B. Conferir com
+// dev_scripts/guarda_save.py, que o compilador nao avisa quando estoura.
+#define MAX_TRAINERS_COUNT_EMERALD 2200
 
 #if IS_FRLG
 #define TRAINERS_COUNT                      TRAINERS_COUNT_FRLG

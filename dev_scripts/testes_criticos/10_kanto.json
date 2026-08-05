@@ -1,0 +1,202 @@
+[
+  {
+    "id": "T1.1",
+    "nome": "Abertura: jogo novo entrega o controle no quarto de Twinleaf (a abertura que EXISTE hoje e a de Sinnoh)",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN_MAIN_HOUSE_2F",
+      "layout": "LAYOUT_TWINLEAF_TOWN_MAIN_HOUSE_2F",
+      "time": 0
+    }
+  },
+  {
+    "id": "T1.2",
+    "nome": "Abertura: da cama ate a rua, o jogador desce a escada e sai de casa em Twinleaf Town",
+    "roteiro": "16:RIGHT*4,16:UP*3,120:NADA,16:LEFT*8,16:DOWN*4,16:LEFT*2,16:DOWN*2,150:NADA",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN",
+      "layout": "LAYOUT_TWINLEAF_TOWN"
+    }
+  },
+  {
+    "id": "T1.3",
+    "nome": "Abertura: no laboratorio do Rowan a Poke Bola entrega o inicial e o time passa a ter 1 Pokemon",
+    "warp": "MAP_SANDGEM_TOWN_HOUSE1",
+    "roteiro": "16:UP*3,16:RIGHT,16:UP,60:NADA,20:A,90:NADA,20:A,180:NADA,20:A*6,180:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN_HOUSE1",
+      "layout": "LAYOUT_SANDGEM_TOWN_HOUSE1",
+      "time": 1
+    }
+  },
+  {
+    "id": "T1.4",
+    "nome": "Abertura de Kanto (Oak): o quarto do jogador em Pallet Town carrega. NAO ESTA LIGADA nesta ROM: nenhum script leva ate aqui, o mapa so e alcancavel por warp de debug",
+    "warp": "MAP_PALLET_TOWN_PLAYERS_HOUSE_2F",
+    "prova": {
+      "mapa": "MAP_PALLET_TOWN_PLAYERS_HOUSE_2F",
+      "layout": "LAYOUT_PALLET_TOWN_PLAYERS_HOUSE_2F_FRLG"
+    }
+  },
+  {
+    "id": "T1.5",
+    "nome": "FALHA REAL: Pallet Town externa REINICIA o jogo. Os NPCs dela usam OBJ_EVENT_GFX_WOMAN_1_FRLG e OBJ_EVENT_GFX_FAT_MAN_FRLG, e todo sprite *_FRLG esta dentro de um #if IS_FRLG em src/data/object_events/object_event_graphics_info_pointers.h (linhas 648 a 793), ou seja nao existe em build Emerald. O mapa carrega e cai na tela de titulo quando o objeto nasce",
+    "warp": "MAP_PALLET_TOWN",
+    "prova": {
+      "mapa": "MAP_PALLET_TOWN",
+      "layout": "LAYOUT_PALLET_TOWN"
+    }
+  },
+  {
+    "id": "T2.1",
+    "nome": "Ginasio 1 de Kanto: Pewter City (Brock) carrega",
+    "warp": "MAP_PEWTER_CITY_GYM",
+    "prova": {
+      "mapa": "MAP_PEWTER_CITY_GYM",
+      "layout": "LAYOUT_PEWTER_CITY_GYM"
+    }
+  },
+  {
+    "id": "T2.2",
+    "nome": "Ginasio 2 de Kanto: Cerulean City (Misty) carrega",
+    "warp": "MAP_CERULEAN_CITY_GYM",
+    "prova": {
+      "mapa": "MAP_CERULEAN_CITY_GYM",
+      "layout": "LAYOUT_CERULEAN_CITY_GYM"
+    }
+  },
+  {
+    "id": "T2.3",
+    "nome": "Ginasio 3 de Kanto: Vermilion City (Lt. Surge) carrega",
+    "warp": "MAP_VERMILION_CITY_GYM",
+    "prova": {
+      "mapa": "MAP_VERMILION_CITY_GYM",
+      "layout": "LAYOUT_VERMILION_CITY_GYM"
+    }
+  },
+  {
+    "id": "T2.4",
+    "nome": "Ginasio 4 de Kanto: Celadon City (Erika) carrega",
+    "warp": "MAP_CELADON_CITY_GYM",
+    "prova": {
+      "mapa": "MAP_CELADON_CITY_GYM",
+      "layout": "LAYOUT_CELADON_CITY_GYM"
+    }
+  },
+  {
+    "id": "T2.5",
+    "nome": "Ginasio 5 de Kanto: Fuchsia City (Koga) carrega",
+    "warp": "MAP_FUCHSIA_CITY_GYM",
+    "prova": {
+      "mapa": "MAP_FUCHSIA_CITY_GYM",
+      "layout": "LAYOUT_FUCHSIA_CITY_GYM"
+    }
+  },
+  {
+    "id": "T2.6",
+    "nome": "Ginasio 6 de Kanto: Saffron City (Sabrina) carrega",
+    "warp": "MAP_SAFFRON_CITY_GYM",
+    "prova": {
+      "mapa": "MAP_SAFFRON_CITY_GYM",
+      "layout": "LAYOUT_SAFFRON_CITY_GYM"
+    }
+  },
+  {
+    "id": "T2.7",
+    "nome": "Ginasio 7 de Kanto: Cinnabar Island (Blaine) carrega",
+    "warp": "MAP_CINNABAR_ISLAND_GYM",
+    "prova": {
+      "mapa": "MAP_CINNABAR_ISLAND_GYM",
+      "layout": "LAYOUT_CINNABAR_ISLAND_GYM"
+    }
+  },
+  {
+    "id": "T2.8",
+    "nome": "Ginasio 8 de Kanto: Viridian City (Giovanni) carrega",
+    "warp": "MAP_VIRIDIAN_CITY_GYM",
+    "prova": {
+      "mapa": "MAP_VIRIDIAN_CITY_GYM",
+      "layout": "LAYOUT_VIRIDIAN_CITY_GYM"
+    }
+  },
+  {
+    "id": "T3.1",
+    "nome": "Victory Road de Kanto 1F carrega",
+    "warp": "MAP_VICTORY_ROAD_1F_FRLG",
+    "prova": {
+      "mapa": "MAP_VICTORY_ROAD_1F_FRLG",
+      "layout": "LAYOUT_VICTORY_ROAD_1F_FRLG"
+    }
+  },
+  {
+    "id": "T3.2",
+    "nome": "Victory Road de Kanto 2F carrega",
+    "warp": "MAP_VICTORY_ROAD_2F",
+    "prova": {
+      "mapa": "MAP_VICTORY_ROAD_2F",
+      "layout": "LAYOUT_VICTORY_ROAD_2F"
+    }
+  },
+  {
+    "id": "T3.3",
+    "nome": "Victory Road de Kanto 3F carrega",
+    "warp": "MAP_VICTORY_ROAD_3F",
+    "prova": {
+      "mapa": "MAP_VICTORY_ROAD_3F",
+      "layout": "LAYOUT_VICTORY_ROAD_3F"
+    }
+  },
+  {
+    "id": "T3.4",
+    "nome": "Indigo Plateau (exterior) carrega",
+    "warp": "MAP_INDIGO_PLATEAU_EXTERIOR",
+    "prova": {
+      "mapa": "MAP_INDIGO_PLATEAU_EXTERIOR",
+      "layout": "LAYOUT_INDIGO_PLATEAU_EXTERIOR"
+    }
+  },
+  {
+    "id": "T3.5",
+    "nome": "Elite dos Quatro 1: sala da Lorelei carrega",
+    "warp": "MAP_POKEMON_LEAGUE_LORELEIS_ROOM",
+    "prova": {
+      "mapa": "MAP_POKEMON_LEAGUE_LORELEIS_ROOM",
+      "layout": "LAYOUT_POKEMON_LEAGUE_LORELEIS_ROOM"
+    }
+  },
+  {
+    "id": "T3.6",
+    "nome": "Elite dos Quatro 2: sala do Bruno carrega",
+    "warp": "MAP_POKEMON_LEAGUE_BRUNOS_ROOM",
+    "prova": {
+      "mapa": "MAP_POKEMON_LEAGUE_BRUNOS_ROOM",
+      "layout": "LAYOUT_POKEMON_LEAGUE_BRUNOS_ROOM"
+    }
+  },
+  {
+    "id": "T3.7",
+    "nome": "Elite dos Quatro 3: sala da Agatha carrega",
+    "warp": "MAP_POKEMON_LEAGUE_AGATHAS_ROOM",
+    "prova": {
+      "mapa": "MAP_POKEMON_LEAGUE_AGATHAS_ROOM",
+      "layout": "LAYOUT_POKEMON_LEAGUE_AGATHAS_ROOM"
+    }
+  },
+  {
+    "id": "T3.8",
+    "nome": "Elite dos Quatro 4: sala do Lance carrega",
+    "warp": "MAP_POKEMON_LEAGUE_LANCES_ROOM",
+    "prova": {
+      "mapa": "MAP_POKEMON_LEAGUE_LANCES_ROOM",
+      "layout": "LAYOUT_POKEMON_LEAGUE_LANCES_ROOM"
+    }
+  },
+  {
+    "id": "T3.9",
+    "nome": "Campeao: sala do campeao carrega",
+    "warp": "MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM",
+    "prova": {
+      "mapa": "MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM",
+      "layout": "LAYOUT_POKEMON_LEAGUE_CHAMPIONS_ROOM"
+    }
+  }
+]

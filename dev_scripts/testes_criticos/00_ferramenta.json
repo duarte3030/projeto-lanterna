@@ -1,0 +1,28 @@
+[
+  {
+    "id": "T0.1",
+    "nome": "Abertura entrega o controle no quarto inicial (leitor de EWRAM confere)",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN_MAIN_HOUSE_2F",
+      "layout": "LAYOUT_TWINLEAF_TOWN_MAIN_HOUSE_2F"
+    }
+  },
+  {
+    "id": "T0.2",
+    "nome": "Warp pelo menu de debug leva a um mapa de Sinnoh e ele carrega",
+    "warp": "MAP_TWINLEAF_TOWN",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN",
+      "layout": "LAYOUT_TWINLEAF_TOWN"
+    }
+  },
+  {
+    "id": "T0.3",
+    "nome": "Escrita direta de flag na EWRAM acende a flag certa e só ela",
+    "flags": ["0x2BF"],
+    "prova": {
+      "flags_acesas": ["0x2BF"],
+      "flags_apagadas": ["0x2BE"]
+    }
+  }
+]

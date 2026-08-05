@@ -149,7 +149,16 @@ def compara(velha, nova):
             quebras.append(f"STRUCT MUDOU: {k} teve o corpo alterado. "
                            f"A save inteira e reinterpretada. So append, e so em espaco existente.")
 
-    n = nova.get("sizeof_saveblock1")
+    # Tamanho do SaveBlock1: QUALQUER mudanca quebra save, nao so estourar o teto.
+    # A primeira versao so olhava o teto, e por isso disse "SAVE COMPATIVEL" depois
+    # de eu crescer FLAGS_COUNT e levar o bloco de 15764 para 15848 B. Eu sabia que
+    # tinha quebrado e a ferramenta disse que nao. Notica boa e suspeita ate provar
+    # que e real.
+    v, n = velha.get("sizeof_saveblock1"), nova.get("sizeof_saveblock1")
+    if v and n and v != n:
+        quebras.append(f"SAVEBLOCK1 MUDOU DE TAMANHO: {v} B -> {n} B. "
+                       f"Tudo que vem depois do campo que cresceu muda de lugar, "
+                       f"e save antiga passa a ser lida errada.")
     if n and n > TETO_SAVEBLOCK1:
         quebras.append(f"SAVEBLOCK1 ESTOUROU: {n} B > {TETO_SAVEBLOCK1} B "
                        f"(setores 1 a 4). Save corrompe sem erro de compilacao.")
@@ -214,6 +223,11 @@ def demo():
     # estourou o teto
     gr = json.loads(json.dumps(base)); gr["sizeof_saveblock1"] = TETO_SAVEBLOCK1 + 1
     assert any("ESTOUROU" in x for x in compara(base, gr))
+
+    # crescer SEM estourar o teto tambem quebra: foi o caso que passou batido
+    cresceu = json.loads(json.dumps(base)); cresceu["sizeof_saveblock1"] = 1084
+    assert any("MUDOU DE TAMANHO" in x for x in compara(base, cresceu)), \
+        "crescer dentro do teto continua invalidando save"
     print("demo ok")
 
 

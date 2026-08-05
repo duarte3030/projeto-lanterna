@@ -740,10 +740,16 @@ void process_groups(string groups_filepath, vector<string> &map_filepaths, strin
         }
         string map_name = json_to_string(map_data, "name");
 
-        if ((version == "emerald" && region != "REGION_HOENN")
-         || (version == "firered" && region != "REGION_KANTO")) {
-            invalid_maps.push_back(map_name);
-        }
+        // Neste projeto a ROM e uma so e contem cinco regioes de proposito, entao
+        // o filtro por regiao do upstream (que existe para buildar Emerald OU
+        // FireRed) ficaria descartando Kanto inteira, em silencio: 421 mapas
+        // marcados REGION_KANTO sumiam da ROM sem uma linha de aviso, e o jogo
+        // so mostrava tela preta ao chegar la. Sinnoh e Johto escapavam por
+        // acidente, porque tem o campo region vazio e caem no padrao REGION_HOENN.
+        //
+        // Se um dia isto precisar voltar a filtrar, o certo e uma lista explicita
+        // de regioes aceitas, nunca "tudo que nao for Hoenn e invalido".
+        (void)region;
     }
 
     if (groups_data == Json())
@@ -780,9 +786,11 @@ string generate_layout_headers_text(Json layouts_data) {
             else if (version == "firered")
                 layout_version = "frlg";
         }
-        if ((version == "emerald" && layout_version != "emerald")
-         || (version == "firered" && layout_version != "frlg"))
-            continue;
+        // Mesma razao do filtro de regiao acima: 344 layouts marcados "frlg"
+        // eram descartados aqui sem aviso, e por isso todo mapa de Kanto
+        // carregava com posicao certa e fundo preto. O sprite do jogador
+        // aparecia porque OAM nao depende do layout.
+        (void)layout_version;
         string layoutName = json_to_string(layout, "name");
         string border_label = layoutName + "_Border";
         string blockdata_label = layoutName + "_Blockdata";
@@ -838,13 +846,20 @@ string generate_layouts_table_text(Json layouts_data) {
             else if (version == "firered")
                 layout_version = "frlg";
         }
-        if ((version == "emerald" && layout_version != "emerald") || (version == "firered" && layout_version != "frlg")) {
-            text << "\t.4byte NULL\n";
-        } else {
-            string layout_name = json_to_string(layout, "name", true);
-            if (layout_name.empty()) layout_name = "NULL";
-            text << "\t.4byte " << layout_name << "\n";
-        }
+        // Terceiro filtro de versao, e o mais destrutivo dos tres. Ele nao
+        // descartava o layout: gravava `.4byte NULL` NA POSICAO dele, o que
+        // mantem os indices alinhados e deixa a tabela cheia de buracos.
+        //
+        // GetMapLayout() (src/overworld.c:616) e `gMapLayouts[mapLayoutId - 1]`,
+        // entao todo mapa de Kanto recebia mapLayout = NULL, e o motor ia ler
+        // largura e altura do endereco 0 e copiar lixo por cima da EWRAM. O
+        // sintoma era tela preta e o mapLayoutId do save virando 26651, igual em
+        // todos os 41 grupos de Kanto, que foi a pista que entregou o caso: dado
+        // corrompido varia, endereco errado nao.
+        (void)layout_version;
+        string layout_name = json_to_string(layout, "name", true);
+        if (layout_name.empty()) layout_name = "NULL";
+        text << "\t.4byte " << layout_name << "\n";
     }
 
     return text.str();

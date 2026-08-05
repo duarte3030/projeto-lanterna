@@ -1983,7 +1983,7 @@ const u16 gTilesetPalettes_Pasos[][16] =
 };
 
 const u32 gTilesetTiles_Pasos[] = INCBIN_U32("data/tilesets/secondary/pasos/tiles.4bpp.lz");
-#if IS_FRLG
+// graficos de tileset de FRLG: compilados sempre, senao Kanto e tela preta
 
 const u32 gTilesetTiles_Building_Frlg[] = INCGFX_U32("data/tilesets/primary/building_frlg/tiles.png", ".4bpp.smol");
 
@@ -3395,4 +3395,4 @@ const u16 ALIGNED(4) gTilesetPalettes_General_Frlg[][16] =
 
 const u32 gTilesetTiles_General_Frlg[] = INCGFX_U32("data/tilesets/primary/general_frlg/tiles.png", ".4bpp.smol");
 
-#endif // IS_FRLG
+// (antes: #endif de #if IS_FRLG)

@@ -51,7 +51,14 @@
 #define TRAINER_SAILOR_TREVOR                      45
 #define TRAINER_SAILOR_LEONARD                     46
 #define TRAINER_SAILOR_DUNCAN                      47
-#define TRAINER_SAILOR_HUEY                        48
+// Renomeado em 05/08/2026: colidia com TRAINER_SAILOR_HUEY do opponents.h, que
+// vale 1349 e e o Huey do Farol de Olivine, o unico dos dois com time de
+// verdade em trainers.party. Como o de la vencia a redefinicao, o marinheiro do
+// S.S. Anne, em Kanto, lutava com o time do marinheiro de Johto.
+// Como TODO nome deste arquivo, este e um APELIDO para o treinador que ja ocupa
+// esse id (48 = TRAINER_DUSTY_3, de Hoenn), nao um treinador proprio. Ver o
+// modo --treinadores do dev_scripts/testa_critico.py.
+#define TRAINER_SAILOR_HUEY_FRLG                   48
 #define TRAINER_SAILOR_DYLAN                       49
 #define TRAINER_SAILOR_PHILLIP                     50
 #define TRAINER_SAILOR_DWAYNE                      51

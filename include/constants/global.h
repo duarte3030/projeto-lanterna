@@ -94,7 +94,23 @@ enum Language
 #define POKEBLOCKS_COUNT 40
 #define OBJECT_EVENTS_COUNT 16
 #define MAIL_COUNT (10 + PARTY_SIZE)
-#define SECRET_BASES_COUNT 20
+// Reduzido de 20 para 4 em 05/08/2026, e o motivo e espaco de save, nao gosto.
+//
+// Cada base ocupa 160 B dentro do SaveBlock1, entao as 20 do vanilla custam
+// 3200 B de um bloco que tem 15872 no total. Com cinco regioes na mesma ROM o
+// que faltava era flag: cada vaga de treinador e uma flag, e Kanto sozinha
+// precisa de 253 treinadores com time proprio (os 8 lideres, a Elite dos
+// Quatro, o rival e o Giovanni entre eles), que sem isto ficariam apontando
+// para treinadores de Hoenn.
+//
+// 16 bases devolvidas = 2560 B = 20480 flags, muito mais do que o projeto
+// inteiro precisa. Base secreta e feature de troca por link de Hoenn, e as 4
+// que sobram continuam permitindo criar e usar a propria.
+//
+// Mexer aqui muda o layout do SaveBlock1 e INVALIDA save. Foi feito na mesma
+// janela em que FLAGS_COUNT cresceu, de proposito: enquanto nao existe partida
+// do Gui para proteger, quebrar sai de graca. Depois, nao sai.
+#define SECRET_BASES_COUNT 4
 #define POKE_NEWS_COUNT 16
 #define PC_ITEMS_COUNT 50
 #define OBJECT_EVENT_TEMPLATES_COUNT 64

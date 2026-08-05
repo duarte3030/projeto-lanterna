@@ -1,0 +1,60 @@
+[
+  {
+    "id": "T11.1",
+    "nome": "Salvar em jogo grava a save na flash, com mapa e flags",
+    "apaga_sav": true,
+    "sav": "/tmp/claude-501/frenteA/t11.sav",
+    "flags": [
+      "0x2B8",
+      "0x2BA"
+    ],
+    "warp": "MAP_SANDGEM_TOWN",
+    "roteiro": "40:START!,90:NADA,20:DOWN,20:DOWN,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN",
+      "layout": "LAYOUT_SANDGEM_TOWN",
+      "flags_acesas": [
+        "0x2B8",
+        "0x2BA"
+      ],
+      "flags_apagadas": [
+        "0x2B9"
+      ]
+    }
+  },
+  {
+    "id": "T11.2",
+    "nome": "A MESMA save volta na MESMA ROM (controle: prova que o .sav é lido)",
+    "sav": "/tmp/claude-501/frenteA/t11.sav",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN",
+      "layout": "LAYOUT_SANDGEM_TOWN",
+      "flags_acesas": [
+        "0x2B8",
+        "0x2BA"
+      ],
+      "flags_apagadas": [
+        "0x2B9"
+      ]
+    },
+    "abertura": "continuar"
+  },
+  {
+    "id": "T11.3",
+    "nome": "A save da ROM antiga continua valendo na ROM RECOMPILADA (--rom2)",
+    "rom": "rom2",
+    "sav": "/tmp/claude-501/frenteA/t11.sav",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN",
+      "layout": "LAYOUT_SANDGEM_TOWN",
+      "flags_acesas": [
+        "0x2B8",
+        "0x2BA"
+      ],
+      "flags_apagadas": [
+        "0x2B9"
+      ]
+    },
+    "abertura": "continuar"
+  }
+]

@@ -1,0 +1,159 @@
+[
+  {
+    "id": "T4.1",
+    "nome": "FALHA CONHECIDA (mapa de Kanto nao carrega): Vermilion City, o unico ponto de embarque de Kanto para Johto, entra em tela preta",
+    "warp": "MAP_VERMILION_CITY",
+    "prova": {
+      "mapa": "MAP_VERMILION_CITY",
+      "layout": "LAYOUT_VERMILION_CITY"
+    }
+  },
+  {
+    "id": "T4.2",
+    "nome": "FALHA CONHECIDA (cai junto com T4.1): a balsa de Vermilion, o unico embarque de Kanto para Johto, desembarca no Porto de Olivine",
+    "warp": "MAP_VERMILION_CITY",
+    "warp_id": 4,
+    "roteiro": "16:DOWN*7,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,16:DOWN,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,240:NADA",
+    "prova": {
+      "mapa": "MAP_OLIVINE_CITY_PORT_INSIDE",
+      "layout": "LAYOUT_OLIVINE_CITY_PORT_INSIDE"
+    }
+  },
+  {
+    "id": "T4.3",
+    "nome": "Porto de Olivine, o ponto de desembarque em Johto, carrega de verdade",
+    "warp": "MAP_OLIVINE_CITY_PORT_INSIDE",
+    "prova": {
+      "mapa": "MAP_OLIVINE_CITY_PORT_INSIDE",
+      "layout": "LAYOUT_OLIVINE_CITY_PORT_INSIDE"
+    }
+  },
+  {
+    "id": "T4.4",
+    "nome": "FALHA REAL na ROM congelada, CONSERTADA no repo: sair de Johto de balsa. Tres bugs somados, todos medidos: item ball inerte em (8,16) trancava o corredor ate o marinheiro; o menu de destinos caia no MULTI_BRINEY_OFF_DEWFORD de 2 linhas (DEWFORD/EXIT), entao os nomes eram errados e o terceiro destino inalcancavel; e warpsilent sem waitstate derrubava o jogo no assert 'leaving script while a warp is in progress' (src/script.c:79)",
+    "warp": "MAP_OLIVINE_CITY_PORT_INSIDE",
+    "roteiro": "16:DOWN*12,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,16:DOWN,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,240:NADA",
+    "prova": {
+      "mapa": "MAP_SLATEPORT_CITY_HARBOR"
+    }
+  },
+  {
+    "id": "T5.1",
+    "nome": "Sprout Tower 1F carrega (mapa convertido do gen 2)",
+    "warp": "MAP_SPROUT_TOWER_1F",
+    "prova": {
+      "mapa": "MAP_SPROUT_TOWER_1F",
+      "layout": "LAYOUT_SPROUT_TOWER_1F"
+    }
+  },
+  {
+    "id": "T5.2",
+    "nome": "Sprout Tower: o item do 1F dispara e acende a flag dele (FLAG_UNUSED_0x264)",
+    "warp": "MAP_SPROUT_TOWER_1F",
+    "warp_id": 3,
+    "roteiro": "16:DOWN*6,30:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA",
+    "prova": {
+      "mapa": "MAP_SPROUT_TOWER_1F",
+      "layout": "LAYOUT_SPROUT_TOWER_1F",
+      "flags_acesas": [
+        "0x264"
+      ]
+    }
+  },
+  {
+    "id": "T5.3",
+    "nome": "Slowpoke Well B1F carrega, e os Rockets de Azalea continuam la (FLAG_HIDE_AZALEA_TOWN_ROCKETS=0x3D apagada). A flag so acende ganhando do PROTON, batalha que o harness nao consegue jogar",
+    "warp": "MAP_SLOWPOKE_WELL_B1F",
+    "prova": {
+      "mapa": "MAP_SLOWPOKE_WELL_B1F",
+      "layout": "LAYOUT_SLOWPOKE_WELL_B1F",
+      "flags_apagadas": [
+        "0x3D"
+      ]
+    }
+  },
+  {
+    "id": "T5.4",
+    "nome": "Burned Tower 1F carrega (a cena dos tres caes esta no B1F como bg_event, sem flag)",
+    "warp": "MAP_BURNED_TOWER_1F",
+    "prova": {
+      "mapa": "MAP_BURNED_TOWER_1F",
+      "layout": "LAYOUT_BURNED_TOWER_1F"
+    }
+  },
+  {
+    "id": "T5.5",
+    "nome": "Torre de Radio 1F carrega, e o grunt da escada continua la (FLAG_HIDE_GOLDENROD_RADIO_TOWER_1F_ROCKET=0x3F apagada)",
+    "warp": "MAP_GOLDENROD_CITY_RADIO_TOWER_1F",
+    "prova": {
+      "mapa": "MAP_GOLDENROD_CITY_RADIO_TOWER_1F",
+      "layout": "LAYOUT_GOLDENROD_CITY_RADIO_TOWER_1F",
+      "flags_apagadas": [
+        "0x3F"
+      ]
+    }
+  },
+  {
+    "id": "T5.6",
+    "nome": "Torre de Radio 5F, onde cai o ARCHER, carrega (FLAG_HIDE_GOLDENROD_ROCKETS=0x3E apagada; so acende ganhando do ARCHER)",
+    "warp": "MAP_GOLDENROD_CITY_RADIO_TOWER_5F",
+    "prova": {
+      "mapa": "MAP_GOLDENROD_CITY_RADIO_TOWER_5F",
+      "layout": "LAYOUT_GOLDENROD_CITY_RADIO_TOWER_5F",
+      "flags_apagadas": [
+        "0x3E"
+      ]
+    }
+  },
+  {
+    "id": "T5.7",
+    "nome": "Esconderijo da Rocket em Mahogany: com as duas senhas na mao, a porta do transmissor do B3F abre (FLAG_MAHOGANY_HIDEOUT_DOOR_B3F=0x43). As senhas entram como flag de treinador 0xA37/0xA38 = TRAINER_FLAGS_START + MAHOGANY_5/_6",
+    "flags": [
+      "0xA37",
+      "0xA38"
+    ],
+    "warp": "MAP_MAHOGANY_HIDEOUT_B3F",
+    "roteiro": "16:LEFT*3,16:DOWN*8,16:RIGHT*10,30:NADA,16:UP,30:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,90:NADA",
+    "prova": {
+      "mapa": "MAP_MAHOGANY_HIDEOUT_B3F",
+      "layout": "LAYOUT_MAHOGANY_HIDEOUT_B3F",
+      "flags_acesas": [
+        "0x43"
+      ]
+    }
+  },
+  {
+    "id": "T5.8",
+    "nome": "Esconderijo da Rocket em Mahogany: o cameo do SILVER no B3F dispara e acende FLAG_SILVER_HIDEOUT_DONE=0x271 (pre-condicao: batalha 4 do rival vencida, flag 0xA51)",
+    "flags": [
+      "0xA51"
+    ],
+    "warp": "MAP_MAHOGANY_HIDEOUT_B3F",
+    "roteiro": "16:DOWN,16:DOWN,16:RIGHT,30:NADA,8:A,120:NADA,8:A,120:NADA,8:A,120:NADA,8:A,120:NADA,8:A,120:NADA,8:A,120:NADA,8:A,120:NADA,8:A,120:NADA,8:A,120:NADA,8:A,120:NADA,8:A,120:NADA,8:A,120:NADA,8:A,120:NADA,8:A,120:NADA,8:A,120:NADA,8:A,120:NADA,8:A,120:NADA,8:A,120:NADA,8:A,120:NADA,8:A,120:NADA,8:A,120:NADA,8:A,120:NADA,90:NADA",
+    "prova": {
+      "mapa": "MAP_MAHOGANY_HIDEOUT_B3F",
+      "layout": "LAYOUT_MAHOGANY_HIDEOUT_B3F",
+      "flags_acesas": [
+        "0x271"
+      ]
+    }
+  },
+  {
+    "id": "T5.9",
+    "nome": "Esconderijo da Rocket em Mahogany: o B1F das 22 armadilhas carrega",
+    "warp": "MAP_MAHOGANY_HIDEOUT_B1F",
+    "prova": {
+      "mapa": "MAP_MAHOGANY_HIDEOUT_B1F",
+      "layout": "LAYOUT_MAHOGANY_HIDEOUT_B1F"
+    }
+  },
+  {
+    "id": "T5.10",
+    "nome": "Farol de Olivine carrega (os nove treinadores e os quatro itens estao nele; nenhum e alcancavel sem batalha)",
+    "warp": "MAP_OLIVINE_CITY_LIGHTHOUSE",
+    "prova": {
+      "mapa": "MAP_OLIVINE_CITY_LIGHTHOUSE",
+      "layout": "LAYOUT_OLIVINE_CITY_LIGHTHOUSE"
+    }
+  }
+]

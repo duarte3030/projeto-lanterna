@@ -25,7 +25,6 @@
 #define LOCALID_ROUTE230_SWIMMER_MALLORY 6
 
 // lider do ginasio de Oreburgh
-#define LOCALID_OREBURGH_GYM_ROARK 9
 
 // lider do ginasio de Eterna
 #define LOCALID_ETERNA_GYM_GARDENIA 1
