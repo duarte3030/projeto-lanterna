@@ -113,6 +113,12 @@ EventScript_ResetAllBerries::
 	return
 
 EventScript_ResetAllMapFlags::
+	@ Kanto. O jogo novo comeca em Pallet Town desde 05/08/2026, e este e o
+	@ roteiro que roda (o Frlg nao roda: IS_FRLG e 0 nesta build). Sem estas
+	@ duas, o Oak nasce parado no meio de Pallet Town e no laboratorio antes de
+	@ o jogador falar com ele, e a fileira 8 de Pallet Town fica intransponivel.
+	setflag FLAG_HIDE_OAK_IN_PALLET_TOWN
+	setflag FLAG_HIDE_OAK_IN_HIS_LAB
 	setflag FLAG_HIDE_CONTEST_POKE_BALL
 	setflag FLAG_HIDE_ROUTE_111_VICTORIA_WINSTRATE
 	setflag FLAG_HIDE_ROUTE_111_VIVI_WINSTRATE

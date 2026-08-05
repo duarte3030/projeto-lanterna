@@ -154,7 +154,9 @@ static void WarpToTruck(void)
     // ponytail: sem introducao, o jogo comeca direto no mapa de desenvolvimento.
     SetWarpDestination(MAP_GROUP(DEV_START_MAP), MAP_NUM(DEV_START_MAP), WARP_ID_NONE, DEV_START_X, DEV_START_Y);
 #else
-    SetWarpDestination(MAP_GROUP(MAP_TWINLEAF_TOWN_MAIN_HOUSE_2F), MAP_NUM(MAP_TWINLEAF_TOWN_MAIN_HOUSE_2F), WARP_ID_NONE, 4, 3);
+    // (6, 6) e a mesma casa do FRLG original: o jogador nasce de pe ao lado da
+    // cama, e PalletTown_PlayersHouse_2F_OnWarp vira ele para o norte.
+    SetWarpDestination(MAP_GROUP(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), MAP_NUM(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), WARP_ID_NONE, 6, 6);
 #endif
     WarpIntoMap();
 }
@@ -229,6 +231,14 @@ void NewGameInitData(void)
     ResetLotteryCorner();
     UpdateDailySeed();
     WarpToTruck();
+    // Fica no ramo Emerald DE PROPOSITO, mesmo com o jogo comecando em Kanto.
+    // Medido em 05/08/2026: include/constants/flags.h so inclui flags_frlg.h
+    // dentro de `#if IS_FRLG`; no ramo `#else` toda FLAG_HIDE_* de Kanto e
+    // redefinida como o literal 0, e GetFlagPointer(0) devolve NULL. Ou seja,
+    // EventScript_ResetAllMapFlagsFrlg vira ~50 setflag em cima do nada, e o
+    // unico efeito real dele seria gravar 500 em VAR_MASSAGE_COOLDOWN_STEP_COUNTER
+    // (0x4025), que nesta build e VAR_MIRAGE_RND_L, de Hoenn. Trocar por ele
+    // perderia as flags de esconder de Hoenn e as berries, sem ganhar nada.
     if (IS_FRLG)
         RunScriptImmediately(EventScript_ResetAllMapFlagsFrlg);
     else
@@ -256,10 +266,11 @@ void NewGameInitData(void)
     // script do evento que libera cada um.
     FlagSet(B_FLAG_DYNAMAX_BATTLE);
     FlagSet(B_FLAG_TERA_ORB_CHARGED);
-    // Ponto de cura inicial de Sinnoh. Sem isto, desmaiar manda o jogador para
-    // a casa da mae em Hoenn, que e o padrao do Emerald. Sandgem e o primeiro
-    // Centro Pokemon que o jogador alcanca, e onde fica o laboratorio do Rowan.
-    SetLastHealLocationWarp(HEAL_LOCATION_SANDGEM_TOWN);
+    // Ponto de cura inicial de Kanto. Sem isto, desmaiar manda o jogador para a
+    // casa da mae em Hoenn, que e o padrao do Emerald.
+    // PalletTown_PlayersHouse_2F_OnTransition tambem faz este setrespawn, mas so
+    // depois que o mapa carrega; aqui garante o valor antes de qualquer coisa.
+    SetLastHealLocationWarp(HEAL_LOCATION_PALLET_TOWN);
 #if DEV_SKIP_INTRO
     // ponytail: sem introducao ninguem recebe inicial. Sem time nao da para
     // testar batalha.

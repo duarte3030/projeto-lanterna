@@ -1,49 +1,56 @@
 [
   {
     "id": "T1.1",
-    "nome": "Abertura: jogo novo entrega o controle no quarto de Twinleaf (a abertura que EXISTE hoje e a de Sinnoh)",
+    "nome": "Jogo novo nasce no quarto de Pallet Town, em Kanto, e nao mais em Twinleaf (Sinnoh). Prova pelo mapa e pelo layout lidos da EWRAM, e pelo time vazio",
     "prova": {
-      "mapa": "MAP_TWINLEAF_TOWN_MAIN_HOUSE_2F",
-      "layout": "LAYOUT_TWINLEAF_TOWN_MAIN_HOUSE_2F",
+      "mapa": "MAP_PALLET_TOWN_PLAYERS_HOUSE_2F",
+      "layout": "LAYOUT_PALLET_TOWN_PLAYERS_HOUSE_2F_FRLG",
       "time": 0
     }
   },
   {
     "id": "T1.2",
-    "nome": "Abertura: da cama ate a rua, o jogador desce a escada e sai de casa em Twinleaf Town",
-    "roteiro": "16:RIGHT*4,16:UP*3,120:NADA,16:LEFT*8,16:DOWN*4,16:LEFT*2,16:DOWN*2,150:NADA",
+    "nome": "Da cama ate a rua: desce a escada do quarto, atravessa a sala da mae e sai pela porta em Pallet Town",
+    "roteiro": "20:B*8,60:NADA,16:RIGHT*5,16:UP*6,16:LEFT*3,60:NADA,16:DOWN*6,16:LEFT*6,16:DOWN*4,150:NADA",
     "prova": {
-      "mapa": "MAP_TWINLEAF_TOWN",
-      "layout": "LAYOUT_TWINLEAF_TOWN"
+      "mapa": "MAP_PALLET_TOWN",
+      "layout": "LAYOUT_PALLET_TOWN",
+      "time": 0
     }
   },
   {
     "id": "T1.3",
-    "nome": "Abertura: no laboratorio do Rowan a Poke Bola entrega o inicial e o time passa a ter 1 Pokemon",
-    "warp": "MAP_SANDGEM_TOWN_HOUSE1",
-    "roteiro": "16:UP*3,16:RIGHT,16:UP,60:NADA,20:A,90:NADA,20:A,180:NADA,20:A*6,180:NADA",
+    "nome": "A abertura do Oak dispara: o gatilho da saida norte para o jogador, o Oak leva ate o laboratorio e a cena de escolha termina. Prova por VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB=2, que so o fim da ChooseStarterScene grava",
+    "roteiro": "20:B*8,60:NADA,16:RIGHT*5,16:UP*6,16:LEFT*3,60:NADA,16:DOWN*6,16:LEFT*6,16:DOWN*4,150:NADA,16:RIGHT*7,16:UP*8,300:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA",
     "prova": {
-      "mapa": "MAP_SANDGEM_TOWN_HOUSE1",
-      "layout": "LAYOUT_SANDGEM_TOWN_HOUSE1",
-      "time": 1
+      "mapa": "MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB",
+      "layout": "LAYOUT_PALLET_TOWN_PROFESSOR_OAKS_LAB",
+      "time": 0,
+      "vars": {
+        "0x4055": 2
+      }
     }
   },
   {
     "id": "T1.4",
-    "nome": "Abertura de Kanto (Oak): o quarto do jogador em Pallet Town carrega. NAO ESTA LIGADA nesta ROM: nenhum script leva ate aqui, o mapa so e alcancavel por warp de debug",
-    "warp": "MAP_PALLET_TOWN_PLAYERS_HOUSE_2F",
+    "nome": "Escolha de inicial: o jogador fala com a Poke Bola, aceita, e o TIME PASSA A TER 1 POKEMON. VAR_MAP_SCENE...=3 prova que o rival tambem pegou o dele",
+    "roteiro": "20:B*8,60:NADA,16:RIGHT*5,16:UP*6,16:LEFT*3,60:NADA,16:DOWN*6,16:LEFT*6,16:DOWN*4,150:NADA,16:RIGHT*7,16:UP*8,300:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:B,36:NADA,12:B,36:NADA,12:B,36:NADA,12:B,36:NADA,12:B,36:NADA,12:B,36:NADA,12:B,36:NADA,12:B,36:NADA,12:B,36:NADA,12:B,36:NADA,12:B,36:NADA,12:B,36:NADA,16:DOWN*3,16:RIGHT*4,16:UP*3,60:NADA,12:A,60:NADA,12:A,60:NADA,12:A,60:NADA,12:A,60:NADA,12:A,60:NADA,12:A,60:NADA,12:A,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA",
     "prova": {
-      "mapa": "MAP_PALLET_TOWN_PLAYERS_HOUSE_2F",
-      "layout": "LAYOUT_PALLET_TOWN_PLAYERS_HOUSE_2F_FRLG"
+      "mapa": "MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB",
+      "layout": "LAYOUT_PALLET_TOWN_PROFESSOR_OAKS_LAB",
+      "time": 1,
+      "vars": {
+        "0x4055": 3
+      }
     }
   },
   {
     "id": "T1.5",
-    "nome": "FALHA REAL: Pallet Town externa REINICIA o jogo. Os NPCs dela usam OBJ_EVENT_GFX_WOMAN_1_FRLG e OBJ_EVENT_GFX_FAT_MAN_FRLG, e todo sprite *_FRLG esta dentro de um #if IS_FRLG em src/data/object_events/object_event_graphics_info_pointers.h (linhas 648 a 793), ou seja nao existe em build Emerald. O mapa carrega e cai na tela de titulo quando o objeto nasce",
-    "warp": "MAP_PALLET_TOWN",
+    "nome": "A abertura de Sinnoh NAO foi apagada: o quarto de Twinleaf continua carregando por warp, agora como chegada de meio de jogo em vez de comeco",
+    "warp": "MAP_TWINLEAF_TOWN_MAIN_HOUSE_2F",
     "prova": {
-      "mapa": "MAP_PALLET_TOWN",
-      "layout": "LAYOUT_PALLET_TOWN"
+      "mapa": "MAP_TWINLEAF_TOWN_MAIN_HOUSE_2F",
+      "layout": "LAYOUT_TWINLEAF_TOWN_MAIN_HOUSE_2F"
     }
   },
   {
