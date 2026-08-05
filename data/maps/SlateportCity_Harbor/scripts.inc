@@ -285,6 +285,7 @@ SlateportCity_Harbor_EventScript_SailToOlivine::
 	msgbox SlateportCity_Harbor_Text_SettingSailToOlivine, MSGBOX_DEFAULT
 	closemessage
 	warpsilent MAP_OLIVINE_CITY_PORT_INSIDE, 8, 17
+	waitstate
 	release
 	end
 
@@ -292,6 +293,7 @@ SlateportCity_Harbor_EventScript_SailToVermilion::
 	msgbox SlateportCity_Harbor_Text_SettingSailToVermilion, MSGBOX_DEFAULT
 	closemessage
 	warpsilent MAP_VERMILION_CITY, 15, 10
+	waitstate
 	release
 	end
 
@@ -299,6 +301,7 @@ SlateportCity_Harbor_EventScript_SailToCanalave::
 	msgbox SlateportCity_Harbor_Text_SettingSailToCanalave, MSGBOX_DEFAULT
 	closemessage
 	warpsilent MAP_CANALAVE_CITY, 10, 10
+	waitstate
 	release
 	end
 

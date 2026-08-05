@@ -44,6 +44,7 @@ CanalaveCity_EventScript_SailToOlivine::
 	msgbox CanalaveCity_Text_SettingSailToOlivine, MSGBOX_DEFAULT
 	closemessage
 	warpsilent MAP_OLIVINE_CITY_PORT_INSIDE, 8, 17
+	waitstate
 	release
 	end
 
@@ -51,6 +52,7 @@ CanalaveCity_EventScript_SailToSlateport::
 	msgbox CanalaveCity_Text_SettingSailToSlateport, MSGBOX_DEFAULT
 	closemessage
 	warpsilent MAP_SLATEPORT_CITY_HARBOR, 8, 14
+	waitstate
 	release
 	end
 
@@ -58,6 +60,7 @@ CanalaveCity_EventScript_SailToVermilion::
 	msgbox CanalaveCity_Text_SettingSailToVermilion, MSGBOX_DEFAULT
 	closemessage
 	warpsilent MAP_VERMILION_CITY, 15, 10
+	waitstate
 	release
 	end
 

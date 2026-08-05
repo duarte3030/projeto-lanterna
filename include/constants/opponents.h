@@ -1781,7 +1781,18 @@
 #define TRAINER_UNOVA_YOUNGSTER_R2                           2147
 // <<< treinadores de rota de Unova (gerado) <<<
 
-#define TRAINERS_COUNT_EMERALD     2148
+#define TRAINERS_COUNT_EMERALD     1380
+
+// ponytail: TRAINERS_COUNT nao e "quantos treinadores existem", e o TAMANHO do
+// array: include/data.h declara gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT], e
+// SanitizeTrainerId() devolve TRAINER_NONE para id >= TRAINERS_COUNT. Com 1367
+// aqui, Kanto em 1400+ nao compilava ("array index in initializer exceeds array
+// bounds") e, se compilasse, todo id acima do contador viraria TRAINER_NONE em
+// tempo de execucao. Amarrado ao MAX de proposito: assim qualquer id dentro da
+// faixa de flags do saveblock e valido, e nenhuma frente precisa mexer neste
+// numero de novo. Custo: slots vazios no array (ROM), zero no saveblock, que ja
+// e dimensionado pelo MAX.
+#define TRAINERS_COUNT_EMERALD     MAX_TRAINERS_COUNT_EMERALD
 // ponytail: teto elevado em 05/08/2026. Estava em 1330 com 1329 em uso, ou seja,
 // UMA vaga sobrando no jogo inteiro, e a historia de Johto ja tinha deixado 7
 // Rockets de fora por falta de vaga. Cada vaga custa 1 bit de flag de treinador

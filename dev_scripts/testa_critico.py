@@ -93,8 +93,16 @@ ABERTURAS = {"novo": ABERTURA, "continuar": CONTINUAR, "nenhuma": ""}
 # --------------------------------------------------------------------------
 # Tabelas do repo. Nunca chutar número de mapa ou de flag de memória.
 # --------------------------------------------------------------------------
-def carrega_mapas():
-    caminho = os.path.join(RAIZ, "include", "constants", "map_groups.h")
+def carrega_mapas(src=None):
+    """Tabela de mapas da FONTE DA ROM, não do repo.
+
+    Os dois agentes de teste bateram nisto: se o repo já tem Unova e a ROM sob
+    teste não, `map_groups.h` do repo descreve outro jogo. Mapa inserido no meio
+    de um grupo desloca todos os seguintes, e o caso passa a apontar para o mapa
+    errado sem ninguém notar. Por isso a tabela sai do `--src`, que é o
+    `include/` guardado ao lado da ROM.
+    """
+    caminho = os.path.join(src or RAIZ, "include", "constants", "map_groups.h")
     por_nome, por_id = {}, {}
     padrao = re.compile(r"(MAP_[A-Z0-9_]+)\s*=\s*\((\d+)\s*\|\s*\((\d+)\s*<<\s*8\)\)")
     for nome, num, grupo in padrao.findall(open(caminho).read()):
@@ -104,20 +112,95 @@ def carrega_mapas():
     return por_nome, por_id
 
 
-def carrega_flags():
-    caminho = os.path.join(RAIZ, "include", "constants", "flags.h")
-    padrao = re.compile(r"^#define\s+(FLAG_[A-Z0-9_]+)\s+(0[xX][0-9A-Fa-f]+|\d+)\s*$", re.M)
-    return {n: int(v, 0) for n, v in padrao.findall(open(caminho).read())}
+_FLAGS_CACHE = {}
 
 
-def carrega_layouts():
-    caminho = os.path.join(RAIZ, "include", "constants", "layouts.h")
+def carrega_flags(src=None):
+    """Nome de flag -> número, resolvido pelo PRÉ-PROCESSADOR, não por regex.
+
+    A primeira versão lia só `#define FLAG_X 0x123` cru, e isso resolvia 1301
+    dos 2377 defines: ficavam de fora `(TEMP_FLAGS_START + 0x1)`, os apelidos
+    (`FLAG_A FLAG_UNUSED_0x0AB`) e qualquer linha com comentário no fim. O
+    agente de Johto teve que escrever hexadecimal cru nos casos por causa disso.
+    Regex não avalia expressão de C; o `cpp` avalia. Aqui ele faz o trabalho.
+    """
+    src = src or RAIZ
+    if src in _FLAGS_CACHE:
+        return _FLAGS_CACHE[src]
+    caminho = os.path.join(src, "include", "constants", "flags.h")
+    nomes = sorted(set(re.findall(r"^#define\s+(FLAG_[A-Z0-9_]+)\b", open(caminho).read(), re.M)))
+    tmp = "/tmp/claude-501/frenteA/offsets"
+    os.makedirs(tmp, exist_ok=True)
+    fonte = os.path.join(tmp, "flags.c")
+    with open(fonte, "w") as f:
+        f.write('#include "constants/flags.h"\n')
+        for n in nomes:
+            # o nome vai como STRING: dentro de @@X@@ o cpp expandia o próprio
+            # nome e o rótulo sumia. String literal não é macro-expandida.
+            f.write(f'"{n}" {n}\n')
+    r = subprocess.run(["cc", "-E", "-P", "-iquote", "include", "-DMODERN=1",
+                        "-DTESTING=0", "-DEMERALD", fonte],
+                       cwd=src, capture_output=True, text=True)
+    tabela = {}
+    for linha in r.stdout.splitlines():
+        m = re.match(r'^"(FLAG_[A-Z0-9_]+)"\s+(.+?)\s*$', linha)
+        if not m:
+            continue
+        expr = m.group(2)
+        # depois do cpp sobra só aritmética; recusa qualquer coisa que não seja
+        # número e operador, para não virar eval de código arbitrário
+        if not re.fullmatch(r"[0-9a-fA-FxX()+\-*/<>|&~^ ]+", expr):
+            continue
+        try:
+            tabela[m.group(1)] = int(eval(expr, {"__builtins__": {}}, {}))  # noqa: S307
+        except Exception:                                                   # noqa: BLE001
+            continue
+    # O cpp resolve as expressões, o regex resolve os `#define FLAG_X 0x123`
+    # crus. Nenhum dos dois pega tudo: ~270 flags saem do cpp ainda com
+    # identificador dentro (dependem de enum, que o pré-processador não conhece).
+    # Por isso os dois SOMAM, com o cpp por cima, em vez de um substituir o
+    # outro. A primeira versão substituía, e um limiar de 90% jogava fora as 1678
+    # que o cpp acertava para ficar com as 1332 do regex.
+    padrao = re.compile(r"^#define\s+(FLAG_[A-Z0-9_]+)\s+(0[xX][0-9A-Fa-f]+|\d+)", re.M)
+    final = {n: int(v, 0) for n, v in padrao.findall(open(caminho).read())}
+    final.update(tabela)
+    if r.returncode != 0:
+        print(f"AVISO: cpp falhou em {caminho}, só o regex valeu. "
+              f"stderr: {r.stderr[-200:]}")
+    _FLAGS_CACHE[src] = final
+    return final
+
+
+def carrega_treinadores(src=None):
+    """Nome de treinador -> id, das DUAS tabelas, com a de Kanto por último.
+
+    Serve para a prova `oponente`, que é o que separa "abriu batalha no ginásio
+    de Pewter" de "lutou contra o Brock".
+    """
+    base = src or RAIZ
+    tabela = {}
+    for arq in ("opponents_frlg.h", "opponents.h"):
+        caminho = os.path.join(base, "include", "constants", arq)
+        if os.path.exists(caminho):
+            tabela.update(dict(re.findall(r"^#define (TRAINER_[A-Z0-9_]+)\s+(\d+)\s*$",
+                                          open(caminho).read(), re.M)))
+    return {k: int(v) for k, v in tabela.items()}
+
+
+def carrega_layouts(src=None):
+    """Idem: a faixa válida de mapLayoutId é a DA ROM.
+
+    Com a tabela do repo (1596 layouts, já com Unova) contra uma ROM de 1305, um
+    layout-lixo entre 1306 e 1596 passaria na checagem de "o mapa carregou".
+    """
+    caminho = os.path.join(src or RAIZ, "include", "constants", "layouts.h")
     padrao = re.compile(r"^#define\s+(LAYOUT_[A-Z0-9_]+)\s+(\d+)\s*$", re.M)
     return {n: int(v) for n, v in padrao.findall(open(caminho).read())}
 
 
 def carrega_simbolos(mapfile):
-    alvos = {"gSaveBlock1Ptr": None, "gPartiesCount": None}
+    alvos = {"gSaveBlock1Ptr": None, "gPartiesCount": None,
+             "gTrainerBattleParameter": None}
     padrao = re.compile(r"^\s+(0x[0-9a-f]+)\s+(\w+)\s*$")
     with open(mapfile) as f:
         for linha in f:
@@ -246,7 +329,8 @@ def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=Non
         os.remove(f)
     cmd = [RUNNER, rom, "900", roteiro, f"{SAIDA}/{prefixo}.png", "--dump-estado",
            "--sb1ptr", simbolos["gSaveBlock1Ptr"],
-           "--partycount", simbolos["gPartiesCount"]]
+           "--partycount", simbolos["gPartiesCount"],
+           "--oponente", simbolos["gTrainerBattleParameter"]]
     if offsets:
         cmd += ["--offsets", ",".join(str(v) for v in offsets)]
     for f in flags_lidas:
@@ -294,7 +378,7 @@ def monta_roteiro(caso, por_nome, tabela_flags):
     return ",".join(partes)
 
 
-def confere(caso, estados, por_nome, por_id, tabela_flags, layouts):
+def confere(caso, estados, por_nome, por_id, tabela_flags, layouts, treinadores=None):
     falhas = []
     final = estados[-1]
     prova = caso["prova"]
@@ -357,6 +441,33 @@ def confere(caso, estados, por_nome, por_id, tabela_flags, layouts):
         chave = f"flag_{hex(num_flag(nome, tabela_flags)).upper().replace('0X', '0x')}"
         if final.get(chave) != 0:
             falhas.append(f"flag {nome} deveria estar apagada e está {final.get(chave)}")
+
+    if "oponente" in prova:
+        alvo = prova["oponente"]
+        esperado = alvo if isinstance(alvo, int) else (treinadores or {}).get(alvo)
+        if esperado is None:
+            falhas.append(f"treinador da prova não existe: {alvo}")
+        elif final.get("oponente") != esperado:
+            inverso = {v: k for k, v in (treinadores or {}).items()}
+            falhas.append(f"a batalha começou contra o treinador errado: esperado "
+                          f"{alvo}={esperado}, obtido {final.get('oponente')} "
+                          f"({inverso.get(final.get('oponente'), 'sem nome')})")
+
+    if "oponente_faixa" in prova:
+        # Prova do conserto dos apelidos de Kanto. Só o id NÃO serve: o script
+        # usa TRAINER_CAMPER_LIAM e o apelido devolve exatamente o id do apelido,
+        # então "id bate" é verdade mesmo com o treinador errado na tela. O que
+        # muda quando o conserto entra é a FAIXA: os treinadores de Kanto com
+        # time próprio moram em 1400 a 1799. Medido em 05/08/2026, antes do
+        # conserto, o Liam do ginásio de Pewter abria batalha como o id 52, que
+        # é TRAINER_GABBY_AND_TY_2, uma dupla de repórteres de Hoenn.
+        lo, hi = prova["oponente_faixa"]
+        obtido = final.get("oponente")
+        if not (lo <= (obtido or 0) <= hi):
+            inverso = {v: k for k, v in (treinadores or {}).items()}
+            falhas.append(f"a batalha começou contra o id {obtido} "
+                          f"({inverso.get(obtido, 'sem nome')}), fora da faixa "
+                          f"{lo}..{hi} dos treinadores de Kanto com time próprio")
 
     for var, val in prova.get("vars", {}).items():
         chave = f"var_{hex(int(var, 0)).upper().replace('0X', '0x')}"
@@ -455,8 +566,14 @@ def confere_treinadores():
         print(f"[FALHA] {n} vale {frlg[n]} em opponents_frlg.h e {principal[n]} em "
               "opponents.h. Um dos dois scripts luta com o treinador errado.")
 
-    if not apelidos and not colisoes:
-        print("nenhum apelido e nenhuma colisão de constante de treinador")
+    # Reprova por apelido USADO, não por apelido existir. Sobram 370 nomes de
+    # Kanto que nenhum script referencia, e eles são inertes: não há mapa que
+    # possa entregar o treinador errado. A primeira versão reprovava por eles, e
+    # o portão nunca podia ficar verde, o que treina todo mundo a ignorar a
+    # saída. Foi assim que dois crashes sobreviveram a seis agentes nesta sessão.
+    if not usados and not colisoes:
+        print(f"nenhum apelido usado por script, e nenhuma colisão "
+              f"({len(apelidos)} apelidos inertes, sem mapa que os cite)")
         return 0
     return 1
 
@@ -513,9 +630,10 @@ def main():
     if not os.path.exists(RUNNER):
         raise SystemExit(f"gba_runner não encontrado: {RUNNER}")
 
-    por_nome, por_id = carrega_mapas()
-    tabela_flags = carrega_flags()
-    layouts = carrega_layouts()
+    por_nome, por_id = carrega_mapas(src)
+    tabela_flags = carrega_flags(src)
+    layouts = carrega_layouts(src)
+    treinadores = carrega_treinadores(src)
     simbolos = carrega_simbolos(mapfile)
     if faz_censo:
         return censo(rom, simbolos, offsets_da_fonte(src), por_nome, por_id, layouts)
@@ -579,7 +697,8 @@ def main():
                            caso["id"].replace(".", "_"),
                            flags_lidas, vars_lidas, caso.get("sav"),
                            offsets_do_caso)
-            falhas = confere(caso, estados, por_nome, por_id, tabela_flags, layouts)
+            falhas = confere(caso, estados, por_nome, por_id, tabela_flags, layouts,
+                             treinadores)
         except Exception as e:                                  # noqa: BLE001
             falhas = [f"ERRO ao rodar: {e}"]
         marca = "OK   " if not falhas else "FALHA"

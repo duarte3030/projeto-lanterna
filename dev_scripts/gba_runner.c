@@ -29,6 +29,7 @@
  *   --var N               inclui a var N (0x4000+) no dump
  *   --sb1ptr 0x030051cc   endereco de gSaveBlock1Ptr (vem do pokeemerald.map)
  *   --partycount 0x02031c38  endereco de gPartiesCount
+ *   --oponente 0x02000928 endereco de gTrainerBattleParameter
  *   --offsets a,b,c,d,e,f,g  offsets dentro de SaveBlock1, medidos da fonte
  *   --sem-png             nao grava PNG nenhum (teste que so olha memoria)
  *
@@ -83,6 +84,14 @@ static int      VARS_COUNT      = 256;
 
 static uint32_t g_sb1ptr = 0x030051cc;      /* gSaveBlock1Ptr */
 static uint32_t g_partycount = 0x02031c38;  /* gPartiesCount, indice 0 = jogador */
+
+/* gTrainerBattleParameter. O campo opponentA e um u16 em +2 (medido com o
+   mesmo probe dos offsets de SaveBlock1). Existe para provar CONTRA QUEM a
+   batalha comecou, e nao so que uma batalha comecou: em Kanto, 623 constantes
+   de treinador sao apelidos de outro treinador, entao "abriu batalha no ginasio
+   de Pewter" e verdade mesmo quando quem aparece e um montanhista de Hoenn. */
+static uint32_t g_oponente = 0x02000928;
+#define OPONENTE_A_OFFSET 2
 
 /* enderecos pedidos no dump */
 #define MAX_PEDIDOS 64
@@ -149,6 +158,8 @@ static void dump_estado(struct mCore *core, const char *rotulo) {
                (int16_t)core->busRead16(core, base + SB1_POS_Y),
                (int)core->busRead8(core, base + SB1_PARTYCOUNT),
                (int)core->busRead8(core, g_partycount));
+        printf(" oponente=%d",
+               (int)core->busRead16(core, g_oponente + OPONENTE_A_OFFSET));
         for (int i = 0; i < g_n_flags; i++)
             printf(" flag_0x%X=%d", g_flags_pedidas[i], le_flag(core, g_flags_pedidas[i]));
         for (int i = 0; i < g_n_vars; i++)
@@ -346,6 +357,8 @@ int main(int argc, char **argv) {
             g_sb1ptr = (uint32_t)strtoul(argv[++i], NULL, 0);
         } else if (!strcmp(argv[i], "--partycount") && i + 1 < argc) {
             g_partycount = (uint32_t)strtoul(argv[++i], NULL, 0);
+        } else if (!strcmp(argv[i], "--oponente") && i + 1 < argc) {
+            g_oponente = (uint32_t)strtoul(argv[++i], NULL, 0);
         } else if (!strcmp(argv[i], "--offsets") && i + 1 < argc) {
             /* loc,layout,party,flags,vars,nflags,nvars, medidos da fonte da build */
             uint32_t v[7];
