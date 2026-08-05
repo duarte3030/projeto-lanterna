@@ -236,7 +236,43 @@
       "origem": "pokeplatinum"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 22,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_FIGHT_AREA_POKECENTER_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 51,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_FIGHT_AREA_MART",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 39,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_BATTLE_FRONTIER_GATE_TO_FIGHT_AREA",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 37,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_FIGHT_AREA_MIDDLE_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 46,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_FIGHT_AREA_SOUTH_HOUSE",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": [
     {

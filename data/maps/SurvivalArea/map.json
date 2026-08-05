@@ -138,7 +138,43 @@
       "origem": "pokeplatinum"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 17,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SURVIVAL_AREA_POKECENTER_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 23,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SURVIVAL_AREA_MART",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 10,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_BATTLEGROUND",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 15,
+      "y": 28,
+      "elevation": 0,
+      "dest_map": "MAP_SURVIVAL_AREA_SOUTH_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 16,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_SURVIVAL_AREA_NORTH_HOUSE",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": [
     {

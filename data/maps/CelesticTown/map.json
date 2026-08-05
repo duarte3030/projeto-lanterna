@@ -110,7 +110,22 @@
       "origem": "pokeplatinum"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 27,
+      "y": 27,
+      "elevation": 0,
+      "dest_map": "MAP_CELESTIC_TOWN_POKECENTER_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 18,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_CELESTIC_TOWN_NORTH_HOUSE",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": [
     {

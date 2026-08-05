@@ -101,6 +101,20 @@
       "elevation": 0,
       "dest_map": "MAP_LAKE_VALOR",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 39,
+      "y": 47,
+      "elevation": 0,
+      "dest_map": "MAP_GRAND_LAKE_VALOR_LAKEFRONT_EAST_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 12,
+      "y": 56,
+      "elevation": 0,
+      "dest_map": "MAP_GRAND_LAKE_VALOR_LAKEFRONT_WEST_HOUSE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

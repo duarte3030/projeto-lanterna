@@ -301,6 +301,13 @@
       "elevation": 0,
       "dest_map": "MAP_ROUTE208_ACCESS",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 11,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE_208_HOUSE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

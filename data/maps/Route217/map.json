@@ -334,7 +334,22 @@
       "origem": "pokeplatinum"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 7,
+      "y": 54,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE_217_WEST_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 30,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE_217_NORTHEAST_HOUSE",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": [
     {

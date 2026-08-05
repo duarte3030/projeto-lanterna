@@ -157,9 +157,21 @@ def nossos_mapas_sinnoh():
     Route29, que são de Johto, e "Lake" pega LakeOfRage. Rota de Sinnoh tem
     três dígitos (201 a 230), e é assim que elas se separam."""
     base = os.path.join(REPO, "data/maps")
+    # ponytail: prefixo nao alcanca predio de nome proprio (Cafe, Villa,
+    # GameCorner, CycleShop, PokemonDayCare). O grupo alcanca: mapa que mora num
+    # grupo com "Sinnoh" no nome E de Sinnoh, sem lista de nome para envelhecer.
+    grupos = json.load(open(os.path.join(base, "map_groups.json")))
+    por_grupo = {m for g in grupos.get("group_order", []) if "sinnoh" in g.lower()
+                 for m in grupos.get(g, [])}
+
     def da_regiao(n):
+        if n in por_grupo:
+            return True
         if n.startswith("Route"):
-            return bool(re.match(r"Route2[0-3]\d(?:_|$)", n))
+            # sem ancora no fim: "Route205House" e de Sinnoh tanto quanto
+            # "Route205_South". Route26 a Route29 (Johto) tem dois digitos e
+            # nao casam com Route2[0-3]\d, que exige tres.
+            return bool(re.match(r"Route2[0-3]\d", n))
         if n.startswith("LakeOfRage"):
             return False
         return any(n.startswith(p) for p in PREFIXOS)

@@ -397,6 +397,34 @@
       "elevation": 0,
       "dest_map": "MAP_HOTEL_GRAND_LAKE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 26,
+      "y": 30,
+      "elevation": 0,
+      "dest_map": "MAP_FOOTSTEP_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 74,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_GRAND_LAKE_ROUTE_213_EAST_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 72,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_GRAND_LAKE_ROUTE_213_NORTHWEST_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 63,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_GRAND_LAKE_ROUTE_213_NORTHEAST_HOUSE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

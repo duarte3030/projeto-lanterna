@@ -217,6 +217,34 @@
       "elevation": 0,
       "dest_map": "MAP_CANALAVE_CITY_GYM",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 28,
+      "y": 22,
+      "elevation": 0,
+      "dest_map": "MAP_CANALAVE_CITY_POKECENTER_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 24,
+      "y": 39,
+      "elevation": 0,
+      "dest_map": "MAP_CANALAVE_CITY_MART",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_CANALAVE_LIBRARY_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 9,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_CANALAVE_CITY_SOUTHEAST_HOUSE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

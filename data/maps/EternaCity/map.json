@@ -318,6 +318,55 @@
       "elevation": 0,
       "dest_map": "MAP_TEAM_GALACTIC_ETERNA_BUILDING_1F",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 16,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_ETERNA_CITY_POKECENTER_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 25,
+      "y": 33,
+      "elevation": 0,
+      "dest_map": "MAP_ETERNA_CITY_MART",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 21,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_CYCLE_SHOP",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 16,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_ETERNA_CITY_HERB_SHOP",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 39,
+      "y": 22,
+      "elevation": 0,
+      "dest_map": "MAP_ETERNA_CITY_CONDOMINIUMS_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 9,
+      "y": 44,
+      "elevation": 0,
+      "dest_map": "MAP_ETERNA_CITY_SOUTH_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 19,
+      "y": 33,
+      "elevation": 0,
+      "dest_map": "MAP_ETERNA_CITY_EAST_HOUSE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
