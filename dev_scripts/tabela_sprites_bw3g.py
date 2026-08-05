@@ -297,7 +297,7 @@ if __name__ == "__main__":
 
     # 3. Cobertura: nenhuma constante usada pelo BW3G pode ficar de fora.
     #    (só roda se o clone de origem ainda estiver por perto)
-    BW3G = "/tmp/bw3g-probe"
+    BW3G = "/Users/duarte/Projetos/pokemon-claude/fontes-mapas/bw3g"
     if os.path.isdir(os.path.join(BW3G, "maps")):
         import glob
         usados_sprite, usados_mov = set(), set()

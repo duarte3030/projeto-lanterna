@@ -14,7 +14,7 @@ import re
 import sys
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BW3G = "/tmp/bw3g-probe"
+BW3G = "/Users/duarte/Projetos/pokemon-claude/fontes-mapas/bw3g"
 BASE_ID = 1800
 TETO_ID = 2199
 sys.path.insert(0, os.path.join(RAIZ, "dev_scripts"))

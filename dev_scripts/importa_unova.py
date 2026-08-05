@@ -6,7 +6,7 @@ Uso:
     python3 dev_scripts/importa_unova.py --gravar     # gera mapas e registra
 
 Fonte: github.com/AzureKeys/BW3G, "Black and White 3: Genesis", de Azure_Keys,
-clonado em /tmp/bw3g-probe. E um projeto pokecrystal, entao o formato e o mesmo
+clonado em /Users/duarte/Projetos/pokemon-claude/fontes-mapas/bw3g. E um projeto pokecrystal, entao o formato e o mesmo
 que `dev_scripts/demake_gen2.py` ja converte; a unica diferenca e a extensao dos
 blocos (`.ablk` em vez de `.blk`), byte por bloco igual.
 
@@ -47,7 +47,7 @@ sys.path.insert(0, os.path.join(RAIZ, "dev_scripts"))
 
 import demake_gen2 as dg  # noqa: E402
 
-BW3G = "/tmp/bw3g-probe"
+BW3G = "/Users/duarte/Projetos/pokemon-claude/fontes-mapas/bw3g"
 dg.FONTE = BW3G
 dg.EXT = ".ablk"
 

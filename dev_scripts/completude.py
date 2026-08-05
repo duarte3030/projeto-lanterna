@@ -53,7 +53,7 @@ REGIOES = {
     # tem um .asm com warp_event, bg_event e object_event em macro. Eu tinha
     # marcado "sem fonte" por nao ter escrito o leitor, o que e diferente de nao
     # dar para medir. Ver le_gen2().
-    "Unova":  {"grupo": "Unova",          "fonte": "/tmp/bw3g-probe",
+    "Unova":  {"grupo": "Unova",          "fonte": "/Users/duarte/Projetos/pokemon-claude/fontes-mapas/bw3g",
                "gen2": True},
 }
 

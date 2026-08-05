@@ -49,7 +49,7 @@ import struct
 import sys
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BW3G = "/tmp/bw3g-probe"
+BW3G = "/Users/duarte/Projetos/pokemon-claude/fontes-mapas/bw3g"
 
 # ---------------------------------------------------------------- as tabelas
 

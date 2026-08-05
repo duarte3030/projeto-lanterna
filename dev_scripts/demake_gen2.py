@@ -33,7 +33,7 @@ import sys
 CRYSTAL = "/tmp/claude-501/pcrystal"
 
 # Fonte corrente. O caminho do pokecrystal continua sendo o padrao; quem converte
-# outro projeto pokecrystal (o BW3G, em /tmp/bw3g-probe, cujos blocos sao .ablk)
+# outro projeto pokecrystal (o BW3G, em /Users/duarte/Projetos/pokemon-claude/fontes-mapas/bw3g, cujos blocos sao .ablk)
 # so troca estas duas variaveis antes de chamar `converte`. Medido em 05/08/2026:
 # o .ablk e byte por bloco igual ao .blk, 198 dos 200 mapas com blocos proprios
 # batem exato com `map_const NOME, w, h`.
