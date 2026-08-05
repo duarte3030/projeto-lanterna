@@ -24,7 +24,10 @@ set -uo pipefail
 cd "$(dirname "$0")/.." || exit 1
 REPO=$(pwd)
 export DEVKITARM="${DEVKITARM:-$HOME/toolchains/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi}"
-LOG=/tmp/antes_de_empurrar.log
+# ponytail: caminho fixo aqui fez duas sessoes rodando o portao ao mesmo tempo
+# sobrescreverem o log uma da outra, e o `tail` de uma mostrou a compilacao da
+# outra em vez da causa da falha. $$ e o pid.
+LOG=/tmp/antes_de_empurrar.$$.log
 FALHAS=0
 
 WT=$(mktemp -d /tmp/verifica-head.XXXXXX)
@@ -66,8 +69,13 @@ passo "o declarado entrou na ROM"  "python3 dev_scripts/valida_rom.py"
 passo "conectividade"              "python3 dev_scripts/valida_conectividade.py 2>&1 | grep -q 'warps quebrados: 0'"
 passo "sprites e objetos"          "python3 dev_scripts/valida_mapas_sinnoh.py 2>&1 | grep -qE \"'sprite': 0\""
 
+# --piso, e nao o total: o numero nunca chega a 100%, porque existe warp
+# legitimo em tile que nao e porta (o motor tambem entra por script, e muita
+# porta de Hoenn e trocada por setmetatile em tempo de execucao). Exigir 100%
+# deixava este passo vermelho para sempre, que e o mesmo que nao ter passo. O
+# que interessa e catastrofe por regiao: Johto passou a madrugada em 1,6%.
 [ -f dev_scripts/valida_warp_tile.py ] && \
-    passo "warp em tile que dispara" "python3 dev_scripts/valida_warp_tile.py"
+    passo "warp em tile que dispara" "python3 dev_scripts/valida_warp_tile.py --piso 60"
 [ -f dev_scripts/testa_critico.py ] && \
     passo "treinador sem time"       "python3 dev_scripts/testa_critico.py --treinadores"
 [ -f dev_scripts/testa_percurso.py ] && \

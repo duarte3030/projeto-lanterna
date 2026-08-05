@@ -123,6 +123,17 @@ def tabela_de_atributos(tileset):
     return vals, n
 
 
+PISO_PADRAO = 60  # por cento
+
+# Regioes de verdade, para medir uma a uma. O total nunca chega a 100%: existe
+# warp legitimo em tile que nao e porta (o motor tambem entra por script, e
+# muita porta de Hoenn e trocada por setmetatile em tempo de execucao). Exigir
+# 100% fazia o portao ficar vermelho para sempre, que e o mesmo que nao ter
+# portao. O que interessa e catastrofe: Johto estava em 1,6% e ninguem viu.
+REGIOES = {"Hoenn": "TownsAndRoutes", "Kanto": "Frlg", "Sinnoh": "Sinnoh",
+           "Johto": "Johto", "Unova": "Unova"}
+
+
 def main():
     filtro = None
     if "--regiao" in sys.argv:
@@ -206,6 +217,11 @@ def main():
 
     print(f"warps conferidos: {total}, disparam de verdade: {ok} "
           f"({100*ok/total:.1f}%)" if total else "nenhum warp")
+
+    if "--piso" in sys.argv:
+        i = sys.argv.index("--piso")
+        piso = int(sys.argv[i + 1]) if len(sys.argv) > i + 1 else PISO_PADRAO
+        return abaixo_do_piso(piso)
     if mudos:
         print(f"\n{len(mudos)} mapas NAO conferidos (nao contam como zero, contam "
               f"como cegueira):")
@@ -221,6 +237,28 @@ def main():
         for i, x, y, motivo in r[:2]:
             print(f"          warp {i} em ({x},{y}): {motivo}")
     return 1
+
+
+def abaixo_do_piso(piso):
+    """Reprova so a regiao que despencou. Devolve 1 se alguma ficou abaixo."""
+    import subprocess
+    ruins = []
+    for nome, chave in REGIOES.items():
+        r = subprocess.run([sys.executable, __file__, "--regiao", chave],
+                           capture_output=True, text=True)
+        m = re.search(r"\(([\d.]+)%\)", r.stdout)
+        pct = float(m.group(1)) if m else 0.0
+        marca = "ok " if pct >= piso else "ABAIXO"
+        print(f"  {marca}  {nome:8s} {pct:5.1f}%")
+        if pct < piso:
+            ruins.append((nome, pct))
+    if ruins:
+        print(f"\n{len(ruins)} regiao(oes) abaixo do piso de {piso}%:")
+        for n, p in ruins:
+            print(f"  {n}: {p:.1f}%")
+        return 1
+    print(f"\nnenhuma regiao abaixo do piso de {piso}%.")
+    return 0
 
 
 def demo():
