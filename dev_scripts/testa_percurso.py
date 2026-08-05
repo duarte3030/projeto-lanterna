@@ -27,10 +27,23 @@ RUNNER = ("/Users/duarte/Documents/ANTIGRAVITY/Pokemon Claude/Pokemon Claude"
           "/ferramentas/gba_runner")
 SAIDA = "/tmp/claude-501/percurso"
 
-# Abertura ate o jogador andando. Medido nesta sessao: a introducao pede muitos
-# A, e o menu so aparece depois de ~900 quadros.
-ABERTURA = ("90:A,90:A,90:A,90:A,90:A,240:NADA,120:A*14,240:NADA,120:A*10,"
-            "240:NADA,120:A*20,300:NADA,120:A*20,300:NADA")
+# Abertura ate o jogador andando. NAO duplicar aqui: ela e medida quadro a
+# quadro em testa_critico.py e ja mudou uma vez, quando o jogo passou a comecar
+# no quarto de Pallet Town em vez de Twinleaf. Com a copia velha deste arquivo o
+# jogador terminava a abertura com a caixa de texto do NES aberta, o START da
+# prova de vida nao abria menu nenhum, e os 6 percursos falhavam com o jogo
+# inteiro certo. Era o teste velho, nao regressao do jogo.
+def _abertura():
+    import importlib.util
+    caminho = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                           "testa_critico.py")
+    spec = importlib.util.spec_from_file_location("_tc", caminho)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod.ABERTURA
+
+
+ABERTURA = _abertura()
 
 # Cada percurso e um trecho jogado depois da abertura.
 PERCURSOS = {
