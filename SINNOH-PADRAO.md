@@ -84,3 +84,35 @@ segunda está marcada como não usada, mas a **primeira é de Hoenn e é usada**
 cena do Oak em Pallet Town e o estado de Littleroot escrevem no mesmo lugar.
 Não atrapalha a abertura de Kanto, mas quem for ligar a chegada em Hoenn precisa
 resolver isso antes.
+
+## Flags gastas pelo trio de iniciais por região (05/08/2026)
+
+**Vars gastas: zero.** `VAR_STARTER_MON` já existia e agora é escrita pelas
+cinco regiões, cada uma com o índice dentro do PRÓPRIO trio (0=grama, 1=fogo,
+2=água; Kanto é a exceção e mantém a numeração do FRLG, 0=Bulbasaur,
+1=Squirtle, 2=Charmander, porque os scripts do rival de Kanto já a leem assim).
+Como cada região escreve na chegada e só os scripts daquela região leem, uma var
+só serve para as cinco.
+
+| Flag | Onde | Por que uma por região |
+|---|---|---|
+| `FLAG_INICIAL_JOHTO` (`FLAG_UNUSED_0x054`) | laboratório do Elm | esconde as três Poké Bolas depois da escolha |
+| `FLAG_INICIAL_SINNOH` (`FLAG_UNUSED_0x055`) | laboratório do Rowan | idem |
+| `FLAG_INICIAL_UNOVA` (`FLAG_UNUSED_0x4EF`) | laboratório de Nuvema | idem |
+
+`FLAG_SYS_POKEMON_GET` não serve como porteiro dessas três: com a ordem
+cronológica (decisão 66) quem a acende é o Oak, em Kanto, e a partir dali as
+bolas dos outros laboratórios não nasceriam mais. Kanto continua com ela porque
+é a primeira região, e Hoenn continua com
+`FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG`, que já é só dela.
+
+**Nota de faixa:** a faixa reservada para este agente era
+`FLAG_UNUSED_0x050` a `0x05F`, mas só **duas** dessas dezesseis existem livres
+(`0x054` e `0x055`): `0x50` a `0x53` e `0x56` a `0x5F` são flags de Hoenn em
+uso (`FLAG_RESCUED_BIRCH`, `FLAG_SET_WALL_CLOCK` e companhia). Como os três
+laboratórios precisam de três bits independentes (um jogador pode pular o
+laboratório de uma região e pegar o inicial da seguinte primeiro, então contador
+de 2 bits não resolve), a terceira saiu de `FLAG_UNUSED_0x4EF`, o fim de um
+bloco de 64 flags livres que nenhum agente encostou. Escrito aqui para que a
+próxima faixa distribuída seja conferida contra o arquivo antes de ser
+prometida.

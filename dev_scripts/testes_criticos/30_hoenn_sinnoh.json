@@ -238,26 +238,26 @@
   },
   {
     "id": "T9.13",
-    "nome": "Liga de Sinnoh: Hall da Fama carrega, e antes da cerimônia FLAG_SYS_GAME_CLEAR (0xA7C) está apagada",
+    "nome": "Liga de Sinnoh: Hall da Fama carrega, e antes da cerimônia FLAG_SYS_GAME_CLEAR está apagada | 05/08/2026: este caso reprovava por NUMERO VELHO, nao por bug de jogo. A prova estava escrita como 0xA7C, cru. As flags de sistema nascem depois das de treinador (SYSTEM_FLAGS = TRAINER_FLAGS_END + 1), e o teto de treinador subiu de 1400 para 2200 nesta madrugada: FLAG_SYS_GAME_CLEAR virou 0xE64. O teste lia 0xA7C, que hoje e flag de treinador, e via 0 com a cerimonia rodando ate os creditos. Agora vai pelo NOME, que o cpp resolve, e nao envelhece de novo",
     "warp": "MAP_SINNOH_LEAGUE_HALL_OF_FAME",
     "prova": {
       "mapa": "MAP_SINNOH_LEAGUE_HALL_OF_FAME",
       "layout": "LAYOUT_EVER_GRANDE_CITY_HALL_OF_FAME",
       "flags_apagadas": [
-        "0xA7C"
+        "FLAG_SYS_GAME_CLEAR"
       ]
     }
   },
   {
     "id": "T9.14",
-    "nome": "EVENTO POR FLAG: a cerimônia do Hall da Fama de Sinnoh roda até o fim e acende FLAG_SYS_GAME_CLEAR (0xA7C), que só o special GameClear liga (não existe nenhum setflag dela em data/, nem no Cheat start). Roteiro sem campo warp: usa Cheat start do menu de debug para ter time (com time vazio a cerimônia estoura em OUT OF SPRITE SLOTS, e isso vale igual no Hall da Fama de Hoenn) e depois digita o warp 99/6 na mão, porque flags e warp do harness rodam antes do roteiro. Se MAP_SINNOH_LEAGUE_HALL_OF_FAME deixar de ser 99/6, este caso falha na prova de mapa, e é o sinal de que o número mudou. VAR_TEMP_1 ficou fora da prova de propósito: ClearTempFieldEventData zera ela quando a tela do Hall da Fama entra, então o valor é uma corrida",
+    "nome": "EVENTO POR FLAG: a cerimônia do Hall da Fama de Sinnoh roda até o fim e acende FLAG_SYS_GAME_CLEAR, que só o special GameClear liga (não existe nenhum setflag dela em data/, nem no Cheat start). Roteiro sem campo warp: usa Cheat start do menu de debug para ter time (com time vazio a cerimônia estoura em OUT OF SPRITE SLOTS, e isso vale igual no Hall da Fama de Hoenn) e depois digita o warp 99/6 na mão, porque flags e warp do harness rodam antes do roteiro. Se MAP_SINNOH_LEAGUE_HALL_OF_FAME deixar de ser 99/6, este caso falha na prova de mapa, e é o sinal de que o número mudou. VAR_TEMP_1 ficou fora da prova de propósito: ClearTempFieldEventData zera ela quando a tela do Hall da Fama entra, então o valor é uma corrida | 05/08/2026: este caso reprovava por NUMERO VELHO, nao por bug de jogo. A prova estava escrita como 0xA7C, cru. As flags de sistema nascem depois das de treinador (SYSTEM_FLAGS = TRAINER_FLAGS_END + 1), e o teto de treinador subiu de 1400 para 2200 nesta madrugada: FLAG_SYS_GAME_CLEAR virou 0xE64. O teste lia 0xA7C, que hoje e flag de treinador, e via 0 com a cerimonia rodando ate os creditos. Agora vai pelo NOME, que o cpp resolve, e nao envelhece de novo",
     "roteiro": "40:R+START!,60:NADA,20:A,40:NADA,20:DOWN*6,20:A,240:NADA,20:B,60:NADA,40:R+START!,60:NADA,20:A,40:NADA,20:DOWN,20:A,60:NADA,12:RIGHT,12:RIGHT,12:LEFT,12:UP*9,12:LEFT,12:UP*9,20:A,40:NADA,12:RIGHT,12:RIGHT,12:LEFT,12:LEFT,12:UP*6,20:A,40:NADA,12:RIGHT,12:RIGHT,12:LEFT,12:LEFT,20:A,300:NADA,180:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,15:A,45:NADA,1200:NADA",
     "prova": {
       "mapa": "MAP_SINNOH_LEAGUE_HALL_OF_FAME",
       "layout": "LAYOUT_EVER_GRANDE_CITY_HALL_OF_FAME",
       "time_min": 1,
       "flags_acesas": [
-        "0xA7C"
+        "FLAG_SYS_GAME_CLEAR"
       ]
     }
   },
