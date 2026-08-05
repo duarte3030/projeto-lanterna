@@ -114,6 +114,54 @@ def main():
                     vizinhos.add(destino)
         saidas[origem] = vizinhos
 
+    # ---------------------------------------------------------------
+    # Regra de ida-e-volta, VERSAO ESTREITA. Estava na especificacao desde o
+    # comeco e eu nunca tinha escrito; quando escrevi, a versao ampla nao servia.
+    #
+    # O problema que ela existe para pegar: o item 1 abaixo so confere que o
+    # INDICE existe. Se A manda para o warp 4 de B e B tem 5 warps, passa. Foi
+    # por baixo disso que 6 ginasios de Sinnoh saiam para o warp 0 da cidade,
+    # que e a porta de OUTRO predio. Indice 0 existe em todo mapa.
+    #
+    # A versao ampla ("todo warp tem que voltar") acusou 427 casos aqui. Medi o
+    # pret/pokeemerald intocado: 131 casos em 518 mapas, 25,3 por 100, contra
+    # 26,4 por 100 aqui. **O vanilla tem a mesma taxa**, porque predio de varias
+    # portas, corredor de mao unica e saida compartilhada sao desenho normal. A
+    # regra ampla nao distingue bug de padrao, e seria mais um validador de
+    # falso positivo, que e o erro que esta sessao passou a noite consertando.
+    #
+    # A versao que serve: INTERIOR COM UMA PORTA SO tem que devolver para si
+    # mesmo. Casa de uma porta e caso sem ambiguidade. Mede zero aqui e zero no
+    # vanilla, e teria acusado os 6 ginasios, que tinham exatamente uma saida.
+    ida_volta = []
+    for origem, info in mapas.items():
+        d = info["dados"]
+        ws = d.get("warp_events") or []
+        if len(ws) != 1 or d.get("map_type") != "MAP_TYPE_INDOOR":
+            continue
+        w = ws[0]
+        destino = w.get("dest_map", "")
+        if destino not in mapas:
+            continue
+        try:
+            j = int(w.get("dest_warp_id", 0))
+        except (TypeError, ValueError):
+            continue
+        la = mapas[destino]["dados"].get("warp_events") or []
+        if not (0 <= j < len(la)):
+            continue
+        volta = la[j].get("dest_map", "")
+        if volta in ("MAP_NONE", "MAP_DYNAMIC", ""):
+            continue
+        if volta != origem:
+            ida_volta.append((origem, destino, j, volta))
+
+    print(f"=== 0. porta unica que nao devolve: {len(ida_volta)} ===")
+    for origem, destino, j, volta in ida_volta[:20]:
+        print(f"  {origem} tem UMA saida, para {destino} warp {j}, "
+              f"e esse warp leva a {volta}")
+    print()
+
     print(f"=== 1. warps quebrados: {len(quebrados)} ===")
     for origem, i, destino, motivo in quebrados[:25]:
         print(f"  {origem} warp {i} -> {destino}: {motivo}")
