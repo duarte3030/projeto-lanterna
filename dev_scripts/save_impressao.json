@@ -1,7 +1,7 @@
 {
  "contagens": {
   "daily_flags_end_expr": "FLAG_UNUSED_0x95F + (7 - FLAG_UNUSED_0x95F % 8))",
-  "n_flag_unused": 454,
+  "n_flag_unused": 468,
   "n_var_unused": 30,
   "vars_start_end": [
    "0x4000",
@@ -5060,6 +5060,1170 @@
   "UnionRoom_Frlg": [
    34,
    4
+  ],
+  "Unova_AccumulaBallManiacHouse": [
+   115,
+   2
+  ],
+  "Unova_AccumulaHouse": [
+   115,
+   3
+  ],
+  "Unova_AccumulaPokecenter1F": [
+   115,
+   1
+  ],
+  "Unova_AccumulaTown": [
+   115,
+   0
+  ],
+  "Unova_AccumulaTradeHouse": [
+   115,
+   4
+  ],
+  "Unova_AldersHouse": [
+   111,
+   9
+  ],
+  "Unova_AspertiaBlackbeltHouse": [
+   110,
+   2
+  ],
+  "Unova_AspertiaCity": [
+   110,
+   0
+  ],
+  "Unova_AspertiaGym": [
+   110,
+   6
+  ],
+  "Unova_AspertiaMomHouse": [
+   110,
+   4
+  ],
+  "Unova_AspertiaMoveDeleterHouse": [
+   110,
+   5
+  ],
+  "Unova_AspertiaPokecenter1F": [
+   110,
+   3
+  ],
+  "Unova_AspertiaSubway": [
+   110,
+   1
+  ],
+  "Unova_BattleCompany1F": [
+   109,
+   8
+  ],
+  "Unova_BattleCompany2F": [
+   109,
+   9
+  ],
+  "Unova_CaitlinsHouse": [
+   105,
+   7
+  ],
+  "Unova_CasteliaBikeShop": [
+   109,
+   4
+  ],
+  "Unova_CasteliaBridgeGate": [
+   109,
+   7
+  ],
+  "Unova_CasteliaCityNorth": [
+   109,
+   0
+  ],
+  "Unova_CasteliaCitySouth": [
+   109,
+   2
+  ],
+  "Unova_CasteliaCityStreets": [
+   109,
+   1
+  ],
+  "Unova_CasteliaGameFreak": [
+   109,
+   6
+  ],
+  "Unova_CasteliaGym": [
+   109,
+   10
+  ],
+  "Unova_CasteliaMassage": [
+   109,
+   5
+  ],
+  "Unova_CasteliaPlazaElevator": [
+   109,
+   21
+  ],
+  "Unova_CasteliaPlazaGameCorner": [
+   109,
+   18
+  ],
+  "Unova_CasteliaPlazaLobby": [
+   109,
+   17
+  ],
+  "Unova_CasteliaPlazaPrizeRoom": [
+   109,
+   19
+  ],
+  "Unova_CasteliaPlazaRestaurant": [
+   109,
+   20
+  ],
+  "Unova_CasteliaPokecenter1F": [
+   109,
+   3
+  ],
+  "Unova_CasteliaPort": [
+   109,
+   11
+  ],
+  "Unova_CasteliaSewers": [
+   101,
+   27
+  ],
+  "Unova_CasteliaSewersRooms": [
+   101,
+   28
+  ],
+  "Unova_CasteliaTradeHouse1": [
+   109,
+   15
+  ],
+  "Unova_CasteliaTradeHouse2": [
+   109,
+   16
+  ],
+  "Unova_CelestialTower": [
+   101,
+   35
+  ],
+  "Unova_CelestialTower1F": [
+   101,
+   34
+  ],
+  "Unova_CelestialTowerRoof": [
+   101,
+   36
+  ],
+  "Unova_ChampionsRoom": [
+   122,
+   17
+  ],
+  "Unova_ChampionsRoomEntrance": [
+   122,
+   16
+  ],
+  "Unova_ChargestoneCave1F": [
+   101,
+   31
+  ],
+  "Unova_ChargestoneCaveB1F": [
+   101,
+   32
+  ],
+  "Unova_ChargestoneCaveB2F": [
+   101,
+   33
+  ],
+  "Unova_Colosseum": [
+   102,
+   2
+  ],
+  "Unova_ColresssRoom": [
+   122,
+   15
+  ],
+  "Unova_DesertResort": [
+   108,
+   3
+  ],
+  "Unova_DragonspiralTower1F": [
+   101,
+   40
+  ],
+  "Unova_DragonspiralTower2F": [
+   101,
+   41
+  ],
+  "Unova_DragonspiralTower3F": [
+   101,
+   42
+  ],
+  "Unova_DragonspiralTower4F": [
+   101,
+   43
+  ],
+  "Unova_DragonspiralTower5F": [
+   101,
+   44
+  ],
+  "Unova_DragonspiralTower6F": [
+   101,
+   45
+  ],
+  "Unova_DragonspiralTowerOutside": [
+   101,
+   39
+  ],
+  "Unova_DragonspiralTowerRoof": [
+   101,
+   46
+  ],
+  "Unova_DraydensHouse1F": [
+   120,
+   11
+  ],
+  "Unova_DraydensHouse2F": [
+   120,
+   12
+  ],
+  "Unova_Dreamyard": [
+   101,
+   51
+  ],
+  "Unova_DreamyardB1F": [
+   101,
+   52
+  ],
+  "Unova_DriftveilBridgeGate": [
+   118,
+   4
+  ],
+  "Unova_DriftveilCity": [
+   118,
+   0
+  ],
+  "Unova_DriftveilDrawbridge": [
+   118,
+   6
+  ],
+  "Unova_DriftveilFossilHouse": [
+   118,
+   3
+  ],
+  "Unova_DriftveilHouse": [
+   118,
+   8
+  ],
+  "Unova_DriftveilPokecenter1F": [
+   118,
+   2
+  ],
+  "Unova_DriftveilShelter": [
+   118,
+   5
+  ],
+  "Unova_DriftveilStoneEmporium": [
+   118,
+   7
+  ],
+  "Unova_DriftveilTradeHouse": [
+   118,
+   9
+  ],
+  "Unova_ElesasRoom": [
+   122,
+   14
+  ],
+  "Unova_FerryLeft": [
+   109,
+   12
+  ],
+  "Unova_FerryRight": [
+   112,
+   8
+  ],
+  "Unova_FloccesyPokecenter1F": [
+   111,
+   1
+  ],
+  "Unova_FloccesyRanch": [
+   111,
+   4
+  ],
+  "Unova_FloccesyRanchBarn": [
+   111,
+   5
+  ],
+  "Unova_FloccesyRanchHouse": [
+   111,
+   6
+  ],
+  "Unova_FloccesyTown": [
+   111,
+   0
+  ],
+  "Unova_FloccesyTownHouse": [
+   111,
+   7
+  ],
+  "Unova_FloccesyTradeHouse": [
+   111,
+   8
+  ],
+  "Unova_GameCorner": [
+   112,
+   3
+  ],
+  "Unova_GiantChasm1F": [
+   101,
+   0
+  ],
+  "Unova_GiantChasmB1F": [
+   101,
+   2
+  ],
+  "Unova_GiantChasmRooms": [
+   101,
+   1
+  ],
+  "Unova_GrimsleysRoom": [
+   122,
+   12
+  ],
+  "Unova_HallOfFame": [
+   122,
+   18
+  ],
+  "Unova_HumilauCity": [
+   103,
+   2
+  ],
+  "Unova_HumilauGym": [
+   103,
+   7
+  ],
+  "Unova_HumilauPokecenter1F": [
+   103,
+   3
+  ],
+  "Unova_HumilauTradeHouse": [
+   103,
+   6
+  ],
+  "Unova_IcirrusBoutique": [
+   121,
+   7
+  ],
+  "Unova_IcirrusCave": [
+   121,
+   10
+  ],
+  "Unova_IcirrusCityNorth": [
+   121,
+   3
+  ],
+  "Unova_IcirrusCitySouth": [
+   121,
+   2
+  ],
+  "Unova_IcirrusCitySouthConnectionDummy": [
+   121,
+   1
+  ],
+  "Unova_IcirrusFanClub": [
+   121,
+   9
+  ],
+  "Unova_IcirrusHouse": [
+   121,
+   8
+  ],
+  "Unova_IcirrusPokecenter1F": [
+   121,
+   6
+  ],
+  "Unova_LacunosaHouse": [
+   104,
+   4
+  ],
+  "Unova_LacunosaHouse2": [
+   104,
+   5
+  ],
+  "Unova_LacunosaPokecenter1F": [
+   104,
+   2
+  ],
+  "Unova_LacunosaTown": [
+   104,
+   1
+  ],
+  "Unova_LentimasAirport": [
+   106,
+   7
+  ],
+  "Unova_LentimasCoinHouse": [
+   106,
+   2
+  ],
+  "Unova_LentimasGym": [
+   106,
+   5
+  ],
+  "Unova_LentimasHouse": [
+   106,
+   4
+  ],
+  "Unova_LentimasLostlornGate": [
+   106,
+   6
+  ],
+  "Unova_LentimasOutskirts": [
+   106,
+   0
+  ],
+  "Unova_LentimasPokecenter1F": [
+   106,
+   3
+  ],
+  "Unova_LentimasTown": [
+   106,
+   1
+  ],
+  "Unova_LostlornForest": [
+   101,
+   8
+  ],
+  "Unova_MarineTube": [
+   105,
+   5
+  ],
+  "Unova_MarineTubeEntrance": [
+   105,
+   4
+  ],
+  "Unova_MarlonsHouse": [
+   103,
+   4
+  ],
+  "Unova_MarshalsRoom": [
+   122,
+   13
+  ],
+  "Unova_MembersRoom": [
+   120,
+   15
+  ],
+  "Unova_MistraltonAirport": [
+   119,
+   6
+  ],
+  "Unova_MistraltonCave1F": [
+   101,
+   47
+  ],
+  "Unova_MistraltonCave2F": [
+   101,
+   48
+  ],
+  "Unova_MistraltonCave3F": [
+   101,
+   49
+  ],
+  "Unova_MistraltonCity": [
+   119,
+   0
+  ],
+  "Unova_MistraltonGym1F": [
+   119,
+   4
+  ],
+  "Unova_MistraltonGym2F": [
+   119,
+   5
+  ],
+  "Unova_MistraltonHouse": [
+   119,
+   3
+  ],
+  "Unova_MistraltonMoveReminderHouse": [
+   119,
+   2
+  ],
+  "Unova_MistraltonPokecenter1F": [
+   119,
+   1
+  ],
+  "Unova_MobileBattleRoom": [
+   102,
+   5
+  ],
+  "Unova_MobileTradeRoom": [
+   102,
+   4
+  ],
+  "Unova_MoorOfIcirrus": [
+   121,
+   5
+  ],
+  "Unova_NacreneCafe": [
+   113,
+   7
+  ],
+  "Unova_NacreneCity": [
+   113,
+   3
+  ],
+  "Unova_NacreneHouse": [
+   113,
+   6
+  ],
+  "Unova_NacreneMuseum": [
+   113,
+   8
+  ],
+  "Unova_NacreneOutskirt": [
+   113,
+   0
+  ],
+  "Unova_NacreneOutskirtConnectionDummy": [
+   113,
+   2
+  ],
+  "Unova_NacreneOutskirtEast": [
+   113,
+   1
+  ],
+  "Unova_NacrenePokecenter1F": [
+   113,
+   4
+  ],
+  "Unova_NacreneStatExpHouse": [
+   113,
+   5
+  ],
+  "Unova_NimbasaBallMart": [
+   107,
+   3
+  ],
+  "Unova_NimbasaCity": [
+   107,
+   0
+  ],
+  "Unova_NimbasaHouse": [
+   107,
+   5
+  ],
+  "Unova_NimbasaNameRater": [
+   107,
+   6
+  ],
+  "Unova_NimbasaParkBasement": [
+   101,
+   16
+  ],
+  "Unova_NimbasaParkCoasterRoom": [
+   101,
+   14
+  ],
+  "Unova_NimbasaParkOutside": [
+   107,
+   9
+  ],
+  "Unova_NimbasaParkRunway": [
+   101,
+   15
+  ],
+  "Unova_NimbasaPokecenter1F": [
+   107,
+   4
+  ],
+  "Unova_NimbasaSubway": [
+   107,
+   8
+  ],
+  "Unova_NimbasaTMMart": [
+   107,
+   1
+  ],
+  "Unova_NimbasaVitaminMart": [
+   107,
+   2
+  ],
+  "Unova_NsRoom": [
+   101,
+   60
+  ],
+  "Unova_NuvemaLab": [
+   115,
+   8
+  ],
+  "Unova_NuvemaMomHouse": [
+   115,
+   7
+  ],
+  "Unova_NuvemaTown": [
+   115,
+   6
+  ],
+  "Unova_OpelucidBattleHouse": [
+   120,
+   6
+  ],
+  "Unova_OpelucidBlackbeltHouse": [
+   120,
+   10
+  ],
+  "Unova_OpelucidCity": [
+   120,
+   3
+  ],
+  "Unova_OpelucidCuriosityShop": [
+   120,
+   9
+  ],
+  "Unova_OpelucidGym": [
+   120,
+   8
+  ],
+  "Unova_OpelucidPokecenter1F": [
+   120,
+   5
+  ],
+  "Unova_OpelucidSuperRodHouse": [
+   120,
+   7
+  ],
+  "Unova_P2Lab": [
+   101,
+   24
+  ],
+  "Unova_P2LabEntrance": [
+   101,
+   23
+  ],
+  "Unova_PWTBackRoom": [
+   117,
+   4
+  ],
+  "Unova_PWTBattleRoom": [
+   117,
+   5
+  ],
+  "Unova_PWTDriftveilGate": [
+   118,
+   1
+  ],
+  "Unova_PWTHallway": [
+   117,
+   2
+  ],
+  "Unova_PWTInside": [
+   117,
+   1
+  ],
+  "Unova_PWTOutside": [
+   117,
+   0
+  ],
+  "Unova_PWTQualifierRoom": [
+   117,
+   3
+  ],
+  "Unova_PinwheelBridgeGate": [
+   109,
+   13
+  ],
+  "Unova_PinwheelForest": [
+   101,
+   20
+  ],
+  "Unova_PkmnLeagueEntrance": [
+   122,
+   8
+  ],
+  "Unova_PkmnLeagueMain": [
+   122,
+   11
+  ],
+  "Unova_PkmnLeaguePokecenter1F": [
+   122,
+   10
+  ],
+  "Unova_PlaneLeft": [
+   119,
+   7
+  ],
+  "Unova_PlaneRight": [
+   119,
+   8
+  ],
+  "Unova_PlayersHouse1F": [
+   103,
+   0
+  ],
+  "Unova_PlayersHouse2F": [
+   103,
+   1
+  ],
+  "Unova_PlayersNeighborsHouse": [
+   103,
+   5
+  ],
+  "Unova_Pokecenter2F": [
+   102,
+   0
+  ],
+  "Unova_R22": [
+   103,
+   8
+  ],
+  "Unova_RelicCastle1F": [
+   101,
+   9
+  ],
+  "Unova_RelicCastleB1F": [
+   101,
+   10
+  ],
+  "Unova_RelicCastleB2F": [
+   101,
+   11
+  ],
+  "Unova_RelicCastleB3F": [
+   101,
+   12
+  ],
+  "Unova_RelicCastleB4F": [
+   101,
+   13
+  ],
+  "Unova_RelicPassageBack": [
+   101,
+   30
+  ],
+  "Unova_RelicPassageFront": [
+   101,
+   29
+  ],
+  "Unova_ReversalMountain1F": [
+   101,
+   3
+  ],
+  "Unova_ReversalMountainB1F": [
+   101,
+   4
+  ],
+  "Unova_Rt1": [
+   115,
+   5
+  ],
+  "Unova_Rt11": [
+   120,
+   0
+  ],
+  "Unova_Rt11OpelucidGate": [
+   120,
+   2
+  ],
+  "Unova_Rt11Truck": [
+   120,
+   1
+  ],
+  "Unova_Rt11VillageBridgeGate": [
+   120,
+   17
+  ],
+  "Unova_Rt12": [
+   104,
+   3
+  ],
+  "Unova_Rt12VillageBridgeGate": [
+   104,
+   6
+  ],
+  "Unova_Rt13": [
+   104,
+   0
+  ],
+  "Unova_Rt13UndellaGate": [
+   105,
+   0
+  ],
+  "Unova_Rt14": [
+   105,
+   6
+  ],
+  "Unova_Rt16": [
+   107,
+   10
+  ],
+  "Unova_Rt16LostlornGate": [
+   107,
+   11
+  ],
+  "Unova_Rt16NimbasaGate": [
+   107,
+   12
+  ],
+  "Unova_Rt17": [
+   116,
+   1
+  ],
+  "Unova_Rt18": [
+   116,
+   2
+  ],
+  "Unova_Rt18House": [
+   116,
+   3
+  ],
+  "Unova_Rt19": [
+   111,
+   2
+  ],
+  "Unova_Rt19AspertiaGate": [
+   110,
+   7
+  ],
+  "Unova_Rt1Rt17Gate": [
+   116,
+   0
+  ],
+  "Unova_Rt2": [
+   114,
+   7
+  ],
+  "Unova_Rt20": [
+   111,
+   3
+  ],
+  "Unova_Rt20VirbankGate": [
+   112,
+   4
+  ],
+  "Unova_Rt21": [
+   103,
+   9
+  ],
+  "Unova_Rt23East": [
+   122,
+   0
+  ],
+  "Unova_Rt23Gate": [
+   122,
+   2
+  ],
+  "Unova_Rt23House": [
+   122,
+   3
+  ],
+  "Unova_Rt23West": [
+   122,
+   1
+  ],
+  "Unova_Rt2AccumulaGate": [
+   114,
+   8
+  ],
+  "Unova_Rt3": [
+   114,
+   0
+  ],
+  "Unova_Rt3DayCare": [
+   114,
+   1
+  ],
+  "Unova_Rt3NacreneGate": [
+   113,
+   9
+  ],
+  "Unova_Rt4": [
+   108,
+   0
+  ],
+  "Unova_Rt4CasteliaGate": [
+   108,
+   2
+  ],
+  "Unova_Rt4DesertGate": [
+   108,
+   4
+  ],
+  "Unova_Rt4House": [
+   108,
+   1
+  ],
+  "Unova_Rt4NimbasaGate": [
+   107,
+   7
+  ],
+  "Unova_Rt5": [
+   107,
+   13
+  ],
+  "Unova_Rt5BridgeGate": [
+   107,
+   15
+  ],
+  "Unova_Rt5NimbasaGate": [
+   107,
+   14
+  ],
+  "Unova_Rt5Truck": [
+   107,
+   16
+  ],
+  "Unova_Rt6": [
+   118,
+   10
+  ],
+  "Unova_Rt6House": [
+   118,
+   11
+  ],
+  "Unova_Rt6Lab": [
+   118,
+   12
+  ],
+  "Unova_Rt7": [
+   119,
+   9
+  ],
+  "Unova_Rt7House": [
+   119,
+   11
+  ],
+  "Unova_Rt7North": [
+   119,
+   10
+  ],
+  "Unova_Rt7TradeHouse": [
+   119,
+   12
+  ],
+  "Unova_Rt8": [
+   121,
+   4
+  ],
+  "Unova_Rt9": [
+   120,
+   13
+  ],
+  "Unova_Rt9OpelucidGate": [
+   120,
+   4
+  ],
+  "Unova_SeasideCave1F": [
+   101,
+   25
+  ],
+  "Unova_SeasideCaveB1F": [
+   101,
+   26
+  ],
+  "Unova_SeasideCaveB2F": [
+   101,
+   37
+  ],
+  "Unova_SeasideCaveChamber": [
+   101,
+   38
+  ],
+  "Unova_ShoppingMallNine": [
+   120,
+   14
+  ],
+  "Unova_SkyarrowBridge": [
+   109,
+   14
+  ],
+  "Unova_StrangeHouse1F": [
+   101,
+   5
+  ],
+  "Unova_StrangeHouseB1F": [
+   101,
+   6
+  ],
+  "Unova_StrangeHouseRooms": [
+   101,
+   7
+  ],
+  "Unova_StriatonCity": [
+   114,
+   2
+  ],
+  "Unova_StriatonGym": [
+   114,
+   6
+  ],
+  "Unova_StriatonLab": [
+   114,
+   5
+  ],
+  "Unova_StriatonPokecenter1F": [
+   114,
+   3
+  ],
+  "Unova_StriatonTradeHouse": [
+   114,
+   4
+  ],
+  "Unova_TimeCapsule": [
+   102,
+   3
+  ],
+  "Unova_TradeCenter": [
+   102,
+   1
+  ],
+  "Unova_TubelineBridge": [
+   121,
+   0
+  ],
+  "Unova_TwistMountain1F": [
+   101,
+   61
+  ],
+  "Unova_TwistMountain2F": [
+   101,
+   62
+  ],
+  "Unova_TwistMountain3F": [
+   101,
+   63
+  ],
+  "Unova_TwistMountainB1F": [
+   101,
+   66
+  ],
+  "Unova_TwistMountainEntrance": [
+   101,
+   50
+  ],
+  "Unova_TwistMountainGenesectRoom": [
+   101,
+   67
+  ],
+  "Unova_TwistMountainHouse": [
+   101,
+   65
+  ],
+  "Unova_TwistMountainOutside": [
+   101,
+   64
+  ],
+  "Unova_UndellaOldRodHouse": [
+   105,
+   3
+  ],
+  "Unova_UndellaPokecenter1F": [
+   105,
+   2
+  ],
+  "Unova_UndellaTown": [
+   105,
+   1
+  ],
+  "Unova_VictoryRoadCastleOutside": [
+   101,
+   59
+  ],
+  "Unova_VictoryRoadCave1F": [
+   101,
+   53
+  ],
+  "Unova_VictoryRoadCave2F": [
+   101,
+   54
+  ],
+  "Unova_VictoryRoadCave3F": [
+   101,
+   55
+  ],
+  "Unova_VictoryRoadEntranceNorth": [
+   122,
+   6
+  ],
+  "Unova_VictoryRoadEntranceNorthConnectionDummy": [
+   122,
+   7
+  ],
+  "Unova_VictoryRoadEntranceSouthLeft": [
+   122,
+   5
+  ],
+  "Unova_VictoryRoadEntranceSouthRight": [
+   122,
+   4
+  ],
+  "Unova_VictoryRoadGrove": [
+   101,
+   58
+  ],
+  "Unova_VictoryRoadOutdoor1F": [
+   101,
+   56
+  ],
+  "Unova_VictoryRoadOutdoor2F": [
+   101,
+   57
+  ],
+  "Unova_VictoryRoadPokecenter1F": [
+   122,
+   9
+  ],
+  "Unova_VillageBridge": [
+   120,
+   16
+  ],
+  "Unova_VirbankCity": [
+   112,
+   0
+  ],
+  "Unova_VirbankComplexB1F": [
+   101,
+   18
+  ],
+  "Unova_VirbankComplexB2F": [
+   101,
+   19
+  ],
+  "Unova_VirbankComplexElevator": [
+   101,
+   17
+  ],
+  "Unova_VirbankComplexOutside": [
+   112,
+   9
+  ],
+  "Unova_VirbankGym": [
+   112,
+   6
+  ],
+  "Unova_VirbankHouse": [
+   112,
+   2
+  ],
+  "Unova_VirbankPokecenter1F": [
+   112,
+   1
+  ],
+  "Unova_VirbankPort": [
+   112,
+   7
+  ],
+  "Unova_VirbankStatExpHouse": [
+   112,
+   5
+  ],
+  "Unova_WellspringCave1F": [
+   101,
+   21
+  ],
+  "Unova_WellspringCaveB1F": [
+   101,
+   22
   ],
   "UnusedContestHall1": [
    25,
