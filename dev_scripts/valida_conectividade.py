@@ -66,9 +66,26 @@ def carrega():
     return mapas
 
 
+def mapa_de_partida(mapas):
+    """Onde o jogo novo comeca, LIDO de src/new_game.c, nunca copiado aqui.
+
+    Estava cravado como MAP_TWINLEAF_TOWN, que deixou de ser o inicio quando a
+    ordem cronologica moveu o jogo para Pallet Town (decisao 66). Teste que
+    guarda copia de um fato envelhece calado: partir do mapa errado muda a conta
+    de alcance sem nenhum aviso. Le a linha do #else (o caminho de jogo de
+    verdade), nao a do DEV_SKIP_INTRO.
+    """
+    fonte = open(os.path.join(REPO, "src/new_game.c")).read()
+    achados = re.findall(r"SetWarpDestination\(MAP_GROUP\((MAP_\w+)\)", fonte)
+    for nome in achados:
+        if nome in mapas:
+            return nome
+    raise SystemExit("nao achei o mapa de partida em src/new_game.c: " + str(achados))
+
+
 def main():
     mapas = carrega()
-    partida = sys.argv[1] if len(sys.argv) > 1 else "MAP_TWINLEAF_TOWN"
+    partida = sys.argv[1] if len(sys.argv) > 1 else mapa_de_partida(mapas)
     if partida not in mapas:
         # cai para o que o modo de desenvolvimento usa hoje
         dbg = open(os.path.join(REPO, "include/config/debug.h")).read()

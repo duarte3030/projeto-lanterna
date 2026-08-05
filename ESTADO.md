@@ -38,7 +38,7 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 | mapas | **1616** |
 | treinadores com time próprio | **2346** |
 | grupos de mapa que carregam | **101 de 101** |
-| suíte de testes | **109 de 110** (o pulado precisa de duas builds) |
+| suíte de testes | **107 de 110** (1 pulado precisa de duas builds; 2 reprovados são de Unova) |
 | teto de treinador | `MAX_TRAINERS_COUNT_EMERALD` = 3000 |
 
 ### Completude contra a fonte de cada região

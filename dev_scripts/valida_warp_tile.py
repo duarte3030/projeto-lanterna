@@ -52,9 +52,57 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # AquaHideout_B1F e LavaridgeTown_Gym_B1F, que sao mapas ORIGINAIS do Emerald e
 # funcionam. Ferramenta que discorda do vanilla esta errada, nao o vanilla. Por
 # isso a lista sai do codigo do motor agora, e nao da minha memoria.
-COMPORTA_WARP = {14, 15, 27, 28, 41, 96, 97, 98, 99, 100,
-                 101, 103, 104, 105, 106, 107, 108, 109, 110, 112}
-NOME = {0: "MB_NORMAL", 96: "MB_LADDER", 104: "MB_ANIMATED_DOOR"}
+#
+# 05/08/2026: a lista de numeros que estava aqui acertava os vinte primeiros e
+# FALTAVAM as quatro escadas diagonais, MB_UP_RIGHT_STAIR_WARP e irmas (235 a
+# 238). Elas nao passam por IsWarpMetatileBehavior: disparam pelo outro caminho
+# do motor, TryArrowWarp -> IsDirectionalStairWarpMetatileBehavior
+# (src/field_control_avatar.c:955), e por isso escaparam da leitura original.
+# Sao elas que ligam os andares do Rocket Hideout, do Silph Co e da Mansao de
+# Cinnabar, e a ferramenta acusava todas de warp morto. O comentario da tabela
+# NOME tambem mentia: dizia 96=MB_LADDER e 104=MB_ANIMATED_DOOR, e os valores
+# reais deste repo sao 97 e 105.
+# Agora o conjunto sai do NOME, resolvido contra o enum do repo, e nao de numero
+# copiado: numero copiado envelhece calado quando alguem insere um MB_ no meio.
+NOMES_QUE_DISPARAM = (
+    # IsWarpMetatileBehavior, src/field_control_avatar.c
+    "MB_ANIMATED_DOOR", "MB_LADDER", "MB_UP_ESCALATOR", "MB_DOWN_ESCALATOR",
+    "MB_NON_ANIMATED_DOOR", "MB_WATER_DOOR", "MB_DEEP_SOUTH_WARP",
+    "MB_LAVARIDGE_GYM_B1F_WARP", "MB_LAVARIDGE_GYM_1F_WARP",
+    "MB_AQUA_HIDEOUT_WARP", "MB_MT_PYRE_HOLE", "MB_MOSSDEEP_GYM_WARP",
+    "MB_BRIDGE_OVER_OCEAN",
+    # IsArrowWarpMetatileBehavior
+    "MB_NORTH_ARROW_WARP", "MB_SOUTH_ARROW_WARP", "MB_WEST_ARROW_WARP",
+    "MB_EAST_ARROW_WARP", "MB_WATER_SOUTH_ARROW_WARP",
+    "MB_STAIRS_OUTSIDE_ABANDONED_SHIP", "MB_SHOAL_CAVE_ENTRANCE",
+    # IsDirectionalStairWarpMetatileBehavior
+    "MB_UP_RIGHT_STAIR_WARP", "MB_UP_LEFT_STAIR_WARP",
+    "MB_DOWN_RIGHT_STAIR_WARP", "MB_DOWN_LEFT_STAIR_WARP",
+)
+
+
+def valores_dos_comportamentos():
+    """MB_* -> numero, lido do enum de include/constants/metatile_behaviors.h."""
+    texto = open(f"{RAIZ}/include/constants/metatile_behaviors.h").read()
+    corpo = texto[texto.index("{") + 1:texto.rindex("}")]
+    valor, tabela = 0, {}
+    for item in corpo.split(","):
+        item = re.sub(r"/\*.*?\*/", "", re.sub(r"//.*", "", item), flags=re.S).strip()
+        if not item:
+            continue
+        if "=" in item:
+            nome, _, bruto = item.partition("=")
+            nome, valor = nome.strip(), int(bruto.strip(), 0)
+        else:
+            nome = item
+        tabela[nome] = valor
+        valor += 1
+    return tabela
+
+
+_MB = valores_dos_comportamentos()
+COMPORTA_WARP = {_MB[n] for n in NOMES_QUE_DISPARAM if n in _MB}
+NOME = {v: k for k, v in _MB.items()}
 
 
 # TERCEIRA ARMADILHA, achada em 05/08/2026: a pasta do tileset NAO sai do nome do
@@ -137,7 +185,12 @@ REGIOES = {"Hoenn": "TownsAndRoutes", "Kanto": "Frlg", "Sinnoh": "Sinnoh",
 def main():
     filtro = None
     if "--regiao" in sys.argv:
-        filtro = sys.argv[sys.argv.index("--regiao") + 1].lower()
+        pedido = sys.argv[sys.argv.index("--regiao") + 1]
+        # `--regiao Kanto` na mao nao achava nada: o token dos grupos de Kanto e
+        # "Frlg", e o unico grupo com "Kanto" no nome e gMapGroup_IndoorKantoRoutes_Johto,
+        # com 2 warps. Dava 100,0% e escondia os 30% que nao disparam. O modo
+        # --piso ja passava a chave certa, entao so o uso manual mentia.
+        filtro = REGIOES.get(pedido.capitalize(), pedido).lower()
 
     layouts = {l["id"]: l for l in
                json.load(open(f"{RAIZ}/data/layouts/layouts.json"))["layouts"]}
@@ -271,8 +324,12 @@ def demo():
     # o caso que a conversao CamelCase -> snake_case errava: o digito colado
     assert pasta_do_tileset("gTileset_Route38Farmland").endswith(
         "data/tilesets/secondary/route38_farmland")
-    # comportamento de porta entra, MB_NORMAL nao
-    assert 104 in COMPORTA_WARP and 0 not in COMPORTA_WARP
+    # comportamento de porta entra, MB_NORMAL nao. Pelo NOME, porque o numero
+    # muda se alguem inserir um MB_ no meio do enum.
+    assert _MB["MB_ANIMATED_DOOR"] in COMPORTA_WARP
+    assert _MB["MB_NORMAL"] not in COMPORTA_WARP
+    # as quatro escadas diagonais disparam por TryArrowWarp e faltavam aqui
+    assert _MB["MB_UP_RIGHT_STAIR_WARP"] in COMPORTA_WARP
     # o corte primario/secundario sai do tamanho do arquivo: 512 no Emerald,
     # 640 nos tilesets de Johto e de FRLG
     assert tabela_de_atributos("gTileset_JohtoGeneral")[1] == 640

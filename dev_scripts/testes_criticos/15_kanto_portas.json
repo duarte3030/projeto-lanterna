@@ -1,0 +1,35 @@
+[
+  {
+    "id": "T15.1",
+    "nome": "Kanto: o jogador ENTRA no ginasio de Pewter pela porta. Kanto era a unica das cinco regioes sem NENHUM caso de porta: os casos de ginasio de Kanto chegam la pelo menu de debug, que nao passa pelo motor de warp. Porta de cidade de Kanto tem comportamento 105 (MB_ANIMATED_DOOR), medido no blockdata, nao suposto",
+    "warp": "MAP_PEWTER_CITY",
+    "warp_id": 2,
+    "roteiro": "120:NADA,20:UP,20:UP,20:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_PEWTER_CITY_GYM",
+      "layout": "LAYOUT_PEWTER_CITY_GYM"
+    }
+  },
+  {
+    "id": "T15.2",
+    "nome": "Kanto: o jogador ENTRA no Centro Pokemon de Viridian pela porta. Segundo caso em cidade diferente de proposito: um so provaria que UM blockdata foi importado certo",
+    "warp": "MAP_VIRIDIAN_CITY",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP,20:UP,20:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_VIRIDIAN_CITY_POKEMON_CENTER_1F",
+      "layout": "LAYOUT_POKEMON_CENTER_1F_FRLG"
+    }
+  },
+  {
+    "id": "T15.3",
+    "nome": "Kanto: a ESCADA DIAGONAL do esconderijo Rocket leva do B1F ao B2F. Este caso existe por um erro de FERRAMENTA achado em 05/08/2026: valida_warp_tile.py nao tinha MB_UP_LEFT_STAIR_WARP na lista de comportamentos que disparam e acusava de warp morto as escadas do Rocket Hideout, do Silph Co e da Mansao de Cinnabar. Elas disparam por TryArrowWarp, nao por IsWarpMetatileBehavior. Aqui quem responde e o emulador, e nao a minha leitura do motor. O roteiro anda para a DIREITA e volta: a escada so dispara quando o jogador PISA nela vindo de (18,2), e o menu de debug larga ele parado em cima dela sem disparar nada. Medido: com UP ou com DOWN e volta, o jogador fica em (17,2) no B1F; entrando pela esquerda, sai em (27,2) do B2F",
+    "warp": "MAP_ROCKET_HIDEOUT_B1F",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:RIGHT,40:NADA,20:LEFT,20:LEFT,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROCKET_HIDEOUT_B2F",
+      "layout": "LAYOUT_ROCKET_HIDEOUT_B2F"
+    }
+  }
+]

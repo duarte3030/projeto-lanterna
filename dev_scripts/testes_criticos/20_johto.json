@@ -1,7 +1,7 @@
 [
   {
     "id": "T4.1",
-    "nome": "FALHA CONHECIDA (mapa de Kanto nao carrega): Vermilion City, o unico ponto de embarque de Kanto para Johto, entra em tela preta",
+    "nome": "Vermilion City, o unico ponto de embarque de Kanto para Johto, CARREGA. Nasceu como FALHA CONHECIDA (a cidade entrava em tela preta, o caso dos 421 mapas de Kanto que estavam no JSON e nao na ROM) e virou sentinela: mapLayoutId lido da EWRAM tem que ser LAYOUT_VERMILION_CITY, e nao lixo fora de faixa. O titulo velho dizia FALHA CONHECIDA muito depois de o bug ter sido consertado, o que ensina a ignorar o vermelho",
     "warp": "MAP_VERMILION_CITY",
     "prova": {
       "mapa": "MAP_VERMILION_CITY",
