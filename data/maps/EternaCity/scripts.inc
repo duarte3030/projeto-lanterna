@@ -97,9 +97,10 @@ EternaCity_Text_GymSign:
 
 @ ---------------------------------------------------------------------------
 @ Historia: a Equipe Galactica instalada em Eterna.
-@ Texto de pret/pokeplatinum, res/text/eterna_city.json. O predio deles
-@ (team_galactic_eterna_building_*) NAO existe neste hack, entao a porta continua
-@ fechada e os grunts ficam do lado de fora, que e o que explica a porta fechada.
+@ Texto de pret/pokeplatinum, res/text/eterna_city.json. O predio deles agora
+@ EXISTE: a porta (27,8) leva a MAP_TEAM_GALACTIC_ETERNA_BUILDING_1F, e os quatro
+@ andares terminam na Comandante Jupiter. Estes tres grunts continuam na rua e
+@ foram remanejados para perto da porta.
 @ Sem flag e sem var: sao treinadores comuns, o jogo ja lembra quem foi derrotado.
 
 EternaCity_EventScript_GalacticGrunt1::

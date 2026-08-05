@@ -1293,8 +1293,53 @@
 #define TRAINER_SINNOH_COMMANDER_MARS_VALLEY_WINDWORKS           1273
 #define TRAINER_SINNOH_COMMANDER_SATURN_VALOR_CAVERN             1274
 
-#define TRAINERS_COUNT_EMERALD     1275
-#define MAX_TRAINERS_COUNT_EMERALD 1280
+// ponytail: os 8 ginasios de Johto, portados de fontes-mapas/hns.
+// Times em src/data/trainers.party (acervo em trainers_johto.party).
+#define TRAINER_JOHTO_BIRD_KEEPER_ROD                           1275
+#define TRAINER_JOHTO_BIRD_KEEPER_ABE                           1276
+#define TRAINER_JOHTO_LEADER_FALKNER                            1277
+#define TRAINER_JOHTO_BUG_CATCHER_AL                            1278
+#define TRAINER_JOHTO_BUG_CATCHER_JOSH                          1279
+#define TRAINER_JOHTO_BUG_CATCHER_BENNY                         1280
+#define TRAINER_JOHTO_TWINS_AMY_AND_MAY                         1281
+#define TRAINER_JOHTO_LEADER_BUGSY                              1282
+#define TRAINER_JOHTO_LASS_CARRIE                               1283
+#define TRAINER_JOHTO_LASS_BRIDGET                              1284
+#define TRAINER_JOHTO_BEAUTY_VICTORIA                           1285
+#define TRAINER_JOHTO_BEAUTY_SAMANTHA                           1286
+#define TRAINER_JOHTO_LEADER_WHITNEY                            1287
+#define TRAINER_JOHTO_SAGE_JEFFREY                              1288
+#define TRAINER_JOHTO_SAGE_PING                                 1289
+#define TRAINER_JOHTO_MEDIUM_MARTHA                             1290
+#define TRAINER_JOHTO_MEDIUM_GRACE                              1291
+#define TRAINER_JOHTO_LEADER_MORTY                              1292
+#define TRAINER_JOHTO_LEADER_JASMINE                            1293
+#define TRAINER_JOHTO_BLACK_BELT_YOSHI                          1294
+#define TRAINER_JOHTO_BLACK_BELT_LAO                            1295
+#define TRAINER_JOHTO_BLACK_BELT_NOB                            1296
+#define TRAINER_JOHTO_BLACK_BELT_LUNG                           1297
+#define TRAINER_JOHTO_LEADER_CHUCK                              1298
+#define TRAINER_JOHTO_GENTLEMAN_RONALD                          1299
+#define TRAINER_JOHTO_SKIER_BRAD                                1300
+#define TRAINER_JOHTO_BOARDER_DOUGLAS                           1301
+#define TRAINER_JOHTO_SKIER_ROXANNE                             1302
+#define TRAINER_JOHTO_SKIER_CLARISSA                            1303
+#define TRAINER_JOHTO_LEADER_PRYCE                              1304
+#define TRAINER_JOHTO_COOLTRAINER_CODY                          1305
+#define TRAINER_JOHTO_COOLTRAINER_FRAN                          1306
+#define TRAINER_JOHTO_COOLTRAINER_PAUL                          1307
+#define TRAINER_JOHTO_COOLTRAINER_MIKE                          1308
+#define TRAINER_JOHTO_COOLTRAINER_LOLA                          1309
+#define TRAINER_JOHTO_LEADER_CLAIR                              1310
+
+#define TRAINER_SINNOH_COMMANDER_JUPITER_ETERNA_BUILDING        1311
+#define TRAINER_SINNOH_COMMANDER_MARS_SPEAR_PILLAR              1312
+#define TRAINER_SINNOH_COMMANDER_JUPITER_SPEAR_PILLAR           1313
+#define TRAINER_SINNOH_GALACTIC_BOSS_CYRUS_SPEAR_PILLAR         1314
+#define TRAINER_SINNOH_COMMANDER_SATURN_GALACTIC_HQ             1315
+
+#define TRAINERS_COUNT_EMERALD     1316
+#define MAX_TRAINERS_COUNT_EMERALD 1330
 
 #if IS_FRLG
 #define TRAINERS_COUNT                      TRAINERS_COUNT_FRLG

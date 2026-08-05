@@ -16689,3 +16689,150 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Ponyta
 Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_COMMANDER_JUPITER_ETERNA_BUILDING ===
+Name: Jupiter
+Class: Magma Admin
+Pic: Magma Admin
+Gender: Female
+Double Battle: No
+
+Zubat @ None
+Level: 18
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Bite
+- Astonish
+- Confuse Ray
+
+Skuntank @ None
+Level: 20
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Screech
+- Feint Attack
+- Smokescreen
+
+=== TRAINER_SINNOH_COMMANDER_MARS_SPEAR_PILLAR ===
+Name: Mars
+Class: Magma Admin
+Pic: Magma Admin
+Gender: Female
+Double Battle: No
+
+Bronzor @ None
+Level: 44
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Confuse Ray
+- Extrasensory
+- Gyro Ball
+
+Golbat @ None
+Level: 44
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Air Cutter
+- Bite
+- Confuse Ray
+
+Purugly @ None
+Level: 46
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Slash
+- Body Slam
+- Hypnosis
+
+=== TRAINER_SINNOH_COMMANDER_JUPITER_SPEAR_PILLAR ===
+Name: Jupiter
+Class: Magma Admin
+Pic: Magma Admin
+Gender: Female
+Double Battle: No
+
+Bronzor @ None
+Level: 44
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Confuse Ray
+- Extrasensory
+- Gyro Ball
+
+Golbat @ None
+Level: 44
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Air Cutter
+- Bite
+- Confuse Ray
+
+Skuntank @ None
+Level: 46
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Night Slash
+- Poison Jab
+- Screech
+
+=== TRAINER_SINNOH_GALACTIC_BOSS_CYRUS_SPEAR_PILLAR ===
+Name: Cyrus
+Class: Magma Leader
+Pic: Magma Leader Maxie
+Gender: Male
+Double Battle: No
+
+Houndoom @ None
+Level: 45
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Flamethrower
+- Crunch
+- Sludge Bomb
+
+Gyarados @ None
+Level: 46
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Aqua Tail
+- Ice Fang
+- Dragon Dance
+
+Honchkrow @ None
+Level: 47
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Night Slash
+- Aerial Ace
+- Pursuit
+
+Weavile @ None
+Level: 47
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Ice Punch
+- Night Slash
+- Swords Dance
+
+Crobat @ None
+Level: 46
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Air Slash
+- Cross Poison
+- Confuse Ray
+
+=== TRAINER_SINNOH_COMMANDER_SATURN_GALACTIC_HQ ===
+Name: Saturn
+Class: Magma Admin
+Pic: Magma Admin
+Gender: Male
+Double Battle: No
+
+Kadabra @ None
+Level: 34
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Psybeam
+- Reflect
+- Recover
+
+Bronzor @ None
+Level: 34
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Confuse Ray
+- Extrasensory
+- Gyro Ball
+
+Toxicroak @ None
+Level: 36
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Revenge
+- Poison Jab
+- Faint Attack

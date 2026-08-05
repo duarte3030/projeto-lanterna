@@ -2479,6 +2479,18 @@
 #define FLAG_GALACTICA_JUBILIFE   FLAG_UNUSED_0x02E  // Rowan e os dois grunts em Jubilife
 #define FLAG_GALACTICA_WINDWORKS  FLAG_UNUSED_0x02F  // Mars e os grunts da usina
 
+// Insignias de Johto, uma por ginasio. Mesmo padrao das de Sinnoh: cada ginasio
+// so acende a sua, sem tocar em FLAG_BADGE0N_GET (que e de Hoenn) nem em
+// VAR_NUM_BADGES. Custo: 8 flags, zero var. RESERVADAS, ver SINNOH-PADRAO.md.
+#define FLAG_INSIGNIA_JOHTO_1  FLAG_UNUSED_0x030  // Falkner, Violet City
+#define FLAG_INSIGNIA_JOHTO_2  FLAG_UNUSED_0x031  // Bugsy,   Azalea Town
+#define FLAG_INSIGNIA_JOHTO_3  FLAG_UNUSED_0x032  // Whitney, Goldenrod City
+#define FLAG_INSIGNIA_JOHTO_4  FLAG_UNUSED_0x033  // Morty,   Ecruteak City
+#define FLAG_INSIGNIA_JOHTO_5  FLAG_UNUSED_0x034  // Jasmine, Olivine City
+#define FLAG_INSIGNIA_JOHTO_6  FLAG_UNUSED_0x035  // Chuck,   Cianwood City
+#define FLAG_INSIGNIA_JOHTO_7  FLAG_UNUSED_0x036  // Pryce,   Mahogany Town
+#define FLAG_INSIGNIA_JOHTO_8  FLAG_UNUSED_0x037  // Clair,   Blackthorn City
+
 #ifndef FLAG_NIGHT_POKEMON
 #define FLAG_NIGHT_POKEMON 0x4000
 #endif

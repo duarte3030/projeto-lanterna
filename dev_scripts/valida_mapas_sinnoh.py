@@ -30,7 +30,13 @@ PREFIXOS_SINNOH = (
     "Solaceon", "Veilstone", "Pastoria", "Celestic", "Canalave", "Snowpoint", "Sunyshore",
     "Fight", "Survival", "Resort", "MtCoronet", "Lake", "Spear", "Valley", "GreatMarsh",
     "Ravaged", "Wayward", "Iron", "Acuity", "Verity", "Hotel", "Pokmon", "Route2",
-    "SinnohLeague",
+    "SinnohLeague", "GalacticHQ", "TeamGalacticEternaBuilding",
+)
+
+# Os 8 ginásios de Johto usam o mesmo padrão e passam pelas mesmas checagens.
+GINASIOS_JOHTO = (
+    "VioletCity_Gym", "AzaleaTown_Gym", "GoldenrodCity_Gym", "EcruteakCity_Gym",
+    "OlivineCity_Gym", "CianwoodGym", "MahoganyTown_Gym", "BlackthornCity_Gym",
 )
 
 # Trocas conhecidas: sprite que Sinnoh usa e o GBA não tem.
@@ -132,6 +138,27 @@ def tile_livre_perto(layouts, layout_id, x, y, raio=6):
     return None
 
 
+_GLOBAIS = None
+
+
+def rotulos_globais():
+    """Rótulos de script que valem em qualquer mapa (empurrar pedra, quebrar rocha).
+
+    Sem isto o validador acusa EventScript_StrengthBoulder como inexistente, que
+    é falso: ele mora em data/scripts/field_move_scripts.inc.
+    """
+    global _GLOBAIS
+    if _GLOBAIS is None:
+        partes = []
+        pasta = os.path.join(REPO, "data/scripts")
+        for f in sorted(os.listdir(pasta)):
+            if f.endswith(".inc"):
+                partes.append(open(os.path.join(pasta, f), errors="replace").read())
+        partes.append(open(os.path.join(REPO, "data/event_scripts.s"), errors="replace").read())
+        _GLOBAIS = "\n".join(partes)
+    return _GLOBAIS
+
+
 def confere_tabela_de_trocas(sprites):
     """Impede que a própria tabela replante o bug.
 
@@ -161,7 +188,8 @@ def main():
     base = os.path.join(REPO, "data/maps")
     for nome in sorted(os.listdir(base)):
         # ponytail: "_Frlg" e mapa de Kanto que casa com o prefixo Route2 sem ser de Sinnoh
-        if nome.endswith("_Frlg") or not any(nome.startswith(p) for p in PREFIXOS_SINNOH):
+        if nome.endswith("_Frlg") or not (
+                any(nome.startswith(p) for p in PREFIXOS_SINNOH) or nome in GINASIOS_JOHTO):
             continue
         caminho = os.path.join(base, nome, "map.json")
         if not os.path.exists(caminho):
@@ -171,7 +199,12 @@ def main():
         if not objs:
             continue
         alterou = False
-        scripts_txt = open(os.path.join(base, nome, "scripts.inc")).read()
+        caminho_scripts = os.path.join(base, nome, "scripts.inc")
+        if not os.path.exists(caminho_scripts):
+            print(f"  {nome}: sem scripts.inc, mas o map.json tem objeto")
+            total["script"] += len(objs)
+            continue
+        scripts_txt = open(caminho_scripts).read() + rotulos_globais()
 
         for o in objs:
             if o.get("graphics_id", SPRITE_PADRAO) not in sprites:

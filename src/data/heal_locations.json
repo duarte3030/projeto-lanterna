@@ -381,6 +381,78 @@
       "y": 4,
       "respawn_map": "MAP_FLOAROMA_TOWN_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_FLOAROMA_PC1_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_CHERRYGROVE_CITY",
+      "map": "MAP_CHERRYGROVE_CITY_POKEMON_CENTER",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_CHERRYGROVE_CITY_POKEMON_CENTER",
+      "respawn_npc": "LOCALID_CHERRYGROVE_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_VIOLET_CITY",
+      "map": "MAP_VIOLET_CITY_POKEMON_CENTER",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_VIOLET_CITY_POKEMON_CENTER",
+      "respawn_npc": "LOCALID_VIOLET_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_AZALEA_TOWN",
+      "map": "MAP_AZALEA_TOWN_POKEMON_CENTER",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_AZALEA_TOWN_POKEMON_CENTER",
+      "respawn_npc": "LOCALID_AZALEA_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_GOLDENROD_CITY",
+      "map": "MAP_GOLDENROD_CITY_POKEMON_CENTER",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_GOLDENROD_CITY_POKEMON_CENTER",
+      "respawn_npc": "LOCALID_GOLDENROD_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_ECRUTEAK_CITY",
+      "map": "MAP_ECRUTEAK_CITY_POKEMON_CENTER",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_ECRUTEAK_CITY_POKEMON_CENTER",
+      "respawn_npc": "LOCALID_ECRUTEAK_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_OLIVINE_CITY",
+      "map": "MAP_OLIVINE_CITY_POKEMON_CENTER",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_OLIVINE_CITY_POKEMON_CENTER",
+      "respawn_npc": "LOCALID_OLIVINE_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_CIANWOOD_CITY",
+      "map": "MAP_CIANWOOD_POKECENTER",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_CIANWOOD_POKECENTER",
+      "respawn_npc": "LOCALID_CIANWOOD_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_MAHOGANY_TOWN",
+      "map": "MAP_MAHOGANY_TOWN_POKEMON_CENTER",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_MAHOGANY_TOWN_POKEMON_CENTER",
+      "respawn_npc": "LOCALID_MAHOGANY_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_BLACKTHORN_CITY",
+      "map": "MAP_BLACKTHORN_CITY_POKEMON_CENTER",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_BLACKTHORN_CITY_POKEMON_CENTER",
+      "respawn_npc": "LOCALID_BLACKTHORN_PC_NURSE"
     }
   ]
 }

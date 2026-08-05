@@ -145,8 +145,8 @@
     {
       "local_id": "LOCALID_ETERNA_GALACTIC_GRUNT_1",
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
-      "x": 48,
-      "y": 10,
+      "x": 26,
+      "y": 9,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -159,8 +159,8 @@
     {
       "local_id": "LOCALID_ETERNA_GALACTIC_GRUNT_2",
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
-      "x": 46,
-      "y": 11,
+      "x": 28,
+      "y": 9,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -173,7 +173,7 @@
     {
       "local_id": "LOCALID_ETERNA_GALACTIC_GRUNT_3",
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
-      "x": 50,
+      "x": 25,
       "y": 10,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -194,10 +194,17 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 19,
-      "y": 18,
+      "x": 22,
+      "y": 44,
       "elevation": 0,
       "dest_map": "MAP_ETERNA_CITY_GYM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 27,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_TEAM_GALACTIC_ETERNA_BUILDING_1F",
       "dest_warp_id": "0"
     }
   ],
@@ -205,8 +212,8 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 49,
-      "y": 9,
+      "x": 26,
+      "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "EternaCity_EventScript_GalacticBuildingSign"

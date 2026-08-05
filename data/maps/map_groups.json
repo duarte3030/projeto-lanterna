@@ -100,7 +100,8 @@
     "gMapGroup_IndoorKantoRoutes_Johto",
     "gMapGroup_Dungeons_Johto",
     "gMapGroup_SpecialArea_Johto",
-    "gMapGroup_SinnohLeague"
+    "gMapGroup_SinnohLeague",
+    "gMapGroup_TeamGalactic"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -1643,5 +1644,24 @@
     "SinnohLeague_FlintsRoom",
     "SinnohLeague_LuciansRoom",
     "SinnohLeague_ChampionsRoom"
+  ],
+  "gMapGroup_TeamGalactic": [
+    "GalacticHQ_1F",
+    "GalacticHQ_2F",
+    "GalacticHQ_3F",
+    "GalacticHQ_B1F",
+    "GalacticHQ_B2F",
+    "GalacticHQ_Hall",
+    "GalacticHQ_Laboratory",
+    "GalacticHQ_ControlRoom",
+    "VeilstoneCity_GalacticWarehouse",
+    "TeamGalacticEternaBuilding_1F",
+    "TeamGalacticEternaBuilding_2F",
+    "TeamGalacticEternaBuilding_3F",
+    "TeamGalacticEternaBuilding_4F",
+    "SpearPillar",
+    "SpearPillar_Distorted",
+    "SpearPillar_Dialga",
+    "SpearPillar_Palkia"
   ]
 }

@@ -1,0 +1,127 @@
+{
+  "id": "MAP_GALACTIC_HQ_HALL",
+  "name": "GalacticHQ_Hall",
+  "layout": "LAYOUT_LILYCOVE_CITY_CONTEST_HALL",
+  "music": "MUS_AQUA_MAGMA_HIDEOUT",
+  "region_map_section": "MAPSEC_SINNOH_EAST",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "local_id": "LOCALID_GALACTIC_HQ_HALL_CYRUS",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_5",
+      "x": 25,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalacticHQ_Hall_EventScript_Cyrus",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_GALACTIC_HQ_HALL_LOOKER",
+      "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+      "x": 21,
+      "y": 30,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalacticHQ_Hall_EventScript_Looker",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_GALACTIC_HQ_HALL_GRUNT_1",
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 23,
+      "y": 8,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalacticHQ_Hall_EventScript_Grunt1",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_GALACTIC_HQ_HALL_GRUNT_2",
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
+      "x": 27,
+      "y": 8,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalacticHQ_Hall_EventScript_Grunt2",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_GALACTIC_HQ_HALL_GRUNT_3",
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 20,
+      "y": 17,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalacticHQ_Hall_EventScript_Grunt2",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_GALACTIC_HQ_HALL_GRUNT_4",
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
+      "x": 30,
+      "y": 17,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalacticHQ_Hall_EventScript_Grunt2",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 19,
+      "y": 32,
+      "elevation": 0,
+      "dest_map": "MAP_GALACTIC_HQ_1F",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 20,
+      "y": 32,
+      "elevation": 0,
+      "dest_map": "MAP_GALACTIC_HQ_1F",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 30,
+      "y": 32,
+      "elevation": 0,
+      "dest_map": "MAP_GALACTIC_HQ_1F",
+      "dest_warp_id": "2"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

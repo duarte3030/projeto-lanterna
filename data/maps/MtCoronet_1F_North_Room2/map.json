@@ -28,6 +28,13 @@
       "elevation": 0,
       "dest_map": "MAP_ROUTE216",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 15,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_SPEAR_PILLAR",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
