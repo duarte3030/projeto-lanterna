@@ -51,14 +51,14 @@
   },
   {
     "id": "T20.3",
-    "nome": "SINNOH entrega o trio E ESCREVE A VAR: a Poke Bola do meio no laboratorio do ROWAN da o CHIMCHAR e VAR_STARTER_MON passa a valer 1. Antes de 05/08/2026 este script dava o Pokemon e NAO escrevia a var, e foi por isso que o time do rival de Johto teve que ser fixo",
+    "nome": "SINNOH entrega o trio E ESCREVE A VAR: a Poke Bola do meio no laboratorio do ROWAN da o CHIMCHAR e VAR_STARTER_MON passa a valer 1. Antes de 05/08/2026 este script dava o Pokemon e NAO escrevia a var, e foi por isso que o time do rival de Johto teve que ser fixo. Mapa trocado em 05/08/2026: o laboratorio saiu de MAP_SANDGEM_TOWN_HOUSE1 para MAP_SANDGEM_TOWN_ROWAN_LAB, e as tres bolas passaram para (5,8), (6,8) e (7,8) do layout do laboratorio do Birch, com a porta em (6,12) logo abaixo da bola do meio",
     "vars": {
       "0x4023": 99
     },
-    "warp": "MAP_SANDGEM_TOWN_HOUSE1",
-    "roteiro": "16:UP,16:UP,16:UP,16:UP,30:NADA,16:RIGHT,16:RIGHT,16:RIGHT,30:NADA,16:UP,16:UP,30:NADA,20:A,120:NADA,20:A,180:NADA,20:A*6,180:NADA,20:B*6,240:NADA",
+    "warp": "MAP_SANDGEM_TOWN_ROWAN_LAB",
+    "roteiro": "16:UP*5,30:NADA,20:A,120:NADA,20:A,180:NADA,20:A*6,180:NADA,20:B*6,240:NADA",
     "prova": {
-      "mapa": "MAP_SANDGEM_TOWN_HOUSE1",
+      "mapa": "MAP_SANDGEM_TOWN_ROWAN_LAB",
       "time_min": 1,
       "vars": {
         "0x4023": 1
@@ -93,9 +93,9 @@
     "vars": {
       "0x4023": 99
     },
-    "warp": "MAP_SANDGEM_TOWN_HOUSE1",
+    "warp": "MAP_SANDGEM_TOWN_ROWAN_LAB",
     "prova": {
-      "mapa": "MAP_SANDGEM_TOWN_HOUSE1",
+      "mapa": "MAP_SANDGEM_TOWN_ROWAN_LAB",
       "time": 0,
       "vars": {
         "0x4023": 99

@@ -18088,6 +18088,17 @@
       "border_filepath": "data/layouts/Unova_HallOfFame/border.bin",
       "blockdata_filepath": "data/layouts/Unova_HallOfFame/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_CANALAVE_CITY_GYM",
+      "name": "CanalaveCity_Gym_Layout",
+      "width": 23,
+      "height": 21,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_RustboroGym",
+      "border_filepath": "data/layouts/CanalaveCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/CanalaveCity_Gym/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

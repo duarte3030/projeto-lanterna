@@ -740,6 +740,7 @@ gStdScripts_End::
 	.include "data/maps/Route230/scripts.inc"
 	.include "data/maps/SandgemTown/scripts.inc"
 	.include "data/maps/SandgemTown_House1/scripts.inc"
+	.include "data/maps/SandgemTown_RowanLab/scripts.inc"
 	.include "data/maps/SandgemTown_Mart/scripts.inc"
 	.include "data/maps/SandgemTown_PokemonCenter_1F/scripts.inc"
 	.include "data/maps/SandgemTown_PokemonCenter_2F/scripts.inc"

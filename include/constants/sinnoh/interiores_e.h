@@ -14,9 +14,17 @@
 #define LOCALID_RIVALHOUSEF1_EXPERT 1
 #define LOCALID_RIVALHOUSEF1_TWIN 2
 
-// SandgemTown_House1 e o LABORATORIO DE POKEMON DO PROFESSOR ROWAN.
-// Sinnoh nao ganhou mapa proprio de laboratorio porque data/layouts/layouts.json
-// e data/maps/map_groups.json estavam com outro agente; ver PENDENCIAS-INTRO.md.
+// SandgemTown_House1 voltou a ser casa comum em 05/08/2026, quando o
+// laboratorio ganhou mapa proprio (SandgemTown_RowanLab). Ate entao as duas
+// portas de Sandgem entravam no MESMO interior.
+#define LOCALID_HOUSE1_BREEDER_M 1
+#define LOCALID_HOUSE1_BREEDER_F 2
+
+// SandgemTown_RowanLab e o LABORATORIO DE POKEMON DO PROFESSOR ROWAN.
+// Mapa proprio desde 05/08/2026, no FIM de gMapGroup_IndoorSandgem (mapa novo no
+// meio de um grupo desloca os indices que a save guarda; ver guarda_save.py).
+// Reusa LAYOUT_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB, o interior de laboratorio
+// que ja existe no repo: nenhuma arte nova, nenhum blockdata novo.
 // Sprites: ROWAN nao existe no GBA, usado PROF_BIRCH; BARRY nao existe,
 // usado RICH_BOY (mesma troca que SandgemTown ja fazia).
 #define LOCALID_ROWAN_LAB_ROWAN 1

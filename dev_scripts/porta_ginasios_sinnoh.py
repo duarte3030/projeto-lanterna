@@ -64,6 +64,28 @@ def andavel(bruto):
     return not colisao
 
 
+def andavel_plataforma(bruto):
+    """Ginasio de plataformas suspensas (Canalave). Aqui a regra normal se inverte.
+
+    Medido em map_data_225 (32x32 = 1024 tiles): 592 tiles com comportamento 0 e
+    SEM colisao, 293 com 0x59 (piso de altura dinamica), 128 com colisao, 10 com
+    0x6E e 1 com 0x65 (as portas/elevadores). Aplicar `andavel` da 896 de 896
+    andaveis, uma sala vazia: e a leitura que fez a tentativa anterior falhar.
+
+    A explicacao esta na altura. O ginasio do Byron e um vao com passarelas
+    suspensas; o proprio Byron esta em `events_canalave_city_gym.json` com
+    x=16, z=3, **y=30**, num andar que a grade 2D nao representa. Os 592 tiles
+    "sem colisao" nao sao chao: sao o VAZIO entre as passarelas, que na gen 4 nao
+    leva bit de colisao porque quem impede de cair e a altura, nao a grade.
+    Quem e chao de verdade e o 0x59, e so ele.
+
+    Entao aqui piso = 0x59 mais os tiles de porta/elevador, e todo o resto vira
+    parede. Sobram 304 tiles de piso, 227 deles ligados a porta de entrada.
+    """
+    comportamento = bruto & 0xFF
+    return comportamento == BEH_ALTURA_DINAMICA or comportamento in BEH_WARP
+
+
 def bloco(metatile, colisao, elevacao):
     return metatile | (colisao << 10) | (elevacao << 12)
 
@@ -111,7 +133,9 @@ def confere_paleta(g):
 
 class Ginasio:
     def __init__(self, pasta, mapas, warp, fonte, tilesets, paleta, saida, objetos,
-                 bg=(), layout=None, nome_layout=None):
+                 bg=(), layout=None, nome_layout=None, piso=andavel, porta_dupla=False):
+        self.piso = piso                # predicado de "isto e chao"
+        self.porta_dupla = porta_dupla  # forca a metade direita da porta
         self.pasta = pasta
         self.mapas = mapas              # indices de map_data_NNN.bin, de cima para baixo
         self.warp = warp                # (x, z) da porta na grade do DS
@@ -189,9 +213,18 @@ GINASIOS = [
             {"LOCALID_VOLKNER_GYM_LEADER": (11, 3)},
             layout="LAYOUT_SUNYSHORE_CITY_GYM", nome_layout="SunyshoreCity_Gym_Layout"),
 
-    # Canalave NAO entra: MAP_225 e um ginasio de plataformas em varios niveis e
-    # a grade 2D sai degenerada (896 de 896 tiles andaveis, Byron parado numa
-    # regiao sem dado nenhum). Fica com o interior de Hoenn de proposito.
+    # Canalave: matriz 112 -> MAP_225. Achatado de proposito, com o piso invertido
+    # (ver `andavel_plataforma`): as passarelas de 0x59 sao o chao, o vao entre
+    # elas vira parede. Byron NAO cabe onde o Platinum o poe (x=16, z=3, y=30, um
+    # andar que a grade 2D nao tem), entao a posicao dele aqui e ESCOLHA, como a
+    # da Fantina: o ponto mais distante da porta medido por flood fill, (26,12),
+    # a 41 passos, que e a ponta da passarela da direita.
+    Ginasio("CanalaveCity_Gym", [225], (16, 27), "RustboroCity_Gym",
+            ("gTileset_Building", "gTileset_RustboroGym"), (513, 518, 526),
+            ("MAP_CANALAVE_CITY", 1),
+            {"LOCALID_BYRON_GYM_LEADER": (26, 12)},
+            layout="LAYOUT_CANALAVE_CITY_GYM", nome_layout="CanalaveCity_Gym_Layout",
+            piso=andavel_plataforma, porta_dupla=True),
 ]
 
 
@@ -202,7 +235,7 @@ def converte(g):
     for i in g.mapas:
         grade += grade_gen4(i)
 
-    livre = [andavel(b) for b in grade]
+    livre = [g.piso(b) for b in grade]
     wx, wz = g.warp
     if not livre[wz * LADO + wx]:
         raise ValueError(f"{g.pasta}: porta ({wx},{wz}) caiu em tile bloqueado")
@@ -243,7 +276,7 @@ def converte(g):
 
     px, pz = mapeia(wx, wz)
     blocos[pz * largura + px] = PORTA_ESQ
-    if px + 1 < largura and (wx + 1, wz) in alcance:
+    if px + 1 < largura and ((wx + 1, wz) in alcance or g.porta_dupla):
         blocos[pz * largura + px + 1] = PORTA_DIR
 
     return largura, alt, blocos, alcance, mapeia

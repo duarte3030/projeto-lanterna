@@ -1,6 +1,7 @@
-@ SandgemTown_House1 = LABORATORIO DE POKEMON DO PROFESSOR ROWAN.
-@ Sinnoh nao ganhou mapa proprio de laboratorio: layouts.json e map_groups.json
-@ estavam com outro agente. Ver PENDENCIAS-INTRO.md, item 1.
+@ SandgemTown_RowanLab = LABORATORIO DE POKEMON DO PROFESSOR ROWAN.
+@ Mapa proprio desde 05/08/2026; antes dividia SandgemTown_House1 com uma casa, e
+@ as duas portas de Sandgem caiam no mesmo interior. Reusa o layout do laboratorio
+@ do Birch (LAYOUT_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB), sem arte nova.
 @
 @ Falas: pret/pokeplatinum, res/text/route_201.json e
 @ res/text/sandgem_town_pokemon_research_lab.json. As UNICAS linhas que nao vem
@@ -22,114 +23,114 @@
 @ agua, a mesma ordem de Hoenn). Sem ela nenhum rival monta time por triangulo
 @ de tipos, e foi por causa dessa falta que o time do SILVER, em Johto, teve que
 @ ser fixo (ver o cabecalho de data/maps/CherrygroveCity/scripts.inc).
-SandgemTown_House1_MapScripts::
+SandgemTown_RowanLab_MapScripts::
 	.byte 0
 
-SandgemTown_House1_EventScript_Rowan::
+SandgemTown_RowanLab_EventScript_Rowan::
 	lock
 	faceplayer
-	goto_if_set FLAG_INICIAL_SINNOH, SandgemTown_House1_EventScript_RowanAfter
-	msgbox SandgemTown_House1_Text_RowanEntrust, MSGBOX_DEFAULT
+	goto_if_set FLAG_INICIAL_SINNOH, SandgemTown_RowanLab_EventScript_RowanAfter
+	msgbox SandgemTown_RowanLab_Text_RowanEntrust, MSGBOX_DEFAULT
 	release
 	end
 
-SandgemTown_House1_EventScript_RowanAfter::
-	msgbox SandgemTown_House1_Text_RowanAdventureAwaits, MSGBOX_DEFAULT
+SandgemTown_RowanLab_EventScript_RowanAfter::
+	msgbox SandgemTown_RowanLab_Text_RowanAdventureAwaits, MSGBOX_DEFAULT
 	release
 	end
 
-SandgemTown_House1_EventScript_Rival::
+SandgemTown_RowanLab_EventScript_Rival::
 	lock
 	faceplayer
-	goto_if_set FLAG_INICIAL_SINNOH, SandgemTown_House1_EventScript_RivalAfter
-	msgbox SandgemTown_House1_Text_RivalYouChooseFirst, MSGBOX_DEFAULT
+	goto_if_set FLAG_INICIAL_SINNOH, SandgemTown_RowanLab_EventScript_RivalAfter
+	msgbox SandgemTown_RowanLab_Text_RivalYouChooseFirst, MSGBOX_DEFAULT
 	release
 	end
 
-SandgemTown_House1_EventScript_RivalAfter::
-	msgbox SandgemTown_House1_Text_RivalOnlyOneThingToDo, MSGBOX_DEFAULT
+SandgemTown_RowanLab_EventScript_RivalAfter::
+	msgbox SandgemTown_RowanLab_Text_RivalOnlyOneThingToDo, MSGBOX_DEFAULT
 	release
 	end
 
-SandgemTown_House1_EventScript_Assistant::
-	msgbox SandgemTown_House1_Text_Assistant, MSGBOX_NPC
+SandgemTown_RowanLab_EventScript_Assistant::
+	msgbox SandgemTown_RowanLab_Text_Assistant, MSGBOX_NPC
 	end
 
-SandgemTown_House1_EventScript_Bookshelf::
-	msgbox SandgemTown_House1_Text_Bookshelf, MSGBOX_SIGN
+SandgemTown_RowanLab_EventScript_Bookshelf::
+	msgbox SandgemTown_RowanLab_Text_Bookshelf, MSGBOX_SIGN
 	end
 
-SandgemTown_House1_EventScript_BallTurtwig::
+SandgemTown_RowanLab_EventScript_BallTurtwig::
 	lock
 	faceplayer
 	showmonpic SPECIES_TURTWIG, 10, 3
 	bufferspeciesname STR_VAR_1, SPECIES_TURTWIG
-	msgbox SandgemTown_House1_Text_WillYouTakeThisOne, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, SandgemTown_House1_EventScript_DeclinedStarter
+	msgbox SandgemTown_RowanLab_Text_WillYouTakeThisOne, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SandgemTown_RowanLab_EventScript_DeclinedStarter
 	hidemonpic
 	givemon SPECIES_TURTWIG, 55
 	setvar VAR_STARTER_MON, 0
-	goto SandgemTown_House1_EventScript_ChoseStarter
+	goto SandgemTown_RowanLab_EventScript_ChoseStarter
 
-SandgemTown_House1_EventScript_BallChimchar::
+SandgemTown_RowanLab_EventScript_BallChimchar::
 	lock
 	faceplayer
 	showmonpic SPECIES_CHIMCHAR, 10, 3
 	bufferspeciesname STR_VAR_1, SPECIES_CHIMCHAR
-	msgbox SandgemTown_House1_Text_WillYouTakeThisOne, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, SandgemTown_House1_EventScript_DeclinedStarter
+	msgbox SandgemTown_RowanLab_Text_WillYouTakeThisOne, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SandgemTown_RowanLab_EventScript_DeclinedStarter
 	hidemonpic
 	givemon SPECIES_CHIMCHAR, 55
 	setvar VAR_STARTER_MON, 1
-	goto SandgemTown_House1_EventScript_ChoseStarter
+	goto SandgemTown_RowanLab_EventScript_ChoseStarter
 
-SandgemTown_House1_EventScript_BallPiplup::
+SandgemTown_RowanLab_EventScript_BallPiplup::
 	lock
 	faceplayer
 	showmonpic SPECIES_PIPLUP, 10, 3
 	bufferspeciesname STR_VAR_1, SPECIES_PIPLUP
-	msgbox SandgemTown_House1_Text_WillYouTakeThisOne, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, SandgemTown_House1_EventScript_DeclinedStarter
+	msgbox SandgemTown_RowanLab_Text_WillYouTakeThisOne, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SandgemTown_RowanLab_EventScript_DeclinedStarter
 	hidemonpic
 	givemon SPECIES_PIPLUP, 55
 	setvar VAR_STARTER_MON, 2
-	goto SandgemTown_House1_EventScript_ChoseStarter
+	goto SandgemTown_RowanLab_EventScript_ChoseStarter
 
-SandgemTown_House1_EventScript_DeclinedStarter::
+SandgemTown_RowanLab_EventScript_DeclinedStarter::
 	hidemonpic
 	release
 	end
 
-SandgemTown_House1_EventScript_ChoseStarter::
+SandgemTown_RowanLab_EventScript_ChoseStarter::
 	setflag FLAG_INICIAL_SINNOH
 	setflag FLAG_SYS_POKEMON_GET
-	message SandgemTown_House1_Text_ReceivedStarter
+	message SandgemTown_RowanLab_Text_ReceivedStarter
 	waitmessage
 	playfanfare MUS_OBTAIN_ITEM
 	waitfanfare
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, SandgemTown_House1_EventScript_AfterStarter
+	goto_if_eq VAR_RESULT, NO, SandgemTown_RowanLab_EventScript_AfterStarter
 	setvar VAR_0x8004, 0
 	call Common_EventScript_NameReceivedPartyMon
-	goto SandgemTown_House1_EventScript_AfterStarter
+	goto SandgemTown_RowanLab_EventScript_AfterStarter
 
-SandgemTown_House1_EventScript_AfterStarter::
+SandgemTown_RowanLab_EventScript_AfterStarter::
 	removeobject LOCALID_ROWAN_LAB_BALL_TURTWIG
 	removeobject LOCALID_ROWAN_LAB_BALL_CHIMCHAR
 	removeobject LOCALID_ROWAN_LAB_BALL_PIPLUP
-	msgbox SandgemTown_House1_Text_RivalPicksHis, MSGBOX_DEFAULT
-	msgbox SandgemTown_House1_Text_RowanHopeYoullDoWell, MSGBOX_DEFAULT
-	msgbox SandgemTown_House1_Text_RowanRecordData, MSGBOX_DEFAULT
+	msgbox SandgemTown_RowanLab_Text_RivalPicksHis, MSGBOX_DEFAULT
+	msgbox SandgemTown_RowanLab_Text_RowanHopeYoullDoWell, MSGBOX_DEFAULT
+	msgbox SandgemTown_RowanLab_Text_RowanRecordData, MSGBOX_DEFAULT
 	setflag FLAG_SYS_POKEDEX_GET
-	message SandgemTown_House1_Text_ObtainedPokedex
+	message SandgemTown_RowanLab_Text_ObtainedPokedex
 	waitmessage
 	playfanfare MUS_OBTAIN_ITEM
 	waitfanfare
-	msgbox SandgemTown_House1_Text_RowanGrandAdventure, MSGBOX_DEFAULT
+	msgbox SandgemTown_RowanLab_Text_RowanGrandAdventure, MSGBOX_DEFAULT
 	release
 	end
 
-SandgemTown_House1_Text_RowanEntrust:
+SandgemTown_RowanLab_Text_RowanEntrust:
 	.string "ROWAN: We exist side by side with\n"
 	.string "POKéMON.\p"
 	.string "There comes a time when people\n"
@@ -141,39 +142,39 @@ SandgemTown_House1_Text_RowanEntrust:
 	.string "Go on! Open the briefcase and\n"
 	.string "choose a POKéMON!$"
 
-SandgemTown_House1_Text_RowanAdventureAwaits:
+SandgemTown_RowanLab_Text_RowanAdventureAwaits:
 	.string "ROWAN: Go on!\p"
 	.string "{PLAYER}, your grand adventure\n"
 	.string "awaits you!$"
 
 @ Aviso mecanico, nao e fala do Platinum: no jogo original a escolha e uma tela.
-SandgemTown_House1_Text_WillYouTakeThisOne:
+SandgemTown_RowanLab_Text_WillYouTakeThisOne:
 	.string "Inside the briefcase is a\n"
 	.string "{STR_VAR_1}.\p"
 	.string "Will you take this one?$"
 
 @ Aviso mecanico, nao e fala do Platinum.
-SandgemTown_House1_Text_ReceivedStarter:
+SandgemTown_RowanLab_Text_ReceivedStarter:
 	.string "{PLAYER} received the\n"
 	.string "{STR_VAR_1}!$"
 
-SandgemTown_House1_Text_RivalYouChooseFirst:
+SandgemTown_RowanLab_Text_RivalYouChooseFirst:
 	.string "Hey, {PLAYER}.\n"
 	.string "You can choose first.\p"
 	.string "Hey, I'm practically a grown-up.\n"
 	.string "I have to show some class here.$"
 
-SandgemTown_House1_Text_RivalPicksHis:
+SandgemTown_RowanLab_Text_RivalPicksHis:
 	.string "Then, I choose you!\n"
 	.string "I'm picking this one!$"
 
-SandgemTown_House1_Text_RivalOnlyOneThingToDo:
+SandgemTown_RowanLab_Text_RivalOnlyOneThingToDo:
 	.string "Heheh, {PLAYER}!\n"
 	.string "We've both got POKéMON now.\p"
 	.string "There's only one thing to do,\n"
 	.string "right?$"
 
-SandgemTown_House1_Text_RowanHopeYoullDoWell:
+SandgemTown_RowanLab_Text_RowanHopeYoullDoWell:
 	.string "ROWAN: Very well! Both of you have\n"
 	.string "chosen a good POKéMON, it seems.\p"
 	.string "Now, listen well!\p"
@@ -185,7 +186,7 @@ SandgemTown_House1_Text_RowanHopeYoullDoWell:
 	.string "As fellow newcomers to the world,\n"
 	.string "I hope you'll do well together.$"
 
-SandgemTown_House1_Text_RowanRecordData:
+SandgemTown_RowanLab_Text_RowanRecordData:
 	.string "ROWAN: Er-hem!\p"
 	.string "Let's move on to the main topic.\p"
 	.string "There is something I want you to\n"
@@ -197,11 +198,11 @@ SandgemTown_House1_Text_RowanRecordData:
 	.string "collect data using the POKéDEX.\p"
 	.string "This is what I wish to ask of you.$"
 
-SandgemTown_House1_Text_ObtainedPokedex:
+SandgemTown_RowanLab_Text_ObtainedPokedex:
 	.string "{PLAYER} obtained\n"
 	.string "the POKéDEX!$"
 
-SandgemTown_House1_Text_RowanGrandAdventure:
+SandgemTown_RowanLab_Text_RowanGrandAdventure:
 	.string "ROWAN: That POKéDEX is a very\n"
 	.string "high-tech device.\p"
 	.string "It will automatically record data\n"
@@ -214,7 +215,7 @@ SandgemTown_House1_Text_RowanGrandAdventure:
 	.string "{PLAYER}, your grand adventure\n"
 	.string "begins right now!$"
 
-SandgemTown_House1_Text_Assistant:
+SandgemTown_RowanLab_Text_Assistant:
 	.string "PROFESSOR ROWAN invented a new\n"
 	.string "POKéDEX while working alongside a\l"
 	.string "professor from the KANTO region.\p"
@@ -222,6 +223,6 @@ SandgemTown_House1_Text_Assistant:
 	.string "It's an honor to be an assistant\n"
 	.string "to our professor!$"
 
-SandgemTown_House1_Text_Bookshelf:
+SandgemTown_RowanLab_Text_Bookshelf:
 	.string "It's crammed full of books with\n"
 	.string "all sorts of POKéMON information.$"

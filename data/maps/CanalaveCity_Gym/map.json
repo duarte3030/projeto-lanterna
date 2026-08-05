@@ -1,7 +1,7 @@
 {
   "id": "MAP_CANALAVE_CITY_GYM",
   "name": "CanalaveCity_Gym",
-  "layout": "LAYOUT_RUSTBORO_CITY_GYM",
+  "layout": "LAYOUT_CANALAVE_CITY_GYM",
   "music": "MUS_GYM",
   "region_map_section": "MAPSEC_SINNOH_WEST",
   "requires_flash": false,
@@ -17,8 +17,8 @@
     {
       "local_id": "LOCALID_BYRON_GYM_LEADER",
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
-      "x": 5,
-      "y": 2,
+      "x": 21,
+      "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -31,7 +31,7 @@
   ],
   "warp_events": [
     {
-      "x": 5,
+      "x": 11,
       "y": 19,
       "elevation": 0,
       "dest_map": "MAP_CANALAVE_CITY",

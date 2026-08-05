@@ -130,16 +130,42 @@ o ponto inicial é a casa da mãe em Twinleaf; para copiar isso seria preciso um
 entrada nova em `src/data/heal_locations.json`
 (`HEAL_LOCATION_TWINLEAF_TOWN_MAIN_HOUSE_1F`), que não foi criada.
 
-## Laboratorio do Rowan ainda mora em SandgemTown_House1 (05/08/2026)
+## RESOLVIDO: o laboratorio do Rowan ganhou mapa proprio (05/08/2026, bloco 6)
 
-Sinnoh nao tem mapa proprio de laboratorio. Enquanto ele nao existir, as duas
-portas de Sandgem entram no MESMO interior. O pior do bug foi tirado: cada porta
-agora tem o seu warp de volta (a de cima usa o warp 0 do laboratorio, a de baixo
-o warp 1), entao sair devolve o jogador a porta por onde ele entrou, em vez de
-teleportar sempre para a porta de cima.
+`MAP_SANDGEM_TOWN_ROWAN_LAB` existe, e o item 1 desta pagina esta fechado.
 
-Conserto de verdade: criar `SandgemTown_RowanLab` com layout proprio (dá para
-reusar um layout de laboratorio de Hoenn, como a Elite dos Quatro reusou os de
-Ever Grande), registrar em `data/layouts/layouts.json`, `data/maps/map_groups.json`
-e `data/event_scripts.s`, mover os 6 objetos do laboratorio para la, e devolver
-`SandgemTown_House1` ao papel de casa comum.
+| o que era | o que e |
+|---|---|
+| laboratorio dentro de `SandgemTown_House1`, layout de casa 10x9 | mapa proprio `SandgemTown_RowanLab`, `LAYOUT_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB` (13x13) |
+| as duas portas de Sandgem entravam no MESMO interior | warp 0 vai ao laboratorio, warp 3 vai a casa |
+| a casa nao existia mais | os dois criadores voltaram, com os textos do commit f97a18dc82 |
+
+Decisoes, e o porque de cada uma:
+
+- **Layout emprestado de Hoenn, nao desenhado.** O interior do laboratorio do
+  Birch ja esta na ROM, ja tem bancada, estante e maquina, e nao custa nem um
+  byte de blockdata novo. Desenhar um laboratorio de Sinnoh do zero seria arte
+  inventada para um problema que arte existente resolve.
+- **Mapa novo no FIM de `gMapGroup_IndoorSandgem`**, depois de `SandgemTown_Mart`.
+  A save guarda `(mapGroup, mapNum)`, que sao INDICES: inserir no meio empurraria
+  o Mart e os dois andares do Centro Pokemon para outro numero.
+  `guarda_save.py` diz SAVE COMPATIVEL depois da mudanca.
+- **Nenhuma flag e nenhuma var novas.** O script mudou de arquivo e de rotulo
+  (`SandgemTown_House1_*` virou `SandgemTown_RowanLab_*`), mais nada: continua
+  usando `FLAG_INICIAL_SINNOH`, `FLAG_SYS_POKEDEX_GET` e `VAR_STARTER_MON`.
+
+Posicoes novas, no layout do laboratorio: Rowan (6,4), Barry (7,4), Roseanne
+(9,8), as tres Poke Bolas em (5,8), (6,8) e (7,8), as duas portas em (6,12) e
+(7,12), as duas estantes em (3,1) e (4,1).
+
+Provado na ROM, lendo a EWRAM (`dev_scripts/testes_criticos/70_polimento.json`):
+
+- **T40.3**: o mapa carrega e o layout lido da memoria e o do laboratorio.
+- **T40.4**: prova NEGATIVA. Entrar em `SandgemTown_House1`, andar ate o meio da
+  sala e martelar A deixa o time em 0 e `FLAG_INICIAL_SINNOH` apagada, ou seja,
+  o laboratorio realmente saiu de la.
+- **T20.3**, o caso do bloco 4, continua passando com o mapa novo: a bola do meio
+  entrega CHIMCHAR e escreve `VAR_STARTER_MON = 1`.
+
+Continua de fora, e nao bloqueia nada: a cena da Rota 201 (item 3), o Lucas/Dawn,
+o Journal e a TM Return.

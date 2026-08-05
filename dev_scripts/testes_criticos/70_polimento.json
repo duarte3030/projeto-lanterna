@@ -1,0 +1,44 @@
+[
+  {
+    "id": "T40.1",
+    "nome": "Ginasio de CANALAVE deixou de ser o ginasio da ROXANNE. Ate 05/08/2026 o map.json do Byron apontava para LAYOUT_RUSTBORO_CITY_GYM, o interior de Hoenn emprestado; agora aponta para LAYOUT_CANALAVE_CITY_GYM, achatado do MAP_225 do Platinum. A prova e o layout LIDO DA MEMORIA, e nao o nome no JSON, porque foi exatamente lendo JSON que a sessao anterior se enganou sobre Kanto",
+    "warp": "MAP_CANALAVE_CITY_GYM",
+    "roteiro": "180:NADA",
+    "prova": {
+      "mapa": "MAP_CANALAVE_CITY_GYM",
+      "layout": "LAYOUT_CANALAVE_CITY_GYM"
+    }
+  },
+  {
+    "id": "T40.2",
+    "nome": "BYRON e alcancavel A PE desde a porta do ginasio de Canalave. O roteiro nao tem uma unica contagem exata de passos: cada trecho anda ate BATER na parede (esquerda, topo, direita, e por fim no proprio Byron), entao ele nao depende de o warp largar o jogador virado para um lado ou para o outro. A prova e a batalha comecar contra o id 1263, que e a faixa dos lideres de Sinnoh: sala trancada nao abre batalha nenhuma",
+    "warp": "MAP_CANALAVE_CITY_GYM",
+    "roteiro": "16:UP*4,16:LEFT*14,16:UP*20,16:DOWN*5,16:RIGHT*24,16:UP*8,60:NADA,20:A,120:NADA,20:A,240:NADA",
+    "prova": {
+      "mapa": "MAP_CANALAVE_CITY_GYM",
+      "oponente": "TRAINER_SINNOH_LEADER_BYRON",
+      "oponente_faixa": [1200, 1299]
+    }
+  },
+  {
+    "id": "T40.3",
+    "nome": "O laboratorio do ROWAN tem mapa proprio: MAP_SANDGEM_TOWN_ROWAN_LAB, no FIM de gMapGroup_IndoorSandgem. Antes ele morava dentro de MAP_SANDGEM_TOWN_HOUSE1 e as duas portas de Sandgem caiam no mesmo interior",
+    "warp": "MAP_SANDGEM_TOWN_ROWAN_LAB",
+    "roteiro": "180:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN_ROWAN_LAB",
+      "layout": "LAYOUT_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB"
+    }
+  },
+  {
+    "id": "T40.4",
+    "nome": "SandgemTown_House1 voltou a ser casa comum: nao entrega inicial nenhum. A prova e negativa de proposito, com FLAG_INICIAL_SINNOH pre-APAGADA e o time em zero: se o laboratorio tivesse ficado para tras neste mapa, andar ate o meio da sala e martelar A acenderia a flag",
+    "warp": "MAP_SANDGEM_TOWN_HOUSE1",
+    "roteiro": "16:UP*8,16:RIGHT*8,60:NADA,20:A*8,180:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN_HOUSE1",
+      "time": 0,
+      "flags_apagadas": ["FLAG_INICIAL_SINNOH"]
+    }
+  }
+]
