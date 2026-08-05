@@ -125,3 +125,41 @@ python3 dev_scripts/importa_npcs_sinnoh.py --aplicar
 python3 dev_scripts/valida_mapas_sinnoh.py --so-sinnoh  # sprite: 0 e fora: 0
 python3 dev_scripts/testa_critico.py T50                # prova na ROM
 ```
+
+---
+
+## 8. As portas de cidade, 06/08/2026
+
+`dev_scripts/fecha_portas_sinnoh.py` fechou 98 portas de cidade mais 14 andares
+de cima: **112 interiores novos**. Sinnoh saiu de 25,8% para **44,6%** dos
+mapas e de 61,4% para **90,8%** dos warps.
+
+**O que é convertido de verdade e o que é reaproveitado.** Do pokeplatinum
+vieram 368 NPCs, 98 placas e 101 textos (de placa e de NPC), pela corrente
+índice, `ScriptEntry`, banco de texto que o `texto_placas_sinnoh.py` já
+percorria. A **planta** de cada interior é reaproveitada de interior que o repo
+já tem: `OreburghCity_House1`, `OreburghCity_Mart`,
+`OreburghCity_PokemonCenter_1F` e `_2F`, `OreburghCity_Flat1_F2`,
+`Route208_Access`. Cada `map.json` novo diz qual, no campo `origem`.
+
+O motivo de não converter a planta: `demake_ds.py` lê do DS só colisão e
+comportamento de tile, não o desenho. Interior convertido por ele sai como sala
+de chão liso cercada de árvore, sem parede, sem balcão e sem porta.
+
+**O warp não sai da coordenada deles.** Coordenada de warp de rua no Platinum é
+global da matriz de Sinnoh e não existe offset contra os nossos layouts (mesma
+armadilha da decisão 1 do importador de NPC). O warp novo vai em cima de um tile
+que **já é porta aqui**, achado lendo `metatile_attributes.bin` com a mesma
+lista de comportamentos que o motor usa. Resultado medido: os 217 warps novos
+disparam **100%**.
+
+### O que ficou de fora, e por quê
+
+| quanto | o quê | por quê |
+|---|---|---|
+| 18 | casa de Canalave, Celestic, Solaceon, Sunyshore, Jubilife | a cidade tem menos tile de porta órfã do que o Platinum tem prédio. Abrir mais exige **desenhar porta no `map.bin` da cidade**, e escolher o metatile errado põe porta em cima de parede ou de telhado |
+| 18 | `POKECENTER_B1F` | é a sala de troca subterrânea da gen 4 (Wi-Fi/Union). O arquétipo de centro Pokémon do repo tem **uma** escada, e ela foi para o 2F |
+| 51 | caverna, ruína, Victory Road, andares de Mt. Coronet, Lost Tower, Old Chateau, lago | não é interior de cidade. Reaproveitar casa de 8x9 aqui mentiria o mapa; estes precisam de geometria de verdade |
+| 5 | andares de mapa `UNUSED_*` | o andar de baixo também não tem escada sobrando |
+
+Nenhuma flag da faixa 0x8E5 a 0x920 foi gasta: NPC importado nasce sem flag.
