@@ -26,6 +26,7 @@ troca de nome.
 | Galar | hacks de SwSh em GBA (abaixo) | ROM compilada | região real, 44 bancos | **tecnicamente sim** |
 | Unova | nenhuma | — | não existe port nem decomp | **não** |
 | Paldea | nenhuma | — | — | **não** |
+| Kalos | nenhuma | — | os hacks avaliados sao Hoenn ou Johto renomeados | **nao** |
 
 ---
 
@@ -83,6 +84,19 @@ Medido: 43 bancos, exatamente os do FireRed original, 468 mapas contra ~418, e
 **zero** nomes de cidade de Paldea. "PALDEA" aparece só em fala, em italiano
 ("hai salvato PALDEA"), e como forma regional ("WOOPER di PALDEA"). O jogador
 anda por Kanto enquanto os NPCs falam de Paldea.
+
+**`x-y-emerald.gba`** — é Hoenn com três cidades renomeadas. Só 4 dos 16 nomes de
+Kalos, contra 8 de 8 de Hoenn com 292 ocorrências, e 552 mapas em 34 bancos,
+praticamente o Emerald original. A prova está em `0x5A0B95`, DENTRO da tabela de
+nomes de Hoenn: `PETALBURG CITY, SLATEPORT CITY, SHALOUR CITY, FORTREE CITY,
+LILYCOVE`. Colaram Shalour no lugar de uma cidade de Hoenn.
+
+**`kalos-crystal-2019-04-29.gbc`** — é Johto com a Pokédex de Kalos. Game Boy
+Color, 2 MB, exatamente o tamanho do Crystal original. **Zero** nomes de lugar de
+Kalos; Johto inteira presente (Goldenrod 42x, Ecruteak 28x). Os 15 Pokémon de
+Kalos que testei estão todos lá, e os iniciais de Johto sumiram: Chikorita,
+Cyndaquil e Totodile viraram Chespin, Fennekin e Froakie. Mapa é Johto, que já
+temos de fonte melhor.
 
 **`monhacks/bwdemake`** — repositório de demake de Black e White. Clonado e
 conferido: é pokeemerald puro, 519 mapas de Hoenn, **zero de Unova**.
