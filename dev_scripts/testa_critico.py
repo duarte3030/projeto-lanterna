@@ -81,8 +81,28 @@ SAIDA = "/tmp/claude-501/frenteA/testes"
 CASOS_DIR = os.path.join(RAIZ, "dev_scripts", "testes_criticos")
 
 # Abertura até o jogador ter o controle no overworld. Medido nesta sessão.
+#
+# Os três B do fim entraram em 05/08/2026, quando o início do jogo passou a ser
+# o quarto de Pallet Town. Medido, não suposto: a martelada de A da abertura
+# termina com o jogador de frente para o NES do quarto e a caixa de texto
+# "played with the NES" ABERTA, e com caixa aberta o R+START não abre o menu de
+# debug. Resultado: TODO caso com campo `warp` ficava no mapa inicial e falhava
+# com "mapa errado", inclusive o T0.2, que existe justamente para acusar isso.
+# B fecha a caixa; se não houver caixa nenhuma, B no overworld não faz nada.
 ABERTURA = ("90:A,90:A,90:A,90:A,90:A,240:NADA,120:A*14,240:NADA,120:A*10,"
-            "240:NADA,120:A*20,300:NADA,120:A*20,300:NADA")
+            "240:NADA,120:A*20,300:NADA,120:A*20,300:NADA,"
+            # Os A extras entraram depois dos B, medidos no framebuffer: com so
+            # os tres B a tela ficava em "...Okay! It's time to go!", que e
+            # dialogo do proprio intro e NAO fecha com B, so avanca com A. O
+            # menu de debug continuava sem abrir. A ordem importa: A termina o
+            # dialogo, B fecha a caixa do NES se ela ainda estiver aberta.
+            # Cadencia medida no framebuffer, nao estimada: com "60:A*20,120:NADA,
+            # 30:B,30:B,30:B" a tela AINDA ficava em "...Okay! It's time to go!"
+            # e o R+START nao abria o menu. O que resolveu foi apertar mais vezes
+            # e mais rapido (20 quadros por toque), porque parte dos toques cai
+            # durante a rolagem do texto e nao conta. Screenshot de prova: com a
+            # linha abaixo o menu de debug abre.
+            "20:A*30,240:NADA,20:B*10,240:NADA")
 
 # Com um .sav existente, o menu de título abre em "CONTINUAR" e um A basta.
 CONTINUAR = "90:A,90:A,90:A,240:NADA,120:A,300:NADA,300:NADA"
@@ -545,16 +565,20 @@ def confere_treinadores():
 
     apelidos = {n: int(v) for n, v in frlg.items() if n not in party}
     usados = set()
-    for arq in glob.glob(os.path.join(RAIZ, "data/maps/*/scripts.inc")):
+    # Varre TODO .inc de data/, não só data/maps/*/scripts.inc. O buraco: os
+    # scripts de treinador de Kanto moram em data/scripts/trainers_frlg.inc, que
+    # entra na ROM por data/event_scripts.s e não é script de mapa nenhum. Com a
+    # varredura antiga, 221 apelidos usados por esse arquivo davam VERDE aqui.
+    for arq in glob.glob(os.path.join(RAIZ, "data/**/*.inc"), recursive=True):
         texto = open(arq, errors="ignore").read()
         for nome in re.findall(r"\bTRAINER_[A-Z0-9_]+\b", texto):
             if nome in apelidos:
-                usados.add((os.path.basename(os.path.dirname(arq)), nome))
+                usados.add((os.path.relpath(arq, RAIZ), nome))
 
     print(f"constantes de treinador em opponents_frlg.h: {len(frlg)}")
     print(f"  sem time próprio em trainers.party (apelidam outro treinador): {len(apelidos)}")
-    print(f"  desses, usados por script de mapa: {len({n for _, n in usados})} "
-          f"em {len({m for m, _ in usados})} mapas")
+    print(f"  desses, usados por script: {len({n for _, n in usados})} "
+          f"em {len({m for m, _ in usados})} arquivos")
     for mapa, nome in sorted(usados)[:10]:
         print(f"    {mapa:38} {nome:34} -> id {apelidos[nome]} = "
               f"{por_id.get(apelidos[nome], '?')}")

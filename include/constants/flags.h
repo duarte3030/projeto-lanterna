@@ -1703,12 +1703,26 @@
 #define FLAG_TEMP_HIDE_MIRAGE_ISLAND_BERRY_TREE FLAG_TEMP_11
 
 // FRLG flags
-
+//
+// ATENCAO, e a nona camada do caso Kanto (ver HANDOFF-2026-08-05.md, secao 2):
+// flags_frlg.h so entra dentro de `#if IS_FRLG`, que nesta build e 0. Aqui, no
+// ramo `#else`, TODA flag de Kanto vira o literal 0, e GetFlagPointer(0) devolve
+// NULL (src/event_data.c:229). Ou seja: setflag e no-op, FlagGet e sempre FALSE,
+// e todo objeto de Kanto escondido por flag nasce SEMPRE, inclusive por cima do
+// caminho do jogador. Nao da erro de compilacao e nao aparece em teste de tela.
+//
+// As duas abaixo saem do stub porque a abertura de Kanto depende delas: com
+// FLAG_HIDE_OAK_IN_PALLET_TOWN em 0, o Oak nascia em (10,8) de Pallet Town e
+// TRANCAVA a fileira 8, o unico caminho da casa do jogador ate a rota 1. Medido
+// no emulador em 05/08/2026, o jogador parava em (9,8) e a abertura nunca comecava.
+// Numeros vindos do pool FLAG_UNUSED_0x1DE..0x1E3, que nao tem nenhum outro dono
+// no repo. Sobram 0x1E0 a 0x1E3 nesse bloco. As outras ~530 continuam em 0: quem
+// for ligar mais conteudo de Kanto tira do stub o que precisar, uma a uma.
 #define FLAG_HIDE_BULBASAUR_BALL                           0
 #define FLAG_HIDE_SQUIRTLE_BALL                            0
 #define FLAG_HIDE_CHARMANDER_BALL                          0
-#define FLAG_HIDE_OAK_IN_HIS_LAB                           0
-#define FLAG_HIDE_OAK_IN_PALLET_TOWN                       0
+#define FLAG_HIDE_OAK_IN_HIS_LAB                           FLAG_UNUSED_0x1DE
+#define FLAG_HIDE_OAK_IN_PALLET_TOWN                       FLAG_UNUSED_0x1DF
 #define FLAG_HIDE_RIVAL_IN_LAB                             0
 #define FLAG_HIDE_PEWTER_CITY_GYM_GUIDE                    0
 #define FLAG_HIDE_DOME_FOSSIL                              0
@@ -2497,6 +2511,22 @@
 #define FLAG_REGIAO_JOHTO_LIBERADA   FLAG_UNUSED_0x022
 #define FLAG_REGIAO_HOENN_LIBERADA   FLAG_UNUSED_0x023
 #define FLAG_REGIAO_SINNOH_LIBERADA  FLAG_UNUSED_0x024
+
+
+// Trio de iniciais por regiao (decisao 68). Uma flag por LABORATORIO, e nao a
+// FLAG_SYS_POKEMON_GET, porque com a ordem cronologica (decisao 66) quem acende
+// a FLAG_SYS_POKEMON_GET e o Oak, em Kanto: dai em diante ela ja esta acesa, e
+// as Poke Bolas dos laboratorios seguintes NAO NASCERIAM (o campo "flag" do
+// object_event esconde o objeto quando a flag esta ligada). Medido, nao suposto:
+// data/maps/SandgemTown_House1/map.json usava FLAG_SYS_POKEMON_GET nas tres
+// bolas do ROWAN, e o inicial de Sinnoh sumia depois que Kanto virou a regiao 1.
+//
+// Kanto continua com FLAG_SYS_POKEMON_GET (e a primeira regiao, a flag esta
+// apagada quando o jogador chega la) e Hoenn continua com
+// FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG, que ja e so dela.
+#define FLAG_INICIAL_JOHTO   FLAG_UNUSED_0x054
+#define FLAG_INICIAL_SINNOH  FLAG_UNUSED_0x055
+#define FLAG_INICIAL_UNOVA   FLAG_UNUSED_0x4EF
 
 
 // ponytail: insignias de Sinnoh. As oito de Hoenn (FLAG_BADGE01_GET e seguintes)

@@ -68,7 +68,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SandgemTown_House1_EventScript_BallTurtwig",
-      "flag": "FLAG_SYS_POKEMON_GET"
+      "flag": "FLAG_INICIAL_SINNOH"
     },
     {
       "local_id": "LOCALID_ROWAN_LAB_BALL_CHIMCHAR",
@@ -82,7 +82,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SandgemTown_House1_EventScript_BallChimchar",
-      "flag": "FLAG_SYS_POKEMON_GET"
+      "flag": "FLAG_INICIAL_SINNOH"
     },
     {
       "local_id": "LOCALID_ROWAN_LAB_BALL_PIPLUP",
@@ -96,7 +96,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SandgemTown_House1_EventScript_BallPiplup",
-      "flag": "FLAG_SYS_POKEMON_GET"
+      "flag": "FLAG_INICIAL_SINNOH"
     }
   ],
   "warp_events": [

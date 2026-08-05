@@ -8,17 +8,27 @@
 @ e a linha de "recebeu"), porque no Platinum quem escolhe e uma tela de menu
 @ que este mapa nao tem.
 
-@ Depois que o jogador ja tem inicial, as tres bolas somem. Quem faz isso e o
-@ campo "flag" das tres no map.json, apontado para FLAG_SYS_POKEMON_GET: o
-@ objeto nem chega a nascer com a flag ligada. Nao foi preciso criar flag nem
-@ var, e nao ha script ON_TRANSITION (removeobject nao persiste sozinho).
+@ Depois que o jogador ja pegou O INICIAL DE SINNOH, as tres bolas somem. Quem
+@ faz isso e o campo "flag" das tres no map.json, apontado para
+@ FLAG_INICIAL_SINNOH: o objeto nem chega a nascer com a flag ligada.
+@
+@ A flag era FLAG_SYS_POKEMON_GET ate 05/08/2026. Com a ordem cronologica
+@ (decisao 66) quem acende essa flag e o Oak, em Kanto, muito antes de o jogador
+@ chegar a Sinnoh: as tres bolas do ROWAN deixavam de nascer e a quarta regiao
+@ nao entregava trio nenhum. Cada laboratorio passa a ter a flag da SUA regiao,
+@ ver o bloco "Trio de iniciais por regiao" em include/constants/flags.h.
+@
+@ VAR_STARTER_MON: escrita aqui, 0=TURTWIG, 1=CHIMCHAR, 2=PIPLUP (grama, fogo,
+@ agua, a mesma ordem de Hoenn). Sem ela nenhum rival monta time por triangulo
+@ de tipos, e foi por causa dessa falta que o time do SILVER, em Johto, teve que
+@ ser fixo (ver o cabecalho de data/maps/CherrygroveCity/scripts.inc).
 SandgemTown_House1_MapScripts::
 	.byte 0
 
 SandgemTown_House1_EventScript_Rowan::
 	lock
 	faceplayer
-	goto_if_set FLAG_SYS_POKEMON_GET, SandgemTown_House1_EventScript_RowanAfter
+	goto_if_set FLAG_INICIAL_SINNOH, SandgemTown_House1_EventScript_RowanAfter
 	msgbox SandgemTown_House1_Text_RowanEntrust, MSGBOX_DEFAULT
 	release
 	end
@@ -31,7 +41,7 @@ SandgemTown_House1_EventScript_RowanAfter::
 SandgemTown_House1_EventScript_Rival::
 	lock
 	faceplayer
-	goto_if_set FLAG_SYS_POKEMON_GET, SandgemTown_House1_EventScript_RivalAfter
+	goto_if_set FLAG_INICIAL_SINNOH, SandgemTown_House1_EventScript_RivalAfter
 	msgbox SandgemTown_House1_Text_RivalYouChooseFirst, MSGBOX_DEFAULT
 	release
 	end
@@ -57,7 +67,8 @@ SandgemTown_House1_EventScript_BallTurtwig::
 	msgbox SandgemTown_House1_Text_WillYouTakeThisOne, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, SandgemTown_House1_EventScript_DeclinedStarter
 	hidemonpic
-	givemon SPECIES_TURTWIG, 5
+	givemon SPECIES_TURTWIG, 55
+	setvar VAR_STARTER_MON, 0
 	goto SandgemTown_House1_EventScript_ChoseStarter
 
 SandgemTown_House1_EventScript_BallChimchar::
@@ -68,7 +79,8 @@ SandgemTown_House1_EventScript_BallChimchar::
 	msgbox SandgemTown_House1_Text_WillYouTakeThisOne, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, SandgemTown_House1_EventScript_DeclinedStarter
 	hidemonpic
-	givemon SPECIES_CHIMCHAR, 5
+	givemon SPECIES_CHIMCHAR, 55
+	setvar VAR_STARTER_MON, 1
 	goto SandgemTown_House1_EventScript_ChoseStarter
 
 SandgemTown_House1_EventScript_BallPiplup::
@@ -79,7 +91,8 @@ SandgemTown_House1_EventScript_BallPiplup::
 	msgbox SandgemTown_House1_Text_WillYouTakeThisOne, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, SandgemTown_House1_EventScript_DeclinedStarter
 	hidemonpic
-	givemon SPECIES_PIPLUP, 5
+	givemon SPECIES_PIPLUP, 55
+	setvar VAR_STARTER_MON, 2
 	goto SandgemTown_House1_EventScript_ChoseStarter
 
 SandgemTown_House1_EventScript_DeclinedStarter::
@@ -88,6 +101,7 @@ SandgemTown_House1_EventScript_DeclinedStarter::
 	end
 
 SandgemTown_House1_EventScript_ChoseStarter::
+	setflag FLAG_INICIAL_SINNOH
 	setflag FLAG_SYS_POKEMON_GET
 	message SandgemTown_House1_Text_ReceivedStarter
 	waitmessage

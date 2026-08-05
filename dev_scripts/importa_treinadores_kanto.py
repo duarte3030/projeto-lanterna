@@ -19,6 +19,18 @@ O que faz, em duas frentes:
 
 A lista de quem entra vem de dev_scripts/kanto_usados.txt (nome<TAB>id<TAB>mapas),
 ou do caminho passado em --usados.
+
+Modo 2 (nao precisa do clone de pokefirered):
+
+    python3 dev_scripts/importa_treinadores_kanto.py --scripts
+
+Porta os treinadores citados por data/scripts/trainers_frlg.inc, que e script
+COMPARTILHADO (entra na ROM por data/event_scripts.s, nao e script de mapa) e por
+isso ficou de fora da primeira leva. A fonte aqui e src/data/trainers_frlg.party,
+que ja esta no formato certo mas NAO entra nesta ROM: src/data.c so inclui
+data/trainers_frlg.h sob `#if IS_FRLG`, e esta build e Emerald. Fonte, nao
+solucao. Este modo escreve um acervo separado e nao toca no da primeira leva,
+para nao mexer em bloco ja provado na ROM (lideres, Elite dos Quatro, rival).
 """
 import argparse
 import os
@@ -34,6 +46,14 @@ PARTY = os.path.join(REPO, "src/data/trainers.party")
 ID_MIN, ID_MAX = 1400, 1799
 
 MARCA = "=== ACERVO KANTO (importa_treinadores_kanto.py) ==="
+# Sentinela do modo --scripts. Separada de MARCA de proposito: o corte de apensa()
+# e por texto, e ja houve um estrago quando o marcador mudou de nome e a rodada
+# seguinte anexou uma segunda copia de tudo. Estas duas strings sao literais fixas
+# e nao derivam do nome do arquivo; mexer nelas exige mexer no .party junto.
+MARCA_SCRIPTS = "=== ACERVO KANTO 2, scripts compartilhados (importa_treinadores_kanto.py) ==="
+
+PARTY_FRLG = os.path.join(REPO, "src/data/trainers_frlg.party")
+INC_SCRIPTS = os.path.join(REPO, "data/scripts/trainers_frlg.inc")
 
 # Classe do pokefirered sem equivalente aqui, nem com sufixo _FRLG nem sem ele.
 CLASSE_SUB = {
@@ -234,27 +254,140 @@ def renumera(nomes_ok):
     return novos
 
 
-def apensa(linhas):
-    """Troca o acervo de Kanto no fim de trainers.party, sem tocar no resto."""
-    texto = le(PARTY)
-    corte = texto.find(f"/*{MARCA}")
-    if corte != -1:
-        texto = texto[:corte]
-    texto = texto.rstrip("\n") + "\n\n"
-    texto += (
-        f"/*{MARCA}\n"
-        "   Times portados de pret/pokefirered. Nada aqui foi escrito a mao: quem\n"
+def apensa(linhas, marca=MARCA, fonte="pret/pokefirered"):
+    """Troca UM acervo de Kanto no fim de trainers.party, sem tocar no resto.
+
+    Sao DOIS acervos hoje, e o corte vai so do marcador pedido ate o marcador
+    seguinte, nunca ate o fim do arquivo. Cortar ate o fim era o caminho para o
+    estrago classico: rodar o modo antigo apagaria calado os 147 do modo
+    --scripts, e o gcc so reclama muito depois, se reclamar."""
+    # Ler ANTES de abrir para escrita: open(PARTY,"w") e avaliado primeiro numa
+    # linha so, trunca o arquivo, e o le(PARTY) de dentro leria zero byte.
+    saida = troca_acervo(le(PARTY), linhas, marca, fonte)
+    open(PARTY, "w", encoding="utf-8").write(saida)
+
+
+def troca_acervo(texto, linhas, marca, fonte):
+    """A parte pura de apensa(), separada so para caber no --autoteste."""
+    cabeca, rabo = texto, ""
+    ini = texto.find(f"/*{marca}")
+    if ini != -1:
+        cabeca = texto[:ini]
+        prox = texto.find("/*=== ACERVO KANTO", ini + 4)
+        rabo = texto[prox:].strip("\n") if prox != -1 else ""
+    novo = (
+        f"/*{marca}\n"
+        f"   Times portados de {fonte}. Nada aqui foi escrito a mao: quem\n"
         "   gera e dev_scripts/importa_treinadores_kanto.py. Rodar de novo troca so\n"
         "   este bloco. Comentario em bloco porque o formato .party nao aceita //. */\n\n"
+        + "\n".join(linhas).rstrip("\n") + "\n"
     )
-    open(PARTY, "w", encoding="utf-8").write(texto + "\n".join(linhas) + "\n")
+    return cabeca.rstrip("\n") + "\n\n" + novo + (("\n" + rabo + "\n") if rabo else "")
+
+
+def autoteste():
+    """Um acervo trocado nao pode levar o outro junto. Foi assim que uma rodada
+    anexou copia dobrada de tudo e o gcc so acusou no fim."""
+    base = "=== TRAINER_HOENN ===\nName: Hoenn\n"
+    t = troca_acervo(base, ["=== TRAINER_A ==="], MARCA, "x")
+    t = troca_acervo(t, ["=== TRAINER_B ==="], MARCA_SCRIPTS, "y")
+    nomes = re.findall(r"^=== (TRAINER_\w+) ===", t, re.M)
+    assert nomes == ["TRAINER_HOENN", "TRAINER_A", "TRAINER_B"], nomes
+    # Reescrever o PRIMEIRO acervo tem que preservar o segundo, e nao duplicar nada.
+    t2 = troca_acervo(t, ["=== TRAINER_C ==="], MARCA, "x")
+    nomes = re.findall(r"^=== (TRAINER_\w+) ===", t2, re.M)
+    assert nomes == ["TRAINER_HOENN", "TRAINER_C", "TRAINER_B"], nomes
+    assert t2.count(f"/*{MARCA}") == 1 and t2.count(f"/*{MARCA_SCRIPTS}") == 1
+    # E reescrever o SEGUNDO nao pode tocar no primeiro.
+    t3 = troca_acervo(t2, ["=== TRAINER_D ==="], MARCA_SCRIPTS, "y")
+    nomes = re.findall(r"^=== (TRAINER_\w+) ===", t3, re.M)
+    assert nomes == ["TRAINER_HOENN", "TRAINER_C", "TRAINER_D"], nomes
+    print("autoteste ok")
+    return 0
+
+
+def blocos_do_party_frlg():
+    """nome -> corpo do bloco, lido de src/data/trainers_frlg.party."""
+    partes = re.split(r"^=== (TRAINER_[A-Z0-9_]+) ===[ \t]*$",
+                      le(PARTY_FRLG), flags=re.M)
+    return {partes[i]: partes[i + 1].strip("\n")
+            for i in range(1, len(partes), 2)}
+
+
+def citados_por_scripts():
+    """Treinadores citados por data/scripts/trainers_frlg.inc, na ordem do arquivo.
+
+    Essa ordem e a da historia (Rota 3 primeiro, ilhas de Sevii por ultimo), o que
+    importa quando nao ha id para todos: quem entra primeiro e quem o jogador
+    encontra primeiro."""
+    return list(dict.fromkeys(re.findall(r"\bTRAINER_[A-Z0-9_]+\b", le(INC_SCRIPTS))))
+
+
+def porta_dos_scripts():
+    """Modo --scripts. Devolve o codigo de saida."""
+    frlg = {n: int(v) for n, v in re.findall(
+        r"^#define (TRAINER_[A-Z0-9_]+)\s+(\d+)\s*$", le(HEADER), re.M)}
+    com_bloco = set(re.findall(r"^=== (TRAINER_[A-Z0-9_]+) ===", le(PARTY), re.M))
+    fonte = blocos_do_party_frlg()
+
+    faltam = [n for n in citados_por_scripts()
+              if n in frlg and n not in com_bloco]
+    sem_fonte = [n for n in faltam if n not in fonte]
+    faltam = [n for n in faltam if n in fonte]
+
+    # Vagas: o que sobra da faixa depois de quem ja tem time proprio la dentro.
+    ocupados = [frlg[n] for n in com_bloco if n in frlg and ID_MIN <= frlg[n] <= ID_MAX]
+    proximo = (max(ocupados) + 1) if ocupados else ID_MIN
+    vagas = ID_MAX - proximo + 1
+    entram, sobram = faltam[:vagas], faltam[vagas:]
+
+    linhas = []
+    for nome in entram:
+        linhas += [f"=== {nome} ===", fonte[nome], ""]
+    novos = {n: proximo + i for i, n in enumerate(entram)}
+
+    def troca(m):
+        n = m.group(1)
+        return f"#define {n:<42} {novos[n]}" if n in novos else m.group(0)
+    cabecalho = re.sub(r"^#define (TRAINER_\w+)\s+(\d+)\s*$", troca, le(HEADER),
+                       flags=re.M)
+    open(HEADER, "w", encoding="utf-8").write(cabecalho)
+    apensa(linhas, MARCA_SCRIPTS, "src/data/trainers_frlg.party")
+
+    print(f"citados por {os.path.relpath(INC_SCRIPTS, REPO)} sem time proprio: "
+          f"{len(faltam) + len(sem_fonte)}")
+    print(f"vagas em {proximo}..{ID_MAX}: {vagas}")
+    print(f"portados: {len(entram)}"
+          + (f" (ids {min(novos.values())}..{max(novos.values())})" if novos else ""))
+    if sem_fonte:
+        print(f"\nSEM FONTE em trainers_frlg.party ({len(sem_fonte)}):")
+        for n in sem_fonte:
+            print("  ", n)
+    if sobram:
+        print(f"\nFICARAM DE FORA por falta de id na faixa {ID_MIN}..{ID_MAX} "
+              f"({len(sobram)}), na ordem da historia:")
+        for n in sobram:
+            print("  ", n)
+    return 0
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("firered", help="raiz do clone de pret/pokefirered")
+    ap.add_argument("firered", nargs="?", help="raiz do clone de pret/pokefirered")
+    ap.add_argument("--scripts", action="store_true",
+                    help="porta os citados por data/scripts/trainers_frlg.inc, "
+                         "usando src/data/trainers_frlg.party como fonte")
+    ap.add_argument("--autoteste", action="store_true",
+                    help="confere o corte dos acervos, sem tocar em arquivo")
     ap.add_argument("--usados", default=os.path.join(REPO, "dev_scripts/kanto_usados.txt"))
     a = ap.parse_args()
+
+    if a.autoteste:
+        return autoteste()
+    if a.scripts:
+        return porta_dos_scripts()
+    if not a.firered:
+        ap.error("informe a raiz do pokefirered, ou use --scripts")
 
     quero = [l.split("\t")[0].strip()
              for l in le(a.usados).strip().split("\n") if l.strip()]

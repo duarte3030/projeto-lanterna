@@ -9,5 +9,28 @@
       "mapa": "MAP_PEWTER_CITY_GYM",
       "oponente_faixa": [1400, 1799]
     }
+  },
+  {
+    "id": "T12.2",
+    "nome": "Ponte do Nugget: a Reli, citada só por data/scripts/trainers_frlg.inc, abre batalha como ela mesma e não como um treinador de Hoenn (era o id 33). Só treinador de posição fixa vira caso: a Robin da Rota 3 passa sozinha e falha no meio da bateria, porque MOVEMENT_TYPE_WANDER_UP_AND_DOWN muda a linha de visão dela entre uma rodada e outra",
+    "warp": "MAP_ROUTE24",
+    "roteiro": "16:DOWN*4,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE24",
+      "oponente": "TRAINER_LASS_RELI",
+      "oponente_faixa": [1400, 1799]
+    }
+  },
+  {
+    "id": "T12.3",
+    "nome": "Ponte do Nugget: a Ali abre batalha como ela mesma, não como o ARCHIE (id 34, líder da Aqua, Mightyena e Crobat de nível 41)",
+    "flags": ["0xB80", "0xB7E"],
+    "warp": "MAP_ROUTE24",
+    "roteiro": "16:LEFT*2,16:DOWN*9,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE24",
+      "oponente": "TRAINER_LASS_ALI",
+      "oponente_faixa": [1400, 1799]
+    }
   }
 ]
