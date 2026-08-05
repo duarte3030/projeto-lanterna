@@ -31,13 +31,13 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 
 | medida | valor |
 |---|---|
-| ROM | **93,90% de 32 MB** |
+| ROM | **94,71% de 32 MB** (93 KB de margem) |
 | EWRAM / IWRAM | 85,56% / 86,62% |
-| SaveBlock1 | **13488 de 15872 B** |
+| SaveBlock1 | **13496 de 15872 B (85,0%)** |
 | mapas | **1616** |
 | treinadores com time próprio | **2346** |
 | grupos de mapa que carregam | **101 de 101** |
-| suíte de testes | **95 de 96** (o pulado precisa de duas builds) |
+| suíte de testes | **106 de 107** (o pulado precisa de duas builds) |
 | teto de treinador | `MAX_TRAINERS_COUNT_EMERALD` = 3000 |
 
 ### Completude contra a fonte de cada região
@@ -50,15 +50,17 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 | Kanto | 98,1% | 100,1% | 100,0% | 100,0% |
 | Johto | 63,6% | 93,9% | 100,0% | **6,8%** |
 | Hoenn | 100,0% | 100,1% | 100,0% | 100,0% |
-| Sinnoh | 100,0% | **fonte 0** | 115,0% | **fonte 0** |
+| Sinnoh | 25,6% | 88,0% | 61,8% | 107,6% |
 | Unova | 85,4% | 98,5% | 98,8% | 76,0% |
 
 Hoenn dando exatamente 100% é o **controle**: nossa Hoenn é o vanilla intocado,
 então tem que dar 100. Se der outra coisa, a ferramenta está errada.
 
-"fonte 0" quer dizer que a fonte antiga de Sinnoh **não tem NPC nos mapas de
-Sinnoh** (os 2778 objetos dela são todos de Hoenn). Os NPCs de Sinnoh vêm do
-`pokeplatinum`, não dali.
+Sinnoh caiu de "100% / fonte 0" para estes números em 05/08/2026, e **isso é
+bom**: a régua mudou, não o jogo. Antes era medida contra `fontes-mapas/sinnoh`,
+que tem os mapas mas ZERO NPC de Sinnoh. Agora é contra o `pokeplatinum`, que
+cobre muito mais mapa do que importamos. Os objetos foram de 528 para **1119**
+de verdade; o 25,6% é a medida honesta aparecendo pela primeira vez.
 
 ### Warps que disparam de verdade
 
@@ -172,7 +174,20 @@ HEAD numa **worktree isolada**.
 A primeira versão desse script usava `git stash`, e **destruiu trabalho de
 agente**: o stash de um levou os arquivos de outro.
 
-### 4.9 Teste que guarda cópia de um fato envelhece calado
+### 4.9 Substring casa onde você não quer
+
+Comparar `"VENT"` contra o nome inteiro do gráfico casa com
+`OBJ_EVENT_GFX_ACE_TRAINER_F`, porque tem *e-VENT-o* dentro. Isso jogou **806
+NPCs fora sem erro nenhum**, e só apareceu porque o total deu zero. Tire o
+prefixo antes de comparar classe.
+
+### 4.10 Régua tirada da cabeça reprova o jogo original
+
+Levantei que 30 placas em cima de warp eram defeito. Medi: o vanilla tem 2,64%
+e nós temos 1,26%, ou seja, **o dobro da nossa taxa**. Se eu tivesse mandado
+consertar, teria tirado placa boa. Antes de chamar de bug, meça a fonte.
+
+### 4.11 Teste que guarda cópia de um fato envelhece calado
 
 Três casos desta sessão: teste com número de flag cravado (o número andou quando
 o teto de treinador subiu), testador com cópia própria do roteiro de abertura
@@ -252,17 +267,19 @@ existir escrito no topo.
 
 1. **Johto, placas em 6,8%.** Letreiros e avisos nunca foram importados do
    `hns`. Maior buraco do painel e o mais barato de fechar.
-2. **Sinnoh, NPCs.** 528 objetos contra 2278 no `pokeplatinum`. A fonte está em
-   `res/field/events/*.json`, formato quase idêntico ao nosso (`z` é o nosso
-   `y`). **136 dos 172 sprites não existem nesta build** e precisam de troca
-   pela tabela `TROCA_SPRITE`.
+2. **Sinnoh, o resto dos NPCs.** 1119 objetos hoje. Ficaram de fora 230 com
+   `hidden_flag` (NPC de história: sem o script que os remove, viram bloqueio
+   permanente, como as 39 pedras de Strength de Unova), 84 `coord_events` e 71
+   sem sprite honesto (Cynthia, Cyrus, Looker, os lendários de lago). Ver
+   `PENDENCIAS-NPC-SINNOH.md`. As 425 placas importadas dizem todas
+   "The lettering has faded with age."; o texto de verdade exige portar os
+   bancos de mensagem de Sinnoh.
 3. **Unova, 14,6% dos mapas e 24% das placas**, mais 209 cenas de enredo e 264
    NPCs mudos. Ver `PLANO-UNOVA.md`.
 4. **~530 flags de Kanto valem `0`**, então todo objeto escondido por flag nasce
    sempre: Pokébolas do laboratório reaparecem, fósseis, Rockets, Bill.
-5. **Bloco 6 do PRD**: ginásio de Canalave (ainda com planta do Roxanne de
-   Hoenn), laboratório do Rowan em mapa próprio, tela de introdução, 549 sprites
-   provisórios de treinador.
+5. **ROM em 94,71%, com 93 KB de margem.** É o limite mais próximo hoje. Antes
+   de mandar mais conteúdo entrar, medir onde dá para cortar.
 6. **12 diagonais de barco** não jogadas em ROM. Ver `PENDENCIAS-TRAVESSIA.md`.
 7. **Ninguém jogou do começo ao fim.** Tudo aqui é build, dado estático e
    emulador em ponto específico.
