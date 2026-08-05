@@ -31,9 +31,10 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 
 | medida | valor |
 |---|---|
-| ROM | **94,71% de 32 MB** (93 KB de margem) |
-| EWRAM / IWRAM | 85,56% / 86,62% |
-| SaveBlock1 | **13496 de 15872 B (85,0%)** |
+| ROM | **93,81% de 32 MB** (1,98 MB livres) |
+| EWRAM / IWRAM | 85,57% / 86,62% |
+| SaveBlock1 | **13432 de 15872 B (84,6%)** |
+| flags livres no pool | **184** (eram 288 antes de ligar as de Kanto) |
 | mapas | **1616** |
 | treinadores com time próprio | **2346** |
 | grupos de mapa que carregam | **101 de 101** |
@@ -48,10 +49,15 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 | região | mapas | objetos | warps | placas |
 |---|---|---|---|---|
 | Kanto | 98,1% | 100,1% | 100,0% | 100,0% |
-| Johto | 63,6% | 93,9% | 100,0% | **6,8%** |
+| Johto | 63,6% | 93,9% | 100,0% | 96,0% |
 | Hoenn | 100,0% | 100,1% | 100,0% | 100,0% |
-| Sinnoh | 25,6% | 88,0% | 61,8% | 107,6% |
-| Unova | 85,4% | 98,5% | 98,8% | 76,0% |
+| Sinnoh | **25,6%** | 88,0% | **61,8%** | 107,6% |
+| Unova | 94,2% | 98,5% | 98,9% | 76,9% |
+
+Mudou em 05/08/2026: as placas de Johto saíram de 6,8% para 96,0% (448 placas
+importadas do `hns` com script e texto), e Unova saiu de 85,4% para 94,2% de
+mapas **sem um byte novo**, porque o buraco era o normalizador de nome: no BW3G
+a rota é `R5NimbasaGate` e aqui ela entrou como `Rt5NimbasaGate`.
 
 Hoenn dando exatamente 100% é o **controle**: nossa Hoenn é o vanilla intocado,
 então tem que dar 100. Se der outra coisa, a ferramenta está errada.
@@ -260,29 +266,52 @@ existir escrito no topo.
 | `testa_critico.py` | Casos T1 a T30, prova lida da **EWRAM** |
 | `gba_runner.c` | Emulador headless que lê memória do jogo |
 | `demake_gen2.py` / `demake_ds.py` | Converte mapa de gen 2 e gen 4 |
+| `importa_placas_johto.py` | Traz placa do `hns` com script e texto, e recusa a que não funciona aqui |
+| `texto_placas_sinnoh.py` | Segue índice → `ScriptEntry` → banco de texto do Platinum |
+| `liga_flags_kanto.py` | Tira do stub só a flag que algum script mexe |
+
+As cinco fontes ficam em `../fontes-mapas/`: `pokeemerald`, `pokefirered`,
+`hns` (Johto), `sinnoh` e `pokeplatinum` (Sinnoh), `bw3g` (Unova). O BW3G morava
+em `/tmp` e foi movido em 05/08/2026, porque `/tmp` é limpo pelo sistema e seis
+scripts liam de lá.
 
 ---
 
 ## 8. O que falta, em ordem de tamanho
 
-1. **Johto, placas em 6,8%.** Letreiros e avisos nunca foram importados do
-   `hns`. Maior buraco do painel e o mais barato de fechar.
+1. **Sinnoh, mapas em 25,6% e warps em 61,8%.** É o maior buraco que sobrou, e o
+   mais caro: 455 mapas de verdade (casa, mart, centro, portaria de rota, as
+   salas de Turnback e o Mundo Distorcido) existem **só no pokeplatinum**, em
+   formato de DS. Fechar isso é converter planta de DS (`demake_ds.py`) mais
+   tileset, não copiar `map.json`. O `fontes-mapas/sinnoh`, que é GBA e seria
+   barato, só tem 133 mapas próprios de Sinnoh e **todos os 133 já estão na
+   ROM**: dessa fonte não sobra nada para importar.
 2. **Sinnoh, o resto dos NPCs.** 1119 objetos hoje. Ficaram de fora 230 com
    `hidden_flag` (NPC de história: sem o script que os remove, viram bloqueio
    permanente, como as 39 pedras de Strength de Unova), 84 `coord_events` e 71
    sem sprite honesto (Cynthia, Cyrus, Looker, os lendários de lago). Ver
-   `PENDENCIAS-NPC-SINNOH.md`. As 425 placas importadas dizem todas
-   "The lettering has faded with age."; o texto de verdade exige portar os
-   bancos de mensagem de Sinnoh.
-3. **Unova, 14,6% dos mapas e 24% das placas**, mais 209 cenas de enredo e 264
-   NPCs mudos. Ver `PLANO-UNOVA.md`.
-4. **~530 flags de Kanto valem `0`**, então todo objeto escondido por flag nasce
-   sempre: Pokébolas do laboratório reaparecem, fósseis, Rockets, Bill.
-5. **ROM em 94,71%, com 93 KB de margem.** É o limite mais próximo hoje. Antes
-   de mandar mais conteúdo entrar, medir onde dá para cortar.
+   `PENDENCIAS-NPC-SINNOH.md`.
+3. **152 "placas" de Sinnoh não são placa: são item escondido.** O `script`
+   delas no Platinum é 8000 ou mais, que é a faixa `SCRIPT_ID_OFFSET_HIDDEN_ITEMS`
+   (`include/script_manager.h:96`); a tabela com item, quantidade e raio está em
+   `include/data/field/hidden_items.h`. Hoje o jogador lê "the lettering has
+   faded" em cima de um item invisível. Virar item de verdade custa **uma flag
+   por item, 152 das 184 livres**: é gasto do pool inteiro e precisa da decisão
+   do Gui.
+4. **Unova, 23% das placas** (117, sendo 55 delas máquinas do Game Corner),
+   209 cenas de enredo e 264 NPCs mudos. Ver `PLANO-UNOVA.md`.
+5. **426 flags de Kanto seguem em `0`**, e isso está certo: elas não são mexidas
+   por script nenhum, então dar número a elas não mudaria nada em jogo. As 104
+   que importavam saíram do stub em 05/08/2026
+   (`dev_scripts/liga_flags_kanto.py`).
 6. **12 diagonais de barco** não jogadas em ROM. Ver `PENDENCIAS-TRAVESSIA.md`.
 7. **Ninguém jogou do começo ao fim.** Tudo aqui é build, dado estático e
    emulador em ponto específico.
+
+**O aperto de ROM que este documento anunciava não existia.** Os "93 KB de
+margem" eram a distância até uma linha de 95% que eu mesmo inventei como aviso,
+não até o teto de 32 MB. Livres de verdade: **1,98 MB**. Unova completa cabe, o
+resto de Sinnoh cabe, as placas de Johto couberam.
 
 ---
 
