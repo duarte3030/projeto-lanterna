@@ -2515,6 +2515,57 @@
 #define FLAG_MAHOGANY_HIDEOUT_DOOR_B3F           FLAG_UNUSED_0x043  // porta do escritorio, B3F (10,9)/(11,9)
 #define FLAG_HIDE_MAHOGANY_HIDEOUT_ROCKETS       FLAG_UNUSED_0x044  // transmissor desligado: esvazia o esconderijo
 
+// ponytail: SILVER, o rival de Johto, e as cenas que faltavam no esconderijo de
+// Mahogany. Portado do pokecrystal em 05/08/2026. ZERO var: quem decide se o
+// SILVER esta no mapa e um ON_TRANSITION que liga/desliga a flag de esconder,
+// e quem lembra de armadilha/camera/ELECTRODE ja disparada e a flag do proprio
+// gatilho. Faixa 0x270 em diante, isolada de proposito: a faixa 0x264-0x26F ja
+// esta com os itens das torres, e a 0x041-0x044 com o esconderijo.
+#define FLAG_SILVER_NEW_BARK_DONE                FLAG_UNUSED_0x270  // ja levou o esbarrao na porta do laboratorio do ELM
+#define FLAG_SILVER_HIDEOUT_DONE                 FLAG_UNUSED_0x271  // ja cruzou com o SILVER no B3F do esconderijo
+#define FLAG_HIDE_SILVER_NEW_BARK                FLAG_UNUSED_0x272
+#define FLAG_HIDE_SILVER_CHERRYGROVE             FLAG_UNUSED_0x273
+#define FLAG_HIDE_SILVER_AZALEA                  FLAG_UNUSED_0x274
+#define FLAG_HIDE_SILVER_BURNED_TOWER            FLAG_UNUSED_0x275
+#define FLAG_HIDE_SILVER_GOLDENROD               FLAG_UNUSED_0x276
+#define FLAG_HIDE_SILVER_HIDEOUT_B3F             FLAG_UNUSED_0x277
+
+// As 22 armadilhas de piso do B1F. Uma flag por armadilha porque cada uma so
+// explode UMA vez; sem isso o corredor vira batalha infinita e trava a passagem.
+#define FLAG_MAHOGANY_TRAP_1                     FLAG_UNUSED_0x278
+#define FLAG_MAHOGANY_TRAP_2                     FLAG_UNUSED_0x279
+#define FLAG_MAHOGANY_TRAP_3                     FLAG_UNUSED_0x27A
+#define FLAG_MAHOGANY_TRAP_4                     FLAG_UNUSED_0x27B
+#define FLAG_MAHOGANY_TRAP_5                     FLAG_UNUSED_0x27C
+#define FLAG_MAHOGANY_TRAP_6                     FLAG_UNUSED_0x27D
+#define FLAG_MAHOGANY_TRAP_7                     FLAG_UNUSED_0x27E
+#define FLAG_MAHOGANY_TRAP_8                     FLAG_UNUSED_0x27F
+#define FLAG_MAHOGANY_TRAP_9                     FLAG_UNUSED_0x280
+#define FLAG_MAHOGANY_TRAP_10                    FLAG_UNUSED_0x281
+#define FLAG_MAHOGANY_TRAP_11                    FLAG_UNUSED_0x282
+#define FLAG_MAHOGANY_TRAP_12                    FLAG_UNUSED_0x283
+#define FLAG_MAHOGANY_TRAP_13                    FLAG_UNUSED_0x284
+#define FLAG_MAHOGANY_TRAP_14                    FLAG_UNUSED_0x285
+#define FLAG_MAHOGANY_TRAP_15                    FLAG_UNUSED_0x286
+#define FLAG_MAHOGANY_TRAP_16                    FLAG_UNUSED_0x287
+#define FLAG_MAHOGANY_TRAP_17                    FLAG_UNUSED_0x288
+#define FLAG_MAHOGANY_TRAP_18                    FLAG_UNUSED_0x289
+#define FLAG_MAHOGANY_TRAP_19                    FLAG_UNUSED_0x28A
+#define FLAG_MAHOGANY_TRAP_20                    FLAG_UNUSED_0x28B
+#define FLAG_MAHOGANY_TRAP_21                    FLAG_UNUSED_0x28C
+#define FLAG_MAHOGANY_TRAP_22                    FLAG_UNUSED_0x28D
+
+// As 5 cameras nao gastam flag: viraram guarda com raio de visao, e quem lembra
+// que ele ja caiu e a flag de treinador, que o motor grava de graca.
+
+// Os 6 ELECTRODE que guardam o transmissor no B2F.
+#define FLAG_MAHOGANY_ELECTRODE_1                FLAG_UNUSED_0x28E
+#define FLAG_MAHOGANY_ELECTRODE_2                FLAG_UNUSED_0x28F
+#define FLAG_MAHOGANY_ELECTRODE_3                FLAG_UNUSED_0x290
+#define FLAG_MAHOGANY_ELECTRODE_4                FLAG_UNUSED_0x291
+#define FLAG_MAHOGANY_ELECTRODE_5                FLAG_UNUSED_0x292
+#define FLAG_MAHOGANY_ELECTRODE_6                FLAG_UNUSED_0x293
+
 #ifndef FLAG_NIGHT_POKEMON
 #define FLAG_NIGHT_POKEMON 0x4000
 #endif

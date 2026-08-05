@@ -1,7 +1,7 @@
 {
   "id": "MAP_HEARTHOME_CITY_GYM",
   "name": "HearthomeCity_Gym",
-  "layout": "LAYOUT_MOSSDEEP_CITY_GYM",
+  "layout": "LAYOUT_HEARTHOME_CITY_GYM",
   "music": "MUS_GYM",
   "region_map_section": "MAPSEC_SINNOH_EAST",
   "requires_flash": false,
@@ -17,8 +17,8 @@
     {
       "local_id": "LOCALID_FANTINA_GYM_LEADER",
       "graphics_id": "OBJ_EVENT_GFX_HEX_MANIAC",
-      "x": 6,
-      "y": 1,
+      "x": 14,
+      "y": 3,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -31,11 +31,11 @@
   ],
   "warp_events": [
     {
-      "x": 12,
-      "y": 35,
+      "x": 14,
+      "y": 22,
       "elevation": 0,
       "dest_map": "MAP_HEARTHOME_CITY",
-      "dest_warp_id": "0"
+      "dest_warp_id": "4"
     }
   ],
   "coord_events": [],

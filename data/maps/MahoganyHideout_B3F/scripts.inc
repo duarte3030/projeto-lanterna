@@ -1,14 +1,43 @@
 @ ESCONDERIJO DA ROCKET em MAHOGANY, B3F. Planta do pokecrystal
 @ (maps/TeamRocketBaseB3F.blk), texto de maps/TeamRocketBaseB3F.asm.
-@ ponytail: o rival e o MURKROW que canta a senha não entraram. O rival precisa
-@ de VAR_STARTER_MON e de três treinadores, e o MURKROW não tem sprite fora de
-@ #if IS_FRLG. As duas senhas ficaram onde estavam, na boca dos dois grunts, e
+@ ponytail: o MURKROW que canta a senha não entrou (não tem sprite fora de
+@ #if IS_FRLG). As duas senhas ficaram onde estavam, na boca dos dois grunts, e
 @ quem lembra que você venceu os dois é goto_if_defeated, não var.
 @ A porta do escritório abre por setmetatile no ON_LOAD. 552 = chão do Facility.
+@
+@ 06/08/2026: o SILVER entrou, mas como CAMEO, não como batalha: no pokecrystal
+@ este encontro também não tem batalha nenhuma, só a fala dele sobre o homem de
+@ capa e os dragões (RocketBaseRivalText). Duas diferenças do original:
+@ ele fica em pé em (4,5), o mesmo tile de lá, e você fala com ele em vez de
+@ pisar num coord_event em (8,10), porque (8,10) é o corredor de um tile de
+@ largura e um objeto ali trancaria a passagem se algo desse errado no meio da
+@ cena. Aparece só depois da quarta batalha (Goldenrod), some depois da fala.
+@ Zero var: quem controla é o ON_TRANSITION.
 
 MahoganyHideout_B3F_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, MahoganyHideout_B3F_OnLoad
+	map_script MAP_SCRIPT_ON_TRANSITION, MahoganyHideout_B3F_OnTransition
 	.byte 0
+
+MahoganyHideout_B3F_OnTransition:
+	setflag FLAG_HIDE_SILVER_HIDEOUT_B3F
+	goto_if_not_defeated TRAINER_JOHTO_RIVAL_SILVER_4, MahoganyHideout_B3F_EventScript_SilverFim
+	goto_if_set FLAG_SILVER_HIDEOUT_DONE, MahoganyHideout_B3F_EventScript_SilverFim
+	clearflag FLAG_HIDE_SILVER_HIDEOUT_B3F
+MahoganyHideout_B3F_EventScript_SilverFim:
+	end
+
+MahoganyHideout_B3F_EventScript_Silver::
+	lock
+	faceplayer
+	msgbox MahoganyHideout_B3F_Text_Silver, MSGBOX_DEFAULT
+	closemessage
+	playse SE_M_HEADBUTT
+	setflag FLAG_SILVER_HIDEOUT_DONE
+	setflag FLAG_HIDE_SILVER_HIDEOUT_B3F
+	removeobject LOCALID_MAHOGANY_HIDEOUT_B3F_SILVER
+	release
+	end
 
 MahoganyHideout_B3F_OnLoad:
 	goto_if_set FLAG_MAHOGANY_HIDEOUT_DOOR_B3F, MahoganyHideout_B3F_EventScript_PoePortaAberta
@@ -220,3 +249,21 @@ MahoganyHideout_B3F_Text_Juramento:
 	.string "Exploit POKéMON for profit.\p"
 	.string "All POKéMON exist for the glory of\n"
 	.string "TEAM ROCKET.$"
+
+MahoganyHideout_B3F_Text_Silver:
+	.string "…\p"
+	.string "Didn't I tell you that I was going\n"
+	.string "to destroy TEAM ROCKET?\p"
+	.string "…Tell me, who was the guy in the\n"
+	.string "cape who used dragon POKéMON?\p"
+	.string "My POKéMON were no match at all.\p"
+	.string "I don't care that I lost. I can\n"
+	.string "beat him by getting stronger\l"
+	.string "POKéMON.\p"
+	.string "It's what he said that bothers me…\p"
+	.string "He told me that I don't love and\n"
+	.string "trust my POKéMON enough.\p"
+	.string "I'm furious that I lost to a\n"
+	.string "bleeding heart like him.\p"
+	.string "…Humph! I don't have the time for\n"
+	.string "the likes of you!$"

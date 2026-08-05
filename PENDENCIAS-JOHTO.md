@@ -19,9 +19,23 @@ Nenhuma flag nova foi pedida e nenhuma var foi usada. Toda pergunta de
 "isso já aconteceu?" que não precisava esconder objeto virou
 `goto_if_defeated` na flag de treinador, que o motor grava sozinho.
 
-## 1. Vagas de treinador: sobra UMA no jogo inteiro
+**06/08/2026, o rival e o resto do esconderijo pediram 36 flags novas e ZERO
+var**, todas aliadas em `include/constants/flags.h` na faixa `0x270`-`0x293`:
+`FLAG_SILVER_NEW_BARK_DONE`, `FLAG_SILVER_HIDEOUT_DONE`, seis
+`FLAG_HIDE_SILVER_*` (New Bark, Cherrygrove, Azalea, Burned Tower, Goldenrod,
+Hideout B3F), `FLAG_MAHOGANY_TRAP_1..22` e `FLAG_MAHOGANY_ELECTRODE_1..6`.
+Quem for aliar nome novo: a faixa `0x264`-`0x293` já tem dono, comece em
+`0x294` e confira com
+`grep -n "FLAG_UNUSED_0x29" include/constants/flags.h` antes.
 
-`MAX_TRAINERS_COUNT_EMERALD` é 1330 e `TRAINERS_COUNT_EMERALD` foi de 1316 para
+## 1. Vagas de treinador: sobram 33 (era UMA quando isto foi escrito)
+
+(Desatualizado. Em 05/08/2026 o teto subiu para **1400**; em 06/08/2026 o
+contador está em **1367**, ou seja, sobram **33 vagas**. O número que importa é
+o TETO `MAX_TRAINERS_COUNT_EMERALD`, não o contador em uso. Os 7 Rockets da
+Torre Rádio listados abaixo cabem hoje, é só criar.)
+
+`MAX_TRAINERS_COUNT_EMERALD` era 1330 e `TRAINERS_COUNT_EMERALD` foi de 1316 para
 **1329**. Os 13 treinadores criados estão em `include/constants/opponents.h`, com
 time em `src/data/trainers.party` (acervo em `src/data/trainers_johto.party`).
 
@@ -52,28 +66,94 @@ que a loja de Mahogany tinha para `MAP_ROCKET_HIDEOUT_B1F` estava em (8,4), que 
 **parede**: nunca disparou, e apontava para Kanto. Agora aponta para (7,4) e para
 o esconderijo certo.
 
-O que ficou de fora do original, tudo por causa do orçamento de var: as 22
-armadilhas de piso e as 5 câmeras do B1F, os seis Electrode do B2F e o encontro
-com o rival no B3F. Detalhe em cada `scripts.inc`.
+**06/08/2026: entrou tudo o que faltava, com zero var.** As 22 armadilhas de
+piso do B1F (coord_event com gatilho `VAR_TEMP_0` = 0, uma
+`FLAG_MAHOGANY_TRAP_n` por armadilha para não renascer, nas mesmas 22
+coordenadas do pokecrystal), os 6 ELECTRODE do B2F (mesma técnica,
+`FLAG_MAHOGANY_ELECTRODE_1..6`, nos mesmos 6 tiles) e o encontro com o rival no
+B3F (cameo sem batalha, igual ao original). As 5 câmeras viraram 5 guardas com
+**raio de visão**, um por câmera, porque no original as cinco reaproveitam os
+mesmos dois `GRUNTM` e `trainerbattle_single` não rebate treinador já derrotado;
+as câmeras continuam na parede como placa, com o texto do original.
+
+Ainda fora do B2F: a cena grande da ARIANA com o LANCE e o DRAGONITE, e o
+`verbosegiveitem HM_WHIRLPOOL` que o LANCE dá quando os ELECTRODE caem. Derrubar
+os seis ELECTRODE hoje não abre nada; quem abre a porta do transmissor continua
+sendo o `setmetatile` do ON_LOAD com as duas senhas do B3F.
 
 Efeito colateral aceito: a fala da ARIANA no 5F cita a derrota dela "no
 esconderijo de MAHOGANY", que o jogador nunca viu. O texto é do hns e ficou como
 está, de propósito, para não inventar diálogo.
 
-## 3. Rival (prioridade 3): não portado
+## 3. Rival de Johto (SILVER): PORTADO em 06/08/2026, com duas simplificações
 
-O hns amarra o rival em `VAR_STARTER_MON` (três `call_if_eq` para escolher entre
-`TRAINER_RIVAL_CYNDAQUIL_2`, `..._TOTODILE_2` e `..._CHIKORITA_2`) e dispara a
-cena por `coord_event` em `VAR_AZALEA_TOWN_STATE`. São duas vars, e a instrução
-era zero var. Além disso:
+Cinco dos seis encontros entraram, **com zero var** e com o texto do
+`pret/pokecrystal`, não inventado.
 
-- Não existe sprite: `OBJ_EVENT_GFX_SILVER` só existe dentro de `#if IS_FRLG`.
-  O substituto seria `OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL`, que esta build desenha.
-- Seriam 3 treinadores por encontro (um por inicial), e só sobra 1 vaga.
+| Encontro | Mapa | Batalha | `TRAINER_` | Fonte do texto |
+|---|---|---|---|---|
+| 1. o esbarrão na porta do laboratório do ELM | `NewBarkTown` | não | — | `maps/NewBarkTown.asm` |
+| 2. primeira batalha | `CherrygroveCity` | sim | `TRAINER_JOHTO_RIVAL_SILVER_1` | `maps/CherrygroveCity.asm` |
+| 3. depois do Slowpoke Well | `AzaleaTown` | sim | `TRAINER_JOHTO_RIVAL_SILVER_2` | `maps/AzaleaTown.asm` |
+| 4. atrás dos lendários | `BurnedTower_1F` | sim | `TRAINER_JOHTO_RIVAL_SILVER_3` | `maps/BurnedTower1F.asm` |
+| 5. a emboscada de Goldenrod | `GoldenrodCity` | sim | `TRAINER_JOHTO_RIVAL_SILVER_4` | `maps/GoldenrodUndergroundSwitchRoomEntrances.asm` |
+| 6. o desabafo sobre o homem de capa | `MahoganyHideout_B3F` | não | — | `maps/TeamRocketBaseB3F.asm` |
 
-Caminho barato, se um dia for prioridade: um rival só, com time fixo, disparado
-por raio de visão de treinador em vez de `coord_event`, gastando 1 vaga e
-1 flag. Some com `goto_if_defeated`.
+**Sprite: `OBJ_EVENT_GFX_RED`.** Esta build desenha esse sprite fora de qualquer
+`#if IS_FRLG` (linha do `OBJ_EVENT_GFX_RED` em
+`src/data/object_events/object_event_graphics_info_pointers.h`, sem `#if` em
+volta), e **nenhum outro mapa do repo usava**, então o rival de Johto não se
+confunde com ninguém. `OBJ_EVENT_GFX_SILVER` continua proibido (só existe dentro
+de `#if IS_FRLG`), e `OBJ_EVENT_GFX_RICH_BOY` ficou de fora de propósito porque
+já é o BARRY de Sinnoh. Em batalha: `TRAINER_PIC_RIVAL_EARLY_FRLG` nas três
+primeiras e `TRAINER_PIC_RIVAL_LATE_FRLG` na quarta, os dois compilam fora de
+`#if` (`src/data/graphics/trainers.h` não tem `#if` nenhum).
+
+**Como sai sem var** (detalhe em `SINNOH-PADRAO.md`): a ordem dos encontros vem
+de um `MAP_SCRIPT_ON_TRANSITION` por mapa, que esconde o SILVER por padrão e só
+o mostra se o encontro anterior já caiu e este ainda não. O motor roda
+ON_TRANSITION antes de nascerem os objetos. As quatro batalhas são treinador com
+**raio de visão**, não `coord_event`.
+
+### As duas simplificações, ditas na cara
+
+1. **Time FIXO, sem triângulo de tipos.** No original o time do SILVER responde
+   ao inicial do jogador: três `TRAINER_` por batalha, escolhidos por
+   `VAR_STARTER_MON`. Aqui o inicial vem do laboratório do ROWAN, em Sinnoh, e
+   `data/maps/SandgemTown_House1/scripts.inc` **não escreve `VAR_STARTER_MON`**
+   (só dá o Pokémon e liga `FLAG_SYS_POKEMON_GET`). Ler a var daria sempre o
+   mesmo galho, ou seja, o triângulo seria mentira. Então o SILVER roubou a
+   linha do TOTODILE e pronto: TOTODILE 5 / CROCONAW 16 / CROCONAW 22 /
+   FERALIGATR 32, o resto do time igual ao `RIVAL1` do pokecrystal (Gastly,
+   Zubat, Magnemite, Haunter, Golbat, Sneasel).
+   **Para ter o triângulo de volta**: acrescentar `setvar VAR_STARTER_MON, 0/1/2`
+   nos três galhos de `SandgemTown_House1` e criar mais 8 `TRAINER_` (há 33
+   vagas livres). Zero var nova. Não fiz porque aquele arquivo é da sessão da
+   abertura, não desta.
+2. **Sem galho de derrota.** O original usa `BATTLETYPE_CANLOSE` nas batalhas do
+   rival: perder continua a história. Em gen 3, perder é apagar. Os textos
+   `CherrygroveRivalText_YouLost` e companhia não têm onde entrar e ficaram fora.
+
+### O que continua faltando do rival
+
+- **Victory Road.** Não existe Victory Road de Johto neste repo: `VictoryRoad_1F`
+  e `_B1F` são de Hoenn (`MAPSEC_VICTORY_ROAD`, `LAYOUT_VICTORY_ROAD_1F`),
+  `VictoryRoad_*_Frlg` é de Kanto e `VictoryRoad_Kalos` é a Petalburg renomeada.
+  Não dá para pôr o rival de Johto num deles, e criar mapa exigiria
+  `layouts.json` e `map_groups.json`, que não são desta tarefa.
+  Fica documentado: quando existir mapa, é a batalha `RIVAL1 (15)` do
+  pokecrystal (Sneasel 34, Golbat 36, Magneton 34, Haunter 35, Kadabra 35,
+  Feraligatr 38), texto em `maps/VictoryRoad.asm`.
+- **Coreografia.** Ninguém anda: no original o SILVER caminha até você, empurra
+  e sai. Aqui só o de New Bark anda (três passos para a direita e some); os
+  outros aparecem, batalham e somem. Isso foi escolha de risco, não de var:
+  `applymovement` com rota chutada em mapa convertido trava o jogador se o
+  caminho estiver bloqueado.
+- **Goldenrod mudou de lugar.** No original a emboscada é no túnel
+  subterrâneo (`GoldenrodUndergroundSwitchRoomEntrances`). Aqui ele está em pé
+  na calçada da entrada sul do subterrâneo, em (19,39), porque
+  `GoldenrodCity_UndergroundSwitches` não era arquivo desta tarefa. A fala
+  ("eu te vi, e vim atrás de você") continua fazendo sentido na rua.
 
 ## 4. Torres e farol (prioridade 4): portado o que dava, sem vaga de treinador
 
@@ -252,7 +332,8 @@ Cortado: **TM Shock Wave** que o hns também deixa nesta sala — o script
   é falso positivo, o jogador fala com ele de `(11,8)` ou `(11,10)`.
   **Não rodar `--corrigir` nesse objeto.**
 - **Sprites**: esta build não desenha `ROCKET_M`, `ROCKET_F`, `PROTON`, `KURT`,
-  `SILVER`, `SLOWPOKE_NO_TAIL`, `ARCHER`, `ARIANA`, `PETREL`, `POLICEMAN`,
+  `SILVER` (o rival usa `OBJ_EVENT_GFX_RED` no lugar, ver seção 3),
+  `SLOWPOKE_NO_TAIL`, `ARCHER`, `ARIANA`, `PETREL`, `POLICEMAN`,
   `SUPER_NERD`, `COOLTRAINER_F`, `SCIENTIST_M`, `WORKER_M` nem
   `OBJ_EVENT_GFX_MON_BASE+SPECIES_*` (aqui `MON_BASE` cai no fallback
   `POKE_BALL`, então somar espécie dá índice lixo). Os Rockets viraram

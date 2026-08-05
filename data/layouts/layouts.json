@@ -9877,8 +9877,8 @@
     {
       "id": "LAYOUT_OREBURGH_CITY_GYM",
       "name": "OreburghCity_Gym_Layout",
-      "width": 11,
-      "height": 20,
+      "width": 12,
+      "height": 25,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_RustboroGym",
       "border_filepath": "data/layouts/OreburghCity_Gym/border.bin",
@@ -14228,16 +14228,6 @@
       "blockdata_filepath": "data/layouts/MtSilver_SummitDay/map.bin"
     },
     {
-      "id": "LAYOUT_GOLDENROD_CITY_DEPARTMENT_STORE_7FNIGHT",
-      "name": "GoldenrodCity_DepartmentStore_7FNight_Layout",
-      "width": 32,
-      "height": 19,
-      "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
-      "border_filepath": "data/layouts/GoldenrodCity_DepartmentStore_7FNight/border.bin",
-      "blockdata_filepath": "data/layouts/GoldenrodCity_DepartmentStore_7FNight/map.bin"
-    },
-    {
       "id": "LAYOUT_NATIONAL_PARK_BUG_CONTEST",
       "name": "NationalPark_BugContest_Layout",
       "width": 48,
@@ -14246,16 +14236,6 @@
       "secondary_tileset": "gTileset_PetalburgSinnoh",
       "border_filepath": "data/layouts/NationalPark_BugContest/border.bin",
       "blockdata_filepath": "data/layouts/NationalPark_BugContest/map.bin"
-    },
-    {
-      "id": "LAYOUT_TIN_TOWER_ROOF_NIGHT",
-      "name": "TinTower_RoofNight_Layout",
-      "width": 23,
-      "height": 21,
-      "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_Building",
-      "border_filepath": "data/layouts/TinTower_RoofNight/border.bin",
-      "blockdata_filepath": "data/layouts/TinTower_RoofNight/map.bin"
     },
     {
       "id": "LAYOUT_TRAINER_HILL_COURTYARD",
@@ -14438,16 +14418,6 @@
       "blockdata_filepath": "data/layouts/FuchsiaCity_SafariZoneCave/map.bin"
     },
     {
-      "id": "LAYOUT_MT_SILVER_SUMMIT_NIGHT",
-      "name": "MtSilver_SummitNight_Layout",
-      "width": 21,
-      "height": 27,
-      "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
-      "border_filepath": "data/layouts/MtSilver_SummitNight/border.bin",
-      "blockdata_filepath": "data/layouts/MtSilver_SummitNight/map.bin"
-    },
-    {
       "id": "LAYOUT_ROUTE19_CAVE",
       "name": "Route19_Cave_Layout",
       "width": 20,
@@ -14496,246 +14466,6 @@
       "secondary_tileset": "gTileset_PetalburgSinnoh",
       "border_filepath": "data/layouts/WhirlIslands_B1F_Inner/border.bin",
       "blockdata_filepath": "data/layouts/WhirlIslands_B1F_Inner/map.bin"
-    },
-    {
-      "id": "LAYOUT_VANIVILLE_TOWN",
-      "name": "VanivilleTown_Layout",
-      "width": 30,
-      "height": 30,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/PetalburgCity/border.bin",
-      "blockdata_filepath": "data/layouts/PetalburgCity/map.bin"
-    },
-    {
-      "id": "LAYOUT_VANIVILLE_TOWN_PLAYERS_HOUSE_1F",
-      "name": "VanivilleTown_PlayersHouse_1F_Layout",
-      "width": 10,
-      "height": 9,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
-      "border_filepath": "data/layouts/LittlerootTown_BrendansHouse_1F/border.bin",
-      "blockdata_filepath": "data/layouts/LittlerootTown_BrendansHouse_1F/map.bin"
-    },
-    {
-      "id": "LAYOUT_VANIVILLE_TOWN_PLAYERS_HOUSE_2F",
-      "name": "VanivilleTown_PlayersHouse_2F_Layout",
-      "width": 8,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
-      "border_filepath": "data/layouts/LittlerootTown_BrendansHouse_2F/border.bin",
-      "blockdata_filepath": "data/layouts/LittlerootTown_BrendansHouse_2F/map.bin"
-    },
-    {
-      "id": "LAYOUT_AQUACORDE_TOWN",
-      "name": "AquacordeTown_Layout",
-      "width": 30,
-      "height": 30,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/PetalburgCity/border.bin",
-      "blockdata_filepath": "data/layouts/PetalburgCity/map.bin"
-    },
-    {
-      "id": "LAYOUT_SANTALUNE_CITY",
-      "name": "SantaluneCity_Layout",
-      "width": 30,
-      "height": 30,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/PetalburgCity/border.bin",
-      "blockdata_filepath": "data/layouts/PetalburgCity/map.bin"
-    },
-    {
-      "id": "LAYOUT_SANTALUNE_CITY_GYM",
-      "name": "SantaluneCity_Gym_Layout",
-      "width": 11,
-      "height": 20,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
-      "border_filepath": "data/layouts/RustboroCity_Gym/border.bin",
-      "blockdata_filepath": "data/layouts/RustboroCity_Gym/map.bin"
-    },
-    {
-      "id": "LAYOUT_ROUTE1_KALOS",
-      "name": "Route1_Kalos_Layout",
-      "width": 20,
-      "height": 20,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/Route101/border.bin",
-      "blockdata_filepath": "data/layouts/Route101/map.bin"
-    },
-    {
-      "id": "LAYOUT_ROUTE2_KALOS",
-      "name": "Route2_Kalos_Layout",
-      "width": 20,
-      "height": 20,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/Route101/border.bin",
-      "blockdata_filepath": "data/layouts/Route101/map.bin"
-    },
-    {
-      "id": "LAYOUT_ROUTE3_KALOS",
-      "name": "Route3_Kalos_Layout",
-      "width": 20,
-      "height": 20,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/Route101/border.bin",
-      "blockdata_filepath": "data/layouts/Route101/map.bin"
-    },
-    {
-      "id": "LAYOUT_SANTALUNE_FOREST",
-      "name": "SantaluneForest_Layout",
-      "width": 30,
-      "height": 30,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/PetalburgCity/border.bin",
-      "blockdata_filepath": "data/layouts/PetalburgCity/map.bin"
-    },
-    {
-      "id": "LAYOUT_LUMIOSE_CITY",
-      "name": "LumioseCity_Layout",
-      "width": 30,
-      "height": 30,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/PetalburgCity/border.bin",
-      "blockdata_filepath": "data/layouts/PetalburgCity/map.bin"
-    },
-    {
-      "id": "LAYOUT_CAMPHRIER_TOWN",
-      "name": "CamphrierTown_Layout",
-      "width": 30,
-      "height": 30,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/PetalburgCity/border.bin",
-      "blockdata_filepath": "data/layouts/PetalburgCity/map.bin"
-    },
-    {
-      "id": "LAYOUT_AMBRETTE_TOWN",
-      "name": "AmbretteTown_Layout",
-      "width": 30,
-      "height": 30,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/PetalburgCity/border.bin",
-      "blockdata_filepath": "data/layouts/PetalburgCity/map.bin"
-    },
-    {
-      "id": "LAYOUT_CYLLAGE_CITY",
-      "name": "CyllageCity_Layout",
-      "width": 30,
-      "height": 30,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/PetalburgCity/border.bin",
-      "blockdata_filepath": "data/layouts/PetalburgCity/map.bin"
-    },
-    {
-      "id": "LAYOUT_CYLLAGE_CITY_GYM",
-      "name": "CyllageCity_Gym_Layout",
-      "width": 11,
-      "height": 20,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
-      "border_filepath": "data/layouts/RustboroCity_Gym/border.bin",
-      "blockdata_filepath": "data/layouts/RustboroCity_Gym/map.bin"
-    },
-    {
-      "id": "LAYOUT_SHALOUR_CITY",
-      "name": "ShalourCity_Layout",
-      "width": 30,
-      "height": 30,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/PetalburgCity/border.bin",
-      "blockdata_filepath": "data/layouts/PetalburgCity/map.bin"
-    },
-    {
-      "id": "LAYOUT_SHALOUR_CITY_GYM",
-      "name": "ShalourCity_Gym_Layout",
-      "width": 11,
-      "height": 20,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
-      "border_filepath": "data/layouts/RustboroCity_Gym/border.bin",
-      "blockdata_filepath": "data/layouts/RustboroCity_Gym/map.bin"
-    },
-    {
-      "id": "LAYOUT_COUMARINE_CITY",
-      "name": "CoumarineCity_Layout",
-      "width": 30,
-      "height": 30,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/PetalburgCity/border.bin",
-      "blockdata_filepath": "data/layouts/PetalburgCity/map.bin"
-    },
-    {
-      "id": "LAYOUT_COUMARINE_CITY_GYM",
-      "name": "CoumarineCity_Gym_Layout",
-      "width": 11,
-      "height": 20,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
-      "border_filepath": "data/layouts/RustboroCity_Gym/border.bin",
-      "blockdata_filepath": "data/layouts/RustboroCity_Gym/map.bin"
-    },
-    {
-      "id": "LAYOUT_LUMIOSE_CITY_GYM",
-      "name": "LumioseCity_Gym_Layout",
-      "width": 11,
-      "height": 20,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
-      "border_filepath": "data/layouts/RustboroCity_Gym/border.bin",
-      "blockdata_filepath": "data/layouts/RustboroCity_Gym/map.bin"
-    },
-    {
-      "id": "LAYOUT_LAVERRE_CITY",
-      "name": "LaverreCity_Layout",
-      "width": 30,
-      "height": 30,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/PetalburgCity/border.bin",
-      "blockdata_filepath": "data/layouts/PetalburgCity/map.bin"
-    },
-    {
-      "id": "LAYOUT_LAVERRE_CITY_GYM",
-      "name": "LaverreCity_Gym_Layout",
-      "width": 11,
-      "height": 20,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
-      "border_filepath": "data/layouts/RustboroCity_Gym/border.bin",
-      "blockdata_filepath": "data/layouts/RustboroCity_Gym/map.bin"
-    },
-    {
-      "id": "LAYOUT_ANISTAR_CITY",
-      "name": "AnistarCity_Layout",
-      "width": 30,
-      "height": 30,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/PetalburgCity/border.bin",
-      "blockdata_filepath": "data/layouts/PetalburgCity/map.bin"
-    },
-    {
-      "id": "LAYOUT_ANISTAR_CITY_GYM",
-      "name": "AnistarCity_Gym_Layout",
-      "width": 11,
-      "height": 20,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
-      "border_filepath": "data/layouts/RustboroCity_Gym/border.bin",
-      "blockdata_filepath": "data/layouts/RustboroCity_Gym/map.bin"
     },
     {
       "id": "LAYOUT_SNOWBELLE_CITY",
@@ -14868,6 +14598,72 @@
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/MahoganyHideout_B3F/border.bin",
       "blockdata_filepath": "data/layouts/MahoganyHideout_B3F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ETERNA_CITY_GYM",
+      "name": "EternaCity_Gym_Layout",
+      "width": 23,
+      "height": 28,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_RustboroGym",
+      "border_filepath": "data/layouts/EternaCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/EternaCity_Gym/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HEARTHOME_CITY_GYM",
+      "name": "HearthomeCity_Gym_Layout",
+      "width": 29,
+      "height": 24,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_MossdeepGym",
+      "border_filepath": "data/layouts/HearthomeCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/HearthomeCity_Gym/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_VEILSTONE_CITY_GYM",
+      "name": "VeilstoneCity_Gym_Layout",
+      "width": 26,
+      "height": 31,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_DewfordGym",
+      "border_filepath": "data/layouts/VeilstoneCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/VeilstoneCity_Gym/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_PASTORIA_CITY_GYM",
+      "name": "PastoriaCity_Gym_Layout",
+      "width": 27,
+      "height": 44,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_SootopolisGym",
+      "border_filepath": "data/layouts/PastoriaCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/PastoriaCity_Gym/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SNOWPOINT_CITY_GYM",
+      "name": "SnowpointCity_Gym_Layout",
+      "width": 23,
+      "height": 29,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_SootopolisGym",
+      "border_filepath": "data/layouts/SnowpointCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/SnowpointCity_Gym/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SUNYSHORE_CITY_GYM",
+      "name": "SunyshoreCity_Gym_Layout",
+      "width": 23,
+      "height": 26,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_MauvilleGym",
+      "border_filepath": "data/layouts/SunyshoreCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/SunyshoreCity_Gym/map.bin",
       "layout_version": "emerald"
     }
   ]

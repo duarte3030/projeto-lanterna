@@ -26084,3 +26084,166 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 Fearow @ None
 Level: 24
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_JOHTO_RIVAL_SILVER_1 ===
+Name: Silver
+Class: TRAINER_CLASS_RIVAL_EARLY_FRLG
+Pic: TRAINER_PIC_RIVAL_EARLY_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_TOTODILE
+Level: 5
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_JOHTO_RIVAL_SILVER_2 ===
+Name: Silver
+Class: TRAINER_CLASS_RIVAL_EARLY_FRLG
+Pic: TRAINER_PIC_RIVAL_EARLY_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_GASTLY
+Level: 12
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+SPECIES_ZUBAT
+Level: 14
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+SPECIES_CROCONAW
+Level: 16
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_JOHTO_RIVAL_SILVER_3 ===
+Name: Silver
+Class: TRAINER_CLASS_RIVAL_EARLY_FRLG
+Pic: TRAINER_PIC_RIVAL_EARLY_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_HAUNTER
+Level: 20
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+SPECIES_MAGNEMITE
+Level: 18
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+SPECIES_ZUBAT
+Level: 20
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+SPECIES_CROCONAW
+Level: 22
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_JOHTO_RIVAL_SILVER_4 ===
+Name: Silver
+Class: TRAINER_CLASS_RIVAL_LATE_FRLG
+Pic: TRAINER_PIC_RIVAL_LATE_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_GOLBAT
+Level: 30
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+SPECIES_MAGNEMITE
+Level: 28
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+SPECIES_HAUNTER
+Level: 30
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+SPECIES_SNEASEL
+Level: 32
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+SPECIES_FERALIGATR
+Level: 32
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_JOHTO_ROCKET_CAMERA_1 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_DROWZEE
+Level: 17
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ZUBAT
+Level: 19
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ROCKET_CAMERA_2 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_ZUBAT
+Level: 16
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GRIMER
+Level: 17
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RATTATA
+Level: 18
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ROCKET_CAMERA_3 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_DROWZEE
+Level: 17
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ZUBAT
+Level: 19
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ROCKET_CAMERA_4 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_ZUBAT
+Level: 16
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GRIMER
+Level: 17
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RATTATA
+Level: 18
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ROCKET_CAMERA_5 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_VENONAT
+Level: 18
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_VENONAT
+Level: 18
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe

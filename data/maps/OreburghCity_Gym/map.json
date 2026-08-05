@@ -17,8 +17,8 @@
     {
       "local_id": "LOCALID_OREBURGH_GYM_GUIDE",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
-      "x": 4,
-      "y": 17,
+      "x": 6,
+      "y": 22,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -31,7 +31,7 @@
     {
       "local_id": "LOCALID_OREBURGH_GYM_VISITOR",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 7,
+      "x": 4,
       "y": 17,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
@@ -45,8 +45,8 @@
     {
       "local_id": "LOCALID_OREBURGH_GYM_ROARK",
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
-      "x": 4,
-      "y": 8,
+      "x": 5,
+      "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -60,14 +60,7 @@
   "warp_events": [
     {
       "x": 5,
-      "y": 19,
-      "elevation": 0,
-      "dest_map": "MAP_OREBURGH_CITY",
-      "dest_warp_id": "6"
-    },
-    {
-      "x": 6,
-      "y": 19,
+      "y": 23,
       "elevation": 0,
       "dest_map": "MAP_OREBURGH_CITY",
       "dest_warp_id": "6"
@@ -77,8 +70,8 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 5,
-      "y": 18,
+      "x": 3,
+      "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "OreburghCity_Gym_EventScript_Sign"

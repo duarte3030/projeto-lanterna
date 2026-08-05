@@ -122,7 +122,62 @@
       "dest_warp_id": "3"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 5,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B2F_EventScript_Electrode1"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 7,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B2F_EventScript_Electrode2"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B2F_EventScript_Electrode3"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 5,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B2F_EventScript_Electrode4"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 7,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B2F_EventScript_Electrode5"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B2F_EventScript_Electrode6"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

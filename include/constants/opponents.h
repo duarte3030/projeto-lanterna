@@ -1368,7 +1368,9 @@
 #define TRAINER_JOHTO_SCIENTIST_MITCH                           1338
 #define TRAINER_JOHTO_ROCKET_PETREL_MAHOGANY                    1339
 
-// ponytail: sobram 60 vagas (1340 a 1399) ate MAX_TRAINERS_COUNT_EMERALD.
+// ponytail: em 05/08/2026 sobravam 60 vagas (1340 a 1399) ate
+// MAX_TRAINERS_COUNT_EMERALD. Depois do rival e das cameras, sobram 33
+// (1367 a 1399). O numero que interessa e o TETO, 1400, nao o contador em uso.
 #define TRAINER_SAGE_CHOW                                    1340
 #define TRAINER_SAGE_NICO                                    1341
 #define TRAINER_SAGE_EDMOND                                  1342
@@ -1388,7 +1390,25 @@
 #define TRAINER_SAILOR_ERNEST                                1356
 #define TRAINER_BIRD_KEEPER_DENIS                            1357
 
-#define TRAINERS_COUNT_EMERALD     1358
+// ponytail: SILVER, o rival de Johto. Quatro batalhas, nao doze: o time do
+// pokecrystal muda com o inicial do jogador (tres versoes de cada batalha), e
+// nesta build o inicial vem do laboratorio do ROWAN, em Sinnoh, sem escrever
+// VAR_STARTER_MON. Ler essa var daria sempre o mesmo galho. Time fixo, entao,
+// com a linha do TOTODILE, que e o inicial que o SILVER rouba aqui.
+#define TRAINER_JOHTO_RIVAL_SILVER_1                         1358  // Cherrygrove
+#define TRAINER_JOHTO_RIVAL_SILVER_2                         1359  // Azalea
+#define TRAINER_JOHTO_RIVAL_SILVER_3                         1360  // Burned Tower
+#define TRAINER_JOHTO_RIVAL_SILVER_4                         1361  // Goldenrod
+// As cinco cameras do B1F do esconderijo de Mahogany. No pokecrystal as cinco
+// reaproveitam os mesmos dois GRUNTM; aqui nao da, porque trainerbattle_single
+// nao rebate treinador ja derrotado. Uma batalha por camera.
+#define TRAINER_JOHTO_ROCKET_CAMERA_1                        1362
+#define TRAINER_JOHTO_ROCKET_CAMERA_2                        1363
+#define TRAINER_JOHTO_ROCKET_CAMERA_3                        1364
+#define TRAINER_JOHTO_ROCKET_CAMERA_4                        1365
+#define TRAINER_JOHTO_ROCKET_CAMERA_5                        1366
+
+#define TRAINERS_COUNT_EMERALD     1367
 // ponytail: teto elevado em 05/08/2026. Estava em 1330 com 1329 em uso, ou seja,
 // UMA vaga sobrando no jogo inteiro, e a historia de Johto ja tinha deixado 7
 // Rockets de fora por falta de vaga. Cada vaga custa 1 bit de flag de treinador

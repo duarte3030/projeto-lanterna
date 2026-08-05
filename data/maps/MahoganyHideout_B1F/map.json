@@ -41,6 +41,76 @@
       "trainer_sight_or_berry_tree_id": "4",
       "script": "MahoganyHideout_B1F_EventScript_Jed",
       "flag": "FLAG_HIDE_MAHOGANY_HIDEOUT_ROCKETS"
+    },
+    {
+      "local_id": "LOCALID_MAHOGANY_HIDEOUT_B1F_CAM1",
+      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+      "x": 19,
+      "y": 2,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "MahoganyHideout_B1F_EventScript_Guarda1",
+      "flag": "FLAG_HIDE_MAHOGANY_HIDEOUT_ROCKETS"
+    },
+    {
+      "local_id": "LOCALID_MAHOGANY_HIDEOUT_B1F_CAM2",
+      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+      "x": 11,
+      "y": 3,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "MahoganyHideout_B1F_EventScript_Guarda2",
+      "flag": "FLAG_HIDE_MAHOGANY_HIDEOUT_ROCKETS"
+    },
+    {
+      "local_id": "LOCALID_MAHOGANY_HIDEOUT_B1F_CAM3",
+      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+      "x": 20,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "MahoganyHideout_B1F_EventScript_Guarda3",
+      "flag": "FLAG_HIDE_MAHOGANY_HIDEOUT_ROCKETS"
+    },
+    {
+      "local_id": "LOCALID_MAHOGANY_HIDEOUT_B1F_CAM4",
+      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+      "x": 26,
+      "y": 16,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "MahoganyHideout_B1F_EventScript_Guarda4",
+      "flag": "FLAG_HIDE_MAHOGANY_HIDEOUT_ROCKETS"
+    },
+    {
+      "local_id": "LOCALID_MAHOGANY_HIDEOUT_B1F_CAM5",
+      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+      "x": 3,
+      "y": 16,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "MahoganyHideout_B1F_EventScript_Guarda5",
+      "flag": "FLAG_HIDE_MAHOGANY_HIDEOUT_ROCKETS"
     }
   ],
   "warp_events": [
@@ -59,7 +129,206 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 7,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B1F_EventScript_Armadilha1"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 7,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B1F_EventScript_Armadilha2"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 7,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B1F_EventScript_Armadilha3"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 8,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B1F_EventScript_Armadilha4"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 8,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B1F_EventScript_Armadilha5"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 8,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B1F_EventScript_Armadilha6"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B1F_EventScript_Armadilha7"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B1F_EventScript_Armadilha8"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B1F_EventScript_Armadilha9"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B1F_EventScript_Armadilha10"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B1F_EventScript_Armadilha11"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B1F_EventScript_Armadilha12"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B1F_EventScript_Armadilha13"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B1F_EventScript_Armadilha14"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 12,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B1F_EventScript_Armadilha15"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 12,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B1F_EventScript_Armadilha16"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 12,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B1F_EventScript_Armadilha17"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 12,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B1F_EventScript_Armadilha18"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 13,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B1F_EventScript_Armadilha19"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 13,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B1F_EventScript_Armadilha20"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 13,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B1F_EventScript_Armadilha21"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 13,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MahoganyHideout_B1F_EventScript_Armadilha22"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",
@@ -84,6 +353,46 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "MahoganyHideout_B1F_EventScript_Estante"
+    },
+    {
+      "type": "sign",
+      "x": 24,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "MahoganyHideout_B1F_EventScript_Camera"
+    },
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "MahoganyHideout_B1F_EventScript_Camera"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 15,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "MahoganyHideout_B1F_EventScript_Camera"
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 15,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "MahoganyHideout_B1F_EventScript_Camera"
+    },
+    {
+      "type": "sign",
+      "x": 24,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "MahoganyHideout_B1F_EventScript_Camera"
     }
   ]
 }

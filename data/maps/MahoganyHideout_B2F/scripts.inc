@@ -1,9 +1,16 @@
 @ ESCONDERIJO DA ROCKET em MAHOGANY, B2F. Planta do pokecrystal
 @ (maps/TeamRocketBaseB2F.blk), texto de maps/TeamRocketBaseB2F.asm.
-@ ponytail: os seis ELECTRODE e a cena da ARIANA com o LANCE e o DRAGONITE
-@ saíram. Os ELECTRODE dependem de três flags e de um coord_event por sala, e
-@ não existe sprite de POKéMON no overworld desta build; a cena grande depende
-@ de VAR_MAHOGANY_TOWN_STATE. Ficou o que dá para jogar sem var nenhuma:
+@ 06/08/2026: os seis ELECTRODE entraram, ZERO var. Cada um é um coord_event
+@ com gatilho VAR_TEMP_0 = 0 (o motor zera VAR_TEMP_0 a cada entrada de mapa,
+@ então o gatilho vale sempre e não gasta var nenhuma) e uma
+@ FLAG_MAHOGANY_ELECTRODE_1..6 para não renascer. Ficam nos mesmos seis tiles
+@ do pokecrystal, (7,5)/(7,7)/(7,9) e (22,5)/(22,7)/(22,9), os dois corredores
+@ que ladeiam o transmissor. Não são objeto: esta build não desenha ELECTRODE
+@ no overworld, então em vez de sprite o jogador pisa no tile e leva o grito e
+@ a batalha, que é o efeito que importa. A cena grande da ARIANA com o LANCE e
+@ o DRAGONITE continua fora (depende de VAR_MAHOGANY_TOWN_STATE), e derrubar
+@ os seis NÃO abre nada: quem abre a porta do transmissor continua sendo o
+@ setmetatile do ON_LOAD com as duas senhas do B3F. Ficou o que dá para jogar sem var nenhuma:
 @ a ARIANA é treinadora normal, e a porta do transmissor abre por setmetatile
 @ no ON_LOAD assim que as DUAS senhas do B3F foram arrancadas.
 @ O metatile 552 é o chão do gTileset_Facility (o mesmo do AquaHideout).
@@ -44,6 +51,50 @@ MahoganyHideout_B2F_EventScript_PortaSemSenha::
 	end
 
 MahoganyHideout_B2F_EventScript_PortaJaAberta::
+	releaseall
+	end
+
+MahoganyHideout_B2F_EventScript_Electrode1::
+	goto_if_set FLAG_MAHOGANY_ELECTRODE_1, MahoganyHideout_B2F_EventScript_ElectrodeGasto
+	setflag FLAG_MAHOGANY_ELECTRODE_1
+	goto MahoganyHideout_B2F_EventScript_ElectrodeBatalha
+
+MahoganyHideout_B2F_EventScript_Electrode2::
+	goto_if_set FLAG_MAHOGANY_ELECTRODE_2, MahoganyHideout_B2F_EventScript_ElectrodeGasto
+	setflag FLAG_MAHOGANY_ELECTRODE_2
+	goto MahoganyHideout_B2F_EventScript_ElectrodeBatalha
+
+MahoganyHideout_B2F_EventScript_Electrode3::
+	goto_if_set FLAG_MAHOGANY_ELECTRODE_3, MahoganyHideout_B2F_EventScript_ElectrodeGasto
+	setflag FLAG_MAHOGANY_ELECTRODE_3
+	goto MahoganyHideout_B2F_EventScript_ElectrodeBatalha
+
+MahoganyHideout_B2F_EventScript_Electrode4::
+	goto_if_set FLAG_MAHOGANY_ELECTRODE_4, MahoganyHideout_B2F_EventScript_ElectrodeGasto
+	setflag FLAG_MAHOGANY_ELECTRODE_4
+	goto MahoganyHideout_B2F_EventScript_ElectrodeBatalha
+
+MahoganyHideout_B2F_EventScript_Electrode5::
+	goto_if_set FLAG_MAHOGANY_ELECTRODE_5, MahoganyHideout_B2F_EventScript_ElectrodeGasto
+	setflag FLAG_MAHOGANY_ELECTRODE_5
+	goto MahoganyHideout_B2F_EventScript_ElectrodeBatalha
+
+MahoganyHideout_B2F_EventScript_Electrode6::
+	goto_if_set FLAG_MAHOGANY_ELECTRODE_6, MahoganyHideout_B2F_EventScript_ElectrodeGasto
+	setflag FLAG_MAHOGANY_ELECTRODE_6
+	goto MahoganyHideout_B2F_EventScript_ElectrodeBatalha
+
+MahoganyHideout_B2F_EventScript_ElectrodeGasto::
+	end
+
+MahoganyHideout_B2F_EventScript_ElectrodeBatalha::
+	lockall
+	setwildbattle SPECIES_ELECTRODE, 23
+	waitse
+	playmoncry SPECIES_ELECTRODE, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	dowildbattle
 	releaseall
 	end
 

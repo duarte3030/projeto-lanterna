@@ -4,11 +4,34 @@
 @ Quem lembra que a Rocket ja foi embora: FLAG_HIDE_AZALEA_TOWN_ROCKETS, unica
 @ flag pedida por este arco. Zero var. As falas que dependem do progresso usam
 @ goto_if_defeated TRAINER_JOHTO_ROCKET_PROTON, que o motor grava de graca.
-@ Nao portado: rival (precisa de VAR_STARTER_MON), GS Ball e a cena do Kurt na
-@ porta de casa. Ver PENDENCIAS-JOHTO.md.
+@ Nao portado: GS Ball e a cena do Kurt na porta de casa. Ver PENDENCIAS-JOHTO.md.
+@
+@ 06/08/2026: o SILVER entrou. Segunda batalha do rival, texto do pokecrystal
+@ (maps/AzaleaTown.asm). Time fixo e gatilho por raio de visao, pelos mesmos
+@ dois motivos explicados em data/maps/CherrygroveCity/scripts.inc. A ORDEM dos
+@ encontros sai do ON_TRANSITION: aqui ele so aparece depois que o SILVER de
+@ Cherrygrove caiu, e some quando este cair. Zero var.
 
 AzaleaTown_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, AzaleaTown_OnTransition
 	.byte 0
+
+AzaleaTown_OnTransition:
+	setflag FLAG_HIDE_SILVER_AZALEA
+	goto_if_not_defeated TRAINER_JOHTO_RIVAL_SILVER_1, AzaleaTown_EventScript_SilverFim
+	goto_if_defeated TRAINER_JOHTO_RIVAL_SILVER_2, AzaleaTown_EventScript_SilverFim
+	clearflag FLAG_HIDE_SILVER_AZALEA
+AzaleaTown_EventScript_SilverFim:
+	end
+
+AzaleaTown_EventScript_Silver::
+	trainerbattle_single TRAINER_JOHTO_RIVAL_SILVER_2, AzaleaTown_Text_SilverSeen, AzaleaTown_Text_SilverBeaten
+	msgbox AzaleaTown_Text_SilverAfter, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_HIDE_SILVER_AZALEA
+	removeobject LOCALID_AZALEA_TOWN_SILVER
+	release
+	end
 
 AzaleaTown_EventScript_Rocket1::
 	lock
@@ -164,3 +187,31 @@ AzaleaTown_Text_CharcoalKilnSign:
 AzaleaTown_Text_IlexForestSign:
 	.string "ILEX FOREST\p"
 	.string "Enter through the gate.$"
+
+AzaleaTown_Text_SilverSeen:
+	.string "…Tell me something.\p"
+	.string "Is it true that TEAM ROCKET has\n"
+	.string "returned?\p"
+	.string "What? You beat them? Hah!\n"
+	.string "Quit lying.\p"
+	.string "You're not joking? Then let's see\n"
+	.string "how good you are.$"
+
+AzaleaTown_Text_SilverBeaten:
+	.string "… Humph! Useless POKéMON!\p"
+	.string "Listen, you. You only won because\n"
+	.string "my POKéMON were weak.$"
+
+AzaleaTown_Text_SilverAfter:
+	.string "I hate the weak.\p"
+	.string "POKéMON, trainers. It doesn't\n"
+	.string "matter who or what.\p"
+	.string "I'm going to be strong and wipe\n"
+	.string "out the weak.\p"
+	.string "That goes for TEAM ROCKET too.\p"
+	.string "They act big and tough in a group.\p"
+	.string "But get them alone, and they're\n"
+	.string "weak.\p"
+	.string "I hate them all.\p"
+	.string "You stay out of my way. A weakling\n"
+	.string "like you is only a distraction.$"

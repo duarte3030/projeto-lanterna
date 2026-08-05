@@ -7,12 +7,14 @@
 @ HIKER.
 @ Itens usam Common_EventScript_FindItem com FLAG_UNUSED_0x268/0x269 crus
 @ (flags.h esta com outro agente).
-@ Nao portado, tudo por falta de sprite que esta build nao desenha (nenhuma
-@ das tres constantes abaixo existe fora de dentro de outro jogo/#if
-@ IS_FRLG, ou nem existe): EUSINE, MORTY (aqui, como NPC de corredor; o
-@ MORTY treinador de ginasio ja existe em outro lugar) e o rival SILVER, que
-@ tambem exigiria VAR_ECRUTEAK_CITY_STATE (proibida). Ver PENDENCIAS-JOHTO.md
-@ secao 3 (Rival) para o SILVER.
+@ Nao portado, por falta de sprite que esta build nao desenha: EUSINE e MORTY
+@ (aqui, como NPC de corredor; o MORTY treinador de ginasio ja existe em outro
+@ lugar).
+@ 06/08/2026: o rival SILVER ENTROU (terceira batalha, texto do pokecrystal
+@ maps/BurnedTower1F.asm). O sprite e OBJ_EVENT_GFX_RED, que esta build
+@ desenha fora de qualquer #if; o motivo da escolha esta em
+@ data/maps/NewBarkTown/scripts.inc. Time fixo e raio de visao no lugar do
+@ coord_event, motivo em data/maps/CherrygroveCity/scripts.inc. Zero var.
 @ O buraco pro B1F que no hns so abre depois da batalha do SILVER virou
 @ passagem sempre aberta: sem a cena que o abre, nao ha por que trava-lo, e
 @ nao dava pra arriscar um setmetatile com ID de tile chutado. O warp para
@@ -24,7 +26,25 @@
 @ OBJ_EVENT_GFX_MON_BASE, que cai no fallback POKE_BALL nesta build).
 
 BurnedTower_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, BurnedTower_1F_OnTransition
 	.byte 0
+
+BurnedTower_1F_OnTransition:
+	setflag FLAG_HIDE_SILVER_BURNED_TOWER
+	goto_if_not_defeated TRAINER_JOHTO_RIVAL_SILVER_2, BurnedTower_1F_EventScript_SilverFim
+	goto_if_defeated TRAINER_JOHTO_RIVAL_SILVER_3, BurnedTower_1F_EventScript_SilverFim
+	clearflag FLAG_HIDE_SILVER_BURNED_TOWER
+BurnedTower_1F_EventScript_SilverFim:
+	end
+
+BurnedTower_1F_EventScript_Silver::
+	trainerbattle_single TRAINER_JOHTO_RIVAL_SILVER_3, BurnedTower_1F_Text_SilverSeen, BurnedTower_1F_Text_SilverBeaten
+	msgbox BurnedTower_1F_Text_SilverAfter, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_HIDE_SILVER_BURNED_TOWER
+	removeobject LOCALID_BURNED_TOWER_1F_SILVER
+	release
+	end
 
 BurnedTower_1F_EventScript_Nard::
 	trainerbattle_single TRAINER_FIREBREATHER_NARD, BurnedTower_Text_NardSeen, BurnedTower_Text_NardBeaten
@@ -61,3 +81,23 @@ BurnedTower_Text_RichardoBeaten:
 BurnedTower_Text_RichardoAfter:
 	.string "Maybe a life of crime isn't for\n"
 	.string "me…$"
+
+BurnedTower_1F_Text_SilverSeen:
+	.string "…… …… ……\p"
+	.string "…Oh, it's you.\p"
+	.string "I came looking for some legendary\n"
+	.string "POKéMON that they say roosts here.\p"
+	.string "But there's nothing here!\p"
+	.string "Nothing after all the trouble of\n"
+	.string "coming to this dump? No way!\p"
+	.string "It's all your fault!$"
+
+BurnedTower_1F_Text_SilverBeaten:
+	.string "…Humph!\p"
+	.string "This is why I hate battling wimps.\p"
+	.string "There's no challenge in it.$"
+
+BurnedTower_1F_Text_SilverAfter:
+	.string "…Aw, whatever.\p"
+	.string "You would never be able to catch a\n"
+	.string "legendary POKéMON anyway.$"
