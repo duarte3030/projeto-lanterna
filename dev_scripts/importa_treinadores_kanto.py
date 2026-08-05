@@ -39,11 +39,16 @@ import sys
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HEADER = os.path.join(REPO, "include/constants/opponents_frlg.h")
+HEADER_PRINCIPAL = os.path.join(REPO, "include/constants/opponents.h")
 PARTY = os.path.join(REPO, "src/data/trainers.party")
 
-# Faixa exclusiva desta frente. Abaixo de 1400 ja esta ocupado por Hoenn, Johto e
-# Sinnoh; 1800+ e de outra frente.
-ID_MIN, ID_MAX = 1400, 1799
+# Faixas exclusivas desta frente. Abaixo de 1400 e de Hoenn, Johto e Sinnoh, e
+# 1800..2199 e de Unova. Kanto precisa de 474 ids e a primeira faixa so tem 400:
+# em 05/08/2026 MAX_TRAINERS_COUNT_EMERALD subiu de 2200 para 2400 e a segunda
+# faixa de Kanto e 2200..2399. As faixas sao consumidas na ordem, e a segunda so
+# comeca quando a primeira estiver cheia.
+FAIXAS = [(1400, 1799), (2200, 2399)]
+ID_MIN, ID_MAX = FAIXAS[0]
 
 MARCA = "=== ACERVO KANTO (importa_treinadores_kanto.py) ==="
 # Sentinela do modo --scripts. Separada de MARCA de proposito: o corte de apensa()
@@ -302,16 +307,62 @@ def autoteste():
     t3 = troca_acervo(t2, ["=== TRAINER_D ==="], MARCA_SCRIPTS, "y")
     nomes = re.findall(r"^=== (TRAINER_\w+) ===", t3, re.M)
     assert nomes == ["TRAINER_HOENN", "TRAINER_C", "TRAINER_D"], nomes
+
+    # As duas grafias de classe tem que dar a MESMA chave. A primeira versao
+    # comparava as grafias cruas, cruzava zero classe e corrigia zero genero, sem
+    # erro nenhum na saida: so o contador em zero denunciava.
+    assert classe_de("Class: TRAINER_CLASS_LASS_FRLG") == classe_de("Class: Lass Frlg")
+    assert e_feminina("SWIMMER_F_FRLG", {"SWIMMER_F"})
+    assert not e_feminina("FISHERMAN_FRLG", {"SWIMMER_F"})
     print("autoteste ok")
     return 0
 
 
-def blocos_do_party_frlg():
-    """nome -> corpo do bloco, lido de src/data/trainers_frlg.party."""
-    partes = re.split(r"^=== (TRAINER_[A-Z0-9_]+) ===[ \t]*$",
-                      le(PARTY_FRLG), flags=re.M)
+def blocos_do_party(texto):
+    """nome -> corpo do bloco, de um texto no formato .party."""
+    partes = re.split(r"^=== (TRAINER_[A-Z0-9_]+) ===[ \t]*$", texto, flags=re.M)
     return {partes[i]: partes[i + 1].strip("\n")
             for i in range(1, len(partes), 2)}
+
+
+def classe_de(corpo):
+    """Classe do bloco, normalizada. O campo `Class:` aceita as duas grafias e os
+    dois arquivos usam grafias diferentes: o acervo 1 escreve
+    TRAINER_CLASS_LASS_FRLG e trainers_frlg.party escreve `Lass Frlg`. Sem
+    normalizar, a tabela de genero cruza zero classe."""
+    m = re.search(r"^Class: (.+)$", corpo, re.M)
+    if not m:
+        return ""
+    chave = re.sub(r"[^A-Z0-9]+", "_", m.group(1).strip().upper()).strip("_")
+    return re.sub(r"^TRAINER_CLASS_", "", chave)
+
+
+def classes_femininas():
+    """Classes que o acervo 1 marca como Female, lidas do proprio acervo 1.
+
+    src/data/trainers_frlg.party traz `Gender: Male` em 624 de 624 blocos, entao
+    copiar o bloco cru masculiniza toda Lass, Beauty, Picnicker e Channeler de
+    Kanto, enquanto os 253 do primeiro porte (vindos do pokefirered, que tem o bit
+    F_TRAINER_FEMALE) estao certos. Derivado do dado, nao chutado, e classe que
+    aparece com os DOIS generos no acervo 1 (Cooltrainer, Leader, Elite Four,
+    Ranger, Psychic) fica de fora por ambigua. Le so o que vem ANTES do acervo 2,
+    senao os blocos masculinizados que esta funcao existe para consertar entrariam
+    na conta e tornariam toda classe ambigua."""
+    anterior = le(PARTY).split(f"/*{MARCA_SCRIPTS}")[0]
+    por_classe = {}
+    for corpo in blocos_do_party(anterior).values():
+        por_classe.setdefault(classe_de(corpo), set()).add(
+            bool(re.search(r"^Gender: Female", corpo, re.M)))
+    return {c for c, generos in por_classe.items() if generos == {True}}
+
+
+def e_feminina(classe, femininas):
+    """A classe, ou a mesma classe sem o sufixo _FRLG (que e so a arte de Kanto da
+    mesma classe: SWIMMER_F_FRLG e a SWIMMER_F de Hoenn). Sem esse degrau, classe
+    que so existe com o sufixo fica sem precedente e a Swimmer F entra masculina.
+    Continua sendo dado do repo, nao chute: se a classe base tambem for ambigua ou
+    inexistente, nada muda."""
+    return classe in femininas or re.sub(r"_FRLG$", "", classe) in femininas
 
 
 def citados_por_scripts():
@@ -327,24 +378,36 @@ def porta_dos_scripts():
     """Modo --scripts. Devolve o codigo de saida."""
     frlg = {n: int(v) for n, v in re.findall(
         r"^#define (TRAINER_[A-Z0-9_]+)\s+(\d+)\s*$", le(HEADER), re.M)}
-    com_bloco = set(re.findall(r"^=== (TRAINER_[A-Z0-9_]+) ===", le(PARTY), re.M))
-    fonte = blocos_do_party_frlg()
+    # De fora do acervo 2, porque apensa() reescreve o acervo 2 inteiro: quem ja
+    # esta LA DENTRO tem que ser regerado junto, senao a rodada seguinte apagaria
+    # os blocos anteriores e deixaria so os novos. Idempotente: a ordem de
+    # citados_por_scripts() e fixa, entao rodar de novo devolve os mesmos ids.
+    anterior = le(PARTY).split(f"/*{MARCA_SCRIPTS}")[0]
+    com_bloco = set(re.findall(r"^=== (TRAINER_[A-Z0-9_]+) ===", anterior, re.M))
+    fonte = blocos_do_party(le(PARTY_FRLG))
+    femininas = classes_femininas()
 
     faltam = [n for n in citados_por_scripts()
               if n in frlg and n not in com_bloco]
     sem_fonte = [n for n in faltam if n not in fonte]
     faltam = [n for n in faltam if n in fonte]
 
-    # Vagas: o que sobra da faixa depois de quem ja tem time proprio la dentro.
-    ocupados = [frlg[n] for n in com_bloco if n in frlg and ID_MIN <= frlg[n] <= ID_MAX]
-    proximo = (max(ocupados) + 1) if ocupados else ID_MIN
-    vagas = ID_MAX - proximo + 1
-    entram, sobram = faltam[:vagas], faltam[vagas:]
+    # Vagas: id das faixas que ninguem com time proprio ja ocupa. Ocupado e quem
+    # tem BLOCO, de qualquer um dos dois headers: id sem bloco e vaga vazia no
+    # array, e apelido inerte nao reserva nada.
+    principal = {n: int(v) for n, v in re.findall(
+        r"^#define (TRAINER_[A-Z0-9_]+)\s+(\d+)\s*$", le(HEADER_PRINCIPAL), re.M)}
+    ocupados = {d[n] for d in (frlg, principal) for n in com_bloco if n in d}
+    livres = [i for lo, hi in FAIXAS for i in range(lo, hi + 1) if i not in ocupados]
+    entram, sobram = faltam[:len(livres)], faltam[len(livres):]
 
     linhas = []
     for nome in entram:
-        linhas += [f"=== {nome} ===", fonte[nome], ""]
-    novos = {n: proximo + i for i, n in enumerate(entram)}
+        corpo = fonte[nome]
+        if e_feminina(classe_de(corpo), femininas):
+            corpo = re.sub(r"^Gender: Male$", "Gender: Female", corpo, flags=re.M)
+        linhas += [f"=== {nome} ===", corpo, ""]
+    novos = dict(zip(entram, livres))
 
     def troca(m):
         n = m.group(1)
@@ -354,17 +417,21 @@ def porta_dos_scripts():
     open(HEADER, "w", encoding="utf-8").write(cabecalho)
     apensa(linhas, MARCA_SCRIPTS, "src/data/trainers_frlg.party")
 
-    print(f"citados por {os.path.relpath(INC_SCRIPTS, REPO)} sem time proprio: "
-          f"{len(faltam) + len(sem_fonte)}")
-    print(f"vagas em {proximo}..{ID_MAX}: {vagas}")
+    faixas_txt = ", ".join(f"{lo}..{hi}" for lo, hi in FAIXAS)
+    print(f"citados por {os.path.relpath(INC_SCRIPTS, REPO)} sem time proprio fora "
+          f"deste acervo: {len(faltam) + len(sem_fonte)}")
+    print(f"vagas nas faixas {faixas_txt}: {len(livres)}")
     print(f"portados: {len(entram)}"
           + (f" (ids {min(novos.values())}..{max(novos.values())})" if novos else ""))
+    print(f"corrigidos para Gender: Female: "
+          f"{sum(1 for n in entram if e_feminina(classe_de(fonte[n]), femininas))} "
+          f"(classes {sorted(femininas)})")
     if sem_fonte:
         print(f"\nSEM FONTE em trainers_frlg.party ({len(sem_fonte)}):")
         for n in sem_fonte:
             print("  ", n)
     if sobram:
-        print(f"\nFICARAM DE FORA por falta de id na faixa {ID_MIN}..{ID_MAX} "
+        print(f"\nFICARAM DE FORA por falta de id nas faixas {faixas_txt} "
               f"({len(sobram)}), na ordem da historia:")
         for n in sobram:
             print("  ", n)

@@ -32,5 +32,17 @@
       "oponente": "TRAINER_LASS_ALI",
       "oponente_faixa": [1400, 1799]
     }
+  },
+  {
+    "id": "T12.4",
+    "nome": "SEGUNDA FAIXA DE KANTO: o Jerome da Rota 21 Sul abre batalha com id acima de 2200, que só existe porque MAX_TRAINERS_COUNT_EMERALD subiu para 2400. Prova que id acima do teto antigo não vira TRAINER_NONE em SanitizeTrainerId nem estoura o array. A flag 0xDA0 é a de treinador derrotado do Roland (0x500 + 2208), que fica no caminho com MOVEMENT_TYPE_WANDER_AROUND e intercepta antes",
+    "flags": ["0xDA0"],
+    "warp": "MAP_ROUTE21_SOUTH",
+    "roteiro": "16:DOWN*14,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE21_SOUTH",
+      "oponente": "TRAINER_SWIMMER_MALE_JEROME",
+      "oponente_faixa": [2200, 2399]
+    }
   }
 ]
