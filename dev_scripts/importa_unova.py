@@ -399,24 +399,37 @@ STD_PLACA = {
 # script do BW3G, ou o SPRITE_ quando o objeto nao tem script (o campeao Genesis
 # e cutscene: o objeto dele aponta para o script 0 e a batalha mora no MapScripts).
 # Os textos sao os do proprio BW3G: `visto` e o que ele fala antes da batalha,
-# `perde` e o `winlosstext`. Nao ha entrega de insignia; ver relatorio.
+# `perde` e o `winlosstext`.
+#
+# O quinto campo, so nos 8 lideres de ginasio, e a insignia que o script acende
+# depois da vitoria (ver FLAG_BADGE_UNOVA_* em include/constants/flags.h). A
+# Elite dos Quatro nao entrega nada, entao la o campo nao existe. Nao ha texto
+# de entrega: o BW3G nao escreve nenhum, e inventar um seria escrever conteudo.
 LIDERES = {
     ("HumilauGym", "HumilauGymMarlonScript"):
-        ("TRAINER_UNOVA_LEADER_MARLON", "MarlonGymIntroText", "MarlonWinLossText", 4),
+        ("TRAINER_UNOVA_LEADER_MARLON", "MarlonGymIntroText", "MarlonWinLossText", 4,
+         "FLAG_BADGE_UNOVA_HUMILAU"),
     ("LentimasGym", "LentimasGymShauntalScript"):
-        ("TRAINER_UNOVA_LEADER_SHAUNTAL", "ShauntalGymIntroText2", "ShauntalWinLossText", 4),
+        ("TRAINER_UNOVA_LEADER_SHAUNTAL", "ShauntalGymIntroText2", "ShauntalWinLossText", 4,
+         "FLAG_BADGE_UNOVA_LENTIMAS"),
     ("CasteliaGym", "CasteliaGymBurghScript"):
-        ("TRAINER_UNOVA_LEADER_BURGH", "BurghGymIntroText", "BurghWinLossText", 4),
+        ("TRAINER_UNOVA_LEADER_BURGH", "BurghGymIntroText", "BurghWinLossText", 4,
+         "FLAG_BADGE_UNOVA_CASTELIA"),
     ("VirbankGym", "VirbankGymRoxieScript"):
-        ("TRAINER_UNOVA_LEADER_ROXIE", "RoxieGymIntroText", "RoxieWinLossText", 4),
+        ("TRAINER_UNOVA_LEADER_ROXIE", "RoxieGymIntroText", "RoxieWinLossText", 4,
+         "FLAG_BADGE_UNOVA_VIRBANK"),
     ("AspertiaGym", "AspertiaGymCherenScript"):
-        ("TRAINER_UNOVA_LEADER_CHEREN", "CherenGymIntroText", "CherenWinLossText", 4),
+        ("TRAINER_UNOVA_LEADER_CHEREN", "CherenGymIntroText", "CherenWinLossText", 4,
+         "FLAG_BADGE_UNOVA_ASPERTIA"),
     ("StriatonGym", "StriatonGymCilanScript"):
-        ("TRAINER_UNOVA_LEADER_CILAN", "CilanGymIntroText", "CilanWinLossText", 4),
+        ("TRAINER_UNOVA_LEADER_CILAN", "CilanGymIntroText", "CilanWinLossText", 4,
+         "FLAG_BADGE_UNOVA_STRIATON"),
     ("MistraltonGym1F", "MistraltonGymSkylaScript"):
-        ("TRAINER_UNOVA_LEADER_SKYLA", "SkylaGymIntroText", "SkylaWinLossText", 4),
+        ("TRAINER_UNOVA_LEADER_SKYLA", "SkylaGymIntroText", "SkylaWinLossText", 4,
+         "FLAG_BADGE_UNOVA_MISTRALTON"),
     ("OpelucidGym", "OpelucidGymDraydenScript"):
-        ("TRAINER_UNOVA_LEADER_DRAYDEN", "DraydenGymIntroText", "DraydenWinLossText", 4),
+        ("TRAINER_UNOVA_LEADER_DRAYDEN", "DraydenGymIntroText", "DraydenWinLossText", 4,
+         "FLAG_BADGE_UNOVA_OPELUCID"),
     ("GrimsleysRoom", "EliteFourGrimsleyScript"):
         ("TRAINER_UNOVA_E4_GRIMSLEY", "EliteFourGrimsleyIntroText", "EliteFourGrimsleyWinText", 3),
     ("MarshalsRoom", "EliteFourMarshalScript"):
@@ -436,15 +449,737 @@ LIDERES = {
 }
 
 
+# >>> TREINADORES DE UNOVA (gerado) >>>
+# Treinadores de rota, caverna e predio: mesmo molde da LIDERES acima, so
+# que gerado por dev_scripts/gera_treinadores_unova.py a partir do macro
+# `trainer CLASSE, ID, EVENTO, VistoText, VenceText, ...` do BW3G. A chave e
+# (mapa, rotulo do script do objeto OBJECTTYPE_TRAINER); dois objetos podem
+# apontar para o mesmo treinador (as gemeas), e ai dividem o id de proposito.
+# O ultimo campo e o raio de visao lido do proprio object_event.
+TREINADORES = {
+    ("CasteliaGym", "TrainerHarlequinCasteliaGym1"):
+        ("TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_1", "HarlequinCasteliaGym1SeenText", "HarlequinCasteliaGym1BeatenText", 2),
+    ("CasteliaGym", "TrainerHarlequinCasteliaGym2"):
+        ("TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_2", "HarlequinCasteliaGym2SeenText", "HarlequinCasteliaGym2BeatenText", 2),
+    ("CasteliaGym", "TrainerHarlequinCasteliaGym3"):
+        ("TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_3", "HarlequinCasteliaGym3SeenText", "HarlequinCasteliaGym3BeatenText", 1),
+    ("CasteliaGym", "TrainerHarlequinCasteliaGym4"):
+        ("TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_4", "HarlequinCasteliaGym4SeenText", "HarlequinCasteliaGym4BeatenText", 2),
+    ("CasteliaGym", "TrainerHarlequinCasteliaGym5"):
+        ("TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_5", "HarlequinCasteliaGym5SeenText", "HarlequinCasteliaGym5BeatenText", 2),
+    ("CasteliaSewers", "TrainerJanitor1CasteliaSewers"):
+        ("TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_1", "Janitor1CasteliaSewersSeenText", "Janitor1CasteliaSewersBeatenText", 2),
+    ("CasteliaSewers", "TrainerJanitor2CasteliaSewers"):
+        ("TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_2", "Janitor2CasteliaSewersSeenText", "Janitor2CasteliaSewersBeatenText", 3),
+    ("CasteliaSewers", "TrainerJanitor3CasteliaSewers"):
+        ("TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_4", "Janitor3CasteliaSewersSeenText", "Janitor3CasteliaSewersBeatenText", 2),
+    ("CasteliaSewers", "TrainerScientistFCasteliaSewers"):
+        ("TRAINER_UNOVA_SCIENTISTF_CASTELIA_SEWERS", "ScientistFCasteliaSewersSeenText", "ScientistFCasteliaSewersBeatenText", 1),
+    ("CasteliaSewers", "TrainerScientistMCasteliaSewers"):
+        ("TRAINER_UNOVA_SCIENTISTM_CASTELIA_SEWERS", "ScientistMCasteliaSewersSeenText", "ScientistMCasteliaSewersBeatenText", 2),
+    ("CasteliaSewers", "TrainerWorker1CasteliaSewers"):
+        ("TRAINER_UNOVA_WORKER_CASTELIA_SEWERS_1", "Worker1CasteliaSewersSeenText", "Worker1CasteliaSewersBeatenText", 3),
+    ("CasteliaSewers", "TrainerWorker2CasteliaSewers"):
+        ("TRAINER_UNOVA_WORKER_CASTELIA_SEWERS_2", "Worker2CasteliaSewersSeenText", "Worker2CasteliaSewersBeatenText", 3),
+    ("CasteliaSewersRooms", "TrainerJanitorCasteliaSewersRooms"):
+        ("TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_3", "JanitorCasteliaSewersRoomsSeenText", "JanitorCasteliaSewersRoomsBeatenText", 2),
+    ("CasteliaSewersRooms", "TrainerWorkerCasteliaSewersRooms"):
+        ("TRAINER_UNOVA_WORKER_CASTELIA_SEWERS_3", "WorkerCasteliaSewersRoomsSeenText", "WorkerCasteliaSewersRoomsBeatenText", 3),
+    ("CelestialTower", "TrainerGentlemanCelestialTower"):
+        ("TRAINER_UNOVA_GENTLEMAN_CELESTIAL_TOWER", "GentlemanCelestialTowerSeenText", "GentlemanCelestialTowerBeatenText", 2),
+    ("CelestialTower", "TrainerHexManiac1CelestialTower"):
+        ("TRAINER_UNOVA_HEX_MANIAC_CELESTIAL_TOWER_1", "HexManiac1CelestialTowerSeenText", "HexManiac1CelestialTowerBeatenText", 2),
+    ("CelestialTower", "TrainerHexManiac2CelestialTower"):
+        ("TRAINER_UNOVA_HEX_MANIAC_CELESTIAL_TOWER_2", "HexManiac2CelestialTowerSeenText", "HexManiac2CelestialTowerBeatenText", 3),
+    ("CelestialTower", "TrainerLassCelestialTower"):
+        ("TRAINER_UNOVA_LASS_CELESTIAL_TOWER", "LassCelestialTowerSeenText", "LassCelestialTowerBeatenText", 1),
+    ("CelestialTower", "TrainerMaidCelestialTower"):
+        ("TRAINER_UNOVA_MAID_CELESTIAL_TOWER", "MaidCelestialTowerSeenText", "MaidCelestialTowerBeatenText", 2),
+    ("CelestialTower", "TrainerPokefanFCelestialTower"):
+        ("TRAINER_UNOVA_POKEFANF_CELESTIAL_TOWER", "PokefanFCelestialTowerSeenText", "PokefanFCelestialTowerBeatenText", 2),
+    ("CelestialTower", "TrainerPokefanMCelestialTower"):
+        ("TRAINER_UNOVA_POKEFANM_CELESTIAL_TOWER", "PokefanMCelestialTowerSeenText", "PokefanMCelestialTowerBeatenText", 2),
+    ("CelestialTower", "TrainerPsychicFCelestialTower"):
+        ("TRAINER_UNOVA_PSYCHICF_CELESTIAL_TOWER", "PsychicFCelestialTowerSeenText", "PsychicFCelestialTowerBeatenText", 1),
+    ("CelestialTower", "TrainerPsychicMCelestialTower"):
+        ("TRAINER_UNOVA_PSYCHICM_CELESTIAL_TOWER", "PsychicMCelestialTowerSeenText", "PsychicMCelestialTowerBeatenText", 2),
+    ("CelestialTower", "TrainerSocialiteCelestialTower"):
+        ("TRAINER_UNOVA_SOCIALITE_CELESTIAL_TOWER", "SocialiteCelestialTowerSeenText", "SocialiteCelestialTowerBeatenText", 2),
+    ("CelestialTower1F", "TrainerNurseCelestialTower"):
+        ("TRAINER_UNOVA_NURSE_CELESTIAL_TOWER", "CelestialTowerNurseIntroText", "CelestialTowerNurseWinText", 0),
+    ("ChargestoneCave1F", "TrainerAceTrainerF1Chargestone"):
+        ("TRAINER_UNOVA_ACE_TRAINERF_CHARGESTONE_1", "AceTrainerF1ChargestoneSeenText", "AceTrainerF1ChargestoneBeatenText", 2),
+    ("ChargestoneCave1F", "TrainerAceTrainerM1Chargestone"):
+        ("TRAINER_UNOVA_ACE_TRAINERM_CHARGESTONE_1", "AceTrainerM1ChargestoneSeenText", "AceTrainerM1ChargestoneBeatenText", 2),
+    ("ChargestoneCave1F", "TrainerGuitarist1Chargestone"):
+        ("TRAINER_UNOVA_GUITARIST_CHARGESTONE_1", "Guitarist1ChargestoneSeenText", "Guitarist1ChargestoneBeatenText", 1),
+    ("ChargestoneCave1F", "TrainerHiker1Chargestone"):
+        ("TRAINER_UNOVA_HIKER_CHARGESTONE_1", "Hiker1ChargestoneSeenText", "Hiker1ChargestoneBeatenText", 1),
+    ("ChargestoneCave1F", "TrainerPkmnRangerFChargestone"):
+        ("TRAINER_UNOVA_PKMN_RANGERF_CHARGESTONE", "PkmnRangerFChargestoneSeenText", "PkmnRangerFChargestoneBeatenText", 1),
+    ("ChargestoneCave1F", "TrainerScientistMChargestone"):
+        ("TRAINER_UNOVA_SCIENTISTM_CHARGESTONE", "ScientistMChargestoneSeenText", "ScientistMChargestoneBeatenText", 2),
+    ("ChargestoneCaveB1F", "TrainerAceTrainerF2Chargestone"):
+        ("TRAINER_UNOVA_ACE_TRAINERF_CHARGESTONE_2", "AceTrainerF2ChargestoneSeenText", "AceTrainerF2ChargestoneBeatenText", 3),
+    ("ChargestoneCaveB1F", "TrainerBattleGirlChargestone"):
+        ("TRAINER_UNOVA_BATTLE_GIRL_CHARGESTONE", "BattleGirlChargestoneSeenText", "BattleGirlChargestoneBeatenText", 2),
+    ("ChargestoneCaveB1F", "TrainerDoctorChargestone"):
+        ("TRAINER_UNOVA_DOCTOR_CHARGESTONE", "ChargestoneDoctorIntroText", "ChargestoneDoctorWinText", 0),
+    ("ChargestoneCaveB1F", "TrainerHiker2Chargestone"):
+        ("TRAINER_UNOVA_HIKER_CHARGESTONE_2", "Hiker2ChargestoneSeenText", "Hiker2ChargestoneBeatenText", 2),
+    ("ChargestoneCaveB1F", "TrainerPkmnRangerMChargestone"):
+        ("TRAINER_UNOVA_PKMN_RANGERM_CHARGESTONE", "PkmnRangerMChargestoneSeenText", "PkmnRangerMChargestoneBeatenText", 2),
+    ("ChargestoneCaveB1F", "TrainerScientistFChargestone"):
+        ("TRAINER_UNOVA_SCIENTISTF_CHARGESTONE", "ScientistFChargestoneSeenText", "ScientistFChargestoneBeatenText", 2),
+    ("ChargestoneCaveB2F", "TrainerAceTrainerM2Chargestone"):
+        ("TRAINER_UNOVA_ACE_TRAINERM_CHARGESTONE_2", "AceTrainerM2ChargestoneSeenText", "AceTrainerM2ChargestoneBeatenText", 1),
+    ("ChargestoneCaveB2F", "TrainerGuitarist2Chargestone"):
+        ("TRAINER_UNOVA_GUITARIST_CHARGESTONE_2", "Guitarist2ChargestoneSeenText", "Guitarist2ChargestoneBeatenText", 2),
+    ("ChargestoneCaveB2F", "TrainerHiker3Chargestone"):
+        ("TRAINER_UNOVA_HIKER_CHARGESTONE_3", "Hiker3ChargestoneSeenText", "Hiker3ChargestoneBeatenText", 2),
+    ("DesertResort", "DesertNurseScript"):
+        ("TRAINER_UNOVA_NURSE_DESERT", "DesertNurseIntroText", "DesertNurseWinText", 0),
+    ("DesertResort", "TrainerBackpackerFDesert"):
+        ("TRAINER_UNOVA_BACKPACKERF_DESERT", "BackpackerFDesertSeenText", "BackpackerFDesertBeatenText", 3),
+    ("DesertResort", "TrainerBackpackerMDesert"):
+        ("TRAINER_UNOVA_BACKPACKERM_DESERT", "BackpackerMDesertSeenText", "BackpackerMDesertBeatenText", 2),
+    ("DesertResort", "TrainerHexManiacDesert"):
+        ("TRAINER_UNOVA_HEX_MANIAC_DESERT", "HexManiacDesertSeenText", "HexManiacDesertBeatenText", 3),
+    ("DesertResort", "TrainerLassDesert"):
+        ("TRAINER_UNOVA_LASS_DESERT", "LassDesertSeenText", "LassDesertBeatenText", 2),
+    ("DesertResort", "TrainerPkmnRangerFDesert"):
+        ("TRAINER_UNOVA_PKMN_RANGERF_DESERT", "PkmnRangerFDesertSeenText", "PkmnRangerFDesertBeatenText", 3),
+    ("DesertResort", "TrainerPkmnRangerMDesert"):
+        ("TRAINER_UNOVA_PKMN_RANGERM_DESERT", "PkmnRangerMDesertSeenText", "PkmnRangerMDesertBeatenText", 3),
+    ("DesertResort", "TrainerRoughneckDesert"):
+        ("TRAINER_UNOVA_ROUGHNECK_DESERT", "RoughneckDesertSeenText", "RoughneckDesertBeatenText", 3),
+    ("DesertResort", "TrainerYoungsterDesert"):
+        ("TRAINER_UNOVA_YOUNGSTER_DESERT", "YoungsterDesertSeenText", "YoungsterDesertBeatenText", 4),
+    ("DragonspiralTower2F", "TrainerDragonspiralTowerGiallo"):
+        ("TRAINER_UNOVA_GIALLO2", "DragonspiralTowerGialloSeenText", "DragonspiralTowerGialloBeatenText", 1),
+    ("DragonspiralTower3F", "TrainerDragonspiralTowerRyoku"):
+        ("TRAINER_UNOVA_RYOKU2", "DragonspiralTowerRyokuSeenText", "DragonspiralTowerRyokuBeatenText", 1),
+    ("DragonspiralTower4F", "TrainerDragonspiralTowerBronius"):
+        ("TRAINER_UNOVA_BRONIUS2", "DragonspiralTowerBroniusSeenText", "DragonspiralTowerBroniusBeatenText", 1),
+    ("DragonspiralTower5F", "TrainerDragonspiralTowerGorm"):
+        ("TRAINER_UNOVA_GORM2", "DragonspiralTowerGormSeenText", "DragonspiralTowerGormBeatenText", 1),
+    ("Dreamyard", "TrainerSchoolKidFDreamyard"):
+        ("TRAINER_UNOVA_SCHOOL_KIDF_DREAMYARD", "SchoolKidFDreamyardSeenText", "SchoolKidFDreamyardBeatenText", 2),
+    ("Dreamyard", "TrainerSchoolKidMDreamyard"):
+        ("TRAINER_UNOVA_SCHOOL_KIDM_DREAMYARD", "SchoolKidMDreamyardSeenText", "SchoolKidMDreamyardBeatenText", 3),
+    ("Dreamyard", "TrainerYoungsterDreamyard"):
+        ("TRAINER_UNOVA_YOUNGSTER_DREAMYARD", "YoungsterDreamyardSeenText", "YoungsterDreamyardBeatenText", 2),
+    ("DreamyardB1F", "TrainerPsychicFDreamyard"):
+        ("TRAINER_UNOVA_PSYCHICF_DREAMYARD", "PsychicFDreamyardSeenText", "PsychicFDreamyardBeatenText", 2),
+    ("DreamyardB1F", "TrainerPsychicMDreamyard"):
+        ("TRAINER_UNOVA_PSYCHICM_DREAMYARD", "PsychicMDreamyardSeenText", "PsychicMDreamyardBeatenText", 2),
+    ("DreamyardB1F", "TrainerScientistFDreamyard"):
+        ("TRAINER_UNOVA_SCIENTISTF_DREAMYARD", "ScientistFDreamyardSeenText", "ScientistFDreamyardBeatenText", 2),
+    ("DreamyardB1F", "TrainerScientistMDreamyard"):
+        ("TRAINER_UNOVA_SCIENTISTM_DREAMYARD", "ScientistMDreamyardSeenText", "ScientistMDreamyardBeatenText", 2),
+    ("GiantChasmB1F", "TrainerAceTrainerFGiantChasm"):
+        ("TRAINER_UNOVA_ACE_TRAINERF_GIANT_CHASM", "AceTrainerFGiantChasmSeenText", "AceTrainerFGiantChasmBeatenText", 1),
+    ("GiantChasmB1F", "TrainerAceTrainerMGiantChasm"):
+        ("TRAINER_UNOVA_ACE_TRAINERM_GIANT_CHASM", "AceTrainerMGiantChasmSeenText", "AceTrainerMGiantChasmBeatenText", 2),
+    ("GiantChasmB1F", "TrainerBackpackerFGiantChasm"):
+        ("TRAINER_UNOVA_BACKPACKERF_GIANT_CHASM", "BackpackerFGiantChasmSeenText", "BackpackerFGiantChasmBeatenText", 2),
+    ("GiantChasmB1F", "TrainerBackpackerMGiantChasm"):
+        ("TRAINER_UNOVA_BACKPACKERM_GIANT_CHASM", "BackpackerMGiantChasmSeenText", "BackpackerMGiantChasmBeatenText", 3),
+    ("GiantChasmB1F", "TrainerHikerGiantChasm"):
+        ("TRAINER_UNOVA_HIKER_GIANT_CHASM", "HikerGiantChasmSeenText", "HikerGiantChasmBeatenText", 3),
+    ("HumilauGym", "TrainerSwimmerFHumilauGym"):
+        ("TRAINER_UNOVA_SWIMMER_F_HUMILAU_GYM", "SwimmerFHumilauGymSeenText", "SwimmerFHumilauGymBeatenText", 2),
+    ("HumilauGym", "TrainerSwimmerMHumilauGym"):
+        ("TRAINER_UNOVA_SWIMMER_M_HUMILAU_GYM", "SwimmerMHumilauGymSeenText", "SwimmerMHumilauGymBeatenText", 2),
+    ("LentimasOutskirts", "OutskirtsDoctorScript"):
+        ("TRAINER_UNOVA_DOCTOR_OUTSKIRTS", "OutskirtsDoctorIntroText", "OutskirtsDoctorWinText", 0),
+    ("LentimasOutskirts", "TrainerCyclistFOutskirts"):
+        ("TRAINER_UNOVA_CYCLISTF_OUTSKIRTS", "CyclistFOutskirtsSeenText", "CyclistFOutskirtsBeatenText", 2),
+    ("LentimasOutskirts", "TrainerCyclistMOutskirts"):
+        ("TRAINER_UNOVA_CYCLISTM_OUTSKIRTS", "CyclistMOutskirtsSeenText", "CyclistMOutskirtsBeatenText", 3),
+    ("LentimasOutskirts", "TrainerPkmnRangerFOutskirts"):
+        ("TRAINER_UNOVA_PKMN_RANGERF_OUTSKIRTS", "PkmnRangerFOutskirtsSeenText", "PkmnRangerFOutskirtsBeatenText", 3),
+    ("LentimasOutskirts", "TrainerPkmnRangerMOutskirts"):
+        ("TRAINER_UNOVA_PKMN_RANGERM_OUTSKIRTS", "PkmnRangerMOutskirtsSeenText", "PkmnRangerMOutskirtsBeatenText", 3),
+    ("LentimasOutskirts", "TrainerSchoolKidMOutskirts"):
+        ("TRAINER_UNOVA_SCHOOL_KIDM_OUTSKIRTS", "SchoolKidMOutskirtsSeenText", "SchoolKidMOutskirtsBeatenText", 1),
+    ("LentimasOutskirts", "TrainerYoungsterOutskirts"):
+        ("TRAINER_UNOVA_YOUNGSTER_OUTSKIRTS", "YoungsterOutskirtsSeenText", "YoungsterOutskirtsBeatenText", 2),
+    ("LostlornForest", "TrainerLassLostlorn"):
+        ("TRAINER_UNOVA_LASS_LOSTLORN", "LassLostlornSeenText", "LassLostlornBeatenText", 1),
+    ("LostlornForest", "TrainerPkmnBreederFLostlorn"):
+        ("TRAINER_UNOVA_PKMN_BREEDERF_LOSTLORN", "PkmnBreederFLostlornSeenText", "PkmnBreederFLostlornBeatenText", 3),
+    ("LostlornForest", "TrainerPkmnBreederMLostlorn"):
+        ("TRAINER_UNOVA_PKMN_BREEDERM_LOSTLORN", "PkmnBreederMLostlornSeenText", "PkmnBreederMLostlornBeatenText", 2),
+    ("LostlornForest", "TrainerSchoolKidFLostlorn"):
+        ("TRAINER_UNOVA_SCHOOL_KIDF_LOSTLORN", "SchoolKidFLostlornSeenText", "SchoolKidFLostlornBeatenText", 2),
+    ("LostlornForest", "TrainerSchoolKidMLostlorn"):
+        ("TRAINER_UNOVA_SCHOOL_KIDM_LOSTLORN", "SchoolKidMLostlornSeenText", "SchoolKidMLostlornBeatenText", 3),
+    ("LostlornForest", "TrainerYoungsterLostlorn"):
+        ("TRAINER_UNOVA_YOUNGSTER_LOSTLORN", "YoungsterLostlornSeenText", "YoungsterLostlornBeatenText", 1),
+    ("MarineTube", "TrainerNurseryAideMarineTube"):
+        ("TRAINER_UNOVA_NURSERY_AIDE_MARINE_TUBE", "NurseryAideMarineTubeSeenText", "NurseryAideMarineTubeBeatenText", 0),
+    ("MarineTube", "TrainerPreschoolerFMarineTube"):
+        ("TRAINER_UNOVA_PRESCHOOLERF_MARINE_TUBE", "PreschoolerFMarineTubeSeenText", "PreschoolerFMarineTubeBeatenText", 1),
+    ("MarineTube", "TrainerPreschoolerMMarineTube"):
+        ("TRAINER_UNOVA_PRESCHOOLERM_MARINE_TUBE", "PreschoolerMMarineTubeSeenText", "PreschoolerMMarineTubeBeatenText", 1),
+    ("MarineTube", "TrainerTwinsMarineTube"):
+        ("TRAINER_UNOVA_TWINS_MARINE_TUBE", "TwinsMarineTubeSeenText", "TwinsMarineTubeBeatenText", 1),
+    ("MistraltonCave1F", "TrainerHiker1MistraltonCave"):
+        ("TRAINER_UNOVA_HIKER_MISTRALTON_CAVE_1", "Hiker1MistraltonCaveSeenText", "Hiker1MistraltonCaveBeatenText", 2),
+    ("MistraltonCave1F", "TrainerHiker2MistraltonCave"):
+        ("TRAINER_UNOVA_HIKER_MISTRALTON_CAVE_2", "Hiker2MistraltonCaveSeenText", "Hiker2MistraltonCaveBeatenText", 2),
+    ("MistraltonCave2F", "TrainerAceTrainerFMistraltonCave"):
+        ("TRAINER_UNOVA_ACE_TRAINERF_MISTRALTON_CAVE", "AceTrainerFMistraltonCaveSeenText", "AceTrainerFMistraltonCaveBeatenText", 1),
+    ("MistraltonCave2F", "TrainerAceTrainerMMistraltonCave"):
+        ("TRAINER_UNOVA_ACE_TRAINERM_MISTRALTON_CAVE", "AceTrainerMMistraltonCaveSeenText", "AceTrainerMMistraltonCaveBeatenText", 1),
+    ("MistraltonGym1F", "TrainerPilot1MistraltonGym1F"):
+        ("TRAINER_UNOVA_PILOT_MISTRALTON_GYM_1", "Pilot1MistraltonGym1FSeenText", "Pilot1MistraltonGym1FBeatenText", 2),
+    ("MistraltonGym1F", "TrainerPilot2MistraltonGym1F"):
+        ("TRAINER_UNOVA_PILOT_MISTRALTON_GYM_2", "Pilot2MistraltonGym1FSeenText", "Pilot2MistraltonGym1FBeatenText", 1),
+    ("MistraltonGym1F", "TrainerPilot3MistraltonGym1F"):
+        ("TRAINER_UNOVA_PILOT_MISTRALTON_GYM_3", "Pilot3MistraltonGym1FSeenText", "Pilot3MistraltonGym1FBeatenText", 2),
+    ("MistraltonGym2F", "TrainerPilot1MistraltonGym2F"):
+        ("TRAINER_UNOVA_PILOT_MISTRALTON_GYM_4", "Pilot1MistraltonGym2FSeenText", "Pilot1MistraltonGym2FBeatenText", 2),
+    ("MistraltonGym2F", "TrainerPilot2MistraltonGym2F"):
+        ("TRAINER_UNOVA_PILOT_MISTRALTON_GYM_5", "Pilot2MistraltonGym2FSeenText", "Pilot2MistraltonGym2FBeatenText", 1),
+    ("MoorOfIcirrus", "TrainerFisher1MoorOfIcirrus"):
+        ("TRAINER_UNOVA_FISHER_MOOR_OF_ICIRRUS_1", "Fisher1MoorOfIcirrusSeenText", "Fisher1MoorOfIcirrusBeatenText", 2),
+    ("MoorOfIcirrus", "TrainerFisher2MoorOfIcirrus"):
+        ("TRAINER_UNOVA_FISHER_MOOR_OF_ICIRRUS_2", "Fisher2MoorOfIcirrusSeenText", "Fisher2MoorOfIcirrusBeatenText", 1),
+    ("MoorOfIcirrus", "TrainerPkmnRangerFMoorOfIcirrus"):
+        ("TRAINER_UNOVA_PKMN_RANGERF_MOOR_OF_ICIRRUS", "PkmnRangerFMoorOfIcirrusSeenText", "PkmnRangerFMoorOfIcirrusBeatenText", 2),
+    ("MoorOfIcirrus", "TrainerPkmnRangerMMoorOfIcirrus"):
+        ("TRAINER_UNOVA_PKMN_RANGERM_MOOR_OF_ICIRRUS", "PkmnRangerMMoorOfIcirrusSeenText", "PkmnRangerMMoorOfIcirrusBeatenText", 3),
+    ("NacreneOutskirt", "TrainerLassNacrene"):
+        ("TRAINER_UNOVA_LASS_NACRENE_OUTSKIRT", "LassNacreneSeenText", "LassNacreneBeatenText", 3),
+    ("NacreneOutskirt", "TrainerParasolLadyNacrene"):
+        ("TRAINER_UNOVA_PARASOL_LADY_NACRENE_OUTSKIRT", "ParasolLadyNacreneSeenText", "ParasolLadyNacreneBeatenText", 2),
+    ("NacreneOutskirt", "TrainerRichBoyNacrene"):
+        ("TRAINER_UNOVA_RICH_BOY_NACRENE_OUTSKIRT", "RichBoyNacreneSeenText", "RichBoyNacreneBeatenText", 1),
+    ("NacreneOutskirt", "TrainerYoungsterNacrene"):
+        ("TRAINER_UNOVA_YOUNGSTER_NACRENE_OUTSKIRT", "YoungsterNacreneSeenText", "YoungsterNacreneBeatenText", 3),
+    ("NacreneOutskirtEast", "TrainerBattleGirlNacrene"):
+        ("TRAINER_UNOVA_BATTLE_GIRL_NACRENE_OUTSKIRT", "BattleGirlNacreneSeenText", "BattleGirlNacreneBeatenText", 2),
+    ("NacreneOutskirtEast", "TrainerBlackbeltNacrene"):
+        ("TRAINER_UNOVA_BLACKBELT_NACRENE_OUTSKIRT", "BlackbeltNacreneSeenText", "BlackbeltNacreneBeatenText", 2),
+    ("NimbasaParkCoasterRoom", "TrainerGruntFNimbasaPark1"):
+        ("TRAINER_UNOVA_GRUNTF_NIMBASA_1", "GruntFNimbasaPark1SeenText", "GruntFNimbasaPark1BeatenText", 2),
+    ("NimbasaParkCoasterRoom", "TrainerGruntFNimbasaPark2"):
+        ("TRAINER_UNOVA_GRUNTF_NIMBASA_2", "GruntFNimbasaPark2SeenText", "GruntFNimbasaPark2BeatenText", 2),
+    ("NimbasaParkCoasterRoom", "TrainerGruntFNimbasaPark3"):
+        ("TRAINER_UNOVA_GRUNTF_NIMBASA_3", "GruntFNimbasaPark3SeenText", "GruntFNimbasaPark3BeatenText", 1),
+    ("NimbasaParkCoasterRoom", "TrainerGruntMNimbasaPark1"):
+        ("TRAINER_UNOVA_GRUNTM_NIMBASA_1", "GruntMNimbasaPark1SeenText", "GruntMNimbasaPark1BeatenText", 2),
+    ("NimbasaParkCoasterRoom", "TrainerGruntMNimbasaPark2"):
+        ("TRAINER_UNOVA_GRUNTM_NIMBASA_2", "GruntMNimbasaPark2SeenText", "GruntMNimbasaPark2BeatenText", 2),
+    ("NimbasaParkCoasterRoom", "TrainerGruntMNimbasaPark3"):
+        ("TRAINER_UNOVA_GRUNTM_NIMBASA_3", "GruntMNimbasaPark3SeenText", "GruntMNimbasaPark3BeatenText", 4),
+    ("NimbasaParkRunway", "TrainerGruntFNimbasaPark4"):
+        ("TRAINER_UNOVA_GRUNTF_NIMBASA_4", "GruntFNimbasaPark4SeenText", "GruntFNimbasaPark4BeatenText", 2),
+    ("NimbasaParkRunway", "TrainerGruntFNimbasaPark5"):
+        ("TRAINER_UNOVA_GRUNTF_NIMBASA_5", "GruntFNimbasaPark5SeenText", "GruntFNimbasaPark5BeatenText", 2),
+    ("NimbasaParkRunway", "TrainerGruntMNimbasaPark5"):
+        ("TRAINER_UNOVA_GRUNTM_NIMBASA_5", "GruntMNimbasaPark5SeenText", "GruntMNimbasaPark5BeatenText", 2),
+    ("OpelucidGym", "TrainerVeteranF1OpelucidGym"):
+        ("TRAINER_UNOVA_VETERANF_OPELUCID_GYM_1", "VeteranF1OpelucidGymSeenText", "VeteranF1OpelucidGymBeatenText", 1),
+    ("OpelucidGym", "TrainerVeteranF2OpelucidGym"):
+        ("TRAINER_UNOVA_VETERANF_OPELUCID_GYM_2", "VeteranF2OpelucidGymSeenText", "VeteranF2OpelucidGymBeatenText", 1),
+    ("OpelucidGym", "TrainerVeteranF3OpelucidGym"):
+        ("TRAINER_UNOVA_VETERANF_OPELUCID_GYM_3", "VeteranF3OpelucidGymSeenText", "VeteranF3OpelucidGymBeatenText", 2),
+    ("OpelucidGym", "TrainerVeteranM1OpelucidGym"):
+        ("TRAINER_UNOVA_VETERANM_OPELUCID_GYM_1", "VeteranM1OpelucidGymSeenText", "VeteranM1OpelucidGymBeatenText", 1),
+    ("OpelucidGym", "TrainerVeteranM2OpelucidGym"):
+        ("TRAINER_UNOVA_VETERANM_OPELUCID_GYM_2", "VeteranM2OpelucidGymSeenText", "VeteranM2OpelucidGymBeatenText", 1),
+    ("OpelucidGym", "TrainerVeteranM3OpelucidGym"):
+        ("TRAINER_UNOVA_VETERANM_OPELUCID_GYM_3", "VeteranM3OpelucidGymSeenText", "VeteranM3OpelucidGymBeatenText", 1),
+    ("P2Lab", "TrainerGruntF1P2Lab"):
+        ("TRAINER_UNOVA_GRUNTF_P2_1", "GruntF1P2LabSeenText", "GruntF1P2LabBeatenText", 2),
+    ("P2Lab", "TrainerGruntF2P2Lab"):
+        ("TRAINER_UNOVA_GRUNTF_P2_2", "GruntF2P2LabSeenText", "GruntF2P2LabBeatenText", 3),
+    ("P2Lab", "TrainerGruntM1P2Lab"):
+        ("TRAINER_UNOVA_GRUNTM_P2_1", "GruntM1P2LabSeenText", "GruntM1P2LabBeatenText", 2),
+    ("P2Lab", "TrainerGruntM2P2Lab"):
+        ("TRAINER_UNOVA_GRUNTM_P2_2", "GruntM2P2LabSeenText", "GruntM2P2LabBeatenText", 2),
+    ("P2Lab", "TrainerScientistP2Lab"):
+        ("TRAINER_UNOVA_SCIENTISTM_P2", "ScientistP2LabSeenText", "ScientistP2LabBeatenText", 2),
+    ("PinwheelForest", "TrainerHexManiacPinwheel"):
+        ("TRAINER_UNOVA_HEX_MANIAC_PINWHEEL", "HexManiacPinwheelSeenText", "HexManiacPinwheelBeatenText", 1),
+    ("PinwheelForest", "TrainerLassPinwheel"):
+        ("TRAINER_UNOVA_LASS_PINWHEEL", "LassPinwheelSeenText", "LassPinwheelBeatenText", 2),
+    ("PinwheelForest", "TrainerPkmnRangerFPinwheel1"):
+        ("TRAINER_UNOVA_PKMN_RANGERF_PINWHEEL_1", "PkmnRangerFPinwheel1SeenText", "PkmnRangerFPinwheel1BeatenText", 2),
+    ("PinwheelForest", "TrainerPkmnRangerFPinwheel2"):
+        ("TRAINER_UNOVA_PKMN_RANGERF_PINWHEEL_2", "PkmnRangerFPinwheel2SeenText", "PkmnRangerFPinwheel2BeatenText", 3),
+    ("PinwheelForest", "TrainerPkmnRangerMPinwheel1"):
+        ("TRAINER_UNOVA_PKMN_RANGERM_PINWHEEL_1", "PkmnRangerMPinwheel1SeenText", "PkmnRangerMPinwheel1BeatenText", 2),
+    ("PinwheelForest", "TrainerPkmnRangerMPinwheel2"):
+        ("TRAINER_UNOVA_PKMN_RANGERM_PINWHEEL_2", "PkmnRangerMPinwheel2SeenText", "PkmnRangerMPinwheel2BeatenText", 1),
+    ("PinwheelForest", "TrainerPsychicMPinwheel"):
+        ("TRAINER_UNOVA_PSYCHICM_PINWHEEL", "PsychicMPinwheelSeenText", "PsychicMPinwheelBeatenText", 3),
+    ("PinwheelForest", "TrainerYoungsterPinwheel"):
+        ("TRAINER_UNOVA_YOUNGSTER_PINWHEEL", "YoungsterPinwheelSeenText", "YoungsterPinwheelBeatenText", 2),
+    ("RelicCastle1F", "TrainerPsychicMRelicCastle1F"):
+        ("TRAINER_UNOVA_PSYCHICM_RELIC_CASTLE", "PsychicMRelicCastle1FSeenText", "PsychicMRelicCastle1FBeatenText", 2),
+    ("RelicCastleB1F", "TrainerPsychicFRelicCastleB1F"):
+        ("TRAINER_UNOVA_PSYCHICF_RELIC_CASTLE_1", "PsychicFRelicCastleB1FSeenText", "PsychicFRelicCastleB1FBeatenText", 2),
+    ("RelicCastleB2F", "TrainerPsychicFRelicCastleB2F"):
+        ("TRAINER_UNOVA_PSYCHICF_RELIC_CASTLE_2", "PsychicFRelicCastleB2FSeenText", "PsychicFRelicCastleB2FBeatenText", 1),
+    ("RelicPassageBack", "TrainerBackpackerMRelicPassage"):
+        ("TRAINER_UNOVA_BACKPACKERM_RELIC_PASSAGE", "BackpackerMRelicPassageSeenText", "BackpackerMRelicPassageBeatenText", 2),
+    ("RelicPassageBack", "TrainerHexManiacRelicPassage"):
+        ("TRAINER_UNOVA_HEX_MANIAC_RELIC_PASSAGE", "HexManiacRelicPassageSeenText", "HexManiacRelicPassageBeatenText", 2),
+    ("RelicPassageBack", "TrainerPsychicFRelicPassage"):
+        ("TRAINER_UNOVA_PSYCHICF_RELIC_PASSAGE", "PsychicFRelicPassageSeenText", "PsychicFRelicPassageBeatenText", 2),
+    ("RelicPassageBack", "TrainerWorkerRelicPassage"):
+        ("TRAINER_UNOVA_WORKER_RELIC_PASSAGE", "WorkerRelicPassageSeenText", "WorkerRelicPassageBeatenText", 2),
+    ("RelicPassageFront", "TrainerBackpackerFRelicPassage"):
+        ("TRAINER_UNOVA_BACKPACKERF_RELIC_PASSAGE", "BackpackerFRelicPassageSeenText", "BackpackerFRelicPassageBeatenText", 3),
+    ("RelicPassageFront", "TrainerHiker1RelicPassage"):
+        ("TRAINER_UNOVA_HIKER_RELIC_PASSAGE_1", "Hiker1RelicPassageSeenText", "Hiker1RelicPassageBeatenText", 3),
+    ("RelicPassageFront", "TrainerHiker2RelicPassage"):
+        ("TRAINER_UNOVA_HIKER_RELIC_PASSAGE_2", "Hiker2RelicPassageSeenText", "Hiker2RelicPassageBeatenText", 2),
+    ("RelicPassageFront", "TrainerNurseRelicPassage"):
+        ("TRAINER_UNOVA_NURSE_RELIC_PASSAGE", "RelicPassageNurseIntroText", "RelicPassageNurseWinText", 0),
+    ("RelicPassageFront", "TrainerPsychicMRelicPassage"):
+        ("TRAINER_UNOVA_PSYCHICM_RELIC_PASSAGE", "PsychicMRelicPassageSeenText", "PsychicMRelicPassageBeatenText", 2),
+    ("ReversalMountain1F", "TrainerBackpackerFReversal"):
+        ("TRAINER_UNOVA_BACKPACKERF_REVERSAL", "BackpackerFReversalSeenText", "BackpackerFReversalBeatenText", 1),
+    ("ReversalMountain1F", "TrainerBackpackerMReversal"):
+        ("TRAINER_UNOVA_BACKPACKERM_REVERSAL", "BackpackerMReversalSeenText", "BackpackerMReversalBeatenText", 2),
+    ("ReversalMountain1F", "TrainerBlackbeltReversal"):
+        ("TRAINER_UNOVA_BLACKBELT_REVERSAL", "BlackbeltReversalSeenText", "BlackbeltReversalBeatenText", 1),
+    ("ReversalMountain1F", "TrainerHiker2Reversal"):
+        ("TRAINER_UNOVA_HIKER_REVERSAL_2", "Hiker2ReversalSeenText", "Hiker2ReversalBeatenText", 1),
+    ("ReversalMountain1F", "TrainerLassReversal"):
+        ("TRAINER_UNOVA_LASS_REVERSAL", "LassReversalSeenText", "LassReversalBeatenText", 3),
+    ("ReversalMountain1F", "TrainerSchoolKidFReversal"):
+        ("TRAINER_UNOVA_SCHOOL_KIDF_REVERSAL", "SchoolKidFReversalSeenText", "SchoolKidFReversalBeatenText", 2),
+    ("ReversalMountainB1F", "TrainerBattleGirlReversal"):
+        ("TRAINER_UNOVA_BATTLE_GIRL_REVERSAL", "BattleGirlReversalSeenText", "BattleGirlReversalBeatenText", 1),
+    ("ReversalMountainB1F", "TrainerHiker1Reversal"):
+        ("TRAINER_UNOVA_HIKER_REVERSAL_1", "Hiker1ReversalSeenText", "Hiker1ReversalBeatenText", 2),
+    ("Rt1", "TrainerBattleGirlR1"):
+        ("TRAINER_UNOVA_BATTLE_GIRL_R1", "BattleGirlR1SeenText", "BattleGirlR1BeatenText", 2),
+    ("Rt1", "TrainerBlackbeltR1"):
+        ("TRAINER_UNOVA_BLACKBELT_R1", "BlackbeltR1SeenText", "BlackbeltR1BeatenText", 3),
+    ("Rt1", "TrainerMaidR1"):
+        ("TRAINER_UNOVA_MAID_R1", "MaidR1SeenText", "MaidR1BeatenText", 3),
+    ("Rt1", "TrainerPkmnRangerFR1"):
+        ("TRAINER_UNOVA_PKMN_RANGERF_R1", "PkmnRangerFR1SeenText", "PkmnRangerFR1BeatenText", 2),
+    ("Rt1", "TrainerPkmnRangerMR1"):
+        ("TRAINER_UNOVA_PKMN_RANGERM_R1", "PkmnRangerMR1SeenText", "PkmnRangerMR1BeatenText", 2),
+    ("Rt1", "TrainerTwinsR1"):
+        ("TRAINER_UNOVA_TWINS_R1", "TwinsR1SeenText", "TwinsR1BeatenText", 3),
+    ("Rt11", "TrainerBackersFR11"):
+        ("TRAINER_UNOVA_BACKERSF_R11", "BackersFR11SeenText", "BackersFR11BeatenText", 1),
+    ("Rt11", "TrainerBackersMR11"):
+        ("TRAINER_UNOVA_BACKERSM_R11", "BackersMR11SeenText", "BackersMR11BeatenText", 1),
+    ("Rt13", "TrainerLassR13"):
+        ("TRAINER_UNOVA_LASS_R13", "LassR13SeenText", "LassR13BeatenText", 3),
+    ("Rt13", "TrainerSchoolKidFR13"):
+        ("TRAINER_UNOVA_SCHOOL_KIDF_R13", "SchoolKidFR13SeenText", "SchoolKidFR13BeatenText", 4),
+    ("Rt13", "TrainerSchoolKidMR13"):
+        ("TRAINER_UNOVA_SCHOOL_KIDM_R13", "SchoolKidMR13SeenText", "SchoolKidMR13BeatenText", 2),
+    ("Rt13", "TrainerYoungsterR13"):
+        ("TRAINER_UNOVA_YOUNGSTER_R13", "YoungsterR13SeenText", "YoungsterR13BeatenText", 3),
+    ("Rt14", "TrainerPreschoolerF1R14"):
+        ("TRAINER_UNOVA_PRESCHOOLERF_R14_1", "PreschoolerF1R14SeenText", "PreschoolerF1R14BeatenText", 3),
+    ("Rt14", "TrainerPreschoolerF2R14"):
+        ("TRAINER_UNOVA_PRESCHOOLERF_R14_2", "PreschoolerF2R14SeenText", "PreschoolerF2R14BeatenText", 3),
+    ("Rt14", "TrainerPreschoolerM1R14"):
+        ("TRAINER_UNOVA_PRESCHOOLERM_R14_1", "PreschoolerM1R14SeenText", "PreschoolerM1R14BeatenText", 3),
+    ("Rt14", "TrainerPreschoolerM2R14"):
+        ("TRAINER_UNOVA_PRESCHOOLERM_R14_2", "PreschoolerM2R14SeenText", "PreschoolerM2R14BeatenText", 2),
+    ("Rt16", "TrainerBackersMR16"):
+        ("TRAINER_UNOVA_BACKERSM_R16", "BackersMR16SeenText", "BackersMR16BeatenText", 1),
+    ("Rt16", "TrainerBackpackerFR16"):
+        ("TRAINER_UNOVA_BACKPACKERF_R16", "BackpackerFR16SeenText", "BackpackerFR16BeatenText", 4),
+    ("Rt16", "TrainerBackpackerMR16"):
+        ("TRAINER_UNOVA_BACKPACKERM_R16", "BackpackerMR16SeenText", "BackpackerMR16BeatenText", 3),
+    ("Rt16", "TrainerCyclistFR16"):
+        ("TRAINER_UNOVA_CYCLISTF_R16", "CyclistFR16SeenText", "CyclistFR16BeatenText", 2),
+    ("Rt16", "TrainerCyclistMR16"):
+        ("TRAINER_UNOVA_CYCLISTM_R16", "CyclistMR16SeenText", "CyclistMR16BeatenText", 3),
+    ("Rt17", "R17DoctorScript"):
+        ("TRAINER_UNOVA_DOCTOR_R17", "R17DoctorIntroText", "R17DoctorWinText", 0),
+    ("Rt17", "TrainerFisher1R17"):
+        ("TRAINER_UNOVA_FISHER_R17_1", "Fisher1R17SeenText", "Fisher1R17BeatenText", 3),
+    ("Rt17", "TrainerFisher2R17"):
+        ("TRAINER_UNOVA_FISHER_R17_2", "Fisher2R17SeenText", "Fisher2R17BeatenText", 1),
+    ("Rt17", "TrainerSwimmerF1R17"):
+        ("TRAINER_UNOVA_SWIMMER_F_R17_1", "SwimmerF1R17SeenText", "SwimmerF1R17BeatenText", 1),
+    ("Rt17", "TrainerSwimmerF2R17"):
+        ("TRAINER_UNOVA_SWIMMER_F_R17_2", "SwimmerF2R17SeenText", "SwimmerF2R17BeatenText", 2),
+    ("Rt17", "TrainerSwimmerM1R17"):
+        ("TRAINER_UNOVA_SWIMMER_M_R17_1", "SwimmerM1R17SeenText", "SwimmerM1R17BeatenText", 1),
+    ("Rt17", "TrainerSwimmerM2R17"):
+        ("TRAINER_UNOVA_SWIMMER_M_R17_2", "SwimmerM2R17SeenText", "SwimmerM2R17BeatenText", 1),
+    ("Rt18", "TrainerBackpackerFR18"):
+        ("TRAINER_UNOVA_BACKPACKERF_R18", "BackpackerFR18SeenText", "BackpackerFR18BeatenText", 3),
+    ("Rt18", "TrainerBackpackerMR18"):
+        ("TRAINER_UNOVA_BACKPACKERM_R18", "BackpackerMR18SeenText", "BackpackerMR18BeatenText", 3),
+    ("Rt18", "TrainerBattleGirlR18"):
+        ("TRAINER_UNOVA_BATTLE_GIRL_R18", "BattleGirlR18SeenText", "BattleGirlR18BeatenText", 2),
+    ("Rt18", "TrainerBlackbeltR18"):
+        ("TRAINER_UNOVA_BLACKBELT_R18", "BlackbeltR18SeenText", "BlackbeltR18BeatenText", 3),
+    ("Rt18", "TrainerHikerR18"):
+        ("TRAINER_UNOVA_HIKER_R18", "HikerR18SeenText", "HikerR18BeatenText", 2),
+    ("Rt19", "TrainerBakerR19"):
+        ("TRAINER_UNOVA_BAKER_R19", "BakerR19SeenText", "BakerR19BeatenText", 2),
+    ("Rt19", "TrainerDepotAgent1R19"):
+        ("TRAINER_UNOVA_DEPOT_AGENT_R19_1", "DepotAgent1R19SeenText", "DepotAgent1R19BeatenText", 2),
+    ("Rt19", "TrainerDepotAgent2R19"):
+        ("TRAINER_UNOVA_DEPOT_AGENT_R19_2", "DepotAgent2R19SeenText", "DepotAgent2R19BeatenText", 3),
+    ("Rt19", "TrainerLadyR19"):
+        ("TRAINER_UNOVA_LADY_R19", "LadyR19SeenText", "LadyR19BeatenText", 2),
+    ("Rt19", "TrainerMaidR19"):
+        ("TRAINER_UNOVA_MAID_R19", "MaidR19SeenText", "MaidR19BeatenText", 3),
+    ("Rt19", "TrainerPkmnBreederFR19"):
+        ("TRAINER_UNOVA_PKMN_BREEDERF_R19", "PkmnBreederFR19SeenText", "PkmnBreederFR19BeatenText", 3),
+    ("Rt19", "TrainerPkmnBreederMR19"):
+        ("TRAINER_UNOVA_PKMN_BREEDERM_R19", "PkmnBreederMR19SeenText", "PkmnBreederMR19BeatenText", 3),
+    ("Rt2", "TrainerBackpackerFR2"):
+        ("TRAINER_UNOVA_BACKPACKERF_R2", "BackpackerFR2SeenText", "BackpackerFR2BeatenText", 2),
+    ("Rt2", "TrainerBackpackerMR2"):
+        ("TRAINER_UNOVA_BACKPACKERM_R2", "BackpackerMR2SeenText", "BackpackerMR2BeatenText", 2),
+    ("Rt2", "TrainerGentlemanR2"):
+        ("TRAINER_UNOVA_GENTLEMAN_R2", "GentlemanR2SeenText", "GentlemanR2BeatenText", 2),
+    ("Rt2", "TrainerLassR2"):
+        ("TRAINER_UNOVA_LASS_R2", "LassR2SeenText", "LassR2BeatenText", 2),
+    ("Rt2", "TrainerPolicemanR2"):
+        ("TRAINER_UNOVA_POLICEMAN_R2", "PolicemanR2SeenText", "PolicemanR2BeatenText", 2),
+    ("Rt2", "TrainerSocialiteR2"):
+        ("TRAINER_UNOVA_SOCIALITE_R2", "SocialiteR2SeenText", "SocialiteR2BeatenText", 2),
+    ("Rt2", "TrainerTwinsR2"):
+        ("TRAINER_UNOVA_TWINS_R2", "TwinsR2SeenText", "TwinsR2BeatenText", 1),
+    ("Rt2", "TrainerYoungsterR2"):
+        ("TRAINER_UNOVA_YOUNGSTER_R2", "YoungsterR2SeenText", "YoungsterR2BeatenText", 3),
+    ("Rt20", "TrainerNurseryAideR20"):
+        ("TRAINER_UNOVA_NURSERY_AIDE_R20", "NurseryAideR20SeenText", "NurseryAideR20BeatenText", 3),
+    ("Rt20", "TrainerSchoolKidF1R20"):
+        ("TRAINER_UNOVA_SCHOOL_KIDF_R20_1", "SchoolKidF1R20SeenText", "SchoolKidF1R20BeatenText", 3),
+    ("Rt20", "TrainerSchoolKidF2R20"):
+        ("TRAINER_UNOVA_SCHOOL_KIDF_R20_2", "SchoolKidF2R20SeenText", "SchoolKidF2R20BeatenText", 3),
+    ("Rt20", "TrainerSchoolKidF3R20"):
+        ("TRAINER_UNOVA_SCHOOL_KIDF_R20_3", "SchoolKidF3R20SeenText", "SchoolKidF3R20BeatenText", 2),
+    ("Rt20", "TrainerSchoolKidM1R20"):
+        ("TRAINER_UNOVA_SCHOOL_KIDM_R20_1", "SchoolKidM1R20SeenText", "SchoolKidM1R20BeatenText", 3),
+    ("Rt20", "TrainerSchoolKidM2R20"):
+        ("TRAINER_UNOVA_SCHOOL_KIDM_R20_2", "SchoolKidM2R20SeenText", "SchoolKidM2R20BeatenText", 2),
+    ("Rt20", "TrainerSchoolKidM3R20"):
+        ("TRAINER_UNOVA_SCHOOL_KIDM_R20_3", "SchoolKidM3R20SeenText", "SchoolKidM3R20BeatenText", 3),
+    ("Rt20", "TrainerTwinsR20"):
+        ("TRAINER_UNOVA_TWINS_R20", "TwinsR20SeenText", "TwinsR20BeatenText", 1),
+    ("Rt21", "TrainerBlackbeltR21"):
+        ("TRAINER_UNOVA_BLACKBELT_R21", "BlackbeltR21SeenText", "BlackbeltR21BeatenText", 2),
+    ("Rt21", "TrainerSwimmerF1R21"):
+        ("TRAINER_UNOVA_SWIMMER_F_R21_1", "SwimmerF1R21SeenText", "SwimmerF1R21BeatenText", 3),
+    ("Rt21", "TrainerSwimmerF2R21"):
+        ("TRAINER_UNOVA_SWIMMER_F_R21_2", "SwimmerF2R21SeenText", "SwimmerF2R21BeatenText", 2),
+    ("Rt21", "TrainerSwimmerF3R21"):
+        ("TRAINER_UNOVA_SWIMMER_F_R21_3", "SwimmerF3R21SeenText", "SwimmerF3R21BeatenText", 2),
+    ("Rt21", "TrainerSwimmerM1R21"):
+        ("TRAINER_UNOVA_SWIMMER_M_R21_1", "SwimmerM1R21SeenText", "SwimmerM1R21BeatenText", 2),
+    ("Rt21", "TrainerSwimmerM2R21"):
+        ("TRAINER_UNOVA_SWIMMER_M_R21_2", "SwimmerM2R21SeenText", "SwimmerM2R21BeatenText", 2),
+    ("Rt21", "TrainerSwimmerM3R21"):
+        ("TRAINER_UNOVA_SWIMMER_M_R21_3", "SwimmerM3R21SeenText", "SwimmerM3R21BeatenText", 2),
+    ("Rt23East", "TrainerAceTrainerF1R23"):
+        ("TRAINER_UNOVA_ACE_TRAINERF_R23_1", "AceTrainerF1R23SeenText", "AceTrainerF1R23BeatenText", 1),
+    ("Rt23East", "TrainerAceTrainerM1R23"):
+        ("TRAINER_UNOVA_ACE_TRAINERM_R23_1", "AceTrainerM1R23SeenText", "AceTrainerM1R23BeatenText", 2),
+    ("Rt23West", "TrainerAceTrainerF2R23"):
+        ("TRAINER_UNOVA_ACE_TRAINERF_R23_2", "AceTrainerF2R23SeenText", "AceTrainerF2R23BeatenText", 1),
+    ("Rt23West", "TrainerAceTrainerM2R23"):
+        ("TRAINER_UNOVA_ACE_TRAINERM_R23_2", "AceTrainerM2R23SeenText", "AceTrainerM2R23BeatenText", 1),
+    ("Rt23West", "TrainerBackpackerFR23"):
+        ("TRAINER_UNOVA_BACKPACKERF_R23", "BackpackerFR23SeenText", "BackpackerFR23BeatenText", 2),
+    ("Rt23West", "TrainerBackpackerMR23"):
+        ("TRAINER_UNOVA_BACKPACKERM_R23", "BackpackerMR23SeenText", "BackpackerMR23BeatenText", 1),
+    ("Rt23West", "TrainerBattleGirlR23"):
+        ("TRAINER_UNOVA_BATTLE_GIRL_R23", "BattleGirlR23SeenText", "BattleGirlR23BeatenText", 1),
+    ("Rt23West", "TrainerPkmnRangerFR23"):
+        ("TRAINER_UNOVA_PKMN_RANGERF_R23", "PkmnRangerFR23SeenText", "PkmnRangerFR23BeatenText", 2),
+    ("Rt23West", "TrainerPkmnRangerMR23"):
+        ("TRAINER_UNOVA_PKMN_RANGERM_R23", "PkmnRangerMR23SeenText", "PkmnRangerMR23BeatenText", 2),
+    ("Rt23West", "TrainerVeteranMR23"):
+        ("TRAINER_UNOVA_VETERANM_R23", "VeteranMR23SeenText", "VeteranMR23BeatenText", 3),
+    ("Rt3", "TrainerArtistR3"):
+        ("TRAINER_UNOVA_ARTIST_R3", "ArtistR3SeenText", "ArtistR3BeatenText", 2),
+    ("Rt3", "TrainerFisher1R3"):
+        ("TRAINER_UNOVA_FISHER_R3_1", "Fisher1R3SeenText", "Fisher1R3BeatenText", 1),
+    ("Rt3", "TrainerFisher2R3"):
+        ("TRAINER_UNOVA_FISHER_R3_2", "Fisher2R3SeenText", "Fisher2R3BeatenText", 0),
+    ("Rt3", "TrainerGentlemanR3"):
+        ("TRAINER_UNOVA_GENTLEMAN_R3", "GentlemanR3SeenText", "GentlemanR3BeatenText", 3),
+    ("Rt3", "TrainerPkmnRangerFR3"):
+        ("TRAINER_UNOVA_PKMN_RANGERF_R3", "PkmnRangerFR3SeenText", "PkmnRangerFR3BeatenText", 3),
+    ("Rt3", "TrainerPkmnRangerMR3"):
+        ("TRAINER_UNOVA_PKMN_RANGERM_R3", "PkmnRangerMR3SeenText", "PkmnRangerMR3BeatenText", 1),
+    ("Rt3", "TrainerSocialiteR3"):
+        ("TRAINER_UNOVA_SOCIALITE_R3", "SocialiteR3SeenText", "SocialiteR3BeatenText", 3),
+    ("Rt4", "TrainerBikerR4"):
+        ("TRAINER_UNOVA_BIKER_R4", "BikerR4SeenText", "BikerR4BeatenText", 3),
+    ("Rt4", "TrainerFisher1R4"):
+        ("TRAINER_UNOVA_FISHER_R4_1", "Fisher1R4SeenText", "Fisher1R4BeatenText", 0),
+    ("Rt4", "TrainerFisher2R4"):
+        ("TRAINER_UNOVA_FISHER_R4_2", "Fisher2R4SeenText", "Fisher2R4BeatenText", 0),
+    ("Rt4", "TrainerLadyR4"):
+        ("TRAINER_UNOVA_LADY_R4", "LadyR4SeenText", "LadyR4BeatenText", 4),
+    ("Rt4", "TrainerPokefanFR4"):
+        ("TRAINER_UNOVA_POKEFANF_R4", "PokefanFR4SeenText", "PokefanFR4BeatenText", 2),
+    ("Rt4", "TrainerPokefanMR4"):
+        ("TRAINER_UNOVA_POKEFANM_R4", "PokefanMR4SeenText", "PokefanMR4BeatenText", 2),
+    ("Rt4", "TrainerPoliceman1R4"):
+        ("TRAINER_UNOVA_POLICEMAN_R4_1", "Policeman1R4SeenText", "Policeman1R4BeatenText", 3),
+    ("Rt4", "TrainerPoliceman2R4"):
+        ("TRAINER_UNOVA_POLICEMAN_R4_2", "Policeman2R4SeenText", "Policeman2R4BeatenText", 3),
+    ("Rt4", "TrainerRichBoyR4"):
+        ("TRAINER_UNOVA_RICH_BOY_R4", "RichBoyR4SeenText", "RichBoyR4BeatenText", 4),
+    ("Rt4", "TrainerRoughneckR4"):
+        ("TRAINER_UNOVA_ROUGHNECK_R4", "RoughneckR4SeenText", "RoughneckR4BeatenText", 3),
+    ("Rt5", "TrainerArtistR5"):
+        ("TRAINER_UNOVA_ARTIST_R5", "ArtistR5SeenText", "ArtistR5BeatenText", 2),
+    ("Rt5", "TrainerBackersFR5"):
+        ("TRAINER_UNOVA_BACKERSF_R5", "BackersFR5SeenText", "BackersFR5BeatenText", 1),
+    ("Rt5", "TrainerBakerR5"):
+        ("TRAINER_UNOVA_BAKER_R5", "BakerR5SeenText", "BakerR5BeatenText", 3),
+    ("Rt5", "TrainerDancer1R5"):
+        ("TRAINER_UNOVA_DANCER_R5_1", "Dancer1R5SeenText", "Dancer1R5BeatenText", 3),
+    ("Rt5", "TrainerDancer2R5"):
+        ("TRAINER_UNOVA_DANCER_R5_2", "Dancer2R5SeenText", "Dancer2R5BeatenText", 3),
+    ("Rt5", "TrainerLinebackerR5"):
+        ("TRAINER_UNOVA_LINEBACKER_R5", "LinebackerR5SeenText", "LinebackerR5BeatenText", 3),
+    ("Rt6", "TrainerParasolLady1R6"):
+        ("TRAINER_UNOVA_PARASOL_LADY_R6_1", "ParasolLady1R6SeenText", "ParasolLady1R6BeatenText", 3),
+    ("Rt6", "TrainerParasolLady2R6"):
+        ("TRAINER_UNOVA_PARASOL_LADY_R6_2", "ParasolLady2R6SeenText", "ParasolLady2R6BeatenText", 2),
+    ("Rt6", "TrainerPkmnBreederFR6"):
+        ("TRAINER_UNOVA_PKMN_BREEDERF_R6", "PkmnBreederFR6SeenText", "PkmnBreederFR6BeatenText", 2),
+    ("Rt6", "TrainerPkmnBreederMR6"):
+        ("TRAINER_UNOVA_PKMN_BREEDERM_R6", "PkmnBreederMR6SeenText", "PkmnBreederMR6BeatenText", 2),
+    ("Rt6", "TrainerPkmnRangerFR6"):
+        ("TRAINER_UNOVA_PKMN_RANGERF_R6", "PkmnRangerFR6SeenText", "PkmnRangerFR6BeatenText", 2),
+    ("Rt6", "TrainerPkmnRangerMR6"):
+        ("TRAINER_UNOVA_PKMN_RANGERM_R6", "PkmnRangerMR6SeenText", "PkmnRangerMR6BeatenText", 3),
+    ("Rt6", "TrainerScientistFR6"):
+        ("TRAINER_UNOVA_SCIENTISTF_R6", "ScientistFR6SeenText", "ScientistFR6BeatenText", 3),
+    ("Rt6", "TrainerScientistMR6"):
+        ("TRAINER_UNOVA_SCIENTISTM_R6", "ScientistMR6SeenText", "ScientistMR6BeatenText", 3),
+    ("Rt7", "TrainerNurseryAideR7"):
+        ("TRAINER_UNOVA_NURSERY_AIDE_R7", "NurseryAideR7SeenText", "NurseryAideR7BeatenText", 2),
+    ("Rt7", "TrainerPkmnBreederFR7"):
+        ("TRAINER_UNOVA_PKMN_BREEDERF_R7", "PkmnBreederFR7SeenText", "PkmnBreederFR7BeatenText", 2),
+    ("Rt7", "TrainerPkmnBreederMR7"):
+        ("TRAINER_UNOVA_PKMN_BREEDERM_R7", "PkmnBreederMR7SeenText", "PkmnBreederMR7BeatenText", 1),
+    ("Rt7", "TrainerSchoolKidFR7"):
+        ("TRAINER_UNOVA_SCHOOL_KIDF_R7", "SchoolKidFR7SeenText", "SchoolKidFR7BeatenText", 3),
+    ("Rt7", "TrainerSchoolKidMR7"):
+        ("TRAINER_UNOVA_SCHOOL_KIDM_R7", "SchoolKidMR7SeenText", "SchoolKidMR7BeatenText", 3),
+    ("Rt7North", "TrainerBackpackerFR7North"):
+        ("TRAINER_UNOVA_BACKPACKERF_R7", "BackpackerFR7NorthSeenText", "BackpackerFR7NorthBeatenText", 3),
+    ("Rt7North", "TrainerBackpackerMR7North"):
+        ("TRAINER_UNOVA_BACKPACKERM_R7", "BackpackerMR7NorthSeenText", "BackpackerMR7NorthBeatenText", 3),
+    ("Rt7North", "TrainerHarlequinR7North"):
+        ("TRAINER_UNOVA_HARLEQUIN_R7", "HarlequinR7NorthSeenText", "HarlequinR7NorthBeatenText", 4),
+    ("Rt7North", "TrainerTwinsR7North"):
+        ("TRAINER_UNOVA_TWINS_R7", "TwinsR7NorthSeenText", "TwinsR7NorthBeatenText", 1),
+    ("Rt8", "TrainerFisherR8"):
+        ("TRAINER_UNOVA_FISHER_R8", "FisherR8SeenText", "FisherR8BeatenText", 1),
+    ("Rt8", "TrainerParasolLadyR8"):
+        ("TRAINER_UNOVA_PARASOL_LADY_R8", "ParasolLadyR8SeenText", "ParasolLadyR8BeatenText", 3),
+    ("Rt8", "TrainerPkmnRangerFR8"):
+        ("TRAINER_UNOVA_PKMN_RANGERF_R8", "PkmnRangerFR8SeenText", "PkmnRangerFR8BeatenText", 3),
+    ("Rt8", "TrainerPkmnRangerMR8"):
+        ("TRAINER_UNOVA_PKMN_RANGERM_R8", "PkmnRangerMR8SeenText", "PkmnRangerMR8BeatenText", 2),
+    ("Rt9", "TrainerBiker1R9"):
+        ("TRAINER_UNOVA_BIKER_R9_1", "Biker1R9SeenText", "Biker1R9BeatenText", 3),
+    ("Rt9", "TrainerBiker2R9"):
+        ("TRAINER_UNOVA_BIKER_R9_2", "Biker2R9SeenText", "Biker2R9BeatenText", 2),
+    ("Rt9", "TrainerRoughneck1R9"):
+        ("TRAINER_UNOVA_ROUGHNECK_R9_1", "Roughneck1R9SeenText", "Roughneck1R9BeatenText", 3),
+    ("Rt9", "TrainerRoughneck2R9"):
+        ("TRAINER_UNOVA_ROUGHNECK_R9_2", "Roughneck2R9SeenText", "Roughneck2R9BeatenText", 2),
+    ("SeasideCave1F", "TrainerBattleGirlSeasideCave1F"):
+        ("TRAINER_UNOVA_BATTLE_GIRL_SEASIDE_CAVE_1", "BattleGirlSeasideCave1FSeenText", "BattleGirlSeasideCave1FBeatenText", 2),
+    ("SeasideCave1F", "TrainerBlackbeltSeasideCave1F"):
+        ("TRAINER_UNOVA_BLACKBELT_SEASIDE_CAVE_1", "BlackbeltSeasideCave1FSeenText", "BlackbeltSeasideCave1FBeatenText", 2),
+    ("SeasideCave1F", "TrainerDoctorSeasideCave1F"):
+        ("TRAINER_UNOVA_DOCTOR_SEASIDE_CAVE", "SeasideCaveDoctorIntroText", "SeasideCaveDoctorWinText", 0),
+    ("SeasideCave1F", "TrainerVeteranFSeasideCave1F"):
+        ("TRAINER_UNOVA_VETERANF_SEASIDE_CAVE", "VeteranFSeasideCave1FSeenText", "VeteranFSeasideCave1FBeatenText", 1),
+    ("SeasideCaveB1F", "TrainerBattleGirlSeasideCaveB1F"):
+        ("TRAINER_UNOVA_BATTLE_GIRL_SEASIDE_CAVE_2", "BattleGirlSeasideCaveB1FSeenText", "BattleGirlSeasideCaveB1FBeatenText", 3),
+    ("SeasideCaveB1F", "TrainerBlackbeltSeasideCaveB1F"):
+        ("TRAINER_UNOVA_BLACKBELT_SEASIDE_CAVE_2", "BlackbeltSeasideCaveB1FSeenText", "BlackbeltSeasideCaveB1FBeatenText", 1),
+    ("SeasideCaveB2F", "TrainerGruntF1SeasideCave"):
+        ("TRAINER_UNOVA_GRUNTF_SEASIDE_CAVE_1", "GruntF1SeasideCaveSeenText", "GruntF1SeasideCaveBeatenText", 1),
+    ("SeasideCaveB2F", "TrainerGruntF2SeasideCave"):
+        ("TRAINER_UNOVA_GRUNTF_SEASIDE_CAVE_2", "GruntF2SeasideCaveSeenText", "GruntF2SeasideCaveBeatenText", 1),
+    ("SeasideCaveB2F", "TrainerGruntF3SeasideCave"):
+        ("TRAINER_UNOVA_GRUNTF_SEASIDE_CAVE_3", "GruntF3SeasideCaveSeenText", "GruntF3SeasideCaveBeatenText", 1),
+    ("SeasideCaveB2F", "TrainerGruntM1SeasideCave"):
+        ("TRAINER_UNOVA_GRUNTM_SEASIDE_CAVE_1", "GruntM1SeasideCaveSeenText", "GruntM1SeasideCaveBeatenText", 1),
+    ("SeasideCaveB2F", "TrainerGruntM2SeasideCave"):
+        ("TRAINER_UNOVA_GRUNTM_SEASIDE_CAVE_2", "GruntM2SeasideCaveSeenText", "GruntM2SeasideCaveBeatenText", 1),
+    ("SeasideCaveB2F", "TrainerGruntM3SeasideCave"):
+        ("TRAINER_UNOVA_GRUNTM_SEASIDE_CAVE_3", "GruntM3SeasideCaveSeenText", "GruntM3SeasideCaveBeatenText", 1),
+    ("TwistMountain1F", "TrainerVeteranMTwistMountain1F"):
+        ("TRAINER_UNOVA_VETERANM_TWIST_MOUNTAIN_2", "VeteranMTwistMountain1FSeenText", "VeteranMTwistMountain1FBeatenText", 1),
+    ("TwistMountain1F", "TrainerWorkerTwistMountain1F"):
+        ("TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_5", "WorkerTwistMountain1FSeenText", "WorkerTwistMountain1FBeatenText", 2),
+    ("TwistMountain2F", "TrainerHikerTwistMountain2F"):
+        ("TRAINER_UNOVA_HIKER_TWIST_MOUNTAIN_1", "HikerTwistMountain2FSeenText", "HikerTwistMountain2FBeatenText", 1),
+    ("TwistMountain2F", "TrainerVeteranFTwistMountain2F"):
+        ("TRAINER_UNOVA_VETERANF_TWIST_MOUNTAIN_2", "VeteranFTwistMountain2FSeenText", "VeteranFTwistMountain2FBeatenText", 1),
+    ("TwistMountain2F", "TrainerWorkerTwistMountain2F"):
+        ("TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_4", "WorkerTwistMountain2FSeenText", "WorkerTwistMountain2FBeatenText", 3),
+    ("TwistMountain3F", "TrainerVeteranFTwistMountain3F"):
+        ("TRAINER_UNOVA_VETERANF_TWIST_MOUNTAIN_1", "VeteranFTwistMountain3FSeenText", "VeteranFTwistMountain3FBeatenText", 1),
+    ("TwistMountain3F", "TrainerWorker1TwistMountain3F"):
+        ("TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_2", "Worker1TwistMountain3FSeenText", "Worker1TwistMountain3FBeatenText", 2),
+    ("TwistMountain3F", "TrainerWorker2TwistMountain3F"):
+        ("TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_3", "Worker2TwistMountain3FSeenText", "Worker2TwistMountain3FBeatenText", 2),
+    ("TwistMountainOutside", "TrainerHikerTwistMountainOutside"):
+        ("TRAINER_UNOVA_HIKER_TWIST_MOUNTAIN_2", "HikerTwistMountainOutsideSeenText", "HikerTwistMountainOutsideBeatenText", 2),
+    ("TwistMountainOutside", "TrainerNurseTwistMountainOutside"):
+        ("TRAINER_UNOVA_NURSE_TWIST_MOUNTAIN", "NurseTwistMountainOutsideIntroText", "NurseTwistMountainOutsideWinText", 0),
+    ("TwistMountainOutside", "TrainerVeteranMTwistMountainOutside"):
+        ("TRAINER_UNOVA_VETERANM_TWIST_MOUNTAIN_1", "VeteranMTwistMountainOutsideSeenText", "VeteranMTwistMountainOutsideBeatenText", 1),
+    ("TwistMountainOutside", "TrainerWorkerTwistMountainOutside"):
+        ("TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_1", "WorkerTwistMountainOutsideSeenText", "WorkerTwistMountainOutsideBeatenText", 1),
+    ("UndellaTown", "TrainerFisher1UndellaTown"):
+        ("TRAINER_UNOVA_FISHER_UNDELLA_1", "Fisher1UndellaTownSeenText", "Fisher1UndellaTownBeatenText", 1),
+    ("UndellaTown", "TrainerFisher2UndellaTown"):
+        ("TRAINER_UNOVA_FISHER_UNDELLA_2", "Fisher2UndellaTownSeenText", "Fisher2UndellaTownBeatenText", 1),
+    ("VictoryRoadCave1F", "TrainerAceTrainerFVictoryRoadCave1F"):
+        ("TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_INT_2", "AceTrainerFVictoryRoadCave1FSeenText", "AceTrainerFVictoryRoadCave1FBeatenText", 2),
+    ("VictoryRoadCave1F", "TrainerAceTrainerMVictoryRoadCave1F"):
+        ("TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_INT_1", "AceTrainerMVictoryRoadCave1FSeenText", "AceTrainerMVictoryRoadCave1FBeatenText", 1),
+    ("VictoryRoadCave1F", "TrainerHexManiacVictoryRoadCave1F"):
+        ("TRAINER_UNOVA_HEX_MANIAC_VICTORY_ROAD_INT", "HexManiacVictoryRoadCave1FSeenText", "HexManiacVictoryRoadCave1FBeatenText", 1),
+    ("VictoryRoadCave1F", "TrainerPsychicFVictoryRoadCave1F"):
+        ("TRAINER_UNOVA_PSYCHICF_VICTORY_ROAD_INT", "PsychicFVictoryRoadCave1FSeenText", "PsychicFVictoryRoadCave1FBeatenText", 1),
+    ("VictoryRoadCave1F", "TrainerPsychicMVictoryRoadCave1F"):
+        ("TRAINER_UNOVA_PSYCHICM_VICTORY_ROAD_INT", "PsychicMVictoryRoadCave1FSeenText", "PsychicMVictoryRoadCave1FBeatenText", 2),
+    ("VictoryRoadCave1F", "TrainerVeteranFVictoryRoadCave1F"):
+        ("TRAINER_UNOVA_VETERANF_VICTORY_ROAD_INT_1", "VeteranFVictoryRoadCave1FSeenText", "VeteranFVictoryRoadCave1FBeatenText", 2),
+    ("VictoryRoadCave1F", "TrainerVeteranMVictoryRoadCave1F"):
+        ("TRAINER_UNOVA_VETERANM_VICTORY_ROAD_INT_1", "VeteranMVictoryRoadCave1FSeenText", "VeteranMVictoryRoadCave1FBeatenText", 2),
+    ("VictoryRoadCave2F", "TrainerAceTrainerFVictoryRoadCave2F"):
+        ("TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_INT_1", "AceTrainerFVictoryRoadCave2FSeenText", "AceTrainerFVictoryRoadCave2FBeatenText", 2),
+    ("VictoryRoadCave2F", "TrainerAceTrainerMVictoryRoadCave2F"):
+        ("TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_INT_2", "AceTrainerMVictoryRoadCave2FSeenText", "AceTrainerMVictoryRoadCave2FBeatenText", 2),
+    ("VictoryRoadCave2F", "TrainerBackpackerMVictoryRoadCave2F"):
+        ("TRAINER_UNOVA_BACKPACKERM_VICTORY_ROAD_INT", "BackpackerMVictoryRoadCave2FSeenText", "BackpackerMVictoryRoadCave2FBeatenText", 2),
+    ("VictoryRoadCave2F", "TrainerPkmnRangerFVictoryRoadCave2F"):
+        ("TRAINER_UNOVA_PKMN_RANGERF_VICTORY_ROAD_INT", "PkmnRangerFVictoryRoadCave2FSeenText", "PkmnRangerFVictoryRoadCave2FBeatenText", 1),
+    ("VictoryRoadCave2F", "TrainerPkmnRangerMVictoryRoadCave2F"):
+        ("TRAINER_UNOVA_PKMN_RANGERM_VICTORY_ROAD_INT", "PkmnRangerMVictoryRoadCave2FSeenText", "PkmnRangerMVictoryRoadCave2FBeatenText", 1),
+    ("VictoryRoadCave2F", "TrainerVeteranMVictoryRoadCave2F"):
+        ("TRAINER_UNOVA_VETERANM_VICTORY_ROAD_INT_2", "VeteranMVictoryRoadCave2FSeenText", "VeteranMVictoryRoadCave2FBeatenText", 2),
+    ("VictoryRoadCave3F", "TrainerVeteranFVictoryRoadCave3F"):
+        ("TRAINER_UNOVA_VETERANF_VICTORY_ROAD_INT_2", "VeteranFVictoryRoadCave3FSeenText", "VeteranFVictoryRoadCave3FBeatenText", 2),
+    ("VictoryRoadGrove", "TrainerAceTrainerFVictoryRoadGrove"):
+        ("TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_EXT_1", "AceTrainerFVictoryRoadGroveSeenText", "AceTrainerFVictoryRoadGroveBeatenText", 2),
+    ("VictoryRoadGrove", "TrainerAceTrainerMVictoryRoadGrove"):
+        ("TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_EXT_2", "AceTrainerMVictoryRoadGroveSeenText", "AceTrainerMVictoryRoadGroveBeatenText", 2),
+    ("VictoryRoadOutdoor1F", "TrainerBackpackerFVictoryRoadOutdoor1F"):
+        ("TRAINER_UNOVA_BACKPACKERF_VICTORY_ROAD_EXT", "BackpackerFVictoryRoadOutdoor1FSeenText", "BackpackerFVictoryRoadOutdoor1FBeatenText", 1),
+    ("VictoryRoadOutdoor1F", "TrainerNurseVictoryRoadOutdoor1F"):
+        ("TRAINER_UNOVA_NURSE_VICTORY_ROAD", "VictoryRoadNurseIntroText", "VictoryRoadNurseWinText", 0),
+    ("VictoryRoadOutdoor1F", "TrainerVeteranFVictoryRoadOutdoor1F"):
+        ("TRAINER_UNOVA_VETERANF_VICTORY_ROAD_EXT_1", "VeteranFVictoryRoadOutdoor1FSeenText", "VeteranFVictoryRoadOutdoor1FBeatenText", 2),
+    ("VictoryRoadOutdoor1F", "TrainerVeteranMVictoryRoadOutdoor1F"):
+        ("TRAINER_UNOVA_VETERANM_VICTORY_ROAD_EXT_1", "VeteranMVictoryRoadOutdoor1FSeenText", "VeteranMVictoryRoadOutdoor1FBeatenText", 1),
+    ("VictoryRoadOutdoor2F", "TrainerAceTrainerFVictoryRoadOutdoor2F"):
+        ("TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_EXT_2", "AceTrainerFVictoryRoadOutdoor2FSeenText", "AceTrainerFVictoryRoadOutdoor2FBeatenText", 2),
+    ("VictoryRoadOutdoor2F", "TrainerAceTrainerMVictoryRoadOutdoor2F"):
+        ("TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_EXT_1", "AceTrainerMVictoryRoadOutdoor2FSeenText", "AceTrainerMVictoryRoadOutdoor2FBeatenText", 2),
+    ("VictoryRoadOutdoor2F", "TrainerBattleGirlVictoryRoadOutdoor2F"):
+        ("TRAINER_UNOVA_BATTLE_GIRL_VICTORY_ROAD_EXT", "BattleGirlVictoryRoadOutdoor2FSeenText", "BattleGirlVictoryRoadOutdoor2FBeatenText", 1),
+    ("VictoryRoadOutdoor2F", "TrainerBlackbeltVictoryRoadOutdoor2F"):
+        ("TRAINER_UNOVA_BLACKBELT_VICTORY_ROAD_EXT", "BlackbeltVictoryRoadOutdoor2FSeenText", "BlackbeltVictoryRoadOutdoor2FBeatenText", 1),
+    ("VictoryRoadOutdoor2F", "TrainerScientistFVictoryRoadOutdoor2F"):
+        ("TRAINER_UNOVA_SCIENTISTF_VICTORY_ROAD_EXT", "ScientistFVictoryRoadOutdoor2FSeenText", "ScientistFVictoryRoadOutdoor2FBeatenText", 1),
+    ("VictoryRoadOutdoor2F", "TrainerScientistMVictoryRoadOutdoor2F"):
+        ("TRAINER_UNOVA_SCIENTISTM_VICTORY_ROAD_EXT", "ScientistMVictoryRoadOutdoor2FSeenText", "ScientistMVictoryRoadOutdoor2FBeatenText", 2),
+    ("VictoryRoadOutdoor2F", "TrainerVeteranFVictoryRoadOutdoor2F"):
+        ("TRAINER_UNOVA_VETERANF_VICTORY_ROAD_EXT_2", "VeteranFVictoryRoadOutdoor2FSeenText", "VeteranFVictoryRoadOutdoor2FBeatenText", 2),
+    ("VictoryRoadOutdoor2F", "TrainerVeteranMVictoryRoadOutdoor2F"):
+        ("TRAINER_UNOVA_VETERANM_VICTORY_ROAD_EXT_2", "VeteranMVictoryRoadOutdoor2FSeenText", "VeteranMVictoryRoadOutdoor2FBeatenText", 1),
+    ("VillageBridge", "TrainerHoopster1VillageBridge"):
+        ("TRAINER_UNOVA_HOOPSTER_VILLAGE_BRIDGE_1", "Hoopster1VillageBridgeSeenText", "Hoopster1VillageBridgeBeatenText", 3),
+    ("VillageBridge", "TrainerHoopster2VillageBridge"):
+        ("TRAINER_UNOVA_HOOPSTER_VILLAGE_BRIDGE_2", "Hoopster2VillageBridgeSeenText", "Hoopster2VillageBridgeBeatenText", 2),
+    ("VillageBridge", "TrainerLinebackerVillageBridge"):
+        ("TRAINER_UNOVA_LINEBACKER_VILLAGE_BRIDGE", "LinebackerVillageBridgeSeenText", "LinebackerVillageBridgeBeatenText", 3),
+    ("VillageBridge", "TrainerMusicianVillageBridge"):
+        ("TRAINER_UNOVA_MUSICIAN_VILLAGE_BRIDGE", "MusicianVillageBridgeSeenText", "MusicianVillageBridgeBeatenText", 3),
+    ("VillageBridge", "TrainerSmasher1VillageBridge"):
+        ("TRAINER_UNOVA_SMASHER_VILLAGE_BRIDGE_1", "Smasher1VillageBridgeSeenText", "Smasher1VillageBridgeBeatenText", 3),
+    ("VillageBridge", "TrainerSmasher2VillageBridge"):
+        ("TRAINER_UNOVA_SMASHER_VILLAGE_BRIDGE_2", "Smasher2VillageBridgeSeenText", "Smasher2VillageBridgeBeatenText", 2),
+    ("VirbankComplexB1F", "TrainerScientistFVirbankComplexB1F"):
+        ("TRAINER_UNOVA_SCIENTISTF_VIRBANK_COMPLEX_1", "ScientistFVirbankComplexB1FSeenText", "ScientistFVirbankComplexB1FBeatenText", 3),
+    ("VirbankComplexB2F", "TrainerGruntFVirbankComplexB2F"):
+        ("TRAINER_UNOVA_GRUNTF_VIRBANK_COMPLEX_2", "GruntFVirbankComplexB2FSeenText", "GruntFVirbankComplexB2FBeatenText", 2),
+    ("VirbankComplexB2F", "TrainerGruntMVirbankComplexB2F"):
+        ("TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_3", "GruntMVirbankComplexB2FSeenText", "GruntMVirbankComplexB2FBeatenText", 2),
+    ("VirbankComplexB2F", "TrainerScientistFVirbankComplexB2F"):
+        ("TRAINER_UNOVA_SCIENTISTF_VIRBANK_COMPLEX_2", "ScientistFVirbankComplexB2FSeenText", "ScientistFVirbankComplexB2FBeatenText", 3),
+    ("VirbankComplexB2F", "TrainerScientistMVirbankComplexB2F"):
+        ("TRAINER_UNOVA_SCIENTISTM_VIRBANK_COMPLEX", "ScientistMVirbankComplexB2FSeenText", "ScientistMVirbankComplexB2FBeatenText", 2),
+    ("VirbankComplexOutside", "TrainerGruntFVirbankComplexOutside"):
+        ("TRAINER_UNOVA_GRUNTF_VIRBANK_COMPLEX_1", "GruntFVirbankComplexOutsideSeenText", "GruntFVirbankComplexOutsideBeatenText", 4),
+    ("VirbankComplexOutside", "TrainerGruntM1VirbankComplexOutside"):
+        ("TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_1", "GruntM1VirbankComplexOutsideSeenText", "GruntM1VirbankComplexOutsideBeatenText", 2),
+    ("VirbankComplexOutside", "TrainerGruntM2VirbankComplexOutside"):
+        ("TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_2", "GruntM2VirbankComplexOutsideSeenText", "GruntM2VirbankComplexOutsideBeatenText", 3),
+    ("VirbankGym", "TrainerGuitaristVirbankGym1"):
+        ("TRAINER_UNOVA_GUITARIST_VIRBANK_GYM_1", "GuitaristVirbankGym1SeenText", "GuitaristVirbankGym1BeatenText", 1),
+    ("VirbankGym", "TrainerGuitaristVirbankGym2"):
+        ("TRAINER_UNOVA_GUITARIST_VIRBANK_GYM_2", "GuitaristVirbankGym2SeenText", "GuitaristVirbankGym2BeatenText", 2),
+    ("VirbankGym", "TrainerMusicianVirbankGym1"):
+        ("TRAINER_UNOVA_MUSICIAN_VIRBANK_GYM_1", "MusicianVirbankGym1SeenText", "MusicianVirbankGym1BeatenText", 3),
+    ("VirbankGym", "TrainerMusicianVirbankGym2"):
+        ("TRAINER_UNOVA_MUSICIAN_VIRBANK_GYM_2", "MusicianVirbankGym2SeenText", "MusicianVirbankGym2BeatenText", 2),
+    ("WellspringCave1F", "TrainerBlackbeltWellspring1F"):
+        ("TRAINER_UNOVA_BLACKBELT_WELLSPRING_1", "BlackbeltWellspring1FSeenText", "BlackbeltWellspring1FBeatenText", 2),
+    ("WellspringCaveB1F", "TrainerBattleGirlWellspringB1F"):
+        ("TRAINER_UNOVA_BATTLE_GIRL_WELLSPRING", "BattleGirlWellspringB1FSeenText", "BattleGirlWellspringB1FBeatenText", 4),
+    ("WellspringCaveB1F", "TrainerBlackbeltWellspringB1F"):
+        ("TRAINER_UNOVA_BLACKBELT_WELLSPRING_2", "BlackbeltWellspringB1FSeenText", "BlackbeltWellspringB1FBeatenText", 2),
+    ("WellspringCaveB1F", "TrainerHikerWellspringB1F"):
+        ("TRAINER_UNOVA_HIKER_WELLSPRING", "HikerWellspringB1FSeenText", "HikerWellspringB1FBeatenText", 1),
+}
+# <<< TREINADORES DE UNOVA (gerado) <<<
+
 def script_lider(nome, i, cfg):
     """`trainerbattle_single` e nada mais: o motor ja guarda sozinho a flag de
     'este treinador ja foi derrotado' (uma por vaga de treinador, dentro de
     flags[]), entao falar com o chefe de novo cai direto no `end` sem rebater e
-    sem gastar flag nova."""
-    treinador, visto, perde, _ = cfg
+    sem gastar flag nova.
+
+    Serve tanto a LIDERES quanto a TREINADORES; a unica diferenca e o quinto
+    campo, a insignia. Quando ele existe, a batalha passa a usar a forma de 4
+    argumentos do macro (TRAINER_BATTLE_CONTINUE_SCRIPT), que continua no script
+    dado APOS a vitoria; esse script acende a flag, toca a fanfarra do jogo e
+    solta o jogador. Sem o quinto campo o script e o de sempre e nao muda nada.
+    """
+    treinador, visto, perde = cfg[0], cfg[1], cfg[2]
+    insignia = cfg[4] if len(cfg) > 4 else None
     rot = f"{nome}_EventScript_Lider{i}"
+    if not insignia:
+        return rot, (f"{rot}::\n\ttrainerbattle_single {treinador}, "
+                     f"{nome}_Text_{visto}, {nome}_Text_{perde}\n\tend\n")
+    pos = f"{nome}_EventScript_Insignia{i}"
     return rot, (f"{rot}::\n\ttrainerbattle_single {treinador}, "
-                 f"{nome}_Text_{visto}, {nome}_Text_{perde}\n\tend\n")
+                 f"{nome}_Text_{visto}, {nome}_Text_{perde}, {pos}\n\tend\n\n"
+                 f"{pos}::\n\tsetflag {insignia}\n"
+                 f"\tcall Common_EventScript_PlayGymBadgeFanfare\n"
+                 f"\trelease\n\tend\n")
 
 
 # A volta de barco. O BW3G nao tem porto para fora de Unova, entao o marinheiro
@@ -586,7 +1321,7 @@ def main(gravar):
     stats = dict(mapas=0, blocos_faltando=0, ajuste_tamanho=0, warps=0, placas=0,
                  objetos=0, textos=0, itemball=0, item_escondido=0, coord=0,
                  conexoes=0, sem_texto=0, enfermeira=0, loja=0, marinheiro=0, item_sem_flag=0,
-                 mobilia=0, lider=0)
+                 mobilia=0, lider=0, treinador=0)
     saida_layouts, saida_grupos, saida_incs = [], [], []
 
     for gnome, mapas in grupos:
@@ -709,7 +1444,8 @@ def main(gravar):
                         stats["item_sem_flag"] += 1
                     continue
                 cfg = LIDERES.get((camel, o["script"] if o["script"] not in ("0", "-1")
-                                          else o["sprite"]))
+                                          else o["sprite"])) \
+                    or TREINADORES.get((camel, o["script"]))
                 if cfg:
                     for t in (cfg[1], cfg[2]):
                         usados[t] = textos[t]
@@ -723,7 +1459,8 @@ def main(gravar):
                         "trainer_type": "TRAINER_TYPE_NORMAL",
                         "trainer_sight_or_berry_tree_id": str(cfg[3]),
                         "script": rot, "flag": SEM_FLAG})
-                    stats["lider"] += 1
+                    stats["lider" if cfg[0].startswith(
+                        ("TRAINER_UNOVA_LEADER", "TRAINER_UNOVA_E4")) else "treinador"] += 1
                     continue
                 std = jumpstd_de(asm, o["script"])
                 if std in STD_MOBILIA:

@@ -4,31 +4,37 @@ Unova_OpelucidGym_MapScripts::
 	.byte 0
 
 Unova_OpelucidGym_EventScript_Lider0::
-	trainerbattle_single TRAINER_UNOVA_LEADER_DRAYDEN, Unova_OpelucidGym_Text_DraydenGymIntroText, Unova_OpelucidGym_Text_DraydenWinLossText
+	trainerbattle_single TRAINER_UNOVA_LEADER_DRAYDEN, Unova_OpelucidGym_Text_DraydenGymIntroText, Unova_OpelucidGym_Text_DraydenWinLossText, Unova_OpelucidGym_EventScript_Insignia0
 	end
 
-Unova_OpelucidGym_EventScript_Npc1::
-	msgbox Unova_OpelucidGym_Text_VeteranM1OpelucidGymSeenText, MSGBOX_NPC
+Unova_OpelucidGym_EventScript_Insignia0::
+	setflag FLAG_BADGE_UNOVA_OPELUCID
+	call Common_EventScript_PlayGymBadgeFanfare
+	release
 	end
 
-Unova_OpelucidGym_EventScript_Npc2::
-	msgbox Unova_OpelucidGym_Text_VeteranM2OpelucidGymSeenText, MSGBOX_NPC
+Unova_OpelucidGym_EventScript_Lider1::
+	trainerbattle_single TRAINER_UNOVA_VETERANM_OPELUCID_GYM_1, Unova_OpelucidGym_Text_VeteranM1OpelucidGymSeenText, Unova_OpelucidGym_Text_VeteranM1OpelucidGymBeatenText
 	end
 
-Unova_OpelucidGym_EventScript_Npc3::
-	msgbox Unova_OpelucidGym_Text_VeteranM3OpelucidGymSeenText, MSGBOX_NPC
+Unova_OpelucidGym_EventScript_Lider2::
+	trainerbattle_single TRAINER_UNOVA_VETERANM_OPELUCID_GYM_2, Unova_OpelucidGym_Text_VeteranM2OpelucidGymSeenText, Unova_OpelucidGym_Text_VeteranM2OpelucidGymBeatenText
 	end
 
-Unova_OpelucidGym_EventScript_Npc4::
-	msgbox Unova_OpelucidGym_Text_VeteranF1OpelucidGymSeenText, MSGBOX_NPC
+Unova_OpelucidGym_EventScript_Lider3::
+	trainerbattle_single TRAINER_UNOVA_VETERANM_OPELUCID_GYM_3, Unova_OpelucidGym_Text_VeteranM3OpelucidGymSeenText, Unova_OpelucidGym_Text_VeteranM3OpelucidGymBeatenText
 	end
 
-Unova_OpelucidGym_EventScript_Npc5::
-	msgbox Unova_OpelucidGym_Text_VeteranF2OpelucidGymSeenText, MSGBOX_NPC
+Unova_OpelucidGym_EventScript_Lider4::
+	trainerbattle_single TRAINER_UNOVA_VETERANF_OPELUCID_GYM_1, Unova_OpelucidGym_Text_VeteranF1OpelucidGymSeenText, Unova_OpelucidGym_Text_VeteranF1OpelucidGymBeatenText
 	end
 
-Unova_OpelucidGym_EventScript_Npc6::
-	msgbox Unova_OpelucidGym_Text_VeteranF3OpelucidGymSeenText, MSGBOX_NPC
+Unova_OpelucidGym_EventScript_Lider5::
+	trainerbattle_single TRAINER_UNOVA_VETERANF_OPELUCID_GYM_2, Unova_OpelucidGym_Text_VeteranF2OpelucidGymSeenText, Unova_OpelucidGym_Text_VeteranF2OpelucidGymBeatenText
+	end
+
+Unova_OpelucidGym_EventScript_Lider6::
+	trainerbattle_single TRAINER_UNOVA_VETERANF_OPELUCID_GYM_3, Unova_OpelucidGym_Text_VeteranF3OpelucidGymSeenText, Unova_OpelucidGym_Text_VeteranF3OpelucidGymBeatenText
 	end
 
 Unova_OpelucidGym_EventScript_Npc7::
@@ -72,9 +78,18 @@ Unova_OpelucidGym_Text_VeteranM1OpelucidGymSeenText::
 	.string "\ntop, like a dragon"
 	.string "\ltaking flight!$"
 
+Unova_OpelucidGym_Text_VeteranM1OpelucidGymBeatenText::
+	.string "The energy I feel"
+	.string "\nfrom you… It's just"
+	.string "\llike a dragon!$"
+
 Unova_OpelucidGym_Text_VeteranM2OpelucidGymSeenText::
 	.string "A strong defense"
 	.string "\nis everything!$"
+
+Unova_OpelucidGym_Text_VeteranM2OpelucidGymBeatenText::
+	.string "Your defense is"
+	.string "\nbeyond comparison!$"
 
 Unova_OpelucidGym_Text_VeteranM3OpelucidGymSeenText::
 	.string "Use your POKéMON"
@@ -82,10 +97,20 @@ Unova_OpelucidGym_Text_VeteranM3OpelucidGymSeenText::
 	.string "\praise their"
 	.string "\ndestructive power!$"
 
+Unova_OpelucidGym_Text_VeteranM3OpelucidGymBeatenText::
+	.string "The POKéMON you"
+	.string "\npicked gave me a"
+	.string "\lrun for my money!$"
+
 Unova_OpelucidGym_Text_VeteranF1OpelucidGymSeenText::
 	.string "I believe the best"
 	.string "\ndefense is a"
 	.string "\lstrong offense!$"
+
+Unova_OpelucidGym_Text_VeteranF1OpelucidGymBeatenText::
+	.string "Such energy… You"
+	.string "\nare truly without"
+	.string "\lequal!$"
 
 Unova_OpelucidGym_Text_VeteranF2OpelucidGymSeenText::
 	.string "In battles, how"
@@ -93,11 +118,21 @@ Unova_OpelucidGym_Text_VeteranF2OpelucidGymSeenText::
 	.string "\pfollow each other"
 	.string "\nis key.$"
 
+Unova_OpelucidGym_Text_VeteranF2OpelucidGymBeatenText::
+	.string "Your POKéMON all"
+	.string "\nsupported each"
+	.string "\lother well.$"
+
 Unova_OpelucidGym_Text_VeteranF3OpelucidGymSeenText::
 	.string "I just felt a"
 	.string "\ngreat wind… Are"
 	.string "\pyou the one who"
 	.string "\nkicked it up?$"
+
+Unova_OpelucidGym_Text_VeteranF3OpelucidGymBeatenText::
+	.string "This defeat will"
+	.string "\nalso be blown far"
+	.string "\laway…$"
 
 Unova_OpelucidGym_Text_OpelucidGymGuyText::
 	.string "Yo, challenger!"

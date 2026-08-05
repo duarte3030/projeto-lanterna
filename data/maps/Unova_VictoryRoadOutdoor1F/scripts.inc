@@ -3,20 +3,20 @@
 Unova_VictoryRoadOutdoor1F_MapScripts::
 	.byte 0
 
-Unova_VictoryRoadOutdoor1F_EventScript_Npc3::
-	msgbox Unova_VictoryRoadOutdoor1F_Text_VictoryRoadNurseIntroText, MSGBOX_NPC
+Unova_VictoryRoadOutdoor1F_EventScript_Lider3::
+	trainerbattle_single TRAINER_UNOVA_NURSE_VICTORY_ROAD, Unova_VictoryRoadOutdoor1F_Text_VictoryRoadNurseIntroText, Unova_VictoryRoadOutdoor1F_Text_VictoryRoadNurseWinText
 	end
 
-Unova_VictoryRoadOutdoor1F_EventScript_Npc4::
-	msgbox Unova_VictoryRoadOutdoor1F_Text_BackpackerFVictoryRoadOutdoor1FSeenText, MSGBOX_NPC
+Unova_VictoryRoadOutdoor1F_EventScript_Lider4::
+	trainerbattle_single TRAINER_UNOVA_BACKPACKERF_VICTORY_ROAD_EXT, Unova_VictoryRoadOutdoor1F_Text_BackpackerFVictoryRoadOutdoor1FSeenText, Unova_VictoryRoadOutdoor1F_Text_BackpackerFVictoryRoadOutdoor1FBeatenText
 	end
 
-Unova_VictoryRoadOutdoor1F_EventScript_Npc5::
-	msgbox Unova_VictoryRoadOutdoor1F_Text_VeteranFVictoryRoadOutdoor1FSeenText, MSGBOX_NPC
+Unova_VictoryRoadOutdoor1F_EventScript_Lider5::
+	trainerbattle_single TRAINER_UNOVA_VETERANF_VICTORY_ROAD_EXT_1, Unova_VictoryRoadOutdoor1F_Text_VeteranFVictoryRoadOutdoor1FSeenText, Unova_VictoryRoadOutdoor1F_Text_VeteranFVictoryRoadOutdoor1FBeatenText
 	end
 
-Unova_VictoryRoadOutdoor1F_EventScript_Npc6::
-	msgbox Unova_VictoryRoadOutdoor1F_Text_VeteranMVictoryRoadOutdoor1FSeenText, MSGBOX_NPC
+Unova_VictoryRoadOutdoor1F_EventScript_Lider6::
+	trainerbattle_single TRAINER_UNOVA_VETERANM_VICTORY_ROAD_EXT_1, Unova_VictoryRoadOutdoor1F_Text_VeteranMVictoryRoadOutdoor1FSeenText, Unova_VictoryRoadOutdoor1F_Text_VeteranMVictoryRoadOutdoor1FBeatenText
 	end
 
 
@@ -29,9 +29,18 @@ Unova_VictoryRoadOutdoor1F_Text_VictoryRoadNurseIntroText::
 	.string "\lI'll heal your"
 	.string "\lPOKéMON.$"
 
+Unova_VictoryRoadOutdoor1F_Text_VictoryRoadNurseWinText::
+	.string "Ah, I see.$"
+
 Unova_VictoryRoadOutdoor1F_Text_BackpackerFVictoryRoadOutdoor1FSeenText::
 	.string "I am…"
 	.string "\pEx-TEAM PLASMA!$"
+
+Unova_VictoryRoadOutdoor1F_Text_BackpackerFVictoryRoadOutdoor1FBeatenText::
+	.string "Eek! You're like"
+	.string "\nthat trainer from"
+	.string "\pall those years"
+	.string "\nago!$"
 
 Unova_VictoryRoadOutdoor1F_Text_VeteranFVictoryRoadOutdoor1FSeenText::
 	.string "Wait! You, young"
@@ -39,9 +48,19 @@ Unova_VictoryRoadOutdoor1F_Text_VeteranFVictoryRoadOutdoor1FSeenText::
 	.string "\pthere! Look at my"
 	.string "\nPOKéMON.$"
 
+Unova_VictoryRoadOutdoor1F_Text_VeteranFVictoryRoadOutdoor1FBeatenText::
+	.string "Not bad! I like"
+	.string "\nyour strength.$"
+
 Unova_VictoryRoadOutdoor1F_Text_VeteranMVictoryRoadOutdoor1FSeenText::
 	.string "Are you sure you"
 	.string "\nwant to seriously"
 	.string "\ptake on someone"
 	.string "\nlike me, who"
 	.string "\lbattles seriously?$"
+
+Unova_VictoryRoadOutdoor1F_Text_VeteranMVictoryRoadOutdoor1FBeatenText::
+	.string "This is the pain"
+	.string "\nthat comes from"
+	.string "\pseriously taking"
+	.string "\nsomeone head on…$"

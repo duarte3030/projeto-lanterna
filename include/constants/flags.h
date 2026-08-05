@@ -88,17 +88,33 @@
 #define FLAG_UNUSED_0x042    0x42 // Unused Flag
 #define FLAG_UNUSED_0x043    0x43 // Unused Flag
 #define FLAG_UNUSED_0x044    0x44 // Unused Flag
-#define FLAG_UNUSED_0x045    0x45 // Unused Flag
-#define FLAG_UNUSED_0x046    0x46 // Unused Flag
-#define FLAG_UNUSED_0x047    0x47 // Unused Flag
-#define FLAG_UNUSED_0x048    0x48 // Unused Flag
-#define FLAG_UNUSED_0x049    0x49 // Unused Flag
-#define FLAG_UNUSED_0x04A    0x4A // Unused Flag
-#define FLAG_UNUSED_0x04B    0x4B // Unused Flag
-#define FLAG_UNUSED_0x04C    0x4C // Unused Flag
+#define FLAG_UNUSED_0x045    0x45 // insígnia de Unova, ver FLAG_BADGE_UNOVA_* abaixo
+#define FLAG_UNUSED_0x046    0x46 // insígnia de Unova, ver FLAG_BADGE_UNOVA_* abaixo
+#define FLAG_UNUSED_0x047    0x47 // insígnia de Unova, ver FLAG_BADGE_UNOVA_* abaixo
+#define FLAG_UNUSED_0x048    0x48 // insígnia de Unova, ver FLAG_BADGE_UNOVA_* abaixo
+#define FLAG_UNUSED_0x049    0x49 // insígnia de Unova, ver FLAG_BADGE_UNOVA_* abaixo
+#define FLAG_UNUSED_0x04A    0x4A // insígnia de Unova, ver FLAG_BADGE_UNOVA_* abaixo
+#define FLAG_UNUSED_0x04B    0x4B // insígnia de Unova, ver FLAG_BADGE_UNOVA_* abaixo
+#define FLAG_UNUSED_0x04C    0x4C // insígnia de Unova, ver FLAG_BADGE_UNOVA_* abaixo
 #define FLAG_UNUSED_0x04D    0x4D // Unused Flag
 #define FLAG_UNUSED_0x04E    0x4E // Unused Flag
 #define FLAG_UNUSED_0x04F    0x4F // Unused Flag
+
+// As oito insígnias de Unova. São APELIDOS de flags que já existiam e estavam
+// livres, e por isso custam zero byte a mais no SaveBlock1: o jogador que já
+// tinha save continua com ela válida. O nome é o da CIDADE do ginásio, não o da
+// insígnia, porque o BW3G não dá nome à insígnia em lugar nenhum e inventar um
+// seria escrever conteúdo. Quem acende cada uma é o script gerado do próprio
+// líder (ver LIDERES em dev_scripts/importa_unova.py); elas NÃO entram na
+// contagem de insígnias de Hoenn, que continua sendo FLAG_BADGE01_GET..08.
+#define FLAG_BADGE_UNOVA_ASPERTIA    FLAG_UNUSED_0x045
+#define FLAG_BADGE_UNOVA_CASTELIA    FLAG_UNUSED_0x046
+#define FLAG_BADGE_UNOVA_HUMILAU     FLAG_UNUSED_0x047
+#define FLAG_BADGE_UNOVA_LENTIMAS    FLAG_UNUSED_0x048
+#define FLAG_BADGE_UNOVA_MISTRALTON  FLAG_UNUSED_0x049
+#define FLAG_BADGE_UNOVA_OPELUCID    FLAG_UNUSED_0x04A
+#define FLAG_BADGE_UNOVA_STRIATON    FLAG_UNUSED_0x04B
+#define FLAG_BADGE_UNOVA_VIRBANK     FLAG_UNUSED_0x04C
 
 // Scripts
 #define FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL  0x50

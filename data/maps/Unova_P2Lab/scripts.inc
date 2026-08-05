@@ -39,24 +39,24 @@ Unova_P2Lab_EventScript_Placa8::
 	msgbox Unova_P2Lab_Text_P2LabDiaryText4, MSGBOX_SIGN
 	end
 
-Unova_P2Lab_EventScript_Npc7::
-	msgbox Unova_P2Lab_Text_GruntM1P2LabSeenText, MSGBOX_NPC
+Unova_P2Lab_EventScript_Lider7::
+	trainerbattle_single TRAINER_UNOVA_GRUNTM_P2_1, Unova_P2Lab_Text_GruntM1P2LabSeenText, Unova_P2Lab_Text_GruntM1P2LabBeatenText
 	end
 
-Unova_P2Lab_EventScript_Npc8::
-	msgbox Unova_P2Lab_Text_GruntM2P2LabSeenText, MSGBOX_NPC
+Unova_P2Lab_EventScript_Lider8::
+	trainerbattle_single TRAINER_UNOVA_GRUNTM_P2_2, Unova_P2Lab_Text_GruntM2P2LabSeenText, Unova_P2Lab_Text_GruntM2P2LabBeatenText
 	end
 
-Unova_P2Lab_EventScript_Npc9::
-	msgbox Unova_P2Lab_Text_GruntF1P2LabSeenText, MSGBOX_NPC
+Unova_P2Lab_EventScript_Lider9::
+	trainerbattle_single TRAINER_UNOVA_GRUNTF_P2_1, Unova_P2Lab_Text_GruntF1P2LabSeenText, Unova_P2Lab_Text_GruntF1P2LabBeatenText
 	end
 
-Unova_P2Lab_EventScript_Npc10::
-	msgbox Unova_P2Lab_Text_GruntF2P2LabSeenText, MSGBOX_NPC
+Unova_P2Lab_EventScript_Lider10::
+	trainerbattle_single TRAINER_UNOVA_GRUNTF_P2_2, Unova_P2Lab_Text_GruntF2P2LabSeenText, Unova_P2Lab_Text_GruntF2P2LabBeatenText
 	end
 
-Unova_P2Lab_EventScript_Npc11::
-	msgbox Unova_P2Lab_Text_ScientistP2LabSeenText, MSGBOX_NPC
+Unova_P2Lab_EventScript_Lider11::
+	trainerbattle_single TRAINER_UNOVA_SCIENTISTM_P2, Unova_P2Lab_Text_ScientistP2LabSeenText, Unova_P2Lab_Text_ScientistP2LabBeatenText
 	end
 
 
@@ -126,24 +126,46 @@ Unova_P2Lab_Text_GruntM1P2LabSeenText::
 	.string "\ntake over the"
 	.string "\lUNOVA region!$"
 
+Unova_P2Lab_Text_GruntM1P2LabBeatenText::
+	.string "Even if I lose, I"
+	.string "\nwill not give up"
+	.string "\pon justice for"
+	.string "\nTEAM PLASMA!$"
+
 Unova_P2Lab_Text_GruntM2P2LabSeenText::
 	.string "I'm the fighting"
 	.string "\nsweeper! I'll"
 	.string "\pclean up garbage"
 	.string "\nlike you!$"
 
+Unova_P2Lab_Text_GruntM2P2LabBeatenText::
+	.string "Oops…$"
+
 Unova_P2Lab_Text_GruntF1P2LabSeenText::
 	.string "I'm going to go"
 	.string "\nahead and say it:"
 	.string "\pPlasmaaaa!!$"
+
+Unova_P2Lab_Text_GruntF1P2LabBeatenText::
+	.string "Do-over! C'mon,"
+	.string "\nlet me have a"
+	.string "\ldo-over!$"
 
 Unova_P2Lab_Text_GruntF2P2LabSeenText::
 	.string "Our king is gone…"
 	.string "\nBut we are still"
 	.string "\lhere!$"
 
+Unova_P2Lab_Text_GruntF2P2LabBeatenText::
+	.string "Ugh… Losing is"
+	.string "\nthe worst…$"
+
 Unova_P2Lab_Text_ScientistP2LabSeenText::
 	.string "You! You've come"
 	.string "\nto steal my work!"
 	.string "\pI'll never let my"
 	.string "\nproject be taken!$"
+
+Unova_P2Lab_Text_ScientistP2LabBeatenText::
+	.string "No! It's not"
+	.string "\npossible!$"

@@ -4,7 +4,13 @@ Unova_AspertiaGym_MapScripts::
 	.byte 0
 
 Unova_AspertiaGym_EventScript_Lider0::
-	trainerbattle_single TRAINER_UNOVA_LEADER_CHEREN, Unova_AspertiaGym_Text_CherenGymIntroText, Unova_AspertiaGym_Text_CherenWinLossText
+	trainerbattle_single TRAINER_UNOVA_LEADER_CHEREN, Unova_AspertiaGym_Text_CherenGymIntroText, Unova_AspertiaGym_Text_CherenWinLossText, Unova_AspertiaGym_EventScript_Insignia0
+	end
+
+Unova_AspertiaGym_EventScript_Insignia0::
+	setflag FLAG_BADGE_UNOVA_ASPERTIA
+	call Common_EventScript_PlayGymBadgeFanfare
+	release
 	end
 
 Unova_AspertiaGym_EventScript_Npc1::

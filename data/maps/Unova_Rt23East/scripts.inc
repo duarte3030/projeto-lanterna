@@ -27,12 +27,12 @@ Unova_Rt23East_EventScript_Npc5::
 	msgbox Unova_Rt23East_Text_R23Officer6StopText, MSGBOX_NPC
 	end
 
-Unova_Rt23East_EventScript_Npc12::
-	msgbox Unova_Rt23East_Text_AceTrainerM1R23SeenText, MSGBOX_NPC
+Unova_Rt23East_EventScript_Lider12::
+	trainerbattle_single TRAINER_UNOVA_ACE_TRAINERM_R23_1, Unova_Rt23East_Text_AceTrainerM1R23SeenText, Unova_Rt23East_Text_AceTrainerM1R23BeatenText
 	end
 
-Unova_Rt23East_EventScript_Npc13::
-	msgbox Unova_Rt23East_Text_AceTrainerF1R23SeenText, MSGBOX_NPC
+Unova_Rt23East_EventScript_Lider13::
+	trainerbattle_single TRAINER_UNOVA_ACE_TRAINERF_R23_1, Unova_Rt23East_Text_AceTrainerF1R23SeenText, Unova_Rt23East_Text_AceTrainerF1R23BeatenText
 	end
 
 
@@ -99,8 +99,20 @@ Unova_Rt23East_Text_AceTrainerM1R23SeenText::
 	.string "\ppage in the book"
 	.string "\nof your journey!$"
 
+Unova_Rt23East_Text_AceTrainerM1R23BeatenText::
+	.string "If only I could've"
+	.string "\nwon, I would have"
+	.string "\pmade an impression"
+	.string "\non you.$"
+
 Unova_Rt23East_Text_AceTrainerF1R23SeenText::
 	.string "I can see the plea"
 	.string "\nin my POKéMON's"
 	.string "\peyes. To fight!"
 	.string "\nAnd to win!$"
+
+Unova_Rt23East_Text_AceTrainerF1R23BeatenText::
+	.string "The eyes of your"
+	.string "\nPOKéMON are"
+	.string "\pglimmering with"
+	.string "\nstrength!$"

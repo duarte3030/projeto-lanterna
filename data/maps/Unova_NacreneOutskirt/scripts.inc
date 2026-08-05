@@ -11,20 +11,20 @@ Unova_NacreneOutskirt_EventScript_Npc0::
 	msgbox Unova_NacreneOutskirt_Text_NacreneOutskirtYoungsterText, MSGBOX_NPC
 	end
 
-Unova_NacreneOutskirt_EventScript_Npc5::
-	msgbox Unova_NacreneOutskirt_Text_YoungsterNacreneSeenText, MSGBOX_NPC
+Unova_NacreneOutskirt_EventScript_Lider5::
+	trainerbattle_single TRAINER_UNOVA_YOUNGSTER_NACRENE_OUTSKIRT, Unova_NacreneOutskirt_Text_YoungsterNacreneSeenText, Unova_NacreneOutskirt_Text_YoungsterNacreneBeatenText
 	end
 
-Unova_NacreneOutskirt_EventScript_Npc6::
-	msgbox Unova_NacreneOutskirt_Text_LassNacreneSeenText, MSGBOX_NPC
+Unova_NacreneOutskirt_EventScript_Lider6::
+	trainerbattle_single TRAINER_UNOVA_LASS_NACRENE_OUTSKIRT, Unova_NacreneOutskirt_Text_LassNacreneSeenText, Unova_NacreneOutskirt_Text_LassNacreneBeatenText
 	end
 
-Unova_NacreneOutskirt_EventScript_Npc7::
-	msgbox Unova_NacreneOutskirt_Text_ParasolLadyNacreneSeenText, MSGBOX_NPC
+Unova_NacreneOutskirt_EventScript_Lider7::
+	trainerbattle_single TRAINER_UNOVA_PARASOL_LADY_NACRENE_OUTSKIRT, Unova_NacreneOutskirt_Text_ParasolLadyNacreneSeenText, Unova_NacreneOutskirt_Text_ParasolLadyNacreneBeatenText
 	end
 
-Unova_NacreneOutskirt_EventScript_Npc8::
-	msgbox Unova_NacreneOutskirt_Text_RichBoyNacreneSeenText, MSGBOX_NPC
+Unova_NacreneOutskirt_EventScript_Lider8::
+	trainerbattle_single TRAINER_UNOVA_RICH_BOY_NACRENE_OUTSKIRT, Unova_NacreneOutskirt_Text_RichBoyNacreneSeenText, Unova_NacreneOutskirt_Text_RichBoyNacreneBeatenText
 	end
 
 
@@ -45,12 +45,22 @@ Unova_NacreneOutskirt_Text_YoungsterNacreneSeenText::
 	.string "\pthe whole field to"
 	.string "\nmyself!$"
 
+Unova_NacreneOutskirt_Text_YoungsterNacreneBeatenText::
+	.string "I know… I shouldn't"
+	.string "\ntake it all for"
+	.string "\lmyself…$"
+
 Unova_NacreneOutskirt_Text_LassNacreneSeenText::
 	.string "Hey, trainer! Let's"
 	.string "\nhave a refreshing"
 	.string "\pbattle and blow"
 	.string "\naway all my"
 	.string "\ltroubles!$"
+
+Unova_NacreneOutskirt_Text_LassNacreneBeatenText::
+	.string "You guys feel like"
+	.string "\nan unbeatable"
+	.string "\lcombination!$"
 
 Unova_NacreneOutskirt_Text_ParasolLadyNacreneSeenText::
 	.string "A woman standing"
@@ -59,8 +69,17 @@ Unova_NacreneOutskirt_Text_ParasolLadyNacreneSeenText::
 	.string "\pHi… Please have a"
 	.string "\nbattle with me.$"
 
+Unova_NacreneOutskirt_Text_ParasolLadyNacreneBeatenText::
+	.string "The parasol can't"
+	.string "\nblock defeat…$"
+
 Unova_NacreneOutskirt_Text_RichBoyNacreneSeenText::
 	.string "Are you ready to"
 	.string "\nexperience a VIP"
 	.string "\pPOKéMON battle"
 	.string "\nperformance?$"
+
+Unova_NacreneOutskirt_Text_RichBoyNacreneBeatenText::
+	.string "My performance"
+	.string "\nwasn't up to VIP"
+	.string "\lstandards…$"

@@ -3,8 +3,8 @@
 Unova_RelicCastle1F_MapScripts::
 	.byte 0
 
-Unova_RelicCastle1F_EventScript_Npc1::
-	msgbox Unova_RelicCastle1F_Text_PsychicMRelicCastle1FSeenText, MSGBOX_NPC
+Unova_RelicCastle1F_EventScript_Lider1::
+	trainerbattle_single TRAINER_UNOVA_PSYCHICM_RELIC_CASTLE, Unova_RelicCastle1F_Text_PsychicMRelicCastle1FSeenText, Unova_RelicCastle1F_Text_PsychicMRelicCastle1FBeatenText
 	end
 
 
@@ -13,3 +13,7 @@ Unova_RelicCastle1F_Text_PsychicMRelicCastle1FSeenText::
 	.string "\nsupernatural power"
 	.string "\pto help my POKé-"
 	.string "\nMON!$"
+
+Unova_RelicCastle1F_Text_PsychicMRelicCastle1FBeatenText::
+	.string "Wow! That's"
+	.string "\namazing!$"

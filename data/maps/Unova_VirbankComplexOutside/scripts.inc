@@ -3,16 +3,16 @@
 Unova_VirbankComplexOutside_MapScripts::
 	.byte 0
 
-Unova_VirbankComplexOutside_EventScript_Npc0::
-	msgbox Unova_VirbankComplexOutside_Text_GruntM1VirbankComplexOutsideSeenText, MSGBOX_NPC
+Unova_VirbankComplexOutside_EventScript_Lider0::
+	trainerbattle_single TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_1, Unova_VirbankComplexOutside_Text_GruntM1VirbankComplexOutsideSeenText, Unova_VirbankComplexOutside_Text_GruntM1VirbankComplexOutsideBeatenText
 	end
 
-Unova_VirbankComplexOutside_EventScript_Npc1::
-	msgbox Unova_VirbankComplexOutside_Text_GruntM2VirbankComplexOutsideSeenText, MSGBOX_NPC
+Unova_VirbankComplexOutside_EventScript_Lider1::
+	trainerbattle_single TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_2, Unova_VirbankComplexOutside_Text_GruntM2VirbankComplexOutsideSeenText, Unova_VirbankComplexOutside_Text_GruntM2VirbankComplexOutsideBeatenText
 	end
 
-Unova_VirbankComplexOutside_EventScript_Npc2::
-	msgbox Unova_VirbankComplexOutside_Text_GruntFVirbankComplexOutsideSeenText, MSGBOX_NPC
+Unova_VirbankComplexOutside_EventScript_Lider2::
+	trainerbattle_single TRAINER_UNOVA_GRUNTF_VIRBANK_COMPLEX_1, Unova_VirbankComplexOutside_Text_GruntFVirbankComplexOutsideSeenText, Unova_VirbankComplexOutside_Text_GruntFVirbankComplexOutsideBeatenText
 	end
 
 Unova_VirbankComplexOutside_EventScript_Npc8::
@@ -25,6 +25,9 @@ Unova_VirbankComplexOutside_Text_GruntM1VirbankComplexOutsideSeenText::
 	.string "\nthought I was a"
 	.string "\lworker here!$"
 
+Unova_VirbankComplexOutside_Text_GruntM1VirbankComplexOutsideBeatenText::
+	.string "Grrrr…$"
+
 Unova_VirbankComplexOutside_Text_GruntM2VirbankComplexOutsideSeenText::
 	.string "I trained myself"
 	.string "\nendlessly to get"
@@ -33,9 +36,20 @@ Unova_VirbankComplexOutside_Text_GruntM2VirbankComplexOutsideSeenText::
 	.string "\plose to anyone"
 	.string "\nanymore!$"
 
+Unova_VirbankComplexOutside_Text_GruntM2VirbankComplexOutsideBeatenText::
+	.string "…But if I lose, I"
+	.string "\nwon't be able to"
+	.string "\pcarry out my"
+	.string "\njustice!$"
+
 Unova_VirbankComplexOutside_Text_GruntFVirbankComplexOutsideSeenText::
 	.string "What do you want,"
 	.string "\nintruder?!$"
+
+Unova_VirbankComplexOutside_Text_GruntFVirbankComplexOutsideBeatenText::
+	.string "Hmph! I missed my"
+	.string "\nchance to grab"
+	.string "\lyour POKéMON!$"
 
 Unova_VirbankComplexOutside_Text_VirbankComplexOutsideCherenIntroText::
 	.string "CHEREN: {PLAYER},"

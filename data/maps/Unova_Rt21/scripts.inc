@@ -3,32 +3,32 @@
 Unova_Rt21_MapScripts::
 	.byte 0
 
-Unova_Rt21_EventScript_Npc3::
-	msgbox Unova_Rt21_Text_SwimmerM1R21SeenText, MSGBOX_NPC
+Unova_Rt21_EventScript_Lider3::
+	trainerbattle_single TRAINER_UNOVA_SWIMMER_M_R21_1, Unova_Rt21_Text_SwimmerM1R21SeenText, Unova_Rt21_Text_SwimmerM1R21BeatenText
 	end
 
-Unova_Rt21_EventScript_Npc4::
-	msgbox Unova_Rt21_Text_SwimmerM2R21SeenText, MSGBOX_NPC
+Unova_Rt21_EventScript_Lider4::
+	trainerbattle_single TRAINER_UNOVA_SWIMMER_M_R21_2, Unova_Rt21_Text_SwimmerM2R21SeenText, Unova_Rt21_Text_SwimmerM2R21BeatenText
 	end
 
-Unova_Rt21_EventScript_Npc5::
-	msgbox Unova_Rt21_Text_SwimmerM3R21SeenText, MSGBOX_NPC
+Unova_Rt21_EventScript_Lider5::
+	trainerbattle_single TRAINER_UNOVA_SWIMMER_M_R21_3, Unova_Rt21_Text_SwimmerM3R21SeenText, Unova_Rt21_Text_SwimmerM3R21BeatenText
 	end
 
-Unova_Rt21_EventScript_Npc6::
-	msgbox Unova_Rt21_Text_SwimmerF1R21SeenText, MSGBOX_NPC
+Unova_Rt21_EventScript_Lider6::
+	trainerbattle_single TRAINER_UNOVA_SWIMMER_F_R21_1, Unova_Rt21_Text_SwimmerF1R21SeenText, Unova_Rt21_Text_SwimmerF1R21BeatenText
 	end
 
-Unova_Rt21_EventScript_Npc7::
-	msgbox Unova_Rt21_Text_SwimmerF2R21SeenText, MSGBOX_NPC
+Unova_Rt21_EventScript_Lider7::
+	trainerbattle_single TRAINER_UNOVA_SWIMMER_F_R21_2, Unova_Rt21_Text_SwimmerF2R21SeenText, Unova_Rt21_Text_SwimmerF2R21BeatenText
 	end
 
-Unova_Rt21_EventScript_Npc8::
-	msgbox Unova_Rt21_Text_SwimmerF3R21SeenText, MSGBOX_NPC
+Unova_Rt21_EventScript_Lider8::
+	trainerbattle_single TRAINER_UNOVA_SWIMMER_F_R21_3, Unova_Rt21_Text_SwimmerF3R21SeenText, Unova_Rt21_Text_SwimmerF3R21BeatenText
 	end
 
-Unova_Rt21_EventScript_Npc9::
-	msgbox Unova_Rt21_Text_BlackbeltR21SeenText, MSGBOX_NPC
+Unova_Rt21_EventScript_Lider9::
+	trainerbattle_single TRAINER_UNOVA_BLACKBELT_R21, Unova_Rt21_Text_BlackbeltR21SeenText, Unova_Rt21_Text_BlackbeltR21BeatenText
 	end
 
 
@@ -37,6 +37,10 @@ Unova_Rt21_Text_SwimmerM1R21SeenText::
 	.string "\nMARLON, the gym"
 	.string "\pleader of HUMILAU"
 	.string "\nCITY!$"
+
+Unova_Rt21_Text_SwimmerM1R21BeatenText::
+	.string "I still have room"
+	.string "\nto improve!$"
 
 Unova_Rt21_Text_SwimmerM2R21SeenText::
 	.string "It is said that"
@@ -47,10 +51,18 @@ Unova_Rt21_Text_SwimmerM2R21SeenText::
 	.string "\pSo as long as I"
 	.string "\nkeep moving on…$"
 
+Unova_Rt21_Text_SwimmerM2R21BeatenText::
+	.string "Looks like I've"
+	.string "\ngotten stagnant…$"
+
 Unova_Rt21_Text_SwimmerM3R21SeenText::
 	.string "You see this enor-"
 	.string "\nmous puddle? They"
 	.string "\lcall it an ocean!$"
+
+Unova_Rt21_Text_SwimmerM3R21BeatenText::
+	.string "Woah! You're"
+	.string "\nenormous too!$"
 
 Unova_Rt21_Text_SwimmerF1R21SeenText::
 	.string "The thing about"
@@ -63,9 +75,19 @@ Unova_Rt21_Text_SwimmerF1R21SeenText::
 	.string "\pThat's what I'm"
 	.string "\nabout to show you!$"
 
+Unova_Rt21_Text_SwimmerF1R21BeatenText::
+	.string "You're just as"
+	.string "\nstrong, perhaps"
+	.string "\leven stronger!$"
+
 Unova_Rt21_Text_SwimmerF2R21SeenText::
 	.string "Catch this! My"
 	.string "\nPOKéMON is huge!$"
+
+Unova_Rt21_Text_SwimmerF2R21BeatenText::
+	.string "Wow, you're even"
+	.string "\nmore than I"
+	.string "\lexpected!$"
 
 Unova_Rt21_Text_SwimmerF3R21SeenText::
 	.string "I learned all the"
@@ -74,6 +96,11 @@ Unova_Rt21_Text_SwimmerF3R21SeenText::
 	.string "\nby swimming with"
 	.string "\lthem!$"
 
+Unova_Rt21_Text_SwimmerF3R21BeatenText::
+	.string "What a fresh"
+	.string "\ntrainer! Really,"
+	.string "\lreally fresh!$"
+
 Unova_Rt21_Text_BlackbeltR21SeenText::
 	.string "Hi-yah! Hi-yah!"
 	.string "\nI'm practicing my"
@@ -81,3 +108,8 @@ Unova_Rt21_Text_BlackbeltR21SeenText::
 	.string "\nin front of the"
 	.string "\psea! Give it a"
 	.string "\ntry!$"
+
+Unova_Rt21_Text_BlackbeltR21BeatenText::
+	.string "I won't stop"
+	.string "\npunching just"
+	.string "\lbecause I lost!$"

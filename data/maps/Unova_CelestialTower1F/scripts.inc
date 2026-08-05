@@ -7,8 +7,8 @@ Unova_CelestialTower1F_EventScript_Npc0::
 	msgbox Unova_CelestialTower1F_Text_CelestialTowerSkylaText, MSGBOX_NPC
 	end
 
-Unova_CelestialTower1F_EventScript_Npc1::
-	msgbox Unova_CelestialTower1F_Text_CelestialTowerNurseIntroText, MSGBOX_NPC
+Unova_CelestialTower1F_EventScript_Lider1::
+	trainerbattle_single TRAINER_UNOVA_NURSE_CELESTIAL_TOWER, Unova_CelestialTower1F_Text_CelestialTowerNurseIntroText, Unova_CelestialTower1F_Text_CelestialTowerNurseWinText
 	end
 
 
@@ -44,3 +44,6 @@ Unova_CelestialTower1F_Text_CelestialTowerNurseIntroText::
 	.string "\nme in a battle,"
 	.string "\lI'll heal your"
 	.string "\lPOKéMON.$"
+
+Unova_CelestialTower1F_Text_CelestialTowerNurseWinText::
+	.string "Ah, I see.$"

@@ -4,7 +4,13 @@ Unova_LentimasGym_MapScripts::
 	.byte 0
 
 Unova_LentimasGym_EventScript_Lider0::
-	trainerbattle_single TRAINER_UNOVA_LEADER_SHAUNTAL, Unova_LentimasGym_Text_ShauntalGymIntroText2, Unova_LentimasGym_Text_ShauntalWinLossText
+	trainerbattle_single TRAINER_UNOVA_LEADER_SHAUNTAL, Unova_LentimasGym_Text_ShauntalGymIntroText2, Unova_LentimasGym_Text_ShauntalWinLossText, Unova_LentimasGym_EventScript_Insignia0
+	end
+
+Unova_LentimasGym_EventScript_Insignia0::
+	setflag FLAG_BADGE_UNOVA_LENTIMAS
+	call Common_EventScript_PlayGymBadgeFanfare
+	release
 	end
 
 Unova_LentimasGym_EventScript_Npc1::

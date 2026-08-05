@@ -44,7 +44,13 @@ Unova_StriatonGym_EventScript_Placa11::
 	end
 
 Unova_StriatonGym_EventScript_Lider0::
-	trainerbattle_single TRAINER_UNOVA_LEADER_CILAN, Unova_StriatonGym_Text_CilanGymIntroText, Unova_StriatonGym_Text_CilanWinLossText
+	trainerbattle_single TRAINER_UNOVA_LEADER_CILAN, Unova_StriatonGym_Text_CilanGymIntroText, Unova_StriatonGym_Text_CilanWinLossText, Unova_StriatonGym_EventScript_Insignia0
+	end
+
+Unova_StriatonGym_EventScript_Insignia0::
+	setflag FLAG_BADGE_UNOVA_STRIATON
+	call Common_EventScript_PlayGymBadgeFanfare
+	release
 	end
 
 Unova_StriatonGym_EventScript_Npc1::

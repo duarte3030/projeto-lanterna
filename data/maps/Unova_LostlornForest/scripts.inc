@@ -11,28 +11,28 @@ Unova_LostlornForest_EventScript_Placa1::
 	msgbox Unova_LostlornForest_Text_LostlornR16SignText, MSGBOX_SIGN
 	end
 
-Unova_LostlornForest_EventScript_Npc7::
-	msgbox Unova_LostlornForest_Text_SchoolKidFLostlornSeenText, MSGBOX_NPC
+Unova_LostlornForest_EventScript_Lider7::
+	trainerbattle_single TRAINER_UNOVA_SCHOOL_KIDF_LOSTLORN, Unova_LostlornForest_Text_SchoolKidFLostlornSeenText, Unova_LostlornForest_Text_SchoolKidFLostlornBeatenText
 	end
 
-Unova_LostlornForest_EventScript_Npc8::
-	msgbox Unova_LostlornForest_Text_SchoolKidMLostlornSeenText, MSGBOX_NPC
+Unova_LostlornForest_EventScript_Lider8::
+	trainerbattle_single TRAINER_UNOVA_SCHOOL_KIDM_LOSTLORN, Unova_LostlornForest_Text_SchoolKidMLostlornSeenText, Unova_LostlornForest_Text_SchoolKidMLostlornBeatenText
 	end
 
-Unova_LostlornForest_EventScript_Npc9::
-	msgbox Unova_LostlornForest_Text_PkmnBreederMLostlornSeenText, MSGBOX_NPC
+Unova_LostlornForest_EventScript_Lider9::
+	trainerbattle_single TRAINER_UNOVA_PKMN_BREEDERM_LOSTLORN, Unova_LostlornForest_Text_PkmnBreederMLostlornSeenText, Unova_LostlornForest_Text_PkmnBreederMLostlornBeatenText
 	end
 
-Unova_LostlornForest_EventScript_Npc10::
-	msgbox Unova_LostlornForest_Text_PkmnBreederFLostlornSeenText, MSGBOX_NPC
+Unova_LostlornForest_EventScript_Lider10::
+	trainerbattle_single TRAINER_UNOVA_PKMN_BREEDERF_LOSTLORN, Unova_LostlornForest_Text_PkmnBreederFLostlornSeenText, Unova_LostlornForest_Text_PkmnBreederFLostlornBeatenText
 	end
 
-Unova_LostlornForest_EventScript_Npc11::
-	msgbox Unova_LostlornForest_Text_YoungsterLostlornSeenText, MSGBOX_NPC
+Unova_LostlornForest_EventScript_Lider11::
+	trainerbattle_single TRAINER_UNOVA_YOUNGSTER_LOSTLORN, Unova_LostlornForest_Text_YoungsterLostlornSeenText, Unova_LostlornForest_Text_YoungsterLostlornBeatenText
 	end
 
-Unova_LostlornForest_EventScript_Npc12::
-	msgbox Unova_LostlornForest_Text_LassLostlornSeenText, MSGBOX_NPC
+Unova_LostlornForest_EventScript_Lider12::
+	trainerbattle_single TRAINER_UNOVA_LASS_LOSTLORN, Unova_LostlornForest_Text_LassLostlornSeenText, Unova_LostlornForest_Text_LassLostlornBeatenText
 	end
 
 
@@ -52,17 +52,33 @@ Unova_LostlornForest_Text_SchoolKidFLostlornSeenText::
 	.string "\pPOKéMON for my"
 	.string "\nhomework!$"
 
+Unova_LostlornForest_Text_SchoolKidFLostlornBeatenText::
+	.string "It's not fair to"
+	.string "\nuse moves I wasn't"
+	.string "\lexpecting!$"
+
 Unova_LostlornForest_Text_SchoolKidMLostlornSeenText::
 	.string "I have a riddle"
 	.string "\nfor you! Do you"
 	.string "\pknow what is"
 	.string "\ndistant but close?$"
 
+Unova_LostlornForest_Text_SchoolKidMLostlornBeatenText::
+	.string "The difference"
+	.string "\nbetween winning"
+	.string "\land losing!$"
+
 Unova_LostlornForest_Text_PkmnBreederMLostlornSeenText::
 	.string "Having lots of"
 	.string "\nbattles is the"
 	.string "\pbest way to raise"
 	.string "\nPOKéMON quickly.$"
+
+Unova_LostlornForest_Text_PkmnBreederMLostlornBeatenText::
+	.string "Your training"
+	.string "\nmethod is great,"
+	.string "\pI'm going to copy"
+	.string "\nit!$"
 
 Unova_LostlornForest_Text_PkmnBreederFLostlornSeenText::
 	.string "I need to practice"
@@ -71,12 +87,29 @@ Unova_LostlornForest_Text_PkmnBreederFLostlornSeenText::
 	.string "\pPlease, be my"
 	.string "\nopponent!$"
 
+Unova_LostlornForest_Text_PkmnBreederFLostlornBeatenText::
+	.string "I've still got a"
+	.string "\nlong way to go…"
+	.string "\pI'll keep raising"
+	.string "\nmy POKéMON!$"
+
 Unova_LostlornForest_Text_YoungsterLostlornSeenText::
 	.string "I might be lost"
 	.string "\nright now, but"
 	.string "\pI'll battle you"
 	.string "\nanyway!$"
 
+Unova_LostlornForest_Text_YoungsterLostlornBeatenText::
+	.string "I don't stand a"
+	.string "\nchance if I fight"
+	.string "\lwhen I'm lost!$"
+
 Unova_LostlornForest_Text_LassLostlornSeenText::
 	.string "Are you ready? I"
 	.string "\nam! Let's go!$"
+
+Unova_LostlornForest_Text_LassLostlornBeatenText::
+	.string "What? I never even"
+	.string "\nconsidered losing"
+	.string "\pbefore going into"
+	.string "\nbattle!$"

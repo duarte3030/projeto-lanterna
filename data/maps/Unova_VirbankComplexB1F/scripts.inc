@@ -11,8 +11,8 @@ Unova_VirbankComplexB1F_EventScript_Placa1::
 	msgbox Unova_VirbankComplexB1F_Text_VirbankComplexOpenDoorText, MSGBOX_SIGN
 	end
 
-Unova_VirbankComplexB1F_EventScript_Npc0::
-	msgbox Unova_VirbankComplexB1F_Text_ScientistFVirbankComplexB1FSeenText, MSGBOX_NPC
+Unova_VirbankComplexB1F_EventScript_Lider0::
+	trainerbattle_single TRAINER_UNOVA_SCIENTISTF_VIRBANK_COMPLEX_1, Unova_VirbankComplexB1F_Text_ScientistFVirbankComplexB1FSeenText, Unova_VirbankComplexB1F_Text_ScientistFVirbankComplexB1FBeatenText
 	end
 
 
@@ -28,3 +28,9 @@ Unova_VirbankComplexB1F_Text_ScientistFVirbankComplexB1FSeenText::
 	.string "\npurpose, please"
 	.string "\phand over your"
 	.string "\nPOKéMON.$"
+
+Unova_VirbankComplexB1F_Text_ScientistFVirbankComplexB1FBeatenText::
+	.string "What? You can"
+	.string "\nactually draw out"
+	.string "\pthe power of your"
+	.string "\nPOKéMON?$"

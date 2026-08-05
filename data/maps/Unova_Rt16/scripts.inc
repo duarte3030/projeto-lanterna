@@ -7,28 +7,28 @@ Unova_Rt16_EventScript_Placa0::
 	msgbox Unova_Rt16_Text_R16SignText, MSGBOX_SIGN
 	end
 
-Unova_Rt16_EventScript_Npc4::
-	msgbox Unova_Rt16_Text_BackpackerMR16SeenText, MSGBOX_NPC
+Unova_Rt16_EventScript_Lider4::
+	trainerbattle_single TRAINER_UNOVA_BACKPACKERM_R16, Unova_Rt16_Text_BackpackerMR16SeenText, Unova_Rt16_Text_BackpackerMR16BeatenText
 	end
 
-Unova_Rt16_EventScript_Npc5::
-	msgbox Unova_Rt16_Text_BackpackerFR16SeenText, MSGBOX_NPC
+Unova_Rt16_EventScript_Lider5::
+	trainerbattle_single TRAINER_UNOVA_BACKPACKERF_R16, Unova_Rt16_Text_BackpackerFR16SeenText, Unova_Rt16_Text_BackpackerFR16BeatenText
 	end
 
-Unova_Rt16_EventScript_Npc6::
-	msgbox Unova_Rt16_Text_BackersMR16SeenText, MSGBOX_NPC
+Unova_Rt16_EventScript_Lider6::
+	trainerbattle_single TRAINER_UNOVA_BACKERSM_R16, Unova_Rt16_Text_BackersMR16SeenText, Unova_Rt16_Text_BackersMR16BeatenText
 	end
 
-Unova_Rt16_EventScript_Npc7::
-	msgbox Unova_Rt16_Text_BackersMR16SeenText, MSGBOX_NPC
+Unova_Rt16_EventScript_Lider7::
+	trainerbattle_single TRAINER_UNOVA_BACKERSM_R16, Unova_Rt16_Text_BackersMR16SeenText, Unova_Rt16_Text_BackersMR16BeatenText
 	end
 
-Unova_Rt16_EventScript_Npc8::
-	msgbox Unova_Rt16_Text_CyclistMR16SeenText, MSGBOX_NPC
+Unova_Rt16_EventScript_Lider8::
+	trainerbattle_single TRAINER_UNOVA_CYCLISTM_R16, Unova_Rt16_Text_CyclistMR16SeenText, Unova_Rt16_Text_CyclistMR16BeatenText
 	end
 
-Unova_Rt16_EventScript_Npc9::
-	msgbox Unova_Rt16_Text_CyclistFR16SeenText, MSGBOX_NPC
+Unova_Rt16_EventScript_Lider9::
+	trainerbattle_single TRAINER_UNOVA_CYCLISTF_R16, Unova_Rt16_Text_CyclistFR16SeenText, Unova_Rt16_Text_CyclistFR16BeatenText
 	end
 
 
@@ -45,6 +45,11 @@ Unova_Rt16_Text_BackpackerMR16SeenText::
 	.string "\pAnd now I'd like"
 	.string "\nto battle!$"
 
+Unova_Rt16_Text_BackpackerMR16BeatenText::
+	.string "Oh… It no longer"
+	.string "\nfeels like an"
+	.string "\loasis if I lose.$"
+
 Unova_Rt16_Text_BackpackerFR16SeenText::
 	.string "City POKéMON or"
 	.string "\nPOKéMON that live"
@@ -52,9 +57,17 @@ Unova_Rt16_Text_BackpackerFR16SeenText::
 	.string "\pWhich do you"
 	.string "\nprefer?$"
 
+Unova_Rt16_Text_BackpackerFR16BeatenText::
+	.string "I love both kinds"
+	.string "\nof POKéMON, but I"
+	.string "\ldon't like losing…$"
+
 Unova_Rt16_Text_BackersMR16SeenText::
 	.string "Tomorrow will be a"
 	.string "\nhome run!$"
+
+Unova_Rt16_Text_BackersMR16BeatenText::
+	.string "Farewell, you won!$"
 
 Unova_Rt16_Text_CyclistMR16SeenText::
 	.string "When I'm riding my"
@@ -62,7 +75,15 @@ Unova_Rt16_Text_CyclistMR16SeenText::
 	.string "\pthink I look"
 	.string "\nstronger?$"
 
+Unova_Rt16_Text_CyclistMR16BeatenText::
+	.string "The cool breeze in"
+	.string "\nmy face stopped!$"
+
 Unova_Rt16_Text_CyclistFR16SeenText::
 	.string "Ting-a-ling-ling!"
 	.string "\nFull speed attack,"
 	.string "\lcoming your way!$"
+
+Unova_Rt16_Text_CyclistFR16BeatenText::
+	.string "Ting-a-ling-ling!"
+	.string "\nTing-a-ling-ling!$"

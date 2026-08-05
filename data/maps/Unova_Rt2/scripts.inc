@@ -7,40 +7,40 @@ Unova_Rt2_EventScript_Placa0::
 	msgbox Unova_Rt2_Text_R2SignText, MSGBOX_SIGN
 	end
 
-Unova_Rt2_EventScript_Npc8::
-	msgbox Unova_Rt2_Text_YoungsterR2SeenText, MSGBOX_NPC
+Unova_Rt2_EventScript_Lider8::
+	trainerbattle_single TRAINER_UNOVA_YOUNGSTER_R2, Unova_Rt2_Text_YoungsterR2SeenText, Unova_Rt2_Text_YoungsterR2BeatenText
 	end
 
-Unova_Rt2_EventScript_Npc9::
-	msgbox Unova_Rt2_Text_LassR2SeenText, MSGBOX_NPC
+Unova_Rt2_EventScript_Lider9::
+	trainerbattle_single TRAINER_UNOVA_LASS_R2, Unova_Rt2_Text_LassR2SeenText, Unova_Rt2_Text_LassR2BeatenText
 	end
 
-Unova_Rt2_EventScript_Npc10::
-	msgbox Unova_Rt2_Text_SocialiteR2SeenText, MSGBOX_NPC
+Unova_Rt2_EventScript_Lider10::
+	trainerbattle_single TRAINER_UNOVA_SOCIALITE_R2, Unova_Rt2_Text_SocialiteR2SeenText, Unova_Rt2_Text_SocialiteR2BeatenText
 	end
 
-Unova_Rt2_EventScript_Npc11::
-	msgbox Unova_Rt2_Text_GentlemanR2SeenText, MSGBOX_NPC
+Unova_Rt2_EventScript_Lider11::
+	trainerbattle_single TRAINER_UNOVA_GENTLEMAN_R2, Unova_Rt2_Text_GentlemanR2SeenText, Unova_Rt2_Text_GentlemanR2BeatenText
 	end
 
-Unova_Rt2_EventScript_Npc12::
-	msgbox Unova_Rt2_Text_BackpackerMR2SeenText, MSGBOX_NPC
+Unova_Rt2_EventScript_Lider12::
+	trainerbattle_single TRAINER_UNOVA_BACKPACKERM_R2, Unova_Rt2_Text_BackpackerMR2SeenText, Unova_Rt2_Text_BackpackerMR2BeatenText
 	end
 
-Unova_Rt2_EventScript_Npc13::
-	msgbox Unova_Rt2_Text_BackpackerFR2SeenText, MSGBOX_NPC
+Unova_Rt2_EventScript_Lider13::
+	trainerbattle_single TRAINER_UNOVA_BACKPACKERF_R2, Unova_Rt2_Text_BackpackerFR2SeenText, Unova_Rt2_Text_BackpackerFR2BeatenText
 	end
 
-Unova_Rt2_EventScript_Npc14::
-	msgbox Unova_Rt2_Text_PolicemanR2SeenText, MSGBOX_NPC
+Unova_Rt2_EventScript_Lider14::
+	trainerbattle_single TRAINER_UNOVA_POLICEMAN_R2, Unova_Rt2_Text_PolicemanR2SeenText, Unova_Rt2_Text_PolicemanR2BeatenText
 	end
 
-Unova_Rt2_EventScript_Npc15::
-	msgbox Unova_Rt2_Text_TwinsR2SeenText, MSGBOX_NPC
+Unova_Rt2_EventScript_Lider15::
+	trainerbattle_single TRAINER_UNOVA_TWINS_R2, Unova_Rt2_Text_TwinsR2SeenText, Unova_Rt2_Text_TwinsR2BeatenText
 	end
 
-Unova_Rt2_EventScript_Npc16::
-	msgbox Unova_Rt2_Text_TwinsR2SeenText, MSGBOX_NPC
+Unova_Rt2_EventScript_Lider16::
+	trainerbattle_single TRAINER_UNOVA_TWINS_R2, Unova_Rt2_Text_TwinsR2SeenText, Unova_Rt2_Text_TwinsR2BeatenText
 	end
 
 
@@ -54,17 +54,31 @@ Unova_Rt2_Text_YoungsterR2SeenText::
 	.string "\ngonna steam you"
 	.string "\lout!$"
 
+Unova_Rt2_Text_YoungsterR2BeatenText::
+	.string "We haven't lost in"
+	.string "\nterms of coolness!"
+	.string "\pI'll just keep"
+	.string "\nthinking that…$"
+
 Unova_Rt2_Text_LassR2SeenText::
 	.string "Hi, hi! Trainer!"
 	.string "\nI will let you see"
 	.string "\pwhat kind of POKé-"
 	.string "\nMON I have!$"
 
+Unova_Rt2_Text_LassR2BeatenText::
+	.string "Oooh, quit bugging"
+	.string "\nme!$"
+
 Unova_Rt2_Text_SocialiteR2SeenText::
 	.string "Hello there, young"
 	.string "\ntrainer. Please,"
 	.string "\pbattle with me for"
 	.string "\na spell.$"
+
+Unova_Rt2_Text_SocialiteR2BeatenText::
+	.string "My, oh my. Looks"
+	.string "\nlike I lost!$"
 
 Unova_Rt2_Text_GentlemanR2SeenText::
 	.string "I've asked myself"
@@ -76,6 +90,11 @@ Unova_Rt2_Text_GentlemanR2SeenText::
 	.string "\ncome up with an"
 	.string "\lanswer.$"
 
+Unova_Rt2_Text_GentlemanR2BeatenText::
+	.string "All sorts of feel-"
+	.string "\nings are stirred"
+	.string "\lup by battling.$"
+
 Unova_Rt2_Text_BackpackerMR2SeenText::
 	.string "It's 'The Waving"
 	.string "\nWeaving Walk'-"
@@ -84,14 +103,32 @@ Unova_Rt2_Text_BackpackerMR2SeenText::
 	.string "\nof POKéMON we'll"
 	.string "\lmeet today?$"
 
+Unova_Rt2_Text_BackpackerMR2BeatenText::
+	.string "Your POKéMON have"
+	.string "\nstrong abilities,"
+	.string "\ldon't they?$"
+
 Unova_Rt2_Text_BackpackerFR2SeenText::
 	.string "Let's see who has"
 	.string "\nthe most admirable"
 	.string "\lPOKéMON!$"
 
+Unova_Rt2_Text_BackpackerFR2BeatenText::
+	.string "Even though we"
+	.string "\nlost, my POKéMON"
+	.string "\pare still pretty"
+	.string "\nadmirable.$"
+
 Unova_Rt2_Text_PolicemanR2SeenText::
 	.string "Hey, you! Stop"
 	.string "\nright there!$"
+
+Unova_Rt2_Text_PolicemanR2BeatenText::
+	.string "There's no one"
+	.string "\nstopping you!"
+	.string "\pYou're what could"
+	.string "\nbe called"
+	.string "\lunstoppable!$"
 
 Unova_Rt2_Text_TwinsR2SeenText::
 	.string "Two POKéMON!"
@@ -99,3 +136,8 @@ Unova_Rt2_Text_TwinsR2SeenText::
 	.string "\ncome together to"
 	.string "\pbecome…"
 	.string "\nvery strong!$"
+
+Unova_Rt2_Text_TwinsR2BeatenText::
+	.string "Uh oh… My POKéMON"
+	.string "\nisn't looking so"
+	.string "\lwell…$"

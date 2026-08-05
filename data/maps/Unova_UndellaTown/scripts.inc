@@ -31,12 +31,12 @@ Unova_UndellaTown_EventScript_Npc1::
 	msgbox Unova_UndellaTown_Text_UndellaTownBugCatcherText, MSGBOX_NPC
 	end
 
-Unova_UndellaTown_EventScript_Npc2::
-	msgbox Unova_UndellaTown_Text_Fisher1UndellaTownSeenText, MSGBOX_NPC
+Unova_UndellaTown_EventScript_Lider2::
+	trainerbattle_single TRAINER_UNOVA_FISHER_UNDELLA_1, Unova_UndellaTown_Text_Fisher1UndellaTownSeenText, Unova_UndellaTown_Text_Fisher1UndellaTownBeatenText
 	end
 
-Unova_UndellaTown_EventScript_Npc3::
-	msgbox Unova_UndellaTown_Text_Fisher2UndellaTownSeenText, MSGBOX_NPC
+Unova_UndellaTown_EventScript_Lider3::
+	trainerbattle_single TRAINER_UNOVA_FISHER_UNDELLA_2, Unova_UndellaTown_Text_Fisher2UndellaTownSeenText, Unova_UndellaTown_Text_Fisher2UndellaTownBeatenText
 	end
 
 Unova_UndellaTown_EventScript_Npc4::
@@ -93,10 +93,18 @@ Unova_UndellaTown_Text_Fisher1UndellaTownSeenText::
 	.string "\nMy next catch will"
 	.string "\lbe called victory!$"
 
+Unova_UndellaTown_Text_Fisher1UndellaTownBeatenText::
+	.string "The victory that"
+	.string "\ngot away was"
+	.string "\lthiiiis big!$"
+
 Unova_UndellaTown_Text_Fisher2UndellaTownSeenText::
 	.string "I'll battle you"
 	.string "\nwith my freshly"
 	.string "\lcaught POKéMON!$"
+
+Unova_UndellaTown_Text_Fisher2UndellaTownBeatenText::
+	.string "I lost it!$"
 
 Unova_UndellaTown_Text_UndellaTownFisher3Text::
 	.string "This little beach-"

@@ -3,20 +3,26 @@
 Unova_MistraltonGym1F_MapScripts::
 	.byte 0
 
-Unova_MistraltonGym1F_EventScript_Npc4::
-	msgbox Unova_MistraltonGym1F_Text_Pilot1MistraltonGym1FSeenText, MSGBOX_NPC
+Unova_MistraltonGym1F_EventScript_Lider4::
+	trainerbattle_single TRAINER_UNOVA_PILOT_MISTRALTON_GYM_1, Unova_MistraltonGym1F_Text_Pilot1MistraltonGym1FSeenText, Unova_MistraltonGym1F_Text_Pilot1MistraltonGym1FBeatenText
 	end
 
-Unova_MistraltonGym1F_EventScript_Npc5::
-	msgbox Unova_MistraltonGym1F_Text_Pilot2MistraltonGym1FSeenText, MSGBOX_NPC
+Unova_MistraltonGym1F_EventScript_Lider5::
+	trainerbattle_single TRAINER_UNOVA_PILOT_MISTRALTON_GYM_2, Unova_MistraltonGym1F_Text_Pilot2MistraltonGym1FSeenText, Unova_MistraltonGym1F_Text_Pilot2MistraltonGym1FBeatenText
 	end
 
-Unova_MistraltonGym1F_EventScript_Npc6::
-	msgbox Unova_MistraltonGym1F_Text_Pilot3MistraltonGym1FSeenText, MSGBOX_NPC
+Unova_MistraltonGym1F_EventScript_Lider6::
+	trainerbattle_single TRAINER_UNOVA_PILOT_MISTRALTON_GYM_3, Unova_MistraltonGym1F_Text_Pilot3MistraltonGym1FSeenText, Unova_MistraltonGym1F_Text_Pilot3MistraltonGym1FBeatenText
 	end
 
 Unova_MistraltonGym1F_EventScript_Lider7::
-	trainerbattle_single TRAINER_UNOVA_LEADER_SKYLA, Unova_MistraltonGym1F_Text_SkylaGymIntroText, Unova_MistraltonGym1F_Text_SkylaWinLossText
+	trainerbattle_single TRAINER_UNOVA_LEADER_SKYLA, Unova_MistraltonGym1F_Text_SkylaGymIntroText, Unova_MistraltonGym1F_Text_SkylaWinLossText, Unova_MistraltonGym1F_EventScript_Insignia7
+	end
+
+Unova_MistraltonGym1F_EventScript_Insignia7::
+	setflag FLAG_BADGE_UNOVA_MISTRALTON
+	call Common_EventScript_PlayGymBadgeFanfare
+	release
 	end
 
 Unova_MistraltonGym1F_EventScript_Npc8::
@@ -30,6 +36,12 @@ Unova_MistraltonGym1F_Text_Pilot1MistraltonGym1FSeenText::
 	.string "\pstrength of us and"
 	.string "\nour GYM LEADER!$"
 
+Unova_MistraltonGym1F_Text_Pilot1MistraltonGym1FBeatenText::
+	.string "I felt some"
+	.string "\nintense pressure"
+	.string "\pcoming from you"
+	.string "\nand your POKéMON!$"
+
 Unova_MistraltonGym1F_Text_Pilot2MistraltonGym1FSeenText::
 	.string "Right side clear!"
 	.string "\nLeft side clear!"
@@ -38,6 +50,11 @@ Unova_MistraltonGym1F_Text_Pilot2MistraltonGym1FSeenText::
 	.string "\pErr… I mean"
 	.string "\ntakeoff!$"
 
+Unova_MistraltonGym1F_Text_Pilot2MistraltonGym1FBeatenText::
+	.string "Unfortunately… we"
+	.string "\nare forced to"
+	.string "\lland.$"
+
 Unova_MistraltonGym1F_Text_Pilot3MistraltonGym1FSeenText::
 	.string "Sometimes you need"
 	.string "\nto be bold, while"
@@ -45,6 +62,10 @@ Unova_MistraltonGym1F_Text_Pilot3MistraltonGym1FSeenText::
 	.string "\nneed to be"
 	.string "\pcareful. React"
 	.string "\naccordingly!$"
+
+Unova_MistraltonGym1F_Text_Pilot3MistraltonGym1FBeatenText::
+	.string "I couldn't block"
+	.string "\nyour path!$"
 
 Unova_MistraltonGym1F_Text_SkylaGymIntroText::
 	.string "Hee-hee! I've been"

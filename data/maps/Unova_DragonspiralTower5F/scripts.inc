@@ -3,11 +3,14 @@
 Unova_DragonspiralTower5F_MapScripts::
 	.byte 0
 
-Unova_DragonspiralTower5F_EventScript_Npc3::
-	msgbox Unova_DragonspiralTower5F_Text_DragonspiralTowerGormSeenText, MSGBOX_NPC
+Unova_DragonspiralTower5F_EventScript_Lider3::
+	trainerbattle_single TRAINER_UNOVA_GORM2, Unova_DragonspiralTower5F_Text_DragonspiralTowerGormSeenText, Unova_DragonspiralTower5F_Text_DragonspiralTowerGormBeatenText
 	end
 
 
 Unova_DragonspiralTower5F_Text_DragonspiralTowerGormSeenText::
 	.string "… … … …"
 	.string "\pTEAM PLASMA…$"
+
+Unova_DragonspiralTower5F_Text_DragonspiralTowerGormBeatenText::
+	.string "…$"

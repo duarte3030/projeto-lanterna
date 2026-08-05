@@ -3,8 +3,8 @@
 Unova_DragonspiralTower4F_MapScripts::
 	.byte 0
 
-Unova_DragonspiralTower4F_EventScript_Npc1::
-	msgbox Unova_DragonspiralTower4F_Text_DragonspiralTowerBroniusSeenText, MSGBOX_NPC
+Unova_DragonspiralTower4F_EventScript_Lider1::
+	trainerbattle_single TRAINER_UNOVA_BRONIUS2, Unova_DragonspiralTower4F_Text_DragonspiralTowerBroniusSeenText, Unova_DragonspiralTower4F_Text_DragonspiralTowerBroniusBeatenText
 	end
 
 
@@ -18,3 +18,6 @@ Unova_DragonspiralTower4F_Text_DragonspiralTowerBroniusSeenText::
 	.string "\pgame! You shall"
 	.string "\nnot interfere with"
 	.string "\lTEAM PLASMA!$"
+
+Unova_DragonspiralTower4F_Text_DragonspiralTowerBroniusBeatenText::
+	.string "Accursed trainer!$"

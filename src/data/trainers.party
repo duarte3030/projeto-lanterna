@@ -26709,3 +26709,4694 @@ Level: 70
 - MOVE_DRAGON_PULSE
 - MOVE_DARK_PULSE
 - MOVE_FLASH_CANNON
+
+/* >>> treinadores de rota de Unova (gerado) >>> */
+/* Treinadores de rota, caverna e predio de Unova (BW3G, de Azure_Keys).
+   Gerado por dev_scripts/gera_treinadores_unova.py; um bloco por constante da
+   faixa 1800..2199, porque constante sem bloco vira apelido do id alheio. */
+
+=== TRAINER_UNOVA_ACE_TRAINERF_CHARGESTONE_1 ===
+Name: FRAN
+Class: Cooltrainer
+Pic: Cooltrainer F
+Gender: Female
+Double Battle: No
+
+SPECIES_TIRTOUGA
+Level: 42
+
+SPECIES_MAGMAR
+Level: 44
+
+=== TRAINER_UNOVA_ACE_TRAINERF_MISTRALTON_CAVE ===
+Name: SHELBY
+Class: Cooltrainer
+Pic: Cooltrainer F
+Gender: Female
+Double Battle: No
+
+SPECIES_AXEW
+Level: 40
+
+SPECIES_ARCHEN
+Level: 42
+
+SPECIES_DEINO
+Level: 40
+
+=== TRAINER_UNOVA_ACE_TRAINERF_R23_2 ===
+Name: MILA
+Class: Cooltrainer
+Pic: Cooltrainer F
+Gender: Female
+Double Battle: No
+
+SPECIES_SCOLIPEDE
+Level: 55
+
+SPECIES_HOUNDOOM
+Level: 57
+
+=== TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_EXT_1 ===
+Name: SHERRI
+Class: Cooltrainer
+Pic: Cooltrainer F
+Gender: Female
+Double Battle: No
+
+SPECIES_SWOOBAT
+Level: 54
+
+SPECIES_LILLIGANT
+Level: 56
+
+=== TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_INT_1 ===
+Name: JANIE
+Class: Cooltrainer
+Pic: Cooltrainer F
+Gender: Female
+Double Battle: No
+
+SPECIES_MANDIBUZZ
+Level: 54
+
+SPECIES_ARCHEOPS
+Level: 56
+
+=== TRAINER_UNOVA_ACE_TRAINERF_CHARGESTONE_2 ===
+Name: BRIA
+Class: Cooltrainer
+Pic: Cooltrainer F
+Gender: Female
+Double Battle: No
+
+SPECIES_STOUTLAND
+Level: 42
+
+SPECIES_KROKOROK
+Level: 40
+
+SPECIES_FERROSEED
+Level: 40
+
+=== TRAINER_UNOVA_ACE_TRAINERF_GIANT_CHASM ===
+Name: LOLA
+Class: Cooltrainer
+Pic: Cooltrainer F
+Gender: Female
+Double Battle: No
+
+SPECIES_EEVEE
+Level: 32
+
+SPECIES_VAPOREON
+Level: 34
+
+SPECIES_JOLTEON
+Level: 34
+
+SPECIES_FLAREON
+Level: 34
+
+=== TRAINER_UNOVA_ACE_TRAINERF_R23_1 ===
+Name: JULIET
+Class: Cooltrainer
+Pic: Cooltrainer F
+Gender: Female
+Double Battle: No
+
+SPECIES_SWANNA
+Level: 51
+
+SPECIES_GALVANTULA
+Level: 53
+
+=== TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_EXT_2 ===
+Name: CHELLE
+Class: Cooltrainer
+Pic: Cooltrainer F
+Gender: Female
+Double Battle: No
+
+SPECIES_DARMANITAN
+Level: 54
+
+SPECIES_BRELOOM
+Level: 56
+
+=== TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_INT_2 ===
+Name: SHANTA
+Class: Cooltrainer
+Pic: Cooltrainer F
+Gender: Female
+Double Battle: No
+
+SPECIES_HEATMOR
+Level: 54
+
+SPECIES_GALVANTULA
+Level: 56
+
+=== TRAINER_UNOVA_ACE_TRAINERM_CHARGESTONE_1 ===
+Name: COREY
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Double Battle: No
+
+SPECIES_KLINK
+Level: 40
+
+SPECIES_UNFEZANT
+Level: 42
+
+SPECIES_CLAYDOL
+Level: 40
+
+=== TRAINER_UNOVA_ACE_TRAINERM_MISTRALTON_CAVE ===
+Name: JEFF
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Double Battle: No
+
+SPECIES_AXEW
+Level: 40
+
+SPECIES_TIRTOUGA
+Level: 42
+
+SPECIES_DEINO
+Level: 40
+
+=== TRAINER_UNOVA_ACE_TRAINERM_R23_1 ===
+Name: TRENT
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Double Battle: No
+
+SPECIES_EMOLGA
+Level: 51
+
+SPECIES_AZUMARILL
+Level: 53
+
+=== TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_EXT_1 ===
+Name: PIERCE
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Double Battle: No
+
+SPECIES_SWANNA
+Level: 54
+
+SPECIES_AMPHAROS
+Level: 56
+
+=== TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_INT_1 ===
+Name: BILLY
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Double Battle: No
+
+SPECIES_BRAVIARY
+Level: 54
+
+SPECIES_CARRACOSTA
+Level: 56
+
+=== TRAINER_UNOVA_ACE_TRAINERM_CHARGESTONE_2 ===
+Name: RILEY
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Double Battle: No
+
+SPECIES_ARCHEN
+Level: 42
+
+SPECIES_ELECTABUZZ
+Level: 44
+
+=== TRAINER_UNOVA_ACE_TRAINERM_GIANT_CHASM ===
+Name: AARON
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Double Battle: No
+
+SPECIES_SNIVY
+Level: 35
+
+SPECIES_TEPIG
+Level: 35
+
+SPECIES_OSHAWOTT
+Level: 35
+
+=== TRAINER_UNOVA_ACE_TRAINERM_R23_2 ===
+Name: GRANT
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Double Battle: No
+
+SPECIES_MAGMAR
+Level: 55
+
+SPECIES_MAGMORTAR
+Level: 57
+
+=== TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_EXT_2 ===
+Name: ELMER
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Double Battle: No
+
+SPECIES_WHIMSICOTT
+Level: 54
+
+SPECIES_UNFEZANT
+Level: 56
+
+=== TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_INT_2 ===
+Name: WEBB
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Double Battle: No
+
+SPECIES_DURANT
+Level: 54
+
+SPECIES_FERROTHORN
+Level: 56
+
+=== TRAINER_UNOVA_ARTIST_R3 ===
+Name: SEAN
+Class: TRAINER_CLASS_PAINTER_FRLG
+Pic: TRAINER_PIC_PAINTER_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_RALTS
+Level: 29
+
+SPECIES_MUNNA
+Level: 29
+
+SPECIES_KIRLIA
+Level: 32
+
+=== TRAINER_UNOVA_ARTIST_R5 ===
+Name: GEORGE
+Class: TRAINER_CLASS_PAINTER_FRLG
+Pic: TRAINER_PIC_PAINTER_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_DEERLING
+Level: 16
+
+SPECIES_TYMPOLE
+Level: 17
+
+SPECIES_MAREEP
+Level: 18
+
+=== TRAINER_UNOVA_BACKERSF_R11 ===
+Name: RUBY&IRIS
+Class: Pokefan
+Pic: Pokefan F
+Gender: Female
+Double Battle: No
+
+SPECIES_PALPITOAD
+Level: 50
+
+SPECIES_SEISMITOAD
+Level: 50
+
+=== TRAINER_UNOVA_BACKERSF_R5 ===
+Name: MAY&JUNE
+Class: Pokefan
+Pic: Pokefan F
+Gender: Female
+Double Battle: No
+
+SPECIES_MUNNA
+Level: 16
+
+SPECIES_RALTS
+Level: 18
+
+=== TRAINER_UNOVA_BACKERSM_R11 ===
+Name: CARL&MICK
+Class: Pokefan
+Pic: Pokefan M
+Gender: Male
+Double Battle: No
+
+SPECIES_EMOLGA
+Level: 48
+
+SPECIES_ALTARIA
+Level: 50
+
+=== TRAINER_UNOVA_BACKERSM_R16 ===
+Name: AL&FREDO
+Class: Pokefan
+Pic: Pokefan M
+Gender: Male
+Double Battle: No
+
+SPECIES_PIDOVE
+Level: 16
+
+SPECIES_DUCKLETT
+Level: 18
+
+=== TRAINER_UNOVA_BACKPACKERF_DESERT ===
+Name: ALICE
+Class: Picnicker
+Pic: Picnicker
+Gender: Female
+Double Battle: No
+
+SPECIES_MAGBY
+Level: 18
+
+SPECIES_ELEKID
+Level: 18
+
+=== TRAINER_UNOVA_BACKPACKERF_GIANT_CHASM ===
+Name: LOUISE
+Class: Picnicker
+Pic: Picnicker
+Gender: Female
+Double Battle: No
+
+SPECIES_ONIX
+Level: 34
+
+SPECIES_PALPITOAD
+Level: 36
+
+=== TRAINER_UNOVA_BACKPACKERF_R16 ===
+Name: BAILEY
+Class: Picnicker
+Pic: Picnicker
+Gender: Female
+Double Battle: No
+
+SPECIES_MAREEP
+Level: 17
+
+SPECIES_MEDITITE
+Level: 17
+
+=== TRAINER_UNOVA_BACKPACKERF_R18 ===
+Name: JENNY
+Class: Picnicker
+Pic: Picnicker
+Gender: Female
+Double Battle: No
+
+SPECIES_HORSEA
+Level: 36
+
+SPECIES_SKARMORY
+Level: 35
+
+SPECIES_SWINUB
+Level: 36
+
+=== TRAINER_UNOVA_BACKPACKERF_R2 ===
+Name: TANYA
+Class: Picnicker
+Pic: Picnicker
+Gender: Female
+Double Battle: No
+
+SPECIES_BASCULIN
+Level: 30
+
+SPECIES_STARYU
+Level: 32
+
+=== TRAINER_UNOVA_BACKPACKERF_R23 ===
+Name: TIFFANY
+Class: Picnicker
+Pic: Picnicker
+Gender: Female
+Double Battle: No
+
+SPECIES_BOLDORE
+Level: 55
+
+SPECIES_AGGRON
+Level: 57
+
+=== TRAINER_UNOVA_BACKPACKERF_R7 ===
+Name: HOLLIE
+Class: Picnicker
+Pic: Picnicker
+Gender: Female
+Double Battle: No
+
+SPECIES_CUBCHOO
+Level: 40
+
+SPECIES_UNFEZANT
+Level: 42
+
+SPECIES_GLACEON
+Level: 44
+
+=== TRAINER_UNOVA_BACKPACKERF_RELIC_PASSAGE ===
+Name: LISSA
+Class: Picnicker
+Pic: Picnicker
+Gender: Female
+Double Battle: No
+
+SPECIES_VIBRAVA
+Level: 43
+
+=== TRAINER_UNOVA_BACKPACKERF_REVERSAL ===
+Name: CARRIE
+Class: Picnicker
+Pic: Picnicker
+Gender: Female
+Double Battle: No
+
+SPECIES_MAWILE
+Level: 13
+
+=== TRAINER_UNOVA_BACKPACKERF_VICTORY_ROAD_EXT ===
+Name: MAE
+Class: Picnicker
+Pic: Picnicker
+Gender: Female
+Double Battle: No
+
+SPECIES_SIGILYPH
+Level: 54
+
+SPECIES_CROBAT
+Level: 56
+
+=== TRAINER_UNOVA_BACKPACKERM_DESERT ===
+Name: HOWARD
+Class: Camper
+Pic: Camper
+Gender: Male
+Double Battle: No
+
+SPECIES_SANDILE
+Level: 17
+
+SPECIES_MARACTUS
+Level: 19
+
+=== TRAINER_UNOVA_BACKPACKERM_GIANT_CHASM ===
+Name: SHANE
+Class: Camper
+Pic: Camper
+Gender: Male
+Double Battle: No
+
+SPECIES_BOUFFALANT
+Level: 38
+
+=== TRAINER_UNOVA_BACKPACKERM_R16 ===
+Name: BOBBY
+Class: Camper
+Pic: Camper
+Gender: Male
+Double Battle: No
+
+SPECIES_DRILBUR
+Level: 16
+
+SPECIES_BLITZLE
+Level: 15
+
+SPECIES_TYMPOLE
+Level: 18
+
+=== TRAINER_UNOVA_BACKPACKERM_R18 ===
+Name: JAX
+Class: Camper
+Pic: Camper
+Gender: Male
+Double Battle: No
+
+SPECIES_TRANQUILL
+Level: 33
+
+SPECIES_STUNFISK
+Level: 33
+
+SPECIES_KROKOROK
+Level: 36
+
+=== TRAINER_UNOVA_BACKPACKERM_R2 ===
+Name: JAY
+Class: Camper
+Pic: Camper
+Gender: Male
+Double Battle: No
+
+SPECIES_OCTILLERY
+Level: 34
+
+=== TRAINER_UNOVA_BACKPACKERM_R23 ===
+Name: DON
+Class: Camper
+Pic: Camper
+Gender: Male
+Double Battle: No
+
+SPECIES_PILOSWINE
+Level: 55
+
+SPECIES_PROBOPASS
+Level: 57
+
+=== TRAINER_UNOVA_BACKPACKERM_R7 ===
+Name: PARKER
+Class: Camper
+Pic: Camper
+Gender: Male
+Double Battle: No
+
+SPECIES_STOUTLAND
+Level: 42
+
+SPECIES_DEERLING
+Level: 40
+
+SPECIES_LEAFEON
+Level: 44
+
+=== TRAINER_UNOVA_BACKPACKERM_RELIC_PASSAGE ===
+Name: IVAN
+Class: Camper
+Pic: Camper
+Gender: Male
+Double Battle: No
+
+SPECIES_WATCHOG
+Level: 43
+
+=== TRAINER_UNOVA_BACKPACKERM_REVERSAL ===
+Name: FRANK
+Class: Camper
+Pic: Camper
+Gender: Male
+Double Battle: No
+
+SPECIES_SNUBBULL
+Level: 9
+
+SPECIES_WOOBAT
+Level: 12
+
+=== TRAINER_UNOVA_BACKPACKERM_VICTORY_ROAD_INT ===
+Name: VANCE
+Class: Camper
+Pic: Camper
+Gender: Male
+Double Battle: No
+
+SPECIES_BOLDORE
+Level: 53
+
+SPECIES_LAIRON
+Level: 53
+
+SPECIES_STEELIX
+Level: 56
+
+=== TRAINER_UNOVA_BAKER_R19 ===
+Name: DARLA
+Class: Kindler
+Pic: Kindler
+Gender: Male
+Double Battle: No
+
+SPECIES_VULPIX
+Level: 23
+
+SPECIES_MAGBY
+Level: 23
+
+SPECIES_KOFFING
+Level: 25
+
+=== TRAINER_UNOVA_BAKER_R5 ===
+Name: ANNETTE
+Class: Kindler
+Pic: Kindler
+Gender: Male
+Double Battle: No
+
+SPECIES_FOONGUS
+Level: 16
+
+SPECIES_SHROOMISH
+Level: 16
+
+SPECIES_ROSELIA
+Level: 18
+
+=== TRAINER_UNOVA_BATTLE_GIRL_CHARGESTONE ===
+Name: CHI
+Class: Battle Girl
+Pic: Battle Girl
+Gender: Female
+Double Battle: No
+
+SPECIES_MEDICHAM
+Level: 47
+
+=== TRAINER_UNOVA_BATTLE_GIRL_NACRENE_OUTSKIRT ===
+Name: LEE
+Class: Battle Girl
+Pic: Battle Girl
+Gender: Female
+Double Battle: No
+
+SPECIES_MEDITITE
+Level: 28
+
+SPECIES_TIMBURR
+Level: 28
+
+SPECIES_BRELOOM
+Level: 31
+
+=== TRAINER_UNOVA_BATTLE_GIRL_R1 ===
+Name: TERRI
+Class: Battle Girl
+Pic: Battle Girl
+Gender: Female
+Double Battle: No
+
+SPECIES_TIMBURR
+Level: 32
+
+SPECIES_GURDURR
+Level: 34
+
+=== TRAINER_UNOVA_BATTLE_GIRL_R18 ===
+Name: KARINA
+Class: Battle Girl
+Pic: Battle Girl
+Gender: Female
+Double Battle: No
+
+SPECIES_SCRAGGY
+Level: 33
+
+SPECIES_THROH
+Level: 30
+
+SPECIES_GURDURR
+Level: 35
+
+=== TRAINER_UNOVA_BATTLE_GIRL_R23 ===
+Name: MIKI
+Class: Battle Girl
+Pic: Battle Girl
+Gender: Female
+Double Battle: No
+
+SPECIES_GURDURR
+Level: 55
+
+SPECIES_MEDICHAM
+Level: 57
+
+=== TRAINER_UNOVA_BATTLE_GIRL_REVERSAL ===
+Name: TRINA
+Class: Battle Girl
+Pic: Battle Girl
+Gender: Female
+Double Battle: No
+
+SPECIES_ROGGENROLA
+Level: 8
+
+SPECIES_TIMBURR
+Level: 9
+
+SPECIES_ARON
+Level: 8
+
+=== TRAINER_UNOVA_BATTLE_GIRL_SEASIDE_CAVE_1 ===
+Name: RINA
+Class: Battle Girl
+Pic: Battle Girl
+Gender: Female
+Double Battle: No
+
+SPECIES_TIMBURR
+Level: 45
+
+SPECIES_MEDITITE
+Level: 45
+
+SPECIES_GURDURR
+Level: 47
+
+=== TRAINER_UNOVA_BATTLE_GIRL_SEASIDE_CAVE_2 ===
+Name: KAI-LI
+Class: Battle Girl
+Pic: Battle Girl
+Gender: Female
+Double Battle: No
+
+SPECIES_SCRAFTY
+Level: 50
+
+=== TRAINER_UNOVA_BATTLE_GIRL_VICTORY_ROAD_EXT ===
+Name: LINA
+Class: Battle Girl
+Pic: Battle Girl
+Gender: Female
+Double Battle: No
+
+SPECIES_THROH
+Level: 55
+
+SPECIES_SAWK
+Level: 55
+
+=== TRAINER_UNOVA_BATTLE_GIRL_WELLSPRING ===
+Name: TSUKI
+Class: Battle Girl
+Pic: Battle Girl
+Gender: Female
+Double Battle: No
+
+SPECIES_TIMBURR
+Level: 32
+
+SPECIES_BRELOOM
+Level: 35
+
+=== TRAINER_UNOVA_BIKER_R4 ===
+Name: MIKE
+Class: TRAINER_CLASS_BIKER_FRLG
+Pic: TRAINER_PIC_BIKER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_DARUMAKA
+Level: 20
+
+=== TRAINER_UNOVA_BIKER_R9_1 ===
+Name: ZEKE
+Class: TRAINER_CLASS_BIKER_FRLG
+Pic: TRAINER_PIC_BIKER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_ZORUA
+Level: 48
+
+SPECIES_SCRAFTY
+Level: 50
+
+=== TRAINER_UNOVA_BIKER_R9_2 ===
+Name: CHANCE
+Class: TRAINER_CLASS_BIKER_FRLG
+Pic: TRAINER_PIC_BIKER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_KROOKODILE
+Level: 52
+
+=== TRAINER_UNOVA_BLACKBELT_NACRENE_OUTSKIRT ===
+Name: KENTARO
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+SPECIES_CROAGUNK
+Level: 28
+
+SPECIES_SCRAGGY
+Level: 28
+
+SPECIES_GURDURR
+Level: 31
+
+=== TRAINER_UNOVA_BLACKBELT_R1 ===
+Name: TIM
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+SPECIES_HERACROSS
+Level: 35
+
+=== TRAINER_UNOVA_BLACKBELT_R18 ===
+Name: SHINSUKE
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+SPECIES_MEDITITE
+Level: 33
+
+SPECIES_SAWK
+Level: 30
+
+SPECIES_BRELOOM
+Level: 35
+
+=== TRAINER_UNOVA_BLACKBELT_R21 ===
+Name: RYUSUKE
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+SPECIES_CRUSTLE
+Level: 50
+
+=== TRAINER_UNOVA_BLACKBELT_REVERSAL ===
+Name: DWAYNE
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+SPECIES_ROGGENROLA
+Level: 8
+
+SPECIES_TIMBURR
+Level: 10
+
+=== TRAINER_UNOVA_BLACKBELT_SEASIDE_CAVE_1 ===
+Name: KYO
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+SPECIES_TIMBURR
+Level: 45
+
+SPECIES_MEDICHAM
+Level: 47
+
+=== TRAINER_UNOVA_BLACKBELT_SEASIDE_CAVE_2 ===
+Name: LAO
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+SPECIES_GALLADE
+Level: 50
+
+=== TRAINER_UNOVA_BLACKBELT_VICTORY_ROAD_EXT ===
+Name: MARTELL
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+SPECIES_PINSIR
+Level: 55
+
+SPECIES_HERACROSS
+Level: 55
+
+=== TRAINER_UNOVA_BLACKBELT_WELLSPRING_1 ===
+Name: KENJI
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+SPECIES_MEDITITE
+Level: 31
+
+SPECIES_RIOLU
+Level: 33
+
+=== TRAINER_UNOVA_BLACKBELT_WELLSPRING_2 ===
+Name: DAISUKE
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+SPECIES_SCRAGGY
+Level: 32
+
+SPECIES_THROH
+Level: 34
+
+SPECIES_SAWK
+Level: 34
+
+=== TRAINER_UNOVA_BRONIUS2 ===
+Name: BRONIUS
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+SPECIES_HEATMOR
+Level: 53
+
+SPECIES_CAMERUPT
+Level: 54
+
+SPECIES_DARMANITAN
+Level: 53
+
+SPECIES_NINETALES
+Level: 54
+
+SPECIES_MAGMORTAR
+Level: 56
+
+=== TRAINER_UNOVA_CYCLISTF_OUTSKIRTS ===
+Name: SHELLY
+Class: Triathlete
+Pic: Cycling Triathlete F
+Gender: Female
+Double Battle: No
+
+SPECIES_LILLIPUP
+Level: 10
+
+SPECIES_MARILL
+Level: 12
+
+=== TRAINER_UNOVA_CYCLISTF_R16 ===
+Name: LESLIE
+Class: Triathlete
+Pic: Cycling Triathlete F
+Gender: Female
+Double Battle: No
+
+SPECIES_GOTHITA
+Level: 16
+
+SPECIES_CLEFAIRY
+Level: 18
+
+=== TRAINER_UNOVA_CYCLISTM_OUTSKIRTS ===
+Name: FREDDY
+Class: Triathlete
+Pic: Cycling Triathlete M
+Gender: Male
+Double Battle: No
+
+SPECIES_PIDOVE
+Level: 8
+
+SPECIES_RUFFLET
+Level: 10
+
+SPECIES_VULLABY
+Level: 10
+
+=== TRAINER_UNOVA_CYCLISTM_R16 ===
+Name: BRUNO
+Class: Triathlete
+Pic: Cycling Triathlete M
+Gender: Male
+Double Battle: No
+
+SPECIES_HOUNDOUR
+Level: 19
+
+=== TRAINER_UNOVA_DANCER_R5_1 ===
+Name: ERIC
+Class: Beauty
+Pic: Beauty
+Gender: Female
+Double Battle: No
+
+SPECIES_MAGNEMITE
+Level: 16
+
+SPECIES_FERROSEED
+Level: 15
+
+SPECIES_SOLOSIS
+Level: 18
+
+=== TRAINER_UNOVA_DANCER_R5_2 ===
+Name: LERON
+Class: Beauty
+Pic: Beauty
+Gender: Female
+Double Battle: No
+
+SPECIES_ELEKID
+Level: 18
+
+SPECIES_MAGBY
+Level: 18
+
+=== TRAINER_UNOVA_DEPOT_AGENT_R19_1 ===
+Name: ANTON
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Double Battle: No
+
+SPECIES_BASCULIN
+Level: 23
+
+SPECIES_STARYU
+Level: 26
+
+=== TRAINER_UNOVA_DEPOT_AGENT_R19_2 ===
+Name: GREGG
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Double Battle: No
+
+SPECIES_MAGNEMITE
+Level: 23
+
+SPECIES_CROAGUNK
+Level: 25
+
+SPECIES_ELEKID
+Level: 23
+
+=== TRAINER_UNOVA_DOCTOR_CHARGESTONE ===
+Name: COLIN
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_REUNICLUS
+Level: 47
+
+=== TRAINER_UNOVA_DOCTOR_OUTSKIRTS ===
+Name: HUGH
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_NOSEPASS
+Level: 15
+
+=== TRAINER_UNOVA_DOCTOR_R17 ===
+Name: OLLIE
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_TIRTOUGA
+Level: 33
+
+SPECIES_ARCHEN
+Level: 33
+
+SPECIES_MAGNETON
+Level: 35
+
+=== TRAINER_UNOVA_DOCTOR_SEASIDE_CAVE ===
+Name: SILAS
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_ONIX
+Level: 45
+
+SPECIES_LAIRON
+Level: 47
+
+=== TRAINER_UNOVA_FISHER_MOOR_OF_ICIRRUS_1 ===
+Name: DAMON
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+SPECIES_STUNFISK
+Level: 49
+
+SPECIES_CRAWDAUNT
+Level: 52
+
+=== TRAINER_UNOVA_FISHER_R17_1 ===
+Name: BILL
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+SPECIES_MANTYKE
+Level: 32
+
+SPECIES_REMORAID
+Level: 32
+
+SPECIES_OCTILLERY
+Level: 34
+
+=== TRAINER_UNOVA_FISHER_R3_1 ===
+Name: BYRON
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+SPECIES_CORSOLA
+Level: 35
+
+=== TRAINER_UNOVA_FISHER_R4_1 ===
+Name: ORSON
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+SPECIES_BASCULIN
+Level: 20
+
+=== TRAINER_UNOVA_FISHER_R8 ===
+Name: BRUCE
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+SPECIES_CORPHISH
+Level: 48
+
+SPECIES_CRAWDAUNT
+Level: 52
+
+SPECIES_STUNFISK
+Level: 48
+
+=== TRAINER_UNOVA_FISHER_UNDELLA_1 ===
+Name: SID
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+SPECIES_TYMPOLE
+Level: 5
+
+SPECIES_TYMPOLE
+Level: 5
+
+=== TRAINER_UNOVA_FISHER_MOOR_OF_ICIRRUS_2 ===
+Name: EUSTACE
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+SPECIES_PALPITOAD
+Level: 49
+
+SPECIES_BASCULIN
+Level: 49
+
+SPECIES_CORSOLA
+Level: 51
+
+=== TRAINER_UNOVA_FISHER_R17_2 ===
+Name: LAWRENCE
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+SPECIES_TYMPOLE
+Level: 32
+
+SPECIES_STUNFISK
+Level: 32
+
+SPECIES_BASCULIN
+Level: 34
+
+=== TRAINER_UNOVA_FISHER_R3_2 ===
+Name: BERNARD
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+SPECIES_TYNAMO
+Level: 27
+
+SPECIES_TYNAMO
+Level: 27
+
+SPECIES_TYNAMO
+Level: 27
+
+SPECIES_EELEKTRIK
+Level: 30
+
+=== TRAINER_UNOVA_FISHER_R4_2 ===
+Name: JACKSON
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+SPECIES_REMORAID
+Level: 18
+
+SPECIES_MANTYKE
+Level: 18
+
+=== TRAINER_UNOVA_FISHER_UNDELLA_2 ===
+Name: HUBERT
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+SPECIES_MANTYKE
+Level: 6
+
+=== TRAINER_UNOVA_GENTLEMAN_CELESTIAL_TOWER ===
+Name: BRYCE
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Double Battle: No
+
+SPECIES_UMBREON
+Level: 48
+
+=== TRAINER_UNOVA_GENTLEMAN_R2 ===
+Name: ANDREW
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Double Battle: No
+
+SPECIES_NOSEPASS
+Level: 30
+
+SPECIES_JOLTEON
+Level: 32
+
+=== TRAINER_UNOVA_GENTLEMAN_R3 ===
+Name: PRESTON
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Double Battle: No
+
+SPECIES_LIEPARD
+Level: 36
+
+=== TRAINER_UNOVA_GIALLO2 ===
+Name: GIALLO
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+SPECIES_EMOLGA
+Level: 53
+
+SPECIES_MAGNETON
+Level: 54
+
+SPECIES_ELECTABUZZ
+Level: 53
+
+SPECIES_GALVANTULA
+Level: 54
+
+SPECIES_AMPHAROS
+Level: 56
+
+=== TRAINER_UNOVA_GORM2 ===
+Name: GORM
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+SPECIES_OCTILLERY
+Level: 53
+
+SPECIES_STARMIE
+Level: 54
+
+SPECIES_SEISMITOAD
+Level: 53
+
+SPECIES_CRAWDAUNT
+Level: 54
+
+SPECIES_JELLICENT
+Level: 56
+
+=== TRAINER_UNOVA_GRUNTF_NIMBASA_1 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_DRIFLOON
+Level: 21
+
+SPECIES_WOOBAT
+Level: 21
+
+SPECIES_ZUBAT
+Level: 23
+
+=== TRAINER_UNOVA_GRUNTF_NIMBASA_2 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_PAWNIARD
+Level: 26
+
+=== TRAINER_UNOVA_GRUNTF_NIMBASA_3 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_GOTHITA
+Level: 22
+
+SPECIES_LITWICK
+Level: 24
+
+=== TRAINER_UNOVA_GRUNTF_NIMBASA_4 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_CROAGUNK
+Level: 23
+
+SPECIES_SCRAGGY
+Level: 23
+
+=== TRAINER_UNOVA_GRUNTF_NIMBASA_5 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_GASTLY
+Level: 21
+
+SPECIES_NUMEL
+Level: 23
+
+SPECIES_DRIFLOON
+Level: 22
+
+=== TRAINER_UNOVA_GRUNTF_P2_1 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_GOLBAT
+Level: 35
+
+SPECIES_LIEPARD
+Level: 36
+
+=== TRAINER_UNOVA_GRUNTF_P2_2 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_CROAGUNK
+Level: 34
+
+SPECIES_WATCHOG
+Level: 37
+
+=== TRAINER_UNOVA_GRUNTF_SEASIDE_CAVE_1 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_GARBODOR
+Level: 53
+
+=== TRAINER_UNOVA_GRUNTF_SEASIDE_CAVE_2 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_GOTHITELLE
+Level: 53
+
+=== TRAINER_UNOVA_GRUNTF_SEASIDE_CAVE_3 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_SCOLIPEDE
+Level: 53
+
+=== TRAINER_UNOVA_GRUNTF_VIRBANK_COMPLEX_1 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_TRUBBISH
+Level: 27
+
+SPECIES_KOFFING
+Level: 27
+
+SPECIES_GOTHITA
+Level: 29
+
+=== TRAINER_UNOVA_GRUNTF_VIRBANK_COMPLEX_2 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_SCRAGGY
+Level: 28
+
+SPECIES_WATCHOG
+Level: 30
+
+=== TRAINER_UNOVA_GRUNTM_NIMBASA_1 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_PATRAT
+Level: 23
+
+SPECIES_ZUBAT
+Level: 25
+
+=== TRAINER_UNOVA_GRUNTM_NIMBASA_2 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_SOLOSIS
+Level: 21
+
+SPECIES_WOOBAT
+Level: 21
+
+SPECIES_PURRLOIN
+Level: 23
+
+=== TRAINER_UNOVA_GRUNTM_NIMBASA_3 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_HOUNDOUR
+Level: 22
+
+SPECIES_GASTLY
+Level: 23
+
+=== TRAINER_UNOVA_GRUNTM_NIMBASA_5 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_MAGNEMITE
+Level: 22
+
+SPECIES_HOUNDOUR
+Level: 25
+
+=== TRAINER_UNOVA_GRUNTM_P2_1 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_SKORUPI
+Level: 34
+
+SPECIES_KROKOROK
+Level: 37
+
+=== TRAINER_UNOVA_GRUNTM_P2_2 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_WEEZING
+Level: 38
+
+=== TRAINER_UNOVA_GRUNTM_SEASIDE_CAVE_1 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_PAWNIARD
+Level: 46
+
+SPECIES_GOLETT
+Level: 46
+
+SPECIES_DEINO
+Level: 48
+
+=== TRAINER_UNOVA_GRUNTM_SEASIDE_CAVE_2 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_WEEZING
+Level: 53
+
+=== TRAINER_UNOVA_GRUNTM_SEASIDE_CAVE_3 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_DRAPION
+Level: 53
+
+=== TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_1 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_ZUBAT
+Level: 28
+
+SPECIES_PAWNIARD
+Level: 32
+
+=== TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_2 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_SOLOSIS
+Level: 28
+
+SPECIES_DUOSION
+Level: 30
+
+=== TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_3 ===
+Name: GRUNT
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_WOOBAT
+Level: 27
+
+SPECIES_ZUBAT
+Level: 27
+
+SPECIES_SWOOBAT
+Level: 31
+
+=== TRAINER_UNOVA_GUITARIST_CHARGESTONE_1 ===
+Name: MIDORI
+Class: Guitarist
+Pic: Guitarist
+Gender: Male
+Double Battle: No
+
+SPECIES_FLAAFFY
+Level: 42
+
+SPECIES_EELEKTRIK
+Level: 42
+
+=== TRAINER_UNOVA_GUITARIST_CHARGESTONE_2 ===
+Name: MIYAKO
+Class: Guitarist
+Pic: Guitarist
+Gender: Male
+Double Battle: No
+
+SPECIES_EMOLGA
+Level: 42
+
+SPECIES_FLAAFFY
+Level: 42
+
+=== TRAINER_UNOVA_GUITARIST_VIRBANK_GYM_1 ===
+Name: JOAN
+Class: Guitarist
+Pic: Guitarist
+Gender: Male
+Double Battle: No
+
+SPECIES_VENIPEDE
+Level: 27
+
+SPECIES_SKORUPI
+Level: 29
+
+=== TRAINER_UNOVA_GUITARIST_VIRBANK_GYM_2 ===
+Name: NITA
+Class: Guitarist
+Pic: Guitarist
+Gender: Male
+Double Battle: No
+
+SPECIES_WHIRLIPEDE
+Level: 31
+
+=== TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_1 ===
+Name: STUART
+Class: TRAINER_CLASS_JUGGLER_FRLG
+Pic: TRAINER_PIC_JUGGLER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_SEWADDLE
+Level: 20
+
+SPECIES_VENIPEDE
+Level: 20
+
+SPECIES_SWADLOON
+Level: 23
+
+=== TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_2 ===
+Name: PHIL
+Class: TRAINER_CLASS_JUGGLER_FRLG
+Pic: TRAINER_PIC_JUGGLER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_JOLTIK
+Level: 22
+
+SPECIES_YANMA
+Level: 23
+
+=== TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_3 ===
+Name: BRADLEY
+Class: TRAINER_CLASS_JUGGLER_FRLG
+Pic: TRAINER_PIC_JUGGLER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_PINSIR
+Level: 24
+
+=== TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_4 ===
+Name: HAROLD
+Class: TRAINER_CLASS_JUGGLER_FRLG
+Pic: TRAINER_PIC_JUGGLER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_HERACROSS
+Level: 24
+
+=== TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_5 ===
+Name: GUNTHER
+Class: TRAINER_CLASS_JUGGLER_FRLG
+Pic: TRAINER_PIC_JUGGLER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_KARRABLAST
+Level: 20
+
+SPECIES_SHELMET
+Level: 20
+
+SPECIES_DURANT
+Level: 22
+
+=== TRAINER_UNOVA_HARLEQUIN_R7 ===
+Name: PAT
+Class: TRAINER_CLASS_JUGGLER_FRLG
+Pic: TRAINER_PIC_JUGGLER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_BALTOY
+Level: 45
+
+SPECIES_FERROSEED
+Level: 46
+
+SPECIES_BALTOY
+Level: 45
+
+=== TRAINER_UNOVA_HEX_MANIAC_CELESTIAL_TOWER_1 ===
+Name: LIN
+Class: Hex Maniac
+Pic: Hex Maniac
+Gender: Female
+Double Battle: No
+
+SPECIES_HAUNTER
+Level: 48
+
+=== TRAINER_UNOVA_HEX_MANIAC_CELESTIAL_TOWER_2 ===
+Name: JOYCE
+Class: Hex Maniac
+Pic: Hex Maniac
+Gender: Female
+Double Battle: No
+
+SPECIES_SPIRITOMB
+Level: 48
+
+=== TRAINER_UNOVA_HEX_MANIAC_DESERT ===
+Name: TRISH
+Class: Hex Maniac
+Pic: Hex Maniac
+Gender: Female
+Double Battle: No
+
+SPECIES_BALTOY
+Level: 18
+
+SPECIES_YAMASK
+Level: 21
+
+=== TRAINER_UNOVA_HEX_MANIAC_PINWHEEL ===
+Name: ALESSA
+Class: Hex Maniac
+Pic: Hex Maniac
+Gender: Female
+Double Battle: No
+
+SPECIES_YAMASK
+Level: 28
+
+SPECIES_GOLETT
+Level: 28
+
+SPECIES_HAUNTER
+Level: 31
+
+=== TRAINER_UNOVA_HEX_MANIAC_RELIC_PASSAGE ===
+Name: LENORE
+Class: Hex Maniac
+Pic: Hex Maniac
+Gender: Female
+Double Battle: No
+
+SPECIES_BALTOY
+Level: 38
+
+SPECIES_HAUNTER
+Level: 40
+
+=== TRAINER_UNOVA_HEX_MANIAC_VICTORY_ROAD_INT ===
+Name: LAVINIA
+Class: Hex Maniac
+Pic: Hex Maniac
+Gender: Female
+Double Battle: No
+
+SPECIES_SPIRITOMB
+Level: 54
+
+SPECIES_GENGAR
+Level: 56
+
+=== TRAINER_UNOVA_HIKER_CHARGESTONE_2 ===
+Name: ANTHONY
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+SPECIES_ROGGENROLA
+Level: 42
+
+SPECIES_ARON
+Level: 42
+
+SPECIES_NOSEPASS
+Level: 44
+
+=== TRAINER_UNOVA_HIKER_MISTRALTON_CAVE_1 ===
+Name: CLARKE
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+SPECIES_BOLDORE
+Level: 42
+
+SPECIES_LAIRON
+Level: 44
+
+=== TRAINER_UNOVA_HIKER_R18 ===
+Name: PHILLIP
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+SPECIES_DRILBUR
+Level: 32
+
+SPECIES_ROGGENROLA
+Level: 31
+
+SPECIES_EXCADRILL
+Level: 35
+
+=== TRAINER_UNOVA_HIKER_RELIC_PASSAGE_1 ===
+Name: LEO
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+SPECIES_ARON
+Level: 38
+
+SPECIES_GURDURR
+Level: 40
+
+=== TRAINER_UNOVA_HIKER_REVERSAL_1 ===
+Name: WILSON
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+SPECIES_DWEBBLE
+Level: 10
+
+SPECIES_ARON
+Level: 10
+
+=== TRAINER_UNOVA_HIKER_TWIST_MOUNTAIN_1 ===
+Name: NEIL
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+SPECIES_GOLURK
+Level: 64
+
+SPECIES_MAMOSWINE
+Level: 65
+
+=== TRAINER_UNOVA_HIKER_WELLSPRING ===
+Name: WARREN
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+SPECIES_NUMEL
+Level: 33
+
+SPECIES_SWINUB
+Level: 33
+
+SPECIES_TRAPINCH
+Level: 35
+
+=== TRAINER_UNOVA_HIKER_CHARGESTONE_1 ===
+Name: CARTER
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+SPECIES_ONIX
+Level: 42
+
+SPECIES_BOLDORE
+Level: 44
+
+=== TRAINER_UNOVA_HIKER_CHARGESTONE_3 ===
+Name: CURTIS
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+SPECIES_ROGGENROLA
+Level: 42
+
+SPECIES_LAIRON
+Level: 44
+
+=== TRAINER_UNOVA_HIKER_GIANT_CHASM ===
+Name: CALVIN
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+SPECIES_GOLETT
+Level: 34
+
+SPECIES_NOSEPASS
+Level: 36
+
+=== TRAINER_UNOVA_HIKER_MISTRALTON_CAVE_2 ===
+Name: JEBEDIAH
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+SPECIES_STEELIX
+Level: 45
+
+=== TRAINER_UNOVA_HIKER_RELIC_PASSAGE_2 ===
+Name: KEN
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+SPECIES_SWINUB
+Level: 41
+
+SPECIES_LARVITAR
+Level: 41
+
+=== TRAINER_UNOVA_HIKER_REVERSAL_2 ===
+Name: BRETT
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+SPECIES_ONIX
+Level: 13
+
+=== TRAINER_UNOVA_HIKER_TWIST_MOUNTAIN_2 ===
+Name: WADE
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+SPECIES_TYRANITAR
+Level: 64
+
+SPECIES_PROBOPASS
+Level: 65
+
+=== TRAINER_UNOVA_HOOPSTER_VILLAGE_BRIDGE_1 ===
+Name: NICK
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+SPECIES_MAGBY
+Level: 47
+
+SPECIES_MAGMAR
+Level: 49
+
+SPECIES_PUPITAR
+Level: 49
+
+=== TRAINER_UNOVA_HOOPSTER_VILLAGE_BRIDGE_2 ===
+Name: DEREK
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+SPECIES_ELEKID
+Level: 47
+
+SPECIES_ELECTABUZZ
+Level: 49
+
+SPECIES_METANG
+Level: 49
+
+=== TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_1 ===
+Name: JED
+Class: TRAINER_CLASS_ENGINEER_FRLG
+Pic: TRAINER_PIC_ENGINEER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_DEINO
+Level: 38
+
+SPECIES_SNEASEL
+Level: 39
+
+=== TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_2 ===
+Name: CALEB
+Class: TRAINER_CLASS_ENGINEER_FRLG
+Pic: TRAINER_PIC_ENGINEER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_SCRAGGY
+Level: 38
+
+SPECIES_WEEZING
+Level: 39
+
+=== TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_3 ===
+Name: ORVILLE
+Class: TRAINER_CLASS_ENGINEER_FRLG
+Pic: TRAINER_PIC_ENGINEER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_SKORUPI
+Level: 37
+
+SPECIES_FOONGUS
+Level: 37
+
+SPECIES_GOLBAT
+Level: 37
+
+=== TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_4 ===
+Name: BRADY
+Class: TRAINER_CLASS_ENGINEER_FRLG
+Pic: TRAINER_PIC_ENGINEER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_HOUNDOUR
+Level: 37
+
+SPECIES_PAWNIARD
+Level: 37
+
+SPECIES_DEINO
+Level: 37
+
+=== TRAINER_UNOVA_LADY_R19 ===
+Name: CHELSEA
+Class: Lady
+Pic: Lady
+Gender: Female
+Double Battle: No
+
+SPECIES_COTTONEE
+Level: 23
+
+SPECIES_PETILIL
+Level: 23
+
+SPECIES_ROSELIA
+Level: 25
+
+=== TRAINER_UNOVA_LADY_R4 ===
+Name: LACEY
+Class: Lady
+Pic: Lady
+Gender: Female
+Double Battle: No
+
+SPECIES_FOONGUS
+Level: 16
+
+SPECIES_SHROOMISH
+Level: 18
+
+=== TRAINER_UNOVA_LASS_CELESTIAL_TOWER ===
+Name: DOREEN
+Class: Lass
+Pic: Lass
+Gender: Female
+Double Battle: No
+
+SPECIES_SNEASEL
+Level: 45
+
+SPECIES_VANILLISH
+Level: 45
+
+=== TRAINER_UNOVA_LASS_DESERT ===
+Name: ERIN
+Class: Lass
+Pic: Lass
+Gender: Female
+Double Battle: No
+
+SPECIES_CLEFFA
+Level: 18
+
+SPECIES_AUDINO
+Level: 19
+
+=== TRAINER_UNOVA_LASS_LOSTLORN ===
+Name: BRIDGET
+Class: Lass
+Pic: Lass
+Gender: Female
+Double Battle: No
+
+SPECIES_PETILIL
+Level: 14
+
+SPECIES_RALTS
+Level: 15
+
+=== TRAINER_UNOVA_LASS_NACRENE_OUTSKIRT ===
+Name: MOLLY
+Class: Lass
+Pic: Lass
+Gender: Female
+Double Battle: No
+
+SPECIES_COTTONEE
+Level: 28
+
+SPECIES_PETILIL
+Level: 28
+
+SPECIES_MARACTUS
+Level: 31
+
+=== TRAINER_UNOVA_LASS_R13 ===
+Name: LORI
+Class: Lass
+Pic: Lass
+Gender: Female
+Double Battle: No
+
+SPECIES_PURRLOIN
+Level: 3
+
+SPECIES_PIDOVE
+Level: 3
+
+=== TRAINER_UNOVA_LASS_PINWHEEL ===
+Name: VERONICA
+Class: Lass
+Pic: Lass
+Gender: Female
+Double Battle: No
+
+SPECIES_PETILIL
+Level: 28
+
+SPECIES_COTTONEE
+Level: 28
+
+SPECIES_TROPIUS
+Level: 31
+
+=== TRAINER_UNOVA_LASS_R2 ===
+Name: CARLA
+Class: Lass
+Pic: Lass
+Gender: Female
+Double Battle: No
+
+SPECIES_LITWICK
+Level: 30
+
+SPECIES_HERDIER
+Level: 32
+
+=== TRAINER_UNOVA_LASS_REVERSAL ===
+Name: HARRIET
+Class: Lass
+Pic: Lass
+Gender: Female
+Double Battle: No
+
+SPECIES_MUNNA
+Level: 14
+
+=== TRAINER_UNOVA_LINEBACKER_R5 ===
+Name: STAN
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+SPECIES_TRUBBISH
+Level: 15
+
+SPECIES_MAGNEMITE
+Level: 18
+
+SPECIES_JOLTIK
+Level: 16
+
+=== TRAINER_UNOVA_LINEBACKER_VILLAGE_BRIDGE ===
+Name: DEAN
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Double Battle: No
+
+SPECIES_CORSOLA
+Level: 49
+
+SPECIES_CORPHISH
+Level: 47
+
+SPECIES_SEADRA
+Level: 49
+
+=== TRAINER_UNOVA_MAID_CELESTIAL_TOWER ===
+Name: KASSANDRA
+Class: Parasol Lady
+Pic: Parasol Lady
+Gender: Female
+Double Battle: No
+
+SPECIES_YAMASK
+Level: 44
+
+SPECIES_GOTHORITA
+Level: 45
+
+=== TRAINER_UNOVA_MAID_R1 ===
+Name: CLARISSA
+Class: Parasol Lady
+Pic: Parasol Lady
+Gender: Female
+Double Battle: No
+
+SPECIES_ZORUA
+Level: 30
+
+SPECIES_SPHEAL
+Level: 30
+
+SPECIES_PURRLOIN
+Level: 30
+
+SPECIES_SNORUNT
+Level: 30
+
+=== TRAINER_UNOVA_MAID_R19 ===
+Name: SOPHIE
+Class: Parasol Lady
+Pic: Parasol Lady
+Gender: Female
+Double Battle: No
+
+SPECIES_REMORAID
+Level: 26
+
+SPECIES_MANTYKE
+Level: 26
+
+=== TRAINER_UNOVA_MUSICIAN_VILLAGE_BRIDGE ===
+Name: TOM
+Class: Guitarist
+Pic: Guitarist
+Gender: Male
+Double Battle: No
+
+SPECIES_DURANT
+Level: 48
+
+SPECIES_HOUNDOOM
+Level: 50
+
+=== TRAINER_UNOVA_MUSICIAN_VIRBANK_GYM_1 ===
+Name: KERRY
+Class: Guitarist
+Pic: Guitarist
+Gender: Male
+Double Battle: No
+
+SPECIES_KOFFING
+Level: 27
+
+SPECIES_TRUBBISH
+Level: 29
+
+=== TRAINER_UNOVA_MUSICIAN_VIRBANK_GYM_2 ===
+Name: HERMAN
+Class: Guitarist
+Pic: Guitarist
+Gender: Male
+Double Battle: No
+
+SPECIES_ZUBAT
+Level: 27
+
+SPECIES_CROAGUNK
+Level: 28
+
+SPECIES_ZUBAT
+Level: 27
+
+=== TRAINER_UNOVA_NURSE_CELESTIAL_TOWER ===
+Name: SACHIKO
+Class: Lady
+Pic: Lady
+Gender: Female
+Double Battle: No
+
+SPECIES_LEAVANNY
+Level: 49
+
+=== TRAINER_UNOVA_NURSE_DESERT ===
+Name: VALERIE
+Class: Lady
+Pic: Lady
+Gender: Female
+Double Battle: No
+
+SPECIES_MUNNA
+Level: 18
+
+SPECIES_MEDITITE
+Level: 20
+
+=== TRAINER_UNOVA_NURSE_RELIC_PASSAGE ===
+Name: SANDY
+Class: Lady
+Pic: Lady
+Gender: Female
+Double Battle: No
+
+SPECIES_WIGGLYTUFF
+Level: 43
+
+=== TRAINER_UNOVA_NURSE_TWIST_MOUNTAIN ===
+Name: CAROL
+Class: Lady
+Pic: Lady
+Gender: Female
+Double Battle: No
+
+SPECIES_CLEFABLE
+Level: 68
+
+=== TRAINER_UNOVA_NURSE_VICTORY_ROAD ===
+Name: LORETTA
+Class: Lady
+Pic: Lady
+Gender: Female
+Double Battle: No
+
+SPECIES_CLEFABLE
+Level: 54
+
+SPECIES_SYLVEON
+Level: 56
+
+=== TRAINER_UNOVA_NURSERY_AIDE_MARINE_TUBE ===
+Name: LISA
+Class: Pkmn Breeder
+Pic: Pokemon Breeder F
+Gender: Female
+Double Battle: No
+
+SPECIES_AUDINO
+Level: 7
+
+=== TRAINER_UNOVA_NURSERY_AIDE_R20 ===
+Name: ANGIE
+Class: Pkmn Breeder
+Pic: Pokemon Breeder F
+Gender: Female
+Double Battle: No
+
+SPECIES_EEVEE
+Level: 25
+
+SPECIES_SYLVEON
+Level: 28
+
+=== TRAINER_UNOVA_NURSERY_AIDE_R7 ===
+Name: MARY
+Class: Pkmn Breeder
+Pic: Pokemon Breeder F
+Gender: Female
+Double Battle: No
+
+SPECIES_DARUMAKA
+Level: 43
+
+SPECIES_DARMANITAN
+Level: 45
+
+=== TRAINER_UNOVA_PARASOL_LADY_NACRENE_OUTSKIRT ===
+Name: KELLY
+Class: Parasol Lady
+Pic: Parasol Lady
+Gender: Female
+Double Battle: No
+
+SPECIES_RUFFLET
+Level: 28
+
+SPECIES_PALPITOAD
+Level: 28
+
+SPECIES_WATCHOG
+Level: 31
+
+=== TRAINER_UNOVA_PARASOL_LADY_R6_1 ===
+Name: KATY
+Class: Parasol Lady
+Pic: Parasol Lady
+Gender: Female
+Double Battle: No
+
+SPECIES_KARRABLAST
+Level: 39
+
+SPECIES_ESCAVALIER
+Level: 42
+
+=== TRAINER_UNOVA_PARASOL_LADY_R6_2 ===
+Name: STACY
+Class: Parasol Lady
+Pic: Parasol Lady
+Gender: Female
+Double Battle: No
+
+SPECIES_SHELMET
+Level: 39
+
+SPECIES_ACCELGOR
+Level: 42
+
+=== TRAINER_UNOVA_PARASOL_LADY_R8 ===
+Name: LOIS
+Class: Parasol Lady
+Pic: Parasol Lady
+Gender: Female
+Double Battle: No
+
+SPECIES_PALPITOAD
+Level: 50
+
+SPECIES_DRATINI
+Level: 48
+
+SPECIES_TOXICROAK
+Level: 50
+
+=== TRAINER_UNOVA_PILOT_MISTRALTON_GYM_1 ===
+Name: CHASE
+Class: Sailor
+Pic: Sailor
+Gender: Male
+Double Battle: No
+
+SPECIES_RUFFLET
+Level: 44
+
+SPECIES_BRAVIARY
+Level: 46
+
+=== TRAINER_UNOVA_PILOT_MISTRALTON_GYM_2 ===
+Name: FLYNN
+Class: Sailor
+Pic: Sailor
+Gender: Male
+Double Battle: No
+
+SPECIES_VULLABY
+Level: 44
+
+SPECIES_MANDIBUZZ
+Level: 46
+
+=== TRAINER_UNOVA_PILOT_MISTRALTON_GYM_3 ===
+Name: EWING
+Class: Sailor
+Pic: Sailor
+Gender: Male
+Double Battle: No
+
+SPECIES_SWABLU
+Level: 43
+
+SPECIES_TRANQUILL
+Level: 46
+
+SPECIES_DUCKLETT
+Level: 43
+
+=== TRAINER_UNOVA_PILOT_MISTRALTON_GYM_4 ===
+Name: TED
+Class: Sailor
+Pic: Sailor
+Gender: Male
+Double Battle: No
+
+SPECIES_SIGILYPH
+Level: 47
+
+=== TRAINER_UNOVA_PILOT_MISTRALTON_GYM_5 ===
+Name: ELRON
+Class: Sailor
+Pic: Sailor
+Gender: Male
+Double Battle: No
+
+SPECIES_GOLBAT
+Level: 46
+
+SPECIES_SWOOBAT
+Level: 46
+
+=== TRAINER_UNOVA_PKMN_BREEDERF_LOSTLORN ===
+Name: ROBIN
+Class: Pkmn Breeder
+Pic: Pokemon Breeder F
+Gender: Female
+Double Battle: No
+
+SPECIES_IGGLYBUFF
+Level: 15
+
+SPECIES_MUNNA
+Level: 14
+
+SPECIES_JIGGLYPUFF
+Level: 17
+
+=== TRAINER_UNOVA_PKMN_BREEDERF_R19 ===
+Name: BRENDA
+Class: Pkmn Breeder
+Pic: Pokemon Breeder F
+Gender: Female
+Double Battle: No
+
+SPECIES_PATRAT
+Level: 24
+
+SPECIES_HERDIER
+Level: 25
+
+=== TRAINER_UNOVA_PKMN_BREEDERF_R6 ===
+Name: SHAWNA
+Class: Pkmn Breeder
+Pic: Pokemon Breeder F
+Gender: Female
+Double Battle: No
+
+SPECIES_DEERLING
+Level: 40
+
+SPECIES_GRANBULL
+Level: 42
+
+=== TRAINER_UNOVA_PKMN_BREEDERF_R7 ===
+Name: MARLA
+Class: Pkmn Breeder
+Pic: Pokemon Breeder F
+Gender: Female
+Double Battle: No
+
+SPECIES_CLEFFA
+Level: 43
+
+SPECIES_MUSHARNA
+Level: 45
+
+=== TRAINER_UNOVA_PKMN_BREEDERM_LOSTLORN ===
+Name: SAL
+Class: Pkmn Breeder
+Pic: Pokemon Breeder M
+Gender: Male
+Double Battle: No
+
+SPECIES_BUDEW
+Level: 14
+
+SPECIES_SHROOMISH
+Level: 16
+
+=== TRAINER_UNOVA_PKMN_BREEDERM_R19 ===
+Name: BRENT
+Class: Pkmn Breeder
+Pic: Pokemon Breeder M
+Gender: Male
+Double Battle: No
+
+SPECIES_RUFFLET
+Level: 25
+
+SPECIES_TRANQUILL
+Level: 25
+
+=== TRAINER_UNOVA_PKMN_BREEDERM_R6 ===
+Name: RUBEN
+Class: Pkmn Breeder
+Pic: Pokemon Breeder M
+Gender: Male
+Double Battle: No
+
+SPECIES_CUBCHOO
+Level: 40
+
+SPECIES_KIRLIA
+Level: 42
+
+=== TRAINER_UNOVA_PKMN_BREEDERM_R7 ===
+Name: TERRY
+Class: Pkmn Breeder
+Pic: Pokemon Breeder M
+Gender: Male
+Double Battle: No
+
+SPECIES_DUCKLETT
+Level: 43
+
+SPECIES_TRANQUILL
+Level: 45
+
+=== TRAINER_UNOVA_PKMN_RANGERF_CHARGESTONE ===
+Name: BRINA
+Class: Pkmn Ranger
+Pic: Pokemon Ranger F
+Gender: Female
+Double Battle: No
+
+SPECIES_HERDIER
+Level: 42
+
+SPECIES_EXCADRILL
+Level: 44
+
+=== TRAINER_UNOVA_PKMN_RANGERF_DESERT ===
+Name: SARAH
+Class: Pkmn Ranger
+Pic: Pokemon Ranger F
+Gender: Female
+Double Battle: No
+
+SPECIES_NUMEL
+Level: 17
+
+SPECIES_GLIGAR
+Level: 19
+
+=== TRAINER_UNOVA_PKMN_RANGERF_MOOR_OF_ICIRRUS ===
+Name: MARIAH
+Class: Pkmn Ranger
+Pic: Pokemon Ranger F
+Gender: Female
+Double Battle: No
+
+SPECIES_ACCELGOR
+Level: 50
+
+SPECIES_AMOONGUSS
+Level: 50
+
+SPECIES_BOUFFALANT
+Level: 52
+
+=== TRAINER_UNOVA_PKMN_RANGERF_OUTSKIRTS ===
+Name: TERRI
+Class: Pkmn Ranger
+Pic: Pokemon Ranger F
+Gender: Female
+Double Battle: No
+
+SPECIES_TIMBURR
+Level: 11
+
+SPECIES_ARON
+Level: 12
+
+=== TRAINER_UNOVA_PKMN_RANGERF_PINWHEEL_1 ===
+Name: STELLA
+Class: Pkmn Ranger
+Pic: Pokemon Ranger F
+Gender: Female
+Double Battle: No
+
+SPECIES_HERACROSS
+Level: 33
+
+=== TRAINER_UNOVA_PKMN_RANGERF_PINWHEEL_2 ===
+Name: DANI
+Class: Pkmn Ranger
+Pic: Pokemon Ranger F
+Gender: Female
+Double Battle: No
+
+SPECIES_KARRABLAST
+Level: 29
+
+SPECIES_ESCAVALIER
+Level: 31
+
+=== TRAINER_UNOVA_PKMN_RANGERF_R1 ===
+Name: LANEY
+Class: Pkmn Ranger
+Pic: Pokemon Ranger F
+Gender: Female
+Double Battle: No
+
+SPECIES_SHROOMISH
+Level: 32
+
+SPECIES_SWADLOON
+Level: 34
+
+=== TRAINER_UNOVA_PKMN_RANGERF_R23 ===
+Name: LENA
+Class: Pkmn Ranger
+Pic: Pokemon Ranger F
+Gender: Female
+Double Battle: No
+
+SPECIES_SEALEO
+Level: 55
+
+SPECIES_LUCARIO
+Level: 57
+
+=== TRAINER_UNOVA_PKMN_RANGERF_R3 ===
+Name: ARIANA
+Class: Pkmn Ranger
+Pic: Pokemon Ranger F
+Gender: Female
+Double Battle: No
+
+SPECIES_TRAPINCH
+Level: 30
+
+SPECIES_DRATINI
+Level: 30
+
+=== TRAINER_UNOVA_PKMN_RANGERF_R6 ===
+Name: CONNIE
+Class: Pkmn Ranger
+Pic: Pokemon Ranger F
+Gender: Female
+Double Battle: No
+
+SPECIES_TROPIUS
+Level: 40
+
+SPECIES_AUDINO
+Level: 40
+
+=== TRAINER_UNOVA_PKMN_RANGERF_R8 ===
+Name: ANNIE
+Class: Pkmn Ranger
+Pic: Pokemon Ranger F
+Gender: Female
+Double Battle: No
+
+SPECIES_DRIFBLIM
+Level: 50
+
+SPECIES_AXEW
+Level: 48
+
+SPECIES_BOUFFALANT
+Level: 50
+
+=== TRAINER_UNOVA_PKMN_RANGERF_VICTORY_ROAD_INT ===
+Name: ELLA
+Class: Pkmn Ranger
+Pic: Pokemon Ranger F
+Gender: Female
+Double Battle: No
+
+SPECIES_MAGMAR
+Level: 54
+
+SPECIES_CAMERUPT
+Level: 56
+
+=== TRAINER_UNOVA_PKMN_RANGERM_CHARGESTONE ===
+Name: BEN
+Class: Pkmn Ranger
+Pic: Pokemon Ranger M
+Gender: Male
+Double Battle: No
+
+SPECIES_ZEBSTRIKA
+Level: 47
+
+=== TRAINER_UNOVA_PKMN_RANGERM_DESERT ===
+Name: JEROME
+Class: Pkmn Ranger
+Pic: Pokemon Ranger M
+Gender: Male
+Double Battle: No
+
+SPECIES_DWEBBLE
+Level: 18
+
+SPECIES_TRAPINCH
+Level: 20
+
+=== TRAINER_UNOVA_PKMN_RANGERM_MOOR_OF_ICIRRUS ===
+Name: ARNOLD
+Class: Pkmn Ranger
+Pic: Pokemon Ranger M
+Gender: Male
+Double Battle: No
+
+SPECIES_ESCAVALIER
+Level: 50
+
+SPECIES_MARACTUS
+Level: 50
+
+SPECIES_TOXICROAK
+Level: 52
+
+=== TRAINER_UNOVA_PKMN_RANGERM_OUTSKIRTS ===
+Name: BERT
+Class: Pkmn Ranger
+Pic: Pokemon Ranger M
+Gender: Male
+Double Battle: No
+
+SPECIES_DARUMAKA
+Level: 10
+
+SPECIES_VULPIX
+Level: 12
+
+=== TRAINER_UNOVA_PKMN_RANGERM_PINWHEEL_1 ===
+Name: ARTHUR
+Class: Pkmn Ranger
+Pic: Pokemon Ranger M
+Gender: Male
+Double Battle: No
+
+SPECIES_PINSIR
+Level: 33
+
+=== TRAINER_UNOVA_PKMN_RANGERM_PINWHEEL_2 ===
+Name: DUNCAN
+Class: Pkmn Ranger
+Pic: Pokemon Ranger M
+Gender: Male
+Double Battle: No
+
+SPECIES_SHELMET
+Level: 29
+
+SPECIES_ACCELGOR
+Level: 31
+
+=== TRAINER_UNOVA_PKMN_RANGERM_R1 ===
+Name: DANNY
+Class: Pkmn Ranger
+Pic: Pokemon Ranger M
+Gender: Male
+Double Battle: No
+
+SPECIES_VENIPEDE
+Level: 31
+
+SPECIES_WHIRLIPEDE
+Level: 33
+
+SPECIES_DWEBBLE
+Level: 33
+
+=== TRAINER_UNOVA_PKMN_RANGERM_R23 ===
+Name: STEVE
+Class: Pkmn Ranger
+Pic: Pokemon Ranger M
+Gender: Male
+Double Battle: No
+
+SPECIES_STUNFISK
+Level: 55
+
+SPECIES_AMOONGUSS
+Level: 57
+
+=== TRAINER_UNOVA_PKMN_RANGERM_R3 ===
+Name: VERNE
+Class: Pkmn Ranger
+Pic: Pokemon Ranger M
+Gender: Male
+Double Battle: No
+
+SPECIES_SWABLU
+Level: 30
+
+SPECIES_AXEW
+Level: 30
+
+=== TRAINER_UNOVA_PKMN_RANGERM_R6 ===
+Name: CHAD
+Class: Pkmn Ranger
+Pic: Pokemon Ranger M
+Gender: Male
+Double Battle: No
+
+SPECIES_SNORUNT
+Level: 40
+
+SPECIES_VANILLISH
+Level: 42
+
+=== TRAINER_UNOVA_PKMN_RANGERM_R8 ===
+Name: MARTY
+Class: Pkmn Ranger
+Pic: Pokemon Ranger M
+Gender: Male
+Double Battle: No
+
+SPECIES_SWADLOON
+Level: 50
+
+SPECIES_LARVESTA
+Level: 48
+
+SPECIES_PINSIR
+Level: 50
+
+=== TRAINER_UNOVA_PKMN_RANGERM_VICTORY_ROAD_INT ===
+Name: EDDIE
+Class: Pkmn Ranger
+Pic: Pokemon Ranger M
+Gender: Male
+Double Battle: No
+
+SPECIES_ELECTABUZZ
+Level: 54
+
+SPECIES_PROBOPASS
+Level: 56
+
+=== TRAINER_UNOVA_POKEFANF_CELESTIAL_TOWER ===
+Name: GEORGIA
+Class: Pokefan
+Pic: Pokefan F
+Gender: Female
+Double Battle: No
+
+SPECIES_CUBCHOO
+Level: 44
+
+SPECIES_SNORUNT
+Level: 44
+
+SPECIES_VANILLITE
+Level: 44
+
+=== TRAINER_UNOVA_POKEFANF_R4 ===
+Name: SELENE
+Class: Pokefan
+Pic: Pokefan F
+Gender: Female
+Double Battle: No
+
+SPECIES_DRILBUR
+Level: 18
+
+SPECIES_MARILL
+Level: 17
+
+=== TRAINER_UNOVA_POKEFANM_CELESTIAL_TOWER ===
+Name: JUDE
+Class: Pokefan
+Pic: Pokefan M
+Gender: Male
+Double Battle: No
+
+SPECIES_CLEFAIRY
+Level: 43
+
+SPECIES_MUSHARNA
+Level: 46
+
+=== TRAINER_UNOVA_POKEFANM_R4 ===
+Name: NORM
+Class: Pokefan
+Pic: Pokefan M
+Gender: Male
+Double Battle: No
+
+SPECIES_SEWADDLE
+Level: 18
+
+SPECIES_SANDILE
+Level: 16
+
+=== TRAINER_UNOVA_POLICEMAN_R2 ===
+Name: CARL
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+SPECIES_VAPOREON
+Level: 34
+
+=== TRAINER_UNOVA_POLICEMAN_R4_1 ===
+Name: RUDY
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+SPECIES_HOUNDOUR
+Level: 16
+
+SPECIES_HERDIER
+Level: 18
+
+=== TRAINER_UNOVA_POLICEMAN_R4_2 ===
+Name: ERNEST
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+SPECIES_RIOLU
+Level: 16
+
+SPECIES_SNUBBULL
+Level: 19
+
+=== TRAINER_UNOVA_PRESCHOOLERF_MARINE_TUBE ===
+Name: MIA
+Class: Tuber F
+Pic: Tuber F
+Gender: Female
+Double Battle: No
+
+SPECIES_BUDEW
+Level: 5
+
+SPECIES_SHROOMISH
+Level: 5
+
+=== TRAINER_UNOVA_PRESCHOOLERF_R14_1 ===
+Name: JILL
+Class: Tuber F
+Pic: Tuber F
+Gender: Female
+Double Battle: No
+
+SPECIES_MAREEP
+Level: 6
+
+SPECIES_DRILBUR
+Level: 5
+
+=== TRAINER_UNOVA_PRESCHOOLERF_R14_2 ===
+Name: BONNIE
+Class: Tuber F
+Pic: Tuber F
+Gender: Female
+Double Battle: No
+
+SPECIES_SNUBBULL
+Level: 8
+
+SPECIES_RALTS
+Level: 8
+
+=== TRAINER_UNOVA_PRESCHOOLERM_MARINE_TUBE ===
+Name: EVAN
+Class: Ninja Boy
+Pic: Ninja Boy
+Gender: Male
+Double Battle: No
+
+SPECIES_AZURILL
+Level: 5
+
+SPECIES_LILLIPUP
+Level: 5
+
+=== TRAINER_UNOVA_PRESCHOOLERM_R14_1 ===
+Name: FREDDY
+Class: Ninja Boy
+Pic: Ninja Boy
+Gender: Male
+Double Battle: No
+
+SPECIES_PURRLOIN
+Level: 6
+
+SPECIES_LILLIPUP
+Level: 8
+
+=== TRAINER_UNOVA_PRESCHOOLERM_R14_2 ===
+Name: GEOFF
+Class: Ninja Boy
+Pic: Ninja Boy
+Gender: Male
+Double Battle: No
+
+SPECIES_PATRAT
+Level: 5
+
+SPECIES_LILLIPUP
+Level: 6
+
+=== TRAINER_UNOVA_PSYCHICF_CELESTIAL_TOWER ===
+Name: MILLI
+Class: Psychic
+Pic: Psychic F
+Gender: Female
+Double Battle: No
+
+SPECIES_DRIFLOON
+Level: 45
+
+SPECIES_LITWICK
+Level: 45
+
+=== TRAINER_UNOVA_PSYCHICF_DREAMYARD ===
+Name: OLESIA
+Class: Psychic
+Pic: Psychic F
+Gender: Female
+Double Battle: No
+
+SPECIES_GOTHORITA
+Level: 32
+
+SPECIES_LAMPENT
+Level: 34
+
+=== TRAINER_UNOVA_PSYCHICF_RELIC_CASTLE_1 ===
+Name: DUA
+Class: Psychic
+Pic: Psychic F
+Gender: Female
+Double Battle: No
+
+SPECIES_SIGILYPH
+Level: 23
+
+=== TRAINER_UNOVA_PSYCHICF_RELIC_CASTLE_2 ===
+Name: SEBBIE
+Class: Psychic
+Pic: Psychic F
+Gender: Female
+Double Battle: No
+
+SPECIES_BALTOY
+Level: 18
+
+SPECIES_KIRLIA
+Level: 22
+
+=== TRAINER_UNOVA_PSYCHICF_RELIC_PASSAGE ===
+Name: KRISSY
+Class: Psychic
+Pic: Psychic F
+Gender: Female
+Double Battle: No
+
+SPECIES_JIGGLYPUFF
+Level: 39
+
+SPECIES_CLEFAIRY
+Level: 39
+
+=== TRAINER_UNOVA_PSYCHICF_VICTORY_ROAD_INT ===
+Name: ALIA
+Class: Psychic
+Pic: Psychic F
+Gender: Female
+Double Battle: No
+
+SPECIES_LAMPENT
+Level: 54
+
+SPECIES_MUSHARNA
+Level: 56
+
+=== TRAINER_UNOVA_PSYCHICM_CELESTIAL_TOWER ===
+Name: BECKETT
+Class: Psychic
+Pic: Psychic M
+Gender: Male
+Double Battle: No
+
+SPECIES_KIRLIA
+Level: 45
+
+SPECIES_DUOSION
+Level: 45
+
+=== TRAINER_UNOVA_PSYCHICM_DREAMYARD ===
+Name: NANDO
+Class: Psychic
+Pic: Psychic M
+Gender: Male
+Double Battle: No
+
+SPECIES_HAUNTER
+Level: 32
+
+SPECIES_CLAYDOL
+Level: 34
+
+=== TRAINER_UNOVA_PSYCHICM_PINWHEEL ===
+Name: CHRIS
+Class: Psychic
+Pic: Psychic M
+Gender: Male
+Double Battle: No
+
+SPECIES_GOTHITA
+Level: 29
+
+SPECIES_GOTHORITA
+Level: 31
+
+=== TRAINER_UNOVA_PSYCHICM_RELIC_CASTLE ===
+Name: FELIX
+Class: Psychic
+Pic: Psychic M
+Gender: Male
+Double Battle: No
+
+SPECIES_GOTHITA
+Level: 20
+
+SPECIES_SOLOSIS
+Level: 20
+
+=== TRAINER_UNOVA_PSYCHICM_RELIC_PASSAGE ===
+Name: MARK
+Class: Psychic
+Pic: Psychic M
+Gender: Male
+Double Battle: No
+
+SPECIES_GOTHORITA
+Level: 39
+
+SPECIES_DUOSION
+Level: 39
+
+=== TRAINER_UNOVA_PSYCHICM_VICTORY_ROAD_INT ===
+Name: AL
+Class: Psychic
+Pic: Psychic M
+Gender: Male
+Double Battle: No
+
+SPECIES_METANG
+Level: 54
+
+SPECIES_COFAGRIGUS
+Level: 56
+
+=== TRAINER_UNOVA_RICH_BOY_NACRENE_OUTSKIRT ===
+Name: CARTIS
+Class: Rich Boy
+Pic: Rich Boy
+Gender: Male
+Double Battle: No
+
+SPECIES_VULLABY
+Level: 28
+
+SPECIES_HERDIER
+Level: 28
+
+SPECIES_SWOOBAT
+Level: 31
+
+=== TRAINER_UNOVA_RICH_BOY_R4 ===
+Name: PETER
+Class: Rich Boy
+Pic: Rich Boy
+Gender: Male
+Double Battle: No
+
+SPECIES_VULLABY
+Level: 17
+
+SPECIES_SWABLU
+Level: 18
+
+=== TRAINER_UNOVA_ROUGHNECK_DESERT ===
+Name: HORACE
+Class: TRAINER_CLASS_CUE_BALL_FRLG
+Pic: TRAINER_PIC_CUE_BALL_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_SANDILE
+Level: 16
+
+SPECIES_DRILBUR
+Level: 16
+
+SPECIES_TRAPINCH
+Level: 18
+
+=== TRAINER_UNOVA_ROUGHNECK_R4 ===
+Name: JEREMY
+Class: TRAINER_CLASS_CUE_BALL_FRLG
+Pic: TRAINER_PIC_CUE_BALL_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_SKORUPI
+Level: 15
+
+SPECIES_DWEBBLE
+Level: 15
+
+SPECIES_SKORUPI
+Level: 18
+
+=== TRAINER_UNOVA_ROUGHNECK_R9_1 ===
+Name: REESE
+Class: TRAINER_CLASS_CUE_BALL_FRLG
+Pic: TRAINER_PIC_CUE_BALL_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_PAWNIARD
+Level: 48
+
+SPECIES_SKARMORY
+Level: 50
+
+=== TRAINER_UNOVA_ROUGHNECK_R9_2 ===
+Name: KAZ
+Class: TRAINER_CLASS_CUE_BALL_FRLG
+Pic: TRAINER_PIC_CUE_BALL_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_LAIRON
+Level: 48
+
+SPECIES_DRAPION
+Level: 50
+
+=== TRAINER_UNOVA_RYOKU2 ===
+Name: RYOKU
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+SPECIES_TROPIUS
+Level: 53
+
+SPECIES_SAWSBUCK
+Level: 54
+
+SPECIES_FERROTHORN
+Level: 53
+
+SPECIES_AMOONGUSS
+Level: 54
+
+SPECIES_ROSERADE
+Level: 56
+
+=== TRAINER_UNOVA_SCHOOL_KIDF_DREAMYARD ===
+Name: RITA
+Class: School Kid
+Pic: School Kid F
+Gender: Female
+Double Battle: No
+
+SPECIES_AUDINO
+Level: 30
+
+SPECIES_WIGGLYTUFF
+Level: 32
+
+=== TRAINER_UNOVA_SCHOOL_KIDF_LOSTLORN ===
+Name: ROCHELE
+Class: School Kid
+Pic: School Kid F
+Gender: Female
+Double Battle: No
+
+SPECIES_KARRABLAST
+Level: 14
+
+SPECIES_SHELMET
+Level: 14
+
+=== TRAINER_UNOVA_SCHOOL_KIDF_R13 ===
+Name: JEWEL
+Class: School Kid
+Pic: School Kid F
+Gender: Female
+Double Battle: No
+
+SPECIES_AZURILL
+Level: 3
+
+SPECIES_BUDEW
+Level: 3
+
+SPECIES_IGGLYBUFF
+Level: 3
+
+=== TRAINER_UNOVA_SCHOOL_KIDF_R20_1 ===
+Name: SYDNEY
+Class: School Kid
+Pic: School Kid F
+Gender: Female
+Double Battle: No
+
+SPECIES_EEVEE
+Level: 25
+
+SPECIES_LEAFEON
+Level: 28
+
+=== TRAINER_UNOVA_SCHOOL_KIDF_R20_2 ===
+Name: SHAUNA
+Class: School Kid
+Pic: School Kid F
+Gender: Female
+Double Battle: No
+
+SPECIES_EEVEE
+Level: 25
+
+SPECIES_FLAREON
+Level: 28
+
+=== TRAINER_UNOVA_SCHOOL_KIDF_R20_3 ===
+Name: LYSSA
+Class: School Kid
+Pic: School Kid F
+Gender: Female
+Double Battle: No
+
+SPECIES_EEVEE
+Level: 25
+
+SPECIES_ESPEON
+Level: 28
+
+=== TRAINER_UNOVA_SCHOOL_KIDF_R7 ===
+Name: MARIA
+Class: School Kid
+Pic: School Kid F
+Gender: Female
+Double Battle: No
+
+SPECIES_MARACTUS
+Level: 48
+
+=== TRAINER_UNOVA_SCHOOL_KIDF_REVERSAL ===
+Name: BEVERLY
+Class: School Kid
+Pic: School Kid F
+Gender: Female
+Double Battle: No
+
+SPECIES_IGGLYBUFF
+Level: 9
+
+SPECIES_CLEFFA
+Level: 9
+
+SPECIES_SNUBBULL
+Level: 10
+
+=== TRAINER_UNOVA_SCHOOL_KIDM_DREAMYARD ===
+Name: WILLIAM
+Class: School Kid
+Pic: School Kid M
+Gender: Male
+Double Battle: No
+
+SPECIES_SHROOMISH
+Level: 30
+
+SPECIES_BRELOOM
+Level: 32
+
+=== TRAINER_UNOVA_SCHOOL_KIDM_LOSTLORN ===
+Name: KENNY
+Class: School Kid
+Pic: School Kid M
+Gender: Male
+Double Battle: No
+
+SPECIES_VENIPEDE
+Level: 14
+
+SPECIES_JOLTIK
+Level: 15
+
+SPECIES_SEWADDLE
+Level: 14
+
+=== TRAINER_UNOVA_SCHOOL_KIDM_OUTSKIRTS ===
+Name: GARRETT
+Class: School Kid
+Pic: School Kid M
+Gender: Male
+Double Battle: No
+
+SPECIES_PIDOVE
+Level: 9
+
+SPECIES_PATRAT
+Level: 9
+
+SPECIES_BLITZLE
+Level: 11
+
+=== TRAINER_UNOVA_SCHOOL_KIDM_R13 ===
+Name: JOHNNY
+Class: School Kid
+Pic: School Kid M
+Gender: Male
+Double Battle: No
+
+SPECIES_SEWADDLE
+Level: 4
+
+SPECIES_VENIPEDE
+Level: 4
+
+=== TRAINER_UNOVA_SCHOOL_KIDM_R20_1 ===
+Name: DEVON
+Class: School Kid
+Pic: School Kid M
+Gender: Male
+Double Battle: No
+
+SPECIES_EEVEE
+Level: 25
+
+SPECIES_UMBREON
+Level: 28
+
+=== TRAINER_UNOVA_SCHOOL_KIDM_R20_2 ===
+Name: DARREN
+Class: School Kid
+Pic: School Kid M
+Gender: Male
+Double Battle: No
+
+SPECIES_EEVEE
+Level: 25
+
+SPECIES_JOLTEON
+Level: 28
+
+=== TRAINER_UNOVA_SCHOOL_KIDM_R20_3 ===
+Name: TYRONE
+Class: School Kid
+Pic: School Kid M
+Gender: Male
+Double Battle: No
+
+SPECIES_EEVEE
+Level: 25
+
+SPECIES_GLACEON
+Level: 28
+
+=== TRAINER_UNOVA_SCHOOL_KIDM_R7 ===
+Name: BARRETT
+Class: School Kid
+Pic: School Kid M
+Gender: Male
+Double Battle: No
+
+SPECIES_AZUMARILL
+Level: 48
+
+=== TRAINER_UNOVA_SCIENTISTF_CASTELIA_SEWERS ===
+Name: CAROLINE
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_KOFFING
+Level: 37
+
+SPECIES_VANILLITE
+Level: 37
+
+SPECIES_KLINK
+Level: 37
+
+=== TRAINER_UNOVA_SCIENTISTF_CHARGESTONE ===
+Name: ELLE
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_METANG
+Level: 42
+
+SPECIES_DITTO
+Level: 42
+
+=== TRAINER_UNOVA_SCIENTISTF_DREAMYARD ===
+Name: ATHENA
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_DITTO
+Level: 32
+
+SPECIES_GARBODOR
+Level: 34
+
+=== TRAINER_UNOVA_SCIENTISTF_R6 ===
+Name: LINDA
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_YANMA
+Level: 39
+
+SPECIES_YANMA
+Level: 39
+
+SPECIES_YANMEGA
+Level: 41
+
+=== TRAINER_UNOVA_SCIENTISTF_VICTORY_ROAD_EXT ===
+Name: DARIA
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_ZEBSTRIKA
+Level: 54
+
+SPECIES_STARMIE
+Level: 56
+
+=== TRAINER_UNOVA_SCIENTISTF_VIRBANK_COMPLEX_1 ===
+Name: BELINDA
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_DITTO
+Level: 33
+
+=== TRAINER_UNOVA_SCIENTISTF_VIRBANK_COMPLEX_2 ===
+Name: DOT
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_KLINK
+Level: 27
+
+SPECIES_VANILLITE
+Level: 27
+
+SPECIES_SOLOSIS
+Level: 29
+
+=== TRAINER_UNOVA_SCIENTISTM_CASTELIA_SEWERS ===
+Name: CLARK
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_TYNAMO
+Level: 36
+
+SPECIES_BELDUM
+Level: 36
+
+SPECIES_EELEKTRIK
+Level: 38
+
+=== TRAINER_UNOVA_SCIENTISTM_CHARGESTONE ===
+Name: RANDY
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_MAGNETON
+Level: 42
+
+SPECIES_DITTO
+Level: 42
+
+=== TRAINER_UNOVA_SCIENTISTM_DREAMYARD ===
+Name: FRANKIE
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_KLANG
+Level: 32
+
+SPECIES_MAGNETON
+Level: 34
+
+=== TRAINER_UNOVA_SCIENTISTM_P2 ===
+Name: DUDLEY
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_BELDUM
+Level: 34
+
+SPECIES_ZORUA
+Level: 34
+
+SPECIES_KLANG
+Level: 36
+
+=== TRAINER_UNOVA_SCIENTISTM_R6 ===
+Name: MARCO
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_BELDUM
+Level: 40
+
+SPECIES_DITTO
+Level: 40
+
+SPECIES_VANILLITE
+Level: 40
+
+=== TRAINER_UNOVA_SCIENTISTM_VICTORY_ROAD_EXT ===
+Name: DREW
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_METANG
+Level: 54
+
+SPECIES_BISHARP
+Level: 56
+
+=== TRAINER_UNOVA_SCIENTISTM_VIRBANK_COMPLEX ===
+Name: CLARENCE
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_MAGNEMITE
+Level: 28
+
+SPECIES_KLINK
+Level: 32
+
+=== TRAINER_UNOVA_SMASHER_VILLAGE_BRIDGE_1 ===
+Name: VENUS
+Class: Battle Girl
+Pic: Battle Girl
+Gender: Female
+Double Battle: No
+
+SPECIES_PIGNITE
+Level: 48
+
+SPECIES_EXCADRILL
+Level: 49
+
+=== TRAINER_UNOVA_SMASHER_VILLAGE_BRIDGE_2 ===
+Name: SERENA
+Class: Battle Girl
+Pic: Battle Girl
+Gender: Female
+Double Battle: No
+
+SPECIES_MAWILE
+Level: 48
+
+SPECIES_KLANG
+Level: 50
+
+=== TRAINER_UNOVA_SOCIALITE_CELESTIAL_TOWER ===
+Name: BELLE
+Class: Beauty
+Pic: Beauty
+Gender: Female
+Double Battle: No
+
+SPECIES_ESPEON
+Level: 48
+
+=== TRAINER_UNOVA_SOCIALITE_R2 ===
+Name: JULIE
+Class: Beauty
+Pic: Beauty
+Gender: Female
+Double Battle: No
+
+SPECIES_LARVESTA
+Level: 30
+
+SPECIES_FLAREON
+Level: 32
+
+=== TRAINER_UNOVA_SOCIALITE_R3 ===
+Name: CHRISTY
+Class: Beauty
+Pic: Beauty
+Gender: Female
+Double Battle: No
+
+SPECIES_GLIGAR
+Level: 30
+
+SPECIES_SPHEAL
+Level: 30
+
+=== TRAINER_UNOVA_SWIMMER_F_R17_1 ===
+Name: ELAINE
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Double Battle: No
+
+SPECIES_CORPHISH
+Level: 35
+
+SPECIES_CORSOLA
+Level: 35
+
+=== TRAINER_UNOVA_SWIMMER_F_R21_1 ===
+Name: SUSIE
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Double Battle: No
+
+SPECIES_SPHEAL
+Level: 43
+
+SPECIES_SEALEO
+Level: 46
+
+=== TRAINER_UNOVA_SWIMMER_F_R21_2 ===
+Name: WENDY
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Double Battle: No
+
+SPECIES_STARYU
+Level: 44
+
+SPECIES_CORPHISH
+Level: 44
+
+SPECIES_CORSOLA
+Level: 46
+
+=== TRAINER_UNOVA_SWIMMER_F_HUMILAU_GYM ===
+Name: ANGELA
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Double Battle: No
+
+SPECIES_REMORAID
+Level: 10
+
+=== TRAINER_UNOVA_SWIMMER_F_R17_2 ===
+Name: KAYLEE
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Double Battle: No
+
+SPECIES_HORSEA
+Level: 35
+
+SPECIES_MANTINE
+Level: 35
+
+=== TRAINER_UNOVA_SWIMMER_F_R21_3 ===
+Name: KARA
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Double Battle: No
+
+SPECIES_REMORAID
+Level: 45
+
+SPECIES_MANTINE
+Level: 47
+
+=== TRAINER_UNOVA_SWIMMER_M_HUMILAU_GYM ===
+Name: BARRY
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Double Battle: No
+
+SPECIES_AZURILL
+Level: 8
+
+SPECIES_TYMPOLE
+Level: 9
+
+=== TRAINER_UNOVA_SWIMMER_M_R17_1 ===
+Name: RALPH
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Double Battle: No
+
+SPECIES_FRILLISH
+Level: 35
+
+SPECIES_MANTINE
+Level: 35
+
+=== TRAINER_UNOVA_SWIMMER_M_R21_1 ===
+Name: CHARLIE
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Double Battle: No
+
+SPECIES_MANTYKE
+Level: 45
+
+SPECIES_OCTILLERY
+Level: 47
+
+=== TRAINER_UNOVA_SWIMMER_M_R17_2 ===
+Name: VERNON
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Double Battle: No
+
+SPECIES_STARYU
+Level: 35
+
+SPECIES_DEWOTT
+Level: 35
+
+=== TRAINER_UNOVA_SWIMMER_M_R21_2 ===
+Name: MIKEY
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Double Battle: No
+
+SPECIES_DUCKLETT
+Level: 45
+
+SPECIES_SWANNA
+Level: 47
+
+=== TRAINER_UNOVA_SWIMMER_M_R21_3 ===
+Name: KEITH
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Double Battle: No
+
+SPECIES_FRILLISH
+Level: 43
+
+SPECIES_FRILLISH
+Level: 43
+
+SPECIES_JELLICENT
+Level: 47
+
+=== TRAINER_UNOVA_TWINS_MARINE_TUBE ===
+Name: JEN&JULIE
+Class: Twins
+Pic: Twins
+Gender: Female
+Double Battle: No
+
+SPECIES_IGGLYBUFF
+Level: 5
+
+SPECIES_CLEFFA
+Level: 5
+
+=== TRAINER_UNOVA_TWINS_R1 ===
+Name: EVE&FLO
+Class: Twins
+Pic: Twins
+Gender: Female
+Double Battle: No
+
+SPECIES_ROSELIA
+Level: 33
+
+SPECIES_TROPIUS
+Level: 33
+
+=== TRAINER_UNOVA_TWINS_R2 ===
+Name: LILY&ROSE
+Class: Twins
+Pic: Twins
+Gender: Female
+Double Battle: No
+
+SPECIES_AXEW
+Level: 33
+
+SPECIES_DRATINI
+Level: 33
+
+=== TRAINER_UNOVA_TWINS_R20 ===
+Name: YANI&LAREL
+Class: Twins
+Pic: Twins
+Gender: Female
+Double Battle: No
+
+SPECIES_EEVEE
+Level: 25
+
+SPECIES_VAPOREON
+Level: 28
+
+=== TRAINER_UNOVA_TWINS_R7 ===
+Name: ALY&AJ
+Class: Twins
+Pic: Twins
+Gender: Female
+Double Battle: No
+
+SPECIES_GLIGAR
+Level: 44
+
+SPECIES_SNEASEL
+Level: 44
+
+=== TRAINER_UNOVA_VETERANF_OPELUCID_GYM_1 ===
+Name: OLWEN
+Class: Expert
+Pic: Expert F
+Gender: Female
+Double Battle: No
+
+SPECIES_DRATINI
+Level: 52
+
+SPECIES_HORSEA
+Level: 52
+
+SPECIES_DRAGONAIR
+Level: 55
+
+=== TRAINER_UNOVA_VETERANF_OPELUCID_GYM_2 ===
+Name: CLARA
+Class: Expert
+Pic: Expert F
+Gender: Female
+Double Battle: No
+
+SPECIES_VIBRAVA
+Level: 52
+
+SPECIES_ZWEILOUS
+Level: 52
+
+SPECIES_VIBRAVA
+Level: 55
+
+=== TRAINER_UNOVA_VETERANF_OPELUCID_GYM_3 ===
+Name: DARA
+Class: Expert
+Pic: Expert F
+Gender: Female
+Double Battle: No
+
+SPECIES_ALTARIA
+Level: 58
+
+=== TRAINER_UNOVA_VETERANF_SEASIDE_CAVE ===
+Name: AMELIA
+Class: Expert
+Pic: Expert F
+Gender: Female
+Double Battle: No
+
+SPECIES_VIBRAVA
+Level: 46
+
+SPECIES_GLIGAR
+Level: 47
+
+=== TRAINER_UNOVA_VETERANF_TWIST_MOUNTAIN_1 ===
+Name: JULIA
+Class: Expert
+Pic: Expert F
+Gender: Female
+Double Battle: No
+
+SPECIES_SYLVEON
+Level: 63
+
+SPECIES_DRAPION
+Level: 63
+
+SPECIES_KLINKLANG
+Level: 65
+
+=== TRAINER_UNOVA_VETERANF_TWIST_MOUNTAIN_2 ===
+Name: CHLORIS
+Class: Expert
+Pic: Expert F
+Gender: Female
+Double Battle: No
+
+SPECIES_ARCHEOPS
+Level: 63
+
+SPECIES_BOUFFALANT
+Level: 63
+
+SPECIES_JELLICENT
+Level: 65
+
+=== TRAINER_UNOVA_VETERANF_VICTORY_ROAD_EXT_1 ===
+Name: SANDRA
+Class: Expert
+Pic: Expert F
+Gender: Female
+Double Battle: No
+
+SPECIES_SAWSBUCK
+Level: 54
+
+SPECIES_CRUSTLE
+Level: 56
+
+=== TRAINER_UNOVA_VETERANF_VICTORY_ROAD_EXT_2 ===
+Name: PORTIA
+Class: Expert
+Pic: Expert F
+Gender: Female
+Double Battle: No
+
+SPECIES_FRAXURE
+Level: 54
+
+SPECIES_VANILLUXE
+Level: 56
+
+=== TRAINER_UNOVA_VETERANF_VICTORY_ROAD_INT_1 ===
+Name: CECILE
+Class: Expert
+Pic: Expert F
+Gender: Female
+Double Battle: No
+
+SPECIES_GOLURK
+Level: 54
+
+SPECIES_SIGILYPH
+Level: 56
+
+=== TRAINER_UNOVA_VETERANF_VICTORY_ROAD_INT_2 ===
+Name: CATHY
+Class: Expert
+Pic: Expert F
+Gender: Female
+Double Battle: No
+
+SPECIES_DRIFBLIM
+Level: 54
+
+SPECIES_CLAYDOL
+Level: 56
+
+=== TRAINER_UNOVA_VETERANM_OPELUCID_GYM_1 ===
+Name: TOM
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+SPECIES_AXEW
+Level: 52
+
+SPECIES_DEINO
+Level: 52
+
+SPECIES_FRAXURE
+Level: 55
+
+=== TRAINER_UNOVA_VETERANM_OPELUCID_GYM_2 ===
+Name: JOSEF
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+SPECIES_SWABLU
+Level: 52
+
+SPECIES_HORSEA
+Level: 52
+
+SPECIES_SEADRA
+Level: 55
+
+=== TRAINER_UNOVA_VETERANM_OPELUCID_GYM_3 ===
+Name: HUGO
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+SPECIES_FRAXURE
+Level: 55
+
+SPECIES_DRAGONAIR
+Level: 55
+
+=== TRAINER_UNOVA_VETERANM_R23 ===
+Name: LUKE
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+SPECIES_DRATINI
+Level: 54
+
+SPECIES_DRATINI
+Level: 54
+
+SPECIES_DRAGONAIR
+Level: 57
+
+=== TRAINER_UNOVA_VETERANM_TWIST_MOUNTAIN_1 ===
+Name: ZACH
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+SPECIES_CARRACOSTA
+Level: 63
+
+SPECIES_CROBAT
+Level: 63
+
+SPECIES_REUNICLUS
+Level: 65
+
+=== TRAINER_UNOVA_VETERANM_TWIST_MOUNTAIN_2 ===
+Name: VICTOR
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+SPECIES_WEAVILE
+Level: 63
+
+SPECIES_TOXICROAK
+Level: 63
+
+SPECIES_AGGRON
+Level: 65
+
+=== TRAINER_UNOVA_VETERANM_VICTORY_ROAD_EXT_1 ===
+Name: HUMPHREY
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+SPECIES_BEARTIC
+Level: 54
+
+SPECIES_GOLURK
+Level: 56
+
+=== TRAINER_UNOVA_VETERANM_VICTORY_ROAD_EXT_2 ===
+Name: STERLING
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+SPECIES_ZWEILOUS
+Level: 54
+
+SPECIES_EELEKTROSS
+Level: 56
+
+=== TRAINER_UNOVA_VETERANM_VICTORY_ROAD_INT_1 ===
+Name: CLAUDE
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+SPECIES_GIGALITH
+Level: 54
+
+SPECIES_SKARMORY
+Level: 56
+
+=== TRAINER_UNOVA_VETERANM_VICTORY_ROAD_INT_2 ===
+Name: ABRAHAM
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+SPECIES_FRAXURE
+Level: 53
+
+SPECIES_ZWEILOUS
+Level: 53
+
+SPECIES_FLYGON
+Level: 56
+
+=== TRAINER_UNOVA_WORKER_CASTELIA_SEWERS_1 ===
+Name: JOSHUA
+Class: TRAINER_CLASS_ENGINEER_FRLG
+Pic: TRAINER_PIC_ENGINEER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_GRANBULL
+Level: 40
+
+=== TRAINER_UNOVA_WORKER_CASTELIA_SEWERS_2 ===
+Name: CLIFF
+Class: TRAINER_CLASS_ENGINEER_FRLG
+Pic: TRAINER_PIC_ENGINEER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_WHIRLIPEDE
+Level: 38
+
+SPECIES_WATCHOG
+Level: 39
+
+=== TRAINER_UNOVA_WORKER_CASTELIA_SEWERS_3 ===
+Name: GUS
+Class: TRAINER_CLASS_ENGINEER_FRLG
+Pic: TRAINER_PIC_ENGINEER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_SANDILE
+Level: 38
+
+SPECIES_LIEPARD
+Level: 39
+
+=== TRAINER_UNOVA_WORKER_RELIC_PASSAGE ===
+Name: JIM
+Class: TRAINER_CLASS_ENGINEER_FRLG
+Pic: TRAINER_PIC_ENGINEER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_LARVITAR
+Level: 38
+
+SPECIES_BOLDORE
+Level: 40
+
+=== TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_1 ===
+Name: PATTON
+Class: TRAINER_CLASS_ENGINEER_FRLG
+Pic: TRAINER_PIC_ENGINEER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_MAWILE
+Level: 63
+
+SPECIES_GIGALITH
+Level: 63
+
+SPECIES_STEELIX
+Level: 65
+
+=== TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_2 ===
+Name: CAIRN
+Class: TRAINER_CLASS_ENGINEER_FRLG
+Pic: TRAINER_PIC_ENGINEER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_BEARTIC
+Level: 63
+
+SPECIES_CLAYDOL
+Level: 63
+
+SPECIES_GOTHITELLE
+Level: 65
+
+=== TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_3 ===
+Name: JORDAN
+Class: TRAINER_CLASS_ENGINEER_FRLG
+Pic: TRAINER_PIC_ENGINEER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_CONKELDURR
+Level: 64
+
+SPECIES_CRYOGONAL
+Level: 65
+
+=== TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_4 ===
+Name: RICH
+Class: TRAINER_CLASS_ENGINEER_FRLG
+Pic: TRAINER_PIC_ENGINEER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_GLALIE
+Level: 64
+
+SPECIES_VANILLUXE
+Level: 65
+
+=== TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_5 ===
+Name: BRAND
+Class: TRAINER_CLASS_ENGINEER_FRLG
+Pic: TRAINER_PIC_ENGINEER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_SIGILYPH
+Level: 68
+
+=== TRAINER_UNOVA_YOUNGSTER_DREAMYARD ===
+Name: KAI
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Double Battle: No
+
+SPECIES_HERDIER
+Level: 30
+
+SPECIES_GRANBULL
+Level: 32
+
+=== TRAINER_UNOVA_YOUNGSTER_OUTSKIRTS ===
+Name: RYAN
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Double Battle: No
+
+SPECIES_MEDITITE
+Level: 11
+
+SPECIES_SCRAGGY
+Level: 11
+
+=== TRAINER_UNOVA_YOUNGSTER_PINWHEEL ===
+Name: LEMMY
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Double Battle: No
+
+SPECIES_YANMEGA
+Level: 33
+
+=== TRAINER_UNOVA_YOUNGSTER_R13 ===
+Name: DAN
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Double Battle: No
+
+SPECIES_PATRAT
+Level: 4
+
+=== TRAINER_UNOVA_YOUNGSTER_DESERT ===
+Name: SVEN
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Double Battle: No
+
+SPECIES_DARUMAKA
+Level: 21
+
+=== TRAINER_UNOVA_YOUNGSTER_LOSTLORN ===
+Name: BENNY
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Double Battle: No
+
+SPECIES_COTTONEE
+Level: 14
+
+SPECIES_FOONGUS
+Level: 14
+
+SPECIES_PURRLOIN
+Level: 15
+
+=== TRAINER_UNOVA_YOUNGSTER_NACRENE_OUTSKIRT ===
+Name: CHESTER
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Double Battle: No
+
+SPECIES_JOLTIK
+Level: 28
+
+SPECIES_YANMA
+Level: 28
+
+SPECIES_SWADLOON
+Level: 31
+
+=== TRAINER_UNOVA_YOUNGSTER_R2 ===
+Name: PAUL
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Double Battle: No
+
+SPECIES_TYNAMO
+Level: 30
+
+SPECIES_LIEPARD
+Level: 32

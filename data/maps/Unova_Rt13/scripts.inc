@@ -27,20 +27,20 @@ Unova_Rt13_EventScript_Npc3::
 	msgbox Unova_Rt13_Text_R13Blocker4Text, MSGBOX_NPC
 	end
 
-Unova_Rt13_EventScript_Npc4::
-	msgbox Unova_Rt13_Text_YoungsterR13SeenText, MSGBOX_NPC
+Unova_Rt13_EventScript_Lider4::
+	trainerbattle_single TRAINER_UNOVA_YOUNGSTER_R13, Unova_Rt13_Text_YoungsterR13SeenText, Unova_Rt13_Text_YoungsterR13BeatenText
 	end
 
-Unova_Rt13_EventScript_Npc5::
-	msgbox Unova_Rt13_Text_LassR13SeenText, MSGBOX_NPC
+Unova_Rt13_EventScript_Lider5::
+	trainerbattle_single TRAINER_UNOVA_LASS_R13, Unova_Rt13_Text_LassR13SeenText, Unova_Rt13_Text_LassR13BeatenText
 	end
 
-Unova_Rt13_EventScript_Npc6::
-	msgbox Unova_Rt13_Text_SchoolKidMR13SeenText, MSGBOX_NPC
+Unova_Rt13_EventScript_Lider6::
+	trainerbattle_single TRAINER_UNOVA_SCHOOL_KIDM_R13, Unova_Rt13_Text_SchoolKidMR13SeenText, Unova_Rt13_Text_SchoolKidMR13BeatenText
 	end
 
-Unova_Rt13_EventScript_Npc7::
-	msgbox Unova_Rt13_Text_SchoolKidFR13SeenText, MSGBOX_NPC
+Unova_Rt13_EventScript_Lider7::
+	trainerbattle_single TRAINER_UNOVA_SCHOOL_KIDF_R13, Unova_Rt13_Text_SchoolKidFR13SeenText, Unova_Rt13_Text_SchoolKidFR13BeatenText
 	end
 
 
@@ -82,16 +82,35 @@ Unova_Rt13_Text_YoungsterR13SeenText::
 	.string "\neyes, don't you"
 	.string "\lthink?$"
 
+Unova_Rt13_Text_YoungsterR13BeatenText::
+	.string "Wow! I could tell"
+	.string "\nyou really wanted"
+	.string "\lto win!$"
+
 Unova_Rt13_Text_LassR13SeenText::
 	.string "Hey, you! Have you"
 	.string "\nseen my cute POKé-"
 	.string "\lMON? Take a look!$"
+
+Unova_Rt13_Text_LassR13BeatenText::
+	.string "My POKéMON are"
+	.string "\ncute even if they"
+	.string "\llose!$"
 
 Unova_Rt13_Text_SchoolKidMR13SeenText::
 	.string "I'm the strongest"
 	.string "\ntrainer in my"
 	.string "\lclass!$"
 
+Unova_Rt13_Text_SchoolKidMR13BeatenText::
+	.string "I guess I'm not"
+	.string "\nthe strongest in"
+	.string "\lthe world.$"
+
 Unova_Rt13_Text_SchoolKidFR13SeenText::
 	.string "My favorite class"
 	.string "\nis math!$"
+
+Unova_Rt13_Text_SchoolKidFR13BeatenText::
+	.string "Oh, no!"
+	.string "\nHow could I lose?$"

@@ -3,20 +3,20 @@
 Unova_SeasideCave1F_MapScripts::
 	.byte 0
 
-Unova_SeasideCave1F_EventScript_Npc6::
-	msgbox Unova_SeasideCave1F_Text_SeasideCaveDoctorIntroText, MSGBOX_NPC
+Unova_SeasideCave1F_EventScript_Lider6::
+	trainerbattle_single TRAINER_UNOVA_DOCTOR_SEASIDE_CAVE, Unova_SeasideCave1F_Text_SeasideCaveDoctorIntroText, Unova_SeasideCave1F_Text_SeasideCaveDoctorWinText
 	end
 
-Unova_SeasideCave1F_EventScript_Npc7::
-	msgbox Unova_SeasideCave1F_Text_VeteranFSeasideCave1FSeenText, MSGBOX_NPC
+Unova_SeasideCave1F_EventScript_Lider7::
+	trainerbattle_single TRAINER_UNOVA_VETERANF_SEASIDE_CAVE, Unova_SeasideCave1F_Text_VeteranFSeasideCave1FSeenText, Unova_SeasideCave1F_Text_VeteranFSeasideCave1FBeatenText
 	end
 
-Unova_SeasideCave1F_EventScript_Npc8::
-	msgbox Unova_SeasideCave1F_Text_BlackbeltSeasideCave1FSeenText, MSGBOX_NPC
+Unova_SeasideCave1F_EventScript_Lider8::
+	trainerbattle_single TRAINER_UNOVA_BLACKBELT_SEASIDE_CAVE_1, Unova_SeasideCave1F_Text_BlackbeltSeasideCave1FSeenText, Unova_SeasideCave1F_Text_BlackbeltSeasideCave1FBeatenText
 	end
 
-Unova_SeasideCave1F_EventScript_Npc9::
-	msgbox Unova_SeasideCave1F_Text_BattleGirlSeasideCave1FSeenText, MSGBOX_NPC
+Unova_SeasideCave1F_EventScript_Lider9::
+	trainerbattle_single TRAINER_UNOVA_BATTLE_GIRL_SEASIDE_CAVE_1, Unova_SeasideCave1F_Text_BattleGirlSeasideCave1FSeenText, Unova_SeasideCave1F_Text_BattleGirlSeasideCave1FBeatenText
 	end
 
 
@@ -29,10 +29,19 @@ Unova_SeasideCave1F_Text_SeasideCaveDoctorIntroText::
 	.string "\lI'll heal your"
 	.string "\lPOKéMON.$"
 
+Unova_SeasideCave1F_Text_SeasideCaveDoctorWinText::
+	.string "Ah, I see.$"
+
 Unova_SeasideCave1F_Text_VeteranFSeasideCave1FSeenText::
 	.string "Let me show you"
 	.string "\nthe POKéMON that I"
 	.string "\lmet by fate!$"
+
+Unova_SeasideCave1F_Text_VeteranFSeasideCave1FBeatenText::
+	.string "The POKéMON that"
+	.string "\nyou've met are"
+	.string "\pquite formidable,"
+	.string "\naren't they?$"
 
 Unova_SeasideCave1F_Text_BlackbeltSeasideCave1FSeenText::
 	.string "The path of karate"
@@ -40,6 +49,14 @@ Unova_SeasideCave1F_Text_BlackbeltSeasideCave1FSeenText::
 	.string "\phumanity… and the"
 	.string "\npath of POKéMON!$"
 
+Unova_SeasideCave1F_Text_BlackbeltSeasideCave1FBeatenText::
+	.string "Oof! It is not by"
+	.string "\nchance that you"
+	.string "\lhave won!$"
+
 Unova_SeasideCave1F_Text_BattleGirlSeasideCave1FSeenText::
 	.string "Greetings! So…"
 	.string "\nshall we do this?$"
+
+Unova_SeasideCave1F_Text_BattleGirlSeasideCave1FBeatenText::
+	.string "What an upset!$"

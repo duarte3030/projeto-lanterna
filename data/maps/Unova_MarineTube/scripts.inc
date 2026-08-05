@@ -19,24 +19,24 @@ Unova_MarineTube_EventScript_Npc3::
 	msgbox Unova_MarineTube_Text_MarineTubePokefanMText, MSGBOX_NPC
 	end
 
-Unova_MarineTube_EventScript_Npc4::
-	msgbox Unova_MarineTube_Text_NurseryAideMarineTubeSeenText, MSGBOX_NPC
+Unova_MarineTube_EventScript_Lider4::
+	trainerbattle_single TRAINER_UNOVA_NURSERY_AIDE_MARINE_TUBE, Unova_MarineTube_Text_NurseryAideMarineTubeSeenText, Unova_MarineTube_Text_NurseryAideMarineTubeBeatenText
 	end
 
-Unova_MarineTube_EventScript_Npc5::
-	msgbox Unova_MarineTube_Text_TwinsMarineTubeSeenText, MSGBOX_NPC
+Unova_MarineTube_EventScript_Lider5::
+	trainerbattle_single TRAINER_UNOVA_TWINS_MARINE_TUBE, Unova_MarineTube_Text_TwinsMarineTubeSeenText, Unova_MarineTube_Text_TwinsMarineTubeBeatenText
 	end
 
-Unova_MarineTube_EventScript_Npc6::
-	msgbox Unova_MarineTube_Text_TwinsMarineTubeSeenText, MSGBOX_NPC
+Unova_MarineTube_EventScript_Lider6::
+	trainerbattle_single TRAINER_UNOVA_TWINS_MARINE_TUBE, Unova_MarineTube_Text_TwinsMarineTubeSeenText, Unova_MarineTube_Text_TwinsMarineTubeBeatenText
 	end
 
-Unova_MarineTube_EventScript_Npc7::
-	msgbox Unova_MarineTube_Text_PreschoolerMMarineTubeSeenText, MSGBOX_NPC
+Unova_MarineTube_EventScript_Lider7::
+	trainerbattle_single TRAINER_UNOVA_PRESCHOOLERM_MARINE_TUBE, Unova_MarineTube_Text_PreschoolerMMarineTubeSeenText, Unova_MarineTube_Text_PreschoolerMMarineTubeBeatenText
 	end
 
-Unova_MarineTube_EventScript_Npc8::
-	msgbox Unova_MarineTube_Text_PreschoolerFMarineTubeSeenText, MSGBOX_NPC
+Unova_MarineTube_EventScript_Lider8::
+	trainerbattle_single TRAINER_UNOVA_PRESCHOOLERF_MARINE_TUBE, Unova_MarineTube_Text_PreschoolerFMarineTubeSeenText, Unova_MarineTube_Text_PreschoolerFMarineTubeBeatenText
 	end
 
 
@@ -73,10 +73,19 @@ Unova_MarineTube_Text_NurseryAideMarineTubeSeenText::
 	.string "\pjust find out when"
 	.string "\nwe battle!$"
 
+Unova_MarineTube_Text_NurseryAideMarineTubeBeatenText::
+	.string "You are an alto-"
+	.string "\ngether mysterious"
+	.string "\ltrainer!$"
+
 Unova_MarineTube_Text_TwinsMarineTubeSeenText::
 	.string "It's so fun to"
 	.string "\nbattle along with"
 	.string "\lmy sister!$"
+
+Unova_MarineTube_Text_TwinsMarineTubeBeatenText::
+	.string "Wow! What a"
+	.string "\nsurprise!$"
 
 Unova_MarineTube_Text_PreschoolerMMarineTubeSeenText::
 	.string "Teacher?"
@@ -84,6 +93,14 @@ Unova_MarineTube_Text_PreschoolerMMarineTubeSeenText::
 	.string "\nTeacher! You're a"
 	.string "\ltrainer!$"
 
+Unova_MarineTube_Text_PreschoolerMMarineTubeBeatenText::
+	.string "It's hard to see"
+	.string "\nin here!$"
+
 Unova_MarineTube_Text_PreschoolerFMarineTubeSeenText::
 	.string "Roar!"
 	.string "\pI'm a POKéMON!$"
+
+Unova_MarineTube_Text_PreschoolerFMarineTubeBeatenText::
+	.string "I'm not really a"
+	.string "\nPOKéMON!$"

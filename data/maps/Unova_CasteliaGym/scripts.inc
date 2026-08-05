@@ -4,31 +4,37 @@ Unova_CasteliaGym_MapScripts::
 	.byte 0
 
 Unova_CasteliaGym_EventScript_Lider0::
-	trainerbattle_single TRAINER_UNOVA_LEADER_BURGH, Unova_CasteliaGym_Text_BurghGymIntroText, Unova_CasteliaGym_Text_BurghWinLossText
+	trainerbattle_single TRAINER_UNOVA_LEADER_BURGH, Unova_CasteliaGym_Text_BurghGymIntroText, Unova_CasteliaGym_Text_BurghWinLossText, Unova_CasteliaGym_EventScript_Insignia0
+	end
+
+Unova_CasteliaGym_EventScript_Insignia0::
+	setflag FLAG_BADGE_UNOVA_CASTELIA
+	call Common_EventScript_PlayGymBadgeFanfare
+	release
 	end
 
 Unova_CasteliaGym_EventScript_Npc1::
 	msgbox Unova_CasteliaGym_Text_CasteliaGymGuyText, MSGBOX_NPC
 	end
 
-Unova_CasteliaGym_EventScript_Npc2::
-	msgbox Unova_CasteliaGym_Text_HarlequinCasteliaGym1SeenText, MSGBOX_NPC
+Unova_CasteliaGym_EventScript_Lider2::
+	trainerbattle_single TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_1, Unova_CasteliaGym_Text_HarlequinCasteliaGym1SeenText, Unova_CasteliaGym_Text_HarlequinCasteliaGym1BeatenText
 	end
 
-Unova_CasteliaGym_EventScript_Npc3::
-	msgbox Unova_CasteliaGym_Text_HarlequinCasteliaGym2SeenText, MSGBOX_NPC
+Unova_CasteliaGym_EventScript_Lider3::
+	trainerbattle_single TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_2, Unova_CasteliaGym_Text_HarlequinCasteliaGym2SeenText, Unova_CasteliaGym_Text_HarlequinCasteliaGym2BeatenText
 	end
 
-Unova_CasteliaGym_EventScript_Npc4::
-	msgbox Unova_CasteliaGym_Text_HarlequinCasteliaGym3SeenText, MSGBOX_NPC
+Unova_CasteliaGym_EventScript_Lider4::
+	trainerbattle_single TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_3, Unova_CasteliaGym_Text_HarlequinCasteliaGym3SeenText, Unova_CasteliaGym_Text_HarlequinCasteliaGym3BeatenText
 	end
 
-Unova_CasteliaGym_EventScript_Npc5::
-	msgbox Unova_CasteliaGym_Text_HarlequinCasteliaGym4SeenText, MSGBOX_NPC
+Unova_CasteliaGym_EventScript_Lider5::
+	trainerbattle_single TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_4, Unova_CasteliaGym_Text_HarlequinCasteliaGym4SeenText, Unova_CasteliaGym_Text_HarlequinCasteliaGym4BeatenText
 	end
 
-Unova_CasteliaGym_EventScript_Npc6::
-	msgbox Unova_CasteliaGym_Text_HarlequinCasteliaGym5SeenText, MSGBOX_NPC
+Unova_CasteliaGym_EventScript_Lider6::
+	trainerbattle_single TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_5, Unova_CasteliaGym_Text_HarlequinCasteliaGym5SeenText, Unova_CasteliaGym_Text_HarlequinCasteliaGym5BeatenText
 	end
 
 
@@ -81,10 +87,19 @@ Unova_CasteliaGym_Text_HarlequinCasteliaGym1SeenText::
 	.string "\pIsn't it full of…"
 	.string "\nmysterious charms?$"
 
+Unova_CasteliaGym_Text_HarlequinCasteliaGym1BeatenText::
+	.string "You've got quite a"
+	.string "\nbit of charm your-"
+	.string "\lself, don't you?$"
+
 Unova_CasteliaGym_Text_HarlequinCasteliaGym2SeenText::
 	.string "You thought you"
 	.string "\ncould get through"
 	.string "\lhere? Think again!$"
+
+Unova_CasteliaGym_Text_HarlequinCasteliaGym2BeatenText::
+	.string "My, my! Aren't you"
+	.string "\na bit too strong?$"
 
 Unova_CasteliaGym_Text_HarlequinCasteliaGym3SeenText::
 	.string "When the cocoon"
@@ -93,14 +108,28 @@ Unova_CasteliaGym_Text_HarlequinCasteliaGym3SeenText::
 	.string "\pOn that note, have"
 	.string "\na battle with moi!$"
 
+Unova_CasteliaGym_Text_HarlequinCasteliaGym3BeatenText::
+	.string "I was taking a"
+	.string "\nnap!$"
+
 Unova_CasteliaGym_Text_HarlequinCasteliaGym4SeenText::
 	.string "The one you meet"
 	.string "\nat this cocoon is"
 	.string "\pnone other than"
 	.string "\nme!$"
 
+Unova_CasteliaGym_Text_HarlequinCasteliaGym4BeatenText::
+	.string "Looks like the"
+	.string "\ncocoons brought"
+	.string "\lyou to me!$"
+
 Unova_CasteliaGym_Text_HarlequinCasteliaGym5SeenText::
 	.string "You're just one"
 	.string "\nstep away from"
 	.string "\pbeing able to"
 	.string "\nchallenge BURGH!$"
+
+Unova_CasteliaGym_Text_HarlequinCasteliaGym5BeatenText::
+	.string "Your battle style"
+	.string "\nis almost as"
+	.string "\lartistic as BURGH!$"
