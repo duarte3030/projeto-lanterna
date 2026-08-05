@@ -181,6 +181,11 @@ GINASIOS = [
 ]
 
 
+# ponytail: UMA var, decidida pelo Gui em 05/08/2026, para recuperar o
+# quebra-cabeca das pontes de Blackthorn. Registrada em SINNOH-PADRAO.md.
+VAR_PONTES = "VAR_BLACKTHORN_GYM_STATE"
+
+
 def le(caminho):
     return open(caminho, encoding="utf-8", errors="replace").read()
 
@@ -300,21 +305,69 @@ def gatilhos_azalea(fonte, pre, hns_json):
     return linhas, coord
 
 
-def pontes_blackthorn(fonte, pre, piso):
-    """Constrói as quatro pontes de Blackthorn de uma vez, no ON_LOAD.
+def pontes_blackthorn(fonte, pre, piso, hns_json):
+    """Reconstrói o quebra-cabeça das quatro pontes de Blackthorn.
 
-    ponytail: o hns acende uma ponte por gatilho e guarda o progresso em
-    VAR_BLACKTHORN_GYM_STATE. Aqui todas nascem prontas, porque a var vale mais
-    que o quebra-cabeça: sem ponte nenhuma, só 31 tiles do ginásio são
-    alcançáveis e Clair fica inacessível. Se um dia sobrar var, o gatilho volta.
-    O id de metatile do hns não serve porque o tileset foi trocado no import,
-    então usa-se o piso andável mais comum DESTE layout.
+    ponytail: a primeira versão acendia as quatro pontes de uma vez no ON_LOAD,
+    para não gastar var. O Gui decidiu em 05/08/2026 gastar UMA var e recuperar
+    o quebra-cabeça original, então aqui a estrutura é a mesma do hns: quatro
+    estados cumulativos em VAR_BLACKTHORN_GYM_STATE, cada gatilho acende a ponte
+    seguinte, e o ON_LOAD reconstrói o que já foi aceso quando o jogador volta ao
+    mapa.
+
+    O id de metatile do hns (0x35A) NÃO serve: o tileset foi trocado no import,
+    então usa-se o piso andável mais comum DESTE layout. Consequência conhecida e
+    aceita: a ponte funciona mas tem cara de chão comum, e só melhora com trabalho
+    de tileset, que é outra tarefa.
     """
-    linhas = [f"{pre}_EventScript_Pontes::"]
-    for m in re.finditer(r"setmetatile (\d+), (\d+), 0x[0-9A-Fa-f]+, (\w+)", fonte):
-        linhas.append(f"\tsetmetatile {m.group(1)}, {m.group(2)}, {piso}, {m.group(3)}")
+    # Cada BuildBridgeN do hns vira um bloco próprio, preservando o agrupamento:
+    # sem isso as quatro pontes voltariam a acender juntas.
+    blocos = {}
+    for m in re.finditer(
+            r"^(\w*BuildBridge(\d)\w*)::\n((?:\ttry\w+.*\n|\tsetmetatile .*\n)+)",
+            fonte, re.M):
+        n = int(m.group(2))
+        blocos[n] = [
+            f"\tsetmetatile {a}, {b}, {piso}, {c}"
+            for a, b, c in re.findall(r"setmetatile (\d+), (\d+), 0x[0-9A-Fa-f]+, (\w+)",
+                                      m.group(3))
+        ]
+    if not blocos:  # o hns mudou de forma: cai no comportamento antigo, tudo de uma vez
+        linhas = [f"{pre}_EventScript_Pontes::"]
+        for m in re.finditer(r"setmetatile (\d+), (\d+), 0x[0-9A-Fa-f]+, (\w+)", fonte):
+            linhas.append(f"\tsetmetatile {m.group(1)}, {m.group(2)}, {piso}, {m.group(3)}")
+        return linhas + ["\tend", ""], []
+
+    ordem = sorted(blocos)
+    linhas = []
+    # ON_LOAD: reconstrói cumulativamente o estado já alcançado
+    linhas.append(f"{pre}_EventScript_Pontes::")
+    for n in ordem:
+        linhas.append(f"\tcall_if_ge {VAR_PONTES}, {n}, {pre}_EventScript_Ponte{n}")
     linhas += ["\tend", ""]
-    return linhas
+    for n in ordem:
+        linhas.append(f"{pre}_EventScript_Ponte{n}::")
+        linhas += blocos[n]
+        linhas += ["\treturn", ""]
+    # gatilhos: acende a ponte, redesenha e avança o estado
+    for n in ordem:
+        linhas.append(f"{pre}_EventScript_AcendePonte{n}::")
+        linhas += [f"\tcall {pre}_EventScript_Ponte{n}",
+                   "\tspecial DrawWholeMapView",
+                   f"\tsetvar {VAR_PONTES}, {n}",
+                   "\tend", ""]
+    # coord_events vindos do hns, remapeados para os rótulos locais
+    coord = []
+    for c in hns_json.get("coord_events", []):
+        achado = re.search(r"Bridge(\d)", c.get("script", ""))
+        if not achado:
+            continue
+        n = int(achado.group(1))
+        coord.append({"type": "trigger", "x": c["x"], "y": c["y"],
+                      "elevation": c.get("elevation", 0), "var": VAR_PONTES,
+                      "var_value": str(n - 1),
+                      "script": f"{pre}_EventScript_AcendePonte{n}"})
+    return linhas, coord
 
 
 def piso_mais_comum(layout_id):
@@ -382,6 +435,13 @@ def main():
 
             if script in (None, "NULL", "0"):
                 continue
+            if script in ("EventScript_StrengthBoulder", "EventScript_RockSmash") \
+                    and g["mapa"] == "CianwoodGym":
+                # ponytail: as pedras de Cianwood foram REMOVIDAS por decisao do
+                # Gui em 05/08/2026. Fieis ao HGSS, elas prendem para sempre quem
+                # chegar sem Strength, e em Johto o Strength vem do proprio Chuck,
+                # que fica atras delas. Softlock nao e fidelidade.
+                continue
             if script in ("EventScript_StrengthBoulder", "EventScript_RockSmash"):
                 # pedra do ginásio de Cianwood: script global, já existe em
                 # data/scripts/field_move_scripts.inc
@@ -430,8 +490,12 @@ def main():
 
         coord_events = []
         if g.get("pontes"):
-            linhas += pontes_blackthorn(fonte, pre, piso_mais_comum(
-                json.load(open(os.path.join(REPO, "data/maps", mapa, "map.json")))["layout"]))
+            extra, coord_events = pontes_blackthorn(
+                fonte, pre,
+                piso_mais_comum(json.load(open(
+                    os.path.join(REPO, "data/maps", mapa, "map.json")))["layout"]),
+                hns_json)
+            linhas += extra
         if g.get("teias"):
             extra, coord_events = gatilhos_azalea(fonte, pre, hns_json)
             linhas += extra

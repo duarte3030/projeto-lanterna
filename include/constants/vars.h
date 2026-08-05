@@ -98,6 +98,12 @@
 #define VAR_POKELOT_RND2                                 0x404C
 #define VAR_POKELOT_PRIZE_PLACE                          0x404D
 #define VAR_UNUSED_0x404E                                0x404E // Unused Var
+
+// ponytail: quebra-cabeca das quatro pontes do ginasio de Blackthorn, em Johto.
+// Unica var gasta pelo conteudo novo de 05/08/2026, por decisao do Gui: sem ela
+// as pontes acendiam todas de uma vez e o ginasio virava corredor reto.
+// Estados 0 a 4, cumulativos. Registrada em SINNOH-PADRAO.md.
+#define VAR_BLACKTHORN_GYM_STATE                         VAR_UNUSED_0x404E
 #define VAR_LOTAD_SIZE_RECORD                            0x404F
 #define VAR_LITTLEROOT_TOWN_STATE                        0x4050
 #define VAR_OLDALE_TOWN_STATE                            0x4051

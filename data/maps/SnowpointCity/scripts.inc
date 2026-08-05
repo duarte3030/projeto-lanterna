@@ -22,7 +22,29 @@ SnowpointCity_EventScript_NpcF1::
 	end
 
 SnowpointCity_EventScript_Sailor::
-	msgbox SnowpointCity_Text_Sailor, MSGBOX_NPC
+	lock
+	faceplayer
+@ ponytail: a Battle Zone (Fight Area, Survival, Resort e rotas 225 a 230) existia
+@ no repo e era inalcancavel: nenhum warp, nenhuma conexao levava la. No original
+@ so se chega de barco em Snowpoint depois da Liga, entao o porto abre com a
+@ FLAG_ELITE_SINNOH_VENCIDA, que ja estava reservada.
+	goto_if_unset FLAG_ELITE_SINNOH_VENCIDA, SnowpointCity_EventScript_SailorFechado
+	msgbox SnowpointCity_Text_SailorOferece, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SnowpointCity_EventScript_SailorRecusa
+	msgbox SnowpointCity_Text_SailorZarpa, MSGBOX_DEFAULT
+	closemessage
+	warpsilent MAP_FIGHT_AREA, 35, 17
+	release
+	end
+
+SnowpointCity_EventScript_SailorFechado::
+	msgbox SnowpointCity_Text_Sailor, MSGBOX_DEFAULT
+	release
+	end
+
+SnowpointCity_EventScript_SailorRecusa::
+	msgbox SnowpointCity_Text_SailorRecusa, MSGBOX_DEFAULT
+	release
 	end
 
 SnowpointCity_EventScript_TempleGuard::
@@ -78,3 +100,14 @@ SnowpointCity_Text_GymSign:
 
 SnowpointCity_Text_TempleSign:
 	.string "SNOWPOINT TEMPLE$"
+
+SnowpointCity_Text_SailorOferece:
+	.string "Meu barco vai para a Battle Zone,\n"
+	.string "do outro lado do mar.\p"
+	.string "Quer embarcar?$"
+
+SnowpointCity_Text_SailorZarpa:
+	.string "Zarpando para a Battle Zone!$"
+
+SnowpointCity_Text_SailorRecusa:
+	.string "Quando mudar de ideia, e so chamar.$"

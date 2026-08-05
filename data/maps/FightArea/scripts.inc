@@ -2,7 +2,22 @@ FightArea_MapScripts::
 	.byte 0
 
 FightArea_EventScript_Sailor::
-	msgbox FightArea_Text_Sailor, MSGBOX_NPC
+	lock
+	faceplayer
+@ ponytail: par da viagem que abre em Snowpoint depois da Liga. Sem esta volta o
+@ jogador ficava preso na Battle Zone, que e o mesmo bug que Johto tinha antes de
+@ o marinheiro de Olivine existir.
+	msgbox FightArea_Text_SailorOferece, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, FightArea_EventScript_SailorRecusa
+	msgbox FightArea_Text_SailorZarpa, MSGBOX_DEFAULT
+	closemessage
+	warpsilent MAP_SNOWPOINT_CITY, 20, 40
+	release
+	end
+
+FightArea_EventScript_SailorRecusa::
+	msgbox FightArea_Text_Sailor, MSGBOX_DEFAULT
+	release
 	end
 
 FightArea_EventScript_Fisherman::
@@ -48,3 +63,10 @@ FightArea_Text_AceTrainerF:
 FightArea_Text_Twin:
 	.string "My sister and I love watching the\n"
 	.string "tough TRAINERS battle here!$"
+
+FightArea_Text_SailorOferece:
+	.string "Quer que eu leve voce de volta para\n"
+	.string "Snowpoint City?$"
+
+FightArea_Text_SailorZarpa:
+	.string "Zarpando para Snowpoint City!$"

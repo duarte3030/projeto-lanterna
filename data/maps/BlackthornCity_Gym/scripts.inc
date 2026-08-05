@@ -8,6 +8,13 @@ BlackthornCity_Gym_MapScripts::
 	.byte 0
 
 BlackthornCity_Gym_EventScript_Pontes::
+	call_if_ge VAR_BLACKTHORN_GYM_STATE, 1, BlackthornCity_Gym_EventScript_Ponte1
+	call_if_ge VAR_BLACKTHORN_GYM_STATE, 2, BlackthornCity_Gym_EventScript_Ponte2
+	call_if_ge VAR_BLACKTHORN_GYM_STATE, 3, BlackthornCity_Gym_EventScript_Ponte3
+	call_if_ge VAR_BLACKTHORN_GYM_STATE, 4, BlackthornCity_Gym_EventScript_Ponte4
+	end
+
+BlackthornCity_Gym_EventScript_Ponte1::
 	setmetatile 19, 47, 889, FALSE
 	setmetatile 19, 48, 889, FALSE
 	setmetatile 19, 49, 889, FALSE
@@ -32,6 +39,9 @@ BlackthornCity_Gym_EventScript_Pontes::
 	setmetatile 21, 52, 889, FALSE
 	setmetatile 21, 53, 889, FALSE
 	setmetatile 21, 54, 889, FALSE
+	return
+
+BlackthornCity_Gym_EventScript_Ponte2::
 	setmetatile 17, 35, 889, FALSE
 	setmetatile 17, 36, 889, FALSE
 	setmetatile 17, 37, 889, FALSE
@@ -62,6 +72,9 @@ BlackthornCity_Gym_EventScript_Pontes::
 	setmetatile 21, 34, 889, FALSE
 	setmetatile 22, 33, 889, FALSE
 	setmetatile 22, 34, 889, FALSE
+	return
+
+BlackthornCity_Gym_EventScript_Ponte3::
 	setmetatile 17, 26, 889, FALSE
 	setmetatile 18, 26, 889, FALSE
 	setmetatile 19, 26, 889, FALSE
@@ -69,27 +82,9 @@ BlackthornCity_Gym_EventScript_Pontes::
 	setmetatile 21, 26, 889, FALSE
 	setmetatile 22, 26, 889, FALSE
 	setmetatile 23, 26, 889, FALSE
-	setmetatile 17, 29, 889, TRUE
-	setmetatile 18, 29, 889, TRUE
-	setmetatile 19, 29, 889, TRUE
-	setmetatile 20, 29, 889, TRUE
-	setmetatile 21, 29, 889, TRUE
-	setmetatile 22, 29, 889, TRUE
-	setmetatile 23, 29, 889, TRUE
-	setmetatile 17, 27, 889, FALSE
-	setmetatile 17, 28, 889, FALSE
-	setmetatile 18, 27, 889, FALSE
-	setmetatile 18, 28, 889, FALSE
-	setmetatile 19, 27, 889, FALSE
-	setmetatile 19, 28, 889, FALSE
-	setmetatile 20, 27, 889, FALSE
-	setmetatile 20, 28, 889, FALSE
-	setmetatile 21, 27, 889, FALSE
-	setmetatile 21, 28, 889, FALSE
-	setmetatile 22, 27, 889, FALSE
-	setmetatile 22, 28, 889, FALSE
-	setmetatile 23, 27, 889, FALSE
-	setmetatile 23, 28, 889, FALSE
+	return
+
+BlackthornCity_Gym_EventScript_Ponte4::
 	setmetatile 19, 11, 889, FALSE
 	setmetatile 19, 12, 889, FALSE
 	setmetatile 19, 13, 889, FALSE
@@ -105,6 +100,30 @@ BlackthornCity_Gym_EventScript_Pontes::
 	setmetatile 21, 13, 889, FALSE
 	setmetatile 21, 14, 889, FALSE
 	setmetatile 21, 15, 889, FALSE
+	return
+
+BlackthornCity_Gym_EventScript_AcendePonte1::
+	call BlackthornCity_Gym_EventScript_Ponte1
+	special DrawWholeMapView
+	setvar VAR_BLACKTHORN_GYM_STATE, 1
+	end
+
+BlackthornCity_Gym_EventScript_AcendePonte2::
+	call BlackthornCity_Gym_EventScript_Ponte2
+	special DrawWholeMapView
+	setvar VAR_BLACKTHORN_GYM_STATE, 2
+	end
+
+BlackthornCity_Gym_EventScript_AcendePonte3::
+	call BlackthornCity_Gym_EventScript_Ponte3
+	special DrawWholeMapView
+	setvar VAR_BLACKTHORN_GYM_STATE, 3
+	end
+
+BlackthornCity_Gym_EventScript_AcendePonte4::
+	call BlackthornCity_Gym_EventScript_Ponte4
+	special DrawWholeMapView
+	setvar VAR_BLACKTHORN_GYM_STATE, 4
 	end
 
 BlackthornCity_Gym_EventScript_Mike::
