@@ -64,6 +64,21 @@ mesma família do pokeemerald.
 
 `avalia_rom_gba.py` já lê tudo isso; falta só gravar o `map.bin` e o tileset.
 
+### Autoria: o demake de Galar tem dono, e ele esta ativo
+
+Identificado em 05/08/2026: as duas ROMs sao trabalho do **Phantonomy**, que
+mantem o "Phantonomy's Demake ROM Hack Server" no Discord e continua produzindo.
+O projeto atual dele e o **Ultra Eclipse**, demake de Alola (Sun/Moon), com
+sistema de Pokeride concluido em 31/01/2026.
+
+Isso muda a recomendacao pratica: **em vez de extrair, perguntar**. Autor de
+demake costuma ser aberto a colaboracao, e varios publicam fonte. Um pedido
+direto resolve a questao de autoria de uma vez, e pode render a fonte em vez do
+binario, que e muito melhor para nos.
+
+Alola ainda NAO serve como fonte: esta em desenvolvimento, nao lancado. Revisitar
+quando sair.
+
 ### O que pesar antes de fazer
 
 Estas ROMs não são jogo oficial desmontado: são o trabalho de um hacker
