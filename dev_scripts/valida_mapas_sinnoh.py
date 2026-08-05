@@ -6,7 +6,8 @@ Uso:
     python3 dev_scripts/valida_mapas_sinnoh.py --corrigir # relata e conserta
 
 Checa quatro coisas que já quebraram o build antes:
-1. sprite (`graphics_id`) que não existe em constants/event_objects.h
+1. sprite (`graphics_id`) que esta build não consegue desenhar, ou seja, que
+   não tem entrada em object_event_graphics_info_pointers.h fora de `#if IS_FRLG`
 2. tipo de movimento que não existe em constants/event_object_movement.h
 3. script citado no map.json sem rótulo correspondente no scripts.inc
 4. NPC em cima de tile com colisão, ou fora do mapa
@@ -34,19 +35,19 @@ PREFIXOS_SINNOH = (
 
 # Trocas conhecidas: sprite que Sinnoh usa e o GBA não tem.
 TROCA_SPRITE = {
-    "OBJ_EVENT_GFX_ACE_TRAINER_F": "OBJ_EVENT_GFX_COOLTRAINER_F",
-    "OBJ_EVENT_GFX_ACE_TRAINER_M": "OBJ_EVENT_GFX_COOLTRAINER_M",
+    "OBJ_EVENT_GFX_ACE_TRAINER_F": "OBJ_EVENT_GFX_PICNICKER",
+    "OBJ_EVENT_GFX_ACE_TRAINER_M": "OBJ_EVENT_GFX_CAMPER",
     "OBJ_EVENT_GFX_POKEMON_BREEDER_F": "OBJ_EVENT_GFX_POKEFAN_F",
     "OBJ_EVENT_GFX_POKEMON_BREEDER_M": "OBJ_EVENT_GFX_POKEFAN_M",
-    "OBJ_EVENT_GFX_BATTLE_GIRL": "OBJ_EVENT_GFX_CRUSH_GIRL",
+    "OBJ_EVENT_GFX_BATTLE_GIRL": "OBJ_EVENT_GFX_WOMAN_3",
     "OBJ_EVENT_GFX_SCHOOL_KID_F": "OBJ_EVENT_GFX_SCHOOL_KID_M",
     "OBJ_EVENT_GFX_BARRY": "OBJ_EVENT_GFX_RICH_BOY",
     "OBJ_EVENT_GFX_PROF_ROWAN": "OBJ_EVENT_GFX_PROF_BIRCH",
     "OBJ_EVENT_GFX_GRUNT_M": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
     "OBJ_EVENT_GFX_GRUNT_F": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
-    "OBJ_EVENT_GFX_WORKER": "OBJ_EVENT_GFX_WORKER_M",
+    "OBJ_EVENT_GFX_WORKER": "OBJ_EVENT_GFX_MAN_4",
     "OBJ_EVENT_GFX_GUITARIST": "OBJ_EVENT_GFX_MAN_3",
-    "OBJ_EVENT_GFX_KID_WITH_NDS": "OBJ_EVENT_GFX_GBA_KID",
+    "OBJ_EVENT_GFX_KID_WITH_NDS": "OBJ_EVENT_GFX_GAMEBOY_KID",
     "OBJ_EVENT_GFX_VETERAN": "OBJ_EVENT_GFX_EXPERT_M",
     "OBJ_EVENT_GFX_CLOWN": "OBJ_EVENT_GFX_MAN_3",
     "OBJ_EVENT_GFX_IDOL": "OBJ_EVENT_GFX_BEAUTY",
@@ -55,8 +56,8 @@ TROCA_SPRITE = {
     "OBJ_EVENT_GFX_REPORTER": "OBJ_EVENT_GFX_WOMAN_2",
     "OBJ_EVENT_GFX_SKIER_M": "OBJ_EVENT_GFX_CAMPER",
     "OBJ_EVENT_GFX_SKIER_F": "OBJ_EVENT_GFX_PICNICKER",
-    "OBJ_EVENT_GFX_CYCLIST_M": "OBJ_EVENT_GFX_TRIATHLETE_M",
-    "OBJ_EVENT_GFX_CYCLIST_F": "OBJ_EVENT_GFX_TRIATHLETE_F",
+    "OBJ_EVENT_GFX_CYCLIST_M": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M",
+    "OBJ_EVENT_GFX_CYCLIST_F": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F",
 }
 SPRITE_PADRAO = "OBJ_EVENT_GFX_MAN_1"
 MOVIMENTO_PADRAO = "MOVEMENT_TYPE_LOOK_AROUND"
@@ -69,6 +70,41 @@ ATRAS_DO_BALCAO = ("NURSE", "CLERK", "MART", "RECEP", "ATENDENTE", "CASHIER", "S
 def constantes(caminho, prefixo):
     texto = open(os.path.join(REPO, caminho)).read()
     return set(re.findall(rf"\b{prefixo}[A-Z_0-9]+", texto))
+
+
+def sprites_utilizaveis():
+    """Sprites que esta build realmente consegue desenhar.
+
+    Conferir contra constants/event_objects.h NÃO basta, e essa foi a falha que
+    deixou o mesmo crash voltar duas vezes: a constante existe sempre, mas o
+    gráfico, o pic table, o GraphicsInfo e a entrada na tabela de ponteiros só
+    existem dentro de `#if IS_FRLG`. Numa build Emerald o id aponta para o vazio,
+    NPC parado sobrevive e NPC que anda reinicia o jogo na tela de título. O
+    validador passava limpo porque olhava o header errado.
+
+    Verdade de verdade: as entradas de object_event_graphics_info_pointers.h que
+    ficam FORA de um bloco `#if IS_FRLG`.
+    """
+    caminho = "src/data/object_events/object_event_graphics_info_pointers.h"
+    dentro_frlg, fora_frlg = set(), set()
+    profundidade, dentro, nivel = 0, False, 0
+    for linha in open(os.path.join(REPO, caminho)):
+        s = linha.strip()
+        if s.startswith("#if"):
+            profundidade += 1
+            if "IS_FRLG" in s and not s.startswith("#if !"):
+                dentro, nivel = True, profundidade
+        elif s.startswith("#endif"):
+            if dentro and profundidade == nivel:
+                dentro = False
+            profundidade -= 1
+        achado = re.search(r"\[(OBJ_EVENT_GFX_[A-Z0-9_]+)\]", s)
+        if achado:
+            (dentro_frlg if dentro else fora_frlg).add(achado.group(1))
+
+    # OBJ_EVENT_GFX_VAR_0 a VAR_F são falso positivo: o jogo os resolve em tempo
+    # de execução (src/decoration.c, src/secret_base.c), nunca por esta tabela.
+    return fora_frlg | {f"OBJ_EVENT_GFX_VAR_{d}" for d in "0123456789ABCDEF"}
 
 
 def colisao(layouts, layout_id, x, y):
@@ -96,8 +132,25 @@ def tile_livre_perto(layouts, layout_id, x, y, raio=6):
     return None
 
 
+def confere_tabela_de_trocas(sprites):
+    """Impede que a própria tabela replante o bug.
+
+    Em 04/08/2026 cinco destinos daqui (COOLTRAINER_F, COOLTRAINER_M, CRUSH_GIRL,
+    WORKER_M, GBA_KID) só existiam dentro de `#if IS_FRLG`, então rodar
+    --corrigir PLANTAVA o crash em vez de tirar. Foi assim que 82 objetos em 44
+    mapas voltaram depois de já terem sido consertados uma vez.
+    """
+    ruins = sorted(d for d in TROCA_SPRITE.values() if d not in sprites)
+    if ruins:
+        print("ABORTADO: TROCA_SPRITE aponta para sprite que esta build não desenha:")
+        for d in ruins:
+            print("  ", d)
+        sys.exit(1)
+
+
 def main():
-    sprites = constantes("include/constants/event_objects.h", "OBJ_EVENT_GFX_")
+    sprites = sprites_utilizaveis()
+    confere_tabela_de_trocas(sprites)
     movimentos = constantes("include/constants/event_object_movement.h", "MOVEMENT_TYPE_")
     layouts = {l["id"]: l for l in json.load(
         open(os.path.join(REPO, "data/layouts/layouts.json")))["layouts"]}
