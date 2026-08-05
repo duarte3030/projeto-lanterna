@@ -354,11 +354,33 @@
       "id": "HEAL_LOCATION_OREBURGH_CITY",
       "map": "MAP_OREBURGH_CITY_POKEMON_CENTER_1F",
       "x": 7,
-      "y": 8,
+      "y": 4,
       "respawn_map": "MAP_OREBURGH_CITY_POKEMON_CENTER_1F",
-      "respawn_npc": 1,
-      "respawn_x": 2,
-      "respawn_y": 7
+      "respawn_npc": "LOCALID_OREBURGH_PC1_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_SANDGEM_TOWN",
+      "map": "MAP_SANDGEM_TOWN_POKEMON_CENTER_1F",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_SANDGEM_TOWN_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_SANDGEM_POKECENTER1F_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_JUBILIFE_CITY",
+      "map": "MAP_JUBILIFE_CITY_POKEMON_CENTER_1F",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_JUBILIFE_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_JUBILIFE_PC1F_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_FLOAROMA_TOWN",
+      "map": "MAP_FLOAROMA_TOWN_POKEMON_CENTER_1F",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_FLOAROMA_TOWN_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_FLOAROMA_PC1_NURSE"
     }
   ]
 }

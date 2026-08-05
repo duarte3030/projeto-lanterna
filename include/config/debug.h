@@ -6,9 +6,9 @@
 // escolha de genero, sem nome, sem cutscene da mae. So enquanto o hack esta
 // sendo montado; deixe FALSE antes de qualquer versao jogavel.
 #define DEV_SKIP_INTRO                  TRUE
-#define DEV_START_X                     17
-#define DEV_START_Y                     37
-#define DEV_START_MAP                   MAP_PALLET_TOWN_PLAYERS_HOUSE_2F
+#define DEV_START_X                     7  // posicao no mapa de partida
+#define DEV_START_Y                     6
+#define DEV_START_MAP                   MAP_OREBURGH_CITY_POKEMON_CENTER_1F // para onde o jogo novo warpa
 
 #define DEBUG_OVERWORLD_MENU            DISABLED_ON_RELEASE // Enables an overworld debug menu to change flags, variables, giving Pokémon and more, accessed by holding R and pressing START while in the overworld by default.
 #define DEBUG_OVERWORLD_HELD_KEYS       (R_BUTTON)          // The keys required to be held to open the debug menu.

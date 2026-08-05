@@ -139,7 +139,7 @@
     },
     {
       "local_id": "LOCALID_ROUTE212_NORTH_TRAINER5",
-      "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_1",
       "x": 11,
       "y": 4,
       "elevation": 3,
@@ -153,7 +153,7 @@
     },
     {
       "local_id": "LOCALID_ROUTE212_NORTH_TRAINER6",
-      "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_1",
       "x": 14,
       "y": 8,
       "elevation": 3,
@@ -167,7 +167,7 @@
     },
     {
       "local_id": "LOCALID_ROUTE212_NORTH_TRAINER7",
-      "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_1",
       "x": 17,
       "y": 61,
       "elevation": 3,
@@ -181,7 +181,7 @@
     },
     {
       "local_id": "LOCALID_ROUTE212_NORTH_TRAINER8",
-      "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_1",
       "x": 16,
       "y": 80,
       "elevation": 3,

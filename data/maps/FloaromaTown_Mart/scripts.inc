@@ -2,8 +2,25 @@ FloaromaTown_Mart_MapScripts::
 	.byte 0
 
 FloaromaTown_Mart_EventScript_Cashier::
-	msgbox FloaromaTown_Mart_Text_Cashier, MSGBOX_NPC
+	lock
+	faceplayer
+	msgbox FloaromaTown_Mart_Text_Cashier, MSGBOX_DEFAULT
+	pokemart FloaromaTown_Mart_Pokemart
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
 	end
+
+	.align 2
+FloaromaTown_Mart_Pokemart:
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_REVIVE
+	.2byte ITEM_ESCAPE_ROPE
+	pokemartlistend
 
 FloaromaTown_Mart_EventScript_Beauty::
 	msgbox FloaromaTown_Mart_Text_Beauty, MSGBOX_NPC

@@ -2,8 +2,21 @@ JubilifeCity_Mart_MapScripts::
 	.byte 0
 
 JubilifeCity_Mart_EventScript_Cashier::
-	msgbox JubilifeCity_Mart_Text_Cashier, MSGBOX_NPC
+	lock
+	faceplayer
+	msgbox JubilifeCity_Mart_Text_Cashier, MSGBOX_DEFAULT
+	pokemart JubilifeCity_Mart_Pokemart
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
 	end
+
+	.align 2
+JubilifeCity_Mart_Pokemart:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_POTION
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	pokemartlistend
 
 JubilifeCity_Mart_EventScript_Guitarist::
 	msgbox JubilifeCity_Mart_Text_Guitarist, MSGBOX_NPC

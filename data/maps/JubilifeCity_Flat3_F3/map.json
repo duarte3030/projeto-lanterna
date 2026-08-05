@@ -30,7 +30,7 @@
     },
     {
       "local_id": "LOCALID_FLAT3F3_OLD_MAN",
-      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
       "x": 10,
       "y": 4,
       "elevation": 3,

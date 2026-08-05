@@ -29,6 +29,7 @@ PREFIXOS_SINNOH = (
     "Solaceon", "Veilstone", "Pastoria", "Celestic", "Canalave", "Snowpoint", "Sunyshore",
     "Fight", "Survival", "Resort", "MtCoronet", "Lake", "Spear", "Valley", "GreatMarsh",
     "Ravaged", "Wayward", "Iron", "Acuity", "Verity", "Hotel", "Pokmon", "Route2",
+    "SinnohLeague",
 )
 
 # Trocas conhecidas: sprite que Sinnoh usa e o GBA não tem.

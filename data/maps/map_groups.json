@@ -100,7 +100,8 @@
     "gMapGroup_IndoorKantoRoutes_Johto",
     "gMapGroup_Dungeons_Johto",
     "gMapGroup_SpecialArea_Johto",
-    "gMapGroup_Unova"
+    "gMapGroup_Unova",
+    "gMapGroup_SinnohLeague"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -1684,5 +1685,13 @@
     "Route2_Kalos",
     "Route3_Kalos",
     "SantaluneForest"
+  ],
+  "gMapGroup_SinnohLeague": [
+    "SinnohLeague_Entrance",
+    "SinnohLeague_AaronsRoom",
+    "SinnohLeague_BerthasRoom",
+    "SinnohLeague_FlintsRoom",
+    "SinnohLeague_LuciansRoom",
+    "SinnohLeague_ChampionsRoom"
   ]
 }

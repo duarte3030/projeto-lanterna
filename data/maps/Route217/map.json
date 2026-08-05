@@ -167,7 +167,7 @@
   },
   {
    "local_id": "LOCALID_ROUTE217_TRAINER8",
-   "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
+   "graphics_id": "OBJ_EVENT_GFX_CAMPER",
    "x": 19,
    "y": 15,
    "elevation": 3,
@@ -181,7 +181,7 @@
   },
   {
    "local_id": "LOCALID_ROUTE217_TRAINER9",
-   "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
+   "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
    "x": 14,
    "y": 31,
    "elevation": 3,

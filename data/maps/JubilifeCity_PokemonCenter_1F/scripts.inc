@@ -1,8 +1,18 @@
 JubilifeCity_PokemonCenter_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, JubilifeCity_PokemonCenter_1F_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
 	.byte 0
 
+JubilifeCity_PokemonCenter_1F_OnTransition:
+	setrespawn HEAL_LOCATION_JUBILIFE_CITY
+	end
+
 JubilifeCity_PokemonCenter_1F_EventScript_Nurse::
-	msgbox JubilifeCity_PokemonCenter_1F_Text_Nurse, MSGBOX_NPC
+	setvar VAR_0x800B, LOCALID_JUBILIFE_PC1F_NURSE
+	call Common_EventScript_PkmnCenterNurse
+	waitmessage
+	waitbuttonpress
+	release
 	end
 
 JubilifeCity_PokemonCenter_1F_EventScript_SchoolKid::

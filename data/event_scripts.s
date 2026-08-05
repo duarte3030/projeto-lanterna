@@ -664,6 +664,12 @@ gStdScripts_End::
 	.include "data/maps/OreburghMine_B2F/scripts.inc"
 	.include "data/maps/PastoriaCity/scripts.inc"
 	.include "data/maps/PokmonLeague/scripts.inc"
+	.include "data/maps/SinnohLeague_Entrance/scripts.inc"
+	.include "data/maps/SinnohLeague_AaronsRoom/scripts.inc"
+	.include "data/maps/SinnohLeague_BerthasRoom/scripts.inc"
+	.include "data/maps/SinnohLeague_FlintsRoom/scripts.inc"
+	.include "data/maps/SinnohLeague_LuciansRoom/scripts.inc"
+	.include "data/maps/SinnohLeague_ChampionsRoom/scripts.inc"
 	.include "data/maps/RavagedPath/scripts.inc"
 	.include "data/maps/ResortArea/scripts.inc"
 	.include "data/maps/Route19_UnusedHouse_Frlg/scripts.inc"
@@ -1491,6 +1497,7 @@ Common_EventScript_PlayerHandedOverTheItem::
 	return
 
 	.include "data/scripts/elite_four.inc"
+	.include "data/scripts/sinnoh_league.inc"
 	.include "data/scripts/movement.inc"
 	.include "data/scripts/check_furniture.inc"
 	.include "data/scripts/mart_clerk.inc"

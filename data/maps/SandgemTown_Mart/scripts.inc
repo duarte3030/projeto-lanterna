@@ -5,8 +5,17 @@ SandgemTown_Mart_EventScript_Clerk::
 	lock
 	faceplayer
 	msgbox SandgemTown_Mart_Text_Clerk, MSGBOX_DEFAULT
+	pokemart SandgemTown_Mart_Pokemart
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
+
+	.align 2
+SandgemTown_Mart_Pokemart:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_POTION
+	.2byte ITEM_ANTIDOTE
+	pokemartlistend
 
 SandgemTown_Mart_EventScript_SchoolKid::
 	msgbox SandgemTown_Mart_Text_SchoolKid, MSGBOX_NPC

@@ -37,7 +37,7 @@
   "object_events": [
     {
       "local_id": "LOCALID_JUBILIFE_ACE_TRAINER_F",
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
+      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
       "x": 56,
       "y": 37,
       "elevation": 3,
@@ -51,7 +51,7 @@
     },
     {
       "local_id": "LOCALID_JUBILIFE_ACE_TRAINER_M_1",
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
       "x": 52,
       "y": 27,
       "elevation": 3,
@@ -135,7 +135,7 @@
     },
     {
       "local_id": "LOCALID_JUBILIFE_ACE_TRAINER_M_2",
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
       "x": 22,
       "y": 14,
       "elevation": 3,
@@ -149,7 +149,7 @@
     },
     {
       "local_id": "LOCALID_JUBILIFE_ACE_TRAINER_M_3",
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
       "x": 15,
       "y": 14,
       "elevation": 3,
@@ -163,7 +163,7 @@
     },
     {
       "local_id": "LOCALID_JUBILIFE_KID_WITH_NDS_1",
-      "graphics_id": "OBJ_EVENT_GFX_GBA_KID",
+      "graphics_id": "OBJ_EVENT_GFX_GAMEBOY_KID",
       "x": 44,
       "y": 50,
       "elevation": 3,
@@ -177,7 +177,7 @@
     },
     {
       "local_id": "LOCALID_JUBILIFE_KID_WITH_NDS_2",
-      "graphics_id": "OBJ_EVENT_GFX_GBA_KID",
+      "graphics_id": "OBJ_EVENT_GFX_GAMEBOY_KID",
       "x": 18,
       "y": 50,
       "elevation": 3,

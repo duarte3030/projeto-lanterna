@@ -36,7 +36,7 @@
   },
   {
    "local_id": "LOCALID_ROUTE216_ACE_TRAINER",
-   "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
+   "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
    "x": 55,
    "y": 15,
    "elevation": 3,
@@ -64,7 +64,7 @@
   },
   {
    "local_id": "LOCALID_ROUTE216_TRAINER2",
-   "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
+   "graphics_id": "OBJ_EVENT_GFX_CAMPER",
    "x": 67,
    "y": 8,
    "elevation": 3,
@@ -78,7 +78,7 @@
   },
   {
    "local_id": "LOCALID_ROUTE216_TRAINER3",
-   "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
+   "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
    "x": 40,
    "y": 14,
    "elevation": 3,
@@ -106,7 +106,7 @@
   },
   {
    "local_id": "LOCALID_ROUTE216_TRAINER5",
-   "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
+   "graphics_id": "OBJ_EVENT_GFX_CAMPER",
    "x": 11,
    "y": 29,
    "elevation": 3,
@@ -120,7 +120,7 @@
   },
   {
    "local_id": "LOCALID_ROUTE216_TRAINER6",
-   "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
+   "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
    "x": 56,
    "y": 11,
    "elevation": 3,

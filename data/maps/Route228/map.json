@@ -27,7 +27,7 @@
     "object_events": [
         {
             "local_id": "LOCALID_ROUTE228_ACE_TRAINER_JOSE",
-            "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
+            "graphics_id": "OBJ_EVENT_GFX_CAMPER",
             "x": 12,
             "y": 9,
             "elevation": 3,

@@ -120,11 +120,6 @@ static void CB2_ReturnToFieldLink(void);
 static void CB2_LoadMapOnReturnToFieldCableClub(void);
 static void CB2_LoadMap2(void);
 static void VBlankCB_Field(void);
-extern void ShowStartMenu(void);
-extern void sub_80AEE84(void);
-extern void mapldr_default(void);
-extern void FieldCB_StartNewGame(void);
-extern bool32 sub_800F0B8(void);
 static void SpriteCB_LinkPlayer(struct Sprite *);
 static void ChooseAmbientCrySpecies(void);
 static void DoMapLoadLoop(u8 *);
@@ -1929,38 +1924,6 @@ static bool8 RunFieldCallback(void)
     return TRUE;
 }
 
-static void Task_StartNewGameFade(u8 taskId)
-{
-    struct Task *task = &gTasks[taskId];
-
-    switch (task->data[0])
-    {
-    case 0:
-        task->data[1]++;
-        if (task->data[1] > 10)
-        {
-            FadeInFromBlack();
-            task->data[0]++;
-        }
-        break;
-    case 1:
-        if (!gPaletteFade.active)
-        {
-            UnlockPlayerFieldControls();
-            DestroyTask(taskId);
-        }
-        break;
-    }
-}
-
-void FieldCB_StartNewGame(void)
-{
-    LockPlayerFieldControls();
-    CpuFastFill16(RGB_BLACK, gPlttBufferFaded, PLTT_SIZE);
-    Overworld_PlaySpecialMapMusic();
-    CreateTask(Task_StartNewGameFade, 10);
-}
-
 void CB2_NewGame(void)
 {
     FieldClearVBlankHBlankCallbacks();
@@ -1971,18 +1934,19 @@ void CB2_NewGame(void)
     PlayTimeCounter_Start();
     ScriptContext_Init();
     UnlockPlayerFieldControls();
-    
-    gFieldCallback = NULL;
+    if (IS_FRLG)
+        gFieldCallback = FieldCB_WarpExitFadeFromBlack;
+    else
+        gFieldCallback = ExecuteTruckSequence;
     gFieldCallback2 = NULL;
-    
     DoMapLoadLoop(&gMain.state);
-    
     SetFieldVBlankCallback();
     SetMainCallback1(CB1_Overworld);
     SetMainCallback2(CB2_Overworld);
-    
-    Overworld_PlaySpecialMapMusic();
-    BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
+#if OW_USE_FAKE_RTC
+    // Wall clock now track local time so we set it to 10AM to match initial wall clock time
+    RtcCalcLocalTimeOffset(0, 10, 0, 0);
+#endif
 }
 
 void CB2_WhiteOut(void)

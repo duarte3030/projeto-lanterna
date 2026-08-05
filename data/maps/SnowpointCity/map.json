@@ -22,7 +22,7 @@
   "object_events": [
     {
       "local_id": "LOCALID_SNOWPOINT_ACE_TRAINER",
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
+      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
       "x": 9,
       "y": 43,
       "elevation": 3,
@@ -78,7 +78,7 @@
     },
     {
       "local_id": "LOCALID_SNOWPOINT_TEMPLE_GUARD",
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
+      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
       "x": 13,
       "y": 8,
       "elevation": 3,

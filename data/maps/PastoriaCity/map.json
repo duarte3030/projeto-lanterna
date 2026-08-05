@@ -69,7 +69,7 @@
     },
     {
       "local_id": "LOCALID_PASTORIA_ACE_TRAINER_1",
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
       "x": 26,
       "y": 31,
       "elevation": 3,
@@ -139,7 +139,7 @@
     },
     {
       "local_id": "LOCALID_PASTORIA_ACE_TRAINER_2",
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
       "x": 32,
       "y": 43,
       "elevation": 3,

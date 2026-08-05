@@ -69,7 +69,7 @@
     },
     {
       "local_id": "LOCALID_FIGHT_AREA_ACE_TRAINER_M",
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
       "x": 25,
       "y": 11,
       "elevation": 3,
@@ -83,7 +83,7 @@
     },
     {
       "local_id": "LOCALID_FIGHT_AREA_ACE_TRAINER_F",
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
+      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
       "x": 22,
       "y": 12,
       "elevation": 3,
