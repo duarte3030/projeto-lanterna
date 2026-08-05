@@ -1,65 +1,108 @@
 [
   {
-    "id": "T13.1",
-    "nome": "KANTO entrega o trio: a Poke Bola do meio no laboratorio do Oak da o SQUIRTLE, o time sobe para 1 e VAR_STARTER_MON (0x4023) passa a valer 1. A var e pre-carregada com 99 de proposito: se o script nao escrevesse nada, ela continuaria 99 e o caso falharia. Comparar com 0 nao provaria nada, porque 0 e o valor de fabrica da var",
-    "vars": {"0x4055": 2, "0x4023": 99},
-    "warp": "MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB",
-    "roteiro": "16:UP*8,30:NADA,16:RIGHT*4,30:NADA,16:UP,30:NADA,20:A,120:NADA,20:A,180:NADA,20:A*6,180:NADA,20:B*6,240:NADA",
+    "id": "T20.1",
+    "nome": "KANTO entrega o trio E ESCREVE A VAR: a rota e a mesma do T1.4 (a abertura do Oak rodada inteira, do quarto ate a Poke Bola), mas a prova aqui e outra: VAR_STARTER_MON (0x4023) e pre-carregada com a sentinela 99 e tem que sair no indice do inicial escolhido, que nesta rota e 2 (CHARMANDER, a bola da direita; a numeracao e a do FRLG, 0=BULBASAUR, 1=SQUIRTLE, 2=CHARMANDER, ver include/constants/vars_frlg.h:60). Sem a sentinela, exigir 0 passaria com o script sem escrever nada, porque 0 e o valor de fabrica da var. O T1.4 prova que o time sobe; este prova que o rival consegue saber QUAL inicial foi escolhido",
+    "vars": {
+      "0x4023": 99
+    },
+    "roteiro": "20:B*8,60:NADA,16:RIGHT*5,16:UP*6,16:LEFT*3,60:NADA,16:DOWN*6,16:LEFT*6,16:DOWN*4,150:NADA,16:RIGHT*7,16:UP*8,300:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:A,36:NADA,12:B,36:NADA,12:B,36:NADA,12:B,36:NADA,12:B,36:NADA,12:B,36:NADA,12:B,36:NADA,12:B,36:NADA,12:B,36:NADA,12:B,36:NADA,12:B,36:NADA,12:B,36:NADA,12:B,36:NADA,16:DOWN*3,16:RIGHT*4,16:UP*3,60:NADA,12:A,60:NADA,12:A,60:NADA,12:A,60:NADA,12:A,60:NADA,12:A,60:NADA,12:A,60:NADA,12:A,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA,12:B,60:NADA",
     "prova": {
       "mapa": "MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB",
       "time_min": 1,
-      "vars": {"0x4023": 1}
+      "vars": {
+        "0x4023": 2
+      }
     }
   },
   {
-    "id": "T13.2",
+    "id": "T20.2",
     "nome": "JOHTO entrega o trio: a Poke Bola do meio no laboratorio do ELM da o CYNDAQUIL, o time sobe para 1 e VAR_STARTER_MON passa a valer 1. Este mapa nao entregava inicial nenhum antes de 05/08/2026",
-    "vars": {"0x4023": 99},
+    "vars": {
+      "0x4023": 99
+    },
     "warp": "MAP_NEW_BARK_TOWN_LAB",
     "roteiro": "16:UP*8,30:NADA,16:RIGHT*4,30:NADA,16:UP,30:NADA,20:A,120:NADA,20:A,180:NADA,20:A*6,180:NADA,20:B*6,240:NADA",
     "prova": {
       "mapa": "MAP_NEW_BARK_TOWN_LAB",
       "time_min": 1,
-      "vars": {"0x4023": 1},
-      "flags_acesas": ["FLAG_INICIAL_JOHTO"]
+      "vars": {
+        "0x4023": 1
+      },
+      "flags_acesas": [
+        "FLAG_INICIAL_JOHTO"
+      ]
     }
   },
   {
-    "id": "T13.3",
+    "id": "T20.6",
+    "nome": "HOENN entrega o trio: a mochila do BIRCH na Rota 101 abre a tela de escolha, o time sobe para 1 e VAR_STARTER_MON sai em 1 (TORCHIC, o do meio, que e onde o cursor da tela nasce). Hoenn nao foi alterada por este agente: quem escreve a var aqui e o special ChooseStarter, em src/battle_setup.c, e este caso existe para provar que ela continua sendo escrita com a ordem cronologica nova. A Rota 101 nao tem warp nenhum no map.json, entao o menu de debug larga o jogador em (10,10) e a rota anda dali ate a mochila, em (7,14)",
+    "vars": {
+      "0x4023": 99
+    },
+    "warp": "MAP_ROUTE101",
+    "roteiro": "16:LEFT*4,30:NADA,16:DOWN*4,30:NADA,16:DOWN,30:NADA,20:A,240:NADA,20:A,180:NADA,20:A,240:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE101",
+      "time_min": 1,
+      "vars": {
+        "0x4023": 1
+      }
+    }
+  },
+  {
+    "id": "T20.3",
     "nome": "SINNOH entrega o trio E ESCREVE A VAR: a Poke Bola do meio no laboratorio do ROWAN da o CHIMCHAR e VAR_STARTER_MON passa a valer 1. Antes de 05/08/2026 este script dava o Pokemon e NAO escrevia a var, e foi por isso que o time do rival de Johto teve que ser fixo",
-    "vars": {"0x4023": 99},
+    "vars": {
+      "0x4023": 99
+    },
     "warp": "MAP_SANDGEM_TOWN_HOUSE1",
-    "roteiro": "16:UP*3,30:NADA,16:RIGHT*2,30:NADA,16:UP,30:NADA,20:A,120:NADA,20:A,180:NADA,20:A*6,180:NADA,20:B*6,240:NADA",
+    "roteiro": "16:UP,16:UP,16:UP,16:UP,30:NADA,16:RIGHT,16:RIGHT,16:RIGHT,30:NADA,16:UP,16:UP,30:NADA,20:A,120:NADA,20:A,180:NADA,20:A*6,180:NADA,20:B*6,240:NADA",
     "prova": {
       "mapa": "MAP_SANDGEM_TOWN_HOUSE1",
       "time_min": 1,
-      "vars": {"0x4023": 1},
-      "flags_acesas": ["FLAG_INICIAL_SINNOH"]
+      "vars": {
+        "0x4023": 1
+      },
+      "flags_acesas": [
+        "FLAG_INICIAL_SINNOH"
+      ]
     }
   },
   {
-    "id": "T13.4",
+    "id": "T20.4",
     "nome": "UNOVA entrega o trio: a Poke Bola do meio no laboratorio de Nuvema da o TEPIG, o time sobe para 1 e VAR_STARTER_MON passa a valer 1. Este mapa nao entregava inicial nenhum antes de 05/08/2026",
-    "vars": {"0x4023": 99},
+    "vars": {
+      "0x4023": 99
+    },
     "warp": "MAP_UNOVA_NUVEMA_LAB",
     "roteiro": "16:RIGHT*3,30:NADA,16:UP*4,30:NADA,16:LEFT*2,30:NADA,16:UP,30:NADA,20:A,120:NADA,20:A,180:NADA,20:A*6,180:NADA,20:B*6,240:NADA",
     "prova": {
       "mapa": "MAP_UNOVA_NUVEMA_LAB",
       "time_min": 1,
-      "vars": {"0x4023": 1},
-      "flags_acesas": ["FLAG_INICIAL_UNOVA"]
+      "vars": {
+        "0x4023": 1
+      },
+      "flags_acesas": [
+        "FLAG_INICIAL_UNOVA"
+      ]
     }
   },
   {
-    "id": "T13.5",
+    "id": "T20.5",
     "nome": "CONTROLE dos quatro acima: entrar no laboratorio do ROWAN e NAO falar com bola nenhuma deixa VAR_STARTER_MON no valor de sentinela 99 e o time em 0. E este caso que prova que a prova dos outros mede a escrita da var, e nao o valor de fabrica dela",
-    "vars": {"0x4023": 99},
+    "vars": {
+      "0x4023": 99
+    },
     "warp": "MAP_SANDGEM_TOWN_HOUSE1",
     "prova": {
       "mapa": "MAP_SANDGEM_TOWN_HOUSE1",
       "time": 0,
-      "vars": {"0x4023": 99},
-      "flags_apagadas": ["FLAG_INICIAL_SINNOH"]
+      "vars": {
+        "0x4023": 99
+      },
+      "flags_apagadas": [
+        "FLAG_INICIAL_SINNOH"
+      ]
     }
   }
 ]
