@@ -93,7 +93,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
       "x": 11,
       "y": 29,
       "elevation": 0,
@@ -101,8 +101,8 @@
       "movement_range_x": 2,
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "MtMortar_2F_EventScript_Nerd",
       "flag": "0"
     },
     {

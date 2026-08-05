@@ -26,16 +26,16 @@
   ],
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M",
       "x": 19,
       "y": 40,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_LEFT_AND_RIGHT",
       "movement_range_x": 7,
       "movement_range_y": 4,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "trainer_sight_or_berry_tree_id": "7",
+      "script": "Route26_EventScript_Richard",
       "flag": "0"
     },
     {
@@ -130,7 +130,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
       "x": 19,
       "y": 13,
       "elevation": 0,
@@ -138,8 +138,8 @@
       "movement_range_x": 7,
       "movement_range_y": 4,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "trainer_sight_or_berry_tree_id": "7",
+      "script": "Route26_EventScript_Gaven",
       "flag": "0"
     },
     {

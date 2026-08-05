@@ -345,3 +345,47 @@ Cortado: **TM Shock Wave** que o hns também deixa nesta sala — o script
   `OBJ_EVENT_GFX_ITEM_BALL` com `script: "0"` (Slowpoke, Zubat, Geodude, árvore
   de berry, rival escondido) foram apagados dos mapas tocados. Eram item balls
   sólidas e inertes no meio da cidade, não decoração.
+
+---
+
+## Treinadores de rota importados do hns (05/08/2026)
+
+144 treinadores entraram, em 33 mapas, pelos ids 2274 a 2417 da faixa 2274-2599.
+Gerados por `dev_scripts/importa_treinadores_johto.py`; rodar de novo reescreve
+o mesmo bloco e mais nada. Johto passou de 69 para 213 treinadores com time
+próprio, e de 179 para 504 Pokémon de treinador, todos dentro de 45 a 100.
+
+Provado na ROM pelos casos `T30.1` a `T30.3` (Dirk na Rota 35, Ron na Rota 43,
+Erik na Rota 45), com a asserção por **faixa** 2274-2599 e não por nome: o
+controle negativo, trocando a faixa esperada pela de Kanto, derruba os três.
+
+### O que ficou de fora, e por quê
+
+- **Batalha dentro de cena, 12 casos.** Rival Silver nos túneis de Goldenrod
+  (Cyndaquil/Totodile/Chikorita), o Rocket e as cinco irmãs Kimono do teatro de
+  Ecruteak, o Eusine de Cianwood, o Kiyo do Mt. Mortar, o Giovanni das Tohjo
+  Falls e o RED do cume do Mt. Silver. Nesses o `trainerbattle` vem depois de
+  `applymovement`, `playbgm`, `setvar` de enredo ou câmera: portar só a linha da
+  batalha entrega um NPC que anda para lugar nenhum. Cada um é uma cena a portar
+  inteira, não um treinador de rota.
+- **Rota 26, dois NPCs.** `Jake` e `Joyce` estão em coordenada negativa no hns
+  (`(16,-10)` e `(9,-19)`) e o import de mapa já tinha descartado os objetos:
+  nosso `map.json` tem 10 objetos contra 16 lá. O script e o time deles entraram,
+  o NPC não existe, então a batalha é inalcançável hoje. `Beth` nem script tem.
+- **Nenhum time foi inventado.** Todo treinador acima tem time no hns; o que
+  falta é o NPC ou a cena, não o dado.
+
+### Substituições feitas de propósito
+
+- Sprites que só existem sob `#if IS_FRLG` (id aponta para o vazio e reinicia a
+  ROM): `SUPER_NERD` virou `SCIENTIST_1`, `FIREBREATHER` virou `MANIAC`,
+  `BURGLAR` virou `BIKER`, `JUGGLER` virou `EXPERT_M`, `BATTLE_GIRL` virou
+  `CRUSH_GIRL`. Conferido contra `object_event_graphics_info_pointers.h` fora do
+  ramo FRLG, em tempo de execução, e o script aborta se a tabela apontar para
+  sprite sem gráfico.
+- Classe e pic sem nome igual aqui: `PSYCHIC_M` -> `PSYCHIC`, `FIREBREATHER` ->
+  `KINDLER`, `POLICEMAN` -> `GENTLEMAN`. O resto resolve sozinho pelo sufixo
+  `_FRLG`, que esta build compila (é a mesma arte que os 474 de Kanto usam).
+- **NPC que não é treinador continua `OBJ_EVENT_GFX_ITEM_BALL` inerte** nesses
+  33 mapas. O escopo aqui foi treinador; devolver os moradores, as placas e as
+  berry trees das rotas de Johto é outra tarefa, e é grande.

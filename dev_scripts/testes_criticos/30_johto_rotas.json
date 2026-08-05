@@ -1,0 +1,38 @@
+[
+  {
+    "id": "T30.1",
+    "nome": "Rota 35: o policial Dirk abre batalha com id na faixa 2274-2599, a dos treinadores de rota de Johto importados do hns. A prova é por FAIXA e não por nome: constante que existe sem bloco === TRAINER_X === em trainers.party devolve o id dela mesma e o teste passaria com o jogo quebrado, que foi como o ginásio de Pewter entregou um montanhista de Hoenn por semanas. Dirk é caso porque é MOVEMENT_TYPE_FACE_DOWN, posição e direção fixas, raio 3; o warp 3 cai a quatro passos da linha de visão dele e não há NENHUM NPC móvel no caminho (conferido contra o map.json, não suposto)",
+    "warp": "MAP_ROUTE35",
+    "warp_id": 3,
+    "roteiro": "16:DOWN*2,16:RIGHT*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE35",
+      "oponente": "TRAINER_JOHTO_DIRK",
+      "oponente_faixa": [2274, 2599]
+    }
+  },
+  {
+    "id": "T30.2",
+    "nome": "Rota 43: o pescador Ron abre batalha na faixa 2274-2599. Segundo caso em mapa diferente de propósito: um só provaria que UM script foi escrito certo, e o que está em jogo é o acervo inteiro. FACE_LEFT com raio 4, e o warp 4 cai na coluna dele, então bastam seis passos retos sem cruzar a visão de nenhum outro treinador",
+    "warp": "MAP_ROUTE43",
+    "warp_id": 4,
+    "roteiro": "16:UP*6,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE43",
+      "oponente": "TRAINER_JOHTO_RON",
+      "oponente_faixa": [2274, 2599]
+    }
+  },
+  {
+    "id": "T30.3",
+    "nome": "Rota 45: o montanhista Erik abre batalha na faixa 2274-2599. Rota tardia de Johto, longe das outras duas, e o id dele (2350) está a 76 vagas do começo da faixa, o que prova que a faixa inteira responde e não só a primeira vaga. FACE_RIGHT raio 4, warp 0, nove passos, zero NPC móvel no caminho",
+    "warp": "MAP_ROUTE45",
+    "warp_id": 0,
+    "roteiro": "16:DOWN*2,16:LEFT*3,16:DOWN*4,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE45",
+      "oponente": "TRAINER_JOHTO_ERIK",
+      "oponente_faixa": [2274, 2599]
+    }
+  }
+]

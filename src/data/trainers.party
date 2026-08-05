@@ -42012,3 +42012,2172 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Golduck
 Level: 129
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+/*=== ACERVO JOHTO ROTAS (importa_treinadores_johto.py) ===
+   Times portados de fontes-mapas/hns. Nada aqui foi escrito a mao: quem
+   gera e dev_scripts/importa_treinadores_johto.py. Rodar de novo troca so
+   este bloco. Comentario em bloco porque o formato .party nao aceita //. */
+
+=== TRAINER_JOHTO_JOEY ===
+Name: Joey
+Class: TRAINER_CLASS_YOUNGSTER
+Pic: TRAINER_PIC_YOUNGSTER
+Double Battle: No
+
+SPECIES_RATTATA
+Level: 47
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_MIKEY ===
+Name: Mikey
+Class: TRAINER_CLASS_YOUNGSTER
+Pic: TRAINER_PIC_YOUNGSTER
+Double Battle: No
+
+SPECIES_HOOTHOOT
+Level: 45
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SENTRET
+Level: 47
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_DON ===
+Name: Don
+Class: TRAINER_CLASS_BUG_CATCHER
+Pic: TRAINER_PIC_BUG_CATCHER
+Double Battle: No
+
+SPECIES_LEDYBA
+Level: 46
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SPINARAK
+Level: 46
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_WADE ===
+Name: Wade
+Class: TRAINER_CLASS_BUG_CATCHER
+Pic: TRAINER_PIC_BUG_CATCHER
+Double Battle: No
+
+SPECIES_WEEDLE
+Level: 47
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PINECO
+Level: 48
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_JUSTIN ===
+Name: Justin
+Class: TRAINER_CLASS_FISHERMAN
+Pic: TRAINER_PIC_FISHERMAN
+Double Battle: No
+
+SPECIES_TENTACOOL
+Level: 51
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_RALPH ===
+Name: Ralph
+Class: TRAINER_CLASS_FISHERMAN
+Pic: TRAINER_PIC_FISHERMAN
+Double Battle: No
+
+SPECIES_GOLDEEN
+Level: 52
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_HENRY ===
+Name: Henry
+Class: TRAINER_CLASS_FISHERMAN
+Pic: TRAINER_PIC_FISHERMAN
+Double Battle: No
+
+SPECIES_MARILL
+Level: 51
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_POLIWAG
+Level: 51
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ALBERT ===
+Name: Albert
+Class: TRAINER_CLASS_YOUNGSTER
+Pic: TRAINER_PIC_YOUNGSTER
+Double Battle: No
+
+SPECIES_SENTRET
+Level: 51
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ZUBAT
+Level: 51
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_GORDON ===
+Name: Gordon
+Class: TRAINER_CLASS_YOUNGSTER
+Pic: TRAINER_PIC_YOUNGSTER
+Double Battle: No
+
+SPECIES_WOOPER
+Level: 54
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ROLAND ===
+Name: Roland
+Class: TRAINER_CLASS_CAMPER
+Pic: TRAINER_PIC_CAMPER
+Double Battle: No
+
+SPECIES_NIDORAN_M
+Level: 53
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LIZ ===
+Name: Liz
+Class: TRAINER_CLASS_PICNICKER
+Pic: TRAINER_PIC_PICNICKER
+Double Battle: No
+
+SPECIES_NIDORAN_F
+Level: 53
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_PETER ===
+Name: Peter
+Class: TRAINER_CLASS_BIRD_KEEPER
+Pic: TRAINER_PIC_BIRD_KEEPER
+Double Battle: No
+
+SPECIES_SPEAROW
+Level: 52
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_NATU
+Level: 52
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ANTHONY ===
+Name: Anthony
+Class: TRAINER_CLASS_HIKER
+Pic: TRAINER_PIC_HIKER
+Double Battle: No
+
+SPECIES_GEODUDE
+Level: 55
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MACHOP
+Level: 55
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_SAMUEL ===
+Name: Samuel
+Class: TRAINER_CLASS_YOUNGSTER
+Pic: TRAINER_PIC_YOUNGSTER
+Double Battle: No
+
+SPECIES_TEDDIURSA
+Level: 56
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SANDSHREW
+Level: 54
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SPEAROW
+Level: 56
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_IAN ===
+Name: Ian
+Class: TRAINER_CLASS_YOUNGSTER
+Pic: TRAINER_PIC_YOUNGSTER
+Double Battle: No
+
+SPECIES_MANKEY
+Level: 56
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DIGLETT
+Level: 59
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_TODD ===
+Name: Todd
+Class: TRAINER_CLASS_CAMPER
+Pic: TRAINER_PIC_CAMPER
+Double Battle: No
+
+SPECIES_AZUMARILL
+Level: 60
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_GINA ===
+Name: Gina
+Class: TRAINER_CLASS_PICNICKER
+Pic: TRAINER_PIC_PICNICKER
+Double Battle: No
+
+SPECIES_SKIPLOOM
+Level: 59
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BULBASAUR
+Level: 59
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_KEITH ===
+Name: Keith
+Class: TRAINER_CLASS_GENTLEMAN
+Pic: TRAINER_PIC_GENTLEMAN
+Double Battle: No
+
+SPECIES_GROWLITHE
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_BRANDON ===
+Name: Brandon
+Class: TRAINER_CLASS_POKEFAN
+Pic: TRAINER_PIC_POKEFAN_M
+Double Battle: No
+
+SPECIES_SNUBBULL
+Level: 60
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_IRENE ===
+Name: Irene
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_F
+Double Battle: No
+
+SPECIES_GOLDEEN
+Level: 68
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SEAKING
+Level: 70
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_JENN ===
+Name: Jenn
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_F
+Double Battle: No
+
+SPECIES_STARYU
+Level: 70
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_STARMIE
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_KATE ===
+Name: Kate
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_F
+Double Battle: No
+
+SPECIES_SHELLDER
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CLOYSTER
+Level: 75
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_IVAN ===
+Name: Ivan
+Class: TRAINER_CLASS_CAMPER
+Pic: TRAINER_PIC_CAMPER
+Double Battle: No
+
+SPECIES_EEVEE
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DIGLETT
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ELLIOT ===
+Name: Elliot
+Class: TRAINER_CLASS_CAMPER
+Pic: TRAINER_PIC_CAMPER
+Double Battle: No
+
+SPECIES_SANDSHREW
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MARILL
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_BROOKE ===
+Name: Brooke
+Class: TRAINER_CLASS_PICNICKER
+Pic: TRAINER_PIC_PICNICKER
+Double Battle: No
+
+SPECIES_PIKACHU
+Level: 63
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_KIM ===
+Name: Kim
+Class: TRAINER_CLASS_PICNICKER
+Pic: TRAINER_PIC_PICNICKER
+Double Battle: No
+
+SPECIES_VULPIX
+Level: 63
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_BRYAN ===
+Name: Bryan
+Class: TRAINER_CLASS_BIRD_KEEPER
+Pic: TRAINER_PIC_BIRD_KEEPER
+Double Battle: No
+
+SPECIES_PIDGEY
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PIDGEOTTO
+Level: 63
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SPEAROW
+Level: 63
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_IRWIN ===
+Name: Irwin
+Class: TRAINER_CLASS_JUGGLER_FRLG
+Pic: TRAINER_PIC_JUGGLER_FRLG
+Double Battle: No
+
+SPECIES_VOLTORB
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PINECO
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_VOLTORB
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ARNIE ===
+Name: Arnie
+Class: TRAINER_CLASS_BUG_CATCHER
+Pic: TRAINER_PIC_BUG_CATCHER
+Double Battle: No
+
+SPECIES_YANMA
+Level: 63
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_VENONAT
+Level: 63
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_WALT ===
+Name: Walt
+Class: TRAINER_CLASS_KINDLER
+Pic: TRAINER_PIC_KINDLER
+Double Battle: No
+
+SPECIES_MAGMAR
+Level: 60
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAGMAR
+Level: 60
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_DIRK ===
+Name: Dirk
+Class: TRAINER_CLASS_GENTLEMAN
+Pic: TRAINER_PIC_GENTLEMAN
+Double Battle: No
+
+SPECIES_GROWLITHE
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_HOUNDOUR
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_MARK ===
+Name: Mark
+Class: TRAINER_CLASS_PSYCHIC
+Pic: TRAINER_PIC_PSYCHIC_M
+Double Battle: No
+
+SPECIES_ABRA
+Level: 60
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ABRA
+Level: 60
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_KADABRA
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ALAN ===
+Name: Alan
+Class: TRAINER_CLASS_SCHOOL_KID
+Pic: TRAINER_PIC_SCHOOL_KID_M
+Double Battle: No
+
+SPECIES_TANGELA
+Level: 66
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GROWLITHE
+Level: 66
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ANN_AND_ANNE ===
+Name: Ann&Anne
+Class: TRAINER_CLASS_TWINS
+Pic: TRAINER_PIC_TWINS
+Double Battle: Yes
+
+SPECIES_CLEFAIRY
+Level: 63
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FURRET
+Level: 63
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_GREG ===
+Name: Greg
+Class: TRAINER_CLASS_PSYCHIC
+Pic: TRAINER_PIC_PSYCHIC_M
+Double Battle: No
+
+SPECIES_STANTLER
+Level: 68
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_TOBY ===
+Name: Toby
+Class: TRAINER_CLASS_BIRD_KEEPER
+Pic: TRAINER_PIC_BIRD_KEEPER
+Double Battle: No
+
+SPECIES_DODUO
+Level: 68
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DODUO
+Level: 68
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_CHAD ===
+Name: Chad
+Class: TRAINER_CLASS_SCHOOL_KID
+Pic: TRAINER_PIC_SCHOOL_KID_M
+Double Battle: No
+
+SPECIES_MR_MIME
+Level: 68
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAGNEMITE
+Level: 68
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_DANA ===
+Name: Dana
+Class: TRAINER_CLASS_LASS
+Pic: TRAINER_PIC_LASS
+Double Battle: No
+
+SPECIES_FLAAFFY
+Level: 64
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PSYDUCK
+Level: 66
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_VALERIE ===
+Name: Valerie
+Class: TRAINER_CLASS_BEAUTY
+Pic: TRAINER_PIC_BEAUTY
+Double Battle: No
+
+SPECIES_SKIPLOOM
+Level: 68
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MILTANK
+Level: 67
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_HARRY ===
+Name: Harry
+Class: TRAINER_CLASS_SAILOR
+Pic: TRAINER_PIC_SAILOR
+Double Battle: No
+
+SPECIES_QUAGSIRE
+Level: 69
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_OLIVIA ===
+Name: Olivia
+Class: TRAINER_CLASS_BEAUTY
+Pic: TRAINER_PIC_BEAUTY
+Double Battle: No
+
+SPECIES_CORSOLA
+Level: 67
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_EUGENE ===
+Name: Eugene
+Class: TRAINER_CLASS_SAILOR
+Pic: TRAINER_PIC_SAILOR
+Double Battle: No
+
+SPECIES_POLIWHIRL
+Level: 66
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TAUROS
+Level: 68
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_DEREK ===
+Name: Derek
+Class: TRAINER_CLASS_POKEFAN
+Pic: TRAINER_PIC_POKEFAN_M
+Double Battle: No
+
+SPECIES_PIKACHU
+Level: 68
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PONYTA
+Level: 68
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_RUTH ===
+Name: Ruth
+Class: TRAINER_CLASS_PARASOL_LADY
+Pic: TRAINER_PIC_PARASOL_LADY
+Double Battle: No
+
+SPECIES_PIKACHU
+Level: 69
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_NORMAN ===
+Name: Norman
+Class: TRAINER_CLASS_PSYCHIC
+Pic: TRAINER_PIC_PSYCHIC_M
+Double Battle: No
+
+SPECIES_SLOWPOKE
+Level: 68
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SLOWPOKE
+Level: 69
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_JAMIE ===
+Name: Jaime
+Class: TRAINER_CLASS_PARASOL_LADY
+Pic: TRAINER_PIC_PARASOL_LADY
+Double Battle: No
+
+SPECIES_UMBREON
+Level: 66
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_SIMON ===
+Name: Simon
+Class: TRAINER_CLASS_SWIMMER_M
+Pic: TRAINER_PIC_SWIMMER_M
+Double Battle: No
+
+SPECIES_TENTACOOL
+Level: 71
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TENTACOOL
+Level: 71
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_RANDALL ===
+Name: Randall
+Class: TRAINER_CLASS_SWIMMER_M
+Pic: TRAINER_PIC_SWIMMER_M
+Double Battle: No
+
+SPECIES_SHELLDER
+Level: 71
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_WARTORTLE
+Level: 71
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ELAINE ===
+Name: Elaine
+Class: TRAINER_CLASS_SWIMMER_F
+Pic: TRAINER_PIC_SWIMMER_F
+Double Battle: No
+
+SPECIES_STARMIE
+Level: 71
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_PAULA ===
+Name: Paula
+Class: TRAINER_CLASS_SWIMMER_F
+Pic: TRAINER_PIC_SWIMMER_F
+Double Battle: No
+
+SPECIES_STARYU
+Level: 71
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SHELLDER
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_CHARLIE ===
+Name: Charlie
+Class: TRAINER_CLASS_SWIMMER_M
+Pic: TRAINER_PIC_SWIMMER_M
+Double Battle: No
+
+SPECIES_CLOYSTER
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TENTACRUEL
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_GEORGE ===
+Name: George
+Class: TRAINER_CLASS_SWIMMER_M
+Pic: TRAINER_PIC_SWIMMER_M
+Double Battle: No
+
+SPECIES_TENTACOOL
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_REMORAID
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_STARYU
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_BERKE ===
+Name: Berke
+Class: TRAINER_CLASS_SWIMMER_M
+Pic: TRAINER_PIC_SWIMMER_M
+Double Battle: No
+
+SPECIES_QWILFISH
+Level: 74
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_KIRK ===
+Name: Kirk
+Class: TRAINER_CLASS_SWIMMER_M
+Pic: TRAINER_PIC_SWIMMER_M
+Double Battle: No
+
+SPECIES_GYARADOS
+Level: 70
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GYARADOS
+Level: 70
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_MATHEW ===
+Name: Mathew
+Class: TRAINER_CLASS_SWIMMER_M
+Pic: TRAINER_PIC_SWIMMER_M
+Double Battle: No
+
+SPECIES_KRABBY
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_QWILFISH
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_KAYLEE ===
+Name: Kaylee
+Class: TRAINER_CLASS_SWIMMER_F
+Pic: TRAINER_PIC_SWIMMER_F
+Double Battle: No
+
+SPECIES_SEAKING
+Level: 70
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_LANTURN
+Level: 70
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_QUAGSIRE
+Level: 70
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_SUSIE ===
+Name: Susie
+Class: TRAINER_CLASS_SWIMMER_F
+Pic: TRAINER_PIC_SWIMMER_F
+Double Battle: No
+
+SPECIES_PSYDUCK
+Level: 74
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SEAKING
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_DENISE ===
+Name: Denise
+Class: TRAINER_CLASS_SWIMMER_F
+Pic: TRAINER_PIC_SWIMMER_F
+Double Battle: No
+
+SPECIES_LAPRAS
+Level: 74
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_KARA ===
+Name: Kara
+Class: TRAINER_CLASS_SWIMMER_F
+Pic: TRAINER_PIC_SWIMMER_F
+Double Battle: No
+
+SPECIES_HORSEA
+Level: 71
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_STARMIE
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_WENDY ===
+Name: Wendy
+Class: TRAINER_CLASS_SWIMMER_F
+Pic: TRAINER_PIC_SWIMMER_F
+Double Battle: No
+
+SPECIES_HORSEA
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SEADRA
+Level: 74
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_TULLY ===
+Name: Tully
+Class: TRAINER_CLASS_FISHERMAN
+Pic: TRAINER_PIC_FISHERMAN
+Double Battle: No
+
+SPECIES_QWILFISH
+Level: 70
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_BENJAMIN ===
+Name: Benjamin
+Class: TRAINER_CLASS_HIKER
+Pic: TRAINER_PIC_HIKER
+Double Battle: No
+
+SPECIES_GRAVELER
+Level: 70
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DUGTRIO
+Level: 70
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_SHANE ===
+Name: Shane
+Class: TRAINER_CLASS_POKEMANIAC
+Pic: TRAINER_PIC_POKEMANIAC
+Double Battle: No
+
+SPECIES_NIDORINO
+Level: 70
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_NIDOKING
+Level: 70
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_BEN ===
+Name: Ben
+Class: TRAINER_CLASS_POKEMANIAC
+Pic: TRAINER_PIC_POKEMANIAC
+Double Battle: No
+
+SPECIES_SLOWBRO
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_WARTORTLE
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_BRENT ===
+Name: Brent
+Class: TRAINER_CLASS_POKEMANIAC
+Pic: TRAINER_PIC_POKEMANIAC
+Double Battle: No
+
+SPECIES_LICKITUNG
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_IVYSAUR
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_RON ===
+Name: Ron
+Class: TRAINER_CLASS_POKEMANIAC
+Pic: TRAINER_PIC_POKEMANIAC
+Double Battle: No
+
+SPECIES_NIDOKING
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CHARMELEON
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_MARVIN ===
+Name: Marvin
+Class: TRAINER_CLASS_FISHERMAN
+Pic: TRAINER_PIC_FISHERMAN
+Double Battle: No
+
+SPECIES_GYARADOS
+Level: 71
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GYARADOS
+Level: 71
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_SPENCER ===
+Name: Spencer
+Class: TRAINER_CLASS_CAMPER
+Pic: TRAINER_PIC_CAMPER
+Double Battle: No
+
+SPECIES_SANDSLASH
+Level: 71
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GOLBAT
+Level: 71
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_TIFFANY ===
+Name: Tiffany
+Class: TRAINER_CLASS_PICNICKER
+Pic: TRAINER_PIC_PICNICKER
+Double Battle: No
+
+SPECIES_CLEFABLE
+Level: 82
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_WIGGLYTUFF
+Level: 82
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_WILTON ===
+Name: Wilton
+Class: TRAINER_CLASS_FISHERMAN
+Pic: TRAINER_PIC_FISHERMAN
+Double Battle: No
+
+SPECIES_QWILFISH
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_OCTILLERY
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SEAKING
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_EDGAR ===
+Name: Edgar
+Class: TRAINER_CLASS_FISHERMAN
+Pic: TRAINER_PIC_FISHERMAN
+Double Battle: No
+
+SPECIES_OCTILLERY
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GYARADOS
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SEAKING
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_VANCE ===
+Name: Vance
+Class: TRAINER_CLASS_BIRD_KEEPER
+Pic: TRAINER_PIC_BIRD_KEEPER
+Double Battle: No
+
+SPECIES_PIDGEOT
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MURKROW
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_XATU
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SKARMORY
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_PHIL ===
+Name: Phil
+Class: TRAINER_CLASS_PSYCHIC
+Pic: TRAINER_PIC_PSYCHIC_M
+Double Battle: No
+
+SPECIES_XATU
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_KADABRA
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GIRAFARIG
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ZACH ===
+Name: Zach
+Class: TRAINER_CLASS_POKEMANIAC
+Pic: TRAINER_PIC_POKEMANIAC
+Double Battle: No
+
+SPECIES_RHYDON
+Level: 89
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PUPITAR
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_HERACROSS
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ALLEN ===
+Name: Allen
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_M
+Double Battle: No
+
+SPECIES_CHARMELEON
+Level: 83
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ELECTABUZZ
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_CYBIL ===
+Name: Cybil
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_F
+Double Battle: No
+
+SPECIES_BUTTERFREE
+Level: 89
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BELLOSSOM
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_QUAGSIRE
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ERIK ===
+Name: Erik
+Class: TRAINER_CLASS_HIKER
+Pic: TRAINER_PIC_HIKER
+Double Battle: No
+
+SPECIES_MACHOKE
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GOLEM
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_KANGASKHAN
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_MICHAEL ===
+Name: Michael
+Class: TRAINER_CLASS_HIKER
+Pic: TRAINER_PIC_HIKER
+Double Battle: No
+
+SPECIES_RHYHORN
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DONPHAN
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GOLEM
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_PARRY ===
+Name: Parry
+Class: TRAINER_CLASS_HIKER
+Pic: TRAINER_PIC_HIKER
+Double Battle: No
+
+SPECIES_PILOSWINE
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DUGTRIO
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_STEELIX
+Level: 98
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_TIMOTHY ===
+Name: Timothy
+Class: TRAINER_CLASS_HIKER
+Pic: TRAINER_PIC_HIKER
+Double Battle: No
+
+SPECIES_DUGTRIO
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GLIGAR
+Level: 87
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GRAVELER
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DUGTRIO
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_KENJI ===
+Name: Kenji
+Class: TRAINER_CLASS_BLACK_BELT
+Pic: TRAINER_PIC_BLACK_BELT
+Double Battle: No
+
+SPECIES_ONIX
+Level: 81
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MACHAMP
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_STEELIX
+Level: 81
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_HITMONLEE
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_RYAN ===
+Name: Ryan
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_M
+Double Battle: No
+
+SPECIES_PIDGEOT
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ELECTABUZZ
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAGMAR
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_KELLY ===
+Name: Kelly
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_F
+Double Battle: No
+
+SPECIES_TOGETIC
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_AMPHAROS
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TANGELA
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BLASTOISE
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_QUENTIN ===
+Name: Quentin
+Class: TRAINER_CLASS_CAMPER
+Pic: TRAINER_PIC_CAMPER
+Double Battle: No
+
+SPECIES_FEAROW
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PRIMEAPE
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TAUROS
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RAICHU
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_BAILEY ===
+Name: Bailey
+Class: TRAINER_CLASS_HIKER
+Pic: TRAINER_PIC_HIKER
+Double Battle: No
+
+SPECIES_GOLEM
+Level: 89
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GOLEM
+Level: 89
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GOLEM
+Level: 89
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GOLEM
+Level: 89
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GOLEM
+Level: 89
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_TED ===
+Name: Ted
+Class: TRAINER_CLASS_CAMPER
+Pic: TRAINER_PIC_CAMPER
+Double Battle: No
+
+SPECIES_URSARING
+Level: 89
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PRIMEAPE
+Level: 89
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_NIDOKING
+Level: 89
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ERIN ===
+Name: Erin
+Class: TRAINER_CLASS_PICNICKER
+Pic: TRAINER_PIC_PICNICKER
+Double Battle: No
+
+SPECIES_RAPIDASH
+Level: 89
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_NIDOQUEEN
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RAICHU
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RAPIDASH
+Level: 89
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_DEVIN ===
+Name: Devin
+Class: TRAINER_CLASS_HIKER
+Pic: TRAINER_PIC_HIKER
+Double Battle: No
+
+SPECIES_DUNSPARCE
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DUNSPARCE
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DUDUNSPARCE
+Level: 74
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_GRANT ===
+Name: Grant
+Class: TRAINER_CLASS_CAMPER
+Pic: TRAINER_PIC_CAMPER
+Double Battle: No
+
+SPECIES_SKIPLOOM
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MARILL
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_THOM_AND_KAE ===
+Name: Thom & Kae
+Class: TRAINER_CLASS_YOUNG_COUPLE
+Pic: TRAINER_PIC_YOUNG_COUPLE
+Double Battle: Yes
+
+SPECIES_ELECTABUZZ
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAGMAR
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_DUFF_AND_EDA ===
+Name: Duff & Eda
+Class: TRAINER_CLASS_YOUNG_COUPLE
+Pic: TRAINER_PIC_YOUNG_COUPLE
+Double Battle: Yes
+
+SPECIES_ONIX
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CLOYSTER
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_JAKE ===
+Name: Jake
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_M
+Double Battle: No
+
+SPECIES_CLOYSTER
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PIDGEOT
+Level: 97
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ALAKAZAM
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ARCANINE
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_JOLTEON
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_GAVEN ===
+Name: Gaven
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_M
+Double Battle: No
+
+SPECIES_VICTREEBEL
+Level: 100
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_KINGLER
+Level: 100
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FLAREON
+Level: 100
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DONPHAN
+Level: 100
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DRAGONAIR
+Level: 100
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_JOYCE ===
+Name: Joyce
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_F
+Double Battle: No
+
+SPECIES_BLASTOISE
+Level: 93
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RAICHU
+Level: 95
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TAUROS
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RHYDON
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_JUMPLUFF
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_RICHARD ===
+Name: Richard
+Class: TRAINER_CLASS_PSYCHIC
+Pic: TRAINER_PIC_PSYCHIC_M
+Double Battle: No
+
+SPECIES_ESPEON
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MR_MIME
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SLOWKING
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_BLAKE ===
+Name: Blake
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_M
+Double Battle: No
+
+SPECIES_MAGNETON
+Level: 92
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_QUAGSIRE
+Level: 93
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_EXEGGUTOR
+Level: 92
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PILOSWINE
+Level: 93
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_BRIAN ===
+Name: Brian
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_M
+Double Battle: No
+
+SPECIES_SANDSLASH
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SCIZOR
+Level: 93
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SNEASEL
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_URSARING
+Level: 92
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_REENA ===
+Name: Reena
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_F
+Double Battle: No
+
+SPECIES_STARMIE
+Level: 93
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_NIDOQUEEN
+Level: 92
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_VILEPLUME
+Level: 93
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ELECTRODE
+Level: 92
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_STARMIE
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_MEGAN ===
+Name: Megan
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_F
+Double Battle: No
+
+SPECIES_TANGELA
+Level: 93
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_VENUSAUR
+Level: 93
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_VICTREEBEL
+Level: 93
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BELLOSSOM
+Level: 93
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_GILBERT ===
+Name: Gilbert
+Class: TRAINER_CLASS_PSYCHIC
+Pic: TRAINER_PIC_PSYCHIC_M
+Double Battle: No
+
+SPECIES_XATU
+Level: 91
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_EXEGGUTOR
+Level: 93
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GIRAFARIG
+Level: 93
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_JOSE ===
+Name: Jose
+Class: TRAINER_CLASS_BIRD_KEEPER
+Pic: TRAINER_PIC_BIRD_KEEPER
+Double Battle: No
+
+SPECIES_FEAROW
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FARFETCHD
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PIDGEOT
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DODRIO
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_SCOTT ===
+Name: Scott
+Class: TRAINER_CLASS_FISHERMAN
+Pic: TRAINER_PIC_FISHERMAN
+Double Battle: No
+
+SPECIES_QWILFISH
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SEAKING
+Level: 93
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GYARADOS
+Level: 92
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_QUAGSIRE
+Level: 92
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ERIC ===
+Name: Eric
+Class: TRAINER_CLASS_SUPER_NERD_FRLG
+Pic: TRAINER_PIC_SUPER_NERD_FRLG
+Double Battle: No
+
+SPECIES_GRIMER
+Level: 60
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CUBONE
+Level: 60
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_TERU ===
+Name: Teru
+Class: TRAINER_CLASS_SUPER_NERD_FRLG
+Pic: TRAINER_PIC_SUPER_NERD_FRLG
+Double Battle: No
+
+SPECIES_VOLTORB
+Level: 59
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAGNEMITE
+Level: 59
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PORYGON
+Level: 59
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ISSAC ===
+Name: Issac
+Class: TRAINER_CLASS_POKEMANIAC
+Pic: TRAINER_PIC_POKEMANIAC
+Double Battle: No
+
+SPECIES_LICKITUNG
+Level: 59
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_DONALD ===
+Name: Donald
+Class: TRAINER_CLASS_POKEMANIAC
+Pic: TRAINER_PIC_POKEMANIAC
+Double Battle: No
+
+SPECIES_SLOWPOKE
+Level: 60
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SLOWPOKE
+Level: 60
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_GRUNT_10 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Double Battle: No
+
+SPECIES_GOLBAT
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MUK
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_GRUNT_20 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Double Battle: No
+
+SPECIES_GOLBAT
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ARBOK
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_DUNCAN ===
+Name: Duncan
+Class: TRAINER_CLASS_BURGLAR_FRLG
+Pic: TRAINER_PIC_BURGLAR_FRLG
+Double Battle: No
+
+SPECIES_DELIBIRD
+Level: 83
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAGMAR
+Level: 83
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_EDDIE ===
+Name: Eddie
+Class: TRAINER_CLASS_BURGLAR_FRLG
+Pic: TRAINER_PIC_BURGLAR_FRLG
+Double Battle: No
+
+SPECIES_ARCANINE
+Level: 83
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_WEEZING
+Level: 83
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_GRUNT_11 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Double Battle: No
+
+SPECIES_GOLBAT
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_WEEZING
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_GRUNT_27 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Double Battle: No
+
+SPECIES_VILEPLUME
+Level: 83
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PINSIR
+Level: 83
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ARBOK
+Level: 83
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MURKROW
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_GRUNT_19 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Double Battle: No
+
+SPECIES_WEEZING
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_GRUNT_12 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Double Battle: No
+
+SPECIES_WEEZING
+Level: 83
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GLIGAR
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_HYPNO
+Level: 83
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ETO_3 ===
+Name: Eto
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Double Battle: No
+
+SPECIES_POLIWRATH
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAGMAR
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_JYNX
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ELECTABUZZ
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RHYDON
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_STAN ===
+Name: Stan
+Class: TRAINER_CLASS_SUPER_NERD_FRLG
+Pic: TRAINER_PIC_SUPER_NERD_FRLG
+Double Battle: No
+
+SPECIES_GRIMER
+Level: 66
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_NATHAN ===
+Name: Nathan
+Class: TRAINER_CLASS_PSYCHIC
+Pic: TRAINER_PIC_PSYCHIC_M
+Double Battle: No
+
+SPECIES_GIRAFARIG
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_RUSSELL ===
+Name: Russell
+Class: TRAINER_CLASS_HIKER
+Pic: TRAINER_PIC_HIKER
+Double Battle: No
+
+SPECIES_GEODUDE
+Level: 53
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CUBONE
+Level: 52
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LARRY ===
+Name: Larry
+Class: TRAINER_CLASS_POKEMANIAC
+Pic: TRAINER_PIC_POKEMANIAC
+Double Battle: No
+
+SPECIES_LARVITAR
+Level: 54
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_DANIEL ===
+Name: Daniel
+Class: TRAINER_CLASS_HIKER
+Pic: TRAINER_PIC_HIKER
+Double Battle: No
+
+SPECIES_ONIX
+Level: 55
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_BILL ===
+Name: Bill
+Class: TRAINER_CLASS_KINDLER
+Pic: TRAINER_PIC_KINDLER
+Double Battle: No
+
+SPECIES_GROWLITHE
+Level: 55
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_RAY ===
+Name: Ray
+Class: TRAINER_CLASS_KINDLER
+Pic: TRAINER_PIC_KINDLER
+Double Battle: No
+
+SPECIES_VULPIX
+Level: 53
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_PHILLIP ===
+Name: Phillip
+Class: TRAINER_CLASS_HIKER
+Pic: TRAINER_PIC_HIKER
+Double Battle: No
+
+SPECIES_GEODUDE
+Level: 69
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GEODUDE
+Level: 69
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GRAVELER
+Level: 69
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LEONARD ===
+Name: Leonard
+Class: TRAINER_CLASS_HIKER
+Pic: TRAINER_PIC_HIKER
+Double Battle: No
+
+SPECIES_GEODUDE
+Level: 69
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MACHOP
+Level: 71
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ANDREW ===
+Name: Andrew
+Class: TRAINER_CLASS_POKEMANIAC
+Pic: TRAINER_PIC_POKEMANIAC
+Double Battle: No
+
+SPECIES_MAROWAK
+Level: 70
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAROWAK
+Level: 70
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_CALVIN ===
+Name: Calvin
+Class: TRAINER_CLASS_POKEMANIAC
+Pic: TRAINER_PIC_POKEMANIAC
+Double Battle: No
+
+SPECIES_KANGASKHAN
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_NICK ===
+Name: Nick
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_M
+Double Battle: No
+
+SPECIES_CHARMANDER
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SQUIRTLE
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BULBASAUR
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_GWEN ===
+Name: Gwen
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_F
+Double Battle: No
+
+SPECIES_EEVEE
+Level: 72
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FLAREON
+Level: 69
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_VAPOREON
+Level: 70
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_JOLTEON
+Level: 71
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_EMMA ===
+Name: Emma
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_F
+Double Battle: No
+
+SPECIES_POLIWHIRL
+Level: 75
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_WAYNE ===
+Name: Wayne
+Class: TRAINER_CLASS_BUG_CATCHER
+Pic: TRAINER_PIC_BUG_CATCHER
+Double Battle: No
+
+SPECIES_PARAS
+Level: 60
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ODDISH
+Level: 60
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_JACK ===
+Name: Jack
+Class: TRAINER_CLASS_SCHOOL_KID
+Pic: TRAINER_PIC_SCHOOL_KID_M
+Double Battle: No
+
+SPECIES_SUNFLORA
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_VOLTORB
+Level: 62
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_BEVERLY ===
+Name: Beverly
+Class: TRAINER_CLASS_PARASOL_LADY
+Pic: TRAINER_PIC_PARASOL_LADY
+Double Battle: No
+
+SPECIES_SNUBBULL
+Level: 66
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_WILLIAM ===
+Name: William
+Class: TRAINER_CLASS_POKEFAN
+Pic: TRAINER_PIC_POKEFAN_M
+Double Battle: No
+
+SPECIES_RAICHU
+Level: 60
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_KRISE ===
+Name: Krise
+Class: TRAINER_CLASS_LASS
+Pic: TRAINER_PIC_LASS
+Double Battle: No
+
+SPECIES_SKIPLOOM
+Level: 62
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CUBONE
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_MILLER ===
+Name: Miller
+Class: TRAINER_CLASS_POKEMANIAC
+Pic: TRAINER_PIC_POKEMANIAC
+Double Battle: No
+
+SPECIES_NIDOKING
+Level: 66
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_NIDOQUEEN
+Level: 66
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_MARKUS ===
+Name: Markus
+Class: TRAINER_CLASS_SUPER_NERD_FRLG
+Pic: TRAINER_PIC_SUPER_NERD_FRLG
+Double Battle: No
+
+SPECIES_SLOWPOKE
+Level: 64
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_HUGH ===
+Name: Hugh
+Class: TRAINER_CLASS_SUPER_NERD_FRLG
+Pic: TRAINER_PIC_SUPER_NERD_FRLG
+Double Battle: No
+
+SPECIES_SEADRA
+Level: 87
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ANDRE ===
+Name: Andre
+Class: TRAINER_CLASS_FISHERMAN
+Pic: TRAINER_PIC_FISHERMAN
+Double Battle: No
+
+SPECIES_GYARADOS
+Level: 74
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_RAYMOND ===
+Name: Raymond
+Class: TRAINER_CLASS_FISHERMAN
+Pic: TRAINER_PIC_FISHERMAN
+Double Battle: No
+
+SPECIES_VAPOREON
+Level: 75
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_AARON ===
+Name: Aaron
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_M
+Double Battle: No
+
+SPECIES_IVYSAUR
+Level: 74
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CHARMELEON
+Level: 74
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_WARTORTLE
+Level: 74
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LOIS ===
+Name: Lois
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_F
+Double Battle: No
+
+SPECIES_SKIPLOOM
+Level: 75
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_NINETALES
+Level: 74
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_DARIN ===
+Name: Darin
+Class: TRAINER_CLASS_DRAGON_TAMER
+Pic: TRAINER_PIC_DRAGON_TAMER
+Double Battle: No
+
+SPECIES_DRAGONAIR
+Level: 91
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DRAGONAIR
+Level: 91
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DRAGONAIR
+Level: 91
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DRAGONAIR
+Level: 91
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_CARA ===
+Name: Cara
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_F
+Double Battle: No
+
+SPECIES_SEADRA
+Level: 89
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SEADRA
+Level: 90
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GYARADOS
+Level: 91
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LEA_AND_PIA ===
+Name: Lea&Pia
+Class: TRAINER_CLASS_TWINS
+Pic: TRAINER_PIC_TWINS
+Double Battle: Yes
+
+SPECIES_DRAGONAIR
+Level: 90
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GYARADOS
+Level: 91
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DRAGONAIR
+Level: 90
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GYARADOS
+Level: 91
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe

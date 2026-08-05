@@ -1,2 +1,75 @@
+@ Treinadores de rota de LakeOfRage, portados de fontes-mapas/hns por
+@ dev_scripts/importa_treinadores_johto.py. Nao editar a mao: rode o script.
+
 LakeOfRage_MapScripts::
 	.byte 0
+
+LakeOfRage_EventScript_Andre::
+	trainerbattle_single TRAINER_JOHTO_ANDRE, LakeOfRage_Text_AndreSeen, LakeOfRage_Text_AndreBeaten
+	msgbox LakeOfRage_Text_AndreAfter, MSGBOX_AUTOCLOSE
+	end
+
+LakeOfRage_EventScript_Raymond::
+	trainerbattle_single TRAINER_JOHTO_RAYMOND, LakeOfRage_Text_RaymondSeen, LakeOfRage_Text_RaymondBeaten
+	msgbox LakeOfRage_Text_RaymondAfter, MSGBOX_AUTOCLOSE
+	end
+
+LakeOfRage_EventScript_Aaron::
+	trainerbattle_single TRAINER_JOHTO_AARON, LakeOfRage_Text_AaronSeen, LakeOfRage_Text_AaronBeaten
+	msgbox LakeOfRage_Text_AaronAfter, MSGBOX_AUTOCLOSE
+	end
+
+LakeOfRage_EventScript_Lois::
+	trainerbattle_single TRAINER_JOHTO_LOIS, LakeOfRage_Text_LoisSeen, LakeOfRage_Text_LoisBeaten
+	msgbox LakeOfRage_Text_LoisAfter, MSGBOX_AUTOCLOSE
+	end
+
+LakeOfRage_Text_AndreSeen:
+	.string "Let me battle with the POKéMON I\n"
+	.string "just caught!$"
+
+LakeOfRage_Text_AndreBeaten:
+	.string "I might be an expert angler, but\n"
+	.string "I stink as a POKéMON trainer…$"
+
+LakeOfRage_Text_AndreAfter:
+	.string "I won't lose as an angler! I catch\n"
+	.string "POKéMON all day.$"
+
+LakeOfRage_Text_RaymondSeen:
+	.string "No matter what I do, all I catch\n"
+	.string "are the same POKéMON…$"
+
+LakeOfRage_Text_RaymondBeaten:
+	.string "My line's all tangled up…$"
+
+LakeOfRage_Text_RaymondAfter:
+	.string "Why can't I catch any good\n"
+	.string "POKéMON?$"
+
+LakeOfRage_Text_AaronSeen:
+	.string "If a trainer spots another trainer,\n"
+	.string "he has to make a challenge.\p"
+	.string "That is our destiny.$"
+
+LakeOfRage_Text_AaronBeaten:
+	.string "Whew… Good battle.$"
+
+LakeOfRage_Text_AaronAfter:
+	.string "POKéMON and their trainer become\n"
+	.string "powerful through constant battling.$"
+
+LakeOfRage_Text_LoisSeen:
+	.string "What happened to the red\n"
+	.string "GYARADOS?\p"
+	.string "It's gone?\p"
+	.string "Oh, darn. I came here for\n"
+	.string "nothing?\p"
+	.string "I know--let's battle!$"
+
+LakeOfRage_Text_LoisBeaten:
+	.string "Good going!$"
+
+LakeOfRage_Text_LoisAfter:
+	.string "Come to think of it, I've seen a\n"
+	.string "pink BUTTERFREE.$"
