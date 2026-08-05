@@ -162,3 +162,20 @@ Ficaram de fora de propósito: 15 estátuas de ginásio (o texto do gen 2 é mon
 em tempo de execução com o nome do líder e a contagem de vitórias; inventar um no
 lugar seria escrever conteúdo, o que o dono vetou) e 11 escadas de prédio e
 botões de elevador, que são comportamento e não texto.
+
+### O campeão Genesis não ficou ligado (aceito pelo dono, 05/08/2026)
+
+A sala do campeão do BW3G é cutscene: os objetos estão empilhados na mesma
+posição e quem decide quem aparece é o script da cena, não o mapa. Convertida ao
+pé da letra, a batalha não tem como ser disparada por um objeto sozinho.
+`TRAINER_UNOVA_CHAMPION_GENESIS` (1379) existe, com time e texto, e está pronto
+para ser chamado quando alguém portar a cutscene. Os 8 líderes e os 4 do Elite
+estão ligados normalmente.
+
+### Menu do barco: uma lista para os cinco portos (decisão do dono, 05/08/2026)
+
+`MULTI_BOAT_DESTINATIONS` aponta para `MULTI_CINCO_REGIOES_BARCO`, com OLIVINE,
+SLATEPORT, VERMILION, VIRBANK, CANALAVE e Sair. Cada marinheiro pula o próprio
+destino omitindo o `case`. Não fazer uma lista por porto: é mais código para o
+mesmo resultado. O bug de verdade, já consertado, era o `switch` em três casos
+lendo um menu de duas entradas.

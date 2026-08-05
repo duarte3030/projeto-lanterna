@@ -310,7 +310,7 @@ VermilionCity_EventScript_InternationalFerry::
 	lock
 	faceplayer
 	msgbox VermilionCity_Text_WhereTo, MSGBOX_DEFAULT
-	multichoice 0, 0, MULTI_BOAT_FROM_VERMILION, FALSE
+	multichoice 0, 0, MULTI_BOAT_DESTINATIONS, FALSE
 	switch VAR_RESULT
 	case 0, VermilionCity_EventScript_SailToOlivine
 	case 1, VermilionCity_EventScript_SailToSlateport
