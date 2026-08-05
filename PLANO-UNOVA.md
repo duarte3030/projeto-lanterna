@@ -109,3 +109,56 @@ Feito por `dev_scripts/importa_unova.py` (roda de novo e regenera tudo do zero,
 5. **Elevadores**: 7 warps apagados de propósito. No gen 2 o elevador não tem
    warp de volta, quem decide o destino é o painel; convertido ao pé da letra o
    jogador entrava e não saía.
+
+### Treinadores: o muro de save, e quem ficou de fora (decisão do dono, 05/08/2026)
+
+O BW3G tem **357 objetos `OBJECTTYPE_TRAINER`** em 81 mapas. **Não cabem.**
+
+`include/constants/flags.h:1344` amarra as duas coisas:
+
+```c
+#define TRAINER_FLAGS_END  (TRAINER_FLAGS_START + MAX_TRAINERS_COUNT - 1)
+#define SYSTEM_FLAGS       (TRAINER_FLAGS_END + 1)
+```
+
+Cada vaga de treinador é uma flag dentro de `flags[]`, que mora no SaveBlock1.
+Medido: subir `MAX_TRAINERS_COUNT_EMERALD` de 1400 para 1719 (o que caberia os
+357) leva o SaveBlock1 a **15888 B contra o teto de 15872**, e o `make` continua
+saindo **EXIT=0**. A save corrompe sem erro de compilação; quem acusa é o
+`guarda_save.py`.
+
+| | |
+|---|---|
+| SaveBlock1 com os itens de Unova dentro | 15848 de 15872 B |
+| livre | **24 bytes = 192 flags** |
+| teto máximo possível | 1592 |
+| vagas que isso daria | 225, e gastaria **todo** o SaveBlock1 restante do jogo |
+
+**Decisão do dono: opção (a), só as 33 vagas que já existem (1367 a 1399).** Os
+24 bytes são o orçamento do jogo inteiro, não de Unova: ainda faltam a transição
+Kanto para Johto, os iniciais por região e a curva de nível. O dono foi atrás de
+espaço por outro caminho (esticar os setores da save em `include/save.h`); se
+conseguir, sai faixa nova e o resto entra.
+
+**Entrou:** os líderes de ginásio, e o Elite dos Quatro se coube nas 33.
+
+**Ficou de fora: 327 treinadores de rota, caverna e prédio.** Os maiores focos,
+para quem retomar priorizar: Celestial Tower (10), Rota 4 (10), Desert Resort
+(9), Rota 20 (9), Rota 2 (9), Pinwheel Forest (8), Victory Road Outdoor 2F (8),
+Rota 6 (8), Rota 23 Oeste (8), Castelia Sewers (7), Victory Road Cave 1F (7),
+Rota 21 (7). Os objetos deles já estão no mapa, falando o texto de "ao ser
+visto"; virar batalha é só acrescentar a entrada em `trainers.party` e trocar o
+`trainer_type` quando houver vaga.
+
+### Mobília: 120 objetos que não eram texto
+
+39 pedras de Strength e 81 estantes usavam `jumpstd` no gen 2, não diálogo, e
+por isso caíam na peneira de "NPC mudo". A pedra era a grave: convertida como
+NPC mudo ela vira parede permanente e **tranca a caverna para sempre**, e isso
+só apareceria depois de horas de jogo. Agora usam `EventScript_StrengthBoulder`
+e `EventScript_BookShelf`, que já existiam no repo.
+
+Ficaram de fora de propósito: 15 estátuas de ginásio (o texto do gen 2 é montado
+em tempo de execução com o nome do líder e a contagem de vitórias; inventar um no
+lugar seria escrever conteúdo, o que o dono vetou) e 11 escadas de prédio e
+botões de elevador, que são comportamento e não texto.

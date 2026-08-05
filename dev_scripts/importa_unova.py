@@ -367,6 +367,32 @@ def item_do_script(asm, rotulo):
     return None
 
 
+
+# `jumpstd` do gen 2 que NAO e dialogo, e sim mobilia com comportamento proprio.
+# Sao 66 objetos que sem isto ficariam mudos: 48 estantes, 18 pedras de Strength.
+# A pedra e a que importa, porque e obstaculo de verdade: convertida como NPC
+# mudo ela vira parede permanente e tranca a caverna.
+STD_MOBILIA = {
+    "magazinebookshelf": ("OBJ_EVENT_GFX_ITEM_BALL", "EventScript_BookShelf"),
+    "difficultbookshelf": ("OBJ_EVENT_GFX_ITEM_BALL", "EventScript_BookShelf"),
+    "picturebookshelf": ("OBJ_EVENT_GFX_ITEM_BALL", "EventScript_PictureBookShelf"),
+    "strengthboulder": ("OBJ_EVENT_GFX_PUSHABLE_BOULDER", "EventScript_StrengthBoulder"),
+}
+
+# As estantes do BW3G sao bg_event, nao objeto, e por isso escapavam da tabela
+# acima e eram DESCARTADAS por nao terem texto proprio. Sao 81 placas. O texto
+# generico ja existe no repo (data/scripts/check_furniture.inc), entao nao ha
+# nada para escrever.
+# Ficam de fora de proposito: `gymstatue1/2` (o texto do gen 2 e montado em
+# tempo de execucao com o nome do lider e a contagem de vitorias, e inventar um
+# no lugar seria escrever conteudo, o que o dono vetou), e `apartmentstairs` e
+# `elevatorbutton`, que sao comportamento e nao texto.
+STD_PLACA = {
+    "magazinebookshelf": "EventScript_BookShelf",
+    "difficultbookshelf": "EventScript_BookShelf",
+    "picturebookshelf": "EventScript_PictureBookShelf",
+}
+
 # A volta de barco. O BW3G nao tem porto para fora de Unova, entao o marinheiro
 # do retorno e o unico conteudo que este import ACRESCENTA em vez de portar.
 # Fica aqui, e nao editado a mao no map.json gerado, senao a proxima rodada do
@@ -505,7 +531,7 @@ def main(gravar):
 
     stats = dict(mapas=0, blocos_faltando=0, ajuste_tamanho=0, warps=0, placas=0,
                  objetos=0, textos=0, itemball=0, item_escondido=0, coord=0,
-                 conexoes=0, sem_texto=0, enfermeira=0, loja=0, marinheiro=0, item_sem_flag=0)
+                 conexoes=0, sem_texto=0, enfermeira=0, loja=0, marinheiro=0, item_sem_flag=0, mobilia=0)
     saida_layouts, saida_grupos, saida_incs = [], [], []
 
     for gnome, mapas in grupos:
@@ -588,7 +614,15 @@ def main(gravar):
                     continue
                 t = resolve_texto(asm, script, textos)
                 if not t:
-                    stats["sem_texto"] += 1
+                    rot = STD_PLACA.get(jumpstd_de(asm, script))
+                    if rot:
+                        mapa["bg_events"].append({
+                            "type": "sign", "x": x, "y": y, "elevation": 0,
+                            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+                            "script": rot})
+                        stats["mobilia"] += 1
+                    else:
+                        stats["sem_texto"] += 1
                     continue
                 usados[t] = textos[t]
                 rot = f"{nome}_EventScript_Placa{i}"
@@ -620,6 +654,17 @@ def main(gravar):
                         stats["item_sem_flag"] += 1
                     continue
                 std = jumpstd_de(asm, o["script"])
+                if std in STD_MOBILIA:
+                    gfx, rot = STD_MOBILIA[std]
+                    mapa["object_events"].append({
+                        "graphics_id": gfx, "x": o["x"], "y": o["y"], "elevation": 3,
+                        "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+                        "movement_range_x": 0, "movement_range_y": 0,
+                        "trainer_type": "TRAINER_TYPE_NONE",
+                        "trainer_sight_or_berry_tree_id": "0",
+                        "script": rot, "flag": SEM_FLAG})
+                    stats["mobilia"] += 1
+                    continue
                 t = resolve_texto(asm, o["script"], textos)
                 rot = "0"
                 if std == "pokecenternurse":
