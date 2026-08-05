@@ -330,6 +330,37 @@ específica aconteceu. Um teste que só sabe dizer que o jogo não caiu é um te
 que passa com o jogo quebrado, e foi exatamente assim que dois crashes desta
 sessão sobreviveram a seis agentes.
 
+### T11 — a save sobrevive à atualização da ROM
+
+Requisito do Gui, 05/08/2026: **achar um bug na hora 50 de jogo não pode custar
+recomeçar.** Em pokeemerald não existe versionamento de save nem migração, o
+SaveBlock é despejado cru na flash, então todo índice que a save guarda é
+promessa permanente.
+
+O jeito mais fácil de quebrar é o menos visível: **a save guarda a posição do
+jogador como par de índices `(mapGroup, mapNum)`, não como nome.** Apagar ou
+reordenar mapa no meio de um grupo desloca todos os seguintes, e a save volta em
+outro lugar. Foi exatamente o que o bloco 0 fez ao remover os três `_Night`.
+Saiu de graça só porque ainda não havia save para proteger.
+
+Regras que passam a valer, impostas por `dev_scripts/guarda_save.py`:
+
+| regra | por quê |
+|---|---|
+| mapa novo **só no fim do grupo** | inserir no meio empurra os índices seguintes |
+| grupo novo **só no fim de `group_order`** | inserir no meio desloca grupos inteiros |
+| flag nova **só do pool `FLAG_UNUSED_*`** | número novo cresce `flags[]`, que está em 0x1270 do SaveBlock1 |
+| struct de save **só recebe append** | trocar ordem de campo reinterpreta a save inteira |
+
+**Teto medido, e é apertado: SaveBlock1 está em 15764 bytes de 15872 (99,3% dos
+setores 1 a 4). Sobram 108 bytes.** Passar disso não dá erro de compilação, dá
+save corrompida.
+
+O teste T11 fecha o assunto: joga, salva, rebuilda a ROM com mudança, recarrega
+a mesma `.sav` e prova pela memória que o jogador está no mesmo mapa, com o
+mesmo time e as mesmas flags. Só é possível porque a frente A está fazendo o
+leitor de EWRAM.
+
 ### Paralelismo
 
 As duas frentes correm juntas desde o começo:
