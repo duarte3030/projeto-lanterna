@@ -16885,7 +16885,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_ACE_TRAINER_ABEL ===
 Name: Abel
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -16908,7 +16908,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_ALICIA ===
 Name: Alicia
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -16931,7 +16931,7 @@ IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
 === TRAINER_SINNOH_ACE_TRAINER_ALLEN ===
 Name: Allen
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -16962,7 +16962,7 @@ IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
 === TRAINER_SINNOH_ACE_TRAINER_ALYSSA ===
 Name: Alyssa
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -16992,7 +16992,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_ANTON ===
 Name: Anton
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -17005,7 +17005,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_ARTHUR ===
 Name: Arthur
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -17036,7 +17036,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_BLAKE ===
 Name: Blake
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -17059,7 +17059,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_BRANDI ===
 Name: Brandi
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -17082,7 +17082,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_BREANNA ===
 Name: Breanna
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -17110,7 +17110,7 @@ IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
 === TRAINER_SINNOH_ACE_TRAINER_BRENDA ===
 Name: Brenda
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -17129,7 +17129,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_BRENNA ===
 Name: Brenna
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -17159,7 +17159,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_CATHERINE ===
 Name: Catherine
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -17182,7 +17182,7 @@ IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
 === TRAINER_SINNOH_ACE_TRAINER_CESAR ===
 Name: Cesar
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -17197,7 +17197,7 @@ IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
 === TRAINER_SINNOH_ACE_TRAINER_CLARICE ===
 Name: Clarice
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -17228,7 +17228,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_DALTON ===
 Name: Dalton
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -17251,7 +17251,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_DANA ===
 Name: Dana
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -17274,7 +17274,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_DEANNA ===
 Name: Deanna
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -17297,7 +17297,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_DENNIS ===
 Name: Dennis
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -17328,7 +17328,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_DESTINY ===
 Name: Destiny
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -17351,7 +17351,7 @@ IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
 === TRAINER_SINNOH_ACE_TRAINER_ERNEST ===
 Name: Ernest
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -17382,7 +17382,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_FELIX ===
 Name: Felix
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -17405,7 +17405,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_GARRETT ===
 Name: Garrett
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -17436,7 +17436,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_GRAHAM ===
 Name: Graham
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -17451,7 +17451,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_HENRY ===
 Name: Henry
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -17474,7 +17474,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_ISAIAH ===
 Name: Isaiah
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -17489,7 +17489,7 @@ IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
 === TRAINER_SINNOH_ACE_TRAINER_JAKE ===
 Name: Jake
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -17510,7 +17510,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_JAMIE ===
 Name: Jamie
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -17525,7 +17525,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_JASMIN ===
 Name: Jasmin
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -17540,7 +17540,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_JONAH ===
 Name: Jonah
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -17559,7 +17559,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_JOSE ===
 Name: Jose
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -17590,7 +17590,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_KASSANDRA ===
 Name: Kassandra
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -17621,7 +17621,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_KEENAN ===
 Name: Keenan
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -17640,7 +17640,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_LAURA ===
 Name: Laura
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -17655,7 +17655,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_MARIA ===
 Name: Maria
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -17686,7 +17686,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_MARIAH ===
 Name: Mariah
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -17717,7 +17717,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_MAYA ===
 Name: Maya
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -17747,7 +17747,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_MEAGAN ===
 Name: Meagan
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -17770,7 +17770,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_MICAH ===
 Name: Micah
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -17793,7 +17793,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_MIKAYLA ===
 Name: Mikayla
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -17824,7 +17824,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_MOIRA ===
 Name: Moira
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -17855,7 +17855,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_MONIQUE ===
 Name: Monique
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -17886,7 +17886,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_NATASHA ===
 Name: Natasha
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -17917,7 +17917,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_OLIVIA ===
 Name: Olivia
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -17948,7 +17948,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_OMAR ===
 Name: Omar
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -17979,7 +17979,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_QUINN ===
 Name: Quinn
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -18002,7 +18002,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_RODOLFO ===
 Name: Rodolfo
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -18025,7 +18025,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_RUBEN ===
 Name: Ruben
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -18048,7 +18048,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_SANDRA ===
 Name: Sandra
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -18067,7 +18067,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_SAUL ===
 Name: Saul
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -18082,7 +18082,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_SAVANNAH ===
 Name: Savannah
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -18113,7 +18113,7 @@ IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
 === TRAINER_SINNOH_ACE_TRAINER_SERGIO ===
 Name: Sergio
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -18136,7 +18136,7 @@ IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
 === TRAINER_SINNOH_ACE_TRAINER_SHANNON ===
 Name: Shannon
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -18164,7 +18164,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_SKYLAR ===
 Name: Skylar
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -18195,7 +18195,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_STEFAN ===
 Name: Stefan
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -18210,7 +18210,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_SYDNEY ===
 Name: Sydney
 Class: Cooltrainer 2
-Pic: Hiker
+Pic: Cooltrainer F
 Gender: Female
 Double Battle: No
 
@@ -18233,7 +18233,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_ACE_TRAINER_ZACHERY ===
 Name: Zachery
 Class: Cooltrainer
-Pic: Hiker
+Pic: Cooltrainer M
 Gender: Male
 Double Battle: No
 
@@ -18940,7 +18940,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_BREEDER_ALBERT ===
 Name: Albert
 Class: Pkmn Breeder
-Pic: Hiker
+Pic: Pokemon Breeder M
 Gender: Male
 Double Battle: No
 
@@ -18963,7 +18963,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_BREEDER_AMBER ===
 Name: Amber
 Class: Pkmn Breeder
-Pic: Hiker
+Pic: Pokemon Breeder F
 Gender: Female
 Double Battle: No
 
@@ -18978,7 +18978,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_BREEDER_JENNIFER ===
 Name: Jennifer
 Class: Pkmn Breeder
-Pic: Hiker
+Pic: Pokemon Breeder F
 Gender: Female
 Double Battle: No
 
@@ -19001,7 +19001,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_BREEDER_KAHLIL ===
 Name: Kahlil
 Class: Pkmn Breeder
-Pic: Hiker
+Pic: Pokemon Breeder M
 Gender: Male
 Double Battle: No
 
@@ -19365,7 +19365,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_CYCLIST_AXEL ===
 Name: Axel
 Class: Triathlete
-Pic: Hiker
+Pic: Cycling Triathlete M
 Gender: Male
 Double Battle: No
 
@@ -19376,7 +19376,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_CYCLIST_JAMES ===
 Name: James
 Class: Triathlete
-Pic: Hiker
+Pic: Cycling Triathlete M
 Gender: Male
 Double Battle: No
 
@@ -19387,7 +19387,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_CYCLIST_JOHN ===
 Name: John
 Class: Triathlete
-Pic: Hiker
+Pic: Cycling Triathlete M
 Gender: Male
 Double Battle: No
 
@@ -19402,7 +19402,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_CYCLIST_KAYLA ===
 Name: Kayla
 Class: Triathlete
-Pic: Hiker
+Pic: Cycling Triathlete F
 Gender: Female
 Double Battle: No
 
@@ -19413,7 +19413,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_CYCLIST_MEGAN ===
 Name: Megan
 Class: Triathlete
-Pic: Hiker
+Pic: Cycling Triathlete F
 Gender: Female
 Double Battle: No
 
@@ -19424,7 +19424,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_CYCLIST_NICOLE ===
 Name: Nicole
 Class: Triathlete
-Pic: Hiker
+Pic: Cycling Triathlete F
 Gender: Female
 Double Battle: No
 
@@ -19443,7 +19443,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_CYCLIST_RACHEL ===
 Name: Rachel
 Class: Triathlete
-Pic: Hiker
+Pic: Cycling Triathlete F
 Gender: Female
 Double Battle: No
 
@@ -19458,7 +19458,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_CYCLIST_RYAN ===
 Name: Ryan
 Class: Triathlete
-Pic: Hiker
+Pic: Cycling Triathlete M
 Gender: Male
 Double Battle: No
 
@@ -20022,7 +20022,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_1F ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt F
 Gender: Female
 Double Battle: No
 
@@ -20033,7 +20033,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_2F_1 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt M
 Gender: Male
 Double Battle: No
 
@@ -20052,7 +20052,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_2F_2 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt M
 Gender: Male
 Double Battle: No
 
@@ -20067,7 +20067,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_2F_3 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt F
 Gender: Female
 Double Battle: No
 
@@ -20082,7 +20082,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_3F_1 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt M
 Gender: Male
 Double Battle: No
 
@@ -20093,7 +20093,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_3F_2 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt M
 Gender: Male
 Double Battle: No
 
@@ -20108,7 +20108,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_3F_3 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt M
 Gender: Male
 Double Battle: No
 
@@ -20123,7 +20123,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_3F_4 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt F
 Gender: Female
 Double Battle: No
 
@@ -20142,7 +20142,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_B2F_1 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt M
 Gender: Male
 Double Battle: No
 
@@ -20153,7 +20153,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_B2F_2 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt M
 Gender: Male
 Double Battle: No
 
@@ -20168,7 +20168,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_LAKE_VALOR_1 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt M
 Gender: Male
 Double Battle: No
 
@@ -20179,7 +20179,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_LAKE_VALOR_2 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt M
 Gender: Male
 Double Battle: No
 
@@ -20202,7 +20202,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_LAKE_VALOR_3 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt F
 Gender: Female
 Double Battle: No
 
@@ -20217,7 +20217,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_LAKE_VERITY_1 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt M
 Gender: Male
 Double Battle: No
 
@@ -20228,7 +20228,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_LAKE_VERITY_2 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt F
 Gender: Female
 Double Battle: No
 
@@ -20258,7 +20258,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_LAKE_VERITY_3 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt M
 Gender: Male
 Double Battle: No
 
@@ -20273,7 +20273,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_LAKE_VERITY_4 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt F
 Gender: Female
 Double Battle: No
 
@@ -20288,7 +20288,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_3F_1 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt M
 Gender: Male
 Double Battle: No
 
@@ -20299,7 +20299,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_3F_2 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt F
 Gender: Female
 Double Battle: No
 
@@ -20310,7 +20310,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_4F_1 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt M
 Gender: Male
 Double Battle: No
 
@@ -20329,7 +20329,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_4F_2 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt M
 Gender: Male
 Double Battle: No
 
@@ -20344,7 +20344,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_5F_1 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt M
 Gender: Male
 Double Battle: No
 
@@ -20359,7 +20359,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_5F_2 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt F
 Gender: Female
 Double Battle: No
 
@@ -20374,7 +20374,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_6F ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt F
 Gender: Female
 Double Battle: No
 
@@ -20393,7 +20393,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_TUNNEL_ROOM_1 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt M
 Gender: Male
 Double Battle: No
 
@@ -20412,7 +20412,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_TUNNEL_ROOM_2 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt M
 Gender: Male
 Double Battle: No
 
@@ -20423,7 +20423,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_TUNNEL_ROOM_3 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt F
 Gender: Female
 Double Battle: No
 
@@ -20442,7 +20442,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_TEAM_GALACTIC_ETERNA_BUILDING_1F_1 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt M
 Gender: Male
 Double Battle: No
 
@@ -20457,7 +20457,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_TEAM_GALACTIC_ETERNA_BUILDING_1F_2 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt F
 Gender: Female
 Double Battle: No
 
@@ -20472,7 +20472,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_TEAM_GALACTIC_ETERNA_BUILDING_2F_1 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt M
 Gender: Male
 Double Battle: No
 
@@ -20483,7 +20483,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_TEAM_GALACTIC_ETERNA_BUILDING_2F_2 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt F
 Gender: Female
 Double Battle: No
 
@@ -20494,7 +20494,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_TEAM_GALACTIC_ETERNA_BUILDING_3F ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt F
 Gender: Female
 Double Battle: No
 
@@ -20513,7 +20513,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_VALLEY_WINDWORKS_2 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt M
 Gender: Male
 Double Battle: No
 
@@ -20524,7 +20524,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_VALLEY_WINDWORKS_3 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt M
 Gender: Male
 Double Battle: No
 
@@ -20810,7 +20810,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_JOGGER_CRAIG ===
 Name: Craig
 Class: Triathlete
-Pic: Hiker
+Pic: Cycling Triathlete M
 Gender: Male
 Double Battle: No
 
@@ -20825,7 +20825,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_JOGGER_RAUL ===
 Name: Raul
 Class: Triathlete
-Pic: Hiker
+Pic: Cycling Triathlete M
 Gender: Male
 Double Battle: No
 
@@ -20836,7 +20836,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_JOGGER_RICHARD ===
 Name: Richard
 Class: Triathlete
-Pic: Hiker
+Pic: Cycling Triathlete M
 Gender: Male
 Double Battle: No
 
@@ -20847,7 +20847,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_JOGGER_SCOTT ===
 Name: Scott
 Class: Triathlete
-Pic: Hiker
+Pic: Cycling Triathlete M
 Gender: Male
 Double Battle: No
 
@@ -20858,7 +20858,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_JOGGER_WYATT ===
 Name: Wyatt
 Class: Triathlete
-Pic: Hiker
+Pic: Cycling Triathlete M
 Gender: Male
 Double Battle: No
 
@@ -21333,7 +21333,7 @@ IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 === TRAINER_SINNOH_POKEFAN_LEONARD ===
 Name: Leonard
 Class: Pokefan
-Pic: Hiker
+Pic: Pokefan M
 Gender: Male
 Items: Full Heal / Super Potion
 Double Battle: No
@@ -21353,7 +21353,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_POKEFAN_REBEKAH ===
 Name: Rebekah
 Class: Pokefan
-Pic: Hiker
+Pic: Pokefan F
 Gender: Female
 Items: Full Heal / Super Potion
 Double Battle: No
@@ -21455,7 +21455,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_PSYCHIC_ABIGAIL ===
 Name: Abigail
 Class: Psychic
-Pic: Hiker
+Pic: Psychic F
 Gender: Female
 Double Battle: No
 
@@ -21474,7 +21474,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_PSYCHIC_BRITTNEY ===
 Name: Brittney
 Class: Psychic
-Pic: Hiker
+Pic: Psychic F
 Gender: Female
 Double Battle: No
 
@@ -21489,7 +21489,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_PSYCHIC_BRYCE ===
 Name: Bryce
 Class: Psychic
-Pic: Hiker
+Pic: Psychic M
 Gender: Male
 Double Battle: No
 
@@ -21508,7 +21508,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_PSYCHIC_CHELSEY ===
 Name: Chelsey
 Class: Psychic
-Pic: Hiker
+Pic: Psychic F
 Gender: Female
 Double Battle: No
 
@@ -21523,7 +21523,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_PSYCHIC_CORBIN ===
 Name: Corbin
 Class: Psychic
-Pic: Hiker
+Pic: Psychic M
 Gender: Male
 Double Battle: No
 
@@ -21538,7 +21538,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_PSYCHIC_DAISY ===
 Name: Daisy
 Class: Psychic
-Pic: Hiker
+Pic: Psychic F
 Gender: Female
 Double Battle: No
 
@@ -21553,7 +21553,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_PSYCHIC_DEANDRE ===
 Name: Deandre
 Class: Psychic
-Pic: Hiker
+Pic: Psychic M
 Gender: Male
 Double Battle: No
 
@@ -21568,7 +21568,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_PSYCHIC_DESIREE ===
 Name: Desiree
 Class: Psychic
-Pic: Hiker
+Pic: Psychic F
 Gender: Female
 Double Battle: No
 
@@ -21591,7 +21591,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_PSYCHIC_ELIJAH ===
 Name: Elijah
 Class: Psychic
-Pic: Hiker
+Pic: Psychic M
 Gender: Male
 Double Battle: No
 
@@ -21603,7 +21603,7 @@ IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 === TRAINER_SINNOH_PSYCHIC_KENDRA ===
 Name: Kendra
 Class: Psychic
-Pic: Hiker
+Pic: Psychic F
 Gender: Female
 Double Battle: No
 
@@ -21634,7 +21634,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_PSYCHIC_KODY ===
 Name: Kody
 Class: Psychic
-Pic: Hiker
+Pic: Psychic M
 Gender: Male
 Double Battle: No
 
@@ -21648,7 +21648,7 @@ IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 === TRAINER_SINNOH_PSYCHIC_LANDON ===
 Name: Landon
 Class: Psychic
-Pic: Hiker
+Pic: Psychic M
 Gender: Male
 Double Battle: No
 
@@ -21671,7 +21671,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_PSYCHIC_LINDSEY ===
 Name: Lindsey
 Class: Psychic
-Pic: Hiker
+Pic: Psychic F
 Gender: Female
 Double Battle: No
 
@@ -21683,7 +21683,7 @@ IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 === TRAINER_SINNOH_PSYCHIC_MAXWELL ===
 Name: Maxwell
 Class: Psychic
-Pic: Hiker
+Pic: Psychic M
 Gender: Male
 Double Battle: No
 
@@ -21698,7 +21698,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_PSYCHIC_MITCHELL ===
 Name: Mitchell
 Class: Psychic
-Pic: Hiker
+Pic: Psychic M
 Gender: Male
 Double Battle: No
 
@@ -21713,7 +21713,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_PSYCHIC_RACHAEL ===
 Name: Rachael
 Class: Psychic
-Pic: Hiker
+Pic: Psychic F
 Gender: Female
 Double Battle: No
 
@@ -21727,7 +21727,7 @@ IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 === TRAINER_SINNOH_PSYCHIC_STERLING ===
 Name: Sterling
 Class: Psychic
-Pic: Hiker
+Pic: Psychic M
 Gender: Male
 Double Battle: No
 
@@ -21742,7 +21742,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_PSYCHIC_VALENCIA ===
 Name: Valencia
 Class: Psychic
-Pic: Hiker
+Pic: Psychic F
 Gender: Female
 Double Battle: No
 
@@ -21772,7 +21772,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_RANGER_ALLISON ===
 Name: Allison
 Class: Pkmn Ranger
-Pic: Hiker
+Pic: Pokemon Ranger F
 Gender: Female
 Double Battle: No
 
@@ -21787,7 +21787,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_RANGER_ASHLEE ===
 Name: Ashlee
 Class: Pkmn Ranger
-Pic: Hiker
+Pic: Pokemon Ranger F
 Gender: Female
 Double Battle: No
 
@@ -21802,7 +21802,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_RANGER_DESHAWN ===
 Name: Deshawn
 Class: Pkmn Ranger
-Pic: Hiker
+Pic: Pokemon Ranger M
 Gender: Male
 Double Battle: No
 
@@ -21821,7 +21821,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_RANGER_DWAYNE ===
 Name: Dwayne
 Class: Pkmn Ranger
-Pic: Hiker
+Pic: Pokemon Ranger M
 Gender: Male
 Double Battle: No
 
@@ -21840,7 +21840,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_RANGER_FELICIA ===
 Name: Felicia
 Class: Pkmn Ranger
-Pic: Hiker
+Pic: Pokemon Ranger F
 Gender: Female
 Double Battle: No
 
@@ -21855,7 +21855,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_RANGER_JEFFREY ===
 Name: Jeffrey
 Class: Pkmn Ranger
-Pic: Hiker
+Pic: Pokemon Ranger M
 Gender: Male
 Double Battle: No
 
@@ -21866,7 +21866,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_RANGER_KRISTA ===
 Name: Krista
 Class: Pkmn Ranger
-Pic: Hiker
+Pic: Pokemon Ranger F
 Gender: Female
 Double Battle: No
 
@@ -21881,7 +21881,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_RANGER_KYLER ===
 Name: Kyler
 Class: Pkmn Ranger
-Pic: Hiker
+Pic: Pokemon Ranger M
 Gender: Male
 Double Battle: No
 
@@ -21900,7 +21900,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_RANGER_TAYLOR ===
 Name: Taylor
 Class: Pkmn Ranger
-Pic: Hiker
+Pic: Pokemon Ranger M
 Gender: Male
 Double Battle: No
 
@@ -22187,7 +22187,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_SCHOOL_KID_CHANCE ===
 Name: Chance
 Class: School Kid
-Pic: Hiker
+Pic: School Kid M
 Gender: Male
 Items: X Defense
 Double Battle: No
@@ -22203,7 +22203,7 @@ IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 === TRAINER_SINNOH_SCHOOL_KID_FORREST ===
 Name: Forrest
 Class: School Kid
-Pic: Hiker
+Pic: School Kid M
 Gender: Male
 Items: X Speed
 Double Battle: No
@@ -22218,7 +22218,7 @@ IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 === TRAINER_SINNOH_SCHOOL_KID_MACKENZIE ===
 Name: Mackenzie
 Class: School Kid
-Pic: Hiker
+Pic: School Kid F
 Gender: Female
 Items: Super Potion
 Double Battle: No
@@ -22241,7 +22241,7 @@ IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 === TRAINER_SINNOH_SCHOOL_KID_TIERA ===
 Name: Tiera
 Class: School Kid
-Pic: Hiker
+Pic: School Kid F
 Gender: Female
 Items: Hyper Potion
 Double Battle: No
@@ -23167,7 +23167,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_VETERAN_ARMANDO ===
 Name: Armando
 Class: Expert
-Pic: Hiker
+Pic: Expert M
 Gender: Male
 Double Battle: No
 
@@ -23198,7 +23198,7 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 === TRAINER_SINNOH_VETERAN_BRENDEN ===
 Name: Brenden
 Class: Expert
-Pic: Hiker
+Pic: Expert M
 Gender: Male
 Double Battle: No
 
@@ -23229,7 +23229,7 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 === TRAINER_SINNOH_VETERAN_BRIAN ===
 Name: Brian
 Class: Expert
-Pic: Hiker
+Pic: Expert M
 Gender: Male
 Double Battle: No
 
@@ -23259,7 +23259,7 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 === TRAINER_SINNOH_VETERAN_CLAYTON ===
 Name: Clayton
 Class: Expert
-Pic: Hiker
+Pic: Expert M
 Gender: Male
 Double Battle: No
 
@@ -23282,7 +23282,7 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 === TRAINER_SINNOH_VETERAN_EDGAR ===
 Name: Edgar
 Class: Expert
-Pic: Hiker
+Pic: Expert M
 Gender: Male
 Double Battle: No
 
@@ -23313,7 +23313,7 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 === TRAINER_SINNOH_VETERAN_GRANT ===
 Name: Grant
 Class: Expert
-Pic: Hiker
+Pic: Expert M
 Gender: Male
 Double Battle: No
 
@@ -23344,7 +23344,7 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 === TRAINER_SINNOH_VETERAN_HARLAN ===
 Name: Harlan
 Class: Expert
-Pic: Hiker
+Pic: Expert M
 Gender: Male
 Double Battle: No
 
@@ -23375,7 +23375,7 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 === TRAINER_SINNOH_VETERAN_TERRELL ===
 Name: Terrell
 Class: Expert
-Pic: Hiker
+Pic: Expert M
 Gender: Male
 Double Battle: No
 
@@ -23840,7 +23840,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_CHAMPION_CYNTHIA ===
 Name: Cynthia
 Class: Champion
-Pic: Hiker
+Pic: Elite Four Glacia
 Gender: Male
 Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
@@ -23896,7 +23896,7 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 === TRAINER_SINNOH_ELITE_FOUR_AARON ===
 Name: Aaron
 Class: Elite Four
-Pic: Hiker
+Pic: Elite Four Sidney
 Gender: Female
 Items: Full Restore / Full Restore
 Double Battle: No
@@ -23944,7 +23944,7 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 === TRAINER_SINNOH_ELITE_FOUR_BERTHA ===
 Name: Bertha
 Class: Elite Four
-Pic: Hiker
+Pic: TRAINER_PIC_ELITE_FOUR_AGATHA_FRLG
 Gender: Female
 Items: Full Restore / Full Restore
 Double Battle: No
@@ -23992,7 +23992,7 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 === TRAINER_SINNOH_ELITE_FOUR_FLINT ===
 Name: Flint
 Class: Elite Four
-Pic: Hiker
+Pic: TRAINER_PIC_ELITE_FOUR_BRUNO_FRLG
 Gender: Female
 Items: Full Restore / Full Restore
 Double Battle: No
@@ -24040,7 +24040,7 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 === TRAINER_SINNOH_ELITE_FOUR_LUCIAN ===
 Name: Lucian
 Class: Elite Four
-Pic: Hiker
+Pic: Elite Four Drake
 Gender: Female
 Items: Full Restore / Full Restore
 Double Battle: No
@@ -24088,7 +24088,7 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 === TRAINER_SINNOH_LEADER_BYRON ===
 Name: Byron
 Class: Leader
-Pic: Hiker
+Pic: TRAINER_PIC_LEADER_BROCK_FRLG
 Gender: Male
 Items: Hyper Potion / Full Restore
 Double Battle: No
@@ -24120,7 +24120,7 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 === TRAINER_SINNOH_LEADER_CANDICE ===
 Name: Candice
 Class: Leader
-Pic: Hiker
+Pic: Elite Four Glacia
 Gender: Male
 Items: Hyper Potion / Full Restore
 Double Battle: No
@@ -24160,7 +24160,7 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 === TRAINER_SINNOH_LEADER_FANTINA ===
 Name: Fantina
 Class: Leader
-Pic: Hiker
+Pic: Elite Four Phoebe
 Gender: Female
 Items: Super Potion / Super Potion
 Double Battle: No
@@ -24192,7 +24192,7 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 === TRAINER_SINNOH_LEADER_GARDENIA ===
 Name: Gardenia
 Class: Leader
-Pic: Hiker
+Pic: TRAINER_PIC_LEADER_ERIKA_FRLG
 Gender: Male
 Items: Super Potion / Super Potion
 Double Battle: No
@@ -24224,7 +24224,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_LEADER_MAYLENE ===
 Name: Maylene
 Class: Leader
-Pic: Hiker
+Pic: Battle Girl
 Gender: Male
 Double Battle: No
 
@@ -24255,7 +24255,7 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 === TRAINER_SINNOH_LEADER_ROARK ===
 Name: Roark
 Class: Leader
-Pic: Hiker
+Pic: Leader Roxanne
 Gender: Male
 Items: Potion / Potion
 Double Battle: No
@@ -24283,7 +24283,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 === TRAINER_SINNOH_LEADER_VOLKNER ===
 Name: Volkner
 Class: Leader
-Pic: Hiker
+Pic: TRAINER_PIC_LEADER_LT_SURGE_FRLG
 Gender: Male
 Items: Hyper Potion / Full Restore
 Double Battle: No
@@ -24323,7 +24323,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 === TRAINER_SINNOH_LEADER_WAKE ===
 Name: Wake
 Class: Leader
-Pic: Hiker
+Pic: Leader Juan
 Gender: Male
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
@@ -24356,7 +24356,7 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_JUBILIFE_CITY_1 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt M
 Gender: Male
 Double Battle: No
 
@@ -24367,7 +24367,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_SINNOH_GALACTIC_GRUNT_JUBILIFE_CITY_2 ===
 Name: Grunt
 Class: Team Magma
-Pic: Hiker
+Pic: Magma Grunt M
 Gender: Male
 Double Battle: No
 
