@@ -1,0 +1,5315 @@
+{
+ "contagens": {
+  "daily_flags_end_expr": "FLAG_UNUSED_0x95F + (7 - FLAG_UNUSED_0x95F % 8))",
+  "n_flag_unused": 454,
+  "n_var_unused": 30,
+  "vars_start_end": [
+   "0x4000",
+   "0x40FF"
+  ]
+ },
+ "mapas": {
+  "AbandonedShip_CaptainsOffice": [
+   24,
+   63
+  ],
+  "AbandonedShip_Corridors_1F": [
+   24,
+   55
+  ],
+  "AbandonedShip_Corridors_B1F": [
+   24,
+   57
+  ],
+  "AbandonedShip_Deck": [
+   24,
+   54
+  ],
+  "AbandonedShip_HiddenFloorCorridors": [
+   24,
+   65
+  ],
+  "AbandonedShip_HiddenFloorRooms": [
+   24,
+   66
+  ],
+  "AbandonedShip_Room_B1F": [
+   24,
+   61
+  ],
+  "AbandonedShip_Rooms2_1F": [
+   24,
+   62
+  ],
+  "AbandonedShip_Rooms2_B1F": [
+   24,
+   59
+  ],
+  "AbandonedShip_Rooms_1F": [
+   24,
+   56
+  ],
+  "AbandonedShip_Rooms_B1F": [
+   24,
+   58
+  ],
+  "AbandonedShip_Underwater1": [
+   24,
+   60
+  ],
+  "AbandonedShip_Underwater2": [
+   24,
+   64
+  ],
+  "AcuityLakefront": [
+   75,
+   51
+  ],
+  "AlteringCave": [
+   24,
+   106
+  ],
+  "AncientTomb": [
+   24,
+   68
+  ],
+  "AquaHideout_1F": [
+   24,
+   23
+  ],
+  "AquaHideout_B1F": [
+   24,
+   24
+  ],
+  "AquaHideout_B2F": [
+   24,
+   25
+  ],
+  "AquaHideout_UnusedRubyMap1": [
+   24,
+   74
+  ],
+  "AquaHideout_UnusedRubyMap2": [
+   24,
+   75
+  ],
+  "AquaHideout_UnusedRubyMap3": [
+   24,
+   76
+  ],
+  "ArtisanCave_1F": [
+   24,
+   100
+  ],
+  "ArtisanCave_B1F": [
+   24,
+   99
+  ],
+  "AzaleaTown": [
+   84,
+   3
+  ],
+  "AzaleaTown_Gym": [
+   88,
+   4
+  ],
+  "AzaleaTown_House1": [
+   88,
+   3
+  ],
+  "AzaleaTown_KurtsHouse": [
+   88,
+   2
+  ],
+  "AzaleaTown_Mart": [
+   88,
+   1
+  ],
+  "AzaleaTown_PokemonCenter": [
+   88,
+   0
+  ],
+  "BattleColosseum_2P": [
+   25,
+   24
+  ],
+  "BattleColosseum_2P_Frlg": [
+   34,
+   0
+  ],
+  "BattleColosseum_4P": [
+   25,
+   27
+  ],
+  "BattleColosseum_4P_Frlg": [
+   34,
+   3
+  ],
+  "BattleFrontier_BattleArenaBattleRoom": [
+   26,
+   30
+  ],
+  "BattleFrontier_BattleArenaCorridor": [
+   26,
+   29
+  ],
+  "BattleFrontier_BattleArenaLobby": [
+   26,
+   28
+  ],
+  "BattleFrontier_BattleDomeBattleRoom": [
+   26,
+   21
+  ],
+  "BattleFrontier_BattleDomeCorridor": [
+   26,
+   19
+  ],
+  "BattleFrontier_BattleDomeLobby": [
+   26,
+   18
+  ],
+  "BattleFrontier_BattleDomePreBattleRoom": [
+   26,
+   20
+  ],
+  "BattleFrontier_BattleFactoryBattleRoom": [
+   26,
+   33
+  ],
+  "BattleFrontier_BattleFactoryLobby": [
+   26,
+   31
+  ],
+  "BattleFrontier_BattleFactoryPreBattleRoom": [
+   26,
+   32
+  ],
+  "BattleFrontier_BattlePalaceBattleRoom": [
+   26,
+   24
+  ],
+  "BattleFrontier_BattlePalaceCorridor": [
+   26,
+   23
+  ],
+  "BattleFrontier_BattlePalaceLobby": [
+   26,
+   22
+  ],
+  "BattleFrontier_BattlePikeCorridor": [
+   26,
+   35
+  ],
+  "BattleFrontier_BattlePikeLobby": [
+   26,
+   34
+  ],
+  "BattleFrontier_BattlePikeRoomFinal": [
+   26,
+   38
+  ],
+  "BattleFrontier_BattlePikeRoomNormal": [
+   26,
+   37
+  ],
+  "BattleFrontier_BattlePikeRoomWildMons": [
+   26,
+   39
+  ],
+  "BattleFrontier_BattlePikeThreePathRoom": [
+   26,
+   36
+  ],
+  "BattleFrontier_BattlePyramidFloor": [
+   26,
+   26
+  ],
+  "BattleFrontier_BattlePyramidLobby": [
+   26,
+   25
+  ],
+  "BattleFrontier_BattlePyramidTop": [
+   26,
+   27
+  ],
+  "BattleFrontier_BattleTowerBattleRoom": [
+   26,
+   8
+  ],
+  "BattleFrontier_BattleTowerCorridor": [
+   26,
+   7
+  ],
+  "BattleFrontier_BattleTowerElevator": [
+   26,
+   6
+  ],
+  "BattleFrontier_BattleTowerLobby": [
+   26,
+   5
+  ],
+  "BattleFrontier_BattleTowerMultiBattleRoom": [
+   26,
+   17
+  ],
+  "BattleFrontier_BattleTowerMultiCorridor": [
+   26,
+   16
+  ],
+  "BattleFrontier_BattleTowerMultiPartnerRoom": [
+   26,
+   15
+  ],
+  "BattleFrontier_ExchangeServiceCorner": [
+   26,
+   42
+  ],
+  "BattleFrontier_Lounge1": [
+   26,
+   41
+  ],
+  "BattleFrontier_Lounge2": [
+   26,
+   43
+  ],
+  "BattleFrontier_Lounge3": [
+   26,
+   44
+  ],
+  "BattleFrontier_Lounge4": [
+   26,
+   45
+  ],
+  "BattleFrontier_Lounge5": [
+   26,
+   47
+  ],
+  "BattleFrontier_Lounge6": [
+   26,
+   48
+  ],
+  "BattleFrontier_Lounge7": [
+   26,
+   49
+  ],
+  "BattleFrontier_Lounge8": [
+   26,
+   51
+  ],
+  "BattleFrontier_Lounge9": [
+   26,
+   52
+  ],
+  "BattleFrontier_Mart": [
+   26,
+   55
+  ],
+  "BattleFrontier_OutsideEast": [
+   26,
+   14
+  ],
+  "BattleFrontier_OutsideWest": [
+   26,
+   4
+  ],
+  "BattleFrontier_PokemonCenter_1F": [
+   26,
+   53
+  ],
+  "BattleFrontier_PokemonCenter_2F": [
+   26,
+   54
+  ],
+  "BattleFrontier_RankingHall": [
+   26,
+   40
+  ],
+  "BattleFrontier_ReceptionGate": [
+   26,
+   50
+  ],
+  "BattleFrontier_ScottsHouse": [
+   26,
+   46
+  ],
+  "BattlePyramidSquare01": [
+   25,
+   44
+  ],
+  "BattlePyramidSquare02": [
+   25,
+   45
+  ],
+  "BattlePyramidSquare03": [
+   25,
+   46
+  ],
+  "BattlePyramidSquare04": [
+   25,
+   47
+  ],
+  "BattlePyramidSquare05": [
+   25,
+   48
+  ],
+  "BattlePyramidSquare06": [
+   25,
+   49
+  ],
+  "BattlePyramidSquare07": [
+   25,
+   50
+  ],
+  "BattlePyramidSquare08": [
+   25,
+   51
+  ],
+  "BattlePyramidSquare09": [
+   25,
+   52
+  ],
+  "BattlePyramidSquare10": [
+   25,
+   53
+  ],
+  "BattlePyramidSquare11": [
+   25,
+   54
+  ],
+  "BattlePyramidSquare12": [
+   25,
+   55
+  ],
+  "BattlePyramidSquare13": [
+   25,
+   56
+  ],
+  "BattlePyramidSquare14": [
+   25,
+   57
+  ],
+  "BattlePyramidSquare15": [
+   25,
+   58
+  ],
+  "BattlePyramidSquare16": [
+   25,
+   59
+  ],
+  "BellchimeTrail": [
+   90,
+   7
+  ],
+  "BirthIsland_Exterior": [
+   26,
+   58
+  ],
+  "BirthIsland_Exterior_Frlg": [
+   36,
+   56
+  ],
+  "BirthIsland_Harbor": [
+   26,
+   59
+  ],
+  "BirthIsland_Harbor_Frlg": [
+   36,
+   58
+  ],
+  "BlackthornCity": [
+   84,
+   10
+  ],
+  "BlackthornCity_Gym": [
+   94,
+   2
+  ],
+  "BlackthornCity_House1": [
+   94,
+   3
+  ],
+  "BlackthornCity_House2": [
+   94,
+   4
+  ],
+  "BlackthornCity_House3": [
+   94,
+   5
+  ],
+  "BlackthornCity_Mart": [
+   94,
+   1
+  ],
+  "BlackthornCity_PokemonCenter": [
+   94,
+   0
+  ],
+  "BurnedTower_1F": [
+   97,
+   16
+  ],
+  "BurnedTower_B1F": [
+   97,
+   17
+  ],
+  "CanalaveCity": [
+   75,
+   11
+  ],
+  "CanalaveCity_Gym": [
+   78,
+   18
+  ],
+  "CaveOfOrigin_1F": [
+   24,
+   38
+  ],
+  "CaveOfOrigin_B1F": [
+   24,
+   42
+  ],
+  "CaveOfOrigin_Entrance": [
+   24,
+   37
+  ],
+  "CaveOfOrigin_UnusedRubySapphireMap1": [
+   24,
+   39
+  ],
+  "CaveOfOrigin_UnusedRubySapphireMap2": [
+   24,
+   40
+  ],
+  "CaveOfOrigin_UnusedRubySapphireMap3": [
+   24,
+   41
+  ],
+  "CeladonCity_Condominiums_1F_Frlg": [
+   44,
+   7
+  ],
+  "CeladonCity_Condominiums_2F_Frlg": [
+   44,
+   8
+  ],
+  "CeladonCity_Condominiums_3F_Frlg": [
+   44,
+   9
+  ],
+  "CeladonCity_Condominiums_RoofRoom_Frlg": [
+   44,
+   11
+  ],
+  "CeladonCity_Condominiums_Roof_Frlg": [
+   44,
+   10
+  ],
+  "CeladonCity_DepartmentStore_1F_Frlg": [
+   44,
+   0
+  ],
+  "CeladonCity_DepartmentStore_2F_Frlg": [
+   44,
+   1
+  ],
+  "CeladonCity_DepartmentStore_3F_Frlg": [
+   44,
+   2
+  ],
+  "CeladonCity_DepartmentStore_4F_Frlg": [
+   44,
+   3
+  ],
+  "CeladonCity_DepartmentStore_5F_Frlg": [
+   44,
+   4
+  ],
+  "CeladonCity_DepartmentStore_Elevator_Frlg": [
+   44,
+   6
+  ],
+  "CeladonCity_DepartmentStore_Roof_Frlg": [
+   44,
+   5
+  ],
+  "CeladonCity_Frlg": [
+   37,
+   6
+  ],
+  "CeladonCity_GameCorner_Frlg": [
+   44,
+   14
+  ],
+  "CeladonCity_GameCorner_PrizeRoom_Frlg": [
+   44,
+   15
+  ],
+  "CeladonCity_Gym_Frlg": [
+   44,
+   16
+  ],
+  "CeladonCity_Hotel_Frlg": [
+   44,
+   19
+  ],
+  "CeladonCity_House1_Frlg": [
+   44,
+   18
+  ],
+  "CeladonCity_PokemonCenter_1F_Frlg": [
+   44,
+   12
+  ],
+  "CeladonCity_PokemonCenter_2F_Frlg": [
+   44,
+   13
+  ],
+  "CeladonCity_Restaurant_Frlg": [
+   44,
+   17
+  ],
+  "CelesticTown": [
+   75,
+   8
+  ],
+  "CeruleanCave_1F_Frlg": [
+   35,
+   72
+  ],
+  "CeruleanCave_2F_Frlg": [
+   35,
+   73
+  ],
+  "CeruleanCave_B1F_Frlg": [
+   35,
+   74
+  ],
+  "CeruleanCity_BikeShop_Frlg": [
+   41,
+   6
+  ],
+  "CeruleanCity_Frlg": [
+   37,
+   3
+  ],
+  "CeruleanCity_Gym_Frlg": [
+   41,
+   5
+  ],
+  "CeruleanCity_House1_Frlg": [
+   41,
+   0
+  ],
+  "CeruleanCity_House2_Frlg": [
+   41,
+   1
+  ],
+  "CeruleanCity_House3_Frlg": [
+   41,
+   2
+  ],
+  "CeruleanCity_House4_Frlg": [
+   41,
+   8
+  ],
+  "CeruleanCity_House5_Frlg": [
+   41,
+   9
+  ],
+  "CeruleanCity_Mart_Frlg": [
+   41,
+   7
+  ],
+  "CeruleanCity_PokemonCenter_1F_Frlg": [
+   41,
+   3
+  ],
+  "CeruleanCity_PokemonCenter_2F_Frlg": [
+   41,
+   4
+  ],
+  "CherrygroveCity": [
+   84,
+   1
+  ],
+  "CherrygroveCity_House1": [
+   86,
+   2
+  ],
+  "CherrygroveCity_House2": [
+   86,
+   3
+  ],
+  "CherrygroveCity_House3": [
+   86,
+   4
+  ],
+  "CherrygroveCity_Mart": [
+   86,
+   1
+  ],
+  "CherrygroveCity_PokemonCenter": [
+   86,
+   0
+  ],
+  "CianwoodCity": [
+   84,
+   7
+  ],
+  "CianwoodGym": [
+   92,
+   5
+  ],
+  "CianwoodHouse1": [
+   92,
+   1
+  ],
+  "CianwoodHouse2": [
+   92,
+   2
+  ],
+  "CianwoodHouse3": [
+   92,
+   3
+  ],
+  "CianwoodPokecenter": [
+   92,
+   0
+  ],
+  "CianwoodShop": [
+   92,
+   4
+  ],
+  "CinnabarIsland_Frlg": [
+   37,
+   8
+  ],
+  "CinnabarIsland_Gym_Frlg": [
+   46,
+   0
+  ],
+  "CinnabarIsland_Mart_Frlg": [
+   46,
+   7
+  ],
+  "CinnabarIsland_PokemonCenter_1F_Frlg": [
+   46,
+   5
+  ],
+  "CinnabarIsland_PokemonCenter_2F_Frlg": [
+   46,
+   6
+  ],
+  "CinnabarIsland_PokemonLab_Entrance_Frlg": [
+   46,
+   1
+  ],
+  "CinnabarIsland_PokemonLab_ExperimentRoom_Frlg": [
+   46,
+   4
+  ],
+  "CinnabarIsland_PokemonLab_Lounge_Frlg": [
+   46,
+   2
+  ],
+  "CinnabarIsland_PokemonLab_ResearchRoom_Frlg": [
+   46,
+   3
+  ],
+  "CliffEdgeCave": [
+   97,
+   64
+  ],
+  "CliffEdgeGate": [
+   97,
+   18
+  ],
+  "ContestHall": [
+   25,
+   28
+  ],
+  "ContestHallBeauty": [
+   25,
+   35
+  ],
+  "ContestHallCool": [
+   25,
+   37
+  ],
+  "ContestHallCute": [
+   25,
+   39
+  ],
+  "ContestHallSmart": [
+   25,
+   38
+  ],
+  "ContestHallTough": [
+   25,
+   36
+  ],
+  "DarkCave_NorthSide": [
+   97,
+   1
+  ],
+  "DarkCave_SouthSide": [
+   97,
+   0
+  ],
+  "DesertRuins": [
+   24,
+   6
+  ],
+  "DesertUnderpass": [
+   24,
+   98
+  ],
+  "DewfordTown": [
+   0,
+   11
+  ],
+  "DewfordTown_Gym": [
+   3,
+   3
+  ],
+  "DewfordTown_Hall": [
+   3,
+   4
+  ],
+  "DewfordTown_House1": [
+   3,
+   0
+  ],
+  "DewfordTown_House2": [
+   3,
+   5
+  ],
+  "DewfordTown_PokemonCenter_1F": [
+   3,
+   1
+  ],
+  "DewfordTown_PokemonCenter_2F": [
+   3,
+   2
+  ],
+  "DiglettsCave_B1F_Frlg": [
+   35,
+   37
+  ],
+  "DiglettsCave_EntranceNorth": [
+   97,
+   52
+  ],
+  "DiglettsCave_EntranceSouth": [
+   97,
+   53
+  ],
+  "DiglettsCave_NorthEntrance_Frlg": [
+   35,
+   36
+  ],
+  "DiglettsCave_SouthEntrance_Frlg": [
+   35,
+   38
+  ],
+  "DiglettsCave_Tunnel": [
+   97,
+   54
+  ],
+  "DragonsDen_Cavern": [
+   97,
+   31
+  ],
+  "DragonsDen_Entrance": [
+   97,
+   30
+  ],
+  "DragonsDen_Shrine": [
+   97,
+   32
+  ],
+  "EcruteakCity": [
+   84,
+   5
+  ],
+  "EcruteakCity_Gym": [
+   90,
+   8
+  ],
+  "EcruteakCity_House1": [
+   90,
+   3
+  ],
+  "EcruteakCity_House2": [
+   90,
+   4
+  ],
+  "EcruteakCity_Mart": [
+   90,
+   1
+  ],
+  "EcruteakCity_PokemonCenter": [
+   90,
+   0
+  ],
+  "EcruteakCity_SageOffice1": [
+   90,
+   5
+  ],
+  "EcruteakCity_SageOffice2": [
+   90,
+   6
+  ],
+  "EcruteakCity_Theater": [
+   90,
+   2
+  ],
+  "EmbeddedTower": [
+   97,
+   65
+  ],
+  "EternaCity": [
+   75,
+   5
+  ],
+  "EternaCity_Gym": [
+   78,
+   14
+  ],
+  "EternaForest": [
+   76,
+   4
+  ],
+  "EverGrandeCity": [
+   0,
+   8
+  ],
+  "EverGrandeCity_ChampionsRoom": [
+   16,
+   4
+  ],
+  "EverGrandeCity_DrakesRoom": [
+   16,
+   3
+  ],
+  "EverGrandeCity_GlaciasRoom": [
+   16,
+   2
+  ],
+  "EverGrandeCity_Hall1": [
+   16,
+   5
+  ],
+  "EverGrandeCity_Hall2": [
+   16,
+   6
+  ],
+  "EverGrandeCity_Hall3": [
+   16,
+   7
+  ],
+  "EverGrandeCity_Hall4": [
+   16,
+   8
+  ],
+  "EverGrandeCity_Hall5": [
+   16,
+   9
+  ],
+  "EverGrandeCity_HallOfFame": [
+   16,
+   11
+  ],
+  "EverGrandeCity_PhoebesRoom": [
+   16,
+   1
+  ],
+  "EverGrandeCity_PokemonCenter_1F": [
+   16,
+   12
+  ],
+  "EverGrandeCity_PokemonCenter_2F": [
+   16,
+   13
+  ],
+  "EverGrandeCity_PokemonLeague_1F": [
+   16,
+   10
+  ],
+  "EverGrandeCity_PokemonLeague_2F": [
+   16,
+   14
+  ],
+  "EverGrandeCity_SidneysRoom": [
+   16,
+   0
+  ],
+  "FallarborTown": [
+   0,
+   13
+  ],
+  "FallarborTown_BattleTentBattleRoom": [
+   5,
+   3
+  ],
+  "FallarborTown_BattleTentCorridor": [
+   5,
+   2
+  ],
+  "FallarborTown_BattleTentLobby": [
+   5,
+   1
+  ],
+  "FallarborTown_CozmosHouse": [
+   5,
+   6
+  ],
+  "FallarborTown_Mart": [
+   5,
+   0
+  ],
+  "FallarborTown_MoveRelearnersHouse": [
+   5,
+   7
+  ],
+  "FallarborTown_PokemonCenter_1F": [
+   5,
+   4
+  ],
+  "FallarborTown_PokemonCenter_2F": [
+   5,
+   5
+  ],
+  "FarawayIsland_Entrance": [
+   26,
+   56
+  ],
+  "FarawayIsland_Interior": [
+   26,
+   57
+  ],
+  "FieryPath": [
+   24,
+   14
+  ],
+  "FightArea": [
+   75,
+   52
+  ],
+  "FiveIsland_Frlg": [
+   37,
+   16
+  ],
+  "FiveIsland_Harbor_Frlg": [
+   68,
+   2
+  ],
+  "FiveIsland_House1_Frlg": [
+   68,
+   3
+  ],
+  "FiveIsland_House2_Frlg": [
+   68,
+   4
+  ],
+  "FiveIsland_LostCave_Entrance_Frlg": [
+   36,
+   12
+  ],
+  "FiveIsland_LostCave_Room10_Frlg": [
+   36,
+   22
+  ],
+  "FiveIsland_LostCave_Room11_Frlg": [
+   36,
+   23
+  ],
+  "FiveIsland_LostCave_Room12_Frlg": [
+   36,
+   24
+  ],
+  "FiveIsland_LostCave_Room13_Frlg": [
+   36,
+   25
+  ],
+  "FiveIsland_LostCave_Room14_Frlg": [
+   36,
+   26
+  ],
+  "FiveIsland_LostCave_Room1_Frlg": [
+   36,
+   13
+  ],
+  "FiveIsland_LostCave_Room2_Frlg": [
+   36,
+   14
+  ],
+  "FiveIsland_LostCave_Room3_Frlg": [
+   36,
+   15
+  ],
+  "FiveIsland_LostCave_Room4_Frlg": [
+   36,
+   16
+  ],
+  "FiveIsland_LostCave_Room5_Frlg": [
+   36,
+   17
+  ],
+  "FiveIsland_LostCave_Room6_Frlg": [
+   36,
+   18
+  ],
+  "FiveIsland_LostCave_Room7_Frlg": [
+   36,
+   19
+  ],
+  "FiveIsland_LostCave_Room8_Frlg": [
+   36,
+   20
+  ],
+  "FiveIsland_LostCave_Room9_Frlg": [
+   36,
+   21
+  ],
+  "FiveIsland_Meadow_Frlg": [
+   37,
+   52
+  ],
+  "FiveIsland_MemorialPillar_Frlg": [
+   37,
+   53
+  ],
+  "FiveIsland_PokemonCenter_1F_Frlg": [
+   68,
+   0
+  ],
+  "FiveIsland_PokemonCenter_2F_Frlg": [
+   68,
+   1
+  ],
+  "FiveIsland_ResortGorgeous_Frlg": [
+   37,
+   50
+  ],
+  "FiveIsland_ResortGorgeous_House_Frlg": [
+   71,
+   0
+  ],
+  "FiveIsland_RocketWarehouse_Frlg": [
+   35,
+   114
+  ],
+  "FiveIsland_WaterLabyrinth_Frlg": [
+   37,
+   51
+  ],
+  "FloaromaTown": [
+   75,
+   4
+  ],
+  "FloaromaTown_FlowerShop": [
+   83,
+   2
+  ],
+  "FloaromaTown_House1": [
+   83,
+   0
+  ],
+  "FloaromaTown_House2": [
+   83,
+   1
+  ],
+  "FloaromaTown_Mart": [
+   83,
+   5
+  ],
+  "FloaromaTown_PokemonCenter_1F": [
+   83,
+   3
+  ],
+  "FloaromaTwon_PokemonCenter_2F": [
+   83,
+   4
+  ],
+  "FortreeCity": [
+   0,
+   4
+  ],
+  "FortreeCity_DecorationShop": [
+   12,
+   9
+  ],
+  "FortreeCity_Gym": [
+   12,
+   1
+  ],
+  "FortreeCity_House1": [
+   12,
+   0
+  ],
+  "FortreeCity_House2": [
+   12,
+   5
+  ],
+  "FortreeCity_House3": [
+   12,
+   6
+  ],
+  "FortreeCity_House4": [
+   12,
+   7
+  ],
+  "FortreeCity_House5": [
+   12,
+   8
+  ],
+  "FortreeCity_Mart": [
+   12,
+   4
+  ],
+  "FortreeCity_PokemonCenter_1F": [
+   12,
+   2
+  ],
+  "FortreeCity_PokemonCenter_2F": [
+   12,
+   3
+  ],
+  "FourIsland_Frlg": [
+   37,
+   15
+  ],
+  "FourIsland_Harbor_Frlg": [
+   67,
+   5
+  ],
+  "FourIsland_House1_Frlg": [
+   67,
+   3
+  ],
+  "FourIsland_House2_Frlg": [
+   67,
+   6
+  ],
+  "FourIsland_IcefallCave_1F_Frlg": [
+   35,
+   111
+  ],
+  "FourIsland_IcefallCave_B1F_Frlg": [
+   35,
+   112
+  ],
+  "FourIsland_IcefallCave_Back_Frlg": [
+   35,
+   113
+  ],
+  "FourIsland_IcefallCave_Entrance_Frlg": [
+   35,
+   110
+  ],
+  "FourIsland_LoreleisHouse_Frlg": [
+   67,
+   4
+  ],
+  "FourIsland_Mart_Frlg": [
+   67,
+   7
+  ],
+  "FourIsland_PokemonCenter_1F_Frlg": [
+   67,
+   1
+  ],
+  "FourIsland_PokemonCenter_2F_Frlg": [
+   67,
+   2
+  ],
+  "FourIsland_PokemonDayCare_Frlg": [
+   67,
+   0
+  ],
+  "FuchsiaCity_Frlg": [
+   37,
+   7
+  ],
+  "FuchsiaCity_Gym_Frlg": [
+   45,
+   3
+  ],
+  "FuchsiaCity_House1_Frlg": [
+   45,
+   4
+  ],
+  "FuchsiaCity_House2_Frlg": [
+   45,
+   8
+  ],
+  "FuchsiaCity_House3_Frlg": [
+   45,
+   9
+  ],
+  "FuchsiaCity_Mart_Frlg": [
+   45,
+   1
+  ],
+  "FuchsiaCity_PokemonCenter_1F_Frlg": [
+   45,
+   5
+  ],
+  "FuchsiaCity_PokemonCenter_2F_Frlg": [
+   45,
+   6
+  ],
+  "FuchsiaCity_SafariZone_Entrance_Frlg": [
+   45,
+   0
+  ],
+  "FuchsiaCity_SafariZone_Office_Frlg": [
+   45,
+   2
+  ],
+  "FuchsiaCity_WardensHouse_Frlg": [
+   45,
+   7
+  ],
+  "GalacticHQ_1F": [
+   100,
+   0
+  ],
+  "GalacticHQ_2F": [
+   100,
+   1
+  ],
+  "GalacticHQ_3F": [
+   100,
+   2
+  ],
+  "GalacticHQ_B1F": [
+   100,
+   3
+  ],
+  "GalacticHQ_B2F": [
+   100,
+   4
+  ],
+  "GalacticHQ_ControlRoom": [
+   100,
+   7
+  ],
+  "GalacticHQ_Hall": [
+   100,
+   5
+  ],
+  "GalacticHQ_Laboratory": [
+   100,
+   6
+  ],
+  "Gate_AzaleaTown_IlexForest": [
+   95,
+   4
+  ],
+  "Gate_EcruteakCity_Route38": [
+   95,
+   8
+  ],
+  "Gate_EcruteakCity_Route42": [
+   95,
+   9
+  ],
+  "Gate_GoldenrodCity_Route35": [
+   95,
+   6
+  ],
+  "Gate_IlexForest_Route34": [
+   95,
+   5
+  ],
+  "Gate_MahoganyTown_Route43": [
+   95,
+   10
+  ],
+  "Gate_NationalPark": [
+   95,
+   7
+  ],
+  "Gate_Route29_Route46": [
+   95,
+   0
+  ],
+  "Gate_Route31_VioletCity": [
+   95,
+   1
+  ],
+  "Gate_Route40_TrainerHill_Courtyard": [
+   95,
+   12
+  ],
+  "Gate_Route43": [
+   95,
+   11
+  ],
+  "Gate_RuinsOfAlph_Route32": [
+   95,
+   2
+  ],
+  "Gate_RuinsOfAlph_Route36": [
+   95,
+   3
+  ],
+  "GoldenrodCity": [
+   84,
+   4
+  ],
+  "GoldenrodCity_BikeShop": [
+   89,
+   12
+  ],
+  "GoldenrodCity_BillsHouse": [
+   89,
+   11
+  ],
+  "GoldenrodCity_DepartmentStoreBasement": [
+   89,
+   5
+  ],
+  "GoldenrodCity_DepartmentStoreElevator": [
+   89,
+   27
+  ],
+  "GoldenrodCity_DepartmentStore_1F": [
+   89,
+   20
+  ],
+  "GoldenrodCity_DepartmentStore_2F": [
+   89,
+   21
+  ],
+  "GoldenrodCity_DepartmentStore_3F": [
+   89,
+   22
+  ],
+  "GoldenrodCity_DepartmentStore_4F": [
+   89,
+   23
+  ],
+  "GoldenrodCity_DepartmentStore_5F": [
+   89,
+   24
+  ],
+  "GoldenrodCity_DepartmentStore_6F": [
+   89,
+   25
+  ],
+  "GoldenrodCity_DepartmentStore_7F": [
+   89,
+   26
+  ],
+  "GoldenrodCity_FlowerShop": [
+   89,
+   7
+  ],
+  "GoldenrodCity_GameCorner": [
+   89,
+   13
+  ],
+  "GoldenrodCity_Gym": [
+   89,
+   6
+  ],
+  "GoldenrodCity_House1": [
+   89,
+   8
+  ],
+  "GoldenrodCity_House2": [
+   89,
+   9
+  ],
+  "GoldenrodCity_House3": [
+   89,
+   10
+  ],
+  "GoldenrodCity_PokemonCenter": [
+   89,
+   0
+  ],
+  "GoldenrodCity_RadioTower_1F": [
+   89,
+   15
+  ],
+  "GoldenrodCity_RadioTower_2F": [
+   89,
+   16
+  ],
+  "GoldenrodCity_RadioTower_3F": [
+   89,
+   17
+  ],
+  "GoldenrodCity_RadioTower_4F": [
+   89,
+   18
+  ],
+  "GoldenrodCity_RadioTower_5F": [
+   89,
+   19
+  ],
+  "GoldenrodCity_TrainStation": [
+   89,
+   14
+  ],
+  "GoldenrodCity_UndergroundEntrance": [
+   89,
+   1
+  ],
+  "GoldenrodCity_UndergroundStorage": [
+   89,
+   4
+  ],
+  "GoldenrodCity_UndergroundSwitches": [
+   89,
+   3
+  ],
+  "GoldenrodCity_UndergroundTunnel": [
+   89,
+   2
+  ],
+  "GraniteCave_1F": [
+   24,
+   7
+  ],
+  "GraniteCave_B1F": [
+   24,
+   8
+  ],
+  "GraniteCave_B2F": [
+   24,
+   9
+  ],
+  "GraniteCave_StevensRoom": [
+   24,
+   10
+  ],
+  "HearthomeCity": [
+   75,
+   6
+  ],
+  "HearthomeCity_Gym": [
+   78,
+   17
+  ],
+  "HotelGrandLake": [
+   78,
+   13
+  ],
+  "IcePath_1F": [
+   97,
+   25
+  ],
+  "IcePath_B1F": [
+   97,
+   26
+  ],
+  "IcePath_B2F": [
+   97,
+   27
+  ],
+  "IcePath_B3F": [
+   97,
+   28
+  ],
+  "IcePath_B4F": [
+   97,
+   29
+  ],
+  "IlexForest": [
+   97,
+   13
+  ],
+  "IndigoPlateau_Exterior_Frlg": [
+   37,
+   9
+  ],
+  "IndigoPlateau_PokemonCenter_1F_Frlg": [
+   47,
+   0
+  ],
+  "IndigoPlateau_PokemonCenter_2F_Frlg": [
+   47,
+   1
+  ],
+  "InsideOfTruck": [
+   25,
+   40
+  ],
+  "IslandCave": [
+   24,
+   67
+  ],
+  "JaggedPass": [
+   24,
+   13
+  ],
+  "JubilifeCity": [
+   75,
+   2
+  ],
+  "JubilifeCity_Flat1_F1": [
+   81,
+   8
+  ],
+  "JubilifeCity_Flat1_F2": [
+   81,
+   9
+  ],
+  "JubilifeCity_Flat1_F3": [
+   81,
+   10
+  ],
+  "JubilifeCity_Flat2_F1": [
+   81,
+   11
+  ],
+  "JubilifeCity_Flat2_F2": [
+   81,
+   12
+  ],
+  "JubilifeCity_Flat2_F3": [
+   81,
+   13
+  ],
+  "JubilifeCity_Flat3_F1": [
+   81,
+   14
+  ],
+  "JubilifeCity_Flat3_F2": [
+   81,
+   15
+  ],
+  "JubilifeCity_Flat3_F3": [
+   81,
+   16
+  ],
+  "JubilifeCity_JubilifeTV_F1": [
+   81,
+   1
+  ],
+  "JubilifeCity_JubilifeTV_F2": [
+   81,
+   2
+  ],
+  "JubilifeCity_JubilifeTV_F3": [
+   81,
+   3
+  ],
+  "JubilifeCity_JubilifeTV_F4": [
+   81,
+   4
+  ],
+  "JubilifeCity_Mart": [
+   81,
+   19
+  ],
+  "JubilifeCity_PokemonCenter_1F": [
+   81,
+   17
+  ],
+  "JubilifeCity_PokemonCenter_2F": [
+   81,
+   18
+  ],
+  "JubilifeCity_PokemonSchool": [
+   81,
+   0
+  ],
+  "JubilifeCity_PoketchCompany_F1": [
+   81,
+   5
+  ],
+  "JubilifeCity_PoketchCompany_F2": [
+   81,
+   6
+  ],
+  "JubilifeCity_PoketchCompany_F3": [
+   81,
+   7
+  ],
+  "LakeAcuity": [
+   76,
+   2
+  ],
+  "LakeOfRage": [
+   97,
+   23
+  ],
+  "LakeOfRageLowTide": [
+   97,
+   24
+  ],
+  "LakeOfRage_House1": [
+   93,
+   4
+  ],
+  "LakeOfRage_House2": [
+   93,
+   5
+  ],
+  "LakeValor": [
+   76,
+   1
+  ],
+  "LakeVerity": [
+   76,
+   0
+  ],
+  "LavaridgeTown": [
+   0,
+   12
+  ],
+  "LavaridgeTown_Gym_1F": [
+   4,
+   1
+  ],
+  "LavaridgeTown_Gym_B1F": [
+   4,
+   2
+  ],
+  "LavaridgeTown_HerbShop": [
+   4,
+   0
+  ],
+  "LavaridgeTown_House": [
+   4,
+   3
+  ],
+  "LavaridgeTown_Mart": [
+   4,
+   4
+  ],
+  "LavaridgeTown_PokemonCenter_1F": [
+   4,
+   5
+  ],
+  "LavaridgeTown_PokemonCenter_2F": [
+   4,
+   6
+  ],
+  "LavenderTown_Frlg": [
+   37,
+   4
+  ],
+  "LavenderTown_House1_Frlg": [
+   42,
+   3
+  ],
+  "LavenderTown_House2_Frlg": [
+   42,
+   4
+  ],
+  "LavenderTown_Mart_Frlg": [
+   42,
+   5
+  ],
+  "LavenderTown_PokemonCenter_1F_Frlg": [
+   42,
+   0
+  ],
+  "LavenderTown_PokemonCenter_2F_Frlg": [
+   42,
+   1
+  ],
+  "LavenderTown_VolunteerPokemonHouse_Frlg": [
+   42,
+   2
+  ],
+  "LilycoveCity": [
+   0,
+   5
+  ],
+  "LilycoveCity_ContestHall": [
+   13,
+   5
+  ],
+  "LilycoveCity_ContestLobby": [
+   13,
+   4
+  ],
+  "LilycoveCity_CoveLilyMotel_1F": [
+   13,
+   0
+  ],
+  "LilycoveCity_CoveLilyMotel_2F": [
+   13,
+   1
+  ],
+  "LilycoveCity_DepartmentStoreElevator": [
+   13,
+   22
+  ],
+  "LilycoveCity_DepartmentStoreRooftop": [
+   13,
+   21
+  ],
+  "LilycoveCity_DepartmentStore_1F": [
+   13,
+   16
+  ],
+  "LilycoveCity_DepartmentStore_2F": [
+   13,
+   17
+  ],
+  "LilycoveCity_DepartmentStore_3F": [
+   13,
+   18
+  ],
+  "LilycoveCity_DepartmentStore_4F": [
+   13,
+   19
+  ],
+  "LilycoveCity_DepartmentStore_5F": [
+   13,
+   20
+  ],
+  "LilycoveCity_Harbor": [
+   13,
+   10
+  ],
+  "LilycoveCity_House1": [
+   13,
+   12
+  ],
+  "LilycoveCity_House2": [
+   13,
+   13
+  ],
+  "LilycoveCity_House3": [
+   13,
+   14
+  ],
+  "LilycoveCity_House4": [
+   13,
+   15
+  ],
+  "LilycoveCity_LilycoveMuseum_1F": [
+   13,
+   2
+  ],
+  "LilycoveCity_LilycoveMuseum_2F": [
+   13,
+   3
+  ],
+  "LilycoveCity_MoveDeletersHouse": [
+   13,
+   11
+  ],
+  "LilycoveCity_PokemonCenter_1F": [
+   13,
+   6
+  ],
+  "LilycoveCity_PokemonCenter_2F": [
+   13,
+   7
+  ],
+  "LilycoveCity_PokemonTrainerFanClub": [
+   13,
+   9
+  ],
+  "LilycoveCity_UnusedMart": [
+   13,
+   8
+  ],
+  "LittlerootTown": [
+   0,
+   9
+  ],
+  "LittlerootTown_BrendansHouse_1F": [
+   1,
+   0
+  ],
+  "LittlerootTown_BrendansHouse_2F": [
+   1,
+   1
+  ],
+  "LittlerootTown_MaysHouse_1F": [
+   1,
+   2
+  ],
+  "LittlerootTown_MaysHouse_2F": [
+   1,
+   3
+  ],
+  "LittlerootTown_ProfessorBirchsLab": [
+   1,
+   4
+  ],
+  "MagmaHideout_1F": [
+   24,
+   86
+  ],
+  "MagmaHideout_2F_1R": [
+   24,
+   87
+  ],
+  "MagmaHideout_2F_2R": [
+   24,
+   88
+  ],
+  "MagmaHideout_2F_3R": [
+   24,
+   93
+  ],
+  "MagmaHideout_3F_1R": [
+   24,
+   89
+  ],
+  "MagmaHideout_3F_2R": [
+   24,
+   90
+  ],
+  "MagmaHideout_3F_3R": [
+   24,
+   92
+  ],
+  "MagmaHideout_4F": [
+   24,
+   91
+  ],
+  "MahoganyHideout_B1F": [
+   93,
+   6
+  ],
+  "MahoganyHideout_B2F": [
+   93,
+   7
+  ],
+  "MahoganyHideout_B3F": [
+   93,
+   8
+  ],
+  "MahoganyTown_Gym": [
+   93,
+   1
+  ],
+  "MahoganyTown_House1": [
+   93,
+   3
+  ],
+  "MahoganyTown_PokemonCenter": [
+   93,
+   0
+  ],
+  "MahoganyTown_Shop": [
+   93,
+   2
+  ],
+  "Mahoganytown": [
+   84,
+   9
+  ],
+  "MarineCave_End": [
+   24,
+   103
+  ],
+  "MarineCave_Entrance": [
+   24,
+   102
+  ],
+  "MauvilleCity": [
+   0,
+   2
+  ],
+  "MauvilleCity_BikeShop": [
+   10,
+   1
+  ],
+  "MauvilleCity_GameCorner": [
+   10,
+   3
+  ],
+  "MauvilleCity_Gym": [
+   10,
+   0
+  ],
+  "MauvilleCity_House1": [
+   10,
+   2
+  ],
+  "MauvilleCity_House2": [
+   10,
+   4
+  ],
+  "MauvilleCity_Mart": [
+   10,
+   7
+  ],
+  "MauvilleCity_PokemonCenter_1F": [
+   10,
+   5
+  ],
+  "MauvilleCity_PokemonCenter_2F": [
+   10,
+   6
+  ],
+  "MeteorFalls_1F_1R": [
+   24,
+   0
+  ],
+  "MeteorFalls_1F_2R": [
+   24,
+   1
+  ],
+  "MeteorFalls_B1F_1R": [
+   24,
+   2
+  ],
+  "MeteorFalls_B1F_2R": [
+   24,
+   3
+  ],
+  "MeteorFalls_StevensCave": [
+   24,
+   107
+  ],
+  "MirageTower_1F": [
+   24,
+   94
+  ],
+  "MirageTower_2F": [
+   24,
+   95
+  ],
+  "MirageTower_3F": [
+   24,
+   96
+  ],
+  "MirageTower_4F": [
+   24,
+   97
+  ],
+  "MossdeepCity": [
+   0,
+   6
+  ],
+  "MossdeepCity_GameCorner_1F": [
+   14,
+   11
+  ],
+  "MossdeepCity_GameCorner_B1F": [
+   14,
+   12
+  ],
+  "MossdeepCity_Gym": [
+   14,
+   0
+  ],
+  "MossdeepCity_House1": [
+   14,
+   1
+  ],
+  "MossdeepCity_House2": [
+   14,
+   2
+  ],
+  "MossdeepCity_House3": [
+   14,
+   6
+  ],
+  "MossdeepCity_House4": [
+   14,
+   8
+  ],
+  "MossdeepCity_Mart": [
+   14,
+   5
+  ],
+  "MossdeepCity_PokemonCenter_1F": [
+   14,
+   3
+  ],
+  "MossdeepCity_PokemonCenter_2F": [
+   14,
+   4
+  ],
+  "MossdeepCity_SpaceCenter_1F": [
+   14,
+   9
+  ],
+  "MossdeepCity_SpaceCenter_2F": [
+   14,
+   10
+  ],
+  "MossdeepCity_StevensHouse": [
+   14,
+   7
+  ],
+  "MtChimney": [
+   24,
+   12
+  ],
+  "MtChimney_CableCarStation": [
+   19,
+   1
+  ],
+  "MtCoronet_1F_North_Room1": [
+   77,
+   6
+  ],
+  "MtCoronet_1F_North_Room2": [
+   77,
+   7
+  ],
+  "MtCoronet_1F_South": [
+   77,
+   5
+  ],
+  "MtCoronet_B1F": [
+   77,
+   4
+  ],
+  "MtEmber_Exterior_Frlg": [
+   35,
+   97
+  ],
+  "MtEmber_RubyPath_1F_Frlg": [
+   35,
+   103
+  ],
+  "MtEmber_RubyPath_B1F_Frlg": [
+   35,
+   104
+  ],
+  "MtEmber_RubyPath_B1F_Stairs_Frlg": [
+   35,
+   107
+  ],
+  "MtEmber_RubyPath_B2F_Frlg": [
+   35,
+   105
+  ],
+  "MtEmber_RubyPath_B2F_Stairs_Frlg": [
+   35,
+   108
+  ],
+  "MtEmber_RubyPath_B3F_Frlg": [
+   35,
+   106
+  ],
+  "MtEmber_RubyPath_B4F_Frlg": [
+   35,
+   96
+  ],
+  "MtEmber_RubyPath_B5F_Frlg": [
+   35,
+   102
+  ],
+  "MtEmber_SummitPath_1F_Frlg": [
+   35,
+   98
+  ],
+  "MtEmber_SummitPath_2F_Frlg": [
+   35,
+   99
+  ],
+  "MtEmber_SummitPath_3F_Frlg": [
+   35,
+   100
+  ],
+  "MtEmber_Summit_Frlg": [
+   35,
+   101
+  ],
+  "MtMoon_1F_Frlg": [
+   35,
+   1
+  ],
+  "MtMoon_B1F_Frlg": [
+   35,
+   2
+  ],
+  "MtMoon_B2F_Frlg": [
+   35,
+   3
+  ],
+  "MtMortar_1F_North": [
+   97,
+   20
+  ],
+  "MtMortar_1F_South": [
+   97,
+   19
+  ],
+  "MtMortar_2F": [
+   97,
+   21
+  ],
+  "MtMortar_B1F": [
+   97,
+   22
+  ],
+  "MtPyre_1F": [
+   24,
+   15
+  ],
+  "MtPyre_2F": [
+   24,
+   16
+  ],
+  "MtPyre_3F": [
+   24,
+   17
+  ],
+  "MtPyre_4F": [
+   24,
+   18
+  ],
+  "MtPyre_5F": [
+   24,
+   19
+  ],
+  "MtPyre_6F": [
+   24,
+   20
+  ],
+  "MtPyre_Exterior": [
+   24,
+   21
+  ],
+  "MtPyre_Summit": [
+   24,
+   22
+  ],
+  "MtSilver_1F_ItemRoom": [
+   97,
+   56
+  ],
+  "MtSilver_1F_MoltresRoom": [
+   97,
+   58
+  ],
+  "MtSilver_1F_WaterfallRoom": [
+   97,
+   57
+  ],
+  "MtSilver_2F": [
+   97,
+   60
+  ],
+  "MtSilver_3F": [
+   97,
+   61
+  ],
+  "MtSilver_MountainSide": [
+   97,
+   59
+  ],
+  "MtSilver_Outside": [
+   97,
+   55
+  ],
+  "MtSilver_PokemonCenter": [
+   95,
+   26
+  ],
+  "MtSilver_Snow": [
+   97,
+   62
+  ],
+  "MtSilver_SummitDay": [
+   97,
+   63
+  ],
+  "NationalPark_BugContest": [
+   97,
+   15
+  ],
+  "NationalPark_Normal": [
+   97,
+   14
+  ],
+  "NavelRock_1F_Frlg": [
+   36,
+   36
+  ],
+  "NavelRock_B1F": [
+   26,
+   69
+  ],
+  "NavelRock_B1F_Frlg": [
+   36,
+   54
+  ],
+  "NavelRock_BasePath_B10F_Frlg": [
+   36,
+   52
+  ],
+  "NavelRock_BasePath_B11F_Frlg": [
+   36,
+   53
+  ],
+  "NavelRock_BasePath_B1F_Frlg": [
+   36,
+   43
+  ],
+  "NavelRock_BasePath_B2F_Frlg": [
+   36,
+   44
+  ],
+  "NavelRock_BasePath_B3F_Frlg": [
+   36,
+   45
+  ],
+  "NavelRock_BasePath_B4F_Frlg": [
+   36,
+   46
+  ],
+  "NavelRock_BasePath_B5F_Frlg": [
+   36,
+   47
+  ],
+  "NavelRock_BasePath_B6F_Frlg": [
+   36,
+   48
+  ],
+  "NavelRock_BasePath_B7F_Frlg": [
+   36,
+   49
+  ],
+  "NavelRock_BasePath_B8F_Frlg": [
+   36,
+   50
+  ],
+  "NavelRock_BasePath_B9F_Frlg": [
+   36,
+   51
+  ],
+  "NavelRock_Base_Frlg": [
+   36,
+   38
+  ],
+  "NavelRock_Bottom": [
+   26,
+   87
+  ],
+  "NavelRock_Down01": [
+   26,
+   76
+  ],
+  "NavelRock_Down02": [
+   26,
+   77
+  ],
+  "NavelRock_Down03": [
+   26,
+   78
+  ],
+  "NavelRock_Down04": [
+   26,
+   79
+  ],
+  "NavelRock_Down05": [
+   26,
+   80
+  ],
+  "NavelRock_Down06": [
+   26,
+   81
+  ],
+  "NavelRock_Down07": [
+   26,
+   82
+  ],
+  "NavelRock_Down08": [
+   26,
+   83
+  ],
+  "NavelRock_Down09": [
+   26,
+   84
+  ],
+  "NavelRock_Down10": [
+   26,
+   85
+  ],
+  "NavelRock_Down11": [
+   26,
+   86
+  ],
+  "NavelRock_Entrance": [
+   26,
+   68
+  ],
+  "NavelRock_Exterior": [
+   26,
+   66
+  ],
+  "NavelRock_Exterior_Frlg": [
+   36,
+   0
+  ],
+  "NavelRock_Fork": [
+   26,
+   70
+  ],
+  "NavelRock_Fork_Frlg": [
+   36,
+   55
+  ],
+  "NavelRock_Harbor": [
+   26,
+   67
+  ],
+  "NavelRock_Harbor_Frlg": [
+   36,
+   59
+  ],
+  "NavelRock_SummitPath_2F_Frlg": [
+   36,
+   39
+  ],
+  "NavelRock_SummitPath_3F_Frlg": [
+   36,
+   40
+  ],
+  "NavelRock_SummitPath_4F_Frlg": [
+   36,
+   41
+  ],
+  "NavelRock_SummitPath_5F_Frlg": [
+   36,
+   42
+  ],
+  "NavelRock_Summit_Frlg": [
+   36,
+   37
+  ],
+  "NavelRock_Top": [
+   26,
+   75
+  ],
+  "NavelRock_Up1": [
+   26,
+   71
+  ],
+  "NavelRock_Up2": [
+   26,
+   72
+  ],
+  "NavelRock_Up3": [
+   26,
+   73
+  ],
+  "NavelRock_Up4": [
+   26,
+   74
+  ],
+  "NewBarkTown": [
+   84,
+   0
+  ],
+  "NewBarkTown_House1": [
+   85,
+   2
+  ],
+  "NewBarkTown_House2": [
+   85,
+   1
+  ],
+  "NewBarkTown_Lab": [
+   85,
+   0
+  ],
+  "NewBarkTown_PlayersHouse_1F": [
+   85,
+   3
+  ],
+  "NewBarkTown_PlayersHouse_2F": [
+   85,
+   4
+  ],
+  "NewMauville_Entrance": [
+   24,
+   52
+  ],
+  "NewMauville_Inside": [
+   24,
+   53
+  ],
+  "OldaleTown": [
+   0,
+   10
+  ],
+  "OldaleTown_House1": [
+   2,
+   0
+  ],
+  "OldaleTown_House2": [
+   2,
+   1
+  ],
+  "OldaleTown_Mart": [
+   2,
+   4
+  ],
+  "OldaleTown_PokemonCenter_1F": [
+   2,
+   2
+  ],
+  "OldaleTown_PokemonCenter_2F": [
+   2,
+   3
+  ],
+  "OlivineCity": [
+   84,
+   6
+  ],
+  "OlivineCity_Cafe": [
+   91,
+   2
+  ],
+  "OlivineCity_Gym": [
+   91,
+   1
+  ],
+  "OlivineCity_House1": [
+   91,
+   4
+  ],
+  "OlivineCity_House2": [
+   91,
+   5
+  ],
+  "OlivineCity_House3": [
+   91,
+   6
+  ],
+  "OlivineCity_Lighthouse": [
+   91,
+   9
+  ],
+  "OlivineCity_Mart": [
+   91,
+   3
+  ],
+  "OlivineCity_PokemonCenter": [
+   91,
+   0
+  ],
+  "OlivineCity_PortInside": [
+   91,
+   8
+  ],
+  "OlivineCity_PortOutside": [
+   91,
+   7
+  ],
+  "OneIsland_Frlg": [
+   37,
+   12
+  ],
+  "OneIsland_Harbor_Frlg": [
+   64,
+   4
+  ],
+  "OneIsland_House1_Frlg": [
+   64,
+   2
+  ],
+  "OneIsland_House2_Frlg": [
+   64,
+   3
+  ],
+  "OneIsland_KindleRoad_EmberSpa_Frlg": [
+   36,
+   57
+  ],
+  "OneIsland_KindleRoad_Frlg": [
+   37,
+   45
+  ],
+  "OneIsland_PokemonCenter_1F_Frlg": [
+   64,
+   0
+  ],
+  "OneIsland_PokemonCenter_2F_Frlg": [
+   64,
+   1
+  ],
+  "OneIsland_TreasureBeach_Frlg": [
+   37,
+   46
+  ],
+  "OreburghCity": [
+   75,
+   3
+  ],
+  "OreburghCity_Flat1_F1": [
+   82,
+   0
+  ],
+  "OreburghCity_Flat1_F2": [
+   82,
+   1
+  ],
+  "OreburghCity_Flat2_F1": [
+   82,
+   2
+  ],
+  "OreburghCity_Flat2_F2": [
+   82,
+   3
+  ],
+  "OreburghCity_Flat3_F1": [
+   82,
+   4
+  ],
+  "OreburghCity_Flat3_F2": [
+   82,
+   5
+  ],
+  "OreburghCity_Gym": [
+   82,
+   9
+  ],
+  "OreburghCity_House1": [
+   82,
+   6
+  ],
+  "OreburghCity_House2": [
+   82,
+   7
+  ],
+  "OreburghCity_House3": [
+   82,
+   8
+  ],
+  "OreburghCity_Mart": [
+   82,
+   12
+  ],
+  "OreburghCity_PokemonCenter_1F": [
+   82,
+   10
+  ],
+  "OreburghCity_PokemonCenter_2F": [
+   82,
+   11
+  ],
+  "OreburghGate_1F": [
+   77,
+   0
+  ],
+  "OreburghMine_B1F": [
+   77,
+   1
+  ],
+  "OreburghMine_B2F": [
+   77,
+   2
+  ],
+  "PacifidlogTown": [
+   0,
+   15
+  ],
+  "PacifidlogTown_House1": [
+   7,
+   2
+  ],
+  "PacifidlogTown_House2": [
+   7,
+   3
+  ],
+  "PacifidlogTown_House3": [
+   7,
+   4
+  ],
+  "PacifidlogTown_House4": [
+   7,
+   5
+  ],
+  "PacifidlogTown_House5": [
+   7,
+   6
+  ],
+  "PacifidlogTown_PokemonCenter_1F": [
+   7,
+   0
+  ],
+  "PacifidlogTown_PokemonCenter_2F": [
+   7,
+   1
+  ],
+  "PalletTown_Frlg": [
+   37,
+   0
+  ],
+  "PalletTown_PlayersHouse_1F_Frlg": [
+   38,
+   0
+  ],
+  "PalletTown_PlayersHouse_2F_Frlg": [
+   38,
+   1
+  ],
+  "PalletTown_ProfessorOaksLab_Frlg": [
+   38,
+   3
+  ],
+  "PalletTown_RivalsHouse_Frlg": [
+   38,
+   2
+  ],
+  "PastoriaCity": [
+   75,
+   10
+  ],
+  "PastoriaCity_Gym": [
+   78,
+   16
+  ],
+  "PetalburgCity": [
+   0,
+   0
+  ],
+  "PetalburgCity_Gym": [
+   8,
+   1
+  ],
+  "PetalburgCity_House1": [
+   8,
+   2
+  ],
+  "PetalburgCity_House2": [
+   8,
+   3
+  ],
+  "PetalburgCity_Mart": [
+   8,
+   6
+  ],
+  "PetalburgCity_PokemonCenter_1F": [
+   8,
+   4
+  ],
+  "PetalburgCity_PokemonCenter_2F": [
+   8,
+   5
+  ],
+  "PetalburgCity_WallysHouse": [
+   8,
+   0
+  ],
+  "PetalburgWoods": [
+   24,
+   11
+  ],
+  "PewterCity_Frlg": [
+   37,
+   2
+  ],
+  "PewterCity_Gym_Frlg": [
+   40,
+   2
+  ],
+  "PewterCity_House1_Frlg": [
+   40,
+   4
+  ],
+  "PewterCity_House2_Frlg": [
+   40,
+   7
+  ],
+  "PewterCity_Mart_Frlg": [
+   40,
+   3
+  ],
+  "PewterCity_Museum_1F_Frlg": [
+   40,
+   0
+  ],
+  "PewterCity_Museum_2F_Frlg": [
+   40,
+   1
+  ],
+  "PewterCity_PokemonCenter_1F_Frlg": [
+   40,
+   5
+  ],
+  "PewterCity_PokemonCenter_2F_Frlg": [
+   40,
+   6
+  ],
+  "PokemonLeague_AgathasRoom_Frlg": [
+   35,
+   77
+  ],
+  "PokemonLeague_BrunosRoom_Frlg": [
+   35,
+   76
+  ],
+  "PokemonLeague_ChampionsRoom_Frlg": [
+   35,
+   79
+  ],
+  "PokemonLeague_HallOfFame_Frlg": [
+   35,
+   80
+  ],
+  "PokemonLeague_LancesRoom_Frlg": [
+   35,
+   78
+  ],
+  "PokemonLeague_LoreleisRoom_Frlg": [
+   35,
+   75
+  ],
+  "PokemonMansion_1F_Frlg": [
+   35,
+   59
+  ],
+  "PokemonMansion_2F_Frlg": [
+   35,
+   60
+  ],
+  "PokemonMansion_3F_Frlg": [
+   35,
+   61
+  ],
+  "PokemonMansion_B1F_Frlg": [
+   35,
+   62
+  ],
+  "PokemonTower_1F_Frlg": [
+   35,
+   88
+  ],
+  "PokemonTower_2F_Frlg": [
+   35,
+   89
+  ],
+  "PokemonTower_3F_Frlg": [
+   35,
+   90
+  ],
+  "PokemonTower_4F_Frlg": [
+   35,
+   91
+  ],
+  "PokemonTower_5F_Frlg": [
+   35,
+   92
+  ],
+  "PokemonTower_6F_Frlg": [
+   35,
+   93
+  ],
+  "PokemonTower_7F_Frlg": [
+   35,
+   94
+  ],
+  "PokmonLeague": [
+   75,
+   14
+  ],
+  "PowerPlant_Frlg": [
+   35,
+   95
+  ],
+  "RavagedPath": [
+   77,
+   3
+  ],
+  "ReceptionGate": [
+   95,
+   14
+  ],
+  "RecordCorner": [
+   25,
+   26
+  ],
+  "RecordCorner_Frlg": [
+   34,
+   2
+  ],
+  "ResortArea": [
+   75,
+   54
+  ],
+  "RockTunnel_1F_Frlg": [
+   35,
+   81
+  ],
+  "RockTunnel_B1F_Frlg": [
+   35,
+   82
+  ],
+  "RocketHideout_B1F_Frlg": [
+   35,
+   42
+  ],
+  "RocketHideout_B2F_Frlg": [
+   35,
+   43
+  ],
+  "RocketHideout_B3F_Frlg": [
+   35,
+   44
+  ],
+  "RocketHideout_B4F_Frlg": [
+   35,
+   45
+  ],
+  "RocketHideout_Elevator_Frlg": [
+   35,
+   46
+  ],
+  "Route101": [
+   0,
+   16
+  ],
+  "Route102": [
+   0,
+   17
+  ],
+  "Route103": [
+   0,
+   18
+  ],
+  "Route104": [
+   0,
+   19
+  ],
+  "Route104_MrBrineysHouse": [
+   17,
+   0
+  ],
+  "Route104_PrettyPetalFlowerShop": [
+   17,
+   1
+  ],
+  "Route104_Prototype": [
+   27,
+   0
+  ],
+  "Route104_PrototypePrettyPetalFlowerShop": [
+   27,
+   1
+  ],
+  "Route105": [
+   0,
+   20
+  ],
+  "Route106": [
+   0,
+   21
+  ],
+  "Route107": [
+   0,
+   22
+  ],
+  "Route108": [
+   0,
+   23
+  ],
+  "Route109": [
+   0,
+   24
+  ],
+  "Route109_SeashoreHouse": [
+   28,
+   0
+  ],
+  "Route10_Frlg": [
+   37,
+   28
+  ],
+  "Route10_PokemonCenter_1F_Frlg": [
+   55,
+   0
+  ],
+  "Route10_PokemonCenter_2F_Frlg": [
+   55,
+   1
+  ],
+  "Route110": [
+   0,
+   25
+  ],
+  "Route110_SeasideCyclingRoadNorthEntrance": [
+   29,
+   12
+  ],
+  "Route110_SeasideCyclingRoadSouthEntrance": [
+   29,
+   11
+  ],
+  "Route110_TrickHouseCorridor": [
+   29,
+   2
+  ],
+  "Route110_TrickHouseEnd": [
+   29,
+   1
+  ],
+  "Route110_TrickHouseEntrance": [
+   29,
+   0
+  ],
+  "Route110_TrickHousePuzzle1": [
+   29,
+   3
+  ],
+  "Route110_TrickHousePuzzle2": [
+   29,
+   4
+  ],
+  "Route110_TrickHousePuzzle3": [
+   29,
+   5
+  ],
+  "Route110_TrickHousePuzzle4": [
+   29,
+   6
+  ],
+  "Route110_TrickHousePuzzle5": [
+   29,
+   7
+  ],
+  "Route110_TrickHousePuzzle6": [
+   29,
+   8
+  ],
+  "Route110_TrickHousePuzzle7": [
+   29,
+   9
+  ],
+  "Route110_TrickHousePuzzle8": [
+   29,
+   10
+  ],
+  "Route111": [
+   0,
+   26
+  ],
+  "Route111_OldLadysRestStop": [
+   18,
+   1
+  ],
+  "Route111_WinstrateFamilysHouse": [
+   18,
+   0
+  ],
+  "Route112": [
+   0,
+   27
+  ],
+  "Route112_CableCarStation": [
+   19,
+   0
+  ],
+  "Route113": [
+   0,
+   28
+  ],
+  "Route113_GlassWorkshop": [
+   30,
+   0
+  ],
+  "Route114": [
+   0,
+   29
+  ],
+  "Route114_FossilManiacsHouse": [
+   20,
+   0
+  ],
+  "Route114_FossilManiacsTunnel": [
+   20,
+   1
+  ],
+  "Route114_LanettesHouse": [
+   20,
+   2
+  ],
+  "Route115": [
+   0,
+   30
+  ],
+  "Route116": [
+   0,
+   31
+  ],
+  "Route116_TunnelersRestHouse": [
+   21,
+   0
+  ],
+  "Route117": [
+   0,
+   32
+  ],
+  "Route117_PokemonDayCare": [
+   22,
+   0
+  ],
+  "Route118": [
+   0,
+   33
+  ],
+  "Route119": [
+   0,
+   34
+  ],
+  "Route119_House": [
+   32,
+   2
+  ],
+  "Route119_WeatherInstitute_1F": [
+   32,
+   0
+  ],
+  "Route119_WeatherInstitute_2F": [
+   32,
+   1
+  ],
+  "Route11_EastEntrance_1F_Frlg": [
+   56,
+   0
+  ],
+  "Route11_EastEntrance_2F_Frlg": [
+   56,
+   1
+  ],
+  "Route11_Frlg": [
+   37,
+   29
+  ],
+  "Route120": [
+   0,
+   35
+  ],
+  "Route121": [
+   0,
+   36
+  ],
+  "Route121_SafariZoneEntrance": [
+   23,
+   0
+  ],
+  "Route122": [
+   0,
+   37
+  ],
+  "Route123": [
+   0,
+   38
+  ],
+  "Route123_BerryMastersHouse": [
+   31,
+   0
+  ],
+  "Route124": [
+   0,
+   39
+  ],
+  "Route124_DivingTreasureHuntersHouse": [
+   33,
+   0
+  ],
+  "Route125": [
+   0,
+   40
+  ],
+  "Route126": [
+   0,
+   41
+  ],
+  "Route127": [
+   0,
+   42
+  ],
+  "Route128": [
+   0,
+   43
+  ],
+  "Route129": [
+   0,
+   44
+  ],
+  "Route12_FishingHouse_Frlg": [
+   57,
+   2
+  ],
+  "Route12_Frlg": [
+   37,
+   30
+  ],
+  "Route12_NorthEntrance_1F_Frlg": [
+   57,
+   0
+  ],
+  "Route12_NorthEntrance_2F_Frlg": [
+   57,
+   1
+  ],
+  "Route130": [
+   0,
+   45
+  ],
+  "Route131": [
+   0,
+   46
+  ],
+  "Route132": [
+   0,
+   47
+  ],
+  "Route133": [
+   0,
+   48
+  ],
+  "Route134": [
+   0,
+   49
+  ],
+  "Route13_Frlg": [
+   37,
+   31
+  ],
+  "Route14_Frlg": [
+   37,
+   32
+  ],
+  "Route15_Frlg": [
+   37,
+   33
+  ],
+  "Route15_WestEntrance_1F_Frlg": [
+   58,
+   0
+  ],
+  "Route15_WestEntrance_2F_Frlg": [
+   58,
+   1
+  ],
+  "Route16_Frlg": [
+   37,
+   34
+  ],
+  "Route16_House_Frlg": [
+   59,
+   0
+  ],
+  "Route16_NorthEntrance_1F_Frlg": [
+   59,
+   1
+  ],
+  "Route16_NorthEntrance_2F_Frlg": [
+   59,
+   2
+  ],
+  "Route17_Frlg": [
+   37,
+   35
+  ],
+  "Route18_EastEntrance_1F_Frlg": [
+   60,
+   0
+  ],
+  "Route18_EastEntrance_2F_Frlg": [
+   60,
+   1
+  ],
+  "Route18_Frlg": [
+   37,
+   36
+  ],
+  "Route19_Frlg": [
+   37,
+   37
+  ],
+  "Route1_Frlg": [
+   37,
+   19
+  ],
+  "Route201": [
+   75,
+   15
+  ],
+  "Route202": [
+   75,
+   16
+  ],
+  "Route203": [
+   75,
+   17
+  ],
+  "Route204": [
+   75,
+   18
+  ],
+  "Route205_North": [
+   75,
+   19
+  ],
+  "Route205_South": [
+   75,
+   20
+  ],
+  "Route206": [
+   75,
+   21
+  ],
+  "Route206_North": [
+   78,
+   0
+  ],
+  "Route206_South": [
+   78,
+   1
+  ],
+  "Route207": [
+   75,
+   22
+  ],
+  "Route208": [
+   75,
+   23
+  ],
+  "Route208_Access": [
+   78,
+   2
+  ],
+  "Route209": [
+   75,
+   24
+  ],
+  "Route209_Access": [
+   78,
+   3
+  ],
+  "Route20_Frlg": [
+   37,
+   38
+  ],
+  "Route210_North": [
+   75,
+   25
+  ],
+  "Route210_South": [
+   75,
+   26
+  ],
+  "Route211_East": [
+   75,
+   27
+  ],
+  "Route211_West": [
+   75,
+   28
+  ],
+  "Route212_Access": [
+   78,
+   4
+  ],
+  "Route212_North": [
+   75,
+   29
+  ],
+  "Route212_South": [
+   75,
+   30
+  ],
+  "Route213": [
+   75,
+   31
+  ],
+  "Route213_Access": [
+   78,
+   5
+  ],
+  "Route214": [
+   75,
+   32
+  ],
+  "Route214_Access": [
+   78,
+   6
+  ],
+  "Route215": [
+   75,
+   33
+  ],
+  "Route215_Access": [
+   78,
+   7
+  ],
+  "Route216": [
+   75,
+   34
+  ],
+  "Route217": [
+   75,
+   35
+  ],
+  "Route218": [
+   75,
+   36
+  ],
+  "Route218_East": [
+   78,
+   8
+  ],
+  "Route218_West": [
+   78,
+   9
+  ],
+  "Route219": [
+   75,
+   37
+  ],
+  "Route21_North_Frlg": [
+   37,
+   39
+  ],
+  "Route21_South_Frlg": [
+   37,
+   40
+  ],
+  "Route220": [
+   75,
+   38
+  ],
+  "Route221": [
+   75,
+   39
+  ],
+  "Route222": [
+   75,
+   40
+  ],
+  "Route222_Access": [
+   78,
+   10
+  ],
+  "Route223": [
+   75,
+   41
+  ],
+  "Route224": [
+   75,
+   42
+  ],
+  "Route225": [
+   75,
+   43
+  ],
+  "Route225_Access": [
+   78,
+   11
+  ],
+  "Route226": [
+   75,
+   44
+  ],
+  "Route226_Access": [
+   78,
+   12
+  ],
+  "Route227": [
+   75,
+   45
+  ],
+  "Route228": [
+   75,
+   46
+  ],
+  "Route229": [
+   75,
+   47
+  ],
+  "Route22_Frlg": [
+   37,
+   41
+  ],
+  "Route22_NorthEntrance_Frlg": [
+   61,
+   0
+  ],
+  "Route230": [
+   75,
+   48
+  ],
+  "Route23_Frlg": [
+   37,
+   42
+  ],
+  "Route24_Frlg": [
+   37,
+   43
+  ],
+  "Route25_Frlg": [
+   37,
+   44
+  ],
+  "Route25_SeaCottage_Frlg": [
+   62,
+   0
+  ],
+  "Route26": [
+   84,
+   31
+  ],
+  "Route26North": [
+   84,
+   32
+  ],
+  "Route26_House1": [
+   96,
+   0
+  ],
+  "Route26_House2": [
+   96,
+   1
+  ],
+  "Route27": [
+   84,
+   33
+  ],
+  "Route27_House": [
+   95,
+   25
+  ],
+  "Route28": [
+   84,
+   34
+  ],
+  "Route28_House": [
+   95,
+   22
+  ],
+  "Route29": [
+   84,
+   11
+  ],
+  "Route2_EastBuilding_Frlg": [
+   49,
+   2
+  ],
+  "Route2_Frlg": [
+   37,
+   20
+  ],
+  "Route2_House_Frlg": [
+   49,
+   1
+  ],
+  "Route2_ViridianForest_NorthEntrance_Frlg": [
+   49,
+   3
+  ],
+  "Route2_ViridianForest_SouthEntrance_Frlg": [
+   49,
+   0
+  ],
+  "Route30": [
+   84,
+   12
+  ],
+  "Route30_House": [
+   95,
+   17
+  ],
+  "Route30_MrPokemonsHouse": [
+   95,
+   18
+  ],
+  "Route31": [
+   84,
+   13
+  ],
+  "Route32": [
+   84,
+   14
+  ],
+  "Route32_PokemonCenter": [
+   95,
+   19
+  ],
+  "Route33": [
+   84,
+   15
+  ],
+  "Route34": [
+   84,
+   16
+  ],
+  "Route34_DayCare": [
+   95,
+   21
+  ],
+  "Route35": [
+   84,
+   17
+  ],
+  "Route36": [
+   84,
+   18
+  ],
+  "Route37": [
+   84,
+   19
+  ],
+  "Route38": [
+   84,
+   20
+  ],
+  "Route39": [
+   84,
+   21
+  ],
+  "Route39_Barn": [
+   95,
+   16
+  ],
+  "Route39_FarmHouse": [
+   95,
+   15
+  ],
+  "Route3_Frlg": [
+   37,
+   21
+  ],
+  "Route40": [
+   84,
+   22
+  ],
+  "Route41": [
+   84,
+   23
+  ],
+  "Route42": [
+   84,
+   24
+  ],
+  "Route43": [
+   84,
+   25
+  ],
+  "Route44": [
+   84,
+   26
+  ],
+  "Route45": [
+   84,
+   27
+  ],
+  "Route46": [
+   84,
+   28
+  ],
+  "Route47": [
+   84,
+   29
+  ],
+  "Route48": [
+   84,
+   30
+  ],
+  "Route4_Frlg": [
+   37,
+   22
+  ],
+  "Route4_PokemonCenter_1F_Frlg": [
+   50,
+   0
+  ],
+  "Route4_PokemonCenter_2F_Frlg": [
+   50,
+   1
+  ],
+  "Route5_Frlg": [
+   37,
+   23
+  ],
+  "Route5_PokemonDayCare_Frlg": [
+   51,
+   0
+  ],
+  "Route5_SouthEntrance_Frlg": [
+   51,
+   1
+  ],
+  "Route6_Frlg": [
+   37,
+   24
+  ],
+  "Route6_NorthEntrance_Frlg": [
+   52,
+   0
+  ],
+  "Route7_EastEntrance_Frlg": [
+   53,
+   0
+  ],
+  "Route7_Frlg": [
+   37,
+   25
+  ],
+  "Route8_Frlg": [
+   37,
+   26
+  ],
+  "Route8_WestEntrance_Frlg": [
+   54,
+   0
+  ],
+  "Route9_Frlg": [
+   37,
+   27
+  ],
+  "RuinsOfAlph_B1F": [
+   97,
+   6
+  ],
+  "RuinsOfAlph_Lab": [
+   95,
+   20
+  ],
+  "RuinsOfAlph_Outside": [
+   97,
+   5
+  ],
+  "RuinsOfAlph_PuzzleAndRewardChambers": [
+   97,
+   7
+  ],
+  "RuinsOfAlph_WordsRoom1": [
+   97,
+   66
+  ],
+  "RuinsOfAlph_WordsRoom2": [
+   97,
+   67
+  ],
+  "RuinsOfAlph_WordsRoom3": [
+   97,
+   68
+  ],
+  "RuinsOfAlph_WordsRoom4": [
+   97,
+   69
+  ],
+  "RustboroCity": [
+   0,
+   3
+  ],
+  "RustboroCity_CuttersHouse": [
+   11,
+   11
+  ],
+  "RustboroCity_DevonCorp_1F": [
+   11,
+   0
+  ],
+  "RustboroCity_DevonCorp_2F": [
+   11,
+   1
+  ],
+  "RustboroCity_DevonCorp_3F": [
+   11,
+   2
+  ],
+  "RustboroCity_Flat1_1F": [
+   11,
+   8
+  ],
+  "RustboroCity_Flat1_2F": [
+   11,
+   9
+  ],
+  "RustboroCity_Flat2_1F": [
+   11,
+   13
+  ],
+  "RustboroCity_Flat2_2F": [
+   11,
+   14
+  ],
+  "RustboroCity_Flat2_3F": [
+   11,
+   15
+  ],
+  "RustboroCity_Gym": [
+   11,
+   3
+  ],
+  "RustboroCity_House1": [
+   11,
+   10
+  ],
+  "RustboroCity_House2": [
+   11,
+   12
+  ],
+  "RustboroCity_House3": [
+   11,
+   16
+  ],
+  "RustboroCity_Mart": [
+   11,
+   7
+  ],
+  "RustboroCity_PokemonCenter_1F": [
+   11,
+   5
+  ],
+  "RustboroCity_PokemonCenter_2F": [
+   11,
+   6
+  ],
+  "RustboroCity_PokemonSchool": [
+   11,
+   4
+  ],
+  "RusturfTunnel": [
+   24,
+   4
+  ],
+  "SSAnne_1F_Corridor_Frlg": [
+   35,
+   5
+  ],
+  "SSAnne_1F_Room1_Frlg": [
+   35,
+   12
+  ],
+  "SSAnne_1F_Room2_Frlg": [
+   35,
+   13
+  ],
+  "SSAnne_1F_Room3_Frlg": [
+   35,
+   14
+  ],
+  "SSAnne_1F_Room4_Frlg": [
+   35,
+   15
+  ],
+  "SSAnne_1F_Room5_Frlg": [
+   35,
+   16
+  ],
+  "SSAnne_1F_Room6_Frlg": [
+   35,
+   29
+  ],
+  "SSAnne_1F_Room7_Frlg": [
+   35,
+   17
+  ],
+  "SSAnne_2F_Corridor_Frlg": [
+   35,
+   6
+  ],
+  "SSAnne_2F_Room1_Frlg": [
+   35,
+   18
+  ],
+  "SSAnne_2F_Room2_Frlg": [
+   35,
+   19
+  ],
+  "SSAnne_2F_Room3_Frlg": [
+   35,
+   20
+  ],
+  "SSAnne_2F_Room4_Frlg": [
+   35,
+   21
+  ],
+  "SSAnne_2F_Room5_Frlg": [
+   35,
+   22
+  ],
+  "SSAnne_2F_Room6_Frlg": [
+   35,
+   23
+  ],
+  "SSAnne_3F_Corridor_Frlg": [
+   35,
+   7
+  ],
+  "SSAnne_B1F_Corridor_Frlg": [
+   35,
+   8
+  ],
+  "SSAnne_B1F_Room1_Frlg": [
+   35,
+   24
+  ],
+  "SSAnne_B1F_Room2_Frlg": [
+   35,
+   25
+  ],
+  "SSAnne_B1F_Room3_Frlg": [
+   35,
+   26
+  ],
+  "SSAnne_B1F_Room4_Frlg": [
+   35,
+   27
+  ],
+  "SSAnne_B1F_Room5_Frlg": [
+   35,
+   28
+  ],
+  "SSAnne_CaptainsOffice_Frlg": [
+   35,
+   11
+  ],
+  "SSAnne_Deck_Frlg": [
+   35,
+   9
+  ],
+  "SSAnne_Exterior_Frlg": [
+   35,
+   4
+  ],
+  "SSAnne_Kitchen_Frlg": [
+   35,
+   10
+  ],
+  "SSTidalCorridor": [
+   25,
+   41
+  ],
+  "SSTidalLowerDeck": [
+   25,
+   42
+  ],
+  "SSTidalRooms": [
+   25,
+   43
+  ],
+  "SafariZoneGate": [
+   84,
+   8
+  ],
+  "SafariZoneGate_PokemonCenter": [
+   95,
+   23
+  ],
+  "SafariZoneGate_SafariZoneEntrance": [
+   95,
+   24
+  ],
+  "SafariZone_Center_Frlg": [
+   35,
+   63
+  ],
+  "SafariZone_Center_RestHouse_Frlg": [
+   35,
+   67
+  ],
+  "SafariZone_East_Frlg": [
+   35,
+   64
+  ],
+  "SafariZone_East_RestHouse_Frlg": [
+   35,
+   68
+  ],
+  "SafariZone_North": [
+   26,
+   1
+  ],
+  "SafariZone_North_Frlg": [
+   35,
+   65
+  ],
+  "SafariZone_North_RestHouse_Frlg": [
+   35,
+   69
+  ],
+  "SafariZone_Northeast": [
+   26,
+   12
+  ],
+  "SafariZone_Northwest": [
+   26,
+   0
+  ],
+  "SafariZone_RestHouse": [
+   26,
+   11
+  ],
+  "SafariZone_SecretHouse_Frlg": [
+   35,
+   71
+  ],
+  "SafariZone_South": [
+   26,
+   3
+  ],
+  "SafariZone_Southeast": [
+   26,
+   13
+  ],
+  "SafariZone_Southwest": [
+   26,
+   2
+  ],
+  "SafariZone_West_Frlg": [
+   35,
+   66
+  ],
+  "SafariZone_West_RestHouse_Frlg": [
+   35,
+   70
+  ],
+  "SaffronCity_Connection_Frlg": [
+   37,
+   11
+  ],
+  "SaffronCity_CopycatsHouse_1F_Frlg": [
+   48,
+   0
+  ],
+  "SaffronCity_CopycatsHouse_2F_Frlg": [
+   48,
+   1
+  ],
+  "SaffronCity_Dojo_Frlg": [
+   48,
+   2
+  ],
+  "SaffronCity_Frlg": [
+   37,
+   10
+  ],
+  "SaffronCity_Gym_Frlg": [
+   48,
+   3
+  ],
+  "SaffronCity_House_Frlg": [
+   48,
+   4
+  ],
+  "SaffronCity_Mart_Frlg": [
+   48,
+   5
+  ],
+  "SaffronCity_MrPsychicsHouse_Frlg": [
+   48,
+   8
+  ],
+  "SaffronCity_PokemonCenter_1F_Frlg": [
+   48,
+   6
+  ],
+  "SaffronCity_PokemonCenter_2F_Frlg": [
+   48,
+   7
+  ],
+  "SaffronCity_PokemonTrainerFanClub_Frlg": [
+   48,
+   9
+  ],
+  "SandgemTown": [
+   75,
+   1
+  ],
+  "SandgemTown_House1": [
+   80,
+   2
+  ],
+  "SandgemTown_Mart": [
+   80,
+   5
+  ],
+  "SandgemTown_PokemonCenter_1F": [
+   80,
+   3
+  ],
+  "SandgemTown_PokemonCenter_2F": [
+   80,
+   4
+  ],
+  "SandgemTown_RivalHouse_F1": [
+   80,
+   0
+  ],
+  "SandgemTown_RivalHouse_F2": [
+   80,
+   1
+  ],
+  "ScorchedSlab": [
+   24,
+   73
+  ],
+  "SeafloorCavern_Entrance": [
+   24,
+   27
+  ],
+  "SeafloorCavern_Room1": [
+   24,
+   28
+  ],
+  "SeafloorCavern_Room2": [
+   24,
+   29
+  ],
+  "SeafloorCavern_Room3": [
+   24,
+   30
+  ],
+  "SeafloorCavern_Room4": [
+   24,
+   31
+  ],
+  "SeafloorCavern_Room5": [
+   24,
+   32
+  ],
+  "SeafloorCavern_Room6": [
+   24,
+   33
+  ],
+  "SeafloorCavern_Room7": [
+   24,
+   34
+  ],
+  "SeafloorCavern_Room8": [
+   24,
+   35
+  ],
+  "SeafloorCavern_Room9": [
+   24,
+   36
+  ],
+  "SeafoamIslands_1F_Frlg": [
+   35,
+   83
+  ],
+  "SeafoamIslands_B1F_Frlg": [
+   35,
+   84
+  ],
+  "SeafoamIslands_B2F_Frlg": [
+   35,
+   85
+  ],
+  "SeafoamIslands_B3F_Frlg": [
+   35,
+   86
+  ],
+  "SeafoamIslands_B4F_Frlg": [
+   35,
+   87
+  ],
+  "SealedChamber_InnerRoom": [
+   24,
+   72
+  ],
+  "SealedChamber_OuterRoom": [
+   24,
+   71
+  ],
+  "SecretBase_BlueCave1": [
+   25,
+   2
+  ],
+  "SecretBase_BlueCave2": [
+   25,
+   8
+  ],
+  "SecretBase_BlueCave3": [
+   25,
+   14
+  ],
+  "SecretBase_BlueCave4": [
+   25,
+   20
+  ],
+  "SecretBase_BrownCave1": [
+   25,
+   1
+  ],
+  "SecretBase_BrownCave2": [
+   25,
+   7
+  ],
+  "SecretBase_BrownCave3": [
+   25,
+   13
+  ],
+  "SecretBase_BrownCave4": [
+   25,
+   19
+  ],
+  "SecretBase_RedCave1": [
+   25,
+   0
+  ],
+  "SecretBase_RedCave2": [
+   25,
+   6
+  ],
+  "SecretBase_RedCave3": [
+   25,
+   12
+  ],
+  "SecretBase_RedCave4": [
+   25,
+   18
+  ],
+  "SecretBase_Shrub1": [
+   25,
+   5
+  ],
+  "SecretBase_Shrub2": [
+   25,
+   11
+  ],
+  "SecretBase_Shrub3": [
+   25,
+   17
+  ],
+  "SecretBase_Shrub4": [
+   25,
+   23
+  ],
+  "SecretBase_Tree1": [
+   25,
+   4
+  ],
+  "SecretBase_Tree2": [
+   25,
+   10
+  ],
+  "SecretBase_Tree3": [
+   25,
+   16
+  ],
+  "SecretBase_Tree4": [
+   25,
+   22
+  ],
+  "SecretBase_YellowCave1": [
+   25,
+   3
+  ],
+  "SecretBase_YellowCave2": [
+   25,
+   9
+  ],
+  "SecretBase_YellowCave3": [
+   25,
+   15
+  ],
+  "SecretBase_YellowCave4": [
+   25,
+   21
+  ],
+  "SevenIsland_Frlg": [
+   37,
+   17
+  ],
+  "SevenIsland_Harbor_Frlg": [
+   63,
+   5
+  ],
+  "SevenIsland_House_Room1_Frlg": [
+   63,
+   0
+  ],
+  "SevenIsland_House_Room2_Frlg": [
+   63,
+   1
+  ],
+  "SevenIsland_Mart_Frlg": [
+   63,
+   2
+  ],
+  "SevenIsland_PokemonCenter_1F_Frlg": [
+   63,
+   3
+  ],
+  "SevenIsland_PokemonCenter_2F_Frlg": [
+   63,
+   4
+  ],
+  "SevenIsland_SevaultCanyon_Entrance_Frlg": [
+   37,
+   59
+  ],
+  "SevenIsland_SevaultCanyon_Frlg": [
+   37,
+   60
+  ],
+  "SevenIsland_SevaultCanyon_House_Frlg": [
+   74,
+   0
+  ],
+  "SevenIsland_SevaultCanyon_TanobyKey_Frlg": [
+   36,
+   35
+  ],
+  "SevenIsland_TanobyRuins_DilfordChamber_Frlg": [
+   36,
+   30
+  ],
+  "SevenIsland_TanobyRuins_Frlg": [
+   37,
+   61
+  ],
+  "SevenIsland_TanobyRuins_LiptooChamber_Frlg": [
+   36,
+   28
+  ],
+  "SevenIsland_TanobyRuins_MoneanChamber_Frlg": [
+   36,
+   27
+  ],
+  "SevenIsland_TanobyRuins_RixyChamber_Frlg": [
+   36,
+   32
+  ],
+  "SevenIsland_TanobyRuins_ScufibChamber_Frlg": [
+   36,
+   31
+  ],
+  "SevenIsland_TanobyRuins_ViapoisChamber_Frlg": [
+   36,
+   33
+  ],
+  "SevenIsland_TanobyRuins_WeepthChamber_Frlg": [
+   36,
+   29
+  ],
+  "SevenIsland_TrainerTower_Frlg": [
+   37,
+   58
+  ],
+  "ShoalCave_HighTideEntranceRoom": [
+   24,
+   50
+  ],
+  "ShoalCave_HighTideInnerRoom": [
+   24,
+   51
+  ],
+  "ShoalCave_LowTideEntranceRoom": [
+   24,
+   46
+  ],
+  "ShoalCave_LowTideIceRoom": [
+   24,
+   83
+  ],
+  "ShoalCave_LowTideInnerRoom": [
+   24,
+   47
+  ],
+  "ShoalCave_LowTideLowerRoom": [
+   24,
+   49
+  ],
+  "ShoalCave_LowTideStairsRoom": [
+   24,
+   48
+  ],
+  "SilphCo_10F_Frlg": [
+   35,
+   56
+  ],
+  "SilphCo_11F_Frlg": [
+   35,
+   57
+  ],
+  "SilphCo_1F_Frlg": [
+   35,
+   47
+  ],
+  "SilphCo_2F_Frlg": [
+   35,
+   48
+  ],
+  "SilphCo_3F_Frlg": [
+   35,
+   49
+  ],
+  "SilphCo_4F_Frlg": [
+   35,
+   50
+  ],
+  "SilphCo_5F_Frlg": [
+   35,
+   51
+  ],
+  "SilphCo_6F_Frlg": [
+   35,
+   52
+  ],
+  "SilphCo_7F_Frlg": [
+   35,
+   53
+  ],
+  "SilphCo_8F_Frlg": [
+   35,
+   54
+  ],
+  "SilphCo_9F_Frlg": [
+   35,
+   55
+  ],
+  "SilphCo_Elevator_Frlg": [
+   35,
+   58
+  ],
+  "SinnohLeague_AaronsRoom": [
+   99,
+   1
+  ],
+  "SinnohLeague_BerthasRoom": [
+   99,
+   2
+  ],
+  "SinnohLeague_ChampionsRoom": [
+   99,
+   5
+  ],
+  "SinnohLeague_Entrance": [
+   99,
+   0
+  ],
+  "SinnohLeague_FlintsRoom": [
+   99,
+   3
+  ],
+  "SinnohLeague_HallOfFame": [
+   99,
+   6
+  ],
+  "SinnohLeague_LuciansRoom": [
+   99,
+   4
+  ],
+  "SixIsland_AlteringCave_Frlg": [
+   35,
+   122
+  ],
+  "SixIsland_DottedHole_1F_Frlg": [
+   35,
+   115
+  ],
+  "SixIsland_DottedHole_B1F_Frlg": [
+   35,
+   116
+  ],
+  "SixIsland_DottedHole_B2F_Frlg": [
+   35,
+   117
+  ],
+  "SixIsland_DottedHole_B3F_Frlg": [
+   35,
+   118
+  ],
+  "SixIsland_DottedHole_B4F_Frlg": [
+   35,
+   119
+  ],
+  "SixIsland_DottedHole_SapphireRoom_Frlg": [
+   35,
+   120
+  ],
+  "SixIsland_Frlg": [
+   37,
+   18
+  ],
+  "SixIsland_GreenPath_Frlg": [
+   37,
+   55
+  ],
+  "SixIsland_Harbor_Frlg": [
+   69,
+   2
+  ],
+  "SixIsland_House_Frlg": [
+   69,
+   3
+  ],
+  "SixIsland_Mart_Frlg": [
+   69,
+   4
+  ],
+  "SixIsland_OutcastIsland_Frlg": [
+   37,
+   54
+  ],
+  "SixIsland_PatternBush_Frlg": [
+   35,
+   121
+  ],
+  "SixIsland_PokemonCenter_1F_Frlg": [
+   69,
+   0
+  ],
+  "SixIsland_PokemonCenter_2F_Frlg": [
+   69,
+   1
+  ],
+  "SixIsland_RuinValley_Frlg": [
+   37,
+   57
+  ],
+  "SixIsland_WaterPath_Frlg": [
+   37,
+   56
+  ],
+  "SixIsland_WaterPath_House1_Frlg": [
+   73,
+   0
+  ],
+  "SixIsland_WaterPath_House2_Frlg": [
+   73,
+   1
+  ],
+  "SkyPillar_1F": [
+   24,
+   79
+  ],
+  "SkyPillar_2F": [
+   24,
+   80
+  ],
+  "SkyPillar_3F": [
+   24,
+   81
+  ],
+  "SkyPillar_4F": [
+   24,
+   82
+  ],
+  "SkyPillar_5F": [
+   24,
+   84
+  ],
+  "SkyPillar_Entrance": [
+   24,
+   77
+  ],
+  "SkyPillar_Outside": [
+   24,
+   78
+  ],
+  "SkyPillar_Top": [
+   24,
+   85
+  ],
+  "SlateportCity": [
+   0,
+   1
+  ],
+  "SlateportCity_BattleTentBattleRoom": [
+   9,
+   4
+  ],
+  "SlateportCity_BattleTentCorridor": [
+   9,
+   3
+  ],
+  "SlateportCity_BattleTentLobby": [
+   9,
+   2
+  ],
+  "SlateportCity_Harbor": [
+   9,
+   9
+  ],
+  "SlateportCity_House": [
+   9,
+   10
+  ],
+  "SlateportCity_Mart": [
+   9,
+   13
+  ],
+  "SlateportCity_NameRatersHouse": [
+   9,
+   5
+  ],
+  "SlateportCity_OceanicMuseum_1F": [
+   9,
+   7
+  ],
+  "SlateportCity_OceanicMuseum_2F": [
+   9,
+   8
+  ],
+  "SlateportCity_PokemonCenter_1F": [
+   9,
+   11
+  ],
+  "SlateportCity_PokemonCenter_2F": [
+   9,
+   12
+  ],
+  "SlateportCity_PokemonFanClub": [
+   9,
+   6
+  ],
+  "SlateportCity_SternsShipyard_1F": [
+   9,
+   0
+  ],
+  "SlateportCity_SternsShipyard_2F": [
+   9,
+   1
+  ],
+  "SlowpokeWell_B1F": [
+   97,
+   11
+  ],
+  "SlowpokeWell_B2F": [
+   97,
+   12
+  ],
+  "SnowpointCity": [
+   75,
+   12
+  ],
+  "SnowpointCity_Gym": [
+   78,
+   19
+  ],
+  "SolaceonTown": [
+   75,
+   7
+  ],
+  "SootopolisCity": [
+   0,
+   7
+  ],
+  "SootopolisCity_Gym_1F": [
+   15,
+   0
+  ],
+  "SootopolisCity_Gym_B1F": [
+   15,
+   1
+  ],
+  "SootopolisCity_House1": [
+   15,
+   5
+  ],
+  "SootopolisCity_House2": [
+   15,
+   6
+  ],
+  "SootopolisCity_House3": [
+   15,
+   7
+  ],
+  "SootopolisCity_House4": [
+   15,
+   8
+  ],
+  "SootopolisCity_House5": [
+   15,
+   9
+  ],
+  "SootopolisCity_House6": [
+   15,
+   10
+  ],
+  "SootopolisCity_House7": [
+   15,
+   11
+  ],
+  "SootopolisCity_LotadAndSeedotHouse": [
+   15,
+   12
+  ],
+  "SootopolisCity_Mart": [
+   15,
+   4
+  ],
+  "SootopolisCity_MysteryEventsHouse_1F": [
+   15,
+   13
+  ],
+  "SootopolisCity_MysteryEventsHouse_B1F": [
+   15,
+   14
+  ],
+  "SootopolisCity_PokemonCenter_1F": [
+   15,
+   2
+  ],
+  "SootopolisCity_PokemonCenter_2F": [
+   15,
+   3
+  ],
+  "SouthernIsland_Exterior": [
+   26,
+   9
+  ],
+  "SouthernIsland_Interior": [
+   26,
+   10
+  ],
+  "SpearPillar": [
+   100,
+   13
+  ],
+  "SpearPillar_Dialga": [
+   100,
+   15
+  ],
+  "SpearPillar_Distorted": [
+   100,
+   14
+  ],
+  "SpearPillar_Palkia": [
+   100,
+   16
+  ],
+  "SproutTower_1F": [
+   97,
+   2
+  ],
+  "SproutTower_2F": [
+   97,
+   3
+  ],
+  "SproutTower_3F": [
+   97,
+   4
+  ],
+  "SunyshoreCity": [
+   75,
+   13
+  ],
+  "SunyshoreCity_Gym": [
+   78,
+   20
+  ],
+  "SurvivalArea": [
+   75,
+   53
+  ],
+  "TeamGalacticEternaBuilding_1F": [
+   100,
+   9
+  ],
+  "TeamGalacticEternaBuilding_2F": [
+   100,
+   10
+  ],
+  "TeamGalacticEternaBuilding_3F": [
+   100,
+   11
+  ],
+  "TeamGalacticEternaBuilding_4F": [
+   100,
+   12
+  ],
+  "TerraCave_End": [
+   24,
+   105
+  ],
+  "TerraCave_Entrance": [
+   24,
+   104
+  ],
+  "ThreeIsland_BerryForest_Frlg": [
+   35,
+   109
+  ],
+  "ThreeIsland_BondBridge_Frlg": [
+   37,
+   48
+  ],
+  "ThreeIsland_DunsparceTunnel_Frlg": [
+   36,
+   34
+  ],
+  "ThreeIsland_Frlg": [
+   37,
+   14
+  ],
+  "ThreeIsland_Harbor_Frlg": [
+   70,
+   0
+  ],
+  "ThreeIsland_House1_Frlg": [
+   66,
+   0
+  ],
+  "ThreeIsland_House2_Frlg": [
+   66,
+   4
+  ],
+  "ThreeIsland_House3_Frlg": [
+   66,
+   5
+  ],
+  "ThreeIsland_House4_Frlg": [
+   66,
+   6
+  ],
+  "ThreeIsland_House5_Frlg": [
+   66,
+   7
+  ],
+  "ThreeIsland_Mart_Frlg": [
+   66,
+   3
+  ],
+  "ThreeIsland_PokemonCenter_1F_Frlg": [
+   66,
+   1
+  ],
+  "ThreeIsland_PokemonCenter_2F_Frlg": [
+   66,
+   2
+  ],
+  "ThreeIsland_Port_Frlg": [
+   37,
+   49
+  ],
+  "TinTower_1F": [
+   97,
+   40
+  ],
+  "TinTower_2F": [
+   97,
+   41
+  ],
+  "TinTower_3F": [
+   97,
+   42
+  ],
+  "TinTower_4F": [
+   97,
+   43
+  ],
+  "TinTower_5F": [
+   97,
+   44
+  ],
+  "TinTower_6F": [
+   97,
+   45
+  ],
+  "TinTower_7F": [
+   97,
+   46
+  ],
+  "TinTower_8F": [
+   97,
+   47
+  ],
+  "TinTower_9F": [
+   97,
+   48
+  ],
+  "TinTower_RoofDay": [
+   97,
+   49
+  ],
+  "TohjoFalls_Cavern": [
+   97,
+   50
+  ],
+  "TohjoFalls_GiovanniRoom": [
+   97,
+   51
+  ],
+  "TradeCenter": [
+   25,
+   25
+  ],
+  "TradeCenter_Frlg": [
+   34,
+   1
+  ],
+  "TrainerHill_1F": [
+   26,
+   61
+  ],
+  "TrainerHill_2F": [
+   26,
+   62
+  ],
+  "TrainerHill_3F": [
+   26,
+   63
+  ],
+  "TrainerHill_4F": [
+   26,
+   64
+  ],
+  "TrainerHill_Courtyard": [
+   95,
+   13
+  ],
+  "TrainerHill_Elevator": [
+   26,
+   88
+  ],
+  "TrainerHill_Entrance": [
+   26,
+   60
+  ],
+  "TrainerHill_Roof": [
+   26,
+   65
+  ],
+  "TrainerTower_1F_Frlg": [
+   36,
+   1
+  ],
+  "TrainerTower_2F_Frlg": [
+   36,
+   2
+  ],
+  "TrainerTower_3F_Frlg": [
+   36,
+   3
+  ],
+  "TrainerTower_4F_Frlg": [
+   36,
+   4
+  ],
+  "TrainerTower_5F_Frlg": [
+   36,
+   5
+  ],
+  "TrainerTower_6F_Frlg": [
+   36,
+   6
+  ],
+  "TrainerTower_7F_Frlg": [
+   36,
+   7
+  ],
+  "TrainerTower_8F_Frlg": [
+   36,
+   8
+  ],
+  "TrainerTower_Elevator_Frlg": [
+   36,
+   11
+  ],
+  "TrainerTower_Lobby_Frlg": [
+   36,
+   10
+  ],
+  "TrainerTower_Roof_Frlg": [
+   36,
+   9
+  ],
+  "TwinleafTown": [
+   75,
+   0
+  ],
+  "TwinleafTown_Haouse1": [
+   79,
+   4
+  ],
+  "TwinleafTown_House2": [
+   79,
+   5
+  ],
+  "TwinleafTown_MainHouse_1F": [
+   79,
+   0
+  ],
+  "TwinleafTown_MainHouse_2F": [
+   79,
+   1
+  ],
+  "Twinleaf_Town_RivalsHouse_F1": [
+   79,
+   2
+  ],
+  "Twinleaf_Town_RivalsHouse_F2": [
+   79,
+   3
+  ],
+  "TwoIsland_CapeBrink_Frlg": [
+   37,
+   47
+  ],
+  "TwoIsland_CapeBrink_House_Frlg": [
+   72,
+   0
+  ],
+  "TwoIsland_Frlg": [
+   37,
+   13
+  ],
+  "TwoIsland_Harbor_Frlg": [
+   65,
+   4
+  ],
+  "TwoIsland_House_Frlg": [
+   65,
+   1
+  ],
+  "TwoIsland_JoyfulGameCorner_Frlg": [
+   65,
+   0
+  ],
+  "TwoIsland_PokemonCenter_1F_Frlg": [
+   65,
+   2
+  ],
+  "TwoIsland_PokemonCenter_2F_Frlg": [
+   65,
+   3
+  ],
+  "UndergroundPath_EastEntrance_Frlg": [
+   35,
+   35
+  ],
+  "UndergroundPath_EastWestTunnel_Frlg": [
+   35,
+   34
+  ],
+  "UndergroundPath_NorthEntrance_Frlg": [
+   35,
+   30
+  ],
+  "UndergroundPath_NorthSouthTunnel_Frlg": [
+   35,
+   31
+  ],
+  "UndergroundPath_SouthEntrance_Frlg": [
+   35,
+   32
+  ],
+  "UndergroundPath_WestEntrance_Frlg": [
+   35,
+   33
+  ],
+  "Underwater_MarineCave": [
+   24,
+   101
+  ],
+  "Underwater_Route105": [
+   0,
+   55
+  ],
+  "Underwater_Route124": [
+   0,
+   50
+  ],
+  "Underwater_Route125": [
+   0,
+   56
+  ],
+  "Underwater_Route126": [
+   0,
+   51
+  ],
+  "Underwater_Route127": [
+   0,
+   52
+  ],
+  "Underwater_Route128": [
+   0,
+   53
+  ],
+  "Underwater_Route129": [
+   0,
+   54
+  ],
+  "Underwater_Route134": [
+   24,
+   69
+  ],
+  "Underwater_SeafloorCavern": [
+   24,
+   26
+  ],
+  "Underwater_SealedChamber": [
+   24,
+   70
+  ],
+  "Underwater_SootopolisCity": [
+   24,
+   5
+  ],
+  "UnionCave_1F": [
+   97,
+   8
+  ],
+  "UnionCave_B1F": [
+   97,
+   9
+  ],
+  "UnionCave_B2F": [
+   97,
+   10
+  ],
+  "UnionRoom": [
+   25,
+   60
+  ],
+  "UnionRoom_Frlg": [
+   34,
+   4
+  ],
+  "UnusedContestHall1": [
+   25,
+   29
+  ],
+  "UnusedContestHall2": [
+   25,
+   30
+  ],
+  "UnusedContestHall3": [
+   25,
+   31
+  ],
+  "UnusedContestHall4": [
+   25,
+   32
+  ],
+  "UnusedContestHall5": [
+   25,
+   33
+  ],
+  "UnusedContestHall6": [
+   25,
+   34
+  ],
+  "ValleyWindworks": [
+   76,
+   3
+  ],
+  "ValorLakefront": [
+   75,
+   50
+  ],
+  "VeilstoneCity": [
+   75,
+   9
+  ],
+  "VeilstoneCity_GalacticWarehouse": [
+   100,
+   8
+  ],
+  "VeilstoneCity_Gym": [
+   78,
+   15
+  ],
+  "VerdanturfTown": [
+   0,
+   14
+  ],
+  "VerdanturfTown_BattleTentBattleRoom": [
+   6,
+   2
+  ],
+  "VerdanturfTown_BattleTentCorridor": [
+   6,
+   1
+  ],
+  "VerdanturfTown_BattleTentLobby": [
+   6,
+   0
+  ],
+  "VerdanturfTown_FriendshipRatersHouse": [
+   6,
+   7
+  ],
+  "VerdanturfTown_House": [
+   6,
+   8
+  ],
+  "VerdanturfTown_Mart": [
+   6,
+   3
+  ],
+  "VerdanturfTown_PokemonCenter_1F": [
+   6,
+   4
+  ],
+  "VerdanturfTown_PokemonCenter_2F": [
+   6,
+   5
+  ],
+  "VerdanturfTown_WandasHouse": [
+   6,
+   6
+  ],
+  "VerityLakefront": [
+   75,
+   49
+  ],
+  "VermilionCity_Frlg": [
+   37,
+   5
+  ],
+  "VermilionCity_Gym_Frlg": [
+   43,
+   6
+  ],
+  "VermilionCity_House1_Frlg": [
+   43,
+   0
+  ],
+  "VermilionCity_House2_Frlg": [
+   43,
+   4
+  ],
+  "VermilionCity_House3_Frlg": [
+   43,
+   7
+  ],
+  "VermilionCity_Mart_Frlg": [
+   43,
+   5
+  ],
+  "VermilionCity_PokemonCenter_1F_Frlg": [
+   43,
+   1
+  ],
+  "VermilionCity_PokemonCenter_2F_Frlg": [
+   43,
+   2
+  ],
+  "VermilionCity_PokemonFanClub_Frlg": [
+   43,
+   3
+  ],
+  "VictoryRoad_1F": [
+   24,
+   43
+  ],
+  "VictoryRoad_1F_Frlg": [
+   35,
+   39
+  ],
+  "VictoryRoad_2F_Frlg": [
+   35,
+   40
+  ],
+  "VictoryRoad_3F_Frlg": [
+   35,
+   41
+  ],
+  "VictoryRoad_B1F": [
+   24,
+   44
+  ],
+  "VictoryRoad_B2F": [
+   24,
+   45
+  ],
+  "VioletCity": [
+   84,
+   2
+  ],
+  "VioletCity_Gym": [
+   87,
+   5
+  ],
+  "VioletCity_House1": [
+   87,
+   3
+  ],
+  "VioletCity_House2": [
+   87,
+   4
+  ],
+  "VioletCity_Mart": [
+   87,
+   1
+  ],
+  "VioletCity_PokemonCenter": [
+   87,
+   0
+  ],
+  "VioletCity_TrainerSchool": [
+   87,
+   2
+  ],
+  "ViridianCity_Frlg": [
+   37,
+   1
+  ],
+  "ViridianCity_Gym_Frlg": [
+   39,
+   1
+  ],
+  "ViridianCity_House_Frlg": [
+   39,
+   0
+  ],
+  "ViridianCity_Mart_Frlg": [
+   39,
+   3
+  ],
+  "ViridianCity_PokemonCenter_1F_Frlg": [
+   39,
+   4
+  ],
+  "ViridianCity_PokemonCenter_2F_Frlg": [
+   39,
+   5
+  ],
+  "ViridianCity_School_Frlg": [
+   39,
+   2
+  ],
+  "ViridianForest_Frlg": [
+   35,
+   0
+  ],
+  "WhirlIslands_1F": [
+   97,
+   33
+  ],
+  "WhirlIslands_B1F": [
+   97,
+   34
+  ],
+  "WhirlIslands_B1F_Inner": [
+   97,
+   35
+  ],
+  "WhirlIslands_B2F": [
+   97,
+   36
+  ],
+  "WhirlIslands_B3F": [
+   97,
+   37
+  ],
+  "WhirlIslands_Descent": [
+   97,
+   38
+  ],
+  "WhirlIslands_LugiaChamber": [
+   97,
+   39
+  ],
+  "WorldHub": [
+   98,
+   0
+  ],
+  "WorldHub2": [
+   98,
+   1
+  ]
+ },
+ "sizeof_saveblock1": 15764,
+ "structs": {
+  "SaveBlock1": "19927651d2a5579f",
+  "SaveBlock2": "ec3552860cc5cce7",
+  "SaveBlock3": "598ad3d9ee1b4cea"
+ }
+}
