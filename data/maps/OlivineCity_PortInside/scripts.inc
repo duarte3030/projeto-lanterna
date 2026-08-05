@@ -5,7 +5,7 @@ OlivinePort_EventScript_Sailor::
 	lock
 	faceplayer
 	msgbox OlivinePort_Text_WhereTo, MSGBOX_DEFAULT
-	multichoice 0, 0, MULTI_BOAT_DESTINATIONS, FALSE
+	multichoice 0, 0, MULTI_BOAT_FROM_OLIVINE, FALSE
 	switch VAR_RESULT
 	case 0, OlivinePort_EventScript_SailToVermilion
 	case 1, OlivinePort_EventScript_SailToSlateport
@@ -18,6 +18,7 @@ OlivinePort_EventScript_SailToVermilion::
 	msgbox OlivinePort_Text_SettingSailToVermilion, MSGBOX_DEFAULT
 	closemessage
 	warpsilent MAP_VERMILION_CITY, 15, 10
+	waitstate
 	release
 	end
 
@@ -25,6 +26,7 @@ OlivinePort_EventScript_SailToSlateport::
 	msgbox OlivinePort_Text_SettingSailToSlateport, MSGBOX_DEFAULT
 	closemessage
 	warpsilent MAP_SLATEPORT_CITY_HARBOR, 8, 14
+	waitstate
 	release
 	end
 
@@ -32,6 +34,7 @@ OlivinePort_EventScript_SailToCanalave::
 	msgbox OlivinePort_Text_SettingSailToCanalave, MSGBOX_DEFAULT
 	closemessage
 	warpsilent MAP_CANALAVE_CITY, 10, 10
+	waitstate
 	release
 	end
 

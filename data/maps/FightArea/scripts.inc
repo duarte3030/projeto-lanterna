@@ -12,6 +12,7 @@ FightArea_EventScript_Sailor::
 	msgbox FightArea_Text_SailorZarpa, MSGBOX_DEFAULT
 	closemessage
 	warpsilent MAP_SNOWPOINT_CITY, 20, 40
+	waitstate
 	release
 	end
 

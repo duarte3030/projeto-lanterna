@@ -82,6 +82,36 @@ static const struct MenuAction MultichoiceList_BrineyOffDewford[] =
     {gText_Exit},
 };
 
+// Balsa entre regioes. A ordem de cada lista bate, item a item, com os
+// "case 0/1/2" do scripts.inc do porto correspondente.
+static const struct MenuAction MultichoiceList_BoatFromVermilion[] =
+{
+    {COMPOUND_STRING("OLIVINE CITY")},
+    {COMPOUND_STRING("SLATEPORT CITY")},
+    {COMPOUND_STRING("CANALAVE CITY")},
+};
+
+static const struct MenuAction MultichoiceList_BoatFromOlivine[] =
+{
+    {COMPOUND_STRING("VERMILION CITY")},
+    {COMPOUND_STRING("SLATEPORT CITY")},
+    {COMPOUND_STRING("CANALAVE CITY")},
+};
+
+static const struct MenuAction MultichoiceList_BoatFromSlateport[] =
+{
+    {COMPOUND_STRING("OLIVINE CITY")},
+    {COMPOUND_STRING("VERMILION CITY")},
+    {COMPOUND_STRING("CANALAVE CITY")},
+};
+
+static const struct MenuAction MultichoiceList_BoatFromCanalave[] =
+{
+    {COMPOUND_STRING("OLIVINE CITY")},
+    {COMPOUND_STRING("SLATEPORT CITY")},
+    {COMPOUND_STRING("VERMILION CITY")},
+};
+
 static const struct MenuAction MultichoiceList_ViewedPaintings[] =
 {
     {COMPOUND_STRING("Saw it")},
@@ -1150,6 +1180,10 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_BIKE]                       = MULTICHOICE(MultichoiceList_Bike),
     [MULTI_STATUS_INFO]                = MULTICHOICE(MultichoiceList_StatusInfo),
     [MULTI_BRINEY_OFF_DEWFORD]         = MULTICHOICE(MultichoiceList_BrineyOffDewford),
+    [MULTI_BOAT_FROM_VERMILION]        = MULTICHOICE(MultichoiceList_BoatFromVermilion),
+    [MULTI_BOAT_FROM_OLIVINE]          = MULTICHOICE(MultichoiceList_BoatFromOlivine),
+    [MULTI_BOAT_FROM_SLATEPORT]        = MULTICHOICE(MultichoiceList_BoatFromSlateport),
+    [MULTI_BOAT_FROM_CANALAVE]         = MULTICHOICE(MultichoiceList_BoatFromCanalave),
     [MULTI_UNUSED_15]                  = MULTICHOICE(MultichoiceList_Exit),
     [MULTI_VIEWED_PAINTINGS]           = MULTICHOICE(MultichoiceList_ViewedPaintings),
     [MULTI_YESNOINFO]                  = MULTICHOICE(MultichoiceList_YesNoInfo),

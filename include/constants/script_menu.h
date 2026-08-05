@@ -169,6 +169,13 @@ enum
     MULTI_HOF_VICTORIES_QUIT,
     MULTI_EGGS_VICTORIES_QUIT,
     MULTI_HOF_EGGS_VICTORIES_QUIT,
+    // Balsa entre regioes. Uma lista por porto, porque cada porto oferece as
+    // OUTRAS tres cidades e a ordem tem que bater, item a item, com os
+    // "case 0/1/2" que ja estao no scripts.inc daquele porto.
+    MULTI_BOAT_FROM_VERMILION,
+    MULTI_BOAT_FROM_OLIVINE,
+    MULTI_BOAT_FROM_SLATEPORT,
+    MULTI_BOAT_FROM_CANALAVE,
 };
 
 #define MULTI_NONE 255
@@ -236,8 +243,9 @@ enum
 };
 
 
-#ifndef MULTI_BOAT_DESTINATIONS
-#define MULTI_BOAT_DESTINATIONS MULTI_BRINEY_OFF_DEWFORD
-#endif
+// (Removido o alias MULTI_BOAT_DESTINATIONS -> MULTI_BRINEY_OFF_DEWFORD: aquela
+// lista tem DUAS linhas, "DEWFORD" e "EXIT", entao a balsa entre regioes exibia
+// nome errado em todo destino e o terceiro destino era inalcancavel. Cada porto
+// agora usa a sua propria MULTI_BOAT_FROM_*.)
 
 #endif //GUARD_SCRIPT_MENU_CONSTANTS_H
