@@ -38,7 +38,7 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 | mapas | **1616** |
 | treinadores com time próprio | **2346** |
 | grupos de mapa que carregam | **101 de 101** |
-| suíte de testes | **106 de 107** (o pulado precisa de duas builds) |
+| suíte de testes | **109 de 110** (o pulado precisa de duas builds) |
 | teto de treinador | `MAX_TRAINERS_COUNT_EMERALD` = 3000 |
 
 ### Completude contra a fonte de cada região
@@ -74,11 +74,25 @@ de verdade; o 25,6% é a medida honesta aparecendo pela primeira vez.
 
 | Hoenn | Johto | Sinnoh | Unova | Kanto |
 |---|---|---|---|---|
-| 93,2% | 90,9% | 86,0% | 78,6% | 69,9% |
+| 93,2% | 90,9% | 86,0% | 78,6% | 79,4% |
 
 **Nunca chega a 100%, e não deve.** Warp só dispara se o tile embaixo tiver
 comportamento de porta; muita porta é trocada por `setmetatile` em tempo de
 execução, e muito warp é usado só por barco ou cutscene. Hoenn é a régua.
+
+Kanto subiu de 69,9% para 79,4% em 05/08/2026 **sem tocar em mapa nenhum**: a
+ferramenta é que não conhecia as quatro escadas diagonais (`MB_UP_LEFT_STAIR_WARP`
+e irmãs, 235 a 238), que ligam os andares do esconderijo Rocket, do Silph Co e da
+Mansão de Cinnabar. Elas não passam por `IsWarpMetatileBehavior`: disparam por
+`TryArrowWarp` (`src/field_control_avatar.c:955`). O caso T15.3 prova no emulador
+que a escada funciona, então a régua nova é o jogo, não a minha leitura dele.
+
+Os 20,6% que sobram em Kanto **não são defeito, e não devem ser consertados**:
+saída de prédio no FireRed tem três tiles de largura, e só o do meio carrega
+`MB_SOUTH_ARROW_WARP`; os dois das pontas são entrada de warp redundante em cima
+de `MB_NORMAL`. Medido em `PewterCity_Museum_1F` (warps 0, 1 e 2 em (13,9),
+(14,9) e (15,9)), em `PowerPlant` e em `PokemonMansion_1F`. Quem "consertar" isso
+está mexendo no vanilla.
 
 ---
 
@@ -95,6 +109,15 @@ Não relitigar. Números são das perguntas numeradas da sessão.
 | 70 | **Só creditar** Azure_Keys e os artistas, não contatar |
 | 71 | **Nível vai até 255**, não 100. O trabalho de expansão já existia |
 | 73 | Importar os treinadores de rota de Johto do `hns` |
+| 13 | As 152 "placas" de Sinnoh que na verdade são item escondido **ficam como estão**: não viram item nem são apagadas agora. Não gastar o pool de flags nisso |
+| 14 | **Primeiro a ROM na mão do Gui**, ele joga a primeira hora; só depois atacar os 455 mapas de Sinnoh que faltam |
+
+**A janela de quebrar save FECHOU em 05/08/2026**, com a entrega de
+`roms/pokemon-claude-2026-08-05.gba` (commit `d9e5e7581e`). A partir daqui existe
+partida do Gui para proteger: mapa novo só no fim do grupo, grupo novo só no fim
+de `group_order`, objeto novo só no fim da lista do mapa, flag nova só do pool
+que já cabe em `FLAGS_COUNT`, struct de save só recebe append. O `T11.3` foi
+provado nessa build: save feita na ROM anterior carrega na recompilada.
 
 **Curva de nível aplicada**, remapeamento linear preservando a forma de cada jogo:
 
