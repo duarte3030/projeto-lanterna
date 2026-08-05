@@ -3,8 +3,8 @@
 Unova_GrimsleysRoom_MapScripts::
 	.byte 0
 
-Unova_GrimsleysRoom_EventScript_Npc0::
-	msgbox Unova_GrimsleysRoom_Text_EliteFourGrimsleyIntroText, MSGBOX_NPC
+Unova_GrimsleysRoom_EventScript_Lider0::
+	trainerbattle_single TRAINER_UNOVA_E4_GRIMSLEY, Unova_GrimsleysRoom_Text_EliteFourGrimsleyIntroText, Unova_GrimsleysRoom_Text_EliteFourGrimsleyWinText
 	end
 
 
@@ -23,3 +23,20 @@ Unova_GrimsleysRoom_Text_EliteFourGrimsleyIntroText::
 	.string "\pwill fulfill my"
 	.string "\nduty to be your"
 	.string "\lopponent.$"
+
+Unova_GrimsleysRoom_Text_EliteFourGrimsleyWinText::
+	.string "Whether or not you"
+	.string "\nget to fight at"
+	.string "\pfull strength,"
+	.string "\nwhether or not"
+	.string "\pluck smiles on"
+	.string "\nyou- none of that"
+	.string "\pmatters. Only"
+	.string "\nresults matter."
+	.string "\pAnd a loss is a"
+	.string "\nloss. See, victory"
+	.string "\pshines like a"
+	.string "\nbright light. And"
+	.string "\pright now, you and"
+	.string "\nyour POKéMON are"
+	.string "\lshining!$"

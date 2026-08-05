@@ -3,8 +3,8 @@
 Unova_ColresssRoom_MapScripts::
 	.byte 0
 
-Unova_ColresssRoom_EventScript_Npc0::
-	msgbox Unova_ColresssRoom_Text_EliteFourColressIntroText, MSGBOX_NPC
+Unova_ColresssRoom_EventScript_Lider0::
+	trainerbattle_single TRAINER_UNOVA_E4_COLRESS, Unova_ColresssRoom_Text_EliteFourColressIntroText, Unova_ColresssRoom_Text_EliteFourColressWinText
 	end
 
 
@@ -36,3 +36,13 @@ Unova_ColresssRoom_Text_EliteFourColressIntroText::
 	.string "\lby battling you."
 	.string "\pDo you find this"
 	.string "\nacceptable?$"
+
+Unova_ColresssRoom_Text_EliteFourColressWinText::
+	.string "Just as I"
+	.string "\nexpected! Your"
+	.string "\pPOKéMON must be"
+	.string "\nhappy to be by"
+	.string "\lyour side!"
+	.string "\pYou bring out the"
+	.string "\nbest in their"
+	.string "\lpower!$"

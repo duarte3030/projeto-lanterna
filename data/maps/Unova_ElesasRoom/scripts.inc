@@ -3,8 +3,8 @@
 Unova_ElesasRoom_MapScripts::
 	.byte 0
 
-Unova_ElesasRoom_EventScript_Npc0::
-	msgbox Unova_ElesasRoom_Text_EliteFourElesaIntroText, MSGBOX_NPC
+Unova_ElesasRoom_EventScript_Lider0::
+	trainerbattle_single TRAINER_UNOVA_E4_ELESA, Unova_ElesasRoom_Text_EliteFourElesaIntroText, Unova_ElesasRoom_Text_EliteFourElesaWinText
 	end
 
 
@@ -28,3 +28,16 @@ Unova_ElesasRoom_Text_EliteFourElesaIntroText::
 	.string "\pgoing to see whose"
 	.string "\nstar shines"
 	.string "\lbrightest!$"
+
+Unova_ElesasRoom_Text_EliteFourElesaWinText::
+	.string "You've shocked me"
+	.string "\nthrough and"
+	.string "\pthrough! You've"
+	.string "\nmelted my heart!"
+	.string "\pYou're an even"
+	.string "\nmore wonderful"
+	.string "\ptrainer than I"
+	.string "\nexpected. Your"
+	.string "\psweet fighting"
+	.string "\nstyle swept me off"
+	.string "\lmy feet!$"

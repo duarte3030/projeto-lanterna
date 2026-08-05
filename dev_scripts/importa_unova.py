@@ -393,6 +393,60 @@ STD_PLACA = {
     "picturebookshelf": "EventScript_PictureBookShelf",
 }
 
+# Os treze chefes: 8 lideres de ginasio, o Elite dos Quatro e o campeao. No gen 2
+# eles nao sao OBJECTTYPE_TRAINER; sao OBJECTTYPE_SCRIPT com um `loadtrainer` no
+# meio, e por isso caiam aqui como NPC mudo de um texto so. A chave e o rotulo do
+# script do BW3G, ou o SPRITE_ quando o objeto nao tem script (o campeao Genesis
+# e cutscene: o objeto dele aponta para o script 0 e a batalha mora no MapScripts).
+# Os textos sao os do proprio BW3G: `visto` e o que ele fala antes da batalha,
+# `perde` e o `winlosstext`. Nao ha entrega de insignia; ver relatorio.
+LIDERES = {
+    ("HumilauGym", "HumilauGymMarlonScript"):
+        ("TRAINER_UNOVA_LEADER_MARLON", "MarlonGymIntroText", "MarlonWinLossText", 4),
+    ("LentimasGym", "LentimasGymShauntalScript"):
+        ("TRAINER_UNOVA_LEADER_SHAUNTAL", "ShauntalGymIntroText2", "ShauntalWinLossText", 4),
+    ("CasteliaGym", "CasteliaGymBurghScript"):
+        ("TRAINER_UNOVA_LEADER_BURGH", "BurghGymIntroText", "BurghWinLossText", 4),
+    ("VirbankGym", "VirbankGymRoxieScript"):
+        ("TRAINER_UNOVA_LEADER_ROXIE", "RoxieGymIntroText", "RoxieWinLossText", 4),
+    ("AspertiaGym", "AspertiaGymCherenScript"):
+        ("TRAINER_UNOVA_LEADER_CHEREN", "CherenGymIntroText", "CherenWinLossText", 4),
+    ("StriatonGym", "StriatonGymCilanScript"):
+        ("TRAINER_UNOVA_LEADER_CILAN", "CilanGymIntroText", "CilanWinLossText", 4),
+    ("MistraltonGym1F", "MistraltonGymSkylaScript"):
+        ("TRAINER_UNOVA_LEADER_SKYLA", "SkylaGymIntroText", "SkylaWinLossText", 4),
+    ("OpelucidGym", "OpelucidGymDraydenScript"):
+        ("TRAINER_UNOVA_LEADER_DRAYDEN", "DraydenGymIntroText", "DraydenWinLossText", 4),
+    ("GrimsleysRoom", "EliteFourGrimsleyScript"):
+        ("TRAINER_UNOVA_E4_GRIMSLEY", "EliteFourGrimsleyIntroText", "EliteFourGrimsleyWinText", 3),
+    ("MarshalsRoom", "EliteFourMarshalScript"):
+        ("TRAINER_UNOVA_E4_MARSHAL", "EliteFourMarshalIntroText", "EliteFourMarshalWinText", 3),
+    ("ElesasRoom", "EliteFourElesaScript"):
+        ("TRAINER_UNOVA_E4_ELESA", "EliteFourElesaIntroText", "EliteFourElesaWinText", 3),
+    ("ColresssRoom", "EliteFourColressScript"):
+        ("TRAINER_UNOVA_E4_COLRESS", "EliteFourColressIntroText", "EliteFourColressWinText", 3),
+    # O campeao Genesis NAO entra aqui, apesar de TRAINER_UNOVA_CHAMPION_GENESIS
+    # e o time dele existirem. A sala dele e cutscene: sete objetos empilhados em
+    # tres casas, e o de Genesis divide a casa (7,10) com o da Juniper, que vem
+    # ANTES na lista. Quem fala com a casa fala com a Juniper (muda), e o Genesis
+    # ainda olha para cima, de costas para quem sobe da entrada, entao o raio de
+    # visao tambem nunca dispara. Ligar isso exige mexer na geometria da sala, que
+    # e conteudo novo e nao porte. A vaga 1379 fica pronta para quem fizer a
+    # cutscene da Liga.
+}
+
+
+def script_lider(nome, i, cfg):
+    """`trainerbattle_single` e nada mais: o motor ja guarda sozinho a flag de
+    'este treinador ja foi derrotado' (uma por vaga de treinador, dentro de
+    flags[]), entao falar com o chefe de novo cai direto no `end` sem rebater e
+    sem gastar flag nova."""
+    treinador, visto, perde, _ = cfg
+    rot = f"{nome}_EventScript_Lider{i}"
+    return rot, (f"{rot}::\n\ttrainerbattle_single {treinador}, "
+                 f"{nome}_Text_{visto}, {nome}_Text_{perde}\n\tend\n")
+
+
 # A volta de barco. O BW3G nao tem porto para fora de Unova, entao o marinheiro
 # do retorno e o unico conteudo que este import ACRESCENTA em vez de portar.
 # Fica aqui, e nao editado a mao no map.json gerado, senao a proxima rodada do
@@ -531,7 +585,8 @@ def main(gravar):
 
     stats = dict(mapas=0, blocos_faltando=0, ajuste_tamanho=0, warps=0, placas=0,
                  objetos=0, textos=0, itemball=0, item_escondido=0, coord=0,
-                 conexoes=0, sem_texto=0, enfermeira=0, loja=0, marinheiro=0, item_sem_flag=0, mobilia=0)
+                 conexoes=0, sem_texto=0, enfermeira=0, loja=0, marinheiro=0, item_sem_flag=0,
+                 mobilia=0, lider=0)
     saida_layouts, saida_grupos, saida_incs = [], [], []
 
     for gnome, mapas in grupos:
@@ -652,6 +707,23 @@ def main(gravar):
                         stats["itemball"] += 1
                     else:
                         stats["item_sem_flag"] += 1
+                    continue
+                cfg = LIDERES.get((camel, o["script"] if o["script"] not in ("0", "-1")
+                                          else o["sprite"]))
+                if cfg:
+                    for t in (cfg[1], cfg[2]):
+                        usados[t] = textos[t]
+                    rot, txt = script_lider(nome, i, cfg)
+                    corpo.append(txt)
+                    mapa["object_events"].append({
+                        "graphics_id": sprite.get(o["sprite"], "OBJ_EVENT_GFX_BOY_1"),
+                        "x": o["x"], "y": o["y"], "elevation": 3,
+                        "movement_type": movimento.get(o["mov"], "MOVEMENT_TYPE_FACE_DOWN"),
+                        "movement_range_x": 0, "movement_range_y": 0,
+                        "trainer_type": "TRAINER_TYPE_NORMAL",
+                        "trainer_sight_or_berry_tree_id": str(cfg[3]),
+                        "script": rot, "flag": SEM_FLAG})
+                    stats["lider"] += 1
                     continue
                 std = jumpstd_de(asm, o["script"])
                 if std in STD_MOBILIA:

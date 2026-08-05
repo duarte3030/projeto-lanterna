@@ -3,8 +3,8 @@
 Unova_VirbankGym_MapScripts::
 	.byte 0
 
-Unova_VirbankGym_EventScript_Npc0::
-	msgbox Unova_VirbankGym_Text_RoxieGymIntroText, MSGBOX_NPC
+Unova_VirbankGym_EventScript_Lider0::
+	trainerbattle_single TRAINER_UNOVA_LEADER_ROXIE, Unova_VirbankGym_Text_RoxieGymIntroText, Unova_VirbankGym_Text_RoxieWinLossText
 	end
 
 Unova_VirbankGym_EventScript_Npc1::
@@ -28,6 +28,11 @@ Unova_VirbankGym_Text_RoxieGymIntroText::
 	.string "Get ready! I'm"
 	.string "\ngonna knock some"
 	.string "\lsense outta ya!$"
+
+Unova_VirbankGym_Text_RoxieWinLossText::
+	.string "Wait! I was right"
+	.string "\nin the middle of"
+	.string "\lthe chorus!$"
 
 Unova_VirbankGym_Text_GuitaristVirbankGym1SeenText::
 	.string "I'm going to take"

@@ -15,8 +15,8 @@ Unova_MistraltonGym1F_EventScript_Npc6::
 	msgbox Unova_MistraltonGym1F_Text_Pilot3MistraltonGym1FSeenText, MSGBOX_NPC
 	end
 
-Unova_MistraltonGym1F_EventScript_Npc7::
-	msgbox Unova_MistraltonGym1F_Text_SkylaGymIntroText, MSGBOX_NPC
+Unova_MistraltonGym1F_EventScript_Lider7::
+	trainerbattle_single TRAINER_UNOVA_LEADER_SKYLA, Unova_MistraltonGym1F_Text_SkylaGymIntroText, Unova_MistraltonGym1F_Text_SkylaWinLossText
 	end
 
 Unova_MistraltonGym1F_EventScript_Npc8::
@@ -56,6 +56,10 @@ Unova_MistraltonGym1F_Text_SkylaGymIntroText::
 	.string "\nand joy!"
 	.string "\pNow let's try a"
 	.string "\nbattle!$"
+
+Unova_MistraltonGym1F_Text_SkylaWinLossText::
+	.string "I'm walking on"
+	.string "\nair!$"
 
 Unova_MistraltonGym1F_Text_MistraltonGymGuyText::
 	.string "Yo, challenger!"

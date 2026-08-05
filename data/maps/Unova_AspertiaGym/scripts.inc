@@ -3,8 +3,8 @@
 Unova_AspertiaGym_MapScripts::
 	.byte 0
 
-Unova_AspertiaGym_EventScript_Npc0::
-	msgbox Unova_AspertiaGym_Text_CherenGymIntroText, MSGBOX_NPC
+Unova_AspertiaGym_EventScript_Lider0::
+	trainerbattle_single TRAINER_UNOVA_LEADER_CHEREN, Unova_AspertiaGym_Text_CherenGymIntroText, Unova_AspertiaGym_Text_CherenWinLossText
 	end
 
 Unova_AspertiaGym_EventScript_Npc1::
@@ -36,6 +36,11 @@ Unova_AspertiaGym_Text_CherenGymIntroText::
 	.string "\nbest and have a"
 	.string "\pbattle we can be"
 	.string "\nproud of.$"
+
+Unova_AspertiaGym_Text_CherenWinLossText::
+	.string "This! This is what"
+	.string "\na real POKéMON"
+	.string "\lbattle is!$"
 
 Unova_AspertiaGym_Text_AspertiaGymGuyText::
 	.string "Yo, challenger!"

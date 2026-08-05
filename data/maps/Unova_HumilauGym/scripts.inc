@@ -3,8 +3,8 @@
 Unova_HumilauGym_MapScripts::
 	.byte 0
 
-Unova_HumilauGym_EventScript_Npc0::
-	msgbox Unova_HumilauGym_Text_MarlonGymIntroText, MSGBOX_NPC
+Unova_HumilauGym_EventScript_Lider0::
+	trainerbattle_single TRAINER_UNOVA_LEADER_MARLON, Unova_HumilauGym_Text_MarlonGymIntroText, Unova_HumilauGym_Text_MarlonWinLossText
 	end
 
 Unova_HumilauGym_EventScript_Npc1::
@@ -32,6 +32,16 @@ Unova_HumilauGym_Text_MarlonGymIntroText::
 	.string "\nhold back,"
 	.string "\l{PLAYER}!"
 	.string "\pCome on!$"
+
+Unova_HumilauGym_Text_MarlonWinLossText::
+	.string "Wow, sweet moves,"
+	.string "\n{PLAYER}!"
+	.string "\pYou've gotten"
+	.string "\neven better than"
+	.string "\lI expected!"
+	.string "\pGo ahead, take"
+	.string "\nthis. You've"
+	.string "\learned it!$"
 
 Unova_HumilauGym_Text_HumilauGymGuyText::
 	.string "Hey! I'm no train-"

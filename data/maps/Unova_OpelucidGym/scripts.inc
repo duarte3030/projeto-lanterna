@@ -3,8 +3,8 @@
 Unova_OpelucidGym_MapScripts::
 	.byte 0
 
-Unova_OpelucidGym_EventScript_Npc0::
-	msgbox Unova_OpelucidGym_Text_DraydenGymIntroText, MSGBOX_NPC
+Unova_OpelucidGym_EventScript_Lider0::
+	trainerbattle_single TRAINER_UNOVA_LEADER_DRAYDEN, Unova_OpelucidGym_Text_DraydenGymIntroText, Unova_OpelucidGym_Text_DraydenWinLossText
 	end
 
 Unova_OpelucidGym_EventScript_Npc1::
@@ -56,6 +56,16 @@ Unova_OpelucidGym_Text_DraydenGymIntroText::
 	.string "\nyou can show me"
 	.string "\pthat future, the"
 	.string "\nway IRIS has?$"
+
+Unova_OpelucidGym_Text_DraydenWinLossText::
+	.string "This bitterness"
+	.string "\nthat floods me"
+	.string "\lafter a defeat…"
+	.string "\pThe heart that"
+	.string "\ndoes not succumb"
+	.string "\pto such a feeling"
+	.string "\nis filled with"
+	.string "\lenergy and life!$"
 
 Unova_OpelucidGym_Text_VeteranM1OpelucidGymSeenText::
 	.string "Always aim for the"

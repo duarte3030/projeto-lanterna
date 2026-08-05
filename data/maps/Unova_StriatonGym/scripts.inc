@@ -43,8 +43,8 @@ Unova_StriatonGym_EventScript_Placa11::
 	msgbox Unova_StriatonGym_Text_StriatonGymTableNothingText, MSGBOX_SIGN
 	end
 
-Unova_StriatonGym_EventScript_Npc0::
-	msgbox Unova_StriatonGym_Text_CilanGymIntroText, MSGBOX_NPC
+Unova_StriatonGym_EventScript_Lider0::
+	trainerbattle_single TRAINER_UNOVA_LEADER_CILAN, Unova_StriatonGym_Text_CilanGymIntroText, Unova_StriatonGym_Text_CilanWinLossText
 	end
 
 Unova_StriatonGym_EventScript_Npc1::
@@ -123,6 +123,10 @@ Unova_StriatonGym_Text_CilanGymIntroText::
 	.string "\nfeelings, we'll"
 	.string "\pbattle whatever"
 	.string "\ncomes our way.$"
+
+Unova_StriatonGym_Text_CilanWinLossText::
+	.string "Er… Is it over"
+	.string "\nnow?$"
 
 Unova_StriatonGym_Text_StriatonGymGuyText::
 	.string "Yo, challenger!"

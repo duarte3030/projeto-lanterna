@@ -3,8 +3,8 @@
 Unova_LentimasGym_MapScripts::
 	.byte 0
 
-Unova_LentimasGym_EventScript_Npc0::
-	msgbox Unova_LentimasGym_Text_ShauntalGymIntroText, MSGBOX_NPC
+Unova_LentimasGym_EventScript_Lider0::
+	trainerbattle_single TRAINER_UNOVA_LEADER_SHAUNTAL, Unova_LentimasGym_Text_ShauntalGymIntroText2, Unova_LentimasGym_Text_ShauntalWinLossText
 	end
 
 Unova_LentimasGym_EventScript_Npc1::
@@ -28,9 +28,34 @@ Unova_LentimasGym_EventScript_Npc5::
 	end
 
 
-Unova_LentimasGym_Text_ShauntalGymIntroText::
-	.string "Hmm…"
-	.string "\p… … … …$"
+Unova_LentimasGym_Text_ShauntalGymIntroText2::
+	.string "…Oh, sorry. I"
+	.string "\ndidn't see you"
+	.string "\lthere."
+	.string "\pI'm working on a"
+	.string "\ndraft of my new"
+	.string "\lnovel."
+	.string "\pMy name is"
+	.string "\nSHAUNTAL."
+	.string "\pI used to be a"
+	.string "\nmember of the"
+	.string "\lELITE FOUR."
+	.string "\pI moved to this"
+	.string "\nsleepy little town"
+	.string "\pto work on my"
+	.string "\nwriting, but I"
+	.string "\pstill run this"
+	.string "\nGYM in my spare"
+	.string "\ltime."
+	.string "\pWould you like to"
+	.string "\nchallenge me? I"
+	.string "\lwon't hold back.$"
+
+Unova_LentimasGym_Text_ShauntalWinLossText::
+	.string "Impressive…"
+	.string "\pYour skills will"
+	.string "\nmake a great"
+	.string "\lstory.$"
 
 Unova_LentimasGym_Text_LentimasGymGuyText::
 	.string "Yo, challenger!"

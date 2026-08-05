@@ -3,8 +3,8 @@
 Unova_CasteliaGym_MapScripts::
 	.byte 0
 
-Unova_CasteliaGym_EventScript_Npc0::
-	msgbox Unova_CasteliaGym_Text_BurghGymIntroText, MSGBOX_NPC
+Unova_CasteliaGym_EventScript_Lider0::
+	trainerbattle_single TRAINER_UNOVA_LEADER_BURGH, Unova_CasteliaGym_Text_BurghGymIntroText, Unova_CasteliaGym_Text_BurghWinLossText
 	end
 
 Unova_CasteliaGym_EventScript_Npc1::
@@ -48,6 +48,14 @@ Unova_CasteliaGym_Text_BurghGymIntroText::
 	.string "\lchallenge!"
 	.string "\pLet's get right"
 	.string "\nto it!$"
+
+Unova_CasteliaGym_Text_BurghWinLossText::
+	.string "Is it over, has"
+	.string "\nmy muse abandoned"
+	.string "\lme?"
+	.string "\pHere, take this"
+	.string "\nbadge, I think"
+	.string "\lit'll suit you!$"
 
 Unova_CasteliaGym_Text_CasteliaGymGuyText::
 	.string "Yo, challenger!"

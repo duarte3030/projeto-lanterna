@@ -1408,7 +1408,23 @@
 #define TRAINER_JOHTO_ROCKET_CAMERA_4                        1365
 #define TRAINER_JOHTO_ROCKET_CAMERA_5                        1366
 
-#define TRAINERS_COUNT_EMERALD     1367
+// Chefes de Unova, portados do BW3G. Numerados na ordem de NIVEL do time no
+// original, que e a ordem em que a regiao se joga (Marlon nivel 10, Drayden 63).
+#define TRAINER_UNOVA_LEADER_MARLON                          1367  // Humilau
+#define TRAINER_UNOVA_LEADER_SHAUNTAL                        1368  // Lentimas
+#define TRAINER_UNOVA_LEADER_BURGH                           1369  // Castelia
+#define TRAINER_UNOVA_LEADER_ROXIE                           1370  // Virbank
+#define TRAINER_UNOVA_LEADER_CHEREN                          1371  // Aspertia
+#define TRAINER_UNOVA_LEADER_CILAN                           1372  // Striaton
+#define TRAINER_UNOVA_LEADER_SKYLA                           1373  // Mistralton
+#define TRAINER_UNOVA_LEADER_DRAYDEN                         1374  // Opelucid
+#define TRAINER_UNOVA_E4_GRIMSLEY                            1375
+#define TRAINER_UNOVA_E4_MARSHAL                             1376
+#define TRAINER_UNOVA_E4_ELESA                               1377
+#define TRAINER_UNOVA_E4_COLRESS                             1378
+#define TRAINER_UNOVA_CHAMPION_GENESIS                       1379
+
+#define TRAINERS_COUNT_EMERALD     1380
 // ponytail: teto elevado em 05/08/2026. Estava em 1330 com 1329 em uso, ou seja,
 // UMA vaga sobrando no jogo inteiro, e a historia de Johto ja tinha deixado 7
 // Rockets de fora por falta de vaga. Cada vaga custa 1 bit de flag de treinador

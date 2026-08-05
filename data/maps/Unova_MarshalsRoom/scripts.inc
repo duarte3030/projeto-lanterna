@@ -3,8 +3,8 @@
 Unova_MarshalsRoom_MapScripts::
 	.byte 0
 
-Unova_MarshalsRoom_EventScript_Npc0::
-	msgbox Unova_MarshalsRoom_Text_EliteFourMarshalIntroText, MSGBOX_NPC
+Unova_MarshalsRoom_EventScript_Lider0::
+	trainerbattle_single TRAINER_UNOVA_E4_MARSHAL, Unova_MarshalsRoom_Text_EliteFourMarshalIntroText, Unova_MarshalsRoom_Text_EliteFourMarshalWinText
 	end
 
 
@@ -28,3 +28,10 @@ Unova_MarshalsRoom_Text_EliteFourMarshalIntroText::
 	.string "\pto the limits of"
 	.string "\nyour strength."
 	.string "\lKiai!$"
+
+Unova_MarshalsRoom_Text_EliteFourMarshalWinText::
+	.string "Whew! Well done!"
+	.string "\nAs your battles"
+	.string "\pcontinue, aim for"
+	.string "\neven greater"
+	.string "\lheights!$"
