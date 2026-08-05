@@ -85,6 +85,10 @@ def normaliza(nome):
     n = re.sub(r"_Frlg$", "", nome)
     n = re.sub(r"_johto$", "", n, flags=re.I)
     n = re.sub(r"^Unova_", "", n)          # Unova_AccumulaTown == AccumulaTown
+    # No BW3G a rota e "R5NimbasaGate"; aqui ela virou "Rt5NimbasaGate". Sem
+    # esta linha o painel dava 45 mapas de Unova como ausentes, sendo que a
+    # maioria estava dentro da ROM com outro nome.
+    n = re.sub(r"^R(?=\d)", "Rt", n)
     return n.lower().replace("_", "")
 
 
