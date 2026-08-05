@@ -1,0 +1,13 @@
+[
+  {
+    "id": "T12.1",
+    "nome": "Ginásio de Pewter: o treinador Liam luta como ele mesmo, não como um repórter de Hoenn",
+    "warp": "MAP_PEWTER_CITY_GYM",
+    "warp_id": 1,
+    "roteiro": "16:UP*9,60:NADA,20:A,120:NADA,20:A,180:NADA",
+    "prova": {
+      "mapa": "MAP_PEWTER_CITY_GYM",
+      "oponente_faixa": [1400, 1799]
+    }
+  }
+]
