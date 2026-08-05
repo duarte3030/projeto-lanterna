@@ -964,7 +964,14 @@ static void CB2_GiveStarter(void)
 
     *GetVarPointer(VAR_STARTER_MON) = gSpecialVar_Result;
     starterMon = GetStarterPokemon(gSpecialVar_Result);
-    ScriptGiveMon(starterMon, 5, ITEM_NONE);
+    // ponytail: 38, e nao 5, porque com a ordem cronologica (decisao 66) Hoenn e a
+    // TERCEIRA regiao, nao a primeira. A faixa de Hoenn na curva vai de 40 a 72
+    // (dev_scripts/curva_de_nivel.py), e o inicial de cada regiao nasce no piso
+    // menos 2: Johto 20, Hoenn 38, Sinnoh 55, Unova 70. Um inicial de nivel 5
+    // entregue depois de Kanto e Johto inteiras seria inutil no minuto seguinte.
+    // A batalha de tutorial contra o ZIGZAGOON logo abaixo continua funcionando;
+    // ela so fica facil, que e o que ja acontece com quem chega ali com time.
+    ScriptGiveMon(starterMon, 38, ITEM_NONE);
     ResetTasks();
     PlayBattleBGM();
     SetMainCallback2(CB2_StartFirstBattle);
