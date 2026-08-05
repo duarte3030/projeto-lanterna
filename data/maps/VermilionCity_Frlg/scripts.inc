@@ -310,7 +310,7 @@ VermilionCity_EventScript_InternationalFerry::
 	lock
 	faceplayer
 	msgbox VermilionCity_Text_WhereTo, MSGBOX_DEFAULT
-	multichoice 0, 0, MULTI_BOAT_DESTINATIONS, FALSE
+	multichoice 0, 0, MULTI_BOAT_FROM_VERMILION, FALSE
 	switch VAR_RESULT
 	case 0, VermilionCity_EventScript_SailToOlivine
 	case 1, VermilionCity_EventScript_SailToSlateport
@@ -323,6 +323,7 @@ VermilionCity_EventScript_SailToOlivine::
 	msgbox VermilionCity_Text_SettingSailToOlivine, MSGBOX_DEFAULT
 	closemessage
 	warpsilent MAP_OLIVINE_CITY_PORT_INSIDE, 8, 17
+	waitstate
 	release
 	end
 
@@ -330,6 +331,7 @@ VermilionCity_EventScript_SailToSlateport::
 	msgbox VermilionCity_Text_SettingSailToSlateport, MSGBOX_DEFAULT
 	closemessage
 	warpsilent MAP_SLATEPORT_CITY_HARBOR, 8, 14
+	waitstate
 	release
 	end
 
@@ -337,6 +339,7 @@ VermilionCity_EventScript_SailToCanalave::
 	msgbox VermilionCity_Text_SettingSailToCanalave, MSGBOX_DEFAULT
 	closemessage
 	warpsilent MAP_CANALAVE_CITY, 10, 10
+	waitstate
 	release
 	end
 
