@@ -1730,6 +1730,24 @@
 #define FLAG_HIDE_NUGGET_BRIDGE_ROCKET                     FLAG_UNUSED_0x2A0
 #define FLAG_HIDE_BILL_CLEFAIRY                            FLAG_UNUSED_0x021
 #define FLAG_HIDE_BILL_HUMAN_SEA_COTTAGE                   FLAG_UNUSED_0x04D
+// Arvores de fruta e fosseis de Unova (dev_scripts/importa_npcs_unova.py).
+// Faixa 0x4C3 a 0x4EE, o resto da faixa reservada a essa frente.
+#define FLAG_UNOVA_ITEM_COVERFOSSILB4F           FLAG_UNUSED_0x4C3
+#define FLAG_UNOVA_ITEM_PLUMEFOSSILB4F           FLAG_UNUSED_0x4C4
+#define FLAG_UNOVA_ARVORE_R_22                   FLAG_UNUSED_0x4C5
+#define FLAG_UNOVA_ARVORE_R_13                   FLAG_UNUSED_0x4C6
+#define FLAG_UNOVA_ARVORE_R_12                   FLAG_UNUSED_0x4C7
+#define FLAG_UNOVA_ARVORE_R_14                   FLAG_UNUSED_0x4C8
+#define FLAG_UNOVA_ARVORE_R_5                    FLAG_UNUSED_0x4C9
+#define FLAG_UNOVA_ARVORE_R_19                   FLAG_UNUSED_0x4CA
+#define FLAG_UNOVA_ARVORE_R_20                   FLAG_UNUSED_0x4CB
+#define FLAG_UNOVA_ARVORE_FLOCCESY_RANCH         FLAG_UNUSED_0x4CC
+#define FLAG_UNOVA_ARVORE_R_2                    FLAG_UNUSED_0x4CD
+#define FLAG_UNOVA_ARVORE_R_1                    FLAG_UNUSED_0x4CE
+#define FLAG_UNOVA_ARVORE_R_6                    FLAG_UNUSED_0x4CF
+#define FLAG_UNOVA_ARVORE_R_7                    FLAG_UNUSED_0x4D0
+#define FLAG_UNOVA_ARVORE_VILLAGE_BRIDGE         FLAG_UNUSED_0x4D1
+
 // Grutas escondidas de Unova (dev_scripts/importa_placas_unova.py).
 // Faixa 0x4B4 a 0x4EE, reservada a essa frente em 05/08/2026.
 #define FLAG_UNOVA_GRUTA_GIANTCHASMB1F            FLAG_UNUSED_0x4B4

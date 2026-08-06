@@ -30,3 +30,25 @@ Unova_IcirrusBoutique_Text_IcirrusBoutiqueBuenaText::
 	.string "\nout some cute"
 	.string "\pthings for your"
 	.string "\nPOKéMON instead!$"
+
+@ NPCs ligados a partir do BW3G por dev_scripts/importa_npcs_unova.py
+
+@ MART_BOUTIQUE do BW3G (data/items/marts.asm)
+Unova_IcirrusBoutique_EventScript_Loja0::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart Unova_IcirrusBoutique_EventScript_Loja0_Itens
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Unova_IcirrusBoutique_EventScript_Loja0_Itens:
+	.2byte ITEM_BLACK_GLASSES
+	.2byte ITEM_BLACK_BELT
+	.2byte ITEM_MUSCLE_BAND
+	.2byte ITEM_WISE_GLASSES
+	.2byte ITEM_FOCUS_BAND
+	pokemartlistend

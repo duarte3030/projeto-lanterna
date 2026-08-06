@@ -105,3 +105,15 @@ Unova_Rt1_Text_TwinsR1SeenText::
 
 Unova_Rt1_Text_TwinsR1BeatenText::
 	.string "Wow! We lost!$"
+
+@ NPCs ligados a partir do BW3G por dev_scripts/importa_npcs_unova.py
+
+@ FRUITTREE_R_1 do BW3G. ponytail: no gen 2 a arvore reenche;
+@ aqui a fruta sai uma vez, porque replantio e outra mecanica.
+Unova_Rt1_EventScript_Arvore::
+	lock
+	goto_if_set FLAG_UNOVA_ARVORE_R_1, Unova_EventScript_GrutaVazia
+	giveitem ITEM_CHERI_BERRY
+	setflag FLAG_UNOVA_ARVORE_R_1
+	release
+	end

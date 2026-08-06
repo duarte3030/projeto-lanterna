@@ -21,3 +21,15 @@ Unova_FloccesyRanch_EventScript_Gruta4BB::
 	goto_if_set FLAG_UNOVA_GRUTA_FLOCCESYRANCH, Unova_EventScript_GrutaVazia
 	setflag FLAG_UNOVA_GRUTA_FLOCCESYRANCH
 	goto Unova_EventScript_GrutaTier2
+
+@ NPCs ligados a partir do BW3G por dev_scripts/importa_npcs_unova.py
+
+@ FRUITTREE_FLOCCESY_RANCH do BW3G. ponytail: no gen 2 a arvore reenche;
+@ aqui a fruta sai uma vez, porque replantio e outra mecanica.
+Unova_FloccesyRanch_EventScript_Arvore::
+	lock
+	goto_if_set FLAG_UNOVA_ARVORE_FLOCCESY_RANCH, Unova_EventScript_GrutaVazia
+	giveitem ITEM_ORAN_BERRY
+	setflag FLAG_UNOVA_ARVORE_FLOCCESY_RANCH
+	release
+	end

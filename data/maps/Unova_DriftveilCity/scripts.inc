@@ -104,3 +104,47 @@ Unova_DriftveilCity_Text_DriftveilLass2Text::
 	.string "The people in the"
 	.string "\nSTONE EMPORIUM are"
 	.string "\lcrazy for gems!$"
+
+@ NPCs ligados a partir do BW3G por dev_scripts/importa_npcs_unova.py
+
+@ MART_MERCHANT_1 do BW3G (data/items/marts.asm)
+Unova_DriftveilCity_EventScript_Loja0::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart Unova_DriftveilCity_EventScript_Loja0_Itens
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Unova_DriftveilCity_EventScript_Loja0_Itens:
+	.2byte ITEM_SILK_SCARF
+	.2byte ITEM_MIRACLE_SEED
+	.2byte ITEM_CHARCOAL
+	.2byte ITEM_MYSTIC_WATER
+	pokemartlistend
+
+@ MART_MERCHANT_2 do BW3G (data/items/marts.asm)
+Unova_DriftveilCity_EventScript_Loja1::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart Unova_DriftveilCity_EventScript_Loja1_Itens
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Unova_DriftveilCity_EventScript_Loja1_Itens:
+	.2byte ITEM_X_ATTACK
+	.2byte ITEM_X_DEFEND
+	.2byte ITEM_X_SPEED
+	.2byte ITEM_X_SPECIAL
+	.2byte ITEM_X_SP_DEF
+	.2byte ITEM_X_ACCURACY
+	.2byte ITEM_DIRE_HIT
+	.2byte ITEM_GUARD_SPEC
+	pokemartlistend

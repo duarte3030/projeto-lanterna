@@ -24,3 +24,25 @@ Unova_NimbasaTMMart_Text_NimbasaTMMartSocialiteText::
 	.string "\nbe TMs that are"
 	.string "\pjust perfect for"
 	.string "\nyour POKéMON.$"
+
+@ NPCs ligados a partir do BW3G por dev_scripts/importa_npcs_unova.py
+
+@ MART_NIMBASA_TM do BW3G (data/items/marts.asm)
+Unova_NimbasaTMMart_EventScript_Loja0::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart Unova_NimbasaTMMart_EventScript_Loja0_Itens
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Unova_NimbasaTMMart_EventScript_Loja0_Itens:
+	.2byte ITEM_TM_REFLECT
+	.2byte ITEM_TM_LIGHT_SCREEN
+	.2byte ITEM_TM_PROTECT
+	.2byte ITEM_TM_DIG
+	.2byte ITEM_TM_SHOCK_WAVE
+	pokemartlistend

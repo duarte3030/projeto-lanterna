@@ -24,8 +24,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "script": "Unova_RelicCastleB4F_EventScript_CoverFossilB4F",
+      "flag": "FLAG_UNOVA_ITEM_COVERFOSSILB4F"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FOSSIL",
@@ -37,8 +37,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "script": "Unova_RelicCastleB4F_EventScript_PlumeFossilB4F",
+      "flag": "FLAG_UNOVA_ITEM_PLUMEFOSSILB4F"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_AZURILL",

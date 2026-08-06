@@ -90,3 +90,15 @@ Unova_VillageBridge_Text_Hoopster2VillageBridgeBeatenText::
 	.string "What the hoops? I"
 	.string "\nwas the one who"
 	.string "\lwas tricked!$"
+
+@ NPCs ligados a partir do BW3G por dev_scripts/importa_npcs_unova.py
+
+@ FRUITTREE_VILLAGE_BRIDGE do BW3G. ponytail: no gen 2 a arvore reenche;
+@ aqui a fruta sai uma vez, porque replantio e outra mecanica.
+Unova_VillageBridge_EventScript_Arvore::
+	lock
+	goto_if_set FLAG_UNOVA_ARVORE_VILLAGE_BRIDGE, Unova_EventScript_GrutaVazia
+	giveitem ITEM_CHESTO_BERRY
+	setflag FLAG_UNOVA_ARVORE_VILLAGE_BRIDGE
+	release
+	end

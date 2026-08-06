@@ -124,3 +124,120 @@ Unova_ShoppingMallNine_Text_MallBuenaText::
 	.string "\nmuch fun! I'm"
 	.string "\pthrilled with all"
 	.string "\nI've accomplished!$"
+
+@ NPCs ligados a partir do BW3G por dev_scripts/importa_npcs_unova.py
+
+@ MART_MALL_1 do BW3G (data/items/marts.asm)
+Unova_ShoppingMallNine_EventScript_Loja0::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart Unova_ShoppingMallNine_EventScript_Loja0_Itens
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Unova_ShoppingMallNine_EventScript_Loja0_Itens:
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_MAX_POTION
+	.2byte ITEM_REVIVE
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_FULL_HEAL
+	pokemartlistend
+
+@ MART_MALL_2 do BW3G (data/items/marts.asm)
+Unova_ShoppingMallNine_EventScript_Loja1::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart Unova_ShoppingMallNine_EventScript_Loja1_Itens
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Unova_ShoppingMallNine_EventScript_Loja1_Itens:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_ESCAPE_ROPE
+	.2byte ITEM_POKE_DOLL
+	.2byte ITEM_REPEL
+	.2byte ITEM_SUPER_REPEL
+	.2byte ITEM_MAX_REPEL
+	pokemartlistend
+
+@ MART_MALL_3 do BW3G (data/items/marts.asm)
+Unova_ShoppingMallNine_EventScript_Loja2::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart Unova_ShoppingMallNine_EventScript_Loja2_Itens
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Unova_ShoppingMallNine_EventScript_Loja2_Itens:
+	.2byte ITEM_TM_BLIZZARD
+	.2byte ITEM_TM_THUNDER
+	.2byte ITEM_TM_FIRE_BLAST
+	.2byte ITEM_TM_HYPER_BEAM
+	pokemartlistend
+
+@ MART_MALL_4 do BW3G (data/items/marts.asm)
+Unova_ShoppingMallNine_EventScript_Loja3::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart Unova_ShoppingMallNine_EventScript_Loja3_Itens
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Unova_ShoppingMallNine_EventScript_Loja3_Itens:
+	.2byte ITEM_PROTEIN
+	.2byte ITEM_IRON
+	.2byte ITEM_CARBOS
+	.2byte ITEM_CALCIUM
+	.2byte ITEM_HP_UP
+	.2byte ITEM_X_ATTACK
+	.2byte ITEM_X_DEFEND
+	.2byte ITEM_X_SPECIAL
+	.2byte ITEM_X_SP_DEF
+	.2byte ITEM_X_SPEED
+	.2byte ITEM_X_ACCURACY
+	.2byte ITEM_DIRE_HIT
+	.2byte ITEM_GUARD_SPEC
+	pokemartlistend
+
+@ MART_MALL_5 do BW3G (data/items/marts.asm)
+Unova_ShoppingMallNine_EventScript_Loja4::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart Unova_ShoppingMallNine_EventScript_Loja4_Itens
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Unova_ShoppingMallNine_EventScript_Loja4_Itens:
+	.2byte ITEM_LEAF_STONE
+	.2byte ITEM_FIRE_STONE
+	.2byte ITEM_WATER_STONE
+	.2byte ITEM_THUNDERSTONE
+	pokemartlistend

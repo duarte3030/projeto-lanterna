@@ -262,3 +262,53 @@ Unova_MembersRoom_Text_MembersRoomBiancaText::
 	.string "\pTell them the"
 	.string "\nPROF. sent you!"
 	.string "\lHee hee!$"
+
+@ NPCs ligados a partir do BW3G por dev_scripts/importa_npcs_unova.py
+
+@ MART_MEMBERS_1 do BW3G (data/items/marts.asm)
+Unova_MembersRoom_EventScript_Loja0::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart Unova_MembersRoom_EventScript_Loja0_Itens
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Unova_MembersRoom_EventScript_Loja0_Itens:
+	.2byte ITEM_DAWN_STONE
+	.2byte ITEM_MAGMARIZER
+	.2byte ITEM_DRAGON_SCALE
+	.2byte ITEM_RAZOR_CLAW
+	.2byte ITEM_RAZOR_FANG
+	.2byte ITEM_METAL_COAT
+	pokemartlistend
+
+@ MART_MEMBERS_2 do BW3G (data/items/marts.asm)
+Unova_MembersRoom_EventScript_Loja1::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart Unova_MembersRoom_EventScript_Loja1_Itens
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Unova_MembersRoom_EventScript_Loja1_Itens:
+	.2byte ITEM_LIGHT_CLAY
+	.2byte ITEM_BIG_ROOT
+	.2byte ITEM_AIR_BALLOON
+	.2byte ITEM_QUICK_CLAW
+	.2byte ITEM_NEVER_MELT_ICE
+	.2byte ITEM_DRAGON_FANG
+	.2byte ITEM_BLACK_SLUDGE
+	.2byte ITEM_FOCUS_SASH
+	.2byte ITEM_EXPERT_BELT
+	.2byte ITEM_CHOICE_BAND
+	.2byte ITEM_CHOICE_SPECS
+	.2byte ITEM_CHOICE_SCARF
+	pokemartlistend

@@ -123,3 +123,15 @@ Unova_Rt20_Text_NurseryAideR20BeatenText::
 	.string "\nbeing a very good"
 	.string "\pexample to the"
 	.string "\nkids, am I?$"
+
+@ NPCs ligados a partir do BW3G por dev_scripts/importa_npcs_unova.py
+
+@ FRUITTREE_R_20 do BW3G. ponytail: no gen 2 a arvore reenche;
+@ aqui a fruta sai uma vez, porque replantio e outra mecanica.
+Unova_Rt20_EventScript_Arvore::
+	lock
+	goto_if_set FLAG_UNOVA_ARVORE_R_20, Unova_EventScript_GrutaVazia
+	giveitem ITEM_PECHA_BERRY
+	setflag FLAG_UNOVA_ARVORE_R_20
+	release
+	end

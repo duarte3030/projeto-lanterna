@@ -19,3 +19,25 @@ Unova_NimbasaVitaminMart_Text_NimbasaVitaminMartGrannyText::
 	.string "\nSPEED, and CALCIUM"
 	.string "\lworks on both"
 	.string "\lSPECIAL stats.$"
+
+@ NPCs ligados a partir do BW3G por dev_scripts/importa_npcs_unova.py
+
+@ MART_NIMBASA_VITAMIN do BW3G (data/items/marts.asm)
+Unova_NimbasaVitaminMart_EventScript_Loja0::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart Unova_NimbasaVitaminMart_EventScript_Loja0_Itens
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Unova_NimbasaVitaminMart_EventScript_Loja0_Itens:
+	.2byte ITEM_PROTEIN
+	.2byte ITEM_IRON
+	.2byte ITEM_CARBOS
+	.2byte ITEM_CALCIUM
+	.2byte ITEM_HP_UP
+	pokemartlistend

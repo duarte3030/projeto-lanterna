@@ -150,3 +150,15 @@ Unova_Rt2_EventScript_Gruta4BD::
 	goto_if_set FLAG_UNOVA_GRUTA_R2, Unova_EventScript_GrutaVazia
 	setflag FLAG_UNOVA_GRUTA_R2
 	goto Unova_EventScript_GrutaTier2
+
+@ NPCs ligados a partir do BW3G por dev_scripts/importa_npcs_unova.py
+
+@ FRUITTREE_R_2 do BW3G. ponytail: no gen 2 a arvore reenche;
+@ aqui a fruta sai uma vez, porque replantio e outra mecanica.
+Unova_Rt2_EventScript_Arvore::
+	lock
+	goto_if_set FLAG_UNOVA_ARVORE_R_2, Unova_EventScript_GrutaVazia
+	giveitem ITEM_RAWST_BERRY
+	setflag FLAG_UNOVA_ARVORE_R_2
+	release
+	end

@@ -69,3 +69,15 @@ Unova_Rt14_Text_R14PrizeGiverSeenText::
 	.string "\la fabulous prize!"
 	.string "\pGo on, let's get"
 	.string "\nstarted!$"
+
+@ NPCs ligados a partir do BW3G por dev_scripts/importa_npcs_unova.py
+
+@ FRUITTREE_R_14 do BW3G. ponytail: no gen 2 a arvore reenche;
+@ aqui a fruta sai uma vez, porque replantio e outra mecanica.
+Unova_Rt14_EventScript_Arvore::
+	lock
+	goto_if_set FLAG_UNOVA_ARVORE_R_14, Unova_EventScript_GrutaVazia
+	giveitem ITEM_PERSIM_BERRY
+	setflag FLAG_UNOVA_ARVORE_R_14
+	release
+	end
