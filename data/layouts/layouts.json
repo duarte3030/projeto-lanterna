@@ -19056,6 +19056,149 @@
       "border_filepath": "data/layouts/Route209LostTower5F/border.bin",
       "blockdata_filepath": "data/layouts/Route209LostTower5F/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_IRON_ISLAND_1F",
+      "name": "IronIsland1F_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/IronIsland1F/border.bin",
+      "blockdata_filepath": "data/layouts/IronIsland1F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_TURNBACK_CAVE_ENTRANCE",
+      "name": "TurnbackCaveEntrance_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/TurnbackCaveEntrance/border.bin",
+      "blockdata_filepath": "data/layouts/TurnbackCaveEntrance/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_STARK_MOUNTAIN_ROOM_1",
+      "name": "StarkMountainRoom1_Layout",
+      "width": 64,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/StarkMountainRoom1/border.bin",
+      "blockdata_filepath": "data/layouts/StarkMountainRoom1/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_IRONISLAND",
+      "name": "IronIsland_Layout",
+      "width": 13,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Pasos",
+      "border_filepath": "data/layouts/IronIsland/border.bin",
+      "blockdata_filepath": "data/layouts/IronIsland/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_IRON_ISLAND_B3F",
+      "name": "IronIslandB3F_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/IronIslandB3F/border.bin",
+      "blockdata_filepath": "data/layouts/IronIslandB3F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_IRON_ISLAND_B1F_LEFT_ROOM",
+      "name": "IronIslandB1FLeftRoom_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/IronIslandB1FLeftRoom/border.bin",
+      "blockdata_filepath": "data/layouts/IronIslandB1FLeftRoom/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_IRON_ISLAND_B1F_RIGHT_ROOM",
+      "name": "IronIslandB1FRightRoom_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/IronIslandB1FRightRoom/border.bin",
+      "blockdata_filepath": "data/layouts/IronIslandB1FRightRoom/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_STARK_MOUNTAIN_ROOM_2",
+      "name": "StarkMountainRoom2_Layout",
+      "width": 96,
+      "height": 96,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/StarkMountainRoom2/border.bin",
+      "blockdata_filepath": "data/layouts/StarkMountainRoom2/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_IRON_ISLAND_B2F_LEFT_ROOM",
+      "name": "IronIslandB2FLeftRoom_Layout",
+      "width": 64,
+      "height": 64,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/IronIslandB2FLeftRoom/border.bin",
+      "blockdata_filepath": "data/layouts/IronIslandB2FLeftRoom/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_IRON_ISLAND_B2F_RIGHT_ROOM",
+      "name": "IronIslandB2FRightRoom_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/IronIslandB2FRightRoom/border.bin",
+      "blockdata_filepath": "data/layouts/IronIslandB2FRightRoom/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_IRON_ISLAND_IRON_RUINS",
+      "name": "IronIslandIronRuins_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/IronIslandIronRuins/border.bin",
+      "blockdata_filepath": "data/layouts/IronIslandIronRuins/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_IRON_RUINS",
+      "name": "IronRuins_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/IronRuins/border.bin",
+      "blockdata_filepath": "data/layouts/IronRuins/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_STARK_MOUNTAIN_ROOM_3",
+      "name": "StarkMountainRoom3_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/StarkMountainRoom3/border.bin",
+      "blockdata_filepath": "data/layouts/StarkMountainRoom3/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

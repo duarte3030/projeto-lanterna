@@ -2196,7 +2196,19 @@
     "Route209LostTower2F",
     "Route209LostTower3F",
     "Route209LostTower4F",
-    "Route209LostTower5F"
+    "Route209LostTower5F",
+    "IronIsland1F",
+    "TurnbackCaveEntrance",
+    "StarkMountainRoom1",
+    "IronIslandB3F",
+    "IronIslandB1FLeftRoom",
+    "IronIslandB1FRightRoom",
+    "StarkMountainRoom2",
+    "IronIslandB2FLeftRoom",
+    "IronIslandB2FRightRoom",
+    "IronIslandIronRuins",
+    "IronRuins",
+    "StarkMountainRoom3"
   ],
   "gMapGroup_IndoorSinnohPortas2": [
     "PastoriaCityPokecenterB1F",
@@ -2255,6 +2267,9 @@
     "VeilstoneStore4F",
     "VeilstoneStore5F",
     "UnusedJubilifeCityCondominiums4F",
-    "UnusedJubilifeCitySouthHouse4F"
+    "UnusedJubilifeCitySouthHouse4F",
+    "SendoffSpring",
+    "IronIsland",
+    "StarkMountainOutside"
   ]
 }

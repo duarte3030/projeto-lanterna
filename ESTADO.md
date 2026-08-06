@@ -51,8 +51,62 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 | Kanto | 98,1% | 100,1% | 100,0% | 100,0% |
 | Johto | **95,9%** | 94,0% | 100,0% | 96,0% |
 | Hoenn | 100,0% | 100,1% | 100,0% | 100,0% |
-| Sinnoh | **69,5%** | 80,0% | **99,1%** | 98,0% |
-| Unova | 94,2% | 98,3% | 98,9% | 98,0% |
+| Sinnoh | **72,1%** | 78,0% | **99,2%** | 96,0% |
+| Unova | 94,2% | 98,5% | 98,9% | 98,0% |
+
+Mudou em 06/08/2026, na sétima leva do dia: **Sinnoh foi de 69,5% para 72,1%
+dos mapas**, com 15 mapas novos, e desta vez **nada é régua**: são 12 masmorras
+com a geometria CONVERTIDA de verdade e 3 exteriores de planta REAPROVEITADA.
+Objetos e placas caíram em porcentagem porque o denominador cresceu: os mapas
+novos entram contando os NPCs e as placas que o Platinum tem neles.
+
+A fila de `converte_cavernas_sinnoh.py` dava **zero** e não era falta de
+masmorra: Turnback Cave, Iron Island e Stark Mountain já convertiam, e o que
+faltava era o mapa **DE FORA** por onde se entra em cada uma, porque o conversor
+só cria masmorra que é destino de warp de um mapa que já está na ROM. Exterior
+de gen 4 tem cenário DESENHADO que a grade 2D não guarda, e convertê-lo com o
+motor de caverna encheria a rua de parede de pedra; então os três exteriores
+saíram por `dev_scripts/abre_exteriores_sinnoh.py`, com a planta da antecâmara
+`Route226_Access` que o repo já tem (13x9). Cada `map.json` grava isso no campo
+`origem`, com a palavra "passagem provisoria".
+
+- **Convertido de verdade (12):** Turnback Cave Entrance; Iron Island 1F, B1F
+  Left, B1F Right, B2F Left, B2F Right, B3F, Iron Island Iron Ruins e Iron
+  Ruins (o Platinum tem os dois headers, matrizes 283 e 284, e o B3F leva aos
+  dois); Stark Mountain Room 1, 2 e 3.
+- **Reaproveitado (3):** Sendoff Spring (entra por Route214), Iron Island (por
+  CanalaveCity) e Stark Mountain Outside (por Route227). Sem NPC, sem placa e
+  sem texto de propósito: coordenada de exterior no Platinum é GLOBAL da matriz
+  de Sinnoh e não há offset que alinhe, então NPC importado cairia em qualquer
+  lugar dentro de uma sala de 13x9.
+- **Régua: nada.** Nenhuma medida mudou nesta leva.
+
+**As 21 salas de pilar da Turnback Cave não vêm, e isso não é defeito de
+ferramenta.** Medido na fonte: no Platinum toda sala de pilar aponta só de volta
+para a Entrance, e a Entrance aponta para si mesma. Qual sala se entra é
+escolhido por SCRIPT, não por warp, então não há warp estático que crie nenhuma
+delas. Elas custam o script de sorteio de sala, não conversão de mapa.
+
+**O bug que este bloco quase repetiu, e a prova que o pegou:** a primeira versão
+do `abre_exteriores_sinnoh.py` cravou a volta ao mundo em (6,4), que é onde a
+`Route226_Access` original tem o warp dela. Medido depois de aplicar: aquele
+tile é `MB_NORMAL`, warp MORTO que nunca disparou (a saída de lá é scriptada
+pelo marinheiro). Os três exteriores nasceram com entrada boa e **sem saída**,
+com validador estático verde: dava para entrar na masmorra e não dava para
+voltar ao mundo, que é a lição 4.1 outra vez. Agora a volta sai de
+`fecha_portas_sinnoh.portas_livres`, que lê o comportamento do tile no `map.bin`,
+e o `--demo` exige duas portas na planta: uma para voltar, pelo menos uma para a
+masmorra. Casos `T85.1` a `T85.8` provam no emulador as três idas, duas voltas
+de masmorra e as três voltas ao mundo.
+
+Armadilha de roteiro de teste medida aqui: `16:DOWN*3` **não** é o mesmo que
+`16:DOWN,16:DOWN,16:DOWN`. O `*N` do `gba_runner` repete os quadros dentro do
+mesmo passo, e a seta de warp (`TryArrowWarp`) só dispara com
+`input->heldDirection` e o jogador já virado para o lado
+(`src/field_control_avatar.c:204`). Roteiro que só soma tecla falha calado.
+
+Nenhuma flag foi gasta (a faixa 0x8EA a 0x8FF continua intacta) e **nenhum grupo
+novo foi criado**: seguem 126 dos 128.
 
 Mudou em 06/08/2026, na sexta leva do dia: **Sinnoh foi de 66,7% para 69,5% dos
 mapas e a taxa de warp que dispara de verdade foi de 95,8% para 97,0%**, com

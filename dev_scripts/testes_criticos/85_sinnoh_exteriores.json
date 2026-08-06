@@ -1,0 +1,82 @@
+[
+ {
+  "id": "T85.1",
+  "nome": "Do exterior provisorio SENDOFF SPRING se entra A PE na TURNBACK CAVE. Os 12 interiores desta leva estavam parados nao por falta de masmorra, e sim por falta do mapa DE FORA: converte_cavernas_sinnoh so cria masmorra que e destino de warp de um mapa que ja esta na ROM, e a fila dele dava zero. A planta e reaproveitada da antecamara Route226_Access do repo, 13x9, e nao convertida: exterior do Platinum tem cenario desenhado que a grade 2D nao carrega",
+  "warp": "MAP_SENDOFF_SPRING",
+  "roteiro": "16:RIGHT*11,90:NADA",
+  "prova": {
+   "mapa": "MAP_TURNBACK_CAVE_ENTRANCE",
+   "layout": "LAYOUT_TURNBACK_CAVE_ENTRANCE"
+  }
+ },
+ {
+  "id": "T85.2",
+  "nome": "E se VOLTA da TURNBACK CAVE para o exterior. Este caso existe porque a primeira versao do abre_exteriores_sinnoh cravou a volta ao mundo em (6,4), que e onde a planta ja tinha um warp: medido depois de aplicar, aquele tile e MB_NORMAL, warp morto que nunca disparou. Os tres exteriores nasceram com entrada boa e SEM saida, com validador estatico verde, que e a licao 4.1 do ESTADO outra vez. A volta agora sai de portas_livres, que le o comportamento do tile no map.bin",
+  "warp": "MAP_SENDOFF_SPRING",
+  "roteiro": "16:RIGHT*11,60:NADA,16:DOWN,16:DOWN,16:DOWN,16:DOWN,60:NADA",
+  "prova": {
+   "mapa": "MAP_SENDOFF_SPRING",
+   "layout": "LAYOUT_ROUTE226_ACCESS"
+  }
+ },
+ {
+  "id": "T85.3",
+  "nome": "Mesma ida e volta na segunda masmorra desta leva, a STARK MOUNTAIN, pelo exterior provisorio STARK MOUNTAIN OUTSIDE. Duas masmorras e nao uma porque exterior e planta compartilhada: um caso so provaria a planta, nao a ligacao de cada uma",
+  "warp": "MAP_STARK_MOUNTAIN_OUTSIDE",
+  "roteiro": "16:RIGHT*11,90:NADA",
+  "prova": {
+   "mapa": "MAP_STARK_MOUNTAIN_ROOM_1",
+   "layout": "LAYOUT_STARK_MOUNTAIN_ROOM_1"
+  }
+ },
+ {
+  "id": "T85.4",
+  "nome": "E a volta da STARK MOUNTAIN para o exterior dela",
+  "warp": "MAP_STARK_MOUNTAIN_OUTSIDE",
+  "roteiro": "16:RIGHT*11,60:NADA,16:DOWN,16:DOWN,16:DOWN,16:DOWN,60:NADA",
+  "prova": {
+   "mapa": "MAP_STARK_MOUNTAIN_OUTSIDE",
+   "layout": "LAYOUT_ROUTE226_ACCESS"
+  }
+ },
+ {
+  "id": "T85.5",
+  "nome": "A terceira masmorra desta leva, a IRON ISLAND, tambem se entra a pe pelo exterior provisorio. Iron Island B3F nao ganhou atalho direto do exterior porque a planta reaproveitada tem duas portas so; nao custa mapa nenhum, porque o B3F se alcanca por B1F Right e B2F Left, conferido na fonte",
+  "warp": "MAP_IRON_ISLAND",
+  "roteiro": "16:RIGHT*11,90:NADA",
+  "prova": {
+   "mapa": "MAP_IRON_ISLAND_1F",
+   "layout": "LAYOUT_IRON_ISLAND_1F"
+  }
+ },
+ {
+  "id": "T85.6",
+  "nome": "O exterior provisorio devolve ao MUNDO, e nao so a masmorra: de SENDOFF_SPRING se sai a pe para ROUTE214. A boca no pai foi desenhada por este script, porque nenhum dos tres pais tinha porta orfa; a palavra de 16 bits e copiada de uma porta nao animada do proprio mapa, nunca escolhida de cabeca",
+  "warp": "MAP_SENDOFF_SPRING",
+  "roteiro": "16:LEFT,16:LEFT,16:LEFT,16:LEFT,90:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE214",
+   "layout": "LAYOUT_ROUTE214"
+  }
+ },
+ {
+  "id": "T85.7",
+  "nome": "O exterior provisorio devolve ao MUNDO, e nao so a masmorra: de IRON_ISLAND se sai a pe para CANALAVE_CITY. A boca no pai foi desenhada por este script, porque nenhum dos tres pais tinha porta orfa; a palavra de 16 bits e copiada de uma porta nao animada do proprio mapa, nunca escolhida de cabeca",
+  "warp": "MAP_IRON_ISLAND",
+  "roteiro": "16:LEFT,16:LEFT,16:LEFT,16:LEFT,90:NADA",
+  "prova": {
+   "mapa": "MAP_CANALAVE_CITY",
+   "layout": "LAYOUT_CANALAVE_CITY"
+  }
+ },
+ {
+  "id": "T85.8",
+  "nome": "O exterior provisorio devolve ao MUNDO, e nao so a masmorra: de STARK_MOUNTAIN_OUTSIDE se sai a pe para ROUTE227. A boca no pai foi desenhada por este script, porque nenhum dos tres pais tinha porta orfa; a palavra de 16 bits e copiada de uma porta nao animada do proprio mapa, nunca escolhida de cabeca",
+  "warp": "MAP_STARK_MOUNTAIN_OUTSIDE",
+  "roteiro": "16:LEFT,16:LEFT,16:LEFT,16:LEFT,90:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE227",
+   "layout": "LAYOUT_ROUTE227"
+  }
+ }
+]

@@ -1,0 +1,43 @@
+{
+  "id": "MAP_IRON_ISLAND_B1F_LEFT_ROOM",
+  "name": "IronIslandB1FLeftRoom",
+  "layout": "LAYOUT_IRON_ISLAND_B1F_LEFT_ROOM",
+  "music": "MUS_RG_MT_MOON",
+  "region_map_section": "MAPSEC_SINNOH_NORTH",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": true,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+      "x": 11,
+      "y": 13,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "0",
+      "origem": "pokeplatinum"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 15,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_IRON_ISLAND_1F",
+      "dest_warp_id": "1"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [],
+  "origem": "pokeplatinum: geometria convertida da grade 2D (map_data), mais NPC, placa e texto"
+}
