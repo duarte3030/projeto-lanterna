@@ -1,0 +1,47 @@
+[
+  {
+    "id": "T80.1",
+    "nome": "A biblioteca de CANALAVE tem 2F, e da para subir A PE. Ate 06/08/2026 MAP_CANALAVE_LIBRARY_2F nao existia e a escada do 1F era degrau pintado. O caso entra pela porta da rua (warp 0 do 1F), atravessa a sala e sobe. A prova e o MAPA ATUAL lido da EWRAM, e nao o JSON: warp que existe no JSON nao e warp que dispara, e foi lendo JSON que a sessao de Kanto se enganou",
+    "warp": "MAP_CANALAVE_LIBRARY_1F",
+    "roteiro": "16:UP*2,16:RIGHT,16:UP*4,16:LEFT,16:UP,90:NADA",
+    "prova": {
+      "mapa": "MAP_CANALAVE_LIBRARY_2F"
+    }
+  },
+  {
+    "id": "T80.2",
+    "nome": "A POKEMON MANSION tem escritorio, e o tile de porta dele foi DESENHADO por abre_portas_teimosas_sinnoh depois de CLONAR o layout compartilhado (sem o clone a porta apareceria nas 74 casas que usam a mesma planta). Duas armadilhas medidas escrevendo este caso: virar custa uma tecla, entao cada trecho leva um passo a mais que a distancia, e a porta e MB_ANIMATED_DOOR, que so dispara com o jogador entrando por BAIXO, nunca de lado",
+    "warp": "MAP_POKEMON_MANSION",
+    "roteiro": "16:UP*3,16:LEFT*3,16:UP*5,16:RIGHT*2,16:UP*2,90:NADA",
+    "prova": {
+      "mapa": "MAP_POKEMON_MANSION_OFFICE"
+    }
+  },
+  {
+    "id": "T80.3",
+    "nome": "O GLOBAL TERMINAL tem 2F e 3F, e as DUAS escadas do saguao levam a andares DIFERENTES. Os dois roteiros so mudam num passo, o que torna o caso uma prova de que cada porta tem destino proprio, e nao de que uma porta qualquer abre",
+    "warp": "MAP_GLOBAL_TERMINAL_1F",
+    "roteiro": "16:UP*3,16:LEFT*3,16:UP*5,16:RIGHT*6,16:UP*2,90:NADA",
+    "prova": {
+      "mapa": "MAP_GLOBAL_TERMINAL_2F"
+    }
+  },
+  {
+    "id": "T80.4",
+    "nome": "A outra escada do GLOBAL TERMINAL leva ao 3F. Par do T80.3",
+    "warp": "MAP_GLOBAL_TERMINAL_1F",
+    "roteiro": "16:UP*3,16:LEFT*3,16:UP*5,16:RIGHT*5,16:UP*2,90:NADA",
+    "prova": {
+      "mapa": "MAP_GLOBAL_TERMINAL_3F"
+    }
+  },
+  {
+    "id": "T80.5",
+    "nome": "O elevador da JUBILIFE TV existe e e alcancavel a pe desde a porta da rua, atravessando o saguao inteiro. E o roteiro mais longo da leva de proposito: 25 tiles em cinco trechos, entao ele so chega se o andar for andavel do comeco ao fim",
+    "warp": "MAP_JUBILIFE_CITY_JUBILIFE_TV_F1",
+    "roteiro": "16:UP*3,16:LEFT*6,16:UP*5,16:RIGHT*2,16:UP*3,16:RIGHT*7,16:DOWN*2,16:RIGHT*5,16:UP*2,90:NADA",
+    "prova": {
+      "mapa": "MAP_JUBILIFE_TV_ELEVATOR"
+    }
+  }
+]
