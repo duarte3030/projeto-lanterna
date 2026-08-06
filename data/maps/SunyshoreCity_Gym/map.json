@@ -64,6 +64,13 @@
       "elevation": 0,
       "dest_map": "MAP_SUNYSHORE_CITY",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 12,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_SUNYSHORE_CITY_GYM_ROOM_2",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

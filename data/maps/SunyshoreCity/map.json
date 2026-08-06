@@ -257,6 +257,13 @@
       "elevation": 0,
       "dest_map": "MAP_SUNYSHORE_CITY_EAST_HOUSE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 59,
+      "y": 53,
+      "elevation": 0,
+      "dest_map": "MAP_VISTA_LIGHTHOUSE_ELEVATOR",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

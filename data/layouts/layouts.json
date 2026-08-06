@@ -18682,6 +18682,160 @@
       "border_filepath": "data/layouts/EternaCityCondominiums3F/border.bin",
       "blockdata_filepath": "data/layouts/EternaCityCondominiums3F/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_CANALAVELIBRARY1F",
+      "name": "CanalaveLibrary1F_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/CanalaveLibrary1F/border.bin",
+      "blockdata_filepath": "data/layouts/CanalaveLibrary1F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_CONTESTHALLLOBBY",
+      "name": "ContestHallLobby_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/ContestHallLobby/border.bin",
+      "blockdata_filepath": "data/layouts/ContestHallLobby/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_GLOBALTERMINAL1F",
+      "name": "GlobalTerminal1F_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/GlobalTerminal1F/border.bin",
+      "blockdata_filepath": "data/layouts/GlobalTerminal1F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HEARTHOMECITYGYMTRAINERROOM2",
+      "name": "HearthomeCityGymTrainerRoom2_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/HearthomeCityGymTrainerRoom2/border.bin",
+      "blockdata_filepath": "data/layouts/HearthomeCityGymTrainerRoom2/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HEARTHOMECITYNORTHEASTHOUSE1F",
+      "name": "HearthomeCityNortheastHouse1F_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/HearthomeCityNortheastHouse1F/border.bin",
+      "blockdata_filepath": "data/layouts/HearthomeCityNortheastHouse1F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HEARTHOMECITYSOUTHEASTHOUSE1F",
+      "name": "HearthomeCitySoutheastHouse1F_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/HearthomeCitySoutheastHouse1F/border.bin",
+      "blockdata_filepath": "data/layouts/HearthomeCitySoutheastHouse1F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_POKEMONLEAGUENORTHPOKECENTER1F",
+      "name": "PokemonLeagueNorthPokecenter1F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/PokemonLeagueNorthPokecenter1F/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonLeagueNorthPokecenter1F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_POKEMONMANSION",
+      "name": "PokemonMansion_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/PokemonMansion/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonMansion/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_RESORTAREARIBBONSYNDICATE1F",
+      "name": "ResortAreaRibbonSyndicate1F_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/ResortAreaRibbonSyndicate1F/border.bin",
+      "blockdata_filepath": "data/layouts/ResortAreaRibbonSyndicate1F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SUNYSHORECITYGYMROOM2",
+      "name": "SunyshoreCityGymRoom2_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SunyshoreCityGymRoom2/border.bin",
+      "blockdata_filepath": "data/layouts/SunyshoreCityGymRoom2/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_VEILSTONESTORE1F",
+      "name": "VeilstoneStore1F_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_ShopSinnoh",
+      "border_filepath": "data/layouts/VeilstoneStore1F/border.bin",
+      "blockdata_filepath": "data/layouts/VeilstoneStore1F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_VEILSTONESTORE2F",
+      "name": "VeilstoneStore2F_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_ShopSinnoh",
+      "border_filepath": "data/layouts/VeilstoneStore2F/border.bin",
+      "blockdata_filepath": "data/layouts/VeilstoneStore2F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_VEILSTONESTORE3F",
+      "name": "VeilstoneStore3F_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_ShopSinnoh",
+      "border_filepath": "data/layouts/VeilstoneStore3F/border.bin",
+      "blockdata_filepath": "data/layouts/VeilstoneStore3F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_VEILSTONESTORE4F",
+      "name": "VeilstoneStore4F_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_ShopSinnoh",
+      "border_filepath": "data/layouts/VeilstoneStore4F/border.bin",
+      "blockdata_filepath": "data/layouts/VeilstoneStore4F/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

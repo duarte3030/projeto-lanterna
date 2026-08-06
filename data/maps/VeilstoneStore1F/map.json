@@ -1,7 +1,7 @@
 {
   "id": "MAP_VEILSTONE_STORE_1F",
   "name": "VeilstoneStore1F",
-  "layout": "LAYOUT_OREBURGH_CITY_MART",
+  "layout": "LAYOUT_VEILSTONESTORE1F",
   "music": "MUS_POKE_MART",
   "region_map_section": "MAPSEC_SINNOH_WEST",
   "requires_flash": false,
@@ -127,6 +127,27 @@
       "elevation": 0,
       "dest_map": "MAP_VEILSTONE_CITY",
       "dest_warp_id": "8"
+    },
+    {
+      "x": 5,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_VEILSTONE_STORE_2F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 8,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_VEILSTONE_STORE_ELEVATOR",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_VEILSTONE_STORE_B1F",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

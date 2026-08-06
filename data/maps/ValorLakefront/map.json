@@ -122,6 +122,13 @@
       "elevation": 0,
       "dest_map": "MAP_LAKE_VALOR_DRAINED",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 29,
+      "y": 57,
+      "elevation": 0,
+      "dest_map": "MAP_RESTAURANT",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

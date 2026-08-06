@@ -141,6 +141,13 @@
       "elevation": 0,
       "dest_map": "MAP_JUBILIFE_CITY_JUBILIFE_TV_F4",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 13,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_JUBILIFE_TV_3F_GROUP_RANKING_ROOM",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

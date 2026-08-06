@@ -1,7 +1,7 @@
 {
   "id": "MAP_HEARTHOME_CITY_SOUTHEAST_HOUSE_1F",
   "name": "HearthomeCitySoutheastHouse1F",
-  "layout": "LAYOUT_OREBURGH_CITY_HOUSE1",
+  "layout": "LAYOUT_HEARTHOMECITYSOUTHEASTHOUSE1F",
   "music": "MUS_PETALBURG",
   "region_map_section": "MAPSEC_SINNOH_WEST",
   "requires_flash": false,
@@ -71,6 +71,13 @@
       "elevation": 0,
       "dest_map": "MAP_HEARTHOME_CITY",
       "dest_warp_id": "11"
+    },
+    {
+      "x": 6,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_HEARTHOME_CITY_SOUTHEAST_HOUSE_ELEVATOR",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

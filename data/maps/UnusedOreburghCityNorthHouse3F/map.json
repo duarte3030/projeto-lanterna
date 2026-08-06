@@ -64,6 +64,13 @@
       "elevation": 0,
       "dest_map": "MAP_OREBURGH_CITY_FLAT2_F2",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_UNUSED_OREBURGH_CITY_NORTH_HOUSE_4F",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

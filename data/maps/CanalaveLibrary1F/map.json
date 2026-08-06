@@ -1,7 +1,7 @@
 {
   "id": "MAP_CANALAVE_LIBRARY_1F",
   "name": "CanalaveLibrary1F",
-  "layout": "LAYOUT_OREBURGH_CITY_HOUSE1",
+  "layout": "LAYOUT_CANALAVELIBRARY1F",
   "music": "MUS_PETALBURG",
   "region_map_section": "MAPSEC_SINNOH_WEST",
   "requires_flash": false,
@@ -57,6 +57,13 @@
       "elevation": 0,
       "dest_map": "MAP_CANALAVE_CITY",
       "dest_warp_id": "4"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_CANALAVE_LIBRARY_2F",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

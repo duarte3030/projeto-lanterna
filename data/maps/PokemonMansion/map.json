@@ -1,7 +1,7 @@
 {
   "id": "MAP_POKEMON_MANSION",
   "name": "PokemonMansion",
-  "layout": "LAYOUT_OREBURGH_CITY_HOUSE1",
+  "layout": "LAYOUT_POKEMONMANSION",
   "music": "MUS_PETALBURG",
   "region_map_section": "MAPSEC_SINNOH_WEST",
   "requires_flash": false,
@@ -99,6 +99,20 @@
       "elevation": 0,
       "dest_map": "MAP_ROUTE212_NORTH",
       "dest_warp_id": "2"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_POKEMON_MANSION_MAIDS_ROOM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_POKEMON_MANSION_OFFICE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

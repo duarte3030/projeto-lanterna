@@ -165,6 +165,58 @@ NOMEADOS = {
     "VEILSTONE_STORE_1F": "mart", "VILLA": "casa", "BATTLEGROUND": "casa",
     "PAL_PARK_LOBBY": "casa", "ROTOMS_ROOM": "casa",
     "SOLACEON_RUINS_MANIAC_TUNNEL_ROOM": None,   # explicito: fica de fora
+
+    # --- segunda leva, 06/08/2026: sala de predio que ja esta na ROM.
+    # Todos estes sao destino de warp de mapa que NOS TEMOS, ou seja, porta que
+    # o jogador ve hoje e nao abre. Nenhum e rua, rota ou caverna: sala fechada
+    # com planta de sala e o mesmo negocio que fechou as 112 primeiras portas.
+    # Elevador cai em "andar" de proposito: a planta de andar de cima do repo e
+    # uma caixa pequena com escada de volta, que e o que um elevador precisa
+    # ser. Nao vale a pena arquetipo novo so para isso, e a planta do elevador
+    # de Lilycove traria REGION_HOENN e MAPSEC_LILYCOVE_CITY junto.
+    "JUBILIFE_TV_ELEVATOR": "andar",
+    "JUBILIFE_TV_2F_GALLERY": "casa",
+    "JUBILIFE_TV_3F_GLOBAL_RANKING_ROOM": "casa",
+    "JUBILIFE_TV_3F_GROUP_RANKING_ROOM": "casa",
+    "HEARTHOME_CITY_NORTHEAST_HOUSE_ELEVATOR": "andar",
+    "HEARTHOME_CITY_SOUTHEAST_HOUSE_ELEVATOR": "andar",
+    "HEARTHOME_CITY_NORTHEAST_HOUSE_2F": "andar",
+    "HEARTHOME_CITY_SOUTHEAST_HOUSE_2F": "andar",
+    "HEARTHOME_CITY_GYM_LEADER_ROOM": "casa",
+    "HEARTHOME_CITY_GYM_TRAINER_ROOM_1": "casa",
+    "HEARTHOME_CITY_GYM_TRAINER_ROOM_2": "casa",
+    "SUNYSHORE_CITY_GYM_ROOM_2": "casa",
+    "SUNYSHORE_CITY_GYM_ROOM_3": "casa",
+    "CANALAVE_LIBRARY_2F": "andar",
+    "CANALAVE_LIBRARY_3F": "andar",
+    "GLOBAL_TERMINAL_2F": "andar",
+    "GLOBAL_TERMINAL_3F": "andar",
+    "VEILSTONE_STORE_2F": "mart", "VEILSTONE_STORE_3F": "mart",
+    "VEILSTONE_STORE_4F": "mart", "VEILSTONE_STORE_5F": "mart",
+    "VEILSTONE_STORE_B1F": "mart", "VEILSTONE_STORE_ELEVATOR": "andar",
+    "RESORT_AREA_RIBBON_SYNDICATE_2F": "andar",
+    "RESORT_AREA_RIBBON_SYNDICATE_ELEVATOR": "andar",
+    "VISTA_LIGHTHOUSE": "casa", "VISTA_LIGHTHOUSE_ELEVATOR": "andar",
+    "POKEMON_MANSION_MAIDS_ROOM": "casa",
+    "POKEMON_MANSION_OFFICE": "casa",
+    "GALACTIC_HQ_4F": "casa",
+    "RESTAURANT": "casa",
+    "CONTEST_HALL_STAGE_NO_CONTEST": "casa",
+    "FLOAROMA_MEADOW_HOUSE": "casa",
+    "IRON_ISLAND_HOUSE": "casa",
+    "POKEMON_LEAGUE_ELEVATOR_TO_AARON_ROOM": "andar",
+    "POKEMON_LEAGUE_ELEVATOR_TO_BERTHA_ROOM": "andar",
+    "POKEMON_LEAGUE_ELEVATOR_TO_FLINT_ROOM": "andar",
+    "POKEMON_LEAGUE_ELEVATOR_TO_LUCIAN_ROOM": "andar",
+    "POKEMON_LEAGUE_ELEVATOR_TO_CHAMPION_ROOM": "andar",
+    # Explicito, fica de fora: sala da Elite dos Quatro e da campea. Cynthia,
+    # Aaron e companhia caem em `I.NOMES_PROPRIOS` e sumiriam na importacao, e
+    # a sala sairia vazia. Sala vazia de campea mente mais que porta fechada.
+    "POKEMON_LEAGUE_AARON_ROOM": None,
+    "POKEMON_LEAGUE_BERTHA_ROOM": None,
+    "POKEMON_LEAGUE_FLINT_ROOM": None,
+    "POKEMON_LEAGUE_LUCIAN_ROOM": None,
+    "POKEMON_LEAGUE_CHAMPION_ROOM": None,
 }
 
 # Header que ja tem mapa nosso com outro nome, ou que outro agente cuida.
@@ -539,9 +591,10 @@ def main():
 
     # ---- escreve
     grupos = json.load(open(f"{REPO}/data/maps/map_groups.json"))
-    if GRUPO_NOVO not in grupos["group_order"]:
-        grupos["group_order"].append(GRUPO_NOVO)   # grupo novo SO no fim
-        grupos[GRUPO_NOVO] = []
+    # NAO escrever direto em GRUPO_NOVO: em 06/08/2026 ele ja estava com os 128
+    # mapas do teto (`s8 mapGroup`/`s8 mapNum`), e o 129o teria nascido morto,
+    # que e exatamente o defeito que matou 26 mapas. `grupo_com_vaga` escolhe o
+    # proximo grupo que ainda tem vaga, sempre no FIM do `group_order`.
     incs = []
     conta = {"mapas": 0, "npcs": 0, "placas": 0, "textos": 0}
 
@@ -577,7 +630,7 @@ def main():
                   indent=2, ensure_ascii=False)
         with open(f"{REPO}/data/maps/{pasta}/scripts.inc", "w") as f:
             f.write(f"{pasta}_MapScripts::\n\t.byte 0\n{trecho}")
-        grupos[GRUPO_NOVO].append(pasta)           # mapa novo SO no fim
+        grupos[grupo_com_vaga(grupos, GRUPO_NOVO)].append(pasta)  # SO no fim
         incs.append(f'\t.include "data/maps/{pasta}/scripts.inc"\n')
         conta["mapas"] += 1
         conta["npcs"] += len(objs)
@@ -642,6 +695,18 @@ def demo():
     assert list(pares.values()) == ["MAP_HEADER_X_POKECENTER_1F"], pares
     # 4. item escondido do Platinum nao e placa.
     assert 8161 >= 8000
+    # 6. sala de predio da segunda leva entra, e sala da Elite fica de fora.
+    for h, esperado in (("MAP_HEADER_HEARTHOME_CITY_GYM_LEADER_ROOM", "casa"),
+                        ("MAP_HEADER_JUBILIFE_TV_ELEVATOR", "andar"),
+                        ("MAP_HEADER_VEILSTONE_STORE_B1F", "mart"),
+                        ("MAP_HEADER_POKEMON_LEAGUE_CHAMPION_ROOM", None),
+                        ("MAP_HEADER_GREAT_MARSH_1", None),
+                        ("MAP_HEADER_DISTORTION_WORLD_1F", None)):
+        assert arquetipo_do_header(h) == esperado, h
+    # 7. grupo cheio NAO recebe o mapa 129: ele nasceria com indice 128, que
+    #    vira -128 no `s8` do warp e reseta o jogo ao entrar.
+    g = {"group_order": ["gX"], "gX": ["m"] * LIMITE_GRUPO}
+    assert grupo_com_vaga(g, "gX") == "gX2", g
     print("demo ok")
     return 0
 
