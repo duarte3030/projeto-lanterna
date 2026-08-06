@@ -168,11 +168,11 @@
   },
   {
     "id": "T9.5",
-    "nome": "Spear Pillar carrega",
+    "nome": "Spear Pillar carrega COM LAYOUT PROPRIO. Ate 06/08/2026 ele emprestava LAYOUT_SKY_PILLAR_TOP, de HOENN: mexer no cume do Spear Pillar mexia no Sky Pillar junto. O layout foi clonado, e este caso passa a exigir o clone",
     "warp": "MAP_SPEAR_PILLAR",
     "prova": {
       "mapa": "MAP_SPEAR_PILLAR",
-      "layout": "LAYOUT_SKY_PILLAR_TOP"
+      "layout": "LAYOUT_SPEARPILLAR"
     }
   },
   {
