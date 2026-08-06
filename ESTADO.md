@@ -278,6 +278,22 @@ flag. Todo índice é promessa permanente, e não há migração em pokeemerald.
 - objeto novo só no **fim** da lista do mapa
 - flag nova só do pool que já está dentro de `FLAGS_COUNT`
 
+### Teto de 128, e a política de grupo (decidida em 05/08/2026)
+
+`struct WarpData` guarda `s8 mapGroup` e `s8 mapNum` (`include/global.h:668`).
+O mapa de índice **128** de um grupo vira -128 dentro do warp e **o jogo reseta
+ao entrar nele**. Medido no emulador índice a índice: 127 entra, 128 derruba. O
+mesmo teto vale para a quantidade de grupos. Custou 26 mapas mortos no grupo de
+portas de Sinnoh, todos com warp que o validador estático dava por bom.
+
+Estado medido: **126 dos 128 grupos em uso, e 14.302 vagas livres DENTRO dos
+grupos existentes.** O que é escasso é grupo, não vaga.
+
+**Política: não criar grupo novo.** Mapa novo entra no fim de um grupo que já
+existe e tem vaga (`fecha_portas_sinnoh.grupo_com_vaga` escolhe sozinha). Criar
+grupo só com autorização explícita do Gui, porque só restam 2 e não há como
+devolver. O `antes_de_empurrar.sh` recusa grupo acima de 128.
+
 `python3 dev_scripts/guarda_save.py` tem que dizer SAVE COMPATIVEL.
 
 **A janela de quebrar save de graça fecha quando o Gui receber a primeira build
