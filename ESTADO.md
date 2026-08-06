@@ -31,11 +31,11 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 
 | medida | valor |
 |---|---|
-| ROM | **94,43% de 32 MB** (1,78 MB livres) |
+| ROM | **94,67% de 32 MB** (1,74 MB livres) |
 | EWRAM / IWRAM | 85,57% / 86,62% |
 | SaveBlock1 | **13432 de 15872 B (84,6%)** |
 | flags livres no pool | **184** (eram 288 antes de ligar as de Kanto) |
-| mapas | **1870** |
+| mapas | **1878** |
 | treinadores com time próprio | **2346** |
 | grupos de mapa | **126** (teto duro de **128** grupos e **128 mapas por grupo**: `s8` em `struct WarpData`; passar disso mata o mapa) |
 | suíte de testes | **107 de 110** (1 pulado precisa de duas builds; 2 reprovados são de Unova) |
@@ -51,8 +51,57 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 | Kanto | 98,1% | 100,1% | 100,0% | 100,0% |
 | Johto | **95,9%** | 94,0% | 100,0% | 96,0% |
 | Hoenn | 100,0% | 100,1% | 100,0% | 100,0% |
-| Sinnoh | **66,7%** | 80,3% | **99,0%** | 98,3% |
+| Sinnoh | **69,5%** | 80,0% | **99,1%** | 98,0% |
 | Unova | 94,2% | 98,3% | 98,9% | 98,0% |
+
+Mudou em 06/08/2026, na sexta leva do dia: **Sinnoh foi de 66,7% para 69,5% dos
+mapas e a taxa de warp que dispara de verdade foi de 95,8% para 97,0%**, com
+oito mapas novos e, de novo, NENHUMA ferramenta nova. Pela terceira leva
+seguida, o que travava era **regua errada dentro da ferramenta certa**.
+
+- `converte_cavernas_sinnoh.chao_de_caverna` contava so
+  `TILE_BEHAVIOR_CAVE_FLOOR` (0x08). Vizinhos dele no MESMO enum do pokeplatinum
+  (`include/constants/field/map_tile_behaviors.h`) sao `OLD_CHATEAU_FLOOR`
+  (0x0B) e `MOUNTAIN_FLOOR` (0x0C). Por isso os cinco andares da **Lost Tower da
+  Route 209** (84 a 123 tiles de 0x0B cada) e a quinta sala do fundo do **Old
+  Chateau** eram reprovados como "nao e caverna de verdade", com a planta
+  inteira desenhada na grade do Platinum. O filtro por `mapType` errava dos dois
+  lados no mesmo lugar: FLOAROMA_MEADOW esta marcado CAVE e e um prado, a Lost
+  Tower esta marcada INDOORS e e masmorra. Quem decide agora e o chao na grade;
+  so `MAP_TYPE_OUTDOORS` fica de fora, por decisao. Casa, ginasio de Hearthome,
+  Vista Lighthouse, Celestic Cave e a sala de ranking da Jubilife TV continuam
+  fora, todos com ZERO chao de masmorra, e sao eles que provam que abrir para
+  INDOORS nao abriu a porteira.
+- **Achado maior que a propria leva:** o conversor cravava `dest_warp_id` "0" em
+  toda escada, porque no laco que escreve o mapa do outro lado ainda nao existe.
+  So que o warp 0 de uma masmorra e a SAIDA dela: **descer um andar cuspia o
+  jogador para fora do dungeon inteiro**, e eram **69 escadas assim**, incluindo
+  a Victory Road de Sinnoh, que jogava o jogador na porta da Liga. Isso passou
+  pela leva anterior com validador estatico verde: warp que existe, dispara, e
+  leva ao lugar errado (licao 4.1 por inteiro). `casa_voltas()` aponta cada uma
+  para o degrau que devolve, e o caso `T84.3` guarda a prova.
+- Nove mapas que **ja estavam na ROM** sairam da lista de ausentes so por
+  apelido de nome (`importa_npcs_sinnoh.APELIDOS`), entre eles as **seis salas
+  da Elite dos Quatro de Sinnoh**, que aqui se chamam `SinnohLeague_*` e la
+  `POKEMON_LEAGUE_*`. Isso e correcao de MEDIDA, nao mapa novo, e esta separado
+  de proposito: dos 2,8 pontos da leva, 1,5 e regua e 1,3 e mapa.
+
+O que a regua nova alcancou e **nao entrou**: as quatro salas de elevador da
+Liga. Abri-las fura a parede das cinco salas da Elite dos Quatro para um quarto
+que devolve o jogador de onde ele veio, e a Elite ja se liga sala a sala com o
+bloqueio de vitoria. `abre_portas_extras_sinnoh.NAO_FURAR` registra o motivo.
+
+Tres `--demo` guardavam copia de um fato e envelheceram calados, todos
+reprovando o proprio conserto da leva anterior (licao 4.11): "CanalaveCity tem 4
+predios sem porta" (as quatro portas foram abertas), "os 15 mapas do layout de
+centro Pokemon" (sao 14) e "o predio da Galactica divide layout" (foi clonado).
+Passaram a testar a forma, nao a contagem. **O portao nao roda `--demo` de
+ferramenta**, e foi por isso que os tres ficaram vermelhos sem ninguem ver.
+
+Armadilha de roteiro medida escrevendo o `T84.2`, que contradiz a da leva
+anterior e vale mais que ela: **depois de um warp pelo menu de debug o jogador
+NAO gasta tecla para virar**, cada toque anda um tile. "Virar custa uma tecla"
+vale para quem ja estava andando no mapa.
 
 Mudou em 06/08/2026, na quarta e na quinta leva do dia: **Sinnoh foi de 59,3%
 para 66,7% dos mapas e de 96,9% para 99,0% dos warps**, com 44 mapas novos e
@@ -145,7 +194,7 @@ o 51,0% de hoje é ela subindo com mapa novo, não com régua nova.
 
 | Hoenn | Johto | Sinnoh | Unova | Kanto |
 |---|---|---|---|---|
-| 93,2% | 91,2% | 95,8% | 78,6% | 79,4% |
+| 93,2% | 91,2% | 97,0% | 78,6% | 79,4% |
 
 **Nunca chega a 100%, e não deve.** Warp só dispara se o tile embaixo tiver
 comportamento de porta; muita porta é trocada por `setmetatile` em tempo de
@@ -392,7 +441,7 @@ scripts liam de lá.
 
 ## 8. O que falta, em ordem de tamanho
 
-1. **Sinnoh, mapas em 51,0%.** Continua o maior buraco, mas o caminho agora está
+1. **Sinnoh, mapas em 69,5%.** Continua o maior buraco, mas o caminho agora está
    medido. O que falta se divide em tres: (a) 12 cavernas com a geometria JÁ
    convertida e conferida, paradas só por falta de tile de porta órfã no mapa
    pai (Old Chateau, Solaceon Ruins, Rock Peak Ruins, Maniac Tunnel, Mt. Coronet
