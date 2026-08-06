@@ -84,6 +84,18 @@ Duas armadilhas de roteiro de teste, medidas escrevendo esses casos: **virar
 custa uma tecla** (roteiro com a distancia exata erra um tile a cada troca de
 direcao) e **porta `MB_ANIMATED_DOOR` so dispara com o jogador vindo de BAIXO**.
 
+**A Elite dos Quatro de Sinnoh e a Cynthia já estavam na ROM** desde `20ac2eaac4`
+(04/08/2026), e o que faltava era prova de combate: os casos `T9.9` a `T9.14`
+provavam que as sete salas carregam, e nenhum provava que a batalha começa contra
+quem devia. Fechado em 06/08/2026 com `T82.1` a `T82.5`, um por membro, todos por
+**faixa** de id (1258 a 1262) e nunca pelo nome da constante. Os cinco blocos de
+`trainers.party` são times do Platinum, dentro da curva de Sinnoh: Aaron 188-192,
+Bertha 188-194, Flint 190-196, Lucian 192-198, Cynthia 196-200. Sprite de
+overworld dos cinco é **provisório**, emprestado de classe parecida
+(Aaron `BUG_CATCHER`, Bertha `EXPERT_F`, Flint `MANIAC`, Lucian `PSYCHIC_M`,
+Cynthia `BEAUTY`); nenhum é sprite próprio de Sinnoh, e todos existem em
+`object_event_graphics_info_pointers.h`.
+
 Mudou em 06/08/2026, mais tarde no mesmo dia: **grupo de mapa tem teto de 128**,
 e 26 mapas de Sinnoh estavam MORTOS por causa dele. `struct WarpData` guarda
 `s8 mapGroup` e `s8 mapNum` (`include/global.h`): o mapa de indice 128 vira -128

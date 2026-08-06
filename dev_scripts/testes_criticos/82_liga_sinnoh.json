@@ -1,0 +1,67 @@
+[
+  {
+    "id": "T82.1",
+    "nome": "Elite de Sinnoh: falar com Aaron abre batalha contra um id da faixa da Liga de Sinnoh (1258 a 1262), e não contra quem ocupa o id por acidente. A prova é por FAIXA de propósito: constante sem bloco em trainers.party devolve o id dela mesma, então perguntar 'o oponente é TRAINER_SINNOH_ELITE_FOUR_AARON?' responde SIM com o jogo quebrado (ESTADO.md 4.6). Roteiro: o warp 0 da sala cai em (6,13) e o ON_WARP vira o jogador para o norte; Aaron está em (6,5), no meio do corredor, e o corredor não tem desvio, então UP em excesso esbarra nele em vez de passar. Os A seguintes viram as três páginas da fala de entrada e entram na batalha",
+    "warp": "MAP_SINNOH_LEAGUE_AARONS_ROOM",
+    "roteiro": "16:UP*9,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_SINNOH_LEAGUE_AARONS_ROOM",
+      "oponente_faixa": [
+        1258,
+        1262
+      ]
+    }
+  },
+  {
+    "id": "T82.2",
+    "nome": "Elite de Sinnoh: Flint, o terceiro da fila, também luta como membro da Liga de Sinnoh. Existe porque o bloco dele em trainers.party é o único dos cinco que já nasceu fora de ordem alfabética no arquivo, e um bloco perdido só aparece quando alguém entra na sala",
+    "warp": "MAP_SINNOH_LEAGUE_FLINTS_ROOM",
+    "roteiro": "16:UP*9,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_SINNOH_LEAGUE_FLINTS_ROOM",
+      "oponente_faixa": [
+        1258,
+        1262
+      ]
+    }
+  },
+  {
+    "id": "T82.3",
+    "nome": "Decisão 67 do Gui: a Cynthia fecha Sinnoh. Falar com ela na sala da campeã abre batalha contra um id da faixa da Liga de Sinnoh, e o warp 0 da sala é (6,12), um tile mais ao norte que o das salas da Elite",
+    "warp": "MAP_SINNOH_LEAGUE_CHAMPIONS_ROOM",
+    "roteiro": "16:UP*9,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_SINNOH_LEAGUE_CHAMPIONS_ROOM",
+      "oponente_faixa": [
+        1258,
+        1262
+      ]
+    }
+  },
+  {
+    "id": "T82.4",
+    "nome": "Elite de Sinnoh: Bertha, a segunda da fila, luta como membro da Liga de Sinnoh. Fecha a faixa 1258 a 1262 junto com T82.1, T82.2, T82.3 e T82.5: os cinco blocos de trainers.party são conferidos um a um, e não por amostra",
+    "warp": "MAP_SINNOH_LEAGUE_BERTHAS_ROOM",
+    "roteiro": "16:UP*9,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_SINNOH_LEAGUE_BERTHAS_ROOM",
+      "oponente_faixa": [
+        1258,
+        1262
+      ]
+    }
+  },
+  {
+    "id": "T82.5",
+    "nome": "Elite de Sinnoh: Lucian, o quarto e último antes da campeã, luta como membro da Liga de Sinnoh",
+    "warp": "MAP_SINNOH_LEAGUE_LUCIANS_ROOM",
+    "roteiro": "16:UP*9,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_SINNOH_LEAGUE_LUCIANS_ROOM",
+      "oponente_faixa": [
+        1258,
+        1262
+      ]
+    }
+  }
+]

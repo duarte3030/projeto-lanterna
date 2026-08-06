@@ -513,7 +513,7 @@ def confere(caso, estados, por_nome, por_id, tabela_flags, layouts, treinadores=
             inverso = {v: k for k, v in (treinadores or {}).items()}
             falhas.append(f"a batalha começou contra o id {obtido} "
                           f"({inverso.get(obtido, 'sem nome')}), fora da faixa "
-                          f"{lo}..{hi} dos treinadores de Kanto com time próprio")
+                          f"{lo}..{hi} de quem deveria estar naquela batalha")
 
     for var, val in prova.get("vars", {}).items():
         chave = f"var_{hex(int(var, 0)).upper().replace('0X', '0x')}"
