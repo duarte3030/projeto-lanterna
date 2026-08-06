@@ -367,6 +367,13 @@
       "elevation": 0,
       "dest_map": "MAP_ETERNA_CITY_EAST_HOUSE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 39,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_ETERNA_CITY_UNDERGROUND_MAN_HOUSE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

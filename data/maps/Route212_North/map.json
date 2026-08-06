@@ -292,6 +292,13 @@
       "elevation": 0,
       "dest_map": "MAP_ROUTE212_ACCESS",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 6,
+      "y": 50,
+      "elevation": 0,
+      "dest_map": "MAP_POKEMON_MANSION",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

@@ -163,3 +163,40 @@ disparam **100%**.
 | 5 | andares de mapa `UNUSED_*` | o andar de baixo também não tem escada sobrando |
 
 Nenhuma flag da faixa 0x8E5 a 0x920 foi gasta: NPC importado nasce sem flag.
+
+## 9. As portas que faltavam desenhar, 06/08/2026
+
+`dev_scripts/abre_portas_extras_sinnoh.py` fechou **28 dos 39** destinos que a
+leva anterior deixou sem porta: os 18 `POKECENTER_B1F` e 10 prédios de cidade.
+Sinnoh foi de 44,6% para **49,3%** dos mapas e de 90,8% para **95,4%** dos
+warps; a taxa de warp que dispara de verdade em Sinnoh subiu de 86,0% para
+**95,6%**.
+
+**O que mudou de método.** A leva anterior só usava porta que já estava
+desenhada no `map.bin`. Esta desenha a porta que falta, e a regra que a torna
+segura é uma só: **o tile novo é a palavra de 16 bits copiada de outro warp do
+mesmo mapa**. Nada de metatile escolhido de cabeça. Assim o desenho, a colisão,
+a elevação e o comportamento já são os de uma porta que o motor aceita, e a
+porta nasce disparando.
+
+- **Centro Pokémon:** os quatro layouts de centro do repo têm a mesma planta, com
+  a escada do 2F em (1,6) colada na parede oeste. A escada do B1F entra em
+  (13,6), o espelho dela na parede leste. Isso só é legítimo porque
+  `LAYOUT_OREBURGH_CITY_POKEMON_CENTER_1F` é usado por 15 mapas e **os 15 querem
+  um B1F**: nenhum deles fica com escada morta. O autoteste do script trava se
+  essa conta mudar.
+- **Cidade:** a porta só entra no rodapé de um bloco conexo de tiles bloqueados
+  que não encosta na borda (senão é o paredão que cerca a cidade), tem área >= 6
+  (senão é árvore 2x2), preenche 60% da própria caixa (senão é penhasco ou
+  cerca) e tem fachada de 3 tiles seguidos com chão logo abaixo. Sem essas
+  contas a coluna x=20 de Canalave, que é uma cerca, ganhava porta.
+
+### Os 11 que continuam de fora
+
+| quanto | o quê | por quê |
+|---|---|---|
+| 3 | casas de Celestic | a cidade é uma cratera: os blocos bloqueados dela são parede de pedra, nenhum passa no teste de prédio |
+| 2 | casas de Solaceon | só um prédio sem porta na cidade, e ele foi para o Pokémon News Press |
+| 1 | `SUNYSHORE_CITY_EAST_HOUSE` | idem, nenhum bloco passa no teste |
+| 1 | `RESORT_AREA_RIBBON_SYNDICATE_1F` | idem |
+| 4 | `ETERNA_CITY_CONDOMINIUMS_2F`, dois `UNUSED_*_3F`, `ROTOMS_ROOM` | precisam de escada dentro de um layout COMPARTILHADO com mapa que não sobe (a planta de casa é usada por 64 mapas; a do `TeamGalacticEternaBuilding_1F` é a do Weather Institute, de HOENN). Fechar exige clonar o layout, não desenhar tile |

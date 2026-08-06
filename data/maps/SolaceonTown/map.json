@@ -236,6 +236,13 @@
       "elevation": 0,
       "dest_map": "MAP_SOLACEON_TOWN_NORTHEAST_HOUSE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 24,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_SOLACEON_TOWN_POKEMON_NEWS_PRESS",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
@@ -250,8 +257,8 @@
     },
     {
       "type": "sign",
-      "x": 24,
-      "y": 12,
+      "x": 23,
+      "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SolaceonTown_EventScript_NewsPressSign"

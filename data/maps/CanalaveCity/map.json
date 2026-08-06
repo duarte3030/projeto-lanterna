@@ -245,6 +245,34 @@
       "elevation": 0,
       "dest_map": "MAP_CANALAVE_CITY_SOUTHEAST_HOUSE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 25,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_CANALAVE_CITY_HARBOR_INN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 9,
+      "y": 39,
+      "elevation": 0,
+      "dest_map": "MAP_CANALAVE_CITY_SAILOR_ELDRITCH_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 9,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_CANALAVE_CITY_EAST_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 24,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_CANALAVE_CITY_WEST_HOUSE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
