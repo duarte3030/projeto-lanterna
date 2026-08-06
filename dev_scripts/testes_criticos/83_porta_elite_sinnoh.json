@@ -1,0 +1,32 @@
+[
+  {
+    "id": "T83.1",
+    "nome": "Elite de Sinnoh: a porta de TRAS da sala do Aaron nao e caminho de volta. O jogador chega pelo warp 0 em (6,13), sobe tres, desce nove e pisa de novo no proprio tile de chegada: a EWRAM diz que ele continua na sala do Aaron. A razao esta nos dados, nao no script: o metatile 0x234 de (6,13) tem comportamento MB_NORMAL (0x00), e IsWarpMetatileBehavior em src/field_control_avatar.c so aceita porta, escada, escalator ou warp especial, entao o warp_event 0 nunca dispara por pisar nele. Este caso existe porque em 06/08/2026 abriu-se uma tarefa para 'fechar a porta que deixa voltar e curar': a porta ja era intransponivel, e a tarefa teria gasto flag para trocar um tile que nao warpa por outro que tambem nao warpa",
+    "warp": "MAP_SINNOH_LEAGUE_AARONS_ROOM",
+    "roteiro": "60:NADA,16:UP*3,60:NADA,16:DOWN*9,120:NADA,16:DOWN*4,120:NADA",
+    "prova": {
+      "mapa": "MAP_SINNOH_LEAGUE_AARONS_ROOM",
+      "andou": true
+    }
+  },
+  {
+    "id": "T83.2",
+    "nome": "CONTROLE do T83.1: a porta da FRENTE warpa, e o teste sabe enxergar um warp. Com a flag de treinador do Aaron acesa (0x9EB = TRAINER_FLAGS_START 0x500 + 1259), o ON_LOAD da sala roda SinnohLeague_EventScript_OpenNextDoorSilent e poe em (6,2) o METATILE_EliteFour_OpenDoor_Opening (0x345), que e MB_LADDER (0x60), warp de verdade. O roteiro contorna o Aaron pela esquerda (ele fica em (6,5) e tapa a coluna 6) e sobe pela porta. Sem este caso, o T83.1 provaria apenas que nada warpa nunca, inclusive num jogo congelado",
+    "flags": ["0x9EB"],
+    "warp": "MAP_SINNOH_LEAGUE_AARONS_ROOM",
+    "roteiro": "16:UP*4,40:NADA,16:LEFT*2,40:NADA,16:UP*7,40:NADA,16:RIGHT*2,40:NADA,16:UP*3,180:NADA",
+    "prova": {
+      "mapa": "MAP_SINNOH_LEAGUE_BERTHAS_ROOM"
+    }
+  },
+  {
+    "id": "T83.3",
+    "nome": "O mesmo vale para 'voltar UMA sala', que era a queixa original: da sala da Bertha nao se volta para a do Aaron. Layout diferente (PHOEBES_ROOM contra SIDNEYS_ROOM), mesmo tileset e mesma porta de tras em (6,13). Existe separado do T83.1 porque as cinco salas usam cinco layouts diferentes emprestados de Hoenn, e um deles poderia ter sido montado com outro metatile na soleira",
+    "warp": "MAP_SINNOH_LEAGUE_BERTHAS_ROOM",
+    "roteiro": "60:NADA,16:UP*3,60:NADA,16:DOWN*9,120:NADA,16:DOWN*4,120:NADA",
+    "prova": {
+      "mapa": "MAP_SINNOH_LEAGUE_BERTHAS_ROOM",
+      "andou": true
+    }
+  }
+]

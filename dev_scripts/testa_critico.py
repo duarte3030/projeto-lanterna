@@ -169,7 +169,12 @@ def carrega_flags(src=None):
         expr = m.group(2)
         # depois do cpp sobra só aritmética; recusa qualquer coisa que não seja
         # número e operador, para não virar eval de código arbitrário
-        if not re.fullmatch(r"[0-9a-fA-FxX()+\-*/<>|&~^ ]+", expr):
+        # O `%` entrou em 06/08/2026: DAILY_FLAGS_START é
+        # `(FLAG_UNUSED_0x91F + (8 - FLAG_UNUSED_0x91F % 8))`, e sem o `%` na
+        # lista TODAS as 64 flags da faixa diária (0x920..0x95F) caíam fora da
+        # tabela e o caso de teste tinha que chumbar o hexadecimal. Continua
+        # sendo só aritmética: nada de nome, chamada ou atributo chega ao eval.
+        if not re.fullmatch(r"[0-9a-fA-FxX()+\-*/%<>|&~^ ]+", expr):
             continue
         try:
             tabela[m.group(1)] = int(eval(expr, {"__builtins__": {}}, {}))  # noqa: S307
