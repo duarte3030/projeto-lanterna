@@ -29,15 +29,42 @@ import os
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FLAGS_H = f"{RAIZ}/include/constants/flags.h"
 
+# Faixa que o motor limpa sozinho todo dia. Lida do proprio flags.h por
+# `faixa_diaria()` no import; o par abaixo e so o valor de fabrica do
+# pokeemerald, usado se a leitura falhar.
+DIARIA = (0x920, 0x95F)
+
+
+def faixa_diaria():
+    """Le do flags.h quais FLAG_UNUSED sao definidas como DAILY_FLAGS_START + n.
+
+    Ler em vez de cravar porque a faixa muda se alguem mexer no pool: cravar o
+    par seria a mesma classe de erro que este arquivo inteiro existe para evitar.
+    """
+    s = open(FLAGS_H).read()
+    ns = [int(n, 16) for n in re.findall(
+        r"^#define\s+FLAG_UNUSED_0x([0-9A-Fa-f]+)\s+\(DAILY_FLAGS_START", s, re.M)]
+    return (min(ns), max(ns)) if ns else DIARIA
+
 
 def livres():
     """Devolve (lista de numeros livres, total definido, total apelidado)."""
+    global DIARIA
+    DIARIA = faixa_diaria()
     s = open(FLAGS_H).read()
     apelidada = set(re.findall(
         r"^#define\s+FLAG_(?!UNUSED)[A-Z0-9_]+\s+(FLAG_UNUSED_0x[0-9A-Fa-f]+)\b",
         s, re.M))
     todas = set(re.findall(r"^#define\s+(FLAG_UNUSED_0x[0-9A-Fa-f]+)\b", s, re.M))
     nums = sorted(int(n.split("0x")[1], 16) for n in todas - apelidada)
+    # SEGUNDA CAMADA DE ARMADILHA, achada em 06/08/2026: existir sem apelido
+    # ainda nao e servir. De FLAG_UNUSED_0x920 a 0x95F o proprio flags.h define
+    # cada uma como (DAILY_FLAGS_START + n), e `ClearDailyFlags()`
+    # (src/event_data.c) da memset na faixa inteira a cada virada de dia do RTC.
+    # Flag de estado ali some sozinha durante a noite, sem erro, sem log, e o
+    # jogador acorda com a porta destrancada. Eu ja tinha despachado
+    # 0x946-0x95F para um agente antes de descobrir; ninguem chegou a gastar.
+    nums = [n for n in nums if not (DIARIA[0] <= n <= DIARIA[1])]
     return nums, len(todas), len(apelidada)
 
 
@@ -104,6 +131,25 @@ def demo():
         # 0x030 esta apelidada por FLAG_BADGE_JOHTO_ZEPHYR, entao NAO e livre
         assert nums == [0x31, 0x32], [hex(x) for x in nums]
         assert faixas(nums) == [(0x31, 0x32)]
+    finally:
+        FLAGS_H = guardado
+        os.unlink(caminho)
+
+    # Segunda regra: flag da faixa que o motor limpa todo dia NAO e livre,
+    # mesmo sem apelido nenhum.
+    txt = (
+        "#define FLAG_UNUSED_0x91F   (0x91F)\n"
+        "#define FLAG_UNUSED_0x920   (DAILY_FLAGS_START + 0x0)\n"
+        "#define FLAG_UNUSED_0x921   (DAILY_FLAGS_START + 0x1)\n"
+    )
+    with tempfile.NamedTemporaryFile("w", suffix=".h", delete=False) as f:
+        f.write(txt)
+        caminho = f.name
+    guardado, FLAGS_H = FLAGS_H, caminho
+    try:
+        assert faixa_diaria() == (0x920, 0x921)
+        nums, _, _ = livres()
+        assert nums == [0x91F], [hex(x) for x in nums]
     finally:
         FLAGS_H = guardado
         os.unlink(caminho)
