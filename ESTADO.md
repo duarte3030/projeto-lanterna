@@ -4,7 +4,7 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 05/08/2026.
+Última medição: 06/08/2026.
 
 ---
 
@@ -31,11 +31,11 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 
 | medida | valor |
 |---|---|
-| ROM | **93,81% de 32 MB** (1,98 MB livres) |
+| ROM | **94,05% de 32 MB** (1,90 MB livres) |
 | EWRAM / IWRAM | 85,57% / 86,62% |
 | SaveBlock1 | **13432 de 15872 B (84,6%)** |
 | flags livres no pool | **184** (eram 288 antes de ligar as de Kanto) |
-| mapas | **1616** |
+| mapas | **1777** |
 | treinadores com time próprio | **2346** |
 | grupos de mapa que carregam | **101 de 101** |
 | suíte de testes | **107 de 110** (1 pulado precisa de duas builds; 2 reprovados são de Unova) |
@@ -51,8 +51,18 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 | Kanto | 98,1% | 100,1% | 100,0% | 100,0% |
 | Johto | **95,9%** | 94,0% | 100,0% | 96,0% |
 | Hoenn | 100,0% | 100,1% | 100,0% | 100,0% |
-| Sinnoh | **25,6%** | 88,0% | **61,8%** | 107,6% |
-| Unova | 94,2% | 98,5% | 98,9% | 76,9% |
+| Sinnoh | **51,0%** | 83,8% | **95,4%** | 102,3% |
+| Unova | 94,2% | 98,3% | 98,9% | 98,0% |
+
+Mudou em 06/08/2026: **Sinnoh saiu de 25,6% para 51,0% dos mapas e de 61,8%
+para 95,4% dos warps**, em tres levas. A primeira reaproveitou planta de
+interior do repo e fechou 112 portas de cidade; a segunda desenhou a porta que
+faltava, copiando a palavra de 16 bits de um warp do proprio mapa, e abriu mais
+28 interiores, entre eles os 18 `POKECENTER_B1F`; a terceira converteu a
+geometria DE VERDADE de 10 cavernas a partir da grade 2D do Platinum
+(`converte_cavernas_sinnoh.py`), incluindo Wayward Cave 1F inteira em 96x64. A
+taxa de warp de Sinnoh que dispara de verdade foi de 86,0% para **95,8%**.
+Detalhe nas secoes 8, 9 e 10 de `PENDENCIAS-NPC-SINNOH.md`.
 
 Mudou em 05/08/2026, mais tarde no mesmo dia: o **S.S. Aqua entrou na ROM**, os
 11 mapas do navio importados do `hns` com texto, NPC e os 23 treinadores de
@@ -72,7 +82,8 @@ Sinnoh caiu de "100% / fonte 0" para estes números em 05/08/2026, e **isso é
 bom**: a régua mudou, não o jogo. Antes era medida contra `fontes-mapas/sinnoh`,
 que tem os mapas mas ZERO NPC de Sinnoh. Agora é contra o `pokeplatinum`, que
 cobre muito mais mapa do que importamos. Os objetos foram de 528 para **1119**
-de verdade; o 25,6% é a medida honesta aparecendo pela primeira vez.
+de verdade; o 25,6% de 05/08 é a medida honesta aparecendo pela primeira vez, e
+o 51,0% de hoje é ela subindo com mapa novo, não com régua nova.
 
 ### Warps que disparam de verdade
 
@@ -80,7 +91,7 @@ de verdade; o 25,6% é a medida honesta aparecendo pela primeira vez.
 
 | Hoenn | Johto | Sinnoh | Unova | Kanto |
 |---|---|---|---|---|
-| 93,2% | 90,9% | 86,0% | 78,6% | 79,4% |
+| 93,2% | 91,2% | 95,8% | 78,6% | 79,4% |
 
 **Nunca chega a 100%, e não deve.** Warp só dispara se o tile embaixo tiver
 comportamento de porta; muita porta é trocada por `setmetatile` em tempo de
@@ -295,6 +306,9 @@ existir escrito no topo.
 | `testa_critico.py` | Casos T1 a T30, prova lida da **EWRAM** |
 | `gba_runner.c` | Emulador headless que lê memória do jogo |
 | `demake_gen2.py` / `demake_ds.py` | Converte mapa de gen 2 e gen 4 |
+| `fecha_portas_sinnoh.py` | Interior de cidade de Sinnoh com planta reaproveitada do repo |
+| `abre_portas_extras_sinnoh.py` | Desenha a porta que falta, copiando um warp do proprio mapa |
+| `converte_cavernas_sinnoh.py` | Caverna de Sinnoh com a planta CONVERTIDA da grade 2D do DS |
 | `importa_placas_johto.py` | Traz placa do `hns` com script e texto, e recusa a que não funciona aqui |
 | `texto_placas_sinnoh.py` | Segue índice → `ScriptEntry` → banco de texto do Platinum |
 | `liga_flags_kanto.py` | Tira do stub só a flag que algum script mexe |
@@ -308,13 +322,17 @@ scripts liam de lá.
 
 ## 8. O que falta, em ordem de tamanho
 
-1. **Sinnoh, mapas em 25,6% e warps em 61,8%.** É o maior buraco que sobrou, e o
-   mais caro: 455 mapas de verdade (casa, mart, centro, portaria de rota, as
-   salas de Turnback e o Mundo Distorcido) existem **só no pokeplatinum**, em
-   formato de DS. Fechar isso é converter planta de DS (`demake_ds.py`) mais
-   tileset, não copiar `map.json`. O `fontes-mapas/sinnoh`, que é GBA e seria
-   barato, só tem 133 mapas próprios de Sinnoh e **todos os 133 já estão na
-   ROM**: dessa fonte não sobra nada para importar.
+1. **Sinnoh, mapas em 51,0%.** Continua o maior buraco, mas o caminho agora está
+   medido. O que falta se divide em tres: (a) 12 cavernas com a geometria JÁ
+   convertida e conferida, paradas só por falta de tile de porta órfã no mapa
+   pai (Old Chateau, Solaceon Ruins, Rock Peak Ruins, Maniac Tunnel, Mt. Coronet
+   6F, as duas Low Water de lago); (b) 11 interiores de cidade, sendo 4 deles
+   presos a layout compartilhado que precisa ser clonado; (c) o resto do mapa de
+   DS que ainda nem foi tocado (Great Marsh, Distortion World, Turnback Cave,
+   Battle Frontier, andares de hotel e de loja), que tem mobília desenhada e por
+   isso a grade 2D não basta. Ver secoes 8 a 10 de `PENDENCIAS-NPC-SINNOH.md`.
+   O `fontes-mapas/sinnoh`, que é GBA e seria barato, só tem 133 mapas próprios
+   de Sinnoh e **todos os 133 já estão na ROM**: dessa fonte não sobra nada.
 2. **Sinnoh, o resto dos NPCs.** 1119 objetos hoje. Ficaram de fora 230 com
    `hidden_flag` (NPC de história: sem o script que os remove, viram bloqueio
    permanente, como as 39 pedras de Strength de Unova), 84 `coord_events` e 71
