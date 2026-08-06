@@ -23,12 +23,23 @@
   },
   {
     "id": "T10.3",
-    "nome": "JOHTO PARA KANTO, a volta do T4.2: o marinheiro do Porto de Olivine leva o jogador a Vermilion City. VERMILION e o item 2 da lista e Olivine pula o proprio case 0, entao sao dois DOWN. Nao ha portao de passe nesta direcao: o PASSE TRI so e cobrado em Vermilion, para nao trancar quem ja esta fora de Kanto",
+    "nome": "JOHTO PARA KANTO POR DENTRO DO S.S. AQUA, a volta do T4.2: o marinheiro do Porto de Olivine embarca o jogador no navio, ele desce ate o convés (onde o avo da neta perdida cruza com ele), volta a porta e o marinheiro de bordo desembarca em Vermilion City. Prova as tres pernas de uma vez: embarcar, andar por dentro do navio e desembarcar. Antes de 05/08/2026 o porto teleportava direto para Vermilion e o navio nao existia na ROM. VERMILION e o item 2 da lista e Olivine pula o proprio case 0, entao sao dois DOWN. Nao ha portao de passe nesta direcao: o PASSE TRI so e cobrado em Vermilion, para nao trancar quem ja esta fora de Kanto",
     "warp": "MAP_OLIVINE_CITY_PORT_INSIDE",
-    "roteiro": "16:DOWN*12,30:NADA,20:A,300:NADA,20:A,120:NADA,20:DOWN*2,60:NADA,20:A,300:NADA,20:A,300:NADA",
+    "roteiro": "16:DOWN*12,30:NADA,20:A,300:NADA,20:A,120:NADA,20:DOWN*2,60:NADA,20:A,300:NADA,20:A,300:NADA,60:NADA,20:DOWN*5,300:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,300:NADA,20:LEFT,90:NADA,20:UP*5,180:NADA,90:NADA,20:UP,90:NADA,20:A,180:NADA,20:A,180:NADA,20:A,300:NADA",
     "prova": {
       "mapa": "MAP_VERMILION_CITY",
       "layout": "LAYOUT_VERMILION_CITY"
+    }
+  },
+  {
+    "id": "T10.4",
+    "nome": "O S.S. AQUA E CAMINHAVEL POR DENTRO: depois de embarcar em Olivine o jogador desce ao convés, anda onze tiles para oeste e entra na propria cabine (MAP_SSAQUA_PLAYERS_ROOM). Sem este caso, o T10.3 passaria com o navio sendo um corredor de um tile: e este que prova que os 11 mapas importados do hns tem tileset, colisao e warp de porta certos na ROM. As portas das cabines sao MB_SOUTH_ARROW_WARP, nao porta: so disparam com a seta apertada DE NOVO ja em cima do tile, e por isso sao tres DOWN",
+    "warp": "MAP_OLIVINE_CITY_PORT_INSIDE",
+    "roteiro": "16:DOWN*12,30:NADA,20:A,300:NADA,20:A,120:NADA,20:DOWN*2,60:NADA,20:A,300:NADA,20:A,300:NADA,60:NADA,20:DOWN*5,300:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,300:NADA,20:LEFT*11,240:NADA,20:DOWN,90:NADA,20:DOWN,90:NADA,20:DOWN,300:NADA,20:DOWN,120:NADA,20:DOWN,120:NADA",
+    "prova": {
+      "mapa": "MAP_SSAQUA_PLAYERS_ROOM",
+      "layout": "LAYOUT_SSAQUA_PLAYERS_ROOM",
+      "andou": true
     }
   }
 ]

@@ -687,3 +687,7 @@
 #endif
 
 #endif  // GUARD_CONSTANTS_SONGS_H
+
+// >>> S.S. Aqua (dev_scripts/import_ssaqua.py) >>>
+#define MUS_HG_SS_AQUA MUS_ABANDONED_SHIP
+// <<< S.S. Aqua (dev_scripts/import_ssaqua.py) <<<

@@ -2437,6 +2437,17 @@ const struct Tileset gTileset_SootopolisGymJohto =
     .callback = NULL,
 };
 
+const struct Tileset gTileset_Ssaqua =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Ssaqua,
+    .palettes = gTilesetPalettes_Ssaqua,
+    .metatiles = gMetatiles_Ssaqua,
+    .metatileAttributes = gMetatileAttributes_Ssaqua,
+    .callback = NULL,
+};
+
 const struct Tileset gTileset_TrainerSchool =
 {
     .isCompressed = TRUE,

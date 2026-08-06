@@ -40,6 +40,21 @@ DESTINOS = [
     ("CANALAVE",  "MAP_CANALAVE_CITY"),
 ]
 
+# A travessia Olivine <-> Vermilion passa POR DENTRO do S.S. Aqua desde
+# 05/08/2026: o porto embarca o jogador em MAP_SSAQUA_1F e quem desembarca do
+# outro lado e o marinheiro da porta. A regra 3 continua valendo, so que em dois
+# saltos, e ganhou duas exigencias que o teleporte direto nao tinha:
+#   - o sentido da viagem tem que ser posto (FLAG_SSAQUA_RUMO_KANTO), senao o
+#     marinheiro da porta desembarca no lado errado;
+#   - a porta do cais (setdynamicwarp) tem que voltar para o proprio porto,
+#     senao sair pela porta vira teleporte de graca para o outro continente.
+# (pasta, indice) -> (comando de sentido, rotulo de desembarque no navio)
+VIA_NAVIO = {
+    ("OlivineCity_PortInside", 2): ("setflag", "SSAqua_1F_EventScript_LeaveBoatVermilion"),
+    ("VermilionCity_Frlg", 0): ("clearflag", "SSAqua_1F_EventScript_LeaveBoatOlivine"),
+}
+NAVIO = "MAP_SSAQUA_1F"
+
 # pasta do porto -> indice que ele PULA, por ser ele mesmo
 PORTOS = {
     "OlivineCity_PortInside": 0,
@@ -101,6 +116,26 @@ def main():
                 falha(erros, f"{pasta}: case {idx} chama {rotulo}, que nao existe")
                 continue
             w = re.search(r"warpsilent (MAP_[A-Z0-9_]+)", corpo.group(1))
+            via = VIA_NAVIO.get((pasta, idx))
+            if via and w and w.group(1) == NAVIO:
+                comando, saida = via
+                proprio = DESTINOS[PORTOS[pasta]][1]
+                if not re.search(rf"\b{comando} FLAG_SSAQUA_RUMO_KANTO\b", corpo.group(1)):
+                    falha(erros, f"{pasta}: {rotulo} embarca no navio sem "
+                                 f"'{comando} FLAG_SSAQUA_RUMO_KANTO': o marinheiro "
+                                 "da porta desembarca no lado errado")
+                if not re.search(rf"setdynamicwarp {proprio}\b", corpo.group(1)):
+                    falha(erros, f"{pasta}: {rotulo} nao aponta a porta do cais de "
+                                 f"volta para {proprio} (setdynamicwarp)")
+                navio = open(os.path.join(RAIZ, "data/maps/SSAqua_1F/scripts.inc"),
+                             encoding="utf-8").read()
+                bloco = re.search(rf"^{saida}::\n(.*?)\n\tend\n", navio, re.S | re.M)
+                if not bloco:
+                    falha(erros, f"SSAqua_1F: {saida} nao existe")
+                elif not re.search(rf"\bwarp {mapa}\b", bloco.group(1)):
+                    falha(erros, f"SSAqua_1F: o item {idx} do menu de {pasta} diz "
+                                 f"{nome}, mas {saida} nao desembarca em {mapa}")
+                continue
             if not w:
                 falha(erros, f"{pasta}: {rotulo} nao tem warpsilent")
             elif w.group(1) != mapa:

@@ -5,6 +5,30 @@ verificado: este arquivo existe para separar as duas coisas.
 
 ---
 
+## 0. Olivine ↔ Vermilion passa por dentro do S.S. Aqua (05/08/2026)
+
+Das 20 rotas dirigidas, **duas deixaram de ser teleporte**: o marinheiro de
+Olivine e o de Vermilion agora embarcam o jogador em `MAP_SSAQUA_1F`, e quem
+desembarca do outro lado é o marinheiro da porta, dentro do navio. Os pontos de
+desembarque continuam os mesmos de antes (`MAP_VERMILION_CITY` 15,10 e
+`MAP_OLIVINE_CITY_PORT_INSIDE` 8,17), de propósito: os roteiros já provados não
+precisaram ser re-derivados, só ganharam o trecho de bordo no fim.
+
+Quem manda o sentido é `FLAG_SSAQUA_RUMO_KANTO`, posta no embarque. A porta do
+cais em (29,1) é `MAP_DYNAMIC` e o `setdynamicwarp` do porto a aponta de volta
+para o próprio porto; hoje ela é inalcançável a pé, porque o marinheiro da porta
+fica em (29,2) e tranca o único acesso, então ela é seguro, não caminho.
+
+Provado na ROM: **T4.2** (Kanto → navio → Johto), **T10.3** (Johto → navio →
+Kanto, com a descida ao convés) e **T10.4** (11 tiles de convés e entrada na
+cabine do jogador). `dev_scripts/valida_barco.py` ganhou a regra dos dois saltos
+e reprova se o `setflag`/`clearflag` do sentido ou o `setdynamicwarp` sumirem.
+
+As outras 18 rotas continuam teleporte direto, e está certo: o S.S. Aqua liga
+Johto a Kanto, não os outros portos.
+
+---
+
 ## 1. As 12 diagonais que nunca foram jogadas em ROM
 
 Os cinco portos formam **20 rotas dirigidas** (5 portos x 4 destinos cada).

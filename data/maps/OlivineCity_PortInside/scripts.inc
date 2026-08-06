@@ -15,10 +15,16 @@ OlivinePort_EventScript_Sailor::
 	release
 	end
 
+@ Kanto e a unica travessia que passa POR DENTRO do navio: o S.S. Aqua liga
+@ Olivine a Vermilion, e nenhum dos outros tres portos. FLAG_SSAQUA_RUMO_KANTO
+@ diz ao marinheiro da porta em que lado desembarcar; o setdynamicwarp faz a
+@ porta do cais devolver o jogador a este porto, para desistir da viagem.
 OlivinePort_EventScript_SailToVermilion::
 	msgbox OlivinePort_Text_SettingSailToVermilion, MSGBOX_DEFAULT
 	closemessage
-	warpsilent MAP_VERMILION_CITY, 15, 10
+	setflag FLAG_SSAQUA_RUMO_KANTO
+	setdynamicwarp MAP_OLIVINE_CITY_PORT_INSIDE, 8, 17
+	warpsilent MAP_SSAQUA_1F, 29, 3
 	waitstate
 	release
 	end

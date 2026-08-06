@@ -4602,6 +4602,24 @@ const u16 ALIGNED(4) gTilesetPalettes_SootopolisGymJohto[][16] =
 };
 const u32 gTilesetTiles_SootopolisGymJohto[] = INCGFX_U32("data/tilesets/secondary/sootopolis_gym_johto/tiles.png", ".4bpp.smol");
 
+const u16 ALIGNED(4) gTilesetPalettes_Ssaqua[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/ssaqua/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ssaqua/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ssaqua/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ssaqua/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ssaqua/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ssaqua/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ssaqua/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ssaqua/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ssaqua/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ssaqua/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ssaqua/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ssaqua/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ssaqua/palettes/12.pal", ".gbapal"),
+};
+const u32 gTilesetTiles_Ssaqua[] = INCGFX_U32("data/tilesets/secondary/ssaqua/tiles.png", ".4bpp.smol");
+
 const u16 ALIGNED(4) gTilesetPalettes_TrainerSchool[][16] =
 {
     INCGFX_U16("data/tilesets/secondary/trainer_school/palettes/00.pal", ".gbapal"),

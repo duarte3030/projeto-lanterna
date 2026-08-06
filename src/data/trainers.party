@@ -44181,3 +44181,358 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_GYARADOS
 Level: 91
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+/*=== ACERVO JOHTO S.S. AQUA (import_ssaqua.py) ===
+   Times portados de fontes-mapas/hns. Nada aqui foi escrito a mao: quem
+   gera e dev_scripts/importa_treinadores_johto.py. Rodar de novo troca so
+   este bloco. Comentario em bloco porque o formato .party nao aceita //. */
+
+=== TRAINER_JOHTO_CAROL ===
+Name: Carol
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_F
+Double Battle: No
+
+SPECIES_ELECTRODE
+Level: 122
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_STARMIE
+Level: 123
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_NINETALES
+Level: 122
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_CASSIE ===
+Name: Cassie
+Class: TRAINER_CLASS_BEAUTY
+Pic: TRAINER_PIC_BEAUTY
+Double Battle: No
+
+SPECIES_VILEPLUME
+Level: 122
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_JYNX
+Level: 125
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_CLYDE ===
+Name: Clyde
+Class: TRAINER_CLASS_GUITARIST
+Pic: TRAINER_PIC_GUITARIST
+Double Battle: No
+
+SPECIES_ELECTABUZZ
+Level: 123
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_COLIN ===
+Name: Colin
+Class: TRAINER_CLASS_POKEFAN
+Pic: TRAINER_PIC_POKEFAN_M
+Double Battle: No
+
+SPECIES_DELIBIRD
+Level: 116
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_COREY ===
+Name: Corey
+Class: TRAINER_CLASS_KINDLER
+Pic: TRAINER_PIC_KINDLER
+Double Battle: No
+
+SPECIES_KOFFING
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAGMAR
+Level: 119
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_KOFFING
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_KOFFING
+Level: 122
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_DEBRA ===
+Name: Debra
+Class: TRAINER_CLASS_PICNICKER
+Pic: TRAINER_PIC_PICNICKER
+Double Battle: No
+
+SPECIES_SEAKING
+Level: 119
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_EDWARD ===
+Name: Edward
+Class: TRAINER_CLASS_GENTLEMAN
+Pic: TRAINER_PIC_GENTLEMAN
+Double Battle: No
+
+SPECIES_PERSIAN
+Level: 126
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ETHAN ===
+Name: Ethan
+Class: TRAINER_CLASS_POKEMANIAC
+Pic: TRAINER_PIC_POKEMANIAC
+Double Battle: No
+
+SPECIES_HAUNTER
+Level: 123
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RHYDON
+Level: 123
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_FRITZ ===
+Name: Fritz
+Class: TRAINER_CLASS_JUGGLER_FRLG
+Pic: TRAINER_PIC_JUGGLER_FRLG
+Double Battle: No
+
+SPECIES_MR_MIME
+Level: 113
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAGMAR
+Level: 113
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MACHOKE
+Level: 116
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_GARRETT ===
+Name: Garrett
+Class: TRAINER_CLASS_SAILOR
+Pic: TRAINER_PIC_SAILOR
+Double Battle: No
+
+SPECIES_KINGLER
+Level: 128
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_JEFF ===
+Name: Jeff
+Class: TRAINER_CLASS_SAILOR
+Pic: TRAINER_PIC_SAILOR
+Double Battle: No
+
+SPECIES_RATICATE
+Level: 119
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FURRET
+Level: 119
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_JONAH ===
+Name: Jonah
+Class: TRAINER_CLASS_FISHERMAN
+Pic: TRAINER_PIC_FISHERMAN
+Double Battle: No
+
+SPECIES_SHELLDER
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_OCTILLERY
+Level: 120
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_REMORAID
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CLOYSTER
+Level: 120
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_KEN ===
+Name: Ken
+Class: TRAINER_CLASS_BUG_CATCHER
+Pic: TRAINER_PIC_BUG_CATCHER
+Double Battle: No
+
+SPECIES_ARIADOS
+Level: 122
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PINSIR
+Level: 125
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_KENNETH ===
+Name: Kenneth
+Class: TRAINER_CLASS_SAILOR
+Pic: TRAINER_PIC_SAILOR
+Double Battle: No
+
+SPECIES_MACHOP
+Level: 119
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MACHOKE
+Level: 119
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_POLIWRATH
+Level: 119
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MACHAMP
+Level: 119
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LYLE ===
+Name: Lyle
+Class: TRAINER_CLASS_KINDLER
+Pic: TRAINER_PIC_KINDLER
+Double Battle: No
+
+SPECIES_WEEZING
+Level: 113
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FLAREON
+Level: 113
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_NINETALES
+Level: 113
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_MEG_AND_PEG ===
+Name: Meg&Peg
+Class: TRAINER_CLASS_TWINS
+Pic: TRAINER_PIC_TWINS
+Double Battle: Yes
+
+SPECIES_URSARING
+Level: 113
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DONPHAN
+Level: 113
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_NATE ===
+Name: Nate
+Class: TRAINER_CLASS_SCHOOL_KID
+Pic: TRAINER_PIC_SCHOOL_KID_M
+Double Battle: No
+
+SPECIES_LEDIAN
+Level: 125
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_EXEGGUTOR
+Level: 125
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_NOLAND ===
+Name: Noland
+Class: TRAINER_CLASS_HIKER
+Pic: TRAINER_PIC_HIKER
+Double Battle: No
+
+SPECIES_SANDSLASH
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GOLEM
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_RICKY ===
+Name: Ricky
+Class: TRAINER_CLASS_SCHOOL_KID
+Pic: TRAINER_PIC_SCHOOL_KID_M
+Double Battle: No
+
+SPECIES_AIPOM
+Level: 125
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DITTO
+Level: 125
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_SEAN ===
+Name: Sean
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_M
+Double Battle: No
+
+SPECIES_FLAREON
+Level: 122
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TANGELA
+Level: 122
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TAUROS
+Level: 122
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_SHIRLEY ===
+Name: Shirley
+Class: TRAINER_CLASS_EXPERT
+Pic: TRAINER_PIC_EXPERT_F
+Double Battle: No
+
+SPECIES_JIGGLYPUFF
+Level: 123
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_WIGGLYTUFF
+Level: 126
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_STANLY ===
+Name: Stanly
+Class: TRAINER_CLASS_SAILOR
+Pic: TRAINER_PIC_SAILOR
+Double Battle: No
+
+SPECIES_QWILFISH
+Level: 112
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MACHOKE
+Level: 112
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GOLDUCK
+Level: 113
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_WAI ===
+Name: Wai
+Class: TRAINER_CLASS_BLACK_BELT
+Pic: TRAINER_PIC_BLACK_BELT
+Double Battle: No
+
+SPECIES_MACHAMP
+Level: 116
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MACHOKE
+Level: 119
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MACHAMP
+Level: 122
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe

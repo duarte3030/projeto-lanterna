@@ -345,3 +345,7 @@
 #endif // TESTING
 
 #endif // GUARD_CONSTANTS_VARS_H
+
+// >>> S.S. Aqua (dev_scripts/import_ssaqua.py) >>>
+#define VAR_SSAQUA_STATE                                 VAR_UNUSED_0x40FF
+// <<< S.S. Aqua (dev_scripts/import_ssaqua.py) <<<

@@ -2682,3 +2682,11 @@
 #endif
 
 #endif // GUARD_CONSTANTS_FLAGS_H
+
+// >>> S.S. Aqua (dev_scripts/import_ssaqua.py) >>>
+#define FLAG_HIDE_SSAQUA_1F_GRANDPA                      FLAG_UNUSED_0x8E5
+#define FLAG_HIDE_SSAQUA_SAILOR                          FLAG_UNUSED_0x8E6
+#define FLAG_HIDE_SSAQUA_CAPTAINS_ROOM_GRANDDAUGHTER     FLAG_UNUSED_0x8E7
+#define FLAG_HIDE_SSAQUA_ROOM_SSE_GRANDDAUGHTER          FLAG_UNUSED_0x8E8
+#define FLAG_SSAQUA_RUMO_KANTO                           FLAG_UNUSED_0x8E9
+// <<< S.S. Aqua (dev_scripts/import_ssaqua.py) <<<

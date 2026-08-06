@@ -1929,6 +1929,32 @@
 #define TRAINER_JOHTO_LEA_AND_PIA                            2417
 // <<< treinadores de rota de Johto (gerado) <<<
 
+// >>> treinadores do S.S. Aqua (gerado) >>>
+#define TRAINER_JOHTO_CAROL                                  2418
+#define TRAINER_JOHTO_CASSIE                                 2419
+#define TRAINER_JOHTO_CLYDE                                  2420
+#define TRAINER_JOHTO_COLIN                                  2421
+#define TRAINER_JOHTO_COREY                                  2422
+#define TRAINER_JOHTO_DEBRA                                  2423
+#define TRAINER_JOHTO_EDWARD                                 2424
+#define TRAINER_JOHTO_ETHAN                                  2425
+#define TRAINER_JOHTO_FRITZ                                  2426
+#define TRAINER_JOHTO_GARRETT                                2427
+#define TRAINER_JOHTO_JEFF                                   2428
+#define TRAINER_JOHTO_JONAH                                  2429
+#define TRAINER_JOHTO_KEN                                    2430
+#define TRAINER_JOHTO_KENNETH                                2431
+#define TRAINER_JOHTO_LYLE                                   2432
+#define TRAINER_JOHTO_MEG_AND_PEG                            2433
+#define TRAINER_JOHTO_NATE                                   2434
+#define TRAINER_JOHTO_NOLAND                                 2435
+#define TRAINER_JOHTO_RICKY                                  2436
+#define TRAINER_JOHTO_SEAN                                   2437
+#define TRAINER_JOHTO_SHIRLEY                                2438
+#define TRAINER_JOHTO_STANLY                                 2439
+#define TRAINER_JOHTO_WAI                                    2440
+// <<< treinadores do S.S. Aqua (gerado) <<<
+
 // ponytail: TRAINERS_COUNT nao e "quantos treinadores existem", e o TAMANHO do
 // array: include/data.h declara gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT], e
 // SanitizeTrainerId() devolve TRAINER_NONE para id >= TRAINERS_COUNT. Com 1367

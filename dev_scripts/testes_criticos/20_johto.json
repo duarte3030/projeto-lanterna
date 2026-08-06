@@ -10,13 +10,13 @@
   },
   {
     "id": "T4.2",
-    "nome": "KANTO PARA JOHTO, a cadeia inteira: campeao de Kanto (FLAG_SYS_GAME_CLEAR, que o Hall da Fama de Kanto acende pelo special EnterHallOfFame), o assistente do Prof. Carvalho no cais entrega o PASSE TRI, e so entao a balsa de Vermilion zarpa e desembarca no Porto de Olivine",
+    "nome": "KANTO PARA JOHTO, a cadeia inteira: campeao de Kanto (FLAG_SYS_GAME_CLEAR, que o Hall da Fama de Kanto acende pelo special EnterHallOfFame), o assistente do Prof. Carvalho no cais entrega o PASSE TRI, e so entao a balsa de Vermilion zarpa e desembarca no Porto de Olivine. Desde 05/08/2026 a travessia passa POR DENTRO do S.S. Aqua: a balsa de Vermilion embarca o jogador em MAP_SSAQUA_1F e quem desembarca no Porto de Olivine e o marinheiro da porta, entao o roteiro ganhou o trecho de bordo no fim",
     "flags": [
       "FLAG_SYS_GAME_CLEAR"
     ],
     "warp": "MAP_VERMILION_CITY",
     "warp_id": 4,
-    "roteiro": "16:DOWN*3,30:NADA,16:RIGHT,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,60:NADA,16:DOWN,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,300:NADA,8:A,300:NADA,8:A,300:NADA",
+    "roteiro": "16:DOWN*3,30:NADA,16:RIGHT,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,60:NADA,16:DOWN,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,300:NADA,8:A,300:NADA,8:A,300:NADA,90:NADA,20:UP,90:NADA,20:A,180:NADA,20:A,180:NADA,20:A,300:NADA",
     "prova": {
       "mapa": "MAP_OLIVINE_CITY_PORT_INSIDE",
       "layout": "LAYOUT_OLIVINE_CITY_PORT_INSIDE"

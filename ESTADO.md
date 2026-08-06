@@ -49,10 +49,16 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 | região | mapas | objetos | warps | placas |
 |---|---|---|---|---|
 | Kanto | 98,1% | 100,1% | 100,0% | 100,0% |
-| Johto | 63,6% | 93,9% | 100,0% | 96,0% |
+| Johto | **95,9%** | 94,0% | 100,0% | 96,0% |
 | Hoenn | 100,0% | 100,1% | 100,0% | 100,0% |
 | Sinnoh | **25,6%** | 88,0% | **61,8%** | 107,6% |
 | Unova | 94,2% | 98,5% | 98,9% | 76,9% |
+
+Mudou em 05/08/2026, mais tarde no mesmo dia: o **S.S. Aqua entrou na ROM**, os
+11 mapas do navio importados do `hns` com texto, NPC e os 23 treinadores de
+bordo, e Johto foi de 91,4% para 95,9% de mapas. A travessia Olivine ↔ Vermilion
+deixou de ser teleporte e passa **por dentro do navio** nos dois sentidos (T4.2 e
+T10.3), com a caminhada e as cabines provadas no T10.4.
 
 Mudou em 05/08/2026: as placas de Johto saíram de 6,8% para 96,0% (448 placas
 importadas do `hns` com script e texto), e Unova saiu de 85,4% para 94,2% de

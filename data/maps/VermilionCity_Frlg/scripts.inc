@@ -333,10 +333,14 @@ VermilionCity_EventScript_FerryMenu::
 	release
 	end
 
+@ Ver o comentario gemeo em data/maps/OlivineCity_PortInside/scripts.inc: esta
+@ e a outra ponta da unica travessia que passa por dentro do S.S. Aqua.
 VermilionCity_EventScript_SailToOlivine::
 	msgbox VermilionCity_Text_SettingSailToOlivine, MSGBOX_DEFAULT
 	closemessage
-	warpsilent MAP_OLIVINE_CITY_PORT_INSIDE, 8, 17
+	clearflag FLAG_SSAQUA_RUMO_KANTO
+	setdynamicwarp MAP_VERMILION_CITY, 15, 10
+	warpsilent MAP_SSAQUA_1F, 29, 3
 	waitstate
 	release
 	end
