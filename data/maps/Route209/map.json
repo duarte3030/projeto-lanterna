@@ -313,6 +313,13 @@
       "elevation": 0,
       "dest_map": "MAP_ROUTE209_ACCESS",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 57,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE_209_LOST_TOWER_1F",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

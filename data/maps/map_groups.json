@@ -2190,7 +2190,13 @@
     "SolaceonRuinsRoom6SoutheastDeadEnd",
     "SinnohVictoryRoad1F",
     "SinnohVictoryRoad2F",
-    "SinnohVictoryRoadB1F"
+    "SinnohVictoryRoadB1F",
+    "OldChateauBackMiddleEastRoom",
+    "Route209LostTower1F",
+    "Route209LostTower2F",
+    "Route209LostTower3F",
+    "Route209LostTower4F",
+    "Route209LostTower5F"
   ],
   "gMapGroup_IndoorSinnohPortas2": [
     "PastoriaCityPokecenterB1F",
@@ -2247,6 +2253,8 @@
     "CanalaveLibrary3F",
     "VeilstoneStore3F",
     "VeilstoneStore4F",
-    "VeilstoneStore5F"
+    "VeilstoneStore5F",
+    "UnusedJubilifeCityCondominiums4F",
+    "UnusedJubilifeCitySouthHouse4F"
   ]
 }

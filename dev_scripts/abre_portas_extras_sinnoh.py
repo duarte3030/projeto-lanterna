@@ -264,6 +264,23 @@ def escreve_mapa(pasta, header, arq, dest_volta, warp_volta, grupos, incs,
 
 
 # ------------------------------------------------------------------- main
+# Mapa onde NAO se fura parede, por mais que o Platinum tenha vizinho ali.
+#
+# As cinco salas da Elite dos Quatro de Sinnoh. No Platinum se anda de uma para
+# a outra por um elevador, e cada elevador e um mapa; aqui as salas ja se ligam
+# direto (`SinnohLeague_AaronsRoom` -> `SinnohLeague_BerthasRoom`), com o
+# bloqueio que so abre depois da vitoria. Furar a parede delas cria uma segunda
+# saida SEM esse bloqueio, para uma sala que devolve o jogador de onde ele veio:
+# custa um buraco na parede da sala de batalha para nao entregar caminho nenhum.
+# Medido em 06/08/2026: com as cinco salas casadas com o Platinum pela primeira
+# vez (`I.APELIDOS`), a ferramenta quis abrir quatro portas assim.
+NAO_FURAR = {
+    "SinnohLeague_AaronsRoom", "SinnohLeague_BerthasRoom",
+    "SinnohLeague_FlintsRoom", "SinnohLeague_LuciansRoom",
+    "SinnohLeague_ChampionsRoom", "SinnohLeague_HallOfFame",
+}
+
+
 def pendencias():
     """(pai, header, arquetipo) de tudo que ficou sem porta, na ordem da fonte."""
     heads = I.headers_do_platinum()
@@ -282,6 +299,8 @@ def pendencias():
         if os.path.exists(f"{REPO}/data/maps/{p}/map.json"))))
     saida, vistos = [], set()
     for header, meu in sorted(casados.items(), key=lambda kv: kv[1]):
+        if meu in NAO_FURAR:
+            continue
         pe = os.path.join(F.PLAT, "res/field/events", heads[header][0] + ".json")
         if not os.path.exists(pe):
             continue
@@ -409,23 +428,41 @@ def main():
 def demo():
     """As armadilhas que a primeira versao caiu."""
     # 1. o paredao que cerca a cidade encosta na borda e NAO pode virar porta;
-    #    arvore 2x2 tem area 4 e tambem nao. Medido em CanalaveCity: 5 predios.
-    v = predios_sem_porta("CanalaveCity")
-    assert len(v) == 4, v
+    #    arvore 2x2 tem area 4 e tambem nao.
+    #    A versao anterior cravava "CanalaveCity tem 4 predios sem porta", e o
+    #    numero envelheceu calado: as quatro portas foram abertas na leva de
+    #    06/08/2026 e a lista virou vazia, entao o teste passou a reprovar o
+    #    proprio conserto (licao 4.11 do ESTADO: nao guardar copia de um fato).
+    #    A regra que interessa nao e a contagem, e a forma: nada na borda, nada
+    #    com area menor que 6. Isso vale em qualquer mapa e em qualquer leva.
+    mapa = "EternaForest"
+    v = predios_sem_porta(mapa)
+    assert v, mapa
+    _d, lay, larg, alt, pal, comp = _grade(mapa)
     assert all(a >= 6 for _x, _y, a in v), v
+    assert all(0 < x < larg - 1 and 0 < y < alt - 1 for x, y, _a in v), v
     # 2. porta nova nunca sai de metatile inventado: a palavra vem de uma porta
     #    que o proprio mapa ja tem, entao o comportamento dela ja e de warp.
-    _d, _l, _w, _h, pal, comp = _grade("CanalaveCity")
-    p = palavra_de_porta("CanalaveCity", (v[0][0], v[0][1]))
-    assert comp(p) in W.COMPORTA_WARP, hex(p)
-    # 3. o layout de centro Pokemon so pode ganhar escada porque os 15 mapas que
-    #    o usam querem um B1F. Se um dia entrar um centro sem B1F, esta conta
-    #    quebra e a escada tem que virar layout proprio.
+    p = palavra_de_porta("CanalaveCity", (17, 25))
+    assert comp is not None and p is not None
+    _d2, _l2, _w2, _h2, _p2, comp2 = _grade("CanalaveCity")
+    assert comp2(p) in W.COMPORTA_WARP, hex(p)
+    # 3. o layout de centro Pokemon so pode ganhar escada porque TODO mapa que
+    #    o usa quer um B1F. Se um dia entrar um centro sem B1F, a escada nasce
+    #    morta la e tem que virar layout proprio.
+    #    Aqui tambem havia numero cravado ("os 15 mapas"), e ele envelheceu:
+    #    hoje sao 14. Numero nao e a regra; a regra e cada um ter o seu B1F.
     usos = [p for p in os.listdir(f"{REPO}/data/maps")
             if os.path.exists(f"{REPO}/data/maps/{p}/map.json")
             and json.load(open(f"{REPO}/data/maps/{p}/map.json")).get("layout")
             == "LAYOUT_OREBURGH_CITY_POKEMON_CENTER_1F"]
-    assert len(usos) == 15, usos
+    #    O par 1F/B1F sai do WARP, nao do nome da pasta: o de Oreburgh se chama
+    #    `OreburghCityPokecenterB1F` e o 1F dele e `OreburghCity_PokemonCenter_1F`.
+    assert usos, usos
+    sem_b1f = [p for p in usos if not any(
+        "B1F" in w["dest_map"] for w in
+        json.load(open(f"{REPO}/data/maps/{p}/map.json")).get("warp_events", []))]
+    assert not sem_b1f, sem_b1f
     # 4. o tile da escada e do LAYOUT: quem estiver em cima dele em QUALQUER
     #    mapa que compartilha o layout tem que sair, senao a escada nasce com
     #    gente em cima. Medido: EternaCityPokecenter1F tinha NPC em (13,6).

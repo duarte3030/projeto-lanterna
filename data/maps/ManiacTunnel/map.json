@@ -34,14 +34,14 @@
       "y": 7,
       "elevation": 0,
       "dest_map": "MAP_ROUTE214",
-      "dest_warp_id": "0"
+      "dest_warp_id": "4"
     },
     {
       "x": 2,
       "y": 7,
       "elevation": 0,
       "dest_map": "MAP_SOLACEON_RUINS_MANIAC_TUNNEL_ROOM",
-      "dest_warp_id": "0"
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [],

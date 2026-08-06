@@ -204,11 +204,22 @@ def demo():
         p = palavra_ampla(mapa)
         _d, _l, _w, _h, _pal, comp = A._grade(mapa)
         assert p is not None and comp(p) in W.COMPORTA_WARP, (mapa, p)
-    # 4. os layouts que precisam de escada sao COMPARTILHADOS: furar o original
-    #    poria escada morta em casa que nao sobe, e mudaria Hoenn.
+    # 4. layout compartilhado nunca e furado: furar o original poria escada
+    #    morta em casa que nao sobe, e no caso do Weather Institute mudaria
+    #    HOENN. Quem ganha escada ganha antes uma COPIA `_PROPRIO`.
+    #    A versao anterior cravava "EternaCityCondominiums1F usa layout
+    #    compartilhado" e envelheceu calada, porque a copia dele foi feita nesse
+    #    dia e o mapa passou a ser dono do proprio layout (licao 4.11). O fato
+    #    permanente e este: toda copia `_PROPRIO` tem UM dono so.
     for mapa in ("EternaCityCondominiums1F", "TeamGalacticEternaBuilding_1F"):
         d = json.load(open(f"{REPO}/data/maps/{mapa}/map.json"))
-        assert len(A.mapas_do_layout(d["layout"])) > 1, mapa
+        assert A.mapas_do_layout(d["layout"]) == [mapa], (mapa, d["layout"])
+    #    E o layout de Hoenn que o predio da Galactica usava continua LA,
+    #    intocado: se a copia tivesse sido feita errado, o Weather Institute
+    #    teria ganhado uma escada no meio da sala.
+    donos = A.mapas_do_layout("LAYOUT_ROUTE119_WEATHER_INSTITUTE_1F")
+    assert donos and all(not m.startswith(("Eterna", "TeamGalactic"))
+                         for m in donos), donos
     print("demo ok")
     return 0
 

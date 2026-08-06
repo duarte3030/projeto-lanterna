@@ -136,6 +136,27 @@ APELIDOS = {
     "FloaromaTwon_PokemonCenter_2F": "MAP_HEADER_FLOAROMA_TOWN_POKECENTER_2F",
     "ValleyWindworks": "MAP_HEADER_VALLEY_WINDWORKS_OUTSIDE",
     "SinnohLeague_Entrance": "MAP_HEADER_POKEMON_LEAGUE",
+    # As seis salas da Elite dos Quatro de Sinnoh JA ESTAO na ROM desde
+    # `20ac2eaac4`, e as batalhas foram provadas no emulador em `T82.1` a
+    # `T82.5`. `completude.py` contava as seis como ausentes porque o nome daqui
+    # e `SinnohLeague_*` e o do Platinum e `POKEMON_LEAGUE_*`: mapa que existe
+    # sumindo da conta por causa do nome e o mesmo defeito de regua que segurava
+    # Unova em `Rt5NimbasaGate`. Nada de mapa entra aqui, so a medida acerta.
+    "SinnohLeague_AaronsRoom": "MAP_HEADER_POKEMON_LEAGUE_AARON_ROOM",
+    "SinnohLeague_BerthasRoom": "MAP_HEADER_POKEMON_LEAGUE_BERTHA_ROOM",
+    "SinnohLeague_FlintsRoom": "MAP_HEADER_POKEMON_LEAGUE_FLINT_ROOM",
+    "SinnohLeague_LuciansRoom": "MAP_HEADER_POKEMON_LEAGUE_LUCIAN_ROOM",
+    "SinnohLeague_ChampionsRoom": "MAP_HEADER_POKEMON_LEAGUE_CHAMPION_ROOM",
+    "SinnohLeague_HallOfFame": "MAP_HEADER_POKEMON_LEAGUE_HALL_OF_FAME",
+    # Mesmo caso, por nome de predio: a loja de flores de Floaroma e
+    # `MAP_HEADER_FLOWER_SHOP` la, sem o nome da cidade na frente.
+    "FloaromaTown_FlowerShop": "MAP_HEADER_FLOWER_SHOP",
+    # Os 3F dos dois predios de Jubilife que ja estao na ROM. No Platinum eles
+    # sao os andares marcados UNUSED do MESMO predio (Flat1 e o condominio,
+    # Flat2 e a casa do sul); Flat3 nao entra porque a casa do sudoeste do
+    # Platinum so tem 1F e 2F, entao o nosso 3F nao tem par la.
+    "JubilifeCity_Flat1_F3": "MAP_HEADER_UNUSED_JUBILIFE_CITY_CONDOMINIUMS_3F",
+    "JubilifeCity_Flat2_F3": "MAP_HEADER_UNUSED_JUBILIFE_CITY_SOUTH_HOUSE_3F",
     "SunyshoreCity_Gym": "MAP_HEADER_SUNYSHORE_CITY_GYM_ROOM_1",
     "HearthomeCity_Gym": "MAP_HEADER_HEARTHOME_CITY_GYM_ENTRANCE_ROOM",
     "Route204": "MAP_HEADER_ROUTE_204_SOUTH",

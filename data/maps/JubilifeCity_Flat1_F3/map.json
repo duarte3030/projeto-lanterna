@@ -50,6 +50,13 @@
       "elevation": 0,
       "dest_map": "MAP_JUBILIFE_CITY_FLAT1_F2",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_UNUSED_JUBILIFE_CITY_CONDOMINIUMS_4F",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

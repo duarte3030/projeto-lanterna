@@ -202,14 +202,28 @@ def andaveis(palavras):
     return sum(1 for p in palavras if (p >> 10) & 3 == 0)
 
 
-def chao_de_caverna(grade):
-    """Tiles TILE_BEHAVIOR_CAVE_FLOOR (0x08) sem colisao, na grade CRUA do DS.
+# Chao de masmorra, na grade CRUA do DS. Os tres sao vizinhos no MESMO enum
+# `TileBehavior` do pokeplatinum
+# (`include/constants/field/map_tile_behaviors.h`), e a regra so contava o
+# primeiro. Isso deixava de fora masmorra que nao e caverna de pedra: os cinco
+# andares da Lost Tower da Route 209 e a sala do fundo do Old Chateau sao
+# `OLD_CHATEAU_FLOOR`, nao `CAVE_FLOOR`, e o mapa deles esta na grade do mesmo
+# jeito. Medido em 06/08/2026: Lost Tower 1F tem 123 tiles de 0x0B e ZERO de
+# 0x08, e por isso era reprovada como "nao e caverna de verdade".
+CHAO_MASMORRA = (0x08,   # TILE_BEHAVIOR_CAVE_FLOOR
+                 0x0B,   # TILE_BEHAVIOR_OLD_CHATEAU_FLOOR
+                 0x0C)   # TILE_BEHAVIOR_MOUNTAIN_FLOOR
 
-    E o unico sinal que separa caverna de verdade de mapa que so esta marcado
-    MAP_TYPE_CAVE no Platinum. Contar tile andavel nao separa: mede o tamanho
-    da sala, e sala pequena de verdade existe.
+
+def chao_de_caverna(grade):
+    """Tiles de chao de masmorra sem colisao, na grade CRUA do DS.
+
+    E o unico sinal que separa masmorra de verdade de mapa que so esta marcado
+    MAP_TYPE_CAVE ou MAP_TYPE_INDOORS no Platinum. Contar tile andavel nao
+    separa: mede o tamanho da sala, e sala pequena de verdade existe.
     """
-    return sum(1 for v in grade if not v & 0x8000 and (v & 0xFF) == 0x08)
+    return sum(1 for v in grade
+               if not v & 0x8000 and (v & 0xFF) in CHAO_MASMORRA)
 
 
 # ------------------------------------------------------------- escrita
@@ -265,7 +279,14 @@ def alvos():
             d = w["dest_header_id"]
             if d in existentes or d in vistos:
                 continue
-            if headers().get(d, {}).get("mapType") != "MAP_TYPE_CAVE":
+            # `mapType` e a regua GROSSA, e sozinha ela erra dos dois lados:
+            # FLOAROMA_MEADOW esta marcado CAVE e e um prado, e a Lost Tower
+            # esta marcada INDOORS e e masmorra. Quem decide e o chao de
+            # masmorra na grade, la embaixo. Aqui so fica de fora OUTDOORS, por
+            # decisao: exterior de gen 4 tem cenario DESENHADO que a grade 2D
+            # nao guarda, e converter isso encheria a rua de pedra.
+            if headers().get(d, {}).get("mapType") not in (
+                    "MAP_TYPE_CAVE", "MAP_TYPE_INDOORS"):
                 continue
             pasta = nome_de_pasta(d)
             if pasta in pastas or F.const_do_header(d) in consts:
@@ -294,10 +315,12 @@ def main():
         # verdade: 32x32 quase todo pedra com uma sala pequena no meio e o mapa
         # como o Platinum o desenhou, nao grade vazia. Contar tile andavel media
         # o TAMANHO da sala, que nao e o que interessa.
-        # A regra honesta e a que o cabecalho ja explica: caverna e o que tem
-        # TILE_BEHAVIOR_CAVE_FLOOR (0x08). Medido nos 32 destinos que faltam:
-        # Solaceon tem 10 a 13, Victory Road 1F tem 817, e FLOAROMA_MEADOW,
-        # OLD_CHATEAU_BACK_MIDDLE_EAST_ROOM e CELESTIC_TOWN_CAVE tem ZERO.
+        # A regra honesta e a que o cabecalho ja explica: masmorra e o que tem
+        # chao de masmorra (`CHAO_MASMORRA`). Medido nos destinos que faltam:
+        # Solaceon tem 10 a 13, Victory Road 1F tem 817, Lost Tower 84 a 123, e
+        # FLOAROMA_MEADOW, CELESTIC_TOWN_CAVE, o ginasio de Hearthome, o Vista
+        # Lighthouse e a sala de ranking da Jubilife TV tem ZERO, que e o que os
+        # mantem de fora mesmo agora que MAP_TYPE_INDOORS passa.
         if chao_de_caverna(grade) < 8:
             continue
         convertidos[header] = (larg, alt, pal)
@@ -430,10 +453,66 @@ def main():
               indent=2, ensure_ascii=False)
     with open(f"{REPO}/data/event_scripts.s", "a") as f:
         f.writelines(incs)
+    conta["voltas"] = casa_voltas()
     print(f"\naplicado: {conta['mapas']} cavernas, {conta['warps']} warps, "
+          f"{conta['voltas']} voltas de escada apontadas para o degrau certo, "
           f"{conta['npcs']} NPCs, {conta['placas']} placas, "
           f"{conta['textos']} textos do Platinum")
     return 0
+
+
+def _mapas_convertidos():
+    """pasta -> map.json de todo mapa que ESTA ferramenta escreveu."""
+    saida = {}
+    for pasta in sorted(os.listdir(f"{REPO}/data/maps")):
+        arq = f"{REPO}/data/maps/{pasta}/map.json"
+        if not os.path.exists(arq):
+            continue
+        d = json.load(open(arq))
+        if "geometria convertida" in (d.get("origem") or ""):
+            saida[pasta] = d
+    return saida
+
+
+def casa_voltas():
+    """Aponta cada warp de mapa convertido para o DEGRAU que devolve, nao para 0.
+
+    O `dest_warp_id` sai "0" de fabrica aqui porque, no laco que escreve, o mapa
+    do outro lado da escada ainda nao existe. So que "0" e a SAIDA da caverna:
+    quem descia do 2F para o 1F era cuspido para fora do mapa inteiro, em vez de
+    cair no degrau de cima do 1F. Medido em 06/08/2026 na Victory Road de Sinnoh
+    e na Lost Tower: warp que existe, dispara, e leva ao lugar errado, que e a
+    licao 4.1 do ESTADO por inteiro.
+
+    A regra e a unica que nao precisa de gosto: o degrau certo do destino e o
+    warp DELE que aponta de volta para mim. Warp que nao tem volta (boca de
+    caverna para a rua, que cai no capacho do pai) fica como esta.
+    """
+    convertidos = _mapas_convertidos()
+    por_id = {}
+    for pasta in os.listdir(f"{REPO}/data/maps"):
+        arq = f"{REPO}/data/maps/{pasta}/map.json"
+        if os.path.exists(arq):
+            d = json.load(open(arq))
+            por_id[d["id"]] = (pasta, d)
+    trocados = 0
+    for pasta, d in convertidos.items():
+        mudou = False
+        for w in d.get("warp_events", []):
+            alvo = por_id.get(w["dest_map"])
+            if not alvo:
+                continue
+            voltas = [i for i, v in enumerate(alvo[1].get("warp_events", []))
+                      if v["dest_map"] == d["id"]]
+            if not voltas or int(w["dest_warp_id"]) in voltas:
+                continue
+            w["dest_warp_id"] = str(voltas[0])
+            mudou = True
+            trocados += 1
+        if mudou:
+            json.dump(d, open(f"{REPO}/data/maps/{pasta}/map.json", "w"),
+                      indent=2, ensure_ascii=False)
+    return trocados
 
 
 def demo():
@@ -485,11 +564,37 @@ def demo():
     # 6. sala PEQUENA de verdade entra, e mapa que so esta marcado
     #    MAP_TYPE_CAVE fica de fora. Foi a regra por tamanho que reprovou as 11
     #    salas sem saida das Solaceon Ruins.
+    #    Lost Tower e Old Chateau entram por `OLD_CHATEAU_FLOOR`: contar so
+    #    `CAVE_FLOOR` reprovava masmorra que existe na grade do mesmo jeito.
+    #    Casa, ginasio e farol continuam fora, com ZERO chao de masmorra, e sao
+    #    eles que provam que abrir para MAP_TYPE_INDOORS nao abriu a porteira.
     for h, entra in (("MAP_HEADER_SOLACEON_RUINS_ROOM_1_NORTHWEST_DEAD_END", True),
+                     ("MAP_HEADER_ROUTE_209_LOST_TOWER_1F", True),
+                     ("MAP_HEADER_OLD_CHATEAU_BACK_MIDDLE_EAST_ROOM", True),
                      ("MAP_HEADER_FLOAROMA_MEADOW", False),
-                     ("MAP_HEADER_OLD_CHATEAU_BACK_MIDDLE_EAST_ROOM", False)):
+                     ("MAP_HEADER_CELESTIC_TOWN_CAVE", False),
+                     ("MAP_HEADER_VISTA_LIGHTHOUSE", False),
+                     ("MAP_HEADER_HEARTHOME_CITY_GYM_TRAINER_ROOM_1", False)):
         _l, _a, gg = grade_do_header(h)
         assert (chao_de_caverna(gg) >= 8) is entra, (h, chao_de_caverna(gg))
+    # 7. escada de mapa convertido tem que cair no DEGRAU que devolve, e nao no
+    #    warp 0, que e a saida do dungeon. Com `dest_warp_id` "0" cravado, descer
+    #    do 2F da Victory Road de Sinnoh cuspia o jogador na porta da Liga.
+    por_id = {}
+    for pasta in os.listdir(f"{REPO}/data/maps"):
+        arq = f"{REPO}/data/maps/{pasta}/map.json"
+        if os.path.exists(arq):
+            d = json.load(open(arq))
+            por_id[d["id"]] = d
+    for d in _mapas_convertidos().values():
+        for w in d.get("warp_events", []):
+            alvo = por_id.get(w["dest_map"])
+            if not alvo:
+                continue
+            voltas = [i for i, v in enumerate(alvo.get("warp_events", []))
+                      if v["dest_map"] == d["id"]]
+            assert not voltas or int(w["dest_warp_id"]) in voltas, (
+                d["id"], w["dest_map"], w["dest_warp_id"], voltas)
     print("demo ok")
     return 0
 

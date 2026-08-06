@@ -1,0 +1,31 @@
+[
+  {
+    "id": "T84.1",
+    "nome": "A quinta sala do fundo do OLD CHATEAU existe e da para entrar nela A PE, saindo do corredor. Ela ficava de fora porque o conversor de caverna so contava TILE_BEHAVIOR_CAVE_FLOOR (0x08), e a sala e OLD_CHATEAU_FLOOR (0x0B): duas masmorras vizinhas no MESMO enum do pokeplatinum, e a regra so conhecia a primeira. O corredor tinha quatro portas de fundo desenhadas e a fonte tem cinco; a quinta nasceu em (27,2), entre a de (19,2) e a de (34,2), que e onde o Platinum a poe",
+    "warp": "MAP_OLD_CHATEAU_CORRIDOR",
+    "roteiro": "16:RIGHT*9,16:UP*4,90:NADA",
+    "prova": {
+      "mapa": "MAP_OLD_CHATEAU_BACK_MIDDLE_EAST_ROOM",
+      "layout": "LAYOUT_OLD_CHATEAU_BACK_MIDDLE_EAST_ROOM"
+    }
+  },
+  {
+    "id": "T84.2",
+    "nome": "A LOST TOWER da Route 209 sobe: do 1F se anda ate a escada e se chega no 2F. Os cinco andares sao geometria CONVERTIDA da grade 2D do Platinum, nao planta reaproveitada, e entraram pelo mesmo motivo do T84.1. Medido escrevendo este caso: depois de um warp pelo menu de debug o jogador NAO gasta tecla para virar, cada toque anda um tile, ao contrario do que vale quando ele ja estava andando no mapa",
+    "warp": "MAP_ROUTE_209_LOST_TOWER_1F",
+    "roteiro": "16:UP*2,16:LEFT*2,16:UP*7,16:LEFT*1,16:UP*2,90:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE_209_LOST_TOWER_2F",
+      "layout": "LAYOUT_ROUTE_209_LOST_TOWER_2F"
+    }
+  },
+  {
+    "id": "T84.3",
+    "nome": "Descer a escada do 2F da LOST TOWER cai no 1F, e nao na rua. Este caso existe por causa de um bug que passou por toda a leva anterior sem ninguem ver: o conversor cravava dest_warp_id \"0\" em toda escada, e o warp 0 de uma masmorra e a SAIDA dela, entao descer um andar cuspia o jogador para fora do dungeon inteiro. Eram 69 escadas assim, incluindo a Victory Road de Sinnoh, que jogava o jogador na porta da Liga. Warp que existe e dispara ainda pode levar ao lugar errado",
+    "warp": "MAP_ROUTE_209_LOST_TOWER_2F",
+    "roteiro": "16:DOWN*2,16:UP*2,90:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE_209_LOST_TOWER_1F"
+    }
+  }
+]

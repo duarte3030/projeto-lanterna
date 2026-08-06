@@ -18990,6 +18990,72 @@
       "border_filepath": "data/layouts/SinnohVictoryRoadB1F/border.bin",
       "blockdata_filepath": "data/layouts/SinnohVictoryRoadB1F/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_OLD_CHATEAU_BACK_MIDDLE_EAST_ROOM",
+      "name": "OldChateauBackMiddleEastRoom_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/OldChateauBackMiddleEastRoom/border.bin",
+      "blockdata_filepath": "data/layouts/OldChateauBackMiddleEastRoom/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ROUTE_209_LOST_TOWER_1F",
+      "name": "Route209LostTower1F_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/Route209LostTower1F/border.bin",
+      "blockdata_filepath": "data/layouts/Route209LostTower1F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ROUTE_209_LOST_TOWER_2F",
+      "name": "Route209LostTower2F_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/Route209LostTower2F/border.bin",
+      "blockdata_filepath": "data/layouts/Route209LostTower2F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ROUTE_209_LOST_TOWER_3F",
+      "name": "Route209LostTower3F_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/Route209LostTower3F/border.bin",
+      "blockdata_filepath": "data/layouts/Route209LostTower3F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ROUTE_209_LOST_TOWER_4F",
+      "name": "Route209LostTower4F_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/Route209LostTower4F/border.bin",
+      "blockdata_filepath": "data/layouts/Route209LostTower4F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ROUTE_209_LOST_TOWER_5F",
+      "name": "Route209LostTower5F_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/Route209LostTower5F/border.bin",
+      "blockdata_filepath": "data/layouts/Route209LostTower5F/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

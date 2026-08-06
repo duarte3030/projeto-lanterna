@@ -432,15 +432,38 @@ def demo():
         assert comp(p) in W.COMPORTA_WARP, (mapa, hex(p))
     # 4. no pai convertido do DS a coordenada da fonte vale tile a tile: se ela
     #    caisse em rocha, a leitura da grade estaria invertida.
-    achou = 0
+    #    A versao anterior contava as pendencias ("achou >= 3") e envelheceu
+    #    calada: as pendencias sao justamente o que esta ferramenta consome, e
+    #    quando a fila zerou o teste passou a reprovar o proprio conserto
+    #    (licao 4.11 do ESTADO). O fato permanente e outro: nos mapas que JA
+    #    foram convertidos do DS, o warp da fonte cai em chao andavel aqui.
     for pai, _filho, coords, d in alvos_pendentes():
         if not convertido_do_ds(d) or not coords:
             continue
         _dd, _l, w, h, pal, _c = A._grade(pai)
         assert any(0 <= x < w and 0 <= z < h and not ((pal[z * w + x] >> 10) & 3)
                    for x, z in coords), pai
-        achou += 1
-    assert achou >= 3, achou
+    conferidos = 0
+    for pasta in sorted(os.listdir(f"{REPO}/data/maps")):
+        arq = f"{REPO}/data/maps/{pasta}/map.json"
+        if not os.path.exists(arq):
+            continue
+        d = json.load(open(arq))
+        if not convertido_do_ds(d):
+            continue
+        h4 = header_do_mapa(pasta, d, heads)
+        pe = os.path.join(C.PLAT, "res/field/events",
+                          heads[h4][0] + ".json") if h4 else None
+        if not pe or not os.path.exists(pe):
+            continue
+        _dd, _l, w, h, pal, _c = A._grade(pasta)
+        for wv in json.load(open(pe)).get("warp_events", []):
+            x, z = int(wv["x"]), int(wv["z"])
+            if not (0 <= x < w and 0 <= z < h):
+                continue
+            assert not ((pal[z * w + x] >> 10) & 3), (pasta, x, z)
+            conferidos += 1
+    assert conferidos >= 20, conferidos
     # 5. ancora: Route214 tem warp para a Ruin Maniac Cave dos dois lados, entao
     #    a translacao local existe. Sem ela a posicao seria chute puro.
     d = json.load(open(f"{REPO}/data/maps/Route214/map.json"))
