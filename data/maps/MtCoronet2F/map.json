@@ -27,6 +27,13 @@
       "elevation": 0,
       "dest_map": "MAP_MT_CORONET_2F",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 11,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_MT_CORONET_3F",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

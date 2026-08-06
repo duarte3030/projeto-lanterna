@@ -20,6 +20,13 @@
       "elevation": 0,
       "dest_map": "MAP_ROUTE224",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 13,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_VICTORY_ROAD_1F_ROOM_2",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

@@ -1,0 +1,35 @@
+[
+ {
+  "id": "T55.1",
+  "nome": "Sinnoh: o jogador ENTRA no Maniac Tunnel a pe, pela boca de caverna desenhada no penhasco de Route214, em (12,35), colada na entrada da Ruin Maniac Cave que ja existia em (9,35). A palavra de 16 bits da boca foi COPIADA daquela entrada, entao o comportamento e o mesmo que o motor ja aceitava. Warp que existe no JSON nao e warp que dispara, licao que ja custou uma sessao inteira aqui. Duas coisas medidas na EWRAM e nao supostas: warp de PORTA larga o jogador no tile de BAIXO, (12,36), e nao em cima da porta; e o primeiro toque numa direcao contraria a que ele encara so vira, nao anda. Por isso sao tres UP e nao um",
+  "warp": "MAP_ROUTE214",
+  "warp_id": 4,
+  "roteiro": "120:NADA,20:UP,20:UP,20:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_MANIAC_TUNNEL",
+   "layout": "LAYOUT_MANIAC_TUNNEL"
+  }
+ },
+ {
+  "id": "T55.2",
+  "nome": "Sinnoh: o jogador desce a escada de Wayward Cave 1F para o B1F a pe. Caso de proposito DIFERENTE do T55.1: aqui o pai tambem saiu da grade 2D do Platinum, entao a escada entrou na coordenada EXATA da fonte (28,54), sem heuristica nenhuma, e a palavra e a de escada de caverna medida nos mapas de Mt. Coronet que o repo ja tinha. Se os dois casos passassem pelo mesmo caminho, um so estaria sendo provado. O UP aparece DUAS vezes de proposito: medido na EWRAM, o primeiro toque numa direcao contraria a que o jogador encara so VIRA ele, e com um toque so ele ficava parado em (28,55) para sempre",
+  "warp": "MAP_WAYWARD_CAVE_1F",
+  "warp_id": 1,
+  "roteiro": "120:NADA,20:DOWN,40:NADA,20:UP,20:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_WAYWARD_CAVE_B1F",
+   "layout": "LAYOUT_WAYWARD_CAVE_B1F"
+  }
+ },
+ {
+  "id": "T55.3",
+  "nome": "Sinnoh: o jogador ENTRA nas Solaceon Ruins a pe, pela boca aberta em (51,27). Terceiro caminho de proposito: aqui a posicao da boca saiu de ANCORA, o delta entre a creche que o Platinum e a nossa Solaceon tem os dois, porque coordenada de rua do Platinum e global da matriz de Sinnoh e nao tem offset que alinhe. Sao tres UP pelo mesmo motivo do T55.1: o warp de porta larga o jogador em (51,28), um tile abaixo da boca, e o primeiro toque so vira",
+  "warp": "MAP_SOLACEON_TOWN",
+  "warp_id": 6,
+  "roteiro": "120:NADA,20:UP,20:UP,20:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_SOLACEON_RUINS_ROOM_1",
+   "layout": "LAYOUT_SOLACEON_RUINS_ROOM_1"
+  }
+ }
+]

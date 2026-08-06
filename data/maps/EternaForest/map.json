@@ -330,6 +330,13 @@
       "elevation": 0,
       "dest_map": "MAP_ETERNA_FOREST",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 54,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_OLD_CHATEAU",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

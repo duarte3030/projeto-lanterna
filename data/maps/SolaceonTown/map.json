@@ -243,6 +243,20 @@
       "elevation": 0,
       "dest_map": "MAP_SOLACEON_TOWN_POKEMON_NEWS_PRESS",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 53,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_SOLACEON_RUINS_MANIAC_TUNNEL_ROOM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 51,
+      "y": 27,
+      "elevation": 0,
+      "dest_map": "MAP_SOLACEON_RUINS_ROOM_1",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
