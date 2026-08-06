@@ -103,3 +103,78 @@ Unova_NuvemaLab_Text_BiancasAssistant2Text::
 	.string "The PROF is young,"
 	.string "\nbut she's done a"
 	.string "\lgreat job so far!$"
+
+@ Trecho devolvido em 06/08/2026: o commit das placas (febde977c3)
+@ reescreveu este arquivo a partir da fonte do BW3G e levou junto os
+@ scripts dos tres iniciais, que nao vem do BW3G e sim da decisao 68 do Gui.
+Unova_NuvemaLab_EventScript_BallSnivy::
+	lock
+	faceplayer
+	showmonpic SPECIES_SNIVY, 10, 3
+	bufferspeciesname STR_VAR_1, SPECIES_SNIVY
+	msgbox Unova_NuvemaLab_Text_WillYouTakeThisOne, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Unova_NuvemaLab_EventScript_DeclinedStarter
+	hidemonpic
+	givemon SPECIES_SNIVY, 70
+	setvar VAR_STARTER_MON, 0
+	goto Unova_NuvemaLab_EventScript_ChoseStarter
+
+Unova_NuvemaLab_EventScript_BallTepig::
+	lock
+	faceplayer
+	showmonpic SPECIES_TEPIG, 10, 3
+	bufferspeciesname STR_VAR_1, SPECIES_TEPIG
+	msgbox Unova_NuvemaLab_Text_WillYouTakeThisOne, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Unova_NuvemaLab_EventScript_DeclinedStarter
+	hidemonpic
+	givemon SPECIES_TEPIG, 70
+	setvar VAR_STARTER_MON, 1
+	goto Unova_NuvemaLab_EventScript_ChoseStarter
+
+Unova_NuvemaLab_EventScript_BallOshawott::
+	lock
+	faceplayer
+	showmonpic SPECIES_OSHAWOTT, 10, 3
+	bufferspeciesname STR_VAR_1, SPECIES_OSHAWOTT
+	msgbox Unova_NuvemaLab_Text_WillYouTakeThisOne, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Unova_NuvemaLab_EventScript_DeclinedStarter
+	hidemonpic
+	givemon SPECIES_OSHAWOTT, 70
+	setvar VAR_STARTER_MON, 2
+	goto Unova_NuvemaLab_EventScript_ChoseStarter
+
+Unova_NuvemaLab_EventScript_DeclinedStarter::
+	hidemonpic
+	release
+	end
+
+Unova_NuvemaLab_EventScript_ChoseStarter::
+	setflag FLAG_INICIAL_UNOVA
+	setflag FLAG_SYS_POKEMON_GET
+	message Unova_NuvemaLab_Text_ReceivedStarter
+	waitmessage
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Unova_NuvemaLab_EventScript_AfterStarter
+	setvar VAR_0x8004, 0
+	call Common_EventScript_NameReceivedPartyMon
+	goto Unova_NuvemaLab_EventScript_AfterStarter
+
+Unova_NuvemaLab_EventScript_AfterStarter::
+	removeobject LOCALID_JUNIPER_LAB_BALL_SNIVY
+	removeobject LOCALID_JUNIPER_LAB_BALL_TEPIG
+	removeobject LOCALID_JUNIPER_LAB_BALL_OSHAWOTT
+	release
+	end
+
+@ Aviso mecanico, nao e fala do BW3G.
+Unova_NuvemaLab_Text_WillYouTakeThisOne::
+	.string "This POKé BALL holds a\n"
+	.string "{STR_VAR_1}.\p"
+	.string "Will you take this one?$"
+
+@ Aviso mecanico, nao e fala do BW3G.
+Unova_NuvemaLab_Text_ReceivedStarter::
+	.string "{PLAYER} received the\n"
+	.string "{STR_VAR_1}!$"
