@@ -31,13 +31,13 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 
 | medida | valor |
 |---|---|
-| ROM | **94,05% de 32 MB** (1,90 MB livres) |
+| ROM | **94,43% de 32 MB** (1,78 MB livres) |
 | EWRAM / IWRAM | 85,57% / 86,62% |
 | SaveBlock1 | **13432 de 15872 B (84,6%)** |
 | flags livres no pool | **184** (eram 288 antes de ligar as de Kanto) |
-| mapas | **1777** |
+| mapas | **1826** |
 | treinadores com time próprio | **2346** |
-| grupos de mapa que carregam | **101 de 101** |
+| grupos de mapa | **126** (teto duro de **128** grupos e **128 mapas por grupo**: `s8` em `struct WarpData`; passar disso mata o mapa) |
 | suíte de testes | **107 de 110** (1 pulado precisa de duas builds; 2 reprovados são de Unova) |
 | teto de treinador | `MAX_TRAINERS_COUNT_EMERALD` = 3000 |
 
@@ -51,8 +51,20 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 | Kanto | 98,1% | 100,1% | 100,0% | 100,0% |
 | Johto | **95,9%** | 94,0% | 100,0% | 96,0% |
 | Hoenn | 100,0% | 100,1% | 100,0% | 100,0% |
-| Sinnoh | **51,0%** | 83,8% | **95,4%** | 102,3% |
+| Sinnoh | **59,3%** | 81,8% | **96,9%** | 99,8% |
 | Unova | 94,2% | 98,3% | 98,9% | 98,0% |
+
+Mudou em 06/08/2026, mais tarde no mesmo dia: **grupo de mapa tem teto de 128**,
+e 26 mapas de Sinnoh estavam MORTOS por causa dele. `struct WarpData` guarda
+`s8 mapGroup` e `s8 mapNum` (`include/global.h`): o mapa de indice 128 vira -128
+no warp e o jogo reseta ao entrar. Medido no emulador, indice a indice. O grupo
+de portas foi partido em dois, `fecha_portas_sinnoh.grupo_com_vaga` passa a
+escolher o grupo sozinha e `antes_de_empurrar.sh` recusa grupo estourado. **Sobram
+2 grupos dos 128**: regiao nova precisa caber neles. Com o teto respeitado
+entraram as 36 cavernas com boca desenhada (`abre_bocas_cavernas_sinnoh.py`) e as
+11 portas teimosas (`abre_portas_teimosas_sinnoh.py`, com clone de layout onde a
+planta e compartilhada), e **Sinnoh foi de 51,0% para 59,3% dos mapas**. Detalhe
+nas secoes 11 e 12 de `PENDENCIAS-NPC-SINNOH.md`.
 
 Mudou em 06/08/2026: **Sinnoh saiu de 25,6% para 51,0% dos mapas e de 61,8%
 para 95,4% dos warps**, em tres levas. A primeira reaproveitou planta de

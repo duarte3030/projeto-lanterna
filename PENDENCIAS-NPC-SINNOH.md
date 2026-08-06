@@ -239,3 +239,89 @@ Três leituras que o script precisou fazer e que não estavam no `demake_ds.py`:
 | 1 | `FLOAROMA_MEADOW` | está marcado `MAP_TYPE_CAVE` no Platinum mas é o prado das colmeias: a grade dá 4 tiles andáveis em 4096. Seria caverna falsa |
 | 1 | `VICTORY_ROAD_1F` | `MAP_VICTORY_ROAD_1F` já existe: é a Victory Road de HOENN. Precisa de outro nome de constante |
 | 27 | elevador, sala de ginásio, andar de loja, estúdio da Jubilife TV, Great Marsh, Amity Square, Pal Park, Battle Frontier | não são caverna: têm mobília e piso desenhados, exatamente o caso em que a grade 2D não basta |
+
+## 11. As bocas de caverna, 06/08/2026
+
+`dev_scripts/abre_bocas_cavernas_sinnoh.py` abriu a entrada que faltava e
+`converte_cavernas_sinnoh.py` criou **36 cavernas** com a planta convertida do
+DS. Sinnoh foi de 51,0% para **57,1%** dos mapas. O script não cria mapa nenhum:
+ele só desenha o tile de entrada no mapa pai, e quem cria continua sendo o
+conversor.
+
+**A boca nasce de dois jeitos, e a diferença sai do dado.**
+
+- **Pai também convertido da grade 2D do Platinum** (Mt. Coronet 2F, Wayward
+  Cave 1F, Snowpoint Temple 1F, Victory Road 1F Room 3): os dois lados são a
+  mesma grade, então a coordenada da fonte vale aqui **tile a tile**. A escada
+  entra na coordenada exata do warp deles, conferida andável.
+- **Pai de outra geometria** (rota, cidade, floresta, margem de lago):
+  coordenada de rua no Platinum é global da matriz de Sinnoh e não tem offset
+  que alinhe. A posição sai por **âncora**: o mesmo mapa já tem warp para um
+  destino que o Platinum também tem (Route214 → Ruin Maniac Cave Short,
+  Solaceon → a creche), e o delta entre os dois pares dá a translação local.
+
+O tile só vira boca se, medido no nosso `map.bin`, estiver **bloqueado hoje**,
+tiver **chão andável logo abaixo** e tiver os vizinhos de cima, esquerda e
+direita **também bloqueados**: é o meio de uma parede, não a quina de uma árvore
+solta. Mancha com `MB_MOUNTAIN_TOP` ganha das outras, que é penhasco.
+
+A palavra de 16 bits é a **porta de caverna do próprio mapa**, nunca a seta de
+portaria: em Route214 a seta era a porta mais comum e a boca saía com desenho de
+escada de prédio. `--redesenha` refaz essa escolha nas bocas já abertas, e não
+encosta em caverna nem em pai convertido, onde o 519 do tileset de caverna já é
+a boca certa.
+
+`SpearPillar` divide layout com o Sky Pillar de HOENN: o layout foi **clonado** e
+só a cópia foi furada.
+
+**Abrir uma boca revela a próxima.** Foram sete voltas de boca mais conversão:
+os sete quartos das Solaceon Ruins, os cinco andares do Snowpoint Temple, as
+sete salas do Old Chateau, Mt. Coronet 3F a 6F, as duas salas de Victory Road.
+Os 75 warps das 46 cavernas do grupo disparam todos.
+
+## 12. O teto de 128 mapas por grupo, 06/08/2026
+
+Achado provando as portas no emulador, e é a coisa mais importante deste
+documento: **`struct WarpData` guarda `s8 mapGroup` e `s8 mapNum`**
+(`include/global.h`). Mapa de índice 128 dentro de um grupo vira -128 no warp, o
+jogo carrega lixo e **reseta**.
+
+Medido tile a tile: o índice 127 de `gMapGroup_IndoorSinnohPortas` entra, o 128
+derruba o jogo. Uma cópia byte a byte de uma casa que funciona também derruba se
+entrar acima de 127, o que descarta conteúdo do mapa como causa. O grupo tinha
+153 mapas, então **26 estavam mortos**, 14 deles da leva anterior, todos com
+warp que `valida_warp_tile.py` dava por bom: comportamento de porta é condição
+necessária, não suficiente.
+
+- o grupo foi partido em `gMapGroup_IndoorSinnohPortas` (128) e
+  `gMapGroup_IndoorSinnohPortas2`, no fim de `group_order`. Nenhum índice
+  alcançável andou, e a save continua compatível;
+- `fecha_portas_sinnoh.grupo_com_vaga` escolhe o grupo daqui em diante, e abre o
+  próximo sozinho quando o atual enche. Os três scripts que criam mapa usam ela;
+- `antes_de_empurrar.sh` recusa grupo acima de 128 e mais de 128 grupos, que é o
+  mesmo campo. **Hoje são 126 grupos: sobram 2.** Região nova precisa caber
+  neles ou reaproveitar grupo existente.
+
+### As 11 portas teimosas, no mesmo dia
+
+`dev_scripts/abre_portas_teimosas_sinnoh.py` fechou os 11 destinos que sobravam:
+3 casas de Celestic, 2 de Solaceon, a casa leste de Sunyshore e o Ribbon
+Syndicate pelo **teste de parede** (Celestic é uma cratera, nenhum bloco dela
+passa no teste de prédio), e `ETERNA_CITY_CONDOMINIUMS_2F`, os dois `UNUSED_*_3F`
+e `ROTOMS_ROOM` **clonando o layout** antes de desenhar a escada, porque a planta
+de casa serve 74 mapas e a do `TeamGalacticEternaBuilding_1F` é a do Weather
+Institute, de HOENN. Mais duas voltas trouxeram o 3F e o 4F dos condomínios.
+
+A palavra de porta passou a ser procurada pelo **par de tilesets** quando o
+próprio mapa não tem nenhuma para copiar: casa comum só tem o capacho de saída,
+que é seta e não dispara por cima.
+
+Sinnoh: 57,1% para **59,3%** dos mapas.
+
+### Terceiro bug de ferramenta
+
+`DebugAction_Util_Warp_SelectWarp` (src/debug.c) **não trata LEFT nem RIGHT**: o
+campo do warp fica sempre na unidade e é clampado em 10. `testa_critico.py`
+mandava LEFT e RIGHT achando que era campo de três dígitos, então pedir o warp
+10 entrava o warp 1, e a casa leste de Sunyshore reprovava com a porta certa.
+`digita_warp` conserta, e o T55.6 guarda contra a volta.
