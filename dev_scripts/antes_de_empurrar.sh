@@ -63,6 +63,20 @@ passo() {  # passo "nome" "comando"
 # nada. Custa nada limpar antes.
 find . -name "* [2-9].*" -not -path "./.git/*" -delete 2>/dev/null
 
+# ponytail: o binario do runner esta no gitignore (so o .c e versionado), entao
+# em maquina nova o portao ficava vermelho no passo do emulador por FALTA DE
+# FERRAMENTA, e nao por bug no jogo. Compila se faltar, e segue.
+if [ ! -x "$REPO/dev_scripts/gba_runner" ]; then
+    printf '%-34s' "compilando o gba_runner"
+    if cc -O2 -o "$REPO/dev_scripts/gba_runner" "$REPO/dev_scripts/gba_runner.c" \
+         -I/opt/homebrew/include -L/opt/homebrew/lib \
+         $(pkg-config --cflags --libs libpng 2>/dev/null) -lmgba > "$LOG" 2>&1; then
+        echo "ok"
+    else
+        echo "FALHOU  (log em $LOG; falta libmgba ou libpng?)"
+    fi
+fi
+
 passo "build do HEAD limpo"        "make -j8"
 passo "guarda de save"             "python3 dev_scripts/guarda_save.py"
 passo "o declarado entrou na ROM"  "python3 dev_scripts/valida_rom.py"
