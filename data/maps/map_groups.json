@@ -2176,7 +2176,21 @@
     "SnowpointTempleB5F",
     "SolaceonRuinsRoom5",
     "SolaceonRuinsRoom6",
-    "SolaceonRuinsRoom7"
+    "SolaceonRuinsRoom7",
+    "SolaceonRuinsRoom1SoutheastDeadEnd",
+    "SolaceonRuinsRoom1NorthwestDeadEnd",
+    "SolaceonRuinsRoom2NortheastDeadEnd",
+    "SolaceonRuinsRoom2SoutheastDeadEnd",
+    "SolaceonRuinsRoom3NorthwestDeadEnd",
+    "SolaceonRuinsRoom3SouthwestDeadEnd",
+    "SolaceonRuinsRoom4SoutheastDeadEnd",
+    "SolaceonRuinsRoom5SouthwestDeadEnd",
+    "SolaceonRuinsRoom5SoutheastDeadend",
+    "SolaceonRuinsRoom6NorthwestDeadEnd",
+    "SolaceonRuinsRoom6SoutheastDeadEnd",
+    "SinnohVictoryRoad1F",
+    "SinnohVictoryRoad2F",
+    "SinnohVictoryRoadB1F"
   ],
   "gMapGroup_IndoorSinnohPortas2": [
     "PastoriaCityPokecenterB1F",

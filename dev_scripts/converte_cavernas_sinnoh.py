@@ -202,6 +202,16 @@ def andaveis(palavras):
     return sum(1 for p in palavras if (p >> 10) & 3 == 0)
 
 
+def chao_de_caverna(grade):
+    """Tiles TILE_BEHAVIOR_CAVE_FLOOR (0x08) sem colisao, na grade CRUA do DS.
+
+    E o unico sinal que separa caverna de verdade de mapa que so esta marcado
+    MAP_TYPE_CAVE no Platinum. Contar tile andavel nao separa: mede o tamanho
+    da sala, e sala pequena de verdade existe.
+    """
+    return sum(1 for v in grade if not v & 0x8000 and (v & 0xFF) == 0x08)
+
+
 # ------------------------------------------------------------- escrita
 def nome_de_pasta(header):
     return F.nome_de_pasta(header)
@@ -213,8 +223,11 @@ def escreve_layout(pasta, header, larg, alt, palavras):
     open(f"{d}/map.bin", "wb").write(struct.pack(f"<{len(palavras)}H", *palavras))
     open(f"{d}/border.bin", "wb").write(struct.pack("<4H", *([ROCHA_TOPO] * 4)))
     # o id sai do HEADER, nao do nome da pasta: separar "WaywardCave1F" em
-    # palavras daria LAYOUT_WAYWARD_CAVE1_F, que nao casa com nada.
-    lid = "LAYOUT_" + header.replace("MAP_HEADER_", "")
+    # palavras daria LAYOUT_WAYWARD_CAVE1_F, que nao casa com nada. Sai pelo
+    # `const_do_header` para herdar o prefixo de `F.RENOMEADOS`: sem isso a
+    # Victory Road de Sinnoh escreveria LAYOUT_VICTORY_ROAD_1F, que ja e de
+    # Hoenn, e o build morreria com simbolo repetido.
+    lid = "LAYOUT_" + F.const_do_header(header)[len("MAP_"):]
     return {
         "id": lid, "name": f"{pasta}_Layout",
         "width": larg, "height": alt,
@@ -274,10 +287,18 @@ def main():
         if not grade:
             continue
         pal = traduz(larg, alt, grade)
-        # Chao de menos = a grade nao e de caverna. Medido: FLOAROMA_MEADOW esta
-        # marcado MAP_TYPE_CAVE no Platinum mas e o prado das colmeias, e sai com
-        # 4 tiles andaveis em 4096. Entregar isso seria caverna falsa.
-        if andaveis(pal) < 30 or andaveis(pal) < 0.02 * larg * alt:
+        # A grade nao e de caverna = fica de fora. Medido: FLOAROMA_MEADOW esta
+        # marcado MAP_TYPE_CAVE no Platinum mas e o prado das colmeias.
+        # A regra era "menos de 30 tiles andaveis", e ela reprovava as 11 salas
+        # sem saida das Solaceon Ruins, que sao camaras de 10 a 13 tiles de
+        # verdade: 32x32 quase todo pedra com uma sala pequena no meio e o mapa
+        # como o Platinum o desenhou, nao grade vazia. Contar tile andavel media
+        # o TAMANHO da sala, que nao e o que interessa.
+        # A regra honesta e a que o cabecalho ja explica: caverna e o que tem
+        # TILE_BEHAVIOR_CAVE_FLOOR (0x08). Medido nos 32 destinos que faltam:
+        # Solaceon tem 10 a 13, Victory Road 1F tem 817, e FLOAROMA_MEADOW,
+        # OLD_CHATEAU_BACK_MIDDLE_EAST_ROOM e CELESTIC_TOWN_CAVE tem ZERO.
+        if chao_de_caverna(grade) < 8:
             continue
         convertidos[header] = (larg, alt, pal)
 
@@ -453,9 +474,22 @@ def demo():
         assert tab[rel] in W.COMPORTA_WARP, (hex(palavra), tab[rel])
     # 5. o nome da pasta tem que cair na mesma chave do header, senao
     #    completude.py continua contando a caverna como ausente.
+    #    Quem tem nome renomeado (colisao de constante com outra regiao) casa
+    #    pelo APELIDOS, e ai o par tem que estar la: e o mesmo fato, por outra
+    #    porta, e sem ele o mapa entra na ROM e some da conta de completude.
     for h in ("MAP_HEADER_WAYWARD_CAVE_1F", "MAP_HEADER_VICTORY_ROAD_1F",
-              "MAP_HEADER_MT_CORONET_2F"):
-        assert I.chave(nome_de_pasta(h)) == I.chave(h), h
+              "MAP_HEADER_VICTORY_ROAD_B1F", "MAP_HEADER_MT_CORONET_2F"):
+        pasta = nome_de_pasta(h)
+        assert (I.chave(pasta) == I.chave(h)
+                or I.APELIDOS.get(pasta) == h), h
+    # 6. sala PEQUENA de verdade entra, e mapa que so esta marcado
+    #    MAP_TYPE_CAVE fica de fora. Foi a regra por tamanho que reprovou as 11
+    #    salas sem saida das Solaceon Ruins.
+    for h, entra in (("MAP_HEADER_SOLACEON_RUINS_ROOM_1_NORTHWEST_DEAD_END", True),
+                     ("MAP_HEADER_FLOAROMA_MEADOW", False),
+                     ("MAP_HEADER_OLD_CHATEAU_BACK_MIDDLE_EAST_ROOM", False)):
+        _l, _a, gg = grade_do_header(h)
+        assert (chao_de_caverna(gg) >= 8) is entra, (h, chao_de_caverna(gg))
     print("demo ok")
     return 0
 

@@ -18836,6 +18836,160 @@
       "border_filepath": "data/layouts/VeilstoneStore4F/border.bin",
       "blockdata_filepath": "data/layouts/VeilstoneStore4F/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SOLACEON_RUINS_ROOM_1_SOUTHEAST_DEAD_END",
+      "name": "SolaceonRuinsRoom1SoutheastDeadEnd_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/SolaceonRuinsRoom1SoutheastDeadEnd/border.bin",
+      "blockdata_filepath": "data/layouts/SolaceonRuinsRoom1SoutheastDeadEnd/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SOLACEON_RUINS_ROOM_1_NORTHWEST_DEAD_END",
+      "name": "SolaceonRuinsRoom1NorthwestDeadEnd_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/SolaceonRuinsRoom1NorthwestDeadEnd/border.bin",
+      "blockdata_filepath": "data/layouts/SolaceonRuinsRoom1NorthwestDeadEnd/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SOLACEON_RUINS_ROOM_2_NORTHEAST_DEAD_END",
+      "name": "SolaceonRuinsRoom2NortheastDeadEnd_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/SolaceonRuinsRoom2NortheastDeadEnd/border.bin",
+      "blockdata_filepath": "data/layouts/SolaceonRuinsRoom2NortheastDeadEnd/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SOLACEON_RUINS_ROOM_2_SOUTHEAST_DEAD_END",
+      "name": "SolaceonRuinsRoom2SoutheastDeadEnd_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/SolaceonRuinsRoom2SoutheastDeadEnd/border.bin",
+      "blockdata_filepath": "data/layouts/SolaceonRuinsRoom2SoutheastDeadEnd/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SOLACEON_RUINS_ROOM_3_NORTHWEST_DEAD_END",
+      "name": "SolaceonRuinsRoom3NorthwestDeadEnd_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/SolaceonRuinsRoom3NorthwestDeadEnd/border.bin",
+      "blockdata_filepath": "data/layouts/SolaceonRuinsRoom3NorthwestDeadEnd/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SOLACEON_RUINS_ROOM_3_SOUTHWEST_DEAD_END",
+      "name": "SolaceonRuinsRoom3SouthwestDeadEnd_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/SolaceonRuinsRoom3SouthwestDeadEnd/border.bin",
+      "blockdata_filepath": "data/layouts/SolaceonRuinsRoom3SouthwestDeadEnd/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SOLACEON_RUINS_ROOM_4_SOUTHEAST_DEAD_END",
+      "name": "SolaceonRuinsRoom4SoutheastDeadEnd_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/SolaceonRuinsRoom4SoutheastDeadEnd/border.bin",
+      "blockdata_filepath": "data/layouts/SolaceonRuinsRoom4SoutheastDeadEnd/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SOLACEON_RUINS_ROOM_5_SOUTHWEST_DEAD_END",
+      "name": "SolaceonRuinsRoom5SouthwestDeadEnd_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/SolaceonRuinsRoom5SouthwestDeadEnd/border.bin",
+      "blockdata_filepath": "data/layouts/SolaceonRuinsRoom5SouthwestDeadEnd/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SOLACEON_RUINS_ROOM_5_SOUTHEAST_DEADEND",
+      "name": "SolaceonRuinsRoom5SoutheastDeadend_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/SolaceonRuinsRoom5SoutheastDeadend/border.bin",
+      "blockdata_filepath": "data/layouts/SolaceonRuinsRoom5SoutheastDeadend/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SOLACEON_RUINS_ROOM_6_NORTHWEST_DEAD_END",
+      "name": "SolaceonRuinsRoom6NorthwestDeadEnd_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/SolaceonRuinsRoom6NorthwestDeadEnd/border.bin",
+      "blockdata_filepath": "data/layouts/SolaceonRuinsRoom6NorthwestDeadEnd/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SOLACEON_RUINS_ROOM_6_SOUTHEAST_DEAD_END",
+      "name": "SolaceonRuinsRoom6SoutheastDeadEnd_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/SolaceonRuinsRoom6SoutheastDeadEnd/border.bin",
+      "blockdata_filepath": "data/layouts/SolaceonRuinsRoom6SoutheastDeadEnd/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SINNOH_VICTORY_ROAD_1F",
+      "name": "SinnohVictoryRoad1F_Layout",
+      "width": 64,
+      "height": 96,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/SinnohVictoryRoad1F/border.bin",
+      "blockdata_filepath": "data/layouts/SinnohVictoryRoad1F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SINNOH_VICTORY_ROAD_2F",
+      "name": "SinnohVictoryRoad2F_Layout",
+      "width": 64,
+      "height": 64,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/SinnohVictoryRoad2F/border.bin",
+      "blockdata_filepath": "data/layouts/SinnohVictoryRoad2F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SINNOH_VICTORY_ROAD_B1F",
+      "name": "SinnohVictoryRoadB1F_Layout",
+      "width": 64,
+      "height": 64,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/SinnohVictoryRoadB1F/border.bin",
+      "blockdata_filepath": "data/layouts/SinnohVictoryRoadB1F/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

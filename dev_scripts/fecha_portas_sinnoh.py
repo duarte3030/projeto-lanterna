@@ -241,12 +241,31 @@ def arquetipo_do_header(header):
     return None
 
 
+# Header do Platinum cuja constante JA existe na ROM, vinda de outra regiao.
+# `MAP_VICTORY_ROAD_1F` e de HOENN e `LAYOUT_VICTORY_ROAD_1F` tambem: criar o de
+# Sinnoh com o mesmo nome nao compila, e foi so por isso que os tres andares da
+# Victory Road de Sinnoh (1050 tiles andaveis no 1F, a estrada para a Liga)
+# ficaram de fora ate 06/08/2026, mesmo com a grade do DS pronta e conferida.
+# Aqui eles ganham prefixo de regiao. `importa_npcs_sinnoh.APELIDOS` recebe o
+# par pasta -> header, senao `completude.py` continuaria contando o mapa como
+# ausente depois de ele existir.
+RENOMEADOS = {
+    "MAP_HEADER_VICTORY_ROAD_1F": "SinnohVictoryRoad1F",
+    "MAP_HEADER_VICTORY_ROAD_2F": "SinnohVictoryRoad2F",
+    "MAP_HEADER_VICTORY_ROAD_B1F": "SinnohVictoryRoadB1F",
+}
+
+
 def nome_de_pasta(header):
     """MAP_HEADER_CANALAVE_CITY_MART -> CanalaveCityMart.
 
     Tem que ser um nome que `I.chave()` leve ao mesmo lugar que o header, senao
-    `completude.py` continua contando o mapa como ausente depois de criado.
+    `completude.py` continua contando o mapa como ausente depois de criado. A
+    excecao e `RENOMEADOS`, onde o par vai a mao para `I.APELIDOS`.
     """
+    if header in RENOMEADOS:
+        return RENOMEADOS[header]
+
     def peca(p):
         # "1F", "2F", "B1F" ficam em caixa alta; `capitalize()` faria "1f".
         return p if re.fullmatch(r"B?\d+F", p) else p.capitalize()
@@ -255,6 +274,9 @@ def nome_de_pasta(header):
 
 
 def const_do_header(header):
+    if header in RENOMEADOS:
+        # "SinnohVictoryRoad1F" -> MAP_SINNOH_VICTORY_ROAD_1F
+        return "MAP_SINNOH_" + header.replace("MAP_HEADER_", "")
     return "MAP_" + header.replace("MAP_HEADER_", "")
 
 

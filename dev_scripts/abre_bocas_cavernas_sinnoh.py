@@ -97,8 +97,7 @@ def alvos_pendentes():
         larg, alt, grade = C.grade_do_header(filho)
         if not grade:
             continue
-        pal = C.traduz(larg, alt, grade)
-        if C.andaveis(pal) < 30 or C.andaveis(pal) < 0.02 * larg * alt:
+        if C.chao_de_caverna(grade) < 8:
             continue                      # nao e caverna de verdade
         d = json.load(open(f"{REPO}/data/maps/{pai}/map.json"))
         ph = header_do_mapa(pai, d, heads)

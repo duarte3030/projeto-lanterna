@@ -92,6 +92,13 @@ NAO_TOCAR = ("CanalaveCity_Gym", "SandgemTown_House1")
 
 # Nome que a normalização não casa sozinha. Nosso mapa -> MAP_HEADER do Platinum.
 APELIDOS = {
+    # Os três andares da Victory Road de Sinnoh entram com prefixo de região
+    # porque `MAP_VICTORY_ROAD_1F` e `LAYOUT_VICTORY_ROAD_1F` já são de HOENN
+    # (ver `fecha_portas_sinnoh.RENOMEADOS`). Sem estes três pares o mapa
+    # existiria na ROM e `completude.py` continuaria contando ele como ausente.
+    "SinnohVictoryRoad1F": "MAP_HEADER_VICTORY_ROAD_1F",
+    "SinnohVictoryRoad2F": "MAP_HEADER_VICTORY_ROAD_2F",
+    "SinnohVictoryRoadB1F": "MAP_HEADER_VICTORY_ROAD_B1F",
     "TwinleafTown_MainHouse_1F": "MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_1F",
     "TwinleafTown_MainHouse_2F": "MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_2F",
     "Twinleaf_Town_RivalsHouse_F1": "MAP_HEADER_TWINLEAF_TOWN_RIVAL_HOUSE_1F",

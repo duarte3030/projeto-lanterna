@@ -27,6 +27,20 @@
       "elevation": 0,
       "dest_map": "MAP_SOLACEON_RUINS_ROOM_6",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 2,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_SOLACEON_RUINS_ROOM_5_SOUTHWEST_DEAD_END",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 6,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_SOLACEON_RUINS_ROOM_5_SOUTHEAST_DEADEND",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

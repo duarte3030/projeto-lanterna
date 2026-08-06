@@ -1,0 +1,39 @@
+[
+  {
+    "id": "T81.1",
+    "nome": "A VICTORY ROAD de Sinnoh existe e da para entrar nela A PE desde a porta de fora da Liga. Ela e um mapa 64x96 com 1050 tiles andaveis convertidos da grade 2D do Platinum, e nao a Victory Road de Hoenn: entra com prefixo de regiao (MAP_SINNOH_VICTORY_ROAD_1F) porque MAP_VICTORY_ROAD_1F e LAYOUT_VICTORY_ROAD_1F ja sao de Hoenn, e foi so essa colisao de nome que a manteve fora da ROM ate 06/08/2026",
+    "warp": "MAP_SINNOH_LEAGUE_ENTRANCE",
+    "roteiro": "16:UP*11,90:NADA",
+    "prova": {
+      "mapa": "MAP_SINNOH_VICTORY_ROAD_1F",
+      "layout": "LAYOUT_SINNOH_VICTORY_ROAD_1F"
+    }
+  },
+  {
+    "id": "T81.2",
+    "nome": "A porta do centro Pokemon NORTE da Liga volta a abrir. Ela era warp morto desde que existe: os dois guardas de insignia estavam parados EXATAMENTE nos dois tiles por onde se entra nas duas portas do norte, e corpo de NPC bloqueia igual parede. Eles sairam um tile para o lado, continuam ladeando a passagem e continuam sendo o portao das 8 insignias, que e por script e nao por corpo. So a coordenada mudou, a ORDEM dos objetos nao, entao a save nao anda",
+    "warp": "MAP_SINNOH_LEAGUE_ENTRANCE",
+    "roteiro": "16:RIGHT*2,16:UP*12,90:NADA",
+    "prova": {
+      "mapa": "MAP_POKEMON_LEAGUE_NORTH_POKECENTER_1F"
+    }
+  },
+  {
+    "id": "T81.3",
+    "nome": "As SOLACEON RUINS tem sala sem saida, e da para entrar numa delas a pe. Sao camaras pequenas de 10 a 13 tiles, e a regra antiga do conversor de caverna ('menos de 30 tiles andaveis nao e caverna') reprovava as 11 por medirem TAMANHO em vez de medir se a grade e de caverna. A regra agora conta TILE_BEHAVIOR_CAVE_FLOOR, e por isso FLOAROMA_MEADOW, que tem zero, continua de fora",
+    "warp": "MAP_SOLACEON_RUINS_ROOM_1",
+    "roteiro": "16:UP*8,16:LEFT*2,16:UP*2,90:NADA",
+    "prova": {
+      "mapa": "MAP_SOLACEON_RUINS_ROOM_1_SOUTHEAST_DEAD_END"
+    }
+  },
+  {
+    "id": "T81.4",
+    "nome": "A outra sala sem saida da Room 1 das SOLACEON RUINS tambem abre, e leva a um mapa DIFERENTE da anterior. O par T81.3 e T81.4 e que prova que cada boca desenhada tem destino proprio",
+    "warp": "MAP_SOLACEON_RUINS_ROOM_1",
+    "roteiro": "16:RIGHT*2,16:UP*2,90:NADA",
+    "prova": {
+      "mapa": "MAP_SOLACEON_RUINS_ROOM_1_NORTHWEST_DEAD_END"
+    }
+  }
+]
