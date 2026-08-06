@@ -124,7 +124,8 @@
     "gMapGroup_UnovaIcirrus",
     "gMapGroup_UnovaPkmnLeague",
     "gMapGroup_IndoorSinnohPortas",
-    "gMapGroup_SinnohCavernas"
+    "gMapGroup_SinnohCavernas",
+    "gMapGroup_IndoorSinnohPortas2"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -2127,19 +2128,7 @@
     "UnusedJubilifeCityHouse3",
     "UnusedJubilifeCityHouse4",
     "JubilifeCityPokecenterB1F",
-    "OreburghCityPokecenterB1F",
-    "PastoriaCityPokecenterB1F",
-    "PokemonLeagueNorthPokecenterB1F",
-    "PokemonLeagueSouthPokecenterB1F",
-    "ResortAreaPokecenterB1F",
-    "PokemonMansion",
-    "SandgemTownPokecenterB1F",
-    "SnowpointCityPokecenterB1F",
-    "SolaceonTownPokemonNewsPress",
-    "SolaceonTownPokecenterB1F",
-    "SunyshoreCityPokecenterB1F",
-    "SurvivalAreaPokecenterB1F",
-    "VeilstoneCityPokecenterB1F"
+    "OreburghCityPokecenterB1F"
   ],
   "gMapGroup_SinnohCavernas": [
     "AcuityCavern",
@@ -2188,5 +2177,32 @@
     "SolaceonRuinsRoom5",
     "SolaceonRuinsRoom6",
     "SolaceonRuinsRoom7"
+  ],
+  "gMapGroup_IndoorSinnohPortas2": [
+    "PastoriaCityPokecenterB1F",
+    "PokemonLeagueNorthPokecenterB1F",
+    "PokemonLeagueSouthPokecenterB1F",
+    "ResortAreaPokecenterB1F",
+    "PokemonMansion",
+    "SandgemTownPokecenterB1F",
+    "SnowpointCityPokecenterB1F",
+    "SolaceonTownPokemonNewsPress",
+    "SolaceonTownPokecenterB1F",
+    "SunyshoreCityPokecenterB1F",
+    "SurvivalAreaPokecenterB1F",
+    "VeilstoneCityPokecenterB1F",
+    "EternaCityCondominiums3F",
+    "UnusedOreburghCityNorthwestHouse3F",
+    "UnusedOreburghCityNorthHouse3F",
+    "ResortAreaRibbonSyndicate1F",
+    "SolaceonTownNorthHouse",
+    "SolaceonTownEastHouse",
+    "SunyshoreCityEastHouse",
+    "RotomsRoom",
+    "UnusedEternaCityCondominiums4F",
+    "CelesticTownNorthwestHouse",
+    "CelesticTownNortheastHouse",
+    "CelesticTownSouthwestHouse",
+    "EternaCityCondominiums2F"
   ]
 }

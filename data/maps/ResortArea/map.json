@@ -182,6 +182,13 @@
       "elevation": 0,
       "dest_map": "MAP_RESORT_AREA_HOUSE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 25,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_RESORT_AREA_RIBBON_SYNDICATE_1F",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

@@ -124,6 +124,27 @@
       "elevation": 0,
       "dest_map": "MAP_CELESTIC_TOWN_NORTH_HOUSE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 2,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_CELESTIC_TOWN_NORTHWEST_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 24,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_CELESTIC_TOWN_NORTHEAST_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 9,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_CELESTIC_TOWN_SOUTHWEST_HOUSE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

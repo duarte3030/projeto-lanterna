@@ -1,7 +1,7 @@
 {
   "id": "MAP_TEAM_GALACTIC_ETERNA_BUILDING_1F",
   "name": "TeamGalacticEternaBuilding_1F",
-  "layout": "LAYOUT_ROUTE119_WEATHER_INSTITUTE_1F",
+  "layout": "LAYOUT_TEAMGALACTICETERNABUILDING_1F",
   "music": "MUS_AQUA_MAGMA_HIDEOUT",
   "region_map_section": "MAPSEC_SINNOH_WEST",
   "requires_flash": false,
@@ -77,6 +77,13 @@
       "y": 1,
       "elevation": 0,
       "dest_map": "MAP_TEAM_GALACTIC_ETERNA_BUILDING_2F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 5,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_ROTOMS_ROOM",
       "dest_warp_id": "0"
     }
   ],

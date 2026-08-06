@@ -325,6 +325,16 @@ def digita_numero(valor):
     return ",".join(passos)
 
 
+# O campo do WARP não é igual aos outros dois, e isso custou um teste em
+# 06/08/2026. Lido de `DebugAction_Util_Warp_SelectWarp` em src/debug.c: ele NÃO
+# trata DPAD_LEFT nem DPAD_RIGHT, então o dígito fica sempre na unidade, e o
+# valor é clampado em 10. `digita_numero` mandava RIGHT e LEFT achando que era um
+# campo de três dígitos, e pedir o warp 10 entrava o warp 1: o teste da casa
+# leste de Sunyshore (warp 10) reprovava com o mapa e a porta corretos.
+def digita_warp(valor):
+    return f"12:UP*{valor}" if valor else "12:NADA"
+
+
 def rota_warp(grupo, num, warp=0):
     return ",".join([
         "40:R+START!", "60:NADA",
@@ -332,7 +342,7 @@ def rota_warp(grupo, num, warp=0):
         "20:DOWN", "20:A", "60:NADA",
         digita_numero(grupo), "20:A", "40:NADA",
         digita_numero(num), "20:A", "40:NADA",
-        digita_numero(warp), "20:A", "300:NADA",
+        digita_warp(warp), "20:A", "300:NADA",
     ])
 
 

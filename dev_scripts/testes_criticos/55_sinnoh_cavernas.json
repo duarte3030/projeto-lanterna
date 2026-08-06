@@ -31,5 +31,36 @@
    "mapa": "MAP_SOLACEON_RUINS_ROOM_1",
    "layout": "LAYOUT_SOLACEON_RUINS_ROOM_1"
   }
+ },
+ {
+  "id": "T55.4",
+  "nome": "Sinnoh: o jogador ENTRA na casa noroeste de Celestic a pe. Celestic e uma cratera e nenhum bloco dela passa no teste de PREDIO, entao a porta saiu do teste de PAREDE, o mesmo que abriu as bocas de caverna. Tres UP pelo mesmo motivo do T55.1: warp de porta larga o jogador um tile abaixo, e o primeiro toque numa direcao contraria so vira",
+  "warp": "MAP_CELESTIC_TOWN",
+  "warp_id": 2,
+  "roteiro": "120:NADA,20:UP,20:UP,20:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_CELESTIC_TOWN_NORTHWEST_HOUSE"
+  }
+ },
+ {
+  "id": "T55.5",
+  "nome": "Sinnoh: o jogador SOBE do 1F para o 2F dos condominios de Eterna. A planta de casa serve 74 mapas e a escada nao podia ser desenhada nela sem por escada morta em 73 casas, entao o layout foi CLONADO e so a copia furada. Este caso prova que o clone e o que o mapa carrega de verdade",
+  "warp": "MAP_ETERNA_CITY_CONDOMINIUMS_1F",
+  "warp_id": 2,
+  "roteiro": "120:NADA,20:UP,20:UP,20:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_ETERNA_CITY_CONDOMINIUMS_2F"
+  }
+ },
+ {
+  "id": "T55.6",
+  "nome": "Sinnoh: o jogador ENTRA na casa leste de Sunyshore, que e o WARP 10 do mapa. O numero importa: o campo de warp do menu de debug nao anda de digito (lido de DebugAction_Util_Warp_SelectWarp) e a ferramenta mandava LEFT e RIGHT achando que sim, entao pedir o warp 10 entrava o warp 1 e este caso reprovava com a porta certa. Guarda contra a volta desse bug e contra o teto de 128 mapas por grupo, que e o que matava a casa antes",
+  "warp": "MAP_SUNYSHORE_CITY",
+  "warp_id": 10,
+  "roteiro": "120:NADA,20:UP,20:UP,20:UP,300:NADA",
+  "prova": {
+   "mapa": "MAP_SUNYSHORE_CITY_EAST_HOUSE",
+   "layout": "LAYOUT_OREBURGH_CITY_HOUSE1"
+  }
  }
 ]

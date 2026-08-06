@@ -80,6 +80,11 @@ fi
 passo "build do HEAD limpo"        "make -j8"
 passo "guarda de save"             "python3 dev_scripts/guarda_save.py"
 passo "o declarado entrou na ROM"  "python3 dev_scripts/valida_rom.py"
+# `struct WarpData` guarda mapGroup e mapNum como s8 (include/global.h): o mapa
+# de indice 128 de um grupo vira -128 dentro do warp e o jogo RESETA ao entrar
+# nele. Custou 26 mapas mortos no grupo de portas de Sinnoh, todos com warp que
+# o validador estatico dava por bom. Mesmo teto vale para a quantidade de grupos.
+passo "grupo abaixo do teto de 128" "python3 -c \"import json,sys; g=json.load(open('data/maps/map_groups.json')); ruins=[(k,len(g[k])) for k in g['group_order'] if len(g[k])>128]; print('grupos:',len(g['group_order']),'estourados:',ruins); sys.exit(1 if ruins or len(g['group_order'])>128 else 0)\""
 passo "conectividade"              "python3 dev_scripts/valida_conectividade.py 2>&1 | grep -q 'warps quebrados: 0'"
 passo "sprites e objetos"          "python3 dev_scripts/valida_mapas_sinnoh.py 2>&1 | grep -qE \"'sprite': 0\""
 

@@ -312,9 +312,7 @@ def main():
     movimentos = V.constantes("include/constants/event_object_movement.h",
                               "MOVEMENT_TYPE_")
     grupos = json.load(open(f"{REPO}/data/maps/map_groups.json"))
-    if GRUPO not in grupos["group_order"]:
-        grupos["group_order"].append(GRUPO)
-        grupos[GRUPO] = []
+    F.grupo_com_vaga(grupos, GRUPO)
     layouts = json.load(open(f"{REPO}/data/layouts/layouts.json"))
     modelo = json.load(open(f"{REPO}/data/maps/MtCoronet_1F_South/map.json"))
     incs = []
@@ -390,7 +388,8 @@ def main():
                   indent=2, ensure_ascii=False)
         open(f"{REPO}/data/maps/{pasta}/scripts.inc", "w").write(
             f"{pasta}_MapScripts::\n\t.byte 0\n{trecho}")
-        grupos[GRUPO].append(pasta)
+        # o grupo enche em 128 (s8 mapNum): passou disso, vai para o proximo
+        grupos[F.grupo_com_vaga(grupos, GRUPO)].append(pasta)
         incs.append(f'\t.include "data/maps/{pasta}/scripts.inc"\n')
 
         d_pai.setdefault("warp_events", [])

@@ -250,6 +250,13 @@
       "elevation": 0,
       "dest_map": "MAP_UNUSED_SUNYSHORE_CITY_HOUSE_2",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 61,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SUNYSHORE_CITY_EAST_HOUSE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

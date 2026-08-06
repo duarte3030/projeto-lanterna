@@ -18627,6 +18627,61 @@
       "border_filepath": "data/layouts/SolaceonRuinsRoom7/border.bin",
       "blockdata_filepath": "data/layouts/SolaceonRuinsRoom7/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ETERNACITYCONDOMINIUMS1F",
+      "name": "EternaCityCondominiums1F_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/EternaCityCondominiums1F/border.bin",
+      "blockdata_filepath": "data/layouts/EternaCityCondominiums1F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ETERNACITYCONDOMINIUMS2F",
+      "name": "EternaCityCondominiums2F_Layout",
+      "width": 14,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/EternaCityCondominiums2F/border.bin",
+      "blockdata_filepath": "data/layouts/EternaCityCondominiums2F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_OREBURGHCITY_FLAT1_F2_PROPRIO",
+      "name": "OreburghCity_Flat1_F2_Proprio_Layout",
+      "width": 14,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/OreburghCity_Flat1_F2_Proprio/border.bin",
+      "blockdata_filepath": "data/layouts/OreburghCity_Flat1_F2_Proprio/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_TEAMGALACTICETERNABUILDING_1F",
+      "name": "TeamGalacticEternaBuilding_1F_Layout",
+      "width": 20,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/TeamGalacticEternaBuilding_1F/border.bin",
+      "blockdata_filepath": "data/layouts/TeamGalacticEternaBuilding_1F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ETERNACITYCONDOMINIUMS3F",
+      "name": "EternaCityCondominiums3F_Layout",
+      "width": 14,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/EternaCityCondominiums3F/border.bin",
+      "blockdata_filepath": "data/layouts/EternaCityCondominiums3F/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

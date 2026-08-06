@@ -257,6 +257,20 @@
       "elevation": 0,
       "dest_map": "MAP_SOLACEON_RUINS_ROOM_1",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 23,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_SOLACEON_TOWN_NORTH_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 47,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_SOLACEON_TOWN_EAST_HOUSE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

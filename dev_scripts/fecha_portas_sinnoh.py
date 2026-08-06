@@ -57,6 +57,32 @@ import valida_warp_tile as W         # noqa: E402
 PLAT = I.PLAT
 APLICAR = "--aplicar" in sys.argv
 GRUPO_NOVO = "gMapGroup_IndoorSinnohPortas"
+
+# TETO DURO, medido no emulador em 06/08/2026 e confirmado no cabecalho:
+# `struct WarpData` guarda `s8 mapGroup` e `s8 mapNum` (include/global.h). Mapa
+# de indice 128 num grupo vira -128 dentro do warp, o jogo carrega lixo e RESETA.
+# Foi assim que 26 mapas do `gMapGroup_IndoorSinnohPortas` viraram peso morto: o
+# indice 127 entrava e o 128 derrubava o jogo. Grupo tambem nao pode passar de
+# 128, pelo mesmo campo.
+LIMITE_GRUPO = 128
+
+
+def grupo_com_vaga(grupos, base):
+    """Nome do grupo onde ainda cabe mapa, criando o proximo quando encher.
+
+    Grupo novo entra sempre no FIM de `group_order`, que e o que mantem a save
+    compativel.
+    """
+    nome, n = base, 1
+    while len(grupos.get(nome, [])) >= LIMITE_GRUPO:
+        n += 1
+        nome = f"{base}{n}"
+    if nome not in grupos:
+        if len(grupos["group_order"]) >= LIMITE_GRUPO:
+            raise SystemExit("nao ha grupo livre: o teto e 128 grupos (s8)")
+        grupos[nome] = []
+        grupos["group_order"].append(nome)
+    return nome
 MARCA = {"origem": "pokeplatinum"}
 MARCA_PLANTA = {"origem": "arquetipo do repo"}
 

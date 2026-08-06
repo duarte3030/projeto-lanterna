@@ -1,0 +1,82 @@
+{
+  "id": "MAP_ROTOMS_ROOM",
+  "name": "RotomsRoom",
+  "layout": "LAYOUT_OREBURGH_CITY_HOUSE1",
+  "music": "MUS_PETALBURG",
+  "region_map_section": "MAPSEC_SINNOH_WEST",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 3,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_TEAM_GALACTIC_ETERNA_BUILDING_1F",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_TEAM_GALACTIC_ETERNA_BUILDING_1F",
+      "dest_warp_id": "3"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "RotomsRoom_EventScript_Placa1",
+      "origem": "pokeplatinum"
+    },
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "RotomsRoom_EventScript_Placa2",
+      "origem": "pokeplatinum"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "RotomsRoom_EventScript_Placa3",
+      "origem": "pokeplatinum"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "RotomsRoom_EventScript_Placa4",
+      "origem": "pokeplatinum"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "RotomsRoom_EventScript_Placa5",
+      "origem": "pokeplatinum"
+    }
+  ],
+  "origem": "pokeplatinum: NPC, placa e texto. planta reaproveitada de OreburghCity_House1"
+}

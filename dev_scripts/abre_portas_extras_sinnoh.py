@@ -254,7 +254,8 @@ def escreve_mapa(pasta, header, arq, dest_volta, warp_volta, grupos, incs,
               indent=2, ensure_ascii=False)
     open(f"{REPO}/data/maps/{pasta}/scripts.inc", "w").write(
         f"{pasta}_MapScripts::\n\t.byte 0\n{trecho}")
-    grupos[GRUPO].append(pasta)
+    # o grupo enche em 128 (s8 mapNum): passou disso, o mapa vai para o proximo
+    grupos[F.grupo_com_vaga(grupos, GRUPO)].append(pasta)
     incs.append(f'\t.include "data/maps/{pasta}/scripts.inc"\n')
     conta["mapas"] += 1
     conta["npcs"] += len(objs)
@@ -368,9 +369,7 @@ def main():
     movimentos = V.constantes("include/constants/event_object_movement.h",
                               "MOVEMENT_TYPE_")
     grupos = json.load(open(f"{REPO}/data/maps/map_groups.json"))
-    grupos.setdefault(GRUPO, [])
-    if GRUPO not in grupos["group_order"]:
-        grupos["group_order"].append(GRUPO)
+    F.grupo_com_vaga(grupos, GRUPO)
     incs = []
     conta = {"mapas": 0, "npcs": 0, "placas": 0, "textos": 0, "tiles": 0,
              "movidos": 0}

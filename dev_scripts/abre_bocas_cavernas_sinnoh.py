@@ -226,14 +226,22 @@ def clona_layout(mapa, d):
     """
     velho = F.layouts()[d["layout"]]
     novo_id = "LAYOUT_" + mapa.upper()
-    if novo_id == velho["id"]:
-        novo_id += "_PROPRIO"
     pasta = f"data/layouts/{mapa}"
+    # A pasta do layout velho pode ter EXATAMENTE este nome, e ai o copiador
+    # reclamaria de copiar arquivo sobre ele mesmo. Medido em
+    # `OreburghCity_Flat1_F2`, cujo layout ja se chama assim e e compartilhado
+    # com o Flat2 vizinho.
+    if novo_id == velho["id"] or f"{pasta}/map.bin" == velho["blockdata_filepath"]:
+        novo_id += "_PROPRIO"
+        pasta += "_Proprio"
     os.makedirs(f"{REPO}/{pasta}", exist_ok=True)
     shutil.copyfile(f"{REPO}/{velho['blockdata_filepath']}", f"{REPO}/{pasta}/map.bin")
     shutil.copyfile(f"{REPO}/{velho['border_filepath']}", f"{REPO}/{pasta}/border.bin")
     lay = dict(velho)
-    lay.update({"id": novo_id, "name": f"{mapa}_Layout",
+    # o nome sai da PASTA e nao do mapa: com o nome do mapa, o clone do
+    # `OreburghCity_Flat1_F2` gerava `OreburghCity_Flat1_F2_Layout` duas vezes e
+    # o montador parava em "symbol already defined".
+    lay.update({"id": novo_id, "name": os.path.basename(pasta) + "_Layout",
                 "blockdata_filepath": f"{pasta}/map.bin",
                 "border_filepath": f"{pasta}/border.bin"})
     arq = f"{REPO}/data/layouts/layouts.json"
