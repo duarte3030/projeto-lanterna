@@ -35,7 +35,7 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 | EWRAM / IWRAM | 85,57% / 86,62% |
 | SaveBlock1 | **13432 de 15872 B (84,6%)** |
 | flags livres no pool | **184** (eram 288 antes de ligar as de Kanto) |
-| mapas | **1826** |
+| mapas | **1870** |
 | treinadores com time próprio | **2346** |
 | grupos de mapa | **126** (teto duro de **128** grupos e **128 mapas por grupo**: `s8` em `struct WarpData`; passar disso mata o mapa) |
 | suíte de testes | **107 de 110** (1 pulado precisa de duas builds; 2 reprovados são de Unova) |
@@ -51,8 +51,38 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 | Kanto | 98,1% | 100,1% | 100,0% | 100,0% |
 | Johto | **95,9%** | 94,0% | 100,0% | 96,0% |
 | Hoenn | 100,0% | 100,1% | 100,0% | 100,0% |
-| Sinnoh | **59,3%** | 81,8% | **96,9%** | 99,8% |
+| Sinnoh | **66,7%** | 80,3% | **99,0%** | 98,3% |
 | Unova | 94,2% | 98,3% | 98,9% | 98,0% |
+
+Mudou em 06/08/2026, na quarta e na quinta leva do dia: **Sinnoh foi de 59,3%
+para 66,7% dos mapas e de 96,9% para 99,0% dos warps**, com 44 mapas novos e
+NENHUMA ferramenta nova. As duas levas cairam pelo mesmo motivo, e ele nao era
+falta de ferramenta: era **regua errada dentro da ferramenta certa**.
+
+- 30 salas de predio (estudios da Jubilife TV, salas dos ginasios de Hearthome e
+  de Sunyshore, andares da loja de Veilstone, biblioteca de Canalave 2F e 3F,
+  Global Terminal 2F e 3F, elevadores, o restaurante do Lago Valor) eram destino
+  de warp de mapa que ja estava na ROM, e `fecha_portas_sinnoh.arquetipo_do_header`
+  devolvia `None` para todas elas. So a tabela `NOMEADOS` cresceu, e a cadeia
+  inteira veio junto, rodada em laco ate parar de render.
+- 14 mapas de geometria CONVERTIDA: a Victory Road de Sinnoh (1F, 2F e B1F) e as
+  11 salas sem saida das Solaceon Ruins. A Victory Road ficava de fora so por
+  colisao de nome, porque `MAP_VICTORY_ROAD_1F` e `LAYOUT_VICTORY_ROAD_1F` ja sao
+  de HOENN; entrou com prefixo de regiao e o par vai em `I.APELIDOS`. As 11 salas
+  eram reprovadas por "menos de 30 tiles andaveis nao e caverna", regra que mede
+  o TAMANHO da sala: sao camaras de 10 a 13 tiles de verdade. A regra agora conta
+  `TILE_BEHAVIOR_CAVE_FLOOR`, e Floaroma Meadow (zero) continua de fora.
+
+Dois warps mortos apareceram no caminho e foram consertados: `fecha_portas_sinnoh`
+escrevia direto num grupo que ja estava com os 128 do teto (o mapa 129 nasceria
+morto, o defeito que matou 26 mapas), e os dois guardas de insignia da entrada da
+Liga estavam parados EXATAMENTE nos dois tiles por onde se entra nas duas portas
+do norte, o que deixava a porta do centro Pokemon norte fechada desde sempre.
+Prova a pe no emulador em `T80.1` a `T80.5` e `T81.1` a `T81.4`.
+
+Duas armadilhas de roteiro de teste, medidas escrevendo esses casos: **virar
+custa uma tecla** (roteiro com a distancia exata erra um tile a cada troca de
+direcao) e **porta `MB_ANIMATED_DOOR` so dispara com o jogador vindo de BAIXO**.
 
 Mudou em 06/08/2026, mais tarde no mesmo dia: **grupo de mapa tem teto de 128**,
 e 26 mapas de Sinnoh estavam MORTOS por causa dele. `struct WarpData` guarda
