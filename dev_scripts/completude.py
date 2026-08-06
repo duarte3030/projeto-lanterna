@@ -47,6 +47,11 @@ REGIOES = {
     # mapas de Sinnoh, entao ela media "objetos" contra um denominador vazio e
     # imprimia "fonte 0". O pokeplatinum tem os 2278 objetos de verdade, so que
     # em outro formato (events_*.json ligados por MAP_HEADER). Ver le_plat().
+    # Sinnoh passa de 100% em placas (105,1% em 05/08/2026) e isso esta CERTO:
+    # o denominador e so o Platinum, mas a geometria de Sinnoh veio do
+    # fontes-mapas/sinnoh, que ja trazia placa propria. Medido: 31 placas a mais
+    # espalhadas por 24 mapas, no maximo 2 por mapa. Nao e conversao gerando
+    # placa falsa, e soma de duas fontes.
     "Sinnoh": {"grupo": "Sinnoh",         "fonte": f"{FONTES}/pokeplatinum",
                "plat": True},
     # BW3G e pokecrystal (gen 2). O formato e outro, mas e legivel: cada mapa
