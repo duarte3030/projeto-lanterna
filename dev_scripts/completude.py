@@ -112,9 +112,39 @@ def le_gen2(caminho):
     }
 
 
-def mapas_so_na_fonte(deles, nosso_mg):
+def cidades_de_outra_fonte(fonte_atual=""):
+    """Prefixo de nome (a parte antes do primeiro '_') das cidades que vieram
+    de OUTRA fonte. `CeladonCity_PokemonCenter` do hns e o
+    `CeladonCity_PokemonCenter_1F` do pokefirered sao o mesmo lugar, mas o nome
+    difere no sufixo, entao o desconto por nome inteiro nao pega. O que nao
+    varia e a cidade. Sem isto, Johto saia com 63,6% dos mapas por causa de 92
+    mapas de Kanto que ja estao no jogo, vindos do FireRed com outro nome."""
+    cidades = set()
+    for f in ("pokefirered", "pokeemerald"):
+        # ARMADILHA que eu cai: sem esta linha, medir Kanto contra o
+        # pokefirered descontava o pokefirered inteiro e Kanto dava 100,0% com
+        # qualquer buraco. A fonte da propria regiao nunca entra no desconto.
+        if f in fonte_atual:
+            continue
+        raiz = f"{FONTES}/{f}/data/maps"
+        if os.path.isdir(raiz):
+            cidades |= {m.split("_")[0].lower() for m in os.listdir(raiz)
+                        if os.path.isdir(f"{raiz}/{m}")}
+    return cidades
+
+
+# Mapa que a fonte tem e que nao e conteudo: rascunho do autor do hack e
+# variante de horario, que aqui nao existe como mapa separado.
+LIXO = re.compile(r"^(NewMap|Trees|.*_Temp|Gate_)|(Day|Night)$", re.I)
+
+
+def mapas_so_na_fonte(deles, nosso_mg, fonte=""):
+    nossos = {normaliza(x) for x in nosso_mg}
+    cidades = cidades_de_outra_fonte(fonte)
     return [m for k, m in deles.items()
-            if k not in {normaliza(x) for x in nosso_mg}]
+            if k not in nossos
+            and m.split("_")[0].lower() not in cidades
+            and not LIXO.search(m)]
 
 
 def le_plat(fonte, header):
@@ -191,7 +221,7 @@ def main():
                 deles = {normaliza(m): m for m in todos_os_mapas(fonte)}
             nossos = nossos_da_regiao(nosso_mg, cfg["grupo"])
             casados = [(m, deles[normaliza(m)]) for m in nossos if normaliza(m) in deles]
-            so_na_fonte = mapas_so_na_fonte(deles, nosso_mg)
+            so_na_fonte = mapas_so_na_fonte(deles, nosso_mg, fonte)
         # Mapas que a FONTE tem e nos nao.
         #
         # ARMADILHA: o denominador tem que descontar o que ja veio por OUTRA
