@@ -315,7 +315,15 @@
       "origem": "pokeplatinum"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 11,
+      "y": 70,
+      "elevation": 0,
+      "dest_map": "MAP_VICTORY_ROAD_1F_ROOM_3",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": [
     {

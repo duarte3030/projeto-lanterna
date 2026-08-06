@@ -123,7 +123,8 @@
     "gMapGroup_UnovaOpelucid",
     "gMapGroup_UnovaIcirrus",
     "gMapGroup_UnovaPkmnLeague",
-    "gMapGroup_IndoorSinnohPortas"
+    "gMapGroup_IndoorSinnohPortas",
+    "gMapGroup_SinnohCavernas"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -2139,5 +2140,17 @@
     "SunyshoreCityPokecenterB1F",
     "SurvivalAreaPokecenterB1F",
     "VeilstoneCityPokecenterB1F"
+  ],
+  "gMapGroup_SinnohCavernas": [
+    "AcuityCavern",
+    "ValorCavern",
+    "VerityCavern",
+    "MtCoronet1FTunnelRoom",
+    "MtCoronet2F",
+    "WaywardCave1F",
+    "RuinManiacCaveShort",
+    "VictoryRoad1FRoom3",
+    "SnowpointTemple1F",
+    "LakeValorDrained"
   ]
 }

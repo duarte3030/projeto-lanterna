@@ -224,6 +224,13 @@
       "elevation": 0,
       "dest_map": "MAP_SNOWPOINT_CITY_EAST_HOUSE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 3,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_SNOWPOINT_TEMPLE_1F",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

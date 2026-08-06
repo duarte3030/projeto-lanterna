@@ -18110,6 +18110,116 @@
       "border_filepath": "data/layouts/CanalaveCity_Gym/border.bin",
       "blockdata_filepath": "data/layouts/CanalaveCity_Gym/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ACUITY_CAVERN",
+      "name": "AcuityCavern_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/AcuityCavern/border.bin",
+      "blockdata_filepath": "data/layouts/AcuityCavern/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_VALOR_CAVERN",
+      "name": "ValorCavern_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/ValorCavern/border.bin",
+      "blockdata_filepath": "data/layouts/ValorCavern/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_VERITY_CAVERN",
+      "name": "VerityCavern_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/VerityCavern/border.bin",
+      "blockdata_filepath": "data/layouts/VerityCavern/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_MT_CORONET_1F_TUNNEL_ROOM",
+      "name": "MtCoronet1FTunnelRoom_Layout",
+      "width": 32,
+      "height": 64,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/MtCoronet1FTunnelRoom/border.bin",
+      "blockdata_filepath": "data/layouts/MtCoronet1FTunnelRoom/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_MT_CORONET_2F",
+      "name": "MtCoronet2F_Layout",
+      "width": 32,
+      "height": 64,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/MtCoronet2F/border.bin",
+      "blockdata_filepath": "data/layouts/MtCoronet2F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_WAYWARD_CAVE_1F",
+      "name": "WaywardCave1F_Layout",
+      "width": 96,
+      "height": 64,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/WaywardCave1F/border.bin",
+      "blockdata_filepath": "data/layouts/WaywardCave1F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_RUIN_MANIAC_CAVE_SHORT",
+      "name": "RuinManiacCaveShort_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/RuinManiacCaveShort/border.bin",
+      "blockdata_filepath": "data/layouts/RuinManiacCaveShort/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_VICTORY_ROAD_1F_ROOM_3",
+      "name": "VictoryRoad1FRoom3_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/VictoryRoad1FRoom3/border.bin",
+      "blockdata_filepath": "data/layouts/VictoryRoad1FRoom3/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SNOWPOINT_TEMPLE_1F",
+      "name": "SnowpointTemple1F_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/SnowpointTemple1F/border.bin",
+      "blockdata_filepath": "data/layouts/SnowpointTemple1F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_LAKE_VALOR_DRAINED",
+      "name": "LakeValorDrained_Layout",
+      "width": 64,
+      "height": 64,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/LakeValorDrained/border.bin",
+      "blockdata_filepath": "data/layouts/LakeValorDrained/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

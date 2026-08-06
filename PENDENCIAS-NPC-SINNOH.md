@@ -200,3 +200,42 @@ porta nasce disparando.
 | 1 | `SUNYSHORE_CITY_EAST_HOUSE` | idem, nenhum bloco passa no teste |
 | 1 | `RESORT_AREA_RIBBON_SYNDICATE_1F` | idem |
 | 4 | `ETERNA_CITY_CONDOMINIUMS_2F`, dois `UNUSED_*_3F`, `ROTOMS_ROOM` | precisam de escada dentro de um layout COMPARTILHADO com mapa que não sobe (a planta de casa é usada por 64 mapas; a do `TeamGalacticEternaBuilding_1F` é a do Weather Institute, de HOENN). Fechar exige clonar o layout, não desenhar tile |
+
+## 10. As cavernas, geometria convertida de verdade, 06/08/2026
+
+`dev_scripts/converte_cavernas_sinnoh.py` trouxe **10 cavernas com a planta
+convertida do DS**, não reaproveitada: Wayward Cave 1F (96x64), Mt. Coronet 2F,
+Mt. Coronet 1F Tunnel Room, Lake Valor Drained, as cavernas de Verity, Valor e
+Acuity, Ruin Maniac Cave, Snowpoint Temple 1F e Victory Road 1F Room 3. Sinnoh
+foi de 49,3% para **51,0%** dos mapas.
+
+**Aqui o `demake_ds.py` funciona, e o motivo importa.** Para casa ele falha
+porque parede, balcão e porta são desenho de tileset e não estão na grade. Para
+caverna não falha, porque **a geometria de uma caverna É a colisão dela**: o
+labirinto de Wayward Cave sai inteiro, com os corredores e as câmaras no lugar.
+Conferido tile a tile contra a fonte.
+
+Três leituras que o script precisou fazer e que não estavam no `demake_ds.py`:
+
+- **`0x00` sem bit de colisão é VAZIO, não chão.** São 15 mil tiles nos mapas
+  desta leva: a área que o modelo 3D da gen 4 nem desenha. Traduzir como chão
+  encheria a caverna de salão. Vira rocha.
+- **A rocha tem duas faces.** Metatile 753 é a pedra vista de cima e 761 é a
+  face que aparece quando há chão logo abaixo (752/754 e 760/762 são as pontas).
+  Os números saíram medidos de `MtCoronet_1F_South` e `MtCoronet_B1F`, que já
+  estavam no repo, não de tabela de tileset lida de cabeça.
+- **A boca da caverna da gen 4 é um bolsão solto na grade.** Nas três cavernas
+  de lago o tile de warp da fonte tem os QUATRO vizinhos de pedra: a passagem
+  até a câmara é desenhada no modelo 3D e a grade 2D não a liga. O script
+  calcula a maior mancha andável conexa e, se o warp cair fora dela, empurra
+  para o tile mais próximo que esteja dentro. Sem isso, quatro dos dez mapas
+  entregavam o jogador preso numa fresta.
+
+### O que ficou de fora, e por quê
+
+| quanto | o quê | por quê |
+|---|---|---|
+| 12 | Old Chateau, Solaceon Ruins, Rock Peak Ruins, Maniac Tunnel, Iceberg Ruins, Mt. Coronet 6F, Lake Verity/Acuity Low Water | **a geometria está convertida e confere**, mas o mapa pai não tem tile de porta órfã para a entrada, e desenhar boca de caverna em Eterna Forest ou nas margens de lago cairia em cima de árvore. Caverna sem entrada é peso morto na ROM, então não entra |
+| 1 | `FLOAROMA_MEADOW` | está marcado `MAP_TYPE_CAVE` no Platinum mas é o prado das colmeias: a grade dá 4 tiles andáveis em 4096. Seria caverna falsa |
+| 1 | `VICTORY_ROAD_1F` | `MAP_VICTORY_ROAD_1F` já existe: é a Victory Road de HOENN. Precisa de outro nome de constante |
+| 27 | elevador, sala de ginásio, andar de loja, estúdio da Jubilife TV, Great Marsh, Amity Square, Pal Park, Battle Frontier | não são caverna: têm mobília e piso desenhados, exatamente o caso em que a grade 2D não basta |

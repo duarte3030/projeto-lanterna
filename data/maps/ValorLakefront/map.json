@@ -115,6 +115,13 @@
       "elevation": 0,
       "dest_map": "MAP_GRAND_LAKE_VALOR_LAKEFRONT_WEST_HOUSE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 28,
+      "y": 57,
+      "elevation": 0,
+      "dest_map": "MAP_LAKE_VALOR_DRAINED",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
