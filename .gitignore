@@ -75,3 +75,6 @@ build.nosync/
 # Binario compilado do runner de teste (fonte em dev_scripts/gba_runner.c).
 # Sem isto, um `git add -A` de qualquer agente joga um Mach-O de 52 KB no repo.
 dev_scripts/gba_runner
+
+# Binarios de fabrica: ficam no disco, nunca no repositorio publico
+data/mb_*.gba
