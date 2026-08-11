@@ -627,16 +627,18 @@ scripts liam de lá.
    de Kanto; Hoenn pela 8ª insígnia de Johto, porque esta ROM não tem Elite dos
    Quatro de Johto; Sinnoh pelo Wallace; Unova por `FLAG_ELITE_SINNOH_VENCIDA`,
    que a Cynthia já acendia). Zero flag nova, zero var, e nenhum `case` de porto
-   mudou, porque `dynmultipush` devolve o **id empilhado** e não a linha. Falta
-   prova de emulador do portão em si (a leva rodou sob proibição de compilar).
-   Ver `PENDENCIAS-TRAVESSIA.md`.
+   mudou, porque `dynmultipush` devolve o **id empilhado** e não a linha. **O
+   portão está provado na ROM** pelos casos T87.1 a T87.5, e a prova tem
+   contraprova: numa ROM mutante, com os `call_if_set` do menu virando `call`,
+   os cinco falham no ponto que a mutação prevê. Ver `PENDENCIAS-TRAVESSIA.md`.
 7. **Ninguém jogou do começo ao fim.** Tudo aqui é build, dado estático e
    emulador em ponto específico.
 
 **O aperto de ROM que este documento anunciava não existia.** Os "93 KB de
 margem" eram a distância até uma linha de 95% que eu mesmo inventei como aviso,
-não até o teto de 32 MB. Livres de verdade: **1,98 MB**. Unova completa cabe, o
-resto de Sinnoh cabe, as placas de Johto couberam.
+não até o teto de 32 MB. Livres na build de 11/08/2026: **1,56 MB** (a ROM está
+em 95,11%). Unova completa cabe, o resto de Sinnoh cabe, as placas de Johto
+couberam.
 
 ---
 
