@@ -42,7 +42,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route210_South_EventScript_AceTrainer",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_ROUTE210_SOUTH_BREEDER",
@@ -56,7 +56,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route210_South_EventScript_Breeder",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_ROUTE210_SOUTH_RANCHER",
@@ -70,7 +70,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route210_South_EventScript_Rancher",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_ROUTE210_SOUTH_BELLE",
@@ -84,7 +84,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route210_South_EventScript_Belle",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
@@ -164,10 +164,10 @@
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "Route210_South_EventScript_BreederKahlil",
+      "flag": "0",
       "origem": "pokeplatinum"
     },
     {

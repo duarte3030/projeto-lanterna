@@ -32,7 +32,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route211_West_EventScript_BirdKeeper",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_ROUTE211_WEST_HIKER",
@@ -46,7 +46,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route211_West_EventScript_Hiker",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_ROUTE211_WEST_NINJA_BOY",
@@ -60,7 +60,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route211_West_EventScript_NinjaBoy",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
@@ -84,10 +84,10 @@
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Route211_West_EventScript_HikerLouis",
+      "flag": "0",
       "origem": "pokeplatinum"
     },
     {
@@ -98,10 +98,10 @@
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "1",
+      "script": "Route211_West_EventScript_NinjaBoyZach",
+      "flag": "0",
       "origem": "pokeplatinum"
     }
   ],

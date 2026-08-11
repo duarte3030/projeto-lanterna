@@ -77,6 +77,11 @@ time e a fala do Platinum. É o par que `PENDENCIAS-NPC-SINNOH.md` seção 0
 descreve, e o critério de lá é CONTEÚDO, não origem: quem carrega o dado da
 fonte fica. O nativo leva `FLAG_SINNOH_NPC_DUPLICADO` no campo `flag` e não
 nasce. Zero flag nova, zero objeto apagado, reversível.
+
+Três pares já estavam resolvidos para o lado ERRADO pela leva de 11/08, que
+escondeu o IMPORTADO por ele ser mudo. Eles estão em `INVERTIDOS` e a inversão
+acontece junto com a ligação da batalha, nunca sozinha: trocar só a flag deixaria
+um boneco mudo visível e esconderia o único que fala.
 """
 import json
 import os
@@ -97,10 +102,163 @@ SEM_FLAG = ("0", "0x0", "")
 FLAG_CLONE = "FLAG_SINNOH_NPC_DUPLICADO"
 
 # Corpo de NPC que só fala. Nada de goto, call, warp, setflag, applymovement ou
-# special: esconder um desses poderia tirar um passo do enredo do caminho.
+# special: esconder um desses poderia tirar um passo do enredo do caminho. As
+# duas formas que o repo usa: com `lock/faceplayer/release` e o `MSGBOX_NPC`
+# curto, que faz as três coisas sozinho.
 SO_FALA = re.compile(
-    r"^\s*lock\s*\n\s*faceplayer\s*\n\s*msgbox\s+\w+,\s*MSGBOX_\w+\s*\n"
-    r"\s*release\s*\n\s*end\s*$", re.M)
+    r"^\s*(?:lock\s*\n\s*faceplayer\s*\n\s*)?msgbox\s+\w+,\s*MSGBOX_\w+\s*\n"
+    r"\s*(?:release\s*\n\s*)?end\s*$", re.M)
+
+# Pares que a leva de deduplicação de 11/08 resolveu para o lado ERRADO, e cuja
+# inversão o dono do projeto aprovou em 11/08/2026. Chave: (nosso mapa, nossa
+# constante). Valor: a prova que torna o par indiscutível, medida na fonte, não
+# a razão pela qual ele foi casado lá atrás (aquilo foi sprite único, o canal
+# mais fraco dos três).
+#
+# Escrito à mão de propósito: a inversão é decisão humana, não regra derivável.
+# O que a ferramenta faz sozinha é CONFERIR que o par continua o mesmo antes de
+# executar (`par_por_sprite`), e recusar em vez de adivinhar se ficou ambíguo.
+INVERTIDOS = {
+    ("Route211_West", "TRAINER_SINNOH_HIKER_LOUIS"):
+        "no Platinum a Route 211 West tem TRES pessoas e as tres lutam "
+        "(Alexandra, Louis, Zach). O nativo `Hiker` nao tem quarta pessoa "
+        "para ser",
+    ("Route211_West", "TRAINER_SINNOH_NINJA_BOY_ZACH"):
+        "mesma prova: tres pessoas na fonte, todas treinador, uma por classe",
+    ("Route210_South", "TRAINER_SINNOH_BREEDER_KAHLIL"):
+        "o unico breeder MASCULINO da fonte (POKEMON_BREEDER_M -> POKEFAN_M); "
+        "a Amber e POKEMON_BREEDER_F. E o par irmao desta rota esta provado "
+        "palavra por palavra: `Route210_South_Text_AceTrainer`, escrito a mao, "
+        "e parafrase de `Route210_South_Text_Npc1`, que e o texto do Platinum "
+        "do mesmo boneco",
+}
+
+
+# Clone nativo cujo par importado JÁ LUTA: aqui não há batalha para ligar, só a
+# flag muda de lado. Chave: (nosso mapa, local_id do nativo).
+#
+# A prova que vale para os três é a mesma, e é de COBERTURA, não de sprite: o
+# mapa passou no alinhamento, ou seja, as pessoas da fonte estão aqui uma a uma.
+# Quem sobra de gente na fonte é só quem o importador descartou por motivo
+# nomeado, e nenhum deles pode ser este nativo. Não existe pessoa do Platinum
+# para ele ser: ele é segunda cópia de alguém que já está de pé.
+CLONES_SO_FLAG = {
+    ("Route211_West", "LOCALID_ROUTE211_WEST_BIRD_KEEPER"):
+        "a fonte da Route 211 West tem TRES pessoas e nenhuma descartada (os "
+        "outros 5 objetos sao 3 placas, um ROCK_SMASH e uma POKEBALL). As tres "
+        "ja estao aqui: Louis e Zach acabaram de ser invertidos, e a Alexandra "
+        "ja luta. Nao sobra ninguem para o `BirdKeeper` nativo ser",
+    ("Route210_South", "LOCALID_ROUTE210_SOUTH_BELLE"):
+        "as 11 pessoas da fonte estao aqui uma a uma. A unica `belle` do mapa e "
+        "a metade COWGIRL de BELLE_AND_PA_AVA_AND_MATT, que ja luta como "
+        "`Route210_South_EventScript_BelleAva`. Candidato unico",
+    ("Route210_South", "LOCALID_ROUTE210_SOUTH_ACE_TRAINER"):
+        "a prova mais forte da leva inteira, e nao depende de sprite nem de "
+        "contagem: `Route210_South_Text_AceTrainer`, escrito a mao, e o comeco "
+        "LITERAL de `Route210_South_Text_Npc1`, que e o texto do Platinum do "
+        "unico nao-treinador do mapa (ACE_TRAINER_F, script 3), ja ligado por "
+        "texto_sinnoh.py. Sao a mesma pessoa, e a copia a mao esta truncada. "
+        "Nao e treinador de nenhum dos dois lados: aqui so a flag muda",
+    ("Route210_South", "LOCALID_ROUTE210_SOUTH_RANCHER"):
+        "as 11 pessoas da fonte estao aqui uma a uma. Ha DOIS candidatos de "
+        "gráfico RANCHER na fonte (a metade Pa de AVA_AND_MATT e o Marco), e "
+        "os DOIS ja lutam: qual dos dois este nativo copia nao muda o "
+        "resultado, porque nenhum se perde nos dois ramos. Os unicos "
+        "descartados do mapa sao o Jogger Wyatt (hidden_flag) e a Cynthia "
+        "(nome proprio), e nenhum e fazendeiro",
+}
+
+
+def esconde_clones_avulsos(escrever):
+    """Põe FLAG_SINNOH_NPC_DUPLICADO nos nativos de CLONES_SO_FLAG.
+
+    Só a flag muda: o par importado destes já luta. Cada um passa pelas mesmas
+    quatro guardas mecânicas antes de sumir, e qualquer uma que falhe recusa
+    aquele nativo em vez de adivinhar.
+    """
+    feitos, recusas = [], []
+    for (meu, local_id), _motivo in CLONES_SO_FLAG.items():
+        pm = os.path.join(REPO, "data/maps", meu, "map.json")
+        ps = os.path.join(REPO, "data/maps", meu, "scripts.inc")
+        # Releitura tardia: o disco manda, nunca o que o plano viu.
+        d = json.load(open(pm, encoding="utf-8"))
+        inc = le(ps) if os.path.exists(ps) else ""
+        alvo = [(i, o) for i, o in enumerate(d.get("object_events") or [])
+                if o.get("local_id") == local_id]
+        if len(alvo) != 1:
+            recusas.append((meu, local_id, f"{len(alvo)} objetos com esse local_id"))
+            continue
+        i, o = alvo[0]
+        if str(o.get("flag", "0")) not in SEM_FLAG:
+            continue                      # já escondido: rodar de novo não repete
+        if o.get("origem") == "pokeplatinum":
+            recusas.append((meu, local_id, "e importado, nao nativo"))
+            continue
+        corpo = re.search(rf"^{re.escape(o.get('script') or '')}::\n(.*?)(?=\n\S)",
+                          inc, re.S | re.M)
+        if not corpo or not SO_FALA.match("\n" + corpo.group(1).rstrip()):
+            recusas.append((meu, local_id, "o script faz mais do que falar"))
+            continue
+        if not cobertura_fechada(meu):
+            recusas.append((meu, local_id, "a contagem da fonte nao fecha"))
+            continue
+        if escrever:
+            d["object_events"][i]["flag"] = FLAG_CLONE
+            with open(pm, "w", encoding="utf-8") as f:
+                json.dump(d, f, indent=2, ensure_ascii=False)
+                f.write("\n")
+        feitos.append((meu, local_id))
+    return feitos, recusas
+
+
+def cobertura_fechada(meu):
+    """True se toda pessoa da fonte deste mapa já tem objeto aqui, uma a uma.
+
+    É a MESMA checagem de alinhamento que libera a ligação de treinador: mesma
+    contagem e mesmo `graphics_id` posição a posição. Se ela vale, nenhum NPC
+    nativo é necessário para representar alguém da fonte, porque todo mundo já
+    está representado. É por isso que "dois candidatos" não impede esconder: os
+    dois candidatos já estão de pé, e nenhum se perde.
+    """
+    for m, _header, arq in T.casados():
+        if m != meu:
+            continue
+        pe = os.path.join(PLAT, "res/field/events", arq + ".json")
+        pm = os.path.join(REPO, "data/maps", m, "map.json")
+        if not (os.path.exists(pe) and os.path.exists(pm)):
+            return False
+        fonte = json.load(open(pe, encoding="utf-8"))
+        d = json.load(open(pm, encoding="utf-8"))
+        f_npcs, _ = T.separa_fonte(fonte)
+        n_npcs = [o for o in (d.get("object_events") or [])
+                  if o.get("origem") == "pokeplatinum"]
+        sprites = V.sprites_utilizaveis()
+        return (len(n_npcs) == len(f_npcs) and
+                all(T.sprite_esperado(a, sprites) == b.get("graphics_id")
+                    for a, b in zip(f_npcs, n_npcs)))
+    return False
+
+
+def par_por_sprite(objs, grafico, inc):
+    """Índice do ÚNICO nativo com este gráfico que só fala. None se ambíguo.
+
+    Este é o canal fraco (sprite), então a exigência é unicidade: se houver dois
+    nativos do mesmo gráfico, ou nenhum, ou o script fizer mais do que falar,
+    devolve None e o chamador recusa a inversão. Lição 4.10: na dúvida, os dois
+    ficam de pé.
+    """
+    achados = []
+    for i, o in enumerate(objs):
+        if o.get("origem") == "pokeplatinum" or o.get("graphics_id") != grafico:
+            continue
+        if str(o.get("flag", "0")) not in SEM_FLAG:
+            continue
+        lab = o.get("script") or ""
+        corpo = re.search(rf"^{re.escape(lab)}::\n(.*?)(?=\n\S)", inc, re.S | re.M)
+        if not corpo or not SO_FALA.match("\n" + corpo.group(1).rstrip()):
+            continue
+        achados.append(i)
+    return achados[0] if len(achados) == 1 else None
 
 
 def camel(bruto, constante):
@@ -230,7 +388,8 @@ def plano():
     ja = usados_em_scripts()
     st = dict(fora_do_escopo=0, desalinhado=0, filtrado=0, ja_ligado=0,
               sem_constante=0, sem_time=0, sem_dados=0, sem_texto=0,
-              ocupado=0, escondido=0, clones=0, metade_repetida=0)
+              ocupado=0, escondido=0, clones=0, metade_repetida=0,
+              invertidos=0, par_ambiguo=0)
     saida, recusas = [], []
     # O que ESTA rodada já colocou. Separado de `ja` de propósito: `ja` é o
     # passado e não pode crescer, senão a segunda metade de uma dupla é lida
@@ -303,10 +462,26 @@ def plano():
             if str(obj.get("script", "0")) not in MUDO:
                 st["ocupado"] += 1
                 continue
+            libera = None
             if str(obj.get("flag", "0")) not in SEM_FLAG:
-                st["escondido"] += 1
-                recusas.append((meu, "objeto importado escondido por flag", nossa))
-                continue
+                # A leva de deduplicação de 11/08 escondeu o importado por ele
+                # ser mudo. Agora ele tem time e fala do Platinum, e o critério
+                # (conteúdo, não origem) aponta para o outro lado. Inverter é
+                # decisão humana e está em INVERTIDOS, uma linha por par; a
+                # ferramenta só executa depois de conferir que o par continua o
+                # mesmo, e recusa se ficou ambíguo.
+                if (meu, nossa) not in INVERTIDOS \
+                        or str(obj.get("flag")) != FLAG_CLONE:
+                    st["escondido"] += 1
+                    recusas.append((meu, "objeto importado escondido por flag", nossa))
+                    continue
+                libera = par_por_sprite(d.get("object_events") or [],
+                                        obj.get("graphics_id"), inc)
+                if libera is None:
+                    st["par_ambiguo"] += 1
+                    recusas.append((meu, "inversao pedida mas o par ficou ambiguo",
+                                    nossa))
+                    continue
             dados = dados_do_treinador(bruto["script"])
             if dados is None:
                 st["sem_dados"] += 1
@@ -344,9 +519,14 @@ def plano():
                 trecho += f'\n{txt}NoPartner:\n\t.string "{faltou}"\n'
                 bytes_txt += len(faltou)
             raio = str((bruto.get("data") or [0])[0])
-            pecas.append((pos, lab, raio, trecho, bytes_txt, nossa))
+            pecas.append((pos, lab, raio, trecho, bytes_txt, nossa, libera is not None))
             feitos.add((nossa, metade))
             feitos_const.add(nossa)
+            if libera is not None:
+                # Inversão: o importado sai de trás da flag e o nativo entra.
+                esconder.append((libera, d["object_events"][libera].get("local_id")))
+                st["invertidos"] += 1
+                continue
             primeiro = re.split(r"[ &]", dados.get("name", ""))[0]
             i = clone_que_fala(meu, d.get("object_events") or [], primeiro,
                                obj.get("graphics_id"), inc) if primeiro else None
@@ -362,11 +542,13 @@ def main():
     tudo, st, recusas = plano()
     total = sum(len(p) for _m, p, _e in tudo)
     bytes_txt = sum(x[4] for _m, p, _e in tudo for x in p)
+    invert = sum(1 for _m, p, _e in tudo for x in p if x[6])
     duplos = len({x[5] for _m, p, _e in tudo for x in p})
     print(f"treinadores de rota a ligar: {total} em {len(tudo)} mapas "
           f"({duplos} constantes distintas; a diferenca sao as metades de dupla)")
     print(f"clones nativos a esconder com {FLAG_CLONE}: "
-          f"{sum(len(e) for _m, _p, e in tudo)}")
+          f"{sum(len(e) for _m, _p, e in tudo)}   (dos quais {invert} sao "
+          f"INVERSAO: o importado sai de tras da flag e o nativo entra)")
     print(f"custo de texto: {bytes_txt} B de .string ({bytes_txt / 1024:.1f} KB)")
     print("zero id novo, zero flag nova, zero objeto novo")
     print("nao entram: " + "  ".join(f"{k}={v}" for k, v in st.items() if v))
@@ -377,6 +559,13 @@ def main():
         print("\nrecusados:")
         for r in recusas:
             print("   ", *r)
+
+    avulsos, rec_avulsos = esconde_clones_avulsos(False)
+    print(f"\nclones nativos cujo par JA luta (so a flag muda de lado): {len(avulsos)}")
+    for m, li in avulsos:
+        print(f"  {m:24s} {li}")
+    for r in rec_avulsos:
+        print("   RECUSADO:", *r)
 
     if not APLICA:
         print("\n(nada escrito; rode com --aplica)")
@@ -391,16 +580,22 @@ def main():
         atual = json.load(open(pm, encoding="utf-8"))
         lista = atual.get("object_events") or []
         corpo, n = "", 0
-        for pos, lab, raio, trecho, _b, _c in pecas:
+        for pos, lab, raio, trecho, _b, _c, libera in pecas:
             if pos >= len(lista):
                 recusados += 1
                 continue
             ev = lista[pos]
+            # Releitura tardia: o objeto tem que estar EXATAMENTE no estado que o
+            # plano viu. Quem vai ser invertido continua atrás de FLAG_CLONE;
+            # todo o resto continua sem flag nenhuma.
+            esperado = (FLAG_CLONE,) if libera else SEM_FLAG
             if ev.get("origem") != "pokeplatinum" \
                     or str(ev.get("script", "0")) not in MUDO \
-                    or str(ev.get("flag", "0")) not in SEM_FLAG:
+                    or str(ev.get("flag", "0")) not in esperado:
                 recusados += 1
                 continue
+            if libera:
+                ev["flag"] = "0"
             ev["script"] = lab
             ev["trainer_type"] = "TRAINER_TYPE_NORMAL"
             ev["trainer_sight_or_berry_tree_id"] = raio
@@ -421,8 +616,10 @@ def main():
             f.write("\n@ Treinador de rota do pokeplatinum: time, raio de visao e "
                     "fala\n@ (dev_scripts/treinadores_rota_sinnoh.py)\n" + corpo)
         feitos += n
-    print(f"\nligados: {feitos}   clones escondidos: {escondidos}   "
-          f"recusados na releitura: {recusados}")
+    avulsos, rec_avulsos = esconde_clones_avulsos(True)
+    print(f"\nligados: {feitos}   clones escondidos: {escondidos + len(avulsos)} "
+          f"({len(avulsos)} deles so com a flag, o par ja lutava)   "
+          f"recusados na releitura: {recusados + len(rec_avulsos)}")
     return 0
 
 
@@ -484,6 +681,42 @@ def demo():
             if o.get("script") == "TRAINER_FISHERMAN_JUAN"][0]
     assert (juan.get("data") or [0])[0] == 0
 
+    # 8b. inversão só é legítima onde a fonte não deixa alternativa. Route 211
+    #     West tem TRÊS pessoas no Platinum e as três lutam: não sobra ninguém
+    #     para os nativos `Hiker` e `NinjaBoy` serem.
+    ev = json.load(open(os.path.join(
+        PLAT, "res/field/events/events_route_211_west.json"), encoding="utf-8"))
+    gente, _ = T.separa_fonte(ev)
+    assert len(gente) == 3 and all(
+        str(o.get("script", "")).startswith("TRAINER_") for o in gente)
+
+    # 8c. `par_por_sprite` exige unicidade: dois nativos do mesmo gráfico, ou
+    #     nenhum, ou script que faz mais do que falar, devolvem None.
+    inc = "A::\n\tmsgbox A_Text, MSGBOX_NPC\n\tend\n\nB::\n\twarp MAP_X, 0\n\tend\n"
+    um = [{"graphics_id": "G", "script": "A"}]
+    dois = um + [{"graphics_id": "G", "script": "A"}]
+    arriscado = [{"graphics_id": "G", "script": "B"}]
+    assert par_por_sprite(um, "G", inc) == 0
+    assert par_por_sprite(dois, "G", inc) is None
+    assert par_por_sprite(arriscado, "G", inc) is None
+    assert par_por_sprite(um, "OUTRO", inc) is None
+
+    # 8d. esconder nativo avulso só é legítimo com a cobertura FECHADA: toda
+    #     pessoa da fonte já tem objeto no mapa. Se essa conta abrir, algum
+    #     nativo pode ser a única representação de alguém, e some conteúdo.
+    for meu, _li in CLONES_SO_FLAG:
+        assert cobertura_fechada(meu), f"{meu}: a contagem da fonte nao fecha"
+
+    # 8e. e nenhum dos escondidos pode ser citado por script de lugar nenhum:
+    #     esconder objeto que outro roteiro move ou espera trava a cena dele.
+    citados = set()
+    for raiz, _dirs, arqs in os.walk(os.path.join(REPO, "data")):
+        for a in arqs:
+            if a.endswith((".inc", ".s")):
+                citados |= set(re.findall(r"LOCALID_\w+", le(os.path.join(raiz, a))))
+    presos = [li for _m, li in CLONES_SO_FLAG if li in citados]
+    assert not presos, f"local_id escondido mas citado por script: {presos}"
+
     # 9. a checagem na camada da afirmação: nenhum rótulo pode estar definido
     #    duas vezes na unidade de montagem inteira de `data/event_scripts.s`.
     repetidos = T.rotulos_repetidos()
@@ -515,7 +748,7 @@ def demo():
             assert bloco.rstrip().endswith('$"'), f"{meu}: texto sem $ final"
     assert not faltando, f"script citado e inexistente: {faltando[:5]}"
 
-    print("demo ok (10 casos; unidade de montagem conferida, zero rotulo "
+    print("demo ok (15 casos; unidade de montagem conferida, zero rotulo "
           "duplicado, zero script fantasma nas rotas de Sinnoh)")
 
 

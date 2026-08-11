@@ -198,3 +198,20 @@ Route210_South_Text_RancherMarcoDefeat:
 
 Route210_South_Text_RancherMarcoPost:
 	.string "When I cuddle with my Pokémon, I can\nfeel not just their bodies' warmth, but\ptheir compassion.$"
+
+@ Treinador de rota do pokeplatinum: time, raio de visao e fala
+@ (dev_scripts/treinadores_rota_sinnoh.py)
+
+Route210_South_EventScript_BreederKahlil::
+	trainerbattle_single TRAINER_SINNOH_BREEDER_KAHLIL, Route210_South_Text_BreederKahlilIntro, Route210_South_Text_BreederKahlilDefeat
+	msgbox Route210_South_Text_BreederKahlilPost, MSGBOX_AUTOCLOSE
+	end
+
+Route210_South_Text_BreederKahlilIntro:
+	.string "Hey, check this out! Look at the\nluster of my Pokémon's fur!$"
+
+Route210_South_Text_BreederKahlilDefeat:
+	.string "Hey, hey, did you take a good look?$"
+
+Route210_South_Text_BreederKahlilPost:
+	.string "The Veilstone Department Store is\npretty impressive!\pDid you know they even sell Poffins?$"
