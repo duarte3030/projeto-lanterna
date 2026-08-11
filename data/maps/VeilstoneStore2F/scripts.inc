@@ -37,3 +37,33 @@ VeilstoneStore2F_EventScript_Npc2::
 
 VeilstoneStore2F_Text_Npc2:
 	.string "Hello.\nMay I help you with anything?$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+VeilstoneStore2F_EventScript_Npc1::
+	msgbox VeilstoneStore2F_Text_Npc1, MSGBOX_NPC
+	end
+
+VeilstoneStore2F_Text_Npc1:
+	.string "Where can I find matching dresses for\nmyself and my dear Pokémon?$"
+
+VeilstoneStore2F_EventScript_Npc2::
+	msgbox VeilstoneStore2F_Text_Npc2, MSGBOX_NPC
+	end
+
+VeilstoneStore2F_Text_Npc2:
+	.string "I'm going to give an HP Up to\nmy KRICKETOT.\pThis is going to raise its HP, huh?$"
+
+VeilstoneStore2F_EventScript_Npc3::
+	msgbox VeilstoneStore2F_Text_Npc3, MSGBOX_NPC
+	end
+
+VeilstoneStore2F_Text_Npc3:
+	.string "I'm getting the Carbos!\nI should get a Protein instead, maybe.\pBut Iron's not bad, either.$"
+
+VeilstoneStore2F_EventScript_Placa4::
+	msgbox VeilstoneStore2F_Text_Placa4, MSGBOX_SIGN
+	end
+
+VeilstoneStore2F_Text_Placa4:
+	.string "B1F: Food & Produce\p1F: Trainers' Zone\p2F: Battle Collection\p3F: TM Corner\p4F: Poké Dolls & Goods\p5F: Rooftop Plaza$"

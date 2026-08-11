@@ -16,3 +16,12 @@ OreburghCity_House3_Text_SchoolKid:
 OreburghCity_House3_Text_Hiker:
 	.string "The OREBURGH MINE has some tricky\n"
 	.string "paths. Watch your footing in there.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+OreburghCity_House3_EventScript_Npc1::
+	msgbox OreburghCity_House3_Text_Npc1, MSGBOX_NPC
+	end
+
+OreburghCity_House3_Text_Npc1:
+	.string "You're taking a tour of our coal mine?\pWonderful!\nThat's excellent of you.\pIt's always good to learn about new\nthings and broaden your horizons!$"

@@ -113,3 +113,12 @@ Route202_EventScript_Placa3::
 
 Route202_Text_Placa3:
 	.string "Trainer Tips!\pAll Pokémon that are involved in\na battle earn Exp. Points!\pThe more your Pokémon battle,\nthe stronger they will become.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+Route202_EventScript_Npc1::
+	msgbox Route202_Text_Npc1, MSGBOX_NPC
+	end
+
+Route202_Text_Npc1:
+	.string "Some Pokémon only appear in the\nmorning.\pSome only come out at night.\pI'll keep looking till I've seen them\nall!$"

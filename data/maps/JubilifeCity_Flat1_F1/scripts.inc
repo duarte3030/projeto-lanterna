@@ -34,3 +34,19 @@ JubilifeCity_Flat1_F1_Text_Beauty:
 	.string "finding some yourself...\p"
 	.string "I sound like a teacher or\n"
 	.string "something.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+JubilifeCity_Flat1_F1_EventScript_Npc1::
+	msgbox JubilifeCity_Flat1_F1_Text_Npc1, MSGBOX_NPC
+	end
+
+JubilifeCity_Flat1_F1_Text_Npc1:
+	.string "Oh, hello, darlings.\nIsn't my Pokétch quite fetching?\pIt's the latest design that just came\nout. I obtained it instantly, of course.\pA Trainer would be simply lost without\na Pokétch, after all.$"
+
+JubilifeCity_Flat1_F1_EventScript_Npc2::
+	msgbox JubilifeCity_Flat1_F1_Text_Npc2, MSGBOX_NPC
+	end
+
+JubilifeCity_Flat1_F1_Text_Npc2:
+	.string "PIKACHU: Piika pi!$"

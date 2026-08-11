@@ -95,3 +95,33 @@ SandgemTown_EventScript_Placa5::
 
 SandgemTown_Text_Placa5:
 	.string "All Your Item Needs Fulfilled!\nPokémon Mart$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+SandgemTown_EventScript_Npc1::
+	msgbox SandgemTown_Text_Npc1, MSGBOX_NPC
+	end
+
+SandgemTown_Text_Npc1:
+	.string "Oh, wow!\nPokémon are so cool!\pYou can make yours battle and make\nthem stronger!\pI wish I had some!\nIt's so cool!$"
+
+SandgemTown_EventScript_Npc2::
+	msgbox SandgemTown_Text_Npc2, MSGBOX_NPC
+	end
+
+SandgemTown_Text_Npc2:
+	.string "That thing you have!\pIt's a Pokédex, isn't it?!\pYou're off to see all kinds of\nPokémon now! Lucky you!$"
+
+SandgemTown_EventScript_Npc3::
+	msgbox SandgemTown_Text_Npc3, MSGBOX_NPC
+	end
+
+SandgemTown_Text_Npc3:
+	.string "So I don't forget what's happened,\ntill now, I'd better save this...\pThere!\nNow I can take a break.$"
+
+SandgemTown_EventScript_Placa4::
+	msgbox SandgemTown_Text_Placa4, MSGBOX_SIGN
+	end
+
+SandgemTown_Text_Placa4:
+	.string "Sandgem Town\nTown of Sand!$"

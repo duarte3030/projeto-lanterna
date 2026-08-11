@@ -41,3 +41,19 @@ FloaromaTown_Mart_Text_Beauty:
 FloaromaTown_Mart_Text_SchoolKid:
 	.string "I'm saving my allowance to buy\n"
 	.string "some POKé BALLS here!$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+FloaromaTown_Mart_EventScript_Npc1::
+	msgbox FloaromaTown_Mart_Text_Npc1, MSGBOX_NPC
+	end
+
+FloaromaTown_Mart_Text_Npc1:
+	.string "I'm going to dress up my Pokémon with\ncute Accessories and take it to the\pTV station in Jubilife City.\pThat way, everyone in the region\nwill be able to see my Pokémon!$"
+
+FloaromaTown_Mart_EventScript_Npc2::
+	msgbox FloaromaTown_Mart_Text_Npc2, MSGBOX_NPC
+	end
+
+FloaromaTown_Mart_Text_Npc2:
+	.string "You can't buy Berries or Accessories\nat Poké Marts.\pIt's better for me that way.\nI won't waste money impulse shopping.$"

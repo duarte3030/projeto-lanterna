@@ -193,3 +193,82 @@ VeilstoneCity_EventScript_Placa14::
 
 VeilstoneCity_Text_Placa14:
 	.string "Touching the meteorite balanced out\nthe attributes of a certain Pokémon.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+VeilstoneCity_EventScript_Npc1::
+	msgbox VeilstoneCity_Text_Npc1, MSGBOX_NPC
+	end
+
+VeilstoneCity_Text_Npc1:
+	.string "Yeah, Team Galactic is hiding all sorts\nof good stuff in their warehouse.\pI hear they even have a Hidden\nMachine in there!$"
+
+VeilstoneCity_EventScript_Npc2::
+	msgbox VeilstoneCity_Text_Npc2, MSGBOX_NPC
+	end
+
+VeilstoneCity_Text_Npc2:
+	.string "The Game Corner is dangerous!\pWhy is it dangerous?\nIt's so fun, I lose track of time!$"
+
+VeilstoneCity_EventScript_Npc3::
+	msgbox VeilstoneCity_Text_Npc3, MSGBOX_NPC
+	end
+
+VeilstoneCity_Text_Npc3:
+	.string "I got a TM as a prize from the\nGame Corner.\pI used it on my Pokémon right away!$"
+
+VeilstoneCity_EventScript_Npc4::
+	msgbox VeilstoneCity_Text_Npc4, MSGBOX_NPC
+	end
+
+VeilstoneCity_Text_Npc4:
+	.string "I came to this city just so I could\ngo shopping at the department store.\pBut with all these rock walls around,\nthis place feels kind of cold.$"
+
+VeilstoneCity_EventScript_Npc5::
+	msgbox VeilstoneCity_Text_Npc5, MSGBOX_NPC
+	end
+
+VeilstoneCity_Text_Npc5:
+	.string "I bought a new parasol.\pBut I don't want it to get rained on,\nso I watch the TV weather reports.$"
+
+VeilstoneCity_EventScript_Npc6::
+	msgbox VeilstoneCity_Text_Npc6, MSGBOX_NPC
+	end
+
+VeilstoneCity_Text_Npc6:
+	.string "Maylene is Veilstone's Gym Leader.\nThen, there's Wake in Pastoria...\pThey're way too tough for me.\nI can't even come close to them.$"
+
+VeilstoneCity_EventScript_Npc7::
+	msgbox VeilstoneCity_Text_Npc7, MSGBOX_NPC
+	end
+
+VeilstoneCity_Text_Npc7:
+	.string "Do you know where one might find\na Coin Case?\pI heard that there's a clown giving\n'em away, but...$"
+
+VeilstoneCity_EventScript_Npc8::
+	msgbox VeilstoneCity_Text_Npc8, MSGBOX_NPC
+	end
+
+VeilstoneCity_Text_Npc8:
+	.string "Veilstone is the city of stone.\nWe even have meteorites!\pThis has nothing to do with anything,\nbut take this Technical Machine!$"
+
+VeilstoneCity_EventScript_Npc9::
+	msgbox VeilstoneCity_Text_Npc9, MSGBOX_NPC
+	end
+
+VeilstoneCity_Text_Npc9:
+	.string "A man spoke to me in a foreign language.\nHe really surprised me!\pI think he was asking if I liked Pokémon\nor something.$"
+
+VeilstoneCity_EventScript_Npc10::
+	msgbox VeilstoneCity_Text_Npc10, MSGBOX_NPC
+	end
+
+VeilstoneCity_Text_Npc10:
+	.string "Salut, Trainer!\nTu aimes les Pokémon?$"
+
+VeilstoneCity_EventScript_Placa11::
+	msgbox VeilstoneCity_Text_Placa11, MSGBOX_SIGN
+	end
+
+VeilstoneCity_Text_Placa11:
+	.string "Veilstone City\nHewn from Rock$"

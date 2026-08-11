@@ -30,3 +30,12 @@ PastoriaCity_Gym_Text_Post:
 
 PastoriaCity_Gym_Text_JaVenceu:
 	.string "The FEN BADGE is already yours.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+PastoriaCity_Gym_EventScript_Npc1::
+	msgbox PastoriaCity_Gym_Text_Npc1, MSGBOX_NPC
+	end
+
+PastoriaCity_Gym_Text_Npc1:
+	.string "The Gym Leader Wake... Uh, I mean\nCrasher Wake, is a master of\pWater-type Pokémon.\pI'd say you've got guts if you try\nto face down Water types with Fire-\por Ground-type Pokémon!\pBut that part I'll leave up to you!\nGo and have some good battles!$"

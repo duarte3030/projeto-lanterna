@@ -33,3 +33,12 @@ TeamGalacticEternaBuilding_3F_Text_OrdinaryPeopleCantUnderstand:
 TeamGalacticEternaBuilding_3F_Text_FollowThisPath:
 	.string "Question not and follow this path!\n"
 	.string "The road to success!$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+TeamGalacticEternaBuilding_3F_EventScript_Placa1::
+	msgbox TeamGalacticEternaBuilding_3F_Text_Placa1, MSGBOX_SIGN
+	end
+
+TeamGalacticEternaBuilding_3F_Text_Placa1:
+	.string "Question not and follow this path!\nThe road to success!$"

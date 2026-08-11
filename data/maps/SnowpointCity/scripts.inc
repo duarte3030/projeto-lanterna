@@ -121,3 +121,54 @@ SnowpointCity_EventScript_Placa2::
 
 SnowpointCity_Text_Placa2:
 	.string "Snowpoint City Pokémon Gym\nLeader: Candice\pThe Diamond Dust Girl!$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+SnowpointCity_EventScript_Npc1::
+	msgbox SnowpointCity_Text_Npc1, MSGBOX_NPC
+	end
+
+SnowpointCity_Text_Npc1:
+	.string "Brrr... This snowbound town is always\nfreezing cold.\pBut the spirits of the Trainers and\ntheir Pokémon burn hot and bright.\pEspecially the Gym Leader.$"
+
+SnowpointCity_EventScript_Npc2::
+	msgbox SnowpointCity_Text_Npc2, MSGBOX_NPC
+	end
+
+SnowpointCity_Text_Npc2:
+	.string "I want to take a look around in the\nSnowpoint Temple.\pBut only really tough Trainers are\nallowed inside.$"
+
+SnowpointCity_EventScript_Npc3::
+	msgbox SnowpointCity_Text_Npc3, MSGBOX_NPC
+	end
+
+SnowpointCity_Text_Npc3:
+	.string "Your scarf looks nice and warm.\nI wish I had one like it.$"
+
+SnowpointCity_EventScript_Npc4::
+	msgbox SnowpointCity_Text_Npc4, MSGBOX_NPC
+	end
+
+SnowpointCity_Text_Npc4:
+	.string "There is nothing exceptional here.\nThat makes Snowpoint unique.\pThere's nothing exceptional about me.\nThat's what makes me stand out!$"
+
+SnowpointCity_EventScript_Npc5::
+	msgbox SnowpointCity_Text_Npc5, MSGBOX_NPC
+	end
+
+SnowpointCity_Text_Npc5:
+	.string "Only the chosen may enter\nthe Snowpoint Temple.\pI'm sorry, but you will have to\nleave.$"
+
+SnowpointCity_EventScript_Npc6::
+	msgbox SnowpointCity_Text_Npc6, MSGBOX_NPC
+	end
+
+SnowpointCity_Text_Npc6:
+	.string "Candice is teaching me about Pokémon.\pShe says I have to start by making\nfriends with Pokémon.$"
+
+SnowpointCity_EventScript_Placa7::
+	msgbox SnowpointCity_Text_Placa7, MSGBOX_SIGN
+	end
+
+SnowpointCity_Text_Placa7:
+	.string "Snowpoint City\nCity of Snow$"

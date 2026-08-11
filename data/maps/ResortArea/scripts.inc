@@ -78,3 +78,40 @@ ResortArea_EventScript_Placa3::
 
 ResortArea_Text_Placa3:
 	.string "A Somewhat Impressive Villa$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+ResortArea_EventScript_Npc1::
+	msgbox ResortArea_Text_Npc1, MSGBOX_NPC
+	end
+
+ResortArea_Text_Npc1:
+	.string "I've traveled a long way to make my\nbeloved Pokémon even more beautiful.\pThat will make it love me even more.\nGiggle!$"
+
+ResortArea_EventScript_Npc2::
+	msgbox ResortArea_Text_Npc2, MSGBOX_NPC
+	end
+
+ResortArea_Text_Npc2:
+	.string "Nothing is too good for my Pokémon.\nThere's no mountain too high to climb.\pThat's how I look at it.$"
+
+ResortArea_EventScript_Npc3::
+	msgbox ResortArea_Text_Npc3, MSGBOX_NPC
+	end
+
+ResortArea_Text_Npc3:
+	.string "You know how you can dig up cool\nstuff in the Underground?\pPeople are saying they're digging up\nnew, different stuff.$"
+
+ResortArea_EventScript_Npc4::
+	msgbox ResortArea_Text_Npc4, MSGBOX_NPC
+	end
+
+ResortArea_Text_Npc4:
+	.string "Nobody believes me, but something\nlurks in the Resort Area.\pIt's the hidden ruler of the area!\nYou have to believe me!\pIf you believe me, whip out your\nSuper Rod and go fishing.\pWho knows, you may just catch the\nmind-blowing ruler!$"
+
+ResortArea_EventScript_Placa5::
+	msgbox ResortArea_Text_Placa5, MSGBOX_SIGN
+	end
+
+ResortArea_Text_Placa5:
+	.string "Resort Area\nRelax & Play!$"

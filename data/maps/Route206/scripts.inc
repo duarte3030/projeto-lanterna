@@ -220,3 +220,12 @@ Route206_EventScript_Placa2::
 
 Route206_Text_Placa2:
 	.string "Rt. 206\nEterna City$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+Route206_EventScript_Npc1::
+	msgbox Route206_Text_Npc1, MSGBOX_NPC
+	end
+
+Route206_Text_Npc1:
+	.string "This is odd... I heard there were two\ncaves on Route 206.\pBut I can only find one entrance.$"

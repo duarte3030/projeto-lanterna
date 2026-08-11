@@ -153,3 +153,12 @@ Route203_EventScript_Placa4::
 
 Route203_Text_Placa4:
 	.string "Trainer Tips!\pPokémon moves use energy called\nPower Points, or PP for short.\pIf the PP of moves runs low, head for\nany Pokémon Center.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+Route203_EventScript_Npc1::
+	msgbox Route203_Text_Npc1, MSGBOX_NPC
+	end
+
+Route203_Text_Npc1:
+	.string "Your favorite Pokémon should be placed\nat the top left of your party list.\pThat way, it will be the first to go out\nin a battle.$"

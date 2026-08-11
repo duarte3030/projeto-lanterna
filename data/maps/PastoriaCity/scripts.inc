@@ -123,3 +123,75 @@ PastoriaCity_EventScript_Placa4::
 
 PastoriaCity_Text_Placa4:
 	.string "Try the Safari Game in\nPastoria's Great Marsh!$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+PastoriaCity_EventScript_Npc1::
+	msgbox PastoriaCity_Text_Npc1, MSGBOX_NPC
+	end
+
+PastoriaCity_Text_Npc1:
+	.string "Some Trainers deliberately prevent\ntheir Pokémon from evolving.\pThey wait until the Pokémon levels up\nand learns certain moves.$"
+
+PastoriaCity_EventScript_Npc2::
+	msgbox PastoriaCity_Text_Npc2, MSGBOX_NPC
+	end
+
+PastoriaCity_Text_Npc2:
+	.string "Pastoria's Gym Leader is awesome with\nhis water attacks.\pYou'll know what I mean when you\nchallenge him.$"
+
+PastoriaCity_EventScript_Npc3::
+	msgbox PastoriaCity_Text_Npc3, MSGBOX_NPC
+	end
+
+PastoriaCity_Text_Npc3:
+	.string "CLEFAIRY: Fiiih?!$"
+
+PastoriaCity_EventScript_Npc4::
+	msgbox PastoriaCity_Text_Npc4, MSGBOX_NPC
+	end
+
+PastoriaCity_Text_Npc4:
+	.string "The Great Marsh keeps the weather\ncool in the summertime.\pThis is a good town for Water-type\nPokémon.$"
+
+PastoriaCity_EventScript_Npc5::
+	msgbox PastoriaCity_Text_Npc5, MSGBOX_NPC
+	end
+
+PastoriaCity_Text_Npc5:
+	.string "Here where I am standing, I'm\nsmack-dab in the middle of town.$"
+
+PastoriaCity_EventScript_Npc6::
+	msgbox PastoriaCity_Text_Npc6, MSGBOX_NPC
+	end
+
+PastoriaCity_Text_Npc6:
+	.string "I study rare Pokémon that appear\nonly in the Great Marsh.$"
+
+PastoriaCity_EventScript_Npc7::
+	msgbox PastoriaCity_Text_Npc7, MSGBOX_NPC
+	end
+
+PastoriaCity_Text_Npc7:
+	.string "I'm visiting here to see the Great\nMarsh.\pI'm staying at the lakeside hotel.$"
+
+PastoriaCity_EventScript_Npc8::
+	msgbox PastoriaCity_Text_Npc8, MSGBOX_NPC
+	end
+
+PastoriaCity_Text_Npc8:
+	.string "I can't use the hidden move Surf until\nI beat the local Gym Leader.$"
+
+PastoriaCity_EventScript_Npc9::
+	msgbox PastoriaCity_Text_Npc9, MSGBOX_NPC
+	end
+
+PastoriaCity_Text_Npc9:
+	.string "Have you been to the Pokémon Mansion?\nIt's on Route 212.\pThe owner, Mr. Backlot, likes to brag\nabout his herd of rare Pokémon.$"
+
+PastoriaCity_EventScript_Placa10::
+	msgbox PastoriaCity_Text_Placa10, MSGBOX_SIGN
+	end
+
+PastoriaCity_Text_Placa10:
+	.string "Pastoria City\nThe Marsh City$"

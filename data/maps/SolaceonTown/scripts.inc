@@ -92,3 +92,54 @@ SolaceonTown_EventScript_Placa3::
 
 SolaceonTown_Text_Placa3:
 	.string "Pokémon News Press\nWanted: Pro Pokémon Catcher!$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+SolaceonTown_EventScript_Npc1::
+	msgbox SolaceonTown_Text_Npc1, MSGBOX_NPC
+	end
+
+SolaceonTown_Text_Npc1:
+	.string "Howdy, traveling Trainer.\nTake it easy, slow, and casual.$"
+
+SolaceonTown_EventScript_Npc2::
+	msgbox SolaceonTown_Text_Npc2, MSGBOX_NPC
+	end
+
+SolaceonTown_Text_Npc2:
+	.string "I'm too little, so I don't know\nhow to battle very good.\pThe nice Day-Care Lady is raising\nmy Pokémon for me.$"
+
+SolaceonTown_EventScript_Npc3::
+	msgbox SolaceonTown_Text_Npc3, MSGBOX_NPC
+	end
+
+SolaceonTown_Text_Npc3:
+	.string "Breathing in this refreshing air...\nIt perks up Pokémon, don't you think?$"
+
+SolaceonTown_EventScript_Npc4::
+	msgbox SolaceonTown_Text_Npc4, MSGBOX_NPC
+	end
+
+SolaceonTown_Text_Npc4:
+	.string "Every Sunday, I visit the Lost\nTower...$"
+
+SolaceonTown_EventScript_Npc5::
+	msgbox SolaceonTown_Text_Npc5, MSGBOX_NPC
+	end
+
+SolaceonTown_Text_Npc5:
+	.string "Your encounters with Pokémon can\nbe considered your shared history.\pThis here's a Pokétch app called\nPokémon History.\pUse it to see your history of\nPokémon catches.$"
+
+SolaceonTown_EventScript_Npc6::
+	msgbox SolaceonTown_Text_Npc6, MSGBOX_NPC
+	end
+
+SolaceonTown_Text_Npc6:
+	.string "There used to be nothing here but\na road that went straight through.\pOver time, Pokémon and people just\ngathered, and the town came to be.$"
+
+SolaceonTown_EventScript_Placa7::
+	msgbox SolaceonTown_Text_Placa7, MSGBOX_SIGN
+	end
+
+SolaceonTown_Text_Placa7:
+	.string "Solaceon Town\nFree of Worry!$"

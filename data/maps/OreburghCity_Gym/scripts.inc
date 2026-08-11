@@ -66,3 +66,12 @@ OreburghCity_Gym_Text_RoarkPost:
 
 OreburghCity_Gym_Text_RoarkJaVenceu:
 	.string "The COAL BADGE is yours.\nKeep digging deeper, challenger!$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+OreburghCity_Gym_EventScript_Npc1::
+	msgbox OreburghCity_Gym_Text_Npc1, MSGBOX_NPC
+	end
+
+OreburghCity_Gym_Text_Npc1:
+	.string "Howdy!\nHow's it going, Champ-to-be?\pThat's what I said to a really\nimpatient boy earlier, too.\pThe Gym Leader is a user of\nRock-type Pokémon.\pWell, listen. Rock-type Pokémon\nreally hate water, all right?\pThey're also weak to Grass-type\nmoves.\pGee, they sure have weaknesses!\pBut don't think it will be easy.\pYou don't get to be a Gym Leader\nwithout covering for weaknesses.\pGoing after a Rock-type Pokémon\nwith a Fire-type Pokémon won't be\peasy, either.\pThat's all the advice I can give.\nThanks for listening!$"

@@ -30,3 +30,19 @@ EternaCityHerbShop_EventScript_Npc1::
 
 EternaCityHerbShop_Text_Npc1:
 	.string "Welcome to the Herb Shop, home of\neffective yet inexpensive medicine.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+EternaCityHerbShop_EventScript_Npc1::
+	msgbox EternaCityHerbShop_Text_Npc1, MSGBOX_NPC
+	end
+
+EternaCityHerbShop_Text_Npc1:
+	.string "Herbal meds work most impressively.\nBut your Pokémon won't like them.\pThey're horribly bitter and smelly!$"
+
+EternaCityHerbShop_EventScript_Npc2::
+	msgbox EternaCityHerbShop_Text_Npc2, MSGBOX_NPC
+	end
+
+EternaCityHerbShop_Text_Npc2:
+	.string "Someone ought to invent herbal\nmedicine that isn't bitter.\pThat would be a medical breakthrough!$"

@@ -82,7 +82,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "Route201_EventScript_Npc1",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -96,7 +96,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "Route201_EventScript_Npc2",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -110,7 +110,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "Route201_EventScript_Npc3",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -124,7 +124,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "Route201_EventScript_Npc4",
       "flag": "0",
       "origem": "pokeplatinum"
     }

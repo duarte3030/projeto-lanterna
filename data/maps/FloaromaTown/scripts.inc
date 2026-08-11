@@ -102,3 +102,54 @@ FloaromaTown_EventScript_Placa3::
 
 FloaromaTown_Text_Placa3:
 	.string "Floaroma Meadow Ahead\nHoney Available$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+FloaromaTown_EventScript_Npc1::
+	msgbox FloaromaTown_Text_Npc1, MSGBOX_NPC
+	end
+
+FloaromaTown_Text_Npc1:
+	.string "Welcome to Floaroma, the town of\nflowers, flowers, and more flowers!\pYou should plant some flowers of\nyour own, too. Yay for flowers!$"
+
+FloaromaTown_EventScript_Npc2::
+	msgbox FloaromaTown_Text_Npc2, MSGBOX_NPC
+	end
+
+FloaromaTown_Text_Npc2:
+	.string "I simply love it here...\nThe atmosphere is so uplifting.\pYou came to get emotionally healed\ntoo, didn't you?$"
+
+FloaromaTown_EventScript_Npc3::
+	msgbox FloaromaTown_Text_Npc3, MSGBOX_NPC
+	end
+
+FloaromaTown_Text_Npc3:
+	.string "I wanted to get some flowers from\nthe Floaroma Meadow...\pBut some Team Galactic guys in snazzy\noutfits came along...$"
+
+FloaromaTown_EventScript_Npc4::
+	msgbox FloaromaTown_Text_Npc4, MSGBOX_NPC
+	end
+
+FloaromaTown_Text_Npc4:
+	.string "Oh, a SHAYMIN?\pIf you have that Pokémon, then you\nalso should have some Gracidea flowers.\pI've got a whole bunch, so you can have\nsome.$"
+
+FloaromaTown_EventScript_Npc5::
+	msgbox FloaromaTown_Text_Npc5, MSGBOX_NPC
+	end
+
+FloaromaTown_Text_Npc5:
+	.string "The Berries you pick can be used as\nfood for Pokémon.\pYou can also trade them in at the\nflorist's.\pThey'll exchange Berries for\nAccessories to dress up your Pokémon.$"
+
+FloaromaTown_EventScript_Npc6::
+	msgbox FloaromaTown_Text_Npc6, MSGBOX_NPC
+	end
+
+FloaromaTown_Text_Npc6:
+	.string "I got drawn here by the sweet scent\nof Honey...\pSeriously, what's that? What am I?\nA Pokémon or something? Mmm... Honey.$"
+
+FloaromaTown_EventScript_Placa7::
+	msgbox FloaromaTown_Text_Placa7, MSGBOX_SIGN
+	end
+
+FloaromaTown_Text_Placa7:
+	.string "Floaroma Town\nVivid & Scented$"

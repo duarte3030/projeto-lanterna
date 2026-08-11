@@ -141,3 +141,19 @@ ValleyWindworks_Text_Worker1Freed:
 	.string "for you saving me.\p"
 	.string "I can finally see my little daughter\n"
 	.string "again!$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+ValleyWindworks_EventScript_Placa1::
+	msgbox ValleyWindworks_Text_Placa1, MSGBOX_SIGN
+	end
+
+ValleyWindworks_Text_Placa1:
+	.string "Valley Windworks\nEcological, Wind-Driven Energy$"
+
+ValleyWindworks_EventScript_Placa2::
+	msgbox ValleyWindworks_Text_Placa2, MSGBOX_SIGN
+	end
+
+ValleyWindworks_Text_Placa2:
+	.string "It's locked from inside!$"

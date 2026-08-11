@@ -24,3 +24,12 @@ SandgemTown_PokemonCenter_2F_Text_Teala2:
 SandgemTown_PokemonCenter_2F_Text_Lass:
 	.string "I love coming up here to see who's\n"
 	.string "online.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+SandgemTown_PokemonCenter_2F_EventScript_Npc1::
+	msgbox SandgemTown_PokemonCenter_2F_Text_Npc1, MSGBOX_NPC
+	end
+
+SandgemTown_PokemonCenter_2F_Text_Npc1:
+	.string "What kind of Trainer's sign will get\npeople laughing?$"

@@ -86,3 +86,19 @@ SpearPillar_Distorted_Text_WhatWasIt:
 SpearPillar_Distorted_Text_CanOnlyPanicAimlessly:
 	.string "Without anyone to guide us, we can\n"
 	.string "only panic aimlessly...$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+SpearPillar_Distorted_EventScript_Placa1::
+	msgbox SpearPillar_Distorted_Text_Placa1, MSGBOX_SIGN
+	end
+
+SpearPillar_Distorted_Text_Placa1:
+	.string "An overwhelming feeling of time\nemanates powerfully from this rift...\pWhere does it lead to?$"
+
+SpearPillar_Distorted_EventScript_Placa2::
+	msgbox SpearPillar_Distorted_Text_Placa2, MSGBOX_SIGN
+	end
+
+SpearPillar_Distorted_Text_Placa2:
+	.string "An overwhelming feeling of space\nemanates powerfully from this rift...\pWhere does it lead to?$"

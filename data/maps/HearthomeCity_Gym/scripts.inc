@@ -30,3 +30,12 @@ HearthomeCity_Gym_Text_Post:
 
 HearthomeCity_Gym_Text_JaVenceu:
 	.string "The RELIC BADGE is already yours.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+HearthomeCity_Gym_EventScript_Npc1::
+	msgbox HearthomeCity_Gym_Text_Npc1, MSGBOX_NPC
+	end
+
+HearthomeCity_Gym_Text_Npc1:
+	.string "Hey, there!\nHow's it going, Champ-to-be?\pYou must really like hearing me talk.\pIf you want to hear my long spiel again,\njust say, 'Yes!'$"

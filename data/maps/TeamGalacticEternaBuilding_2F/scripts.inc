@@ -52,3 +52,12 @@ TeamGalacticEternaBuilding_2F_Text_ResearchOnFormsOfEnergy:
 TeamGalacticEternaBuilding_2F_Text_MakeProgressTogether:
 	.string "Let us make progress together!\p"
 	.string "             Team Galactic$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+TeamGalacticEternaBuilding_2F_EventScript_Placa1::
+	msgbox TeamGalacticEternaBuilding_2F_Text_Placa1, MSGBOX_SIGN
+	end
+
+TeamGalacticEternaBuilding_2F_Text_Placa1:
+	.string "Let us make progress together!\n             Team Galactic$"

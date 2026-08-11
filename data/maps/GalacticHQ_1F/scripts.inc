@@ -118,3 +118,40 @@ GalacticHQ_1F_Text_TeamGalacticCredo:
 	.string "Galactic!\p"
 	.string "Look beyond the world, space will\n"
 	.string "become Team Galactic's!$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+GalacticHQ_1F_EventScript_Npc1::
+	msgbox GalacticHQ_1F_Text_Npc1, MSGBOX_NPC
+	end
+
+GalacticHQ_1F_Text_Npc1:
+	.string "Welcome.\nThis is Team Galactic Headqu...\pI'm sorry, this is the Galactic\nVeilstone Building.\pCosmic energy for the win!\pWouldn't it be wonderful if we\ncould harness that boundless energy?$"
+
+GalacticHQ_1F_EventScript_Npc2::
+	msgbox GalacticHQ_1F_Text_Npc2, MSGBOX_NPC
+	end
+
+GalacticHQ_1F_Text_Npc2:
+	.string "Team Galactic conducts R&D around\nthe clock here.\pWe focus on the development of new\nenergy resources.$"
+
+GalacticHQ_1F_EventScript_Npc3::
+	msgbox GalacticHQ_1F_Text_Npc3, MSGBOX_NPC
+	end
+
+GalacticHQ_1F_Text_Npc3:
+	.string "You're too young for us...\nYou can join us when you're older.$"
+
+GalacticHQ_1F_EventScript_Npc4::
+	msgbox GalacticHQ_1F_Text_Npc4, MSGBOX_NPC
+	end
+
+GalacticHQ_1F_Text_Npc4:
+	.string "We, Team Galactic, will take everything\nthat can be taken!\pWe will eliminate everything that is\nnot needed!\pThat is Team Galactic's policy!$"
+
+GalacticHQ_1F_EventScript_Placa5::
+	msgbox GalacticHQ_1F_Text_Placa5, MSGBOX_SIGN
+	end
+
+GalacticHQ_1F_Text_Placa5:
+	.string "The Team Galactic credo!\nEverything belongs to Team Galactic!\pLook beyond the world--space will\nbecome Team Galactic's!$"

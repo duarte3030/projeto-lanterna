@@ -153,3 +153,124 @@ HearthomeCity_EventScript_Placa9::
 
 HearthomeCity_Text_Placa9:
 	.string "The Poffin House\nDelicious Poffins--Smiles for All$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+HearthomeCity_EventScript_Npc1::
+	msgbox HearthomeCity_Text_Npc1, MSGBOX_NPC
+	end
+
+HearthomeCity_Text_Npc1:
+	.string "I'm visiting here all the way from\nthe Hoenn region.\pI had been hoping to find the Contest\nHall, but being new, I lost my way.\pFortunately, the local people very\nkindly led me to my destination.\pI was impressed by their kindness and\ngenerosity to a complete stranger.\pNow, may I offer you the courtesy\nof showing you to the Contest Hall?$"
+
+HearthomeCity_EventScript_Npc2::
+	msgbox HearthomeCity_Text_Npc2, MSGBOX_NPC
+	end
+
+HearthomeCity_Text_Npc2:
+	.string "You're a Trainer, are you?\pYou've got two choices of challenges,\neither the Gym or a Contest, right?$"
+
+HearthomeCity_EventScript_Npc3::
+	msgbox HearthomeCity_Text_Npc3, MSGBOX_NPC
+	end
+
+HearthomeCity_Text_Npc3:
+	.string "When I take my baby out in his stroller,\nI see the town in a different way.\pI notice things like stairs and bumps\nin the sidewalk.$"
+
+HearthomeCity_EventScript_Npc4::
+	msgbox HearthomeCity_Text_Npc4, MSGBOX_NPC
+	end
+
+HearthomeCity_Text_Npc4:
+	.string "Apapapu!$"
+
+HearthomeCity_EventScript_Npc5::
+	msgbox HearthomeCity_Text_Npc5, MSGBOX_NPC
+	end
+
+HearthomeCity_Text_Npc5:
+	.string "At the Lost Tower, people unburden\nthemselves of unbearable sorrow...\pYou'll understand what I mean if you\nvisit the Lost Tower on Route 209.$"
+
+HearthomeCity_EventScript_Npc6::
+	msgbox HearthomeCity_Text_Npc6, MSGBOX_NPC
+	end
+
+HearthomeCity_Text_Npc6:
+	.string "I get to see Pokémon all day long,\nbut there sure are many kinds.\pHow many are there now?$"
+
+HearthomeCity_EventScript_Npc7::
+	msgbox HearthomeCity_Text_Npc7, MSGBOX_NPC
+	end
+
+HearthomeCity_Text_Npc7:
+	.string "They call me Mr. Goods.\pNo one knows my real name.\nNo, not even I do...\pI dedicate myself to seeking rarities.\nIt's what I live for.$"
+
+HearthomeCity_EventScript_Npc8::
+	msgbox HearthomeCity_Text_Npc8, MSGBOX_NPC
+	end
+
+HearthomeCity_Text_Npc8:
+	.string "I can't decide what Accessories I\nshould dress up Pokémon with.\pThere are just so many kinds.$"
+
+HearthomeCity_EventScript_Npc9::
+	msgbox HearthomeCity_Text_Npc9, MSGBOX_NPC
+	end
+
+HearthomeCity_Text_Npc9:
+	.string "I used a Fire Stone on my Pokémon,\nand it evolved!$"
+
+HearthomeCity_EventScript_Npc10::
+	msgbox HearthomeCity_Text_Npc10, MSGBOX_NPC
+	end
+
+HearthomeCity_Text_Npc10:
+	.string "I went for a stroll in Amity Square\nwith my PACHIRISU today.\pWe came across a Pokémon feather\nwhile we walked.\pDo you think it'd make my PACHIRISU\nlook any cuter?$"
+
+HearthomeCity_EventScript_Npc11::
+	msgbox HearthomeCity_Text_Npc11, MSGBOX_NPC
+	end
+
+HearthomeCity_Text_Npc11:
+	.string "I'd like to live in Hearthome when\nI get married.\pBut my boyfriend wants to live in\nVeilstone 'cause of its Game Corner...$"
+
+HearthomeCity_EventScript_Npc12::
+	msgbox HearthomeCity_Text_Npc12, MSGBOX_NPC
+	end
+
+HearthomeCity_Text_Npc12:
+	.string "I lived in total seclusion up in\nthe mountains for thirty years!\pI'm going to clean up some Contests\nwith a dance move I came up with!$"
+
+HearthomeCity_EventScript_Npc13::
+	msgbox HearthomeCity_Text_Npc13, MSGBOX_NPC
+	end
+
+HearthomeCity_Text_Npc13:
+	.string "Papa! Mama!$"
+
+HearthomeCity_EventScript_Npc14::
+	msgbox HearthomeCity_Text_Npc14, MSGBOX_NPC
+	end
+
+HearthomeCity_Text_Npc14:
+	.string "I can feel the baby stroller getting\nheavier each and every day.\pI wonder what kind of Pokémon my\nchild will become friends with first?$"
+
+HearthomeCity_EventScript_Npc15::
+	msgbox HearthomeCity_Text_Npc15, MSGBOX_NPC
+	end
+
+HearthomeCity_Text_Npc15:
+	.string "This place is beautiful.\nPerhaps even too much so.\pPokémon, people, and nature are in\nperfect harmony here.$"
+
+HearthomeCity_EventScript_Npc16::
+	msgbox HearthomeCity_Text_Npc16, MSGBOX_NPC
+	end
+
+HearthomeCity_Text_Npc16:
+	.string "I put my Vs. Seeker through its paces\na lot.\pI battled this one intriguing Trainer\nover and over using it.\pShe asked me, 'Do you like me?'\nLike, oops! Hahahahah!$"
+
+HearthomeCity_EventScript_Placa17::
+	msgbox HearthomeCity_Text_Placa17, MSGBOX_SIGN
+	end
+
+HearthomeCity_Text_Placa17:
+	.string "Hearthome City\nWarm & Kind$"

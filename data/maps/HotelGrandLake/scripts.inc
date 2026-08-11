@@ -43,3 +43,19 @@ HotelGrandLake_Text_Guest3:
 HotelGrandLake_Text_Guest4:
 	.string "Ahh, nothing beats a quiet cup of\n"
 	.string "tea after a long trip.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+HotelGrandLake_EventScript_Npc1::
+	msgbox HotelGrandLake_Text_Npc1, MSGBOX_NPC
+	end
+
+HotelGrandLake_Text_Npc1:
+	.string "This hotel is so romantic...\pI hope a knight on a Pokémon will\nsweep me away for a honeymoon here!$"
+
+HotelGrandLake_EventScript_Npc2::
+	msgbox HotelGrandLake_Text_Npc2, MSGBOX_NPC
+	end
+
+HotelGrandLake_Text_Npc2:
+	.string "Ah, hello. You wish to stay a night?\nAh, but you've no reservations.\pI'm afraid we are totally booked.\nYou may rest a while, if you wish.$"

@@ -175,3 +175,68 @@ CanalaveCity_EventScript_Placa6::
 
 CanalaveCity_Text_Placa6:
 	.string "Harbor Inn\nA Roost for Restless Sailors\p'Enjoy sweet dreams in our\nsumptuous beds!'$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+CanalaveCity_EventScript_Npc1::
+	msgbox CanalaveCity_Text_Npc1, MSGBOX_NPC
+	end
+
+CanalaveCity_Text_Npc1:
+	.string "What's up?\nYour clothes look damp.\pMaybe you took the boat to Iron Island\nto get a Hidden Machine, right?$"
+
+CanalaveCity_EventScript_Npc2::
+	msgbox CanalaveCity_Text_Npc2, MSGBOX_NPC
+	end
+
+CanalaveCity_Text_Npc2:
+	.string "My PSYDUCK is very close to me.\nThat makes its Return move powerful!$"
+
+CanalaveCity_EventScript_Npc3::
+	msgbox CanalaveCity_Text_Npc3, MSGBOX_NPC
+	end
+
+CanalaveCity_Text_Npc3:
+	.string "Welcome to Canalave City, the Canal\nCity!\pIn the old days, this port used to\nbe a hub of cargo transportation.$"
+
+CanalaveCity_EventScript_Npc4::
+	msgbox CanalaveCity_Text_Npc4, MSGBOX_NPC
+	end
+
+CanalaveCity_Text_Npc4:
+	.string "I'm going to study at the library.\pI've taken an interest in the subject\nof time and space.$"
+
+CanalaveCity_EventScript_Npc5::
+	msgbox CanalaveCity_Text_Npc5, MSGBOX_NPC
+	end
+
+CanalaveCity_Text_Npc5:
+	.string "PSYDUCK: Gua?$"
+
+CanalaveCity_EventScript_Npc6::
+	msgbox CanalaveCity_Text_Npc6, MSGBOX_NPC
+	end
+
+CanalaveCity_Text_Npc6:
+	.string "The Gym Leader and Trainers of this Gym\noften go out to Iron Island.\pThey not only train their Pokémon,\nbut they work out as well.$"
+
+CanalaveCity_EventScript_Npc7::
+	msgbox CanalaveCity_Text_Npc7, MSGBOX_NPC
+	end
+
+CanalaveCity_Text_Npc7:
+	.string "Do you wanna set sail?$"
+
+CanalaveCity_EventScript_Placa8::
+	msgbox CanalaveCity_Text_Placa8, MSGBOX_SIGN
+	end
+
+CanalaveCity_Text_Placa8:
+	.string "Canalave City\nCargo Port$"
+
+CanalaveCity_EventScript_Placa9::
+	msgbox CanalaveCity_Text_Placa9, MSGBOX_SIGN
+	end
+
+CanalaveCity_Text_Placa9:
+	.string "The door is tightly shut.\nIt appears impossible to open.$"

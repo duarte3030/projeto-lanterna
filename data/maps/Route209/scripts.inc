@@ -184,3 +184,12 @@ Route209_EventScript_Placa9::
 
 Route209_Text_Placa9:
 	.string "There is a broken, crumbling tower\nmade of stone...\pThere seems to be a spot that would\nbe a perfect fit for the Odd Keystone.\pWould you like to use the Odd\nKeystone?$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+Route209_EventScript_Npc1::
+	msgbox Route209_Text_Npc1, MSGBOX_NPC
+	end
+
+Route209_Text_Npc1:
+	.string "Where departed Pokémon sleep...\nThis is the Lost Tower.$"

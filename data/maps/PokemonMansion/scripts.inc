@@ -21,3 +21,19 @@ PokemonMansion_EventScript_Npc3::
 
 PokemonMansion_Text_Npc3:
 	.string "I'm so sorry. Everything beyond this\npoint is strictly off-limits.\pPlease, you really mustn't.\nMr. Backlot will be so cross with me!$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+PokemonMansion_EventScript_Npc1::
+	msgbox PokemonMansion_Text_Npc1, MSGBOX_NPC
+	end
+
+PokemonMansion_Text_Npc1:
+	.string "Very well!\nOur first maid, please!$"
+
+PokemonMansion_EventScript_Npc2::
+	msgbox PokemonMansion_Text_Npc2, MSGBOX_NPC
+	end
+
+PokemonMansion_Text_Npc2:
+	.string "The expensive-looking book Mr. Backlot\nhas... It tugs at my attention.$"

@@ -36,3 +36,26 @@ SandgemTown_PokemonCenter_1F_Text_Expert:
 SandgemTown_PokemonCenter_1F_Text_Lass:
 	.string "I always stop here before heading\n"
 	.string "out on ROUTE 202.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+SandgemTown_PokemonCenter_1F_EventScript_Npc1::
+	msgbox SandgemTown_PokemonCenter_1F_Text_Npc1, MSGBOX_NPC
+	end
+
+SandgemTown_PokemonCenter_1F_Text_Npc1:
+	.string "Talk to that nice lady at the counter\nand hand her your Pokémon.\pShe'll heal your Pokémon to perfect\nhealth in no time at all!$"
+
+SandgemTown_PokemonCenter_1F_EventScript_Npc2::
+	msgbox SandgemTown_PokemonCenter_1F_Text_Npc2, MSGBOX_NPC
+	end
+
+SandgemTown_PokemonCenter_1F_Text_Npc2:
+	.string "Do you see that PC over there?\nThat fancy blue one?\pIf you've got Pokémon with you,\nit's free to use.$"
+
+SandgemTown_PokemonCenter_1F_EventScript_Npc3::
+	msgbox SandgemTown_PokemonCenter_1F_Text_Npc3, MSGBOX_NPC
+	end
+
+SandgemTown_PokemonCenter_1F_Text_Npc3:
+	.string "The top floor of any Pokémon Center\nis the Pokémon Communication Club.\pThere, you can have all sorts of fun\nwith your friends.$"

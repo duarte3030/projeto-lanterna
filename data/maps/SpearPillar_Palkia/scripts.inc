@@ -49,3 +49,19 @@ SpearPillar_Palkia_Text_RiftIsQuiet:
 	.string "The rift has closed over.\p"
 	.string "Not a trace of space stirs here\n"
 	.string "any more.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+SpearPillar_Palkia_EventScript_Placa1::
+	msgbox SpearPillar_Palkia_Text_Placa1, MSGBOX_SIGN
+	end
+
+SpearPillar_Palkia_Text_Placa1:
+	.string "On the other side of the rift...\nIn a fantastically bizarre place...\pIt's PALKIA!\pWill you challenge PALKIA?$"
+
+SpearPillar_Palkia_EventScript_Placa2::
+	msgbox SpearPillar_Palkia_Text_Placa2, MSGBOX_SIGN
+	end
+
+SpearPillar_Palkia_Text_Placa2:
+	.string "On the other side of the rift...\nIn a fantastically bizarre place...\pIt's PALKIA!\pWill you challenge PALKIA?$"

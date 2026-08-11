@@ -226,3 +226,12 @@ SandgemTown_RowanLab_Text_Assistant:
 SandgemTown_RowanLab_Text_Bookshelf:
 	.string "It's crammed full of books with\n"
 	.string "all sorts of POKéMON information.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+SandgemTown_RowanLab_EventScript_Npc1::
+	msgbox SandgemTown_RowanLab_Text_Npc1, MSGBOX_NPC
+	end
+
+SandgemTown_RowanLab_Text_Npc1:
+	.string "Professor Rowan invented a new\nPokédex while working alongside a\pprofessor from the Kanto region.\pOh, my name is Roseanne.\pIt's an honor to be an assistant to\nour professor!$"

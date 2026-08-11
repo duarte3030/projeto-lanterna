@@ -70,3 +70,12 @@ TeamGalacticEternaBuilding_1F_Text_SightsSetOnTheStars:
 
 TeamGalacticEternaBuilding_1F_Text_PathLeadsToGlory:
 	.string "The path you chose leads to glory.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+TeamGalacticEternaBuilding_1F_EventScript_Placa1::
+	msgbox TeamGalacticEternaBuilding_1F_Text_Placa1, MSGBOX_SIGN
+	end
+
+TeamGalacticEternaBuilding_1F_Text_Placa1:
+	.string "The path you chose leads to glory.$"

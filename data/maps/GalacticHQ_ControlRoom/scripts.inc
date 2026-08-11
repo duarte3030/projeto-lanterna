@@ -227,3 +227,33 @@ GalacticHQ_ControlRoom_Text_AzelfWasSealedInside:
 	.string "It's Team Galactic's sinister\n"
 	.string "machine. AZELF had been sealed\l"
 	.string "inside it.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+GalacticHQ_ControlRoom_EventScript_Placa1::
+	msgbox GalacticHQ_ControlRoom_Text_Placa1, MSGBOX_SIGN
+	end
+
+GalacticHQ_ControlRoom_Text_Placa1:
+	.string "UXIE is sealed inside! It appears to\nbe suffering, with eyes squeezed shut.$"
+
+GalacticHQ_ControlRoom_EventScript_Placa2::
+	msgbox GalacticHQ_ControlRoom_Text_Placa2, MSGBOX_SIGN
+	end
+
+GalacticHQ_ControlRoom_Text_Placa2:
+	.string "MESPRIT is sealed inside! It seems to\nbe suffering, with its tail twitching.$"
+
+GalacticHQ_ControlRoom_EventScript_Placa3::
+	msgbox GalacticHQ_ControlRoom_Text_Placa3, MSGBOX_SIGN
+	end
+
+GalacticHQ_ControlRoom_Text_Placa3:
+	.string "AZELF is sealed inside! It appears to\nbe suffering, with wracking shudders.$"
+
+GalacticHQ_ControlRoom_EventScript_Placa4::
+	msgbox GalacticHQ_ControlRoom_Text_Placa4, MSGBOX_SIGN
+	end
+
+GalacticHQ_ControlRoom_Text_Placa4:
+	.string "Press the button and set\nthe Pokémon free?$"

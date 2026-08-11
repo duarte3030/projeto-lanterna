@@ -170,3 +170,12 @@ Route217_EventScript_Placa1::
 
 Route217_Text_Placa1:
 	.string "Rt. 217\nLake Acuity$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+Route217_EventScript_Npc1::
+	msgbox Route217_Text_Npc1, MSGBOX_NPC
+	end
+
+Route217_Text_Npc1:
+	.string "I'm using the Dowsing Machine on\nmy Pokétch.\pI'm looking for things buried under\nthe snow.$"

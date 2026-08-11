@@ -75,3 +75,12 @@ Route205_South_EventScript_Placa3::
 
 Route205_South_Text_Placa3:
 	.string "Trainer Tips!\pThe items placed in your Bag are\nautomatically sorted to the\pappropriate pockets.\pIt's very convenient!\nIt's a Trainer's best friend!$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+Route205_South_EventScript_Npc1::
+	msgbox Route205_South_Text_Npc1, MSGBOX_NPC
+	end
+
+Route205_South_Text_Npc1:
+	.string "Many Poison-type Pokémon make the\nEterna Forest their home.\pBut I didn't buy any Antidotes.\nWhat should I do?\pDo I press on, or do I go back?$"

@@ -40,3 +40,19 @@ OreburghCity_Mart_Text_Collector:
 	.string "I collect rare items from all over\n"
 	.string "SINNOH. This MART always has something\l"
 	.string "new for my collection.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+OreburghCity_Mart_EventScript_Npc1::
+	msgbox OreburghCity_Mart_Text_Npc1, MSGBOX_NPC
+	end
+
+OreburghCity_Mart_Text_Npc1:
+	.string "The Badges that Pokémon Gyms give you\nare a measure of a Trainer's worth.\pBy getting more Badges, you get to\nbuy more items in Poké Marts.$"
+
+OreburghCity_Mart_EventScript_Npc2::
+	msgbox OreburghCity_Mart_Text_Npc2, MSGBOX_NPC
+	end
+
+OreburghCity_Mart_Text_Npc2:
+	.string "The Poké Mart is staffed by a lady and\na young fellow.\pThey offer different kinds of\nmerchandise. Did you know?$"

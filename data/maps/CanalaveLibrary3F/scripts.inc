@@ -161,3 +161,12 @@ CanalaveLibrary3F_EventScript_Placa21::
 
 CanalaveLibrary3F_Text_Placa21:
 	.string "This book is titled 'Sinnoh Folk\nStories.'$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+CanalaveLibrary3F_EventScript_Placa1::
+	msgbox CanalaveLibrary3F_Text_Placa1, MSGBOX_SIGN
+	end
+
+CanalaveLibrary3F_Text_Placa1:
+	.string "On this floor, you will find many\nbooks on the myths and legends of\pthe Sinnoh region.$"

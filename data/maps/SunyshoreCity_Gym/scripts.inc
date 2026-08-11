@@ -31,3 +31,26 @@ SunyshoreCity_Gym_Text_Post:
 
 SunyshoreCity_Gym_Text_JaVenceu:
 	.string "The BEACON BADGE is already yours.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+SunyshoreCity_Gym_EventScript_Npc1::
+	msgbox SunyshoreCity_Gym_Text_Npc1, MSGBOX_NPC
+	end
+
+SunyshoreCity_Gym_Text_Npc1:
+	.string "Hey, there!\nHow's it going, Champ-to-be?\pLet me check out your Trainer Case.\nLet's see how many Badges you have.\pOne, two, three...\nWhoa! Wow! You've already got seven!\pThat means if you can beat this Gym\nLeader, you're on your way to the\pPokémon League next.\pThat also means this is the last time\nI get to give you advice.\pThis is it, kiddo!\nListen carefully...one last time!\pThe Gym Leader here is a master of\nElectric-type Pokémon!\pThat's all I have to say.\nThe rest is up to you!$"
+
+SunyshoreCity_Gym_EventScript_Placa2::
+	msgbox SunyshoreCity_Gym_Text_Placa2, MSGBOX_SIGN
+	end
+
+SunyshoreCity_Gym_Text_Placa2:
+	.string "Sunyshore City Pokémon Gym\pLeader: Volkner$"
+
+SunyshoreCity_Gym_EventScript_Placa3::
+	msgbox SunyshoreCity_Gym_Text_Placa3, MSGBOX_SIGN
+	end
+
+SunyshoreCity_Gym_Text_Placa3:
+	.string "Sunyshore City Pokémon Gym\pLeader: Volkner$"

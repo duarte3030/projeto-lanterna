@@ -24,3 +24,40 @@ TwinleafTown_MainHouse_2F_Text_PC:
 	.string "People live alongside POKéMON in\n"
 	.string "this world. The people that battle\n"
 	.string "POKéMON are called POKéMON Trainers.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+TwinleafTown_MainHouse_2F_EventScript_Placa1::
+	msgbox TwinleafTown_MainHouse_2F_Text_Placa1, MSGBOX_SIGN
+	end
+
+TwinleafTown_MainHouse_2F_Text_Placa1:
+	.string "It's a Wii!\nIt's controlled by a Wii Remote!$"
+
+TwinleafTown_MainHouse_2F_EventScript_Placa2::
+	msgbox TwinleafTown_MainHouse_2F_Text_Placa2, MSGBOX_SIGN
+	end
+
+TwinleafTown_MainHouse_2F_Text_Placa2:
+	.string "{PLAYER} checked the PC.\pPokémon Basics...\pPeople live alongside Pokémon in\nthis world.\pThe people that battle Pokémon are\ncalled Pokémon Trainers.$"
+
+TwinleafTown_MainHouse_2F_EventScript_Placa3::
+	msgbox TwinleafTown_MainHouse_2F_Text_Placa3, MSGBOX_SIGN
+	end
+
+TwinleafTown_MainHouse_2F_Text_Placa3:
+	.string "The X Button\nopens the menu!$"
+
+TwinleafTown_MainHouse_2F_EventScript_Placa4::
+	msgbox TwinleafTown_MainHouse_2F_Text_Placa4, MSGBOX_SIGN
+	end
+
+TwinleafTown_MainHouse_2F_Text_Placa4:
+	.string "Mom bought this TV as a gift.$"
+
+TwinleafTown_MainHouse_2F_EventScript_Placa5::
+	msgbox TwinleafTown_MainHouse_2F_Text_Placa5, MSGBOX_SIGN
+	end
+
+TwinleafTown_MainHouse_2F_Text_Placa5:
+	.string "Mom bought this TV as a gift.$"

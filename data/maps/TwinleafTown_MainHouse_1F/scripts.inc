@@ -59,3 +59,47 @@ TwinleafTown_MainHouse_1F_Text_MomTakeAQuickRest:
 	.string "MOM: Welcome home, {PLAYER}.\n"
 	.string "Are you and your POKéMON healthy?\p"
 	.string "Take a quick rest, dear.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+TwinleafTown_MainHouse_1F_EventScript_Placa1::
+	msgbox TwinleafTown_MainHouse_1F_Text_Placa1, MSGBOX_SIGN
+	end
+
+TwinleafTown_MainHouse_1F_Text_Placa1:
+	.string "Mom's favorite dessert is in\nthe refrigerator.$"
+
+TwinleafTown_MainHouse_1F_EventScript_Placa2::
+	msgbox TwinleafTown_MainHouse_1F_Text_Placa2, MSGBOX_SIGN
+	end
+
+TwinleafTown_MainHouse_1F_Text_Placa2:
+	.string "Mom's kitchen is spotless!\nYou can see your face on the floor!$"
+
+TwinleafTown_MainHouse_1F_EventScript_Placa3::
+	msgbox TwinleafTown_MainHouse_1F_Text_Placa3, MSGBOX_SIGN
+	end
+
+TwinleafTown_MainHouse_1F_Text_Placa3:
+	.string "Mom's kitchen is spotless!\nYou can see your face on the floor!$"
+
+TwinleafTown_MainHouse_1F_EventScript_Placa4::
+	msgbox TwinleafTown_MainHouse_1F_Text_Placa4, MSGBOX_SIGN
+	end
+
+TwinleafTown_MainHouse_1F_Text_Placa4:
+	.string "This is where Mom does all her\ndelicious cooking.$"
+
+TwinleafTown_MainHouse_1F_EventScript_Placa5::
+	msgbox TwinleafTown_MainHouse_1F_Text_Placa5, MSGBOX_SIGN
+	end
+
+TwinleafTown_MainHouse_1F_Text_Placa5:
+	.string "This is where Mom does all her\ndelicious cooking.$"
+
+TwinleafTown_MainHouse_1F_EventScript_Placa6::
+	msgbox TwinleafTown_MainHouse_1F_Text_Placa6, MSGBOX_SIGN
+	end
+
+TwinleafTown_MainHouse_1F_Text_Placa6:
+	.string "This is where Mom does all her\ndelicious cooking.$"

@@ -67,3 +67,26 @@ Route212_South_EventScript_Placa3::
 
 Route212_South_Text_Placa3:
 	.string "Trainer Tips\pIf you get stuck in the bog, you can\ncount on being there a while.\pThere's no need to panic.\nJust struggle and squirm for a bit.\pBicycles cannot be ridden on marshy\nground, incidentally.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+Route212_South_EventScript_Npc1::
+	msgbox Route212_South_Text_Npc1, MSGBOX_NPC
+	end
+
+Route212_South_Text_Npc1:
+	.string "You can zip across fallen logs like\nbridges on your Bike.$"
+
+Route212_South_EventScript_Npc2::
+	msgbox Route212_South_Text_Npc2, MSGBOX_NPC
+	end
+
+Route212_South_Text_Npc2:
+	.string "...Am I stuck in the bog?\pOf course not. How silly!\nThis is a full-body mud pack.\pIf it weren't, I would be squirming\nand struggling to get out!$"
+
+Route212_South_EventScript_Npc3::
+	msgbox Route212_South_Text_Npc3, MSGBOX_NPC
+	end
+
+Route212_South_Text_Npc3:
+	.string "You've been to the Great Marsh?\nHow about the Pokémon Mansion?\pWherever I go, I get to meet new and\ndifferent Pokémon.\pI feel so privileged and happy about\nthat.$"

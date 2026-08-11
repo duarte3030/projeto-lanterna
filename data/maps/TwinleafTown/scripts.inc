@@ -78,3 +78,26 @@ TwinleafTown_Text_Collector:
 TwinleafTown_Text_TownSign:
 	.string "TWINLEAF TOWN\n"
 	.string "A Town Whose Leaves Are Always Fresh$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+TwinleafTown_EventScript_Npc1::
+	msgbox TwinleafTown_Text_Npc1, MSGBOX_NPC
+	end
+
+TwinleafTown_Text_Npc1:
+	.string "It's true that wild Pokémon do attack\npeople sometimes...\pBut, Pokémon also open their hearts\nto you, so you can become friends.$"
+
+TwinleafTown_EventScript_Npc2::
+	msgbox TwinleafTown_Text_Npc2, MSGBOX_NPC
+	end
+
+TwinleafTown_Text_Npc2:
+	.string "Technology just blows me away!\pI mean, now you can play with people\naround the world...wirelessly!$"
+
+TwinleafTown_EventScript_Placa3::
+	msgbox TwinleafTown_Text_Placa3, MSGBOX_SIGN
+	end
+
+TwinleafTown_Text_Placa3:
+	.string "Twinleaf Town\nFresh and Free!$"

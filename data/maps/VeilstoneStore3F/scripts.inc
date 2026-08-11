@@ -30,3 +30,33 @@ VeilstoneStore3F_EventScript_Npc1::
 
 VeilstoneStore3F_Text_Npc1:
 	.string "Hello.\nMay I help you with anything?$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+VeilstoneStore3F_EventScript_Npc1::
+	msgbox VeilstoneStore3F_Text_Npc1, MSGBOX_NPC
+	end
+
+VeilstoneStore3F_Text_Npc1:
+	.string "A friend traded me a MACHOKE using\nDS Wireless Communications.\pBut instead of a MACHOKE, I got\na different Pokémon!$"
+
+VeilstoneStore3F_EventScript_Npc2::
+	msgbox VeilstoneStore3F_Text_Npc2, MSGBOX_NPC
+	end
+
+VeilstoneStore3F_Text_Npc2:
+	.string "I wrote some secrets in my Mail\nas a reminder...\pIf someone reads it...\nI'm in deep trouble.$"
+
+VeilstoneStore3F_EventScript_Npc3::
+	msgbox VeilstoneStore3F_Text_Npc3, MSGBOX_NPC
+	end
+
+VeilstoneStore3F_Text_Npc3:
+	.string "I would love to buy up all the\nmerchandise here.\pEven once would do!$"
+
+VeilstoneStore3F_EventScript_Placa4::
+	msgbox VeilstoneStore3F_Text_Placa4, MSGBOX_SIGN
+	end
+
+VeilstoneStore3F_Text_Placa4:
+	.string "B1F: Food & Produce\p1F: Trainers' Zone\p2F: Battle Collection\p3F: TM Corner\p4F: Poké Dolls & Goods\p5F: Rooftop Plaza$"

@@ -160,3 +160,12 @@ Route207_EventScript_Placa3::
 
 Route207_Text_Placa3:
 	.string "Trainer Tips\pPokémon may become immobilized if\nthey are asleep or paralyzed.\pIf it happens to your Pokémon,\nit could be disastrous.\pIf your opponent's Pokémon can't\nmove, it's a big opportunity!$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+Route207_EventScript_Npc1::
+	msgbox Route207_Text_Npc1, MSGBOX_NPC
+	end
+
+Route207_Text_Npc1:
+	.string "That slope's too slippery.\nYou'll need a Bike to get up.\pYou don't have a Bicycle?\nThere's a Cycle Shop in Eterna City.$"

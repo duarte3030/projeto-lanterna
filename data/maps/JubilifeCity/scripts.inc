@@ -296,3 +296,103 @@ JubilifeCity_EventScript_Placa9::
 
 JubilifeCity_Text_Placa9:
 	.string "The Global Terminal\nYour Gateway to the Whole World!$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+JubilifeCity_EventScript_Npc1::
+	msgbox JubilifeCity_Text_Npc1, MSGBOX_NPC
+	end
+
+JubilifeCity_Text_Npc1:
+	.string "When you walk with your Pokémon,\nthey gradually grow friendlier.$"
+
+JubilifeCity_EventScript_Npc2::
+	msgbox JubilifeCity_Text_Npc2, MSGBOX_NPC
+	end
+
+JubilifeCity_Text_Npc2:
+	.string "Hiya, where'd you come from?\p...\pTwinleaf Town, huh...\nIt's a nice place. Quiet and all.\pJubilife City is a big place, so it\nmight be a bit of a shock to you.$"
+
+JubilifeCity_EventScript_Npc3::
+	msgbox JubilifeCity_Text_Npc3, MSGBOX_NPC
+	end
+
+JubilifeCity_Text_Npc3:
+	.string "The way you look...\nYou're obviously a Trainer!\pCan you tell me what type of Pokémon\nyou like?$"
+
+JubilifeCity_EventScript_Npc4::
+	msgbox JubilifeCity_Text_Npc4, MSGBOX_NPC
+	end
+
+JubilifeCity_Text_Npc4:
+	.string "Did you see me on TV?\nI was in an interview!$"
+
+JubilifeCity_EventScript_Npc5::
+	msgbox JubilifeCity_Text_Npc5, MSGBOX_NPC
+	end
+
+JubilifeCity_Text_Npc5:
+	.string "Hello, Trainer!\nDo you know much about Pokémon?$"
+
+JubilifeCity_EventScript_Npc6::
+	msgbox JubilifeCity_Text_Npc6, MSGBOX_NPC
+	end
+
+JubilifeCity_Text_Npc6:
+	.string "OK, set six Poké Balls in my\nbelt...\pYeah, that'll do it. At most, you\ncan have six Pokémon with you.$"
+
+JubilifeCity_EventScript_Npc7::
+	msgbox JubilifeCity_Text_Npc7, MSGBOX_NPC
+	end
+
+JubilifeCity_Text_Npc7:
+	.string "Jubilife City's built on land they\ncarved out of a mountain.\pThe people and Pokémon of Oreburgh\nCity helped out with that undertaking.$"
+
+JubilifeCity_EventScript_Npc8::
+	msgbox JubilifeCity_Text_Npc8, MSGBOX_NPC
+	end
+
+JubilifeCity_Text_Npc8:
+	.string "Past here is the Global Terminal.\nIt lets you trade with the whole world!\pTrading Pokémon means connecting\nwith friends, both old and new.\pThat's awesome!$"
+
+JubilifeCity_EventScript_Npc9::
+	msgbox JubilifeCity_Text_Npc9, MSGBOX_NPC
+	end
+
+JubilifeCity_Text_Npc9:
+	.string "I'm trading Pokémon with my buddy!$"
+
+JubilifeCity_EventScript_Npc10::
+	msgbox JubilifeCity_Text_Npc10, MSGBOX_NPC
+	end
+
+JubilifeCity_Text_Npc10:
+	.string "I made my Pokémon hold an item before\ntrading it.\pThat will make the other Trainer\ndouble happy!$"
+
+JubilifeCity_EventScript_Placa11::
+	msgbox JubilifeCity_Text_Placa11, MSGBOX_SIGN
+	end
+
+JubilifeCity_Text_Placa11:
+	.string "Jubilife City\nCity of Joy$"
+
+JubilifeCity_EventScript_Placa12::
+	msgbox JubilifeCity_Text_Placa12, MSGBOX_SIGN
+	end
+
+JubilifeCity_Text_Placa12:
+	.string "Jubilife City\nCity of Joy$"
+
+JubilifeCity_EventScript_Placa13::
+	msgbox JubilifeCity_Text_Placa13, MSGBOX_SIGN
+	end
+
+JubilifeCity_Text_Placa13:
+	.string "Jubilife City\nCity of Joy$"
+
+JubilifeCity_EventScript_Placa14::
+	msgbox JubilifeCity_Text_Placa14, MSGBOX_SIGN
+	end
+
+JubilifeCity_Text_Placa14:
+	.string "Jubilife City\nCity of Joy$"

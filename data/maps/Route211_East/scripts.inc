@@ -122,3 +122,12 @@ Route211_East_EventScript_Placa3::
 
 Route211_East_Text_Placa3:
 	.string "Rt. 211\nCelestic Town$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+Route211_East_EventScript_Npc1::
+	msgbox Route211_East_Text_Npc1, MSGBOX_NPC
+	end
+
+Route211_East_Text_Npc1:
+	.string "I'm strong!\nI'm strong!\pI'm strong!\pI'm strong!\pI'm strong!\pI'm strong!\pI'm strong!\pI'm strong!\p...Am I really?\pNo, I am strong!\pI'm strong!\pOK! I'm all good to go!$"

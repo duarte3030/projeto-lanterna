@@ -115,3 +115,12 @@ GalacticHQ_3F_Text_TeamGalacticCredo:
 	.string "Galactic!\p"
 	.string "Look beyond the world, space will\n"
 	.string "become Team Galactic's!$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+GalacticHQ_3F_EventScript_Placa1::
+	msgbox GalacticHQ_3F_Text_Placa1, MSGBOX_SIGN
+	end
+
+GalacticHQ_3F_Text_Placa1:
+	.string "The Team Galactic credo!\nEverything belongs to Team Galactic!\pLook beyond the world--space will\nbecome Team Galactic's!$"

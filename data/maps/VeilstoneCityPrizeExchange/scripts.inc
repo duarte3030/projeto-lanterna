@@ -37,3 +37,12 @@ VeilstoneCityPrizeExchange_EventScript_Npc2::
 
 VeilstoneCityPrizeExchange_Text_Npc2:
 	.string "I woke up and realized my potential!\pSo, what potential was woken in me?\nWhat's my hidden power, you ask?\pIt's a power that lets me see the\nHidden Power of a Pokémon.\pWhen they learn that move, I can tell\nwhat type the move will be.\pSo, want me to use my hidden power?\pI'll tell you what type your Pokémon's\nHidden Power will be.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+VeilstoneCityPrizeExchange_EventScript_Npc1::
+	msgbox VeilstoneCityPrizeExchange_Text_Npc1, MSGBOX_NPC
+	end
+
+VeilstoneCityPrizeExchange_Text_Npc1:
+	.string "They have prizes I really want.\nBut Coins, I have none!$"

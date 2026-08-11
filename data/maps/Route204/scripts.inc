@@ -84,3 +84,26 @@ Route204_Text_Trainer2Defeat:
 Route204_Text_Trainer2Post:
 	.string "By the way, have you collected new\n"
 	.string "apps from the Pokétch Company?$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+Route204_EventScript_Npc1::
+	msgbox Route204_Text_Npc1, MSGBOX_NPC
+	end
+
+Route204_Text_Npc1:
+	.string "There are boulders blocking the way\ninside the cavern...\pI think a Pokémon's hidden move will be\nable to smash those boulders, though.$"
+
+Route204_EventScript_Placa2::
+	msgbox Route204_Text_Placa2, MSGBOX_SIGN
+	end
+
+Route204_Text_Placa2:
+	.string "Rt. 204\nJubilife City$"
+
+Route204_EventScript_Placa3::
+	msgbox Route204_Text_Placa3, MSGBOX_SIGN
+	end
+
+Route204_Text_Placa3:
+	.string "Ravaged Path$"

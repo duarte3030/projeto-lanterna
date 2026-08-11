@@ -85,7 +85,7 @@
       "y": 58,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "PokmonLeague_EventScript_Placa1",
       "origem": "pokeplatinum"
     },
     {
@@ -94,7 +94,7 @@
       "y": 38,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "PokmonLeague_EventScript_Placa2",
       "origem": "pokeplatinum"
     },
     {
@@ -112,7 +112,7 @@
       "y": 35,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "PokmonLeague_EventScript_Placa3",
       "origem": "pokeplatinum"
     },
     {
@@ -121,7 +121,7 @@
       "y": 35,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "PokmonLeague_EventScript_Placa4",
       "origem": "pokeplatinum"
     },
     {
@@ -130,7 +130,7 @@
       "y": 35,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "PokmonLeague_EventScript_Placa5",
       "origem": "pokeplatinum"
     },
     {
@@ -139,7 +139,7 @@
       "y": 35,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "PokmonLeague_EventScript_Placa6",
       "origem": "pokeplatinum"
     },
     {
@@ -148,7 +148,7 @@
       "y": 18,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "PokmonLeague_EventScript_Placa7",
       "origem": "pokeplatinum"
     },
     {
@@ -157,7 +157,7 @@
       "y": 18,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "PokmonLeague_EventScript_Placa8",
       "origem": "pokeplatinum"
     },
     {
@@ -166,7 +166,7 @@
       "y": 18,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "PokmonLeague_EventScript_Placa9",
       "origem": "pokeplatinum"
     },
     {
@@ -175,7 +175,7 @@
       "y": 18,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "PokmonLeague_EventScript_Placa10",
       "origem": "pokeplatinum"
     }
   ]

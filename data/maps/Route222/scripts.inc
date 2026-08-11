@@ -219,3 +219,19 @@ Route222_Text_Trainer11Defeat:
 Route222_Text_Trainer11Post:
 	.string "You ought to think about becoming\na Sailor yourself.\pIt's been great to be able to visit\ndifferent places around the world.\n$"
 
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+Route222_EventScript_Npc1::
+	msgbox Route222_Text_Npc1, MSGBOX_NPC
+	end
+
+Route222_Text_Npc1:
+	.string "When I first started fishing, catching\nanything made me happy.\pBut those days are long gone now...\pNow I get annoyed if I can't beat my\nrecord by even an inch...$"
+
+Route222_EventScript_Npc2::
+	msgbox Route222_Text_Npc2, MSGBOX_NPC
+	end
+
+Route222_Text_Npc2:
+	.string "The only items you ever throw are\nPoké Balls!\pBut is that true?!\nI want people to think about that.\pThat's why I give away the Technical\nMachine Fling.$"

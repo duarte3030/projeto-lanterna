@@ -23,3 +23,19 @@ HearthomeCityMart_Pokemart:
 HearthomeCityMart_Text_Caixa:
 	.string "Welcome! Take a look around, we've\n"
 	.string "got everything a TRAINER needs.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+HearthomeCityMart_EventScript_Npc1::
+	msgbox HearthomeCityMart_Text_Npc1, MSGBOX_NPC
+	end
+
+HearthomeCityMart_Text_Npc1:
+	.string "The item Revive is something I could\nuse now.\pBut I've only got two Gym Badges, so\nI can't buy any yet...$"
+
+HearthomeCityMart_EventScript_Npc2::
+	msgbox HearthomeCityMart_Text_Npc2, MSGBOX_NPC
+	end
+
+HearthomeCityMart_Text_Npc2:
+	.string "Do you know Amity Square?\nIt's a happy and cheerful place.\pYou can find Accessories there you\ncan't buy in Poké Marts.$"

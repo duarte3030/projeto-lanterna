@@ -182,3 +182,12 @@ Route215_EventScript_Placa3::
 
 Route215_Text_Placa3:
 	.string "Trainer Tips\pPokémon attacks are classified as\nbeing either physical or special.\pA physical attack is based on the\nAttack stat of the Pokémon.\pLikewise, a special attack is based\non the Special Attack stat.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+Route215_EventScript_Npc1::
+	msgbox Route215_Text_Npc1, MSGBOX_NPC
+	end
+
+Route215_Text_Npc1:
+	.string "Do unto others as they do unto\nyou... Yup, it's Payback!\pIt's good for Pokémon battles,\nbut if you do that in real life...\pThere'll be no end to the fighting,\nthat's for sure.$"

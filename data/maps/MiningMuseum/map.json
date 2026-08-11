@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "MiningMuseum_EventScript_Npc1",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -38,7 +38,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "MiningMuseum_EventScript_Npc2",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -52,7 +52,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "MiningMuseum_EventScript_Npc3",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -80,7 +80,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "MiningMuseum_EventScript_Npc4",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -94,7 +94,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "MiningMuseum_EventScript_Npc5",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -108,7 +108,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "MiningMuseum_EventScript_Npc6",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -122,7 +122,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "MiningMuseum_EventScript_Npc7",
       "flag": "0",
       "origem": "pokeplatinum"
     }
@@ -151,7 +151,7 @@
       "y": 3,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa8",
       "origem": "pokeplatinum"
     },
     {
@@ -160,7 +160,7 @@
       "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa9",
       "origem": "pokeplatinum"
     },
     {
@@ -169,7 +169,7 @@
       "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa10",
       "origem": "pokeplatinum"
     },
     {
@@ -178,7 +178,7 @@
       "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa11",
       "origem": "pokeplatinum"
     },
     {
@@ -187,7 +187,7 @@
       "y": 3,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa12",
       "origem": "pokeplatinum"
     },
     {
@@ -196,7 +196,7 @@
       "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa13",
       "origem": "pokeplatinum"
     },
     {
@@ -205,7 +205,7 @@
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa14",
       "origem": "pokeplatinum"
     },
     {
@@ -214,7 +214,7 @@
       "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa15",
       "origem": "pokeplatinum"
     },
     {
@@ -223,7 +223,7 @@
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa16",
       "origem": "pokeplatinum"
     },
     {
@@ -232,7 +232,7 @@
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa17",
       "origem": "pokeplatinum"
     },
     {
@@ -241,7 +241,7 @@
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa18",
       "origem": "pokeplatinum"
     },
     {
@@ -250,7 +250,7 @@
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa19",
       "origem": "pokeplatinum"
     },
     {
@@ -259,7 +259,7 @@
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa20",
       "origem": "pokeplatinum"
     },
     {
@@ -268,7 +268,7 @@
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa21",
       "origem": "pokeplatinum"
     },
     {
@@ -277,7 +277,7 @@
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa22",
       "origem": "pokeplatinum"
     },
     {
@@ -286,7 +286,7 @@
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa23",
       "origem": "pokeplatinum"
     },
     {
@@ -295,7 +295,7 @@
       "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa24",
       "origem": "pokeplatinum"
     },
     {
@@ -304,7 +304,7 @@
       "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa25",
       "origem": "pokeplatinum"
     },
     {
@@ -313,7 +313,7 @@
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa26",
       "origem": "pokeplatinum"
     },
     {
@@ -322,7 +322,7 @@
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa27",
       "origem": "pokeplatinum"
     },
     {
@@ -331,7 +331,7 @@
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa28",
       "origem": "pokeplatinum"
     },
     {
@@ -340,7 +340,7 @@
       "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa29",
       "origem": "pokeplatinum"
     },
     {
@@ -349,7 +349,7 @@
       "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa30",
       "origem": "pokeplatinum"
     },
     {
@@ -358,7 +358,7 @@
       "y": 3,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa31",
       "origem": "pokeplatinum"
     },
     {
@@ -367,7 +367,7 @@
       "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa32",
       "origem": "pokeplatinum"
     },
     {
@@ -376,7 +376,7 @@
       "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa33",
       "origem": "pokeplatinum"
     },
     {
@@ -385,7 +385,7 @@
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa34",
       "origem": "pokeplatinum"
     },
     {
@@ -394,7 +394,7 @@
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa35",
       "origem": "pokeplatinum"
     },
     {
@@ -403,7 +403,7 @@
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa36",
       "origem": "pokeplatinum"
     },
     {
@@ -412,7 +412,7 @@
       "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa37",
       "origem": "pokeplatinum"
     },
     {
@@ -421,7 +421,7 @@
       "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa38",
       "origem": "pokeplatinum"
     },
     {
@@ -430,7 +430,7 @@
       "y": 3,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "MiningMuseum_EventScript_Placa39",
       "origem": "pokeplatinum"
     }
   ],

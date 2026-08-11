@@ -189,3 +189,12 @@ EternaForest_EventScript_Placa2::
 
 EternaForest_Text_Placa2:
 	.string "Trainer Tips!\pIn forests and caves, there are many\nitems on the ground that cannot be\pseen in the murky darkness.\pTake the time to search carefully!$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+EternaForest_EventScript_Npc1::
+	msgbox EternaForest_Text_Npc1, MSGBOX_NPC
+	end
+
+EternaForest_Text_Npc1:
+	.string "I'm searching for bug Pokémon so I can\nwin at the Eterna Gym.\pBug Pokémon are great, you know?\nThey grow really fast!$"

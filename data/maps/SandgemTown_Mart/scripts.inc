@@ -37,3 +37,19 @@ SandgemTown_Mart_Text_SchoolKid:
 SandgemTown_Mart_Text_Breeder:
 	.string "Stocking up on supplies before I head\n"
 	.string "back out to the ROUTES.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+SandgemTown_Mart_EventScript_Npc1::
+	msgbox SandgemTown_Mart_Text_Npc1, MSGBOX_NPC
+	end
+
+SandgemTown_Mart_Text_Npc1:
+	.string "If you come across a Pokémon you've\njust gotta have, toss a Poké Ball!\pNever leave home without one!$"
+
+SandgemTown_Mart_EventScript_Npc2::
+	msgbox SandgemTown_Mart_Text_Npc2, MSGBOX_NPC
+	end
+
+SandgemTown_Mart_Text_Npc2:
+	.string "If a Pokémon loses all its HP,\nit can't battle anymore.\pI'm buying lots of Potions to avoid\nhaving that happen!$"

@@ -194,3 +194,19 @@ Route212_North_EventScript_Placa3::
 
 Route212_North_Text_Placa3:
 	.string "Trainer Tips\pThe items in the Bag can be\nreorganized by pressing SELECT.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+Route212_North_EventScript_Npc1::
+	msgbox Route212_North_Text_Npc1, MSGBOX_NPC
+	end
+
+Route212_North_Text_Npc1:
+	.string "Mr. Backlot in the Pokémon Mansion \nlooks forward to seeing visitors.\pHe must be able to wait around because\nhe wants to brag about something.$"
+
+Route212_North_EventScript_Npc2::
+	msgbox Route212_North_Text_Npc2, MSGBOX_NPC
+	end
+
+Route212_North_Text_Npc2:
+	.string "There are good trees that you can\nsmear with Honey, and some you can't.\pIf you want to lure rare Pokémon,\nyou have to find an attractive tree.$"

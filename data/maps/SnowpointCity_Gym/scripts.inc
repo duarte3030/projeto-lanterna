@@ -31,3 +31,12 @@ SnowpointCity_Gym_Text_Post:
 
 SnowpointCity_Gym_Text_JaVenceu:
 	.string "The ICICLE BADGE is already yours.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+SnowpointCity_Gym_EventScript_Npc1::
+	msgbox SnowpointCity_Gym_Text_Npc1, MSGBOX_NPC
+	end
+
+SnowpointCity_Gym_Text_Npc1:
+	.string "Hey, there!\nHow's it going, Champ-to-be?\pDo you see the big snowballs placed\nhere and there?\pYou need to slide on the ice with\nenough momentum to crush them.\pThe Gym Leader is a user of\nIce-type Pokémon.\pMelt her defenses with scorching-\nhot Fire-type moves!\pIt's all about focus with this Gym.\nBear down and focus!$"

@@ -77,7 +77,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "CelesticTown_EventScript_Npc1",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -91,7 +91,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "CelesticTown_EventScript_Npc2",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -105,7 +105,7 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "CelesticTown_EventScript_Npc3",
       "flag": "0",
       "origem": "pokeplatinum"
     }
@@ -163,7 +163,7 @@
       "y": 27,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "CelesticTown_EventScript_Placa4",
       "origem": "pokeplatinum"
     },
     {
@@ -172,7 +172,7 @@
       "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "CelesticTown_EventScript_Placa5",
       "origem": "pokeplatinum"
     },
     {
@@ -181,7 +181,7 @@
       "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "CelesticTown_EventScript_Placa6",
       "origem": "pokeplatinum"
     },
     {
@@ -190,7 +190,7 @@
       "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "CelesticTown_EventScript_Placa7",
       "origem": "pokeplatinum"
     },
     {
@@ -199,7 +199,7 @@
       "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "CelesticTown_EventScript_Placa8",
       "origem": "pokeplatinum"
     },
     {
@@ -208,7 +208,7 @@
       "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "CelesticTown_EventScript_Placa9",
       "origem": "pokeplatinum"
     },
     {
@@ -217,7 +217,7 @@
       "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "CelesticTown_EventScript_Placa10",
       "origem": "pokeplatinum"
     },
     {

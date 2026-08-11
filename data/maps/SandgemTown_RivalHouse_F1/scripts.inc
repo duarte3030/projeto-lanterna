@@ -20,3 +20,12 @@ SandgemTown_RivalHouse_F1_Text_Twin:
 	.string "there's a massive outbreak of\l"
 	.string "POKéMON! That'd be great for filling\n"
 	.string "up your POKéDEX!$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+SandgemTown_RivalHouse_F1_EventScript_Npc1::
+	msgbox SandgemTown_RivalHouse_F1_Text_Npc1, MSGBOX_NPC
+	end
+
+SandgemTown_RivalHouse_F1_Text_Npc1:
+	.string "Ah, so that Rowan fellow is back?\nHe's quite the remarkable man.\pHe's been studying Pokémon since way,\nway back.\pMy son and grandchild help Rowan\nwith his studies now.$"

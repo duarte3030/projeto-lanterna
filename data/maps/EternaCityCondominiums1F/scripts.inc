@@ -14,3 +14,12 @@ EternaCityCondominiums1F_EventScript_Npc2::
 
 EternaCityCondominiums1F_Text_Npc2:
 	.string "Hello, hello!\nI am the official Name Rater!\pWant me to rate the nicknames of\nyour Pokémon?$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+EternaCityCondominiums1F_EventScript_Npc1::
+	msgbox EternaCityCondominiums1F_Text_Npc1, MSGBOX_NPC
+	end
+
+EternaCityCondominiums1F_Text_Npc1:
+	.string "Hi! I'm the building superintendent.\nI maintain a vigilant 24-hour watch!$"

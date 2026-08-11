@@ -48,3 +48,12 @@ Route210_South_EventScript_Placa2::
 
 Route210_South_Text_Placa2:
 	.string "Café Cabin\nFreshly Squeezed Milk$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+Route210_South_EventScript_Npc1::
+	msgbox Route210_South_Text_Npc1, MSGBOX_NPC
+	end
+
+Route210_South_Text_Npc1:
+	.string "I'm taking a rest. If I were a bird\nPokémon, it would be a roost. Haha!\pUh... You should rest up, too.$"

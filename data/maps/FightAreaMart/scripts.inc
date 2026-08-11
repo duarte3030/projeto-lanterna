@@ -30,3 +30,12 @@ FightAreaMart_EventScript_Npc1::
 
 FightAreaMart_Text_Npc1:
 	.string "What items should Pokémon hold?\nIt's an important question.\pHere's something else to think about.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+FightAreaMart_EventScript_Npc1::
+	msgbox FightAreaMart_Text_Npc1, MSGBOX_NPC
+	end
+
+FightAreaMart_Text_Npc1:
+	.string "An item that guarantees you won't\never lose a battle...\pThey don't sell anything like that.$"

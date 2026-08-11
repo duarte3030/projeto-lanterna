@@ -23,3 +23,19 @@ SunyshoreCityMart_Pokemart:
 SunyshoreCityMart_Text_Caixa:
 	.string "Welcome! Take a look around, we've\n"
 	.string "got everything a TRAINER needs.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+SunyshoreCityMart_EventScript_Npc1::
+	msgbox SunyshoreCityMart_Text_Npc1, MSGBOX_NPC
+	end
+
+SunyshoreCityMart_Text_Npc1:
+	.string "I've heard about Victory Road, which\nleads to the Pokémon League.\pThe word is the road is harsh and\nharrowing.\pI'd better load up on as many items\nand as much medicine as I can carry...$"
+
+SunyshoreCityMart_EventScript_Npc2::
+	msgbox SunyshoreCityMart_Text_Npc2, MSGBOX_NPC
+	end
+
+SunyshoreCityMart_Text_Npc2:
+	.string "I shall buy Seals for decorating Poké\nBalls at the Sunyshore Market.\pUsing those Seals in a cool way will be\nsure to impress my Pokémon!$"

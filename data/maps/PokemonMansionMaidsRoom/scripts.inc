@@ -49,3 +49,12 @@ PokemonMansionMaidsRoom_EventScript_Placa6::
 
 PokemonMansionMaidsRoom_Text_Placa6:
 	.string "It's a bed...\nWant to take a rest?$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+PokemonMansionMaidsRoom_EventScript_Npc1::
+	msgbox PokemonMansionMaidsRoom_Text_Npc1, MSGBOX_NPC
+	end
+
+PokemonMansionMaidsRoom_Text_Npc1:
+	.string "I'm not loafing.\nI'm just taking a personal break.\pIt's my official policy to sleep in a bed\nwhen I'm officially loafing.$"

@@ -241,7 +241,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "JubilifeCity_EventScript_Npc1",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -255,7 +255,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "JubilifeCity_EventScript_Npc2",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -269,7 +269,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "JubilifeCity_EventScript_Npc3",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -283,7 +283,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "JubilifeCity_EventScript_Npc4",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -297,7 +297,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "JubilifeCity_EventScript_Npc5",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -311,7 +311,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "JubilifeCity_EventScript_Npc6",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -325,7 +325,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "JubilifeCity_EventScript_Npc7",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -353,7 +353,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "JubilifeCity_EventScript_Npc8",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -367,7 +367,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "JubilifeCity_EventScript_Npc9",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -381,7 +381,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "JubilifeCity_EventScript_Npc10",
       "flag": "0",
       "origem": "pokeplatinum"
     }
@@ -511,7 +511,7 @@
       "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "JubilifeCity_EventScript_Placa11",
       "origem": "pokeplatinum"
     },
     {
@@ -520,7 +520,7 @@
       "y": 20,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "JubilifeCity_EventScript_Placa12",
       "origem": "pokeplatinum"
     },
     {
@@ -529,7 +529,7 @@
       "y": 20,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "JubilifeCity_EventScript_Placa13",
       "origem": "pokeplatinum"
     },
     {
@@ -538,7 +538,7 @@
       "y": 55,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "JubilifeCity_EventScript_Placa14",
       "origem": "pokeplatinum"
     },
     {

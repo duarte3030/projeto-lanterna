@@ -195,3 +195,26 @@ Route213_EventScript_Placa3::
 
 Route213_Text_Placa3:
 	.string "Hotel Grand Lake\nAnother World on Lake Valor$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+Route213_EventScript_Npc1::
+	msgbox Route213_Text_Npc1, MSGBOX_NPC
+	end
+
+Route213_Text_Npc1:
+	.string "There's a fancy hotel in a fancy\nplace with a fancy restaurant.\pThe fancy restaurant's filled with\nfancy people who think of themselves\pas being too fancy to battle alone.$"
+
+Route213_EventScript_Npc2::
+	msgbox Route213_Text_Npc2, MSGBOX_NPC
+	end
+
+Route213_Text_Npc2:
+	.string "I'd rather be in a pool than the sea.\pThe salty tang of the sea tastes like\nmy tears after a hard day at work...$"
+
+Route213_EventScript_Npc3::
+	msgbox Route213_Text_Npc3, MSGBOX_NPC
+	end
+
+Route213_Text_Npc3:
+	.string "There's something on top of this\nbig cliff here!\pMy instincts tell me that, but how\nam I supposed to climb up?$"

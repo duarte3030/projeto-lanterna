@@ -42,3 +42,33 @@ BattleFrontierGateToFightArea_EventScript_Npc6::
 
 BattleFrontierGateToFightArea_Text_Npc6:
 	.string "Welcome to the Battle Frontier!\pShould I explain how the Battle Tower\nworks?$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+BattleFrontierGateToFightArea_EventScript_Npc1::
+	msgbox BattleFrontierGateToFightArea_Text_Npc1, MSGBOX_NPC
+	end
+
+BattleFrontierGateToFightArea_Text_Npc1:
+	.string "The Vs. Recorder is sure nifty!\pTouching the screen shows you how\nmuch BP you have.$"
+
+BattleFrontierGateToFightArea_EventScript_Npc2::
+	msgbox BattleFrontierGateToFightArea_Text_Npc2, MSGBOX_NPC
+	end
+
+BattleFrontierGateToFightArea_Text_Npc2:
+	.string "The five facilities of the Battle\nFrontier are...\pTower.\pHall.\pCastle.\pFactory.\pAnd Arcade.\pHow do you make an acronym out of\nthat? THCFA?\pRearrange those letters, maybe?\nFATCH! CHAFT!\p...Nope! Nothing works!\nDidn't anyone think of this?!$"
+
+BattleFrontierGateToFightArea_EventScript_Npc3::
+	msgbox BattleFrontierGateToFightArea_Text_Npc3, MSGBOX_NPC
+	end
+
+BattleFrontierGateToFightArea_Text_Npc3:
+	.string "The Battle Frontier is up ahead!\pWhat kinds of Trainers will I see?\nWhat battles will I experience?\pIt's a whole new adventure for me!$"
+
+BattleFrontierGateToFightArea_EventScript_Npc4::
+	msgbox BattleFrontierGateToFightArea_Text_Npc4, MSGBOX_NPC
+	end
+
+BattleFrontierGateToFightArea_Text_Npc4:
+	.string "My dream is to battle Palmer of the\nBattle Tower.\pI want to record it for posterity on\nmy Vs. Recorder.\pBut I'm not good enough to battle my\nway to see Palmer... I'm heartbroken!$"

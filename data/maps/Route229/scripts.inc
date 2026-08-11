@@ -92,3 +92,12 @@ Route229_EventScript_Placa1::
 
 Route229_Text_Placa1:
 	.string "Rt. 229\nResort Area$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+Route229_EventScript_Npc1::
+	msgbox Route229_Text_Npc1, MSGBOX_NPC
+	end
+
+Route229_Text_Npc1:
+	.string "Were you looking for me?\nDid you miss me?\pI wish I had a new nugget of wisdom\nto share with you, but alas, I don't!\pSo, I'll have to make it up to you\nwith this!$"

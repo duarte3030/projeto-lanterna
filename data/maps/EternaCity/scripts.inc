@@ -203,3 +203,82 @@ EternaCity_EventScript_Placa7::
 
 EternaCity_Text_Placa7:
 	.string "Eterna Condominiums\nName-Rating Services Available$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+EternaCity_EventScript_Npc1::
+	msgbox EternaCity_Text_Npc1, MSGBOX_NPC
+	end
+
+EternaCity_Text_Npc1:
+	.string "If you're visiting Eterna, you need to\nget yourself a Bicycle and take a\pride down the Cycling Road.$"
+
+EternaCity_EventScript_Npc2::
+	msgbox EternaCity_Text_Npc2, MSGBOX_NPC
+	end
+
+EternaCity_Text_Npc2:
+	.string "Eterna City's not anything like it\nwas before, way back in the day.$"
+
+EternaCity_EventScript_Npc3::
+	msgbox EternaCity_Text_Npc3, MSGBOX_NPC
+	end
+
+EternaCity_Text_Npc3:
+	.string "They say this is an awesome Pokémon\nthat people saw long ago.$"
+
+EternaCity_EventScript_Npc4::
+	msgbox EternaCity_Text_Npc4, MSGBOX_NPC
+	end
+
+EternaCity_Text_Npc4:
+	.string "Since that Team Galactic building went\nup, the city's atmosphere has gotten\pall creepy and tense.\pI don't know what those people are\ndoing up in that place...$"
+
+EternaCity_EventScript_Npc5::
+	msgbox EternaCity_Text_Npc5, MSGBOX_NPC
+	end
+
+EternaCity_Text_Npc5:
+	.string "They say this is an old city.\pIt doesn't look it, though.\nNot with all these tall buildings.$"
+
+EternaCity_EventScript_Npc6::
+	msgbox EternaCity_Text_Npc6, MSGBOX_NPC
+	end
+
+EternaCity_Text_Npc6:
+	.string "My friend said Team Galactic took his\nfavorite Pokémon away.\pI don't think he's telling the truth.\nTeam Galactic looks so cool.\pThey don't look like common thugs.$"
+
+EternaCity_EventScript_Npc7::
+	msgbox EternaCity_Text_Npc7, MSGBOX_NPC
+	end
+
+EternaCity_Text_Npc7:
+	.string "Oh, don't tell me you don't have\nan Explorer Kit?\pYou should have a word with the man\nnext door to the Pokémon Center.$"
+
+EternaCity_EventScript_Npc8::
+	msgbox EternaCity_Text_Npc8, MSGBOX_NPC
+	end
+
+EternaCity_Text_Npc8:
+	.string "Oh, wow!\nYou got a Bicycle!\pYou can ride down Cycling Road\nand end up in Hearthome City.\pIt's a fast and fun ride.\nYou should check it out!$"
+
+EternaCity_EventScript_Placa9::
+	msgbox EternaCity_Text_Placa9, MSGBOX_SIGN
+	end
+
+EternaCity_Text_Placa9:
+	.string "Eterna City\nHistory Living$"
+
+EternaCity_EventScript_Placa10::
+	msgbox EternaCity_Text_Placa10, MSGBOX_SIGN
+	end
+
+EternaCity_Text_Placa10:
+	.string "Eterna City\nHistory Living$"
+
+EternaCity_EventScript_Placa11::
+	msgbox EternaCity_Text_Placa11, MSGBOX_SIGN
+	end
+
+EternaCity_Text_Placa11:
+	.string "It's Eterna City's Pokémon statue.\pThere seems to have been a descriptive\nplate, but it appears it was torn off.$"

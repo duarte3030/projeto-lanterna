@@ -24,3 +24,26 @@ OreburghCity_Flat1_F1_Text_Hiker:
 OreburghCity_Flat1_F1_Text_Visitor:
 	.string "I'm just visiting a friend who\n"
 	.string "lives on the floor above.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+OreburghCity_Flat1_F1_EventScript_Npc1::
+	msgbox OreburghCity_Flat1_F1_Text_Npc1, MSGBOX_NPC
+	end
+
+OreburghCity_Flat1_F1_Text_Npc1:
+	.string "There are eight Gym Leaders in the\nSinnoh region.\pThe objective for Trainers is to get\nGym Badges from them all.\pThat means you have to defeat all of\nthem in battles at their Gyms!$"
+
+OreburghCity_Flat1_F1_EventScript_Npc2::
+	msgbox OreburghCity_Flat1_F1_Text_Npc2, MSGBOX_NPC
+	end
+
+OreburghCity_Flat1_F1_Text_Npc2:
+	.string "A Gym Leader isn't like just any Trainer\nyou meet.\pObviously, they're a lot tougher.\nA lot.\pI'd take as many Pokémon as possible\nif I were you.$"
+
+OreburghCity_Flat1_F1_EventScript_Npc3::
+	msgbox OreburghCity_Flat1_F1_Text_Npc3, MSGBOX_NPC
+	end
+
+OreburghCity_Flat1_F1_Text_Npc3:
+	.string "Roark lets us train our Pokémon in\nthe mine.$"

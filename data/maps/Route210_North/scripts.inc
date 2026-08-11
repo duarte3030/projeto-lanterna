@@ -201,3 +201,12 @@ Route210_North_EventScript_Placa2::
 
 Route210_North_Text_Placa2:
 	.string "Grandma Wilma's House$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+Route210_North_EventScript_Npc1::
+	msgbox Route210_North_Text_Npc1, MSGBOX_NPC
+	end
+
+Route210_North_Text_Npc1:
+	.string "If I could use the hidden move Defog,\nI'd clear up the fog so I can see.\pHow does Defog work?\pDon't bird and bug Pokémon flap their\nwings to blow the fog away?$"

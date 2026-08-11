@@ -94,3 +94,12 @@ TeamGalacticEternaBuilding_4F_Text_ThankYouCruiseByCycleShop:
 TeamGalacticEternaBuilding_4F_Text_WorkingForWorldPeace:
 	.string "Working for world peace.\p"
 	.string "              Team Galactic$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+TeamGalacticEternaBuilding_4F_EventScript_Placa1::
+	msgbox TeamGalacticEternaBuilding_4F_Text_Placa1, MSGBOX_SIGN
+	end
+
+TeamGalacticEternaBuilding_4F_Text_Placa1:
+	.string "Working for world peace.\n              Team Galactic$"

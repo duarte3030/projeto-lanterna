@@ -182,3 +182,12 @@ Route208_EventScript_Placa4::
 
 Route208_Text_Placa4:
 	.string "Trainer Tips\pAfter a Berry is planted, watch the\ncolor of the soil.\pIf the soil is dark, it means it has\nplenty of moisture.\pIf the soil is lighter in color,\nwater it with your Sprayduck.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+Route208_EventScript_Npc1::
+	msgbox Route208_Text_Npc1, MSGBOX_NPC
+	end
+
+Route208_Text_Npc1:
+	.string "...Don't say a word.\nJust take it.$"

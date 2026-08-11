@@ -142,7 +142,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "OreburghCity_EventScript_Npc1",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -156,7 +156,7 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "OreburghCity_EventScript_Npc2",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -170,7 +170,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "OreburghCity_EventScript_Npc3",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -184,7 +184,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "OreburghCity_EventScript_Npc4",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -198,7 +198,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "OreburghCity_EventScript_Npc5",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -212,7 +212,7 @@
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "OreburghCity_EventScript_Npc6",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -226,7 +226,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "OreburghCity_EventScript_Npc7",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -240,7 +240,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "OreburghCity_EventScript_Npc8",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -268,7 +268,7 @@
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "OreburghCity_EventScript_Npc10",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -282,7 +282,7 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "OreburghCity_EventScript_Npc11",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -296,7 +296,7 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "OreburghCity_EventScript_Npc12",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -310,7 +310,7 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "OreburghCity_EventScript_Npc13",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -324,7 +324,7 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "OreburghCity_EventScript_Npc14",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -338,7 +338,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "OreburghCity_EventScript_Npc15",
       "flag": "0",
       "origem": "pokeplatinum"
     }
@@ -481,7 +481,7 @@
       "y": 10,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "OreburghCity_EventScript_Placa16",
       "origem": "pokeplatinum"
     },
     {
@@ -517,7 +517,7 @@
       "y": 0,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "OreburghCity_EventScript_Placa17",
       "origem": "pokeplatinum"
     },
     {
@@ -526,7 +526,7 @@
       "y": 58,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "script": "OreburghCity_EventScript_Placa18",
       "origem": "pokeplatinum"
     },
     {
