@@ -1,0 +1,80 @@
+[
+  {
+    "id": "T87.1",
+    "nome": "JOGO NOVO, o estado inicial das flags que as duas frentes de 11/08/2026 criaram: FLAG_SINNOH_NPC_DUPLICADO tem que nascer ACESA (e a linha que EventScript_ResetAllMapFlags acrescentou, e sem ela os 382 clones de NPC de Sinnoh nascem em cima dos originais) e as tres FLAG_REGIAO_*_LIBERADA tem que nascer APAGADAS (portao da travessia fechado no comeco). Este caso nao escreve flag nenhuma de proposito: le o que o jogo novo deixou. Sem ele, trocar a ordem dentro de EventScript_ResetAllMapFlags ou apagar a linha por engano nao reprova nada na suite.",
+    "prova": {
+      "flags_acesas": [
+        "FLAG_SINNOH_NPC_DUPLICADO"
+      ],
+      "flags_apagadas": [
+        "FLAG_REGIAO_JOHTO_LIBERADA",
+        "FLAG_REGIAO_HOENN_LIBERADA",
+        "FLAG_REGIAO_SINNOH_LIBERADA"
+      ]
+    }
+  },
+  {
+    "id": "T87.2",
+    "nome": "PORTAO FECHADO: mesmo roteiro de botoes do T86.2 (que com as quatro flags de liberacao acesas desembarca em Canalave City com 4 DOWN), so que com NENHUMA regiao liberada. So FLAG_SYS_GAME_CLEAR e acesa, que e o que o assistente do Prof. Carvalho exige para entregar o PASSE TRI: o portao do passe continua aberto e o marinheiro conversa, o que muda e o MENU. Com nada liberado o menu tem dois itens (VERMILION e Sair), o 4 DOWN satura em Sair e o jogador NAO sai de Vermilion. A prova nao e 'nao travou': alem do mapa final, o caso exige que o jogador tenha ANDADO dentro de Vermilion, ou seja que o jogo continuou respondendo ao controle em vez de congelar na caixa de texto.",
+    "warp": "MAP_VERMILION_CITY",
+    "warp_id": 4,
+    "flags": [
+      "FLAG_SYS_GAME_CLEAR"
+    ],
+    "roteiro": "16:DOWN*3,30:NADA,16:RIGHT,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,60:NADA,16:DOWN,30:NADA,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*4,60:NADA,20:A,900:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERMILION_CITY",
+      "layout": "LAYOUT_VERMILION_CITY",
+      "andou": true,
+      "flags_apagadas": [
+        "FLAG_REGIAO_SINNOH_LIBERADA"
+      ]
+    }
+  },
+  {
+    "id": "T87.3",
+    "nome": "O MENU FILTRA POR FLAG, e nao esconde tudo: mesmo porto de Vermilion, com SO FLAG_REGIAO_SINNOH_LIBERADA acesa. O menu passa a ter tres itens (VERMILION, CANALAVE, Sair), entao CANALAVE fica na posicao 1 e UM DOWN desembarca em Canalave City. Este e o par positivo do T87.2, e o discriminador contra o T86.1: com as quatro flags acesas esse MESMO 1 DOWN leva a SLATEPORT, em Hoenn. Mesmo porto, mesmo roteiro de botoes, destino diferente conforme a flag: e isso que prova que a lista e montada a partir das flags, e nao cravada.",
+    "warp": "MAP_VERMILION_CITY",
+    "warp_id": 4,
+    "flags": [
+      "FLAG_SYS_GAME_CLEAR",
+      "FLAG_REGIAO_SINNOH_LIBERADA"
+    ],
+    "roteiro": "16:DOWN*3,30:NADA,16:RIGHT,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,60:NADA,16:DOWN,30:NADA,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*1,60:NADA,20:A,900:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_CANALAVE_CITY",
+      "layout": "LAYOUT_CANALAVE_CITY"
+    }
+  },
+  {
+    "id": "T87.4",
+    "nome": "UNOVA CONTINUA FECHADA depois de Sinnoh abrir, que e o bug que este portao existe para matar: sem portao dava para zarpar de Kanto direto para o Porto de Virbank e enfrentar nivel 195 a 255 com time de Kanto. Mesmas flags do T87.3 (so Sinnoh liberada), e o roteiro usa 3 DOWN, que e a posicao de VIRBANK na lista cheia e a que o T86.3 usa para chegar em Unova. Com tres itens no menu o 3 DOWN satura em Sair e o jogador fica em Vermilion. Sem este caso, um portao que filtrasse Canalave certo e deixasse Virbank vazando passaria no T87.2 e no T87.3.",
+    "warp": "MAP_VERMILION_CITY",
+    "warp_id": 4,
+    "flags": [
+      "FLAG_SYS_GAME_CLEAR",
+      "FLAG_REGIAO_SINNOH_LIBERADA"
+    ],
+    "roteiro": "16:DOWN*3,30:NADA,16:RIGHT,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,60:NADA,16:DOWN,30:NADA,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*3,60:NADA,20:A,900:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERMILION_CITY",
+      "layout": "LAYOUT_VERMILION_CITY",
+      "andou": true,
+      "flags_apagadas": [
+        "FLAG_ELITE_SINNOH_VENCIDA"
+      ]
+    }
+  },
+  {
+    "id": "T87.5",
+    "nome": "O FILTRO VALE NOS OUTROS PORTOS, nao so em Vermilion: Porto de Olivine com SO FLAG_REGIAO_JOHTO_LIBERADA acesa. O menu fica com OLIVINE, VERMILION e Sair, entao VERMILION cai na posicao 1 e UM DOWN embarca no S.S. Aqua rumo a Kanto. O par e o T6.2, que tem o MESMO roteiro de botoes e as quatro flags acesas: la o 1 DOWN e SLATEPORT e o jogador desembarca no Porto de Slateport, em Hoenn. Dois mapas finais diferentes para o mesmo aperto de botao, decidido so pelas flags.",
+    "warp": "MAP_OLIVINE_CITY_PORT_INSIDE",
+    "flags": [
+      "FLAG_REGIAO_JOHTO_LIBERADA"
+    ],
+    "roteiro": "20:DOWN*12,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN,60:NADA,20:A,900:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_SSAQUA_1F"
+    }
+  }
+]

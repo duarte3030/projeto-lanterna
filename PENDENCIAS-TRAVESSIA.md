@@ -216,11 +216,45 @@ para cada uma.
    Três mutantes rodados, três reprovações no ponto previsto (id de CANALAVE
    trocado para 3; porteiro de Canalave removido; `setflag` da Clair removido).
 
-   **O que continua sem prova de emulador:** o portão em si. Não existe caso que
-   entre num porto com as flags APAGADAS e confirme que o destino sumiu da lista,
-   porque esta leva foi feita sob proibição de compilar (havia build concorrente
-   em worktree isolada). Escrever esse caso é a primeira coisa a fazer na próxima
-   build, junto com re-rodar os 24 acima.
+   **O portão ganhou prova de emulador em 11/08/2026**, em
+   `dev_scripts/testes_criticos/87_portao_regioes.json`, rodada na ROM do commit
+   `6a796d4ad3`. Os 24 casos acima acendem as quatro flags de propósito, então
+   eles provam a ROTA e não o portão: um portão que ignorasse a flag passaria
+   inteiro neles. Os cinco casos novos fecham isso:
+
+   | caso | estado das flags | roteiro | `location` no fim |
+   |---|---|---|---|
+   | T87.1 | jogo novo, nada escrito | — | `FLAG_SINNOH_NPC_DUPLICADO` acesa, as três `FLAG_REGIAO_*` apagadas |
+   | T87.2 | só `FLAG_SYS_GAME_CLEAR` | o do T86.2, **4 DOWN** | fica em `MAP_VERMILION_CITY`, e ANDOU dentro dele |
+   | T87.3 | só Sinnoh liberada | **1 DOWN** | `MAP_CANALAVE_CITY` (com as quatro flags, esse mesmo 1 DOWN é SLATEPORT: T86.1) |
+   | T87.4 | só Sinnoh liberada | **3 DOWN**, o índice de VIRBANK | fica em `MAP_VERMILION_CITY` |
+   | T87.5 | só Johto liberada | o do T6.2, **1 DOWN** | `MAP_SSAQUA_1F` (com as quatro flags, esse mesmo 1 DOWN é SLATEPORT: T6.2) |
+
+   O T87.3 e o T87.5 são o que separa "filtra por flag" de "esconde tudo": mesmo
+   porto, mesmo aperto de botão, mapa final diferente conforme a flag. O T87.4 é
+   o bug original em forma de teste (Kanto direto para Unova no começo).
+
+   **Os cinco passaram de primeira, então foram rodados contra uma ROM mutante**,
+   buildada numa worktree isolada com duas mutações somadas: os quatro
+   `call_if_set` do menu viraram `call` (o menu ignora as flags) e o `setflag
+   FLAG_SINNOH_NPC_DUPLICADO` saiu do jogo novo. **0 de 5 passaram, cada um
+   falhando exatamente onde a mutação prevê:** T87.2 desembarcou em Canalave,
+   T87.3 em Slateport, T87.4 em `MAP_UNOVA_VIRBANK_PORT` (o bug original vivo na
+   tela), T87.5 em Slateport, e o T87.1 leu a flag do clone apagada.
+
+   **O que continua sem prova de emulador, e por quê:** os três `setflag` que
+   ACENDEM as flags (campeão de Kanto, Clair, Wallace). Todos os três só rodam
+   depois de uma batalha vencida, e isso está fora do alcance deste banco de
+   teste: medido em 11/08/2026 com uma sonda descartável, depois da abertura o
+   jogador tem **zero Pokémon**, então o caso teria que escolher inicial, montar
+   um time capaz de derrubar um campeão na curva da região e ganhar um 6x6 no
+   braço, às cegas. Batalha decidida a marteladas de `A` é teste instável, e a
+   lição 4.3 diz que falso positivo é pior que validador nenhum. O substituto,
+   declarado e não calado, está em `valida_barco.py`: ele exige que cada
+   `setflag` exista E que apareça **depois** da batalha âncora daquele mapa
+   (`TRAINER_WALLACE`, `TRAINER_JOHTO_LEADER_CLAIR`,
+   `PokemonLeague_ChampionsRoom_EventScript_Battle`). Mutante rodado: movendo o
+   `setflag` do Wallace para antes do `trainerbattle`, o validador reprova.
 
 A travessia continua não gastando var nenhuma, e os 12 casos novos são só JSON
 de teste: sem flag, var, id de treinador, mapa, warp ou objeto novo. A faixa

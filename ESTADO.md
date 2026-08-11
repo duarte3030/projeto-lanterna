@@ -4,7 +4,7 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 06/08/2026.
+Última medição: 11/08/2026, na build do commit `6a796d4ad3`.
 
 ---
 
@@ -31,14 +31,14 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 
 | medida | valor |
 |---|---|
-| ROM | **94,67% de 32 MB** (1,74 MB livres) |
+| ROM | **95,11% de 32 MB** (1,56 MB livres). Medido na build de 11/08/2026; era 94,67% e cresceu com os 50 itens escondidos, as 9 trocas de Unova e os 790 textos de Sinnoh |
 | EWRAM / IWRAM | 85,57% / 86,62% |
 | SaveBlock1 | **13432 de 15872 B (84,6%)** |
 | flags livres no pool | **41** (medido por `flags_livres.py` em 11/08/2026: estava em 88, 46 foram para os itens escondidos de Sinnoh (`itens_escondidos_sinnoh.py`) e 1 para `FLAG_SINNOH_NPC_DUPLICADO`, que esconde o clone perdedor dos 382 pares de NPC repetido) |
 | mapas | **1878** |
 | treinadores com time próprio | **2346** |
 | grupos de mapa | **126** (teto duro de **128** grupos e **128 mapas por grupo**: `s8` em `struct WarpData`; passar disso mata o mapa) |
-| suíte de testes | **109 de 110** (1 pulado precisa de duas builds). Os "2 reprovados de Unova" que esta linha anunciava eram T10.1, T10.2 e T20.4, consertados em `44cae4fa02` uma hora depois de a linha ser escrita, e ninguém a corrigiu. Re-rodados em 11/08: T10 4/4 e T20 6/6 |
+| suíte de testes | **161 de 162** em 11/08/2026, rodada na ROM buildada do HEAD (eram 156 de 157 antes dos cinco casos T87, que provam o portão entre regiões). O único pulado é o T11.3, que precisa de duas builds. Os "2 reprovados de Unova" que esta linha já anunciou foram consertados em `44cae4fa02` uma hora depois de a linha ser escrita, e ninguém a corrigiu por seis dias |
 | teto de treinador | `MAX_TRAINERS_COUNT_EMERALD` = 3000 |
 
 ### Completude contra a fonte de cada região

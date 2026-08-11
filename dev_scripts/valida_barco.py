@@ -61,11 +61,27 @@ PORTEIROS = {
 # antes desta mudanca. Johto nao tem Elite dos Quatro nesta ROM (a Liga de gen 2
 # e o mesmo Planalto Indigo de Kanto), entao quem fecha Johto e a oitava
 # insignia, na Clair.
+#
+# O terceiro valor e a ANCORA: a batalha que tem que vir ANTES do setflag no
+# arquivo. Existe porque esta e a unica parte do portao que o emulador nao
+# alcanca, e isso foi MEDIDO, nao suposto: depois da abertura o jogador tem ZERO
+# Pokemon (sonda de 11/08/2026, `time com 0 Pokémon`), entao um caso de teste que
+# provasse "vencer o campeao acende a flag" teria que escolher inicial, montar um
+# time capaz de derrubar um campeao na curva da regiao e ganhar um 6x6 no braco,
+# as cegas. Teste as cegas em batalha e teste instavel, e a licao 4.3 diz que
+# falso positivo e pior que validador nenhum. O que da para afirmar sem emulador
+# e a ORDEM no roteiro: o setflag esta depois da batalha, logo so roda com ela
+# vencida. Se um dia o setflag subir para antes da batalha, a regiao seguinte
+# abriria so por entrar na sala, e e isso que a ancora acusa.
 ACENDEM = {
-    "FLAG_REGIAO_JOHTO_LIBERADA":  "PokemonLeague_ChampionsRoom_Frlg",
-    "FLAG_REGIAO_HOENN_LIBERADA":  "BlackthornCity_Gym",
-    "FLAG_REGIAO_SINNOH_LIBERADA": "EverGrandeCity_ChampionsRoom",
-    "FLAG_ELITE_SINNOH_VENCIDA":   "SinnohLeague_ChampionsRoom",
+    "FLAG_REGIAO_JOHTO_LIBERADA":  ("PokemonLeague_ChampionsRoom_Frlg",
+                                    "PokemonLeague_ChampionsRoom_EventScript_Battle"),
+    "FLAG_REGIAO_HOENN_LIBERADA":  ("BlackthornCity_Gym",
+                                    "TRAINER_JOHTO_LEADER_CLAIR"),
+    "FLAG_REGIAO_SINNOH_LIBERADA": ("EverGrandeCity_ChampionsRoom",
+                                    "TRAINER_WALLACE"),
+    "FLAG_ELITE_SINNOH_VENCIDA":   ("SinnohLeague_ChampionsRoom",
+                                    "TRAINER_SINNOH_CHAMPION_CYNTHIA"),
 }
 
 # A travessia Olivine <-> Vermilion passa POR DENTRO do S.S. Aqua desde
@@ -121,12 +137,21 @@ def main():
             continue
         if not re.search(rf"call_if_set {flag}, {alvo}\b", menu):
             falha(erros, f"{nome} nao esta atras de 'call_if_set {flag}'")
-    # a flag de cada regiao tem que ser acesa por alguem
-    for flag, onde in ACENDEM.items():
+    # a flag de cada regiao tem que ser acesa por alguem, DEPOIS da batalha
+    for flag, (onde, ancora) in ACENDEM.items():
         script = open(os.path.join(RAIZ, "data/maps", onde, "scripts.inc"),
                       encoding="utf-8").read()
-        if not re.search(rf"^\tsetflag {flag}$", script, re.M):
+        m = re.search(rf"^\tsetflag {flag}$", script, re.M)
+        if not m:
             falha(erros, f"{flag} nao e acesa em {onde}: o destino dela nunca abre")
+            continue
+        batalha = script.find(ancora)
+        if batalha < 0:
+            falha(erros, f"{onde}: nao achei a batalha {ancora}, que e a ancora "
+                         f"de ordem do {flag}")
+        elif batalha > m.start():
+            falha(erros, f"{onde}: 'setflag {flag}' vem ANTES de {ancora}. A regiao "
+                         "seguinte abriria so por entrar na sala, sem vencer ninguem")
 
     # 2, 3 e 4: cada porto
     for pasta, proprio in PORTOS.items():
