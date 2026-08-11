@@ -4,7 +4,7 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 11/08/2026, na build do commit `6a796d4ad3`.
+Última medição: 11/08/2026, na build do commit `8f4013c807`.
 
 ---
 
@@ -31,7 +31,7 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 
 | medida | valor |
 |---|---|
-| ROM | **95,11% de 32 MB** (1,56 MB livres). Medido na build de 11/08/2026; era 94,67% e cresceu com os 50 itens escondidos, as 9 trocas de Unova e os 790 textos de Sinnoh |
+| ROM | **95,23% de 32 MB** (1,53 MB livres), medido na build de 11/08/2026. Era 94,67% de manhã: cresceu com os 50 itens escondidos, as 9 trocas de Unova, os 790 textos de Sinnoh e os 150 treinadores |
 | EWRAM / IWRAM | 85,57% / 86,62% |
 | SaveBlock1 | **13432 de 15872 B (84,6%)** |
 | flags livres no pool | **40** (medido por `flags_livres.py` em 11/08/2026, depois de a última flag da faixa de itens escondidos ir para o PP UP da Rota 222: estava em 88, 46 foram para os itens escondidos de Sinnoh (`itens_escondidos_sinnoh.py`) e 1 para `FLAG_SINNOH_NPC_DUPLICADO`, que esconde o clone perdedor dos 382 pares de NPC repetido) |
@@ -51,7 +51,7 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 | Kanto | 98,1% | 100,1% | 100,0% | 100,0% |
 | Johto | **95,9%** | 94,0% | 100,0% | 96,0% |
 | Hoenn | 100,0% | 100,1% | 100,0% | 100,0% |
-| Sinnoh | **72,7%** | 77,2% | **99,1%** | **81,2%** |
+| Sinnoh | **72,7%** | 77,2% | **99,2%** | **81,2%** |
 | Unova | 94,2% | 98,5% | 98,9% | 98,0% |
 
 **As placas de Sinnoh caíram de 94,4% para 82,3% em 11/08/2026, e isso NÃO é
