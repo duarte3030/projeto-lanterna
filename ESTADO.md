@@ -34,11 +34,11 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 | ROM | **94,67% de 32 MB** (1,74 MB livres) |
 | EWRAM / IWRAM | 85,57% / 86,62% |
 | SaveBlock1 | **13432 de 15872 B (84,6%)** |
-| flags livres no pool | **184** (eram 288 antes de ligar as de Kanto) |
+| flags livres no pool | **88** (medido por `flags_livres.py` em 11/08/2026; o "184" daqui estava velho, e 9 saíram para as trocas de Unova) |
 | mapas | **1878** |
 | treinadores com time próprio | **2346** |
 | grupos de mapa | **126** (teto duro de **128** grupos e **128 mapas por grupo**: `s8` em `struct WarpData`; passar disso mata o mapa) |
-| suíte de testes | **107 de 110** (1 pulado precisa de duas builds; 2 reprovados são de Unova) |
+| suíte de testes | **109 de 110** (1 pulado precisa de duas builds). Os "2 reprovados de Unova" que esta linha anunciava eram T10.1, T10.2 e T20.4, consertados em `44cae4fa02` uma hora depois de a linha ser escrita, e ninguém a corrigiu. Re-rodados em 11/08: T10 4/4 e T20 6/6 |
 | teto de treinador | `MAX_TRAINERS_COUNT_EMERALD` = 3000 |
 
 ### Completude contra a fonte de cada região
@@ -495,36 +495,83 @@ scripts liam de lá.
 
 ## 8. O que falta, em ordem de tamanho
 
-1. **Sinnoh, mapas em 69,5%.** Continua o maior buraco, mas o caminho agora está
-   medido. O que falta se divide em tres: (a) 12 cavernas com a geometria JÁ
-   convertida e conferida, paradas só por falta de tile de porta órfã no mapa
-   pai (Old Chateau, Solaceon Ruins, Rock Peak Ruins, Maniac Tunnel, Mt. Coronet
-   6F, as duas Low Water de lago); (b) 11 interiores de cidade, sendo 4 deles
-   presos a layout compartilhado que precisa ser clonado; (c) o resto do mapa de
-   DS que ainda nem foi tocado (Great Marsh, Distortion World, Turnback Cave,
-   Battle Frontier, andares de hotel e de loja), que tem mobília desenhada e por
-   isso a grade 2D não basta. Ver secoes 8 a 10 de `PENDENCIAS-NPC-SINNOH.md`.
+1. **Sinnoh, mapas em 72,4%, e a fila barata acabou** (medido em 11/08/2026).
+   As 12 cavernas de geometria convertida e os 11 interiores teimosos que este
+   item listava **já entraram** nas levas de 06/08: hoje
+   `abre_bocas_cavernas_sinnoh.py` dá 0 pendências e os outros dois abridores só
+   apontam para pai que não é mapa de rua. Faltam **164 mapas**, e nenhum deles
+   sai com a técnica atual:
+
+   | quanto | o quê | motivo medido |
+   |---|---|---|
+   | 46 | Turnback Cave e os `UNKNOWN_533` a `557`, que são as mesmas salas duplicadas | **zero pais** no grafo de warp da fonte: a sala é sorteada por script, não há warp estático que a crie |
+   | 10 | Distortion World | zero pais, e a grade dá de 0 a 31 tiles de chão, abaixo do piso de 8 em quase todos |
+   | ~40 | Battle Frontier/Tower, salas do ginásio DP de Hearthome, elevadores da Liga, Vista Lighthouse | **zero chão de masmorra na grade**: interiores com mobília desenhada, o caso em que a grade 2D não basta |
+   | ~15 | Amity Square, Trophy Garden, Great Marsh 1 a 6, Pal Park, Spring Path, Route 204 North, Fullmoon/Newmoon, Fuego, Hall of Origin | `MAP_TYPE_OUTDOORS`. **Deixados de fora de propósito:** são folhas do grafo e não destravam masmorra nenhuma, então virariam 15 salas vazias de 13x9 com nome de área, ou seja +2,5 pontos de régua e zero mapa (lição 4.10) |
+
+   Passar disso exige converter mobília, não geometria de chão. Decisão do Gui.
    O `fontes-mapas/sinnoh`, que é GBA e seria barato, só tem 133 mapas próprios
    de Sinnoh e **todos os 133 já estão na ROM**: dessa fonte não sobra nada.
-2. **Sinnoh, o resto dos NPCs.** 1119 objetos hoje. Ficaram de fora 230 com
-   `hidden_flag` (NPC de história: sem o script que os remove, viram bloqueio
-   permanente, como as 39 pedras de Strength de Unova), 84 `coord_events` e 71
-   sem sprite honesto (Cynthia, Cyrus, Looker, os lendários de lago). Ver
-   `PENDENCIAS-NPC-SINNOH.md`.
-3. **152 "placas" de Sinnoh não são placa: são item escondido.** O `script`
-   delas no Platinum é 8000 ou mais, que é a faixa `SCRIPT_ID_OFFSET_HIDDEN_ITEMS`
-   (`include/script_manager.h:96`); a tabela com item, quantidade e raio está em
-   `include/data/field/hidden_items.h`. Hoje o jogador lê "the lettering has
-   faded" em cima de um item invisível. Virar item de verdade custa **uma flag
-   por item, 152 das 184 livres**: é gasto do pool inteiro e precisa da decisão
-   do Gui.
-4. **Unova, 23% das placas** (117, sendo 55 delas máquinas do Game Corner),
-   209 cenas de enredo e 264 NPCs mudos. Ver `PLANO-UNOVA.md`.
+2. **Sinnoh, o resto dos NPCs.** Em 11/08/2026, **561 NPCs deixaram de ser mudos
+   e 229 placas ganharam texto próprio**, todo o texto portado do pokeplatinum
+   por `dev_scripts/texto_sinnoh.py` (o `texto_placas_sinnoh.py` dava 0 porque
+   seguia só o comando `Message`, e a fonte usa também `NPCMessage`, 656 vezes,
+   mais `EventMessage`, `ShowMapSign` e outros seis). Sobram **559 mudos**, e a
+   divisão é medida na fonte: **344 são treinador do Platinum** (o `script` deles
+   é constante `TRAINER_*`, não índice de texto: precisa de time e id, é outra
+   frente), 108 apontam para Wi-Fi e Union Room, que **não existem nesta ROM**,
+   68 são balconista/enfermeira/vendedor cujo rótulo não tem comando de texto,
+   19 têm buffer ou caractere fora do charmap, 8 estão em mapa reprovado pelo
+   alinhamento.
+
+   **Os 230 `hidden_flag` e os 84 `coord_events` continuam de fora, e não é falta
+   de flag.** Medido em `src/event_object_movement.c:2882`: o objeto nasce quando
+   `!FlagGet(flagId)`, então flag nova que nenhum script acende deixa o objeto
+   sempre visível, ou seja, idêntico a trazê-lo com `flag: "0"`, e ainda planta o
+   bloqueio permanente das 39 pedras de Strength de Unova. A flag só vale junto
+   com a cena que a acende. Faltam também 71 sem sprite honesto (Cynthia, Cyrus,
+   Looker, os lendários de lago). Ver `PENDENCIAS-NPC-SINNOH.md`.
+3. **146 "placas" de Sinnoh não são placa: são item escondido** (contadas em
+   11/08/2026; o número antigo aqui era 152, e ainda faltam até 13 escondidos nos
+   8 mapas que o alinhamento reprova). A causa é o importador:
+   `dev_scripts/importa_npcs_sinnoh.py:385` lê `fonte["bg_events"]` cru do
+   Platinum, onde placa e item escondido moram no MESMO array e só se distinguem
+   pela faixa do `script` (< 2500 = placa, 7000+ = item visível, **8000 a 8799 =
+   item escondido**, `include/script_manager.h:90-98` da fonte). Hoje o jogador
+   lê "the lettering has faded" em cima de um item invisível.
+
+   Lista resolvida item a item, com mapa, coordenada, quantidade e a flag do
+   Platinum: `python3 dev_scripts/texto_sinnoh.py --itens`. **Armadilha medida:**
+   `script - 8000` **não** é a posição na tabela `gHiddenItems`, é a posição da
+   flag dentro de `HIDDEN_ITEM_FLAGS_START` (`src/script_manager.c:534`); ler
+   pela tabela resolve só 139 dos 146.
+
+   Virar item de verdade custa **uma flag por item, e o pool livre é de 97**
+   (medido por `flags_livres.py`; o "184" que este documento anunciava está
+   velho). Não cabem todos: precisa da decisão do Gui sobre quais.
+4. **Unova.** Este item também estava velho: as 117 placas entraram em
+   `febde977c3` e 33 NPCs em `0508831d27`. Em 11/08/2026 entraram as **9 trocas
+   de Pokémon** (`dev_scripts/importa_trocas_unova.py`; `trade NPC_TRADE_X` lê
+   tabela, não script, e por isso o importador de NPC recusava essas casas):
+   objetos mudos 114 → 106, custo de 9 flags, zero var.
+
+   O que sobra são as **209 cenas de enredo**, classificadas uma a uma: 107 são
+   `changeblock` (1225 chamadas, exigem traduzir id de bloco de gen 2 para
+   metatile), 47 usam `setscene`, 27 abrem batalha, 21 `special`, 16 `callasm`
+   (a máquina de estados da Plasma). Das 32 mecanicamente portáveis, **17 são
+   bloqueio** que o enredo apaga na fonte e aqui nunca apagaria, virando parede
+   permanente (a armadilha das 39 pedras de Strength). Ver `PLANO-UNOVA.md`.
 5. **426 flags de Kanto seguem em `0`**, e isso está certo: elas não são mexidas
    por script nenhum, então dar número a elas não mudaria nada em jogo. As 104
    que importavam saíram do stub em 05/08/2026
    (`dev_scripts/liga_flags_kanto.py`).
-6. **12 diagonais de barco** não jogadas em ROM. Ver `PENDENCIAS-TRAVESSIA.md`.
+6. **As 20 rotas dirigidas de barco estão provadas em ROM** (T4, T6, T8, T10 e
+   T86.1 a T86.12, prova lida da EWRAM, com mutante para cada caso). O que sobra
+   é texto de jogo **em português** nos cinco portos, e as três
+   `FLAG_REGIAO_*_LIBERADA` que estão reservadas mas **nenhum script lê ou
+   acende**: hoje os cinco portos oferecem os quatro destinos desde sempre, e o
+   único portão da travessia é o PASSE TRI de Vermilion. Ver
+   `PENDENCIAS-TRAVESSIA.md`.
 7. **Ninguém jogou do começo ao fim.** Tudo aqui é build, dado estático e
    emulador em ponto específico.
 
