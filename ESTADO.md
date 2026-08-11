@@ -472,9 +472,22 @@ devolver. O `antes_de_empurrar.sh` recusa grupo acima de 128.
 
 `python3 dev_scripts/guarda_save.py` tem que dizer SAVE COMPATIVEL.
 
-**A janela de quebrar save de graça fecha quando o Gui receber a primeira build
-que ele vá jogar de verdade.** Até lá, quebra é aceitável se for deliberada e
-registrada. Quatro já foram feitas nesta sessão.
+**A janela de quebrar save está FECHADA** desde 05/08/2026 (ver a decisão 14 na
+seção 3). Este parágrafo dizia que ela "fecha quando o Gui receber a primeira
+build", no presente, mesmo depois de ela já ter fechado, e as duas frases
+conviveram no mesmo documento por seis dias.
+
+Linha de base gravada em 11/08/2026 sobre a build `296474325a`
+(`roms/pokemon-claude-2026-08-11.gba`, md5 `457f3b5211b75175a0af5b95e04616c7`),
+que é a ROM que o Gui vai jogar. `dev_scripts/save_impressao.json` é a impressão
+dela. Daqui em diante, quebra de save não é "aceitável se registrada": é
+vermelho no portão, e desfazer é a resposta padrão.
+
+**Cuidado que o guarda NÃO pega, porque não é quebra de save:** flag que só é
+acesa em jogo novo (`EventScript_ResetAllMapFlags`) nasce apagada em save
+antiga. É o caso de `FLAG_SINNOH_NPC_DUPLICADO` e das três `FLAG_REGIAO_*`: a
+save de 05/08 carrega e funciona, mas com os 382 clones visíveis e os portos
+fechados. Consertar isso exige `MAP_SCRIPT_ON_TRANSITION`, e é decisão do Gui.
 
 ---
 
