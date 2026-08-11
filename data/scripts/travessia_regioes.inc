@@ -82,4 +82,4 @@ Travessia_Text_Canalave:
 	.string "CANALAVE$"
 
 Travessia_Text_Sair:
-	.string "Sair$"
+	.string "EXIT$"

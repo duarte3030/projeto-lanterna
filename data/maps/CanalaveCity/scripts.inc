@@ -68,19 +68,23 @@ CanalaveCity_EventScript_SailToVermilion::
 	end
 
 CanalaveCity_Text_WhereTo:
-	.string "Bem-vindo ao Porto de Canalave City em Sinnoh!\nPara onde gostaria de navegar?$"
+	.string "Welcome to CANALAVE CITY, SINNOH!\n"
+	.string "Where would you like to sail?$"
 
 CanalaveCity_Text_SettingSailToOlivine:
-	.string "Zarpando para Olivine City em Johto!$"
+	.string "Setting sail for OLIVINE CITY\n"
+	.string "in JOHTO!$"
 
 CanalaveCity_Text_SettingSailToSlateport:
-	.string "Zarpando para Slateport City em Hoenn!$"
+	.string "Setting sail for SLATEPORT CITY\n"
+	.string "in HOENN!$"
 
 CanalaveCity_Text_SettingSailToVermilion:
-	.string "Zarpando para Vermilion City em Kanto!$"
+	.string "Setting sail for VERMILION CITY\n"
+	.string "in KANTO!$"
 
 CanalaveCity_Text_ComeAgain:
-	.string "Volte quando quiser navegar.$"
+	.string "Come see me whenever you want to\nset sail.$"
 
 CanalaveCity_EventScript_GymSign::
 	msgbox CanalaveCity_Text_GymSign, MSGBOX_SIGN
@@ -140,7 +144,8 @@ CanalaveCity_EventScript_SailToVirbank::
 	end
 
 CanalaveCity_Text_SettingSailToVirbank:
-	.string "Zarpando para Virbank City em Unova!$"
+	.string "Setting sail for VIRBANK CITY\n"
+	.string "in UNOVA!$"
 
 @ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
 

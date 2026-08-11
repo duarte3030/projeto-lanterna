@@ -127,7 +127,9 @@ quatro destinos certos.
 ### Receita para escrever esses casos
 
 A lista `MULTI_CINCO_REGIOES_BARCO` é sempre a mesma:
-`0 OLIVINE, 1 SLATEPORT, 2 VERMILION, 3 VIRBANK, 4 CANALAVE, 5 Sair`.
+`0 OLIVINE, 1 SLATEPORT, 2 VERMILION, 3 VIRBANK, 4 CANALAVE, 5 EXIT`
+(o item de saída chamava `Sair` até 11/08/2026, quando o texto do barco
+passou para inglês; o id 5 não mudou).
 O cursor começa em 0 e o menu **não dá a volta**, então o número de `DOWN` é o
 próprio índice do destino. Cada porto pula o próprio índice, e é por isso que
 sair de Vermilion rumo a Canalave custa 4 DOWN mesmo Vermilion não tendo `case 2`.
@@ -165,7 +167,7 @@ para cada uma.
    Canalave só para chegar lá. Os três warps do mapa 10x8 caem em cima de outro
    warp ou fora do mapa. Consertar é mexer em mapa de Unova, dono de outra
    frente; enquanto não for, o custo é ~4 s por caso, e nenhum resultado muda.
-2. **Todo o texto de jogo do barco está em português**, nos cinco portos:
+2. ~~**Todo o texto de jogo do barco está em português**, nos cinco portos:
    `VermilionCity_Text_WhereTo` ("Bem-vindo ao Porto de Vermilion City em
    Kanto!"), `VermilionCity_Text_FerrySemPasse`, os quatro
    `..._Text_SettingSailTo*` / `..._Text_Zarpar*` de cada porto e os
@@ -177,7 +179,43 @@ para cada uma.
    (`\p`) está embutido na contagem de `A` de 20 roteiros de teste já provados,
    então reescrever texto sem re-rodar os 20 casos quebra a suíte calada.
    Quem for traduzir: mantenha uma página por caixa e re-rode `T4`, `T6`, `T8`,
-   `T10` e `T86` na build seguinte.
+   `T10` e `T86` na build seguinte.~~
+
+   **FECHADO em 11/08/2026, mais tarde no mesmo dia.** Os cinco portos falam
+   inglês. Foram junto, porque eram o mesmo defeito e ninguém os tinha listado:
+   as quatro falas do assistente do PROF. OAK em Vermilion (`FerrySemPasse`,
+   `AssistenteAindaNao`, `AssistenteEntrega`, `AssistenteJaEntregou`), o item
+   `Sair` do menu do marinheiro, que virou `EXIT` como todo multichoice do
+   pokeemerald (`gText_Exit`, `src/strings.c:532`), e a **balsa interna de
+   Sinnoh** entre Snowpoint e a Battle Zone (`SnowpointCity_Text_Sailor*` e
+   `FightArea_Text_Sailor*`), que não é uma das cinco travessias entre regiões e
+   por isso não estava nesta lista.
+
+   **A contagem de `A` dos 20 roteiros custou uma build para ficar certa, e a
+   história vale mais que o resultado.** A primeira versão da tradução usou três
+   linhas nos cinco `Text_WhereTo` (`...\n...\l...`) e uma no texto do assistente,
+   convencida de que só `\p` cobra aperto de botão e que `\l` apenas rola a
+   linha. Um verificador foi escrito antes de buildar, comparou o número de `\p`
+   de cada `.string` contra o `HEAD` rótulo a rótulo, e deu **zero divergência**:
+   verde, e errado. **`\l` é `CHAR_PROMPT_SCROLL` e `\p` é `CHAR_PROMPT_CLEAR`;
+   os dois são PROMPT e os dois param esperando A.** Só `\n` passa direto.
+
+   Quem pegou foi a suíte, na build: **9 casos reprovados, e exatamente os 9 que
+   atravessam porto** (T4.2, T6.2, T8.2, T8.3, T8.5, T10.1 a T10.4), cada um
+   parando um `A` antes, no porto de origem. O conjunto das falhas ser
+   exatamente o conjunto dos casos de barco é o que fecha o diagnóstico: não
+   sobrou um caso de outro assunto para explicar.
+
+   Consertado tirando o `\l` dos seis textos (as duas linhas ficaram
+   "Welcome to VERMILION CITY, KANTO!" e "Where would you like to sail?"), e o
+   verificador passou a contar **`\p` E `\l`**, que é a pergunta que ele devia
+   estar fazendo desde o começo. As linhas ficaram em no máximo 34 caracteres,
+   medido contra a régua do vanilla de Hoenn (p95 de 38, máximo 45), pela lição
+   4.2: quem discorda do jogo original é a régua.
+
+   O que dois dos cinco arquivos serem de outra frente (`CanalaveCity` de Sinnoh
+   e `Unova_VirbankPort` de Unova) impedia era mexer em `object_events` do
+   `map.json` deles, e não no `scripts.inc`, que é onde o texto mora.
 3. ~~As três `FLAG_REGIAO_*_LIBERADA` estão reservadas e NÃO estão ligadas em
    lugar nenhum.~~ **FECHADO em 11/08/2026, mais tarde no mesmo dia.** O menu
    dos cinco portos deixou de ser a lista estática `MULTI_CINCO_REGIOES_BARCO` e

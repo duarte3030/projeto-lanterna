@@ -40,3 +40,20 @@ Route211_West_EventScript_Placa2::
 
 Route211_West_Text_Placa2:
 	.string "Rt. 211\nEterna City$"
+
+@ Treinador de rota do pokeplatinum: time, raio de visao e fala
+@ (dev_scripts/treinadores_rota_sinnoh.py)
+
+Route211_West_EventScript_BirdKeeperAlexandra::
+	trainerbattle_single TRAINER_SINNOH_BIRD_KEEPER_ALEXANDRA, Route211_West_Text_BirdKeeperAlexandraIntro, Route211_West_Text_BirdKeeperAlexandraDefeat
+	msgbox Route211_West_Text_BirdKeeperAlexandraPost, MSGBOX_AUTOCLOSE
+	end
+
+Route211_West_Text_BirdKeeperAlexandraIntro:
+	.string "Look at these beautiful wings!$"
+
+Route211_West_Text_BirdKeeperAlexandraDefeat:
+	.string "Oh, you!\nI'm going to peck you for that!$"
+
+Route211_West_Text_BirdKeeperAlexandraPost:
+	.string "There's a bird Pokémon that can learn\nhuman speech! Did you know that?$"

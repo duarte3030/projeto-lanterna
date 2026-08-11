@@ -88,6 +88,14 @@ NOMES_PROPRIOS = (
 )
 
 # Mapa que outro agente está editando neste bloco, ou que não faz sentido povoar.
+#
+# TRAVA DE ESCRITA, NUNCA RÉGUA DE MEDIÇÃO. Até 11/08/2026 esta lista era
+# descontada dentro de `nossos_mapas_sinnoh()`, que é a régua que o
+# `completude.py` usa: `CanalaveCity_Gym` e `SandgemTown_House1` estão na ROM e
+# no `map_groups.json` e mesmo assim contavam como ausentes, exatamente o mesmo
+# defeito de medida que segurava as seis salas da Elite dos Quatro por causa do
+# nome. Quem não pode escrever agora não é quem não existe: use
+# `mapas_editaveis_sinnoh()` para escrever e `nossos_mapas_sinnoh()` para medir.
 NAO_TOCAR = ("CanalaveCity_Gym", "SandgemTown_House1")
 
 # Nome que a normalização não casa sozinha. Nosso mapa -> MAP_HEADER do Platinum.
@@ -106,6 +114,7 @@ APELIDOS = {
     "TwinleafTown_Haouse1": "MAP_HEADER_TWINLEAF_TOWN_NORTHEAST_HOUSE",
     "TwinleafTown_House2": "MAP_HEADER_TWINLEAF_TOWN_SOUTHWEST_HOUSE",
     "SandgemTown_RowanLab": "MAP_HEADER_SANDGEM_TOWN_POKEMON_RESEARCH_LAB",
+    "SandgemTown_House1": "MAP_HEADER_SANDGEM_TOWN_HOUSE",
     "SandgemTown_RivalHouse_F1": "MAP_HEADER_SANDGEM_TOWN_COUNTERPART_HOUSE_1F",
     "SandgemTown_RivalHouse_F2": "MAP_HEADER_SANDGEM_TOWN_COUNTERPART_HOUSE_2F",
     "JubilifeCity_Flat1_F1": "MAP_HEADER_JUBILIFE_CITY_CONDOMINIUMS_1F",
@@ -204,8 +213,18 @@ def nossos_mapas_sinnoh():
             return False
         return any(n.startswith(p) for p in PREFIXOS)
     return [n for n in sorted(os.listdir(base))
-            if not n.endswith("_Frlg") and da_regiao(n) and n not in NAO_TOCAR
+            if not n.endswith("_Frlg") and da_regiao(n)
             and os.path.exists(os.path.join(base, n, "map.json"))]
+
+
+def mapas_editaveis_sinnoh():
+    """A régua MENOS a trava de escrita. Só quem VAI ESCREVER usa esta lista.
+
+    Separada de `nossos_mapas_sinnoh()` em 11/08/2026: quem mede quanto de
+    Sinnoh existe não pode perder mapa que existe só porque outro agente está
+    editando ele hoje.
+    """
+    return [n for n in nossos_mapas_sinnoh() if n not in NAO_TOCAR]
 
 
 def headers_do_platinum():
@@ -257,6 +276,36 @@ def caixa_da_matriz(matriz_id, header):
     return c0 * 32, r0 * 32, (c1 - c0 + 1) * 32, (r1 - r0 + 1) * 32
 
 
+def conversor_de_coordenada(fonte, larg, alt, header, matriz):
+    """(x do Platinum, z do Platinum) -> (x, y) nosso, para UM mapa.
+
+    Extraida de `main()` em 11/08/2026 e nao reescrita: `itens_escondidos_sinnoh`
+    precisa da MESMA conta para reencontrar, pela coordenada, qual evento da
+    fonte virou qual `bg_event` nosso. Duas copias da formula divergiriam calado
+    no dia em que uma fosse ajustada, e o preco seria item escondido posto no
+    lugar errado, exatamente o que a ferramenta existe para evitar.
+    """
+    todos = fonte.get("object_events", []) + fonte.get("bg_events", [])
+    if not todos:
+        return None
+    xs = [e["x"] for e in todos]
+    zs = [e["z"] for e in todos]
+    if min(xs) >= 0 and min(zs) >= 0 and max(xs) < larg and max(zs) < alt:
+        return lambda e: (e["x"], e["z"])
+    cx = caixa_da_matriz(matriz, header) if matriz else None
+    if not cx:
+        # sem matriz: usa a própria nuvem de eventos como caixa
+        cx = (min(xs), min(zs), max(1, max(xs) - min(xs) + 1),
+              max(1, max(zs) - min(zs) + 1))
+    ox, oz, cw, ch = cx
+
+    def conv(e):
+        x = int((e["x"] - ox) * (larg - 1) / max(1, cw - 1))
+        y = int((e["z"] - oz) * (alt - 1) / max(1, ch - 1))
+        return min(max(x, 0), larg - 1), min(max(y, 0), alt - 1)
+    return conv
+
+
 def main():
     sprites = V.sprites_utilizaveis()
     V.confere_tabela_de_trocas(sprites)
@@ -269,7 +318,7 @@ def main():
     for h, (ev, mx) in heads.items():
         por_chave.setdefault(chave(h), (h, ev, mx))
 
-    nossos = nossos_mapas_sinnoh()
+    nossos = mapas_editaveis_sinnoh()
     casados, sem_par = [], []
     for m in nossos:
         h = APELIDOS.get(m)
@@ -296,27 +345,9 @@ def main():
         L = layouts[d["layout"]]
         larg, alt = L["width"], L["height"]
 
-        todos = fonte.get("object_events", []) + fonte.get("bg_events", [])
-        if not todos:
+        conv = conversor_de_coordenada(fonte, larg, alt, header, matriz)
+        if conv is None:
             continue
-        xs = [e["x"] for e in todos]; zs = [e["z"] for e in todos]
-        local = min(xs) >= 0 and min(zs) >= 0 and max(xs) < larg and max(zs) < alt
-
-        if local:
-            def conv(e):
-                return e["x"], e["z"]
-        else:
-            cx = caixa_da_matriz(matriz, header) if matriz else None
-            if not cx:
-                # sem matriz: usa a própria nuvem de eventos como caixa
-                cx = (min(xs), min(zs), max(1, max(xs) - min(xs) + 1),
-                      max(1, max(zs) - min(zs) + 1))
-            ox, oz, cw, ch = cx
-
-            def conv(e, ox=ox, oz=oz, cw=cw, ch=ch, larg=larg, alt=alt):
-                x = int((e["x"] - ox) * (larg - 1) / max(1, cw - 1))
-                y = int((e["z"] - oz) * (alt - 1) / max(1, ch - 1))
-                return min(max(x, 0), larg - 1), min(max(y, 0), alt - 1)
 
         existentes = (d.get("object_events") or []) + (d.get("bg_events") or [])
         if any(e.get("origem") == "pokeplatinum" for e in existentes):

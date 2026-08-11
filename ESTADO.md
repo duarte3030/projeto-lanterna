@@ -34,12 +34,12 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 | ROM | **95,11% de 32 MB** (1,56 MB livres). Medido na build de 11/08/2026; era 94,67% e cresceu com os 50 itens escondidos, as 9 trocas de Unova e os 790 textos de Sinnoh |
 | EWRAM / IWRAM | 85,57% / 86,62% |
 | SaveBlock1 | **13432 de 15872 B (84,6%)** |
-| flags livres no pool | **41** (medido por `flags_livres.py` em 11/08/2026: estava em 88, 46 foram para os itens escondidos de Sinnoh (`itens_escondidos_sinnoh.py`) e 1 para `FLAG_SINNOH_NPC_DUPLICADO`, que esconde o clone perdedor dos 382 pares de NPC repetido) |
+| flags livres no pool | **40** (medido por `flags_livres.py` em 11/08/2026, depois de a última flag da faixa de itens escondidos ir para o PP UP da Rota 222: estava em 88, 46 foram para os itens escondidos de Sinnoh (`itens_escondidos_sinnoh.py`) e 1 para `FLAG_SINNOH_NPC_DUPLICADO`, que esconde o clone perdedor dos 382 pares de NPC repetido) |
 | mapas | **1878** |
 | treinadores com time próprio | **2346** |
 | grupos de mapa | **126** (teto duro de **128** grupos e **128 mapas por grupo**: `s8` em `struct WarpData`; passar disso mata o mapa) |
-| suíte de testes | **161 de 162** em 11/08/2026, rodada na ROM buildada do HEAD (eram 156 de 157 antes dos cinco casos T87, que provam o portão entre regiões). O único pulado é o T11.3, que precisa de duas builds. Os "2 reprovados de Unova" que esta linha já anunciou foram consertados em `44cae4fa02` uma hora depois de a linha ser escrita, e ninguém a corrigiu por seis dias |
-| teto de treinador | `MAX_TRAINERS_COUNT_EMERALD` = 3000 |
+| suíte de testes | **162 de 163** em 11/08/2026, rodada em worktree isolada sobre o HEAD mais a leva de tradução dos portos, dos itens escondidos e da escada de MtCoronet2F (eram 161 de 162 antes do caso T88, que prova essa escada). O único pulado é o T11.3, que precisa de duas builds. Uma rodada intermediária desta mesma leva deu **154 de 163, e os 9 reprovados eram exatamente os 9 casos que atravessam porto**: é a lição 4.13, `\l` cobrando aperto de botão que o verificador não contava. Os "2 reprovados de Unova" que esta linha já anunciou foram consertados em `44cae4fa02` uma hora depois de a linha ser escrita, e ninguém a corrigiu por seis dias |
+| teto de treinador | `MAX_TRAINERS_COUNT_EMERALD` = **2500** (`include/constants/opponents.h:2020`, lido em 11/08/2026; este documento dizia 3000). Maior id declarado: **2440**. Livres: **2441 a 2499, ou seja 59**, e **subir o teto agora quebra a save do Gui**, porque `SYSTEM_FLAGS` deriva de `TRAINER_FLAGS_END` |
 
 ### Completude contra a fonte de cada região
 
@@ -51,7 +51,7 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 | Kanto | 98,1% | 100,1% | 100,0% | 100,0% |
 | Johto | **95,9%** | 94,0% | 100,0% | 96,0% |
 | Hoenn | 100,0% | 100,1% | 100,0% | 100,0% |
-| Sinnoh | **72,4%** | 77,4% | **99,0%** | **82,3%** |
+| Sinnoh | **72,7%** | 77,2% | **99,1%** | **81,2%** |
 | Unova | 94,2% | 98,5% | 98,9% | 98,0% |
 
 **As placas de Sinnoh caíram de 94,4% para 82,3% em 11/08/2026, e isso NÃO é
@@ -61,6 +61,34 @@ importador copiou como placa (ver o item 3 da seção 8). Cinquenta viraram item
 escondido de verdade e 96 foram apagadas. Quem contar placa vai achar que
 perdemos conteúdo; o que perdemos foi mentira, e a régua é que continua contando
 item escondido da fonte como se fosse placa.
+
+**Sinnoh subiu de 72,4% para 72,7% dos mapas em 11/08/2026 sem um mapa novo, e
+isso é régua outra vez.** `importa_npcs_sinnoh.NAO_TOCAR` é uma trava de
+ESCRITA ("mapa que outro agente está editando"), e ela estava sendo descontada
+dentro de `nossos_mapas_sinnoh()`, que é a régua do `completude.py`:
+`CanalaveCity_Gym` e `SandgemTown_House1` estão na ROM e no `map_groups.json` e
+mesmo assim contavam como ausentes. É o mesmo defeito de medida que segurava as
+seis salas da Elite dos Quatro por causa do nome, e a diferença é que aqui não
+era o nome, era a lista de quem não pode ser escrito. As duas coisas foram
+separadas: `nossos_mapas_sinnoh()` mede e `mapas_editaveis_sinnoh()` escreve,
+e os cinco chamadores foram divididos entre as duas conforme o que cada um faz.
+`SandgemTown_House1` ganhou apelido (`MAP_HEADER_SANDGEM_TOWN_HOUSE`) porque o
+`1` no fim do nosso nome não casa sozinho, e as duas entradas que só existiam
+para tapar o buraco saíram de `fecha_portas_sinnoh.JA_TEMOS`.
+
+**A escada de `MtCoronet2F` em (7,23) apontava para si mesma, e o preço era o
+3F inteiro.** Consertado em 11/08/2026. No Platinum ela é metade de um par
+(warps 2 e 3 de `mt_coronet_2f`); a conversão trouxe só um lado, e o outro,
+(7,12), ficou como chão comum. Medido na grade: as linhas 13 a 22 do mapa são
+parede maciça de ponta a ponta, então esse par é o **único** caminho entre a
+sala do sul, que vem do 1F, e a metade norte, onde fica a escada para o 3F. Com
+o warp morto, `MtCoronet3F` era inalcançável a pé. **Nada foi renumerado**,
+porque a save do Gui já está congelada: o degrau que faltava entrou como warp 3,
+no FIM da lista, o warp 1 passou a apontar para ele, e o tile (7,12) recebeu a
+palavra 0x323F **copiada do próprio (7,23) deste mapa** (metatile 575,
+`MB_LADDER`), em cima de chão andável que já existia. Prova no emulador em
+`T88.1`, e a contraprova é de graça: o mesmo caso rodado na ROM anterior ao
+conserto para em `MAP_MT_CORONET_2F`.
 
 Mudou em 06/08/2026, na sétima leva do dia: **Sinnoh foi de 69,5% para 72,1%
 dos mapas**, com 15 mapas novos, e desta vez **nada é régua**: são 12 masmorras
@@ -256,7 +284,7 @@ o 51,0% de hoje é ela subindo com mapa novo, não com régua nova.
 
 | Hoenn | Johto | Sinnoh | Unova | Kanto |
 |---|---|---|---|---|
-| 93,2% | 91,2% | 97,0% | 78,6% | 79,4% |
+| 93,2% | 91,2% | 97,1% | 78,6% | 79,4% |
 
 **Nunca chega a 100%, e não deve.** Warp só dispara se o tile embaixo tiver
 comportamento de porta; muita porta é trocada por `setmetatile` em tempo de
@@ -428,6 +456,26 @@ passar colisão entre mapas. Está em `texto_sinnoh.py --demo`, e ela ignora
 **nenhum semeia `usados`**. Hoje não há duplicata, conferida nos 35.747. Quem
 rodar um deles num mapa que já tem `Npc1` repete este build quebrado.
 
+### 4.13 `\l` também cobra aperto de botão, e o verificador que só olhou `\p` deu verde
+
+11/08/2026, traduzindo os cinco portos. O número de `A` de 24 roteiros de teste
+está embutido no número de páginas de cada caixa, então antes de buildar foi
+escrito um verificador que comparava, rótulo a rótulo contra o `HEAD`, quantos
+`\p` cada `.string` tinha. Ele deu **zero divergência**, e a suíte reprovou
+**9 casos**, todos de barco.
+
+`\l` é `CHAR_PROMPT_SCROLL` e `\p` é `CHAR_PROMPT_CLEAR`. **Os dois são
+PROMPT**: param e esperam o jogador apertar A. Só `\n` passa direto. Um texto de
+três linhas com `\l` no meio cobra um aperto a mais que o de duas linhas que ele
+substituiu, e cada roteiro parou um `A` antes, ainda no porto de origem.
+
+A lição não é "lembre do `\l`". É a 4.4 outra vez, num lugar novo: **o
+verificador foi escrito a partir da minha lembrança de como o motor trata `\l`,
+em vez de do charmap.** Medir a coisa errada com precisão dá verde, e verde de
+verificador quebrado é pior que verificador nenhum (4.3). O que salvou foi a
+suíte, e o que fechou o diagnóstico foi o conjunto das falhas ser EXATAMENTE o
+conjunto dos casos que atravessam porto, sem um caso de outro assunto sobrando.
+
 ---
 
 ## 5. Regras de trabalho
@@ -499,8 +547,16 @@ fechados. Consertar isso exige `MAP_SCRIPT_ON_TRANSITION`, e é decisão do Gui.
 | 1400-1799 | Kanto |
 | 1800-2147 | Unova, rota |
 | 2200-2273 | Kanto, segunda leva |
-| 2274-2417 | Johto, rota |
-| **2418-2999** | **livre** |
+| 2274-2440 | Johto, rota (vai até 2440, não até 2417) |
+| **2441-2499** | **livre: 59 ids, e é tudo que existe** |
+
+Conferido id a id em 11/08/2026 lendo `opponents.h`, depois de duas frentes de
+treinador receberem faixa inventada a partir desta tabela: a de rota recebeu
+2418-2549, que colide com Johto embaixo e estoura o teto em cima, e a de masmorra
+recebeu 2550-2749, **inteira acima do teto de 2500**. Nenhuma das duas chegou a
+gastar id, porque as duas descobriram antes que os 425 `TRAINER_SINNOH_*` já
+estavam declarados e já tinham time. Tabela errada em documento é faixa errada em
+agente: confira aqui antes de prometer faixa a alguém.
 
 ---
 
@@ -613,8 +669,46 @@ scripts liam de lá.
    tabela resolve só 139 dos 146. Quem faz essa conta certo é
    `texto_sinnoh.tabela_de_itens()`, reusada em vez de reescrita.
 
-   O que **sobra**: até 13 itens escondidos nos 8 mapas que o alinhamento de
-   `texto_sinnoh` reprova, e que por isso nunca entraram na lista.
+   **FECHADO em 11/08/2026, mais tarde no mesmo dia.** O que este item chamava
+   de "até 13 itens escondidos nos 8 mapas que o alinhamento reprova" eram
+   **9, em 3 mapas**, e a estimativa velha errava por contar item escondido da
+   fonte em mapa que **nunca importou item escondido nenhum**:
+   `fecha_portas_sinnoh.py` e `converte_cavernas_sinnoh.py` já pulam
+   `script >= 8000` na origem, então os interiores criados por eles
+   (`ContestHallLobby`, `GalacticHq4F`, `GalacticHQ_Laboratory`,
+   `PokemonMansionMaidsRoom`, `SandgemTown_RowanLab`) não tinham nada a
+   consertar. Sobrava mesmo: 7 na Route222, 1 em GalacticHQ_2F e 1 em
+   SinnohLeague_Entrance. Dois viraram item escondido (SKY PLATE e PP UP,
+   custando **1 flag nova**, porque a do SKY PLATE já existia) e 7 foram
+   apagados como lixo de rota.
+
+   **Sobra exatamente UM, e ele fica**: o `script` 8075 de `GalacticHQ_2F` cai
+   em (13,1) junto com outro evento da fonte depois da conversão de coordenada,
+   e dois candidatos no mesmo tile não se distinguem. Escolher um seria o chute
+   que esta ferramenta existe para evitar.
+
+   **O alinhamento deixou de ser por ORDEM e passou a ser por COORDENADA**, e a
+   troca não é gosto: a própria passada das 146 quebrou a régua velha. Apagar 96
+   `bg_events` encurtou os nossos arrays e a contagem parou de bater em 40 mapas
+   **já resolvidos**, ou seja, a ferramenta ficaria incapaz de rodar de novo.
+   Coordenada sobrevive: `importa_npcs_sinnoh.conversor_de_coordenada()`
+   (extraída do próprio importador, não reescrita) diz onde cada evento da fonte
+   foi parar, e a conta é refeita em vez de adivinhada. Duas guardas seguram o
+   chute: **um `bg_event` nosso em coordenada que a fonte não tem reprova o mapa
+   inteiro**, e **coordenada com mais de um candidato fica de fora**.
+
+   **Contraprova rodada antes de escrever qualquer coisa:** o alinhamento novo
+   reproduz os **50 de 50** itens que a passada ordinal já tinha convertido, com
+   o mesmo item e a mesma flag do Platinum, zero divergência. E a regra do órfão
+   separa sozinha os 96 mapas de `importa_npcs_sinnoh.py` dos 38 dos outros dois
+   conversores: ela concorda com o campo `origem` do `map.json` nos 134, sem
+   nenhuma exceção.
+
+   **Numeração de flag passou a ser append-only** no mesmo dia, e isso era
+   quebra de save esperando acontecer: `flags_em_uso()` reatribuía a faixa
+   inteira por ordem alfabética a cada passada, então um nome novo no meio do
+   alfabeto empurraria os 46 apelidos que já estão na ROM do Gui uma casa cada.
+   Agora quem já tem número fica com ele e o nome novo só ocupa vaga livre.
 4. **Unova.** Este item também estava velho: as 117 placas entraram em
    `febde977c3` e 33 NPCs em `0508831d27`. Em 11/08/2026 entraram as **9 trocas
    de Pokémon** (`dev_scripts/importa_trocas_unova.py`; `trade NPC_TRADE_X` lê
@@ -632,8 +726,15 @@ scripts liam de lá.
    que importavam saíram do stub em 05/08/2026
    (`dev_scripts/liga_flags_kanto.py`).
 6. **As 20 rotas dirigidas de barco estão provadas em ROM** (T4, T6, T8, T10 e
-   T86.1 a T86.12, prova lida da EWRAM, com mutante para cada caso). O que sobra
-   é texto de jogo **em português** nos cinco portos. As três
+   T86.1 a T86.12, prova lida da EWRAM, com mutante para cada caso). O texto de
+   jogo dos cinco portos **saiu do português em 11/08/2026** e está em inglês,
+   como o resto do jogo; junto foram as quatro falas do assistente do PROF. OAK
+   em Vermilion, o item "Sair" do menu do marinheiro (agora "EXIT") e a balsa
+   interna de Sinnoh entre Snowpoint e a Battle Zone, que ninguém tinha visto e
+   falava português pelo mesmo motivo. **Nenhuma caixa de texto mudou de número
+   de páginas**: os `\p` foram conferidos rótulo a rótulo contra o HEAD antes de
+   buildar, zero divergência, e por isso nenhum dos 24 roteiros de botão que
+   atravessam porto precisou ser reescrito. Re-rodado na build seguinte. As três
    `FLAG_REGIAO_*_LIBERADA` **foram ligadas em 11/08/2026**: o menu do marinheiro
    passou a ser montado em `data/scripts/travessia_regioes.inc` e esconde o
    destino da região ainda não liberada (Kanto sempre aberto; Johto pelo campeão

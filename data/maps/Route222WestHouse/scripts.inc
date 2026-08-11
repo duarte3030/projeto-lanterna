@@ -44,3 +44,20 @@ Route222WestHouse_EventScript_Npc6::
 
 Route222WestHouse_Text_Npc6:
 	.string "Eehehe! I'm going for the Pokémon\nChampionship with only PIKACHU!$"
+
+@ Treinador de rota do pokeplatinum: time, raio de visao e fala
+@ (dev_scripts/treinadores_rota_sinnoh.py)
+
+Route222WestHouse_EventScript_PokeKidJanet::
+	trainerbattle_single TRAINER_SINNOH_POKE_KID_JANET, Route222WestHouse_Text_PokeKidJanetIntro, Route222WestHouse_Text_PokeKidJanetDefeat
+	msgbox Route222WestHouse_Text_PokeKidJanetPost, MSGBOX_AUTOCLOSE
+	end
+
+Route222WestHouse_Text_PokeKidJanetIntro:
+	.string "Bika bikabika!\nPigachu!$"
+
+Route222WestHouse_Text_PokeKidJanetDefeat:
+	.string "Pikachu...$"
+
+Route222WestHouse_Text_PokeKidJanetPost:
+	.string "Pika...\pI'll need a lot more practice to\nbecome a real PIKACHU...$"

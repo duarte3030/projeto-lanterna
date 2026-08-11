@@ -107,3 +107,48 @@ Route204_EventScript_Placa3::
 
 Route204_Text_Placa3:
 	.string "Ravaged Path$"
+
+@ Treinador de rota do pokeplatinum: time, raio de visao e fala
+@ (dev_scripts/treinadores_rota_sinnoh.py)
+
+Route204_EventScript_LassSarah::
+	trainerbattle_single TRAINER_SINNOH_LASS_SARAH, Route204_Text_LassSarahIntro, Route204_Text_LassSarahDefeat
+	msgbox Route204_Text_LassSarahPost, MSGBOX_AUTOCLOSE
+	end
+
+Route204_Text_LassSarahIntro:
+	.string "Oh, a weak-looking Trainer...\nDo you want to have a go?$"
+
+Route204_Text_LassSarahDefeat:
+	.string "Aww...\nI should have said no.$"
+
+Route204_Text_LassSarahPost:
+	.string "Oh, you're so mean!\nI just started training Pokémon!$"
+
+Route204_EventScript_LassSamantha::
+	trainerbattle_single TRAINER_SINNOH_LASS_SAMANTHA, Route204_Text_LassSamanthaIntro, Route204_Text_LassSamanthaDefeat
+	msgbox Route204_Text_LassSamanthaPost, MSGBOX_AUTOCLOSE
+	end
+
+Route204_Text_LassSamanthaIntro:
+	.string "May I please trouble you for a\nbattle?$"
+
+Route204_Text_LassSamanthaDefeat:
+	.string "Oh...\nYou're so strong...$"
+
+Route204_Text_LassSamanthaPost:
+	.string "Maybe I could have won if my Pokémon\nwas holding a Berry...$"
+
+Route204_EventScript_YoungsterTyler::
+	trainerbattle_single TRAINER_SINNOH_YOUNGSTER_TYLER, Route204_Text_YoungsterTylerIntro, Route204_Text_YoungsterTylerDefeat
+	msgbox Route204_Text_YoungsterTylerPost, MSGBOX_AUTOCLOSE
+	end
+
+Route204_Text_YoungsterTylerIntro:
+	.string "I'll beat you with the MAGIKARP my dad\ngave me!$"
+
+Route204_Text_YoungsterTylerDefeat:
+	.string "But they're Pokémon I got from my\ndad...$"
+
+Route204_Text_YoungsterTylerPost:
+	.string "Who gave you your first Pokémon?\pYour first Pokémon is the one with\nthe most fond memories, I think.$"

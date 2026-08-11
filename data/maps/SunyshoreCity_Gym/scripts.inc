@@ -54,3 +54,20 @@ SunyshoreCity_Gym_EventScript_Placa3::
 
 SunyshoreCity_Gym_Text_Placa3:
 	.string "Sunyshore City Pokémon Gym\pLeader: Volkner$"
+
+@ Treinador do pokeplatinum: time, raio de visao e fala
+@ (dev_scripts/treinadores_masmorra_sinnoh.py)
+
+SunyshoreCity_Gym_EventScript_SchoolKidTiera::
+	trainerbattle_single TRAINER_SINNOH_SCHOOL_KID_TIERA, SunyshoreCity_Gym_Text_SchoolKidTieraIntro, SunyshoreCity_Gym_Text_SchoolKidTieraDefeat
+	msgbox SunyshoreCity_Gym_Text_SchoolKidTieraPost, MSGBOX_AUTOCLOSE
+	end
+
+SunyshoreCity_Gym_Text_SchoolKidTieraIntro:
+	.string "Can you make it to the Gym Leader?\nYou sure now?$"
+
+SunyshoreCity_Gym_Text_SchoolKidTieraDefeat:
+	.string "The gears spin round and round...\nI spin down and out...$"
+
+SunyshoreCity_Gym_Text_SchoolKidTieraPost:
+	.string "Our Gym's trick walkways are sure\nto make your head spin!$"

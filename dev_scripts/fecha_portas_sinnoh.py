@@ -219,11 +219,12 @@ NOMEADOS = {
     "POKEMON_LEAGUE_CHAMPION_ROOM": None,
 }
 
-# Header que ja tem mapa nosso com outro nome, ou que outro agente cuida.
-# `CanalaveCity_Gym` e `SandgemTown_House1` estao em I.NAO_TOCAR, entao somem de
-# `nossos_mapas_sinnoh()` e apareceriam como "faltando" se nao entrassem aqui.
+# Header que ja tem mapa nosso com outro nome.
+# `MAP_HEADER_CANALAVE_CITY_GYM` e `MAP_HEADER_SANDGEM_TOWN_HOUSE` sairam daqui
+# em 11/08/2026: os dois mapas voltaram para `nossos_mapas_sinnoh()`, que deixou
+# de descontar a trava de escrita `NAO_TOCAR`, e o segundo ganhou apelido em
+# `I.APELIDOS`. Eles nunca estiveram faltando, so estavam invisiveis para a regua.
 JA_TEMOS = {
-    "MAP_HEADER_CANALAVE_CITY_GYM", "MAP_HEADER_SANDGEM_TOWN_HOUSE",
     "MAP_HEADER_FLOWER_SHOP", "MAP_HEADER_ETERNA_CITY_DP_GYM",
     "MAP_HEADER_UNUSED_JUBILIFE_CITY_CONDOMINIUMS_3F",
     "MAP_HEADER_UNUSED_JUBILIFE_CITY_SOUTH_HOUSE_3F",

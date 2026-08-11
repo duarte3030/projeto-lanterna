@@ -56,6 +56,7 @@ import sys
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(REPO, "dev_scripts"))
 import texto_sinnoh as T  # noqa: E402
+import importa_npcs_sinnoh as I  # noqa: E402
 
 FLAGS_H = os.path.join(REPO, "include/constants/flags.h")
 ITENS_H = os.path.join(REPO, "include/constants/items.h")
@@ -91,15 +92,76 @@ VALIOSOS = {
 TRADUZ_ITEM = {"ITEM_THUNDERSTONE": "ITEM_THUNDER_STONE"}
 
 
-def itens_da_fonte():
-    """[(mapa, pos, x, y, item, quantidade, flag do Platinum)] das 146.
+def _layouts():
+    global _LAYOUTS
+    try:
+        return _LAYOUTS
+    except NameError:
+        _LAYOUTS = {l["id"]: l for l in json.load(open(
+            os.path.join(REPO, "data/layouts/layouts.json"),
+            encoding="utf-8"))["layouts"]}
+        return _LAYOUTS
 
-    `pos` e o indice dentro do NOSSO array `bg_events`. O alinhamento e o mesmo
-    de `texto_sinnoh`, e pela mesma razao: o importador nao gravou o indice de
-    origem, sobra a ORDEM, e a ordem so vale onde a contagem bate. Mapa que nao
-    bate fica inteiro de fora, sem exececao.
+
+def alinha_por_coordenada(meu, header, matriz, fonte, d):
+    """{indice do nosso bg_event: evento da fonte}, ou None se o mapa reprova.
+
+    POR QUE NAO E MAIS A ORDEM. A primeira versao alinhava por ORDEM, exigindo
+    que a contagem batesse. A propria passada de 11/08/2026 quebrou essa regua:
+    apagar 96 bg_events encurtou o nosso array e a contagem parou de bater em 40
+    mapas ja resolvidos, alem dos 8 que ela ja reprovava desde o comeco. Ordem
+    que so vale antes da primeira escrita nao e alinhamento, e ferramenta que
+    so roda uma vez.
+
+    A coordenada, sim, sobrevive: o importador gravou cada placa em
+    `conversor_de_coordenada(fonte)` do evento de origem, e nada depois mexeu
+    nesse x,y. Entao a identificacao e a conta do importador rodada de novo, nao
+    um palpite. Duas guardas mantem isso honesto:
+
+    - **orfao reprova o mapa inteiro.** Se algum bg_event nosso cair numa
+      coordenada onde a fonte nao tem evento nenhum, aquele mapa nao foi escrito
+      por esta conta e nada nele pode ser identificado. E o que separa, sozinho,
+      os 96 mapas de `importa_npcs_sinnoh.py` dos 38 criados por
+      `fecha_portas_sinnoh.py` e `converte_cavernas_sinnoh.py`, que usam a
+      colocacao `poe()` deles e ja pulam item escondido na origem (por isso nao
+      ha nada a consertar neles). Os dois sinais, orfao e o campo `origem` do
+      map.json, concordam nos 134 mapas, medido em 11/08/2026.
+    - **coordenada com mais de um candidato fica de fora.** Dois eventos da
+      fonte que caem no mesmo tile depois da conversao nao se distinguem, e
+      escolher um seria exatamente o chute que esta ferramenta existe para
+      evitar.
     """
-    saida = []
+    L = _layouts().get(d.get("layout"))
+    if not L:
+        return None
+    conv = I.conversor_de_coordenada(fonte, L["width"], L["height"], header, matriz)
+    if conv is None:
+        return None
+    _, f_placas = T.separa_fonte(fonte)
+    porxy = {}
+    for e in f_placas:
+        porxy.setdefault(conv(e), []).append(e)
+    pares = {}
+    for i, b in enumerate(d.get("bg_events") or []):
+        if b.get("origem") != "pokeplatinum":
+            continue
+        cands = porxy.get((b.get("x"), b.get("y")))
+        if not cands:
+            return None                      # orfao: o mapa inteiro reprova
+        if len(cands) == 1:
+            pares[i] = cands[0]
+    return pares
+
+
+def itens_da_fonte(relata=False):
+    """[(mapa, pos, x, y, item, quantidade, flag do Platinum)] a resolver.
+
+    `pos` e o indice dentro do NOSSO array `bg_events`, e o alinhamento e o de
+    `alinha_por_coordenada`. So entra o que ainda e a placa generica importada:
+    o que ja virou `hidden_item` numa passada anterior fica quieto.
+    """
+    heads = I.headers_do_platinum()
+    saida, reprovados = [], []
     for meu, header, arq_ev in T.casados():
         pe = os.path.join(T.PLAT, "res/field/events", arq_ev + ".json")
         pm = os.path.join(REPO, "data/maps", meu, "map.json")
@@ -107,13 +169,16 @@ def itens_da_fonte():
             continue
         fonte = json.load(open(pe, encoding="utf-8"))
         d = json.load(open(pm, encoding="utf-8"))
-        _, f_placas = T.separa_fonte(fonte)
-        n_placas = [(i, b) for i, b in enumerate(d.get("bg_events", []))
-                    if b.get("origem") == "pokeplatinum"]
-        if not n_placas or len(n_placas) != len(f_placas):
+        if not any(b.get("origem") == "pokeplatinum"
+                   for b in (d.get("bg_events") or [])):
+            continue
+        pares = alinha_por_coordenada(meu, header, heads[header][1], fonte, d)
+        if pares is None:
+            reprovados.append(meu)
             continue
         tab = T.tabela_de_itens()
-        for dela, (pos, nossa) in zip(f_placas, n_placas):
+        for pos, dela in sorted(pares.items()):
+            nossa = d["bg_events"][pos]
             if nossa.get("script") != T.GENERICO:
                 continue
             idx = dela.get("script")
@@ -123,6 +188,11 @@ def itens_da_fonte():
                                else ("?", "?", "?"))
             saida.append((meu, pos, nossa.get("x"), nossa.get("y"),
                           item, qtd, flag))
+    if relata and reprovados:
+        print(f"mapas reprovados pelo alinhamento (bg_event nosso em coordenada "
+              f"que a fonte nao tem): {len(reprovados)}")
+        for m in reprovados:
+            print("   ", m)
     return saida
 
 
@@ -132,7 +202,33 @@ def identificadores_de_item():
     return set(re.findall(r"^\s*(ITEM_[A-Z0-9_]+)\s*[=,]", corpo, re.M))
 
 
-def reparte(achados, conhecidos, faixa=FAIXA):
+def numeros_no_flags_h():
+    """{FLAG_ITEM_SINNOH_X: 'FLAG_UNUSED_0xNNN'} que o flags.h ja grava hoje.
+
+    Numero de flag e promessa permanente: a save guarda o BIT, e nao o nome.
+    A primeira versao desta ferramenta reatribuia a faixa inteira por ordem
+    alfabetica a cada passada, o que estava certo enquanto ela rodava UMA vez e
+    vira quebra de save na segunda: um nome novo no meio do alfabeto empurraria
+    todos os seguintes uma casa e o item que o jogador ja pegou voltaria a
+    existir (ou sumiria) na partida dele. Daqui em diante quem ja tem numero
+    fica com ele, e o nome novo so ocupa vaga livre da faixa.
+    """
+    texto = open(FLAGS_H, encoding="utf-8").read()
+    m = re.search(re.escape(ABRE) + r"(.*?)" + re.escape(FECHA), texto, re.S)
+    if not m:
+        return {}
+    return dict(re.findall(r"#define\s+(" + PREFIXO + r"\w+)\s+"
+                           r"(FLAG_UNUSED_0x[0-9A-Fa-f]+)", m.group(1)))
+
+
+def vagas(faixa, ja):
+    """Numeros da faixa que ninguem ainda apelidou, em ordem crescente."""
+    tomados = set(ja.values())
+    return [n for n in (f"FLAG_UNUSED_0x{v:03X}" for v in faixa)
+            if n not in tomados]
+
+
+def reparte(achados, conhecidos, faixa=FAIXA, ja=None):
     """(converter, apagar, flags) a partir da lista crua.
 
     `converter` = [(mapa, pos, x, y, item desta ROM, quantidade, flag nossa)]
@@ -157,15 +253,19 @@ def reparte(achados, conhecidos, faixa=FAIXA):
             ordem.append((plat, nosso))
         converter.append([mapa, pos, x, y, nosso, int(qtd), plat])
 
-    if len(ordem) > len(faixa):
-        raise SystemExit(f"faltam flags: {len(ordem)} itens distintos para "
-                         f"{len(faixa)} flags da faixa reservada.")
+    if ja is None:
+        ja = numeros_no_flags_h()
+    livres = iter(vagas(faixa, ja))
 
     flags = []
-    for (plat, nosso), n in zip(sorted(ordem), faixa):
+    for plat, nosso in sorted(ordem):
         nome = PREFIXO + plat.replace("FLAG_OBTAINED_HIDDEN_", "")
+        numero = ja.get(nome) or next(livres, None)
+        if numero is None:
+            raise SystemExit(f"faltam flags: {len(ordem)} itens distintos e so "
+                             f"{len(vagas(faixa, ja))} vagas livres na faixa.")
         por_plat[plat] = nome
-        flags.append((nome, f"FLAG_UNUSED_0x{n:03X}", nosso, plat))
+        flags.append((nome, numero, nosso, plat))
     for linha in converter:
         linha[6] = por_plat[linha[6]]
     return [tuple(l) for l in converter], apagar, flags
@@ -212,9 +312,14 @@ def flags_em_uso():
     nomes que os map.json citam. Regenerar do estado em disco torna a ferramenta
     idempotente de verdade e conserta o bloco se alguem o truncar.
 
-    A ordem e a mesma da atribuicao original (nome ordenado -> faixa), porque
-    nosso nome e o nome da flag do Platinum com prefixo trocado: prefixo
-    constante nao muda ordem alfabetica.
+    Quem ja tem numero no flags.h FICA com ele (ver `numeros_no_flags_h`); nome
+    novo pega a primeira vaga livre da faixa. Reordenar por alfabeto, que era o
+    que esta funcao fazia, renumeraria flag que ja esta na ROM do Gui.
+
+    ARMADILHA QUE SOBRA: se alguem APAGAR o bloco inteiro do flags.h, nao ha de
+    onde ler os numeros antigos e a faixa e reatribuida do zero, o que muda o
+    significado dos bits na save do Gui. Recuperar o bloco e `git checkout` do
+    flags.h, nunca rodar esta ferramenta de novo em cima do buraco.
     """
     achado = {}
     base = os.path.join(REPO, "data/maps")
@@ -228,8 +333,15 @@ def flags_em_uso():
                 achado[f] = ev.get("item")
     if len(achado) > len(FAIXA):
         raise SystemExit(f"{len(achado)} flags em uso para {len(FAIXA)} da faixa.")
-    return [(n, f"FLAG_UNUSED_0x{v:03X}", achado[n])
-            for n, v in zip(sorted(achado), FAIXA)]
+    ja = numeros_no_flags_h()
+    livres = iter(vagas(FAIXA, ja))
+    saida = []
+    for nome in sorted(achado):
+        numero = ja.get(nome) or next(livres, None)
+        if numero is None:
+            raise SystemExit(f"sem vaga livre na faixa para {nome}.")
+        saida.append((nome, numero, achado[nome]))
+    return sorted(saida, key=lambda t: t[1])
 
 
 def escreve_flags(flags):
@@ -259,7 +371,7 @@ def escreve_flags(flags):
 
 
 def main():
-    achados = itens_da_fonte()
+    achados = itens_da_fonte(relata=True)
     conhecidos = identificadores_de_item()
     converter, apagar, flags = reparte(achados, conhecidos)
 
@@ -361,7 +473,7 @@ def demo():
                # uma flag nossa so, como no jogo original
                ("O", 0, 5, 5, "ITEM_THUNDERSTONE", "1", "FLAG_OBTAINED_HIDDEN_D")]
     conhecidos = {"ITEM_RARE_CANDY", "ITEM_STARDUST", "ITEM_THUNDER_STONE"}
-    conv, apg, fl = reparte(achados, conhecidos)
+    conv, apg, fl = reparte(achados, conhecidos, ja={})
     assert len(conv) == 3, conv
     assert len(fl) == 2, fl
     assert conv[1][4] == "ITEM_THUNDER_STONE", "apelido do Platinum tem que traduzir"
@@ -374,11 +486,53 @@ def demo():
     muitos = [("M", i, 0, 0, "ITEM_RARE_CANDY", "1", f"FLAG_OBTAINED_HIDDEN_{i}")
               for i in range(3)]
     try:
-        reparte(muitos, conhecidos, faixa=range(0x8F0, 0x8F2))
+        reparte(muitos, conhecidos, faixa=range(0x8F0, 0x8F2), ja={})
     except SystemExit:
         pass
     else:
         raise AssertionError("faixa estourada passou calada")
+
+    # 5b. QUEM JA TEM NUMERO FICA COM ELE. Este e o caso que quebra a save do
+    #     Gui se voltar: um nome novo no meio do alfabeto nao pode empurrar o
+    #     numero de quem ja esta na ROM.
+    velhos = {"FLAG_ITEM_SINNOH_B": "FLAG_UNUSED_0x8F0",
+              "FLAG_ITEM_SINNOH_D": "FLAG_UNUSED_0x8F1"}
+    dois = [("M", 0, 0, 0, "ITEM_RARE_CANDY", "1", "FLAG_OBTAINED_HIDDEN_B"),
+            ("M", 1, 0, 0, "ITEM_RARE_CANDY", "1", "FLAG_OBTAINED_HIDDEN_C"),
+            ("M", 2, 0, 0, "ITEM_RARE_CANDY", "1", "FLAG_OBTAINED_HIDDEN_D")]
+    _, _, fl2 = reparte(dois, conhecidos, ja=dict(velhos))
+    por_nome = {n: u for n, u, _, _ in fl2}
+    assert por_nome["FLAG_ITEM_SINNOH_B"] == "FLAG_UNUSED_0x8F0", por_nome
+    assert por_nome["FLAG_ITEM_SINNOH_D"] == "FLAG_UNUSED_0x8F1", por_nome
+    assert por_nome["FLAG_ITEM_SINNOH_C"] == "FLAG_UNUSED_0x8F2", por_nome
+    assert vagas(range(0x8F0, 0x8F3), velhos) == ["FLAG_UNUSED_0x8F2"]
+
+    # 8. ALINHAMENTO POR COORDENADA. O mapa reprova inteiro se algum bg_event
+    #    nosso cair onde a fonte nao tem evento: e o unico jeito de nao chutar
+    #    qual placa e qual num mapa cujo array encolheu (ou que foi escrito por
+    #    outra ferramenta, com outra colocacao).
+    fonte = {"object_events": [],
+             "bg_events": [{"x": 3, "z": 4, "script": 8000},
+                           {"x": 7, "z": 4, "script": 12},
+                           {"x": 7, "z": 8, "script": 13}]}
+    d = {"layout": "L", "bg_events": [
+        {"x": 3, "y": 4, "script": T.GENERICO, "origem": "pokeplatinum"},
+        {"x": 7, "y": 8, "script": T.GENERICO, "origem": "pokeplatinum"},
+        {"x": 1, "y": 1, "script": "Meu_EventScript_Placa"}]}
+    global _LAYOUTS
+    _LAYOUTS = {"L": {"width": 10, "height": 10}}
+    pares = alinha_por_coordenada("M", "MAP_HEADER_X", None, fonte, d)
+    assert set(pares) == {0, 1}, pares
+    assert pares[0]["script"] == 8000 and pares[1]["script"] == 13
+    # bg nosso numa coordenada que a fonte nao tem: reprova o mapa inteiro
+    d["bg_events"][1]["y"] = 9
+    assert alinha_por_coordenada("M", "MAP_HEADER_X", None, fonte, d) is None
+    # dois eventos da fonte no mesmo tile: aquele indice fica de fora, sem chute
+    d["bg_events"][1]["y"] = 8
+    fonte["bg_events"].append({"x": 7, "z": 8, "script": 8001})
+    pares = alinha_por_coordenada("M", "MAP_HEADER_X", None, fonte, d)
+    assert set(pares) == {0}, pares
+    del _LAYOUTS
 
     # 6. a flag tem que caber no que o motor sabe ler: o macro
     #    `bg_hidden_item_event` recusa flag abaixo de FLAG_HIDDEN_ITEMS_START, e

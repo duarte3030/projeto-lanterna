@@ -66,11 +66,11 @@ FightArea_Text_Twin:
 	.string "tough TRAINERS battle here!$"
 
 FightArea_Text_SailorOferece:
-	.string "Quer que eu leve voce de volta para\n"
-	.string "Snowpoint City?$"
+	.string "Want me to take you back to\n"
+	.string "SNOWPOINT CITY?$"
 
 FightArea_Text_SailorZarpa:
-	.string "Zarpando para Snowpoint City!$"
+	.string "Setting sail for SNOWPOINT CITY!$"
 
 @ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
 

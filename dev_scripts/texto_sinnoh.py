@@ -181,7 +181,7 @@ def casados():
     por_chave = {}
     for h, (ev, mx) in heads.items():
         por_chave.setdefault(I.chave(h), (h, ev, mx))
-    for m in I.nossos_mapas_sinnoh():
+    for m in I.mapas_editaveis_sinnoh():
         h = I.APELIDOS.get(m)
         alvo = (h,) + heads[h] if h in heads else por_chave.get(I.chave(m))
         if alvo:

@@ -210,3 +210,40 @@ Route210_North_EventScript_Npc1::
 
 Route210_North_Text_Npc1:
 	.string "If I could use the hidden move Defog,\nI'd clear up the fog so I can see.\pHow does Defog work?\pDon't bird and bug Pokémon flap their\nwings to blow the fog away?$"
+
+@ Treinador de rota do pokeplatinum: time, raio de visao e fala
+@ (dev_scripts/treinadores_rota_sinnoh.py)
+
+Route210_North_EventScript_DoubleTeamTrainerZac::
+	trainerbattle_double TRAINER_SINNOH_DOUBLE_TEAM_ZAC_AND_JEN, Route210_North_Text_DoubleTeamTrainerZacIntro, Route210_North_Text_DoubleTeamTrainerZacDefeat, Route210_North_Text_DoubleTeamTrainerZacNoPartner
+	msgbox Route210_North_Text_DoubleTeamTrainerZacPost, MSGBOX_AUTOCLOSE
+	end
+
+Route210_North_Text_DoubleTeamTrainerZacIntro:
+	.string "Zac: Jen, watch this! I'm going to\nuse everything you've taught me!$"
+
+Route210_North_Text_DoubleTeamTrainerZacDefeat:
+	.string "Zac: Wow. Someone that's even\nbetter than Jen...$"
+
+Route210_North_Text_DoubleTeamTrainerZacPost:
+	.string "Zac: I don't care if I get to meet\nthe greatest Trainer in the region...\pI'd still rather learn from Jen.$"
+
+Route210_North_Text_DoubleTeamTrainerZacNoPartner:
+	.string "Zac: Would you be interested in battling\nthe two of us at the same time?\pWhat I mean is, do you have two or more\nPokémon with you?$"
+
+Route210_North_EventScript_DoubleTeamTrainerJen::
+	trainerbattle_double TRAINER_SINNOH_DOUBLE_TEAM_ZAC_AND_JEN, Route210_North_Text_DoubleTeamTrainerJenIntro, Route210_North_Text_DoubleTeamTrainerJenDefeat, Route210_North_Text_DoubleTeamTrainerJenNoPartner
+	msgbox Route210_North_Text_DoubleTeamTrainerJenPost, MSGBOX_AUTOCLOSE
+	end
+
+Route210_North_Text_DoubleTeamTrainerJenIntro:
+	.string "Jen: Here comes a Trainer.\nZac, you ready? Let's do this!$"
+
+Route210_North_Text_DoubleTeamTrainerJenDefeat:
+	.string "Jen: I just got embarrassed in front\nof my little buddy here...$"
+
+Route210_North_Text_DoubleTeamTrainerJenPost:
+	.string "Jen: Zac, I'm so sorry.\nI'm a failure as your instructor.$"
+
+Route210_North_Text_DoubleTeamTrainerJenNoPartner:
+	.string "Jen: Would you like to have a\ntwo-on-two Pokémon battle with us?$"

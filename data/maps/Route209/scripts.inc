@@ -193,3 +193,74 @@ Route209_EventScript_Npc1::
 
 Route209_Text_Npc1:
 	.string "Where departed Pokémon sleep...\nThis is the Lost Tower.$"
+
+@ Treinador de rota do pokeplatinum: time, raio de visao e fala
+@ (dev_scripts/treinadores_rota_sinnoh.py)
+
+Route209_EventScript_TwinEmma::
+	trainerbattle_double TRAINER_SINNOH_TWINS_EMMA_AND_LIL, Route209_Text_TwinEmmaIntro, Route209_Text_TwinEmmaDefeat, Route209_Text_TwinEmmaNoPartner
+	msgbox Route209_Text_TwinEmmaPost, MSGBOX_AUTOCLOSE
+	end
+
+Route209_Text_TwinEmmaIntro:
+	.string "Emma: We're tough because we battle\ntogether!$"
+
+Route209_Text_TwinEmmaDefeat:
+	.string "Emma: Waaah!$"
+
+Route209_Text_TwinEmmaPost:
+	.string "Emma: That was awesome!\nAre you maybe a Pokémon genius?\pYou're well deserving of respect!$"
+
+Route209_Text_TwinEmmaNoPartner:
+	.string "We won't talk to people who have only\none Pokémon!$"
+
+Route209_EventScript_YoungCoupleTrainerSue::
+	trainerbattle_double TRAINER_SINNOH_YOUNG_COUPLE_TY_AND_SUE, Route209_Text_YoungCoupleTrainerSueIntro, Route209_Text_YoungCoupleTrainerSueDefeat, Route209_Text_YoungCoupleTrainerSueNoPartner
+	msgbox Route209_Text_YoungCoupleTrainerSuePost, MSGBOX_AUTOCLOSE
+	end
+
+Route209_Text_YoungCoupleTrainerSueIntro:
+	.string "Sue: Huh?\nYou want to battle with me?\pI will if I can team with Ty!$"
+
+Route209_Text_YoungCoupleTrainerSueDefeat:
+	.string "Sue: I'm sorry, Ty!$"
+
+Route209_Text_YoungCoupleTrainerSuePost:
+	.string "Sue: We lost... Ty, I need a hug\nto make it all better!$"
+
+Route209_Text_YoungCoupleTrainerSueNoPartner:
+	.string "Sue: I only want to battle next to my\nsweet Ty.\pDon't you have two Pokémon?$"
+
+Route209_EventScript_YoungCoupleTrainerTy::
+	trainerbattle_double TRAINER_SINNOH_YOUNG_COUPLE_TY_AND_SUE, Route209_Text_YoungCoupleTrainerTyIntro, Route209_Text_YoungCoupleTrainerTyDefeat, Route209_Text_YoungCoupleTrainerTyNoPartner
+	msgbox Route209_Text_YoungCoupleTrainerTyPost, MSGBOX_AUTOCLOSE
+	end
+
+Route209_Text_YoungCoupleTrainerTyIntro:
+	.string "Ty: You're not supposed to intrude\non my time with Sue!$"
+
+Route209_Text_YoungCoupleTrainerTyDefeat:
+	.string "Ty: I only have eyes for Sue.\nMaybe that's why we lost?$"
+
+Route209_Text_YoungCoupleTrainerTyPost:
+	.string "Ty: Sue, even in defeat, you're\nso beautiful...!$"
+
+Route209_Text_YoungCoupleTrainerTyNoPartner:
+	.string "Ty: I don't want to do anything\nwithout Sue...\pBring two Pokémon at least, OK?$"
+
+Route209_EventScript_TwinLil::
+	trainerbattle_double TRAINER_SINNOH_TWINS_EMMA_AND_LIL, Route209_Text_TwinLilIntro, Route209_Text_TwinLilDefeat, Route209_Text_TwinLilNoPartner
+	msgbox Route209_Text_TwinLilPost, MSGBOX_AUTOCLOSE
+	end
+
+Route209_Text_TwinLilIntro:
+	.string "Lil: We're gonna crunch and\nmunch you all up!$"
+
+Route209_Text_TwinLilDefeat:
+	.string "Lil: Hwaaah!$"
+
+Route209_Text_TwinLilPost:
+	.string "Lil: We're going to be super-strong\nTrainers like you!\pI just decided now!\nPlease cheer for us!$"
+
+Route209_Text_TwinLilNoPartner:
+	.string "We don't talk to people who have only\none Pokémon!$"

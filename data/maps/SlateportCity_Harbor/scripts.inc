@@ -307,19 +307,23 @@ SlateportCity_Harbor_EventScript_SailToCanalave::
 	end
 
 SlateportCity_Harbor_Text_WhereTo:
-	.string "Bem-vindo ao Porto de Slateport City em Hoenn!\nPara onde gostaria de navegar?$"
+	.string "Welcome to SLATEPORT CITY, HOENN!\n"
+	.string "Where would you like to sail?$"
 
 SlateportCity_Harbor_Text_SettingSailToOlivine:
-	.string "Zarpando para Olivine City em Johto!$"
+	.string "Setting sail for OLIVINE CITY\n"
+	.string "in JOHTO!$"
 
 SlateportCity_Harbor_Text_SettingSailToVermilion:
-	.string "Zarpando para Vermilion City em Kanto!$"
+	.string "Setting sail for VERMILION CITY\n"
+	.string "in KANTO!$"
 
 SlateportCity_Harbor_Text_SettingSailToCanalave:
-	.string "Zarpando para Canalave City em Sinnoh!$"
+	.string "Setting sail for CANALAVE CITY\n"
+	.string "in SINNOH!$"
 
 SlateportCity_Harbor_Text_ComeAgain:
-	.string "Volte quando quiser navegar.$"
+	.string "Come see me whenever you want to\nset sail.$"
 
 SlateportCity_Harbor_EventScript_FatMan::
 	msgbox SlateportCity_Harbor_Text_SubTooSmallForMe, MSGBOX_NPC
@@ -581,4 +585,5 @@ SlateportCity_Harbor_EventScript_SailToVirbank::
 	end
 
 SlateportCity_Harbor_Text_SettingSailToVirbank:
-	.string "Zarpando para Virbank City em Unova!$"
+	.string "Setting sail for VIRBANK CITY\n"
+	.string "in UNOVA!$"

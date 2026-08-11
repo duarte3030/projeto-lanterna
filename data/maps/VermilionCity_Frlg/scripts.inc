@@ -398,34 +398,38 @@ VermilionCity_EventScript_AssistenteJaEntregou::
 	end
 
 VermilionCity_Text_FerrySemPasse:
-	.string "So embarca quem tem o PASSE TRI.\pO assistente do PROF. CARVALHO\n"
-	.string "esta aqui no cais, procure ele.$"
+	.string "Only TRAINERS with the TRI-PASS\nmay board.\pPROF. OAK's AIDE is here on the\n"
+	.string "pier. Go and find him.$"
 
 VermilionCity_Text_AssistenteAindaNao:
-	.string "Sou assistente do PROF. CARVALHO.\pEle guarda um passe de navio para\n"
-	.string "quem vencer a LIGA de KANTO.$"
+	.string "I'm one of PROF. OAK's AIDES.\pHe holds a ferry pass for those\n"
+	.string "who conquer the KANTO LEAGUE.$"
 
 VermilionCity_Text_AssistenteEntrega:
-	.string "Voce venceu a LIGA de KANTO!\pO PROF. CARVALHO mandou lhe entregar\n"
-	.string "isto, para conhecer JOHTO.$"
+	.string "You conquered the KANTO LEAGUE!\pPROF. OAK told me to hand you\n"
+	.string "this, so you can see JOHTO.$"
 
 VermilionCity_Text_AssistenteJaEntregou:
-	.string "O PASSE TRI ja esta com voce.\nBoa viagem!$"
+	.string "You already have the TRI-PASS.\nHave a safe trip!$"
 
 VermilionCity_Text_WhereTo:
-	.string "Bem-vindo ao Porto de Vermilion City em Kanto!\nPara onde gostaria de navegar?$"
+	.string "Welcome to VERMILION CITY, KANTO!\n"
+	.string "Where would you like to sail?$"
 
 VermilionCity_Text_SettingSailToOlivine:
-	.string "Zarpando para Olivine City em Johto!$"
+	.string "Setting sail for OLIVINE CITY\n"
+	.string "in JOHTO!$"
 
 VermilionCity_Text_SettingSailToSlateport:
-	.string "Zarpando para Slateport City em Hoenn!$"
+	.string "Setting sail for SLATEPORT CITY\n"
+	.string "in HOENN!$"
 
 VermilionCity_Text_SettingSailToCanalave:
-	.string "Zarpando para Canalave City em Sinnoh!$"
+	.string "Setting sail for CANALAVE CITY\n"
+	.string "in SINNOH!$"
 
 VermilionCity_Text_ComeAgain:
-	.string "Volte quando quiser navegar.$"
+	.string "Come see me whenever you want to\nset sail.$"
 
 VermilionCity_Text_PokemonFanClubSign::
 	.string "POKéMON FAN CLUB\n"
@@ -524,4 +528,5 @@ VermilionCity_EventScript_SailToVirbank::
 	end
 
 VermilionCity_Text_SettingSailToVirbank:
-	.string "Zarpando para Virbank City em Unova!$"
+	.string "Setting sail for VIRBANK CITY\n"
+	.string "in UNOVA!$"

@@ -394,3 +394,74 @@ campo do warp fica sempre na unidade e é clampado em 10. `testa_critico.py`
 mandava LEFT e RIGHT achando que era campo de três dígitos, então pedir o warp
 10 entrava o warp 1, e a casa leste de Sunyshore reprovava com a porta certa.
 `digita_warp` conserta, e o T55.6 guarda contra a volta.
+
+---
+
+## 13. Os treinadores de masmorra, prédio e ginásio, 11/08/2026
+
+`dev_scripts/treinadores_masmorra_sinnoh.py` ligou **105 objetos (103
+treinadores) em 22 mapas** de Sinnoh que não são rota. Fecha a metade
+não-rota do buraco descrito na seção 1: o campo `script` do Platinum é um
+índice de texto **ou** a constante `TRAINER_*`, e `importa_npcs_sinnoh.py` só
+sabia ler a primeira, então todo treinador entrou aqui mudo, com
+`TRAINER_TYPE_NONE`.
+
+**Os oito ginásios de Sinnoh tinham só o líder.** Medido antes de acrescentar:
+os oito têm `trainerbattle` do líder e a insígnia (`FLAG_INSIGNIA_SINNOH_*`)
+desde a leva de `porta_ginasios_sinnoh.py`, e os treinadores de dentro estavam
+todos com `script: "0"`. Nenhuma batalha de líder foi refeita.
+
+**Zero id novo, zero constante nova, zero flag, zero var, zero objeto.** A faixa
+de id 2550-2749 que esta frente recebeu **continua livre**, e o motivo é medida,
+não economia: os **425 `TRAINER_SINNOH_*` já estavam declarados** (855 a 1315) e
+os 425 **já tinham bloco em `src/data/trainers.party`**. Criar id novo para eles
+duplicaria time e texto na ROM e daria duas flags de "já venci" para a mesma
+pessoa. `trainers.party` e `opponents.h` não foram tocados. A flag de derrotado
+é derivada de `TRAINER_FLAGS_START` pelo próprio motor.
+
+**Reusa o boneco mudo em vez de criar objeto.** A save guarda índice de objeto,
+então objeto novo só entraria no fim da lista e o mudo continuaria de pé ao lado
+do treinador, em dobro. `guarda_save.py` diz SAVE COMPATIVEL e os 1895 mapas
+seguem 1895.
+
+De onde sai cada campo, medido na fonte:
+
+| campo | fonte |
+|---|---|
+| quem é treinador | `events_<mapa>.json`, objeto cujo `script` é `str` e começa com `TRAINER_` |
+| raio de visão | `data[0]` do mesmo objeto. Sem `data` o raio é 0, e o Platinum tem 7 assim: lutam quando falam com eles |
+| direção | `movement_type` da fonte, `LOOK_SOUTH/NORTH/WEST/EAST` -> `FACE_DOWN/UP/LEFT/RIGHT` |
+| fala de antes, de derrota e de depois | `res/trainers/data/<slug>.json`, `messages`, tipos `TRMSG_PRE_BATTLE`, `TRMSG_DEFEAT`, `TRMSG_POST_BATTLE`. **Não é o banco de texto do mapa**: em gen 4 o motor cuida do treinador sozinho e a fala mora junto com o time dele |
+
+**Direção só se porta quando a coordenada bate.** Medido: 90 dos 103 estão no
+`x`/`z` exato da fonte (caverna de geometria convertida e ginásio de planta
+própria). Nos 13 de planta REAPROVEITADA (sala de treinador do ginásio de
+Hearthome, salas de Sunyshore, Oreburgh Gate, Café) o importador teve que
+reposicionar, e ali "virado para oeste" aponta para outra parede: esses 27
+objetos ficam com o `LOOK_AROUND` que o importador deixou, que enxerga girando.
+
+**Batalha dupla: os dois bonecos apontam para o MESMO `EventScript`.** No
+Platinum o par (`TRAINER_DOUBLE_TEAM_AL_AND_KAY` na Victory Road 2F e
+`..._JO_AND_PAT` na B1F) é dois objetos com a MESMA constante. Aqui os dois
+apontam para o mesmo `trainerbattle_double`, então encostar em qualquer um dos
+dois começa a mesma batalha e, depois dela, os dois falam o texto de depois.
+Dar id próprio ao parceiro criaria uma batalha que a fonte não tem; deixá-lo
+mudo deixaria um boneco calado colado no treinador.
+
+### O que ficou de fora, e o motivo medido
+
+| quanto | o quê | por quê |
+|---|---|---|
+| 242 | os treinadores das 37 rotas de Sinnoh | outra frente, rodando em paralelo |
+| 13 | 8 de `EternaForest` | o objeto importado está escondido por `FLAG_SINNOH_NPC_DUPLICADO` e quem luta é o nativo, que já tem a batalha. **Recusar aqui é o certo**: ligar o clone poria dois do mesmo treinador no mapa |
+| 10 | `GalacticHQ_1F`/`_2F`, `MtCoronet3F`/`4F`/`5F`/`6F`, `TeamGalacticEternaBuilding_3F` | o objeto nem chegou a ser importado: `hidden_flag` do Platinum, sprite proibido ou nome próprio sem arte (seções 2 e 3) |
+| 3 | `OreburghMine_B2F` (2) e `StarkMountainOutside` (1) | alinhamento. São exatamente os dois casos que a seção 0 já registrava: `OreburghMine_B2F` é um dos 2 mapas em 309 que não alinham gráfico a gráfico, e `StarkMountainOutside` é exterior de "passagem provisoria", que entrou sem NPC de propósito |
+| 3 | grunts de `LakeValorDrained`, `MtCoronet1FTunnelRoom`, `ValleyWindworksBuilding`, `TeamGalacticEternaBuilding_1F` | a constante **já está em uso** noutro mapa: a frente da Galáctica pôs esses grunts no mapa de fora. Reusar a mesma constante daria duas pessoas com a mesma flag de derrotado |
+
+**Custo de ROM: 25,7 KB** (21.620 B de `.string` mais 4.738 B de script, com
+`trainerbattle` a 40 B, `msgbox` a 5 e `end` a 1), contra 1,56 MB livres.
+
+`completude.py` não se move com esta leva, e isso está certo: ela conta mapa,
+objeto, warp e placa, e nenhum objeto novo foi criado. O número que mudou é
+outro: as constantes de treinador de Sinnoh que algum `trainerbattle` cita
+foram de **249 para 352**.

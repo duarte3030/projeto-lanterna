@@ -103,15 +103,15 @@ SnowpointCity_Text_TempleSign:
 	.string "SNOWPOINT TEMPLE$"
 
 SnowpointCity_Text_SailorOferece:
-	.string "Meu barco vai para a Battle Zone,\n"
-	.string "do outro lado do mar.\p"
-	.string "Quer embarcar?$"
+	.string "My boat sails to the BATTLE ZONE,\n"
+	.string "across the sea.\p"
+	.string "Care to come aboard?$"
 
 SnowpointCity_Text_SailorZarpa:
-	.string "Zarpando para a Battle Zone!$"
+	.string "Setting sail for the BATTLE ZONE!$"
 
 SnowpointCity_Text_SailorRecusa:
-	.string "Quando mudar de ideia, e so chamar.$"
+	.string "Just call me when you change\nyour mind.$"
 
 @ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
 

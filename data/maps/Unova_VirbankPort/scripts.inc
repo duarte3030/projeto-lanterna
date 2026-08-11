@@ -33,7 +33,8 @@ Unova_VirbankPort_EventScript_ZarparOlivine::
 	end
 
 Unova_VirbankPort_Text_ZarparOlivine:
-	.string "Zarpando para Olivine City em Johto!$"
+	.string "Setting sail for OLIVINE CITY\n"
+	.string "in JOHTO!$"
 
 Unova_VirbankPort_EventScript_ZarparSlateport::
 	msgbox Unova_VirbankPort_Text_ZarparSlateport, MSGBOX_DEFAULT
@@ -44,7 +45,8 @@ Unova_VirbankPort_EventScript_ZarparSlateport::
 	end
 
 Unova_VirbankPort_Text_ZarparSlateport:
-	.string "Zarpando para Slateport City em Hoenn!$"
+	.string "Setting sail for SLATEPORT CITY\n"
+	.string "in HOENN!$"
 
 Unova_VirbankPort_EventScript_ZarparVermilion::
 	msgbox Unova_VirbankPort_Text_ZarparVermilion, MSGBOX_DEFAULT
@@ -55,7 +57,8 @@ Unova_VirbankPort_EventScript_ZarparVermilion::
 	end
 
 Unova_VirbankPort_Text_ZarparVermilion:
-	.string "Zarpando para Vermilion City em Kanto!$"
+	.string "Setting sail for VERMILION CITY\n"
+	.string "in KANTO!$"
 
 Unova_VirbankPort_EventScript_ZarparCanalave::
 	msgbox Unova_VirbankPort_Text_ZarparCanalave, MSGBOX_DEFAULT
@@ -66,13 +69,15 @@ Unova_VirbankPort_EventScript_ZarparCanalave::
 	end
 
 Unova_VirbankPort_Text_ZarparCanalave:
-	.string "Zarpando para Canalave City em Sinnoh!$"
+	.string "Setting sail for CANALAVE CITY\n"
+	.string "in SINNOH!$"
 
 Unova_VirbankPort_Text_ParaOnde:
-	.string "Bem-vindo ao Porto de Virbank City em Unova!\nPara onde gostaria de navegar?$"
+	.string "Welcome to VIRBANK CITY, UNOVA!\n"
+	.string "Where would you like to sail?$"
 
 Unova_VirbankPort_Text_Volte:
-	.string "Volte quando quiser zarpar!$"
+	.string "Come see me whenever you want to\nset sail!$"
 
 
 

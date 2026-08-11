@@ -1,0 +1,13 @@
+[
+  {
+    "id": "T88.1",
+    "nome": "Sinnoh: a ESCADA de MtCoronet2F em (7,23) leva de verdade ao outro lado, e o outro lado abre o caminho para o 3F. Ate 11/08/2026 esse warp apontava para SI MESMO (dest_warp_id 1 no proprio mapa): pisar nele nao fazia nada, porque a conversao trouxe so metade do par de escadas do Platinum, que la sao os warps 2 e 3 de mt_coronet_2f. Medido na grade: as linhas 13 a 22 do mapa sao parede macica de ponta a ponta, entao esse par de escadas e o UNICO caminho entre a sala do sul (que vem do 1F) e a metade norte, onde fica a escada para o 3F. Com o warp morto, MtCoronet3F era inalcancavel a pe. O conserto nao renumerou nada, porque a save do Gui ja esta congelada: o degrau que faltava entrou como warp 3, no FIM da lista, e o tile (7,12) recebeu a palavra 0x323F COPIADA do proprio (7,23) deste mapa (metatile 575, MB_LADDER), em cima de chao andavel que ja existia. O roteiro nao tem uma unica contagem exata depois da escada: cada trecho anda ate BATER na parede (direita ate x=8, cima ate y=3, direita ate x=11), entao ele nao depende de o warp largar o jogador virado para um lado ou para o outro. CONTRAPROVA rodada em 11/08/2026: este mesmo caso na ROM anterior ao conserto para em MAP_MT_CORONET_2F, porque a escada devolve o jogador ao lugar de onde ele saiu.",
+    "warp": "MAP_MT_CORONET_2F",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN,40:NADA,20:UP,20:UP,90:NADA,20:RIGHT,20:RIGHT,20:RIGHT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,180:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_3F",
+      "layout": "LAYOUT_MT_CORONET_3F"
+    }
+  }
+]

@@ -49,19 +49,23 @@ OlivinePort_EventScript_SailToCanalave::
 	end
 
 OlivinePort_Text_WhereTo:
-	.string "Bem-vindo ao Porto de Olivine City em Johto!\nPara onde gostaria de navegar?$"
+	.string "Welcome to OLIVINE CITY, JOHTO!\n"
+	.string "Where would you like to sail?$"
 
 OlivinePort_Text_SettingSailToVermilion:
-	.string "Zarpando para Vermilion City em Kanto!$"
+	.string "Setting sail for VERMILION CITY\n"
+	.string "in KANTO!$"
 
 OlivinePort_Text_SettingSailToSlateport:
-	.string "Zarpando para Slateport City em Hoenn!$"
+	.string "Setting sail for SLATEPORT CITY\n"
+	.string "in HOENN!$"
 
 OlivinePort_Text_SettingSailToCanalave:
-	.string "Zarpando para Canalave City em Sinnoh!$"
+	.string "Setting sail for CANALAVE CITY\n"
+	.string "in SINNOH!$"
 
 OlivinePort_Text_ComeAgain:
-	.string "Volte quando quiser navegar entre as regioes.$"
+	.string "Come see me whenever you want to\nsail between the regions.$"
 
 OlivinePort_EventScript_SailToVirbank::
 	msgbox OlivinePort_Text_SettingSailToVirbank, MSGBOX_DEFAULT
@@ -72,4 +76,5 @@ OlivinePort_EventScript_SailToVirbank::
 	end
 
 OlivinePort_Text_SettingSailToVirbank:
-	.string "Zarpando para Virbank City em Unova!$"
+	.string "Setting sail for VIRBANK CITY\n"
+	.string "in UNOVA!$"
