@@ -2758,3 +2758,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/IronIslandIronRuins/scripts.inc"
 	.include "data/maps/IronRuins/scripts.inc"
 	.include "data/maps/StarkMountainRoom3/scripts.inc"
+	.include "data/maps/MtCoronetOutsideSouth/scripts.inc"
+	.include "data/maps/MtCoronet4FRooms1And2/scripts.inc"

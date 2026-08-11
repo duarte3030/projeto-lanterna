@@ -2208,7 +2208,8 @@
     "IronIslandB2FRightRoom",
     "IronIslandIronRuins",
     "IronRuins",
-    "StarkMountainRoom3"
+    "StarkMountainRoom3",
+    "MtCoronet4FRooms1And2"
   ],
   "gMapGroup_IndoorSinnohPortas2": [
     "PastoriaCityPokecenterB1F",
@@ -2270,6 +2271,7 @@
     "UnusedJubilifeCitySouthHouse4F",
     "SendoffSpring",
     "IronIsland",
-    "StarkMountainOutside"
+    "StarkMountainOutside",
+    "MtCoronetOutsideSouth"
   ]
 }

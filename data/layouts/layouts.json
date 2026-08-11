@@ -19199,6 +19199,17 @@
       "border_filepath": "data/layouts/StarkMountainRoom3/border.bin",
       "blockdata_filepath": "data/layouts/StarkMountainRoom3/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_MT_CORONET_4F_ROOMS_1_AND_2",
+      "name": "MtCoronet4FRooms1And2_Layout",
+      "width": 64,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/MtCoronet4FRooms1And2/border.bin",
+      "blockdata_filepath": "data/layouts/MtCoronet4FRooms1And2/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

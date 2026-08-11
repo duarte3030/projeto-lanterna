@@ -487,6 +487,14 @@ def casa_voltas():
     A regra e a unica que nao precisa de gosto: o degrau certo do destino e o
     warp DELE que aponta de volta para mim. Warp que nao tem volta (boca de
     caverna para a rua, que cai no capacho do pai) fica como esta.
+
+    Excecao medida em 07/08/2026, na Mt. Coronet 4F Rooms 1 and 2: quando os
+    dois lados da escada estao no MESMO mapa (a sala 1 e a sala 2 dividem um
+    header de 64x32), "o warp que aponta de volta para mim" inclui o proprio
+    warp, e ele ganhava por ser o de indice menor. Resultado: pisar na escada
+    devolvia o jogador ao tile onde ele ja estava, warp que dispara e nao leva a
+    lugar nenhum. O degrau nunca e voce mesmo, entao o indice proprio sai da
+    lista.
     """
     convertidos = _mapas_convertidos()
     por_id = {}
@@ -498,12 +506,13 @@ def casa_voltas():
     trocados = 0
     for pasta, d in convertidos.items():
         mudou = False
-        for w in d.get("warp_events", []):
+        for meu, w in enumerate(d.get("warp_events", [])):
             alvo = por_id.get(w["dest_map"])
             if not alvo:
                 continue
             voltas = [i for i, v in enumerate(alvo[1].get("warp_events", []))
-                      if v["dest_map"] == d["id"]]
+                      if v["dest_map"] == d["id"]
+                      and not (w["dest_map"] == d["id"] and i == meu)]
             if not voltas or int(w["dest_warp_id"]) in voltas:
                 continue
             w["dest_warp_id"] = str(voltas[0])
@@ -586,13 +595,20 @@ def demo():
         if os.path.exists(arq):
             d = json.load(open(arq))
             por_id[d["id"]] = d
+    #    E o degrau nunca e o proprio warp QUANDO existe parceiro: escada com os
+    #    dois lados no mesmo mapa (Mt. Coronet 4F Rooms 1 and 2) devolvia o
+    #    jogador ao tile onde ele ja estava. Sem parceiro nao ha o que apontar, e
+    #    e o caso da Mt. Coronet 2F, onde o outro lado da escada da fonte caiu
+    #    fora do corpo andavel e foi descartado na conversao; consertar aquilo e
+    #    renumerar warp de mapa que ja esta na ROM, nao e trabalho desta funcao.
     for d in _mapas_convertidos().values():
-        for w in d.get("warp_events", []):
+        for meu, w in enumerate(d.get("warp_events", [])):
             alvo = por_id.get(w["dest_map"])
             if not alvo:
                 continue
             voltas = [i for i, v in enumerate(alvo.get("warp_events", []))
-                      if v["dest_map"] == d["id"]]
+                      if v["dest_map"] == d["id"]
+                      and not (w["dest_map"] == d["id"] and i == meu)]
             assert not voltas or int(w["dest_warp_id"]) in voltas, (
                 d["id"], w["dest_map"], w["dest_warp_id"], voltas)
     print("demo ok")

@@ -66,6 +66,7 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(REPO, "dev_scripts"))
 import abre_bocas_cavernas_sinnoh as B   # noqa: E402
 import abre_portas_extras_sinnoh as A    # noqa: E402
+import converte_cavernas_sinnoh as C     # noqa: E402
 import fecha_portas_sinnoh as F          # noqa: E402
 import importa_npcs_sinnoh as I          # noqa: E402
 
@@ -81,9 +82,15 @@ ORIGEM = ("passagem provisoria: planta reaproveitada de {planta} do repo, "
 
 # (header do Platinum, pai nosso, planta do repo)
 EXTERIORES = [
-    ("MAP_HEADER_SENDOFF_SPRING",         "Route214",     "Route226_Access"),
-    ("MAP_HEADER_IRON_ISLAND",            "CanalaveCity", "Route226_Access"),
-    ("MAP_HEADER_STARK_MOUNTAIN_OUTSIDE", "Route227",     "Route226_Access"),
+    ("MAP_HEADER_SENDOFF_SPRING",           "Route214",     "Route226_Access"),
+    ("MAP_HEADER_IRON_ISLAND",              "CanalaveCity", "Route226_Access"),
+    ("MAP_HEADER_STARK_MOUNTAIN_OUTSIDE",   "Route227",     "Route226_Access"),
+    # O pai aqui e caverna CONVERTIDA da grade 2D, nao rua: a boca sai pela
+    # coordenada da fonte (ver `boca_na_grade`), nao pelo teste de parede. Este
+    # exterior destrava `MT_CORONET_4F_ROOMS_1_AND_2`, 323 tiles de chao de
+    # masmorra na grade do Platinum, que e filho SO dos dois Mt. Coronet Outside
+    # e por isso nunca apareceu na fila do conversor.
+    ("MAP_HEADER_MT_CORONET_OUTSIDE_SOUTH", "MtCoronet3F",  "Route226_Access"),
 ]
 
 
@@ -106,6 +113,45 @@ def pendentes():
     return [e for e in EXTERIORES if F.nome_de_pasta(e[0]) not in pastas]
 
 
+def boca_na_grade(pai, d_pai, header, heads):
+    """(x, y) da escada quando o PAI tambem saiu da grade 2D do Platinum.
+
+    E o caso 1 de `abre_bocas_cavernas_sinnoh`: os dois lados sao a mesma grade,
+    entao a coordenada da fonte vale aqui tile a tile e nao ha por que cacar
+    parede. O teste de parede so existe porque coordenada de RUA no Platinum e
+    global da matriz de Sinnoh e nao tem offset que alinhe; dentro de caverna
+    convertida esse problema nao existe.
+
+    Devolve None, e ai o chamador cai no teste de parede, se a coordenada da
+    fonte nao servir. Tres motivos, e cada um ja custou um mapa antes:
+
+    - fora do mapa: matriz do DS maior que a nossa;
+    - ja ocupada por outro warp deste mapa (medido em `MtCoronet4FRoom3`, onde a
+      saida da fonte para o Outside North e justamente o tile que o conversor
+      gastou como volta para o 5F);
+    - fora do corpo andavel principal: a boca da gen 4 costuma ser um bolsao
+      solto na grade 2D, e o jogador chegaria preso numa fresta (medido em
+      `MtCoronet1FTunnelRoom`, cujo (2,58) nao encosta nos 305 tiles do corpo).
+    """
+    ph = B.header_do_mapa(pai, d_pai, heads)
+    pe = (os.path.join(C.PLAT, "res/field/events", heads[ph][0] + ".json")
+          if ph else None)
+    if not pe or not os.path.exists(pe):
+        return None
+    _d, _l, w, h, pal, _c = A._grade(pai)
+    regiao = C.regiao_principal(pal, w, h)
+    ja = {(e["x"], e["y"]) for e in (d_pai.get("warp_events") or [])}
+    for wp in json.load(open(pe)).get("warp_events", []):
+        if wp["dest_header_id"] != header:
+            continue
+        x, z = int(wp["x"]), int(wp["z"])
+        if not (0 <= x < w and 0 <= z < h) or (x, z) in ja:
+            continue
+        if z * w + x in regiao:
+            return x, z
+    return None
+
+
 def main():
     if "--demo" in sys.argv:
         return demo()
@@ -115,33 +161,46 @@ def main():
     usados = {}
     for header, pai, planta in pendentes():
         d_pai = json.load(open(f"{REPO}/data/maps/{pai}/map.json"))
-        cands = [c for c in B.candidatos(pai)
-                 if (c[0], c[1]) not in set(usados.get(pai, []))]
-        escolha = B.escolhe(cands, B.ancoras(pai, d_pai, heads), None)
-        if escolha is None:
-            print(f"   {pai}: nenhum tile passa no teste de boca")
-            continue
+        na_grade = (boca_na_grade(pai, d_pai, header, heads)
+                    if B.convertido_do_ds(d_pai) else None)
+        if na_grade and na_grade not in set(usados.get(pai, [])):
+            # tile ja andavel: a palavra e a ESCADA de caverna do conversor, e
+            # nao a porta de casa do tileset geral que `B.palavra` devolveria
+            # aqui. Escada dispara ao pisar; a boca de caverna (519) e
+            # MB_SOUTH_ARROW_WARP e so dispara com o jogador VINDO DE CIMA, que
+            # nao e o caso de um tile no meio do chao.
+            escolha, forcada, como = (na_grade[0], na_grade[1], False, 0), \
+                C.ESCADA, "grade do DS"
+        else:
+            cands = [c for c in B.candidatos(pai)
+                     if (c[0], c[1]) not in set(usados.get(pai, []))]
+            escolha = B.escolhe(cands, B.ancoras(pai, d_pai, heads), None)
+            if escolha is None:
+                print(f"   {pai}: nenhum tile passa no teste de boca")
+                continue
+            forcada, como = None, "penhasco" if escolha[2] else "parede"
         usados.setdefault(pai, []).append((escolha[0], escolha[1]))
-        planos.append((header, pai, planta, volta_ao_mundo(planta), escolha))
+        planos.append((header, pai, planta, volta_ao_mundo(planta), escolha,
+                       forcada, como))
 
     print(f"exteriores que faltam: {len(pendentes())}")
-    for header, pai, planta, _v, esc in planos:
+    for header, pai, planta, _v, esc, _f, como in planos:
         print(f"   {F.nome_de_pasta(header):24} planta {planta:16} "
-              f"entra por {pai} ({esc[0]},{esc[1]}) "
-              f"{'penhasco' if esc[2] else 'parede'}")
+              f"entra por {pai} ({esc[0]},{esc[1]}) {como}")
     if not APLICAR:
         print("\nnada escrito (use --aplicar)")
         return 0
 
     grupos = json.load(open(f"{REPO}/data/maps/map_groups.json"))
     incs = []
-    for header, pai, planta, volta, esc in planos:
+    for header, pai, planta, volta, esc, forcada, _como in planos:
         pasta = F.nome_de_pasta(header)
         d_pai = json.load(open(f"{REPO}/data/maps/{pai}/map.json"))
         # a boca vai no map.bin do PAI. Layout exclusivo dele, conferido: sem
         # isso, desenhar aqui mudaria todo mapa que compartilha a planta.
         assert len(A.mapas_do_layout(d_pai["layout"])) == 1, pai
-        A.grava_tile(d_pai["layout"], esc[0], esc[1], B.palavra(pai, None))
+        A.grava_tile(d_pai["layout"], esc[0], esc[1],
+                     forcada or B.palavra(pai, None))
 
         base = json.load(open(f"{REPO}/data/maps/{planta}/map.json"))
         d = dict(base)
@@ -196,10 +255,47 @@ def demo():
     for _h, pai, _pl in EXTERIORES:
         d = json.load(open(f"{REPO}/data/maps/{pai}/map.json"))
         assert A.mapas_do_layout(d["layout"]) == [pai], pai
-    # 3. o pai tem que ter pelo menos um tile onde a boca cabe. Sem isso o
+    # 3. o pai tem que ter ONDE por a boca, por um dos dois caminhos. Sem isso o
     #    exterior nao teria como ser alcancado a pe.
-    for _h, pai, _pl in EXTERIORES:
-        assert B.candidatos(pai), pai
+    #    Nao exigir `B.candidatos` de todo pai: em caverna convertida a boca sai
+    #    da coordenada da fonte, e cacar parede la seria trocar dado por
+    #    heuristica.
+    heads = I.headers_do_platinum()
+    for header, pai, _pl in EXTERIORES:
+        d = json.load(open(f"{REPO}/data/maps/{pai}/map.json"))
+        assert (B.candidatos(pai)
+                or boca_na_grade(pai, d, header, heads)), pai
+    # 3b. no pai convertido da grade 2D, a coordenada da fonte tem que cair em
+    #     chao ANDAVEL e dentro do corpo principal, senao a escada entrega o
+    #     jogador preso numa fresta, e a palavra escrita tem que ter
+    #     comportamento de warp de verdade, lida da mesma tabela do motor.
+    #     A boca de caverna (519) NAO serve aqui: e MB_SOUTH_ARROW_WARP, so
+    #     dispara com o jogador vindo de cima. A ESCADA dispara ao pisar.
+    prim, _ = F._atributos("gTileset_GeneralSinnoh")
+    seg, _ = F._atributos("gTileset_CaveSinnoh")
+    mt = C.ESCADA & 0x3FF
+    tab, rel = (prim, mt) if mt < 512 else (seg, mt - 512)
+    assert tab[rel] in B.W.COMPORTA_WARP, (hex(C.ESCADA), tab[rel])
+    #     O fato e lido do DADO nos dois estados, nunca de uma copia: enquanto o
+    #     exterior esta pendente vale a coordenada da fonte, e depois de aplicado
+    #     vale o warp que ficou no pai. Assim o teste nao reprova o proprio
+    #     conserto quando a fila zera (licao 4.11 do ESTADO).
+    for header, pai, _pl in EXTERIORES:
+        d = json.load(open(f"{REPO}/data/maps/{pai}/map.json"))
+        if not B.convertido_do_ds(d):
+            continue
+        _dd, _l, w, h, pal, _c = A._grade(pai)
+        const = F.const_do_header(header)
+        pontos = [(e["x"], e["y"]) for e in (d.get("warp_events") or [])
+                  if e["dest_map"] == const]
+        if not pontos:
+            xy = boca_na_grade(pai, d, header, heads)
+            assert xy, (pai, header)
+            pontos = [xy]
+        regiao = C.regiao_principal(pal, w, h)
+        for x, y in pontos:
+            assert not ((pal[y * w + x] >> 10) & 3), (pai, (x, y))
+            assert y * w + x in regiao, (pai, (x, y))
     # 4. o nome da pasta tem que cair na mesma chave do header, senao o mapa
     #    entra na ROM e `completude.py` continua contando ele como ausente, e
     #    pior: o conversor de caverna nao reconhece o pai e nao cria nada.
@@ -209,8 +305,6 @@ def demo():
                 or I.APELIDOS.get(pasta) == header), header
     # 5. cada exterior tem que ser, na fonte, o pai de masmorra de verdade. Se
     #    nao for, este script esta abrindo passagem para nada.
-    heads = I.headers_do_platinum()
-    import converte_cavernas_sinnoh as C
     for header, _p, _pl in EXTERIORES:
         pe = os.path.join(C.PLAT, "res/field/events", heads[header][0] + ".json")
         filhos = [w["dest_header_id"]
