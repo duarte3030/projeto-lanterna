@@ -1,0 +1,139 @@
+[
+  {
+    "id": "T86.1",
+    "nome": "KANTO PARA HOENN: a balsa de Vermilion desembarca no Porto de Slateport, em (8,14). SLATEPORT e o item 1, um DOWN. Passa pelo mesmo portao do T4.2 e por isso o caso acende FLAG_SYS_GAME_CLEAR e fala com o assistente do Prof. Carvalho antes: sem o PASSE TRI o marinheiro recusa, e medido tirando a flag deste mesmo roteiro o jogador fica em Vermilion. A lista MULTI_CINCO_REGIOES_BARCO e sempre a mesma (0 OLIVINE, 1 SLATEPORT, 2 VERMILION, 3 VIRBANK, 4 CANALAVE, 5 Sair), o cursor comeca em 0 e o menu nao da a volta, entao o numero de DOWN e o proprio indice do destino, mesmo o porto de saida nao tendo case para si mesmo.",
+    "warp": "MAP_VERMILION_CITY",
+    "warp_id": 4,
+    "flags": [
+      "FLAG_SYS_GAME_CLEAR"
+    ],
+    "roteiro": "16:DOWN*3,30:NADA,16:RIGHT,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,60:NADA,16:DOWN,30:NADA,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*1,60:NADA,20:A,900:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_SLATEPORT_CITY_HARBOR",
+      "layout": "LAYOUT_HARBOR"
+    }
+  },
+  {
+    "id": "T86.2",
+    "nome": "KANTO PARA SINNOH: a balsa de Vermilion desembarca em Canalave City, em (17,49), o mesmo cais do T8.3. CANALAVE e o item 4, quatro DOWN, e Vermilion nao tem case 2 por ser ele mesmo: o indice nao muda por causa disso, e medido com tres DOWN o jogador cai no Porto de Virbank, ou seja em Unova. A lista MULTI_CINCO_REGIOES_BARCO e sempre a mesma (0 OLIVINE, 1 SLATEPORT, 2 VERMILION, 3 VIRBANK, 4 CANALAVE, 5 Sair), o cursor comeca em 0 e o menu nao da a volta, entao o numero de DOWN e o proprio indice do destino, mesmo o porto de saida nao tendo case para si mesmo.",
+    "warp": "MAP_VERMILION_CITY",
+    "warp_id": 4,
+    "flags": [
+      "FLAG_SYS_GAME_CLEAR"
+    ],
+    "roteiro": "16:DOWN*3,30:NADA,16:RIGHT,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,60:NADA,16:DOWN,30:NADA,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*4,60:NADA,20:A,900:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_CANALAVE_CITY",
+      "layout": "LAYOUT_CANALAVE_CITY"
+    }
+  },
+  {
+    "id": "T86.3",
+    "nome": "KANTO PARA UNOVA: a balsa de Vermilion desembarca no Porto de Virbank, em (4,6). VIRBANK e o item 3, tres DOWN. E a travessia mais longa da cadeia cronologica, saltando Johto, Hoenn e Sinnoh de uma vez. A lista MULTI_CINCO_REGIOES_BARCO e sempre a mesma (0 OLIVINE, 1 SLATEPORT, 2 VERMILION, 3 VIRBANK, 4 CANALAVE, 5 Sair), o cursor comeca em 0 e o menu nao da a volta, entao o numero de DOWN e o proprio indice do destino, mesmo o porto de saida nao tendo case para si mesmo.",
+    "warp": "MAP_VERMILION_CITY",
+    "warp_id": 4,
+    "flags": [
+      "FLAG_SYS_GAME_CLEAR"
+    ],
+    "roteiro": "16:DOWN*3,30:NADA,16:RIGHT,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,60:NADA,16:DOWN,30:NADA,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*3,60:NADA,20:A,900:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VIRBANK_PORT",
+      "layout": "LAYOUT_UNOVA_VIRBANK_PORT"
+    }
+  },
+  {
+    "id": "T86.4",
+    "nome": "JOHTO PARA SINNOH: o marinheiro do Porto de Olivine desembarca em Canalave City, em (17,49). CANALAVE e o item 4, quatro DOWN. Nao ha portao de passe saindo de Johto: o PASSE TRI so e cobrado em Vermilion, para nao trancar quem ja esta fora de Kanto. A lista MULTI_CINCO_REGIOES_BARCO e sempre a mesma (0 OLIVINE, 1 SLATEPORT, 2 VERMILION, 3 VIRBANK, 4 CANALAVE, 5 Sair), o cursor comeca em 0 e o menu nao da a volta, entao o numero de DOWN e o proprio indice do destino, mesmo o porto de saida nao tendo case para si mesmo.",
+    "warp": "MAP_OLIVINE_CITY_PORT_INSIDE",
+    "roteiro": "20:DOWN*12,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*4,60:NADA,20:A,900:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_CANALAVE_CITY",
+      "layout": "LAYOUT_CANALAVE_CITY"
+    }
+  },
+  {
+    "id": "T86.5",
+    "nome": "JOHTO PARA UNOVA: o marinheiro do Porto de Olivine desembarca no Porto de Virbank, em (4,6). VIRBANK e o item 3, tres DOWN. Medido tirando o 20:DOWN*12 que leva ao marinheiro, o jogador fica parado no proprio porto: os A do roteiro nao abrem menu nenhum sozinhos. A lista MULTI_CINCO_REGIOES_BARCO e sempre a mesma (0 OLIVINE, 1 SLATEPORT, 2 VERMILION, 3 VIRBANK, 4 CANALAVE, 5 Sair), o cursor comeca em 0 e o menu nao da a volta, entao o numero de DOWN e o proprio indice do destino, mesmo o porto de saida nao tendo case para si mesmo.",
+    "warp": "MAP_OLIVINE_CITY_PORT_INSIDE",
+    "roteiro": "20:DOWN*12,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*3,60:NADA,20:A,900:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VIRBANK_PORT",
+      "layout": "LAYOUT_UNOVA_VIRBANK_PORT"
+    }
+  },
+  {
+    "id": "T86.6",
+    "nome": "HOENN PARA KANTO: o marinheiro do Porto de Slateport desembarca em Vermilion City, em (15,10), o mesmo tile onde o S.S. Aqua larga quem vem de Johto. VERMILION e o item 2, dois DOWN. Esta direcao NAO cobra o PASSE TRI, de proposito. A lista MULTI_CINCO_REGIOES_BARCO e sempre a mesma (0 OLIVINE, 1 SLATEPORT, 2 VERMILION, 3 VIRBANK, 4 CANALAVE, 5 Sair), o cursor comeca em 0 e o menu nao da a volta, entao o numero de DOWN e o proprio indice do destino, mesmo o porto de saida nao tendo case para si mesmo.",
+    "warp": "MAP_SLATEPORT_CITY_HARBOR",
+    "roteiro": "20:UP*2,20:LEFT*10,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*2,60:NADA,20:A,900:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERMILION_CITY",
+      "layout": "LAYOUT_VERMILION_CITY"
+    }
+  },
+  {
+    "id": "T86.7",
+    "nome": "HOENN PARA UNOVA: o marinheiro do Porto de Slateport desembarca no Porto de Virbank, em (4,6). VIRBANK e o item 3, tres DOWN. A lista MULTI_CINCO_REGIOES_BARCO e sempre a mesma (0 OLIVINE, 1 SLATEPORT, 2 VERMILION, 3 VIRBANK, 4 CANALAVE, 5 Sair), o cursor comeca em 0 e o menu nao da a volta, entao o numero de DOWN e o proprio indice do destino, mesmo o porto de saida nao tendo case para si mesmo.",
+    "warp": "MAP_SLATEPORT_CITY_HARBOR",
+    "roteiro": "20:UP*2,20:LEFT*10,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*3,60:NADA,20:A,900:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VIRBANK_PORT",
+      "layout": "LAYOUT_UNOVA_VIRBANK_PORT"
+    }
+  },
+  {
+    "id": "T86.8",
+    "nome": "SINNOH PARA KANTO: o marinheiro Eldritch de Canalave desembarca em Vermilion City, em (15,10). VERMILION e o item 2, dois DOWN. O roteiro atravessa o canal de Canalave a pe, como os de T8.3, T8.5, T10.1 e T10.2: ver a secao 2 deste documento, e re-derivar os cinco juntos quando o dono do layout consertar a colisao. A lista MULTI_CINCO_REGIOES_BARCO e sempre a mesma (0 OLIVINE, 1 SLATEPORT, 2 VERMILION, 3 VIRBANK, 4 CANALAVE, 5 Sair), o cursor comeca em 0 e o menu nao da a volta, entao o numero de DOWN e o proprio indice do destino, mesmo o porto de saida nao tendo case para si mesmo.",
+    "warp": "MAP_CANALAVE_CITY",
+    "warp_id": 1,
+    "roteiro": "20:DOWN*20,20:LEFT*20,20:RIGHT*4,20:UP*12,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*2,60:NADA,20:A,900:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERMILION_CITY",
+      "layout": "LAYOUT_VERMILION_CITY"
+    }
+  },
+  {
+    "id": "T86.9",
+    "nome": "SINNOH PARA JOHTO: o marinheiro Eldritch de Canalave desembarca no Porto de Olivine, em (8,17). OLIVINE e o item 0, ZERO DOWN, e este e o unico caso em que nenhuma seta e apertada no menu: medido com um DOWN a mais o jogador cai no Porto de Slateport, em Hoenn. A lista MULTI_CINCO_REGIOES_BARCO e sempre a mesma (0 OLIVINE, 1 SLATEPORT, 2 VERMILION, 3 VIRBANK, 4 CANALAVE, 5 Sair), o cursor comeca em 0 e o menu nao da a volta, entao o numero de DOWN e o proprio indice do destino, mesmo o porto de saida nao tendo case para si mesmo.",
+    "warp": "MAP_CANALAVE_CITY",
+    "warp_id": 1,
+    "roteiro": "20:DOWN*20,20:LEFT*20,20:RIGHT*4,20:UP*12,30:NADA,20:A,900:NADA,20:A,120:NADA,20:A,900:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_OLIVINE_CITY_PORT_INSIDE",
+      "layout": "LAYOUT_OLIVINE_CITY_PORT_INSIDE"
+    }
+  },
+  {
+    "id": "T86.10",
+    "nome": "UNOVA PARA KANTO: o marinheiro do Porto de Virbank desembarca em Vermilion City, em (15,10). VERMILION e o item 2, dois DOWN. Como o T10.2, este caso comeca em Canalave e chega a Virbank de barco, porque o Porto de Virbank nao aceita warp de debug: os tres warps dele caem em cima de outro warp ou fora do mapa 10x8. Medido com um DOWN na SEGUNDA perna o jogador cai em Slateport, o que prova que o menu lido e o de Virbank e nao o de Canalave. A lista MULTI_CINCO_REGIOES_BARCO e sempre a mesma (0 OLIVINE, 1 SLATEPORT, 2 VERMILION, 3 VIRBANK, 4 CANALAVE, 5 Sair), o cursor comeca em 0 e o menu nao da a volta, entao o numero de DOWN e o proprio indice do destino, mesmo o porto de saida nao tendo case para si mesmo.",
+    "warp": "MAP_CANALAVE_CITY",
+    "warp_id": 1,
+    "roteiro": "20:DOWN*20,20:LEFT*20,20:RIGHT*4,20:UP*12,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*3,60:NADA,20:A,900:NADA,20:A,300:NADA,16:RIGHT*5,30:NADA,16:UP,30:NADA,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*2,60:NADA,20:A,900:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERMILION_CITY",
+      "layout": "LAYOUT_VERMILION_CITY"
+    }
+  },
+  {
+    "id": "T86.11",
+    "nome": "UNOVA PARA JOHTO: o marinheiro do Porto de Virbank desembarca no Porto de Olivine, em (8,17). OLIVINE e o item 0, zero DOWN. Chega a Virbank de barco pelo mesmo motivo do T86.10. A lista MULTI_CINCO_REGIOES_BARCO e sempre a mesma (0 OLIVINE, 1 SLATEPORT, 2 VERMILION, 3 VIRBANK, 4 CANALAVE, 5 Sair), o cursor comeca em 0 e o menu nao da a volta, entao o numero de DOWN e o proprio indice do destino, mesmo o porto de saida nao tendo case para si mesmo.",
+    "warp": "MAP_CANALAVE_CITY",
+    "warp_id": 1,
+    "roteiro": "20:DOWN*20,20:LEFT*20,20:RIGHT*4,20:UP*12,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*3,60:NADA,20:A,900:NADA,20:A,300:NADA,16:RIGHT*5,30:NADA,16:UP,30:NADA,30:NADA,20:A,900:NADA,20:A,120:NADA,20:A,900:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_OLIVINE_CITY_PORT_INSIDE",
+      "layout": "LAYOUT_OLIVINE_CITY_PORT_INSIDE"
+    }
+  },
+  {
+    "id": "T86.12",
+    "nome": "UNOVA PARA HOENN: o marinheiro do Porto de Virbank desembarca no Porto de Slateport, em (8,14). SLATEPORT e o item 1, um DOWN. Chega a Virbank de barco pelo mesmo motivo do T86.10. Fecha as 20 rotas dirigidas dos cinco portos. A lista MULTI_CINCO_REGIOES_BARCO e sempre a mesma (0 OLIVINE, 1 SLATEPORT, 2 VERMILION, 3 VIRBANK, 4 CANALAVE, 5 Sair), o cursor comeca em 0 e o menu nao da a volta, entao o numero de DOWN e o proprio indice do destino, mesmo o porto de saida nao tendo case para si mesmo.",
+    "warp": "MAP_CANALAVE_CITY",
+    "warp_id": 1,
+    "roteiro": "20:DOWN*20,20:LEFT*20,20:RIGHT*4,20:UP*12,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*3,60:NADA,20:A,900:NADA,20:A,300:NADA,16:RIGHT*5,30:NADA,16:UP,30:NADA,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*1,60:NADA,20:A,900:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_SLATEPORT_CITY_HARBOR",
+      "layout": "LAYOUT_HARBOR"
+    }
+  }
+]
