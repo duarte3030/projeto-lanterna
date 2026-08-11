@@ -32,9 +32,16 @@ O que quebra uma save, em ordem de facilidade de errar:
    4 x 3968 = 15872 bytes. Passar disso nao da erro de compilacao obvio, da save
    corrompida.
 
-O que este script NAO cobre: indice de especie, item e move dentro do Pokemon
-salvo. Se um dia alguem reordenar `SPECIES_*`, nenhuma save sobrevive, e isso
-precisa de outra checagem.
+5. **Indice de especie, item e move.** A save guarda o NUMERO deles dentro do
+   Pokemon e da bag. Reordenar `SPECIES_*`, `ITEM_*` ou `MOVE_*` reinterpreta o
+   time inteiro do jogador, sem mexer em mapa nem em SaveBlock, entao nenhuma
+   das quatro checagens acima enxerga. Coberto desde 11/08/2026 por
+   `indices_de_dado()`, que guarda a POSICAO de cada nome dentro do enum:
+   acrescentar no FIM e livre, mover ou inserir no meio reprova.
+
+O que este script continua NAO cobrindo: qualquer estado novo que alguem
+resolva salvar. Campo novo em struct de save e quebra por definicao, e a
+checagem 3 pega, mas so depois de escrito.
 """
 import hashlib
 import json
@@ -107,12 +114,44 @@ def tamanho_saveblock1():
     return None
 
 
+def ordinais_de_enum(header, prefixo):
+    """nome -> posicao dentro do enum, na ordem em que o arquivo declara.
+
+    Guarda POSICAO e nao valor de proposito: entrada sem `= N` explicito herda o
+    valor da anterior mais um, entao a posicao e o que realmente define o numero,
+    e reordenar ou inserir no meio aparece na posicao mesmo quando ninguem
+    escreveu numero nenhum.
+    """
+    txt = open(f"{RAIZ}/include/constants/{header}").read()
+    txt = re.sub(r"/\*.*?\*/", "", txt, flags=re.S)
+    txt = re.sub(r"//[^\n]*", "", txt)
+    nomes = re.findall(r"^\s*(%s_[A-Z0-9_]+)\s*(?:=[^,\n]+)?,\s*$" % prefixo,
+                       txt, re.M)
+    return {n: i for i, n in enumerate(nomes)}
+
+
+def indices_de_dado():
+    """Especie, item e move: o que o Pokemon salvo guarda como INDICE.
+
+    O buraco que este bloco fecha estava declarado no topo deste arquivo: a save
+    guarda especie, item segurado, move e item da bag como NUMERO. Reordenar
+    qualquer um desses enums reinterpreta o time inteiro do jogador, e nenhuma
+    das outras checagens enxerga isso, porque nem o SaveBlock nem os mapas mudam.
+    """
+    return {
+        "species": ordinais_de_enum("species.h", "SPECIES"),
+        "items": ordinais_de_enum("items.h", "ITEM"),
+        "moves": ordinais_de_enum("moves.h", "MOVE"),
+    }
+
+
 def impressao_atual():
     return {
         "mapas": indices_de_mapa(),
         "contagens": contagens(),
         "structs": layout_dos_structs(),
         "sizeof_saveblock1": tamanho_saveblock1(),
+        "dados": indices_de_dado(),
     }
 
 
@@ -162,6 +201,24 @@ def compara(velha, nova):
     if n and n > TETO_SAVEBLOCK1:
         quebras.append(f"SAVEBLOCK1 ESTOUROU: {n} B > {TETO_SAVEBLOCK1} B "
                        f"(setores 1 a 4). Save corrompe sem erro de compilacao.")
+
+    # Especie, item e move: a save guarda o NUMERO deles dentro do Pokemon.
+    # Impressao velha sem a chave "dados" e de antes desta checagem existir, e
+    # nao tem contra o que comparar: nao inventa quebra.
+    for tipo, vd in (velha.get("dados") or {}).items():
+        nd = (nova.get("dados") or {}).get(tipo, {})
+        ultimo = max(vd.values()) if vd else -1
+        for nome, pos in vd.items():
+            if nome not in nd:
+                quebras.append(f"{tipo.upper()} APAGADO: {nome} ocupava {pos}. "
+                               f"Pokemon salvo com ele vira outra coisa.")
+            elif nd[nome] != pos:
+                quebras.append(f"{tipo.upper()} MOVIDO: {nome} era {pos}, virou "
+                               f"{nd[nome]}. O time salvo inteiro e reinterpretado.")
+        for nome, pos in nd.items():
+            if nome not in vd and pos <= ultimo:
+                quebras.append(f"{tipo.upper()} INSERIDO NO MEIO: {nome} entrou em "
+                               f"{pos}, empurrando os seguintes. Acrescente no FIM.")
     return quebras
 
 
@@ -228,6 +285,37 @@ def demo():
     cresceu = json.loads(json.dumps(base)); cresceu["sizeof_saveblock1"] = 1084
     assert any("MUDOU DE TAMANHO" in x for x in compara(base, cresceu)), \
         "crescer dentro do teto continua invalidando save"
+
+    # Especie, item e move. Impressao sem a chave "dados" e anterior a esta
+    # checagem: nao pode inventar quebra em quem gravou antes.
+    assert compara(base, json.loads(json.dumps(base))) == []
+
+    comdados = json.loads(json.dumps(base))
+    comdados["dados"] = {"species": {"SPECIES_NONE": 0, "SPECIES_BULBASAUR": 1,
+                                     "SPECIES_IVYSAUR": 2}}
+    assert compara(comdados, comdados) == [], "igual a igual nao quebra"
+
+    # acrescentar no FIM e legitimo: e assim que treinador e item novo entram
+    apend = json.loads(json.dumps(comdados))
+    apend["dados"]["species"]["SPECIES_VENUSAUR"] = 3
+    assert compara(comdados, apend) == [], compara(comdados, apend)
+
+    # inserir no MEIO empurra todo mundo depois: o time salvo vira outra coisa
+    ins = {"species": {"SPECIES_NONE": 0, "SPECIES_NOVO": 1,
+                       "SPECIES_BULBASAUR": 2, "SPECIES_IVYSAUR": 3}}
+    q = compara(comdados, {**comdados, "dados": ins})
+    assert any("MOVIDO" in x for x in q), q
+    assert any("INSERIDO NO MEIO" in x for x in q), q
+
+    # apagar do meio
+    ap = {"species": {"SPECIES_NONE": 0, "SPECIES_IVYSAUR": 2}}
+    assert any("APAGADO" in x for x in compara(comdados, {**comdados, "dados": ap}))
+
+    # a leitura de verdade do header tem que achar as tres tabelas e comecar em NONE
+    reais = indices_de_dado()
+    for tipo, prefixo in (("species", "SPECIES"), ("items", "ITEM"), ("moves", "MOVE")):
+        assert len(reais[tipo]) > 300, (tipo, len(reais[tipo]))
+        assert reais[tipo][f"{prefixo}_NONE"] == 0, tipo
     print("demo ok")
 
 
