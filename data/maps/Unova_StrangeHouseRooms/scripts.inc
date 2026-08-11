@@ -94,3 +94,37 @@ Unova_StrangeHouseRooms_Text_StrangeHouseRoomGhostText::
 	.string "\p…That was fun…"
 	.string "\pI hope you come"
 	.string "\nto play again…$"
+
+@ troca de Pokemon do BW3G, no molde de Route2_House_Frlg (vanilla)
+Unova_StrangeHouseRooms_EventScript_Troca::
+	lock
+	faceplayer
+	setvar VAR_0x8008, INGAME_TRADE_UNOVA_STRANGE
+	call EventScript_GetInGameTradeSpeciesInfo
+	goto_if_set FLAG_UNOVA_TROCA_STRANGE, Unova_StrangeHouseRooms_EventScript_TrocaFeita
+	msgbox Unova_Text_Troca3Intro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Unova_StrangeHouseRooms_EventScript_TrocaNao
+	call EventScript_ChooseMonForInGameTrade
+	goto_if_ge VAR_0x8004, PARTY_SIZE, Unova_StrangeHouseRooms_EventScript_TrocaNao
+	call EventScript_GetInGameTradeSpecies
+	goto_if_ne VAR_RESULT, VAR_0x8009, Unova_StrangeHouseRooms_EventScript_TrocaErrada
+	call EventScript_DoInGameTrade
+	msgbox Unova_Text_Troca3Complete
+	setflag FLAG_UNOVA_TROCA_STRANGE
+	release
+	end
+
+Unova_StrangeHouseRooms_EventScript_TrocaNao::
+	msgbox Unova_Text_Troca3Cancel
+	release
+	end
+
+Unova_StrangeHouseRooms_EventScript_TrocaErrada::
+	msgbox Unova_Text_Troca3Wrong
+	release
+	end
+
+Unova_StrangeHouseRooms_EventScript_TrocaFeita::
+	msgbox Unova_Text_Troca3After
+	release
+	end

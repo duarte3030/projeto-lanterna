@@ -1748,6 +1748,17 @@
 #define FLAG_UNOVA_ARVORE_R_7                    FLAG_UNUSED_0x4D0
 #define FLAG_UNOVA_ARVORE_VILLAGE_BRIDGE         FLAG_UNUSED_0x4D1
 
+// Trocas de Pokemon de Unova (dev_scripts/importa_trocas_unova.py)
+#define FLAG_UNOVA_TROCA_HUMILAU                 FLAG_UNUSED_0x4D2
+#define FLAG_UNOVA_TROCA_STRANGE                 FLAG_UNUSED_0x4D3
+#define FLAG_UNOVA_TROCA_FLOCCESY                FLAG_UNUSED_0x4D4
+#define FLAG_UNOVA_TROCA_CASTELIA_1              FLAG_UNUSED_0x4D5
+#define FLAG_UNOVA_TROCA_CASTELIA_2              FLAG_UNUSED_0x4D6
+#define FLAG_UNOVA_TROCA_STRIATON                FLAG_UNUSED_0x4D7
+#define FLAG_UNOVA_TROCA_ACCUMULA                FLAG_UNUSED_0x4D8
+#define FLAG_UNOVA_TROCA_DRIFTVEIL               FLAG_UNUSED_0x4D9
+#define FLAG_UNOVA_TROCA_R_7                     FLAG_UNUSED_0x4DA
+
 // Grutas escondidas de Unova (dev_scripts/importa_placas_unova.py).
 // Faixa 0x4B4 a 0x4EE, reservada a essa frente em 05/08/2026.
 #define FLAG_UNOVA_GRUTA_GIANTCHASMB1F            FLAG_UNUSED_0x4B4

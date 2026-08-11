@@ -1211,7 +1211,153 @@ static const struct InGameTrade sIngameTrades[] =
         .otGender = MALE,
         .sheen = 10,
         .requestedSpecies = SPECIES_PONYTA
-    }
+    },
+    // >>> trocas de Unova (dev_scripts/importa_trocas_unova.py) >>>
+    [INGAME_TRADE_UNOVA_HUMILAU] =
+    {
+        .nickname = _("TRON"),
+        .species = SPECIES_MAGNEMITE,
+        .ivs = {4, 12, 16, 18, 12, 12},
+        .abilityNum = 0,
+        .otId = 37460,
+        .conditions = {5, 5, 5, 5, 5},
+        .personality = 0x00006896,
+        .heldItem = ITEM_ORAN_BERRY,
+        .mailNum = MAIL_NONE,
+        .otName = _("HUEY"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_CLEFFA
+    },
+    [INGAME_TRADE_UNOVA_STRANGE] =
+    {
+        .nickname = _("SOULCASKET"),
+        .species = SPECIES_SPIRITOMB,
+        .ivs = {16, 18, 12, 12, 12, 12},
+        .abilityNum = 0,
+        .otId = 48926,
+        .conditions = {5, 5, 5, 5, 5},
+        .personality = 0x00009666,
+        .heldItem = ITEM_LEPPA_BERRY,
+        .mailNum = MAIL_NONE,
+        .otName = _("REGINA"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_ZORUA
+    },
+    [INGAME_TRADE_UNOVA_FLOCCESY] =
+    {
+        .nickname = _("ARMS"),
+        .species = SPECIES_BELDUM,
+        .ivs = {16, 18, 16, 16, 16, 16},
+        .abilityNum = 0,
+        .otId = 29189,
+        .conditions = {5, 5, 5, 5, 5},
+        .personality = 0x00009888,
+        .heldItem = ITEM_SITRUS_BERRY,
+        .mailNum = MAIL_NONE,
+        .otName = _("LUCY"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_CORSOLA
+    },
+    [INGAME_TRADE_UNOVA_CASTELIA_1] =
+    {
+        .nickname = _("ERNESTO"),
+        .species = SPECIES_THROH,
+        .ivs = {0, 20, 20, 12, 12, 12},
+        .abilityNum = 0,
+        .otId = 283,
+        .conditions = {5, 5, 5, 5, 5},
+        .personality = 0x0000aa66,
+        .heldItem = ITEM_PROTEIN,
+        .mailNum = MAIL_NONE,
+        .otName = _("EMY"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_MARACTUS
+    },
+    [INGAME_TRADE_UNOVA_CASTELIA_2] =
+    {
+        .nickname = _("ROBERTO"),
+        .species = SPECIES_SAWK,
+        .ivs = {0, 20, 20, 12, 12, 12},
+        .abilityNum = 0,
+        .otId = 15616,
+        .conditions = {5, 5, 5, 5, 5},
+        .personality = 0x0000aa66,
+        .heldItem = ITEM_PROTEIN,
+        .mailNum = MAIL_NONE,
+        .otName = _("KRISSY"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_MARACTUS
+    },
+    [INGAME_TRADE_UNOVA_STRIATON] =
+    {
+        .nickname = _("SHREDDER"),
+        .species = SPECIES_PAWNIARD,
+        .ivs = {10, 24, 18, 12, 18, 18},
+        .abilityNum = 0,
+        .otId = 37644,
+        .conditions = {5, 5, 5, 5, 5},
+        .personality = 0x0000c969,
+        .heldItem = ITEM_FOCUS_SASH,
+        .mailNum = MAIL_NONE,
+        .otName = _("LAURIE"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_TROPIUS
+    },
+    [INGAME_TRADE_UNOVA_ACCUMULA] =
+    {
+        .nickname = _("FLUFFY"),
+        .species = SPECIES_LARVITAR,
+        .ivs = {10, 24, 18, 12, 18, 18},
+        .abilityNum = 0,
+        .otId = 26491,
+        .conditions = {5, 5, 5, 5, 5},
+        .personality = 0x0000c969,
+        .heldItem = ITEM_KINGS_ROCK,
+        .mailNum = MAIL_NONE,
+        .otName = _("KIM"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_SKARMORY
+    },
+    [INGAME_TRADE_UNOVA_DRIFTVEIL] =
+    {
+        .nickname = _("VALMONT"),
+        .species = SPECIES_DEINO,
+        .ivs = {12, 16, 18, 22, 24, 24},
+        .abilityNum = 0,
+        .otId = 50082,
+        .conditions = {5, 5, 5, 5, 5},
+        .personality = 0x000089bc,
+        .heldItem = ITEM_DRAGON_FANG,
+        .mailNum = MAIL_NONE,
+        .otName = _("DOUG"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_AXEW
+    },
+    [INGAME_TRADE_UNOVA_R_7] =
+    {
+        .nickname = _("SHEN"),
+        .species = SPECIES_DRATINI,
+        .ivs = {20, 22, 16, 22, 20, 20},
+        .abilityNum = 0,
+        .otId = 26592,
+        .conditions = {5, 5, 5, 5, 5},
+        .personality = 0x0000b8ba,
+        .heldItem = ITEM_LIFE_ORB,
+        .mailNum = MAIL_NONE,
+        .otName = _("STANLEY"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_KLINK
+    },
+    // <<< trocas de Unova <<<
 };
 
 static const u16 sIngameTradeMail[][MAIL_WORDS_COUNT + 1] =

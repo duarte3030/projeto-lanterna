@@ -75,6 +75,99 @@ certo é falar com o Phantonomy antes.
 
 ---
 
+## Estado em 11/08/2026: as trocas entraram, e o resto de Unova é enredo
+
+Medido nesta sessão contra o BW3G, mapa a mapa
+(`dev_scripts/importa_trocas_unova.py --demo` e um varredor que lê os
+`map.json` daqui contra o `.asm` de lá). **Os números da seção 8 do `ESTADO.md`
+estavam velhos**: as 117 placas e os 264 NPCs mudos já tinham sido fechados nos
+commits `febde977c3` (107 placas) e `0508831d27` (33 NPCs), e ninguém atualizou
+o documento.
+
+| medida | antes | agora |
+|---|---|---|
+| placas (`bg_event`) | 497 de 507 | 497 de 507, e os 10 que faltam são recusa medida |
+| objetos mudos | 114 | **106** |
+| objetos mudos que TÊM script na fonte | 18 | **10** |
+| cenas de enredo (`coord_event`) | 0 de 209 | 0 de 209, ver abaixo |
+| trocas de Pokémon | 0 de 9 | **9 de 9** |
+
+### As 9 trocas de Pokémon (`dev_scripts/importa_trocas_unova.py`)
+
+O comando `trade NPC_TRADE_X` do gen 2 lê uma TABELA
+(`data/events/npc_trades.asm`), e por isso `importa_npcs_unova.py` tinha
+recusado essas nove casas: tabela não é script. A tabela do BW3G agora vira
+entrada em `sIngameTrades` (`src/data/trade.h`), que é a mesma mecânica de troca
+em jogo que o repo já usa em Hoenn e Kanto, e o NPC chama o roteiro do vanilla
+(`EventScript_DoInGameTrade` e companhia), no molde de `Route2_House_Frlg`.
+
+Espécie pedida, espécie oferecida, apelido, item, número e nome do OT e os
+quatro conjuntos de diálogo saem todos da fonte. As conversões de formato, todas
+registradas no cabeçalho do script: DV de gen 2 vira IV com `IV = DV * 2` (o
+Especial único alimenta SpAtk e SpDef); BERRY vira ORAN, GOLD_BERRY vira SITRUS
+e MYSTERYBERRY vira LEPPA, por efeito; e o sexo do OT sai do **sprite** do NPC
+na fonte, porque a tabela do gen 2 não guarda esse campo.
+
+**Custo: 9 flags (`0x4D2` a `0x4DA`), zero var, zero objeto novo, zero mapa
+novo.** Só o campo `script` de objeto que já existia mudou, então nenhum índice
+de save se mexeu (`guarda_save.py` diz SAVE COMPATIVEL).
+
+O NPC de Humilau veio com o portão que ele tem na fonte: só troca depois que o
+jogador tem um POKéMON (`EVENT_GOT_A_POKEMON_FROM_ELM` lá,
+`FLAG_SYS_POKEMON_GET` aqui), e antes disso diz o mesmo texto de sempre.
+
+Dois defeitos que o `--demo` pegou e que passariam calados no estático:
+o texto do conjunto 4 começa com `text_ram` antes de qualquer `text`, e o leitor
+genérico cortava o nome da frente ("'s cute, but I don't have it"); e a última
+entrada do `sIngameTrades` do vanilla fecha **sem vírgula**, então emendar a
+primeira de Unova ali sem pôr uma não compila.
+
+### As 209 cenas de enredo continuam fora, e isto é decisão medida
+
+Classificando as 209 uma a uma pelos comandos que elas usam de verdade:
+
+- **107 são `changeblock`**, o comando que reescreve a grade de blocos do gen 2
+  (1225 chamadas ao todo, quase todas nas Seaside Cave e no complexo de
+  Virbank). Portar exige traduzir id de bloco do gen 2 para metatile daqui, um
+  por um, mais uma flag por estado.
+- **47 usam `setscene`/`setmapscene`, 27 abrem batalha (`loadtrainer` +
+  `startbattle`), 21 chamam `special` e 16 chamam `callasm`.** É a máquina de
+  estados do enredo da Plasma; portar a cena sem portar o enredo é portar nada.
+- **32 são mecanicamente portáveis, e 17 delas são BLOQUEIO**: o NPC vira, fala
+  e empurra o jogador de volta (os dois guardas da Pinwheel, a ponte de
+  Skyarrow, a saída de Mistralton, a casa do Marlon, o parque de Nimbasa). No
+  BW3G o enredo apaga esse bloqueio depois; aqui o enredo nunca avança, então
+  cada uma viraria **parede permanente**, que é a armadilha das 39 pedras de
+  Strength outra vez, e ainda cortaria alcance de mapa. Das 15 restantes, 8 são
+  a segunda metade de uma cena (só `applymovement`, movem o jogador sem motivo
+  se a primeira metade não existe), 3 só acendem um `EVENT_` que ninguém lê, e 5
+  são chegada de avião ou de metrô, que anunciariam uma viagem que este jogo não
+  tem.
+
+### O que ainda tem script na fonte e continua mudo (10 objetos)
+
+Dois consoles de sala de link (`TradeCenter`), quatro decorações do quarto do
+jogador (`describedecoration`, que é o sistema de decoração do gen 2), dois do
+Day Care da Rota 3 (aqui o Day Care é um par de `map_script` com LOCALID, não um
+NPC solto), um da casa de batalha de Opelucid (depende de var de enredo) e o
+vizinho da R22, que é o MESMO script do vizinho de Humilau, definido no `.asm`
+do outro mapa e por isso invisível para o importador: quem for fechá-lo copia o
+par de textos de `HumilauCity.asm` e troca `EVENT_GOT_A_POKEMON_FROM_ELM` por
+`FLAG_SYS_POKEMON_GET`.
+
+### Os 2 testes reprovados de Unova já estavam consertados
+
+O `ESTADO.md` diz "2 reprovados são de Unova" desde `53c2a92213` (05/08, 20:47).
+Os únicos casos de Unova naquele commit eram `T10.1`, `T10.2` (Canalave para o
+Porto de Virbank e a volta) e `T20.4` (o inicial de Nuvema). O conserto veio uma
+hora depois, em `44cae4fa02`, que é o commit que pôs `waitstate` nos quatro
+`warpsilent` do Porto de Virbank, e ninguém corrigiu a linha do documento.
+Rodados de novo em 11/08/2026 na ROM da árvore: **T10 4/4 e T20 6/6 passam**, e
+nenhum arquivo de Unova mudou entre a build daquela ROM e agora
+(`git log --since` na pasta de Unova volta vazio), então o resultado vale.
+
+---
+
 ## Estado em 05/08/2026: a região entrou
 
 Feito por `dev_scripts/importa_unova.py` (roda de novo e regenera tudo do zero,

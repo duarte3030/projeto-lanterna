@@ -21,6 +21,17 @@ enum InGameTradeID
     INGAME_TRADE_ELECTRODE,
     INGAME_TRADE_TANGELA,
     INGAME_TRADE_SEEL,
+    // >>> trocas de Unova (dev_scripts/importa_trocas_unova.py) >>>
+    INGAME_TRADE_UNOVA_HUMILAU,
+    INGAME_TRADE_UNOVA_STRANGE,
+    INGAME_TRADE_UNOVA_FLOCCESY,
+    INGAME_TRADE_UNOVA_CASTELIA_1,
+    INGAME_TRADE_UNOVA_CASTELIA_2,
+    INGAME_TRADE_UNOVA_STRIATON,
+    INGAME_TRADE_UNOVA_ACCUMULA,
+    INGAME_TRADE_UNOVA_DRIFTVEIL,
+    INGAME_TRADE_UNOVA_R_7,
+    // <<< trocas de Unova <<<
 };
 
 // Return values for CanTradeSelectedMon and CanSpinTradeMon
