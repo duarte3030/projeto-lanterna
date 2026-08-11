@@ -37,7 +37,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VeilstoneCity_EventScript_Guitarist1",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_VEILSTONE_POKEFAN_M",
@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VeilstoneCity_EventScript_PokefanM",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_VEILSTONE_BATTLE_GIRL_1",
@@ -65,7 +65,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VeilstoneCity_EventScript_BattleGirl1",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_VEILSTONE_LADY",
@@ -93,7 +93,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VeilstoneCity_EventScript_BattleGirl2",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_VEILSTONE_ROUGHNECK",
@@ -121,7 +121,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VeilstoneCity_EventScript_Guitarist2",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_VEILSTONE_BATTLE_GIRL_3",
@@ -135,7 +135,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VeilstoneCity_EventScript_BattleGirl3",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_VEILSTONE_GUITARIST_3",
@@ -149,7 +149,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VeilstoneCity_EventScript_Guitarist3",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_VEILSTONE_GALACTIC_GRUNT",
@@ -437,7 +437,7 @@
       "y": 38,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "VeilstoneCity_EventScript_Placa11",
+      "script": "VeilstoneCity_EventScript_Placa1",
       "origem": "pokeplatinum"
     },
     {
@@ -504,21 +504,25 @@
       "origem": "pokeplatinum"
     },
     {
-      "type": "sign",
+      "type": "hidden_item",
       "x": 16,
       "y": 17,
       "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "item": "ITEM_CALCIUM",
+      "flag": "FLAG_ITEM_SINNOH_VEILSTONE_CITY_CALCIUM",
+      "quantity": 1,
+      "underfoot": false,
       "origem": "pokeplatinum"
     },
     {
-      "type": "sign",
+      "type": "hidden_item",
       "x": 26,
       "y": 24,
       "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "item": "ITEM_PP_UP",
+      "flag": "FLAG_ITEM_SINNOH_VEILSTONE_CITY_PP_UP",
+      "quantity": 1,
+      "underfoot": false,
       "origem": "pokeplatinum"
     },
     {
@@ -555,15 +559,6 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "VeilstoneCity_EventScript_Placa14",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 61,
-      "y": 57,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
       "origem": "pokeplatinum"
     }
   ]

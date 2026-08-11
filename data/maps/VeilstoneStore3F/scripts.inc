@@ -33,11 +33,11 @@ VeilstoneStore3F_Text_Npc1:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-VeilstoneStore3F_EventScript_Npc1::
-	msgbox VeilstoneStore3F_Text_Npc1, MSGBOX_NPC
+VeilstoneStore3F_EventScript_Npc4::
+	msgbox VeilstoneStore3F_Text_Npc4, MSGBOX_NPC
 	end
 
-VeilstoneStore3F_Text_Npc1:
+VeilstoneStore3F_Text_Npc4:
 	.string "A friend traded me a MACHOKE using\nDS Wireless Communications.\pBut instead of a MACHOKE, I got\na different Pokémon!$"
 
 VeilstoneStore3F_EventScript_Npc2::

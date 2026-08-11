@@ -218,7 +218,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     },
     {
@@ -232,7 +232,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     },
     {
@@ -246,7 +246,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     },
     {
@@ -260,7 +260,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     },
     {
@@ -274,7 +274,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     },
     {
@@ -288,7 +288,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     },
     {
@@ -302,7 +302,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     },
     {
@@ -316,7 +316,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     },
     {
@@ -330,7 +330,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     }
   ],
@@ -407,30 +407,25 @@
       "origem": "pokeplatinum"
     },
     {
-      "type": "sign",
+      "type": "hidden_item",
       "x": 27,
       "y": 52,
       "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "item": "ITEM_CARBOS",
+      "flag": "FLAG_ITEM_SINNOH_ROUTE_214_CARBOS",
+      "quantity": 1,
+      "underfoot": false,
       "origem": "pokeplatinum"
     },
     {
-      "type": "sign",
-      "x": 41,
-      "y": 38,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
+      "type": "hidden_item",
       "x": 24,
       "y": 60,
       "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "item": "ITEM_RAZOR_FANG",
+      "flag": "FLAG_ITEM_SINNOH_ROUTE_214_RAZOR_FANG",
+      "quantity": 1,
+      "underfoot": false,
       "origem": "pokeplatinum"
     }
   ]

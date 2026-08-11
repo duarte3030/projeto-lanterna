@@ -10,11 +10,11 @@ EternaCityEastHouse_Text_Npc1:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-EternaCityEastHouse_EventScript_Npc1::
-	msgbox EternaCityEastHouse_Text_Npc1, MSGBOX_NPC
+EternaCityEastHouse_EventScript_Npc3::
+	msgbox EternaCityEastHouse_Text_Npc3, MSGBOX_NPC
 	end
 
-EternaCityEastHouse_Text_Npc1:
+EternaCityEastHouse_Text_Npc3:
 	.string "Eterna came to be long ago in honor\nof ancient Pokémon.\pThough many things have changed,\nwhat is important has not.\pI hope it remains that way forever\nmore...$"
 
 EternaCityEastHouse_EventScript_Npc2::

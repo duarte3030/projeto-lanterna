@@ -11,7 +11,10 @@ Unova_VirbankPort_EventScript_Marinheiro::
 	lock
 	faceplayer
 	msgbox Unova_VirbankPort_Text_ParaOnde, MSGBOX_DEFAULT
-	multichoice 0, 0, MULTI_BOAT_DESTINATIONS, FALSE
+	@ O menu e montado em data/scripts/travessia_regioes.inc e esconde o
+	@ destino ainda nao liberado. Os `case` abaixo NAO mudam: o id
+	@ empilhado continua sendo o indice antigo da lista.
+	call Travessia_EventScript_MenuDeDestinos
 	switch VAR_RESULT
 	case 0, Unova_VirbankPort_EventScript_ZarparOlivine
 	case 1, Unova_VirbankPort_EventScript_ZarparSlateport

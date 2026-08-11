@@ -24,9 +24,9 @@ Route216House_Text_Placa2:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-Route216House_EventScript_Npc1::
-	msgbox Route216House_Text_Npc1, MSGBOX_NPC
+Route216House_EventScript_Npc2::
+	msgbox Route216House_Text_Npc2, MSGBOX_NPC
 	end
 
-Route216House_Text_Npc1:
+Route216House_Text_Npc2:
 	.string "I don't have Thick Fat like some\nPokémon.\pThat's why I'm bundled up in layers of\nthick clothes.\pIncidentally, do you know what the\nability Thick Fat does?\pIt halves the damage taken from Ice-\nand Fire-type moves.$"

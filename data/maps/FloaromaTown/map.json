@@ -37,7 +37,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "FloaromaTown_EventScript_BreederF",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_FLOAROMA_LASS_WEST",
@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "FloaromaTown_EventScript_LassWest",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_FLOAROMA_SCHOOL_KID",
@@ -65,7 +65,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "FloaromaTown_EventScript_SchoolKid",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_FLOAROMA_BEAUTY",
@@ -79,7 +79,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "FloaromaTown_EventScript_Beauty",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_FLOAROMA_LASS_EAST",
@@ -93,7 +93,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "FloaromaTown_EventScript_LassEast",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_FLOAROMA_GRUNT",
@@ -121,7 +121,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "FloaromaTown_EventScript_Camper",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",

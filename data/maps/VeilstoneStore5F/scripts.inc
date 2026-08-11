@@ -47,11 +47,11 @@ VeilstoneStore5F_Text_Placa2:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-VeilstoneStore5F_EventScript_Npc1::
-	msgbox VeilstoneStore5F_Text_Npc1, MSGBOX_NPC
+VeilstoneStore5F_EventScript_Npc4::
+	msgbox VeilstoneStore5F_Text_Npc4, MSGBOX_NPC
 	end
 
-VeilstoneStore5F_Text_Npc1:
+VeilstoneStore5F_Text_Npc4:
 	.string "I've had enough of shopping for\na while.\pI'll grab a drink and unwind a bit.$"
 
 VeilstoneStore5F_EventScript_Npc2::

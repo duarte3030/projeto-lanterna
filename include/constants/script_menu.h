@@ -243,6 +243,15 @@ enum
 // 2, ou seja, a terceira opcao nunca existiu no menu e a segunda era "Sair".
 // O menu do barco entre regioes estava mentindo desde que foi escrito.
 // Medido em 05/08/2026, ao acrescentar Unova como quarto destino.
+//
+// PAROU DE SER USADA EM 11/08/2026. Menu estatico nao sabe esconder destino, e
+// o desenho pedia que a regiao ainda nao liberada nem aparecesse. O menu dos
+// cinco portos passou a ser montado em `data/scripts/travessia_regioes.inc` com
+// `dynmultipush NOME, ID`, que devolve em VAR_RESULT o ID EMPILHADO e nao a
+// linha escolhida: por isso os `case` dos cinco portos continuam sendo os
+// indices desta lista, mesmo com o menu encolhendo. A lista e o apelido ficam
+// aqui porque nao custam ROM enquanto ninguem os cita, e porque documentam a
+// numeracao que os `case` ainda usam. Nao apagar sem reescrever os cinco portos.
 #ifndef MULTI_BOAT_DESTINATIONS
 #define MULTI_BOAT_DESTINATIONS MULTI_CINCO_REGIOES_BARCO
 #endif

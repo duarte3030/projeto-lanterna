@@ -40,18 +40,18 @@ VeilstoneStore2F_Text_Npc2:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-VeilstoneStore2F_EventScript_Npc1::
-	msgbox VeilstoneStore2F_Text_Npc1, MSGBOX_NPC
+VeilstoneStore2F_EventScript_Npc4::
+	msgbox VeilstoneStore2F_Text_Npc4, MSGBOX_NPC
 	end
 
-VeilstoneStore2F_Text_Npc1:
+VeilstoneStore2F_Text_Npc4:
 	.string "Where can I find matching dresses for\nmyself and my dear Pokémon?$"
 
-VeilstoneStore2F_EventScript_Npc2::
-	msgbox VeilstoneStore2F_Text_Npc2, MSGBOX_NPC
+VeilstoneStore2F_EventScript_Npc5::
+	msgbox VeilstoneStore2F_Text_Npc5, MSGBOX_NPC
 	end
 
-VeilstoneStore2F_Text_Npc2:
+VeilstoneStore2F_Text_Npc5:
 	.string "I'm going to give an HP Up to\nmy KRICKETOT.\pThis is going to raise its HP, huh?$"
 
 VeilstoneStore2F_EventScript_Npc3::

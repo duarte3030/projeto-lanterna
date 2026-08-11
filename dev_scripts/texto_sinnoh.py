@@ -31,6 +31,16 @@ saem listados em `--itens`, com o item que a fonte diz que deveria estar no
 chao. Virar item de verdade custa uma flag por item e depende do dono do
 projeto (decisao 13 do ESTADO.md).
 
+**Teto conhecido, criado em 11/08/2026 e nao consertado de proposito:**
+`dev_scripts/itens_escondidos_sinnoh.py` resolveu esses 146 (50 viraram item
+escondido, 96 foram apagados), e apagar bg_event DESALINHA a contagem que este
+arquivo usa para casar placa com placa. Nos 53 mapas que ele tocou,
+`len(n_placas) == len(f_placas)` deixa de valer, entao eles passam a cair em
+`placa_mapa_pulado` e nao recebem texto novo de placa. O texto de placa daqueles
+mapas ja foi aplicado antes (229 placas, na leva de 11/08), entao a perda e de
+capacidade futura, nao de conteudo. Quem precisar reabrir esses mapas tem que
+gravar o indice de origem no proprio evento em vez de depender da ordem.
+
 Uso:
     python3 dev_scripts/texto_sinnoh.py            # so relata
     python3 dev_scripts/texto_sinnoh.py --itens    # lista os itens escondidos
@@ -210,13 +220,50 @@ def tabela_de_itens():
 
 
 def rotulo_livre(usados, mapa, tipo, seq):
-    """`<Mapa>_EventScript_<tipo><n>`, pulando numero que o arquivo ja usa."""
+    """`<Mapa>_EventScript_<tipo><n>`, pulando numero que o arquivo ja usa.
+
+    `usados` TEM que vir semeado com os rotulos que o scripts.inc ja tem. A
+    primeira versao comecava com o conjunto vazio e renumerava do 1, por cima de
+    `<Mapa>_EventScript_Placa4` que `texto_placas_sinnoh.py` ja tinha escrito:
+    134 `symbol already defined` em 50 mapas, e o build inteiro parado.
+    """
     while True:
         seq[0] += 1
         n = f"{mapa}_EventScript_{tipo}{seq[0]}"
         if n not in usados and n.replace("_EventScript_", "_Text_") not in usados:
             usados.add(n)
             return n
+
+
+def rotulos_repetidos():
+    """[(rotulo, [arquivos])] definido mais de uma vez na unidade de montagem.
+
+    Conferir que o rotulo EXISTE nao prova nada: rotulo duplicado existe duas
+    vezes e passa nessa checagem. Quem reprova e o assembler, entao a pergunta
+    tem que ser feita na camada dele: `data/event_scripts.s` inclui os 2018
+    `scripts.inc` num arquivo so, e o nome tem que ser unico no CONJUNTO, nao
+    dentro de cada arquivo.
+
+    `.if/.else` fica de fora: o vanilla define o mesmo rotulo nos dois ramos de
+    proposito (`MtChimney_EventScript_BagIsFull`) e so um e montado.
+    """
+    raiz = os.path.join(REPO, "data/event_scripts.s")
+    incs = re.findall(r'\.include\s+"([^"]+)"', open(raiz, errors="replace").read())
+    dono = {}
+    for p in [raiz] + [os.path.join(REPO, i) for i in incs]:
+        if not os.path.exists(p):
+            continue
+        ramo = 0
+        for linha in open(p, errors="replace"):
+            t = linha.strip()
+            if t.startswith(".if"):
+                ramo += 1
+            elif t.startswith(".endif"):
+                ramo = max(0, ramo - 1)
+            m = re.match(r"^(\w+):{1,2}\s*$", linha)
+            if m and not ramo:
+                dono.setdefault(m.group(1), []).append(os.path.relpath(p, REPO))
+    return [(k, v) for k, v in dono.items() if len(v) > 1]
 
 
 def main():
@@ -400,7 +447,17 @@ def demo():
     assert resolve(["Hi, {STRVAR_1 3, 0, 0}!"], {0: "PlayerName"}) == "Hi, {PLAYER}!$"
     assert resolve(["Hi, {STRVAR_1 3, 1, 0}!"], {0: "PlayerName"}) is None
     assert resolve(["{SIZE 200}Thud!!\r"], {}) == "Thud!!$"
-    print("demo ok")
+    # 5. rotulo que o arquivo ja tem NAO pode ser reusado: numero ocupado se
+    #    pula, e o par _Text_ conta tanto quanto o _EventScript_
+    ja = {"Foo_EventScript_Placa1", "Foo_Text_Placa2"}
+    assert rotulo_livre(ja, "Foo", "Placa", [0]) == "Foo_EventScript_Placa3"
+    # 6. e a checagem na camada da afirmacao: nenhum rotulo escrito por este
+    #    script pode estar definido duas vezes no mesmo scripts.inc
+    repetidos = rotulos_repetidos()
+    assert not repetidos, (f"{len(repetidos)} rotulo(s) duplicado(s), o build "
+                           f"reprova: {repetidos[:5]}")
+    print("demo ok (unidade de montagem de data/event_scripts.s conferida, "
+          "zero rotulo duplicado)")
 
 
 if __name__ == "__main__":

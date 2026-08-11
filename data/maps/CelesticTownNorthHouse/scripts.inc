@@ -10,11 +10,11 @@ CelesticTownNorthHouse_Text_Npc1:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-CelesticTownNorthHouse_EventScript_Npc1::
-	msgbox CelesticTownNorthHouse_Text_Npc1, MSGBOX_NPC
+CelesticTownNorthHouse_EventScript_Npc2::
+	msgbox CelesticTownNorthHouse_Text_Npc2, MSGBOX_NPC
 	end
 
-CelesticTownNorthHouse_Text_Npc1:
+CelesticTownNorthHouse_Text_Npc2:
 	.string "My big sister is studying the myths\nof Sinnoh.\pShe wants to know how people and\nPokémon interacted in the days of\pmyths.\pWere things different back then?\nOr were they the same as now?\pShe says that's the focus of her\nresearch.$"
 
 CelesticTownNorthHouse_EventScript_Placa2::

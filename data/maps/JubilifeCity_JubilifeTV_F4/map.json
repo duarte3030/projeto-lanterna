@@ -40,7 +40,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "JubilifeCity_JubilifeTV_F4_EventScript_Receptionist",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_TVF4_BREEDER",

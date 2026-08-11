@@ -160,6 +160,11 @@ BlackthornCity_Gym_EventScript_Clair::
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox BlackthornCity_Gym_Text_ClairBadge, MSGBOX_DEFAULT
 	setflag FLAG_INSIGNIA_JOHTO_8
+	@ Travessia entre regioes: abre o porto de Slateport no menu dos cinco
+	@ cais. Esta ROM nao tem Elite dos Quatro de Johto (a Liga de gen 2 e o
+	@ mesmo Planalto Indigo de Kanto), entao o fim de Johto que existe de
+	@ verdade e a oitava insignia. Ver data/scripts/travessia_regioes.inc.
+	setflag FLAG_REGIAO_HOENN_LIBERADA
 	closemessage
 	release
 	end

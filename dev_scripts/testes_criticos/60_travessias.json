@@ -1,45 +1,69 @@
 [
   {
     "id": "T10.1",
-    "nome": "SINNOH PARA UNOVA: o marinheiro Eldritch de Canalave leva o jogador ao Porto de Virbank. VIRBANK e o item 3 do MULTI_CINCO_REGIOES_BARCO (OLIVINE, SLATEPORT, VERMILION, VIRBANK, CANALAVE, Sair), e Canalave pula o proprio case 4, entao sao tres DOWN",
+    "nome": "SINNOH PARA UNOVA: o marinheiro Eldritch de Canalave leva o jogador ao Porto de Virbank. VIRBANK e o item 3 do MULTI_CINCO_REGIOES_BARCO (OLIVINE, SLATEPORT, VERMILION, VIRBANK, CANALAVE, Sair), e Canalave pula o proprio case 4, entao sao tres DOWN MUDOU EM 11/08/2026: o menu do marinheiro deixou de ser a lista estatica MULTI_CINCO_REGIOES_BARCO e passa a ser montado em data/scripts/travessia_regioes.inc, escondendo o destino cuja regiao ainda nao foi liberada. Os `case` dos portos nao mudaram (o id empilhado por dynmultipush e o indice antigo), mas o numero de DOWN passa a ser a posicao DENTRO da lista ja filtrada. Por isso este caso acende as quatro flags de liberacao de regiao: com todas acesas o menu volta a ter os seis itens na ordem antiga e a contagem de DOWN deste roteiro continua valendo.",
     "warp": "MAP_CANALAVE_CITY",
     "warp_id": 1,
     "roteiro": "20:DOWN*20,20:LEFT*20,20:RIGHT*4,20:UP*12,30:NADA,20:A,300:NADA,20:A,120:NADA,20:DOWN*3,60:NADA,20:A,300:NADA,20:A,300:NADA",
     "prova": {
       "mapa": "MAP_UNOVA_VIRBANK_PORT",
       "layout": "LAYOUT_UNOVA_VIRBANK_PORT"
-    }
+    },
+    "flags": [
+      "FLAG_REGIAO_JOHTO_LIBERADA",
+      "FLAG_REGIAO_HOENN_LIBERADA",
+      "FLAG_REGIAO_SINNOH_LIBERADA",
+      "FLAG_ELITE_SINNOH_VENCIDA"
+    ]
   },
   {
     "id": "T10.2",
-    "nome": "UNOVA PARA SINNOH, a volta, provada como IDA E VOLTA: Canalave -> Virbank -> Canalave. E ida e volta porque o Porto de Virbank nao aceita warp de debug: os tres warps dele caem em cima de outro warp ou fora do mapa 10x8 (o warp 0 larga o jogador em (4,8), abaixo do mapa, e o passo seguinte re-dispara o warp para Virbank City). CANALAVE e o item 4 da lista e Virbank pula o proprio case 3, entao sao quatro DOWN. Antes deste conserto, nenhum dos quatro warpsilent deste porto tinha waitstate",
+    "nome": "UNOVA PARA SINNOH, a volta, provada como IDA E VOLTA: Canalave -> Virbank -> Canalave. E ida e volta porque o Porto de Virbank nao aceita warp de debug: os tres warps dele caem em cima de outro warp ou fora do mapa 10x8 (o warp 0 larga o jogador em (4,8), abaixo do mapa, e o passo seguinte re-dispara o warp para Virbank City). CANALAVE e o item 4 da lista e Virbank pula o proprio case 3, entao sao quatro DOWN. Antes deste conserto, nenhum dos quatro warpsilent deste porto tinha waitstate MUDOU EM 11/08/2026: o menu do marinheiro deixou de ser a lista estatica MULTI_CINCO_REGIOES_BARCO e passa a ser montado em data/scripts/travessia_regioes.inc, escondendo o destino cuja regiao ainda nao foi liberada. Os `case` dos portos nao mudaram (o id empilhado por dynmultipush e o indice antigo), mas o numero de DOWN passa a ser a posicao DENTRO da lista ja filtrada. Por isso este caso acende as quatro flags de liberacao de regiao: com todas acesas o menu volta a ter os seis itens na ordem antiga e a contagem de DOWN deste roteiro continua valendo.",
     "warp": "MAP_CANALAVE_CITY",
     "warp_id": 1,
     "roteiro": "20:DOWN*20,20:LEFT*20,20:RIGHT*4,20:UP*12,30:NADA,20:A,300:NADA,20:A,120:NADA,20:DOWN*3,60:NADA,20:A,300:NADA,20:A,300:NADA,16:RIGHT*5,30:NADA,16:UP,30:NADA,20:A,300:NADA,20:A,120:NADA,20:DOWN*4,60:NADA,20:A,300:NADA,20:A,300:NADA,20:A,300:NADA",
     "prova": {
       "mapa": "MAP_CANALAVE_CITY",
       "layout": "LAYOUT_CANALAVE_CITY"
-    }
+    },
+    "flags": [
+      "FLAG_REGIAO_JOHTO_LIBERADA",
+      "FLAG_REGIAO_HOENN_LIBERADA",
+      "FLAG_REGIAO_SINNOH_LIBERADA",
+      "FLAG_ELITE_SINNOH_VENCIDA"
+    ]
   },
   {
     "id": "T10.3",
-    "nome": "JOHTO PARA KANTO POR DENTRO DO S.S. AQUA, a volta do T4.2: o marinheiro do Porto de Olivine embarca o jogador no navio, ele desce ate o convés (onde o avo da neta perdida cruza com ele), volta a porta e o marinheiro de bordo desembarca em Vermilion City. Prova as tres pernas de uma vez: embarcar, andar por dentro do navio e desembarcar. Antes de 05/08/2026 o porto teleportava direto para Vermilion e o navio nao existia na ROM. VERMILION e o item 2 da lista e Olivine pula o proprio case 0, entao sao dois DOWN. Nao ha portao de passe nesta direcao: o PASSE TRI so e cobrado em Vermilion, para nao trancar quem ja esta fora de Kanto",
+    "nome": "JOHTO PARA KANTO POR DENTRO DO S.S. AQUA, a volta do T4.2: o marinheiro do Porto de Olivine embarca o jogador no navio, ele desce ate o convés (onde o avo da neta perdida cruza com ele), volta a porta e o marinheiro de bordo desembarca em Vermilion City. Prova as tres pernas de uma vez: embarcar, andar por dentro do navio e desembarcar. Antes de 05/08/2026 o porto teleportava direto para Vermilion e o navio nao existia na ROM. VERMILION e o item 2 da lista e Olivine pula o proprio case 0, entao sao dois DOWN. Nao ha portao de passe nesta direcao: o PASSE TRI so e cobrado em Vermilion, para nao trancar quem ja esta fora de Kanto MUDOU EM 11/08/2026: o menu do marinheiro deixou de ser a lista estatica MULTI_CINCO_REGIOES_BARCO e passa a ser montado em data/scripts/travessia_regioes.inc, escondendo o destino cuja regiao ainda nao foi liberada. Os `case` dos portos nao mudaram (o id empilhado por dynmultipush e o indice antigo), mas o numero de DOWN passa a ser a posicao DENTRO da lista ja filtrada. Por isso este caso acende as quatro flags de liberacao de regiao: com todas acesas o menu volta a ter os seis itens na ordem antiga e a contagem de DOWN deste roteiro continua valendo.",
     "warp": "MAP_OLIVINE_CITY_PORT_INSIDE",
     "roteiro": "16:DOWN*12,30:NADA,20:A,300:NADA,20:A,120:NADA,20:DOWN*2,60:NADA,20:A,300:NADA,20:A,300:NADA,60:NADA,20:DOWN*5,300:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,300:NADA,20:LEFT,90:NADA,20:UP*5,180:NADA,90:NADA,20:UP,90:NADA,20:A,180:NADA,20:A,180:NADA,20:A,300:NADA",
     "prova": {
       "mapa": "MAP_VERMILION_CITY",
       "layout": "LAYOUT_VERMILION_CITY"
-    }
+    },
+    "flags": [
+      "FLAG_REGIAO_JOHTO_LIBERADA",
+      "FLAG_REGIAO_HOENN_LIBERADA",
+      "FLAG_REGIAO_SINNOH_LIBERADA",
+      "FLAG_ELITE_SINNOH_VENCIDA"
+    ]
   },
   {
     "id": "T10.4",
-    "nome": "O S.S. AQUA E CAMINHAVEL POR DENTRO: depois de embarcar em Olivine o jogador desce ao convés, anda onze tiles para oeste e entra na propria cabine (MAP_SSAQUA_PLAYERS_ROOM). Sem este caso, o T10.3 passaria com o navio sendo um corredor de um tile: e este que prova que os 11 mapas importados do hns tem tileset, colisao e warp de porta certos na ROM. As portas das cabines sao MB_SOUTH_ARROW_WARP, nao porta: so disparam com a seta apertada DE NOVO ja em cima do tile, e por isso sao tres DOWN",
+    "nome": "O S.S. AQUA E CAMINHAVEL POR DENTRO: depois de embarcar em Olivine o jogador desce ao convés, anda onze tiles para oeste e entra na propria cabine (MAP_SSAQUA_PLAYERS_ROOM). Sem este caso, o T10.3 passaria com o navio sendo um corredor de um tile: e este que prova que os 11 mapas importados do hns tem tileset, colisao e warp de porta certos na ROM. As portas das cabines sao MB_SOUTH_ARROW_WARP, nao porta: so disparam com a seta apertada DE NOVO ja em cima do tile, e por isso sao tres DOWN MUDOU EM 11/08/2026: o menu do marinheiro deixou de ser a lista estatica MULTI_CINCO_REGIOES_BARCO e passa a ser montado em data/scripts/travessia_regioes.inc, escondendo o destino cuja regiao ainda nao foi liberada. Os `case` dos portos nao mudaram (o id empilhado por dynmultipush e o indice antigo), mas o numero de DOWN passa a ser a posicao DENTRO da lista ja filtrada. Por isso este caso acende as quatro flags de liberacao de regiao: com todas acesas o menu volta a ter os seis itens na ordem antiga e a contagem de DOWN deste roteiro continua valendo.",
     "warp": "MAP_OLIVINE_CITY_PORT_INSIDE",
     "roteiro": "16:DOWN*12,30:NADA,20:A,300:NADA,20:A,120:NADA,20:DOWN*2,60:NADA,20:A,300:NADA,20:A,300:NADA,60:NADA,20:DOWN*5,300:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,300:NADA,20:LEFT*11,240:NADA,20:DOWN,90:NADA,20:DOWN,90:NADA,20:DOWN,300:NADA,20:DOWN,120:NADA,20:DOWN,120:NADA",
     "prova": {
       "mapa": "MAP_SSAQUA_PLAYERS_ROOM",
       "layout": "LAYOUT_SSAQUA_PLAYERS_ROOM",
       "andou": true
-    }
+    },
+    "flags": [
+      "FLAG_REGIAO_JOHTO_LIBERADA",
+      "FLAG_REGIAO_HOENN_LIBERADA",
+      "FLAG_REGIAO_SINNOH_LIBERADA",
+      "FLAG_ELITE_SINNOH_VENCIDA"
+    ]
   }
 ]

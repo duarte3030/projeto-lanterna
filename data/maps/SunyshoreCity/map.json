@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SunyshoreCity_EventScript_Sailor1",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_SUNYSHORE_POKEFAN_F",
@@ -65,7 +65,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SunyshoreCity_EventScript_PokefanF",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_SUNYSHORE_BREEDER_F",
@@ -93,7 +93,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SunyshoreCity_EventScript_Worker",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_SUNYSHORE_SAILOR2",
@@ -107,7 +107,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SunyshoreCity_EventScript_Sailor2",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
@@ -283,7 +283,7 @@
       "y": 52,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SunyshoreCity_EventScript_Placa6",
+      "script": "SunyshoreCity_EventScript_Placa2",
       "origem": "pokeplatinum"
     },
     {
@@ -332,21 +332,25 @@
       "origem": "pokeplatinum"
     },
     {
-      "type": "sign",
+      "type": "hidden_item",
       "x": 25,
       "y": 23,
       "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "item": "ITEM_CARBOS",
+      "flag": "FLAG_ITEM_SINNOH_SUNYSHORE_CITY_CARBOS",
+      "quantity": 1,
+      "underfoot": false,
       "origem": "pokeplatinum"
     },
     {
-      "type": "sign",
+      "type": "hidden_item",
       "x": 62,
       "y": 56,
       "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "item": "ITEM_ZAP_PLATE",
+      "flag": "FLAG_ITEM_SINNOH_SUNYSHORE_CITY_ZAP_PLATE",
+      "quantity": 1,
+      "underfoot": false,
       "origem": "pokeplatinum"
     }
   ]

@@ -2595,6 +2595,16 @@
 #define FLAG_GALACTICA_JUBILIFE   FLAG_UNUSED_0x02E  // Rowan e os dois grunts em Jubilife
 #define FLAG_GALACTICA_WINDWORKS  FLAG_UNUSED_0x02F  // Mars e os grunts da usina
 
+// ponytail: UMA flag para todos os NPCs de Sinnoh que nasceram duas vezes. O
+// importador do pokeplatinum trouxe de novo gente que ja tinha sido escrita a
+// mao, e desde a leva de texto de 11/08/2026 os dois falam. Apagar objeto esta
+// proibido (a save guarda INDICE de objeto), entao o clone perdedor de cada par
+// leva esta flag no campo "flag" e nao nasce: src/event_object_movement.c:2882
+// so cria o objeto quando !FlagGet(flagId). Ela e acesa uma unica vez, em
+// EventScript_ResetAllMapFlags (data/scripts/new_game.inc), junto com as outras
+// flags de esconder de jogo novo. Reversivel: apagar a flag traz todos de volta.
+#define FLAG_SINNOH_NPC_DUPLICADO FLAG_UNUSED_0x8EA
+
 // Insignias de Johto, uma por ginasio. Mesmo padrao das de Sinnoh: cada ginasio
 // so acende a sua, sem tocar em FLAG_BADGE0N_GET (que e de Hoenn) nem em
 // VAR_NUM_BADGES. Custo: 8 flags, zero var. RESERVADAS, ver SINNOH-PADRAO.md.
@@ -2691,6 +2701,58 @@
 #ifndef FLAG_HIDE_RAYQUAZA
 #define FLAG_HIDE_RAYQUAZA 0x4002
 #endif
+
+// >>> Itens escondidos de Sinnoh (dev_scripts/itens_escondidos_sinnoh.py) >>>
+// Uma flag por item. Item que aparece em dois mapas vizinhos com a mesma
+// flag do Platinum divide a flag aqui tambem: e costura de mapa da fonte,
+// e pegar de um lado apaga o do outro, como no jogo original.
+#define FLAG_ITEM_SINNOH_ETERNA_CITY_DRACO_PLATE       FLAG_UNUSED_0x8F0  // ITEM_DRACO_PLATE
+#define FLAG_ITEM_SINNOH_ETERNA_CITY_MOON_STONE        FLAG_UNUSED_0x8F1  // ITEM_MOON_STONE
+#define FLAG_ITEM_SINNOH_ETERNA_FOREST_INSECT_PLATE    FLAG_UNUSED_0x8F2  // ITEM_INSECT_PLATE
+#define FLAG_ITEM_SINNOH_GALACTIC_HQ_1F_PP_UP          FLAG_UNUSED_0x8F3  // ITEM_PP_UP
+#define FLAG_ITEM_SINNOH_GALACTIC_HQ_3F_RARE_CANDY     FLAG_UNUSED_0x8F4  // ITEM_RARE_CANDY
+#define FLAG_ITEM_SINNOH_MT_CORONET_B1F_RARE_CANDY     FLAG_UNUSED_0x8F5  // ITEM_RARE_CANDY
+#define FLAG_ITEM_SINNOH_PASTORIA_CITY_ZINC            FLAG_UNUSED_0x8F6  // ITEM_ZINC
+#define FLAG_ITEM_SINNOH_POKEMON_LEAGUE_SKY_PLATE      FLAG_UNUSED_0x8F7  // ITEM_SKY_PLATE
+#define FLAG_ITEM_SINNOH_ROUTE_207_RARE_CANDY          FLAG_UNUSED_0x8F8  // ITEM_RARE_CANDY
+#define FLAG_ITEM_SINNOH_ROUTE_210_NORTH_MEADOW_PLATE  FLAG_UNUSED_0x8F9  // ITEM_MEADOW_PLATE
+#define FLAG_ITEM_SINNOH_ROUTE_210_NORTH_SHINY_STONE   FLAG_UNUSED_0x8FA  // ITEM_SHINY_STONE
+#define FLAG_ITEM_SINNOH_ROUTE_210_SOUTH_RARE_CANDY    FLAG_UNUSED_0x8FB  // ITEM_RARE_CANDY
+#define FLAG_ITEM_SINNOH_ROUTE_211_EAST_CALCIUM        FLAG_UNUSED_0x8FC  // ITEM_CALCIUM
+#define FLAG_ITEM_SINNOH_ROUTE_212_SOUTH_DAWN_STONE    FLAG_UNUSED_0x8FD  // ITEM_DAWN_STONE
+#define FLAG_ITEM_SINNOH_ROUTE_212_SOUTH_RARE_CANDY    FLAG_UNUSED_0x8FE  // ITEM_RARE_CANDY
+#define FLAG_ITEM_SINNOH_ROUTE_213_HP_UP               FLAG_UNUSED_0x8FF  // ITEM_HP_UP
+#define FLAG_ITEM_SINNOH_ROUTE_213_MAX_REVIVE          FLAG_UNUSED_0x900  // ITEM_MAX_REVIVE
+#define FLAG_ITEM_SINNOH_ROUTE_214_CARBOS              FLAG_UNUSED_0x901  // ITEM_CARBOS
+#define FLAG_ITEM_SINNOH_ROUTE_214_RAZOR_FANG          FLAG_UNUSED_0x902  // ITEM_RAZOR_FANG
+#define FLAG_ITEM_SINNOH_ROUTE_215_IRON                FLAG_UNUSED_0x903  // ITEM_IRON
+#define FLAG_ITEM_SINNOH_ROUTE_216_PP_UP               FLAG_UNUSED_0x904  // ITEM_PP_UP
+#define FLAG_ITEM_SINNOH_ROUTE_217_IRON                FLAG_UNUSED_0x905  // ITEM_IRON
+#define FLAG_ITEM_SINNOH_ROUTE_217_MAX_REVIVE          FLAG_UNUSED_0x906  // ITEM_MAX_REVIVE
+#define FLAG_ITEM_SINNOH_ROUTE_217_PROTEIN             FLAG_UNUSED_0x907  // ITEM_PROTEIN
+#define FLAG_ITEM_SINNOH_ROUTE_217_REVIVAL_HERB        FLAG_UNUSED_0x908  // ITEM_REVIVAL_HERB
+#define FLAG_ITEM_SINNOH_ROUTE_219_ZINC                FLAG_UNUSED_0x909  // ITEM_ZINC
+#define FLAG_ITEM_SINNOH_ROUTE_221_CARBOS              FLAG_UNUSED_0x90A  // ITEM_CARBOS
+#define FLAG_ITEM_SINNOH_ROUTE_221_MAX_REVIVE          FLAG_UNUSED_0x90B  // ITEM_MAX_REVIVE
+#define FLAG_ITEM_SINNOH_ROUTE_224_RARE_CANDY          FLAG_UNUSED_0x90C  // ITEM_RARE_CANDY
+#define FLAG_ITEM_SINNOH_ROUTE_224_ZINC                FLAG_UNUSED_0x90D  // ITEM_ZINC
+#define FLAG_ITEM_SINNOH_ROUTE_225_LEAF_STONE          FLAG_UNUSED_0x90E  // ITEM_LEAF_STONE
+#define FLAG_ITEM_SINNOH_ROUTE_225_RARE_CANDY          FLAG_UNUSED_0x90F  // ITEM_RARE_CANDY
+#define FLAG_ITEM_SINNOH_ROUTE_226_PP_MAX              FLAG_UNUSED_0x910  // ITEM_PP_MAX
+#define FLAG_ITEM_SINNOH_ROUTE_226_RARE_CANDY          FLAG_UNUSED_0x911  // ITEM_RARE_CANDY
+#define FLAG_ITEM_SINNOH_ROUTE_228_CALCIUM             FLAG_UNUSED_0x912  // ITEM_CALCIUM
+#define FLAG_ITEM_SINNOH_ROUTE_228_PP_MAX              FLAG_UNUSED_0x913  // ITEM_PP_MAX
+#define FLAG_ITEM_SINNOH_ROUTE_228_RARE_CANDY          FLAG_UNUSED_0x914  // ITEM_RARE_CANDY
+#define FLAG_ITEM_SINNOH_ROUTE_229_THUNDERSTONE        FLAG_UNUSED_0x915  // ITEM_THUNDER_STONE
+#define FLAG_ITEM_SINNOH_ROUTE_230_WATER_STONE         FLAG_UNUSED_0x916  // ITEM_WATER_STONE
+#define FLAG_ITEM_SINNOH_SNOWPOINT_CITY_RARE_CANDY     FLAG_UNUSED_0x917  // ITEM_RARE_CANDY
+#define FLAG_ITEM_SINNOH_SUNYSHORE_CITY_CARBOS         FLAG_UNUSED_0x918  // ITEM_CARBOS
+#define FLAG_ITEM_SINNOH_SUNYSHORE_CITY_ZAP_PLATE      FLAG_UNUSED_0x919  // ITEM_ZAP_PLATE
+#define FLAG_ITEM_SINNOH_SURVIVAL_AREA_PP_UP           FLAG_UNUSED_0x91A  // ITEM_PP_UP
+#define FLAG_ITEM_SINNOH_TWINLEAF_TOWN_ODD_KEYSTONE    FLAG_UNUSED_0x91B  // ITEM_ODD_KEYSTONE
+#define FLAG_ITEM_SINNOH_VEILSTONE_CITY_CALCIUM        FLAG_UNUSED_0x91C  // ITEM_CALCIUM
+#define FLAG_ITEM_SINNOH_VEILSTONE_CITY_PP_UP          FLAG_UNUSED_0x91D  // ITEM_PP_UP
+// <<< Itens escondidos de Sinnoh (dev_scripts/itens_escondidos_sinnoh.py) <<<
 
 #endif // GUARD_CONSTANTS_FLAGS_H
 

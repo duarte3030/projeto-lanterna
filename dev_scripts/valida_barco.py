@@ -17,8 +17,15 @@ Foi assim que o bug original nasceu: o menu apontava para
 scripts faziam `switch` em tres casos. O jogo compilava e zarpava para o
 destino errado.
 
+Desde 11/08/2026 a lista deixou de ser estatica: o menu e montado em
+`data/scripts/travessia_regioes.inc` com `dynmultipush NOME, ID`, e o ID
+empilhado e o que cai em VAR_RESULT, nao a linha escolhida. Por isso os `case`
+dos cinco portos continuam sendo os indices antigos mesmo com o menu encolhendo,
+e e exatamente esse par (ID empilhado x case) que este validador guarda.
+
 Este validador afirma, item a item:
-  1. a lista tem os destinos esperados, nesta ordem, com "Sair" no fim;
+  1. o menu empilha os cinco destinos com os IDs certos, Kanto sem porteiro e
+     cada um dos outros quatro atras da flag de regiao que o libera;
   2. cada porto tem exatamente os `case` dos OUTROS quatro destinos, e nenhum
      `case` para si mesmo;
   3. o script de cada `case` desembarca no mapa que o nome do item promete;
@@ -39,6 +46,27 @@ DESTINOS = [
     ("VIRBANK",   "MAP_UNOVA_VIRBANK_PORT"),
     ("CANALAVE",  "MAP_CANALAVE_CITY"),
 ]
+
+# Quem libera cada porto no menu. Kanto e a regiao onde o jogo comeca, entao o
+# porto dela nunca fica escondido: e por isso que o valor dele e None.
+PORTEIROS = {
+    "Olivine":   "FLAG_REGIAO_JOHTO_LIBERADA",
+    "Slateport": "FLAG_REGIAO_HOENN_LIBERADA",
+    "Vermilion": None,
+    "Virbank":   "FLAG_ELITE_SINNOH_VENCIDA",
+    "Canalave":  "FLAG_REGIAO_SINNOH_LIBERADA",
+}
+
+# Onde cada flag e acesa. FLAG_ELITE_SINNOH_VENCIDA ja era acesa pela Cynthia
+# antes desta mudanca. Johto nao tem Elite dos Quatro nesta ROM (a Liga de gen 2
+# e o mesmo Planalto Indigo de Kanto), entao quem fecha Johto e a oitava
+# insignia, na Clair.
+ACENDEM = {
+    "FLAG_REGIAO_JOHTO_LIBERADA":  "PokemonLeague_ChampionsRoom_Frlg",
+    "FLAG_REGIAO_HOENN_LIBERADA":  "BlackthornCity_Gym",
+    "FLAG_REGIAO_SINNOH_LIBERADA": "EverGrandeCity_ChampionsRoom",
+    "FLAG_ELITE_SINNOH_VENCIDA":   "SinnohLeague_ChampionsRoom",
+}
 
 # A travessia Olivine <-> Vermilion passa POR DENTRO do S.S. Aqua desde
 # 05/08/2026: o porto embarca o jogador em MAP_SSAQUA_1F e quem desembarca do
@@ -73,29 +101,39 @@ def falha(msgs, texto):
 def main():
     erros = []
 
-    # 1. a lista de destinos
-    fonte = open(os.path.join(RAIZ, "src/data/script_menu.h")).read()
-    m = re.search(r"MultichoiceList_CincoRegioesBarco\[\]\s*=\s*\{(.*?)\};", fonte, re.S)
-    if not m:
-        falha(erros, "MultichoiceList_CincoRegioesBarco nao existe em src/data/script_menu.h")
-        return 1
-    itens = re.findall(r'COMPOUND_STRING\("([^"]+)"\)|\{(gText_Exit)\}', m.group(1))
-    lista = [a or b for a, b in itens]
-    esperada = [d for d, _ in DESTINOS] + ["gText_Exit"]
-    if lista != esperada:
-        falha(erros, f"a lista de destinos mudou: {lista}, esperado {esperada}")
-
-    # o apelido tem que apontar para essa lista, e nao para o menu do Briney
-    cab = open(os.path.join(RAIZ, "include/constants/script_menu.h")).read()
-    if not re.search(r"#define\s+MULTI_BOAT_DESTINATIONS\s+MULTI_CINCO_REGIOES_BARCO", cab):
-        falha(erros, "MULTI_BOAT_DESTINATIONS nao aponta para MULTI_CINCO_REGIOES_BARCO")
+    # 1. o menu montado em tempo de execucao
+    menu = open(os.path.join(RAIZ, "data/scripts/travessia_regioes.inc"),
+                encoding="utf-8").read()
+    empilhados = {int(i): n for n, i in
+                  re.findall(r"dynmultipush Travessia_Text_(\w+), (\d+)", menu)}
+    esperado = {i: n.capitalize() for i, (n, _) in enumerate(DESTINOS)}
+    esperado[len(DESTINOS)] = "Sair"
+    if empilhados != esperado:
+        falha(erros, f"o menu empilha {empilhados}, esperado {esperado}")
+    if not re.search(r"dynmultistack\b", menu):
+        falha(erros, "o menu nao termina em dynmultistack: nada abriria")
+    # cada destino atras da flag certa; Kanto (indice 2) nunca tem porteiro
+    for nome, flag in PORTEIROS.items():
+        alvo = f"Travessia_EventScript_Empilha{nome}"
+        if flag is None:
+            if re.search(rf"call_if_\w+ \w+, {alvo}\b", menu):
+                falha(erros, f"{nome} e o porto da regiao inicial e nao pode ter porteiro")
+            continue
+        if not re.search(rf"call_if_set {flag}, {alvo}\b", menu):
+            falha(erros, f"{nome} nao esta atras de 'call_if_set {flag}'")
+    # a flag de cada regiao tem que ser acesa por alguem
+    for flag, onde in ACENDEM.items():
+        script = open(os.path.join(RAIZ, "data/maps", onde, "scripts.inc"),
+                      encoding="utf-8").read()
+        if not re.search(rf"^\tsetflag {flag}$", script, re.M):
+            falha(erros, f"{flag} nao e acesa em {onde}: o destino dela nunca abre")
 
     # 2, 3 e 4: cada porto
     for pasta, proprio in PORTOS.items():
         caminho = os.path.join(RAIZ, "data/maps", pasta, "scripts.inc")
         texto = open(caminho).read()
 
-        bloco = re.search(r"multichoice[^\n]*MULTI_BOAT_DESTINATIONS[^\n]*\n\tswitch VAR_RESULT\n((?:\tcase \d+, \w+\n)+)",
+        bloco = re.search(r"call Travessia_EventScript_MenuDeDestinos\n\tswitch VAR_RESULT\n((?:\tcase \d+, \w+\n)+)",
                           texto)
         if not bloco:
             falha(erros, f"{pasta}: nao achei o switch do MULTI_BOAT_DESTINATIONS")

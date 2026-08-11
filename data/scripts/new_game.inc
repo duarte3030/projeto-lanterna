@@ -119,6 +119,9 @@ EventScript_ResetAllMapFlags::
 	@ o jogador falar com ele, e a fileira 8 de Pallet Town fica intransponivel.
 	setflag FLAG_HIDE_OAK_IN_PALLET_TOWN
 	setflag FLAG_HIDE_OAK_IN_HIS_LAB
+	@ Sinnoh: some com o clone perdedor de cada NPC que nasceu duas vezes (o
+	@ escrito a mao e o importado do pokeplatinum). Uma flag para os 382 pares.
+	setflag FLAG_SINNOH_NPC_DUPLICADO
 	setflag FLAG_HIDE_CONTEST_POKE_BALL
 	setflag FLAG_HIDE_ROUTE_111_VICTORIA_WINSTRATE
 	setflag FLAG_HIDE_ROUTE_111_VIVI_WINSTRATE

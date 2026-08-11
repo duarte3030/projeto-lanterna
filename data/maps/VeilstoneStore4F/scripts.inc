@@ -33,11 +33,11 @@ VeilstoneStore4F_Text_Npc1:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-VeilstoneStore4F_EventScript_Npc1::
-	msgbox VeilstoneStore4F_Text_Npc1, MSGBOX_NPC
+VeilstoneStore4F_EventScript_Npc4::
+	msgbox VeilstoneStore4F_Text_Npc4, MSGBOX_NPC
 	end
 
-VeilstoneStore4F_Text_Npc1:
+VeilstoneStore4F_Text_Npc4:
 	.string "If you encounter a wild Pokémon,\nchuck a Quick Ball right off the bat!\pIf it's taking a long time to catch,\nthe situation calls for a Timer Ball!$"
 
 VeilstoneStore4F_EventScript_Npc2::

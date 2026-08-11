@@ -206,15 +206,6 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route205_North_EventScript_Placa2",
       "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 73,
-      "y": 15,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
     }
   ]
 }

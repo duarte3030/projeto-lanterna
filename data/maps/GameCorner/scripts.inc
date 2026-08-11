@@ -10,11 +10,11 @@ GameCorner_Text_Npc1:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-GameCorner_EventScript_Npc1::
-	msgbox GameCorner_Text_Npc1, MSGBOX_NPC
+GameCorner_EventScript_Npc8::
+	msgbox GameCorner_Text_Npc8, MSGBOX_NPC
 	end
 
-GameCorner_Text_Npc1:
+GameCorner_Text_Npc8:
 	.string "I'll explain how the slot machines\nwork at this Game Corner.\pDuring regular play, you should\nstop the reels from the left.\pDuring the bonus round, watch\nwhere CLEFAIRY points and stop\pthe reels in that order.$"
 
 GameCorner_EventScript_Npc2::

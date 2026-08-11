@@ -10,11 +10,11 @@ PalParkLobby_Text_Npc1:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-PalParkLobby_EventScript_Npc1::
-	msgbox PalParkLobby_Text_Npc1, MSGBOX_NPC
+PalParkLobby_EventScript_Npc6::
+	msgbox PalParkLobby_Text_Npc6, MSGBOX_NPC
 	end
 
-PalParkLobby_Text_Npc1:
+PalParkLobby_Text_Npc6:
 	.string "I've heard Trainers complain that\nrare Pokémon take longer to appear.\pIs it easier to start with common\nPokémon?$"
 
 PalParkLobby_EventScript_Npc2::

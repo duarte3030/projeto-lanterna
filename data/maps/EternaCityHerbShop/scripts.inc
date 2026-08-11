@@ -33,11 +33,11 @@ EternaCityHerbShop_Text_Npc1:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-EternaCityHerbShop_EventScript_Npc1::
-	msgbox EternaCityHerbShop_Text_Npc1, MSGBOX_NPC
+EternaCityHerbShop_EventScript_Npc3::
+	msgbox EternaCityHerbShop_Text_Npc3, MSGBOX_NPC
 	end
 
-EternaCityHerbShop_Text_Npc1:
+EternaCityHerbShop_Text_Npc3:
 	.string "Herbal meds work most impressively.\nBut your Pokémon won't like them.\pThey're horribly bitter and smelly!$"
 
 EternaCityHerbShop_EventScript_Npc2::

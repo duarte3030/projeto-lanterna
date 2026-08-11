@@ -32,7 +32,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CanalaveCity_EventScript_Collector",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_CANALAVE_LASS",
@@ -46,7 +46,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CanalaveCity_EventScript_Lass",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_CANALAVE_BREEDER_M",
@@ -60,7 +60,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CanalaveCity_EventScript_BreederM",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_CANALAVE_ACE_TRAINER",
@@ -74,7 +74,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CanalaveCity_EventScript_AceTrainer",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_CANALAVE_OLD_MAN",
@@ -88,7 +88,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CanalaveCity_EventScript_OldMan",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_CANALAVE_SAILOR_ELDRITCH",
@@ -199,7 +199,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CanalaveCity_EventScript_Npc7",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     }
   ],
@@ -361,15 +361,6 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "CanalaveCity_EventScript_Placa9",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 4,
-      "y": 49,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
       "origem": "pokeplatinum"
     }
   ]

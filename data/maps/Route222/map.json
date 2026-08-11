@@ -37,7 +37,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route222_EventScript_RichBoy",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_ROUTE222_FISHERMAN",
@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route222_EventScript_Fisherman",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "local_id": "LOCALID_ROUTE222_SAILOR_LUTHER",
@@ -260,7 +260,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     },
     {
@@ -274,7 +274,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     },
     {
@@ -288,7 +288,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     },
     {
@@ -302,7 +302,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     },
     {
@@ -316,7 +316,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     },
     {
@@ -330,7 +330,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     },
     {
@@ -344,7 +344,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     },
     {
@@ -358,7 +358,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     },
     {
@@ -372,7 +372,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     },
     {
@@ -386,7 +386,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     },
     {

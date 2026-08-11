@@ -164,9 +164,9 @@ CanalaveLibrary3F_Text_Placa21:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-CanalaveLibrary3F_EventScript_Placa1::
-	msgbox CanalaveLibrary3F_Text_Placa1, MSGBOX_SIGN
+CanalaveLibrary3F_EventScript_Placa22::
+	msgbox CanalaveLibrary3F_Text_Placa22, MSGBOX_SIGN
 	end
 
-CanalaveLibrary3F_Text_Placa1:
+CanalaveLibrary3F_Text_Placa22:
 	.string "On this floor, you will find many\nbooks on the myths and legends of\pthe Sinnoh region.$"

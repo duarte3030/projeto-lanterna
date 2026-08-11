@@ -24,16 +24,16 @@ PokemonMansion_Text_Npc3:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-PokemonMansion_EventScript_Npc1::
-	msgbox PokemonMansion_Text_Npc1, MSGBOX_NPC
+PokemonMansion_EventScript_Npc4::
+	msgbox PokemonMansion_Text_Npc4, MSGBOX_NPC
 	end
 
-PokemonMansion_Text_Npc1:
+PokemonMansion_Text_Npc4:
 	.string "Very well!\nOur first maid, please!$"
 
-PokemonMansion_EventScript_Npc2::
-	msgbox PokemonMansion_Text_Npc2, MSGBOX_NPC
+PokemonMansion_EventScript_Npc5::
+	msgbox PokemonMansion_Text_Npc5, MSGBOX_NPC
 	end
 
-PokemonMansion_Text_Npc2:
+PokemonMansion_Text_Npc5:
 	.string "The expensive-looking book Mr. Backlot\nhas... It tugs at my attention.$"

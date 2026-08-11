@@ -119,9 +119,9 @@ SandgemTown_EventScript_Npc3::
 SandgemTown_Text_Npc3:
 	.string "So I don't forget what's happened,\ntill now, I'd better save this...\pThere!\nNow I can take a break.$"
 
-SandgemTown_EventScript_Placa4::
-	msgbox SandgemTown_Text_Placa4, MSGBOX_SIGN
+SandgemTown_EventScript_Placa2::
+	msgbox SandgemTown_Text_Placa2, MSGBOX_SIGN
 	end
 
-SandgemTown_Text_Placa4:
+SandgemTown_Text_Placa2:
 	.string "Sandgem Town\nTown of Sand!$"

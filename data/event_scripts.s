@@ -478,6 +478,7 @@ gStdScripts_End::
 	.include "data/maps/MeteorFalls_StevensCave/scripts.inc"
 	.include "data/scripts/shared_secret_base.inc"
 	.include "data/scripts/sinnoh_placas.inc"
+	.include "data/scripts/travessia_regioes.inc"
 	.include "data/maps/BattleColosseum_2P/scripts.inc"
 	.include "data/maps/TradeCenter/scripts.inc"
 	.include "data/maps/RecordCorner/scripts.inc"

@@ -266,9 +266,9 @@ VeilstoneCity_EventScript_Npc10::
 VeilstoneCity_Text_Npc10:
 	.string "Salut, Trainer!\nTu aimes les Pokémon?$"
 
-VeilstoneCity_EventScript_Placa11::
-	msgbox VeilstoneCity_Text_Placa11, MSGBOX_SIGN
+VeilstoneCity_EventScript_Placa1::
+	msgbox VeilstoneCity_Text_Placa1, MSGBOX_SIGN
 	end
 
-VeilstoneCity_Text_Placa11:
+VeilstoneCity_Text_Placa1:
 	.string "Veilstone City\nHewn from Rock$"

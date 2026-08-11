@@ -111,7 +111,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     },
     {
@@ -125,7 +125,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     },
     {
@@ -139,7 +139,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     },
     {
@@ -153,7 +153,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     },
     {
@@ -167,7 +167,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0",
+      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     }
   ],
@@ -216,48 +216,25 @@
       "origem": "pokeplatinum"
     },
     {
-      "type": "sign",
-      "x": 44,
-      "y": 25,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 48,
-      "y": 13,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 54,
-      "y": 14,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
+      "type": "hidden_item",
       "x": 53,
       "y": 11,
       "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "item": "ITEM_PP_MAX",
+      "flag": "FLAG_ITEM_SINNOH_ROUTE_226_PP_MAX",
+      "quantity": 1,
+      "underfoot": false,
       "origem": "pokeplatinum"
     },
     {
-      "type": "sign",
+      "type": "hidden_item",
       "x": 75,
       "y": 6,
       "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "item": "ITEM_RARE_CANDY",
+      "flag": "FLAG_ITEM_SINNOH_ROUTE_226_RARE_CANDY",
+      "quantity": 1,
+      "underfoot": false,
       "origem": "pokeplatinum"
     }
   ]

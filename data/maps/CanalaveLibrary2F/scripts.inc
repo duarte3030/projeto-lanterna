@@ -66,60 +66,60 @@ CanalaveLibrary2F_Text_Placa8:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-CanalaveLibrary2F_EventScript_Placa1::
-	msgbox CanalaveLibrary2F_Text_Placa1, MSGBOX_SIGN
+CanalaveLibrary2F_EventScript_Placa28::
+	msgbox CanalaveLibrary2F_Text_Placa28, MSGBOX_SIGN
 	end
 
-CanalaveLibrary2F_Text_Placa1:
+CanalaveLibrary2F_Text_Placa28:
 	.string "The shelves are lined with books\nworn from being read by many people.$"
 
-CanalaveLibrary2F_EventScript_Placa2::
-	msgbox CanalaveLibrary2F_Text_Placa2, MSGBOX_SIGN
+CanalaveLibrary2F_EventScript_Placa29::
+	msgbox CanalaveLibrary2F_Text_Placa29, MSGBOX_SIGN
 	end
 
-CanalaveLibrary2F_Text_Placa2:
+CanalaveLibrary2F_Text_Placa29:
 	.string "The shelves are lined with books\nworn from being read by many people.$"
 
-CanalaveLibrary2F_EventScript_Placa3::
-	msgbox CanalaveLibrary2F_Text_Placa3, MSGBOX_SIGN
+CanalaveLibrary2F_EventScript_Placa30::
+	msgbox CanalaveLibrary2F_Text_Placa30, MSGBOX_SIGN
 	end
 
-CanalaveLibrary2F_Text_Placa3:
+CanalaveLibrary2F_Text_Placa30:
 	.string "The shelves are lined with books\nworn from being read by many people.$"
 
-CanalaveLibrary2F_EventScript_Placa4::
-	msgbox CanalaveLibrary2F_Text_Placa4, MSGBOX_SIGN
+CanalaveLibrary2F_EventScript_Placa31::
+	msgbox CanalaveLibrary2F_Text_Placa31, MSGBOX_SIGN
 	end
 
-CanalaveLibrary2F_Text_Placa4:
+CanalaveLibrary2F_Text_Placa31:
 	.string "The shelves are lined with books\nworn from being read by many people.$"
 
-CanalaveLibrary2F_EventScript_Placa5::
-	msgbox CanalaveLibrary2F_Text_Placa5, MSGBOX_SIGN
+CanalaveLibrary2F_EventScript_Placa32::
+	msgbox CanalaveLibrary2F_Text_Placa32, MSGBOX_SIGN
 	end
 
-CanalaveLibrary2F_Text_Placa5:
+CanalaveLibrary2F_Text_Placa32:
 	.string "The shelves are lined with books\nworn from being read by many people.$"
 
-CanalaveLibrary2F_EventScript_Placa6::
-	msgbox CanalaveLibrary2F_Text_Placa6, MSGBOX_SIGN
+CanalaveLibrary2F_EventScript_Placa33::
+	msgbox CanalaveLibrary2F_Text_Placa33, MSGBOX_SIGN
 	end
 
-CanalaveLibrary2F_Text_Placa6:
+CanalaveLibrary2F_Text_Placa33:
 	.string "The shelves are lined with books\nworn from being read by many people.$"
 
-CanalaveLibrary2F_EventScript_Placa7::
-	msgbox CanalaveLibrary2F_Text_Placa7, MSGBOX_SIGN
+CanalaveLibrary2F_EventScript_Placa34::
+	msgbox CanalaveLibrary2F_Text_Placa34, MSGBOX_SIGN
 	end
 
-CanalaveLibrary2F_Text_Placa7:
+CanalaveLibrary2F_Text_Placa34:
 	.string "The shelves are lined with books\nworn from being read by many people.$"
 
-CanalaveLibrary2F_EventScript_Placa8::
-	msgbox CanalaveLibrary2F_Text_Placa8, MSGBOX_SIGN
+CanalaveLibrary2F_EventScript_Placa35::
+	msgbox CanalaveLibrary2F_Text_Placa35, MSGBOX_SIGN
 	end
 
-CanalaveLibrary2F_Text_Placa8:
+CanalaveLibrary2F_Text_Placa35:
 	.string "The shelves are lined with books\nworn from being read by many people.$"
 
 CanalaveLibrary2F_EventScript_Placa9::

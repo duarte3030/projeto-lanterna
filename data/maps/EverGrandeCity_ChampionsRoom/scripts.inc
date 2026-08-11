@@ -45,6 +45,9 @@ EverGrandeCity_ChampionsRoom_EventScript_Wallace::
 	end
 
 EverGrandeCity_ChampionsRoom_EventScript_Defeated::
+	@ Travessia entre regioes: vencer o Wallace abre o porto de Canalave no
+	@ menu dos cinco cais. Ver data/scripts/travessia_regioes.inc.
+	setflag FLAG_REGIAO_SINNOH_LIBERADA
 	playse SE_DOOR
 	setmetatile 6, 1, METATILE_EliteFour_OpenDoorChampion_Frame, FALSE
 	setmetatile 6, 2, METATILE_EliteFour_OpenDoorChampion_Opening, FALSE

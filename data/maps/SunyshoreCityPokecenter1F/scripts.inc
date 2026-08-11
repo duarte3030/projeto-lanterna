@@ -18,11 +18,11 @@ SunyshoreCityPokecenter1F_Text_Npc1:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-SunyshoreCityPokecenter1F_EventScript_Npc1::
-	msgbox SunyshoreCityPokecenter1F_Text_Npc1, MSGBOX_NPC
+SunyshoreCityPokecenter1F_EventScript_Npc3::
+	msgbox SunyshoreCityPokecenter1F_Text_Npc3, MSGBOX_NPC
 	end
 
-SunyshoreCityPokecenter1F_Text_Npc1:
+SunyshoreCityPokecenter1F_Text_Npc3:
 	.string "I once dreamed of becoming a Gym\nLeader...\pThough that dream never came true,\nI got to live with Pokémon all\pthis time.\pIt's been a blessed life.$"
 
 SunyshoreCityPokecenter1F_EventScript_Npc2::

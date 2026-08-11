@@ -10,9 +10,9 @@ CanalaveCitySoutheastHouse_Text_Npc1:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-CanalaveCitySoutheastHouse_EventScript_Npc1::
-	msgbox CanalaveCitySoutheastHouse_Text_Npc1, MSGBOX_NPC
+CanalaveCitySoutheastHouse_EventScript_Npc2::
+	msgbox CanalaveCitySoutheastHouse_Text_Npc2, MSGBOX_NPC
 	end
 
-CanalaveCitySoutheastHouse_Text_Npc1:
+CanalaveCitySoutheastHouse_Text_Npc2:
 	.string "Somewhere far beyond the vast sea...\pThere are other lands populated by\nPokémon and Trainers.$"

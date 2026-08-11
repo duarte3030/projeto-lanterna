@@ -135,9 +135,9 @@ SunyshoreCity_EventScript_Npc5::
 SunyshoreCity_Text_Npc5:
 	.string "Whatever the environment, people\nand Pokémon adapt to live there.\pThat's what we all do to survive.$"
 
-SunyshoreCity_EventScript_Placa6::
-	msgbox SunyshoreCity_Text_Placa6, MSGBOX_SIGN
+SunyshoreCity_EventScript_Placa2::
+	msgbox SunyshoreCity_Text_Placa2, MSGBOX_SIGN
 	end
 
-SunyshoreCity_Text_Placa6:
+SunyshoreCity_Text_Placa2:
 	.string "Sunyshore City\nSolar Powered!$"

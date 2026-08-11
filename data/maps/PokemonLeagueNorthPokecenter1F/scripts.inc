@@ -18,11 +18,11 @@ PokemonLeagueNorthPokecenter1F_Text_Npc1:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-PokemonLeagueNorthPokecenter1F_EventScript_Npc1::
-	msgbox PokemonLeagueNorthPokecenter1F_Text_Npc1, MSGBOX_NPC
+PokemonLeagueNorthPokecenter1F_EventScript_Npc3::
+	msgbox PokemonLeagueNorthPokecenter1F_Text_Npc3, MSGBOX_NPC
 	end
 
-PokemonLeagueNorthPokecenter1F_Text_Npc1:
+PokemonLeagueNorthPokecenter1F_Text_Npc3:
 	.string "It doesn't matter if the going is slow.\pNor does it matter how many challenges\nit takes.\pI'm never giving up!\nNot until I beat the Elite Four!$"
 
 PokemonLeagueNorthPokecenter1F_EventScript_Npc2::

@@ -182,12 +182,14 @@
       "script": "GalacticHQ_1F_EventScript_Credo"
     },
     {
-      "type": "sign",
+      "type": "hidden_item",
       "x": 25,
       "y": 11,
       "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
+      "item": "ITEM_PP_UP",
+      "flag": "FLAG_ITEM_SINNOH_GALACTIC_HQ_1F_PP_UP",
+      "quantity": 1,
+      "underfoot": false,
       "origem": "pokeplatinum"
     },
     {

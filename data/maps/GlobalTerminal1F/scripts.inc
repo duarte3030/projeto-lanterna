@@ -24,25 +24,25 @@ GlobalTerminal1F_Text_Npc3:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-GlobalTerminal1F_EventScript_Npc1::
-	msgbox GlobalTerminal1F_Text_Npc1, MSGBOX_NPC
+GlobalTerminal1F_EventScript_Npc11::
+	msgbox GlobalTerminal1F_Text_Npc11, MSGBOX_NPC
 	end
 
-GlobalTerminal1F_Text_Npc1:
+GlobalTerminal1F_Text_Npc11:
 	.string "That's a big globe, eh?\pWhere do I live on it now?\nLet's see if I can point it out...$"
 
-GlobalTerminal1F_EventScript_Npc2::
-	msgbox GlobalTerminal1F_Text_Npc2, MSGBOX_NPC
+GlobalTerminal1F_EventScript_Npc12::
+	msgbox GlobalTerminal1F_Text_Npc12, MSGBOX_NPC
 	end
 
-GlobalTerminal1F_Text_Npc2:
+GlobalTerminal1F_Text_Npc12:
 	.string "They say if you communicate with\nsomeone, their location is\precorded on this giant globe.$"
 
-GlobalTerminal1F_EventScript_Npc3::
-	msgbox GlobalTerminal1F_Text_Npc3, MSGBOX_NPC
+GlobalTerminal1F_EventScript_Npc13::
+	msgbox GlobalTerminal1F_Text_Npc13, MSGBOX_NPC
 	end
 
-GlobalTerminal1F_Text_Npc3:
+GlobalTerminal1F_Text_Npc13:
 	.string "All I need to do is leave a Pokémon\nhere to trade.\pWho knows, it might be traded while\nI'm asleep tonight.$"
 
 GlobalTerminal1F_EventScript_Npc4::

@@ -18,11 +18,11 @@ CelesticTownPokecenter1F_Text_Npc1:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-CelesticTownPokecenter1F_EventScript_Npc1::
-	msgbox CelesticTownPokecenter1F_Text_Npc1, MSGBOX_NPC
+CelesticTownPokecenter1F_EventScript_Npc3::
+	msgbox CelesticTownPokecenter1F_Text_Npc3, MSGBOX_NPC
 	end
 
-CelesticTownPokecenter1F_Text_Npc1:
+CelesticTownPokecenter1F_Text_Npc3:
 	.string "What would compel a young person like\nyou to come somewhere so rustic?\pBe sure to see the cave painting since\nyou're already here.$"
 
 CelesticTownPokecenter1F_EventScript_Npc2::

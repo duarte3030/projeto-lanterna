@@ -17,9 +17,9 @@ EternaCityCondominiums1F_Text_Npc2:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-EternaCityCondominiums1F_EventScript_Npc1::
-	msgbox EternaCityCondominiums1F_Text_Npc1, MSGBOX_NPC
+EternaCityCondominiums1F_EventScript_Npc3::
+	msgbox EternaCityCondominiums1F_Text_Npc3, MSGBOX_NPC
 	end
 
-EternaCityCondominiums1F_Text_Npc1:
+EternaCityCondominiums1F_Text_Npc3:
 	.string "Hi! I'm the building superintendent.\nI maintain a vigilant 24-hour watch!$"

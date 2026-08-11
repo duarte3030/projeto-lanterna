@@ -10,11 +10,11 @@ Route212House_Text_Npc1:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-Route212House_EventScript_Npc1::
-	msgbox Route212House_Text_Npc1, MSGBOX_NPC
+Route212House_EventScript_Npc3::
+	msgbox Route212House_Text_Npc3, MSGBOX_NPC
 	end
 
-Route212House_Text_Npc1:
+Route212House_Text_Npc3:
 	.string "My daddy likes Blue Shards.\pThere are other people who like shards\nin Sinnoh.\pOne person likes Red Shards.\nAnother collects Yellow Shards.$"
 
 Route212House_EventScript_Npc2::

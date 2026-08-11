@@ -71,7 +71,7 @@
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CanalaveLibrary2F_EventScript_Placa1",
+      "script": "CanalaveLibrary2F_EventScript_Placa28",
       "origem": "pokeplatinum"
     },
     {
@@ -80,7 +80,7 @@
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CanalaveLibrary2F_EventScript_Placa2",
+      "script": "CanalaveLibrary2F_EventScript_Placa29",
       "origem": "pokeplatinum"
     },
     {
@@ -89,7 +89,7 @@
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CanalaveLibrary2F_EventScript_Placa3",
+      "script": "CanalaveLibrary2F_EventScript_Placa30",
       "origem": "pokeplatinum"
     },
     {
@@ -98,7 +98,7 @@
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CanalaveLibrary2F_EventScript_Placa4",
+      "script": "CanalaveLibrary2F_EventScript_Placa31",
       "origem": "pokeplatinum"
     },
     {
@@ -107,7 +107,7 @@
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CanalaveLibrary2F_EventScript_Placa5",
+      "script": "CanalaveLibrary2F_EventScript_Placa32",
       "origem": "pokeplatinum"
     },
     {
@@ -116,7 +116,7 @@
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CanalaveLibrary2F_EventScript_Placa6",
+      "script": "CanalaveLibrary2F_EventScript_Placa33",
       "origem": "pokeplatinum"
     },
     {
@@ -125,7 +125,7 @@
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CanalaveLibrary2F_EventScript_Placa7",
+      "script": "CanalaveLibrary2F_EventScript_Placa34",
       "origem": "pokeplatinum"
     },
     {
@@ -134,7 +134,7 @@
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CanalaveLibrary2F_EventScript_Placa8",
+      "script": "CanalaveLibrary2F_EventScript_Placa35",
       "origem": "pokeplatinum"
     },
     {

@@ -10,11 +10,11 @@ SurvivalAreaNorthHouse_Text_Npc1:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-SurvivalAreaNorthHouse_EventScript_Npc1::
-	msgbox SurvivalAreaNorthHouse_Text_Npc1, MSGBOX_NPC
+SurvivalAreaNorthHouse_EventScript_Npc2::
+	msgbox SurvivalAreaNorthHouse_Text_Npc2, MSGBOX_NPC
 	end
 
-SurvivalAreaNorthHouse_Text_Npc1:
+SurvivalAreaNorthHouse_Text_Npc2:
 	.string "I started living here where no one\ncould reach me without using Rock Climb.\pI came because I got sick and tired of\nseeing people.\pBut when I stopped seeing people,\nI began looking forward to visitors.\pWhere one lives can change people and\nPokémon, that's what I'm saying.$"
 
 SurvivalAreaNorthHouse_EventScript_Placa2::

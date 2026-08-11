@@ -60,6 +60,11 @@ PokemonLeague_ChampionsRoom_EventScript_EnterRoom::
 	setflag FLAG_TEMP_4
 	clearflag FLAG_TEMP_5
 	setflag FLAG_DEFEATED_CHAMP
+	@ Travessia entre regioes: vencer o campeao de Kanto abre o porto de
+	@ Olivine no menu dos cinco cais. Ver data/scripts/travessia_regioes.inc.
+	@ Nao usar FLAG_DEFEATED_CHAMP para isto: em include/constants/flags.h ela
+	@ vale 0 nesta build, e setflag(0) e no-op.
+	setflag FLAG_REGIAO_JOHTO_LIBERADA
 	setflag FLAG_TEMP_4
 	msgbox PokemonLeague_ChampionsRoom_Text_PostBattle
 	playbgm MUS_RG_SLOW_PALLET, 0

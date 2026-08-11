@@ -10,11 +10,11 @@ FightAreaSouthHouse_Text_Npc1:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-FightAreaSouthHouse_EventScript_Npc1::
-	msgbox FightAreaSouthHouse_Text_Npc1, MSGBOX_NPC
+FightAreaSouthHouse_EventScript_Npc3::
+	msgbox FightAreaSouthHouse_Text_Npc3, MSGBOX_NPC
 	end
 
-FightAreaSouthHouse_Text_Npc1:
+FightAreaSouthHouse_Text_Npc3:
 	.string "The Battle Zone used to attract only\nthe hardiest of the Trainers.\pThey were considered eccentric for\ngathering at a place like this.\pIt's hard to believe how much it's\nchanged since then.\pPlaces like the Fight Area and the\nSurvival Area just seemed to spring\pup overnight.$"
 
 FightAreaSouthHouse_EventScript_Npc2::

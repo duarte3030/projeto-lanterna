@@ -10,11 +10,11 @@ HearthomeCityPokemonFanClub_Text_Npc1:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-HearthomeCityPokemonFanClub_EventScript_Npc1::
-	msgbox HearthomeCityPokemonFanClub_Text_Npc1, MSGBOX_NPC
+HearthomeCityPokemonFanClub_EventScript_Npc3::
+	msgbox HearthomeCityPokemonFanClub_Text_Npc3, MSGBOX_NPC
 	end
 
-HearthomeCityPokemonFanClub_Text_Npc1:
+HearthomeCityPokemonFanClub_Text_Npc3:
 	.string "PSYDUCK: Gua gwah?!$"
 
 HearthomeCityPokemonFanClub_EventScript_Npc2::

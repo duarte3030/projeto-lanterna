@@ -33,11 +33,11 @@ VeilstoneStore1F_Text_Npc1:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-VeilstoneStore1F_EventScript_Npc1::
-	msgbox VeilstoneStore1F_Text_Npc1, MSGBOX_NPC
+VeilstoneStore1F_EventScript_Npc4::
+	msgbox VeilstoneStore1F_Text_Npc4, MSGBOX_NPC
 	end
 
-VeilstoneStore1F_Text_Npc1:
+VeilstoneStore1F_Text_Npc4:
 	.string "Welcome to the fabulous Veilstone\nDepartment Store.$"
 
 VeilstoneStore1F_EventScript_Npc2::

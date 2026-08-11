@@ -17,9 +17,9 @@ Cafe_Text_Npc2:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-Cafe_EventScript_Npc1::
-	msgbox Cafe_Text_Npc1, MSGBOX_NPC
+Cafe_EventScript_Npc3::
+	msgbox Cafe_Text_Npc3, MSGBOX_NPC
 	end
 
-Cafe_Text_Npc1:
+Cafe_Text_Npc3:
 	.string "Howdy, traveler!\pSome of our customers are rowdy\ntypes that want to battle.\pDo what you will with them.\nI don't mind.$"

@@ -40,18 +40,18 @@ VeilstoneStoreB1F_Text_Npc2:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-VeilstoneStoreB1F_EventScript_Npc1::
-	msgbox VeilstoneStoreB1F_Text_Npc1, MSGBOX_NPC
+VeilstoneStoreB1F_EventScript_Npc7::
+	msgbox VeilstoneStoreB1F_Text_Npc7, MSGBOX_NPC
 	end
 
-VeilstoneStoreB1F_Text_Npc1:
+VeilstoneStoreB1F_Text_Npc7:
 	.string "Welcome to the basement--the food and\nproduce section.\pWe offer a fine and pleasing selection\nof Pokémon food and treats.$"
 
-VeilstoneStoreB1F_EventScript_Npc2::
-	msgbox VeilstoneStoreB1F_Text_Npc2, MSGBOX_NPC
+VeilstoneStoreB1F_EventScript_Npc8::
+	msgbox VeilstoneStoreB1F_Text_Npc8, MSGBOX_NPC
 	end
 
-VeilstoneStoreB1F_Text_Npc2:
+VeilstoneStoreB1F_Text_Npc8:
 	.string "I'm hopeless at cooking Poffins, so I\nbuy them here.\pI wish I could feed my babies Poffins\nthat I made myself, though.$"
 
 VeilstoneStoreB1F_EventScript_Npc3::

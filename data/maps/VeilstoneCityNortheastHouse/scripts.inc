@@ -10,9 +10,9 @@ VeilstoneCityNortheastHouse_Text_Npc1:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-VeilstoneCityNortheastHouse_EventScript_Npc1::
-	msgbox VeilstoneCityNortheastHouse_Text_Npc1, MSGBOX_NPC
+VeilstoneCityNortheastHouse_EventScript_Npc2::
+	msgbox VeilstoneCityNortheastHouse_Text_Npc2, MSGBOX_NPC
 	end
 
-VeilstoneCityNortheastHouse_Text_Npc1:
+VeilstoneCityNortheastHouse_Text_Npc2:
 	.string "Those thorny things on the building...\nThe way it moves meaninglessly...\pI don't understand their idea of \n'awesomely fashionable' at all.\pStill, Team Galactic does seem to have\na huge supply of energy.$"

@@ -18,11 +18,11 @@ SurvivalAreaPokecenter1F_Text_Npc1:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-SurvivalAreaPokecenter1F_EventScript_Npc1::
-	msgbox SurvivalAreaPokecenter1F_Text_Npc1, MSGBOX_NPC
+SurvivalAreaPokecenter1F_EventScript_Npc3::
+	msgbox SurvivalAreaPokecenter1F_Text_Npc3, MSGBOX_NPC
 	end
 
-SurvivalAreaPokecenter1F_Text_Npc1:
+SurvivalAreaPokecenter1F_Text_Npc3:
 	.string "In a Multi Battle, coordination with\nyour partner is vital.\pBy working together, one plus one\ncould become not just two, but even\pthree or four.\pBut one times one is always one.\nDo you understand that?$"
 
 SurvivalAreaPokecenter1F_EventScript_Npc2::

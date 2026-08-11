@@ -10,9 +10,9 @@ GrandLakeRoute213NortheastHouse_Text_Npc1:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-GrandLakeRoute213NortheastHouse_EventScript_Npc1::
-	msgbox GrandLakeRoute213NortheastHouse_Text_Npc1, MSGBOX_NPC
+GrandLakeRoute213NortheastHouse_EventScript_Npc2::
+	msgbox GrandLakeRoute213NortheastHouse_Text_Npc2, MSGBOX_NPC
 	end
 
-GrandLakeRoute213NortheastHouse_Text_Npc1:
+GrandLakeRoute213NortheastHouse_Text_Npc2:
 	.string "That Coin Toss is why we ended up in\nthis musty, old, and stinky suite...$"

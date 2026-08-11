@@ -52,9 +52,9 @@ PokemonMansionMaidsRoom_Text_Placa6:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-PokemonMansionMaidsRoom_EventScript_Npc1::
-	msgbox PokemonMansionMaidsRoom_Text_Npc1, MSGBOX_NPC
+PokemonMansionMaidsRoom_EventScript_Npc2::
+	msgbox PokemonMansionMaidsRoom_Text_Npc2, MSGBOX_NPC
 	end
 
-PokemonMansionMaidsRoom_Text_Npc1:
+PokemonMansionMaidsRoom_Text_Npc2:
 	.string "I'm not loafing.\nI'm just taking a personal break.\pIt's my official policy to sleep in a bed\nwhen I'm officially loafing.$"

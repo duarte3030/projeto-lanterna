@@ -40,9 +40,9 @@ VeilstoneCityPrizeExchange_Text_Npc2:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-VeilstoneCityPrizeExchange_EventScript_Npc1::
-	msgbox VeilstoneCityPrizeExchange_Text_Npc1, MSGBOX_NPC
+VeilstoneCityPrizeExchange_EventScript_Npc3::
+	msgbox VeilstoneCityPrizeExchange_Text_Npc3, MSGBOX_NPC
 	end
 
-VeilstoneCityPrizeExchange_Text_Npc1:
+VeilstoneCityPrizeExchange_Text_Npc3:
 	.string "They have prizes I really want.\nBut Coins, I have none!$"

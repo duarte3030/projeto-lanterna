@@ -18,6 +18,75 @@ Antes disso Sinnoh inteira tinha 528 objetos. `dev_scripts/completude.py`
 passou a medir Sinnoh contra o pokeplatinum em vez de `fontes-mapas/sinnoh`,
 que tinha zero NPC de Sinnoh e por isso imprimia "fonte 0".
 
+## 0. Os 382 NPCs que nasceram duas vezes (11/08/2026)
+
+Aqueles 528 objetos que Sinnoh já tinha **não eram outra gente**: eram a MESMA
+gente do Platinum, escrita à mão por sessões anteriores a partir da lista de
+eventos da fonte. O importador trouxe todos de novo, e desde a leva de texto de
+11/08 os dois pares falam. Medido: **382 pares**, em 90 mapas.
+
+A prova de que os dois são a mesma pessoa não é distância no mapa (para mapa de
+rua a coordenada importada é PROPORCIONAL, então dois NPCs iguais podem ficar a
+50 tiles um do outro e ainda ser o mesmo sujeito). São três canais de NOME, cada
+par por exatamente um deles:
+
+| pares | prova |
+|---|---|
+| 186 | **nome de treinador**. O nativo tem `trainerbattle TRAINER_SINNOH_X` e o objeto importado corresponde, POR ORDEM, ao objeto do Platinum cujo `script` é `TRAINER_X`. Casamento de nome próprio, não de aparência |
+| 127 | **nome de LOCALID**. O `local_id` nativo termina no LOCALID do Platinum (`LOCALID_ROUTE222_SAILOR_LUTHER` contra `LOCALID_SAILOR_LUTHER`): quem escreveu à mão copiou o nome da fonte |
+| 69 | **sprite único dos dois lados**, depois de os dois canais acima consumirem todo o resto do mapa: sobrou exatamente um nativo e exatamente um importado daquele gráfico |
+
+O casamento importado → objeto do Platinum é por **ordem**: o importador percorre
+`object_events` da fonte na ordem e só filtra, então o k-ésimo importado é o
+k-ésimo sobrevivente do filtro. Conferido em 309 mapas, **307 alinham gráfico a
+gráfico**; os 2 que não alinham (`OreburghMine_B2F` e `Route205_North`) ficaram
+inteiros de fora.
+
+**Quem perde o par**, e por quê (o critério é CONTEÚDO, não origem):
+
+- 215 vezes o importado é **mudo** (`script: "0"`) e o nativo fala ou luta: some
+  o importado. É aqui que caem os 186 treinadores, porque treinador do Platinum
+  entra com `script: "0"` e `TRAINER_TYPE_NONE` (o `script` dele na fonte é a
+  constante `TRAINER_*`, que não é índice de texto). **Esconder o nativo neles
+  apagaria 186 batalhas e deixaria 186 bonecos mudos no lugar.**
+- 165 vezes o nativo é só um `msgbox` de fala inventada e o importado carrega o
+  texto de verdade do Platinum: some o nativo.
+- 2 vezes o nativo tem MENU e o importado tem texto, e aí o nativo fica: o
+  marinheiro Eldritch de Canalave (é a balsa entre regiões: T8.3, T8.5, T10.1,
+  T10.2 e cinco casos de T86 passam por ele) e o marinheiro de Snowpoint (é o
+  único acesso à Battle Zone, atrás de `FLAG_ELITE_SINNOH_VENCIDA`).
+
+**Os dois marinheiros quase foram escondidos, e o que os salvou merece registro
+(lição 4.1).** O detector de "script que faz mais do que falar" usava
+`re.search(..., re.S)` com um lookahead `^\S.*::`, e com `re.S` o `.` casa quebra
+de linha: o corpo do script terminava na primeira linha de comentário `@` no
+começo da coluna, ou seja, em `lock` + `faceplayer`, e os dois marinheiros
+passaram por "só fala". O delimitador certo é o rótulo inteiro
+(`^[A-Za-z_][A-Za-z0-9_]*::?$`), porque rótulo de TEXTO tem UM dois-pontos e
+rótulo de script tem dois. Depois disso, uma segunda varredura independente (por
+lista de comandos de risco) confirmou zero entre os 165 escondidos.
+
+Custo: **uma flag para os 382**, `FLAG_SINNOH_NPC_DUPLICADO`, no campo `flag` do
+perdedor. **Zero índice movido, zero objeto apagado** (a save guarda índice de
+objeto). Acesa uma vez em `EventScript_ResetAllMapFlags`
+(`data/scripts/new_game.inc`). Reversível: apagar a flag traz os 382 de volta.
+
+**31 pares suspeitos ficaram de pé**, todos em mapa onde sobrou mais de um NPC do
+mesmo gráfico dos dois lados (2 nativos e 3 importados de PICNICKER, por
+exemplo). Sem canal de nome não dá para dizer QUAL é qual, e a lição 4.10 vale:
+na dúvida, os dois ficam. Os maiores são `OreburghCity` (MAN_4, 1 contra 4),
+`HearthomeCity` (POKEFAN_M e POKEFAN_F, 1 contra 3 cada) e
+`JubilifeCity_PokemonCenter_2F` (TEALA, 3 contra 3).
+
+**Nenhum dos 165 nativos escondidos tem comando de risco no script.** Conferido
+com dois passes independentes: nenhum é treinador, nenhum `local_id` é citado por
+script de outro lugar (varredura em 8103 arquivos de `data/` e `src/`), e nenhum
+corpo tem `goto`, `call`, `warp`, `setflag`, `applymovement`, `special` ou coisa
+parecida. Esconder objeto só LIBERA passagem, nunca fecha, então não há risco de
+trancar caminho; o que pode mudar é roteiro de teste que contava com um NPC
+BLOQUEANDO o passo. Os casos que atravessam Canalave a pé (T8.3, T8.5, T10.1,
+T10.2, T86.8 a T86.12) precisam ser re-rodados na próxima build.
+
 ## 1. Todo NPC importado é mudo, e toda placa diz a mesma coisa
 
 No Platinum o campo `script` é um índice numérico dentro do arquivo de scripts

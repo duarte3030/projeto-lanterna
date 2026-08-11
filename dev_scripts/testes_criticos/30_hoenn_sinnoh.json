@@ -10,13 +10,19 @@
   },
   {
     "id": "T6.2",
-    "nome": "JOHTO PARA HOENN: o marinheiro do Porto de Olivine leva o jogador ao Porto de Slateport. FALHA na ROM congelada (4322cb72f9) por dois motivos medidos: uma OBJ_EVENT_GFX_ITEM_BALL inerte em (8,16) trancava o unico tile vizinho do marinheiro (8,17), o jogador parava em (8,15); e o warpsilent do script nao tinha waitstate, que derruba o jogo em SRC/SCRIPT.C:79. A arvore de trabalho ja tem os dois consertos, nao verificados em ROM por este agente",
+    "nome": "JOHTO PARA HOENN: o marinheiro do Porto de Olivine leva o jogador ao Porto de Slateport. FALHA na ROM congelada (4322cb72f9) por dois motivos medidos: uma OBJ_EVENT_GFX_ITEM_BALL inerte em (8,16) trancava o unico tile vizinho do marinheiro (8,17), o jogador parava em (8,15); e o warpsilent do script nao tinha waitstate, que derruba o jogo em SRC/SCRIPT.C:79. A arvore de trabalho ja tem os dois consertos, nao verificados em ROM por este agente MUDOU EM 11/08/2026: o menu do marinheiro deixou de ser a lista estatica MULTI_CINCO_REGIOES_BARCO e passa a ser montado em data/scripts/travessia_regioes.inc, escondendo o destino cuja regiao ainda nao foi liberada. Os `case` dos portos nao mudaram (o id empilhado por dynmultipush e o indice antigo), mas o numero de DOWN passa a ser a posicao DENTRO da lista ja filtrada. Por isso este caso acende as quatro flags de liberacao de regiao: com todas acesas o menu volta a ter os seis itens na ordem antiga e a contagem de DOWN deste roteiro continua valendo.",
     "warp": "MAP_OLIVINE_CITY_PORT_INSIDE",
     "roteiro": "20:DOWN*12,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN,60:NADA,20:A,900:NADA,20:A,300:NADA",
     "prova": {
       "mapa": "MAP_SLATEPORT_CITY_HARBOR",
       "layout": "LAYOUT_HARBOR"
-    }
+    },
+    "flags": [
+      "FLAG_REGIAO_JOHTO_LIBERADA",
+      "FLAG_REGIAO_HOENN_LIBERADA",
+      "FLAG_REGIAO_SINNOH_LIBERADA",
+      "FLAG_ELITE_SINNOH_VENCIDA"
+    ]
   },
   {
     "id": "T7.1",
@@ -92,23 +98,35 @@
   },
   {
     "id": "T8.2",
-    "nome": "Controle do menu do barco de Slateport: a 1a opcao leva a Johto (Porto de Olivine). FALHA na ROM congelada (4322cb72f9): o warpsilent do script nao tinha waitstate e o jogo caiu em SRC/SCRIPT.C:79 LEAVING SCRIPT WHILE A WARP IS IN PROGRESS. Conserto ja na arvore de trabalho, nao verificado em ROM por este agente",
+    "nome": "Controle do menu do barco de Slateport: a 1a opcao leva a Johto (Porto de Olivine). FALHA na ROM congelada (4322cb72f9): o warpsilent do script nao tinha waitstate e o jogo caiu em SRC/SCRIPT.C:79 LEAVING SCRIPT WHILE A WARP IS IN PROGRESS. Conserto ja na arvore de trabalho, nao verificado em ROM por este agente MUDOU EM 11/08/2026: o menu do marinheiro deixou de ser a lista estatica MULTI_CINCO_REGIOES_BARCO e passa a ser montado em data/scripts/travessia_regioes.inc, escondendo o destino cuja regiao ainda nao foi liberada. Os `case` dos portos nao mudaram (o id empilhado por dynmultipush e o indice antigo), mas o numero de DOWN passa a ser a posicao DENTRO da lista ja filtrada. Por isso este caso acende as quatro flags de liberacao de regiao: com todas acesas o menu volta a ter os seis itens na ordem antiga e a contagem de DOWN deste roteiro continua valendo.",
     "warp": "MAP_SLATEPORT_CITY_HARBOR",
     "roteiro": "20:UP*2,20:LEFT*10,30:NADA,20:A,900:NADA,20:A,120:NADA,20:A,900:NADA,20:A,300:NADA",
     "prova": {
       "mapa": "MAP_OLIVINE_CITY_PORT_INSIDE",
       "layout": "LAYOUT_OLIVINE_CITY_PORT_INSIDE"
-    }
+    },
+    "flags": [
+      "FLAG_REGIAO_JOHTO_LIBERADA",
+      "FLAG_REGIAO_HOENN_LIBERADA",
+      "FLAG_REGIAO_SINNOH_LIBERADA",
+      "FLAG_ELITE_SINNOH_VENCIDA"
+    ]
   },
   {
     "id": "T8.3",
-    "nome": "HOENN PARA SINNOH: o marinheiro do Porto de Slateport leva o jogador a Canalave City. CANALAVE e o item 4 do MULTI_CINCO_REGIOES_BARCO (OLIVINE, SLATEPORT, VERMILION, VIRBANK, CANALAVE, Sair) e Slateport pula o proprio case 1, entao sao QUATRO DOWN. O roteiro antigo tinha dois, escrito quando o menu ainda caia no MULTI_BRINEY_OFF_DEWFORD de duas linhas, e com a lista certa dois DOWN param em VERMILION, ou seja o caso zarpava para Kanto",
+    "nome": "HOENN PARA SINNOH: o marinheiro do Porto de Slateport leva o jogador a Canalave City. CANALAVE e o item 4 do MULTI_CINCO_REGIOES_BARCO (OLIVINE, SLATEPORT, VERMILION, VIRBANK, CANALAVE, Sair) e Slateport pula o proprio case 1, entao sao QUATRO DOWN. O roteiro antigo tinha dois, escrito quando o menu ainda caia no MULTI_BRINEY_OFF_DEWFORD de duas linhas, e com a lista certa dois DOWN param em VERMILION, ou seja o caso zarpava para Kanto MUDOU EM 11/08/2026: o menu do marinheiro deixou de ser a lista estatica MULTI_CINCO_REGIOES_BARCO e passa a ser montado em data/scripts/travessia_regioes.inc, escondendo o destino cuja regiao ainda nao foi liberada. Os `case` dos portos nao mudaram (o id empilhado por dynmultipush e o indice antigo), mas o numero de DOWN passa a ser a posicao DENTRO da lista ja filtrada. Por isso este caso acende as quatro flags de liberacao de regiao: com todas acesas o menu volta a ter os seis itens na ordem antiga e a contagem de DOWN deste roteiro continua valendo.",
     "warp": "MAP_SLATEPORT_CITY_HARBOR",
     "roteiro": "20:UP*2,20:LEFT*10,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*4,60:NADA,20:A,900:NADA,20:A,300:NADA",
     "prova": {
       "mapa": "MAP_CANALAVE_CITY",
       "layout": "LAYOUT_CANALAVE_CITY"
-    }
+    },
+    "flags": [
+      "FLAG_REGIAO_JOHTO_LIBERADA",
+      "FLAG_REGIAO_HOENN_LIBERADA",
+      "FLAG_REGIAO_SINNOH_LIBERADA",
+      "FLAG_ELITE_SINNOH_VENCIDA"
+    ]
   },
   {
     "id": "T8.4",
@@ -122,14 +140,20 @@
   },
   {
     "id": "T8.5",
-    "nome": "Volta SINNOH PARA HOENN: o marinheiro de Canalave leva o jogador ao Porto de Slateport. Medido na ROM congelada (4322cb72f9): o marinheiro E alcancavel em (17,49) e o menu abre, mas so com DEWFORD e EXIT, e a saida caia no mesmo warpsilent sem waitstate. Mesmos dois consertos ja na arvore de trabalho, nao verificados em ROM por este agente",
+    "nome": "Volta SINNOH PARA HOENN: o marinheiro de Canalave leva o jogador ao Porto de Slateport. Medido na ROM congelada (4322cb72f9): o marinheiro E alcancavel em (17,49) e o menu abre, mas so com DEWFORD e EXIT, e a saida caia no mesmo warpsilent sem waitstate. Mesmos dois consertos ja na arvore de trabalho, nao verificados em ROM por este agente MUDOU EM 11/08/2026: o menu do marinheiro deixou de ser a lista estatica MULTI_CINCO_REGIOES_BARCO e passa a ser montado em data/scripts/travessia_regioes.inc, escondendo o destino cuja regiao ainda nao foi liberada. Os `case` dos portos nao mudaram (o id empilhado por dynmultipush e o indice antigo), mas o numero de DOWN passa a ser a posicao DENTRO da lista ja filtrada. Por isso este caso acende as quatro flags de liberacao de regiao: com todas acesas o menu volta a ter os seis itens na ordem antiga e a contagem de DOWN deste roteiro continua valendo.",
     "warp": "MAP_CANALAVE_CITY",
     "warp_id": 1,
     "roteiro": "20:DOWN*20,20:LEFT*20,20:RIGHT*4,20:UP*12,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN,60:NADA,20:A,900:NADA,20:A,300:NADA",
     "prova": {
       "mapa": "MAP_SLATEPORT_CITY_HARBOR",
       "layout": "LAYOUT_HARBOR"
-    }
+    },
+    "flags": [
+      "FLAG_REGIAO_JOHTO_LIBERADA",
+      "FLAG_REGIAO_HOENN_LIBERADA",
+      "FLAG_REGIAO_SINNOH_LIBERADA",
+      "FLAG_ELITE_SINNOH_VENCIDA"
+    ]
   },
   {
     "id": "T9.1",

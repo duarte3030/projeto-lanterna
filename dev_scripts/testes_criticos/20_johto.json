@@ -10,9 +10,13 @@
   },
   {
     "id": "T4.2",
-    "nome": "KANTO PARA JOHTO, a cadeia inteira: campeao de Kanto (FLAG_SYS_GAME_CLEAR, que o Hall da Fama de Kanto acende pelo special EnterHallOfFame), o assistente do Prof. Carvalho no cais entrega o PASSE TRI, e so entao a balsa de Vermilion zarpa e desembarca no Porto de Olivine. Desde 05/08/2026 a travessia passa POR DENTRO do S.S. Aqua: a balsa de Vermilion embarca o jogador em MAP_SSAQUA_1F e quem desembarca no Porto de Olivine e o marinheiro da porta, entao o roteiro ganhou o trecho de bordo no fim",
+    "nome": "KANTO PARA JOHTO, a cadeia inteira: campeao de Kanto (FLAG_SYS_GAME_CLEAR, que o Hall da Fama de Kanto acende pelo special EnterHallOfFame), o assistente do Prof. Carvalho no cais entrega o PASSE TRI, e so entao a balsa de Vermilion zarpa e desembarca no Porto de Olivine. Desde 05/08/2026 a travessia passa POR DENTRO do S.S. Aqua: a balsa de Vermilion embarca o jogador em MAP_SSAQUA_1F e quem desembarca no Porto de Olivine e o marinheiro da porta, entao o roteiro ganhou o trecho de bordo no fim MUDOU EM 11/08/2026: o menu do marinheiro deixou de ser a lista estatica MULTI_CINCO_REGIOES_BARCO e passa a ser montado em data/scripts/travessia_regioes.inc, escondendo o destino cuja regiao ainda nao foi liberada. Os `case` dos portos nao mudaram (o id empilhado por dynmultipush e o indice antigo), mas o numero de DOWN passa a ser a posicao DENTRO da lista ja filtrada. Por isso este caso acende as quatro flags de liberacao de regiao: com todas acesas o menu volta a ter os seis itens na ordem antiga e a contagem de DOWN deste roteiro continua valendo.",
     "flags": [
-      "FLAG_SYS_GAME_CLEAR"
+      "FLAG_SYS_GAME_CLEAR",
+      "FLAG_REGIAO_JOHTO_LIBERADA",
+      "FLAG_REGIAO_HOENN_LIBERADA",
+      "FLAG_REGIAO_SINNOH_LIBERADA",
+      "FLAG_ELITE_SINNOH_VENCIDA"
     ],
     "warp": "MAP_VERMILION_CITY",
     "warp_id": 4,
@@ -33,12 +37,18 @@
   },
   {
     "id": "T4.4",
-    "nome": "FALHA REAL na ROM congelada, CONSERTADA no repo: sair de Johto de balsa. Tres bugs somados, todos medidos: item ball inerte em (8,16) trancava o corredor ate o marinheiro; o menu de destinos caia no MULTI_BRINEY_OFF_DEWFORD de 2 linhas (DEWFORD/EXIT), entao os nomes eram errados e o terceiro destino inalcancavel; e warpsilent sem waitstate derrubava o jogo no assert 'leaving script while a warp is in progress' (src/script.c:79)",
+    "nome": "FALHA REAL na ROM congelada, CONSERTADA no repo: sair de Johto de balsa. Tres bugs somados, todos medidos: item ball inerte em (8,16) trancava o corredor ate o marinheiro; o menu de destinos caia no MULTI_BRINEY_OFF_DEWFORD de 2 linhas (DEWFORD/EXIT), entao os nomes eram errados e o terceiro destino inalcancavel; e warpsilent sem waitstate derrubava o jogo no assert 'leaving script while a warp is in progress' (src/script.c:79) MUDOU EM 11/08/2026: o menu do marinheiro deixou de ser a lista estatica MULTI_CINCO_REGIOES_BARCO e passa a ser montado em data/scripts/travessia_regioes.inc, escondendo o destino cuja regiao ainda nao foi liberada. Os `case` dos portos nao mudaram (o id empilhado por dynmultipush e o indice antigo), mas o numero de DOWN passa a ser a posicao DENTRO da lista ja filtrada. Por isso este caso acende as quatro flags de liberacao de regiao: com todas acesas o menu volta a ter os seis itens na ordem antiga e a contagem de DOWN deste roteiro continua valendo.",
     "warp": "MAP_OLIVINE_CITY_PORT_INSIDE",
     "roteiro": "16:DOWN*12,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,16:DOWN,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,240:NADA",
     "prova": {
       "mapa": "MAP_SLATEPORT_CITY_HARBOR"
-    }
+    },
+    "flags": [
+      "FLAG_REGIAO_JOHTO_LIBERADA",
+      "FLAG_REGIAO_HOENN_LIBERADA",
+      "FLAG_REGIAO_SINNOH_LIBERADA",
+      "FLAG_ELITE_SINNOH_VENCIDA"
+    ]
   },
   {
     "id": "T5.1",
@@ -161,24 +171,36 @@
   },
   {
     "id": "T4.5",
-    "nome": "CONTROLE do T4.2: sem falar com o assistente (logo, sem o PASSE TRI) a balsa de Vermilion recusa o embarque e o jogador continua em Kanto",
+    "nome": "CONTROLE do T4.2: sem falar com o assistente (logo, sem o PASSE TRI) a balsa de Vermilion recusa o embarque e o jogador continua em Kanto MUDOU EM 11/08/2026: o menu do marinheiro deixou de ser a lista estatica MULTI_CINCO_REGIOES_BARCO e passa a ser montado em data/scripts/travessia_regioes.inc, escondendo o destino cuja regiao ainda nao foi liberada. Os `case` dos portos nao mudaram (o id empilhado por dynmultipush e o indice antigo), mas o numero de DOWN passa a ser a posicao DENTRO da lista ja filtrada. Por isso este caso acende as quatro flags de liberacao de regiao: com todas acesas o menu volta a ter os seis itens na ordem antiga e a contagem de DOWN deste roteiro continua valendo.",
     "warp": "MAP_VERMILION_CITY",
     "warp_id": 4,
     "roteiro": "16:DOWN*4,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,300:NADA,8:A,300:NADA,8:A,300:NADA",
     "prova": {
       "mapa": "MAP_VERMILION_CITY",
       "layout": "LAYOUT_VERMILION_CITY"
-    }
+    },
+    "flags": [
+      "FLAG_REGIAO_JOHTO_LIBERADA",
+      "FLAG_REGIAO_HOENN_LIBERADA",
+      "FLAG_REGIAO_SINNOH_LIBERADA",
+      "FLAG_ELITE_SINNOH_VENCIDA"
+    ]
   },
   {
     "id": "T4.6",
-    "nome": "CONTROLE do T4.2, par A/B exato: MESMO roteiro de botoes do T4.2, so que sem acender FLAG_SYS_GAME_CLEAR. O assistente entao nao entrega o PASSE TRI e a balsa recusa, entao o jogador continua em Vermilion. E este par que prova o portao: sozinho, 'continuou em Kanto' passaria com o script inteiro quebrado",
+    "nome": "CONTROLE do T4.2, par A/B exato: MESMO roteiro de botoes do T4.2, so que sem acender FLAG_SYS_GAME_CLEAR. O assistente entao nao entrega o PASSE TRI e a balsa recusa, entao o jogador continua em Vermilion. E este par que prova o portao: sozinho, 'continuou em Kanto' passaria com o script inteiro quebrado MUDOU EM 11/08/2026: o menu do marinheiro deixou de ser a lista estatica MULTI_CINCO_REGIOES_BARCO e passa a ser montado em data/scripts/travessia_regioes.inc, escondendo o destino cuja regiao ainda nao foi liberada. Os `case` dos portos nao mudaram (o id empilhado por dynmultipush e o indice antigo), mas o numero de DOWN passa a ser a posicao DENTRO da lista ja filtrada. Por isso este caso acende as quatro flags de liberacao de regiao: com todas acesas o menu volta a ter os seis itens na ordem antiga e a contagem de DOWN deste roteiro continua valendo.",
     "warp": "MAP_VERMILION_CITY",
     "warp_id": 4,
     "roteiro": "16:DOWN*3,30:NADA,16:RIGHT,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,60:NADA,16:DOWN,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,300:NADA,8:A,300:NADA,8:A,300:NADA",
     "prova": {
       "mapa": "MAP_VERMILION_CITY",
       "layout": "LAYOUT_VERMILION_CITY"
-    }
+    },
+    "flags": [
+      "FLAG_REGIAO_JOHTO_LIBERADA",
+      "FLAG_REGIAO_HOENN_LIBERADA",
+      "FLAG_REGIAO_SINNOH_LIBERADA",
+      "FLAG_ELITE_SINNOH_VENCIDA"
+    ]
   }
 ]

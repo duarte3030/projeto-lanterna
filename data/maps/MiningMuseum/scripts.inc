@@ -10,11 +10,11 @@ MiningMuseum_Text_Npc1:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-MiningMuseum_EventScript_Npc1::
-	msgbox MiningMuseum_Text_Npc1, MSGBOX_NPC
+MiningMuseum_EventScript_Npc8::
+	msgbox MiningMuseum_Text_Npc8, MSGBOX_NPC
 	end
 
-MiningMuseum_Text_Npc1:
+MiningMuseum_Text_Npc8:
 	.string "Whoa! So this is coal?\nI never expected something this big!\pAnd that color!\nIt really is as black as they say!$"
 
 MiningMuseum_EventScript_Npc2::

@@ -18,9 +18,9 @@ VeilstoneCityPokecenter1F_Text_Npc1:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-VeilstoneCityPokecenter1F_EventScript_Npc1::
-	msgbox VeilstoneCityPokecenter1F_Text_Npc1, MSGBOX_NPC
+VeilstoneCityPokecenter1F_EventScript_Npc2::
+	msgbox VeilstoneCityPokecenter1F_Text_Npc2, MSGBOX_NPC
 	end
 
-VeilstoneCityPokecenter1F_Text_Npc1:
+VeilstoneCityPokecenter1F_Text_Npc2:
 	.string "Maylene, the Gym Leader, is a cute\ngirl.\pBut don't let her looks fool you.\nEven grown-ups have trouble with her.$"

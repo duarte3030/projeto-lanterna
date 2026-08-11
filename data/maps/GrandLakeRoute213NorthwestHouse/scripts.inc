@@ -17,9 +17,9 @@ GrandLakeRoute213NorthwestHouse_Text_Npc2:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-GrandLakeRoute213NorthwestHouse_EventScript_Npc1::
-	msgbox GrandLakeRoute213NorthwestHouse_Text_Npc1, MSGBOX_NPC
+GrandLakeRoute213NorthwestHouse_EventScript_Npc3::
+	msgbox GrandLakeRoute213NorthwestHouse_Text_Npc3, MSGBOX_NPC
 	end
 
-GrandLakeRoute213NorthwestHouse_Text_Npc1:
+GrandLakeRoute213NorthwestHouse_Text_Npc3:
 	.string "Me, I'm just a simple guy.\nI let my guitar do all my talking.\pAll I need is music and Pokémon.\pI can shine wherever I go if I have\nthose things in my life.\pI hear there are guys like me who go\naround Pokémon Centers.$"

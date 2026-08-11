@@ -323,7 +323,10 @@ VermilionCity_EventScript_InternationalFerry::
 
 VermilionCity_EventScript_FerryMenu::
 	msgbox VermilionCity_Text_WhereTo, MSGBOX_DEFAULT
-	multichoice 0, 0, MULTI_BOAT_DESTINATIONS, FALSE
+	@ O menu e montado em data/scripts/travessia_regioes.inc e esconde o
+	@ destino ainda nao liberado. Os `case` abaixo NAO mudam: o id
+	@ empilhado continua sendo o indice antigo da lista.
+	call Travessia_EventScript_MenuDeDestinos
 	switch VAR_RESULT
 	case 0, VermilionCity_EventScript_SailToOlivine
 	case 1, VermilionCity_EventScript_SailToSlateport

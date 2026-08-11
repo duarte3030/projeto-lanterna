@@ -34,7 +34,7 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 | ROM | **94,67% de 32 MB** (1,74 MB livres) |
 | EWRAM / IWRAM | 85,57% / 86,62% |
 | SaveBlock1 | **13432 de 15872 B (84,6%)** |
-| flags livres no pool | **88** (medido por `flags_livres.py` em 11/08/2026; o "184" daqui estava velho, e 9 saíram para as trocas de Unova) |
+| flags livres no pool | **41** (medido por `flags_livres.py` em 11/08/2026: estava em 88, 46 foram para os itens escondidos de Sinnoh (`itens_escondidos_sinnoh.py`) e 1 para `FLAG_SINNOH_NPC_DUPLICADO`, que esconde o clone perdedor dos 382 pares de NPC repetido) |
 | mapas | **1878** |
 | treinadores com time próprio | **2346** |
 | grupos de mapa | **126** (teto duro de **128** grupos e **128 mapas por grupo**: `s8` em `struct WarpData`; passar disso mata o mapa) |
@@ -51,8 +51,16 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 | Kanto | 98,1% | 100,1% | 100,0% | 100,0% |
 | Johto | **95,9%** | 94,0% | 100,0% | 96,0% |
 | Hoenn | 100,0% | 100,1% | 100,0% | 100,0% |
-| Sinnoh | **72,1%** | 78,0% | **99,2%** | 96,0% |
+| Sinnoh | **72,4%** | 77,4% | **99,0%** | **82,3%** |
 | Unova | 94,2% | 98,5% | 98,9% | 98,0% |
+
+**As placas de Sinnoh caíram de 94,4% para 82,3% em 11/08/2026, e isso NÃO é
+regressão.** Medido antes e depois com `completude.py`, na mesma árvore. As 146
+bg_events que sumiram nunca foram placa: eram item escondido do Platinum que o
+importador copiou como placa (ver o item 3 da seção 8). Cinquenta viraram item
+escondido de verdade e 96 foram apagadas. Quem contar placa vai achar que
+perdemos conteúdo; o que perdemos foi mentira, e a régua é que continua contando
+item escondido da fonte como se fosse placa.
 
 Mudou em 06/08/2026, na sétima leva do dia: **Sinnoh foi de 69,5% para 72,1%
 dos mapas**, com 15 mapas novos, e desta vez **nada é régua**: são 12 masmorras
@@ -283,7 +291,7 @@ Não relitigar. Números são das perguntas numeradas da sessão.
 | 70 | **Só creditar** Azure_Keys e os artistas, não contatar |
 | 71 | **Nível vai até 255**, não 100. O trabalho de expansão já existia |
 | 73 | Importar os treinadores de rota de Johto do `hns` |
-| 13 | As 152 "placas" de Sinnoh que na verdade são item escondido **ficam como estão**: não viram item nem são apagadas agora. Não gastar o pool de flags nisso |
+| 13 | ~~As 152 "placas" de Sinnoh que na verdade são item escondido **ficam como estão**~~. **Revogada em 11/08/2026 pelo Gui**: as 146 (contagem certa) foram resolvidas. 50 viraram item escondido de verdade, custando 46 flags, e 96 foram apagadas |
 | 14 | **Primeiro a ROM na mão do Gui**, ele joga a primeira hora; só depois atacar os 455 mapas de Sinnoh que faltam |
 
 **A janela de quebrar save FECHOU em 05/08/2026**, com a entrega de
@@ -397,6 +405,29 @@ o teto de treinador subiu), testador com cópia própria do roteiro de abertura
 (o começo mudou de Twinleaf para Pallet), e teste dependendo de NPC que anda.
 Leia o fato da fonte; não copie.
 
+### 4.12 Existir não é ser único, e gerador de rótulo tem que ler o arquivo
+
+11/08/2026: o `texto_sinnoh.py` escreveu 790 rótulos e a conferência disse que
+todos existiam no `scripts.inc` do próprio mapa. **O assembler reprovou 134
+deles em 50 mapas**, porque existência e unicidade são checagens diferentes:
+rótulo duplicado existe duas vezes e passa na primeira.
+
+A causa não foi colisão interna. Foi colisão com o que **já estava no arquivo**
+de sessões anteriores: o gerador começava com o conjunto `usados` vazio em cada
+mapa e renumerava do 1, reescrevendo o `Placa4` que o `texto_placas_sinnoh.py`
+tinha escrito antes. Gerador de nome tem que semear `usados` lendo o arquivo.
+
+A checagem certa é na **unidade de montagem**, não por arquivo: os 2018
+`scripts.inc` entram num único `data/event_scripts.s`, então o nome precisa ser
+único no conjunto inteiro (35.747 rótulos), e a checagem por arquivo deixaria
+passar colisão entre mapas. Está em `texto_sinnoh.py --demo`, e ela ignora
+`.if/.else` de propósito, senão o vanilla a reprova pelo motivo errado (4.3).
+
+**Landmine registrado:** `fecha_portas_sinnoh.py`, `importa_unova.py` e
+`importa_trocas_unova.py` usam o mesmo esquema `<Mapa>_EventScript_Npc<N>` e
+**nenhum semeia `usados`**. Hoje não há duplicata, conferida nos 35.747. Quem
+rodar um deles num mapa que já tem `Npc1` repete este build quebrado.
+
 ---
 
 ## 5. Regras de trabalho
@@ -484,6 +515,7 @@ existir escrito no topo.
 | `converte_cavernas_sinnoh.py` | Caverna de Sinnoh com a planta CONVERTIDA da grade 2D do DS |
 | `importa_placas_johto.py` | Traz placa do `hns` com script e texto, e recusa a que não funciona aqui |
 | `texto_placas_sinnoh.py` | Segue índice → `ScriptEntry` → banco de texto do Platinum |
+| `itens_escondidos_sinnoh.py` | Desfaz a placa falsa: converte em item escondido o que vale, apaga o resto |
 | `liga_flags_kanto.py` | Tira do stub só a flag que algum script mexe |
 
 As cinco fontes ficam em `../fontes-mapas/`: `pokeemerald`, `pokefirered`,
@@ -531,24 +563,45 @@ scripts liam de lá.
    bloqueio permanente das 39 pedras de Strength de Unova. A flag só vale junto
    com a cena que a acende. Faltam também 71 sem sprite honesto (Cynthia, Cyrus,
    Looker, os lendários de lago). Ver `PENDENCIAS-NPC-SINNOH.md`.
-3. **146 "placas" de Sinnoh não são placa: são item escondido** (contadas em
-   11/08/2026; o número antigo aqui era 152, e ainda faltam até 13 escondidos nos
-   8 mapas que o alinhamento reprova). A causa é o importador:
+3. ~~146 "placas" de Sinnoh não são placa~~. **FEITO em 11/08/2026** por
+   `dev_scripts/itens_escondidos_sinnoh.py`. A causa era o importador:
    `dev_scripts/importa_npcs_sinnoh.py:385` lê `fonte["bg_events"]` cru do
    Platinum, onde placa e item escondido moram no MESMO array e só se distinguem
    pela faixa do `script` (< 2500 = placa, 7000+ = item visível, **8000 a 8799 =
-   item escondido**, `include/script_manager.h:90-98` da fonte). Hoje o jogador
-   lê "the lettering has faded" em cima de um item invisível.
+   item escondido**, `include/script_manager.h:90-98` da fonte). O jogador
+   parava em cima de um item invisível e lia "the lettering has faded".
 
-   Lista resolvida item a item, com mapa, coordenada, quantidade e a flag do
-   Platinum: `python3 dev_scripts/texto_sinnoh.py --itens`. **Armadilha medida:**
-   `script - 8000` **não** é a posição na tabela `gHiddenItems`, é a posição da
-   flag dentro de `HIDDEN_ITEM_FLAGS_START` (`src/script_manager.c:534`); ler
-   pela tabela resolve só 139 dos 146.
+   **50 viraram item escondido de verdade** (`bg_events` do tipo `hidden_item`,
+   a mesma mecânica de Hoenn: `mapjson` emite `bg_hidden_item_event` e o motor lê
+   item, quantidade e flag do próprio evento, sem tabela para manter), em 34
+   mapas, **custando 46 flags** da faixa `0x8F0` a `0x91D`. **96 foram
+   apagadas**, 95 por serem lixo de rota (Stardust, Pearl, Shard, Poké Ball,
+   poção comum) e uma porque `ITEM_SUITE_KEY` não existe nesta ROM.
 
-   Virar item de verdade custa **uma flag por item, e o pool livre é de 97**
-   (medido por `flags_livres.py`; o "184" que este documento anunciava está
-   velho). Não cabem todos: precisa da decisão do Gui sobre quais.
+   **46 flags para 50 itens**, e a diferença não é economia torta: quatro itens
+   aparecem em DOIS mapas vizinhos com a MESMA flag do Platinum (Moon Stone em
+   EternaCity e Route211_West, Thunderstone em Route229 e ResortArea, Zinc em
+   Route219 e Route220, Rare Candy em Route226 e Route227). É costura de mapa da
+   fonte, e no Platinum pegar de um lado apaga o do outro; dar uma flag nossa aos
+   dois reproduz o jogo original.
+
+   **Apagar `bg_event` não quebra save, e isso foi conferido, não presumido:**
+   nada em SaveBlock1/2/3 guarda posição dentro de `bg_events` (o que a save
+   guarda de evento é índice de `object_event`, em `objectEvents[]` e
+   `objectEventTemplates[]`). Todo acesso do motor varre o array por COORDENADA
+   dentro do mapa carregado: `src/field_control_avatar.c:1203`,
+   `src/item_use.c:453` e `:483`, `src/secret_base.c:385`. A única identidade de
+   item escondido que atravessa o save é a FLAG, e ela viaja dentro do próprio
+   dado (`hiddenItemId + FLAG_HIDDEN_ITEMS_START`).
+
+   **Armadilha medida, que continua valendo:** `script - 8000` **não** é a
+   posição na tabela `gHiddenItems`, é a posição da flag dentro de
+   `HIDDEN_ITEM_FLAGS_START` (`src/script_manager.c:534` da fonte); ler pela
+   tabela resolve só 139 dos 146. Quem faz essa conta certo é
+   `texto_sinnoh.tabela_de_itens()`, reusada em vez de reescrita.
+
+   O que **sobra**: até 13 itens escondidos nos 8 mapas que o alinhamento de
+   `texto_sinnoh` reprova, e que por isso nunca entraram na lista.
 4. **Unova.** Este item também estava velho: as 117 placas entraram em
    `febde977c3` e 33 NPCs em `0508831d27`. Em 11/08/2026 entraram as **9 trocas
    de Pokémon** (`dev_scripts/importa_trocas_unova.py`; `trade NPC_TRADE_X` lê
@@ -567,11 +620,16 @@ scripts liam de lá.
    (`dev_scripts/liga_flags_kanto.py`).
 6. **As 20 rotas dirigidas de barco estão provadas em ROM** (T4, T6, T8, T10 e
    T86.1 a T86.12, prova lida da EWRAM, com mutante para cada caso). O que sobra
-   é texto de jogo **em português** nos cinco portos, e as três
-   `FLAG_REGIAO_*_LIBERADA` que estão reservadas mas **nenhum script lê ou
-   acende**: hoje os cinco portos oferecem os quatro destinos desde sempre, e o
-   único portão da travessia é o PASSE TRI de Vermilion. Ver
-   `PENDENCIAS-TRAVESSIA.md`.
+   é texto de jogo **em português** nos cinco portos. As três
+   `FLAG_REGIAO_*_LIBERADA` **foram ligadas em 11/08/2026**: o menu do marinheiro
+   passou a ser montado em `data/scripts/travessia_regioes.inc` e esconde o
+   destino da região ainda não liberada (Kanto sempre aberto; Johto pelo campeão
+   de Kanto; Hoenn pela 8ª insígnia de Johto, porque esta ROM não tem Elite dos
+   Quatro de Johto; Sinnoh pelo Wallace; Unova por `FLAG_ELITE_SINNOH_VENCIDA`,
+   que a Cynthia já acendia). Zero flag nova, zero var, e nenhum `case` de porto
+   mudou, porque `dynmultipush` devolve o **id empilhado** e não a linha. Falta
+   prova de emulador do portão em si (a leva rodou sob proibição de compilar).
+   Ver `PENDENCIAS-TRAVESSIA.md`.
 7. **Ninguém jogou do começo ao fim.** Tudo aqui é build, dado estático e
    emulador em ponto específico.
 

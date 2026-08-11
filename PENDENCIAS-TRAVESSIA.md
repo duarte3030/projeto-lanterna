@@ -178,17 +178,49 @@ para cada uma.
    então reescrever texto sem re-rodar os 20 casos quebra a suíte calada.
    Quem for traduzir: mantenha uma página por caixa e re-rode `T4`, `T6`, `T8`,
    `T10` e `T86` na build seguinte.
-3. **As três `FLAG_REGIAO_*_LIBERADA` estão reservadas e NÃO estão ligadas em
-   lugar nenhum.** Medido em 11/08/2026: `FLAG_REGIAO_JOHTO_LIBERADA` (0x22),
-   `FLAG_REGIAO_HOENN_LIBERADA` (0x23) e `FLAG_REGIAO_SINNOH_LIBERADA` (0x24)
-   aparecem **só** em `include/constants/flags.h:2546-2548`, e nenhum script de
-   `data/`, nenhum `.c` de `src/` as lê ou acende. O comentário ao lado delas
-   descreve o desenho pretendido ("o marinheiro do cais monta o menu de destinos
-   lendo estas três"), e ele ainda não existe no jogo: **hoje os cinco portos
-   oferecem os quatro destinos desde sempre**, e o único portão da travessia
-   inteira é o PASSE TRI de Vermilion. Não é bug de alcance em jogo (só se chega
-   aos outros portos de barco), mas é a diferença entre o desenho escrito e o
-   jogo rodando, e é decisão do Gui ligar ou não. As flags continuam intactas.
+3. ~~As três `FLAG_REGIAO_*_LIBERADA` estão reservadas e NÃO estão ligadas em
+   lugar nenhum.~~ **FECHADO em 11/08/2026, mais tarde no mesmo dia.** O menu
+   dos cinco portos deixou de ser a lista estática `MULTI_CINCO_REGIOES_BARCO` e
+   passou a ser montado em `data/scripts/travessia_regioes.inc`, escondendo o
+   destino da região que ainda não foi liberada. **Zero flag nova e zero var:**
+
+   | destino | porteiro | quem acende |
+   |---|---|---|
+   | VERMILION (Kanto) | nenhum, é a região inicial | — |
+   | OLIVINE (Johto) | `FLAG_REGIAO_JOHTO_LIBERADA` | campeão de Kanto, `PokemonLeague_ChampionsRoom_Frlg` |
+   | SLATEPORT (Hoenn) | `FLAG_REGIAO_HOENN_LIBERADA` | Clair, 8ª insígnia de Johto, `BlackthornCity_Gym` |
+   | CANALAVE (Sinnoh) | `FLAG_REGIAO_SINNOH_LIBERADA` | Wallace, campeão de Hoenn, `EverGrandeCity_ChampionsRoom` |
+   | VIRBANK (Unova) | `FLAG_ELITE_SINNOH_VENCIDA` | Cynthia, que já acendia essa flag |
+
+   **Johto é a exceção declarada, e não é descuido:** esta ROM não tem uma Elite
+   dos Quatro de Johto (a Liga de gen 2 é o mesmo Planalto Índigo de Kanto, que
+   aqui são os mapas `PokemonLeague_*_Frlg`). O fim de Johto que existe de
+   verdade é a oitava insígnia, então é ela que abre Hoenn.
+
+   **Nenhum `case` dos cinco portos mudou.** `dynmultipush NOME, ID` empilha a
+   opção com um id PRÓPRIO, e o `dynmultistack` devolve esse id em `VAR_RESULT`,
+   não a linha escolhida (`src/scrcmd.c:1884` grava `item.id`;
+   `Task_HandleScrollingMultichoiceInput` em `src/script_menu.c` grava
+   `gSpecialVar_Result = input`, que é o id). Os ids seguem sendo 0 OLIVINE,
+   1 SLATEPORT, 2 VERMILION, 3 VIRBANK, 4 CANALAVE, 5 Sair.
+
+   **O que MUDA é a contagem de `DOWN`**, porque a lista encolhe: o número de
+   DOWN passa a ser a posição do destino DENTRO da lista já filtrada. Os 24 casos
+   de emulador que atravessam porto (T4.2, T4.4, T4.5, T4.6, T6.2, T8.2, T8.3,
+   T8.5, T10.1 a T10.4 e T86.1 a T86.12) ganharam as quatro flags de liberação no
+   campo `flags`, o que devolve o menu cheio de seis itens e mantém válido cada
+   roteiro já provado. **Nenhum roteiro de botão foi reescrito.**
+
+   `dev_scripts/valida_barco.py` foi reescrito para ler o menu novo: confere os
+   ids empilhados, o porteiro de cada destino e que cada flag é acesa por alguém.
+   Três mutantes rodados, três reprovações no ponto previsto (id de CANALAVE
+   trocado para 3; porteiro de Canalave removido; `setflag` da Clair removido).
+
+   **O que continua sem prova de emulador:** o portão em si. Não existe caso que
+   entre num porto com as flags APAGADAS e confirme que o destino sumiu da lista,
+   porque esta leva foi feita sob proibição de compilar (havia build concorrente
+   em worktree isolada). Escrever esse caso é a primeira coisa a fazer na próxima
+   build, junto com re-rodar os 24 acima.
 
 A travessia continua não gastando var nenhuma, e os 12 casos novos são só JSON
 de teste: sem flag, var, id de treinador, mapa, warp ou objeto novo. A faixa

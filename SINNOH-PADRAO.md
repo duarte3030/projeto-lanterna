@@ -57,6 +57,31 @@ em ordem de utilidade:
 Quem for gastar var: tente as três acima primeiro, e escreva aqui o motivo de
 não terem servido.
 
+## NPC duplicado de Sinnoh: 1 flag para 382 pares (11/08/2026)
+
+`FLAG_SINNOH_NPC_DUPLICADO` (`FLAG_UNUSED_0x8EA`), **zero var**. O importador do
+pokeplatinum trouxe de novo gente que já tinha sido escrita à mão, e desde a leva
+de texto de 11/08 os dois falam. Apagar objeto está proibido (a save guarda
+índice de objeto), então o clone perdedor de cada par leva esta flag no campo
+`flag` e não nasce (`src/event_object_movement.c:2882`: nasce quando
+`!FlagGet(flagId)`). Uma flag só serve para todos porque nenhum par precisa de
+bit próprio: ou o clone existe, ou não existe, para sempre. Acesa uma vez em
+`EventScript_ResetAllMapFlags` (`data/scripts/new_game.inc`), junto com as outras
+flags de esconder de jogo novo. Reversível: apagar a flag traz os 382 de volta.
+
+## Travessia entre regiões: 3 flags já reservadas, zero nova (11/08/2026)
+
+`FLAG_REGIAO_JOHTO_LIBERADA`, `FLAG_REGIAO_HOENN_LIBERADA` e
+`FLAG_REGIAO_SINNOH_LIBERADA` existiam desde sempre e nenhum script as lia.
+Agora o menu dos cinco portos é montado em `data/scripts/travessia_regioes.inc`
+e esconde o destino da região ainda não liberada. **Zero var e zero flag nova**:
+Unova entra atrás de `FLAG_ELITE_SINNOH_VENCIDA`, que a Cynthia já acendia.
+
+A técnica que dispensou var: `dynmultipush NOME, ID` empilha uma opção com um
+**id próprio**, e o `dynmultistack` devolve esse id em `VAR_RESULT`, não a linha
+escolhida. Por isso o menu encolhe sem que nenhum `case` dos cinco portos mude.
+Quem for montar outro menu variável use isto em vez de gastar var de estado.
+
 ## Flags tiradas do stub de FRLG (registro, para não colidir)
 
 Flag de Kanto não é "livre por padrão": `include/constants/flags.h` só inclui
@@ -84,6 +109,32 @@ segunda está marcada como não usada, mas a **primeira é de Hoenn e é usada**
 cena do Oak em Pallet Town e o estado de Littleroot escrevem no mesmo lugar.
 Não atrapalha a abertura de Kanto, mas quem for ligar a chegada em Hoenn precisa
 resolver isso antes.
+
+## Flags gastas pelos itens escondidos de Sinnoh (11/08/2026)
+
+**Vars gastas: zero.** Item escondido não usa var nenhuma: a flag mora dentro do
+próprio `bg_event` (`hiddenItemId + FLAG_HIDDEN_ITEMS_START`), e é o motor que a
+acende ao entregar o item.
+
+Faixa reservada a esta frente: `0x8F0` a `0x91F`, 48 flags. **Gastas 46**, de
+`FLAG_UNUSED_0x8F0` a `FLAG_UNUSED_0x91D`; sobram `0x91E` e `0x91F`. O bloco de
+apelidos está no fim de `include/constants/flags.h`, todos com o prefixo
+`FLAG_ITEM_SINNOH_`, e é **regenerado** a partir dos `map.json` por
+`dev_scripts/itens_escondidos_sinnoh.py`: não editar à mão.
+
+São 46 flags para **50** itens porque quatro deles aparecem em dois mapas
+vizinhos com a mesma flag do Platinum (costura de mapa da fonte, ver o item 3 da
+seção 8 do `ESTADO.md`). Dividir a flag entre os dois é o que o jogo original
+faz.
+
+Dois limites do motor que quem mexer nisso precisa respeitar, medidos e não
+lembrados:
+
+- `asm/macros/map.inc:107` aborta a montagem com flag abaixo de
+  `FLAG_HIDDEN_ITEMS_START` (`0x1F4`);
+- `hiddenItemId` é um campo de **13 bits** e `item` de **11 bits**
+  (`include/global.fieldmap.h:194-201`), ou seja, a flag tem que ficar a menos
+  de 8192 do início e o id do item abaixo de 2048.
 
 ## Flags gastas pelo trio de iniciais por região (05/08/2026)
 

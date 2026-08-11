@@ -10,11 +10,11 @@ EternaCityCondominiums2F_Text_Npc1:
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
-EternaCityCondominiums2F_EventScript_Npc1::
-	msgbox EternaCityCondominiums2F_Text_Npc1, MSGBOX_NPC
+EternaCityCondominiums2F_EventScript_Npc3::
+	msgbox EternaCityCondominiums2F_Text_Npc3, MSGBOX_NPC
 	end
 
-EternaCityCondominiums2F_Text_Npc1:
+EternaCityCondominiums2F_Text_Npc3:
 	.string "Gardenia, our Gym Leader, goes out\nto Eterna Forest every so often.\pI always wonder what she does there.$"
 
 EternaCityCondominiums2F_EventScript_Npc2::
