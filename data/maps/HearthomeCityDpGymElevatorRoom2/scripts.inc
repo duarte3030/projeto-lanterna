@@ -6,7 +6,7 @@ HearthomeCityDpGymElevatorRoom2_EventScript_Placa1::
 	end
 
 HearthomeCityDpGymElevatorRoom2_Text_Placa1:
-	.string "Question: The first room's answer?\nAnswer: ←2 ↑16 →15$"
+	.string "Question: The first room's answer?\nAnswer: {LEFT_ARROW}2 {UP_ARROW}16 {RIGHT_ARROW}15$"
 
 HearthomeCityDpGymElevatorRoom2_EventScript_Placa2::
 	msgbox HearthomeCityDpGymElevatorRoom2_Text_Placa2, MSGBOX_SIGN

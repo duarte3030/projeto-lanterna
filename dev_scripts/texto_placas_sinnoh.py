@@ -126,7 +126,12 @@ def banco_de_texto(msg_archive):
 # Sinal de fim de linha do DS -> sinal do GBA. \r fecha a caixa (nova caixa
 # aqui e \p), \n abre a segunda linha, e da terceira em diante e \l, que rola.
 ACENTO = {"’": "'", "‘": "'", "“": '"', "”": '"',
-          "…": "...", "—": "-", "–": "-"}
+          "…": "...", "—": "-", "–": "-",
+          # As setas do enigma do elevador de Hearthome vinham cruas do banco
+          # do Platinum e o preproc parava a build com "unknown character
+          # U+2190". O charmap tem o glifo, mas só pelo nome entre chaves.
+          "←": "{LEFT_ARROW}", "↑": "{UP_ARROW}",
+          "→": "{RIGHT_ARROW}", "↓": "{DOWN_ARROW}"}
 
 
 def para_gba(linhas):
