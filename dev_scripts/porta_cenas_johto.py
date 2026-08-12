@@ -624,6 +624,16 @@ def frente_treinadores():
     ctx_species = {c for c in RN.constantes_definidas()
                    if c.startswith("SPECIES_")}
     ctx_itens = {c for c in RN.constantes_definidas() if c.startswith("ITEM_")}
+    # ponytail: mesma regra do `resolve()` do importa_treinadores_johto.py, que
+    # este caminho não chamava. Classe e pic de Rocket só existem aqui com
+    # sufixo `_FRLG`, e sem esta linha o gerador emitia o nome cru, que não
+    # compila (TRAINER_JOHTO_GRUNT_33 quebrou a build de 12/08/2026).
+    ctx_tr = {c for c in RN.constantes_definidas() if c.startswith("TRAINER_")}
+
+    def com_frlg(nome):
+        return nome + "_FRLG" if nome not in ctx_tr and \
+            nome + "_FRLG" in ctx_tr else nome
+
     ja = set(re.findall(r"^#define\s+(TRAINER_[A-Z0-9_]+)\s+\d+",
                         le(OPPONENTS), re.M))
     ocupados = ids_ocupados()
@@ -635,8 +645,8 @@ def frente_treinadores():
             avisos.append(f"{orig}: não existe no hns")
             continue
         t = fonte[orig]
-        classe = IT.CLASSE.get(t["class"], t["class"])
-        pic = IT.PIC.get(t["pic"], t["pic"])
+        classe = com_frlg(IT.CLASSE.get(t["class"], t["class"]))
+        pic = com_frlg(IT.PIC.get(t["pic"], t["pic"]))
         L = [f"=== {meu} ===", f"Name: {t['name'].title()}",
              f"Class: {classe}", f"Pic: {pic}"]
         itens = [i for i in t["items"] if i != "ITEM_NONE" and i in ctx_itens]
