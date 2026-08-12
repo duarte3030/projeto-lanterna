@@ -476,13 +476,15 @@ def confere_unova():
     print(f"[Unova] tabela nossa sem encontro na fonte: {len(sobra)} {sobra}")
 
 
-def curva():
-    """Nível do SELVAGEM por região, na ordem cronológica das cinco.
+ORDEM = ["Kanto", "Johto", "Hoenn", "Sinnoh", "Unova"]
 
-    `dev_scripts/curva_de_nivel.py` mede a curva do TREINADOR, lendo
-    `trainers.party`, e não vê tabela de encontro. Sem esta medida o bloco B8
-    remapearia metade da curva: o jogador chega em Sinnoh com time de nível 145
-    e a grama continua cuspindo nível 12 do Platinum. Só MEDE.
+
+def regioes():
+    """{'Kanto': {MAP_...}, ...}. Régua única de região, usada por B7 e B8.
+
+    Extraída de `curva()` para o `curva_selvagem.py` do B8 não inventar uma
+    segunda classificação: medir com uma régua e escrever com outra é como se
+    fabrica verde falso (lição 4.3 do ESTADO.md).
     """
     import completude as C
     import importa_npcs_sinnoh as I
@@ -506,6 +508,18 @@ def curva():
                         ("Hoenn", "TownsAndRoutes"), ("Unova", "Unova")):
         regiao[nome] = ids(m for m in C.nossos_da_regiao(mg, chave) if m not in sinnoh)
     regiao["Sinnoh"] = ids(sinnoh)
+    return regiao
+
+
+def curva():
+    """Nível do SELVAGEM por região, na ordem cronológica das cinco.
+
+    `dev_scripts/curva_de_nivel.py` mede a curva do TREINADOR, lendo
+    `trainers.party`, e não vê tabela de encontro. Sem esta medida o bloco B8
+    remapearia metade da curva: o jogador chega em Sinnoh com time de nível 145
+    e a grama continua cuspindo nível 12 do Platinum. Só MEDE.
+    """
+    regiao = regioes()
 
     g = grupo_principal(carrega())
     niveis = {k: [] for k in regiao}
