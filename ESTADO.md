@@ -39,7 +39,7 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 | treinadores com time próprio | **2346** |
 | grupos de mapa | **126** (teto duro de **128** grupos e **128 mapas por grupo**: `s8` em `struct WarpData`; passar disso mata o mapa) |
 | suíte de testes | **162 de 163** em 11/08/2026, rodada em worktree isolada sobre o HEAD mais a leva de tradução dos portos, dos itens escondidos e da escada de MtCoronet2F (eram 161 de 162 antes do caso T88, que prova essa escada). O único pulado é o T11.3, que precisa de duas builds. Uma rodada intermediária desta mesma leva deu **154 de 163, e os 9 reprovados eram exatamente os 9 casos que atravessam porto**: é a lição 4.13, `\l` cobrando aperto de botão que o verificador não contava. Os "2 reprovados de Unova" que esta linha já anunciou foram consertados em `44cae4fa02` uma hora depois de a linha ser escrita, e ninguém a corrigiu por seis dias |
-| teto de treinador | `MAX_TRAINERS_COUNT_EMERALD` = **2500** (`include/constants/opponents.h:2020`, lido em 11/08/2026; este documento dizia 3000). Maior id declarado: **2440**. Livres: **2441 a 2499, ou seja 59**, e **subir o teto agora quebra a save do Gui**, porque `SYSTEM_FLAGS` deriva de `TRAINER_FLAGS_END` |
+| teto de treinador | `MAX_TRAINERS_COUNT_EMERALD` = **4000**, subido em 12/08/2026 dentro da janela de save aberta daquele dia (era 2500, e este documento chegou a dizer 3000). Maior id declarado: **2440**. Livres: **2441 a 3999, ou seja 1559**. Custou **~486 KB de ROM**, porque `gTrainers` e `sTrainerSlides` sao dimensionados pelo teto e nao pelo uso: ~324 bytes por vaga VAZIA. So da para mexer neste numero com a janela aberta |
 
 ### Completude contra a fonte de cada região
 
@@ -591,7 +591,7 @@ fechados. Consertar isso exige `MAP_SCRIPT_ON_TRANSITION`, e é decisão do Gui.
 | 1800-2147 | Unova, rota |
 | 2200-2273 | Kanto, segunda leva |
 | 2274-2440 | Johto, rota (vai até 2440, não até 2417) |
-| **2441-2499** | **livre: 59 ids, e é tudo que existe** |
+| **2441-3999** | **livre: 1559 ids, depois do teto subir para 4000 em 12/08/2026** |
 
 Conferido id a id em 11/08/2026 lendo `opponents.h`, depois de duas frentes de
 treinador receberem faixa inventada a partir desta tabela: a de rota recebeu

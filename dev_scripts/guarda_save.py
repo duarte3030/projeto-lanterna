@@ -25,6 +25,15 @@ O que quebra uma save, em ordem de facilidade de errar:
    numero de flags empurra TUDO que vem depois. Por isso flag nova sai do pool
    `FLAG_UNUSED_*`, que ja esta dentro da contagem, e nunca de numero novo.
 
+   **ESTA CHECAGEM ERA CEGA ate 12/08/2026, e o buraco era grande.** Ela
+   guardava o TEXTO da expressao de `DAILY_FLAGS_END`, e esse texto e feito de
+   outras macros. Subir `MAX_TRAINERS_COUNT_EMERALD` de 2500 para 4000 muda
+   `FLAGS_COUNT` de 4704 para 6200 (`flags[]` sai de 588 para 775 bytes, +187 no
+   SaveBlock1) sem mudar UMA LETRA daquele texto. O script imprimiu
+   "SAVE COMPATIVEL" para uma quebra de save de verdade.
+   Coberto agora por `valores_de_macro()`, que resolve a cadeia no
+   pre-processador de C e guarda o NUMERO.
+
 3. **Layout dos structs de save.** Trocar ordem de campo em SaveBlock1/2/3
    reinterpreta a save inteira. So append, e so em espaco que ja existe.
 
@@ -64,6 +73,55 @@ def indices_de_mapa():
     return saida
 
 
+MACROS_DE_TAMANHO = ("FLAGS_COUNT", "VARS_COUNT", "SYSTEM_FLAGS",
+                     "MAX_TRAINERS_COUNT", "NUM_FLAG_BYTES")
+
+
+def valores_de_macro():
+    """Resolve as macros que dimensionam o SaveBlock, como NUMERO.
+
+    Guardar o texto da expressao nao serve: ele e feito de outras macros e nao
+    muda quando elas mudam. Ver o item 2 do docstring; foi assim que 187 bytes
+    de crescimento passaram batido.
+
+    Sem compilador na maquina, devolve {"_sem_cpp": True} e o compara() avisa em
+    vez de fingir que conferiu.
+    """
+    import subprocess
+    import tempfile
+    fonte = "#include \"constants/flags.h\"\n#include \"constants/opponents.h\"\n"
+    fonte += "#include \"constants/vars.h\"\n"
+    for i, nome in enumerate(MACROS_DE_TAMANHO):
+        fonte += f"#ifdef {nome}\nint marca_{i} = {nome};\n#endif\n"
+    with tempfile.NamedTemporaryFile("w", suffix=".c", delete=False) as f:
+        f.write(fonte)
+        caminho = f.name
+    try:
+        r = subprocess.run(["gcc", "-E", "-I", f"{RAIZ}/include",
+                            "-I", f"{RAIZ}/include/constants", "-I", RAIZ, caminho],
+                           capture_output=True, text=True, timeout=60)
+    except Exception:
+        return {"_sem_cpp": True}
+    finally:
+        os.unlink(caminho)
+    if r.returncode != 0:
+        return {"_sem_cpp": True}
+    out = {}
+    for linha in r.stdout.splitlines():
+        m = re.match(r"int marca_(\d+) = (.+);\s*$", linha.strip())
+        if not m:
+            continue
+        nome = MACROS_DE_TAMANHO[int(m.group(1))]
+        expr = m.group(2)
+        if not re.fullmatch(r"[0-9xXa-fA-F()+\-*/%\s]+", expr):
+            continue  # sobrou identificador: nao da para avaliar com seguranca
+        try:
+            out[nome] = int(eval(expr, {"__builtins__": {}}, {}))
+        except Exception:
+            pass
+    return out
+
+
 def contagens():
     """Numeros que definem o tamanho dos arrays dentro do SaveBlock."""
     out = {}
@@ -91,6 +149,25 @@ def layout_dos_structs():
         limpo = re.sub(r"\s+", " ", limpo).strip()
         saida[nome] = hashlib.sha256(limpo.encode()).hexdigest()[:16]
     return saida
+
+
+def elf_esta_velho():
+    """True se algum header mudou depois do ultimo build.
+
+    Sem isto, `tamanho_saveblock1()` responde pelo ELF antigo e o script aprova
+    uma mudanca que nem foi compilada. Foi o segundo motivo do falso verde de
+    12/08/2026: eu mudei `opponents.h` e o tamanho lido continuou o da build da
+    vespera.
+    """
+    elf = f"{RAIZ}/pokeemerald.elf"
+    if not os.path.exists(elf):
+        return False
+    t = os.path.getmtime(elf)
+    for pasta in (f"{RAIZ}/include", f"{RAIZ}/include/constants"):
+        for nome in os.listdir(pasta):
+            if nome.endswith(".h") and os.path.getmtime(f"{pasta}/{nome}") > t:
+                return True
+    return False
 
 
 def tamanho_saveblock1():
@@ -149,6 +226,7 @@ def impressao_atual():
     return {
         "mapas": indices_de_mapa(),
         "contagens": contagens(),
+        "macros": valores_de_macro(),
         "structs": layout_dos_structs(),
         "sizeof_saveblock1": tamanho_saveblock1(),
         "dados": indices_de_dado(),
@@ -182,6 +260,27 @@ def compara(velha, nova):
             if a != b and not k.startswith("n_"):
                 quebras.append(f"CONTAGEM MUDOU: {k} era {a}, virou {b}. "
                                f"flags[] e vars[] mudam de tamanho e empurram o SaveBlock.")
+
+    # Macros resolvidas em numero. Impressao velha sem a chave "macros" e de
+    # antes desta checagem existir: nao inventa quebra, mas avisa.
+    vmac, nmac = velha.get("macros"), nova.get("macros") or {}
+    if vmac is None and nmac:
+        quebras.append("AVISO: impressao velha nao tem 'macros'. Ela foi gravada "
+                       "antes de 12/08/2026, quando crescer FLAGS_COUNT passava "
+                       "batido. Regrave assim que a janela de save permitir.")
+    elif not vmac:
+        pass  # impressao velha e nova sem macros: nada a comparar
+    elif nmac.get("_sem_cpp") or vmac.get("_sem_cpp"):
+        quebras.append("AVISO: sem gcc para resolver as macros de tamanho. "
+                       "FLAGS_COUNT e MAX_TRAINERS_COUNT NAO foram conferidos "
+                       "nesta rodada. Isso e cegueira, nao aprovacao.")
+    else:
+        for k, a in vmac.items():
+            b = nmac.get(k)
+            if a != b:
+                quebras.append(f"MACRO DE TAMANHO MUDOU: {k} era {a}, virou {b}. "
+                               f"flags[] e vars[] mudam de tamanho e empurram tudo "
+                               f"que vem depois deles no SaveBlock1.")
 
     for k, v in velha["structs"].items():
         if nova["structs"].get(k) != v:
@@ -237,6 +336,11 @@ def main():
 
     velha = json.load(open(IMPRESSAO))
     quebras = compara(velha, nova)
+    # I/O fica fora do compara(), que e funcao pura e tem demo em cima dela.
+    if nova.get("sizeof_saveblock1") and elf_esta_velho():
+        quebras.insert(0, "AVISO: o ELF e mais velho que os headers. O tamanho "
+                          "abaixo e do build anterior, nao do codigo de agora. "
+                          "Builde antes de acreditar nele.")
     novos = len(set(nova["mapas"]) - set(velha["mapas"]))
     n = nova.get("sizeof_saveblock1")
     print(f"mapas: {len(velha['mapas'])} -> {len(nova['mapas'])} ({novos} novos)")
@@ -285,6 +389,22 @@ def demo():
     cresceu = json.loads(json.dumps(base)); cresceu["sizeof_saveblock1"] = 1084
     assert any("MUDOU DE TAMANHO" in x for x in compara(base, cresceu)), \
         "crescer dentro do teto continua invalidando save"
+
+    # Macro de tamanho: o falso verde de 12/08/2026. O texto de
+    # daily_flags_end_expr fica IGUAL quando MAX_TRAINERS_COUNT muda, entao a
+    # checagem antiga nao via nada; a nova ve porque guarda o numero.
+    commac = json.loads(json.dumps(base))
+    commac["macros"] = {"FLAGS_COUNT": 4704, "MAX_TRAINERS_COUNT": 2500}
+    assert compara(commac, commac) == [], "igual a igual nao quebra"
+    subiu = json.loads(json.dumps(commac))
+    subiu["macros"] = {"FLAGS_COUNT": 6200, "MAX_TRAINERS_COUNT": 4000}
+    q = compara(commac, subiu)
+    assert any("MACRO DE TAMANHO MUDOU" in x and "FLAGS_COUNT" in x for x in q), q
+    # sem compilador o script avisa, e avisar NAO e aprovar
+    cego = json.loads(json.dumps(commac)); cego["macros"] = {"_sem_cpp": True}
+    assert any("cegueira" in x for x in compara(commac, cego))
+    # impressao velha, gravada antes de existir a chave: avisa, nao inventa quebra
+    assert any("nao tem 'macros'" in x for x in compara(base, commac))
 
     # Especie, item e move. Impressao sem a chave "dados" e anterior a esta
     # checagem: nao pode inventar quebra em quem gravou antes.

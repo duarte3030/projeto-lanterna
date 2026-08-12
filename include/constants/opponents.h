@@ -2017,7 +2017,20 @@
 // 2500 e folga de verdade: o maior id em uso hoje e 2417 (Johto de rota vai ate
 // 2417), entao sobram 82 vagas. Se precisar de mais, meca o custo de ROM ANTES
 // de subir, e nao so o de save.
-#define MAX_TRAINERS_COUNT_EMERALD 2500
+//
+// 12/08/2026: SUBIU PARA 4000 por decisao do Gui, dentro da janela de quebra de
+// save daquele dia (ver a secao 3 do PRD-ROM-COMPLETA.md). Ele quer todas as
+// cinco regioes com todo treinador da fonte, e 59 vagas nao pagavam isso.
+//
+// O custo foi dito a ele com o numero medido acima, nao escondido: 1500 vagas a
+// ~324 bytes dao cerca de 486 KB de ROM, e ROM livre era 1,53 MB. Isso e o pior
+// tipo de gasto, porque e vaga VAZIA: nao vira conteudo e nao da para cortar
+// seletivo depois sem quebrar save de novo. Foi aceito porque a mesma decisao
+// dele autoriza passar de 32 MB, e porque so da para mudar este numero em dia de
+// janela aberta.
+//
+// Quem for MEXER aqui de novo: so em janela aberta, e medindo antes.
+#define MAX_TRAINERS_COUNT_EMERALD 4000
 
 #if IS_FRLG
 #define TRAINERS_COUNT                      TRAINERS_COUNT_FRLG
