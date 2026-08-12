@@ -147,6 +147,33 @@ Campeão não tem porta de volta, então ligar os dois é decidir o caminho inte
 > e só depois discutir warp. Diagnóstico por emulador, nunca por tabela de warp.
 
 **3. Cena da Galáctica em ilha de elevação que o jogador não alcança.**
+> **12/08, condutor: o Lago Verity está CONSERTADO (`2c1629cf05`); o Lago
+> Acuity é PIOR do que este parágrafo diz, e continua aberto.**
+>
+> **Verity, resolvido.** A causa exata: quatro dos cinco objetos da cena tinham
+> `elevation: 3` declarada no objeto e estavam sobre tile de `MB_POND_WATER`
+> com elevação **1**, ou seja **em cima do lago**. A Mars é `TRAINER_TYPE_NONE`
+> (conversa), então a cena inteira era inacionável. Cada um foi para o tile de
+> terra alcançável a pé mais próximo, medido por busca em largura a partir do
+> warp; a Mars ficou no ponto mais ao norte da praia, olhando para o sul.
+> Seguro porque o `scripts.inc` do mapa tem **zero** `applymovement` e **zero**
+> `setobjectxy`, e o fim da cena usa `removeobject LOCALID_*`. Ferramenta
+> `dev_scripts/conserta_cena_lagos.py`, com `--demo`, contraprova (destino no
+> meio do lago tem que ser recusado) e idempotência. **Falta a prova de
+> emulador: rodar o T94.3.**
+>
+> **Acuity, aberto, e é SOFT-LOCK, não só cena inalcançável.** Medido: o
+> `warp 0`, que é a entrada vinda do `ACUITY_LAKEFRONT`, fica em **(24,24), no
+> meio da água (elevação 1)**, e a busca em largura a partir dele alcança
+> **1 tile: ele mesmo**. Quem entra no Lago Acuity pela frente **fica preso**.
+> O `warp 1` (23,29), vindo do `ACUITY_CAVERN`, está em terra, alcança 25
+> tiles e chega no `coord_event` (23,30) e nos dois NPCs da cena: **a cutscene
+> só funciona para quem vem da caverna**. A praia é uma faixa fina nas linhas
+> 30 e 31 mais as colunas 19 e 27; o resto do mapa é água.
+> **Não consertei porque a posição certa da entrada é dado da fonte, não
+> palpite:** ler a grade de permissão do `pokeplatinum` para saber por onde o
+> Lakefront entra, e pôr o `warp 0` nesse tile de terra. Mexer em warp é mais
+> caro que mexer em NPC, porque muda também por onde o jogador SAI.
 No Lago Verity a Mars e os quatro grunts estão em chão de elevação 1 colado num
 caminho de elevação 3; do warp do mapa só **123 de 1375** tiles andáveis são
 alcançáveis a pé, e nenhum encosta na Mars. No Lago Acuity é o contrário: o warp
