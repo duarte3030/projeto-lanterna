@@ -8,6 +8,60 @@ inteiras. Detalhe fica nos documentos apontados no fim.
 
 ---
 
+## 0. PASSAGEM DE BASTÃO da sessão de 12/08/2026 (Fable condutor)
+
+**A sessão de 12/08 executou quase o PRD inteiro por agentes, em 6 commits
+(`98685da1d6` a `5127978487`), e PAROU AQUI por crédito. Os números abaixo
+desta seção estão VELHOS (são de 11/08); o que vale é isto:**
+
+**FEITO em 12/08** (detalhe em `PRD-ROM-COMPLETA.md`, que registra cada bloco):
+B0 inventário; B3 (270 NPCs apagados); B7 (542 mapas com encontro: Kanto
+estava 100% fora da build por sufixo `_FireRed`); B4 e B5 nas 5 regiões
+(insígnias de Hoenn separadas de Kanto); B12 completo (57 tilesets do BW3G,
+mediana de Unova 3→30, animações, ledges com paridade 40/40, +369 KB);
+B1 a+b+c (44 mapas, Sinnoh 80,1%, Battle Frontier aberto, Turnback via
+MAP_DYNAMIC); B2 (mudos encontráveis 192→63, 21 lojas da fonte, 109 Wi-Fi
+escondidos); B6 parcial (espinha da Galáctica de ponta a ponta, Teatro de
+Ecruteak, fim de Unova com Juniper campeã, 18 heal locations de Unova).
+Infra na janela de save: +2048 flags, +256 vars, teto de treinador 4000,
+teto de grupos 128→255, s16 em coordenada de warp.
+
+**NÃO FEITO, na ordem para a próxima sessão:**
+1. **BUILD DO CONDUTOR NUNCA RODOU depois da leva.** Ninguém compilou a
+   árvore final. Rodar `make` (toolchain: `~/toolchains/arm-gnu-toolchain-15.2*`
+   via `DEVKITARM=`; o gcc do brew NÃO builda, falta newlib), depois a suíte
+   `testa_critico.py` inteira (211 casos, ~30 novos de hoje nunca rodados:
+   T89, T90-johto, T91, T92, T93, T94) e calibrar os que precisarem.
+2. **A JANELA DE SAVE ESTÁ ABERTA E NÃO FOI FECHADA.** Entrega obrigatória:
+   `guarda_save.py --gravar` sobre a ROM boa, como última ação. Até lá, a
+   save de qualquer build intermediária é descartável.
+3. **B8 NÃO COMEÇOU**: curva 3-255 + distribuir gens 6-9 por mato,
+   treinadores, líderes e E4 (decisão do Gui, pergunta 15: difícil, míticos
+   em líder). Medir `MAX_LEVEL` 255 primeiro. Selvagem NUNCA foi remapeado
+   em região nenhuma (medido: jogador nível 145 encontra mato nível 30).
+4. **B6 restante**: Unova ~193 cenas (os 16 `callasm` da Plasma intocados,
+   104 mapas de changeblock); Sinnoh 348 hidden_flags/176 coord_events e a
+   cena da biblioteca de Canalave; Johto: arco dos sinos/Kimono/RED (fila em
+   `PENDENCIAS-JOHTO.md`), 4 duelos de cena, 4º duelo do rival no lugar.
+5. **B10/corte**: ROM estava a ~97,8% ANTES da leva final de B6; a build
+   da próxima sessão diz o número real. Economias mapeadas na seção 11 do
+   PRD (ícones 673 KB, indireção de treinador 485 KB, overworld 330 KB).
+6. Caso de emulador do guarda da Liga de Hoenn (pendência do B5, opção c).
+
+**Regiões novas (gens 6-9)**: 4 sessões separadas rodando com escopo "tudo"
+(dados + demake). Staging em `../fontes-mapas/<gen>/` (que virou repo git
+LOCAL, com datamine sem licença: NUNCA ganhar remote público). A integração
+ao hack é da sessão condutora, em levas. Teto de grupos já aguenta (255).
+
+**Lições novas de 12/08 (valem regra):** quem escreveu não pode ser quem
+confere (escrita silenciosamente falhada só apareceu em grep de processo
+separado); agente NUNCA restaura a árvore inteira de snapshot (reverte só os
+próprios arquivos; custou reverts de trabalho alheio); faixa exclusiva de
+flag/var/id por agente paralelo funciona (0x1840/0x1900/0x1A00, vars 0x41xx,
+ids 2460+/2500+/2520+, vagas anotadas em `opponents.h`).
+
+---
+
 ## 1. O que o hack é
 
 Cinco regiões num cartucho de GBA, em ordem cronológica:
