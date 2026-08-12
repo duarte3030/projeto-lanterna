@@ -5028,3 +5028,16 @@
 #define FLAG_HIDE_SSAQUA_ROOM_SSE_GRANDDAUGHTER          FLAG_UNUSED_0x8E8
 #define FLAG_SSAQUA_RUMO_KANTO                           FLAG_UNUSED_0x8E9
 // <<< S.S. Aqua (dev_scripts/import_ssaqua.py) <<<
+
+// >>> Mecanicas de batalha do B8 (Dynamax e Terastal) >>>
+// O upstream aponta B_FLAG_DYNAMAX_BATTLE para FLAG_UNUSED_0x020 e
+// B_FLAG_TERA_ORB_CHARGED para FLAG_UNUSED_0x021. Neste repo essas duas ja
+// eram APELIDO de outra coisa: 0x020 e FLAG_HIDE_ARTICUNO e 0x021 e
+// FLAG_HIDE_BILL_CLEFAIRY, as duas do conjunto de Kanto. Com o FlagSet de
+// new_game.c, comecar o jogo escondia o Articuno das Ilhas Seafoam e a
+// Clefairy do Bill, e entrar nesses dois mapas (que fazem clearflag) desligava
+// Dynamax e descarregava o Tera Orb para sempre. Duas flags do pool livre
+// resolvem os quatro defeitos e nao mexem em FLAGS_COUNT, entao nao quebram save.
+#define FLAG_B8_DYNAMAX_LIBERADO                       FLAG_UNUSED_0x1A0C
+#define FLAG_B8_TERA_ORB_CARREGADO                     FLAG_UNUSED_0x1A0D
+// <<< Mecanicas de batalha do B8 (Dynamax e Terastal) <<<

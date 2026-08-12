@@ -256,8 +256,12 @@
 // Other battle flags
 #define B_FLAG_INVERSE_BATTLE       0     // If this flag is set, the battle's type effectiveness are inversed. For example, fire is super effective against water.
 #define B_FLAG_AI_VS_AI_BATTLE      0     // If this flag is set, the player's mons will be controlled by the ai next battles.
-#define B_FLAG_DYNAMAX_BATTLE       FLAG_UNUSED_0x020     // If this flag is set, the ability to Dynamax in battle is enabled for all trainers.
-#define B_FLAG_TERA_ORB_CHARGED     FLAG_UNUSED_0x021     // If this flag is set, the Tera Orb is charged. It is automatically set upon healing and cleared upon Terastallizing once configured.
+// ponytail: NAO voltar para FLAG_UNUSED_0x020/0x021 do upstream. Neste repo as
+// duas ja sao apelido de FLAG_HIDE_ARTICUNO e FLAG_HIDE_BILL_CLEFAIRY (Kanto),
+// e a colisao escondia os dois NPCs e desligava as duas mecanicas. Ver o bloco
+// "Mecanicas de batalha do B8" no fim de include/constants/flags.h.
+#define B_FLAG_DYNAMAX_BATTLE       FLAG_B8_DYNAMAX_LIBERADO     // If this flag is set, the ability to Dynamax in battle is enabled for all trainers.
+#define B_FLAG_TERA_ORB_CHARGED     FLAG_B8_TERA_ORB_CARREGADO   // If this flag is set, the Tera Orb is charged. It is automatically set upon healing and cleared upon Terastallizing once configured.
 #define B_FLAG_TERA_ORB_NO_COST     0     // If this flag is set, the Tera Orb does not use up its charge upon Terastallization. In S/V, this occurs after an event with Terapagos.
 #define B_FLAG_SLEEP_CLAUSE         0     // If this flag is set, sleep clause is enabled; if the player / AI has already put a Pokémon on the opponent's side to sleep and it is still sleeping, another one can't be put to sleep. AI requires AI_FLAG_CHECK_BAD_MOVE to understand.
 #define B_FLAG_NO_WHITEOUT          0     // If this flag is set, the player can not white out against Trainers. Please note that the party is not healed automatically!

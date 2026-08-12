@@ -262,6 +262,15 @@ void NewGameInitData(void)
     // script do evento que libera cada um.
     FlagSet(B_FLAG_DYNAMAX_BATTLE);
     FlagSet(B_FLAG_TERA_ORB_CHARGED);
+    // A flag sozinha nao basta do lado do JOGADOR: CanDynamax exige
+    // ITEM_DYNAMAX_BAND na mochila e CanMegaEvolve exige ITEM_MEGA_RING
+    // (src/battle_dynamax.c e src/battle_util.c, checagem so nas posicoes do
+    // jogador). Sem os dois itens, os lideres e a Elite Four Dynamaxariam e o
+    // jogador nao teria resposta. O Mega Ring sozinho nao da poder nenhum:
+    // ainda e preciso achar a Mega Stone certa e o Pokemon precisa segura-la.
+    // Vem depois de ClearBag() de proposito.
+    AddBagItem(ITEM_DYNAMAX_BAND, 1);
+    AddBagItem(ITEM_MEGA_RING, 1);
     // Ponto de cura inicial de Kanto. Sem isto, desmaiar manda o jogador para a
     // casa da mae em Hoenn, que e o padrao do Emerald.
     // PalletTown_PlayersHouse_2F_OnTransition tambem faz este setrespawn, mas so

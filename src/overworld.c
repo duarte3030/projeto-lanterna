@@ -451,7 +451,10 @@ void Overworld_ResetBattleFlagsAndVars(void)
     FlagClear(WE_SMART_WILD_AI_FLAG);
     FlagClear(WE_FLAG_NO_CATCHING);
     FlagClear(WE_FLAG_NO_RUNNING);
-    FlagClear(B_FLAG_DYNAMAX_BATTLE);
+    // ponytail: o FlagClear(B_FLAG_DYNAMAX_BATTLE) do upstream sai daqui. Ele
+    // existe para o caso em que Dynamax e uma batalha roteirizada; aqui a
+    // mecanica e permanente desde new_game.c, e apagar a flag ao desmaiar
+    // tirava Dynamax do jogador para sempre no primeiro whiteout.
     FlagClear(B_FLAG_SKY_BATTLE);
     FlagClear(B_FLAG_NO_WHITEOUT);
 }
