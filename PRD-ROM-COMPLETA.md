@@ -292,6 +292,20 @@ exteriores por passagem provisória, 20 salas sorteadas da Turnback Cave via
 `MAP_DYNAMIC` + `setdynamicwarp`; Sinnoh 72,7% → 80,1% de mapas, alcance a pé
 1563 → 1607, Battle Frontier de Sinnoh aberto com as 5 instalações mobiliadas).
 
+**B1.e (novo, 12/08, fim do dia): as duas pendências do fechamento.**
+1. **Geometria do Lago Acuity.** A entrada foi consertada para cair na boca da
+   caverna, e ninguém fica preso, mas no Platinum ela cai na **praia sul**, que
+   aqui não se liga à plataforma porque a conversão virou água um caminho que
+   na fonte é terra. Fiel só reconvertendo o `blockdata` da grade de permissão
+   do `pokeplatinum`. Junto vai o `LakeAcuityLowWater`, que perde a entrada a
+   pé e tem zero conteúdo. Mesma família do B1.d.
+2. **Os 196 metatiles de porta (558 warps) candidatos a seta sul.** Censo
+   pronto em `dev_scripts/porta_de_saida_unova.py --censo`. Hoje, nos
+   interiores de Unova, andar de lado de uma porta para a porta vizinha sai do
+   prédio. Não prende ninguém. Os outros 274 metatiles (1000 warps) são porta
+   de **entrada**, onde seta sul quebraria a entrada: a virada é seletiva, e é
+   leva própria, não retoque.
+
 **B1.d (novo, 12/08): exteriores de matriz.** Os **98 mapas restantes de
 Sinnoh não são destino de warp de ninguém na fonte**: exterior de gen 4 se
 liga andando pela matriz, e a tradução GBA disso é o campo `connections`
