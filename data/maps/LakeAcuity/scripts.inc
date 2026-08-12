@@ -33,6 +33,14 @@ LakeAcuity_Text_SwimmerF:
 LakeAcuity_EventScript_Jupiter::
 	lockall
 	goto_if_set FLAG_GALACTICA_ACUITY_VISTO, LakeAcuity_EventScript_CenaAcabou
+	@ PORTAO DO MARCO, 12/08/2026. Sem ele a cena rodava NO VAZIO: o ON_TRANSITION
+	@ so faz a Jupiter e o rival nascerem com a Mars do Lago Verity derrotada, mas
+	@ este script nao olhava o marco, so a flag de "ja vi". Quem chegasse na boca da
+	@ caverna antes da hora via as seis caixas de texto com ninguem na tela, e ainda
+	@ QUEIMAVA FLAG_GALACTICA_ACUITY_VISTO, o que trancava a cena de verdade para
+	@ sempre. Nao aparecia porque o warp 0 largava o jogador dentro do lago e ele
+	@ nunca chegava aqui; e o que o T94.6 foi escrito para provar.
+	goto_if_not_defeated TRAINER_SINNOH_COMMANDER_MARS_LAKE_VERITY, LakeAcuity_EventScript_CenaAcabou
 	applymovement LOCALID_LAKE_ACUITY_RIVAL, LakeAcuity_Movement_RivalOlhaJupiter
 	waitmovement 0
 	msgbox LakeAcuity_Text_CenaNotGettingAway, MSGBOX_DEFAULT
