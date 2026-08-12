@@ -170,10 +170,34 @@ Campeão não tem porta de volta, então ligar os dois é decidir o caminho inte
 > tiles e chega no `coord_event` (23,30) e nos dois NPCs da cena: **a cutscene
 > só funciona para quem vem da caverna**. A praia é uma faixa fina nas linhas
 > 30 e 31 mais as colunas 19 e 27; o resto do mapa é água.
-> **Não consertei porque a posição certa da entrada é dado da fonte, não
-> palpite:** ler a grade de permissão do `pokeplatinum` para saber por onde o
-> Lakefront entra, e pôr o `warp 0` nesse tile de terra. Mexer em warp é mais
-> caro que mexer em NPC, porque muda também por onde o jogador SAI.
+> **A fonte foi lida, e ela mostra que Acuity é conserto de CONVERSÃO, não de
+> coordenada. Não é para mexer em warp achando que resolve.** Medido em
+> `fontes-mapas/pokeplatinum/res/field/events/events_lake_acuity.json`:
+> 1. **A fonte tem 5 warps, nós temos 2.** Lá são quatro para o
+>    `ACUITY_LAKEFRONT`, em (11,50), (12,50), (14,50) e (15,50), ou seja uma
+>    entrada de quatro tiles no bordo sul, mais um para o `ACUITY_CAVERN` em
+>    (32,32).
+> 2. **O deslocamento entre a fonte e o nosso mapa é (-9,-3)**, deduzido do
+>    warp da caverna, que casa exato: fonte (32,32) = nosso (23,29). Aplicado à
+>    entrada, dá (2,47) a (6,47), e desses **só (6,47) é andável aqui**: o
+>    resto virou parede na conversão.
+> 3. **A entrada de verdade do nosso mapa é a fresta (6,49) e (7,49)**, os dois
+>    únicos tiles abertos da parede sul. Mas o comportamento deles é
+>    `MB_NORMAL`, que **não dispara warp**: virar entrada exige mudar o
+>    comportamento do metatile, e não só a coordenada do warp.
+> 4. **O golpe final, e é o que decide:** a praia sul (42 tiles a pé, entrando
+>    pela fresta) e a região da cutscene (25 tiles, entrando pela caverna)
+>    **não se tocam**. A água separa as duas. Ou seja, mesmo com o `warp 0` no
+>    lugar certo o jogador não chega na cena a pé, e no Platinum ele chega
+>    andando: a nossa conversão transformou em água um caminho que na fonte é
+>    terra.
+>
+> **Portanto o conserto é reconverter o `blockdata` do `LakeAcuity` a partir da
+> grade de permissão do `pokeplatinum`** (colisão e elevação), e só depois pôr
+> os 5 warps nas coordenadas da fonte com o deslocamento medido. Um remendo no
+> `warp 0` tira o soft-lock e deixa a cena inalcançável do mesmo jeito, então
+> não vale meia-solução. Enquanto isso não acontece, **entrar no Lago Acuity
+> pela frente prende o jogador**, e isso é pior que a cena faltando.
 No Lago Verity a Mars e os quatro grunts estão em chão de elevação 1 colado num
 caminho de elevação 3; do warp do mapa só **123 de 1375** tiles andáveis são
 alcançáveis a pé, e nenhum encosta na Mars. No Lago Acuity é o contrário: o warp
