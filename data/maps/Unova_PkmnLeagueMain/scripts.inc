@@ -97,8 +97,16 @@ Unova_PkmnLeagueMain_EventScript_Terremoto::
 Unova_PkmnLeagueMain_EventScript_TerremotoFim::
 	end
 
+@ CINCO passos, e nao seis, desde 12/08/2026. A fonte anda seis porque la o
+@ jogador nasce em (13,20): o `MB_NON_ANIMATED_DOOR` do tile de chegada fazia
+@ `Task_ExitNonAnimDoor` empurrar ele um tile para o sul antes da cena comecar.
+@ (13,19) e (14,19) passaram a ser `MB_SOUTH_ARROW_WARP`
+@ (dev_scripts/porta_de_saida_unova.py, que explica o porque), a seta nao
+@ empurra ninguem, e a partida subiu um tile. Com seis passos a cena terminaria
+@ em (13,13), que e o warp que aponta para si mesmo; com cinco ela termina em
+@ (13,14), exatamente onde terminava antes, e o selo em (13,15)/(14,15)
+@ continua ficando ATRAS do jogador.
 Unova_PkmnLeagueMain_Movement_Sobe:
-	walk_up
 	walk_up
 	walk_up
 	walk_up

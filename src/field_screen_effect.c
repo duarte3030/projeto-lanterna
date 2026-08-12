@@ -285,7 +285,33 @@ static void SetUpWarpExitTask(void)
         func = Task_ExitDoor;
     else if (MetatileBehavior_IsDirectionalStairWarp(behavior) == TRUE && !gExitStairsMovementDisabled)
         func = Task_ExitStairs;
-    else if (MetatileBehavior_IsNonAnimDoor(behavior) == TRUE)
+    // A porta NAO ANIMADA e a unica saida que EMPURRA o jogador um tile para o
+    // sul: Task_ExitNonAnimDoor manda um movimento SEGURADO, que ignora colisao
+    // e limite de mapa, e GetAdjustedInitialDirection (src/overworld.c) devolve
+    // sempre DIR_SOUTH para esse comportamento. Quando o tile de baixo nao da
+    // para pisar, o empurrao joga o jogador para dentro da parede ou para fora
+    // da grade, e o interior fica inutilizavel: de la ele so consegue voltar
+    // para cima, pisa de novo na porta e e mandado de volta para a rua.
+    //
+    // MEDIDO no emulador em 12/08/2026, entrando no Unova_NuvemaLab pelo warp 0:
+    // o warp fica em (2,11), a EWRAM mostra o jogador em (2,12) e o mapa tem 12
+    // linhas (0 a 11). Varrendo o repo inteiro: 265 warps de porta nao animada
+    // em 137 mapas caem FORA da grade e outros 187 caem em tile com colisao,
+    // TODOS de Unova menos 9 interiores de Sinnoh. Nenhum mapa de Hoenn, Kanto
+    // ou Johto cai em nenhum dos dois casos, e os 1106 warps sadios continuam
+    // com colisao 0 embaixo, entao esta guarda e inerte para tudo que ja
+    // funciona.
+    //
+    // ponytail: o motor JA tem a saida sem empurrao (Task_ExitNonDoor), entao o
+    // conserto e escolher ela, e nao reconverter 57 tilesets. Fora da grade o
+    // bloco vale MAPGRID_UNDEFINED e MapGridGetCollisionAt devolve TRUE, entao
+    // o mesmo teste cobre os dois casos. TETO DESTA SIMPLIFICACAO: o tile
+    // continua com MB_NON_ANIMATED_DOOR, que dispara ao ser PISADO, entao andar
+    // de lado de uma porta para a porta vizinha ainda sai do predio. CAMINHO DE
+    // UPGRADE: dar a esses tiles MB_SOUTH_ARROW_WARP, que e o que o interior de
+    // Hoenn usa (RustboroCity_Gym, metatiles 6 e 7 do gTileset_Building), o que
+    // exige variante de metatile por tileset em dev_scripts/tileset_gen2.py.
+    else if (MetatileBehavior_IsNonAnimDoor(behavior) == TRUE && MapGridGetCollisionAt(x, y + 1) == 0)
         func = Task_ExitNonAnimDoor;
     else
         func = Task_ExitNonDoor;
