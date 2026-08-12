@@ -389,3 +389,65 @@ controle negativo, trocando a faixa esperada pela de Kanto, derruba os três.
 - **NPC que não é treinador continua `OBJ_EVENT_GFX_ITEM_BALL` inerte** nesses
   33 mapas. O escopo aqui foi treinador; devolver os moradores, as placas e as
   berry trees das rotas de Johto é outra tarefa, e é grande.
+
+---
+
+## 6. Bloco B6, primeira leva (12/08/2026): 80 NPCs, duas cenas e a fila que sobrou
+
+Ferramenta: `dev_scripts/porta_cenas_johto.py` (`--flags`, `--vars`,
+`--treinadores`, `--pokemon`, `--cenas`, `--demo`). Tudo idempotente, medido
+rodando a leva inteira duas vezes e comparando md5 de `scripts.inc`,
+`trainers.party` e `flags.h`: byte a byte igual.
+
+**A régua que decidiu quem entrou.** Uma `FLAG_HIDE_*` do `hns` nasce APAGADA;
+só é acesa em jogo novo quem está em `EventScript_ResetAllMapFlags`. Então
+NPC de **classe A** (flag apagada em jogo novo) é visível desde o primeiro dia
+NA FONTE, e restaurá-lo sem a cena não cria bloqueio nenhum. NPC de **classe B**
+(flag acesa) fica escondido até uma cena apagar a flag, e por isso só entra
+junto com ela. Dos 95 NPCs que `restaura_npcs_johto.py` recusava por flag
+inexistente, 63 eram classe A aproveitável e entraram; 32 esperam, cada um com
+o motivo escrito em `ESPERA` dentro da ferramenta.
+
+### O que falta, em ordem de quanto paga
+
+1. **As cinco KIMONO GIRLS do teatro (5 batalhas) e o fim do arco lendário.**
+   A cadeia da fonte, medida: `Route39_EventScript_LegendaryTrigger` (o BAOBA
+   escolhe LUGIA ou HO-OH e põe `VAR_LUGIA_OR_HOOH`) → `EcruteakCity_EventScript_Trigger`
+   (a chegada na cidade, que acende meia dúzia de flags) → `EcruteakCity_Trigger_Silver`
+   (o cameo do rival, que é quem põe `VAR_ECRUTEAK_CITY_THEATER` em 5) → o
+   desafio no teatro → `TinTower_RoofDay` ou `WhirlIslands_LugiaChamber`.
+   Bloqueio duro no fim: `ITEM_TIDAL_BELL` e `ITEM_CLEAR_BELL` NÃO existem
+   nesta ROM, e são o presente que fecha o desafio.
+2. **Os outros 4 duelos de cena**: EUSINE (SUICUNE), GIOVANNI (CELEBI), RED_2 no
+   Mt. Silver, GRUNT do subterrâneo. O RED tem bloqueio próprio de arte:
+   `OBJ_EVENT_GFX_RED_NORMAL` não tem equivalente honesto porque
+   `OBJ_EVENT_GFX_RED` já é o rival de Johto (ver seção 3).
+3. **4º duelo do rival em `GoldenrodCity_UndergroundSwitches`.** O mapa EXISTE e
+   a vaga do objeto também: é o índice 6, em (35,2), ainda item ball muda, e a
+   fonte põe o SILVER exatamente ali. Mover custa mexer no
+   `MAP_SCRIPT_ON_TRANSITION` que hoje mostra o `FLAG_HIDE_SILVER_GOLDENROD` em
+   `GoldenrodCity`; apagar o objeto de lá continua proibido (a save guarda
+   índice), então ele sai por flag e o novo entra na vaga que já existe.
+4. **Cenas de ginásio do B5.** A da WHITNEY é a mais barata e é AUTOCONTIDA na
+   fonte: o próprio script dela põe `VAR_GOLDENROD_CITY_STATE` em 3 depois da
+   derrota, e o `coord_event` da BRIDGET leva de 3 para 4. Custa reescrever o
+   `GoldenrodCity_Gym_EventScript_Whitney` que o B5 já entregou funcionando, e
+   reconciliar os nomes de insígnia; não foi feito porque quebrar ginásio que
+   funciona, sem poder compilar, é pior que a cena faltando. A de Olivine
+   depende de `VAR_OLIVINE_CITY_STATE` em 5, que só o farol põe.
+5. **44 pares ambíguos** (duas coisas da fonte na mesma coordenada) e **8 sem
+   par**, que `restaura_npcs_johto.py` recusa de propósito. Resolver exige
+   tabela escrita à mão, mapa a mapa.
+6. **4 gráficos sem equivalente**: `OBJ_EVENT_GFX_TRAIN_FRONT`,
+   `OBJ_EVENT_GFX_SHINY_GYARADOS` (o GYARADOS vermelho do Lake of Rage) e dois
+   `OBJ_EVENT_GFX_WHIRLPOOL`. O GYARADOS agora tem saída barata que não existia
+   quando a tabela foi escrita: `OBJ_EVENT_GFX_SPECIES_SHINY(GYARADOS)`, do
+   mesmo mecanismo que os 16 Pokémon de ginásio usam.
+
+### Recursos consumidos nesta leva
+
+- Flags `FLAG_UNUSED_0x1840` a `0x186B` (44 de 192 da faixa reservada).
+- Var `VAR_UNUSED_0x4101` (1 de 48; a 0x4100 ficou de fora porque um comentário
+  de exemplo em `vars.h` a cita e o alocador prefere errar para o lado seguro).
+- Ids de treinador **2460** (`TRAINER_JOHTO_GRUNT_33`) e **2461**
+  (`TRAINER_JOHTO_KIYO`), de 2460 a 2499.

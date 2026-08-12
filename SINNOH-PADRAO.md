@@ -167,3 +167,238 @@ de 2 bits não resolve), a terceira saiu de `FLAG_UNUSED_0x4EF`, o fim de um
 bloco de 64 flags livres que nenhum agente encostou. Escrito aqui para que a
 próxima faixa distribuída seja conferida contra o arquivo antes de ser
 prometida.
+
+## Cenas da Galáctica que faltavam na espinha (12/08/2026, bloco B6)
+
+**Vars gastas: zero. Flags gastas: 4**, todas da faixa exclusiva daquela frente
+(`FLAG_UNUSED_0x1900` a `0x19FF`); sobram 252. Ferramenta:
+`dev_scripts/cena_galactica_sinnoh.py` (`--demo` e idempotente).
+
+O que entrou: os **doze** treinadores que tinham constante, bloco em
+`trainers.party` e fala traduzível e ainda assim **não estavam em mapa nenhum**,
+mais um grunt mudo da mesma cena. Eles ficavam de fora porque
+`importa_npcs_sinnoh.py` recusa, de propósito, todo objeto do Platinum com
+`hidden_flag`: sem a cena que apaga a flag, o objeto vira parede permanente.
+
+| Flag | Onde | Some quando |
+|---|---|---|
+| `FLAG_GALACTICA_MT_CORONET` (`0x1900`) | 8 objetos nos 5 andares de Mt. Coronet | o Cyrus cai no Spear Pillar |
+| `FLAG_GALACTICA_QG_TOMADO` (`0x1901`) | Scientist Fredrick (QG 1F) e Darrius (QG 2F) | o Saturn cai na sala de controle |
+| `FLAG_SINNOH_ROUTE210_WYATT_ESCONDIDO` (`0x1902`) | Jogger Wyatt, Rota 210 sul | não é de manhã |
+| `FLAG_SINNOH_ROUTE212_DANNY_ESCONDIDO` (`0x1903`) | Policeman Danny, Rota 212 sul | não é de noite |
+
+O Scientist Travon, do 3F do prédio de Eterna, **não gastou flag**: reusa
+`FLAG_GALACTICA_ETERNA`, que existe desde 04/08/2026 e já é acesa pela derrota
+da Jupiter. O que mudou é que o próprio 3F ganhou o `ON_TRANSITION`, para o
+prédio esvaziar sem depender de o jogador voltar à rua de Eterna primeiro.
+
+A técnica que dispensou var, de novo, é a 2 da lista acima:
+`MAP_SCRIPT_ON_TRANSITION` + `call_if_defeated`. O marco de cada cena é a flag
+de "já derrotei" que o motor grava sozinho para o treinador-gatilho, então
+nenhuma var de estágio de história foi criada.
+
+Duas armadilhas medidas escrevendo isto, para a próxima sessão não pagar de novo:
+
+- **`enum` de C não existe para o montador.** `TIME_MORNING` e `TIME_NIGHT` são
+  membros de `enum TimeOfDay` (`include/constants/rtc.h:98`), não `#define`;
+  escrever o nome num `goto_if_eq` de `scripts.inc` não monta, mesmo com
+  `constants/rtc.h` incluído em `data/event_scripts.s`. Vai o número cru (0 e 3)
+  com o nome no comentário, precedente do `setmetatile 13, 11, 588` do
+  SpearPillar.
+- **`texto_sinnoh.resolve` devolve TUPLA**, `(texto, comandos de buffer)`, e
+  `treinadores_masmorra_sinnoh.falas` repassa a tupla inteira. Quem escrever
+  `.string "{intro}"` com isso grava o `repr` da tupla dentro das aspas. Custou
+  37 linhas em dez `scripts.inc` na primeira rodada desta leva.
+
+### Empréstimos de sprite desta leva
+
+Nenhum empréstimo NOVO foi inventado: os cinco saem da tabela
+`valida_mapas_sinnoh.TROCA_SPRITE`, que já existia. `GRUNT_M` →
+`MAGMA_MEMBER_M`, `GRUNT_F` → `MAGMA_MEMBER_F`, `SCIENTIST_M` → `SCIENTIST_1`,
+`JOGGER` → `RUNNING_TRIATHLETE_M`, `POLICEMAN` → `GENTLEMAN`.
+
+Fora da tabela, uma troca de julgamento: **o Cyrus saiu de
+`OBJ_EVENT_GFX_MAN_5` para `OBJ_EVENT_GFX_MAXIE`**, nos dois mapas em que ele
+aparece (`SpearPillar` e `GalacticHQ_Hall`). É o precedente registrado em
+`ARTE-PENDENTE.md` (chefe de equipe criminosa emprestando chefe de equipe
+criminosa), e `MAN_5` é um senhor genérico. `graphics_id` não entra na save,
+então a troca é reversível e não custa nada.
+
+**Fica pendente, e é medida e não palpite:** `ARTE-PENDENTE.md` manda
+Mars, Jupiter e Saturn usarem `OBJ_EVENT_GFX_MAGMA_ADMIN`, e esse sprite **não
+existe nesta build** (conferido com `valida_mapas_sinnoh.sprites_utilizaveis`;
+`COURTNEY` e `AQUA_ADMIN_F` também não). Os três seguem em
+`MAGMA_MEMBER_F`/`MAGMA_MEMBER_M`, e a Cynthia segue em `OBJ_EVENT_GFX_BEAUTY`.
+
+## História de Unova, bloco B6: 1 var e 12 flags (12/08/2026)
+
+**Var gasta: 1.** `VAR_UNOVA_LIGA_CENA` (`VAR_UNUSED_0x4160`), faixa exclusiva
+desta frente `0x4160` a `0x41BF`.
+
+O BW3G tem `setscene`/`checkscene`, uma máquina de estados **por mapa** que o
+motor do gen 2 guarda sozinho, e 47 das 209 cenas de Unova dependem dela. Aqui
+não existe equivalente, então cada mapa da fonte que tem `scene_script` vira uma
+var com os mesmos valores, na mesma ordem em que os `scene_script` aparecem no
+`.asm`. `ChampionsRoom.asm` tem quatro, e as três técnicas que dispensam var não
+serviram: são estados **sequenciais e excludentes** (0 a 3), não bits
+independentes, e o `MAP_SCRIPT_ON_TRANSITION` precisa ler o estágio para decidir
+quais dos sete objetos da sala nascem.
+
+**Flags gastas: 12**, da faixa exclusiva `FLAG_UNUSED_0x1A00` a `0x1AFF`.
+Nomeadas em `include/constants/flags.h`, logo depois de `FLAG_UNOVA_LIGA_ELENCO`.
+
+| flag | serve para |
+|---|---|
+| `FLAG_UNOVA_CENA_ENTRADA_LIGA` | a emboscada das três sombras já rodou |
+| `FLAG_UNOVA_CENA_JUNIPER`, `_SOMBRAS`, `_GENESECT_1`, `_GENESECT_2`, `_GENESIS` | esconder cada grupo de figurante da sala do Campeão. Eram um guarda-chuva só (`FLAG_UNOVA_LIGA_ELENCO`, do B5); a cena mostra e esconde cada grupo em momento diferente, então cada um virou um bit |
+| `FLAG_UNOVA_GENESIS_VENCIDO` | o `EVENT_BEAT_GENESIS_PROJECT` da fonte |
+| `FLAG_UNOVA_LIGA_VENCIDA` | acesa pelo Hall da Fama; é ela que **solta** o selo da escada da Liga |
+| `FLAG_UNOVA_LIGA_PORTAO` | "o jogador acabou de subir da entrada da Liga". Traduz o `setmapscene PKMN_LEAGUE_MAIN, SCENE_ELITE_FOUR_ROOM_ENTER` que a `PkmnLeagueEntrance` dispara no `MAPCALLBACK_NEWMAP`; sem ele a cena do terremoto rodaria também para quem volta de uma sala da Elite, e o `applymovement` de seis passos para o norte jogaria o jogador para fora do mapa |
+| `FLAG_UNOVA_STRIATON_CHAVE_1`, `_2`, `_3` | os três interruptores que abrem a escada do CILAN |
+
+`FLAG_UNOVA_LIGA_ELENCO`, que o B5 tinha gasto, **continua em uso** e passou a
+ter dono de verdade: ela esconde os cinco figurantes da `ChampionsRoomEntrance`,
+é apagada no início da emboscada e reacesa no fim. Isso não é enfeite: os
+templates da JUNIPER e do METAGROSS ficam em (7,5), que é o **único** warp
+daquele mapa.
+
+**Técnica que evitou uma var a mais:** o selo da escada da Liga não tem
+`setmetatile` de desfazer. O estado limpo é o do próprio `map.bin`, então basta a
+cena **não rodar** quando `FLAG_UNOVA_LIGA_VENCIDA` está acesa. Bloqueio que se
+desfaz sozinho ao deixar de ser reaplicado custa zero.
+
+## As quatro cenas que fecharam a espinha (12/08/2026, bloco B6, segunda leva)
+
+**Vars gastas: zero. Flags gastas: 6**, da mesma faixa exclusiva
+(`FLAG_UNUSED_0x1900` a `0x19FF`); com as 4 da leva anterior são **10 de 256**.
+**Ids de treinador: 5**, da faixa **2500 a 2519** liberada pelo condutor depois
+que a frente de Johto largou `opponents.h` em 2461. Sobram **2505 a 2519**, e o
+vão **2462 a 2499 fica vazio de propósito**, reservado para Johto retomar.
+
+| cena | o bloqueio que cria | o marco que o desfaz |
+|---|---|---|
+| Celestic Town | o grunt da bomba em frente às ruínas | derrotá-lo (id 2500) |
+| Rota 218 | o show ocupa a estrada (não a sela, ver abaixo) | a mesma `FLAG_GALACTICA_CELESTIC` |
+| Lago Verity | a Mars e os 4 grunts na margem | derrotar a Mars (id 2501) |
+| Lago Acuity | Jupiter e o rival no caminho da caverna | a cutscene rodar até o fim |
+| Canalave | o rival cobra a revanche antes do Byron | derrotá-lo (2502, 2503 ou 2504) |
+
+### Flags
+
+| Flag | Nasce | Quem a vira |
+|---|---|---|
+| `FLAG_GALACTICA_CELESTIC` (`0x1904`) | apagada | a derrota do grunt de Celestic acende |
+| `FLAG_CELESTIC_CYNTHIA_ESCONDIDA` (`0x1905`) | **ACESA**, em `EventScript_ResetAllMapFlags` | a mesma derrota apaga |
+| `FLAG_GALACTICA_LAGO_VERITY` (`0x1906`) | apagada | a derrota da Mars acende |
+| `FLAG_ESCONDE_LAGO_ACUITY` (`0x1907`) | **ACESA**, idem | o `ON_TRANSITION` do Lago Acuity apaga enquanto a janela da cena está aberta |
+| `FLAG_GALACTICA_ACUITY_VISTO` (`0x1908`) | apagada | o fim da cutscene acende |
+| `FLAG_GALACTICA_CANALAVE_RIVAL` (`0x1909`) | apagada | a derrota do rival acende |
+
+**Duas nascem ACESAS, e isso é a regra e não a exceção:** flag de jogo novo
+nasce apagada, e objeto com a flag apagada NASCE
+(`src/event_object_movement.c:2882`). Quem só deve aparecer no MEIO da história
+precisa começar escondido, então vai para `data/scripts/new_game.inc`. Sem essas
+duas linhas a Cynthia estaria em Celestic desde o primeiro dia e a Jupiter
+estaria no Lago Acuity antes de a Mars cair.
+
+### Níveis: a curva foi MEDIDA do próprio arquivo, não deduzida
+
+Os 5 times novos vieram do acervo `src/data/trainers_sinnoh.party`, que guarda os
+níveis CRUS do Platinum. Convertê-los pedia a mesma regra que os 888 níveis de
+Sinnoh já usam, e essa regra **não é uma fórmula que dê para reconstruir de
+cabeça**: um ajuste linear pelos mínimos quadrados erra até 1 nível, e as três
+tentativas de deduzir o deslocamento pelos comandantes deram 141, 142 e 139.
+
+O que resolveu foi parear acervo e arquivo que compila, treinador a treinador:
+saíram **888 pares (nível cru → nível escalado), e nenhum nível cru tem dois
+destinos diferentes**. A conversão é uma tabela de consulta exata, medida na
+hora, cobrindo 4 a 62 → 145 a 200. Foi ela que escreveu os 20 níveis novos, e
+`curva_de_nivel.py` confirma depois: Sinnoh foi de 888 para 908 Pokémon com
+mínimo 145 e máximo 200 intactos, ou seja a forma da curva não se mexeu.
+
+Quem for acrescentar treinador de Sinnoh: refaça esse pareamento em vez de
+copiar a tabela daqui. Tabela copiada envelhece calada (lição 4.11).
+
+### O rival de Sinnoh tem TRÊS times, e o comentário do rival de Johto está velho
+
+`data/maps/CherrygroveCity/scripts.inc` diz que o triângulo de tipos do rival é
+impossível porque o laboratório não escreve `VAR_STARTER_MON`, e aponta para
+`SandgemTown_House1`. **Medido em 12/08/2026: está errado nas duas metades.** O
+laboratório do Rowan é `data/maps/SandgemTown_RowanLab/scripts.inc`, e ele
+escreve `VAR_STARTER_MON` com 0, 1 e 2 desde 05/08/2026. Por isso o rival de
+Canalave entrou com os três ids do Platinum e um `switch VAR_STARTER_MON`, e não
+com um time fixo.
+
+O nome de cada constante é o inicial **DO JOGADOR**, não o do rival: o ramo
+`TURTWIG` (2502) é o que roda quando o jogador tem Turtwig, e o ace dele é
+Infernape. Conferido bloco a bloco. Casos `T94.7` e `T94.8` provam os dois
+extremos no emulador.
+
+### O show da Rota 218 NÃO sela a estrada, e isso é medida
+
+No Platinum os seis selam uma ponte de um tile, e a estrada para Canalave só abre
+com a fala da Cynthia. **Aqui não:** medido com busca em largura sobre a grade de
+colisão, selar a Rota 218 exigiria tapar as colunas 8, 9 e 10 inteiras das linhas
+12 a 26; seis objetos não chegam perto, e sobram desvios pelas fileiras 16 a 21.
+
+**Fechar o vão à mão está proibido, e o motivo é grave:** quem apaga a flag do
+show é a cena de Celestic, e Celestic fica do outro lado do mapa. Bloqueio
+inventado ali seria softlock. O `--demo` guarda a medida com uma busca em
+largura e uma contraprova que tapa as três colunas e reprova.
+
+### Empréstimos de sprite desta leva
+
+Quatro personagens de nome próprio, nenhum com sprite nesta ROM. Eles não entram
+em `valida_mapas_sinnoh.TROCA_SPRITE` de propósito (o comentário de lá proíbe
+gente nomeada), então o empréstimo fica declarado na tabela `ROTEIRO`:
+
+| quem | sprite emprestado | por quê |
+|---|---|---|
+| Comandante Mars | `OBJ_EVENT_GFX_MAGMA_MEMBER_F` | mesmo uniforme de equipe criminosa que Jupiter e Saturn já usam aqui |
+| Comandante Jupiter | `OBJ_EVENT_GFX_MAGMA_MEMBER_F` | idem |
+| Cynthia | `OBJ_EVENT_GFX_BEAUTY` | é o mesmo que ela já usa na sala do Campeão e no Spear Pillar distorcido |
+| Cedric (o rival) | `OBJ_EVENT_GFX_RICH_BOY` | é a linha que `TROCA_SPRITE` já dá para `OBJ_EVENT_GFX_BARRY` |
+| Guitarrista da Rota 218 | `OBJ_EVENT_GFX_MAN_3` | idem, `TROCA_SPRITE` |
+
+`OBJ_EVENT_GFX_CLEFAIRY` e `OBJ_EVENT_GFX_PIKACHU` **existem** nesta build e
+entraram sem empréstimo nenhum.
+
+### Cortado de propósito, e o que custaria trazer
+
+- **Old Charm.** `ITEM_OLD_CHARM` não existe nesta ROM, então o ancião fala o
+  texto do Platinum inteiro mas nada muda de mão. Trazer custa um item novo.
+- **Câmera livre da cutscene do Lago Acuity** (`AddFreeCamera`) e os dois ramos
+  de `x=14`/`x=15` do original, que só existem porque lá o `coord_event` cobre
+  dois tiles. O que a cena diz e faz é o mesmo.
+- **Nome do rival por buffer.** O Platinum enche `{STRVAR_1 3, 0, 0}` com o nome
+  que o jogador deu ao rival; aqui vai `CEDRIC` cravado, que é o nome do bloco de
+  `trainers.party` (veio assim da própria fonte). O nome do JOGADOR continua
+  dinâmico, com `{PLAYER}`.
+- **Raio de visão no rival de Canalave.** O rival de Johto usa raio de visão, mas
+  o script dele é um `trainerbattle_single` pelado. O de Canalave tem `lock`,
+  `faceplayer` e um `switch` antes da batalha, e a aproximação automática do
+  motor já fez as duas primeiras coisas: rodar o mesmo corpo pelos dois caminhos
+  é pedir travamento num script que não dá para testar sem build. Ele não está em
+  gargalo nenhum, então falar com ele basta.
+
+### Extensão da mesma leva, mais tarde em 12/08/2026
+
+**Zero var nova.** O que entrou depois:
+
+- **A campeã JUNIPER**, três treinadores na faixa exclusiva **2520 a 2529** de
+  `include/constants/opponents.h` (gastos 3, livres 2523 a 2529), com time em
+  `src/data/trainers.party`. Os três são idênticos nos cinco primeiros Pokémon e
+  mudam só no sexto (Serperior, Emboar, Samurott), como na fonte. A seleção usa
+  `VAR_STARTER_MON`, que **já existia** e que o laboratório de Nuvema já escreve:
+  zero var, zero flag. **Decidido em 12/08/2026, não relitigar:** ela fica com o
+  inicial que *perde* para o do jogador, que é o que a fonte faz; o espelho foi
+  considerado e recusado pela política de portar em vez de escrever enredo novo.
+- **Os 18 pontos de cura de Unova**
+  (`dev_scripts/heal_locations_unova.py`, idempotente, com `--demo` e mutação).
+  Custo em var e flag: **zero**. Ponto de cura não usa nenhuma das duas: a save
+  guarda `struct WarpData` em `lastHealLocation`, e o `respawn_npc` é um
+  `LOCALID_*`, que é constante de montagem. Antes disto a região não tinha
+  nenhum, e quem desmaiava em Unova voltava para outra região.
+- **O conserto dos ledges** (`tileset_gen2.py` mais
+  `blockdata_unova.alvos_de_pulo`): zero var, zero flag. É tabela de conversão,
+  não estado de jogo.

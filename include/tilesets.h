@@ -74,4 +74,131 @@ extern const struct Tileset gTileset_SSAnne;
 extern const struct Tileset gTileset_SeaCottage;
 extern const struct Tileset gTileset_TrainerTower;
 
+
+// --- Unova (B12.a, tileset_gen2.py) ---
+extern const struct Tileset gTileset_UnovaCastelia;
+
+extern const struct Tileset gTileset_UnovaNimbasa;
+
+extern const struct Tileset gTileset_UnovaDriftveil;
+
+extern const struct Tileset gTileset_UnovaOpelucid;
+
+extern const struct Tileset gTileset_UnovaTower;
+
+extern const struct Tileset gTileset_UnovaDesert;
+
+extern const struct Tileset gTileset_UnovaTraditionalHouse;
+
+extern const struct Tileset gTileset_UnovaForest;
+
+extern const struct Tileset gTileset_UnovaFacility;
+
+extern const struct Tileset gTileset_UnovaComplex;
+
+extern const struct Tileset gTileset_UnovaHouse;
+
+extern const struct Tileset gTileset_UnovaGate;
+
+extern const struct Tileset gTileset_UnovaCave;
+
+extern const struct Tileset gTileset_UnovaPokecenter;
+
+extern const struct Tileset gTileset_UnovaMansion;
+
+extern const struct Tileset gTileset_UnovaGameCorner;
+
+extern const struct Tileset gTileset_UnovaMart;
+
+extern const struct Tileset gTileset_UnovaUnovaBeach;
+
+extern const struct Tileset gTileset_UnovaEliteFourRoom;
+
+extern const struct Tileset gTileset_UnovaPkmnLeague;
+
+extern const struct Tileset gTileset_UnovaUnovaEast;
+
+extern const struct Tileset gTileset_UnovaAirport;
+
+extern const struct Tileset gTileset_UnovaIcirrus;
+
+extern const struct Tileset gTileset_UnovaPort;
+
+extern const struct Tileset gTileset_UnovaBattleTower;
+
+extern const struct Tileset gTileset_UnovaChampionsRoom;
+
+extern const struct Tileset gTileset_UnovaUnovaWest;
+
+extern const struct Tileset gTileset_UnovaNacrene;
+
+extern const struct Tileset gTileset_UnovaRadioTower;
+
+extern const struct Tileset gTileset_UnovaCaveRuins;
+
+extern const struct Tileset gTileset_UnovaDreamyard;
+
+extern const struct Tileset gTileset_UnovaLab;
+
+extern const struct Tileset gTileset_UnovaMistralton;
+
+extern const struct Tileset gTileset_UnovaStriaton;
+
+extern const struct Tileset gTileset_UnovaTrainStation;
+
+extern const struct Tileset gTileset_UnovaUnovaNorth;
+
+extern const struct Tileset gTileset_UnovaBridge;
+
+extern const struct Tileset gTileset_UnovaIcePath;
+
+extern const struct Tileset gTileset_UnovaLentimas;
+
+extern const struct Tileset gTileset_UnovaPlayersHouse;
+
+extern const struct Tileset gTileset_UnovaUnderground;
+
+extern const struct Tileset gTileset_UnovaBattleTowerOutside;
+
+extern const struct Tileset gTileset_UnovaPark;
+
+extern const struct Tileset gTileset_UnovaPlayersRoom;
+
+extern const struct Tileset gTileset_UnovaVillageBridge;
+
+extern const struct Tileset gTileset_UnovaVirbank;
+
+// FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
+// extern const struct Tileset gTileset_UnovaAerodactylWordRoom;
+
+// FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
+// extern const struct Tileset gTileset_UnovaBetaWordRoom;
+
+// FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
+// extern const struct Tileset gTileset_UnovaHoOhWordRoom;
+
+// FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
+// extern const struct Tileset gTileset_UnovaJohto;
+
+// FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
+// extern const struct Tileset gTileset_UnovaJohtoModern;
+
+// FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
+// extern const struct Tileset gTileset_UnovaKabutoWordRoom;
+
+// FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
+// extern const struct Tileset gTileset_UnovaKanto;
+
+// FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
+// extern const struct Tileset gTileset_UnovaLighthouse;
+
+// FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
+// extern const struct Tileset gTileset_UnovaOmanyteWordRoom;
+
+// FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
+// extern const struct Tileset gTileset_UnovaPokecomCenter;
+
+// FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
+// extern const struct Tileset gTileset_UnovaRuinsOfAlph;
+
 #endif //GUARD_tilesets_H

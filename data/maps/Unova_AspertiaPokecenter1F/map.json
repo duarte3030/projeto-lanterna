@@ -15,6 +15,7 @@
   "connections": [],
   "object_events": [
     {
+      "local_id": "LOCALID_UNOVA_ASPERTIA_PC_NURSE",
       "graphics_id": "OBJ_EVENT_GFX_NURSE",
       "x": 4,
       "y": 2,

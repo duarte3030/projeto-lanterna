@@ -1,7 +1,13 @@
 @ OpelucidPokecenter1F do BW3G (Azure_Keys). Gerado por dev_scripts/importa_unova.py; nao editar a mao.
 
 Unova_OpelucidPokecenter1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Unova_OpelucidPokecenter1F_OnTransition
 	.byte 0
+
+@ Ponto de cura de Unova (dev_scripts/heal_locations_unova.py).
+Unova_OpelucidPokecenter1F_OnTransition:
+	setrespawn HEAL_LOCATION_UNOVA_OPELUCID
+	end
 
 Unova_OpelucidPokecenter1F_EventScript_Npc0::
 	setvar VAR_0x800B, 1

@@ -1964,6 +1964,45 @@
 // faixa de flags do saveblock e valido, e nenhuma frente precisa mexer neste
 // numero de novo. Custo: slots vazios no array (ROM), zero no saveblock, que ja
 // e dimensionado pelo MAX.
+// Treinadores do hns que faltavam em Johto, ligados em 12/08/2026 por
+// dev_scripts/treinadores_faltantes_johto.py. Acrescentados NO FIM: a flag
+// de "ja venci" deriva do id, entao renumerar aqui apagaria vitoria na save.
+#define TRAINER_JOHTO_BETH        2441
+#define TRAINER_JOHTO_GRUNT_4     2442
+#define TRAINER_JOHTO_GRUNT_26    2443
+#define TRAINER_JOHTO_GRUNT_8     2444
+#define TRAINER_JOHTO_MARC        2445
+#define TRAINER_JOHTO_GRUNT_9     2446
+#define TRAINER_JOHTO_GRUNT_28    2447
+#define TRAINER_JOHTO_RICH        2448
+
+// >>> Treinadores de dentro dos ginasios de Unova que o B4 nao viu (B5, 12/08/2026) >>>
+// Os 11 abaixo existem no BW3G e nao tinham constante aqui. O ponto cego do B4:
+// na fonte eles NAO sao `OBJECTTYPE_TRAINER`, sao `OBJECTTYPE_SCRIPT` com o
+// `loadtrainer` dentro de um script chamado por `coord_event`, entao a varredura
+// que procurava objeto de treinador passou por cima dos tres ginasios. Sao eles
+// que fazem o quebra-cabeca desses ginasios: a emboscada no corredor.
+// Ids medidos na hora: 2448 era o maior, entao a faixa comeca em 2449. O nome
+// comeca com TRAINER_UNOVA_ de proposito: `curva_de_nivel.regiao()` decide a
+// regiao pelo PREFIXO antes de olhar o id, e a faixa de id de Unova la e
+// 1800..2199, entao pelo id estes 11 cairiam em Hoenn e seriam reescalonados
+// para a faixa errada na proxima passada de curva.
+// Times: fontes-mapas/bw3g/data/trainers/parties.asm. Nivel = nivel da fonte
+// + 189, que e a conversao ja usada em Unova, medida em dois pontos exatos
+// (TRAINER_UNOVA_YOUNGSTER_R2: fonte 30 e 32 viraram 219 e 221).
+#define TRAINER_UNOVA_YOUNGSTER_ASPERTIA_GYM   2449
+#define TRAINER_UNOVA_LASS_ASPERTIA_GYM        2450
+#define TRAINER_UNOVA_WAITER_STRIATON_GYM_1    2451
+#define TRAINER_UNOVA_WAITER_STRIATON_GYM_2    2452
+#define TRAINER_UNOVA_WAITRESS_STRIATON_GYM_1  2453
+#define TRAINER_UNOVA_WAITRESS_STRIATON_GYM_2  2454
+#define TRAINER_UNOVA_WAITRESS_STRIATON_GYM_3  2455
+#define TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_1 2456
+#define TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_2 2457
+#define TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_3 2458
+#define TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_4 2459
+// <<< Treinadores de dentro dos ginasios de Unova que o B4 nao viu (B5, 12/08/2026) <<<
+
 #define TRAINERS_COUNT_EMERALD     MAX_TRAINERS_COUNT_EMERALD
 // ponytail: teto elevado em 05/08/2026. Estava em 1330 com 1329 em uso, ou seja,
 // UMA vaga sobrando no jogo inteiro, e a historia de Johto ja tinha deixado 7
@@ -2030,6 +2069,37 @@
 // janela aberta.
 //
 // Quem for MEXER aqui de novo: so em janela aberta, e medindo antes.
+// >>> treinadores de cena de Johto (porta_cenas_johto.py) >>>
+#define TRAINER_JOHTO_GRUNT_33                               2460
+#define TRAINER_JOHTO_KIYO                                   2461
+// <<< treinadores de cena de Johto (porta_cenas_johto.py) <<<
+
+// >>> cenas restantes da espinha da Galactica de Sinnoh (bloco B6,
+// dev_scripts/cena_galactica_sinnoh.py, 12/08/2026). Faixa exclusiva
+// desta frente: 2500 a 2519; gastos 5, livres 2505 a 2519. O vao 2462 a
+// 2499 fica DE PROPOSITO vazio, reservado para Johto retomar. >>>
+#define TRAINER_SINNOH_GALACTIC_GRUNT_CELESTIC_TOWN          2500
+#define TRAINER_SINNOH_COMMANDER_MARS_LAKE_VERITY            2501
+#define TRAINER_SINNOH_RIVAL_CANALAVE_CITY_TURTWIG           2502
+#define TRAINER_SINNOH_RIVAL_CANALAVE_CITY_CHIMCHAR          2503
+#define TRAINER_SINNOH_RIVAL_CANALAVE_CITY_PIPLUP            2504
+// <<< cenas da Galactica de Sinnoh <<<
+
+// >>> Campea de Unova, bloco B6 (12/08/2026). Faixa exclusiva desta frente:
+// 2520 a 2529; gastos 3, livres 2523 a 2529. Medido antes de escrever: 2520 a
+// 2529 estava inteiramente livre e o maior id declarado era 2504.
+//
+// Sao TRES entradas porque `StartChampionBattleScript` de ChampionsRoom.asm
+// escolhe o time da JUNIPER pelo inicial do jogador. Os tres times sao IGUAIS
+// nos cinco primeiros Pokemon e mudam so no sexto, que e o inicial evoluido:
+// SERPERIOR, EMBOAR ou SAMUROTT. O sufixo e o do rotulo da fonte
+// (JUNIPER_SNIVY, _TEPIG, _OSHAWOTT), que nomeia O POKEMON DA JUNIPER e nao o
+// do jogador. >>>
+#define TRAINER_UNOVA_CHAMPION_JUNIPER_SNIVY                 2520
+#define TRAINER_UNOVA_CHAMPION_JUNIPER_TEPIG                 2521
+#define TRAINER_UNOVA_CHAMPION_JUNIPER_OSHAWOTT              2522
+// <<< Campea de Unova <<<
+
 #define MAX_TRAINERS_COUNT_EMERALD 4000
 
 #if IS_FRLG

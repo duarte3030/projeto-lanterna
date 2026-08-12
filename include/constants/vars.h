@@ -282,7 +282,289 @@
 #define VAR_UNUSED_0x40FE                                0x40FE // Unused Var
 #define VAR_UNUSED_0x40FF                                0x40FF // Unused Var
 
-#define VARS_END                                         0x40FF
+// Reserva de historia, aberta em 12/08/2026 dentro da janela de quebra de save
+// que o Gui reabriu para a revisao daquele dia.
+//
+// Motivo, medido: sobravam 20 vars livres de verdade no jogo inteiro (as
+// VAR_UNUSED_* de 0x4000 a 0x40FF que ninguem apelidou), e cinco regioes com
+// puzzle de ginasio, maquina de estado de cena e contador de progresso nao cabem
+// em 20. Crescer VARS_COUNT empurra tudo que vem depois de vars[] dentro do
+// SaveBlock1 e INVALIDA save; hoje isso e permitido e amanha custa a partida do
+// Gui, entao a hora e esta.
+//
+// Var e CARA perto de flag: cada var custa 2 bytes de SaveBlock1, contra 1 bit
+// da flag. Estas 256 custam 512 B. Por isso a reserva de var e oito vezes menor
+// que a de flag: continua valendo a regra do ESTADO.md, var so quando flag nao
+// resolve, e as tres tecnicas de SINNOH-PADRAO.md vem antes.
+//
+// A faixa 0x4100 a 0x41FF estava livre de verdade: `GetVarPointer`
+// (src/event_data.c) manda para `gSaveBlock1Ptr->vars[id - VARS_START]` tudo que
+// esta abaixo de SPECIAL_VARS_START (0x8000), e nem vars.h nem vars_frlg.h
+// definiam qualquer var acima de 0x40FF.
+//
+// Como usar: apelide, nunca escreva o numero cru.
+//
+//     #define VAR_MEU_PUZZLE   VAR_UNUSED_0x4100
+#define VAR_UNUSED_0x4100                        0x4100 // Unused Var
+#define VAR_UNUSED_0x4101                        0x4101 // Unused Var
+#define VAR_UNUSED_0x4102                        0x4102 // Unused Var
+#define VAR_UNUSED_0x4103                        0x4103 // Unused Var
+#define VAR_UNUSED_0x4104                        0x4104 // Unused Var
+#define VAR_UNUSED_0x4105                        0x4105 // Unused Var
+#define VAR_UNUSED_0x4106                        0x4106 // Unused Var
+#define VAR_UNUSED_0x4107                        0x4107 // Unused Var
+#define VAR_UNUSED_0x4108                        0x4108 // Unused Var
+#define VAR_UNUSED_0x4109                        0x4109 // Unused Var
+#define VAR_UNUSED_0x410A                        0x410A // Unused Var
+#define VAR_UNUSED_0x410B                        0x410B // Unused Var
+#define VAR_UNUSED_0x410C                        0x410C // Unused Var
+#define VAR_UNUSED_0x410D                        0x410D // Unused Var
+#define VAR_UNUSED_0x410E                        0x410E // Unused Var
+#define VAR_UNUSED_0x410F                        0x410F // Unused Var
+#define VAR_UNUSED_0x4110                        0x4110 // Unused Var
+#define VAR_UNUSED_0x4111                        0x4111 // Unused Var
+#define VAR_UNUSED_0x4112                        0x4112 // Unused Var
+#define VAR_UNUSED_0x4113                        0x4113 // Unused Var
+#define VAR_UNUSED_0x4114                        0x4114 // Unused Var
+#define VAR_UNUSED_0x4115                        0x4115 // Unused Var
+#define VAR_UNUSED_0x4116                        0x4116 // Unused Var
+#define VAR_UNUSED_0x4117                        0x4117 // Unused Var
+#define VAR_UNUSED_0x4118                        0x4118 // Unused Var
+#define VAR_UNUSED_0x4119                        0x4119 // Unused Var
+#define VAR_UNUSED_0x411A                        0x411A // Unused Var
+#define VAR_UNUSED_0x411B                        0x411B // Unused Var
+#define VAR_UNUSED_0x411C                        0x411C // Unused Var
+#define VAR_UNUSED_0x411D                        0x411D // Unused Var
+#define VAR_UNUSED_0x411E                        0x411E // Unused Var
+#define VAR_UNUSED_0x411F                        0x411F // Unused Var
+#define VAR_UNUSED_0x4120                        0x4120 // Unused Var
+#define VAR_UNUSED_0x4121                        0x4121 // Unused Var
+#define VAR_UNUSED_0x4122                        0x4122 // Unused Var
+#define VAR_UNUSED_0x4123                        0x4123 // Unused Var
+#define VAR_UNUSED_0x4124                        0x4124 // Unused Var
+#define VAR_UNUSED_0x4125                        0x4125 // Unused Var
+#define VAR_UNUSED_0x4126                        0x4126 // Unused Var
+#define VAR_UNUSED_0x4127                        0x4127 // Unused Var
+#define VAR_UNUSED_0x4128                        0x4128 // Unused Var
+#define VAR_UNUSED_0x4129                        0x4129 // Unused Var
+#define VAR_UNUSED_0x412A                        0x412A // Unused Var
+#define VAR_UNUSED_0x412B                        0x412B // Unused Var
+#define VAR_UNUSED_0x412C                        0x412C // Unused Var
+#define VAR_UNUSED_0x412D                        0x412D // Unused Var
+#define VAR_UNUSED_0x412E                        0x412E // Unused Var
+#define VAR_UNUSED_0x412F                        0x412F // Unused Var
+#define VAR_UNUSED_0x4130                        0x4130 // Unused Var
+#define VAR_UNUSED_0x4131                        0x4131 // Unused Var
+#define VAR_UNUSED_0x4132                        0x4132 // Unused Var
+#define VAR_UNUSED_0x4133                        0x4133 // Unused Var
+#define VAR_UNUSED_0x4134                        0x4134 // Unused Var
+#define VAR_UNUSED_0x4135                        0x4135 // Unused Var
+#define VAR_UNUSED_0x4136                        0x4136 // Unused Var
+#define VAR_UNUSED_0x4137                        0x4137 // Unused Var
+#define VAR_UNUSED_0x4138                        0x4138 // Unused Var
+#define VAR_UNUSED_0x4139                        0x4139 // Unused Var
+#define VAR_UNUSED_0x413A                        0x413A // Unused Var
+#define VAR_UNUSED_0x413B                        0x413B // Unused Var
+#define VAR_UNUSED_0x413C                        0x413C // Unused Var
+#define VAR_UNUSED_0x413D                        0x413D // Unused Var
+#define VAR_UNUSED_0x413E                        0x413E // Unused Var
+#define VAR_UNUSED_0x413F                        0x413F // Unused Var
+#define VAR_UNUSED_0x4140                        0x4140 // Unused Var
+#define VAR_UNUSED_0x4141                        0x4141 // Unused Var
+#define VAR_UNUSED_0x4142                        0x4142 // Unused Var
+#define VAR_UNUSED_0x4143                        0x4143 // Unused Var
+#define VAR_UNUSED_0x4144                        0x4144 // Unused Var
+#define VAR_UNUSED_0x4145                        0x4145 // Unused Var
+#define VAR_UNUSED_0x4146                        0x4146 // Unused Var
+#define VAR_UNUSED_0x4147                        0x4147 // Unused Var
+#define VAR_UNUSED_0x4148                        0x4148 // Unused Var
+#define VAR_UNUSED_0x4149                        0x4149 // Unused Var
+#define VAR_UNUSED_0x414A                        0x414A // Unused Var
+#define VAR_UNUSED_0x414B                        0x414B // Unused Var
+#define VAR_UNUSED_0x414C                        0x414C // Unused Var
+#define VAR_UNUSED_0x414D                        0x414D // Unused Var
+#define VAR_UNUSED_0x414E                        0x414E // Unused Var
+#define VAR_UNUSED_0x414F                        0x414F // Unused Var
+#define VAR_UNUSED_0x4150                        0x4150 // Unused Var
+#define VAR_UNUSED_0x4151                        0x4151 // Unused Var
+#define VAR_UNUSED_0x4152                        0x4152 // Unused Var
+#define VAR_UNUSED_0x4153                        0x4153 // Unused Var
+#define VAR_UNUSED_0x4154                        0x4154 // Unused Var
+#define VAR_UNUSED_0x4155                        0x4155 // Unused Var
+#define VAR_UNUSED_0x4156                        0x4156 // Unused Var
+#define VAR_UNUSED_0x4157                        0x4157 // Unused Var
+#define VAR_UNUSED_0x4158                        0x4158 // Unused Var
+#define VAR_UNUSED_0x4159                        0x4159 // Unused Var
+#define VAR_UNUSED_0x415A                        0x415A // Unused Var
+#define VAR_UNUSED_0x415B                        0x415B // Unused Var
+#define VAR_UNUSED_0x415C                        0x415C // Unused Var
+#define VAR_UNUSED_0x415D                        0x415D // Unused Var
+#define VAR_UNUSED_0x415E                        0x415E // Unused Var
+#define VAR_UNUSED_0x415F                        0x415F // Unused Var
+#define VAR_UNUSED_0x4160                        0x4160 // Unused Var
+#define VAR_UNUSED_0x4161                        0x4161 // Unused Var
+#define VAR_UNUSED_0x4162                        0x4162 // Unused Var
+#define VAR_UNUSED_0x4163                        0x4163 // Unused Var
+#define VAR_UNUSED_0x4164                        0x4164 // Unused Var
+#define VAR_UNUSED_0x4165                        0x4165 // Unused Var
+#define VAR_UNUSED_0x4166                        0x4166 // Unused Var
+#define VAR_UNUSED_0x4167                        0x4167 // Unused Var
+#define VAR_UNUSED_0x4168                        0x4168 // Unused Var
+#define VAR_UNUSED_0x4169                        0x4169 // Unused Var
+#define VAR_UNUSED_0x416A                        0x416A // Unused Var
+#define VAR_UNUSED_0x416B                        0x416B // Unused Var
+#define VAR_UNUSED_0x416C                        0x416C // Unused Var
+#define VAR_UNUSED_0x416D                        0x416D // Unused Var
+#define VAR_UNUSED_0x416E                        0x416E // Unused Var
+#define VAR_UNUSED_0x416F                        0x416F // Unused Var
+#define VAR_UNUSED_0x4170                        0x4170 // Unused Var
+#define VAR_UNUSED_0x4171                        0x4171 // Unused Var
+#define VAR_UNUSED_0x4172                        0x4172 // Unused Var
+#define VAR_UNUSED_0x4173                        0x4173 // Unused Var
+#define VAR_UNUSED_0x4174                        0x4174 // Unused Var
+#define VAR_UNUSED_0x4175                        0x4175 // Unused Var
+#define VAR_UNUSED_0x4176                        0x4176 // Unused Var
+#define VAR_UNUSED_0x4177                        0x4177 // Unused Var
+#define VAR_UNUSED_0x4178                        0x4178 // Unused Var
+#define VAR_UNUSED_0x4179                        0x4179 // Unused Var
+#define VAR_UNUSED_0x417A                        0x417A // Unused Var
+#define VAR_UNUSED_0x417B                        0x417B // Unused Var
+#define VAR_UNUSED_0x417C                        0x417C // Unused Var
+#define VAR_UNUSED_0x417D                        0x417D // Unused Var
+#define VAR_UNUSED_0x417E                        0x417E // Unused Var
+#define VAR_UNUSED_0x417F                        0x417F // Unused Var
+#define VAR_UNUSED_0x4180                        0x4180 // Unused Var
+#define VAR_UNUSED_0x4181                        0x4181 // Unused Var
+#define VAR_UNUSED_0x4182                        0x4182 // Unused Var
+#define VAR_UNUSED_0x4183                        0x4183 // Unused Var
+#define VAR_UNUSED_0x4184                        0x4184 // Unused Var
+#define VAR_UNUSED_0x4185                        0x4185 // Unused Var
+#define VAR_UNUSED_0x4186                        0x4186 // Unused Var
+#define VAR_UNUSED_0x4187                        0x4187 // Unused Var
+#define VAR_UNUSED_0x4188                        0x4188 // Unused Var
+#define VAR_UNUSED_0x4189                        0x4189 // Unused Var
+#define VAR_UNUSED_0x418A                        0x418A // Unused Var
+#define VAR_UNUSED_0x418B                        0x418B // Unused Var
+#define VAR_UNUSED_0x418C                        0x418C // Unused Var
+#define VAR_UNUSED_0x418D                        0x418D // Unused Var
+#define VAR_UNUSED_0x418E                        0x418E // Unused Var
+#define VAR_UNUSED_0x418F                        0x418F // Unused Var
+#define VAR_UNUSED_0x4190                        0x4190 // Unused Var
+#define VAR_UNUSED_0x4191                        0x4191 // Unused Var
+#define VAR_UNUSED_0x4192                        0x4192 // Unused Var
+#define VAR_UNUSED_0x4193                        0x4193 // Unused Var
+#define VAR_UNUSED_0x4194                        0x4194 // Unused Var
+#define VAR_UNUSED_0x4195                        0x4195 // Unused Var
+#define VAR_UNUSED_0x4196                        0x4196 // Unused Var
+#define VAR_UNUSED_0x4197                        0x4197 // Unused Var
+#define VAR_UNUSED_0x4198                        0x4198 // Unused Var
+#define VAR_UNUSED_0x4199                        0x4199 // Unused Var
+#define VAR_UNUSED_0x419A                        0x419A // Unused Var
+#define VAR_UNUSED_0x419B                        0x419B // Unused Var
+#define VAR_UNUSED_0x419C                        0x419C // Unused Var
+#define VAR_UNUSED_0x419D                        0x419D // Unused Var
+#define VAR_UNUSED_0x419E                        0x419E // Unused Var
+#define VAR_UNUSED_0x419F                        0x419F // Unused Var
+#define VAR_UNUSED_0x41A0                        0x41A0 // Unused Var
+#define VAR_UNUSED_0x41A1                        0x41A1 // Unused Var
+#define VAR_UNUSED_0x41A2                        0x41A2 // Unused Var
+#define VAR_UNUSED_0x41A3                        0x41A3 // Unused Var
+#define VAR_UNUSED_0x41A4                        0x41A4 // Unused Var
+#define VAR_UNUSED_0x41A5                        0x41A5 // Unused Var
+#define VAR_UNUSED_0x41A6                        0x41A6 // Unused Var
+#define VAR_UNUSED_0x41A7                        0x41A7 // Unused Var
+#define VAR_UNUSED_0x41A8                        0x41A8 // Unused Var
+#define VAR_UNUSED_0x41A9                        0x41A9 // Unused Var
+#define VAR_UNUSED_0x41AA                        0x41AA // Unused Var
+#define VAR_UNUSED_0x41AB                        0x41AB // Unused Var
+#define VAR_UNUSED_0x41AC                        0x41AC // Unused Var
+#define VAR_UNUSED_0x41AD                        0x41AD // Unused Var
+#define VAR_UNUSED_0x41AE                        0x41AE // Unused Var
+#define VAR_UNUSED_0x41AF                        0x41AF // Unused Var
+#define VAR_UNUSED_0x41B0                        0x41B0 // Unused Var
+#define VAR_UNUSED_0x41B1                        0x41B1 // Unused Var
+#define VAR_UNUSED_0x41B2                        0x41B2 // Unused Var
+#define VAR_UNUSED_0x41B3                        0x41B3 // Unused Var
+#define VAR_UNUSED_0x41B4                        0x41B4 // Unused Var
+#define VAR_UNUSED_0x41B5                        0x41B5 // Unused Var
+#define VAR_UNUSED_0x41B6                        0x41B6 // Unused Var
+#define VAR_UNUSED_0x41B7                        0x41B7 // Unused Var
+#define VAR_UNUSED_0x41B8                        0x41B8 // Unused Var
+#define VAR_UNUSED_0x41B9                        0x41B9 // Unused Var
+#define VAR_UNUSED_0x41BA                        0x41BA // Unused Var
+#define VAR_UNUSED_0x41BB                        0x41BB // Unused Var
+#define VAR_UNUSED_0x41BC                        0x41BC // Unused Var
+#define VAR_UNUSED_0x41BD                        0x41BD // Unused Var
+#define VAR_UNUSED_0x41BE                        0x41BE // Unused Var
+#define VAR_UNUSED_0x41BF                        0x41BF // Unused Var
+#define VAR_UNUSED_0x41C0                        0x41C0 // Unused Var
+#define VAR_TURNBACK_PILARES_VISTOS              0x41C0 // Turnback Cave, B1.b
+#define VAR_UNUSED_0x41C1                        0x41C1 // Unused Var
+#define VAR_TURNBACK_SALAS_VISITADAS             0x41C1 // Turnback Cave, B1.b
+#define VAR_UNUSED_0x41C2                        0x41C2 // Unused Var
+#define VAR_UNUSED_0x41C3                        0x41C3 // Unused Var
+#define VAR_UNUSED_0x41C4                        0x41C4 // Unused Var
+#define VAR_UNUSED_0x41C5                        0x41C5 // Unused Var
+#define VAR_UNUSED_0x41C6                        0x41C6 // Unused Var
+#define VAR_UNUSED_0x41C7                        0x41C7 // Unused Var
+#define VAR_UNUSED_0x41C8                        0x41C8 // Unused Var
+#define VAR_UNUSED_0x41C9                        0x41C9 // Unused Var
+#define VAR_UNUSED_0x41CA                        0x41CA // Unused Var
+#define VAR_UNUSED_0x41CB                        0x41CB // Unused Var
+#define VAR_UNUSED_0x41CC                        0x41CC // Unused Var
+#define VAR_UNUSED_0x41CD                        0x41CD // Unused Var
+#define VAR_UNUSED_0x41CE                        0x41CE // Unused Var
+#define VAR_UNUSED_0x41CF                        0x41CF // Unused Var
+#define VAR_UNUSED_0x41D0                        0x41D0 // Unused Var
+#define VAR_UNUSED_0x41D1                        0x41D1 // Unused Var
+#define VAR_UNUSED_0x41D2                        0x41D2 // Unused Var
+#define VAR_UNUSED_0x41D3                        0x41D3 // Unused Var
+#define VAR_UNUSED_0x41D4                        0x41D4 // Unused Var
+#define VAR_UNUSED_0x41D5                        0x41D5 // Unused Var
+#define VAR_UNUSED_0x41D6                        0x41D6 // Unused Var
+#define VAR_UNUSED_0x41D7                        0x41D7 // Unused Var
+#define VAR_UNUSED_0x41D8                        0x41D8 // Unused Var
+#define VAR_UNUSED_0x41D9                        0x41D9 // Unused Var
+#define VAR_UNUSED_0x41DA                        0x41DA // Unused Var
+#define VAR_UNUSED_0x41DB                        0x41DB // Unused Var
+#define VAR_UNUSED_0x41DC                        0x41DC // Unused Var
+#define VAR_UNUSED_0x41DD                        0x41DD // Unused Var
+#define VAR_UNUSED_0x41DE                        0x41DE // Unused Var
+#define VAR_UNUSED_0x41DF                        0x41DF // Unused Var
+#define VAR_UNUSED_0x41E0                        0x41E0 // Unused Var
+#define VAR_UNUSED_0x41E1                        0x41E1 // Unused Var
+#define VAR_UNUSED_0x41E2                        0x41E2 // Unused Var
+#define VAR_UNUSED_0x41E3                        0x41E3 // Unused Var
+#define VAR_UNUSED_0x41E4                        0x41E4 // Unused Var
+#define VAR_UNUSED_0x41E5                        0x41E5 // Unused Var
+#define VAR_UNUSED_0x41E6                        0x41E6 // Unused Var
+#define VAR_UNUSED_0x41E7                        0x41E7 // Unused Var
+#define VAR_UNUSED_0x41E8                        0x41E8 // Unused Var
+#define VAR_UNUSED_0x41E9                        0x41E9 // Unused Var
+#define VAR_UNUSED_0x41EA                        0x41EA // Unused Var
+#define VAR_UNUSED_0x41EB                        0x41EB // Unused Var
+#define VAR_UNUSED_0x41EC                        0x41EC // Unused Var
+#define VAR_UNUSED_0x41ED                        0x41ED // Unused Var
+#define VAR_UNUSED_0x41EE                        0x41EE // Unused Var
+#define VAR_UNUSED_0x41EF                        0x41EF // Unused Var
+#define VAR_UNUSED_0x41F0                        0x41F0 // Unused Var
+#define VAR_UNUSED_0x41F1                        0x41F1 // Unused Var
+#define VAR_UNUSED_0x41F2                        0x41F2 // Unused Var
+#define VAR_UNUSED_0x41F3                        0x41F3 // Unused Var
+#define VAR_UNUSED_0x41F4                        0x41F4 // Unused Var
+#define VAR_UNUSED_0x41F5                        0x41F5 // Unused Var
+#define VAR_UNUSED_0x41F6                        0x41F6 // Unused Var
+#define VAR_UNUSED_0x41F7                        0x41F7 // Unused Var
+#define VAR_UNUSED_0x41F8                        0x41F8 // Unused Var
+#define VAR_UNUSED_0x41F9                        0x41F9 // Unused Var
+#define VAR_UNUSED_0x41FA                        0x41FA // Unused Var
+#define VAR_UNUSED_0x41FB                        0x41FB // Unused Var
+#define VAR_UNUSED_0x41FC                        0x41FC // Unused Var
+#define VAR_UNUSED_0x41FD                        0x41FD // Unused Var
+#define VAR_UNUSED_0x41FE                        0x41FE // Unused Var
+#define VAR_UNUSED_0x41FF                        0x41FF // Unused Var
+
+#define VARS_END                                         0x41FF
 #define VARS_COUNT                                       (VARS_END - VARS_START + 1)
 
 #define SPECIAL_VARS_START            0x8000
@@ -349,3 +631,28 @@
 // >>> S.S. Aqua (dev_scripts/import_ssaqua.py) >>>
 #define VAR_SSAQUA_STATE                                 VAR_UNUSED_0x40FF
 // <<< S.S. Aqua (dev_scripts/import_ssaqua.py) <<<
+
+// >>> B6 Johto (dev_scripts/porta_cenas_johto.py) >>>
+// Vars da história de Johto vindas do `hns`, apelidadas para a faixa reservada
+// a esta frente (VAR_UNUSED_0x4100 a 0x412F). Uma var por máquina de estado de
+// cena, com o mesmo nome da fonte para o script portado não precisar de
+// tradução linha a linha.
+#define VAR_ECRUTEAK_CITY_THEATER                            VAR_UNUSED_0x4101
+// <<< B6 Johto (dev_scripts/porta_cenas_johto.py) <<<
+
+// >>> B6 Unova (bloco B6 do PRD-ROM-COMPLETA.md) >>>
+// Faixa exclusiva desta frente: VAR_UNUSED_0x4160 a 0x41BF. Append-only.
+//
+// O BW3G tem `setscene`/`checkscene`, que é uma máquina de estados POR MAPA
+// guardada pelo motor do gen 2. Aqui não existe equivalente, então cada mapa da
+// fonte que usa `scene_script` vira UMA var com os mesmos valores, na mesma
+// ordem em que os `scene_script` aparecem no `.asm`. Flag não substitui: são
+// estados sequenciais e excludentes, não bits independentes.
+//
+// ChampionsRoom.asm tem 4 `scene_script`:
+//   0 = SCENE_START_GENESIS_BATTLE   (padrão; o GENESIS ainda está lá)
+//   1 = SCENE_START_JUNIPER_BATTLE   (GENESIS caiu, a JUNIPER espera)
+//   2 = SCENE_START_CHAMPION_BATTLE  (já foi campeão; revanche)
+//   3 = SCENE_POST_CREDITS           (o GENESECT vai embora)
+#define VAR_UNOVA_LIGA_CENA                                  VAR_UNUSED_0x4160
+// <<< B6 Unova <<<

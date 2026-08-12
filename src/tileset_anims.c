@@ -1432,3 +1432,50 @@ void InitTilesetAnim_CeladonGym(void)
     sSecondaryTilesetAnimCallback = TilesetAnim_CeladonGym;
 }
 
+
+// --- Unova (B12.a, tileset_gen2.py) ---
+//
+// Um unico motor para os 30 tilesets animados de Unova, no lugar de 30 funcoes
+// escritas a mao. O gen 2 (`engine/tilesets/tileset_anims.asm` do BW3G) ja e uma
+// TABELA: cada linha diz "neste quadro do ciclo, escreva o tile tal com o quadro
+// tal". A tabela virou dado (`src/data/tilesets/anims_unova.h`, gerado) e o
+// laco abaixo virou o interprete dela.
+//
+// Custo de CPU, que e o risco real de animar 30 tilesets: em cada quadro so a
+// animacao de indice `timer % 16` e enfileirada, ou seja no maximo UMA
+// transferencia de 32 bytes por quadro, e o laco anda por no maximo 16 entradas
+// (o tileset com mais animacao e o `airport`, com os 16 tiles de ceu). E o mesmo
+// ritmo do gen 2, onde cada linha da tabela tambem rodava num quadro so.
+struct UnovaTilesetAnim
+{
+    const u16 *const *frames;
+    u16 numFrames;
+    u16 destTile;   // indice LOCAL no tileset secundario
+};
+
+static const struct UnovaTilesetAnim *sUnovaAnims;
+static u16 sUnovaAnimCount;
+
+static void TilesetAnim_Unova(u16 timer)
+{
+    u16 i, passo = timer % 16, ciclo = timer / 16;
+
+    for (i = passo; i < sUnovaAnimCount; i += 16)
+    {
+        const struct UnovaTilesetAnim *anim = &sUnovaAnims[i];
+        AppendTilesetAnimToBuffer(anim->frames[ciclo % anim->numFrames],
+                                  (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + anim->destTile)),
+                                  TILE_SIZE_4BPP);
+    }
+}
+
+static void InitUnovaTilesetAnim(const struct UnovaTilesetAnim *anims, u16 count)
+{
+    sUnovaAnims = anims;
+    sUnovaAnimCount = count;
+    sSecondaryTilesetAnimCounter = 0;
+    sSecondaryTilesetAnimCounterMax = 256;
+    sSecondaryTilesetAnimCallback = TilesetAnim_Unova;
+}
+
+#include "data/tilesets/anims_unova.h"

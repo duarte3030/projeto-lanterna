@@ -2492,3 +2492,642 @@ const struct Tileset gTileset_WhirlIslands =
     .callback = NULL,
 };
 
+// --- Unova (B12.a, tileset_gen2.py) ---
+
+const struct Tileset gTileset_UnovaCastelia =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaCastelia,
+    .palettes = gTilesetPalettes_UnovaCastelia,
+    .metatiles = gMetatiles_UnovaCastelia,
+    .metatileAttributes = gMetatileAttributes_UnovaCastelia,
+    .callback = InitTilesetAnim_UnovaCastelia,
+};
+
+const struct Tileset gTileset_UnovaNimbasa =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaNimbasa,
+    .palettes = gTilesetPalettes_UnovaNimbasa,
+    .metatiles = gMetatiles_UnovaNimbasa,
+    .metatileAttributes = gMetatileAttributes_UnovaNimbasa,
+    .callback = InitTilesetAnim_UnovaNimbasa,
+};
+
+const struct Tileset gTileset_UnovaDriftveil =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaDriftveil,
+    .palettes = gTilesetPalettes_UnovaDriftveil,
+    .metatiles = gMetatiles_UnovaDriftveil,
+    .metatileAttributes = gMetatileAttributes_UnovaDriftveil,
+    .callback = InitTilesetAnim_UnovaDriftveil,
+};
+
+const struct Tileset gTileset_UnovaOpelucid =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaOpelucid,
+    .palettes = gTilesetPalettes_UnovaOpelucid,
+    .metatiles = gMetatiles_UnovaOpelucid,
+    .metatileAttributes = gMetatileAttributes_UnovaOpelucid,
+    .callback = InitTilesetAnim_UnovaOpelucid,
+};
+
+const struct Tileset gTileset_UnovaTower =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaTower,
+    .palettes = gTilesetPalettes_UnovaTower,
+    .metatiles = gMetatiles_UnovaTower,
+    .metatileAttributes = gMetatileAttributes_UnovaTower,
+    .callback = InitTilesetAnim_UnovaTower,
+};
+
+const struct Tileset gTileset_UnovaDesert =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaDesert,
+    .palettes = gTilesetPalettes_UnovaDesert,
+    .metatiles = gMetatiles_UnovaDesert,
+    .metatileAttributes = gMetatileAttributes_UnovaDesert,
+    .callback = InitTilesetAnim_UnovaDesert,
+};
+
+const struct Tileset gTileset_UnovaTraditionalHouse =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaTraditionalHouse,
+    .palettes = gTilesetPalettes_UnovaTraditionalHouse,
+    .metatiles = gMetatiles_UnovaTraditionalHouse,
+    .metatileAttributes = gMetatileAttributes_UnovaTraditionalHouse,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_UnovaForest =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaForest,
+    .palettes = gTilesetPalettes_UnovaForest,
+    .metatiles = gMetatiles_UnovaForest,
+    .metatileAttributes = gMetatileAttributes_UnovaForest,
+    .callback = InitTilesetAnim_UnovaForest,
+};
+
+const struct Tileset gTileset_UnovaFacility =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaFacility,
+    .palettes = gTilesetPalettes_UnovaFacility,
+    .metatiles = gMetatiles_UnovaFacility,
+    .metatileAttributes = gMetatileAttributes_UnovaFacility,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_UnovaComplex =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaComplex,
+    .palettes = gTilesetPalettes_UnovaComplex,
+    .metatiles = gMetatiles_UnovaComplex,
+    .metatileAttributes = gMetatileAttributes_UnovaComplex,
+    .callback = InitTilesetAnim_UnovaComplex,
+};
+
+const struct Tileset gTileset_UnovaHouse =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaHouse,
+    .palettes = gTilesetPalettes_UnovaHouse,
+    .metatiles = gMetatiles_UnovaHouse,
+    .metatileAttributes = gMetatileAttributes_UnovaHouse,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_UnovaGate =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaGate,
+    .palettes = gTilesetPalettes_UnovaGate,
+    .metatiles = gMetatiles_UnovaGate,
+    .metatileAttributes = gMetatileAttributes_UnovaGate,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_UnovaCave =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaCave,
+    .palettes = gTilesetPalettes_UnovaCave,
+    .metatiles = gMetatiles_UnovaCave,
+    .metatileAttributes = gMetatileAttributes_UnovaCave,
+    .callback = InitTilesetAnim_UnovaCave,
+};
+
+const struct Tileset gTileset_UnovaPokecenter =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaPokecenter,
+    .palettes = gTilesetPalettes_UnovaPokecenter,
+    .metatiles = gMetatiles_UnovaPokecenter,
+    .metatileAttributes = gMetatileAttributes_UnovaPokecenter,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_UnovaMansion =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaMansion,
+    .palettes = gTilesetPalettes_UnovaMansion,
+    .metatiles = gMetatiles_UnovaMansion,
+    .metatileAttributes = gMetatileAttributes_UnovaMansion,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_UnovaGameCorner =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaGameCorner,
+    .palettes = gTilesetPalettes_UnovaGameCorner,
+    .metatiles = gMetatiles_UnovaGameCorner,
+    .metatileAttributes = gMetatileAttributes_UnovaGameCorner,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_UnovaMart =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaMart,
+    .palettes = gTilesetPalettes_UnovaMart,
+    .metatiles = gMetatiles_UnovaMart,
+    .metatileAttributes = gMetatileAttributes_UnovaMart,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_UnovaUnovaBeach =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaUnovaBeach,
+    .palettes = gTilesetPalettes_UnovaUnovaBeach,
+    .metatiles = gMetatiles_UnovaUnovaBeach,
+    .metatileAttributes = gMetatileAttributes_UnovaUnovaBeach,
+    .callback = InitTilesetAnim_UnovaUnovaBeach,
+};
+
+const struct Tileset gTileset_UnovaEliteFourRoom =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaEliteFourRoom,
+    .palettes = gTilesetPalettes_UnovaEliteFourRoom,
+    .metatiles = gMetatiles_UnovaEliteFourRoom,
+    .metatileAttributes = gMetatileAttributes_UnovaEliteFourRoom,
+    .callback = InitTilesetAnim_UnovaEliteFourRoom,
+};
+
+const struct Tileset gTileset_UnovaPkmnLeague =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaPkmnLeague,
+    .palettes = gTilesetPalettes_UnovaPkmnLeague,
+    .metatiles = gMetatiles_UnovaPkmnLeague,
+    .metatileAttributes = gMetatileAttributes_UnovaPkmnLeague,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_UnovaUnovaEast =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaUnovaEast,
+    .palettes = gTilesetPalettes_UnovaUnovaEast,
+    .metatiles = gMetatiles_UnovaUnovaEast,
+    .metatileAttributes = gMetatileAttributes_UnovaUnovaEast,
+    .callback = InitTilesetAnim_UnovaUnovaEast,
+};
+
+const struct Tileset gTileset_UnovaAirport =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaAirport,
+    .palettes = gTilesetPalettes_UnovaAirport,
+    .metatiles = gMetatiles_UnovaAirport,
+    .metatileAttributes = gMetatileAttributes_UnovaAirport,
+    .callback = InitTilesetAnim_UnovaAirport,
+};
+
+const struct Tileset gTileset_UnovaIcirrus =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaIcirrus,
+    .palettes = gTilesetPalettes_UnovaIcirrus,
+    .metatiles = gMetatiles_UnovaIcirrus,
+    .metatileAttributes = gMetatileAttributes_UnovaIcirrus,
+    .callback = InitTilesetAnim_UnovaIcirrus,
+};
+
+const struct Tileset gTileset_UnovaPort =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaPort,
+    .palettes = gTilesetPalettes_UnovaPort,
+    .metatiles = gMetatiles_UnovaPort,
+    .metatileAttributes = gMetatileAttributes_UnovaPort,
+    .callback = InitTilesetAnim_UnovaPort,
+};
+
+const struct Tileset gTileset_UnovaBattleTower =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaBattleTower,
+    .palettes = gTilesetPalettes_UnovaBattleTower,
+    .metatiles = gMetatiles_UnovaBattleTower,
+    .metatileAttributes = gMetatileAttributes_UnovaBattleTower,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_UnovaChampionsRoom =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaChampionsRoom,
+    .palettes = gTilesetPalettes_UnovaChampionsRoom,
+    .metatiles = gMetatiles_UnovaChampionsRoom,
+    .metatileAttributes = gMetatileAttributes_UnovaChampionsRoom,
+    .callback = InitTilesetAnim_UnovaChampionsRoom,
+};
+
+const struct Tileset gTileset_UnovaUnovaWest =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaUnovaWest,
+    .palettes = gTilesetPalettes_UnovaUnovaWest,
+    .metatiles = gMetatiles_UnovaUnovaWest,
+    .metatileAttributes = gMetatileAttributes_UnovaUnovaWest,
+    .callback = InitTilesetAnim_UnovaUnovaWest,
+};
+
+const struct Tileset gTileset_UnovaNacrene =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaNacrene,
+    .palettes = gTilesetPalettes_UnovaNacrene,
+    .metatiles = gMetatiles_UnovaNacrene,
+    .metatileAttributes = gMetatileAttributes_UnovaNacrene,
+    .callback = InitTilesetAnim_UnovaNacrene,
+};
+
+const struct Tileset gTileset_UnovaRadioTower =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaRadioTower,
+    .palettes = gTilesetPalettes_UnovaRadioTower,
+    .metatiles = gMetatiles_UnovaRadioTower,
+    .metatileAttributes = gMetatileAttributes_UnovaRadioTower,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_UnovaCaveRuins =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaCaveRuins,
+    .palettes = gTilesetPalettes_UnovaCaveRuins,
+    .metatiles = gMetatiles_UnovaCaveRuins,
+    .metatileAttributes = gMetatileAttributes_UnovaCaveRuins,
+    .callback = InitTilesetAnim_UnovaCaveRuins,
+};
+
+const struct Tileset gTileset_UnovaDreamyard =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaDreamyard,
+    .palettes = gTilesetPalettes_UnovaDreamyard,
+    .metatiles = gMetatiles_UnovaDreamyard,
+    .metatileAttributes = gMetatileAttributes_UnovaDreamyard,
+    .callback = InitTilesetAnim_UnovaDreamyard,
+};
+
+const struct Tileset gTileset_UnovaLab =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaLab,
+    .palettes = gTilesetPalettes_UnovaLab,
+    .metatiles = gMetatiles_UnovaLab,
+    .metatileAttributes = gMetatileAttributes_UnovaLab,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_UnovaMistralton =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaMistralton,
+    .palettes = gTilesetPalettes_UnovaMistralton,
+    .metatiles = gMetatiles_UnovaMistralton,
+    .metatileAttributes = gMetatileAttributes_UnovaMistralton,
+    .callback = InitTilesetAnim_UnovaMistralton,
+};
+
+const struct Tileset gTileset_UnovaStriaton =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaStriaton,
+    .palettes = gTilesetPalettes_UnovaStriaton,
+    .metatiles = gMetatiles_UnovaStriaton,
+    .metatileAttributes = gMetatileAttributes_UnovaStriaton,
+    .callback = InitTilesetAnim_UnovaStriaton,
+};
+
+const struct Tileset gTileset_UnovaTrainStation =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaTrainStation,
+    .palettes = gTilesetPalettes_UnovaTrainStation,
+    .metatiles = gMetatiles_UnovaTrainStation,
+    .metatileAttributes = gMetatileAttributes_UnovaTrainStation,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_UnovaUnovaNorth =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaUnovaNorth,
+    .palettes = gTilesetPalettes_UnovaUnovaNorth,
+    .metatiles = gMetatiles_UnovaUnovaNorth,
+    .metatileAttributes = gMetatileAttributes_UnovaUnovaNorth,
+    .callback = InitTilesetAnim_UnovaUnovaNorth,
+};
+
+const struct Tileset gTileset_UnovaBridge =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaBridge,
+    .palettes = gTilesetPalettes_UnovaBridge,
+    .metatiles = gMetatiles_UnovaBridge,
+    .metatileAttributes = gMetatileAttributes_UnovaBridge,
+    .callback = InitTilesetAnim_UnovaBridge,
+};
+
+const struct Tileset gTileset_UnovaIcePath =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaIcePath,
+    .palettes = gTilesetPalettes_UnovaIcePath,
+    .metatiles = gMetatiles_UnovaIcePath,
+    .metatileAttributes = gMetatileAttributes_UnovaIcePath,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_UnovaLentimas =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaLentimas,
+    .palettes = gTilesetPalettes_UnovaLentimas,
+    .metatiles = gMetatiles_UnovaLentimas,
+    .metatileAttributes = gMetatileAttributes_UnovaLentimas,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_UnovaPlayersHouse =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaPlayersHouse,
+    .palettes = gTilesetPalettes_UnovaPlayersHouse,
+    .metatiles = gMetatiles_UnovaPlayersHouse,
+    .metatileAttributes = gMetatileAttributes_UnovaPlayersHouse,
+    .callback = InitTilesetAnim_UnovaPlayersHouse,
+};
+
+const struct Tileset gTileset_UnovaUnderground =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaUnderground,
+    .palettes = gTilesetPalettes_UnovaUnderground,
+    .metatiles = gMetatiles_UnovaUnderground,
+    .metatileAttributes = gMetatileAttributes_UnovaUnderground,
+    .callback = InitTilesetAnim_UnovaUnderground,
+};
+
+const struct Tileset gTileset_UnovaBattleTowerOutside =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaBattleTowerOutside,
+    .palettes = gTilesetPalettes_UnovaBattleTowerOutside,
+    .metatiles = gMetatiles_UnovaBattleTowerOutside,
+    .metatileAttributes = gMetatileAttributes_UnovaBattleTowerOutside,
+    .callback = InitTilesetAnim_UnovaBattleTowerOutside,
+};
+
+const struct Tileset gTileset_UnovaPark =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaPark,
+    .palettes = gTilesetPalettes_UnovaPark,
+    .metatiles = gMetatiles_UnovaPark,
+    .metatileAttributes = gMetatileAttributes_UnovaPark,
+    .callback = InitTilesetAnim_UnovaPark,
+};
+
+const struct Tileset gTileset_UnovaPlayersRoom =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaPlayersRoom,
+    .palettes = gTilesetPalettes_UnovaPlayersRoom,
+    .metatiles = gMetatiles_UnovaPlayersRoom,
+    .metatileAttributes = gMetatileAttributes_UnovaPlayersRoom,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_UnovaVillageBridge =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaVillageBridge,
+    .palettes = gTilesetPalettes_UnovaVillageBridge,
+    .metatiles = gMetatiles_UnovaVillageBridge,
+    .metatileAttributes = gMetatileAttributes_UnovaVillageBridge,
+    .callback = InitTilesetAnim_UnovaVillageBridge,
+};
+
+const struct Tileset gTileset_UnovaVirbank =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_UnovaVirbank,
+    .palettes = gTilesetPalettes_UnovaVirbank,
+    .metatiles = gMetatiles_UnovaVirbank,
+    .metatileAttributes = gMetatileAttributes_UnovaVirbank,
+    .callback = InitTilesetAnim_UnovaVirbank,
+};
+
+// FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
+// const struct Tileset gTileset_UnovaAerodactylWordRoom =
+// {
+//     .isCompressed = TRUE,
+//     .isSecondary = TRUE,
+//     .tiles = gTilesetTiles_UnovaAerodactylWordRoom,
+//     .palettes = gTilesetPalettes_UnovaAerodactylWordRoom,
+//     .metatiles = gMetatiles_UnovaAerodactylWordRoom,
+//     .metatileAttributes = gMetatileAttributes_UnovaAerodactylWordRoom,
+//     .callback = NULL,
+// };
+
+// FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
+// const struct Tileset gTileset_UnovaBetaWordRoom =
+// {
+//     .isCompressed = TRUE,
+//     .isSecondary = TRUE,
+//     .tiles = gTilesetTiles_UnovaBetaWordRoom,
+//     .palettes = gTilesetPalettes_UnovaBetaWordRoom,
+//     .metatiles = gMetatiles_UnovaBetaWordRoom,
+//     .metatileAttributes = gMetatileAttributes_UnovaBetaWordRoom,
+//     .callback = NULL,
+// };
+
+// FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
+// const struct Tileset gTileset_UnovaHoOhWordRoom =
+// {
+//     .isCompressed = TRUE,
+//     .isSecondary = TRUE,
+//     .tiles = gTilesetTiles_UnovaHoOhWordRoom,
+//     .palettes = gTilesetPalettes_UnovaHoOhWordRoom,
+//     .metatiles = gMetatiles_UnovaHoOhWordRoom,
+//     .metatileAttributes = gMetatileAttributes_UnovaHoOhWordRoom,
+//     .callback = NULL,
+// };
+
+// FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
+// const struct Tileset gTileset_UnovaJohto =
+// {
+//     .isCompressed = TRUE,
+//     .isSecondary = TRUE,
+//     .tiles = gTilesetTiles_UnovaJohto,
+//     .palettes = gTilesetPalettes_UnovaJohto,
+//     .metatiles = gMetatiles_UnovaJohto,
+//     .metatileAttributes = gMetatileAttributes_UnovaJohto,
+//     .callback = NULL,
+// };
+
+// FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
+// const struct Tileset gTileset_UnovaJohtoModern =
+// {
+//     .isCompressed = TRUE,
+//     .isSecondary = TRUE,
+//     .tiles = gTilesetTiles_UnovaJohtoModern,
+//     .palettes = gTilesetPalettes_UnovaJohtoModern,
+//     .metatiles = gMetatiles_UnovaJohtoModern,
+//     .metatileAttributes = gMetatileAttributes_UnovaJohtoModern,
+//     .callback = NULL,
+// };
+
+// FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
+// const struct Tileset gTileset_UnovaKabutoWordRoom =
+// {
+//     .isCompressed = TRUE,
+//     .isSecondary = TRUE,
+//     .tiles = gTilesetTiles_UnovaKabutoWordRoom,
+//     .palettes = gTilesetPalettes_UnovaKabutoWordRoom,
+//     .metatiles = gMetatiles_UnovaKabutoWordRoom,
+//     .metatileAttributes = gMetatileAttributes_UnovaKabutoWordRoom,
+//     .callback = NULL,
+// };
+
+// FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
+// const struct Tileset gTileset_UnovaKanto =
+// {
+//     .isCompressed = TRUE,
+//     .isSecondary = TRUE,
+//     .tiles = gTilesetTiles_UnovaKanto,
+//     .palettes = gTilesetPalettes_UnovaKanto,
+//     .metatiles = gMetatiles_UnovaKanto,
+//     .metatileAttributes = gMetatileAttributes_UnovaKanto,
+//     .callback = NULL,
+// };
+
+// FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
+// const struct Tileset gTileset_UnovaLighthouse =
+// {
+//     .isCompressed = TRUE,
+//     .isSecondary = TRUE,
+//     .tiles = gTilesetTiles_UnovaLighthouse,
+//     .palettes = gTilesetPalettes_UnovaLighthouse,
+//     .metatiles = gMetatiles_UnovaLighthouse,
+//     .metatileAttributes = gMetatileAttributes_UnovaLighthouse,
+//     .callback = NULL,
+// };
+
+// FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
+// const struct Tileset gTileset_UnovaOmanyteWordRoom =
+// {
+//     .isCompressed = TRUE,
+//     .isSecondary = TRUE,
+//     .tiles = gTilesetTiles_UnovaOmanyteWordRoom,
+//     .palettes = gTilesetPalettes_UnovaOmanyteWordRoom,
+//     .metatiles = gMetatiles_UnovaOmanyteWordRoom,
+//     .metatileAttributes = gMetatileAttributes_UnovaOmanyteWordRoom,
+//     .callback = NULL,
+// };
+
+// FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
+// const struct Tileset gTileset_UnovaPokecomCenter =
+// {
+//     .isCompressed = TRUE,
+//     .isSecondary = TRUE,
+//     .tiles = gTilesetTiles_UnovaPokecomCenter,
+//     .palettes = gTilesetPalettes_UnovaPokecomCenter,
+//     .metatiles = gMetatiles_UnovaPokecomCenter,
+//     .metatileAttributes = gMetatileAttributes_UnovaPokecomCenter,
+//     .callback = NULL,
+// };
+
+// FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
+// const struct Tileset gTileset_UnovaRuinsOfAlph =
+// {
+//     .isCompressed = TRUE,
+//     .isSecondary = TRUE,
+//     .tiles = gTilesetTiles_UnovaRuinsOfAlph,
+//     .palettes = gTilesetPalettes_UnovaRuinsOfAlph,
+//     .metatiles = gMetatiles_UnovaRuinsOfAlph,
+//     .metatileAttributes = gMetatileAttributes_UnovaRuinsOfAlph,
+//     .callback = NULL,
+// };

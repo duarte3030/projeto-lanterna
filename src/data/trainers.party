@@ -44536,3 +44536,662 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_MACHAMP
 Level: 122
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+/*=== TREINADORES DE JOHTO QUE FALTAVAM (treinadores_faltantes_johto.py) ===*/
+
+=== TRAINER_JOHTO_BETH ===
+Name: Beth
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_F
+Double Battle: No
+
+SPECIES_RAPIDASH
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_AMPHAROS
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MILTANK
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_LANTURN
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GENGAR
+Level: 94
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_GRUNT_4 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Double Battle: No
+
+SPECIES_AIPOM
+Level: 82
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_KOFFING
+Level: 82
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_AIPOM
+Level: 82
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_GRUNT_26 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Double Battle: No
+
+SPECIES_ARBOK
+Level: 83
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GLOOM
+Level: 83
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_GRUNT_8 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Double Battle: No
+
+SPECIES_TAUROS
+Level: 83
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SLOWBRO
+Level: 83
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_MARC ===
+Name: Marc
+Class: TRAINER_CLASS_COLLECTOR
+Pic: TRAINER_PIC_COLLECTOR
+Double Battle: No
+
+SPECIES_OMASTAR
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_GRUNT_9 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Double Battle: No
+
+SPECIES_EXEGGUTOR
+Level: 83
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ELECTRODE
+Level: 83
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ELECTABUZZ
+Level: 83
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_GRUNT_28 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Double Battle: No
+
+SPECIES_ARBOK
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GLOOM
+Level: 83
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ARIADOS
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_VILEPLUME
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_RICH ===
+Name: Rich
+Class: TRAINER_CLASS_COLLECTOR
+Pic: TRAINER_PIC_COLLECTOR
+Double Battle: No
+
+SPECIES_PORYGON
+Level: 89
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+/*=== Treinadores de dentro dos ginasios de Unova (bloco B5, 12/08/2026) ===
+   Os 11 do BW3G que o B4 nao viu, porque na fonte eles sao OBJECTTYPE_SCRIPT com
+   loadtrainer dentro de script de coord_event, e nao OBJECTTYPE_TRAINER.
+   Times: fontes-mapas/bw3g/data/trainers/parties.asm, na ordem da fonte.
+   Nivel = nivel da fonte + 189 (conversao ja usada em Unova; ancorada em
+   TRAINER_UNOVA_YOUNGSTER_R2, cuja fonte 30 e 32 viraram 219 e 221).
+   Sem moves listados, igual aos outros treinadores comuns de Unova: o motor
+   escolhe pelo nivel. Trocas de classe, pelo mesmo criterio do
+   dev_scripts/gera_treinadores_unova.py (a classe mais parecida em papel e
+   visual, porque gen 3 nao tem as classes de gen 5): WAITER vira Gentleman e
+   WAITRESS vira Lady, que sao as duas classes de garcom formal desta build. */
+
+=== TRAINER_UNOVA_YOUNGSTER_ASPERTIA_GYM ===
+Name: LAMAR
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Double Battle: No
+
+SPECIES_DEERLING
+Level: 219
+
+SPECIES_JIGGLYPUFF
+Level: 219
+
+SPECIES_WATCHOG
+Level: 222
+
+=== TRAINER_UNOVA_LASS_ASPERTIA_GYM ===
+Name: LILIAN
+Class: Lass
+Pic: Lass
+Gender: Female
+Double Battle: No
+
+SPECIES_TRANQUILL
+Level: 219
+
+SPECIES_HERDIER
+Level: 219
+
+SPECIES_AUDINO
+Level: 222
+
+=== TRAINER_UNOVA_WAITER_STRIATON_GYM_1 ===
+Name: TODD
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Double Battle: No
+
+SPECIES_FOONGUS
+Level: 220
+
+SPECIES_SHROOMISH
+Level: 220
+
+SPECIES_BRELOOM
+Level: 222
+
+=== TRAINER_UNOVA_WAITER_STRIATON_GYM_2 ===
+Name: QUENTIN
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Double Battle: No
+
+SPECIES_TROPIUS
+Level: 226
+
+=== TRAINER_UNOVA_WAITRESS_STRIATON_GYM_1 ===
+Name: KIM
+Class: Lady
+Pic: Lady
+Gender: Female
+Double Battle: No
+
+SPECIES_DEERLING
+Level: 222
+
+SPECIES_MARACTUS
+Level: 224
+
+=== TRAINER_UNOVA_WAITRESS_STRIATON_GYM_2 ===
+Name: ELLIE
+Class: Lady
+Pic: Lady
+Gender: Female
+Double Battle: No
+
+SPECIES_FERROSEED
+Level: 222
+
+SPECIES_SERVINE
+Level: 224
+
+=== TRAINER_UNOVA_WAITRESS_STRIATON_GYM_3 ===
+Name: VIVIAN
+Class: Lady
+Pic: Lady
+Gender: Female
+Double Battle: No
+
+SPECIES_PETILIL
+Level: 220
+
+SPECIES_COTTONEE
+Level: 220
+
+SPECIES_ROSELIA
+Level: 222
+
+=== TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_1 ===
+Name: SYLVIA
+Class: Hex Maniac
+Pic: Hex Maniac
+Gender: Female
+Double Battle: No
+
+SPECIES_YAMASK
+Level: 202
+
+SPECIES_GASTLY
+Level: 202
+
+=== TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_2 ===
+Name: AGGIE
+Class: Hex Maniac
+Pic: Hex Maniac
+Gender: Female
+Double Battle: No
+
+SPECIES_LITWICK
+Level: 201
+
+SPECIES_YAMASK
+Level: 204
+
+=== TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_3 ===
+Name: LENORA
+Class: Hex Maniac
+Pic: Hex Maniac
+Gender: Female
+Double Battle: No
+
+SPECIES_DRIFLOON
+Level: 203
+
+SPECIES_FRILLISH
+Level: 203
+
+=== TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_4 ===
+Name: ANNA
+Class: Hex Maniac
+Pic: Hex Maniac
+Gender: Female
+Double Battle: No
+
+SPECIES_GOLETT
+Level: 205
+
+/*=== ACERVO CENAS JOHTO (porta_cenas_johto.py) ===
+   Times portados de fontes-mapas/hns. Nada aqui foi escrito a mao: quem
+   gera e dev_scripts/porta_cenas_johto.py --treinadores, com o nivel na
+   curva de Johto (45 a 100). Rodar de novo troca so este bloco. Comentario em bloco porque o formato .party nao aceita //. */
+
+=== TRAINER_JOHTO_GRUNT_33 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET
+Pic: TRAINER_PIC_ROCKET_GRUNT_M
+Items: ITEM_FULL_RESTORE / ITEM_FULL_RESTORE
+Double Battle: No
+
+SPECIES_KOFFING
+Level: 66
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_KIYO ===
+Name: Kiyo
+Class: TRAINER_CLASS_BLACK_BELT
+Pic: TRAINER_PIC_BLACK_BELT
+Double Battle: No
+
+SPECIES_HITMONLEE
+Level: 82
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_HITMONCHAN
+Level: 82
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SINNOH_GALACTIC_GRUNT_CELESTIC_TOWN ===
+Name: Grunt
+Class: Team Magma
+Pic: Magma Grunt M
+Gender: Male
+Double Battle: No
+
+Houndour
+Level: 172
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Golbat
+Level: 171
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+=== TRAINER_SINNOH_COMMANDER_MARS_LAKE_VERITY ===
+Name: Mars
+Class: Magma Admin
+Pic: Magma Admin
+Gender: Female
+Double Battle: No
+
+Golbat @ None
+Level: 176
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Air Cutter
+- Bite
+- Toxic
+- Supersonic
+
+Bronzor @ None
+Level: 176
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Gyro Ball
+- Extrasensory
+- Iron Defense
+- Confuse Ray
+
+Purugly @ Sitrus Berry
+Level: 178
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Slash
+- Faint Attack
+- Hypnosis
+- Fake Out
+
+=== TRAINER_SINNOH_RIVAL_CANALAVE_CITY_TURTWIG ===
+Name: Cedric
+Class: TRAINER_CLASS_RIVAL
+Pic: TRAINER_PIC_RIVAL_LATE_FRLG
+Gender: Male
+Double Battle: No
+
+Staraptor
+Level: 174
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Aerial Ace
+- Take Down
+- Quick Attack
+- Double Team
+
+Floatzel
+Level: 174
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Aqua Jet
+- Pursuit
+- Quick Attack
+- Swift
+
+Heracross
+Level: 176
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Brick Break
+- Aerial Ace
+- Night Slash
+- Horn Attack
+
+Roserade
+Level: 174
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Giga Drain
+- Toxic Spikes
+- Leech Seed
+- Grass Whistle
+
+Infernape
+Level: 176
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Brick Break
+- Flame Wheel
+- Mach Punch
+- Aerial Ace
+
+=== TRAINER_SINNOH_RIVAL_CANALAVE_CITY_CHIMCHAR ===
+Name: Cedric
+Class: TRAINER_CLASS_RIVAL
+Pic: TRAINER_PIC_RIVAL_LATE_FRLG
+Gender: Male
+Double Battle: No
+
+Staraptor
+Level: 174
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Aerial Ace
+- Take Down
+- Quick Attack
+- Double Team
+
+Roserade
+Level: 174
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Giga Drain
+- Toxic Spikes
+- Leech Seed
+- Grass Whistle
+
+Heracross
+Level: 176
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Brick Break
+- Aerial Ace
+- Night Slash
+- Horn Attack
+
+Rapidash
+Level: 174
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Fire Spin
+- Take Down
+- Stomp
+- Tail Whip
+
+Empoleon
+Level: 176
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Bubble Beam
+- Aerial Ace
+- Metal Claw
+- Fury Attack
+
+=== TRAINER_SINNOH_RIVAL_CANALAVE_CITY_PIPLUP ===
+Name: Cedric
+Class: TRAINER_CLASS_RIVAL
+Pic: TRAINER_PIC_RIVAL_LATE_FRLG
+Gender: Male
+Double Battle: No
+
+Staraptor
+Level: 174
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Aerial Ace
+- Take Down
+- Quick Attack
+- Double Team
+
+Floatzel
+Level: 174
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Aqua Jet
+- Pursuit
+- Quick Attack
+- Swift
+
+Heracross
+Level: 176
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Brick Break
+- Aerial Ace
+- Night Slash
+- Horn Attack
+
+Rapidash
+Level: 174
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Fire Spin
+- Take Down
+- Stomp
+- Tail Whip
+
+Torterra
+Level: 176
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Razor Leaf
+- Bite
+- Mega Drain
+- Leech Seed
+
+=== TRAINER_UNOVA_CHAMPION_JUNIPER_SNIVY ===
+Name: Juniper
+Class: TRAINER_CLASS_CHAMPION
+Pic: TRAINER_PIC_ELITE_FOUR_GLACIA
+Gender: Female
+Double Battle: No
+
+SPECIES_METAGROSS @ ITEM_EXPERT_BELT
+Level: 253
+- MOVE_METEOR_MASH
+- MOVE_ZEN_HEADBUTT
+- MOVE_EARTHQUAKE
+- MOVE_HAMMER_ARM
+
+SPECIES_GENGAR @ ITEM_CHOICE_SPECS
+Level: 255
+- MOVE_SHADOW_BALL
+- MOVE_SLUDGE_BOMB
+- MOVE_THUNDERBOLT
+- MOVE_DAZZLING_GLEAM
+
+SPECIES_CLEFABLE @ ITEM_LEFTOVERS
+Level: 253
+- MOVE_MOONBLAST
+- MOVE_CALM_MIND
+- MOVE_RECOVER
+- MOVE_THUNDER_WAVE
+
+SPECIES_ZOROARK @ ITEM_FOCUS_SASH
+Level: 255
+- MOVE_NASTY_PLOT
+- MOVE_DARK_PULSE
+- MOVE_FLAMETHROWER
+- MOVE_FOCUS_BLAST
+
+SPECIES_VOLCARONA @ ITEM_LIFE_ORB
+Level: 255
+- MOVE_QUIVER_DANCE
+- MOVE_FLAMETHROWER
+- MOVE_BUG_BUZZ
+- MOVE_HURRICANE
+
+SPECIES_SERPERIOR @ ITEM_SCOPE_LENS
+Level: 255
+- MOVE_GLARE
+- MOVE_LEAF_BLADE
+- MOVE_DRAGON_PULSE
+- MOVE_AQUA_TAIL
+
+=== TRAINER_UNOVA_CHAMPION_JUNIPER_TEPIG ===
+Name: Juniper
+Class: TRAINER_CLASS_CHAMPION
+Pic: TRAINER_PIC_ELITE_FOUR_GLACIA
+Gender: Female
+Double Battle: No
+
+SPECIES_METAGROSS @ ITEM_EXPERT_BELT
+Level: 253
+- MOVE_METEOR_MASH
+- MOVE_ZEN_HEADBUTT
+- MOVE_EARTHQUAKE
+- MOVE_HAMMER_ARM
+
+SPECIES_GENGAR @ ITEM_CHOICE_SPECS
+Level: 255
+- MOVE_SHADOW_BALL
+- MOVE_SLUDGE_BOMB
+- MOVE_THUNDERBOLT
+- MOVE_DAZZLING_GLEAM
+
+SPECIES_CLEFABLE @ ITEM_LEFTOVERS
+Level: 253
+- MOVE_MOONBLAST
+- MOVE_CALM_MIND
+- MOVE_RECOVER
+- MOVE_THUNDER_WAVE
+
+SPECIES_ZOROARK @ ITEM_FOCUS_SASH
+Level: 255
+- MOVE_NASTY_PLOT
+- MOVE_DARK_PULSE
+- MOVE_FLAMETHROWER
+- MOVE_FOCUS_BLAST
+
+SPECIES_VOLCARONA @ ITEM_LIFE_ORB
+Level: 255
+- MOVE_QUIVER_DANCE
+- MOVE_FLAMETHROWER
+- MOVE_BUG_BUZZ
+- MOVE_HURRICANE
+
+SPECIES_EMBOAR @ ITEM_CHOICE_BAND
+Level: 255
+- MOVE_FLARE_BLITZ
+- MOVE_HAMMER_ARM
+- MOVE_WILD_CHARGE
+- MOVE_EARTHQUAKE
+
+=== TRAINER_UNOVA_CHAMPION_JUNIPER_OSHAWOTT ===
+Name: Juniper
+Class: TRAINER_CLASS_CHAMPION
+Pic: TRAINER_PIC_ELITE_FOUR_GLACIA
+Gender: Female
+Double Battle: No
+
+SPECIES_METAGROSS @ ITEM_EXPERT_BELT
+Level: 253
+- MOVE_METEOR_MASH
+- MOVE_ZEN_HEADBUTT
+- MOVE_EARTHQUAKE
+- MOVE_HAMMER_ARM
+
+SPECIES_GENGAR @ ITEM_CHOICE_SPECS
+Level: 255
+- MOVE_SHADOW_BALL
+- MOVE_SLUDGE_BOMB
+- MOVE_THUNDERBOLT
+- MOVE_DAZZLING_GLEAM
+
+SPECIES_CLEFABLE @ ITEM_LEFTOVERS
+Level: 253
+- MOVE_MOONBLAST
+- MOVE_CALM_MIND
+- MOVE_RECOVER
+- MOVE_THUNDER_WAVE
+
+SPECIES_ZOROARK @ ITEM_FOCUS_SASH
+Level: 255
+- MOVE_NASTY_PLOT
+- MOVE_DARK_PULSE
+- MOVE_FLAMETHROWER
+- MOVE_FOCUS_BLAST
+
+SPECIES_VOLCARONA @ ITEM_LIFE_ORB
+Level: 255
+- MOVE_QUIVER_DANCE
+- MOVE_FLAMETHROWER
+- MOVE_BUG_BUZZ
+- MOVE_HURRICANE
+
+SPECIES_SAMUROTT @ ITEM_KINGS_ROCK
+Level: 255
+- MOVE_SWORDS_DANCE
+- MOVE_AQUA_TAIL
+- MOVE_MEGAHORN
+- MOVE_AQUA_JET

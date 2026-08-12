@@ -453,6 +453,150 @@
       "y": 4,
       "respawn_map": "MAP_BLACKTHORN_CITY_POKEMON_CENTER",
       "respawn_npc": "LOCALID_BLACKTHORN_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_UNOVA_ACCUMULA",
+      "map": "MAP_UNOVA_ACCUMULA_POKECENTER_1F",
+      "x": 4,
+      "y": 4,
+      "respawn_map": "MAP_UNOVA_ACCUMULA_POKECENTER_1F",
+      "respawn_npc": "LOCALID_UNOVA_ACCUMULA_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_UNOVA_ASPERTIA",
+      "map": "MAP_UNOVA_ASPERTIA_POKECENTER_1F",
+      "x": 4,
+      "y": 4,
+      "respawn_map": "MAP_UNOVA_ASPERTIA_POKECENTER_1F",
+      "respawn_npc": "LOCALID_UNOVA_ASPERTIA_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_UNOVA_CASTELIA",
+      "map": "MAP_UNOVA_CASTELIA_POKECENTER_1F",
+      "x": 4,
+      "y": 4,
+      "respawn_map": "MAP_UNOVA_CASTELIA_POKECENTER_1F",
+      "respawn_npc": "LOCALID_UNOVA_CASTELIA_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_UNOVA_DRIFTVEIL",
+      "map": "MAP_UNOVA_DRIFTVEIL_POKECENTER_1F",
+      "x": 4,
+      "y": 4,
+      "respawn_map": "MAP_UNOVA_DRIFTVEIL_POKECENTER_1F",
+      "respawn_npc": "LOCALID_UNOVA_DRIFTVEIL_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_UNOVA_FLOCCESY",
+      "map": "MAP_UNOVA_FLOCCESY_POKECENTER_1F",
+      "x": 4,
+      "y": 4,
+      "respawn_map": "MAP_UNOVA_FLOCCESY_POKECENTER_1F",
+      "respawn_npc": "LOCALID_UNOVA_FLOCCESY_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_UNOVA_HUMILAU",
+      "map": "MAP_UNOVA_HUMILAU_POKECENTER_1F",
+      "x": 4,
+      "y": 4,
+      "respawn_map": "MAP_UNOVA_HUMILAU_POKECENTER_1F",
+      "respawn_npc": "LOCALID_UNOVA_HUMILAU_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_UNOVA_ICIRRUS",
+      "map": "MAP_UNOVA_ICIRRUS_POKECENTER_1F",
+      "x": 4,
+      "y": 4,
+      "respawn_map": "MAP_UNOVA_ICIRRUS_POKECENTER_1F",
+      "respawn_npc": "LOCALID_UNOVA_ICIRRUS_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_UNOVA_LACUNOSA",
+      "map": "MAP_UNOVA_LACUNOSA_POKECENTER_1F",
+      "x": 4,
+      "y": 4,
+      "respawn_map": "MAP_UNOVA_LACUNOSA_POKECENTER_1F",
+      "respawn_npc": "LOCALID_UNOVA_LACUNOSA_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_UNOVA_LENTIMAS",
+      "map": "MAP_UNOVA_LENTIMAS_POKECENTER_1F",
+      "x": 4,
+      "y": 4,
+      "respawn_map": "MAP_UNOVA_LENTIMAS_POKECENTER_1F",
+      "respawn_npc": "LOCALID_UNOVA_LENTIMAS_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_UNOVA_MISTRALTON",
+      "map": "MAP_UNOVA_MISTRALTON_POKECENTER_1F",
+      "x": 4,
+      "y": 4,
+      "respawn_map": "MAP_UNOVA_MISTRALTON_POKECENTER_1F",
+      "respawn_npc": "LOCALID_UNOVA_MISTRALTON_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_UNOVA_NACRENE",
+      "map": "MAP_UNOVA_NACRENE_POKECENTER_1F",
+      "x": 4,
+      "y": 4,
+      "respawn_map": "MAP_UNOVA_NACRENE_POKECENTER_1F",
+      "respawn_npc": "LOCALID_UNOVA_NACRENE_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_UNOVA_NIMBASA",
+      "map": "MAP_UNOVA_NIMBASA_POKECENTER_1F",
+      "x": 4,
+      "y": 4,
+      "respawn_map": "MAP_UNOVA_NIMBASA_POKECENTER_1F",
+      "respawn_npc": "LOCALID_UNOVA_NIMBASA_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_UNOVA_OPELUCID",
+      "map": "MAP_UNOVA_OPELUCID_POKECENTER_1F",
+      "x": 4,
+      "y": 4,
+      "respawn_map": "MAP_UNOVA_OPELUCID_POKECENTER_1F",
+      "respawn_npc": "LOCALID_UNOVA_OPELUCID_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_UNOVA_PKMN_LEAGUE",
+      "map": "MAP_UNOVA_PKMN_LEAGUE_POKECENTER_1F",
+      "x": 4,
+      "y": 4,
+      "respawn_map": "MAP_UNOVA_PKMN_LEAGUE_POKECENTER_1F",
+      "respawn_npc": "LOCALID_UNOVA_PKMN_LEAGUE_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_UNOVA_STRIATON",
+      "map": "MAP_UNOVA_STRIATON_POKECENTER_1F",
+      "x": 4,
+      "y": 4,
+      "respawn_map": "MAP_UNOVA_STRIATON_POKECENTER_1F",
+      "respawn_npc": "LOCALID_UNOVA_STRIATON_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_UNOVA_UNDELLA",
+      "map": "MAP_UNOVA_UNDELLA_POKECENTER_1F",
+      "x": 4,
+      "y": 4,
+      "respawn_map": "MAP_UNOVA_UNDELLA_POKECENTER_1F",
+      "respawn_npc": "LOCALID_UNOVA_UNDELLA_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_UNOVA_VICTORY_ROAD",
+      "map": "MAP_UNOVA_VICTORY_ROAD_POKECENTER_1F",
+      "x": 4,
+      "y": 4,
+      "respawn_map": "MAP_UNOVA_VICTORY_ROAD_POKECENTER_1F",
+      "respawn_npc": "LOCALID_UNOVA_VICTORY_ROAD_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_UNOVA_VIRBANK",
+      "map": "MAP_UNOVA_VIRBANK_POKECENTER_1F",
+      "x": 4,
+      "y": 4,
+      "respawn_map": "MAP_UNOVA_VIRBANK_POKECENTER_1F",
+      "respawn_npc": "LOCALID_UNOVA_VIRBANK_PC_NURSE"
     }
   ]
 }

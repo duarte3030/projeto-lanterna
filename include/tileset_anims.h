@@ -40,4 +40,37 @@ void InitTilesetAnim_CeladonGym(void);
 void InitTilesetAnim_SilphCo(void);
 void InitTilesetAnim_MtEmber(void);
 
+
+// --- Unova (B12.a, tileset_gen2.py) ---
+void InitTilesetAnim_UnovaCave(void);
+void InitTilesetAnim_UnovaUnovaBeach(void);
+void InitTilesetAnim_UnovaDesert(void);
+void InitTilesetAnim_UnovaEliteFourRoom(void);
+void InitTilesetAnim_UnovaTower(void);
+void InitTilesetAnim_UnovaUnovaEast(void);
+void InitTilesetAnim_UnovaAirport(void);
+void InitTilesetAnim_UnovaIcirrus(void);
+void InitTilesetAnim_UnovaPort(void);
+void InitTilesetAnim_UnovaChampionsRoom(void);
+void InitTilesetAnim_UnovaUnovaWest(void);
+void InitTilesetAnim_UnovaNacrene(void);
+void InitTilesetAnim_UnovaCastelia(void);
+void InitTilesetAnim_UnovaCaveRuins(void);
+void InitTilesetAnim_UnovaDreamyard(void);
+void InitTilesetAnim_UnovaForest(void);
+void InitTilesetAnim_UnovaMistralton(void);
+void InitTilesetAnim_UnovaNimbasa(void);
+void InitTilesetAnim_UnovaStriaton(void);
+void InitTilesetAnim_UnovaUnovaNorth(void);
+void InitTilesetAnim_UnovaBridge(void);
+void InitTilesetAnim_UnovaOpelucid(void);
+void InitTilesetAnim_UnovaPlayersHouse(void);
+void InitTilesetAnim_UnovaUnderground(void);
+void InitTilesetAnim_UnovaBattleTowerOutside(void);
+void InitTilesetAnim_UnovaComplex(void);
+void InitTilesetAnim_UnovaDriftveil(void);
+void InitTilesetAnim_UnovaPark(void);
+void InitTilesetAnim_UnovaVillageBridge(void);
+void InitTilesetAnim_UnovaVirbank(void);
+
 #endif // GUARD_TILESET_ANIMS_H
