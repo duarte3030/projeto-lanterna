@@ -70,12 +70,12 @@
   },
   {
     "id": "T20.4",
-    "nome": "UNOVA entrega o trio: a Poke Bola do meio no laboratorio de Nuvema da o TEPIG, o time sobe para 1 e VAR_STARTER_MON passa a valer 1. Este mapa nao entregava inicial nenhum antes de 05/08/2026",
+    "nome": "UNOVA entrega o trio: a Poke Bola do meio no laboratorio de Nuvema da o TEPIG, o time sobe para 1 e VAR_STARTER_MON passa a valer 1. Este mapa nao entregava inicial nenhum antes de 05/08/2026. ROTEIRO REESCRITO em 12/08/2026, contra a grade lida do map.bin: o roteiro antigo era de ANTES do B12 trocar o tileset, quando a ultima linha do laboratorio era chao comum. Hoje o warp 0 cai em (2,11) e a linha 11 inteira tem comportamento de PORTA: (2,11) e (3,11) sao os dois warps de saida, entao andar para a DIREITA sai do predio. O caminho novo vai para a ESQUERDA, onde (0,11) e (1,11) tem desenho de porta mas NAO tem warp event embaixo (o mapa tem dois warps, medido), e sobe pela coluna 0, que e a unica aberta ali: (2,10) e parede. Cada perna termina em PAREDE de proposito, que e a forma robusta (ESTADO, armadilhas de roteiro): oito UP para os cinco passos ate (0,6), que a parede em (0,5) segura; seis RIGHT para os tres ate (3,6), que a parede em (4,6) segura; e o DOWN nao anda, porque (3,7) e a propria Poke Bola do TEPIG, que e objeto solido, entao ele so vira o jogador para o sul, que e o que faz o A seguinte falar com ela.",
     "vars": {
       "0x4023": 99
     },
     "warp": "MAP_UNOVA_NUVEMA_LAB",
-    "roteiro": "16:RIGHT*3,30:NADA,16:UP*4,30:NADA,16:LEFT*2,30:NADA,16:UP,30:NADA,20:A,120:NADA,20:A,180:NADA,20:A*6,180:NADA,20:B*6,240:NADA",
+    "roteiro": "120:NADA,20:LEFT*4,60:NADA,20:UP*8,60:NADA,20:RIGHT*6,60:NADA,20:DOWN*2,60:NADA,20:A,120:NADA,20:A,180:NADA,20:A*6,180:NADA,20:B*6,240:NADA",
     "prova": {
       "mapa": "MAP_UNOVA_NUVEMA_LAB",
       "time_min": 1,
