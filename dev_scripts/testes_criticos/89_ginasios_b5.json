@@ -49,15 +49,16 @@
   {
     "id": "T89.5",
     "nome": "Unova, bloco B5: o ginasio de ASPERTIA passou a ter EMBOSCADA. Ate 12/08/2026 o unico batalhavel ali era o CHEREN: o Youngster e a Lass estavam no mapa so com a fala de DEPOIS da batalha, e a batalha nunca acontecia. Motivo medido: no BW3G esses dois nao sao OBJECTTYPE_TRAINER, sao OBJECTTYPE_SCRIPT com loadtrainer dentro de script chamado por coord_event, entao a varredura do B4 (que procurava objeto de treinador) passou por cima deles; as constantes 2449 e 2450 e os times nasceram agora, do parties.asm do BW3G. Os quatro coord_events estao nas coordenadas exatas da fonte, (4,17), (5,17), (4,11) e (5,11), DOIS por treinador: medido na grade, as linhas 7, 13 e 19 deste layout sao parede menos nas colunas 4 e 5, entao raio de visao de treinador (que so cobre uma coluna) deixaria o jogador desviar pela outra. ROTEIRO: o warp 0 cai em (4,21) e quatro UP chegam em (4,17); depois de warp de debug o jogador NAO gasta tecla para virar, entao a contagem e exata (ESTADO.md, armadilha do T84.2). Cada UP vai escrito sozinho: 20:UP*4 repetiria quadros dentro do mesmo passo. PROVA por FAIXA (2449 a 2450) e nao pelo nome da constante, licao 4.6.",
-    "warp": "MAP_UNOVA_ASPERTIA_GYM",
-    "roteiro": "120:NADA,20:UP,20:UP,20:UP,20:UP,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+    "warp": "MAP_UNOVA_ASPERTIA_CITY",
+    "roteiro": "120:NADA,20:UP,180:NADA,20:UP,20:UP,20:UP,20:UP,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
     "prova": {
       "mapa": "MAP_UNOVA_ASPERTIA_GYM",
       "oponente_faixa": [
         2449,
         2450
       ]
-    }
+    },
+    "warp_id": 6
   },
   {
     "id": "T89.6",

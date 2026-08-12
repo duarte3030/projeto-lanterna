@@ -13,12 +13,24 @@
     "id": "T40.2",
     "nome": "BYRON e alcancavel A PE desde a porta do ginasio de Canalave. O roteiro nao tem uma unica contagem exata de passos: cada trecho anda ate BATER na parede (esquerda, topo, direita, e por fim no proprio Byron), entao ele nao depende de o warp largar o jogador virado para um lado ou para o outro. A prova e a batalha comecar contra o id 1263, que e a faixa dos lideres de Sinnoh: sala trancada nao abre batalha nenhuma",
     "warp": "MAP_CANALAVE_CITY_GYM",
-    "roteiro": "16:UP*4,16:LEFT*14,16:UP*20,16:DOWN*5,16:RIGHT*24,16:UP*8,60:NADA,20:A,120:NADA,20:A,240:NADA",
+    "roteiro": "120:NADA,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:UP,16:UP,16:UP,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:UP,16:RIGHT,16:RIGHT,16:UP,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:UP,16:UP,16:UP,60:NADA,20:A,120:NADA,20:A,240:NADA",
     "prova": {
       "mapa": "MAP_CANALAVE_CITY_GYM",
       "oponente": "TRAINER_SINNOH_LEADER_BYRON",
-      "oponente_faixa": [1200, 1299]
-    }
+      "oponente_faixa": [
+        1200,
+        1299
+      ]
+    },
+    "flags": [
+      "0x85f",
+      "0x863",
+      "0x8a7",
+      "0x8b7",
+      "0x9d5",
+      "0x9d6",
+      "0x9d8"
+    ]
   },
   {
     "id": "T40.3",
@@ -38,7 +50,9 @@
     "prova": {
       "mapa": "MAP_SANDGEM_TOWN_HOUSE1",
       "time": 0,
-      "flags_apagadas": ["FLAG_INICIAL_SINNOH"]
+      "flags_apagadas": [
+        "FLAG_INICIAL_SINNOH"
+      ]
     }
   }
 ]

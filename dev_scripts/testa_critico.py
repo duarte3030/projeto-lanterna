@@ -207,8 +207,14 @@ def carrega_treinadores(src=None):
     for arq in ("opponents_frlg.h", "opponents.h"):
         caminho = os.path.join(base, "include", "constants", arq)
         if os.path.exists(caminho):
-            tabela.update(dict(re.findall(r"^#define (TRAINER_[A-Z0-9_]+)\s+(\d+)\s*$",
-                                          open(caminho).read(), re.M)))
+            # O `(?://.*)?` existe porque 12 constantes têm comentário no fim da
+            # linha (os quatro duelos do Silver e os oito líderes de Unova). Sem
+            # ele a tabela não os enxergava e o caso reprovava dizendo
+            # "treinador da prova não existe", que é falso: mentira de validador
+            # é pior que validador nenhum (lição 4.3 do ESTADO).
+            tabela.update(dict(re.findall(
+                r"^#define (TRAINER_[A-Z0-9_]+)\s+(\d+)\s*(?://.*)?$",
+                open(caminho).read(), re.M)))
     return {k: int(v) for k, v in tabela.items()}
 
 
