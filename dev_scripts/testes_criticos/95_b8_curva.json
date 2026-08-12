@@ -1,0 +1,48 @@
+[
+ {
+  "id": "T95.1",
+  "nome": "Bloco B8, mecanica: a batalha do BYRON, lider de Canalave, comeca num mundo com Dynamax LIGADO, e a flag que liga Dynamax nao e mais a flag que esconde o ARTICUNO. Este caso existe porque o upstream aponta B_FLAG_DYNAMAX_BATTLE para FLAG_UNUSED_0x020, e neste repo 0x020 ja era apelido de FLAG_HIDE_ARTICUNO (include/constants/flags.h): o FlagSet de src/new_game.c escondia o Articuno das Ilhas Seafoam desde o primeiro segundo de jogo, e entrar naquele mapa, que faz clearflag, desligava Dynamax para sempre. O mesmo valia para FLAG_UNUSED_0x021, que e FLAG_HIDE_BILL_CLEFAIRY, contra o Tera Orb. As duas mecanicas passaram para FLAG_B8_DYNAMAX_LIBERADO e FLAG_B8_TERA_ORB_CARREGADO, duas flags do pool livre (0x1A0C e 0x1A0D), o que nao mexe em FLAGS_COUNT e portanto nao quebra save. A PROVA sao as tres coisas juntas: a batalha comeca contra o lider certo, a flag de Dynamax esta acesa NAQUELE INSTANTE (e nao so no comeco do jogo: src/overworld.c apagava ela em todo whiteout, o que tirava a mecanica do jogador na primeira derrota, e a linha saiu), e a flag do Articuno esta APAGADA, ou seja as duas deixaram de ser o mesmo bit. Sem a terceira, o caso passaria igual com a colisao de volta. ROTEIRO: identico ao do T40.2, que e o caso que ja provava que o BYRON e alcancavel a pe; as sete flags de treinador derrotado entram acesas porque os sete treinadores do ginasio tem raio de visao e roubariam a batalha.",
+  "warp": "MAP_CANALAVE_CITY_GYM",
+  "roteiro": "120:NADA,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:UP,16:UP,16:UP,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:UP,16:RIGHT,16:RIGHT,16:UP,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:UP,16:UP,16:UP,60:NADA,20:A,120:NADA,20:A,240:NADA",
+  "prova": {
+   "mapa": "MAP_CANALAVE_CITY_GYM",
+   "oponente": "TRAINER_SINNOH_LEADER_BYRON",
+   "flags_acesas": [
+    "FLAG_B8_DYNAMAX_LIBERADO",
+    "FLAG_B8_TERA_ORB_CARREGADO"
+   ],
+   "flags_apagadas": [
+    "FLAG_HIDE_ARTICUNO",
+    "FLAG_HIDE_BILL_CLEFAIRY"
+   ]
+  },
+  "flags": [
+   "0x85f",
+   "0x863",
+   "0x8a7",
+   "0x8b7",
+   "0x9d5",
+   "0x9d6",
+   "0x9d8"
+  ]
+ },
+ {
+  "id": "T95.2",
+  "nome": "Bloco B8, curva do selvagem: a grama da ETERNA FOREST, em Sinnoh, cospe Pokemon na faixa de Sinnoh e nao mais na faixa do Platinum. Medido em 12/08/2026, antes do remapeamento: as cinco regioes tinham mediana de selvagem entre 20 e 30 enquanto a curva do TREINADOR ja ia de 3 a 255, ou seja o jogador chegava em Sinnoh com time de nivel 145 e encontrava mato de nivel 30, que e experiencia zero e captura inutil. A tabela desta floresta saiu de 14-16 para 148-152 (dev_scripts/curva_selvagem.py, faixa de Sinnoh 140 a 196). A PROVA e o nivel do bicho, lido de gParties[B_TRAINER_OPPONENT_A][0].level pelo gba_runner, e nao 'abriu uma batalha': antes do conserto uma prova dessas passaria identica com a grama no nivel 14. O deslocamento ate esse campo NAO e chumbado no runner, e medido pelo probe de offsets_da_fonte() compilando contra o global.h da propria build, porque sizeof(struct Pokemon) muda com a versao do expansion. `oponente_faixa` em 0..0 e o que separa encontro SELVAGEM de batalha de treinador: gTrainerBattleParameter fica em TRAINER_NONE no mato. ROTEIRO: o warp do harness larga o jogador SEM TIME, e sem time o motor nao sorteia encontro nenhum (medido: timevivo=0 e nivelinimigo=0 no primeiro roteiro deste caso), entao ele comeca abrindo o menu de debug e usando o 'Cheat start' (Utilities, sexto item), que da tres Pokemon de nivel 20 sem mudar o jogador de lugar (data/scripts/debug.inc, Debug_CheatStartFrlg). Nivel 20 contra mato de 148 e de proposito: nenhum turno chega a rodar porque o roteiro nao aperta A depois que a batalha comeca, e o que interessa e o nivel do bicho que apareceu. Dai o warp 4 cai em (59,7); dois DOWN chegam em (59,9), que e grama (medido no map.bin: a linha 9 tem grama em x=58, 59 e 60, e a linha 8 so em 61 e 62). Dai o jogador vai e volta na propria linha 9, entre x=57 e x=61, que sao todos andaveis, para acumular passo em grama sem nunca voltar a pisar no warp de (59,7). Cinquenta idas e vindas, porque o encontro e sorteio por passo e um roteiro curto seria um teste que passa por sorte. Depois que a batalha comeca, seta de direcao so anda com o cursor do menu e nao encerra nada, entao os passos que sobram sao inofensivos.",
+  "warp": "MAP_ETERNA_FOREST",
+  "warp_id": 4,
+  "roteiro": "40:R+START!,60:NADA,20:A,40:NADA,20:DOWN*6,20:A,240:NADA,20:B,90:NADA,16:DOWN,16:DOWN,16:DOWN,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,240:NADA",
+  "prova": {
+   "mapa": "MAP_ETERNA_FOREST",
+   "oponente_faixa": [
+    0,
+    0
+   ],
+   "nivel_inimigo_faixa": [
+    140,
+    196
+   ],
+   "time_min": 1
+  }
+ }
+]

@@ -231,7 +231,7 @@ def carrega_layouts(src=None):
 
 def carrega_simbolos(mapfile):
     alvos = {"gSaveBlock1Ptr": None, "gPartiesCount": None,
-             "gTrainerBattleParameter": None}
+             "gTrainerBattleParameter": None, "gParties": None}
     padrao = re.compile(r"^\s+(0x[0-9a-f]+)\s+(\w+)\s*$")
     with open(mapfile) as f:
         for linha in f:
@@ -278,6 +278,11 @@ def offsets_da_fonte(src):
                 "  offsetof(struct SaveBlock1, flags),\n"
                 "  offsetof(struct SaveBlock1, vars),\n"
                 "  FLAGS_COUNT, VARS_COUNT,\n"
+                # Bytes de gParties até gParties[B_TRAINER_OPPONENT_A][0].level.
+                # Medido e não chutado porque sizeof(struct Pokemon) muda com a
+                # versão do expansion, e offset chumbado não é testemunha.
+                "  sizeof(struct Pokemon) * PARTY_SIZE * B_TRAINER_OPPONENT_A\n"
+                "    + offsetof(struct Pokemon, level),\n"
                 "};\n")
     r = subprocess.run([gcc, "-c", "-iquote", "include", "-Wno-trigraphs",
                         "-DMODERN=1", "-DTESTING=0", "-DEMERALD", "-std=gnu17",
@@ -295,9 +300,9 @@ def offsets_da_fonte(src):
         if m:
             for p in m.group(1).split():
                 palavras.append(int.from_bytes(bytes.fromhex(p), "little"))
-    if len(palavras) < 7:
+    if len(palavras) < 8:
         raise SystemExit(f"leitura de offsets falhou em {src}: {d[:300]}")
-    return palavras[:7]
+    return palavras[:8]
 
 
 def num_flag(nome, tabela):
@@ -373,7 +378,10 @@ def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=Non
            "--partycount", simbolos["gPartiesCount"],
            "--oponente", simbolos["gTrainerBattleParameter"]]
     if offsets:
-        cmd += ["--offsets", ",".join(str(v) for v in offsets)]
+        cmd += ["--offsets", ",".join(str(v) for v in offsets[:7])]
+        if len(offsets) > 7:
+            cmd += ["--inimigo", simbolos["gParties"],
+                    "--nivel-offset", str(offsets[7])]
     for f in flags_lidas:
         cmd += ["--flag", hex(f)]
     for v in vars_lidas:
@@ -525,6 +533,22 @@ def confere(caso, estados, por_nome, por_id, tabela_flags, layouts, treinadores=
             falhas.append(f"a batalha começou contra o id {obtido} "
                           f"({inverso.get(obtido, 'sem nome')}), fora da faixa "
                           f"{lo}..{hi} de quem deveria estar naquela batalha")
+
+    if "nivel_inimigo_faixa" in prova:
+        # Prova do bloco B8, lado do mato. "Abriu batalha selvagem" nao diz nada
+        # sobre a curva: antes do remapeamento o jogador chegava em Sinnoh com
+        # time de nivel 145 e a grama cuspia nivel 30, e um teste de "apareceu
+        # um Pokemon" passava igual. O que muda e a FAIXA, e ela vem lida de
+        # gParties[B_TRAINER_OPPONENT_A][0].level, que num encontro selvagem e o
+        # bicho que apareceu.
+        lo, hi = prova["nivel_inimigo_faixa"]
+        obtido = final.get("nivelinimigo")
+        if obtido is None:
+            falhas.append("o runner nao reportou nivelinimigo: recompile o "
+                          "dev_scripts/gba_runner.c (precisa de --inimigo)")
+        elif not (lo <= obtido <= hi):
+            falhas.append(f"o Pokemon selvagem veio no nivel {obtido}, fora da "
+                          f"faixa {lo}..{hi} remapeada para aquela regiao")
 
     for var, val in prova.get("vars", {}).items():
         chave = f"var_{hex(int(var, 0)).upper().replace('0X', '0x')}"

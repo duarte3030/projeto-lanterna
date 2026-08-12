@@ -28,6 +28,9 @@
  *   --flag N              inclui a flag N (decimal ou 0x..) no dump
  *   --var N               inclui a var N (0x4000+) no dump
  *   --sb1ptr 0x030051cc   endereco de gSaveBlock1Ptr (vem do pokeemerald.map)
+ *   --inimigo 0x02024xxx  endereco de gParties (vem do pokeemerald.map)
+ *   --nivel-offset N      bytes de gParties ate o .level do 1o mon do inimigo
+ *                         (medido pelo probe do testa_critico.py, nunca chutado)
  *   --partycount 0x02031c38  endereco de gPartiesCount
  *   --oponente 0x02000928 endereco de gTrainerBattleParameter
  *   --offsets a,b,c,d,e,f,g  offsets dentro de SaveBlock1, medidos da fonte
@@ -92,6 +95,15 @@ static uint32_t g_partycount = 0x02031c38;  /* gPartiesCount, indice 0 = jogador
    de Pewter" e verdade mesmo quando quem aparece e um montanhista de Hoenn. */
 static uint32_t g_oponente = 0x02000928;
 #define OPONENTE_A_OFFSET 2
+
+/* gParties, e o deslocamento em bytes dali ate gParties[B_TRAINER_OPPONENT_A][0]
+   .level. Existe para o bloco B8: a curva do selvagem so e provavel se der para
+   ler o NIVEL do bicho que apareceu, e "abriu batalha" nao prova faixa nenhuma.
+   O deslocamento NAO e chumbado aqui: quem mede e o probe de offsets_da_fonte()
+   no testa_critico.py, compilando contra o global.h da propria build, porque
+   sizeof(struct Pokemon) muda com a versao do expansion. Zero = nao pedido. */
+static uint32_t g_inimigo = 0;
+static uint32_t g_nivel_offset = 0;
 
 /* enderecos pedidos no dump */
 #define MAX_PEDIDOS 64
@@ -160,6 +172,9 @@ static void dump_estado(struct mCore *core, const char *rotulo) {
                (int)core->busRead8(core, g_partycount));
         printf(" oponente=%d",
                (int)core->busRead16(core, g_oponente + OPONENTE_A_OFFSET));
+        if (g_inimigo)
+            printf(" nivelinimigo=%d",
+                   (int)core->busRead8(core, g_inimigo + g_nivel_offset));
         for (int i = 0; i < g_n_flags; i++)
             printf(" flag_0x%X=%d", g_flags_pedidas[i], le_flag(core, g_flags_pedidas[i]));
         for (int i = 0; i < g_n_vars; i++)
@@ -372,6 +387,10 @@ int main(int argc, char **argv) {
             g_partycount = (uint32_t)strtoul(argv[++i], NULL, 0);
         } else if (!strcmp(argv[i], "--oponente") && i + 1 < argc) {
             g_oponente = (uint32_t)strtoul(argv[++i], NULL, 0);
+        } else if (!strcmp(argv[i], "--inimigo") && i + 1 < argc) {
+            g_inimigo = (uint32_t)strtoul(argv[++i], NULL, 0);
+        } else if (!strcmp(argv[i], "--nivel-offset") && i + 1 < argc) {
+            g_nivel_offset = (uint32_t)strtoul(argv[++i], NULL, 0);
         } else if (!strcmp(argv[i], "--offsets") && i + 1 < argc) {
             /* loc,layout,party,flags,vars,nflags,nvars, medidos da fonte da build */
             uint32_t v[7];
