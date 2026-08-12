@@ -429,6 +429,107 @@ gen 6-9 e o remapeamento de nível vêm por cima, como camada de dificuldade).
 aparecendo em selvagem e em treinador nas cinco regiões, e nenhuma espécie
 inalcançável na Pokédex sem exceção nomeada.
 
+#### Estado em 12/08/2026: FEITO, e o portão de nível 255 passou com três defeitos consertados
+
+**1. O teto de 255 é viável, e a prova de que ele não quebra save é estrutural.**
+`MAX_LEVEL` já valia 255 desde `f97a18dc82` e `experience_tables.h` já tinha as
+256 entradas por growth rate. O que NÃO tinha sido feito era a auditoria do que
+o motor faz acima de 100, e ela achou três defeitos REAIS, todos causados pelo
+próprio teto novo:
+
+| defeito | onde | o que acontecia no nível 255 |
+|---|---|---|
+| `u8 nextLevel = nivel + 1` | `src/pokemon.c:5176` | 255 + 1 dava 0 num u8, a guarda `nextLevel > GetCurrentLevelCap()` virava `0 > 255` e o `SetMonData` gravava **nível 0**. Com teto 100 o u8 nunca virava |
+| `s16 moveDamage[]` | `include/battle.h:701` | o termo de nível do dano sai de 42 para 104; golpe forte com STAB e fraqueza passa de **63 mil**, enrolava para negativo e **CURAVA o alvo** |
+| `[level + 1]` sem `min()` | `battle_interface.c:2010`, `battle_controller_player.c:1484` e `:1518` | leitura fora da tabela de EXP: no growth rate Slow, que é a última linha, sai do array inteiro |
+
+**A prova de save é o struct, não a build:** `struct BoxPokemon` **não tem campo
+de nível** (`include/pokemon.h:260`); nível é sempre derivado de
+`experience:26`, cujo maior valor real no nível 255 é 52.728.772 contra o teto
+de 67.108.863 do campo, 21% de folga. O `u8 level` de `struct Pokemon` é cache
+reescrito por `CalculateMonStats`, e 255 é exatamente o máximo de u8. Nada de
+`FLAGS_COUNT`, `VARS_COUNT`, `MAX_TRAINERS_COUNT` ou tamanho de struct foi
+tocado, e `guarda_save.py` fechou **SAVE COMPATIVEL** antes e depois.
+Perda deliberada conhecida: `metLevel` tem 7 bits, então "encontrado no nível"
+satura em `MAX_MET_LEVEL` 127. É texto de resumo, não mecânica.
+
+**2. Curva do TREINADOR: continuava valendo, e continua.** Medida depois da leva
+de 12/08: Kanto 3-50, Johto 45-128, Hoenn 95-150, Sinnoh 145-200, Unova 195-255,
+monótona. Os Pokémon acrescentados por este bloco entram no nível do ACE do
+próprio time, então a curva não se mexeu (medianas 18 / 76 / 116 / 174 / 225).
+
+**3. Curva do SELVAGEM: feita pela primeira vez em região nenhuma.**
+`dev_scripts/curva_selvagem.py`, uma reta por região ancorada em percentil 1 e
+99 (e não em mínimo e máximo, porque Johto e Sinnoh têm um slot solto de nível
+100 que sozinho achataria a região inteira em 40 níveis).
+
+| região | mediana antes | mediana depois | faixa alvo |
+|---|---|---|---|
+| Kanto | 25 | 20 | 3-46 |
+| Johto | 20 | 65 | 42-122 |
+| Hoenn | 27 | 122 | 90-146 |
+| Sinnoh | 27 | 166 | 140-196 |
+| Unova | 30 | 217 | 190-250 |
+
+558 tabelas remapeadas; a quebra de monotonicidade Kanto→Johto que o
+`encontros_b7.py --curva` acusava sumiu.
+
+**4. Gerações 6 a 9: as 365 bases entraram, e nenhuma ficou de fora.**
+As 290 que não são lenda foram ordenadas por soma de stats base e cortadas em
+cinco fatias, a mais fraca para Kanto e a mais forte para Unova; a MESMA fatia
+serve o mato e os treinadores, então a espécie que aparece na grama de Sinnoh é
+a que aparece no time dos treinadores de Sinnoh. No mato elas ocupam **1160
+slots DUPLICADOS** (232 por região, 4 aparições cada): slot duplicado é a folga
+que existia (5514 dos 9556 slots da build eram repetição da mesma espécie dentro
+da mesma tabela), e trocar a segunda aparição de Wurmple não tira Wurmple do
+jogo. Em treinador comum elas são **580 acréscimos** (116 treinadores por
+região, 2 cada), sempre em time com vaga, nunca por substituição.
+As **75 lendas, míticas, ultra beasts e paradoxos** foram para líder, Elite Four
+e campeão, uma por casa, casadas por TIPO com o time que a casa já tem e por
+FORÇA com o nível da casa: o Brock, que fecha em nível 9, recebe Cosmog (200 de
+stat) e o Drayden, em 249, recebe Xerneas. Nenhuma espécie da fonte foi
+removida, e há assert que reprova a escrita se alguma sumir.
+
+**5. Mecânica ligada: Dynamax e Terastal, e o custo foi 2 flags do pool.**
+Não custou flag nova de verdade porque o defeito era outro: o upstream aponta
+`B_FLAG_DYNAMAX_BATTLE` para `FLAG_UNUSED_0x020` e `B_FLAG_TERA_ORB_CHARGED`
+para `0x021`, e neste repo essas duas já eram **apelido de
+`FLAG_HIDE_ARTICUNO` e `FLAG_HIDE_BILL_CLEFAIRY`**. Com o `FlagSet` de
+`new_game.c`, começar o jogo escondia o Articuno das Ilhas Seafoam e a Clefairy
+do Bill, e entrar em qualquer um dos dois mapas (que fazem `clearflag`)
+desligava a mecânica para sempre. As duas passaram para
+`FLAG_B8_DYNAMAX_LIBERADO` e `FLAG_B8_TERA_ORB_CARREGADO` (0x1A0C e 0x1A0D do
+pool livre, que tem ~2000): **`FLAGS_COUNT` não mudou, então não quebra save.**
+Terceiro defeito da mesma família: `src/overworld.c` apagava a flag de Dynamax
+em TODO whiteout, o que tirava a mecânica do jogador na primeira derrota; a
+linha saiu. Do lado do adversário a flag não é porteira nenhuma (`CanDynamax` só
+a consulta nas posições do jogador), então **líder e E4 Dynamaxam por dado**:
+172 Pokémon com `shouldUseDynamax` (97 aces mais as 75 lendas). Para o jogador
+ter resposta, `new_game.c` passa a dar `ITEM_DYNAMAX_BAND` e `ITEM_MEGA_RING`,
+que são o que `CanDynamax` e `CanMegaEvolve` exigem da mochila. Mega fica
+disponível no motor mas SEM pedra distribuída: dar Mega Stone aos aces é uma
+tabela espécie→pedra que não coube neste bloco.
+
+**Alcance da Pokédex, medido:** 927 das 1010 espécies-base do catálogo são
+alcançáveis (686 no mato, 920 em treinador). **As 365 bases de gen 6 a 9 estão
+TODAS alcançáveis, zero exceções.** As 83 que faltam são todas de gen 1 a 5
+(1: 6, 2: 10, 3: 17, 4: 19, 5: 31), em maioria lendárias que dependem de cena de
+história ainda não portada, e ficam para o B6.
+
+**Ferramentas novas** (todas com `--demo` de asserts com mutação):
+`dev_scripts/catalogo_especies.py` (tipo, stat, geração e lenda lidos do
+`species_info`, nunca do enum de `species.h`, que mistura base e forma),
+`dev_scripts/curva_selvagem.py`, `dev_scripts/gens69_treinadores.py`.
+`dev_scripts/gba_runner.c` ganhou `--inimigo` e `--nivel-offset` para o teste
+poder LER o nível do Pokémon selvagem, com o deslocamento medido pelo probe do
+`testa_critico.py` e não chumbado.
+
+**Fica aberto, e é decisão do Gui:** 22 blocos de chefe estão com time cheio (6)
+e por isso só ganharam Dynamax, sem lenda. Entre eles estão a Cynthia de Sinnoh
+e os campeões de Unova, que são os dois duelos mais importantes do jogo. Dar
+lenda a eles exige trocar o Pokémon mais fraco do time, o que contraria a regra
+"a fonte entra primeiro" que este bloco seguiu.
+
 ### B9. Sprite, arte e o que falta desenhar
 
 71 NPCs de Sinnoh não vieram por não ter sprite honesto (Cynthia, Cyrus, Looker,

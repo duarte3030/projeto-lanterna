@@ -10,6 +10,41 @@ inteiras. Detalhe fica nos documentos apontados no fim.
 
 ## 0. PASSAGEM DE BASTÃO da sessão de 12/08/2026 (Fable condutor)
 
+### B8 FEITO em 12/08/2026, DEPOIS da janela de save fechar (leia isto primeiro)
+
+A janela de save estava FECHADA quando este bloco rodou, e ele terminou com
+`guarda_save.py` dizendo **SAVE COMPATIVEL**. Nada aqui mexeu em `FLAGS_COUNT`,
+`VARS_COUNT`, `MAX_TRAINERS_COUNT`, tamanho de struct ou id de mapa; as duas
+flags que a mecânica nova consome saíram do pool de `FLAG_UNUSED` que já existe.
+
+| medida | antes | depois |
+|---|---|---|
+| ROM | 98,07% de 32 MB | **98,14%** (+23 KB, 601 KB livres) |
+| EWRAM / IWRAM | 85,94% / 86,65% | **85,94% / 86,65%** (iguais) |
+| SaveBlock1 | 14388 B | **14388 B** (igual) |
+| mediana do selvagem, K/J/H/S/U | 25 / 20 / 27 / 27 / 30 | **20 / 65 / 122 / 166 / 217** |
+| espécies de gen 6-9 no jogo | **0** | **365 de 365** |
+| espécies-base alcançáveis | 745 | **927 de 1010** |
+
+**O teto de 255 é viável, e a auditoria achou TRÊS defeitos reais que ele mesmo
+criou** (detalhe e prova em `PRD-ROM-COMPLETA.md`, bloco B8): `u8 nextLevel` que
+virava 0 e gravava **nível 0** no Pokémon do teto (`src/pokemon.c`); `s16
+moveDamage` que enrolava para negativo acima de 32767 e **curava o alvo**
+(`include/battle.h`), porque o termo de nível do dano sai de 42 para 104; e três
+leituras `gExperienceTables[...][level + 1]` fora do array. **Nível não está em
+save**: `struct BoxPokemon` não tem campo de nível, ele é derivado de
+`experience:26` (folga de 21% no nível 255) e o `u8 level` de `struct Pokemon` é
+cache, com 255 sendo exatamente o máximo do tipo.
+
+**Defeito de flag que estava escondido há tempo**: `B_FLAG_DYNAMAX_BATTLE` e
+`B_FLAG_TERA_ORB_CHARGED` apontavam para `FLAG_UNUSED_0x020` e `0x021`, que
+neste repo são **apelido de `FLAG_HIDE_ARTICUNO` e `FLAG_HIDE_BILL_CLEFAIRY`**.
+Começar o jogo escondia os dois NPCs de Kanto, e entrar nos mapas deles
+desligava as duas mecânicas para sempre. Lição: **antes de usar qualquer
+`FLAG_UNUSED_*` que o upstream sugere, rode `dev_scripts/flags_livres.py`** —
+ele já separava "definidas" de "realmente livres" e as duas estavam na coluna
+das 359 OCUPADAS.
+
 ### Build de fechamento de 12/08/2026: VERDE, suíte 210/211, ROM a 98,07%
 
 A sessão de fechamento pegou a build verde de 197/211 e foi atrás dos 13
@@ -221,10 +256,10 @@ teto de grupos 128→255, s16 em coordenada de warp.
    acusou só as 3 quebras esperadas. A impressão gravada agora inclui o campo
    `macros`, que é o que fechava o buraco de `FLAGS_COUNT`. Save feita nesta
    ROM vale daqui para a frente; save de build anterior a ela não vale.
-3. **B8 NÃO COMEÇOU**: curva 3-255 + distribuir gens 6-9 por mato,
-   treinadores, líderes e E4 (decisão do Gui, pergunta 15: difícil, míticos
-   em líder). Medir `MAX_LEVEL` 255 primeiro. Selvagem NUNCA foi remapeado
-   em região nenhuma (medido: jogador nível 145 encontra mato nível 30).
+3. ~~**B8 NÃO COMEÇOU**~~ **B8 FEITO** em 12/08/2026, e o placar está no
+   primeiro bloco desta seção. Sobra dele uma decisão do Gui: 22 blocos de
+   líder/E4/campeão com time cheio (6 Pokémon) ficaram só com Dynamax e sem
+   lenda, e entre eles estão a Cynthia de Sinnoh e os campeões de Unova.
 4. **B6 restante**: Unova ~193 cenas (os 16 `callasm` da Plasma intocados,
    104 mapas de changeblock); Sinnoh 348 hidden_flags/176 coord_events e a
    cena da biblioteca de Canalave; Johto: arco dos sinos/Kimono/RED (fila em
@@ -858,7 +893,10 @@ existir escrito no topo.
 | `valida_mapas_sinnoh.py` | Sprite sem gráfico, objeto fora do mapa |
 | `guarda_save.py` | Impede mudança que invalida save |
 | `flags_livres.py` | Quais flags estão **realmente** livres |
-| `curva_de_nivel.py` | Mede e remapeia nível por região |
+| `curva_de_nivel.py` | Mede e remapeia nível do TREINADOR por região |
+| `curva_selvagem.py` | Mede e remapeia nível do SELVAGEM, e põe gen 6-9 em slot duplicado |
+| `gens69_treinadores.py` | Gen 6-9 nos times, lenda em líder e E4, Dynamax no ace |
+| `catalogo_especies.py` | Tipo, stat, geração e lenda de cada espécie, lidos do `species_info` (o enum de `species.h` mistura base e forma, e classificar por faixa de id põe mega de gen 1 na gen 9) |
 | `testa_critico.py` | Casos T1 a T30, prova lida da **EWRAM** |
 | `gba_runner.c` | Emulador headless que lê memória do jogo |
 | `demake_gen2.py` / `demake_ds.py` | Converte mapa de gen 2 e gen 4 |
