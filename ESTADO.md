@@ -54,6 +54,36 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 | Sinnoh | **72,7%** | 77,2% | **99,2%** | **81,2%** |
 | Unova | 94,2% | 98,5% | 98,9% | 98,0% |
 
+**ATENÇÃO, a linha de Unova está tecnicamente certa e mesmo assim engana.**
+`completude.py` conta PRESENÇA de mapa, objeto, warp e placa. Ele **nunca abre o
+`blockdata`**, então caixa vazia com as portas e os NPCs certos passa com 98%. O
+Gui olhou o jogo e desconfiou em 12/08/2026; a medição deu razão a ele.
+
+Medindo **metatiles distintos por mapa**, que é a variedade do desenho:
+
+| região | mediana | máximo | mapas com 3 ou menos |
+|---|---|---|---|
+| Kanto | 52 | 319 | 0 |
+| Hoenn | 39 | 545 | 11 |
+| Sinnoh | 39 | 303 | 0 |
+| **Unova** | **3** | **5** | **155 de 291** |
+
+Máximo 5 em 291 mapas: Unova é **máscara de colisão em duas cores**, chão e
+parede mais o metatile de porta. E não tem **um tileset próprio sequer**: os 291
+mapas usam tileset de Hoenn e de Sinnoh (138 em `Building + GenericBuilding`, 75
+exteriores em `GeneralSinnoh + PetalburgSinnoh`, 32 em `CaveSinnoh`).
+
+O que **está** pronto em Unova, e é por isso que a região não é lixo: 1396 NPCs,
+1060 warps, 497 placas, 6234 linhas de texto de verdade do BW3G, 360 treinadores
+únicos todos com time, 87 mapas com encontro selvagem, e as dimensões exatas da
+fonte. Unova é **conteúdo cheio com arte zerada**, o inverso de Sinnoh.
+
+A conversão leu o `.ablk` certo (`AspertiaCity.ablk`, 308 bytes = 14x22 blocos de
+gen 2 = os 28x44 metatiles do nosso layout) e parou na tradução de bloco para
+metatile. Conserto no bloco **B12** do `PRD-ROM-COMPLETA.md`: o mesmo `.ablk`
+relido com tabela honesta troca o `blockdata` sem mexer em índice nenhum, e a
+arte existe na fonte (`fontes-mapas/bw3g/gfx/tilesets`, 60 PNG com `.pal`).
+
 **As placas de Sinnoh caíram de 94,4% para 82,3% em 11/08/2026, e isso NÃO é
 regressão.** Medido antes e depois com `completude.py`, na mesma árvore. As 146
 bg_events que sumiram nunca foram placa: eram item escondido do Platinum que o
@@ -520,10 +550,23 @@ devolver. O `antes_de_empurrar.sh` recusa grupo acima de 128.
 
 `python3 dev_scripts/guarda_save.py` tem que dizer SAVE COMPATIVEL.
 
-**A janela de quebrar save está FECHADA** desde 05/08/2026 (ver a decisão 14 na
-seção 3). Este parágrafo dizia que ela "fecha quando o Gui receber a primeira
-build", no presente, mesmo depois de ela já ter fechado, e as duas frases
-conviveram no mesmo documento por seis dias.
+**A janela de quebrar save foi REABERTA pelo Gui em 12/08/2026, só para a
+revisão deste dia.** Palavra dele: a save atual pode ser descartada; é da
+**próxima** save em diante que precisa aguentar edição futura. Enquanto a janela
+estiver aberta valem `MAX_TRAINERS_COUNT` maior, `FLAGS_COUNT` maior, mapa
+inserido no meio de grupo, objeto no meio de mapa e apagar conteúdo inventado em
+vez de escondê-lo atrás de flag.
+
+**Quem fecha a janela é a entrega:** a última ação antes de mandar a ROM nova é
+`python3 dev_scripts/guarda_save.py --gravar` sobre ela, congelando a impressão
+nova. Da ROM seguinte em diante, tudo abaixo volta a valer como estava.
+
+**Faça o alargamento de teto cedo.** Bloco que descobre tarde que precisa de mais
+id não reabre a janela sozinho.
+
+(Ela tinha FECHADO em 05/08/2026, com a decisão 14 da seção 3. Este parágrafo já
+disse por seis dias que ela "fecha quando o Gui receber a primeira build", no
+presente, depois de ela já ter fechado.)
 
 Linha de base gravada em 11/08/2026 sobre a build `296474325a`
 (`roms/pokemon-claude-2026-08-11.gba`, md5 `457f3b5211b75175a0af5b95e04616c7`),

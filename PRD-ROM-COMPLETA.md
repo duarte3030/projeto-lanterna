@@ -59,21 +59,59 @@ de valor em 11/08 porque o `ESTADO.md` estava errado. **Meça, não copie daqui.
 
 | recurso | livre hoje | onde medir | o que acontece se estourar |
 |---|---|---|---|
-| ROM | **1,53 MB** de 32 MB (95,23% usado) | fim do `make` | não builda |
-| flags | **40** | `flags_livres.py` | crescer `FLAGS_COUNT` **quebra a save** |
-| ids de treinador | **59** (2441 a 2499) | ler `include/constants/opponents.h` | subir `MAX_TRAINERS_COUNT_EMERALD` (2500) desloca `SYSTEM_FLAGS`, que deriva de `TRAINER_FLAGS_END`, e **quebra a save** |
+| ROM | **1,53 MB** de 32 MB (95,23% usado) | fim do `make` | não builda, **e tudo bem: ver a regra abaixo** |
+| flags | **40** | `flags_livres.py` | crescer `FLAGS_COUNT` quebra save antiga |
+| ids de treinador | **59** (2441 a 2499) | ler `include/constants/opponents.h` | subir `MAX_TRAINERS_COUNT_EMERALD` (2500) desloca `SYSTEM_FLAGS`, que deriva de `TRAINER_FLAGS_END`, e quebra save antiga |
 | vars | ~30 no jogo inteiro | `vars.h` | idem flags |
 | grupos de mapa | 126 de 128, e 128 mapas por grupo | `map_groups.json` | mapa de índice 128 **reseta o jogo** |
 
-**A save do Gui está viva.** Impressão congelada em
-`dev_scripts/save_impressao.json`, sobre `roms/pokemon-claude-2026-08-11b.gba`.
-`guarda_save.py` tem que dizer SAVE COMPATIVEL ao fim de todo bloco, e **desfazer
-é a resposta padrão** para quebra, não registrar a quebra.
+### PASSAR DE 32 MB É PERMITIDO, E É O PLANO
 
-**Sobre estourar a ROM:** o Gui decidiu em 11/08 que prefere **fazer tudo e
-cortar depois**. Então bloco que não couber **não deve ser cortado sozinho**:
-faça, meça o custo, e registre no bloco B10 quanto passou. A decisão de o que
-tirar é dele.
+Decidido pelo Gui em 12/08/2026, e esta é a regra que manda quando qualquer
+outra frase deste documento parecer dizer o contrário:
+
+> O que ele mais quer é **desenvolver todos os assets de todas as regiões**, e
+> depois decidir o que cabe na ROM.
+
+Consequências operacionais, obrigatórias:
+
+1. **Nenhum bloco pode se cortar por medo de espaço.** Fazer tudo, inclusive
+   sabendo que não cabe.
+2. Asset que não couber **não é apagado**: ele vira arquivo no repositório e
+   fica fora da build por `#if` / entrada comentada em `graphics_file_rules.mk`,
+   com o motivo escrito. O trabalho fica feito e reversível.
+3. Build vermelha por estouro de ROM **não é falha do bloco**; é entrada no
+   bloco B10 dizendo quanto passou e qual asset é o mais caro.
+4. **O que continua sendo linha vermelha de verdade** é o que não é questão de
+   tamanho: EWRAM (85,6%), IWRAM (86,6%), o teto de 128 mapas por grupo e o de
+   128 grupos. Esses reiniciam o jogo ou impedem o link, e nenhum "corta depois"
+   resolve.
+
+### A save: a janela está ABERTA hoje, e fecha na próxima ROM
+
+Decidido pelo Gui em 12/08/2026, e **muda a restrição mais cara deste projeto**:
+
+> A save atual dele **pode ser descartada** no trabalho de hoje. Da **próxima**
+> save em diante é que precisa aguentar edição futura sem perder progresso.
+
+O que isso libera, e **só vale enquanto durar a revisão de hoje**:
+
+- Subir `MAX_TRAINERS_COUNT_EMERALD` acima de 2500 (o portão da seção 7 que
+  podia travar o B4 inteiro).
+- Crescer `FLAGS_COUNT` e o pool de vars.
+- Inserir mapa no meio de grupo, objeto no meio de mapa, campo no meio de
+  struct de save: tudo que hoje é proibido por mover índice.
+- **Apagar** conteúdo inventado de verdade, em vez de esconder atrás de flag
+  (regra 4 da seção 2 fica suspensa hoje).
+
+**Como a janela fecha, e isto é entrega obrigatória do dia:** a última coisa
+antes de entregar a ROM nova é rodar `guarda_save.py --gravar` sobre ela, para
+congelar a impressão nova. Da ROM seguinte em diante, `guarda_save.py` volta a
+ser portão vermelho e desfazer volta a ser a resposta padrão.
+
+**Faça o alargamento de teto CEDO no dia, não tarde.** Toda quebra de save tem
+que estar dentro da mesma janela; um bloco que descobre às 23h que precisa de
+mais 300 ids não pode reabrir a janela sozinho.
 
 ---
 
@@ -90,6 +128,58 @@ tirar é dele.
 Outros números da árvore: 1895 mapas, 2369 blocos de time em `trainers.party`,
 1790 constantes citadas por `trainerbattle` (todas com time), 609 mapas com
 encontro selvagem, suíte de emulador 162/163.
+
+### O que essa tabela NÃO mede, e por que Unova aparece verde estando cru
+
+O Gui desconfiou em 12/08 de que Unova fosse maquete. **Está certo, e a tabela
+acima não é capaz de mostrar isso**, porque `completude.py` conta *presença* de
+mapa, objeto, warp e placa. Ele nunca abre o `blockdata`. Um mapa com as portas e
+os NPCs certos, desenhado como caixa vazia, passa com 98%.
+
+Medida nova, feita nesta árvore, contando **metatiles distintos por mapa** (a
+variedade do desenho, não a existência dele):
+
+| região | mediana de metatiles distintos | máximo na região | mapas com 3 ou menos |
+|---|---|---|---|
+| Kanto | 52 | 319 | 0 |
+| Hoenn | 39 | 545 | 11 |
+| Sinnoh | 39 | 303 | 0 |
+| **Unova** | **3** | **5** | **155 de 291** |
+
+Máximo **5** em 291 mapas. Não é mapa: é **máscara de colisão em duas cores**,
+chão e parede, mais o metatile de porta. Aspertia City são 1232 células com 4
+valores; o prédio é um retângulo do metatile "bloqueado". Nenhum telhado, árvore,
+água, degrau, cerca ou móvel existe em Unova.
+
+Segunda medida, o outro lado do mesmo buraco, lendo `layouts.json`: **Unova não
+tem um tileset próprio sequer.** Os 291 mapas usam tileset de Hoenn e de Sinnoh:
+
+| tileset usado | mapas de Unova |
+|---|---|
+| `Building + GenericBuilding` | 138 |
+| `GeneralSinnoh + PetalburgSinnoh` | 75 (todo exterior de cidade e rota) |
+| `GeneralSinnoh + CaveSinnoh` | 32 |
+| `Building + RustboroGym`, `PokemonCenter`, `Shop` | 46 |
+
+**O que está pronto de verdade em Unova** (medido, e é bastante, por isso a
+região não é lixo): 291 mapas registrados com dimensão exata da fonte, 1396 NPCs,
+1060 warps, 497 placas, **6234 linhas de texto de verdade do BW3G**, 360
+treinadores únicos **todos com time em `trainers.party`**, e 87 mapas com
+encontro selvagem.
+
+**Diagnóstico:** Unova está com **conteúdo pronto e arte zerada**. É o inverso
+exato de Sinnoh, que tem arte real e 164 mapas faltando. A conversão leu o
+`.ablk` certo (`AspertiaCity.ablk` tem 308 bytes = 14x22 blocos de gen 2 = os
+28x44 metatiles do nosso layout, casamento exato) e **parou na tradução de bloco
+para metatile**, chutando andável/bloqueado.
+
+**A fonte tem a arte**, e isso é o que torna o conserto viável em vez de
+artesanal: `../fontes-mapas/bw3g` é código-fonte, não binário raspado. Tem 240
+`.ablk`, 309 `.asm` de mapa e **60 PNG de tileset de Unova de verdade**
+(`castelia.png`, `desert.png`, `bridge.png`, `chargestone.pal`,
+`dragonspiral_tower`, `celestial_tower`, `champions_room`...). O trabalho é
+converter tileset de gen 2 para GBA e reescrever a tabela bloco→metatile, não
+desenhar Unova à mão.
 
 ---
 
@@ -251,6 +341,48 @@ Kanto, Johto, Hoenn, Sinnoh, Unova, sem degrau que exija grind.
 os lendários de lago). Ver `ARTE-PENDENTE.md`. Emprestar sprite de personagem
 parecido é aceitável e já foi feito (Maxie para Cyrus); inventar não.
 
+### B12. Unova: tileset de verdade e mapa que não seja máscara de colisão
+
+**O maior bloco de arte do projeto, e ele existe porque o Gui olhou e desconfiou
+em 12/08.** A medição está na seção 4: mediana de **3 metatiles distintos por
+mapa**, máximo de 5 em 291 mapas, zero tileset próprio. Unova hoje é conteúdo
+completo dentro de caixas vazias com tijolo de Petalburg.
+
+Não se conserta mapa a mapa. Conserta-se na conversão, e por tileset:
+
+**B12.a Converter o tileset.** Gen 2 é 2bpp com paleta de 4 cores por bloco;
+GBA é 4bpp com 16. `../fontes-mapas/bw3g/gfx/tilesets` tem 60 PNG com `.pal` ao
+lado. Escrever `dev_scripts/tileset_gen2.py`: PNG + `.pal` viram
+`tiles.png` de 4bpp, `palettes/*.pal` e `metatiles.bin` no formato do
+pokeemerald. Começar por **um** tileset de exterior (`castelia` ou `desert`) e
+provar o ciclo inteiro antes de rodar nos 60. Custo previsto: 90 a 190 KB por
+tileset, e são vários. **Isso estoura a ROM, e estourar é permitido** (seção 3).
+
+**B12.b A tabela bloco→metatile.** É aqui que a conversão parou. Cada bloco de
+gen 2 é 4x4 tiles = 2x2 metatiles de GBA, e `AspertiaCity.ablk` (308 bytes)
+casa exato com o layout de 28x44 que já está na ROM. Então **a geometria não
+precisa ser reimportada**: o mesmo `.ablk` relido com uma tabela honesta
+substitui o `blockdata` inteiro sem mexer em warp, NPC, placa ou índice de mapa.
+Isso é o que torna B12 barato em risco e caro só em bytes.
+
+**B12.c Colisão e comportamento.** O `attributes.asm` do BW3G traz o
+comportamento de cada bloco (grama alta, água, degrau, porta, balcão). Hoje
+Unova tem só andável/bloqueado, o que significa que **não existe grama alta em
+Unova**: as 87 tabelas de encontro selvagem do B7 provavelmente nunca disparam.
+Conferir isso é a primeira medição do bloco, e o resultado muda o B7.
+
+**B12.d Interiores.** 138 mapas usam `Building + GenericBuilding` sem uma mesa
+sequer. Mesma técnica do conversor de mobília do B1.a de Sinnoh; se B1.a ficar
+pronto primeiro, reusar em vez de escrever outro.
+
+**Aceite:** mediana de metatiles distintos por mapa de Unova na mesma ordem de
+grandeza das outras regiões (dezenas, não 3), toda cidade e rota com tileset de
+Unova, grama alta existindo onde a fonte tem encontro, e nenhum índice de mapa,
+warp ou objeto deslocado (`guarda_save.py` verde, ou dentro da janela de hoje).
+
+**Ordem sugerida:** B12.b antes de B12.a se der, porque a tabela feita com
+tileset emprestado já melhora o mapa e prova o casamento sem gastar ROM.
+
 ### B10. Orçamento: o que estourou
 
 Bloco de registro, não de execução. Toda vez que um bloco passar de qualquer
@@ -286,13 +418,19 @@ B0  inventário          ── obrigatório antes de tudo
  ├─ B2  NPCs e falas     ── parte depende de B6
  ├─ B6  história         ── depende de B2 para os hidden_flag
  ├─ B9  sprite           ── destrava parte de B2 e B4
- └─ B1  mapas de Sinnoh  ── B1.b e B1.c dependem de B1.a
+ ├─ B1  mapas de Sinnoh  ── B1.b e B1.c dependem de B1.a
+ └─ B12 arte de Unova    ── B12.c antes do aceite de B7; B12.d reusa B1.a
 B10 orçamento           ── contínuo
 B11 jogar               ── contínuo, e é o aceite final
 ```
 
 Paralelizar B3, B4, B7 e B9 é seguro: chaves diferentes do `map.json` e arquivos
-diferentes. B1.a é solo, porque mexe no conversor.
+diferentes. B1.a é solo, porque mexe no conversor, e B12.a e B12.b também são:
+os três escrevem `blockdata` e `layouts.json`, e não podem rodar juntos.
+
+**Alargar teto vem antes de todos**, hoje, enquanto a janela de save está aberta
+(seção 3): decidir e aplicar `MAX_TRAINERS_COUNT`, `FLAGS_COUNT` e vars antes de
+qualquer bloco pedir.
 
 ---
 
@@ -300,15 +438,24 @@ diferentes. B1.a é solo, porque mexe no conversor.
 
 Não são perguntas de execução; são escolhas que mudam o jogo.
 
-1. **Teto de treinador.** Se faltar mais que 59 ids, subir `MAX_TRAINERS_COUNT`
-   quebra a save dele. Alternativas: save nova, ou menos treinador.
+1. ~~**Teto de treinador.**~~ **RESOLVIDO em 12/08:** a save de hoje é
+   descartável, então o teto sobe dentro da janela. Decidir **de quanto** ainda
+   é dele, e a conta é do B0: subir para 4000 custa RAM de save e ROM, e não dá
+   para subir de novo depois sem quebrar de novo. **Subir com folga agora sai de
+   graça; subir amanhã sai caro.**
 2. **Os 108 NPCs de Wi-Fi e Union Room.** Fala substituta, ou esconder.
-3. **Estouro de ROM.** Ele já disse: fazer tudo e cortar depois. B10 lista o que
-   cortar quando chegar a hora.
-4. **Save antiga da build de 05/08.** As flags de esconder e de região só nascem
-   em jogo novo; consertar save antiga exige `MAP_SCRIPT_ON_TRANSITION`.
+3. ~~**Estouro de ROM.**~~ **RESOLVIDO em 12/08:** pode passar de 32 MB, fazer
+   tudo, cortar depois. Ver a regra na seção 3. B10 vira só registro de custo.
+4. ~~**Save antiga da build de 05/08.**~~ **RESOLVIDO em 12/08:** ele começa
+   partida nova na ROM de hoje; nada de `MAP_SCRIPT_ON_TRANSITION`.
 5. **Os ~15 exteriores folha de Sinnoh.** Entram como sala vazia agora, ou
    esperam o conversor de mobília?
+6. **Quanto de Unova desenhar (B12).** Converter os 60 tilesets do BW3G é o
+   maior gasto de ROM do projeto inteiro, e sozinho pode dobrar o estouro. Ele
+   já disse "fazer tudo"; o que fica em aberto é a **ordem**, ou seja, quais
+   cidades ganham arte primeiro se o corte vier depois. Sugestão: Castelia,
+   Nimbasa, Driftveil e Opelucid, que são as que ficam mais absurdas com tijolo
+   de Petalburg.
 
 ---
 
