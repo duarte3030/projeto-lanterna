@@ -76,6 +76,40 @@ possíveis (mudar o atributo do metatile no tileset, trocar o metatile no
 `map.bin` dos 137, ou dar uma linha a mais a cada mapa) têm raios de alcance
 muito diferentes, e escolher é decisão do condutor.
 
+> **CONFERÊNCIA do condutor, 12/08: a CAUSA acima está errada, e o conserto
+> proposto sai dela. NÃO execute antes de remedir no emulador.** Tudo abaixo
+> foi lido no disco e no código do motor, e qualquer um refaz:
+> 1. **O comportamento não é porta, é ESCADA.** O tile de saída de Aspertia,
+>    (4,21), é o metatile **579** do `gTileset_UnovaChampionsRoom`, e o
+>    `metatile_attributes.bin` dele traz **0x60 = `MB_LADDER`**.
+>    `MB_NON_ANIMATED_DOOR` é **0x5F**: o relatório errou por **um**.
+> 2. **E o motor separa os dois exatamente no ponto que a história do
+>    "empurrão" precisa.** `SetUpWarpExitTask`
+>    (`src/field_screen_effect.c:276`) manda `MB_NON_ANIMATED_DOOR` para
+>    `Task_ExitNonAnimDoor`, que **dá o passo para fora**, e tudo o mais para
+>    `Task_ExitNonDoor`, que **não dá passo nenhum**. `MB_LADDER` cai no
+>    segundo. E `GetAdjustedInitialDirection` (`src/overworld.c:1087`) devolve,
+>    para escada, a direção que o jogador já tinha. Ou seja: **`MB_LADDER` não
+>    empurra o jogador para (4,22)**. Ou a observação do emulador foi lida de
+>    outra variável, ou a causa é outra; as duas coisas não podem ser verdade
+>    juntas.
+> 3. **Trocar o atributo do 579 não seria o conserto dos 137.** Medido: o
+>    metatile 579 aparece em **um** mapa (Aspertia Gym), **2 tiles**, os dois
+>    em cima de warp e na última linha.
+> 4. **O padrão real, esse sim, é sistemático e vale medir:** varrendo os
+>    **1060 warps de Unova**, o comportamento embaixo deles é **`MB_LADDER` em
+>    1000** e **`MB_EAST_ARROW_WARP` em 60**. Nenhuma porta, nenhum
+>    `MB_SOUTH_ARROW_WARP`. A conversão do B12 mandou toda saída de gen 2 para
+>    escada. É aí que mora o defeito de família, se ele existir.
+> 5. Estaticamente **Aspertia Gym parece navegável**: (4,20), logo acima da
+>    saída, tem colisão 0 e a mesma elevação 3.
+>
+> **Ordem para a próxima sessão:** rodar o T20.4 no emulador e **gravar a
+> coordenada e o comportamento de verdade** antes de encostar em atributo. Se
+> a prisão existir, o conserto é na **tabela de conversão** do
+> `tileset_gen2.py` (classe "porta" de interior deve virar
+> `MB_SOUTH_ARROW_WARP` na última linha), nunca um remendo no metatile 579.
+
 **2. Elevador da estátua da Liga de Unova aponta para si mesmo.**
 `Unova_PkmnLeagueMain` warp 2, em (13,13), tem destino
 `MAP_UNOVA_PKMN_LEAGUE_MAIN` warp 2, e o `Unova_ChampionsRoomEntrance` tem um
