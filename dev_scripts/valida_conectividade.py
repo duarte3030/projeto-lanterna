@@ -118,6 +118,17 @@ def main():
         for c in info["dados"].get("connections") or []:
             if c.get("map") in mapas:
                 vizinhos.add(c["map"])
+        # Warp MAP_DYNAMIC nao tem destino escrito: quem decide e o
+        # `setdynamicwarp` de um script. O laco acima o PULA, e sem isto as 20
+        # salas da Turnback Cave apareceriam como "nenhum caminho alcanca"
+        # estando alcancaveis no jogo. O destino nao e adivinhado aqui: o mapa
+        # declara em `destinos_dinamicos` para onde as portas dele podem mandar,
+        # e o `--demo` de `turnback_cave_sinnoh.py` exige que essa lista seja
+        # exatamente o conjunto de `setdynamicwarp` do script gerado, senao ela
+        # viraria uma segunda verdade que envelhece calada.
+        for destino in info["dados"].get("destinos_dinamicos") or []:
+            if destino in mapas:
+                vizinhos.add(destino)
         # Warp escrito DENTRO de script tambem liga mapa, e e assim que a viagem
         # entre regioes funciona (o marinheiro de Canalave leva a Olivine). Sem
         # ler isto, a ferramenta declarava Johto inteira inalcancavel, que era

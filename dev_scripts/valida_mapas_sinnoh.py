@@ -178,21 +178,33 @@ def tile_livre_perto(layouts, layout_id, x, y, raio=6):
 _GLOBAIS = None
 
 
-def rotulos_globais():
-    """Rótulos de script que valem em qualquer mapa (empurrar pedra, quebrar rocha).
+def rotulos_da_unidade():
+    """Todo rótulo definido na UNIDADE DE MONTAGEM, como um conjunto.
 
-    Sem isto o validador acusa EventScript_StrengthBoulder como inexistente, que
-    é falso: ele mora em data/scripts/field_move_scripts.inc.
+    Quem reprova um script inexistente é o assembler, e a pergunta dele não é
+    "o rótulo está no scripts.inc DESTE mapa": `data/event_scripts.s` inclui os
+    dois mil `scripts.inc` num arquivo só, e um mapa pode apontar para rótulo de
+    outro. A versão anterior lia só o arquivo do próprio mapa mais
+    `data/scripts/*.inc`, e por isso acusava `Route26North` de citar
+    `Route26_EventScript_Jake` "inexistente", quando ele está em
+    `data/maps/Route26/scripts.inc` desde sempre, incluído e montado. Dois
+    falsos positivos que já mandaram um agente procurar bug que não existia.
+
+    Conjunto, e não texto concatenado: a busca por substring casava
+    `Foo_EventScript_Npc1` dentro de `Foo_EventScript_Npc10` (lição 4.9).
     """
     global _GLOBAIS
     if _GLOBAIS is None:
-        partes = []
-        pasta = os.path.join(REPO, "data/scripts")
-        for f in sorted(os.listdir(pasta)):
-            if f.endswith(".inc"):
-                partes.append(open(os.path.join(pasta, f), errors="replace").read())
-        partes.append(open(os.path.join(REPO, "data/event_scripts.s"), errors="replace").read())
-        _GLOBAIS = "\n".join(partes)
+        raiz = os.path.join(REPO, "data/event_scripts.s")
+        txt = open(raiz, errors="replace").read()
+        arquivos = [raiz] + [os.path.join(REPO, i)
+                             for i in re.findall(r'\.include\s+"([^"]+)"', txt)]
+        _GLOBAIS = set()
+        for p in arquivos:
+            if not os.path.exists(p):
+                continue
+            _GLOBAIS |= set(re.findall(r"^(\w+):{1,2}\s*$",
+                                       open(p, errors="replace").read(), re.M))
     return _GLOBAIS
 
 
@@ -247,7 +259,7 @@ def main():
             print(f"  {nome}: sem scripts.inc, mas o map.json tem objeto")
             total["script"] += len(objs)
             continue
-        scripts_txt = open(caminho_scripts).read() + rotulos_globais()
+        rotulos = rotulos_da_unidade()
 
         for o in objs:
             if o.get("graphics_id", SPRITE_PADRAO) not in sprites:
@@ -287,7 +299,7 @@ def main():
             # na primeira varredura do jogo inteiro, e chegou a assustar um agente.
             SEM_SCRIPT = ("0", "0x0", "0X0", "NULL", "null")
             if ev.get("script") and str(ev["script"]) not in SEM_SCRIPT \
-                    and ev["script"] + "::" not in scripts_txt:
+                    and ev["script"] not in rotulos:
                 total["script"] += 1
                 print(f"  {nome}: script {ev['script']} NAO existe no scripts.inc")
 

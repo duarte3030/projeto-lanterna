@@ -80,11 +80,16 @@ fi
 passo "build do HEAD limpo"        "make -j8"
 passo "guarda de save"             "python3 dev_scripts/guarda_save.py"
 passo "o declarado entrou na ROM"  "python3 dev_scripts/valida_rom.py"
-# `struct WarpData` guarda mapGroup e mapNum como s8 (include/global.h): o mapa
-# de indice 128 de um grupo vira -128 dentro do warp e o jogo RESETA ao entrar
+# `struct WarpData` guardava mapGroup e mapNum como s8 (include/global.h): o mapa
+# de indice 128 de um grupo virava -128 dentro do warp e o jogo RESETAVA ao entrar
 # nele. Custou 26 mapas mortos no grupo de portas de Sinnoh, todos com warp que
-# o validador estatico dava por bom. Mesmo teto vale para a quantidade de grupos.
-passo "grupo abaixo do teto de 128" "python3 -c \"import json,sys; g=json.load(open('data/maps/map_groups.json')); ruins=[(k,len(g[k])) for k in g['group_order'] if len(g[k])>128]; print('grupos:',len(g['group_order']),'estourados:',ruins); sys.exit(1 if ruins or len(g['group_order'])>128 else 0)\""
+# o validador estatico dava por bom.
+# Em 12/08/2026 os dois campos viraram u8, dentro da janela de quebra de save, e
+# o teto de GRUPO subiu para 255 (o indice 255 fica reservado para MAP_UNDEFINED).
+# O teto de MAPAS POR GRUPO continua cobrado em 128 aqui de proposito: o codigo
+# aguenta 255, mas ninguem provou indice acima de 127 no emulador ainda. Quem
+# precisar, meça primeiro e so entao suba este numero.
+passo "grupo abaixo do teto" "python3 -c \"import json,sys; g=json.load(open('data/maps/map_groups.json')); ruins=[(k,len(g[k])) for k in g['group_order'] if len(g[k])>128]; print('grupos:',len(g['group_order']),'de 255; grupos com mais de 128 mapas:',ruins); sys.exit(1 if ruins or len(g['group_order'])>255 else 0)\""
 passo "conectividade"              "python3 dev_scripts/valida_conectividade.py 2>&1 | grep -q 'warps quebrados: 0'"
 passo "sprites e objetos"          "python3 dev_scripts/valida_mapas_sinnoh.py 2>&1 | grep -qE \"'sprite': 0\""
 
@@ -108,3 +113,11 @@ if [ "$FALHAS" = 0 ]; then
 fi
 echo "$FALHAS passo(s) falharam. NAO empurre."
 exit 1
+
+# TODO (para o B1/B2, achado em 12/08/2026 medindo o teto de grupo): a escada do
+# OreburghCity_PokemonCenter_1F para o B1F, em (13,6), e INALCANCAVEL a pe. Os
+# tiles (13,6) e (13,7) formam um bolsao isolado no map.bin (elevacao 4 e 3 sem
+# vizinho andavel; (12,6), (12,7) e (13,8) sao colisao 1). O warp existe e o
+# conserto de MAP_DYNAMIC em src/field_control_avatar.c ja fez o destino ficar
+# certo, mas ninguem consegue pisar nele ate a colisao ser aberta. Enquanto isso
+# nao acontecer, esse conserto nao tem como ser provado no emulador.

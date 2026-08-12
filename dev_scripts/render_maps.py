@@ -31,8 +31,12 @@ def carregar_layouts():
     return {layout["id"]: layout for layout in dados["layouts"]}
 
 
+# INCGFX_U32 tambem: 222 das 231 entradas de tileset usam essa macro, e a regex
+# so aceitava INCBIN_U32. Com ela sozinha, `carregar_mapa_de_pastas_tileset`
+# devolvia um dicionario quase vazio e TODO mapa falhava com "tileset nao
+# encontrado em graphics.h" (medido em 12/08/2026 tentando renderizar Castelia).
 _PADRAO_INCBIN = re.compile(
-    r'const u32 gTilesetTiles_([A-Za-z0-9]+)\[\] = INCBIN_U32\("(data/tilesets/(?:primary|secondary)/[a-z0-9_/]+?)/tiles'
+    r'const u32 gTilesetTiles_([A-Za-z0-9]+)\[\] = INC(?:BIN|GFX)_U32\("(data/tilesets/(?:primary|secondary)/[a-z0-9_/]+?)/tiles'
 )
 
 

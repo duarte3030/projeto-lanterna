@@ -74,7 +74,7 @@ MOSTRA = re.compile(
     r"|ShowLandmarkSign|ShowArrowSign|ShowScrollingSign|ShowMapSign)\s+(\w+)")
 CRY = re.compile(r"^PokemonCryAndMessage\s+\w+,\s*(\w+)")
 GOTO = re.compile(r"^GoTo\s+(\w+)\s*$")
-BUFFER = re.compile(r"^Buffer(\w+)\s+(\d+)")
+BUFFER = re.compile(r"^Buffer(\w+)\s+(\d+)(?:\s*,\s*([^\s,]+))?")
 
 
 def texto_do_rotulo(corpos, rot, visto=None):
@@ -83,15 +83,22 @@ def texto_do_rotulo(corpos, rot, visto=None):
     Desvio condicional (`GoToIfSet`, `GoToIfEq`, ...) e ignorado de proposito: o
     que queremos e a fala padrao, a que o jogador ouve sem gatilho nenhum. So
     `GoTo` cru, que e incondicional, e seguido.
+
+    `buffers` ACUMULA ao longo do caminho: `{N: (tipo, argumento)}`. A primeira
+    versao zerava o dicionario a cada rotulo, e por isso perdia o buffer posto
+    ANTES de um `GoTo` (`PalParkLobby_Daughter` enche o 0 com `BufferPlayerName`
+    e so entao desvia). O texto chegava com um `{STRVAR}` sem dono e era
+    reprovado inteiro, ou seja, o NPC ficava mudo por um defeito nosso.
     """
     visto = visto or set()
+    buffers = {}
     while rot and rot not in visto:
         visto.add(rot)
-        buffers, prox = {}, None
+        prox = None
         for linha in corpos.get(rot, []):
             b = BUFFER.match(linha)
             if b:
-                buffers[int(b.group(2))] = b.group(1)
+                buffers[int(b.group(2))] = (b.group(1), b.group(3))
                 continue
             m = MOSTRA.match(linha) or CRY.match(linha)
             if m:
@@ -104,10 +111,39 @@ def texto_do_rotulo(corpos, rot, visto=None):
     return None, {}
 
 
-# `{STRVAR_1 3, N, 0}` e o conteudo do buffer N. So o nome do jogador tem
-# equivalente honesto aqui (`{PLAYER}`): `{RIVAL}` do pokeemerald e o rival de
-# HOENN, e Barry nao e ele. Qualquer outro buffer reprova o texto.
+# `{STRVAR_1 3, N, 0}` e o conteudo do buffer N.
+#
+# `{RIVAL}` do pokeemerald e o rival de HOENN, e Barry nao e ele: `RivalName` e
+# `CounterpartName` continuam reprovando o texto inteiro. O que ganhou
+# equivalente honesto aqui e o que o expansion sabe encher com UM comando antes
+# do `msgbox` (`asm/macros/event.inc`), e nada mais.
+#
+# Ceiling assumido, de proposito: `PartyMonSpecies` vira o LIDER do time.
+# O Platinum le o slot de uma var que o caminho padrao nunca escreve, ou seja,
+# 0, que e o lider; num caminho que a escolha do jogador tivesse mexido, a fala
+# nomearia outro bicho. Sao quatro NPC de sabor ("Oh, your X..."), e errar o
+# apelido ali nao muda nada do jogo.
 STRVAR = re.compile(r"\{STRVAR_\d+ \d+, (\d+), \d+\}")
+
+# tipo do Buffer do Platinum -> (o que vai no texto, comando que enche a var).
+# `{N}` no comando e trocado pelo numero da STR_VAR.
+BUFFER_EQUIV = {
+    "PlayerName": ("{PLAYER}", None),
+    "PartyMonSpecies": ("{STR_VAR_%d}", "bufferleadmonspeciesname STR_VAR_%d"),
+    "PartyMonNickname": ("{STR_VAR_%d}", "bufferpartymonnick STR_VAR_%d, 0"),
+    "ItemName": ("{STR_VAR_%d}", "bufferitemname STR_VAR_%d, %s"),
+}
+
+# `♫` e `♪` nao existem no charmap do GBA (o preproc recusa o arquivo inteiro
+# com "unexpected character"). O repo ja tem o simbolo, com outro nome:
+# `EMOJI_NOTE` (charmap.txt:1109), usado em `src/text_input_strings.c:63`.
+NOTA = re.compile(r"[♫♪]")
+
+# `'$' = FF` no charmap.txt: o cifrao NAO desenha dinheiro, ELE TERMINA A
+# STRING. Deixar passar cortou seis falas no meio antes desta guarda existir
+# ("Moomoo Milk, $500 a bottle" virou "Moomoo Milk, "). O simbolo de dinheiro
+# desta ROM e `¥` (`src/strings.c:242`, `gText_PokedollarVar1`).
+DINHEIRO = re.compile(r"\$(?=[0-9])")
 
 
 def desenhaveis():
@@ -136,28 +172,161 @@ def desenhaveis():
     return _CHARS
 
 
+ITEM_CONST = re.compile(r"^ITEM_[A-Z0-9_]+$")
+
+
+def itens_desta_rom():
+    """Todo `ITEM_*` que o enum desta ROM define. Nome que nao existe reprova."""
+    global _ITENS_ROM
+    try:
+        return _ITENS_ROM
+    except NameError:
+        txt = open(os.path.join(REPO, "include/constants/items.h"),
+                   encoding="utf-8", errors="replace").read()
+        _ITENS_ROM = set(re.findall(r"\b(ITEM_[A-Z0-9_]+)\b", txt))
+        return _ITENS_ROM
+
+
 def resolve(linhas, buffers):
-    """Texto pronto para `.string`, ou None se sobrou codigo que nao traduz."""
+    """(texto pronto para `.string`, comandos de buffer), ou (None, []).
+
+    O segundo item da tupla e o que o script precisa rodar ANTES do `msgbox`
+    para as `{STR_VAR_n}` terem conteudo. Texto sem buffer devolve lista vazia,
+    que e o caso de 780 das 790 falas.
+    """
     if isinstance(linhas, str):
         linhas = [linhas]
-    saida = []
+    saida, comandos, usados = [], [], {}
+    falhou = False
+
+    def troca(m):
+        nonlocal falhou
+        n = int(m.group(1))
+        tipo, arg = buffers.get(n) or (None, None)
+        eq = BUFFER_EQUIV.get(tipo)
+        if not eq:
+            falhou = True
+            return "\x00"
+        molde, cmd = eq
+        if cmd is None:
+            return molde
+        if n not in usados:
+            if "%s" in cmd:
+                if not (arg and ITEM_CONST.match(arg) and arg in itens_desta_rom()):
+                    falhou = True
+                    return "\x00"
+                cmd = cmd.replace("%s", arg)
+            usados[n] = len(usados) + 1
+            comandos.append(cmd % usados[n])
+        return molde % usados[n]
+
     for t in linhas:
-        def troca(m, buffers=buffers):
-            return "{PLAYER}" if buffers.get(int(m.group(1))) == "PlayerName" else "\x00"
         t = STRVAR.sub(troca, t)
         # {SIZE 200}, {COLOR ...} e afins nao existem no motor do GBA.
         t = re.sub(r"\{(SIZE|COLOR|CLEAR|SET_FONT)[^}]*\}", "", t)
-        if "\x00" in t or re.search(r"\{(?!PLAYER\})", t):
-            return None
+        t = NOTA.sub("{EMOJI_NOTE}", t)
+        t = DINHEIRO.sub("¥", t)
+        if "$" in t:                      # cifrao solto continua sendo terminador
+            return None, []
+        if "\x00" in t or falhou or \
+                re.search(r"\{(?!PLAYER\}|STR_VAR_\d\}|EMOJI_NOTE\})", t):
+            return None, []
         saida.append(t)
     pronto = para_gba(saida)
-    ok = desenhaveis() | set("\\{}$")
-    return pronto if all(c in ok for c in pronto) else None
+    # O charmap so julga o que vira BYTE DE LETRA. `{PLAYER}` e `{EMOJI_NOTE}`
+    # sao codigo de controle e saem da conta inteiros: deixar o `_` deles na
+    # lista de permitidos abriria a porta para underline de verdade no texto.
+    ok = desenhaveis() | set("\\$")
+    nu = re.sub(r"\{[^}]*\}", "", pronto)
+    return (pronto, comandos) if all(c in ok for c in nu) else (None, [])
 
 
 def sprite_esperado(e, sprites):
     g = e.get("graphics_id", "")
     return g if g in sprites else V.TROCA_SPRITE.get(g, V.SPRITE_PADRAO)
+
+
+RAIO = 8            # o mesmo raio de busca de `importa_npcs_sinnoh.livre`
+
+
+def _layouts():
+    global _LAY
+    try:
+        return _LAY
+    except NameError:
+        _LAY = {l["id"]: l for l in json.load(open(
+            os.path.join(REPO, "data/layouts/layouts.json"),
+            encoding="utf-8"))["layouts"]}
+        return _LAY
+
+
+def subsequencias(fonte_conv, nossos, limite=64):
+    """Todo casamento ordem-preservante fonte->nosso com grafico e raio ok.
+
+    Mais de um casamento ja reprova o mapa, entao a busca para em `limite`.
+    """
+    saida = []
+
+    def anda(i, j, escolhido):
+        if len(saida) >= limite:
+            return
+        if j == len(nossos):
+            saida.append(tuple(escolhido))
+            return
+        if len(fonte_conv) - i < len(nossos) - j:
+            return
+        _e, (fx, fy), g = fonte_conv[i]
+        _, nosso = nossos[j]
+        if g == nosso.get("graphics_id") and \
+                max(abs(fx - nosso.get("x", 0)), abs(fy - nosso.get("y", 0))) <= RAIO:
+            anda(i + 1, j + 1, escolhido + [i])
+        anda(i + 1, j, escolhido)
+
+    anda(0, 0, [])
+    return saida
+
+
+def alinha_npcs(header, matriz, fonte, d, sprites):
+    """({indice do nosso object_event: evento da fonte}, metodo), ou (None, ...).
+
+    POR QUE NAO BASTA A ORDEM. A regra original exigia que a contagem batesse e
+    que o `graphics_id` batesse posicao a posicao. Ela e certa quando bate, e
+    reprova o mapa inteiro quando o importador descartou alguem por nao caber
+    (`fora_sem_espaco`), que e o caso de `OreburghMine_B2F` e `Route205_North`.
+
+    A coordenada resolve isso sem virar chute, pela mesma via que
+    `itens_escondidos_sinnoh.alinha_por_coordenada` usa para placa: o importador
+    percorre a fonte EM ORDEM e poe cada NPC no tile livre mais proximo de
+    `conv(e)`, dentro do raio 8 de `importa_npcs_sinnoh.livre`. Logo o casamento
+    certo e uma SUBSEQUENCIA da fonte, com grafico igual e distancia de
+    Chebyshev dentro daquele raio. Duas guardas mantem isso honesto:
+
+    - **so vale se for UNICA.** Duas subsequencias possiveis reprovam o mapa, do
+      mesmo jeito que duas placas na mesma coordenada reprovam la.
+    - **a regra da ordem tem prioridade.** Onde a contagem bate, o resultado e o
+      de antes, byte por byte: mapa ja resolvido nao muda de resposta.
+    """
+    f_npcs, _ = separa_fonte(fonte)
+    nossos = [(i, o) for i, o in enumerate(d.get("object_events") or [])
+              if o.get("origem") == "pokeplatinum"]
+    if not nossos:
+        return {}, "vazio"
+    esperado = [sprite_esperado(e, sprites) for e in f_npcs]
+    if len(nossos) == len(f_npcs) and \
+            all(g == o.get("graphics_id") for g, (_, o) in zip(esperado, nossos)):
+        return {i: e for (i, _), e in zip(nossos, f_npcs)}, "ordem"
+
+    L = _layouts().get(d.get("layout"))
+    if not L:
+        return None, "sem_layout"
+    conv = I.conversor_de_coordenada(fonte, L["width"], L["height"], header, matriz)
+    if conv is None:
+        return None, "sem_conversor"
+    fc = [(e, conv(e), g) for e, g in zip(f_npcs, esperado)]
+    op = subsequencias(fc, nossos)
+    if len(op) != 1:
+        return None, ("ambiguo" if op else "sem_casamento")
+    return {nossos[j][0]: f_npcs[i] for j, i in enumerate(op[0])}, "coordenada"
 
 
 def separa_fonte(fonte):
@@ -268,6 +437,7 @@ def rotulos_repetidos():
 
 def main():
     sprites = V.sprites_utilizaveis()
+    heads = I.headers_do_platinum()
     st = dict(npcs=0, placas=0, npc_mapa_pulado=0, placa_mapa_pulado=0,
               npc_sem_texto=0, placa_sem_texto=0, itens=0, safari=0)
     itens, plano = [], {}
@@ -297,13 +467,12 @@ def main():
         ordem, corpos = entradas_de_script(arq_scr) if arq_scr else ([], {})
         banco = banco_de_texto(arq_msg) if arq_msg else {}
 
-        # Alinhamento. Ver o cabecalho: contagem para os dois, mais sprite a
-        # sprite para o NPC. Mapa que nao passa fica inteiro de fora.
-        ok_npc = (len(n_npcs) == len(f_npcs) and
-                  all(sprite_esperado(a, sprites) == b.get("graphics_id")
-                      for a, (_, b) in zip(f_npcs, n_npcs)))
+        # Alinhamento. Ordem primeiro, coordenada depois; ver `alinha_npcs`.
+        # Placa continua so por contagem, porque `itens_escondidos_sinnoh.py` ja
+        # e o dono do alinhamento por coordenada dela.
+        pares_npc, _metodo = alinha_npcs(header, heads[header][1], fonte, d, sprites)
         ok_placa = len(n_placas) == len(f_placas)
-        if n_npcs and not ok_npc:
+        if n_npcs and pares_npc is None:
             st["npc_mapa_pulado"] += 1
         if n_placas and not ok_placa:
             st["placa_mapa_pulado"] += 1
@@ -320,23 +489,25 @@ def main():
         def texto_de(dela):
             idx = dela.get("script")
             if not isinstance(idx, int) or not (1 <= idx <= len(ordem)):
-                return None
+                return None, []
             tid, buffers = texto_do_rotulo(corpos, ordem[idx - 1])
             if not tid or tid not in banco:
-                return None
+                return None, []
             return resolve(banco[tid], buffers)
 
-        if ok_npc:
-            for dela, (pos, nossa) in zip(f_npcs, n_npcs):
+        if pares_npc:
+            for pos, dela in sorted(pares_npc.items()):
+                nossa = d["object_events"][pos]
                 if str(nossa.get("script", "0")) not in ("0", "0x0", "NULL", ""):
                     continue
-                pronto = texto_de(dela)
+                pronto, comandos = texto_de(dela)
                 if not pronto:
                     st["npc_sem_texto"] += 1
                     continue
                 lab = rotulo_livre(usados, meu, "Npc", seq)
                 txt = lab.replace("_EventScript_", "_Text_")
-                trecho += (f"\n{lab}::\n\tmsgbox {txt}, MSGBOX_NPC\n\tend\n\n"
+                enche = "".join(f"\t{c}\n" for c in comandos)
+                trecho += (f"\n{lab}::\n{enche}\tmsgbox {txt}, MSGBOX_NPC\n\tend\n\n"
                            f'{txt}:\n\t.string "{pronto}"\n')
                 troca_obj.append((pos, lab))
                 st["npcs"] += 1
@@ -355,8 +526,11 @@ def main():
                 if isinstance(idx, int) and idx >= 8800:
                     st["safari"] += 1
                     continue
-                pronto = texto_de(dela)
-                if not pronto:
+                pronto, comandos = texto_de(dela)
+                # Placa nao ganha comando de buffer: `msgbox MSGBOX_SIGN` roda
+                # sem `lock`, e encher STR_VAR ali seria script novo escondido
+                # numa placa. Fala com buffer fica de fora, como antes.
+                if not pronto or comandos:
                     st["placa_sem_texto"] += 1
                     continue
                 lab = rotulo_livre(usados, meu, "Placa", seq)
@@ -428,6 +602,7 @@ def main():
 
 def demo():
     """As tres regras que a primeira versao errou."""
+    P = ("PlayerName", None)
     corpos = {
         "A": ["PlaySE SEQ_SE_CONFIRM", "LockAll", "FacePlayer",
               "GoToIfSet FLAG_X, B", "BufferPlayerName 0",
@@ -435,23 +610,53 @@ def demo():
         "B": ["Message T_Ramo", "End"],
         "C": ["LockAll", "GoTo A"],
         "D": ["NPCMessage T_Npc", "End"],
+        "E": ["BufferPlayerName 0", "GoTo F"],
+        "F": ["Message T_Depois", "End"],
     }
     # 1. desvio condicional nao desvia: a fala padrao e a do fall-through
-    assert texto_do_rotulo(corpos, "A") == ("T_Padrao", {0: "PlayerName"})
+    assert texto_do_rotulo(corpos, "A") == ("T_Padrao", {0: P})
     # 2. `GoTo` cru e incondicional e tem que ser seguido
     assert texto_do_rotulo(corpos, "C")[0] == "T_Padrao"
     # 3. NPCMessage conta tanto quanto Message (era o comando de 656 falas que
     #    a extracao anterior nao conhecia)
     assert texto_do_rotulo(corpos, "D")[0] == "T_Npc"
-    # 4. buffer do jogador vira {PLAYER}; qualquer outro reprova o texto inteiro
-    assert resolve(["Hi, {STRVAR_1 3, 0, 0}!"], {0: "PlayerName"}) == "Hi, {PLAYER}!$"
-    assert resolve(["Hi, {STRVAR_1 3, 1, 0}!"], {0: "PlayerName"}) is None
-    assert resolve(["{SIZE 200}Thud!!\r"], {}) == "Thud!!$"
-    # 5. rotulo que o arquivo ja tem NAO pode ser reusado: numero ocupado se
+    # 4. buffer posto ANTES do GoTo continua valendo depois dele
+    assert texto_do_rotulo(corpos, "E") == ("T_Depois", {0: P})
+    # 5. buffer do jogador vira {PLAYER} e nao custa comando nenhum
+    assert resolve(["Hi, {STRVAR_1 3, 0, 0}!"], {0: P}) == ("Hi, {PLAYER}!$", [])
+    # 6. buffer sem dono, e buffer sem equivalente honesto, reprovam o texto
+    assert resolve(["Hi, {STRVAR_1 3, 1, 0}!"], {0: P}) == (None, [])
+    assert resolve(["Hi, {STRVAR_1 3, 0, 0}!"], {0: ("RivalName", None)}) == (None, [])
+    assert resolve(["{SIZE 200}Thud!!\r"], {}) == ("Thud!!$", [])
+    # 7. os buffers que TEM equivalente saem com o comando que os enche
+    assert resolve(["Your {STRVAR_1 0, 0, 0}!"], {0: ("PartyMonSpecies", "0")}) == \
+        ("Your {STR_VAR_1}!$", ["bufferleadmonspeciesname STR_VAR_1"])
+    assert resolve(["Hold this {STRVAR_1 8, 0, 0}."],
+                   {0: ("ItemName", "ITEM_QUICK_CLAW")}) == \
+        ("Hold this {STR_VAR_1}.$", ["bufferitemname STR_VAR_1, ITEM_QUICK_CLAW"])
+    # item que esta ROM nao tem reprova em vez de virar simbolo inexistente
+    assert resolve(["x {STRVAR_1 8, 0, 0}"],
+                   {0: ("ItemName", "ITEM_NAO_EXISTE_AQUI")}) == (None, [])
+    # 8. a nota musical tem simbolo aqui, com outro nome
+    assert resolve(["Chop away! ~♫"], {}) == ("Chop away! ~{EMOJI_NOTE}$", [])
+    # 9. o cifrao TERMINA a string (charmap.txt:162 '$' = FF): dinheiro vira ¥ e
+    #    cifrao solto reprova. Sem esta regra, seis falas ja escritas foram
+    #    cortadas no meio ("Moomoo Milk, $500 a bottle").
+    assert resolve(["Milk, $500 a bottle."], {}) == ("Milk, ¥500 a bottle.$", [])
+    assert resolve(["Pay in $ please."], {}) == (None, [])
+    # 10. rotulo que o arquivo ja tem NAO pode ser reusado: numero ocupado se
     #    pula, e o par _Text_ conta tanto quanto o _EventScript_
     ja = {"Foo_EventScript_Placa1", "Foo_Text_Placa2"}
     assert rotulo_livre(ja, "Foo", "Placa", [0]) == "Foo_EventScript_Placa3"
-    # 6. e a checagem na camada da afirmacao: nenhum rotulo escrito por este
+    # 11. alinhamento por subsequencia: unico casamento passa, dois reprovam
+    fc = [({}, (10, 10), "G1"), ({}, (20, 20), "G1"), ({}, (99, 99), "G1")]
+    assert subsequencias(fc, [(0, {"graphics_id": "G1", "x": 11, "y": 12}),
+                              (1, {"graphics_id": "G1", "x": 22, "y": 20})]) == [(0, 1)]
+    assert len(subsequencias([({}, (10, 10), "G1"), ({}, (12, 12), "G1")],
+                             [(0, {"graphics_id": "G1", "x": 11, "y": 11})])) == 2
+    assert subsequencias([({}, (10, 10), "G2")],
+                         [(0, {"graphics_id": "G1", "x": 10, "y": 10})]) == []
+    # 12. e a checagem na camada da afirmacao: nenhum rotulo escrito por este
     #    script pode estar definido duas vezes no mesmo scripts.inc
     repetidos = rotulos_repetidos()
     assert not repetidos, (f"{len(repetidos)} rotulo(s) duplicado(s), o build "

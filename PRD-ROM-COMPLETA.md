@@ -286,6 +286,22 @@ Três frentes técnicas distintas, e **nenhuma é mais conversão de chão**:
 **Aceite:** mapa entra só se for **alcançável a pé** a partir de Pallet, provado
 por `valida_conectividade.py` e por caso de emulador para cada tipo novo.
 
+**Estado em 12/08, fim do dia: B1.a, B1.b e B1.c FEITOS** (44 mapas novos:
+16 interiores com mobília convertida da grade de permissão do Platinum, 8
+exteriores por passagem provisória, 20 salas sorteadas da Turnback Cave via
+`MAP_DYNAMIC` + `setdynamicwarp`; Sinnoh 72,7% → 80,1% de mapas, alcance a pé
+1563 → 1607, Battle Frontier de Sinnoh aberto com as 5 instalações mobiliadas).
+
+**B1.d (novo, 12/08): exteriores de matriz.** Os **98 mapas restantes de
+Sinnoh não são destino de warp de ninguém na fonte**: exterior de gen 4 se
+liga andando pela matriz, e a tradução GBA disso é o campo `connections`
+(vizinhança norte/sul/leste/oeste), não warp. Família do bloco: os 98 (medição
+de `abre_exteriores_folha_sinnoh.py`), a praça de 96x96 do Battle Frontier
+(hoje provisória de 13x9), e o caso-prova mais limpo é o par Fuego Ironworks
+(prédio e exterior apontam só um para o outro). Exige desenhar exterior de
+verdade (a grade do Platinum não guarda o cenário), então disputa a fila de
+arte com B12.d e as regiões novas.
+
 ### B2. NPCs e falas de Sinnoh
 
 559 mudos hoje, com a divisão medida:
@@ -382,14 +398,22 @@ Sinnoh na ROM, e nem todo interior precisa). Gen 1 a 9 estão habilitadas em
 nível e taxa da fonte; e a Pokédex de cada região é completável sem depender de
 troca, ou a exceção é nomeada.
 
-### B8. Curva de nível entre regiões
+### B8. Curva de nível 3 a 255 e distribuição das gerações 6 a 9
 
-Cinco regiões em ordem cronológica num save só: o nível dos treinadores de
-Sinnoh veio remapeado, o de Unova não necessariamente. `curva_de_nivel.py` mede
-e remapeia.
+**Redefinido pelo Gui em 12/08 (pergunta 15):** os ~1200 Pokémon e as mecânicas
+(mega, gmax etc.) ficam TODOS e viram conteúdo. Distribuir as gerações 6 a 9
+pelos encontros selvagens, treinadores, líderes de ginásio e Elite Four das
+cinco regiões. Curva de nível de **3 a 255** (medir primeiro se o expansion
+suporta teto 255: `MAX_LEVEL`, tabelas de EXP, e o que quebra acima de 100),
+subindo de forma monótona por região na ordem Kanto, Johto, Hoenn, Sinnoh,
+Unova. **É para ser difícil.** Míticos e lendários em líder de ginásio e Elite
+Four são permitidos e desejados. Roda DEPOIS de B4 e B7 fecharem as bases com a
+fidelidade à fonte (os times da fonte entram primeiro; a redistribuição
+gen 6-9 e o remapeamento de nível vêm por cima, como camada de dificuldade).
 
-**Aceite:** a curva sobe de forma monótona por região na ordem
-Kanto, Johto, Hoenn, Sinnoh, Unova, sem degrau que exija grind.
+**Aceite:** curva monótona 3→255 sem degrau que exija grind, gen 6 a 9
+aparecendo em selvagem e em treinador nas cinco regiões, e nenhuma espécie
+inalcançável na Pokédex sem exceção nomeada.
 
 ### B9. Sprite, arte e o que falta desenhar
 
@@ -453,11 +477,13 @@ reimportada**: reler o mesmo `.ablk` com a tabela honesta substitui o
 `blockdata` inteiro **sem mexer em warp, NPC, placa ou índice de mapa**. É o que
 torna B12 barato em risco e caro só em bytes.
 
-**B12.c Colisão e comportamento.** Hoje Unova só tem andável/bloqueado, o que
-implica que **não existe grama alta em Unova** e as 87 tabelas de encontro
-selvagem do B7 provavelmente nunca disparam. Confirmar isso é a primeira medição
-do bloco, e o resultado muda o aceite do B7. O dado de origem existe:
-`data/tilesets/*_collision.asm`, com os `COLL_*` da tabela acima.
+**B12.c Colisão e comportamento. FEITO em 12/08, e a hipótese estava errada:**
+grama alta já existia (5272 tiles em 39 mapas). O que silenciava encontros era o
+chão de caverna em `MB_NORMAL`, sem `TILE_FLAG_HAS_ENCOUNTERS`: 45 das 80
+tabelas de Unova nunca disparavam. O B12.b consertou (chão de caverna virou
+`MB_CAVE`, 62 de 80 mapas com tile de encontro andável); os 18 restantes usam
+tilesets sem piso de encontro (`Building+GenericBuilding` etc.) e só se
+resolvem no B12.a, cujos tilesets deles têm prioridade logo após as 4 cidades.
 
 **B12.d Interiores.** 138 mapas usam `Building + GenericBuilding` sem uma mesa
 sequer. Mesma técnica do conversor de mobília do B1.a de Sinnoh; se B1.a ficar
@@ -471,6 +497,21 @@ warp ou objeto deslocado (`guarda_save.py` verde, ou dentro da janela de hoje).
 **Ordem sugerida:** B12.b antes de B12.a se der, porque a tabela feita com
 tileset emprestado já melhora o mapa e prova o casamento sem gastar ROM.
 
+**Estado em 12/08, fim do dia: B12.b, B12.c e B12.a FEITOS** (57 tilesets
+convertidos, 46 na build, mediana de metatiles 3→30, 288/291 renders idênticos
+à fonte, 30 tilesets animados, +368,9 KB no total, tudo no placar B10).
+Pendências deliberadas: animação de PALETA (piscar de boca de caverna,
+tremular de água) fica de fora, mecanismo novo não se justifica; fase da
+rolagem pré-desenhada difere 1 px do gen 2 (comentário `ponytail:` no código);
+**ledges de Unova viram rampa andável (`MB_NORMAL`), sem pulo** (decisão de
+12/08: a conversão original fazia todo ledge virar parede, 244 quadrantes em
+40 mapas, Opelucid Gym e Dragonspiral 3F a 6F inalcançáveis; a semântica
+plena de gen 3 exigiria deslocar o `MB_JUMP_*` um tile na direção do pulo, e
+o caminho de upgrade está no cabeçalho de `tileset_gen2.py`);
+4 tintas aproximadas onde o gen 2 escolhe paleta por grupo de mapa
+(DragonspiralTowerOutside, entrada da Victory Road, aviões, ginásio de
+Humilau). Falta só o B12.d (interiores), que reusa o conversor do B1.a.
+
 ### B10. Orçamento: o que estourou
 
 Bloco de registro, não de execução. Toda vez que um bloco passar de qualquer
@@ -479,6 +520,134 @@ mais barato. **Nenhum agente corta sozinho.** No fim, o Gui decide.
 
 Já se sabe que vai apertar: 1,53 MB de ROM e 59 ids de treinador não pagam B1.a
 mais B4 completos.
+
+#### B12.a: os 57 tilesets de Unova (medido em 12/08/2026)
+
+**A ROM foi de 96,67% para 97,76% de 32 MB: +356,8 KB, e sobram 733 KB.** Não
+estourou. Os dois números saem do `pokeemerald.map` da build em worktree isolada
+(`arm-gnu-toolchain-15.2.rel1` em `~/toolchains`, `make -j10`, EXIT=0): endereço
+mais alto 0x09F48B5C, e a soma dos 184 símbolos `gTilesetTiles_Unova*`,
+`gTilesetPalettes_Unova*`, `gMetatiles_Unova*` e `gMetatileAttributes_Unova*` dá
+356,8 KB, o mesmo valor que a tabela abaixo previu antes de compilar.
+
+**A estimativa antiga do próprio PRD estava errada por uma
+ordem de grandeza.** A seção B12 prometia "90 a 190 KB por tileset"; o teto
+aritmético do formato é 512 tiles × 32 B + 512 metatiles × 16 B + 16 paletas ×
+32 B = **24,5 KB**, e o maior tileset de verdade dá **11,5 KB**. Os 46 tilesets
+que a build usa somam **356,8 KB**, contra ~1,06 MB livres.
+
+Os números abaixo são MEDIDOS, não estimados: o `tiles.png` passou pelo
+`tools/gbagfx` e pelo `tools/compresSmol` do próprio repo, que são os dois passos
+que o Makefile roda (`%.4bpp: %.png` e `%.fastSmol`). KB = tiles comprimidos +
+`metatiles.bin` + `metatile_attributes.bin` + as 16 paletas de 32 B. Reproduz com
+`python3 dev_scripts/tileset_gen2.py --medir --usados`.
+
+| mapas | tileset | metatiles | tiles | paletas | KB |
+|---|---|---|---|---|---|
+| 38 | house | 88 | 122 | 7 | 4,8 |
+| 26 | gate | 61 | 90 | 5 | 3,7 |
+| 25 | cave | 108 | 96 | 6 | 4,8 |
+| 19 | pokecenter | 93 | 167 | 7 | 6,1 |
+| 14 | traditional_house | 313 | 236 | 7 | 11,2 |
+| 12 | mansion | 97 | 185 | 6 | 6,2 |
+| 9 | game_corner | 267 | 233 | 7 | 10,1 |
+| 8 | mart | 110 | 185 | 7 | 6,0 |
+| 8 | unova_beach | 222 | 198 | 7 | 8,7 |
+| 7 | desert | 212 | 190 | 7 | 8,9 |
+| 7 | elite_four_room | 235 | 189 | 7 | 8,7 |
+| 7 | facility | 281 | 238 | 7 | 10,5 |
+| 7 | pkmn_league | **342** | 228 | 6 | **11,5** |
+| 7 | tower | 184 | 130 | 5 | 6,4 |
+| 7 | unova_east | 235 | 216 | 7 | 9,3 |
+| 6 | airport | 194 | 152 | 7 | 6,8 |
+| 6 | icirrus | 211 | 231 | 7 | 9,2 |
+| 6 | port | 119 | 147 | 7 | 5,5 |
+| 5 | battle_tower | 139 | 121 | 7 | 5,6 |
+| 5 | champions_room | 164 | 180 | 7 | 7,3 |
+| 5 | unova_west | 283 | 236 | 7 | 10,4 |
+| 4 | nacrene | 181 | 194 | 7 | 7,8 |
+| 4 | radio_tower | 136 | 177 | 7 | 6,6 |
+| 3 | castelia | 221 | 214 | 7 | 8,7 |
+| 3 | cave_ruins | 224 | 166 | 6 | 7,8 |
+| 3 | dreamyard | 206 | 163 | 5 | 8,0 |
+| 3 | forest | 140 | 146 | 7 | 6,4 |
+| 3 | lab | 175 | 208 | 6 | 7,9 |
+| 3 | mistralton | 210 | 244 | 7 | 9,1 |
+| 3 | nimbasa | 264 | 222 | 7 | 9,8 |
+| 3 | striaton | 259 | 242 | 7 | 10,2 |
+| 3 | train_station | 53 | 109 | 7 | 3,7 |
+| 3 | unova_north | 229 | 232 | 6 | 9,4 |
+| 2 | bridge | 209 | 199 | 7 | 8,0 |
+| 2 | ice_path | 143 | 171 | 6 | 7,4 |
+| 2 | lentimas | 123 | 144 | 7 | 5,8 |
+| 2 | opelucid | 287 | 235 | 7 | 10,8 |
+| 2 | players_house | 82 | 110 | 6 | 4,1 |
+| 2 | underground | 140 | 179 | 7 | 7,0 |
+| 1 | battle_tower_outside | 238 | 230 | 7 | 9,3 |
+| 1 | complex | 192 | 188 | 6 | 7,2 |
+| 1 | driftveil | 265 | **246** | 7 | 10,8 |
+| 1 | park | 121 | 144 | 7 | 5,7 |
+| 1 | players_room | 55 | 102 | 7 | 3,9 |
+| 1 | village_bridge | 306 | 186 | 7 | 9,8 |
+| 1 | virbank | 266 | 244 | 7 | 9,8 |
+| **291** | **46 na build** | máx 342 | máx 246 | máx 7 | **356,8** |
+
+Nenhum passa dos tetos de `fieldmap.h` (512 metatiles, 512 tiles, 7 paletas para
+o secundário). Os piores são `pkmn_league` (342 metatiles, 67% do teto) e
+`driftveil` (246 tiles, 48%).
+
+**Fora da build, convertidos e guardados (50,9 KB, entrada comentada com o
+motivo em `graphics.h`, `metatiles.h`, `headers.h` e `include/tilesets.h`):**
+`johto` (8,4), `johto_modern` (8,0), `pokecom_center` (7,0), `kanto` (5,2),
+`lighthouse` (3,9), `beta_word_room` (3,3), `ho_oh_word_room` (3,1),
+`aerodactyl_word_room` (3,0), `omanyte_word_room` (3,0), `kabuto_word_room`
+(3,0), `ruins_of_alph` (2,9). Motivo, o mesmo para os onze: **nenhum dos 291
+mapas de Unova os usa** (medido em `maps.asm` do BW3G). Não foram apagados.
+
+O 58º, `unused_dark_cave`, **não dá para converter**: tem bloco e colisão na
+fonte e nenhum PNG (`gfx/tilesets/unused_dark_cave.png` não existe). Zero mapas
+o usam.
+
+**Nenhum corte foi decidido.** Se algum bloco posterior precisar dos 356,8 KB, o
+corte mais barato é desligar os tilesets de 1 mapa só (`virbank`,
+`village_bridge`, `players_room`, `park`, `driftveil`, `complex`,
+`battle_tower_outside`: 56,5 KB nos sete, e cada mapa volta ao tileset
+emprestado com uma linha no `layouts.json`). Quem decide é o Gui.
+
+#### B12.a, parte 2: a animação de tileset (medido em 12/08/2026)
+
+**Custou 12,1 KB e levou a ROM de 97,76% para 97,80% de 32 MB; sobram 721 KB.**
+Medido do mesmo jeito, comparando o topo do `pokeemerald.map` das duas builds em
+worktree isolada (0x09F48B5C → 0x09F4BB9C). Os 12,1 KB são 8,4 KB de quadros de
+gráfico mais os vetores de ponteiro, as 30 tabelas por tileset e o código do
+interpretador.
+
+| medida | valor |
+|---|---|
+| tilesets animados | **30 de 46** (os outros 16 não têm animação na fonte) |
+| tiles animados | **167** |
+| conjuntos de quadros | **44** distintos, 268 PNGs, 8,4 KB |
+| custo total na ROM | **12,1 KB** |
+
+Os quadros são **compartilhados**: os 4 x 11 do redemoinho servem 20 tilesets, os
+6 x 5 da fonte de Castelia servem Castelia e a Battle Tower, e é por isso que 167
+tiles animados cabem em 44 conjuntos. Animação cuja origem não sobreviveu à
+deduplicação (nenhum bloco daquele tileset usa aquele tile) é **descartada**: é
+o que impede a ROM de pagar quadro de água em tileset sem água, e foi o que
+deixou `ice_path` sem animação nenhuma.
+
+**Fica de fora, e é decisão, não esquecimento:** `FlickeringCaveEntrancePalette`
+e `AnimateWaterPalette` do BW3G são animação de PALETA, não de tile. Precisariam
+de um segundo mecanismo (o `BlendAnimPalette_BattleDome_*` do pokeemerald) e
+valem um piscar na boca de caverna. Também fica de fora o `TilesetEliteFourRoom2`
+(fogo do Grimsley e as luzes), porque no nosso repo ele é apelido de
+`elite_four_room` e não existe tileset separado para animar.
+
+Custo de CPU, que era o risco apontado: `TilesetAnim_Unova` só enfileira a
+animação de índice `timer % 16`, ou seja **no máximo uma transferência de 32
+bytes por quadro**, exatamente o ritmo do gen 2, onde cada linha da tabela também
+rodava num quadro só. O tileset com mais animação é o `airport`, com os 16 tiles
+de céu.
 
 ### B11. Jogar do começo ao fim
 
@@ -538,12 +707,14 @@ Não são perguntas de execução; são escolhas que mudam o jogo.
    partida nova na ROM de hoje; nada de `MAP_SCRIPT_ON_TRANSITION`.
 5. **Os ~15 exteriores folha de Sinnoh.** Entram como sala vazia agora, ou
    esperam o conversor de mobília?
-6. **Quanto de Unova desenhar (B12).** Converter os 60 tilesets do BW3G é o
-   maior gasto de ROM do projeto inteiro, e sozinho pode dobrar o estouro. Ele
-   já disse "fazer tudo"; o que fica em aberto é a **ordem**, ou seja, quais
-   cidades ganham arte primeiro se o corte vier depois. Sugestão: Castelia,
-   Nimbasa, Driftveil e Opelucid, que são as que ficam mais absurdas com tijolo
-   de Petalburg.
+6. ~~**Quanto de Unova desenhar (B12).**~~ **RESOLVIDO em 12/08 (pergunta 14):
+   converter os 58 tilesets, todos.** O Gui quer a opção construída, mesmo que
+   parte fique fora da build. Ordem: Castelia, Nimbasa, Driftveil, Opelucid
+   primeiro, depois os únicos sem equivalente na ROM (Dragonspiral, Chargestone,
+   deserto, pontes), depois os genéricos. Cada leva entra com custo medido no
+   B10; o que não couber fica no repo fora da build, nunca apagado. O blockdata
+   honesto (B12.b) garante que mapa sem tileset próprio continua jogável com
+   arte emprestada, então nenhum corte tira jogabilidade, só identidade visual.
 
 ---
 
@@ -608,6 +779,10 @@ motivo. Quem acrescentar item aqui, escreva o porquê na mesma linha.
 | Storage Key de Veilstone reusando o item de Hoenn | mesmo nome, mesmo bolso, mesma função, e economiza um item |
 | Passagem provisória dos três exteriores de Sinnoh | destravam masmorra convertida de verdade; saem quando B1.a existir |
 | Ausência de Elite dos Quatro de Johto | a liga de gen 2 é o mesmo Planalto Índigo de Kanto; quem libera Hoenn é a oitava insígnia |
+| Escalas de líder do hns (`CHUCK_1_2/1_3`, `PRYCE_*`, `JASMINE_*`) e os 9 ramos de rival por inicial de Johto | decisão de 12/08 (B4): feature do hns/escolha de inicial que esta ROM não tem; um ramo só (`RIVAL_SILVER_1..4`). Reabre se os iniciais de Johto virarem escolhíveis |
+| PHILLIP da Pirâmide de Batalha de Hoenn | o expansion sorteia o adversário por `facilitytrainerbattle`; o nome fixo não existe mais no motor |
+| Praça do Battle Frontier de Sinnoh em planta provisória de 13x9 (fonte: 96x96) | decisão de 12/08: instalação aberta vale mais que praça bonita; as 5 instalações e a Battle Tower entraram com mobília real, e a praça de verdade fica na fila de arte |
+| `UNION_ROOM` de Sinnoh fora da ROM | decisão 17 (12/08): sistemas de link não existem; reabre se link entrar |
 
 ---
 
@@ -657,3 +832,63 @@ peso muda o tamanho de todos os outros blocos.
 é dele. Se a entrega de hoje sair, o `guarda_save.py --gravar` sobre ela é
 irreversível na prática: congela a impressão que rege todas as edições futuras.
 Não deixe isso acontecer por acidente no fim de um bloco.
+
+---
+
+## 11. Pesquisa: reuso de assets e economia de ROM (12/08/2026)
+
+Pedida pelo Gui em 12/08 como exploração, não implementação. Medida por dois
+agentes na árvore desta data; remedir com `dev_scripts/orcamento_rom.py`
+(`--consumo`, `--especies`, `--duplicado`, `--demo`). ROM a 96,68%, ~1,06 MB
+livre. Os 31,2 MB mapeados: cries 27,8%, sprites de Pokémon 7,4%, layouts 8,4%,
+código 7,0%, tilesets 6,3%, scripts e texto 5,6%, ícones 4,3%.
+
+### Onde TEM dinheiro (confiança alta, nada depende da janela de save)
+
+| oportunidade | KB | esforço | observação |
+|---|---|---|---|
+| ~~Desligar `P_GEN_6..9_POKEMON`~~ | ~~5878~~ | **VETADO pelo Gui em 12/08 (pergunta 15)**: as gerações 6 a 9 ficam e viram conteúdo (ver B8). A medição fica registrada porque prova que hoje nada as usa, o que o B8 vai mudar |
+| ~~Desligar mega/primal/gmax/fusão~~ | ~~841~~ | **VETADO idem**: mecânicas serão usadas (B8) |
+| Comprimir ícones de Pokémon | 673 (pós corte acima) | médio/alto | hoje crus; `CreateMonIcon` lê ponteiro direto da ROM, exige mudar o carregamento |
+| Vagas vazias de treinador por indireção | 485 | médio | teto 4000 fica (flags não deslizam, save-neutro); `u16 indice[4000]` de 8 KB torna `gTrainers`/`sTrainerSlides` esparsos; ids usados são densos até 2440 |
+| Comprimir sprites de overworld crus | 330 | médio | `ObjectEventGraphicsInfo.compressed` já existe no motor |
+| Duplicatas byte a byte (paletas, .smol, pegadas) | 155 | médio | 1067 cópias de paleta zerada de 32 B etc. |
+
+Soma das seis: **~8,4 MB**. Só as quatro primeiras: 7,9 MB. Isso paga a fila de
+arte de Unova inteira (5 a 11 MB estimados; medição real por tileset no B10).
+
+### Onde NÃO tem dinheiro (medido, para ninguém procurar de novo)
+
+- **Deduplicação de blockdata entre regiões: 53 KB** (2,4% dos 2,2 MB), 39
+  grupos triviais; o reuso grande já foi feito (um layout de casa serve 83
+  mapas). Não paga a passada.
+- **Texto duplicado: 50 KB**; o compilador já deduplica por hash
+  (`.rodata.compound_string`), só sobra duplicata em script `.inc`.
+- **Metatiles (879 KB) e fontes (422 KB) descomprimidos**: o motor lê direto da
+  ROM, sem buffer; comprimir exigiria RAM que a EWRAM (85,6%) não tem.
+- **Battle Frontier NÃO é dado morto**: o SS Tidal chega lá e Hoenn é 100%.
+  Cortar seria decisão de conteúdo do Gui (485 KB), não faxina.
+- Confiança baixa, investigar só se precisar: fontes japonesas (172 KB),
+  `bard_music` de Mauville (162 KB).
+
+---
+
+## 12. Regiões novas: Kalos, Alola, Galar, Paldea (12/08/2026)
+
+Decisões do Gui nas perguntas 16 ("tudo"): cada geração tem **sessão própria de
+região completa** (dados E demake de mapas), fora desta sessão condutora.
+Fronteira: as sessões constroem em staging (`fontes-mapas/<gen>/regiao/`, no
+formato do expansion) e **não editam este repo**; a integração é da condutora,
+em levas, quando uma cidade/rota é declarada pronta.
+
+Estado de fonte, medido em 12/08:
+
+| gen | região | dados | mapas |
+|---|---|---|---|
+| 6 | Kalos | extraídos e provados (`fontes-mapas/kalos-xy/`: 785 times com golpes, 53 zonas de encontro, 35 mil linhas EN) | **não existem em 2D**; demake manual |
+| 7 | Alola | extraíveis (`fontes-mapas/alola-usum/`: 53 mil linhas EN extraídas, times mapeados, datamine público anotado no README) | **não existem em 2D** (380 mapas 3D); demake manual |
+| 8 | Galar | datamine público | **candidato real**: demake GBA fan-made sobre FireRed com Galar de verdade (`fontes-mapas/galar-swsh/`), extração de ROM compilada a investigar |
+| 9 | Paldea | aguarda dump do cartucho do Gui | demake "Scarlet/Violet/Indigo" é cosmético (provado); sem fonte |
+
+Infra desta condutora que as regiões novas usam: teto de grupos de mapa
+alargado para 255 (12/08, provado em emulador), +2048 flags, +256 vars.
