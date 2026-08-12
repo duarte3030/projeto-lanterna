@@ -46,3 +46,22 @@ PastoriaCityMart_EventScript_Placa3::
 
 PastoriaCityMart_Text_Placa3:
 	.string "It's a wood carving of the Pokémon\nCROAGUNK.\pEven though it's made of wood, it\nlooks like it's seeping poison...$"
+
+@ Lojas de Sinnoh portadas do pokeplatinum (dev_scripts/mudos_sinnoh.py --lojas-aplica)
+
+@ loja_especial do Platinum (MART_SPECIALTIES_ID_PASTORIA), tabela de include/data/mart_items.h
+PastoriaCityMart_EventScript_Loja1::
+	lock
+	faceplayer
+	msgbox PastoriaCityMart_Text_Caixa, MSGBOX_DEFAULT
+	pokemart PastoriaCityMart_Pokemart_Loja1
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+PastoriaCityMart_Pokemart_Loja1:
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_QUICK_BALL
+	pokemartlistend

@@ -24,3 +24,13 @@ EternaCityPokecenter1F_EventScript_Npc2::
 
 EternaCityPokecenter1F_Text_Npc2:
 	.string "When a Pokémon faints, it just means\nit doesn't have the power to battle.\pBut it can still use hidden moves\noutside of battle!$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+EternaCityPokecenter1F_EventScript_Npc3::
+	bufferleadmonspeciesname STR_VAR_1
+	msgbox EternaCityPokecenter1F_Text_Npc3, MSGBOX_NPC
+	end
+
+EternaCityPokecenter1F_Text_Npc3:
+	.string "Hi, you cute little Trainer!\nWhat kinds of Pokémon are with you?\pOh, your {STR_VAR_1}...$"

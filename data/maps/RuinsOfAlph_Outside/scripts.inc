@@ -74,3 +74,56 @@ RuinsOfAlph_Outside_Text_ResearchSign::
 	.string "RUINS OF ALPH RESEARCH CENTER\p"
 	.string "THE AUTHORITY ON THE\n"
 	.string "RUINS OF ALPH$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+RuinsOfAlph_Outside_EventScript_Youngster1::
+	lock
+	faceplayer
+	msgbox RuinsOfAlph_Outside_Text_Youngster1, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+RuinsOfAlph_Outside_Text_Youngster1::
+	.string "There are many kinds of UNOWN, so\n"
+	.string "we use them for our secret codes.$"
+
+RuinsOfAlph_Outside_EventScript_Fisher1::
+	lock
+	faceplayer
+	msgbox RuinsOfAlph_Outside_Text_Fisher1, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+RuinsOfAlph_Outside_Text_Fisher1::
+	.string "While exploring the RUINS, we\n"
+	.string "suddenly noticed an odd presence.\p"
+	.string "We all got scared and ran away.\n"
+	.string "You should be careful too.$"
+
+RuinsOfAlph_Outside_EventScript_Fisher2::
+	lock
+	faceplayer
+	msgbox RuinsOfAlph_Outside_Text_Fisher2, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+RuinsOfAlph_Outside_Text_Fisher2::
+	.string "The RUINS hide a huge secret!\p"
+	.string "…I think…$"
+
+RuinsOfAlph_Outside_EventScript_Youngster2::
+	lock
+	faceplayer
+	msgbox RuinsOfAlph_Outside_Text_Youngster2, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+RuinsOfAlph_Outside_Text_Youngster2::
+	.string "A… H… E… A… D… Hmm…\p"
+	.string "What?\p"
+	.string "I'm decoding this message!$"

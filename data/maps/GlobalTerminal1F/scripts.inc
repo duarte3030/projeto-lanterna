@@ -156,3 +156,13 @@ GlobalTerminal1F_EventScript_Placa19::
 
 GlobalTerminal1F_Text_Placa19:
 	.string "The green panel leads to the studios\nfor Box Data and Dress-Up Data on 2F.\pThe pink panel leads to the Battle\nVideo Gallery on 3F.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+GlobalTerminal1F_EventScript_Npc14::
+	bufferleadmonspeciesname STR_VAR_1
+	msgbox GlobalTerminal1F_Text_Npc14, MSGBOX_NPC
+	end
+
+GlobalTerminal1F_Text_Npc14:
+	.string "Your favorite is {STR_VAR_1},\nisn't it?$"

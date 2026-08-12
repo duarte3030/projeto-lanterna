@@ -20,26 +20,9 @@ OreburghCity_Mart_Pokemart:
 	.2byte ITEM_AWAKENING
 	pokemartlistend
 
-OreburghCity_Mart_EventScript_Hiker::
-	msgbox OreburghCity_Mart_Text_Hiker, MSGBOX_NPC
-	end
-
-OreburghCity_Mart_EventScript_Collector::
-	msgbox OreburghCity_Mart_Text_Collector, MSGBOX_NPC
-	end
-
 OreburghCity_Mart_Text_Cashier:
 	.string "Welcome! Take a look around, we've\n"
 	.string "got everything a TRAINER needs.$"
-
-OreburghCity_Mart_Text_Hiker:
-	.string "The OREBURGH MINE is right nearby.\n"
-	.string "I always stock up here before I go in.$"
-
-OreburghCity_Mart_Text_Collector:
-	.string "I collect rare items from all over\n"
-	.string "SINNOH. This MART always has something\l"
-	.string "new for my collection.$"
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
@@ -56,3 +39,21 @@ OreburghCity_Mart_EventScript_Npc2::
 
 OreburghCity_Mart_Text_Npc2:
 	.string "The Poké Mart is staffed by a lady and\na young fellow.\pThey offer different kinds of\nmerchandise. Did you know?$"
+
+@ Lojas de Sinnoh portadas do pokeplatinum (dev_scripts/mudos_sinnoh.py --lojas-aplica)
+
+@ loja_especial do Platinum (MART_SPECIALTIES_ID_OREBURGH), tabela de include/data/mart_items.h
+OreburghCity_Mart_EventScript_Loja1::
+	lock
+	faceplayer
+	msgbox OreburghCity_Mart_Text_Cashier, MSGBOX_DEFAULT
+	pokemart OreburghCity_Mart_Pokemart_Loja1
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+OreburghCity_Mart_Pokemart_Loja1:
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_NET_BALL
+	pokemartlistend

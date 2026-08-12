@@ -171,3 +171,35 @@ Route32_Text_Sign2::
 Route32_Text_Sign3::
 	.string "UNION CAVE\n"
 	.string "AHEAD$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+Route32_Text_CooltrainerM_Experiences::
+	.string "Your experiences in VIOLET CITY\n"
+	.string "should be useful for your journey.$"
+
+Route32_EventScript_BaldingManFala::
+	msgbox Route32_Text_CooltrainerM_Experiences, MSGBOX_NPC
+	end
+
+Route32_Text_SlowpokeTailOffer::
+	.string "How would you like to have this\n"
+	.string "tasty, nutritious SLOWPOKETAIL?\p"
+	.string "For you right now, just\n"
+	.string "¥1,000,000!\p"
+	.string "You'll want this!$"
+
+Route32_EventScript_SlowpokeTailFala::
+	msgbox Route32_Text_SlowpokeTailOffer, MSGBOX_NPC
+	end
+
+VioletCity_EventScript_LiquidJustice::
+	msgbox VioletCity_Text_LiquidJustice, MSGBOX_NPC
+	end
+
+VioletCity_Text_LiquidJustice::
+	.string "Look around!\p"
+	.string "It's easy to see what POKéMON\n"
+	.string "you can catch in an area without\l"
+	.string "having to run around in tall\l"
+	.string "grass all day!$"

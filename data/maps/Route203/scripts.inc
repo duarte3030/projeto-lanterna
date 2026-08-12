@@ -4,55 +4,6 @@
 Route203_MapScripts::
 	.byte 0
 
-Route203_EventScript_Lass::
-	msgbox Route203_Text_Lass, MSGBOX_NPC
-	end
-
-Route203_EventScript_Sebastian::
-	lock
-	faceplayer
-	msgbox Route203_Text_Sebastian, MSGBOX_DEFAULT
-	release
-	end
-
-Route203_EventScript_Michael::
-	lock
-	faceplayer
-	msgbox Route203_Text_Michael, MSGBOX_DEFAULT
-	release
-	end
-
-Route203_EventScript_Kaitlin::
-	msgbox Route203_Text_Kaitlin, MSGBOX_NPC
-	end
-
-Route203_EventScript_Dallas::
-	lock
-	faceplayer
-	msgbox Route203_Text_Dallas, MSGBOX_DEFAULT
-	release
-	end
-
-Route203_Text_Lass:
-	.string "OREBURGH CITY is west of here.\n"
-	.string "They say the GYM there is tough.$"
-
-Route203_Text_Sebastian:
-	.string "JUBILIFE CITY was amazing! So\n"
-	.string "many people and POKéMON!$"
-
-Route203_Text_Michael:
-	.string "I like to walk through the tall\n"
-	.string "grass looking for wild POKéMON.$"
-
-Route203_Text_Kaitlin:
-	.string "I got lost wandering around this\n"
-	.string "route. It's bigger than it looks!$"
-
-Route203_Text_Dallas:
-	.string "The OREBURGH GATE is just ahead.\n"
-	.string "It leads straight to the mine.$"
-
 Route203_EventScript_Trainer1::
 	trainerbattle_single TRAINER_SINNOH_YOUNGSTER_SEBASTIAN, Route203_Text_Trainer1Intro, Route203_Text_Trainer1Defeat
 	msgbox Route203_Text_Trainer1Post, MSGBOX_AUTOCLOSE

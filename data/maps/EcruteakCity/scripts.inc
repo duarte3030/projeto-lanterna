@@ -60,3 +60,91 @@ EcruteakCity_Text_Sign::
 	.string "ECRUTEAK CITY\n"
 	.string "A Historical City\p"
 	.string "Where the Past Meets the Present$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+EcruteakCity_EventScript_Lass::
+	lock
+	faceplayer
+	msgbox EcruteakCity_Text_Lass1, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+EcruteakCity_Text_Lass1::
+	.string "I'm going to practice at the DANCE\n"
+	.string "THEATER. Care to join me?$"
+
+EcruteakCity_EventScript_SageRight::
+	lock
+	faceplayer
+	msgbox EcruteakCity_Text_Gramps2, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+EcruteakCity_Text_Gramps2::
+	.string "Ah, child. Have you learned to\n"
+	.string "dance like the KIMONO GIRLS?\p"
+	.string "If you go to their DANCE THEATER,\n"
+	.string "an odd old man will give you\l"
+	.string "something nice, I hear.$"
+
+EcruteakCity_EventScript_Gramps::
+	lock
+	faceplayer
+	msgbox EcruteakCity_Text_Gramps1, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+EcruteakCity_Text_Gramps1::
+	.string "ECRUTEAK used to have two towers:\n"
+	.string "one each in the east and west.$"
+
+EcruteakCity_EventScript_SageTower::
+	lock
+	faceplayer
+	msgbox EcruteakCity_Text_Gramps3, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+EcruteakCity_Text_Gramps3::
+	.string "In the distant past…\p"
+	.string "This tower burned in a fire. Three\n"
+	.string "nameless POKéMON perished in it.\p"
+	.string "A rainbow-colored POKéMON descended\n"
+	.string "from the sky and resurrected them…\p"
+	.string "It's a legend that has been passed\n"
+	.string "down by ECRUTEAK GYM LEADERS.\p"
+	.string "Me?\p"
+	.string "I was a trainer way back when.\n"
+	.string "Hohoho!$"
+
+EcruteakCity_EventScript_Youngster::
+	lock
+	faceplayer
+	msgbox EcruteakCity_Text_Youngster, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+EcruteakCity_Text_Youngster::
+	.string "I hear POKéMON are rampaging at the\n"
+	.string "LAKE OF RAGE. I'd like to see that.$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+EcruteakCity_EventScript_SageGym::
+	lock
+	faceplayer
+	msgbox EcruteakCity_Text_SageGym, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+EcruteakCity_Text_SageGym::
+	.string "Gym Leader MORTY is not here right\n"
+	.string "now. You may find him at the\l"
+	.string "BURNED TOWER.$"

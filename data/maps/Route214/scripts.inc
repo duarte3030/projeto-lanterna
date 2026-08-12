@@ -1,45 +1,9 @@
 Route214_MapScripts::
 	.byte 0
 
-Route214_EventScript_RichBoy::
-	msgbox Route214_Text_RichBoy, MSGBOX_NPC
-	end
-
-Route214_EventScript_Collector::
-	msgbox Route214_Text_Collector, MSGBOX_NPC
-	end
-
-Route214_EventScript_Hiker::
-	msgbox Route214_Text_Hiker, MSGBOX_NPC
-	end
-
-Route214_EventScript_Psychic::
-	msgbox Route214_Text_Psychic, MSGBOX_NPC
-	end
-
 Route214_EventScript_LakeValorSign::
 	msgbox Route214_Text_LakeValorSign, MSGBOX_SIGN
 	end
-
-Route214_Text_RichBoy:
-	.string "My family has a cabin near here.\n"
-	.string "I like to come train where nobody\l"
-	.string "can bother me.$"
-
-Route214_Text_Collector:
-	.string "The gravel along this route hides\n"
-	.string "all sorts of little treasures, if\l"
-	.string "you know where to dig.$"
-
-Route214_Text_Hiker:
-	.string "This path connects VEILSTONE to the\n"
-	.string "lake. It's steep in places, so watch\l"
-	.string "your footing.$"
-
-Route214_Text_Psychic:
-	.string "I can feel the POKéMON around here\n"
-	.string "getting restless. A storm might be\l"
-	.string "coming.$"
 
 Route214_Text_LakeValorSign:
 	.string "LAKE VALOR\n"

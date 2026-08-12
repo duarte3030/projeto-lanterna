@@ -29,14 +29,14 @@ VeilstoneStoreB1F_EventScript_Npc1::
 	end
 
 VeilstoneStoreB1F_Text_Npc1:
-	.string "Hello, there.\pWould you like some Lava Cookies?\nThey're $200 each.$"
+	.string "Hello, there.\pWould you like some Lava Cookies?\nThey're ¥200 each.$"
 
 VeilstoneStoreB1F_EventScript_Npc2::
 	msgbox VeilstoneStoreB1F_Text_Npc2, MSGBOX_NPC
 	end
 
 VeilstoneStoreB1F_Text_Npc2:
-	.string "Hello!\nI sell Poffins.\pThe ones I sell go for $6,400 each.\nWould you like one?$"
+	.string "Hello!\nI sell Poffins.\pThe ones I sell go for ¥6,400 each.\nWould you like one?$"
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
@@ -88,3 +88,24 @@ VeilstoneStoreB1F_EventScript_Placa7::
 
 VeilstoneStoreB1F_Text_Placa7:
 	.string "B1F: Food & Produce\p1F: Trainers' Zone\p2F: Battle Collection\p3F: TM Corner\p4F: Poké Dolls & Goods\p5F: Rooftop Plaza$"
+
+@ Lojas de Sinnoh portadas do pokeplatinum (dev_scripts/mudos_sinnoh.py --lojas-aplica)
+
+@ loja_especial do Platinum (MART_SPECIALTIES_ID_VEILSTONE_B1F), tabela de include/data/mart_items.h
+VeilstoneStoreB1F_EventScript_Loja1::
+	lock
+	faceplayer
+	msgbox VeilstoneStoreB1F_Text_Caixa, MSGBOX_DEFAULT
+	pokemart VeilstoneStoreB1F_Pokemart_Loja1
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+VeilstoneStoreB1F_Pokemart_Loja1:
+	.2byte ITEM_FIGY_BERRY
+	.2byte ITEM_WIKI_BERRY
+	.2byte ITEM_MAGO_BERRY
+	.2byte ITEM_AGUAV_BERRY
+	.2byte ITEM_IAPAPA_BERRY
+	pokemartlistend

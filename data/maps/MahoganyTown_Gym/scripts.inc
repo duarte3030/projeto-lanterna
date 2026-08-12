@@ -189,3 +189,16 @@ MahoganyTown_Gym_Text_StatueCertified:
 	.string "MAHOGANY TOWN POKéMON GYM\p"
 	.string "PRYCE'S CERTIFIED TRAINERS:\n"
 	.string "{PLAYER}$"
+
+@ >>> B6 Johto: Pokémon de enfeite do ginásio (porta_cenas_johto.py) >>>
+
+MahoganyTown_Gym_EventScript_GritoDelibird::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_DELIBIRD, CRY_MODE_NORMAL
+	waitmoncry
+	release
+	end
+
+@ <<< B6 Johto: Pokémon de enfeite do ginásio <<<

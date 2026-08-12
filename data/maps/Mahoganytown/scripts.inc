@@ -36,3 +36,33 @@ MahoganyTown_Text_RagecandybarSign::
 MahoganyTown_Text_Sign::
     .string "MAHOGANY TOWN\p"
     .string "Welcome to the Home of the Ninja$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+MahoganyTown_EventScript_Lass::
+	lock
+	faceplayer
+	msgbox MahoganyTown_Text_Lass, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+MahoganyTown_Text_Lass::
+    .string "Visit Grandma's shop. She sells\n"
+    .string "stuff that nobody else has.$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+MahoganyTown_EventScript_Fisher::
+	lock
+	faceplayer
+	msgbox MahoganyTown_Text_Fisher, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+MahoganyTown_Text_Fisher::
+    .string "Since you came this far, take the\n"
+    .string "time to do some sightseeing.\p"
+    .string "You should head north and check\n"
+    .string "out LAKE OF RAGE right now.$"

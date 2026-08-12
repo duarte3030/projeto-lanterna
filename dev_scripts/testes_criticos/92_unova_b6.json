@@ -1,0 +1,192 @@
+[
+ {
+  "id": "T92.1",
+  "nome": "Unova, bloco B6: com os TRES interruptores de Striaton apertados, a escada em (6,3)/(7,3) abre e o LIDER DE GINASIO CILAN passa a ver o jogador. Medido em 12/08/2026 no map.bin do disco: `changeblock 6, 2, $6a` da fonte cobre quatro metatiles nossos e os DOIS DE BAIXO, (6,3) e (7,3), estavam com o metatile 670, colisao 1. Na grade de colisao deste ginasio a linha 3 so tem aberto o 3, o 11 e o 12, e (4,1) e (4,2) sao parede: a camara do CILAN, o retangulo (5..8, 1..2), NAO TEM outra ligacao com o resto do mapa. Ou seja, sem os interruptores o lider e a insignia de Striaton eram inalcancaveis a pe. A prova e `oponente` e nao `mapa` porque tudo acontece dentro do mesmo mapa. O gatilho da batalha e o raio de visao 4 do proprio CILAN (TRAINER_TYPE_NORMAL, virado para baixo), e ele so alcanca o jogador com a escada aberta: src/trainer_see.c, CheckPathBetweenTrainerAndPlayer devolve 0 assim que encontra colisao no caminho. ROTEIRO: warp 0 do ginasio cai em (6,17); doze UP sobem a coluna 6 ate (6,7) e a parede em (6,6) absorve o excedente; os dois LEFT sao um para virar e um para andar ate (5,7) (virar custa tecla, ESTADO 06/08/2026); os seis UP sobem a coluna 5 ate (5,4) com a parede em (5,3) absorvendo o resto; os dois RIGHT levam a (6,4), de onde a visao do CILAN alcanca. Os UP vao um a um: 20:UP*12 NAO e a mesma coisa, o *N repete quadros dentro do mesmo passo.",
+  "flags": [
+   "FLAG_UNOVA_STRIATON_CHAVE_1",
+   "FLAG_UNOVA_STRIATON_CHAVE_2",
+   "FLAG_UNOVA_STRIATON_CHAVE_3"
+  ],
+  "warp": "MAP_UNOVA_STRIATON_GYM",
+  "roteiro": "120:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,120:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_STRIATON_GYM",
+   "oponente": "TRAINER_UNOVA_LEADER_CILAN",
+   "andou": true
+  }
+ },
+ {
+  "id": "T92.2",
+  "nome": "Unova, bloco B6: o MESMO roteiro do T92.1 SEM as tres flags de interruptor para em (6,4) e nenhuma batalha comeca. E o par negativo obrigatorio: sem ele o T92.1 passaria igual com a escada aberta desde sempre, e a unica coisa provada seria que o CILAN existe. `oponente` igual a 0 e o valor de gTrainerBattleParameter quando nenhuma batalha foi configurada. Este caso tambem e a contraprova do comentario do B5 que dizia que a escada JA estava aberta: se estivesse, este caso reprovaria com o id do CILAN.",
+  "warp": "MAP_UNOVA_STRIATON_GYM",
+  "roteiro": "120:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,120:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_STRIATON_GYM",
+   "oponente": 0,
+   "andou": true
+  }
+ },
+ {
+  "id": "T92.3",
+  "nome": "Unova, bloco B6: a lata de (13,17) do ginasio de Striaton e um dos tres interruptores, e apertar ela acende SO a chave 2. Prova que os tres bits sao independentes de verdade, que e o motivo de serem tres flags e nao um contador em var: a fonte (StriatonGymCanSwitch, StriatonGymTableSwitch e StriatonGymBartender2Script) deixa apertar em qualquer ordem e cada uma so abre a escada se as OUTRAS DUAS ja estiverem acesas. ROTEIRO: de (6,17), nove RIGHT andam ate (12,17) com a parede em (13,17), que e a propria lata, absorvendo o excedente; o A le a lata e os A seguintes rolam a caixa de texto.",
+  "warp": "MAP_UNOVA_STRIATON_GYM",
+  "roteiro": "120:NADA,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,180:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_STRIATON_GYM",
+   "flags_acesas": [
+    "FLAG_UNOVA_STRIATON_CHAVE_2"
+   ],
+   "flags_apagadas": [
+    "FLAG_UNOVA_STRIATON_CHAVE_1",
+    "FLAG_UNOVA_STRIATON_CHAVE_3"
+   ]
+  }
+ },
+ {
+  "id": "T92.4",
+  "nome": "Unova, bloco B6: o SELO da entrada da Liga. Ao subir da PkmnLeagueEntrance, a cena de `.PkmnLeagueEnter` sobe o jogador seis passos, treme a tela e fecha (13,15) e (14,15), que sao os dois unicos tiles que ligam o salao da Elite dos Quatro ao corredor de saida (medido na grade: a linha 15 so tem aberto 4, 13, 14 e 23, e as colunas 4 e 23 nao chegam na linha 20). FLAG_UNOVA_LIGA_PORTAO entra acesa porque e ela que a PkmnLeagueEntrance acende no ON_TRANSITION: e o porteiro que diz 'este jogador veio DE BAIXO', o equivalente do `setmapscene PKMN_LEAGUE_MAIN, SCENE_ELITE_FOUR_ROOM_ENTER` da fonte. Sem ela a cena rodaria tambem quando o jogador volta de uma sala da Elite e o applymovement de seis passos para o norte o jogaria para fora do mapa. A prova de que a cena rodou e a flag ter sido APAGADA (quem apaga e o proprio script) mais o jogador continuar na PkmnLeagueMain depois de doze DOWN: com o selo fechado ele para em (13,14) e nao volta para a entrada. ATENCAO ao rodar: este caso e o par positivo do T92.6; os dois tem que rodar juntos ou nenhum dos dois prova nada.",
+  "flags": [
+   "FLAG_UNOVA_LIGA_PORTAO"
+  ],
+  "warp": "MAP_UNOVA_PKMN_LEAGUE_MAIN",
+  "roteiro": "240:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,180:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_PKMN_LEAGUE_MAIN",
+   "flags_apagadas": [
+    "FLAG_UNOVA_LIGA_PORTAO"
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T92.5",
+  "nome": "Unova, bloco B6: o selo tambem e REAPLICADO em toda carga de mapa que nao seja a de entrada, que e o que faz ele continuar la depois de o jogador entrar e sair de uma sala da Elite (`.SetTiles` da fonte). Aqui o jogador entra na PkmnLeagueMain SEM FLAG_UNOVA_LIGA_PORTAO, ou seja como quem volta de uma sala da Elite, e tenta subir do corredor de baixo ate a porta do COLRESS em (6,9): ele para em (13,16) ou (14,16), abaixo do selo, e nao chega em sala nenhuma. ROTEIRO, passo a passo, com a regra de que virar custa uma tecla: warp 0 cai em (13,19); um UP vai para (13,18); dois RIGHT viram e andam ate (14,18) (nao da para ir direto para (14,19), que e o warp 1 e jogaria o jogador para fora); dez UP sobem a coluna 14, com a parede em (14,11) absorvendo o excedente; nove LEFT andam a linha 12 ate (9,12), com a parede em (8,12) absorvendo; dois UP levam a (9,11); quatro LEFT levam a (6,11); tres UP levam a (6,10) e depois a (6,9), que e o warp da sala do COLRESS.",
+  "warp": "MAP_UNOVA_PKMN_LEAGUE_MAIN",
+  "roteiro": "120:NADA,20:UP,20:RIGHT,20:RIGHT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_PKMN_LEAGUE_MAIN",
+   "andou": true
+  }
+ },
+ {
+  "id": "T92.6",
+  "nome": "Unova, bloco B6: com a Liga VENCIDA o selo nao e mais aplicado e o mesmo roteiro do T92.5 chega na sala do COLRESS. E o par que prova que o bloqueio DESFAZ o que criou, que e o aceite do bloco B6 ('cena que trava o jogador e pior que cena ausente'): quem acende FLAG_UNOVA_LIGA_VENCIDA e o Hall da Fama de Unova, e a escada volta sozinha, sem nenhum setmetatile de desfazer, porque o estado limpo e o do proprio map.bin. Se este caso reprovar com o jogador ainda na PkmnLeagueMain, o selo virou parede permanente e tem que sair da ROM.",
+  "flags": [
+   "FLAG_UNOVA_LIGA_VENCIDA"
+  ],
+  "warp": "MAP_UNOVA_PKMN_LEAGUE_MAIN",
+  "roteiro": "120:NADA,20:UP,20:RIGHT,20:RIGHT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_COLRESSS_ROOM"
+  }
+ },
+ {
+  "id": "T92.7",
+  "nome": "Unova, bloco B6: a emboscada das tres sombras na ChampionsRoomEntrance roda e termina jogando o jogador dentro da sala do Campeao. E o `coord_event 7, 6, SCENE_DEFAULT` da fonte, portado com gatilho VAR_TEMP_0 valor 0 (tecnica 1 do SINNOH-PADRAO.md, zero var: o motor zera os VAR_TEMP a cada entrada de mapa e quem lembra que a cena ja rodou e a flag, dentro do script). O warp 0 deste mapa cai em (7,5), que e a porta para a sala do Campeao; um DOWN poe o jogador em (7,6), que e o tile do coord_event. Os A seguintes rolam as OITO caixas de texto da cena. As duas flags da prova sao as duas pontas do conserto: FLAG_UNOVA_CENA_ENTRADA_LIGA diz que a cena rodou e FLAG_UNOVA_LIGA_ELENCO volta acesa no fim, escondendo os cinco figurantes, porque dois deles (JUNIPER e METAGROSS) tem template em (7,5), em cima do UNICO warp do mapa: deixa-los nascer trancaria a sala do Campeao, que e a armadilha dos guardas de insignia da Liga de Sinnoh (casos T81.*). AVISO de calibragem: o numero de A depende de quantos `\\p` e `\\l` cada caixa tem, e `\\l` tambem cobra aperto de botao (ESTADO, licao 4.13); se este caso reprovar com o jogador ainda na entrada, conte os botoes antes de mexer no script.",
+  "warp": "MAP_UNOVA_CHAMPIONS_ROOM_ENTRANCE",
+  "roteiro": "120:NADA,20:DOWN,120:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,600:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_CHAMPIONS_ROOM",
+   "flags_acesas": [
+    "FLAG_UNOVA_CENA_ENTRADA_LIGA",
+    "FLAG_UNOVA_LIGA_ELENCO"
+   ]
+  }
+ },
+ {
+  "id": "T92.8",
+  "nome": "Unova, bloco B6: o par negativo do T92.7. Com FLAG_UNOVA_CENA_ENTRADA_LIGA ja acesa e FLAG_UNOVA_GENESIS_VENCIDO tambem (que e o `checkevent EVENT_BEAT_GENESIS_PROJECT` do MAPCALLBACK_NEWMAP da fonte, o que impede o ON_TRANSITION de reabrir a cena), pisar em (7,6) nao dispara nada e o jogador continua na entrada. Sem este caso o T92.7 nao separaria 'a cena roda' de 'a cena roda toda vez, para sempre', que e exatamente o que a fonte NAO faz.",
+  "flags": [
+   "FLAG_UNOVA_CENA_ENTRADA_LIGA",
+   "FLAG_UNOVA_GENESIS_VENCIDO"
+  ],
+  "warp": "MAP_UNOVA_CHAMPIONS_ROOM_ENTRANCE",
+  "roteiro": "120:NADA,20:DOWN,120:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_CHAMPIONS_ROOM_ENTRANCE"
+  }
+ },
+ {
+  "id": "T92.9",
+  "nome": "Unova, bloco B6: no estagio 0 de VAR_UNOVA_LIGA_CENA (0x4160) a sala do Campeao abre a batalha contra o GENESIS sozinha, por MAP_SCRIPT_ON_FRAME_TABLE, sem o jogador falar com ninguem. E a traducao do `scene_script .EnterGenesisFight` com `priorityjump` da fonte. O que este caso separa do estado anterior: o B5 tinha posto um `trainerbattle_single` no proprio objeto, com raio de visao 8, entao a batalha comecava por APROXIMACAO; agora ela comeca pela cena, depois de o jogador subir seis passos e do GENESIS descer dois. A prova e o id, e ele e conferido pelo nome porque TRAINER_UNOVA_CHAMPION_GENESIS existe de verdade em opponents.h (1379).",
+  "vars": {
+   "0x4160": 0
+  },
+  "warp": "MAP_UNOVA_CHAMPIONS_ROOM",
+  "roteiro": "300:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_CHAMPIONS_ROOM",
+   "oponente": "TRAINER_UNOVA_CHAMPION_GENESIS"
+  }
+ },
+ {
+  "id": "T92.10",
+  "nome": "Unova, bloco B6: o par negativo do T92.9. Com VAR_UNOVA_LIGA_CENA em 3 (pos-creditos) a sala nao abre batalha nenhuma e o GENESIS nem nasce, porque o ON_TRANSITION acende FLAG_UNOVA_CENA_GENESIS em todo estagio diferente de 0. Sem este caso o T92.9 provaria so que existe um treinador na sala, nao que a maquina de estados manda nela.",
+  "vars": {
+   "0x4160": 3
+  },
+  "warp": "MAP_UNOVA_CHAMPIONS_ROOM",
+  "roteiro": "300:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_CHAMPIONS_ROOM",
+   "oponente": 0
+  }
+ },
+ {
+  "id": "T92.11",
+  "nome": "Unova, bloco B6: o pos-creditos. Com VAR_UNOVA_LIGA_CENA em 3 (que e o `setmapscene CHAMPIONS_ROOM, SCENE_POST_CREDITS` que o Hall da Fama da fonte dispara), entrar na sala do Campeao roda `.PostCreditsSceneScript` (o GENESECT que ficou troca de lugar com o segundo, cria, desliza para o norte e some) e a var cai para 2, que e o estado de revanche. E a unica prova possivel desta cena por estado: ela nao muda mapa nem abre batalha. A cena roda aqui e nao dentro dos creditos porque `returnfromcredits` do gen 2 nao tem equivalente neste motor; ver o cabecalho de data/maps/Unova_ChampionsRoom/scripts.inc.",
+  "vars": {
+   "0x4160": 3
+  },
+  "warp": "MAP_UNOVA_CHAMPIONS_ROOM",
+  "roteiro": "600:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_CHAMPIONS_ROOM",
+   "vars": {
+    "0x4160": 2
+   }
+  }
+ },
+ {
+  "id": "T92.12",
+  "nome": "Unova, bloco B6: a batalha de CAMPEA contra a JUNIPER, no estagio 2 (revanche). Os tres treinadores 2520 a 2522 sao novos e existem porque `StartChampionBattleScript` da fonte escolhe o time pelo inicial do jogador; os tres times sao iguais nos cinco primeiros Pokemon e mudam so no sexto (SERPERIOR, EMBOAR, SAMUROTT), como em data/trainers/parties.asm do BW3G. O rotulo da fonte nomeia O POKEMON DELA, nao o do jogador: ela sempre fica com o inicial que PERDE para o seu. Aqui VAR_STARTER_MON = 1 (TEPIG, escrito por data/maps/Unova_NuvemaLab/scripts.inc), e a JUNIPER tem que vir com o time do SERPERIOR.",
+  "vars": {
+   "0x4160": 2,
+   "0x4023": 1
+  },
+  "warp": "MAP_UNOVA_CHAMPIONS_ROOM",
+  "roteiro": "300:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_CHAMPIONS_ROOM",
+   "oponente": "TRAINER_UNOVA_CHAMPION_JUNIPER_SNIVY"
+  }
+ },
+ {
+  "id": "T92.13",
+  "nome": "Unova, bloco B6: o par do T92.12, com o MESMO roteiro e VAR_STARTER_MON = 0 (SNIVY). Tem que vir o outro treinador, o do SAMUROTT. Sem este caso o T92.12 provaria so que existe uma batalha de campea, nao que o inicial do jogador escolhe o time: um `trainerbattle` cravado passaria igual.",
+  "vars": {
+   "0x4160": 2,
+   "0x4023": 0
+  },
+  "warp": "MAP_UNOVA_CHAMPIONS_ROOM",
+  "roteiro": "300:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_CHAMPIONS_ROOM",
+   "oponente": "TRAINER_UNOVA_CHAMPION_JUNIPER_OSHAWOTT"
+  }
+ },
+ {
+  "id": "T92.14",
+  "nome": "Unova, bloco B6: o estagio 1, que e o jogador que PERDEU para a JUNIPER e voltou (`.JuniperFightScript` da fonte). A sala ainda tem o GENESECT no meio, por isso o roteiro de movimento da fonte contorna ele; a batalha recomeca sozinha, sem o jogador falar com ninguem. Com VAR_STARTER_MON = 2 (OSHAWOTT) o time e o do EMBOAR, que fecha as tres combinacoes junto com o T92.12 e o T92.13.",
+  "vars": {
+   "0x4160": 1,
+   "0x4023": 2
+  },
+  "warp": "MAP_UNOVA_CHAMPIONS_ROOM",
+  "roteiro": "300:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_CHAMPIONS_ROOM",
+   "oponente": "TRAINER_UNOVA_CHAMPION_JUNIPER_TEPIG"
+  }
+ }
+]

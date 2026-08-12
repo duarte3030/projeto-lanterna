@@ -1,30 +1,6 @@
 Route223_MapScripts::
 	.byte 0
 
-Route223_EventScript_SwimmerWesley::
-	msgbox Route223_Text_SwimmerWesley, MSGBOX_NPC
-	end
-
-Route223_EventScript_SwimmerMiranda::
-	msgbox Route223_Text_SwimmerMiranda, MSGBOX_NPC
-	end
-
-Route223_EventScript_SailorZachariah::
-	msgbox Route223_Text_SailorZachariah, MSGBOX_NPC
-	end
-
-Route223_Text_SwimmerWesley:
-	.string "The current gets stronger the closer\n"
-	.string "you get to the POKéMON LEAGUE.$"
-
-Route223_Text_SwimmerMiranda:
-	.string "I'm training to swim all the way\n"
-	.string "from SUNYSHORE without stopping.$"
-
-Route223_Text_SailorZachariah:
-	.string "Almost at the POKéMON LEAGUE now.\n"
-	.string "Good luck out there, TRAINER.$"
-
 Route223_EventScript_Trainer1::
 	trainerbattle_single TRAINER_SINNOH_SWIMMER_WESLEY, Route223_Text_Trainer1Intro, Route223_Text_Trainer1Defeat
 	msgbox Route223_Text_Trainer1Post, MSGBOX_AUTOCLOSE

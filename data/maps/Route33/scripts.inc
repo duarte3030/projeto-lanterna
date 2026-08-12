@@ -21,3 +21,20 @@ Route33_Text_HikerAnthonyBeaten:
 Route33_Text_HikerAnthonyAfter:
 	.string "We HIKERS are at our best\n"
 	.string "in the mountains.$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+Route33_EventScript_Lass::
+	lock
+	faceplayer
+	msgbox Route33_Text_Lass, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+Route33_Text_Lass::
+	.string "Pant, pant…\p"
+	.string "That cave was bigger than\n"
+	.string "I'd expected.\p"
+	.string "I got too tired exploring\n"
+	.string "for MARILL, so I came outside.$"

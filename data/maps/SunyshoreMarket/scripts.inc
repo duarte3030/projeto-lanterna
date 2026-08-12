@@ -53,3 +53,13 @@ SunyshoreMarket_EventScript_Npc4::
 
 SunyshoreMarket_Text_Npc4:
 	.string "I love Tap Toys!\nPlaza Games are great, too!\pI'm a huge fan of the Wi-Fi Plaza, so\nI'm promoting it on my own.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+SunyshoreMarket_EventScript_Npc5::
+	bufferleadmonspeciesname STR_VAR_1
+	msgbox SunyshoreMarket_Text_Npc5, MSGBOX_NPC
+	end
+
+SunyshoreMarket_Text_Npc5:
+	.string "Oh?\nYour {STR_VAR_1}...$"

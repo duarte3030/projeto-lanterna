@@ -26,62 +26,6 @@
   ],
   "object_events": [
     {
-      "local_id": "LOCALID_ROUTE212_SOUTH_SCHOOL_KID",
-      "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
-      "x": 25,
-      "y": 12,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route212_South_EventScript_SchoolKid",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
-    },
-    {
-      "local_id": "LOCALID_ROUTE212_SOUTH_LADY",
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
-      "x": 49,
-      "y": 11,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route212_South_EventScript_Lady",
-      "flag": "0"
-    },
-    {
-      "local_id": "LOCALID_ROUTE212_SOUTH_COLLECTOR",
-      "graphics_id": "OBJ_EVENT_GFX_MANIAC",
-      "x": 58,
-      "y": 11,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route212_South_EventScript_Collector",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
-    },
-    {
-      "local_id": "LOCALID_ROUTE212_SOUTH_FISHERMAN",
-      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
-      "x": 77,
-      "y": 13,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route212_South_EventScript_Fisherman",
-      "flag": "0"
-    },
-    {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
       "x": 59,
       "y": 20,
@@ -276,6 +220,21 @@
       "script": "Route212_South_EventScript_Npc3",
       "flag": "0",
       "origem": "pokeplatinum"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+      "x": 26,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "Route212_South_EventScript_PolicemanDanny",
+      "flag": "FLAG_SINNOH_ROUTE212_DANNY_ESCONDIDO",
+      "origem": "cena_galactica_sinnoh",
+      "fonte_id": "LOCALID_POLICEMAN_DANNY"
     }
   ],
   "warp_events": [

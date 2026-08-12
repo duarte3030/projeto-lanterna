@@ -1,38 +1,6 @@
 Route209_MapScripts::
 	.byte 0
 
-Route209_EventScript_Fisherman::
-	msgbox Route209_Text_Fisherman, MSGBOX_NPC
-	end
-
-Route209_EventScript_Breeder::
-	msgbox Route209_Text_Breeder, MSGBOX_NPC
-	end
-
-Route209_EventScript_Cowgirl::
-	msgbox Route209_Text_Cowgirl, MSGBOX_NPC
-	end
-
-Route209_EventScript_PokeKid::
-	msgbox Route209_Text_PokeKid, MSGBOX_NPC
-	end
-
-Route209_Text_Fisherman:
-	.string "Try fishing wherever there is a\n"
-	.string "body of water.$"
-
-Route209_Text_Breeder:
-	.string "Solaceon Town has a great\n"
-	.string "Pokémon Day Care nearby.$"
-
-Route209_Text_Cowgirl:
-	.string "I herd Miltank around here.\n"
-	.string "They're gentle, mostly.$"
-
-Route209_Text_PokeKid:
-	.string "My Pikachu can find berries\n"
-	.string "faster than I can!$"
-
 Route209_EventScript_Trainer1::
 	trainerbattle_single TRAINER_SINNOH_BREEDER_ALBERT, Route209_Text_Trainer1Intro, Route209_Text_Trainer1Defeat
 	msgbox Route209_Text_Trainer1Post, MSGBOX_AUTOCLOSE
@@ -264,3 +232,68 @@ Route209_Text_TwinLilPost:
 
 Route209_Text_TwinLilNoPartner:
 	.string "We don't talk to people who have only\none Pokémon!$"
+
+@ Good Rod da Route 209, cena portada do pokeplatinum
+@ (scripts_route_209.s:132 Route209_Fisherman, textos de res/text/route_209.json).
+@ Piloto do bloco B6: primeira cena de Sinnoh que nao e so fala.
+@
+@ O que muda de forma em relacao a fonte, e por que:
+@ - o menu sim/nao dela (`ShowYesNoMenu VAR_RESULT`) vira `MSGBOX_YESNO`, e o
+@   `Common_GiveItemQuantity` vira `giveitem`, que ja mostra a fanfarra e o
+@   "obtained", e ja devolve FALSE com a mochila cheia.
+@ - `BufferItemNameWithArticle` + `CapitalizeFirstLetter` nao existem aqui. Em
+@   ingles o resultado deles para este item e exatamente "The Good Rod", entao o
+@   artigo fica escrito no texto e a var carrega so o nome.
+@ - a flag e FLAG_RECEBEU_GOOD_ROD_SINNOH, da faixa nova, e NAO a
+@   FLAG_RECEIVED_GOOD_ROD do vanilla, que e do pescador da Route 118 de Hoenn.
+@   O `checkitem` ao lado dela e o que impede a cena de tentar dar uma segunda
+@   vara a quem ja pegou a de Hoenn (seria mochila cheia na cara do jogador).
+Route209_EventScript_FishermanGoodRod::
+	lock
+	faceplayer
+	bufferitemname STR_VAR_1, ITEM_GOOD_ROD
+	goto_if_set FLAG_RECEBEU_GOOD_ROD_SINNOH, Route209_EventScript_GoodRodExplainAsk
+	checkitem ITEM_GOOD_ROD
+	goto_if_eq VAR_RESULT, TRUE, Route209_EventScript_GoodRodExplainAsk
+	msgbox Route209_Text_GoodRodIsReallyGood, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Route209_EventScript_GoodRodRefused
+	msgbox Route209_Text_GoodRodTakeThis, MSGBOX_DEFAULT
+	giveitem ITEM_GOOD_ROD
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEBEU_GOOD_ROD_SINNOH
+	goto Route209_EventScript_GoodRodExplainAsk
+
+Route209_EventScript_GoodRodExplainAsk::
+	msgbox Route209_Text_GoodRodExplainAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Route209_EventScript_GoodRodReel
+	msgbox Route209_Text_GoodRodExplain, MSGBOX_DEFAULT
+	release
+	end
+
+Route209_EventScript_GoodRodReel::
+	msgbox Route209_Text_GoodRodReel, MSGBOX_DEFAULT
+	release
+	end
+
+Route209_EventScript_GoodRodRefused::
+	msgbox Route209_Text_GoodRodRefused, MSGBOX_DEFAULT
+	release
+	end
+
+Route209_Text_GoodRodIsReallyGood:
+	.string "Hmm!\nThe {STR_VAR_1} is really good!\pWouldn't you agree?$"
+
+Route209_Text_GoodRodTakeThis:
+	.string "Hmm!\nWe're of identical minds!\pHmm!\nTake this {STR_VAR_1}!$"
+
+Route209_Text_GoodRodExplainAsk:
+	.string "Try fishing wherever there is\na body of water.\pOh, incidentally, do you need me to\nexplain how to use that fishing rod?$"
+
+Route209_Text_GoodRodExplain:
+	.string "First, you face any body of water,\nthen you use your fishing rod.\pNext, you must focus!\nIf a Pokémon bites, '!' appears.\pThat's your cue to reel it in!$"
+
+Route209_Text_GoodRodReel:
+	.string "When you're fishing for Pokémon,\nthe first hurdle is getting a bite.\pWhen you start to reel that Pokémon\nin, you've got to battle it.\pSo, fishing gives you twice the fun!$"
+
+Route209_Text_GoodRodRefused:
+	.string "You don't like to fish?$"

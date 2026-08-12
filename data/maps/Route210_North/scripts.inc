@@ -1,38 +1,6 @@
 Route210_North_MapScripts::
 	.byte 0
 
-Route210_North_EventScript_AceTrainerErnest::
-	msgbox Route210_North_Text_AceTrainerErnest, MSGBOX_NPC
-	end
-
-Route210_North_EventScript_AceTrainerAlyssa::
-	msgbox Route210_North_Text_AceTrainerAlyssa, MSGBOX_NPC
-	end
-
-Route210_North_EventScript_Veteran::
-	msgbox Route210_North_Text_Veteran, MSGBOX_NPC
-	end
-
-Route210_North_EventScript_BlackBelt::
-	msgbox Route210_North_Text_BlackBelt, MSGBOX_NPC
-	end
-
-Route210_North_Text_AceTrainerErnest:
-	.string "Celestic Town is just west\n"
-	.string "of here. Old ruins, they say.$"
-
-Route210_North_Text_AceTrainerAlyssa:
-	.string "This route always has great\n"
-	.string "wild Pokémon to find.$"
-
-Route210_North_Text_Veteran:
-	.string "I've caught Pokémon on every\n"
-	.string "route in Sinnoh. Almost.$"
-
-Route210_North_Text_BlackBelt:
-	.string "Feel that mountain air.\n"
-	.string "Great for training.$"
-
 Route210_North_EventScript_Trainer1::
 	trainerbattle_single TRAINER_SINNOH_ACE_TRAINER_ERNEST, Route210_North_Text_Trainer1Intro, Route210_North_Text_Trainer1Defeat
 	msgbox Route210_North_Text_Trainer1Post, MSGBOX_AUTOCLOSE

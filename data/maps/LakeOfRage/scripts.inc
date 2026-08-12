@@ -90,3 +90,26 @@ LakeOfRage_Text_FishingGuruSign::
 LakeOfRage_Text_Sign::
     .string "LAKE OF RAGE,\n"
     .string "also known as GYARADOS LAKE.$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+LakeOfRage_EventScript_Lass::
+	msgbox LakeOfRage_Text_CooltrainerF, MSGBOX_NPC
+	end
+
+LakeOfRage_Text_CooltrainerF::
+    .string "Did my eyes deceive me? I saw a\n"
+    .string "red GYARADOS in the LAKE…\p"
+    .string "But I thought GYARADOS were\n"
+    .string "usually blue?$"
+
+LakeOfRage_EventScript_Nerd::
+	msgbox LakeOfRage_Text_SuperNerd, MSGBOX_NPC
+	end
+
+LakeOfRage_Text_SuperNerd::
+    .string "I heard this lake was made by\n"
+    .string "rampaging GYARADOS.\p"
+    .string "I wonder if there is any\n"
+    .string "connection to their mass outbreak\l"
+    .string "now?$"

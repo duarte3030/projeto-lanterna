@@ -1,44 +1,9 @@
 Route221_MapScripts::
 	.byte 0
 
-Route221_EventScript_SwimmerDillon::
-	msgbox Route221_Text_SwimmerDillon, MSGBOX_NPC
-	end
-
-Route221_EventScript_FishermanCory::
-	msgbox Route221_Text_FishermanCory, MSGBOX_NPC
-	end
-
-Route221_EventScript_CollectorIvan::
-	msgbox Route221_Text_CollectorIvan, MSGBOX_NPC
-	end
-
-Route221_EventScript_AceTrainerShannon::
-	lock
-	faceplayer
-	msgbox Route221_Text_AceTrainerShannon, MSGBOX_DEFAULT
-	release
-	end
-
 Route221_EventScript_SignPalPark::
 	msgbox Route221_Text_SignPalPark, MSGBOX_SIGN
 	end
-
-Route221_Text_SwimmerDillon:
-	.string "This stretch of water connects\n"
-	.string "all the way to TWINLEAF TOWN.$"
-
-Route221_Text_FishermanCory:
-	.string "I've been fishing here all morning\n"
-	.string "and haven't gotten a single bite.$"
-
-Route221_Text_CollectorIvan:
-	.string "I collect anything rare I find\n"
-	.string "along this route. It's a hobby.$"
-
-Route221_Text_AceTrainerShannon:
-	.string "Training on the road keeps my\n"
-	.string "POKéMON sharp for the next GYM.$"
 
 Route221_Text_SignPalPark:
 	.string "PAL PARK\n"

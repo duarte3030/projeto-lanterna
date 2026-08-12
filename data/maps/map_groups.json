@@ -125,7 +125,8 @@
     "gMapGroup_UnovaPkmnLeague",
     "gMapGroup_IndoorSinnohPortas",
     "gMapGroup_SinnohCavernas",
-    "gMapGroup_IndoorSinnohPortas2"
+    "gMapGroup_IndoorSinnohPortas2",
+    "gMapGroup_SinnohInteriores"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -2209,7 +2210,27 @@
     "IronIslandIronRuins",
     "IronRuins",
     "StarkMountainRoom3",
-    "MtCoronet4FRooms1And2"
+    "MtCoronet4FRooms1And2",
+    "TurnbackCavePillar1Room1",
+    "TurnbackCavePillar1Room2",
+    "TurnbackCavePillar1Room3",
+    "TurnbackCavePillar1Room4",
+    "TurnbackCavePillar1Room5",
+    "TurnbackCavePillar1Room6",
+    "TurnbackCavePillar2Room1",
+    "TurnbackCavePillar2Room2",
+    "TurnbackCavePillar2Room3",
+    "TurnbackCavePillar2Room4",
+    "TurnbackCavePillar2Room5",
+    "TurnbackCavePillar2Room6",
+    "TurnbackCavePillar3Room1",
+    "TurnbackCavePillar3Room2",
+    "TurnbackCavePillar3Room3",
+    "TurnbackCavePillar3Room4",
+    "TurnbackCavePillar3Room5",
+    "TurnbackCavePillar3Room6",
+    "TurnbackCavePillarRoom",
+    "TurnbackCaveGiratinaRoom"
   ],
   "gMapGroup_IndoorSinnohPortas2": [
     "PastoriaCityPokecenterB1F",
@@ -2272,6 +2293,32 @@
     "SendoffSpring",
     "IronIsland",
     "StarkMountainOutside",
-    "MtCoronetOutsideSouth"
+    "MtCoronetOutsideSouth",
+    "BattleFrontier",
+    "AmitySquare",
+    "MtCoronetOutsideNorth",
+    "PalPark",
+    "GreatMarsh6",
+    "TrophyGarden",
+    "Route204North",
+    "SpringPath"
+  ],
+  "gMapGroup_SinnohInteriores": [
+    "HearthomeCityDpGymElevatorRoom1",
+    "HearthomeCityDpGymTrainerRoom1",
+    "HearthomeCityDpGymTrainerRoom2",
+    "HearthomeCityGymTrainerRoom1",
+    "HearthomeCityDpGymTrainerRoom3",
+    "HearthomeCityDpGymElevatorRoom2",
+    "HearthomeCityDpGymTrainerRoom4",
+    "HearthomeCityDpGymTrainerRoom6",
+    "HearthomeCityDpGymTrainerRoom5",
+    "HearthomeCityDpGymLeaderRoom",
+    "BattleTower",
+    "BattleFactory",
+    "BattleHall",
+    "BattleCastle",
+    "BattleArcade",
+    "IronIslandHouse"
   ]
 }

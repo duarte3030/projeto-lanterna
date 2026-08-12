@@ -75,3 +75,17 @@ CherrygroveCity_Text_CitySign::
 	.string "CHERRYGROVE CITY\p"
 	.string "The City of Cute, Fragrant\n"
 	.string "Flowers$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+CherryGroveCity_EventScript_Lass::
+	lock
+	faceplayer
+	msgbox CherrygroveCity_Text_TeacherHaveMapCard, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+CherrygroveCity_Text_TeacherHaveMapCard::
+	.string "When you're with POKéMON,\n"
+	.string "going anywhere is fun.$"

@@ -15,48 +15,6 @@
   "connections": 0,
   "object_events": [
     {
-      "local_id": "LOCALID_POKETCHF1_SCIENTIST",
-      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
-      "x": 5,
-      "y": 3,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "JubilifeCity_PoketchCompany_F1_EventScript_Scientist",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
-    },
-    {
-      "local_id": "LOCALID_POKETCHF1_RECEPTIONIST",
-      "graphics_id": "OBJ_EVENT_GFX_LINK_RECEPTIONIST",
-      "x": 17,
-      "y": 6,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "JubilifeCity_PoketchCompany_F1_EventScript_Receptionist",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
-    },
-    {
-      "local_id": "LOCALID_POKETCHF1_LASS",
-      "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 10,
-      "y": 7,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "JubilifeCity_PoketchCompany_F1_EventScript_Lass",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
-    },
-    {
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
       "x": 15,
       "y": 8,

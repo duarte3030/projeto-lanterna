@@ -4,11 +4,7 @@
 // dentro de cada mapa.
 
 // ResortArea
-#define LOCALID_RESORT_AREA_BEAUTY_1        1
-#define LOCALID_RESORT_AREA_BEAUTY_2        2
-#define LOCALID_RESORT_AREA_BLACK_BELT      3
-#define LOCALID_RESORT_AREA_COOLTRAINER_F   4
-#define LOCALID_RESORT_AREA_SWIMMER_M       5
+#define LOCALID_RESORT_AREA_COOLTRAINER_F   1
 
 // LakeVerity
 #define LOCALID_LAKE_VERITY_FISHERMAN       1

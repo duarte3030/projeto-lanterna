@@ -178,3 +178,16 @@ EcruteakCity_Gym_Text_StatueCertified:
 	.string "ECRUTEAK CITY POKéMON GYM\p"
 	.string "MORTY'S CERTIFIED TRAINERS:\n"
 	.string "{PLAYER}$"
+
+@ >>> B6 Johto: Pokémon de enfeite do ginásio (porta_cenas_johto.py) >>>
+
+EcruteakCity_Gym_EventScript_GritoMisdreavus::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_MISDREAVUS, CRY_MODE_NORMAL
+	waitmoncry
+	release
+	end
+
+@ <<< B6 Johto: Pokémon de enfeite do ginásio <<<

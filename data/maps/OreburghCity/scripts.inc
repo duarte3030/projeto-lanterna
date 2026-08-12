@@ -3,18 +3,6 @@
 OreburghCity_MapScripts::
 	.byte 0
 
-OreburghCity_EventScript_Hiker::
-	msgbox OreburghCity_Text_Hiker, MSGBOX_NPC
-	end
-
-OreburghCity_EventScript_SchoolKid::
-	msgbox OreburghCity_Text_SchoolKid, MSGBOX_NPC
-	end
-
-OreburghCity_EventScript_Pokefan::
-	msgbox OreburghCity_Text_Pokefan, MSGBOX_NPC
-	end
-
 OreburghCity_EventScript_Rival::
 	lock
 	faceplayer
@@ -22,16 +10,8 @@ OreburghCity_EventScript_Rival::
 	release
 	end
 
-OreburghCity_EventScript_Youngster::
-	msgbox OreburghCity_Text_Youngster, MSGBOX_NPC
-	end
-
 OreburghCity_EventScript_Worker::
 	msgbox OreburghCity_Text_Worker, MSGBOX_NPC
-	end
-
-OreburghCity_EventScript_Guitarist::
-	msgbox OreburghCity_Text_Guitarist, MSGBOX_NPC
 	end
 
 OreburghCity_EventScript_BattleGirl::
@@ -46,20 +26,6 @@ OreburghCity_EventScript_GymSign::
 	msgbox OreburghCity_Text_GymSign, MSGBOX_SIGN
 	end
 
-OreburghCity_Text_Hiker:
-	.string "The GYM LEADER went off to work in\n"
-	.string "the mine.$"
-
-OreburghCity_Text_SchoolKid:
-	.string "The GYM LEADER is young, but he's\n"
-	.string "the mine's safety supervisor.\p"
-	.string "He's an expert in more than just\n"
-	.string "one field!$"
-
-OreburghCity_Text_Pokefan:
-	.string "This town is small, but the miners\n"
-	.string "keep it lively.$"
-
 OreburghCity_Text_Rival:
 	.string "Hunh? Oh, it's you! You finally got\n"
 	.string "here? You're slow like always.\p"
@@ -69,20 +35,11 @@ OreburghCity_Text_Rival:
 	.string "mine. If you want to take him on,\l"
 	.string "you'd better go off to the mine!$"
 
-OreburghCity_Text_Youngster:
-	.string "Is that guy in front of the GYM your\n"
-	.string "friend? He's sort of twitchy and\l"
-	.string "impatient.$"
-
 OreburghCity_Text_Worker:
 	.string "There's no question. This is hard,\n"
 	.string "hard work.\p"
 	.string "But working alongside POKéMON...\n"
 	.string "it gives me a boost somehow.$"
-
-OreburghCity_Text_Guitarist:
-	.string "Everyone goes off on adventures,\n"
-	.string "and then they gradually grow up...$"
 
 OreburghCity_Text_BattleGirl:
 	.string "Feeling hale and hearty puts a\n"
@@ -241,3 +198,12 @@ OreburghCity_EventScript_Placa18::
 
 OreburghCity_Text_Placa18:
 	.string "Howdy, Trainer!\pHuh? Uh-oh!\nYou don't have a single Gym Badge?\pYou'd better do something about that!\nI'll take you to the Pokémon Gym.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+OreburghCity_EventScript_Npc9::
+	msgbox OreburghCity_Text_Npc9, MSGBOX_NPC
+	end
+
+OreburghCity_Text_Npc9:
+	.string "Chop, chop, MACHOP!\nChop, chop away on rocks! ~{EMOJI_NOTE}$"

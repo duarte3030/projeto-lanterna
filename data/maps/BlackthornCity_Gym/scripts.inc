@@ -331,3 +331,43 @@ BlackthornCity_Gym_Text_StatueCertified:
 	.string "BLACKTHORN CITY POKéMON GYM\p"
 	.string "CLAIR'S CERTIFIED TRAINERS:\n"
 	.string "{PLAYER}$"
+
+@ >>> B6 Johto: Pokémon de enfeite do ginásio (porta_cenas_johto.py) >>>
+
+BlackthornCity_Gym_EventScript_GritoCharizard::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_CHARIZARD, CRY_MODE_NORMAL
+	waitmoncry
+	release
+	end
+
+BlackthornCity_Gym_EventScript_GritoDragonite::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_DRAGONITE, CRY_MODE_NORMAL
+	waitmoncry
+	release
+	end
+
+BlackthornCity_Gym_EventScript_GritoMagcargo::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_MAGCARGO, CRY_MODE_NORMAL
+	waitmoncry
+	release
+	end
+
+BlackthornCity_Gym_EventScript_GritoDragonair::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_DRAGONAIR, CRY_MODE_NORMAL
+	waitmoncry
+	release
+	end
+
+@ <<< B6 Johto: Pokémon de enfeite do ginásio <<<

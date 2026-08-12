@@ -47,3 +47,55 @@ NationalPark_BugContest_EventScript_Trash::
 
 NationalPark_BugContest_Text_Trash::
 	.string "Nothing here.$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+NationalParkBugContest_Text_Contestant2A::
+	.string "ED: My PARASECT puts POKéMON to\n"
+	.string "sleep with SPORE.$"
+
+NationalPark_BugContest_EventScript_BC2::
+	lock
+	faceplayer
+	msgbox NationalParkBugContest_Text_Contestant2A, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+NationalParkBugContest_Text_ContestantShaun::
+	.string "SHAUN: I'm not concerned about\n"
+	.string "winning.\p"
+	.string "I'm just looking for rare POKéMON.$"
+
+NationalPark_BugContest_EventScript_BC1::
+	lock
+	faceplayer
+	msgbox NationalParkBugContest_Text_ContestantShaun, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+NationalParkBugContest_Text_Contestant6A::
+	.string "BARRY: You should weaken bug\n"
+	.string "POKéMON first,\p"
+	.string "then throw a BALL.$"
+
+NationalPark_BugContest_EventScript_Boy::
+	lock
+	faceplayer
+	msgbox NationalParkBugContest_Text_Contestant6A, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+NationalParkBugContest_Text_ContestantBelinda::
+	.string "BELINDA: I'm going to win!\n"
+	.string "Don't bother me.$"
+
+NationalPark_BugContest_EventScript_Belinda::
+	lock
+	faceplayer
+	msgbox NationalParkBugContest_Text_ContestantBelinda, MSGBOX_DEFAULT
+	closemessage
+	release
+	end

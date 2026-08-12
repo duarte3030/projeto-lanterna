@@ -1,55 +1,6 @@
 Route224_MapScripts::
 	.byte 0
 
-Route224_EventScript_AceTrainerRuben::
-	lock
-	faceplayer
-	msgbox Route224_Text_AceTrainerRuben, MSGBOX_DEFAULT
-	release
-	end
-
-Route224_EventScript_PsychicMaxwell::
-	lock
-	faceplayer
-	msgbox Route224_Text_PsychicMaxwell, MSGBOX_DEFAULT
-	release
-	end
-
-Route224_EventScript_BlackBeltCarl::
-	msgbox Route224_Text_BlackBeltCarl, MSGBOX_NPC
-	end
-
-Route224_EventScript_VeteranArmando::
-	lock
-	faceplayer
-	msgbox Route224_Text_VeteranArmando, MSGBOX_DEFAULT
-	release
-	end
-
-Route224_EventScript_AceTrainerJamie::
-	msgbox Route224_Text_AceTrainerJamie, MSGBOX_NPC
-	end
-
-Route224_Text_AceTrainerRuben:
-	.string "This route stretches almost all\n"
-	.string "the way to the POKéMON LEAGUE.$"
-
-Route224_Text_PsychicMaxwell:
-	.string "I can sense strong POKéMON\n"
-	.string "resting nearby. Can you feel it?$"
-
-Route224_Text_BlackBeltCarl:
-	.string "Training my body and my POKéMON\n"
-	.string "together, that's my way.$"
-
-Route224_Text_VeteranArmando:
-	.string "I've walked this route more times\n"
-	.string "than I can count.$"
-
-Route224_Text_AceTrainerJamie:
-	.string "Not much farther to the EVER GRANDE\n"
-	.string "gate now.$"
-
 Route224_EventScript_Trainer1::
 	trainerbattle_single TRAINER_SINNOH_BLACK_BELT_CARL, Route224_Text_Trainer1Intro, Route224_Text_Trainer1Defeat
 	msgbox Route224_Text_Trainer1Post, MSGBOX_AUTOCLOSE

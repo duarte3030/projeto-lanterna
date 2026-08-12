@@ -119,9 +119,28 @@ EventScript_ResetAllMapFlags::
 	@ o jogador falar com ele, e a fileira 8 de Pallet Town fica intransponivel.
 	setflag FLAG_HIDE_OAK_IN_PALLET_TOWN
 	setflag FLAG_HIDE_OAK_IN_HIS_LAB
-	@ Sinnoh: some com o clone perdedor de cada NPC que nasceu duas vezes (o
-	@ escrito a mao e o importado do pokeplatinum). Uma flag para os 382 pares.
+	@ Sinnoh: some com o clone perdedor de cada NPC que nasceu duas vezes.
+	@ Em 12/08/2026 os 177 clones NATIVOS que estavam aqui foram APAGADOS, e nao
+	@ mais escondidos: dentro da janela de save aberta, apagar devolve o indice de
+	@ objectEvents[] e os bytes, e esconder nao devolve nada. Sobram 212 objetos,
+	@ todos IMPORTADOS do pokeplatinum, que continuam atras desta flag porque quem
+	@ carrega o conteudo deles e um nativo visivel: apagar o corpo importado
+	@ apagaria gente da fonte. Enquanto esses 212 existirem, a flag fica em uso.
 	setflag FLAG_SINNOH_NPC_DUPLICADO
+	@ Sinnoh: os atendentes de Wi-Fi, Union Room, Colosseum e Group Connection
+	@ dos Pokemon Center. O sistema de comunicacao do DS nao existe neste
+	@ cartucho, e a decisao do dono do projeto em 12/08/2026 (pergunta 17) foi
+	@ esconder, nao inventar fala. Nunca e apagada em lugar nenhum: e sempre-acesa
+	@ de proposito. Ver o comentario de FLAG_SINNOH_WIFI_ESCONDIDO em flags.h.
+	setflag FLAG_SINNOH_WIFI_ESCONDIDO
+	@ Sinnoh, bloco B6: gente que so entra em cena no MEIO da historia. Flag de
+	@ jogo novo nasce APAGADA, e objeto com a flag apagada NASCE
+	@ (src/event_object_movement.c:2882 so cria quando !FlagGet), entao sem estas
+	@ duas linhas a Cynthia estaria em Celestic desde o primeiro dia e a Jupiter
+	@ estaria no Lago Acuity antes de a Mars cair. Quem as APAGA e a cena dona de
+	@ cada uma: o grunt da bomba de Celestic e o ON_TRANSITION do Lago Acuity.
+	setflag FLAG_CELESTIC_CYNTHIA_ESCONDIDA
+	setflag FLAG_ESCONDE_LAGO_ACUITY
 	setflag FLAG_HIDE_CONTEST_POKE_BALL
 	setflag FLAG_HIDE_ROUTE_111_VICTORIA_WINSTRATE
 	setflag FLAG_HIDE_ROUTE_111_VIVI_WINSTRATE

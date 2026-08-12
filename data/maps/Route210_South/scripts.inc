@@ -1,37 +1,6 @@
 Route210_South_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Route210_South_OnTransition
 	.byte 0
-
-Route210_South_EventScript_AceTrainer::
-	msgbox Route210_South_Text_AceTrainer, MSGBOX_NPC
-	end
-
-Route210_South_EventScript_Breeder::
-	msgbox Route210_South_Text_Breeder, MSGBOX_NPC
-	end
-
-Route210_South_EventScript_Rancher::
-	msgbox Route210_South_Text_Rancher, MSGBOX_NPC
-	end
-
-Route210_South_EventScript_Belle::
-	msgbox Route210_South_Text_Belle, MSGBOX_NPC
-	end
-
-Route210_South_Text_AceTrainer:
-	.string "I'm taking a rest. If I were a\n"
-	.string "bird Pokémon, it would be a roost.$"
-
-Route210_South_Text_Breeder:
-	.string "I'm walking my Pokémon to keep\n"
-	.string "them happy and healthy.$"
-
-Route210_South_Text_Rancher:
-	.string "The Pokémon Day Care is just\n"
-	.string "down the road in Solaceon.$"
-
-Route210_South_Text_Belle:
-	.string "Pa and I raise Miltank here.\n"
-	.string "Come say hi anytime.$"
 
 @ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
 
@@ -215,3 +184,36 @@ Route210_South_Text_BreederKahlilDefeat:
 
 Route210_South_Text_BreederKahlilPost:
 	.string "The Veilstone Department Store is\npretty impressive!\pDid you know they even sell Poffins?$"
+
+Route210_South_EventScript_JoggerWyatt::
+	trainerbattle_single TRAINER_SINNOH_JOGGER_WYATT, Route210_South_Text_JoggerWyattIntro, Route210_South_Text_JoggerWyattDefeat
+	msgbox Route210_South_Text_JoggerWyattPost, MSGBOX_AUTOCLOSE
+	end
+
+Route210_South_Text_JoggerWyattIntro:
+	.string "I'm warmed up and limber.\nI'm OK to battle!$"
+
+Route210_South_Text_JoggerWyattDefeat:
+	.string "...Oh, serious woe.\nI wasn't prepared emotionally for this.$"
+
+Route210_South_Text_JoggerWyattPost:
+	.string "I wish I could just run from all this...\nJust joking.$"
+
+@ ponytail: acende PRIMEIRO e apaga so no ramo bom. Falha de leitura de hora
+@ deixa o treinador ausente, nunca plantado no meio da rota.
+@ O 0 e TIME_MORNING: `enum TimeOfDay` em include/constants/rtc.h:98 e enum de C,
+@ invisivel para o montador, entao aqui vai o numero cru com o nome ao lado.
+@ Mesmo precedente do `setmetatile 13, 11, 588` do SpearPillar.
+Route210_South_OnTransition:
+	call Route210_South_EventScript_Horario_route210_wyatt
+	end
+
+Route210_South_EventScript_Horario_route210_wyatt::
+	setflag FLAG_SINNOH_ROUTE210_WYATT_ESCONDIDO
+	gettimeofday
+	goto_if_eq VAR_0x8000, 0, Route210_South_EventScript_Mostra_route210_wyatt
+	return
+
+Route210_South_EventScript_Mostra_route210_wyatt::
+	clearflag FLAG_SINNOH_ROUTE210_WYATT_ESCONDIDO
+	return

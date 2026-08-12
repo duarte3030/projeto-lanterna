@@ -1,7 +1,7 @@
 {
   "id": "MAP_SENDOFF_SPRING",
   "name": "SendoffSpring",
-  "layout": "LAYOUT_ROUTE226_ACCESS",
+  "layout": "LAYOUT_SENDOFFSPRING",
   "music": "MUS_POKE_CENTER",
   "region_map_section": "MAPSEC_SINNOH_WEST",
   "requires_flash": false,
@@ -27,6 +27,13 @@
       "elevation": 0,
       "dest_map": "MAP_TURNBACK_CAVE_ENTRANCE",
       "dest_warp_id": "4"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_SPRING_PATH",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

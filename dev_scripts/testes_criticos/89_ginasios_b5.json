@@ -1,0 +1,88 @@
+[
+  {
+    "id": "T89.1",
+    "nome": "Unova, bloco B5: depois dos QUATRO da Elite, a estatua do centro da PkmnLeagueMain deixa de falar e vira elevador para a sala do Campeao. Existe porque, medido em 12/08/2026, os sete warps deste mapa vao para a entrada da Liga, para si mesmo e para as quatro salas da Elite, e NENHUM leva ao Campeao: no BW3G quem leva e o script da estatua (bg_event 13,11 e 14,11), que a importacao trouxe so como texto. Com a Elite inteira derrotada, a sala do Campeao era inalcancavel a pe. As quatro flags escritas na EWRAM sao as de treinador derrotado do motor (TRAINER_FLAGS_START 0x500 mais o id): 0xA5F Grimsley 1375, 0xA60 Marshal 1376, 0xA61 Elesa 1377, 0xA62 Colress 1378. O portao nao gastou var nem flag nova justamente porque le essas quatro com goto_if_not_defeated. ROTEIRO: o warp 0 cai em (13,19); o primeiro passo vai para a coluna 14 DE PROPOSITO, porque (13,13) e um warp que aponta para si mesmo (o mesmo do BW3G) e pisar nele gasta uma transicao de tela no meio do caminho. Os dois RIGHT existem porque virar custa tecla e a parede em x=15 absorve o excedente; os dez UP sao mais que os sete necessarios porque (14,11) e parede macica e segura o resto. Os UP vao escritos um a um: 20:UP*10 NAO e a mesma coisa, o *N repete quadros dentro do mesmo passo (ESTADO.md, armadilha de 06/08/2026).",
+    "flags": [
+      "0xA5F",
+      "0xA60",
+      "0xA61",
+      "0xA62"
+    ],
+    "warp": "MAP_UNOVA_PKMN_LEAGUE_MAIN",
+    "roteiro": "120:NADA,20:RIGHT,20:RIGHT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_CHAMPIONS_ROOM_ENTRANCE"
+    }
+  },
+  {
+    "id": "T89.2",
+    "nome": "Unova, bloco B5: o mesmo roteiro do T89.1 SEM as quatro flags de Elite derrotada deixa o jogador onde estava, e a estatua so fala. E o par do T89.1: sem este, T89.1 passaria igual com o portao escancarado, porque ele so prova que a estatua leva a algum lugar, nao que ela cobra os quatro. Cena que trava o jogador e pior que cena ausente (PRD, aceite do B6), entao o caminho de volta e a propria escada de onde ele veio; aqui a prova e que ele continua na PkmnLeagueMain.",
+    "warp": "MAP_UNOVA_PKMN_LEAGUE_MAIN",
+    "roteiro": "120:NADA,20:RIGHT,20:RIGHT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_PKMN_LEAGUE_MAIN"
+    }
+  },
+  {
+    "id": "T89.3",
+    "nome": "Unova, bloco B5: a sala do Campeao tem batalha de verdade, contra um id da faixa da Liga de Unova (1375 a 1379). Medido antes do conserto: os SETE object_events da sala vinham com script 0 e flag 0, entao nasciam todos de uma vez e empilhados (tres SHADOW no mesmo (7,16), dois GENESECT no mesmo (7,12) e a JUNIPER em cima do proprio GENESIS em (7,10)), nenhum batalhava, e o corredor ia direto do warp de entrada (7,19) ao warp do Hall da Fama (7,4). O conserto escondeu os seis figurantes da cena do bloco B6 atras de FLAG_UNUSED_0x2030 e transformou o GENESIS em treinador com raio de visao 8 virado para baixo, que e a tecnica 3 do SINNOH-PADRAO.md: o motor faz exclamacao, aproximacao, batalha e memoria do 'ja perdeu' sozinho, sem var e sem coord_event. O raio nao e enfeite: a sala tem 16 de largura e sem ele daria para contornar o objeto e entrar no Hall da Fama sem lutar. CONTRAPROVA de graca: na ROM anterior ao conserto este mesmo roteiro termina em MAP_UNOVA_HALL_OF_FAME. A prova e por FAIXA e nao pelo nome da constante, pela licao 4.6 do ESTADO.md.",
+    "warp": "MAP_UNOVA_CHAMPIONS_ROOM",
+    "roteiro": "120:NADA,20:UP,20:UP,20:UP,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_CHAMPIONS_ROOM",
+      "oponente_faixa": [
+        1375,
+        1379
+      ]
+    }
+  },
+  {
+    "id": "T89.4",
+    "nome": "Johto, bloco B5: o quebra-cabeca do ginasio de CIANWOOD existe e barra o corredor central. Medido em 12/08/2026: o hns tem tres OBJ_EVENT_GFX_PUSHABLE_BOULDER em (10,8), (10,6) e (10,4) e duas OBJ_EVENT_GFX_BREAKABLE_ROCK em (9,2) e (11,2), e a importacao trouxe so os cinco humanos; a coluna 10 do mapa e um corredor limpo da porta (10,15) ate o CHUCK em (10,2), medido na grade de colisao, entao sem as pedras o ginasio inteiro era uma linha reta. O blockdata daqui e byte a byte igual ao do hns (21x17), entao as coordenadas da fonte valeram sem correcao. ROTEIRO: quatorze UP, mais que os treze necessarios, e o A no fim tentando falar com quem estiver na frente. PROVA de forma negativa de proposito, e ela so vale junto com a CONTRAPROVA: na ROM anterior ao conserto este mesmo roteiro chega no CHUCK e abre batalha com oponente 1298 (TRAINER_JOHTO_LEADER_CHUCK); com a pedra de Forca em (10,8) o jogador para em (10,9) e nenhuma batalha comeca, entao oponente segue 0. Os quatro treinadores do ginasio tem raio de visao 1 e ficam nas colunas 3, 4, 14 e 15, longe do corredor, entao nao ha batalha de encontro para poluir a medida.",
+    "warp": "MAP_CIANWOOD_GYM",
+    "roteiro": "120:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,200:NADA",
+    "prova": {
+      "mapa": "MAP_CIANWOOD_GYM",
+      "oponente": 0
+    }
+  },
+  {
+    "id": "T89.5",
+    "nome": "Unova, bloco B5: o ginasio de ASPERTIA passou a ter EMBOSCADA. Ate 12/08/2026 o unico batalhavel ali era o CHEREN: o Youngster e a Lass estavam no mapa so com a fala de DEPOIS da batalha, e a batalha nunca acontecia. Motivo medido: no BW3G esses dois nao sao OBJECTTYPE_TRAINER, sao OBJECTTYPE_SCRIPT com loadtrainer dentro de script chamado por coord_event, entao a varredura do B4 (que procurava objeto de treinador) passou por cima deles; as constantes 2449 e 2450 e os times nasceram agora, do parties.asm do BW3G. Os quatro coord_events estao nas coordenadas exatas da fonte, (4,17), (5,17), (4,11) e (5,11), DOIS por treinador: medido na grade, as linhas 7, 13 e 19 deste layout sao parede menos nas colunas 4 e 5, entao raio de visao de treinador (que so cobre uma coluna) deixaria o jogador desviar pela outra. ROTEIRO: o warp 0 cai em (4,21) e quatro UP chegam em (4,17); depois de warp de debug o jogador NAO gasta tecla para virar, entao a contagem e exata (ESTADO.md, armadilha do T84.2). Cada UP vai escrito sozinho: 20:UP*4 repetiria quadros dentro do mesmo passo. PROVA por FAIXA (2449 a 2450) e nao pelo nome da constante, licao 4.6.",
+    "warp": "MAP_UNOVA_ASPERTIA_GYM",
+    "roteiro": "120:NADA,20:UP,20:UP,20:UP,20:UP,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_ASPERTIA_GYM",
+      "oponente_faixa": [
+        2449,
+        2450
+      ]
+    }
+  },
+  {
+    "id": "T89.6",
+    "nome": "Unova, bloco B5: o ginasio de LENTIMAS passou a ter as quatro EMBOSCADAS. Mesma causa do T89.5: as quatro HEX_MANIAC estavam la so com a fala de depois. Constantes 2456 a 2459. Sao NOVE coord_events, nas coordenadas da fonte, e o numero de tiles por treinador (3, 3, 2 e 1) e a largura da passagem naquele ponto, conferida na grade de colisao 16x20: um tile a menos abre desvio. ROTEIRO derivado por busca em largura na propria grade, do warp 0 em (7,19) ate o gatilho mais PROXIMO, que e (1,8), o da primeira HEX_MANIAC, a 17 passos; os outros oito gatilhos ficam a 20 passos ou mais, entao este roteiro nao pode disparar o gatilho errado por acidente. Contagem exata porque a partida e um warp de debug, onde virar nao custa tecla.",
+    "warp": "MAP_UNOVA_LENTIMAS_GYM",
+    "roteiro": "120:NADA,20:UP,20:UP,20:UP,20:UP,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_LENTIMAS_GYM",
+      "oponente_faixa": [
+        2456,
+        2459
+      ]
+    }
+  },
+  {
+    "id": "T89.7",
+    "nome": "Unova, bloco B5: os cinco treinadores do ginasio de STRIATON passaram a batalhar. Constantes 2451 a 2455 (dois WAITER e tres WAITRESS, que viraram Gentleman e Lady porque gen 3 nao tem essas classes). AQUI O PORTE SE AFASTA DA FONTE DE PROPOSITO, e esta escrito no cabecalho do scripts.inc: no BW3G os cinco ficam invisiveis e saltam quando voce examina a mesa ou a lata errada, o que custaria uma flag por treinador so para inverter o sentido do campo `flag` do object_event (ele esconde quando a flag esta ACESA, e aqui seria o contrario); e os tres interruptores que a fonte usa para abrir a escada do CILAN nao compram caminho nenhum, porque a escada em (6,2) ja esta com colisao 0 no nosso blockdata. Entao os cinco ficam visiveis e batalham ao serem falados, e o resto vai para o B6. ROTEIRO: warp 0 em (6,17); um UP para (6,16) e tres RIGHT ate (9,16); o quinto toque, UP, NAO anda, porque (9,15) esta ocupado pela WAITRESS_2, entao ele so vira o jogador para o norte, que e o que faz o A seguinte falar com ela.",
+    "warp": "MAP_UNOVA_STRIATON_GYM",
+    "roteiro": "120:NADA,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:UP,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_STRIATON_GYM",
+      "oponente_faixa": [
+        2451,
+        2455
+      ]
+    }
+  }
+]

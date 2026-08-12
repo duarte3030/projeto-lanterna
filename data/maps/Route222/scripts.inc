@@ -1,32 +1,6 @@
 Route222_MapScripts::
 	.byte 0
 
-Route222_EventScript_RichBoy::
-	lock
-	faceplayer
-	msgbox Route222_Text_RichBoy, MSGBOX_DEFAULT
-	release
-	end
-
-Route222_EventScript_Fisherman::
-	msgbox Route222_Text_Fisherman, MSGBOX_NPC
-	end
-
-Route222_EventScript_SailorLuther::
-	msgbox Route222_Text_SailorLuther, MSGBOX_NPC
-	end
-
-Route222_EventScript_BeautyNicola::
-	lock
-	faceplayer
-	msgbox Route222_Text_BeautyNicola, MSGBOX_DEFAULT
-	release
-	end
-
-Route222_EventScript_TuberConner::
-	msgbox Route222_Text_TuberConner, MSGBOX_NPC
-	end
-
 Route222_EventScript_SignPikachuFanClub::
 	msgbox Route222_Text_SignPikachuFanClub, MSGBOX_SIGN
 	end
@@ -34,28 +8,6 @@ Route222_EventScript_SignPikachuFanClub::
 Route222_EventScript_SignSizeContest::
 	msgbox Route222_Text_SignSizeContest, MSGBOX_SIGN
 	end
-
-Route222_Text_RichBoy:
-	.string "The only items you ever throw are\n"
-	.string "POKé BALLS! But is that true?!\p"
-	.string "I want people to think about that.\n"
-	.string "That's why I give away the TM FLING.$"
-
-Route222_Text_Fisherman:
-	.string "SUNYSHORE CITY has the best fishing\n"
-	.string "spots on this whole route.$"
-
-Route222_Text_SailorLuther:
-	.string "The sea breeze out here never\n"
-	.string "gets old, no matter how long I sail.$"
-
-Route222_Text_BeautyNicola:
-	.string "I came all this way just to see\n"
-	.string "the view from this route.$"
-
-Route222_Text_TuberConner:
-	.string "The water's great for a swim!\n"
-	.string "Come on in!$"
 
 Route222_Text_SignPikachuFanClub:
 	.string "PIKACHU FAN CLUB\n"

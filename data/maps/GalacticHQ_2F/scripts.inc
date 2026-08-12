@@ -10,6 +10,7 @@
 @ do objeto de onde o item saiu. Zero var, e nenhuma porta precisou de coord_event.
 
 GalacticHQ_2F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, GalacticHQ_2F_OnTransition
 	.byte 0
 
 @ O guarda sai andando na hora em que o jogador mostra a chave. Sem isto ele so
@@ -164,3 +165,28 @@ GalacticHQ_2F_Text_PutReportBack:
 	.string "The blue text has been extracted\n"
 	.string "using a high-tech device made by\l"
 	.string "the boss.$"
+
+GalacticHQ_2F_EventScript_ScientistDarrius::
+	trainerbattle_single TRAINER_SINNOH_SCIENTIST_DARRIUS, GalacticHQ_2F_Text_ScientistDarriusIntro, GalacticHQ_2F_Text_ScientistDarriusDefeat
+	msgbox GalacticHQ_2F_Text_ScientistDarriusPost, MSGBOX_AUTOCLOSE
+	end
+
+GalacticHQ_2F_Text_ScientistDarriusIntro:
+	.string "I won't let you disrupt our research!\nThis is for Team Galactic!$"
+
+GalacticHQ_2F_Text_ScientistDarriusDefeat:
+	.string "I got whipped...\nI look pathetic...$"
+
+GalacticHQ_2F_Text_ScientistDarriusPost:
+	.string "Our boss is a scientific genius!\pHe will make the power of mythical\nPokémon his own!$"
+
+@ ponytail: a cena e a flag sao a mesma coisa. Estes objetos nascem enquanto
+@ derrotar o Saturn na sala de controle do QG nao aconteceu, e somem depois; o motor ja grava a flag de
+@ derrotado do gatilho, e este ON_TRANSITION so a traduz. Zero var.
+GalacticHQ_2F_OnTransition:
+	call_if_defeated TRAINER_SINNOH_COMMANDER_SATURN_GALACTIC_HQ, GalacticHQ_2F_EventScript_HideGalactica_qg_veilstone
+	end
+
+GalacticHQ_2F_EventScript_HideGalactica_qg_veilstone::
+	setflag FLAG_GALACTICA_QG_TOMADO
+	return

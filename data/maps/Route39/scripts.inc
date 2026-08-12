@@ -141,3 +141,17 @@ Route39_Text_TrainerTips::
 	.string "drop out of trees.\p"
 	.string "Use HEADBUTT on any tree\n"
 	.string "you see!$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+Route39_EventScript_Woman::
+	lock
+	faceplayer
+	msgbox Route39_Text_Woman, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+Route39_Text_Woman::
+	.string "That shadow... Maybe it was a giant\n"
+	.string "PIDGEY?$"

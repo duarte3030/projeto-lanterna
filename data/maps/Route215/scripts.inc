@@ -1,44 +1,9 @@
 Route215_MapScripts::
 	.byte 0
 
-Route215_EventScript_BlackBelt::
-	msgbox Route215_Text_BlackBelt, MSGBOX_NPC
-	end
-
-Route215_EventScript_Runner::
-	msgbox Route215_Text_Runner, MSGBOX_NPC
-	end
-
-Route215_EventScript_Cooltrainer::
-	msgbox Route215_Text_Cooltrainer, MSGBOX_NPC
-	end
-
-Route215_EventScript_Hiker::
-	msgbox Route215_Text_Hiker, MSGBOX_NPC
-	end
-
 Route215_EventScript_TrainerTipsSign::
 	msgbox Route215_Text_TrainerTipsSign, MSGBOX_SIGN
 	end
-
-Route215_Text_BlackBelt:
-	.string "A steady stance is worth more than\n"
-	.string "a strong punch. Remember that.$"
-
-Route215_Text_Runner:
-	.string "I run this route every morning.\n"
-	.string "Keeps me and my POKéMON in shape\l"
-	.string "for VEILSTONE.$"
-
-Route215_Text_Cooltrainer:
-	.string "This route sees a lot of TRAINERS\n"
-	.string "heading to and from VEILSTONE CITY.\l"
-	.string "Hope you're ready.$"
-
-Route215_Text_Hiker:
-	.string "The trail west leads back toward\n"
-	.string "ROUTE 210. It's an easy walk from\l"
-	.string "here on out.$"
 
 Route215_Text_TrainerTipsSign:
 	.string "TRAINER TIP:\n"

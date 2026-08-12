@@ -1,44 +1,6 @@
 Route202_MapScripts::
 	.byte 0
 
-Route202_EventScript_Youngster::
-	msgbox Route202_Text_Youngster, MSGBOX_NPC
-	end
-
-Route202_EventScript_Tristan::
-	lock
-	faceplayer
-	msgbox Route202_Text_Tristan, MSGBOX_DEFAULT
-	release
-	end
-
-Route202_EventScript_Natalie::
-	lock
-	faceplayer
-	msgbox Route202_Text_Natalie, MSGBOX_DEFAULT
-	release
-	end
-
-Route202_EventScript_Logan::
-	msgbox Route202_Text_Logan, MSGBOX_NPC
-	end
-
-Route202_Text_Youngster:
-	.string "Have you tried using the POKé\n"
-	.string "RADAR in the tall grass yet?$"
-
-Route202_Text_Tristan:
-	.string "I've been training here since\n"
-	.string "sunrise. My POKéMON are strong!$"
-
-Route202_Text_Natalie:
-	.string "This patch of grass rustles a lot.\n"
-	.string "I wonder what's hiding in there.$"
-
-Route202_Text_Logan:
-	.string "JUBILIFE CITY is just up ahead.\n"
-	.string "It's the biggest city in SINNOH!$"
-
 Route202_EventScript_Trainer1::
 	trainerbattle_single TRAINER_SINNOH_YOUNGSTER_TRISTAN, Route202_Text_Trainer1Intro, Route202_Text_Trainer1Defeat
 	msgbox Route202_Text_Trainer1Post, MSGBOX_AUTOCLOSE

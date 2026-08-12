@@ -1,0 +1,93 @@
+[
+ {
+  "id": "T90.1",
+  "nome": "Johto, bloco B6: o ROCKET do teatro de Ecruteak. Antes de 12/08/2026 os DOZE object_events deste mapa eram item ball muda com script 0 e flag 0, e o mapa nao tinha map_script nenhum nem coord_event nenhum: a cena de abertura do teatro simplesmente nao existia. Agora o gatilho da fonte esta em (10,16), (9,17) e (11,17) com var_value 0. O unico warp do mapa cai em (10,17), entao UM passo para cima ja pisa no gatilho: por isso o roteiro tem um so UP, e nao uma caminhada. VAR_ECRUTEAK_CITY_THEATER e o apelido de VAR_UNUSED_0x4101, escrito por dev_scripts/porta_cenas_johto.py. Os A's sao para as quatro msgbox da cena (Rocket1, KimonoRocket1, Rocket2, Rocket3); sobra A de proposito, porque A em tela sem caixa de texto nao faz nada aqui. A prova tem 'andou' junto com a var: o aceite do B6 e que a cena rode, mude o mundo e DESFACA o bloqueio que criou, e um lockall sem releaseall passaria na prova de var e deixaria o jogador congelado.",
+  "warp": "MAP_ECRUTEAK_CITY_THEATER",
+  "roteiro": "150:NADA,20:UP,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,240:NADA",
+  "prova": {
+   "mapa": "MAP_ECRUTEAK_CITY_THEATER",
+   "andou": true,
+   "vars": {
+    "0x4101": 1
+   }
+  }
+ },
+ {
+  "id": "T90.2",
+  "nome": "Johto, bloco B6: o par negativo do T90.1. Mesmo mapa, ZERO tecla, e a var continua em 0. Existe porque sem ele o T90.1 passaria igual se a var fosse acesa pelo carregamento do mapa (um ON_TRANSITION errado, por exemplo) em vez de pelo gatilho de coordenada: 'a var mudou' nao e 'o jogador pisou no gatilho'. Este caso e o que separa as duas coisas.",
+  "warp": "MAP_ECRUTEAK_CITY_THEATER",
+  "roteiro": "300:NADA",
+  "prova": {
+   "mapa": "MAP_ECRUTEAK_CITY_THEATER",
+   "vars": {
+    "0x4101": 0
+   }
+  }
+ },
+ {
+  "id": "T90.3",
+  "nome": "Johto, bloco B6: com o ROCKET ja expulso (VAR_ECRUTEAK_CITY_THEATER em 2), o senhor do PSYDUCK desce e entrega o HM SURF, e a var vai para 3. E a cena que PAGA o arco: sem ela o jogador atravessa Johto sem Surf. Roteiro medido no mapa: o warp cai em (10,17), que e o proprio gatilho de var_value 2, e gatilho nao dispara com o jogador parado em cima dele, entao o roteiro sobe um tile e volta. O DOWN vai com duas teclas de proposito, e isso e robusto nos dois lados da armadilha do ESTADO: se virar custa tecla, sao virar mais um passo e ele cai em (10,17); se nao custa, sao dois passos e o segundo bate na parede da linha 18. FLAG_RECEIVED_HM_SURF e 0x7A e ja e a mesma flag que Hoenn usa, o que importa porque esta ROM roda Johto ANTES de Hoenn.",
+  "vars": {
+   "0x4101": 2
+  },
+  "warp": "MAP_ECRUTEAK_CITY_THEATER",
+  "roteiro": "150:NADA,20:UP,60:NADA,20:DOWN,20:DOWN,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,240:NADA",
+  "prova": {
+   "mapa": "MAP_ECRUTEAK_CITY_THEATER",
+   "andou": true,
+   "vars": {
+    "0x4101": 3
+   },
+   "flags_acesas": [
+    "FLAG_RECEIVED_HM_SURF"
+   ]
+  }
+ },
+ {
+  "id": "T90.4",
+  "nome": "Johto, bloco B6: a batalha do ROCKET do teatro abre contra um id da faixa 2460 a 2499, que e a faixa reservada aos treinadores de CENA de Johto criada em 12/08/2026 (TRAINER_JOHTO_GRUNT_33 = 2460, TRAINER_JOHTO_KIYO = 2461). Prova por FAIXA e nao por nome, pela licao dos apelidos de Kanto: id que bate por nome bate ate quando o script chama o treinador errado. Com VAR_ECRUTEAK_CITY_THEATER em 1 o ROCKET esta no palco em (10,4) e o ON_TRANSITION ja o poe girando no lugar. ROTEIRO, perna a perna, cada uma terminando em PAREDE para nao depender de quanto custa virar: UP12 sobe a coluna 10 ate (10,9), porque (10,8) e parede; RIGHT12 corre a linha 9 ate (19,9); UP6 sobe ate (19,6), porque a linha 5 so tem vao em x=4,5,6 e 14,15,16; LEFT4 anda ate (16,6); UP4 entra pelo vao da direita e para em (16,3), porque a linha 1 e parede; LEFT8 corre a linha 3 ate (9,3); DOWN2 desce para (9,4); RIGHT1 so VIRA, porque (10,4) esta ocupado pelo ROCKET. As duas ultimas pernas nao terminam em parede e sao as fragis do roteiro: se falharem por um tile, o sintoma e o jogador em (10,3) ou (8,4) sem batalha nenhuma.",
+  "vars": {
+   "0x4101": 1
+  },
+  "warp": "MAP_ECRUTEAK_CITY_THEATER",
+  "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:RIGHT,60:NADA,20:A,150:NADA,20:A,300:NADA",
+  "prova": {
+   "oponente_faixa": [
+    2460,
+    2499
+   ]
+  }
+ },
+ {
+  "id": "T90.5",
+  "nome": "Johto, bloco B6: o KARATE KING KIYO do Mt. Mortar B1F abre batalha. Antes de 12/08/2026 o objeto dele existia (BLACK_BELT em (16,4)) e era MUDO: falar com ele nao fazia nada. ROTEIRO com TODAS as pernas terminando em parede, de proposito, porque nenhuma delas pode depender de quanto custa virar: o warp de debug cai em (3,3); RIGHT9 para em (8,3) na parede de x=9; UP3 para em (8,2) na parede da linha 1; RIGHT6 para em (11,2) na parede de x=12; DOWN4 para em (11,3) na parede de (11,4); RIGHT4 para em (12,3) na parede de x=13; DOWN4 para em (12,4) na parede de (12,5); RIGHT5 para em (14,4) na parede de x=15; DOWN4 para em (14,5) na parede de (14,6); RIGHT6 para em (17,5) na parede de x=18; UP4 para em (17,4) na parede de (17,3); LEFT2 so VIRA, porque (16,4) esta ocupado pelo proprio KIYO. O primeiro A fecha a msgbox de apresentacao e o segundo cai ja com a batalha na tela. Os passos vao escritos um a um: 20:UP*10 NAO anda dez tiles, o *N repete os quadros dentro do MESMO passo (ESTADO.md, armadilha de 06/08/2026).",
+  "warp": "MAP_MT_MORTAR_B1F",
+  "roteiro": "150:NADA,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:UP,20:UP,20:UP,20:UP,20:LEFT,20:LEFT,60:NADA,20:A,150:NADA,20:A,300:NADA",
+  "prova": {
+   "oponente_faixa": [
+    2460,
+    2499
+   ]
+  }
+ },
+ {
+  "id": "T90.6",
+  "nome": "Johto, bloco B6: o ginasio de Blackthorn carrega e ANDA com os cinco Pokemon de overworld dentro dele. E o caso que prova o risco da lecao 4.5 (sprite sem grafico reinicia a ROM na tela de titulo): estes sao os PRIMEIROS objetos desta ROM a usar OBJ_EVENT_GFX_SPECIES(), o nome que o expansion da ao Pokemon de overworld quando OW_POKEMON_OBJECT_EVENTS esta TRUE. Se qualquer uma das quatro especies (CHARIZARD, DRAGONITE, MAGCARGO, DRAGONAIR) nao tivesse bloco OVERWORLD( em src/data/pokemon/species_info/, este caso nao acharia o mapa. O warp cai em (20,58) e UP10 para em (20,54), porque (20,53) e parede; dali os dois DRAGONAIR de (14,50) e (26,50) e o MAGCARGO de (28,53) estao dentro do raio de carga de objeto. Os passos vao escritos um a um: 20:UP*10 NAO anda dez tiles, o *N repete os quadros dentro do MESMO passo (ESTADO.md, armadilha de 06/08/2026).",
+  "warp": "MAP_BLACKTHORN_CITY_GYM",
+  "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,60:NADA",
+  "prova": {
+   "mapa": "MAP_BLACKTHORN_CITY_GYM",
+   "andou": true
+  }
+ },
+ {
+  "id": "T90.7",
+  "nome": "Johto, bloco B6: o ginasio de Azalea carrega e ANDA com os SEIS ARIADOS que entraram em 12/08/2026. Existe separado do T90.6 porque aqui o risco nao e o sprite, e a COLISAO: os seis entram em chao andavel, tres na sala das linhas 13 a 21 e tres na das linhas 29 a 37, e NPC e solido. Medido tile a tile antes de escrever: os quatro vizinhos de cada um dos seis estao livres, entao nenhum e gargalo. O warp cai em (11,44) e UP10 para em (11,39), porque a linha 38 e parede macica de x=3 a x=19. Os passos vao escritos um a um: 20:UP*10 NAO anda dez tiles, o *N repete os quadros dentro do MESMO passo (ESTADO.md, armadilha de 06/08/2026).",
+  "warp": "MAP_AZALEA_TOWN_GYM",
+  "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,60:NADA",
+  "prova": {
+   "mapa": "MAP_AZALEA_TOWN_GYM",
+   "andou": true
+  }
+ }
+]

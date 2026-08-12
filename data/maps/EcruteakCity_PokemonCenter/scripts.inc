@@ -55,3 +55,14 @@ EcruteakCity_PokemonCenter_Text_Woman:
 	.string "MORTY, the GYM LEADER, is soooo\n"
 	.string "cool.\p"
 	.string "His POKéMON are really tough too.$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+EcruteakCity_PokemonCenter1F_Text_Bill1::
+	.string "Hi, I'm BILL. And who are you?\p"
+	.string "Hmm, {PLAYER}, huh?\n"
+	.string "You've come at the right time.$"
+
+EcruteakCity_PokemonCenter_EventScript_BillFala::
+	msgbox EcruteakCity_PokemonCenter1F_Text_Bill1, MSGBOX_NPC
+	end

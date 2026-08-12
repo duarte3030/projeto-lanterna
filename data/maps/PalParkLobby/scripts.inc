@@ -44,3 +44,12 @@ PalParkLobby_EventScript_Npc5::
 
 PalParkLobby_Text_Npc5:
 	.string "The Catching Show...\pIt's a head-on clash of will and\nwits between Trainer and Pokémon.\pI especially look forward to seeing\nPokémon from Kanto and Hoenn.\pBut it tugs at my heartstrings to\nknow they're so far away from home.$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+PalParkLobby_EventScript_Npc7::
+	msgbox PalParkLobby_Text_Npc7, MSGBOX_NPC
+	end
+
+PalParkLobby_Text_Npc7:
+	.string "I came to see {PLAYER}'s Catching\nShow with Daddy.\pI hope it starts soon...$"

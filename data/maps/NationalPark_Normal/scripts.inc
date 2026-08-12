@@ -73,3 +73,53 @@ NationalPark_Normal_Text_KriseBeaten:
 NationalPark_Normal_Text_KriseAfter:
 	.string "I thought you were staring at me\n"
 	.string "because I'm cute!$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+NationalPark_Normal_EventScript_Lass::
+	lock
+	faceplayer
+	msgbox NationalPark_Normal_Text_Lass, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+NationalPark_Normal_Text_Lass::
+	.string "Look! Check out my bag!\p"
+	.string "I printed out my favorites from my\n"
+	.string "POKéDEX and stuck them on my bag.$"
+
+NationalPark_Normal_EventScript_Youngster2::
+	lock
+	faceplayer
+	msgbox NationalPark_Normal_Text_Youngster2, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+NationalPark_Normal_Text_Youngster2::
+	.string "I get the other guy's POKéDEX sticker\n"
+	.string "if I win.$"
+
+NationalPark_Normal_EventScript_Youngster1::
+	lock
+	faceplayer
+	msgbox NationalPark_Normal_Text_Youngster1, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+NationalPark_Normal_Text_Youngster1::
+	.string "I'm playing with stickers I printed\n"
+	.string "from my POKéDEX.$"
+
+NationalPark_Normal_Text_Teacher2::
+	.string "I take walks in the PARK, but I\n"
+	.string "never go into the grass.\p"
+	.string "Trainers always want to battle…\p"
+	.string "You must have been in many battles.\n"
+	.string "Let me heal your POKéMON for you.$"
+
+NationalPark_Normal_EventScript_Teacher2Fala::
+	msgbox NationalPark_Normal_Text_Teacher2, MSGBOX_NPC
+	end

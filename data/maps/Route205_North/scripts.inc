@@ -106,3 +106,12 @@ Route205_North_EventScript_Placa2::
 
 Route205_North_Text_Placa2:
 	.string "Rt. 205\nEterna City$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+Route205_North_EventScript_Npc1::
+	msgbox Route205_North_Text_Npc1, MSGBOX_NPC
+	end
+
+Route205_North_Text_Npc1:
+	.string "To sit back and fish casually...\nIt's a grown-up's hobby.$"

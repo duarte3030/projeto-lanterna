@@ -1,40 +1,6 @@
 Route207_MapScripts::
 	.byte 0
 
-Route207_EventScript_Cyclist::
-	msgbox Route207_Text_Cyclist, MSGBOX_NPC
-	end
-
-Route207_EventScript_Camper::
-	msgbox Route207_Text_Camper, MSGBOX_NPC
-	end
-
-Route207_EventScript_Picnicker::
-	msgbox Route207_Text_Picnicker, MSGBOX_NPC
-	end
-
-Route207_EventScript_Hiker::
-	msgbox Route207_Text_Hiker, MSGBOX_NPC
-	end
-
-Route207_Text_Cyclist:
-	.string "That slope's too slippery.\n"
-	.string "You'll need a Bike to get up.\p"
-	.string "There's a Cycle Shop in\n"
-	.string "Eterna City if you need one.$"
-
-Route207_Text_Camper:
-	.string "I love pitching a tent out here.\n"
-	.string "The stars are amazing at night.$"
-
-Route207_Text_Picnicker:
-	.string "I packed way too many PokéBlocks\n"
-	.string "for this trip. Want to trade?$"
-
-Route207_Text_Hiker:
-	.string "Watch your step around here.\n"
-	.string "The cave entrance drops off fast.$"
-
 Route207_EventScript_Trainer1::
 	trainerbattle_single TRAINER_SINNOH_CAMPER_ANTHONY, Route207_Text_Trainer1Intro, Route207_Text_Trainer1Defeat
 	msgbox Route207_Text_Trainer1Post, MSGBOX_AUTOCLOSE

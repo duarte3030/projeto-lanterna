@@ -1,44 +1,10 @@
 Route212_South_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Route212_South_OnTransition
 	.byte 0
-
-Route212_South_EventScript_SchoolKid::
-	msgbox Route212_South_Text_SchoolKid, MSGBOX_NPC
-	end
-
-Route212_South_EventScript_Lady::
-	msgbox Route212_South_Text_Lady, MSGBOX_NPC
-	end
-
-Route212_South_EventScript_Collector::
-	msgbox Route212_South_Text_Collector, MSGBOX_NPC
-	end
-
-Route212_South_EventScript_Fisherman::
-	msgbox Route212_South_Text_Fisherman, MSGBOX_NPC
-	end
 
 Route212_South_EventScript_ShardsSign::
 	msgbox Route212_South_Text_ShardsSign, MSGBOX_SIGN
 	end
-
-Route212_South_Text_SchoolKid:
-	.string "I've been ROCK SMASHing all along this\n"
-	.string "route, looking for wild POKéMON hiding\l"
-	.string "in the rubble.$"
-
-Route212_South_Text_Lady:
-	.string "It rains here so often that I never\n"
-	.string "leave home without my umbrella.$"
-
-Route212_South_Text_Collector:
-	.string "Shards wash up along this route after\n"
-	.string "it rains. I've got quite a collection\l"
-	.string "going!$"
-
-Route212_South_Text_Fisherman:
-	.string "I come here to fish whenever it rains.\n"
-	.string "Something about the sound helps me\l"
-	.string "focus on the bite.$"
 
 Route212_South_Text_ShardsSign:
 	.string "WANTED: SHARDS!\n"
@@ -247,3 +213,36 @@ Route212_South_Text_ParasolLadySabrinaDefeat:
 
 Route212_South_Text_ParasolLadySabrinaPost:
 	.string "If it rained every day, I could have\nmy umbrella open all the time.$"
+
+Route212_South_EventScript_PolicemanDanny::
+	trainerbattle_single TRAINER_SINNOH_POLICEMAN_DANNY, Route212_South_Text_PolicemanDannyIntro, Route212_South_Text_PolicemanDannyDefeat
+	msgbox Route212_South_Text_PolicemanDannyPost, MSGBOX_AUTOCLOSE
+	end
+
+Route212_South_Text_PolicemanDannyIntro:
+	.string "Your whole atmosphere is shady.\nCooperate in this investigation!$"
+
+Route212_South_Text_PolicemanDannyDefeat:
+	.string "Defeated by sneakiness...$"
+
+Route212_South_Text_PolicemanDannyPost:
+	.string "I mistook your toughness as shadiness!\nIt's an honest mistake!$"
+
+@ ponytail: acende PRIMEIRO e apaga so no ramo bom. Falha de leitura de hora
+@ deixa o treinador ausente, nunca plantado no meio da rota.
+@ O 3 e TIME_NIGHT: `enum TimeOfDay` em include/constants/rtc.h:98 e enum de C,
+@ invisivel para o montador, entao aqui vai o numero cru com o nome ao lado.
+@ Mesmo precedente do `setmetatile 13, 11, 588` do SpearPillar.
+Route212_South_OnTransition:
+	call Route212_South_EventScript_Horario_route212_danny
+	end
+
+Route212_South_EventScript_Horario_route212_danny::
+	setflag FLAG_SINNOH_ROUTE212_DANNY_ESCONDIDO
+	gettimeofday
+	goto_if_eq VAR_0x8000, 3, Route212_South_EventScript_Mostra_route212_danny
+	return
+
+Route212_South_EventScript_Mostra_route212_danny::
+	clearflag FLAG_SINNOH_ROUTE212_DANNY_ESCONDIDO
+	return

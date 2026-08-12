@@ -1,8 +1,10 @@
 @ TORRE RADIO de GOLDENROD, 2F. Portado de
 @ fontes-mapas/hns/data/maps/GoldenrodCity_RadioTower_2F/scripts.inc.
-@ ponytail: dos quatro grunts do hns ficaram dois, porque so restam 14 vagas de
-@ treinador no jogo inteiro (MAX_TRAINERS_COUNT). Buena e o policial sairam:
-@ dependiam de VAR_GOLDENROD_CITY_STATE e de sprite que esta build nao desenha.
+@ Os QUATRO grunts do hns estao aqui: os dois primeiros vieram na leva de
+@ portes e os outros dois em 12/08/2026, quando MAX_TRAINERS_COUNT_EMERALD
+@ subiu de 2500 para 4000 e as 14 vagas que travavam o porte viraram 1559.
+@ Buena e o policial continuam de fora: dependiam de VAR_GOLDENROD_CITY_STATE
+@ e de sprite que esta build nao desenha.
 @ Todo Rocket da torre some com FLAG_HIDE_GOLDENROD_ROCKETS, ligada quando o
 @ ARCHER cai no 5F.
 
@@ -89,3 +91,41 @@ GoldenrodCity_RadioTower_2F_Text_OakTalkSign::
 
 GoldenrodCity_RadioTower_2F_Text_SalesSign::
 	.string "2F SALES$"
+
+@ Treinador do hns que faltava, ligado em 12/08/2026 por
+@ dev_scripts/treinadores_faltantes_johto.py
+
+RadioTower2F_EventScript_Grunt3::
+	trainerbattle_single TRAINER_JOHTO_GRUNT_4, RadioTower2F_Text_Grunt3Seen, RadioTower2F_Text_Grunt3Beaten
+	msgbox RadioTower2F_Text_Grunt3After, MSGBOX_AUTOCLOSE
+	end
+
+RadioTower2F_Text_Grunt3Seen:
+	.string "We're TEAM ROCKET, the exploiters\n"
+	.string "of POKéMON!\p"
+	.string "We love being evil! Scared?$"
+
+RadioTower2F_Text_Grunt3Beaten:
+	.string "You think you're a hero?$"
+
+RadioTower2F_Text_Grunt3After:
+	.string "We're not always evil. We just do\n"
+	.string "whatever we like.$"
+
+RadioTower2F_EventScript_Grunt4::
+	trainerbattle_single TRAINER_JOHTO_GRUNT_26, RadioTower2F_Text_Grunt4Seen, RadioTower2F_Text_Grunt4Beaten
+	msgbox RadioTower2F_Text_Grunt4After, MSGBOX_AUTOCLOSE
+	end
+
+RadioTower2F_Text_Grunt4Seen:
+	.string "Hahaha!\p"
+	.string "How boring. It was far too easy\n"
+	.string "to take over this place!\p"
+	.string "Come on, keep me amused!$"
+
+RadioTower2F_Text_Grunt4Beaten:
+	.string "Wh-who are you?$"
+
+RadioTower2F_Text_Grunt4After:
+	.string "You beat me, and I won't forget\n"
+	.string "it!$"

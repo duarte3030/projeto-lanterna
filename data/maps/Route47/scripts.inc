@@ -118,3 +118,34 @@ Route47_Text_EdaBeaten:
 Route47_Text_EdaAfter:
 	.string "EDA: You should really find a\n"
 	.string "wonderful partner, too!$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+EmbeddedTower_Text_OldManIntro::
+	.string "Well, hello!\p"
+	.string "It's said that past this hole used to\n"
+	.string "be a huge tower reaching far into\l"
+	.string "the sky.\p"
+	.string "They say that it was a rather strange\n"
+	.string "tower with half of it embedded\l"
+	.string "in the cliff.\p"
+	.string "It was not just a tall tower reaching\n"
+	.string "up to the sky, but also reaching deep\l"
+	.string "down underground!\p"
+	.string "It is rumored that it even reached\n"
+	.string "the bottom of the ocean!\p"
+	.string "In short, the ruins used to connect\n"
+	.string "the sky, the land, and the sea to\l"
+	.string "each other...\p"
+	.string "Most of the tower is now crumbled,\n"
+	.string "and the only things that remain are\l"
+	.string "the entrance and its interior, where\l"
+	.string "you'll see strange patterns.$"
+
+Route47_EventScript_Sage::
+	lock
+	faceplayer
+	msgbox EmbeddedTower_Text_OldManIntro, MSGBOX_DEFAULT
+	closemessage
+	release
+	end

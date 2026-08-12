@@ -71,3 +71,33 @@ Route40_Text_PaulaBeaten:
 Route40_Text_PaulaAfter:
 	.string "While I float like this,\n"
 	.string "the waves carry me along.$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+Route40_EventScript_Youngster::
+	lock
+	faceplayer
+	msgbox Route40_Text_StandingYoungster, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+Route40_Text_StandingYoungster::
+	.string "Have you gone to the TRAINER\n"
+	.string "HILL?\p"
+	.string "I think a lot of tough trainers\n"
+	.string "have gathered there already.\p"
+	.string "But since you have so many BADGES\n"
+	.string "you shouldn't do badly at all.$"
+
+Route40_EventScript_Woman1::
+	lock
+	faceplayer
+	msgbox Route40_Text_Lass1, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+Route40_Text_Lass1::
+	.string "Although you can't see it from here,\n"
+	.string "CIANWOOD is across the sea.$"

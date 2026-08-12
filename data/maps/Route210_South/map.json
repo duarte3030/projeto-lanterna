@@ -31,62 +31,6 @@
   ],
   "object_events": [
     {
-      "local_id": "LOCALID_ROUTE210_SOUTH_ACE_TRAINER",
-      "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
-      "x": 25,
-      "y": 5,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route210_South_EventScript_AceTrainer",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
-    },
-    {
-      "local_id": "LOCALID_ROUTE210_SOUTH_BREEDER",
-      "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
-      "x": 30,
-      "y": 20,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route210_South_EventScript_Breeder",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
-    },
-    {
-      "local_id": "LOCALID_ROUTE210_SOUTH_RANCHER",
-      "graphics_id": "OBJ_EVENT_GFX_MAN_5",
-      "x": 25,
-      "y": 45,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route210_South_EventScript_Rancher",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
-    },
-    {
-      "local_id": "LOCALID_ROUTE210_SOUTH_BELLE",
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
-      "x": 25,
-      "y": 59,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route210_South_EventScript_Belle",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
-    },
-    {
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
       "x": 23,
       "y": 25,
@@ -239,6 +183,21 @@
       "script": "Route210_South_EventScript_RancherMarco",
       "flag": "0",
       "origem": "pokeplatinum"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M",
+      "x": 35,
+      "y": 78,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "Route210_South_EventScript_JoggerWyatt",
+      "flag": "FLAG_SINNOH_ROUTE210_WYATT_ESCONDIDO",
+      "origem": "cena_galactica_sinnoh",
+      "fonte_id": "LOCALID_JOGGER_WYATT"
     }
   ],
   "warp_events": [

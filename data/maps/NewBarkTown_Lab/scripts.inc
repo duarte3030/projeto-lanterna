@@ -130,3 +130,17 @@ NewBarkTown_Lab_EventScript_HealingMachine2::
 	call Common_EventScript_OutOfCenterPartyHeal
 	release
 	end
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+NewBarkTown_EventScript_Aide1::
+	lock
+	faceplayer
+	msgbox NewBarkTown_Lab_Text_AideAlwaysBusy, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+NewBarkTown_Lab_Text_AideAlwaysBusy::
+	.string "There are only three of us, so\n"
+	.string "we're always busy.$"

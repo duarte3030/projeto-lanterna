@@ -39,3 +39,22 @@ EternaCityMart_EventScript_Npc2::
 
 EternaCityMart_Text_Npc2:
 	.string "An Escape Rope is indispensable!\pI wish I'd had one when I got into a \ntough spot in the Eterna Forest.\pI would've been able to warp to the\nentrance instantly!$"
+
+@ Lojas de Sinnoh portadas do pokeplatinum (dev_scripts/mudos_sinnoh.py --lojas-aplica)
+
+@ loja_especial do Platinum (MART_SPECIALTIES_ID_ETERNA_MART), tabela de include/data/mart_items.h
+EternaCityMart_EventScript_Loja1::
+	lock
+	faceplayer
+	msgbox EternaCityMart_Text_Caixa, MSGBOX_DEFAULT
+	pokemart EternaCityMart_Pokemart_Loja1
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+EternaCityMart_Pokemart_Loja1:
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_NEST_BALL
+	pokemartlistend

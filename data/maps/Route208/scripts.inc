@@ -1,37 +1,6 @@
 Route208_MapScripts::
 	.byte 0
 
-Route208_EventScript_BlackBelt::
-	msgbox Route208_Text_BlackBelt, MSGBOX_NPC
-	end
-
-Route208_EventScript_Hiker::
-	msgbox Route208_Text_Hiker, MSGBOX_NPC
-	end
-
-Route208_EventScript_Breeder::
-	msgbox Route208_Text_Breeder, MSGBOX_NPC
-	end
-
-Route208_EventScript_Artist::
-	msgbox Route208_Text_Artist, MSGBOX_NPC
-	end
-
-Route208_Text_BlackBelt:
-	.string "...Don't say a word. Just take it.$"
-
-Route208_Text_Hiker:
-	.string "Route 209 has an old stone tower\n"
-	.string "underground. Ever seen it?$"
-
-Route208_Text_Breeder:
-	.string "My Pokémon are always happiest\n"
-	.string "when we're out on the trail.$"
-
-Route208_Text_Artist:
-	.string "I'm sketching the cliffs today.\n"
-	.string "The light here is perfect.$"
-
 Route208_EventScript_Trainer1::
 	trainerbattle_single TRAINER_SINNOH_HIKER_ROBERT, Route208_Text_Trainer1Intro, Route208_Text_Trainer1Defeat
 	msgbox Route208_Text_Trainer1Post, MSGBOX_AUTOCLOSE

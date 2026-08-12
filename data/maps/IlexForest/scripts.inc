@@ -37,3 +37,32 @@ IlexForest_Text_Signpost::
 	.string "trees that you can't see the sky.\p"
 	.string "Please watch out for items that may\n"
 	.string "have been dropped.$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+IlexForest_EventScript_Picnicker::
+	lock
+	faceplayer
+	msgbox IlexForest_Text_Lass, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+IlexForest_Text_Lass::
+	.string "Did something happen to the\n"
+	.string "forest's guardian?$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+IlexForest_EventScript_Boss::
+	lock
+	faceplayer
+	msgbox IlexForest_Text_CharcoalMasterTalkAfter, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+IlexForest_Text_CharcoalMasterTalkAfter::
+	.string "Do you want to apprentice as a\n"
+	.string "charcoal maker with me?\p"
+	.string "You'll be first-rate in ten years!$"

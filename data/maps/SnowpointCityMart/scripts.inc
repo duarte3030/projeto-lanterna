@@ -39,3 +39,22 @@ SnowpointCityMart_EventScript_Npc2::
 
 SnowpointCityMart_Text_Npc2:
 	.string "If your Pokémon gets frozen, it will\nthaw out after a while.\pBut if I were you, I'd keep some\nIce Heals around.$"
+
+@ Lojas de Sinnoh portadas do pokeplatinum (dev_scripts/mudos_sinnoh.py --lojas-aplica)
+
+@ loja_especial do Platinum (MART_SPECIALTIES_ID_SNOWPOINT), tabela de include/data/mart_items.h
+SnowpointCityMart_EventScript_Loja1::
+	lock
+	faceplayer
+	msgbox SnowpointCityMart_Text_Caixa, MSGBOX_DEFAULT
+	pokemart SnowpointCityMart_Pokemart_Loja1
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+SnowpointCityMart_Pokemart_Loja1:
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_QUICK_BALL
+	.2byte ITEM_TIMER_BALL
+	pokemartlistend

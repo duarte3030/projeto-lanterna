@@ -1,34 +1,9 @@
 Route217_MapScripts::
 	.byte 0
 
-Route217_EventScript_Woman::
-	msgbox Route217_Text_Woman, MSGBOX_NPC
-	end
-
-Route217_EventScript_NinjaBoy::
-	msgbox Route217_Text_NinjaBoy, MSGBOX_NPC
-	end
-
-Route217_EventScript_BlackBelt::
-	msgbox Route217_Text_BlackBelt, MSGBOX_NPC
-	end
-
 Route217_EventScript_ArrowSign::
 	msgbox Route217_Text_ArrowSign, MSGBOX_SIGN
 	end
-
-Route217_Text_Woman:
-	.string "The blizzards here can blow up out\n"
-	.string "of nowhere. Dress warm and keep\l"
-	.string "moving.$"
-
-Route217_Text_NinjaBoy:
-	.string "Heh, the snow makes for great cover.\n"
-	.string "Did you even see me?$"
-
-Route217_Text_BlackBelt:
-	.string "Cold hands, warm heart, hard punch.\n"
-	.string "That's the SNOWPOINT way.$"
 
 Route217_Text_ArrowSign:
 	.string "SNOWPOINT CITY\n"

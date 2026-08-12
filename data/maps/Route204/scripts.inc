@@ -1,56 +1,6 @@
 Route204_MapScripts::
 	.byte 0
 
-Route204_EventScript_AceTrainer::
-	lock
-	faceplayer
-	msgbox Route204_Text_AceTrainer, MSGBOX_DEFAULT
-	release
-	end
-
-Route204_EventScript_YoungsterNorth::
-	msgbox Route204_Text_YoungsterNorth, MSGBOX_NPC
-	end
-
-Route204_EventScript_Brandon::
-	lock
-	faceplayer
-	msgbox Route204_Text_Brandon, MSGBOX_DEFAULT
-	release
-	end
-
-Route204_EventScript_YoungsterSouth::
-	msgbox Route204_Text_YoungsterSouth, MSGBOX_NPC
-	end
-
-Route204_EventScript_Sarah::
-	lock
-	faceplayer
-	msgbox Route204_Text_Sarah, MSGBOX_DEFAULT
-	release
-	end
-
-Route204_Text_AceTrainer:
-	.string "Hi, are you the flirty type?\p"
-	.string "I teach at the TRAINERS' SCHOOL,\n"
-	.string "and I'd like to give you a lesson.$"
-
-Route204_Text_YoungsterNorth:
-	.string "FLOAROMA TOWN is full of flowers.\n"
-	.string "It smells great all year round.$"
-
-Route204_Text_Brandon:
-	.string "I caught so many Bug POKéMON\n"
-	.string "on this route, my Bag is full!$"
-
-Route204_Text_YoungsterSouth:
-	.string "RAVAGED PATH is nearby. It's all\n"
-	.string "caved in from an old rockslide.$"
-
-Route204_Text_Sarah:
-	.string "I've been camping out here for\n"
-	.string "days. The POKéMON are friendly.$"
-
 Route204_EventScript_Trainer1::
 	trainerbattle_single TRAINER_SINNOH_BUG_CATCHER_BRANDON, Route204_Text_Trainer1Intro, Route204_Text_Trainer1Defeat
 	msgbox Route204_Text_Trainer1Post, MSGBOX_AUTOCLOSE
@@ -152,3 +102,40 @@ Route204_Text_YoungsterTylerDefeat:
 
 Route204_Text_YoungsterTylerPost:
 	.string "Who gave you your first Pokémon?\pYour first Pokémon is the one with\nthe most fond memories, I think.$"
+
+@ Treinador do pokeplatinum que os dois scripts irmaos nao alcancam
+@ (dev_scripts/treinadores_faltantes_sinnoh.py)
+
+Route204_EventScript_TwinLiv::
+	trainerbattle_double TRAINER_SINNOH_TWINS_LIV_AND_LIZ, Route204_Text_TwinLivIntro, Route204_Text_TwinLivDefeat, Route204_Text_TwinLivNoPartner
+	msgbox Route204_Text_TwinLivPost, MSGBOX_AUTOCLOSE
+	end
+
+Route204_Text_TwinLivIntro:
+	.string "Liv: We can one-shot this Trainer,\ncan't we, Liz?$"
+
+Route204_Text_TwinLivDefeat:
+	.string "Liv: Oh, oh, oh?$"
+
+Route204_Text_TwinLivPost:
+	.string "Liv: This Trainer...will brag about\nbeating us, Liz.$"
+
+Route204_Text_TwinLivNoPartner:
+	.string "Liv: You only have one Pokémon?\nThat's so boring!$"
+
+Route204_EventScript_TwinLiz::
+	trainerbattle_double TRAINER_SINNOH_TWINS_LIV_AND_LIZ, Route204_Text_TwinLizIntro, Route204_Text_TwinLizDefeat, Route204_Text_TwinLizNoPartner
+	msgbox Route204_Text_TwinLizPost, MSGBOX_AUTOCLOSE
+	end
+
+Route204_Text_TwinLizIntro:
+	.string "Liz: We're the strongest in our\nclass!$"
+
+Route204_Text_TwinLizDefeat:
+	.string "Liz: Oh, but, wait!$"
+
+Route204_Text_TwinLizPost:
+	.string "Liz: This Trainer...is really happy about\nbeating us, Liv.$"
+
+Route204_Text_TwinLizNoPartner:
+	.string "Liz: Um, will you battle with us?\nMe and Liv?$"

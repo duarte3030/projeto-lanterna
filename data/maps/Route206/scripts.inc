@@ -1,61 +1,6 @@
 Route206_MapScripts::
 	.byte 0
 
-Route206_EventScript_Hiker::
-	lock
-	faceplayer
-	msgbox Route206_Text_Hiker, MSGBOX_DEFAULT
-	release
-	end
-
-Route206_EventScript_Axel::
-	lock
-	faceplayer
-	msgbox Route206_Text_Axel, MSGBOX_DEFAULT
-	release
-	end
-
-Route206_EventScript_Megan::
-	lock
-	faceplayer
-	msgbox Route206_Text_Megan, MSGBOX_DEFAULT
-	release
-	end
-
-Route206_EventScript_James::
-	lock
-	faceplayer
-	msgbox Route206_Text_James, MSGBOX_DEFAULT
-	release
-	end
-
-Route206_EventScript_Theodore::
-	lock
-	faceplayer
-	msgbox Route206_Text_Theodore, MSGBOX_DEFAULT
-	release
-	end
-
-Route206_Text_Hiker:
-	.string "This road connects ETERNA CITY\n"
-	.string "all the way to OREBURGH CITY.$"
-
-Route206_Text_Axel:
-	.string "I love riding my bike down this\n"
-	.string "long, straight road!$"
-
-Route206_Text_Megan:
-	.string "Cyclists like me can get past\n"
-	.string "rough terrain other TRAINERS can't.$"
-
-Route206_Text_James:
-	.string "Watch out for the CUTTABLE TREES\n"
-	.string "blocking parts of this road.$"
-
-Route206_Text_Theodore:
-	.string "I've hiked every route in SINNOH.\n"
-	.string "This one's got quite a climb.$"
-
 Route206_EventScript_Trainer1::
 	trainerbattle_single TRAINER_SINNOH_CYCLIST_AXEL, Route206_Text_Trainer1Intro, Route206_Text_Trainer1Defeat
 	msgbox Route206_Text_Trainer1Post, MSGBOX_AUTOCLOSE

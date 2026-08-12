@@ -95,3 +95,28 @@ Route30_Text_TrainerTips::
 	.string "POKéMON!\p"
 	.string "POKé BALLS are to be thrown\n"
 	.string "only at wild POKéMON!$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+Route30_EventScript_Girl::
+	lock
+	faceplayer
+	msgbox Route30_Text_CooltrainerF, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+Route30_Text_CooltrainerF::
+	.string "I'm not a trainer.\p"
+	.string "But if you look one in the\n"
+	.string "eyes, prepare to battle.$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+Route30_Text_UseTackle::
+	.string "Go, RATTATA!\p"
+	.string "TACKLE!$"
+
+Route30_EventScript_FightingFala::
+	msgbox Route30_Text_UseTackle, MSGBOX_NPC
+	end

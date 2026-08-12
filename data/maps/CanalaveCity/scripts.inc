@@ -1,30 +1,14 @@
 @ Textos vindos de pret/pokeplatinum (res/text/canalave_city.json), em ingles.
-@ Rival_Bridge, Counterpart (Dawn/Lucas), Prof_Rowan, Sailor e Rival_Library
-@ ficaram de fora: dependem de flag de historia (FLAG_HIDE_CANALAVE_CITY_*),
-@ que este agente nao pode inventar.
+@ Rival_Bridge ENTROU em 12/08/2026, com a batalha e os tres times por inicial
+@ do jogador (dev_scripts/cena_galactica_sinnoh.py, bloco B6); o
+@ FLAG_HIDE_CANALAVE_CITY_RIVAL_BRIDGE do Platinum virou
+@ FLAG_GALACTICA_CANALAVE_RIVAL. Counterpart, Prof_Rowan, Sailor e
+@ Rival_Library continuam de fora: sao a cena da biblioteca e da explosao dos
+@ lagos, que ainda nao foi portada.
 
 CanalaveCity_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, CanalaveCity_OnTransition
 	.byte 0
-
-CanalaveCity_EventScript_Collector::
-	msgbox CanalaveCity_Text_Collector, MSGBOX_NPC
-	end
-
-CanalaveCity_EventScript_Lass::
-	msgbox CanalaveCity_Text_Lass, MSGBOX_NPC
-	end
-
-CanalaveCity_EventScript_BreederM::
-	msgbox CanalaveCity_Text_BreederM, MSGBOX_NPC
-	end
-
-CanalaveCity_EventScript_AceTrainer::
-	msgbox CanalaveCity_Text_AceTrainer, MSGBOX_NPC
-	end
-
-CanalaveCity_EventScript_OldMan::
-	msgbox CanalaveCity_Text_OldMan, MSGBOX_NPC
-	end
 
 CanalaveCity_EventScript_SailorEldritch::
 	lock
@@ -93,35 +77,6 @@ CanalaveCity_EventScript_GymSign::
 CanalaveCity_EventScript_LibrarySign::
 	msgbox CanalaveCity_Text_LibrarySign, MSGBOX_SIGN
 	end
-
-CanalaveCity_Text_Collector:
-	.string "What's up? Your clothes look damp.\n"
-	.string "Maybe you took the boat to IRON\l"
-	.string "ISLAND to get a Hidden Machine,\l"
-	.string "right?$"
-
-CanalaveCity_Text_Lass:
-	.string "My PSYDUCK is very close to me.\n"
-	.string "That makes its Return move\l"
-	.string "powerful!$"
-
-CanalaveCity_Text_BreederM:
-	.string "Welcome to CANALAVE CITY, the\n"
-	.string "Canal City! In the old days, this\l"
-	.string "port used to be a hub of cargo\l"
-	.string "transportation.$"
-
-CanalaveCity_Text_AceTrainer:
-	.string "I'm going to study at the library.\n"
-	.string "I've taken an interest in the\l"
-	.string "subject of time and space.$"
-
-CanalaveCity_Text_OldMan:
-	.string "The GYM LEADER and Trainers of\n"
-	.string "this GYM often go out to IRON\l"
-	.string "ISLAND. They not only train their\l"
-	.string "POKéMON, but they work out as\l"
-	.string "well.$"
 
 CanalaveCity_Text_SailorEldritch:
 	.string "Do you wanna set sail?\p"
@@ -248,3 +203,66 @@ CanalaveCity_EventScript_Placa9::
 
 CanalaveCity_Text_Placa9:
 	.string "The door is tightly shut.\nIt appears impossible to open.$"
+
+@ ponytail: TRES ids, e nao um, porque os tres ramos EXISTEM nesta ROM. Medido
+@ antes de escrever: data/maps/SandgemTown_RowanLab/scripts.inc escreve
+@ VAR_STARTER_MON com 0, 1 e 2 (grama, fogo, agua) desde 05/08/2026, entao o
+@ triangulo de tipos do rival e verdade aqui. O comentario do rival de JOHTO
+@ (data/maps/CherrygroveCity/scripts.inc) diz o contrario e esta VELHO: ele foi
+@ escrito quando o laboratorio ainda nao escrevia a var, e aponta para
+@ SandgemTown_House1, que nao e o laboratorio.
+@
+@ O nome de cada constante e o inicial DO JOGADOR, nao o do rival: no Platinum o
+@ ramo TURTWIG e o que roda quando o jogador tem Turtwig, e o ace daquele time e
+@ Infernape (fogo bate grama). Conferido bloco a bloco em trainers.party.
+@
+@ Gatilho por RAIO DE VISAO (tecnica 3 do SINNOH-PADRAO.md), precedente do rival
+@ de Johto: o motor faz exclamacao, aproximacao e memoria de "ja perdeu" de
+@ graca. O `switch` roda DEPOIS da aproximacao e antes da batalha.
+CanalaveCity_EventScript_Rival::
+	lock
+	faceplayer
+	msgbox CanalaveCity_Text_CenaCheckReady, MSGBOX_DEFAULT
+	switch VAR_STARTER_MON
+	case 0, CanalaveCity_EventScript_RivalTurtwig
+	case 1, CanalaveCity_EventScript_RivalChimchar
+	goto CanalaveCity_EventScript_RivalPiplup
+	end
+
+CanalaveCity_EventScript_RivalTurtwig::
+	trainerbattle_single TRAINER_SINNOH_RIVAL_CANALAVE_CITY_TURTWIG, CanalaveCity_Text_CenaCheckReady, CanalaveCity_Text_CenaIronIsland, CanalaveCity_EventScript_RivalBeaten
+	end
+
+CanalaveCity_EventScript_RivalChimchar::
+	trainerbattle_single TRAINER_SINNOH_RIVAL_CANALAVE_CITY_CHIMCHAR, CanalaveCity_Text_CenaCheckReady, CanalaveCity_Text_CenaIronIsland, CanalaveCity_EventScript_RivalBeaten
+	end
+
+CanalaveCity_EventScript_RivalPiplup::
+	trainerbattle_single TRAINER_SINNOH_RIVAL_CANALAVE_CITY_PIPLUP, CanalaveCity_Text_CenaCheckReady, CanalaveCity_Text_CenaIronIsland, CanalaveCity_EventScript_RivalBeaten
+	end
+
+CanalaveCity_EventScript_RivalBeaten::
+	msgbox CanalaveCity_Text_CenaIronIsland, MSGBOX_DEFAULT
+	setflag FLAG_GALACTICA_CANALAVE_RIVAL
+	removeobject LOCALID_CANALAVE_CITY_RIVAL
+	release
+	end
+
+CanalaveCity_Text_CenaCheckReady:
+	.string "CEDRIC: Whoops!\nHey, {PLAYER}!\pYou're going to challenge the Gym\nLeader up past here, eh?\pSomeone should check to see if you're\nready for this challenge!\pThat someone is me!\nWith my brand-new Gym Badge!$"
+
+CanalaveCity_Text_CenaIronIsland:
+	.string "CEDRIC: Yeah, yeah, you're just\na bit better than me, as usual.\pBut listen up!\pLet me tell you who's going to take on\nthe Pokémon League and become the\pChampion.\pYou guessed right!\nIt's going to be me!\pAnyway, you should go to Iron Island\nand toughen up some more.\pYeah, train at Iron Island! That's what\nI did before going to the Gym!$"
+
+@ ponytail: tres `call_if_defeated` e nao um, porque o rival tem TRES ids, um
+@ por inicial do jogador, e so um deles chega a ser lutado. Quem ja venceu o seu
+@ nao ve o rival de novo ao reentrar no mapa.
+CanalaveCity_OnTransition:
+	call_if_defeated TRAINER_SINNOH_RIVAL_CANALAVE_CITY_TURTWIG, CanalaveCity_EventScript_EsconderRival
+	call_if_defeated TRAINER_SINNOH_RIVAL_CANALAVE_CITY_CHIMCHAR, CanalaveCity_EventScript_EsconderRival
+	call_if_defeated TRAINER_SINNOH_RIVAL_CANALAVE_CITY_PIPLUP, CanalaveCity_EventScript_EsconderRival
+	end
+
+CanalaveCity_EventScript_EsconderRival::
+	setflag FLAG_GALACTICA_CANALAVE_RIVAL
+	return

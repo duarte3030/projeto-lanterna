@@ -4,13 +4,6 @@
 OreburghCity_Gym_MapScripts::
 	.byte 0
 
-OreburghCity_Gym_EventScript_Guide::
-	lock
-	faceplayer
-	msgbox OreburghCity_Gym_Text_Guide, MSGBOX_DEFAULT
-	release
-	end
-
 OreburghCity_Gym_EventScript_Visitor::
 	msgbox OreburghCity_Gym_Text_Visitor, MSGBOX_NPC
 	end
@@ -18,18 +11,6 @@ OreburghCity_Gym_EventScript_Visitor::
 OreburghCity_Gym_EventScript_Sign::
 	msgbox OreburghCity_Gym_Text_Sign, MSGBOX_SIGN
 	end
-
-OreburghCity_Gym_Text_Guide:
-	.string "Howdy! How's it going, Champ-to-be?\p"
-	.string "The GYM LEADER is a user of ROCK-\n"
-	.string "type POKéMON. Listen, ROCK-type\l"
-	.string "POKéMON really hate water, and\l"
-	.string "they're also weak to GRASS moves.\p"
-	.string "But don't think it'll be easy. You\n"
-	.string "don't get to be a GYM LEADER\l"
-	.string "without covering for weaknesses.\p"
-	.string "That's all the advice I can give.\n"
-	.string "Thanks for listening!$"
 
 OreburghCity_Gym_Text_Visitor:
 	.string "I came to watch ROARK train. He's\n"

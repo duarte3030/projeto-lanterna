@@ -1,43 +1,9 @@
 Route218_MapScripts::
 	.byte 0
 
-Route218_EventScript_Guitarist::
-	msgbox Route218_Text_Guitarist, MSGBOX_NPC
-	end
-
-Route218_EventScript_FishermanWest::
-	msgbox Route218_Text_FishermanWest, MSGBOX_NPC
-	end
-
-Route218_EventScript_Sailor::
-	msgbox Route218_Text_Sailor, MSGBOX_NPC
-	end
-
-Route218_EventScript_FishermanEast::
-	msgbox Route218_Text_FishermanEast, MSGBOX_NPC
-	end
-
 Route218_EventScript_JubilifeSign::
 	msgbox Route218_Text_JubilifeSign, MSGBOX_SIGN
 	end
-
-Route218_Text_Guitarist:
-	.string "I write my best songs sitting by\n"
-	.string "the water out here.$"
-
-Route218_Text_FishermanWest:
-	.string "CANALAVE's just down the road.\n"
-	.string "Good POKéMON in these waters,\l"
-	.string "though.$"
-
-Route218_Text_Sailor:
-	.string "This channel links JUBILIFE and\n"
-	.string "CANALAVE. Ships pass through here\l"
-	.string "all the time.$"
-
-Route218_Text_FishermanEast:
-	.string "Cast a line off that bridge sometime.\n"
-	.string "You might be surprised what bites.$"
 
 Route218_Text_JubilifeSign:
 	.string "JUBILIFE CITY\n"
@@ -116,3 +82,62 @@ Route218_EventScript_Placa2::
 
 Route218_Text_Placa2:
 	.string "Rt. 218\nCanalave City$"
+
+@ ponytail: MEDIDO, e a medida contradiz o Platinum. La estes seis selam uma
+@ ponte de um tile e a estrada para Canalave so abre com a Cynthia. Aqui a
+@ geometria convertida e mais larga: medido com busca em largura na grade, para
+@ selar a estrada seria preciso tapar as colunas 8, 9 E 10 inteiras das linhas 12
+@ a 26 (a contraprova do --demo faz exatamente isso e so entao reprova). Seis
+@ objetos nao chegam perto disso: eles OCUPAM a estrada sem tranca-la, e ha
+@ desvio pelas fileiras 16 a 21. Fechar o vao a mao seria inventar bloqueio, e bloqueio
+@ inventado e exatamente o risco que o PRD proibe: some Celestic da rota do
+@ jogador e o hack trava. Ficam como cena que se desfaz, e a medida fica escrita.
+Route218_EventScript_ShowGuitarist::
+	msgbox Route218_Text_CenaCuter, MSGBOX_NPC
+	end
+
+Route218_EventScript_ShowFisherman::
+	msgbox Route218_Text_CenaDazzle, MSGBOX_NPC
+	end
+
+Route218_EventScript_ShowClefairySouth::
+	lock
+	faceplayer
+	playmoncry SPECIES_CLEFAIRY, CRY_MODE_NORMAL
+	msgbox Route218_Text_CenaPippiih, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+
+Route218_EventScript_ShowClefairyNorth::
+	lock
+	faceplayer
+	playmoncry SPECIES_CLEFAIRY, CRY_MODE_NORMAL
+	msgbox Route218_Text_CenaPippippiih, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+
+Route218_EventScript_ShowPikachu::
+	lock
+	faceplayer
+	playmoncry SPECIES_PIKACHU, CRY_MODE_NORMAL
+	msgbox Route218_Text_CenaPikaCry, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+
+Route218_Text_CenaCuter:
+	.string "That's right, CLEFAIRY!\nCuter, now!$"
+
+Route218_Text_CenaDazzle:
+	.string "PIKACHU! Try to keep up!\nYou need to dazzle!$"
+
+Route218_Text_CenaPikaCry:
+	.string "PIKACHU: Puhppikaah!$"
+
+Route218_Text_CenaPippiih:
+	.string "CLEFAIRY: Pippiih!$"
+
+Route218_Text_CenaPippippiih:
+	.string "CLEFAIRY: Pippippiih!$"

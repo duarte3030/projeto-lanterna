@@ -23,3 +23,13 @@ HearthomeCityPokemonFanClub_EventScript_Npc2::
 
 HearthomeCityPokemonFanClub_Text_Npc2:
 	.string "CLEFAIRY: Pip piiih!$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+HearthomeCityPokemonFanClub_EventScript_Npc4::
+	bufferpartymonnick STR_VAR_1, 0
+	msgbox HearthomeCityPokemonFanClub_Text_Npc4, MSGBOX_NPC
+	end
+
+HearthomeCityPokemonFanClub_Text_Npc4:
+	.string "Welcome to the Pokémon Fan Club!\nOh, your {STR_VAR_1}...$"

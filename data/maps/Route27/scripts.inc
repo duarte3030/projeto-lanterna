@@ -134,3 +134,15 @@ Route27_EventScript_TohjoFallsSign::
 TohjoFalls_Text_Sign::
     .string "TOHJO FALLS\p"
     .string "THE LINK BETWEEN KANTO AND JOHTO$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+Route27_EventScript_Fatman::
+    msgbox Route27_Text_FisherMessage, MSGBOX_NPC
+    end
+
+Route27_Text_FisherMessage::
+    .string "Do you know what you just did?\p"
+    .string "You've taken your first step into\n"
+    .string "KANTO.\p"
+    .string "Check your POKéGEAR MAP and see.$"

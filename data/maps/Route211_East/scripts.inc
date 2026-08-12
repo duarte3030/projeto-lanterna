@@ -1,39 +1,6 @@
 Route211_East_MapScripts::
 	.byte 0
 
-Route211_East_EventScript_AceTrainer::
-	msgbox Route211_East_Text_AceTrainer, MSGBOX_NPC
-	end
-
-Route211_East_EventScript_BirdKeeper::
-	msgbox Route211_East_Text_BirdKeeper, MSGBOX_NPC
-	end
-
-Route211_East_EventScript_BlackBelt::
-	msgbox Route211_East_Text_BlackBelt, MSGBOX_NPC
-	end
-
-Route211_East_EventScript_RuinManiac::
-	msgbox Route211_East_Text_RuinManiac, MSGBOX_NPC
-	end
-
-Route211_East_Text_AceTrainer:
-	.string "I'm strong! I'm strong! I'm\n"
-	.string "strong! ...Am I really?\p"
-	.string "Wah! You startled me good!$"
-
-Route211_East_Text_BirdKeeper:
-	.string "I love watching the bird\n"
-	.string "Pokémon soar over this ridge.$"
-
-Route211_East_Text_BlackBelt:
-	.string "Training in the mountains\n"
-	.string "makes you tough.$"
-
-Route211_East_Text_RuinManiac:
-	.string "I dig for ruins around here.\n"
-	.string "Found some interesting shards.$"
-
 Route211_East_EventScript_Trainer1::
 	trainerbattle_single TRAINER_SINNOH_BIRD_KEEPER_KATHERINE, Route211_East_Text_Trainer1Intro, Route211_East_Text_Trainer1Defeat
 	msgbox Route211_East_Text_Trainer1Post, MSGBOX_AUTOCLOSE

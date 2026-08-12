@@ -1,4 +1,5 @@
 TurnbackCaveEntrance_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, TurnbackCave_OnTransitionEntrada
 	.byte 0
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)

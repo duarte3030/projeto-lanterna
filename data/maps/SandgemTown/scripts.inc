@@ -5,24 +5,6 @@
 SandgemTown_MapScripts::
 	.byte 0
 
-SandgemTown_EventScript_Youngster::
-	msgbox SandgemTown_Text_Youngster, MSGBOX_NPC
-	end
-
-SandgemTown_EventScript_BreederM::
-	lock
-	faceplayer
-	msgbox SandgemTown_Text_BreederM, MSGBOX_DEFAULT
-	release
-	end
-
-SandgemTown_EventScript_BreederF::
-	lock
-	faceplayer
-	msgbox SandgemTown_Text_BreederF, MSGBOX_DEFAULT
-	release
-	end
-
 SandgemTown_EventScript_Professor::
 	lock
 	faceplayer
@@ -40,20 +22,6 @@ SandgemTown_EventScript_Rival::
 SandgemTown_EventScript_TownSign::
 	msgbox SandgemTown_Text_TownSign, MSGBOX_SIGN
 	end
-
-SandgemTown_Text_Youngster:
-	.string "This is SANDGEM TOWN.\n"
-	.string "PROFESSOR ROWAN's lab is right there!$"
-
-SandgemTown_Text_BreederM:
-	.string "I raise POKéMON here in SANDGEM.\p"
-	.string "A calm town by the sea is the best\n"
-	.string "place to raise them healthy and strong.$"
-
-SandgemTown_Text_BreederF:
-	.string "Have you been to the lab yet?\p"
-	.string "The PROFESSOR studies POKéMON\n"
-	.string "evolution. Fascinating stuff!$"
 
 @ Fala do Platinum, sandgem_town.json (SandgemTown_Text_RowansComeBack). Este
 @ NPC era um segundo ROWAN na rua, com o sprite do professor, enquanto o ROWAN

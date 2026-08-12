@@ -1,0 +1,43 @@
+{
+  "id": "MAP_HEARTHOME_CITY_DP_GYM_TRAINER_ROOM_1",
+  "name": "HearthomeCityDpGymTrainerRoom1",
+  "layout": "LAYOUT_HEARTHOME_CITY_DP_GYM_TRAINER_ROOM_1",
+  "music": "MUS_PETALBURG",
+  "region_map_section": "MAPSEC_SINNOH_WEST",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+      "x": 6,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "0",
+      "origem": "pokeplatinum"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 7,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_HEARTHOME_CITY_GYM_LEADER_ROOM",
+      "dest_warp_id": "3"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [],
+  "origem": "pokeplatinum: geometria convertida da grade 2D (map_data) com mobilia, mais NPC, placa e texto"
+}

@@ -1,38 +1,6 @@
 Route212_North_MapScripts::
 	.byte 0
 
-Route212_North_EventScript_RichBoy::
-	msgbox Route212_North_Text_RichBoy, MSGBOX_NPC
-	end
-
-Route212_North_EventScript_Lady::
-	msgbox Route212_North_Text_Lady, MSGBOX_NPC
-	end
-
-Route212_North_EventScript_Youngster::
-	msgbox Route212_North_Text_Youngster, MSGBOX_NPC
-	end
-
-Route212_North_EventScript_Collector::
-	msgbox Route212_North_Text_Collector, MSGBOX_NPC
-	end
-
-Route212_North_Text_RichBoy:
-	.string "This road leads straight to\n"
-	.string "Hearthome City. Nice, huh?$"
-
-Route212_North_Text_Lady:
-	.string "I love strolling this path\n"
-	.string "in the afternoon.$"
-
-Route212_North_Text_Youngster:
-	.string "I'm gonna be a great Trainer\n"
-	.string "someday, just you watch!$"
-
-Route212_North_Text_Collector:
-	.string "I collect Shards along this\n"
-	.string "route. Found a few already.$"
-
 Route212_North_EventScript_Trainer1::
 	trainerbattle_single TRAINER_SINNOH_RICH_BOY_JASON, Route212_North_Text_Trainer1Intro, Route212_North_Text_Trainer1Defeat
 	msgbox Route212_North_Text_Trainer1Post, MSGBOX_AUTOCLOSE

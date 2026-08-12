@@ -6,7 +6,7 @@ Cafe_EventScript_Npc1::
 	end
 
 Cafe_Text_Npc1:
-	.string "How are ya doing?\nWhatcha having?\pCourse, all we ever have is\nMoomoo Milk.\pMoomoo Milk, $500 a bottle.\pWould you like to add some to your\ntraveling supplies?$"
+	.string "How are ya doing?\nWhatcha having?\pCourse, all we ever have is\nMoomoo Milk.\pMoomoo Milk, ¥500 a bottle.\pWould you like to add some to your\ntraveling supplies?$"
 
 Cafe_EventScript_Npc2::
 	msgbox Cafe_Text_Npc2, MSGBOX_NPC

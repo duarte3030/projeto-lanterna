@@ -46,3 +46,18 @@ Ecruteak_Text_TwoTowers::
 	.string "The two POKéMON haven't been seen\n"
 	.string "since…\p"
 	.string "Keep reading?$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+EcruteakCity_House2_EventScript_ItemFinderMan::
+	lock
+	faceplayer
+	msgbox Ecruteak_Text_ItemFinderMan, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+Ecruteak_Text_ItemFinderMan::
+	.string "ECRUTEAK is a very old city.\n"
+	.string "Many generations passed down\l"
+	.string "their history in books like these.$"

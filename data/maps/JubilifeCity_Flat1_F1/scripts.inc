@@ -1,26 +1,9 @@
 JubilifeCity_Flat1_F1_MapScripts::
 	.byte 0
 
-JubilifeCity_Flat1_F1_EventScript_ExpertF::
-	msgbox JubilifeCity_Flat1_F1_Text_ExpertF, MSGBOX_NPC
-	end
-
-JubilifeCity_Flat1_F1_EventScript_Pikachu::
-	msgbox JubilifeCity_Flat1_F1_Text_Pikachu, MSGBOX_NPC
-	end
-
 JubilifeCity_Flat1_F1_EventScript_Beauty::
 	msgbox JubilifeCity_Flat1_F1_Text_Beauty, MSGBOX_NPC
 	end
-
-JubilifeCity_Flat1_F1_Text_ExpertF:
-	.string "This building is quiet enough\n"
-	.string "for tea, loud enough for\l"
-	.string "POKéMON chatter.\p"
-	.string "I like the balance.$"
-
-JubilifeCity_Flat1_F1_Text_Pikachu:
-	.string "Pika pika!$"
 
 JubilifeCity_Flat1_F1_Text_Beauty:
 	.string "Oh, your POKéMON is quite\n"
@@ -50,3 +33,13 @@ JubilifeCity_Flat1_F1_EventScript_Npc2::
 
 JubilifeCity_Flat1_F1_Text_Npc2:
 	.string "PIKACHU: Piika pi!$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+JubilifeCity_Flat1_F1_EventScript_Npc3::
+	bufferitemname STR_VAR_1, ITEM_QUICK_CLAW
+	msgbox JubilifeCity_Flat1_F1_Text_Npc3, MSGBOX_NPC
+	end
+
+JubilifeCity_Flat1_F1_Text_Npc3:
+	.string "Oh, your Pokémon is quite adorable!\pHere, try making it hold this\n{STR_VAR_1}.$"

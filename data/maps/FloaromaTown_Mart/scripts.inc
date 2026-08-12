@@ -22,25 +22,9 @@ FloaromaTown_Mart_Pokemart:
 	.2byte ITEM_ESCAPE_ROPE
 	pokemartlistend
 
-FloaromaTown_Mart_EventScript_Beauty::
-	msgbox FloaromaTown_Mart_Text_Beauty, MSGBOX_NPC
-	end
-
-FloaromaTown_Mart_EventScript_SchoolKid::
-	msgbox FloaromaTown_Mart_Text_SchoolKid, MSGBOX_NPC
-	end
-
 FloaromaTown_Mart_Text_Cashier:
 	.string "Welcome! Take a look around, we've\n"
 	.string "got everything a TRAINER needs.$"
-
-FloaromaTown_Mart_Text_Beauty:
-	.string "This MART always has fresh Berries\n"
-	.string "from the fields nearby.$"
-
-FloaromaTown_Mart_Text_SchoolKid:
-	.string "I'm saving my allowance to buy\n"
-	.string "some POKé BALLS here!$"
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 
@@ -57,3 +41,21 @@ FloaromaTown_Mart_EventScript_Npc2::
 
 FloaromaTown_Mart_Text_Npc2:
 	.string "You can't buy Berries or Accessories\nat Poké Marts.\pIt's better for me that way.\nI won't waste money impulse shopping.$"
+
+@ Lojas de Sinnoh portadas do pokeplatinum (dev_scripts/mudos_sinnoh.py --lojas-aplica)
+
+@ loja_especial do Platinum (MART_SPECIALTIES_ID_FLOAROMA), tabela de include/data/mart_items.h
+FloaromaTown_Mart_EventScript_Loja1::
+	lock
+	faceplayer
+	msgbox FloaromaTown_Mart_Text_Cashier, MSGBOX_DEFAULT
+	pokemart FloaromaTown_Mart_Pokemart_Loja1
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+FloaromaTown_Mart_Pokemart_Loja1:
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_NET_BALL
+	pokemartlistend

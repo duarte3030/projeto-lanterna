@@ -26,34 +26,6 @@
   ],
   "object_events": [
     {
-      "local_id": "LOCALID_ROUTE219_TUBER_M",
-      "graphics_id": "OBJ_EVENT_GFX_TUBER_M",
-      "x": 0,
-      "y": 8,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
-      "movement_range_x": 1,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route219_EventScript_TuberM",
-      "flag": "0"
-    },
-    {
-      "local_id": "LOCALID_ROUTE219_TUBER_F",
-      "graphics_id": "OBJ_EVENT_GFX_TUBER_F",
-      "x": 27,
-      "y": 0,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route219_EventScript_TuberF",
-      "flag": "0"
-    },
-    {
       "local_id": "LOCALID_ROUTE219_TRAINER1",
       "graphics_id": "OBJ_EVENT_GFX_TUBER_M",
       "x": 27,

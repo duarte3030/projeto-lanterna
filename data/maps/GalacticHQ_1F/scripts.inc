@@ -8,6 +8,7 @@
 @ grunt caiu e a flag de treinador que o jogo ja grava.
 
 GalacticHQ_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, GalacticHQ_1F_OnTransition
 	.byte 0
 
 GalacticHQ_1F_EventScript_Receptionist1::
@@ -155,3 +156,28 @@ GalacticHQ_1F_EventScript_Placa5::
 
 GalacticHQ_1F_Text_Placa5:
 	.string "The Team Galactic credo!\nEverything belongs to Team Galactic!\pLook beyond the world--space will\nbecome Team Galactic's!$"
+
+GalacticHQ_1F_EventScript_ScientistFredrick::
+	trainerbattle_single TRAINER_SINNOH_SCIENTIST_FREDRICK, GalacticHQ_1F_Text_ScientistFredrickIntro, GalacticHQ_1F_Text_ScientistFredrickDefeat
+	msgbox GalacticHQ_1F_Text_ScientistFredrickPost, MSGBOX_AUTOCLOSE
+	end
+
+GalacticHQ_1F_Text_ScientistFredrickIntro:
+	.string "Hey, now! Our HQ is a state-of-the-\nart facility!\pA snot-nosed kid like you ought to\nkeep your dirty hands to yourself!$"
+
+GalacticHQ_1F_Text_ScientistFredrickDefeat:
+	.string "You and your Pokémon weren't part\nof my calculations...$"
+
+GalacticHQ_1F_Text_ScientistFredrickPost:
+	.string "Our boss is trying to create an\nentirely new world.\pA world only for us!\nFor Team Galactic!$"
+
+@ ponytail: a cena e a flag sao a mesma coisa. Estes objetos nascem enquanto
+@ derrotar o Saturn na sala de controle do QG nao aconteceu, e somem depois; o motor ja grava a flag de
+@ derrotado do gatilho, e este ON_TRANSITION so a traduz. Zero var.
+GalacticHQ_1F_OnTransition:
+	call_if_defeated TRAINER_SINNOH_COMMANDER_SATURN_GALACTIC_HQ, GalacticHQ_1F_EventScript_HideGalactica_qg_veilstone
+	end
+
+GalacticHQ_1F_EventScript_HideGalactica_qg_veilstone::
+	setflag FLAG_GALACTICA_QG_TOMADO
+	return

@@ -39,3 +39,22 @@ HearthomeCityMart_EventScript_Npc2::
 
 HearthomeCityMart_Text_Npc2:
 	.string "Do you know Amity Square?\nIt's a happy and cheerful place.\pYou can find Accessories there you\ncan't buy in Poké Marts.$"
+
+@ Lojas de Sinnoh portadas do pokeplatinum (dev_scripts/mudos_sinnoh.py --lojas-aplica)
+
+@ loja_especial do Platinum (MART_SPECIALTIES_ID_HEARTHOME), tabela de include/data/mart_items.h
+HearthomeCityMart_EventScript_Loja1::
+	lock
+	faceplayer
+	msgbox HearthomeCityMart_Text_Caixa, MSGBOX_DEFAULT
+	pokemart HearthomeCityMart_Pokemart_Loja1
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+HearthomeCityMart_Pokemart_Loja1:
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_NEST_BALL
+	pokemartlistend

@@ -67,3 +67,47 @@ VeilstoneStore2F_EventScript_Placa4::
 
 VeilstoneStore2F_Text_Placa4:
 	.string "B1F: Food & Produce\p1F: Trainers' Zone\p2F: Battle Collection\p3F: TM Corner\p4F: Poké Dolls & Goods\p5F: Rooftop Plaza$"
+
+@ Lojas de Sinnoh portadas do pokeplatinum (dev_scripts/mudos_sinnoh.py --lojas-aplica)
+
+@ loja_especial do Platinum (MART_SPECIALTIES_ID_VEILSTONE_2F_UP), tabela de include/data/mart_items.h
+VeilstoneStore2F_EventScript_Loja1::
+	lock
+	faceplayer
+	msgbox VeilstoneStore2F_Text_Caixa, MSGBOX_DEFAULT
+	pokemart VeilstoneStore2F_Pokemart_Loja1
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+VeilstoneStore2F_Pokemart_Loja1:
+	.2byte ITEM_X_SPEED
+	.2byte ITEM_X_ATTACK
+	.2byte ITEM_X_DEFENSE
+	.2byte ITEM_GUARD_SPEC
+	.2byte ITEM_DIRE_HIT
+	.2byte ITEM_X_ACCURACY
+	.2byte ITEM_X_SPECIAL
+	.2byte ITEM_X_SP_DEF
+	pokemartlistend
+
+@ loja_especial do Platinum (MART_SPECIALTIES_ID_VEILSTONE_2F_MID), tabela de include/data/mart_items.h
+VeilstoneStore2F_EventScript_Loja2::
+	lock
+	faceplayer
+	msgbox VeilstoneStore2F_Text_Caixa, MSGBOX_DEFAULT
+	pokemart VeilstoneStore2F_Pokemart_Loja2
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+VeilstoneStore2F_Pokemart_Loja2:
+	.2byte ITEM_PROTEIN
+	.2byte ITEM_IRON
+	.2byte ITEM_CALCIUM
+	.2byte ITEM_ZINC
+	.2byte ITEM_CARBOS
+	.2byte ITEM_HP_UP
+	pokemartlistend

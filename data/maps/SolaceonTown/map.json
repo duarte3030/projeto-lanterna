@@ -26,20 +26,6 @@
   ],
   "object_events": [
     {
-      "local_id": "LOCALID_SOLACEON_COWGIRL_1",
-      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 8,
-      "y": 23,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 2,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "SolaceonTown_EventScript_Cowgirl1",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
-    },
-    {
       "local_id": "LOCALID_SOLACEON_DAYCARE_MAN",
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
       "x": 12,
@@ -52,62 +38,6 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SolaceonTown_EventScript_DayCareMan",
       "flag": "0"
-    },
-    {
-      "local_id": "LOCALID_SOLACEON_RUIN_MANIAC",
-      "graphics_id": "OBJ_EVENT_GFX_HIKER",
-      "x": 49,
-      "y": 22,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 2,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "SolaceonTown_EventScript_RuinManiac",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
-    },
-    {
-      "local_id": "LOCALID_SOLACEON_RANCHER_1",
-      "graphics_id": "OBJ_EVENT_GFX_MAN_4",
-      "x": 6,
-      "y": 25,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "SolaceonTown_EventScript_Rancher1",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
-    },
-    {
-      "local_id": "LOCALID_SOLACEON_RANCHER_2",
-      "graphics_id": "OBJ_EVENT_GFX_MAN_4",
-      "x": 12,
-      "y": 22,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "SolaceonTown_EventScript_Rancher2",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
-    },
-    {
-      "local_id": "LOCALID_SOLACEON_COWGIRL_2",
-      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 10,
-      "y": 26,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 2,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "SolaceonTown_EventScript_Cowgirl2",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",

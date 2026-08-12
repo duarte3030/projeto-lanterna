@@ -15,34 +15,6 @@
   "connections": 0,
   "object_events": [
     {
-      "local_id": "LOCALID_FLAT1F1_EXPERT_F",
-      "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
-      "x": 10,
-      "y": 2,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "JubilifeCity_Flat1_F1_EventScript_ExpertF",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
-    },
-    {
-      "local_id": "LOCALID_FLAT1F1_PIKACHU",
-      "graphics_id": "OBJ_EVENT_GFX_PIKACHU",
-      "x": 7,
-      "y": 3,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "JubilifeCity_Flat1_F1_EventScript_Pikachu",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
-    },
-    {
       "local_id": "LOCALID_FLAT1F1_BEAUTY",
       "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
       "x": 11,
@@ -94,7 +66,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "JubilifeCity_Flat1_F1_EventScript_Npc3",
       "flag": "FLAG_SINNOH_NPC_DUPLICADO",
       "origem": "pokeplatinum"
     }

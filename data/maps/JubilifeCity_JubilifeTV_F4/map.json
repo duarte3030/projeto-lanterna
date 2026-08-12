@@ -29,20 +29,6 @@
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_TVF4_RECEPTIONIST",
-      "graphics_id": "OBJ_EVENT_GFX_LINK_RECEPTIONIST",
-      "x": 8,
-      "y": 4,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "JubilifeCity_JubilifeTV_F4_EventScript_Receptionist",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
-    },
-    {
       "local_id": "LOCALID_TVF4_BREEDER",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
       "x": 12,

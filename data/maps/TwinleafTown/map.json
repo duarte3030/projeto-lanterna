@@ -26,20 +26,6 @@
   ],
   "object_events": [
     {
-      "local_id": "LOCALID_TWINLEAF_BREEDER",
-      "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",
-      "x": 12,
-      "y": 14,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "TwinleafTown_EventScript_Breeder",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
-    },
-    {
       "local_id": "LOCALID_TWINLEAF_GUITARIST",
       "graphics_id": "OBJ_EVENT_GFX_MAN_3",
       "x": 9,
@@ -66,20 +52,6 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "TwinleafTown_EventScript_Rival",
       "flag": "0"
-    },
-    {
-      "local_id": "LOCALID_TWINLEAF_COLLECTOR",
-      "graphics_id": "OBJ_EVENT_GFX_MAN_1",
-      "x": 6,
-      "y": 21,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "TwinleafTown_EventScript_Collector",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",

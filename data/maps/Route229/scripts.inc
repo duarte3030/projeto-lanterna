@@ -24,10 +24,6 @@ Route229_EventScript_AceTrainerSandra::
 	msgbox Route229_Text_AceTrainerSandraPost, MSGBOX_AUTOCLOSE
 	end
 
-Route229_EventScript_Pokefan::
-	msgbox Route229_Text_Pokefan, MSGBOX_NPC
-	end
-
 Route229_Text_RangerDeshawnIntro:
 	.string "I work to protect beautiful, natural\n"
 	.string "environments.\p"
@@ -77,12 +73,6 @@ Route229_Text_AceTrainerSandraPost:
 	.string "I suddenly remembered what it was\n"
 	.string "like when I had my first battle.\p"
 	.string "I wonder why that would be?$"
-
-Route229_Text_Pokefan:
-	.string "Were you looking for me? Did you\n"
-	.string "miss me? I wish I had a new nugget\l"
-	.string "of wisdom to share with you, but\p"
-	.string "alas, I don't!$"
 
 @ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
 

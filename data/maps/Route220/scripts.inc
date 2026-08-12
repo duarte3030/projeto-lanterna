@@ -1,30 +1,6 @@
 Route220_MapScripts::
 	.byte 0
 
-Route220_EventScript_SwimmerErik::
-	msgbox Route220_Text_SwimmerErik, MSGBOX_NPC
-	end
-
-Route220_EventScript_SwimmerJessica::
-	msgbox Route220_Text_SwimmerJessica, MSGBOX_NPC
-	end
-
-Route220_EventScript_SwimmerKatelyn::
-	msgbox Route220_Text_SwimmerKatelyn, MSGBOX_NPC
-	end
-
-Route220_Text_SwimmerErik:
-	.string "The water here is perfect for\n"
-	.string "keeping a POKéMON's stamina up.$"
-
-Route220_Text_SwimmerJessica:
-	.string "I love diving near TWINLEAF TOWN.\n"
-	.string "The current is calm today.$"
-
-Route220_Text_SwimmerKatelyn:
-	.string "Careful where you swim! Some spots\n"
-	.string "drop off really deep.$"
-
 Route220_EventScript_Trainer1::
 	trainerbattle_single TRAINER_SINNOH_SWIMMER_ERIK, Route220_Text_Trainer1Intro, Route220_Text_Trainer1Defeat
 	msgbox Route220_Text_Trainer1Post, MSGBOX_AUTOCLOSE

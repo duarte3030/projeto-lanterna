@@ -1,26 +1,9 @@
 Route216_MapScripts::
 	.byte 0
 
-Route216_EventScript_Skier::
-	msgbox Route216_Text_Skier, MSGBOX_NPC
-	end
-
-Route216_EventScript_AceTrainer::
-	msgbox Route216_Text_AceTrainer, MSGBOX_NPC
-	end
-
 Route216_EventScript_LodgeSign::
 	msgbox Route216_Text_LodgeSign, MSGBOX_SIGN
 	end
-
-Route216_Text_Skier:
-	.string "The snow up ahead only gets deeper.\n"
-	.string "MT. CORONET is nothing to take\l"
-	.string "lightly.$"
-
-Route216_Text_AceTrainer:
-	.string "My POKéMON and I trained all winter\n"
-	.string "just for routes like this one.$"
 
 Route216_Text_LodgeSign:
 	.string "SNOWBOUND LODGE\n"

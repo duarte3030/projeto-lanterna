@@ -48,3 +48,45 @@ TrainerHill_Courtyard_EventScript_Tent_Palace::
 	closemessage	
 	release
 	end
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+BattleTowerOutsideYoungsterText::
+	.string "Wow, the TRAINER HILL is huge!\p"
+	.string "There must be many kinds of\n"
+	.string "POKéMON in there!$"
+
+TrainerHill_Courtyard_EventScript_Youngster::
+	lock
+	faceplayer
+	msgbox BattleTowerOutsideYoungsterText, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+BattleTowerOutsideBeautyText::
+	.string "In the BATTLE TENTS, you can\n"
+	.string "use only three POKéMON.\p"
+	.string "It's so hard to decide which\n"
+	.string "three should go into battle…$"
+
+TrainerHill_Courtyard_EventScript_Beauty::
+	lock
+	faceplayer
+	msgbox BattleTowerOutsideBeautyText, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+BattleTowerOutsideSailorText::
+	.string "Hehehe, I snuck out from work.\p"
+	.string "I can't bail out until I've won!\p"
+	.string "I have to win it all. That I must!$"
+
+TrainerHill_Courtyard_EventScript_Sailor::
+	lock
+	faceplayer
+	msgbox BattleTowerOutsideSailorText, MSGBOX_DEFAULT
+	closemessage
+	release
+	end

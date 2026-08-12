@@ -14905,7 +14905,7 @@
       "width": 18,
       "height": 20,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_GiantChasm1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_GiantChasm1F/map.bin",
       "layout_version": "emerald"
@@ -14916,7 +14916,7 @@
       "width": 16,
       "height": 26,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_GiantChasmRooms/border.bin",
       "blockdata_filepath": "data/layouts/Unova_GiantChasmRooms/map.bin",
       "layout_version": "emerald"
@@ -14927,7 +14927,7 @@
       "width": 46,
       "height": 40,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnovaEast",
       "border_filepath": "data/layouts/Unova_GiantChasmB1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_GiantChasmB1F/map.bin",
       "layout_version": "emerald"
@@ -14938,7 +14938,7 @@
       "width": 54,
       "height": 32,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_ReversalMountain1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_ReversalMountain1F/map.bin",
       "layout_version": "emerald"
@@ -14949,7 +14949,7 @@
       "width": 34,
       "height": 32,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_ReversalMountainB1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_ReversalMountainB1F/map.bin",
       "layout_version": "emerald"
@@ -14960,7 +14960,7 @@
       "width": 28,
       "height": 14,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTraditionalHouse",
       "border_filepath": "data/layouts/Unova_StrangeHouse1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_StrangeHouse1F/map.bin",
       "layout_version": "emerald"
@@ -14971,7 +14971,7 @@
       "width": 26,
       "height": 12,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTraditionalHouse",
       "border_filepath": "data/layouts/Unova_StrangeHouseB1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_StrangeHouseB1F/map.bin",
       "layout_version": "emerald"
@@ -14982,7 +14982,7 @@
       "width": 42,
       "height": 20,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTraditionalHouse",
       "border_filepath": "data/layouts/Unova_StrangeHouseRooms/border.bin",
       "blockdata_filepath": "data/layouts/Unova_StrangeHouseRooms/map.bin",
       "layout_version": "emerald"
@@ -14993,7 +14993,7 @@
       "width": 40,
       "height": 56,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaForest",
       "border_filepath": "data/layouts/Unova_LostlornForest/border.bin",
       "blockdata_filepath": "data/layouts/Unova_LostlornForest/map.bin",
       "layout_version": "emerald"
@@ -15004,7 +15004,7 @@
       "width": 20,
       "height": 18,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaDesert",
       "border_filepath": "data/layouts/Unova_RelicCastle1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_RelicCastle1F/map.bin",
       "layout_version": "emerald"
@@ -15015,7 +15015,7 @@
       "width": 18,
       "height": 18,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaDesert",
       "border_filepath": "data/layouts/Unova_RelicCastleB1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_RelicCastleB1F/map.bin",
       "layout_version": "emerald"
@@ -15026,7 +15026,7 @@
       "width": 18,
       "height": 14,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaDesert",
       "border_filepath": "data/layouts/Unova_RelicCastleB2F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_RelicCastleB2F/map.bin",
       "layout_version": "emerald"
@@ -15037,7 +15037,7 @@
       "width": 20,
       "height": 10,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaDesert",
       "border_filepath": "data/layouts/Unova_RelicCastleB3F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_RelicCastleB3F/map.bin",
       "layout_version": "emerald"
@@ -15048,7 +15048,7 @@
       "width": 26,
       "height": 24,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaDesert",
       "border_filepath": "data/layouts/Unova_RelicCastleB4F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_RelicCastleB4F/map.bin",
       "layout_version": "emerald"
@@ -15059,7 +15059,7 @@
       "width": 40,
       "height": 30,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGameCorner",
       "border_filepath": "data/layouts/Unova_NimbasaParkCoasterRoom/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NimbasaParkCoasterRoom/map.bin",
       "layout_version": "emerald"
@@ -15070,7 +15070,7 @@
       "width": 10,
       "height": 26,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGameCorner",
       "border_filepath": "data/layouts/Unova_NimbasaParkRunway/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NimbasaParkRunway/map.bin",
       "layout_version": "emerald"
@@ -15081,7 +15081,7 @@
       "width": 14,
       "height": 18,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaFacility",
       "border_filepath": "data/layouts/Unova_NimbasaParkBasement/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NimbasaParkBasement/map.bin",
       "layout_version": "emerald"
@@ -15092,7 +15092,7 @@
       "width": 4,
       "height": 4,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Shop",
+      "secondary_tileset": "gTileset_UnovaMart",
       "border_filepath": "data/layouts/Unova_VirbankComplexElevator/border.bin",
       "blockdata_filepath": "data/layouts/Unova_VirbankComplexElevator/map.bin",
       "layout_version": "emerald"
@@ -15103,7 +15103,7 @@
       "width": 16,
       "height": 12,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaFacility",
       "border_filepath": "data/layouts/Unova_VirbankComplexB1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_VirbankComplexB1F/map.bin",
       "layout_version": "emerald"
@@ -15114,7 +15114,7 @@
       "width": 22,
       "height": 22,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaFacility",
       "border_filepath": "data/layouts/Unova_VirbankComplexB2F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_VirbankComplexB2F/map.bin",
       "layout_version": "emerald"
@@ -15125,7 +15125,7 @@
       "width": 46,
       "height": 42,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaForest",
       "border_filepath": "data/layouts/Unova_PinwheelForest/border.bin",
       "blockdata_filepath": "data/layouts/Unova_PinwheelForest/map.bin",
       "layout_version": "emerald"
@@ -15136,7 +15136,7 @@
       "width": 32,
       "height": 24,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_WellspringCave1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_WellspringCave1F/map.bin",
       "layout_version": "emerald"
@@ -15147,7 +15147,7 @@
       "width": 26,
       "height": 50,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_WellspringCaveB1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_WellspringCaveB1F/map.bin",
       "layout_version": "emerald"
@@ -15158,7 +15158,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaFacility",
       "border_filepath": "data/layouts/Unova_P2LabEntrance/border.bin",
       "blockdata_filepath": "data/layouts/Unova_P2LabEntrance/map.bin",
       "layout_version": "emerald"
@@ -15169,7 +15169,7 @@
       "width": 28,
       "height": 42,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaFacility",
       "border_filepath": "data/layouts/Unova_P2Lab/border.bin",
       "blockdata_filepath": "data/layouts/Unova_P2Lab/map.bin",
       "layout_version": "emerald"
@@ -15180,7 +15180,7 @@
       "width": 22,
       "height": 36,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_SeasideCave1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_SeasideCave1F/map.bin",
       "layout_version": "emerald"
@@ -15191,7 +15191,7 @@
       "width": 24,
       "height": 28,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_SeasideCaveB1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_SeasideCaveB1F/map.bin",
       "layout_version": "emerald"
@@ -15202,7 +15202,7 @@
       "width": 52,
       "height": 42,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnderground",
       "border_filepath": "data/layouts/Unova_CasteliaSewers/border.bin",
       "blockdata_filepath": "data/layouts/Unova_CasteliaSewers/map.bin",
       "layout_version": "emerald"
@@ -15213,7 +15213,7 @@
       "width": 30,
       "height": 18,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnderground",
       "border_filepath": "data/layouts/Unova_CasteliaSewersRooms/border.bin",
       "blockdata_filepath": "data/layouts/Unova_CasteliaSewersRooms/map.bin",
       "layout_version": "emerald"
@@ -15224,7 +15224,7 @@
       "width": 48,
       "height": 26,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_RelicPassageFront/border.bin",
       "blockdata_filepath": "data/layouts/Unova_RelicPassageFront/map.bin",
       "layout_version": "emerald"
@@ -15235,7 +15235,7 @@
       "width": 30,
       "height": 32,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_RelicPassageBack/border.bin",
       "blockdata_filepath": "data/layouts/Unova_RelicPassageBack/map.bin",
       "layout_version": "emerald"
@@ -15246,7 +15246,7 @@
       "width": 46,
       "height": 36,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_ChargestoneCave1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_ChargestoneCave1F/map.bin",
       "layout_version": "emerald"
@@ -15257,7 +15257,7 @@
       "width": 32,
       "height": 42,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_ChargestoneCaveB1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_ChargestoneCaveB1F/map.bin",
       "layout_version": "emerald"
@@ -15268,7 +15268,7 @@
       "width": 24,
       "height": 30,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_ChargestoneCaveB2F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_ChargestoneCaveB2F/map.bin",
       "layout_version": "emerald"
@@ -15279,7 +15279,7 @@
       "width": 10,
       "height": 12,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTraditionalHouse",
       "border_filepath": "data/layouts/Unova_CelestialTower1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_CelestialTower1F/map.bin",
       "layout_version": "emerald"
@@ -15290,7 +15290,7 @@
       "width": 10,
       "height": 44,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTraditionalHouse",
       "border_filepath": "data/layouts/Unova_CelestialTower/border.bin",
       "blockdata_filepath": "data/layouts/Unova_CelestialTower/map.bin",
       "layout_version": "emerald"
@@ -15301,7 +15301,7 @@
       "width": 18,
       "height": 16,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTraditionalHouse",
       "border_filepath": "data/layouts/Unova_CelestialTowerRoof/border.bin",
       "blockdata_filepath": "data/layouts/Unova_CelestialTowerRoof/map.bin",
       "layout_version": "emerald"
@@ -15312,7 +15312,7 @@
       "width": 28,
       "height": 24,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaIcePath",
       "border_filepath": "data/layouts/Unova_SeasideCaveB2F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_SeasideCaveB2F/map.bin",
       "layout_version": "emerald"
@@ -15323,7 +15323,7 @@
       "width": 12,
       "height": 16,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_SeasideCaveChamber/border.bin",
       "blockdata_filepath": "data/layouts/Unova_SeasideCaveChamber/map.bin",
       "layout_version": "emerald"
@@ -15334,7 +15334,7 @@
       "width": 14,
       "height": 24,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaIcirrus",
       "border_filepath": "data/layouts/Unova_DragonspiralTowerOutside/border.bin",
       "blockdata_filepath": "data/layouts/Unova_DragonspiralTowerOutside/map.bin",
       "layout_version": "emerald"
@@ -15345,7 +15345,7 @@
       "width": 10,
       "height": 18,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTower",
       "border_filepath": "data/layouts/Unova_DragonspiralTower1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_DragonspiralTower1F/map.bin",
       "layout_version": "emerald"
@@ -15356,7 +15356,7 @@
       "width": 16,
       "height": 22,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTower",
       "border_filepath": "data/layouts/Unova_DragonspiralTower2F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_DragonspiralTower2F/map.bin",
       "layout_version": "emerald"
@@ -15367,7 +15367,7 @@
       "width": 20,
       "height": 16,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTower",
       "border_filepath": "data/layouts/Unova_DragonspiralTower3F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_DragonspiralTower3F/map.bin",
       "layout_version": "emerald"
@@ -15378,7 +15378,7 @@
       "width": 18,
       "height": 18,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTower",
       "border_filepath": "data/layouts/Unova_DragonspiralTower4F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_DragonspiralTower4F/map.bin",
       "layout_version": "emerald"
@@ -15389,7 +15389,7 @@
       "width": 18,
       "height": 20,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTower",
       "border_filepath": "data/layouts/Unova_DragonspiralTower5F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_DragonspiralTower5F/map.bin",
       "layout_version": "emerald"
@@ -15400,7 +15400,7 @@
       "width": 16,
       "height": 20,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTower",
       "border_filepath": "data/layouts/Unova_DragonspiralTower6F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_DragonspiralTower6F/map.bin",
       "layout_version": "emerald"
@@ -15411,7 +15411,7 @@
       "width": 18,
       "height": 18,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTower",
       "border_filepath": "data/layouts/Unova_DragonspiralTowerRoof/border.bin",
       "blockdata_filepath": "data/layouts/Unova_DragonspiralTowerRoof/map.bin",
       "layout_version": "emerald"
@@ -15422,7 +15422,7 @@
       "width": 26,
       "height": 22,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_MistraltonCave1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_MistraltonCave1F/map.bin",
       "layout_version": "emerald"
@@ -15433,7 +15433,7 @@
       "width": 26,
       "height": 26,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_MistraltonCave2F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_MistraltonCave2F/map.bin",
       "layout_version": "emerald"
@@ -15444,7 +15444,7 @@
       "width": 28,
       "height": 26,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_MistraltonCave3F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_MistraltonCave3F/map.bin",
       "layout_version": "emerald"
@@ -15455,7 +15455,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_TwistMountainEntrance/border.bin",
       "blockdata_filepath": "data/layouts/Unova_TwistMountainEntrance/map.bin",
       "layout_version": "emerald"
@@ -15466,7 +15466,7 @@
       "width": 40,
       "height": 38,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaDreamyard",
       "border_filepath": "data/layouts/Unova_Dreamyard/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Dreamyard/map.bin",
       "layout_version": "emerald"
@@ -15477,7 +15477,7 @@
       "width": 24,
       "height": 24,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTraditionalHouse",
       "border_filepath": "data/layouts/Unova_DreamyardB1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_DreamyardB1F/map.bin",
       "layout_version": "emerald"
@@ -15488,7 +15488,7 @@
       "width": 40,
       "height": 38,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCaveRuins",
       "border_filepath": "data/layouts/Unova_VictoryRoadCave1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_VictoryRoadCave1F/map.bin",
       "layout_version": "emerald"
@@ -15499,7 +15499,7 @@
       "width": 46,
       "height": 52,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_VictoryRoadCave2F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_VictoryRoadCave2F/map.bin",
       "layout_version": "emerald"
@@ -15510,7 +15510,7 @@
       "width": 22,
       "height": 32,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_VictoryRoadCave3F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_VictoryRoadCave3F/map.bin",
       "layout_version": "emerald"
@@ -15521,7 +15521,7 @@
       "width": 64,
       "height": 26,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaDreamyard",
       "border_filepath": "data/layouts/Unova_VictoryRoadOutdoor1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_VictoryRoadOutdoor1F/map.bin",
       "layout_version": "emerald"
@@ -15532,7 +15532,7 @@
       "width": 40,
       "height": 42,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaDreamyard",
       "border_filepath": "data/layouts/Unova_VictoryRoadOutdoor2F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_VictoryRoadOutdoor2F/map.bin",
       "layout_version": "emerald"
@@ -15543,7 +15543,7 @@
       "width": 18,
       "height": 26,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaForest",
       "border_filepath": "data/layouts/Unova_VictoryRoadGrove/border.bin",
       "blockdata_filepath": "data/layouts/Unova_VictoryRoadGrove/map.bin",
       "layout_version": "emerald"
@@ -15554,7 +15554,7 @@
       "width": 24,
       "height": 20,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCaveRuins",
       "border_filepath": "data/layouts/Unova_VictoryRoadCastleOutside/border.bin",
       "blockdata_filepath": "data/layouts/Unova_VictoryRoadCastleOutside/map.bin",
       "layout_version": "emerald"
@@ -15565,7 +15565,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
+      "secondary_tileset": "gTileset_UnovaChampionsRoom",
       "border_filepath": "data/layouts/Unova_NsRoom/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NsRoom/map.bin",
       "layout_version": "emerald"
@@ -15576,7 +15576,7 @@
       "width": 32,
       "height": 34,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_TwistMountain1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_TwistMountain1F/map.bin",
       "layout_version": "emerald"
@@ -15587,7 +15587,7 @@
       "width": 40,
       "height": 34,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_TwistMountain2F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_TwistMountain2F/map.bin",
       "layout_version": "emerald"
@@ -15598,7 +15598,7 @@
       "width": 38,
       "height": 28,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_TwistMountain3F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_TwistMountain3F/map.bin",
       "layout_version": "emerald"
@@ -15609,7 +15609,7 @@
       "width": 46,
       "height": 38,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCaveRuins",
       "border_filepath": "data/layouts/Unova_TwistMountainOutside/border.bin",
       "blockdata_filepath": "data/layouts/Unova_TwistMountainOutside/map.bin",
       "layout_version": "emerald"
@@ -15620,7 +15620,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_TwistMountainHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_TwistMountainHouse/map.bin",
       "layout_version": "emerald"
@@ -15631,7 +15631,7 @@
       "width": 24,
       "height": 18,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_TwistMountainB1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_TwistMountainB1F/map.bin",
       "layout_version": "emerald"
@@ -15642,7 +15642,7 @@
       "width": 14,
       "height": 22,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaCave",
       "border_filepath": "data/layouts/Unova_TwistMountainGenesectRoom/border.bin",
       "blockdata_filepath": "data/layouts/Unova_TwistMountainGenesectRoom/map.bin",
       "layout_version": "emerald"
@@ -15653,7 +15653,7 @@
       "width": 16,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
+      "secondary_tileset": "gTileset_UnovaPokecenter",
       "border_filepath": "data/layouts/Unova_Pokecenter2F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Pokecenter2F/map.bin",
       "layout_version": "emerald"
@@ -15664,7 +15664,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_TradeCenter/border.bin",
       "blockdata_filepath": "data/layouts/Unova_TradeCenter/map.bin",
       "layout_version": "emerald"
@@ -15675,7 +15675,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_Colosseum/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Colosseum/map.bin",
       "layout_version": "emerald"
@@ -15686,7 +15686,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_TimeCapsule/border.bin",
       "blockdata_filepath": "data/layouts/Unova_TimeCapsule/map.bin",
       "layout_version": "emerald"
@@ -15697,7 +15697,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaMansion",
       "border_filepath": "data/layouts/Unova_MobileTradeRoom/border.bin",
       "blockdata_filepath": "data/layouts/Unova_MobileTradeRoom/map.bin",
       "layout_version": "emerald"
@@ -15708,7 +15708,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaMansion",
       "border_filepath": "data/layouts/Unova_MobileBattleRoom/border.bin",
       "blockdata_filepath": "data/layouts/Unova_MobileBattleRoom/map.bin",
       "layout_version": "emerald"
@@ -15719,7 +15719,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaPlayersHouse",
       "border_filepath": "data/layouts/Unova_PlayersHouse1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_PlayersHouse1F/map.bin",
       "layout_version": "emerald"
@@ -15730,7 +15730,7 @@
       "width": 8,
       "height": 6,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaPlayersRoom",
       "border_filepath": "data/layouts/Unova_PlayersHouse2F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_PlayersHouse2F/map.bin",
       "layout_version": "emerald"
@@ -15741,7 +15741,7 @@
       "width": 30,
       "height": 38,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnovaBeach",
       "border_filepath": "data/layouts/Unova_HumilauCity/border.bin",
       "blockdata_filepath": "data/layouts/Unova_HumilauCity/map.bin",
       "layout_version": "emerald"
@@ -15752,7 +15752,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
+      "secondary_tileset": "gTileset_UnovaPokecenter",
       "border_filepath": "data/layouts/Unova_HumilauPokecenter1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_HumilauPokecenter1F/map.bin",
       "layout_version": "emerald"
@@ -15763,7 +15763,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaPlayersHouse",
       "border_filepath": "data/layouts/Unova_MarlonsHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_MarlonsHouse/map.bin",
       "layout_version": "emerald"
@@ -15774,7 +15774,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_PlayersNeighborsHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_PlayersNeighborsHouse/map.bin",
       "layout_version": "emerald"
@@ -15785,7 +15785,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_HumilauTradeHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_HumilauTradeHouse/map.bin",
       "layout_version": "emerald"
@@ -15796,7 +15796,7 @@
       "width": 10,
       "height": 24,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaPort",
       "border_filepath": "data/layouts/Unova_HumilauGym/border.bin",
       "blockdata_filepath": "data/layouts/Unova_HumilauGym/map.bin",
       "layout_version": "emerald"
@@ -15807,7 +15807,7 @@
       "width": 38,
       "height": 20,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnovaBeach",
       "border_filepath": "data/layouts/Unova_R22/border.bin",
       "blockdata_filepath": "data/layouts/Unova_R22/map.bin",
       "layout_version": "emerald"
@@ -15818,7 +15818,7 @@
       "width": 22,
       "height": 58,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnovaBeach",
       "border_filepath": "data/layouts/Unova_Rt21/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt21/map.bin",
       "layout_version": "emerald"
@@ -15829,7 +15829,7 @@
       "width": 36,
       "height": 54,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnovaBeach",
       "border_filepath": "data/layouts/Unova_Rt13/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt13/map.bin",
       "layout_version": "emerald"
@@ -15840,7 +15840,7 @@
       "width": 20,
       "height": 22,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnovaBeach",
       "border_filepath": "data/layouts/Unova_LacunosaTown/border.bin",
       "blockdata_filepath": "data/layouts/Unova_LacunosaTown/map.bin",
       "layout_version": "emerald"
@@ -15851,7 +15851,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
+      "secondary_tileset": "gTileset_UnovaPokecenter",
       "border_filepath": "data/layouts/Unova_LacunosaPokecenter1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_LacunosaPokecenter1F/map.bin",
       "layout_version": "emerald"
@@ -15862,7 +15862,7 @@
       "width": 28,
       "height": 20,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnovaBeach",
       "border_filepath": "data/layouts/Unova_Rt12/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt12/map.bin",
       "layout_version": "emerald"
@@ -15873,7 +15873,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_LacunosaHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_LacunosaHouse/map.bin",
       "layout_version": "emerald"
@@ -15884,7 +15884,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_LacunosaHouse2/border.bin",
       "blockdata_filepath": "data/layouts/Unova_LacunosaHouse2/map.bin",
       "layout_version": "emerald"
@@ -15895,7 +15895,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_Rt12VillageBridgeGate/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt12VillageBridgeGate/map.bin",
       "layout_version": "emerald"
@@ -15906,7 +15906,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_Rt13UndellaGate/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt13UndellaGate/map.bin",
       "layout_version": "emerald"
@@ -15917,7 +15917,7 @@
       "width": 44,
       "height": 28,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnovaBeach",
       "border_filepath": "data/layouts/Unova_UndellaTown/border.bin",
       "blockdata_filepath": "data/layouts/Unova_UndellaTown/map.bin",
       "layout_version": "emerald"
@@ -15928,7 +15928,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
+      "secondary_tileset": "gTileset_UnovaPokecenter",
       "border_filepath": "data/layouts/Unova_UndellaPokecenter1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_UndellaPokecenter1F/map.bin",
       "layout_version": "emerald"
@@ -15939,7 +15939,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_UndellaOldRodHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_UndellaOldRodHouse/map.bin",
       "layout_version": "emerald"
@@ -15950,7 +15950,7 @@
       "width": 26,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
+      "secondary_tileset": "gTileset_UnovaEliteFourRoom",
       "border_filepath": "data/layouts/Unova_MarineTubeEntrance/border.bin",
       "blockdata_filepath": "data/layouts/Unova_MarineTubeEntrance/map.bin",
       "layout_version": "emerald"
@@ -15961,7 +15961,7 @@
       "width": 16,
       "height": 34,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaPort",
       "border_filepath": "data/layouts/Unova_MarineTube/border.bin",
       "blockdata_filepath": "data/layouts/Unova_MarineTube/map.bin",
       "layout_version": "emerald"
@@ -15972,7 +15972,7 @@
       "width": 42,
       "height": 30,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnovaBeach",
       "border_filepath": "data/layouts/Unova_Rt14/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt14/map.bin",
       "layout_version": "emerald"
@@ -15983,7 +15983,7 @@
       "width": 10,
       "height": 16,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_CaitlinsHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_CaitlinsHouse/map.bin",
       "layout_version": "emerald"
@@ -15994,7 +15994,7 @@
       "width": 40,
       "height": 24,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaLentimas",
       "border_filepath": "data/layouts/Unova_LentimasOutskirts/border.bin",
       "blockdata_filepath": "data/layouts/Unova_LentimasOutskirts/map.bin",
       "layout_version": "emerald"
@@ -16005,7 +16005,7 @@
       "width": 32,
       "height": 28,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaLentimas",
       "border_filepath": "data/layouts/Unova_LentimasTown/border.bin",
       "blockdata_filepath": "data/layouts/Unova_LentimasTown/map.bin",
       "layout_version": "emerald"
@@ -16016,7 +16016,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTraditionalHouse",
       "border_filepath": "data/layouts/Unova_LentimasCoinHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_LentimasCoinHouse/map.bin",
       "layout_version": "emerald"
@@ -16027,7 +16027,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
+      "secondary_tileset": "gTileset_UnovaPokecenter",
       "border_filepath": "data/layouts/Unova_LentimasPokecenter1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_LentimasPokecenter1F/map.bin",
       "layout_version": "emerald"
@@ -16038,7 +16038,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTraditionalHouse",
       "border_filepath": "data/layouts/Unova_LentimasHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_LentimasHouse/map.bin",
       "layout_version": "emerald"
@@ -16049,7 +16049,7 @@
       "width": 16,
       "height": 20,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTraditionalHouse",
       "border_filepath": "data/layouts/Unova_LentimasGym/border.bin",
       "blockdata_filepath": "data/layouts/Unova_LentimasGym/map.bin",
       "layout_version": "emerald"
@@ -16060,7 +16060,7 @@
       "width": 10,
       "height": 16,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_LentimasLostlornGate/border.bin",
       "blockdata_filepath": "data/layouts/Unova_LentimasLostlornGate/map.bin",
       "layout_version": "emerald"
@@ -16071,7 +16071,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTraditionalHouse",
       "border_filepath": "data/layouts/Unova_LentimasAirport/border.bin",
       "blockdata_filepath": "data/layouts/Unova_LentimasAirport/map.bin",
       "layout_version": "emerald"
@@ -16082,7 +16082,7 @@
       "width": 46,
       "height": 36,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaNimbasa",
       "border_filepath": "data/layouts/Unova_NimbasaCity/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NimbasaCity/map.bin",
       "layout_version": "emerald"
@@ -16093,7 +16093,7 @@
       "width": 12,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Shop",
+      "secondary_tileset": "gTileset_UnovaMart",
       "border_filepath": "data/layouts/Unova_NimbasaTMMart/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NimbasaTMMart/map.bin",
       "layout_version": "emerald"
@@ -16104,7 +16104,7 @@
       "width": 12,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Shop",
+      "secondary_tileset": "gTileset_UnovaMart",
       "border_filepath": "data/layouts/Unova_NimbasaVitaminMart/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NimbasaVitaminMart/map.bin",
       "layout_version": "emerald"
@@ -16115,7 +16115,7 @@
       "width": 12,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Shop",
+      "secondary_tileset": "gTileset_UnovaMart",
       "border_filepath": "data/layouts/Unova_NimbasaBallMart/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NimbasaBallMart/map.bin",
       "layout_version": "emerald"
@@ -16126,7 +16126,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
+      "secondary_tileset": "gTileset_UnovaPokecenter",
       "border_filepath": "data/layouts/Unova_NimbasaPokecenter1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NimbasaPokecenter1F/map.bin",
       "layout_version": "emerald"
@@ -16137,7 +16137,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaMansion",
       "border_filepath": "data/layouts/Unova_NimbasaHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NimbasaHouse/map.bin",
       "layout_version": "emerald"
@@ -16148,7 +16148,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaMansion",
       "border_filepath": "data/layouts/Unova_NimbasaNameRater/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NimbasaNameRater/map.bin",
       "layout_version": "emerald"
@@ -16159,7 +16159,7 @@
       "width": 10,
       "height": 22,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_Rt4NimbasaGate/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt4NimbasaGate/map.bin",
       "layout_version": "emerald"
@@ -16170,7 +16170,7 @@
       "width": 20,
       "height": 18,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTrainStation",
       "border_filepath": "data/layouts/Unova_NimbasaSubway/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NimbasaSubway/map.bin",
       "layout_version": "emerald"
@@ -16181,7 +16181,7 @@
       "width": 54,
       "height": 20,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaPark",
       "border_filepath": "data/layouts/Unova_NimbasaParkOutside/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NimbasaParkOutside/map.bin",
       "layout_version": "emerald"
@@ -16192,7 +16192,7 @@
       "width": 36,
       "height": 30,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaNimbasa",
       "border_filepath": "data/layouts/Unova_Rt16/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt16/map.bin",
       "layout_version": "emerald"
@@ -16203,7 +16203,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_Rt16LostlornGate/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt16LostlornGate/map.bin",
       "layout_version": "emerald"
@@ -16214,7 +16214,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_Rt16NimbasaGate/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt16NimbasaGate/map.bin",
       "layout_version": "emerald"
@@ -16225,7 +16225,7 @@
       "width": 40,
       "height": 22,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaNimbasa",
       "border_filepath": "data/layouts/Unova_Rt5/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt5/map.bin",
       "layout_version": "emerald"
@@ -16236,7 +16236,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_Rt5NimbasaGate/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt5NimbasaGate/map.bin",
       "layout_version": "emerald"
@@ -16247,7 +16247,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_Rt5BridgeGate/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt5BridgeGate/map.bin",
       "layout_version": "emerald"
@@ -16258,7 +16258,7 @@
       "width": 8,
       "height": 6,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_Rt5Truck/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt5Truck/map.bin",
       "layout_version": "emerald"
@@ -16269,7 +16269,7 @@
       "width": 46,
       "height": 60,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaDesert",
       "border_filepath": "data/layouts/Unova_Rt4/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt4/map.bin",
       "layout_version": "emerald"
@@ -16280,7 +16280,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_Rt4House/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt4House/map.bin",
       "layout_version": "emerald"
@@ -16291,7 +16291,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_Rt4CasteliaGate/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt4CasteliaGate/map.bin",
       "layout_version": "emerald"
@@ -16302,7 +16302,7 @@
       "width": 60,
       "height": 46,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaDesert",
       "border_filepath": "data/layouts/Unova_DesertResort/border.bin",
       "blockdata_filepath": "data/layouts/Unova_DesertResort/map.bin",
       "layout_version": "emerald"
@@ -16313,7 +16313,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_Rt4DesertGate/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt4DesertGate/map.bin",
       "layout_version": "emerald"
@@ -16324,7 +16324,7 @@
       "width": 36,
       "height": 34,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaCastelia",
       "border_filepath": "data/layouts/Unova_CasteliaCityNorth/border.bin",
       "blockdata_filepath": "data/layouts/Unova_CasteliaCityNorth/map.bin",
       "layout_version": "emerald"
@@ -16335,7 +16335,7 @@
       "width": 56,
       "height": 28,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaCastelia",
       "border_filepath": "data/layouts/Unova_CasteliaCityStreets/border.bin",
       "blockdata_filepath": "data/layouts/Unova_CasteliaCityStreets/map.bin",
       "layout_version": "emerald"
@@ -16346,7 +16346,7 @@
       "width": 60,
       "height": 28,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaCastelia",
       "border_filepath": "data/layouts/Unova_CasteliaCitySouth/border.bin",
       "blockdata_filepath": "data/layouts/Unova_CasteliaCitySouth/map.bin",
       "layout_version": "emerald"
@@ -16357,7 +16357,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
+      "secondary_tileset": "gTileset_UnovaPokecenter",
       "border_filepath": "data/layouts/Unova_CasteliaPokecenter1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_CasteliaPokecenter1F/map.bin",
       "layout_version": "emerald"
@@ -16368,7 +16368,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
+      "secondary_tileset": "gTileset_UnovaChampionsRoom",
       "border_filepath": "data/layouts/Unova_CasteliaBikeShop/border.bin",
       "blockdata_filepath": "data/layouts/Unova_CasteliaBikeShop/map.bin",
       "layout_version": "emerald"
@@ -16379,7 +16379,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGameCorner",
       "border_filepath": "data/layouts/Unova_CasteliaMassage/border.bin",
       "blockdata_filepath": "data/layouts/Unova_CasteliaMassage/map.bin",
       "layout_version": "emerald"
@@ -16390,7 +16390,7 @@
       "width": 8,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaMansion",
       "border_filepath": "data/layouts/Unova_CasteliaGameFreak/border.bin",
       "blockdata_filepath": "data/layouts/Unova_CasteliaGameFreak/map.bin",
       "layout_version": "emerald"
@@ -16401,7 +16401,7 @@
       "width": 12,
       "height": 18,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_CasteliaBridgeGate/border.bin",
       "blockdata_filepath": "data/layouts/Unova_CasteliaBridgeGate/map.bin",
       "layout_version": "emerald"
@@ -16412,7 +16412,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaRadioTower",
       "border_filepath": "data/layouts/Unova_BattleCompany1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_BattleCompany1F/map.bin",
       "layout_version": "emerald"
@@ -16423,7 +16423,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaRadioTower",
       "border_filepath": "data/layouts/Unova_BattleCompany2F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_BattleCompany2F/map.bin",
       "layout_version": "emerald"
@@ -16434,7 +16434,7 @@
       "width": 14,
       "height": 44,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaFacility",
       "border_filepath": "data/layouts/Unova_CasteliaGym/border.bin",
       "blockdata_filepath": "data/layouts/Unova_CasteliaGym/map.bin",
       "layout_version": "emerald"
@@ -16445,7 +16445,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaPort",
       "border_filepath": "data/layouts/Unova_CasteliaPort/border.bin",
       "blockdata_filepath": "data/layouts/Unova_CasteliaPort/map.bin",
       "layout_version": "emerald"
@@ -16456,7 +16456,7 @@
       "width": 18,
       "height": 4,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaPort",
       "border_filepath": "data/layouts/Unova_FerryLeft/border.bin",
       "blockdata_filepath": "data/layouts/Unova_FerryLeft/map.bin",
       "layout_version": "emerald"
@@ -16467,7 +16467,7 @@
       "width": 10,
       "height": 18,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_PinwheelBridgeGate/border.bin",
       "blockdata_filepath": "data/layouts/Unova_PinwheelBridgeGate/map.bin",
       "layout_version": "emerald"
@@ -16478,7 +16478,7 @@
       "width": 52,
       "height": 10,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaBridge",
       "border_filepath": "data/layouts/Unova_SkyarrowBridge/border.bin",
       "blockdata_filepath": "data/layouts/Unova_SkyarrowBridge/map.bin",
       "layout_version": "emerald"
@@ -16489,7 +16489,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaMansion",
       "border_filepath": "data/layouts/Unova_CasteliaTradeHouse1/border.bin",
       "blockdata_filepath": "data/layouts/Unova_CasteliaTradeHouse1/map.bin",
       "layout_version": "emerald"
@@ -16500,7 +16500,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaMansion",
       "border_filepath": "data/layouts/Unova_CasteliaTradeHouse2/border.bin",
       "blockdata_filepath": "data/layouts/Unova_CasteliaTradeHouse2/map.bin",
       "layout_version": "emerald"
@@ -16511,7 +16511,7 @@
       "width": 16,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Shop",
+      "secondary_tileset": "gTileset_UnovaMart",
       "border_filepath": "data/layouts/Unova_CasteliaPlazaLobby/border.bin",
       "blockdata_filepath": "data/layouts/Unova_CasteliaPlazaLobby/map.bin",
       "layout_version": "emerald"
@@ -16522,7 +16522,7 @@
       "width": 18,
       "height": 12,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGameCorner",
       "border_filepath": "data/layouts/Unova_CasteliaPlazaGameCorner/border.bin",
       "blockdata_filepath": "data/layouts/Unova_CasteliaPlazaGameCorner/map.bin",
       "layout_version": "emerald"
@@ -16533,7 +16533,7 @@
       "width": 16,
       "height": 6,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGameCorner",
       "border_filepath": "data/layouts/Unova_CasteliaPlazaPrizeRoom/border.bin",
       "blockdata_filepath": "data/layouts/Unova_CasteliaPlazaPrizeRoom/map.bin",
       "layout_version": "emerald"
@@ -16544,7 +16544,7 @@
       "width": 14,
       "height": 12,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGameCorner",
       "border_filepath": "data/layouts/Unova_CasteliaPlazaRestaurant/border.bin",
       "blockdata_filepath": "data/layouts/Unova_CasteliaPlazaRestaurant/map.bin",
       "layout_version": "emerald"
@@ -16555,7 +16555,7 @@
       "width": 4,
       "height": 4,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Shop",
+      "secondary_tileset": "gTileset_UnovaMart",
       "border_filepath": "data/layouts/Unova_CasteliaPlazaElevator/border.bin",
       "blockdata_filepath": "data/layouts/Unova_CasteliaPlazaElevator/map.bin",
       "layout_version": "emerald"
@@ -16566,7 +16566,7 @@
       "width": 28,
       "height": 44,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnovaWest",
       "border_filepath": "data/layouts/Unova_AspertiaCity/border.bin",
       "blockdata_filepath": "data/layouts/Unova_AspertiaCity/map.bin",
       "layout_version": "emerald"
@@ -16577,7 +16577,7 @@
       "width": 20,
       "height": 18,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTrainStation",
       "border_filepath": "data/layouts/Unova_AspertiaSubway/border.bin",
       "blockdata_filepath": "data/layouts/Unova_AspertiaSubway/map.bin",
       "layout_version": "emerald"
@@ -16588,7 +16588,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_AspertiaBlackbeltHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_AspertiaBlackbeltHouse/map.bin",
       "layout_version": "emerald"
@@ -16599,7 +16599,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
+      "secondary_tileset": "gTileset_UnovaPokecenter",
       "border_filepath": "data/layouts/Unova_AspertiaPokecenter1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_AspertiaPokecenter1F/map.bin",
       "layout_version": "emerald"
@@ -16610,7 +16610,7 @@
       "width": 14,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_AspertiaMomHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_AspertiaMomHouse/map.bin",
       "layout_version": "emerald"
@@ -16621,7 +16621,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_AspertiaMoveDeleterHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_AspertiaMoveDeleterHouse/map.bin",
       "layout_version": "emerald"
@@ -16632,7 +16632,7 @@
       "width": 10,
       "height": 22,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
+      "secondary_tileset": "gTileset_UnovaChampionsRoom",
       "border_filepath": "data/layouts/Unova_AspertiaGym/border.bin",
       "blockdata_filepath": "data/layouts/Unova_AspertiaGym/map.bin",
       "layout_version": "emerald"
@@ -16643,7 +16643,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_Rt19AspertiaGate/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt19AspertiaGate/map.bin",
       "layout_version": "emerald"
@@ -16654,7 +16654,7 @@
       "width": 26,
       "height": 34,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnovaWest",
       "border_filepath": "data/layouts/Unova_FloccesyTown/border.bin",
       "blockdata_filepath": "data/layouts/Unova_FloccesyTown/map.bin",
       "layout_version": "emerald"
@@ -16665,7 +16665,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
+      "secondary_tileset": "gTileset_UnovaPokecenter",
       "border_filepath": "data/layouts/Unova_FloccesyPokecenter1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_FloccesyPokecenter1F/map.bin",
       "layout_version": "emerald"
@@ -16676,7 +16676,7 @@
       "width": 42,
       "height": 26,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnovaWest",
       "border_filepath": "data/layouts/Unova_Rt19/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt19/map.bin",
       "layout_version": "emerald"
@@ -16687,7 +16687,7 @@
       "width": 46,
       "height": 36,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnovaWest",
       "border_filepath": "data/layouts/Unova_Rt20/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt20/map.bin",
       "layout_version": "emerald"
@@ -16698,7 +16698,7 @@
       "width": 32,
       "height": 22,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnovaWest",
       "border_filepath": "data/layouts/Unova_FloccesyRanch/border.bin",
       "blockdata_filepath": "data/layouts/Unova_FloccesyRanch/map.bin",
       "layout_version": "emerald"
@@ -16709,7 +16709,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTraditionalHouse",
       "border_filepath": "data/layouts/Unova_FloccesyRanchBarn/border.bin",
       "blockdata_filepath": "data/layouts/Unova_FloccesyRanchBarn/map.bin",
       "layout_version": "emerald"
@@ -16720,7 +16720,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_FloccesyRanchHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_FloccesyRanchHouse/map.bin",
       "layout_version": "emerald"
@@ -16731,7 +16731,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_FloccesyTownHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_FloccesyTownHouse/map.bin",
       "layout_version": "emerald"
@@ -16742,7 +16742,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_FloccesyTradeHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_FloccesyTradeHouse/map.bin",
       "layout_version": "emerald"
@@ -16753,7 +16753,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTraditionalHouse",
       "border_filepath": "data/layouts/Unova_AldersHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_AldersHouse/map.bin",
       "layout_version": "emerald"
@@ -16764,7 +16764,7 @@
       "width": 48,
       "height": 32,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaVirbank",
       "border_filepath": "data/layouts/Unova_VirbankCity/border.bin",
       "blockdata_filepath": "data/layouts/Unova_VirbankCity/map.bin",
       "layout_version": "emerald"
@@ -16775,7 +16775,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
+      "secondary_tileset": "gTileset_UnovaPokecenter",
       "border_filepath": "data/layouts/Unova_VirbankPokecenter1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_VirbankPokecenter1F/map.bin",
       "layout_version": "emerald"
@@ -16786,7 +16786,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_VirbankHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_VirbankHouse/map.bin",
       "layout_version": "emerald"
@@ -16797,7 +16797,7 @@
       "width": 20,
       "height": 14,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGameCorner",
       "border_filepath": "data/layouts/Unova_GameCorner/border.bin",
       "blockdata_filepath": "data/layouts/Unova_GameCorner/map.bin",
       "layout_version": "emerald"
@@ -16808,7 +16808,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_Rt20VirbankGate/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt20VirbankGate/map.bin",
       "layout_version": "emerald"
@@ -16819,7 +16819,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_VirbankStatExpHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_VirbankStatExpHouse/map.bin",
       "layout_version": "emerald"
@@ -16830,7 +16830,7 @@
       "width": 14,
       "height": 32,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Shop",
+      "secondary_tileset": "gTileset_UnovaMart",
       "border_filepath": "data/layouts/Unova_VirbankGym/border.bin",
       "blockdata_filepath": "data/layouts/Unova_VirbankGym/map.bin",
       "layout_version": "emerald"
@@ -16841,7 +16841,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaPort",
       "border_filepath": "data/layouts/Unova_VirbankPort/border.bin",
       "blockdata_filepath": "data/layouts/Unova_VirbankPort/map.bin",
       "layout_version": "emerald"
@@ -16852,7 +16852,7 @@
       "width": 18,
       "height": 4,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaPort",
       "border_filepath": "data/layouts/Unova_FerryRight/border.bin",
       "blockdata_filepath": "data/layouts/Unova_FerryRight/map.bin",
       "layout_version": "emerald"
@@ -16863,7 +16863,7 @@
       "width": 26,
       "height": 54,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaComplex",
       "border_filepath": "data/layouts/Unova_VirbankComplexOutside/border.bin",
       "blockdata_filepath": "data/layouts/Unova_VirbankComplexOutside/map.bin",
       "layout_version": "emerald"
@@ -16874,7 +16874,7 @@
       "width": 20,
       "height": 52,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaNacrene",
       "border_filepath": "data/layouts/Unova_NacreneOutskirt/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NacreneOutskirt/map.bin",
       "layout_version": "emerald"
@@ -16885,7 +16885,7 @@
       "width": 30,
       "height": 24,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaNacrene",
       "border_filepath": "data/layouts/Unova_NacreneOutskirtEast/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NacreneOutskirtEast/map.bin",
       "layout_version": "emerald"
@@ -16896,7 +16896,7 @@
       "width": 8,
       "height": 48,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaNacrene",
       "border_filepath": "data/layouts/Unova_NacreneOutskirtConnectionDummy/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NacreneOutskirtConnectionDummy/map.bin",
       "layout_version": "emerald"
@@ -16907,7 +16907,7 @@
       "width": 36,
       "height": 22,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaNacrene",
       "border_filepath": "data/layouts/Unova_NacreneCity/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NacreneCity/map.bin",
       "layout_version": "emerald"
@@ -16918,7 +16918,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
+      "secondary_tileset": "gTileset_UnovaPokecenter",
       "border_filepath": "data/layouts/Unova_NacrenePokecenter1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NacrenePokecenter1F/map.bin",
       "layout_version": "emerald"
@@ -16929,7 +16929,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_NacreneStatExpHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NacreneStatExpHouse/map.bin",
       "layout_version": "emerald"
@@ -16940,7 +16940,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_NacreneHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NacreneHouse/map.bin",
       "layout_version": "emerald"
@@ -16951,7 +16951,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGameCorner",
       "border_filepath": "data/layouts/Unova_NacreneCafe/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NacreneCafe/map.bin",
       "layout_version": "emerald"
@@ -16962,7 +16962,7 @@
       "width": 10,
       "height": 12,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaRadioTower",
       "border_filepath": "data/layouts/Unova_NacreneMuseum/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NacreneMuseum/map.bin",
       "layout_version": "emerald"
@@ -16973,7 +16973,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_Rt3NacreneGate/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt3NacreneGate/map.bin",
       "layout_version": "emerald"
@@ -16984,7 +16984,7 @@
       "width": 44,
       "height": 40,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaStriaton",
       "border_filepath": "data/layouts/Unova_Rt3/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt3/map.bin",
       "layout_version": "emerald"
@@ -16995,7 +16995,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_Rt3DayCare/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt3DayCare/map.bin",
       "layout_version": "emerald"
@@ -17006,7 +17006,7 @@
       "width": 48,
       "height": 32,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaStriaton",
       "border_filepath": "data/layouts/Unova_StriatonCity/border.bin",
       "blockdata_filepath": "data/layouts/Unova_StriatonCity/map.bin",
       "layout_version": "emerald"
@@ -17017,7 +17017,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
+      "secondary_tileset": "gTileset_UnovaPokecenter",
       "border_filepath": "data/layouts/Unova_StriatonPokecenter1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_StriatonPokecenter1F/map.bin",
       "layout_version": "emerald"
@@ -17028,7 +17028,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaMansion",
       "border_filepath": "data/layouts/Unova_StriatonTradeHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_StriatonTradeHouse/map.bin",
       "layout_version": "emerald"
@@ -17039,7 +17039,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaFacility",
       "border_filepath": "data/layouts/Unova_StriatonLab/border.bin",
       "blockdata_filepath": "data/layouts/Unova_StriatonLab/map.bin",
       "layout_version": "emerald"
@@ -17050,7 +17050,7 @@
       "width": 14,
       "height": 18,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGameCorner",
       "border_filepath": "data/layouts/Unova_StriatonGym/border.bin",
       "blockdata_filepath": "data/layouts/Unova_StriatonGym/map.bin",
       "layout_version": "emerald"
@@ -17061,7 +17061,7 @@
       "width": 46,
       "height": 40,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaStriaton",
       "border_filepath": "data/layouts/Unova_Rt2/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt2/map.bin",
       "layout_version": "emerald"
@@ -17072,7 +17072,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_Rt2AccumulaGate/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt2AccumulaGate/map.bin",
       "layout_version": "emerald"
@@ -17083,7 +17083,7 @@
       "width": 30,
       "height": 24,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnovaEast",
       "border_filepath": "data/layouts/Unova_AccumulaTown/border.bin",
       "blockdata_filepath": "data/layouts/Unova_AccumulaTown/map.bin",
       "layout_version": "emerald"
@@ -17094,7 +17094,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
+      "secondary_tileset": "gTileset_UnovaPokecenter",
       "border_filepath": "data/layouts/Unova_AccumulaPokecenter1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_AccumulaPokecenter1F/map.bin",
       "layout_version": "emerald"
@@ -17105,7 +17105,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaMansion",
       "border_filepath": "data/layouts/Unova_AccumulaBallManiacHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_AccumulaBallManiacHouse/map.bin",
       "layout_version": "emerald"
@@ -17116,7 +17116,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_AccumulaHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_AccumulaHouse/map.bin",
       "layout_version": "emerald"
@@ -17127,7 +17127,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaMansion",
       "border_filepath": "data/layouts/Unova_AccumulaTradeHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_AccumulaTradeHouse/map.bin",
       "layout_version": "emerald"
@@ -17138,7 +17138,7 @@
       "width": 38,
       "height": 44,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnovaEast",
       "border_filepath": "data/layouts/Unova_Rt1/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt1/map.bin",
       "layout_version": "emerald"
@@ -17149,7 +17149,7 @@
       "width": 26,
       "height": 24,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnovaEast",
       "border_filepath": "data/layouts/Unova_NuvemaTown/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NuvemaTown/map.bin",
       "layout_version": "emerald"
@@ -17160,7 +17160,7 @@
       "width": 10,
       "height": 20,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_NuvemaMomHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NuvemaMomHouse/map.bin",
       "layout_version": "emerald"
@@ -17171,7 +17171,7 @@
       "width": 14,
       "height": 12,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaLab",
       "border_filepath": "data/layouts/Unova_NuvemaLab/border.bin",
       "blockdata_filepath": "data/layouts/Unova_NuvemaLab/map.bin",
       "layout_version": "emerald"
@@ -17182,7 +17182,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_Rt1Rt17Gate/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt1Rt17Gate/map.bin",
       "layout_version": "emerald"
@@ -17193,7 +17193,7 @@
       "width": 46,
       "height": 38,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnovaEast",
       "border_filepath": "data/layouts/Unova_Rt17/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt17/map.bin",
       "layout_version": "emerald"
@@ -17204,7 +17204,7 @@
       "width": 48,
       "height": 38,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnovaEast",
       "border_filepath": "data/layouts/Unova_Rt18/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt18/map.bin",
       "layout_version": "emerald"
@@ -17215,7 +17215,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_Rt18House/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt18House/map.bin",
       "layout_version": "emerald"
@@ -17226,7 +17226,7 @@
       "width": 38,
       "height": 30,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaBattleTowerOutside",
       "border_filepath": "data/layouts/Unova_PWTOutside/border.bin",
       "blockdata_filepath": "data/layouts/Unova_PWTOutside/map.bin",
       "layout_version": "emerald"
@@ -17237,7 +17237,7 @@
       "width": 16,
       "height": 18,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaBattleTower",
       "border_filepath": "data/layouts/Unova_PWTInside/border.bin",
       "blockdata_filepath": "data/layouts/Unova_PWTInside/map.bin",
       "layout_version": "emerald"
@@ -17248,7 +17248,7 @@
       "width": 20,
       "height": 6,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaBattleTower",
       "border_filepath": "data/layouts/Unova_PWTHallway/border.bin",
       "blockdata_filepath": "data/layouts/Unova_PWTHallway/map.bin",
       "layout_version": "emerald"
@@ -17259,7 +17259,7 @@
       "width": 16,
       "height": 12,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaBattleTower",
       "border_filepath": "data/layouts/Unova_PWTQualifierRoom/border.bin",
       "blockdata_filepath": "data/layouts/Unova_PWTQualifierRoom/map.bin",
       "layout_version": "emerald"
@@ -17270,7 +17270,7 @@
       "width": 8,
       "height": 12,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaBattleTower",
       "border_filepath": "data/layouts/Unova_PWTBackRoom/border.bin",
       "blockdata_filepath": "data/layouts/Unova_PWTBackRoom/map.bin",
       "layout_version": "emerald"
@@ -17281,7 +17281,7 @@
       "width": 16,
       "height": 12,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaBattleTower",
       "border_filepath": "data/layouts/Unova_PWTBattleRoom/border.bin",
       "blockdata_filepath": "data/layouts/Unova_PWTBattleRoom/map.bin",
       "layout_version": "emerald"
@@ -17292,7 +17292,7 @@
       "width": 52,
       "height": 40,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaDriftveil",
       "border_filepath": "data/layouts/Unova_DriftveilCity/border.bin",
       "blockdata_filepath": "data/layouts/Unova_DriftveilCity/map.bin",
       "layout_version": "emerald"
@@ -17303,7 +17303,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_PWTDriftveilGate/border.bin",
       "blockdata_filepath": "data/layouts/Unova_PWTDriftveilGate/map.bin",
       "layout_version": "emerald"
@@ -17314,7 +17314,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
+      "secondary_tileset": "gTileset_UnovaPokecenter",
       "border_filepath": "data/layouts/Unova_DriftveilPokecenter1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_DriftveilPokecenter1F/map.bin",
       "layout_version": "emerald"
@@ -17325,7 +17325,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_DriftveilFossilHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_DriftveilFossilHouse/map.bin",
       "layout_version": "emerald"
@@ -17336,7 +17336,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_DriftveilBridgeGate/border.bin",
       "blockdata_filepath": "data/layouts/Unova_DriftveilBridgeGate/map.bin",
       "layout_version": "emerald"
@@ -17347,7 +17347,7 @@
       "width": 10,
       "height": 12,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_DriftveilShelter/border.bin",
       "blockdata_filepath": "data/layouts/Unova_DriftveilShelter/map.bin",
       "layout_version": "emerald"
@@ -17358,7 +17358,7 @@
       "width": 42,
       "height": 16,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaBridge",
       "border_filepath": "data/layouts/Unova_DriftveilDrawbridge/border.bin",
       "blockdata_filepath": "data/layouts/Unova_DriftveilDrawbridge/map.bin",
       "layout_version": "emerald"
@@ -17369,7 +17369,7 @@
       "width": 10,
       "height": 12,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaRadioTower",
       "border_filepath": "data/layouts/Unova_DriftveilStoneEmporium/border.bin",
       "blockdata_filepath": "data/layouts/Unova_DriftveilStoneEmporium/map.bin",
       "layout_version": "emerald"
@@ -17380,7 +17380,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_DriftveilHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_DriftveilHouse/map.bin",
       "layout_version": "emerald"
@@ -17391,7 +17391,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_DriftveilTradeHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_DriftveilTradeHouse/map.bin",
       "layout_version": "emerald"
@@ -17402,7 +17402,7 @@
       "width": 52,
       "height": 50,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnovaEast",
       "border_filepath": "data/layouts/Unova_Rt6/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt6/map.bin",
       "layout_version": "emerald"
@@ -17413,7 +17413,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_Rt6House/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt6House/map.bin",
       "layout_version": "emerald"
@@ -17424,7 +17424,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaLab",
       "border_filepath": "data/layouts/Unova_Rt6Lab/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt6Lab/map.bin",
       "layout_version": "emerald"
@@ -17435,7 +17435,7 @@
       "width": 40,
       "height": 32,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaMistralton",
       "border_filepath": "data/layouts/Unova_MistraltonCity/border.bin",
       "blockdata_filepath": "data/layouts/Unova_MistraltonCity/map.bin",
       "layout_version": "emerald"
@@ -17446,7 +17446,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
+      "secondary_tileset": "gTileset_UnovaPokecenter",
       "border_filepath": "data/layouts/Unova_MistraltonPokecenter1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_MistraltonPokecenter1F/map.bin",
       "layout_version": "emerald"
@@ -17457,7 +17457,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_MistraltonMoveReminderHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_MistraltonMoveReminderHouse/map.bin",
       "layout_version": "emerald"
@@ -17468,7 +17468,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_MistraltonHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_MistraltonHouse/map.bin",
       "layout_version": "emerald"
@@ -17479,7 +17479,7 @@
       "width": 14,
       "height": 20,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
+      "secondary_tileset": "gTileset_UnovaEliteFourRoom",
       "border_filepath": "data/layouts/Unova_MistraltonGym1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_MistraltonGym1F/map.bin",
       "layout_version": "emerald"
@@ -17490,7 +17490,7 @@
       "width": 18,
       "height": 18,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
+      "secondary_tileset": "gTileset_UnovaEliteFourRoom",
       "border_filepath": "data/layouts/Unova_MistraltonGym2F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_MistraltonGym2F/map.bin",
       "layout_version": "emerald"
@@ -17501,7 +17501,7 @@
       "width": 14,
       "height": 12,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaAirport",
       "border_filepath": "data/layouts/Unova_MistraltonAirport/border.bin",
       "blockdata_filepath": "data/layouts/Unova_MistraltonAirport/map.bin",
       "layout_version": "emerald"
@@ -17512,7 +17512,7 @@
       "width": 26,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaAirport",
       "border_filepath": "data/layouts/Unova_PlaneLeft/border.bin",
       "blockdata_filepath": "data/layouts/Unova_PlaneLeft/map.bin",
       "layout_version": "emerald"
@@ -17523,7 +17523,7 @@
       "width": 26,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaAirport",
       "border_filepath": "data/layouts/Unova_PlaneRight/border.bin",
       "blockdata_filepath": "data/layouts/Unova_PlaneRight/map.bin",
       "layout_version": "emerald"
@@ -17534,7 +17534,7 @@
       "width": 24,
       "height": 54,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaMistralton",
       "border_filepath": "data/layouts/Unova_Rt7/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt7/map.bin",
       "layout_version": "emerald"
@@ -17545,7 +17545,7 @@
       "width": 32,
       "height": 48,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaMistralton",
       "border_filepath": "data/layouts/Unova_Rt7North/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt7North/map.bin",
       "layout_version": "emerald"
@@ -17556,7 +17556,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_Rt7House/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt7House/map.bin",
       "layout_version": "emerald"
@@ -17567,7 +17567,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_Rt7TradeHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt7TradeHouse/map.bin",
       "layout_version": "emerald"
@@ -17578,7 +17578,7 @@
       "width": 44,
       "height": 24,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaOpelucid",
       "border_filepath": "data/layouts/Unova_Rt11/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt11/map.bin",
       "layout_version": "emerald"
@@ -17589,7 +17589,7 @@
       "width": 8,
       "height": 6,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_Rt11Truck/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt11Truck/map.bin",
       "layout_version": "emerald"
@@ -17600,7 +17600,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_Rt11OpelucidGate/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt11OpelucidGate/map.bin",
       "layout_version": "emerald"
@@ -17611,7 +17611,7 @@
       "width": 56,
       "height": 34,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaOpelucid",
       "border_filepath": "data/layouts/Unova_OpelucidCity/border.bin",
       "blockdata_filepath": "data/layouts/Unova_OpelucidCity/map.bin",
       "layout_version": "emerald"
@@ -17622,7 +17622,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_Rt9OpelucidGate/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt9OpelucidGate/map.bin",
       "layout_version": "emerald"
@@ -17633,7 +17633,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
+      "secondary_tileset": "gTileset_UnovaPokecenter",
       "border_filepath": "data/layouts/Unova_OpelucidPokecenter1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_OpelucidPokecenter1F/map.bin",
       "layout_version": "emerald"
@@ -17644,7 +17644,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTrainStation",
       "border_filepath": "data/layouts/Unova_OpelucidBattleHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_OpelucidBattleHouse/map.bin",
       "layout_version": "emerald"
@@ -17655,7 +17655,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_OpelucidSuperRodHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_OpelucidSuperRodHouse/map.bin",
       "layout_version": "emerald"
@@ -17666,7 +17666,7 @@
       "width": 28,
       "height": 32,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaLab",
       "border_filepath": "data/layouts/Unova_OpelucidGym/border.bin",
       "blockdata_filepath": "data/layouts/Unova_OpelucidGym/map.bin",
       "layout_version": "emerald"
@@ -17677,7 +17677,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaTraditionalHouse",
       "border_filepath": "data/layouts/Unova_OpelucidCuriosityShop/border.bin",
       "blockdata_filepath": "data/layouts/Unova_OpelucidCuriosityShop/map.bin",
       "layout_version": "emerald"
@@ -17688,7 +17688,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_OpelucidBlackbeltHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_OpelucidBlackbeltHouse/map.bin",
       "layout_version": "emerald"
@@ -17699,7 +17699,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaMansion",
       "border_filepath": "data/layouts/Unova_DraydensHouse1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_DraydensHouse1F/map.bin",
       "layout_version": "emerald"
@@ -17710,7 +17710,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaMansion",
       "border_filepath": "data/layouts/Unova_DraydensHouse2F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_DraydensHouse2F/map.bin",
       "layout_version": "emerald"
@@ -17721,7 +17721,7 @@
       "width": 44,
       "height": 22,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnovaNorth",
       "border_filepath": "data/layouts/Unova_Rt9/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt9/map.bin",
       "layout_version": "emerald"
@@ -17732,7 +17732,7 @@
       "width": 18,
       "height": 28,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaAirport",
       "border_filepath": "data/layouts/Unova_ShoppingMallNine/border.bin",
       "blockdata_filepath": "data/layouts/Unova_ShoppingMallNine/map.bin",
       "layout_version": "emerald"
@@ -17743,7 +17743,7 @@
       "width": 14,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaAirport",
       "border_filepath": "data/layouts/Unova_MembersRoom/border.bin",
       "blockdata_filepath": "data/layouts/Unova_MembersRoom/map.bin",
       "layout_version": "emerald"
@@ -17754,7 +17754,7 @@
       "width": 68,
       "height": 38,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaVillageBridge",
       "border_filepath": "data/layouts/Unova_VillageBridge/border.bin",
       "blockdata_filepath": "data/layouts/Unova_VillageBridge/map.bin",
       "layout_version": "emerald"
@@ -17765,7 +17765,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_Rt11VillageBridgeGate/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt11VillageBridgeGate/map.bin",
       "layout_version": "emerald"
@@ -17776,7 +17776,7 @@
       "width": 18,
       "height": 14,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaAirport",
       "border_filepath": "data/layouts/Unova_TubelineBridge/border.bin",
       "blockdata_filepath": "data/layouts/Unova_TubelineBridge/map.bin",
       "layout_version": "emerald"
@@ -17787,7 +17787,7 @@
       "width": 52,
       "height": 6,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaIcirrus",
       "border_filepath": "data/layouts/Unova_IcirrusCitySouthConnectionDummy/border.bin",
       "blockdata_filepath": "data/layouts/Unova_IcirrusCitySouthConnectionDummy/map.bin",
       "layout_version": "emerald"
@@ -17798,7 +17798,7 @@
       "width": 48,
       "height": 26,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaIcirrus",
       "border_filepath": "data/layouts/Unova_IcirrusCitySouth/border.bin",
       "blockdata_filepath": "data/layouts/Unova_IcirrusCitySouth/map.bin",
       "layout_version": "emerald"
@@ -17809,7 +17809,7 @@
       "width": 26,
       "height": 26,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaIcirrus",
       "border_filepath": "data/layouts/Unova_IcirrusCityNorth/border.bin",
       "blockdata_filepath": "data/layouts/Unova_IcirrusCityNorth/map.bin",
       "layout_version": "emerald"
@@ -17820,7 +17820,7 @@
       "width": 48,
       "height": 22,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaIcirrus",
       "border_filepath": "data/layouts/Unova_Rt8/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt8/map.bin",
       "layout_version": "emerald"
@@ -17831,7 +17831,7 @@
       "width": 48,
       "height": 40,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaIcirrus",
       "border_filepath": "data/layouts/Unova_MoorOfIcirrus/border.bin",
       "blockdata_filepath": "data/layouts/Unova_MoorOfIcirrus/map.bin",
       "layout_version": "emerald"
@@ -17842,7 +17842,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
+      "secondary_tileset": "gTileset_UnovaPokecenter",
       "border_filepath": "data/layouts/Unova_IcirrusPokecenter1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_IcirrusPokecenter1F/map.bin",
       "layout_version": "emerald"
@@ -17853,7 +17853,7 @@
       "width": 12,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Shop",
+      "secondary_tileset": "gTileset_UnovaMart",
       "border_filepath": "data/layouts/Unova_IcirrusBoutique/border.bin",
       "blockdata_filepath": "data/layouts/Unova_IcirrusBoutique/map.bin",
       "layout_version": "emerald"
@@ -17864,7 +17864,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_IcirrusHouse/border.bin",
       "blockdata_filepath": "data/layouts/Unova_IcirrusHouse/map.bin",
       "layout_version": "emerald"
@@ -17875,7 +17875,7 @@
       "width": 10,
       "height": 12,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_IcirrusFanClub/border.bin",
       "blockdata_filepath": "data/layouts/Unova_IcirrusFanClub/map.bin",
       "layout_version": "emerald"
@@ -17886,7 +17886,7 @@
       "width": 32,
       "height": 38,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_CaveSinnoh",
+      "secondary_tileset": "gTileset_UnovaIcePath",
       "border_filepath": "data/layouts/Unova_IcirrusCave/border.bin",
       "blockdata_filepath": "data/layouts/Unova_IcirrusCave/map.bin",
       "layout_version": "emerald"
@@ -17897,7 +17897,7 @@
       "width": 34,
       "height": 52,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnovaNorth",
       "border_filepath": "data/layouts/Unova_Rt23East/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt23East/map.bin",
       "layout_version": "emerald"
@@ -17908,7 +17908,7 @@
       "width": 66,
       "height": 24,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_UnovaUnovaNorth",
       "border_filepath": "data/layouts/Unova_Rt23West/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt23West/map.bin",
       "layout_version": "emerald"
@@ -17919,7 +17919,7 @@
       "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaGate",
       "border_filepath": "data/layouts/Unova_Rt23Gate/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt23Gate/map.bin",
       "layout_version": "emerald"
@@ -17930,7 +17930,7 @@
       "width": 8,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_UnovaHouse",
       "border_filepath": "data/layouts/Unova_Rt23House/border.bin",
       "blockdata_filepath": "data/layouts/Unova_Rt23House/map.bin",
       "layout_version": "emerald"
@@ -17941,7 +17941,7 @@
       "width": 28,
       "height": 16,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
+      "secondary_tileset": "gTileset_UnovaPkmnLeague",
       "border_filepath": "data/layouts/Unova_VictoryRoadEntranceSouthRight/border.bin",
       "blockdata_filepath": "data/layouts/Unova_VictoryRoadEntranceSouthRight/map.bin",
       "layout_version": "emerald"
@@ -17952,7 +17952,7 @@
       "width": 28,
       "height": 16,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
+      "secondary_tileset": "gTileset_UnovaPkmnLeague",
       "border_filepath": "data/layouts/Unova_VictoryRoadEntranceSouthLeft/border.bin",
       "blockdata_filepath": "data/layouts/Unova_VictoryRoadEntranceSouthLeft/map.bin",
       "layout_version": "emerald"
@@ -17963,7 +17963,7 @@
       "width": 52,
       "height": 24,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
+      "secondary_tileset": "gTileset_UnovaPkmnLeague",
       "border_filepath": "data/layouts/Unova_VictoryRoadEntranceNorth/border.bin",
       "blockdata_filepath": "data/layouts/Unova_VictoryRoadEntranceNorth/map.bin",
       "layout_version": "emerald"
@@ -17974,7 +17974,7 @@
       "width": 56,
       "height": 6,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
+      "secondary_tileset": "gTileset_UnovaPkmnLeague",
       "border_filepath": "data/layouts/Unova_VictoryRoadEntranceNorthConnectionDummy/border.bin",
       "blockdata_filepath": "data/layouts/Unova_VictoryRoadEntranceNorthConnectionDummy/map.bin",
       "layout_version": "emerald"
@@ -17985,7 +17985,7 @@
       "width": 30,
       "height": 24,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
+      "secondary_tileset": "gTileset_UnovaPkmnLeague",
       "border_filepath": "data/layouts/Unova_PkmnLeagueEntrance/border.bin",
       "blockdata_filepath": "data/layouts/Unova_PkmnLeagueEntrance/map.bin",
       "layout_version": "emerald"
@@ -17996,7 +17996,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
+      "secondary_tileset": "gTileset_UnovaPokecenter",
       "border_filepath": "data/layouts/Unova_VictoryRoadPokecenter1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_VictoryRoadPokecenter1F/map.bin",
       "layout_version": "emerald"
@@ -18007,7 +18007,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
+      "secondary_tileset": "gTileset_UnovaPokecenter",
       "border_filepath": "data/layouts/Unova_PkmnLeaguePokecenter1F/border.bin",
       "blockdata_filepath": "data/layouts/Unova_PkmnLeaguePokecenter1F/map.bin",
       "layout_version": "emerald"
@@ -18018,7 +18018,7 @@
       "width": 28,
       "height": 24,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
+      "secondary_tileset": "gTileset_UnovaPkmnLeague",
       "border_filepath": "data/layouts/Unova_PkmnLeagueMain/border.bin",
       "blockdata_filepath": "data/layouts/Unova_PkmnLeagueMain/map.bin",
       "layout_version": "emerald"
@@ -18029,7 +18029,7 @@
       "width": 16,
       "height": 14,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
+      "secondary_tileset": "gTileset_UnovaEliteFourRoom",
       "border_filepath": "data/layouts/Unova_GrimsleysRoom/border.bin",
       "blockdata_filepath": "data/layouts/Unova_GrimsleysRoom/map.bin",
       "layout_version": "emerald"
@@ -18040,7 +18040,7 @@
       "width": 16,
       "height": 14,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
+      "secondary_tileset": "gTileset_UnovaEliteFourRoom",
       "border_filepath": "data/layouts/Unova_MarshalsRoom/border.bin",
       "blockdata_filepath": "data/layouts/Unova_MarshalsRoom/map.bin",
       "layout_version": "emerald"
@@ -18051,7 +18051,7 @@
       "width": 16,
       "height": 14,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
+      "secondary_tileset": "gTileset_UnovaEliteFourRoom",
       "border_filepath": "data/layouts/Unova_ElesasRoom/border.bin",
       "blockdata_filepath": "data/layouts/Unova_ElesasRoom/map.bin",
       "layout_version": "emerald"
@@ -18062,7 +18062,7 @@
       "width": 16,
       "height": 14,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
+      "secondary_tileset": "gTileset_UnovaEliteFourRoom",
       "border_filepath": "data/layouts/Unova_ColresssRoom/border.bin",
       "blockdata_filepath": "data/layouts/Unova_ColresssRoom/map.bin",
       "layout_version": "emerald"
@@ -18073,7 +18073,7 @@
       "width": 18,
       "height": 22,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
+      "secondary_tileset": "gTileset_UnovaPkmnLeague",
       "border_filepath": "data/layouts/Unova_ChampionsRoomEntrance/border.bin",
       "blockdata_filepath": "data/layouts/Unova_ChampionsRoomEntrance/map.bin",
       "layout_version": "emerald"
@@ -18084,7 +18084,7 @@
       "width": 16,
       "height": 20,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
+      "secondary_tileset": "gTileset_UnovaChampionsRoom",
       "border_filepath": "data/layouts/Unova_ChampionsRoom/border.bin",
       "blockdata_filepath": "data/layouts/Unova_ChampionsRoom/map.bin",
       "layout_version": "emerald"
@@ -18095,7 +18095,7 @@
       "width": 10,
       "height": 14,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
+      "secondary_tileset": "gTileset_UnovaChampionsRoom",
       "border_filepath": "data/layouts/Unova_HallOfFame/border.bin",
       "blockdata_filepath": "data/layouts/Unova_HallOfFame/map.bin",
       "layout_version": "emerald"
@@ -19209,6 +19209,292 @@
       "secondary_tileset": "gTileset_CaveSinnoh",
       "border_filepath": "data/layouts/MtCoronet4FRooms1And2/border.bin",
       "blockdata_filepath": "data/layouts/MtCoronet4FRooms1And2/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HEARTHOMECITYGYMLEADERROOM",
+      "name": "HearthomeCityGymLeaderRoom_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/HearthomeCityGymLeaderRoom/border.bin",
+      "blockdata_filepath": "data/layouts/HearthomeCityGymLeaderRoom/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HEARTHOME_CITY_DP_GYM_ELEVATOR_ROOM_1",
+      "name": "HearthomeCityDpGymElevatorRoom1_Layout",
+      "width": 29,
+      "height": 24,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/HearthomeCityDpGymElevatorRoom1/border.bin",
+      "blockdata_filepath": "data/layouts/HearthomeCityDpGymElevatorRoom1/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HEARTHOME_CITY_DP_GYM_TRAINER_ROOM_1",
+      "name": "HearthomeCityDpGymTrainerRoom1_Layout",
+      "width": 17,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/HearthomeCityDpGymTrainerRoom1/border.bin",
+      "blockdata_filepath": "data/layouts/HearthomeCityDpGymTrainerRoom1/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HEARTHOME_CITY_DP_GYM_TRAINER_ROOM_2",
+      "name": "HearthomeCityDpGymTrainerRoom2_Layout",
+      "width": 17,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/HearthomeCityDpGymTrainerRoom2/border.bin",
+      "blockdata_filepath": "data/layouts/HearthomeCityDpGymTrainerRoom2/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HEARTHOME_CITY_GYM_TRAINER_ROOM_1",
+      "name": "HearthomeCityGymTrainerRoom1_Layout",
+      "width": 17,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/HearthomeCityGymTrainerRoom1/border.bin",
+      "blockdata_filepath": "data/layouts/HearthomeCityGymTrainerRoom1/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HEARTHOME_CITY_DP_GYM_TRAINER_ROOM_3",
+      "name": "HearthomeCityDpGymTrainerRoom3_Layout",
+      "width": 17,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/HearthomeCityDpGymTrainerRoom3/border.bin",
+      "blockdata_filepath": "data/layouts/HearthomeCityDpGymTrainerRoom3/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HEARTHOME_CITY_DP_GYM_ELEVATOR_ROOM_2",
+      "name": "HearthomeCityDpGymElevatorRoom2_Layout",
+      "width": 29,
+      "height": 24,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/HearthomeCityDpGymElevatorRoom2/border.bin",
+      "blockdata_filepath": "data/layouts/HearthomeCityDpGymElevatorRoom2/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HEARTHOME_CITY_DP_GYM_TRAINER_ROOM_4",
+      "name": "HearthomeCityDpGymTrainerRoom4_Layout",
+      "width": 17,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/HearthomeCityDpGymTrainerRoom4/border.bin",
+      "blockdata_filepath": "data/layouts/HearthomeCityDpGymTrainerRoom4/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HEARTHOME_CITY_DP_GYM_TRAINER_ROOM_6",
+      "name": "HearthomeCityDpGymTrainerRoom6_Layout",
+      "width": 17,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/HearthomeCityDpGymTrainerRoom6/border.bin",
+      "blockdata_filepath": "data/layouts/HearthomeCityDpGymTrainerRoom6/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HEARTHOME_CITY_DP_GYM_TRAINER_ROOM_5",
+      "name": "HearthomeCityDpGymTrainerRoom5_Layout",
+      "width": 17,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/HearthomeCityDpGymTrainerRoom5/border.bin",
+      "blockdata_filepath": "data/layouts/HearthomeCityDpGymTrainerRoom5/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HEARTHOME_CITY_DP_GYM_LEADER_ROOM",
+      "name": "HearthomeCityDpGymLeaderRoom_Layout",
+      "width": 16,
+      "height": 15,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/HearthomeCityDpGymLeaderRoom/border.bin",
+      "blockdata_filepath": "data/layouts/HearthomeCityDpGymLeaderRoom/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_PALPARKLOBBY",
+      "name": "PalParkLobby_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/PalParkLobby/border.bin",
+      "blockdata_filepath": "data/layouts/PalParkLobby/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_PASTORIACITYOBSERVATORYGATE1F",
+      "name": "PastoriaCityObservatoryGate1F_Layout",
+      "width": 13,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Pasos",
+      "border_filepath": "data/layouts/PastoriaCityObservatoryGate1F/border.bin",
+      "blockdata_filepath": "data/layouts/PastoriaCityObservatoryGate1F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SENDOFFSPRING",
+      "name": "SendoffSpring_Layout",
+      "width": 13,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Pasos",
+      "border_filepath": "data/layouts/SendoffSpring/border.bin",
+      "blockdata_filepath": "data/layouts/SendoffSpring/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_BATTLE_TOWER",
+      "name": "BattleTower_Layout",
+      "width": 31,
+      "height": 21,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/BattleTower/border.bin",
+      "blockdata_filepath": "data/layouts/BattleTower/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_BATTLEFRONTIER",
+      "name": "BattleFrontier_Layout",
+      "width": 13,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Pasos",
+      "border_filepath": "data/layouts/BattleFrontier/border.bin",
+      "blockdata_filepath": "data/layouts/BattleFrontier/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_BATTLE_FACTORY",
+      "name": "BattleFactory_Layout",
+      "width": 27,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/BattleFactory/border.bin",
+      "blockdata_filepath": "data/layouts/BattleFactory/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_BATTLE_HALL",
+      "name": "BattleHall_Layout",
+      "width": 27,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/BattleHall/border.bin",
+      "blockdata_filepath": "data/layouts/BattleHall/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_BATTLE_CASTLE",
+      "name": "BattleCastle_Layout",
+      "width": 23,
+      "height": 17,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/BattleCastle/border.bin",
+      "blockdata_filepath": "data/layouts/BattleCastle/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_BATTLE_ARCADE",
+      "name": "BattleArcade_Layout",
+      "width": 23,
+      "height": 17,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/BattleArcade/border.bin",
+      "blockdata_filepath": "data/layouts/BattleArcade/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_IRON_ISLAND_HOUSE",
+      "name": "IronIslandHouse_Layout",
+      "width": 11,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/IronIslandHouse/border.bin",
+      "blockdata_filepath": "data/layouts/IronIslandHouse/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_TURNBACK_CAVE_PILLAR_1_ROOM_1",
+      "name": "TurnbackCavePillar1Room1_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/TurnbackCavePillar1Room1/border.bin",
+      "blockdata_filepath": "data/layouts/TurnbackCavePillar1Room1/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_TURNBACK_CAVE_PILLAR_1_ROOM_3",
+      "name": "TurnbackCavePillar1Room3_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/TurnbackCavePillar1Room3/border.bin",
+      "blockdata_filepath": "data/layouts/TurnbackCavePillar1Room3/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_TURNBACK_CAVE_PILLAR_1_ROOM_5",
+      "name": "TurnbackCavePillar1Room5_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/TurnbackCavePillar1Room5/border.bin",
+      "blockdata_filepath": "data/layouts/TurnbackCavePillar1Room5/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_TURNBACK_CAVE_PILLAR_ROOM",
+      "name": "TurnbackCavePillarRoom_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/TurnbackCavePillarRoom/border.bin",
+      "blockdata_filepath": "data/layouts/TurnbackCavePillarRoom/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_TURNBACK_CAVE_GIRATINA_ROOM",
+      "name": "TurnbackCaveGiratinaRoom_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/TurnbackCaveGiratinaRoom/border.bin",
+      "blockdata_filepath": "data/layouts/TurnbackCaveGiratinaRoom/map.bin",
       "layout_version": "emerald"
     }
   ]

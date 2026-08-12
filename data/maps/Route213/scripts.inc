@@ -1,45 +1,9 @@
 Route213_MapScripts::
 	.byte 0
 
-Route213_EventScript_Fisherman::
-	msgbox Route213_Text_Fisherman, MSGBOX_NPC
-	end
-
-Route213_EventScript_Beauty::
-	msgbox Route213_Text_Beauty, MSGBOX_NPC
-	end
-
-Route213_EventScript_Collector::
-	msgbox Route213_Text_Collector, MSGBOX_NPC
-	end
-
-Route213_EventScript_Sailor::
-	msgbox Route213_Text_Sailor, MSGBOX_NPC
-	end
-
 Route213_EventScript_HotelSign::
 	msgbox Route213_Text_HotelSign, MSGBOX_SIGN
 	end
-
-Route213_Text_Fisherman:
-	.string "This route runs right along LAKE\n"
-	.string "VALOR. The fishing here is some of\l"
-	.string "the best in SINNOH.$"
-
-Route213_Text_Beauty:
-	.string "I came all this way just to see the\n"
-	.string "sun rise over the lake. Wasn't it\l"
-	.string "worth it?$"
-
-Route213_Text_Collector:
-	.string "Grand Lake gives me the perfect\n"
-	.string "excuse to walk in circles all day\l"
-	.string "looking for treasure.$"
-
-Route213_Text_Sailor:
-	.string "The waters around here look calm,\n"
-	.string "but don't let that fool you. Always\l"
-	.string "respect the lake.$"
 
 Route213_Text_HotelSign:
 	.string "HOTEL GRAND LAKE\n"

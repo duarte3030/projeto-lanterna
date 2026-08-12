@@ -30,3 +30,12 @@ ResortAreaRibbonSyndicate1F_EventScript_Npc4::
 
 ResortAreaRibbonSyndicate1F_Text_Npc4:
 	.string "PSYDUCK: Gyaugyau!$"
+
+@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
+
+ResortAreaRibbonSyndicate1F_EventScript_Npc5::
+	msgbox ResortAreaRibbonSyndicate1F_Text_Npc5, MSGBOX_NPC
+	end
+
+ResortAreaRibbonSyndicate1F_Text_Npc5:
+	.string "Welcome.\pMay I interest you in top-grade\nRibbons we had specially imported?\pThese Ribbons are available only\nthrough us.\p{PLAYER}, would you like one\nfor a Pokémon, perhaps?\pRight now, I can offer you\nthe Gorgeous Ribbon.\pFor a mere ¥10,000, you can be the\nproud owner of one.$"

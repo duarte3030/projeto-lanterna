@@ -1,25 +1,9 @@
 Route219_MapScripts::
 	.byte 0
 
-Route219_EventScript_TuberM::
-	msgbox Route219_Text_TuberM, MSGBOX_NPC
-	end
-
-Route219_EventScript_TuberF::
-	msgbox Route219_Text_TuberF, MSGBOX_NPC
-	end
-
 Route219_EventScript_BeachSign::
 	msgbox Route219_Text_BeachSign, MSGBOX_SIGN
 	end
-
-Route219_Text_TuberM:
-	.string "The water's great today! You should\n"
-	.string "come for a swim.$"
-
-Route219_Text_TuberF:
-	.string "I love this little beach. It's never\n"
-	.string "too crowded.$"
 
 Route219_Text_BeachSign:
 	.string "SANDGEM BEACH\n"

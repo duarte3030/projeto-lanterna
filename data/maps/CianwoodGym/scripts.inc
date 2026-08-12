@@ -2,6 +2,19 @@
 @ dev_scripts/porta_ginasios_johto.py. Nao editar a mao: rode o script.
 @ ponytail: o enredo de var do hns foi cortado. Aqui o ginasio e fala,
 @ batalha, fala e FLAG_INSIGNIA_JOHTO_6. Zero var gasta.
+@
+@ 12/08/2026 (B5), no map.json e nao aqui: o QUEBRA-CABECA do ginasio estava
+@ faltando inteiro. O hns tem 3 OBJ_EVENT_GFX_PUSHABLE_BOULDER em (10,8), (10,6)
+@ e (10,4) com EventScript_StrengthBoulder, mais 2 OBJ_EVENT_GFX_BREAKABLE_ROCK
+@ em (9,2) e (11,2) com EventScript_RockSmash; o importador trouxe so os cinco
+@ humanos. Sem eles a coluna 10 e um corredor livre da porta ate o CHUCK.
+@ Medido: o blockdata de LAYOUT_CIANWOOD_GYM aqui e byte a byte igual ao do hns
+@ (21x17, metatiles 746 nos tres tiles de pedra e 744 nos dois de rocha), entao
+@ as coordenadas da fonte valem sem correcao. Os cinco entraram no FIM da lista
+@ de object_events, para nao renumerar os cinco que ja existiam (a save do Gui
+@ guarda indice de objeto). Zero var, zero flag: EventScript_StrengthBoulder e
+@ EventScript_RockSmash sao os scripts comuns do motor
+@ (data/scripts/field_move_scripts.inc).
 
 CianwoodGym_MapScripts::
 	.byte 0

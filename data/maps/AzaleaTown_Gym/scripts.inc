@@ -579,3 +579,16 @@ AzaleaTown_Gym_Text_StatueCertified:
 	.string "AZALEA TOWN POKéMON GYM\p"
 	.string "BUGSY'S CERTIFIED TRAINERS:\n"
 	.string "{PLAYER}$"
+
+@ >>> B6 Johto: Pokémon de enfeite do ginásio (porta_cenas_johto.py) >>>
+
+AzaleaTown_Gym_EventScript_GritoAriados::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_ARIADOS, CRY_MODE_NORMAL
+	waitmoncry
+	release
+	end
+
+@ <<< B6 Johto: Pokémon de enfeite do ginásio <<<
