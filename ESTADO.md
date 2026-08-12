@@ -4,209 +4,156 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 11/08/2026, na build do commit `8f4013c807`.
+Última medição: 12/08/2026, na build de fechamento (sessão de fechamento do dia). A seção 0 abaixo é a passagem de bastão dela.
 
 ---
 
 ## 0. PASSAGEM DE BASTÃO da sessão de 12/08/2026 (Fable condutor)
 
-### Build de 12/08/2026: VERDE, suíte 197/211, ROM a 98,07%
+### Build de fechamento de 12/08/2026: VERDE, suíte 210/211, ROM a 98,07%
 
-Primeira compilação depois da leva do dia (que parava do jeito que estava). Ela
-quebrou em dois pontos, os dois mecânicos e já consertados:
-
-- `a8b649254b`: `TRAINER_JOHTO_GRUNT_33` usava `TRAINER_CLASS_TEAM_ROCKET` e
-  `TRAINER_PIC_ROCKET_GRUNT_M`, que nesta build só existem com sufixo `_FRLG`
-  (era 1 caso entre 115). Consertado no `.party` e na causa: o
-  `porta_cenas_johto.py` não chamava a resolução de sufixo que o
-  `importa_treinadores_johto.py` já tinha.
-- `0119d7ab31`: as setas `←↑→` do enigma do elevador de Hearthome estavam cruas
-  no `scripts.inc` e o preproc parava com `unknown character U+2190`; viraram
-  `{LEFT_ARROW}` e companhia, e a tabela `ACENTO` do `texto_placas_sinnoh.py`
-  passou a traduzi-las. No mesmo commit, dois objetos de `MtSilver_MountainSide`
-  tinham `movement_range_y: 20`, que não cabe no campo de 4 bits e o assembler
-  truncava calado para 4.
+A sessão de fechamento pegou a build verde de 197/211 e foi atrás dos 13
+vermelhos. **Nenhum deles era falha de roteiro sozinha e nenhum era o que o
+relatório anterior dizia que era**; os três defeitos abaixo estão medidos no
+emulador, com a coordenada lida da EWRAM, e consertados.
 
 | medida | valor |
 |---|---|
-| ROM | **98,07% de 32 MB** (32.907.968 B; **631 KB livres**) |
+| ROM | **98,07% de 32 MB** (32.136,4 KB mapeados de 32.768; **631 KB livres**) |
 | EWRAM / IWRAM | 85,94% / 86,65% |
 | SaveBlock1 | 14388 de 15872 B (**90,7%**) |
-| flags livres | **2009** (maior faixa contígua 0x1A0C a 0x2025, com 1562) |
-| mapas na ROM | 1939, e `valida_rom.py` diz que tudo que foi declarado entrou |
+| mapas na ROM | 1939 |
 
-A ROM saltou de 95,23% (11/08) para 98,07%: **o B10 deixou de ser opcional.**
 Toolchain `~/toolchains/arm-gnu-toolchain-15.2*` passada em `DEVKITARM=`; o gcc
 do brew continua sem buildar.
 
-`guarda_save.py` rodou SEM `--gravar` (é decisão do condutor) e acusa as 3
-quebras esperadas da janela aberta: vars 0x40FF→0x41FF, SaveBlock1
-13432→14388 B e impressão anterior aos macros. Fechar a janela continua sendo
-entrega obrigatória.
-
 **ROM de entrega**: `roms/pokemon-claude-2026-08-12.gba`, com o `.map` do linker
-ao lado (é dele que o `testa_critico.py` tira os símbolos).
+ao lado (é dele que o `testa_critico.py` tira os símbolos). **A janela de save
+foi FECHADA**: `guarda_save.py --gravar` rodou sobre essa ROM depois de a suíte
+fechar, e antes disso a rodada sem `--gravar` acusou exatamente as 3 quebras
+esperadas e nenhuma a mais (vars `0x40FF`→`0x41FF`, SaveBlock1 13432→14388 B,
+impressão anterior aos macros).
 
-**Suíte: 197 de 211** (era 181 antes das calibrações; T11.3 continua pulado,
-precisa de duas builds). **Os 13 vermelhos são TODOS o mesmo punhado de defeitos
-reais, e nenhum é falha de roteiro:**
+### Defeito 1: a porta de Unova, e o que ela era DE VERDADE
 
-- Porta que prende o jogador, em Unova (7): T20.4, T89.5, T89.6, T89.7, T92.1,
-  T92.2, T92.3.
-- Liga de Unova sem ligação para a sala do Campeão (4): T89.1, T92.4, T92.6,
-  T92.7.
-- Cena da Galáctica em ilha de elevação inalcançável (2): T94.3, T94.5.
+**A causa registrada pelas duas sessões anteriores estava errada nas duas
+direções, e as duas erravam por um.** O relatório disse
+`MB_NON_ANIMATED_DOOR` com o número `0x5F`; a conferência do condutor corrigiu o
+número para `0x60` e trocou o nome para `MB_LADDER`. Neste repo,
+**`0x60` é `MB_NON_ANIMATED_DOOR`** e `MB_LADDER` é `0x61` (o próprio
+`valida_warp_tile.py` já avisava disso no comentário da tabela `NOME`). Ou seja:
+o nome do primeiro relatório estava certo, o número do segundo estava certo, e
+a conclusão dos dois estava errada. **A varredura de 1060 warps de Unova é
+`MB_NON_ANIMATED_DOOR` em 1000 e `MB_LADDER` em 60**, e não o contrário.
 
-### Os três defeitos REAIS que a suíte achou
+**Medição no emulador, T20.4, `Unova_NuvemaLab` (12x12, warps em (2,11) e
+(3,11), última linha):** o jogador entra, e a EWRAM mostra ele em **(2,12)**,
+fora da grade. Ali ele não anda para lado nenhum; o primeiro UP o devolve a
+(2,11), que é a própria porta, e o warp dispara de novo: **ele é cuspido para a
+rua toda vez que tenta entrar.** O motor separa isso exatamente onde a história
+do empurrão precisava: `SetUpWarpExitTask` (`src/field_screen_effect.c`) manda
+`MB_NON_ANIMATED_DOOR` para `Task_ExitNonAnimDoor`, que dá um passo para o sul
+com **movimento segurado**, que ignora colisão e limite de mapa.
 
-**1. Regressão do B12: 137 interiores de Unova prendem o jogador na porta.**
-Medido na EWRAM, entrando no ginásio de Aspertia pela cidade, como um jogador:
-ele aparece em (4,21), o motor o empurra um tile para BAIXO, para (4,22), que
-está FORA da grade (o mapa tem 22 linhas, 0 a 21), e ali ele **não anda para
-lado nenhum** (quatro direções, dez apertos, zero movimento). Causa medida: o
-tile de saída do interior passou a ter comportamento `MB_NON_ANIMATED_DOOR`. Em
-interior de verdade é `MB_SOUTH_ARROW_WARP` (conferido no ginásio de Rustboro,
-onde o mesmo teste entra e anda normalmente). Não é herança antiga: em 05/08 o
-mesmo tile de Aspertia era o metatile 513 do `gTileset_RustboroGym`, com
-`MB_NORMAL`; a troca de tileset do B12, em `5127978487`, o trocou pelo metatile
-579 do `gTileset_UnovaChampionsRoom`, que carrega comportamento de porta.
-São **137 mapas** com porta de saída na última linha e comportamento de porta,
-**todos de Unova** (zero nas outras quatro regiões). NÃO consertei: as saídas
-possíveis (mudar o atributo do metatile no tileset, trocar o metatile no
-`map.bin` dos 137, ou dar uma linha a mais a cada mapa) têm raios de alcance
-muito diferentes, e escolher é decisão do condutor.
+**Conserto, no motor e não no dado** (`src/field_screen_effect.c`): a porta não
+animada só usa a saída com empurrão quando o tile de baixo dá para pisar. Fora
+da grade o bloco vale `MAPGRID_UNDEFINED` e `MapGridGetCollisionAt` devolve
+verdadeiro, então o mesmo teste cobre os dois casos. Varredura do repo inteiro
+antes de escrever: **265 warps em 137 mapas** caíam fora da grade e outros
+**187** caíam dentro de parede, todos de Unova menos 9 interiores de Sinnoh;
+os **1106** warps sadios têm colisão 0 embaixo, então a guarda é inerte para
+tudo que já funcionava. Isso é o oposto de reconverter 57 tilesets, que era o
+conserto proposto.
 
-> **CONFERÊNCIA do condutor, 12/08: a CAUSA acima está errada, e o conserto
-> proposto sai dela. NÃO execute antes de remedir no emulador.** Tudo abaixo
-> foi lido no disco e no código do motor, e qualquer um refaz:
-> 1. **O comportamento não é porta, é ESCADA.** O tile de saída de Aspertia,
->    (4,21), é o metatile **579** do `gTileset_UnovaChampionsRoom`, e o
->    `metatile_attributes.bin` dele traz **0x60 = `MB_LADDER`**.
->    `MB_NON_ANIMATED_DOOR` é **0x5F**: o relatório errou por **um**.
-> 2. **E o motor separa os dois exatamente no ponto que a história do
->    "empurrão" precisa.** `SetUpWarpExitTask`
->    (`src/field_screen_effect.c:276`) manda `MB_NON_ANIMATED_DOOR` para
->    `Task_ExitNonAnimDoor`, que **dá o passo para fora**, e tudo o mais para
->    `Task_ExitNonDoor`, que **não dá passo nenhum**. `MB_LADDER` cai no
->    segundo. E `GetAdjustedInitialDirection` (`src/overworld.c:1087`) devolve,
->    para escada, a direção que o jogador já tinha. Ou seja: **`MB_LADDER` não
->    empurra o jogador para (4,22)**. Ou a observação do emulador foi lida de
->    outra variável, ou a causa é outra; as duas coisas não podem ser verdade
->    juntas.
-> 3. **Trocar o atributo do 579 não seria o conserto dos 137.** Medido: o
->    metatile 579 aparece em **um** mapa (Aspertia Gym), **2 tiles**, os dois
->    em cima de warp e na última linha.
-> 4. **O padrão real, esse sim, é sistemático e vale medir:** varrendo os
->    **1060 warps de Unova**, o comportamento embaixo deles é **`MB_LADDER` em
->    1000** e **`MB_EAST_ARROW_WARP` em 60**. Nenhuma porta, nenhum
->    `MB_SOUTH_ARROW_WARP`. A conversão do B12 mandou toda saída de gen 2 para
->    escada. É aí que mora o defeito de família, se ele existir.
-> 5. Estaticamente **Aspertia Gym parece navegável**: (4,20), logo acima da
->    saída, tem colisão 0 e a mesma elevação 3.
->
-> **Ordem para a próxima sessão:** rodar o T20.4 no emulador e **gravar a
-> coordenada e o comportamento de verdade** antes de encostar em atributo. Se
-> a prisão existir, o conserto é na **tabela de conversão** do
-> `tileset_gen2.py` (classe "porta" de interior deve virar
-> `MB_SOUTH_ARROW_WARP` na última linha), nunca um remendo no metatile 579.
+**Um pedaço do defeito é de DADO mesmo, e esse foi cirúrgico.** Porta não
+animada dispara ao ser PISADA, então quando ela é a única ligação entre a sala
+de chegada e o resto do mapa, atravessá-la é sair do prédio. Foi o que o T92.6
+provou na `Unova_PkmnLeagueMain`: (13,19) e (14,19) são o único caminho entre a
+sala de chegada e o salão da Elite, e **depois de ganhar a Liga o salão ficava
+inalcançável**, porque a cena de entrada que carrega o jogador para dentro é
+pulada quando `FLAG_UNOVA_LIGA_VENCIDA` está acesa. Os dois metatiles viraram
+`MB_SOUTH_ARROW_WARP` (`dev_scripts/porta_de_saida_unova.py`), e o
+`applymovement` da cena caiu de seis para cinco passos, porque a seta não
+empurra e a partida subiu um tile.
 
-**2. Elevador da estátua da Liga de Unova aponta para si mesmo.**
-`Unova_PkmnLeagueMain` warp 2, em (13,13), tem destino
-`MAP_UNOVA_PKMN_LEAGUE_MAIN` warp 2, e o `Unova_ChampionsRoomEntrance` tem um
-warp só, o de subir. Com a Elite dos Quatro derrotada, a sala do Campeão
-continua inalcançável a pé, que é exatamente o que o T89.1 foi escrito para
-provar. Não consertei porque o destino certo é escolha de desenho: a sala do
-Campeão não tem porta de volta, então ligar os dois é decidir o caminho inteiro.
+**O tamanho do resto está medido e escrito, para a próxima leva não remedir**
+(`porta_de_saida_unova.py --censo`): de 470 metatiles de porta usados por warp
+no repo, **196 (558 warps)** têm o tile do norte andável em TODOS os seus usos,
+que é a assinatura de "porta por onde se sai andando para o sul" e são
+candidatos legítimos a seta sul; os outros **274 (1000 warps)** têm pelo menos
+um uso com o norte bloqueado, ou seja são porta de ENTRADA, e seta sul
+quebraria a entrada deles. Os dois papéis convivem no MESMO tileset: em
+`gTileset_UnovaPkmnLeague`, 683 são as quatro salas da Elite (entrada) e 786/788
+são a escada de volta (saída). Virar os 196 de uma vez é trabalho de leva com
+rebuild e suíte inteira em cima, não de fechamento.
 
-> **CORREÇÃO do condutor, 12/08, e ela ANULA a ordem que eu mesmo tinha dado.**
-> Eu autorizei "ligue o warp 2 ao `ChampionsRoomEntrance`, é fiação mecânica".
-> **Não é, e não pode ser feito.** Medido no disco depois:
-> 1. **A entrada JÁ existe e é por script, com portão.**
->    `Unova_PkmnLeagueMain_EventScript_Estatua` (`scripts.inc:173`) tem os quatro
->    `goto_if_not_defeated` da Elite e, só depois deles,
->    `warp MAP_UNOVA_CHAMPIONS_ROOM_ENTRANCE, 7, 16` (linha 181). O caminho ao
->    Campeão não está faltando: ele é **gated** de propósito.
-> 2. **O destino é geometria boa.** `LAYOUT_UNOVA_CHAMPIONS_ROOM_ENTRANCE` é
->    18x22, (7,16) tem colisão 0 e elevação 3, e busca em largura a partir dele
->    alcança 79 tiles, entre eles (7,6), o `coord_event` da emboscada, e (7,5),
->    a porta da sala do Campeão. Não há ilha nem tile inválido.
-> 3. **Ligar o warp 2 ABRIRIA o portão.** (13,13) é tile pisável; virar warp de
->    verdade para a entrada do Campeão deixaria qualquer jogador chegar nele
->    **sem derrotar a Elite**, que é exatamente o que o **T89.2** (o par
->    negativo) existe para impedir. O conserto "óbvio" quebraria o teste que
->    prova o portão.
->
-> Logo, o warp 2 apontar para si mesmo é **herança do BW3G e não é o defeito**:
-> o próprio cabeçalho do `scripts.inc` já o descreve como o tile 844
-> (`MB_NON_ANIMATED_DOOR`) que custa uma transição de tela à toa. E é aí que
-> mora a **hipótese que a próxima sessão deve testar primeiro**: 844 é
-> `MB_NON_ANIMATED_DOOR`, a **mesma família do defeito 1** (o comportamento de
-> porta que prende o jogador nos 137 interiores). Os quatro vermelhos da Liga
-> podem ser o defeito 1 outra vez, e não um problema de fiação. Ordem correta:
-> **consertar o defeito 1 primeiro, rodar T89.1, T92.4, T92.6 e T92.7 de novo**,
-> e só depois discutir warp. Diagnóstico por emulador, nunca por tabela de warp.
+### Defeito 2: o Lago Acuity não era soft-lock, era um par de mapas ILHADO
 
-**3. Cena da Galáctica em ilha de elevação que o jogador não alcança.**
-> **12/08, condutor: o Lago Verity está CONSERTADO (`2c1629cf05`); o Lago
-> Acuity é PIOR do que este parágrafo diz, e continua aberto.**
->
-> **Verity, resolvido.** A causa exata: quatro dos cinco objetos da cena tinham
-> `elevation: 3` declarada no objeto e estavam sobre tile de `MB_POND_WATER`
-> com elevação **1**, ou seja **em cima do lago**. A Mars é `TRAINER_TYPE_NONE`
-> (conversa), então a cena inteira era inacionável. Cada um foi para o tile de
-> terra alcançável a pé mais próximo, medido por busca em largura a partir do
-> warp; a Mars ficou no ponto mais ao norte da praia, olhando para o sul.
-> Seguro porque o `scripts.inc` do mapa tem **zero** `applymovement` e **zero**
-> `setobjectxy`, e o fim da cena usa `removeobject LOCALID_*`. Ferramenta
-> `dev_scripts/conserta_cena_lagos.py`, com `--demo`, contraprova (destino no
-> meio do lago tem que ser recusado) e idempotência. **Falta a prova de
-> emulador: rodar o T94.3.**
->
-> **Acuity, aberto, e é SOFT-LOCK, não só cena inalcançável.** Medido: o
-> `warp 0`, que é a entrada vinda do `ACUITY_LAKEFRONT`, fica em **(24,24), no
-> meio da água (elevação 1)**, e a busca em largura a partir dele alcança
-> **1 tile: ele mesmo**. Quem entra no Lago Acuity pela frente **fica preso**.
-> O `warp 1` (23,29), vindo do `ACUITY_CAVERN`, está em terra, alcança 25
-> tiles e chega no `coord_event` (23,30) e nos dois NPCs da cena: **a cutscene
-> só funciona para quem vem da caverna**. A praia é uma faixa fina nas linhas
-> 30 e 31 mais as colunas 19 e 27; o resto do mapa é água.
-> **A fonte foi lida, e ela mostra que Acuity é conserto de CONVERSÃO, não de
-> coordenada. Não é para mexer em warp achando que resolve.** Medido em
-> `fontes-mapas/pokeplatinum/res/field/events/events_lake_acuity.json`:
-> 1. **A fonte tem 5 warps, nós temos 2.** Lá são quatro para o
->    `ACUITY_LAKEFRONT`, em (11,50), (12,50), (14,50) e (15,50), ou seja uma
->    entrada de quatro tiles no bordo sul, mais um para o `ACUITY_CAVERN` em
->    (32,32).
-> 2. **O deslocamento entre a fonte e o nosso mapa é (-9,-3)**, deduzido do
->    warp da caverna, que casa exato: fonte (32,32) = nosso (23,29). Aplicado à
->    entrada, dá (2,47) a (6,47), e desses **só (6,47) é andável aqui**: o
->    resto virou parede na conversão.
-> 3. **A entrada de verdade do nosso mapa é a fresta (6,49) e (7,49)**, os dois
->    únicos tiles abertos da parede sul. Mas o comportamento deles é
->    `MB_NORMAL`, que **não dispara warp**: virar entrada exige mudar o
->    comportamento do metatile, e não só a coordenada do warp.
-> 4. **O golpe final, e é o que decide:** a praia sul (42 tiles a pé, entrando
->    pela fresta) e a região da cutscene (25 tiles, entrando pela caverna)
->    **não se tocam**. A água separa as duas. Ou seja, mesmo com o `warp 0` no
->    lugar certo o jogador não chega na cena a pé, e no Platinum ele chega
->    andando: a nossa conversão transformou em água um caminho que na fonte é
->    terra.
->
-> **Portanto o conserto é reconverter o `blockdata` do `LakeAcuity` a partir da
-> grade de permissão do `pokeplatinum`** (colisão e elevação), e só depois pôr
-> os 5 warps nas coordenadas da fonte com o deslocamento medido. Um remendo no
-> `warp 0` tira o soft-lock e deixa a cena inalcançável do mesmo jeito, então
-> não vale meia-solução. Enquanto isso não acontece, **entrar no Lago Acuity
-> pela frente prende o jogador**, e isso é pior que a cena faltando.
-No Lago Verity a Mars e os quatro grunts estão em chão de elevação 1 colado num
-caminho de elevação 3; do warp do mapa só **123 de 1375** tiles andáveis são
-alcançáveis a pé, e nenhum encosta na Mars. No Lago Acuity é o contrário: o warp
-larga o jogador em elevação 1 e o gatilho da cutscene, em (23,30), está em
-elevação 3. Colisão livre e warp certo nos dois; quem separa é a ELEVAÇÃO, que
-nenhum validador olhava. Ferramenta nova: `dev_scripts/alcanca.py`, busca em
-largura honrando elevação. Varredura preliminar: **32 dos 408 mapas de Sinnoh**
-têm menos de metade do chão alcançável do warp 0. Parte é legítima (área de
-Surf), então essa lista é pista, não veredito; os dois acima estão PROVADOS.
+O relatório anterior dizia que quem entra pela frente cai na água e alcança 1
+tile. A parte da água é verdade; a conclusão não. Medido no disco:
+**ninguém chegava lá.** O warp do outro lado, `AcuityLakefront` (32,40), está
+sobre `MB_SAND`, e `IsWarpMetatileBehavior` não dispara em areia. A fiação
+inteira, antes:
+
+    AcuityLakefront (32,40) MB_SAND         -> LakeAcuity warp 0     MORTO
+    AcuityLakefront (32,39) porta           -> LakeAcuityLowWater    vivo
+    LakeAcuity      (24,24) MB_POND_WATER   -> AcuityLakefront       MORTO
+    LakeAcuity      (23,29) porta           -> AcuityCavern          vivo
+    AcuityCavern    (16,21) seta sul        -> LakeAcuity warp 1     vivo
+
+`{LakeAcuity, AcuityCavern}` era uma **ilha do grafo de mapas**, alcançável só
+pelo menu de debug, que é o que o T94.5 usa. Conserto em
+`dev_scripts/conserta_lago_acuity.py`, copiando o padrão do Lago Verity, que
+funciona: (32,40) vira `MB_NORTH_ARROW_WARP` e o `warp 0` do lago sai da água e
+vai para (24,31), na plataforma da boca da caverna, com `MB_SOUTH_ARROW_WARP`.
+Não é (23,31) porque ali mora o template do RIVAL e em (22,31) o da JUPITER.
+
+**E o conserto acordou um defeito de verdade, que é o melhor argumento de que
+ele estava certo.** Com o mapa alcançável, o T94.6 (par negativo) reprovou:
+`LakeAcuity_EventScript_Jupiter` só olhava `FLAG_GALACTICA_ACUITY_VISTO` e não
+o marco da Mars, então quem chegasse na boca da caverna antes da hora via as
+seis caixas de texto **com ninguém na tela** e ainda queimava a flag, trancando
+a cena de verdade para sempre. Ganhou um `goto_if_not_defeated` no começo.
+Enquanto o warp largava o jogador dentro do lago, esse caso passava por não
+conseguir chegar no gatilho: passar por impossibilidade é o mesmo que não ter
+teste.
+
+**O que fica aberto no Acuity, de propósito**: a geometria. Medido contra
+`fontes-mapas/pokeplatinum/res/field/events/events_lake_acuity.json`, a fonte
+entra por quatro tiles no bordo sul, e na nossa conversão a praia sul (42 tiles)
+não se liga à plataforma da caverna (25 tiles), porque virou água um caminho que
+na fonte é terra. Consertar é reconverter o `blockdata` a partir da grade de
+permissão do pokeplatinum. Enquanto isso a entrada cai direto na boca da
+caverna: ninguém fica preso, e a cena roda. Efeito colateral aceito e medido:
+`LakeAcuityLowWater` perde a única entrada a pé, e aquele mapa tem ZERO objetos,
+ZERO coord_events, ZERO bg_events e um `scripts.inc` de duas linhas.
+
+### Defeito 3: onze roteiros escritos contra um mapa que não existia mais
+
+Os casos de Unova foram escritos antes de o B12 trocar os tilesets, quando a
+última linha dos interiores era chão comum. Com a porta funcionando, os onze
+tiveram que ser re-derivados por busca em largura no `map.bin`. As regras que
+saíram disso valem para todo caso novo e **foram medidas, não deduzidas**:
+
+- **O jogador chega VIRADO PARA O SUL** em porta não animada
+  (`GetAdjustedInitialDirection`), então a primeira tecla de qualquer outra
+  direção só VIRA. Contagem de passo sem contar a virada erra por um.
+- **Depois de um warp de PORTA, os primeiros apertos se perdem.** Com 300
+  quadros de espera o jogador ficava parado o roteiro inteiro no ginásio de
+  Aspertia; com 600 ele anda. Warp do menu de debug não precisa disso.
+- **Pausa entre pernas do caminho não é enfeite**: sem `90:NADA` entre elas, os
+  apertos da perna seguinte se perdem e o jogador para no meio (T92.6).
+- **Caixa de texto aberta come tecla de direção.** O T89.1 ficava parado em
+  (13,14) porque a cena de entrada termina com uma mensagem; os A vêm ANTES do
+  movimento agora. Isso só apareceu olhando o framebuffer.
+- **Número de A é TETO, não piso** (T92.7): com 70 a cena termina na sala do
+  Campeão, com 75 o duelo já começa, e com 90 o jogador perde de time vazio e
+  acorda em Pallet Town.
+- **A prova `andou` precisa de duas posições amostradas DENTRO do mapa final.**
+  Cena que move o jogador inteira dentro de um passo do roteiro dá uma amostra
+  só, e o caso reprova dizendo que o jogo não respondeu (T92.4).
+- **Andar de lado de uma porta para a porta vizinha sai do prédio**, enquanto o
+  tile for porta não animada. Todo caminho novo desvia da linha da porta.
 
 ### Consertos de integração além dos dois da build
 
@@ -222,14 +169,21 @@ Surf), então essa lista é pista, não veredito; os dois acima estão PROVADOS.
 
 ### Armadilhas de roteiro MEDIDAS (para quem escrever caso novo)
 
-- **Virar custa UM aperto** quando o jogador já andou no mapa, e não custa no
-  primeiro movimento depois do warp de debug. Perna que termina em PAREDE (ou no
-  próprio NPC, que é sólido) não depende disso, e é a forma robusta de escrever.
+- **Virar custa UM aperto**, e a exceção que estava escrita aqui NÃO EXISTE
+  mais. A anotação dizia que virar não custava no primeiro movimento depois do
+  warp de debug; medido em 12/08/2026, custa: o jogador chega virado para a
+  direção que `GetAdjustedInitialDirection` escolhe pelo comportamento do tile
+  (sul em porta não animada, norte em seta sul), e qualquer outra direção gasta
+  um aperto para virar. Perna que termina em PAREDE (ou no próprio NPC, que é
+  sólido) não depende disso, e continua sendo a forma robusta de escrever.
 - `N:BOTAO*K` **anda K tiles**: cada repetição é um aperto separado, com o botão
   solto entre elas. A anotação antiga que dizia o contrário está errada.
-- **Warp de debug para interior cuja porta está na última linha não serve**: o
-  jogador nasce fora da grade. Entrar pela cidade, com `warp_id` na porta, é o
-  caminho fiel.
+- ~~**Warp de debug para interior cuja porta está na última linha não serve**~~:
+  serve desde 12/08/2026. O jogador nascia fora da grade porque a porta não
+  animada empurrava ele um tile para o sul; a guarda em `SetUpWarpExitTask`
+  acabou com isso e ele nasce no próprio tile do warp. Entrar pela cidade, com
+  `warp_id` na porta, continua sendo o caminho mais fiel, e cobra ~600 quadros
+  de espera antes do primeiro aperto.
 - **Cena longa cobra muito mais A do que parece**: o rival de Canalave precisou
   de 10 apertos e a cena do teatro de 20. Seis não bastavam, e o sintoma era
   `oponente=0`, igual ao de roteiro que nem chegou no NPC.
@@ -261,9 +215,12 @@ teto de grupos 128→255, s16 em coordenada de warp.
    de dois consertos mecânicos, suíte em 197 de 211, e os 13 vermelhos são os
    três defeitos reais descritos lá (porta de Unova, Liga de Unova, elevação em
    Sinnoh), nenhum deles falha de roteiro.
-2. **A JANELA DE SAVE ESTÁ ABERTA E NÃO FOI FECHADA.** Entrega obrigatória:
-   `guarda_save.py --gravar` sobre a ROM boa, como última ação. Até lá, a
-   save de qualquer build intermediária é descartável.
+2. ~~**A JANELA DE SAVE ESTÁ ABERTA E NÃO FOI FECHADA.**~~ **FECHADA** em
+   12/08/2026 pela sessão de fechamento: `guarda_save.py --gravar` rodou sobre
+   a ROM de entrega depois da suíte, e antes disso a rodada sem `--gravar`
+   acusou só as 3 quebras esperadas. A impressão gravada agora inclui o campo
+   `macros`, que é o que fechava o buraco de `FLAGS_COUNT`. Save feita nesta
+   ROM vale daqui para a frente; save de build anterior a ela não vale.
 3. **B8 NÃO COMEÇOU**: curva 3-255 + distribuir gens 6-9 por mato,
    treinadores, líderes e E4 (decisão do Gui, pergunta 15: difícil, míticos
    em líder). Medir `MAX_LEVEL` 255 primeiro. Selvagem NUNCA foi remapeado

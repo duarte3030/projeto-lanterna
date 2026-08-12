@@ -1,11 +1,11 @@
 {
  "contagens": {
   "daily_flags_end_expr": "FLAG_UNUSED_0x95F + (7 - FLAG_UNUSED_0x95F % 8))",
-  "n_flag_unused": 663,
-  "n_var_unused": 31,
+  "n_flag_unused": 2796,
+  "n_var_unused": 293,
   "vars_start_end": [
    "0x4000",
-   "0x40FF"
+   "0x41FF"
   ]
  },
  "dados": {
@@ -3570,6 +3570,12 @@
    "SPECIES_ZYGARDE_MEGA": 1643
   }
  },
+ "macros": {
+  "FLAGS_COUNT": 8248,
+  "MAX_TRAINERS_COUNT": 4000,
+  "SYSTEM_FLAGS": 5280,
+  "VARS_COUNT": 512
+ },
  "mapas": {
   "AbandonedShip_CaptainsOffice": [
    24,
@@ -3635,6 +3641,10 @@
    24,
    106
   ],
+  "AmitySquare": [
+   125,
+   62
+  ],
   "AncientTomb": [
    24,
    68
@@ -3695,6 +3705,14 @@
    88,
    0
   ],
+  "BattleArcade": [
+   126,
+   14
+  ],
+  "BattleCastle": [
+   126,
+   13
+  ],
   "BattleColosseum_2P": [
    25,
    24
@@ -3710,6 +3728,14 @@
   "BattleColosseum_4P_Frlg": [
    34,
    3
+  ],
+  "BattleFactory": [
+   126,
+   11
+  ],
+  "BattleFrontier": [
+   125,
+   61
   ],
   "BattleFrontierGateToFightArea": [
    123,
@@ -3903,6 +3929,10 @@
    26,
    46
   ],
+  "BattleHall": [
+   126,
+   12
+  ],
   "BattlePyramidSquare01": [
    25,
    44
@@ -3966,6 +3996,10 @@
   "BattlePyramidSquare16": [
    25,
    59
+  ],
+  "BattleTower": [
+   126,
+   10
   ],
   "Battleground": [
    123,
@@ -5275,9 +5309,49 @@
    24,
    10
   ],
+  "GreatMarsh6": [
+   125,
+   65
+  ],
   "HearthomeCity": [
    75,
    6
+  ],
+  "HearthomeCityDpGymElevatorRoom1": [
+   126,
+   0
+  ],
+  "HearthomeCityDpGymElevatorRoom2": [
+   126,
+   5
+  ],
+  "HearthomeCityDpGymLeaderRoom": [
+   126,
+   9
+  ],
+  "HearthomeCityDpGymTrainerRoom1": [
+   126,
+   1
+  ],
+  "HearthomeCityDpGymTrainerRoom2": [
+   126,
+   2
+  ],
+  "HearthomeCityDpGymTrainerRoom3": [
+   126,
+   4
+  ],
+  "HearthomeCityDpGymTrainerRoom4": [
+   126,
+   6
+  ],
+  "HearthomeCityDpGymTrainerRoom5": [
+   126,
+   8
+  ],
+  "HearthomeCityDpGymTrainerRoom6": [
+   126,
+   7
   ],
   "HearthomeCityEastGateToAmitySquare": [
    123,
@@ -5286,6 +5360,10 @@
   "HearthomeCityGymLeaderRoom": [
    125,
    38
+  ],
+  "HearthomeCityGymTrainerRoom1": [
+   126,
+   3
   ],
   "HearthomeCityGymTrainerRoom2": [
    125,
@@ -5414,6 +5492,10 @@
   "IronIslandB3F": [
    124,
    69
+  ],
+  "IronIslandHouse": [
+   126,
+   15
   ],
   "IronIslandIronRuins": [
    124,
@@ -5998,6 +6080,10 @@
   "MtCoronetIcebergRuins": [
    124,
    13
+  ],
+  "MtCoronetOutsideNorth": [
+   125,
+   63
   ],
   "MtCoronetOutsideSouth": [
    125,
@@ -6634,6 +6720,10 @@
   "PacifidlogTown_PokemonCenter_2F": [
    7,
    1
+  ],
+  "PalPark": [
+   125,
+   64
   ],
   "PalParkLobby": [
    123,
@@ -7374,6 +7464,10 @@
   "Route204": [
    75,
    18
+  ],
+  "Route204North": [
+   125,
+   67
   ],
   "Route205House": [
    123,
@@ -9119,6 +9213,10 @@
    100,
    16
   ],
+  "SpringPath": [
+   125,
+   68
+  ],
   "SproutTower_1F": [
    97,
    2
@@ -9439,9 +9537,93 @@
    36,
    9
   ],
+  "TrophyGarden": [
+   125,
+   66
+  ],
   "TurnbackCaveEntrance": [
    124,
    67
+  ],
+  "TurnbackCaveGiratinaRoom": [
+   124,
+   98
+  ],
+  "TurnbackCavePillar1Room1": [
+   124,
+   79
+  ],
+  "TurnbackCavePillar1Room2": [
+   124,
+   80
+  ],
+  "TurnbackCavePillar1Room3": [
+   124,
+   81
+  ],
+  "TurnbackCavePillar1Room4": [
+   124,
+   82
+  ],
+  "TurnbackCavePillar1Room5": [
+   124,
+   83
+  ],
+  "TurnbackCavePillar1Room6": [
+   124,
+   84
+  ],
+  "TurnbackCavePillar2Room1": [
+   124,
+   85
+  ],
+  "TurnbackCavePillar2Room2": [
+   124,
+   86
+  ],
+  "TurnbackCavePillar2Room3": [
+   124,
+   87
+  ],
+  "TurnbackCavePillar2Room4": [
+   124,
+   88
+  ],
+  "TurnbackCavePillar2Room5": [
+   124,
+   89
+  ],
+  "TurnbackCavePillar2Room6": [
+   124,
+   90
+  ],
+  "TurnbackCavePillar3Room1": [
+   124,
+   91
+  ],
+  "TurnbackCavePillar3Room2": [
+   124,
+   92
+  ],
+  "TurnbackCavePillar3Room3": [
+   124,
+   93
+  ],
+  "TurnbackCavePillar3Room4": [
+   124,
+   94
+  ],
+  "TurnbackCavePillar3Room5": [
+   124,
+   95
+  ],
+  "TurnbackCavePillar3Room6": [
+   124,
+   96
+  ],
+  "TurnbackCavePillarRoom": [
+   124,
+   97
   ],
   "TwinleafTown": [
    75,
@@ -11152,7 +11334,7 @@
    1
   ]
  },
- "sizeof_saveblock1": 13432,
+ "sizeof_saveblock1": 14388,
  "structs": {
   "SaveBlock1": "f90f0a1baed70dd7",
   "SaveBlock2": "ec3552860cc5cce7",
