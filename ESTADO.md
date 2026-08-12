@@ -760,6 +760,7 @@ couberam.
 
 | documento | assunto |
 |---|---|
+| `PRD-ROM-COMPLETA.md` | **O plano para acabar o hack**, em blocos B0 a B11, com os limites medidos e os portões que exigem o Gui |
 | `PRD-CINCO-REGIOES.md` | Plano por blocos, decisões, desenho dos testes |
 | `HANDOFF-2026-08-05.md` | O caso Kanto em detalhe, as oito camadas |
 | `PLANO-UNOVA.md` | Unova: o que entrou, o que falta, e por quê |
