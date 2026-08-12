@@ -5173,7 +5173,10 @@ u16 GetMonEVCount(struct Pokemon *mon)
 bool8 TryIncrementMonLevel(struct Pokemon *mon)
 {
     enum Species species = GetMonData(mon, MON_DATA_SPECIES, 0);
-    u8 nextLevel = GetMonData(mon, MON_DATA_LEVEL, 0) + 1;
+    // ponytail: u32, e nao o u8 do upstream. Com MAX_LEVEL 255, 255 + 1 dava 0
+    // num u8, a guarda `nextLevel > GetCurrentLevelCap()` virava `0 > 255` e o
+    // SetMonData gravava NIVEL 0 no Pokemon do teto. Com 100 o u8 nunca virava.
+    u32 nextLevel = GetMonData(mon, MON_DATA_LEVEL, 0) + 1;
     u32 expPoints = GetMonData(mon, MON_DATA_EXP, 0);
     if (expPoints > gExperienceTables[gSpeciesInfo[species].growthRate][MAX_LEVEL])
     {
@@ -5186,7 +5189,10 @@ bool8 TryIncrementMonLevel(struct Pokemon *mon)
     }
     else
     {
-        SetMonData(mon, MON_DATA_LEVEL, &nextLevel);
+        // MON_DATA_LEVEL e um campo de 1 byte: passar &nextLevel (u32) daria
+        // certo por acidente de endianness. Aqui a largura e explicita.
+        u8 nivel = nextLevel;
+        SetMonData(mon, MON_DATA_LEVEL, &nivel);
         return TRUE;
     }
 }

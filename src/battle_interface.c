@@ -2007,7 +2007,10 @@ void UpdateHealthboxAttribute(u8 healthboxSpriteId, struct Pokemon *mon, u8 elem
             exp = GetMonData(mon, MON_DATA_EXP);
             currLevelExp = gExperienceTables[gSpeciesInfo[species].growthRate][level];
             currExpBarValue = exp - currLevelExp;
-            maxExpBarValue = gExperienceTables[gSpeciesInfo[species].growthRate][level + 1] - currLevelExp;
+            // ponytail: min(), pela mesma razao do battle_controller_player.c.
+            // A tabela tem MAX_LEVEL + 1 entradas; no teto, [level + 1] le a
+            // linha do growth rate seguinte, e no ultimo (Slow) le fora do array.
+            maxExpBarValue = gExperienceTables[gSpeciesInfo[species].growthRate][min(level + 1, MAX_LEVEL)] - currLevelExp;
             SetBattleBarStruct(battler, healthboxSpriteId, maxExpBarValue, currExpBarValue, isDoubles);
             MoveBattleBar(battler, healthboxSpriteId, EXP_BAR, 0);
         }

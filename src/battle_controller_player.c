@@ -1481,7 +1481,8 @@ static void Task_PrepareToGiveExpWithExpBar(u8 taskId)
     u32 expToNextLvl;
 
     exp -= currLvlExp;
-    expToNextLvl = gExperienceTables[gSpeciesInfo[species].growthRate][level + 1] - currLvlExp;
+    // ponytail: min(), igual a linha 1434. Mesmo bug, mesma tabela.
+    expToNextLvl = gExperienceTables[gSpeciesInfo[species].growthRate][min(level + 1, MAX_LEVEL)] - currLvlExp;
     SetBattleBarStruct(battler, gHealthboxSpriteIds[battler], expToNextLvl, exp, -gainedExp);
     TestRunner_Battle_RecordExp(battler, exp, -gainedExp);
     PlaySE(SE_EXP);
@@ -1515,7 +1516,9 @@ static void Task_GiveExpWithExpBar(u8 taskId)
             currExp = GetMonData(mon, MON_DATA_EXP);
             species = GetMonData(mon, MON_DATA_SPECIES);
             oldMaxHP = GetMonData(mon, MON_DATA_MAX_HP);
-            expOnNextLvl = gExperienceTables[gSpeciesInfo[species].growthRate][level + 1];
+            // ponytail: min(), idem. Alcancavel de verdade: um mon que sobe de
+            // 254 para 255 relê `level` ja no teto dentro deste mesmo task.
+            expOnNextLvl = gExperienceTables[gSpeciesInfo[species].growthRate][min(level + 1, MAX_LEVEL)];
 
             expAfterGain = currExp + gainedExp;
             if (expAfterGain >= expOnNextLvl)

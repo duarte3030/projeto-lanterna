@@ -697,8 +697,14 @@ struct BattleStruct
     u8 pursuitStoredSwitch; // Stored id for the Pursuit target's switch
     s32 battlerExpReward;
     enum Species prevTurnSpecies[MAX_BATTLERS_COUNT]; // Stores species the AI has in play at start of turn
-    s16 passiveHpUpdate[MAX_BATTLERS_COUNT]; // non-move damage and healing
-    s16 moveDamage[MAX_BATTLERS_COUNT];
+    // ponytail: s32, e nao os s16 do upstream, porque MAX_LEVEL aqui e 255.
+    // O termo de nivel do dano, (2 * nivel / 5 + 2), sai de 42 no nivel 100
+    // para 104 no 255: o dano de um golpe forte com STAB e fraqueza passa de
+    // 63 mil, e em s16 ele enrolava para negativo e CURAVA o alvo. Nao esta em
+    // save nenhum (BattleStruct e de EWRAM, so vive dentro da batalha), custa
+    // 16 bytes de EWRAM, e a batalha nunca serializa a struct por offset.
+    s32 passiveHpUpdate[MAX_BATTLERS_COUNT]; // non-move damage and healing
+    s32 moveDamage[MAX_BATTLERS_COUNT];
     u16 innardsOutHpLost[MAX_BATTLERS_COUNT];
     u32 moveResultFlags[MAX_BATTLERS_COUNT];
     u32 savedMoveResultFlags[MAX_BATTLERS_COUNT]; // for Bounced moves
