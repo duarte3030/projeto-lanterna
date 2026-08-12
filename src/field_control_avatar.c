@@ -1055,6 +1055,19 @@ static s8 GetWarpEventAtMapPosition(struct MapHeader *mapHeader, struct MapPosit
     return GetWarpEventAtPosition(mapHeader, position->x - MAP_OFFSET, position->y - MAP_OFFSET, position->elevation);
 }
 
+// MAP_DYNAMIC e o PAR (0x7F, 0x7F), e nao so o numero de mapa. Conferir so o
+// mapNum matava o mapa de indice 127 de QUALQUER grupo: warp para ele caia no
+// dynamicWarp em vez do destino escrito, com o validador estatico verde. Hoje
+// existe exatamente um caso na arvore, MAP_OREBURGH_CITY_POKECENTER_B1F (indice
+// 127 do grupo 123). O par so pode deixar de casar para combinacoes que nunca
+// foram MAP_DYNAMIC, porque as macros `map` e `warp_def` sempre emitem os dois
+// bytes da constante inteira. Corrigido em 12/08/2026, junto com o alargamento
+// do teto de grupo, que traz 128 grupos novos e com eles 128 indices 127 novos.
+static bool32 IsDynamicWarp(u32 mapGroup, u32 mapNum)
+{
+    return mapGroup == MAP_GROUP(MAP_DYNAMIC) && mapNum == MAP_NUM(MAP_DYNAMIC);
+}
+
 static void SetupWarp(struct MapHeader *unused, s8 warpEventId, struct MapPosition *position)
 {
     const struct WarpEvent *warpEvent;
@@ -1084,18 +1097,20 @@ static void SetupWarp(struct MapHeader *unused, s8 warpEventId, struct MapPositi
         warpEvent = &gMapHeader.events->warps[warpEventId];
     }
 
-    if (warpEvent->mapNum == MAP_NUM(MAP_DYNAMIC))
+    if (IsDynamicWarp(warpEvent->mapGroup, warpEvent->mapNum))
     {
         SetWarpDestinationToDynamicWarp(warpEvent->warpId);
     }
     else
     {
         const struct MapHeader *mapHeader;
+        const struct WarpEvent *destWarp;
 
         SetWarpDestinationToMapWarp(warpEvent->mapGroup, warpEvent->mapNum, warpEvent->warpId);
         UpdateEscapeWarp(position->x, position->y);
         mapHeader = Overworld_GetMapHeaderByGroupAndId(warpEvent->mapGroup, warpEvent->mapNum);
-        if (mapHeader->events->warps[warpEvent->warpId].mapNum == MAP_NUM(MAP_DYNAMIC))
+        destWarp = &mapHeader->events->warps[warpEvent->warpId];
+        if (IsDynamicWarp(destWarp->mapGroup, destWarp->mapNum))
             SetDynamicWarp(mapHeader->events->warps[warpEventId].warpId, gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum, warpEventId);
     }
 }

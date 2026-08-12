@@ -663,10 +663,17 @@ struct SecretBase
 #include "global.tv.h"
 #include "pokemon.h"
 
+// mapGroup e mapNum sao SEM SINAL desde 12/08/2026. Com `s8` o indice 128 virava
+// -128, promovia para 65408 em Overworld_GetMapHeaderByGroupAndId (que recebe
+// u16) e o jogo resetava ao entrar no mapa: era esse o teto de 128 grupos e de
+// 128 mapas por grupo. Com `u8` o teto passa a 255, e 255 continua reservado
+// para MAP_UNDEFINED (0xFF | 0xFF << 8). O tamanho do struct nao muda, entao o
+// SaveBlock1 nao anda um byte. `warpId` continua com sinal por causa de
+// WARP_ID_NONE (-1).
 struct WarpData
 {
-    s8 mapGroup;
-    s8 mapNum;
+    u8 mapGroup;
+    u8 mapNum;
     s8 warpId;
     //u8 padding;
     s16 x, y;

@@ -630,7 +630,7 @@ static void ClearDiveAndHoleWarps(void)
     sFixedHoleWarp = sDummyWarpData;
 }
 
-static void SetWarpData(struct WarpData *warp, s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
+static void SetWarpData(struct WarpData *warp, u8 mapGroup, u8 mapNum, s8 warpId, s16 x, s16 y)
 {
     warp->mapGroup = mapGroup;
     warp->mapNum = mapNum;
@@ -641,9 +641,9 @@ static void SetWarpData(struct WarpData *warp, s8 mapGroup, s8 mapNum, s8 warpId
 
 static bool32 IsDummyWarp(struct WarpData *warp)
 {
-    if (warp->mapGroup != (s8)MAP_GROUP(MAP_UNDEFINED))
+    if (warp->mapGroup != (u8)MAP_GROUP(MAP_UNDEFINED))
         return FALSE;
-    else if (warp->mapNum != (s8)MAP_NUM(MAP_UNDEFINED))
+    else if (warp->mapNum != (u8)MAP_NUM(MAP_UNDEFINED))
         return FALSE;
     else if (warp->warpId != WARP_ID_NONE)
         return FALSE;
@@ -709,22 +709,22 @@ void WarpIntoMap(void)
     SetPlayerCoordsFromWarp();
 }
 
-void SetWarpDestination(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
+void SetWarpDestination(u8 mapGroup, u8 mapNum, s8 warpId, s16 x, s16 y)
 {
     SetWarpData(&sWarpDestination, mapGroup, mapNum, warpId, x, y);
 }
 
-void SetWarpDestinationToMapWarp(s8 mapGroup, s8 mapNum, s8 warpId)
+void SetWarpDestinationToMapWarp(u8 mapGroup, u8 mapNum, s8 warpId)
 {
     SetWarpDestination(mapGroup, mapNum, warpId, -1, -1);
 }
 
-void SetDynamicWarp(s32 unused, s8 mapGroup, s8 mapNum, s8 warpId)
+void SetDynamicWarp(s32 unused, u8 mapGroup, u8 mapNum, s8 warpId)
 {
     SetWarpData(&gSaveBlock1Ptr->dynamicWarp, mapGroup, mapNum, warpId, gSaveBlock1Ptr->pos.x, gSaveBlock1Ptr->pos.y);
 }
 
-void SetDynamicWarpWithCoords(s32 unused, s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
+void SetDynamicWarpWithCoords(s32 unused, u8 mapGroup, u8 mapNum, s8 warpId, s16 x, s16 y)
 {
     SetWarpData(&gSaveBlock1Ptr->dynamicWarp, mapGroup, mapNum, warpId, x, y);
 }
@@ -776,7 +776,7 @@ void UpdateEscapeWarp(s16 x, s16 y)
         SetEscapeWarp(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum, WARP_ID_NONE, x - MAP_OFFSET, y - MAP_OFFSET + 1);
 }
 
-void SetEscapeWarp(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
+void SetEscapeWarp(u8 mapGroup, u8 mapNum, s8 warpId, s16 x, s16 y)
 {
     SetWarpData(&gSaveBlock1Ptr->escapeWarp, mapGroup, mapNum, warpId, x, y);
 }
@@ -786,7 +786,7 @@ void SetWarpDestinationToEscapeWarp(void)
     sWarpDestination = gSaveBlock1Ptr->escapeWarp;
 }
 
-void SetFixedDiveWarp(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
+void SetFixedDiveWarp(u8 mapGroup, u8 mapNum, s8 warpId, s16 x, s16 y)
 {
     SetWarpData(&sFixedDiveWarp, mapGroup, mapNum, warpId, x, y);
 }
@@ -796,7 +796,7 @@ static void SetWarpDestinationToDiveWarp(void)
     sWarpDestination = sFixedDiveWarp;
 }
 
-void SetFixedHoleWarp(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
+void SetFixedHoleWarp(u8 mapGroup, u8 mapNum, s8 warpId, s16 x, s16 y)
 {
     SetWarpData(&sFixedHoleWarp, mapGroup, mapNum, warpId, x, y);
 }
@@ -814,7 +814,7 @@ static void SetWarpDestinationToContinueGameWarp(void)
     sWarpDestination = gSaveBlock1Ptr->continueGameWarp;
 }
 
-void SetContinueGameWarp(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
+void SetContinueGameWarp(u8 mapGroup, u8 mapNum, s8 warpId, s16 x, s16 y)
 {
     SetWarpData(&gSaveBlock1Ptr->continueGameWarp, mapGroup, mapNum, warpId, x, y);
 }
@@ -1515,7 +1515,7 @@ static void ChooseAmbientCrySpecies(void)
     }
 }
 
-enum MapType GetMapTypeByGroupAndId(s8 mapGroup, s8 mapNum)
+enum MapType GetMapTypeByGroupAndId(u8 mapGroup, u8 mapNum)
 {
     return Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum)->mapType;
 }

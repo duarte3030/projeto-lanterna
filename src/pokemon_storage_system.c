@@ -6593,8 +6593,8 @@ static void TrySetCursorFistAnim(void)
 // a Pokémon that knows a required field move.
 struct
 {
-    s8 mapGroup;
-    s8 mapNum;
+    u16 mapGroup; // u16, e nao u8: a sentinela desta tabela e MAP_GROUPS_COUNT,
+    u16 mapNum;   // que passa de 255 antes do teto de grupo passar
     u16 move;
 } static const sRestrictedReleaseMoves[] =
 {
