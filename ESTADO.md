@@ -84,6 +84,34 @@ continua inalcançável a pé, que é exatamente o que o T89.1 foi escrito para
 provar. Não consertei porque o destino certo é escolha de desenho: a sala do
 Campeão não tem porta de volta, então ligar os dois é decidir o caminho inteiro.
 
+> **CORREÇÃO do condutor, 12/08, e ela ANULA a ordem que eu mesmo tinha dado.**
+> Eu autorizei "ligue o warp 2 ao `ChampionsRoomEntrance`, é fiação mecânica".
+> **Não é, e não pode ser feito.** Medido no disco depois:
+> 1. **A entrada JÁ existe e é por script, com portão.**
+>    `Unova_PkmnLeagueMain_EventScript_Estatua` (`scripts.inc:173`) tem os quatro
+>    `goto_if_not_defeated` da Elite e, só depois deles,
+>    `warp MAP_UNOVA_CHAMPIONS_ROOM_ENTRANCE, 7, 16` (linha 181). O caminho ao
+>    Campeão não está faltando: ele é **gated** de propósito.
+> 2. **O destino é geometria boa.** `LAYOUT_UNOVA_CHAMPIONS_ROOM_ENTRANCE` é
+>    18x22, (7,16) tem colisão 0 e elevação 3, e busca em largura a partir dele
+>    alcança 79 tiles, entre eles (7,6), o `coord_event` da emboscada, e (7,5),
+>    a porta da sala do Campeão. Não há ilha nem tile inválido.
+> 3. **Ligar o warp 2 ABRIRIA o portão.** (13,13) é tile pisável; virar warp de
+>    verdade para a entrada do Campeão deixaria qualquer jogador chegar nele
+>    **sem derrotar a Elite**, que é exatamente o que o **T89.2** (o par
+>    negativo) existe para impedir. O conserto "óbvio" quebraria o teste que
+>    prova o portão.
+>
+> Logo, o warp 2 apontar para si mesmo é **herança do BW3G e não é o defeito**:
+> o próprio cabeçalho do `scripts.inc` já o descreve como o tile 844
+> (`MB_NON_ANIMATED_DOOR`) que custa uma transição de tela à toa. E é aí que
+> mora a **hipótese que a próxima sessão deve testar primeiro**: 844 é
+> `MB_NON_ANIMATED_DOOR`, a **mesma família do defeito 1** (o comportamento de
+> porta que prende o jogador nos 137 interiores). Os quatro vermelhos da Liga
+> podem ser o defeito 1 outra vez, e não um problema de fiação. Ordem correta:
+> **consertar o defeito 1 primeiro, rodar T89.1, T92.4, T92.6 e T92.7 de novo**,
+> e só depois discutir warp. Diagnóstico por emulador, nunca por tabela de warp.
+
 **3. Cena da Galáctica em ilha de elevação que o jogador não alcança.**
 No Lago Verity a Mars e os quatro grunts estão em chão de elevação 1 colado num
 caminho de elevação 3; do warp do mapa só **123 de 1375** tiles andáveis são
