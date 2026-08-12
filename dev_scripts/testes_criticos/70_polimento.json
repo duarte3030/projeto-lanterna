@@ -11,7 +11,7 @@
   },
   {
     "id": "T40.2",
-    "nome": "BYRON e alcancavel A PE desde a porta do ginasio de Canalave. O roteiro nao tem uma unica contagem exata de passos: cada trecho anda ate BATER na parede (esquerda, topo, direita, e por fim no proprio Byron), entao ele nao depende de o warp largar o jogador virado para um lado ou para o outro. A prova e a batalha comecar contra o id 1263, que e a faixa dos lideres de Sinnoh: sala trancada nao abre batalha nenhuma",
+    "nome": "BYRON e alcancavel A PE desde a porta do ginasio de Canalave. O roteiro foi RECALIBRADO em 12/08/2026: a leva daquele dia pos SETE treinadores com raio de visao dentro do ginasio, e as pernas antigas, que andavam ate bater na parede, passaram a esbarrar neles (a batalha saia contra o Worker Jackson ou o Black Belt David, e mudava de um teste para o outro porque NPC anda sozinho). Agora as sete flags de derrotado entram acesas pela EWRAM, que e o mesmo estado de quem ja limpou o ginasio, e o caminho e o mais curto medido na grade de colisao, um aperto por tile. A prova continua a mesma: a batalha comecar contra o id 1263, que e a faixa dos lideres de Sinnoh. Sala trancada nao abre batalha nenhuma.",
     "warp": "MAP_CANALAVE_CITY_GYM",
     "roteiro": "120:NADA,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:UP,16:UP,16:UP,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:UP,16:RIGHT,16:RIGHT,16:UP,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:UP,16:UP,16:UP,60:NADA,20:A,120:NADA,20:A,240:NADA",
     "prova": {

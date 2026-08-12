@@ -10,6 +10,122 @@ inteiras. Detalhe fica nos documentos apontados no fim.
 
 ## 0. PASSAGEM DE BASTÃO da sessão de 12/08/2026 (Fable condutor)
 
+### Build de 12/08/2026: VERDE, suíte 197/211, ROM a 98,07%
+
+Primeira compilação depois da leva do dia (que parava do jeito que estava). Ela
+quebrou em dois pontos, os dois mecânicos e já consertados:
+
+- `a8b649254b`: `TRAINER_JOHTO_GRUNT_33` usava `TRAINER_CLASS_TEAM_ROCKET` e
+  `TRAINER_PIC_ROCKET_GRUNT_M`, que nesta build só existem com sufixo `_FRLG`
+  (era 1 caso entre 115). Consertado no `.party` e na causa: o
+  `porta_cenas_johto.py` não chamava a resolução de sufixo que o
+  `importa_treinadores_johto.py` já tinha.
+- `0119d7ab31`: as setas `←↑→` do enigma do elevador de Hearthome estavam cruas
+  no `scripts.inc` e o preproc parava com `unknown character U+2190`; viraram
+  `{LEFT_ARROW}` e companhia, e a tabela `ACENTO` do `texto_placas_sinnoh.py`
+  passou a traduzi-las. No mesmo commit, dois objetos de `MtSilver_MountainSide`
+  tinham `movement_range_y: 20`, que não cabe no campo de 4 bits e o assembler
+  truncava calado para 4.
+
+| medida | valor |
+|---|---|
+| ROM | **98,07% de 32 MB** (32.907.968 B; **631 KB livres**) |
+| EWRAM / IWRAM | 85,94% / 86,65% |
+| SaveBlock1 | 14388 de 15872 B (**90,7%**) |
+| flags livres | **2009** (maior faixa contígua 0x1A0C a 0x2025, com 1562) |
+| mapas na ROM | 1939, e `valida_rom.py` diz que tudo que foi declarado entrou |
+
+A ROM saltou de 95,23% (11/08) para 98,07%: **o B10 deixou de ser opcional.**
+Toolchain `~/toolchains/arm-gnu-toolchain-15.2*` passada em `DEVKITARM=`; o gcc
+do brew continua sem buildar.
+
+`guarda_save.py` rodou SEM `--gravar` (é decisão do condutor) e acusa as 3
+quebras esperadas da janela aberta: vars 0x40FF→0x41FF, SaveBlock1
+13432→14388 B e impressão anterior aos macros. Fechar a janela continua sendo
+entrega obrigatória.
+
+**ROM de entrega**: `roms/pokemon-claude-2026-08-12.gba`, com o `.map` do linker
+ao lado (é dele que o `testa_critico.py` tira os símbolos).
+
+**Suíte: 197 de 211** (era 181 antes das calibrações; T11.3 continua pulado,
+precisa de duas builds). **Os 13 vermelhos são TODOS o mesmo punhado de defeitos
+reais, e nenhum é falha de roteiro:**
+
+- Porta que prende o jogador, em Unova (7): T20.4, T89.5, T89.6, T89.7, T92.1,
+  T92.2, T92.3.
+- Liga de Unova sem ligação para a sala do Campeão (4): T89.1, T92.4, T92.6,
+  T92.7.
+- Cena da Galáctica em ilha de elevação inalcançável (2): T94.3, T94.5.
+
+### Os três defeitos REAIS que a suíte achou
+
+**1. Regressão do B12: 137 interiores de Unova prendem o jogador na porta.**
+Medido na EWRAM, entrando no ginásio de Aspertia pela cidade, como um jogador:
+ele aparece em (4,21), o motor o empurra um tile para BAIXO, para (4,22), que
+está FORA da grade (o mapa tem 22 linhas, 0 a 21), e ali ele **não anda para
+lado nenhum** (quatro direções, dez apertos, zero movimento). Causa medida: o
+tile de saída do interior passou a ter comportamento `MB_NON_ANIMATED_DOOR`. Em
+interior de verdade é `MB_SOUTH_ARROW_WARP` (conferido no ginásio de Rustboro,
+onde o mesmo teste entra e anda normalmente). Não é herança antiga: em 05/08 o
+mesmo tile de Aspertia era o metatile 513 do `gTileset_RustboroGym`, com
+`MB_NORMAL`; a troca de tileset do B12, em `5127978487`, o trocou pelo metatile
+579 do `gTileset_UnovaChampionsRoom`, que carrega comportamento de porta.
+São **137 mapas** com porta de saída na última linha e comportamento de porta,
+**todos de Unova** (zero nas outras quatro regiões). NÃO consertei: as saídas
+possíveis (mudar o atributo do metatile no tileset, trocar o metatile no
+`map.bin` dos 137, ou dar uma linha a mais a cada mapa) têm raios de alcance
+muito diferentes, e escolher é decisão do condutor.
+
+**2. Elevador da estátua da Liga de Unova aponta para si mesmo.**
+`Unova_PkmnLeagueMain` warp 2, em (13,13), tem destino
+`MAP_UNOVA_PKMN_LEAGUE_MAIN` warp 2, e o `Unova_ChampionsRoomEntrance` tem um
+warp só, o de subir. Com a Elite dos Quatro derrotada, a sala do Campeão
+continua inalcançável a pé, que é exatamente o que o T89.1 foi escrito para
+provar. Não consertei porque o destino certo é escolha de desenho: a sala do
+Campeão não tem porta de volta, então ligar os dois é decidir o caminho inteiro.
+
+**3. Cena da Galáctica em ilha de elevação que o jogador não alcança.**
+No Lago Verity a Mars e os quatro grunts estão em chão de elevação 1 colado num
+caminho de elevação 3; do warp do mapa só **123 de 1375** tiles andáveis são
+alcançáveis a pé, e nenhum encosta na Mars. No Lago Acuity é o contrário: o warp
+larga o jogador em elevação 1 e o gatilho da cutscene, em (23,30), está em
+elevação 3. Colisão livre e warp certo nos dois; quem separa é a ELEVAÇÃO, que
+nenhum validador olhava. Ferramenta nova: `dev_scripts/alcanca.py`, busca em
+largura honrando elevação. Varredura preliminar: **32 dos 408 mapas de Sinnoh**
+têm menos de metade do chão alcançável do warp 0. Parte é legítima (área de
+Surf), então essa lista é pista, não veredito; os dois acima estão PROVADOS.
+
+### Consertos de integração além dos dois da build
+
+- `2e03d4b561`: o Karate King do Mt. Mortar chamava `TRAINER_KIYO` (181), que é
+  o Kiyo da Rota 132 de Hoenn: os dois dividiam a flag de derrotado, e o
+  `TRAINER_JOHTO_KIYO` (2461) criado no mesmo dia não era citado por script
+  nenhum. Varri a faixa 2460 a 2530: era o único órfão.
+- `7593233e5a`: a tabela de treinadores do `testa_critico.py` lia
+  `^#define TRAINER_... (\d+)\s*$` e não enxergava as **12** constantes com
+  comentário no fim da linha (os quatro duelos do Silver e os oito líderes de
+  Unova). O sintoma era o caso reprovar dizendo "treinador da prova não existe",
+  que é mentira de validador (lição 4.3).
+
+### Armadilhas de roteiro MEDIDAS (para quem escrever caso novo)
+
+- **Virar custa UM aperto** quando o jogador já andou no mapa, e não custa no
+  primeiro movimento depois do warp de debug. Perna que termina em PAREDE (ou no
+  próprio NPC, que é sólido) não depende disso, e é a forma robusta de escrever.
+- `N:BOTAO*K` **anda K tiles**: cada repetição é um aperto separado, com o botão
+  solto entre elas. A anotação antiga que dizia o contrário está errada.
+- **Warp de debug para interior cuja porta está na última linha não serve**: o
+  jogador nasce fora da grade. Entrar pela cidade, com `warp_id` na porta, é o
+  caminho fiel.
+- **Cena longa cobra muito mais A do que parece**: o rival de Canalave precisou
+  de 10 apertos e a cena do teatro de 20. Seis não bastavam, e o sintoma era
+  `oponente=0`, igual ao de roteiro que nem chegou no NPC.
+- **Falha que não repete não é defeito**: o T85.3 reprovou na primeira rodada e
+  passa sozinho, porque NPC anda por conta própria e pode fechar o corredor.
+  Rode o caso duas vezes antes de acusar o jogo.
+
+---
+
 **A sessão de 12/08 executou quase o PRD inteiro por agentes, em 6 commits
 (`98685da1d6` a `5127978487`), e PAROU AQUI por crédito. Os números abaixo
 desta seção estão VELHOS (são de 11/08); o que vale é isto:**
@@ -27,11 +143,11 @@ Infra na janela de save: +2048 flags, +256 vars, teto de treinador 4000,
 teto de grupos 128→255, s16 em coordenada de warp.
 
 **NÃO FEITO, na ordem para a próxima sessão:**
-1. **BUILD DO CONDUTOR NUNCA RODOU depois da leva.** Ninguém compilou a
-   árvore final. Rodar `make` (toolchain: `~/toolchains/arm-gnu-toolchain-15.2*`
-   via `DEVKITARM=`; o gcc do brew NÃO builda, falta newlib), depois a suíte
-   `testa_critico.py` inteira (211 casos, ~30 novos de hoje nunca rodados:
-   T89, T90-johto, T91, T92, T93, T94) e calibrar os que precisarem.
+1. ~~**BUILD DO CONDUTOR NUNCA RODOU depois da leva.**~~ **FEITO**, e o
+   resultado está na seção "Build de 12/08/2026" logo acima: build verde depois
+   de dois consertos mecânicos, suíte em 197 de 211, e os 13 vermelhos são os
+   três defeitos reais descritos lá (porta de Unova, Liga de Unova, elevação em
+   Sinnoh), nenhum deles falha de roteiro.
 2. **A JANELA DE SAVE ESTÁ ABERTA E NÃO FOI FECHADA.** Entrega obrigatória:
    `guarda_save.py --gravar` sobre a ROM boa, como última ação. Até lá, a
    save de qualquer build intermediária é descartável.

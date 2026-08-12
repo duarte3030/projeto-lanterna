@@ -15,7 +15,7 @@
   },
   {
     "id": "T94.2",
-    "nome": "Sinnoh, bloco B6: o mesmo caminho do T92.1, com FLAG_GALACTICA_CELESTIC acesa, nao encontra ninguem na praca das ruinas. Par obrigatorio do T92.1, e e ele que prova o ACEITE do B6 nesta cena: a mesma flag que a derrota do grunt acende e a que o faz sumir, junto com os seis do show da Rota 218. Sem este caso o T92.1 passaria igual se o grunt fosse eterno, e a cena viraria parede. Observacao de leitura: aqui o excedente de RIGHT NAO e mais absorvido pelo grunt (ele nao existe), entao o jogador termina mais a leste; por isso a prova e o oponente ZERO e o mapa, nunca a coordenada.",
+    "nome": "Sinnoh, bloco B6: o mesmo caminho do T94.1, com FLAG_GALACTICA_CELESTIC acesa, nao encontra ninguem na praca das ruinas. Par obrigatorio do T94.1, e e ele que prova o ACEITE do B6 nesta cena: a mesma flag que a derrota do grunt acende e a que o faz sumir, junto com os seis do show da Rota 218. Sem este caso o T94.1 passaria igual se o grunt fosse eterno, e a cena viraria parede. Observacao de leitura: aqui o excedente de RIGHT NAO e mais absorvido pelo grunt (ele nao existe), entao o jogador termina mais a leste; por isso a prova e o oponente ZERO e o mapa, nunca a coordenada.",
     "flags": [
       "FLAG_GALACTICA_CELESTIC"
     ],
@@ -48,7 +48,7 @@
   },
   {
     "id": "T94.4",
-    "nome": "Sinnoh, bloco B6: o mesmo caminho do T92.3, com FLAG_GALACTICA_LAGO_VERITY acesa, atravessa a margem vazia. Par do T92.3. Esta flag e a que a derrota da Mars acende, e ela nao esconde so a Mars: os quatro grunts que ja moravam neste mapa passaram a carrega-la no campo `flag`, entao a Galactica INTEIRA sai do lago de uma vez, como em scripts_lake_verity.s:200 em diante do Platinum. As quatro flags de treinador derrotado continuam sendo escritas aqui de proposito: sem elas o caso passaria por um motivo errado (os grunts escondidos nao lutam, mas eu quero que o caso continue medindo a mesma coisa que o T92.3 media).",
+    "nome": "Sinnoh, bloco B6: o mesmo caminho do T94.3, com FLAG_GALACTICA_LAGO_VERITY acesa, atravessa a margem vazia. Par do T94.3. Esta flag e a que a derrota da Mars acende, e ela nao esconde so a Mars: os quatro grunts que ja moravam neste mapa passaram a carrega-la no campo `flag`, entao a Galactica INTEIRA sai do lago de uma vez, como em scripts_lake_verity.s:200 em diante do Platinum. As quatro flags de treinador derrotado continuam sendo escritas aqui de proposito: sem elas o caso passaria por um motivo errado (os grunts escondidos nao lutam, mas eu quero que o caso continue medindo a mesma coisa que o T94.3 media).",
     "flags": [
       "FLAG_GALACTICA_LAGO_VERITY",
       "0x907",
@@ -80,7 +80,7 @@
   },
   {
     "id": "T94.6",
-    "nome": "Sinnoh, bloco B6: o mesmo caminho do T92.5 SEM a Mars derrotada nao dispara nada, e a caverna do Uxie continua alcancavel. Par do T92.5, e ele prova as duas metades do ON_TRANSITION de uma vez: sem o marco, a Jupiter e o rival nao nascem (a flag de esconder e reacesa toda entrada de mapa, antes de InitMap()), e o coord_event de (23,30) roda no vazio porque o script comeca com goto_if_set da flag de 'ja rodou'... que continua apagada. E essa a prova: pisar no gatilho na hora errada NAO acende FLAG_GALACTICA_ACUITY_VISTO, ou seja a cena nao foi gasta antes da hora.",
+    "nome": "Sinnoh, bloco B6: o mesmo caminho do T94.5 SEM a Mars derrotada nao dispara nada, e a caverna do Uxie continua alcancavel. Par do T94.5, e ele prova as duas metades do ON_TRANSITION de uma vez: sem o marco, a Jupiter e o rival nao nascem (a flag de esconder e reacesa toda entrada de mapa, antes de InitMap()), e o coord_event de (23,30) roda no vazio porque o script comeca com goto_if_set da flag de 'ja rodou'... que continua apagada. E essa a prova: pisar no gatilho na hora errada NAO acende FLAG_GALACTICA_ACUITY_VISTO, ou seja a cena nao foi gasta antes da hora.",
     "warp": "MAP_LAKE_ACUITY",
     "roteiro": "120:NADA,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
     "prova": {
@@ -92,7 +92,7 @@
   },
   {
     "id": "T94.7",
-    "nome": "Sinnoh, bloco B6: o rival de CANALAVE abre a batalha do ramo do TURTWIG quando VAR_STARTER_MON e 0. Este caso e o T92.8 sao o par que prova a coisa mais delicada desta leva: o rival tem TRES times, um por inicial do jogador, e quem escolhe e um `switch VAR_STARTER_MON` no script dele. O nome de cada constante e o inicial DO JOGADOR e nao o do rival, conferido bloco a bloco em trainers.party: o ramo TURTWIG (2502) tem Infernape de ace, fogo batendo grama. A var 0x4023 e VAR_STARTER_MON, escrita pelo laboratorio do Rowan em data/maps/SandgemTown_RowanLab/scripts.inc desde 05/08/2026 com 0, 1 e 2; o comentario do rival de JOHTO que diz que ela nao e escrita esta VELHO e aponta para outro arquivo. ROTEIRO: o warp 4 e a porta da biblioteca, em (7,17), a dois tiles do rival; dois DOWN sem custo de virada e cinco LEFT para os dois que faltam, com o excedente absorvido pelo proprio rival, solido em (5,19). A prova e por VALOR EXATO do oponente, e nao por faixa, porque a faixa nao distinguiria os tres ramos, que e justamente o que este caso mede.",
+    "nome": "Sinnoh, bloco B6: o rival de CANALAVE abre a batalha do ramo do TURTWIG quando VAR_STARTER_MON e 0. Este caso e o T94.8 sao o par que prova a coisa mais delicada desta leva: o rival tem TRES times, um por inicial do jogador, e quem escolhe e um `switch VAR_STARTER_MON` no script dele. O nome de cada constante e o inicial DO JOGADOR e nao o do rival, conferido bloco a bloco em trainers.party: o ramo TURTWIG (2502) tem Infernape de ace, fogo batendo grama. A var 0x4023 e VAR_STARTER_MON, escrita pelo laboratorio do Rowan em data/maps/SandgemTown_RowanLab/scripts.inc desde 05/08/2026 com 0, 1 e 2; o comentario do rival de JOHTO que diz que ela nao e escrita esta VELHO e aponta para outro arquivo. ROTEIRO: o warp 4 e a porta da biblioteca, em (7,17), a dois tiles do rival; dois DOWN sem custo de virada e cinco LEFT para os dois que faltam, com o excedente absorvido pelo proprio rival, solido em (5,19). A prova e por VALOR EXATO do oponente, e nao por faixa, porque a faixa nao distinguiria os tres ramos, que e justamente o que este caso mede.",
     "vars": {
       "0x4023": 0
     },
@@ -106,7 +106,7 @@
   },
   {
     "id": "T94.8",
-    "nome": "Sinnoh, bloco B6: o MESMO rival, o MESMO roteiro, com VAR_STARTER_MON em 2, abre a batalha do ramo do PIPLUP (2504), que tem Torterra de ace, grama batendo agua. Par do T92.7, e sem ele o T92.7 passaria igual se o `switch` estivesse quebrado e o script caisse sempre no mesmo ramo: um caso so prova que ALGUMA batalha comeca, dois provam que o ramo obedece a var. O ramo do meio (CHIMCHAR, 2503, ace Empoleon) fica sem caso proprio de proposito: ele e o `case 1` entre os dois extremos ja provados, e caso de teste que nao acrescenta risco novo e caso que so custa tempo de bateria.",
+    "nome": "Sinnoh, bloco B6: o MESMO rival, o MESMO roteiro, com VAR_STARTER_MON em 2, abre a batalha do ramo do PIPLUP (2504), que tem Torterra de ace, grama batendo agua. Par do T94.7, e sem ele o T94.7 passaria igual se o `switch` estivesse quebrado e o script caisse sempre no mesmo ramo: um caso so prova que ALGUMA batalha comeca, dois provam que o ramo obedece a var. O ramo do meio (CHIMCHAR, 2503, ace Empoleon) fica sem caso proprio de proposito: ele e o `case 1` entre os dois extremos ja provados, e caso de teste que nao acrescenta risco novo e caso que so custa tempo de bateria.",
     "vars": {
       "0x4023": 2
     },
