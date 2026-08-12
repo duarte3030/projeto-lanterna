@@ -96,6 +96,9 @@ Geodude
 Level: 109
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_QUILLADIN @ None
+Level: 109
+
 === TRAINER_GRUNT_AQUA_HIDEOUT_1 ===
 Name: GRUNT
 Class: Team Aqua
@@ -190,6 +193,9 @@ AI: Check Bad Move
 Zubat
 Level: 119
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SHIINOTIC @ None
+Level: 119
 
 === TRAINER_GABRIELLE_1 ===
 Name: GABRIELLE
@@ -328,6 +334,9 @@ Poochyena
 Level: 100
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_BRAIXEN @ None
+Level: 100
+
 === TRAINER_GRUNT_WEATHER_INST_1 ===
 Name: GRUNT
 Class: Team Aqua
@@ -439,6 +448,9 @@ Zubat
 Level: 116
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_CARKOL @ None
+Level: 116
+
 === TRAINER_GRUNT_MT_PYRE_2 ===
 Name: GRUNT
 Class: Team Aqua
@@ -542,6 +554,9 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 Golbat
 Level: 117
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+SPECIES_DRAKLOAK @ None
+Level: 117
 
 === TRAINER_ZANDER ===
 Name: ZANDER
@@ -662,6 +677,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Roselia
 Level: 104
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FLORAGATO @ None
+Level: 104
 
 === TRAINER_FELIX ===
 Name: FELIX
@@ -797,6 +815,9 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Slash
 - Sand Attack
 - Poison Sting
+
+SPECIES_PYUKUMUKU @ None
+Level: 110
 
 === TRAINER_CHIP ===
 Name: CHIP
@@ -941,6 +962,9 @@ Whismur
 Level: 105
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
+SPECIES_QUAXWELL @ None
+Level: 105
+
 === TRAINER_GABBY_AND_TY_2 ===
 Name: GABBY & TY
 Class: Interviewer
@@ -1064,6 +1088,9 @@ Marill
 Level: 112
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_CROCALOR @ None
+Level: 112
+
 === TRAINER_GWEN ===
 Name: GWEN
 Class: Tuber F
@@ -1179,6 +1206,9 @@ Marill
 Level: 102
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_SQUAWKABILLY_GREEN @ None
+Level: 102
+
 === TRAINER_CHARLIE ===
 Name: CHARLIE
 Class: Tuber M
@@ -1293,6 +1323,9 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Teeter Dance
 - Dizzy Punch
 - Focus Punch
+
+SPECIES_GUMSHOOS @ None
+Level: 112
 
 === TRAINER_GEORGE ===
 Name: GEORGE
@@ -1457,6 +1490,9 @@ Pelipper
 Level: 124
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
+SPECIES_BRIONNE @ None
+Level: 124
+
 === TRAINER_ALBERT ===
 Name: ALBERT
 Class: Cooltrainer
@@ -1611,6 +1647,9 @@ Makuhita
 Level: 116
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 
+SPECIES_DARTRIX @ None
+Level: 116
+
 === TRAINER_WILTON_5 ===
 Name: WILTON
 Class: Cooltrainer
@@ -1752,6 +1791,9 @@ Manectric
 Level: 126
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
+SPECIES_DRIZZILE @ None
+Level: 126
+
 === TRAINER_BROOKE_1 ===
 Name: BROOKE
 Class: Cooltrainer
@@ -1877,6 +1919,9 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 Tropius
 Level: 124
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+SPECIES_HAKAMO_O @ None
+Level: 124
 
 === TRAINER_BROOKE_2 ===
 Name: BROOKE
@@ -2017,6 +2062,9 @@ Shuppet
 Level: 114
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_RABOOT @ None
+Level: 114
+
 === TRAINER_VALERIE_1 ===
 Name: VALERIE
 Class: Hex Maniac
@@ -2128,6 +2176,9 @@ AI: Check Bad Move
 Zigzagoon @ Nugget
 Level: 98
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_THWACKEY @ None
+Level: 98
 
 === TRAINER_DAPHNE ===
 Name: DAPHNE
@@ -2248,6 +2299,9 @@ Linoone @ Nugget
 Level: 116
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 
+SPECIES_TORRACAT @ None
+Level: 116
+
 === TRAINER_CINDY_5 ===
 Name: CINDY
 Class: Lady
@@ -2356,6 +2410,9 @@ AI: Check Bad Move
 Goldeen
 Level: 122
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+SPECIES_ARCTIBAX @ None
+Level: 122
 
 === TRAINER_BRIDGET ===
 Name: BRIDGET
@@ -2519,6 +2576,9 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Glare
 - Crunch
 
+SPECIES_DIGGERSBY @ None
+Level: 124
+
 === TRAINER_WINSTON_1 ===
 Name: WINSTON
 Class: Rich Boy
@@ -2624,6 +2684,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Odor Sleuth
 - Sand Attack
 
+SPECIES_WUGTRIO @ None
+Level: 119
+
 === TRAINER_STEVE_1 ===
 Name: STEVE
 Class: Pokemaniac
@@ -2726,6 +2789,9 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 Rhyhorn
 Level: 116
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+SPECIES_CLODSIRE @ None
+Level: 116
 
 === TRAINER_STEVE_5 ===
 Name: STEVE
@@ -2834,6 +2900,9 @@ Tentacruel
 Level: 112
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_DEDENNE @ None
+Level: 112
+
 === TRAINER_MATTHEW ===
 Name: MATTHEW
 Class: Swimmer M
@@ -2932,6 +3001,9 @@ AI: Check Bad Move
 Gyarados
 Level: 117
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PINCURCHIN @ None
+Level: 117
 
 === TRAINER_DEAN ===
 Name: DEAN
@@ -3040,6 +3112,9 @@ Sealeo
 Level: 117
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_TOGEDEMARU @ None
+Level: 117
+
 === TRAINER_KEVIN ===
 Name: KEVIN
 Class: Swimmer M
@@ -3147,6 +3222,9 @@ Sharpedo
 Level: 119
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
+SPECIES_MORPEKO_FULL_BELLY @ None
+Level: 119
+
 === TRAINER_TONY_5 ===
 Name: TONY
 Class: Swimmer M
@@ -3249,6 +3327,9 @@ AI: Check Bad Move
 Machoke
 Level: 112
 IVs: 13 HP / 13 Atk / 13 Def / 13 SpA / 13 SpD / 13 Spe
+
+SPECIES_PERRSERKER @ None
+Level: 112
 
 === TRAINER_NOB_3 ===
 Name: NOB
@@ -3380,6 +3461,9 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Shock Wave
 - Screech
 
+SPECIES_DOUBLADE @ None
+Level: 105
+
 === TRAINER_GRUNT_AQUA_HIDEOUT_7 ===
 Name: GRUNT
 Class: Team Aqua
@@ -3503,6 +3587,9 @@ Magnemite
 Level: 114
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 
+SPECIES_KLAWF @ None
+Level: 114
+
 === TRAINER_DALTON_4 ===
 Name: DALTON
 Class: Guitarist
@@ -3613,6 +3700,9 @@ AI: Check Bad Move
 Slugma
 Level: 110
 IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+
+SPECIES_LOKIX @ None
+Level: 110
 
 === TRAINER_BERNIE_1 ===
 Name: BERNIE
@@ -3749,6 +3839,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Psybeam
 - Rock Tomb
 
+SPECIES_SLIGGOO @ None
+Level: 109
+
 === TRAINER_LARRY ===
 Name: LARRY
 Class: Camper
@@ -3851,6 +3944,9 @@ IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 Taillow
 Level: 112
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+
+SPECIES_ARAQUANID @ None
+Level: 112
 
 === TRAINER_ETHAN_3 ===
 Name: ETHAN
@@ -3986,6 +4082,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Surskit
 Level: 112
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_THIEVUL @ None
+Level: 112
 
 === TRAINER_DEREK ===
 Name: DEREK
@@ -4127,6 +4226,9 @@ Kirlia
 Level: 119
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
+SPECIES_PALAFIN_ZERO @ None
+Level: 119
+
 === TRAINER_VIRGIL ===
 Name: VIRGIL
 Class: Psychic
@@ -4238,6 +4340,9 @@ Solrock
 Level: 121
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 
+SPECIES_ELDEGOSS @ None
+Level: 121
+
 === TRAINER_CAMERON_4 ===
 Name: CAMERON
 Class: Psychic
@@ -4345,6 +4450,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Kadabra
 Level: 112
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GREEDENT @ None
+Level: 112
 
 === TRAINER_ALEXIS ===
 Name: ALEXIS
@@ -4460,6 +4568,9 @@ AI: Check Bad Move
 Manectric
 Level: 114
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_AROMATISSE @ None
+Level: 114
 
 === TRAINER_MICAH ===
 Name: MICAH
@@ -4631,11 +4742,16 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Absol @ Sitrus Berry
 Level: 129
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Aerial Ace
 - Rock Slide
 - Swords Dance
 - Slash
+
+SPECIES_BRUTE_BONNET @ None
+Level: 129
+Dynamax Level: 10
 
 === TRAINER_PHOEBE ===
 Name: PHOEBE
@@ -4682,11 +4798,16 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Dusclops @ Sitrus Berry
 Level: 129
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Shadow Ball
 - Ice Beam
 - Rock Slide
 - Earthquake
+
+SPECIES_SPECTRIER @ None
+Level: 129
+Dynamax Level: 10
 
 === TRAINER_GLACIA ===
 Name: GLACIA
@@ -4733,11 +4854,16 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Walrein @ Sitrus Berry
 Level: 131
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Surf
 - Body Slam
 - Ice Beam
 - Sheer Cold
+
+SPECIES_GLASTRIER @ None
+Level: 131
+Dynamax Level: 10
 
 === TRAINER_DRAKE ===
 Name: DRAKE
@@ -4784,11 +4910,16 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Salamence @ Sitrus Berry
 Level: 133
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Flamethrower
 - Dragon Claw
 - Rock Slide
 - Crunch
+
+SPECIES_REGIDRAGO @ None
+Level: 133
+Dynamax Level: 10
 
 === TRAINER_ROXANNE_1 ===
 Name: ROXANNE
@@ -4818,11 +4949,16 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Nosepass @ Oran Berry
 Level: 104
+Dynamax Level: 10
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Block
 - Harden
 - Tackle
 - Rock Tomb
+
+SPECIES_NIHILEGO @ None
+Level: 104
+Dynamax Level: 10
 
 === TRAINER_BRAWLY_1 ===
 Name: BRAWLY
@@ -4852,11 +4988,16 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Makuhita @ Sitrus Berry
 Level: 107
+Dynamax Level: 10
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Arm Thrust
 - Vital Throw
 - Reversal
 - Bulk Up
+
+SPECIES_SLITHER_WING @ None
+Level: 107
+Dynamax Level: 10
 
 === TRAINER_WATTSON_1 ===
 Name: WATTSON
@@ -4894,11 +5035,16 @@ IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
 
 Manectric @ Sitrus Berry
 Level: 110
+Dynamax Level: 10
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Quick Attack
 - Thunder Wave
 - Shock Wave
 - Howl
+
+SPECIES_TAPU_KOKO @ None
+Level: 110
+Dynamax Level: 10
 
 === TRAINER_FLANNERY_1 ===
 Name: FLANNERY
@@ -4936,11 +5082,16 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Torkoal @ White Herb
 Level: 114
+Dynamax Level: 10
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Overheat
 - Sunny Day
 - Body Slam
 - Attract
+
+SPECIES_IRON_MOTH @ None
+Level: 114
+Dynamax Level: 10
 
 === TRAINER_NORMAN_1 ===
 Name: NORMAN
@@ -4978,11 +5129,16 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
 Slaking @ Sitrus Berry
 Level: 116
+Dynamax Level: 10
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Counter
 - Yawn
 - Facade
 - Feint Attack
+
+SPECIES_ZACIAN_HERO @ None
+Level: 116
+Dynamax Level: 10
 
 === TRAINER_WINONA_1 ===
 Name: WINONA
@@ -5028,11 +5184,16 @@ IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
 
 Altaria @ Oran Berry
 Level: 117
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Earthquake
 - Dragon Breath
 - Dragon Dance
 - Aerial Ace
+
+SPECIES_KARTANA @ None
+Level: 117
+Dynamax Level: 10
 
 === TRAINER_TATE_AND_LIZA_1 ===
 Name: TATE&LIZA
@@ -5070,11 +5231,16 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Solrock @ Sitrus Berry
 Level: 124
+Dynamax Level: 10
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Sunny Day
 - Solar Beam
 - Psychic
 - Flamethrower
+
+SPECIES_TAPU_LELE @ None
+Level: 124
+Dynamax Level: 10
 
 === TRAINER_JUAN_1 ===
 Name: JUAN
@@ -5120,11 +5286,16 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
 Kingdra @ Chesto Berry
 Level: 126
+Dynamax Level: 10
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Water Pulse
 - Double Team
 - Ice Beam
 - Rest
+
+SPECIES_TAPU_FINI @ None
+Level: 126
+Dynamax Level: 10
 
 === TRAINER_JERRY_1 ===
 Name: JERRY
@@ -5138,6 +5309,9 @@ AI: Check Bad Move
 Ralts
 Level: 100
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+
+SPECIES_RIBOMBEE @ None
+Level: 100
 
 === TRAINER_TED ===
 Name: TED
@@ -5257,6 +5431,9 @@ AI: Check Bad Move
 Shroomish
 Level: 100
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+
+SPECIES_MEOWSTIC_M @ None
+Level: 100
 
 === TRAINER_GEORGIA ===
 Name: GEORGIA
@@ -5391,6 +5568,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle
 - Focus Energy
 - Arm Thrust
+
+SPECIES_EISCUE_ICE @ None
+Level: 105
 
 === TRAINER_ANNA_AND_MEG_2 ===
 Name: ANNA & MEG
@@ -5588,6 +5768,9 @@ Skitty @ Oran Berry
 Level: 114
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_FALINKS @ None
+Level: 114
+
 === TRAINER_MIGUEL_3 ===
 Name: MIGUEL
 Class: Pokefan
@@ -5690,6 +5873,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Minun @ Oran Berry
 Level: 104
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_KLEFKI @ None
+Level: 104
 
 === TRAINER_ISABEL_2 ===
 Name: ISABEL
@@ -5805,6 +5991,9 @@ IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
 - Knock Off
 - Sand Attack
 - Dig
+
+SPECIES_MAUSHOLD_THREE @ None
+Level: 119
 
 === TRAINER_TIMOTHY_4 ===
 Name: TIMOTHY
@@ -5925,6 +6114,9 @@ Hariyama
 Level: 119
 IVs: 27 HP / 27 Atk / 27 Def / 27 SpA / 27 SpD / 27 Spe
 
+SPECIES_RABSCA @ None
+Level: 119
+
 === TRAINER_SHELBY_5 ===
 Name: SHELBY
 Class: Expert
@@ -6040,6 +6232,9 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Sludge
 - Yawn
 - Pound
+
+SPECIES_STONJOURNER @ None
+Level: 105
 
 === TRAINER_QUINCY ===
 Name: QUINCY
@@ -6170,6 +6365,9 @@ Mightyena
 Level: 117
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
+SPECIES_TREVENANT @ None
+Level: 117
+
 === TRAINER_CALVIN_5 ===
 Name: CALVIN
 Class: Youngster
@@ -6295,6 +6493,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Milotic @ Sitrus Berry
 Level: 135
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Recover
 - Surf
@@ -6363,6 +6562,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Barboach
 Level: 105
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BRUXISH @ None
+Level: 105
 
 === TRAINER_ELLIOT_1 ===
 Name: ELLIOT
@@ -6482,6 +6684,9 @@ IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 Tentacruel
 Level: 110
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+
+SPECIES_CRAMORANT @ None
+Level: 110
 
 === TRAINER_ELLIOT_2 ===
 Name: ELLIOT
@@ -6663,6 +6868,9 @@ Magnemite
 Level: 105
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_FROSMOTH @ None
+Level: 105
+
 === TRAINER_BENJAMIN_2 ===
 Name: BENJAMIN
 Class: Triathlete
@@ -6762,6 +6970,9 @@ Magnemite
 Level: 114
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
+SPECIES_INDEEDEE_M @ None
+Level: 114
+
 === TRAINER_ABIGAIL_3 ===
 Name: ABIGAIL
 Class: Triathlete
@@ -6852,6 +7063,9 @@ AI: Check Bad Move
 Dodrio
 Level: 117
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+SPECIES_TATSUGIRI_CURLY @ None
+Level: 117
 
 === TRAINER_DYLAN_5 ===
 Name: DYLAN
@@ -6947,6 +7161,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Staryu
 Level: 117
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MIMIKYU_DISGUISED @ None
+Level: 117
 
 === TRAINER_DEMETRIUS ===
 Name: DEMETRIUS
@@ -7051,6 +7268,9 @@ Starmie
 Level: 126
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
+SPECIES_ORICORIO_BAILE @ None
+Level: 126
+
 === TRAINER_ISAIAH_5 ===
 Name: ISAIAH
 Class: Triathlete
@@ -7149,6 +7369,9 @@ AI: Check Bad Move
 Staryu
 Level: 121
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+
+SPECIES_DACHSBUN @ None
+Level: 121
 
 === TRAINER_KATELYN_3 ===
 Name: KATELYN
@@ -7260,6 +7483,9 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 Altaria
 Level: 126
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+
+SPECIES_CRABOMINABLE @ None
+Level: 126
 
 === TRAINER_NICOLAS_5 ===
 Name: NICOLAS
@@ -7375,6 +7601,9 @@ AI: Check Bad Move
 Skarmory
 Level: 116
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+
+SPECIES_VELUZA @ None
+Level: 116
 
 === TRAINER_PRESLEY ===
 Name: PRESLEY
@@ -7495,6 +7724,9 @@ Swablu
 Level: 116
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
+SPECIES_BRAMBLEGHAST @ None
+Level: 116
+
 === TRAINER_ROBERT_3 ===
 Name: ROBERT
 Class: Bird Keeper
@@ -7605,6 +7837,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Koffing
 Level: 110
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GRAPPLOCT @ None
+Level: 110
 
 === TRAINER_DIANNE ===
 Name: DIANNE
@@ -7796,6 +8031,9 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 - Tackle
 - Sludge
 
+SPECIES_QUILLADIN @ None
+Level: 116
+
 === TRAINER_LAO_5 ===
 Name: LAO
 Class: Ninja Boy
@@ -7919,6 +8157,9 @@ Makuhita
 Level: 112
 IVs: 13 HP / 13 Atk / 13 Def / 13 SpA / 13 SpD / 13 Spe
 
+SPECIES_SHIINOTIC @ None
+Level: 112
+
 === TRAINER_CYNDY_3 ===
 Name: CYNDY
 Class: Battle Girl
@@ -8037,6 +8278,9 @@ IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 - Tackle
 - Magnitude
 - Sunny Day
+
+SPECIES_BRAIXEN @ None
+Level: 114
 
 === TRAINER_MADELINE_3 ===
 Name: MADELINE
@@ -8165,6 +8409,9 @@ Goldeen
 Level: 110
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_CARKOL @ None
+Level: 110
+
 === TRAINER_BETH ===
 Name: BETH
 Class: Swimmer F
@@ -8268,6 +8515,9 @@ Luvdisc
 Level: 117
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_DRAKLOAK @ None
+Level: 117
+
 === TRAINER_SHARON ===
 Name: SHARON
 Class: Swimmer F
@@ -8366,6 +8616,9 @@ AI: Check Bad Move
 Azumarill
 Level: 117
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FLORAGATO @ None
+Level: 117
 
 === TRAINER_SIENNA ===
 Name: SIENNA
@@ -8473,6 +8726,9 @@ AI: Check Bad Move
 Wailmer
 Level: 121
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PYUKUMUKU @ None
+Level: 121
 
 === TRAINER_JENNY_3 ===
 Name: JENNY
@@ -8609,6 +8865,9 @@ Lombre
 Level: 105
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_QUAXWELL @ None
+Level: 105
+
 === TRAINER_MARTHA ===
 Name: MARTHA
 Class: Picnicker
@@ -8744,6 +9003,9 @@ Swablu
 Level: 116
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
+SPECIES_CROCALOR @ None
+Level: 116
+
 === TRAINER_DIANA_5 ===
 Name: DIANA
 Class: Picnicker
@@ -8870,6 +9132,9 @@ Level: 100
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Absorb
 - Leech Seed
+
+SPECIES_SQUAWKABILLY_GREEN @ None
+Level: 100
 
 === TRAINER_AMY_AND_LIV_4 ===
 Name: AMY & LIV
@@ -9005,6 +9270,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Tentacool
 Level: 100
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GUMSHOOS @ None
+Level: 100
 
 === TRAINER_PHILLIP ===
 Name: PHILLIP
@@ -9145,6 +9413,9 @@ Tentacruel
 Level: 126
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
+SPECIES_BRIONNE @ None
+Level: 126
+
 === TRAINER_ELI ===
 Name: ELI
 Class: Hiker
@@ -9264,6 +9535,9 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 Spheal
 Level: 117
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+
+SPECIES_DARTRIX @ None
+Level: 117
 
 === TRAINER_MARLEY ===
 Name: MARLEY
@@ -9385,6 +9659,9 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 Golbat
 Level: 122
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+SPECIES_DRIZZILE @ None
+Level: 122
 
 === TRAINER_EDWIN_2 ===
 Name: EDWIN
@@ -9538,6 +9815,9 @@ Grovyle
 Level: 107
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
+SPECIES_HAKAMO_O @ None
+Level: 107
+
 === TRAINER_BRENDAN_ROUTE_119_MUDKIP ===
 Name: BRENDAN
 Class: Rival
@@ -9669,6 +9949,9 @@ Marshtomp
 Level: 116
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
+SPECIES_RABOOT @ None
+Level: 116
+
 === TRAINER_MAY_ROUTE_103_MUDKIP ===
 Name: MAY
 Class: Rival
@@ -9791,6 +10074,9 @@ AI: Basic Trainer
 Mudkip
 Level: 97
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_THWACKEY @ None
+Level: 97
 
 === TRAINER_MAY_ROUTE_110_TORCHIC ===
 Name: MAY
@@ -10247,6 +10533,9 @@ Breloom
 Level: 112
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
+SPECIES_TORRACAT @ None
+Level: 112
+
 === TRAINER_LORENZO ===
 Name: LORENZO
 Class: Pkmn Ranger
@@ -10360,6 +10649,9 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 Roselia
 Level: 112
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+SPECIES_ARCTIBAX @ None
+Level: 112
 
 === TRAINER_JENNA ===
 Name: JENNA
@@ -10486,6 +10778,9 @@ Magnemite
 Level: 109
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_DIGGERSBY @ None
+Level: 109
+
 === TRAINER_GRUNT_SEAFLOOR_CAVERN_5 ===
 Name: GRUNT
 Class: Team Aqua
@@ -10597,6 +10892,9 @@ Meditite
 Level: 102
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
+SPECIES_WUGTRIO @ None
+Level: 102
+
 === TRAINER_CRISTIAN ===
 Name: CRISTIAN
 Class: Black Belt
@@ -10698,6 +10996,9 @@ Sharpedo
 Level: 117
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_CLODSIRE @ None
+Level: 117
+
 === TRAINER_TERRY ===
 Name: TERRY
 Class: Psychic
@@ -10792,6 +11093,9 @@ AI: Check Bad Move
 Baltoy
 Level: 116
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DEDENNE @ None
+Level: 116
 
 === TRAINER_GRUNT_SPACE_CENTER_5 ===
 Name: GRUNT
@@ -10895,6 +11199,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Breloom
 Level: 117
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PINCURCHIN @ None
+Level: 117
 
 === TRAINER_ISABELLA ===
 Name: ISABELLA
@@ -11025,6 +11332,9 @@ Camerupt
 Level: 121
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
+SPECIES_TOGEDEMARU @ None
+Level: 121
+
 === TRAINER_MAXIE_MT_CHIMNEY ===
 Name: MAXIE
 Class: Magma Leader
@@ -11149,6 +11459,9 @@ Breloom
 Level: 114
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 
+SPECIES_MORPEKO_FULL_BELLY @ None
+Level: 114
+
 === TRAINER_HALEY_4 ===
 Name: HALEY
 Class: Lass
@@ -11268,6 +11581,9 @@ Wurmple
 Level: 95
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_PERRSERKER @ None
+Level: 95
+
 === TRAINER_LYLE ===
 Name: LYLE
 Class: Bug Catcher
@@ -11386,6 +11702,9 @@ AI: Check Bad Move
 Ninjask
 Level: 112
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+
+SPECIES_DOUBLADE @ None
+Level: 112
 
 === TRAINER_JAMES_3 ===
 Name: JAMES
@@ -11522,6 +11841,9 @@ Numel
 Level: 105
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_KLAWF @ None
+Level: 105
+
 === TRAINER_ALAN ===
 Name: ALAN
 Class: Hiker
@@ -11654,6 +11976,9 @@ IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 Graveler
 Level: 110
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+
+SPECIES_LOKIX @ None
+Level: 110
 
 === TRAINER_TRENT_3 ===
 Name: TRENT
@@ -11798,6 +12123,9 @@ Illumise
 Level: 116
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
+SPECIES_SLIGGOO @ None
+Level: 116
+
 === TRAINER_KIRA_AND_DAN_3 ===
 Name: KIRA & DAN
 Class: Young Couple
@@ -11921,6 +12249,9 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Detect
 - Confusion
 - Fire Punch
+
+SPECIES_ARAQUANID @ None
+Level: 110
 
 === TRAINER_HIDEO ===
 Name: HIDEO
@@ -12097,6 +12428,9 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Calm Mind
 - Psychic
 - Future Sight
+
+SPECIES_THIEVUL @ None
+Level: 128
 
 === TRAINER_WALLY_VR_3 ===
 Name: WALLY
@@ -12348,6 +12682,9 @@ Grovyle
 Level: 117
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
+SPECIES_PALAFIN_ZERO @ None
+Level: 117
+
 === TRAINER_MAY_LILYCOVE_TREECKO ===
 Name: MAY
 Class: Rival
@@ -12493,6 +12830,9 @@ Nosepass
 Level: 117
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
+SPECIES_ELDEGOSS @ None
+Level: 117
+
 === TRAINER_KOJI_1 ===
 Name: KOJI
 Class: Black Belt
@@ -12615,6 +12955,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Take Down
 - Rest
 - Earthquake
+
+SPECIES_GREEDENT @ None
+Level: 119
 
 === TRAINER_TYRA_AND_IVY ===
 Name: TYRA & IVY
@@ -12791,6 +13134,9 @@ IVs: 29 HP / 29 Atk / 29 Def / 29 SpA / 29 SpD / 29 Spe
 - Rest
 - Belly Drum
 
+SPECIES_AROMATISSE @ None
+Level: 131
+
 === TRAINER_RELI_AND_IAN ===
 Name: RELI & IAN
 Class: Sis And Bro
@@ -12909,6 +13255,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Tentacool
 Level: 110
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RIBOMBEE @ None
+Level: 112
 
 === TRAINER_CHRIS ===
 Name: CHRIS
@@ -13030,6 +13379,9 @@ Plusle @ Oran Berry
 Level: 104
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_MEOWSTIC_M @ None
+Level: 104
+
 === TRAINER_JOSEPH ===
 Name: JOSEPH
 Class: Guitarist
@@ -13124,6 +13476,9 @@ AI: Check Bad Move
 Shroomish
 Level: 105
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_EISCUE_ICE @ None
+Level: 105
 
 === TRAINER_HAYDEN ===
 Name: HAYDEN
@@ -13236,6 +13591,9 @@ Barboach
 Level: 107
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_FALINKS @ None
+Level: 107
+
 === TRAINER_CHARLOTTE ===
 Name: CHARLOTTE
 Class: Picnicker
@@ -13343,6 +13701,9 @@ Numel
 Level: 114
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_KLEFKI @ None
+Level: 114
+
 === TRAINER_GRUNT_MAGMA_HIDEOUT_6 ===
 Name: GRUNT
 Class: Team Magma
@@ -13433,6 +13794,9 @@ AI: Check Bad Move
 Numel
 Level: 114
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAUSHOLD_THREE @ None
+Level: 114
 
 === TRAINER_GRUNT_MAGMA_HIDEOUT_13 ===
 Name: GRUNT
@@ -13551,6 +13915,9 @@ Camerupt
 Level: 124
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
+SPECIES_RABSCA @ None
+Level: 124
+
 === TRAINER_PETE ===
 Name: PETE
 Class: Swimmer M
@@ -13666,6 +14033,9 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 Manectric
 Level: 110
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+SPECIES_STONJOURNER @ None
+Level: 110
 
 === TRAINER_ELIJAH ===
 Name: ELIJAH
@@ -13786,6 +14156,9 @@ Dodrio
 Level: 112
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_TREVENANT @ None
+Level: 112
+
 === TRAINER_JAIDEN ===
 Name: JAIDEN
 Class: Ninja Boy
@@ -13901,6 +14274,9 @@ Doduo
 Level: 105
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_BRUXISH @ None
+Level: 105
+
 === TRAINER_BRANDI ===
 Name: BRANDI
 Class: Psychic
@@ -14004,6 +14380,9 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Thunder
 - Quick Attack
 - Thunder Wave
+
+SPECIES_CRAMORANT @ None
+Level: 116
 
 === TRAINER_CALLIE ===
 Name: CALLIE
@@ -14193,11 +14572,16 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Nosepass @ Sitrus Berry
 Level: 121
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Double Team
 - Explosion
 - Protect
 - Rock Slide
+
+SPECIES_IRON_THORNS @ None
+Level: 121
+Dynamax Level: 10
 
 === TRAINER_ROXANNE_3 ===
 Name: ROXANNE
@@ -14243,11 +14627,16 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Nosepass @ Sitrus Berry
 Level: 124
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Double Team
 - Explosion
 - Protect
 - Rock Slide
+
+SPECIES_TING_LU @ None
+Level: 124
+Dynamax Level: 10
 
 === TRAINER_ROXANNE_4 ===
 Name: ROXANNE
@@ -14293,11 +14682,16 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Nosepass @ Sitrus Berry
 Level: 128
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Double Team
 - Explosion
 - Protect
 - Rock Slide
+
+SPECIES_IRON_BOULDER @ None
+Level: 128
+Dynamax Level: 10
 
 === TRAINER_ROXANNE_5 ===
 Name: ROXANNE
@@ -14351,6 +14745,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Nosepass @ Sitrus Berry
 Level: 131
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Double Team
 - Explosion
@@ -14393,11 +14788,16 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Hariyama @ Sitrus Berry
 Level: 121
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Fake Out
 - Focus Punch
 - Belly Drum
 - Earthquake
+
+SPECIES_PHEROMOSA @ None
+Level: 121
+Dynamax Level: 10
 
 === TRAINER_BRAWLY_3 ===
 Name: BRAWLY
@@ -14435,11 +14835,16 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Hariyama @ Sitrus Berry
 Level: 124
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Fake Out
 - Focus Punch
 - Belly Drum
 - Earthquake
+
+SPECIES_IRON_HANDS @ None
+Level: 124
+Dynamax Level: 10
 
 === TRAINER_BRAWLY_4 ===
 Name: BRAWLY
@@ -14485,11 +14890,16 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Hariyama @ Sitrus Berry
 Level: 128
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Fake Out
 - Focus Punch
 - Belly Drum
 - Earthquake
+
+SPECIES_IRON_VALIANT @ None
+Level: 128
+Dynamax Level: 10
 
 === TRAINER_BRAWLY_5 ===
 Name: BRAWLY
@@ -14543,6 +14953,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Hariyama @ Sitrus Berry
 Level: 131
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Fake Out
 - Focus Punch
@@ -14585,11 +14996,16 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Manectric @ Sitrus Berry
 Level: 122
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Bite
 - Thunder Wave
 - Thunder
 - Protect
+
+SPECIES_XURKITREE @ None
+Level: 122
+Dynamax Level: 10
 
 === TRAINER_WATTSON_3 ===
 Name: WATTSON
@@ -14635,11 +15051,16 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Manectric @ Sitrus Berry
 Level: 126
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Bite
 - Thunder Wave
 - Thunder
 - Protect
+
+SPECIES_SANDY_SHOCKS @ None
+Level: 126
+Dynamax Level: 10
 
 === TRAINER_WATTSON_4 ===
 Name: WATTSON
@@ -14685,11 +15106,16 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Manectric @ Sitrus Berry
 Level: 129
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Bite
 - Thunder Wave
 - Thunder
 - Protect
+
+SPECIES_REGIELEKI @ None
+Level: 129
+Dynamax Level: 10
 
 === TRAINER_WATTSON_5 ===
 Name: WATTSON
@@ -14743,6 +15169,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Manectric @ Sitrus Berry
 Level: 133
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Bite
 - Thunder Wave
@@ -14785,11 +15212,16 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Torkoal @ White Herb
 Level: 122
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Overheat
 - Sunny Day
 - Explosion
 - Attract
+
+SPECIES_BLACEPHALON @ None
+Level: 122
+Dynamax Level: 10
 
 === TRAINER_FLANNERY_3 ===
 Name: FLANNERY
@@ -14835,11 +15267,16 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Torkoal @ White Herb
 Level: 126
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Overheat
 - Sunny Day
 - Explosion
 - Attract
+
+SPECIES_GOUGING_FIRE @ None
+Level: 126
+Dynamax Level: 10
 
 === TRAINER_FLANNERY_4 ===
 Name: FLANNERY
@@ -14893,6 +15330,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Torkoal @ White Herb
 Level: 129
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Overheat
 - Sunny Day
@@ -14951,6 +15389,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Torkoal @ White Herb
 Level: 133
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Overheat
 - Sunny Day
@@ -14993,11 +15432,16 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Slaking @ Sitrus Berry
 Level: 126
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Hyper Beam
 - Flamethrower
 - Thunderbolt
 - Shadow Ball
+
+SPECIES_WO_CHIEN @ None
+Level: 126
+Dynamax Level: 10
 
 === TRAINER_NORMAN_3 ===
 Name: NORMAN
@@ -15043,11 +15487,16 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Slaking @ Sitrus Berry
 Level: 129
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Hyper Beam
 - Flamethrower
 - Thunderbolt
 - Shadow Ball
+
+SPECIES_TAPU_BULU @ None
+Level: 129
+Dynamax Level: 10
 
 === TRAINER_NORMAN_4 ===
 Name: NORMAN
@@ -15093,11 +15542,16 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Slaking @ Sitrus Berry
 Level: 133
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Hyper Beam
 - Flamethrower
 - Thunderbolt
 - Shadow Ball
+
+SPECIES_IRON_TREADS @ None
+Level: 133
+Dynamax Level: 10
 
 === TRAINER_NORMAN_5 ===
 Name: NORMAN
@@ -15151,6 +15605,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Slaking @ Sitrus Berry
 Level: 136
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Hyper Beam
 - Flamethrower
@@ -15201,11 +15656,16 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Altaria @ Chesto Berry
 Level: 126
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Aerial Ace
 - Rest
 - Dragon Dance
 - Earthquake
+
+SPECIES_ENAMORUS_INCARNATE @ None
+Level: 126
+Dynamax Level: 10
 
 === TRAINER_WINONA_3 ===
 Name: WINONA
@@ -15259,6 +15719,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Altaria @ Chesto Berry
 Level: 129
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Aerial Ace
 - Rest
@@ -15317,6 +15778,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Altaria @ Chesto Berry
 Level: 133
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Aerial Ace
 - Rest
@@ -15375,6 +15837,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Altaria @ Chesto Berry
 Level: 136
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Sky Attack
 - Rest
@@ -15425,11 +15888,16 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Solrock @ Sitrus Berry
 Level: 129
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Sunny Day
 - Solar Beam
 - Psychic
 - Flamethrower
+
+SPECIES_SCREAM_TAIL @ None
+Level: 129
+Dynamax Level: 10
 
 === TRAINER_TATE_AND_LIZA_3 ===
 Name: TATE&LIZA
@@ -15483,6 +15951,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Solrock @ Sitrus Berry
 Level: 133
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Sunny Day
 - Solar Beam
@@ -15541,6 +16010,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Solrock @ Sitrus Berry
 Level: 136
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Sunny Day
 - Solar Beam
@@ -15599,6 +16069,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Solrock @ Sitrus Berry
 Level: 140
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Sunny Day
 - Solar Beam
@@ -15649,11 +16120,16 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Kingdra @ Chesto Berry
 Level: 129
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Water Pulse
 - Double Team
 - Ice Beam
 - Rest
+
+SPECIES_WALKING_WAKE @ None
+Level: 129
+Dynamax Level: 10
 
 === TRAINER_JUAN_3 ===
 Name: JUAN
@@ -15699,11 +16175,16 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Kingdra @ Chesto Berry
 Level: 135
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Water Pulse
 - Double Team
 - Ice Beam
 - Rest
+
+SPECIES_VOLCANION @ None
+Level: 135
+Dynamax Level: 10
 
 === TRAINER_JUAN_4 ===
 Name: JUAN
@@ -15757,6 +16238,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Kingdra @ Chesto Berry
 Level: 138
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Water Pulse
 - Double Team
@@ -15815,6 +16297,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 Kingdra @ Chesto Berry
 Level: 141
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Water Pulse
 - Double Team
@@ -15856,6 +16339,9 @@ AI: Basic Trainer
 Tropius
 Level: 116
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+
+SPECIES_FROSMOTH @ None
+Level: 116
 
 === TRAINER_STEVEN ===
 Name: STEVEN
@@ -16006,6 +16492,9 @@ Beldum
 Level: 97
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_INDEEDEE_M @ None
+Level: 97
+
 === TRAINER_ANDRES_2 ===
 Name: ANDRES
 Class: Ruin Maniac
@@ -16149,6 +16638,9 @@ Tentacruel
 Level: 117
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
+SPECIES_TATSUGIRI_CURLY @ None
+Level: 117
+
 === TRAINER_CORY_5 ===
 Name: CORY
 Class: Sailor
@@ -16287,6 +16779,9 @@ IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 Machoke
 Level: 121
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+
+SPECIES_MIMIKYU_DISGUISED @ None
+Level: 121
 
 === TRAINER_KOJI_4 ===
 Name: KOJI
@@ -16435,6 +16930,9 @@ Loudred
 Level: 119
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
+SPECIES_ORICORIO_BAILE @ None
+Level: 119
+
 === TRAINER_FERNANDO_3 ===
 Name: FERNANDO
 Class: Guitarist
@@ -16577,6 +17075,9 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 Golem
 Level: 117
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
+
+SPECIES_DACHSBUN @ None
+Level: 117
 
 === TRAINER_GABRIELLE_2 ===
 Name: GABRIELLE
@@ -16830,6 +17331,9 @@ Wobbuffet
 Level: 122
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_CRABOMINABLE @ None
+Level: 122
+
 === TRAINER_RED ===
 Name: RED
 Class: Rival
@@ -16904,6 +17408,9 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Poison Fang
 - Confuse Ray
 - Shadow Ball
+
+SPECIES_KOMALA @ None
+Level: 198
 
 === TRAINER_SINNOH_ACE_TRAINER_ALICIA ===
 Name: Alicia
@@ -16989,6 +17496,9 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Bite
 - Curse
 
+SPECIES_LURANTIS @ None
+Level: 172
+
 === TRAINER_SINNOH_ACE_TRAINER_ANTON ===
 Name: Anton
 Class: Cooltrainer
@@ -17055,6 +17565,9 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Signal Beam
 - Conversion 2
 - Recover
+
+SPECIES_ORTHWORM @ None
+Level: 178
 
 === TRAINER_SINNOH_ACE_TRAINER_BRANDI ===
 Name: Brandi
@@ -17126,6 +17639,9 @@ Medicham
 Level: 174
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
+SPECIES_PALOSSAND @ None
+Level: 176
+
 === TRAINER_SINNOH_ACE_TRAINER_BRENNA ===
 Name: Brenna
 Class: Cooltrainer 2
@@ -17193,6 +17709,9 @@ IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
 - X Scissor
 - Slash
 - Pursuit
+
+SPECIES_SALAZZLE @ None
+Level: 178
 
 === TRAINER_SINNOH_ACE_TRAINER_CLARICE ===
 Name: Clarice
@@ -17271,6 +17790,9 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Shock Wave
 - Shadow Ball
 
+SPECIES_SLURPUFF @ None
+Level: 194
+
 === TRAINER_SINNOH_ACE_TRAINER_DEANNA ===
 Name: Deanna
 Class: Cooltrainer 2
@@ -17347,6 +17869,9 @@ IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
 - Dig
 - Thunder Wave
 - Light Screen
+
+SPECIES_ESPATHRA @ None
+Level: 186
 
 === TRAINER_SINNOH_ACE_TRAINER_ERNEST ===
 Name: Ernest
@@ -17433,6 +17958,9 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Quick Attack
 - Fury Cutter
 
+SPECIES_HELIOLISK @ None
+Level: 178
+
 === TRAINER_SINNOH_ACE_TRAINER_GRAHAM ===
 Name: Graham
 Class: Cooltrainer
@@ -17486,6 +18014,9 @@ IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
 - Ice Fang
 - Ancient Power
 
+SPECIES_MALAMAR @ None
+Level: 182
+
 === TRAINER_SINNOH_ACE_TRAINER_JAKE ===
 Name: Jake
 Class: Cooltrainer
@@ -17536,6 +18067,9 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Crunch
 - X Scissor
 - Aerial Ace
+
+SPECIES_RUNERIGUS @ None
+Level: 200
 
 === TRAINER_SINNOH_ACE_TRAINER_JONAH ===
 Name: Jonah
@@ -17618,6 +18152,9 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Signal Beam
 - Fire Punch
 
+SPECIES_APPLETUN @ None
+Level: 198
+
 === TRAINER_SINNOH_ACE_TRAINER_KEENAN ===
 Name: Keenan
 Class: Cooltrainer
@@ -17682,6 +18219,9 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Low Kick
 - Flail
 - Endure
+
+SPECIES_BOMBIRDIER @ None
+Level: 178
 
 === TRAINER_SINNOH_ACE_TRAINER_MARIAH ===
 Name: Mariah
@@ -17767,6 +18307,9 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Razor Leaf
 - Water Pulse
 
+SPECIES_COMFEY @ None
+Level: 196
+
 === TRAINER_SINNOH_ACE_TRAINER_MICAH ===
 Name: Micah
 Class: Cooltrainer
@@ -17851,6 +18394,9 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Psychic
 - Ancient Power
 - Cosmic Power
+
+SPECIES_DIPPLIN @ None
+Level: 196
 
 === TRAINER_SINNOH_ACE_TRAINER_MONIQUE ===
 Name: Monique
@@ -17945,6 +18491,9 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Jump Kick
 - Shadow Ball
 
+SPECIES_DRAMPA @ None
+Level: 178
+
 === TRAINER_SINNOH_ACE_TRAINER_OMAR ===
 Name: Omar
 Class: Cooltrainer
@@ -18022,6 +18571,9 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Faint Attack
 - Screech
 
+SPECIES_DREDNAW @ None
+Level: 194
+
 === TRAINER_SINNOH_ACE_TRAINER_RUBEN ===
 Name: Ruben
 Class: Cooltrainer
@@ -18078,6 +18630,9 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Zen Headbutt
 - Swagger
 - Payback
+
+SPECIES_FLAPPLE @ None
+Level: 200
 
 === TRAINER_SINNOH_ACE_TRAINER_SAVANNAH ===
 Name: Savannah
@@ -18161,6 +18716,9 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Quick Attack
 - Charm
 
+SPECIES_GRAFAIAI @ None
+Level: 174
+
 === TRAINER_SINNOH_ACE_TRAINER_SKYLAR ===
 Name: Skylar
 Class: Cooltrainer
@@ -18230,6 +18788,9 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Leech Seed
 - Synthesis
 
+SPECIES_TOUCANNON @ None
+Level: 186
+
 === TRAINER_SINNOH_ACE_TRAINER_ZACHERY ===
 Name: Zachery
 Class: Cooltrainer
@@ -18280,6 +18841,9 @@ Combee
 Level: 163
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_TURTONATOR @ None
+Level: 163
+
 === TRAINER_SINNOH_AROMA_LADY_TAYLOR ===
 Name: Taylor
 Class: Aroma Lady
@@ -18325,6 +18889,9 @@ Meditite
 Level: 161
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 
+SPECIES_SCOVILLAIN @ None
+Level: 161
+
 === TRAINER_SINNOH_BATTLE_GIRL_KELSEY ===
 Name: Kelsey
 Class: Battle Girl
@@ -18357,6 +18924,9 @@ Double Battle: No
 Glameow
 Level: 169
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_LYCANROC_MIDDAY @ None
+Level: 169
 
 === TRAINER_SINNOH_BEAUTY_DEVON ===
 Name: Devon
@@ -18402,6 +18972,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Rapidash
 Level: 165
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_HOUNDSTONE @ None
+Level: 165
 
 === TRAINER_SINNOH_BELLE_AND_PA_BETH_AND_BOB ===
 Name: Beth & Bob
@@ -18452,6 +19025,9 @@ Pidgeot
 Level: 194
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_OINKOLOGNE_M @ None
+Level: 194
+
 === TRAINER_SINNOH_BIRD_KEEPER_AUTUMN ===
 Name: Autumn
 Class: Bird Keeper
@@ -18497,6 +19073,9 @@ Xatu
 Level: 196
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_BARRASKEWDA @ None
+Level: 196
+
 === TRAINER_SINNOH_BIRD_KEEPER_HANA ===
 Name: Hana
 Class: Bird Keeper
@@ -18541,6 +19120,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Noctowl
 Level: 198
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BOLTUND @ None
+Level: 198
 
 === TRAINER_SINNOH_BLACK_BELT_ADAM ===
 Name: Adam
@@ -18594,6 +19176,9 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Submission
 - Leer
 - Foresight
+
+SPECIES_DUBWOOL @ None
+Level: 167
 
 === TRAINER_SINNOH_BLACK_BELT_DARREN ===
 Name: Darren
@@ -18662,6 +19247,9 @@ Machamp
 Level: 196
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
+SPECIES_KILOWATTREL @ None
+Level: 196
+
 === TRAINER_SINNOH_BLACK_BELT_DEREK ===
 Name: Derek
 Class: Black Belt
@@ -18710,6 +19298,9 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 Machop
 Level: 163
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+SPECIES_ORANGURU @ None
+Level: 163
 
 === TRAINER_SINNOH_BLACK_BELT_GRIFFIN ===
 Name: Griffin
@@ -18763,6 +19354,9 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Aerial Ace
 - Leer
 
+SPECIES_PASSIMIAN @ None
+Level: 169
+
 === TRAINER_SINNOH_BLACK_BELT_KENDAL ===
 Name: Kendal
 Class: Black Belt
@@ -18804,6 +19398,9 @@ Machoke
 Level: 176
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
+SPECIES_PAWMOT @ None
+Level: 176
+
 === TRAINER_SINNOH_BLACK_BELT_MILES ===
 Name: Miles
 Class: Black Belt
@@ -18844,6 +19441,9 @@ Double Battle: No
 Machoke
 Level: 178
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+SPECIES_DRAGALGE @ None
+Level: 178
 
 === TRAINER_SINNOH_BLACK_BELT_RAFAEL ===
 Name: Rafael
@@ -18903,6 +19503,9 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Torment
 - Screech
 
+SPECIES_GOURGEIST_AVERAGE @ None
+Level: 176
+
 === TRAINER_SINNOH_BLACK_BELT_SEAN ===
 Name: Sean
 Class: Black Belt
@@ -18960,6 +19563,9 @@ Eevee
 Level: 161
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_BELLIBOLT @ None
+Level: 161
+
 === TRAINER_SINNOH_BREEDER_AMBER ===
 Name: Amber
 Class: Pkmn Breeder
@@ -19012,6 +19618,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Happiny
 Level: 163
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CORVIKNIGHT @ None
+Level: 163
 
 === TRAINER_SINNOH_BUG_CATCHER_BRANDON ===
 Name: Brandon
@@ -19077,6 +19686,9 @@ IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 - Absorb
 - Gust
 
+SPECIES_PANGORO @ None
+Level: 155
+
 === TRAINER_SINNOH_BUG_CATCHER_PHILLIP ===
 Name: Phillip
 Class: Bug Catcher
@@ -19133,6 +19745,9 @@ Shinx
 Level: 147
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_TOXAPEX @ None
+Level: 147
+
 === TRAINER_SINNOH_CAMPER_DIEGO ===
 Name: Diego
 Class: Camper
@@ -19185,6 +19800,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Ember
 - Tackle
 
+SPECIES_TALONFLAME @ None
+Level: 155
+
 === TRAINER_SINNOH_CAMPER_LAWRENCE ===
 Name: Lawrence
 Class: Camper
@@ -19230,6 +19848,9 @@ Double Battle: No
 Aipom
 Level: 155
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BARBARACLE @ None
+Level: 155
 
 === TRAINER_SINNOH_COLLECTOR_BRADY ===
 Name: Brady
@@ -19307,6 +19928,9 @@ Munchlax
 Level: 165
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_BEWEAR @ None
+Level: 165
+
 === TRAINER_SINNOH_COLLECTOR_FERNANDO ===
 Name: Fernando
 Class: Collector
@@ -19340,6 +19964,9 @@ Porygon
 Level: 167
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_CARBINK @ None
+Level: 167
+
 === TRAINER_SINNOH_COLLECTOR_TERRY ===
 Name: Terry
 Class: Collector
@@ -19372,6 +19999,9 @@ Double Battle: No
 Pikachu
 Level: 161
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CLAWITZER @ None
+Level: 161
 
 === TRAINER_SINNOH_CYCLIST_JAMES ===
 Name: James
@@ -19409,6 +20039,9 @@ Double Battle: No
 Pikachu
 Level: 161
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_COPPERAJAH @ None
+Level: 161
 
 === TRAINER_SINNOH_CYCLIST_MEGAN ===
 Name: Megan
@@ -19454,6 +20087,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Shinx
 Level: 159
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FLAMIGO @ None
+Level: 161
 
 === TRAINER_SINNOH_CYCLIST_RYAN ===
 Name: Ryan
@@ -19512,6 +20148,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Quick Attack
 - Iron Tail
 
+SPECIES_GARGANACL @ None
+Level: 188
+
 === TRAINER_SINNOH_DOUBLE_TEAM_ZAC_AND_JEN ===
 Name: Zac & Jen
 Class: Sis And Bro
@@ -19556,6 +20195,9 @@ Double Battle: No
 Dragonite
 Level: 198
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+SPECIES_HAWLUCHA @ None
+Level: 198
 
 === TRAINER_SINNOH_DRAGON_TAMER_DRAKE ===
 Name: Drake
@@ -19606,6 +20248,9 @@ Seadra
 Level: 194
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
+SPECIES_KLEAVOR @ None
+Level: 194
+
 === TRAINER_SINNOH_DRAGON_TAMER_JOE ===
 Name: Joe
 Class: Dragon Tamer
@@ -19655,6 +20300,9 @@ Vibrava
 Level: 196
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
+SPECIES_MUDSDALE @ None
+Level: 196
+
 === TRAINER_SINNOH_DRAGON_TAMER_ONDREJ ===
 Name: Ondrej
 Class: Dragon Tamer
@@ -19695,6 +20343,9 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 Altaria
 Level: 196
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+SPECIES_REVAVROOM @ None
+Level: 196
 
 === TRAINER_SINNOH_FISHERMAN_ALEC ===
 Name: Alec
@@ -19776,6 +20427,9 @@ Gyarados
 Level: 172
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_VIKAVOLT @ None
+Level: 172
+
 === TRAINER_SINNOH_FISHERMAN_COLE ===
 Name: Cole
 Class: Fisherman
@@ -19843,6 +20497,9 @@ IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 - Thrash
 - Bite
 
+SPECIES_CYCLIZAR @ None
+Level: 171
+
 === TRAINER_SINNOH_FISHERMAN_GEORGE ===
 Name: George
 Class: Fisherman
@@ -19891,6 +20548,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Goldeen
 Level: 167
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TOXTRICITY_AMPED @ None
+Level: 167
 
 === TRAINER_SINNOH_FISHERMAN_JUAN ===
 Name: Juan
@@ -19949,6 +20609,9 @@ Remoraid
 Level: 171
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_ARCTOVISH @ None
+Level: 171
+
 === TRAINER_SINNOH_FISHERMAN_MIGUEL ===
 Name: Miguel
 Class: Fisherman
@@ -20000,6 +20663,9 @@ IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 - Water Pulse
 - Magnitude
 
+SPECIES_ARCTOZOLT @ None
+Level: 172
+
 === TRAINER_SINNOH_FISHERMAN_ZACHARY ===
 Name: Zachary
 Class: Fisherman
@@ -20049,6 +20715,9 @@ Croagunk
 Level: 178
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
+SPECIES_DRACOVISH @ None
+Level: 178
+
 === TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_2F_2 ===
 Name: Grunt
 Class: Team Magma
@@ -20089,6 +20758,9 @@ Double Battle: No
 Stunky
 Level: 180
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+SPECIES_DRACOZOLT @ None
+Level: 180
 
 === TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_3F_2 ===
 Name: Grunt
@@ -20139,6 +20811,9 @@ Glameow
 Level: 176
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
+SPECIES_MABOSSTIFF @ None
+Level: 176
+
 === TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_B2F_1 ===
 Name: Grunt
 Class: Team Magma
@@ -20175,6 +20850,9 @@ Double Battle: No
 Golbat
 Level: 176
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+SPECIES_ORBEETLE @ None
+Level: 176
 
 === TRAINER_SINNOH_GALACTIC_GRUNT_LAKE_VALOR_2 ===
 Name: Grunt
@@ -20224,6 +20902,9 @@ Double Battle: No
 Croagunk
 Level: 176
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+SPECIES_KOMALA @ None
+Level: 176
 
 === TRAINER_SINNOH_GALACTIC_GRUNT_LAKE_VERITY_2 ===
 Name: Grunt
@@ -20285,6 +20966,9 @@ Glameow
 Level: 174
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
+SPECIES_LURANTIS @ None
+Level: 174
+
 === TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_3F_1 ===
 Name: Grunt
 Class: Team Magma
@@ -20325,6 +21009,9 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 Houndour
 Level: 178
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+SPECIES_ORTHWORM @ None
+Level: 178
 
 === TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_4F_2 ===
 Name: Grunt
@@ -20370,6 +21057,9 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 Glameow
 Level: 180
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+SPECIES_PALOSSAND @ None
+Level: 180
 
 === TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_6F ===
 Name: Grunt
@@ -20420,6 +21110,9 @@ Golbat
 Level: 182
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
+SPECIES_SALAZZLE @ None
+Level: 182
+
 === TRAINER_SINNOH_GALACTIC_GRUNT_MT_CORONET_TUNNEL_ROOM_3 ===
 Name: Grunt
 Class: Team Magma
@@ -20469,6 +21162,9 @@ Glameow
 Level: 159
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_SLURPUFF @ None
+Level: 159
+
 === TRAINER_SINNOH_GALACTIC_GRUNT_TEAM_GALACTIC_ETERNA_BUILDING_2F_1 ===
 Name: Grunt
 Class: Team Magma
@@ -20510,6 +21206,9 @@ Glameow
 Level: 157
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_ESPATHRA @ None
+Level: 157
+
 === TRAINER_SINNOH_GALACTIC_GRUNT_VALLEY_WINDWORKS_2 ===
 Name: Grunt
 Class: Team Magma
@@ -20547,6 +21246,9 @@ Double Battle: No
 Chatot
 Level: 167
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_HELIOLISK @ None
+Level: 167
 
 === TRAINER_SINNOH_GUITARIST_JERRY ===
 Name: Jerry
@@ -20597,6 +21299,9 @@ Luxio
 Level: 184
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
+SPECIES_MALAMAR @ None
+Level: 184
+
 === TRAINER_SINNOH_GUITARIST_TONY ===
 Name: Tony
 Class: Guitarist
@@ -20646,6 +21351,9 @@ Steelix
 Level: 172
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_RUNERIGUS @ None
+Level: 174
+
 === TRAINER_SINNOH_HIKER_DANIEL ===
 Name: Daniel
 Class: Hiker
@@ -20690,6 +21398,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Nosepass
 Level: 161
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_APPLETUN @ None
+Level: 161
 
 === TRAINER_SINNOH_HIKER_KEVIN ===
 Name: Kevin
@@ -20740,6 +21451,9 @@ Onix
 Level: 159
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_BOMBIRDIER @ None
+Level: 159
+
 === TRAINER_SINNOH_HIKER_MAURICE ===
 Name: Maurice
 Class: Hiker
@@ -20780,6 +21494,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Geodude
 Level: 161
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_COMFEY @ None
+Level: 161
 
 === TRAINER_SINNOH_HIKER_ROBERT ===
 Name: Robert
@@ -20822,6 +21539,9 @@ Luxio
 Level: 165
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_DIPPLIN @ None
+Level: 165
+
 === TRAINER_SINNOH_JOGGER_RAUL ===
 Name: Raul
 Class: Triathlete
@@ -20854,6 +21574,9 @@ Double Battle: No
 Staravia
 Level: 165
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DRAMPA @ None
+Level: 165
 
 === TRAINER_SINNOH_JOGGER_WYATT ===
 Name: Wyatt
@@ -20888,6 +21611,9 @@ Double Battle: No
 Pachirisu
 Level: 157
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DREDNAW @ None
+Level: 157
 
 === TRAINER_SINNOH_LASS_CASSIDY ===
 Name: Cassidy
@@ -20934,6 +21660,9 @@ Psyduck
 Level: 149
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_FLAPPLE @ None
+Level: 149
+
 === TRAINER_SINNOH_LASS_MOLLY ===
 Name: Molly
 Class: Lass
@@ -20969,6 +21698,9 @@ Double Battle: No
 Budew
 Level: 147
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GRAFAIAI @ None
+Level: 147
 
 === TRAINER_SINNOH_LASS_SARAH ===
 Name: Sarah
@@ -21006,6 +21738,9 @@ Double Battle: No
 Stunky
 Level: 172
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TOUCANNON @ None
+Level: 172
 
 === TRAINER_SINNOH_NINJA_BOY_DAVIDO ===
 Name: Davido
@@ -21047,6 +21782,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Croagunk
 Level: 171
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TURTONATOR @ None
+Level: 171
 
 === TRAINER_SINNOH_NINJA_BOY_JOEL ===
 Name: Joel
@@ -21097,6 +21835,9 @@ Golbat
 Level: 171
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_SCOVILLAIN @ None
+Level: 171
+
 === TRAINER_SINNOH_NINJA_BOY_NICK ===
 Name: Nick
 Class: Ninja Boy
@@ -21146,6 +21887,9 @@ Bibarel
 Level: 167
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_LYCANROC_MIDDAY @ None
+Level: 167
+
 === TRAINER_SINNOH_PARASOL_LADY_SABRINA ===
 Name: Sabrina
 Class: Parasol Lady
@@ -21184,6 +21928,9 @@ Double Battle: No
 Hoothoot
 Level: 163
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_HOUNDSTONE @ None
+Level: 163
 
 === TRAINER_SINNOH_PICNICKER_CHEYENNE ===
 Name: Cheyenne
@@ -21230,6 +21977,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Bubble
 - Peck
 
+SPECIES_OINKOLOGNE_M @ None
+Level: 155
+
 === TRAINER_SINNOH_PICNICKER_LAUREN ===
 Name: Lauren
 Class: Picnicker
@@ -21270,6 +22020,9 @@ Raichu
 Level: 176
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_BARRASKEWDA @ None
+Level: 176
+
 === TRAINER_SINNOH_PICNICKER_TORI ===
 Name: Tori
 Class: Picnicker
@@ -21306,6 +22059,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Pikachu
 Level: 180
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BOLTUND @ None
+Level: 180
 
 === TRAINER_SINNOH_POKE_KID_MEGHAN ===
 Name: Meghan
@@ -21362,6 +22118,9 @@ Bonsly @ Sitrus Berry
 Level: 163
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_DUBWOOL @ None
+Level: 163
+
 === TRAINER_SINNOH_POLICEMAN_ALEX ===
 Name: Alex
 Class: Gentleman
@@ -21407,6 +22166,9 @@ Machop
 Level: 167
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_KILOWATTREL @ None
+Level: 167
+
 === TRAINER_SINNOH_POLICEMAN_DANNY ===
 Name: Danny
 Class: Gentleman
@@ -21451,6 +22213,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Machoke
 Level: 182
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ORANGURU @ None
+Level: 182
 
 === TRAINER_SINNOH_PSYCHIC_ABIGAIL ===
 Name: Abigail
@@ -21505,6 +22270,9 @@ Gengar
 Level: 184
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_PASSIMIAN @ None
+Level: 184
+
 === TRAINER_SINNOH_PSYCHIC_CHELSEY ===
 Name: Chelsey
 Class: Psychic
@@ -21549,6 +22317,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Slowbro
 Level: 194
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PAWMOT @ None
+Level: 194
 
 === TRAINER_SINNOH_PSYCHIC_DEANDRE ===
 Name: Deandre
@@ -21599,6 +22370,9 @@ Abra
 Level: 157
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 - Hidden Power
+
+SPECIES_DRAGALGE @ None
+Level: 157
 
 === TRAINER_SINNOH_PSYCHIC_KENDRA ===
 Name: Kendra
@@ -21668,6 +22442,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Recover
 - Focus Blast
 
+SPECIES_GOURGEIST_AVERAGE @ None
+Level: 194
+
 === TRAINER_SINNOH_PSYCHIC_LINDSEY ===
 Name: Lindsey
 Class: Psychic
@@ -21709,6 +22486,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Kadabra
 Level: 167
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BELLIBOLT @ None
+Level: 167
 
 === TRAINER_SINNOH_PSYCHIC_RACHAEL ===
 Name: Rachael
@@ -21758,6 +22538,9 @@ Dusknoir
 Level: 184
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_CORVIKNIGHT @ None
+Level: 184
+
 === TRAINER_SINNOH_RANCHER_MARCO ===
 Name: Marco
 Class: Hiker
@@ -21798,6 +22581,9 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 Arbok
 Level: 194
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+SPECIES_PANGORO @ None
+Level: 194
 
 === TRAINER_SINNOH_RANGER_DESHAWN ===
 Name: Deshawn
@@ -21852,6 +22638,9 @@ Lopunny
 Level: 198
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
+SPECIES_TOXAPEX @ None
+Level: 198
+
 === TRAINER_SINNOH_RANGER_JEFFREY ===
 Name: Jeffrey
 Class: Pkmn Ranger
@@ -21897,6 +22686,9 @@ Empoleon
 Level: 196
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
+SPECIES_TALONFLAME @ None
+Level: 196
+
 === TRAINER_SINNOH_RANGER_TAYLOR ===
 Name: Taylor
 Class: Pkmn Ranger
@@ -21935,6 +22727,9 @@ Double Battle: No
 Luxray
 Level: 184
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BARBARACLE @ None
+Level: 184
 
 === TRAINER_SINNOH_ROUGHNECK_KIRBY ===
 Name: Kirby
@@ -21976,6 +22771,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Shieldon
 Level: 163
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BEWEAR @ None
+Level: 163
 
 === TRAINER_SINNOH_RUIN_MANIAC_GERALD ===
 Name: Gerald
@@ -22030,6 +22828,9 @@ Bronzor
 Level: 163
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_CARBINK @ None
+Level: 163
+
 === TRAINER_SINNOH_RUIN_MANIAC_LARRY ===
 Name: Larry
 Class: Ruin Maniac
@@ -22072,6 +22873,9 @@ IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 - Water Pulse
 - Wing Attack
 - Quick Attack
+
+SPECIES_CLAWITZER @ None
+Level: 171
 
 === TRAINER_SINNOH_SAILOR_LUTHER ===
 Name: Luther
@@ -22121,6 +22925,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Machoke
 Level: 172
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_COPPERAJAH @ None
+Level: 172
 
 === TRAINER_SINNOH_SAILOR_SAMSON ===
 Name: Samson
@@ -22184,6 +22991,9 @@ Gastrodon
 Level: 182
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_FLAMIGO @ None
+Level: 182
+
 === TRAINER_SINNOH_SCHOOL_KID_CHANCE ===
 Name: Chance
 Class: School Kid
@@ -22237,6 +23047,9 @@ IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 - Spit Up
 - Swallow
 - Stockpile
+
+SPECIES_GARGANACL @ None
+Level: 161
 
 === TRAINER_SINNOH_SCHOOL_KID_TIERA ===
 Name: Tiera
@@ -22294,6 +23107,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Thunder Wave
 - Recover
 
+SPECIES_HAWLUCHA @ None
+Level: 178
+
 === TRAINER_SINNOH_SCIENTIST_SHAUN ===
 Name: Shaun
 Class: Scientist Frlg
@@ -22345,6 +23161,9 @@ Level: 161
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 - Confusion
 
+SPECIES_KLEAVOR @ None
+Level: 161
+
 === TRAINER_SINNOH_SKIER_ANDREA ===
 Name: Andrea
 Class: Picnicker
@@ -22390,6 +23209,9 @@ Snover
 Level: 174
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_MUDSDALE @ None
+Level: 174
+
 === TRAINER_SINNOH_SKIER_EDWARD ===
 Name: Edward
 Class: Camper
@@ -22430,6 +23252,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Glaceon
 Level: 176
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_REVAVROOM @ None
+Level: 176
 
 === TRAINER_SINNOH_SKIER_MADISON ===
 Name: Madison
@@ -22472,6 +23297,9 @@ Double Battle: No
 Roselia
 Level: 167
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_VIKAVOLT @ None
+Level: 167
 
 === TRAINER_SINNOH_SWIMMER_ADRIAN ===
 Name: Adrian
@@ -22522,6 +23350,9 @@ Pelipper
 Level: 180
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_CYCLIZAR @ None
+Level: 182
+
 === TRAINER_SINNOH_SWIMMER_CLAIRE ===
 Name: Claire
 Class: Swimmer F
@@ -22567,6 +23398,9 @@ Seaking
 Level: 182
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_TOXTRICITY_AMPED @ None
+Level: 182
+
 === TRAINER_SINNOH_SWIMMER_DILLON ===
 Name: Dillon
 Class: Swimmer M
@@ -22603,6 +23437,9 @@ Double Battle: No
 Tentacruel
 Level: 174
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ARCTOVISH @ None
+Level: 174
 
 === TRAINER_SINNOH_SWIMMER_EVAN ===
 Name: Evan
@@ -22644,6 +23481,9 @@ Double Battle: No
 Golduck
 Level: 184
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ARCTOZOLT @ None
+Level: 184
 
 === TRAINER_SINNOH_SWIMMER_GLENN ===
 Name: Glenn
@@ -22697,6 +23537,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Seaking
 Level: 172
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DRACOVISH @ None
+Level: 172
 
 === TRAINER_SINNOH_SWIMMER_JOANNA ===
 Name: Joanna
@@ -22763,6 +23606,9 @@ Kingler
 Level: 192
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_DRACOZOLT @ None
+Level: 192
+
 === TRAINER_SINNOH_SWIMMER_LYDIA ===
 Name: Lydia
 Class: Swimmer F
@@ -22812,6 +23658,9 @@ Pelipper
 Level: 172
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_MABOSSTIFF @ None
+Level: 172
+
 === TRAINER_SINNOH_SWIMMER_MIRANDA ===
 Name: Miranda
 Class: Swimmer F
@@ -22860,6 +23709,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Golduck
 Level: 182
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ORBEETLE @ None
+Level: 182
 
 === TRAINER_SINNOH_SWIMMER_RICARDO ===
 Name: Ricardo
@@ -23887,6 +24739,7 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Garchomp @ Sitrus Berry
 Level: 200
+Dynamax Level: 10
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Dragon Rush
 - Earthquake
@@ -23935,11 +24788,16 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Drapion @ Sitrus Berry
 Level: 192
+Dynamax Level: 10
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - X Scissor
 - Cross Poison
 - Ice Fang
 - Aerial Ace
+
+SPECIES_YVELTAL @ None
+Level: 192
+Dynamax Level: 10
 
 === TRAINER_SINNOH_ELITE_FOUR_BERTHA ===
 Name: Bertha
@@ -23983,11 +24841,16 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Rhyperior @ Sitrus Berry
 Level: 194
+Dynamax Level: 10
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Earthquake
 - Rock Wrecker
 - Megahorn
 - Avalanche
+
+SPECIES_ROARING_MOON @ None
+Level: 194
+Dynamax Level: 10
 
 === TRAINER_SINNOH_ELITE_FOUR_FLINT ===
 Name: Flint
@@ -24031,11 +24894,16 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Magmortar @ Sitrus Berry
 Level: 196
+Dynamax Level: 10
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Flamethrower
 - Thunderbolt
 - Solar Beam
 - Hyper Beam
+
+SPECIES_KORAIDON @ None
+Level: 196
+Dynamax Level: 10
 
 === TRAINER_SINNOH_ELITE_FOUR_LUCIAN ===
 Name: Lucian
@@ -24079,11 +24947,16 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Gallade @ Sitrus Berry
 Level: 198
+Dynamax Level: 10
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Drain Punch
 - Psycho Cut
 - Leaf Blade
 - Stone Edge
+
+SPECIES_SOLGALEO @ None
+Level: 198
+Dynamax Level: 10
 
 === TRAINER_SINNOH_LEADER_BYRON ===
 Name: Byron
@@ -24111,11 +24984,16 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
 Bastiodon @ Sitrus Berry
 Level: 180
+Dynamax Level: 10
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Metal Burst
 - Stone Edge
 - Iron Defense
 - Taunt
+
+SPECIES_IRON_CROWN @ None
+Level: 180
+Dynamax Level: 10
 
 === TRAINER_SINNOH_LEADER_CANDICE ===
 Name: Candice
@@ -24151,11 +25029,16 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Froslass @ Sitrus Berry
 Level: 182
+Dynamax Level: 10
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Blizzard
 - Double Team
 - Shadow Ball
 - Psychic
+
+SPECIES_ZARUDE @ None
+Level: 182
+Dynamax Level: 10
 
 === TRAINER_SINNOH_LEADER_FANTINA ===
 Name: Fantina
@@ -24183,11 +25066,16 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Mismagius @ Sitrus Berry
 Level: 167
+Dynamax Level: 10
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Shadow Ball
 - Psybeam
 - Magical Leaf
 - Confuse Ray
+
+SPECIES_PECHARUNT @ None
+Level: 167
+Dynamax Level: 10
 
 === TRAINER_SINNOH_LEADER_GARDENIA ===
 Name: Gardenia
@@ -24215,11 +25103,16 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 Roserade @ Sitrus Berry
 Level: 163
+Dynamax Level: 10
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Grass Knot
 - Magical Leaf
 - Poison Sting
 - Stun Spore
+
+SPECIES_IRON_LEAVES @ None
+Level: 163
+Dynamax Level: 10
 
 === TRAINER_SINNOH_LEADER_MAYLENE ===
 Name: Maylene
@@ -24246,11 +25139,16 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
 Lucario @ None
 Level: 172
+Dynamax Level: 10
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Drain Punch
 - Force Palm
 - Metal Claw
 - Bone Rush
+
+SPECIES_MARSHADOW @ None
+Level: 172
+Dynamax Level: 10
 
 === TRAINER_SINNOH_LEADER_ROARK ===
 Name: Roark
@@ -24275,10 +25173,15 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 Cranidos
 Level: 155
+Dynamax Level: 10
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Headbutt
 - Pursuit
 - Leer
+
+SPECIES_DIANCIE @ None
+Level: 155
+Dynamax Level: 10
 
 === TRAINER_SINNOH_LEADER_VOLKNER ===
 Name: Volkner
@@ -24314,11 +25217,16 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Electivire @ Sitrus Berry
 Level: 188
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Thunder Punch
 - Fire Punch
 - Quick Attack
 - Giga Impact
+
+SPECIES_RAGING_BOLT @ None
+Level: 188
+Dynamax Level: 10
 
 === TRAINER_SINNOH_LEADER_WAKE ===
 Name: Wake
@@ -24346,12 +25254,16 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Floatzel @ Sitrus Berry
 Level: 176
+Dynamax Level: 10
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Brine
 - Ice Fang
 - Crunch
 - Aqua Jet
 
+SPECIES_ZYGARDE_50 @ None
+Level: 176
+Dynamax Level: 10
 
 === TRAINER_SINNOH_GALACTIC_GRUNT_JUBILIFE_CITY_1 ===
 Name: Grunt
@@ -24446,6 +25358,9 @@ SPECIES_NATU
 Level: 48
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_SIZZLIPEDE @ None
+Level: 48
+
 === TRAINER_JOHTO_BIRD_KEEPER_ABE ===
 Name: Abe
 Class: TRAINER_CLASS_BIRD_KEEPER
@@ -24471,11 +25386,16 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 SPECIES_NOCTOWL @ ITEM_SITRUS_BERRY
 Level: 53
+Dynamax Level: 10
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - MOVE_TACKLE
 - MOVE_MUD_SLAP
 - MOVE_GROWL
 - MOVE_PECK
+
+SPECIES_TERAPAGOS_NORMAL @ None
+Level: 53
+Dynamax Level: 10
 
 === TRAINER_JOHTO_BUG_CATCHER_AL ===
 Name: Al
@@ -24490,6 +25410,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_BUTTERFREE
 Level: 54
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TANDEMAUS @ None
+Level: 54
 
 === TRAINER_JOHTO_BUG_CATCHER_JOSH ===
 Name: Josh
@@ -24514,6 +25437,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_BEEDRILL
 Level: 54
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BINACLE @ None
+Level: 54
 
 === TRAINER_JOHTO_TWINS_AMY_AND_MAY ===
 Name: Amy&May
@@ -24554,11 +25480,16 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 SPECIES_SCYTHER @ ITEM_BERRY_JUICE
 Level: 60
+Dynamax Level: 10
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - MOVE_QUICK_ATTACK
 - MOVE_FURY_CUTTER
 - MOVE_BULLET_SEED
 - MOVE_PURSUIT
+
+SPECIES_BUZZWOLE @ None
+Level: 60
+Dynamax Level: 10
 
 === TRAINER_JOHTO_LASS_CARRIE ===
 Name: Carrie
@@ -24569,6 +25500,9 @@ Double Battle: No
 SPECIES_HAPPINY
 Level: 63
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FENNEKIN @ None
+Level: 63
 
 === TRAINER_JOHTO_LASS_BRIDGET ===
 Name: Bridget
@@ -24597,6 +25531,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_FURRET
 Level: 62
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_POLTCHAGEIST_COUNTERFEIT @ None
+Level: 62
 
 === TRAINER_JOHTO_BEAUTY_SAMANTHA ===
 Name: Samantha
@@ -24633,11 +25570,16 @@ IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 
 SPECIES_MILTANK @ ITEM_SITRUS_BERRY
 Level: 66
+Dynamax Level: 10
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 - MOVE_ROLLOUT
 - MOVE_ATTRACT
 - MOVE_STOMP
 - MOVE_MILK_DRINK
+
+SPECIES_TYPE_NULL @ None
+Level: 66
+Dynamax Level: 10
 
 === TRAINER_JOHTO_SAGE_JEFFREY ===
 Name: Jeffrey
@@ -24656,6 +25598,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_MURKROW
 Level: 66
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SINISTEA_PHONY @ None
+Level: 66
 
 === TRAINER_JOHTO_SAGE_PING ===
 Name: Ping
@@ -24680,6 +25625,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_HOUNDOUR
 Level: 66
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PHANTUMP @ None
+Level: 66
 
 === TRAINER_JOHTO_MEDIUM_GRACE ===
 Name: Grace
@@ -24728,11 +25676,16 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 SPECIES_GENGAR @ ITEM_SITRUS_BERRY
 Level: 72
+Dynamax Level: 10
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - MOVE_HYPNOSIS
 - MOVE_SHADOW_BALL
 - MOVE_MEAN_LOOK
 - MOVE_DREAM_EATER
+
+SPECIES_FLUTTER_MANE @ None
+Level: 72
+Dynamax Level: 10
 
 === TRAINER_JOHTO_LEADER_JASMINE ===
 Name: Jasmine
@@ -24775,11 +25728,16 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 SPECIES_STEELIX @ ITEM_QUICK_CLAW
 Level: 88
+Dynamax Level: 10
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - MOVE_CRUNCH
 - MOVE_EARTHQUAKE
 - MOVE_ROCK_SLIDE
 - MOVE_IRON_TAIL
+
+SPECIES_STAKATAKA @ None
+Level: 88
+Dynamax Level: 10
 
 === TRAINER_JOHTO_BLACK_BELT_YOSHI ===
 Name: Yoshi
@@ -24790,6 +25748,9 @@ Double Battle: No
 SPECIES_HITMONLEE
 Level: 79
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CLOBBOPUS @ None
+Level: 79
 
 === TRAINER_JOHTO_BLACK_BELT_LAO ===
 Name: Lao
@@ -24814,6 +25775,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_MACHOKE
 Level: 76
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FUECOCO @ None
+Level: 76
 
 === TRAINER_JOHTO_BLACK_BELT_LUNG ===
 Name: Lung
@@ -24866,11 +25830,16 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 SPECIES_POLIWRATH @ ITEM_BLACK_BELT
 Level: 80
+Dynamax Level: 10
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - MOVE_HYPNOSIS
 - MOVE_MIND_READER
 - MOVE_SURF
 - MOVE_DYNAMIC_PUNCH
+
+SPECIES_ZAMAZENTA_HERO @ None
+Level: 80
+Dynamax Level: 10
 
 === TRAINER_JOHTO_GENTLEMAN_RONALD ===
 Name: Ronald
@@ -24885,6 +25854,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_DELIBIRD
 Level: 79
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GROOKEY @ None
+Level: 79
 
 === TRAINER_JOHTO_SKIER_BRAD ===
 Name: Brad
@@ -24918,6 +25890,9 @@ SPECIES_CLOYSTER
 Level: 79
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_QUAXLY @ None
+Level: 79
+
 === TRAINER_JOHTO_SKIER_ROXANNE ===
 Name: Roxanne
 Class: TRAINER_CLASS_EXPERT
@@ -24937,6 +25912,9 @@ Double Battle: No
 SPECIES_DEWGONG
 Level: 80
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SCORBUNNY @ None
+Level: 80
 
 === TRAINER_JOHTO_LEADER_PRYCE ===
 Name: Pryce
@@ -24971,11 +25949,16 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 SPECIES_PILOSWINE @ ITEM_SITRUS_BERRY
 Level: 83
+Dynamax Level: 10
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - MOVE_HEADBUTT
 - MOVE_EARTHQUAKE
 - MOVE_ROCK_SMASH
 - MOVE_BLIZZARD
+
+SPECIES_URSHIFU_SINGLE_STRIKE @ None
+Level: 83
+Dynamax Level: 10
 
 === TRAINER_JOHTO_COOLTRAINER_CODY ===
 Name: Cody
@@ -25017,6 +26000,9 @@ SPECIES_DRAGONAIR
 Level: 94
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_SOBBLE @ None
+Level: 94
+
 === TRAINER_JOHTO_COOLTRAINER_PAUL ===
 Name: Paul
 Class: TRAINER_CLASS_DRAGON_TAMER
@@ -25056,6 +26042,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_VAPOREON
 Level: 95
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SPRIGATITO @ None
+Level: 97
 
 === TRAINER_JOHTO_COOLTRAINER_LOLA ===
 Name: Lola
@@ -25120,12 +26109,16 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
 SPECIES_KINGDRA @ ITEM_LEFTOVERS
 Level: 100
+Dynamax Level: 10
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - MOVE_SMOKESCREEN
 - MOVE_SURF
 - MOVE_HYPER_BEAM
 - MOVE_DRAGON_BREATH
 
+SPECIES_CELESTEELA @ None
+Level: 100
+Dynamax Level: 10
 
 === TRAINER_SINNOH_COMMANDER_JUPITER_ETERNA_BUILDING ===
 Name: Jupiter
@@ -25295,6 +26288,9 @@ SPECIES_RATTATA
 Level: 53
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_FIDOUGH @ None
+Level: 53
+
 === TRAINER_JOHTO_ROCKET_GRUNT_WELL_2 ===
 Name: Grunt
 Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
@@ -25328,6 +26324,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_SMOOCHUM
 Level: 53
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CHESPIN @ None
+Level: 53
 
 === TRAINER_JOHTO_ROCKET_PROTON ===
 Name: Proton
@@ -25372,6 +26371,9 @@ SPECIES_RATICATE
 Level: 83
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_FROAKIE @ None
+Level: 83
+
 === TRAINER_JOHTO_ROCKET_GRUNT_RADIO_2F_1 ===
 Name: Grunt
 Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
@@ -25401,6 +26403,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_HYPNO
 Level: 85
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FINIZEN @ None
+Level: 85
 
 === TRAINER_JOHTO_ROCKET_GRUNT_RADIO_3F_1 ===
 Name: Grunt
@@ -25435,6 +26440,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_VENOMOTH
 Level: 85
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SILICOBRA @ None
+Level: 85
 
 === TRAINER_JOHTO_ROCKET_PROTON_RADIO_4F ===
 Name: Proton
@@ -25522,6 +26530,9 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - MOVE_CLAMP
 - MOVE_SPIKE_CANNON
 - MOVE_SURF
+
+SPECIES_FRIGIBAX @ None
+Level: 92
 
 === TRAINER_JOHTO_ROCKET_ARIANA ===
 Name: Ariana
@@ -25617,6 +26628,9 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - MOVE_AMNESIA
 - MOVE_SURF
 
+SPECIES_LITTEN @ None
+Level: 94
+
 /* ponytail: esconderijo da Rocket em MAHOGANY, portado do pokecrystal
    (data/trainers/parties.asm: GRUNTM 16/17/18/19/28, GRUNTF 5, SCIENTIST
    JED/ROSS/MITCH, EXECUTIVEM 4, EXECUTIVEF 2). Os TRAINERTYPE_NORMAL do gen 2
@@ -25665,6 +26679,9 @@ SPECIES_MAGNEMITE
 Level: 66
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_POPPLIO @ None
+Level: 66
+
 === TRAINER_JOHTO_ROCKET_GRUNT_MAHOGANY_2 ===
 Name: Grunt
 Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
@@ -25694,6 +26711,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_RATTATA
 Level: 62
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ROWLET @ None
+Level: 62
 
 === TRAINER_JOHTO_ROCKET_GRUNT_MAHOGANY_4 ===
 Name: Grunt
@@ -25740,6 +26760,9 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - MOVE_PURSUIT
 - MOVE_HAZE
 
+SPECIES_SALANDIT @ None
+Level: 72
+
 === TRAINER_JOHTO_ROCKET_GRUNT_MAHOGANY_5 ===
 Name: Grunt
 Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
@@ -25774,6 +26797,9 @@ SPECIES_RATICATE
 Level: 65
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_SANDYGAST @ None
+Level: 65
+
 === TRAINER_JOHTO_SCIENTIST_ROSS ===
 Name: Ross
 Class: TRAINER_CLASS_SCIENTIST_FRLG
@@ -25799,6 +26825,9 @@ Double Battle: No
 SPECIES_DITTO
 Level: 71
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SKRELP @ None
+Level: 71
 
 === TRAINER_JOHTO_ROCKET_PETREL_MAHOGANY ===
 Name: Petrel
@@ -25875,6 +26904,9 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 Bellsprout @ None
 Level: 95
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+SPECIES_VELUZA @ None
+Level: 95
 
 === TRAINER_SAGE_JIN ===
 Name: Jin
@@ -25973,6 +27005,9 @@ Machop @ None
 Level: 109
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
+SPECIES_BRAMBLEGHAST @ None
+Level: 109
+
 === TRAINER_GENTLEMAN_ALFRED ===
 Name: Alfred
 Class: Gentleman
@@ -26070,6 +27105,9 @@ Quagsire @ None
 Level: 110
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
+SPECIES_GRAPPLOCT @ None
+Level: 110
+
 === TRAINER_BIRD_KEEPER_DENIS ===
 Name: Denis
 Class: Bird Keeper
@@ -26095,6 +27133,9 @@ Double Battle: No
 SPECIES_TOTODILE
 Level: 45
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+SPECIES_HONEDGE @ None
+Level: 45
 
 === TRAINER_JOHTO_RIVAL_SILVER_2 ===
 Name: Silver
@@ -26138,6 +27179,9 @@ SPECIES_CROCONAW
 Level: 68
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
+SPECIES_CLAUNCHER @ None
+Level: 68
+
 === TRAINER_JOHTO_RIVAL_SILVER_4 ===
 Name: Silver
 Class: TRAINER_CLASS_RIVAL_LATE_FRLG
@@ -26180,6 +27224,9 @@ SPECIES_ZUBAT
 Level: 65
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_CUFANT @ None
+Level: 65
+
 === TRAINER_JOHTO_ROCKET_CAMERA_2 ===
 Name: Grunt
 Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
@@ -26213,6 +27260,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_ZUBAT
 Level: 65
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CETODDLE @ None
+Level: 65
 
 === TRAINER_JOHTO_ROCKET_CAMERA_4 ===
 Name: Grunt
@@ -26248,6 +27298,9 @@ SPECIES_VENONAT
 Level: 63
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_DOTTLER @ None
+Level: 63
+
 /*=== ACERVO KANTO (importa_treinadores_kanto.py) ===
    Times portados de pret/pokefirered. Nada aqui foi escrito a mao: quem
    gera e dev_scripts/importa_treinadores_kanto.py. Rodar de novo troca so
@@ -26277,6 +27330,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_BELLSPROUT
 Level: 13
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_WISHIWASHI_SOLO @ None
+Level: 13
 
 === TRAINER_BEAUTY_LORI ===
 Name: Lori
@@ -26333,6 +27389,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - MOVE_MINIMIZE
 - MOVE_SLUDGE
 
+SPECIES_BLIPBUG @ None
+Level: 25
+
 === TRAINER_BIKER_GOON_2 ===
 Name: Goon
 Class: TRAINER_CLASS_BIKER_FRLG
@@ -26375,6 +27434,9 @@ AI: AI_FLAG_CHECK_BAD_MOVE
 SPECIES_PRIMEAPE @ ITEM_BLACK_BELT
 Level: 23
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+SPECIES_SNOM @ None
+Level: 23
 
 === TRAINER_BLACK_BELT_ATSUSHI ===
 Name: Atsushi
@@ -26431,6 +27493,9 @@ SPECIES_MACHOKE @ ITEM_BLACK_BELT
 Level: 21
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
+SPECIES_BOUNSWEET @ None
+Level: 21
+
 === TRAINER_BLACK_BELT_HITOSHI ===
 Name: Hitoshi
 Class: TRAINER_CLASS_BLACK_BELT_FRLG
@@ -26481,6 +27546,9 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 SPECIES_HITMONCHAN @ ITEM_BLACK_BELT
 Level: 25
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+SPECIES_NYMBLE @ None
+Level: 25
 
 === TRAINER_BLACK_BELT_MIKE ===
 Name: Mike
@@ -26545,6 +27613,9 @@ SPECIES_KANGASKHAN
 Level: 20
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
+SPECIES_TAROUNTULA @ None
+Level: 20
+
 === TRAINER_BOSS_GIOVANNI_2 ===
 Name: Giovanni
 Class: TRAINER_CLASS_BOSS_FRLG
@@ -26608,6 +27679,9 @@ SPECIES_METAPOD
 Level: 4
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_AEGISLASH_SHIELD @ None
+Level: 4
+
 === TRAINER_BUG_CATCHER_DOUG ===
 Name: Doug
 Class: TRAINER_CLASS_BUG_CATCHER_FRLG
@@ -26667,6 +27741,9 @@ SPECIES_BEEDRILL
 Level: 31
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_WIMPOD @ None
+Level: 31
+
 === TRAINER_BUG_CATCHER_KENT ===
 Name: Kent
 Class: TRAINER_CLASS_BUG_CATCHER_FRLG
@@ -26722,6 +27799,9 @@ SPECIES_CATERPIE
 Level: 7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_BUNNELBY @ None
+Level: 7
+
 === TRAINER_BUG_CATCHER_SAMMY ===
 Name: Sammy
 Class: TRAINER_CLASS_BUG_CATCHER_FRLG
@@ -26768,6 +27848,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_CHARMELEON
 Level: 22
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PAWMI @ None
+Level: 22
 
 === TRAINER_BURGLAR_DUSTY ===
 Name: Dusty
@@ -26824,6 +27907,9 @@ SPECIES_NINETALES
 Level: 23
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_ROLYCOLY @ None
+Level: 23
+
 === TRAINER_BURGLAR_RAMON ===
 Name: Ramon
 Class: TRAINER_CLASS_BURGLAR_FRLG
@@ -26871,6 +27957,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - MOVE_SCRATCH
 - MOVE_DEFENSE_CURL
 - MOVE_SAND_ATTACK
+
+SPECIES_TOXEL @ None
+Level: 7
 
 === TRAINER_CAMPER_RILEY ===
 Name: Riley
@@ -26941,6 +28030,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 SPECIES_VENUSAUR @ ITEM_SITRUS_BERRY
 Level: 42
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - MOVE_SOLAR_BEAM
 - MOVE_SYNTHESIS
@@ -26999,6 +28089,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 SPECIES_CHARIZARD @ ITEM_SITRUS_BERRY
 Level: 42
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - MOVE_FIRE_BLAST
 - MOVE_AERIAL_ACE
@@ -27057,6 +28148,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 SPECIES_BLASTOISE @ ITEM_SITRUS_BERRY
 Level: 42
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - MOVE_HYDRO_PUMP
 - MOVE_RAIN_DANCE
@@ -27115,6 +28207,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 SPECIES_VENUSAUR @ ITEM_SITRUS_BERRY
 Level: 50
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - MOVE_SOLAR_BEAM
 - MOVE_SLUDGE_BOMB
@@ -27173,6 +28266,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 SPECIES_CHARIZARD @ ITEM_SITRUS_BERRY
 Level: 50
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - MOVE_FIRE_BLAST
 - MOVE_DRAGON_CLAW
@@ -27231,6 +28325,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 SPECIES_BLASTOISE @ ITEM_SITRUS_BERRY
 Level: 50
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - MOVE_HYDRO_PUMP
 - MOVE_ICE_BEAM
@@ -27275,6 +28370,9 @@ SPECIES_GASTLY
 Level: 14
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_NICKIT @ None
+Level: 14
+
 === TRAINER_CHANNELER_CARLY ===
 Name: Carly
 Class: TRAINER_CLASS_CHANNELER_FRLG
@@ -27314,6 +28412,9 @@ SPECIES_GASTLY
 Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_NOIBAT @ None
+Level: 16
+
 === TRAINER_CHANNELER_JANAE ===
 Name: Janae
 Class: TRAINER_CLASS_CHANNELER_FRLG
@@ -27352,6 +28453,9 @@ AI: AI_FLAG_CHECK_BAD_MOVE
 SPECIES_GASTLY
 Level: 14
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ROOKIDEE @ None
+Level: 14
 
 === TRAINER_CHANNELER_KARINA ===
 Name: Karina
@@ -27396,6 +28500,9 @@ SPECIES_GASTLY
 Level: 14
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_WIGLETT @ None
+Level: 14
+
 === TRAINER_CHANNELER_PAULA ===
 Name: Paula
 Class: TRAINER_CLASS_CHANNELER_FRLG
@@ -27434,6 +28541,9 @@ AI: AI_FLAG_CHECK_BAD_MOVE
 SPECIES_HAUNTER
 Level: 25
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FOMANTIS @ None
+Level: 25
 
 === TRAINER_CHANNELER_TAMMY ===
 Name: Tammy
@@ -27518,6 +28628,9 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - MOVE_EGG_BOMB
 - MOVE_SOFT_BOILED
 - MOVE_MINIMIZE
+
+SPECIES_GOSSIFLEUR @ None
+Level: 28
 
 === TRAINER_COOLTRAINER_CAROLINE ===
 Name: Caroline
@@ -27669,6 +28782,9 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - MOVE_BITE
 - MOVE_TAKE_DOWN
 
+SPECIES_YUNGOOS @ None
+Level: 28
+
 === TRAINER_COOLTRAINER_MARY ===
 Name: Mary
 Class: TRAINER_CLASS_COOLTRAINER_FRLG
@@ -27818,6 +28934,9 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - MOVE_WING_ATTACK
 - MOVE_SMOKESCREEN
 - MOVE_SCARY_FACE
+
+SPECIES_LECHONK @ None
+Level: 28
 
 === TRAINER_COOLTRAINER_SAMUEL ===
 Name: Samuel
@@ -27969,6 +29088,9 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - MOVE_LEER
 - MOVE_GROWL
 
+SPECIES_CHARCADET @ None
+Level: 25
+
 === TRAINER_COOL_COUPLE_RAY_TYRA ===
 Name: Ray & Tyra
 Class: TRAINER_CLASS_COOL_COUPLE_FRLG
@@ -28028,6 +29150,9 @@ SPECIES_MUK
 Level: 26
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
+SPECIES_FLITTLE @ None
+Level: 26
+
 === TRAINER_ELITE_FOUR_AGATHA ===
 Name: Agatha
 Class: TRAINER_CLASS_ELITE_FOUR_FRLG
@@ -28072,11 +29197,16 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 SPECIES_GENGAR @ ITEM_SITRUS_BERRY
 Level: 39
+Dynamax Level: 10
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - MOVE_SHADOW_BALL
 - MOVE_SLUDGE_BOMB
 - MOVE_HYPNOSIS
 - MOVE_NIGHTMARE
+
+SPECIES_OKIDOGI @ None
+Level: 39
+Dynamax Level: 10
 
 === TRAINER_ELITE_FOUR_AGATHA_2 ===
 Name: Agatha
@@ -28122,11 +29252,16 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 SPECIES_GENGAR @ ITEM_CHESTO_BERRY
 Level: 46
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - MOVE_SHADOW_BALL
 - MOVE_PSYCHIC
 - MOVE_THUNDERBOLT
 - MOVE_SLUDGE_BOMB
+
+SPECIES_FEZANDIPITI @ None
+Level: 46
+Dynamax Level: 10
 
 === TRAINER_ELITE_FOUR_BRUNO ===
 Name: Bruno
@@ -28172,11 +29307,16 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 SPECIES_MACHAMP @ ITEM_SITRUS_BERRY
 Level: 37
+Dynamax Level: 10
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - MOVE_CROSS_CHOP
 - MOVE_BULK_UP
 - MOVE_SCARY_FACE
 - MOVE_ROCK_TOMB
+
+SPECIES_GREAT_TUSK @ None
+Level: 37
+Dynamax Level: 10
 
 === TRAINER_ELITE_FOUR_BRUNO_2 ===
 Name: Bruno
@@ -28222,11 +29362,16 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 SPECIES_MACHAMP @ ITEM_PERSIM_BERRY
 Level: 45
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - MOVE_CROSS_CHOP
 - MOVE_EARTHQUAKE
 - MOVE_BRICK_BREAK
 - MOVE_ROCK_SLIDE
+
+SPECIES_KUBFU @ None
+Level: 45
+Dynamax Level: 10
 
 === TRAINER_ELITE_FOUR_LANCE ===
 Name: Lance
@@ -28272,11 +29417,16 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 SPECIES_DRAGONITE @ ITEM_SITRUS_BERRY
 Level: 40
+Dynamax Level: 10
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - MOVE_HYPER_BEAM
 - MOVE_SAFEGUARD
 - MOVE_OUTRAGE
 - MOVE_WING_ATTACK
+
+SPECIES_GUZZLORD @ None
+Level: 40
+Dynamax Level: 10
 
 === TRAINER_ELITE_FOUR_LANCE_2 ===
 Name: Lance
@@ -28322,11 +29472,16 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 SPECIES_DRAGONITE @ ITEM_PERSIM_BERRY
 Level: 47
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - MOVE_HYPER_BEAM
 - MOVE_OUTRAGE
 - MOVE_THUNDERBOLT
 - MOVE_ICE_BEAM
+
+SPECIES_IRON_JUGULIS @ None
+Level: 47
+Dynamax Level: 10
 
 === TRAINER_ELITE_FOUR_LORELEI ===
 Name: Lorelei
@@ -28372,11 +29527,16 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 SPECIES_LAPRAS @ ITEM_SITRUS_BERRY
 Level: 36
+Dynamax Level: 10
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - MOVE_CONFUSE_RAY
 - MOVE_ICE_BEAM
 - MOVE_SURF
 - MOVE_BODY_SLAM
+
+SPECIES_CHIEN_PAO @ None
+Level: 36
+Dynamax Level: 10
 
 === TRAINER_ELITE_FOUR_LORELEI_2 ===
 Name: Lorelei
@@ -28422,11 +29582,16 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 SPECIES_LAPRAS @ ITEM_CHERI_BERRY
 Level: 44
+Dynamax Level: 10
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - MOVE_ICE_BEAM
 - MOVE_SURF
 - MOVE_PSYCHIC
 - MOVE_THUNDER
+
+SPECIES_IRON_BUNDLE @ None
+Level: 44
+Dynamax Level: 10
 
 === TRAINER_ENGINEER_BAILY ===
 Name: Baily
@@ -28487,6 +29652,9 @@ SPECIES_GOLDEEN
 Level: 11
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_APPLIN @ None
+Level: 11
+
 === TRAINER_GENTLEMAN_ARTHUR ===
 Name: Arthur
 Class: TRAINER_CLASS_GENTLEMAN_FRLG
@@ -28534,6 +29702,9 @@ SPECIES_PONYTA
 Level: 11
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_SMOLIV @ None
+Level: 11
+
 === TRAINER_GENTLEMAN_THOMAS ===
 Name: Thomas
 Class: TRAINER_CLASS_GENTLEMAN_FRLG
@@ -28580,6 +29751,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - MOVE_ROCK_THROW
 - MOVE_MUD_SPORT
 - MOVE_DEFENSE_CURL
+
+SPECIES_HATENNA @ None
+Level: 17
 
 === TRAINER_HIKER_DUDLEY ===
 Name: Dudley
@@ -28656,6 +29830,9 @@ SPECIES_GEODUDE
 Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_IMPIDIMP @ None
+Level: 12
+
 === TRAINER_HIKER_LUCAS ===
 Name: Lucas
 Class: TRAINER_CLASS_HIKER_FRLG
@@ -28723,6 +29900,9 @@ SPECIES_GEODUDE
 Level: 13
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_PIKIPEK @ None
+Level: 13
+
 === TRAINER_JUGGLER_DALTON ===
 Name: Dalton
 Class: TRAINER_CLASS_JUGGLER_FRLG
@@ -28769,6 +29949,9 @@ AI: AI_FLAG_CHECK_BAD_MOVE
 SPECIES_HYPNO
 Level: 25
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DEWPIDER @ None
+Level: 25
 
 === TRAINER_JUGGLER_KIRK ===
 Name: Kirk
@@ -28837,6 +30020,9 @@ SPECIES_KADABRA
 Level: 27
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_DREEPY @ None
+Level: 27
+
 === TRAINER_JUGGLER_SHAWN ===
 Name: Shawn
 Class: TRAINER_CLASS_JUGGLER_FRLG
@@ -28897,6 +30083,9 @@ SPECIES_NIDORAN_F
 Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_MILCERY @ None
+Level: 12
+
 === TRAINER_LASS_DALIA ===
 Name: Dalia
 Class: TRAINER_CLASS_LASS_FRLG
@@ -28952,6 +30141,9 @@ SPECIES_CLEFAIRY
 Level: 9
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_RELLOR @ None
+Level: 9
+
 === TRAINER_LASS_JOANA ===
 Name: Joana
 Class: TRAINER_CLASS_LASS_FRLG
@@ -28998,6 +30190,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_GLOOM
 Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_WOOLOO @ None
+Level: 16
 
 === TRAINER_LASS_MIRIAM ===
 Name: Miriam
@@ -29052,11 +30247,16 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_ARCANINE
 Level: 31
+Dynamax Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - MOVE_BITE
 - MOVE_ROAR
 - MOVE_TAKE_DOWN
 - MOVE_FIRE_BLAST
+
+SPECIES_CHI_YU @ None
+Level: 31
+Dynamax Level: 10
 
 === TRAINER_LEADER_BROCK ===
 Name: Brock
@@ -29075,10 +30275,15 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_ONIX
 Level: 9
+Dynamax Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - MOVE_TACKLE
 - MOVE_BIND
 - MOVE_ROCK_TOMB
+
+SPECIES_COSMOG @ None
+Level: 9
+Dynamax Level: 10
 
 === TRAINER_LEADER_ERIKA ===
 Name: Erika
@@ -29108,11 +30313,16 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_VILEPLUME
 Level: 20
+Dynamax Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - MOVE_SLEEP_POWDER
 - MOVE_ACID
 - MOVE_STUN_SPORE
 - MOVE_GIGA_DRAIN
+
+SPECIES_CALYREX @ None
+Level: 20
+Dynamax Level: 10
 
 === TRAINER_LEADER_GIOVANNI ===
 Name: Giovanni
@@ -29158,11 +30368,16 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_RHYHORN
 Level: 33
+Dynamax Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - MOVE_TAKE_DOWN
 - MOVE_ROCK_BLAST
 - MOVE_SCARY_FACE
 - MOVE_EARTHQUAKE
+
+SPECIES_NAGANADEL @ None
+Level: 33
+Dynamax Level: 10
 
 === TRAINER_LEADER_KOGA ===
 Name: Koga
@@ -29200,11 +30415,16 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_WEEZING
 Level: 28
+Dynamax Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - MOVE_TACKLE
 - MOVE_SLUDGE
 - MOVE_SMOKESCREEN
 - MOVE_TOXIC
+
+SPECIES_POIPOLE @ None
+Level: 28
+Dynamax Level: 10
 
 === TRAINER_LEADER_LT_SURGE ===
 Name: Lt. Surge
@@ -29234,11 +30454,16 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_RAICHU
 Level: 16
+Dynamax Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - MOVE_QUICK_ATTACK
 - MOVE_THUNDER_WAVE
 - MOVE_DOUBLE_TEAM
 - MOVE_SHOCK_WAVE
+
+SPECIES_MELTAN @ None
+Level: 16
+Dynamax Level: 10
 
 === TRAINER_LEADER_MISTY ===
 Name: Misty
@@ -29260,11 +30485,16 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_STARMIE
 Level: 13
+Dynamax Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - MOVE_SWIFT
 - MOVE_RECOVER
 - MOVE_RAPID_SPIN
 - MOVE_WATER_PULSE
+
+SPECIES_COSMOEM @ None
+Level: 13
+Dynamax Level: 10
 
 === TRAINER_LEADER_SABRINA ===
 Name: Sabrina
@@ -29302,11 +30532,16 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_ALAKAZAM
 Level: 28
+Dynamax Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - MOVE_PSYCHIC
 - MOVE_RECOVER
 - MOVE_FUTURE_SIGHT
 - MOVE_CALM_MIND
+
+SPECIES_MUNKIDORI @ None
+Level: 28
+Dynamax Level: 10
 
 === TRAINER_PICNICKER_ARIANA ===
 Name: Ariana
@@ -29353,6 +30588,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_PIDGEY
 Level: 13
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_YAMPER @ None
+Level: 13
 
 === TRAINER_PICNICKER_DIANA ===
 Name: Diana
@@ -29404,6 +30642,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_PARASECT
 Level: 32
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TADBULB @ None
+Level: 32
 
 === TRAINER_PICNICKER_MARTHA ===
 Name: Martha
@@ -29460,6 +30701,9 @@ SPECIES_IVYSAUR
 Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_BRAMBLIN @ None
+Level: 16
+
 === TRAINER_PKMN_BREEDER_ALLISON ===
 Name: Allison
 Class: TRAINER_CLASS_PKMN_BREEDER_FRLG
@@ -29515,6 +30759,9 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 SPECIES_GLOOM
 Level: 25
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+SPECIES_SKWOVET @ None
+Level: 25
 
 === TRAINER_PKMN_RANGER_LOGAN ===
 Name: Logan
@@ -29580,6 +30827,9 @@ SPECIES_SLOWPOKE
 Level: 13
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
+SPECIES_FLETCHLING @ None
+Level: 13
+
 === TRAINER_POKEMANIAC_DAWSON ===
 Name: Dawson
 Class: TRAINER_CLASS_POKEMANIAC_FRLG
@@ -29630,6 +30880,9 @@ AI: AI_FLAG_CHECK_BAD_MOVE
 SPECIES_SLOWPOKE
 Level: 17
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+SPECIES_ARROKUDA @ None
+Level: 17
 
 === TRAINER_PSYCHIC_CAMERON ===
 Name: Cameron
@@ -29698,6 +30951,9 @@ SPECIES_XATU
 Level: 32
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
+SPECIES_NACLI @ None
+Level: 32
+
 === TRAINER_PSYCHIC_PRESTON ===
 Name: Preston
 Class: TRAINER_CLASS_PSYCHIC_FRLG
@@ -29764,6 +31020,9 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - MOVE_POISON_POWDER
 - MOVE_VINE_WHIP
 - MOVE_LEECH_SEED
+
+SPECIES_ROCKRUFF @ None
+Level: 12
 
 === TRAINER_RIVAL_CERULEAN_CHARMANDER ===
 Name: Terry
@@ -29852,6 +31111,9 @@ SPECIES_BULBASAUR
 Level: 3
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_WATTREL @ None
+Level: 3
+
 === TRAINER_RIVAL_OAKS_LAB_CHARMANDER ===
 Name: Terry
 Class: TRAINER_CLASS_RIVAL_EARLY_FRLG
@@ -29906,6 +31168,9 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 SPECIES_IVYSAUR
 Level: 17
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+SPECIES_CHEWTLE @ None
+Level: 17
 
 === TRAINER_RIVAL_POKEMON_TOWER_CHARMANDER ===
 Name: Terry
@@ -29985,6 +31250,9 @@ Level: 6
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - MOVE_TACKLE
 - MOVE_GROWL
+
+SPECIES_MORELULL @ None
+Level: 6
 
 === TRAINER_RIVAL_ROUTE22_EARLY_CHARMANDER ===
 Name: Terry
@@ -30228,6 +31496,9 @@ SPECIES_VENUSAUR
 Level: 27
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
+SPECIES_INKAY @ None
+Level: 27
+
 === TRAINER_RIVAL_SILPH_CHARMANDER ===
 Name: Terry
 Class: TRAINER_CLASS_RIVAL_LATE_FRLG
@@ -30311,6 +31582,9 @@ SPECIES_IVYSAUR
 Level: 13
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
+SPECIES_HELIOPTILE @ None
+Level: 13
+
 === TRAINER_RIVAL_SS_ANNE_CHARMANDER ===
 Name: Terry
 Class: TRAINER_CLASS_RIVAL_LATE_FRLG
@@ -30382,6 +31656,9 @@ SPECIES_MAROWAK
 Level: 32
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_GREAVARD @ None
+Level: 32
+
 === TRAINER_RUIN_MANIAC_LAYTON ===
 Name: Layton
 Class: TRAINER_CLASS_RUIN_MANIAC_FRLG
@@ -30441,6 +31718,9 @@ SPECIES_PIKACHU
 Level: 13
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_SHROODLE @ None
+Level: 13
+
 === TRAINER_SAILOR_DYLAN ===
 Name: Dylan
 Class: TRAINER_CLASS_SAILOR_FRLG
@@ -30496,6 +31776,9 @@ SPECIES_STARYU
 Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_STEENEE @ None
+Level: 12
+
 === TRAINER_SAILOR_LEONARD ===
 Name: Leonard
 Class: TRAINER_CLASS_SAILOR_FRLG
@@ -30538,6 +31821,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_TENTACOOL
 Level: 11
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TINKATINK @ None
+Level: 11
 
 === TRAINER_SCIENTIST_BEAU ===
 Name: Beau
@@ -30642,6 +31928,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - MOVE_SMOG
 - MOVE_TACKLE
 
+SPECIES_GIMMIGHOUL_CHEST @ None
+Level: 17
+
 === TRAINER_SCIENTIST_ED ===
 Name: Ed
 Class: TRAINER_CLASS_SCIENTIST_FRLG
@@ -30741,6 +32030,9 @@ SPECIES_ELECTRODE
 Level: 22
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_GOOMY @ None
+Level: 22
+
 === TRAINER_SCIENTIST_JERRY ===
 Name: Jerry
 Class: TRAINER_CLASS_SCIENTIST_FRLG
@@ -30803,6 +32095,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_MUK
 Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GRUBBIN @ None
+Level: 20
 
 === TRAINER_SCIENTIST_PARKER ===
 Name: Parker
@@ -30883,6 +32178,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - MOVE_SMOG
 - MOVE_SELF_DESTRUCT
 
+SPECIES_JANGMO_O @ None
+Level: 17
+
 === TRAINER_SCIENTIST_TED ===
 Name: Ted
 Class: TRAINER_CLASS_SCIENTIST_FRLG
@@ -30942,6 +32240,9 @@ SPECIES_GROWLITHE
 Level: 22
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_VAROOM @ None
+Level: 22
+
 === TRAINER_SUPER_NERD_DEREK ===
 Name: Derek
 Class: TRAINER_CLASS_SUPER_NERD_FRLG
@@ -30992,6 +32293,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_VOLTORB
 Level: 7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BERGMITE @ None
+Level: 7
 
 === TRAINER_SUPER_NERD_MIGUEL ===
 Name: Miguel
@@ -31048,6 +32352,9 @@ SPECIES_SHELLDER
 Level: 11
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_CAPSAKID @ None
+Level: 11
+
 === TRAINER_TAMER_COLE ===
 Name: Cole
 Class: TRAINER_CLASS_TAMER_FRLG
@@ -31098,6 +32405,9 @@ AI: AI_FLAG_CHECK_BAD_MOVE
 SPECIES_RHYHORN
 Level: 28
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
+
+SPECIES_CUTIEFLY @ None
+Level: 28
 
 === TRAINER_TAMER_PHIL ===
 Name: Phil
@@ -31166,6 +32476,9 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_GIGA_DRAIN
 - MOVE_SLEEP_POWDER
 - MOVE_STUN_SPORE
+
+SPECIES_MAREANIE @ None
+Level: 36
 
 === TRAINER_TEAM_ROCKET_ADMIN_2 ===
 Name: Admin
@@ -31248,6 +32561,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - MOVE_SMOG
 - MOVE_TACKLE
 - MOVE_POISON_GAS
+
+SPECIES_WISHIWASHI_SOLO @ None
+Level: 13
 
 === TRAINER_TEAM_ROCKET_GRUNT_11 ===
 Name: Grunt
@@ -31347,6 +32663,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - MOVE_TAIL_WHIP
 - MOVE_TACKLE
 
+SPECIES_BLIPBUG @ None
+Level: 11
+
 === TRAINER_TEAM_ROCKET_GRUNT_14 ===
 Name: Grunt
 Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
@@ -31406,6 +32725,9 @@ SPECIES_SANDSLASH
 Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_SNOM @ None
+Level: 16
+
 === TRAINER_TEAM_ROCKET_GRUNT_17 ===
 Name: Grunt
 Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
@@ -31464,6 +32786,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_GOLBAT
 Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BOUNSWEET @ None
+Level: 17
 
 === TRAINER_TEAM_ROCKET_GRUNT_2 ===
 Name: Grunt
@@ -31527,6 +32852,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_ZUBAT
 Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_NYMBLE @ None
+Level: 16
 
 === TRAINER_TEAM_ROCKET_GRUNT_23 ===
 Name: Grunt
@@ -31595,6 +32923,9 @@ SPECIES_RATICATE
 Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_TAROUNTULA @ None
+Level: 18
+
 === TRAINER_TEAM_ROCKET_GRUNT_26 ===
 Name: Grunt
 Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
@@ -31646,6 +32977,9 @@ SPECIES_ARBOK
 Level: 22
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_AEGISLASH_SHIELD @ None
+Level: 22
+
 === TRAINER_TEAM_ROCKET_GRUNT_29 ===
 Name: Grunt
 Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
@@ -31692,6 +33026,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_MACHOKE
 Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_WIMPOD @ None
+Level: 20
 
 === TRAINER_TEAM_ROCKET_GRUNT_31 ===
 Name: Grunt
@@ -31772,6 +33109,9 @@ SPECIES_CUBONE
 Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_BUNNELBY @ None
+Level: 20
+
 === TRAINER_TEAM_ROCKET_GRUNT_34 ===
 Name: Grunt
 Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
@@ -31835,6 +33175,9 @@ SPECIES_KOFFING
 Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_PAWMI @ None
+Level: 18
+
 === TRAINER_TEAM_ROCKET_GRUNT_37 ===
 Name: Grunt
 Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
@@ -31889,6 +33232,9 @@ AI: AI_FLAG_CHECK_BAD_MOVE
 SPECIES_MACHOKE
 Level: 22
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ROLYCOLY @ None
+Level: 22
 
 === TRAINER_TEAM_ROCKET_GRUNT_4 ===
 Name: Grunt
@@ -31957,6 +33303,9 @@ SPECIES_MAROWAK
 Level: 21
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_TOXEL @ None
+Level: 21
+
 === TRAINER_TEAM_ROCKET_GRUNT_42 ===
 Name: Grunt
 Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
@@ -32015,6 +33364,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_SANDSLASH
 Level: 23
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_NICKIT @ None
+Level: 23
 
 === TRAINER_TEAM_ROCKET_GRUNT_45 ===
 Name: Grunt
@@ -32079,6 +33431,9 @@ SPECIES_MACHOKE
 Level: 32
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_NOIBAT @ None
+Level: 32
+
 === TRAINER_TEAM_ROCKET_GRUNT_48 ===
 Name: Grunt
 Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
@@ -32133,6 +33488,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_DROWZEE
 Level: 11
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ROOKIDEE @ None
+Level: 11
 
 === TRAINER_TEAM_ROCKET_GRUNT_50 ===
 Name: Grunt
@@ -32197,6 +33555,9 @@ SPECIES_ZUBAT
 Level: 9
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_WIGLETT @ None
+Level: 9
+
 === TRAINER_TEAM_ROCKET_GRUNT_7 ===
 Name: Grunt
 Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
@@ -32247,6 +33608,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_RATICATE
 Level: 13
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FOMANTIS @ None
+Level: 13
 
 === TRAINER_YOUNGSTER_CORDELL ===
 Name: Cordell
@@ -32307,6 +33671,9 @@ SPECIES_ZUBAT
 Level: 7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_GOSSIFLEUR @ None
+Level: 7
+
 === TRAINER_YOUNGSTER_NASH ===
 Name: Nash
 Class: TRAINER_CLASS_YOUNGSTER_FRLG
@@ -32357,10 +33724,15 @@ Level: 201
 
 SPECIES_BASCULIN @ ITEM_ORAN_BERRY
 Level: 204
+Dynamax Level: 10
 - MOVE_BITE
 - MOVE_AQUA_JET
 - MOVE_TAKE_DOWN
 - MOVE_RAIN_DANCE
+
+SPECIES_MAGEARNA @ None
+Level: 204
+Dynamax Level: 10
 
 === TRAINER_UNOVA_LEADER_SHAUNTAL ===
 Name: Shauntal
@@ -32385,10 +33757,15 @@ Level: 206
 
 SPECIES_SPIRITOMB @ ITEM_ORAN_BERRY
 Level: 208
+Dynamax Level: 10
 - MOVE_SHADOW_SNEAK
 - MOVE_FEINT_ATTACK
 - MOVE_HYPNOSIS
 - MOVE_HEX
+
+SPECIES_HOOPA_CONFINED @ None
+Level: 208
+Dynamax Level: 10
 
 === TRAINER_UNOVA_LEADER_BURGH ===
 Name: Burgh
@@ -32413,10 +33790,15 @@ Level: 214
 
 SPECIES_LEAVANNY @ ITEM_SITRUS_BERRY
 Level: 216
+Dynamax Level: 10
 - MOVE_RAZOR_LEAF
 - MOVE_STRUGGLE_BUG
 - MOVE_SLASH
 - MOVE_DOUBLE_TEAM
+
+SPECIES_ZERAORA @ None
+Level: 216
+Dynamax Level: 10
 
 === TRAINER_UNOVA_LEADER_ROXIE ===
 Name: Roxie
@@ -32441,10 +33823,15 @@ Level: 223
 
 SPECIES_SCOLIPEDE @ ITEM_SITRUS_BERRY
 Level: 225
+Dynamax Level: 10
 - MOVE_VENOSHOCK
 - MOVE_BULLDOZE
 - MOVE_X_SCISSOR
 - MOVE_TOXIC
+
+SPECIES_ETERNATUS @ None
+Level: 225
+Dynamax Level: 10
 
 === TRAINER_UNOVA_LEADER_CHEREN ===
 Name: Cheren
@@ -32476,10 +33863,15 @@ Level: 225
 
 SPECIES_STOUTLAND @ ITEM_SITRUS_BERRY
 Level: 227
+Dynamax Level: 10
 - MOVE_HONE_CLAWS
 - MOVE_CRUNCH
 - MOVE_REVERSAL
 - MOVE_GIGA_IMPACT
+
+SPECIES_NECROZMA @ None
+Level: 227
+Dynamax Level: 10
 
 === TRAINER_UNOVA_LEADER_CILAN ===
 Name: Cilan
@@ -32511,10 +33903,15 @@ Level: 227
 
 SPECIES_ROSERADE @ ITEM_MIRACLE_SEED
 Level: 229
+Dynamax Level: 10
 - MOVE_VENOSHOCK
 - MOVE_TOXIC
 - MOVE_ENERGY_BALL
 - MOVE_SYNTHESIS
+
+SPECIES_MELMETAL @ None
+Level: 229
+Dynamax Level: 10
 
 === TRAINER_UNOVA_LEADER_SKYLA ===
 Name: Skyla
@@ -32546,10 +33943,15 @@ Level: 238
 
 SPECIES_ALTARIA @ ITEM_SITRUS_BERRY
 Level: 240
+Dynamax Level: 10
 - MOVE_DRAGON_PULSE
 - MOVE_MOONBLAST
 - MOVE_ACROBATICS
 - MOVE_EARTHQUAKE
+
+SPECIES_MIRAIDON @ None
+Level: 240
+Dynamax Level: 10
 
 === TRAINER_UNOVA_LEADER_DRAYDEN ===
 Name: Drayden
@@ -32581,10 +33983,15 @@ Level: 246
 
 SPECIES_HAXORUS @ ITEM_LIFE_ORB
 Level: 249
+Dynamax Level: 10
 - MOVE_DRAGON_DANCE
 - MOVE_DRAGON_CLAW
 - MOVE_SHADOW_CLAW
 - MOVE_IRON_TAIL
+
+SPECIES_XERNEAS_NEUTRAL @ None
+Level: 249
+Dynamax Level: 10
 
 === TRAINER_UNOVA_E4_GRIMSLEY ===
 Name: Grimsley
@@ -32623,10 +34030,15 @@ Level: 253
 
 SPECIES_BISHARP @ ITEM_LIFE_ORB
 Level: 253
+Dynamax Level: 10
 - MOVE_NIGHT_SLASH
 - MOVE_METEOR_MASH
 - MOVE_PSYCHO_CUT
 - MOVE_X_SCISSOR
+
+SPECIES_LUNALA @ None
+Level: 253
+Dynamax Level: 10
 
 === TRAINER_UNOVA_E4_MARSHAL ===
 Name: Marshal
@@ -32821,6 +34233,9 @@ Level: 229
 SPECIES_MAGMAR
 Level: 231
 
+SPECIES_TINKATON @ None
+Level: 231
+
 === TRAINER_UNOVA_ACE_TRAINERF_MISTRALTON_CAVE ===
 Name: SHELBY
 Class: Cooltrainer
@@ -32861,6 +34276,9 @@ SPECIES_SWOOBAT
 Level: 240
 
 SPECIES_LILLIGANT
+Level: 242
+
+SPECIES_PYROAR @ None
 Level: 242
 
 === TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_INT_1 ===
@@ -32911,6 +34329,9 @@ Level: 223
 SPECIES_FLAREON
 Level: 223
 
+SPECIES_SIRFETCHD @ None
+Level: 223
+
 === TRAINER_UNOVA_ACE_TRAINERF_R23_1 ===
 Name: JULIET
 Class: Cooltrainer
@@ -32948,6 +34369,9 @@ SPECIES_HEATMOR
 Level: 240
 
 SPECIES_GALVANTULA
+Level: 242
+
+SPECIES_POLTEAGEIST_PHONY @ None
 Level: 242
 
 === TRAINER_UNOVA_ACE_TRAINERM_CHARGESTONE_1 ===
@@ -32995,6 +34419,9 @@ Level: 238
 SPECIES_AZUMARILL
 Level: 240
 
+SPECIES_SINISTCHA_UNREMARKABLE @ None
+Level: 240
+
 === TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_EXT_1 ===
 Name: PIERCE
 Class: Cooltrainer
@@ -33032,6 +34459,9 @@ SPECIES_ARCHEN
 Level: 229
 
 SPECIES_ELECTABUZZ
+Level: 231
+
+SPECIES_ARBOLIVA @ None
 Level: 231
 
 === TRAINER_UNOVA_ACE_TRAINERM_GIANT_CHASM ===
@@ -33074,6 +34504,9 @@ SPECIES_WHIMSICOTT
 Level: 240
 
 SPECIES_UNFEZANT
+Level: 242
+
+SPECIES_COALOSSAL @ None
 Level: 242
 
 === TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_INT_2 ===
@@ -33121,6 +34554,9 @@ Level: 208
 SPECIES_MAREEP
 Level: 208
 
+SPECIES_CURSOLA @ None
+Level: 208
+
 === TRAINER_UNOVA_BACKERSF_R11 ===
 Name: RUBY&IRIS
 Class: Pokefan
@@ -33160,6 +34596,9 @@ Level: 236
 SPECIES_ALTARIA
 Level: 238
 
+SPECIES_GRIMMSNARL @ None
+Level: 238
+
 === TRAINER_UNOVA_BACKERSM_R16 ===
 Name: AL&FREDO
 Class: Pokefan
@@ -33197,6 +34636,9 @@ SPECIES_ONIX
 Level: 223
 
 SPECIES_PALPITOAD
+Level: 225
+
+SPECIES_HATTERENE @ None
 Level: 225
 
 === TRAINER_UNOVA_BACKPACKERF_R16 ===
@@ -33241,6 +34683,9 @@ Level: 219
 SPECIES_STARYU
 Level: 221
 
+SPECIES_OVERQWIL @ None
+Level: 221
+
 === TRAINER_UNOVA_BACKPACKERF_R23 ===
 Name: TIFFANY
 Class: Picnicker
@@ -33280,6 +34725,9 @@ Double Battle: No
 SPECIES_VIBRAVA
 Level: 231
 
+SPECIES_SANDACONDA @ None
+Level: 231
+
 === TRAINER_UNOVA_BACKPACKERF_REVERSAL ===
 Name: CARRIE
 Class: Picnicker
@@ -33314,6 +34762,9 @@ SPECIES_SANDILE
 Level: 208
 
 SPECIES_MARACTUS
+Level: 210
+
+SPECIES_SNEASLER @ None
 Level: 210
 
 === TRAINER_UNOVA_BACKPACKERM_GIANT_CHASM ===
@@ -33358,6 +34809,9 @@ Level: 223
 SPECIES_KROKOROK
 Level: 225
 
+SPECIES_TSAREENA @ None
+Level: 225
+
 === TRAINER_UNOVA_BACKPACKERM_R2 ===
 Name: JAY
 Class: Camper
@@ -33397,6 +34851,9 @@ Level: 227
 SPECIES_LEAFEON
 Level: 231
 
+SPECIES_AVALUGG @ None
+Level: 231
+
 === TRAINER_UNOVA_BACKPACKERM_RELIC_PASSAGE ===
 Name: IVAN
 Class: Camper
@@ -33434,6 +34891,9 @@ SPECIES_LAIRON
 Level: 240
 
 SPECIES_STEELIX
+Level: 242
+
+SPECIES_TOEDSCRUEL @ None
 Level: 242
 
 === TRAINER_UNOVA_BAKER_R19 ===
@@ -33476,6 +34936,9 @@ Gender: Female
 Double Battle: No
 
 SPECIES_MEDICHAM
+Level: 234
+
+SPECIES_DHELMISE @ None
 Level: 234
 
 === TRAINER_UNOVA_BATTLE_GIRL_NACRENE_OUTSKIRT ===
@@ -33523,6 +34986,9 @@ Level: 219
 SPECIES_GURDURR
 Level: 223
 
+SPECIES_DUDUNSPARCE_TWO_SEGMENT @ None
+Level: 223
+
 === TRAINER_UNOVA_BATTLE_GIRL_R23 ===
 Name: MIKI
 Class: Battle Girl
@@ -33568,6 +35034,9 @@ Level: 234
 SPECIES_GURDURR
 Level: 234
 
+SPECIES_FARIGIRAF @ None
+Level: 234
+
 === TRAINER_UNOVA_BATTLE_GIRL_SEASIDE_CAVE_2 ===
 Name: KAI-LI
 Class: Battle Girl
@@ -33604,6 +35073,9 @@ Level: 221
 SPECIES_BRELOOM
 Level: 223
 
+SPECIES_MR_RIME @ None
+Level: 223
+
 === TRAINER_UNOVA_BIKER_R4 ===
 Name: MIKE
 Class: TRAINER_CLASS_BIKER_FRLG
@@ -33635,6 +35107,9 @@ Gender: Male
 Double Battle: No
 
 SPECIES_KROOKODILE
+Level: 238
+
+SPECIES_OBSTAGOON @ None
 Level: 238
 
 === TRAINER_UNOVA_BLACKBELT_NACRENE_OUTSKIRT ===
@@ -33679,6 +35154,9 @@ Level: 219
 SPECIES_BRELOOM
 Level: 223
 
+SPECIES_AURORUS @ None
+Level: 223
+
 === TRAINER_UNOVA_BLACKBELT_R21 ===
 Name: RYUSUKE
 Class: Black Belt
@@ -33715,6 +35193,9 @@ Level: 234
 SPECIES_MEDICHAM
 Level: 234
 
+SPECIES_CETITAN @ None
+Level: 234
+
 === TRAINER_UNOVA_BLACKBELT_SEASIDE_CAVE_2 ===
 Name: LAO
 Class: Black Belt
@@ -33749,6 +35230,9 @@ SPECIES_MEDITITE
 Level: 221
 
 SPECIES_RIOLU
+Level: 223
+
+SPECIES_TYRANTRUM @ None
 Level: 223
 
 === TRAINER_UNOVA_BLACKBELT_WELLSPRING_2 ===
@@ -33802,6 +35286,9 @@ Level: 201
 SPECIES_MARILL
 Level: 204
 
+SPECIES_ARMAROUGE @ None
+Level: 204
+
 === TRAINER_UNOVA_CYCLISTF_R16 ===
 Name: LESLIE
 Class: Triathlete
@@ -33839,6 +35326,9 @@ Gender: Male
 Double Battle: No
 
 SPECIES_HOUNDOUR
+Level: 210
+
+SPECIES_CENTISKORCH @ None
 Level: 210
 
 === TRAINER_UNOVA_DANCER_R5_1 ===
@@ -33883,6 +35373,9 @@ Level: 212
 SPECIES_STARYU
 Level: 216
 
+SPECIES_CERULEDGE @ None
+Level: 216
+
 === TRAINER_UNOVA_DEPOT_AGENT_R19_2 ===
 Name: GREGG
 Class: Gentleman
@@ -33917,6 +35410,9 @@ Gender: Male
 Double Battle: No
 
 SPECIES_NOSEPASS
+Level: 206
+
+SPECIES_GLIMMORA @ None
 Level: 206
 
 === TRAINER_UNOVA_DOCTOR_R17 ===
@@ -33961,6 +35457,9 @@ Level: 236
 SPECIES_CRAWDAUNT
 Level: 238
 
+SPECIES_SYLVEON @ None
+Level: 238
+
 === TRAINER_UNOVA_FISHER_R17_1 ===
 Name: BILL
 Class: Fisherman
@@ -33995,6 +35494,9 @@ Gender: Male
 Double Battle: No
 
 SPECIES_BASCULIN
+Level: 210
+
+SPECIES_WYRDEER @ None
 Level: 210
 
 === TRAINER_UNOVA_FISHER_R8 ===
@@ -34040,6 +35542,9 @@ SPECIES_BASCULIN
 Level: 236
 
 SPECIES_CORSOLA
+Level: 238
+
+SPECIES_BASCULEGION_M @ None
 Level: 238
 
 === TRAINER_UNOVA_FISHER_R17_2 ===
@@ -34090,6 +35595,9 @@ Level: 208
 SPECIES_MANTYKE
 Level: 208
 
+SPECIES_CHESNAUGHT @ None
+Level: 208
+
 === TRAINER_UNOVA_FISHER_UNDELLA_2 ===
 Name: HUBERT
 Class: Fisherman
@@ -34121,6 +35629,9 @@ SPECIES_NOSEPASS
 Level: 219
 
 SPECIES_JOLTEON
+Level: 221
+
+SPECIES_CINDERACE @ None
 Level: 221
 
 === TRAINER_UNOVA_GENTLEMAN_R3 ===
@@ -34177,6 +35688,9 @@ Level: 240
 SPECIES_JELLICENT
 Level: 242
 
+SPECIES_DECIDUEYE @ None
+Level: 242
+
 === TRAINER_UNOVA_GRUNTF_NIMBASA_1 ===
 Name: GRUNT
 Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
@@ -34214,6 +35728,9 @@ SPECIES_GOTHITA
 Level: 212
 
 SPECIES_LITWICK
+Level: 214
+
+SPECIES_DONDOZO @ None
 Level: 214
 
 === TRAINER_UNOVA_GRUNTF_NIMBASA_4 ===
@@ -34258,6 +35775,9 @@ Level: 223
 SPECIES_LIEPARD
 Level: 225
 
+SPECIES_GOLISOPOD @ None
+Level: 225
+
 === TRAINER_UNOVA_GRUNTF_P2_2 ===
 Name: GRUNT
 Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
@@ -34289,6 +35809,9 @@ Gender: Female
 Double Battle: No
 
 SPECIES_GOTHITELLE
+Level: 240
+
+SPECIES_GRENINJA @ None
 Level: 240
 
 === TRAINER_UNOVA_GRUNTF_SEASIDE_CAVE_3 ===
@@ -34328,6 +35851,9 @@ SPECIES_SCRAGGY
 Level: 216
 
 SPECIES_WATCHOG
+Level: 219
+
+SPECIES_INCINEROAR @ None
 Level: 219
 
 === TRAINER_UNOVA_GRUNTM_NIMBASA_1 ===
@@ -34372,6 +35898,9 @@ Level: 212
 SPECIES_GASTLY
 Level: 212
 
+SPECIES_INTELEON @ None
+Level: 212
+
 === TRAINER_UNOVA_GRUNTM_NIMBASA_5 ===
 Name: GRUNT
 Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
@@ -34408,6 +35937,9 @@ Double Battle: No
 SPECIES_WEEZING
 Level: 227
 
+SPECIES_MEOWSCARADA @ None
+Level: 227
+
 === TRAINER_UNOVA_GRUNTM_SEASIDE_CAVE_1 ===
 Name: GRUNT
 Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
@@ -34442,6 +35974,9 @@ Gender: Male
 Double Battle: No
 
 SPECIES_DRAPION
+Level: 240
+
+SPECIES_PRIMARINA @ None
 Level: 240
 
 === TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_1 ===
@@ -34486,6 +36021,9 @@ Level: 216
 SPECIES_SWOOBAT
 Level: 221
 
+SPECIES_QUAQUAVAL @ None
+Level: 221
+
 === TRAINER_UNOVA_GUITARIST_CHARGESTONE_1 ===
 Name: MIDORI
 Class: Guitarist
@@ -34523,6 +36061,9 @@ SPECIES_VENIPEDE
 Level: 216
 
 SPECIES_SKORUPI
+Level: 219
+
+SPECIES_RILLABOOM @ None
 Level: 219
 
 === TRAINER_UNOVA_GUITARIST_VIRBANK_GYM_2 ===
@@ -34564,6 +36105,9 @@ Level: 212
 SPECIES_YANMA
 Level: 212
 
+SPECIES_SKELEDIRGE @ None
+Level: 212
+
 === TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_3 ===
 Name: BRADLEY
 Class: TRAINER_CLASS_JUGGLER_FRLG
@@ -34600,6 +36144,9 @@ Level: 210
 SPECIES_DURANT
 Level: 212
 
+SPECIES_GOGOAT @ None
+Level: 212
+
 === TRAINER_UNOVA_HARLEQUIN_R7 ===
 Name: PAT
 Class: TRAINER_CLASS_JUGGLER_FRLG
@@ -34634,6 +36181,9 @@ Gender: Female
 Double Battle: No
 
 SPECIES_SPIRITOMB
+Level: 236
+
+SPECIES_DELPHOX @ None
 Level: 236
 
 === TRAINER_UNOVA_HEX_MANIAC_DESERT ===
@@ -34678,6 +36228,9 @@ Level: 227
 SPECIES_HAUNTER
 Level: 227
 
+SPECIES_ANNIHILAPE @ None
+Level: 227
+
 === TRAINER_UNOVA_HEX_MANIAC_VICTORY_ROAD_INT ===
 Name: LAVINIA
 Class: Hex Maniac
@@ -34718,6 +36271,9 @@ SPECIES_BOLDORE
 Level: 229
 
 SPECIES_LAIRON
+Level: 231
+
+SPECIES_DURALUDON @ None
 Level: 231
 
 === TRAINER_UNOVA_HIKER_R18 ===
@@ -34762,6 +36318,9 @@ Level: 201
 SPECIES_ARON
 Level: 201
 
+SPECIES_NOIVERN @ None
+Level: 201
+
 === TRAINER_UNOVA_HIKER_TWIST_MOUNTAIN_1 ===
 Name: NEIL
 Class: Hiker
@@ -34804,6 +36363,9 @@ Level: 229
 SPECIES_BOLDORE
 Level: 231
 
+SPECIES_HYDRAPPLE @ None
+Level: 231
+
 === TRAINER_UNOVA_HIKER_CHARGESTONE_3 ===
 Name: CURTIS
 Class: Hiker
@@ -34840,6 +36402,9 @@ Double Battle: No
 SPECIES_STEELIX
 Level: 234
 
+SPECIES_GHOLDENGO @ None
+Level: 234
+
 === TRAINER_UNOVA_HIKER_RELIC_PASSAGE_2 ===
 Name: KEN
 Class: Hiker
@@ -34874,6 +36439,9 @@ SPECIES_TYRANITAR
 Level: 249
 
 SPECIES_PROBOPASS
+Level: 251
+
+SPECIES_KINGAMBIT @ None
 Level: 251
 
 === TRAINER_UNOVA_HOOPSTER_VILLAGE_BRIDGE_1 ===
@@ -34921,6 +36489,9 @@ Level: 227
 SPECIES_SNEASEL
 Level: 227
 
+SPECIES_URSALUNA @ None
+Level: 227
+
 === TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_2 ===
 Name: CALEB
 Class: TRAINER_CLASS_ENGINEER_FRLG
@@ -34966,6 +36537,9 @@ Level: 225
 SPECIES_DEINO
 Level: 225
 
+SPECIES_ARCHALUDON @ None
+Level: 225
+
 === TRAINER_UNOVA_LADY_R19 ===
 Name: CHELSEA
 Class: Lady
@@ -35006,6 +36580,9 @@ SPECIES_SNEASEL
 Level: 234
 
 SPECIES_VANILLISH
+Level: 234
+
+SPECIES_BAXCALIBUR @ None
 Level: 234
 
 === TRAINER_UNOVA_LASS_DESERT ===
@@ -35050,6 +36627,9 @@ Level: 216
 SPECIES_MARACTUS
 Level: 221
 
+SPECIES_DRAGAPULT @ None
+Level: 221
+
 === TRAINER_UNOVA_LASS_R13 ===
 Name: LORI
 Class: Lass
@@ -35092,6 +36672,9 @@ Level: 219
 SPECIES_HERDIER
 Level: 221
 
+SPECIES_GOODRA @ None
+Level: 221
+
 === TRAINER_UNOVA_LASS_REVERSAL ===
 Name: HARRIET
 Class: Lass
@@ -35132,6 +36715,9 @@ SPECIES_CORPHISH
 Level: 234
 
 SPECIES_SEADRA
+Level: 236
+
+SPECIES_KOMMO_O @ None
 Level: 236
 
 === TRAINER_UNOVA_MAID_CELESTIAL_TOWER ===
@@ -35179,6 +36765,9 @@ Level: 216
 SPECIES_MANTYKE
 Level: 216
 
+SPECIES_TINKATON @ None
+Level: 216
+
 === TRAINER_UNOVA_MUSICIAN_VILLAGE_BRIDGE ===
 Name: TOM
 Class: Guitarist
@@ -35221,6 +36810,9 @@ Level: 216
 SPECIES_ZUBAT
 Level: 216
 
+SPECIES_PYROAR @ None
+Level: 216
+
 === TRAINER_UNOVA_NURSE_CELESTIAL_TOWER ===
 Name: SACHIKO
 Class: Lady
@@ -35254,6 +36846,9 @@ Double Battle: No
 SPECIES_WIGGLYTUFF
 Level: 231
 
+SPECIES_SIRFETCHD @ None
+Level: 231
+
 === TRAINER_UNOVA_NURSE_TWIST_MOUNTAIN ===
 Name: CAROL
 Class: Lady
@@ -35285,6 +36880,9 @@ Gender: Female
 Double Battle: No
 
 SPECIES_AUDINO
+Level: 199
+
+SPECIES_POLTEAGEIST_PHONY @ None
 Level: 199
 
 === TRAINER_UNOVA_NURSERY_AIDE_R20 ===
@@ -35329,6 +36927,9 @@ Level: 216
 SPECIES_WATCHOG
 Level: 221
 
+SPECIES_SINISTCHA_UNREMARKABLE @ None
+Level: 221
+
 === TRAINER_UNOVA_PARASOL_LADY_R6_1 ===
 Name: KATY
 Class: Parasol Lady
@@ -35369,6 +36970,9 @@ SPECIES_DRATINI
 Level: 236
 
 SPECIES_TOXICROAK
+Level: 238
+
+SPECIES_ARBOLIVA @ None
 Level: 238
 
 === TRAINER_UNOVA_PILOT_MISTRALTON_GYM_1 ===
@@ -35413,6 +37017,9 @@ Level: 234
 SPECIES_DUCKLETT
 Level: 231
 
+SPECIES_COALOSSAL @ None
+Level: 234
+
 === TRAINER_UNOVA_PILOT_MISTRALTON_GYM_4 ===
 Name: TED
 Class: Sailor
@@ -35450,6 +37057,9 @@ SPECIES_MUNNA
 Level: 206
 
 SPECIES_JIGGLYPUFF
+Level: 208
+
+SPECIES_CURSOLA @ None
 Level: 208
 
 === TRAINER_UNOVA_PKMN_BREEDERF_R19 ===
@@ -35491,6 +37101,9 @@ Level: 231
 SPECIES_MUSHARNA
 Level: 234
 
+SPECIES_GRIMMSNARL @ None
+Level: 234
+
 === TRAINER_UNOVA_PKMN_BREEDERM_LOSTLORN ===
 Name: SAL
 Class: Pkmn Breeder
@@ -35528,6 +37141,9 @@ SPECIES_CUBCHOO
 Level: 227
 
 SPECIES_KIRLIA
+Level: 229
+
+SPECIES_HATTERENE @ None
 Level: 229
 
 === TRAINER_UNOVA_PKMN_BREEDERM_R7 ===
@@ -35569,6 +37185,9 @@ Level: 208
 SPECIES_GLIGAR
 Level: 210
 
+SPECIES_OVERQWIL @ None
+Level: 210
+
 === TRAINER_UNOVA_PKMN_RANGERF_MOOR_OF_ICIRRUS ===
 Name: MARIAH
 Class: Pkmn Ranger
@@ -35608,6 +37227,9 @@ Double Battle: No
 SPECIES_HERACROSS
 Level: 223
 
+SPECIES_SANDACONDA @ None
+Level: 223
+
 === TRAINER_UNOVA_PKMN_RANGERF_PINWHEEL_2 ===
 Name: DANI
 Class: Pkmn Ranger
@@ -35645,6 +37267,9 @@ SPECIES_SEALEO
 Level: 242
 
 SPECIES_LUCARIO
+Level: 244
+
+SPECIES_SNEASLER @ None
 Level: 244
 
 === TRAINER_UNOVA_PKMN_RANGERF_R3 ===
@@ -35689,6 +37314,9 @@ Level: 236
 SPECIES_BOUFFALANT
 Level: 238
 
+SPECIES_TSAREENA @ None
+Level: 238
+
 === TRAINER_UNOVA_PKMN_RANGERF_VICTORY_ROAD_INT ===
 Name: ELLA
 Class: Pkmn Ranger
@@ -35723,6 +37351,9 @@ SPECIES_DWEBBLE
 Level: 208
 
 SPECIES_TRAPINCH
+Level: 210
+
+SPECIES_AVALUGG @ None
 Level: 210
 
 === TRAINER_UNOVA_PKMN_RANGERM_MOOR_OF_ICIRRUS ===
@@ -35762,6 +37393,9 @@ Gender: Male
 Double Battle: No
 
 SPECIES_PINSIR
+Level: 223
+
+SPECIES_TOEDSCRUEL @ None
 Level: 223
 
 === TRAINER_UNOVA_PKMN_RANGERM_PINWHEEL_2 ===
@@ -35806,6 +37440,9 @@ Level: 242
 SPECIES_AMOONGUSS
 Level: 244
 
+SPECIES_DHELMISE @ None
+Level: 244
+
 === TRAINER_UNOVA_PKMN_RANGERM_R3 ===
 Name: VERNE
 Class: Pkmn Ranger
@@ -35846,6 +37483,9 @@ SPECIES_LARVESTA
 Level: 236
 
 SPECIES_PINSIR
+Level: 238
+
+SPECIES_DUDUNSPARCE_TWO_SEGMENT @ None
 Level: 238
 
 === TRAINER_UNOVA_PKMN_RANGERM_VICTORY_ROAD_INT ===
@@ -35890,6 +37530,9 @@ Level: 208
 SPECIES_MARILL
 Level: 208
 
+SPECIES_FARIGIRAF @ None
+Level: 208
+
 === TRAINER_UNOVA_POKEFANM_CELESTIAL_TOWER ===
 Name: JUDE
 Class: Pokefan
@@ -35924,6 +37567,9 @@ Gender: Male
 Double Battle: No
 
 SPECIES_VAPOREON
+Level: 223
+
+SPECIES_MR_RIME @ None
 Level: 223
 
 === TRAINER_UNOVA_POLICEMAN_R4_1 ===
@@ -35965,6 +37611,9 @@ Level: 197
 SPECIES_SHROOMISH
 Level: 197
 
+SPECIES_OBSTAGOON @ None
+Level: 197
+
 === TRAINER_UNOVA_PRESCHOOLERF_R14_1 ===
 Name: JILL
 Class: Tuber F
@@ -36002,6 +37651,9 @@ SPECIES_AZURILL
 Level: 197
 
 SPECIES_LILLIPUP
+Level: 197
+
+SPECIES_AURORUS @ None
 Level: 197
 
 === TRAINER_UNOVA_PRESCHOOLERM_R14_1 ===
@@ -36043,6 +37695,9 @@ Level: 234
 SPECIES_LITWICK
 Level: 234
 
+SPECIES_CETITAN @ None
+Level: 234
+
 === TRAINER_UNOVA_PSYCHICF_DREAMYARD ===
 Name: OLESIA
 Class: Psychic
@@ -36077,6 +37732,9 @@ SPECIES_BALTOY
 Level: 208
 
 SPECIES_KIRLIA
+Level: 212
+
+SPECIES_TYRANTRUM @ None
 Level: 212
 
 === TRAINER_UNOVA_PSYCHICF_RELIC_PASSAGE ===
@@ -36118,6 +37776,9 @@ Level: 234
 SPECIES_DUOSION
 Level: 234
 
+SPECIES_ARMAROUGE @ None
+Level: 234
+
 === TRAINER_UNOVA_PSYCHICM_DREAMYARD ===
 Name: NANDO
 Class: Psychic
@@ -36155,6 +37816,9 @@ SPECIES_GOTHITA
 Level: 210
 
 SPECIES_SOLOSIS
+Level: 210
+
+SPECIES_CENTISKORCH @ None
 Level: 210
 
 === TRAINER_UNOVA_PSYCHICM_RELIC_PASSAGE ===
@@ -36197,6 +37861,9 @@ SPECIES_HERDIER
 Level: 216
 
 SPECIES_SWOOBAT
+Level: 221
+
+SPECIES_CERULEDGE @ None
 Level: 221
 
 === TRAINER_UNOVA_RICH_BOY_R4 ===
@@ -36242,6 +37909,9 @@ SPECIES_DWEBBLE
 Level: 206
 
 SPECIES_SKORUPI
+Level: 208
+
+SPECIES_GLIMMORA @ None
 Level: 208
 
 === TRAINER_UNOVA_ROUGHNECK_R9_1 ===
@@ -36292,6 +37962,9 @@ Level: 240
 SPECIES_ROSERADE
 Level: 242
 
+SPECIES_SYLVEON @ None
+Level: 242
+
 === TRAINER_UNOVA_SCHOOL_KIDF_DREAMYARD ===
 Name: RITA
 Class: School Kid
@@ -36334,6 +38007,9 @@ Level: 195
 SPECIES_IGGLYBUFF
 Level: 195
 
+SPECIES_WYRDEER @ None
+Level: 195
+
 === TRAINER_UNOVA_SCHOOL_KIDF_R20_1 ===
 Name: SYDNEY
 Class: School Kid
@@ -36373,6 +38049,9 @@ Level: 214
 SPECIES_ESPEON
 Level: 216
 
+SPECIES_BASCULEGION_M @ None
+Level: 216
+
 === TRAINER_UNOVA_SCHOOL_KIDF_R7 ===
 Name: MARIA
 Class: School Kid
@@ -36410,6 +38089,9 @@ SPECIES_SHROOMISH
 Level: 219
 
 SPECIES_BRELOOM
+Level: 221
+
+SPECIES_CHESNAUGHT @ None
 Level: 221
 
 === TRAINER_UNOVA_SCHOOL_KIDM_LOSTLORN ===
@@ -36457,6 +38139,9 @@ Level: 195
 SPECIES_VENIPEDE
 Level: 195
 
+SPECIES_CINDERACE @ None
+Level: 195
+
 === TRAINER_UNOVA_SCHOOL_KIDM_R20_1 ===
 Name: DEVON
 Class: School Kid
@@ -36496,6 +38181,9 @@ Level: 214
 SPECIES_GLACEON
 Level: 216
 
+SPECIES_DECIDUEYE @ None
+Level: 216
+
 === TRAINER_UNOVA_SCHOOL_KIDM_R7 ===
 Name: BARRETT
 Class: School Kid
@@ -36533,6 +38221,9 @@ SPECIES_METANG
 Level: 229
 
 SPECIES_DITTO
+Level: 229
+
+SPECIES_DONDOZO @ None
 Level: 229
 
 === TRAINER_UNOVA_SCIENTISTF_DREAMYARD ===
@@ -36577,6 +38268,9 @@ Level: 240
 SPECIES_STARMIE
 Level: 242
 
+SPECIES_GOLISOPOD @ None
+Level: 242
+
 === TRAINER_UNOVA_SCIENTISTF_VIRBANK_COMPLEX_1 ===
 Name: BELINDA
 Class: TRAINER_CLASS_SCIENTIST_FRLG
@@ -36617,6 +38311,9 @@ SPECIES_BELDUM
 Level: 225
 
 SPECIES_EELEKTRIK
+Level: 227
+
+SPECIES_GRENINJA @ None
 Level: 227
 
 === TRAINER_UNOVA_SCIENTISTM_CHARGESTONE ===
@@ -36661,6 +38358,9 @@ Level: 223
 SPECIES_KLANG
 Level: 225
 
+SPECIES_INCINEROAR @ None
+Level: 225
+
 === TRAINER_UNOVA_SCIENTISTM_R6 ===
 Name: MARCO
 Class: TRAINER_CLASS_SCIENTIST_FRLG
@@ -36703,6 +38403,9 @@ Level: 216
 SPECIES_KLINK
 Level: 221
 
+SPECIES_INTELEON @ None
+Level: 221
+
 === TRAINER_UNOVA_SMASHER_VILLAGE_BRIDGE_1 ===
 Name: VENUS
 Class: Battle Girl
@@ -36737,6 +38440,9 @@ Gender: Female
 Double Battle: No
 
 SPECIES_ESPEON
+Level: 236
+
+SPECIES_MEOWSCARADA @ None
 Level: 236
 
 === TRAINER_UNOVA_SOCIALITE_R2 ===
@@ -36778,6 +38484,9 @@ Level: 223
 SPECIES_CORSOLA
 Level: 223
 
+SPECIES_PRIMARINA @ None
+Level: 223
+
 === TRAINER_UNOVA_SWIMMER_F_R21_1 ===
 Name: SUSIE
 Class: Swimmer F
@@ -36815,6 +38524,9 @@ Gender: Female
 Double Battle: No
 
 SPECIES_REMORAID
+Level: 201
+
+SPECIES_QUAQUAVAL @ None
 Level: 201
 
 === TRAINER_UNOVA_SWIMMER_F_R17_2 ===
@@ -36856,6 +38568,9 @@ Level: 199
 SPECIES_TYMPOLE
 Level: 201
 
+SPECIES_RILLABOOM @ None
+Level: 201
+
 === TRAINER_UNOVA_SWIMMER_M_R17_1 ===
 Name: RALPH
 Class: Swimmer M
@@ -36893,6 +38608,9 @@ SPECIES_STARYU
 Level: 223
 
 SPECIES_DEWOTT
+Level: 223
+
+SPECIES_SKELEDIRGE @ None
 Level: 223
 
 === TRAINER_UNOVA_SWIMMER_M_R21_2 ===
@@ -36937,6 +38655,9 @@ Level: 197
 SPECIES_CLEFFA
 Level: 197
 
+SPECIES_GOGOAT @ None
+Level: 197
+
 === TRAINER_UNOVA_TWINS_R1 ===
 Name: EVE&FLO
 Class: Twins
@@ -36974,6 +38695,9 @@ SPECIES_EEVEE
 Level: 214
 
 SPECIES_VAPOREON
+Level: 216
+
+SPECIES_DELPHOX @ None
 Level: 216
 
 === TRAINER_UNOVA_TWINS_R7 ===
@@ -37021,6 +38745,9 @@ Level: 238
 SPECIES_VIBRAVA
 Level: 242
 
+SPECIES_ANNIHILAPE @ None
+Level: 242
+
 === TRAINER_UNOVA_VETERANF_OPELUCID_GYM_3 ===
 Name: DARA
 Class: Expert
@@ -37058,6 +38785,9 @@ SPECIES_DRAPION
 Level: 249
 
 SPECIES_KLINKLANG
+Level: 251
+
+SPECIES_DURALUDON @ None
 Level: 251
 
 === TRAINER_UNOVA_VETERANF_TWIST_MOUNTAIN_2 ===
@@ -37102,6 +38832,9 @@ Level: 240
 SPECIES_VANILLUXE
 Level: 242
 
+SPECIES_NOIVERN @ None
+Level: 242
+
 === TRAINER_UNOVA_VETERANF_VICTORY_ROAD_INT_1 ===
 Name: CECILE
 Class: Expert
@@ -37142,6 +38875,9 @@ SPECIES_DEINO
 Level: 238
 
 SPECIES_FRAXURE
+Level: 242
+
+SPECIES_HYDRAPPLE @ None
 Level: 242
 
 === TRAINER_UNOVA_VETERANM_OPELUCID_GYM_2 ===
@@ -37189,6 +38925,9 @@ Level: 240
 SPECIES_DRAGONAIR
 Level: 244
 
+SPECIES_GHOLDENGO @ None
+Level: 244
+
 === TRAINER_UNOVA_VETERANM_TWIST_MOUNTAIN_1 ===
 Name: ZACH
 Class: Expert
@@ -37234,6 +38973,9 @@ Level: 240
 SPECIES_GOLURK
 Level: 242
 
+SPECIES_KINGAMBIT @ None
+Level: 242
+
 === TRAINER_UNOVA_VETERANM_VICTORY_ROAD_EXT_2 ===
 Name: STERLING
 Class: Expert
@@ -37276,6 +39018,9 @@ Level: 240
 SPECIES_FLYGON
 Level: 242
 
+SPECIES_URSALUNA @ None
+Level: 242
+
 === TRAINER_UNOVA_WORKER_CASTELIA_SEWERS_1 ===
 Name: JOSHUA
 Class: TRAINER_CLASS_ENGINEER_FRLG
@@ -37310,6 +39055,9 @@ SPECIES_SANDILE
 Level: 227
 
 SPECIES_LIEPARD
+Level: 227
+
+SPECIES_ARCHALUDON @ None
 Level: 227
 
 === TRAINER_UNOVA_WORKER_RELIC_PASSAGE ===
@@ -37357,6 +39105,9 @@ Level: 249
 SPECIES_GOTHITELLE
 Level: 251
 
+SPECIES_BAXCALIBUR @ None
+Level: 251
+
 === TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_3 ===
 Name: JORDAN
 Class: TRAINER_CLASS_ENGINEER_FRLG
@@ -37391,6 +39142,9 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SIGILYPH
+Level: 253
+
+SPECIES_DRAGAPULT @ None
 Level: 253
 
 === TRAINER_UNOVA_YOUNGSTER_DREAMYARD ===
@@ -37429,6 +39183,9 @@ Double Battle: No
 SPECIES_YANMEGA
 Level: 223
 
+SPECIES_GOODRA @ None
+Level: 223
+
 === TRAINER_UNOVA_YOUNGSTER_R13 ===
 Name: DAN
 Class: Youngster
@@ -37463,6 +39220,9 @@ SPECIES_FOONGUS
 Level: 206
 
 SPECIES_PURRLOIN
+Level: 206
+
+SPECIES_KOMMO_O @ None
 Level: 206
 
 === TRAINER_UNOVA_YOUNGSTER_NACRENE_OUTSKIRT ===
@@ -37515,6 +39275,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Ekans
 Level: 7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_YUNGOOS @ None
+Level: 7
 
 === TRAINER_YOUNGSTER_CALVIN ===
 Name: CALVIN
@@ -37575,6 +39338,9 @@ Metapod
 Level: 6
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_LECHONK @ None
+Level: 6
+
 === TRAINER_BUG_CATCHER_JAMES ===
 Name: JAMES
 Class: Bug Catcher Frlg
@@ -37626,6 +39392,9 @@ Nidoran F
 Level: 7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_CHARCADET @ None
+Level: 7
+
 === TRAINER_LASS_ROBIN ===
 Name: ROBIN
 Class: Lass Frlg
@@ -37676,6 +39445,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Ekans
 Level: 9
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FLITTLE @ None
+Level: 9
 
 === TRAINER_BUG_CATCHER_CALE ===
 Name: CALE
@@ -37740,6 +39512,9 @@ Bellsprout
 Level: 8
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_APPLIN @ None
+Level: 8
+
 === TRAINER_CAMPER_SHANE ===
 Name: SHANE
 Class: Camper Frlg
@@ -37787,6 +39562,9 @@ Spearow
 Level: 9
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_SMOLIV @ None
+Level: 9
+
 === TRAINER_YOUNGSTER_DAN ===
 Name: DAN
 Class: Youngster Frlg
@@ -37833,6 +39611,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Nidoran F
 Level: 9
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_HATENNA @ None
+Level: 9
 
 === TRAINER_LASS_HALEY ===
 Name: HALEY
@@ -37897,6 +39678,9 @@ Geodude
 Level: 8
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_IMPIDIMP @ None
+Level: 8
+
 === TRAINER_HIKER_WAYNE ===
 Name: WAYNE
 Class: Hiker Frlg
@@ -37948,6 +39732,9 @@ Weedle
 Level: 11
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_PIKIPEK @ None
+Level: 11
+
 === TRAINER_BUG_CATCHER_ELIJAH ===
 Name: ELIJAH
 Class: Bug Catcher Frlg
@@ -37990,6 +39777,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Raticate
 Level: 11
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DEWPIDER @ None
+Level: 11
 
 === TRAINER_PICNICKER_NANCY ===
 Name: NANCY
@@ -38041,6 +39831,9 @@ AI: Check Bad Move
 Ekans
 Level: 13
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DREEPY @ None
+Level: 13
 
 === TRAINER_YOUNGSTER_DILLON ===
 Name: DILLON
@@ -38097,6 +39890,9 @@ Nidorino
 Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_MILCERY @ None
+Level: 12
+
 === TRAINER_ENGINEER_BRAXTON ===
 Name: BRAXTON
 Class: Engineer Frlg
@@ -38148,6 +39944,9 @@ Horsea
 Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_RELLOR @ None
+Level: 12
+
 === TRAINER_GAMER_JASPER ===
 Name: JASPER
 Class: Gamer Frlg
@@ -38198,6 +39997,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Vulpix
 Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_WOOLOO @ None
+Level: 12
 
 === TRAINER_BUG_CATCHER_BRENT ===
 Name: BRENT
@@ -38253,6 +40055,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Charmander
 Level: 13
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_YAMPER @ None
+Level: 13
 
 === TRAINER_CAMPER_DREW ===
 Name: DREW
@@ -38317,6 +40122,9 @@ Meowth
 Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_TADBULB @ None
+Level: 16
+
 === TRAINER_HIKER_ALAN ===
 Name: ALAN
 Class: Hiker Frlg
@@ -38380,6 +40188,9 @@ Onix
 Level: 13
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_BRAMBLIN @ None
+Level: 13
+
 === TRAINER_PICNICKER_HEIDI ===
 Name: HEIDI
 Class: Picnicker Frlg
@@ -38430,6 +40241,9 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 Lickitung
 Level: 20
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+SPECIES_SKWOVET @ None
+Level: 20
 
 === TRAINER_POKEMANIAC_HERMAN ===
 Name: HERMAN
@@ -38489,6 +40303,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Graveler
 Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FLETCHLING @ None
+Level: 12
 
 === TRAINER_LASS_PAIGE ===
 Name: PAIGE
@@ -38556,6 +40373,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Pikachu
 Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ARROKUDA @ None
+Level: 12
 
 === TRAINER_LASS_JULIA ===
 Name: JULIA
@@ -38636,6 +40456,9 @@ Grimer
 Level: 14
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_NACLI @ None
+Level: 14
+
 === TRAINER_SUPER_NERD_LESLIE ===
 Name: LESLIE
 Class: Super Nerd Frlg
@@ -38690,6 +40513,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Vulpix
 Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ROCKRUFF @ None
+Level: 16
 
 === TRAINER_TWINS_ELI_ANNE ===
 Name: ELI & ANNE
@@ -38758,6 +40584,9 @@ Grimer
 Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_WATTREL @ None
+Level: 16
+
 === TRAINER_FISHERMAN_NED ===
 Name: NED
 Class: Fisherman Frlg
@@ -38808,6 +40637,9 @@ AI: Check Bad Move
 Goldeen
 Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CHEWTLE @ None
+Level: 18
 
 === TRAINER_FISHERMAN_ELLIOT ===
 Name: ELLIOT
@@ -38867,6 +40699,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Electrode
 Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MORELULL @ None
+Level: 20
 
 === TRAINER_CAMPER_JUSTIN ===
 Name: JUSTIN
@@ -38935,6 +40770,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Smog
 - Tackle
 
+SPECIES_INKAY @ None
+Level: 18
+
 === TRAINER_BEAUTY_LOLA ===
 Name: LOLA
 Class: Beauty Frlg
@@ -38989,6 +40827,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Pidgeotto
 Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_HELIOPTILE @ None
+Level: 20
 
 === TRAINER_BIRD_KEEPER_PERRY ===
 Name: PERRY
@@ -39065,6 +40906,9 @@ Horsea
 Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_GREAVARD @ None
+Level: 18
+
 === TRAINER_PICNICKER_SUSIE ===
 Name: SUSIE
 Class: Picnicker Frlg
@@ -39135,6 +40979,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Pidgeotto
 Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SHROODLE @ None
+Level: 18
 
 === TRAINER_BIKER_MALIK ===
 Name: MALIK
@@ -39235,6 +41082,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Smog
 - Tackle
 
+SPECIES_STEENEE @ None
+Level: 18
+
 === TRAINER_BIKER_GERALD ===
 Name: GERALD
 Class: Biker Frlg
@@ -39289,6 +41139,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Fearow
 Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TINKATINK @ None
+Level: 20
 
 === TRAINER_BIRD_KEEPER_CARTER ===
 Name: CARTER
@@ -39352,6 +41205,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Fearow
 Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GIMMIGHOUL_CHEST @ None
+Level: 20
 
 === TRAINER_BIRD_KEEPER_MARLON ===
 Name: MARLON
@@ -39440,6 +41296,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Disable
 - Pound
 
+SPECIES_GOOMY @ None
+Level: 17
+
 === TRAINER_BIKER_ALEX ===
 Name: ALEX
 Class: Biker Frlg
@@ -39506,6 +41365,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Ivysaur
 Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GRUBBIN @ None
+Level: 20
 
 === TRAINER_BIRD_KEEPER_EDWIN ===
 Name: EDWIN
@@ -39574,6 +41436,9 @@ Tangela
 Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_JANGMO_O @ None
+Level: 20
+
 === TRAINER_PICNICKER_KINDRA ===
 Name: KINDRA
 Class: Picnicker Frlg
@@ -39624,6 +41489,9 @@ AI: Check Bad Move
 Clefairy
 Level: 22
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_VAROOM @ None
+Level: 22
 
 === TRAINER_CRUSH_KIN_RON_MYA ===
 Name: RON & MYA
@@ -39679,6 +41547,9 @@ AI: Check Bad Move
 Weezing
 Level: 22
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BERGMITE @ None
+Level: 22
 
 === TRAINER_BIKER_RUBEN ===
 Name: RUBEN
@@ -39751,6 +41622,9 @@ Machop
 Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_CAPSAKID @ None
+Level: 20
+
 === TRAINER_CUE_BALL_CAMRON ===
 Name: CAMRON
 Class: Cue Ball Frlg
@@ -39797,6 +41671,9 @@ AI: Check Bad Move
 Muk
 Level: 22
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CUTIEFLY @ None
+Level: 22
 
 === TRAINER_BIKER_NIKOLAS ===
 Name: NIKOLAS
@@ -39896,6 +41773,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Sludge
 - Self Destruct
 - Tackle
+
+SPECIES_MAREANIE @ None
+Level: 17
 
 === TRAINER_CUE_BALL_RAUL ===
 Name: RAUL
@@ -42042,6 +43922,9 @@ SPECIES_SENTRET
 Level: 47
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_PUMPKABOO_AVERAGE @ None
+Level: 47
+
 === TRAINER_JOHTO_DON ===
 Name: Don
 Class: TRAINER_CLASS_BUG_CATCHER
@@ -42070,6 +43953,9 @@ SPECIES_PINECO
 Level: 48
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_TOEDSCOOL @ None
+Level: 48
+
 === TRAINER_JOHTO_JUSTIN ===
 Name: Justin
 Class: TRAINER_CLASS_FISHERMAN
@@ -42089,6 +43975,9 @@ Double Battle: No
 SPECIES_GOLDEEN
 Level: 52
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CRABRAWLER @ None
+Level: 52
 
 === TRAINER_JOHTO_HENRY ===
 Name: Henry
@@ -42118,6 +44007,9 @@ SPECIES_ZUBAT
 Level: 51
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_MASCHIFF @ None
+Level: 51
+
 === TRAINER_JOHTO_GORDON ===
 Name: Gordon
 Class: TRAINER_CLASS_YOUNGSTER
@@ -42137,6 +44029,9 @@ Double Battle: No
 SPECIES_NIDORAN_M
 Level: 53
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_STUFFUL @ None
+Level: 53
 
 === TRAINER_JOHTO_LIZ ===
 Name: Liz
@@ -42161,6 +44056,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_NATU
 Level: 52
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SPRITZEE @ None
+Level: 52
 
 === TRAINER_JOHTO_ANTHONY ===
 Name: Anthony
@@ -42194,6 +44092,9 @@ SPECIES_SPEAROW
 Level: 56
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_SWIRLIX @ None
+Level: 56
+
 === TRAINER_JOHTO_IAN ===
 Name: Ian
 Class: TRAINER_CLASS_YOUNGSTER
@@ -42217,6 +44118,9 @@ Double Battle: No
 SPECIES_AZUMARILL
 Level: 60
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PANCHAM @ None
+Level: 60
 
 === TRAINER_JOHTO_GINA ===
 Name: Gina
@@ -42242,6 +44146,9 @@ SPECIES_GROWLITHE
 Level: 61
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_GLIMMET @ None
+Level: 61
+
 === TRAINER_JOHTO_BRANDON ===
 Name: Brandon
 Class: TRAINER_CLASS_POKEFAN
@@ -42265,6 +44172,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_SEAKING
 Level: 70
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PAWMO @ None
+Level: 70
 
 === TRAINER_JOHTO_JENN ===
 Name: Jenn
@@ -42294,6 +44204,9 @@ SPECIES_CLOYSTER
 Level: 75
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_SKIDDO @ None
+Level: 75
+
 === TRAINER_JOHTO_IVAN ===
 Name: Ivan
 Class: TRAINER_CLASS_CAMPER
@@ -42322,6 +44235,9 @@ SPECIES_MARILL
 Level: 61
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_DOLLIV @ None
+Level: 61
+
 === TRAINER_JOHTO_BROOKE ===
 Name: Brooke
 Class: TRAINER_CLASS_PICNICKER
@@ -42341,6 +44257,9 @@ Double Battle: No
 SPECIES_VULPIX
 Level: 63
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ESPURR @ None
+Level: 63
 
 === TRAINER_JOHTO_BRYAN ===
 Name: Bryan
@@ -42378,6 +44297,9 @@ SPECIES_VOLTORB
 Level: 61
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_NACLSTACK @ None
+Level: 61
+
 === TRAINER_JOHTO_ARNIE ===
 Name: Arnie
 Class: TRAINER_CLASS_BUG_CATCHER
@@ -42405,6 +44327,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_MAGMAR
 Level: 60
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TRUMBEAK @ None
+Level: 60
 
 === TRAINER_JOHTO_DIRK ===
 Name: Dirk
@@ -42438,6 +44363,9 @@ SPECIES_KADABRA
 Level: 61
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_AMAURA @ None
+Level: 61
+
 === TRAINER_JOHTO_ALAN ===
 Name: Alan
 Class: TRAINER_CLASS_SCHOOL_KID
@@ -42466,6 +44394,9 @@ SPECIES_FURRET
 Level: 63
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_TYRUNT @ None
+Level: 63
+
 === TRAINER_JOHTO_GREG ===
 Name: Greg
 Class: TRAINER_CLASS_PSYCHIC
@@ -42489,6 +44420,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_DODUO
 Level: 68
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CORVISQUIRE @ None
+Level: 68
 
 === TRAINER_JOHTO_CHAD ===
 Name: Chad
@@ -42518,6 +44452,9 @@ SPECIES_PSYDUCK
 Level: 66
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_LITLEO @ None
+Level: 66
+
 === TRAINER_JOHTO_VALERIE ===
 Name: Valerie
 Class: TRAINER_CLASS_BEAUTY
@@ -42541,6 +44478,9 @@ Double Battle: No
 SPECIES_QUAGSIRE
 Level: 69
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_HATTREM @ None
+Level: 69
 
 === TRAINER_JOHTO_OLIVIA ===
 Name: Olivia
@@ -42566,6 +44506,9 @@ SPECIES_TAUROS
 Level: 68
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_MORGREM @ None
+Level: 68
+
 === TRAINER_JOHTO_DEREK ===
 Name: Derek
 Class: TRAINER_CLASS_POKEFAN
@@ -42590,6 +44533,9 @@ SPECIES_PIKACHU
 Level: 69
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_TINKATUFF @ None
+Level: 69
+
 === TRAINER_JOHTO_NORMAN ===
 Name: Norman
 Class: TRAINER_CLASS_PSYCHIC
@@ -42613,6 +44559,9 @@ Double Battle: No
 SPECIES_UMBREON
 Level: 66
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FLETCHINDER @ None
+Level: 66
 
 === TRAINER_JOHTO_SIMON ===
 Name: Simon
@@ -42642,6 +44591,9 @@ SPECIES_WARTORTLE
 Level: 71
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_MUDBRAY @ None
+Level: 71
+
 === TRAINER_JOHTO_ELAINE ===
 Name: Elaine
 Class: TRAINER_CLASS_SWIMMER_F
@@ -42665,6 +44617,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_SHELLDER
 Level: 72
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CHARJABUG @ None
+Level: 72
 
 === TRAINER_JOHTO_CHARLIE ===
 Name: Charlie
@@ -42698,6 +44653,9 @@ SPECIES_STARYU
 Level: 72
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_SPIDOPS @ None
+Level: 72
+
 === TRAINER_JOHTO_BERKE ===
 Name: Berke
 Class: TRAINER_CLASS_SWIMMER_M
@@ -42721,6 +44679,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_GYARADOS
 Level: 70
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FROGADIER @ None
+Level: 70
 
 === TRAINER_JOHTO_MATHEW ===
 Name: Mathew
@@ -42754,6 +44715,9 @@ SPECIES_QUAGSIRE
 Level: 70
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_SIZZLIPEDE @ None
+Level: 70
+
 === TRAINER_JOHTO_SUSIE ===
 Name: Susie
 Class: TRAINER_CLASS_SWIMMER_F
@@ -42777,6 +44741,9 @@ Double Battle: No
 SPECIES_LAPRAS
 Level: 74
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TANDEMAUS @ None
+Level: 74
 
 === TRAINER_JOHTO_KARA ===
 Name: Kara
@@ -42806,6 +44773,9 @@ SPECIES_SEADRA
 Level: 74
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_BINACLE @ None
+Level: 74
+
 === TRAINER_JOHTO_TULLY ===
 Name: Tully
 Class: TRAINER_CLASS_FISHERMAN
@@ -42829,6 +44799,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_DUGTRIO
 Level: 70
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FENNEKIN @ None
+Level: 70
 
 === TRAINER_JOHTO_SHANE ===
 Name: Shane
@@ -42858,6 +44831,9 @@ SPECIES_WARTORTLE
 Level: 72
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_POLTCHAGEIST_COUNTERFEIT @ None
+Level: 72
+
 === TRAINER_JOHTO_BRENT ===
 Name: Brent
 Class: TRAINER_CLASS_POKEMANIAC
@@ -42886,6 +44862,9 @@ SPECIES_CHARMELEON
 Level: 72
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_SINISTEA_PHONY @ None
+Level: 72
+
 === TRAINER_JOHTO_MARVIN ===
 Name: Marvin
 Class: TRAINER_CLASS_FISHERMAN
@@ -42913,6 +44892,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_GOLBAT
 Level: 71
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PHANTUMP @ None
+Level: 71
 
 === TRAINER_JOHTO_TIFFANY ===
 Name: Tiffany
@@ -42945,6 +44927,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_SEAKING
 Level: 84
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CLOBBOPUS @ None
+Level: 86
 
 === TRAINER_JOHTO_EDGAR ===
 Name: Edgar
@@ -42986,6 +44971,9 @@ SPECIES_SKARMORY
 Level: 85
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_FUECOCO @ None
+Level: 85
+
 === TRAINER_JOHTO_PHIL ===
 Name: Phil
 Class: TRAINER_CLASS_PSYCHIC
@@ -43022,6 +45010,9 @@ SPECIES_HERACROSS
 Level: 86
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_GROOKEY @ None
+Level: 89
+
 === TRAINER_JOHTO_ALLEN ===
 Name: Allen
 Class: TRAINER_CLASS_COOLTRAINER
@@ -43053,6 +45044,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_QUAGSIRE
 Level: 86
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_QUAXLY @ None
+Level: 89
 
 === TRAINER_JOHTO_ERIK ===
 Name: Erik
@@ -43089,6 +45083,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_GOLEM
 Level: 86
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SCORBUNNY @ None
+Level: 86
 
 === TRAINER_JOHTO_PARRY ===
 Name: Parry
@@ -43130,6 +45127,9 @@ SPECIES_DUGTRIO
 Level: 86
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_SOBBLE @ None
+Level: 87
+
 === TRAINER_JOHTO_KENJI ===
 Name: Kenji
 Class: TRAINER_CLASS_BLACK_BELT
@@ -43169,6 +45169,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_MAGMAR
 Level: 85
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SPRIGATITO @ None
+Level: 85
 
 === TRAINER_JOHTO_KELLY ===
 Name: Kelly
@@ -43214,6 +45217,9 @@ SPECIES_RAICHU
 Level: 86
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_FIDOUGH @ None
+Level: 86
+
 === TRAINER_JOHTO_BAILEY ===
 Name: Bailey
 Class: TRAINER_CLASS_HIKER
@@ -43258,6 +45264,9 @@ SPECIES_NIDOKING
 Level: 89
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_CHESPIN @ None
+Level: 89
+
 === TRAINER_JOHTO_ERIN ===
 Name: Erin
 Class: TRAINER_CLASS_PICNICKER
@@ -43298,6 +45307,9 @@ SPECIES_DUDUNSPARCE
 Level: 74
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_FROAKIE @ None
+Level: 74
+
 === TRAINER_JOHTO_GRANT ===
 Name: Grant
 Class: TRAINER_CLASS_CAMPER
@@ -43325,6 +45337,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_MAGMAR
 Level: 72
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FINIZEN @ None
+Level: 72
 
 === TRAINER_JOHTO_DUFF_AND_EDA ===
 Name: Duff & Eda
@@ -43365,6 +45380,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_JOLTEON
 Level: 94
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SILICOBRA @ None
+Level: 97
 
 === TRAINER_JOHTO_GAVEN ===
 Name: Gaven
@@ -43418,6 +45436,9 @@ SPECIES_JUMPLUFF
 Level: 94
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_FRIGIBAX @ None
+Level: 95
+
 === TRAINER_JOHTO_RICHARD ===
 Name: Richard
 Class: TRAINER_CLASS_PSYCHIC
@@ -43457,6 +45478,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_PILOSWINE
 Level: 93
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_LITTEN @ None
+Level: 93
 
 === TRAINER_JOHTO_BRIAN ===
 Name: Brian
@@ -43506,6 +45530,9 @@ SPECIES_STARMIE
 Level: 94
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_POPPLIO @ None
+Level: 94
+
 === TRAINER_JOHTO_MEGAN ===
 Name: Megan
 Class: TRAINER_CLASS_COOLTRAINER
@@ -43545,6 +45572,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_GIRAFARIG
 Level: 93
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ROWLET @ None
+Level: 93
 
 === TRAINER_JOHTO_JOSE ===
 Name: Jose
@@ -43590,6 +45620,9 @@ SPECIES_QUAGSIRE
 Level: 92
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_SALANDIT @ None
+Level: 94
+
 === TRAINER_JOHTO_ERIC ===
 Name: Eric
 Class: TRAINER_CLASS_SUPER_NERD_FRLG
@@ -43622,6 +45655,9 @@ SPECIES_PORYGON
 Level: 59
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_SANDYGAST @ None
+Level: 59
+
 === TRAINER_JOHTO_ISSAC ===
 Name: Issac
 Class: TRAINER_CLASS_POKEMANIAC
@@ -43645,6 +45681,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_SLOWPOKE
 Level: 60
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SKRELP @ None
+Level: 60
 
 === TRAINER_JOHTO_GRUNT_10 ===
 Name: Grunt
@@ -43674,6 +45713,9 @@ SPECIES_ARBOK
 Level: 85
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_HONEDGE @ None
+Level: 85
+
 === TRAINER_JOHTO_DUNCAN ===
 Name: Duncan
 Class: TRAINER_CLASS_BURGLAR_FRLG
@@ -43701,6 +45743,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_WEEZING
 Level: 83
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CLAUNCHER @ None
+Level: 83
 
 === TRAINER_JOHTO_GRUNT_11 ===
 Name: Grunt
@@ -43738,6 +45783,9 @@ SPECIES_MURKROW
 Level: 84
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_CUFANT @ None
+Level: 84
+
 === TRAINER_JOHTO_GRUNT_19 ===
 Name: Grunt
 Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
@@ -43765,6 +45813,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_HYPNO
 Level: 83
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CETODDLE @ None
+Level: 85
 
 === TRAINER_JOHTO_ETO_3 ===
 Name: Eto
@@ -43802,6 +45853,9 @@ SPECIES_GRIMER
 Level: 66
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_DOTTLER @ None
+Level: 66
+
 === TRAINER_JOHTO_NATHAN ===
 Name: Nathan
 Class: TRAINER_CLASS_PSYCHIC
@@ -43826,6 +45880,9 @@ SPECIES_CUBONE
 Level: 52
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_PUMPKABOO_AVERAGE @ None
+Level: 53
+
 === TRAINER_JOHTO_LARRY ===
 Name: Larry
 Class: TRAINER_CLASS_POKEMANIAC
@@ -43846,6 +45903,9 @@ SPECIES_ONIX
 Level: 55
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_TOEDSCOOL @ None
+Level: 55
+
 === TRAINER_JOHTO_BILL ===
 Name: Bill
 Class: TRAINER_CLASS_KINDLER
@@ -43865,6 +45925,9 @@ Double Battle: No
 SPECIES_VULPIX
 Level: 53
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CRABRAWLER @ None
+Level: 53
 
 === TRAINER_JOHTO_PHILLIP ===
 Name: Phillip
@@ -43898,6 +45961,9 @@ SPECIES_MACHOP
 Level: 71
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_MASCHIFF @ None
+Level: 71
+
 === TRAINER_JOHTO_ANDREW ===
 Name: Andrew
 Class: TRAINER_CLASS_POKEMANIAC
@@ -43921,6 +45987,9 @@ Double Battle: No
 SPECIES_KANGASKHAN
 Level: 72
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_STUFFUL @ None
+Level: 72
 
 === TRAINER_JOHTO_NICK ===
 Name: Nick
@@ -43962,6 +46031,9 @@ SPECIES_JOLTEON
 Level: 71
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_SPRITZEE @ None
+Level: 72
+
 === TRAINER_JOHTO_EMMA ===
 Name: Emma
 Class: TRAINER_CLASS_COOLTRAINER
@@ -43985,6 +46057,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_ODDISH
 Level: 60
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SWIRLIX @ None
+Level: 60
 
 === TRAINER_JOHTO_JACK ===
 Name: Jack
@@ -44010,6 +46085,9 @@ SPECIES_SNUBBULL
 Level: 66
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_PANCHAM @ None
+Level: 66
+
 === TRAINER_JOHTO_WILLIAM ===
 Name: William
 Class: TRAINER_CLASS_POKEFAN
@@ -44033,6 +46111,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_CUBONE
 Level: 61
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GLIMMET @ None
+Level: 62
 
 === TRAINER_JOHTO_MILLER ===
 Name: Miller
@@ -44058,6 +46139,9 @@ SPECIES_SLOWPOKE
 Level: 64
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_PAWMO @ None
+Level: 64
+
 === TRAINER_JOHTO_HUGH ===
 Name: Hugh
 Class: TRAINER_CLASS_SUPER_NERD_FRLG
@@ -44077,6 +46161,9 @@ Double Battle: No
 SPECIES_GYARADOS
 Level: 74
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SKIDDO @ None
+Level: 74
 
 === TRAINER_JOHTO_RAYMOND ===
 Name: Raymond
@@ -44105,6 +46192,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_WARTORTLE
 Level: 74
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DOLLIV @ None
+Level: 74
 
 === TRAINER_JOHTO_LOIS ===
 Name: Lois
@@ -44141,6 +46231,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_DRAGONAIR
 Level: 91
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ESPURR @ None
+Level: 91
 
 === TRAINER_JOHTO_CARA ===
 Name: Cara
@@ -44182,6 +46275,9 @@ SPECIES_GYARADOS
 Level: 91
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_NACLSTACK @ None
+Level: 91
+
 /*=== ACERVO JOHTO S.S. AQUA (import_ssaqua.py) ===
    Times portados de fontes-mapas/hns. Nada aqui foi escrito a mao: quem
    gera e dev_scripts/importa_treinadores_johto.py. Rodar de novo troca so
@@ -44219,6 +46315,9 @@ SPECIES_JYNX
 Level: 125
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_TRUMBEAK @ None
+Level: 125
+
 === TRAINER_JOHTO_CLYDE ===
 Name: Clyde
 Class: TRAINER_CLASS_GUITARIST
@@ -44238,6 +46337,9 @@ Double Battle: No
 SPECIES_DELIBIRD
 Level: 116
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_AMAURA @ None
+Level: 116
 
 === TRAINER_JOHTO_COREY ===
 Name: Corey
@@ -44271,6 +46373,9 @@ SPECIES_SEAKING
 Level: 119
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_TYRUNT @ None
+Level: 119
+
 === TRAINER_JOHTO_EDWARD ===
 Name: Edward
 Class: TRAINER_CLASS_GENTLEMAN
@@ -44294,6 +46399,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_RHYDON
 Level: 123
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CORVISQUIRE @ None
+Level: 123
 
 === TRAINER_JOHTO_FRITZ ===
 Name: Fritz
@@ -44322,6 +46430,9 @@ Double Battle: No
 SPECIES_KINGLER
 Level: 128
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_LITLEO @ None
+Level: 128
 
 === TRAINER_JOHTO_JEFF ===
 Name: Jeff
@@ -44359,6 +46470,9 @@ SPECIES_CLOYSTER
 Level: 120
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_HATTREM @ None
+Level: 120
+
 === TRAINER_JOHTO_KEN ===
 Name: Ken
 Class: TRAINER_CLASS_BUG_CATCHER
@@ -44395,6 +46509,9 @@ SPECIES_MACHAMP
 Level: 119
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_MORGREM @ None
+Level: 119
+
 === TRAINER_JOHTO_LYLE ===
 Name: Lyle
 Class: TRAINER_CLASS_KINDLER
@@ -44427,6 +46544,9 @@ SPECIES_DONPHAN
 Level: 113
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_TINKATUFF @ None
+Level: 113
+
 === TRAINER_JOHTO_NATE ===
 Name: Nate
 Class: TRAINER_CLASS_SCHOOL_KID
@@ -44454,6 +46574,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_GOLEM
 Level: 114
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FLETCHINDER @ None
+Level: 114
 
 === TRAINER_JOHTO_RICKY ===
 Name: Ricky
@@ -44487,6 +46610,9 @@ SPECIES_TAUROS
 Level: 122
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_MUDBRAY @ None
+Level: 122
+
 === TRAINER_JOHTO_SHIRLEY ===
 Name: Shirley
 Class: TRAINER_CLASS_EXPERT
@@ -44518,6 +46644,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_GOLDUCK
 Level: 113
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CHARJABUG @ None
+Level: 113
 
 === TRAINER_JOHTO_WAI ===
 Name: Wai
@@ -44565,6 +46694,9 @@ SPECIES_GENGAR
 Level: 94
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+SPECIES_SPIDOPS @ None
+Level: 94
+
 === TRAINER_JOHTO_GRUNT_4 ===
 Name: Grunt
 Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
@@ -44596,6 +46728,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_GLOOM
 Level: 83
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FROGADIER @ None
+Level: 83
 
 === TRAINER_JOHTO_GRUNT_8 ===
 Name: Grunt
@@ -45195,3 +47330,4 @@ Level: 255
 - MOVE_AQUA_TAIL
 - MOVE_MEGAHORN
 - MOVE_AQUA_JET
+
