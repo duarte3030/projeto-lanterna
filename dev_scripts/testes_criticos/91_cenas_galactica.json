@@ -3,18 +3,23 @@
     "id": "T91.1",
     "nome": "Sinnoh, bloco B6: o Mt. Coronet esta OCUPADO pela Equipe Galactica no caminho do Spear Pillar. Medido em 12/08/2026, antes deste conserto: MtCoronet1FTunnelRoom, 3F, 4FRooms1And2, 5F e 6F tinham ZERO object_events, e os sete grunts com constante e time proprios (1035 a 1041) nao estavam em mapa nenhum. Eles ficaram de fora porque `importa_npcs_sinnoh.py` recusa, de proposito, todo objeto do Platinum com `hidden_flag`, para nao plantar bloqueio permanente. Este caso prova o andar do topo, o ultimo antes do Spear Pillar: o warp 0 do 6F cai em (10,24), a coluna 10 e parede macica de y=22 a y=18 (medido na grade), entao o caminho unico e pela coluna 8, e a grunt esta em (10,15) virada para OESTE com raio de visao 6, ou seja ela enxerga a coluna 8 na linha 15. Dois LEFT levam a coluna 8 e onze UP atravessam a linha 15; onze e mais que os nove necessarios porque virar de LEFT para UP pode custar uma tecla (ESTADO.md, armadilha de 06/08/2026) e porque a batalha comeca no passo que termina em (8,15), nao no fim do roteiro. Cada UP vai escrito sozinho: 20:UP*11 repetiria quadros dentro do mesmo passo, e nao anda onze tiles. Prova por FAIXA (1035 a 1044, os grunts de Mt. Coronet) e nunca pelo nome da constante, licao 4.6.",
     "warp": "MAP_MT_CORONET_6F",
-    "roteiro": "120:NADA,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,300:NADA",
+    "roteiro": "120:NADA,20:UP*3,60:NADA,20:LEFT*5,60:NADA,20:UP*14,300:NADA",
     "prova": {
       "mapa": "MAP_MT_CORONET_6F",
-      "oponente_faixa": [1035, 1044]
+      "oponente_faixa": [
+        1035,
+        1044
+      ]
     }
   },
   {
     "id": "T91.2",
     "nome": "Sinnoh, bloco B6: a mesma subida do T91.1, com FLAG_GALACTICA_MT_CORONET acesa, nao encontra ninguem. E o par obrigatorio do T91.1, e e ele que prova o ACEITE do B6: a cena tem que DESFAZER o bloqueio que criou. A flag e o campo `flag` dos onze objetos da cena, e `src/event_object_movement.c:2882` so cria o objeto quando `!FlagGet(flagId)`; quem a acende no jogo e o MAP_SCRIPT_ON_TRANSITION de cada um dos cinco andares, que le a flag de derrotado do TRAINER_SINNOH_GALACTIC_BOSS_CYRUS_SPEAR_PILLAR que o motor ja grava. Aqui a flag e escrita direto na EWRAM, que e o mesmo estado do mundo depois do Cyrus cair. Sem este caso, o T91.1 passaria igual se a grunt fosse eterna, e a montanha ficaria patrulhada para sempre depois do fim da historia.",
-    "flags": ["FLAG_GALACTICA_MT_CORONET"],
+    "flags": [
+      "FLAG_GALACTICA_MT_CORONET"
+    ],
     "warp": "MAP_MT_CORONET_6F",
-    "roteiro": "120:NADA,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,300:NADA",
+    "roteiro": "120:NADA,20:UP*3,60:NADA,20:LEFT*5,60:NADA,20:UP*14,300:NADA",
     "prova": {
       "mapa": "MAP_MT_CORONET_6F",
       "oponente": 0
@@ -27,13 +32,18 @@
     "roteiro": "120:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,300:NADA",
     "prova": {
       "mapa": "MAP_GALACTIC_HQ_1F",
-      "oponente_faixa": [1166, 1166]
+      "oponente_faixa": [
+        1166,
+        1166
+      ]
     }
   },
   {
     "id": "T91.4",
     "nome": "Sinnoh, bloco B6: o mesmo caminho do T91.3, com FLAG_GALACTICA_QG_TOMADO acesa, atravessa o saguao sem batalha. Par do T91.3 e prova do aceite: no jogo quem acende essa flag e o ON_TRANSITION do 1F e do 2F, lendo a derrota do TRAINER_SINNOH_COMMANDER_SATURN_GALACTIC_HQ, que e o mesmo marco que o resto do QG ja consulta com goto_if_defeated. Depois do Saturn o predio esvazia, como no Platinum.",
-    "flags": ["FLAG_GALACTICA_QG_TOMADO"],
+    "flags": [
+      "FLAG_GALACTICA_QG_TOMADO"
+    ],
     "warp": "MAP_GALACTIC_HQ_1F",
     "roteiro": "120:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,300:NADA",
     "prova": {
@@ -48,13 +58,18 @@
     "roteiro": "120:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,300:NADA",
     "prova": {
       "mapa": "MAP_TEAM_GALACTIC_ETERNA_BUILDING_3F",
-      "oponente_faixa": [1169, 1169]
+      "oponente_faixa": [
+        1169,
+        1169
+      ]
     }
   },
   {
     "id": "T91.6",
     "nome": "Sinnoh, bloco B6: o mesmo corredor do T91.5, com FLAG_GALACTICA_ETERNA acesa, esta vazio. Par do T91.5. Esta flag NAO e nova: existe desde 04/08/2026 e ja era acesa por EternaCity_OnTransition ao ler a derrota da TRAINER_SINNOH_COMMANDER_JUPITER_ETERNA_BUILDING; o que mudou em 12/08/2026 e que o proprio 3F passou a ter o mesmo ON_TRANSITION, para o predio esvaziar sem depender de o jogador voltar a pisar na rua de Eterna primeiro.",
-    "flags": ["FLAG_GALACTICA_ETERNA"],
+    "flags": [
+      "FLAG_GALACTICA_ETERNA"
+    ],
     "warp": "MAP_TEAM_GALACTIC_ETERNA_BUILDING_3F",
     "roteiro": "120:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,300:NADA",
     "prova": {

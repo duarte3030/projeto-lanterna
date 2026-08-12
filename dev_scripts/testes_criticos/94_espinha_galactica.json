@@ -4,16 +4,21 @@
     "nome": "Sinnoh, bloco B6: o grunt da Galactica em CELESTIC TOWN existe, cobra a batalha e e o id 2500. Medido em 12/08/2026, antes desta leva: os tres objetos da cena (grunt, anciao e Cynthia) nao estavam no mapa, e a constante do grunt nao existia em opponents.h; o mapa tinha tres NPCs de rua e mais nada. ROTEIRO: o warp 2 e a porta da casa noroeste, em (2,15), e e o unico ponto de partida CURTO ate a praca das ruinas: a partir dele sao quatro corridas contra as 12 do warp 0 (medido com busca em largura sobre a grade de colisao). Um DOWN sem custo de virada (depois de warp de debug o jogador NAO gasta tecla para virar, armadilha do T84.2), depois 3 RIGHT para dois tiles, 7 UP para seis, e 18 RIGHT para os doze que faltam: o excedente e absorvido pelo proprio grunt, que e objeto solido em (17,10). Cada tecla vai escrita sozinha; 20:RIGHT*18 repetiria quadros dentro do mesmo passo e nao andaria dezoito tiles. Os A do fim atravessam o menu de sim/nao da fala dele: em pokeemerald o cursor comeca em SIM, entao apertar A aceita a briga, que e o ramo que este caso quer. Prova por FAIXA (2500 a 2519, a faixa exclusiva desta frente) e nunca pelo nome da constante, licao 4.6.",
     "warp": "MAP_CELESTIC_TOWN",
     "warp_id": 2,
-    "roteiro": "120:NADA,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+    "roteiro": "120:NADA,20:RIGHT*8,60:NADA,20:UP*7,60:NADA,20:RIGHT*20,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
     "prova": {
       "mapa": "MAP_CELESTIC_TOWN",
-      "oponente_faixa": [2500, 2519]
+      "oponente_faixa": [
+        2500,
+        2519
+      ]
     }
   },
   {
     "id": "T94.2",
     "nome": "Sinnoh, bloco B6: o mesmo caminho do T92.1, com FLAG_GALACTICA_CELESTIC acesa, nao encontra ninguem na praca das ruinas. Par obrigatorio do T92.1, e e ele que prova o ACEITE do B6 nesta cena: a mesma flag que a derrota do grunt acende e a que o faz sumir, junto com os seis do show da Rota 218. Sem este caso o T92.1 passaria igual se o grunt fosse eterno, e a cena viraria parede. Observacao de leitura: aqui o excedente de RIGHT NAO e mais absorvido pelo grunt (ele nao existe), entao o jogador termina mais a leste; por isso a prova e o oponente ZERO e o mapa, nunca a coordenada.",
-    "flags": ["FLAG_GALACTICA_CELESTIC"],
+    "flags": [
+      "FLAG_GALACTICA_CELESTIC"
+    ],
     "warp": "MAP_CELESTIC_TOWN",
     "warp_id": 2,
     "roteiro": "120:NADA,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
@@ -25,18 +30,32 @@
   {
     "id": "T94.3",
     "nome": "Sinnoh, bloco B6: a Comandante MARS esta na margem do Lago Verity e batalha com o id 2501. As quatro flags escritas na EWRAM sao as de treinador derrotado dos quatro grunts do lago (TRAINER_FLAGS_START 0x500 mais o id: 0x907 a 0x90A, ids 1031 a 1034), e elas NAO sao enfeite: os quatro tem raio de visao 4 e ficam em (37,32), (35,36), (37,33) e (35,37), ou seja em cima do caminho, e sem apaga-los a batalha que este caso mede seria a deles. ROTEIRO: o warp 0 cai em (38,43); nove UP (sem custo de virada, T84.2) chegam em (38,34), tres LEFT levam a (36,34) contando a virada, e seis UP sobem os dois que faltam com o excedente absorvido pela propria Mars, que e solida em (36,32). A Mars NAO esta na coordenada da fonte: (55,38) e coordenada GLOBAL da matriz do Platinum e converte para (47,0), o canto do mapa, a trinta tiles dos grunts dela; foi posta em (36,32), encostada no grunt 1, que e a posicao RELATIVA que a cena precisa.",
-    "flags": ["0x907", "0x908", "0x909", "0x90A"],
+    "flags": [
+      "0x907",
+      "0x908",
+      "0x909",
+      "0x90A"
+    ],
     "warp": "MAP_LAKE_VERITY",
-    "roteiro": "120:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+    "roteiro": "120:NADA,20:UP*9,60:NADA,20:LEFT*3,60:NADA,20:UP*6,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
     "prova": {
       "mapa": "MAP_LAKE_VERITY",
-      "oponente_faixa": [2500, 2519]
+      "oponente_faixa": [
+        2500,
+        2519
+      ]
     }
   },
   {
     "id": "T94.4",
     "nome": "Sinnoh, bloco B6: o mesmo caminho do T92.3, com FLAG_GALACTICA_LAGO_VERITY acesa, atravessa a margem vazia. Par do T92.3. Esta flag e a que a derrota da Mars acende, e ela nao esconde so a Mars: os quatro grunts que ja moravam neste mapa passaram a carrega-la no campo `flag`, entao a Galactica INTEIRA sai do lago de uma vez, como em scripts_lake_verity.s:200 em diante do Platinum. As quatro flags de treinador derrotado continuam sendo escritas aqui de proposito: sem elas o caso passaria por um motivo errado (os grunts escondidos nao lutam, mas eu quero que o caso continue medindo a mesma coisa que o T92.3 media).",
-    "flags": ["FLAG_GALACTICA_LAGO_VERITY", "0x907", "0x908", "0x909", "0x90A"],
+    "flags": [
+      "FLAG_GALACTICA_LAGO_VERITY",
+      "0x907",
+      "0x908",
+      "0x909",
+      "0x90A"
+    ],
     "warp": "MAP_LAKE_VERITY",
     "roteiro": "120:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
     "prova": {
@@ -47,12 +66,16 @@
   {
     "id": "T94.5",
     "nome": "Sinnoh, bloco B6: a cutscene do LAGO ACUITY dispara sozinha ao chegar na boca da caverna, e ela se fecha. A flag escrita na EWRAM e a de MARS derrotada (0x500 + 2501 = 0xEC5), que e o marco que o ON_TRANSITION do mapa le para fazer a Jupiter e o rival nascerem; sem ela os dois nao existem, porque FLAG_ESCONDE_LAGO_ACUITY nasce ACESA em EventScript_ResetAllMapFlags. O gatilho e um coord_event em (23,30) com VAR_TEMP_0 e valor 0 (o motor zera os VAR_TEMP_* a cada entrada de mapa, entao ele esta sempre valendo; quem lembra que a cena ja rodou e a flag la dentro, tecnica 1 do SINNOH-PADRAO.md). (23,30) e o UNICO tile de acesso a boca da caverna em (23,29): medido na grade, as colunas 20 a 26 sao rocha macica nas linhas 26 a 28 e a linha 29 so abre em x=23, entao quem for a caverna PISA nele e nao ha caminho que o contorne. ROTEIRO: o warp 0 cai em (24,24); um DOWN sem custo de virada, quatro RIGHT para tres tiles, seis DOWN para cinco e seis LEFT para os quatro que faltam. A PROVA e a flag do fim da cena, nao o mapa: cena que roda ate o fim e cena que acende FLAG_GALACTICA_ACUITY_VISTO.",
-    "flags": ["0xEC5"],
+    "flags": [
+      "0xEC5"
+    ],
     "warp": "MAP_LAKE_ACUITY",
     "roteiro": "120:NADA,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
     "prova": {
       "mapa": "MAP_LAKE_ACUITY",
-      "flags_acesas": ["FLAG_GALACTICA_ACUITY_VISTO"]
+      "flags_acesas": [
+        "FLAG_GALACTICA_ACUITY_VISTO"
+      ]
     }
   },
   {
@@ -62,16 +85,20 @@
     "roteiro": "120:NADA,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
     "prova": {
       "mapa": "MAP_LAKE_ACUITY",
-      "flags_apagadas": ["FLAG_GALACTICA_ACUITY_VISTO"]
+      "flags_apagadas": [
+        "FLAG_GALACTICA_ACUITY_VISTO"
+      ]
     }
   },
   {
     "id": "T94.7",
     "nome": "Sinnoh, bloco B6: o rival de CANALAVE abre a batalha do ramo do TURTWIG quando VAR_STARTER_MON e 0. Este caso e o T92.8 sao o par que prova a coisa mais delicada desta leva: o rival tem TRES times, um por inicial do jogador, e quem escolhe e um `switch VAR_STARTER_MON` no script dele. O nome de cada constante e o inicial DO JOGADOR e nao o do rival, conferido bloco a bloco em trainers.party: o ramo TURTWIG (2502) tem Infernape de ace, fogo batendo grama. A var 0x4023 e VAR_STARTER_MON, escrita pelo laboratorio do Rowan em data/maps/SandgemTown_RowanLab/scripts.inc desde 05/08/2026 com 0, 1 e 2; o comentario do rival de JOHTO que diz que ela nao e escrita esta VELHO e aponta para outro arquivo. ROTEIRO: o warp 4 e a porta da biblioteca, em (7,17), a dois tiles do rival; dois DOWN sem custo de virada e cinco LEFT para os dois que faltam, com o excedente absorvido pelo proprio rival, solido em (5,19). A prova e por VALOR EXATO do oponente, e nao por faixa, porque a faixa nao distinguiria os tres ramos, que e justamente o que este caso mede.",
-    "vars": {"0x4023": 0},
+    "vars": {
+      "0x4023": 0
+    },
     "warp": "MAP_CANALAVE_CITY",
     "warp_id": 4,
-    "roteiro": "120:NADA,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+    "roteiro": "120:NADA,20:DOWN,20:LEFT*8,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
     "prova": {
       "mapa": "MAP_CANALAVE_CITY",
       "oponente": 2502
@@ -80,10 +107,12 @@
   {
     "id": "T94.8",
     "nome": "Sinnoh, bloco B6: o MESMO rival, o MESMO roteiro, com VAR_STARTER_MON em 2, abre a batalha do ramo do PIPLUP (2504), que tem Torterra de ace, grama batendo agua. Par do T92.7, e sem ele o T92.7 passaria igual se o `switch` estivesse quebrado e o script caisse sempre no mesmo ramo: um caso so prova que ALGUMA batalha comeca, dois provam que o ramo obedece a var. O ramo do meio (CHIMCHAR, 2503, ace Empoleon) fica sem caso proprio de proposito: ele e o `case 1` entre os dois extremos ja provados, e caso de teste que nao acrescenta risco novo e caso que so custa tempo de bateria.",
-    "vars": {"0x4023": 2},
+    "vars": {
+      "0x4023": 2
+    },
     "warp": "MAP_CANALAVE_CITY",
     "warp_id": 4,
-    "roteiro": "120:NADA,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+    "roteiro": "120:NADA,20:DOWN,20:LEFT*8,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
     "prova": {
       "mapa": "MAP_CANALAVE_CITY",
       "oponente": 2504
