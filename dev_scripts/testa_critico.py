@@ -58,6 +58,8 @@ Formato de um caso
      "flags_acesas": ["FLAG_..."],          # cada uma tem que estar em 1
      "flags_apagadas": ["FLAG_..."],
      "vars": {"0x4001": 3},
+     "palobj_presentes": ["0x32B9"],        # cor de 15 bits presente na PLTT OBJ
+                                            # (prova que a palette do sprite carregou)
      "mapa_grupo": 79                       # quando só o grupo importa (região)
   }
 }
@@ -369,7 +371,7 @@ LINHA_ESTADO = re.compile(r"^ESTADO (\S+) (.*)$")
 
 
 def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=None,
-         offsets=None):
+         offsets=None, palobj_lidas=()):
     os.makedirs(SAIDA, exist_ok=True)
     for f in glob.glob(f"{SAIDA}/{prefixo}-*.png"):
         os.remove(f)
@@ -386,6 +388,8 @@ def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=Non
         cmd += ["--flag", hex(f)]
     for v in vars_lidas:
         cmd += ["--var", hex(v)]
+    for c in palobj_lidas:
+        cmd += ["--palobj", hex(c)]
     if sav:
         cmd += ["--sav", sav]
     p = subprocess.run(cmd, capture_output=True, text=True, timeout=900)
@@ -554,6 +558,20 @@ def confere(caso, estados, por_nome, por_id, tabela_flags, layouts, treinadores=
         chave = f"var_{hex(int(var, 0)).upper().replace('0X', '0x')}"
         if final.get(chave) != val:
             falhas.append(f"var {var} vale {final.get(chave)}, esperado {val}")
+
+    # Prova do caso dos NPCs verdes de Kanto (12/08/2026): as palettes FRLG
+    # (NPC_WHITE, NPC_GREEN etc.) existiam na ROM mas nunca eram registradas,
+    # porque a tabela sObjectEventSpritePalettes ficou presa num #if IS_FRLG
+    # quando os graficos foram destravados. O sprite desenhava com a palette
+    # de outro dono e nenhum teste via, porque a suite so lia EWRAM. A cor de
+    # 15 bits vem lida da PLTT OBJ pelo runner, entao continua sendo fato de
+    # memoria, nao pixel.
+    for cor in prova.get("palobj_presentes", []):
+        chave = f"palobj_0x{int(cor, 0):04X}"
+        if final.get(chave) != 1:
+            falhas.append(f"cor {cor} ausente das palettes OBJ carregadas: a "
+                          f"palette do sprite nao foi registrada (runner velho? "
+                          f"recompile dev_scripts/gba_runner.c)")
 
     return falhas
 
@@ -776,12 +794,13 @@ def main():
         flags_lidas = [num_flag(n, tabela_flags)
                        for n in prova.get("flags_acesas", []) + prova.get("flags_apagadas", [])]
         vars_lidas = [int(v, 0) for v in prova.get("vars", {})]
+        palobj_lidas = [int(c, 0) for c in prova.get("palobj_presentes", [])]
         try:
             roteiro = monta_roteiro(caso, por_nome, tabela_flags)
             estados = roda(rom_do_caso, simbolos_do_caso, roteiro,
                            caso["id"].replace(".", "_"),
                            flags_lidas, vars_lidas, caso.get("sav"),
-                           offsets_do_caso)
+                           offsets_do_caso, palobj_lidas)
             falhas = confere(caso, estados, por_nome, por_id, tabela_flags, layouts,
                              treinadores)
         except Exception as e:                                  # noqa: BLE001

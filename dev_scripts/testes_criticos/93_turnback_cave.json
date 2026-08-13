@@ -1,112 +1,104 @@
 [
-  {
-    "id": "T93.1",
-    "nome": "A porta da TURNBACK CAVE ENTRANCE leva a uma sala SORTEADA, e a sala e valida. No Platinum nenhuma das 21 salas e destino de warp estatico: quem escolhe e ScrCmd_InitTurnbackCave (src/scrcmd.c:6089), que reescreve o destino das portas ao entrar. Aqui a porta e warp MAP_DYNAMIC e o ON_TRANSITION roda o sorteio, entao este caso prova a peca que faltava para o bloco B1.b inteiro. Com zero pilares vistos so podem sair os seis quartos do nivel 1 ou a sala do pilar; qualquer outro mapa e sorteio errado",
-    "warp": "MAP_TURNBACK_CAVE_ENTRANCE",
-    "warp_id": 4,
-    "roteiro": "120:NADA,16:UP,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:RIGHT,16:RIGHT,16:RIGHT,16:UP,16:UP,16:UP,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,120:NADA,16:DOWN,16:DOWN,16:LEFT,16:RIGHT,16:DOWN,240:NADA",
-    "prova": {
-      "mapa_um_de": [
-        "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_1",
-        "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_2",
-        "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_3",
-        "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_4",
-        "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_5",
-        "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_6",
-        "MAP_TURNBACK_CAVE_PILLAR_ROOM"
-      ],
-      "andou": true
-    }
-  },
-  {
-    "id": "T93.2",
-    "nome": "O contador de salas anda. A entrada zera as duas vars e a sala soma uma, que e o roomsVisited do Platinum; sem ele a regra de expulsao aos 30 nunca dispara e o jogador fica preso no labirinto para sempre",
-    "warp": "MAP_TURNBACK_CAVE_ENTRANCE",
-    "warp_id": 4,
-    "roteiro": "120:NADA,16:UP,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:RIGHT,16:RIGHT,16:RIGHT,16:UP,16:UP,16:UP,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,120:NADA,16:DOWN,16:DOWN,16:LEFT,16:RIGHT,16:DOWN,240:NADA",
-    "prova": {
-      "vars": {
-        "0x41C1": 1
-      },
-      "mapa_um_de": [
-        "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_1",
-        "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_2",
-        "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_3",
-        "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_4",
-        "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_5",
-        "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_6",
-        "MAP_TURNBACK_CAVE_PILLAR_ROOM"
-      ]
-    }
-  },
-  {
-    "id": "T93.3",
-    "nome": "De uma sala se vai para OUTRA sala, e o contador soma de novo. Este e o caso que separa 'a entrada funciona' de 'o labirinto funciona': as portas da sala tambem sao MAP_DYNAMIC e dependem do ON_TRANSITION dela, nao do da entrada",
-    "warp": "MAP_TURNBACK_CAVE_ENTRANCE",
-    "warp_id": 4,
-    "roteiro": "120:NADA,16:UP,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:RIGHT,16:RIGHT,16:RIGHT,16:UP,16:UP,16:UP,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,180:NADA,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,240:NADA",
-    "prova": {
-      "vars": {
-        "0x41C1": 2
-      },
-      "mapa_um_de": [
-        "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_1",
-        "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_2",
-        "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_3",
-        "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_4",
-        "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_5",
-        "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_6",
-        "MAP_TURNBACK_CAVE_PILLAR_2_ROOM_1",
-        "MAP_TURNBACK_CAVE_PILLAR_2_ROOM_2",
-        "MAP_TURNBACK_CAVE_PILLAR_2_ROOM_3",
-        "MAP_TURNBACK_CAVE_PILLAR_2_ROOM_4",
-        "MAP_TURNBACK_CAVE_PILLAR_2_ROOM_5",
-        "MAP_TURNBACK_CAVE_PILLAR_2_ROOM_6",
-        "MAP_TURNBACK_CAVE_PILLAR_3_ROOM_1",
-        "MAP_TURNBACK_CAVE_PILLAR_3_ROOM_2",
-        "MAP_TURNBACK_CAVE_PILLAR_3_ROOM_3",
-        "MAP_TURNBACK_CAVE_PILLAR_3_ROOM_4",
-        "MAP_TURNBACK_CAVE_PILLAR_3_ROOM_5",
-        "MAP_TURNBACK_CAVE_PILLAR_3_ROOM_6",
-        "MAP_TURNBACK_CAVE_PILLAR_ROOM"
-      ]
-    }
-  },
-  {
-    "id": "T93.4",
-    "nome": "A regra de EXPULSAO: com 29 salas ja visitadas, a proxima porta devolve o jogador para a entrada. E a regra 2 do scrcmd (roomsVisited >= 30), e ela e a unica coisa que garante que o labirinto termina. A var e forcada pelo runner porque andar 30 salas de verdade num teste seria roteiro de mil quadros",
-    "vars": {
-      "0x41C1": 29
-    },
-    "warp": "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_1",
-    "warp_id": 0,
-    "roteiro": "16:DOWN,16:UP,16:UP,240:NADA",
-    "prova": {
-      "mapa": "MAP_TURNBACK_CAVE_ENTRANCE"
-    }
-  },
-  {
-    "id": "T93.5",
-    "nome": "A regra da GIRATINA: com tres pilares vistos, a proxima porta leva a sala dela. E a regra 1 do scrcmd (pillarsSeen >= 3), e sem ela as 20 salas seriam um labirinto sem premio no fim",
-    "vars": {
-      "0x41C0": 3
-    },
-    "warp": "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_1",
-    "warp_id": 0,
-    "roteiro": "16:DOWN,16:UP,16:UP,240:NADA",
-    "prova": {
-      "mapa": "MAP_TURNBACK_CAVE_GIRATINA_ROOM"
-    }
-  },
-  {
-    "id": "T93.6",
-    "nome": "A saida ESTATICA da entrada para o SENDOFF SPRING continua funcionando depois de as outras quatro portas virarem MAP_DYNAMIC. Este caso existe porque a troca mexeu num mapa que ja estava na ROM: se o warp 4 tivesse sido arrastado junto, o jogador entraria na Turnback Cave e nunca mais sairia dela a pe",
-    "warp": "MAP_TURNBACK_CAVE_ENTRANCE",
-    "warp_id": 4,
-    "roteiro": "16:UP,16:DOWN,16:DOWN,240:NADA",
-    "prova": {
-      "mapa": "MAP_SENDOFF_SPRING",
-      "layout": "LAYOUT_SENDOFFSPRING"
-    }
+ {
+  "id": "T93.1",
+  "nome": "A porta da TURNBACK CAVE ENTRANCE leva a uma sala SORTEADA, e a sala e valida. No Platinum nenhuma das 21 salas e destino de warp estatico: quem escolhe e ScrCmd_InitTurnbackCave (src/scrcmd.c:6089), que reescreve o destino das portas ao entrar. Aqui a porta e warp MAP_DYNAMIC e o ON_TRANSITION roda o sorteio, entao este caso prova a peca que faltava para o bloco B1.b inteiro. Com zero pilares vistos so podem sair os seis quartos do nivel 1 ou a sala do pilar; qualquer outro mapa e sorteio errado",
+  "warp": "MAP_TURNBACK_CAVE_ENTRANCE",
+  "warp_id": 4,
+  "roteiro": "120:NADA,16:UP,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:RIGHT,16:RIGHT,16:RIGHT,16:UP,16:UP,16:UP,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,120:NADA,16:DOWN,16:DOWN,16:LEFT,16:RIGHT,16:DOWN,240:NADA",
+  "prova": {
+   "mapa_um_de": [
+    "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_1",
+    "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_2",
+    "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_3",
+    "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_4",
+    "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_5",
+    "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_6",
+    "MAP_TURNBACK_CAVE_PILLAR_ROOM"
+   ],
+   "andou": true
   }
+ },
+ {
+  "id": "T93.2",
+  "nome": "O contador de salas anda. A entrada zera as duas vars e a sala soma uma, que e o roomsVisited do Platinum; sem ele a regra de expulsao aos 30 nunca dispara e o jogador fica preso no labirinto para sempre",
+  "warp": "MAP_TURNBACK_CAVE_ENTRANCE",
+  "warp_id": 4,
+  "roteiro": "120:NADA,16:UP,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:RIGHT,16:RIGHT,16:RIGHT,16:UP,16:UP,16:UP,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,120:NADA,16:DOWN,16:DOWN,16:LEFT,16:RIGHT,16:DOWN,240:NADA",
+  "prova": {
+   "vars": {
+    "0x41C1": 1
+   },
+   "mapa_um_de": [
+    "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_1",
+    "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_2",
+    "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_3",
+    "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_4",
+    "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_5",
+    "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_6",
+    "MAP_TURNBACK_CAVE_PILLAR_ROOM"
+   ]
+  }
+ },
+ {
+  "id": "T93.3",
+  "nome": "De uma sala se vai para OUTRA sala, e o contador soma de novo. Este e o caso que separa 'a entrada funciona' de 'o labirinto funciona': as portas da sala tambem sao MAP_DYNAMIC e dependem do ON_TRANSITION dela, nao do da entrada. REESCRITO em 12/08/2026: o roteiro antigo entrava pela porta da ENTRADA e decorava o caminho da sala sorteada, e o sorteio muda com qualquer mudanca de build (o conserto das palettes FRLG mudou o consumo de RNG e o caso quebrou; ha tambem uma janela pos-porta que come input e ficou registrada no ESTADO.md). Agora a sala de partida e determinada: warp de debug direto na SALA DO PILAR com salas=1 pre-gravada; o proprio ON_TRANSITION dela soma (salas=2, pilar=1), o jogador margeia a parede (linha y=2 e coluna x=3, livres na planta) ate a porta OESTE em (2,11), e a prova e salas=3 no mapa seguinte: a porta de dentro da sala sorteia e o contador anda. O destino e um dos seis quartos do nivel 2, o pilar de novo, ou a Giratina (se o pilar re-sorteado somar 3)",
+  "warp": "MAP_TURNBACK_CAVE_PILLAR_ROOM",
+  "roteiro": "120:NADA,16:DOWN,16:LEFT*8,16:DOWN*9,16:LEFT,300:NADA",
+  "prova": {
+   "vars": {
+    "0x41C1": 3
+   },
+   "mapa_um_de": [
+    "MAP_TURNBACK_CAVE_PILLAR_2_ROOM_1",
+    "MAP_TURNBACK_CAVE_PILLAR_2_ROOM_2",
+    "MAP_TURNBACK_CAVE_PILLAR_2_ROOM_3",
+    "MAP_TURNBACK_CAVE_PILLAR_2_ROOM_4",
+    "MAP_TURNBACK_CAVE_PILLAR_2_ROOM_5",
+    "MAP_TURNBACK_CAVE_PILLAR_2_ROOM_6",
+    "MAP_TURNBACK_CAVE_PILLAR_ROOM",
+    "MAP_TURNBACK_CAVE_GIRATINA_ROOM"
+   ]
+  },
+  "vars": {
+   "0x41C1": 1,
+   "0x41C0": 0
+  }
+ },
+ {
+  "id": "T93.4",
+  "nome": "A regra de EXPULSAO: com 29 salas ja visitadas, a proxima porta devolve o jogador para a entrada. E a regra 2 do scrcmd (roomsVisited >= 30), e ela e a unica coisa que garante que o labirinto termina. A var e forcada pelo runner porque andar 30 salas de verdade num teste seria roteiro de mil quadros",
+  "vars": {
+   "0x41C1": 29
+  },
+  "warp": "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_1",
+  "warp_id": 0,
+  "roteiro": "16:DOWN,16:UP,16:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_TURNBACK_CAVE_ENTRANCE"
+  }
+ },
+ {
+  "id": "T93.5",
+  "nome": "A regra da GIRATINA: com tres pilares vistos, a proxima porta leva a sala dela. E a regra 1 do scrcmd (pillarsSeen >= 3), e sem ela as 20 salas seriam um labirinto sem premio no fim",
+  "vars": {
+   "0x41C0": 3
+  },
+  "warp": "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_1",
+  "warp_id": 0,
+  "roteiro": "16:DOWN,16:UP,16:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_TURNBACK_CAVE_GIRATINA_ROOM"
+  }
+ },
+ {
+  "id": "T93.6",
+  "nome": "A saida ESTATICA da entrada para o SENDOFF SPRING continua funcionando depois de as outras quatro portas virarem MAP_DYNAMIC. Este caso existe porque a troca mexeu num mapa que ja estava na ROM: se o warp 4 tivesse sido arrastado junto, o jogador entraria na Turnback Cave e nunca mais sairia dela a pe",
+  "warp": "MAP_TURNBACK_CAVE_ENTRANCE",
+  "warp_id": 4,
+  "roteiro": "16:UP,16:DOWN,16:DOWN,240:NADA",
+  "prova": {
+   "mapa": "MAP_SENDOFF_SPRING",
+   "layout": "LAYOUT_SENDOFFSPRING"
+  }
+ }
 ]

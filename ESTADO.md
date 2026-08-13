@@ -10,6 +10,53 @@ inteiras. Detalhe fica nos documentos apontados no fim.
 
 ## 0. PASSAGEM DE BASTÃO da sessão de 12/08/2026 (Fable condutor)
 
+### Conserto da noite de 12/08: NPCs verdes de Kanto (palettes FRLG nunca registradas)
+
+O Gui jogou a ROM de entrega e viu os NPCs do laboratório do Oak com as cores
+estragadas (verdes). O defeito existia desde pelo menos 05/08 e passou por toda
+a suíte porque a suíte só lia EWRAM. Causa: quando os gráficos FRLG foram
+destravados para a build Emerald (guardas `#if IS_FRLG` removidas de
+`object_event_graphics.h` e `object_event_graphics_info.h`), a TERCEIRA guarda
+ficou: a tabela `sObjectEventSpritePalettes` em `src/event_object_movement.c`.
+Os tags 0x1129 a 0x1133 (NPC_BLUE/PINK/GREEN/WHITE, METEORITE, SS_ANNE,
+SEAGALLOP e os dois do player FRLG) existiam na ROM mas nunca eram registrados;
+`LoadObjectEventPalette` devolvia 0xFF e o sprite desenhava com a palette de
+outro dono. Conserto: guarda removida com o mesmo comentário `(antes: ...)` dos
+outros dois arquivos. Lição: destravou gráfico condicionado, procure TODAS as
+ocorrências da condição, `grep -rn IS_FRLG src/ include/`.
+
+Para essa classe nunca mais passar: o `gba_runner` ganhou `--palobj 0xXXXX`
+(diz se a cor de 15 bits está na PLTT OBJ, 0x05000200-0x050003FF, fato de
+memória e não pixel), o `testa_critico.py` ganhou a prova `palobj_presentes`,
+e o caso novo `T96.1` (`16_kanto_palettes.json`) warpa ao laboratório e cobra
+uma cor de `npc_white.pal` e uma de `npc_green.pal`. Calibrado nos dois lados:
+FALHA na ROM de entrega de 12/08 (0x0227 ausente; 0x32B9 sozinho não
+discrimina, coincide com palette já carregada) e OK na build consertada.
+`guarda_save.py` depois do conserto: SAVE COMPATIVEL, 1939 mapas, SaveBlock1
+14388 B.
+
+**Efeito colateral esperado: o T93.3 quebrou, e foi reescrito.** O roteiro
+antigo entrava pela porta da entrada e decorava o caminho de UMA sala sorteada
+(a 81); o sorteio (`random` do motor de script) muda com qualquer mudança de
+consumo de RNG da build, e o conserto das palettes mudou. O caso novo parte da
+SALA DO PILAR por warp de debug (determinístico), margeia a parede pela linha
+y=2 e coluna x=3 (livres em todas as plantas, conferido em `mapas-png`) e sai
+pela porta oeste (2,11); a prova continua sendo o contador somando na sala
+seguinte. Regra que fica: **roteiro de suíte não pode decorar resultado de
+sorteio.**
+
+**RISCO ABERTO, não fechado nesta sessão:** nas sondagens do T93.3, entrar
+numa sala por PORTA dinâmica engoliu input por uma janela maior na build
+consertada do que na antiga (mesma sala 81: primeiro passo andava logo após
+os 180 quadros de espera antes; depois do conserto houve rodada com >480
+quadros engolidos). Entrar na MESMA sala por warp de debug não engole nada
+(medido: movimento no token seguinte). A causa não foi isolada, e as rodadas
+não são reprodutíveis entre si (o sorteio caiu em salas diferentes com build
+e roteiro idênticos, o que sugere semente com relógio no meio). Próxima
+sessão: medir quadros-até-controle na mesma sala, via porta, com e sem o
+conserto, e decidir se o jogador sente atraso real nas portas do Turnback
+(e por extensão em porta não animada em geral).
+
 ### B8 FEITO em 12/08/2026, DEPOIS da janela de save fechar (leia isto primeiro)
 
 A janela de save estava FECHADA quando este bloco rodou, e ele terminou com

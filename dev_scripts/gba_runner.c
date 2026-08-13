@@ -109,6 +109,11 @@ static uint32_t g_nivel_offset = 0;
 #define MAX_PEDIDOS 64
 static int g_flags_pedidas[MAX_PEDIDOS], g_n_flags = 0;
 static int g_vars_pedidas[MAX_PEDIDOS], g_n_vars = 0;
+/* --palobj 0xXXXX: reporta se a cor de 15 bits esta em alguma palette OBJ
+   carregada (PLTT 0x05000200-0x050003FF). E a prova de que a palette de um
+   sprite foi registrada de verdade: o caso dos NPCs verdes de Kanto passou
+   por toda a suite porque nenhum teste olhava isso. */
+static int g_palobj_pedidas[MAX_PEDIDOS], g_n_palobj = 0;
 static int g_dump_estado = 0;
 static int g_sem_png = 0;
 
@@ -179,6 +184,12 @@ static void dump_estado(struct mCore *core, const char *rotulo) {
             printf(" flag_0x%X=%d", g_flags_pedidas[i], le_flag(core, g_flags_pedidas[i]));
         for (int i = 0; i < g_n_vars; i++)
             printf(" var_0x%X=%d", g_vars_pedidas[i], le_var(core, g_vars_pedidas[i]));
+    }
+    for (int i = 0; i < g_n_palobj; i++) {
+        int achou = 0;
+        for (uint32_t a = 0x05000200; a < 0x05000400 && !achou; a += 2)
+            if (core->busRead16(core, a) == (uint16_t)g_palobj_pedidas[i]) achou = 1;
+        printf(" palobj_0x%04X=%d", g_palobj_pedidas[i], achou);
     }
     printf("\n");
     fflush(stdout);
@@ -379,6 +390,8 @@ int main(int argc, char **argv) {
             if (g_n_flags < MAX_PEDIDOS) g_flags_pedidas[g_n_flags++] = (int)strtol(argv[++i], NULL, 0);
         } else if (!strcmp(argv[i], "--var") && i + 1 < argc) {
             if (g_n_vars < MAX_PEDIDOS) g_vars_pedidas[g_n_vars++] = (int)strtol(argv[++i], NULL, 0);
+        } else if (!strcmp(argv[i], "--palobj") && i + 1 < argc) {
+            if (g_n_palobj < MAX_PEDIDOS) g_palobj_pedidas[g_n_palobj++] = (int)strtol(argv[++i], NULL, 0);
         } else if (!strcmp(argv[i], "--sav") && i + 1 < argc) {
             caminho_sav = argv[++i];
         } else if (!strcmp(argv[i], "--sb1ptr") && i + 1 < argc) {

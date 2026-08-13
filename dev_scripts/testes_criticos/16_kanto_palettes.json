@@ -1,0 +1,12 @@
+[
+  {
+    "id": "T96.1",
+    "nome": "Palettes FRLG registradas: no laboratorio do Oak, as cores de npc_white (cientistas) e npc_green (assistente) estao na PLTT OBJ. Antes do conserto de 12/08/2026 a tabela sObjectEventSpritePalettes ficava presa em #if IS_FRLG, os tags 0x1129-0x1130 nunca carregavam e todo NPC de Kanto desenhava com palette alheia (NPCs verdes). 0x32B9 = (205,172,98) de npc_white.pal; 0x0227 = (57,139,0) de npc_green.pal",
+    "warp": "MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB",
+    "roteiro": "120:NADA",
+    "prova": {
+      "mapa": "MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB",
+      "palobj_presentes": ["0x32B9", "0x0227"]
+    }
+  }
+]
