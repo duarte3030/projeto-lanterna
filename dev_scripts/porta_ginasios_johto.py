@@ -124,6 +124,16 @@ GINASIOS = [
                    depois="GoldenrodCity_Gym_Text_WhitneyGoodCry"),
         guia=dict(npc="Gym_Guy", antes="GoldenrodCity_Gym_Text_GymGuide",
                   depois="GoldenrodCity_Gym_Text_GymGuideWin"),
+        # 15/08/2026: unica cena de ginasio de Johto que entrou, porque e a
+        # unica AUTOCONTIDA na fonte (ver `cena_choro`). A de Olivine ficou de
+        # fora: ela depende de VAR_OLIVINE_CITY_STATE em 5, que na fonte so o
+        # farol poe, e o farol daqui nao chega la (nao existe
+        # ITEM_SECRET_POTION nesta ROM).
+        choro=dict(var="VAR_JOHTO_GOLDENROD_GYM_STATE",
+                   npc_localid="LOCALID_GOLDENROD_CITY_GYM_BRIDGET",
+                   chora="GoldenrodCity_Gym_Text_WhitneyYouMeanie",
+                   quer="GoldenrodCity_Gym_Text_WhitneyWhatDoYouWant",
+                   bridget="GoldenrodCity_Gym_Text_BridgetWhitneyCries"),
     ),
     dict(
         mapa="EcruteakCity_Gym", hns="EcruteakCity_Gym", flag="FLAG_INSIGNIA_JOHTO_4",
@@ -305,6 +315,102 @@ def gatilhos_azalea(fonte, pre, hns_json):
     return linhas, coord
 
 
+def cena_choro(g, pre, obj_lider, novo_tr, t_intro, t_derrota, t_insignia,
+               t_depois, texto, hns_json):
+    """A WHITNEY chorando: o unico ginasio de Johto cuja insignia nao sai na hora.
+
+    Na fonte (hns/data/maps/GoldenrodCity_Gym/scripts.inc) a derrota dela NAO
+    entrega a PLAINBADGE: ela chora, e so depois que a BRIDGET explica que "ela
+    sempre chora quando perde" e que a WHITNEY se lembra da insignia. E a cena
+    mais conhecida do ginasio, e a fonte a resolve sozinha, sem depender de
+    nenhum outro mapa: o proprio script poe VAR_GOLDENROD_CITY_STATE em 3, e o
+    `coord_event` da BRIDGET leva de 3 para 4.
+
+    Custo aqui: UMA var (`g["choro"]["var"]`), e ela existe por um motivo so,
+    `coord_event` do gen 3 comparar var e nao aceitar flag. Os numeros 3, 4 e 5
+    sao os MESMOS da fonte, para quem portar o resto do arco da cidade nao ter
+    que renumerar nada.
+
+    Devolve (linhas, coord_events). Os gatilhos saem do map.json do hns, tile a
+    tile: nada de coordenada chutada.
+    """
+    C = g["choro"]
+    var = C["var"]
+    t_chora = texto(C["chora"], "WhitneyYouMeanie", "…You meanie!")
+    t_quer = texto(C["quer"], "WhitneyWhatDoYouWant",
+                   "What? What do you want? A BADGE?")
+    t_bridget = texto(C["bridget"], "BridgetWhitneyCries",
+                      "She always cries when she loses.")
+    linhas = [
+        f"{obj_lider['script']}::",
+        "\tlock",
+        "\tfaceplayer",
+        f"\tgoto_if_eq {var}, 3, {pre}_EventScript_WhitneyChorando",
+        f"\tgoto_if_eq {var}, 4, {pre}_EventScript_WhitneyInsignia",
+        f"\tgoto_if_set {g['flag']}, {pre}_EventScript_WhitneyDerrotado",
+        f"\tmsgbox {t_intro}, MSGBOX_DEFAULT",
+        f"\ttrainerbattle_no_intro {novo_tr}, {t_derrota}",
+        f"\tmsgbox {t_chora}, MSGBOX_DEFAULT",
+        f"\tsetvar {var}, 3",
+        "\tclosemessage",
+        "\trelease",
+        "\tend",
+        "",
+        # Ela repete o choro enquanto o jogador nao ouvir a BRIDGET. Sem este
+        # galho, falar com ela de novo no estado 3 cairia no galho da batalha e
+        # a WHITNEY pediria revanche antes de entregar a insignia.
+        f"{pre}_EventScript_WhitneyChorando::",
+        f"\tmsgbox {t_chora}, MSGBOX_DEFAULT",
+        "\tclosemessage",
+        "\trelease",
+        "\tend",
+        "",
+        f"{pre}_EventScript_WhitneyInsignia::",
+        f"\tmsgbox {t_quer}, MSGBOX_DEFAULT",
+        "\tclosemessage",
+        "\tcall Common_EventScript_PlayGymBadgeFanfare",
+        f"\tmsgbox {t_insignia}, MSGBOX_DEFAULT",
+        f"\tsetflag {g['flag']}",
+        f"\tsetvar {var}, 5",
+        "\tclosemessage",
+        "\trelease",
+        "\tend",
+        "",
+        f"{pre}_EventScript_WhitneyDerrotado::",
+        f"\tmsgbox {t_depois}, MSGBOX_DEFAULT",
+        "\tclosemessage",
+        "\trelease",
+        "\tend",
+        "",
+        # A BRIDGET vira para o oeste, que e onde o jogador esta parado quando
+        # pisa no gatilho. Nenhum `applymovement` no JOGADOR: o da fonte
+        # (`Common_Movement_WalkUp1`) foi cortado de proposito, porque movimento
+        # roteirizado do jogador CONSULTA colisao e travaria o `waitmovement`
+        # para sempre se o tile de cima estivesse ocupado; a fala sozinha ja
+        # muda o estado e nada aqui depende de o jogador ter andado.
+        f"{pre}_EventScript_ChoroTrigger::",
+        "\tlock",
+        f"\tturnobject {C['npc_localid']}, DIR_WEST",
+        f"\tmsgbox {t_bridget}, MSGBOX_DEFAULT",
+        "\tclosemessage",
+        f"\tsetvar {var}, 4",
+        "\trelease",
+        "\tend",
+        "",
+    ]
+    coord = []
+    for c in hns_json.get("coord_events", []):
+        if not c["script"].endswith("_EventScript_Trigger"):
+            continue
+        coord.append({"type": "trigger", "x": c["x"], "y": c["y"],
+                      "elevation": c.get("elevation", 0), "var": var,
+                      "var_value": c["var_value"],
+                      "script": f"{pre}_EventScript_ChoroTrigger"})
+    if not coord:
+        sys.exit(f"{g['mapa']}: a fonte nao tem o coord_event da BRIDGET")
+    return linhas, coord
+
+
 def pontes_blackthorn(fonte, pre, piso, hns_json):
     """Reconstrói o quebra-cabeça das quatro pontes de Blackthorn.
 
@@ -479,8 +585,13 @@ def main():
         # --- cabeçalho ---
         linhas.append(f"@ Ginasio de {g['cidade']}, portado de fontes-mapas/hns por")
         linhas.append("@ dev_scripts/porta_ginasios_johto.py. Nao editar a mao: rode o script.")
-        linhas.append("@ ponytail: o enredo de var do hns foi cortado. Aqui o ginasio e fala,")
-        linhas.append(f"@ batalha, fala e {g['flag']}. Zero var gasta.")
+        if g.get("choro"):
+            linhas.append("@ ponytail: o enredo de var do hns foi cortado, MENOS a cena do choro da")
+            linhas.append(f"@ WHITNEY, que e autocontida na fonte e custa UMA var ({g['choro']['var']}).")
+            linhas.append("@ A insignia sai no galho da BRIDGET, nao logo depois da batalha.")
+        else:
+            linhas.append("@ ponytail: o enredo de var do hns foi cortado. Aqui o ginasio e fala,")
+            linhas.append(f"@ batalha, fala e {g['flag']}. Zero var gasta.")
         linhas.append("")
         linhas.append(f"{pre}_MapScripts::")
         if g.get("pontes"):
@@ -541,27 +652,34 @@ def main():
         t_derrota = texto(L["derrota"], L["nome"] + "Defeat", "You are strong.")
         t_insignia = texto(L["insignia"], L["nome"] + "Badge", "Take this BADGE.")
         t_depois = texto(L["depois"], L["nome"] + "Post", "Come back anytime.")
-        linhas += [
-            f"{obj_lider['script']}::",
-            "\tlock",
-            "\tfaceplayer",
-            f"\tgoto_if_set {g['flag']}, {pre}_EventScript_{L['nome']}Derrotado",
-            f"\tmsgbox {t_intro}, MSGBOX_DEFAULT",
-            f"\ttrainerbattle_no_intro {novo_tr}, {t_derrota}",
-            "\tcall Common_EventScript_PlayGymBadgeFanfare",
-            f"\tmsgbox {t_insignia}, MSGBOX_DEFAULT",
-            f"\tsetflag {g['flag']}",
-            "\tclosemessage",
-            "\trelease",
-            "\tend",
-            "",
-            f"{pre}_EventScript_{L['nome']}Derrotado::",
-            f"\tmsgbox {t_depois}, MSGBOX_DEFAULT",
-            "\tclosemessage",
-            "\trelease",
-            "\tend",
-            "",
-        ]
+        if g.get("choro"):
+            extra, coord_choro = cena_choro(
+                g, pre, obj_lider, novo_tr, t_intro, t_derrota, t_insignia,
+                t_depois, texto, hns_json)
+            linhas += extra
+            coord_events = coord_events + coord_choro
+        else:
+            linhas += [
+                f"{obj_lider['script']}::",
+                "\tlock",
+                "\tfaceplayer",
+                f"\tgoto_if_set {g['flag']}, {pre}_EventScript_{L['nome']}Derrotado",
+                f"\tmsgbox {t_intro}, MSGBOX_DEFAULT",
+                f"\ttrainerbattle_no_intro {novo_tr}, {t_derrota}",
+                "\tcall Common_EventScript_PlayGymBadgeFanfare",
+                f"\tmsgbox {t_insignia}, MSGBOX_DEFAULT",
+                f"\tsetflag {g['flag']}",
+                "\tclosemessage",
+                "\trelease",
+                "\tend",
+                "",
+                f"{pre}_EventScript_{L['nome']}Derrotado::",
+                f"\tmsgbox {t_depois}, MSGBOX_DEFAULT",
+                "\tclosemessage",
+                "\trelease",
+                "\tend",
+                "",
+            ]
 
         # --- guia e conversa solta ---
         if g.get("guia"):

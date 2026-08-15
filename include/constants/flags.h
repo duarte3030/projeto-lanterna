@@ -4804,6 +4804,25 @@
 #define FLAG_BEAT_KIYO                                       FLAG_UNUSED_0x186A
 #define FLAG_GOT_TYROGUE                                     FLAG_UNUSED_0x186B
 // <<< B6 Johto (dev_scripts/porta_cenas_johto.py) <<<
+
+// >>> B6 Johto, duelos de cena escritos a mao (15/08/2026) >>>
+// Faixa exclusiva desta frente: FLAG_UNUSED_0x186C a 0x18FF. Append-only, e
+// medida contra o arquivo antes de escrever: 0x1840 a 0x186B ja tinham dono
+// (o bloco de cima), 0x186C em diante estava livre.
+//
+// Escondem gente de cena, pela mesma regra do bloco de cima: o campo "flag" do
+// object_event so cria o objeto quando a flag esta APAGADA. Todas as tres sao
+// decididas por MAP_SCRIPT_ON_TRANSITION a partir de flag de TREINADOR
+// (`goto_if_defeated`), que o motor grava sozinho; nenhuma guarda estado que
+// ja nao exista em outro lugar.
+//
+// O 4o duelo do rival NAO esta aqui de proposito: ele reaproveita
+// FLAG_HIDE_SILVER_GOLDENROD, que ja existia, porque a cidade e o subterraneo
+// nunca estao carregados ao mesmo tempo.
+#define FLAG_JOHTO_HIDE_TOHJO_GIOVANNI                       FLAG_UNUSED_0x186C
+#define FLAG_JOHTO_HIDE_CIANWOOD_SUICUNE                     FLAG_UNUSED_0x186D
+#define FLAG_JOHTO_HIDE_CIANWOOD_EUSINE                      FLAG_UNUSED_0x186E
+// <<< B6 Johto, duelos de cena escritos a mao <<<
 // Elenco de cena da Liga de Unova (11 objetos das duas salas do Campeão),
 // gasto pelo bloco B5 em 12/08/2026; sempre acesa ate o B6 portar a cena.
 #define FLAG_UNOVA_LIGA_ELENCO FLAG_UNUSED_0x2030

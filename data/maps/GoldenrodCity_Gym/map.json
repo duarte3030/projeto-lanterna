@@ -108,7 +108,26 @@
       "dest_warp_id": "4"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_JOHTO_GOLDENROD_GYM_STATE",
+      "var_value": "3",
+      "script": "GoldenrodCity_Gym_EventScript_ChoroTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_JOHTO_GOLDENROD_GYM_STATE",
+      "var_value": "4",
+      "script": "GoldenrodCity_Gym_EventScript_ChoroTrigger"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

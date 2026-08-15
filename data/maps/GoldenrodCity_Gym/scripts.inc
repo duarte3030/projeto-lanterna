@@ -1,7 +1,8 @@
 @ Ginasio de GOLDENROD CITY, portado de fontes-mapas/hns por
 @ dev_scripts/porta_ginasios_johto.py. Nao editar a mao: rode o script.
-@ ponytail: o enredo de var do hns foi cortado. Aqui o ginasio e fala,
-@ batalha, fala e FLAG_INSIGNIA_JOHTO_3. Zero var gasta.
+@ ponytail: o enredo de var do hns foi cortado, MENOS a cena do choro da
+@ WHITNEY, que e autocontida na fonte e custa UMA var (VAR_JOHTO_GOLDENROD_GYM_STATE).
+@ A insignia sai no galho da BRIDGET, nao logo depois da batalha.
 
 GoldenrodCity_Gym_MapScripts::
 	.byte 0
@@ -29,12 +30,30 @@ GoldenrodCity_Gym_EventScript_Bridget::
 GoldenrodCity_Gym_EventScript_Whitney::
 	lock
 	faceplayer
+	goto_if_eq VAR_JOHTO_GOLDENROD_GYM_STATE, 3, GoldenrodCity_Gym_EventScript_WhitneyChorando
+	goto_if_eq VAR_JOHTO_GOLDENROD_GYM_STATE, 4, GoldenrodCity_Gym_EventScript_WhitneyInsignia
 	goto_if_set FLAG_INSIGNIA_JOHTO_3, GoldenrodCity_Gym_EventScript_WhitneyDerrotado
 	msgbox GoldenrodCity_Gym_Text_WhitneyIntro, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_JOHTO_LEADER_WHITNEY, GoldenrodCity_Gym_Text_WhitneyDefeat
+	msgbox GoldenrodCity_Gym_Text_WhitneyYouMeanie, MSGBOX_DEFAULT
+	setvar VAR_JOHTO_GOLDENROD_GYM_STATE, 3
+	closemessage
+	release
+	end
+
+GoldenrodCity_Gym_EventScript_WhitneyChorando::
+	msgbox GoldenrodCity_Gym_Text_WhitneyYouMeanie, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+GoldenrodCity_Gym_EventScript_WhitneyInsignia::
+	msgbox GoldenrodCity_Gym_Text_WhitneyWhatDoYouWant, MSGBOX_DEFAULT
+	closemessage
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox GoldenrodCity_Gym_Text_WhitneyBadge, MSGBOX_DEFAULT
 	setflag FLAG_INSIGNIA_JOHTO_3
+	setvar VAR_JOHTO_GOLDENROD_GYM_STATE, 5
 	closemessage
 	release
 	end
@@ -42,6 +61,15 @@ GoldenrodCity_Gym_EventScript_Whitney::
 GoldenrodCity_Gym_EventScript_WhitneyDerrotado::
 	msgbox GoldenrodCity_Gym_Text_WhitneyPost, MSGBOX_DEFAULT
 	closemessage
+	release
+	end
+
+GoldenrodCity_Gym_EventScript_ChoroTrigger::
+	lock
+	turnobject LOCALID_GOLDENROD_CITY_GYM_BRIDGET, DIR_WEST
+	msgbox GoldenrodCity_Gym_Text_BridgetWhitneyCries, MSGBOX_DEFAULT
+	closemessage
+	setvar VAR_JOHTO_GOLDENROD_GYM_STATE, 4
 	release
 	end
 
@@ -137,6 +165,22 @@ GoldenrodCity_Gym_Text_WhitneyBadge:
 
 GoldenrodCity_Gym_Text_WhitneyPost:
 	.string "Ah, that was a good cry!$"
+
+GoldenrodCity_Gym_Text_WhitneyYouMeanie:
+	.string "Waaaaah!\p"
+	.string "Waaaaah!\p"
+	.string "…Snivel, hic… …You meanie!$"
+
+GoldenrodCity_Gym_Text_WhitneyWhatDoYouWant:
+	.string "…Sniff…\p"
+	.string "What? What do you want? A BADGE?\p"
+	.string "Oh, right. I forgot. Here's\n"
+	.string "PLAINBADGE.$"
+
+GoldenrodCity_Gym_Text_BridgetWhitneyCries:
+	.string "Oh, no. You made WHITNEY cry.\p"
+	.string "It's OK. She'll stop soon. She\n"
+	.string "always cries when she loses.$"
 
 GoldenrodCity_Gym_Text_GuideBefore:
 	.string "Yo! CHAMP in making!\p"

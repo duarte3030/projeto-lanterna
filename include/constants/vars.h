@@ -640,6 +640,27 @@
 #define VAR_ECRUTEAK_CITY_THEATER                            VAR_UNUSED_0x4101
 // <<< B6 Johto (dev_scripts/porta_cenas_johto.py) <<<
 
+// >>> B6 Johto, duelos e cena de ginasio escritos a mao (15/08/2026) >>>
+// Faixa exclusiva desta frente: VAR_UNUSED_0x4102 a 0x412F. Medida antes de
+// escrever: 0x4100 esta fora de uso por decisao do bloco de cima e 0x4101 ja
+// tem dono.
+//
+// Duas vars, e as duas existem por UM motivo so: `coord_event` do gen 3 e
+// disparado por comparacao de VAR, nao aceita flag. Todo o resto do estado
+// destas cenas sai de `goto_if_defeated` na flag do treinador, que o motor
+// grava sozinho, e por isso o ON_TRANSITION de cada mapa RECALCULA a var toda
+// vez que o mapa carrega, em vez de confiar no que ficou gravado.
+//
+// VAR_JOHTO_CIANWOOD_SUICUNE: 0 = cena ja aconteceu (ou o EUSINE ja caiu),
+//   1 = o gatilho da praia esta armado, 2 = acabou de acontecer nesta visita.
+// VAR_JOHTO_GOLDENROD_GYM_STATE: os mesmos numeros de VAR_GOLDENROD_CITY_STATE
+//   no hns, para quem portar o resto do arco da cidade nao ter que renumerar.
+//   3 = a WHITNEY perdeu e esta chorando, 4 = a BRIDGET ja explicou, 5 = a
+//   insignia saiu. O valor 0 e "antes da batalha".
+#define VAR_JOHTO_CIANWOOD_SUICUNE                           VAR_UNUSED_0x4102
+#define VAR_JOHTO_GOLDENROD_GYM_STATE                        VAR_UNUSED_0x4103
+// <<< B6 Johto, duelos e cena de ginasio escritos a mao <<<
+
 // >>> B6 Unova (bloco B6 do PRD-ROM-COMPLETA.md) >>>
 // Faixa exclusiva desta frente: VAR_UNUSED_0x4160 a 0x41BF. Append-only.
 //

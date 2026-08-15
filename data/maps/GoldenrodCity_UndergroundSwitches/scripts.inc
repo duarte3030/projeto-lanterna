@@ -1,8 +1,83 @@
 @ Treinadores de rota de GoldenrodCity_UndergroundSwitches, portados de fontes-mapas/hns por
 @ dev_scripts/importa_treinadores_johto.py. Nao editar a mao: rode o script.
+@
+@ 15/08/2026: a QUARTA e ultima batalha contra o SILVER voltou para CA, que e
+@ onde a fonte a poe (hns/data/maps/GoldenrodCity_UndergroundSwitches,
+@ EventScript_SilverTriggerTop). Ate 12/08 ela estava na calcada de
+@ GoldenrodCity porque este arquivo nao era daquela sessao; ver a secao 3 do
+@ PENDENCIAS-JOHTO.md.
+@
+@ O objeto NAO e novo: e a vaga que ja existia (indice 6), que era uma item
+@ ball muda. A save do Gui guarda INDICE de object_event, entao ninguem apaga
+@ nem enfia objeto no meio; so o conteudo da vaga mudou. Ela saiu de (35,2),
+@ que e PAREDE na colisao deste layout (a fonte usa aquele tile so como
+@ bastidor: la o SILVER e criado com `addobject` e entra andando), para (34,3),
+@ que e chao, um tile ao sul do warp de (34,2) por onde o jogador desce do
+@ tunel. De frente para o norte e com raio 3, ele ve quem chega, que e
+@ exatamente a emboscada do texto ("eu te vi, e vim atras de voce").
+@
+@ Por que raio de visao e nao a coreografia da fonte: mesma razao das outras
+@ tres batalhas do rival (data/maps/CherrygroveCity/scripts.inc). E por que
+@ ZERO flag nova: FLAG_HIDE_SILVER_GOLDENROD ja existia e serve aos dois
+@ objetos, porque a cidade e o subterraneo nunca estao carregados ao mesmo
+@ tempo, e o ON_TRANSITION de cada mapa decide antes de os objetos nascerem.
 
 GoldenrodCity_UndergroundSwitches_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, GoldenrodCity_UndergroundSwitches_OnTransition
 	.byte 0
+
+GoldenrodCity_UndergroundSwitches_OnTransition:
+	setflag FLAG_HIDE_SILVER_GOLDENROD
+	goto_if_not_defeated TRAINER_JOHTO_RIVAL_SILVER_3, GoldenrodCity_UndergroundSwitches_EventScript_SilverFim
+	goto_if_defeated TRAINER_JOHTO_RIVAL_SILVER_4, GoldenrodCity_UndergroundSwitches_EventScript_SilverFim
+	clearflag FLAG_HIDE_SILVER_GOLDENROD
+GoldenrodCity_UndergroundSwitches_EventScript_SilverFim:
+	end
+
+GoldenrodCity_UndergroundSwitches_EventScript_Silver::
+	trainerbattle_single TRAINER_JOHTO_RIVAL_SILVER_4, GoldenrodCity_UndergroundSwitches_Text_SilverSeen, GoldenrodCity_UndergroundSwitches_Text_SilverBeaten
+	msgbox GoldenrodCity_UndergroundSwitches_Text_SilverAfter, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_HIDE_SILVER_GOLDENROD
+	removeobject LOCALID_GOLDENROD_CITY_UNDERGROUND_SWITCHES_SILVER
+	release
+	end
+
+@ Texto do pokecrystal (maps/GoldenrodUndergroundSwitchRoomEntrances.asm), o
+@ mesmo que estava em GoldenrodCity ate 15/08/2026.
+GoldenrodCity_UndergroundSwitches_Text_SilverSeen:
+	.string "Hold it!\p"
+	.string "I saw you, so I tailed you.\p"
+	.string "I don't need you underfoot while I\n"
+	.string "take care of TEAM ROCKET.\p"
+	.string "…Wait a second. You beat me\n"
+	.string "before, didn't you?\p"
+	.string "That was just a fluke.\p"
+	.string "But I repay my debts!$"
+
+GoldenrodCity_UndergroundSwitches_Text_SilverBeaten:
+	.string "…Why…\n"
+	.string "Why do I lose?\p"
+	.string "I've assembled the toughest\n"
+	.string "POKéMON.\p"
+	.string "I didn't ease up on the gas.\p"
+	.string "So why do I lose?$"
+
+GoldenrodCity_UndergroundSwitches_Text_SilverAfter:
+	.string "…I don't understand…\p"
+	.string "Is what that LANCE guy said true?\p"
+	.string "That I don't treat POKéMON\n"
+	.string "properly?\p"
+	.string "Love…\p"
+	.string "Trust…\p"
+	.string "Are they really what I lack?\p"
+	.string "Are they keeping me from winning?\p"
+	.string "I… I just don't understand.\p"
+	.string "But it's not going to end here.\p"
+	.string "Not now. Not because of this.\p"
+	.string "I won't give up my dream of\n"
+	.string "becoming the world's best\l"
+	.string "POKéMON trainer!$"
 
 GoldenrodCity_UndergroundSwitches_EventScript_Grunt10::
 	trainerbattle_single TRAINER_JOHTO_GRUNT_10, GoldenrodCity_UndergroundSwitches_Text_Grunt10Seen, GoldenrodCity_UndergroundSwitches_Text_Grunt10Beaten

@@ -9,6 +9,16 @@ LakeVerity_EventScript_Hiker::
 	msgbox LakeVerity_Text_Hiker, MSGBOX_NPC
 	end
 
+@ Grunt mudo de pret/pokeplatinum (LOCALID_GRUNT_M, hidden_flag
+@ FLAG_HIDE_LAKE_VERITY_TEAM_GALACTIC); some com os outros quando a Mars cai.
+LakeVerity_EventScript_GruntM::
+	msgbox LakeVerity_Text_GruntM, MSGBOX_NPC
+	end
+
+LakeVerity_Text_GruntM:
+	.string "Ow! Ouch!\n"
+	.string "What's with this old-timer?$"
+
 LakeVerity_Text_Fisherman:
 	.string "This lake is calm today...\n"
 	.string "Good a spot as any to cast a line.$"
@@ -107,6 +117,7 @@ LakeVerity_EventScript_MarsBeaten::
 	removeobject LOCALID_LAKE_VERITY_TRAINER2
 	removeobject LOCALID_LAKE_VERITY_TRAINER3
 	removeobject LOCALID_LAKE_VERITY_TRAINER4
+	removeobject LOCALID_LAKE_VERITY_GRUNT_M
 	fadescreen FADE_FROM_BLACK
 	release
 	end

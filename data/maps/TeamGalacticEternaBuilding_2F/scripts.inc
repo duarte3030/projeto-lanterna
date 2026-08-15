@@ -21,6 +21,18 @@ TeamGalacticEternaBuilding_2F_EventScript_ProgressSign::
 	msgbox TeamGalacticEternaBuilding_2F_Text_MakeProgressTogether, MSGBOX_SIGN
 	end
 
+@ Os dois grunts mudos de pret/pokeplatinum (LOCALID_GRUNT_M e LOCALID_GRUNT_F,
+@ hidden_flag FLAG_HIDE_ETERNA_CITY_GALACTIC_GRUNTS). A fala de cada um ja mora
+@ neste arquivo como texto pos-batalha do Grunt1/Grunt2; somem quando
+@ FLAG_GALACTICA_ETERNA acende (Jupiter cai).
+TeamGalacticEternaBuilding_2F_EventScript_GruntM::
+	msgbox TeamGalacticEternaBuilding_2F_Text_WorkingToFindEnergySources, MSGBOX_NPC
+	end
+
+TeamGalacticEternaBuilding_2F_EventScript_GruntF::
+	msgbox TeamGalacticEternaBuilding_2F_Text_ResearchOnFormsOfEnergy, MSGBOX_NPC
+	end
+
 TeamGalacticEternaBuilding_2F_Text_Grunt1Intro:
 	.string "Team Galactic is working hard to\n"
 	.string "find new energy sources!\p"

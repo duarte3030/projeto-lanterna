@@ -11,6 +11,13 @@ TeamGalacticEternaBuilding_3F_EventScript_Grunt::
 	msgbox TeamGalacticEternaBuilding_3F_Text_OrdinaryPeopleCantUnderstand, MSGBOX_AUTOCLOSE
 	end
 
+@ Grunt mudo de pret/pokeplatinum (LOCALID_GRUNT_M, hidden_flag
+@ FLAG_HIDE_ETERNA_CITY_GALACTIC_GRUNTS). A fala ja mora neste arquivo como
+@ texto pos-batalha do Grunt (mesma frase, idx1 da fonte); some com a Jupiter.
+TeamGalacticEternaBuilding_3F_EventScript_Grunt2::
+	msgbox TeamGalacticEternaBuilding_3F_Text_OrdinaryPeopleCantUnderstand, MSGBOX_NPC
+	end
+
 TeamGalacticEternaBuilding_3F_EventScript_PathSign::
 	msgbox TeamGalacticEternaBuilding_3F_Text_FollowThisPath, MSGBOX_SIGN
 	end

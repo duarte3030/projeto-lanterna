@@ -149,54 +149,77 @@ ON_TRANSITION antes de nascerem os objetos. As quatro batalhas são treinador co
   outros aparecem, batalham e somem. Isso foi escolha de risco, não de var:
   `applymovement` com rota chutada em mapa convertido trava o jogador se o
   caminho estiver bloqueado.
-- **Goldenrod mudou de lugar.** No original a emboscada é no túnel
-  subterrâneo (`GoldenrodUndergroundSwitchRoomEntrances`). Aqui ele está em pé
-  na calçada da entrada sul do subterrâneo, em (19,39), porque
-  `GoldenrodCity_UndergroundSwitches` não era arquivo desta tarefa. A fala
-  ("eu te vi, e vim atrás de você") continua fazendo sentido na rua.
+- ~~**Goldenrod mudou de lugar.**~~ **DESFEITO em 15/08/2026**: o 4º duelo
+  voltou para o subterrâneo, que é onde a fonte o põe. O SILVER está agora em
+  `GoldenrodCity_UndergroundSwitches`, em (34,3), um tile ao sul do warp de
+  (34,2) por onde o jogador desce do túnel, de frente para o norte e com raio
+  3. A vaga usada é o objeto de índice 6, que já existia como item ball muda;
+  ele saiu de (35,2) porque aquele tile é PAREDE (a fonte o usa só de
+  bastidor, com `addobject`). O objeto da cidade continua na lista, no índice
+  40, com script e tipo zerados e escondido para sempre por
+  `FLAG_HIDE_SILVER_GOLDENROD` — a save guarda índice, então nada foi apagado.
+  Zero flag e zero var novas: a MESMA flag serve aos dois objetos, porque a
+  cidade e o subterrâneo nunca estão carregados ao mesmo tempo.
 
-## 4. Torres e farol (prioridade 4): portado o que dava, sem vaga de treinador
+## 4. Torres e farol (prioridade 4): RESOLVIDO em 15/08/2026
 
 Escrito em 05/08/2026 pela sessão que portou Sprout Tower, Burned Tower e o
 Farol de Olivine. A nota antiga desta seção subestimava o custo (falava em "3
 sábios"); o hns tem 7 batalhas só na Sprout Tower. Os mapas e scripts estão
-prontos e passam em `valida_mapas_sinnoh.py` (`sprite: 0`, `fora: 0`) e
-`valida_conectividade.py` (`warps quebrados: 0`), mas **nenhuma das 18
-batalhas abaixo compila hoje**: cada cena foi montada com o nome de treinador
-que ela DEVE ter (instrução explícita de quem orquestrou esta sessão), então
-falta criar os 18 `TRAINER_` antes de compilar essas seis maps.
+prontos e passam em `valida_mapas_sinnoh.py` e `valida_conectividade.py`
+(`warps quebrados: 0`).
 
-### 4.1 Treinadores que faltam (18, zero vaga sobrando em `opponents.h`)
+### 4.1 Os 18 treinadores: JÁ EXISTEM (esta seção estava velha)
 
-Todos como `trainerbattle_single` (exceto SAGE_LI, que é
-`trainerbattle_no_intro` depois de um `goto_if_set` na flag da HM). Classe,
-pic de batalha e sprite de overworld sugeridos; time/nível ficam no hns
-(`fontes-mapas/hns/src/data/trainers.h` + `trainer_parties.h`, mesmo nome de
-`TRAINER_` sem prefixo, ex. `TRAINER_CHOW`).
+**Medido em 15/08/2026, e o texto anterior estava errado de duas maneiras.**
+Ele dizia "zero vaga sobrando em `opponents.h`" e "isso também precisa subir
+`MAX_TRAINERS_COUNT_EMERALD`". Nenhuma das duas frases vale mais:
 
-| `TRAINER_` que falta criar | Mapa | Fonte no hns | `TRAINER_PIC_` sugerido | `OBJ_EVENT_GFX_` de overworld |
-|---|---|---|---|---|
-| `TRAINER_SAGE_CHOW` | SproutTower_1F | `TRAINER_CHOW` | `TRAINER_PIC_EXPERT_M` | `OBJ_EVENT_GFX_EXPERT_M` |
-| `TRAINER_SAGE_NICO` | SproutTower_2F | `TRAINER_NICO` | `TRAINER_PIC_EXPERT_M` | `OBJ_EVENT_GFX_EXPERT_M` |
-| `TRAINER_SAGE_EDMOND` | SproutTower_2F | `TRAINER_EDMOND` | `TRAINER_PIC_EXPERT_M` | `OBJ_EVENT_GFX_EXPERT_M` |
-| `TRAINER_SAGE_JIN` | SproutTower_3F | `TRAINER_JIN` | `TRAINER_PIC_EXPERT_M` | `OBJ_EVENT_GFX_EXPERT_M` |
-| `TRAINER_SAGE_NEAL` | SproutTower_3F | `TRAINER_NEAL` | `TRAINER_PIC_EXPERT_M` | `OBJ_EVENT_GFX_EXPERT_M` |
-| `TRAINER_SAGE_TROY` | SproutTower_3F | `TRAINER_TROY` | `TRAINER_PIC_EXPERT_M` | `OBJ_EVENT_GFX_EXPERT_M` |
-| `TRAINER_SAGE_LI` | SproutTower_3F | `TRAINER_LI` | `TRAINER_PIC_EXPERT_F` ou EXPERT_M | `OBJ_EVENT_GFX_OLD_MAN` (ELDER, já está no mapa) |
-| `TRAINER_FIREBREATHER_NARD` | BurnedTower_1F | `TRAINER_NARD` | `TRAINER_PIC_KINDLER` | `OBJ_EVENT_GFX_CAMPER` |
-| `TRAINER_BURGLAR_RICHARDO` | BurnedTower_1F | `TRAINER_RICHARDO` | sem pic de burglar nesta build; sugestão `TRAINER_PIC_HIKER` | `OBJ_EVENT_GFX_HIKER` |
-| `TRAINER_SAILOR_HUEY` | OlivineCity_Lighthouse | `TRAINER_HUEY` | `TRAINER_PIC_SAILOR` | `OBJ_EVENT_GFX_SAILOR` |
-| `TRAINER_GENTLEMAN_ALFRED` | OlivineCity_Lighthouse | `TRAINER_ALFRED` | `TRAINER_PIC_GENTLEMAN` | `OBJ_EVENT_GFX_GENTLEMAN` |
-| `TRAINER_BIRD_KEEPER_THEO` | OlivineCity_Lighthouse | `TRAINER_THEO` | `TRAINER_PIC_BIRD_KEEPER` | `OBJ_EVENT_GFX_HIKER` (ROCKER não desenha aqui) |
-| `TRAINER_SAILOR_TERRELL` | OlivineCity_Lighthouse | `TRAINER_TERRELL` | `TRAINER_PIC_SAILOR` | `OBJ_EVENT_GFX_SAILOR` |
-| `TRAINER_GENTLEMAN_PRESTON` | OlivineCity_Lighthouse | `TRAINER_PRESTON` | `TRAINER_PIC_GENTLEMAN` | `OBJ_EVENT_GFX_GENTLEMAN` |
-| `TRAINER_SAILOR_KENT` | OlivineCity_Lighthouse | `TRAINER_KENT` | `TRAINER_PIC_SAILOR` | `OBJ_EVENT_GFX_SAILOR` |
-| `TRAINER_LASS_CONNIE` | OlivineCity_Lighthouse | `TRAINER_CONNIE` (era COOLTRAINER_F no hns) | `TRAINER_PIC_LASS` | `OBJ_EVENT_GFX_LASS` (COOLTRAINER_F não desenha aqui) |
-| `TRAINER_SAILOR_ERNEST` | OlivineCity_Lighthouse | `TRAINER_ERNEST` | `TRAINER_PIC_SAILOR` | `OBJ_EVENT_GFX_SAILOR` |
-| `TRAINER_BIRD_KEEPER_DENIS` | OlivineCity_Lighthouse | `TRAINER_DENIS` | `TRAINER_PIC_BIRD_KEEPER` | `OBJ_EVENT_GFX_HIKER` |
+- O teto é **4000** desde 12/08/2026 (`include/constants/opponents.h`), e o
+  maior id em uso é **2522**. Não falta vaga e **não se mexe no saveblock**.
+- Os 18 `TRAINER_` **já foram criados**, nos ids **1340 a 1357**, provavelmente
+  pela mesma leva de 05-06/08 que escreveu o rival; a seção 4.1 nunca foi
+  atualizada. Conferido nas três camadas em 15/08/2026:
+  `#define` em `include/constants/opponents.h` (18 de 18), bloco
+  `=== TRAINER_X ===` em `src/data/trainers.party` (18 de 18) e no acervo
+  `src/data/trainers_johto.party` (18 de 18). Zero id duplicado no arquivo
+  inteiro (conferido varrendo todos os `#define TRAINER_* <n>`).
 
-Isso também precisa subir `MAX_TRAINERS_COUNT_EMERALD` de novo (já estourado
-desde a seção 1) — decisão de quem orquestra, mexe no saveblock.
+| `TRAINER_` | id | Mapa | Fonte no hns |
+|---|---|---|---|
+| `TRAINER_SAGE_CHOW` | 1340 | SproutTower_1F | `TRAINER_CHOW` |
+| `TRAINER_SAGE_NICO` | 1341 | SproutTower_2F | `TRAINER_NICO` |
+| `TRAINER_SAGE_EDMOND` | 1342 | SproutTower_2F | `TRAINER_EDMOND` |
+| `TRAINER_SAGE_JIN` | 1343 | SproutTower_3F | `TRAINER_JIN` |
+| `TRAINER_SAGE_NEAL` | 1344 | SproutTower_3F | `TRAINER_NEAL` |
+| `TRAINER_SAGE_TROY` | 1345 | SproutTower_3F | `TRAINER_TROY` |
+| `TRAINER_SAGE_LI` | 1346 | SproutTower_3F | `TRAINER_LI` |
+| `TRAINER_FIREBREATHER_NARD` | 1347 | BurnedTower_1F | `TRAINER_NARD` |
+| `TRAINER_BURGLAR_RICHARDO` | 1348 | BurnedTower_1F | `TRAINER_RICHARDO` |
+| `TRAINER_SAILOR_HUEY` | 1349 | OlivineCity_Lighthouse | `TRAINER_HUEY` |
+| `TRAINER_GENTLEMAN_ALFRED` | 1350 | OlivineCity_Lighthouse | `TRAINER_ALFRED` |
+| `TRAINER_BIRD_KEEPER_THEO` | 1351 | OlivineCity_Lighthouse | `TRAINER_THEO` |
+| `TRAINER_SAILOR_TERRELL` | 1352 | OlivineCity_Lighthouse | `TRAINER_TERRELL` |
+| `TRAINER_GENTLEMAN_PRESTON` | 1353 | OlivineCity_Lighthouse | `TRAINER_PRESTON` |
+| `TRAINER_SAILOR_KENT` | 1354 | OlivineCity_Lighthouse | `TRAINER_KENT` |
+| `TRAINER_LASS_CONNIE` | 1355 | OlivineCity_Lighthouse | `TRAINER_CONNIE` |
+| `TRAINER_SAILOR_ERNEST` | 1356 | OlivineCity_Lighthouse | `TRAINER_ERNEST` |
+| `TRAINER_BIRD_KEEPER_DENIS` | 1357 | OlivineCity_Lighthouse | `TRAINER_DENIS` |
+
+Os níveis já estão na curva de Johto desta ROM (45 a 100 nominal, 45 a 128 no
+que a fórmula de `curva_de_nivel.py` de fato produziu para a região): CHOW sai
+com três Pokémon de nível 95 e HUEY, no farol, com três de 107 a 109. Ninguém
+foi tocado nesta leva, por decisão do Gui de 15/08 (nada de polimento de time).
+
+**O que FALTAVA de verdade, e foi consertado em 15/08/2026:** os 17 objetos
+desses treinadores tinham vindo do import com `trainer_type:
+TRAINER_TYPE_NONE` e raio 0, isto é, só batalhavam se o jogador falasse com
+eles. Na fonte eles têm **raio de visão** (1 na Sprout 1F, 4 e 10 nos andares
+de cima, 4 e 5 no farol e na Burned Tower). O raio foi devolvido campo a
+campo, casando por COORDENADA com o objeto da fonte, nunca por índice. O
+`SAGE_LI` ficou de fora **de propósito**: na fonte ele também é
+`TRAINER_TYPE_NONE`, porque é o ancião que entrega o `ITEM_HM_FLASH` e a
+batalha vem depois da conversa.
 
 ### 4.2 Flags cruas usadas (`flags.h` está com outro agente, então nada foi
 ### aliado, só consumido por número)
@@ -418,23 +441,47 @@ o motivo escrito em `ESPERA` dentro da ferramenta.
    desafio no teatro → `TinTower_RoofDay` ou `WhirlIslands_LugiaChamber`.
    Bloqueio duro no fim: `ITEM_TIDAL_BELL` e `ITEM_CLEAR_BELL` NÃO existem
    nesta ROM, e são o presente que fecha o desafio.
-2. **Os outros 4 duelos de cena**: EUSINE (SUICUNE), GIOVANNI (CELEBI), RED_2 no
-   Mt. Silver, GRUNT do subterrâneo. O RED tem bloqueio próprio de arte:
-   `OBJ_EVENT_GFX_RED_NORMAL` não tem equivalente honesto porque
-   `OBJ_EVENT_GFX_RED` já é o rival de Johto (ver seção 3).
-3. **4º duelo do rival em `GoldenrodCity_UndergroundSwitches`.** O mapa EXISTE e
-   a vaga do objeto também: é o índice 6, em (35,2), ainda item ball muda, e a
-   fonte põe o SILVER exatamente ali. Mover custa mexer no
-   `MAP_SCRIPT_ON_TRANSITION` que hoje mostra o `FLAG_HIDE_SILVER_GOLDENROD` em
-   `GoldenrodCity`; apagar o objeto de lá continua proibido (a save guarda
-   índice), então ele sai por flag e o novo entra na vaga que já existe.
-4. **Cenas de ginásio do B5.** A da WHITNEY é a mais barata e é AUTOCONTIDA na
-   fonte: o próprio script dela põe `VAR_GOLDENROD_CITY_STATE` em 3 depois da
-   derrota, e o `coord_event` da BRIDGET leva de 3 para 4. Custa reescrever o
-   `GoldenrodCity_Gym_EventScript_Whitney` que o B5 já entregou funcionando, e
-   reconciliar os nomes de insígnia; não foi feito porque quebrar ginásio que
-   funciona, sem poder compilar, é pior que a cena faltando. A de Olivine
-   depende de `VAR_OLIVINE_CITY_STATE` em 5, que só o farol põe.
+2. **Duelos de cena: EUSINE e GIOVANNI FEITOS em 15/08/2026** (detalhe no
+   bloco no fim deste arquivo). Continua faltando o **RED_2 no Mt. Silver**,
+   que tem bloqueio de arte: `OBJ_EVENT_GFX_RED` já é o rival de Johto (seção
+   3), então o RED precisaria de outro sprite. **Nota medida em 15/08/2026, e
+   ela muda a conta**: `OBJ_EVENT_GFX_RED_NORMAL` HOJE DESENHA nesta build
+   (tem entrada em `object_event_graphics_info_pointers.h` fora de qualquer
+   `#if IS_FRLG`), o que não era verdade quando esta linha foi escrita. Quem
+   for portar o RED começa por aí, e não por criar arte.
+
+   O **"GRUNT do subterrâneo" NÃO EXISTE na fonte.** Procurado em 15/08/2026
+   varrendo `trainerbattle*` em TODO mapa de Johto do hns e comparando com o
+   que este repo já tem: as únicas batalhas da fonte sem par aqui eram
+   `TRAINER_EUSINE`, `TRAINER_GIOVANNI`, os três `TRAINER_RIVAL_*_4` (que são
+   o 4º duelo do rival, item 3) e `TRAINER_RED_2`. Os seis Rockets do
+   `GoldenrodCity_UndergroundSwitches` e os três do
+   `GoldenrodCity_UndergroundStorage` já estão na ROM desde 05/08, como
+   treinadores de rota. O item da fila era eco de uma lista velha; pode ser
+   riscado.
+3. ~~**4º duelo do rival**~~ **FEITO em 15/08/2026**, ver a seção 3.
+4. **Cenas de ginásio do B5.** A da WHITNEY **entrou em 15/08/2026**: a
+   derrota dela não entrega mais a insígnia na hora, ela chora, a BRIDGET
+   explica no `coord_event` de (15,11) e só então a PLAINBADGE sai. Custou UMA
+   var (`VAR_JOHTO_GOLDENROD_GYM_STATE`, com os mesmos números 3/4/5 da
+   fonte). O gatilho é seguro por construção: (15,10) é o ÚNICO acesso ao
+   nicho da WHITNEY e o único vizinho dele é (15,11), então todo jogador que
+   chega nela pisa no gatilho (conferido tile a tile na colisão de
+   `LAYOUT_GOLDENROD_CITY_GYM`).
+
+   **A de Olivine NÃO entrou, e o motivo é duro.** A "cena" é só isso: dois
+   NPCs (o GENT e a LASS) se viram e falam quando o jogador cruza as fileiras
+   y=14 e y=10, gastando 10 `coord_event`. Os TEXTOS que eles dizem são
+   exatamente os mesmos que já dizem hoje quando o jogador fala com eles
+   (`OlivineCity_Gym_Text_Gent` e `_Lass`, já na ROM), ou seja, a cena não
+   acrescenta uma linha de conteúdo novo. E o portão dela,
+   `VAR_OLIVINE_CITY_STATE` em 5, na fonte só é aceso pelo FAROL, no fim da
+   história da AMPHY doente, que esta ROM não tem como chegar: falta
+   `ITEM_SECRET_POTION` (não existe em `include/constants/items.h`) e falta a
+   JASMINE (`OBJ_EVENT_GFX_JASMINE` não existe no enum). Portá-la hoje
+   significaria INVENTAR um gatilho novo para repetir um texto que o jogador
+   já pode ler. Ficou de fora de propósito; quando o arco do farol existir,
+   ela é meia hora de trabalho.
 5. **44 pares ambíguos** (duas coisas da fonte na mesma coordenada) e **8 sem
    par**, que `restaura_npcs_johto.py` recusa de propósito. Resolver exige
    tabela escrita à mão, mapa a mapa.
@@ -451,3 +498,97 @@ o motivo escrito em `ESPERA` dentro da ferramenta.
   de exemplo em `vars.h` a cita e o alocador prefere errar para o lado seguro).
 - Ids de treinador **2460** (`TRAINER_JOHTO_GRUNT_33`) e **2461**
   (`TRAINER_JOHTO_KIYO`), de 2460 a 2499.
+
+---
+
+## 7. Bloco B6, segunda leva (15/08/2026): dois duelos de cena, o rival de volta ao subterrâneo e a WHITNEY chorando
+
+Tudo o que segue foi conferido ESTATICAMENTE (esta sessão não compila nem roda
+emulador): colisão lida do `map.bin` tile a tile, constante por constante com
+`grep` no header de origem, e as três validações do repo rodadas depois
+(`valida_mapas_sinnoh.py`: `mapas com problema: 0`; `valida_conectividade.py`:
+nenhum mapa de Johto/Sinnoh inalcançável; `texto_sinnoh.rotulos_repetidos()`:
+0).
+
+### O que entrou
+
+| Cena | Mapa | Como sai |
+|---|---|---|
+| 4º duelo do SILVER | `GoldenrodCity_UndergroundSwitches` | treinador com raio de visão em (34,3), ON_TRANSITION por `goto_if_defeated` |
+| GIOVANNI | `TohjoFalls_GiovanniRoom` | treinador com raio de visão em (5,4), aparece depois que o ARCHER cai na Torre Rádio |
+| SUICUNE + EUSINE | `CianwoodCity` | `coord_event` em (18,22), cena com movimento de NPC, batalha e saída |
+| choro da WHITNEY | `GoldenrodCity_Gym` | `coord_event` da BRIDGET em (15,11); a insígnia sai no galho 4 |
+| raio de visão dos 17 da torre/farol | Sprout, Burned, Farol | campo `trainer_type` devolvido da fonte |
+
+### Recursos consumidos nesta leva (números, não estimativa)
+
+- **Flags: 3**, na faixa exclusiva desta frente, todas apelidadas em
+  `include/constants/flags.h` com o prefixo pedido:
+  `FLAG_JOHTO_HIDE_TOHJO_GIOVANNI` = `FLAG_UNUSED_0x186C`,
+  `FLAG_JOHTO_HIDE_CIANWOOD_SUICUNE` = `0x186D`,
+  `FLAG_JOHTO_HIDE_CIANWOOD_EUSINE` = `0x186E`.
+  Sobram `0x186F` a `0x18FF`. O 4º duelo do rival e a cena da WHITNEY gastaram
+  **zero** flag.
+- **Vars: 2**, em `include/constants/vars.h`:
+  `VAR_JOHTO_CIANWOOD_SUICUNE` = `VAR_UNUSED_0x4102` e
+  `VAR_JOHTO_GOLDENROD_GYM_STATE` = `VAR_UNUSED_0x4103`. Sobram `0x4104` a
+  `0x412F`. As duas existem por UM motivo só: `coord_event` do gen 3 compara
+  VAR e não aceita flag. Todo o resto do estado sai de `goto_if_defeated`.
+- **Ids de treinador: 2**, na faixa reservada: **2462** `TRAINER_JOHTO_EUSINE`
+  e **2463** `TRAINER_JOHTO_GIOVANNI`. Livres agora: 2464 a 2499.
+  `MAX_TRAINERS_COUNT_EMERALD` NÃO foi tocado (é 4000; maior id em uso, 2522).
+- **Objetos de mapa: ZERO objeto novo.** As quatro cenas ocupam vagas que já
+  existiam como item ball muda, no MESMO índice (a save guarda índice).
+
+### Times dos dois treinadores novos
+
+Saem do hns pelo mesmo caminho dos outros, `porta_cenas_johto.py
+--treinadores`, com o nível remapeado por `curva_de_nivel.py` para a faixa de
+Johto. Nada foi inventado nem escolhido a dedo:
+
+- `TRAINER_JOHTO_EUSINE`: POLITOED, HYPNO e ELECTRODE, nível 74 (27 na fonte).
+  Classe `TRAINER_CLASS_PSYCHIC`, pic `TRAINER_PIC_PSYCHIC_M`, porque
+  `MYSTERY_MAN` do hns não existe aqui.
+- `TRAINER_JOHTO_GIOVANNI`: KANGASKHAN 111, HONCHKROW 113, NIDOQUEEN 113,
+  PERSIAN 113, URSALUNA 111 e NIDOKING 114 (60 a 62 na fonte). Classe
+  `TRAINER_CLASS_BOSS_FRLG`, pic `TRAINER_PIC_LEADER_GIOVANNI_FRLG`, porque
+  `ROCKET_ADMIN` do hns não existe aqui. Passar de 100 não é bug: a fórmula da
+  região já entrega 45 a 128 (o maior é o `TRAINER_JOHTO_GARRETT`, 128), e
+  `MAX_LEVEL` desta build é 255.
+
+Os dois blocos ficam em `src/data/trainers.party`, dentro do acervo
+`ACERVO CENAS JOHTO`. Não foram para `src/data/trainers_johto.party` porque
+aquele acervo é dos GINÁSIOS e das torres (78 blocos, com o nível original do
+gen 2, sem remapear); treinador de cena nunca entrou lá, nem o
+`TRAINER_JOHTO_GRUNT_33` nem o `TRAINER_JOHTO_KIYO` de 12/08.
+
+### Duas armadilhas achadas de raspão, e o que foi feito
+
+1. **`troca_acervo()` teria apagado 8 treinadores de outras frentes.** Os cinco
+   de cena de Sinnoh e as três Campeãs de Unova tinham sido apensados a
+   `trainers.party` DEPOIS do acervo de Johto sem marcador `/*===` próprio, e
+   aquela função corta do marcador pedido até o próximo marcador — ou até o fim
+   do arquivo, se não houver. O `assert` de contagem de blocos da própria
+   ferramenta pegou antes de escrever. Consertado com uma sentinela
+   `/*=== ACERVO CENAS SINNOH E CAMPEA DE UNOVA ===*/` antes do primeiro deles.
+2. **`porta_cenas_johto.py --treinadores` reescrevia o bloco de ids a partir só
+   do que era NOVO**, e como a escrita troca o bloco inteiro, a rodada que
+   acrescentava dois nomes apagava os dois que já estavam; duas rodadas
+   seguidas faziam os quatro se revezarem. Consertado (o bloco agora é escrito
+   a partir de TODOS os pedidos, com o id de quem já entrou preservado) e
+   medido: duas rodadas seguidas dão md5 idêntico em `trainers.party` e em
+   `opponents.h`.
+
+### Landmine que NÃO é minha, mas quem for mexer precisa saber
+
+`dev_scripts/porta_ginasios_johto.py` REESCREVE por inteiro o `scripts.inc` e o
+`map.json` dos 8 ginásios de Johto, e o `map.json` que ele escreve tem só os
+objetos que ele mesmo gera. Rodá-lo hoje APAGARIA os 16 Pokémon de enfeite que
+`porta_cenas_johto.py --pokemon` pôs em Azalea, Ecruteak, Mahogany e
+Blackthorn em 12/08. Medido em 15/08 rodando a ferramenta numa cópia isolada:
+dos 8 ginásios, 6 saem diferentes do que está no repo hoje. Por isso a cena da
+WHITNEY foi escrita DENTRO do gerador (função `cena_choro`, chave `choro` na
+tabela `GINASIOS`) mas aplicada copiando só os dois arquivos de
+`GoldenrodCity_Gym` da cópia isolada. Quem precisar rodar o gerador de verdade:
+rode `porta_cenas_johto.py --pokemon --aplica` logo depois, e confira os 8
+`map.json` antes de aceitar.

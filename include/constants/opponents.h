@@ -2072,6 +2072,8 @@
 // >>> treinadores de cena de Johto (porta_cenas_johto.py) >>>
 #define TRAINER_JOHTO_GRUNT_33                               2460
 #define TRAINER_JOHTO_KIYO                                   2461
+#define TRAINER_JOHTO_EUSINE                                 2462
+#define TRAINER_JOHTO_GIOVANNI                               2463
 // <<< treinadores de cena de Johto (porta_cenas_johto.py) <<<
 
 // >>> cenas restantes da espinha da Galactica de Sinnoh (bloco B6,

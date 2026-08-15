@@ -89,5 +89,101 @@
       "mapa": "MAP_AZALEA_TOWN_GYM",
       "andou": true
     }
+  },
+  {
+    "id": "T90.8",
+    "nome": "Johto, bloco B6: o GIOVANNI aparece na sala do fundo de TOHJO FALLS e batalha. TohjoFalls_GiovanniRoom_OnTransition (data/maps/TohjoFalls_GiovanniRoom/scripts.inc) faz `setflag FLAG_JOHTO_HIDE_TOHJO_GIOVANNI` incondicional, depois `goto_if_not_defeated TRAINER_JOHTO_ROCKET_ARCHER` para o fim (objeto continua escondido) e `goto_if_defeated TRAINER_JOHTO_GIOVANNI` para o fim tambem; so quando o ARCHER ja caiu E o GIOVANNI ainda nao e que o script chega no `clearflag` que mostra o objeto. TRAINER_JOHTO_ROCKET_ARCHER e 1328 (include/constants/opponents.h:1355), e a flag de treinador derrotado e TRAINER_FLAGS_START (0x500) + id, formula ja usada no T89.1 deste acervo: 0x500+1328=2608=0xA30, entao o caso acende '0xA30' e deixa o GIOVANNI sem flag (o par positivo do T89.1/T89.2). O objeto e a vaga que ja existia (LOCALID_TOHJO_FALLS_GIOVANNI em (5,4), MOVEMENT_TYPE_FACE_DOWN, trainer_sight_or_berry_tree_id 3), e o unico warp do mapa (data/maps/TohjoFalls_GiovanniRoom/map.json) cai em (5,8): de frente para o sul com raio 3 ele ve (5,7), (5,6) e (5,5), entao o jogador ja entra dentro do cone. Colisao conferida no LAYOUT_TOHJO_FALLS_GIOVANNI_ROOM (11x11): a coluna x=5 e chao das linhas 3 a 8 e vira parede na linha 2, entao UP de sobra bate na parede sem sair do quarto, o que tira a duvida de quanto custa virar (o roteiro nao depende do numero exato). Depois do gatilho, o texto de abertura (TohjoFalls_GiovanniRoom_Text_GiovanniIntro) tem SETE \\p e TRES \\l antes do '$' final: pela licao 4.13 (\\l tambem cobra aperto), sao uns 11 avancos; o roteiro tem 14 pares de A de proposito, sobra de proposito. PROVA por FAIXA [2462, 2463], a mesma que cobre TRAINER_JOHTO_EUSINE (2462) e TRAINER_JOHTO_GIOVANNI (2463), no mesmo espirito dos casos T30.x.",
+    "flags": [
+      "0xA30"
+    ],
+    "warp": "MAP_TOHJO_FALLS_GIOVANNI_ROOM",
+    "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,300:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_TOHJO_FALLS_GIOVANNI_ROOM",
+      "oponente_faixa": [
+        2462,
+        2463
+      ]
+    }
+  },
+  {
+    "id": "T90.9",
+    "nome": "Johto, bloco B6: o par negativo do T90.8. Mesmo roteiro, mesmo mapa, SEM a flag do ARCHER (0xA30 fica de fora, estado padrao): TohjoFalls_GiovanniRoom_OnTransition cai direto no `goto_if_not_defeated TRAINER_JOHTO_ROCKET_ARCHER` e vai para o fim sem nunca dar `clearflag`, entao FLAG_JOHTO_HIDE_TOHJO_GIOVANNI continua acesa e o objeto do GIOVANNI nao nasce (object_events com flag acesa nao sao desenhados nem colidem, event_object_movement.c). Existe porque sem ele o T90.8 passaria igual se a checagem estivesse invertida (objeto sempre visivel, por exemplo): so este caso prova que ele FICA escondido no estado padrao. O mesmo UP*8 do T90.8 vale aqui: com o GIOVANNI ausente o tile de (5,4) e chao livre (colisao conferida no map.bin, coluna x=5 sem parede entre as linhas 3 e 8), entao o jogador atravessa a sala inteira sem obstaculo ate bater na parede da linha 2, e 'andou' prova que o loop de campo continua rodando (nao e so silencio de rede). oponente exato 0, e nao so fora da faixa, porque com o objeto ausente nenhuma batalha de treinador nenhuma pode ter comecado.",
+    "warp": "MAP_TOHJO_FALLS_GIOVANNI_ROOM",
+    "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,300:NADA",
+    "prova": {
+      "mapa": "MAP_TOHJO_FALLS_GIOVANNI_ROOM",
+      "andou": true,
+      "oponente": 0
+    }
+  },
+  {
+    "id": "T90.10",
+    "nome": "Johto, bloco B6: em CianwoodCity, pisar em (18,22) roda a cena do SUICUNE e abre a batalha do EUSINE. O coord_event de (18,22) (data/maps/CianwoodCity/map.json) so dispara com VAR_JOHTO_CIANWOOD_SUICUNE=1, e CianwoodCity_OnTransition escreve esse 1 sozinho toda vez que o mapa carrega E TRAINER_JOHTO_EUSINE ainda nao caiu (`goto_if_defeated TRAINER_JOHTO_EUSINE` pula o clearflag/setvar se ja caiu), entao o caso nao precisa de flag nem var pre-escrita: o estado padrao ja e o de EUSINE nao derrotado. ENTRADA: CianwoodCity tem SETE warps de saida (casas, ginasio, loja, pokecenter) e NENHUM cai perto do gatilho; o mais proximo e o warp 0, para MAP_CIANWOOD_HOUSE1. MEDIDO (nao suposto) com --dump-estado do proprio gba_runner: o pouso real deste warp e (11,26), UM TILE AO SUL do tile do door em (11,25) que o map.json lista (o exterior empurra o jogador para fora da porta antes de devolver o controle), e a primeira reprovacao deste caso (11/08, suite completa) foi porque o roteiro anterior gastava um DOWN de proposito para 'descer ate (11,26)': medido passo a passo, esse DOWN nao andava (o jogador ja estava la) e, por alguma razao NAO totalmente explicada por leitura de codigo (o efeito de virar variou entre as pernas RIGHT e UP nos dois testes empiricos), ele fazia as OITO teclas RIGHT seguintes ANDAREM AS OITO, sem nenhuma absorvida por virar, parando em (19,26) em vez de (18,26) — um tile fora da coluna com vao na linha 22. Tirar o DOWN e manter as mesmas oito RIGHT fez a primeira tecla virar (sem andar) e as sete seguintes andarem, o que fecha exatamente em (18,26); medido de novo com --dump-estado, este roteiro chega em (18,22) no passo 57 e para (bate raiz no proprio gatilho, que trava com `lock`). Rota calculada lendo a colisao real de data/layouts/CianwoodCity/map.bin (37x61, formato padrao metatileId/colisao/elevacao): RIGHT ate (18,26) e UP ate (18,22), pela mesma praca de elevacao 3 sem obstaculo. O tramo do meio (RIGHT) segue sendo o elo mais sensivel do roteiro porque nao termina em parede — (19,26) tambem e chao —, e o custo de virar aqui nao seguiu a mesma regra medida noutros casos deste bloco (a primeira tecla de uma sequencia RIGHT apos um warp cru vira sem andar; ja apos um DOWN que bateu no lugar, a mesma sequencia andou a tecla inteira), entao qualquer edicao futura deste roteiro deveria RE-MEDIR com --dump-estado em vez de reaplicar a formula por analogia. Ja o tramo final (UP) nao precisa ser exato: EventScript_SuicuneTrigger comeca com `lock`, entao qualquer aperto de sobra depois de pisar em (18,22) e ignorado. Depois do gatilho a cena e toda automatica (jump/playse/delay) ate a msgbox CianwoodCity_Text_EusineSuicune, que tem NOVE \\p e UM \\l antes do texto final (\"Come on...\") que entra direto em trainerbattle_no_intro; a PRIMEIRA reprovacao medida (11/08, suite completa) chegava exatamente na penultima pagina do texto (\"I will battle you as a trainer to earn SUICUNE respect\") e faltava so UM A para fechar a ultima pagina e abrir a luta (confirmado no screenshot do passo, nao suposto): 12 pares de A nao bastavam, 16 pares fecham com folga real e o dump final mostra oponente=2462 (EUSINE). PROVA por FAIXA [2462, 2463], a mesma do T90.8, no espirito dos T30.x.",
+    "warp": "MAP_CIANWOOD_CITY",
+    "warp_id": 0,
+    "roteiro": "150:NADA,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:UP,20:UP,20:UP,20:UP,20:UP,900:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_CIANWOOD_CITY",
+      "oponente_faixa": [
+        2462,
+        2463
+      ]
+    }
+  },
+  {
+    "id": "T90.11",
+    "nome": "Johto, bloco B6: o QUARTO e ultimo duelo do rival SILVER, movido de volta para GoldenrodCity_UndergroundSwitches em 15/08/2026 (comentario no topo de data/maps/GoldenrodCity_UndergroundSwitches/scripts.inc: 'ate 12/08 ela estava na calcada de GoldenrodCity porque este arquivo nao era daquela sessao'). TRAINER_JOHTO_RIVAL_SILVER_3 e 1360 e TRAINER_JOHTO_RIVAL_SILVER_4 e 1361 (include/constants/opponents.h:1400-1401). GoldenrodCity_UndergroundSwitches_OnTransition so libera o objeto quando SILVER_3 ja caiu e SILVER_4 ainda nao (`goto_if_not_defeated SILVER_3` esconde, `goto_if_defeated SILVER_4` esconde), entao o caso acende a flag de treinador do SILVER_3: TRAINER_FLAGS_START(0x500)+1360=2640=0xA50 (SILVER_4 fica no padrao, sem flag). O objeto (LOCALID_GOLDENROD_CITY_UNDERGROUND_SWITCHES_SILVER) fica em (34,3), MOVEMENT_TYPE_FACE_UP, raio 3, e o warp 1 deste mapa (data/maps/GoldenrodCity_UndergroundSwitches/map.json) cai em (34,2): um tile ao norte dele, dentro do proprio cone de visao, exatamente a emboscada que o comentario do arquivo descreve ('ele ve quem chega'). Por isso o roteiro nao anda: so espera o loop de deteccao do proprio objeto notar o jogador (a checagem de treinador roda por objeto, nao por tecla do jogador). O texto GoldenrodCity_UndergroundSwitches_Text_SilverSeen tem CINCO \\p antes do '$' final, entao 8 pares de A cobrem com folga. PROVA por nome E por faixa junto, como o T30.1 faz: oponente exato TRAINER_JOHTO_RIVAL_SILVER_4 e faixa [1358, 1361], os quatro duelos do SILVER (1358 Cherrygrove, 1359 Azalea, 1360 Burned Tower, 1361 Goldenrod). O 'par negativo' des crito pra este bloco (nada em (19,39) de GoldenrodCity) foi verificado por LEITURA, nao por execucao (orcamento de seis casos): data/maps/GoldenrodCity/map.json ainda tem LOCALID_GOLDENROD_CITY_SILVER em (19,39), mas com trainer_type NONE e script 0, e data/maps/GoldenrodCity/scripts.inc acende FLAG_HIDE_SILVER_GOLDENROD sem condicao a cada carregamento da cidade e nunca apaga (comentario: 'a MESMA flag serve ao SILVER de la embaixo... e nunca mais apaga'); o objeto e sprite morto por desenho, nao por sorte de estado.",
+    "flags": [
+      "0xA50"
+    ],
+    "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+    "warp_id": 1,
+    "roteiro": "150:NADA,800:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+      "oponente": "TRAINER_JOHTO_RIVAL_SILVER_4",
+      "oponente_faixa": [
+        1358,
+        1361
+      ]
+    }
+  },
+  {
+    "id": "T90.12",
+    "nome": "Johto, bloco B6: o choro da WHITNEY. GoldenrodCity_Gym_EventScript_Whitney (data/maps/GoldenrodCity_Gym/scripts.inc) ramifica por VAR_JOHTO_GOLDENROD_GYM_STATE (apelido de VAR_UNUSED_0x4103, include/constants/vars.h:661): ==3 mostra so o choro de novo (WhitneyChorando, ZERO setflag no corpo dela, e essa e a prova de que a insignia continua apagada nesse estado, verificada por LEITURA do script e nao por um segundo caso, dado o orcamento de seis); ==4 entrega a insignia (WhitneyInsignia: setflag FLAG_INSIGNIA_JOHTO_3 + setvar STATE,5). FLAG_INSIGNIA_JOHTO_3 e apelido de FLAG_UNUSED_0x032 (include/constants/flags.h:4896). O caso comeca DIRETO no estado 3 (var 0x4103=3), equivalente a 'acabou de perder para a WHITNEY', e tambem acende a flag de treinador dela (TRAINER_JOHTO_LEADER_WHITNEY=1287, include/constants/opponents.h:1310; flag 0x500+1287=2567=0xA07) pela opcao que o proprio pedido oferece. O coord_event de (15,11) (data/maps/GoldenrodCity_Gym/map.json) so dispara ChoroTrigger com STATE 3 ou 4; ele vira a BRIDGET, mostra a fala de consolo (UM \\p) e escreve STATE=4. So DEPOIS falar com a WHITNEY de novo (agora em 15,8) entrega a insignia. GEOMETRIA: o unico warp do ginasio (data/maps/GoldenrodCity_Gym/map.json) cai em (9,22), e o ginasio E um labirinto de verdade (colisao lida de data/layouts/GoldenrodCity_Gym/map.bin, 34x27): o caminho mais curto ate (15,11) tem 59 tiles, busca em largura na propria grade, cada perna com uma tecla extra de sobra para o custo de virar (MEDIDO com --dump-estado, nao suposto: as dezoito primeiras pernas bateram todas na coluna e linha exatas com exatamente 1 tecla de sobra por troca de direcao, confirmando a regra virar-custa-uma-tecla para ESTE labirinto especifico).\n\nDUAS REPROVACOES MEDIDAS antes deste roteiro fechar, as duas por dump de posicao/var passo a passo, nao por leitura de codigo:\n\n1) A suite completa (11/08) reprovou com mapa errado: obtido MAP_PALLET_TOWN_PLAYERS_HOUSE_1F. Nao foi o warp de debug que falhou (R+START, Utilities, Warp to map warp e os digitos batem certinho nos screenshots, Group 089/126 e Map 06/27 corretos); foi o PROPRIO LABIRINTO: a rota antiga passava perto de (26,10), onde SAMANTHA (TRAINER_JOHTO_BEAUTY_SAMANTHA, raio de visao de treinador) fica de tocaia, e o jogador do harness sobe sem NENHUM Pokemon no time (timevivo=0 nos dumps). A aproximacao dela abriu uma batalha de verdade contra um time vazio, e a derrota/blackout resultante manda o jogador para o respawn padrao de save novo (a casa inicial), que e exatamente o mapa errado que a prova acusou. Corrigido acendendo TAMBEM as flags de treinador derrotado dos QUATRO outros treinadores do ginasio (CARRIE 0xA03, BRIDGET 0xA04, VICTORIA 0xA05, SAMANTHA 0xA06: TRAINER_FLAGS_START+1283..1286, include/constants/opponents.h:1306-1309), a mesma tecnica ja usada para a propria WHITNEY: trainer com flag de derrotado acesa nao reabre batalha por aproximacao.\n\n2) Com as flags acesas, a rota (ainda a antiga) chegava ate (17,11) e travava: o ultimo tramo (LEFT ate x=15) esbarra na propria BRIDGET, que fica parada em (16,11); ela NAO esta no map.bin (e um object_event, colisao dinamica, nao estatica), entao a busca em largura por cima do so mapa nao a via como obstaculo. Rota refeita tratando (16,11) como bloqueado: dos antigos UP*7,LEFT*5 finais (que cruzavam a frente dela), o novo caminho sobe so 4, desce 4 para oeste na linha 14 (fora do corredor dela), sobe mais 2 e entra em (15,11) por BAIXO, pela coluna x=15 (livre da linha 9 a 13, conferida tile a tile), nunca passando por (16,11).\n\nDepois do gatilho (locked pelo lock do proprio EventScript_ChoroTrigger): os primeiros 3 pares de A NAO bastavam. Medido com --dump-estado: a msgbox da BRIDGET (UM \\p) so fechava e liberava o release no SEXTO par de A (o msgbox nao abre no mesmo quadro em que o gatilho dispara, entao os primeiros A chegam cedo demais e nao fazem nada); com 6 pares o var vira 4 dentro do proprio bloco de A, e so entao UP*3 anda de verdade (2 tiles, de 15,11 a 15,9, esbarrando na propria WHITNEY). O dialogo dela em STATE 4 tambem precisou de mais A do que o estimado: dez pares chegavam EXATAMENTE na ultima linha do texto (WhitneyBadge, Oh you can have this too) sem o A final que fecha a caixa e roda o setflag; 16 pares fecham com folga real, medida e nao chutada, com flag_0x32=1 e var_0x4103=5 confirmados no dump final.",
+    "vars": {
+      "0x4103": 3
+    },
+    "flags": [
+      "0xA07",
+      "0xA03",
+      "0xA04",
+      "0xA05",
+      "0xA06"
+    ],
+    "warp": "MAP_GOLDENROD_CITY_GYM",
+    "warp_id": 0,
+    "roteiro": "150:NADA,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:LEFT,20:LEFT,20:UP,20:UP,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,60:NADA,20:UP,20:UP,20:UP,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_GOLDENROD_CITY_GYM",
+      "flags_acesas": [
+        "FLAG_INSIGNIA_JOHTO_3"
+      ]
+    }
+  },
+  {
+    "id": "T90.13",
+    "nome": "Johto, bloco B6: o raio de aproximacao da Sprout Tower. TRAINER_SAGE_CHOW e 1340 (include/constants/opponents.h:1374), primeiro de dezoito SAGE_ na faixa 1340-1357. No LAYOUT_SPROUT_TOWER_1F (data/maps/SproutTower_1F/map.json) ele e o UNICO object_event com trainer_type != NONE (os outros quatro NPCs do andar, Sage1/Sage2/Teacher/Granny, sao so conversa); fica em (1,2), raio 1, MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT (alterna sozinho entre olhar para baixo e para a direita). ACHADO DE GEOMETRIA que muda o warp usado: o warp 0 deste mapa (a escada normal vinda de Violet City, pousa em (10,16)) NAO tem caminho andavel ate o CHOW. Busca em largura sobre TODO o LAYOUT_SPROUT_TOWER_1F (25x25, data/layouts/SproutTower_1F/map.bin) mostra duas aneis desconectados: o corredor externo onde o CHOW mora (onde tambem caem os warps 2 e 3, ambos escadas para o 2F) e o corredor interno em volta do pilar central, onde o warp 0 pousa; NENHUM tile liga os dois aneis (paredes continuas em x=3 do lado esquerdo e x=8/x=12 do lado de baixo, conferidas coluna a coluna). Por isso o roteiro usa warp_id 2 (pousa em (2,7)), que fica no MESMO anel do CHOW: dali a coluna x=2 e chao livre ate (2,2), o tile a leste dele (UP*6, 1 de virar + 5 de andar). Parado em (2,2) o jogador so espera o proprio ciclo do CHOW apontar para a direita (o motor confere o cone de visao a cada quadro do objeto, nao por tecla do jogador); 600 quadros de folga cobrem varios ciclos sem medir o periodo exato do MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT no codigo (RISCO nao confirmado por leitura: se o periodo for maior que isso, o caso pode reprovar por timing, nao por bug). SproutTower_Text_SageChow_Seen tem UM \\p antes do '$' final; 6 pares de A cobrem com folga antes de `trainerbattle_single` abrir a luta. PROVA por FAIXA [1340, 1357], como o pedido especifica.",
+    "warp": "MAP_SPROUT_TOWER_1F",
+    "warp_id": 2,
+    "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,600:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_SPROUT_TOWER_1F",
+      "oponente_faixa": [
+        1340,
+        1357
+      ]
+    }
   }
 ]

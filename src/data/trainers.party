@@ -46972,6 +46972,92 @@ Level: 205
    gera e dev_scripts/porta_cenas_johto.py --treinadores, com o nivel na
    curva de Johto (45 a 100). Rodar de novo troca so este bloco. Comentario em bloco porque o formato .party nao aceita //. */
 
+=== TRAINER_JOHTO_EUSINE ===
+Name: Eusine
+Class: TRAINER_CLASS_PSYCHIC
+Pic: TRAINER_PIC_PSYCHIC_M
+Items: ITEM_FULL_RESTORE / ITEM_FULL_RESTORE
+Double Battle: No
+
+SPECIES_POLITOED
+Level: 74
+IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+- MOVE_BUBBLE_BEAM
+- MOVE_RAIN_DANCE
+- MOVE_HYPNOSIS
+- MOVE_ICY_WIND
+
+SPECIES_HYPNO
+Level: 74
+IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+- MOVE_HYPNOSIS
+- MOVE_DISABLE
+- MOVE_CONFUSION
+- MOVE_DREAM_EATER
+
+SPECIES_ELECTRODE
+Level: 74
+IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+- MOVE_THUNDER_WAVE
+- MOVE_SONIC_BOOM
+- MOVE_BODY_SLAM
+- MOVE_THUNDERBOLT
+
+=== TRAINER_JOHTO_GIOVANNI ===
+Name: Giovanni
+Class: TRAINER_CLASS_BOSS_FRLG
+Pic: TRAINER_PIC_LEADER_GIOVANNI_FRLG
+Items: ITEM_FULL_RESTORE / ITEM_FULL_RESTORE
+Double Battle: No
+
+SPECIES_KANGASKHAN
+Level: 111
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- MOVE_DIZZY_PUNCH
+- MOVE_FIRE_PUNCH
+- MOVE_SAFEGUARD
+- MOVE_MEGA_PUNCH
+
+SPECIES_HONCHKROW
+Level: 113
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- MOVE_DARK_PULSE
+- MOVE_AIR_SLASH
+- MOVE_THIEF
+- MOVE_DOUBLE_TEAM
+
+SPECIES_NIDOQUEEN
+Level: 113
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- MOVE_ICE_PUNCH
+- MOVE_SLUDGE_BOMB
+- MOVE_SURF
+- MOVE_BODY_SLAM
+
+SPECIES_PERSIAN
+Level: 113
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- MOVE_FEINT_ATTACK
+- MOVE_SWAGGER
+- MOVE_SCREECH
+- MOVE_SLASH
+
+SPECIES_URSALUNA
+Level: 111
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- MOVE_EARTHQUAKE
+- MOVE_SANDSTORM
+- MOVE_PLAY_ROUGH
+- MOVE_DOUBLE_EDGE
+
+SPECIES_NIDOKING
+Level: 114
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- MOVE_THUNDER_PUNCH
+- MOVE_EARTHQUAKE
+- MOVE_ROCK_SLIDE
+- MOVE_THRASH
+
 === TRAINER_JOHTO_GRUNT_33 ===
 Name: Grunt
 Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
@@ -46996,6 +47082,16 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_HITMONCHAN
 Level: 82
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+/*=== ACERVO CENAS SINNOH E CAMPEA DE UNOVA (bloco B6, 12/08/2026) ===
+   Sentinela acrescentada em 15/08/2026, e ela nao e enfeite: os oito blocos
+   abaixo tinham sido apensados DEPOIS do acervo de cenas de Johto sem
+   marcador proprio, e `troca_acervo()` corta do marcador pedido ate o
+   PROXIMO `/*===`, ou ate o fim do arquivo se nao houver. Sem esta linha, a
+   proxima rodada de `porta_cenas_johto.py --treinadores --aplica` apagaria os
+   cinco treinadores de cena de Sinnoh e as tres Campeas de Unova em silencio.
+   O assert de contagem de blocos daquela ferramenta pegou isso antes.
+   Comentario em bloco porque o formato .party nao aceita //. */
 
 === TRAINER_SINNOH_GALACTIC_GRUNT_CELESTIC_TOWN ===
 Name: Grunt
@@ -47330,4 +47426,3 @@ Level: 255
 - MOVE_AQUA_TAIL
 - MOVE_MEGAHORN
 - MOVE_AQUA_JET
-

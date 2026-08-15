@@ -606,6 +606,32 @@ FECHA_ID = "// <<< treinadores de cena de Johto (porta_cenas_johto.py) <<<"
 # nível do hns (2 a 50) remapeada na faixa desta ROM (45 a 100).
 ORIGEM_NIVEL = (2, 50)
 
+# Treinador de cena cujo SCRIPT foi escrito à mão, mas cujo TIME continua
+# saindo do hns. As duas cenas de 15/08/2026 (o GIOVANNI das Tohjo Falls e o
+# EUSINE de Cianwood) não passam pelo `--cenas`: a da fonte chama
+# `special CheckCelebi`, mexe no follower e toca música que esta ROM não tem,
+# então o corpo do script é adaptação, não porte. O time, não: sai daqui, pela
+# mesma régua de nível dos outros, para ninguém inventar Pokémon.
+# Chave: rótulo do hns -> nome daqui.
+TREINADORES_A_MAO = {
+    "TRAINER_GIOVANNI": "TRAINER_JOHTO_GIOVANNI",
+    "TRAINER_EUSINE": "TRAINER_JOHTO_EUSINE",
+}
+
+# Classe e pic do hns que não têm nome igual aqui NEM com sufixo `_FRLG`, e por
+# isso o `com_frlg()` deixaria passar o nome cru (que não compila). Conferido um
+# a um contra include/constants/trainers.h em 15/08/2026.
+CLASSE_CENA = {
+    # não existe TRAINER_CLASS_ROCKET_ADMIN aqui; o chefão de Kanto usa BOSS
+    "TRAINER_CLASS_ROCKET_ADMIN": "TRAINER_CLASS_BOSS_FRLG",
+    # "MYSTERY MAN" é classe do hns; o mais perto daqui é o PSYCHIC de capa
+    "TRAINER_CLASS_MYSTERY_MAN": "TRAINER_CLASS_PSYCHIC",
+}
+PIC_CENA = {
+    "TRAINER_PIC_GIOVANNI": "TRAINER_PIC_LEADER_GIOVANNI_FRLG",
+    "TRAINER_PIC_EUSINE": "TRAINER_PIC_PSYCHIC_M",
+}
+
 
 def ids_ocupados():
     return {int(m.group(1)) for m in
@@ -617,7 +643,7 @@ def frente_treinadores():
     import importa_treinadores_johto as IT
     import curva_de_nivel as CV
 
-    pedidos = {}
+    pedidos = dict(TREINADORES_A_MAO)
     for cena in CENAS:
         pedidos.update(cena.get("treinadores", {}))
     fonte = IT.times_do_hns(HNS)
@@ -634,19 +660,23 @@ def frente_treinadores():
         return nome + "_FRLG" if nome not in ctx_tr and \
             nome + "_FRLG" in ctx_tr else nome
 
-    ja = set(re.findall(r"^#define\s+(TRAINER_[A-Z0-9_]+)\s+\d+",
-                        le(OPPONENTS), re.M))
+    # nome -> id que ESTE arquivo ja define, para o id de quem ja entrou nunca
+    # mudar de rodada para rodada (id de treinador e indice de flag na save).
+    ja = {m.group(1): int(m.group(2)) for m in
+          re.finditer(r"^#define\s+(TRAINER_[A-Z0-9_]+)\s+(\d+)",
+                      le(OPPONENTS), re.M)}
     ocupados = ids_ocupados()
     vagas = [i for i in FAIXA_ID if i not in ocupados]
 
-    linhas, novos, avisos = [], {}, []
+    linhas, novos, meus, avisos = [], {}, {}, []
     for orig, meu in sorted(pedidos.items()):
         if orig not in fonte:
             avisos.append(f"{orig}: não existe no hns")
             continue
         t = fonte[orig]
-        classe = com_frlg(IT.CLASSE.get(t["class"], t["class"]))
-        pic = com_frlg(IT.PIC.get(t["pic"], t["pic"]))
+        classe = com_frlg(CLASSE_CENA.get(
+            t["class"], IT.CLASSE.get(t["class"], t["class"])))
+        pic = com_frlg(PIC_CENA.get(t["pic"], IT.PIC.get(t["pic"], t["pic"])))
         L = [f"=== {meu} ===", f"Name: {t['name'].title()}",
              f"Class: {classe}", f"Pic: {pic}"]
         itens = [i for i in t["items"] if i != "ITEM_NONE" and i in ctx_itens]
@@ -677,6 +707,13 @@ def frente_treinadores():
         linhas += L + [""]
         if meu not in ja:
             novos[meu] = vagas.pop(0)
+        # `meus` e o bloco INTEIRO, nao so o que entrou nesta rodada. BUG
+        # MEDIDO em 15/08/2026: o bloco de opponents.h era reescrito a partir
+        # de `novos` sozinho, e como a escrita TROCA o bloco por inteiro, a
+        # rodada que acrescentava dois nomes apagava os dois que ja estavam.
+        # Rodar duas vezes seguidas fazia os quatro nomes se revezarem, e o
+        # sintoma so apareceria no build, como treinador sem constante.
+        meus[meu] = ja.get(meu, novos.get(meu))
 
     print(f"treinadores de cena pedidos: {len(pedidos)}   ids novos: "
           f"{len(novos)}   vagas livres na faixa 2460-2499: {len(vagas)}")
@@ -712,11 +749,11 @@ def frente_treinadores():
                              f"blocos: o corte comeu acervo de outra frente")
     with open(PARTY, "w", encoding="utf-8") as f:
         f.write(saida)
-    if novos:
+    if meus:
         texto = le(OPPONENTS)
         bloco = "\n".join([ABRE_ID]
                           + [f"#define {n:<52} {i}"
-                             for n, i in sorted(novos.items(),
+                             for n, i in sorted(meus.items(),
                                                 key=lambda x: x[1])]
                           + [FECHA_ID])
         if ABRE_ID in texto:

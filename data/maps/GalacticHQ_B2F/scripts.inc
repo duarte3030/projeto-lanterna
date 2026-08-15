@@ -20,6 +20,15 @@ GalacticHQ_B2F_EventScript_SpeechGrunt::
 	msgbox GalacticHQ_B2F_Text_ToGetIntoSpeech, MSGBOX_NPC
 	end
 
+@ Cientista de pret/pokeplatinum (LOCALID_SCIENTIST_M, hidden_flag
+@ FLAG_HIDE_GALACTIC_HQ_TEAM_GALACTIC); some quando FLAG_GALACTICA_QG_TOMADO
+@ acende, junto com os cientistas do laboratorio. Fala igual a da fonte, que ja
+@ mora em GalacticHQ_B2F_Text_FreeAllPokemon (mesma linha do texto pos-batalha
+@ do Grunt1).
+GalacticHQ_B2F_EventScript_Scientist::
+	msgbox GalacticHQ_B2F_Text_FreeAllPokemon, MSGBOX_NPC
+	end
+
 GalacticHQ_B2F_Text_Grunt1Intro:
 	.string "Nobody comes down here without\n"
 	.string "Master Cyrus saying so!$"

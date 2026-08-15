@@ -39,6 +39,22 @@ GalacticHQ_Hall_EventScript_Grunt2::
 	msgbox GalacticHQ_Hall_Text_GruntsWroooar, MSGBOX_NPC
 	end
 
+@ Os 16 grunts mudos de pret/pokeplatinum (LOCALID_GRUNT_M_1..9 e
+@ LOCALID_GRUNT_F_1..7, hidden_flag FLAG_HIDE_GALACTIC_HQ_HALL_GRUNTS) tem
+@ "script": 0 na fonte, ou seja NENHUMA fala propria: sao a plateia muda do
+@ discurso do Cyrus. FLAG_HIDE_GALACTIC_HQ_HALL_GRUNTS nao existe nesta ROM, mas
+@ a plateia mora dentro do QG, e ele ja tem flag propria: FLAG_GALACTICA_QG_TOMADO
+@ (setada em GalacticHQ_1F/2F ao derrotar o Saturn) some o objeto sozinha no
+@ carregamento do mapa, sem precisar de ON_TRANSITION aqui. Os quatro Grunt1-4
+@ que ja moravam neste salao ganharam a mesma flag no campo "flag", por pedido
+@ do Gui em 15/08/2026: os 20 somem juntos quando o QG cai.
+GalacticHQ_Hall_EventScript_SilentGrunt::
+	msgbox GalacticHQ_Hall_Text_SilentGrunt, MSGBOX_NPC
+	end
+
+GalacticHQ_Hall_Text_SilentGrunt:
+	.string "...$"
+
 GalacticHQ_Hall_Text_PsstOverHere:
 	.string "Looker: Psst! Here.\n"
 	.string "Over here.\p"

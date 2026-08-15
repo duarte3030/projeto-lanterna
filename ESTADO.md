@@ -8,6 +8,38 @@ inteiras. Detalhe fica nos documentos apontados no fim.
 
 ---
 
+## 0.a LEVA DE 15/08/2026 (Fable condutor, agentes executores)
+
+Build verde, **suíte 219/220** (só T11.3 pulado na rodada normal) e **T11
+completo rodado à parte: 3/3, a save da ROM 2026-08-12b carrega na ROM nova**
+(worktree do commit antigo + `--rom2`; os headers gerados do worktree vieram
+copiados da árvore principal porque nenhum mapa novo entrou). ROM entregue:
+`pokemon-claude-2026-08-15.gba` no workspace, 97,48% de 32 MB.
+
+O que entrou: **B10/overworld** (220,8 KB de volta; 152 sprites `.smol`;
+estouro de VRAM no Battle Dome achado por prova de emulador e desfeito ali;
+ferramenta `comprime_overworld.py`); **B6 Johto** (duelos GIOVANNI e
+EUSINE/SUICUNE, 4º duelo do rival no subterrâneo, choro da WHITNEY com a
+insígnia via BRIDGET, raio de visão devolvido a 17 treinadores de torre/farol
+que já existiam com ids 1340-1357; o "grunt do subterrâneo" da fila era
+fantasma; OLIVINE adiada de propósito, gatilho da fonte inalcançável);
+**B6 Sinnoh** (21 objetos em 2 levas nos mapas da Galáctica + LakeVerity +
+FightArea conferido; os 20 grunts do Hall somem com FLAG_GALACTICA_QG_TOMADO
+na queda do Saturn); **casos T90.8-13** (autor ≠ executor da cena); fila
+`fila_b6.json` calibrada três vezes (conteúdo em vez de proxy, raio 4,
+fallthrough). Gasto de recursos da leva inteira: 3 flags, 2 vars, 2 ids.
+
+Pendências novas ou vivas: decisão do Gui sobre o sprite do RED_2 (duelo do
+Mt. Silver); arco dos sinos bloqueado por ITEM_TIDAL_BELL/ITEM_CLEAR_BELL
+inexistentes (criar item no fim da lista não quebra save, mas ninguém criou
+ainda); as duas obras grandes de Unova (máquina de setscene, 59 cenas;
+tradutor de changeblock, 108 cenas) precisam de desenho antes de executor;
+B10 restante (ícones ~673 KB, indireção de treinador ~485 KB, ambos pedem
+mudança de engine); `porta_ginasios_johto.py` continua com a landmine de
+reescrever map.json inteiro (rodar `porta_cenas_johto.py --pokemon --aplica`
+depois dele); os itens de FightArea na fila são falso "sem bloqueio" (flag
+inexistente, corrigir na próxima regeneração).
+
 ## 0. PASSAGEM DE BASTÃO da sessão de 12/08/2026 (Fable condutor)
 
 ### Conserto da noite de 12/08: NPCs verdes de Kanto (palettes FRLG nunca registradas)
