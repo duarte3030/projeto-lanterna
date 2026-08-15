@@ -45,17 +45,21 @@ pela porta oeste (2,11); a prova continua sendo o contador somando na sala
 seguinte. Regra que fica: **roteiro de suíte não pode decorar resultado de
 sorteio.**
 
-**RISCO ABERTO, não fechado nesta sessão:** nas sondagens do T93.3, entrar
-numa sala por PORTA dinâmica engoliu input por uma janela maior na build
-consertada do que na antiga (mesma sala 81: primeiro passo andava logo após
-os 180 quadros de espera antes; depois do conserto houve rodada com >480
-quadros engolidos). Entrar na MESMA sala por warp de debug não engole nada
-(medido: movimento no token seguinte). A causa não foi isolada, e as rodadas
-não são reprodutíveis entre si (o sorteio caiu em salas diferentes com build
-e roteiro idênticos, o que sugere semente com relógio no meio). Próxima
-sessão: medir quadros-até-controle na mesma sala, via porta, com e sem o
-conserto, e decidir se o jogador sente atraso real nas portas do Turnback
-(e por extensão em porta não animada em geral).
+**RISCO FECHADO em 15/08/2026, medido nas duas ROMs: não existe regressão.**
+Entrar numa sala do Turnback por porta custa 58 quadros de input travado em
+`0e4571bfd5` E em `25f3976336` (N=3 cada, variância zero, lido de
+`sLockFieldControls` na EWRAM); porta não animada de Unova, 60 nas duas. O
+">480 engolidos" era o jogador contra a parede: todo warp dinâmico chega em
+(11,1), a coluna x=11 é bloqueada em y=8 nas plantas PILLAR_ROOM e ROOM_5 e
+livre em ROOM_1/ROOM_3, e a sala é sorteada com semente de relógio
+(`SeedRngAndSetTrainerId`, `src/main.c:215`, timers de hardware amostrados na
+confirmação do nome). Regra que fica: caso de suíte que entra por porta no
+Turnback PINA o sorteio com `"vars": {"0x41C0": 3}` ou `{"0x41C1": 29}`, como
+T93.4/T93.5. Colaterais registrados: as "portas" do Turnback são metatile de
+comportamento 97 (`MB_LADDER`), não 96 (`MB_NON_ANIMATED_DOOR`), então a
+guarda de `Task_ExitNonAnimDoor` é inerte lá; e
+`testa_critico.offsets_da_fonte()` grava `probe.c/probe.o` em caminho cravado
+(`/tmp/claude-501/frenteA/offsets`), colisão esperando duas sessões paralelas.
 
 ### B8 FEITO em 12/08/2026, DEPOIS da janela de save fechar (leia isto primeiro)
 
@@ -307,10 +311,22 @@ teto de grupos 128→255, s16 em coordenada de warp.
    primeiro bloco desta seção. Sobra dele uma decisão do Gui: 22 blocos de
    líder/E4/campeão com time cheio (6 Pokémon) ficaram só com Dynamax e sem
    lenda, e entre eles estão a Cynthia de Sinnoh e os campeões de Unova.
-4. **B6 restante**: Unova ~193 cenas (os 16 `callasm` da Plasma intocados,
-   104 mapas de changeblock); Sinnoh 348 hidden_flags/176 coord_events e a
-   cena da biblioteca de Canalave; Johto: arco dos sinos/Kimono/RED (fila em
-   `PENDENCIAS-JOHTO.md`), 4 duelos de cena, 4º duelo do rival no lugar.
+4. **B6 restante, REMEDIDO em 15/08/2026. A fila canônica é
+   `dev_scripts/fila_b6.json`, regenerável por `dev_scripts/fila_b6.py`; os
+   números antigos desta linha (193/104/348/176) estavam errados e a
+   explicação de cada erro está no cabeçalho do script.** São **652 cenas
+   pendentes**: Unova 209 (107 de changeblock em **12 mapas**, 1226 chamadas;
+   47 setscene; os "16 callasm" são 16 coord_events de UM mapa,
+   IcirrusCitySouth, sobre 4 callasm literais; 15 batalhas; 31 portáveis com
+   bloqueio; 6 portáveis; 3 special), Sinnoh 430 (276 cenas de hidden_flag
+   cobrindo 371 objetos; 164 gatilhos de coord_event, 177 no total; nenhuma
+   var do Platinum existe aqui ainda; mais a biblioteca de Canalave, sem
+   escopo escrito), Johto 13 (arco dos sinos BLOQUEADO por ITEM_TIDAL_BELL e
+   ITEM_CLEAR_BELL inexistentes; 4 duelos de cena; 4º duelo do rival com
+   slot pronto; RED_2 esperando decisão de arte do Gui). **Os 18 treinadores
+   de torre/farol de Johto estão DESBLOQUEADOS**: a seção 4.1 do
+   `PENDENCIAS-JOHTO.md` ficou velha, a faixa 2462-2499 (38 ids) está livre
+   e o teto 4000 aguenta sem tocar em save.
 5. **B10/corte**: ROM estava a ~97,8% ANTES da leva final de B6; a build
    da próxima sessão diz o número real. Economias mapeadas na seção 11 do
    PRD (ícones 673 KB, indireção de treinador 485 KB, overworld 330 KB).
@@ -673,6 +689,7 @@ Não relitigar. Números são das perguntas numeradas da sessão.
 | 73 | Importar os treinadores de rota de Johto do `hns` |
 | 13 | ~~As 152 "placas" de Sinnoh que na verdade são item escondido **ficam como estão**~~. **Revogada em 11/08/2026 pelo Gui**: as 146 (contagem certa) foram resolvidas. 50 viraram item escondido de verdade, custando 46 flags, e 96 foram apagadas |
 | 14 | **Primeiro a ROM na mão do Gui**, ele joga a primeira hora; só depois atacar os 455 mapas de Sinnoh que faltam |
+| 2 (15/08/2026) | **Polir times de líder/E4/campeão fica pro FIM do desenvolvimento**, quando todos os assets estiverem validados. Os 22 blocos de time cheio que o B8 deixou sem lenda ficam como estão até lá; nenhuma sessão deve "melhorar" time de líder antes dessa etapa |
 
 **A janela de quebrar save FECHOU em 05/08/2026**, com a entrega de
 `roms/pokemon-claude-2026-08-05.gba` (commit `d9e5e7581e`). A partir daqui existe
