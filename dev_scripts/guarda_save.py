@@ -191,17 +191,30 @@ def tamanho_saveblock1():
     return None
 
 
-def ordinais_de_enum(header, prefixo):
+def ordinais_de_enum(header, prefixo, ate=None):
     """nome -> posicao dentro do enum, na ordem em que o arquivo declara.
 
     Guarda POSICAO e nao valor de proposito: entrada sem `= N` explicito herda o
     valor da anterior mais um, entao a posicao e o que realmente define o numero,
     e reordenar ou inserir no meio aparece na posicao mesmo quando ninguem
     escreveu numero nenhum.
+
+    `ate` corta a leitura na linha do sentinela de contagem (ex. "ITEMS_COUNT").
+    FALSO POSITIVO MEDIDO em 15/08/2026, e ele custou uma leva parada: sem esse
+    corte, a varredura de `items.h` pegava tambem `ITEM_FIELD_ARROW` (que e
+    apelido de ITEMS_COUNT, nao item) e os SETE membros de `enum ItemType`
+    (ITEM_USE_MAIL e irmaos, valores 0 a 6 de OUTRO enum). Resultado: acrescentar
+    UM item no fim da lista, que e a unica forma segura de acrescentar item,
+    fazia o guarda gritar "INSERIDO NO MEIO" e "MOVIDO" oito vezes. Nenhum
+    daqueles oito nomes e id guardado em save.
     """
     txt = open(f"{RAIZ}/include/constants/{header}").read()
     txt = re.sub(r"/\*.*?\*/", "", txt, flags=re.S)
     txt = re.sub(r"//[^\n]*", "", txt)
+    if ate:
+        i = txt.find(ate)
+        if i != -1:
+            txt = txt[:i]
     nomes = re.findall(r"^\s*(%s_[A-Z0-9_]+)\s*(?:=[^,\n]+)?,\s*$" % prefixo,
                        txt, re.M)
     return {n: i for i, n in enumerate(nomes)}
@@ -217,7 +230,10 @@ def indices_de_dado():
     """
     return {
         "species": ordinais_de_enum("species.h", "SPECIES"),
-        "items": ordinais_de_enum("items.h", "ITEM"),
+        # `ate` so aqui: em moves.h os sentinelas MOVES_COUNT_GEN1..GEN9 ficam no
+        # MEIO do enum e cortar no primeiro esconderia 700 moves. items.h tem um
+        # ITEMS_COUNT so, e ele e o fim da lista de verdade.
+        "items": ordinais_de_enum("items.h", "ITEM", ate="ITEMS_COUNT"),
         "moves": ordinais_de_enum("moves.h", "MOVE"),
     }
 

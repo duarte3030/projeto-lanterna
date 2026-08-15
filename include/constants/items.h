@@ -1055,6 +1055,14 @@ enum __attribute__((packed)) Item
     // Sinnoh (ver SINNOH-PADRAO.md)
     ITEM_GALACTIC_KEY = 874,
 
+    // Johto, arco dos sinos (ver a secao 8 do PENDENCIAS-JOHTO.md). APPEND PURO,
+    // no fim da lista: item novo no fim nao mexe em nenhuma struct de save,
+    // porque a bolsa guarda (itemId, quantidade) e nao um bit por item. Medido
+    // com dev_scripts/guarda_save.py depois de escrever, e o retorno da leva
+    // traz a saida colada.
+    ITEM_CLEAR_BELL = 875,
+    ITEM_TIDAL_BELL = 876,
+
     ITEMS_COUNT,
     ITEM_FIELD_ARROW = ITEMS_COUNT,
 };

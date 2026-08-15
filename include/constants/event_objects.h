@@ -413,6 +413,14 @@ enum
     OBJ_EVENT_GFX_PUSHABLE_BOULDER_FRLG,
     OBJ_EVENT_GFX_CUTTABLE_TREE_FRLG,
     OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG,
+    // Johto: o RED do cume do Mt. Silver (decisao 3 do Gui, 15/08/2026).
+    // Reaproveita a ARTE do jogador RED de FRLG (sPicTable_RedNormal), com
+    // paletteTag e paletteSlot PROPRIOS: usar OBJ_EVENT_GFX_RED_NORMAL direto
+    // nao servia, porque aquele graphics info declara PALSLOT_PLAYER e a
+    // palette do jogador de verdade, entao um NPC com ele recolore o jogador.
+    // Entra no FIM do enum: id de grafico nao vai para a save, so para o
+    // map.json, mas acrescentar no fim nao mexe em id de ninguem.
+    OBJ_EVENT_GFX_RED_2,
     NUM_OBJ_EVENT_GFX,
 };
 
@@ -568,6 +576,12 @@ enum
 #define OBJ_EVENT_PAL_TAG_METEORITE               0x1131
 #define OBJ_EVENT_PAL_TAG_SEAGALLOP               0x1132
 #define OBJ_EVENT_PAL_TAG_SS_ANNE                 0x1133
+// Johto: palette do RED do Mt. Silver. O DADO e o mesmo do jogador RED de FRLG
+// (gObjectEventPal_PlayerFrlg), porque a arte e a dele; o que precisa ser
+// proprio e o TAG, para o sprite nao disputar a palette do jogador. Mesmo
+// truque que a linha de OBJ_EVENT_PAL_TAG_PLAYER_GREEN ja usa neste repo.
+// 0x1134 estava livre (o proximo ocupado e 0x1150).
+#define OBJ_EVENT_PAL_TAG_JOHTO_RED_2             0x1134
 
 #if OW_FOLLOWERS_POKEBALLS
 // Vanilla

@@ -592,3 +592,149 @@ tabela `GINASIOS`) mas aplicada copiando só os dois arquivos de
 `GoldenrodCity_Gym` da cópia isolada. Quem precisar rodar o gerador de verdade:
 rode `porta_cenas_johto.py --pokemon --aplica` logo depois, e confira os 8
 `map.json` antes de aceitar.
+
+---
+
+## 8. Bloco B6, terceira leva (15/08/2026): o arco dos sinos inteiro, de ponta a ponta
+
+Sete cenas, todas portadas por `dev_scripts/porta_cenas_johto.py --cenas`, que
+RECUSA a cena quando falta um simbolo em vez de deixar o build descobrir.
+Conferido estaticamente (esta sessao nao compila nem roda emulador).
+
+### A cadeia, do comeco ao fim, e onde cada elo mora
+
+| Elo | Mapa | Gatilho |
+|---|---|---|
+| o BAOBA e a escolha GOLD/SILVER | `Route39` | `coord_event` em (35,20..23), `VAR_LUGIA_OR_HOOH == 0` |
+| o ROCKET do teatro (ja existia, 12/08) | `EcruteakCity_Theater` | estado 0 -> 1 -> 2 -> 3 |
+| o cameo do rival na porta do teatro | `EcruteakCity` | `coord_event` em (39,41), estado 3 -> 5 |
+| o desafio das CINCO KIMONO GIRLS | `EcruteakCity_Theater` | tres `coord_event` de estado 5; estado 6 -> sino -> 7 |
+| a danca e o HO-OH | `TinTower_RoofDay` | `coord_event` em (10,13), `VAR_COMPLETED_HO_OH == 2` |
+| a danca e o LUGIA | `WhirlIslands_LugiaChamber` | `coord_event` em (29,22), `VAR_COMPLETED_LUGIA == 2` |
+| o RED do cume | `MtSilver_SummitDay` | ON_TRANSITION, oitava insignia |
+
+**A UNICA renumeracao**: a fonte arma o cameo do rival em
+`VAR_ECRUTEAK_CITY_THEATER == 4`, e quem poe 4 la e o laboratorio do ELM em New
+Bark, chamando o jogador de volta. Essa ida ao laboratorio nao existe nesta ROM,
+entao o 4 era inalcancavel e o arco morreria ali. O gatilho passou a ser 3, que
+e o valor que o proprio teatro ja poe. Removeu um passo; nao inventou nenhum.
+
+### Recursos consumidos (numeros)
+
+- **Itens: 2**, no FIM da lista. `ITEM_CLEAR_BELL` = 875 e `ITEM_TIDAL_BELL` =
+  876. Nome e descricao vindos do hns palavra por palavra; icone e paleta
+  emprestados do SOOTHE BELL, que ja e um sino desenhado aqui (mesmo padrao do
+  `ITEM_GALACTIC_KEY`). Os dois sao excludentes: o desafio entrega UM, escolhido
+  por `VAR_LUGIA_OR_HOOH`.
+- **Flags: 4**, na faixa desta frente: `FLAG_HIDE_TIN_TOWER_KIMONO_GIRLS` =
+  `FLAG_UNUSED_0x186F`, `FLAG_HIDE_WHIRL_ISLANDS_KIMONO_GIRLS` = `0x1870`,
+  `FLAG_HIDE_MTSILVER_RED` = `0x1871`, `FLAG_HIDE_ECRUTEAK_SILVER` = `0x1872`.
+  Livres: `0x1873` a `0x18FF`. As flags do proprio lendario
+  (`FLAG_HIDE_HO_OH`, `FLAG_HIDE_LUGIA`, `FLAG_CAUGHT_*`, `FLAG_DEFEATED_*`) JA
+  EXISTIAM, sao as do Emerald de fabrica, e foram reaproveitadas: um HO-OH por
+  jogo, o mesmo que o de Navel Rock em Hoenn.
+- **Vars: 3**: `VAR_LUGIA_OR_HOOH` = `VAR_UNUSED_0x4104`, `VAR_COMPLETED_LUGIA`
+  = `0x4105`, `VAR_COMPLETED_HO_OH` = `0x4106`. Livres: `0x4107` a `0x412F`.
+- **Ids de treinador: 6**: 2464 KIMONO_KUNI, 2465 KIMONO_MIKI, 2466
+  KIMONO_NAOKO, **2467 `TRAINER_JOHTO_RED`**, 2468 KIMONO_SAYO, 2469
+  KIMONO_ZUKI. Livres: 2470 a 2499.
+- **Grafico: 1**, `OBJ_EVENT_GFX_RED_2`, mais o tag de paleta
+  `OBJ_EVENT_PAL_TAG_JOHTO_RED_2` = `0x1134`.
+- **Lista de multichoice: 1**, `MULTI_JOHTO_GOLD_SILVER`, com `gText_Gold` e
+  `gText_Silver`, que ja existiam.
+- **Musica: 5 apelidos** (`MUS_HG_VS_HO_OH`, `_VS_LUGIA`, `_KIMONO_GIRL_DANCE`,
+  `_ENCOUNTER_RIVAL`, `_RIVAL_EXIT`), no mesmo padrao `#ifndef` das trinta que
+  ja estavam em `songs.h`. Nenhuma faixa nova foi criada.
+- **Objeto de mapa novo: ZERO.** As 26 vagas usadas ja existiam como item ball
+  muda, no mesmo indice.
+
+### O RED, e por que ele NAO fecha o jogo
+
+`OBJ_EVENT_GFX_RED_NORMAL` desenha nesta build, mas nao servia: aquele graphics
+info declara `PALSLOT_PLAYER` e a paleta do jogador, entao um NPC com ele
+recolore o jogador de verdade. `OBJ_EVENT_GFX_RED_2` reaproveita a MESMA ARTE
+(`sPicTable_RedNormal`) com tag e slot proprios, e o tag entrou em
+`sObjectEventSpritePalettes` apontando para o mesmo dado de paleta, que e o
+truque que a linha do `OBJ_EVENT_PAL_TAG_PLAYER_GREEN` ja usava. Sem a entrada
+na tabela seria o bug dos NPCs verdes de novo, que o caso T96.1 guarda.
+
+Portao: no hns quem revela o RED e o barco para Kanto (`SSAqua_1F`); aqui e a
+OITAVA insignia, que ja existe e e o fim honesto de Johto. E o `special
+GameClear` da fonte **saiu**: no hns o RED roda os creditos, e aqui Johto e a
+segunda de cinco regioes. Junto com ele saiu o `clearflag` que vinha depois dos
+creditos e que, sem eles, faria o RED renascer na proxima carga do mapa.
+
+Time do RED: 129 a 149, o mais alto de Johto (a regiao vai de 45 a 128). E o
+que a formula de `curva_de_nivel.py` produz a partir dos 73 a 88 da fonte, sem
+nenhum ajuste a mao. O HO-OH e o LUGIA da historia ficaram em **100**, o teto
+nominal da regiao, contra 50 da fonte.
+
+### Tres bugs achados no caminho
+
+1. **QUEDA DE ROTULO, e um deles estava VIVO na ROM desde 12/08.** O `.asm` da
+   fonte encadeia cena por vizinhanca: um rotulo acaba sem `end` e a execucao
+   entra no rotulo escrito logo abaixo. A ferramenta emite um bloco por rotulo,
+   em outra ordem, entao a queda vira execucao de dado de movimento. Pior:
+   rotulo que ninguem CITA nunca entra no fecho e some inteiro. Foi o que
+   aconteceu com as QUATRO batalhas depois da ZUKI e com as duas pontas do sino,
+   que simplesmente nao existiam no primeiro porte desta leva. E o
+   `MountMortar4_EventScript_Kiyo`, portado em 12/08, tem DUAS quedas e nenhuma
+   tinha sido reposta: a cena do KARATE KING sai executando o bloco seguinte
+   depois da batalha. Consertado, e agora **existe portao**: `fecho_traduzido`
+   reprova qualquer bloco de script que nao termine em `end`, `goto`, `return`,
+   `release*`, `waitstate` ou `step_end`.
+2. **`guarda_save.py` contava oito nomes que nao sao item** (`ITEM_FIELD_ARROW`,
+   que e apelido de `ITEMS_COUNT`, e os sete `ITEM_USE_*` do `enum ItemType`),
+   porque varria o arquivo inteiro atras de `ITEM_*`. Com isso, acrescentar UM
+   item no fim da lista, que e a unica forma segura de acrescentar item, fazia o
+   guarda gritar "INSERIDO NO MEIO". A varredura agora para em `ITEMS_COUNT`.
+   O `save_impressao.json` continua com os oito nomes fantasmas gravados, entao
+   o guarda ainda acusa 11 quebras ate alguem rodar `--gravar`; a decisao de
+   regravar a impressao NAO e de agente.
+3. **Rotulo indentado na fonte vira corpo do bloco anterior** para o
+   `RN.blocos`, e os tres `Movement_*Correction::` do teatro estao indentados
+   logo depois do `BeatGauntlet`. Sem podar, o fecho saia atras de um rotulo que
+   ele nao consegue indexar.
+
+### O que ficou de fora, e por que
+
+- **Todo `applymovement` que anda com o JOGADOR** por rota longa: os tres
+  gatilhos que atravessam o teatro (10 a 14 tiles) e as tres "correcoes" que
+  reposicionam o jogador antes da primeira batalha. Movimento roteirizado do
+  JOGADOR consulta colisao (o do NPC nao, `InitNpcForMovement`), e rota que
+  encoste em parede trava o `waitmovement` para sempre. Ficaram os DOIS andares
+  curtos que deu para conferir tile a tile: os tres passos ate o centro dos dois
+  telhados, todos com colisao 0.
+- **A sombra do lendario na Route 39**: `OBJ_EVENT_GFX_LEGENDARY_SHADOW` nao
+  existe no enum, e sprite sem grafico reinicia a ROM. O BAOBA continua
+  perguntando de que cor era a sombra.
+- **A revanche pos-jogo** dos dois lendarios (`VAR_COMPLETED_* == 4`): o codigo
+  esta portado, mas nada nesta ROM leva a var a 4.
+- **`setmaplayoutindex` de dia/noite** nos dois telhados e no cume: os layouts
+  `*_NIGHT` nao existem aqui, e apontar para layout inexistente e tela preta.
+
+### Dois defeitos que o lote de testes pegou, e o conserto (15/08/2026)
+
+1. **O KIYO voltou a chamar o treinador de Hoenn.** O `TRAINER_KIYO` do Mt.
+   Mortar so morava em `cena["treinadores"]`, tabela que serve para GERAR o time
+   e o id e que NUNCA foi usada para TRADUZIR o identificador. O porte de 12/08
+   emitiu `TRAINER_KIYO` cru (id 181, o KIYO de Hoenn, que divide a flag de
+   derrotado com a Rota 132), alguem consertou o ARQUIVO a mao no commit
+   `2e03d4b561`, e a primeira rodada seguinte da ferramenta reescreveu o bloco e
+   apagou o conserto. Conserto de arquivo gerado tem que morar no GERADOR: agora
+   `SUBST` recebe o `treinadores` de cada cena, entao os onze nomes de treinador
+   de cena traduzem sozinhos. Varredura dos blocos gerados por `TRAINER_` sem
+   prefixo `JOHTO_`: **zero**.
+2. **O LUGIA pousava dentro da agua.** A metade norte da camara e AGUA:
+   elevacao 1 e `ELEVATION_SURF`, e na coluna x=29 a terra (elevacao 3, ate
+   y=15) encosta na agua (elevacao 1, de y=14 para cima) SEM tile de transicao
+   (0) nem de nivel multiplo (15), entao `IsElevationMismatchAt` barra quem anda
+   e o jogador para em (29,15). A fonte poe o LUGIA em (29,12), sobre a agua,
+   porque la se chega de SURF. **O blockdata NAO esta errado**: e byte a byte
+   igual ao da fonte (conferido celula a celula), entao nada de `map.bin` foi
+   tocado. O conserto foi na CENA: o LUGIA desce tres tiles a mais e pousa na
+   BEIRA, em (29,15), o tile mais ao norte que da para alcancar a pe, e as duas
+   linhas de `setobjectxyperm` (fim da danca e reencontro de pos-jogo)
+   acompanham. Quem tiver SURF continua podendo nadar; quem nao tiver deixa de
+   ficar preso olhando para um lendario inalcancavel depois de vencer as cinco
+   KIMONO. O HO-OH da Tin Tower nao tinha o problema: o telhado e terra inteira.

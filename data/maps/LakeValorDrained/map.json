@@ -14,6 +14,7 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "object_events": [
     {
+      "local_id": "LOCALID_LAKE_VALOR_DRAINED_GRUNT_M_1",
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
       "x": 17,
       "y": 33,
@@ -23,11 +24,12 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0",
+      "script": "LakeValorDrained_EventScript_GruntM1",
+      "flag": "FLAG_SINNOH_LAGO_VALOR_ESVAZIADO",
       "origem": "pokeplatinum"
     },
     {
+      "local_id": "LOCALID_LAKE_VALOR_DRAINED_GRUNT_F",
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
       "x": 24,
       "y": 19,
@@ -37,11 +39,12 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0",
+      "script": "LakeValorDrained_EventScript_GruntF",
+      "flag": "FLAG_SINNOH_LAGO_VALOR_ESVAZIADO",
       "origem": "pokeplatinum"
     },
     {
+      "local_id": "LOCALID_LAKE_VALOR_DRAINED_GRUNT_M_2",
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
       "x": 26,
       "y": 36,
@@ -51,8 +54,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0",
+      "script": "LakeValorDrained_EventScript_GruntM2",
+      "flag": "FLAG_SINNOH_LAGO_VALOR_ESVAZIADO",
       "origem": "pokeplatinum"
     }
   ],

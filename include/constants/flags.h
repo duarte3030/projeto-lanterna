@@ -4680,7 +4680,7 @@
 
 // ponytail: bloco B6, cenas da Equipe Galactica de Sinnoh que faltavam
 // (dev_scripts/cena_galactica_sinnoh.py, 12/08/2026). Faixa exclusiva desta
-// frente: FLAG_UNUSED_0x1900 a 0x19FF. Gastas 4; sobram 252.
+// frente: FLAG_UNUSED_0x1900 a 0x19FF. Gastas 11; sobram 245.
 //
 // Cada uma e o campo `flag` de um `object_event` de cena: o motor so cria o
 // objeto quando `!FlagGet(flagId)` (src/event_object_movement.c:2882). Quem as
@@ -4708,6 +4708,14 @@
 #define FLAG_ESCONDE_LAGO_ACUITY         FLAG_UNUSED_0x1907  // ACESA no jogo novo; Jupiter e o rival so aparecem depois da Mars
 #define FLAG_GALACTICA_ACUITY_VISTO      FLAG_UNUSED_0x1908  // a cena do Lago Acuity ja rodou, e nao repete
 #define FLAG_GALACTICA_CANALAVE_RIVAL    FLAG_UNUSED_0x1909  // o rival de Canalave ja foi batido
+
+// ponytail: bloco B6, leva 15/08/2026 (dev_scripts/fila_b6.json). Uma flag so:
+// o Saturn caiu no Lago Valor (TRAINER_SINNOH_COMMANDER_SATURN_VALOR_CAVERN, ja
+// batido em LakeValor/scripts.inc) esvazia o lago, e os tres grunts que ainda
+// comentam o assalto em LakeValorDrained somem com ela. Todos os outros grupos
+// desta leva reusam flag que ja existia (QG_TOMADO, ETERNA, MT_CORONET,
+// WINDWORKS); esta e a UNICA nova.
+#define FLAG_SINNOH_LAGO_VALOR_ESVAZIADO FLAG_UNUSED_0x190A  // o Saturn caiu no Lago Valor: somem os tres grunts de LakeValorDrained
 
 // Ginasio de Castelia (Unova): os dois atalhos do favo de mel. No BW3G sao
 // EVENT_CASTELIA_GYM_OPEN_1 e _2, acesos por coord_event no fundo do ginasio, e
@@ -4803,6 +4811,10 @@
 #define FLAG_MOM_VISITED                                     FLAG_UNUSED_0x1869
 #define FLAG_BEAT_KIYO                                       FLAG_UNUSED_0x186A
 #define FLAG_GOT_TYROGUE                                     FLAG_UNUSED_0x186B
+#define FLAG_HIDE_TIN_TOWER_KIMONO_GIRLS                     FLAG_UNUSED_0x186F
+#define FLAG_HIDE_WHIRL_ISLANDS_KIMONO_GIRLS                 FLAG_UNUSED_0x1870
+#define FLAG_HIDE_MTSILVER_RED                               FLAG_UNUSED_0x1871
+#define FLAG_HIDE_ECRUTEAK_SILVER                            FLAG_UNUSED_0x1872
 // <<< B6 Johto (dev_scripts/porta_cenas_johto.py) <<<
 
 // >>> B6 Johto, duelos de cena escritos a mao (15/08/2026) >>>
@@ -4862,6 +4874,59 @@
 // porteiro ela rodaria também quando ele volta de uma sala da Elite, e o
 // `applymovement` de seis passos para o norte o jogaria para fora do mapa.
 #define FLAG_UNOVA_LIGA_PORTAO       FLAG_UNUSED_0x1A0B  // o jogador acabou de subir da entrada
+
+// >>> B6 Unova, EVENT_* das 59 cenas de setscene pendentes (item 2 do PLANO-OBRAS-UNOVA.md) >>>
+// Faixa: FLAG_UNUSED_0x1A0E a 0x1A22 (21 flags), dentro da faixa append-only 0x1A00-0x1AFF
+// aberta acima. Cada uma alias de UM EVENT_ distinto alcancado pela varredura de
+// coord_events tipo=setscene de fontes-mapas/bw3g (dev_scripts/fila_b6.py::fila_unova).
+#define FLAG_UNOVA_ASPERTIA_BLOQUEIO  FLAG_UNUSED_0x1A0E  // EVENT_ASPERTIA_CITY_BLOCKER da fonte
+#define FLAG_UNOVA_DRAGONSPIRAL_6F_INFER FLAG_UNUSED_0x1A0F  // EVENT_DRAGONSPIRAL_TOWER_6F_INFER da fonte
+#define FLAG_UNOVA_DRAGONSPIRAL_SABIOS FLAG_UNUSED_0x1A10  // EVENT_DRAGONSPIRAL_TOWER_SAGES da fonte
+#define FLAG_UNOVA_DRAYDEN_CASA_PRESA_DRAGAO FLAG_UNUSED_0x1A11  // EVENT_DRAYDENS_HOUSE_DRAGON_FANG da fonte
+#define FLAG_UNOVA_DRAYDEN_CASA_IRIS  FLAG_UNUSED_0x1A12  // EVENT_DRAYDENS_HOUSE_IRIS da fonte
+#define FLAG_UNOVA_DRIFTVEIL_BLOQUEIO FLAG_UNUSED_0x1A13  // EVENT_DRIFTVEIL_BLOCKER da fonte
+#define FLAG_UNOVA_DRAGONSPIRAL_CONCLUIDA FLAG_UNUSED_0x1A14  // EVENT_FINISHED_DRAGONSPIRAL_TOWER da fonte
+#define FLAG_UNOVA_RECEBEU_PRESA_DRAGAO FLAG_UNUSED_0x1A15  // EVENT_GOT_DRAGON_FANG da fonte
+#define FLAG_UNOVA_ESCOLHEU_OSHAWOTT  FLAG_UNUSED_0x1A16  // EVENT_GOT_OSHAWOTT da fonte
+#define FLAG_UNOVA_ESCOLHEU_SNIVY     FLAG_UNUSED_0x1A17  // EVENT_GOT_SNIVY da fonte
+#define FLAG_UNOVA_NIMBASA_PARK_GRUNTS FLAG_UNUSED_0x1A18  // EVENT_NIMBASA_PARK_GRUNTS da fonte
+#define FLAG_UNOVA_NIMBASA_PARK_GRUNT_ESCONDIDO FLAG_UNUSED_0x1A19  // EVENT_NIMBASA_PARK_HIDDEN_GRUNT da fonte
+#define FLAG_UNOVA_NIMBASA_PARK_FORA_CHEREN FLAG_UNUSED_0x1A1A  // EVENT_NIMBASA_PARK_OUTSIDE_CHEREN da fonte
+#define FLAG_UNOVA_OPELUCID_IRIS      FLAG_UNUSED_0x1A1B  // EVENT_OPELUCID_CITY_IRIS da fonte
+#define FLAG_UNOVA_LIGA_ENTRADA_INFER FLAG_UNUSED_0x1A1C  // EVENT_PKMN_LEAGUE_ENTRANCE_INFER da fonte
+#define FLAG_UNOVA_CASA_JOGADOR_VIZINHO FLAG_UNUSED_0x1A1D  // EVENT_PLAYERS_HOUSE_1F_NEIGHBOR da fonte
+#define FLAG_UNOVA_CASA_JOGADOR_MAE_1 FLAG_UNUSED_0x1A1E  // EVENT_PLAYERS_HOUSE_MOM_1 da fonte
+#define FLAG_UNOVA_CASA_JOGADOR_MAE_2 FLAG_UNUSED_0x1A1F  // EVENT_PLAYERS_HOUSE_MOM_2 da fonte
+#define FLAG_UNOVA_CASA_DO_VIZINHO_NPC FLAG_UNUSED_0x1A20  // EVENT_PLAYERS_NEIGHBORS_HOUSE_NEIGHBOR da fonte
+#define FLAG_UNOVA_TEMP_ATE_RECARGA_1 FLAG_UNUSED_0x1A21  // EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 da fonte
+#define FLAG_UNOVA_TEMP_ATE_RECARGA_2 FLAG_UNUSED_0x1A22  // EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2 da fonte
+// <<< B6 Unova, EVENT_* das cenas de setscene <<<
+
+// >>> B6 Unova, EVENT_* do changeblock dos 12 mapas da fila (item 3 do PLANO-OBRAS-UNOVA.md) >>>
+// Faixa: FLAG_UNUSED_0x1A23 a 0x1A36 (20 flags). Uma por EVENT_ que ou GRAVA o estado do
+// andar/porta (setevent direto antes do changeblock) ou e pre-requisito local checado no
+// mesmo script (pedra de Strength, Twist Mountain aberto) antes de liberar a troca de bloco.
+#define FLAG_UNOVA_DRAGONSPIRAL_2F_ANDAR_SUPERIOR FLAG_UNUSED_0x1A23  // EVENT_DRAGONSPIRAL_TOWER_UPPER_LEVEL da fonte; DragonspiralTower2F: changeblock do andar
+#define FLAG_UNOVA_DRAGONSPIRAL_2F_PEDRA FLAG_UNUSED_0x1A24  // EVENT_DRAGONSPIRAL_TOWER_2F_BOULDER da fonte; DragonspiralTower2F: pre-requisito (pedra de Strength) antes do changeblock
+#define FLAG_UNOVA_DREAMYARD_ANDAR_SUPERIOR FLAG_UNUSED_0x1A25  // EVENT_DREAMYARD_UPPER_LEVEL da fonte; Dreamyard: changeblock do andar
+#define FLAG_UNOVA_DREAMYARD_PEDRA    FLAG_UNUSED_0x1A26  // EVENT_DREAMYARD_BOULDER da fonte; Dreamyard: pre-requisito (pedra de Strength) antes do changeblock
+#define FLAG_UNOVA_ICIRRUS_ANDAR_SUPERIOR FLAG_UNUSED_0x1A27  // EVENT_ICIRRUS_CITY_UPPER_FLOOR da fonte; IcirrusCitySouth: changeblock do andar
+#define FLAG_UNOVA_TWIST_MOUNTAIN_ABERTO FLAG_UNUSED_0x1A28  // EVENT_OPENED_TWIST_MOUNTAIN da fonte; IcirrusCitySouth: pre-requisito antes do changeblock
+#define FLAG_UNOVA_R11_ANDAR_INFERIOR FLAG_UNUSED_0x1A29  // EVENT_R11_LOWER_FLOOR da fonte; Rt11: changeblock do andar
+#define FLAG_UNOVA_R18_ANDAR_INFERIOR FLAG_UNUSED_0x1A2A  // EVENT_R_18_LOWER da fonte; Rt18: changeblock do andar
+#define FLAG_UNOVA_SEASIDE_CAVE_ANDAR_INFERIOR FLAG_UNUSED_0x1A2B  // EVENT_SEASIDE_CAVE_LOWER_FLOOR da fonte; SeasideCave1F: changeblock do andar
+#define FLAG_UNOVA_VICTORY_ROAD_ANDAR_INFERIOR FLAG_UNUSED_0x1A2C  // EVENT_VICTORY_ROAD_CAVE_LOWER da fonte; VictoryRoadCave1F: changeblock do andar
+#define FLAG_UNOVA_VICTORY_ROAD_PEDRA_1 FLAG_UNUSED_0x1A2D  // EVENT_VICTORY_ROAD_RUINS_BOULDER_1 da fonte; VictoryRoadCave1F: pre-requisito 1 (pedra de Strength) antes do changeblock
+#define FLAG_UNOVA_VICTORY_ROAD_PEDRA_2 FLAG_UNUSED_0x1A2E  // EVENT_VICTORY_ROAD_RUINS_BOULDER_2 da fonte; VictoryRoadCave1F: pre-requisito 2 (pedra de Strength) antes do changeblock
+#define FLAG_UNOVA_VILLAGE_BRIDGE_ANDAR_INFERIOR FLAG_UNUSED_0x1A2F  // EVENT_VILLAGE_BRIDGE_LOWER da fonte; VillageBridge: changeblock do andar
+#define FLAG_UNOVA_VIRBANK_CITY_ANDAR_INFERIOR FLAG_UNUSED_0x1A30  // EVENT_VIRBANK_CITY_LOWER_FLOOR da fonte; VirbankCity: changeblock do andar
+#define FLAG_UNOVA_VIRBANK_COMPLEX_PORTA FLAG_UNUSED_0x1A31  // EVENT_OPENED_VIRBANK_COMPLEX_DOOR da fonte; VirbankComplexB1F: changeblock da porta (MAPCALLBACK_TILES .CheckDoor)
+#define FLAG_UNOVA_VIRBANK_COMPLEX_B2F_INTERRUPTOR_1 FLAG_UNUSED_0x1A32  // EVENT_VIRBANK_COMPLEX_B2F_SWITCH1 da fonte; VirbankComplexB2F: interruptor 1 dos 4
+#define FLAG_UNOVA_VIRBANK_COMPLEX_B2F_INTERRUPTOR_2 FLAG_UNUSED_0x1A33  // EVENT_VIRBANK_COMPLEX_B2F_SWITCH2 da fonte; VirbankComplexB2F: interruptor 2 dos 4
+#define FLAG_UNOVA_VIRBANK_COMPLEX_B2F_INTERRUPTOR_3 FLAG_UNUSED_0x1A34  // EVENT_VIRBANK_COMPLEX_B2F_SWITCH3 da fonte; VirbankComplexB2F: interruptor 3 dos 4
+#define FLAG_UNOVA_VIRBANK_COMPLEX_B2F_INTERRUPTOR_4 FLAG_UNUSED_0x1A35  // EVENT_VIRBANK_COMPLEX_B2F_SWITCH4 da fonte; VirbankComplexB2F: interruptor 4 dos 4
+#define FLAG_UNOVA_VIRBANK_COMPLEX_ANDAR_SUPERIOR FLAG_UNUSED_0x1A36  // EVENT_VIRBANK_COMPLEX_UPPER_FLOOR da fonte; VirbankComplexOutside: changeblock do andar
+// <<< B6 Unova, EVENT_* do changeblock <<<
 // <<< B6, história de Unova <<<
 
 // Os 109 atendentes de Wi-Fi, Union Room, Colosseum e Group Connection dos

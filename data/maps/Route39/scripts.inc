@@ -155,3 +155,180 @@ Route39_EventScript_Woman::
 Route39_Text_Woman::
 	.string "That shadow... Maybe it was a giant\n"
 	.string "PIDGEY?$"
+
+@ >>> B6 Johto: cena portada do hns (porta_cenas_johto.py) >>>
+@ o BAOBA e a escolha entre LUGIA e HO-OH, que arma o arco inteiro
+.set LOCALID_ROUTE39_R39_BAOBA, 2
+
+Route39_EventScript_ChooseLegend::
+	msgbox Route39_Text_ChooseLegend, MSGBOX_DEFAULT
+	multichoice 20, 8, MULTI_JOHTO_GOLD_SILVER, FALSE
+	switch VAR_RESULT
+	case 0, Route39_EventScript_LegendaryTriggerGold
+	case 1, Route39_EventScript_LegendaryTriggerSilver
+	case MULTI_B_PRESSED, Route39_EventScript_ChooseLegend
+	release
+	end
+
+Route39_EventScript_LegendaryTrigger::
+	lock
+	waitmovement 0
+	playse SE_PIN
+	applymovement LOCALID_ROUTE39_R39_BAOBA, Common_Movement_QuestionMark
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
+	turnobject LOCALID_ROUTE39_R39_BAOBA DIR_SOUTH
+	turnobject OBJ_EVENT_ID_PLAYER DIR_SOUTH
+	delay 60
+
+	getplayerxy VAR_TEMP_0, VAR_TEMP_1
+
+	call_if_eq VAR_TEMP_1, 20, Route39_EventScript_BaobaMovement1
+	call_if_eq VAR_TEMP_1, 21, Route39_EventScript_BaobaMovement2
+	call_if_eq VAR_TEMP_1, 22, Route39_EventScript_BaobaMovement3
+	call_if_eq VAR_TEMP_1, 23, Route39_EventScript_BaobaMovement4
+
+	turnobject LOCALID_ROUTE39_R39_BAOBA DIR_EAST
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	goto Route39_EventScript_ChooseLegend
+
+Route39_EventScript_LegendaryTriggerGold::
+	setvar VAR_LUGIA_OR_HOOH, 2
+	goto Route39_EventScript_BaobaIntro
+
+Route39_EventScript_LegendaryTriggerSilver::
+	setvar VAR_LUGIA_OR_HOOH, 1
+	goto Route39_EventScript_BaobaIntro
+
+Route39_Text_ChooseLegend::
+	.string "BAOBA: GOOD HEAVENS! Did that\n"
+	.string "shadow belong to a POKéMON?\p"
+	.string "Did you get a good look at it?\n"
+	.string "I can't tell what color it was...$"
+
+Route39_EventScript_BaobaMovement1::
+	applymovement LOCALID_ROUTE39_R39_BAOBA, Route39_Movement_Baoba1
+	waitmovement 0
+	return
+
+Route39_EventScript_BaobaMovement2::
+	applymovement LOCALID_ROUTE39_R39_BAOBA, Route39_Movement_Baoba2
+	waitmovement 0
+	return
+
+Route39_EventScript_BaobaMovement3::
+	applymovement LOCALID_ROUTE39_R39_BAOBA, Route39_Movement_Baoba3
+	waitmovement 0
+	return
+
+Route39_EventScript_BaobaMovement4::
+	applymovement LOCALID_ROUTE39_R39_BAOBA, Route39_Movement_Baoba4
+	waitmovement 0
+	return
+
+Route39_EventScript_BaobaIntro::
+	msgbox Route39_Text_BaobaIntro, MSGBOX_DEFAULT
+	msgbox Route39_Text_Registered, MSGBOX_DEFAULT
+	waitse
+	msgbox Route39_Text_WillCall, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_ROUTE39_R39_BAOBA, Route39_Movement_BaobaLeave
+	waitmovement 0
+	setflag FLAG_ENABLE_BAOBA_MATCH_CALL
+	removeobject LOCALID_ROUTE39_R39_BAOBA
+	release
+	end
+
+Route39_Movement_Baoba1::
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Route39_Movement_Baoba2::
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Route39_Movement_Baoba3::
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Route39_Movement_Baoba4::
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Route39_Movement_BaobaLeave::
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+Route39_Text_BaobaIntro::
+	.string "How strange...\p"
+	.string "...Ohh!\n"
+	.string "What you are holding is...\l"
+	.string "what they call... a POKéDEX!\p"
+	.string "Haven't seen one of those in ages.\p"
+	.string "My name is BAOBA!\n"
+	.string "I used to run a SAFARI ZONE in\l"
+	.string "FUCHSIA CITY, but it was becoming\l"
+	.string "out of date with new entertainment\l"
+	.string "options coming out.\p"
+	.string "I decided to go overseas to learn\n"
+	.string "the newest technology and open a\l"
+	.string "state-of-the-art SAFARI ZONE\l"
+	.string "in CIANWOOD.\p"
+	.string "It may be more than a coincidence\n"
+	.string "that we are chatting.\p"
+	.string "Why don't we register each other's\n"
+	.string "numbers in the POKéGEAR?\p"
+	.string "I can give you a call once the\n"
+	.string "SAFARI ZONE is open before I call\l"
+	.string "anyone else!$"
+
+Route39_Text_Registered::
+	.string "{PLAYER} registered BAOBA\n"
+	.string "in the POKéGEAR!$"
+
+Route39_Text_WillCall::
+	.string "BAOBA: I'll let you know\n"
+	.string "on the POKéGEAR soon!$"
+
+@ <<< B6 Johto: cena portada do hns <<<

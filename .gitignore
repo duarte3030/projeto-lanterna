@@ -78,3 +78,8 @@ dev_scripts/gba_runner
 
 # Binarios de fabrica: ficam no disco, nunca no repositorio publico
 data/mb_*.gba
+
+# ROM de console nunca entra neste repo (regra da casa: datamine fica em ../fontes-mapas, repos locais sem remote)
+*.3ds
+*.nds
+*.cia

@@ -157,6 +157,27 @@ GalacticHQ_1F_EventScript_Placa5::
 GalacticHQ_1F_Text_Placa5:
 	.string "The Team Galactic credo!\nEverything belongs to Team Galactic!\pLook beyond the world--space will\nbecome Team Galactic's!$"
 
+@ Grunt com batalha de pret/pokeplatinum (LOCALID_GALACTIC_GRUNT, hidden_flag
+@ FLAG_HIDE_GALACTIC_HQ_TEAM_GALACTIC, TRAINER_GALACTIC_GRUNT_GALACTIC_HQ_1F).
+GalacticHQ_1F_EventScript_WarpGrunt::
+	trainerbattle_single TRAINER_SINNOH_GALACTIC_GRUNT_GALACTIC_HQ_1F, GalacticHQ_1F_Text_WarpGruntIntro, GalacticHQ_1F_Text_WarpGruntDefeat
+	msgbox GalacticHQ_1F_Text_WarpGruntPost, MSGBOX_AUTOCLOSE
+	end
+
+GalacticHQ_1F_Text_WarpGruntIntro:
+	.string "Who do you think you are?\n"
+	.string "Desecrating the halls of our HQ?!$"
+
+GalacticHQ_1F_Text_WarpGruntDefeat:
+	.string "A tough little Trainer is what you\n"
+	.string "are...$"
+
+GalacticHQ_1F_Text_WarpGruntPost:
+	.string "In our HQ, we get around by\n"
+	.string "taking warp panels.\p"
+	.string "I'd like to see you figure out\n"
+	.string "how they connect.$"
+
 GalacticHQ_1F_EventScript_ScientistFredrick::
 	trainerbattle_single TRAINER_SINNOH_SCIENTIST_FREDRICK, GalacticHQ_1F_Text_ScientistFredrickIntro, GalacticHQ_1F_Text_ScientistFredrickDefeat
 	msgbox GalacticHQ_1F_Text_ScientistFredrickPost, MSGBOX_AUTOCLOSE

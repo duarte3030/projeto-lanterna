@@ -300,6 +300,12 @@ SUBST = {
     "Common_Movement_WalkUp1": "Common_Movement_WalkUp",
     "Common_Movement_WalkLeft1": "Common_Movement_WalkLeft",
     "Common_Movement_WalkRight1": "Common_Movement_WalkRight",
+    # `OBJ_EVENT_ID_CAMERA` e o nome do hns; aqui o mesmo objeto de camera se
+    # chama LOCALID_CAMERA (include/constants/event_objects.h), e e o que
+    # data/maps/NavelRock_Top/scripts.inc usa na cena do HO-OH de Hoenn.
+    "OBJ_EVENT_ID_CAMERA": "LOCALID_CAMERA",
+    # a lista de multichoice criada nesta leva (include/constants/script_menu.h)
+    "MULTI_GOLDSILVER": "MULTI_JOHTO_GOLD_SILVER",
     # id de treinador criado por esta frente, faixa 2460-2499
     "TRAINER_GRUNT_33": "TRAINER_JOHTO_GRUNT_33",
 }
@@ -307,13 +313,88 @@ SUBST = {
 # Linha do script da fonte que NÃO é portada, com o motivo. Chave é o rótulo;
 # valor é uma lista de trechos, e a linha que contém o trecho cai fora.
 PODA = {
+    # --- arco dos sinos: as duas pontas da cadeia ---
+    # A sombra do lendario passando voando: OBJ_EVENT_GFX_LEGENDARY_SHADOW nao
+    # existe nesta build (nem no enum de include/constants/event_objects.h), e
+    # sprite sem grafico REINICIA a ROM. O BAOBA continua perguntando de que cor
+    # era a sombra, que e o unico efeito que a cena precisa ter; o `playse` com
+    # nome de MUSICA (MUS_HG_POKEGEAR_REGISTERED) tambem sai, porque a faixa nao
+    # existe e a linha e um erro da propria fonte.
+    "Route39_EventScript_LegendaryTrigger": [
+        "FLAG_HIDE_ROUTE39_SHADOW", "LOCALID_R39_SHADOW", "SE_M_RAZOR_WIND",
+    ],
+    "Route39_EventScript_BaobaIntro": ["MUS_HG_POKEGEAR_REGISTERED"],
+    # --- arco dos sinos: as duas pontas lendarias ---
+    # `setmaplayoutindex` troca o telhado/cume entre dia e noite. Os layouts
+    # NIGHT nao existem nesta build (so ha TinTower_RoofDay e
+    # MtSilver_SummitDay), e apontar `setmaplayoutindex` para layout inexistente
+    # e tela preta na hora.
+    "TinTower_RoofDay_OnTransition": ["setmaplayoutindex", "call_if_"],
+    # O RED do hns FECHA O JOGO (`special GameClear` roda os creditos). Aqui
+    # Johto e a SEGUNDA das cinco regioes: creditar o jogo no meio da campanha
+    # seria inventar um fim que a ROM nao tem. Sai tambem o `setrespawn` (a
+    # HEAL_LOCATION de New Bark nao existe) e a FLAG_DEFEATED_RED, que tambem
+    # nao existe e cujo unico uso na fonte e alimentar o GameClear.
+    "MtSilver_SummitDay_EventScript_Red": [
+        "special GameClear", "waitstate", "setrespawn", "FLAG_DEFEATED_RED",
+        "fadescreenspeed", "delay 180",
+        # BUG que a poda do GameClear criaria: na fonte este `clearflag` vem
+        # DEPOIS dos creditos, para o RED voltar a existir no pos-jogo. Sem os
+        # creditos, ele desfaria o `setflag` tres linhas acima e o RED
+        # renasceria na proxima carga do mapa, ja derrotado.
+        "clearflag FLAG_HIDE_MTSILVER_RED",
+    ],
+    # --- arco dos sinos, 15/08/2026 ---
+    # Os tres gatilhos que abrem o desafio ANDAM COM O JOGADOR por dez a
+    # quatorze tiles atravessando o teatro, e arrastam o follower junto. Movimento
+    # roteirizado do JOGADOR consulta colisao (o do NPC nao): rota que encoste em
+    # parede trava o `waitmovement` para sempre, e esta sessao nao roda emulador
+    # para conferir catorze tiles em tres rotas. Fica o `lock`/`lockall`/`goto`,
+    # que e o que faz a cena comecar; ela roda onde o jogador estiver.
+    "EcruteakCity_Theater_Trigger_PreBattleCutsceneTop": [
+        "applymovement2", "waitmovement OBJ_EVENT_ID_",
+    ],
+    "EcruteakCity_Theater_Trigger_PreBattleCutsceneRight": [
+        "applymovement2", "waitmovement OBJ_EVENT_ID_",
+    ],
+    "EcruteakCity_Theater_Trigger_PreBattleCutsceneLeft": [
+        "applymovement2", "waitmovement OBJ_EVENT_ID_",
+    ],
+    # Mesmo motivo: as tres "correcoes" existem so para reposicionar o JOGADOR
+    # de frente para a ZUKI antes da primeira batalha.
+    "EcruteakCity_Theater_EventScript_ZukiBattle": [
+        "VAR_FACING",
+        # mesmo motivo das outras quatro: o `waitmovement` volta pela TROCA
+        "waitmovement",
+    ],
+    # `VAR_NEWBARKTOWN_LABSTATE` e a maquina de estados do laboratorio do ELM,
+    # que este repo nao tem: escrever 9 nela nao significa nada aqui.
+    # `FLAG_HIDE_TINTOWER_GUARD` e `FLAG_HIDE_WHIRL_ISLANDS_TENTACRUEL` guardam
+    # objetos que a importacao nao trouxe.
+    # `RN.blocos` le rotulo INDENTADO como corpo do bloco anterior, e na fonte
+    # os tres `Movement_*Correction::` estao indentados logo depois do
+    # BeatGauntlet. Sem esta poda, o fecho sai atras de um rotulo que ele nao
+    # consegue indexar e reprova a cena. Sao justamente as correcoes que andam
+    # com o JOGADOR, que nao entram nesta leva de qualquer forma.
+    **{f"EcruteakCity_Theater_EventScript_{n}Battle": ["waitmovement"]
+       for n in ("Naoko", "Miki", "Sayo", "Kuni")},
+    "EcruteakCity_Theater_EventScript_BeatGauntlet": [
+        "Correction", "OBJ_EVENT_ID_PLAYER", "return", "turnobject",
+        # o `waitmovement` legitimo deste bloco volta pela TROCA do
+        # applymovement da ZUKI; os outros oito sao corpo das correcoes.
+        "waitmovement",
+    ],
+    "EcruteakCity_Theater_EventScript_Lugia": [
+        "VAR_NEWBARKTOWN_LABSTATE", "FLAG_HIDE_WHIRL_ISLANDS_TENTACRUEL",
+    ],
+    "EcruteakCity_Theater_EventScript_Hooh": [
+        "VAR_NEWBARKTOWN_LABSTATE", "FLAG_HIDE_TINTOWER_GUARD",
+    ],
     "EcruteakCity_Theater_EventScript_Zuki": [
-        # desvio para o desafio das cinco KIMONO GIRLS, que depende de uma
-        # cadeia que ainda não está aqui (a escolha do lendário na Route39, a
-        # chegada em Ecruteak e o cameo do rival) e de dois itens que esta ROM
-        # não tem (ITEM_TIDAL_BELL, ITEM_CLEAR_BELL). Sem a poda, o fecho puxa
-        # o desafio inteiro e a cena reprova.
-        "EcruteakCity_Theater_EventScript_ZukiBattle",
+        # 15/08/2026: a poda CAIU. Os dois sinos existem agora
+        # (include/constants/items.h, ITEM_CLEAR_BELL e ITEM_TIDAL_BELL) e a
+        # cadeia inteira entrou nesta leva, entao o desafio das cinco KIMONO
+        # GIRLS e portado junto, que e o que a linha abaixo puxa.
     ],
 }
 
@@ -321,7 +402,165 @@ PODA = {
 # Serve para o que a fonte faz de um jeito que esta build não tem, e para o
 # nível de Pokémon de presente, que precisa entrar na curva de Johto.
 TROCA = {
+    # --- QUEDA DE UM ROTULO PARA O SEGUINTE ("fall-through") ---
+    # O `.asm` da fonte encadeia cena por VIZINHANCA: `EventScript_Kiyo` acaba
+    # sem `end` e a execucao simplesmente entra no rotulo escrito logo abaixo.
+    # Esta ferramenta emite um bloco POR ROTULO, em outra ordem, entao a queda
+    # se perde e o script sai executando o bloco seguinte, que pode ser dado de
+    # movimento. Pior: rotulo que ninguem CITA nunca entra no fecho, e sumia
+    # inteiro (foi o que aconteceu com as quatro batalhas depois da ZUKI).
+    # Cada `goto` abaixo repoe UMA queda, e o `assert` de terminador em
+    # `fecho_traduzido` nao deixa aparecer outra sem ninguem ver.
+    #
+    # BUG VIVO na ROM desde 12/08/2026, achado aqui: a cena do KIYO no Mt.
+    # Mortar tem DUAS quedas e nenhuma tinha sido reposta.
+    "MountMortar4_EventScript_Kiyo": [
+        ("setflag FLAG_BEAT_KIYO",
+         "\tsetflag FLAG_BEAT_KIYO\n"
+         "\tgoto MountMortar4_EventScript_KiyoTryGiveTyrogue"),
+    ],
+    "EcruteakCity_Theater_EventScript_LegendaryCutscene": [
+        ("setvar VAR_ECRUTEAK_CITY_THEATER, 6",
+         "\tsetvar VAR_ECRUTEAK_CITY_THEATER, 6\n"
+         "\tgoto EcruteakCity_Theater_EventScript_ZukiBattle"),
+    ],
+    "EcruteakCity_Theater_EventScript_ZukiBattle": [
+        ("Movement_ZukiWalkUp",
+         "\tapplymovement2 LOCALID_ECRUTEAK_ZUKI, EcruteakCity_Theater_Movement_ZukiWalkUp\n"
+         "\twaitmovement 0\n"
+         "\tgoto EcruteakCity_Theater_EventScript_NaokoBattle"),
+    ],
+    # as quatro batalhas seguintes tem a MESMA forma, e por isso saem de uma
+    # funcao em vez de quatro copias: gira, anda ate o jogador, fala, batalha,
+    # volta e CAI na proxima. O `waitmovement` de cada passo e podado e reposto
+    # aqui porque a linha solta `waitmovement 0` da fonte e indistinguivel entre
+    # os tres passos, e o portao de terminador exige que a ULTIMA linha do bloco
+    # seja o `goto`.
+    **{f"EcruteakCity_Theater_EventScript_{n}Battle": [
+        ("Movement_KimonoSpin",
+         f"\tapplymovement2 LOCALID_ECRUTEAK_{n.upper()}, "
+         "EcruteakCity_Theater_Movement_KimonoSpin\n\twaitmovement 0"),
+        (f"Movement_{n}WalkToPlayer",
+         f"\tapplymovement2 LOCALID_ECRUTEAK_{n.upper()}, "
+         f"EcruteakCity_Theater_Movement_{n}WalkToPlayer\n\twaitmovement 0"),
+        (f"Movement_{n}WalkBack",
+         f"\tapplymovement2 LOCALID_ECRUTEAK_{n.upper()}, "
+         f"EcruteakCity_Theater_Movement_{n}WalkBack\n\twaitmovement 0\n"
+         f"\tgoto EcruteakCity_Theater_EventScript_{p}Battle"
+         if p != "BeatGauntlet" else
+         f"\tapplymovement2 LOCALID_ECRUTEAK_{n.upper()}, "
+         f"EcruteakCity_Theater_Movement_{n}WalkBack\n\twaitmovement 0\n"
+         f"\tgoto EcruteakCity_Theater_EventScript_BeatGauntlet"),
+    ] for n, p in (("Naoko", "Miki"), ("Miki", "Sayo"),
+                   ("Sayo", "Kuni"), ("Kuni", "BeatGauntlet"))},
+    # A fonte tambem cai daqui para o bloco seguinte quando VAR_LUGIA_OR_HOOH
+    # nao e 1 nem 2 (o caso de quem nunca passou pela Route 39). Aqui isso
+    # termina, em vez de executar dado de movimento.
+    "EcruteakCity_Theater_EventScript_BeatGauntlet": [
+        ("applymovement2 LOCALID_ECRUTEAK_ZUKI, Common_Movement_WalkDown1",
+         "\tapplymovement2 LOCALID_ECRUTEAK_ZUKI, Common_Movement_WalkDown1\n"
+         "\twaitmovement 0"),
+        ("goto_if_eq VAR_LUGIA_OR_HOOH, 2",
+         "\tgoto_if_eq VAR_LUGIA_OR_HOOH, 2, EcruteakCity_Theater_EventScript_Hooh\n"
+         "\trelease\n\tend"),
+    ],
+    # Mesma queda no fim do gatilho da Route 39: a fonte entra no rotulo
+    # `Route39_EventScript_ChooseLegend` escrito logo abaixo.
+    "Route39_EventScript_LegendaryTrigger": [
+        ("turnobject OBJ_EVENT_ID_PLAYER DIR_WEST",
+         "\tturnobject OBJ_EVENT_ID_PLAYER, DIR_WEST\n"
+         "\tgoto Route39_EventScript_ChooseLegend"),
+    ],
+    # --- o default de "escondido", que a fonte resolve em outro lugar ---
+    # No hns toda FLAG_HIDE_* de cena ja nasce ACESA, porque
+    # `EventScript_ResetAllMapFlags` a acende em jogo novo. Este repo nao tem
+    # esse ponto unico, entao cada ON_TRANSITION ACENDE a flag antes de decidir,
+    # que e o mesmo padrao das cenas de 15/08 (Cianwood, Tohjo, subterraneo de
+    # Goldenrod). Sem estas quatro trocas, as cinco KIMONO GIRLS, o HO-OH, o
+    # LUGIA, o RED e o rival de Ecruteak ficariam TODOS em campo desde o
+    # primeiro minuto de jogo novo, cada um no meio da propria cena.
+    "TinTower_RoofDay_OnTransition": [
+        ("goto_if_eq VAR_COMPLETED_HO_OH, 2",
+         "\tsetflag FLAG_HIDE_HO_OH\n"
+         "\tsetflag FLAG_HIDE_TIN_TOWER_KIMONO_GIRLS\n"
+         "\tgoto_if_eq VAR_COMPLETED_HO_OH, 2, TinTower_RoofDay_MapScript_HoohStory"),
+    ],
+    # Mesmo motivo, do outro lado: o boneco do rival na porta do teatro tem que
+    # nascer ESCONDIDO. A propria cena o revela (`clearflag` + `addobject`) e o
+    # esconde de novo no fim, entao acender a flag em toda carga do mapa e o
+    # comportamento certo, nao um remendo.
+    "EcruteakCity_OnTransition": [
+        ("callnative SetTimeBasedEncounters",
+         "\tsetflag FLAG_HIDE_ECRUTEAK_SILVER"),
+    ],
+    "TinTower_RoofDay_MapScript_HoohStory": [
+        ("clearflag FLAG_HIDE_HO_OH",
+         "\tclearflag FLAG_HIDE_HO_OH\n"
+         "\tclearflag FLAG_HIDE_TIN_TOWER_KIMONO_GIRLS"),
+    ],
+    # --- O LUGIA POUSAVA DENTRO DA AGUA ---
+    # Medido celula a celula em data/layouts/WhirlIslands_LugiaChamber/map.bin
+    # (o blockdata e IDENTICO ao da fonte, byte a byte: nada foi mal importado):
+    # a metade norte da camara e AGUA. Elevacao 1 e ELEVATION_SURF
+    # (include/global.fieldmap.h:19), e na coluna x=29 a terra (elevacao 3, ate
+    # y=15) encosta na agua (elevacao 1, de y=14 para cima) SEM nenhum tile de
+    # transicao (elevacao 0) nem de nivel multiplo (15). `IsElevationMismatchAt`
+    # barra a passagem, entao quem anda para no ultimo tile de terra, (29,15).
+    # A fonte poe o LUGIA em (29,12), sobre a agua, porque la se chega de SURF;
+    # o T97.6 provou isso na pratica, com o jogador do harness parando em
+    # (29,15) depois da danca inteira.
+    #
+    # Conserto na CENA, nao no mapa: o LUGIA desce TRES tiles a mais e pousa na
+    # BEIRA, em (29,15), o tile mais ao norte que da para alcancar a pe. Quem
+    # tiver SURF continua podendo nadar; quem nao tiver deixa de ficar preso
+    # olhando para um lendario inalcancavel depois de vencer as cinco KIMONO.
+    # As duas linhas de `setobjectxyperm` (a do fim da danca e a do reencontro
+    # de pos-jogo) acompanham, senao o objeto voltaria para a agua na proxima
+    # carga do mapa.
+    "WhirlIslands_LugiaChamber_Movement_LugiaApproach": [
+        ("walk_in_place_down",
+         "\twalk_down\n\twalk_down\n\twalk_down\n\twalk_in_place_down"),
+    ],
+    "WhirlIslands_LugiaChamber_EventScript_TalkToKimono": [
+        ("setobjectxyperm LOCALID_LUGIA, 29, 12",
+         "\tsetobjectxyperm LOCALID_LUGIA, 29, 15"),
+    ],
+    "WhirlIslands_LugiaChamber_MapScript_LugiaPostStoryEncounter": [
+        ("setobjectxyperm LOCALID_LUGIA, 29, 12",
+         "\tsetobjectxyperm LOCALID_LUGIA, 29, 15"),
+    ],
+    "WhirlIslands_LugiaChamber_OnTransition": [
+        ("goto_if_eq VAR_COMPLETED_LUGIA, 2",
+         "\tsetflag FLAG_HIDE_LUGIA\n"
+         "\tsetflag FLAG_HIDE_WHIRL_ISLANDS_KIMONO_GIRLS\n"
+         "\tgoto_if_eq VAR_COMPLETED_LUGIA, 2, WhirlIslands_LugiaChamber_MapScript_LugiaStory"),
+    ],
+    "WhirlIslands_LugiaChamber_MapScript_LugiaStory": [
+        ("clearflag FLAG_HIDE_LUGIA",
+         "\tclearflag FLAG_HIDE_LUGIA\n"
+         "\tclearflag FLAG_HIDE_WHIRL_ISLANDS_KIMONO_GIRLS"),
+    ],
+    # Nivel do lendario na curva de Johto. Na fonte sao 50 (historia) e 70
+    # (revanche pos-jogo); a faixa desta regiao e 45 a 100, entao o capstone da
+    # regiao vai a 100. A revanche nao entra nesta leva (VAR_COMPLETED_* em 4 nao
+    # e alcancavel sem o pos-jogo), mas o numero fica coerente se um dia entrar.
+    "TinTower_RoofDay_EventScript_HoOh": [
+        ("seteventmon SPECIES_HO_OH, 50", "\tseteventmon SPECIES_HO_OH, 100"),
+    ],
+    "TinTower_RoofDay_EventScript_HoOhPostgame": [
+        ("seteventmon SPECIES_HO_OH, 70", "\tseteventmon SPECIES_HO_OH, 100"),
+    ],
+    "WhirlIslands_LugiaChamber_EventScript_Lugia": [
+        ("seteventmon SPECIES_LUGIA, 50", "\tseteventmon SPECIES_LUGIA, 100"),
+    ],
+    "WhirlIslands_LugiaChamber_EventScript_LugiaPostgame": [
+        ("seteventmon SPECIES_LUGIA, 70", "\tseteventmon SPECIES_LUGIA, 100"),
+    ],
     "MountMortar4_EventScript_KiyoTryGiveTyrogue": [
+        # queda de rotulo (ver o bloco no topo de TROCA)
+        ("setflag FLAG_GOT_TYROGUE",
+         "\tsetflag FLAG_GOT_TYROGUE\n"
+         "\tgoto MountMortar4_EventScript_KiyoAfter"),
         # 25 na fonte; a curva de Johto desta ROM é 45 a 100
         ("givemon SPECIES_TYROGUE, 25", "\tgivemon SPECIES_TYROGUE, 71"),
         # `Common_EventScript_GiftMon` é do hns e o fecho dele passa por
@@ -342,7 +581,8 @@ CENAS = [
         "mapa": "MtMortar_B1F",
         "porque": "o KARATE KING KIYO, a batalha dele e o TYROGUE de prêmio",
         "flags": ["FLAG_BEAT_KIYO", "FLAG_GOT_TYROGUE"],
-        "raizes": ["MountMortar4_EventScript_Kiyo"],
+        "raizes": ["MountMortar4_EventScript_Kiyo",
+                   "MountMortar4_EventScript_KiyoTryGiveTyrogue"],
         "objetos": {1: "MountMortar4_EventScript_Kiyo"},
         "treinadores": {"TRAINER_KIYO": "TRAINER_JOHTO_KIYO"},
     },
@@ -360,6 +600,17 @@ CENAS = [
             "EcruteakCity_Theater_OnTransition",
             "EcruteakCity_Theater_EventScript_RocketEventTrigger",
             "EcruteakCity_Theater_EventScript_TriggerSurfGuy",
+            "EcruteakCity_Theater_Trigger_PreBattleCutsceneTop",
+            "EcruteakCity_Theater_Trigger_PreBattleCutsceneRight",
+            "EcruteakCity_Theater_Trigger_PreBattleCutsceneLeft",
+            # rotulos que a fonte so alcanca por QUEDA, e que por isso nunca
+            # entravam no fecho: sem estas cinco linhas, o desafio acabava
+            # depois da ZUKI e o jogador nunca via o sino.
+            "EcruteakCity_Theater_EventScript_NaokoBattle",
+            "EcruteakCity_Theater_EventScript_MikiBattle",
+            "EcruteakCity_Theater_EventScript_SayoBattle",
+            "EcruteakCity_Theater_EventScript_KuniBattle",
+            "EcruteakCity_Theater_EventScript_BeatGauntlet",
             "EcruteakCity_Theater_EventScript_Rocket",
             "EcruteakCity_Theater_EventScript_KimonoGirl",
             "EcruteakCity_Theater_EventScript_Zuki",
@@ -394,9 +645,189 @@ CENAS = [
         "coord_events": [(10, 16, "0"), (11, 17, "0"), (9, 17, "0")],
         "coord_script": "EcruteakCity_Theater_EventScript_RocketEventTrigger",
         "coord_var": "VAR_ECRUTEAK_CITY_THEATER",
-        "coord_extra": [(10, 17, "2",
-                         "EcruteakCity_Theater_EventScript_TriggerSurfGuy")],
-        "treinadores": {"TRAINER_GRUNT_33": "TRAINER_JOHTO_GRUNT_33"},
+        # os tres gatilhos de valor 5 sao o desafio das cinco KIMONO GIRLS, que
+        # so arma depois do cameo do rival em EcruteakCity. Coordenada e valor
+        # saem do map.json da fonte, tile a tile.
+        "coord_extra": [
+            (10, 17, "2", "EcruteakCity_Theater_EventScript_TriggerSurfGuy"),
+            (10, 16, "5", "EcruteakCity_Theater_Trigger_PreBattleCutsceneTop"),
+            (11, 17, "5", "EcruteakCity_Theater_Trigger_PreBattleCutsceneRight"),
+            (9, 17, "5", "EcruteakCity_Theater_Trigger_PreBattleCutsceneLeft"),
+        ],
+        "vars": ["VAR_ECRUTEAK_CITY_THEATER", "VAR_LUGIA_OR_HOOH",
+                 "VAR_COMPLETED_LUGIA", "VAR_COMPLETED_HO_OH"],
+        "flags": ["FLAG_HIDE_TIN_TOWER_KIMONO_GIRLS",
+                  "FLAG_HIDE_WHIRL_ISLANDS_KIMONO_GIRLS"],
+        "treinadores": {
+            "TRAINER_GRUNT_33": "TRAINER_JOHTO_GRUNT_33",
+            "TRAINER_ZUKI": "TRAINER_JOHTO_KIMONO_ZUKI",
+            "TRAINER_NAOKO": "TRAINER_JOHTO_KIMONO_NAOKO",
+            "TRAINER_MIKI": "TRAINER_JOHTO_KIMONO_MIKI",
+            "TRAINER_SAYO": "TRAINER_JOHTO_KIMONO_SAYO",
+            "TRAINER_KUNI": "TRAINER_JOHTO_KIMONO_KUNI",
+        },
+    },
+    {
+        "mapa": "Route39",
+        "porque": "o BAOBA e a escolha entre LUGIA e HO-OH, que arma o arco inteiro",
+        "localid": {"R39_BAOBA": 2},
+        "raizes": ["Route39_EventScript_LegendaryTrigger",
+                   "Route39_EventScript_ChooseLegend"],
+        "objetos": {1: "Route39_EventScript_LegendaryTrigger"},
+        "coord_events": [(35, 20, "0"), (35, 21, "0"),
+                         (35, 22, "0"), (35, 23, "0")],
+        "coord_script": "Route39_EventScript_LegendaryTrigger",
+        "coord_var": "VAR_LUGIA_OR_HOOH",
+        "vars": ["VAR_LUGIA_OR_HOOH"],
+    },
+    {
+        "mapa": "EcruteakCity",
+        "porque": "o cameo do rival na porta do teatro, que abre o desafio das cinco",
+        "localid": {"ECRUTEK_SILVER": 33},
+        "raizes": ["EcruteakCity_OnTransition", "EcruteakCity_Trigger_Silver"],
+        "map_scripts": [("MAP_SCRIPT_ON_TRANSITION", "EcruteakCity_OnTransition")],
+        "objetos_campos": {
+            32: {"graphics_id": "OBJ_EVENT_GFX_RED",
+                 "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+                 "flag": "FLAG_HIDE_ECRUTEAK_SILVER"},
+        },
+        # A fonte arma este gatilho em VAR_ECRUTEAK_CITY_THEATER == 4, e quem
+        # poe 4 la e `NewBarkTown_Lab` (o ELM chama o jogador de volta ao
+        # laboratorio). Essa ida ao laboratorio NAO EXISTE nesta ROM: a maquina
+        # de estados do ELM nao foi portada, entao o valor 4 e inalcancavel e o
+        # arco inteiro morreria aqui. O gatilho passa a ser 3, que e o valor que
+        # o proprio teatro ja poe quando o arco do ROCKET e do SURF fecha
+        # (data/maps/EcruteakCity_Theater/scripts.inc, duas ocorrencias). E a
+        # UNICA renumeracao desta leva, e ela remove um passo, nao inventa um.
+        "coord_events": [(39, 41, "3")],
+        "coord_script": "EcruteakCity_Trigger_Silver",
+        "coord_var": "VAR_ECRUTEAK_CITY_THEATER",
+        "vars": ["VAR_ECRUTEAK_CITY_THEATER"],
+        "flags": ["FLAG_HIDE_ECRUTEAK_SILVER"],
+    },
+    {
+        "mapa": "TinTower_RoofDay",
+        "porque": "a danca das cinco KIMONO GIRLS no telhado e o HO-OH que desce",
+        # a importacao de mapa descartou os DOIS primeiros objetos da fonte, que
+        # estao em coordenada negativa ((-6,18) e (-5,18)); daqui para frente os
+        # seis batem 1 para 1. Por isso todo LOCALID abaixo e o da fonte MENOS 2.
+        "desloca": 2,
+        "localid": {"HO_OH": 6, "KIMONO_MID": 2, "KIMONO_1": 1,
+                    "KIMONO_2": 4, "KIMONO_3": 5, "KIMONO_4": 3},
+        "raizes": [
+            "TinTower_RoofDay_OnTransition",
+            "TinTower_RoofDay_EventScript_TalkToKimono",
+            "TinTower_RoofDay_EventScript_HoOh",
+            "TinTower_RoofDay_EventScript_Zuki",
+            "TinTower_RoofDay_EventScript_Naoko",
+            "TinTower_RoofDay_EventScript_Miki",
+            "TinTower_RoofDay_EventScript_Sayo",
+            "TinTower_RoofDay_EventScript_Kuni",
+        ],
+        "map_scripts": [("MAP_SCRIPT_ON_TRANSITION",
+                         "TinTower_RoofDay_OnTransition")],
+        "objetos": {
+            0: "TinTower_RoofDay_EventScript_Miki",
+            1: "TinTower_RoofDay_EventScript_Zuki",
+            2: "TinTower_RoofDay_EventScript_Naoko",
+            3: "TinTower_RoofDay_EventScript_Sayo",
+            4: "TinTower_RoofDay_EventScript_Kuni",
+            5: "TinTower_RoofDay_EventScript_HoOh",
+        },
+        # OBJ_EVENT_GFX_KIMONO_GIRL nao existe nesta build; BEAUTY e o que as
+        # mesmas cinco ja usam no teatro de Ecruteak desde 12/08, entao o
+        # telhado nao inventa um sexto visual. O HO-OH usa
+        # OBJ_EVENT_GFX_SPECIES(HO_OH): medido, SPECIES_HO_OH TEM bloco
+        # OVERWORLD() em src/data/pokemon/species_info/gen_2_families.h.
+        "objetos_campos": {
+            0: {"graphics_id": "OBJ_EVENT_GFX_BEAUTY", "movement_type": "MOVEMENT_TYPE_NONE",
+                "flag": "FLAG_HIDE_TIN_TOWER_KIMONO_GIRLS"},
+            1: {"graphics_id": "OBJ_EVENT_GFX_BEAUTY", "movement_type": "MOVEMENT_TYPE_NONE",
+                "flag": "FLAG_HIDE_TIN_TOWER_KIMONO_GIRLS"},
+            2: {"graphics_id": "OBJ_EVENT_GFX_BEAUTY", "movement_type": "MOVEMENT_TYPE_NONE",
+                "flag": "FLAG_HIDE_TIN_TOWER_KIMONO_GIRLS"},
+            3: {"graphics_id": "OBJ_EVENT_GFX_BEAUTY", "movement_type": "MOVEMENT_TYPE_NONE",
+                "flag": "FLAG_HIDE_TIN_TOWER_KIMONO_GIRLS"},
+            4: {"graphics_id": "OBJ_EVENT_GFX_BEAUTY", "movement_type": "MOVEMENT_TYPE_NONE",
+                "flag": "FLAG_HIDE_TIN_TOWER_KIMONO_GIRLS"},
+            5: {"graphics_id": "OBJ_EVENT_GFX_SPECIES(HO_OH)",
+                "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+                "flag": "FLAG_HIDE_HO_OH"},
+        },
+        "coord_events": [(10, 13, "2")],
+        "coord_script": "TinTower_RoofDay_EventScript_TalkToKimono",
+        "coord_var": "VAR_COMPLETED_HO_OH",
+        "vars": ["VAR_COMPLETED_HO_OH"],
+        "flags": ["FLAG_HIDE_TIN_TOWER_KIMONO_GIRLS"],
+    },
+    {
+        "mapa": "WhirlIslands_LugiaChamber",
+        "porque": "a mesma danca na camara do LUGIA, a outra ponta do arco",
+        "localid": {"LUGIA": 1, "KIMONO_MID": 4, "KIMONO_1": 3,
+                    "KIMONO_2": 2, "KIMONO_3": 6, "KIMONO_4": 5},
+        "raizes": [
+            "WhirlIslands_LugiaChamber_OnTransition",
+            "WhirlIslands_LugiaChamber_EventScript_TalkToKimono",
+            "WhirlIslands_LugiaChamber_EventScript_Lugia",
+            "WhirlIslands_LugiaChamber_EventScript_Zuki",
+            "WhirlIslands_LugiaChamber_EventScript_Naoko",
+            "WhirlIslands_LugiaChamber_EventScript_Miki",
+            "WhirlIslands_LugiaChamber_EventScript_Sayo",
+            "WhirlIslands_LugiaChamber_EventScript_Kuni",
+        ],
+        "map_scripts": [("MAP_SCRIPT_ON_TRANSITION",
+                         "WhirlIslands_LugiaChamber_OnTransition")],
+        "objetos": {
+            0: "WhirlIslands_LugiaChamber_EventScript_Lugia",
+            1: "WhirlIslands_LugiaChamber_EventScript_Sayo",
+            2: "WhirlIslands_LugiaChamber_EventScript_Naoko",
+            3: "WhirlIslands_LugiaChamber_EventScript_Zuki",
+            4: "WhirlIslands_LugiaChamber_EventScript_Miki",
+            5: "WhirlIslands_LugiaChamber_EventScript_Kuni",
+        },
+        # Os dois OBJ_EVENT_GFX_WHIRLPOOL (indices 6 e 7) ficam como estao: sao
+        # dois dos quatro graficos sem equivalente da secao 6, e nao participam
+        # da cena.
+        "objetos_campos": {
+            0: {"graphics_id": "OBJ_EVENT_GFX_SPECIES(LUGIA)",
+                "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+                "flag": "FLAG_HIDE_LUGIA"},
+            1: {"graphics_id": "OBJ_EVENT_GFX_BEAUTY", "movement_type": "MOVEMENT_TYPE_NONE",
+                "flag": "FLAG_HIDE_WHIRL_ISLANDS_KIMONO_GIRLS"},
+            2: {"graphics_id": "OBJ_EVENT_GFX_BEAUTY", "movement_type": "MOVEMENT_TYPE_NONE",
+                "flag": "FLAG_HIDE_WHIRL_ISLANDS_KIMONO_GIRLS"},
+            3: {"graphics_id": "OBJ_EVENT_GFX_BEAUTY", "movement_type": "MOVEMENT_TYPE_NONE",
+                "flag": "FLAG_HIDE_WHIRL_ISLANDS_KIMONO_GIRLS"},
+            4: {"graphics_id": "OBJ_EVENT_GFX_BEAUTY", "movement_type": "MOVEMENT_TYPE_NONE",
+                "flag": "FLAG_HIDE_WHIRL_ISLANDS_KIMONO_GIRLS"},
+            5: {"graphics_id": "OBJ_EVENT_GFX_BEAUTY", "movement_type": "MOVEMENT_TYPE_NONE",
+                "flag": "FLAG_HIDE_WHIRL_ISLANDS_KIMONO_GIRLS"},
+        },
+        "coord_events": [(29, 22, "2")],
+        "coord_script": "WhirlIslands_LugiaChamber_EventScript_TalkToKimono",
+        "coord_var": "VAR_COMPLETED_LUGIA",
+        "vars": ["VAR_COMPLETED_LUGIA"],
+        "flags": ["FLAG_HIDE_WHIRL_ISLANDS_KIMONO_GIRLS"],
+    },
+    {
+        "mapa": "MtSilver_SummitDay",
+        "porque": "o duelo com o RED no cume, o ultimo treinador de Johto",
+        "localid": {"MTSILVER_RED": 1},
+        # O ON_TRANSITION deste mapa e escrito A MAO, fora do bloco marcado (o
+        # cabecalho do scripts.inc): o portao do RED precisa de um rotulo de
+        # desvio proprio, e rotulo que nao existe na fonte faz o fecho
+        # automatico procurar um script inexistente e reprovar a cena inteira.
+        "raizes": ["MtSilver_SummitDay_EventScript_Red"],
+        "objetos": {0: "MtSilver_SummitDay_EventScript_Red"},
+        # OBJ_EVENT_GFX_RED_2 e o grafico criado nesta leva: a arte do jogador
+        # RED de FRLG com paletteTag e paletteSlot proprios (decisao 3 do Gui).
+        "objetos_campos": {
+            0: {"graphics_id": "OBJ_EVENT_GFX_RED_2",
+                "movement_type": "MOVEMENT_TYPE_FACE_UP",
+                "flag": "FLAG_HIDE_MTSILVER_RED"},
+        },
+        "flags": ["FLAG_HIDE_MTSILVER_RED"],
+        "treinadores": {"TRAINER_RED_2": "TRAINER_JOHTO_RED"},
     },
 ]
 
@@ -431,8 +862,15 @@ def traduz(linha, subst):
     return "".join(partes)
 
 
-def fecho_traduzido(cena, fonte, ja_temos, subst):
-    """(ordem, corpos, erro): pacote da cena, já traduzido e podado."""
+def fecho_traduzido(cena, fonte, ja_temos, subst, consts=frozenset()):
+    """(ordem, corpos, erro): pacote da cena, já traduzido e podado.
+
+    `consts` existe por causa de UM tipo de nome: `VAR_0x8004` e irmãos, que são
+    `#define` de verdade (include/constants/vars.h) mas têm caixa MISTA, e a
+    régua "comando é minúsculo, constante é MAIÚSCULA" os classificava como
+    rótulo. O fecho então saía procurando um script chamado `VAR_0x8004` na
+    fonte e reprovava a cena inteira. Constante conhecida não é rótulo.
+    """
     pendentes = list(reversed(cena["raizes"]))
     ordem, corpos = [], {}
     while pendentes:
@@ -463,10 +901,35 @@ def fecho_traduzido(cena, fonte, ja_temos, subst):
             # Empurrar TODO rótulo citado, e não só o que a fonte tem, é o que
             # faz a referência órfã virar recusa em vez de `undefined symbol`
             # na hora do build.
-            if r in corpos or r in ja_temos:
+            if r in corpos or r in ja_temos or r in consts:
                 continue
             if r in fonte or not (r.islower() or r.isupper()):
                 pendentes.append(r)
+    # PORTAO CONTRA A QUEDA DE ROTULO. Bloco de script que nao termina em `end`,
+    # `return`, `release*`, `goto` ou `waitstate` continua executando o bloco
+    # emitido a seguir, que aqui NAO e o vizinho da fonte (esta ferramenta emite
+    # um bloco por rotulo, em outra ordem). Na fonte isso e de proposito; aqui e
+    # sempre bug, e bug mudo: monta, roda e sai executando dado de movimento.
+    # Achou o buraco da cena do KIYO, que estava na ROM desde 12/08/2026.
+    # Bloco de TEXTO (`.string`) nao entra: ele nao e executado.
+    FIM = ("end", "return", "release", "releaseall", "goto", "waitstate",
+           "step_end", ".2byte", ".byte")
+    for lab in ordem:
+        # uma TROCA de varias linhas entra como UM item com `\n` dentro; sem
+        # achatar, a ultima "linha" seria o texto inteiro e o portao mentiria.
+        cru = []
+        for l in corpos[lab]:
+            cru += l.split("\n")
+        linhas = [l.strip() for l in cru if l.strip()
+                  and not l.strip().startswith("@")]
+        if not linhas or linhas[0].startswith(".string") \
+                or any(l.startswith(".string") for l in linhas):
+            continue
+        if linhas[-1].split()[0] not in FIM:
+            return ordem, corpos, (
+                f"{lab} nao termina em end/goto/return e sim em "
+                f"'{linhas[-1]}': na fonte ele CAI no rotulo seguinte, e aqui "
+                f"a ordem dos blocos e outra. Acrescente o `goto` em TROCA.")
     return ordem, corpos, None
 
 
@@ -476,12 +939,23 @@ def confere_objetos(mapa, cena):
     É o que autoriza usar `LOCALID_* = índice + 1` da fonte sem tradução: se um
     objeto tivesse entrado no meio da lista, o `applymovement` da cena moveria
     o NPC errado, e nenhum validador estático veria.
+
+    `desloca` cobre o mapa em que a IMPORTAÇÃO descartou objetos do começo da
+    lista da fonte, e só esse caso: nosso índice i é o índice i+desloca de lá.
+    Medido antes de usar, e é por isso que o valor não é chutado: em
+    TinTower_RoofDay a fonte tem 8 objetos e os DOIS primeiros estão em
+    coordenada negativa ((-6,18) e (-5,18), bastidores de `addobject`), que o
+    importador de mapa descartou. Os 6 que sobraram batem 1 para 1 a partir daí.
+    Com `desloca`, a conferência continua sendo coordenada a coordenada; sem
+    ela, a cena seria REPROVADA por um desencontro que não existe.
     """
+    desloca = cena.get("desloca", 0)
     nosso = json.load(open(os.path.join(REPO, "data/maps", mapa, "map.json"),
                            encoding="utf-8"))
     fonte = json.load(open(os.path.join(HNS, "data/maps", mapa, "map.json"),
                            encoding="utf-8"))
     a, b = nosso.get("object_events", []), fonte.get("object_events", [])
+    b = b[desloca:]
     if len(a) != len(b):
         return f"{len(a)} objetos aqui contra {len(b)} na fonte"
     for i, (x, y) in enumerate(zip(a, b)):
@@ -537,6 +1011,19 @@ def escreve_cena(mapa, cena, ordem, corpos, localid):
     d = json.load(open(pj, encoding="utf-8"))
     for idx, rot in cena.get("objetos", {}).items():
         d["object_events"][idx]["script"] = rot
+    # `objetos_campos`: os campos do object_event que NAO sao o script. A vaga
+    # que a cena ocupa costuma estar no map.json como item ball muda, e reapontar
+    # so o script deixaria a KIMONO GIRL com cara de pokebola. Grafico, flag e
+    # movimento saem do map.json da FONTE, campo a campo, com a substituicao de
+    # sprite anotada na propria cena; nada e chutado. A coordenada NUNCA e
+    # tocada, porque e ela que prova que a vaga e a mesma.
+    for idx, campos in cena.get("objetos_campos", {}).items():
+        alvo = d["object_events"][idx]
+        assert alvo.get("graphics_id") in ("OBJ_EVENT_GFX_ITEM_BALL",
+                                           campos.get("graphics_id")), (
+            f"{mapa}[{idx}] nao e a item ball muda que eu esperava, e sim "
+            f"{alvo.get('graphics_id')}: outro agente mexeu, nao escrevo")
+        alvo.update(campos)
     ce = []
     for x, y, v in cena.get("coord_events", []):
         ce.append({"type": "trigger", "x": x, "y": y, "elevation": 0,
@@ -616,6 +1103,14 @@ ORIGEM_NIVEL = (2, 50)
 TREINADORES_A_MAO = {
     "TRAINER_GIOVANNI": "TRAINER_JOHTO_GIOVANNI",
     "TRAINER_EUSINE": "TRAINER_JOHTO_EUSINE",
+    # arco dos sinos, 15/08/2026: as cinco KIMONO GIRLS do teatro de Ecruteak e
+    # o RED do cume do Mt. Silver.
+    "TRAINER_ZUKI": "TRAINER_JOHTO_KIMONO_ZUKI",
+    "TRAINER_NAOKO": "TRAINER_JOHTO_KIMONO_NAOKO",
+    "TRAINER_MIKI": "TRAINER_JOHTO_KIMONO_MIKI",
+    "TRAINER_SAYO": "TRAINER_JOHTO_KIMONO_SAYO",
+    "TRAINER_KUNI": "TRAINER_JOHTO_KIMONO_KUNI",
+    "TRAINER_RED_2": "TRAINER_JOHTO_RED",
 }
 
 # Classe e pic do hns que não têm nome igual aqui NEM com sufixo `_FRLG`, e por
@@ -626,10 +1121,35 @@ CLASSE_CENA = {
     "TRAINER_CLASS_ROCKET_ADMIN": "TRAINER_CLASS_BOSS_FRLG",
     # "MYSTERY MAN" é classe do hns; o mais perto daqui é o PSYCHIC de capa
     "TRAINER_CLASS_MYSTERY_MAN": "TRAINER_CLASS_PSYCHIC",
+    # KIMONO GIRL não existe aqui. BEAUTY é o que as cinco já usam de overworld
+    # no teatro desde o porte de 12/08 (OBJ_EVENT_GFX_BEAUTY), então a classe de
+    # batalha combinar com o boneco de campo é a escolha que não mente.
+    "TRAINER_CLASS_KIMONO_GIRL": "TRAINER_CLASS_BEAUTY",
 }
+# Todo nome de treinador desta frente e, ao mesmo tempo, uma traducao de
+# identificador para o porte de cena: o script da fonte diz `TRAINER_ZUKI` e o
+# nosso tem que dizer `TRAINER_JOHTO_KIMONO_ZUKI`. Manter as duas listas
+# separadas ja custou uma rodada de REPROVA por "constante inexistente".
+SUBST.update(TREINADORES_A_MAO)
+
+# ...e o mesmo vale para o `treinadores` de CADA cena. REGRESSAO MEDIDA em
+# 15/08/2026: o `TRAINER_KIYO` do Mt. Mortar so estava em `cena["treinadores"]`,
+# que serve para GERAR o time e o id, e nunca para TRADUZIR o identificador.
+# O porte de 12/08 emitiu `TRAINER_KIYO` cru (o KIYO de Hoenn, id 181, que
+# divide a flag de derrotado com a Rota 132), alguem consertou o arquivo A MAO
+# no commit 2e03d4b561, e a primeira rodada seguinte da ferramenta reescreveu o
+# bloco e apagou o conserto. Conserto de arquivo gerado tem que morar no
+# gerador; e por isso que a traducao passa a sair da MESMA tabela que ja diz
+# qual e o treinador de cada cena.
+for _cena in CENAS:
+    SUBST.update(_cena.get("treinadores", {}))
+
 PIC_CENA = {
     "TRAINER_PIC_GIOVANNI": "TRAINER_PIC_LEADER_GIOVANNI_FRLG",
     "TRAINER_PIC_EUSINE": "TRAINER_PIC_PSYCHIC_M",
+    "TRAINER_PIC_KIMONO_GIRL": "TRAINER_PIC_BEAUTY",
+    # TRAINER_PIC_RED existe nesta build (include/constants/trainers.h:25), sem
+    # sufixo nenhum. O RED do Mt. Silver luta com a cara dele mesmo.
 }
 
 
@@ -940,11 +1460,25 @@ def itens_tm_hm():
     return fora
 
 
+def vars_de_script():
+    """`VAR_0x8004` e os irmaos dele.
+
+    Sao `#define` de verdade em include/constants/vars.h, mas o nome tem caixa
+    MISTA (o `x` minusculo), e `RN.constantes_definidas()` so aceita nome todo
+    em maiuscula. Sem esta leitura, toda cena que passa argumento para um
+    `special` (ShakeCamera, LoopWingFlapSE, os dois telhados do arco dos sinos)
+    reprova com "rotulo ausente na fonte: VAR_0x8004". Mesmo remendo cirurgico
+    que `itens_tm_hm()` acima: le a fonte certa em vez de afrouxar o portao.
+    """
+    s = le(os.path.join(REPO, "include/constants/vars.h"))
+    return set(re.findall(r"^#define\s+(VAR_0x[0-9A-Fa-f]+)", s, re.M))
+
+
 def frente_cenas():
     fonte = indice_da_fonte()
     nossos = RN.simbolos_do_repo()
     macros = RN.macros_disponiveis() | macros_de_movimento()
-    consts = RN.constantes_definidas() | itens_tm_hm()
+    consts = RN.constantes_definidas() | itens_tm_hm() | vars_de_script()
     marcas = RN.placeholders_do_charmap()
     especiais = set(re.findall(r"^\s*def_special\s+(\w+)",
                                le(os.path.join(REPO, "data/specials.inc")),
@@ -975,7 +1509,7 @@ def frente_cenas():
         # e a escrita, que troca o bloco por inteiro, gravava o vazio por cima.
         # Idempotência de verdade exige esquecer o próprio bloco antes de medir.
         ja = set(nossos) - rotulos_do_meu_bloco(mapa)
-        ordem, corpos, erro = fecho_traduzido(cena, fonte, ja, subst)
+        ordem, corpos, erro = fecho_traduzido(cena, fonte, ja, subst, consts)
         if erro:
             print(f"REPROVA {mapa}: {erro}")
             placar["reprovada"] += 1

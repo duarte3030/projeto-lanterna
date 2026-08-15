@@ -13,7 +13,23 @@
 @ fala de agradecimento cobre a cena.
 
 TeamGalacticEternaBuilding_4F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, TeamGalacticEternaBuilding_4F_OnTransition
 	.byte 0
+
+@ ponytail: a cena e a flag sao a mesma coisa. Os reféns (LOCALID_CLEFAIRY,
+@ LOCALID_POKEFAN_M e LOCALID_BUNEARY na fonte, hidden_flag
+@ FLAG_HIDE_TEAM_GALACTIC_ETERNA_BUILDING_4F_HOSTAGES) nascem enquanto a Jupiter
+@ nao caiu, e somem depois; mesma FLAG_GALACTICA_ETERNA que o 1F/2F/3F e a rua de
+@ Eterna ja usam, porque e o mesmo marco. Zero var. LOCALID_BUNEARY ficou de fora:
+@ OBJ_EVENT_GFX_BUNEARY nao existe em object_event_graphics_info_pointers.h nesta
+@ ROM e a tabela de trocas nao tem substituto.
+TeamGalacticEternaBuilding_4F_OnTransition:
+	call_if_defeated TRAINER_SINNOH_COMMANDER_JUPITER_ETERNA_BUILDING, TeamGalacticEternaBuilding_4F_EventScript_HideGalactica_eterna
+	end
+
+TeamGalacticEternaBuilding_4F_EventScript_HideGalactica_eterna::
+	setflag FLAG_GALACTICA_ETERNA
+	return
 
 TeamGalacticEternaBuilding_4F_EventScript_Jupiter::
 	trainerbattle_single TRAINER_SINNOH_COMMANDER_JUPITER_ETERNA_BUILDING, TeamGalacticEternaBuilding_4F_Text_IWillDealWithYou, TeamGalacticEternaBuilding_4F_Text_WellArentYouTough, TeamGalacticEternaBuilding_4F_EventScript_JupiterDefeated
@@ -37,6 +53,29 @@ TeamGalacticEternaBuilding_4F_EventScript_CycleShopManFree::
 	msgbox TeamGalacticEternaBuilding_4F_Text_ThankYouCruiseByCycleShop, MSGBOX_DEFAULT
 	release
 	end
+
+TeamGalacticEternaBuilding_4F_EventScript_HostageClefairy::
+	lock
+	faceplayer
+	playmoncry SPECIES_CLEFAIRY, CRY_MODE_NORMAL
+	msgbox TeamGalacticEternaBuilding_4F_Text_HostageClefairy, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+
+TeamGalacticEternaBuilding_4F_Text_HostageClefairy:
+	.string "CLEFAIRY: Pi...$"
+
+TeamGalacticEternaBuilding_4F_EventScript_HostagePokefan::
+	msgbox TeamGalacticEternaBuilding_4F_Text_HostagePokefan, MSGBOX_NPC
+	end
+
+TeamGalacticEternaBuilding_4F_Text_HostagePokefan:
+	.string "What is it with this Team\n"
+	.string "Galactic?\p"
+	.string "Why did they take our Pokémon?\n"
+	.string "What are they trying to\l"
+	.string "accomplish?$"
 
 TeamGalacticEternaBuilding_4F_EventScript_PeaceSign::
 	msgbox TeamGalacticEternaBuilding_4F_Text_WorkingForWorldPeace, MSGBOX_SIGN

@@ -598,6 +598,25 @@
 #ifndef MUS_HG_SPROUT_TOWER
 #define MUS_HG_SPROUT_TOWER MUS_MT_PYRE
 #endif
+
+// Arco dos sinos de Johto (15/08/2026), mesmo padrao de apelido das linhas de
+// cima: faixa do hns que esta build nao tem vira a faixa mais proxima que ela
+// tem. Nenhuma arte de som foi criada.
+#ifndef MUS_HG_VS_HO_OH
+#define MUS_HG_VS_HO_OH MUS_VS_KYOGRE_GROUDON
+#endif
+#ifndef MUS_HG_VS_LUGIA
+#define MUS_HG_VS_LUGIA MUS_VS_KYOGRE_GROUDON
+#endif
+#ifndef MUS_HG_KIMONO_GIRL_DANCE
+#define MUS_HG_KIMONO_GIRL_DANCE MUS_ENCOUNTER_GIRL
+#endif
+#ifndef MUS_HG_ENCOUNTER_RIVAL
+#define MUS_HG_ENCOUNTER_RIVAL MUS_ENCOUNTER_MALE
+#endif
+#ifndef MUS_HG_RIVAL_EXIT
+#define MUS_HG_RIVAL_EXIT MUS_VS_RIVAL
+#endif
 #ifndef MUS_HG_BURNED_TOWER
 #define MUS_HG_BURNED_TOWER MUS_MT_PYRE
 #endif

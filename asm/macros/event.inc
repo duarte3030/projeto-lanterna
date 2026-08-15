@@ -2952,3 +2952,25 @@
 	getbraillestringwidth \text
 	call EventScript_BrailleCursorWaitButton
 	.endm
+
+	@ Um `changeblock x, y, $bloco` do BW3G (gen 2) traduzido para ca. Um bloco do
+	@ gen 2 tem 32x32 px, que sao 2x2 metatiles do GBA, entao a chamada da fonte
+	@ mexe em QUATRO celulas: (x,y), (x+1,y), (x,y+1) e (x+1,y+1). A ordem dos
+	@ argumentos e a mesma do `tilecoll` do gen 2: CE, CD, BE, BD.
+	@ A coordenada e identidade, sem conta: o parametro do `changeblock` ja vem na
+	@ unidade de 16x16 px do gen 2 (`GetBlockLocation`, home/map.asm, divide por 2
+	@ para achar o bloco), que e a unidade de metatile daqui.
+	@ POR QUE ISTO EXISTE em vez de quatro `setmetatile` soltos: para o diff contra
+	@ a fonte ficar legivel, uma linha da fonte virando uma linha aqui, com o
+	@ `changeblock` original no comentario de cima. Quem conferir a cena compara
+	@ linha com linha, sem recontar quadrante.
+	@ Cuidado: `setmetatile` NAO mexe na elevacao (src/fieldmap.c, MapGridSetMetatileIdAt
+	@ preserva os bits 12-15). Quadrante que muda elevacao de/para agua NAO usa esta
+	@ macro, usa `setmetatileinrange` com elevacao explicita.
+	@ Gerado por dev_scripts/changeblock_gen2.py.
+	.macro changeblock_gen2 x:req, y:req, mt0:req, mt1:req, mt2:req, mt3:req, col0:req, col1:req, col2:req, col3:req
+	setmetatile (\x), (\y), \mt0, \col0
+	setmetatile (\x)+1, (\y), \mt1, \col1
+	setmetatile (\x), (\y)+1, \mt2, \col2
+	setmetatile (\x)+1, (\y)+1, \mt3, \col3
+	.endm

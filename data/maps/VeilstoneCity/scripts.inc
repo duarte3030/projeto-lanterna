@@ -6,7 +6,21 @@
 @ existem em event_objects.h: trocados por MAN_3, MAN_5 e WOMAN_3.
 
 VeilstoneCity_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, VeilstoneCity_OnTransition
 	.byte 0
+
+@ ponytail: a cena e a flag sao a mesma coisa. Os tres grunts do armazem
+@ (LOCALID_GRUNT_M_WAREHOUSE_NORTH/SOUTH/SOUTHEAST na fonte, hidden_flag
+@ FLAG_HIDE_VEILSTONE_GALACTIC_GRUNTS) nascem enquanto o QG (bem aqui em
+@ Veilstone) nao caiu, e somem depois; mesma FLAG_GALACTICA_QG_TOMADO que o QG
+@ inteiro ja usa, porque e o mesmo marco. Zero var.
+VeilstoneCity_OnTransition:
+	call_if_defeated TRAINER_SINNOH_COMMANDER_SATURN_GALACTIC_HQ, VeilstoneCity_EventScript_HideGalactica_qg_veilstone
+	end
+
+VeilstoneCity_EventScript_HideGalactica_qg_veilstone::
+	setflag FLAG_GALACTICA_QG_TOMADO
+	return
 
 VeilstoneCity_EventScript_Lady::
 	msgbox VeilstoneCity_Text_Lady, MSGBOX_NPC
@@ -48,6 +62,40 @@ VeilstoneCity_Text_DepartmentStoreSign:
 VeilstoneCity_EventScript_GalacticGrunt::
 	msgbox VeilstoneCity_Text_GalacticGrunt, MSGBOX_NPC
 	end
+
+VeilstoneCity_EventScript_WarehouseGruntNorth::
+	msgbox VeilstoneCity_Text_WarehouseGruntNorth, MSGBOX_NPC
+	end
+
+VeilstoneCity_Text_WarehouseGruntNorth:
+	.string "Grunt 1: Hey, you! Yeah, you!\p"
+	.string "This is Team Galactic's\n"
+	.string "warehouse! It ain't no\l"
+	.string "playground for kids!$"
+
+VeilstoneCity_EventScript_WarehouseGruntSouth::
+	msgbox VeilstoneCity_Text_WarehouseGruntSouth, MSGBOX_NPC
+	end
+
+VeilstoneCity_Text_WarehouseGruntSouth:
+	.string "Grunt 2: This is the awesome\n"
+	.string "Team Galactic's awesome\l"
+	.string "warehouse!\p"
+	.string "A little kid like you should be\n"
+	.string "playing at the Pokémon Gym.\p"
+	.string "After all, the Gym Leader happens\n"
+	.string "to be a kid just like you!$"
+
+VeilstoneCity_EventScript_WarehouseGruntSoutheast::
+	msgbox VeilstoneCity_Text_WarehouseGruntSoutheast, MSGBOX_NPC
+	end
+
+VeilstoneCity_Text_WarehouseGruntSoutheast:
+	.string "We have the Hidden Machine that\n"
+	.string "teaches Fly stored in the\l"
+	.string "warehouse.\p"
+	.string "They said I can use it if I show\n"
+	.string "them that I deserve it.$"
 
 VeilstoneCity_Text_GalacticGrunt:
 	.string "This is Team Galactic's turf.\p"

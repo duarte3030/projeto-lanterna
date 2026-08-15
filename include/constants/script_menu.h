@@ -170,6 +170,11 @@ enum
     MULTI_EGGS_VICTORIES_QUIT,
     MULTI_HOF_EGGS_VICTORIES_QUIT,
     MULTI_CINCO_REGIOES_BARCO,
+    // Johto, arco dos sinos: o BAOBA pergunta de que cor era a sombra que
+    // passou na Route 39, e a resposta e que escolhe LUGIA ou HO-OH. E a
+    // MULTI_GOLDSILVER do hns, com os dois textos que este repo ja tem
+    // (gText_Gold e gText_Silver, src/strings.c:433). Entra no FIM do enum.
+    MULTI_JOHTO_GOLD_SILVER,
 };
 
 #define MULTI_NONE 255

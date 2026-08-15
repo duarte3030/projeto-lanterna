@@ -18,7 +18,19 @@
 
 SpearPillar_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, SpearPillar_OnLoad
+	map_script MAP_SCRIPT_ON_TRANSITION, SpearPillar_OnTransition
 	.byte 0
+
+@ ponytail: a cena e a flag sao a mesma coisa. O grunt nasce enquanto o Cyrus
+@ nao caiu, e some depois; mesma flag que o Mt. Coronet inteiro ja usa, porque e
+@ o mesmo marco (derrotar o Cyrus AQUI mesmo, no Spear Pillar). Zero var.
+SpearPillar_OnTransition:
+	call_if_defeated TRAINER_SINNOH_GALACTIC_BOSS_CYRUS_SPEAR_PILLAR, SpearPillar_EventScript_HideGalactica_mt_coronet
+	end
+
+SpearPillar_EventScript_HideGalactica_mt_coronet::
+	setflag FLAG_GALACTICA_MT_CORONET
+	return
 
 SpearPillar_OnLoad:
 	checktrainerflag TRAINER_SINNOH_GALACTIC_BOSS_CYRUS_SPEAR_PILLAR

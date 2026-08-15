@@ -2074,6 +2074,12 @@
 #define TRAINER_JOHTO_KIYO                                   2461
 #define TRAINER_JOHTO_EUSINE                                 2462
 #define TRAINER_JOHTO_GIOVANNI                               2463
+#define TRAINER_JOHTO_KIMONO_KUNI                            2464
+#define TRAINER_JOHTO_KIMONO_MIKI                            2465
+#define TRAINER_JOHTO_KIMONO_NAOKO                           2466
+#define TRAINER_JOHTO_RED                                    2467
+#define TRAINER_JOHTO_KIMONO_SAYO                            2468
+#define TRAINER_JOHTO_KIMONO_ZUKI                            2469
 // <<< treinadores de cena de Johto (porta_cenas_johto.py) <<<
 
 // >>> cenas restantes da espinha da Galactica de Sinnoh (bloco B6,

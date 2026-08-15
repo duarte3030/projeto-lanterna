@@ -82,6 +82,15 @@ static const struct MenuAction MultichoiceList_BrineyOffDewford[] =
     {gText_Exit},
 };
 
+// Johto, arco dos sinos. A ordem e a da fonte (hns, MultichoiceList_GoldSilver):
+// case 0 = GOLD = HO-OH, case 1 = SILVER = LUGIA. Inverter aqui troca o
+// lendario do jogo inteiro, porque Route39 le VAR_RESULT por posicao.
+static const struct MenuAction MultichoiceList_JohtoGoldSilver[] =
+{
+    {gText_Gold},
+    {gText_Silver},
+};
+
 // Os cinco destinos do barco que liga as regioes. A ordem aqui e a ordem dos
 // `case` nos quatro portos; mudar a ordem exige mudar os quatro.
 static const struct MenuAction MultichoiceList_CincoRegioesBarco[] =
@@ -1163,6 +1172,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_STATUS_INFO]                = MULTICHOICE(MultichoiceList_StatusInfo),
     [MULTI_BRINEY_OFF_DEWFORD]         = MULTICHOICE(MultichoiceList_BrineyOffDewford),
     [MULTI_CINCO_REGIOES_BARCO]        = MULTICHOICE(MultichoiceList_CincoRegioesBarco),
+    [MULTI_JOHTO_GOLD_SILVER]          = MULTICHOICE(MultichoiceList_JohtoGoldSilver),
     [MULTI_UNUSED_15]                  = MULTICHOICE(MultichoiceList_Exit),
     [MULTI_VIEWED_PAINTINGS]           = MULTICHOICE(MultichoiceList_ViewedPaintings),
     [MULTI_YESNOINFO]                  = MULTICHOICE(MultichoiceList_YesNoInfo),

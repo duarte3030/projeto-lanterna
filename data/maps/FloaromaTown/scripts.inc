@@ -2,7 +2,21 @@
 @ Textos vindos de pret/pokeplatinum (sinnoh-dados/floaroma_town.json), em ingles.
 
 FloaromaTown_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, FloaromaTown_OnTransition
 	.byte 0
+
+@ ponytail: a cena e a flag sao a mesma coisa. Os dois grunts entediados
+@ (LOCALID_GRUNT_M_WEST/EAST na fonte, hidden_flag FLAG_HIDE_FLOAROMA_TOWN_GRUNTS)
+@ nascem enquanto a Mars nao caiu na usina, e somem depois; mesma
+@ FLAG_GALACTICA_WINDWORKS que a Valley Windworks ja usa, porque e o mesmo
+@ marco (Floaroma fica no caminho da usina). Zero var.
+FloaromaTown_OnTransition:
+	call_if_defeated TRAINER_SINNOH_COMMANDER_MARS_VALLEY_WINDWORKS, FloaromaTown_EventScript_HideGalactica_windworks
+	end
+
+FloaromaTown_EventScript_HideGalactica_windworks::
+	setflag FLAG_GALACTICA_WINDWORKS
+	return
 
 FloaromaTown_EventScript_Grunt::
 	lock

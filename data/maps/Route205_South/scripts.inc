@@ -1,5 +1,30 @@
 Route205_South_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Route205_South_OnTransition
 	.byte 0
+
+@ ponytail: a cena e a flag sao a mesma coisa. Os dois grunts que bloqueiam o
+@ caminho (LOCALID_GRUNT_M_EAST/WEST na fonte, hidden_flag
+@ FLAG_HIDE_ROUTE_205_SOUTH_GRUNTS) nascem enquanto a Mars nao caiu na usina, e
+@ somem depois; mesma FLAG_GALACTICA_WINDWORKS que a Valley Windworks ja usa,
+@ porque e o mesmo marco (a rota liga a Floaroma com a usina). Zero var.
+Route205_South_OnTransition:
+	call_if_defeated TRAINER_SINNOH_COMMANDER_MARS_VALLEY_WINDWORKS, Route205_South_EventScript_HideGalactica_windworks
+	end
+
+Route205_South_EventScript_HideGalactica_windworks::
+	setflag FLAG_GALACTICA_WINDWORKS
+	return
+
+@ Os dois grunts mudos de pret/pokeplatinum. Fonte usa o MESMO indice de script
+@ para os dois (idx4): dizem a linha identica.
+Route205_South_EventScript_Grunt::
+	msgbox Route205_South_Text_Grunt, MSGBOX_NPC
+	end
+
+Route205_South_Text_Grunt:
+	.string "We, Team Galactic, are conducting\n"
+	.string "research in the Eterna Forest!\p"
+	.string "This is as far as you will go!$"
 
 @ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
 

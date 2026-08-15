@@ -580,16 +580,16 @@ def ids_livres_johto():
 # A seção 6 de PENDENCIAS-JOHTO.md, item a item. `bloqueio` é RECALCULADO contra
 # o repo por `fila_johto()`; o texto aqui é só o motivo escrito lá.
 JOHTO = [
-    dict(id="johto:arco_dos_sinos:kimono_girls", tipo="duelo",
-         mapa_destino="EcruteakCity_DanceTheater", tamanho=5,
-         precisa=["ITEM_TIDAL_BELL", "ITEM_CLEAR_BELL"],
-         motivo="5 batalhas das Kimono Girls; o presente que fecha o desafio é "
-                "um dos dois sinos"),
-    dict(id="johto:arco_dos_sinos:lugia_hooh", tipo="arco_sinos",
-         mapa_destino="TinTower_Roof / WhirlIslands_LugiaChamber", tamanho=5,
-         precisa=["ITEM_TIDAL_BELL", "ITEM_CLEAR_BELL"],
-         motivo="cadeia Route39 -> EcruteakCity -> Trigger_Silver -> teatro -> "
-                "torre; o fim do arco lendário"),
+    dict(id="johto:arco_dos_sinos:kimono_girls", tipo="duelo", feito=True,
+         mapa_destino="EcruteakCity_Theater", tamanho=5, precisa=[],
+         motivo="15/08/2026: os dois sinos foram criados (875 e 876) e o "
+                "desafio das cinco entrou inteiro, ids 2464-2469. Ver a secao "
+                "8 do PENDENCIAS-JOHTO.md"),
+    dict(id="johto:arco_dos_sinos:lugia_hooh", tipo="arco_sinos", feito=True,
+         mapa_destino="TinTower_RoofDay / WhirlIslands_LugiaChamber", tamanho=5,
+         precisa=[],
+         motivo="15/08/2026: cadeia inteira ligada, Route39 -> EcruteakCity -> "
+                "teatro -> telhado. Lendario em nivel 100"),
     dict(id="johto:duelo:eusine_suicune", tipo="duelo", feito=True,
          mapa_destino="CianwoodCity", tamanho=1, precisa=[],
          motivo="15/08/2026: SUICUNE passa e o EUSINE desafia, em CianwoodCity; "
@@ -599,10 +599,11 @@ JOHTO = [
          motivo="15/08/2026: sem a CELEBI (o `special CheckCelebi` do hns nao "
                 "existe aqui); o portao virou a queda do ARCHER na Torre Radio. "
                 "TRAINER_JOHTO_GIOVANNI = 2463"),
-    dict(id="johto:duelo:red2_mt_silver", tipo="duelo",
-         mapa_destino="MtSilver", tamanho=1, precisa=["__RED_2_SPRITE__"],
-         motivo="OBJ_EVENT_GFX_RED já é o rival de Johto (seção 3); RED_2 não "
-                "tem sprite próprio honesto"),
+    dict(id="johto:duelo:red2_mt_silver", tipo="duelo", feito=True,
+         mapa_destino="MtSilver_SummitDay", tamanho=1, precisa=[],
+         motivo="15/08/2026 (decisao 3 do Gui): OBJ_EVENT_GFX_RED_2 criado, "
+                "arte do jogador RED de FRLG com paletteTag proprio registrado "
+                "em sObjectEventSpritePalettes. TRAINER_JOHTO_RED = 2467"),
     dict(id="johto:duelo:grunt_subterraneo", tipo="duelo", feito=True,
          mapa_destino="GoldenrodCity_Underground", tamanho=1, precisa=[],
          motivo="DESCARTADO em 15/08/2026: nao existe na fonte. Varri "

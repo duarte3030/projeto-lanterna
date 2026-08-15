@@ -15852,6 +15852,47 @@ const struct ItemInfo gItemsInfo[] =
         .iconPic = gItemIcon_BasementKey,
         .iconPalette = gItemIconPalette_OldKey,
     },
+
+    // ponytail: os dois sinos do arco lendario de Johto. Descricao e nome vem do
+    // hns (src/data/text/item_descriptions.h, sClearBellDesc e sTidalBellDesc),
+    // palavra por palavra. Icone e paleta emprestados do SOOTHE BELL, que ja e
+    // um sino desenhado nesta build; desenhar arte nova para um item que so
+    // aparece na bolsa de itens-chave nao muda nada no jogo. Mesmo padrao do
+    // ITEM_GALACTIC_KEY logo acima.
+    //
+    // O par e excludente por enredo: o desafio do teatro de Ecruteak entrega UM
+    // dos dois, escolhido por VAR_LUGIA_OR_HOOH.
+    [ITEM_CLEAR_BELL] =
+    {
+        .name = ITEM_NAME("Clear Bell"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Old fashioned bell\n"
+            "that makes a\n"
+            "gentle ringing."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_SootheBell,
+        .iconPalette = gItemIconPalette_SootheBell,
+    },
+
+    [ITEM_TIDAL_BELL] =
+    {
+        .name = ITEM_NAME("Tidal Bell"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Old-fashioned bell\n"
+            "with a gentle,\n"
+            "soothing sound."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_SootheBell,
+        .iconPalette = gItemIconPalette_SootheBell,
+    },
 };
 
 #undef ITEM_NAME

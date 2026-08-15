@@ -4490,6 +4490,35 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedNormal = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
+// ponytail: o RED do cume do Mt. Silver. Copia campo a campo do
+// gObjectEventGraphicsInfo_RedNormal logo acima, com TRES diferencas, e so
+// elas:
+//   .paletteTag       -> tag proprio, registrado em sObjectEventSpritePalettes
+//   .reflectionPaletteTag -> NONE (nao ha agua no cume)
+//   .paletteSlot      -> PALSLOT_NPC_4, e nao PALSLOT_PLAYER
+// A terceira e a que importa: PALSLOT_PLAYER carregaria a palette do RED por
+// cima da do jogador de verdade. E o tag proprio e o que evita o bug dos NPCs
+// verdes (grafico destravado sem entrada na tabela desenha com palette alheia);
+// o caso T96.1 guarda isso.
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JohtoRed2 = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_JOHTO_RED_2,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 16,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_4,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x32,
+    .subspriteTables = sOamTables_16x32,
+    .anims = sAnimTable_BrendanMayNormal,
+    .images = sPicTable_RedNormal,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedBike = {
     .tileTag = TAG_NONE,
     .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_RED,

@@ -185,5 +185,21 @@
         1357
       ]
     }
+  },
+  {
+    "id": "T90.14",
+    "nome": "Johto, bloco B6: o complemento do KIYO em Mt. Mortar B1F, o DEPOIS que a queda de rotulo quebrava desde 12/08. MountMortar4_EventScript_Kiyo (data/maps/MtMortar_B1F/scripts.inc) NAO usa a flag automatica de treinador (TRAINER_FLAGS_START+id): usa duas flags proprias, FLAG_BEAT_KIYO e FLAG_GOT_TYROGUE (FLAG_UNUSED_0x186A e 0x186B, include/constants/flags.h:4812-4813), e o encadeamento e por goto: goto_if_set FLAG_GOT_TYROGUE -> KiyoAfter; goto_if_set FLAG_BEAT_KIYO -> KiyoTryGiveTyrogue (pula a luta); senao mostra o intro e disputa trainerbattle_no_intro TRAINER_KIYO antes de cair no MESMO KiyoTryGiveTyrogue. Este caso acende FLAG_BEAT_KIYO sozinha (a opcao que o proprio pedido oferece, equivalente a ja ter derrotado o KIYO) e fala com ele nao para lutar, mas para cair direto em KiyoTryGiveTyrogue: msgbox de recompensa (TRES \\p), givemon SPECIES_TYROGUE, 71 (o jogador do harness comeca sem time, entao ha vaga de sobra), playfanfare + mensagem de recebimento, setflag FLAG_GOT_TYROGUE, e por fim a msgbox de despedida do KiyoAfter (QUATRO \\p). Roteiro de aproximacao IDENTICO ao do T90.5 (mesmo warp, mesmas pernas terminando em parede), porque a geometria ja estava provada; so a cauda de A mudou. ACHADO ao investigar este caso, fora do escopo dele: o proprio T90.5 (existente) reprova AGORA com a ROM fresca porque o script battles TRAINER_KIYO (id 181, include/constants/opponents.h:188), uma constante de VANILLA/Hoenn, e nao TRAINER_JOHTO_KIYO (2461) que o resto do bloco B6 usa; a faixa 2460-2499 da prova do T90.5 nunca vai bater com 181. Isso e defeito de CENA (constante errada no trainerbattle_no_intro de MountMortar4_EventScript_Kiyo), nao de roteiro, e nao foi consertado aqui.",
+    "flags": [
+      "FLAG_BEAT_KIYO"
+    ],
+    "warp": "MAP_MT_MORTAR_B1F",
+    "roteiro": "150:NADA,20:RIGHT*10,20:UP*3,20:RIGHT*8,20:DOWN*3,20:RIGHT*4,20:DOWN*4,20:RIGHT*5,20:DOWN*3,20:RIGHT*6,20:UP*3,20:LEFT*2,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_MT_MORTAR_B1F",
+      "flags_acesas": [
+        "FLAG_GOT_TYROGUE"
+      ],
+      "time_min": 1
+    }
   }
 ]

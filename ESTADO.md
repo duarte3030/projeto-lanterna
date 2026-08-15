@@ -8,6 +8,40 @@ inteiras. Detalhe fica nos documentos apontados no fim.
 
 ---
 
+## 0.b RODADA 2 DE 15/08/2026 (Fable condutor, agentes executores)
+
+Build verde, **suíte 236/237** (T11.3 pulado na rodada normal) e **T11 completo
+3/3 rodado à parte** (save da ROM 2026-08-15 carrega na build nova, que criou
+itens). ROM a 97,51%. **Impressão de save REGRAVADA** (`guarda_save.py
+--gravar`): a varredura antiga contava 8 constantes que nunca foram item de
+save (`ITEM_USE_*`, `ITEM_FIELD_ARROW`); a corrigida prova zero item real
+movido e os 2 sinos no FIM. Regra: item novo é append no fim, e a impressão
+se rebendiz depois, com a leitura de fantasma zero conferida.
+
+O que entrou: **Johto leva 2** (ITEM_CLEAR_BELL 875 e ITEM_TIDAL_BELL 876;
+arco dos sinos completo: Baoba na Route 39 com escolha GOLD/SILVER, cameo do
+rival, 5 Kimono no teatro ids 2464-2466/2468-2469, Ho-Oh e Lugia nível 100;
+RED no Mt. Silver id 2467 com OBJ_EVENT_GFX_RED_2 e palette própria 0x1134,
+decisão 3; Lugia pousa na BEIRA (29,15) porque a metade norte da câmara é
+água legítima da fonte); **Sinnoh leva 3** (9 grupos de hidden_flag da rota
+principal: Spear Pillar, Mt. Coronet, Eterna 4F, Veilstone, QG 1F, Lago Valor,
+Floaroma, Route 205; 1 flag nova FLAG_SINNOH_LAGO_VALOR_ESVAZIADO, 4
+reusadas); **fundação de Unova** (PLANO-OBRAS-UNOVA.md com as 6 decisões de
+15/08; 27 vars e 41 flags aliasadas; dev_scripts/changeblock_gen2.py com
+--demo que reconstrói 39 mapas byte a byte e os 5 números do desenho
+fechando exatos; macro changeblock_gen2 em asm/macros/event.inc); **17 casos
+de teste novos** (T90.14, T91.7-11, T97.1-11). Consertos de raspão: cena do
+KIYO batalhava o Kiyo VANILLA (regressão de gerador, consertada NO GERADOR;
+já era a 2ª vez que um conserto manual era comido por --aplica); queda de
+rótulo com portão novo no porta_cenas_johto.py.
+
+Gasto da rodada: 2 itens, 5 flags (4 Johto + 1 Sinnoh), 3 vars de Johto,
+27 vars e 41 flags de Unova (fundação, ainda sem consumidor), 6 ids.
+
+Próximo da fila de Unova: executores B3/B4 (changeblock dos 12 mapas, a
+ferramenta está pronta) e A2-A6 (setscene; A3 treinadores agora está livre
+porque Johto devolveu opponents.h/trainers.party).
+
 ## 0.a LEVA DE 15/08/2026 (Fable condutor, agentes executores)
 
 Build verde, **suíte 219/220** (só T11.3 pulado na rodada normal) e **T11

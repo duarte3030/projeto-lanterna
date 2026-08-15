@@ -538,6 +538,10 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_PlayerFrlg,            OBJ_EVENT_PAL_TAG_PLAYER_RED},
     {gObjectEventPal_PlayerReflectionFrlg,  OBJ_EVENT_PAL_TAG_PLAYER_RED_REFLECTION},
     {gObjectEventPal_PlayerFrlg,            OBJ_EVENT_PAL_TAG_PLAYER_GREEN},
+    // Johto: o RED do Mt. Silver. MESMO dado do jogador RED (a arte e a dele),
+    // TAG proprio. Sem esta linha, LoadObjectEventPalette nao acha o tag e o
+    // sprite desenha com a palette de outro; e o bug dos NPCs verdes.
+    {gObjectEventPal_PlayerFrlg,            OBJ_EVENT_PAL_TAG_JOHTO_RED_2},
     {gObjectEventPal_PlayerReflectionFrlg,  OBJ_EVENT_PAL_TAG_PLAYER_GREEN_REFLECTION},
     {gObjectEventPal_NpcBlue,               OBJ_EVENT_PAL_TAG_NPC_BLUE},
     {gObjectEventPal_NpcPink,               OBJ_EVENT_PAL_TAG_NPC_PINK},

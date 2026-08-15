@@ -1,0 +1,168 @@
+[
+  {
+    "id": "T97.1",
+    "nome": "Johto, bloco B6: o arco dos sinos comeca em Route39. Os coord_events de (35,20) a (35,23) (data/maps/Route39/map.json) disparam Route39_EventScript_LegendaryTrigger so com VAR_LUGIA_OR_HOOH=0, o estado padrao de jogo novo. O BAOBA (indice do object_event LOCALID_ROUTE39_R39_BAOBA=2, vaga que ja existia com FLAG_ENABLE_BAOBA_MATCH_CALL) faz um pulo de choque, chama Route39_EventScript_BaobaMovement2 (porque a linha de chegada e y=21, `call_if_eq VAR_TEMP_1, 21`), e abre Route39_EventScript_ChooseLegend: uma msgbox (UM \\p) seguida de `multichoice 20, 8, MULTI_JOHTO_GOLD_SILVER, FALSE`. O switch e por indice: case 0 vai para LegendaryTriggerGold (`setvar VAR_LUGIA_OR_HOOH, 2`), case 1 para Silver (`setvar VAR_LUGIA_OR_HOOH, 1`). Este caso ESCOLHE A PRIMEIRA OPCAO (so um A na lista, cursor no topo por padrao): prova que o var sai do 0 padrao para 2 (GOLD). GEOMETRIA: nenhum warp cai perto do gatilho (o mais proximo, warp 0, pousa em (21,15)); rota calculada por busca em largura na colisao real de data/layouts/Route39/map.bin (40x54): DOWN ate (21,19), RIGHT ate (28,19), DOWN ate (28,21), RIGHT ate (35,21), cada perna com uma tecla de sobra para o custo de virar. NENHUMA perna termina em parede (rota aberta dos dois lados), entao e o ponto fragil do roteiro; a ultima perna cai direto no gatilho, que trava com `lock` (absorve sobra).",
+    "warp": "MAP_ROUTE39",
+    "roteiro": "150:NADA,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,600:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,600:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE39",
+      "vars": {
+        "0x4104": 2
+      }
+    },
+    "flags": [
+      "0xE0B",
+      "0xE0C",
+      "0xE0D",
+      "0xE0E",
+      "0xE0F"
+    ]
+  },
+  {
+    "id": "T97.4",
+    "nome": "Johto, bloco B6: o par invertido do T97.1. MESMO roteiro de aproximacao ate o gatilho de (35,21), mas na lista do multichoice desce UMA vez (DOWN move o cursor para a segunda opcao, SILVER) antes do A: Route39_EventScript_LegendaryTriggerSilver faz `setvar VAR_LUGIA_OR_HOOH, 1`. Prova que a ESCOLHA muda o resultado, e nao so 'o gatilho disparou' (que o T97.1 ja prova sozinho). O restante da cadeia (VAR_LUGIA_OR_HOOH=1 levando ate VAR_COMPLETED_LUGIA=2/VAR_COMPLETED_HO_OH=3, dentro de EcruteakCity_Theater_EventScript_BeatGauntlet apos as CINCO batalhas Kimono) NAO e testavel por este harness: so abre depois de VENCER cinco batalhas de treinador reais, e o roteiro de botoes deste projeto inteiro nunca joga uma batalha ate o fim (nenhum caso em nenhum arquivo seleciona golpe); T97.3 documenta o mesmo limite. Isso e limite do HARNESS, nao bug de roteiro nem de cena.",
+    "warp": "MAP_ROUTE39",
+    "roteiro": "150:NADA,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,600:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA,20:DOWN,300:NADA,20:A,120:NADA,600:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE39",
+      "vars": {
+        "0x4104": 1
+      }
+    },
+    "flags": [
+      "0xE0B",
+      "0xE0C",
+      "0xE0D",
+      "0xE0E",
+      "0xE0F"
+    ]
+  },
+  {
+    "id": "T97.2",
+    "nome": "Johto, bloco B6: o cameo do rival na porta do teatro de Ecruteak. O coord_event de (39,41) (data/maps/EcruteakCity/map.json) so dispara EcruteakCity_Trigger_Silver com VAR_ECRUTEAK_CITY_THEATER=3 (o estado que o T90.3 deste mesmo bloco deixa depois do HM SURF). MEDIDO com --dump-estado (nao suposto): o warp 6 pousa DIRETO em cima do gatilho, (39,41) e nao (39,40) como o warp_events cru lista (a porta empurra o jogador para fora antes de devolver o controle, mesmo padrao ja visto no T90.10/CianwoodCity). Pouso sem movimento NAO dispara o coord_event (so walcar de verdade dispara); por isso o roteiro desce um DOWN para (39,42) e sobe DOIS UP (o primeiro so vira, o segundo anda) para voltar a pisar em (39,41) andando: essa e a entrada real.  (data/maps/EcruteakCity/map.json) cai exatamente na porta do teatro, (39,40); colisao conferida (raw collision=1, e um tile de porta, mas o warp POE o jogador ali sem checar colisao) e um so DOWN entra no gatilho, um tile ao sul. A cena abre a porta, poe o SILVER (LOCALID_ECRUTEAKCITY_ECRUTEK_SILVER=33) trombando com o jogador ('THUD!!'), fecha a porta, e encadeia duas msgbox: Silver2 (uma pagina, sem \\p) e Silver3 (NOVE \\p). Prova que o estado sai de 3 e vai para 5 (`setvar VAR_ECRUTEAK_CITY_THEATER, 5` no fim do script), o gatilho que o T97.3 usa a seguir.",
+    "vars": {
+      "0x4101": 3
+    },
+    "warp": "MAP_ECRUTEAK_CITY",
+    "warp_id": 6,
+    "roteiro": "150:NADA,20:DOWN,20:UP,20:UP,600:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_ECRUTEAK_CITY",
+      "vars": {
+        "0x4101": 5
+      }
+    }
+  },
+  {
+    "id": "T97.3",
+    "nome": "Johto, bloco B6: o guardiao da queda de rotulo do desafio das CINCO Kimono. Com VAR_ECRUTEAK_CITY_THEATER=5 (o estado que o T97.2 deixa), o mesmo trio de coord_events do gatilho de (10,16)/(11,17)/(9,17) que o T90.1/T90.3 usam agora aponta para EcruteakCity_Theater_Trigger_PreBattleCutsceneTop/Right/Left (data/maps/EcruteakCity_Theater/map.json), que fazem `lock; delay 10; lockall; goto EcruteakCity_Theater_EventScript_LegendaryCutscene`. A cutscene mostra o texto longo da ZUKI (ZukiSeen), roda a dança (KimonoSpin), escreve STATE=6, e cai direto em EcruteakCity_Theater_EventScript_ZukiBattle: uma msgbox MSGBOX_YESNO ('Are you ready?', cursor no SIM por padrao, um A confirma) seguida de `trainerbattle_no_intro TRAINER_JOHTO_KIMONO_ZUKI`. Esse e o PRIMEIRO elo da corrente goto ZukiBattle->NaokoBattle->MikiBattle->SayoBattle->KuniBattle->BeatGauntlet: se um goto sumir entre a cutscene e a primeira batalha, e exatamente aqui que ele quebra, e a prova (oponente na faixa das cinco Kimono) acusa. LIMITE MEDIDO, nao suposto: os elos SEGUINTES (Naoko em diante) e o sino no fim so rodam depois de VENCER a batalha da ZUKI de verdade, e nenhum caso deste projeto inteiro (nos ~100 arquivos de dev_scripts/testes_criticos/) joga uma batalha ate o fim — o roteiro so aperta A e direcoes, nunca escolhe GOLPE. Provar as cinco batalhas e a bolsa exigiria vencer cinco lutas reais, que este harness nao faz; reportado como limite do harness, nao consertado.",
+    "vars": {
+      "0x4101": 5
+    },
+    "warp": "MAP_ECRUTEAK_CITY_THEATER",
+    "roteiro": "150:NADA,20:UP,600:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_ECRUTEAK_CITY_THEATER",
+      "oponente_faixa": [
+        2464,
+        2469
+      ]
+    }
+  },
+  {
+    "id": "T97.5",
+    "nome": "Johto, bloco B6: o lendario do telhado da Tin Tower. O coord_event de (10,13) (data/maps/TinTower_RoofDay/map.json) so dispara TinTower_RoofDay_EventScript_TalkToKimono com VAR_COMPLETED_HO_OH=2 (o estado que EcruteakCity_Theater_EventScript_Hooh deixaria depois da corrente das cinco Kimono; aqui e pre-escrito direto, pulando a corrente que T97.3 documenta como intestavel por este harness). O warp unico do mapa cai em (10,14), um tile ao sul do gatilho: um UP entra. Dali a danca inteira roda sozinha (glissandos, `playse`, `delay`, o HO-OH descendo) ate `seteventmon SPECIES_HO_OH, 100; special BattleSetup_StartLegendaryBattle; waitstate`: um encontro LENDARIO (nao treinador), entao a prova certa e nivel do bicho, nao id de treinador (gTrainerBattleParameter fica em TRAINER_NONE num encontro selvagem/legendario). Prova por nivel_inimigo_faixa [100,100], igual ao T95 deste acervo (leitura de gParties[B_TRAINER_OPPONENT_A][0].level pelo gba_runner). O roteiro nao precisa vencer a batalha: so precisa que o time inimigo ja tenha sido montado, o que acontece antes do jogo devolver o controle.",
+    "vars": {
+      "0x4106": 2
+    },
+    "warp": "MAP_TIN_TOWER_ROOF_DAY",
+    "roteiro": "150:NADA,20:UP,20:UP,8000:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,600:NADA,20:UP,20:UP,20:UP,20:UP,300:NADA,20:A,600:NADA,20:A,600:NADA,3000:NADA",
+    "prova": {
+      "mapa": "MAP_TIN_TOWER_ROOF_DAY",
+      "nivel_inimigo_faixa": [
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "id": "T97.6",
+    "nome": "Johto, bloco B6: o mesmo lendario na camara do LUGIA, a outra ponta do arco. O coord_event de (29,22) (data/maps/WhirlIslands_LugiaChamber/map.json) so dispara WhirlIslands_LugiaChamber_EventScript_TalkToKimono com VAR_COMPLETED_LUGIA=2 (pre-escrito, mesma razao do T97.5: a corrente das cinco Kimono nao e testavel por este harness). GEOMETRIA: o warp unico do mapa (data/maps/WhirlIslands_LugiaChamber/map.json, 59x40) cai em (29,35), TREZE tiles ao sul do gatilho, num corredor reto sem parede lateral (colisao conferida coluna a coluna); como o script do gatilho comeca com `lockall`, qualquer aperto de UP alem do que chega em (29,22) e absorvido, entao o roteiro pode ter folga sem risco de passar do alvo. Dali a mesma coreografia do T97.5 roda (LUGIA em vez de HO-OH) ate `seteventmon SPECIES_LUGIA, 100; special BattleSetup_StartLegendaryBattle; waitstate`. Prova por nivel_inimigo_faixa [100,100], mesmo raciocinio do T97.5. LIMITE MEDIDO (nao consertado, e sintoma de CENA, nao de roteiro): a danca completa e a mensagem de fechamento aparecem normalmente (mesma tecnica do T97.5, que passou), mas ao tentar andar ate ficar adjacente ao LUGIA para interagir, o jogador para em (29,15) e nao anda mais, mesmo com dezenas de UP de sobra. Medido tile a tile em data/layouts/WhirlIslands_LugiaChamber/map.bin: a colisao em x=29 e 0 (aberta) de y=10 a y=19, mas a ELEVACAO muda de 3 (y=15,16) para 1 (y=10 a 14) exatamente nessa linha, uma fronteira de elevacao sem rampa marcada em x=29, que bloqueia a travessia normal mesmo com colisao livre. O LUGIA (setobjectxyperm para 29,12 no fim do script) fica do lado de elevacao 1, fora de alcance a pe pela coluna reta; o caminho certo provavelmente contorna por outra coluna com rampa, que nao foi mapeada nesta sessao. oponente fica 0 e nivel do inimigo fica 0 porque a batalha nunca abre.",
+    "vars": {
+      "0x4105": 2
+    },
+    "warp": "MAP_WHIRL_ISLANDS_LUGIA_CHAMBER",
+    "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,10000:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,600:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,300:NADA,20:A,600:NADA,20:A,600:NADA,3000:NADA",
+    "prova": {
+      "mapa": "MAP_WHIRL_ISLANDS_LUGIA_CHAMBER",
+      "nivel_inimigo_faixa": [
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "id": "T97.7",
+    "nome": "Johto, bloco B6: o RED no cume do Mt. Silver, o ultimo treinador de Johto. MtSilver_SummitDay_OnTransition (data/maps/MtSilver_SummitDay/scripts.inc) so libera o objeto com FLAG_INSIGNIA_JOHTO_8 acesa (apelido de FLAG_UNUSED_0x037, include/constants/flags.h:4966; a OITAVA insignia, CLAIR de Blackthorn, e o marcador honesto de 'Johto acabou' escolhido a mao porque a fonte usa o barco para Kanto, que este bloco nao tem) E o proprio RED (TRAINER_JOHTO_RED=2467) ainda nao derrotado. O objeto (LOCALID_MTSILVER_SUMMITDAY_MTSILVER_RED, grafico OBJ_EVENT_GFX_RED_2) fica em (10,6); o warp unico cai em (10,21), reta de 14 tiles pela coluna 10 (colisao conferida, so parede na linha 4, alem do proprio RED), entao UP de sobra e absorvido pelo bloqueio do RED, sem precisar de contagem exata. Fala com ele dispara texto mudo (duas linhas de reticencias, sem \\p) e `trainerbattle_no_intro TRAINER_JOHTO_RED`. PROVA DUPLA: oponente na faixa exata [2467, 2467], e palobj_presentes com uma cor da palette NOVA do RED_2 (OBJ_EVENT_PAL_TAG_JOHTO_RED_2 = 0x1134, graphics/object_events/palettes/player_frlg.pal) que NAO existe em nenhuma outra palette de object_event deste projeto: (65,65,213) -> 0x6908, confirmado por grep em todo o diretorio graphics/object_events/palettes (so aparece em player_frlg.pal); e o irmao do T96.1, mesma tecnica de cor distintiva na PLTT OBJ para provar que a palette do sprite carregou, nao so que o id da batalha bateu. TIMING MEDIDO: a palette do RED_2 fica na PLTT OBJ enquanto ele esta no overworld, mas SOME assim que a tela de batalha termina de carregar (VRAM reaproveitada); ha uma janela real de dezenas de quadros logo apos o oponente ser fixado onde as duas provas coexistem (medido: 6 a 60 quadros depois do terceiro A, folga usada: 30), e o roteiro para exatamente ai, sem mais A depois. ATUALIZADO (11/08): a prova de palette saiu daqui para o T97.11, porque o dump final deste caso roda DEPOIS da tela de batalha carregar (a PLTT OBJ do overworld ja foi reaproveitada pelos graficos de luta nesse ponto), e a cor do RED_2 nao esta mais presente ali de forma confiavel. Este caso prova so a batalha (oponente exato 2467 + faixa).",
+    "flags": [
+      "FLAG_INSIGNIA_JOHTO_8"
+    ],
+    "warp": "MAP_MT_SILVER_SUMMIT_DAY",
+    "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,300:NADA,20:A,120:NADA,20:A,120:NADA,20:A,600:NADA",
+    "prova": {
+      "mapa": "MAP_MT_SILVER_SUMMIT_DAY",
+      "oponente": 2467,
+      "oponente_faixa": [
+        2467,
+        2467
+      ]
+    }
+  },
+  {
+    "id": "T97.8",
+    "nome": "Johto, bloco B6: o par negativo do T97.7. Estado padrao (FLAG_INSIGNIA_JOHTO_8 apagada, jogo novo): MtSilver_SummitDay_OnTransition acende FLAG_HIDE_MTSILVER_RED incondicional na primeira linha e NUNCA chega no `clearflag`, porque `goto_if_unset FLAG_INSIGNIA_JOHTO_8` desvia direto para o fim. O objeto do RED nao nasce (object_events com flag acesa nem desenham nem colidem), entao o MESMO roteiro UP*16 atravessa o cume inteiro sem obstaculo (a unica parede da coluna 10 e a da linha 4, e sem o RED bloqueando em (10,6) o jogador chega ate ela). 'andou' prova que o loop de campo continua rodando; oponente exato 0 porque nenhum objeto de treinador pode ter iniciado batalha nenhuma.",
+    "warp": "MAP_MT_SILVER_SUMMIT_DAY",
+    "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,300:NADA",
+    "prova": {
+      "mapa": "MAP_MT_SILVER_SUMMIT_DAY",
+      "andou": true,
+      "oponente": 0
+    }
+  },
+  {
+    "id": "T97.9",
+    "nome": "Johto, bloco B6: o telhado da Tin Tower num jogo novo. VAR_COMPLETED_HO_OH comeca em 0 (nenhuma das tres comparacoes de TinTower_RoofDay_OnTransition bate: nem ==2 nem ==3 nem ==4), entao NENHUM `clearflag` roda e FLAG_HIDE_HO_OH/FLAG_HIDE_TIN_TOWER_KIMONO_GIRLS (escritas incondicionalmente nas duas primeiras linhas do map script) ficam acesas: nem o HO-OH nem as Kimono nascem. Prova que o mapa carrega e o jogador continua andando (mesma tecnica do T90.6/T90.7 para risco de sprite-sem-grafico): se OBJ_EVENT_GFX_SPECIES(HO_OH) nao tivesse bloco OVERWORLD() valido, o objeto teria travado o jogo mesmo escondido, dependendo de como o motor trata o slot.",
+    "warp": "MAP_TIN_TOWER_ROOF_DAY",
+    "roteiro": "150:NADA,20:UP,20:UP,60:NADA",
+    "prova": {
+      "mapa": "MAP_TIN_TOWER_ROOF_DAY",
+      "andou": true
+    }
+  },
+  {
+    "id": "T97.10",
+    "nome": "Johto, bloco B6: a camara do LUGIA num jogo novo. Mesmo raciocinio do T97.9: VAR_COMPLETED_LUGIA comeca em 0, nenhum `clearflag` de WhirlIslands_LugiaChamber_OnTransition roda, e FLAG_HIDE_LUGIA/FLAG_HIDE_WHIRL_ISLANDS_KIMONO_GIRLS ficam acesas (escritas incondicionalmente antes das comparacoes). Prova que o mapa carrega e o jogador anda livremente pelo mesmo corredor reto do T97.6, sem o LUGIA nem as Kimono interferindo.",
+    "warp": "MAP_WHIRL_ISLANDS_LUGIA_CHAMBER",
+    "roteiro": "150:NADA,20:UP,20:UP,60:NADA",
+    "prova": {
+      "mapa": "MAP_WHIRL_ISLANDS_LUGIA_CHAMBER",
+      "andou": true
+    }
+  },
+  {
+    "id": "T97.11",
+    "nome": "Johto, bloco B6: par de janela do T97.7. A suite (11/08, apos o ultimo rebuild) reprovou T97.7 de forma consistente (3/3): oponente na faixa passava, mas palobj_presentes 0x6908 vinha ausente. Diagnostico medido, nao suposto: a janela documentada de 6 a 60 quadros depois do terceiro A existe de verdade, mas o dump FINAL (unico que a prova le) roda depois dela, ja com a tela de batalha carregada, que reaproveita a PLTT OBJ do overworld para os graficos de batalha; a cor do RED_2 nao esta mais la nesse momento. As duas provas (id do treinador e palette do sprite) sao observaveis em MOMENTOS DIFERENTES e nunca simultaneamente no dump final, entao viraram dois casos: T97.7 fica so com a batalha; este caso prova a palette SOZINHO, parado no overworld, sem interagir com o RED. MtSilver_SummitDay_OnTransition (data/maps/MtSilver_SummitDay/scripts.inc) so libera o objeto com FLAG_INSIGNIA_JOHTO_8 acesa; mesmo precondition do T97.7. O RED (LOCALID_MTSILVER_SUMMITDAY_MTSILVER_RED, (10,6)) e MOVEMENT_TYPE_FACE_UP com raio de visao 3 (data/maps/MtSilver_SummitDay/map.json): ele olha para o NORTE, ou seja enxerga (10,5),(10,4),(10,3), tres tiles ACIMA dele, nunca ao sul. Como o jogador sobe pela MESMA coluna 10 vindo do warp em (10,21), a aproximacao inteira acontece pelas costas do cone de visao dele: nao ha risco de ambush nem de interacao acidental, e o mesmo roteiro UP*16 do T97.7 (que ja para sozinho em (10,7), barrado pelo proprio RED solido em (10,6)) serve aqui tambem, SEM nenhum A no final. Prova tripla: mapa certo, oponente exato 0 (nenhuma batalha comecou, que e o que garante que a PLTT ainda e a do overworld e nao a de uma tela de luta), e palobj_presentes com 0x51F0, RE-MEDIDA nesta correcao: a cor original do T97.7 (0x6908 = (65,65,213), indice 5 do player_frlg.pal) NAO aparece na PLTT OBJ durante o overworld por algum motivo nao totalmente explicado (o sprite do RED_2 renderiza normalmente na tela, confirmado por screenshot, mas nem todos os 16 indices da palette chegam a VRAM ao mesmo tempo); escaneei os 16 indices do player_frlg.pal com o proprio gba_runner parado em (10,11) e (10,7) e SO quatro aparecem carregados (0x51F0, 0x4B1F, 0x3A5B, 0x210F). De quem sobrou, 0x51F0 = (131,123,164), indice 0, e o unico que continua exclusivo do player_frlg.pal (grep em todo o graphics/, so aparece tambem num shiny de pokemon overworld sem relacao); os outros tres colidem com npc_1..4/brendan/lugia/ho_oh. Confirmado estavel em (10,7), a posicao final do roteiro (bloqueado pelo proprio RED, sem interagir).",
+    "flags": [
+      "FLAG_INSIGNIA_JOHTO_8"
+    ],
+    "warp": "MAP_MT_SILVER_SUMMIT_DAY",
+    "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,300:NADA",
+    "prova": {
+      "mapa": "MAP_MT_SILVER_SUMMIT_DAY",
+      "oponente": 0,
+      "palobj_presentes": [
+        "0x51F0"
+      ]
+    }
+  }
+]
