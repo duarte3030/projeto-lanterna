@@ -270,7 +270,107 @@
       "dest_warp_id": "3"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_VirbankCity_EventScript_GatilhoSobe"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_VirbankCity_EventScript_GatilhoSobe"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_VirbankCity_EventScript_GatilhoDesce"
+    },
+    {
+      "type": "trigger",
+      "x": 29,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_VirbankCity_EventScript_GatilhoDesce"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_VirbankCity_EventScript_GatilhoSobe"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_VirbankCity_EventScript_GatilhoSobe"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_VirbankCity_EventScript_GatilhoSobe"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_VirbankCity_EventScript_GatilhoSobe"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_VirbankCity_EventScript_GatilhoSobe"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_VirbankCity_EventScript_GatilhoSobe"
+    },
+    {
+      "type": "trigger",
+      "x": 38,
+      "y": 26,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_VirbankCity_EventScript_GatilhoSobe"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

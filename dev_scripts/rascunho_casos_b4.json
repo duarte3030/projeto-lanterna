@@ -1,0 +1,74 @@
+[
+ {
+  "id": "T99.1",
+  "nome": "elevador do Virbank Complex religado: da porta do complexo ate o B2F pelo painel",
+  "warp": "MAP_UNOVA_VIRBANK_COMPLEX_OUTSIDE",
+  "warp_id": 4,
+  "roteiro": "60:NADA,24:UP,24:UP,240:NADA,24:UP,24:UP,24:UP,24:RIGHT,24:RIGHT,24:RIGHT,24:UP,90:NADA,20:A,240:NADA,20:DOWN,60:NADA,20:A,240:NADA,20:DOWN,60:NADA,20:A,240:NADA,20:A,480:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_VIRBANK_COMPLEX_B2F"
+  },
+  "_rascunho": "RASCUNHO do bloco B4 da Obra 2 (15/08/2026). Os cinco casos RODARAM e PASSARAM no emulador nesta build (5/5). Estao aqui, e nao em dev_scripts/testes_criticos/, porque o dono daquele diretorio e outro agente: quem escrever os casos oficiais copia estes para 92_unova_b6.json (o arquivo de Unova; hoje vai ate T92.14) e renumera de T92.15 em diante. Duas licoes de roteiro medidas aqui, que valem para qualquer caso novo: (1) cada MUDANCA de direcao gasta uma tecla virando, entao a primeira tecla de cada corrida sai repetida, MENOS quando a direcao ja e a que o jogador olha (depois de sair por porta ele olha para o sul); (2) `\\p` no texto exige um A so para virar a pagina antes de a caixa de SIM/NAO aparecer."
+ },
+ {
+  "id": "T99.2",
+  "nome": "porta do B1F: abre no A e deixa chegar na cientista do norte",
+  "warp": "MAP_UNOVA_VIRBANK_COMPLEX_B1F",
+  "warp_id": 0,
+  "roteiro": "60:NADA,24:DOWN,24:DOWN,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:UP,40:NADA,20:A,180:NADA,20:A,180:NADA,24:UP,24:UP,24:UP,24:UP,24:UP,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,180:NADA,20:A,150:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_VIRBANK_COMPLEX_B1F",
+   "flags_acesas": [
+    "FLAG_UNOVA_VIRBANK_COMPLEX_PORTA"
+   ],
+   "oponente": "TRAINER_UNOVA_SCIENTISTF_VIRBANK_COMPLEX_1"
+  },
+  "_rascunho": "RASCUNHO do bloco B4 da Obra 2 (15/08/2026). Os cinco casos RODARAM e PASSARAM no emulador nesta build (5/5). Estao aqui, e nao em dev_scripts/testes_criticos/, porque o dono daquele diretorio e outro agente: quem escrever os casos oficiais copia estes para 92_unova_b6.json (o arquivo de Unova; hoje vai ate T92.14) e renumera de T92.15 em diante. Duas licoes de roteiro medidas aqui, que valem para qualquer caso novo: (1) cada MUDANCA de direcao gasta uma tecla virando, entao a primeira tecla de cada corrida sai repetida, MENOS quando a direcao ja e a que o jogador olha (depois de sair por porta ele olha para o sul); (2) `\\p` no texto exige um A so para virar a pagina antes de a caixa de SIM/NAO aparecer."
+ },
+ {
+  "id": "T99.3",
+  "nome": "porta do B1F ja aberta: o ON_LOAD reaplica o metatile e a rota funciona sem apertar A",
+  "flags": [
+   "FLAG_UNOVA_VIRBANK_COMPLEX_PORTA"
+  ],
+  "warp": "MAP_UNOVA_VIRBANK_COMPLEX_B1F",
+  "warp_id": 0,
+  "roteiro": "60:NADA,24:DOWN,24:DOWN,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:UP,24:UP,24:UP,24:UP,24:UP,24:UP,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,180:NADA,20:A,150:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_VIRBANK_COMPLEX_B1F",
+   "oponente": "TRAINER_UNOVA_SCIENTISTF_VIRBANK_COMPLEX_1"
+  },
+  "_rascunho": "RASCUNHO do bloco B4 da Obra 2 (15/08/2026). Os cinco casos RODARAM e PASSARAM no emulador nesta build (5/5). Estao aqui, e nao em dev_scripts/testes_criticos/, porque o dono daquele diretorio e outro agente: quem escrever os casos oficiais copia estes para 92_unova_b6.json (o arquivo de Unova; hoje vai ate T92.14) e renumera de T92.15 em diante. Duas licoes de roteiro medidas aqui, que valem para qualquer caso novo: (1) cada MUDANCA de direcao gasta uma tecla virando, entao a primeira tecla de cada corrida sai repetida, MENOS quando a direcao ja e a que o jogador olha (depois de sair por porta ele olha para o sul); (2) `\\p` no texto exige um A so para virar a pagina antes de a caixa de SIM/NAO aparecer."
+ },
+ {
+  "id": "T99.4",
+  "nome": "pedra de Strength cai no buraco do DragonspiralTower2F e a flag do changeblock acende",
+  "flags": [
+   "FLAG_SYS_USE_STRENGTH"
+  ],
+  "warp": "MAP_UNOVA_DRAGONSPIRAL_TOWER_2F",
+  "warp_id": 0,
+  "roteiro": "60:NADA,6:FLAG=5321,24:UP,24:UP,24:UP,24:UP,24:LEFT,24:LEFT,24:UP,24:UP,24:UP,24:UP,24:UP,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:UP,24:UP,24:UP,24:UP,24:RIGHT,24:RIGHT,24:RIGHT,24:UP,24:UP,24:UP,24:RIGHT,24:RIGHT,40:NADA,24:DOWN,24:DOWN,300:NADA,20:A,180:NADA,20:A,240:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_DRAGONSPIRAL_TOWER_2F",
+   "flags_acesas": [
+    "FLAG_UNOVA_DRAGONSPIRAL_2F_PEDRA"
+   ]
+  },
+  "_rascunho": "RASCUNHO do bloco B4 da Obra 2 (15/08/2026). Os cinco casos RODARAM e PASSARAM no emulador nesta build (5/5). Estao aqui, e nao em dev_scripts/testes_criticos/, porque o dono daquele diretorio e outro agente: quem escrever os casos oficiais copia estes para 92_unova_b6.json (o arquivo de Unova; hoje vai ate T92.14) e renumera de T92.15 em diante. Duas licoes de roteiro medidas aqui, que valem para qualquer caso novo: (1) cada MUDANCA de direcao gasta uma tecla virando, entao a primeira tecla de cada corrida sai repetida, MENOS quando a direcao ja e a que o jogador olha (depois de sair por porta ele olha para o sul); (2) `\\p` no texto exige um A so para virar a pagina antes de a caixa de SIM/NAO aparecer."
+ },
+ {
+  "id": "T99.5",
+  "nome": "interruptor 1 do B2F abre o atalho da escada ao vivo, e subir para o B1F apaga os quatro interruptores como na fonte",
+  "warp": "MAP_UNOVA_VIRBANK_COMPLEX_B2F",
+  "warp_id": 1,
+  "roteiro": "60:NADA,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:LEFT,24:LEFT,24:LEFT,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:LEFT,24:LEFT,150:NADA,20:A,240:NADA,24:UP,24:UP,24:UP,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:UP,24:UP,24:UP,24:UP,24:UP,24:UP,24:RIGHT,24:RIGHT,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_VIRBANK_COMPLEX_B1F",
+   "flags_apagadas": [
+    "FLAG_UNOVA_VIRBANK_COMPLEX_B2F_INTERRUPTOR_1"
+   ]
+  },
+  "_rascunho": "RASCUNHO do bloco B4 da Obra 2 (15/08/2026). Os cinco casos RODARAM e PASSARAM no emulador nesta build (5/5). Estao aqui, e nao em dev_scripts/testes_criticos/, porque o dono daquele diretorio e outro agente: quem escrever os casos oficiais copia estes para 92_unova_b6.json (o arquivo de Unova; hoje vai ate T92.14) e renumera de T92.15 em diante. Duas licoes de roteiro medidas aqui, que valem para qualquer caso novo: (1) cada MUDANCA de direcao gasta uma tecla virando, entao a primeira tecla de cada corrida sai repetida, MENOS quando a direcao ja e a que o jogador olha (depois de sair por porta ele olha para o sul); (2) `\\p` no texto exige um A so para virar a pagina antes de a caixa de SIM/NAO aparecer."
+ }
+]

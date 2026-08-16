@@ -428,9 +428,24 @@ def demo():
     #      `quad2mt` que o `blockdata_unova`. O comportamento que o gerador cita
     #      nos comentarios vem do `metatile_attributes.bin` DO DISCO, que podia
     #      estar velho. Aqui os dois se cruzam.
+    #
+    #      EXCECAO, 15/08/2026 (B4): o disco pode divergir da tabela DE PROPOSITO,
+    #      quando uma ferramenta troca o comportamento de um metatile depois da
+    #      conversao. Hoje sao `porta_de_saida_unova.py` (porta -> seta sul) e
+    #      `pedra_buraco_unova.py` (porta -> buraco de Mt. Pyre, os 4 buracos de
+    #      pedra). A lista de excecao NAO e digitada aqui: ela vem do ALVOS das
+    #      proprias ferramentas, entao desfazer a ferramenta faz o assert voltar
+    #      sozinho, e metatile que ninguem declarou continua cobrado.
+    import pedra_buraco_unova as pb          # noqa: E402  (so o --demo precisa)
+    import porta_de_saida_unova as ps        # noqa: E402
     ctx = contexto("Dreamyard")
+    tset = ctx["layout"]["secondary_tileset"]
+    trocados = {mt for (ts, mt) in list(pb.ALVOS) + [tuple(a) for a in ps.ALVOS]
+                if ts == tset}
     atr = ctx["ts"]["atributos"]
     for mt in range(ctx["ts"]["n_metatiles"]):
+        if 512 + mt in trocados:
+            continue
         do_disco = ctx["beh"](512 + mt)
         da_tabela = struct.unpack_from("<H", atr, mt * 2)[0]
         assert do_disco == da_tabela, \

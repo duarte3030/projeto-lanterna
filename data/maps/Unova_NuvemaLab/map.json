@@ -64,7 +64,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0"
+      "flag": "FLAG_UNOVA_CENA_JUNIPER"
     },
     {
       "local_id": "LOCALID_JUNIPER_LAB_BALL_SNIVY",
@@ -125,7 +125,26 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_UNOVA_NUVEMA_LAB_CENA",
+      "var_value": "0",
+      "script": "Unova_NuvemaLab_EventScript_NuvemaLabScript1"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_UNOVA_NUVEMA_LAB_CENA",
+      "var_value": "0",
+      "script": "Unova_NuvemaLab_EventScript_NuvemaLabScript2"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

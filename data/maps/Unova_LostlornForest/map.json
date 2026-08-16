@@ -182,6 +182,45 @@
       "trainer_sight_or_berry_tree_id": "1",
       "script": "Unova_LostlornForest_EventScript_Lider12",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAXIE",
+      "x": 9,
+      "y": 41,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "FLAG_TEMP_12"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 8,
+      "y": 27,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "FLAG_TEMP_11"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
+      "x": 9,
+      "y": 27,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "FLAG_TEMP_11"
     }
   ],
   "warp_events": [
@@ -207,7 +246,26 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 27,
+      "elevation": 0,
+      "var": "VAR_UNOVA_LOSTLORN_FOREST_CENA",
+      "var_value": "0",
+      "script": "Unova_LostlornForest_EventScript_LostlornForestGruntsScript"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 36,
+      "elevation": 0,
+      "var": "VAR_UNOVA_LOSTLORN_FOREST_CENA",
+      "var_value": "1",
+      "script": "Unova_LostlornForest_EventScript_LostlornForestInferScript"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

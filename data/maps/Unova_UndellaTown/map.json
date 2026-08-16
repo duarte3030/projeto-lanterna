@@ -123,6 +123,19 @@
       "trainer_sight_or_berry_tree_id": "ITEM_FRIEND_BALL",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEMS_UNOVA_START + 0x0F8"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BRAWLY",
+      "x": 20,
+      "y": 8,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "FLAG_UNOVA_CENA_JUNIPER"
     }
   ],
   "warp_events": [
@@ -176,7 +189,17 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_UNOVA_UNDELLA_CENA",
+      "var_value": "1",
+      "script": "Unova_UndellaTown_EventScript_UndellaTownBlockerScript"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

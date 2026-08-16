@@ -15,10 +15,32 @@
 @ FLAG_UNOVA_CENA_ENTRADA_LIGA, e o ON_TRANSITION apaga o bit enquanto
 @ FLAG_UNOVA_GENESIS_VENCIDO estiver apagada. Mesmo efeito, zero var.
 @
-@ O gatilho e `coord_event` com VAR_TEMP_0 valor 0 (tecnica 1 do
-@ SINNOH-PADRAO.md): o motor zera os VAR_TEMP_* a cada entrada de mapa, entao o
-@ gatilho vale sempre e quem lembra que a cena ja rodou e a flag, dentro do
-@ script. Zero var.
+@ RECONCILIACAO DE 15/08/2026 (B6 Unova, Obra 1, bloco A6). O gatilho nasceu em
+@ 12/08 com VAR_TEMP_0 valor 0 (tecnica 1 do SINNOH-PADRAO.md, zero var: o motor
+@ zera os VAR_TEMP_* a cada entrada de mapa e quem lembrava que a cena ja tinha
+@ rodado era so a flag). A maquina de `setscene` da Obra 1 reservou
+@ VAR_UNOVA_SALA_CAMPEAO_ENTRADA_CENA (0=SCENE_DEFAULT, 1=SCENE_FINISHED) para o
+@ MESMO `coord_event 7, 6, SCENE_DEFAULT` da fonte, e por isso
+@ dev_scripts/gatilhos_setscene_unova.py saiu daqui com ZERO gatilho novo: a
+@ coordenada ja estava ocupada.
+@
+@ SAO A MESMA CENA EM DUAS VIDAS, nao duas cenas: `ChampionsRoomEntranceScript`
+@ da fonte e a emboscada que ja esta escrita aqui embaixo, linha por linha.
+@ Entao a escolha foi FUNDIR na versao da fonte, e nao empurrar a cena da fonte
+@ para outro valor da var: um tile, um gatilho, uma cena. O gatilho passa a ser
+@ `var: VAR_UNOVA_SALA_CAMPEAO_ENTRADA_CENA, var_value: 0` (map.json), a cena
+@ grava 1 no fim (o `setscene SCENE_FINISHED` da fonte) e o ON_TRANSITION
+@ devolve 0 enquanto o GENESIS nao cair (o `.ResetScene` do MAPCALLBACK_NEWMAP).
+@
+@ A FLAG_UNOVA_CENA_ENTRADA_LIGA CONTINUA, e nao e redundancia decorativa: ela
+@ e a guarda que faz o T92.8 passar (dev_scripts/testes_criticos/92_unova_b6.json).
+@ Aquele caso acende FLAG_UNOVA_CENA_ENTRADA_LIGA e FLAG_UNOVA_GENESIS_VENCIDO e
+@ NAO escreve var nenhuma, ou seja entra no mapa com a var em 0; sem a guarda de
+@ flag no topo do script a cena rodaria de novo e o caso reprovaria. Com ela, o
+@ gatilho dispara, cai no `end` e o jogador continua na entrada, que e o que o
+@ caso mede. O T92.7 (cena roda inteira, termina na sala do Campeao com as duas
+@ flags acesas) segue igual: var 0 na primeira visita, cena inteira, e no fecho
+@ as duas flags mais a var em 1.
 @
 @ DUAS COISAS QUE NAO SAO COPIA LITERAL DA FONTE, e o motivo:
 @ 1. No BW3G os cinco figurantes FICAM no mapa depois da cena (o script que os
@@ -45,6 +67,9 @@ Unova_ChampionsRoomEntrance_OnTransition:
 	setflag FLAG_UNOVA_LIGA_ELENCO
 	goto_if_set FLAG_UNOVA_GENESIS_VENCIDO, Unova_ChampionsRoomEntrance_EventScript_TransicaoFim
 	clearflag FLAG_UNOVA_CENA_ENTRADA_LIGA
+	@ `setscene SCENE_DEFAULT` do `.ResetScene` da fonte: a cena volta a armar
+	@ enquanto o GENESIS nao cair, para rodar de novo se o jogador perder.
+	setvar VAR_UNOVA_SALA_CAMPEAO_ENTRADA_CENA, 0
 Unova_ChampionsRoomEntrance_EventScript_TransicaoFim::
 	end
 
@@ -127,6 +152,8 @@ Unova_ChampionsRoomEntrance_EventScript_Emboscada::
 	applymovement 4, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
 	setflag FLAG_UNOVA_CENA_ENTRADA_LIGA
+	@ `setscene SCENE_FINISHED` da fonte
+	setvar VAR_UNOVA_SALA_CAMPEAO_ENTRADA_CENA, 1
 	@ os cinco voltam a ficar escondidos: dois deles moram em cima do warp (7,5)
 	setflag FLAG_UNOVA_LIGA_ELENCO
 	fadedefaultbgm

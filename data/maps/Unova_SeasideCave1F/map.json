@@ -175,7 +175,62 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_SeasideCave1F_EventScript_GatilhoSobe"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 33,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_SeasideCave1F_EventScript_GatilhoSobe"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_SeasideCave1F_EventScript_GatilhoSobe"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_SeasideCave1F_EventScript_GatilhoSobe"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_SeasideCave1F_EventScript_GatilhoDesce"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_SeasideCave1F_EventScript_GatilhoDesce"
+    }
+  ],
   "bg_events": [
     {
       "type": "hidden_item",

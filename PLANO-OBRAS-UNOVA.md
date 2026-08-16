@@ -206,6 +206,39 @@ de treinador, fora do escopo de vars/flags desta frente).
 6. **Obra 2 (changeblock) antes da Obra 1 (setscene)** na ordem de execução
    — ver seção "Ordem de execução" acima.
 
+## Tabela de conversão gen 2 → este motor (Obra 1)
+
+Régua de tradução das cenas de `setscene`, aprovada no desenho de 15/08/2026 e
+transcrita aqui em 15/08/2026 (bloco A6) porque só existia na missão dos
+executores: **o plano é a fonte única, e estava incompleto neste ponto.** Quem
+portar cena de Unova segue esta tabela; o que não estiver nela volta para cá,
+não vira invenção do executor.
+
+| item da fonte (gen 2) | como entra aqui |
+|---|---|
+| `setscene` / `setmapscene` | `setvar` na var do mapa (tabela "mapa → var → valores" acima) |
+| `appear` / `disappear` | flag da tabela de `EVENT_`, no campo `flag` do `object_event` do `map.json`, mais `addobject`/`removeobject` na cena |
+| fades e `special HealParty` | mapeados no equivalente daqui (`special Script_FadeOutMapMusic` + `waitstate`, `fadescreenspeed`, `special HealPlayerParty`) |
+| `special ReloadSpritesNoPalettes`, `special LoadMapPalettes`, `special StubbedTrainerRankings_*` | **descartados**, sem substituto: não existem neste motor e não mudam o que o jogador vê |
+| texto | **palavra a palavra**, só requebrado para a largura da caixa deste motor |
+| `applymovement` no JOGADOR | permitido, com a **rota conferida** contra `data/layouts/<Layout>/map.bin` (tile final livre) |
+| terminadores | **obrigatórios**: toda cena fecha em `releaseall`/`release` + `end`, todo `map_script` em `end` |
+| `jump` para o rótulo seguinte / rótulo que cai no de baixo | **fallthrough seguido**: a ordem dos blocos preserva a queda da fonte |
+
+### Decisão 7 da condutora (15/08/2026): o relógio do gen 2 sai
+
+Os três `special` de relógio de `PlayersHouse1F.asm` — `SetDayOfWeek`,
+`InitialSetDSTFlag` e `InitialClearDSTFlag` — são **descartados, não
+inventados**: este motor não tem o menu de dia da semana nem o de horário de
+verão do gen 2, e fabricar um substituto seria escrever mecânica nova, não
+portar. Caem junto os dois `yesorno` que só existiam para alimentá-los e os
+três textos que só falam desse menu (`WhatDayIsItText`, `IsItDSTText`,
+`MomGivesXtranText`); a única linha de enredo que `MomGivesXtranText` fechava
+("hurry on over to MARLON's house") já está, com as mesmas palavras, dentro de
+`MarlonLookingForYouText`, que fica. Mesma régua vale para o XTRANSCEIVER dessa
+cena (`ENGINE_POKEGEAR`, `ENGINE_PHONE_CARD`, `addcellnum`): não há Pokégear
+nem lista telefônica nesta ROM, então a mecânica sai e a fala fica.
+
 ## Plano de blocos executáveis
 
 Construído agora, a partir das tabelas acima, para dar ao executor uma

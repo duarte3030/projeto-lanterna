@@ -2003,6 +2003,50 @@
 #define TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_4 2459
 // <<< Treinadores de dentro dos ginasios de Unova que o B4 nao viu (B5, 12/08/2026) <<<
 
+// >>> treinadores das cenas de batalha do setscene de Unova (B6 Obra 1, bloco
+// A3, 15/08/2026) >>>
+// Os 21 que as 19 cenas de setscene de Unova (varredura de coord_event com
+// loadtrainer/startbattle, seguindo fallthrough, nos mapas de
+// PLANO-OBRAS-UNOVA.md) pedem. Nao sao objeto de mapa (por isso o B4/B5 nao
+// os viu): o loadtrainer mora dentro do fecho de um coord_event de cutscene.
+// Faixa: 1800-2199 (a mesma reservada para Unova), maior id em uso medido
+// antes de escrever era 2147, entao esta leva comeca em 2148. Livres depois
+// desta leva: 2169-2199 (31).
+//
+// INFER e o rival da historia (const "???" nas tres primeiras batalhas em
+// R_12, ele ainda nao tem nome para o jogador). INFER_SAGE e o mesmo INFER
+// disfarcado de sabio da Torre Dragonspiral (MUSIC_RIVAL_ENCOUNTER na fonte
+// confirma que e o mesmo personagem, so troca de identidade na cutscene).
+// INFER2 (a trainerclass, nao o id INFER2_*) e a ultima batalha dele, na
+// entrada da Liga: por isso leva TRAINER_CLASS_RIVAL_LATE_FRLG, igual ao
+// ultimo estagio de TRAINER_JOHTO_RIVAL_SILVER_4; as demais levam
+// TRAINER_CLASS_RIVAL_EARLY_FRLG, igual aos estagios 1-3 do Silver.
+// ZINZOLIN, GIALLO e GORM sao dos Sete Sabios da Plasma: mesma
+// Classe/Pic/Genero que TRAINER_UNOVA_GIALLO2/GORM2/BRONIUS2 ja usam
+// (Expert / Expert M / Male).
+#define TRAINER_UNOVA_INFER_SAGE_SNIVY                       2148  // DragonspiralTower6F
+#define TRAINER_UNOVA_INFER_SAGE_TEPIG                       2149  // DragonspiralTower6F
+#define TRAINER_UNOVA_INFER_SAGE_OSHAWOTT                    2150  // DragonspiralTower6F
+#define TRAINER_UNOVA_ZINZOLIN2                              2151  // DragonspiralTowerRoof
+#define TRAINER_UNOVA_GRUNTM_LOSTLORN                        2152  // LostlornForest
+#define TRAINER_UNOVA_GRUNTF_LOSTLORN                        2153  // LostlornForest
+#define TRAINER_UNOVA_INFER2_SNIVY                           2154  // LostlornForest
+#define TRAINER_UNOVA_INFER2_TEPIG                           2155  // LostlornForest
+#define TRAINER_UNOVA_INFER2_OSHAWOTT                        2156  // LostlornForest
+#define TRAINER_UNOVA_INFER3_SNIVY                           2157  // NimbasaParkBasement
+#define TRAINER_UNOVA_INFER3_TEPIG                           2158  // NimbasaParkBasement
+#define TRAINER_UNOVA_INFER3_OSHAWOTT                        2159  // NimbasaParkBasement
+#define TRAINER_UNOVA_GIALLO1                                2160  // NimbasaParkBasement
+#define TRAINER_UNOVA_GORM1                                  2161  // P2Lab
+#define TRAINER_UNOVA_INFER7_SNIVY                           2162  // PkmnLeagueEntrance
+#define TRAINER_UNOVA_INFER7_TEPIG                           2163  // PkmnLeagueEntrance
+#define TRAINER_UNOVA_INFER7_OSHAWOTT                        2164  // PkmnLeagueEntrance
+#define TRAINER_UNOVA_INFER1_SNIVY                           2165  // Rt12
+#define TRAINER_UNOVA_INFER1_TEPIG                           2166  // Rt12
+#define TRAINER_UNOVA_INFER1_OSHAWOTT                        2167  // Rt12
+#define TRAINER_UNOVA_ZINZOLIN1                              2168  // SeasideCaveChamber
+// <<< treinadores das cenas de batalha do setscene de Unova (B6 Obra 1 A3) <<<
+
 #define TRAINERS_COUNT_EMERALD     MAX_TRAINERS_COUNT_EMERALD
 // ponytail: teto elevado em 05/08/2026. Estava em 1330 com 1329 em uso, ou seja,
 // UMA vaga sobrando no jogo inteiro, e a historia de Johto ja tinha deixado 7

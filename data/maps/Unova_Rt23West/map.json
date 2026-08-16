@@ -326,7 +326,80 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 53,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_UNOVA_R23_OESTE_CENA",
+      "var_value": "0",
+      "script": "Unova_Rt23West_EventScript_R23Badge7Script"
+    },
+    {
+      "type": "trigger",
+      "x": 52,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_UNOVA_R23_OESTE_CENA",
+      "var_value": "0",
+      "script": "Unova_Rt23West_EventScript_R23Badge7Script"
+    },
+    {
+      "type": "trigger",
+      "x": 41,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_Rt23West_EventScript_R23WestUpperScript"
+    },
+    {
+      "type": "trigger",
+      "x": 42,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_Rt23West_EventScript_R23WestUpperScript"
+    },
+    {
+      "type": "trigger",
+      "x": 41,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_Rt23West_EventScript_R23WestLowerScript"
+    },
+    {
+      "type": "trigger",
+      "x": 42,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_Rt23West_EventScript_R23WestLowerScript"
+    },
+    {
+      "type": "trigger",
+      "x": 64,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_Rt23West_EventScript_R23WestLowerScript"
+    },
+    {
+      "type": "trigger",
+      "x": 64,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_Rt23West_EventScript_R23WestLowerScript"
+    }
+  ],
   "bg_events": [
     {
       "type": "hidden_item",

@@ -131,7 +131,44 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_UNOVA_NACRENE_CENA",
+      "var_value": "0",
+      "script": "Unova_NacreneCity_EventScript_NacreneCityLenoraScript1"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_UNOVA_NACRENE_CENA",
+      "var_value": "0",
+      "script": "Unova_NacreneCity_EventScript_NacreneCityLenoraScript2"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_UNOVA_NACRENE_CENA",
+      "var_value": "0",
+      "script": "Unova_NacreneCity_EventScript_NacreneCityLenoraScript3"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_UNOVA_NACRENE_CENA",
+      "var_value": "0",
+      "script": "Unova_NacreneCity_EventScript_NacreneCityLenoraScript4"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

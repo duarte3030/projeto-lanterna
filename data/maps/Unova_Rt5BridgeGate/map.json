@@ -58,6 +58,25 @@
       "dest_warp_id": "3"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_UNOVA_R5_PORTAO_PONTE_CENA",
+      "var_value": "0",
+      "script": "Unova_Rt5BridgeGate_EventScript_Rt5BridgeGateBadgeScript"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_UNOVA_R5_PORTAO_PONTE_CENA",
+      "var_value": "0",
+      "script": "Unova_Rt5BridgeGate_EventScript_Rt5BridgeGateBadgeScript"
+    }
+  ],
   "bg_events": []
 }

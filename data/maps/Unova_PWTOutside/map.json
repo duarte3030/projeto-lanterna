@@ -162,6 +162,16 @@
       "dest_warp_id": "2"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_UNOVA_PWT_FORA_CENA",
+      "var_value": "0",
+      "script": "Unova_PWTOutside_EventScript_PwtOutsideScript"
+    }
+  ],
   "bg_events": []
 }

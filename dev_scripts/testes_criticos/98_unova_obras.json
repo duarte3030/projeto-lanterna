@@ -1,0 +1,289 @@
+[
+  {
+    "id": "T98.1",
+    "nome": "Unova, Obra 2 (Virbank Complex): elevador religado, da porta do complexo ate o B2F pelo painel. Oficializado do dev_scripts/rascunho_casos_b4.json (T99.1 do executor), 5/5 ja rodava e passava no emulador. Duas licoes de roteiro medidas por quem escreveu: (1) cada MUDANCA de direcao gasta uma tecla virando, entao a primeira tecla de cada corrida sai repetida, MENOS quando a direcao ja e a que o jogador olha (depois de sair por porta ele olha para o sul); (2) \\p no texto exige um A so para virar a pagina antes de a caixa de SIM/NAO aparecer.",
+    "warp": "MAP_UNOVA_VIRBANK_COMPLEX_OUTSIDE",
+    "warp_id": 4,
+    "roteiro": "60:NADA,24:UP,24:UP,240:NADA,24:UP,24:UP,24:UP,24:RIGHT,24:RIGHT,24:RIGHT,24:UP,90:NADA,20:A,240:NADA,20:DOWN,60:NADA,20:A,240:NADA,20:DOWN,60:NADA,20:A,240:NADA,20:A,480:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VIRBANK_COMPLEX_B2F"
+    }
+  },
+  {
+    "id": "T98.2",
+    "nome": "Unova, Obra 2 (Virbank Complex): a porta do B1F abre no A e deixa chegar na cientista do norte. Oficializado do rascunho (T99.2 do executor), 5/5 passava. Prova por flag (FLAG_UNOVA_VIRBANK_COMPLEX_PORTA acesa, prova de que o A realmente abriu a porta) E por oponente (a cientista so e alcancavel depois de aberta).",
+    "warp": "MAP_UNOVA_VIRBANK_COMPLEX_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,24:DOWN,24:DOWN,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:UP,40:NADA,20:A,180:NADA,20:A,180:NADA,24:UP,24:UP,24:UP,24:UP,24:UP,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,180:NADA,20:A,150:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VIRBANK_COMPLEX_B1F",
+      "flags_acesas": [
+        "FLAG_UNOVA_VIRBANK_COMPLEX_PORTA"
+      ],
+      "oponente": "TRAINER_UNOVA_SCIENTISTF_VIRBANK_COMPLEX_1"
+    }
+  },
+  {
+    "id": "T98.3",
+    "nome": "Unova, Obra 2 (Virbank Complex): par de persistencia do T98.2. Com FLAG_UNOVA_VIRBANK_COMPLEX_PORTA ja acesa (porta ja aberta numa visita anterior), o MAP_SCRIPT_ON_LOAD reaplica o metatile da porta sozinho e a rota ate a cientista funciona SEM apertar A na porta. Oficializado do rascunho (T99.3 do executor), 5/5 passava.",
+    "flags": [
+      "FLAG_UNOVA_VIRBANK_COMPLEX_PORTA"
+    ],
+    "warp": "MAP_UNOVA_VIRBANK_COMPLEX_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,24:DOWN,24:DOWN,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:UP,24:UP,24:UP,24:UP,24:UP,24:UP,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,180:NADA,20:A,150:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VIRBANK_COMPLEX_B1F",
+      "oponente": "TRAINER_UNOVA_SCIENTISTF_VIRBANK_COMPLEX_1"
+    }
+  },
+  {
+    "id": "T98.4",
+    "nome": "Unova, Obra 2 (Dragonspiral Tower 2F): a pedra de Strength cai no buraco e a flag do changeblock acende. Oficializado do rascunho (T99.4 do executor), 5/5 passava. Precondition FLAG_SYS_USE_STRENGTH (o HM precisa estar ativo) mais a flag de treinador 5321 (TRAINER_FLAGS_START-relativa, escrita direto pelo executor) para simular o parceiro ja liberado a usar o golpe.",
+    "flags": [
+      "FLAG_SYS_USE_STRENGTH"
+    ],
+    "warp": "MAP_UNOVA_DRAGONSPIRAL_TOWER_2F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,6:FLAG=5321,24:UP,24:UP,24:UP,24:UP,24:LEFT,24:LEFT,24:UP,24:UP,24:UP,24:UP,24:UP,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:UP,24:UP,24:UP,24:UP,24:RIGHT,24:RIGHT,24:RIGHT,24:UP,24:UP,24:UP,24:RIGHT,24:RIGHT,40:NADA,24:DOWN,24:DOWN,300:NADA,20:A,180:NADA,20:A,240:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_DRAGONSPIRAL_TOWER_2F",
+      "flags_acesas": [
+        "FLAG_UNOVA_DRAGONSPIRAL_2F_PEDRA"
+      ]
+    }
+  },
+  {
+    "id": "T98.5",
+    "nome": "Unova, Obra 2 (Dragonspiral Tower 2F): par negativo do T98.4. Estado padrao, sem empurrar a pedra: FLAG_UNOVA_DRAGONSPIRAL_2F_PEDRA nunca acende sozinha so por carregar o mapa (nao existe ON_TRANSITION nem ON_LOAD que a acenda por conta propria; so o `changeblock` disparado pelo empurrao do Strength faz isso). Sem este caso o T98.4 nao provaria que foi o EMPURRAO que acendeu a flag, e nao qualquer entrada no mapa.",
+    "warp": "MAP_UNOVA_DRAGONSPIRAL_TOWER_2F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_DRAGONSPIRAL_TOWER_2F",
+      "flags_apagadas": [
+        "FLAG_UNOVA_DRAGONSPIRAL_2F_PEDRA"
+      ]
+    }
+  },
+  {
+    "id": "T98.6",
+    "nome": "Unova, Obra 2 (Virbank Complex): o interruptor 1 do B2F abre o atalho da escada AO VIVO, e subir para o B1F apaga os quatro interruptores como na fonte. Oficializado do rascunho (T99.5 do executor), 5/5 passava. Prova negativa por desenho: se o changeblock do interruptor nao rodasse de verdade, ou se a subida para o B1F nao reiniciasse o quarteto, FLAG_UNOVA_VIRBANK_COMPLEX_B2F_INTERRUPTOR_1 continuaria acesa no B1F.",
+    "warp": "MAP_UNOVA_VIRBANK_COMPLEX_B2F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:LEFT,24:LEFT,24:LEFT,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:LEFT,24:LEFT,150:NADA,20:A,240:NADA,24:UP,24:UP,24:UP,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:UP,24:UP,24:UP,24:UP,24:UP,24:UP,24:RIGHT,24:RIGHT,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VIRBANK_COMPLEX_B1F",
+      "flags_apagadas": [
+        "FLAG_UNOVA_VIRBANK_COMPLEX_B2F_INTERRUPTOR_1"
+      ]
+    }
+  },
+  {
+    "id": "T98.7",
+    "nome": "Unova, Obra 2 bloco B3 (troca de nivel): VillageBridge, o gatilho de SUBIDA. Unova_VillageBridge_EventScript_GatilhoSobe (data/maps/Unova_VillageBridge/scripts.inc) so faz algo com FLAG_UNOVA_VILLAGE_BRIDGE_ANDAR_INFERIOR ja acesa: `clearflag` + `call ...Sobe` (que reescreve os 32 quadrantes com ELEVACAO EXPLICITA, comentario do proprio arquivo: sem isso o caminho de volta ficaria com elevacao 1 de agua por baixo do chao redesenhado, e o jogador surfaria em cima dele). Este caso acende a flag ANTES do warp (persistencia: o MAP_SCRIPT_ON_LOAD tem que reconstruir o andar de baixo so a partir da flag salva, nao ha cena ao vivo aqui), warpa direto para o leste (warp 0, que MEDIDO pousa em (61,21) e nao (61,20) como o warp_events cru lista), e anda DUAS teclas para OESTE (nao para o norte, que passaria pelo proprio tile do warp e sairia do mapa) ate (60,21), um dos quatro coord_events de Sobe (data/maps/Unova_VillageBridge/map.json). Prova que a flag volta apagada: se o ON_LOAD nao tivesse reconstruido o chao andavel, o jogador nao chegaria ate o gatilho para apaga-la.",
+    "flags": [
+      "FLAG_UNOVA_VILLAGE_BRIDGE_ANDAR_INFERIOR"
+    ],
+    "warp": "MAP_UNOVA_VILLAGE_BRIDGE",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:LEFT,20:LEFT,60:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VILLAGE_BRIDGE",
+      "flags_apagadas": [
+        "FLAG_UNOVA_VILLAGE_BRIDGE_ANDAR_INFERIOR"
+      ]
+    }
+  },
+  {
+    "id": "T98.8",
+    "nome": "Unova, Obra 2 bloco B3: VillageBridge, o gatilho de DESCIDA (par do T98.7, estado padrao). Unova_VillageBridge_EventScript_GatilhoDesce so faz algo com a flag AINDA apagada (estado de jogo novo): `setflag` + `call ...Desce` (muda 32 quadrantes de chao/parede para agua com elevacao 1 explicita, tornando o andar de baixo da ponte fisicamente distinto). GEOMETRIA: nenhum warp cai perto do gatilho oeste em (21,30)/(21,31); rota calculada por busca em largura na colisao real de data/layouts/Unova_VillageBridge/map.bin (68x38) a partir do warp 2 (MEDIDO: pousa em (4,21), nao (4,20)): DOWN ate (4,30), RIGHT ate (21,30), cada perna com uma tecla de sobra para o custo de virar. O gatilho comeca com `lock`, entao sobra de tecla depois de chegar e absorvida.",
+    "warp": "MAP_UNOVA_VILLAGE_BRIDGE",
+    "warp_id": 2,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,60:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VILLAGE_BRIDGE",
+      "flags_acesas": [
+        "FLAG_UNOVA_VILLAGE_BRIDGE_ANDAR_INFERIOR"
+      ]
+    }
+  },
+  {
+    "id": "T98.9",
+    "nome": "Unova, Obra 2 bloco B3: VirbankCity, persistencia + chao volta solido. Mesma mecanica do T98.7 (Unova_VirbankCity_EventScript_GatilhoSobe, data/maps/Unova_VirbankCity/scripts.inc), so que aqui o warp de entrada (warp 0, Pokecenter, MEDIDO pousa em (15,10) e nao (15,9)) fica a UM tile do coord_event de Sobe em (16,10) (data/maps/Unova_VirbankCity/map.json): dois RIGHT (o primeiro so vira, o segundo anda) chegam la sem cruzar tile de warp nenhum. Flag pre-acesa simula 'andar inferior ja visitado, save persistido'; chegar la e a flag apagar prova as duas coisas de uma vez: que o ON_LOAD reconstruiu o chao andavel a partir da flag salva, e que o script de subida devolveu a elevacao explicita (o mesmo changeblock com elevacao explicita nos dois sentidos que o VillageBridge documenta).",
+    "flags": [
+      "FLAG_UNOVA_VIRBANK_CITY_ANDAR_INFERIOR"
+    ],
+    "warp": "MAP_UNOVA_VIRBANK_CITY",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:RIGHT,20:RIGHT,60:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VIRBANK_CITY",
+      "flags_apagadas": [
+        "FLAG_UNOVA_VIRBANK_CITY_ANDAR_INFERIOR"
+      ]
+    }
+  },
+  {
+    "id": "T98.10",
+    "nome": "Unova, Obra 1 bloco A5: setmapscene REMOTO do porao do parque de Nimbasa. Precondition VAR_UNOVA_NIMBASA_PARK_PORAO_CENA=1 (estagio 'Plasma', o que o T90-style rival ja deixaria pronto), warp para o warp 2 do porao (MEDIDO: pousa exatamente em (4,17), sem empurrao, porque e um warp de auto-referencia do proprio mapa) e UM UP entra no coord_event de (4,16) (data/maps/Unova_NimbasaParkBasement/map.json), que dispara NimbasaParkPlasmaScript1/2: o SABIO GIALLO intercepta o jogador, o CHEREN segura a SOMBRA, e a cena cai em `trainerbattle_no_intro TRAINER_UNOVA_GIALLO1` (2160). Prova por oponente exato: o script chegou ate a PRIMEIRA batalha da cadeia sem cair rotulo nenhum. LIMITE MEDIDO: a var remota que o pedido quer provar (VAR_UNOVA_NIMBASA_PARK_FORA_CENA=2, escrita so DEPOIS de vencer o GIALLO e a cena inteira terminar, `setmapscene` remoto para o lado de fora do parque) fica atras de uma batalha real; nenhum caso deste harness em nenhum arquivo joga uma batalha ate o fim (so aperta A e direcao, nunca golpe), entao provar o `setvar` remoto exigiria vencer o GIALLO de verdade, que este harness nao faz. Reportado como limite do harness, nao consertado; T97.3/T97.4 do bloco anterior documentam o mesmo limite noutro mapa.",
+    "vars": {
+      "0x416A": 1
+    },
+    "warp": "MAP_UNOVA_NIMBASA_PARK_BASEMENT",
+    "warp_id": 2,
+    "roteiro": "60:NADA,20:UP,20:UP,300:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_NIMBASA_PARK_BASEMENT",
+      "oponente": 2160
+    }
+  },
+  {
+    "id": "T98.11",
+    "nome": "Unova, Obra 1 bloco A5: elenco recalculado do telhado da Dragonspiral Tower. Unova_DragonspiralTowerRoof_OnTransition (data/maps/Unova_DragonspiralTowerRoof/scripts.inc) acende FLAG_TEMP_12 incondicional (quem so aparece NO MEIO da cena: nunca nasce sozinho) e so acende FLAG_TEMP_11 (quem JA esta no telhado, DRAYDEN e companhia) quando VAR_UNOVA_DRAGONSPIRAL_TOPO_CENA != 0. Com var=0 (estado padrao), FLAG_TEMP_11 fica APAGADA: o elenco nasce visivel. Como os FLAG_TEMP_* sao limpos por ClearTempFieldEventData() a CADA entrada de mapa (comentario do proprio arquivo, src/overworld.c:893) e so DEPOIS recalculados pelo ON_TRANSITION a partir da var salva, isto tambem prova persistencia: sair e voltar com a mesma var sempre reconstroi o mesmo elenco, sem flag de save nova nenhuma.",
+    "vars": {
+      "0x4164": 0
+    },
+    "warp": "MAP_UNOVA_DRAGONSPIRAL_TOWER_ROOF",
+    "warp_id": 0,
+    "roteiro": "60:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_DRAGONSPIRAL_TOWER_ROOF",
+      "flags_apagadas": [
+        "FLAG_TEMP_11"
+      ]
+    }
+  },
+  {
+    "id": "T98.12",
+    "nome": "Unova, Obra 1 bloco A5: par do T98.11. Com VAR_UNOVA_DRAGONSPIRAL_TOPO_CENA=1 (cena ja concluida), o ON_TRANSITION passa da checagem `goto_if_eq ..., 0, TransicaoFim` e chega no `setflag FLAG_TEMP_11`: DRAYDEN e o resto do elenco de 'ja estava no telhado' ficam escondidos, o telhado entra vazio. Sem este par, o T98.11 passaria igual se o ON_TRANSITION sempre deixasse o elenco visivel (flag nunca lida, so escrita), que e o mundo quebrado especifico que este caso acusa.",
+    "vars": {
+      "0x4164": 1
+    },
+    "warp": "MAP_UNOVA_DRAGONSPIRAL_TOWER_ROOF",
+    "warp_id": 0,
+    "roteiro": "60:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_DRAGONSPIRAL_TOWER_ROOF",
+      "flags_acesas": [
+        "FLAG_TEMP_11"
+      ]
+    }
+  },
+  {
+    "id": "T98.13",
+    "nome": "Unova, Obra 1 bloco A5: primeiro duelo do rival em Rt12, ramo por inicial (VAR_STARTER_MON=0). data/maps/Unova_Rt12/scripts.inc: `goto_if_eq VAR_STARTER_MON, 0, ...Tepig; goto_if_eq VAR_STARTER_MON, 1, ...Oshawott; [fallthrough] ...Snivy`, e o rotulo de cada treinador nomeia o Pokemon DELA (a INFER SEMPRE fica com o inicial que GANHA do jogador, comentario do proprio arquivo, copiado da fonte BW3G): jogador com var=0 enfrenta TRAINER_UNOVA_INFER1_TEPIG (2166). GEOMETRIA: (6,9) tem um object_event mudo (o proprio corpo da INFER, FLAG_TEMP_11, 'nasce so enquanto a cena nao rodou') bloqueando o corredor reto da linha 9; a rota contorna por cima, pela linha 7 (livre, conferida no map.bin), ate um dos tres coord_events (9,7)/(9,8)/(9,9) (data/maps/Unova_Rt12/map.json). ACHADO A EVITAR: subir direto pela coluna do warp (x=4) dispara o segundo warp por movimento de verdade e troca de mapa (mesmo padrao do VillageBridge); por isso o primeiro passo e RIGHT, nao UP.",
+    "vars": {
+      "0x4172": 0,
+      "0x4023": 0
+    },
+    "warp": "MAP_UNOVA_R_12",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:RIGHT,20:RIGHT,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,300:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_R_12",
+      "oponente": 2166
+    }
+  },
+  {
+    "id": "T98.14",
+    "nome": "Unova, Obra 1 bloco A5: primeiro duelo do rival em Rt12, ramo por inicial (VAR_STARTER_MON=1). data/maps/Unova_Rt12/scripts.inc: `goto_if_eq VAR_STARTER_MON, 0, ...Tepig; goto_if_eq VAR_STARTER_MON, 1, ...Oshawott; [fallthrough] ...Snivy`, e o rotulo de cada treinador nomeia o Pokemon DELA (a INFER SEMPRE fica com o inicial que GANHA do jogador, comentario do proprio arquivo, copiado da fonte BW3G): jogador com var=1 enfrenta TRAINER_UNOVA_INFER1_OSHAWOTT (2167). GEOMETRIA: (6,9) tem um object_event mudo (o proprio corpo da INFER, FLAG_TEMP_11, 'nasce so enquanto a cena nao rodou') bloqueando o corredor reto da linha 9; a rota contorna por cima, pela linha 7 (livre, conferida no map.bin), ate um dos tres coord_events (9,7)/(9,8)/(9,9) (data/maps/Unova_Rt12/map.json). ACHADO A EVITAR: subir direto pela coluna do warp (x=4) dispara o segundo warp por movimento de verdade e troca de mapa (mesmo padrao do VillageBridge); por isso o primeiro passo e RIGHT, nao UP.",
+    "vars": {
+      "0x4172": 0,
+      "0x4023": 1
+    },
+    "warp": "MAP_UNOVA_R_12",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:RIGHT,20:RIGHT,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,300:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_R_12",
+      "oponente": 2167
+    }
+  },
+  {
+    "id": "T98.15",
+    "nome": "Unova, Obra 1 bloco A5: primeiro duelo do rival em Rt12, ramo por inicial (VAR_STARTER_MON=2). data/maps/Unova_Rt12/scripts.inc: `goto_if_eq VAR_STARTER_MON, 0, ...Tepig; goto_if_eq VAR_STARTER_MON, 1, ...Oshawott; [fallthrough] ...Snivy`, e o rotulo de cada treinador nomeia o Pokemon DELA (a INFER SEMPRE fica com o inicial que GANHA do jogador, comentario do proprio arquivo, copiado da fonte BW3G): jogador com var=2 enfrenta TRAINER_UNOVA_INFER1_SNIVY (2165). GEOMETRIA: (6,9) tem um object_event mudo (o proprio corpo da INFER, FLAG_TEMP_11, 'nasce so enquanto a cena nao rodou') bloqueando o corredor reto da linha 9; a rota contorna por cima, pela linha 7 (livre, conferida no map.bin), ate um dos tres coord_events (9,7)/(9,8)/(9,9) (data/maps/Unova_Rt12/map.json). ACHADO A EVITAR: subir direto pela coluna do warp (x=4) dispara o segundo warp por movimento de verdade e troca de mapa (mesmo padrao do VillageBridge); por isso o primeiro passo e RIGHT, nao UP.",
+    "vars": {
+      "0x4172": 0,
+      "0x4023": 2
+    },
+    "warp": "MAP_UNOVA_R_12",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:RIGHT,20:RIGHT,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,300:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_R_12",
+      "oponente": 2165
+    }
+  },
+  {
+    "id": "T98.16",
+    "nome": "Unova, Obra 1 bloco A5: portao da Rota 23, com as 8 insignias (FLAG_BADGE_UNOVA_HUMILAU, a WAVEBADGE, a ultima). Unova_Rt23Gate_EventScript_R23GateBadgeScript (data/maps/Unova_Rt23Gate/scripts.inc): `goto_if_unset FLAG_BADGE_UNOVA_HUMILAU, ...SemInsignia` pula o ramo positivo; com a flag acesa cai direto no `msgbox ...HaveBadgeText` + `setvar VAR_UNOVA_R23_PORTAO_CENA, 1`. Warp 0 pousa em (0,5) (nao (0,4) cru); seis RIGHT chegam no coord_event de (5,5) (data/maps/Unova_Rt23Gate/map.json).",
+    "flags": [
+      "FLAG_BADGE_UNOVA_HUMILAU"
+    ],
+    "warp": "MAP_UNOVA_R_23_GATE",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,300:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_R_23_GATE",
+      "vars": {
+        "0x4174": 1
+      }
+    }
+  },
+  {
+    "id": "T98.17",
+    "nome": "Unova, Obra 1 bloco A5: par negativo do T98.16, so com 5 das 6 insignias que a Liga de Unova pede (sem a WAVEBADGE, a ultima). O MESMO gatilho cai no ramo `R23GateBadgeSemInsignia`, que so faz `applymovement LOCALID_PLAYER, Common_Movement_WalkRight` e `releaseall`: EMPURRA o jogador de volta, sem tocar a var. Prova especifica e nao trivial: com o MESMO roteiro do T98.16 (seis RIGHT ate o gatilho), o jogador termina em x=6 (empurrado UM tile alem do gatilho em x=5, medido) e VAR_UNOVA_R23_PORTAO_CENA continua 0. Se o empurrao nao acontecesse (mundo quebrado: portao deixando passar sem insignia mas sem gravar a var), a diferenca de posicao entre este caso e o T98.16 desapareceria.",
+    "warp": "MAP_UNOVA_R_23_GATE",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,300:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_R_23_GATE",
+      "vars": {
+        "0x4174": 0
+      },
+      "andou": true
+    }
+  },
+  {
+    "id": "T98.18",
+    "nome": "Unova, Obra 1 bloco A5: abertura protegida da casa do jogador. Estado padrao (VAR_UNOVA_CASA_JOGADOR_1F_CENA=0): pisar em (9,4) (coord_event, data/maps/Unova_PlayersHouse1F/map.json) dispara MeetMomRightScript, a MAE (indice do object_event com FLAG_UNOVA_CASA_JOGADOR_MAE_2, a que fica visivel por padrao) anda ate o jogador e conversa roda ate `setvar VAR_UNOVA_CASA_JOGADOR_1F_CENA, 1; setflag MAE_1; clearflag MAE_2` (o objeto muda de qual das DUAS MAEs sobrepostas em (7,4) fica visivel). Warp 0 pousa exatamente em (6,7); a rota contorna moveis (UP,UP,RIGHT,RIGHT,UP,UP,RIGHT,RIGHT,RIGHT,UP,UP) ate (9,4). Prova tripla: var vira 1, MAE_1 acesa, MAE_2 apagada (exatamente uma mae ativa).",
+    "warp": "MAP_UNOVA_PLAYERS_HOUSE_1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:UP,20:UP,20:RIGHT,20:RIGHT,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:UP,20:UP,300:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_PLAYERS_HOUSE_1F",
+      "vars": {
+        "0x4171": 1
+      },
+      "flags_acesas": [
+        "FLAG_UNOVA_CASA_JOGADOR_MAE_1"
+      ],
+      "flags_apagadas": [
+        "FLAG_UNOVA_CASA_JOGADOR_MAE_2"
+      ]
+    }
+  },
+  {
+    "id": "T98.19",
+    "nome": "Unova, Obra 1 bloco A5: par do T98.18, cena ja rodada. Com VAR_UNOVA_CASA_JOGADOR_1F_CENA=1 pre-escrita (a cena ja rodou numa visita anterior) e o comentario do proprio arquivo confirma: 'a partir daqui o gatilho de (8,4)/(9,4) esta desarmado'. MESMO roteiro do T98.18, pisando em (9,4) de novo: nada acontece, a var continua 1 e continua exatamente uma mae ativa (MAE_1 acesa, MAE_2 apagada), a mesma do fim da cena. Sem este par, o T98.18 nao provaria que o gatilho se desarma sozinho (so que ele armou uma vez).",
+    "vars": {
+      "0x4171": 1
+    },
+    "warp": "MAP_UNOVA_PLAYERS_HOUSE_1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:UP,20:UP,20:RIGHT,20:RIGHT,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:UP,20:UP,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_PLAYERS_HOUSE_1F",
+      "vars": {
+        "0x4171": 1
+      },
+      "flags_acesas": [
+        "FLAG_UNOVA_CASA_JOGADOR_MAE_1"
+      ],
+      "flags_apagadas": [
+        "FLAG_UNOVA_CASA_JOGADOR_MAE_2"
+      ]
+    }
+  }
+]

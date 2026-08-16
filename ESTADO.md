@@ -8,6 +8,51 @@ inteiras. Detalhe fica nos documentos apontados no fim.
 
 ---
 
+## 0.c RODADA 3 DE 15/08/2026: AS DUAS OBRAS DE UNOVA (Fable condutor)
+
+Build verde, **suíte 255/256** (T11.3 pulado na rodada normal) e **T11 completo
+3/3 à parte** (save da 2026-08-15b carrega). ROM a 97,64% (+43 KB, na conta do
+desenho). SAVE COMPATIVEL direto (zero item/contador novo nesta rodada).
+
+**Obra 2 (changeblock) COMPLETA**: os 12 mapas de planta dupla de Unova
+funcionam (7 de troca de nível, 3 de pedra de Strength, 2 de interruptor).
+Pedra cai em buraco de verdade (MB_MT_PYRE_HOLE por atributo de metatile
+exclusivo, censo-trava em `pedra_buraco_unova.py`; motor:
+`HandleBoulderFallThroughHole` roda o coord_event do tile). Elevador do
+Virbank Complex RELIGADO (warps em append, nada renumerado). O B2F dos 4
+interruptores virou renderizador de estado provado nas 16 combinações
+(`prova_b2f_interruptores.py`). Armadilha registrada: a marca `agua` do
+gerador é relativa ao map.bin, então o caminho de VOLTA também precisa de
+`setmetatileinrange` com elevação explícita (12 quadrantes na Victory Road
+incluem 4 de borda que a marca não pega).
+
+**Obra 1 (setscene) COMPLETA**: 71 gatilhos + 59 cenas nos 23 mapas (A2
+gerador, A4 sem batalha, A5 arco INFER com 19 batalhas ids 2148-2168, A6
+abertura/portões). Ramo por starter é INVERTIDO de propósito (o rótulo da
+fonte nomeia o Pokémon DELA). Dois setmapscene remotos por setvar. NPCs de
+cena escondidos por FLAG_TEMP_11/12 recalculadas no ON_TRANSITION (zero bit
+de save; contrato documentado nos arquivos). Abertura da casa da mãe
+protegida (barco desembarca em VIRBANK, casa fica em HUMILAU; cena roda uma
+vez e nunca prende). PLANO-OBRAS-UNOVA.md agora carrega a tabela de
+conversão e a decisão 7 (relógio do gen 2 descartado).
+
+**Fila recalibrada: 444 pendentes** (era 633): Unova 29, Sinnoh 411, Johto 4.
+Três consertos de régua: asserts de invariante (nunca fotografia), regra
+"flag citada inexistente = bloqueado" (FightArea voltou a bloqueado), e
+identidade por flag dispensa raio de posição (Sinnoh 84 objetos casados).
+
+**Casos novos: 19 (T98.1-19, `98_unova_obras.json`)**, todos verdes, com o
+par negativo onde a prova positiva passaria com o mundo quebrado. Limite de
+harness documentado: nenhum caso joga batalha até o fim, então consequência
+pós-vitória (ex.: var remota do porão de Nimbasa) fica sem prova direta.
+
+Pendências vivas: cena do MARLON em Undella (priorityjump, fora do gerador
+de gatilhos; chip de task criado); LIFT_KEY não portada (ninguém a entrega
+em Unova; elevador ficou destrancado de propósito); Rt23East Lower/Upper
+são changeblock FORA da fila dos 12 (stub documentado); os 29 pendentes de
+Unova são portáveis-com-bloqueio residual + 2 changeblock + 2 batalhas + 1
+setscene, ver fila_b6.json.
+
 ## 0.b RODADA 2 DE 15/08/2026 (Fable condutor, agentes executores)
 
 Build verde, **suíte 236/237** (T11.3 pulado na rodada normal) e **T11 completo

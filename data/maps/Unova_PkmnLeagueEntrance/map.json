@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0"
+      "flag": "FLAG_UNOVA_LIGA_ENTRADA_INFER"
     }
   ],
   "warp_events": [
@@ -58,6 +58,25 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_UNOVA_LIGA_ENTRADA_CENA",
+      "var_value": "0",
+      "script": "Unova_PkmnLeagueEntrance_EventScript_PkmnLeagueInferScript1"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_UNOVA_LIGA_ENTRADA_CENA",
+      "var_value": "0",
+      "script": "Unova_PkmnLeagueEntrance_EventScript_PkmnLeagueInferScript2"
+    }
+  ],
   "bg_events": []
 }

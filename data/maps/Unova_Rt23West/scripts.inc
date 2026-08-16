@@ -3,6 +3,40 @@
 Unova_Rt23West_MapScripts::
 	.byte 0
 
+@ >>> B6 Unova, Obra 1: gatilhos de setscene (dev_scripts/gatilhos_setscene_unova.py) >>>
+@ Ultimo cracha da fila de Rt23 (LEGENDBADGE, Opelucid). `buttonsound`/
+@ `waitsfx` da fonte descartado, mesma razao do Rt23East.
+Unova_Rt23West_EventScript_R23Badge7Script::
+	lockall
+	turnobject LOCALID_PLAYER, DIR_WEST
+	turnobject 2, DIR_EAST
+	msgbox Unova_Rt23West_Text_R23Officer7StopText, MSGBOX_DEFAULT
+	closemessage
+	goto_if_unset FLAG_BADGE_UNOVA_OPELUCID, Unova_Rt23West_EventScript_R23Badge7SemInsignia
+	msgbox Unova_Rt23West_Text_R23Officer7HaveBadgeText, MSGBOX_DEFAULT
+	closemessage
+	setvar VAR_UNOVA_R23_OESTE_CENA, 1
+	releaseall
+	end
+
+Unova_Rt23West_EventScript_R23Badge7SemInsignia::
+	applymovement LOCALID_PLAYER, Common_Movement_WalkDown
+	waitmovement 0
+	releaseall
+	end
+
+@ R23WestLowerScript/R23WestUpperScript (fonte): `changeblock` gatilhado por
+@ EVENT_R23_WEST_UPPER_LEVEL, VAR_TEMP_0. Obra 2 (changeblock); Rt23West NAO
+@ esta entre os 12 mapas da fila da Obra 2 (decisao 3 do PLANO-OBRAS-UNOVA.md).
+@ Sem var/flag reservada nesta leva, ficam como stub de proposito.
+Unova_Rt23West_EventScript_R23WestLowerScript::
+	end
+
+Unova_Rt23West_EventScript_R23WestUpperScript::
+	end
+
+@ <<< B6 Unova, Obra 1: gatilhos de setscene <<<
+
 Unova_Rt23West_EventScript_Npc1::
 	msgbox Unova_Rt23West_Text_R23Officer7StopText, MSGBOX_NPC
 	end
@@ -53,6 +87,11 @@ Unova_Rt23West_Text_R23Officer7StopText::
 	.string "\nhere unless you"
 	.string "\phave the"
 	.string "\nLEGENDBADGE.$"
+
+Unova_Rt23West_Text_R23Officer7HaveBadgeText::
+	.string "Oh, that is the"
+	.string "\nLEGENDBADGE!"
+	.string "\pYou may pass.$"
 
 Unova_Rt23West_Text_AceTrainerM2R23SeenText::
 	.string "I keep a tally of"

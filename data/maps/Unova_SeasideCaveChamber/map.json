@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0"
+      "flag": "FLAG_TEMP_11"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_DUSCLOPS",
@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0"
+      "flag": "FLAG_TEMP_11"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_DUSCLOPS",
@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0"
+      "flag": "FLAG_TEMP_11"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL",
@@ -64,7 +64,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0"
+      "flag": "FLAG_TEMP_11"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BRAWLY",
@@ -77,7 +77,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0"
+      "flag": "FLAG_TEMP_11"
     }
   ],
   "warp_events": [
@@ -89,6 +89,25 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_UNOVA_SEASIDE_CAVE_CAMARA_CENA",
+      "var_value": "0",
+      "script": "Unova_SeasideCaveChamber_EventScript_SeasideCaveZinzolinScript1"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_UNOVA_SEASIDE_CAVE_CAMARA_CENA",
+      "var_value": "0",
+      "script": "Unova_SeasideCaveChamber_EventScript_SeasideCaveZinzolinScript2"
+    }
+  ],
   "bg_events": []
 }

@@ -58,6 +58,25 @@
       "dest_warp_id": "2"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_UNOVA_R23_PORTAO_CENA",
+      "var_value": "0",
+      "script": "Unova_Rt23Gate_EventScript_R23GateBadgeScript"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_UNOVA_R23_PORTAO_CENA",
+      "var_value": "0",
+      "script": "Unova_Rt23Gate_EventScript_R23GateBadgeScript"
+    }
+  ],
   "bg_events": []
 }

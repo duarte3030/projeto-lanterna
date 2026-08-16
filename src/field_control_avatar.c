@@ -1415,31 +1415,46 @@ u16 GetBoulderRevealFlagByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup)
     return GetObjectEventTemplateByLocalIdAndMap(localId, mapNum, mapGroup)->trainerType;
 }
 
-void HandleBoulderFallThroughHole(struct ObjectEvent * object)
-{
-    if (MapGridGetMetatileBehaviorAt(object->currentCoords.x, object->currentCoords.y) == MB_MT_PYRE_HOLE)
-    {
-        PlaySE(SE_FALL);
-        RemoveObjectEventByLocalIdAndMap(object->localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
-        FlagClear(GetBoulderRevealFlagByLocalIdAndMap(object->localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup));
-    }
-}
-
-void HandleBoulderActivateVictoryRoadSwitch(u16 x, u16 y)
+// Runs the coord event script sitting on (x, y), if there is one. Used by the
+// two boulder handlers below: a boulder that stops on a switch or falls into a
+// hole is not a player step, so TryStartCoordEventScript never sees it.
+static void RunCoordEventScriptAt(u16 x, u16 y)
 {
     int i;
     const struct CoordEvent * events = gMapHeader.events->coordEvents;
     int n = gMapHeader.events->coordEventCount;
 
-    if (MapGridGetMetatileBehaviorAt(x, y) == MB_STRENGTH_BUTTON)
+    for (i = 0; i < n; i++)
     {
-        for (i = 0; i < n; i++)
+        if (events[i].x + MAP_OFFSET == x && events[i].y + MAP_OFFSET == y)
         {
-            if (events[i].x + MAP_OFFSET == x && events[i].y + MAP_OFFSET == y)
-            {
-                ScriptContext_SetupScript(events[i].script);
-                LockPlayerFieldControls();
-            }
+            ScriptContext_SetupScript(events[i].script);
+            LockPlayerFieldControls();
         }
     }
+}
+
+void HandleBoulderFallThroughHole(struct ObjectEvent * object)
+{
+    if (MapGridGetMetatileBehaviorAt(object->currentCoords.x, object->currentCoords.y) == MB_MT_PYRE_HOLE)
+    {
+        u16 revealFlag = GetBoulderRevealFlagByLocalIdAndMap(object->localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+
+        PlaySE(SE_FALL);
+        RemoveObjectEventByLocalIdAndMap(object->localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+        // A boulder with no reveal flag (trainer type 0) is not the FRLG
+        // "reveal the copy on the floor below" case; clearing flag 0 there
+        // would poke FLAG_TEMP_1 for no reason.
+        if (revealFlag != 0)
+            FlagClear(revealFlag);
+        // The hole itself may want to react (BW3G fills the pit and remembers
+        // it): same idiom as the Victory Road switch below.
+        RunCoordEventScriptAt(object->currentCoords.x, object->currentCoords.y);
+    }
+}
+
+void HandleBoulderActivateVictoryRoadSwitch(u16 x, u16 y)
+{
+    if (MapGridGetMetatileBehaviorAt(x, y) == MB_STRENGTH_BUTTON)
+        RunCoordEventScriptAt(x, y);
 }

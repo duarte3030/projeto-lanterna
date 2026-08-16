@@ -61,6 +61,13 @@
       "elevation": 0,
       "dest_map": "MAP_UNOVA_VIRBANK_COMPLEX_B2F",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_UNOVA_VIRBANK_COMPLEX_ELEVATOR",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

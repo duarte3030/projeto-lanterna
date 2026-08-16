@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Unova_OpelucidCity_EventScript_Npc1",
-      "flag": "0"
+      "flag": "FLAG_UNOVA_OPELUCID_IRIS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -185,7 +185,35 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 40,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_UNOVA_OPELUCID_CENA",
+      "var_value": "0",
+      "script": "Unova_OpelucidCity_EventScript_OpelucidCityIrisScript1"
+    },
+    {
+      "type": "trigger",
+      "x": 40,
+      "y": 26,
+      "elevation": 0,
+      "var": "VAR_UNOVA_OPELUCID_CENA",
+      "var_value": "0",
+      "script": "Unova_OpelucidCity_EventScript_OpelucidCityIrisScript2"
+    },
+    {
+      "type": "trigger",
+      "x": 40,
+      "y": 27,
+      "elevation": 0,
+      "var": "VAR_UNOVA_OPELUCID_CENA",
+      "var_value": "0",
+      "script": "Unova_OpelucidCity_EventScript_OpelucidCityIrisScript3"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

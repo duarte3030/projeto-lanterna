@@ -87,6 +87,10 @@ Unova_CasteliaGym_EventScript_Lider0::
 
 Unova_CasteliaGym_EventScript_Insignia0::
 	setflag FLAG_BADGE_UNOVA_CASTELIA
+	@ `setmapscene CASTELIA_CITY_STREETS, SCENE_CASTELIA_CHEREN` da fonte: sem
+	@ isto, o CHEREN de Unova_CasteliaCityStreets nunca liberava (achado ao
+	@ portar aquela cena, bloco A4, 15/08/2026).
+	setvar VAR_UNOVA_CASTELIA_RUAS_CENA, 1
 	call Common_EventScript_PlayGymBadgeFanfare
 	release
 	end

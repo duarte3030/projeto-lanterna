@@ -56,6 +56,16 @@ Unova_ChampionsRoom_MapScripts::
 @ A JUNIPER fica escondida em TODO estagio: os quatro roteiros a trazem com
 @ `clearflag` + `addobject`, que e o idioma vanilla equivalente ao `appear` do
 @ gen 2, e a escondem de novo quando ela sai.
+@ DEPENDENCIA COMPARTILHADA, anotada em 15/08/2026 (bloco A6), nao mexer aqui
+@ sozinho: FLAG_UNOVA_CENA_JUNIPER passou a ser o MESMO bit em Unova_NuvemaLab,
+@ Unova_P2LabEntrance, Unova_ChampionsRoom e Unova_UndellaTown (lá esconde o
+@ MARLON da cena de chegada), porque `disappear`/`appear` desses NPCs de cena
+@ nao tem FLAG_ propria na tabela do
+@ PLANO-OBRAS-UNOVA.md e a janela de save estava fechada. O contrato que faz
+@ isso funcionar e "todo mapa que usa o bit o REESCREVE no seu proprio
+@ ON_TRANSITION, antes de os objetos nascerem" (o `setflag` logo abaixo e a
+@ ponta deste mapa). Quem tirar ou condicionar essa escrita em UM dos quatro
+@ quebra os outros tres. Mudou um, confira os quatro.
 Unova_ChampionsRoom_OnTransition:
 	setflag FLAG_UNOVA_CENA_JUNIPER
 	setflag FLAG_UNOVA_CENA_SOMBRAS

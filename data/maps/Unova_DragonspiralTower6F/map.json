@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0"
+      "flag": "FLAG_UNOVA_DRAGONSPIRAL_6F_INFER"
     }
   ],
   "warp_events": [
@@ -71,7 +71,26 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_UNOVA_DRAGONSPIRAL_6F_CENA",
+      "var_value": "0",
+      "script": "Unova_DragonspiralTower6F_EventScript_DragonspiralTowerInferScript1"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_UNOVA_DRAGONSPIRAL_6F_CENA",
+      "var_value": "0",
+      "script": "Unova_DragonspiralTower6F_EventScript_DragonspiralTowerInferScript2"
+    }
+  ],
   "bg_events": [
     {
       "type": "hidden_item",

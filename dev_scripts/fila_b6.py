@@ -126,14 +126,30 @@ que satisfaz os três:
    ROM e procurar pelo nome da fonte daria pendente para tudo;
 2. **coordenada igual ou vizinha** dentro de `RAIO_PADRAO` tiles (Chebyshev),
    com a coordenada da fonte passada pelo `conversor_de_coordenada` do
-   importador, que é o mesmo que pôs os NPCs mudos no lugar;
+   importador, que é o mesmo que pôs os NPCs mudos no lugar. **Exceção, e ela
+   pesa: objeto de cena não passa pelo raio.** Se o objeto do hack carrega uma
+   `flag` que EXISTE em `include/constants/flags.h`, alguém escreveu a cena dele
+   de propósito, e a coordenada escolhida por essa pessoa não tem obrigação de
+   bater com a conta proporcional. Medido em 15/08/2026, depois da rodada da
+   rota principal de Sinnoh: o ROWAN de Jubilife está em (43,38) e a conversão
+   pede (51,4); os grunts da Valley Windworks estão em y=74 contra y=47. Com
+   âncora de posição, nove cenas recém-escritas continuavam na fila cobrando
+   trabalho já feito;
 3. **casamento 1:1**: cada objeto do hack é consumido por um objeto da fonte só.
    Sem isso, os cinco grunts do QG casariam todos com o primeiro grunt do mapa e
    a fila zeraria sozinha.
 
 O desempate, quando mais de um par cabe, é a **flag de esconder**: objeto do
-hack com `flag` não-zero é objeto de cena, e casa primeiro com quem nasce
+hack com `flag` de verdade é objeto de cena, e casa primeiro com quem nasce
 escondido na fonte.
+
+**A mesma flag decide o BLOQUEIO, e por causa de um falso positivo medido.** Um
+grupo só parcialmente posto sai como "sem bloqueio" (a cena existe, falta pôr o
+resto) **apenas se algum objeto casado carregar flag de verdade**. Sem isso, o
+"parcialmente posto" pode ser um NPC de rua que calhou de cair perto com o mesmo
+sprite, que foi o caso do `FightArea` na rodada anterior: ele apareceu como
+pronto para executor e a leva de Sinnoh provou que não era. Regra: **flag de
+esconder citada que não existe em `flags.h` => BLOQUEADO.**
 
 `tamanho` de uma linha de Sinnoh passa a ser **quanto FALTA** (objetos ainda
 ausentes), e `objetos_fonte` guarda o total da fonte. Grupo com zero faltando
@@ -415,6 +431,20 @@ def vars_do_repo():
     return set(re.findall(r"#define\s+(VAR_\w+)", open(p).read()))
 
 
+def flags_do_repo():
+    """As `FLAG_*` que existem de verdade em `include/constants/flags.h`.
+
+    Serve de prova de cena para Sinnoh, e existe por causa de um falso positivo
+    medido em 15/08/2026: o `FightArea` saía como "sem bloqueio" só porque um
+    objeto de rua com o mesmo sprite caiu perto da coordenada convertida. Sprite
+    igual perto do lugar certo é palpite; objeto carregando uma `flag` que
+    EXISTE em flags.h é prova, porque alguém escreveu a cena que a acende.
+    Regra: flag de esconder citada que não existe aqui => BLOQUEADO.
+    """
+    p = os.path.join(REPO, "include/constants/flags.h")
+    return set(re.findall(r"#define\s+(FLAG_\w+)", open(p).read()))
+
+
 # Raio, em tiles, da conferência de conteúdo. É KNOB, não constante de gosto: a
 # conversão de coordenada de mapa de rua é PROPORCIONAL (decisão 1 do
 # importador), então o mesmo NPC sai alguns tiles fora do lugar do original, e
@@ -441,7 +471,7 @@ def alvo_grafico(g, sprites):
     return g if g in sprites else (V.TROCA_SPRITE.get(g) or V.SPRITE_PADRAO)
 
 
-def casa_objetos(candidatos, do_hack, r):
+def casa_objetos(candidatos, do_hack, r, flags_reais):
     """Casamento 1:1 entre objeto da fonte e objeto que JÁ ESTÁ no map.json.
 
     `candidatos` = [(x, y, gfx_alvo, tem_hidden_flag)], `do_hack` = os
@@ -452,7 +482,11 @@ def casa_objetos(candidatos, do_hack, r):
     escondido na fonte. Cada objeto do hack é consumido uma vez só, senão cinco
     grunts da fonte casariam todos com o mesmo grunt do mapa.
 
-    Devolve os índices de `candidatos` que ficaram SEM par.
+    Devolve `(sem_par, flag_por_candidato)`: os índices que ficaram SEM par, e,
+    para cada índice casado, a `flag` do objeto do hack com que ele casou (só
+    as não-zero). A segunda metade é a prova de que existe cena, e ela é POR
+    CANDIDATO de propósito: um mapa pode ter vários grupos de `hidden_flag`, e
+    um grupo provado não pode desbloquear o vizinho.
     """
     livres = list(range(len(do_hack)))
     pares = []
@@ -462,25 +496,41 @@ def casa_objetos(candidatos, do_hack, r):
             if o.get("graphics_id") != gfx:
                 continue
             d = max(abs(int(o.get("x", 0)) - x), abs(int(o.get("y", 0)) - y))
-            if d <= r:
-                tem_flag = str(o.get("flag", "0")) not in ("0", "0x0")
-                pares.append((0 if tem_flag == escondido else 1, d, i, j))
+            # ponytail: OBJETO DE CENA NÃO PRECISA DE RAIO. Posição é palpite,
+            # e só serve para desempatar NPC anônimo de rua; um MAGMA_MEMBER que
+            # carrega uma `flag` de verdade (existe em flags.h) é prova de que
+            # alguém escreveu a cena dele, e a coordenada em que o autor o pôs
+            # não tem obrigação de bater com a conta proporcional. Medido em
+            # 15/08/2026: o ROWAN de Jubilife está em (43,38) e a conversão pede
+            # (51,4); os grunts da Valley Windworks, em y=74 contra y=47. Com
+            # âncora de posição, nove cenas recém-escritas continuavam na fila.
+            # Teto: se um mapa tiver dois grupos do mesmo sprite e só um tiver
+            # cena, o par pode sair trocado. O 1:1 e a ordem por distância
+            # seguram o caso comum; se doer, casar por texto (ver upgrade).
+            de_cena = str(o.get("flag", "0")) in flags_reais
+            if d <= r or de_cena:
+                pares.append((0 if de_cena == escondido else 1, d, i, j))
     pares.sort()
-    sem_par, usados = set(range(len(candidatos))), set()
+    sem_par, usados, flag_de = set(range(len(candidatos))), set(), {}
     for _, _, i, j in pares:
         if i in sem_par and j not in usados:
             sem_par.discard(i)
             usados.add(j)
-    return sem_par
+            f = str(do_hack[j].get("flag", "0"))
+            if f not in ("0", "0x0"):
+                flag_de[i] = f
+    return sem_par, flag_de
 
 
 def fila_sinnoh():
     r = raio()
     conhecidas = vars_do_repo()
+    flags_reais = flags_do_repo()
     sprites = V.sprites_utilizaveis()
     layouts = {l["id"]: l for l in json.load(
         open(os.path.join(REPO, "data/layouts/layouts.json")))["layouts"]}
-    hid = collections.defaultdict(lambda: [0, 0])   # (mapa, flag) -> [fonte, faltam]
+    # [total na fonte, faltam, tem prova de cena]
+    hid = collections.defaultdict(lambda: [0, 0, False])
     gat = collections.defaultdict(lambda: [0, 0])   # (mapa, var, script) -> idem
 
     for meu, header, arq, matriz in mapas_casados_sinnoh():
@@ -515,8 +565,15 @@ def fila_sinnoh():
             x, y = conv(e)
             candidatos.append((x, y, alvo_grafico(e["graphics_id"], sprites), True))
             chaves.append((meu, hf))
-        for i in casa_objetos(candidatos, do_hack, r):
+        sem_par, flag_de = casa_objetos(candidatos, do_hack, r, flags_reais)
+        for i in sem_par:
             hid[chaves[i]][1] += 1
+        # Prova de cena, por GRUPO: o objeto casado carrega uma `flag` que
+        # EXISTE em flags.h. Sem isso, "parcialmente posto" pode ser só sprite
+        # de rua que calhou de cair perto (o caso do FightArea).
+        for i, f in flag_de.items():
+            if f in flags_reais:
+                hid[chaves[i]][2] = True
 
         for ce in fonte.get("coord_events", []):
             k = (meu, str(ce.get("var")), str(ce.get("script")))
@@ -530,7 +587,7 @@ def fila_sinnoh():
                 gat[k][1] += 1
 
     itens = []
-    for (mapa, flag), (total, faltam) in sorted(hid.items()):
+    for (mapa, flag), (total, faltam, tem_cena) in sorted(hid.items()):
         itens.append({
             "regiao": "sinnoh", "id": f"{mapa}:{flag}", "mapa_destino": mapa,
             "tipo": "hidden_flag", "tem": [], "tamanho": faltam,
@@ -539,7 +596,7 @@ def fila_sinnoh():
             # está no mapa, a cena que apaga a flag existe (foi ela que pôs), e
             # o que falta é só colocar o resto. O bloqueio de PENDENCIAS-NPC-
             # SINNOH §3 vale para grupo em que NADA foi posto ainda.
-            "bloqueio": "nenhum" if faltam < total else
+            "bloqueio": "nenhum" if faltam < total and tem_cena else
                         f"{flag} não existe aqui; trazer o objeto sem a cena que "
                         "a apaga planta bloqueio permanente",
             "status": "feita" if not faltam else "pendente",
@@ -784,8 +841,15 @@ def demo():
     # trabalha (2462 e 2463 viraram EUSINE e GIOVANNI durante esta sessão), e
     # cravar o número do dia faria o autoteste quebrar por trabalho alheio.
     assert livres and set(livres) <= set(range(2460, 2500)), livres
-    sinos = [i for i in johto if "sinos" in i["id"] or "kimono" in i["id"]]
-    assert all("TIDAL_BELL" in i["bloqueio"] for i in sinos), sinos
+    # ponytail: invariante, não fotografia. A versão anterior cravava "os sinos
+    # bloqueiam", e reprovou no dia em que os sinos foram criados (ITEM_TIDAL_BELL
+    # e ITEM_CLEAR_BELL, ids 875 e 876). O que tem de valer sempre é outra coisa:
+    # o bloqueio escrito na fila CONCORDA com o que `include/` diz. Se o símbolo
+    # existe, ele não pode aparecer como bloqueio; se não existe, tem de aparecer.
+    for simbolo in ("ITEM_TIDAL_BELL", "ITEM_CLEAR_BELL"):
+        citado = any(simbolo in i["bloqueio"] for i in johto)
+        assert citado != existe(simbolo), \
+            f"{simbolo}: existe={existe(simbolo)} mas a fila diz citado={citado}"
     print("demo ok:", len(unova), "cenas de Unova,", len(sinnoh),
           "unidades de Sinnoh,", len(johto), "itens de Johto")
 

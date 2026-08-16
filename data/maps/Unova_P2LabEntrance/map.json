@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0"
+      "flag": "FLAG_UNOVA_CENA_JUNIPER"
     }
   ],
   "warp_events": [
@@ -51,6 +51,16 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_UNOVA_P2_LAB_ENTRADA_CENA",
+      "var_value": "0",
+      "script": "Unova_P2LabEntrance_EventScript_P2LabEntranceJuniperScript"
+    }
+  ],
   "bg_events": []
 }

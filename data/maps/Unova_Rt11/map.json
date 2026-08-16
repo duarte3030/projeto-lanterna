@@ -182,7 +182,116 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_Rt11_EventScript_GatilhoDesce"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_Rt11_EventScript_GatilhoDesce"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_Rt11_EventScript_GatilhoDesce"
+    },
+    {
+      "type": "trigger",
+      "x": 28,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_Rt11_EventScript_GatilhoSobe"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_Rt11_EventScript_GatilhoSobe"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_Rt11_EventScript_GatilhoSobe"
+    },
+    {
+      "type": "trigger",
+      "x": 37,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_Rt11_EventScript_GatilhoSobe"
+    },
+    {
+      "type": "trigger",
+      "x": 36,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_Rt11_EventScript_GatilhoSobe"
+    },
+    {
+      "type": "trigger",
+      "x": 36,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_Rt11_EventScript_GatilhoSobe"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_Rt11_EventScript_GatilhoSobe"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_Rt11_EventScript_GatilhoSobe"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Unova_Rt11_EventScript_GatilhoSobe"
+    }
+  ],
   "bg_events": [
     {
       "type": "hidden_item",
