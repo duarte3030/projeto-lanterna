@@ -353,6 +353,9 @@
 #define VAR_UNUSED_0x412D                        0x412D // Unused Var
 #define VAR_UNUSED_0x412E                        0x412E // Unused Var
 #define VAR_UNUSED_0x412F                        0x412F // Unused Var
+// DONO DA FAIXA 0x4130 a 0x415F: obra de Sinnoh (máquina de vars, B6).
+// Fonte única dos alias: PLANO-OBRAS-SINNOH.md, tabela "fonte → alias".
+// O bloco S1 grava os defines; ninguém mais aliasa nesta faixa.
 #define VAR_UNUSED_0x4130                        0x4130 // Unused Var
 #define VAR_UNUSED_0x4131                        0x4131 // Unused Var
 #define VAR_UNUSED_0x4132                        0x4132 // Unused Var
@@ -501,6 +504,9 @@
 #define VAR_TURNBACK_PILARES_VISTOS              0x41C0 // Turnback Cave, B1.b
 #define VAR_UNUSED_0x41C1                        0x41C1 // Unused Var
 #define VAR_TURNBACK_SALAS_VISITADAS             0x41C1 // Turnback Cave, B1.b
+// DONO DA FAIXA 0x41C2 a 0x41FF: transbordo da obra de Sinnoh (B6), em
+// append. Ver PLANO-OBRAS-SINNOH.md (0x41C2 é VAR_SINNOH_VILLA_ESTADO; vars
+// internas de script descobertas no porte entram de 0x41C3 em diante).
 #define VAR_UNUSED_0x41C2                        0x41C2 // Unused Var
 #define VAR_UNUSED_0x41C3                        0x41C3 // Unused Var
 #define VAR_UNUSED_0x41C4                        0x41C4 // Unused Var
