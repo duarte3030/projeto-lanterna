@@ -217,7 +217,35 @@ extern const union AnimCmd *const gAnims_MonPic[];
 extern const union AnimCmd *const gAnims_Trainer[];
 extern const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT];
 
-extern const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT];
+// INDIREÇÃO DE ID DE TREINADOR (D1 do PRD, 18/08/2026), explicada UMA vez aqui.
+//
+// O teto de ids (MAX_TRAINERS_COUNT, 4000) NÃO pode encolher: a flag "já venci
+// este treinador" é TRAINER_FLAGS_START + id, então qualquer renumeração
+// apagaria vitória na save. Só que apenas ~2444 desses ids têm treinador de
+// verdade; as ~1555 vagas restantes eram `struct Trainer` zerada em ROM, três
+// vezes (uma por dificuldade), e mais uma linha vazia em sTrainerSlides.
+//
+// Solução: o id continua sendo o id de sempre em flag, script, save e suíte, e
+// gTrainerIndex (8 KB, gerado por trainerproc a partir dos ids realmente
+// definidos em src/data/trainers.party) traduz id -> índice denso. gTrainers
+// passa a ter só as vagas usadas. O índice 0 fica vazio de propósito: id sem
+// treinador cai nele e continua lendo uma entrada toda zerada, que é exatamente
+// o que gTrainers[dificuldade][id] devolvia antes.
+//
+// Todo acesso a gTrainers passa por GetTrainerStructAtDifficulty abaixo.
+#if TESTING || IS_FRLG
+// Sem indireção: o runner de teste define o próprio gTrainers com ids de teste
+// (test/battle/trainer_control.h) e o FRLG só tem 144 vagas vazias.
+#define TRAINERS_ARRAY_COUNT TRAINERS_COUNT
+#define TrainerIdToDenseIndex(trainerId) (trainerId)
+#else
+#include "constants/trainers_dense.h"
+#define TRAINERS_ARRAY_COUNT TRAINERS_DENSE_COUNT
+#define TrainerIdToDenseIndex(trainerId) gTrainerIndex[trainerId]
+extern const u16 gTrainerIndex[MAX_TRAINERS_COUNT];
+#endif
+
+extern const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_ARRAY_COUNT];
 extern const struct Trainer gBattlePartners[DIFFICULTY_COUNT][PARTNER_COUNT];
 
 extern const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT];
@@ -276,6 +304,12 @@ static inline u16 GetPartnerIdFromTrainerId(u16 trainerId)
     return (trainerId - TRAINER_PARTNER(PARTNER_NONE));
 }
 
+// Único ponto que indexa gTrainers. Ver a explicação da indireção acima.
+static inline const struct Trainer *GetTrainerStructAtDifficulty(u16 trainerId, enum DifficultyLevel difficulty)
+{
+    return &gTrainers[difficulty][TrainerIdToDenseIndex(SanitizeTrainerId(trainerId))];
+}
+
 static inline const struct Trainer *GetTrainerStructFromId(u16 trainerId)
 {
     if (gIsDebugBattle) return GetDebugAiTrainer();
@@ -289,7 +323,7 @@ static inline const struct Trainer *GetTrainerStructFromId(u16 trainerId)
     else
     {
         difficulty = GetTrainerDifficultyLevel(trainerId);
-        return &gTrainers[difficulty][SanitizeTrainerId(trainerId)];
+        return GetTrainerStructAtDifficulty(trainerId, difficulty);
     }
 }
 

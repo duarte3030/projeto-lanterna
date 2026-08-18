@@ -46,7 +46,7 @@ enum DifficultyLevel GetTrainerDifficultyLevel(u16 trainerId)
     if (difficulty == DIFFICULTY_NORMAL)
         return DIFFICULTY_NORMAL;
 
-    if (gTrainers[difficulty][trainerId].party == NULL)
+    if (GetTrainerStructAtDifficulty(trainerId, difficulty)->party == NULL)
         return DIFFICULTY_NORMAL;
 
     return difficulty;

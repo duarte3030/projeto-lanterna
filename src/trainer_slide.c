@@ -56,13 +56,29 @@ static bool32 ShouldRunTrainerSlideLastLowHp(u32 lastId, enum BattlerId battler)
 static void SetTrainerSlideParameters(enum BattlerId battler, u32* lastId, u32* trainerId, u32* retValue);
 static bool32 IsSlideInitalizedOrPlayed(enum BattlerId battler, enum TrainerSlideType slideId);
 
-// Partner trainers must be added as TRAINER_PARTNER(PARTNER_XXXX)
-static const u8* const sTrainerSlides[DIFFICULTY_COUNT][TRAINER_PARTNER(PARTNER_COUNT)][TRAINER_SLIDE_COUNT] =
+// Indexada pelo ÍNDICE DENSO do treinador, não pelo id cru (ver a explicação da
+// indireção em include/data.h). Entrada nova:
+//   [DIFFICULTY_NORMAL][TRAINER_SLIDE_SLOT(TRAINER_BRENDAN_1)][TRAINER_SLIDE_...]
+//   [DIFFICULTY_NORMAL][TRAINER_SLIDE_PARTNER_SLOT(PARTNER_STEVEN)][TRAINER_SLIDE_...]
+#define TRAINER_SLIDE_SLOT(id)        TRAINER_DENSE_##id
+#define TRAINER_SLIDE_PARTNER_SLOT(p) (TRAINERS_ARRAY_COUNT + (p))
+
+static const u8* const sTrainerSlides[DIFFICULTY_COUNT][TRAINERS_ARRAY_COUNT + PARTNER_COUNT][TRAINER_SLIDE_COUNT] =
 {
     [DIFFICULTY_NORMAL] =
     {
     },
 };
+
+#if !TESTING
+static u32 TrainerIdToSlideSlot(u32 trainerId)
+{
+    if (IsPartnerTrainerId(trainerId))
+        return TRAINER_SLIDE_PARTNER_SLOT(GetPartnerIdFromTrainerId(trainerId));
+
+    return TrainerIdToDenseIndex(SanitizeTrainerId(trainerId));
+}
+#endif
 
 static const u8* const sFrontierTrainerSlides[DIFFICULTY_COUNT][FRONTIER_TRAINERS_COUNT][TRAINER_SLIDE_COUNT] =
 {
@@ -128,7 +144,7 @@ static const u8* const *GetTrainerSlideArray(enum DifficultyLevel difficulty, u3
     if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
         return sFrontierTrainerSlides[difficulty][trainerId];
     else
-        return sTrainerSlides[difficulty][trainerId];
+        return sTrainerSlides[difficulty][TrainerIdToSlideSlot(trainerId)];
 #endif // TESTING
 }
 

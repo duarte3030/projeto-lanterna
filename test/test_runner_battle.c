@@ -54,7 +54,7 @@ static inline bool32 RngSeedNotDefault(const rng_value_t *seed)
 #define TRAINER_LEAF_TEST   2
 #define PARTNER_STEVEN_TEST 1
 
-const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
+const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_ARRAY_COUNT] =
 {
     #include "battle/trainer_control.h"
 };

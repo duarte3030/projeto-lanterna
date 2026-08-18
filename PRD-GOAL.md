@@ -172,6 +172,28 @@ que não existe (arte, mecânica) fica e é reportado ao Gui no fechamento.
 
 ### Fase D: B10, o espaço (pré-requisito de Galar)
 
+**PORTÃO FABLE DA FASE D RESOLVIDO pela condutora em 18/08/2026** (base:
+PRD-ROM-COMPLETA seção 11; overworld dos 330 KB já foi feito em 15/08):
+
+- **D1, indireção de treinador (~485 KB, primeiro por ser o desenho mais
+  maduro)**: `u16` de índice denso por id (teto 4000 fica, flags de
+  treinador NÃO deslizam, save-neutro), `gTrainers`/`sTrainerSlides` viram
+  densos, e TODO acesso passa pelo funil `GetTrainerStructFromId` (varrer o
+  repo por acesso direto `gTrainers[` antes; qualquer um fora do funil é
+  parte do trabalho). A tabela densa e o índice saem de gerador
+  (trainerproc ou dev_script), nunca à mão. Prova: suíte inteira (dezenas
+  de casos com `oponente=N`), T11, e a régua de aborto abaixo.
+- **D2, duplicatas byte a byte (~155 KB)**: dedupe por
+  compartilhamento de ponteiro em build (paletas idênticas, .smol,
+  pegadas), gerador com censo e prova de md5 por asset lógico.
+- **D3, ícones comprimidos (~673 KB, por último, médio/alto)**: mudar o
+  carregamento de `CreateMonIcon` para descomprimir em buffer. Régua de
+  aborto EXPLÍCITA: se custar mais de +0,3% de EWRAM/IWRAM ou qualquer
+  vermelho de suíte não mecânico, aborta e registra; espaço não vale
+  regressão (decisão dos 32 MB do Gui).
+- Cada D é uma onda própria com fechador, suíte completa e T11. Meta da
+  fase: ~1,3 MB de volta sem perder um byte de conteúdo.
+
 Ícones (~673 KB) e indireção de treinador (~485 KB), ambos mudança de
 engine; overworld já foi feito (rodada de 15/08). Meta: ~1,9 MB livres.
 PORTÃO FABLE se o desenho da indireção não estiver escrito no PRD-ROM-

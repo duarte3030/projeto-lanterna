@@ -1964,6 +1964,11 @@
 // faixa de flags do saveblock e valido, e nenhuma frente precisa mexer neste
 // numero de novo. Custo: slots vazios no array (ROM), zero no saveblock, que ja
 // e dimensionado pelo MAX.
+// 18/08/2026 (D1 do PRD): o custo de ROM das vagas vazias ACABOU. gTrainers e
+// sTrainerSlides agora sao DENSOS e o id passa por uma tabela de indice de 8 KB
+// (ver a explicacao em include/data.h). Subir TRAINERS_COUNT/MAX_TRAINERS_COUNT
+// hoje custa 2 B de indice + 1 bit de flag por vaga, nao mais ~324 B de ROM.
+// A janela de save continua valendo: mexer no MAX ainda invalida save.
 // Treinadores do hns que faltavam em Johto, ligados em 12/08/2026 por
 // dev_scripts/treinadores_faltantes_johto.py. Acrescentados NO FIM: a flag
 // de "ja venci" deriva do id, entao renumerar aqui apagaria vitoria na save.

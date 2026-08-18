@@ -9756,8 +9756,8 @@ bool32 AreMultiPartiesFullTeams(void)
     if (B_MULTI_HALF_TEAMS
      || TRAINER_BATTLE_PARAM.opponentA == TRAINER_LINK_OPPONENT
      || gBattleTypeFlags & BATTLE_TYPE_TOWER_LINK_MULTI
-     || (gTrainers[difficulty][TRAINER_BATTLE_PARAM.opponentA].multiTeamSize == MULTI_TEAM_SIZE_HALF)
-     || (gTrainers[difficulty][TRAINER_BATTLE_PARAM.opponentB].multiTeamSize == MULTI_TEAM_SIZE_HALF))
+     || (GetTrainerStructAtDifficulty(TRAINER_BATTLE_PARAM.opponentA, difficulty)->multiTeamSize == MULTI_TEAM_SIZE_HALF)
+     || (GetTrainerStructAtDifficulty(TRAINER_BATTLE_PARAM.opponentB, difficulty)->multiTeamSize == MULTI_TEAM_SIZE_HALF))
     {
         gSpecialVar_Result = FALSE;
         return FALSE;

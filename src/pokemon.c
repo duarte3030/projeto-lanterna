@@ -4939,7 +4939,7 @@ u8 GetTrainerEncounterMusicId(u16 trainerOpponentId)
     else if (InTrainerHillChallenge())
         return GetTrainerEncounterMusicIdInTrainerHill(trainerOpponentId);
     else
-        return gTrainers[difficulty][sanitizedTrainerId].encounterMusic;
+        return GetTrainerStructAtDifficulty(sanitizedTrainerId, difficulty)->encounterMusic;
 }
 
 u16 ModifyStatByNature(u8 nature, u16 stat, enum Stat statIndex)

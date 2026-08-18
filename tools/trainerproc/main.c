@@ -1797,7 +1797,90 @@ static void fprint_species(FILE *f, const char *prefix, struct String s)
     }
 }
 
-static void fprint_trainers(const char *output_path, FILE *f, struct Parsed *parsed)
+// ponytail: indireção de id de treinador (D1 do PRD, 18/08/2026). O teto de ids
+// é 4000 e não pode encolher (a flag "já venci" é TRAINER_FLAGS_START + id), mas
+// só ~2444 ids têm treinador de verdade. Quando -x/-d são passados, o gerador
+// numera cada id com um ÍNDICE DENSO e emite gTrainers indexado por ele, mais a
+// tabela id -> índice que o motor usa em tempo de execução.
+//
+// O índice 0 fica RESERVADO e vazio de propósito: id sem treinador cai nele e
+// continua lendo uma entrada toda zerada, exatamente o que gTrainers[dif][id]
+// devolvia quando o array tinha o tamanho do teto.
+//
+// Busca linear O(n^2) (2444 ids): o gerador roda uma vez por build e leva ms.
+// Se um dia doer, trocar por tabela de hash.
+static bool same_string(struct String a, struct String b)
+{
+    return a.string_n == b.string_n && memcmp(a.string, b.string, a.string_n) == 0;
+}
+
+static int assign_dense_indices(struct Parsed *parsed, int *indices)
+{
+    int next = 1;
+    for (int i = 0; i < parsed->trainers_n; i++)
+    {
+        indices[i] = 0;
+        for (int j = 0; j < i; j++)
+        {
+            if (same_string(parsed->trainers[i].id, parsed->trainers[j].id))
+            {
+                indices[i] = indices[j];
+                break;
+            }
+        }
+        if (indices[i] == 0)
+            indices[i] = next++;
+    }
+    return next; // contagem densa, já incluindo a vaga 0 reservada
+}
+
+static bool fprint_dense_index(const char *dense_path, const char *index_path, struct Parsed *parsed, int *indices, int dense_count)
+{
+    FILE *d = fopen(dense_path, "w");
+    if (d == NULL)
+    {
+        fprintf(stderr, "could not open '%s' for writing\n", dense_path);
+        return false;
+    }
+    FILE *x = fopen(index_path, "w");
+    if (x == NULL)
+    {
+        fprintf(stderr, "could not open '%s' for writing\n", index_path);
+        fclose(d);
+        return false;
+    }
+
+    fprintf(d, "//\n// DO NOT MODIFY THIS FILE! It is auto-generated from %s\n//\n\n", parsed->source->path);
+    fprintf(d, "#ifndef GUARD_CONSTANTS_TRAINERS_DENSE_H\n");
+    fprintf(d, "#define GUARD_CONSTANTS_TRAINERS_DENSE_H\n\n");
+    fprintf(d, "#define TRAINERS_DENSE_COUNT %d\n\n", dense_count);
+
+    fprintf(x, "//\n// DO NOT MODIFY THIS FILE! It is auto-generated from %s\n//\n\n", parsed->source->path);
+
+    for (int i = 0; i < parsed->trainers_n; i++)
+    {
+        bool first = true;
+        for (int j = 0; j < i && first; j++)
+            first = !same_string(parsed->trainers[i].id, parsed->trainers[j].id);
+        if (!first)
+            continue;
+
+        fprintf(d, "#define TRAINER_DENSE_");
+        fprint_string(d, parsed->trainers[i].id);
+        fprintf(d, " %d\n", indices[i]);
+
+        fprintf(x, "    [");
+        fprint_string(x, parsed->trainers[i].id);
+        fprintf(x, "] = %d,\n", indices[i]);
+    }
+
+    fprintf(d, "\n#endif // GUARD_CONSTANTS_TRAINERS_DENSE_H\n");
+    fclose(d);
+    fclose(x);
+    return true;
+}
+
+static void fprint_trainers(const char *output_path, FILE *f, struct Parsed *parsed, int *dense_indices)
 {
     fprintf(f, "//\n");
     fprintf(f, "// DO NOT MODIFY THIS FILE! It is auto-generated from %s\n", parsed->source->path);
@@ -1821,7 +1904,10 @@ static void fprint_trainers(const char *output_path, FILE *f, struct Parsed *par
         fprintf(f, "]");
 
         fprintf(f, "[");
-        fprint_string(f, trainer->id);
+        if (dense_indices)
+            fprintf(f, "%d", dense_indices[i]);
+        else
+            fprint_string(f, trainer->id);
         fprintf(f, "] =\n");
         fprintf(f, "    {\n");
 
@@ -2170,7 +2256,7 @@ static void fprint_trainers(const char *output_path, FILE *f, struct Parsed *par
 
 static void usage(FILE *file, char *argv0)
 {
-    fprintf(file, "Usage: %s -o <output> <source>\n", argv0);
+    fprintf(file, "Usage: %s -o <output> [-d <dense header> -x <index body>] <source>\n", argv0);
 }
 
 int main(int argc, char *argv[])
@@ -2187,9 +2273,12 @@ int main(int argc, char *argv[])
     const char *source_path = NULL;
     const char *output_path = NULL;
     const char *real_source_path = NULL;
+    const char *dense_path = NULL;
+    const char *index_path = NULL;
+    int *dense_indices = NULL;
 
     int opt;
-    while ((opt = getopt(argc, argv, "i:o:")) != -1)
+    while ((opt = getopt(argc, argv, "i:o:d:x:")) != -1)
     {
         switch (opt)
         {
@@ -2199,6 +2288,12 @@ int main(int argc, char *argv[])
         case 'o':
             output_path = optarg;
             break;
+        case 'd':
+            dense_path = optarg;
+            break;
+        case 'x':
+            index_path = optarg;
+            break;
         default:
             fprintf(stderr, "unknown option '%c'\n", opt);
             usage(stderr, argv[0]);
@@ -2206,7 +2301,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    if (!output_path)
+    if (!output_path || (!dense_path != !index_path))
     {
         usage(stderr, argv[0]);
         goto exit;
@@ -2290,6 +2385,18 @@ int main(int argc, char *argv[])
         goto exit;
     }
 
+    if (dense_path)
+    {
+        if (!(dense_indices = calloc(parsed.trainers_n, sizeof(int))))
+        {
+            fprintf(stderr, "could not allocate the dense index table\n");
+            goto exit;
+        }
+        int dense_count = assign_dense_indices(&parsed, dense_indices);
+        if (!fprint_dense_index(dense_path, index_path, &parsed, dense_indices, dense_count))
+            goto exit;
+    }
+
     if (strcmp(output_path, "-") == 0)
     {
         source_file = stdout;
@@ -2304,11 +2411,12 @@ int main(int argc, char *argv[])
             goto exit;
         }
     }
-    fprint_trainers(output_path, output_file, &parsed);
+    fprint_trainers(output_path, output_file, &parsed, dense_indices);
 
     status = 0;
 
 exit:
+    if (dense_indices) free(dense_indices);
     if (output_file) fclose(output_file);
     if (parsed.trainers) free(parsed.trainers);
     if (source_buffer) free(source_buffer);

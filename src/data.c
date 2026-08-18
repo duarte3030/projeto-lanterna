@@ -227,14 +227,23 @@ const union AnimCmd *const gAnims_Trainer[] ={
 };
 
 #if !TESTING
-const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
-{
 #if IS_FRLG
+const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_ARRAY_COUNT] =
+{
 #include "data/trainers_frlg.h"
-#else
-#include "data/trainers.h"
-#endif
 };
+#else
+// Tradução id -> índice denso; ver a explicação da indireção em include/data.h.
+const u16 gTrainerIndex[MAX_TRAINERS_COUNT] =
+{
+#include "data/trainers_index.h"
+};
+
+const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_ARRAY_COUNT] =
+{
+#include "data/trainers.h"
+};
+#endif
 #endif
 
 #include "data/text/follower_messages.h"
