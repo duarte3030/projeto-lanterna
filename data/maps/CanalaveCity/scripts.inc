@@ -57,6 +57,9 @@ CanalaveCity_EventScript_SailorEldritch::
 	case 1, CanalaveCity_EventScript_SailToSlateport
 	case 2, CanalaveCity_EventScript_SailToVermilion
 	case 3, CanalaveCity_EventScript_SailToVirbank
+	@ G5 de Galar: destino 6, atras de FLAG_GALAR_QA_ANDAR. O roteiro e um so,
+	@ compartilhado pelos cinco portos (data/scripts/travessia_regioes.inc).
+	case 6, Travessia_EventScript_ZarparParaGalar
 	msgbox CanalaveCity_Text_ComeAgain, MSGBOX_DEFAULT
 	release
 	end

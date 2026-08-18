@@ -1,0 +1,121 @@
+[
+ {
+  "id": "T108.1",
+  "nome": "Galar, G5: PORTA RESSUSCITADA de Circhester. O warp 2 de Galar_Circhester06, em (32,49), fica sobre o metatile 690 de gTileset_Galar41. Ate o G5 esse metatile valia MB_NORMAL e o warp era decoracao: o comportamento dele na fonte e 361 (0x169), valor que a tabela do FireRed nao tem, e o G1 mandava todo desconhecido para MB_NORMAL. O G5 mediu que 0x169 e 0x100 | 105, e 105 e MB_FRLG_WARP_DOOR; o resgate (tileset_galar.resgate_por_byte_baixo) so aceita byte baixo que da PORTA, justamente porque porta so muda o jogo onde ha warp em cima. O roteiro entra pelo proprio warp 2 (o jogador nasce parado em cima da porta, e porta nao dispara para quem nasce nela), desce um tile para (32,50), que e chao andavel de elevacao 3, e sobe de volta: subir para dentro da porta e o que tira o jogador do mapa. Chegada: MAP_GALAR_CIRCHESTER_04. Se alguem desfizer o resgate, este caso volta a terminar em MAP_GALAR_CIRCHESTER_06.",
+  "warp": "MAP_GALAR_CIRCHESTER_06",
+  "warp_id": 2,
+  "roteiro": "60:NADA,16:DOWN,60:NADA,16:UP*3,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_CIRCHESTER_04"
+  }
+ },
+ {
+  "id": "T108.2",
+  "nome": "PAR NEGATIVO do T108.1: o MESMO warp de entrada e o MESMO comeco de roteiro, sem o passo de volta para a porta. O jogador desce de (32,49) para (32,50) e fica andando pela rua de Circhester. Tem que continuar em MAP_GALAR_CIRCHESTER_06, e tem que ter ANDADO. Sem este caso o T108.1 provaria so 'terminou em CIRCHESTER_04', que um warp de debug mal digitado ou uma porta que dispara sozinha ao nascer em cima dela tambem provariam.",
+  "warp": "MAP_GALAR_CIRCHESTER_06",
+  "warp_id": 2,
+  "roteiro": "60:NADA,16:DOWN,60:NADA,16:DOWN*2,60:NADA,16:LEFT*3,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_CIRCHESTER_06",
+   "andou": true
+  }
+ },
+ {
+  "id": "T108.3",
+  "nome": "Galar, G5: SEGUNDA porta ressuscitada, para o T108.1 nao ser prova de um tile so. Warp 8 de Galar_Circhester06, em (13,35), mesmo metatile 690 e mesma historia de comportamento, destino MAP_GALAR_CIRCHESTER_12. Este destino importa por outro motivo: CIRCHESTER_12 e um dos 48 mapas que o G5 mediu como alcancaveis SO por warp morto, ou seja antes do resgate ninguem chegava nele a pe.",
+  "warp": "MAP_GALAR_CIRCHESTER_06",
+  "warp_id": 8,
+  "roteiro": "60:NADA,16:DOWN,60:NADA,16:UP*3,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_CIRCHESTER_12"
+  }
+ },
+ {
+  "id": "T108.4",
+  "nome": "Galar, G5, TRAVESSIA: com FLAG_GALAR_QA_ANDAR acesa, o marinheiro do porto de Olivine passa a oferecer WEDGEHURST, e escolher a opcao desembarca o jogador em MAP_GALAR_WEDGEHURST_05, na praca da cidade. O roteiro e o do T86.4 (12 DOWN ate o marinheiro, A para falar, A para fechar a caixa) com 5 DOWN no menu: com as quatro flags de regiao mais a de Galar acesas, a lista e OLIVINE, SLATEPORT, VERMILION, VIRBANK, CANALAVE, WEDGEHURST, EXIT, e WEDGEHURST e a posicao 5. O id empilhado por WEDGEHURST e 6 (data/scripts/travessia_regioes.inc), e por isso nenhum `case` dos cinco portos mudou de numero.",
+  "warp": "MAP_OLIVINE_CITY_PORT_INSIDE",
+  "flags": [
+   "FLAG_REGIAO_JOHTO_LIBERADA",
+   "FLAG_REGIAO_HOENN_LIBERADA",
+   "FLAG_REGIAO_SINNOH_LIBERADA",
+   "FLAG_ELITE_SINNOH_VENCIDA",
+   "FLAG_GALAR_QA_ANDAR"
+  ],
+  "roteiro": "20:DOWN*12,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*5,60:NADA,20:A,900:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_WEDGEHURST_05",
+   "layout": "LAYOUT_GALAR_WEDGEHURST_05"
+  }
+ },
+ {
+  "id": "T108.5",
+  "nome": "PAR NEGATIVO do T108.4: o MESMO roteiro de botoes, SEM FLAG_GALAR_QA_ANDAR. Sem ela a lista volta a ter seis itens, os 5 DOWN saturam em EXIT e o jogador NAO sai de Olivine. E a prova de que Galar esta mesmo atras da flag de teste, e nao aberto para todo mundo: um menu que sempre mostra WEDGEHURST faria os dois casos terminarem em Galar. A prova exige tambem que o jogador tenha ANDADO, ou seja que o jogo continuou respondendo em vez de travar na caixa de texto.",
+  "warp": "MAP_OLIVINE_CITY_PORT_INSIDE",
+  "flags": [
+   "FLAG_REGIAO_JOHTO_LIBERADA",
+   "FLAG_REGIAO_HOENN_LIBERADA",
+   "FLAG_REGIAO_SINNOH_LIBERADA",
+   "FLAG_ELITE_SINNOH_VENCIDA"
+  ],
+  "roteiro": "20:DOWN*12,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*5,60:NADA,20:A,900:NADA,20:A,300:NADA,20:UP*4,120:NADA",
+  "prova": {
+   "mapa": "MAP_OLIVINE_CITY_PORT_INSIDE",
+   "andou": true
+  }
+ },
+ {
+  "id": "T108.6",
+  "nome": "Galar, G5, A VOLTA: a travessia nao e de mao unica. O caso repete o T108.4 inteiro e, ja em WEDGEHURST_05, sobe os dois tiles ate o marinheiro de Galar em (23,17) (o jogador desembarca em (23,18), colado nele), fala, e escolhe CANALAVE, que na lista completa e a posicao 4. Chegada: MAP_CANALAVE_CITY. O marinheiro e um NPC que a fonte NAO tem: ele entra por dev_scripts/gente_galar.OBJETOS_A_MAO, em APPEND no fim da lista de objetos do mapa, e chama o MESMO Travessia_EventScript_MenuDeDestinos dos outros cinco portos.",
+  "warp": "MAP_OLIVINE_CITY_PORT_INSIDE",
+  "flags": [
+   "FLAG_REGIAO_JOHTO_LIBERADA",
+   "FLAG_REGIAO_HOENN_LIBERADA",
+   "FLAG_REGIAO_SINNOH_LIBERADA",
+   "FLAG_ELITE_SINNOH_VENCIDA",
+   "FLAG_GALAR_QA_ANDAR"
+  ],
+  "roteiro": "20:DOWN*12,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*5,60:NADA,20:A,900:NADA,20:A,300:NADA,120:NADA,20:UP*2,120:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*4,60:NADA,20:A,900:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_CANALAVE_CITY",
+   "layout": "LAYOUT_CANALAVE_CITY"
+  }
+ },
+ {
+  "id": "T108.7",
+  "nome": "Galar, G5, CHAPTER JUMP: GALAR entra no seletor de capitulo como sexta regiao, com UMA linha, 'Start of region'. Cinco DOWN chegam em GALAR (a ordem e HOENN, KANTO, JOHTO, SINNOH, UNOVA, GALAR, EXIT) e o A seguinte escolhe o unico capitulo. Destino: HEAL_LOCATION_GALAR_WEDGEHURST, que e MAP_GALAR_WEDGEHURST_03, o Centro Pokemon que o G3 achou por impressao de layout. Sair pela porta dele cai na praca de WEDGEHURST_05, que e onde mora o marinheiro do T108.6.",
+  "abertura": "seletor",
+  "roteiro": "20:DOWN*5,60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_WEDGEHURST_03",
+   "layout": "LAYOUT_GALAR_WEDGEHURST_03"
+  }
+ },
+ {
+  "id": "T108.8",
+  "nome": "PAR do T108.7: no menu de capitulos de GALAR, DOZE DOWN continuam caindo em 'Start of region', porque a lista tem UMA linha so. Galar entrou nesta obra sem ginasio com flag e sem Liga, entao NUM_CAPITULOS dela e 1, e oferecer 'Before Pokemon League' seria capitulo que nao leva a lugar nenhum (src/chapter_jump.c, TEM_LIGA). Este caso e o par do T108.9, que roda os MESMOS doze DOWN em UNOVA e termina na Liga de la: junto eles provam que os doze DOWN nao sao inertes e que a lista de Galar e mesmo curta.",
+  "abertura": "seletor",
+  "roteiro": "20:DOWN*5,60:NADA,20:A,120:NADA,20:DOWN*12,60:NADA,20:A,300:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_WEDGEHURST_03"
+  }
+ },
+ {
+  "id": "T108.9",
+  "nome": "Par do T108.8 pelo outro lado: os MESMOS doze DOWN no menu de capitulos, so que em UNOVA (quatro DOWN na lista de regioes), saturam na ultima linha, que ali existe e e 'Before Pokemon League'. Chegada: MAP_UNOVA_PKMN_LEAGUE_POKECENTER_1F, o HEAL_LOCATION_UNOVA_PKMN_LEAGUE. E este caso que impede o T108.8 de passar com um seletor que ignora DOWN.",
+  "abertura": "seletor",
+  "roteiro": "20:DOWN*4,60:NADA,20:A,120:NADA,20:DOWN*12,60:NADA,20:A,300:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_PKMN_LEAGUE_POKECENTER_1F"
+  }
+ },
+ {
+  "id": "T108.10",
+  "nome": "Galar, G5, HARNESS: o campo de warp do menu de debug deixou de clampar em 10. Ate 18/08/2026 DebugAction_Util_Warp_SelectWarp tinha um laco proprio que so lia UP/DOWN na unidade e travava o valor em 10, entao caso nenhum podia pedir warp acima disso (e o teto real e 127, o s8 de `struct WarpData`). Agora ele usa o mesmo Debug_HandleInput_Numeric dos campos de grupo e de mapa, e `digita_warp` virou `digita_numero`. Este caso PEDE o warp 15 de Galar_Hammerlocke04, a porta em (86,20), e prova que o motor entrou por ELE e nao pelo 10: sair pela porta em que se nasceu leva a MAP_GALAR_HAMMERLOCKE_03, enquanto o warp 10, que e onde o clamp velho parava, leva a MAP_GALAR_HAMMERLOCKE_21. O roteiro e o mesmo dos casos de porta: nascer em cima nao dispara, entao desce um tile e sobe de volta.",
+  "warp": "MAP_GALAR_HAMMERLOCKE_04",
+  "warp_id": 15,
+  "roteiro": "60:NADA,16:DOWN,60:NADA,16:UP*3,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_HAMMERLOCKE_03"
+  }
+ }
+]

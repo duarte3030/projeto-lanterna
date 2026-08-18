@@ -14,6 +14,9 @@ OlivinePort_EventScript_Sailor::
 	case 2, OlivinePort_EventScript_SailToVermilion
 	case 3, OlivinePort_EventScript_SailToVirbank
 	case 4, OlivinePort_EventScript_SailToCanalave
+	@ G5 de Galar: destino 6, atras de FLAG_GALAR_QA_ANDAR. O roteiro e um so,
+	@ compartilhado pelos cinco portos (data/scripts/travessia_regioes.inc).
+	case 6, Travessia_EventScript_ZarparParaGalar
 	msgbox OlivinePort_Text_ComeAgain, MSGBOX_DEFAULT
 	release
 	end

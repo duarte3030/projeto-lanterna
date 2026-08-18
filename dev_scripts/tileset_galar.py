@@ -103,6 +103,57 @@ CAMADAS_VALIDAS = (0, 1, 2)   # METATILE_LAYER_TYPE_{NORMAL,COVERED,SPLIT}
 CENSO = f"{RAIZ}/dev_scripts/galar_tilesets.json"
 MARCA = "// --- Galar (G1, tileset_galar.py) ---"
 
+# Comportamentos do NOSSO motor que fazem um warp disparar, lidos do nome e nao
+# de numero copiado (mesma tabela de dev_scripts/valida_warp_tile.py, que a tira
+# de IsWarpMetatileBehavior + IsArrowWarpMetatileBehavior +
+# IsDirectionalStairWarpMetatileBehavior).
+NOMES_QUE_DISPARAM = (
+    "MB_ANIMATED_DOOR", "MB_LADDER", "MB_UP_ESCALATOR", "MB_DOWN_ESCALATOR",
+    "MB_NON_ANIMATED_DOOR", "MB_WATER_DOOR", "MB_DEEP_SOUTH_WARP",
+    "MB_LAVARIDGE_GYM_B1F_WARP", "MB_LAVARIDGE_GYM_1F_WARP",
+    "MB_AQUA_HIDEOUT_WARP", "MB_MT_PYRE_HOLE", "MB_MOSSDEEP_GYM_WARP",
+    "MB_BRIDGE_OVER_OCEAN",
+    "MB_NORTH_ARROW_WARP", "MB_SOUTH_ARROW_WARP", "MB_WEST_ARROW_WARP",
+    "MB_EAST_ARROW_WARP", "MB_WATER_SOUTH_ARROW_WARP",
+    "MB_STAIRS_OUTSIDE_ABANDONED_SHIP", "MB_SHOAL_CAVE_ENTRANCE",
+    "MB_UP_RIGHT_STAIR_WARP", "MB_UP_LEFT_STAIR_WARP",
+    "MB_DOWN_RIGHT_STAIR_WARP", "MB_DOWN_LEFT_STAIR_WARP",
+)
+
+
+def resgate_por_byte_baixo(beh):
+    """Comportamento desconhecido que na verdade e PORTA, ou None.
+
+    MEDIDO em 18/08/2026 (G5). Dos 122 valores de comportamento que a fonte usa
+    e a tabela do FR nao tem, 61 sao um valor CONHECIDO com o bit 8 (0x100)
+    aceso a mais: 307 = 0x100|51 (IMPASSABLE_SOUTH), 264 = 0x100|8 (CAVE),
+    361 = 0x100|105 (WARP_DOOR), e assim por diante em 438 dos 899 metatiles.
+    O bit 9 do campo de 9 bits do FR nao e comportamento de nada em ROM nenhuma;
+    o editor do autor do demake o acendeu.
+
+    So que "provavel" nao basta para mexer em 438 metatiles: virar 277 deles em
+    IMPASSABLE_* ou em agua muda ANDAR, e por parede onde hoje nao ha. Entao o
+    resgate e ESTREITO de proposito: so vale quando o byte baixo da uma PORTA, e
+    porta so muda o jogo onde ha um warp em cima (o motor procura o warp naquela
+    coordenada e, se nao houver, nao faz nada). Assim a prova do resgate e
+    independente da hipotese: o unico efeito visivel e um warp da fonte, que a
+    fonte pos ali de proposito, voltar a disparar.
+
+    Medida do que isto alcanca hoje: 10 metatiles em 4 tilesets, e 11 warps de
+    Circhester que estavam mortos. Os outros 464 warps mortos de Galar NAO sao
+    disto: o comportamento deles e MB_FRLG_NORMAL na propria fonte (chao, mato,
+    lado do tapete de saida), e estao no censo de `mundo_galar.py`.
+    """
+    if beh <= 0xFF:
+        return None
+    nome_fr = fr.FRLG_BEHAVIORS.get(beh & 0xFF)
+    if nome_fr is None:
+        return None
+    nome_em = fr.FRLG_TO_EMERALD[nome_fr]
+    if nome_em not in NOMES_QUE_DISPARAM:
+        return None
+    return nome_fr, nome_em, fr.EMERALD_BEHAVIORS[nome_em]
+
 
 # ------------------------------------------------------------------- leitura G0
 
@@ -187,12 +238,18 @@ def converte(nn, d, info):
     # --- 1 e 2. comportamento pelo conversor do repo, camada invalida para 0
     conv, iguais, mudados, desconhecidos = [], 0, 0, {}
     camadas_corrigidas = 0
+    resgatados = {}
     for a in attrs:
         beh = a & BEH_MASK
         nome_fr = fr.FRLG_BEHAVIORS.get(beh)
         if nome_fr is None:
-            novo = MB_NORMAL
-            desconhecidos[beh] = desconhecidos.get(beh, 0) + 1
+            resgate = resgate_por_byte_baixo(beh)
+            if resgate:
+                novo = resgate[2]
+                resgatados[beh] = resgatados.get(beh, 0) + 1
+            else:
+                novo = MB_NORMAL
+                desconhecidos[beh] = desconhecidos.get(beh, 0) + 1
         else:
             novo = fr.EMERALD_BEHAVIORS[fr.FRLG_TO_EMERALD[nome_fr]]
             if novo == beh:
@@ -213,6 +270,7 @@ def converte(nn, d, info):
         "guard_tile": guard_tile, "n_guard": n_guard,
         "beh_iguais": iguais, "beh_mudados": mudados,
         "beh_desconhecidos": desconhecidos,
+        "beh_resgatados_porta": resgatados,
         "camadas_corrigidas": camadas_corrigidas,
         "animado": info["animado"], "n_mapas": info["n_mapas"],
         "papeis_de_uso": info["papeis_de_uso"],
@@ -360,6 +418,7 @@ def monta_censo(convertidos, pulados, cat):
             "n_mapas": ts["n_mapas"], "animado": ts["animado"],
             "guard_entradas": ts["n_guard"], "guard_tile": ts["guard_tile"],
             "comportamentos_desconhecidos": ts["beh_desconhecidos"],
+            "comportamentos_resgatados_porta": ts["beh_resgatados_porta"],
             "camadas_corrigidas": ts["camadas_corrigidas"],
         }
     return {
@@ -622,18 +681,33 @@ def demo(fonte=FONTE):
     print("\n== comportamentos convertidos ==")
     ig = sum(ts["beh_iguais"] for ts in tss)
     mu = sum(ts["beh_mudados"] for ts in tss)
-    desc = {}
+    desc, resg = {}, {}
     for ts in tss:
         for v, n in ts["beh_desconhecidos"].items():
             desc[v] = desc.get(v, 0) + n
+        for v, n in ts["beh_resgatados_porta"].items():
+            resg[v] = resg.get(v, 0) + n
     n_desc = sum(desc.values())
+    n_resg = sum(resg.values())
     total = sum(ts["n_metatiles"] for ts in tss)
-    checa("iguais + remapeados + desconhecidos = metatiles", ig + mu + n_desc, total)
+    checa("iguais + remapeados + desconhecidos + resgatados = metatiles",
+          ig + mu + n_desc + n_resg, total)
     print(f"  {total} metatiles: {ig} mantiveram o mesmo numero (o FR e o nosso "
           f"coincidem), {mu} remapeados para outro MB_*, {n_desc} fora da tabela "
           f"do FR -> MB_NORMAL")
     print(f"  {len(desc)} valores desconhecidos distintos, piores: "
           f"{sorted(desc.items(), key=lambda kv: -kv[1])[:6]}")
+    # G5: o resgate estreito de porta (ver resgate_por_byte_baixo)
+    print(f"  {n_resg} metatiles resgatados como PORTA pelo byte baixo, em "
+          f"{len(resg)} valores: "
+          f"{[(v, n, fr.FRLG_TO_EMERALD[fr.FRLG_BEHAVIORS[v & 0xFF]]) for v, n in sorted(resg.items())]}")
+    # o resgate so pode devolver comportamento que dispara warp, nunca parede
+    for v in resg:
+        assert fr.FRLG_TO_EMERALD[fr.FRLG_BEHAVIORS[v & 0xFF]] in NOMES_QUE_DISPARAM, v
+    # e ele e estreito: valor desconhecido que resolveria para algo que NAO e
+    # porta continua desconhecido (senao 277 metatiles virariam IMPASSABLE_*)
+    assert any(v > 0xFF and fr.FRLG_BEHAVIORS.get(v & 0xFF) for v in desc), \
+        "o resgate deixou de ser estreito: nenhum desconhecido com byte baixo valido sobrou"
     # o conversor foi mesmo usado: um caso conhecido de cada lado
     assert fr.EMERALD_BEHAVIORS[fr.FRLG_TO_EMERALD["MB_FRLG_SIGNPOST"]] == 29
     assert fr.EMERALD_BEHAVIORS[fr.FRLG_TO_EMERALD["MB_FRLG_NORMAL"]] == 0

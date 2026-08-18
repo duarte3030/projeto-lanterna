@@ -122,6 +122,8 @@ CENSO = f"{RAIZ}/dev_scripts/galar_mundo.json"
 CENSO_TILESETS = f"{RAIZ}/dev_scripts/galar_tilesets.json"
 HEAL_JSON = f"{RAIZ}/src/data/heal_locations.json"
 
+PRIMARIO_METATILES = 640      # NUM_METATILES_IN_PRIMARY_FRLG, include/fieldmap.h
+
 GRUPO_NOVO = "gMapGroup_Galar"
 TETO_GRUPO = 128          # mapNum e s8 no motor: 0..127
 TETO_GRUPOS = 128         # mapGroup e s8 no motor: 0..127
@@ -492,6 +494,187 @@ def costura(mapas, limpos, pos, warp, conex):
                              "direction": DIRECAO[dire]}
                             for dire, off, d in conex[m["fonte"]]]
     return pend_warp
+
+
+def warps_sem_gatilho(mapas):
+    """Censo dos warps cujo TILE nao dispara, com o motivo medido de cada um.
+
+    POR QUE ESTE CENSO EXISTE, E O QUE ELE DESMENTIU (G5, 18/08/2026)
+
+    O fechador do G4 contou 477 warps de Galar em tile que `IsWarpMetatileBehavior`
+    nao aceita, e a hipotese de trabalho era que o G1 os tinha matado: comportamento
+    desconhecido da fonte virando `MB_NORMAL`. A hipotese foi MEDIDA e esta errada
+    em 435 dos 477: nesses, o comportamento do metatile na PROPRIA FONTE ja e
+    `MB_FRLG_NORMAL`, ou seja o demake tambem nao dispara aquele warp. Os metatiles
+    debaixo deles, desenhados a partir do tiles.png convertido, sao chao, mato,
+    arvore e o LADO do tapete de saida, nao porta.
+
+    So 13 vinham mesmo do G1, todos em Circhester, e esses foram consertados no
+    gerador certo (`tileset_galar.resgate_por_byte_baixo`), nao aqui.
+
+    Entao este censo NAO conserta: ele classifica, para a fase de conteudo saber o
+    que e ruido da fonte e o que e pendencia de verdade. Quatro classes, na ordem
+    em que sao testadas:
+
+      chegada          alguem aponta para este warp; ele so precisa disparar se
+                       tambem for saida, e ponto de chegada em tile comum e o
+                       padrao do proprio FRLG (o repo ja convive com isso em
+                       Kanto: 20,6% dos warps de la, ver ESTADO secao 2)
+      lado_de_porta    ha um warp VIVO colado nele; e a saida de tres tiles de
+                       largura do FRLG, em que so o do meio leva a seta
+      fiel_a_fonte     o comportamento veio inteiro da fonte e la tambem nao e
+                       porta: sujeira do demake, nao defeito nosso
+      desconhecido     o valor da fonte esta fora da tabela do FR e o byte baixo
+                       dele nao da porta, entao o G1 nao tinha o que resgatar
+    """
+    import valida_warp_tile as VW           # tabela de atributos ja convertida
+    if os.path.join(RAIZ, "migration_scripts") not in sys.path:
+        sys.path.insert(0, os.path.join(RAIZ, "migration_scripts"))
+    import frlg_metatile_behavior_converter as fr
+
+    cache_attr, cache_fonte = {}, {}
+
+    def attrs(ts):
+        if ts not in cache_attr:
+            cache_attr[ts] = VW.tabela_de_atributos(ts)[0]
+        return cache_attr[ts]
+
+    def attrs_fonte(endereco):
+        if endereco not in cache_fonte:
+            p = f"{FONTE}/tilesets/{endereco[2:].upper()}/metatile_attributes.bin"
+            b = open(p, "rb").read() if os.path.exists(p) else b""
+            cache_fonte[endereco] = [struct.unpack("<I", b[i:i + 4])[0] & 0x1FF
+                                     for i in range(0, len(b), 4)]
+        return cache_fonte[endereco]
+
+    ts_censo = json.load(open(CENSO_TILESETS))["de_para"]
+    rot2end = {v["rotulo"]: k for k, v in ts_censo.items()}
+
+    def comportamento(m, x, y, blocos):
+        """(comportamento nosso, comportamento cru do FR) do tile (x,y)."""
+        if not (0 <= x < m["w"] and 0 <= y < m["h"]):
+            return None, None
+        mt = blocos[y * m["w"] + x] & 0x3FF
+        if mt < PRIMARIO_METATILES:
+            rot, rel = m["primary_tileset"], mt
+        else:
+            rot, rel = m["secondary_tileset"], mt - PRIMARIO_METATILES
+        tab = attrs(rot)
+        if tab is None or rel >= len(tab):
+            return None, None
+        cru = attrs_fonte(rot2end.get(rot, ""))
+        return tab[rel], (cru[rel] if rel < len(cru) else None)
+
+    alvo = set()
+    for m in mapas:
+        for w in m["warp_events"]:
+            alvo.add((w["dest_map"], int(w["dest_warp_id"])))
+
+    censo, vivos_por_mapa = [], {}
+    blocos_de = {}
+    for m in mapas:
+        b = open(f"{FONTE}/blockdata/{m['fonte']}.bin", "rb").read()
+        blocos_de[m["fonte"]] = struct.unpack("<%dH" % (len(b) // 2), b)
+    for m in mapas:
+        blocos = blocos_de[m["fonte"]]
+        vivos = []
+        for i, w in enumerate(m["warp_events"]):
+            c, _ = comportamento(m, w["x"], w["y"], blocos)
+            if c in VW.COMPORTA_WARP:
+                vivos.append((w["x"], w["y"]))
+        vivos_por_mapa[m["nome"]] = vivos
+    for m in mapas:
+        blocos = blocos_de[m["fonte"]]
+        for i, w in enumerate(m["warp_events"]):
+            c, cru = comportamento(m, w["x"], w["y"], blocos)
+            if c in VW.COMPORTA_WARP:
+                continue
+            nome_c = VW.NOME.get(c, str(c))
+            nome_fr = fr.FRLG_BEHAVIORS.get(cru) if cru is not None else None
+            if (m["id_mapa"], i) in alvo:
+                classe, motivo = "chegada", (
+                    "algum warp aponta para este; ponto de chegada em tile comum "
+                    "e o padrao do FRLG e nao precisa de gatilho")
+            elif any(abs(x - w["x"]) <= 1 and abs(y - w["y"]) <= 1
+                     for x, y in vivos_por_mapa[m["nome"]]):
+                classe, motivo = "lado_de_porta", (
+                    "ha warp vivo colado; e a saida de tres tiles do FRLG, so o "
+                    "do meio leva a seta")
+            elif nome_fr is not None:
+                classe, motivo = "fiel_a_fonte", (
+                    "o metatile e %s na fonte tambem, entao o demake tambem nao "
+                    "dispara este warp: sujeira da fonte" % nome_fr)
+            else:
+                classe, motivo = "desconhecido", (
+                    "comportamento %s da fonte esta fora da tabela do FR e o byte "
+                    "baixo nao da porta" % cru)
+            censo.append({
+                "mapa": m["nome"], "mapa_fonte": m["fonte"], "warp": i,
+                "x": w["x"], "y": w["y"], "comportamento": nome_c,
+                "comportamento_fonte": nome_fr or cru,
+                "classe": classe, "motivo": motivo,
+            })
+    return censo
+
+
+def portas_de_mao_unica(mapas):
+    """As portas que `valida_conectividade.py` acusa, com o veredito da FONTE.
+
+    Regra do validador (licao 4.3 do ESTADO): interior com UMA porta so tem que
+    devolver para si mesmo. Quatro mapas de Galar caem nela, e o G5 mediu os
+    quatro na fonte, warp a warp, antes de chamar qualquer um de defeito nosso:
+    nos QUATRO o demake TAMBEM nao devolve (o warp de chegada do outro lado leva
+    a um terceiro mapa). Nao e defeito do de-para nem da triagem, e SUJEIRA DA
+    FONTE, entao nao ha o que consertar no gerador: vira pendencia de conteudo.
+
+    O caso de CROWN_TUNDRA_07 tem uma segunda camada, e ela e da triagem: na
+    fonte ele tem DOIS warps, e o segundo aponta para g37m01, que e um dos 47
+    headers invalidos que o G0 recusou. Por isso ele chega aqui com uma porta so.
+    """
+    # A fonte inteira, inclusive os headers que a triagem recusou: o veredito
+    # precisa poder olhar o destino mesmo quando ele nao virou mapa nosso.
+    crua = {}
+    for grupo in json.load(open(f"{FONTE}/mapas.json")):
+        for i, mf in enumerate(grupo["mapas"]):
+            crua["g%02dm%02d" % (grupo["grupo"], i)] = mf
+    porid = {m["id_mapa"]: m for m in mapas}
+    fora = []
+    for m in mapas:
+        # MESMO recorte de `valida_conectividade.py`: INTERIOR com UMA porta so.
+        # Recorte mais largo (qualquer mapa de uma porta) acusa 37 e mistura
+        # caverna e mar da fonte, que sao outro assunto; este e o portao que roda.
+        if len(m["warp_events"]) != 1 or m["map_type"] != "MAP_TYPE_INDOOR":
+            continue
+        w = m["warp_events"][0]
+        if w["dest_map"] == m["id_mapa"]:
+            continue                       # porta inerte, ja tem pendencia propria
+        d = porid[w["dest_map"]]
+        chega = d["warp_events"][int(w["dest_warp_id"])]
+        if chega["dest_map"] == m["id_mapa"]:
+            continue
+        # o que a FONTE diz do mesmo par
+        crus = crua[m["fonte"]].get("warps") or []
+        na_fonte = "sem warp na fonte"
+        if crus:
+            c = crus[0]
+            alvo = "g%02dm%02d" % (c["grupo"], c["mapa"])
+            dm = crua.get(alvo)
+            if dm and c["warp_id"] < len(dm.get("warps") or []):
+                v = dm["warps"][c["warp_id"]]
+                volta = "g%02dm%02d" % (v["grupo"], v["mapa"])
+                na_fonte = ("o warp %d de %s leva a %s, e nao de volta a %s: a fonte "
+                            "tambem nao devolve" % (c["warp_id"], alvo, volta, m["fonte"]))
+            else:
+                na_fonte = "o warp %d nao existe em %s na fonte" % (c["warp_id"], alvo)
+        fora.append({
+            "mapa": m["nome"], "id": m["id_mapa"], "mapa_fonte": m["fonte"],
+            "vai_para": w["dest_map"], "warp": int(w["dest_warp_id"]),
+            "e_esse_leva_a": chega["dest_map"],
+            "warps_na_fonte": len(crus),
+            "veredito": "sujeira da fonte, pendencia de conteudo",
+            "medida": na_fonte,
+        })
+    return fora
 
 
 def acha_pokecenters(mapas, arestas):
@@ -973,7 +1156,28 @@ def demo():
           if not h["id"].startswith("HEAL_LOCATION_GALAR_")}
     assert not (ja & {h["id"] for h in novas}), "heal location de Galar colide com uma existente"
 
-    print("demo: 11 checagens passaram, 438 mapas resolvidos, %d warps, %d conexoes, "
+    # 12. censo de warp sem gatilho: classifica TODOS, e nenhum sobra sem motivo.
+    # A trava que interessa e a de baixo: se alguem "consertar" isso metendo
+    # comportamento de porta no tileset a esmo, a classe fiel_a_fonte despenca e o
+    # jogo ganha porta em cima de arvore. Ver o docstring de warps_sem_gatilho.
+    sg = warps_sem_gatilho(mapas)
+    assert all(p["classe"] in ("chegada", "lado_de_porta", "fiel_a_fonte", "desconhecido")
+               for p in sg), "warp sem gatilho sem classe"
+    assert all(p["motivo"] for p in sg), "warp sem gatilho sem motivo escrito"
+    n_fiel = sum(1 for p in sg if p["classe"] == "fiel_a_fonte")
+    print("  OK   warps sem gatilho classificados: %d (%d fieis a fonte, %d de chegada, "
+          "%d lado de porta)" % (len(sg), n_fiel,
+                                 sum(1 for p in sg if p["classe"] == "chegada"),
+                                 sum(1 for p in sg if p["classe"] == "lado_de_porta")))
+    assert n_fiel > 100, "classe fiel_a_fonte encolheu: alguem mexeu em comportamento a esmo"
+
+    # 13. as 4 portas de mao unica: nenhuma e defeito nosso, e a medida esta escrita
+    mu = portas_de_mao_unica(mapas)
+    assert all(p["medida"] for p in mu), "porta de mao unica sem medida da fonte"
+    assert all(p["veredito"] for p in mu), "porta de mao unica sem veredito"
+    print("  OK   portas de mao unica com veredito medido na fonte: %d" % len(mu))
+
+    print("demo: 13 checagens passaram, 438 mapas resolvidos, %d warps, %d conexoes, "
           "%d renomeados, %d heal locations"
           % (sum(len(m["warp_events"]) for m in mapas),
              sum(len(m["connections"]) for m in mapas),
@@ -1001,6 +1205,8 @@ def main():
     renomeados, decisao = renomeia(mapas, arestas)
     grupos, ordem = aloca(mapas)
     pend_warp = costura(mapas, limpos, pos, warp, conex)
+    sem_gatilho = warps_sem_gatilho(mapas)
+    mao_unica = portas_de_mao_unica(mapas)
     novas_curas, curas_fora = heal_locations(mapas, arestas)
 
     n_warps = sum(len(m["warp_events"]) for m in mapas)
@@ -1016,6 +1222,10 @@ def main():
         "heal_locations_fora": [{"mapa": k, "motivo": v} for k, v in curas_fora],
         "pendencias_warp": pend_warp,
         "pendencias_conexao": pend_conex,
+        "warps_sem_gatilho": sem_gatilho,
+        "portas_de_mao_unica": mao_unica,
+        "warps_sem_gatilho_por_classe": dict(
+            collections.Counter(p["classe"] for p in sem_gatilho)),
     }
 
     n_layouts = escreve_layouts(mapas, a.gravar)
@@ -1042,6 +1252,14 @@ def main():
         else "warp de chegada nao existe no destino" for p in pend_warp)
     for k, v in motivos.most_common():
         print("    pendencia: %-46s %4d" % (k, v))
+    print("  warps em tile que NAO dispara %5d de %d (%d disparam, %.1f%%)"
+          % (len(sem_gatilho), n_warps, n_warps - len(sem_gatilho),
+             100.0 * (n_warps - len(sem_gatilho)) / n_warps))
+    for k, v in collections.Counter(p["classe"] for p in sem_gatilho).most_common():
+        print("    sem gatilho: %-45s %4d" % (k, v))
+    print("  portas de mao unica          %5d  (todas medidas na fonte)" % len(mao_unica))
+    for p_ in mao_unica:
+        print("    %-28s %s" % (p_["mapa"], p_["medida"]))
     print("-- mapas por grupo --")
     for g, n in censo["mapas_por_grupo"].items():
         print("  %-40s %3d  (grupo fica com %d/%d)" % (g, n, len(grupos[g]), TETO_GRUPO))

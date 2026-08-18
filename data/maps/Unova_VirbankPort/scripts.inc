@@ -20,6 +20,9 @@ Unova_VirbankPort_EventScript_Marinheiro::
 	case 1, Unova_VirbankPort_EventScript_ZarparSlateport
 	case 2, Unova_VirbankPort_EventScript_ZarparVermilion
 	case 4, Unova_VirbankPort_EventScript_ZarparCanalave
+	@ G5 de Galar: destino 6, atras de FLAG_GALAR_QA_ANDAR. O roteiro e um so,
+	@ compartilhado pelos cinco portos (data/scripts/travessia_regioes.inc).
+	case 6, Travessia_EventScript_ZarparParaGalar
 	msgbox Unova_VirbankPort_Text_Volte, MSGBOX_DEFAULT
 	release
 	end

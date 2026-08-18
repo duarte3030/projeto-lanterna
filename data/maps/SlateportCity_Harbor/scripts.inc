@@ -278,6 +278,9 @@ SlateportCity_Harbor_EventScript_Sailor::
 	case 2, SlateportCity_Harbor_EventScript_SailToVermilion
 	case 3, SlateportCity_Harbor_EventScript_SailToVirbank
 	case 4, SlateportCity_Harbor_EventScript_SailToCanalave
+	@ G5 de Galar: destino 6, atras de FLAG_GALAR_QA_ANDAR. O roteiro e um so,
+	@ compartilhado pelos cinco portos (data/scripts/travessia_regioes.inc).
+	case 6, Travessia_EventScript_ZarparParaGalar
 	msgbox SlateportCity_Harbor_Text_ComeAgain, MSGBOX_DEFAULT
 	release
 	end

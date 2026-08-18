@@ -1529,18 +1529,12 @@ static void DebugAction_Util_Warp_SelectWarp(u8 taskId)
     if (JOY_NEW(DPAD_ANY))
     {
         PlaySE(SE_SELECT);
-        if (JOY_NEW(DPAD_UP))
-        {
-            gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
-            if (gTasks[taskId].tInput > 10)
-                gTasks[taskId].tInput = 10;
-        }
-        if (JOY_NEW(DPAD_DOWN))
-        {
-            gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
-            if (gTasks[taskId].tInput < 0)
-                gTasks[taskId].tInput = 0;
-        }
+        // Antes: laco proprio que so lia UP/DOWN na unidade e clampava em 10, o
+        // que tornava impossivel pedir warp 11 em diante pelo menu (e o teto de
+        // warp de um mapa e 127, o s8 de struct WarpData). Os campos de grupo e
+        // de mapa logo acima ja usam Debug_HandleInput_Numeric, que trata
+        // LEFT/RIGHT para andar de digito; este passou a usar o mesmo.
+        Debug_HandleInput_Numeric(taskId, 0, 127, 3);
 
         StringCopy(gStringVar3, gText_DigitIndicator[gTasks[taskId].tDigit]);
         ConvertIntToDecimalStringN(gStringVar1, gTasks[taskId].tInput, STR_CONV_MODE_LEADING_ZEROS, 3);

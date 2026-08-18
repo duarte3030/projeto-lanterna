@@ -119,6 +119,36 @@ FLAGS_H = f"{RAIZ}/include/constants/flags.h"
 
 PRIMEIRA_FLAG = 0x1C00        # decisao 6
 ULTIMA_FLAG = 0x2025          # fim da faixa livre medida
+# Endereco da faixa de Galar que a MAO reservou e este alocador NAO pode entregar.
+# Lição da maquina de Sinnoh (ESTADO 0.e): gerador que nao sabe o que a mao
+# decidiu desfaz a decisao calado. FLAG_GALAR_QA_ANDAR (0x1CFF) e a flag de teste
+# que abre o destino GALAR no barco (G5, data/scripts/travessia_regioes.inc).
+RESERVADAS_A_MAO = {0x1CFF: "FLAG_GALAR_QA_ANDAR (G5, destino de teste no barco)"}
+
+# NPC que a fonte NAO tem e a obra precisa. Um so ate agora, e ele existe para o
+# Gui poder VOLTAR de Galar: a travessia liga Galar ao barco atras de flag de
+# teste (PLANO-OBRAS-GALAR.md, decisao 12) e sem marinheiro do lado de la a
+# viagem seria de mao unica. Ele reusa o menu de destinos que os outros cinco
+# portos ja usam (data/scripts/travessia_regioes.inc), entao Galar entra e sai
+# pelas mesmas regras, sem `case` novo em porto nenhum.
+# O tile (23,17) de Wedgehurst05 foi MEDIDO no blockdata: colisao 0, elevacao 3,
+# comportamento MB_NORMAL, sem warp e sem objeto da fonte em cima, e o jogador
+# desembarca colado nele em (23,18), tambem elevacao 3.
+OBJETOS_A_MAO = {
+    "MAP_GALAR_WEDGEHURST_05": [{
+        "motivo": "marinheiro da travessia (G5); NPC de obra, nao vem da fonte",
+        "objeto": {
+            "graphics_id": "OBJ_EVENT_GFX_SAILOR",
+            "x": 23, "y": 17, "elevation": 3,
+            "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+            "movement_range_x": 0, "movement_range_y": 0,
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_sight_or_berry_tree_id": "0",
+            "script": "Travessia_EventScript_MarinheiroGalar",
+            "flag": "0",
+        },
+    }],
+}
 MARCA_INICIO = "// >>> G4 Galar, itens escondidos (dev_scripts/gente_galar.py) >>>"
 MARCA_FIM = "// <<< G4 Galar, itens escondidos <<<"
 
@@ -278,6 +308,8 @@ def _flags_dos_itens():
             if not bruto or not nome_fr or nome_fr not in nossos:
                 pendentes.append((chave, j, bruto, nome_fr))
                 continue
+            while prox in RESERVADAS_A_MAO:
+                prox += 1
             if prox > ULTIMA_FLAG:
                 pendentes.append((chave, j, bruto, "faixa de flag esgotada"))
                 continue
@@ -343,10 +375,16 @@ def eventos_do_mapa(chave, w, h, nome_mapa=None):
             "script": "0",
             "flag": "0",
         })
-        if o.get("trainer_type") or o.get("flag") or nota_elev:
+        # G5: o ponteiro de script da fonte TAMBEM manda anotar. Antes so
+        # trainer_type/flag/elevacao geravam linha, e por isso 671 NPCs que
+        # entraram mudos COM cena na fonte nao apareciam em censo nenhum: a
+        # `fila_galar.py` cobrava 1.970 quando a fonte tem 2.641. Censo que nao
+        # ve o trabalho faz a fila mentir para baixo.
+        tem_script = str(o.get("script") or "0") not in ("0", "0x0", "0x00000000")
+        if o.get("trainer_type") or o.get("flag") or nota_elev or tem_script:
             censo.append(dict(base, motivo="entrou mudo",
-                              anotacao=(nota_elev or "trainer_type/flag da fonte "
-                                        "guardados para a fase de conteudo")))
+                              anotacao=(nota_elev or "script/trainer_type/flag da "
+                                        "fonte guardados para a fase de conteudo")))
 
     for j, b in dados["bg"]:
         kind = b.get("kind")
@@ -372,6 +410,14 @@ def eventos_do_mapa(chave, w, h, nome_mapa=None):
             "item": item, "flag": nome_flag,
             "quantity": 1, "underfoot": False,
         })
+    for extra in OBJETOS_A_MAO.get(nome_mapa or "", []):
+        # APPEND no FIM da lista, sempre: a save guarda indice de object_event
+        # (`objectEvents[]`/`objectEventTemplates[]`), entao NPC novo so entra
+        # depois de todos os que a fonte deu. Ver ESTADO, "Compatibilidade de save".
+        objetos.append(dict(extra["objeto"]))
+        censo.append({"mapa": chave, "tipo": "objeto", "i": len(objetos) - 1,
+                      "x": extra["objeto"]["x"], "y": extra["objeto"]["y"],
+                      "papel": "a mao", "motivo": extra["motivo"]})
     return objetos, bgs, censo
 
 
@@ -496,11 +542,34 @@ def demo():
     if ruins:
         falhas.append("%d objetos gravados em tile nao andavel" % ruins)
 
+    # 2.b (G5) o censo VE todo objeto que a fonte mandou falar. Sem esta trava a
+    # `fila_galar.py` conta menos trabalho do que existe, e cala.
+    por_chave, de_para = carrega()
+    na_fonte = sum(1 for chave in por_chave if chave in de_para
+                   for _j, o in por_chave[chave]["objetos"]
+                   if str(o.get("script") or "0") not in ("0", "0x0", "0x00000000"))
+    _s, censo, _t = constroi()
+    no_censo = sum(1 for l in censo if l.get("tipo") == "objeto"
+                   and str(l.get("script_fonte") or "0") not in ("0", "0x0", "0x00000000"))
+    if na_fonte != no_censo:
+        falhas.append("censo ve %d objetos com script e a fonte tem %d"
+                      % (no_censo, na_fonte))
+
     # 3. flags: contiguas, dentro da faixa, sem nome repetido.
     flags, pendentes = _flags_dos_itens()
     ends = sorted(e for _n, _i, e in flags.values())
-    if ends and (ends[0] != PRIMEIRA_FLAG or ends != list(range(ends[0], ends[0] + len(ends)))):
-        falhas.append("faixa de flag nao e contigua a partir de 0x%04X" % PRIMEIRA_FLAG)
+    esperado = []
+    prox = PRIMEIRA_FLAG
+    while len(esperado) < len(ends):
+        if prox not in RESERVADAS_A_MAO:
+            esperado.append(prox)
+        prox += 1
+    if ends and ends != esperado:
+        falhas.append("faixa de flag nao e contigua a partir de 0x%04X (pulando as "
+                      "reservadas a mao)" % PRIMEIRA_FLAG)
+    if set(ends) & set(RESERVADAS_A_MAO):
+        falhas.append("o alocador entregou uma flag reservada a mao: %s"
+                      % sorted(set(ends) & set(RESERVADAS_A_MAO)))
     if ends and ends[-1] > ULTIMA_FLAG:
         falhas.append("faixa de flag estourou 0x%04X" % ULTIMA_FLAG)
     nomes = [n for n, _i, _e in flags.values()]

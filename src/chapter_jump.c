@@ -88,7 +88,10 @@ struct RegiaoDoHack
     const u8 *nome;
     // Onde a região começa NESTE hack. Ver a nota de cada região.
     struct DestinoDeCapitulo inicio;
-    // A Liga daquela região.
+    // A Liga daquela região, ou healLocation 0 quando a região ainda NÃO TEM
+    // Liga nesta ROM. É o caso de Galar, que entrou só com a geometria (a fase
+    // de conteúdo é que traz ginásios e Liga): oferecer "Before Pokémon League"
+    // ali seria capítulo mentiroso, então o menu dela tem uma linha só.
     struct DestinoDeCapitulo liga;
     const struct GinasioDoHack *ginasios;
     u8 numGinasios;
@@ -242,12 +245,28 @@ static const struct RegiaoDoHack sRegioes[] =
         CURA(HEAL_LOCATION_UNOVA_PKMN_LEAGUE),
         sGinasiosUnova, ARRAY_COUNT(sGinasiosUnova),
     },
+    // GALAR, 18/08/2026 (G5, decisão 11 do PLANO-OBRAS-GALAR.md). Nesta obra
+    // entrou só a GEOMETRIA da região: zero ginásio com flag e zero Liga, então
+    // o menu dela tem uma linha só, "Start of region". O destino é o Centro
+    // Pokémon de Wedgehurst, que o G3 achou por impressão de layout
+    // (HEAL_LOCATION_GALAR_WEDGEHURST, MAP_GALAR_WEDGEHURST_03): sair pela
+    // porta dele cai na praça de WEDGEHURST_05, que é onde mora o marinheiro da
+    // travessia e de onde se alcança a pé o resto da região.
+    {
+        COMPOUND_STRING("GALAR"),
+        CURA(HEAL_LOCATION_GALAR_WEDGEHURST),
+        CURA(0),
+        NULL, 0,
+    },
 };
 
 #define NUM_REGIOES ARRAY_COUNT(sRegioes)
 
-// Capítulos de uma região: o início, um por ginásio, e a Liga.
-#define NUM_CAPITULOS(r) ((r)->numGinasios + 2)
+// Capítulos de uma região: o início, um por ginásio, e a Liga QUANDO EXISTE.
+// Região sem Liga nesta ROM (Galar, por enquanto) tem um capítulo a menos, em
+// vez de uma linha que levaria a lugar nenhum.
+#define TEM_LIGA(r) ((r)->liga.healLocation != 0)
+#define NUM_CAPITULOS(r) ((r)->numGinasios + 1 + (TEM_LIGA(r) ? 1 : 0))
 
 static const u8 sTexto_Inicio[]  = _("Start of region");
 static const u8 sTexto_Antes[]   = _("Before ");
@@ -303,7 +322,7 @@ static void EmpilhaCapitulo(const struct RegiaoDoHack *regiao, u32 capitulo)
 
     if (capitulo == 0)
         StringCopy(nome, sTexto_Inicio);
-    else if (capitulo > regiao->numGinasios)
+    else if (capitulo > regiao->numGinasios && TEM_LIGA(regiao))
         StringCopy(nome, sTexto_Liga);
     else
         StringCopy(StringCopy(nome, sTexto_Antes), regiao->ginasios[capitulo - 1].lider);
@@ -435,8 +454,10 @@ void ChapterJump_AplicaCapitulo(void)
     // anterior não testa nada.
     HealPlayerParty();
 
-    // (e) O pulo.
+    // (e) O pulo. `capitulo > numGinasios` só é Liga quando ela existe, e o
+    // grampo acima garante que região sem Liga nunca chega aqui com capítulo
+    // fora do início.
     VaiPara(capitulo == 0 ? &regiao->inicio
-          : capitulo > regiao->numGinasios ? &regiao->liga
+          : (capitulo > regiao->numGinasios && TEM_LIGA(regiao)) ? &regiao->liga
           : &regiao->ginasios[capitulo - 1].onde);
 }

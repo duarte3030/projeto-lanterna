@@ -332,6 +332,9 @@ VermilionCity_EventScript_FerryMenu::
 	case 1, VermilionCity_EventScript_SailToSlateport
 	case 3, VermilionCity_EventScript_SailToVirbank
 	case 4, VermilionCity_EventScript_SailToCanalave
+	@ G5 de Galar: destino 6, atras de FLAG_GALAR_QA_ANDAR. O roteiro e um so,
+	@ compartilhado pelos cinco portos (data/scripts/travessia_regioes.inc).
+	case 6, Travessia_EventScript_ZarparParaGalar
 	msgbox VermilionCity_Text_ComeAgain, MSGBOX_DEFAULT
 	release
 	end
