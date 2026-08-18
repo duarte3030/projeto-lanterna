@@ -8,6 +8,116 @@ inteiras. Detalhe fica nos documentos apontados no fim.
 
 ---
 
+## 0.f FECHAMENTO DA FASE E, GALAR ENTRA COMO SEXTA REGIÃO, 18/08/2026 (condutor Fable até o G5, depois Opus; executores Opus)
+
+Build verde (**ROM 98,55% de 32 MB**, EWRAM 85,94%, IWRAM 86,66%), **suíte
+372/373** (só T11.3 pulado, que é o caso de duas ROMs), **T11 completo 3/3 à
+parte** contra `roms/pokemon-claude-2026-08-15c.gba`, e **SAVE COMPATIVEL**
+(SaveBlock1 em 14388 B de 15872, 90,7%; os 438 mapas de Galar entraram todos
+em append). ROM oficial: `roms/pokemon-claude-2026-08-18b.gba`, e a mesma
+build sobrescreveu `roms/pokemon-claude-teste-2026-08-16.gba` (md5
+`ac8ed5419ab69cacece45ad6479e6063` nas três).
+
+Commits do dia, em ordem: `b61e3fbc12` (G4, gente e itens), `b25f786253`
+(miúdas), `4c0368bea0` (Route 222), `3d867acdfc` (arte de Johto),
+`2c82216fc0` (pendências de Sinnoh e Johto), `86deaf89c0` (G5),
+`ebd8cb29a2` (plano da janela aberta).
+
+### O que Galar é hoje, e o que ela não é
+
+É **geometria inteira e conteúdo nenhum**: 438 mapas com tilesets provados
+pixel a pixel, 1.473 warps, 1.203 NPCs mudos, 33 itens escondidos, 12 heal
+locations e música traduzida por medição (id da fonte mais 212). Não tem
+cena, treinador, encontro, ginásio nem Liga: isso está na fila gerada
+`dev_scripts/fila_galar.json`, com **3.257 linhas** chaveadas pela FONTE e
+não pelo nosso nome, porque o G3 renomeou 140 mapas.
+
+O Gui entra em Galar pelo barco, em qualquer um dos cinco portos, atrás de
+`FLAG_GALAR_QA_ANDAR` (apelido de UNUSED), com marinheiro de volta em
+Wedgehurst: **149 mapas a pé, volta de 147**. O Chapter Jump ganhou Galar
+como sexta região, e com ela a regra de que heal location zero significa
+região sem Liga, senão o seletor ofereceria capítulo que não leva a lugar
+nenhum.
+
+### As duas premissas que a medição derrubou nesta fase
+
+1. **Os "455 warps mortos de Galar" não eram herança do desvio MB_NORMAL do
+   G1.** São 477 em 211 mapas, e **435 têm comportamento MB_NORMAL na
+   própria fonte**: o demake também não dispara. Só 13 vinham do G1. Quem
+   deriva "o comportamento certo a partir do contexto" recebe de volta
+   `MB_NORMAL`, porque é o que a fonte diz. O resgate que entrou é estreito
+   de propósito, aceita só byte baixo que dá PORTA, e ressuscitou 11 warps
+   de Circhester. Lição: **hipótese de causa escrita num plano não é
+   medição**, e o executor que mede tem o dever de contradizer o plano.
+2. **A Route 222 não estava partida onde o plano dizia.** A coluna 91 não é
+   a estrada, a entrega em Sunyshore é por warp de portão e sempre
+   funcionou. O partido era a entrada norte vinda de Valor, um bolso de 4
+   tiles onde elevação 3 contra 4 barrava o passo **sem aparecer na
+   colisão**. Três tiles viraram `ELEVATION_TRANSITION`, diff de 3 palavras.
+
+### O defeito de família que apareceu de graça
+
+As 3 placas ilegíveis da Route 222 não eram defeito de mapa: o
+`importa_npcs_sinnoh.py` converte coordenada **por escala** da caixa da
+matriz do Platinum sobre o nosso layout, e a escala engolia até 4 tiles
+onde o layout é redesenho 1 para 1. Duas das três placas não tinham nenhum
+tile andável na frente, ou seja o jogador nunca poderia lê-las. O conserto
+mora no gerador (`deslocamento_de_warp`, translação provada por dois warps,
+mais a lista autorizada `REDESENHO_1PARA1`). **Outros 7 mapas de Sinnoh
+seguem na conversão por escala, com 15 placas já gravadas**, e estão na
+fila: mover placa já gravada é conteúdo, se mede uma a uma.
+
+### Lições novas, para quem escrever caso ou esperar processo
+
+- **`pgrep -f <nome do script>` dentro de um laço que contém esse nome se
+  enxerga.** Um `pkill` disparado por esse padrão matou os vigias de outra
+  onda (sem perder dado, porque a suíte dela já tinha terminado). Espera de
+  processo casa por **PID guardado**, nunca por padrão de texto.
+- **T98.9 (Unova, VirbankCity) é flaky conhecido, não regressão.** O objeto
+  12 daquele mapa passeia numa caixa 2x2 que cobre os três tiles de gatilho
+  do caso, então a semente do relógio às vezes fecha o caminho. Verde em 4
+  de 4 rodadas isoladas. Conserto honesto é pinar RNG ou mexer no NPC, que
+  é conteúdo de Unova.
+- **O procedimento do T11 ficou mais caro do que estava registrado.** A
+  worktree da ROM antiga agora precisa de `make generated` inteiro (não só
+  `map_groups.h`: também `layouts.h`, `region_map_sections.h`,
+  `heal_locations.h` e os `trainers.h`), com os binários de `tools/` da
+  árvore principal copiados para lá.
+- **A fala de 5 páginas custou 16 apertos de A, não 11.** Com 11 o `msgbox`
+  ficava aberto na última página e o `setvar` nunca rodava: o caso
+  reprovava por motivo que não era o gatilho.
+- **`OBJECT_EVENTS_COUNT` 16 é teto de objetos SIMULTÂNEOS**, não de
+  templates: a save guarda 64. Mapa com 17 objetos não é defeito (o máximo
+  simultâneo medido no Lago da Fúria é 6).
+
+### O que fica pendente, dito
+
+- **A janela de save está autorizada a abrir** (decisão do Gui de
+  18/08/2026, porque o Chapter Jump repõe o progresso). Nada do que foi
+  commitado hoje abriu: a árvore ainda é SAVE COMPATIVEL. A onda tem plano
+  próprio, `PLANO-JANELA-ABERTA.md`, e roda antes da Fase F.
+- **A faixa de flag de Johto acabou** (192 de 192) e ganhou o transbordo
+  `0x1D00`-`0x1D3F`, 62 vagas. **`P_FLAG_FORCE_SHINY` agora aponta para
+  `FLAG_TEMP_7`**: acender essa flag em qualquer outro lugar faz todo
+  selvagem nascer shiny.
+- **`valida_warp_tile.py` não enxerga Galar de verdade**: o filtro é por
+  nome de grupo e o alocador espalhou 344 dos 438 mapas em append dentro de
+  grupos alheios, então `--regiao Galar` aferiria 283 de 1.473. Não entrou
+  em `REGIOES` de propósito (lição 4.3). Quem mede Galar hoje é o censo do
+  `mundo_galar`.
+- **218 mapas de Galar seguem fora do grafo alcançável** (226 warps sem
+  destino representável, 188 apontando para mapa vanilla do FireRed) e
+  **4 portas de mão única**, as quatro sujeira da fonte. Estão na fila.
+- **ROM em 98,55%, sobram cerca de 470 KB.** A fase de conteúdo de Galar não
+  cabe nessa folga sem orçamento. Corte por espaço continua sendo portão da
+  condutora com o Gui, nunca decisão de executor.
+- Herdadas e sem mexida: mecânica de parceiro (desenho), Amity Square e
+  Stark Mountain medidos e parados na fila (a saída da Stark é decisão
+  pendente, a fonte não tem porta de volta), corrente da bomba de Pastoria
+  nunca jogada de ponta a ponta por humano.
+
+---
+
 ## 0.e FECHAMENTO DA OBRA DE SINNOH, 18/08/2026 (condutor Fable, executor Opus)
 
 Build verde (ROM 97,68% de 32 MB, EWRAM 85,94%, IWRAM 86,66%), **suíte
