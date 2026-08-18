@@ -12,10 +12,80 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [],
+  "connections": [
+    {
+      "map": "MAP_GALAR_ROUTE01_01",
+      "offset": 0,
+      "direction": "up"
+    }
+  ],
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 53,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_TURFFIELD_INDOOR_21",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 70,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_12",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 18,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_21",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 4,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_SLUMBERING_WEALD_02",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 5,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_SLUMBERING_WEALD_02",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 53,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_TURFFIELD_INDOOR_09",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 53,
+      "y": 22,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_TURFFIELD_INDOOR_13",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 53,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_TURFFIELD_INDOOR_17",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 53,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_TURFFIELD_INDOOR_25",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": [],
-  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g03m00. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. Eventos vazios de proposito: G3 (warps e conexoes) e G4 (NPCs e itens) ainda nao rodaram."
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g03m00. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. object_events, coord_events e bg_events vazios de proposito: o G4 (NPCs e itens) ainda nao rodou. nome de balde mantido: empate no grafo entre Route01(1), Hammerlocke(1)"
 }

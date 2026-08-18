@@ -1,0 +1,37 @@
+{
+  "id": "MAP_GALAR_ISLE_OF_ARMOR_39",
+  "name": "Galar_IsleOfArmor39",
+  "layout": "LAYOUT_GALAR_ISLE_OF_ARMOR_39",
+  "music": "MUS_RG_SEVII_123",
+  "region_map_section": "MAPSEC_GALAR_POSTWICK",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_GALAR_ISLE_OF_ARMOR_38",
+      "offset": 0,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_GALAR_ISLE_OF_ARMOR_40",
+      "offset": 0,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_GALAR_ISLE_OF_ARMOR_08",
+      "offset": 0,
+      "direction": "left"
+    }
+  ],
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [],
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g38m32. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. object_events, coord_events e bg_events vazios de proposito: o G4 (NPCs e itens) ainda nao rodou. renomeado no G3: o grafo liga este mapa a IsleOfArmor (votos {'IsleOfArmor': 2}); papel MAP_TYPE_ROUTE pelo map_type"
+}

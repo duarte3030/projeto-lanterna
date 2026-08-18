@@ -12,10 +12,48 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [],
+  "connections": [
+    {
+      "map": "MAP_GALAR_CROWN_TUNDRA_11",
+      "offset": 0,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_GALAR_CROWN_TUNDRA_09",
+      "offset": 0,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_GALAR_CROWN_TUNDRA_13",
+      "offset": 0,
+      "direction": "down"
+    }
+  ],
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 36,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_TANOBY_KEY_01",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 39,
+      "y": 41,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_CROWN_TUNDRA_10",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 30,
+      "y": 51,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_LIPTOO_CHAMBER_01",
+      "dest_warp_id": "1"
+    }
+  ],
   "coord_events": [],
   "bg_events": [],
-  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g37m07. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. Eventos vazios de proposito: G3 (warps e conexoes) e G4 (NPCs e itens) ainda nao rodaram."
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g37m07. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. object_events, coord_events e bg_events vazios de proposito: o G4 (NPCs e itens) ainda nao rodou."
 }

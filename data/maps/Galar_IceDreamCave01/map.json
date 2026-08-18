@@ -12,10 +12,43 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [],
+  "connections": [
+    {
+      "map": "MAP_GALAR_MOTOSTOKE_23",
+      "offset": -12,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_GALAR_WEDGEHURST_12",
+      "offset": -12,
+      "direction": "down"
+    }
+  ],
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 20,
+      "y": 52,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_ROUTE08_02",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 10,
+      "y": 37,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_ROUTE08_02",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 13,
+      "y": 64,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_ICE_DREAM_CAVE_01",
+      "dest_warp_id": "2"
+    }
+  ],
   "coord_events": [],
   "bg_events": [],
-  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g03m20. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. Eventos vazios de proposito: G3 (warps e conexoes) e G4 (NPCs e itens) ainda nao rodaram."
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g03m20. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. object_events, coord_events e bg_events vazios de proposito: o G4 (NPCs e itens) ainda nao rodou."
 }

@@ -1,0 +1,77 @@
+{
+  "id": "MAP_GALAR_HULBURY_16",
+  "name": "Galar_Hulbury16",
+  "layout": "LAYOUT_GALAR_HULBURY_16",
+  "music": "MUS_NONE",
+  "region_map_section": "MAPSEC_GALAR_POSTWICK",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_GALAR_ROUTE10_01",
+      "offset": 0,
+      "direction": "up"
+    }
+  ],
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 26,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_HULBURY_09",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 11,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_HULBURY_03",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 17,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_HULBURY_04",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 12,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_HULBURY_05",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 12,
+      "y": 22,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_HULBURY_02",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 20,
+      "y": 22,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_HULBURY_11",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 33,
+      "y": 36,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_GALAR_MINE_03",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [],
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g03m04. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. object_events, coord_events e bg_events vazios de proposito: o G4 (NPCs e itens) ainda nao rodou. renomeado no G3: o grafo liga este mapa a Hulbury (votos {'Hulbury': 11, 'GalarMine': 1, 'Route10': 1, 'Route08': 1}); papel MAP_TYPE_NONE pelo map_type"
+}

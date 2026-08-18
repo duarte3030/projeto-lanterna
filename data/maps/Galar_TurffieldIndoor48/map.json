@@ -1,0 +1,36 @@
+{
+  "id": "MAP_GALAR_TURFFIELD_INDOOR_48",
+  "name": "Galar_TurffieldIndoor48",
+  "layout": "LAYOUT_GALAR_TURFFIELD_INDOOR_48",
+  "music": "MUS_RG_VICTORY_ROAD",
+  "region_map_section": "MAPSEC_GALAR_POSTWICK",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_LANCE",
+  "connections": [],
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 7,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_TURFFIELD_04",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 8,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_TURFFIELD_04",
+      "dest_warp_id": "1"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [],
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g36m24. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. object_events, coord_events e bg_events vazios de proposito: o G4 (NPCs e itens) ainda nao rodou. renomeado no G3: o grafo liga este mapa a Turffield (votos {'Turffield': 2}); papel MAP_TYPE_INDOOR pelo map_type"
+}

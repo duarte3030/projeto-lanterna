@@ -12,10 +12,71 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [],
+  "connections": [
+    {
+      "map": "MAP_GALAR_WILD_AREA_06",
+      "offset": 0,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_GALAR_WILD_AREA_10",
+      "offset": -19,
+      "direction": "up"
+    }
+  ],
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 48,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_WILD_AREA_05",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 48,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_WILD_AREA_05",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 11,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_05",
+      "dest_warp_id": "13"
+    },
+    {
+      "x": 2,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_WILD_AREA_15",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 2,
+      "y": 30,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_WILD_AREA_15",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 2,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_WILD_AREA_15",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 48,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_WILD_AREA_05",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": [],
-  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g06m27. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. Eventos vazios de proposito: G3 (warps e conexoes) e G4 (NPCs e itens) ainda nao rodaram."
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g06m27. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. object_events, coord_events e bg_events vazios de proposito: o G4 (NPCs e itens) ainda nao rodou."
 }

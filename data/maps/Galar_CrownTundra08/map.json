@@ -12,10 +12,62 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [],
+  "connections": [
+    {
+      "map": "MAP_GALAR_CROWN_TUNDRA_09",
+      "offset": 0,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_GALAR_CROWN_TUNDRA_11",
+      "offset": 0,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_GALAR_CROWN_TUNDRA_12",
+      "offset": 0,
+      "direction": "up"
+    }
+  ],
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 12,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_CROWN_TUNDRA_05",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 10,
+      "y": 60,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_CROWN_TUNDRA_02",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 41,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_CROWN_TUNDRA_01",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 25,
+      "y": 54,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_CROWN_TUNDRA_INDOOR_01",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 14,
+      "y": 46,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_CROWN_TUNDRA_17",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": [],
-  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g37m05. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. Eventos vazios de proposito: G3 (warps e conexoes) e G4 (NPCs e itens) ainda nao rodaram."
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g37m05. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. object_events, coord_events e bg_events vazios de proposito: o G4 (NPCs e itens) ainda nao rodou."
 }

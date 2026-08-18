@@ -1,0 +1,71 @@
+{
+  "id": "MAP_GALAR_BALLONLEA_10",
+  "name": "Galar_Ballonlea10",
+  "layout": "LAYOUT_GALAR_BALLONLEA_10",
+  "music": "MUS_RG_FOLLOW_ME",
+  "region_map_section": "MAPSEC_GALAR_POSTWICK",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_CITY",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [],
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 26,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_BALLONLEA_01",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 26,
+      "y": 43,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_10",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 25,
+      "y": 43,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_10",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 27,
+      "y": 43,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_10",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 22,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_BALLONLEA_04",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 16,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_BALLONLEA_02",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 27,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_BALLONLEA_07",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [],
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g03m07. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. object_events, coord_events e bg_events vazios de proposito: o G4 (NPCs e itens) ainda nao rodou. renomeado no G3: o grafo liga este mapa a Ballonlea (votos {'Ballonlea': 12}); papel MAP_TYPE_CITY pelo map_type"
+}

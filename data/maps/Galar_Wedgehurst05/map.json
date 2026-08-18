@@ -12,10 +12,78 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [],
+  "connections": [
+    {
+      "map": "MAP_GALAR_ROUTE02_02",
+      "offset": -64,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_GALAR_ROUTE01_01",
+      "offset": -36,
+      "direction": "down"
+    }
+  ],
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 29,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_WEDGEHURST_05",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 14,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_WEDGEHURST_02",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 24,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_166",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 18,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_WEDGEHURST_01",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 27,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_WEDGEHURST_03",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 32,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_WEDGEHURST_06",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 17,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_WEDGEHURST_07",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 10,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_WEDGEHURST_08",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": [],
-  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g05m06. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. Eventos vazios de proposito: G3 (warps e conexoes) e G4 (NPCs e itens) ainda nao rodaram."
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g05m06. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. object_events, coord_events e bg_events vazios de proposito: o G4 (NPCs e itens) ainda nao rodou."
 }

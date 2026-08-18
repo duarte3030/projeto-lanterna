@@ -12,10 +12,127 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [],
+  "connections": [
+    {
+      "map": "MAP_GALAR_ROUTE03_01",
+      "offset": -19,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_GALAR_MOTOSTOKE_17",
+      "offset": -34,
+      "direction": "right"
+    }
+  ],
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 22,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_02",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 39,
+      "y": 48,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_13",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 59,
+      "y": 48,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_14",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 14,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_10",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 55,
+      "y": 48,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_12",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 51,
+      "y": 48,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_09",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 10,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_01",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 18,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_08",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 22,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_16",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 39,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_15",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 48,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_20",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 44,
+      "y": 48,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_04",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 48,
+      "y": 58,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_WILD_AREA_03",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 48,
+      "y": 58,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_WILD_AREA_03",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 28,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_06",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": [],
-  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g06m10. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. Eventos vazios de proposito: G3 (warps e conexoes) e G4 (NPCs e itens) ainda nao rodaram."
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g06m10. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. object_events, coord_events e bg_events vazios de proposito: o G4 (NPCs e itens) ainda nao rodou."
 }

@@ -1,0 +1,138 @@
+{
+  "id": "MAP_GALAR_MOTOSTOKE_23",
+  "name": "Galar_Motostoke23",
+  "layout": "LAYOUT_GALAR_MOTOSTOKE_23",
+  "music": "MUS_NONE",
+  "region_map_section": "MAPSEC_GALAR_POSTWICK",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_GALAR_ICE_DREAM_CAVE_01",
+      "offset": 12,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_GALAR_NEWMOON_ISLAND_01",
+      "offset": 10,
+      "direction": "right"
+    }
+  ],
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 22,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_02",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 39,
+      "y": 48,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_13",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 59,
+      "y": 48,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_14",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 14,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_10",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 55,
+      "y": 48,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_12",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 51,
+      "y": 48,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_09",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 10,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_01",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 18,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_08",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 22,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_16",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 39,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_15",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 48,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_20",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 44,
+      "y": 48,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_04",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 48,
+      "y": 58,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_WILD_AREA_03",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 48,
+      "y": 58,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_WILD_AREA_03",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 28,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_MOTOSTOKE_06",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [],
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g03m02. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. object_events, coord_events e bg_events vazios de proposito: o G4 (NPCs e itens) ainda nao rodou. renomeado no G3: o grafo liga este mapa a Motostoke (votos {'Motostoke': 17, 'WildArea': 2, 'IceDreamCave': 2, 'NewmoonIsland': 1}); papel MAP_TYPE_NONE pelo map_type"
+}

@@ -12,10 +12,66 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [],
+  "connections": [
+    {
+      "map": "MAP_GALAR_HULBURY_12",
+      "offset": 27,
+      "direction": "left"
+    }
+  ],
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 54,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_HULBURY_09",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 23,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_HULBURY_03",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 12,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_HULBURY_04",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 15,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_HULBURY_05",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 13,
+      "y": 34,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_HULBURY_02",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 22,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_HULBURY_11",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 25,
+      "y": 66,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_GALAR_MINE_03",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": [],
-  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g08m07. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. Eventos vazios de proposito: G3 (warps e conexoes) e G4 (NPCs e itens) ainda nao rodaram."
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g08m07. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. object_events, coord_events e bg_events vazios de proposito: o G4 (NPCs e itens) ainda nao rodou."
 }

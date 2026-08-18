@@ -1,0 +1,92 @@
+{
+  "id": "MAP_GALAR_HAMMERLOCKE_23",
+  "name": "Galar_Hammerlocke23",
+  "layout": "LAYOUT_GALAR_HAMMERLOCKE_23",
+  "music": "MUS_RG_VERMILLION",
+  "region_map_section": "MAPSEC_GALAR_POSTWICK",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_TOWN",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [],
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 37,
+      "y": 53,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_STOW_ON_SIDE_04",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 17,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_HULBURY_13",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 25,
+      "y": 52,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_STOW_ON_SIDE_06",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 20,
+      "y": 50,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_STOW_ON_SIDE_07",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 10,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_SIX_ISLAND_01",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 9,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_SIX_ISLAND_01",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 8,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_SIX_ISLAND_01",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 29,
+      "y": 27,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_10",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 29,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_10",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 29,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_10",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [],
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g03m06. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. object_events, coord_events e bg_events vazios de proposito: o G4 (NPCs e itens) ainda nao rodou. renomeado no G3: o grafo liga este mapa a Hammerlocke (votos {'StowOnSide': 3, 'Hulbury': 1, 'SixIsland': 3, 'Hammerlocke': 12}); papel MAP_TYPE_TOWN pelo map_type"
+}

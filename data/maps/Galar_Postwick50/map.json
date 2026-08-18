@@ -14,8 +14,450 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [],
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "7"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "8"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "9"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "10"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "11"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "12"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "13"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "14"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "15"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "16"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "17"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "18"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "19"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "20"
+    },
+    {
+      "x": 15,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "21"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "22"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "23"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "24"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "25"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "26"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "27"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "28"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "29"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "30"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "31"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "32"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "33"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "34"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "35"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "36"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "37"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "38"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "39"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "40"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "41"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "42"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "43"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "44"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "45"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "46"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "47"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "48"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "49"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "50"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "51"
+    },
+    {
+      "x": 15,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "52"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "53"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "54"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "55"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "56"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "57"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "58"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "59"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "60"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "61"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_POSTWICK_50",
+      "dest_warp_id": "62"
+    }
+  ],
   "coord_events": [],
   "bg_events": [],
-  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g08m13. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. Eventos vazios de proposito: G3 (warps e conexoes) e G4 (NPCs e itens) ainda nao rodaram."
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g08m13. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. object_events, coord_events e bg_events vazios de proposito: o G4 (NPCs e itens) ainda nao rodou. nome de balde mantido: nenhum warp nem conexao limpa liga este mapa a um mapa de secao conhecida"
 }

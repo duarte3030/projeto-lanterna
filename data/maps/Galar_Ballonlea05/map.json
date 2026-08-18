@@ -14,8 +14,65 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [],
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 11,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_BALLONLEA_03",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 26,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_BALLONLEA_01",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 26,
+      "y": 43,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_GLIMWOOD_TANGLE_01",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 25,
+      "y": 43,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_GLIMWOOD_TANGLE_01",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 27,
+      "y": 43,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_GLIMWOOD_TANGLE_01",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 22,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_BALLONLEA_08",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 16,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_BALLONLEA_02",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 27,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_BALLONLEA_07",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": [],
-  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g11m10. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. Eventos vazios de proposito: G3 (warps e conexoes) e G4 (NPCs e itens) ainda nao rodaram."
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g11m10. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. object_events, coord_events e bg_events vazios de proposito: o G4 (NPCs e itens) ainda nao rodou."
 }

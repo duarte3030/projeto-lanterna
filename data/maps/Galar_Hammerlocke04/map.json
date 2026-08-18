@@ -14,8 +14,142 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [],
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 61,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_HAMMERLOCKE_05",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 26,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_HAMMERLOCKE_08",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 61,
+      "y": 39,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_WILD_AREA_22",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_ROUTE06_01",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 7,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_ROUTE06_01",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 7,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_ROUTE06_01",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 19,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_HAMMERLOCKE_16",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 11,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_HAMMERLOCKE_14",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 86,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_HAMMERLOCKE_11",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 53,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_HAMMERLOCKE_15",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 78,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_HAMMERLOCKE_21",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 37,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_HAMMERLOCKE_19",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 92,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_ROUTE07_01",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 91,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_ROUTE07_01",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 92,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_ROUTE07_01",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 86,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_HAMMERLOCKE_03",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 22,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_ROUTE06_01",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 7,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_ROUTE06_01",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 7,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_ROUTE06_01",
+      "dest_warp_id": "1"
+    }
+  ],
   "coord_events": [],
   "bg_events": [],
-  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g09m10. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. Eventos vazios de proposito: G3 (warps e conexoes) e G4 (NPCs e itens) ainda nao rodaram."
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g09m10. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. object_events, coord_events e bg_events vazios de proposito: o G4 (NPCs e itens) ainda nao rodou."
 }

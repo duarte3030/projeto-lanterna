@@ -661,6 +661,90 @@
       "y": 4,
       "respawn_map": "MAP_POKEMON_LEAGUE_SOUTH_POKECENTER_1F",
       "respawn_npc": "LOCALID_POKEMON_LEAGUE_SOUTH_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_GALAR_WEDGEHURST",
+      "map": "MAP_GALAR_WEDGEHURST_03",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_GALAR_WEDGEHURST_03"
+    },
+    {
+      "id": "HEAL_LOCATION_GALAR_STOW_ON_SIDE",
+      "map": "MAP_GALAR_STOW_ON_SIDE_04",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_GALAR_STOW_ON_SIDE_04"
+    },
+    {
+      "id": "HEAL_LOCATION_GALAR_TURFFIELD",
+      "map": "MAP_GALAR_TURFFIELD_02",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_GALAR_TURFFIELD_02"
+    },
+    {
+      "id": "HEAL_LOCATION_GALAR_HULBURY",
+      "map": "MAP_GALAR_HULBURY_02",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_GALAR_HULBURY_02"
+    },
+    {
+      "id": "HEAL_LOCATION_GALAR_HAMMERLOCKE",
+      "map": "MAP_GALAR_HAMMERLOCKE_15",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_GALAR_HAMMERLOCKE_15"
+    },
+    {
+      "id": "HEAL_LOCATION_GALAR_MOTOSTOKE",
+      "map": "MAP_GALAR_MOTOSTOKE_04",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_GALAR_MOTOSTOKE_04"
+    },
+    {
+      "id": "HEAL_LOCATION_GALAR_BALLONLEA",
+      "map": "MAP_GALAR_BALLONLEA_01",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_GALAR_BALLONLEA_01"
+    },
+    {
+      "id": "HEAL_LOCATION_GALAR_CIRCHESTER",
+      "map": "MAP_GALAR_CIRCHESTER_05",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_GALAR_CIRCHESTER_05"
+    },
+    {
+      "id": "HEAL_LOCATION_GALAR_SPIKEMUTH",
+      "map": "MAP_GALAR_SPIKEMUTH_05",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_GALAR_SPIKEMUTH_05"
+    },
+    {
+      "id": "HEAL_LOCATION_GALAR_WYNDON",
+      "map": "MAP_GALAR_WYNDON_06",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_GALAR_WYNDON_06"
+    },
+    {
+      "id": "HEAL_LOCATION_GALAR_ISLE_OF_ARMOR",
+      "map": "MAP_GALAR_ISLE_OF_ARMOR_04",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_GALAR_ISLE_OF_ARMOR_04"
+    },
+    {
+      "id": "HEAL_LOCATION_GALAR_CROWN_TUNDRA",
+      "map": "MAP_GALAR_CROWN_TUNDRA_06",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_GALAR_CROWN_TUNDRA_06"
     }
   ]
 }
