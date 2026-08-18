@@ -31,6 +31,17 @@
     }
   ],
   "coord_events": [],
-  "bg_events": [],
-  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g21m02. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. object_events, coord_events e bg_events vazios de proposito: o G4 (NPCs e itens) ainda nao rodou."
+  "bg_events": [
+    {
+      "type": "hidden_item",
+      "x": 19,
+      "y": 9,
+      "elevation": 0,
+      "item": "ITEM_PERSIM_BERRY",
+      "flag": "FLAG_ITEM_GALAR_NEWMOON_ISLAND_02_PERSIM_BERRY",
+      "quantity": 1,
+      "underfoot": false
+    }
+  ],
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g21m02. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo."
 }

@@ -114,6 +114,9 @@ import struct
 import sys
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(RAIZ, "dev_scripts"))
+import gente_galar as G4  # noqa: E402  G4: NPC mudo e item escondido
+
 FONTE = os.path.join(os.path.dirname(RAIZ), "fontes-mapas/galar-swsh/extraidos-ultimate")
 CENSO = f"{RAIZ}/dev_scripts/galar_mundo.json"
 CENSO_TILESETS = f"{RAIZ}/dev_scripts/galar_tilesets.json"
@@ -672,6 +675,8 @@ def escreve_mapas(mapas, gravar):
     for m in mapas:
         ciclo, fuga, corrida, nome_na_tela = BANDEIRAS[m["map_type"]]
         nota_nome = (" " + m["nota_nome"]) if m.get("nota_nome") else ""
+        objetos, itens, _censo = G4.eventos_do_mapa(m["fonte"], m["w"], m["h"],
+                                                    m["id_mapa"])
         doc = {
             "id": m["id_mapa"],
             "name": m["nome"],
@@ -687,14 +692,17 @@ def escreve_mapas(mapas, gravar):
             "show_map_name": nome_na_tela,
             "battle_scene": m["battle_scene"],
             "connections": m["connections"],
-            "object_events": [],
+            "object_events": objetos,
             "warp_events": m["warp_events"],
             "coord_events": [],
-            "bg_events": [],
+            "bg_events": itens,
             "origem": ("demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa %s. "
-                       "Gerado por dev_scripts/mundo_galar.py; nao editar a mao. "
-                       "object_events, coord_events e bg_events vazios de proposito: "
-                       "o G4 (NPCs e itens) ainda nao rodou.%s" % (m["fonte"], nota_nome)),
+                       "Gerado por dev_scripts/mundo_galar.py (G2+G3) e "
+                       "dev_scripts/gente_galar.py (G4); nao editar a mao. "
+                       "coord_events fica vazio de proposito: gatilho de cena e fase "
+                       "de conteudo. object_events sao NPC MUDO (script \"0\") e "
+                       "bg_events sao item escondido; quem nao entrou esta em "
+                       "dev_scripts/galar_gente.json com motivo.%s" % (m["fonte"], nota_nome)),
         }
         if not gravar:
             continue

@@ -25,5 +25,5 @@
   ],
   "coord_events": [],
   "bg_events": [],
-  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g08m17. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. object_events, coord_events e bg_events vazios de proposito: o G4 (NPCs e itens) ainda nao rodou. renomeado no G3: o grafo liga este mapa a WildArea (votos {'WildArea': 1}); papel MAP_TYPE_NONE pelo map_type"
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g08m17. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo. renomeado no G3: o grafo liga este mapa a WildArea (votos {'WildArea': 1}); papel MAP_TYPE_NONE pelo map_type"
 }

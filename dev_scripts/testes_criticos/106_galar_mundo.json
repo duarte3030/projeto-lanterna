@@ -154,5 +154,70 @@
    "mapa": "MAP_GALAR_ROUTE01_02",
    "layout": "LAYOUT_GALAR_ROUTE01_02"
   }
+ },
+ {
+  "id": "T106.17",
+  "nome": "Galar, G4: o mapa mais povoado da regiao carrega com a gente dentro. Galar_Circhester06 (g12m10, 58x77) e o que recebeu MAIS NPC mudo dos 438: 25 object events, de 14 classes de sprite diferentes (5 MAN, 4 COOLTRAINER_F, 3 YOUNGSTER_FRLG, uma SIGN e mais dez). Carregar um mapa com 25 object events NAO e o mesmo que carregar um vazio: o motor monta a lista de object events na EWRAM na entrada do mapa, e id de grafico que esta build nao desenha derruba o jogo na hora (foi assim que os NPC de Sinnoh derrubaram a ROM duas vezes, ver confere_tabela_de_trocas em dev_scripts/valida_mapas_sinnoh.py). Se qualquer um dos 35 sprites da tabela de gfx (dev_scripts/tabela_gfx_galar.py) apontasse para um id sem GraphicsInfo, o mapa nao chegaria a fixar mapLayoutId na EWRAM.",
+  "warp": "MAP_GALAR_CIRCHESTER_06",
+  "prova": {
+   "mapa": "MAP_GALAR_CIRCHESTER_06",
+   "layout": "LAYOUT_GALAR_CIRCHESTER_06"
+  }
+ },
+ {
+  "id": "T106.18",
+  "nome": "Galar, G4, NPC NA POSICAO ESPERADA, prova por BLOQUEIO (molde saturante): Galar_IsleOfArmor02 (g01m34, 44x18) recebeu 9 NPC mudos; um deles, OBJ_EVENT_GFX_YOUNGSTER_FRLG, esta em (18,9). O warp 1 fica em (18,3) (MB_ANIMATED_DOOR) e o warp 2 em (18,15) (MB_SOUTH_ARROW_WARP, destino MAP_GALAR_ISLE_OF_ARMOR_08), na MESMA coluna 18, com a coluna inteira andavel entre eles (colisao lida do blockdata, tile a tile). O roteiro entra pelo warp 1 e segura DOWN dezesseis vezes: com a coluna livre o jogador desceria os doze tiles ate o warp. Com o NPC em (18,9) ele para em (18,8) e as oito descidas restantes batem no corpo dele. A prova e continuar NO MAPA DE ORIGEM. Saturante de proposito: nao depende de contar tile, so de o NPC ser solido e estar exatamente ali. Quem torna esta prova nao-vacua e o T106.19: MESMO warp de entrada, roteiro que so acrescenta UM passo lateral para contornar (18,9), e o jogador sai do mapa.",
+  "warp": "MAP_GALAR_ISLE_OF_ARMOR_02",
+  "warp_id": 1,
+  "roteiro": "16:DOWN*16,180:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_ISLE_OF_ARMOR_02",
+   "layout": "LAYOUT_GALAR_ISLE_OF_ARMOR_02"
+  }
+ },
+ {
+  "id": "T106.19",
+  "nome": "Galar, G4, PAR do T106.18: contornar o NPC por UMA coluna faz o jogador sair. Mesmo mapa, mesmo warp 1 de entrada; a unica diferenca de roteiro e um passo para a direita logo no comeco, que troca a coluna 18 (onde o NPC do T106.18 esta, em (18,9)) pela coluna 19, livre de ponta a ponta. O jogador desce ate (19,14), volta um tile a esquerda para (18,14) e segura DOWN em cima do warp 2, em (18,15), que e MB_SOUTH_ARROW_WARP e por isso so dispara com a direcao SEGURADA (mecanica ja medida no G3, ver T106.13). Chegada: MAP_GALAR_ISLE_OF_ARMOR_08. Sem este caso o T106.18 provaria so 'o jogador nao saiu', que um roteiro quebrado tambem provaria; com ele, a unica diferenca entre sair e ficar preso e o corpo do NPC ocupar (18,9).",
+  "warp": "MAP_GALAR_ISLE_OF_ARMOR_02",
+  "warp_id": 1,
+  "roteiro": "16:DOWN,16:RIGHT,16:DOWN*10,16:LEFT,24:DOWN*4,180:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_ISLE_OF_ARMOR_08"
+  }
+ },
+ {
+  "id": "T106.20",
+  "nome": "Galar, G4, ITEM ESCONDIDO com a flag APAGADA: Galar_IsleOfArmor02 guarda tres dos 33 itens escondidos que sobreviveram a triagem, e este caso pega o do meio, ITEM_PARALYZE_HEAL em (17,5), flag FLAG_ITEM_GALAR_ISLE_OF_ARMOR_02_PARALYZE_HEAL (apelido novo de FLAG_UNUSED_0x1C16, faixa 0x1C00+ que a decisao 6 deu a Galar). MECANICA CONFERIDA NA FONTE, nao suposta: item escondido NAO precisa de script custom nenhum, o motor resolve nativo em GetInteractedBgEventScript (src/field_control_avatar.c, case BG_EVENT_HIDDEN_ITEM), e dispara com o jogador ENCARANDO o tile e apertando A, porque a posicao consultada vem de GetInFrontOfPlayerPosition. O roteiro entra pelo warp 2 em (18,15), sobe cinco tiles pela coluna 18, desvia um tile a esquerda (a coluna 18 tem o NPC do T106.18 em (18,9)) e sobe mais quatro ate (17,6); como o ultimo passo foi UP, ele ja esta de frente para (17,5). O A abre a cena nativa e os dez A seguintes, espacados de 60 quadros, fecham as caixas ate SetHiddenItemFlag rodar no FIM de EventScript_PutHiddenItemInPocket (o espacamento foi medido: com A a cada 30 quadros as batidas caem dentro do waitfanfare e sao engolidas, e o teste morre parado na caixa 'PUT AWAY IN THE ITEMS POCKET'). PROVA DUPLA: a flag deste item ACESA e a do ITEM_AWAKENING do MESMO mapa (em (31,4), flag 0x1C17, a vizinha imediata na faixa) ainda APAGADA, que e o que separa 'achei este item' de 'acendi a faixa inteira'.",
+  "warp": "MAP_GALAR_ISLE_OF_ARMOR_02",
+  "warp_id": 2,
+  "roteiro": "16:UP*5,16:LEFT,16:UP*4,20:A,120:NADA,60:A*10,240:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_ISLE_OF_ARMOR_02",
+   "flags_acesas": [
+    "FLAG_ITEM_GALAR_ISLE_OF_ARMOR_02_PARALYZE_HEAL"
+   ],
+   "flags_apagadas": [
+    "FLAG_ITEM_GALAR_ISLE_OF_ARMOR_02_AWAKENING"
+   ]
+  }
+ },
+ {
+  "id": "T106.21",
+  "nome": "Galar, G4, PAR do T106.20, com a flag PINADA ACESA: mesmo mapa, mesmo warp e MESMO roteiro, so que FLAG_ITEM_GALAR_ISLE_OF_ARMOR_02_PARALYZE_HEAL ja entra acesa (escrita direta na EWRAM pelo runner, antes do warp). Com ela acesa o motor devolve NULL em GetInteractedBgEventScript antes de montar a cena (o `if (FlagGet(gSpecialVar_0x8004) == TRUE) return NULL;` logo depois de gravar item e quantidade), entao o A nao abre caixa nenhuma e os dez A seguintes caem no vazio do overworld. Prova: o jogador continua em Galar_IsleOfArmor02 (nenhum A perdido virou warp, menu ou reset), a flag continua acesa e a do AWAKENING continua apagada. E o par que mostra que a flag e mesmo a chave: o roteiro que ACENDE no T106.20 nao faz nada aqui, e a unica diferenca entre os dois casos e o estado inicial dessa flag.",
+  "warp": "MAP_GALAR_ISLE_OF_ARMOR_02",
+  "warp_id": 2,
+  "flags": [
+   "FLAG_ITEM_GALAR_ISLE_OF_ARMOR_02_PARALYZE_HEAL"
+  ],
+  "roteiro": "16:UP*5,16:LEFT,16:UP*4,20:A,120:NADA,60:A*10,240:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_ISLE_OF_ARMOR_02",
+   "flags_acesas": [
+    "FLAG_ITEM_GALAR_ISLE_OF_ARMOR_02_PARALYZE_HEAL"
+   ],
+   "flags_apagadas": [
+    "FLAG_ITEM_GALAR_ISLE_OF_ARMOR_02_AWAKENING"
+   ]
+  }
  }
 ]
