@@ -1,5 +1,11 @@
 EternaCityPokecenter1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, EternaCityPokecenter1F_OnTransition
 	.byte 0
+
+@ Ponto de cura de Sinnoh (dev_scripts/heal_locations_sinnoh_ginasios.py).
+EternaCityPokecenter1F_OnTransition:
+	setrespawn HEAL_LOCATION_ETERNA_CITY
+	end
 
 EternaCityPokecenter1F_EventScript_Enfermeira::
 	setvar VAR_0x800B, 1

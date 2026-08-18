@@ -1,5 +1,11 @@
 SnowpointCityPokecenter1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, SnowpointCityPokecenter1F_OnTransition
 	.byte 0
+
+@ Ponto de cura de Sinnoh (dev_scripts/heal_locations_sinnoh_ginasios.py).
+SnowpointCityPokecenter1F_OnTransition:
+	setrespawn HEAL_LOCATION_SNOWPOINT_CITY
+	end
 
 SnowpointCityPokecenter1F_EventScript_Enfermeira::
 	setvar VAR_0x800B, 1

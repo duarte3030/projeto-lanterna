@@ -597,6 +597,70 @@
       "y": 4,
       "respawn_map": "MAP_UNOVA_VIRBANK_POKECENTER_1F",
       "respawn_npc": "LOCALID_UNOVA_VIRBANK_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_ETERNA_CITY",
+      "map": "MAP_ETERNA_CITY_POKECENTER_1F",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_ETERNA_CITY_POKECENTER_1F",
+      "respawn_npc": "LOCALID_ETERNA_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_VEILSTONE_CITY",
+      "map": "MAP_VEILSTONE_CITY_POKECENTER_1F",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_VEILSTONE_CITY_POKECENTER_1F",
+      "respawn_npc": "LOCALID_VEILSTONE_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_PASTORIA_CITY",
+      "map": "MAP_PASTORIA_CITY_POKECENTER_1F",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_PASTORIA_CITY_POKECENTER_1F",
+      "respawn_npc": "LOCALID_PASTORIA_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_HEARTHOME_CITY",
+      "map": "MAP_HEARTHOME_CITY_POKECENTER_1F",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_HEARTHOME_CITY_POKECENTER_1F",
+      "respawn_npc": "LOCALID_HEARTHOME_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_CANALAVE_CITY",
+      "map": "MAP_CANALAVE_CITY_POKECENTER_1F",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_CANALAVE_CITY_POKECENTER_1F",
+      "respawn_npc": "LOCALID_CANALAVE_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_SNOWPOINT_CITY",
+      "map": "MAP_SNOWPOINT_CITY_POKECENTER_1F",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_SNOWPOINT_CITY_POKECENTER_1F",
+      "respawn_npc": "LOCALID_SNOWPOINT_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_SUNYSHORE_CITY",
+      "map": "MAP_SUNYSHORE_CITY_POKECENTER_1F",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_SUNYSHORE_CITY_POKECENTER_1F",
+      "respawn_npc": "LOCALID_SUNYSHORE_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_POKEMON_LEAGUE_SOUTH",
+      "map": "MAP_POKEMON_LEAGUE_SOUTH_POKECENTER_1F",
+      "x": 7,
+      "y": 4,
+      "respawn_map": "MAP_POKEMON_LEAGUE_SOUTH_POKECENTER_1F",
+      "respawn_npc": "LOCALID_POKEMON_LEAGUE_SOUTH_PC_NURSE"
     }
   ]
 }

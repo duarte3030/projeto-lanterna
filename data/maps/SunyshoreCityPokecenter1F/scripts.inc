@@ -1,5 +1,11 @@
 SunyshoreCityPokecenter1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, SunyshoreCityPokecenter1F_OnTransition
 	.byte 0
+
+@ Ponto de cura de Sinnoh (dev_scripts/heal_locations_sinnoh_ginasios.py).
+SunyshoreCityPokecenter1F_OnTransition:
+	setrespawn HEAL_LOCATION_SUNYSHORE_CITY
+	end
 
 SunyshoreCityPokecenter1F_EventScript_Enfermeira::
 	setvar VAR_0x800B, 1

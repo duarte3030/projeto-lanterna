@@ -92,10 +92,15 @@
 
 // Map Scene
 #define VAR_MAP_SCENE_PALLET_TOWN_OAK                                          0x4050
-#define VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN                                    0x4051
+// Ate 18/08/2026 era VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN; realiasada para
+// 0x40F8 porque colidia com VAR_OLDALE_TOWN_STATE (Hoenn, include/constants/
+// vars.h). Ver o realias de 0x40F7-0x40F9 mais abaixo.
+#define VAR_0x4051                                                             0x4051
 #define VAR_MAP_SCENE_CERULEAN_CITY_RIVAL                                      0x4052
 #define VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER                                0x4053
-#define VAR_MAP_SCENE_ROUTE22                                                  0x4054
+// Ate 18/08/2026 era VAR_MAP_SCENE_ROUTE22; realiasada para 0x40F7 porque
+// colidia com VAR_CURRENT_SECRET_BASE (Hoenn, include/constants/vars.h).
+#define VAR_0x4054                                                             0x4054
 #define VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB                           0x4055
 #define VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F                             0x4056
 #define VAR_MAP_SCENE_VIRIDIAN_CITY_MART                                       0x4057
@@ -105,7 +110,9 @@
 #define VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR                                     0x405B
 #define VAR_MAP_SCENE_SILPH_CO_7F                                              0x405C
 #define VAR_MAP_SCENE_POKEMON_TOWER_2F                                         0x405D
-#define VAR_MAP_SCENE_ROUTE16                                                  0x405E
+// Ate 18/08/2026 era VAR_MAP_SCENE_ROUTE16; realiasada para 0x40F9 porque
+// colidia com VAR_SOOTOPOLIS_CITY_STATE (Hoenn, include/constants/vars.h).
+#define VAR_0x405E                                                             0x405E
 #define VAR_MAP_SCENE_ROUTE23                                                  0x405F
 #define VAR_MAP_SCENE_SILPH_CO_11F                                             0x4060
 #define VAR_MAP_SCENE_PEWTER_CITY_MUSEUM_1F                                    0x4061
@@ -259,9 +266,22 @@
 #define VAR_0x40F4                 0x40F4
 #define VAR_0x40F5                 0x40F5
 #define VAR_0x40F6                 0x40F6
-#define VAR_0x40F7                 0x40F7
-#define VAR_0x40F8                 0x40F8
-#define VAR_0x40F9                 0x40F9
+
+// Realias de 18/08/2026 (Fase C, condutora Fable, autorizado em PRD-GOAL.md,
+// secao "Portoes Fable da Fase C RESOLVIDOS", item 2): estas tres vars de
+// Kanto colidiam com Hoenn em include/constants/vars.h (mesmo vars[] do
+// SaveBlock1, ver VAR_CURRENT_SECRET_BASE, VAR_OLDALE_TOWN_STATE e
+// VAR_SOOTOPOLIS_CITY_STATE), e vieram para esta faixa livre (0x40F7-0x40FE,
+// confirmada vazia tambem em vars.h como VAR_UNUSED_0x40F7..0x40FE). Dono da
+// faixa 0x40F7-0x40F9: estas tres vars; 0x40FA-0x40FE seguem livres.
+// Save existente perde o progresso das tres cenas de Kanto (ja estava
+// corrompido pela colisao com Hoenn). ATENCAO: guarda_save.py NAO acusa isto
+// e nao deveria, realias de endereco nao muda VARS_COUNT nem layout; a perda
+// e real, autorizada pelo portao da Fase C, e invisivel para a ferramenta.
+// Nao procure um vermelho do guarda para isto, ele nunca vai existir.
+#define VAR_MAP_SCENE_ROUTE22                    0x40F7 // era 0x4054
+#define VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN      0x40F8 // era 0x4051
+#define VAR_MAP_SCENE_ROUTE16                    0x40F9 // era 0x405E
 #define VAR_0x40FA                 0x40FA
 #define VAR_0x40FB                 0x40FB
 #define VAR_0x40FC                 0x40FC

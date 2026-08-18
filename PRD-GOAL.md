@@ -133,6 +133,29 @@ que não existe (arte, mecânica) fica e é reportado ao Gui no fechamento.
 
 ### Fase C: dívidas registradas (cada uma com seu portão)
 
+**Portões Fable da Fase C RESOLVIDOS pela condutora em 18/08/2026:**
+
+- **Item 3 (heal locations de Sinnoh): AUTORIZADO em APPEND.** O save guarda
+  o último ponto de cura como dados de warp crus (WarpData), não como
+  índice, então acrescentar `HEAL_LOCATION_*` no FIM da tabela não fere a
+  janela (provar com guarda_save + T11 na onda). Entram as 7 cidades de
+  ginásio sem heal location + a Liga sul; o `chapter_jump.c` passa a usar
+  `SetLastHealLocationWarp` nelas (fecha o risco registrado do seletor).
+- **Item 2 (3 vars de Kanto colidindo com Hoenn): AUTORIZADO o realias.**
+  `VAR_MAP_SCENE_ROUTE22` -> `0x40F7`, `VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN`
+  -> `0x40F8`, `VAR_MAP_SCENE_ROUTE16` -> `0x40F9` (faixa livre 0x40F7-0x40FE
+  medida, dono anotado). Save existente perde o progresso dessas TRÊS cenas
+  de Kanto (elas já estavam corrompidas pela colisão com Hoenn; migração
+  documentada, guarda_save pode acusar e o condutor aceita com --gravar
+  justificado).
+- **Item 1 (1362 item balls de J/S/U): ADIADO por desenho.** Não existe
+  solução sem flag 1:1 (item ball só persiste por flag neste motor) e o pool
+  livre precisa sobrar para a obra de Galar. Fica para a era de reabertura
+  da janela de save (quando FLAGS_COUNT puder crescer de novo). Até lá o
+  dupe é conhecido e benigno.
+- **Item 4 (mecânica de parceiro): segue PORTÃO FABLE aberto** (desenho de
+  mecânica, não se executa nesta fase).
+
 1. **1362 item balls duplicáveis de Johto/Sinnoh/Unova**: PORTÃO FABLE
    (desenho de orçamento de flags; 1:1 não cabe no pool sem matar outras
    obras). Não executar sem o desenho.

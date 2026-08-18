@@ -14,7 +14,6 @@
 #include "string_util.h"
 #include "constants/flags.h"
 #include "constants/heal_locations.h"
-#include "constants/maps.h"
 #include "constants/opponents.h"
 #include "constants/opponents_frlg.h"
 
@@ -58,15 +57,13 @@
 
 struct DestinoDeCapitulo
 {
-    // Quando existe, o ponto de cura manda: ele já é a coordenada certa do
-    // Centro Pokémon e ainda arruma o ponto de respawn de quem desmaiar.
+    // O ponto de cura já é a coordenada certa do Centro Pokémon e ainda
+    // arruma o ponto de respawn de quem desmaiar (dev_scripts/
+    // heal_locations_sinnoh_ginasios.py, Fase C, 18/08/2026: as sete
+    // cidades de ginásio de Sinnoh e a Liga sul ganharam HEAL_LOCATION_*
+    // próprio, então o caminho por mapa e coordenada não é mais preciso
+    // aqui).
     u16 healLocation;
-    // Só valem quando healLocation é HEAL_LOCATION_NONE. Sinnoh tem ponto de
-    // cura para Oreburgh e mais nada, então as outras sete cidades de ginásio
-    // dela chegam por mapa e coordenada.
-    u16 mapa;
-    u8 x;
-    u8 y;
 };
 
 struct GinasioDoHack
@@ -97,13 +94,8 @@ struct RegiaoDoHack
     u8 numGinasios;
 };
 
-// Atalhos de leitura. `CURA` é o caso normal; `MAPA` é a exceção de Sinnoh.
-#define CURA(hl)        { hl, 0, 0, 0 }
-#define MAPA(m, mx, my) { HEAL_LOCATION_NONE, m, mx, my }
-// Todos os Centros Pokémon de Sinnoh compartilham LAYOUT_OREBURGH_CITY_POKEMON_
-// CENTER_1F, e o ponto de cura de Oreburgh (src/data/heal_locations.json) fica
-// em (7,4) dentro dele: o mesmo par serve para as sete cidades sem ponto de cura.
-#define CENTRO_SINNOH(m) MAPA(m, 7, 4)
+// Atalho de leitura: todo destino é um ponto de cura.
+#define CURA(hl) { hl }
 
 // ----------------------------------------------------------------------------
 // KANTO
@@ -169,17 +161,18 @@ static const struct GinasioDoHack sGinasiosHoenn[] =
 // flags declaram em include/constants/flags.h (Roark, Gardenia, Maylene, Wake,
 // Fantina, Byron, Candice, Volkner), que é a do Diamond/Pearl.
 // Sem FLAG_DEFEATED_* por líder: os ginásios usam `goto_if_defeated`.
-// Sete das oito cidades não têm ponto de cura, daí o CENTRO_SINNOH.
+// As sete cidades que não tinham ponto de cura ganharam o delas em
+// dev_scripts/heal_locations_sinnoh_ginasios.py (Fase C, 18/08/2026).
 static const struct GinasioDoHack sGinasiosSinnoh[] =
 {
-    { COMPOUND_STRING("ROARK"),    CURA(HEAL_LOCATION_OREBURGH_CITY),                     FLAG_INSIGNIA_SINNOH_1, 0, TRAINER_SINNOH_LEADER_ROARK },
-    { COMPOUND_STRING("GARDENIA"), CENTRO_SINNOH(MAP_ETERNA_CITY_POKECENTER_1F),          FLAG_INSIGNIA_SINNOH_2, 0, TRAINER_SINNOH_LEADER_GARDENIA },
-    { COMPOUND_STRING("MAYLENE"),  CENTRO_SINNOH(MAP_VEILSTONE_CITY_POKECENTER_1F),       FLAG_INSIGNIA_SINNOH_3, 0, TRAINER_SINNOH_LEADER_MAYLENE },
-    { COMPOUND_STRING("CRASHER WAKE"), CENTRO_SINNOH(MAP_PASTORIA_CITY_POKECENTER_1F),  FLAG_INSIGNIA_SINNOH_4, 0, TRAINER_SINNOH_LEADER_WAKE },
-    { COMPOUND_STRING("FANTINA"),  CENTRO_SINNOH(MAP_HEARTHOME_CITY_POKECENTER_1F),       FLAG_INSIGNIA_SINNOH_5, 0, TRAINER_SINNOH_LEADER_FANTINA },
-    { COMPOUND_STRING("BYRON"),    CENTRO_SINNOH(MAP_CANALAVE_CITY_POKECENTER_1F),        FLAG_INSIGNIA_SINNOH_6, 0, TRAINER_SINNOH_LEADER_BYRON },
-    { COMPOUND_STRING("CANDICE"),  CENTRO_SINNOH(MAP_SNOWPOINT_CITY_POKECENTER_1F),       FLAG_INSIGNIA_SINNOH_7, 0, TRAINER_SINNOH_LEADER_CANDICE },
-    { COMPOUND_STRING("VOLKNER"),  CENTRO_SINNOH(MAP_SUNYSHORE_CITY_POKECENTER_1F),       FLAG_INSIGNIA_SINNOH_8, 0, TRAINER_SINNOH_LEADER_VOLKNER },
+    { COMPOUND_STRING("ROARK"),        CURA(HEAL_LOCATION_OREBURGH_CITY),   FLAG_INSIGNIA_SINNOH_1, 0, TRAINER_SINNOH_LEADER_ROARK },
+    { COMPOUND_STRING("GARDENIA"),     CURA(HEAL_LOCATION_ETERNA_CITY),     FLAG_INSIGNIA_SINNOH_2, 0, TRAINER_SINNOH_LEADER_GARDENIA },
+    { COMPOUND_STRING("MAYLENE"),      CURA(HEAL_LOCATION_VEILSTONE_CITY),  FLAG_INSIGNIA_SINNOH_3, 0, TRAINER_SINNOH_LEADER_MAYLENE },
+    { COMPOUND_STRING("CRASHER WAKE"), CURA(HEAL_LOCATION_PASTORIA_CITY),   FLAG_INSIGNIA_SINNOH_4, 0, TRAINER_SINNOH_LEADER_WAKE },
+    { COMPOUND_STRING("FANTINA"),      CURA(HEAL_LOCATION_HEARTHOME_CITY),  FLAG_INSIGNIA_SINNOH_5, 0, TRAINER_SINNOH_LEADER_FANTINA },
+    { COMPOUND_STRING("BYRON"),        CURA(HEAL_LOCATION_CANALAVE_CITY),   FLAG_INSIGNIA_SINNOH_6, 0, TRAINER_SINNOH_LEADER_BYRON },
+    { COMPOUND_STRING("CANDICE"),      CURA(HEAL_LOCATION_SNOWPOINT_CITY),  FLAG_INSIGNIA_SINNOH_7, 0, TRAINER_SINNOH_LEADER_CANDICE },
+    { COMPOUND_STRING("VOLKNER"),      CURA(HEAL_LOCATION_SUNYSHORE_CITY),  FLAG_INSIGNIA_SINNOH_8, 0, TRAINER_SINNOH_LEADER_VOLKNER },
 };
 
 // ----------------------------------------------------------------------------
@@ -239,8 +232,8 @@ static const struct RegiaoDoHack sRegioes[] =
     },
     {
         COMPOUND_STRING("SINNOH"),
-        CENTRO_SINNOH(MAP_CANALAVE_CITY_POKECENTER_1F),
-        CENTRO_SINNOH(MAP_POKEMON_LEAGUE_SOUTH_POKECENTER_1F),
+        CURA(HEAL_LOCATION_CANALAVE_CITY),
+        CURA(HEAL_LOCATION_POKEMON_LEAGUE_SOUTH),
         sGinasiosSinnoh, ARRAY_COUNT(sGinasiosSinnoh),
     },
     {
@@ -368,21 +361,13 @@ static void MarcaGinasioVencido(const struct GinasioDoHack *ginasio)
 
 static void VaiPara(const struct DestinoDeCapitulo *destino)
 {
-    if (destino->healLocation != HEAL_LOCATION_NONE)
-    {
-        // Arruma também o ponto de respawn: desmaiar logo depois do pulo tem que
-        // devolver o jogador à cidade do capítulo, não à última em que ele
-        // dormiu do outro lado do mundo.
-        SetLastHealLocationWarp(destino->healLocation);
-        SetWarpDestinationToHealLocation(destino->healLocation);
-    }
-    else
-    {
-        // Sinnoh sem ponto de cura: o respawn fica como estava, de propósito.
-        // Inventar um aqui exigiria entrada nova em heal_locations.json, e a
-        // janela de save está fechada.
-        SetWarpDestination(MAP_GROUP(destino->mapa), MAP_NUM(destino->mapa), WARP_ID_NONE, destino->x, destino->y);
-    }
+    // Arruma também o ponto de respawn: desmaiar logo depois do pulo tem que
+    // devolver o jogador à cidade do capítulo, não à última em que ele
+    // dormiu do outro lado do mundo. Todo destino tem HEAL_LOCATION_* próprio
+    // desde a Fase C (18/08/2026): as sete cidades de ginásio de Sinnoh e a
+    // Liga sul ganharam o delas em dev_scripts/heal_locations_sinnoh_ginasios.py.
+    SetLastHealLocationWarp(destino->healLocation);
+    SetWarpDestinationToHealLocation(destino->healLocation);
 
     // Mesma trinca do comando `warp` de script (ScrCmd_warp, src/scrcmd.c:968).
     // Quem chama precisa de um `waitstate` logo depois.
