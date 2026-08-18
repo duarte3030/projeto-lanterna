@@ -1063,6 +1063,17 @@ enum __attribute__((packed)) Item
     ITEM_CLEAR_BELL = 875,
     ITEM_TIDAL_BELL = 876,
 
+    // Conveniências do jogador. Mesmo raciocínio de append puro dos sinos: id
+    // novo no fim não mexe em struct nenhuma de save. ITEM_FIELD_ARROW desliza
+    // junto com ITEMS_COUNT por definição, e isso é esperado.
+    ITEM_INFINITE_CANDY = 877,
+    ITEM_INFINITE_REPEL = 878,
+
+    // Ferramenta de teste, mesmo raciocínio de append puro dos dois acima:
+    // teleporta para qualquer capítulo do jogo com o estado mínimo consistente.
+    // Ver src/chapter_jump.c.
+    ITEM_CHAPTER_JUMP = 879,
+
     ITEMS_COUNT,
     ITEM_FIELD_ARROW = ITEMS_COUNT,
 };

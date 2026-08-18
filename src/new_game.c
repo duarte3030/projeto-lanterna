@@ -1,5 +1,6 @@
 #include "global.h"
 #include "clock.h"
+#include "chapter_jump.h"
 #include "new_game.h"
 #include "random.h"
 #include "pokemon.h"
@@ -229,18 +230,25 @@ void NewGameInitData(void)
     ResetLotteryCorner();
     UpdateDailySeed();
     WarpToTruck();
-    // Fica no ramo Emerald DE PROPOSITO, mesmo com o jogo comecando em Kanto.
-    // Medido em 05/08/2026: include/constants/flags.h so inclui flags_frlg.h
-    // dentro de `#if IS_FRLG`; no ramo `#else` toda FLAG_HIDE_* de Kanto e
-    // redefinida como o literal 0, e GetFlagPointer(0) devolve NULL. Ou seja,
-    // EventScript_ResetAllMapFlagsFrlg vira ~50 setflag em cima do nada, e o
-    // unico efeito real dele seria gravar 500 em VAR_MASSAGE_COOLDOWN_STEP_COUNTER
-    // (0x4025), que nesta build e VAR_MIRAGE_RND_L, de Hoenn. Trocar por ele
-    // perderia as flags de esconder de Hoenn e as berries, sem ganhar nada.
-    if (IS_FRLG)
-        RunScriptImmediately(EventScript_ResetAllMapFlagsFrlg);
-    else
-        RunScriptImmediately(EventScript_ResetAllMapFlags);
+    // Os DOIS, sempre: a ROM tem Hoenn e Kanto no mesmo save, entao as duas
+    // listas de "nasce escondido" precisam valer. Nao e um ou outro.
+    //
+    // Ate 16/08/2026 so o de Hoenn rodava, com a justificativa (correta em
+    // 05/08) de que toda FLAG_HIDE_* de Kanto era o literal 0 e o script FRLG
+    // seria ~50 setflag em cima do nada. Isso deixou de ser verdade quando o
+    // liga_flags_kanto.py deu numero de verdade a essas flags: as 49 do script
+    // FRLG existem, e nao acender nenhuma delas custou a casa do Bill em
+    // Route 25. FLAG_HIDE_BILL_HUMAN_SEA_COTTAGE nunca era acesa, entao o Bill
+    // humano nascia visivel DENTRO do pod do teletransporte ao lado do
+    // Bill-Clefairy andando pela sala, e a cena do separador de celulas rodava
+    // em cima de dois Bills.
+    //
+    // Efeito colateral conhecido e aceito: a ultima linha do script FRLG grava
+    // 500 em VAR_MASSAGE_COOLDOWN_STEP_COUNTER (0x4025), que nesta build e
+    // VAR_MIRAGE_RND_L, de Hoenn. E inofensivo: UpdateMirageRnd sobrescreve
+    // esse var na proxima virada de dia do RTC.
+    RunScriptImmediately(EventScript_ResetAllMapFlags);
+    RunScriptImmediately(EventScript_ResetAllMapFlagsFrlg);
     StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
     ResetMiniGamesRecords();
     InitUnionRoomChatRegisteredTexts();
@@ -271,6 +279,50 @@ void NewGameInitData(void)
     // Vem depois de ClearBag() de proposito.
     AddBagItem(ITEM_DYNAMAX_BAND, 1);
     AddBagItem(ITEM_MEGA_RING, 1);
+    // Conveniencias do jogador, so no JOGO NOVO. Esta funcao roda em um unico
+    // lugar, CB2_NewGame (src/overworld.c), e carregar save existente passa por
+    // CB2_ContinueSavedGame, que nao a chama: save antiga nao ganha nada disso,
+    // que e exatamente o combinado da janela de save fechada.
+    //
+    // Tenis de corrida desde o primeiro passo (sem isso, correr so depois da
+    // mae entregar o item) e EXP ALL ligado (I_EXP_SHARE_FLAG aponta para
+    // FLAG_EXP_ALL em include/config/item.h).
+    FlagSet(FLAG_SYS_B_DASH);
+    FlagSet(FLAG_EXP_ALL);
+    // FLAG_SEM_ENCONTRO_SELVAGEM nao aparece aqui de proposito: ela tem que
+    // nascer APAGADA (encontros normais) ate o jogador usar o Infinite Repel, e
+    // o ClearSav1() + InitEventData() la em cima ja zeram o vetor de flags.
+    //
+    // Vem depois de ClearBag(), pelo mesmo motivo dos dois itens acima.
+    AddBagItem(ITEM_MACH_BIKE, 1);
+    AddBagItem(ITEM_INFINITE_CANDY, 1);
+    AddBagItem(ITEM_INFINITE_REPEL, 1);
+    // CHAPTER JUMP, o seletor de capitulo (src/chapter_jump.c). Ele cobre o
+    // meio do jogo; o comeco e coberto pelo seletor automatico logo abaixo.
+    AddBagItem(ITEM_CHAPTER_JUMP, 1);
+    // TURBO A/B nasce LIGADO. E a unica opcao do modo de teste cujo default nao
+    // e o valor 0 do byte; o bit vive em gSaveBlock2Ptr->filler_90[0], que o
+    // Sav2_ClearSetDefault do intro (src/intro.c) ja zerou antes desta funcao.
+    // Ele e inofensivo para a suite: o disparo so comeca depois de 20 quadros
+    // de botao segurado, e o gba_runner segura 6.
+    TestOptionSet(TEST_OPT_TURBO_AB, TRUE);
+    // AUTO RUN nasce DESLIGADO, e isto foi DECIDIDO PELA SUITE em 17/08/2026,
+    // nao por gosto. Correr muda a gramatica de andar: com o jogador correndo,
+    // mudar de direcao LOGO DEPOIS de um passo gasta um aperto so para virar, e
+    // mudar de direcao parado nao gasta. Medido nas duas ROMs com o mesmo
+    // roteiro (T80.1, biblioteca de Canalave): na build de 15/08 o `16:RIGHT`
+    // depois de dois `16:UP` ANDA, e com AUTO RUN ligado ele so VIRA. Isso
+    // reprovou 15 casos de percurso de uma vez, e o custo de acerto nao e
+    // remedir 15 roteiros: e que o custo de virar passa a depender de o aperto
+    // anterior ter andado ou nao, ou seja, todo roteiro futuro fica fragil.
+    // A opcao continua no menu de opcoes (modo de teste), a um toque de
+    // distancia de quem quiser jogar correndo.
+    TestOptionSet(TEST_OPT_AUTO_RUN, FALSE);
+    // Arma o seletor de capitulo do jogo novo. Quem o dispara e
+    // ProcessPlayerFieldInput (src/field_control_avatar.c), no primeiro quadro
+    // em que o jogador ganha o controle. Nao e bit de save: esta funcao e a
+    // primeira entrada no overworld acontecem no mesmo boot.
+    gChapterJumpModo = CHAPTER_JUMP_PENDENTE;
     // Ponto de cura inicial de Kanto. Sem isto, desmaiar manda o jogador para a
     // casa da mae em Hoenn, que e o padrao do Emerald.
     // PalletTown_PlayersHouse_2F_OnTransition tambem faz este setrespawn, mas so

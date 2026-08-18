@@ -9,17 +9,36 @@
 @ aparece em checkevent/setevent/clearevent dentro de script), entao a
 @ varredura de flags do PLANO-OBRAS-UNOVA.md nao o capturou e nao ha flag
 @ reservada pra ele nesta leva. Zero flag nova (janela de save fechada):
-@ ON_LOAD some com ela permanentemente usando a PROPRIA var da cena
-@ (VAR_UNOVA_FLOCCESY_CENA já != 0 depois que a cena roda), sem precisar de
-@ bit novo. `removeobject` dentro da cena cobre o "disappear" imediato.
+@ o objeto usa FLAG_UNOVA_CENA_JUNIPER no campo `flag` do map.json e o
+@ ON_TRANSITION abaixo reescreve o bit a cada entrada, guiado pela PRÓPRIA var
+@ da cena (VAR_UNOVA_FLOCCESY_CENA vai a 1 quando a cena termina).
+@ `removeobject` dentro da cena cobre o "disappear" imediato.
+@ A primeira versão (leva A4 da rodada de 15/08/2026) usava ON_LOAD + removeobject,
+@ que é no-op: ON_LOAD roda
+@ dentro de InitMap() (src/fieldmap.c:135-140), ANTES de InitObjectEventsLocal()
+@ criar os objetos, e removeobject só age em objeto já nascido; a JUNIPER
+@ renascia a cada reentrada no mapa.
 Unova_FloccesyTown_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, Unova_FloccesyTown_EventScript_AoCarregar
+	map_script MAP_SCRIPT_ON_TRANSITION, Unova_FloccesyTown_OnTransition
 	.byte 0
 
-Unova_FloccesyTown_EventScript_AoCarregar::
-	goto_if_eq VAR_UNOVA_FLOCCESY_CENA, 0, Unova_FloccesyTown_EventScript_AoCarregarFim
-	removeobject 5
-Unova_FloccesyTown_EventScript_AoCarregarFim::
+@ Roda ANTES de InitMap() criar os object_events (técnica 2 do SINNOH-PADRAO.md):
+@ a JUNIPER só nasce enquanto a cena ainda não rodou (var em 0).
+@ DEPENDÊNCIA COMPARTILHADA, não mexer aqui sozinho: FLAG_UNOVA_CENA_JUNIPER é o
+@ MESMO bit em Unova_NuvemaLab, Unova_P2LabEntrance, Unova_ChampionsRoom,
+@ Unova_UndellaTown (MARLON), Unova_CasteliaCityStreets (CHEREN),
+@ Unova_FloccesyTown (JUNIPER), Unova_NacreneCity (LENORA) e Unova_PWTOutside
+@ (CHEREN e BIANCA). O contrato que faz isso funcionar é "todo mapa que usa o
+@ bit o REESCREVE no seu próprio ON_TRANSITION, antes de os objetos nascerem".
+@ Quem tirar ou condicionar esta escrita em UM dos oito quebra os outros sete.
+@ Mudou um, confira os oito.
+Unova_FloccesyTown_OnTransition:
+	goto_if_eq VAR_UNOVA_FLOCCESY_CENA, 0, Unova_FloccesyTown_EventScript_TransicaoAntesDaCena
+	setflag FLAG_UNOVA_CENA_JUNIPER
+	end
+
+Unova_FloccesyTown_EventScript_TransicaoAntesDaCena::
+	clearflag FLAG_UNOVA_CENA_JUNIPER
 	end
 
 @ >>> B6 Unova, Obra 1: gatilhos de setscene (dev_scripts/gatilhos_setscene_unova.py) >>>

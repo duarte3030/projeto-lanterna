@@ -642,3 +642,11 @@ gSpecials::
 	def_special UpdateTrainerCardPhotoIcons
 	def_special StickerManGetBragFlags
 	def_special CheckAddCoins
+
+@ Seletor de capitulo (ITEM_CHAPTER_JUMP e o seletor do jogo novo).
+@ Ver src/chapter_jump.c e data/scripts/chapter_jump.inc.
+@ ChapterJump_AplicaCapitulo termina em warp, dai o waitstate implicito, no
+@ molde de DoCableClubWarp la em cima.
+	def_special ChapterJump_MontaListaDeRegioes
+	def_special ChapterJump_MontaListaDeCapitulos
+	def_special ChapterJump_AplicaCapitulo, waitstate=1

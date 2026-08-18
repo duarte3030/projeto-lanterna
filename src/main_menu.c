@@ -19,6 +19,7 @@
 #include "mystery_event_menu.h"
 #include "naming_screen.h"
 #include "oak_speech.h"
+#include "event_scripts.h"
 #include "option_menu.h"
 #include "overworld.h"
 #include "palette.h"
@@ -1077,9 +1078,28 @@ static void Task_HandleMainMenuAPressed(u8 taskId)
         {
         case ACTION_NEW_GAME:
         default:
-            // A abertura passa a ser SEMPRE a do Carvalho: o jogo comeca em
-            // Pallet Town (decisao 66), entao a fala do Birch com um Lotad
-            // apresentava a regiao errada.
+            // New Game vai DIRETO para o mapa: nem a fala do Carvalho, nem a
+            // escolha de genero, nem a digitacao dos dois nomes.
+            //
+            // Esta e uma ROM de teste, e quem aperta New Game aqui quer chegar
+            // no trecho que vai testar. O que a introducao gravava, e que
+            // continua sendo gravado logo abaixo, sao TRES coisas e mais nada:
+            // genero, nome do jogador e nome do rival (src/oak_speech.c, linhas
+            // 1323, 1455 e 1461). Todo o resto de estado de jogo novo nasce em
+            // NewGameInitData, que CB2_NewGame chama a seguir.
+            //
+            // O par de nomes e o canonico do FireRed, e sai das MESMAS strings
+            // que a introducao oferecia como sugestao (sMaleNameChoices e
+            // sRivalNameChoices em src/oak_speech.c), entao nada de texto novo.
+            //
+            // Quem escolhe o capitulo agora e o seletor de CHAPTER JUMP
+            // (src/chapter_jump.c), que aparece sozinho no primeiro quadro em
+            // que o jogador ganha o controle. Escolher START FROM BEGINNING la
+            // deixa o jogo seguir do quarto do jogador, com a cena da mae, que e
+            // o comeco de sempre.
+            //
+            // Para reviver a introducao, troque as quatro linhas abaixo por
+            // StartNewGameSceneFrlg(). Ela continua inteira em src/oak_speech.c.
             {
                 DestroyTask(taskId);
                 FreeAllWindowBuffers();
@@ -1087,7 +1107,19 @@ static void Task_HandleMainMenuAPressed(u8 taskId)
                     sCurrItemAndOptionMenuCheck = 0;
                 else
                     sCurrItemAndOptionMenuCheck |= OPTION_MENU_FLAG;  // entering the options menu
-                StartNewGameSceneFrlg();
+
+                gPlttBufferUnfaded[0] = RGB_BLACK;
+                gPlttBufferFaded[0] = RGB_BLACK;
+                gSaveBlock2Ptr->playerGender = MALE;
+                StringCopy(gSaveBlock2Ptr->playerName, gNameChoice_Red);
+                // O rival tem que ser gravado ANTES de CB2_NewGame: o
+                // NewGameInitData guarda gSaveBlock1Ptr->rivalName numa copia
+                // antes do ClearSav1 e devolve a copia depois (src/new_game.c),
+                // ou seja, ele preserva o que ja estiver aqui em vez de criar.
+                // Rival proprio de outra regiao continua com o nome da fonte:
+                // Barry, Silver e Hugh sao nome de NPC, nao este campo.
+                StringCopy(gSaveBlock1Ptr->rivalName, gNameChoice_Green);
+                SetMainCallback2(CB2_NewGame);
                 return;
             }
 

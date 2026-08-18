@@ -5,16 +5,36 @@
 @ em Unova_FloccesyTown: EVENT_NACRENE_CITY_LENORA e so campo de esconde-
 @ objeto (nunca aparece em checkevent/setevent/clearevent), a varredura de
 @ flags do PLANO nao o capturou, e nao ha flag reservada nesta leva. Mesma
-@ solucao de zero flag nova: ON_LOAD some com ela usando VAR_UNOVA_NACRENE_
-@ CENA (ja != 0 apos a cena rodar).
+@ solução de zero flag nova: o objeto usa FLAG_UNOVA_CENA_JUNIPER no campo
+@ `flag` do map.json e o ON_TRANSITION abaixo reescreve o bit a cada entrada,
+@ guiado pela PRÓPRIA var da cena (VAR_UNOVA_NACRENE_CENA vai a 1 quando a cena
+@ termina). `removeobject` dentro da cena cobre o "disappear" imediato.
+@ A primeira versão (leva A4 da rodada de 15/08/2026) usava ON_LOAD + removeobject,
+@ que é no-op: ON_LOAD roda
+@ dentro de InitMap() (src/fieldmap.c:135-140), ANTES de InitObjectEventsLocal()
+@ criar os objetos, e removeobject só age em objeto já nascido; a LENORA
+@ renascia a cada reentrada no mapa.
 Unova_NacreneCity_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, Unova_NacreneCity_EventScript_AoCarregar
+	map_script MAP_SCRIPT_ON_TRANSITION, Unova_NacreneCity_OnTransition
 	.byte 0
 
-Unova_NacreneCity_EventScript_AoCarregar::
-	goto_if_eq VAR_UNOVA_NACRENE_CENA, 0, Unova_NacreneCity_EventScript_AoCarregarFim
-	removeobject 1
-Unova_NacreneCity_EventScript_AoCarregarFim::
+@ Roda ANTES de InitMap() criar os object_events (técnica 2 do SINNOH-PADRAO.md):
+@ a LENORA só nasce enquanto a cena ainda não rodou (var em 0).
+@ DEPENDÊNCIA COMPARTILHADA, não mexer aqui sozinho: FLAG_UNOVA_CENA_JUNIPER é o
+@ MESMO bit em Unova_NuvemaLab, Unova_P2LabEntrance, Unova_ChampionsRoom,
+@ Unova_UndellaTown (MARLON), Unova_CasteliaCityStreets (CHEREN),
+@ Unova_FloccesyTown (JUNIPER), Unova_NacreneCity (LENORA) e Unova_PWTOutside
+@ (CHEREN e BIANCA). O contrato que faz isso funcionar é "todo mapa que usa o
+@ bit o REESCREVE no seu próprio ON_TRANSITION, antes de os objetos nascerem".
+@ Quem tirar ou condicionar esta escrita em UM dos oito quebra os outros sete.
+@ Mudou um, confira os oito.
+Unova_NacreneCity_OnTransition:
+	goto_if_eq VAR_UNOVA_NACRENE_CENA, 0, Unova_NacreneCity_EventScript_TransicaoAntesDaCena
+	setflag FLAG_UNOVA_CENA_JUNIPER
+	end
+
+Unova_NacreneCity_EventScript_TransicaoAntesDaCena::
+	clearflag FLAG_UNOVA_CENA_JUNIPER
 	end
 
 @ >>> B6 Unova, Obra 1: gatilhos de setscene (dev_scripts/gatilhos_setscene_unova.py) >>>

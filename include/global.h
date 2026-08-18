@@ -626,6 +626,38 @@ struct SaveBlock2
 
 extern struct SaveBlock2 *gSaveBlock2Ptr;
 
+// Modo de teste: as quatro opções novas do menu OPTION.
+//
+// Os quatro bits moram no primeiro byte de `filler_90`, oito bytes que existem
+// no SaveBlock2 desde o vanilla (offset 0x90) e que nenhum código do jogo lê ou
+// escreve. Nada muda de tamanho nem de lugar, e save antiga continua valendo
+// (o byte nasce zerado no new game, ou seja, as quatro opções nascem no default,
+// que é exatamente o comportamento atual).
+//
+// Por que não um bitfield novo dentro do u16 de opções, que tem 4 bits de
+// padding sobrando: `dev_scripts/guarda_save.py` compara o HASH DO TEXTO do
+// corpo do struct de save, não o layout. Declarar campo novo, mesmo dentro do
+// padding que já existia, faz a checagem reprovar com "STRUCT MUDOU"
+// (medido em 16/08/2026). Aqui o texto do struct não muda uma letra.
+#define TEST_OPT_RUN_SPEED_X2    (1 << 0)
+#define TEST_OPT_BATTLE_ANIM_2X  (1 << 1)
+#define TEST_OPT_LV5_TRAINERS    (1 << 2)
+#define TEST_OPT_OPTIONAL_BATTLE (1 << 3)
+// AUTO RUN: com ON, andar já sai correndo sem segurar B, e segurar B volta a
+// andar. Ao contrário das quatro de cima, esta NASCE LIGADA no jogo novo
+// (src/new_game.c), então o default 0 do byte deixa de valer para ela; save
+// antiga continua com o bit apagado, ou seja, comportamento de sempre.
+#define TEST_OPT_AUTO_RUN        (1 << 4)
+// TURBO A/B: segurar A ou B passa a valer como apertos repetidos em TODA
+// leitura de tecla, e não só no avanço de conversa. Vale para pergunta sim/não,
+// menu, seletor e batalha (segurar A confirma FIGHT, confirma o golpe e ataca
+// turno após turno). O gancho é único, em ReadKeys (src/main.c). Nasce LIGADA
+// no jogo novo, como a AUTO RUN.
+#define TEST_OPT_TURBO_AB        (1 << 5)
+
+#define TestOptionGet(bit)      ((gSaveBlock2Ptr->filler_90[0] & (bit)) != 0)
+#define TestOptionSet(bit, on)  (gSaveBlock2Ptr->filler_90[0] = (gSaveBlock2Ptr->filler_90[0] & ~(bit)) | ((on) ? (bit) : 0))
+
 extern u8 UpdateSpritePaletteWithTime(u8);
 
 struct SecretBaseParty

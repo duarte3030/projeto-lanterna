@@ -1,5 +1,6 @@
 #include "global.h"
 #include "battle_setup.h"
+#include "chapter_jump.h"
 #include "bike.h"
 #include "coord_event_weather.h"
 #include "daycare.h"
@@ -168,6 +169,22 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     gSelectedObjectEvent = 0;
 
     gMsgIsSignPost = FALSE;
+
+    // Seletor de capitulo do jogo novo. Roda UMA vez, no primeiro quadro em que
+    // o jogador ganha o controle depois de New Game, que e exatamente aqui: esta
+    // funcao so e chamada quando o campo esta aceitando comando do jogador.
+    //
+    // Por que aqui e nao num MAP_SCRIPT do quarto do jogador: ON_TRANSITION roda
+    // antes do mapa aparecer (nao da para desenhar menu la) e ON_FRAME_TABLE
+    // exige uma var de save para dizer "ja rodou". Este ponto nao pede nenhuma
+    // das duas, e vale para qualquer mapa inicial que o jogo venha a ter.
+    if (gChapterJumpModo == CHAPTER_JUMP_PENDENTE)
+    {
+        gChapterJumpModo = CHAPTER_JUMP_JOGO_NOVO;
+        ScriptContext_SetupScript(ChapterJump_EventScript_Abrir);
+        return TRUE;
+    }
+
     playerDirection = GetPlayerFacingDirection();
     GetPlayerPosition(&position);
     metatileBehavior = MapGridGetMetatileBehaviorAt(position.x, position.y);

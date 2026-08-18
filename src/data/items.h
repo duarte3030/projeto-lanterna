@@ -15893,6 +15893,74 @@ const struct ItemInfo gItemsInfo[] =
         .iconPic = gItemIcon_SootheBell,
         .iconPalette = gItemIconPalette_SootheBell,
     },
+
+// Conveniências do jogador
+
+    [ITEM_INFINITE_CANDY] =
+    {
+        .name = ITEM_NAME("Infinite Candy"),
+        .price = 0,
+        // `importance = 1` é o que segura o item na mochila: o RemoveBagItem do
+        // fluxo do Rare Candy (src/party_menu.c, ItemUseCB_RareCandy) passou a
+        // ser condicionado a `!GetItemImportance`, o mesmo idiom que já
+        // mantinha TM reutilizável (src/party_menu.c, Task_LearnedMove).
+        .importance = 1,
+        .description = COMPOUND_STRING(
+            "Never runs out.\n"
+            "Raises the level of\n"
+            "a Pokémon by 1."),
+        .pocket = POCKET_KEY_ITEMS,
+        .sortType = ITEM_TYPE_LEVEL_UP_ITEM,
+        .type = ITEM_USE_PARTY_MENU,
+        // Mesmo caminho do Rare Candy: abre o menu de party, escolhe o mon e
+        // sobe um nível com a cena e as mensagens de sempre. `holdEffectParam`
+        // fica em 0, que é o valor que ItemUseCB_RareCandy lê como "Rare Candy"
+        // (e não como Exp Candy).
+        .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
+        .effect = gItemEffect_RareCandy,
+        .iconPic = gItemIcon_RareCandy,
+        .iconPalette = gItemIconPalette_RareCandy,
+    },
+
+    [ITEM_INFINITE_REPEL] =
+    {
+        .name = ITEM_NAME("Infinite Repel"),
+        .price = 0,
+        .importance = 1,
+        .description = COMPOUND_STRING(
+            "Switches wild\n"
+            "encounters on and\n"
+            "off. Never ends."),
+        .pocket = POCKET_KEY_ITEMS,
+        .sortType = ITEM_TYPE_FIELD_USE,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_InfiniteRepel,
+        .iconPic = gItemIcon_Repel,
+        .iconPalette = gItemIconPalette_Repel,
+    },
+
+    [ITEM_CHAPTER_JUMP] =
+    {
+        .name = ITEM_NAME("Chapter Jump"),
+        .price = 0,
+        .importance = 1,
+        .description = COMPOUND_STRING(
+            "Warps to any\n"
+            "chapter of the\n"
+            "game. Test tool."),
+        .pocket = POCKET_KEY_ITEMS,
+        .sortType = ITEM_TYPE_FIELD_USE,
+        // ITEM_USE_FIELD é o que barra o item em batalha e em link: o menu da
+        // mochila de batalha só lista bolsas de batalha, e ItemId_GetType é o
+        // que separa "usa no campo" de "usa na luta". Mesmo tipo do Infinite
+        // Repel logo acima.
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_ChapterJump,
+        // Ícone emprestado do Town Map: o item é um mapa de destinos, e desenhar
+        // arte nova para ferramenta de teste seria trabalho sem leitor.
+        .iconPic = gItemIcon_TownMap,
+        .iconPalette = gItemIconPalette_TownMap,
+    },
 };
 
 #undef ITEM_NAME

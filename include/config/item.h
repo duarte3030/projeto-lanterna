@@ -28,7 +28,10 @@
 // Exp. Share config
 // To use this feature, replace the 0 with the flag ID you're assigning it to.
 // Eg: Replace with FLAG_UNUSED_0x264 so you can use that flag to toggle the feature.
-#define I_EXP_SHARE_FLAG        0           // If this flag is set, every Pokémon in the party will gain experience, regardless if they participated in the battle or not.
+// Acesa no jogo novo (src/new_game.c): a party inteira ganha experiência desde
+// o começo. I_EXP_SHARE_ITEM continua em GEN_5, então o Exp. Share segue sendo
+// item de segurar; quem liga o EXP ALL é a flag.
+#define I_EXP_SHARE_FLAG        FLAG_EXP_ALL // If this flag is set, every Pokémon in the party will gain experience, regardless if they participated in the battle or not.
 #define I_EXP_SHARE_ITEM        GEN_5       // In Gen6+, the Exp. Share was changed from a held item to a Key item that toggles the effect described above.
 
 // Repel/Lure config

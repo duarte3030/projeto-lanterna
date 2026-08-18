@@ -3,7 +3,9 @@
 
 // Vanilla
 #define WE_VANILLA_RANDOM           TRUE    // If TRUE, Pokémon can randomly spawn on tiles that can trigger wild encounters, as in vanilla.
-#define WE_FLAG_NO_ENCOUNTER        0       // If this flag is set, wild encounters will be disabled.
+// Ligada e desligada pelo ITEM_INFINITE_REPEL (src/item_use.c). Nasce APAGADA
+// no jogo novo, ou seja, encontros normais até o jogador usar o item.
+#define WE_FLAG_NO_ENCOUNTER        FLAG_SEM_ENCONTRO_SELVAGEM  // If this flag is set, wild encounters will be disabled.
 
 // Double Wild Battles
 #define WE_DOUBLE_WILD_CHANCE            0          // % chance of encountering two Pokémon in a Wild Encounter.

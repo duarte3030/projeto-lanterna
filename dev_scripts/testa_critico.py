@@ -17,7 +17,12 @@ offsets dentro do SaveBlock1 têm que ser lidos de CADA uma (ver
 
     python3 dev_scripts/testa_critico.py T11 \
         --rom  ~/roms/antiga/pokeemerald.gba  --src  ~/roms/antiga \
-        --rom2 pokeemerald.gba                --src2 .
+        --rom2 pokeemerald.gba                --src2 . \
+        --abertura intro_carvalho
+
+O `--abertura intro_carvalho` é obrigatório quando a ROM antiga é anterior a
+16/08/2026: o T11.1 grava a save NELA, e ela ainda tem a introdução do Carvalho,
+que a abertura de hoje não sabe atravessar.
 
 T11.1 joga e salva, T11.2 confere que a save volta na mesma ROM (é o controle
 que prova que o .sav está mesmo sendo lido), e T11.3 carrega a MESMA save na
@@ -82,34 +87,65 @@ if not os.path.exists(RUNNER):
 SAIDA = "/tmp/claude-501/frenteA/testes"
 CASOS_DIR = os.path.join(RAIZ, "dev_scripts", "testes_criticos")
 
-# Abertura até o jogador ter o controle no overworld. Medido nesta sessão.
+# Abertura até o jogador ter o controle no overworld.
 #
-# Os três B do fim entraram em 05/08/2026, quando o início do jogo passou a ser
-# o quarto de Pallet Town. Medido, não suposto: a martelada de A da abertura
-# termina com o jogador de frente para o NES do quarto e a caixa de texto
-# "played with the NES" ABERTA, e com caixa aberta o R+START não abre o menu de
-# debug. Resultado: TODO caso com campo `warp` ficava no mapa inicial e falhava
-# com "mapa errado", inclusive o T0.2, que existe justamente para acusar isso.
-# B fecha a caixa; se não houver caixa nenhuma, B no overworld não faz nada.
-ABERTURA = ("90:A,90:A,90:A,90:A,90:A,240:NADA,120:A*14,240:NADA,120:A*10,"
-            "240:NADA,120:A*20,300:NADA,120:A*20,300:NADA,"
-            # Os A extras entraram depois dos B, medidos no framebuffer: com so
-            # os tres B a tela ficava em "...Okay! It's time to go!", que e
-            # dialogo do proprio intro e NAO fecha com B, so avanca com A. O
-            # menu de debug continuava sem abrir. A ordem importa: A termina o
-            # dialogo, B fecha a caixa do NES se ela ainda estiver aberta.
-            # Cadencia medida no framebuffer, nao estimada: com "60:A*20,120:NADA,
-            # 30:B,30:B,30:B" a tela AINDA ficava em "...Okay! It's time to go!"
-            # e o R+START nao abria o menu. O que resolveu foi apertar mais vezes
-            # e mais rapido (20 quadros por toque), porque parte dos toques cai
-            # durante a rolagem do texto e nao conta. Screenshot de prova: com a
-            # linha abaixo o menu de debug abre.
-            "20:A*30,240:NADA,20:B*10,240:NADA")
+# REMEDIDA em 17/08/2026, quadro a quadro no framebuffer, porque o jogo novo
+# mudou: New Game não passa mais pela introdução do Carvalho (nem escolha de
+# gênero, nem digitação de nome). Ele grava RED/GREEN/masculino direto e cai no
+# quarto de Pallet Town, e no primeiro quadro em que o jogador ganha o controle
+# abre o SELETOR DE CAPÍTULO (src/chapter_jump.c, gChapterJumpModo). A abertura
+# antiga, feita de marteladas de A contra a introdução que não existe mais,
+# gastava os apertos dentro do seletor e levava o jogo para outra região.
+#
+# A sequência medida (PNG por passo, o `roda` abaixo grava um por passo), já
+# contando os 900 quadros iniciais que o gba_runner roda antes do roteiro:
+#
+#   1o A  intro do mato -> logotipo Pokémon
+#   2o A  logotipo      -> tela de título
+#   3o A  título        -> menu principal (NEW GAME / OPTION)
+#   4o A  NEW GAME      -> quarto de Pallet Town, com o seletor de capítulo
+#   DOWN  desce o cursor até "START FROM BEGINNING", a última linha
+#   A     escolhe, o seletor fecha e o jogo segue do quarto, como sempre
+#
+# Regras de robustez, que valem para quem mexer aqui:
+# - ESPERA é de graça, APERTO DE A não é. Depois que o seletor abre, dois A
+#   seguidos escolhem região e capítulo, e o caso inteiro acorda em outro mapa.
+#   Por isso os quatro A são exatos e as esperas é que são generosas.
+# - `20:DOWN*5` é UM passo do roteiro com cinco toques rápidos, e a lista não dá
+#   a volta: o cursor gruda na última linha. Toque a mais ali é inofensivo, e é
+#   essa a folga que protege contra a lista mudar de tamanho.
+# - Os dois B do fim são rede de segurança: no overworld B não faz nada, e se
+#   por algum motivo um menu tiver ficado aberto, eles o fecham (B no seletor de
+#   regiões cai no mesmo `releaseall` de "START FROM BEGINNING").
+#
+# ATE_O_SELETOR para no seletor ABERTO, e existe para os casos que provam o
+# próprio seletor (T99): eles precisam escolher outra coisa que não
+# "START FROM BEGINNING".
+ATE_O_SELETOR = ("300:NADA,120:A,120:NADA,120:A,180:NADA,120:A,180:NADA,120:A,"
+                 "420:NADA")
+ABERTURA = ATE_O_SELETOR + ",20:DOWN*5,60:NADA,20:A,180:NADA,20:B*2,60:NADA"
+
+# A abertura de ANTES de 16/08/2026, quando New Game ainda passava pela
+# introdução do Carvalho. Ela NÃO serve para a build de hoje (as marteladas de A
+# caem dentro do seletor de capítulo e mandam o jogo para outra região), e existe
+# só para rodar contra uma ROM ANTIGA: é o caso do T11, que grava a save na build
+# velha para provar que ela carrega na nova. Use `--abertura intro_carvalho`
+# quando `--rom` for uma ROM anterior a 16/08/2026.
+INTRO_CARVALHO = ("90:A,90:A,90:A,90:A,90:A,240:NADA,120:A*14,240:NADA,120:A*10,"
+                  "240:NADA,120:A*20,300:NADA,120:A*20,300:NADA,"
+                  # A ordem importa: A termina o diálogo, B fecha a caixa do NES
+                  # se ela ainda estiver aberta (com caixa aberta o R+START não
+                  # abre o menu de debug). Cadência medida no framebuffer.
+                  "20:A*30,240:NADA,20:B*10,240:NADA")
 
 # Com um .sav existente, o menu de título abre em "CONTINUAR" e um A basta.
 CONTINUAR = "90:A,90:A,90:A,240:NADA,120:A,300:NADA,300:NADA"
 
-ABERTURAS = {"novo": ABERTURA, "continuar": CONTINUAR, "nenhuma": ""}
+ABERTURAS = {"novo": ABERTURA, "continuar": CONTINUAR, "nenhuma": "",
+             "intro_carvalho": INTRO_CARVALHO, "seletor": ATE_O_SELETOR}
+
+# Qual abertura vale para o caso que não declara a sua. Trocado por `--abertura`.
+ABERTURA_PADRAO = "novo"
 
 
 # --------------------------------------------------------------------------
@@ -410,7 +446,7 @@ def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=Non
 
 
 def monta_roteiro(caso, por_nome, tabela_flags):
-    modo = caso.get("abertura", "novo")
+    modo = caso.get("abertura", ABERTURA_PADRAO)
     if modo not in ABERTURAS:
         raise KeyError(f"abertura desconhecida: {modo}. Use {list(ABERTURAS)}")
     partes = [ABERTURAS[modo]] if ABERTURAS[modo] else []
@@ -714,6 +750,14 @@ def main():
     if "--src2" in args:
         i = args.index("--src2")
         src2 = args[i + 1]
+        del args[i:i + 2]
+    if "--abertura" in args:
+        global ABERTURA_PADRAO
+        i = args.index("--abertura")
+        ABERTURA_PADRAO = args[i + 1]
+        if ABERTURA_PADRAO not in ABERTURAS:
+            raise SystemExit(f"--abertura desconhecida: {ABERTURA_PADRAO}. "
+                             f"Use uma de {list(ABERTURAS)}")
         del args[i:i + 2]
     so_lista = "--lista" in args
     if so_lista:

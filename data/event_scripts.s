@@ -2806,3 +2806,4 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/TurnbackCavePillarRoom/scripts.inc"
 	.include "data/maps/TurnbackCaveGiratinaRoom/scripts.inc"
 	.include "data/scripts/turnback_cave.inc"
+	.include "data/scripts/chapter_jump.inc"

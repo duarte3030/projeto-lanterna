@@ -250,7 +250,7 @@ Nomeadas em `include/constants/flags.h`, logo depois de `FLAG_UNOVA_LIGA_ELENCO`
 | flag | serve para |
 |---|---|
 | `FLAG_UNOVA_CENA_ENTRADA_LIGA` | a emboscada das três sombras já rodou |
-| `FLAG_UNOVA_CENA_JUNIPER`, `_SOMBRAS`, `_GENESECT_1`, `_GENESECT_2`, `_GENESIS` | esconder cada grupo de figurante da sala do Campeão. Eram um guarda-chuva só (`FLAG_UNOVA_LIGA_ELENCO`, do B5); a cena mostra e esconde cada grupo em momento diferente, então cada um virou um bit |
+| `FLAG_UNOVA_CENA_JUNIPER`, `_SOMBRAS`, `_GENESECT_1`, `_GENESECT_2`, `_GENESIS` | esconder cada grupo de figurante da sala do Campeão. Eram um guarda-chuva só (`FLAG_UNOVA_LIGA_ELENCO`, do B5); a cena mostra e esconde cada grupo em momento diferente, então cada um virou um bit. **`_JUNIPER` extrapolou a sala do Campeão:** virou o bit compartilhado de esconder NPC de cena em **oito** mapas de Unova (o último trio entrou em 16/08/2026), cada um reescrevendo o bit no próprio `ON_TRANSITION`; contrato completo em `data/maps/Unova_ChampionsRoom/scripts.inc` |
 | `FLAG_UNOVA_GENESIS_VENCIDO` | o `EVENT_BEAT_GENESIS_PROJECT` da fonte |
 | `FLAG_UNOVA_LIGA_VENCIDA` | acesa pelo Hall da Fama; é ela que **solta** o selo da escada da Liga |
 | `FLAG_UNOVA_LIGA_PORTAO` | "o jogador acabou de subir da entrada da Liga". Traduz o `setmapscene PKMN_LEAGUE_MAIN, SCENE_ELITE_FOUR_ROOM_ENTER` que a `PkmnLeagueEntrance` dispara no `MAPCALLBACK_NEWMAP`; sem ele a cena do terremoto rodaria também para quem volta de uma sala da Elite, e o `applymovement` de seis passos para o norte jogaria o jogador para fora do mapa |

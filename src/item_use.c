@@ -8,6 +8,7 @@
 #include "berry.h"
 #include "berry_powder.h"
 #include "bike.h"
+#include "chapter_jump.h"
 #include "coins.h"
 #include "data.h"
 #include "event_data.h"
@@ -61,6 +62,7 @@ static void PlayerFaceHiddenItem(enum Direction);
 static void CheckForHiddenItemsInMapConnection(u8);
 static void Task_OpenRegisteredPokeblockCase(u8);
 static void Task_AccessPokemonBoxLink(u8);
+static void Task_ChapterJump(u8);
 static void ItemUseOnFieldCB_Bike(u8);
 static void ItemUseOnFieldCB_Rod(u8);
 static void ItemUseOnFieldCB_Itemfinder(u8);
@@ -88,6 +90,8 @@ static const u8 sText_ItemFinderOnTop[] = _("Oh!\nThe ITEMFINDER's shaking wildl
 static const u8 sText_ItemFinderNothing[] = _("… … … …Nope!\nThere's no response.{PAUSE_UNTIL_PRESS}");
 static const u8 sText_CoinCase[] = _("Your COINS:\n{STR_VAR_1}{PAUSE_UNTIL_PRESS}");
 static const u8 sText_PowderQty[] = _("POWDER QTY: {STR_VAR_1}{PAUSE_UNTIL_PRESS}");
+static const u8 sText_WildEncountersOff[] = _("Wild encounters are now OFF!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_WildEncountersOn[] = _("Wild encounters are now ON!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_BootedUpTM[] = _("Booted up a TM.");
 static const u8 sText_BootedUpHM[] = _("Booted up an HM.");
 static const u8 sText_TMHMContainedVar1[] = _("It contained\n{STR_VAR_1}.\pTeach {STR_VAR_1}\nto a POKéMON?");
@@ -270,6 +274,53 @@ void ItemUseOutOfBattle_ExpShare(u8 taskId)
 #else
     DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
 #endif
+}
+
+// ITEM_INFINITE_REPEL: liga e desliga os encontros selvagens de vez, sem contar
+// passos e sem gastar o item. Quem faz o trabalho é o motor: WE_FLAG_NO_ENCOUNTER
+// (include/config/wild_encounter.h) já é consultado em src/field_control_avatar.c
+// e src/wild_encounter_ow.c, então aqui basta virar a flag e avisar na tela.
+// Molde copiado de ItemUseOutOfBattle_ExpShare, inclusive o data[2] que separa
+// "usado pelo SELECT no overworld" de "usado pelo menu da mochila".
+void ItemUseOutOfBattle_InfiniteRepel(u8 taskId)
+{
+    const u8 *mensagem;
+
+    if (FlagGet(WE_FLAG_NO_ENCOUNTER))
+    {
+        PlaySE(SE_PC_OFF);
+        mensagem = sText_WildEncountersOn;
+    }
+    else
+    {
+        PlaySE(SE_REPEL);
+        mensagem = sText_WildEncountersOff;
+    }
+    FlagToggle(WE_FLAG_NO_ENCOUNTER);
+
+    if (!gTasks[taskId].data[2]) // to account for pressing select in the overworld
+        DisplayItemMessageOnField(taskId, mensagem, Task_CloseCantUseKeyItemMessage);
+    else
+        DisplayItemMessage(taskId, FONT_NORMAL, mensagem, CloseItemMessage);
+}
+
+// ITEM_CHAPTER_JUMP: abre o seletor de capítulo (região, depois capítulo). Todo
+// o miolo mora em src/chapter_jump.c e em data/scripts/chapter_jump.inc; aqui só
+// devolve o controle ao campo e dispara o script, que é o molde exato do
+// ItemUseOutOfBattle_PokemonBoxLink logo abaixo.
+void ItemUseOutOfBattle_ChapterJump(u8 taskId)
+{
+    sItemUseOnFieldCB = Task_ChapterJump;
+    SetUpItemUseOnFieldCallback(taskId);
+}
+
+static void Task_ChapterJump(u8 taskId)
+{
+    // Aberto pela mochila, e nao pelo jogo novo: a ultima entrada da lista de
+    // regioes volta a se chamar EXIT.
+    gChapterJumpModo = CHAPTER_JUMP_NADA;
+    ScriptContext_SetupScript(ChapterJump_EventScript_Abrir);
+    DestroyTask(taskId);
 }
 
 void ItemUseOutOfBattle_Bike(u8 taskId)

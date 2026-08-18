@@ -49,12 +49,17 @@ Unova_P2LabEntrance_MapScripts::
 @ Roda ANTES de InitMap() criar os object_events (tecnica 2 do SINNOH-PADRAO.md):
 @ a JUNIPER so nasce sozinha no estado 0; nos outros dois quem a traz e a cena.
 @ DEPENDENCIA COMPARTILHADA, nao mexer aqui sozinho: FLAG_UNOVA_CENA_JUNIPER e o
-@ MESMO bit em Unova_NuvemaLab, Unova_P2LabEntrance, Unova_ChampionsRoom e
-@ Unova_UndellaTown (MARLON da cena de chegada). O
+@ MESMO bit em Unova_NuvemaLab, Unova_P2LabEntrance, Unova_ChampionsRoom,
+@ Unova_UndellaTown (MARLON da cena de chegada), Unova_CasteliaCityStreets
+@ (CHEREN da cena da insígnia), Unova_FloccesyTown (JUNIPER), Unova_NacreneCity
+@ (LENORA) e Unova_PWTOutside (CHEREN e BIANCA juntos). Os três últimos
+@ entraram em 16/08/2026, quando o ON_LOAD + removeobject deles foi trocado por
+@ ON_TRANSITION (ON_LOAD roda dentro de InitMap(), antes de os objetos
+@ nascerem, e o removeobject de lá nunca fazia nada). O
 @ contrato que faz isso funcionar e "todo mapa que usa o bit o REESCREVE no seu
 @ proprio ON_TRANSITION, antes de os objetos nascerem". Quem tirar ou condicionar
-@ esta escrita em UM dos quatro quebra os outros tres (o NPC de cena nasce ou
-@ some no mapa errado). Mudou um, confira os quatro.
+@ esta escrita em UM dos oito quebra os outros sete (o NPC de cena nasce ou
+@ some no mapa errado). Mudou um, confira os oito.
 Unova_P2LabEntrance_OnTransition:
 	goto_if_eq VAR_UNOVA_P2_LAB_ENTRADA_CENA, 0, Unova_P2LabEntrance_EventScript_TransicaoEstado0
 	setflag FLAG_UNOVA_CENA_JUNIPER

@@ -1009,6 +1009,12 @@ static void Cmd_delay(void)
 {
     sBattleAnimScriptPtr++;
     sAnimFramesToWait = sBattleAnimScriptPtr[0];
+    // Modo de teste: com BATTLE ANIM em 2X, cada `delay` espera metade dos quadros.
+    // O `> 1` preserva os dois casos especiais: 0 continua virando -1 (espera até o
+    // script mandar parar) e 1 continua sendo 1, o mínimo. Só o vídeo muda; som e
+    // música não passam por aqui.
+    if (sAnimFramesToWait > 1 && TestOptionGet(TEST_OPT_BATTLE_ANIM_2X))
+        sAnimFramesToWait /= 2;
     if (sAnimFramesToWait == 0)
         sAnimFramesToWait = -1;
     sBattleAnimScriptPtr++;

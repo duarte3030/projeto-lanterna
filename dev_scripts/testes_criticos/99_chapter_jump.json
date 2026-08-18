@@ -1,0 +1,41 @@
+[
+  {
+    "id": "T99.1",
+    "nome": "O seletor de capítulo do jogo novo LEVA e ACENDE: escolher KANTO / Before Pokémon League põe o jogador no Planalto Índigo com as OITO insígnias de Kanto acesas. A prova não é a tela do menu, é fato de memória: mapa lido do SaveBlock1 e as oito flags lidas da EWRAM. As insígnias de Kanto são as do MOTOR (FLAG_BADGE01_GET..08), as únicas que destravam obediência e limite de nível, então acendê-las tem efeito de verdade e não é enfeite de lista",
+    "abertura": "seletor",
+    "roteiro": "20:DOWN,60:NADA,20:A,120:NADA,20:DOWN*12,60:NADA,20:A,300:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_INDIGO_PLATEAU_EXTERIOR",
+      "flags_acesas": [
+        "FLAG_BADGE01_GET",
+        "FLAG_BADGE02_GET",
+        "FLAG_BADGE03_GET",
+        "FLAG_BADGE04_GET",
+        "FLAG_BADGE05_GET",
+        "FLAG_BADGE06_GET",
+        "FLAG_BADGE07_GET",
+        "FLAG_BADGE08_GET"
+      ]
+    }
+  },
+  {
+    "id": "T99.2",
+    "nome": "PAR NEGATIVO do T99.1: o MESMO seletor, a MESMA região, e o capítulo 'Start of region' em vez da Liga. O jogador tem que sair em Pallet Town com as oito insígnias APAGADAS. Sem este caso o T99.1 passaria com um jogo que acende as insígnias no começo por qualquer outro motivo, e passaria também com um seletor que ignora o capítulo escolhido e sempre manda para a Liga",
+    "abertura": "seletor",
+    "roteiro": "20:DOWN,60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_PALLET_TOWN",
+      "layout": "LAYOUT_PALLET_TOWN",
+      "flags_apagadas": [
+        "FLAG_BADGE01_GET",
+        "FLAG_BADGE02_GET",
+        "FLAG_BADGE03_GET",
+        "FLAG_BADGE04_GET",
+        "FLAG_BADGE05_GET",
+        "FLAG_BADGE06_GET",
+        "FLAG_BADGE07_GET",
+        "FLAG_BADGE08_GET"
+      ]
+    }
+  }
+]

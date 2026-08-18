@@ -3,17 +3,38 @@
 @ CHEREN (local id 1) e BIANCA (local id 2) ja vieram importados. Mesmo caso
 @ da JUNIPER em Unova_FloccesyTown: EVENT_PWT_OUTSIDE_CHEREN_BIANCA e so
 @ campo de esconde-objeto na fonte, a varredura de flags do PLANO nao o
-@ capturou, zero flag nova nesta leva. ON_LOAD some com os dois usando
-@ VAR_UNOVA_PWT_FORA_CENA (ja != 0 apos a despedida).
+@ capturou, zero flag nova nesta leva. Os dois usam FLAG_UNOVA_CENA_JUNIPER no
+@ campo `flag` do map.json e o ON_TRANSITION abaixo reescreve o bit a cada
+@ entrada, guiado pela PRÓPRIA var da cena (VAR_UNOVA_PWT_FORA_CENA vai a 1 na
+@ despedida). Uma flag só serve para os DOIS porque eles nunca têm estados
+@ diferentes: a fonte os esconde pelo mesmo EVENT_, e aqui a única cena do mapa
+@ os faz sair juntos, na mesma linha da mesma condição.
+@ A primeira versão (leva A4 da rodada de 15/08/2026) usava ON_LOAD + removeobject,
+@ que é no-op: ON_LOAD roda
+@ dentro de InitMap() (src/fieldmap.c:135-140), ANTES de InitObjectEventsLocal()
+@ criar os objetos, e removeobject só age em objeto já nascido; os dois
+@ renasciam a cada reentrada no mapa.
 Unova_PWTOutside_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, Unova_PWTOutside_EventScript_AoCarregar
+	map_script MAP_SCRIPT_ON_TRANSITION, Unova_PWTOutside_OnTransition
 	.byte 0
 
-Unova_PWTOutside_EventScript_AoCarregar::
-	goto_if_eq VAR_UNOVA_PWT_FORA_CENA, 0, Unova_PWTOutside_EventScript_AoCarregarFim
-	removeobject 1
-	removeobject 2
-Unova_PWTOutside_EventScript_AoCarregarFim::
+@ Roda ANTES de InitMap() criar os object_events (técnica 2 do SINNOH-PADRAO.md):
+@ CHEREN e BIANCA só nascem enquanto a despedida ainda não rodou (var em 0).
+@ DEPENDÊNCIA COMPARTILHADA, não mexer aqui sozinho: FLAG_UNOVA_CENA_JUNIPER é o
+@ MESMO bit em Unova_NuvemaLab, Unova_P2LabEntrance, Unova_ChampionsRoom,
+@ Unova_UndellaTown (MARLON), Unova_CasteliaCityStreets (CHEREN),
+@ Unova_FloccesyTown (JUNIPER), Unova_NacreneCity (LENORA) e Unova_PWTOutside
+@ (CHEREN e BIANCA). O contrato que faz isso funcionar é "todo mapa que usa o
+@ bit o REESCREVE no seu próprio ON_TRANSITION, antes de os objetos nascerem".
+@ Quem tirar ou condicionar esta escrita em UM dos oito quebra os outros sete.
+@ Mudou um, confira os oito.
+Unova_PWTOutside_OnTransition:
+	goto_if_eq VAR_UNOVA_PWT_FORA_CENA, 0, Unova_PWTOutside_EventScript_TransicaoAntesDaCena
+	setflag FLAG_UNOVA_CENA_JUNIPER
+	end
+
+Unova_PWTOutside_EventScript_TransicaoAntesDaCena::
+	clearflag FLAG_UNOVA_CENA_JUNIPER
 	end
 
 @ >>> B6 Unova, Obra 1: gatilhos de setscene (dev_scripts/gatilhos_setscene_unova.py) >>>

@@ -1983,6 +1983,28 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                 enum Type data = partyData[monIndex].teraType;
                 SetMonData(&party[i], MON_DATA_TERA_TYPE, &data);
             }
+            // Modo de teste: com LV.5 TRAINERS em ON, todo Pokémon de treinador cai
+            // para o nível 5. SÓ o nível: espécie, lendário, item segurado, IV, EV,
+            // habilidade, bola, apelido, shiny, mega, dynamax, gigantamax e tera já
+            // foram gravados acima e não são tocados.
+            //
+            // O ponto é DEPOIS de CustomTrainerPartyAssignMoves de propósito. Quando
+            // o treinador não declara golpes, aquele caminho chama
+            // GiveMonInitialMoveset, que deriva o learnset da EXPERIÊNCIA do mon
+            // (GiveBoxMonInitialMoveset -> GetLevelFromBoxMonExp, src/pokemon.c:1567).
+            // Baixar o nível antes faria o moveset ser regerado como o de um nível 5,
+            // que é o oposto do pedido. Aqui os golpes já estão escolhidos pelo nível
+            // original do treinador, e times com golpes explícitos nem passam por lá.
+            //
+            // Mexe na experiência e não em MON_DATA_LEVEL porque CalculateMonStats
+            // logo abaixo recalcula o nível a partir dela (GetLevelFromMonExp) e
+            // sobrescreveria qualquer nível gravado à mão. O clamp de HP dele
+            // (currentHP > newMaxHP) devolve o mon cheio no HP máximo do nível 5.
+            if (TestOptionGet(TEST_OPT_LV5_TRAINERS))
+            {
+                u32 exp = gExperienceTables[gSpeciesInfo[partyData[monIndex].species].growthRate][5];
+                SetMonData(&party[i], MON_DATA_EXP, &exp);
+            }
             CalculateMonStats(&party[i]);
 
             if (B_TRAINER_CLASS_POKE_BALLS >= GEN_7 && ball == -1)

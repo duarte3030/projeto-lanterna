@@ -12,7 +12,9 @@
 @ Unova_HumilauGym). Esconder sem flag nova: o objeto usa FLAG_UNOVA_CENA_JUNIPER
 @ no campo `flag` e o ON_TRANSITION abaixo reescreve o bit a cada entrada
 @ (técnica 2 do SINNOH-PADRAO.md; contrato da dependência compartilhada anotado
-@ em Unova_ChampionsRoom/scripts.inc).
+@ em Unova_ChampionsRoom/scripts.inc, hoje com OITO mapas participantes: os
+@ cinco originais mais Unova_FloccesyTown, Unova_NacreneCity e
+@ Unova_PWTOutside, que entraram em 16/08/2026).
 @
 @ Traduções e descartes, pela régua do PLANO-OBRAS-UNOVA.md:
 @   `playmusic MUSIC_MARLON_THEME` -> `playbgm MUS_ENCOUNTER_MAY` (tema de

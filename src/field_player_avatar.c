@@ -905,8 +905,14 @@ static void PlayerNotOnBikeMoving(enum Direction direction, u16 heldKeys)
         return;
     }
 
+    // AUTO RUN: com a opção em ON, o teste do B inverte, ou seja, andar já sai
+    // correndo e segurar B volta a andar. Com OFF, o XOR com 0 devolve o teste
+    // vanilla. Bicicleta e surfe saem desta função antes (os `return` acima) e
+    // escada continua caindo no ramo PlayerRunSlow logo abaixo, então nenhum
+    // dos três muda. Com AUTO RUN e RUN SPEED X2 juntos, andar sem B já usa a
+    // WALK_FASTER do gancho de PlayerRun.
     if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_UNDERWATER)
-     && (heldKeys & B_BUTTON)
+     && (((heldKeys & B_BUTTON) != 0) ^ TestOptionGet(TEST_OPT_AUTO_RUN))
      && FlagGet(FLAG_SYS_B_DASH)
      && IsRunningDisallowed(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior) == 0
      && !FollowerNPCComingThroughDoor()
@@ -1291,7 +1297,13 @@ void PlayerWalkFaster(enum Direction direction)
 
 static void PlayerRun(enum Direction direction)
 {
-    PlayerSetAnimId(GetPlayerRunMovementAction(direction), COPY_MOVE_WALK);
+    // Modo de teste: com RUN SPEED em X2, correr usa a mesma movement action da
+    // Mach Bike (WALK_FASTER). Bicicleta, surfe e caminhada normal não passam por
+    // aqui, então ficam intocados.
+    if (TestOptionGet(TEST_OPT_RUN_SPEED_X2))
+        PlayerSetAnimId(GetWalkFasterMovementAction(direction), COPY_MOVE_WALK);
+    else
+        PlayerSetAnimId(GetPlayerRunMovementAction(direction), COPY_MOVE_WALK);
 }
 
 void PlayerOnBikeCollide(enum Direction direction)

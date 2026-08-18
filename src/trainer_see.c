@@ -441,7 +441,10 @@ bool8 CheckForTrainersWantingBattle(void)
     u8 trainerObjects[OBJECT_EVENTS_COUNT] = {0};
     u8 trainerObjectsCount = 0;
 
-    if (FlagGet(OW_FLAG_NO_TRAINER_SEE))
+    // Modo de teste: com OPTIONAL BATTLE em ON, nenhum treinador vem batalhar ao
+    // te ver; a batalha só sai se você falar com ele. A condição da config
+    // OW_FLAG_NO_TRAINER_SEE fica exatamente como estava.
+    if (TestOptionGet(TEST_OPT_OPTIONAL_BATTLE) || FlagGet(OW_FLAG_NO_TRAINER_SEE))
         return FALSE;
 
     gNoOfApproachingTrainers = 0;

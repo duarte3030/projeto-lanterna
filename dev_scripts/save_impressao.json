@@ -1,7 +1,7 @@
 {
  "contagens": {
   "daily_flags_end_expr": "FLAG_UNUSED_0x95F + (7 - FLAG_UNUSED_0x95F % 8))",
-  "n_flag_unused": 2852,
+  "n_flag_unused": 3279,
   "n_var_unused": 326,
   "vars_start_end": [
    "0x4000",
@@ -112,6 +112,7 @@
    "ITEM_CATCHING_CHARM": 726,
    "ITEM_CELL_BATTERY": 488,
    "ITEM_CHANDELURITE": 885,
+   "ITEM_CHAPTER_JUMP": 922,
    "ITEM_CHARCOAL": 453,
    "ITEM_CHARIZARDITE_X": 317,
    "ITEM_CHARIZARDITE_Y": 318,
@@ -370,6 +371,8 @@
    "ITEM_ICY_ROCK": 482,
    "ITEM_IMPISH_MINT": 97,
    "ITEM_INCINIUM_Z": 404,
+   "ITEM_INFINITE_CANDY": 920,
+   "ITEM_INFINITE_REPEL": 921,
    "ITEM_INSECT_PLATE": 284,
    "ITEM_IRON": 72,
    "ITEM_IRON_BALL": 518,

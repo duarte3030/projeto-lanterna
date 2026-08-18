@@ -6,11 +6,26 @@ e uma flag: GetFlagPointer(0) devolve NULL (src/event_data.c:229), entao setflag
 vira no-op e FlagGet e sempre FALSE. Efeito no jogo: Pokebola do laboratorio
 volta depois de pega, fossil renasce, Rocket derrotado continua no lugar.
 
-NAO precisa de numero quem so aparece no campo `flag` de um objeto e nunca e
-mexida por script: sem ninguem para ligar, objeto com flag propria fica visivel
-igual a hoje, e gastar flag nisso e desperdicio. O criterio aqui e a INTERSECAO:
-a flag esta zerada, algum objeto a usa, E algum script faz setflag/clearflag/
-goto_if_set nela. Sao 104 das 530.
+CRITERIO, revisado em 16/08/2026: a flag esta zerada E aparece em algum lugar de
+`data/` ou `src/`. Basta ser referenciada; nao importa como.
+
+O criterio antigo era a INTERSECAO de tres coisas (zerada + campo `flag` de um
+objeto + mexida por setflag/clearflag/goto_if_set num script), e deixou 425 flags
+para tras porque as duas pontas do E sao facies de furar:
+
+- Pokebola de item nunca aparece na perna "mexida por script". O `finditem` acende
+  a flag do PROPRIO objeto em tempo de execucao (asm/macros/event.inc:2157 ->
+  STD_FIND_ITEM), pelo campo `flag` do template, sem citar o nome dela em lugar
+  nenhum. Resultado: TM45 de Route 24 renascia a cada troca de tela, infinitas
+  vezes, e o mesmo para toda item ball de Kanto.
+- Flag de historia nunca aparece na perna "campo flag de um objeto".
+  FLAG_GOT_SS_TICKET e FLAG_HELPED_BILL_IN_SEA_COTTAGE so vivem dentro de script,
+  entao ficaram em 0: o Bill nunca registrava a cena do separador de celulas,
+  nunca entregava o S.S. Ticket, e o policial de Cerulean nunca saia da frente.
+
+Dar numero a uma flag zerada nunca esconde nada por conta propria: ela nasce
+zerada do mesmo jeito, e so passa a valer quando um script a acende. O unico
+custo e consumir do pool, e o pool sobra.
 
 Nao mexe em FLAGS_COUNT: os numeros saem do pool FLAG_UNUSED que ja cabe no
 SaveBlock1, entao o guarda de save continua verde.
@@ -33,11 +48,6 @@ sys.path.insert(0, f"{REPO}/dev_scripts")
 import flags_livres  # noqa: E402
 
 ZERADA = re.compile(r"^#define\s+(FLAG_[A-Z0-9_]+)\s+0\s*$", re.M)
-# ponytail: `[[:space:]]`, nao `\s`. git grep -E e POSIX, onde `\s` nao existe:
-# o padrao casava zero linhas e o script dizia "0 flags precisam de numero",
-# com o jogo inteiro quebrado do mesmo jeito.
-MEXE = (r"(setflag|clearflag|goto_if_set|goto_if_unset|call_if_set"
-        r"|call_if_unset)[[:space:]]+")
 
 
 def grep(padrao, *dirs):
@@ -50,18 +60,20 @@ def grep(padrao, *dirs):
 def precisam():
     fonte = open(FLAGS_H, encoding="utf-8").read()
     zeradas = set(ZERADA.findall(fonte))
-    usadas = {m for l in grep(r"\"flag\": \"FLAG_[A-Z0-9_]+\"", "data/maps")
-              for m in re.findall(r"FLAG_[A-Z0-9_]+", l)}
-    mexidas = {m for l in grep(MEXE + r"FLAG_[A-Z0-9_]+", "data", "src")
+    # Referencia em qualquer forma: campo `flag` de object_event, setflag num
+    # script, checagem em C. Quem nao aparece em canto nenhum nao ganha numero,
+    # porque flag que ninguem le nem escreve nao muda nada valendo 0 ou 0x1A37.
+    citadas = {m for l in grep(r"FLAG_[A-Z0-9_]+", "data", "src")
                for m in re.findall(r"FLAG_[A-Z0-9_]+", l)}
-    return sorted(zeradas & usadas & mexidas), zeradas
+    return sorted(zeradas & citadas), zeradas
 
 
 def main():
     alvo, zeradas = precisam()
     nums, _, _ = flags_livres.livres()
     print(f"flags stub em 0: {len(zeradas)}")
-    print(f"precisam de numero (usadas por objeto E mexidas por script): {len(alvo)}")
+    print(f"precisam de numero (citadas em data/ ou src/): {len(alvo)}")
+    print(f"nunca citadas, ficam em 0: {sorted(zeradas - set(alvo))}")
     print(f"livres no pool: {len(nums)}")
     if len(alvo) > len(nums):
         print("NAO CABE. Ou corta a lista, ou cresce FLAGS_COUNT (quebra save).")
@@ -83,11 +95,20 @@ def main():
 
 
 def demo():
-    """A regra: zerada + usada por objeto + mexida por script. Faltando uma, fora."""
-    txt = ("#define FLAG_A 0\n#define FLAG_B 0\n#define FLAG_C (0x1)\n")
+    """A regra: zerada E citada em algum lugar. Citada de qualquer jeito serve."""
+    txt = "#define FLAG_A 0\n#define FLAG_B 0\n#define FLAG_C (0x1)\n"
     assert set(ZERADA.findall(txt)) == {"FLAG_A", "FLAG_B"}
-    zer, usa, mexe = {"FLAG_A", "FLAG_B"}, {"FLAG_A", "FLAG_B"}, {"FLAG_A"}
-    assert sorted(zer & usa & mexe) == ["FLAG_A"]  # B nao e mexida, fica em 0
+    # `#define FLAG_C (0x1)` ja tem numero: parenteses nao casam com `\s+0\s*$`.
+    assert "FLAG_C" not in ZERADA.findall(txt)
+
+    zeradas = {"FLAG_A", "FLAG_B", "FLAG_ORFA"}
+    # FLAG_A so no campo `flag` de um objeto (caso da item ball: nenhum script
+    # cita o nome dela, quem acende e o finditem pelo template).
+    # FLAG_B so dentro de script (caso da flag de historia, tipo o S.S. Ticket).
+    # As duas TEM que entrar; era exatamente aqui que o criterio velho furava.
+    citadas = {"FLAG_A", "FLAG_B"}
+    assert sorted(zeradas & citadas) == ["FLAG_A", "FLAG_B"]
+    assert "FLAG_ORFA" not in citadas  # ninguem le nem escreve, fica em 0
     print("demo ok")
 
 

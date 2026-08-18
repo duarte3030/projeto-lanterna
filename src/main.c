@@ -74,6 +74,18 @@ COMMON_DATA void *gAgbMainLoop_sp = NULL;
 
 static EWRAM_DATA u16 sTrainerId = 0;
 
+// Estado do TURBO A/B, lido e escrito só por ReadKeys. Fica FORA da save de
+// propósito: é ritmo de botão do quadro atual, não progresso de jogo.
+static EWRAM_DATA u16 sTurboSegurados = 0;
+static EWRAM_DATA u16 sTurboContador = 0;
+
+// 20 quadros (~1/3 s) de espera antes do primeiro disparo e um disparo a cada 7
+// quadros depois (~8,6 por segundo). Os dois números são de tato, não de
+// medição: 7 fica no meio da faixa pedida (6 a 8), rápido o bastante para
+// varrer texto e batalha e lento o bastante para o jogo processar cada aperto.
+#define TURBO_ATRASO   20
+#define TURBO_PERIODO   7
+
 //EWRAM_DATA void (**gFlashTimerIntrFunc)(void) = NULL;
 
 static void UpdateLinkAndCallCallbacks(void);
@@ -304,6 +316,52 @@ static void ReadKeys(void)
 
         if (JOY_HELD(L_BUTTON))
             gMain.heldKeys |= A_BUTTON;
+    }
+
+    // TURBO A/B (TEST_OPT_TURBO_AB, include/global.h). Segurar A ou B passa a
+    // valer como apertos repetidos em TODA parte do jogo, não só no avanço de
+    // conversa: pergunta sim/não, menu, seletor de item e batalha (segurar A vai
+    // confirmando FIGHT, o golpe, e ataca turno após turno).
+    //
+    // Por que aqui e não em cada tela: `gMain.newKeys` nasce em UM lugar só, e
+    // toda tela do jogo lê esse campo. Um gancho no ponto de leitura vale para
+    // as telas que existem hoje e para as que vierem; espalhar por menu seria a
+    // mesma regra escrita quarenta vezes.
+    //
+    // Só A e B, de propósito. Dpad já tem repetição própria (newAndRepeatedKeys)
+    // e turbo em START/SELECT abriria e fecharia menu sozinho.
+    if (TestOptionGet(TEST_OPT_TURBO_AB))
+    {
+        u16 segurados = gMain.heldKeys & (A_BUTTON | B_BUTTON);
+
+        // Só conta o botão que JÁ estava segurado no quadro anterior: o quadro
+        // do aperto novo já entregou o bit em newKeys sozinho, e contar a partir
+        // dele adiantaria o primeiro disparo do turbo em um quadro.
+        if (segurados != 0 && segurados == sTurboSegurados)
+        {
+            sTurboContador++;
+            // TURBO_ATRASO quadros de espera antes do primeiro disparo, para um
+            // toque normal (que dura bem menos que meio segundo) nunca virar
+            // dois apertos; depois, um aperto a cada TURBO_PERIODO quadros.
+            if (sTurboContador >= TURBO_ATRASO
+             && (sTurboContador - TURBO_ATRASO) % TURBO_PERIODO == 0)
+            {
+                gMain.newKeys |= segurados;
+                gMain.newAndRepeatedKeys |= segurados;
+            }
+        }
+        else
+        {
+            // Soltou, ou trocou de botão: recomeça a contagem do zero.
+            sTurboContador = 0;
+        }
+
+        sTurboSegurados = segurados;
+    }
+    else
+    {
+        sTurboContador = 0;
+        sTurboSegurados = 0;
     }
 
     if (JOY_NEW(gMain.watchedKeysMask))

@@ -7,16 +7,35 @@
 @ EVENT_CASTELIA_CITY_CHEREN e so campo de esconde-objeto na fonte, sem
 @ checkevent/setevent/clearevent em nenhum script; a varredura de flags do
 @ PLANO nao o capturou e nao ha flag reservada nesta leva. Zero flag nova:
-@ ON_LOAD some com ele usando a propria var da cena (VAR_UNOVA_CASTELIA_RUAS_
-@ CENA chega a 2 quando a cena termina).
+@ o objeto usa FLAG_UNOVA_CENA_JUNIPER no campo `flag` do map.json e o
+@ ON_TRANSITION abaixo reescreve o bit a cada entrada, guiado pela própria var
+@ da cena (VAR_UNOVA_CASTELIA_RUAS_CENA chega a 2 quando a cena termina).
+@ A primeira versão (leva A4 da rodada de 15/08/2026) usava ON_LOAD + removeobject,
+@ que é no-op: ON_LOAD roda
+@ dentro de InitMap(), ANTES de InitObjectEventsLocal() criar os objetos, e
+@ removeobject só age em objeto já nascido; o CHEREN renascia a cada reentrada.
 Unova_CasteliaCityStreets_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, Unova_CasteliaCityStreets_EventScript_AoCarregar
+	map_script MAP_SCRIPT_ON_TRANSITION, Unova_CasteliaCityStreets_OnTransition
 	.byte 0
 
-Unova_CasteliaCityStreets_EventScript_AoCarregar::
-	goto_if_ne VAR_UNOVA_CASTELIA_RUAS_CENA, 2, Unova_CasteliaCityStreets_EventScript_AoCarregarFim
-	removeobject 7
-Unova_CasteliaCityStreets_EventScript_AoCarregarFim::
+@ Roda ANTES de InitMap() criar os object_events (técnica 2 do SINNOH-PADRAO.md):
+@ o CHEREN só nasce enquanto a cena ainda não rodou (var < 2).
+@ DEPENDÊNCIA COMPARTILHADA, não mexer aqui sozinho: FLAG_UNOVA_CENA_JUNIPER é o
+@ MESMO bit em Unova_NuvemaLab, Unova_P2LabEntrance, Unova_ChampionsRoom,
+@ Unova_UndellaTown (MARLON), Unova_CasteliaCityStreets (CHEREN),
+@ Unova_FloccesyTown (JUNIPER), Unova_NacreneCity (LENORA) e Unova_PWTOutside
+@ (CHEREN e BIANCA juntos; os três últimos entraram em 16/08/2026, pelo mesmo
+@ conserto de ON_LOAD que está anotado no topo deste arquivo). O contrato que
+@ faz isso funcionar é "todo mapa que usa o bit o REESCREVE no seu próprio
+@ ON_TRANSITION, antes de os objetos nascerem". Quem tirar ou condicionar esta
+@ escrita em UM dos oito quebra os outros sete. Mudou um, confira os oito.
+Unova_CasteliaCityStreets_OnTransition:
+	goto_if_eq VAR_UNOVA_CASTELIA_RUAS_CENA, 2, Unova_CasteliaCityStreets_EventScript_TransicaoDepoisDaCena
+	clearflag FLAG_UNOVA_CENA_JUNIPER
+	end
+
+Unova_CasteliaCityStreets_EventScript_TransicaoDepoisDaCena::
+	setflag FLAG_UNOVA_CENA_JUNIPER
 	end
 
 @ >>> B6 Unova, Obra 1: gatilhos de setscene (dev_scripts/gatilhos_setscene_unova.py) >>>

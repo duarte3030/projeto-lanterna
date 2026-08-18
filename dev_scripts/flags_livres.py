@@ -23,6 +23,7 @@ Mesma familia de erro do resto da sessao: medir uma camada mais rasa que a da
 afirmacao. "A flag existe como UNUSED" nao e "a flag esta livre".
 """
 import re
+import subprocess
 import sys
 import os
 
@@ -47,6 +48,24 @@ def faixa_diaria():
     return (min(ns), max(ns)) if ns else DIARIA
 
 
+def usadas_cruas():
+    """FLAG_UNUSED_0xNNN citada DIRETO em data/ ou src/, sem apelido nenhum.
+
+    TERCEIRA CAMADA DE ARMADILHA, achada em 16/08/2026. Nem toda flag ocupada
+    ganha apelido em flags.h: quem importou Johto escreveu o nome cru no campo
+    `flag` das item balls (data/maps/SproutTower_1F/map.json:93 e companhia,
+    0x264 a 0x26F). Esse uso nao aparece em nenhum `#define`, entao as duas
+    camadas anteriores davam a faixa como livre, e ela ja estava valendo por
+    baixo: as MESMAS doze flags tambem eram apelido de FLAG_HIDE_* de Kanto
+    (Fame Checker, bonecos da casa da Lorelei, Lift Key). Acender a de Kanto
+    apagava a Pokebola de Johto, e vice-versa.
+    """
+    r = subprocess.run(
+        ["git", "grep", "-hoE", r"FLAG_UNUSED_0x[0-9A-Fa-f]+", "--",
+         "data", "src"], cwd=RAIZ, capture_output=True, text=True)
+    return {int(n.split("0x")[1], 16) for n in r.stdout.split("\n") if n}
+
+
 def livres():
     """Devolve (lista de numeros livres, total definido, total apelidado)."""
     global DIARIA
@@ -65,6 +84,8 @@ def livres():
     # jogador acorda com a porta destrancada. Eu ja tinha despachado
     # 0x946-0x95F para um agente antes de descobrir; ninguem chegou a gastar.
     nums = [n for n in nums if not (DIARIA[0] <= n <= DIARIA[1])]
+    cruas = usadas_cruas()
+    nums = [n for n in nums if n not in cruas]
     return nums, len(todas), len(apelidada)
 
 
@@ -85,12 +106,35 @@ def faixas(nums):
     return out
 
 
+def dobradas():
+    """FLAG_UNUSED que tem apelido em flags.h E tambem e citada crua em data/src.
+
+    Duas frentes escrevendo na mesma flag por nomes diferentes. Nem sempre e
+    erro (o elenco da Liga de Unova de proposito compartilha uma flag entre
+    cinco objetos, e ali o nome cru e o apelido sao a mesma coisa), por isso
+    aqui e aviso, nao excecao. Erro e quando as duas pontas sao de REGIOES
+    diferentes: foi assim que 0x264-0x26F ficaram sendo, ao mesmo tempo,
+    FLAG_HIDE_* de Kanto e a Pokebola de item de Johto.
+    """
+    s = open(FLAGS_H).read()
+    apelido = {a: n for n, a in re.findall(
+        r"^#define\s+(FLAG_(?!UNUSED)[A-Za-z0-9_]+)\s+(FLAG_UNUSED_0x[0-9A-Fa-f]+)\b",
+        s, re.M)}
+    cruas = usadas_cruas()  # UMA vez: dentro do `if` seriam 800 git grep
+    return sorted((int(a.split("0x")[1], 16), n)
+                  for a, n in apelido.items()
+                  if int(a.split("0x")[1], 16) in cruas)
+
+
 def main():
     nums, total, ocupadas = livres()
     fs = faixas(nums)
     print(f"FLAG_UNUSED definidas: {total}")
     print(f"  ja apelidadas por outra flag (OCUPADAS): {ocupadas}")
     print(f"  realmente livres: {len(nums)}")
+
+    for n, nome in dobradas():
+        print(f"  AVISO: 0x{n:03X} tem apelido ({nome}) E uso cru em data/src")
 
     if "--reserva" in sys.argv:
         n = int(sys.argv[sys.argv.index("--reserva") + 1])
@@ -153,6 +197,28 @@ def demo():
     finally:
         FLAGS_H = guardado
         os.unlink(caminho)
+
+    # Terceira regra: sem apelido nenhum, mas citada crua num map.json, tambem
+    # NAO e livre. Sem isso a faixa 0x264-0x26F sai de novo para o proximo
+    # agente, por cima das item balls de Johto.
+    txt = ("#define FLAG_UNUSED_0x264   (0x264)\n"
+           "#define FLAG_UNUSED_0x300   (0x300)\n")
+    with tempfile.NamedTemporaryFile("w", suffix=".h", delete=False) as f:
+        f.write(txt)
+        caminho = f.name
+    guardado, FLAGS_H = FLAGS_H, caminho
+    global usadas_cruas
+    real_cruas, usadas_cruas = usadas_cruas, lambda: {0x264}
+    try:
+        nums, _, _ = livres()
+        assert nums == [0x300], [hex(x) for x in nums]
+    finally:
+        FLAGS_H, usadas_cruas = guardado, real_cruas
+        os.unlink(caminho)
+
+    # E a regra tem que valer no repo de verdade: nada que este arquivo chame de
+    # livre pode estar citado cru em data/ ou src/.
+    assert not (set(livres()[0]) & real_cruas()), "faixa livre colide com uso cru"
     print("demo ok")
 
 

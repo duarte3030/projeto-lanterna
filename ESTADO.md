@@ -8,6 +8,60 @@ inteiras. Detalhe fica nos documentos apontados no fim.
 
 ---
 
+## 0.d CONSOLIDAÇÃO DE 17/08/2026 (condutor Fable, executor Opus)
+
+Build verde (ROM 97,60% de 32 MB, EWRAM 85,94%, IWRAM 86,66%), **suíte 255/256**
+(só T11.3 pulado) mais os **2 casos novos T99** no mesmo binário, **T11 completo
+3/3 à parte** (a save da 2026-08-15c carrega) e **SAVE COMPATIVEL** com a
+impressão regravada por causa dos itens 877 a 879 (append puro, nada movido).
+ROM: `roms/pokemon-claude-2026-08-17.gba`, e a mesma build sobrescreveu
+`roms/pokemon-claude-teste-2026-08-16.gba`.
+
+O que entrou: consertos de removeobject em quatro mapas de Unova (ON_LOAD roda
+antes de os objetos nascerem; virou ON_TRANSITION com FLAG_UNOVA_CENA_JUNIPER,
+contrato agora com oito mapas); validador de IS_FRLG de Sinnoh; modo de teste
+com seis opções no menu de opções; itens INFINITE_CANDY, INFINITE_REPEL e
+CHAPTER_JUMP; o seletor de capítulo, que substitui a introdução do professor
+no jogo novo (nome RED, rival GREEN, masculino); e as 426 flags de Kanto que
+valiam o literal 0 ganhando número (a cadeia Bill, S.S. Ticket e policial de
+Cerulean religada; 178 item balls de Kanto com flag real).
+
+**Dois defeitos reais achados pela consolidação, os dois medidos no emulador:**
+
+1. **O seletor de capítulo travava o jogo, sempre.** `waitstate` depois de
+   `dynmultistack` para o contexto uma SEGUNDA vez (o próprio comando já chama
+   `ScriptContext_Stop`), e quem religa é a tarefa do menu, que já religou.
+   New Game abria o seletor, o menu fechava na escolha e o jogador ficava sem
+   andar, sem menu e sem R+START. Regra que fica: **`dynmultistack` NÃO leva
+   `waitstate` atrás**; o modelo certo é `data/scripts/travessia_regioes.inc`.
+2. **AUTO RUN muda a gramática de andar.** Correndo, mudar de direção LOGO
+   DEPOIS de um passo gasta um aperto só para virar, e parado não gasta.
+   Medido nas duas ROMs com o mesmo roteiro (T80.1): na build de 15/08 o
+   `16:RIGHT` depois de dois `16:UP` anda; com AUTO RUN ligado ele só vira.
+   Reprovou 15 casos de percurso. AUTO RUN passou a nascer DESLIGADO em
+   `src/new_game.c`; a opção continua no menu, a um toque. TURBO A/B ficou
+   ligado (dispara com 20 quadros de botão segurado, o gba_runner segura 6).
+
+**Abertura da suíte remedida** (`ABERTURA` em `dev_scripts/testa_critico.py`):
+4 A exatos até NEW GAME, esperas generosas, `20:DOWN*5` até START FROM
+BEGINNING e 2 B de rede; caiu de ~10.700 para ~2.100 quadros. Regra nova:
+**espera é de graça, aperto de A não é**, porque depois que o seletor abre
+dois A escolhem região e capítulo e o caso acorda em outra região. A abertura
+velha virou `intro_carvalho`, escolhida por `--abertura`, e é ela que o T11.1
+usa contra a ROM antiga (que ainda tem a intro do Carvalho). Quatro roteiros
+do quarto até a rua foram remedidos no framebuffer (o jogo novo nasce em
+(6,6) no quarto; a porta do 1F em (4,8) só dispara descendo).
+
+Casos novos: **T99.1 e T99.2** (`99_chapter_jump.json`), com par negativo,
+provando o seletor por fato de memória (Planalto Índigo com as oito insígnias
+acesas; Pallet Town com as oito apagadas).
+
+Riscos abertos: LV.5 TRAINERS, batalha opcional e animação pós-KO sem prova
+direta de suíte (nenhum caso joga batalha até o fim); T90.5 segue calibrado
+sobre o defeito conhecido do Kiyo; a impressão do guarda usa espaço de índice
+próprio em `dados/items` (itens novos aparecem como 920-922 lá; o id real é
+877-879), anotado para não assustar auditoria futura.
+
 ## 0.c RODADA 3 DE 15/08/2026: AS DUAS OBRAS DE UNOVA (Fable condutor)
 
 Build verde, **suíte 255/256** (T11.3 pulado na rodada normal) e **T11 completo
