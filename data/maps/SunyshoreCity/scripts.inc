@@ -1,6 +1,13 @@
 SunyshoreCity_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+SunyshoreCity_EventScript_CoordEvent_RivalAndJasmine::
+	@ TODO S7: cena da fonte, rotulo SunyshoreCity_CoordEvent_RivalAndJasmine
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 SunyshoreCity_EventScript_Jasmine::
 	lock
 	faceplayer

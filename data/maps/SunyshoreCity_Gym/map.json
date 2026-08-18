@@ -73,7 +73,26 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SunyshoreCity_Gym_EventScript_Button"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SunyshoreCity_Gym_EventScript_Button"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

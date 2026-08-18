@@ -1,6 +1,13 @@
 ValorLakefront_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+ValorLakefront_EventScript_CoordEvent_BlockSunyshore::
+	@ TODO S7: cena da fonte, rotulo ValorLakefront_CoordEvent_BlockSunyshore
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 ValorLakefront_EventScript_Beauty::
 	msgbox ValorLakefront_Text_Beauty, MSGBOX_NPC
 	end

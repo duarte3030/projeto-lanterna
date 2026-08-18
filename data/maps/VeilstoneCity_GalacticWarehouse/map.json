@@ -45,7 +45,26 @@
       "dest_warp_id": "6"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_SINNOH_VEILSTONE_ARMAZEM_ESTADO",
+      "var_value": "3",
+      "script": "VeilstoneCity_GalacticWarehouse_EventScript_CoordEvent_LookerOpenDoor"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_SINNOH_VEILSTONE_ARMAZEM_ESTADO",
+      "var_value": "3",
+      "script": "VeilstoneCity_GalacticWarehouse_EventScript_CoordEvent_LookerOpenDoor"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

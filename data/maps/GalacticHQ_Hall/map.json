@@ -353,6 +353,25 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_SINNOH_QG_HALL_ESTADO",
+      "var_value": "0",
+      "script": "GalacticHQ_Hall_EventScript_CoordEvent_Speech"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_SINNOH_QG_HALL_ESTADO",
+      "var_value": "0",
+      "script": "GalacticHQ_Hall_EventScript_CoordEvent_Speech"
+    }
+  ],
   "bg_events": []
 }

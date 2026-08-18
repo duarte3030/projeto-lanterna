@@ -3,6 +3,17 @@
 OreburghCity_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+OreburghCity_EventScript_CoordEvent_Rival::
+	@ TODO S4: cena da fonte, rotulo OreburghCity_CoordEvent_Rival
+	end
+
+OreburghCity_EventScript_CoordEvent_Youngster::
+	@ TODO S4: cena da fonte, rotulo OreburghCity_CoordEvent_Youngster
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 OreburghCity_EventScript_Rival::
 	lock
 	faceplayer

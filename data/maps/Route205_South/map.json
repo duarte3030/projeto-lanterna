@@ -213,7 +213,71 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 83,
+      "elevation": 0,
+      "var": "VAR_SINNOH_WINDWORKS_ESTADO",
+      "var_value": "0",
+      "script": "Route205_South_EventScript_CoordEvent_LittleGirl"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 84,
+      "elevation": 0,
+      "var": "VAR_SINNOH_WINDWORKS_ESTADO",
+      "var_value": "0",
+      "script": "Route205_South_EventScript_CoordEvent_LittleGirl"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 85,
+      "elevation": 0,
+      "var": "VAR_SINNOH_WINDWORKS_ESTADO",
+      "var_value": "0",
+      "script": "Route205_South_EventScript_CoordEvent_LittleGirl"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 86,
+      "elevation": 0,
+      "var": "VAR_SINNOH_WINDWORKS_ESTADO",
+      "var_value": "0",
+      "script": "Route205_South_EventScript_CoordEvent_LittleGirl"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 87,
+      "elevation": 0,
+      "var": "VAR_SINNOH_WINDWORKS_ESTADO",
+      "var_value": "0",
+      "script": "Route205_South_EventScript_CoordEvent_LittleGirl"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 88,
+      "elevation": 0,
+      "var": "VAR_SINNOH_WINDWORKS_ESTADO",
+      "var_value": "0",
+      "script": "Route205_South_EventScript_CoordEvent_LittleGirl"
+    },
+    {
+      "type": "trigger",
+      "x": 25,
+      "y": 77,
+      "elevation": 0,
+      "var": "VAR_SINNOH_WINDWORKS_ESTADO",
+      "var_value": "1",
+      "script": "Route205_South_EventScript_CoordEvent_Grunts"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

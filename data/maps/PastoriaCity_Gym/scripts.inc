@@ -3,6 +3,21 @@
 PastoriaCity_Gym_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+PastoriaCity_Gym_EventScript_BlueButton::
+	@ TODO S?: cena da fonte, rotulo PastoriaGym_BlueButton
+	end
+
+PastoriaCity_Gym_EventScript_GreenButton::
+	@ TODO S?: cena da fonte, rotulo PastoriaGym_GreenButton
+	end
+
+PastoriaCity_Gym_EventScript_YellowButton::
+	@ TODO S?: cena da fonte, rotulo PastoriaGym_YellowButton
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 PastoriaCity_Gym_EventScript_Leader::
 	lock
 	faceplayer

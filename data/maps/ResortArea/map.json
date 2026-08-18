@@ -135,7 +135,35 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_SINNOH_RESORT_ESTADO",
+      "var_value": "0",
+      "script": "ResortArea_EventScript_CoordEvent_SchoolKidM"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 23,
+      "elevation": 0,
+      "var": "VAR_SINNOH_RESORT_ESTADO",
+      "var_value": "0",
+      "script": "ResortArea_EventScript_CoordEvent_SchoolKidM"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_SINNOH_RESORT_ESTADO",
+      "var_value": "0",
+      "script": "ResortArea_EventScript_CoordEvent_SchoolKidM"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

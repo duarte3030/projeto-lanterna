@@ -1,6 +1,13 @@
 HearthomeCityDpGymElevatorRoom1_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+HearthomeCityDpGymElevatorRoom1_EventScript_CoordEvent_MoveLift::
+	@ TODO S?: cena da fonte, rotulo HearthomeCityDPGymElevatorRoom1_CoordEvent_MoveLift
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 HearthomeCityDpGymElevatorRoom1_EventScript_Placa1::
 	msgbox HearthomeCityDpGymElevatorRoom1_Text_Placa1, MSGBOX_SIGN
 	end

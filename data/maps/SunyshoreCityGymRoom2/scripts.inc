@@ -1,6 +1,17 @@
 SunyshoreCityGymRoom2_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+SunyshoreCityGymRoom2_EventScript_BottomButton::
+	@ TODO S?: cena da fonte, rotulo SunyshoreGymRoom2_BottomButton
+	end
+
+SunyshoreCityGymRoom2_EventScript_TopButtons::
+	@ TODO S?: cena da fonte, rotulo SunyshoreGymRoom2_TopButtons
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 @ Treinador do pokeplatinum: time, raio de visao e fala
 @ (dev_scripts/treinadores_masmorra_sinnoh.py)
 

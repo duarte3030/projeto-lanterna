@@ -131,7 +131,35 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 45,
+      "y": 54,
+      "elevation": 0,
+      "var": "VAR_SINNOH_VALOR_BLOQUEIO_SUNYSHORE",
+      "var_value": "0",
+      "script": "ValorLakefront_EventScript_CoordEvent_BlockSunyshore"
+    },
+    {
+      "type": "trigger",
+      "x": 45,
+      "y": 55,
+      "elevation": 0,
+      "var": "VAR_SINNOH_VALOR_BLOQUEIO_SUNYSHORE",
+      "var_value": "0",
+      "script": "ValorLakefront_EventScript_CoordEvent_BlockSunyshore"
+    },
+    {
+      "type": "trigger",
+      "x": 45,
+      "y": 56,
+      "elevation": 0,
+      "var": "VAR_SINNOH_VALOR_BLOQUEIO_SUNYSHORE",
+      "var_value": "0",
+      "script": "ValorLakefront_EventScript_CoordEvent_BlockSunyshore"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

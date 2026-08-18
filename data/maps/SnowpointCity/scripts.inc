@@ -9,6 +9,13 @@
 SnowpointCity_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+SnowpointCity_EventScript_CoordEvent_TempleGuard::
+	@ TODO S6: cena da fonte, rotulo SnowpointCity_CoordEvent_TempleGuard
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 SnowpointCity_EventScript_Sailor::
 	lock
 	faceplayer

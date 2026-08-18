@@ -51,7 +51,17 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 23,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "IronIslandB1FRightRoom_EventScript_CoordEvent_PlatformLift"
+    }
+  ],
   "bg_events": [],
   "origem": "pokeplatinum: geometria convertida da grade 2D (map_data), mais NPC, placa e texto"
 }

@@ -1,6 +1,13 @@
 ValleyWindworksBuilding_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+ValleyWindworksBuilding_EventScript_CoordEvent_Mars::
+	@ TODO S4: cena da fonte, rotulo ValleyWindworksBuilding_CoordEvent_Mars
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 ValleyWindworksBuilding_EventScript_Npc1::
 	msgbox ValleyWindworksBuilding_Text_Npc1, MSGBOX_NPC
 	end

@@ -1,6 +1,13 @@
 PokemonLeagueNorthPokecenter1F_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+PokemonLeagueNorthPokecenter1F_EventScript_CoordEvent_Rival::
+	@ TODO S7: cena da fonte, rotulo PokemonLeagueNorthPokecenter1F_CoordEvent_Rival
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 PokemonLeagueNorthPokecenter1F_EventScript_Enfermeira::
 	setvar VAR_0x800B, 1
 	call Common_EventScript_PkmnCenterNurse

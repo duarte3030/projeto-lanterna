@@ -5,6 +5,13 @@
 SandgemTown_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+SandgemTown_EventScript_CoordEvent_CounterpartLeadToLab::
+	@ TODO S3: cena da fonte, rotulo SandgemTown_CoordEvent_CounterpartLeadToLab
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 SandgemTown_EventScript_Professor::
 	lock
 	faceplayer

@@ -149,7 +149,35 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 46,
+      "elevation": 0,
+      "var": "VAR_SINNOH_R227_WAKE_RIVAL_ESTADO",
+      "var_value": "0",
+      "script": "Route227_EventScript_CoordEvent_WakeRival"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 46,
+      "elevation": 0,
+      "var": "VAR_SINNOH_R227_WAKE_RIVAL_ESTADO",
+      "var_value": "0",
+      "script": "Route227_EventScript_CoordEvent_WakeRival"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_SINNOH_R227_BUCK_ESTADO",
+      "var_value": "0",
+      "script": "Route227_EventScript_CoordEvent_Buck"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

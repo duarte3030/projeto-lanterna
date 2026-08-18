@@ -8,6 +8,25 @@
 PastoriaCity_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+PastoriaCity_EventScript_CoordEvent_BlockGreatMarsh::
+	@ TODO S5: cena da fonte, rotulo PastoriaCity_CoordEvent_BlockGreatMarsh
+	end
+
+PastoriaCity_EventScript_CoordEvent_Bomb::
+	@ TODO S5: cena da fonte, rotulo PastoriaCity_CoordEvent_Bomb
+	end
+
+PastoriaCity_EventScript_CoordEvent_FaceBoard::
+	@ TODO S5: cena da fonte, rotulo PastoriaCity_CoordEvent_FaceBoard
+	end
+
+PastoriaCity_EventScript_CoordEvent_RivalBattle::
+	@ TODO S5: cena da fonte, rotulo PastoriaCity_CoordEvent_RivalBattle
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 PastoriaCity_EventScript_ParasolLady::
 	msgbox PastoriaCity_Text_ParasolLady, MSGBOX_NPC
 	end

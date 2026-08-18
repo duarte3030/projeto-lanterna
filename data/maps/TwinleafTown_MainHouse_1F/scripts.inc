@@ -4,6 +4,13 @@
 TwinleafTown_MainHouse_1F_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+TwinleafTown_MainHouse_1F_EventScript_CoordEvent_DontGoIntoTallGrass::
+	@ TODO S3: cena da fonte, rotulo TwinleafTownPlayerHouse1F_CoordEvent_DontGoIntoTallGrass
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 TwinleafTown_MainHouse_1F_EventScript_Mom::
 	lock
 	faceplayer

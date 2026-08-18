@@ -4,6 +4,13 @@
 SunyshoreCity_Gym_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+SunyshoreCity_Gym_EventScript_Button::
+	@ TODO S?: cena da fonte, rotulo SunyshoreGymRoom1_Button
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 SunyshoreCity_Gym_EventScript_Leader::
 	lock
 	faceplayer

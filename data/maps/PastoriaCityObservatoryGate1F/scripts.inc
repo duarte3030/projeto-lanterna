@@ -1,6 +1,13 @@
 PastoriaCityObservatoryGate1F_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+PastoriaCityObservatoryGate1F_EventScript_CoordEvent_TryStartSafariGame::
+	@ TODO S5: cena da fonte, rotulo PastoriaCityObservatoryGate1F_CoordEvent_TryStartSafariGame
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 PastoriaCityObservatoryGate1F_EventScript_Npc1::
 	msgbox PastoriaCityObservatoryGate1F_Text_Npc1, MSGBOX_NPC
 	end

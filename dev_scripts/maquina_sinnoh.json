@@ -1,0 +1,5511 @@
+{
+ "adiados": [
+  {
+   "fonte_x": 12,
+   "fonte_z": 46,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 3: OW_FOLLOWERS_ENABLED e FALSE",
+   "script_fonte": 2,
+   "var_fonte": "VAR_FOLLOWER_MON_ACTIVE",
+   "width": 1
+  },
+  {
+   "fonte_x": 12,
+   "fonte_z": 47,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 3: OW_FOLLOWERS_ENABLED e FALSE",
+   "script_fonte": 3,
+   "var_fonte": "VAR_FOLLOWER_MON_ACTIVE",
+   "width": 1
+  },
+  {
+   "fonte_x": 51,
+   "fonte_z": 46,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 3: OW_FOLLOWERS_ENABLED e FALSE",
+   "script_fonte": 4,
+   "var_fonte": "VAR_FOLLOWER_MON_ACTIVE",
+   "width": 1
+  },
+  {
+   "fonte_x": 51,
+   "fonte_z": 47,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 3: OW_FOLLOWERS_ENABLED e FALSE",
+   "script_fonte": 5,
+   "var_fonte": "VAR_FOLLOWER_MON_ACTIVE",
+   "width": 1
+  },
+  {
+   "fonte_x": 17,
+   "fonte_z": 17,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 18,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 16,
+   "fonte_z": 18,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 19,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 18,
+   "fonte_z": 18,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 20,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 35,
+   "fonte_z": 16,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 21,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 34,
+   "fonte_z": 17,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 22,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 36,
+   "fonte_z": 17,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 23,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 52,
+   "fonte_z": 26,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 24,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 51,
+   "fonte_z": 27,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 25,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 53,
+   "fonte_z": 27,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 26,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 47,
+   "fonte_z": 9,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 27,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 46,
+   "fonte_z": 10,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 28,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 48,
+   "fonte_z": 10,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 29,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 15,
+   "fonte_z": 11,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 30,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 14,
+   "fonte_z": 12,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 31,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 16,
+   "fonte_z": 12,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 32,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 33,
+   "fonte_z": 8,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 33,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 32,
+   "fonte_z": 9,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 34,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 34,
+   "fonte_z": 9,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 35,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 26,
+   "fonte_z": 10,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 36,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 25,
+   "fonte_z": 11,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 37,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 27,
+   "fonte_z": 11,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 38,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 41,
+   "fonte_z": 17,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 39,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 40,
+   "fonte_z": 18,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 40,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 42,
+   "fonte_z": 18,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 41,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 47,
+   "fonte_z": 35,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 42,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 46,
+   "fonte_z": 36,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 43,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 48,
+   "fonte_z": 36,
+   "length": 1,
+   "mapa": "AmitySquare",
+   "motivo": "decisao 4: Amity vira praca aberta, warp comum de onda futura",
+   "script_fonte": 44,
+   "var_fonte": "VAR_AMITY_SQUARE_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 22,
+   "fonte_z": 34,
+   "length": 2,
+   "mapa": "BattleFrontier",
+   "motivo": "decisao 3: dummy declarado na propria fonte",
+   "script_fonte": 34,
+   "var_fonte": "VAR_BATTLE_FRONTIER_DUMMY_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 35,
+   "fonte_z": 62,
+   "length": 2,
+   "mapa": "BattleFrontier",
+   "motivo": "decisao 3: dummy declarado na propria fonte",
+   "script_fonte": 35,
+   "var_fonte": "VAR_BATTLE_FRONTIER_DUMMY_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 61,
+   "fonte_z": 62,
+   "length": 2,
+   "mapa": "BattleFrontier",
+   "motivo": "decisao 3: dummy declarado na propria fonte",
+   "script_fonte": 36,
+   "var_fonte": "VAR_BATTLE_FRONTIER_DUMMY_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 74,
+   "fonte_z": 34,
+   "length": 2,
+   "mapa": "BattleFrontier",
+   "motivo": "decisao 3: dummy declarado na propria fonte",
+   "script_fonte": 37,
+   "var_fonte": "VAR_BATTLE_FRONTIER_DUMMY_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 303,
+   "fonte_z": 523,
+   "length": 4,
+   "mapa": "EternaCity",
+   "motivo": "adiado por colisao de onda: o bloco S2 edita este mapa em 17/08/2026",
+   "script_fonte": 25,
+   "var_fonte": "VAR_ETERNA_CITY_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 303,
+   "fonte_z": 565,
+   "length": 1,
+   "mapa": "EternaCity",
+   "motivo": "adiado por colisao de onda: o bloco S2 edita este mapa em 17/08/2026",
+   "script_fonte": 20,
+   "var_fonte": "VAR_ETERNA_CITY_BLOCK_EXITS_STATE",
+   "width": 5
+  },
+  {
+   "fonte_x": 297,
+   "fonte_z": 532,
+   "length": 3,
+   "mapa": "EternaCity",
+   "motivo": "adiado por colisao de onda: o bloco S2 edita este mapa em 17/08/2026",
+   "script_fonte": 23,
+   "var_fonte": "VAR_ETERNA_CITY_BLOCK_EXITS_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 304,
+   "fonte_z": 522,
+   "length": 1,
+   "mapa": "EternaCity",
+   "motivo": "adiado por colisao de onda: o bloco S2 edita este mapa em 17/08/2026",
+   "script_fonte": 1,
+   "var_fonte": "VAR_ETERNA_CITY_STATE",
+   "width": 3
+  },
+  {
+   "fonte_x": 308,
+   "fonte_z": 541,
+   "length": 5,
+   "mapa": "EternaCity",
+   "motivo": "adiado por colisao de onda: o bloco S2 edita este mapa em 17/08/2026",
+   "script_fonte": 26,
+   "var_fonte": "VAR_ETERNA_CITY_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 309,
+   "fonte_z": 540,
+   "length": 6,
+   "mapa": "EternaCity",
+   "motivo": "adiado por colisao de onda: o bloco S2 edita este mapa em 17/08/2026",
+   "script_fonte": 27,
+   "var_fonte": "VAR_ETERNA_CITY_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 304,
+   "fonte_z": 523,
+   "length": 3,
+   "mapa": "EternaCity",
+   "motivo": "adiado por colisao de onda: o bloco S2 edita este mapa em 17/08/2026",
+   "script_fonte": 1,
+   "var_fonte": "VAR_ETERNA_CITY_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 28,
+   "fonte_z": 85,
+   "length": 1,
+   "mapa": "EternaForest",
+   "motivo": "decisao 5: mecanica de parceiro sem desenho",
+   "script_fonte": 1,
+   "var_fonte": "VAR_ETERNA_FOREST_FOLLOWER_CHERYL_STATE",
+   "width": 2
+  },
+  {
+   "fonte_x": 28,
+   "fonte_z": 86,
+   "length": 1,
+   "mapa": "EternaForest",
+   "motivo": "decisao 5: mecanica de parceiro sem desenho",
+   "script_fonte": 2,
+   "var_fonte": "VAR_ETERNA_FOREST_FOLLOWER_CHERYL_STATE",
+   "width": 2
+  },
+  {
+   "fonte_x": 82,
+   "fonte_z": 34,
+   "length": 6,
+   "mapa": "EternaForest",
+   "motivo": "decisao 5: mecanica de parceiro sem desenho",
+   "script_fonte": 3,
+   "var_fonte": "VAR_ETERNA_FOREST_FOLLOWER_CHERYL_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 35,
+   "fonte_z": 2,
+   "length": 2,
+   "mapa": "IronIslandB2FLeftRoom",
+   "motivo": "decisao 5: mecanica de parceiro sem desenho",
+   "script_fonte": 3,
+   "var_fonte": "VAR_IRON_ISLAND_B2F_LEFT_ROOM_FOLLOWER_RILEY_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 36,
+   "fonte_z": 2,
+   "length": 2,
+   "mapa": "IronIslandB2FLeftRoom",
+   "motivo": "decisao 5: mecanica de parceiro sem desenho",
+   "script_fonte": 4,
+   "var_fonte": "VAR_IRON_ISLAND_B2F_LEFT_ROOM_FOLLOWER_RILEY_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 21,
+   "fonte_z": 40,
+   "length": 2,
+   "mapa": "IronIslandB2FLeftRoom",
+   "motivo": "decisao 5: mecanica de parceiro sem desenho",
+   "script_fonte": 9,
+   "var_fonte": "VAR_IRON_ISLAND_B2F_LEFT_ROOM_FOLLOWER_RILEY_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 155,
+   "fonte_z": 779,
+   "length": 3,
+   "mapa": "JubilifeCity",
+   "motivo": "decisao 3: GTS nao existe aqui",
+   "script_fonte": 19,
+   "var_fonte": "VAR_GTS_ACCESS_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 172,
+   "fonte_z": 776,
+   "length": 1,
+   "mapa": "JubilifeCity",
+   "motivo": "decisao 3: Poketch nao existe",
+   "script_fonte": 17,
+   "var_fonte": "VAR_POKETCH_CAMPAIGN_STATE",
+   "width": 5
+  },
+  {
+   "fonte_x": 22,
+   "fonte_z": 48,
+   "length": 1,
+   "mapa": "PalPark",
+   "motivo": "decisao 3: migracao de gen 3 nao existe",
+   "script_fonte": 5,
+   "var_fonte": "VAR_PAL_PARK_STATE",
+   "width": 6
+  },
+  {
+   "fonte_x": 4,
+   "fonte_z": 11,
+   "length": 1,
+   "mapa": "PokemonLeagueElevatorToAaronRoom",
+   "motivo": "mapa da fonte sem object/bg_event: nao ha ancora para converter coordenada",
+   "script_fonte": 3,
+   "var_fonte": "VAR_MAP_LOCAL_0x00",
+   "width": 1
+  },
+  {
+   "fonte_x": 110,
+   "fonte_z": 857,
+   "length": 1,
+   "mapa": "Route201",
+   "motivo": "decisao 5: mecanica de parceiro sem desenho",
+   "script_fonte": 2,
+   "var_fonte": "VAR_FOLLOWER_RIVAL_STATE",
+   "width": 4
+  },
+  {
+   "fonte_x": 113,
+   "fonte_z": 855,
+   "length": 1,
+   "mapa": "Route201",
+   "motivo": "decisao 5: mecanica de parceiro sem desenho",
+   "script_fonte": 4,
+   "var_fonte": "VAR_FOLLOWER_RIVAL_STATE",
+   "width": 2
+  },
+  {
+   "fonte_x": 110,
+   "fonte_z": 858,
+   "length": 1,
+   "mapa": "Route201",
+   "motivo": "decisao 5: mecanica de parceiro sem desenho",
+   "script_fonte": 3,
+   "var_fonte": "VAR_FOLLOWER_RIVAL_STATE",
+   "width": 4
+  },
+  {
+   "fonte_x": 115,
+   "fonte_z": 854,
+   "length": 1,
+   "mapa": "Route201",
+   "motivo": "decisao 5: mecanica de parceiro sem desenho",
+   "script_fonte": 4,
+   "var_fonte": "VAR_FOLLOWER_RIVAL_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 115,
+   "fonte_z": 852,
+   "length": 4,
+   "mapa": "Route201",
+   "motivo": "decisao 5: mecanica de parceiro sem desenho",
+   "script_fonte": 14,
+   "var_fonte": "VAR_FOLLOWER_RIVAL_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 109,
+   "fonte_z": 857,
+   "length": 1,
+   "mapa": "Route201",
+   "motivo": "decisao 5: mecanica de parceiro sem desenho",
+   "script_fonte": 16,
+   "var_fonte": "VAR_FOLLOWER_RIVAL_STATE",
+   "width": 5
+  },
+  {
+   "fonte_x": 31,
+   "fonte_z": 48,
+   "length": 1,
+   "mapa": "SpearPillar",
+   "motivo": "adiado por colisao de onda: o bloco S2 edita este mapa em 17/08/2026",
+   "script_fonte": 3,
+   "var_fonte": "VAR_SPEAR_PILLAR_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 30,
+   "fonte_z": 32,
+   "length": 1,
+   "mapa": "SpearPillar",
+   "motivo": "adiado por colisao de onda: o bloco S2 edita este mapa em 17/08/2026",
+   "script_fonte": 5,
+   "var_fonte": "VAR_SPEAR_PILLAR_STATE",
+   "width": 3
+  },
+  {
+   "fonte_x": 31,
+   "fonte_z": 52,
+   "length": 1,
+   "mapa": "SpearPillar",
+   "motivo": "adiado por colisao de onda: o bloco S2 edita este mapa em 17/08/2026",
+   "script_fonte": 2039,
+   "var_fonte": "VAR_HALL_OF_ORIGIN_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 31,
+   "fonte_z": 52,
+   "length": 1,
+   "mapa": "SpearPillar_Dialga",
+   "motivo": "script 2039 fora da lista de ScriptEntry (2 entradas): e indice de script global do narc, sem rotulo na fonte; volta ao plano",
+   "script_fonte": 2039,
+   "var_fonte": "VAR_HALL_OF_ORIGIN_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 31,
+   "fonte_z": 52,
+   "length": 1,
+   "mapa": "SpearPillar_Palkia",
+   "motivo": "script 2039 fora da lista de ScriptEntry (2 entradas): e indice de script global do narc, sem rotulo na fonte; volta ao plano",
+   "script_fonte": 2039,
+   "var_fonte": "VAR_HALL_OF_ORIGIN_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 42,
+   "fonte_z": 69,
+   "length": 1,
+   "mapa": "StarkMountainRoom2",
+   "motivo": "decisao 5: mecanica de parceiro sem desenho",
+   "script_fonte": 1,
+   "var_fonte": "VAR_STARK_MOUNTAIN_ROOM_2_FOLLOWER_BUCK_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 42,
+   "fonte_z": 70,
+   "length": 1,
+   "mapa": "StarkMountainRoom2",
+   "motivo": "decisao 5: mecanica de parceiro sem desenho",
+   "script_fonte": 2,
+   "var_fonte": "VAR_STARK_MOUNTAIN_ROOM_2_FOLLOWER_BUCK_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 47,
+   "fonte_z": 3,
+   "length": 1,
+   "mapa": "StarkMountainRoom2",
+   "motivo": "decisao 5: mecanica de parceiro sem desenho",
+   "script_fonte": 3,
+   "var_fonte": "VAR_STARK_MOUNTAIN_ROOM_2_FOLLOWER_BUCK_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 697,
+   "fonte_z": 596,
+   "length": 1,
+   "mapa": "VeilstoneCity",
+   "motivo": "adiado por colisao de onda: o bloco S2 edita este mapa em 17/08/2026",
+   "script_fonte": 10,
+   "var_fonte": "VAR_VEILSTONE_WAREHOUSE_GUARDS_FIGHTABLE",
+   "width": 1
+  },
+  {
+   "fonte_x": 681,
+   "fonte_z": 616,
+   "length": 1,
+   "mapa": "VeilstoneCity",
+   "motivo": "adiado por colisao de onda: o bloco S2 edita este mapa em 17/08/2026",
+   "script_fonte": 15,
+   "var_fonte": "VAR_VEILSTONE_CITY_CRASHER_WAKE_STATE",
+   "width": 4
+  },
+  {
+   "fonte_x": 51,
+   "fonte_z": 19,
+   "length": 1,
+   "mapa": "VictoryRoad1FRoom2",
+   "motivo": "decisao 5: mecanica de parceiro sem desenho",
+   "script_fonte": 3,
+   "var_fonte": "VAR_VICTORY_ROAD_1F_ROOM_2_FOLLOWER_MARLEY_STATE",
+   "width": 4
+  },
+  {
+   "fonte_x": 4,
+   "fonte_z": 55,
+   "length": 6,
+   "mapa": "VictoryRoad1FRoom2",
+   "motivo": "decisao 5: mecanica de parceiro sem desenho",
+   "script_fonte": 2,
+   "var_fonte": "VAR_VICTORY_ROAD_1F_ROOM_2_FOLLOWER_MARLEY_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 5,
+   "fonte_z": 55,
+   "length": 6,
+   "mapa": "VictoryRoad1FRoom2",
+   "motivo": "decisao 5: mecanica de parceiro sem desenho",
+   "script_fonte": 1,
+   "var_fonte": "VAR_VICTORY_ROAD_1F_ROOM_2_FOLLOWER_MARLEY_STATE",
+   "width": 1
+  },
+  {
+   "fonte_x": 41,
+   "fonte_z": 53,
+   "length": 1,
+   "mapa": "WaywardCave1F",
+   "motivo": "decisao 5: mecanica de parceiro sem desenho",
+   "script_fonte": 4,
+   "var_fonte": "VAR_WAYWARD_CAVE_1F_FOLLOWER_MIRA_STATE",
+   "width": 1
+  }
+ ],
+ "flags": [
+  {
+   "endereco": "0x1B00",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ACUITY_LAKEFRONT_RIVAL",
+   "fonte": "FLAG_HIDE_ACUITY_LAKEFRONT_RIVAL",
+   "mapas": [
+    "AcuityLakefront"
+   ]
+  },
+  {
+   "endereco": "0x1B01",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_AMITY_SQUARE_FOLLOWER_MON",
+   "fonte": "FLAG_HIDE_AMITY_SQUARE_FOLLOWER_MON",
+   "mapas": [
+    "AmitySquare"
+   ]
+  },
+  {
+   "endereco": "0x1B02",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_BATTLEGROUND_TRAINER_1",
+   "fonte": "FLAG_HIDE_BATTLEGROUND_TRAINER_1",
+   "mapas": [
+    "Battleground"
+   ]
+  },
+  {
+   "endereco": "0x1B03",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_BATTLEGROUND_TRAINER_2",
+   "fonte": "FLAG_HIDE_BATTLEGROUND_TRAINER_2",
+   "mapas": [
+    "Battleground"
+   ]
+  },
+  {
+   "endereco": "0x1B04",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_BATTLEGROUND_TRAINER_3",
+   "fonte": "FLAG_HIDE_BATTLEGROUND_TRAINER_3",
+   "mapas": [
+    "Battleground"
+   ]
+  },
+  {
+   "endereco": "0x1B05",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_BATTLEGROUND_TRAINER_4",
+   "fonte": "FLAG_HIDE_BATTLEGROUND_TRAINER_4",
+   "mapas": [
+    "Battleground"
+   ]
+  },
+  {
+   "endereco": "0x1B06",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_BATTLE_FRONTIER_REPORTER",
+   "fonte": "FLAG_HIDE_BATTLE_FRONTIER_REPORTER",
+   "mapas": [
+    "BattleFrontier"
+   ]
+  },
+  {
+   "endereco": "0x1B07",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_BATTLE_HALL_MAJOR_NPC",
+   "fonte": "FLAG_HIDE_BATTLE_HALL_MAJOR_NPC",
+   "mapas": [
+    "BattleHall"
+   ]
+  },
+  {
+   "endereco": "0x1B08",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_BATTLE_HALL_REPORTER",
+   "fonte": "FLAG_HIDE_BATTLE_HALL_REPORTER",
+   "mapas": [
+    "BattleHall"
+   ]
+  },
+  {
+   "estado": "reusada",
+   "flag": "FLAG_HIDE_BATTLE_TOWER_REPORTER",
+   "fonte": "FLAG_HIDE_BATTLE_TOWER_REPORTER",
+   "mapas": [
+    "BattleTower"
+   ],
+   "prova": "nome identico ja em flags.h"
+  },
+  {
+   "endereco": "0x1B09",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_BATTLE_TOWER_TEALA",
+   "fonte": "FLAG_HIDE_BATTLE_TOWER_TEALA",
+   "mapas": [
+    "BattleTower"
+   ]
+  },
+  {
+   "endereco": "0x1B0A",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_CANALAVE_CITY_COUNTERPART",
+   "fonte": "FLAG_HIDE_CANALAVE_CITY_COUNTERPART",
+   "mapas": [
+    "CanalaveCity"
+   ]
+  },
+  {
+   "endereco": "0x1B0B",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_CANALAVE_CITY_HARBOR_INN_GYM_GUIDE",
+   "fonte": "FLAG_HIDE_CANALAVE_CITY_HARBOR_INN_GYM_GUIDE",
+   "mapas": [
+    "CanalaveCityHarborInn"
+   ]
+  },
+  {
+   "endereco": "0x1B0C",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_CANALAVE_CITY_PROF_ROWAN",
+   "fonte": "FLAG_HIDE_CANALAVE_CITY_PROF_ROWAN",
+   "mapas": [
+    "CanalaveCity"
+   ]
+  },
+  {
+   "endereco": "0x1B0D",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_CANALAVE_CITY_RIVAL_LIBRARY",
+   "fonte": "FLAG_HIDE_CANALAVE_CITY_RIVAL_LIBRARY",
+   "mapas": [
+    "CanalaveCity"
+   ]
+  },
+  {
+   "endereco": "0x1B0E",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_CANALAVE_CITY_SAILOR_ELDRITCH_HOUSE_SAILOR_ELDRITCH",
+   "fonte": "FLAG_HIDE_CANALAVE_CITY_SAILOR_ELDRITCH_HOUSE_SAILOR_ELDRITCH",
+   "mapas": [
+    "CanalaveCitySailorEldritchHouse"
+   ]
+  },
+  {
+   "endereco": "0x1B0F",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_CANALAVE_CITY_WEST_HOUSE_REPORTER",
+   "fonte": "FLAG_HIDE_CANALAVE_CITY_WEST_HOUSE_REPORTER",
+   "mapas": [
+    "CanalaveCityWestHouse"
+   ]
+  },
+  {
+   "endereco": "0x1B10",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_CANALAVE_LIBRARY_2F_HIKER",
+   "fonte": "FLAG_HIDE_CANALAVE_LIBRARY_2F_HIKER",
+   "mapas": [
+    "CanalaveLibrary2F"
+   ]
+  },
+  {
+   "endereco": "0x1B11",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_CANALAVE_LIBRARY_COUNTERPART",
+   "fonte": "FLAG_HIDE_CANALAVE_LIBRARY_COUNTERPART",
+   "mapas": [
+    "CanalaveLibrary3F"
+   ]
+  },
+  {
+   "endereco": "0x1B12",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_CANALAVE_LIBRARY_RIVAL",
+   "fonte": "FLAG_HIDE_CANALAVE_LIBRARY_RIVAL",
+   "mapas": [
+    "CanalaveLibrary3F"
+   ]
+  },
+  {
+   "endereco": "0x1B13",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_CANALAVE_LIBRARY_ROWAN",
+   "fonte": "FLAG_HIDE_CANALAVE_LIBRARY_ROWAN",
+   "mapas": [
+    "CanalaveLibrary3F"
+   ]
+  },
+  {
+   "endereco": "0x1B14",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_CELESTIC_TOWN_NORTH_HOUSE_ELDER",
+   "fonte": "FLAG_HIDE_CELESTIC_TOWN_NORTH_HOUSE_ELDER",
+   "mapas": [
+    "CelesticTownNorthHouse"
+   ]
+  },
+  {
+   "endereco": "0x1B15",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_CONTEST_HALL_LOBBY_KEIRA",
+   "fonte": "FLAG_HIDE_CONTEST_HALL_LOBBY_KEIRA",
+   "mapas": [
+    "ContestHallLobby"
+   ]
+  },
+  {
+   "endereco": "0x1B16",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_CONTEST_HALL_LOBBY_MOM",
+   "fonte": "FLAG_HIDE_CONTEST_HALL_LOBBY_MOM",
+   "mapas": [
+    "ContestHallLobby"
+   ]
+  },
+  {
+   "endereco": "0x1B17",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_CONTEST_HALL_LOBBY_REPORTER",
+   "fonte": "FLAG_HIDE_CONTEST_HALL_LOBBY_REPORTER",
+   "mapas": [
+    "ContestHallLobby"
+   ]
+  },
+  {
+   "endereco": "0x1B18",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_CYCLE_SHOP_CLEFAIRY",
+   "fonte": "FLAG_HIDE_CYCLE_SHOP_CLEFAIRY",
+   "mapas": [
+    "CycleShop"
+   ]
+  },
+  {
+   "endereco": "0x1B19",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_CYCLE_SHOP_POKEFAN_M",
+   "fonte": "FLAG_HIDE_CYCLE_SHOP_POKEFAN_M",
+   "mapas": [
+    "CycleShop"
+   ]
+  },
+  {
+   "endereco": "0x1B1A",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_DAY_CARE_GYM_GUIDE",
+   "fonte": "FLAG_HIDE_DAY_CARE_GYM_GUIDE",
+   "mapas": [
+    "PokemonDayCare"
+   ]
+  },
+  {
+   "estado": "reusada",
+   "flag": "FLAG_GALACTICA_ETERNA",
+   "fonte": "FLAG_HIDE_ETERNA_CITY_GALACTIC_GRUNTS",
+   "mapas": [
+    "EternaCity",
+    "TeamGalacticEternaBuilding_1F",
+    "TeamGalacticEternaBuilding_3F"
+   ],
+   "prova": "a fila deu o grupo como sem bloqueio e o objeto ja plantado carrega esta flag"
+  },
+  {
+   "endereco": "0x1B1B",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ETERNA_CITY_RIVAL",
+   "fonte": "FLAG_HIDE_ETERNA_CITY_RIVAL",
+   "mapas": [
+    "EternaCity"
+   ]
+  },
+  {
+   "endereco": "0x1B1C",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ETERNA_CITY_SOUTH_HOUSE_PROF_OAK",
+   "fonte": "FLAG_HIDE_ETERNA_CITY_SOUTH_HOUSE_PROF_OAK",
+   "mapas": [
+    "EternaCitySouthHouse"
+   ]
+  },
+  {
+   "endereco": "0x1B1D",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_FIGHT_AREA_BATTLERS_AND_SPECTATORS",
+   "fonte": "FLAG_HIDE_FIGHT_AREA_BATTLERS_AND_SPECTATORS",
+   "mapas": [
+    "FightArea"
+   ]
+  },
+  {
+   "endereco": "0x1B1E",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_FIGHT_AREA_BLOCKADE",
+   "fonte": "FLAG_HIDE_FIGHT_AREA_BLOCKADE",
+   "mapas": [
+    "FightArea",
+    "Route230"
+   ]
+  },
+  {
+   "endereco": "0x1B1F",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_FIGHT_AREA_RIVAL",
+   "fonte": "FLAG_HIDE_FIGHT_AREA_RIVAL",
+   "mapas": [
+    "FightArea"
+   ]
+  },
+  {
+   "candidatos": [
+    "FLAG_GALACTICA_QG_CHAVE",
+    "FLAG_GALACTICA_QG_TOMADO"
+   ],
+   "estado": "ambiguo",
+   "fonte": "FLAG_HIDE_GALACTIC_HQ_TEAM_GALACTIC",
+   "mapas": [
+    "GalacticHQ_2F",
+    "GalacticHQ_3F",
+    "GalacticHQ_B1F",
+    "GalacticHQ_B2F",
+    "GalacticHQ_Laboratory"
+   ],
+   "motivo": "decisao 9: reuso com mais de um candidato, ou candidato ja reivindicado por outro grupo da fonte; fusao e decisao de condutora, nao do gerador"
+  },
+  {
+   "endereco": "0x1B20",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_GRAND_LAKE_VALOR_LAKEFRONT_EAST_HOUSE_BEAUTY",
+   "fonte": "FLAG_HIDE_GRAND_LAKE_VALOR_LAKEFRONT_EAST_HOUSE_BEAUTY",
+   "mapas": [
+    "GrandLakeValorLakefrontEastHouse"
+   ]
+  },
+  {
+   "endereco": "0x1B21",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_HEARTHOME_CITY_GATE_TO_AMITY_SQUARE_REPORTER",
+   "fonte": "FLAG_HIDE_HEARTHOME_CITY_GATE_TO_AMITY_SQUARE_REPORTER",
+   "mapas": [
+    "HearthomeCityEastGateToAmitySquare",
+    "HearthomeCityWestGateToAmitySquare"
+   ]
+  },
+  {
+   "endereco": "0x1B22",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_HEARTHOME_CITY_GYM_GUIDE",
+   "fonte": "FLAG_HIDE_HEARTHOME_CITY_GYM_GUIDE",
+   "mapas": [
+    "HearthomeCity"
+   ]
+  },
+  {
+   "endereco": "0x1B23",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_HEARTHOME_CITY_HIKER_3",
+   "fonte": "FLAG_HIDE_HEARTHOME_CITY_HIKER_3",
+   "mapas": [
+    "HearthomeCity"
+   ]
+  },
+  {
+   "endereco": "0x1B24",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_HEARTHOME_CITY_KEIRA",
+   "fonte": "FLAG_HIDE_HEARTHOME_CITY_KEIRA",
+   "mapas": [
+    "HearthomeCity"
+   ]
+  },
+  {
+   "endereco": "0x1B25",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_HEARTHOME_CITY_POKEMON_FAN_CLUB_REPORTER",
+   "fonte": "FLAG_HIDE_HEARTHOME_CITY_POKEMON_FAN_CLUB_REPORTER",
+   "mapas": [
+    "HearthomeCityPokemonFanClub"
+   ]
+  },
+  {
+   "endereco": "0x1B26",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_HEARTHOME_CITY_ROUTE_209_BLOCKADE",
+   "fonte": "FLAG_HIDE_HEARTHOME_CITY_ROUTE_209_BLOCKADE",
+   "mapas": [
+    "HearthomeCity"
+   ]
+  },
+  {
+   "endereco": "0x1B27",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_HEARTHOME_CITY_ROUTE_209_GATE_RIVAL",
+   "fonte": "FLAG_HIDE_HEARTHOME_CITY_ROUTE_209_GATE_RIVAL",
+   "mapas": [
+    "Route209_Access"
+   ]
+  },
+  {
+   "endereco": "0x1B28",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_IRON_ISLAND_B2F_LEFT_ROOM_GRUNTS",
+   "fonte": "FLAG_HIDE_IRON_ISLAND_B2F_LEFT_ROOM_GRUNTS",
+   "mapas": [
+    "IronIslandB2FLeftRoom"
+   ]
+  },
+  {
+   "endereco": "0x1B29",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_JUBILIFE_CITY_CLOWNS_1_AND_2",
+   "fonte": "FLAG_HIDE_JUBILIFE_CITY_CLOWNS_1_AND_2",
+   "mapas": [
+    "JubilifeCity"
+   ]
+  },
+  {
+   "endereco": "0x1B2A",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_JUBILIFE_CITY_CLOWN_3",
+   "fonte": "FLAG_HIDE_JUBILIFE_CITY_CLOWN_3",
+   "mapas": [
+    "JubilifeCity"
+   ]
+  },
+  {
+   "endereco": "0x1B2B",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_JUBILIFE_CITY_COLLECTOR",
+   "fonte": "FLAG_HIDE_JUBILIFE_CITY_COLLECTOR",
+   "mapas": [
+    "JubilifeCity"
+   ]
+  },
+  {
+   "endereco": "0x1B2C",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_JUBILIFE_CITY_COUNTERPART",
+   "fonte": "FLAG_HIDE_JUBILIFE_CITY_COUNTERPART",
+   "mapas": [
+    "JubilifeCity"
+   ]
+  },
+  {
+   "endereco": "0x1B2D",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_JUBILIFE_CITY_POKETCH_CO_PRESIDENT",
+   "fonte": "FLAG_HIDE_JUBILIFE_CITY_POKETCH_CO_PRESIDENT",
+   "mapas": [
+    "JubilifeCity"
+   ]
+  },
+  {
+   "endereco": "0x1B2E",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_JUBILIFE_TV_2F_REPORTER",
+   "fonte": "FLAG_HIDE_JUBILIFE_TV_2F_REPORTER",
+   "mapas": [
+    "JubilifeCity_JubilifeTV_F2"
+   ]
+  },
+  {
+   "endereco": "0x1B2F",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_JUBILIFE_TV_3F_GROUP_RANKING_ROOM_WORKER",
+   "fonte": "FLAG_HIDE_JUBILIFE_TV_3F_GROUP_RANKING_ROOM_WORKER",
+   "mapas": [
+    "JubilifeTv3FGroupRankingRoom"
+   ]
+  },
+  {
+   "endereco": "0x1B30",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_LAKE_ACUITY_LOW_WATER_RIVAL",
+   "fonte": "FLAG_HIDE_LAKE_ACUITY_LOW_WATER_RIVAL",
+   "mapas": [
+    "LakeAcuityLowWater"
+   ]
+  },
+  {
+   "endereco": "0x1B31",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_LAKE_VERITY_COUNTERPART",
+   "fonte": "FLAG_HIDE_LAKE_VERITY_COUNTERPART",
+   "mapas": [
+    "LakeVerity"
+   ]
+  },
+  {
+   "endereco": "0x1B32",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_LAKE_VERITY_LOW_WATER_COUNTERPART",
+   "fonte": "FLAG_HIDE_LAKE_VERITY_LOW_WATER_COUNTERPART",
+   "mapas": [
+    "LakeVerityLowWater"
+   ]
+  },
+  {
+   "endereco": "0x1B33",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_LAKE_VERITY_LOW_WATER_PROF_ROWAN",
+   "fonte": "FLAG_HIDE_LAKE_VERITY_LOW_WATER_PROF_ROWAN",
+   "mapas": [
+    "LakeVerityLowWater"
+   ]
+  },
+  {
+   "endereco": "0x1B34",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_LAKE_VERITY_LOW_WATER_RIVAL",
+   "fonte": "FLAG_HIDE_LAKE_VERITY_LOW_WATER_RIVAL",
+   "mapas": [
+    "LakeVerityLowWater"
+   ]
+  },
+  {
+   "endereco": "0x1B35",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_LAKE_VERITY_PROF_ROWAN",
+   "fonte": "FLAG_HIDE_LAKE_VERITY_PROF_ROWAN",
+   "mapas": [
+    "LakeVerity"
+   ]
+  },
+  {
+   "estado": "adiado",
+   "fonte": "FLAG_HIDE_MART_MYSTERY_GIFT_DELIVERYMAN",
+   "mapas": [
+    "CanalaveCityMart",
+    "EternaCityMart",
+    "FightAreaMart",
+    "FloaromaTown_Mart",
+    "HearthomeCityMart",
+    "JubilifeCity_Mart",
+    "OreburghCity_Mart",
+    "PastoriaCityMart",
+    "SandgemTown_Mart",
+    "SnowpointCityMart",
+    "SolaceonTownMart",
+    "SunyshoreCityMart",
+    "SurvivalAreaMart"
+   ],
+   "motivo": "decisao 6: mecanica diaria/Mystery Gift, nao e cena de historia"
+  },
+  {
+   "estado": "reusada",
+   "flag": "FLAG_GALACTICA_MT_CORONET",
+   "fonte": "FLAG_HIDE_MT_CORONET_GALACTIC_GRUNTS",
+   "mapas": [
+    "MtCoronet1FTunnelRoom"
+   ],
+   "prova": "a fila deu o grupo como sem bloqueio e o objeto ja plantado carrega esta flag"
+  },
+  {
+   "endereco": "0x1B36",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_OLD_CHATEAU_BACK_MIDDLE_EAST_ROOM_TWIN",
+   "fonte": "FLAG_HIDE_OLD_CHATEAU_BACK_MIDDLE_EAST_ROOM_TWIN",
+   "mapas": [
+    "OldChateauBackMiddleEastRoom"
+   ]
+  },
+  {
+   "endereco": "0x1B37",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_OLD_CHATEAU_DINING_AREA_OLD_MAN",
+   "fonte": "FLAG_HIDE_OLD_CHATEAU_DINING_AREA_OLD_MAN",
+   "mapas": [
+    "OldChateauDiningArea"
+   ]
+  },
+  {
+   "endereco": "0x1B38",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_OREBURGH_CITY_RIVAL",
+   "fonte": "FLAG_HIDE_OREBURGH_CITY_RIVAL",
+   "mapas": [
+    "OreburghCity"
+   ]
+  },
+  {
+   "endereco": "0x1B39",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_OREBURGH_MINE_B1F_HIKER",
+   "fonte": "FLAG_HIDE_OREBURGH_MINE_B1F_HIKER",
+   "mapas": [
+    "OreburghMine_B1F"
+   ]
+  },
+  {
+   "endereco": "0x1B3A",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_PAL_PARK_LOBBY_PROF_OAK",
+   "fonte": "FLAG_HIDE_PAL_PARK_LOBBY_PROF_OAK",
+   "mapas": [
+    "PalParkLobby"
+   ]
+  },
+  {
+   "endereco": "0x1B3B",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_PASTORIA_CITY_GRUNT_M",
+   "fonte": "FLAG_HIDE_PASTORIA_CITY_GRUNT_M",
+   "mapas": [
+    "PastoriaCity"
+   ]
+  },
+  {
+   "endereco": "0x1B3C",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_PASTORIA_CITY_RIVAL",
+   "fonte": "FLAG_HIDE_PASTORIA_CITY_RIVAL",
+   "mapas": [
+    "PastoriaCity"
+   ]
+  },
+  {
+   "endereco": "0x1B3D",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_POFFIN_HOUSE_REPORTER",
+   "fonte": "FLAG_HIDE_POFFIN_HOUSE_REPORTER",
+   "mapas": [
+    "PoffinHouse"
+   ]
+  },
+  {
+   "endereco": "0x1B3E",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_POKECENTER_BASEMENT_BLOCKADE",
+   "fonte": "FLAG_HIDE_POKECENTER_BASEMENT_BLOCKADE",
+   "mapas": [
+    "JubilifeCity_PokemonCenter_1F",
+    "SandgemTown_PokemonCenter_1F"
+   ]
+  },
+  {
+   "estado": "adiado",
+   "fonte": "FLAG_HIDE_POKECENTER_DAILY_TRAINER_1",
+   "mapas": [
+    "CanalaveCityPokecenter1F",
+    "CelesticTownPokecenter1F",
+    "EternaCityPokecenter1F",
+    "FightAreaPokecenter1F",
+    "FloaromaTown_PokemonCenter_1F",
+    "HearthomeCityPokecenter1F",
+    "JubilifeCity_PokemonCenter_1F",
+    "OreburghCity_PokemonCenter_1F",
+    "PastoriaCityPokecenter1F",
+    "ResortAreaPokecenter1F",
+    "SnowpointCityPokecenter1F",
+    "SolaceonTownPokecenter1F",
+    "SunyshoreCityPokecenter1F",
+    "VeilstoneCityPokecenter1F"
+   ],
+   "motivo": "decisao 6: mecanica diaria/Mystery Gift, nao e cena de historia"
+  },
+  {
+   "estado": "adiado",
+   "fonte": "FLAG_HIDE_POKECENTER_DAILY_TRAINER_2",
+   "mapas": [
+    "CanalaveCityPokecenter1F",
+    "CelesticTownPokecenter1F",
+    "EternaCityPokecenter1F",
+    "FightAreaPokecenter1F",
+    "FloaromaTown_PokemonCenter_1F",
+    "HearthomeCityPokecenter1F",
+    "JubilifeCity_PokemonCenter_1F",
+    "OreburghCity_PokemonCenter_1F",
+    "PastoriaCityPokecenter1F",
+    "ResortAreaPokecenter1F",
+    "SnowpointCityPokecenter1F",
+    "SolaceonTownPokecenter1F",
+    "SunyshoreCityPokecenter1F",
+    "VeilstoneCityPokecenter1F"
+   ],
+   "motivo": "decisao 6: mecanica diaria/Mystery Gift, nao e cena de historia"
+  },
+  {
+   "endereco": "0x1B3F",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_POKEMON_LEAGUE_NORTH_POKECENTER_1F_RIVAL",
+   "fonte": "FLAG_HIDE_POKEMON_LEAGUE_NORTH_POKECENTER_1F_RIVAL",
+   "mapas": [
+    "PokemonLeagueNorthPokecenter1F"
+   ]
+  },
+  {
+   "endereco": "0x1B40",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_POKEMON_MANSION_FIVE_MAID_KNOCKOUT_BOSS",
+   "fonte": "FLAG_HIDE_POKEMON_MANSION_FIVE_MAID_KNOCKOUT_BOSS",
+   "mapas": [
+    "PokemonMansion"
+   ]
+  },
+  {
+   "endereco": "0x1B41",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_POKEMON_MANSION_OFFICE_POLICEMAN",
+   "fonte": "FLAG_HIDE_POKEMON_MANSION_OFFICE_POLICEMAN",
+   "mapas": [
+    "PokemonMansionOffice"
+   ]
+  },
+  {
+   "endereco": "0x1B42",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_POKETCH_CO_1F_POKETCH_CO_PRESIDENT",
+   "fonte": "FLAG_HIDE_POKETCH_CO_1F_POKETCH_CO_PRESIDENT",
+   "mapas": [
+    "JubilifeCity_PoketchCompany_F1"
+   ]
+  },
+  {
+   "endereco": "0x1B43",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_POKETCH_CO_1F_REPORTER",
+   "fonte": "FLAG_HIDE_POKETCH_CO_1F_REPORTER",
+   "mapas": [
+    "JubilifeCity_PoketchCompany_F1"
+   ]
+  },
+  {
+   "endereco": "0x1B44",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_RESORT_AREA_PROF_ROWAN",
+   "fonte": "FLAG_HIDE_RESORT_AREA_PROF_ROWAN",
+   "mapas": [
+    "ResortArea"
+   ]
+  },
+  {
+   "endereco": "0x1B45",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_RESORT_AREA_SCHOOL_KID_M",
+   "fonte": "FLAG_HIDE_RESORT_AREA_SCHOOL_KID_M",
+   "mapas": [
+    "ResortArea"
+   ]
+  },
+  {
+   "endereco": "0x1B46",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_RESTAURANT_DARRYL_VALERIE",
+   "fonte": "FLAG_HIDE_RESTAURANT_DARRYL_VALERIE",
+   "mapas": [
+    "Restaurant"
+   ]
+  },
+  {
+   "endereco": "0x1B47",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_RESTAURANT_EMANUEL_BLYTHE",
+   "fonte": "FLAG_HIDE_RESTAURANT_EMANUEL_BLYTHE",
+   "mapas": [
+    "Restaurant"
+   ]
+  },
+  {
+   "endereco": "0x1B48",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_RESTAURANT_EMILIO_KAYLEE",
+   "fonte": "FLAG_HIDE_RESTAURANT_EMILIO_KAYLEE",
+   "mapas": [
+    "Restaurant"
+   ]
+  },
+  {
+   "endereco": "0x1B49",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_RESTAURANT_ESTEBAN_MEREDITH",
+   "fonte": "FLAG_HIDE_RESTAURANT_ESTEBAN_MEREDITH",
+   "mapas": [
+    "Restaurant"
+   ]
+  },
+  {
+   "endereco": "0x1B4A",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_RESTAURANT_EUGENE_ALISON",
+   "fonte": "FLAG_HIDE_RESTAURANT_EUGENE_ALISON",
+   "mapas": [
+    "Restaurant"
+   ]
+  },
+  {
+   "endereco": "0x1B4B",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_RESTAURANT_ISMAEL_HARLEY",
+   "fonte": "FLAG_HIDE_RESTAURANT_ISMAEL_HARLEY",
+   "mapas": [
+    "Restaurant"
+   ]
+  },
+  {
+   "endereco": "0x1B4C",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_RESTAURANT_KENDRICK_GABRIELLA",
+   "fonte": "FLAG_HIDE_RESTAURANT_KENDRICK_GABRIELLA",
+   "mapas": [
+    "Restaurant"
+   ]
+  },
+  {
+   "endereco": "0x1B4D",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_RESTAURANT_LEONARDO_REBECCA",
+   "fonte": "FLAG_HIDE_RESTAURANT_LEONARDO_REBECCA",
+   "mapas": [
+    "Restaurant"
+   ]
+  },
+  {
+   "endereco": "0x1B4E",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_RESTAURANT_ROMAN_KYLIE",
+   "fonte": "FLAG_HIDE_RESTAURANT_ROMAN_KYLIE",
+   "mapas": [
+    "Restaurant"
+   ]
+  },
+  {
+   "endereco": "0x1B4F",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROTOMS_ROOM_PROF_ROWAN",
+   "fonte": "FLAG_HIDE_ROTOMS_ROOM_PROF_ROWAN",
+   "mapas": [
+    "RotomsRoom"
+   ]
+  },
+  {
+   "endereco": "0x1B50",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_201_COUNTERPART",
+   "fonte": "FLAG_HIDE_ROUTE_201_COUNTERPART",
+   "mapas": [
+    "Route201"
+   ]
+  },
+  {
+   "endereco": "0x1B51",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_201_PROF_ROWAN",
+   "fonte": "FLAG_HIDE_ROUTE_201_PROF_ROWAN",
+   "mapas": [
+    "Route201"
+   ]
+  },
+  {
+   "endereco": "0x1B52",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_201_RIVAL",
+   "fonte": "FLAG_HIDE_ROUTE_201_RIVAL",
+   "mapas": [
+    "Route201"
+   ]
+  },
+  {
+   "endereco": "0x1B53",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_202_COUNTERPART",
+   "fonte": "FLAG_HIDE_ROUTE_202_COUNTERPART",
+   "mapas": [
+    "Route202"
+   ]
+  },
+  {
+   "endereco": "0x1B54",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_203_RIVAL",
+   "fonte": "FLAG_HIDE_ROUTE_203_RIVAL",
+   "mapas": [
+    "Route203"
+   ]
+  },
+  {
+   "endereco": "0x1B55",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_205_SOUTH_LITTLE_GIRL",
+   "fonte": "FLAG_HIDE_ROUTE_205_SOUTH_LITTLE_GIRL",
+   "mapas": [
+    "Route205_South"
+   ]
+  },
+  {
+   "endereco": "0x1B56",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_205_SOUTH_YOUNGSTER",
+   "fonte": "FLAG_HIDE_ROUTE_205_SOUTH_YOUNGSTER",
+   "mapas": [
+    "Route205_South"
+   ]
+  },
+  {
+   "endereco": "0x1B57",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_206_CYCLING_ROAD_NORTH_GATE_SCIENTIST_M",
+   "fonte": "FLAG_HIDE_ROUTE_206_CYCLING_ROAD_NORTH_GATE_SCIENTIST_M",
+   "mapas": [
+    "Route206_North"
+   ]
+  },
+  {
+   "endereco": "0x1B58",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_207_COUNTERPART",
+   "fonte": "FLAG_HIDE_ROUTE_207_COUNTERPART",
+   "mapas": [
+    "Route207"
+   ]
+  },
+  {
+   "endereco": "0x1B59",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_209_JOGGER_RAUL",
+   "fonte": "FLAG_HIDE_ROUTE_209_JOGGER_RAUL",
+   "mapas": [
+    "Route209"
+   ]
+  },
+  {
+   "endereco": "0x1B5A",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_209_JOGGER_RAUL_NO_BATTLE",
+   "fonte": "FLAG_HIDE_ROUTE_209_JOGGER_RAUL_NO_BATTLE",
+   "mapas": [
+    "Route209"
+   ]
+  },
+  {
+   "endereco": "0x1B5B",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_209_JOGGER_RICHARD",
+   "fonte": "FLAG_HIDE_ROUTE_209_JOGGER_RICHARD",
+   "mapas": [
+    "Route209"
+   ]
+  },
+  {
+   "endereco": "0x1B5C",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_209_JOGGER_RICHARD_NO_BATTLE",
+   "fonte": "FLAG_HIDE_ROUTE_209_JOGGER_RICHARD_NO_BATTLE",
+   "mapas": [
+    "Route209"
+   ]
+  },
+  {
+   "endereco": "0x1B5D",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_210_SOUTH_JOGGER_WYATT_NO_BATTLE",
+   "fonte": "FLAG_HIDE_ROUTE_210_SOUTH_JOGGER_WYATT_NO_BATTLE",
+   "mapas": [
+    "Route210_South"
+   ]
+  },
+  {
+   "endereco": "0x1B5E",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_210_SOUTH_PSYDUCK",
+   "fonte": "FLAG_HIDE_ROUTE_210_SOUTH_PSYDUCK",
+   "mapas": [
+    "Route210_South"
+   ]
+  },
+  {
+   "endereco": "0x1B5F",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_212_BLOCKADE",
+   "fonte": "FLAG_HIDE_ROUTE_212_BLOCKADE",
+   "mapas": [
+    "Route212_Access"
+   ]
+  },
+  {
+   "endereco": "0x1B60",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_212_NORTH_POLICEMAN_ALEX",
+   "fonte": "FLAG_HIDE_ROUTE_212_NORTH_POLICEMAN_ALEX",
+   "mapas": [
+    "Route212_North"
+   ]
+  },
+  {
+   "endereco": "0x1B61",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_212_NORTH_POLICEMAN_ALEX_NO_BATTLE",
+   "fonte": "FLAG_HIDE_ROUTE_212_NORTH_POLICEMAN_ALEX_NO_BATTLE",
+   "mapas": [
+    "Route212_North"
+   ]
+  },
+  {
+   "endereco": "0x1B62",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_212_NORTH_POLICEMAN_BOBBY",
+   "fonte": "FLAG_HIDE_ROUTE_212_NORTH_POLICEMAN_BOBBY",
+   "mapas": [
+    "Route212_North"
+   ]
+  },
+  {
+   "endereco": "0x1B63",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_212_NORTH_POLICEMAN_BOBBY_NO_BATTLE",
+   "fonte": "FLAG_HIDE_ROUTE_212_NORTH_POLICEMAN_BOBBY_NO_BATTLE",
+   "mapas": [
+    "Route212_North"
+   ]
+  },
+  {
+   "endereco": "0x1B64",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_212_NORTH_POLICEMAN_CALEB",
+   "fonte": "FLAG_HIDE_ROUTE_212_NORTH_POLICEMAN_CALEB",
+   "mapas": [
+    "Route212_North"
+   ]
+  },
+  {
+   "endereco": "0x1B65",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_212_NORTH_POLICEMAN_CALEB_NO_BATTLE",
+   "fonte": "FLAG_HIDE_ROUTE_212_NORTH_POLICEMAN_CALEB_NO_BATTLE",
+   "mapas": [
+    "Route212_North"
+   ]
+  },
+  {
+   "endereco": "0x1B66",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_212_NORTH_POLICEMAN_DYLAN",
+   "fonte": "FLAG_HIDE_ROUTE_212_NORTH_POLICEMAN_DYLAN",
+   "mapas": [
+    "Route212_North"
+   ]
+  },
+  {
+   "endereco": "0x1B67",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_212_NORTH_POLICEMAN_DYLAN_NO_BATTLE",
+   "fonte": "FLAG_HIDE_ROUTE_212_NORTH_POLICEMAN_DYLAN_NO_BATTLE",
+   "mapas": [
+    "Route212_North"
+   ]
+  },
+  {
+   "endereco": "0x1B68",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_212_SOUTH_POLICEMAN_DANNY",
+   "fonte": "FLAG_HIDE_ROUTE_212_SOUTH_POLICEMAN_DANNY",
+   "mapas": [
+    "Route212_South"
+   ]
+  },
+  {
+   "endereco": "0x1B69",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_212_SOUTH_POLICEMAN_DANNY_NO_BATTLE",
+   "fonte": "FLAG_HIDE_ROUTE_212_SOUTH_POLICEMAN_DANNY_NO_BATTLE",
+   "mapas": [
+    "Route212_South"
+   ]
+  },
+  {
+   "endereco": "0x1B6A",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_213_GRUNT_M",
+   "fonte": "FLAG_HIDE_ROUTE_213_GRUNT_M",
+   "mapas": [
+    "Route213"
+   ]
+  },
+  {
+   "endereco": "0x1B6B",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_214_GATE_TO_VEILSTONE_CITY_REPORTER",
+   "fonte": "FLAG_HIDE_ROUTE_214_GATE_TO_VEILSTONE_CITY_REPORTER",
+   "mapas": [
+    "Route214_Access"
+   ]
+  },
+  {
+   "endereco": "0x1B6C",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_215_JOGGER_CRAIG",
+   "fonte": "FLAG_HIDE_ROUTE_215_JOGGER_CRAIG",
+   "mapas": [
+    "Route215"
+   ]
+  },
+  {
+   "endereco": "0x1B6D",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_215_JOGGER_CRAIG_NO_BATTLE",
+   "fonte": "FLAG_HIDE_ROUTE_215_JOGGER_CRAIG_NO_BATTLE",
+   "mapas": [
+    "Route215"
+   ]
+  },
+  {
+   "endereco": "0x1B6E",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_215_JOGGER_SCOTT",
+   "fonte": "FLAG_HIDE_ROUTE_215_JOGGER_SCOTT",
+   "mapas": [
+    "Route215"
+   ]
+  },
+  {
+   "endereco": "0x1B6F",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_215_JOGGER_SCOTT_NO_BATTLE",
+   "fonte": "FLAG_HIDE_ROUTE_215_JOGGER_SCOTT_NO_BATTLE",
+   "mapas": [
+    "Route215"
+   ]
+  },
+  {
+   "endereco": "0x1B70",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_217_NORTHEAST_HOUSE_POKEMON_BREEDER_F",
+   "fonte": "FLAG_HIDE_ROUTE_217_NORTHEAST_HOUSE_POKEMON_BREEDER_F",
+   "mapas": [
+    "Route217NortheastHouse"
+   ]
+  },
+  {
+   "endereco": "0x1B71",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_218_GATE_TO_CANALAVE_CITY_SCIENTIST_M",
+   "fonte": "FLAG_HIDE_ROUTE_218_GATE_TO_CANALAVE_CITY_SCIENTIST_M",
+   "mapas": [
+    "Route218_West"
+   ]
+  },
+  {
+   "endereco": "0x1B72",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_221_WORKER_EAST",
+   "fonte": "FLAG_HIDE_ROUTE_221_WORKER_EAST",
+   "mapas": [
+    "Route221"
+   ]
+  },
+  {
+   "endereco": "0x1B73",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_221_WORKER_WEST",
+   "fonte": "FLAG_HIDE_ROUTE_221_WORKER_WEST",
+   "mapas": [
+    "Route221"
+   ]
+  },
+  {
+   "endereco": "0x1B74",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_222_POLICEMAN_THOMAS",
+   "fonte": "FLAG_HIDE_ROUTE_222_POLICEMAN_THOMAS",
+   "mapas": [
+    "Route222"
+   ]
+  },
+  {
+   "endereco": "0x1B75",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_222_POLICEMAN_THOMAS_NO_BATTLE",
+   "fonte": "FLAG_HIDE_ROUTE_222_POLICEMAN_THOMAS_NO_BATTLE",
+   "mapas": [
+    "Route222"
+   ]
+  },
+  {
+   "endereco": "0x1B76",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_224_PROF_OAK",
+   "fonte": "FLAG_HIDE_ROUTE_224_PROF_OAK",
+   "mapas": [
+    "Route224"
+   ]
+  },
+  {
+   "endereco": "0x1B77",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_ROUTE_227_RIVAL",
+   "fonte": "FLAG_HIDE_ROUTE_227_RIVAL",
+   "mapas": [
+    "Route227"
+   ]
+  },
+  {
+   "endereco": "0x1B78",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_SANDGEM_TOWN_COUNTERPART",
+   "fonte": "FLAG_HIDE_SANDGEM_TOWN_COUNTERPART",
+   "mapas": [
+    "SandgemTown"
+   ]
+  },
+  {
+   "endereco": "0x1B79",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_SANDGEM_TOWN_LAB_COUNTERPART",
+   "fonte": "FLAG_HIDE_SANDGEM_TOWN_LAB_COUNTERPART",
+   "mapas": [
+    "SandgemTown_RowanLab"
+   ]
+  },
+  {
+   "endereco": "0x1B7A",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_SANDGEM_TOWN_LAB_PROF_OAK",
+   "fonte": "FLAG_HIDE_SANDGEM_TOWN_LAB_PROF_OAK",
+   "mapas": [
+    "SandgemTown_RowanLab"
+   ]
+  },
+  {
+   "endereco": "0x1B7B",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_SANDGEM_TOWN_PROF_ROWAN",
+   "fonte": "FLAG_HIDE_SANDGEM_TOWN_PROF_ROWAN",
+   "mapas": [
+    "SandgemTown"
+   ]
+  },
+  {
+   "endereco": "0x1B7C",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_SANDGEM_TOWN_RIVAL",
+   "fonte": "FLAG_HIDE_SANDGEM_TOWN_RIVAL",
+   "mapas": [
+    "SandgemTown"
+   ]
+  },
+  {
+   "endereco": "0x1B7D",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_SOLACEON_TOWN_RIVAL",
+   "fonte": "FLAG_HIDE_SOLACEON_TOWN_RIVAL",
+   "mapas": [
+    "SolaceonTown"
+   ]
+  },
+  {
+   "endereco": "0x1B7E",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_SPEAR_PILLAR_DISTORTED_TEAM_GALACTIC",
+   "fonte": "FLAG_HIDE_SPEAR_PILLAR_DISTORTED_TEAM_GALACTIC",
+   "mapas": [
+    "SpearPillar_Distorted"
+   ]
+  },
+  {
+   "candidatos": [
+    "FLAG_GALACTICA_MT_CORONET"
+   ],
+   "estado": "ambiguo",
+   "fonte": "FLAG_HIDE_SPEAR_PILLAR_GRUNTS",
+   "mapas": [
+    "SpearPillar"
+   ],
+   "motivo": "decisao 9: reuso com mais de um candidato, ou candidato ja reivindicado por outro grupo da fonte; fusao e decisao de condutora, nao do gerador"
+  },
+  {
+   "endereco": "0x1B7F",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_SPEAR_PILLAR_RIVAL",
+   "fonte": "FLAG_HIDE_SPEAR_PILLAR_RIVAL",
+   "mapas": [
+    "SpearPillar"
+   ]
+  },
+  {
+   "endereco": "0x1B80",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_STARK_MOUNTAIN_OUTSIDE_GRUNTS",
+   "fonte": "FLAG_HIDE_STARK_MOUNTAIN_OUTSIDE_GRUNTS",
+   "mapas": [
+    "StarkMountainOutside"
+   ]
+  },
+  {
+   "endereco": "0x1B81",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_STARK_MOUNTAIN_ROOM_1_TEAM_GALACTIC",
+   "fonte": "FLAG_HIDE_STARK_MOUNTAIN_ROOM_1_TEAM_GALACTIC",
+   "mapas": [
+    "StarkMountainRoom1"
+   ]
+  },
+  {
+   "endereco": "0x1B82",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_STARK_MOUNTAIN_ROOM_3_POLICEMEN",
+   "fonte": "FLAG_HIDE_STARK_MOUNTAIN_ROOM_3_POLICEMEN",
+   "mapas": [
+    "StarkMountainRoom3"
+   ]
+  },
+  {
+   "endereco": "0x1B83",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_STARK_MOUNTAIN_ROOM_3_TEAM_GALACTIC",
+   "fonte": "FLAG_HIDE_STARK_MOUNTAIN_ROOM_3_TEAM_GALACTIC",
+   "mapas": [
+    "StarkMountainRoom3"
+   ]
+  },
+  {
+   "endereco": "0x1B84",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_SUNYSHORE_CITY_RIVAL",
+   "fonte": "FLAG_HIDE_SUNYSHORE_CITY_RIVAL",
+   "mapas": [
+    "SunyshoreCity"
+   ]
+  },
+  {
+   "endereco": "0x1B85",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_SURVIVAL_AREA_RIVAL",
+   "fonte": "FLAG_HIDE_SURVIVAL_AREA_RIVAL",
+   "mapas": [
+    "SurvivalArea"
+   ]
+  },
+  {
+   "endereco": "0x1B86",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_TRAINERS_SCHOOL_RIVAL",
+   "fonte": "FLAG_HIDE_TRAINERS_SCHOOL_RIVAL",
+   "mapas": [
+    "JubilifeCity_PokemonSchool"
+   ]
+  },
+  {
+   "endereco": "0x1B87",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_TWINLEAF_TOWN_PLAYER_HOUSE_1F_RIVAL_MOM",
+   "fonte": "FLAG_HIDE_TWINLEAF_TOWN_PLAYER_HOUSE_1F_RIVAL_MOM",
+   "mapas": [
+    "TwinleafTown_MainHouse_1F"
+   ]
+  },
+  {
+   "endereco": "0x1B88",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_TWINLEAF_TOWN_PLAYER_HOUSE_2F_RIVAL",
+   "fonte": "FLAG_HIDE_TWINLEAF_TOWN_PLAYER_HOUSE_2F_RIVAL",
+   "mapas": [
+    "TwinleafTown_MainHouse_2F"
+   ]
+  },
+  {
+   "endereco": "0x1B89",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_TWINLEAF_TOWN_RIVAL",
+   "fonte": "FLAG_HIDE_TWINLEAF_TOWN_RIVAL",
+   "mapas": [
+    "TwinleafTown"
+   ]
+  },
+  {
+   "endereco": "0x1B8A",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_TWINLEAF_TOWN_RIVAL_HOUSE_2F_RIVAL",
+   "fonte": "FLAG_HIDE_TWINLEAF_TOWN_RIVAL_HOUSE_2F_RIVAL",
+   "mapas": [
+    "Twinleaf_Town_RivalsHouse_F2"
+   ]
+  },
+  {
+   "endereco": "0x1B8B",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_VALLEY_WINDWORKS_BUILDING_GALACTIC_GRUNT_1",
+   "fonte": "FLAG_HIDE_VALLEY_WINDWORKS_BUILDING_GALACTIC_GRUNT_1",
+   "mapas": [
+    "ValleyWindworksBuilding"
+   ]
+  },
+  {
+   "endereco": "0x1B8C",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_VALLEY_WINDWORKS_BUILDING_LITTLE_GIRL",
+   "fonte": "FLAG_HIDE_VALLEY_WINDWORKS_BUILDING_LITTLE_GIRL",
+   "mapas": [
+    "ValleyWindworksBuilding"
+   ]
+  },
+  {
+   "endereco": "0x1B8D",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_VALLEY_WINDWORKS_BUILDING_TEAM_GALACTIC",
+   "fonte": "FLAG_HIDE_VALLEY_WINDWORKS_BUILDING_TEAM_GALACTIC",
+   "mapas": [
+    "ValleyWindworksBuilding"
+   ]
+  },
+  {
+   "endereco": "0x1B8E",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_BEAUTY",
+   "fonte": "FLAG_HIDE_VALOR_LAKEFRONT_BEAUTY",
+   "mapas": [
+    "ValorLakefront"
+   ]
+  },
+  {
+   "endereco": "0x1B8F",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_CAMERAMEN",
+   "fonte": "FLAG_HIDE_VALOR_LAKEFRONT_CAMERAMEN",
+   "mapas": [
+    "ValorLakefront"
+   ]
+  },
+  {
+   "endereco": "0x1B90",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_COLLECTOR",
+   "fonte": "FLAG_HIDE_VALOR_LAKEFRONT_COLLECTOR",
+   "mapas": [
+    "ValorLakefront"
+   ]
+  },
+  {
+   "endereco": "0x1B91",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_GRUNT_M",
+   "fonte": "FLAG_HIDE_VALOR_LAKEFRONT_GRUNT_M",
+   "mapas": [
+    "ValorLakefront"
+   ]
+  },
+  {
+   "endereco": "0x1B92",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_RIVAL",
+   "fonte": "FLAG_HIDE_VALOR_LAKEFRONT_RIVAL",
+   "mapas": [
+    "ValorLakefront"
+   ]
+  },
+  {
+   "endereco": "0x1B93",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_VEILSTONE_COUNTERPART",
+   "fonte": "FLAG_HIDE_VEILSTONE_COUNTERPART",
+   "mapas": [
+    "VeilstoneCity"
+   ]
+  },
+  {
+   "estado": "reusada",
+   "flag": "FLAG_GALACTICA_QG_TOMADO",
+   "fonte": "FLAG_HIDE_VEILSTONE_GALACTIC_GRUNTS",
+   "mapas": [
+    "VeilstoneCity"
+   ],
+   "prova": "a fila deu o grupo como sem bloqueio e o objeto ja plantado carrega esta flag"
+  },
+  {
+   "endereco": "0x1B94",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_VEILSTONE_STORE_B1F_PROF_ROWAN",
+   "fonte": "FLAG_HIDE_VEILSTONE_STORE_B1F_PROF_ROWAN",
+   "mapas": [
+    "VeilstoneStoreB1F"
+   ]
+  },
+  {
+   "endereco": "0x1B95",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_VERITY_CAVERN_PROF_OAK",
+   "fonte": "FLAG_HIDE_VERITY_CAVERN_PROF_OAK",
+   "mapas": [
+    "VerityCavern"
+   ]
+  },
+  {
+   "endereco": "0x1B96",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_VICTORY_ROAD_1F_COLLECTOR",
+   "fonte": "FLAG_HIDE_VICTORY_ROAD_1F_COLLECTOR",
+   "mapas": [
+    "SinnohVictoryRoad1F"
+   ]
+  },
+  {
+   "endereco": "0x1B97",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_VILLA_COUNTERPART",
+   "fonte": "FLAG_HIDE_VILLA_COUNTERPART",
+   "mapas": [
+    "Villa"
+   ]
+  },
+  {
+   "endereco": "0x1B98",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_VILLA_DELIVERY_GUY",
+   "fonte": "FLAG_HIDE_VILLA_DELIVERY_GUY",
+   "mapas": [
+    "Villa"
+   ]
+  },
+  {
+   "endereco": "0x1B99",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_VILLA_MOM",
+   "fonte": "FLAG_HIDE_VILLA_MOM",
+   "mapas": [
+    "Villa"
+   ]
+  },
+  {
+   "endereco": "0x1B9A",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_VILLA_PROF_ROWAN",
+   "fonte": "FLAG_HIDE_VILLA_PROF_ROWAN",
+   "mapas": [
+    "Villa"
+   ]
+  },
+  {
+   "endereco": "0x1B9B",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_VILLA_RIVAL",
+   "fonte": "FLAG_HIDE_VILLA_RIVAL",
+   "mapas": [
+    "Villa"
+   ]
+  },
+  {
+   "endereco": "0x1B9C",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_VILLA_SCHOOL_KID_M",
+   "fonte": "FLAG_HIDE_VILLA_SCHOOL_KID_M",
+   "mapas": [
+    "Villa"
+   ]
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_ETERNA_CITY",
+   "mapas": [
+    "Route205_North",
+    "Route211_West"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_FLOAROMA_TOWN",
+   "mapas": [
+    "Route205_South"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_GREAT_MARSH_4",
+   "mapas": [
+    "GreatMarsh6"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_GREAT_MARSH_5",
+   "mapas": [
+    "GreatMarsh6"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_JUBILIFE_CITY",
+   "mapas": [
+    "Route203"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_OREBURGH_CITY",
+   "mapas": [
+    "Route207"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_RESORT_AREA",
+   "mapas": [
+    "Route229"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_ROUTE_201",
+   "mapas": [
+    "SandgemTown",
+    "TwinleafTown"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_ROUTE_202",
+   "mapas": [
+    "JubilifeCity",
+    "SandgemTown"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_ROUTE_203",
+   "mapas": [
+    "JubilifeCity"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_ROUTE_205_NORTH",
+   "mapas": [
+    "EternaCity"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_ROUTE_205_SOUTH",
+   "mapas": [
+    "ValleyWindworks"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_ROUTE_206",
+   "mapas": [
+    "Route207"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_ROUTE_207",
+   "mapas": [
+    "Route206"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_ROUTE_209",
+   "mapas": [
+    "SolaceonTown"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_ROUTE_210_NORTH",
+   "mapas": [
+    "CelesticTown",
+    "Route210_South"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_ROUTE_211_EAST",
+   "mapas": [
+    "CelesticTown"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_ROUTE_211_WEST",
+   "mapas": [
+    "EternaCity"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_ROUTE_212_SOUTH",
+   "mapas": [
+    "PastoriaCity"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_ROUTE_213",
+   "mapas": [
+    "ValorLakefront"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_ROUTE_215",
+   "mapas": [
+    "Route210_South"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_ROUTE_219",
+   "mapas": [
+    "SandgemTown"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_ROUTE_226",
+   "mapas": [
+    "SurvivalArea"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_ROUTE_227",
+   "mapas": [
+    "Route226"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_SANDGEM_TOWN",
+   "mapas": [
+    "Route201"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_SOLACEON_TOWN",
+   "mapas": [
+    "Route209",
+    "Route210_South"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_SURVIVAL_AREA",
+   "mapas": [
+    "Route225",
+    "Route226"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  },
+  {
+   "estado": "clone",
+   "fonte": "MAP_HEADER_TWINLEAF_TOWN",
+   "mapas": [
+    "Route201"
+   ],
+   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+  }
+ ],
+ "gatilhos": [
+  {
+   "fonte_x": 310,
+   "fonte_z": 244,
+   "length": 1,
+   "leva": "S6",
+   "mapa": "AcuityLakefront",
+   "rotulo_fonte": "AcuityLakefront_CoordEvent_Rival",
+   "script": "AcuityLakefront_EventScript_CoordEvent_Rival",
+   "script_fonte": 4,
+   "tiles": [
+    [
+     22,
+     53
+    ],
+    [
+     23,
+     53
+    ]
+   ],
+   "var": "VAR_SINNOH_ACUITY_BEIRA_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_ACUITY_LAKEFRONT_STATE",
+   "var_value": "0",
+   "width": 2
+  },
+  {
+   "fonte_x": 47,
+   "fonte_z": 723,
+   "length": 4,
+   "leva": "S6",
+   "mapa": "CanalaveCity",
+   "rotulo_fonte": "CanalaveCity_CoordEvent_Rival",
+   "script": "CanalaveCity_EventScript_CoordEvent_Rival",
+   "script_fonte": 2,
+   "tiles": [
+    [
+     17,
+     19
+    ],
+    [
+     17,
+     20
+    ],
+    [
+     17,
+     21
+    ],
+    [
+     17,
+     22
+    ]
+   ],
+   "var": "VAR_SINNOH_CANALAVE_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_CANALAVE_CITY_STATE",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 463,
+   "fonte_z": 538,
+   "length": 1,
+   "leva": "S5",
+   "mapa": "CelesticTown",
+   "rotulo_fonte": "CelesticTown_CoordEvent_Elder",
+   "script": "CelesticTown_EventScript_CoordEvent_Elder",
+   "script_fonte": 3,
+   "tiles": [
+    [
+     17,
+     28
+    ],
+    [
+     19,
+     28
+    ],
+    [
+     20,
+     28
+    ]
+   ],
+   "var": "VAR_SINNOH_CELESTIC_ANCIA_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_CELESTIC_TOWN_ELDER_STATE",
+   "var_value": "0",
+   "width": 3
+  },
+  {
+   "fonte_x": 8,
+   "fonte_z": 13,
+   "length": 1,
+   "leva": "S6",
+   "mapa": "GalacticHQ_ControlRoom",
+   "rotulo_fonte": "GalacticHQControlRoom_CoordEvent_Saturn",
+   "script": "GalacticHQ_ControlRoom_EventScript_CoordEvent_Saturn",
+   "script_fonte": 14,
+   "tiles": [
+    [
+     7,
+     9
+    ]
+   ],
+   "var": "VAR_SINNOH_QG_SALA_CONTROLE_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_GALACTIC_HQ_CONTROL_ROOM_STATE",
+   "var_value": "1",
+   "width": 1
+  },
+  {
+   "fonte_x": 20,
+   "fonte_z": 12,
+   "length": 2,
+   "leva": "S6",
+   "mapa": "GalacticHQ_Hall",
+   "rotulo_fonte": "GalacticHQHall_CoordEvent_Speech",
+   "script": "GalacticHQ_Hall_EventScript_CoordEvent_Speech",
+   "script_fonte": 1,
+   "tiles": [
+    [
+     20,
+     12
+    ],
+    [
+     20,
+     13
+    ]
+   ],
+   "var": "VAR_SINNOH_QG_HALL_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_GALACTIC_HQ_HALL_STATE",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 8,
+   "fonte_z": 11,
+   "length": 1,
+   "leva": "S6",
+   "mapa": "GalacticHq4F",
+   "rotulo_fonte": "GalacticHQ4F_CoordEvent_Cyrus",
+   "script": "GalacticHq4F_EventScript_CoordEvent_Cyrus",
+   "script_fonte": 1,
+   "tiles": [
+    [
+     3,
+     5
+    ]
+   ],
+   "var": "VAR_SINNOH_QG_4F_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_GALACTIC_HQ_4F_STATE",
+   "var_value": "0",
+   "width": 2
+  },
+  {
+   "fonte_x": 461,
+   "fonte_z": 725,
+   "length": 5,
+   "leva": "S5",
+   "mapa": "HearthomeCity",
+   "rotulo_fonte": "HearthomeCity_CoordEvent_BunearyAndKeira",
+   "script": "HearthomeCity_EventScript_CoordEvent_BunearyAndKeira",
+   "script_fonte": 21,
+   "tiles": [
+    [
+     11,
+     42
+    ],
+    [
+     11,
+     43
+    ],
+    [
+     11,
+     44
+    ],
+    [
+     11,
+     45
+    ],
+    [
+     11,
+     46
+    ]
+   ],
+   "var": "VAR_SINNOH_HEARTHOME_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_HEARTHOME_CITY_STATE",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 9,
+   "fonte_z": 13,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "HearthomeCityDpGymElevatorRoom1",
+   "rotulo_fonte": "HearthomeCityDPGymElevatorRoom1_CoordEvent_MoveLift",
+   "script": "HearthomeCityDpGymElevatorRoom1_EventScript_CoordEvent_MoveLift",
+   "script_fonte": 2,
+   "tiles": [
+    [
+     9,
+     13
+    ]
+   ],
+   "var": "VAR_TEMP_0",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x00",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 9,
+   "fonte_z": 13,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "HearthomeCityDpGymElevatorRoom2",
+   "rotulo_fonte": "HearthomeCityDPGymElevatorRoom2_CoordEvent_MoveLift",
+   "script": "HearthomeCityDpGymElevatorRoom2_EventScript_CoordEvent_MoveLift",
+   "script_fonte": 2,
+   "tiles": [
+    [
+     9,
+     13
+    ]
+   ],
+   "var": "VAR_TEMP_0",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x00",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 7,
+   "fonte_z": 9,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "IcebergRuins",
+   "rotulo_fonte": "IcebergRuins_DotSouth",
+   "script": "IcebergRuins_EventScript_DotSouth",
+   "script_fonte": 9,
+   "tiles": [
+    [
+     7,
+     9
+    ]
+   ],
+   "var": "VAR_TEMP_7",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x07",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 7,
+   "fonte_z": 7,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "IcebergRuins",
+   "rotulo_fonte": "IcebergRuins_DotMiddle",
+   "script": "IcebergRuins_EventScript_DotMiddle",
+   "script_fonte": 6,
+   "tiles": [
+    [
+     7,
+     7
+    ]
+   ],
+   "var": "VAR_TEMP_4",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x04",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 7,
+   "fonte_z": 5,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "IcebergRuins",
+   "rotulo_fonte": "IcebergRuins_DotNorth",
+   "script": "IcebergRuins_EventScript_DotNorth",
+   "script_fonte": 3,
+   "tiles": [
+    [
+     7,
+     5
+    ]
+   ],
+   "var": "VAR_TEMP_1",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x01",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 5,
+   "fonte_z": 7,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "IcebergRuins",
+   "rotulo_fonte": "IcebergRuins_DotMiddleWest",
+   "script": "IcebergRuins_EventScript_DotMiddleWest",
+   "script_fonte": 5,
+   "tiles": [
+    [
+     5,
+     7
+    ]
+   ],
+   "var": "VAR_TEMP_3",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x03",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 3,
+   "fonte_z": 7,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "IcebergRuins",
+   "rotulo_fonte": "IcebergRuins_DotFarWest",
+   "script": "IcebergRuins_EventScript_DotFarWest",
+   "script_fonte": 4,
+   "tiles": [
+    [
+     3,
+     7
+    ]
+   ],
+   "var": "VAR_TEMP_2",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x02",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 9,
+   "fonte_z": 7,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "IcebergRuins",
+   "rotulo_fonte": "IcebergRuins_DotMiddleEast",
+   "script": "IcebergRuins_EventScript_DotMiddleEast",
+   "script_fonte": 7,
+   "tiles": [
+    [
+     9,
+     7
+    ]
+   ],
+   "var": "VAR_TEMP_5",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x05",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 11,
+   "fonte_z": 7,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "IcebergRuins",
+   "rotulo_fonte": "IcebergRuins_DotFarEast",
+   "script": "IcebergRuins_EventScript_DotFarEast",
+   "script_fonte": 8,
+   "tiles": [
+    [
+     11,
+     7
+    ]
+   ],
+   "var": "VAR_TEMP_6",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x06",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 11,
+   "fonte_z": 23,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "IronIslandB1FRightRoom",
+   "rotulo_fonte": "IronIslandB1FRightRoom_CoordEvent_PlatformLift",
+   "script": "IronIslandB1FRightRoom_EventScript_CoordEvent_PlatformLift",
+   "script_fonte": 2,
+   "tiles": [
+    [
+     11,
+     23
+    ]
+   ],
+   "var": "VAR_TEMP_0",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x00",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 19,
+   "fonte_z": 44,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "IronIslandB2FLeftRoom",
+   "rotulo_fonte": "IronIslandB2FLeftRoom_CoordEvent_PlatformLift",
+   "script": "IronIslandB2FLeftRoom_EventScript_CoordEvent_PlatformLift",
+   "script_fonte": 2,
+   "tiles": [
+    [
+     19,
+     44
+    ]
+   ],
+   "var": "VAR_TEMP_0",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x00",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 9,
+   "fonte_z": 11,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "IronIslandB3F",
+   "rotulo_fonte": "IronIslandB3F_CoordEvent_PlatformLift",
+   "script": "IronIslandB3F_EventScript_CoordEvent_PlatformLift",
+   "script_fonte": 2,
+   "tiles": [
+    [
+     9,
+     11
+    ]
+   ],
+   "var": "VAR_TEMP_0",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x00",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 7,
+   "fonte_z": 7,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "IronRuins",
+   "rotulo_fonte": "IronRuins_DotMiddle",
+   "script": "IronRuins_EventScript_DotMiddle",
+   "script_fonte": 6,
+   "tiles": [
+    [
+     7,
+     7
+    ]
+   ],
+   "var": "VAR_TEMP_4",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x04",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 5,
+   "fonte_z": 5,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "IronRuins",
+   "rotulo_fonte": "IronRuins_DotNorthWest",
+   "script": "IronRuins_EventScript_DotNorthWest",
+   "script_fonte": 3,
+   "tiles": [
+    [
+     5,
+     5
+    ]
+   ],
+   "var": "VAR_TEMP_1",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x01",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 9,
+   "fonte_z": 5,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "IronRuins",
+   "rotulo_fonte": "IronRuins_DotNorthEast",
+   "script": "IronRuins_EventScript_DotNorthEast",
+   "script_fonte": 4,
+   "tiles": [
+    [
+     9,
+     5
+    ]
+   ],
+   "var": "VAR_TEMP_2",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x02",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 4,
+   "fonte_z": 7,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "IronRuins",
+   "rotulo_fonte": "IronRuins_DotWest",
+   "script": "IronRuins_EventScript_DotWest",
+   "script_fonte": 5,
+   "tiles": [
+    [
+     4,
+     7
+    ]
+   ],
+   "var": "VAR_TEMP_3",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x03",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 10,
+   "fonte_z": 7,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "IronRuins",
+   "rotulo_fonte": "IronRuins_DotEast",
+   "script": "IronRuins_EventScript_DotEast",
+   "script_fonte": 7,
+   "tiles": [
+    [
+     10,
+     7
+    ]
+   ],
+   "var": "VAR_TEMP_5",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x05",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 5,
+   "fonte_z": 9,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "IronRuins",
+   "rotulo_fonte": "IronRuins_DotSouthWest",
+   "script": "IronRuins_EventScript_DotSouthWest",
+   "script_fonte": 8,
+   "tiles": [
+    [
+     5,
+     9
+    ]
+   ],
+   "var": "VAR_TEMP_6",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x06",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 9,
+   "fonte_z": 9,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "IronRuins",
+   "rotulo_fonte": "IronRuins_DotSouthEast",
+   "script": "IronRuins_EventScript_DotSouthEast",
+   "script_fonte": 9,
+   "tiles": [
+    [
+     9,
+     9
+    ]
+   ],
+   "var": "VAR_TEMP_7",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x07",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 173,
+   "fonte_z": 796,
+   "length": 1,
+   "leva": "S4",
+   "mapa": "JubilifeCity",
+   "rotulo_fonte": "JubilifeCity_CoordEvent_FirstArrival",
+   "script": "JubilifeCity_EventScript_CoordEvent_FirstArrival",
+   "script_fonte": 2,
+   "tiles": [
+    [
+     49,
+     60
+    ],
+    [
+     50,
+     60
+    ],
+    [
+     51,
+     60
+    ],
+    [
+     52,
+     60
+    ]
+   ],
+   "var": "VAR_SINNOH_JUBILIFE_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_JUBILIFE_CITY_STATE",
+   "var_value": "0",
+   "width": 4
+  },
+  {
+   "fonte_x": 173,
+   "fonte_z": 743,
+   "length": 1,
+   "leva": "S4",
+   "mapa": "JubilifeCity",
+   "rotulo_fonte": "JubilifeCity_CoordEvent_TeamGalactic",
+   "script": "JubilifeCity_EventScript_CoordEvent_TeamGalactic",
+   "script_fonte": 4,
+   "tiles": [
+    [
+     49,
+     7
+    ],
+    [
+     50,
+     7
+    ],
+    [
+     51,
+     7
+    ]
+   ],
+   "var": "VAR_SINNOH_JUBILIFE_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_JUBILIFE_CITY_STATE",
+   "var_value": "3",
+   "width": 3
+  },
+  {
+   "fonte_x": 188,
+   "fonte_z": 757,
+   "length": 4,
+   "leva": "S4",
+   "mapa": "JubilifeCity",
+   "rotulo_fonte": "JubilifeCity_CoordEvent_LookerBlockRoute203",
+   "script": "JubilifeCity_EventScript_CoordEvent_LookerBlockRoute203",
+   "script_fonte": 3,
+   "tiles": [
+    [
+     65,
+     21
+    ],
+    [
+     65,
+     22
+    ],
+    [
+     65,
+     23
+    ],
+    [
+     65,
+     24
+    ]
+   ],
+   "var": "VAR_SINNOH_JUBILIFE_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_JUBILIFE_CITY_STATE",
+   "var_value": "1",
+   "width": 1
+  },
+  {
+   "fonte_x": 188,
+   "fonte_z": 757,
+   "length": 4,
+   "leva": "S4",
+   "mapa": "JubilifeCity",
+   "rotulo_fonte": "JubilifeCity_CoordEvent_LookerPalPad",
+   "script": "JubilifeCity_EventScript_CoordEvent_LookerPalPad",
+   "script_fonte": 28,
+   "tiles": [
+    [
+     65,
+     21
+    ],
+    [
+     65,
+     22
+    ],
+    [
+     65,
+     23
+    ],
+    [
+     65,
+     24
+    ]
+   ],
+   "var": "VAR_SINNOH_JUBILIFE_LOOKER_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_JUBILIFE_LOOKER_PAL_PAD_STATE",
+   "var_value": "1",
+   "width": 1
+  },
+  {
+   "fonte_x": 11,
+   "fonte_z": 24,
+   "length": 3,
+   "leva": "S6",
+   "mapa": "MtCoronet2F",
+   "rotulo_fonte": "MtCoronet2F_CoordEvent_Looker",
+   "script": "MtCoronet2F_EventScript_CoordEvent_Looker",
+   "script_fonte": 2,
+   "tiles": [
+    [
+     11,
+     24
+    ],
+    [
+     11,
+     25
+    ],
+    [
+     11,
+     26
+    ]
+   ],
+   "var": "VAR_SINNOH_CORONET_2F_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_MT_CORONET_2F_STATE",
+   "var_value": "1",
+   "width": 1
+  },
+  {
+   "fonte_x": 14,
+   "fonte_z": 23,
+   "length": 1,
+   "leva": "S6",
+   "mapa": "MtCoronet_1F_South",
+   "rotulo_fonte": "MtCoronet1FSouth_CoordEvent_Cyrus",
+   "script": "MtCoronet_1F_South_EventScript_CoordEvent_Cyrus",
+   "script_fonte": 1,
+   "tiles": [
+    [
+     14,
+     23
+    ]
+   ],
+   "var": "VAR_SINNOH_CORONET_1F_SUL_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_MT_CORONET_1F_SOUTH_STATE",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 266,
+   "fonte_z": 748,
+   "length": 4,
+   "leva": "S4",
+   "mapa": "OreburghCity",
+   "rotulo_fonte": "OreburghCity_CoordEvent_Youngster",
+   "script": "OreburghCity_EventScript_CoordEvent_Youngster",
+   "script_fonte": 3,
+   "tiles": [
+    [
+     10,
+     11
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     10,
+     13
+    ]
+   ],
+   "var": "VAR_SINNOH_OREBURGH_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_OREBURGH_CITY_STATE",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 262,
+   "fonte_z": 748,
+   "length": 4,
+   "leva": "S4",
+   "mapa": "OreburghCity",
+   "rotulo_fonte": "OreburghCity_CoordEvent_Rival",
+   "script": "OreburghCity_EventScript_CoordEvent_Rival",
+   "script_fonte": 4,
+   "tiles": [
+    [
+     6,
+     11
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     6,
+     13
+    ]
+   ],
+   "var": "VAR_SINNOH_OREBURGH_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_OREBURGH_CITY_STATE",
+   "var_value": "2",
+   "width": 1
+  },
+  {
+   "fonte_x": 7,
+   "fonte_z": 22,
+   "length": 1,
+   "leva": "S4",
+   "mapa": "OreburghGate_1F",
+   "rotulo_fonte": "OreburghGate1F_CoordEvent_Hiker",
+   "script": "OreburghGate_1F_EventScript_CoordEvent_Hiker",
+   "script_fonte": 3,
+   "tiles": [
+    [
+     7,
+     22
+    ]
+   ],
+   "var": "VAR_SINNOH_OREBURGH_PORTAO_ANDARILHO",
+   "var_alias": true,
+   "var_fonte": "VAR_OREBURGH_GATE_1F_HIKER_STATE",
+   "var_value": "1",
+   "width": 1
+  },
+  {
+   "fonte_x": 610,
+   "fonte_z": 810,
+   "length": 1,
+   "leva": "S5",
+   "mapa": "PastoriaCity",
+   "rotulo_fonte": "PastoriaCity_CoordEvent_BlockGreatMarsh",
+   "script": "PastoriaCity_EventScript_CoordEvent_BlockGreatMarsh",
+   "script_fonte": 22,
+   "tiles": [
+    [
+     36,
+     9
+    ]
+   ],
+   "var": "VAR_SINNOH_PASTORIA_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_PASTORIA_CITY_STATE",
+   "var_value": "5",
+   "width": 1
+  },
+  {
+   "fonte_x": 589,
+   "fonte_z": 828,
+   "length": 1,
+   "leva": "S5",
+   "mapa": "PastoriaCity",
+   "rotulo_fonte": "PastoriaCity_CoordEvent_RivalBattle",
+   "script": "PastoriaCity_EventScript_CoordEvent_RivalBattle",
+   "script_fonte": 18,
+   "tiles": [
+    [
+     13,
+     26
+    ]
+   ],
+   "var": "VAR_SINNOH_PASTORIA_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_PASTORIA_CITY_STATE",
+   "var_value": "1",
+   "width": 1
+  },
+  {
+   "fonte_x": 610,
+   "fonte_z": 810,
+   "length": 1,
+   "leva": "S5",
+   "mapa": "PastoriaCity",
+   "rotulo_fonte": "PastoriaCity_CoordEvent_Bomb",
+   "script": "PastoriaCity_EventScript_CoordEvent_Bomb",
+   "script_fonte": 21,
+   "tiles": [
+    [
+     36,
+     9
+    ]
+   ],
+   "var": "VAR_SINNOH_PASTORIA_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_PASTORIA_CITY_STATE",
+   "var_value": "4",
+   "width": 1
+  },
+  {
+   "fonte_x": 608,
+   "fonte_z": 814,
+   "length": 1,
+   "leva": "S5",
+   "mapa": "PastoriaCity",
+   "rotulo_fonte": "PastoriaCity_CoordEvent_FaceBoard",
+   "script": "PastoriaCity_EventScript_CoordEvent_FaceBoard",
+   "script_fonte": 23,
+   "tiles": [
+    [
+     34,
+     13
+    ]
+   ],
+   "var": "VAR_SINNOH_PASTORIA_CROAGUNK_CENA",
+   "var_alias": true,
+   "var_fonte": "VAR_PASTORIA_CITY_CROAGUNK_SCENE_STATE",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 4,
+   "fonte_z": 6,
+   "length": 1,
+   "leva": "S5",
+   "mapa": "PastoriaCityObservatoryGate1F",
+   "rotulo_fonte": "PastoriaCityObservatoryGate1F_CoordEvent_TryStartSafariGame",
+   "script": "PastoriaCityObservatoryGate1F_EventScript_CoordEvent_TryStartSafariGame",
+   "script_fonte": 2,
+   "tiles": [
+    [
+     12,
+     0
+    ]
+   ],
+   "var": "VAR_SINNOH_PASTORIA_OBSERVATORIO_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_PASTORIA_CITY_OBSERVATORY_GATE_1F_STATE",
+   "var_value": "0",
+   "width": 3
+  },
+  {
+   "fonte_x": 3,
+   "fonte_z": 6,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "PastoriaCity_Gym",
+   "rotulo_fonte": "PastoriaGym_BlueButton",
+   "script": "PastoriaCity_Gym_EventScript_BlueButton",
+   "script_fonte": 2,
+   "tiles": [
+    [
+     3,
+     6
+    ]
+   ],
+   "var": "VAR_TEMP_1",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x01",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 19,
+   "fonte_z": 24,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "PastoriaCity_Gym",
+   "rotulo_fonte": "PastoriaGym_GreenButton",
+   "script": "PastoriaCity_Gym_EventScript_GreenButton",
+   "script_fonte": 3,
+   "tiles": [
+    [
+     19,
+     24
+    ]
+   ],
+   "var": "VAR_TEMP_2",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x02",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 9,
+   "fonte_z": 24,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "PastoriaCity_Gym",
+   "rotulo_fonte": "PastoriaGym_BlueButton",
+   "script": "PastoriaCity_Gym_EventScript_BlueButton",
+   "script_fonte": 2,
+   "tiles": [
+    [
+     9,
+     24
+    ]
+   ],
+   "var": "VAR_TEMP_1",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x01",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 17,
+   "fonte_z": 9,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "PastoriaCity_Gym",
+   "rotulo_fonte": "PastoriaGym_GreenButton",
+   "script": "PastoriaCity_Gym_EventScript_GreenButton",
+   "script_fonte": 3,
+   "tiles": [
+    [
+     17,
+     9
+    ]
+   ],
+   "var": "VAR_TEMP_2",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x02",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 10,
+   "fonte_z": 30,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "PastoriaCity_Gym",
+   "rotulo_fonte": "PastoriaGym_GreenButton",
+   "script": "PastoriaCity_Gym_EventScript_GreenButton",
+   "script_fonte": 3,
+   "tiles": [
+    [
+     10,
+     30
+    ]
+   ],
+   "var": "VAR_TEMP_2",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x02",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 19,
+   "fonte_z": 13,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "PastoriaCity_Gym",
+   "rotulo_fonte": "PastoriaGym_GreenButton",
+   "script": "PastoriaCity_Gym_EventScript_GreenButton",
+   "script_fonte": 3,
+   "tiles": [
+    [
+     19,
+     13
+    ]
+   ],
+   "var": "VAR_TEMP_2",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x02",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 9,
+   "fonte_z": 14,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "PastoriaCity_Gym",
+   "rotulo_fonte": "PastoriaGym_YellowButton",
+   "script": "PastoriaCity_Gym_EventScript_YellowButton",
+   "script_fonte": 4,
+   "tiles": [
+    [
+     9,
+     14
+    ]
+   ],
+   "var": "VAR_TEMP_3",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x03",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 23,
+   "fonte_z": 31,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "PastoriaCity_Gym",
+   "rotulo_fonte": "PastoriaGym_YellowButton",
+   "script": "PastoriaCity_Gym_EventScript_YellowButton",
+   "script_fonte": 4,
+   "tiles": [
+    [
+     23,
+     31
+    ]
+   ],
+   "var": "VAR_TEMP_3",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x03",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 19,
+   "fonte_z": 22,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "PastoriaCity_Gym",
+   "rotulo_fonte": "PastoriaGym_YellowButton",
+   "script": "PastoriaCity_Gym_EventScript_YellowButton",
+   "script_fonte": 4,
+   "tiles": [
+    [
+     19,
+     22
+    ]
+   ],
+   "var": "VAR_TEMP_3",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x03",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 3,
+   "fonte_z": 34,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "PastoriaCity_Gym",
+   "rotulo_fonte": "PastoriaGym_YellowButton",
+   "script": "PastoriaCity_Gym_EventScript_YellowButton",
+   "script_fonte": 4,
+   "tiles": [
+    [
+     3,
+     34
+    ]
+   ],
+   "var": "VAR_TEMP_3",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x03",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 10,
+   "fonte_z": 4,
+   "length": 1,
+   "leva": "S7",
+   "mapa": "PokemonLeagueNorthPokecenter1F",
+   "rotulo_fonte": "PokemonLeagueNorthPokecenter1F_CoordEvent_Rival",
+   "script": "PokemonLeagueNorthPokecenter1F_EventScript_CoordEvent_Rival",
+   "script_fonte": 4,
+   "tiles": [
+    [
+     6,
+     2
+    ],
+    [
+     7,
+     2
+    ],
+    [
+     8,
+     2
+    ]
+   ],
+   "var": "VAR_SINNOH_RIVAL_VENCEU_SUNYSHORE",
+   "var_alias": true,
+   "var_fonte": "VAR_RIVAL_BEAT_SUNYSHORE_GYM",
+   "var_value": "0",
+   "width": 3
+  },
+  {
+   "fonte_x": 16,
+   "fonte_z": 4,
+   "length": 1,
+   "leva": "S7",
+   "mapa": "PokemonMansionOffice",
+   "rotulo_fonte": "PokemonMansionOffice_CoordEvent_BlockStatue",
+   "script": "PokemonMansionOffice_EventScript_CoordEvent_BlockStatue",
+   "script_fonte": 5,
+   "tiles": [
+    [
+     1,
+     1
+    ]
+   ],
+   "var": "VAR_SINNOH_MANSAO_ESTATUA_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_POKEMON_MANSION_OFFICE_BLOCK_STATUE_STATE",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 815,
+   "fonte_z": 472,
+   "length": 3,
+   "leva": "S7",
+   "mapa": "ResortArea",
+   "rotulo_fonte": "ResortArea_CoordEvent_SchoolKidM",
+   "script": "ResortArea_EventScript_CoordEvent_SchoolKidM",
+   "script_fonte": 8,
+   "tiles": [
+    [
+     16,
+     22
+    ],
+    [
+     16,
+     23
+    ],
+    [
+     16,
+     24
+    ]
+   ],
+   "var": "VAR_SINNOH_RESORT_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_RESORT_AREA_STATE",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 7,
+   "fonte_z": 7,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "RockPeakRuins",
+   "rotulo_fonte": "RockPeakRuins_DotMiddle",
+   "script": "RockPeakRuins_EventScript_DotMiddle",
+   "script_fonte": 6,
+   "tiles": [
+    [
+     7,
+     7
+    ]
+   ],
+   "var": "VAR_TEMP_4",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x04",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 5,
+   "fonte_z": 9,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "RockPeakRuins",
+   "rotulo_fonte": "RockPeakRuins_DotSouthWest",
+   "script": "RockPeakRuins_EventScript_DotSouthWest",
+   "script_fonte": 8,
+   "tiles": [
+    [
+     5,
+     9
+    ]
+   ],
+   "var": "VAR_TEMP_6",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x06",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 9,
+   "fonte_z": 9,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "RockPeakRuins",
+   "rotulo_fonte": "RockPeakRuins_DotSouthEast",
+   "script": "RockPeakRuins_EventScript_DotSouthEast",
+   "script_fonte": 9,
+   "tiles": [
+    [
+     9,
+     9
+    ]
+   ],
+   "var": "VAR_TEMP_7",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x07",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 5,
+   "fonte_z": 5,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "RockPeakRuins",
+   "rotulo_fonte": "RockPeakRuins_DotNorthWest",
+   "script": "RockPeakRuins_EventScript_DotNorthWest",
+   "script_fonte": 3,
+   "tiles": [
+    [
+     5,
+     5
+    ]
+   ],
+   "var": "VAR_TEMP_1",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x01",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 9,
+   "fonte_z": 5,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "RockPeakRuins",
+   "rotulo_fonte": "RockPeakRuins_DotNorthEast",
+   "script": "RockPeakRuins_EventScript_DotNorthEast",
+   "script_fonte": 4,
+   "tiles": [
+    [
+     9,
+     5
+    ]
+   ],
+   "var": "VAR_TEMP_2",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x02",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 5,
+   "fonte_z": 7,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "RockPeakRuins",
+   "rotulo_fonte": "RockPeakRuins_DotWest",
+   "script": "RockPeakRuins_EventScript_DotWest",
+   "script_fonte": 5,
+   "tiles": [
+    [
+     5,
+     7
+    ]
+   ],
+   "var": "VAR_TEMP_3",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x03",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 9,
+   "fonte_z": 7,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "RockPeakRuins",
+   "rotulo_fonte": "RockPeakRuins_DotEast",
+   "script": "RockPeakRuins_EventScript_DotEast",
+   "script_fonte": 7,
+   "tiles": [
+    [
+     9,
+     7
+    ]
+   ],
+   "var": "VAR_TEMP_5",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x05",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 180,
+   "fonte_z": 825,
+   "length": 5,
+   "leva": "S3",
+   "mapa": "Route202",
+   "rotulo_fonte": "Route202_CoordEvent_CatchingTutorial",
+   "script": "Route202_EventScript_CoordEvent_CatchingTutorial",
+   "script_fonte": 6,
+   "tiles": [
+    [
+     18,
+     26
+    ],
+    [
+     18,
+     27
+    ],
+    [
+     18,
+     28
+    ],
+    [
+     18,
+     29
+    ],
+    [
+     18,
+     30
+    ]
+   ],
+   "var": "VAR_SINNOH_R202_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_ROUTE_202_STATE",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 196,
+   "fonte_z": 757,
+   "length": 4,
+   "leva": "S4",
+   "mapa": "Route203",
+   "rotulo_fonte": "Route203_CoordEvent_Rival",
+   "script": "Route203_EventScript_CoordEvent_Rival",
+   "script_fonte": 6,
+   "tiles": [
+    [
+     4,
+     19
+    ],
+    [
+     4,
+     20
+    ],
+    [
+     4,
+     21
+    ],
+    [
+     4,
+     22
+    ]
+   ],
+   "var": "VAR_SINNOH_R203_RIVAL_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_ROUTE_203_RIVAL_STATE",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 211,
+   "fonte_z": 659,
+   "length": 6,
+   "leva": "S4",
+   "mapa": "Route205_South",
+   "rotulo_fonte": "Route205South_CoordEvent_LittleGirl",
+   "script": "Route205_South_EventScript_CoordEvent_LittleGirl",
+   "script_fonte": 6,
+   "tiles": [
+    [
+     19,
+     83
+    ],
+    [
+     19,
+     84
+    ],
+    [
+     19,
+     85
+    ],
+    [
+     19,
+     86
+    ],
+    [
+     19,
+     87
+    ],
+    [
+     19,
+     88
+    ]
+   ],
+   "var": "VAR_SINNOH_WINDWORKS_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_VALLEY_WINDWORKS_STATE",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 217,
+   "fonte_z": 653,
+   "length": 1,
+   "leva": "S4",
+   "mapa": "Route205_South",
+   "rotulo_fonte": "Route205South_CoordEvent_Grunts",
+   "script": "Route205_South_EventScript_CoordEvent_Grunts",
+   "script_fonte": 7,
+   "tiles": [
+    [
+     25,
+     77
+    ]
+   ],
+   "var": "VAR_SINNOH_WINDWORKS_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_VALLEY_WINDWORKS_STATE",
+   "var_value": "1",
+   "width": 1
+  },
+  {
+   "fonte_x": 5,
+   "fonte_z": 8,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "Route206_North",
+   "rotulo_fonte": "Route206CyclingRoadNorthGate_CoordEvent_OnlyBicycles",
+   "script": "Route206_North_EventScript_CoordEvent_OnlyBicycles",
+   "script_fonte": 3,
+   "tiles": [
+    [
+     1,
+     10
+    ],
+    [
+     2,
+     10
+    ],
+    [
+     4,
+     10
+    ],
+    [
+     5,
+     10
+    ]
+   ],
+   "var": "VAR_TEMP_2",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x02",
+   "var_value": "0",
+   "width": 4
+  },
+  {
+   "fonte_x": 5,
+   "fonte_z": 6,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "Route206_North",
+   "rotulo_fonte": "Route206CyclingRoadNorthGate_CoordEvent_ClearFlagForceBikingInGate",
+   "script": "Route206_North_EventScript_CoordEvent_ClearFlagForceBikingInGate",
+   "script_fonte": 4,
+   "tiles": [
+    [
+     1,
+     6
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     4,
+     6
+    ],
+    [
+     5,
+     6
+    ]
+   ],
+   "var": "VAR_TEMP_2",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x02",
+   "var_value": "1",
+   "width": 4
+  },
+  {
+   "fonte_x": 5,
+   "fonte_z": 6,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "Route206_South",
+   "rotulo_fonte": "Route206CyclingRoadSouthGate_CoordEvent_OnlyCyclists",
+   "script": "Route206_South_EventScript_CoordEvent_OnlyCyclists",
+   "script_fonte": 3,
+   "tiles": [
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     0
+    ],
+    [
+     6,
+     0
+    ]
+   ],
+   "var": "VAR_TEMP_2",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x02",
+   "var_value": "0",
+   "width": 5
+  },
+  {
+   "fonte_x": 5,
+   "fonte_z": 8,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "Route206_South",
+   "rotulo_fonte": "Route206CyclingRoadSouthGate_CoordEvent_ClearFlagForceBikingInGate",
+   "script": "Route206_South_EventScript_CoordEvent_ClearFlagForceBikingInGate",
+   "script_fonte": 4,
+   "tiles": [
+    [
+     2,
+     5
+    ],
+    [
+     3,
+     5
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     5,
+     5
+    ],
+    [
+     6,
+     5
+    ]
+   ],
+   "var": "VAR_TEMP_2",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x02",
+   "var_value": "1",
+   "width": 5
+  },
+  {
+   "fonte_x": 340,
+   "fonte_z": 712,
+   "length": 3,
+   "leva": "S4",
+   "mapa": "Route207",
+   "rotulo_fonte": "Route207_CoordEvent_Counterpart",
+   "script": "Route207_EventScript_CoordEvent_Counterpart",
+   "script_fonte": 2,
+   "tiles": [
+    [
+     52,
+     8
+    ],
+    [
+     52,
+     9
+    ],
+    [
+     52,
+     10
+    ]
+   ],
+   "var": "VAR_SINNOH_R207_COMPANHEIRO_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_ROUTE_207_COUNTERPART_TRIGGER_STATE",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 5,
+   "fonte_z": 5,
+   "length": 5,
+   "leva": "S5",
+   "mapa": "Route209_Access",
+   "rotulo_fonte": "Route209GateToHearthomeCity_CoordEvent_Rival",
+   "script": "Route209_Access_EventScript_CoordEvent_Rival",
+   "script_fonte": 2,
+   "tiles": [
+    [
+     5,
+     5
+    ],
+    [
+     5,
+     6
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     5,
+     8
+    ],
+    [
+     5,
+     9
+    ]
+   ],
+   "var": "VAR_SINNOH_R209_PORTAO_HEARTHOME",
+   "var_alias": true,
+   "var_fonte": "VAR_ROUTE_209_GATE_TO_HEARTHOME_CITY_STATE",
+   "var_value": "1",
+   "width": 1
+  },
+  {
+   "fonte_x": 302,
+   "fonte_z": 376,
+   "length": 1,
+   "leva": "S6",
+   "mapa": "Route217",
+   "rotulo_fonte": "Route217_CoordEvent_Maylene",
+   "script": "Route217_EventScript_CoordEvent_Maylene",
+   "script_fonte": 4,
+   "tiles": [
+    [
+     15,
+     110
+    ],
+    [
+     16,
+     110
+    ]
+   ],
+   "var": "VAR_SINNOH_R217_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_ROUTE_217_STATE",
+   "var_value": "0",
+   "width": 2
+  },
+  {
+   "fonte_x": 7,
+   "fonte_z": 5,
+   "length": 5,
+   "leva": "S6",
+   "mapa": "Route218_West",
+   "rotulo_fonte": "Route218GateToCanalaveCity_CoordEvent_ScientistM",
+   "script": "Route218_West_EventScript_CoordEvent_ScientistM",
+   "script_fonte": 2,
+   "tiles": [
+    [
+     7,
+     5
+    ],
+    [
+     7,
+     6
+    ],
+    [
+     7,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     7,
+     9
+    ]
+   ],
+   "var": "VAR_SINNOH_R218_PORTAO_CANALAVE",
+   "var_alias": true,
+   "var_fonte": "VAR_ROUTE_218_GATE_TO_CANALAVE_CITY_STATE",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 903,
+   "fonte_z": 496,
+   "length": 3,
+   "leva": "S7",
+   "mapa": "Route224",
+   "rotulo_fonte": "Route224_CoordEvent_Marley",
+   "script": "Route224_EventScript_CoordEvent_Marley",
+   "script_fonte": 5,
+   "tiles": [
+    [
+     39,
+     15
+    ],
+    [
+     39,
+     16
+    ],
+    [
+     39,
+     17
+    ]
+   ],
+   "var": "VAR_SINNOH_R224_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_ROUTE_224_STATE",
+   "var_value": "1",
+   "width": 1
+  },
+  {
+   "fonte_x": 738,
+   "fonte_z": 306,
+   "length": 1,
+   "leva": "S7",
+   "mapa": "Route227",
+   "rotulo_fonte": "Route227_CoordEvent_WakeRival",
+   "script": "Route227_EventScript_CoordEvent_WakeRival",
+   "script_fonte": 1,
+   "tiles": [
+    [
+     3,
+     46
+    ],
+    [
+     4,
+     46
+    ]
+   ],
+   "var": "VAR_SINNOH_R227_WAKE_RIVAL_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_ROUTE_227_WAKE_RIVAL_STATE",
+   "var_value": "0",
+   "width": 2
+  },
+  {
+   "fonte_x": 758,
+   "fonte_z": 277,
+   "length": 1,
+   "leva": "S7",
+   "mapa": "Route227",
+   "rotulo_fonte": "Route227_CoordEvent_Buck",
+   "script": "Route227_EventScript_CoordEvent_Buck",
+   "script_fonte": 3,
+   "tiles": [
+    [
+     33,
+     19
+    ]
+   ],
+   "var": "VAR_SINNOH_R227_BUCK_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_ROUTE_227_BUCK_STATE",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 164,
+   "fonte_z": 842,
+   "length": 6,
+   "leva": "S3",
+   "mapa": "SandgemTown",
+   "rotulo_fonte": "SandgemTown_CoordEvent_CounterpartLeadToLab",
+   "script": "SandgemTown_EventScript_CoordEvent_CounterpartLeadToLab",
+   "script_fonte": 2,
+   "tiles": [
+    [
+     4,
+     10
+    ],
+    [
+     4,
+     11
+    ],
+    [
+     4,
+     12
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     4,
+     14
+    ],
+    [
+     4,
+     15
+    ]
+   ],
+   "var": "VAR_SINNOH_SANDGEM_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_SANDGEM_TOWN_STATE",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 366,
+   "fonte_z": 198,
+   "length": 1,
+   "leva": "S6",
+   "mapa": "SnowpointCity",
+   "rotulo_fonte": "SnowpointCity_CoordEvent_TempleGuard",
+   "script": "SnowpointCity_EventScript_CoordEvent_TempleGuard",
+   "script_fonte": 3,
+   "tiles": [
+    [
+     14,
+     6
+    ]
+   ],
+   "var": "VAR_SINNOH_SNOWPOINT_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_SNOWPOINT_CITY_STATE",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 557,
+   "fonte_z": 669,
+   "length": 1,
+   "leva": "S5",
+   "mapa": "SolaceonTown",
+   "rotulo_fonte": "SolaceonTown_CoordEvent_Rival",
+   "script": "SolaceonTown_EventScript_CoordEvent_Rival",
+   "script_fonte": 12,
+   "tiles": [
+    [
+     13,
+     40
+    ],
+    [
+     14,
+     40
+    ],
+    [
+     15,
+     40
+    ],
+    [
+     16,
+     40
+    ],
+    [
+     17,
+     40
+    ],
+    [
+     18,
+     40
+    ],
+    [
+     19,
+     40
+    ]
+   ],
+   "var": "VAR_SINNOH_SOLACEON_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_SOLACEON_TOWN_STATE",
+   "var_value": "0",
+   "width": 7
+  },
+  {
+   "fonte_x": 752,
+   "fonte_z": 235,
+   "length": 1,
+   "leva": "S7",
+   "mapa": "StarkMountainOutside",
+   "rotulo_fonte": "StarkMountainOutside_CoordEvent_Grunts",
+   "script": "StarkMountainOutside_EventScript_CoordEvent_Grunts",
+   "script_fonte": 3,
+   "tiles": [
+    [
+     6,
+     2
+    ]
+   ],
+   "var": "VAR_SINNOH_STARK_FORA_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_STARK_MOUNTAIN_OUTSIDE_STATE",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 853,
+   "fonte_z": 743,
+   "length": 1,
+   "leva": "S7",
+   "mapa": "SunyshoreCity",
+   "rotulo_fonte": "SunyshoreCity_CoordEvent_RivalAndJasmine",
+   "script": "SunyshoreCity_EventScript_CoordEvent_RivalAndJasmine",
+   "script_fonte": 8,
+   "tiles": [
+    [
+     23,
+     7
+    ],
+    [
+     24,
+     7
+    ],
+    [
+     25,
+     7
+    ],
+    [
+     26,
+     7
+    ],
+    [
+     27,
+     7
+    ]
+   ],
+   "var": "VAR_SINNOH_SUNYSHORE_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_SUNYSHORE_CITY_STATE",
+   "var_value": "2",
+   "width": 5
+  },
+  {
+   "fonte_x": 6,
+   "fonte_z": 13,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "SunyshoreCityGymRoom2",
+   "rotulo_fonte": "SunyshoreGymRoom2_BottomButton",
+   "script": "SunyshoreCityGymRoom2_EventScript_BottomButton",
+   "script_fonte": 2,
+   "tiles": [
+    [
+     1,
+     8
+    ]
+   ],
+   "var": "VAR_TEMP_0",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x00",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 6,
+   "fonte_z": 8,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "SunyshoreCityGymRoom2",
+   "rotulo_fonte": "SunyshoreGymRoom2_TopButtons",
+   "script": "SunyshoreCityGymRoom2_EventScript_TopButtons",
+   "script_fonte": 3,
+   "tiles": [
+    [
+     1,
+     4
+    ]
+   ],
+   "var": "VAR_TEMP_0",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x00",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 11,
+   "fonte_z": 8,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "SunyshoreCityGymRoom2",
+   "rotulo_fonte": "SunyshoreGymRoom2_TopButtons",
+   "script": "SunyshoreCityGymRoom2_EventScript_TopButtons",
+   "script_fonte": 3,
+   "tiles": [
+    [
+     6,
+     4
+    ]
+   ],
+   "var": "VAR_TEMP_0",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x00",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 6,
+   "fonte_z": 8,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "SunyshoreCityGymRoom3",
+   "rotulo_fonte": "SunyshoreGymRoom3_TopButtons",
+   "script": "SunyshoreCityGymRoom3_EventScript_TopButtons",
+   "script_fonte": 2,
+   "tiles": [
+    [
+     1,
+     2
+    ]
+   ],
+   "var": "VAR_TEMP_0",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x00",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 16,
+   "fonte_z": 13,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "SunyshoreCityGymRoom3",
+   "rotulo_fonte": "SunyshoreGymRoom3_TopButtons",
+   "script": "SunyshoreCityGymRoom3_EventScript_TopButtons",
+   "script_fonte": 2,
+   "tiles": [
+    [
+     6,
+     4
+    ]
+   ],
+   "var": "VAR_TEMP_0",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x00",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 6,
+   "fonte_z": 18,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "SunyshoreCityGymRoom3",
+   "rotulo_fonte": "SunyshoreGymRoom3_BottomButtons",
+   "script": "SunyshoreCityGymRoom3_EventScript_BottomButtons",
+   "script_fonte": 3,
+   "tiles": [
+    [
+     1,
+     6
+    ]
+   ],
+   "var": "VAR_TEMP_0",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x00",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 16,
+   "fonte_z": 18,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "SunyshoreCityGymRoom3",
+   "rotulo_fonte": "SunyshoreGymRoom3_BottomButtons",
+   "script": "SunyshoreCityGymRoom3_EventScript_BottomButtons",
+   "script_fonte": 3,
+   "tiles": [
+    [
+     6,
+     6
+    ]
+   ],
+   "var": "VAR_TEMP_0",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x00",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 3,
+   "fonte_z": 8,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "SunyshoreCity_Gym",
+   "rotulo_fonte": "SunyshoreGymRoom1_Button",
+   "script": "SunyshoreCity_Gym_EventScript_Button",
+   "script_fonte": 2,
+   "tiles": [
+    [
+     3,
+     8
+    ]
+   ],
+   "var": "VAR_TEMP_0",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x00",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 13,
+   "fonte_z": 8,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "SunyshoreCity_Gym",
+   "rotulo_fonte": "SunyshoreGymRoom1_Button",
+   "script": "SunyshoreCity_Gym_EventScript_Button",
+   "script_fonte": 2,
+   "tiles": [
+    [
+     13,
+     8
+    ]
+   ],
+   "var": "VAR_TEMP_0",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x00",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 108,
+   "fonte_z": 867,
+   "length": 1,
+   "leva": "S3",
+   "mapa": "TwinleafTown",
+   "rotulo_fonte": "TwinleafTown_CoordEvent_RivalWasLookingForYou",
+   "script": "TwinleafTown_EventScript_CoordEvent_RivalWasLookingForYou",
+   "script_fonte": 4,
+   "tiles": [
+    [
+     8,
+     2
+    ],
+    [
+     9,
+     2
+    ],
+    [
+     10,
+     2
+    ],
+    [
+     11,
+     2
+    ],
+    [
+     12,
+     2
+    ],
+    [
+     13,
+     2
+    ],
+    [
+     14,
+     2
+    ]
+   ],
+   "var": "VAR_SINNOH_TWINLEAF_GUITARRISTA",
+   "var_alias": true,
+   "var_fonte": "VAR_TWINLEAF_TOWN_GUITARIST_TRIGGER_STATE",
+   "var_value": "1",
+   "width": 8
+  },
+  {
+   "fonte_x": 105,
+   "fonte_z": 876,
+   "length": 1,
+   "leva": "S3",
+   "mapa": "TwinleafTown",
+   "rotulo_fonte": "TwinleafTown_CoordEvent_RivalThud",
+   "script": "TwinleafTown_EventScript_CoordEvent_RivalThud",
+   "script_fonte": 2,
+   "tiles": [
+    [
+     6,
+     11
+    ]
+   ],
+   "var": "VAR_SINNOH_TWINLEAF_RIVAL",
+   "var_alias": true,
+   "var_fonte": "VAR_TWINLEAF_TOWN_RIVAL_TRIGGER_STATE",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 6,
+   "fonte_z": 10,
+   "length": 1,
+   "leva": "S3",
+   "mapa": "TwinleafTown_MainHouse_1F",
+   "rotulo_fonte": "TwinleafTownPlayerHouse1F_CoordEvent_DontGoIntoTallGrass",
+   "script": "TwinleafTown_MainHouse_1F_EventScript_CoordEvent_DontGoIntoTallGrass",
+   "script_fonte": 5,
+   "tiles": [
+    [
+     8,
+     8
+    ]
+   ],
+   "var": "VAR_SINNOH_CASA_JOGADOR_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_PLAYER_HOUSE_STATE",
+   "var_value": "1",
+   "width": 1
+  },
+  {
+   "fonte_x": 4,
+   "fonte_z": 5,
+   "length": 1,
+   "leva": "S3",
+   "mapa": "TwinleafTown_MainHouse_2F",
+   "rotulo_fonte": "TwinleafTownPlayerHouse2F_CoordEvent_RivalNorth",
+   "script": "TwinleafTown_MainHouse_2F_EventScript_CoordEvent_RivalNorth",
+   "script_fonte": 7,
+   "tiles": [
+    [
+     2,
+     7
+    ]
+   ],
+   "var": "VAR_SINNOH_CASA_JOGADOR_RIVAL_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_PLAYER_HOUSE_RIVAL_STATE",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 3,
+   "fonte_z": 6,
+   "length": 1,
+   "leva": "S3",
+   "mapa": "TwinleafTown_MainHouse_2F",
+   "rotulo_fonte": "TwinleafTownPlayerHouse2F_CoordEvent_RivalWest",
+   "script": "TwinleafTown_MainHouse_2F_EventScript_CoordEvent_RivalWest",
+   "script_fonte": 8,
+   "tiles": [
+    [
+     1,
+     7
+    ]
+   ],
+   "var": "VAR_SINNOH_CASA_JOGADOR_RIVAL_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_PLAYER_HOUSE_RIVAL_STATE",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 5,
+   "fonte_z": 6,
+   "length": 1,
+   "leva": "S3",
+   "mapa": "TwinleafTown_MainHouse_2F",
+   "rotulo_fonte": "TwinleafTownPlayerHouse2F_CoordEvent_RivalEast",
+   "script": "TwinleafTown_MainHouse_2F_EventScript_CoordEvent_RivalEast",
+   "script_fonte": 9,
+   "tiles": [
+    [
+     3,
+     7
+    ]
+   ],
+   "var": "VAR_SINNOH_CASA_JOGADOR_RIVAL_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_PLAYER_HOUSE_RIVAL_STATE",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 4,
+   "fonte_z": 7,
+   "length": 1,
+   "leva": "S3",
+   "mapa": "TwinleafTown_MainHouse_2F",
+   "rotulo_fonte": "TwinleafTownPlayerHouse2F_CoordEvent_RivalSouth",
+   "script": "TwinleafTown_MainHouse_2F_EventScript_CoordEvent_RivalSouth",
+   "script_fonte": 10,
+   "tiles": [
+    [
+     2,
+     7
+    ]
+   ],
+   "var": "VAR_SINNOH_CASA_JOGADOR_RIVAL_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_PLAYER_HOUSE_RIVAL_STATE",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 19,
+   "fonte_z": 6,
+   "length": 2,
+   "leva": "S4",
+   "mapa": "ValleyWindworksBuilding",
+   "rotulo_fonte": "ValleyWindworksBuilding_CoordEvent_Mars",
+   "script": "ValleyWindworksBuilding_EventScript_CoordEvent_Mars",
+   "script_fonte": 4,
+   "tiles": [
+    [
+     7,
+     2
+    ]
+   ],
+   "var": "VAR_SINNOH_WINDWORKS_GALACTICA_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_VALLEY_WINDWORKS_TEAM_GALACTIC_STATE",
+   "var_value": "1",
+   "width": 1
+  },
+  {
+   "fonte_x": 724,
+   "fonte_z": 789,
+   "length": 3,
+   "leva": "S7",
+   "mapa": "ValorLakefront",
+   "rotulo_fonte": "ValorLakefront_CoordEvent_BlockSunyshore",
+   "script": "ValorLakefront_EventScript_CoordEvent_BlockSunyshore",
+   "script_fonte": 9,
+   "tiles": [
+    [
+     45,
+     54
+    ],
+    [
+     45,
+     55
+    ],
+    [
+     45,
+     56
+    ]
+   ],
+   "var": "VAR_SINNOH_VALOR_BLOQUEIO_SUNYSHORE",
+   "var_alias": true,
+   "var_fonte": "VAR_VALOR_LAKEFRONT_BLOCK_SUNYSHORE_STATE",
+   "var_value": "0",
+   "width": 1
+  },
+  {
+   "fonte_x": 8,
+   "fonte_z": 8,
+   "length": 1,
+   "leva": "S5",
+   "mapa": "VeilstoneCity_GalacticWarehouse",
+   "rotulo_fonte": "VeilstoneCityGalacticWarehouse_CoordEvent_LookerOpenDoor",
+   "script": "VeilstoneCity_GalacticWarehouse_EventScript_CoordEvent_LookerOpenDoor",
+   "script_fonte": 5,
+   "tiles": [
+    [
+     2,
+     6
+    ],
+    [
+     4,
+     6
+    ]
+   ],
+   "var": "VAR_SINNOH_VEILSTONE_ARMAZEM_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_VEILSTONE_CITY_GALACTIC_WAREHOUSE_STATE",
+   "var_value": "3",
+   "width": 2
+  },
+  {
+   "fonte_x": 80,
+   "fonte_z": 844,
+   "length": 1,
+   "leva": "S3",
+   "mapa": "VerityLakefront",
+   "rotulo_fonte": "VerityLakefront_CoordEvent_WereAtTheLake",
+   "script": "VerityLakefront_EventScript_CoordEvent_WereAtTheLake",
+   "script_fonte": 3,
+   "tiles": [
+    [
+     14,
+     13
+    ]
+   ],
+   "var": "VAR_SINNOH_VERITY_BEIRA_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_VERITY_LAKEFRONT_STATE",
+   "var_value": "0",
+   "width": 2
+  },
+  {
+   "fonte_x": 10,
+   "fonte_z": 7,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "Villa",
+   "rotulo_fonte": "Villa_CoordEvent_Fantina",
+   "script": "Villa_EventScript_CoordEvent_Fantina",
+   "script_fonte": 17,
+   "tiles": [
+    [
+     3,
+     4
+    ]
+   ],
+   "var": "VAR_TEMP_F",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x0F",
+   "var_value": "6",
+   "width": 1
+  },
+  {
+   "fonte_x": 10,
+   "fonte_z": 7,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "Villa",
+   "rotulo_fonte": "Villa_CoordEvent_CrasherWake",
+   "script": "Villa_EventScript_CoordEvent_CrasherWake",
+   "script_fonte": 18,
+   "tiles": [
+    [
+     3,
+     4
+    ]
+   ],
+   "var": "VAR_TEMP_F",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x0F",
+   "var_value": "8",
+   "width": 1
+  },
+  {
+   "fonte_x": 10,
+   "fonte_z": 7,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "Villa",
+   "rotulo_fonte": "Villa_CoordEvent_Candice",
+   "script": "Villa_EventScript_CoordEvent_Candice",
+   "script_fonte": 19,
+   "tiles": [
+    [
+     3,
+     4
+    ]
+   ],
+   "var": "VAR_TEMP_F",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x0F",
+   "var_value": "10",
+   "width": 1
+  },
+  {
+   "fonte_x": 10,
+   "fonte_z": 7,
+   "length": 1,
+   "leva": "S?",
+   "mapa": "Villa",
+   "rotulo_fonte": "Villa_CoordEvent_Cynthia",
+   "script": "Villa_EventScript_CoordEvent_Cynthia",
+   "script_fonte": 20,
+   "tiles": [
+    [
+     3,
+     4
+    ]
+   ],
+   "var": "VAR_TEMP_F",
+   "var_alias": false,
+   "var_fonte": "VAR_MAP_LOCAL_0x0F",
+   "var_value": "12",
+   "width": 1
+  },
+  {
+   "fonte_x": 11,
+   "fonte_z": 11,
+   "length": 1,
+   "leva": "S7",
+   "mapa": "Villa",
+   "rotulo_fonte": "Villa_CoordEvent_DontGoYet",
+   "script": "Villa_EventScript_CoordEvent_DontGoYet",
+   "script_fonte": 43,
+   "tiles": [
+    [
+     4,
+     8
+    ]
+   ],
+   "var": "VAR_SINNOH_VILLA_ESTADO",
+   "var_alias": true,
+   "var_fonte": "VAR_VILLA_STATE",
+   "var_value": "1",
+   "width": 1
+  }
+ ],
+ "medido_em": "17/08/2026",
+ "resumo": {
+  "adiados": 72,
+  "coord_events_da_fonte": 177,
+  "gatilhos": 105,
+  "mapas_com_gatilho": 53,
+  "span_bruto": 360,
+  "tiles_plantados": 201
+ },
+ "tiles_empilhados": [
+  {
+   "mapa": "JubilifeCity",
+   "scripts": [
+    "JubilifeCity_EventScript_CoordEvent_LookerBlockRoute203",
+    "JubilifeCity_EventScript_CoordEvent_LookerPalPad"
+   ],
+   "x": 65,
+   "y": 21
+  },
+  {
+   "mapa": "JubilifeCity",
+   "scripts": [
+    "JubilifeCity_EventScript_CoordEvent_LookerBlockRoute203",
+    "JubilifeCity_EventScript_CoordEvent_LookerPalPad"
+   ],
+   "x": 65,
+   "y": 22
+  },
+  {
+   "mapa": "JubilifeCity",
+   "scripts": [
+    "JubilifeCity_EventScript_CoordEvent_LookerBlockRoute203",
+    "JubilifeCity_EventScript_CoordEvent_LookerPalPad"
+   ],
+   "x": 65,
+   "y": 23
+  },
+  {
+   "mapa": "JubilifeCity",
+   "scripts": [
+    "JubilifeCity_EventScript_CoordEvent_LookerBlockRoute203",
+    "JubilifeCity_EventScript_CoordEvent_LookerPalPad"
+   ],
+   "x": 65,
+   "y": 24
+  },
+  {
+   "mapa": "PastoriaCity",
+   "scripts": [
+    "PastoriaCity_EventScript_CoordEvent_BlockGreatMarsh",
+    "PastoriaCity_EventScript_CoordEvent_Bomb"
+   ],
+   "x": 36,
+   "y": 9
+  },
+  {
+   "mapa": "TwinleafTown_MainHouse_2F",
+   "scripts": [
+    "TwinleafTown_MainHouse_2F_EventScript_CoordEvent_RivalNorth",
+    "TwinleafTown_MainHouse_2F_EventScript_CoordEvent_RivalSouth"
+   ],
+   "x": 2,
+   "y": 7
+  },
+  {
+   "mapa": "Villa",
+   "scripts": [
+    "Villa_EventScript_CoordEvent_Candice",
+    "Villa_EventScript_CoordEvent_CrasherWake",
+    "Villa_EventScript_CoordEvent_Cynthia",
+    "Villa_EventScript_CoordEvent_Fantina"
+   ],
+   "x": 3,
+   "y": 4
+  }
+ ],
+ "vars": [
+  {
+   "alias": "VAR_SINNOH_ACUITY_BEIRA_ESTADO",
+   "endereco": "0x4130",
+   "fonte": "VAR_ACUITY_LAKEFRONT_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S6"
+  },
+  {
+   "alias": "VAR_SINNOH_CANALAVE_ESTADO",
+   "endereco": "0x4131",
+   "fonte": "VAR_CANALAVE_CITY_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S6"
+  },
+  {
+   "alias": "VAR_SINNOH_CELESTIC_ANCIA_ESTADO",
+   "endereco": "0x4132",
+   "fonte": "VAR_CELESTIC_TOWN_ELDER_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S5"
+  },
+  {
+   "alias": "VAR_SINNOH_ETERNA_BLOQUEIO_SAIDAS",
+   "endereco": "0x4133",
+   "fonte": "VAR_ETERNA_CITY_BLOCK_EXITS_STATE",
+   "gatilhos_na_fila": 2,
+   "leva": "S4"
+  },
+  {
+   "alias": "VAR_SINNOH_ETERNA_ESTADO",
+   "endereco": "0x4134",
+   "fonte": "VAR_ETERNA_CITY_STATE",
+   "gatilhos_na_fila": 4,
+   "leva": "S4"
+  },
+  {
+   "alias": "VAR_SINNOH_QG_4F_ESTADO",
+   "endereco": "0x4135",
+   "fonte": "VAR_GALACTIC_HQ_4F_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S6"
+  },
+  {
+   "alias": "VAR_SINNOH_QG_SALA_CONTROLE_ESTADO",
+   "endereco": "0x4136",
+   "fonte": "VAR_GALACTIC_HQ_CONTROL_ROOM_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S6"
+  },
+  {
+   "alias": "VAR_SINNOH_QG_HALL_ESTADO",
+   "endereco": "0x4137",
+   "fonte": "VAR_GALACTIC_HQ_HALL_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S6"
+  },
+  {
+   "alias": "VAR_SINNOH_SALAO_ORIGEM_ESTADO",
+   "endereco": "0x4138",
+   "fonte": "VAR_HALL_OF_ORIGIN_STATE",
+   "gatilhos_na_fila": 3,
+   "leva": "S6"
+  },
+  {
+   "alias": "VAR_SINNOH_HEARTHOME_ESTADO",
+   "endereco": "0x4139",
+   "fonte": "VAR_HEARTHOME_CITY_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S5"
+  },
+  {
+   "alias": "VAR_SINNOH_JUBILIFE_ESTADO",
+   "endereco": "0x413A",
+   "fonte": "VAR_JUBILIFE_CITY_STATE",
+   "gatilhos_na_fila": 3,
+   "leva": "S4"
+  },
+  {
+   "alias": "VAR_SINNOH_JUBILIFE_LOOKER_ESTADO",
+   "endereco": "0x413B",
+   "fonte": "VAR_JUBILIFE_LOOKER_PAL_PAD_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S4"
+  },
+  {
+   "alias": "VAR_SINNOH_CORONET_1F_SUL_ESTADO",
+   "endereco": "0x413C",
+   "fonte": "VAR_MT_CORONET_1F_SOUTH_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S6"
+  },
+  {
+   "alias": "VAR_SINNOH_CORONET_2F_ESTADO",
+   "endereco": "0x413D",
+   "fonte": "VAR_MT_CORONET_2F_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S6"
+  },
+  {
+   "alias": "VAR_SINNOH_OREBURGH_ESTADO",
+   "endereco": "0x413E",
+   "fonte": "VAR_OREBURGH_CITY_STATE",
+   "gatilhos_na_fila": 2,
+   "leva": "S4"
+  },
+  {
+   "alias": "VAR_SINNOH_OREBURGH_PORTAO_ANDARILHO",
+   "endereco": "0x413F",
+   "fonte": "VAR_OREBURGH_GATE_1F_HIKER_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S4"
+  },
+  {
+   "alias": "VAR_SINNOH_PASTORIA_CROAGUNK_CENA",
+   "endereco": "0x4140",
+   "fonte": "VAR_PASTORIA_CITY_CROAGUNK_SCENE_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S5"
+  },
+  {
+   "alias": "VAR_SINNOH_PASTORIA_OBSERVATORIO_ESTADO",
+   "endereco": "0x4141",
+   "fonte": "VAR_PASTORIA_CITY_OBSERVATORY_GATE_1F_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S5"
+  },
+  {
+   "alias": "VAR_SINNOH_PASTORIA_ESTADO",
+   "endereco": "0x4142",
+   "fonte": "VAR_PASTORIA_CITY_STATE",
+   "gatilhos_na_fila": 3,
+   "leva": "S5"
+  },
+  {
+   "alias": "VAR_SINNOH_CASA_JOGADOR_RIVAL_ESTADO",
+   "endereco": "0x4143",
+   "fonte": "VAR_PLAYER_HOUSE_RIVAL_STATE",
+   "gatilhos_na_fila": 4,
+   "leva": "S3"
+  },
+  {
+   "alias": "VAR_SINNOH_CASA_JOGADOR_ESTADO",
+   "endereco": "0x4144",
+   "fonte": "VAR_PLAYER_HOUSE_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S3"
+  },
+  {
+   "alias": "VAR_SINNOH_MANSAO_ESTATUA_ESTADO",
+   "endereco": "0x4145",
+   "fonte": "VAR_POKEMON_MANSION_OFFICE_BLOCK_STATUE_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S7"
+  },
+  {
+   "alias": "VAR_SINNOH_RESORT_ESTADO",
+   "endereco": "0x4146",
+   "fonte": "VAR_RESORT_AREA_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S7"
+  },
+  {
+   "alias": "VAR_SINNOH_RIVAL_VENCEU_SUNYSHORE",
+   "endereco": "0x4147",
+   "fonte": "VAR_RIVAL_BEAT_SUNYSHORE_GYM",
+   "gatilhos_na_fila": 1,
+   "leva": "S7"
+  },
+  {
+   "alias": "VAR_SINNOH_R202_ESTADO",
+   "endereco": "0x4148",
+   "fonte": "VAR_ROUTE_202_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S3"
+  },
+  {
+   "alias": "VAR_SINNOH_R203_RIVAL_ESTADO",
+   "endereco": "0x4149",
+   "fonte": "VAR_ROUTE_203_RIVAL_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S4"
+  },
+  {
+   "alias": "VAR_SINNOH_R207_COMPANHEIRO_ESTADO",
+   "endereco": "0x414A",
+   "fonte": "VAR_ROUTE_207_COUNTERPART_TRIGGER_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S4"
+  },
+  {
+   "alias": "VAR_SINNOH_R209_PORTAO_HEARTHOME",
+   "endereco": "0x414B",
+   "fonte": "VAR_ROUTE_209_GATE_TO_HEARTHOME_CITY_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S5"
+  },
+  {
+   "alias": "VAR_SINNOH_R217_ESTADO",
+   "endereco": "0x414C",
+   "fonte": "VAR_ROUTE_217_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S6"
+  },
+  {
+   "alias": "VAR_SINNOH_R218_PORTAO_CANALAVE",
+   "endereco": "0x414D",
+   "fonte": "VAR_ROUTE_218_GATE_TO_CANALAVE_CITY_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S6"
+  },
+  {
+   "alias": "VAR_SINNOH_R224_ESTADO",
+   "endereco": "0x414E",
+   "fonte": "VAR_ROUTE_224_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S7"
+  },
+  {
+   "alias": "VAR_SINNOH_R227_BUCK_ESTADO",
+   "endereco": "0x414F",
+   "fonte": "VAR_ROUTE_227_BUCK_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S7"
+  },
+  {
+   "alias": "VAR_SINNOH_R227_WAKE_RIVAL_ESTADO",
+   "endereco": "0x4150",
+   "fonte": "VAR_ROUTE_227_WAKE_RIVAL_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S7"
+  },
+  {
+   "alias": "VAR_SINNOH_SANDGEM_ESTADO",
+   "endereco": "0x4151",
+   "fonte": "VAR_SANDGEM_TOWN_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S3"
+  },
+  {
+   "alias": "VAR_SINNOH_SNOWPOINT_ESTADO",
+   "endereco": "0x4152",
+   "fonte": "VAR_SNOWPOINT_CITY_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S6"
+  },
+  {
+   "alias": "VAR_SINNOH_SOLACEON_ESTADO",
+   "endereco": "0x4153",
+   "fonte": "VAR_SOLACEON_TOWN_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S5"
+  },
+  {
+   "alias": "VAR_SINNOH_SPEAR_PILLAR_ESTADO",
+   "endereco": "0x4154",
+   "fonte": "VAR_SPEAR_PILLAR_STATE",
+   "gatilhos_na_fila": 2,
+   "leva": "S6"
+  },
+  {
+   "alias": "VAR_SINNOH_STARK_FORA_ESTADO",
+   "endereco": "0x4155",
+   "fonte": "VAR_STARK_MOUNTAIN_OUTSIDE_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S7"
+  },
+  {
+   "alias": "VAR_SINNOH_SUNYSHORE_ESTADO",
+   "endereco": "0x4156",
+   "fonte": "VAR_SUNYSHORE_CITY_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S7"
+  },
+  {
+   "alias": "VAR_SINNOH_TWINLEAF_GUITARRISTA",
+   "endereco": "0x4157",
+   "fonte": "VAR_TWINLEAF_TOWN_GUITARIST_TRIGGER_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S3"
+  },
+  {
+   "alias": "VAR_SINNOH_TWINLEAF_RIVAL",
+   "endereco": "0x4158",
+   "fonte": "VAR_TWINLEAF_TOWN_RIVAL_TRIGGER_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S3"
+  },
+  {
+   "alias": "VAR_SINNOH_WINDWORKS_ESTADO",
+   "endereco": "0x4159",
+   "fonte": "VAR_VALLEY_WINDWORKS_STATE",
+   "gatilhos_na_fila": 2,
+   "leva": "S4"
+  },
+  {
+   "alias": "VAR_SINNOH_WINDWORKS_GALACTICA_ESTADO",
+   "endereco": "0x415A",
+   "fonte": "VAR_VALLEY_WINDWORKS_TEAM_GALACTIC_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S4"
+  },
+  {
+   "alias": "VAR_SINNOH_VALOR_BLOQUEIO_SUNYSHORE",
+   "endereco": "0x415B",
+   "fonte": "VAR_VALOR_LAKEFRONT_BLOCK_SUNYSHORE_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S7"
+  },
+  {
+   "alias": "VAR_SINNOH_VEILSTONE_WAKE_ESTADO",
+   "endereco": "0x415C",
+   "fonte": "VAR_VEILSTONE_CITY_CRASHER_WAKE_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S5"
+  },
+  {
+   "alias": "VAR_SINNOH_VEILSTONE_ARMAZEM_ESTADO",
+   "endereco": "0x415D",
+   "fonte": "VAR_VEILSTONE_CITY_GALACTIC_WAREHOUSE_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S5"
+  },
+  {
+   "alias": "VAR_SINNOH_VEILSTONE_GUARDAS_DUELAVEIS",
+   "endereco": "0x415E",
+   "fonte": "VAR_VEILSTONE_WAREHOUSE_GUARDS_FIGHTABLE",
+   "gatilhos_na_fila": 1,
+   "leva": "S5"
+  },
+  {
+   "alias": "VAR_SINNOH_VERITY_BEIRA_ESTADO",
+   "endereco": "0x415F",
+   "fonte": "VAR_VERITY_LAKEFRONT_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S3"
+  },
+  {
+   "alias": "VAR_SINNOH_VILLA_ESTADO",
+   "endereco": "0x41C2",
+   "fonte": "VAR_VILLA_STATE",
+   "gatilhos_na_fila": 1,
+   "leva": "S7"
+  }
+ ]
+}

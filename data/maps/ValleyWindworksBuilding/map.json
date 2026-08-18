@@ -45,7 +45,17 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_SINNOH_WINDWORKS_GALACTICA_ESTADO",
+      "var_value": "1",
+      "script": "ValleyWindworksBuilding_EventScript_CoordEvent_Mars"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

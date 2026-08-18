@@ -1,6 +1,13 @@
 Route202_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+Route202_EventScript_CoordEvent_CatchingTutorial::
+	@ TODO S3: cena da fonte, rotulo Route202_CoordEvent_CatchingTutorial
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 Route202_EventScript_Trainer1::
 	trainerbattle_single TRAINER_SINNOH_YOUNGSTER_TRISTAN, Route202_Text_Trainer1Intro, Route202_Text_Trainer1Defeat
 	msgbox Route202_Text_Trainer1Post, MSGBOX_AUTOCLOSE

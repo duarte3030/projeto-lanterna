@@ -387,7 +387,62 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_SINNOH_OREBURGH_ESTADO",
+      "var_value": "0",
+      "script": "OreburghCity_EventScript_CoordEvent_Youngster"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_SINNOH_OREBURGH_ESTADO",
+      "var_value": "0",
+      "script": "OreburghCity_EventScript_CoordEvent_Youngster"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_SINNOH_OREBURGH_ESTADO",
+      "var_value": "0",
+      "script": "OreburghCity_EventScript_CoordEvent_Youngster"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_SINNOH_OREBURGH_ESTADO",
+      "var_value": "2",
+      "script": "OreburghCity_EventScript_CoordEvent_Rival"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_SINNOH_OREBURGH_ESTADO",
+      "var_value": "2",
+      "script": "OreburghCity_EventScript_CoordEvent_Rival"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_SINNOH_OREBURGH_ESTADO",
+      "var_value": "2",
+      "script": "OreburghCity_EventScript_CoordEvent_Rival"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

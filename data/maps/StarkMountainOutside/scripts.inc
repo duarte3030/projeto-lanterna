@@ -1,6 +1,13 @@
 StarkMountainOutside_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+StarkMountainOutside_EventScript_CoordEvent_Grunts::
+	@ TODO S7: cena da fonte, rotulo StarkMountainOutside_CoordEvent_Grunts
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 @ Treinador do pokeplatinum que os dois scripts irmaos nao alcancam
 @ (dev_scripts/treinadores_faltantes_sinnoh.py)
 

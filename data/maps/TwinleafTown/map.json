@@ -126,7 +126,80 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_SINNOH_TWINLEAF_GUITARRISTA",
+      "var_value": "1",
+      "script": "TwinleafTown_EventScript_CoordEvent_RivalWasLookingForYou"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_SINNOH_TWINLEAF_GUITARRISTA",
+      "var_value": "1",
+      "script": "TwinleafTown_EventScript_CoordEvent_RivalWasLookingForYou"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_SINNOH_TWINLEAF_GUITARRISTA",
+      "var_value": "1",
+      "script": "TwinleafTown_EventScript_CoordEvent_RivalWasLookingForYou"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_SINNOH_TWINLEAF_GUITARRISTA",
+      "var_value": "1",
+      "script": "TwinleafTown_EventScript_CoordEvent_RivalWasLookingForYou"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_SINNOH_TWINLEAF_GUITARRISTA",
+      "var_value": "1",
+      "script": "TwinleafTown_EventScript_CoordEvent_RivalWasLookingForYou"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_SINNOH_TWINLEAF_GUITARRISTA",
+      "var_value": "1",
+      "script": "TwinleafTown_EventScript_CoordEvent_RivalWasLookingForYou"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_SINNOH_TWINLEAF_GUITARRISTA",
+      "var_value": "1",
+      "script": "TwinleafTown_EventScript_CoordEvent_RivalWasLookingForYou"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_SINNOH_TWINLEAF_RIVAL",
+      "var_value": "0",
+      "script": "TwinleafTown_EventScript_CoordEvent_RivalThud"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

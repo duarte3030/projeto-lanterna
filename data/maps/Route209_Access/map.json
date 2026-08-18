@@ -45,6 +45,52 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_SINNOH_R209_PORTAO_HEARTHOME",
+      "var_value": "1",
+      "script": "Route209_Access_EventScript_CoordEvent_Rival"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_SINNOH_R209_PORTAO_HEARTHOME",
+      "var_value": "1",
+      "script": "Route209_Access_EventScript_CoordEvent_Rival"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_SINNOH_R209_PORTAO_HEARTHOME",
+      "var_value": "1",
+      "script": "Route209_Access_EventScript_CoordEvent_Rival"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_SINNOH_R209_PORTAO_HEARTHOME",
+      "var_value": "1",
+      "script": "Route209_Access_EventScript_CoordEvent_Rival"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_SINNOH_R209_PORTAO_HEARTHOME",
+      "var_value": "1",
+      "script": "Route209_Access_EventScript_CoordEvent_Rival"
+    }
+  ],
   "bg_events": []
 }

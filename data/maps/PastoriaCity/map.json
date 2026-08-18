@@ -280,7 +280,35 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 36,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_SINNOH_PASTORIA_ESTADO",
+      "var_value": "5",
+      "script": "PastoriaCity_EventScript_CoordEvent_BlockGreatMarsh"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 26,
+      "elevation": 0,
+      "var": "VAR_SINNOH_PASTORIA_ESTADO",
+      "var_value": "1",
+      "script": "PastoriaCity_EventScript_CoordEvent_RivalBattle"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_SINNOH_PASTORIA_CROAGUNK_CENA",
+      "var_value": "0",
+      "script": "PastoriaCity_EventScript_CoordEvent_FaceBoard"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

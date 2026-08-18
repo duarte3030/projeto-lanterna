@@ -339,7 +339,143 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 49,
+      "y": 60,
+      "elevation": 0,
+      "var": "VAR_SINNOH_JUBILIFE_ESTADO",
+      "var_value": "0",
+      "script": "JubilifeCity_EventScript_CoordEvent_FirstArrival"
+    },
+    {
+      "type": "trigger",
+      "x": 50,
+      "y": 60,
+      "elevation": 0,
+      "var": "VAR_SINNOH_JUBILIFE_ESTADO",
+      "var_value": "0",
+      "script": "JubilifeCity_EventScript_CoordEvent_FirstArrival"
+    },
+    {
+      "type": "trigger",
+      "x": 51,
+      "y": 60,
+      "elevation": 0,
+      "var": "VAR_SINNOH_JUBILIFE_ESTADO",
+      "var_value": "0",
+      "script": "JubilifeCity_EventScript_CoordEvent_FirstArrival"
+    },
+    {
+      "type": "trigger",
+      "x": 52,
+      "y": 60,
+      "elevation": 0,
+      "var": "VAR_SINNOH_JUBILIFE_ESTADO",
+      "var_value": "0",
+      "script": "JubilifeCity_EventScript_CoordEvent_FirstArrival"
+    },
+    {
+      "type": "trigger",
+      "x": 49,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_SINNOH_JUBILIFE_ESTADO",
+      "var_value": "3",
+      "script": "JubilifeCity_EventScript_CoordEvent_TeamGalactic"
+    },
+    {
+      "type": "trigger",
+      "x": 50,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_SINNOH_JUBILIFE_ESTADO",
+      "var_value": "3",
+      "script": "JubilifeCity_EventScript_CoordEvent_TeamGalactic"
+    },
+    {
+      "type": "trigger",
+      "x": 51,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_SINNOH_JUBILIFE_ESTADO",
+      "var_value": "3",
+      "script": "JubilifeCity_EventScript_CoordEvent_TeamGalactic"
+    },
+    {
+      "type": "trigger",
+      "x": 65,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_SINNOH_JUBILIFE_ESTADO",
+      "var_value": "1",
+      "script": "JubilifeCity_EventScript_CoordEvent_LookerBlockRoute203"
+    },
+    {
+      "type": "trigger",
+      "x": 65,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_SINNOH_JUBILIFE_ESTADO",
+      "var_value": "1",
+      "script": "JubilifeCity_EventScript_CoordEvent_LookerBlockRoute203"
+    },
+    {
+      "type": "trigger",
+      "x": 65,
+      "y": 23,
+      "elevation": 0,
+      "var": "VAR_SINNOH_JUBILIFE_ESTADO",
+      "var_value": "1",
+      "script": "JubilifeCity_EventScript_CoordEvent_LookerBlockRoute203"
+    },
+    {
+      "type": "trigger",
+      "x": 65,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_SINNOH_JUBILIFE_ESTADO",
+      "var_value": "1",
+      "script": "JubilifeCity_EventScript_CoordEvent_LookerBlockRoute203"
+    },
+    {
+      "type": "trigger",
+      "x": 65,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_SINNOH_JUBILIFE_LOOKER_ESTADO",
+      "var_value": "1",
+      "script": "JubilifeCity_EventScript_CoordEvent_LookerPalPad"
+    },
+    {
+      "type": "trigger",
+      "x": 65,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_SINNOH_JUBILIFE_LOOKER_ESTADO",
+      "var_value": "1",
+      "script": "JubilifeCity_EventScript_CoordEvent_LookerPalPad"
+    },
+    {
+      "type": "trigger",
+      "x": 65,
+      "y": 23,
+      "elevation": 0,
+      "var": "VAR_SINNOH_JUBILIFE_LOOKER_ESTADO",
+      "var_value": "1",
+      "script": "JubilifeCity_EventScript_CoordEvent_LookerPalPad"
+    },
+    {
+      "type": "trigger",
+      "x": 65,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_SINNOH_JUBILIFE_LOOKER_ESTADO",
+      "var_value": "1",
+      "script": "JubilifeCity_EventScript_CoordEvent_LookerPalPad"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

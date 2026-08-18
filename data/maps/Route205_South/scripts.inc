@@ -2,6 +2,17 @@ Route205_South_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route205_South_OnTransition
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+Route205_South_EventScript_CoordEvent_Grunts::
+	@ TODO S4: cena da fonte, rotulo Route205South_CoordEvent_Grunts
+	end
+
+Route205_South_EventScript_CoordEvent_LittleGirl::
+	@ TODO S4: cena da fonte, rotulo Route205South_CoordEvent_LittleGirl
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 @ ponytail: a cena e a flag sao a mesma coisa. Os dois grunts que bloqueiam o
 @ caminho (LOCALID_GRUNT_M_EAST/WEST na fonte, hidden_flag
 @ FLAG_HIDE_ROUTE_205_SOUTH_GRUNTS) nascem enquanto a Mars nao caiu na usina, e

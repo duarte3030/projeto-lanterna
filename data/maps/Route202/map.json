@@ -125,7 +125,53 @@
     }
   ],
   "warp_events": [],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 26,
+      "elevation": 0,
+      "var": "VAR_SINNOH_R202_ESTADO",
+      "var_value": "0",
+      "script": "Route202_EventScript_CoordEvent_CatchingTutorial"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 27,
+      "elevation": 0,
+      "var": "VAR_SINNOH_R202_ESTADO",
+      "var_value": "0",
+      "script": "Route202_EventScript_CoordEvent_CatchingTutorial"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 28,
+      "elevation": 0,
+      "var": "VAR_SINNOH_R202_ESTADO",
+      "var_value": "0",
+      "script": "Route202_EventScript_CoordEvent_CatchingTutorial"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 29,
+      "elevation": 0,
+      "var": "VAR_SINNOH_R202_ESTADO",
+      "var_value": "0",
+      "script": "Route202_EventScript_CoordEvent_CatchingTutorial"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 30,
+      "elevation": 0,
+      "var": "VAR_SINNOH_R202_ESTADO",
+      "var_value": "0",
+      "script": "Route202_EventScript_CoordEvent_CatchingTutorial"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

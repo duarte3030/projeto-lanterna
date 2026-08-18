@@ -8,6 +8,13 @@
 CelesticTown_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+CelesticTown_EventScript_CoordEvent_Elder::
+	@ TODO S5: cena da fonte, rotulo CelesticTown_CoordEvent_Elder
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 CelesticTown_EventScript_TownSign::
 	msgbox CelesticTown_Text_TownSign, MSGBOX_SIGN
 	end

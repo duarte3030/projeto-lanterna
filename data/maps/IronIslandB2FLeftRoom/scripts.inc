@@ -1,6 +1,13 @@
 IronIslandB2FLeftRoom_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+IronIslandB2FLeftRoom_EventScript_CoordEvent_PlatformLift::
+	@ TODO S?: cena da fonte, rotulo IronIslandB2FLeftRoom_CoordEvent_PlatformLift
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 @ Treinador do pokeplatinum: time, raio de visao e fala
 @ (dev_scripts/treinadores_masmorra_sinnoh.py)
 

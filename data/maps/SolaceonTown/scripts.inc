@@ -4,6 +4,13 @@
 SolaceonTown_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+SolaceonTown_EventScript_CoordEvent_Rival::
+	@ TODO S5: cena da fonte, rotulo SolaceonTown_CoordEvent_Rival
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 SolaceonTown_EventScript_DayCareMan::
 	msgbox SolaceonTown_Text_DayCareMan, MSGBOX_NPC
 	end

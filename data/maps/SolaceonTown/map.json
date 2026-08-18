@@ -203,7 +203,71 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 40,
+      "elevation": 0,
+      "var": "VAR_SINNOH_SOLACEON_ESTADO",
+      "var_value": "0",
+      "script": "SolaceonTown_EventScript_CoordEvent_Rival"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 40,
+      "elevation": 0,
+      "var": "VAR_SINNOH_SOLACEON_ESTADO",
+      "var_value": "0",
+      "script": "SolaceonTown_EventScript_CoordEvent_Rival"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 40,
+      "elevation": 0,
+      "var": "VAR_SINNOH_SOLACEON_ESTADO",
+      "var_value": "0",
+      "script": "SolaceonTown_EventScript_CoordEvent_Rival"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 40,
+      "elevation": 0,
+      "var": "VAR_SINNOH_SOLACEON_ESTADO",
+      "var_value": "0",
+      "script": "SolaceonTown_EventScript_CoordEvent_Rival"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 40,
+      "elevation": 0,
+      "var": "VAR_SINNOH_SOLACEON_ESTADO",
+      "var_value": "0",
+      "script": "SolaceonTown_EventScript_CoordEvent_Rival"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 40,
+      "elevation": 0,
+      "var": "VAR_SINNOH_SOLACEON_ESTADO",
+      "var_value": "0",
+      "script": "SolaceonTown_EventScript_CoordEvent_Rival"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 40,
+      "elevation": 0,
+      "var": "VAR_SINNOH_SOLACEON_ESTADO",
+      "var_value": "0",
+      "script": "SolaceonTown_EventScript_CoordEvent_Rival"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

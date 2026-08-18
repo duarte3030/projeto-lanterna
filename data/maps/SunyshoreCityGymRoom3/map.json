@@ -87,7 +87,44 @@
       "dest_warp_id": "2"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SunyshoreCityGymRoom3_EventScript_TopButtons"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SunyshoreCityGymRoom3_EventScript_TopButtons"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SunyshoreCityGymRoom3_EventScript_BottomButtons"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SunyshoreCityGymRoom3_EventScript_BottomButtons"
+    }
+  ],
   "bg_events": [],
   "origem": "pokeplatinum: NPC, placa e texto. planta reaproveitada de OreburghCity_House1"
 }

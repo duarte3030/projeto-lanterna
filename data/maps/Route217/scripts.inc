@@ -1,6 +1,13 @@
 Route217_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+Route217_EventScript_CoordEvent_Maylene::
+	@ TODO S6: cena da fonte, rotulo Route217_CoordEvent_Maylene
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 Route217_EventScript_ArrowSign::
 	msgbox Route217_Text_ArrowSign, MSGBOX_SIGN
 	end

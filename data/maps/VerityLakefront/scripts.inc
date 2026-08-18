@@ -1,6 +1,13 @@
 VerityLakefront_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+VerityLakefront_EventScript_CoordEvent_WereAtTheLake::
+	@ TODO S3: cena da fonte, rotulo VerityLakefront_CoordEvent_WereAtTheLake
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 VerityLakefront_EventScript_Hiker::
 	msgbox VerityLakefront_Text_Hiker, MSGBOX_NPC
 	end

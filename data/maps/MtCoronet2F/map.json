@@ -43,7 +43,35 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_SINNOH_CORONET_2F_ESTADO",
+      "var_value": "1",
+      "script": "MtCoronet2F_EventScript_CoordEvent_Looker"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_SINNOH_CORONET_2F_ESTADO",
+      "var_value": "1",
+      "script": "MtCoronet2F_EventScript_CoordEvent_Looker"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 26,
+      "elevation": 0,
+      "var": "VAR_SINNOH_CORONET_2F_ESTADO",
+      "var_value": "1",
+      "script": "MtCoronet2F_EventScript_CoordEvent_Looker"
+    }
+  ],
   "bg_events": [],
   "origem": "pokeplatinum: geometria convertida da grade 2D (map_data), mais NPC, placa e texto"
 }

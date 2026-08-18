@@ -17,6 +17,13 @@
 VeilstoneCity_GalacticWarehouse_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+VeilstoneCity_GalacticWarehouse_EventScript_CoordEvent_LookerOpenDoor::
+	@ TODO S5: cena da fonte, rotulo VeilstoneCityGalacticWarehouse_CoordEvent_LookerOpenDoor
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 VeilstoneCity_GalacticWarehouse_EventScript_Looker::
 	lock
 	faceplayer

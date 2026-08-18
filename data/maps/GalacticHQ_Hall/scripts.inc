@@ -12,6 +12,13 @@
 GalacticHQ_Hall_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+GalacticHQ_Hall_EventScript_CoordEvent_Speech::
+	@ TODO S6: cena da fonte, rotulo GalacticHQHall_CoordEvent_Speech
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 GalacticHQ_Hall_EventScript_Cyrus::
 	lock
 	faceplayer

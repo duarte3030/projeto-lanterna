@@ -30,7 +30,17 @@
       "dest_warp_id": "3"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_SINNOH_QG_4F_ESTADO",
+      "var_value": "0",
+      "script": "GalacticHq4F_EventScript_CoordEvent_Cyrus"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

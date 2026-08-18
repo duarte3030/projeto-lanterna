@@ -5,6 +5,17 @@
 TwinleafTown_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+TwinleafTown_EventScript_CoordEvent_RivalThud::
+	@ TODO S3: cena da fonte, rotulo TwinleafTown_CoordEvent_RivalThud
+	end
+
+TwinleafTown_EventScript_CoordEvent_RivalWasLookingForYou::
+	@ TODO S3: cena da fonte, rotulo TwinleafTown_CoordEvent_RivalWasLookingForYou
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 TwinleafTown_EventScript_Guitarist::
 	lock
 	faceplayer

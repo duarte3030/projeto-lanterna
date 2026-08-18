@@ -30,7 +30,26 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_F",
+      "var_value": "6",
+      "script": "Villa_EventScript_CoordEvent_Fantina"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_SINNOH_VILLA_ESTADO",
+      "var_value": "1",
+      "script": "Villa_EventScript_CoordEvent_DontGoYet"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

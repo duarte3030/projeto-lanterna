@@ -1,6 +1,13 @@
 AcuityLakefront_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+AcuityLakefront_EventScript_CoordEvent_Rival::
+	@ TODO S6: cena da fonte, rotulo AcuityLakefront_CoordEvent_Rival
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 AcuityLakefront_EventScript_Hiker::
 	msgbox AcuityLakefront_Text_Hiker, MSGBOX_NPC
 	end

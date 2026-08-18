@@ -37,6 +37,78 @@ varredura estão citados onde importam.
 - Orçamento de vars: gap `0x4130` a `0x415F` com **48 livres**, transbordo
   `0x41C2` a `0x41FF` (62 livres; `0x41C0`/`0x41C1` são do Turnback, B1.b).
 
+### CORREÇÃO DE ORÇAMENTO, 17/08/2026 (bloco S1)
+
+**A faixa primária de flags deste plano não existe mais.** A consolidação de
+Kanto (commit `652776174a`, do mesmo dia) apelidou os **245 de 245** endereços
+de `0x190B` a `0x19FF` e seguiu até `0x1A4B`. Prova de que a invasão é real, e
+não leitura torta: `FLAG_HIDE_ROUTE24_TM45` está definida como
+`FLAG_UNUSED_0x191A`, dentro da faixa que este plano tinha reservado.
+
+Remedido em 17/08/2026 com `python3 dev_scripts/flags_livres.py`: 2420
+`FLAG_UNUSED` declaradas, **837 ocupadas**, **1519 realmente livres**, e o
+maior bloco contíguo livre vai de **`0x1A4C` a `0x2025` (1498 flags)**.
+
+**Faixa nova da obra de Sinnoh: `0x1B00` a `0x1BFF`**, com transbordo em
+`0x1C00+` dentro do mesmo bloco contíguo. Não é `0x1A4C` porque `0x1A00` a
+`0x1AFF` é a reserva de Unova, e ocupar reserva alheia foi exatamente o erro
+que custou esta correção. `0x1B00+` já era o transbordo que este plano
+apontava, então a decisão 9 continua valendo palavra por palavra, só com a
+faixa trocada. O dono está anotado em `include/constants/flags.h`, no bloco
+`B6 Sinnoh, flags dos grupos de hidden_flag`.
+
+Consumo real medido pelo gerador: **157 flags novas** (`0x1B00` a `0x1B9C`),
+4 reusadas e 2 devolvidas à condutora por empate de reuso. Sobra: **99**
+endereços até `0x1BFF`, mais **1062** de `0x1C00` a `0x2025`.
+
+**A tabela de vars continua válida, e isso foi conferido, não presumido**:
+`grep` por apelido em `include/constants/vars.h` e por uso cru em `data/` e
+`src/` dá **zero ocupação** em `0x4130` a `0x415F` e em `0x41C2`, e todos os
+50 endereços existem como `VAR_UNUSED_0xNNNN`. Nenhum endereço de var mudou.
+
+**O orçamento de flags encolheu por um motivo que não é aritmética.** Dos 247
+grupos de `hidden_flag`, **34 nunca foram flag**: o campo `hidden_flag` da
+fonte guarda o `MAP_HEADER_*` de origem quando o objeto é CLONE (`clone_id`
+preenchido; ex.: a placa da creche em `events_route_210_south.json`). Esses 34
+saem do orçamento inteiro, e a leitura do plano de que "2 estão bloqueados por
+mapa não importado" era esta armadilha vista pela metade.
+
+### Decisões da condutora sobre os retornos do S1 (17/08/2026)
+
+- **`FLAG_HIDE_GALACTIC_HQ_TEAM_GALACTIC` reusa `FLAG_GALACTICA_QG_TOMADO`.**
+  Semântica idêntica ao que a leva da espinha já fez: os 20 grunts do Hall
+  somem com a queda do Saturn, e os grupos escondidos do QG são o mesmo
+  momento de enredo. `QG_CHAVE` é portão de entrada, momento diferente.
+- **`FLAG_HIDE_SPEAR_PILLAR_GRUNTS`: RESOLVIDA pela evidência do S2.** O
+  irmão do grupo já usa `FLAG_GALACTICA_MT_CORONET` (estrutura da leva da
+  espinha, provada em suíte), e o S2 completou o grupo com a mesma flag e o
+  mesmo script. As duas "ambíguas" do censo do S1 morrem aqui: os grupos do
+  QG e do pilar estão COMPLETOS, nenhuma leva futura precisa dos alias
+  `FLAG_HIDE_*` deles (anotar no censo como resolvidas por grupo completo).
+- **Registros do S2 para o S8**: a fila marca "feita" por engano o grupo
+  `VEILSTONE_CITY_GRUNT_M_STORAGE_KEY` (o desempate por distância roubou o
+  lugar dele; o script 13, "antennae", não está portado em lugar nenhum);
+  e os 3 trainers do `MtCoronet1FTunnelRoom` foram deliberadamente portados
+  para `MtCoronet_1F_South`/`MtCoronet_B1F` (id de treinador não pode
+  duplicar entre mapas: derrotável uma vez). Os dois viram calibração de
+  fila, não trabalho de cena.
+- **Arco dos 53 gatilhos de `VAR_TEMP` (`@ TODO S?`)**: ginásio de Pastoria e
+  salas de elevador do ginásio de Hearthome -> S5; Route206 -> S4; elevador
+  da Liga -> S6; ruínas dos Regi (Iceberg/Iron/RockPeak), Iron Island
+  (salas/elevador), Villa -> S7. O executor de cada leva assume os TODO dos
+  seus mapas; o rótulo `S?` no esqueleto não se corrige em massa, corrige-se
+  ao escrever a cena.
+- **Tile empilhado de Twinleaf (2,7)** (2 gatilhos, mesma var, mesmo valor
+  0): o executor S3 des-empilha respeitando a ordem relativa da fonte
+  (desloca um dos gatilhos para o tile vizinho que a fonte indica); os
+  demais empilhados do censo (`tiles_empilhados`) têm valores distintos e
+  não travam, ficam como estão.
+- **QA ganha item novo (S8)**: `fila_b6.py` precisa aprender que gatilho
+  cujo rótulo só tem `@ TODO` + `end` NÃO conta como feito (senão a fila
+  para de cobrar 95 cenas), e o gerador ganha a checagem de andabilidade do
+  tile plantado contra `map.bin` (a conversão proporcional pode ter posto
+  gatilho em tile intransponível; hoje só a leva descobre).
+
 ## Decisões da condutora (16/08/2026)
 
 1. **`VAR_MAP_LOCAL_0xNN` da fonte vira `VAR_TEMP_N` daqui, sem alias novo.**

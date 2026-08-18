@@ -1,6 +1,13 @@
 MtCoronet_1F_South_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+MtCoronet_1F_South_EventScript_CoordEvent_Cyrus::
+	@ TODO S6: cena da fonte, rotulo MtCoronet1FSouth_CoordEvent_Cyrus
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 MtCoronet_1F_South_EventScript_Hiker1::
 	msgbox MtCoronet_1F_South_Text_Hiker1, MSGBOX_NPC
 	end

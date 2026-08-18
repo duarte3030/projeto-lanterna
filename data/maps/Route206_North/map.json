@@ -59,6 +59,79 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_2",
+      "var_value": "0",
+      "script": "Route206_North_EventScript_CoordEvent_OnlyBicycles"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_2",
+      "var_value": "0",
+      "script": "Route206_North_EventScript_CoordEvent_OnlyBicycles"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_2",
+      "var_value": "0",
+      "script": "Route206_North_EventScript_CoordEvent_OnlyBicycles"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_2",
+      "var_value": "0",
+      "script": "Route206_North_EventScript_CoordEvent_OnlyBicycles"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_2",
+      "var_value": "1",
+      "script": "Route206_North_EventScript_CoordEvent_ClearFlagForceBikingInGate"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_2",
+      "var_value": "1",
+      "script": "Route206_North_EventScript_CoordEvent_ClearFlagForceBikingInGate"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_2",
+      "var_value": "1",
+      "script": "Route206_North_EventScript_CoordEvent_ClearFlagForceBikingInGate"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_2",
+      "var_value": "1",
+      "script": "Route206_North_EventScript_CoordEvent_ClearFlagForceBikingInGate"
+    }
+  ],
   "bg_events": []
 }

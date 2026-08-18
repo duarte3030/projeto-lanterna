@@ -1,6 +1,13 @@
 Route224_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+Route224_EventScript_CoordEvent_Marley::
+	@ TODO S7: cena da fonte, rotulo Route224_CoordEvent_Marley
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 Route224_EventScript_Trainer1::
 	trainerbattle_single TRAINER_SINNOH_BLACK_BELT_CARL, Route224_Text_Trainer1Intro, Route224_Text_Trainer1Defeat
 	msgbox Route224_Text_Trainer1Post, MSGBOX_AUTOCLOSE

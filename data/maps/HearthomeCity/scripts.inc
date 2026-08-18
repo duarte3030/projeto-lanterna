@@ -6,6 +6,13 @@
 HearthomeCity_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+HearthomeCity_EventScript_CoordEvent_BunearyAndKeira::
+	@ TODO S5: cena da fonte, rotulo HearthomeCity_CoordEvent_BunearyAndKeira
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 HearthomeCity_EventScript_PokefanM::
 	msgbox HearthomeCity_Text_PokefanM, MSGBOX_NPC
 	end

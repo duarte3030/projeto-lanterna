@@ -45,6 +45,52 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_SINNOH_R218_PORTAO_CANALAVE",
+      "var_value": "0",
+      "script": "Route218_West_EventScript_CoordEvent_ScientistM"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_SINNOH_R218_PORTAO_CANALAVE",
+      "var_value": "0",
+      "script": "Route218_West_EventScript_CoordEvent_ScientistM"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_SINNOH_R218_PORTAO_CANALAVE",
+      "var_value": "0",
+      "script": "Route218_West_EventScript_CoordEvent_ScientistM"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_SINNOH_R218_PORTAO_CANALAVE",
+      "var_value": "0",
+      "script": "Route218_West_EventScript_CoordEvent_ScientistM"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_SINNOH_R218_PORTAO_CANALAVE",
+      "var_value": "0",
+      "script": "Route218_West_EventScript_CoordEvent_ScientistM"
+    }
+  ],
   "bg_events": []
 }

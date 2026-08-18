@@ -1,6 +1,13 @@
 PokemonMansionOffice_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+PokemonMansionOffice_EventScript_CoordEvent_BlockStatue::
+	@ TODO S7: cena da fonte, rotulo PokemonMansionOffice_CoordEvent_BlockStatue
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 PokemonMansionOffice_EventScript_Placa1::
 	msgbox PokemonMansionOffice_Text_Placa1, MSGBOX_SIGN
 	end

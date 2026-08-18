@@ -1,6 +1,13 @@
 OreburghGate_1F_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+OreburghGate_1F_EventScript_CoordEvent_Hiker::
+	@ TODO S4: cena da fonte, rotulo OreburghGate1F_CoordEvent_Hiker
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 OreburghGate_1F_EventScript_Hiker1::
 	msgbox OreburghGate_1F_Text_Hiker1, MSGBOX_NPC
 	end

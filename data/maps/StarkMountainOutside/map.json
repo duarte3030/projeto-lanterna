@@ -44,7 +44,17 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_SINNOH_STARK_FORA_ESTADO",
+      "var_value": "0",
+      "script": "StarkMountainOutside_EventScript_CoordEvent_Grunts"
+    }
+  ],
   "bg_events": [],
   "origem": "passagem provisoria: planta reaproveitada de Route226_Access do repo, so para dar entrada e saida na masmorra. Exterior do Platinum nao e convertido, ver o topo de abre_exteriores_sinnoh.py"
 }

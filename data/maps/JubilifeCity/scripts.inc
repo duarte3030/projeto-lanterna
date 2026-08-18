@@ -5,6 +5,25 @@
 JubilifeCity_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+JubilifeCity_EventScript_CoordEvent_FirstArrival::
+	@ TODO S4: cena da fonte, rotulo JubilifeCity_CoordEvent_FirstArrival
+	end
+
+JubilifeCity_EventScript_CoordEvent_LookerBlockRoute203::
+	@ TODO S4: cena da fonte, rotulo JubilifeCity_CoordEvent_LookerBlockRoute203
+	end
+
+JubilifeCity_EventScript_CoordEvent_LookerPalPad::
+	@ TODO S4: cena da fonte, rotulo JubilifeCity_CoordEvent_LookerPalPad
+	end
+
+JubilifeCity_EventScript_CoordEvent_TeamGalactic::
+	@ TODO S4: cena da fonte, rotulo JubilifeCity_CoordEvent_TeamGalactic
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 JubilifeCity_EventScript_AceTrainerM2::
 	msgbox JubilifeCity_Text_AceTrainerM2, MSGBOX_NPC
 	end

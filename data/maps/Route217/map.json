@@ -308,7 +308,26 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 110,
+      "elevation": 0,
+      "var": "VAR_SINNOH_R217_ESTADO",
+      "var_value": "0",
+      "script": "Route217_EventScript_CoordEvent_Maylene"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 110,
+      "elevation": 0,
+      "var": "VAR_SINNOH_R217_ESTADO",
+      "var_value": "0",
+      "script": "Route217_EventScript_CoordEvent_Maylene"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

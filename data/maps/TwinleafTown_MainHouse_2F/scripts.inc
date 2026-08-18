@@ -1,6 +1,25 @@
 TwinleafTown_MainHouse_2F_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+TwinleafTown_MainHouse_2F_EventScript_CoordEvent_RivalEast::
+	@ TODO S3: cena da fonte, rotulo TwinleafTownPlayerHouse2F_CoordEvent_RivalEast
+	end
+
+TwinleafTown_MainHouse_2F_EventScript_CoordEvent_RivalNorth::
+	@ TODO S3: cena da fonte, rotulo TwinleafTownPlayerHouse2F_CoordEvent_RivalNorth
+	end
+
+TwinleafTown_MainHouse_2F_EventScript_CoordEvent_RivalSouth::
+	@ TODO S3: cena da fonte, rotulo TwinleafTownPlayerHouse2F_CoordEvent_RivalSouth
+	end
+
+TwinleafTown_MainHouse_2F_EventScript_CoordEvent_RivalWest::
+	@ TODO S3: cena da fonte, rotulo TwinleafTownPlayerHouse2F_CoordEvent_RivalWest
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 TwinleafTown_MainHouse_2F_EventScript_PC::
 	msgbox TwinleafTown_MainHouse_2F_Text_PC, MSGBOX_SIGN
 	end

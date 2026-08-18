@@ -66,7 +66,17 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_SINNOH_CASA_JOGADOR_ESTADO",
+      "var_value": "1",
+      "script": "TwinleafTown_MainHouse_1F_EventScript_CoordEvent_DontGoIntoTallGrass"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

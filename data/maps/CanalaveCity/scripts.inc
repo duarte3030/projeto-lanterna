@@ -10,6 +10,13 @@ CanalaveCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, CanalaveCity_OnTransition
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+CanalaveCity_EventScript_CoordEvent_Rival::
+	@ TODO S6: cena da fonte, rotulo CanalaveCity_CoordEvent_Rival
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 CanalaveCity_EventScript_SailorEldritch::
 	lock
 	faceplayer

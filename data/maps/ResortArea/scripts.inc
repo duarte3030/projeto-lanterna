@@ -1,6 +1,13 @@
 ResortArea_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+ResortArea_EventScript_CoordEvent_SchoolKidM::
+	@ TODO S7: cena da fonte, rotulo ResortArea_CoordEvent_SchoolKidM
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 ResortArea_EventScript_CoolTrainerF::
 	lock
 	faceplayer

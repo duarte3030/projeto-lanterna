@@ -108,6 +108,16 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_SINNOH_OREBURGH_PORTAO_ANDARILHO",
+      "var_value": "1",
+      "script": "OreburghGate_1F_EventScript_CoordEvent_Hiker"
+    }
+  ],
   "bg_events": []
 }

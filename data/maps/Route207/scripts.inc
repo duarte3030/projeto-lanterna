@@ -1,6 +1,13 @@
 Route207_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+Route207_EventScript_CoordEvent_Counterpart::
+	@ TODO S4: cena da fonte, rotulo Route207_CoordEvent_Counterpart
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 Route207_EventScript_Trainer1::
 	trainerbattle_single TRAINER_SINNOH_CAMPER_ANTHONY, Route207_Text_Trainer1Intro, Route207_Text_Trainer1Defeat
 	msgbox Route207_Text_Trainer1Post, MSGBOX_AUTOCLOSE

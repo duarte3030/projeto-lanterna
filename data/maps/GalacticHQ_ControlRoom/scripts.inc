@@ -15,6 +15,13 @@
 GalacticHQ_ControlRoom_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+GalacticHQ_ControlRoom_EventScript_CoordEvent_Saturn::
+	@ TODO S6: cena da fonte, rotulo GalacticHQControlRoom_CoordEvent_Saturn
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 GalacticHQ_ControlRoom_EventScript_Saturn::
 	trainerbattle_single TRAINER_SINNOH_COMMANDER_SATURN_GALACTIC_HQ, GalacticHQ_ControlRoom_Text_SaturnIntro, GalacticHQ_ControlRoom_Text_WhatMakesYouSoTough, GalacticHQ_ControlRoom_EventScript_SaturnDefeated
 	msgbox GalacticHQ_ControlRoom_Text_PressButtonAndFreePokemon, MSGBOX_AUTOCLOSE

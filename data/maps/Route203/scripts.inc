@@ -4,6 +4,13 @@
 Route203_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+Route203_EventScript_CoordEvent_Rival::
+	@ TODO S4: cena da fonte, rotulo Route203_CoordEvent_Rival
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 Route203_EventScript_Trainer1::
 	trainerbattle_single TRAINER_SINNOH_YOUNGSTER_SEBASTIAN, Route203_Text_Trainer1Intro, Route203_Text_Trainer1Defeat
 	msgbox Route203_Text_Trainer1Post, MSGBOX_AUTOCLOSE

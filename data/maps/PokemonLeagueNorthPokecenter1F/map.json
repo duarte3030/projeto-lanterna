@@ -150,7 +150,35 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_SINNOH_RIVAL_VENCEU_SUNYSHORE",
+      "var_value": "0",
+      "script": "PokemonLeagueNorthPokecenter1F_EventScript_CoordEvent_Rival"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_SINNOH_RIVAL_VENCEU_SUNYSHORE",
+      "var_value": "0",
+      "script": "PokemonLeagueNorthPokecenter1F_EventScript_CoordEvent_Rival"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_SINNOH_RIVAL_VENCEU_SUNYSHORE",
+      "var_value": "0",
+      "script": "PokemonLeagueNorthPokecenter1F_EventScript_CoordEvent_Rival"
+    }
+  ],
   "bg_events": [],
   "origem": "pokeplatinum: NPC, placa e texto. planta reaproveitada de OreburghCity_PokemonCenter_1F"
 }

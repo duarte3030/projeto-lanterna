@@ -4,6 +4,17 @@
 Route227_MapScripts::
 	.byte 0
 
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+Route227_EventScript_CoordEvent_Buck::
+	@ TODO S7: cena da fonte, rotulo Route227_CoordEvent_Buck
+	end
+
+Route227_EventScript_CoordEvent_WakeRival::
+	@ TODO S7: cena da fonte, rotulo Route227_CoordEvent_WakeRival
+	end
+
+@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+
 Route227_EventScript_AceTrainerSaul::
 	trainerbattle_single TRAINER_SINNOH_ACE_TRAINER_SAUL, Route227_Text_AceTrainerSaulIntro, Route227_Text_AceTrainerSaulDefeat
 	msgbox Route227_Text_AceTrainerSaulPost, MSGBOX_AUTOCLOSE

@@ -113,6 +113,20 @@ EternaCity_Text_Grunt3:
 	.string "And don't waste your time coming\n"
 	.string "to our HQ in Veilstone.$"
 
+@ Quarto grunt, texto de pret/pokeplatinum (idx3 da fonte, o único dos três que
+@ não briga: vê que o jogador tem Pokémon e desiste).
+EternaCity_EventScript_GalacticGrunt4::
+	msgbox EternaCity_Text_Grunt4, MSGBOX_NPC
+	end
+
+EternaCity_Text_Grunt4:
+	.string "Hey, you! Yeah, you, Trainer!\p"
+	.string "Errr...\n"
+	.string "It's OK. Never mind. You look\l"
+	.string "tough.\p"
+	.string "I won't take... Um, I'll just let\n"
+	.string "you keep your Pokémon. Carry on!$"
+
 @ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)
 
 EternaCity_EventScript_Placa1::

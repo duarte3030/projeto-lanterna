@@ -254,7 +254,35 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_SINNOH_R224_ESTADO",
+      "var_value": "1",
+      "script": "Route224_EventScript_CoordEvent_Marley"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_SINNOH_R224_ESTADO",
+      "var_value": "1",
+      "script": "Route224_EventScript_CoordEvent_Marley"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_SINNOH_R224_ESTADO",
+      "var_value": "1",
+      "script": "Route224_EventScript_CoordEvent_Marley"
+    }
+  ],
   "bg_events": [
     {
       "type": "hidden_item",

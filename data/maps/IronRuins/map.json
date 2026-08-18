@@ -22,7 +22,71 @@
       "dest_warp_id": "2"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "IronRuins_EventScript_DotMiddle"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "IronRuins_EventScript_DotNorthWest"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_2",
+      "var_value": "0",
+      "script": "IronRuins_EventScript_DotNorthEast"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_3",
+      "var_value": "0",
+      "script": "IronRuins_EventScript_DotWest"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "IronRuins_EventScript_DotEast"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_6",
+      "var_value": "0",
+      "script": "IronRuins_EventScript_DotSouthWest"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_7",
+      "var_value": "0",
+      "script": "IronRuins_EventScript_DotSouthEast"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

@@ -52,7 +52,17 @@
       "dest_warp_id": "2"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_SINNOH_QG_SALA_CONTROLE_ESTADO",
+      "var_value": "1",
+      "script": "GalacticHQ_ControlRoom_EventScript_CoordEvent_Saturn"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",
