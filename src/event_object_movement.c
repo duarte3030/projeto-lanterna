@@ -553,6 +553,10 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_NpcWhiteReflection,    OBJ_EVENT_PAL_TAG_NPC_WHITE_REFLECTION},
     {gObjectEventPal_Meteorite,             OBJ_EVENT_PAL_TAG_METEORITE},
     {gObjectEventPal_SSAnne,                OBJ_EVENT_PAL_TAG_SS_ANNE},
+    // Johto, leva de arte. Sem estas duas linhas o LoadObjectEventPalette nao
+    // acha o tag e o sprite desenha com a palette de outro objeto.
+    {gObjectEventPal_TrainFront,            OBJ_EVENT_PAL_TAG_TRAIN_FRONT},
+    {gObjectEventPal_GyaradosVermelho,      OBJ_EVENT_PAL_TAG_GYARADOS_VERMELHO},
     {gObjectEventPal_Seagallop,             OBJ_EVENT_PAL_TAG_SEAGALLOP},
 // (antes: #endif de #if IS_FRLG)
 #if OW_FOLLOWERS_POKEBALLS

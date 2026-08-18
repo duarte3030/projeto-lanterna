@@ -1,6 +1,15 @@
 @ Treinadores de rota de LakeOfRage, portados de fontes-mapas/hns por
 @ dev_scripts/importa_treinadores_johto.py. Nao editar a mao: rode o script.
 
+@ TODO (leva de CONTEUDO, nao a de arte): a cena do Gyarados vermelho.
+@ Hoje o objeto em (32, 28) e so decorativo: graphics_id
+@ OBJ_EVENT_GFX_GYARADOS_VERMELHO, script "0", flag "0", parado.
+@ A cena de verdade esta na fonte, em
+@   fontes-mapas/hns/data/maps/LakeOfRage/scripts.inc  ->  LakeOfRage_EventScript_Gyarados
+@ e o objeto de la usa flag FLAG_HIDE_LAKE_OF_RAGE_GYARADOS com
+@ MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_UP_DOWN_LEFT. Quem portar a cena precisa
+@ trazer a flag e o movimento junto, senao o shiny fica visivel antes da hora.
+
 LakeOfRage_MapScripts::
 	.byte 0
 

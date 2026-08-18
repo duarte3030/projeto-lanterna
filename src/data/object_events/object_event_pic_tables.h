@@ -2261,6 +2261,21 @@ static const struct SpriteFrameImage sPicTable_UnionRoomReceptionist[] = {
     overworld_frame(gObjectEventPic_UnionRoomReceptionist, 2, 4, 2),
 };
 
+// Johto, leva de arte: o trem e um quadro unico de 64x64 (obj_frame_tiles pega
+// o buffer inteiro); o Gyarados sao 6 quadros de 32x32 (4x4 tiles cada).
+static const struct SpriteFrameImage sPicTable_TrainFront[] = {
+    obj_frame_tiles(gObjectEventPic_TrainFront),
+};
+
+static const struct SpriteFrameImage sPicTable_GyaradosVermelho[] = {
+    overworld_frame(gObjectEventPic_GyaradosVermelho, 4, 4, 0),
+    overworld_frame(gObjectEventPic_GyaradosVermelho, 4, 4, 1),
+    overworld_frame(gObjectEventPic_GyaradosVermelho, 4, 4, 2),
+    overworld_frame(gObjectEventPic_GyaradosVermelho, 4, 4, 3),
+    overworld_frame(gObjectEventPic_GyaradosVermelho, 4, 4, 4),
+    overworld_frame(gObjectEventPic_GyaradosVermelho, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_BreakableRockFrlg[] = {
     overworld_frame(gObjectEventPic_BreakableRockFrlg, 2, 2, 0),
     overworld_frame(gObjectEventPic_BreakableRockFrlg, 2, 2, 1),

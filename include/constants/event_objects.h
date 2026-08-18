@@ -421,6 +421,22 @@ enum
     // Entra no FIM do enum: id de grafico nao vai para a save, so para o
     // map.json, mas acrescentar no fim nao mexe em id de ninguem.
     OBJ_EVENT_GFX_RED_2,
+    // Johto, leva de arte: os dois graficos que a fonte HGSS (fontes-mapas/hns)
+    // tinha e este repo ainda nao. Entram no FIM do enum pelo mesmo motivo do
+    // RED_2 acima: id de grafico so vive no map.json, nunca na save.
+    //
+    // TRAIN_FRONT: a frente do Magnet Train parada na plataforma. ATENCAO ao
+    // que a fonte faz, porque o nome engana: em hns o
+    // gObjectEventGraphicsInfo_TrainFront aponta para sPicTable_CableCar, ou
+    // seja, la o "front" e um cano furado herdado do bondinho do Mt. Chimney.
+    // A arte de verdade do bico do trem esta em train_mid.png (corpo a
+    // esquerda, bico apontando para a direita), que e a peca certa para
+    // Goldenrod, no extremo OESTE do trilho. O train_back.png e o bico virado
+    // para a esquerda, peca de Saffron, no extremo LESTE.
+    OBJ_EVENT_GFX_TRAIN_FRONT,
+    // GYARADOS_VERMELHO: o vulto do shiny no Lago da Furia. Arte e palette ja
+    // vem vermelhas da fonte; aqui nao se recoloriu nada.
+    OBJ_EVENT_GFX_GYARADOS_VERMELHO,
     NUM_OBJ_EVENT_GFX,
 };
 
@@ -582,6 +598,11 @@ enum
 // truque que a linha de OBJ_EVENT_PAL_TAG_PLAYER_GREEN ja usa neste repo.
 // 0x1134 estava livre (o proximo ocupado e 0x1150).
 #define OBJ_EVENT_PAL_TAG_JOHTO_RED_2             0x1134
+// Johto, leva de arte. Palettes proprias: nenhuma palette existente serve, o
+// trem e cinza-e-azul do HGSS e o Gyarados e o vermelho do shiny. 0x1135 e
+// 0x1136 estavam livres (o proximo ocupado continua sendo 0x1150).
+#define OBJ_EVENT_PAL_TAG_TRAIN_FRONT             0x1135
+#define OBJ_EVENT_PAL_TAG_GYARADOS_VERMELHO       0x1136
 
 #if OW_FOLLOWERS_POKEBALLS
 // Vanilla

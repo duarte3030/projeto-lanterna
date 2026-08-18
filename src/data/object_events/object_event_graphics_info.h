@@ -5868,6 +5868,62 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnionRoomReception
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
+// Johto, leva de arte. Os dois usam PALSLOT_NPC_SPECIAL (mesmo do caminhao e do
+// S.S. Anne) porque tem palette de 16 cores propria e nao podem dividir slot com
+// NPC nenhum; sem isso o sprite sai com a cor de outro.
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TrainFront = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_TRAIN_FRONT,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 2048, // 64 * 64 / 2, 4bpp
+    .width = 64,
+    .height = 64,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = TRUE,
+    .compressed = FALSE,
+    .tracks = TRACKS_NONE,
+    .oam = &gObjectEventBaseOam_64x64,
+    .subspriteTables = sOamTables_64x64,
+    .anims = sAnimTable_Inanimate,
+    // ONDE ELE ESTA E POR QUE ALI: em GoldenrodCity_TrainStation, tile (1, 5),
+    // a posicao exata da fonte. Aquele canto NAO aparece durante o jogo normal:
+    // o saguao jogavel vai da linha 17 a 26 e o guarda em (16, 20) tranca a
+    // plataforma, entao a camera nunca chega na linha 5. O trem so aparece na
+    // CENA DE EMBARQUE, que faz a camera subir e ir para a esquerda ate ali;
+    // ela esta em fontes-mapas/hns/data/maps/GoldenrodCity_TrainStation/scripts.inc,
+    // rotulo GoldenrodCity_TrainStation_EventScript_BoardTrain (LOCALID 7,
+    // SpawnCameraObject + CameraPanUp + CameraPanLeft + SlideRight). Portar essa
+    // cena e trabalho da leva de CONTEUDO. Quem quiser o trem visivel sem a cena
+    // tem que mover o objeto para o saguao, e ai ele deixa de bater com a fonte.
+    .images = sPicTable_TrainFront,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GyaradosVermelho = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_GYARADOS_VERMELHO,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512, // 32 * 32 / 2, 4bpp
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_NONE,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_Following, // 6 quadros: 2 por direcao, como na fonte
+    // TODO (leva de conteudo): a cena de batalha do shiny do Lago da Furia vive
+    // em fontes-mapas/hns/data/maps/LakeOfRage/scripts.inc, rotulo
+    // LakeOfRage_EventScript_Gyarados, com FLAG_HIDE_LAKE_OF_RAGE_GYARADOS.
+    // Nesta leva o objeto e so decorativo. (Este TODO esta repetido no
+    // scripts.inc do mapa, que o importa_treinadores_johto.py reescreve inteiro.)
+    .images = sPicTable_GyaradosVermelho,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BreakableRockFrlg = {
     .tileTag = TAG_NONE,
     .paletteTag = OBJ_EVENT_PAL_TAG_NPC_WHITE,

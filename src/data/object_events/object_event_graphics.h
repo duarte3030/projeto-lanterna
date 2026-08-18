@@ -577,6 +577,18 @@ const u16 gObjectEventPic_GBAKid[] = INCGFX_U16("graphics/object_events/pics/peo
 const u16 gObjectEventPic_MomFrlg[] = INCGFX_U16("graphics/object_events/pics/people/mom_frlg.png", ".4bpp", "-mwidth 2 -mheight 4");
 const u32 gObjectEventPic_Policeman[] = INCGFX_COMP("graphics/object_events/pics/people/policeman.png", ".4bpp", "-mwidth 2 -mheight 4");
 
+// Johto, leva de arte. Fonte: fontes-mapas/hns (decomp de HGSS).
+// train_front.png = hns graphics/object_events/pics/misc/train_mid.png, 64x64,
+// um quadro so, sem recorte nem redimensionamento.
+// gyarados_vermelho.png = hns graphics/object_events/pics/pokemon/shiny_gyarados.png,
+// 192x32 = 6 quadros de 32x32, tamanho padrao de overworld, sem adaptacao.
+// Nao comprimidos de proposito: o obj_frame_tiles/overworld_frame le o buffer
+// cru quadro a quadro, e .compressed = TRUE exigiria descompactar tudo de uma vez.
+const u32 gObjectEventPic_TrainFront[] = INCGFX_U32("graphics/object_events/pics/misc/train_front.png", ".4bpp");
+const u16 gObjectEventPal_TrainFront[] = INCGFX_U16("graphics/object_events/palettes/train_front.pal", ".gbapal");
+const u32 gObjectEventPic_GyaradosVermelho[] = INCGFX_U32("graphics/object_events/pics/pokemon_old/gyarados_vermelho.png", ".4bpp", "-mwidth 4 -mheight 4");
+const u16 gObjectEventPal_GyaradosVermelho[] = INCGFX_U16("graphics/object_events/palettes/gyarados_vermelho.pal", ".gbapal");
+
 const u32 gObjectEventPic_CuttableTreeFrlg[] = INCGFX_COMP("graphics/object_events/pics/misc/cuttable_tree_frlg.png", ".4bpp", "-mwidth 2 -mheight 2");
 const u32 gObjectEventPic_BreakableRockFrlg[] = INCGFX_COMP("graphics/object_events/pics/misc/breakable_rock_frlg.png", ".4bpp", "-mwidth 2 -mheight 2");
 const u32 gObjectEventPic_PushableBoulderFrlg[] = INCGFX_COMP("graphics/object_events/pics/misc/pushable_boulder_frlg.png", ".4bpp");

@@ -332,6 +332,8 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TeachyTVHos
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GymGuy;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TownMap;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Pokedex;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TrainFront;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GyaradosVermelho;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CuttableTreeFrlg;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BreakableRockFrlg;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PushableBoulderFrlg;
@@ -651,6 +653,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
 // derruba o jogo para a tela de titulo. Foi esse o crash de duas sessoes.
     [OBJ_EVENT_GFX_RED_NORMAL] =               &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_2] =                    &gObjectEventGraphicsInfo_JohtoRed2,
+    [OBJ_EVENT_GFX_TRAIN_FRONT] =              &gObjectEventGraphicsInfo_TrainFront,
+    [OBJ_EVENT_GFX_GYARADOS_VERMELHO] =        &gObjectEventGraphicsInfo_GyaradosVermelho,
     [OBJ_EVENT_GFX_RED_BIKE] =                 &gObjectEventGraphicsInfo_RedBike,
     [OBJ_EVENT_GFX_RED_SURF] =                 &gObjectEventGraphicsInfo_RedSurf,
     [OBJ_EVENT_GFX_RED_FIELD_MOVE] =           &gObjectEventGraphicsInfo_RedFieldMove,
