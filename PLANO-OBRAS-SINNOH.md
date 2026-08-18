@@ -232,11 +232,15 @@ mapa não importado" era esta armadilha vista pela metade.
   (45,57)/(45,58)/(45,59), com o Collector em (46,58). A saída norte fica
   aberta; fechá-la pedia um segundo bloqueador que a fonte não tem.
 - **`MAP_ROUTE222` está partida no meio (fora desta obra, mas relevante).**
-  Busca em largura no layout dela: nenhuma das entradas do lado de Valor
+  ~~Busca em largura no layout dela: nenhuma das entradas do lado de Valor
   (coluna x=0, linhas 3,4,7,10,21,22,23,24,25,27,31) alcança a coluna x=91,
   que é a borda de Sunyshore. Ou seja, hoje a estrada Valor -> Route222 ->
   Sunyshore não é andável de ponta a ponta, independentemente do Collector.
-  Pendência de mapa, não de cena.
+  Pendência de mapa, não de cena.~~
+  **DIAGNÓSTICO SUPERADO EM 18/08/2026.** O texto riscado acima fica de
+  propósito, porque o erro dele é instrutivo: a medição estava certa e a
+  conclusão não. Ver a correção datada logo abaixo.
+
 - **Escritores de var achados e ligados nesta onda** (ficam anotados para
   quem for reconferir a corrente): `VAR_SINNOH_SUNYSHORE_ESTADO = 2` mora na
   vitória contra o Volkner (fonte
@@ -248,6 +252,125 @@ mapa não importado" era esta armadilha vista pela metade.
   grava na fonte é a cena pós-8ª insígnia do laboratório de Sandgem
   (`scripts_sandgem_town_pokemon_research_lab.s:110-111`), que este porte não
   tem. Mesmo tratamento do `VAR_SINNOH_PASTORIA_ESTADO = 1` da onda 4.
+
+### CORREÇÃO DE ROUTE 222, 18/08/2026 (fora de onda, condutora Fable, executor Opus)
+
+**A coluna 91 nunca foi a estrada, então medi-la não dizia nada sobre ela.**
+A Route 222 entrega em Sunyshore por WARP, não pela costura de mapa: warp 0 em
+`(89,23)` -> `Route222_Access` -> warp 1 em `(11,5)` -> `SunyshoreCity (4,48)`,
+e os três disparam (`valida_warp_tile.py`, Sinnoh em 97,7%). A borda direita do
+layout tem terra só em `(91,13)` e `(91,14)`, um bolso de dois tiles que a
+fonte desenha como anel decorativo; do outro lado da costura a coluna x=0 de
+`SunyshoreCity` é água ou parede em TODAS as linhas (medido: sy=0..13 e
+sy=55..63 em elevação 1, o resto colisão 1). Abrir a coluna 91 não levaria a
+lugar nenhum, e por isso ela continua intocada.
+
+**O que estava partido de verdade era a ENTRADA NORTE**, e era pior do que o
+registrado: das 11 entradas da coluna x=0 só duas têm vizinho andável do lado
+de Valor E são alcançáveis dentro do próprio `ValorLakefront` (as outras,
+`(55,43)`, `(55,46)` e `(55,63)`, não são alcançáveis lá). São a do sul
+(Route222 y=21..25), que é a que o Collector tranca e que **não desarma neste
+porte**, e a do norte (y=3), que o bullet acima diz que "fica aberta" de
+propósito. A norte caía num **bolso de 4 tiles**, `(0,3)` a `(3,3)`: linha 3 em
+elevação 3, região grande logo abaixo em elevação 4, e `IsElevationMismatchAt`
+(`src/event_object_movement.c:10010`) barra 3 contra 4 sem nada aparecer na
+colisão (lição 6 do ESTADO 0.e). Somando as duas, **Sunyshore era inalcançável
+a pé vindo de Valor**.
+
+**O conserto vive em `dev_scripts/conserta_route222.py`** (com `--demo` de
+mutação plantada, idempotente): `(0,3)`, `(1,3)` e `(2,3)` passam a
+`ELEVATION_TRANSITION`, o idioma que o próprio mapa já usa em `(21,10)`,
+`(21,11)`, `(21,19)`, `(21,20)`, `(39,10)`, `(39,11)`, `(81,18)` e `(81,19)`.
+Diff binário contra o HEAD anterior: **3 palavras**, metatile e colisão
+idênticos, arquivo com os mesmos 5888 bytes, `guarda_save.py` sem `--gravar`
+seguindo SAVE COMPATIVEL. Depois disso, 9 das 11 entradas da coluna 0 alcançam
+o portão com 1143 tiles cada (a norte dava 4); as duas que sobram são `(0,27)`,
+praia de 22 tiles cujo lado de Valor não é alcançável, e `(0,31)`, que é água.
+
+**Prova: `T107.1`** em `dev_scripts/testes_criticos/107_pendencias.json`.
+Atravessa `ValorLakefront` -> Route 222 inteira -> portão -> `SunyshoreCity`
+por rota medida no traço de EWRAM, e é discriminador de verdade: revertendo os
+três tiles para elevação 3 e recompilando, ele fica vermelho com "mapa errado:
+obtido MAP_ROUTE222". Suíte completa na build do conserto: **358/359**, só o
+`T11.3` pulado (é o caso de duas ROMs).
+
+**NÃO foi feita reconversão do blockdata pela fonte**, e o motivo é medido: a
+grade do pokeplatinum (`map_data_149/150/151.bin`, as três células de
+`MAP_HEADER_ROUTE_222`) alinha com o nosso layout em dx=0 / dy=+2 com **81,7%
+de acordo** na máscara de bloqueio, ou seja o mapa é um redesenho à mão (commit
+`f97a18dc82`), não uma conversão. A fonte não tem elevação por tile (as três
+células têm `altitudes` 0), então reconverter apagaria a elevação 4 da metade
+oeste, que CASA com o `ValorLakefront` em y=21..25 e é o que faz a estrada sul
+existir, e levaria junto a arte, os dois warps de casa (prédio de gen 4 é
+modelo 3D, a grade só entrega buraco bloqueado) e os 23 `object_events`.
+
+**Fica aberto, dito:** a estrada sul continua trancada de propósito, sem
+escritor para `VAR_SINNOH_VALOR_BLOQUEIO_SUNYSHORE`, então o jogo tem UMA
+estrada a pé para Sunyshore, a norte. E a busca em largura desta casa **não
+modela `SIDEWAYS_STAIRS`**: a Route 222 tem escada lateral nas colunas 21, 28,
+39 e 46, que desloca o jogador uma linha ao andar de lado. Aqui não atrapalhou
+porque o degrau era de elevação pura, mas qualquer conta de alcance em mapa de
+Sinnoh com escada lateral é conservadora demais e tem que ser conferida no
+traço.
+
+### AMITY SQUARE E STARK MOUNTAIN OUTSIDE: medição feita, execução PARADA (18/08/2026)
+
+Decisão da condutora: os dois **ficam parados** e vão para a **fila de
+conteúdo**, não entram em onda agora. Esta seção existe para a fase de conteúdo
+não remedir nada; tudo abaixo foi lido da fonte e do repo em 18/08/2026, nada é
+estimativa de memória. Hoje os dois usam `LAYOUT_ROUTE226_ACCESS`, o molde de
+portão 13x9, e estão marcados na fila como descartados-por-mapa-provisório.
+
+**Nenhum dos dois precisa de tileset, tile ou gráfico novo.** Conferido na
+tabela de atributos: todos os metatiles que a tradução do `demake_ds.py` usa
+(1 chão, 13 grama alta, 161 água parada, 368 água do mar, 470/471/478/479
+árvore bloqueante) já existem no `gTileset_GeneralSinnoh`, que tem 512
+metatiles e é o primário da maioria dos layouts de Sinnoh. O que falta não é
+tile, é **arte**: a grade 2D entrega grama com parede de árvore, e o desenho
+real dos dois (o jardim do Amity, a encosta vulcânica da Stark) é modelo 3D que
+a grade não carrega. Vale a taxa já registrada no `DEMAKE-DS.md`, 1 a 3 h de
+acabamento à mão por lugar.
+
+**AmitySquare**
+- Matriz PRÓPRIA, `map_matrix_050`, 2x2 células, **64x64**, nível único
+  (`altitudes` vazio). 4096 tiles, **2212 bloqueados (54%)**; comportamentos
+  0x00 (1658 andáveis), 0x10 água parada (221) e 7 tiles soltos.
+- **As coordenadas dos eventos da fonte são LOCAIS** (x 10..53, z 17..51,
+  dentro do 64x64), porque o mapa tem matriz só dele. Ou seja o alinhamento é
+  de graça. Isso **corrige a leitura larga da decisão 5 do
+  `importa_npcs_sinnoh.py`** ("coordenada de exterior é GLOBAL e não há offset
+  que alinhe"): aquilo vale para mapa que divide a `map_matrix_000`, não para
+  quem tem matriz própria.
+- Fonte: 4 warps (dois pares de porta em z=51, que são os dois portões de
+  Hearthome), 16 objetos, 31 coord_events. Hoje temos 1 warp e zero eventos.
+
+**StarkMountainOutside**
+- UMA célula da `map_matrix_000`, em (23,7), **32x32**, nível único. 1024
+  tiles, **763 bloqueados (74,5%)**, 98 de grama alta (0x02), 12 bloqueados de
+  0x4B e 1 de 0x6E. Tem tabela de encontro selvagem
+  (`encounters_stark_mountain_outside`) e clima de cinza.
+- As coordenadas dos eventos são GLOBAIS (x 740..762, z 231..248), mas a célula
+  é identificável, então **o offset é exato: (736, 224)**. Alinha tile a tile,
+  sem adivinhação.
+- Fonte: 1 warp, 8 objetos, 1 coord_event.
+- **DECISÃO FUTURA DA CONDUTORA COM O GUI, não do executor:** a fonte tem UM
+  warp só, para `StarkMountainRoom1`. A volta para a Route 227 **não existe
+  lá**, porque o Platinum entra nesse mapa ANDANDO pela matriz, não por porta.
+  A nossa planta provisória tem essa porta de volta. Converter o mapa real sem
+  resolver isso deixa a Stark Mountain de MÃO ÚNICA, que é a lição 4.1 do
+  ESTADO e o erro que o `abre_exteriores_sinnoh.py` já pagou uma vez ("os três
+  exteriores nasceram com entrada boa e SEM saída"). As duas saídas possíveis
+  são inventar a porta de volta ou assumir a mão única; nenhuma é escolha de
+  executor.
+
+**Custo e risco do dia em que entrar.** Encanamento: um layout novo apendado
+por mapa (`map.bin` de 8 KB para o Amity, 2 KB para a Stark, mais borda e
+registro), append puro, save-compatível pela mesma régua do resto. A ROM está
+em **98,54% de 32 MB**, então os ~10 KB cabem, mas o orçamento está apertado e
+tem que ser reconferido na hora. E o trabalho maior **não é de mapa**: entrar
+com os mapas reais reabre o bloco de CENA que a obra fechou por mapa
+provisório, os 27 itens do Amity mais os 16 NPCs, e os 8 da Stark.
+
 
 ## Decisões da condutora (16/08/2026)
 

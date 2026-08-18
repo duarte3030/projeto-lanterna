@@ -162,11 +162,35 @@ Valem para quem escrever caso novo. Todas medidas, nenhuma deduzida:
 
 - **Mecânica de parceiro que anda junto** (decisão 5): as 6 vars dos cinco stat
   trainers e do rival esperam desenho de mecânica.
-- **`MAP_ROUTE222` está partida no meio**: nenhuma entrada do lado de Valor
-  alcança a borda de Sunyshore. Pendência de MAPA, não de cena.
+- ~~**`MAP_ROUTE222` está partida no meio**: nenhuma entrada do lado de Valor
+  alcança a borda de Sunyshore. Pendência de MAPA, não de cena.~~
+  **RESOLVIDA EM 18/08/2026, e o diagnóstico acima estava mirando a costura
+  errada.** A coluna x=91 nunca foi a estrada: a Route 222 entrega em Sunyshore
+  por WARP, pelo portão `(89,23)` -> `Route222_Access` -> `(11,5)` ->
+  `SunyshoreCity (4,48)`, e a coluna x=0 de `SunyshoreCity` é água ou parede em
+  todas as linhas, então abrir a borda direita não levaria a lugar nenhum. O
+  que estava partido era a ENTRADA NORTE de Valor, e era pior: com a estrada
+  sul trancada de propósito pelo Collector (sem escritor para
+  `VAR_SINNOH_VALOR_BLOQUEIO_SUNYSHORE` neste porte), a norte era a única, e
+  ela caía num bolso de 4 tiles, `(0,3)` a `(3,3)`, porque a linha 3 estava em
+  elevação 3 com a região grande em elevação 4 logo abaixo (lição 6 desta
+  mesma seção: elevação barra sem aparecer na colisão). Sunyshore era
+  inalcançável a pé vindo de Valor. Conserto em
+  `dev_scripts/conserta_route222.py` (3 tiles viram `ELEVATION_TRANSITION`,
+  metatile e colisão intactos, arquivo do mesmo tamanho), prova em **T107.1**
+  (`dev_scripts/testes_criticos/107_pendencias.json`), que fica vermelho se os
+  três tiles voltarem para elevação 3. Detalhe medido em
+  `PLANO-OBRAS-SINNOH.md`, seção "CORREÇÃO DE ROUTE 222, 18/08/2026".
 - **Amity Square e Stark Mountain exterior são provisórios**: as cenas existem e
   estão corretas, e voltam a existir quando os mapas reais do Platinum forem
-  importados.
+  importados. **Medidos em 18/08/2026 e PARADOS por decisão da condutora**: vão
+  para a fila de conteúdo, não para uma onda. Os dois são viáveis sem tileset
+  nem tile novo (Amity 64x64 com matriz própria e coordenadas de evento já
+  locais; Stark 32x32 com offset exato de (736,224)), e a Stark tem uma decisão
+  pendente da condutora com o Gui antes de qualquer execução: a fonte não tem
+  porta de volta para a Route 227, então ou se inventa a saída ou o mapa vira
+  de mão única. Números, custos e a armadilha inteira em
+  `PLANO-OBRAS-SINNOH.md`, seção "AMITY SQUARE E STARK MOUNTAIN OUTSIDE".
 - **Visitantes da Villa**: a máquina de `VAR_RESORT_VILLA_VISITOR` não existe
   neste motor.
 - **Pokécenter/Mart** (41 grupos): batalha diária e Mystery Gift, polimento de
