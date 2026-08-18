@@ -3,16 +3,106 @@
 OreburghCity_MapScripts::
 	.byte 0
 
-@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
-OreburghCity_EventScript_CoordEvent_Rival::
-	@ TODO S4: cena da fonte, rotulo OreburghCity_CoordEvent_Rival
-	end
+@ >>> B6 Sinnoh S4: cena da fonte >>>
+@ Simplificacao anotada nas duas cenas: a fonte ramifica em 4 (um por tile do
+@ gatilho, mesma linha de chegada em Z distintas) e a de baixo ainda anda o
+@ JOGADOR por um corredor inteiro ate o ginasio. Colapsado num so caminho, sem
+@ tocar o jogador (so NPC anda; nenhum applymovement mexe no jogador, mesma
+@ regra de CianwoodCity_EventScript_SuicuneTrigger) para nao arriscar
+@ waitmovement travado por colisao nao conferida contra map.bin.
 
+@ rotulo da fonte: OreburghCity_CoordEvent_Youngster
 OreburghCity_EventScript_CoordEvent_Youngster::
-	@ TODO S4: cena da fonte, rotulo OreburghCity_CoordEvent_Youngster
+	lockall
+	applymovement LOCALID_OREBURGH_CITY_YOUNGSTER, OreburghCity_Movement_YoungsterNoticePlayer
+	waitmovement 0
+	msgbox OreburghCity_Text_IllTakeYouToTheGym, MSGBOX_DEFAULT
+	applymovement LOCALID_OREBURGH_CITY_YOUNGSTER, OreburghCity_Movement_YoungsterRunToGym
+	waitmovement 0
+	setvar VAR_SINNOH_OREBURGH_ESTADO, 1
+	releaseall
 	end
 
-@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+OreburghCity_Movement_YoungsterNoticePlayer:
+	emote_exclamation_mark
+	step_end
+
+OreburghCity_Movement_YoungsterRunToGym:
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	step_end
+
+@ rotulo da fonte: OreburghCity_CoordEvent_Rival
+@ BARRY (LOCALID_OREBURGH_CITY_BARRY, sprite OBJ_EVENT_GFX_RICH_BOY, mesma
+@ troca de Route203) esbarra no jogador saindo do ginasio e comenta que vai
+@ para Eterna. Nao ha batalha nesta cena na fonte (so em Route203); nenhum
+@ TRAINER_SINNOH_* precisa existir aqui.
+OreburghCity_EventScript_CoordEvent_Rival::
+	lockall
+	clearflag FLAG_SINNOH_ESCONDE_OREBURGH_CITY_RIVAL
+	addobject LOCALID_OREBURGH_CITY_BARRY
+	applymovement LOCALID_OREBURGH_CITY_BARRY, OreburghCity_Movement_BarryRunIntoPlayer
+	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox OreburghCity_Text_BigThud, MSGBOX_DEFAULT
+	msgbox OreburghCity_Text_EternaCityNextPlaceWithAGym, MSGBOX_DEFAULT
+	msgbox OreburghCity_Text_CantGoToRoute207WithoutBicycle, MSGBOX_DEFAULT
+	msgbox OreburghCity_Text_NextStopTheEternaGymBadge, MSGBOX_DEFAULT
+	applymovement LOCALID_OREBURGH_CITY_BARRY, OreburghCity_Movement_BarryLeave
+	waitmovement 0
+	setflag FLAG_SINNOH_ESCONDE_OREBURGH_CITY_RIVAL
+	removeobject LOCALID_OREBURGH_CITY_BARRY
+	setvar VAR_SINNOH_OREBURGH_ESTADO, 3
+	releaseall
+	end
+
+OreburghCity_Movement_BarryRunIntoPlayer:
+	walk_fast_left
+	walk_fast_left
+	step_end
+
+OreburghCity_Movement_BarryLeave:
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	step_end
+
+OreburghCity_Text_IllTakeYouToTheGym:
+	.string "Howdy, Trainer!\p"
+	.string "Huh? Uh-oh! You don't have a\n"
+	.string "single Gym Badge?\p"
+	.string "You'd better do something about\n"
+	.string "that! I'll take you to the\l"
+	.string "Pokémon Gym.$"
+
+OreburghCity_Text_BigThud:
+	.string "Thud!!$"
+
+OreburghCity_Text_EternaCityNextPlaceWithAGym:
+	.string "BARRY: Whoops! {PLAYER}!\n"
+	.string "You got the Gym Badge, huh?\p"
+	.string "Eterna City is the next place\n"
+	.string "with a Gym that gives away\l"
+	.string "Badges, right?$"
+
+OreburghCity_Text_CantGoToRoute207WithoutBicycle:
+	.string "So, yeah, I went to Route 207, but\n"
+	.string "you can't go there without a\l"
+	.string "Bicycle.\p"
+	.string "I made my team battle and\n"
+	.string "toughened them up, so it wasn't\l"
+	.string "a waste.$"
+
+OreburghCity_Text_NextStopTheEternaGymBadge:
+	.string "So, I'm going back to Jubilife\n"
+	.string "City. Next stop, the Eterna Gym\l"
+	.string "Badge!$"
+@ <<< B6 Sinnoh S4: cena da fonte <<<
 
 OreburghCity_EventScript_Rival::
 	lock

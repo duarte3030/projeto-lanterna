@@ -1,12 +1,28 @@
 ValleyWindworksBuilding_MapScripts::
 	.byte 0
 
-@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ >>> B6 Sinnoh S4: cena da fonte, rotulo ValleyWindworksBuilding_CoordEvent_Mars >>>
+@ CONFLITO ACHADO, NAO INVENTADO: na fonte esta cena e a luta contra a MARS
+@ (o comandante entra pelo grunt que avisa em OnFrame_FirstEntry, VAR_VALLEY_
+@ WINDWORKS_TEAM_GALACTIC_STATE vira 1, e so entao este gatilho a poe pra
+@ lutar). Mas data/maps/ValleyWindworks/scripts.inc (leva anterior, S2) JA
+@ escreveu a luta inteira contra a MARS do LADO DE FORA
+@ (ValleyWindworks_EventScript_Mars, TRAINER_SINNOH_COMMANDER_MARS_VALLEY_
+@ WINDWORKS, flag FLAG_GALACTICA_WINDWORKS), com comentario explicito "o
+@ interior da usina NAO existe neste hack, a cena inteira acontece do lado de
+@ fora". So que o mapa ValleyWindworksBuilding EXISTE de verdade aqui (porta
+@ em ValleyWindworks/map.json linha ~104, layout proprio, o Papa/cientista ja
+@ importado). Escrever a MARS de novo aqui duplicaria o mesmo TRAINER_SINNOH_
+@ COMMANDER_MARS_VALLEY_WINDWORKS derrotavel duas vezes (regra dura: id de
+@ treinador nao duplica entre mapas). NAO fiz: fica bloqueado ate a condutora
+@ decidir se o interior morre (remover a porta em ValleyWindworks) ou vira o
+@ dono canonico da luta (e a exterior e quem some).
+@ BLOQUEADO: cena da MARS ja existe em outro mapa (ValleyWindworks), decisao
+@ de condutora necessaria antes de escrever esta.
 ValleyWindworksBuilding_EventScript_CoordEvent_Mars::
-	@ TODO S4: cena da fonte, rotulo ValleyWindworksBuilding_CoordEvent_Mars
 	end
 
-@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+@ <<< B6 Sinnoh S4: cena da fonte <<<
 
 ValleyWindworksBuilding_EventScript_Npc1::
 	msgbox ValleyWindworksBuilding_Text_Npc1, MSGBOX_NPC

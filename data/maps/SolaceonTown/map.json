@@ -207,7 +207,7 @@
     {
       "type": "trigger",
       "x": 13,
-      "y": 40,
+      "y": 39,
       "elevation": 0,
       "var": "VAR_SINNOH_SOLACEON_ESTADO",
       "var_value": "0",
@@ -215,7 +215,7 @@
     },
     {
       "type": "trigger",
-      "x": 14,
+      "x": 20,
       "y": 40,
       "elevation": 0,
       "var": "VAR_SINNOH_SOLACEON_ESTADO",

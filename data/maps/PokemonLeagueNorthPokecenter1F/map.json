@@ -154,7 +154,7 @@
     {
       "type": "trigger",
       "x": 6,
-      "y": 2,
+      "y": 4,
       "elevation": 0,
       "var": "VAR_SINNOH_RIVAL_VENCEU_SUNYSHORE",
       "var_value": "0",
@@ -163,7 +163,7 @@
     {
       "type": "trigger",
       "x": 7,
-      "y": 2,
+      "y": 4,
       "elevation": 0,
       "var": "VAR_SINNOH_RIVAL_VENCEU_SUNYSHORE",
       "var_value": "0",
@@ -171,7 +171,7 @@
     },
     {
       "type": "trigger",
-      "x": 8,
+      "x": 10,
       "y": 2,
       "elevation": 0,
       "var": "VAR_SINNOH_RIVAL_VENCEU_SUNYSHORE",

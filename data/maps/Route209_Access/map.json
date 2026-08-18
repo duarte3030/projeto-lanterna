@@ -67,7 +67,7 @@
     {
       "type": "trigger",
       "x": 5,
-      "y": 7,
+      "y": 4,
       "elevation": 0,
       "var": "VAR_SINNOH_R209_PORTAO_HEARTHOME",
       "var_value": "1",
@@ -85,7 +85,7 @@
     {
       "type": "trigger",
       "x": 5,
-      "y": 9,
+      "y": 2,
       "elevation": 0,
       "var": "VAR_SINNOH_R209_PORTAO_HEARTHOME",
       "var_value": "1",

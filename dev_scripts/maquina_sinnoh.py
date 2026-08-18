@@ -90,6 +90,7 @@ import collections
 import json
 import os
 import re
+import struct
 import sys
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -304,6 +305,110 @@ def temp_da_local(var):
     return "VAR_TEMP_" + var.rsplit("_", 1)[1][-1].upper()
 
 
+# ------------------------------------------------- andabilidade do tile plantado
+
+# Raio máximo, em tiles, da busca por casa andável quando a conversão
+# proporcional joga um gatilho em cima de parede. 8 é o tamanho do maior span
+# da fonte (Twinleaf, width 8): passar disso deixaria de ser "reposicionamento
+# fiel" e viraria invenção de coordenada.
+RAIO_REALOCACAO = 8
+
+_MAPBIN = {}
+
+
+def mapbin(layout):
+    """`(bytes, largura, altura)` do `map.bin` do layout, lido uma vez só."""
+    if layout["id"] not in _MAPBIN:
+        _MAPBIN[layout["id"]] = (
+            open(os.path.join(REPO, layout["blockdata_filepath"]), "rb").read(),
+            layout["width"], layout["height"])
+    return _MAPBIN[layout["id"]]
+
+
+def andavel(layout, x, y):
+    """O tile (x, y) do layout é pisável?
+
+    Bits 10-11 do `map.bin` são `MAPGRID_COLLISION_MASK`
+    (`include/global.fieldmap.h`), zero = passa. Mesma leitura de
+    `dev_scripts/changeblock_gen2.py` e `gatilhos_setscene_unova.py`. Fora do
+    layout também é "não andável": gatilho fora do mapa é gatilho morto.
+    """
+    b, w, h = mapbin(layout)
+    if not (0 <= x < w and 0 <= y < h):
+        return False
+    return ((struct.unpack_from("<H", b, (y * w + x) * 2)[0] >> 10) & 3) == 0
+
+
+def tiles_bloqueados(d):
+    """Tiles do `map.json` onde um gatilho é inútil mesmo sendo andável:
+
+    - casa de `warp_events`: pisar nela troca de mapa ANTES de a cena rodar
+      (foi o defeito do rival de Oreburgh, em cima da porta do portão);
+    - casa de `object_events` SEM flag de esconder (`flag` = "0"): o NPC está
+      sempre ali, o jogador nunca pisa no tile. Objeto COM flag não entra:
+      ele pode estar removido na hora da cena, e bloquear por causa dele
+      moveria gatilho que funciona.
+    """
+    fora = {(int(w.get("x", 0)), int(w.get("y", 0)))
+            for w in (d.get("warp_events") or [])}
+    fora |= {(int(o.get("x", 0)), int(o.get("y", 0)))
+             for o in (d.get("object_events") or [])
+             if str(o.get("flag", "0")) == "0"}
+    return fora
+
+
+def realoca_tiles(layout, d, pts, width, length):
+    """Move para casa andável cada tile plantado que caiu em parede.
+
+    Régua (decisão do plano, item de QA de 17/08/2026): o tile anda pela
+    LINHA ou pela COLUNA dele, nunca na diagonal, e o eixo do span da fonte é
+    tentado primeiro (span horizontal procura primeiro na linha, vertical
+    primeiro na coluna). Distância crescente, e a cada distância o sentido
+    negativo antes do positivo, para a saída não depender da ordem de leitura.
+    Não pode cair em tile já usado pelo mesmo gatilho, nem em tile bloqueado
+    (`tiles_bloqueados`). Sem candidato dentro de `RAIO_REALOCACAO`, o tile é
+    REPORTADO e não plantado, em vez de virar gatilho morto em parede.
+
+    Devolve `(tiles_finais, movidos, perdidos)`.
+    """
+    if width == 1 and length > 1:
+        eixos = ("y", "x")
+    elif length == 1 and width > 1:
+        eixos = ("x", "y")
+    else:                                  # 1x1 ou retângulo: sem eixo único
+        eixos = ("x", "y")
+    bloq = tiles_bloqueados(d)
+    ruim = lambda t: (not andavel(layout, *t)) or t in bloq   # noqa: E731
+
+    ocupados = set(pts)
+    finais, movidos, perdidos = [], [], []
+    for t in pts:
+        if not ruim(t):
+            finais.append(t)
+            continue
+        alvo = None
+        for dist in range(1, RAIO_REALOCACAO + 1):
+            for eixo in eixos:
+                for s in (-1, 1):
+                    c = ((t[0], t[1] + s * dist) if eixo == "y"
+                         else (t[0] + s * dist, t[1]))
+                    if c in ocupados or ruim(c):
+                        continue
+                    alvo = c
+                    break
+                if alvo:
+                    break
+            if alvo:
+                break
+        if alvo is None:
+            perdidos.append(list(t))
+            continue
+        ocupados.add(alvo)
+        finais.append(alvo)
+        movidos.append([list(t), list(alvo)])
+    return sorted(finais), movidos, perdidos
+
+
 # ------------------------------------------------------------------- censo
 
 def censo():
@@ -358,7 +463,17 @@ def censo():
                 continue
             if v.startswith("VAR_MAP_LOCAL_"):
                 nossa, novo = temp_da_local(v), False
-                if re.search(rf"\b{nossa}\b", inc):
+                # A conferência da decisão 1 é contra USO ALHEIO do temp. Se o
+                # mapa já tem coord_event NOSSO naquele temp, o que o
+                # `scripts.inc` cita é a cena que esta máquina plantou, e ler
+                # isso como colisão faria o gerador se auto-envenenar depois da
+                # primeira gravação (foi o que tirou Route206_North/South do
+                # censo e deixou os gatilhos deles em parede).
+                nosso = any(
+                    x.get("var") == nossa
+                    and str(x.get("script", "")).startswith(meu + "_EventScript_")
+                    for x in (d.get("coord_events") or []))
+                if not nosso and re.search(rf"\b{nossa}\b", inc):
                     adiados.append(dict(base, motivo=(
                         f"decisao 1: {nossa} ja e usado por outra coisa em "
                         f"{meu}/scripts.inc; volta ao plano")))
@@ -389,12 +504,22 @@ def censo():
             pts = sorted({conv({"x": c["x"] + dx, "z": c["z"] + dz})
                           for dx in range(base["width"])
                           for dz in range(base["length"])})
+            pts, movidos, perdidos = realoca_tiles(
+                L, d, pts, base["width"], base["length"])
             rot = rotulo_curto(entradas, entradas[n - 1])
+            if not pts:
+                adiados.append(dict(base, motivo=(
+                    f"todos os {len(perdidos)} tiles convertidos caem em "
+                    f"parede/warp e nao ha casa andavel na linha nem na coluna "
+                    f"dentro de {RAIO_REALOCACAO} tiles; volta ao plano"),
+                    tiles_perdidos=perdidos))
+                continue
             item = dict(base, var=nossa, var_alias=novo,
                         var_value=str(c.get("value", 0)),
                         rotulo_fonte=entradas[n - 1],
                         script=f"{meu}_EventScript_{rot}",
-                        leva=LEVA.get(v, "S?"), tiles=[list(t) for t in pts])
+                        leva=LEVA.get(v, "S?"), tiles=[list(t) for t in pts],
+                        tiles_movidos=movidos, tiles_perdidos=perdidos)
             gatilhos.append(item)
             for t in pts:
                 tiles[(meu, t)].append(item["script"])
@@ -410,6 +535,8 @@ def censo():
                 resumo=dict(coord_events_da_fonte=total_fonte,
                             span_bruto=span_bruto,
                             tiles_plantados=sum(len(g["tiles"]) for g in gatilhos),
+                            tiles_movidos=sum(len(g["tiles_movidos"]) for g in gatilhos),
+                            tiles_perdidos=sum(len(g["tiles_perdidos"]) for g in gatilhos),
                             gatilhos=len(gatilhos), adiados=len(adiados),
                             mapas_com_gatilho=len({g["mapa"] for g in gatilhos})))
 
@@ -558,14 +685,40 @@ def grava_mapas(c):
     tiver `coord_event` com a MESMA var naquele (x, y). Coordenada sozinha não
     serve de identidade aqui como serviu em Unova, porque a conversao de Sinnoh
     e proporcional e dois gatilhos de vars diferentes podem cair no mesmo tile.
+
+    A CORREÇÃO DE ANDABILIDADE alcança o que já está gravado: gatilho nosso que
+    hoje mora em parede/warp é MOVIDO para o destino que `realoca_tiles`
+    calculou, e o que ficou sem destino é APAGADO (tile de parede nunca vai
+    disparar). Tile andável que a leva mexeu à mão não é tocado: ele não está
+    no `de_para`, e é isso que preserva o des-empilhamento de
+    `TwinleafTown_MainHouse_2F` que a condutora mandou fazer.
     """
     por_mapa = collections.defaultdict(list)
     for g in c["gatilhos"]:
         por_mapa[g["mapa"]].append(g)
-    n_ce = n_esq = 0
+    n_ce = n_esq = n_mov = n_del = 0
     for meu, gs in sorted(por_mapa.items()):
         pj = os.path.join(REPO, "data/maps", meu, "map.json")
         d = json.load(open(pj, encoding="utf-8"))
+
+        de_para = {(g["script"], tuple(a)): tuple(b)
+                   for g in gs for a, b in g["tiles_movidos"]}
+        morto = {(g["script"], tuple(t))
+                 for g in gs for t in g["tiles_perdidos"]}
+        vivos, mexeu = [], False
+        for ce in (d.get("coord_events") or []):
+            chave = (ce.get("script"),
+                     (int(ce.get("x", 0)), int(ce.get("y", 0))))
+            if chave in morto:
+                mexeu, n_del = True, n_del + 1
+                continue
+            if chave in de_para:
+                ce["x"], ce["y"] = de_para[chave]
+                mexeu, n_mov = True, n_mov + 1
+            vivos.append(ce)
+        if mexeu:
+            d["coord_events"] = vivos
+
         ja = {(int(x.get("x", 0)), int(x.get("y", 0)), x.get("var"))
               for x in (d.get("coord_events") or [])}
         novos = []
@@ -578,7 +731,7 @@ def grava_mapas(c):
                               "elevation": 0, "var": g["var"],
                               "var_value": g["var_value"],
                               "script": g["script"]})
-        if novos:
+        if novos or mexeu:
             d.setdefault("coord_events", []).extend(novos)
             with open(pj, "w", encoding="utf-8") as f:
                 json.dump(d, f, indent=2)
@@ -608,7 +761,7 @@ def grava_mapas(c):
             t = t[:i] + f"\n{ABRE_I}\n{blocos}{FECHA_I}\n" + t[i:]
         open(pi, "w", encoding="utf-8").write(t)
         n_esq += len(faltam)
-    return n_ce, n_esq, len(por_mapa)
+    return n_ce, n_esq, len(por_mapa), n_mov, n_del
 
 
 # ------------------------------------------------------------------ autoteste
@@ -680,6 +833,9 @@ def demo():
     # 4. expansão de span: o total de tiles bate com a soma dos spans, menos o
     # que a conversão de coordenada colapsa, e NUNCA é menor que o número de
     # gatilhos (um gatilho sem tile seria gatilho mudo).
+    layouts = {l["id"]: l for l in json.load(
+        open(os.path.join(REPO, "data/layouts/layouts.json"),
+             encoding="utf-8"))["layouts"]}
     for g in c["gatilhos"]:
         assert 1 <= len(g["tiles"]) <= g["width"] * g["length"], g
         assert len({tuple(t) for t in g["tiles"]}) == len(g["tiles"]), \
@@ -695,17 +851,43 @@ def demo():
     # 5. sobre o estado GRAVADO: todo script citado num coord_event nosso tem
     # rótulo de verdade no scripts.inc, e todo alias que já foi gravado
     # aponta para o endereço da tabela.
-    conferidos = 0
+    conferidos = andados = 0
+    pendentes = []
     for meu in sorted({g["mapa"] for g in c["gatilhos"]}):
         d = json.load(open(os.path.join(REPO, "data/maps", meu, "map.json"),
                            encoding="utf-8"))
+        L = layouts[d["layout"]]
+        bloq = tiles_bloqueados(d)
         rot = set(re.findall(r"^(\w+)::", texto(
             os.path.join(REPO, "data/maps", meu, "scripts.inc")), re.M))
         nossos = {g["script"] for g in c["gatilhos"] if g["mapa"] == meu}
+        # 6. andabilidade: nenhum tile deste censo, nem nenhum coord_event
+        # nosso JÁ gravado, pode estar em parede, fora do layout ou em cima de
+        # warp/NPC fixo. É a checagem que o plano pediu ao QA em 17/08/2026.
+        for g in c["gatilhos"]:
+            if g["mapa"] != meu:
+                continue
+            for t in g["tiles"]:
+                assert andavel(L, *t) and tuple(t) not in bloq, \
+                    f"{meu}: {g['script']} plantaria em ({t[0]},{t[1]}), inandavel"
+                andados += 1
+        # O que --gravar já sabe consertar não reprova o autoteste: é reparo
+        # PENDENTE, e sai listado. Tile ruim que o gerador NÃO explica é
+        # invariante quebrada, e aí sim para.
+        sabe_consertar = {(g["script"], tuple(t))
+                          for g in c["gatilhos"] if g["mapa"] == meu
+                          for t in ([a for a, _ in g["tiles_movidos"]]
+                                    + g["tiles_perdidos"])}
         for ce in (d.get("coord_events") or []):
             if ce.get("script") in nossos:
                 assert ce["script"] in rot, \
                     f"{meu}: {ce['script']} em coord_event e sem rotulo em scripts.inc"
+                x, y = int(ce.get("x", 0)), int(ce.get("y", 0))
+                if not (andavel(L, x, y) and (x, y) not in bloq):
+                    assert (ce["script"], (x, y)) in sabe_consertar, \
+                        (f"{meu}: {ce['script']} gravado em ({x},{y}), tile "
+                         f"inandavel que o gerador nao sabe realocar")
+                    pendentes.append((meu, ce["script"], x, y))
                 conferidos += 1
 
     print(f"demo ok ({MEDIDO_EM}):")
@@ -717,7 +899,14 @@ def demo():
     print(f"  span: {r['coord_events_da_fonte']} coord_events da fonte, "
           f"{r['span_bruto']} tiles de span bruto, "
           f"{r['tiles_plantados']} tiles plantados em {r['gatilhos']} gatilhos")
+    print(f"  andabilidade: {andados} tiles do censo andaveis e fora de "
+          f"warp/NPC fixo; {conferidos} coord_events nossos ja gravados")
     print(f"  gravado: {conferidos} coord_events nossos com rotulo conferido")
+    if pendentes:
+        print(f"  PENDENTE de --gravar: {len(pendentes)} coord_events gravados "
+              f"em tile inandavel, todos com realocacao ja calculada")
+        for meu, s, x, y in pendentes:
+            print(f"      {meu:28} {s.split('_EventScript_')[1]:38} ({x},{y})")
 
 
 # --------------------------------------------------------------------- saida
@@ -739,6 +928,18 @@ def relatorio(c):
     if c["tiles_empilhados"]:
         print(f"  tiles com mais de um gatilho: {len(c['tiles_empilhados'])} "
               f"(a leva desempata na cena)")
+    print(f"  tiles realocados por inandabilidade  {r['tiles_movidos']}")
+    for g in c["gatilhos"]:
+        for a, b in g["tiles_movidos"]:
+            print(f"      {g['mapa']:28} {g['script'].split('_EventScript_')[1]:38} "
+                  f"({a[0]},{a[1]}) -> ({b[0]},{b[1]})")
+    perdidos = [(g, t) for g in c["gatilhos"] for t in g["tiles_perdidos"]]
+    if perdidos:
+        print(f"  tiles NAO plantados (sem casa andavel no raio "
+              f"{RAIO_REALOCACAO})  {len(perdidos)}")
+        for g, t in perdidos:
+            print(f"      {g['mapa']:28} {g['script'].split('_EventScript_')[1]:38} "
+                  f"({t[0]},{t[1]})")
 
 
 if __name__ == "__main__":
@@ -750,12 +951,14 @@ if __name__ == "__main__":
         if "--gravar" in sys.argv:
             nv = grava_vars(c)
             nf = grava_flags(c)
-            nce, nesq, nmapas = grava_mapas(c)
+            nce, nesq, nmapas, nmov, ndel = grava_mapas(c)
             with open(CENSO, "w", encoding="utf-8") as f:
                 json.dump(c, f, ensure_ascii=False, indent=1, sort_keys=True)
                 f.write("\n")
             print(f"\ngravado: {nv} vars, {nf} flags novas, {nce} coord_events "
                   f"e {nesq} esqueletos em {nmapas} mapas, censo em "
                   f"{os.path.relpath(CENSO, REPO)}")
+            print(f"         {nmov} coord_events ja gravados MOVIDOS para casa "
+                  f"andavel e {ndel} apagados por nao haver casa andavel")
         else:
             print("\n(nada gravado; use --gravar depois de --demo verde)")

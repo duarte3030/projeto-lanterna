@@ -116,7 +116,8 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "OreburghCity_EventScript_Npc4",
       "flag": "0",
-      "origem": "pokeplatinum"
+      "origem": "pokeplatinum",
+      "local_id": "LOCALID_OREBURGH_CITY_YOUNGSTER"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_4",
@@ -271,6 +272,20 @@
       "script": "OreburghCity_EventScript_Npc15",
       "flag": "0",
       "origem": "pokeplatinum"
+    },
+    {
+      "local_id": "LOCALID_OREBURGH_CITY_BARRY",
+      "graphics_id": "OBJ_EVENT_GFX_RICH_BOY",
+      "x": 8,
+      "y": 12,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "FLAG_SINNOH_ESCONDE_OREBURGH_CITY_RIVAL"
     }
   ],
   "warp_events": [
@@ -391,7 +406,7 @@
     {
       "type": "trigger",
       "x": 10,
-      "y": 11,
+      "y": 15,
       "elevation": 0,
       "var": "VAR_SINNOH_OREBURGH_ESTADO",
       "var_value": "0",
@@ -400,7 +415,7 @@
     {
       "type": "trigger",
       "x": 10,
-      "y": 12,
+      "y": 16,
       "elevation": 0,
       "var": "VAR_SINNOH_OREBURGH_ESTADO",
       "var_value": "0",
@@ -408,7 +423,7 @@
     },
     {
       "type": "trigger",
-      "x": 10,
+      "x": 8,
       "y": 13,
       "elevation": 0,
       "var": "VAR_SINNOH_OREBURGH_ESTADO",
@@ -418,7 +433,7 @@
     {
       "type": "trigger",
       "x": 6,
-      "y": 11,
+      "y": 14,
       "elevation": 0,
       "var": "VAR_SINNOH_OREBURGH_ESTADO",
       "var_value": "2",
@@ -427,7 +442,7 @@
     {
       "type": "trigger",
       "x": 6,
-      "y": 12,
+      "y": 15,
       "elevation": 0,
       "var": "VAR_SINNOH_OREBURGH_ESTADO",
       "var_value": "2",

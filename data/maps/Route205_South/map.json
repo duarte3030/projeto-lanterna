@@ -188,6 +188,34 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route205_South_EventScript_Grunt",
       "flag": "FLAG_GALACTICA_WINDWORKS"
+    },
+    {
+      "local_id": "LOCALID_ROUTE205_SOUTH_LITTLE_GIRL",
+      "graphics_id": "OBJ_EVENT_GFX_TWIN",
+      "x": 19,
+      "y": 85,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route205_South_EventScript_LittleGirlTalk",
+      "flag": "FLAG_SINNOH_ESCONDE_ROUTE_205_SOUTH_LITTLE_GIRL"
+    },
+    {
+      "local_id": "LOCALID_ROUTE205_SOUTH_YOUNGSTER_HIDDEN",
+      "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+      "x": 20,
+      "y": 54,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route205_South_EventScript_HiddenYoungsterTalk",
+      "flag": "FLAG_SINNOH_ESCONDE_ROUTE_205_SOUTH_YOUNGSTER"
     }
   ],
   "warp_events": [
@@ -226,7 +254,7 @@
     {
       "type": "trigger",
       "x": 19,
-      "y": 84,
+      "y": 82,
       "elevation": 0,
       "var": "VAR_SINNOH_WINDWORKS_ESTADO",
       "var_value": "0",

@@ -115,6 +115,34 @@
       "fonte_id": "LOCALID_MARS"
     },
     {
+      "local_id": "LOCALID_LAKE_VERITY_PROF_ROWAN",
+      "graphics_id": "OBJ_EVENT_GFX_PROF_BIRCH",
+      "x": 37,
+      "y": 34,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "LakeVerity_EventScript_ProfRowan",
+      "flag": "FLAG_SINNOH_ESCONDE_LAKE_VERITY_PROF_ROWAN"
+    },
+    {
+      "local_id": "LOCALID_LAKE_VERITY_COUNTERPART",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
+      "x": 39,
+      "y": 35,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "LakeVerity_EventScript_Counterpart",
+      "flag": "FLAG_SINNOH_ESCONDE_LAKE_VERITY_COUNTERPART"
+    },
+    {
       "local_id": "LOCALID_LAKE_VERITY_GRUNT_M",
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
       "x": 37,

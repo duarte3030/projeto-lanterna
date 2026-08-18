@@ -33,7 +33,7 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 3,
+      "x": 4,
       "y": 5,
       "elevation": 0,
       "var": "VAR_SINNOH_QG_4F_ESTADO",

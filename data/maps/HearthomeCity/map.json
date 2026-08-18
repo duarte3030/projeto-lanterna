@@ -414,7 +414,7 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 11,
+      "x": 16,
       "y": 42,
       "elevation": 0,
       "var": "VAR_SINNOH_HEARTHOME_ESTADO",

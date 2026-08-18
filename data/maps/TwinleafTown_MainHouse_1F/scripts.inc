@@ -2,12 +2,90 @@
 @ res/text/twinleaf_town_player_house_1f.json.
 
 TwinleafTown_MainHouse_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, TwinleafTown_MainHouse_1F_OnFrame
 	.byte 0
 
-@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
-TwinleafTown_MainHouse_1F_EventScript_CoordEvent_DontGoIntoTallGrass::
-	@ TODO S3: cena da fonte, rotulo TwinleafTownPlayerHouse1F_CoordEvent_DontGoIntoTallGrass
+@ O DEGRAU QUE FALTAVA da maquina de VAR_SINNOH_CASA_JOGADOR_ESTADO. O
+@ coord_event da porta pede o valor 1, e ate 18/08/2026 ninguem escrevia 1
+@ nesta var em lugar nenhum da arvore (o unico setvar era o 2 da propria
+@ cena), entao o lembrete da mae era inalcancavel. Na fonte quem grava o 1 e
+@ TwinleafTownPlayerHouse1F_OnFrame_RivalAlreadyLeft
+@ (res/field/scripts/scripts_twinleaf_town_player_house_1f.s:47), disparado
+@ pelo InitScript do mapa quando VAR_PLAYER_HOUSE_STATE vale 0
+@ (scripts_init_twinleaf_town_player_house_1f.s:9, "estado 0 -> script 2").
+@ Progressao literal da fonte, decisao 2 do plano: 0 (jogo novo) -> 1 (a mae
+@ avisa que o rival ja saiu) -> 2 (lembrete na porta).
+@
+@ ponytail: na fonte a mae LEVANTA do sofa e anda ate o jogador (WalkNormal
+@ North, East 3, North 3) e volta. Aqui ela so se vira e chama, sem rota: o
+@ jogador entra por tres warps diferentes ((2,8), (1,8) e a escada em (8,2)),
+@ e uma rota fixa contra o map.bin de 11x9 so seria fiel para uma das tres
+@ entradas. Mesmo batimento narrativo, sem waitmovement travado por colisao.
+TwinleafTown_MainHouse_1F_OnFrame:
+	map_script_2 VAR_SINNOH_CASA_JOGADOR_ESTADO, 0, TwinleafTown_MainHouse_1F_EventScript_OnFrame_RivalAlreadyLeft
+	.2byte 0
+
+TwinleafTown_MainHouse_1F_EventScript_OnFrame_RivalAlreadyLeft::
+	lockall
+	applymovement LOCALID_TWINLEAF_MAIN_HOUSE_1F_MOM, TwinleafTown_MainHouse_1F_Movement_MomCallsPlayer
+	waitmovement 0
+	msgbox TwinleafTown_MainHouse_1F_Text_RivalAlreadyLeft, MSGBOX_DEFAULT
+	setvar VAR_SINNOH_CASA_JOGADOR_ESTADO, 1
+	releaseall
 	end
+
+	.balign 4, 0
+TwinleafTown_MainHouse_1F_Movement_MomCallsPlayer:
+	emote_exclamation_mark
+	walk_in_place_down
+	step_end
+
+TwinleafTown_MainHouse_1F_Text_RivalAlreadyLeft:
+	.string "MOM: {PLAYER}!\p"
+	.string "{RIVAL} already left.\p"
+	.string "I don't know what it was about, but\n"
+	.string "he sure was in a hurry!$"
+
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ Fonte: TwinleafTownPlayerHouse1F_CoordEvent_DontGoIntoTallGrass. Lembrete da
+@ mae na porta, depois que ela ja deu o tenis (o mesmo aviso resumido).
+@ BLOQUEADO (nao escrito): o grupo hidden_flag FLAG_HIDE_TWINLEAF_TOWN_PLAYER_
+@ HOUSE_1F_RIVAL_MOM (mae do rival visitando) so aparece na fonte depois de
+@ VAR_PLAYER_HOUSE_STATE chegar a 3, setado em
+@ Route201_EndChooseStarterSequenceAndWarpHome; toda a cadeia de Route201 que
+@ levaria a esse estado usa VAR_FOLLOWER_RIVAL_STATE, descartada pela decisao
+@ 3 do plano (mecanismo de seguidor nao existe aqui). Sem um novo caminho ate
+@ esse estado, plantar o objeto deixaria a flag ligada para sempre sem cena
+@ que a limpe. Reportado no plano, nao inventado aqui.
+TwinleafTown_MainHouse_1F_EventScript_CoordEvent_DontGoIntoTallGrass::
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, TwinleafTown_MainHouse_1F_Movement_PlayerFaceMom
+	applymovement LOCALID_TWINLEAF_MAIN_HOUSE_1F_MOM, TwinleafTown_MainHouse_1F_Movement_MomFacePlayer
+	waitmovement 0
+	setvar VAR_SINNOH_CASA_JOGADOR_ESTADO, 2
+	msgbox TwinleafTown_MainHouse_1F_Text_DontGoIntoTallGrassReminder, MSGBOX_DEFAULT
+	releaseall
+	end
+
+	.balign 4, 0
+TwinleafTown_MainHouse_1F_Movement_PlayerFaceMom:
+	delay_8
+	walk_in_place_up
+	step_end
+
+	.balign 4, 0
+TwinleafTown_MainHouse_1F_Movement_MomFacePlayer:
+	walk_in_place_down
+	step_end
+
+TwinleafTown_MainHouse_1F_Text_DontGoIntoTallGrassReminder:
+	.string "MOM: Oh, yes!\n"
+	.string "{PLAYER}!\p"
+	.string "Don't go into the tall grass.\n"
+	.string "Wild POKéMON might attack you.\p"
+	.string "It would be OK if you had your own\n"
+	.string "POKéMON, but you don't, so...\p"
+	.string "Well, take care, sweetie!$"
 
 @ <<< B6 Sinnoh S1: esqueletos de cena <<<
 

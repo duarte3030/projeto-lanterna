@@ -152,7 +152,7 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 3,
+      "x": 8,
       "y": 46,
       "elevation": 0,
       "var": "VAR_SINNOH_R227_WAKE_RIVAL_ESTADO",
@@ -161,7 +161,7 @@
     },
     {
       "type": "trigger",
-      "x": 4,
+      "x": 9,
       "y": 46,
       "elevation": 0,
       "var": "VAR_SINNOH_R227_WAKE_RIVAL_ESTADO",
@@ -170,7 +170,7 @@
     },
     {
       "type": "trigger",
-      "x": 33,
+      "x": 30,
       "y": 19,
       "elevation": 0,
       "var": "VAR_SINNOH_R227_BUCK_ESTADO",

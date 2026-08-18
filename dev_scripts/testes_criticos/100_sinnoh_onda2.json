@@ -1,0 +1,272 @@
+[
+  {
+    "id": "T100.1",
+    "nome": "Sinnoh S3, Twinleaf: o esbarrao do rival deixa AS DUAS vars do arco no valor certo. TwinleafTown_EventScript_CoordEvent_RivalThud termina com `setvar VAR_SINNOH_TWINLEAF_GUITARRISTA, 1` e `setvar VAR_SINNOH_TWINLEAF_RIVAL, 1`, e e a UNICA coisa na arvore que escreve essas duas vars (grep em data/ e src/). PROVA as duas em 1 ao mesmo tempo: provar so a do rival passaria com a cena esquecendo de armar o guitarrista, que e o gatilho seguinte do arco (sete tiles em y=2, var_value 1). GEOMETRIA: o warp 1 (5,9) e a porta da casa do rival, tile de parede no map.bin, entao a unica pousada possivel e (5,10). Todas as pernas SATURAM, e por isso a rota nao depende de para onde o jogador olha ao sair da porta: LEFT*4 encosta em (2,10) (x=1 e parede); DOWN*2 desce um tile (o primeiro toque so vira); RIGHT*5 anda pela linha 11 ate (6,11), o coord_event. A rota vai pela linha 11, e nao pela 10, porque a 11 e reta e vazia; o corpo do rival em (6,10) NAO atrapalha mais (desde o conserto ele nasce escondido por FLAG_SINNOH_ESCONDE_TWINLEAF_TOWN_RIVAL em new_game.inc), mas trocar a rota por isso so tiraria a saturacao sem ganhar nada.",
+    "warp": "MAP_TWINLEAF_TOWN",
+    "warp_id": 1,
+    "roteiro": "60:NADA,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN",
+      "vars": {
+        "0x4157": 1,
+        "0x4158": 1
+      }
+    }
+  },
+  {
+    "id": "T100.2",
+    "nome": "PAR NEGATIVO do T100.1. O coord_event do esbarrao so existe com VAR_SINNOH_TWINLEAF_RIVAL igual a 0. Com a var PINADA em 1 (cena ja rodada numa visita anterior), o MESMO roteiro pisa no MESMO tile (6,11) e nada acontece: VAR_SINNOH_TWINLEAF_GUITARRISTA continua 0. DISCRIMINA: sem ele, o T100.1 passaria num mundo em que a cena roda toda vez que o jogador pisa ali (rival esbarrando em loop, guitarrista rearmado eternamente), porque la a var so precisava ACABAR em 1. `andou` prova que o jogo respondeu ao controle ate o fim em vez de ter travado.",
+    "vars": {
+      "0x4158": 1
+    },
+    "warp": "MAP_TWINLEAF_TOWN",
+    "warp_id": 1,
+    "roteiro": "60:NADA,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,300:NADA",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN",
+      "vars": {
+        "0x4157": 0,
+        "0x4158": 1
+      },
+      "andou": true
+    }
+  },
+  {
+    "id": "T100.3",
+    "nome": "Sinnoh S3, Twinleaf: o GUITARRISTA barra a saida norte da cidade. O gatilho (sete tiles, (8,2) a (14,2), var VAR_SINNOH_TWINLEAF_GUITARRISTA igual a 1) chama TwinleafTown_EventScript_CoordEvent_RivalWasLookingForYou, que abre com `lockall` e um `msgbox`. A cena NAO escreve var nem flag nenhuma (conferido linha a linha), entao a unica prova de memoria possivel e POSICAO: o jogador fica preso dentro de MAP_TWINLEAF_TOWN. Por isso o roteiro nao tem NENHUM A: sem A a caixa nunca fecha e os UP restantes morrem nela. As duas vars vao pinadas em 1 porque e o estado que o T100.1 deixa, e com RIVAL em 1 o gatilho do esbarrao fica desarmado: a unica coisa que pode segurar o jogador aqui e o guitarrista. GEOMETRIA, todas as pernas SATURANTES contra o map.bin: LEFT*4 -> (2,10); DOWN*2 -> (2,11); RIGHT*22 -> (21,11) (parede em x=22); UP*2 -> (21,10); LEFT*13 -> (10,10), encostando no PROPRIO guitarrista, que mora em (9,10) e nao anda (MOVEMENT_TYPE_LOOK_AROUND); UP*12 sobe a coluna 10 ate o gatilho (10,2). O anteparo da esquerda e o guitarrista de proposito: a versao anterior desta rota usava o NPC de (8,4) como parede e estava ERRADA, porque esse objeto carrega FLAG_SINNOH_NPC_DUPLICADO, que new_game.inc:129 acende no jogo novo, ou seja ele nunca existe e nunca barrou nada.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x4157": 1,
+      "0x4158": 1
+    },
+    "warp": "MAP_TWINLEAF_TOWN",
+    "warp_id": 1,
+    "roteiro": "60:NADA,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:UP,20:UP,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,300:NADA",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN",
+      "vars": {
+        "0x4157": 1
+      },
+      "andou": true
+    }
+  },
+  {
+    "id": "T100.4",
+    "nome": "PAR NEGATIVO do T100.3, e o que da sentido a prova de posicao dele. MESMO roteiro, MESMO warp, so que com VAR_SINNOH_TWINLEAF_GUITARRISTA no valor de jogo novo (0): o gatilho de (8..14, 2) nao existe, ninguem trava o jogador, e os UP que sobram levam ele para fora do mapa pela conexao 'up' de data/maps/TwinleafTown/map.json (MAP_ROUTE201, offset -4). CONFERIDO no map.bin dos DOIS lados: Twinleaf x=10 cai em Route201 x=14, e a fatia andavel do sul de Route201 e justamente x=14 a 17; sair pela coluna 9 (Route201 x=13) bateria em parede, e por isso a rota termina na coluna 10 e nao em qualquer uma. DISCRIMINA: sem ele, o T100.3 passaria com o guitarrista MORTO e o jogador so esbarrando num cenario fechado, porque 'continuei no mesmo mapa' e o que um mapa sem saida tambem faz. VAR_SINNOH_TWINLEAF_RIVAL fica pinada em 1 nos dois casos para que a UNICA diferenca entre eles seja a var do guitarrista. ENCONTRO SELVAGEM DESLIGADO de proposito: o jogador do harness chega com o time VAZIO (a abertura do seletor comeca do zero) e este mapa tem land_mons; encontro selvagem com time vazio da blackout e joga o jogador no respawn de save novo, reprovando o caso por um motivo que nao e a cena (assinatura do T90.13). FLAG_SEM_ENCONTRO_SELVAGEM e WE_FLAG_NO_ENCOUNTER de include/config/wild_encounter.h, desliga CheckStandardWildEncounter na raiz e nasce apagada (src/new_game.c:292).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x4158": 1
+    },
+    "warp": "MAP_TWINLEAF_TOWN",
+    "warp_id": 1,
+    "roteiro": "60:NADA,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:UP,20:UP,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE201"
+    }
+  },
+  {
+    "id": "T100.6",
+    "nome": "Sinnoh S3, quarto do jogador (2F): o TILE DES-EMPILHADO, que e tambem a prova da CONVERGENCIA. Os quatro rotulos North/West/East/South de data/maps/TwinleafTown_MainHouse_2F/scripts.inc sao `goto` para o MESMO TwinleafTown_MainHouse_2F_EventScript_Rival; este caso entra pelo braco RivalSouth, que a condutora mandou deslocar de (2,7) para (2,6) por empilhamento, e prova as duas coisas de uma vez: que o tile deslocado NAO ficou morto e que um braco que nao e o North chega na mesma cena (VAR_SINNOH_CASA_JOGADOR_RIVAL_ESTADO vira 1). A rota desce a coluna 7 ate saturar em (7,7) (a linha 8 nao existe, o quarto tem 8 tiles de altura), sobe UM com UP*2 (o primeiro toque so vira) para a linha 6 e vai para oeste; (2,6) e o UNICO coord_event daquela linha, entao o que dispara so pode ser o RivalSouth deslocado. Se o deslocamento tivesse caido em tile intransponivel ou fora do map.bin (o risco que o plano manda o QA checar), o jogador terminaria em (0,6) com a var em 0. NAO ha prova por flag aqui, e isso e deliberado: desde o conserto, FLAG_SINNOH_ESCONDE_TWINLEAF_TOWN_PLAYER_HOUSE_2F_RIVAL NASCE ACESA em new_game.inc e a cena a devolve ACESA no fim (clearflag no inicio, setflag no fecho), entao o estado final da flag e igual ao de nascimento e nao separa mundo bom de mundo quebrado. O grupo de hidden_flag da leva S3 e provado no T100.16, num grupo cujo estado final DIFERE do de nascimento.",
+    "warp": "MAP_TWINLEAF_TOWN_MAIN_HOUSE_2F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:UP,20:UP,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN_MAIN_HOUSE_2F",
+      "vars": {
+        "0x4143": 1
+      }
+    }
+  },
+  {
+    "id": "T100.7",
+    "nome": "PAR NEGATIVO do T100.6. Os quatro coord_events do quarto pedem var_value 0; com VAR_SINNOH_CASA_JOGADOR_RIVAL_ESTADO pinada em 2 (valor que NENHUM deles pede), o roteiro atravessa a linha 7 inteira, passando por (3,7), (2,7) e (1,7), e a var sai INTACTA em 2. DISCRIMINA: um mundo em que o coord_event ignora o campo `var_value` rodaria a cena aqui e deixaria a var em 1, e e exatamente esse mundo que faria o T100.6 passar por engano (la a var so precisava ACABAR em 1). O valor 2, e nao 1, e escolhido de proposito: com 1 o positivo e o negativo terminariam no MESMO numero e o par nao separaria nada. `andou` prova que o jogador cruzou a linha em vez de ter travado antes dela.",
+    "vars": {
+      "0x4143": 2
+    },
+    "warp": "MAP_TWINLEAF_TOWN_MAIN_HOUSE_2F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,300:NADA",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN_MAIN_HOUSE_2F",
+      "vars": {
+        "0x4143": 2
+      },
+      "andou": true
+    }
+  },
+  {
+    "id": "T100.8",
+    "nome": "Sinnoh S4, Jubilife: a CHEGADA (FirstArrival) grava VAR_SINNOH_JUBILIFE_ESTADO igual a 1. Os quatro tiles (49..52, 60) pedem var_value 0 e chamam JubilifeCity_EventScript_CoordEvent_FirstArrival, que fecha com `setvar VAR_SINNOH_JUBILIFE_ESTADO, 1`. Nao e enfeite: e esse 1 que arma o gatilho seguinte da cidade (LookerBlockRoute203, quatro tiles em x=65 com var_value 1), que leva a var a 3 e arma o TeamGalactic. GEOMETRIA medida contra data/layouts/JubilifeCity/map.bin, toda em pernas SATURANTES para nao depender de onde o warp 8 (porta do Flat2, (42,49)) pousa nem de para onde o jogador olha: DOWN*7 desce a coluna 42 ate (42,53) (parede em y=54); RIGHT*13 ate (53,53) (parede em x=54); LEFT*3 volta para (51,53); DOWN*6 desce ate (51,56) (parede em (51,57)); LEFT*2 -> (50,56); DOWN*8 desce a coluna 50 ate pisar em (50,60). Simulado nas quatro direcoes iniciais e nas duas pousadas possiveis: cai sempre no mesmo tile.",
+    "warp": "MAP_JUBILIFE_CITY",
+    "warp_id": 8,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_JUBILIFE_CITY",
+      "vars": {
+        "0x413A": 1
+      }
+    }
+  },
+  {
+    "id": "T100.9",
+    "nome": "PAR NEGATIVO do T100.8, no molde que o pedido descreve: a cena so roda com a var em 0, entao o negativo prova que com a var em 2 ela NAO roda. O 2 foi escolhido de proposito: nenhum dos onze coord_events de Jubilife pede var_value 2 (os valores usados sao 0, 1 e 3), entao neste estado o mapa inteiro esta desarmado e a var tem que sair intacta. DISCRIMINA: sem ele, o T100.8 passaria com um coord_event que ignora `var_value` e roda a chegada toda vez que o jogador cruza a rua, reescrevendo a var e reiniciando o arco da cidade a cada passagem. ROTEIRO CORRIGIDO pelo fechamento (18/08/2026), com a posicao lida da EWRAM passo a passo: neste harness o toque de 20 quadros VIRA E ANDA no mesmo aperto, entao a regra de 'o primeiro toque so vira' que este caso presumia contava um tile a menos em cada perna contada. A PROVA nao mudou. Aqui o efeito era fatal porque a ultima perna NAO satura: medido no map.bin, a coluna 49/50 de Jubilife esta livre ate a borda sul (y=63) e o excedente caia na conexao 'down' para MAP_ROUTE202, reprovando o caso pelo mapa. Trilha medida: pousada em (42,50) (o warp 8 e porta), (42,53), (53,53), (50,53), (50,58), (49,58) e dai DOWN*4 ate (49,61), cruzando o gatilho em (49,60), que e um dos quatro tiles de (49..52, 60). DOWN*8 ia parar em (49,64), fora do mapa.",
+    "vars": {
+      "0x413A": 2
+    },
+    "warp": "MAP_JUBILIFE_CITY",
+    "warp_id": 8,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,300:NADA",
+    "prova": {
+      "mapa": "MAP_JUBILIFE_CITY",
+      "vars": {
+        "0x413A": 2
+      },
+      "andou": true
+    }
+  },
+  {
+    "id": "T100.10",
+    "nome": "Sinnoh S4, Oreburgh Gate: o HM de ROCK SMASH entra de verdade, A PARTIR DO ESTADO DE JOGO NOVO. Este caso NAO pina var nenhuma de proposito: depois do conserto, new_game.inc grava `setvar VAR_SINNOH_OREBURGH_PORTAO_ANDARILHO, 1` (porte do scripts_init_new_game.s:53 da fonte), que e exatamente o var_value que o coord_event de (7,22) pede. Antes disso o unico setvar da var na arvore era o 2 do fim da propria cena, e o presente era inalcancavel; agora o caso mede a corrente inteira, do jogo novo ate a entrega. O harness NAO le a bolsa (as provas disponiveis em dev_scripts/testa_critico.py sao mapa, layout, time, flag, var, oponente, nivel de inimigo e palette), entao a prova do presente e a DUPLA que a cena grava junto do `giveitem ITEM_HM_ROCK_SMASH`: FLAG_RECEIVED_HM_ROCK_SMASH acesa e a var em 2. GEOMETRIA saturante: UP*4 sobe ate (3,17) (parede em (3,16)); RIGHT*8 ate (8,17) (parede em x=9); DOWN*8 desce a coluna 8 ate (8,22) (linha 23 e parede inteira); LEFT*3 pisa em (7,22). A coluna 7 nao serve para descer porque o proprio andarilho ocupa (7,20). ENCONTRO SELVAGEM DESLIGADO de proposito: o jogador do harness chega com o time VAZIO (a abertura do seletor comeca do zero) e este mapa tem land_mons; encontro selvagem com time vazio da blackout e joga o jogador no respawn de save novo, reprovando o caso por um motivo que nao e a cena (assinatura do T90.13). FLAG_SEM_ENCONTRO_SELVAGEM e WE_FLAG_NO_ENCOUNTER de include/config/wild_encounter.h, desliga CheckStandardWildEncounter na raiz e nasce apagada (src/new_game.c:292).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_OREBURGH_GATE_1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_GATE_1F",
+      "vars": {
+        "0x413F": 2
+      },
+      "flags_acesas": [
+        "FLAG_RECEIVED_HM_ROCK_SMASH"
+      ]
+    }
+  },
+  {
+    "id": "T100.11",
+    "nome": "PAR NEGATIVO do T100.10, REFEITO depois do conserto. O negativo antigo usava o estado de jogo novo (var 0) e deixou de valer: agora o jogo novo nasce com a var em 1, que e justamente o valor que ARMA o gatilho, entao 'sem precondicao' virou o caso positivo. O novo negativo pina VAR_SINNOH_OREBURGH_PORTAO_ANDARILHO em 2, o estado POS-entrega (o proprio valor que a cena grava no fim): o coord_event de (7,22) pede 1, o MESMO roteiro pisa no MESMO tile e nada acontece, FLAG_RECEIVED_HM_ROCK_SMASH continua APAGADA e a var continua 2. DISCRIMINA o mundo quebrado que importa aqui: um portao que ignora `var_value` entregaria o HM de novo a cada passagem pelo tunel, HM infinito e var reescrita, e faria o T100.10 passar do mesmo jeito. ENCONTRO SELVAGEM DESLIGADO de proposito: o jogador do harness chega com o time VAZIO (a abertura do seletor comeca do zero) e este mapa tem land_mons; encontro selvagem com time vazio da blackout e joga o jogador no respawn de save novo, reprovando o caso por um motivo que nao e a cena (assinatura do T90.13). FLAG_SEM_ENCONTRO_SELVAGEM e WE_FLAG_NO_ENCOUNTER de include/config/wild_encounter.h, desliga CheckStandardWildEncounter na raiz e nasce apagada (src/new_game.c:292).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x413F": 2
+    },
+    "warp": "MAP_OREBURGH_GATE_1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,300:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_GATE_1F",
+      "vars": {
+        "0x413F": 2
+      },
+      "flags_apagadas": [
+        "FLAG_RECEIVED_HM_ROCK_SMASH"
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T100.12",
+    "nome": "Sinnoh S4, Route 207: o VS SEEKER. Route207_EventScript_CoordEvent_Counterpart faz `giveitem ITEM_VS_SEEKER` e fecha com `setflag FLAG_SINNOH_ESCONDE_ROUTE_207_COUNTERPART` + `removeobject` + `setvar VAR_SINNOH_R207_COMPANHEIRO_ESTADO, 1`. Como a bolsa nao e legivel pelo harness, a prova e a var em 1: ela e a ULTIMA linha da cena, DEPOIS do giveitem, entao se o `giveitem` abortasse o script (bolsa cheia, item inexistente) a var nao chegaria la. GEOMETRIA: o warp 0 (52,5) e a boca de Mt. Coronet e cai num corredor de um tile de largura; DOWN*6 desce a coluna 52 e pisa em (52,8), o primeiro dos tres tiles do gatilho. Os treinadores de vista mais proximos estao em (50,18) e (43,7)/(43,8), longe demais para enxergar a coluna 52 entre y=5 e y=10. ENCONTRO SELVAGEM DESLIGADO de proposito: o jogador do harness chega com o time VAZIO (a abertura do seletor comeca do zero) e este mapa tem land_mons; encontro selvagem com time vazio da blackout e joga o jogador no respawn de save novo, reprovando o caso por um motivo que nao e a cena (assinatura do T90.13). FLAG_SEM_ENCONTRO_SELVAGEM e WE_FLAG_NO_ENCOUNTER de include/config/wild_encounter.h, desliga CheckStandardWildEncounter na raiz e nasce apagada (src/new_game.c:292).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ROUTE207",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE207",
+      "vars": {
+        "0x414A": 1
+      }
+    }
+  },
+  {
+    "id": "T100.13",
+    "nome": "PAR NEGATIVO do T100.12. Os tres tiles do gatilho pedem var_value 0; com VAR_SINNOH_R207_COMPANHEIRO_ESTADO pinada em 2 (valor que nenhum coord_event de Route207 pede), o MESMO DOWN*6 atravessa (52,8), (52,9) e (52,10) sem parar e a var sai intacta. DISCRIMINA: sem ele, o T100.12 passaria com um gatilho que reentrega o VS SEEKER a cada passagem pela rota. `andou` prova que o jogador realmente cruzou os tres tiles, em vez de ter travado antes deles. ENCONTRO SELVAGEM DESLIGADO de proposito: o jogador do harness chega com o time VAZIO (a abertura do seletor comeca do zero) e este mapa tem land_mons; encontro selvagem com time vazio da blackout e joga o jogador no respawn de save novo, reprovando o caso por um motivo que nao e a cena (assinatura do T90.13). FLAG_SEM_ENCONTRO_SELVAGEM e WE_FLAG_NO_ENCOUNTER de include/config/wild_encounter.h, desliga CheckStandardWildEncounter na raiz e nasce apagada (src/new_game.c:292).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x414A": 2
+    },
+    "warp": "MAP_ROUTE207",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE207",
+      "vars": {
+        "0x414A": 2
+      },
+      "andou": true
+    }
+  },
+  {
+    "id": "T100.14",
+    "nome": "Sinnoh S4, GRUPO DE HIDDEN_FLAG da leva: o cientista do portao norte da Cycling Road (Route206_North). FLAG_SINNOH_ESCONDE_ROUTE_206_CYCLING_ROAD_NORTH_GATE_SCIENTIST_M nao esta em EventScript_ResetAllMapFlags: nasce APAGADA, o objeto nasce VISIVEL, e Route206_North_EventScript_Scientist da o EXP SHARE e acende a flag no fim (o objeto some para sempre; a flag e o campo `flag` do object_event). Prova por EWRAM da flag, que e o que governa o objeto, e o estado final DIFERE do de nascimento. ROTA REDESENHADA depois de os tiles do CoordEvent_OnlyBicycles serem realocados para (1,8), (4,8) e (5,9): a rota antiga subia pela coluna 5 e pisava em (5,9) e (4,8), abrindo caixa de texto no meio do caminho. A nova sobe pela coluna 3, que nao tem gatilho armado nenhum, e continua toda saturante: LEFT*2 encosta em (3,9) (x=2 e parede); UP*9 sobe a coluna 3 ate (3,2) (parede em (3,1)); RIGHT*3 encosta em (5,2) (parede em x=6); DOWN*3 desce exatamente dois tiles, a partir de uma posicao saturada e portanto conhecida, ate (5,4), a UNICA casa andavel encostada no cientista, que fica em (6,4), tile de parede (falar com NPC atras de balcao e legal neste motor); RIGHT*1 so vira o jogador para ele, porque o passo esta bloqueado. Os quatro tiles de ClearFlagForceBikingInGate da linha 6, que a coluna 3 cruza, pedem VAR_TEMP_2 igual a 1 e ficam INERTES: o motor zera os VAR_TEMP_* a cada entrada de mapa e esta rota nunca pisa num tile de OnlyBicycles, que e quem poria a var em 1. ROTEIRO CORRIGIDO pelo fechamento (18/08/2026), com a posicao lida da EWRAM passo a passo: neste harness o toque de 20 quadros VIRA E ANDA no mesmo aperto, entao a regra de 'o primeiro toque so vira' que este caso presumia contava um tile a menos em cada perna contada. A PROVA nao mudou. Aqui o DOWN*3 do fim andava TRES tiles a partir de (5,2) e parava em (5,5), que e diagonal ao cientista de (6,4): o RIGHT seguinte encarava a parede de (6,5) e os A morriam no vazio (a flag ficava em 0 no T100.14, e o T100.15 passava por acidente, porque a prova dele e a flag APAGADA). DOWN*2 para em (5,4), de frente para ele.",
+    "warp": "MAP_ROUTE206_NORTH",
+    "warp_id": 1,
+    "roteiro": "60:NADA,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:RIGHT,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE206_NORTH",
+      "flags_acesas": [
+        "FLAG_SINNOH_ESCONDE_ROUTE_206_CYCLING_ROAD_NORTH_GATE_SCIENTIST_M"
+      ]
+    }
+  },
+  {
+    "id": "T100.15",
+    "nome": "PAR NEGATIVO do T100.14. MESMO warp, MESMA caminhada (a rota nova, pela coluna 3) ate ficar de frente para o cientista, e NENHUM A: sem a conversa, FLAG_SINNOH_ESCONDE_ROUTE_206_CYCLING_ROAD_NORTH_GATE_SCIENTIST_M continua APAGADA. DISCRIMINA: sem ele, o T100.14 passaria num mundo em que a flag e acesa por entrar no mapa (ON_TRANSITION, ON_LOAD ou o proprio new_game), e ai o cientista nunca existiria e o EXP SHARE seria inalcancavel, com o positivo verde do mesmo jeito. `andou` prova que a caminhada aconteceu e o jogador chegou de fato ate a frente dele. ROTEIRO CORRIGIDO pelo fechamento (18/08/2026), com a posicao lida da EWRAM passo a passo: neste harness o toque de 20 quadros VIRA E ANDA no mesmo aperto, entao a regra de 'o primeiro toque so vira' que este caso presumia contava um tile a menos em cada perna contada. A PROVA nao mudou. Aqui o DOWN*3 do fim andava TRES tiles a partir de (5,2) e parava em (5,5), que e diagonal ao cientista de (6,4): o RIGHT seguinte encarava a parede de (6,5) e os A morriam no vazio (a flag ficava em 0 no T100.14, e o T100.15 passava por acidente, porque a prova dele e a flag APAGADA). DOWN*2 para em (5,4), de frente para ele.",
+    "warp": "MAP_ROUTE206_NORTH",
+    "warp_id": 1,
+    "roteiro": "60:NADA,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:RIGHT,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE206_NORTH",
+      "flags_apagadas": [
+        "FLAG_SINNOH_ESCONDE_ROUTE_206_CYCLING_ROAD_NORTH_GATE_SCIENTIST_M"
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T100.16",
+    "nome": "Sinnoh S3, GRUPO DE HIDDEN_FLAG da leva: a contraparte de Sandgem. Este caso ocupa o lugar que era do rival do 2F, que deixou de servir depois do conserto (a flag dele passou a NASCER ACESA e a cena a devolve acesa, entao o estado final virou igual ao de nascimento e nao separa mais nada). FLAG_SINNOH_ESCONDE_SANDGEM_TOWN_COUNTERPART e um dos DOIS que o consertador deixou de fora de new_game.inc de proposito (a fonte nao esconde essa contraparte no jogo novo; o comentario do arquivo explica), entao ela nasce APAGADA, o objeto nasce VISIVEL, e SandgemTown_EventScript_CoordEvent_CounterpartLeadToLab fecha com `setflag` + `removeobject`: estado final ACESA, DIFERENTE do de nascimento, que e exatamente o que um caso de hidden_flag precisa para poder falhar. PROVA DUPLA: a flag acesa (o objeto saiu do mapa para sempre) e VAR_SINNOH_SANDGEM_ESTADO em 1. GEOMETRIA saturante: o warp 0 (9,8) e a porta do laboratorio, tile de parede, pousada em (9,9); LEFT*12 corre a linha 9 ate (0,9) (borda oeste); DOWN*3 desce um tile ate (0,11); RIGHT*8 anda para leste ate (4,11), um dos seis tiles do gatilho (a coluna 4, linhas 10 a 15). Sobra de RIGHT e absorvida pelo `lockall` da cena.",
+    "warp": "MAP_SANDGEM_TOWN",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN",
+      "vars": {
+        "0x4151": 1
+      },
+      "flags_acesas": [
+        "FLAG_SINNOH_ESCONDE_SANDGEM_TOWN_COUNTERPART"
+      ]
+    }
+  },
+  {
+    "id": "T100.17",
+    "nome": "PAR NEGATIVO do T100.16. Os seis coord_events da coluna 4 pedem var_value 0; com VAR_SINNOH_SANDGEM_ESTADO pinada em 2 (valor que nenhum deles pede), o MESMO roteiro atravessa a coluna 4 sem parar: a flag continua APAGADA (a contraparte continua de pe no mapa) e a var sai intacta em 2. DISCRIMINA as duas coisas que o T100.16 sozinho nao separa: que a flag nao e acesa por carregar o mapa (seria a contraparte sumindo sem cena, e o EXP do gatilho perdido para sempre) e que o gatilho respeita o `var_value`, em vez de reencenar a chegada ao laboratorio a cada passagem pela rua. `andou` prova que o jogador cruzou a coluna em vez de ter travado antes dela.",
+    "vars": {
+      "0x4151": 2
+    },
+    "warp": "MAP_SANDGEM_TOWN",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,300:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN",
+      "vars": {
+        "0x4151": 2
+      },
+      "flags_apagadas": [
+        "FLAG_SINNOH_ESCONDE_SANDGEM_TOWN_COUNTERPART"
+      ],
+      "andou": true
+    }
+  }
+]

@@ -24,7 +24,18 @@
 @ de tipos, e foi por causa dessa falta que o time do SILVER, em Johto, teve que
 @ ser fixo (ver o cabecalho de data/maps/CherrygroveCity/scripts.inc).
 SandgemTown_RowanLab_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, SandgemTown_RowanLab_OnTransition
 	.byte 0
+
+SandgemTown_RowanLab_OnTransition::
+	checkplayergender
+	goto_if_eq VAR_RESULT, MALE, SandgemTown_RowanLab_SetCounterpartFemale
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL
+	end
+
+SandgemTown_RowanLab_SetCounterpartFemale::
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL
+	end
 
 SandgemTown_RowanLab_EventScript_Rowan::
 	lock
@@ -127,8 +138,50 @@ SandgemTown_RowanLab_EventScript_AfterStarter::
 	playfanfare MUS_OBTAIN_ITEM
 	waitfanfare
 	msgbox SandgemTown_RowanLab_Text_RowanGrandAdventure, MSGBOX_DEFAULT
+	clearflag FLAG_SINNOH_ESCONDE_SANDGEM_TOWN_LAB_PROF_OAK
+	clearflag FLAG_SINNOH_ESCONDE_SANDGEM_TOWN_LAB_COUNTERPART
+	addobject LOCALID_ROWAN_LAB_OAK
+	addobject LOCALID_ROWAN_LAB_COUNTERPART
+	msgbox SandgemTown_RowanLab_Text_OakCongratulations, MSGBOX_DEFAULT
 	release
 	end
+
+@ FLAG_HIDE_SANDGEM_TOWN_LAB_PROF_OAK/_COUNTERPART (fonte: dois bystanders
+@ perto da saida do laboratorio na fonte, mesma coordenada). ponytail: na
+@ fonte OAK aparece por VIDEOFONE ligando para o ROWAN parabenizando pelo
+@ quarto Pokedex regional; sem tela de chamada aqui, ele entra como visita
+@ fisica de verdade, mesmo gancho de continuidade (Oak ja existe em Kanto
+@ neste ROM). Somem revelados junto do Pokedex e ficam visiveis dali para
+@ frente, mesmo padrao do ROWAN e do RIVAL desta sala (nao voltam a esconder).
+SandgemTown_RowanLab_EventScript_Oak::
+	lock
+	faceplayer
+	msgbox SandgemTown_RowanLab_Text_OakTalk, MSGBOX_DEFAULT
+	release
+	end
+
+SandgemTown_RowanLab_EventScript_Counterpart::
+	lock
+	faceplayer
+	msgbox SandgemTown_RowanLab_Text_CounterpartTalk, MSGBOX_DEFAULT
+	release
+	end
+
+SandgemTown_RowanLab_Text_OakCongratulations:
+	.string "???: Rowan! Is that a new Trainer\n"
+	.string "getting their first Pokémon?\p"
+	.string "ROWAN: Oak! I didn't expect you all\n"
+	.string "the way out here.\p"
+	.string "OAK: Congratulations on the region's\n"
+	.string "fourth Pokédex partnership!$"
+
+SandgemTown_RowanLab_Text_OakTalk:
+	.string "OAK: I study Pokémon back in Kanto.\n"
+	.string "Rowan and I go a long way back.$"
+
+SandgemTown_RowanLab_Text_CounterpartTalk:
+	.string "So you got your Pokémon too!\n"
+	.string "Good luck out there.$"
 
 SandgemTown_RowanLab_Text_RowanEntrust:
 	.string "ROWAN: We exist side by side with\n"

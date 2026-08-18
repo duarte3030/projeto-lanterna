@@ -28,6 +28,21 @@ OreburghCity_Gym_EventScript_Roark::
 	trainerbattle_no_intro TRAINER_SINNOH_LEADER_ROARK, OreburghCity_Gym_Text_RoarkDefeat
 	msgbox OreburghCity_Gym_Text_RoarkPost, MSGBOX_DEFAULT
 	setflag FLAG_INSIGNIA_SINNOH_1
+	@ OS DOIS DEGRAUS QUE FALTAVAM das maquinas de Oreburgh e do Looker de
+	@ Jubilife. Na fonte quem grava esses dois valores e a vitoria sobre o
+	@ ROARK, em OreburghGym_Roark
+	@ (res/field/scripts/scripts_oreburgh_city_gym.s:34-35), logo depois do
+	@ GiveBadge. Sem eles o gatilho do rival de Oreburgh (coord_event pedindo
+	@ 2) e o do Looker em Jubilife (pedindo 1) eram inalcancaveis: a cidade so
+	@ sabia escrever 1 (o youngster) e 3 (o proprio rival).
+	@ Valores literais da fonte, decisao 2 do plano.
+	setvar VAR_SINNOH_JUBILIFE_LOOKER_ESTADO, 1
+	setvar VAR_SINNOH_OREBURGH_ESTADO, 2
+	@ A mesma cena da fonte ainda grava VAR_GTS_ACCESS_STATE (descartada,
+	@ decisao 3) e VAR_JUBILIFE_CITY_STATE, 3. Este ultimo NAO entra aqui: as
+	@ duas cenas de Jubilife (LookerBlockRoute203 e TeamGalactic) ja escrevem
+	@ o 3 no arco delas, e escrever aqui tambem armaria a emboscada da
+	@ Galactica antes de o jogador voltar a cidade.
 	release
 	end
 

@@ -1,16 +1,26 @@
 Route206_South_MapScripts::
 	.byte 0
 
-@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
-Route206_South_EventScript_CoordEvent_ClearFlagForceBikingInGate::
-	@ TODO S?: cena da fonte, rotulo Route206CyclingRoadSouthGate_CoordEvent_ClearFlagForceBikingInGate
-	end
-
+@ >>> B6 Sinnoh S4: cena da fonte >>>
+@ Mesma mecanica de Route206_North (portao gemeo da Cycling Road): a fonte
+@ forca bicicleta com FLAG_FORCE_BIKING_IN_GATE, que nao existe neste motor.
+@ Descartado sem substituto, decisao 3. VAR_TEMP_2 so marca passagem.
 Route206_South_EventScript_CoordEvent_OnlyCyclists::
-	@ TODO S?: cena da fonte, rotulo Route206CyclingRoadSouthGate_CoordEvent_OnlyCyclists
+	lockall
+	msgbox Route206_South_Text_CyclingRoadFlavor, MSGBOX_SIGN
+	setvar VAR_TEMP_2, 1
+	releaseall
 	end
 
-@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+Route206_South_EventScript_CoordEvent_ClearFlagForceBikingInGate::
+	setvar VAR_TEMP_2, 0
+	end
+
+Route206_South_Text_CyclingRoadFlavor:
+	.string "CYCLING ROAD\n"
+	.string "Built for speed on two wheels.$"
+
+@ <<< B6 Sinnoh S4: cena da fonte <<<
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 

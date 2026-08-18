@@ -2,21 +2,105 @@ TwinleafTown_MainHouse_2F_MapScripts::
 	.byte 0
 
 @ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
-TwinleafTown_MainHouse_2F_EventScript_CoordEvent_RivalEast::
-	@ TODO S3: cena da fonte, rotulo TwinleafTownPlayerHouse2F_CoordEvent_RivalEast
-	end
-
+@ Fonte: scripts_twinleaf_town_player_house_2f.s, TwinleafTownPlayerHouse2F_
+@ Rival. O rival entra procurando o jogador, empolgado com a TV do PROF.
+@ ROWAN, e sai correndo para esperar la fora. A fonte ramifica em 4 so para
+@ escolher de que lado o rival entra/aproxima (North/West/East/South); aqui
+@ os 4 gatilhos chamam a MESMA cena (o rival sempre entra pela porta, oeste),
+@ que e o unico lado que faz sentido no nosso quarto pequeno.
+@
+@ Des-empilhamento do tile (2,7) (decisao da condutora de 17/08): RivalNorth
+@ e RivalSouth caiam no mesmo tile no gerador. RivalNorth ficou em (2,7);
+@ RivalSouth foi para (2,6), vizinho ao norte. Nao da para deslocar para o
+@ sul (a fonte pediria (4,7) 1 abaixo do centro): o quarto tem so 8 tiles de
+@ altura (y 0-7) e (2,8) fica fora do mapa. (2,6) e o unico vizinho livre.
 TwinleafTown_MainHouse_2F_EventScript_CoordEvent_RivalNorth::
-	@ TODO S3: cena da fonte, rotulo TwinleafTownPlayerHouse2F_CoordEvent_RivalNorth
-	end
-
-TwinleafTown_MainHouse_2F_EventScript_CoordEvent_RivalSouth::
-	@ TODO S3: cena da fonte, rotulo TwinleafTownPlayerHouse2F_CoordEvent_RivalSouth
+	goto TwinleafTown_MainHouse_2F_EventScript_Rival
 	end
 
 TwinleafTown_MainHouse_2F_EventScript_CoordEvent_RivalWest::
-	@ TODO S3: cena da fonte, rotulo TwinleafTownPlayerHouse2F_CoordEvent_RivalWest
+	goto TwinleafTown_MainHouse_2F_EventScript_Rival
 	end
+
+TwinleafTown_MainHouse_2F_EventScript_CoordEvent_RivalEast::
+	goto TwinleafTown_MainHouse_2F_EventScript_Rival
+	end
+
+TwinleafTown_MainHouse_2F_EventScript_CoordEvent_RivalSouth::
+	goto TwinleafTown_MainHouse_2F_EventScript_Rival
+	end
+
+TwinleafTown_MainHouse_2F_EventScript_Rival::
+	lockall
+	clearflag FLAG_SINNOH_ESCONDE_TWINLEAF_TOWN_PLAYER_HOUSE_2F_RIVAL
+	addobject LOCALID_TWINLEAF_MAINHOUSE2F_RIVAL
+	applymovement LOCALID_TWINLEAF_MAINHOUSE2F_RIVAL, TwinleafTown_MainHouse_2F_Movement_RivalEnter
+	waitmovement 0
+	msgbox TwinleafTown_MainHouse_2F_Text_ThereYouAre, MSGBOX_DEFAULT
+	msgbox TwinleafTown_MainHouse_2F_Text_ProfRowanWouldGivePokemon, MSGBOX_DEFAULT
+	applymovement LOCALID_TWINLEAF_MAINHOUSE2F_RIVAL, TwinleafTown_MainHouse_2F_Movement_RivalNoticePC
+	waitmovement 0
+	msgbox TwinleafTown_MainHouse_2F_Text_IsThisANewPC, MSGBOX_DEFAULT
+	msgbox TwinleafTown_MainHouse_2F_Text_WhereWasI, MSGBOX_DEFAULT
+	msgbox TwinleafTown_MainHouse_2F_Text_SeeProfRowanAndGetPokemon, MSGBOX_DEFAULT
+	applymovement LOCALID_TWINLEAF_MAINHOUSE2F_RIVAL, TwinleafTown_MainHouse_2F_Movement_RivalLeave
+	waitmovement 0
+	removeobject LOCALID_TWINLEAF_MAINHOUSE2F_RIVAL
+	setflag FLAG_SINNOH_ESCONDE_TWINLEAF_TOWN_PLAYER_HOUSE_2F_RIVAL
+	setvar VAR_SINNOH_CASA_JOGADOR_RIVAL_ESTADO, 1
+	releaseall
+	end
+
+	.balign 4, 0
+TwinleafTown_MainHouse_2F_Movement_RivalEnter:
+	walk_left
+	walk_left
+	emote_exclamation_mark
+	step_end
+
+	.balign 4, 0
+TwinleafTown_MainHouse_2F_Movement_RivalNoticePC:
+	emote_exclamation_mark
+	step_end
+
+	.balign 4, 0
+TwinleafTown_MainHouse_2F_Movement_RivalLeave:
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	set_invisible
+	step_end
+
+TwinleafTown_MainHouse_2F_Text_ThereYouAre:
+	.string "{RIVAL}: There you are!$"
+
+TwinleafTown_MainHouse_2F_Text_ProfRowanWouldGivePokemon:
+	.string "Hey, {PLAYER}!\n"
+	.string "Did you just see the TV? Sure you did!\p"
+	.string "Prof. Rowan's that really important\n"
+	.string "guy who studies Pokémon, right?\p"
+	.string "That means he must have lots and lots\n"
+	.string "of Pokémon.\p"
+	.string "So, if we ask him, I bet he'd give us\n"
+	.string "some Pokémon!$"
+
+TwinleafTown_MainHouse_2F_Text_IsThisANewPC:
+	.string "Oh, hey!\n"
+	.string "Is this a new PC?!$"
+
+TwinleafTown_MainHouse_2F_Text_WhereWasI:
+	.string "{RIVAL}: Uh...\n"
+	.string "Where was I?$"
+
+TwinleafTown_MainHouse_2F_Text_SeeProfRowanAndGetPokemon:
+	.string "Oh, right, right! We're going to go see\n"
+	.string "Prof. Rowan and get some Pokémon.\p"
+	.string "I'll be waiting outside.\p"
+	.string "OK, {PLAYER}? If you're late, I'm\n"
+	.string "fining you ¥10 million!$"
 
 @ <<< B6 Sinnoh S1: esqueletos de cena <<<
 

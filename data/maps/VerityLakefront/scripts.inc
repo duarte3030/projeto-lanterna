@@ -2,9 +2,27 @@ VerityLakefront_MapScripts::
 	.byte 0
 
 @ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ Fonte: VerityLakefront_CoordEvent_WereAtTheLake. Da fonte, o jogador (e o
+@ LOCALID_FOLLOWER, o rival andando junto) chegam na beira e entram no lago.
+@ ponytail: LOCALID_FOLLOWER e o mecanismo de seguidor da decisao 5 do plano
+@ (adiado, sem desenho de dupla andando); a fala continua (o {RIVAL} fica
+@ implicito, sem objeto animado ao lado) e o jogador entra sozinho. O warp de
+@ destino usa a MESMA coordenada do warp estatico ja existente deste mapa
+@ para MAP_LAKE_VERITY_LOW_WATER (dest_warp_id 0), em vez de inventar
+@ coordenada nova.
 VerityLakefront_EventScript_CoordEvent_WereAtTheLake::
-	@ TODO S3: cena da fonte, rotulo VerityLakefront_CoordEvent_WereAtTheLake
+	lockall
+	msgbox VerityLakefront_Text_WereAtTheLake, MSGBOX_DEFAULT
+	setvar VAR_SINNOH_VERITY_BEIRA_ESTADO, 1
+	releaseall
+	playse SE_M_SURF
+	fadescreen FADE_TO_BLACK
+	warp MAP_LAKE_VERITY_LOW_WATER, 39, 47
+	fadescreen FADE_FROM_BLACK
 	end
+
+VerityLakefront_Text_WereAtTheLake:
+	.string "{RIVAL}: We're at the lake!$"
 
 @ <<< B6 Sinnoh S1: esqueletos de cena <<<
 

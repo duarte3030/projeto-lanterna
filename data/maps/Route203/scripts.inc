@@ -4,12 +4,79 @@
 Route203_MapScripts::
 	.byte 0
 
-@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ >>> B6 Sinnoh S4: cena da fonte, rotulo Route203_CoordEvent_Rival >>>
+@ BARRY (LOCALID_ROUTE203_RIVAL, sprite trocado para OBJ_EVENT_GFX_RICH_BOY
+@ pela tabela de dev_scripts/valida_mapas_sinnoh.py) emboscava o jogador aqui
+@ no Platinum. FLAG_SINNOH_ESCONDE_ROUTE_203_RIVAL nasce acesa (ver bloco
+@ Sinnoh S4 em data/scripts/new_game.inc) e esta cena e quem revela e some com
+@ ele, igual ao par Route207_CoordEvent_Counterpart.
+@ Simplificacao anotada: a fonte ramifica o passo de aproximacao em 4 (um por
+@ tile do gatilho) e a batalha em 3 (um por inicial de Sinnoh). Sem colisao no
+@ NPC (so no jogador; ver CianwoodCity_EventScript_SuicuneTrigger) os 4 passos
+@ colapsam num so sem risco de travar o waitmovement. A ramificacao por
+@ inicial NAO existe aqui: nesta ROM o jogador ja chega a Sinnoh com o inicial
+@ de Kanto (regiao 1), Sinnoh nunca oferece TURTWIG/CHIMCHAR/PIPLUP. Por isso
+@ so sobra UM treinador, e esse nem existe ainda.
+@ BLOQUEADO: nenhum TRAINER_SINNOH_RIVAL_ROUTE_203_* existe em
+@ include/constants/opponents.h (so ha TRAINER_SINNOH_RIVAL_CANALAVE_CITY_*).
 Route203_EventScript_CoordEvent_Rival::
-	@ TODO S4: cena da fonte, rotulo Route203_CoordEvent_Rival
+	lockall
+	clearflag FLAG_SINNOH_ESCONDE_ROUTE_203_RIVAL
+	addobject LOCALID_ROUTE203_RIVAL
+	applymovement LOCALID_ROUTE203_RIVAL, Route203_Movement_RivalNoticePlayer
+	waitmovement 0
+	applymovement LOCALID_ROUTE203_RIVAL, Route203_Movement_RivalWalkToPlayer
+	waitmovement 0
+	msgbox Route203_Text_RivalIGotTougher, MSGBOX_DEFAULT
+	@ BLOQUEADO: trainerbattle_single TRAINER_SINNOH_RIVAL_ROUTE_203, Route203_Text_RivalIGotTougher, Route203_Text_RivalWhatDoYouMeanILost
+	msgbox Route203_Text_RivalWhatDoYouMeanILost, MSGBOX_DEFAULT
+	applymovement LOCALID_ROUTE203_RIVAL, Route203_Movement_RivalLeave
+	waitmovement 0
+	setflag FLAG_SINNOH_ESCONDE_ROUTE_203_RIVAL
+	removeobject LOCALID_ROUTE203_RIVAL
+	setvar VAR_SINNOH_R203_RIVAL_ESTADO, 1
+	releaseall
 	end
 
-@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+Route203_Movement_RivalNoticePlayer:
+	delay_8
+	emote_exclamation_mark
+	delay_8
+	step_end
+
+Route203_Movement_RivalWalkToPlayer:
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	step_end
+
+Route203_Movement_RivalLeave:
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	step_end
+
+Route203_Text_RivalIGotTougher:
+	.string "BARRY: Hey! {PLAYER}!\p"
+	.string "Tell me you got a little tougher!\p"
+	.string "Me? Do you even need to ask?\n"
+	.string "Of course I got tougher!\p"
+	.string "Come on!$"
+
+Route203_Text_RivalWhatDoYouMeanILost:
+	.string "BARRY: Waah!\n"
+	.string "What do you mean I lost?!\p"
+	.string "Well, that's it!$"
+@ <<< B6 Sinnoh S4: cena da fonte <<<
 
 Route203_EventScript_Trainer1::
 	trainerbattle_single TRAINER_SINNOH_YOUNGSTER_SEBASTIAN, Route203_Text_Trainer1Intro, Route203_Text_Trainer1Defeat

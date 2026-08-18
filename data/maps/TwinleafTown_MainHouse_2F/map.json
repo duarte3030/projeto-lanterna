@@ -13,7 +13,22 @@
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
-  "object_events": [],
+  "object_events": [
+    {
+      "local_id": "LOCALID_TWINLEAF_MAINHOUSE2F_RIVAL",
+      "graphics_id": "OBJ_EVENT_GFX_RICH_BOY",
+      "x": 8,
+      "y": 7,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "FLAG_SINNOH_ESCONDE_TWINLEAF_TOWN_PLAYER_HOUSE_2F_RIVAL"
+    }
+  ],
   "warp_events": [
     {
       "x": 7,
@@ -50,6 +65,15 @@
       "var": "VAR_SINNOH_CASA_JOGADOR_RIVAL_ESTADO",
       "var_value": "0",
       "script": "TwinleafTown_MainHouse_2F_EventScript_CoordEvent_RivalEast"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_SINNOH_CASA_JOGADOR_RIVAL_ESTADO",
+      "var_value": "0",
+      "script": "TwinleafTown_MainHouse_2F_EventScript_CoordEvent_RivalSouth"
     }
   ],
   "bg_events": [

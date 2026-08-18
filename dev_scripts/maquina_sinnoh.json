@@ -512,6 +512,22 @@
   },
   {
    "fonte_x": 4,
+   "fonte_z": 6,
+   "length": 1,
+   "mapa": "PastoriaCityObservatoryGate1F",
+   "motivo": "todos os 1 tiles convertidos caem em parede/warp e nao ha casa andavel na linha nem na coluna dentro de 8 tiles; volta ao plano",
+   "script_fonte": 2,
+   "tiles_perdidos": [
+    [
+     12,
+     0
+    ]
+   ],
+   "var_fonte": "VAR_PASTORIA_CITY_OBSERVATORY_GATE_1F_STATE",
+   "width": 3
+  },
+  {
+   "fonte_x": 4,
    "fonte_z": 11,
    "length": 1,
    "mapa": "PokemonLeagueElevatorToAaronRoom",
@@ -2516,6 +2532,8 @@
      53
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_ACUITY_BEIRA_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_ACUITY_LAKEFRONT_STATE",
@@ -2549,6 +2567,8 @@
      22
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_CANALAVE_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_CANALAVE_CITY_STATE",
@@ -2578,6 +2598,8 @@
      28
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_CELESTIC_ANCIA_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_CELESTIC_TOWN_ELDER_STATE",
@@ -2599,6 +2621,8 @@
      9
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_QG_SALA_CONTROLE_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_GALACTIC_HQ_CONTROL_ROOM_STATE",
@@ -2624,6 +2648,8 @@
      13
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_QG_HALL_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_GALACTIC_HQ_HALL_STATE",
@@ -2641,10 +2667,23 @@
    "script_fonte": 1,
    "tiles": [
     [
-     3,
+     4,
      5
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      3,
+      5
+     ],
+     [
+      4,
+      5
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_QG_4F_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_GALACTIC_HQ_4F_STATE",
@@ -2663,10 +2702,6 @@
    "tiles": [
     [
      11,
-     42
-    ],
-    [
-     11,
      43
     ],
     [
@@ -2680,8 +2715,25 @@
     [
      11,
      46
+    ],
+    [
+     16,
+     42
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      11,
+      42
+     ],
+     [
+      16,
+      42
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_HEARTHOME_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_HEARTHOME_CITY_STATE",
@@ -2703,6 +2755,8 @@
      13
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_0",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x00",
@@ -2724,6 +2778,8 @@
      13
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_0",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x00",
@@ -2745,6 +2801,8 @@
      9
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_7",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x07",
@@ -2766,6 +2824,8 @@
      7
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_4",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x04",
@@ -2787,6 +2847,8 @@
      5
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_1",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x01",
@@ -2808,6 +2870,8 @@
      7
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_3",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x03",
@@ -2829,6 +2893,8 @@
      7
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_2",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x02",
@@ -2850,6 +2916,8 @@
      7
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_5",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x05",
@@ -2871,6 +2939,8 @@
      7
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_6",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x06",
@@ -2889,9 +2959,22 @@
    "tiles": [
     [
      11,
-     23
+     21
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      11,
+      23
+     ],
+     [
+      11,
+      21
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_0",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x00",
@@ -2910,9 +2993,22 @@
    "tiles": [
     [
      19,
-     44
+     42
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      19,
+      44
+     ],
+     [
+      19,
+      42
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_0",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x00",
@@ -2931,9 +3027,22 @@
    "tiles": [
     [
      9,
-     11
+     9
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      9,
+      11
+     ],
+     [
+      9,
+      9
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_0",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x00",
@@ -2955,6 +3064,8 @@
      7
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_4",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x04",
@@ -2976,6 +3087,8 @@
      5
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_1",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x01",
@@ -2997,6 +3110,8 @@
      5
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_2",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x02",
@@ -3018,6 +3133,8 @@
      7
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_3",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x03",
@@ -3039,6 +3156,8 @@
      7
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_5",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x05",
@@ -3060,6 +3179,8 @@
      9
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_6",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x06",
@@ -3081,6 +3202,8 @@
      9
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_7",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x07",
@@ -3114,6 +3237,8 @@
      60
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_JUBILIFE_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_JUBILIFE_CITY_STATE",
@@ -3143,6 +3268,8 @@
      7
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_JUBILIFE_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_JUBILIFE_CITY_STATE",
@@ -3165,17 +3292,50 @@
     ],
     [
      65,
+     25
+    ],
+    [
+     65,
+     26
+    ],
+    [
+     66,
      22
-    ],
-    [
-     65,
-     23
-    ],
-    [
-     65,
-     24
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      65,
+      22
+     ],
+     [
+      66,
+      22
+     ]
+    ],
+    [
+     [
+      65,
+      23
+     ],
+     [
+      65,
+      25
+     ]
+    ],
+    [
+     [
+      65,
+      24
+     ],
+     [
+      65,
+      26
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_JUBILIFE_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_JUBILIFE_CITY_STATE",
@@ -3198,17 +3358,50 @@
     ],
     [
      65,
+     25
+    ],
+    [
+     65,
+     26
+    ],
+    [
+     66,
      22
-    ],
-    [
-     65,
-     23
-    ],
-    [
-     65,
-     24
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      65,
+      22
+     ],
+     [
+      66,
+      22
+     ]
+    ],
+    [
+     [
+      65,
+      23
+     ],
+     [
+      65,
+      25
+     ]
+    ],
+    [
+     [
+      65,
+      24
+     ],
+     [
+      65,
+      26
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_JUBILIFE_LOOKER_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_JUBILIFE_LOOKER_PAL_PAD_STATE",
@@ -3238,6 +3431,8 @@
      26
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_CORONET_2F_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_MT_CORONET_2F_STATE",
@@ -3259,6 +3454,8 @@
      23
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_CORONET_1F_SUL_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_MT_CORONET_1F_SOUTH_STATE",
@@ -3276,18 +3473,51 @@
    "script_fonte": 3,
    "tiles": [
     [
-     10,
-     11
-    ],
-    [
-     10,
-     12
-    ],
-    [
-     10,
+     8,
      13
+    ],
+    [
+     10,
+     15
+    ],
+    [
+     10,
+     16
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      10,
+      11
+     ],
+     [
+      10,
+      15
+     ]
+    ],
+    [
+     [
+      10,
+      12
+     ],
+     [
+      10,
+      16
+     ]
+    ],
+    [
+     [
+      10,
+      13
+     ],
+     [
+      8,
+      13
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_OREBURGH_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_OREBURGH_CITY_STATE",
@@ -3306,17 +3536,40 @@
    "tiles": [
     [
      6,
-     11
-    ],
-    [
-     6,
-     12
-    ],
-    [
-     6,
      13
+    ],
+    [
+     6,
+     14
+    ],
+    [
+     6,
+     15
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      6,
+      11
+     ],
+     [
+      6,
+      14
+     ]
+    ],
+    [
+     [
+      6,
+      12
+     ],
+     [
+      6,
+      15
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_OREBURGH_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_OREBURGH_CITY_STATE",
@@ -3338,6 +3591,8 @@
      22
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_OREBURGH_PORTAO_ANDARILHO",
    "var_alias": true,
    "var_fonte": "VAR_OREBURGH_GATE_1F_HIKER_STATE",
@@ -3359,6 +3614,8 @@
      9
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_PASTORIA_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_PASTORIA_CITY_STATE",
@@ -3380,6 +3637,8 @@
      26
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_PASTORIA_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_PASTORIA_CITY_STATE",
@@ -3401,6 +3660,8 @@
      9
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_PASTORIA_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_PASTORIA_CITY_STATE",
@@ -3422,32 +3683,13 @@
      13
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_PASTORIA_CROAGUNK_CENA",
    "var_alias": true,
    "var_fonte": "VAR_PASTORIA_CITY_CROAGUNK_SCENE_STATE",
    "var_value": "0",
    "width": 1
-  },
-  {
-   "fonte_x": 4,
-   "fonte_z": 6,
-   "length": 1,
-   "leva": "S5",
-   "mapa": "PastoriaCityObservatoryGate1F",
-   "rotulo_fonte": "PastoriaCityObservatoryGate1F_CoordEvent_TryStartSafariGame",
-   "script": "PastoriaCityObservatoryGate1F_EventScript_CoordEvent_TryStartSafariGame",
-   "script_fonte": 2,
-   "tiles": [
-    [
-     12,
-     0
-    ]
-   ],
-   "var": "VAR_SINNOH_PASTORIA_OBSERVATORIO_ESTADO",
-   "var_alias": true,
-   "var_fonte": "VAR_PASTORIA_CITY_OBSERVATORY_GATE_1F_STATE",
-   "var_value": "0",
-   "width": 3
   },
   {
    "fonte_x": 3,
@@ -3464,6 +3706,8 @@
      6
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_1",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x01",
@@ -3485,6 +3729,8 @@
      24
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_2",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x02",
@@ -3506,6 +3752,8 @@
      24
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_1",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x01",
@@ -3527,6 +3775,8 @@
      9
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_2",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x02",
@@ -3548,6 +3798,8 @@
      30
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_2",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x02",
@@ -3569,6 +3821,8 @@
      13
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_2",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x02",
@@ -3590,6 +3844,8 @@
      14
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_3",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x03",
@@ -3611,6 +3867,8 @@
      31
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_3",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x03",
@@ -3632,6 +3890,8 @@
      22
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_3",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x03",
@@ -3653,6 +3913,8 @@
      34
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_3",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x03",
@@ -3671,17 +3933,50 @@
    "tiles": [
     [
      6,
-     2
+     4
     ],
     [
      7,
-     2
+     4
     ],
     [
-     8,
+     10,
      2
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      6,
+      2
+     ],
+     [
+      6,
+      4
+     ]
+    ],
+    [
+     [
+      7,
+      2
+     ],
+     [
+      7,
+      4
+     ]
+    ],
+    [
+     [
+      8,
+      2
+     ],
+     [
+      10,
+      2
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_RIVAL_VENCEU_SUNYSHORE",
    "var_alias": true,
    "var_fonte": "VAR_RIVAL_BEAT_SUNYSHORE_GYM",
@@ -3700,9 +3995,22 @@
    "tiles": [
     [
      1,
-     1
+     2
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_MANSAO_ESTATUA_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_POKEMON_MANSION_OFFICE_BLOCK_STATUE_STATE",
@@ -3732,6 +4040,8 @@
      24
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_RESORT_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_RESORT_AREA_STATE",
@@ -3753,6 +4063,8 @@
      7
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_4",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x04",
@@ -3774,6 +4086,8 @@
      9
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_6",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x06",
@@ -3795,6 +4109,8 @@
      9
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_7",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x07",
@@ -3816,6 +4132,8 @@
      5
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_1",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x01",
@@ -3837,6 +4155,8 @@
      5
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_2",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x02",
@@ -3858,6 +4178,8 @@
      7
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_3",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x03",
@@ -3879,6 +4201,8 @@
      7
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_5",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x05",
@@ -3916,6 +4240,8 @@
      30
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_R202_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_ROUTE_202_STATE",
@@ -3949,6 +4275,8 @@
      22
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_R203_RIVAL_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_ROUTE_203_RIVAL_STATE",
@@ -3967,11 +4295,11 @@
    "tiles": [
     [
      19,
-     83
+     82
     ],
     [
      19,
-     84
+     83
     ],
     [
      19,
@@ -3990,6 +4318,19 @@
      88
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      19,
+      84
+     ],
+     [
+      19,
+      82
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_WINDWORKS_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_VALLEY_WINDWORKS_STATE",
@@ -4011,6 +4352,8 @@
      77
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_WINDWORKS_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_VALLEY_WINDWORKS_STATE",
@@ -4029,18 +4372,52 @@
    "tiles": [
     [
      1,
-     10
-    ],
-    [
-     2,
-     10
+     8
     ],
     [
      4,
-     10
+     8
     ],
     [
      5,
+     9
+    ]
+   ],
+   "tiles_movidos": [
+    [
+     [
+      1,
+      10
+     ],
+     [
+      1,
+      8
+     ]
+    ],
+    [
+     [
+      4,
+      10
+     ],
+     [
+      4,
+      8
+     ]
+    ],
+    [
+     [
+      5,
+      10
+     ],
+     [
+      5,
+      9
+     ]
+    ]
+   ],
+   "tiles_perdidos": [
+    [
+     2,
      10
     ]
    ],
@@ -4065,7 +4442,7 @@
      6
     ],
     [
-     2,
+     3,
      6
     ],
     [
@@ -4077,6 +4454,19 @@
      6
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      2,
+      6
+     ],
+     [
+      3,
+      6
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_2",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x02",
@@ -4094,19 +4484,53 @@
    "script_fonte": 3,
    "tiles": [
     [
-     2,
-     0
-    ],
-    [
      3,
-     0
+     2
     ],
     [
      4,
-     0
+     2
     ],
     [
      5,
+     2
+    ]
+   ],
+   "tiles_movidos": [
+    [
+     [
+      3,
+      0
+     ],
+     [
+      3,
+      2
+     ]
+    ],
+    [
+     [
+      4,
+      0
+     ],
+     [
+      4,
+      2
+     ]
+    ],
+    [
+     [
+      5,
+      0
+     ],
+     [
+      5,
+      2
+     ]
+    ]
+   ],
+   "tiles_perdidos": [
+    [
+     2,
      0
     ],
     [
@@ -4131,7 +4555,7 @@
    "script_fonte": 4,
    "tiles": [
     [
-     2,
+     1,
      5
     ],
     [
@@ -4147,10 +4571,33 @@
      5
     ],
     [
-     6,
+     7,
      5
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      2,
+      5
+     ],
+     [
+      1,
+      5
+     ]
+    ],
+    [
+     [
+      6,
+      5
+     ],
+     [
+      7,
+      5
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_2",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x02",
@@ -4180,6 +4627,8 @@
      10
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_R207_COMPANHEIRO_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_ROUTE_207_COUNTERPART_TRIGGER_STATE",
@@ -4198,6 +4647,14 @@
    "tiles": [
     [
      5,
+     2
+    ],
+    [
+     5,
+     4
+    ],
+    [
+     5,
      5
     ],
     [
@@ -4206,17 +4663,32 @@
     ],
     [
      5,
-     7
-    ],
-    [
-     5,
      8
-    ],
-    [
-     5,
-     9
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      5,
+      7
+     ],
+     [
+      5,
+      4
+     ]
+    ],
+    [
+     [
+      5,
+      9
+     ],
+     [
+      5,
+      2
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_R209_PORTAO_HEARTHOME",
    "var_alias": true,
    "var_fonte": "VAR_ROUTE_209_GATE_TO_HEARTHOME_CITY_STATE",
@@ -4242,6 +4714,8 @@
      110
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_R217_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_ROUTE_217_STATE",
@@ -4260,6 +4734,14 @@
    "tiles": [
     [
      7,
+     2
+    ],
+    [
+     7,
+     4
+    ],
+    [
+     7,
      5
     ],
     [
@@ -4268,17 +4750,32 @@
     ],
     [
      7,
-     7
-    ],
-    [
-     7,
      8
-    ],
-    [
-     7,
-     9
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      7,
+      7
+     ],
+     [
+      7,
+      4
+     ]
+    ],
+    [
+     [
+      7,
+      9
+     ],
+     [
+      7,
+      2
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_R218_PORTAO_CANALAVE",
    "var_alias": true,
    "var_fonte": "VAR_ROUTE_218_GATE_TO_CANALAVE_CITY_STATE",
@@ -4308,6 +4805,8 @@
      17
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_R224_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_ROUTE_224_STATE",
@@ -4325,14 +4824,37 @@
    "script_fonte": 1,
    "tiles": [
     [
-     3,
+     8,
      46
     ],
     [
-     4,
+     9,
      46
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      3,
+      46
+     ],
+     [
+      8,
+      46
+     ]
+    ],
+    [
+     [
+      4,
+      46
+     ],
+     [
+      9,
+      46
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_R227_WAKE_RIVAL_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_ROUTE_227_WAKE_RIVAL_STATE",
@@ -4350,10 +4872,23 @@
    "script_fonte": 3,
    "tiles": [
     [
-     33,
+     30,
      19
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      33,
+      19
+     ],
+     [
+      30,
+      19
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_R227_BUCK_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_ROUTE_227_BUCK_STATE",
@@ -4387,14 +4922,37 @@
      13
     ],
     [
-     4,
+     6,
      14
     ],
     [
-     4,
+     6,
      15
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      4,
+      14
+     ],
+     [
+      6,
+      14
+     ]
+    ],
+    [
+     [
+      4,
+      15
+     ],
+     [
+      6,
+      15
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_SANDGEM_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_SANDGEM_TOWN_STATE",
@@ -4413,9 +4971,22 @@
    "tiles": [
     [
      14,
-     6
+     8
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      14,
+      6
+     ],
+     [
+      14,
+      8
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_SNOWPOINT_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_SNOWPOINT_CITY_STATE",
@@ -4434,11 +5005,7 @@
    "tiles": [
     [
      13,
-     40
-    ],
-    [
-     14,
-     40
+     39
     ],
     [
      15,
@@ -4459,8 +5026,35 @@
     [
      19,
      40
+    ],
+    [
+     20,
+     40
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      13,
+      40
+     ],
+     [
+      13,
+      39
+     ]
+    ],
+    [
+     [
+      14,
+      40
+     ],
+     [
+      20,
+      40
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_SOLACEON_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_SOLACEON_TOWN_STATE",
@@ -4482,6 +5076,8 @@
      2
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_STARK_FORA_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_STARK_MOUNTAIN_OUTSIDE_STATE",
@@ -4500,11 +5096,7 @@
    "tiles": [
     [
      23,
-     7
-    ],
-    [
-     24,
-     7
+     3
     ],
     [
      25,
@@ -4517,8 +5109,35 @@
     [
      27,
      7
+    ],
+    [
+     28,
+     7
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      23,
+      7
+     ],
+     [
+      23,
+      3
+     ]
+    ],
+    [
+     [
+      24,
+      7
+     ],
+     [
+      28,
+      7
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_SUNYSHORE_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_SUNYSHORE_CITY_STATE",
@@ -4540,6 +5159,8 @@
      8
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_0",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x00",
@@ -4561,6 +5182,8 @@
      4
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_0",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x00",
@@ -4582,6 +5205,8 @@
      4
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_0",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x00",
@@ -4603,6 +5228,8 @@
      2
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_0",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x00",
@@ -4624,6 +5251,8 @@
      4
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_0",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x00",
@@ -4645,6 +5274,8 @@
      6
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_0",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x00",
@@ -4666,6 +5297,8 @@
      6
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_0",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x00",
@@ -4687,6 +5320,8 @@
      8
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_0",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x00",
@@ -4705,9 +5340,22 @@
    "tiles": [
     [
      13,
-     8
+     7
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      13,
+      8
+     ],
+     [
+      13,
+      7
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_0",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x00",
@@ -4753,6 +5401,8 @@
      2
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_TWINLEAF_GUITARRISTA",
    "var_alias": true,
    "var_fonte": "VAR_TWINLEAF_TOWN_GUITARIST_TRIGGER_STATE",
@@ -4774,6 +5424,8 @@
      11
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_TWINLEAF_RIVAL",
    "var_alias": true,
    "var_fonte": "VAR_TWINLEAF_TOWN_RIVAL_TRIGGER_STATE",
@@ -4795,6 +5447,8 @@
      8
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_CASA_JOGADOR_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_PLAYER_HOUSE_STATE",
@@ -4816,6 +5470,8 @@
      7
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_CASA_JOGADOR_RIVAL_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_PLAYER_HOUSE_RIVAL_STATE",
@@ -4837,6 +5493,8 @@
      7
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_CASA_JOGADOR_RIVAL_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_PLAYER_HOUSE_RIVAL_STATE",
@@ -4858,6 +5516,8 @@
      7
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_CASA_JOGADOR_RIVAL_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_PLAYER_HOUSE_RIVAL_STATE",
@@ -4879,6 +5539,8 @@
      7
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_CASA_JOGADOR_RIVAL_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_PLAYER_HOUSE_RIVAL_STATE",
@@ -4900,6 +5562,8 @@
      2
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_WINDWORKS_GALACTICA_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_VALLEY_WINDWORKS_TEAM_GALACTIC_STATE",
@@ -4918,17 +5582,50 @@
    "tiles": [
     [
      45,
-     54
+     53
     ],
     [
      45,
-     55
+     57
     ],
     [
      45,
-     56
+     58
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      45,
+      54
+     ],
+     [
+      45,
+      53
+     ]
+    ],
+    [
+     [
+      45,
+      55
+     ],
+     [
+      45,
+      57
+     ]
+    ],
+    [
+     [
+      45,
+      56
+     ],
+     [
+      45,
+      58
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_VALOR_BLOQUEIO_SUNYSHORE",
    "var_alias": true,
    "var_fonte": "VAR_VALOR_LAKEFRONT_BLOCK_SUNYSHORE_STATE",
@@ -4954,6 +5651,8 @@
      6
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_VEILSTONE_ARMAZEM_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_VEILSTONE_CITY_GALACTIC_WAREHOUSE_STATE",
@@ -4975,6 +5674,8 @@
      13
     ]
    ],
+   "tiles_movidos": [],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_VERITY_BEIRA_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_VERITY_LAKEFRONT_STATE",
@@ -4992,10 +5693,23 @@
    "script_fonte": 17,
    "tiles": [
     [
-     3,
+     4,
      4
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      3,
+      4
+     ],
+     [
+      4,
+      4
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_F",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x0F",
@@ -5013,10 +5727,23 @@
    "script_fonte": 18,
    "tiles": [
     [
-     3,
+     4,
      4
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      3,
+      4
+     ],
+     [
+      4,
+      4
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_F",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x0F",
@@ -5034,10 +5761,23 @@
    "script_fonte": 19,
    "tiles": [
     [
-     3,
+     4,
      4
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      3,
+      4
+     ],
+     [
+      4,
+      4
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_F",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x0F",
@@ -5055,10 +5795,23 @@
    "script_fonte": 20,
    "tiles": [
     [
-     3,
+     4,
      4
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      3,
+      4
+     ],
+     [
+      4,
+      4
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_TEMP_F",
    "var_alias": false,
    "var_fonte": "VAR_MAP_LOCAL_0x0F",
@@ -5076,10 +5829,23 @@
    "script_fonte": 43,
    "tiles": [
     [
-     4,
+     5,
      8
     ]
    ],
+   "tiles_movidos": [
+    [
+     [
+      4,
+      8
+     ],
+     [
+      5,
+      8
+     ]
+    ]
+   ],
+   "tiles_perdidos": [],
    "var": "VAR_SINNOH_VILLA_ESTADO",
    "var_alias": true,
    "var_fonte": "VAR_VILLA_STATE",
@@ -5089,12 +5855,14 @@
  ],
  "medido_em": "17/08/2026",
  "resumo": {
-  "adiados": 72,
+  "adiados": 73,
   "coord_events_da_fonte": 177,
-  "gatilhos": 105,
-  "mapas_com_gatilho": 53,
+  "gatilhos": 104,
+  "mapas_com_gatilho": 52,
   "span_bruto": 360,
-  "tiles_plantados": 201
+  "tiles_movidos": 53,
+  "tiles_perdidos": 3,
+  "tiles_plantados": 197
  },
  "tiles_empilhados": [
   {
@@ -5113,25 +5881,25 @@
     "JubilifeCity_EventScript_CoordEvent_LookerPalPad"
    ],
    "x": 65,
+   "y": 25
+  },
+  {
+   "mapa": "JubilifeCity",
+   "scripts": [
+    "JubilifeCity_EventScript_CoordEvent_LookerBlockRoute203",
+    "JubilifeCity_EventScript_CoordEvent_LookerPalPad"
+   ],
+   "x": 65,
+   "y": 26
+  },
+  {
+   "mapa": "JubilifeCity",
+   "scripts": [
+    "JubilifeCity_EventScript_CoordEvent_LookerBlockRoute203",
+    "JubilifeCity_EventScript_CoordEvent_LookerPalPad"
+   ],
+   "x": 66,
    "y": 22
-  },
-  {
-   "mapa": "JubilifeCity",
-   "scripts": [
-    "JubilifeCity_EventScript_CoordEvent_LookerBlockRoute203",
-    "JubilifeCity_EventScript_CoordEvent_LookerPalPad"
-   ],
-   "x": 65,
-   "y": 23
-  },
-  {
-   "mapa": "JubilifeCity",
-   "scripts": [
-    "JubilifeCity_EventScript_CoordEvent_LookerBlockRoute203",
-    "JubilifeCity_EventScript_CoordEvent_LookerPalPad"
-   ],
-   "x": 65,
-   "y": 24
   },
   {
    "mapa": "PastoriaCity",
@@ -5159,7 +5927,7 @@
     "Villa_EventScript_CoordEvent_Cynthia",
     "Villa_EventScript_CoordEvent_Fantina"
    ],
-   "x": 3,
+   "x": 4,
    "y": 4
   }
  ],

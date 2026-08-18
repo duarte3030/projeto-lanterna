@@ -1,12 +1,96 @@
+@ Contraparte (o rival de genero oposto ao do jogador) usa
+@ OBJ_EVENT_GFX_VAR_0 no map.json, e QUEM USA VAR_0 SETA A VAR NO PROPRIO
+@ ON_TRANSITION: assim o sprite nao depende do que outro mapa deixou na var
+@ (ela mora no save, e VAR_OBJ_GFX_ID_0 e compartilhada por todo mundo).
+@ Mesmo mecanismo de LakeVerity, SandgemTown e Route202, e os mesmos dois
+@ sprites: escolher no meio da cena, como estava aqui, so acertava na
+@ primeira vez e ainda usava OBJ_EVENT_GFX_PLAYER_M/F, que e o sprite do
+@ jogador, nao o do rival.
 Route207_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Route207_OnTransition
 	.byte 0
 
-@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
-Route207_EventScript_CoordEvent_Counterpart::
-	@ TODO S4: cena da fonte, rotulo Route207_CoordEvent_Counterpart
+Route207_OnTransition::
+	checkplayergender
+	goto_if_eq VAR_RESULT, MALE, Route207_SetCounterpartFemale
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL
 	end
 
-@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+Route207_SetCounterpartFemale::
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL
+	end
+
+@ >>> B6 Sinnoh S4: cena da fonte, rotulo Route207_CoordEvent_Counterpart >>>
+@ O "counterpart" (DAWN/LUCAS, sexo oposto ao do jogador) surge uma unica vez
+@ e da o VS SEEKER. Fonte tambem da o app de Pokétch Dowsing Machine: caindo,
+@ decisao 3 do plano (Pokétch nao existe aqui). VS Seeker em si existe
+@ (ITEM_VS_SEEKER); a parte "nivel de carga" (FLAG_UNLOCKED_VS_SEEKER_LVL_1)
+@ nao existe neste motor (I_VS_SEEKER_CHARGING = 0 em include/config/item.h,
+@ mecanica desligada globalmente), entao so o giveitem entra.
+@ O sprite da contraparte sai do ON_TRANSITION deste mapa (topo do arquivo),
+@ nao daqui.
+Route207_EventScript_CoordEvent_Counterpart::
+	lockall
+	clearflag FLAG_SINNOH_ESCONDE_ROUTE_207_COUNTERPART
+	addobject LOCALID_ROUTE207_COUNTERPART
+	applymovement LOCALID_ROUTE207_COUNTERPART, Route207_Movement_CounterpartNoticePlayer
+	waitmovement 0
+	applymovement LOCALID_ROUTE207_COUNTERPART, Route207_Movement_CounterpartWalkToPlayer
+	waitmovement 0
+	msgbox Route207_Text_CounterpartChooseAHand, MSGBOX_DEFAULT
+	msgbox Route207_Text_CounterpartYouWantTheVsSeeker, MSGBOX_DEFAULT
+	giveitem ITEM_VS_SEEKER
+	msgbox Route207_Text_CounterpartHaveThisTooThen, MSGBOX_DEFAULT
+	applymovement LOCALID_ROUTE207_COUNTERPART, Route207_Movement_CounterpartLeave
+	waitmovement 0
+	setflag FLAG_SINNOH_ESCONDE_ROUTE_207_COUNTERPART
+	removeobject LOCALID_ROUTE207_COUNTERPART
+	setvar VAR_SINNOH_R207_COMPANHEIRO_ESTADO, 1
+	releaseall
+	end
+
+Route207_Movement_CounterpartNoticePlayer:
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	emote_exclamation_mark
+	step_end
+
+Route207_Movement_CounterpartWalkToPlayer:
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	step_end
+
+Route207_Movement_CounterpartLeave:
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	step_end
+
+Route207_Text_CounterpartChooseAHand:
+	.string "{PLAYER}! Fancy meeting you here!\p"
+	.string "Hey, choose a hand!\n"
+	.string "Which one has something in it?$"
+
+Route207_Text_CounterpartYouWantTheVsSeeker:
+	.string "Ah, you got it!\p"
+	.string "You want the VS SEEKER, right?\n"
+	.string "Take it, take it!$"
+
+Route207_Text_CounterpartHaveThisTooThen:
+	.string "Here, have this too!\p"
+	.string "The VS SEEKER lets you check if\n"
+	.string "Trainers you've beaten want a\l"
+	.string "rematch. Use it often!$"
+@ <<< B6 Sinnoh S4: cena da fonte <<<
 
 Route207_EventScript_Trainer1::
 	trainerbattle_single TRAINER_SINNOH_CAMPER_ANTHONY, Route207_Text_Trainer1Intro, Route207_Text_Trainer1Defeat

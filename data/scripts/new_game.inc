@@ -141,6 +141,48 @@ EventScript_ResetAllMapFlags::
 	@ cada uma: o grunt da bomba de Celestic e o ON_TRANSITION do Lago Acuity.
 	setflag FLAG_CELESTIC_CYNTHIA_ESCONDIDA
 	setflag FLAG_ESCONDE_LAGO_ACUITY
+	@ Sinnoh, bloco B6, leva S4 (dev_scripts/maquina_sinnoh.json): NPC de
+	@ emboscada de uma vez so, nasce escondido e a propria cena revela/some.
+	@ Mesmo padrao das duas linhas acima; ver PLANO-OBRAS-SINNOH.md.
+	setflag FLAG_SINNOH_ESCONDE_ROUTE_203_RIVAL
+	setflag FLAG_SINNOH_ESCONDE_OREBURGH_CITY_RIVAL
+	setflag FLAG_SINNOH_ESCONDE_ROUTE_207_COUNTERPART
+	setflag FLAG_SINNOH_ESCONDE_ROUTE_205_SOUTH_LITTLE_GIRL
+	setflag FLAG_SINNOH_ESCONDE_ROUTE_205_SOUTH_YOUNGSTER
+	setflag FLAG_SINNOH_ESCONDE_JUBILIFE_CITY_COUNTERPART
+	@ Leva S3 (arco de abertura), mesmo padrao das linhas acima: cada um
+	@ destes seis tem `clearflag` + `addobject` DENTRO da cena que o traz para
+	@ o mapa, e flag de jogo novo nasce apagada. Sem estas linhas o objeto ja
+	@ estava plantado no mapa antes da sua deixa, e o `clearflag` da cena
+	@ virava linha morta.
+	@ Quem apaga cada um, conferido rotulo a rotulo:
+	@   TwinleafTown/scripts.inc:18 (o rival sai batendo a porta);
+	@   TwinleafTown_MainHouse_2F/scripts.inc:35 (rival no quarto; a mesma
+	@     cena volta a acender em :49, e a fonte tambem o esconde no jogo
+	@     novo, scripts_init_new_game.s:8);
+	@   LakeVerity/scripts.inc:141-142 (ROWAN e a contraparte chegam quando a
+	@     MARS sai);
+	@   SandgemTown_RowanLab/scripts.inc:141-142 (OAK e a contraparte
+	@     aparecem junto com a Pokedex; a fonte esconde o OAK no jogo novo,
+	@     scripts_init_new_game.s:27).
+	setflag FLAG_SINNOH_ESCONDE_TWINLEAF_TOWN_RIVAL
+	setflag FLAG_SINNOH_ESCONDE_TWINLEAF_TOWN_PLAYER_HOUSE_2F_RIVAL
+	setflag FLAG_SINNOH_ESCONDE_LAKE_VERITY_PROF_ROWAN
+	setflag FLAG_SINNOH_ESCONDE_LAKE_VERITY_COUNTERPART
+	setflag FLAG_SINNOH_ESCONDE_SANDGEM_TOWN_LAB_PROF_OAK
+	setflag FLAG_SINNOH_ESCONDE_SANDGEM_TOWN_LAB_COUNTERPART
+	@ FICAM DE FORA, de proposito, as contrapartes de Route202 e de Sandgem
+	@ Town: a fonte NAO as esconde no jogo novo (nenhum SetFlag de
+	@ FLAG_HIDE_ROUTE_202_COUNTERPART nem de FLAG_HIDE_SANDGEM_TOWN_COUNTERPART
+	@ existe em res/ inteiro; so ClearFlag, no reveza-mapa da fonte), e as
+	@ duas cenas daqui contam com o objeto JA visivel (nenhuma faz clearflag
+	@ nem addobject). Esconder no jogo novo apagaria as duas para sempre.
+	@ Elas somem uma unica vez, no fecho da propria cena.
+	@ Sinnoh, leva S4: estado inicial de var que a fonte grava no jogo novo
+	@ (scripts_init_new_game.s:53). O andarilho do portao de Oreburgh so da a
+	@ HM de Rock Smash com a var em 1, e o unico setvar dela na arvore e o 2
+	@ do fim da propria cena: sem esta linha o presente era inalcancavel.
+	setvar VAR_SINNOH_OREBURGH_PORTAO_ANDARILHO, 1
 	setflag FLAG_HIDE_CONTEST_POKE_BALL
 	setflag FLAG_HIDE_ROUTE_111_VICTORIA_WINSTRATE
 	setflag FLAG_HIDE_ROUTE_111_VIVI_WINSTRATE

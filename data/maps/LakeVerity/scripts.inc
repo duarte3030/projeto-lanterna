@@ -1,5 +1,20 @@
+@ Contraparte (o rival de genero oposto ao jogador, mesmo truque do Battle
+@ Frontier em VAR_OBJ_GFX_ID_0) so aparece depois que a Mars cai; escolher o
+@ sprite a cada entrada no mapa e barato e evita saber o genero na hora do
+@ addobject.
 LakeVerity_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, LakeVerity_OnTransition
 	.byte 0
+
+LakeVerity_OnTransition::
+	checkplayergender
+	goto_if_eq VAR_RESULT, MALE, LakeVerity_SetCounterpartFemale
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL
+	end
+
+LakeVerity_SetCounterpartFemale::
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL
+	end
 
 LakeVerity_EventScript_Fisherman::
 	msgbox LakeVerity_Text_Fisherman, MSGBOX_NPC
@@ -106,6 +121,11 @@ LakeVerity_EventScript_Mars::
 	trainerbattle_single TRAINER_SINNOH_COMMANDER_MARS_LAKE_VERITY, LakeVerity_Text_CenaMarsIntro, LakeVerity_Text_CenaMarsDefeat, LakeVerity_EventScript_MarsBeaten
 	end
 
+@ Rowan e a contraparte (hidden_flag da fonte, FLAG_HIDE_LAKE_VERITY_PROF_
+@ ROWAN/_COUNTERPART) chegam correndo assim que a Galactica sai, preocupados
+@ com o alvoroco: mesmo batimento da fonte (LakeVerity_SetPositionsAfter
+@ TeamGalactic + a fala de Rowan sobre o Lago Acuity), sem o gancho para o
+@ Lago Acuity em si (leva S6, fora daqui).
 LakeVerity_EventScript_MarsBeaten::
 	msgbox LakeVerity_Text_CenaPullingOut, MSGBOX_DEFAULT
 	msgbox LakeVerity_Text_CenaAllLakePokemon, MSGBOX_DEFAULT
@@ -118,9 +138,37 @@ LakeVerity_EventScript_MarsBeaten::
 	removeobject LOCALID_LAKE_VERITY_TRAINER3
 	removeobject LOCALID_LAKE_VERITY_TRAINER4
 	removeobject LOCALID_LAKE_VERITY_GRUNT_M
+	clearflag FLAG_SINNOH_ESCONDE_LAKE_VERITY_PROF_ROWAN
+	clearflag FLAG_SINNOH_ESCONDE_LAKE_VERITY_COUNTERPART
+	addobject LOCALID_LAKE_VERITY_PROF_ROWAN
+	addobject LOCALID_LAKE_VERITY_COUNTERPART
 	fadescreen FADE_FROM_BLACK
+	msgbox LakeVerity_Text_RowanWhatHappened, MSGBOX_DEFAULT
 	release
 	end
+
+LakeVerity_EventScript_ProfRowan::
+	msgbox LakeVerity_Text_RowanWorriedAboutOtherLakes, MSGBOX_NPC
+	end
+
+LakeVerity_EventScript_Counterpart::
+	msgbox LakeVerity_Text_CounterpartWorried, MSGBOX_NPC
+	end
+
+LakeVerity_Text_RowanWhatHappened:
+	.string "ROWAN: What in the world happened\n"
+	.string "here?\p"
+	.string "This lake's Pokémon... Team Galactic\n"
+	.string "must have taken it.$"
+
+LakeVerity_Text_RowanWorriedAboutOtherLakes:
+	.string "ROWAN: If they took the Pokémon from\n"
+	.string "this lake, the other lakes may be in\l"
+	.string "danger too.$"
+
+LakeVerity_Text_CounterpartWorried:
+	.string "I hope the Pokémon at the other\n"
+	.string "lakes are all right...$"
 
 LakeVerity_Text_CenaAllLakePokemon:
 	.string "The Pokémon of the three lakes are\nconnected somehow.\pThanks to Saturn's grandstanding at\nLake Valor, a cavern appeared here.\pIt was the cavern where the Pokémon\nMESPRIT slept.\pMESPRIT appeared, too, probably to\ngo help its friends.\pThat worked out well for us.\nIt was super easy to catch.\pSo, now we've got them all:\nMESPRIT, 'The Being of Emotion.'\pAZELF, 'The Being of Willpower.'\pUXIE, 'The Being of Intelligence.'\pNow that we have them all...\pYou can look forward to what plans\nTeam Galactic has for them!$"

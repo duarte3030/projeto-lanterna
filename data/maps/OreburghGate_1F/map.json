@@ -71,6 +71,7 @@
       "origem": "pokeplatinum"
     },
     {
+      "local_id": "LOCALID_OREBURGH_GATE_1F_HIKER_3",
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
       "x": 7,
       "y": 20,

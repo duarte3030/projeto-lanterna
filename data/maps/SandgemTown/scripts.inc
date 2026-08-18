@@ -3,12 +3,83 @@
 @ (lista "falas_em_ingles" vazia); falas abaixo escritas no mesmo tom da regiao.
 
 SandgemTown_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, SandgemTown_OnTransition
 	.byte 0
 
-@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
-SandgemTown_EventScript_CoordEvent_CounterpartLeadToLab::
-	@ TODO S3: cena da fonte, rotulo SandgemTown_CoordEvent_CounterpartLeadToLab
+SandgemTown_OnTransition::
+	checkplayergender
+	goto_if_eq VAR_RESULT, MALE, SandgemTown_SetCounterpartFemale
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL
 	end
+
+SandgemTown_SetCounterpartFemale::
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL
+	end
+
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ Fonte: SandgemTown_CoordEvent_CounterpartLeadToLab. A contraparte nota o
+@ jogador e leva ate a porta do laboratorio, avisando que o professor esta
+@ esperando.
+@
+@ ponytail, cortado da fonte: o "big thud" do rival saindo do laboratorio
+@ (SandgemTown_RivalExitLab) e o presente do TM27 (SandgemTown_OnFrame_
+@ ExitLab) nao entram. O RIVAL desta cidade ja e um objeto sempre visivel
+@ (LOCALID_SANDGEM_RIVAL, flag "0", plantado antes desta leva); repetir o
+@ hidden_flag FLAG_HIDE_SANDGEM_TOWN_RIVAL duplicaria o mesmo personagem no
+@ mapa. E o proprio ROWAN ja entrega a escolha do inicial inteira, sozinha e
+@ testada, dentro de SandgemTown_RowanLab (sem contraparte, sem TM). Reabrir
+@ a "excursao pela cidade" da fonte (PokeCenter/Mart, contraparte saindo da
+@ cidade) duplicaria conteudo que ja funciona e nao tem var aliasada para o
+@ estado seguinte. FLAG_HIDE_SANDGEM_TOWN_RIVAL e FLAG_HIDE_SANDGEM_TOWN_
+@ PROF_ROWAN ficam SEM objeto plantado por isso (reportado, nao inventado).
+SandgemTown_EventScript_CoordEvent_CounterpartLeadToLab::
+	lockall
+	applymovement LOCALID_SANDGEM_COUNTERPART, SandgemTown_Movement_CounterpartNoticePlayer
+	waitmovement 0
+	checkplayergender
+	goto_if_eq VAR_RESULT, MALE, SandgemTown_EventScript_DawnProfessorWaiting
+	msgbox SandgemTown_Text_LucasTheProfsWaitingToSeeYou, MSGBOX_DEFAULT
+	goto SandgemTown_EventScript_CounterpartWalkToLab
+
+SandgemTown_EventScript_DawnProfessorWaiting::
+	msgbox SandgemTown_Text_DawnTheProfessorIsWaiting, MSGBOX_DEFAULT
+
+SandgemTown_EventScript_CounterpartWalkToLab::
+	applymovement LOCALID_SANDGEM_COUNTERPART, SandgemTown_Movement_CounterpartWalkToLab
+	waitmovement 0
+	@ `set_invisible` no fim do movimento so apaga o sprite ate a proxima
+	@ entrada no mapa: sem esta dupla a contraparte reaparecia andando na
+	@ praca toda vez que o jogador voltasse. A flag e a do proprio
+	@ object_event (FLAG_HIDE_SANDGEM_TOWN_COUNTERPART na fonte). Mesma nota
+	@ de Route202: a fonte nao acende porque la ela volta pelo reveza-mapa da
+	@ cena de PokeRadar, que e Poketch e nao existe aqui (decisao 3).
+	setflag FLAG_SINNOH_ESCONDE_SANDGEM_TOWN_COUNTERPART
+	removeobject LOCALID_SANDGEM_COUNTERPART
+	setvar VAR_SINNOH_SANDGEM_ESTADO, 1
+	releaseall
+	end
+
+	.balign 4, 0
+SandgemTown_Movement_CounterpartNoticePlayer:
+	emote_exclamation_mark
+	step_end
+
+	.balign 4, 0
+SandgemTown_Movement_CounterpartWalkToLab:
+	walk_up
+	walk_up
+	set_invisible
+	step_end
+
+SandgemTown_Text_DawnTheProfessorIsWaiting:
+	.string "{RIVAL}: Oh! There you are!\n"
+	.string "Please, come with me!\p"
+	.string "The professor is waiting!$"
+
+SandgemTown_Text_LucasTheProfsWaitingToSeeYou:
+	.string "{RIVAL}: Hi! I've been waiting for you!\n"
+	.string "Please, come with me.\p"
+	.string "The prof's waiting to see you.$"
 
 @ <<< B6 Sinnoh S1: esqueletos de cena <<<
 

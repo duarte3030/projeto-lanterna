@@ -33,7 +33,7 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 3,
+      "x": 4,
       "y": 4,
       "elevation": 0,
       "var": "VAR_TEMP_F",
@@ -42,7 +42,7 @@
     },
     {
       "type": "trigger",
-      "x": 4,
+      "x": 5,
       "y": 8,
       "elevation": 0,
       "var": "VAR_SINNOH_VILLA_ESTADO",

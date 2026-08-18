@@ -2,16 +2,70 @@ Route205_South_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route205_South_OnTransition
 	.byte 0
 
-@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
-Route205_South_EventScript_CoordEvent_Grunts::
-	@ TODO S4: cena da fonte, rotulo Route205South_CoordEvent_Grunts
-	end
+@ >>> B6 Sinnoh S4: cena da fonte >>>
 
+@ rotulo da fonte: Route205South_CoordEvent_LittleGirl
+@ Uma garota (LOCALID_ROUTE205_SOUTH_LITTLE_GIRL, sprite TWIN) procura o pai
+@ perto da usina. Fica visivel depois do primeiro encontro (fonte tambem nao
+@ some ela aqui, so no reencontro dentro de ValleyWindworksBuilding, que esta
+@ BLOQUEADO por conflito com S2, ver comentario la); ate isso ser resolvido
+@ ela so fica de pe na rota, sem quebrar nada.
 Route205_South_EventScript_CoordEvent_LittleGirl::
-	@ TODO S4: cena da fonte, rotulo Route205South_CoordEvent_LittleGirl
+	lockall
+	clearflag FLAG_SINNOH_ESCONDE_ROUTE_205_SOUTH_LITTLE_GIRL
+	addobject LOCALID_ROUTE205_SOUTH_LITTLE_GIRL
+	applymovement LOCALID_ROUTE205_SOUTH_LITTLE_GIRL, Route205_South_Movement_LittleGirlNoticePlayer
+	waitmovement 0
+	msgbox Route205_South_Text_HelpIWantToSeeMyPapa, MSGBOX_DEFAULT
+	setvar VAR_SINNOH_WINDWORKS_ESTADO, 1
+	releaseall
 	end
 
-@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+Route205_South_EventScript_LittleGirlTalk::
+	msgbox Route205_South_Text_IWantToSeeMyPapa, MSGBOX_NPC
+	end
+
+Route205_South_Movement_LittleGirlNoticePlayer:
+	emote_exclamation_mark
+	step_end
+
+Route205_South_Text_HelpIWantToSeeMyPapa:
+	.string "Help! I can't find my papa\n"
+	.string "anywhere!\p"
+	.string "He was headed for the Valley\n"
+	.string "Windworks, but some scary people\l"
+	.string "in uniforms won't let anyone in.$"
+
+Route205_South_Text_IWantToSeeMyPapa:
+	.string "I just want to see my papa\n"
+	.string "again…$"
+
+@ rotulo da fonte: Route205South_CoordEvent_Grunts
+@ Reforco do aviso antes de chegar nos grunts de verdade (LOCALID_ROUTE205_
+@ SOUTH_GRUNT_EAST/WEST, ja plantados pelo S2 com FLAG_GALACTICA_WINDWORKS).
+@ Nao cria bloqueio novo, so avisa uma vez; setvar evita repetir.
+Route205_South_EventScript_CoordEvent_Grunts::
+	lockall
+	msgbox Route205_South_Text_Grunt, MSGBOX_DEFAULT
+	setvar VAR_SINNOH_WINDWORKS_ESTADO, 2
+	releaseall
+	end
+
+@ NPC mudo com hidden_flag na fonte (LOCALID_YOUNGSTER, FLAG_HIDE_ROUTE_205_
+@ SOUTH_YOUNGSTER): so aparecia depois da MARS cair, dentro de
+@ ValleyWindworksBuilding (bloqueado, ver comentario la). Nasce escondido
+@ (new_game.inc) e fica assim ate o bloqueio se resolver; sem isso ele nunca
+@ atrapalha o mapa.
+Route205_South_EventScript_HiddenYoungsterTalk::
+	msgbox Route205_South_Text_SlatherHoneyOnATree, MSGBOX_NPC
+	end
+
+Route205_South_Text_SlatherHoneyOnATree:
+	.string "If you slather sweet Honey on a\n"
+	.string "sweet-smelling tree…\p"
+	.string "Pokémon may be attracted by that\n"
+	.string "sweet scent.$"
+@ <<< B6 Sinnoh S4: cena da fonte <<<
 
 @ ponytail: a cena e a flag sao a mesma coisa. Os dois grunts que bloqueiam o
 @ caminho (LOCALID_GRUNT_M_EAST/WEST na fonte, hidden_flag

@@ -2,25 +2,170 @@
 @ ver Pokemon Claude/SINNOH-PADRAO.md antes de escrever qualquer script novo.
 @ Textos vindos de pret/pokeplatinum, em ingles, como o resto do jogo.
 
+@ Contraparte (o rival de genero oposto ao do jogador) usa
+@ OBJ_EVENT_GFX_VAR_0 no map.json, e QUEM USA VAR_0 SETA A VAR NO PROPRIO
+@ ON_TRANSITION: assim o sprite nao depende do que outro mapa deixou na var
+@ (ela mora no save, e VAR_OBJ_GFX_ID_0 e compartilhada por todo mundo).
+@ Mesmo mecanismo de LakeVerity, SandgemTown e Route202, e os mesmos dois
+@ sprites: escolher no meio da cena, como estava aqui, so acertava na
+@ primeira vez e ainda usava OBJ_EVENT_GFX_PLAYER_M/F, que e o sprite do
+@ jogador, nao o do rival.
 JubilifeCity_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, JubilifeCity_OnTransition
 	.byte 0
 
+JubilifeCity_OnTransition::
+	checkplayergender
+	goto_if_eq VAR_RESULT, MALE, JubilifeCity_SetCounterpartFemale
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL
+	end
+
+JubilifeCity_SetCounterpartFemale::
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL
+	end
+
 @ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ rotulo da fonte: JubilifeCity_CoordEvent_FirstArrival
+@ Simplificacao anotada: a fonte manda o counterpart e o jogador andarem
+@ juntos ate avistar o LOOKER (sem sprite aqui, ver comentario acima) e
+@ depois ate a escola e de volta, tudo em ApplyMovement do JOGADOR por varios
+@ tiles (risco de waitmovement travado sem map.bin conferido, mesma regra de
+@ CianwoodCity_EventScript_SuicuneTrigger). Cortado: fica so o encontro com o
+@ counterpart (saudacao + comentario do tamanho do time, conteudo real,
+@ GetPartySize de verdade) e a mencao ao LOOKER de passagem, sem objeto nem
+@ caminhada roteirizada. VS Recorder da fonte nao existe aqui (nenhum
+@ ITEM_VS_RECORDER), caiu junto.
+@ O sprite da contraparte sai do ON_TRANSITION deste mapa (topo do arquivo),
+@ nao daqui.
 JubilifeCity_EventScript_CoordEvent_FirstArrival::
-	@ TODO S4: cena da fonte, rotulo JubilifeCity_CoordEvent_FirstArrival
+	lockall
+	clearflag FLAG_SINNOH_ESCONDE_JUBILIFE_CITY_COUNTERPART
+	addobject LOCALID_JUBILIFE_COUNTERPART
+	applymovement LOCALID_JUBILIFE_COUNTERPART, JubilifeCity_Movement_CounterpartNoticePlayerFirstArrival
+	waitmovement 0
+	applymovement LOCALID_JUBILIFE_COUNTERPART, JubilifeCity_Movement_CounterpartWalkToPlayerFirstArrival
+	waitmovement 0
+	msgbox JubilifeCity_Text_CounterpartAreYouCatchingPokemon, MSGBOX_DEFAULT
+	getpartysize
+	compare VAR_RESULT, 4
+	goto_if_ge JubilifeCity_EventScript_CounterpartAtLeastFour
+	msgbox JubilifeCity_Text_CounterpartSaferIfYouCatchMore, MSGBOX_DEFAULT
+	goto JubilifeCity_EventScript_FirstArrivalLookerMention
+
+JubilifeCity_EventScript_CounterpartAtLeastFour::
+	msgbox JubilifeCity_Text_CounterpartWowAlreadyGotXPokemon, MSGBOX_DEFAULT
+
+JubilifeCity_EventScript_FirstArrivalLookerMention::
+	msgbox JubilifeCity_Text_CounterpartMentionsLooker, MSGBOX_DEFAULT
+	applymovement LOCALID_JUBILIFE_COUNTERPART, JubilifeCity_Movement_CounterpartLeaveFirstArrival
+	waitmovement 0
+	setflag FLAG_SINNOH_ESCONDE_JUBILIFE_CITY_COUNTERPART
+	removeobject LOCALID_JUBILIFE_COUNTERPART
+	setvar VAR_SINNOH_JUBILIFE_ESTADO, 1
+	releaseall
 	end
 
+JubilifeCity_Movement_CounterpartNoticePlayerFirstArrival:
+	emote_exclamation_mark
+	step_end
+
+JubilifeCity_Movement_CounterpartWalkToPlayerFirstArrival:
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+JubilifeCity_Movement_CounterpartLeaveFirstArrival:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+JubilifeCity_Text_CounterpartAreYouCatchingPokemon:
+	.string "Hi, {PLAYER}! Are you catching\n"
+	.string "Pokémon?$"
+
+JubilifeCity_Text_CounterpartWowAlreadyGotXPokemon:
+	.string "Wow! You've already got some\n"
+	.string "Pokémon with you!\p"
+	.string "At that pace, your Pokédex\n"
+	.string "should be full in no time!$"
+
+JubilifeCity_Text_CounterpartSaferIfYouCatchMore:
+	.string "…Um…\p"
+	.string "I think you'd feel a lot safer if\n"
+	.string "you were to catch some more.$"
+
+JubilifeCity_Text_CounterpartMentionsLooker:
+	.string "By the way, keep an eye out. I saw\n"
+	.string "a strange man in a coat asking\l"
+	.string "around town about something.\p"
+	.string "Anyway, I'll see you around!$"
+
+@ rotulo da fonte: JubilifeCity_CoordEvent_LookerBlockRoute203
+@ Na fonte o LOOKER (sem sprite aqui, ver NOMES_PROPRIOS em
+@ dev_scripts/importa_npcs_sinnoh.py; nenhuma troca em TROCA_SPRITE) fecha
+@ fisicamente a passagem para Route203 ate o jogador visitar a escola E
+@ obter Poketch. Poketch nao existe (decisao 3). BLOQUEAR o caminho principal
+@ por uma mecanica que nunca destrava travaria o jogo para sempre, entao a
+@ trava NAO entra (prioridade de seguranca sobre fidelidade). "a fala fica"
+@ (instrucao do plano): a fala sem o corpo do bloqueio, uma vez, sem NPC
+@ visivel (sem sprite pra por na cena).
 JubilifeCity_EventScript_CoordEvent_LookerBlockRoute203::
-	@ TODO S4: cena da fonte, rotulo JubilifeCity_CoordEvent_LookerBlockRoute203
+	lockall
+	msgbox JubilifeCity_Text_HelloHaveYouVisitedTrainersSchool, MSGBOX_DEFAULT
+	setvar VAR_SINNOH_JUBILIFE_ESTADO, 3
+	releaseall
 	end
 
+@ rotulo da fonte: JubilifeCity_CoordEvent_LookerPalPad
+@ O resto desta cena e Pal Pad/GTS puro (decisao 3, plano explicito: "o que
+@ for de Pal Pad/GTS dentro dela e descartado com comentario, a fala fica").
+@ Sem sprite do Looker (mesma nota acima) so a fala de despedida do
+@ investigador entra, sem objeto.
 JubilifeCity_EventScript_CoordEvent_LookerPalPad::
-	@ TODO S4: cena da fonte, rotulo JubilifeCity_CoordEvent_LookerPalPad
+	lockall
+	msgbox JubilifeCity_Text_TakeInvestigationElsewhere, MSGBOX_DEFAULT
+	setvar VAR_SINNOH_JUBILIFE_LOOKER_ESTADO, 2
+	releaseall
 	end
 
+@ rotulo da fonte: JubilifeCity_CoordEvent_TeamGalactic
+@ CONFERIDO ANTES DE ESCREVER (regra da fila): esta cena, na fonte, e o
+@ confronto dos 2 grunts com o Prof. Rowan na porta da escola, RESOLVIDO EM
+@ TAG BATTLE com o counterpart. Ja existe versao completa e funcionando mais
+@ abaixo neste arquivo (JubilifeCity_EventScript_Rowan/GalacticGrunt1/
+@ GalacticGrunt2/GalacticRetreats, leva anterior S2): fala por fala,
+@ TRAINER_SINNOH_GALACTIC_GRUNT_JUBILIFE_CITY_1/2, LOCALID_JUBILIFE_ROWAN ja
+@ plantado, FLAG_GALACTICA_JUBILIFE ja reservada para exatamente este momento
+@ (flags.h: "Rowan e os dois grunts em Jubilife"). So que la e por TALK
+@ (o jogador anda ate os grunts), aqui seria por COORD_EVENT (emboscada
+@ forcada em tag battle com o counterpart). Escrever os dois duplicaria a
+@ mesma dupla de treinadores em dois mecanismos (contra a regra de id de
+@ treinador nao repetir em cena). Nao escrevi a emboscada de novo: so
+@ avanco a var pra quem depender dela nao travar, a cena de verdade e a do
+@ S2.
 JubilifeCity_EventScript_CoordEvent_TeamGalactic::
-	@ TODO S4: cena da fonte, rotulo JubilifeCity_CoordEvent_TeamGalactic
+	lockall
+	setvar VAR_SINNOH_JUBILIFE_ESTADO, 3
+	releaseall
 	end
+
+JubilifeCity_Text_HelloHaveYouVisitedTrainersSchool:
+	.string "Hello, my friend. Have you visited\n"
+	.string "the Trainers' School?\p"
+	.string "Did your friend not guide you\n"
+	.string "there earlier?$"
+
+JubilifeCity_Text_TakeInvestigationElsewhere:
+	.string "Anyway, there appears to be no one\n"
+	.string "shady in this Jubilife City.\p"
+	.string "I shall therefore take my\n"
+	.string "investigation elsewhere.\p"
+	.string "But, my friend, I suggest you\n"
+	.string "remain vigilant for shady\l"
+	.string "grown-ups!$"
 
 @ <<< B6 Sinnoh S1: esqueletos de cena <<<
 

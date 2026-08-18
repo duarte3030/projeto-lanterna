@@ -214,7 +214,7 @@
     {
       "type": "trigger",
       "x": 23,
-      "y": 7,
+      "y": 3,
       "elevation": 0,
       "var": "VAR_SINNOH_SUNYSHORE_ESTADO",
       "var_value": "2",
@@ -222,7 +222,7 @@
     },
     {
       "type": "trigger",
-      "x": 24,
+      "x": 28,
       "y": 7,
       "elevation": 0,
       "var": "VAR_SINNOH_SUNYSHORE_ESTADO",
