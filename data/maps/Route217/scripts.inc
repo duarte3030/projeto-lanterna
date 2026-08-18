@@ -2,8 +2,21 @@ Route217_MapScripts::
 	.byte 0
 
 @ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ BLOQUEADO (S6, 18/08/2026). Route217_CoordEvent_Maylene (script 4) e so
+@ dialogo (a lider do ginasio de Veilstone cruzando a Route 217 a pe rumo a
+@ Snowpoint, sem batalha), mas precisa de LOCALID_MAYLENE novo e a fonte
+@ esconde ele por FLAG_HIDE_ROUTE_217_MAYLENE. Essa flag NAO esta no censo
+@ do S1 (`python3 -c` em dev_scripts/maquina_sinnoh.json e fila_b6.json: zero
+@ ocorrencias de MAYLENE), diferente de todo o resto dos 247 grupos de
+@ hidden_flag; a leitura mais provavel e que o gerador excluiu de proposito
+@ objeto de lider de ginasio (mesma familia do time/batalha, decisao 2 do
+@ Gui, fora desta obra). Trazer o objeto sem flag autorizada plantava
+@ bloqueio permanente (regra do plano) ou obrigava a inventar flag fora do
+@ orcamento. Fecho tambem cortado por seguranca: a fonte termina com SetFlag
+@ FLAG_HIDE_VEILSTONE_CITY_GYM_MAYLENE (evento de OUTRO mapa, VeilstoneCity_
+@ Gym, fora do meu escopo nesta leva). Volta ao plano para autorizacao da
+@ flag antes de escrever.
 Route217_EventScript_CoordEvent_Maylene::
-	@ TODO S6: cena da fonte, rotulo Route217_CoordEvent_Maylene
 	end
 
 @ <<< B6 Sinnoh S1: esqueletos de cena <<<

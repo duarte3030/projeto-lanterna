@@ -47462,6 +47462,240 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 - Tackle
 - Withdraw
 
+=== TRAINER_SINNOH_RIVAL_ROUTE_209_TURTWIG ===
+Name: Cedric
+Class: TRAINER_CLASS_RIVAL
+Pic: TRAINER_PIC_RIVAL_EARLY_FRLG
+Gender: Male
+Double Battle: No
+
+Staravia
+Level: 165
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Wing Attack
+- Quick Attack
+- Endeavor
+- Double Team
+
+Buizel
+Level: 163
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Water Gun
+- Quick Attack
+- Pursuit
+- Growl
+
+Roselia
+Level: 163
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Mega Drain
+- Poison Sting
+- Leech Seed
+- Stun Spore
+
+Monferno
+Level: 167
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Flame Wheel
+- Mach Punch
+- Fury Swipes
+- Leer
+
+=== TRAINER_SINNOH_RIVAL_ROUTE_209_CHIMCHAR ===
+Name: Cedric
+Class: TRAINER_CLASS_RIVAL
+Pic: TRAINER_PIC_RIVAL_EARLY_FRLG
+Gender: Male
+Double Battle: No
+
+Staravia
+Level: 165
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Wing Attack
+- Quick Attack
+- Endeavor
+- Double Team
+
+Roselia
+Level: 163
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Mega Drain
+- Poison Sting
+- Leech Seed
+- Stun Spore
+
+Ponyta
+Level: 163
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Ember
+- Tackle
+- Tail Whip
+- Growl
+
+Prinplup
+Level: 167
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Bubble Beam
+- Peck
+- Metal Claw
+- Growl
+
+=== TRAINER_SINNOH_RIVAL_ROUTE_209_PIPLUP ===
+Name: Cedric
+Class: TRAINER_CLASS_RIVAL
+Pic: TRAINER_PIC_RIVAL_EARLY_FRLG
+Gender: Male
+Double Battle: No
+
+Staravia
+Level: 165
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Wing Attack
+- Quick Attack
+- Endeavor
+- Double Team
+
+Buizel
+Level: 163
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Water Gun
+- Quick Attack
+- Pursuit
+- Growl
+
+Ponyta
+Level: 163
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Ember
+- Tackle
+- Tail Whip
+- Growl
+
+Grotle
+Level: 167
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Razor Leaf
+- Tackle
+- Absorb
+- Withdraw
+
+=== TRAINER_SINNOH_RIVAL_PASTORIA_TURTWIG ===
+Name: Cedric
+Class: TRAINER_CLASS_RIVAL
+Pic: TRAINER_PIC_RIVAL_EARLY_FRLG
+Gender: Male
+Double Battle: No
+
+Staravia
+Level: 172
+IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+- Wing Attack
+- Quick Attack
+- Endeavor
+- Double Team
+
+Buizel
+Level: 172
+IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+- Aqua Jet
+- Quick Attack
+- Pursuit
+- Growl
+
+Roselia
+Level: 172
+IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+- Mega Drain
+- Poison Sting
+- Leech Seed
+- Magical Leaf
+
+Monferno
+Level: 174
+IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+- Flame Wheel
+- Mach Punch
+- Fury Swipes
+- Leer
+
+=== TRAINER_SINNOH_RIVAL_PASTORIA_CHIMCHAR ===
+Name: Cedric
+Class: TRAINER_CLASS_RIVAL
+Pic: TRAINER_PIC_RIVAL_EARLY_FRLG
+Gender: Male
+Double Battle: No
+
+Staravia
+Level: 172
+IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+- Wing Attack
+- Quick Attack
+- Endeavor
+- Double Team
+
+Roselia
+Level: 172
+IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+- Mega Drain
+- Poison Sting
+- Leech Seed
+- Magical Leaf
+
+Ponyta
+Level: 172
+IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+- Ember
+- Stomp
+- Tail Whip
+- Growl
+
+Prinplup
+Level: 174
+IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+- Bubble Beam
+- Peck
+- Metal Claw
+- Growl
+
+=== TRAINER_SINNOH_RIVAL_PASTORIA_PIPLUP ===
+Name: Cedric
+Class: TRAINER_CLASS_RIVAL
+Pic: TRAINER_PIC_RIVAL_EARLY_FRLG
+Gender: Male
+Double Battle: No
+
+Staravia
+Level: 172
+IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+- Wing Attack
+- Quick Attack
+- Endeavor
+- Double Team
+
+Buizel
+Level: 172
+IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+- Aqua Jet
+- Quick Attack
+- Pursuit
+- Growl
+
+Ponyta
+Level: 172
+IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+- Ember
+- Stomp
+- Tail Whip
+- Growl
+
+Grotle
+Level: 174
+IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+- Razor Leaf
+- Bite
+- Mega Drain
+- Withdraw
+
 === TRAINER_UNOVA_CHAMPION_JUNIPER_SNIVY ===
 Name: Juniper
 Class: TRAINER_CLASS_CHAMPION

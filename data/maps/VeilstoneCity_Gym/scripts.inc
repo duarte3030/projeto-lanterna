@@ -3,6 +3,29 @@
 VeilstoneCity_Gym_MapScripts::
 	.byte 0
 
+@ Fecho pos-vitoria (onda 4, 18/08/2026): scripts_veilstone_city_gym.s da
+@ fonte, direto apos GiveBadge/SetTrainerFlag dos Black Belts (polimento de
+@ time, fora de escopo, decisao 2 do Gui intocada). Duas linhas literais:
+@ `ClearFlag FLAG_HIDE_VEILSTONE_COUNTERPART` e `SetVar VAR_VEILSTONE_
+@ WAREHOUSE_GUARDS_FIGHTABLE, TRUE`. Nao portado: `SetFlag FLAG_HIDE_
+@ GAME_CORNER_LOOKER` (Looker do Game Corner de Hoenn, questline separada
+@ sem alias de Sinnoh) e `SetVar VAR_VEILSTONE_CITY_COUNTERPART_NEEDS_HELP_
+@ STATE, 1` (arranca a cena gigante do proprio VeilstoneCity, ~1300 linhas
+@ na fonte, fora desta onda; sem alias hoje).
+@ NOTA 18/08/2026 (re-verificada na fonte, nao presumida): o `clearflag` abaixo
+@ hoje NAO tem o que limpar, e isso e fiel. FLAG_HIDE_VEILSTONE_COUNTERPART
+@ nunca e ACESA em lugar nenhum da fonte (grep em res/, src/ e include/: so o
+@ campo hidden_flag do objeto e DOIS ClearFlag, este e o de
+@ scripts_veilstone_city.s:1357), nao esta entre as 112 SetFlag de
+@ res/field/scripts/scripts_init_new_game.s, e VarsFlags_Init (src/vars_flags.c:20)
+@ zera tudo no jogo novo. No Platinum a contraparte fica de pe ao lado do
+@ ginasio desde a primeira visita, porque ela e figurante da cena do Crasher
+@ Wake que acontece ANTES do ginasio (VeilstoneCity_CoordEvent_CrasherWake),
+@ cena que este porte ainda nao tem. A linha fica porque e literal da fonte e
+@ porque e ela que revela a contraparte no dia em que essa cena entrar (a cena
+@ do Crasher Wake termina em RemoveObject, e o proximo carregamento do mapa
+@ precisa de uma flag para nao ressuscitar). Por isso tambem NAO entrou
+@ `setflag` correspondente em data/scripts/new_game.inc: seria invencao.
 VeilstoneCity_Gym_EventScript_Leader::
 	lock
 	faceplayer
@@ -11,6 +34,8 @@ VeilstoneCity_Gym_EventScript_Leader::
 	trainerbattle_no_intro TRAINER_SINNOH_LEADER_MAYLENE, VeilstoneCity_Gym_Text_Defeat
 	msgbox VeilstoneCity_Gym_Text_Post, MSGBOX_DEFAULT
 	setflag FLAG_INSIGNIA_SINNOH_3
+	clearflag FLAG_SINNOH_ESCONDE_VEILSTONE_COUNTERPART
+	setvar VAR_SINNOH_VEILSTONE_GUARDAS_DUELAVEIS, 1
 	release
 	end
 

@@ -5,14 +5,41 @@
 @ FLAG_GALACTICA_CANALAVE_RIVAL. Counterpart, Prof_Rowan, Sailor e
 @ Rival_Library continuam de fora: sao a cena da biblioteca e da explosao dos
 @ lagos, que ainda nao foi portada.
+@
+@ Confirmado nesta leva (S6, 18/08/2026), checando as 3 flags aliasadas pelo
+@ censo do S1 contra a fonte: BLOQUEADAS, nao falso pendente.
+@ FLAG_SINNOH_ESCONDE_CANALAVE_CITY_COUNTERPART (0x1B0A): CanalaveCity_
+@ Counterpart e ramificacao de genero levando o jogador ao Lago Verity, parte
+@ do climax "explosao dos lagos" com a contraparte, que abrange varios mapas
+@ ao mesmo tempo (nao so Canalave). FLAG_SINNOH_ESCONDE_CANALAVE_CITY_PROF_
+@ ROWAN (0x1B0C): CanalaveCity_ProfRowan e mensagem curta de NPC, mas o mesmo
+@ climax decide quando ele aparece aqui. FLAG_SINNOH_ESCONDE_CANALAVE_CITY_
+@ RIVAL_LIBRARY (0x1B0D): CanalaveCity_RivalLibrary precisa de ITEM_HM04
+@ (Strength) e biblioteca de Canalave com escopo escrito, e o proprio plano
+@ registra a biblioteca como "continua sem escopo escrito, herdado do ESTADO
+@ 0" (PLANO-OBRAS-SINNOH.md, "O que fica de fora"). Os 3 voltam ao plano da
+@ condutora antes de qualquer executor escrever a cena.
 
 CanalaveCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, CanalaveCity_OnTransition
 	.byte 0
 
 @ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ RESOLVIDO SEM CENA NOVA (S6, 18/08/2026). CanalaveCity_CoordEvent_Rival
+@ (script 2, var VAR_SINNOH_CANALAVE_ESTADO) e a MESMA batalha que
+@ CanalaveCity_EventScript_Rival ja porta abaixo (linha 229): mesmo texto
+@ literal (CheckIfYoureReady = CanalaveCity_Text_CenaCheckReady, TrainAt
+@ IronIsland = CanalaveCity_Text_CenaIronIsland, os 3 treinadores TRAINER_
+@ SINNOH_RIVAL_CANALAVE_CITY_TURTWIG/_CHIMCHAR/_PIPLUP), so que a fonte
+@ dispara por coord_event na ponte e o porte de 12/08/2026 trocou pra gatilho
+@ de raio de visao (tecnica 3 do SINNOH-PADRAO.md, precedente do rival de
+@ Johto) com FLAG_GALACTICA_CANALAVE_RIVAL no lugar da var. Escrever a
+@ versao coord_event tambem duplicava a batalha (o jogador enfrentaria o
+@ Cedric duas vezes, uma por gatilho). Os 4 coord_events que o S1 tinha
+@ plantado em (17,19)-(17,22) apontando pra este rotulo foram REMOVIDOS do
+@ map.json nesta leva: apontavam pra um gatilho morto. Fila conta o grupo
+@ como resolvido por cena equivalente ja existente.
 CanalaveCity_EventScript_CoordEvent_Rival::
-	@ TODO S6: cena da fonte, rotulo CanalaveCity_CoordEvent_Rival
 	end
 
 @ <<< B6 Sinnoh S1: esqueletos de cena <<<

@@ -1,0 +1,270 @@
+[
+  {
+    "id": "T102.1",
+    "nome": "Sinnoh onda4, S6+TREINADORES: o RIVAL DE PASTORIA abre batalha e o OPONENTE e a variante do inicial PINADO. VAR_STARTER_MON (0x4023) vai pinada em 0 (grama) e o `switch VAR_STARTER_MON` de PastoriaCity_EventScript_CoordEvent_RivalBattle tem que cair no `case 0` -> TRAINER_SINNOH_RIVAL_PASTORIA_TURTWIG (2508, id PRE-ATRIBUIDO pela condutora em PLANO-OBRAS-SINNOH.md e definido em include/constants/opponents.h nesta mesma onda). A prova NAO e 'abriu batalha': e `oponente=2508` lido da EWRAM (gTrainerBattleParameter+2), mais a faixa 2508..2510 que prova que o id caiu na familia certa e nao num vizinho da tabela. A batalha nao se joga: o id ja esta escrito quando o trainerbattle configura o duelo, e o mapa continua MAP_PASTORIA_CITY porque batalha nao teleporta ninguem. VAR_SINNOH_PASTORIA_ESTADO (0x4142) vai PINADA em 1 porque os quatro coord_events do mapa pedem var_value 1 e NADA no repo inteiro escreve esse 1: o unico `setvar VAR_SINNOH_PASTORIA_ESTADO` que existe e o `, 2` do fecho da propria cena (a corrente Bomb/BlockGreatMarsh, que na fonte escreve o 1, continua BLOQUEADA nesta leva). Sem a pinagem a cena e inalcancavel; COM ela, o que o caso prova e o galho do inicial e o id do treinador, nao o enredo que ainda falta. VAR_SINNOH_PASTORIA_ESTADO tambem NAO entra na prova: o `setvar ..., 2` mora em PastoriaCity_EventScript_RivalBeaten, que so roda depois de GANHAR a batalha, e o harness nao joga batalha. GEOMETRIA medida em 18/08/2026 contra data/layouts/PastoriaCity/map.bin com o modelo de andar da onda 2 (o toque de 20 quadros VIRA E ANDA no MESMO aperto), simulada nas DUAS pousadas do warp 9, a porta da casa sudoeste (15,26) e (15,27): DOWN*20 desce a coluna 15 e SATURA em (15,28) (y=29 e parede em x=15), LEFT*20 varre a linha 28 e SATURA em (12,28) (x=11 e parede), UP*20 sobe a coluna 12 e SATURA em (12,26) (y=25 e parede em x=12), RIGHT*5 SATURA em (13,26), que E o tile do coord_event, porque (14,26) e parede: as DUAS pernas finais saturam, entao nenhum aperto a mais ou a menos muda o resultado. O objeto do rival mora no MESMO tile (13,26) mas nasce ESCONDIDO (setflag em data/scripts/new_game.inc linha 209), entao nao barra a chegada. Nenhum dos NPCs de vagar de Pastoria (BLACK_BELT em (24,26), CAMPER em (26,31), MANIAC em (32,30), WOMAN_4 em (38,29)) encosta nesta rota, que vive entre x=12 e x=15. Sem FLAG_SEM_ENCONTRO_SELVAGEM de proposito: PastoriaCity so tem water_mons/fishing_mons em wild_encounters.json, e a rota e toda em terra.",
+    "vars": {
+      "0x4023": 0,
+      "0x4142": 1
+    },
+    "warp": "MAP_PASTORIA_CITY",
+    "warp_id": 9,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_PASTORIA_CITY",
+      "oponente": "TRAINER_SINNOH_RIVAL_PASTORIA_TURTWIG",
+      "oponente_faixa": [
+        2508,
+        2510
+      ]
+    }
+  },
+  {
+    "id": "T102.2",
+    "nome": "PAR NEGATIVO DE VARIANTE do T102.1, e o caso que da sentido a ele. MESMO warp, MESMA rota, MESMOS apertos, MESMO 0x4142=1: a UNICA diferenca e VAR_STARTER_MON pinada em 2 (agua) em vez de 0. O oponente tem que virar TRAINER_SINNOH_RIVAL_PASTORIA_PIPLUP (2510). DISCRIMINA: sem ele o T102.1 passaria num mundo em que o `switch` foi escrito errado e todos os ramos caem no mesmo treinador, ou em que o `goto` de baixo (o ramo Piplup e alcancado por `goto` e nao por `case`, de proposito, para ser o padrao) atropela os dois `case` de cima. Passar T102.1 e T102.2 juntos prova que o galho LE a var. O id do meio, 2509 (_CHIMCHAR), fica SEM CASO de proposito e esta anotado no relatorio: o orcamento de 14 casos foi gasto nos gatilhos novos, e o time de 2509 existe em src/data/trainers.party como os outros dois.",
+    "vars": {
+      "0x4023": 2,
+      "0x4142": 1
+    },
+    "warp": "MAP_PASTORIA_CITY",
+    "warp_id": 9,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_PASTORIA_CITY",
+      "oponente": "TRAINER_SINNOH_RIVAL_PASTORIA_PIPLUP",
+      "oponente_faixa": [
+        2508,
+        2510
+      ]
+    }
+  },
+  {
+    "id": "T102.3",
+    "nome": "PAR NEGATIVO DE ESTADO do T102.1/T102.2: com VAR_SINNOH_PASTORIA_ESTADO (0x4142) PINADA em 2, que e EXATAMENTE o valor que o fecho da propria cena escreve (PastoriaCity_EventScript_RivalBeaten), a MESMA rota pisa no MESMO tile (13,26) e nada acontece: o coord_event pede var_value 1. A prova e `oponente` em 0 (o gTrainerBattleParameter nasce zerado no boot e nenhuma batalha roda neste caso, entao 0 prova que a emboscada NAO abriu duelo nenhum), mais a var intacta em 2, mais `andou`, que prova que o jogador cruzou a cidade em vez de ter congelado antes do tile. DISCRIMINA duas coisas: que o coord_event respeita `var_value`, e que a emboscada NAO ressuscita depois de vencida, que e o mundo em que T102.1 e T102.2 passariam com o rival duelando para sempre. SEM NENHUM A de proposito: nada deve abrir, entao nada precisa ser fechado, e nenhum aperto perdido pode empurrar outra cena. GEOMETRIA medida em 18/08/2026 contra data/layouts/PastoriaCity/map.bin com o modelo de andar da onda 2 (o toque de 20 quadros VIRA E ANDA no MESMO aperto), simulada nas DUAS pousadas do warp 9, a porta da casa sudoeste (15,26) e (15,27): DOWN*20 desce a coluna 15 e SATURA em (15,28) (y=29 e parede em x=15), LEFT*20 varre a linha 28 e SATURA em (12,28) (x=11 e parede), UP*20 sobe a coluna 12 e SATURA em (12,26) (y=25 e parede em x=12), RIGHT*5 SATURA em (13,26), que E o tile do coord_event, porque (14,26) e parede: as DUAS pernas finais saturam, entao nenhum aperto a mais ou a menos muda o resultado. O objeto do rival mora no MESMO tile (13,26) mas nasce ESCONDIDO (setflag em data/scripts/new_game.inc linha 209), entao nao barra a chegada. Nenhum dos NPCs de vagar de Pastoria (BLACK_BELT em (24,26), CAMPER em (26,31), MANIAC em (32,30), WOMAN_4 em (38,29)) encosta nesta rota, que vive entre x=12 e x=15. Sem FLAG_SEM_ENCONTRO_SELVAGEM de proposito: PastoriaCity so tem water_mons/fishing_mons em wild_encounters.json, e a rota e toda em terra.",
+    "vars": {
+      "0x4023": 0,
+      "0x4142": 2
+    },
+    "warp": "MAP_PASTORIA_CITY",
+    "warp_id": 9,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,300:NADA",
+    "prova": {
+      "mapa": "MAP_PASTORIA_CITY",
+      "vars": {
+        "0x4142": 2
+      },
+      "oponente": 0,
+      "andou": true
+    }
+  },
+  {
+    "id": "T102.4",
+    "nome": "Sinnoh onda4: o RIVAL DO PORTAO DA ROUTE 209, e ao mesmo tempo o ESTADO POS-VITORIA DA FANTINA pinado. A vitoria da lider nao da para jogar no harness, mas o estado que ela deixa da: HearthomeCity_Gym_EventScript_Leader escreve `setvar VAR_SINNOH_R209_PORTAO_HEARTHOME, 1` e `clearflag FLAG_SINNOH_ESCONDE_HEARTHOME_CITY_ROUTE_209_GATE_RIVAL` logo depois do trainerbattle_no_intro da Fantina, e os cinco coord_events de Route209_Access/map.json pedem exatamente var_value 1. Este caso pina 0x414B em 1 e VAR_STARTER_MON (0x4023) em 0, e prova `oponente=2511` (TRAINER_SINNOH_RIVAL_ROUTE_209_TURTWIG) mais a faixa 2511..2513. ATENCAO honesta: a FLAG do rival continua ACESA neste caso, porque o harness so sabe ACENDER flag (`6:FLAG=n`) e new_game.inc acende essa; ou seja o objeto do rival esta escondido e a cena roda sem ele na tela. Isso NAO invalida a prova: `trainerbattle_no_intro` monta o duelo pelo id do treinador e nao pelo objeto (TRAINER_BATTLE_PARAM.objEventLocalIdA e LOCALID_NONE no macro), e `waitmovement` sobre objeto ausente devolve TRUE em vez de travar (src/script_movement.c, ScriptMovement_IsObjectMovementFinished linha 39). A var 0x414B NAO entra na prova de proposito, e o motivo esta no relatorio: o `setvar ..., 2` do fecho mora DEPOIS do `call_if_eq` da batalha e nao roda. GEOMETRIA medida contra data/layouts/Route209_Access/map.bin (13x9). O portao e uma sala de tres linhas (y=4,5,6, x=1..11) com dois cotos verticais em x=1 e x=11; as linhas 2 e 8 do map.bin sao decorativas e NAO tem ligacao com o resto, o que deixa 2 dos 5 coord_events do S1 ((5,2) e (5,8)) em tile inalcancavel. Simulada nas DUAS pousadas do warp 1 (11,5) e (11,6): DOWN*5 SATURA em (11,7) (y=8 e parede em x=11), UP*1 volta para (11,6) DETERMINISTICO (as duas pousadas ja convergiram), LEFT*20 varre a linha 6 e SATURA em (1,6) (x=0 e parede). A linha 6 e escolhida e nao a 5 por um motivo medido: os warps do portao moram em (1,5) e (11,5), e a licao de 18/08 diz que colisao barra o ANDAR mas NAO o warp de porta, entao qualquer perna que cruze a linha 5 pode teleportar o caso para outro mapa. A linha 6 nao tem warp nenhum. O rival (7,6) esta na linha da rota mas nasce ESCONDIDO (new_game.inc linha 197) e nao barra nada; a WOMAN_3 de (9,4) fica na linha de cima. A rota pisa em (5,6), um dos tres coord_events alcancaveis.",
+    "vars": {
+      "0x4023": 0,
+      "0x414B": 1
+    },
+    "warp": "MAP_ROUTE209_ACCESS",
+    "warp_id": 1,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:UP,20:UP,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE209_ACCESS",
+      "oponente": "TRAINER_SINNOH_RIVAL_ROUTE_209_TURTWIG",
+      "oponente_faixa": [
+        2511,
+        2513
+      ]
+    }
+  },
+  {
+    "id": "T102.5",
+    "nome": "PAR NEGATIVO DE VARIANTE do T102.4. MESMO warp, MESMA rota, MESMO 0x414B=1: so VAR_STARTER_MON muda, de 0 para 2, e o oponente tem que virar TRAINER_SINNOH_RIVAL_ROUTE_209_PIPLUP (2513). Aqui o galho e feito de TRES `call_if_eq` em sequencia (e nao de `switch`/`case` como em Pastoria), e e justamente esse molde que o par testa: `call_if_eq` que voltasse deixaria o proximo rodar tambem e o ultimo ramo sobrescreveria o primeiro. Passar T102.4 e T102.5 juntos prova que so UM ramo escreve o oponente. O id do meio, 2512 (_CHIMCHAR), fica sem caso, anotado no relatorio.",
+    "vars": {
+      "0x4023": 2,
+      "0x414B": 1
+    },
+    "warp": "MAP_ROUTE209_ACCESS",
+    "warp_id": 1,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:UP,20:UP,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE209_ACCESS",
+      "oponente": "TRAINER_SINNOH_RIVAL_ROUTE_209_PIPLUP",
+      "oponente_faixa": [
+        2511,
+        2513
+      ]
+    }
+  },
+  {
+    "id": "T102.6",
+    "nome": "ANTES DA VITORIA DA FANTINA o portao da Route 209 e so um portao: par negativo de estado do T102.4/T102.5. VAR_SINNOH_R209_PORTAO_HEARTHOME (0x414B) fica em 0, que e o valor de nascimento, e os cinco coord_events pedem 1: a MESMA rota pisa no MESMO tile (5,6) e nada acontece. Tres provas juntas: `oponente` em 0 (nenhum duelo abriu), a var intacta em 0, e `andou` (o jogador atravessou o portao inteiro ate saturar em (1,6) em vez de ter travado). Entra tambem `flags_acesas` de FLAG_SINNOH_ESCONDE_HEARTHOME_CITY_ROUTE_209_GATE_RIVAL, que e a OUTRA metade do fecho da Fantina (`clearflag`) e a premissa geometrica de T102.4/T102.5: se essa flag nascesse apagada, o objeto do rival estaria de pe em (7,6), no meio da linha 6, e barraria a rota dos tres casos. DISCRIMINA: sem este caso, T102.4 e T102.5 passariam num mundo em que a emboscada do portao acontece desde o primeiro passo do jogo, sem insignia nenhuma. SEM NENHUM A de proposito. GEOMETRIA medida contra data/layouts/Route209_Access/map.bin (13x9). O portao e uma sala de tres linhas (y=4,5,6, x=1..11) com dois cotos verticais em x=1 e x=11; as linhas 2 e 8 do map.bin sao decorativas e NAO tem ligacao com o resto, o que deixa 2 dos 5 coord_events do S1 ((5,2) e (5,8)) em tile inalcancavel. Simulada nas DUAS pousadas do warp 1 (11,5) e (11,6): DOWN*5 SATURA em (11,7) (y=8 e parede em x=11), UP*1 volta para (11,6) DETERMINISTICO (as duas pousadas ja convergiram), LEFT*20 varre a linha 6 e SATURA em (1,6) (x=0 e parede). A linha 6 e escolhida e nao a 5 por um motivo medido: os warps do portao moram em (1,5) e (11,5), e a licao de 18/08 diz que colisao barra o ANDAR mas NAO o warp de porta, entao qualquer perna que cruze a linha 5 pode teleportar o caso para outro mapa. A linha 6 nao tem warp nenhum. O rival (7,6) esta na linha da rota mas nasce ESCONDIDO (new_game.inc linha 197) e nao barra nada; a WOMAN_3 de (9,4) fica na linha de cima. A rota pisa em (5,6), um dos tres coord_events alcancaveis.",
+    "vars": {
+      "0x414B": 0
+    },
+    "warp": "MAP_ROUTE209_ACCESS",
+    "warp_id": 1,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:UP,20:UP,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE209_ACCESS",
+      "vars": {
+        "0x414B": 0
+      },
+      "oponente": 0,
+      "andou": true,
+      "flags_acesas": [
+        "FLAG_SINNOH_ESCONDE_HEARTHOME_CITY_ROUTE_209_GATE_RIVAL"
+      ]
+    }
+  },
+  {
+    "id": "T102.7",
+    "nome": "Sinnoh onda4, S6: o LOOKER DO MT. CORONET 2F so existe depois do Saturn. Os tres coord_events ((11,24) a (11,26)) pedem VAR_SINNOH_CORONET_2F_ESTADO (0x413D) em 1, e o UNICO lugar do repo inteiro que escreve esse 1 e GalacticHQ_ControlRoom_EventScript_SaturnDefeated, o script de pos-vitoria do Comandante Saturn (que o harness nao joga). Este caso PINA 0x413D em 1, que e o estado que aquela vitoria deixa, e prova que a cena roda: MtCoronet2F_EventScript_CoordEvent_Looker escreve `setvar VAR_SINNOH_CORONET_2F_ESTADO, 2` no TOPO da cena, antes de qualquer msgbox, entao a prova `0x413D == 2` e um fato de memoria que nao depende de a caixa de texto ter sido fechada. Os apertos de A existem so para a cena chegar ao `giveitem ITEM_BLACK_FLUTE` e ao fim sem deixar caixa aberta. GEOMETRIA medida contra data/layouts/MtCoronet2F/map.bin (32x64). Simulada nas duas pousadas do warp 1, a escada de (7,23), e (7,24): DOWN*3 SATURA em (7,25) (a linha 26 so abre de x=8 a x=21), RIGHT*20 varre a linha 25, pisa em (11,25) (um dos tres coord_events, que sao (11,24), (11,25) e (11,26)) e SATURA em (19,25), encostada no proprio Looker, objeto fixo de (20,25) sem flag de esconder e sem movimento de vagar. As duas pernas saturam, entao aperto perdido nao muda nada. A rota NAO cruza os outros tres warps do mapa ((27,48), (7,12) e (11,4)). FLAG_SEM_ENCONTRO_SELVAGEM e obrigatoria: MAP_MT_CORONET_2F tem land_mons em src/data/wild_encounters.json e o time do harness e vazio, entao encontro selvagem daria blackout e reprovaria o caso por um motivo que nao e a cena.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x413D": 1
+    },
+    "warp": "MAP_MT_CORONET_2F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_2F",
+      "vars": {
+        "0x413D": 2
+      }
+    }
+  },
+  {
+    "id": "T102.8",
+    "nome": "PAR NEGATIVO do T102.7, e o caso que prova a corrente Saturn -> Looker. Com VAR_SINNOH_CORONET_2F_ESTADO (0x413D) em 0, o valor de nascimento (ou seja: o Saturn ainda nao caiu), a MESMA rota pisa em (11,25) e a var sai INTACTA em 0. O 0 e escolhido de proposito e nao um valor qualquer: ele e literalmente o estado 'antes da sala de controle', entao o par tambem responde a pergunta de historia, e nao so a de engenharia. DISCRIMINA: sem ele, o T102.7 passaria num mundo em que o coord_event ignora `var_value` e o Looker aborda o jogador na primeira vez que ele sobe o Mt. Coronet, entregando a Black Flute e falando de uma parede quebrada que ninguem quebrou. `andou` prova que o jogador cruzou os tres tiles do gatilho em vez de ter parado antes deles, e aqui e forte porque o fim da rota e SATURANTE: sem a cena o jogador termina encostado no proprio Looker, em (19,25), oito casas a leste do tile pisado. SEM NENHUM A. GEOMETRIA medida contra data/layouts/MtCoronet2F/map.bin (32x64). Simulada nas duas pousadas do warp 1, a escada de (7,23), e (7,24): DOWN*3 SATURA em (7,25) (a linha 26 so abre de x=8 a x=21), RIGHT*20 varre a linha 25, pisa em (11,25) (um dos tres coord_events, que sao (11,24), (11,25) e (11,26)) e SATURA em (19,25), encostada no proprio Looker, objeto fixo de (20,25) sem flag de esconder e sem movimento de vagar. As duas pernas saturam, entao aperto perdido nao muda nada. A rota NAO cruza os outros tres warps do mapa ((27,48), (7,12) e (11,4)). FLAG_SEM_ENCONTRO_SELVAGEM e obrigatoria: MAP_MT_CORONET_2F tem land_mons em src/data/wild_encounters.json e o time do harness e vazio, entao encontro selvagem daria blackout e reprovaria o caso por um motivo que nao e a cena.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x413D": 0
+    },
+    "warp": "MAP_MT_CORONET_2F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,300:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_2F",
+      "vars": {
+        "0x413D": 0
+      },
+      "andou": true
+    }
+  },
+  {
+    "id": "T102.9",
+    "nome": "Sinnoh onda4, S6: a SALA DE CONTROLE do QG, com o coord_event do Saturn DESARMADO (VAR_SINNOH_QG_SALA_CONTROLE_ESTADO, 0x4136, em 0, que e o valor de nascimento e o que o repo inteiro deixa: nenhum script escreve essa var). A rota atravessa (7,9), o unico coord_event do mapa, sem que nada aconteca, e vai ate encostar no proprio Saturn em (8,5). O primeiro A abre GalacticHQ_ControlRoom_EventScript_Saturn, que e `trainerbattle_single TRAINER_SINNOH_COMMANDER_SATURN_GALACTIC_HQ`, e a prova e `oponente=1315` lido da EWRAM. Por que esta batalha importa nesta onda: o script de pos-vitoria dela, GalacticHQ_ControlRoom_EventScript_SaturnDefeated, ganhou nesta leva o `setvar VAR_SINNOH_CORONET_2F_ESTADO, 1` que e a UNICA porta do Looker do 2F (T102.7). Nao da para provar o `setvar` sem ganhar a batalha, mas da para provar que a batalha que o carrega esta viva e e a certa, que e o quanto a EWRAM alcanca aqui. Duas provas em uma corrida: alcancar o Saturn SO e possivel se o coord_event NAO tiver disparado, entao `oponente=1315` tambem prova que a var 0 desarma o gatilho. GEOMETRIA medida contra data/layouts/MossdeepCity_SpaceCenter_2F/map.bin, o layout emprestado pela sala de controle (16x10). Simulada nas duas pousadas do warp 0 (13,1) e (13,2): DOWN*10 desce a coluna 13 e SATURA em (13,9) (y=10 e fora do mapa, e o mapa e fechado), LEFT*20 varre a linha 9 inteira, pisa em (7,9) (o unico coord_event do mapa) e SATURA em (0,9), UP*20 sobe a coluna 0 e SATURA em (0,5) (y=4 e parede em x=0), RIGHT*20 varre a linha 5 e SATURA em (7,5) por bater no PROPRIO Saturn, objeto fixo de (8,5) com MOVEMENT_TYPE_FACE_DOWN. As QUATRO pernas saturam. O unico warp do mapa e (13,1), e so a primeira perna encosta nele, saindo dele. Nenhum objeto do mapa tem trainer_type diferente de TRAINER_TYPE_NONE, entao nao ha linha de visao que abra batalha antes da hora.",
+    "vars": {
+      "0x4136": 0
+    },
+    "warp": "MAP_GALACTIC_HQ_CONTROL_ROOM",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_GALACTIC_HQ_CONTROL_ROOM",
+      "vars": {
+        "0x4136": 0
+      },
+      "oponente": "TRAINER_SINNOH_COMMANDER_SATURN_GALACTIC_HQ"
+    }
+  },
+  {
+    "id": "T102.10",
+    "nome": "PAR do T102.9, e o unico jeito que a EWRAM tem de ver o coord_event do Saturn: MESMO warp, MESMA rota, MESMOS apertos, e VAR_SINNOH_QG_SALA_CONTROLE_ESTADO (0x4136) PINADA em 1, que e o var_value que o coord_event (7,9) pede. Agora a cena DISPARA no meio da segunda perna, o `lockall` come os 54 apertos de direcao que sobram (a msgbox segura o script ate um A chegar, e todos os A do roteiro vem depois de todas as direcoes), o jogador nunca chega ao Saturn e `oponente` fica em 0. DISCRIMINA exatamente o que T102.9 nao alcanca: a cena de GalacticHQ_ControlRoom_EventScript_CoordEvent_Saturn nao escreve var nenhuma, nao acende flag e nao abre batalha, entao ela e INVISIVEL para qualquer prova direta; o que a torna visivel e a batalha que ela IMPEDE. `andou` confirma que o jogador se moveu antes de ser travado. ACHADO anotado no relatorio: nada no repo escreve 0x4136, entao no jogo de verdade este gatilho e inalcancavel; este caso prova a cena, nao o enredo. GEOMETRIA medida contra data/layouts/MossdeepCity_SpaceCenter_2F/map.bin, o layout emprestado pela sala de controle (16x10). Simulada nas duas pousadas do warp 0 (13,1) e (13,2): DOWN*10 desce a coluna 13 e SATURA em (13,9) (y=10 e fora do mapa, e o mapa e fechado), LEFT*20 varre a linha 9 inteira, pisa em (7,9) (o unico coord_event do mapa) e SATURA em (0,9), UP*20 sobe a coluna 0 e SATURA em (0,5) (y=4 e parede em x=0), RIGHT*20 varre a linha 5 e SATURA em (7,5) por bater no PROPRIO Saturn, objeto fixo de (8,5) com MOVEMENT_TYPE_FACE_DOWN. As QUATRO pernas saturam. O unico warp do mapa e (13,1), e so a primeira perna encosta nele, saindo dele. Nenhum objeto do mapa tem trainer_type diferente de TRAINER_TYPE_NONE, entao nao ha linha de visao que abra batalha antes da hora.",
+    "vars": {
+      "0x4136": 1
+    },
+    "warp": "MAP_GALACTIC_HQ_CONTROL_ROOM",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_GALACTIC_HQ_CONTROL_ROOM",
+      "vars": {
+        "0x4136": 1
+      },
+      "oponente": 0,
+      "andou": true
+    }
+  },
+  {
+    "id": "T102.11",
+    "nome": "Sinnoh onda4, S6: o CIENTISTA DO PORTAO DA ROUTE 218 (o pai do rival, que sobe a Pokedex) deixa VAR_SINNOH_R218_PORTAO_CANALAVE (0x414D) em 1. Os cinco coord_events pedem var_value 0, que e o valor de nascimento, entao este caso NAO pina nada e o gatilho dispara sozinho: e o unico caso do arquivo em que o estado testado e o estado real do jogo novo. O `setvar ..., 1` mora no FIM da cena, depois de DOIS msgbox longos (o segundo tem oito paginas) e do `setflag`+`removeobject`, entao provar 1 aqui e provar que a cena rodou INTEIRA e nao que ela comecou: por isso os 24 apertos de A. O 1 tambem e quem desarma os cinco gatilhos para sempre, e sem ele o cientista reapareceria do nada a cada travessia do portao. SEM PAR NEGATIVO, e o unico caso do arquivo assim: o par que eu tinha escrito (a MESMA rota com 0x414D pinada em 2) foi cortado no teto de 14 casos porque ele provaria, num mapa de layout IDENTICO, exatamente o que o T102.6 ja prova no portao da Route 209 (mesmo molde 13x9, mesma sala de tres linhas, mesmo mecanismo de var_value). Fica anotado no relatorio como sem-caso, e nao como esquecimento. GEOMETRIA medida contra data/layouts/Route218_West/map.bin, o MESMO molde de portao 13x9 de Route209_Access (mesma sala de tres linhas, mesmos cotos, mesmas duas linhas decorativas inalcancaveis em y=2 e y=8). Simulada nas duas pousadas do warp 0 (11,5) e (11,6): DOWN*5 SATURA em (11,7), UP*1 converge em (11,6), LEFT*20 varre a linha 6, pisa em (7,6) (coord_event) e SATURA em (5,6), encostada no cientista de (4,6). ATENCAO medida: o cientista esta VISIVEL desde o jogo novo (FLAG_SINNOH_ESCONDE_ROUTE_218_GATE_TO_CANALAVE_CITY_SCIENTIST_M nao e acesa por new_game.inc, ao contrario do que diz o comentario da cena), e e por isso que a perna satura em x=5 e nao em x=1. Se alguem acrescentar o setflag que falta, a perna passa a saturar em (1,6): as duas paradas ficam DENTRO do mapa, entao o caso continua valido nos dois mundos. A linha 5, com os warps (1,5) e (11,5) e o POLICEMAN de (2,5), fica fora da rota de proposito.",
+    "vars": {
+      "0x414D": 0
+    },
+    "warp": "MAP_ROUTE218_WEST",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:UP,20:UP,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE218_WEST",
+      "vars": {
+        "0x414D": 1
+      }
+    }
+  },
+  {
+    "id": "T102.12",
+    "nome": "Sinnoh onda4, S6: o RIVAL DA BEIRA DO LAGO ACUITY deixa VAR_SINNOH_ACUITY_BEIRA_ESTADO (0x4130) em 1. Os dois coord_events ((22,53) e (23,53)) pedem var_value 0, o valor de nascimento, entao o gatilho dispara sem pinagem nenhuma. A cena e a mais longa desta onda: `special SpawnCameraObject`, seis `slide_up` da camera para revelar o rival la em cima em (22,46), uma msgbox de sete paginas, oito passos de saida do rival, `removeobject`, seis `slide_down` de volta, `RemoveCameraObject`, e SO ENTAO o `setvar ..., 1`. Provar 1 aqui e provar que a coreografia inteira, camera inclusive, chegou ao fim sem travar, que e o risco de verdade de uma cena com objeto de camera. GEOMETRIA medida contra data/layouts/AcuityLakefront/map.bin (64x66), simulada nas duas pousadas do warp 0 (32,40) e (32,41). Sete das nove pernas SATURAM: LEFT*20 para em (28,40)/(28,41) (x=27 e parede nas duas linhas), DOWN*20 converge e SATURA em (28,45) (y=46 e parede em x=28), LEFT*20 varre a linha 45 e SATURA em (16,45) (x=15 e parede), RIGHT*4 anda ate (20,45) e e a PRIMEIRA das duas pernas que nao saturam, de proposito com folga: (20,45) e (21,45) servem os dois, porque as colunas 20 e 21 sao o mesmo corredor de y=39 a y=47 (parar em x=22 ou x=23 levaria a um beco e o caso FICARIA VERMELHO, nunca verde por engano), UP*20 SATURA em (20,39) (a linha 38 e parede inteira), DOWN*20 SATURA em (20,47) (a linha 48 so abre em x=22 e de x=40 pra leste), RIGHT*20 SATURA em (23,47) (x=24 e parede), LEFT*1 e a SEGUNDA perna nao saturante e anda um tile para (22,47), a UNICA entrada do funil da coluna 22 (o (22,46) acima e o proprio rival, e (21,48) e (23,48) sao parede); um aperto perdido aqui deixa o jogador em (23,47) ou (21,47), de onde DOWN nao anda, e o caso reprova em vez de passar torto. DOWN*20 desce a coluna 22, que e limpa de y=48 a y=65, e pisa em (22,53), um dos dois coord_events ((22,53) e (23,53)). FLAG_SEM_ENCONTRO_SELVAGEM porque AcuityLakefront tem land_mons e o time do harness e vazio.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x4130": 0
+    },
+    "warp": "MAP_ACUITY_LAKEFRONT",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,600:NADA",
+    "prova": {
+      "mapa": "MAP_ACUITY_LAKEFRONT",
+      "vars": {
+        "0x4130": 1
+      }
+    }
+  },
+  {
+    "id": "T102.13",
+    "nome": "PAR NEGATIVO do T102.12, com prova POSICIONAL alem da var, e o unico caso do arquivo que prova por MUDANCA DE MAPA que o jogador realmente cruzou a linha do gatilho. Com VAR_SINNOH_ACUITY_BEIRA_ESTADO (0x4130) PINADA em 2 (valor que nenhum dos dois coord_events pede) o gatilho da linha 53 nao existe, ninguem trava o jogador, e os DOWN que sobram descem a coluna 22 inteira (limpa de y=48 a y=65, medida no map.bin) e saem pela conexao 'down' de AcuityLakefront/map.json (MAP_ROUTE217, offset -2). CONFERIDO NOS DOIS LADOS: Acuity x=22 cai em Route217 x=24 (22 menos o offset -2, mesma conta do T101.10), e (24,0) tem colisao 0 no map.bin de Route217, ou seja tile andavel de verdade e nao borda; a conexao inversa de Route217 ('up', offset 2) fecha a conta. DISCRIMINA duas coisas de uma vez: que o coord_event respeita `var_value` (a var sai intacta em 2) e que o jogador REALMENTE pisou onde devia, duvida que prova so de var nunca fecha. FLAG_SEM_ENCONTRO_SELVAGEM porque o caso termina DENTRO da Route217, que tem land_mons, e o time do harness e vazio: encontro selvagem com time vazio da blackout e reprovaria o caso por um motivo que nao e a cena. SEM NENHUM A. GEOMETRIA medida contra data/layouts/AcuityLakefront/map.bin (64x66), simulada nas duas pousadas do warp 0 (32,40) e (32,41). Sete das nove pernas SATURAM: LEFT*20 para em (28,40)/(28,41) (x=27 e parede nas duas linhas), DOWN*20 converge e SATURA em (28,45) (y=46 e parede em x=28), LEFT*20 varre a linha 45 e SATURA em (16,45) (x=15 e parede), RIGHT*4 anda ate (20,45) e e a PRIMEIRA das duas pernas que nao saturam, de proposito com folga: (20,45) e (21,45) servem os dois, porque as colunas 20 e 21 sao o mesmo corredor de y=39 a y=47 (parar em x=22 ou x=23 levaria a um beco e o caso FICARIA VERMELHO, nunca verde por engano), UP*20 SATURA em (20,39) (a linha 38 e parede inteira), DOWN*20 SATURA em (20,47) (a linha 48 so abre em x=22 e de x=40 pra leste), RIGHT*20 SATURA em (23,47) (x=24 e parede), LEFT*1 e a SEGUNDA perna nao saturante e anda um tile para (22,47), a UNICA entrada do funil da coluna 22 (o (22,46) acima e o proprio rival, e (21,48) e (23,48) sao parede); um aperto perdido aqui deixa o jogador em (23,47) ou (21,47), de onde DOWN nao anda, e o caso reprova em vez de passar torto. DOWN*20 desce a coluna 22, que e limpa de y=48 a y=65, e pisa em (22,53), um dos dois coord_events ((22,53) e (23,53)). FLAG_SEM_ENCONTRO_SELVAGEM porque AcuityLakefront tem land_mons e o time do harness e vazio.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x4130": 2
+    },
+    "warp": "MAP_ACUITY_LAKEFRONT",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,600:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE217",
+      "vars": {
+        "0x4130": 2
+      }
+    }
+  },
+  {
+    "id": "T102.14",
+    "nome": "Sinnoh onda4: o FECHO DA MAYLENE, pelo unico lado que a EWRAM alcanca, e o TRANSITION de VeilstoneCity. Duas afirmacoes, uma verde e uma VERMELHA DE PROPOSITO. (a) VERDE: VeilstoneCity_OnTransition, escrito nesta onda, tem que escrever VAR_OBJ_GFX_ID_0 (0x4010) toda vez que o mapa carrega, senao o sprite do counterpart vaza do ultimo mapa que mexeu nessa var, que e compartilhada por Kanto, Hoenn, Sinnoh e Unova. O caso PINA 0x4010 em 100 (OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL) ANTES do warp e exige 105 (OBJ_EVENT_GFX_RIVAL_MAY_NORMAL) depois: o jogador do harness e masculino (o New Game de hoje grava masculino direto, ver o cabecalho de testa_critico.py), o `checkplayergender` cai em VeilstoneCity_SetCounterpartFemale, e o counterpart e do GENERO OPOSTO. Pinar o valor do OUTRO ramo e o que separa 'o transition escreveu' de 'a var ja estava certa'. Os dois numeros foram MEDIDOS em 18/08/2026 compilando include/constants/event_objects.h (`cc -E`/enum), nao chutados; sao valores de enum, entao um grafico novo inserido antes de RIVAL_MAY_NORMAL faz este caso ficar vermelho e pedir nova medicao, e nunca passar torto. (b) O ESTADO DE NASCIMENTO das quatro flags de esconder que esta onda mexeu, e o quarteto e ASSIMETRICO DE PROPOSITO. TRES nascem ACESAS por data/scripts/new_game.inc (FLAG_SINNOH_ESCONDE_PASTORIA_CITY_RIVAL linha 209, FLAG_SINNOH_ESCONDE_HEARTHOME_CITY_ROUTE_209_GATE_RIVAL linha 197 e FLAG_SINNOH_ESCONDE_ROUTE_218_GATE_TO_CANALAVE_CITY_SCIENTIST_M linha 221, esta com desvio da fonte documentado no proprio arquivo: o cientista nao tem script de clique aqui, entao deixa-lo plantado poria obstaculo mudo no corredor do portao antes da hora). A QUARTA, FLAG_SINNOH_ESCONDE_VEILSTONE_COUNTERPART, tem que nascer APAGADA, e esse e o discriminador POSITIVO deste caso, nao um bug: a fonte NUNCA acende FLAG_HIDE_VEILSTONE_COUNTERPART (grep em res/, src/ e include/ inteiros do pokeplatinum: ela so aparece no campo hidden_flag do objeto e em DOIS ClearFlag, scripts_veilstone_city_gym.s:42 e scripts_veilstone_city.s:1357), ela nao esta entre as 112 flags de scripts_init_new_game.s, e VarsFlags_Init (src/vars_flags.c:20) faz memset(0) no jogo novo. No Platinum a contraparte fica de pe ao lado do ginasio de Veilstone desde a primeira visita, porque e figurante da cena do Crasher Wake, que vem ANTES do ginasio; o `clearflag` do fecho da Maylene e redundante na fonte tambem, e o mesmo caso ja documentado do rival de AcuityLakefront. Decisao da condutora de 18/08/2026: fidelidade a fonte vence, e quem estava errado era a suposicao do autor de casos, nao o jogo. O que este caso passa a guardar e o DESVIO FUTURO: se alguem 'consertar' acrescentando um setflag dessa flag em new_game.inc, a contraparte some da primeira visita, a cena do Crasher Wake perde a figurante e o caso ACUSA na hora. VAR_SINNOH_VEILSTONE_GUARDAS_DUELAVEIS, a outra linha do fecho da Maylene, NAO entra na prova: nenhum script do repo LE essa var, entao pina-la nao afirmaria fato nenhum sobre o jogo (esta no relatorio como sem-caso).",
+    "vars": {
+      "0x4010": 100
+    },
+    "warp": "MAP_VEILSTONE_CITY",
+    "warp_id": 0,
+    "roteiro": "300:NADA",
+    "prova": {
+      "mapa": "MAP_VEILSTONE_CITY",
+      "vars": {
+        "0x4010": 105
+      },
+      "flags_acesas": [
+        "FLAG_SINNOH_ESCONDE_PASTORIA_CITY_RIVAL",
+        "FLAG_SINNOH_ESCONDE_HEARTHOME_CITY_ROUTE_209_GATE_RIVAL",
+        "FLAG_SINNOH_ESCONDE_ROUTE_218_GATE_TO_CANALAVE_CITY_SCIENTIST_M"
+      ],
+      "flags_apagadas": [
+        "FLAG_SINNOH_ESCONDE_VEILSTONE_COUNTERPART"
+      ]
+    }
+  }
+]

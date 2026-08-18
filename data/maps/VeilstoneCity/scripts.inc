@@ -16,6 +16,16 @@ VeilstoneCity_MapScripts::
 @ inteiro ja usa, porque e o mesmo marco. Zero var.
 VeilstoneCity_OnTransition:
 	call_if_defeated TRAINER_SINNOH_COMMANDER_SATURN_GALACTIC_HQ, VeilstoneCity_EventScript_HideGalactica_qg_veilstone
+	@ O counterpart revelado pela vitória da Maylene usa OBJ_EVENT_GFX_VAR_0;
+	@ todo mapa que usa VAR_0 seta a var no PRÓPRIO transition (regra da onda 2,
+	@ molde de Route207), senão o sprite vaza do último mapa que a escreveu.
+	checkplayergender
+	goto_if_eq VAR_RESULT, MALE, VeilstoneCity_SetCounterpartFemale
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL
+	end
+
+VeilstoneCity_SetCounterpartFemale::
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL
 	end
 
 VeilstoneCity_EventScript_HideGalactica_qg_veilstone::

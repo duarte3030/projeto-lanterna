@@ -10,9 +10,64 @@ SnowpointCity_MapScripts::
 	.byte 0
 
 @ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ rotulo da fonte: SnowpointCity_CoordEvent_TempleGuard (script 3).
+@ LOCALID_SNOWPOINT_CITY_TEMPLE_GUARD sempre visivel (hidden_flag da fonte e
+@ "0"). So o ramo de bloqueio e escrito: exige Pokedex Nacional
+@ (FLAG_SYS_NATIONAL_DEX) e FLAG_SYS_GAME_CLEAR, e hoje nada nesta obra
+@ acende as duas ao mesmo tempo (pos-jogo nao existe ainda). O ramo de
+@ liberacao (SnowpointCity_AllowEnterTemple na fonte) fica BLOQUEADO: precisa
+@ de LOCALID_CANDICE novo por FLAG_HIDE_SNOWPOINT_CITY_CANDICE, que nao esta
+@ no censo do S1 (lider de ginasio, mesma familia de bloqueio do Maylene de
+@ Route217). Ver tambem o comentario do topo deste arquivo, ja escrito antes
+@ desta leva com a mesma decisao.
 SnowpointCity_EventScript_CoordEvent_TempleGuard::
-	@ TODO S6: cena da fonte, rotulo SnowpointCity_CoordEvent_TempleGuard
+	lockall
+	applymovement LOCALID_SNOWPOINT_CITY_TEMPLE_GUARD, SnowpointCity_Movement_TempleGuardWalkOnSpotWest
+	waitmovement 0
+	msgbox SnowpointCity_Text_OnlyChosenMayEnterTemple, MSGBOX_DEFAULT
+	goto_if_unset FLAG_SYS_NATIONAL_DEX, SnowpointCity_EventScript_TempleGuardBlockPlayer
+	goto_if_unset FLAG_SYS_GAME_CLEAR, SnowpointCity_EventScript_TempleGuardBlockPlayer
+	@ BLOQUEADO: ramo de liberacao precisa da Candice (flag nao autorizada,
+	@ ver comentario acima). Volta ao plano antes de escrever.
+	releaseall
 	end
+
+SnowpointCity_EventScript_TempleGuardBlockPlayer::
+	applymovement LOCALID_SNOWPOINT_CITY_TEMPLE_GUARD, SnowpointCity_Movement_TempleGuardWalkOnSpotSouth
+	applymovement OBJ_EVENT_ID_PLAYER, SnowpointCity_Movement_PlayerWalkSouth
+	waitmovement 0
+	releaseall
+	end
+
+SnowpointCity_Movement_TempleGuardWalkOnSpotWest:
+	walk_in_place_left
+	step_end
+
+SnowpointCity_Movement_TempleGuardWalkOnSpotSouth:
+	walk_in_place_down
+	step_end
+
+SnowpointCity_Movement_PlayerWalkSouth:
+	walk_down
+	step_end
+
+@ Fala do guarda ao ser abordado (talk, script 1 da fonte): so a recusa
+@ geral, igual ao coord_event acima (o ramo que muda de fala depende da
+@ Candice, fora do escopo aqui).
+SnowpointCity_EventScript_TempleGuard::
+	lock
+	faceplayer
+	msgbox SnowpointCity_Text_OnlyChosenMayEnterTemple, MSGBOX_DEFAULT
+	release
+	end
+
+@ Texto literal de res/text/snowpoint_city.json (as duas variantes da fonte,
+@ OnlyChosenMayEnterTemple/_2, sao o mesmo texto; um so rotulo aqui).
+SnowpointCity_Text_OnlyChosenMayEnterTemple:
+	.string "Only the chosen may enter\n"
+	.string "the Snowpoint Temple.\p"
+	.string "I'm sorry, but you will have to\n"
+	.string "leave.$"
 
 @ <<< B6 Sinnoh S1: esqueletos de cena <<<
 

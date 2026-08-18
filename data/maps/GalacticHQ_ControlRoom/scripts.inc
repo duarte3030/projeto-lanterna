@@ -16,9 +16,28 @@ GalacticHQ_ControlRoom_MapScripts::
 	.byte 0
 
 @ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ rotulo da fonte: GalacticHQControlRoom_CoordEvent_Saturn (script 14). O
+@ texto da fonte (GalacticHQControlRoom_Text_PressButtonAndFreePokemon2) e
+@ identico, palavra a palavra, ao que a cena de vitoria do Saturn ja usa
+@ (GalacticHQ_ControlRoom_Text_PressButtonAndFreePokemon, linha 132): reusa o
+@ rotulo em vez de duplicar string.
 GalacticHQ_ControlRoom_EventScript_CoordEvent_Saturn::
-	@ TODO S6: cena da fonte, rotulo GalacticHQControlRoom_CoordEvent_Saturn
+	lockall
+	applymovement LOCALID_GALACTIC_HQ_CONTROL_SATURN, GalacticHQ_ControlRoom_Movement_SaturnWalkOnSpotSouth
+	waitmovement 0
+	msgbox GalacticHQ_ControlRoom_Text_PressButtonAndFreePokemon, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, GalacticHQ_ControlRoom_Movement_PlayerWalkNorth
+	waitmovement 0
+	releaseall
 	end
+
+GalacticHQ_ControlRoom_Movement_SaturnWalkOnSpotSouth:
+	walk_in_place_down
+	step_end
+
+GalacticHQ_ControlRoom_Movement_PlayerWalkNorth:
+	walk_up
+	step_end
 
 @ <<< B6 Sinnoh S1: esqueletos de cena <<<
 
@@ -27,8 +46,26 @@ GalacticHQ_ControlRoom_EventScript_Saturn::
 	msgbox GalacticHQ_ControlRoom_Text_PressButtonAndFreePokemon, MSGBOX_AUTOCLOSE
 	end
 
+@ ponytail: a fonte tambem troca aqui o quadro rupestre inteiro do Mt. Coronet
+@ 2F por cacos (SetFlag FLAG_HIDE_MT_CORONET_2F_CAVE_PAINTING, ClearFlag
+@ FLAG_HIDE_MT_CORONET_2F_CAVE_PAINTING_SHARDS), mas CAVE_PAINTING e mobiliario
+@ na lista GRAFICOS_PROIBIDOS de dev_scripts/importa_npcs_sinnoh.py: nunca
+@ virou objeto aqui, entao as duas flags nao existem e nao tem o que trocar.
+@ VAR_SINNOH_CORONET_2F_ESTADO precisa virar 1 mesmo assim: e o unico lugar da
+@ fonte inteira que da esse SetVar, e sem ele o Looker do 2F nunca destrava
+@ (o coord_event dele exige var==1 e nada mais o escreve).
+@ CONSERTO 18/08/2026: faltava tambem o `setvar VAR_SINNOH_QG_SALA_CONTROLE_
+@ ESTADO, 1`. Sem ele NADA no repo inteiro escrevia essa var e o coord_event de
+@ (7,9) (GalacticHQ_ControlRoom_EventScript_CoordEvent_Saturn, que pede
+@ var_value 1) era inalcancavel no jogo de verdade. A fonte poe esse SetVar
+@ exatamente aqui: scripts_galactic_hq_control_room.s:47, logo depois de
+@ `SetFlag FLAG_DEFEATED_GALACTIC_HQ_CONTROL_ROOM_SATURN` e antes da fala
+@ WhatMakesYouSoTough. O par dele (voltar a var para 0) mora no botao, e foi
+@ portado junto em GalacticHQ_ControlRoom_EventScript_PressButton.
 GalacticHQ_ControlRoom_EventScript_SaturnDefeated::
 	msgbox GalacticHQ_ControlRoom_Text_BossCraftedRedChain, MSGBOX_DEFAULT
+	setvar VAR_SINNOH_CORONET_2F_ESTADO, 1
+	setvar VAR_SINNOH_QG_SALA_CONTROLE_ESTADO, 1
 	release
 	end
 
@@ -57,9 +94,14 @@ GalacticHQ_ControlRoom_EventScript_Button::
 	releaseall
 	end
 
+@ O `setvar ..., 0` e literal da fonte (scripts_galactic_hq_control_room.s:184,
+@ GalacticHQControlRoom_FreePokemon) e e o que DESARMA o gatilho de (7,9): o
+@ Saturn cutuca o jogador para apertar o botao enquanto a var estiver em 1, e
+@ para de cutucar quando ele aperta.
 GalacticHQ_ControlRoom_EventScript_PressButton::
 	msgbox GalacticHQ_ControlRoom_Text_AskPressButton, MSGBOX_DEFAULT
 	msgbox GalacticHQ_ControlRoom_Text_PlayerPressedButton, MSGBOX_DEFAULT
+	setvar VAR_SINNOH_QG_SALA_CONTROLE_ESTADO, 0
 	setflag FLAG_GALACTICA_LAKE_TRIO_FREED
 	releaseall
 	end

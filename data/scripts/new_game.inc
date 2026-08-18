@@ -197,6 +197,37 @@ EventScript_ResetAllMapFlags::
 	setflag FLAG_SINNOH_ESCONDE_HEARTHOME_CITY_ROUTE_209_GATE_RIVAL
 	setflag FLAG_SINNOH_ESCONDE_SOLACEON_TOWN_RIVAL
 	setflag FLAG_SINNOH_ESCONDE_VEILSTONE_STORE_B1F_PROF_ROWAN
+	@ Leva S6, onda 4 (18/08/2026): mesmo padrao das linhas acima. O rival de
+	@ Pastoria (PastoriaCity_EventScript_CoordEvent_RivalBattle) so cobre a
+	@ batalha em si (VAR_SINNOH_PASTORIA_ESTADO 1->2); o resto da corrente da
+	@ fonte (reposicionar depois do ginasio, bomba, BlockGreatMarsh) fica
+	@ bloqueado nesta leva porque depende do Crasher Wake, objeto fora do
+	@ censo do S1 (ver scripts.inc de PastoriaCity). Sem essas cenas, deixar o
+	@ objeto sempre visivel plantava ele preso na posicao de batalha depois do
+	@ primeiro encontro; nasce escondido, a propria cena revela e esconde de
+	@ volta no fecho, igual ao molde de Route203_EventScript_CoordEvent_Rival.
+	setflag FLAG_SINNOH_ESCONDE_PASTORIA_CITY_RIVAL
+	@ Cientista do portao da Route 218 (o pai do BARRY, que sobe a Pokedex).
+	@ Route218_West_EventScript_CoordEvent_ScientistM faz `clearflag`+`addobject`
+	@ no comeco e `setflag`+`removeobject` no fim: sem esta linha o `clearflag`
+	@ nao tinha o que limpar e o comentario de la ("nasce escondido") era falso.
+	@ DESVIO DA FONTE, dito: res/field/scripts/scripts_init_new_game.s da 112
+	@ SetFlag de FLAG_HIDE_* e NAO da este (conferido em 18/08/2026), e a cena
+	@ da fonte (scripts_route_218_gate_to_canalave_city.s) nao tem ClearFlag
+	@ nenhum: la o cientista fica de pe dentro do portao desde o inicio do jogo
+	@ e so some no fim da cena. Aqui ele nao tem script de clique (a cena e
+	@ toda por coord_event), entao deixar ele plantado era por um obstaculo
+	@ mudo no corredor do portao antes da hora.
+	setflag FLAG_SINNOH_ESCONDE_ROUTE_218_GATE_TO_CANALAVE_CITY_SCIENTIST_M
+	@ FICA DE FORA, com prova: FLAG_SINNOH_ESCONDE_VEILSTONE_COUNTERPART. A
+	@ fonte NUNCA acende FLAG_HIDE_VEILSTONE_COUNTERPART (grep em res/, src/ e
+	@ include/ inteiros: so aparece no campo hidden_flag do objeto e em DOIS
+	@ ClearFlag, scripts_veilstone_city_gym.s:42 e scripts_veilstone_city.s:1357),
+	@ ela nao esta entre as 112 de scripts_init_new_game.s, e VarsFlags_Init
+	@ (src/vars_flags.c:20) faz memset(0) no jogo novo. Ou seja: no Platinum a
+	@ contraparte fica de pe ao lado do ginasio de Veilstone desde a primeira
+	@ visita, porque ela e figurante da cena do Crasher Wake que vem ANTES do
+	@ ginasio. Mesmo caso ja documentado do rival de AcuityLakefront.
 	@ FICAM DE FORA, de proposito, as contrapartes de Route202 e de Sandgem
 	@ Town: a fonte NAO as esconde no jogo novo (nenhum SetFlag de
 	@ FLAG_HIDE_ROUTE_202_COUNTERPART nem de FLAG_HIDE_SANDGEM_TOWN_COUNTERPART

@@ -12,7 +12,22 @@
   "allow_running": true,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "object_events": [],
+  "object_events": [
+    {
+      "local_id": "LOCALID_MT_CORONET_2F_LOOKER",
+      "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+      "x": 20,
+      "y": 25,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MtCoronet2F_EventScript_Looker",
+      "flag": "0"
+    }
+  ],
   "warp_events": [
     {
       "x": 27,

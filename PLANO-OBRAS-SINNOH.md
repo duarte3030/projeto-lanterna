@@ -119,8 +119,13 @@ mapa não importado" era esta armadilha vista pela metade.
   executor da onda 4 que escrever as cenas, anotando o consumo na faixa.
 - **Rivais de Pastoria e Route 209**: mesma régua do rival da Route 203
   (executor de treinadores, 3 variantes por inicial, ids na faixa
-  2508-2519, times literais da fonte com o par de remapeamento 7→147/9→149
-  conferido na curva). Onda 4.
+  2508-2519, times literais da fonte com o remapeamento da curva conferido
+  contra irmãos já escalados). Onda 4. **Ids e nomes PRÉ-ATRIBUÍDOS pela
+  condutora (18/08)** para as duas frentes da onda citarem sem corrida:
+  2508 `TRAINER_SINNOH_RIVAL_PASTORIA_TURTWIG`, 2509 `_CHIMCHAR`,
+  2510 `_PIPLUP`; 2511 `TRAINER_SINNOH_RIVAL_ROUTE_209_TURTWIG`,
+  2512 `_CHIMCHAR`, 2513 `_PIPLUP`. Quem define é o executor de
+  treinadores; quem cita em cena usa esses nomes literais.
 - **Fechos que moram em script de vitória de líder** (Veilstone counterpart
   na vitória da Maylene; rival do portão 209 na vitória da Fantina): é
   fiação de cena, NÃO polimento de time (decisão 2 do Gui intocada); o
@@ -129,6 +134,32 @@ mapa não importado" era esta armadilha vista pela metade.
 - Set-piece da bomba de Pastoria + BlockGreatMarsh: onda 4, junto do arco
   S6 (é Equipe Galáctica). FaceBoard/Croagunk cruza com Valor Lakefront e
   fica para a S7, como o plano já previa.
+
+### Registros da onda 4 para o S8 (18/08/2026, consertador)
+
+- **`coord_event` herdado do S1 em tile decorativo de portão, 4 casos.** Os
+  dois portões de molde 13x9 (`Route209_Access` e `Route218_West`) têm três
+  linhas jogáveis (y=4,5,6) e duas linhas decorativas sem ligação com o
+  resto do mapa, y=2 e y=8. O gerador do S1 plantou gatilho nessas linhas:
+  `Route209_Access` (5,2) e (5,8), `Route218_West` (7,2) e (7,8). Não são
+  bug de cena e não foram tocados: são a mesma calibração de andabilidade
+  que a decisão do S1 já mandou o S8 escrever (`maquina_sinnoh.py` conferir
+  o tile plantado contra `map.bin`). Quando essa checagem entrar, ela deve
+  varrer também os gatilhos já gravados, não só os novos.
+- **Coordenada convertida pode cair em parede no meio da coreografia.** Em
+  `PastoriaCity`, a rota da fonte (descer 9, andar 4 a oeste na linha do
+  jogador) atravessa quatro tiles de colisão 1 depois da conversão
+  proporcional; a cena foi desviada para a linha 27, que está livre, e o
+  desvio está escrito no `scripts.inc`. `applymovement` de NPC ignora
+  colisão, então o sintoma é visual, não travamento: o S8 não vai achar
+  isso rodando o jogo, só medindo o `map.bin` contra o movimento.
+- **`VAR_SINNOH_PASTORIA_ESTADO=1` e `VAR_SINNOH_QG_SALA_CONTROLE_ESTADO`**
+  eram os dois gatilhos sem escritor da onda. O segundo foi portado (mora na
+  vitória do Saturn, `scripts_galactic_hq_control_room.s:47`, com o par que
+  volta a 0 no botão, linha 184). O primeiro continua sem escritor de
+  propósito: quem grava o 1 na fonte é a cena do armazém da Galáctica em
+  Veilstone (`scripts_veilstone_city_galactic_warehouse.s:89`), que este
+  porte ainda não tem. Quem escrever o armazém leva o `setvar` junto.
 
 ## Decisões da condutora (16/08/2026)
 

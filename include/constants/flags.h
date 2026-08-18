@@ -5300,3 +5300,19 @@
 #define FLAG_SINNOH_ESCONDE_VILLA_RIVAL                                          FLAG_UNUSED_0x1B9B  // FLAG_HIDE_VILLA_RIVAL
 #define FLAG_SINNOH_ESCONDE_VILLA_SCHOOL_KID_M                                   FLAG_UNUSED_0x1B9C  // FLAG_HIDE_VILLA_SCHOOL_KID_M
 // <<< B6 Sinnoh, flags dos grupos de hidden_flag <<<
+
+// >>> B6 Sinnoh S6, onda 4, decisao da condutora de 18/08/2026: duas flags fora
+// do padrao FLAG_HIDE_* (o censo de hidden_flag do S1 nao pega, ver
+// PLANO-OBRAS-SINNOH.md). Proximas livres apos 0x1B9C. Consumo: 2.
+// Reservada para PastoriaCity_EventScript_CoordEvent_Bomb/_BlockGreatMarsh;
+// as duas cenas continuam BLOQUEADAS nesta leva (dependem do Crasher Wake,
+// fora do censo do S1). Ver o comentario da cena em
+// data/maps/PastoriaCity/scripts.inc antes de usar.
+#define FLAG_SINNOH_PASTORIA_GRUNT_FUGIU_LESTE                                   FLAG_UNUSED_0x1B9D  // FLAG_PASTORIA_CITY_GRUNT_M_MOVED_EAST
+// Usada por scripts_pastoria_city_gym.s (SetFlag), scripts_pastoria_city.s
+// PastoriaCity_CoordEvent_FaceBoard (GoToIfSet) e scripts_valor_lakefront.s
+// (ClearFlag), nenhum dos tres em mapas desta leva (Gym e S7/fora de escopo,
+// FaceBoard adiado para a S7 pela propria condutora). Reservada aqui so para
+// o consumo de endereco constar; quem grava o uso e quem escrever essas cenas.
+#define FLAG_SINNOH_PASTORIA_CROAGUNK_BLOQUEADO                                  FLAG_UNUSED_0x1B9E  // FLAG_BLOCK_PASTORIA_CITY_CROAGUNK_EVENT
+// <<< B6 Sinnoh S6, onda 4, flags fora do padrao <<<

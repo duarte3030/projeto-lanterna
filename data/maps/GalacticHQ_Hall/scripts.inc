@@ -13,8 +13,24 @@ GalacticHQ_Hall_MapScripts::
 	.byte 0
 
 @ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ RESOLVIDO SEM CENA NOVA (S6, 18/08/2026). O gatilho GalacticHQHall_CoordEvent_
+@ Speech (script 1, var VAR_SINNOH_QG_HALL_ESTADO) esta esqueleto de proposito:
+@ o comentario do topo deste arquivo (linha 8) ja registra a decisao de quem
+@ desenhou o mapa de nao usar coord_event aqui (custaria a var so pra lembrar
+@ que ja rodou) e trazer o discurso pelo dialogo replay-avel de
+@ GalacticHQ_Hall_EventScript_Cyrus/_Looker, que ja existem abaixo com o
+@ mesmo banco de texto (TheWorldMustChange/WeWillChangeIt/GruntsWroooar/
+@ LetThereBeGlory/PsstOverHere/QuiteThePerformance). Os 20 grunts do Hall
+@ (LOCALID_GALACTIC_HQ_HALL_GRUNT_1..20) e o proprio Cyrus/Looker ja estao
+@ plantados no map.json com FLAG_GALACTICA_QG_TOMADO/sempre-visivel; nada
+@ aqui precisa de var nova. Os 2 coord_events que o S1 tinha plantado em
+@ (20,12)/(20,13) apontando pra este rotulo foram REMOVIDOS do map.json nesta
+@ leva (S6, 18/08/2026): apontavam pra um gatilho de var que a cena nunca
+@ usa, ficariam mortos pra sempre. Rotulo mantido como `end` so pelo caso de
+@ algo antigo ainda referenciar o simbolo; fila conta o grupo como resolvido
+@ por cena equivalente ja existente, mesma regra do FLAG_HIDE_SPEAR_PILLAR_
+@ GRUNTS (decisao da condutora, 17/08/2026).
 GalacticHQ_Hall_EventScript_CoordEvent_Speech::
-	@ TODO S6: cena da fonte, rotulo GalacticHQHall_CoordEvent_Speech
 	end
 
 @ <<< B6 Sinnoh S1: esqueletos de cena <<<

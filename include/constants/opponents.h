@@ -2128,7 +2128,7 @@
 
 // >>> cenas restantes da espinha da Galactica de Sinnoh (bloco B6,
 // dev_scripts/cena_galactica_sinnoh.py, 12/08/2026). Faixa exclusiva
-// desta frente: 2500 a 2519; gastos 8, livres 2508 a 2519. O vao 2462 a
+// desta frente: 2500 a 2519; gastos 14, livres 2514 a 2519. O vao 2462 a
 // 2499 fica DE PROPOSITO vazio, reservado para Johto retomar. >>>
 #define TRAINER_SINNOH_GALACTIC_GRUNT_CELESTIC_TOWN          2500
 #define TRAINER_SINNOH_COMMANDER_MARS_LAKE_VERITY            2501
@@ -2141,6 +2141,19 @@
 #define TRAINER_SINNOH_RIVAL_ROUTE_203_TURTWIG               2505
 #define TRAINER_SINNOH_RIVAL_ROUTE_203_CHIMCHAR              2506
 #define TRAINER_SINNOH_RIVAL_ROUTE_203_PIPLUP                2507
+// 18/08/2026, onda 4: ids e nomes PRE-ATRIBUIDOS pela condutora em
+// PLANO-OBRAS-SINNOH.md ("Decisoes da condutora sobre os retornos do S5")
+// para as duas frentes da onda citarem sem corrida. Pastoria usa o time do
+// bloco `rival_pastoria_city_*.json` da fonte, mas o NOME da constante e
+// PASTORIA_* sem "_CITY" (a staging trainers_sinnoh.party tem
+// TRAINER_SINNOH_RIVAL_PASTORIA_CITY_*; o define aqui segue o nome da
+// condutora, que e quem a cena de Pastoria (S6) vai citar).
+#define TRAINER_SINNOH_RIVAL_PASTORIA_TURTWIG                2508
+#define TRAINER_SINNOH_RIVAL_PASTORIA_CHIMCHAR               2509
+#define TRAINER_SINNOH_RIVAL_PASTORIA_PIPLUP                 2510
+#define TRAINER_SINNOH_RIVAL_ROUTE_209_TURTWIG               2511
+#define TRAINER_SINNOH_RIVAL_ROUTE_209_CHIMCHAR              2512
+#define TRAINER_SINNOH_RIVAL_ROUTE_209_PIPLUP                2513
 // <<< cenas da Galactica de Sinnoh <<<
 
 // >>> Campea de Unova, bloco B6 (12/08/2026). Faixa exclusiva desta frente:

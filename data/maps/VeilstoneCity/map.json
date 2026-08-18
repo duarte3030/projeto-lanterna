@@ -248,6 +248,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VeilstoneCity_EventScript_WarehouseGruntSoutheast",
       "flag": "FLAG_GALACTICA_QG_TOMADO"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
+      "x": 9,
+      "y": 35,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 2,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "FLAG_SINNOH_ESCONDE_VEILSTONE_COUNTERPART",
+      "origem": "pokeplatinum: LOCALID_COUNTERPART, parado perto da porta do ginasio (warp em 8,36). Sem script proprio ainda (questline da fonte em VeilstoneCity_Counterpart, ~1300 linhas, fora desta onda). ATENCAO: precisa do mesmo conversor de VAR_OBJ_GFX_ID_0 que Route207/scripts.inc:1-19 tem (checkplayergender no MAP_SCRIPT_ON_TRANSITION); VeilstoneCity/scripts.inc nao e arquivo desta onda, entao o conversor nao foi escrito aqui."
     }
   ],
   "warp_events": [

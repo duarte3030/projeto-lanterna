@@ -2,8 +2,20 @@ MtCoronet_1F_South_MapScripts::
 	.byte 0
 
 @ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ RESOLVIDO SEM CENA NOVA (S6, 18/08/2026). MtCoronet1FSouth_CoordEvent_Cyrus
+@ (script 1, var VAR_SINNOH_CORONET_1F_SUL_ESTADO) e so aproximacao +
+@ monologo, sem especial nem battle; o monologo inteiro (InANewlyCreatedWorld
+@ + ButWhatBecameOfThatWorld, so falta a linha de abertura MtCoronetIsWhere
+@ SinnohBegan) ja esta portado em MtCoronet_1F_South_EventScript_Cyrus (linha
+@ 52 abaixo), amarrado ao LOCALID_MT_CORONET_1F_SOUTH_CYRUS ja plantado no
+@ map.json (sempre visivel, mesma leitura da fonte: NUNCA existe SetFlag ou
+@ ClearFlag para Cyrus neste mapa). O gatilho de coordenada custaria uma var
+@ so pra lembrar que ja rodou; mesma razao ja registrada em GalacticHQ_Hall
+@ para o discurso do Cyrus la. O coord_event que o S1 tinha plantado em
+@ (14,23) apontando pra este rotulo foi REMOVIDO do map.json nesta leva:
+@ apontava pra um gatilho que a cena nunca usa. Fila conta o grupo como
+@ resolvido por cena equivalente ja existente.
 MtCoronet_1F_South_EventScript_CoordEvent_Cyrus::
-	@ TODO S6: cena da fonte, rotulo MtCoronet1FSouth_CoordEvent_Cyrus
 	end
 
 @ <<< B6 Sinnoh S1: esqueletos de cena <<<

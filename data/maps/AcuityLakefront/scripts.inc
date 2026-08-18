@@ -2,9 +2,83 @@ AcuityLakefront_MapScripts::
 	.byte 0
 
 @ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ rotulo da fonte: AcuityLakefront_CoordEvent_Rival (script 4). BARRY
+@ (LOCALID_ACUITY_LAKEFRONT_RIVAL, sprite trocado para OBJ_EVENT_GFX_RICH_BOY,
+@ mesma tabela de dev_scripts/valida_mapas_sinnoh.py) ja fica de pe la em cima,
+@ visivel: a fonte NUNCA da SetFlag/ClearFlag em FLAG_HIDE_ACUITY_LAKEFRONT_
+@ RIVAL em lugar nenhum (grep em res/ inteiro), so o campo hidden_flag do
+@ objeto aponta pra ela; sem SetFlag em new_game.inc (regra do plano: so entra
+@ com prova na fonte), a flag fica limpa e o objeto nasce visivel sozinho. A
+@ cena so puxa a camera pra cima pra revelar ele e mostrar a fala.
 AcuityLakefront_EventScript_CoordEvent_Rival::
-	@ TODO S6: cena da fonte, rotulo AcuityLakefront_CoordEvent_Rival
+	lockall
+	special SpawnCameraObject
+	applymovement LOCALID_CAMERA, AcuityLakefront_Movement_CameraMoveNorth
+	waitmovement 0
+	delay 15
+	msgbox AcuityLakefront_Text_CantClimbWithoutBadge, MSGBOX_DEFAULT
+	applymovement LOCALID_ACUITY_LAKEFRONT_RIVAL, AcuityLakefront_Movement_RivalLeave
+	waitmovement 0
+	@ CONSERTO 18/08/2026: `setflag` ANTES do `removeobject`, molde da casa
+	@ (Route203, Route209_Access, Pastoria). `removeobject` sozinho so tira o
+	@ sprite da tela; o objeto renasce do template na proxima entrada no mapa,
+	@ e o rival voltava a ficar plantado la em cima para sempre depois da cena.
+	@ A fonte tem o MESMO buraco (RemoveObject sem SetFlag, e o `grep` em res/
+	@ inteiro nao acha nenhum SetFlag/ClearFlag de FLAG_HIDE_ACUITY_LAKEFRONT_
+	@ RIVAL, nem em res/field/scripts/scripts_init_new_game.s): desvio
+	@ deliberado, o campo `flag` do objeto no map.json ja aponta para o alias e
+	@ estava sem ninguem para acender.
+	setflag FLAG_SINNOH_ESCONDE_ACUITY_LAKEFRONT_RIVAL
+	removeobject LOCALID_ACUITY_LAKEFRONT_RIVAL
+	applymovement LOCALID_CAMERA, AcuityLakefront_Movement_CameraMoveSouth
+	waitmovement 0
+	special RemoveCameraObject
+	setvar VAR_SINNOH_ACUITY_BEIRA_ESTADO, 1
+	releaseall
 	end
+
+AcuityLakefront_Movement_CameraMoveNorth:
+	slide_up
+	slide_up
+	slide_up
+	slide_up
+	slide_up
+	slide_up
+	step_end
+
+AcuityLakefront_Movement_CameraMoveSouth:
+	slide_down
+	slide_down
+	slide_down
+	slide_down
+	slide_down
+	slide_down
+	step_end
+
+AcuityLakefront_Movement_RivalLeave:
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+@ Texto literal de res/text/acuity_lakefront.json (BARRY: {STRVAR_1 3,0,0},
+@ jogador: {STRVAR_1 3,1,0}); requebrado para a largura daqui.
+AcuityLakefront_Text_CantClimbWithoutBadge:
+	.string "BARRY: Hey, {PLAYER}!\n"
+	.string "What, you finally come along now?\p"
+	.string "Slooow! Way too slow!\p"
+	.string "Listen, {PLAYER}.\n"
+	.string "See how the rocks are all lumpy\l"
+	.string "here?\p"
+	.string "You can't climb those rocks until\n"
+	.string "you get the Snowpoint Gym Badge.\p"
+	.string "Anyway, I'm off.\n"
+	.string "Team Galactic! I'm coming for you!$"
 
 @ <<< B6 Sinnoh S1: esqueletos de cena <<<
 

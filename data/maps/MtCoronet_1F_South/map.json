@@ -122,16 +122,6 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 14,
-      "y": 23,
-      "elevation": 0,
-      "var": "VAR_SINNOH_CORONET_1F_SUL_ESTADO",
-      "var_value": "0",
-      "script": "MtCoronet_1F_South_EventScript_CoordEvent_Cyrus"
-    }
-  ],
+  "coord_events": [],
   "bg_events": []
 }
