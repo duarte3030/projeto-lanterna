@@ -1686,6 +1686,54 @@
       "y": 0,
       "width": 1,
       "height": 1
+    },
+    {
+      "id": "MAPSEC_GALAR_SOUTH",
+      "name": "GALAR SOUTH",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_GALAR_CENTRAL",
+      "name": "GALAR CENTRAL",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_GALAR_NORTH",
+      "name": "GALAR NORTH",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_GALAR_ISLE_OF_ARMOR",
+      "name": "ISLE OF ARMOR",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_GALAR_CROWN_TUNDRA",
+      "name": "CROWN TUNDRA",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_GALAR_OTHER",
+      "name": "GALAR",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
     }
   ]
 }

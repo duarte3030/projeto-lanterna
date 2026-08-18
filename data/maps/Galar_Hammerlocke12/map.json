@@ -1,0 +1,21 @@
+{
+  "id": "MAP_GALAR_HAMMERLOCKE_12",
+  "name": "Galar_Hammerlocke12",
+  "layout": "LAYOUT_GALAR_HAMMERLOCKE_12",
+  "music": "MUS_RG_VICTORY_ROAD",
+  "region_map_section": "MAPSEC_GALAR_HAMMERLOCKE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_CITY",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [],
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [],
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g10m05. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. Eventos vazios de proposito: G3 (warps e conexoes) e G4 (NPCs e itens) ainda nao rodaram."
+}

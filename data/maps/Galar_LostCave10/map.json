@@ -1,0 +1,21 @@
+{
+  "id": "MAP_GALAR_LOST_CAVE_10",
+  "name": "Galar_LostCave10",
+  "layout": "LAYOUT_GALAR_LOST_CAVE_10",
+  "music": "MUS_RG_SEVII_CAVE",
+  "region_map_section": "MAPSEC_GALAR_LOST_CAVE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": true,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [],
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [],
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g02m22. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. Eventos vazios de proposito: G3 (warps e conexoes) e G4 (NPCs e itens) ainda nao rodaram."
+}

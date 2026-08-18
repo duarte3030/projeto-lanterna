@@ -1,0 +1,92 @@
+[
+  {
+    "id": "T106.1",
+    "nome": "Galar, G2: o maior mapa da regiao carrega. Galar_Postwick10 vem de g01m110 (90x83, 14.940 blocos, o maior blockdata dos 438) e mora no grupo NOVO gMapGroup_Galar, o 128o e ultimo que o motor aceita (mapGroup e s8). Prova o caminho inteiro do bloco: layout com layout_version frlg, blockdata cru da fonte, border de 2x2 e header com MAPSEC_GALAR_POSTWICK. Se o par de tileset estivesse trocado ou o layout caisse na tabela como NULL, o mapLayoutId lido da EWRAM nao seria este.",
+    "warp": "MAP_GALAR_POSTWICK_10",
+    "prova": {
+      "mapa": "MAP_GALAR_POSTWICK_10",
+      "layout": "LAYOUT_GALAR_POSTWICK_10"
+    }
+  },
+  {
+    "id": "T106.2",
+    "nome": "Galar, G2: Wyndon (g03m09, 100x70), a capital, carrega. Exterior de tipo CITY, portanto foi para o grupo novo pela regra do alocador (exteriores no grupo livre). Segundo mapa de 100 de largura do bloco: se o motor estivesse lendo largura/altura do lugar errado, um mapa desta dimensao e o primeiro a estourar.",
+    "warp": "MAP_GALAR_WYNDON_01",
+    "prova": {
+      "mapa": "MAP_GALAR_WYNDON_01",
+      "layout": "LAYOUT_GALAR_WYNDON_01"
+    }
+  },
+  {
+    "id": "T106.3",
+    "nome": "Galar, G2: Isle of Armor (g38m01), a primeira DLC, carrega. Entrou porque a decisao 1 da condutora mandou importar base + DLC de uma vez (o custo marginal e geometria ja paga). Prova tambem a MAPSEC real MAPSEC_GALAR_ISLE_OF_ARMOR, que e uma das 6 acrescentadas ao enum.",
+    "warp": "MAP_GALAR_ISLE_OF_ARMOR_05",
+    "prova": {
+      "mapa": "MAP_GALAR_ISLE_OF_ARMOR_05",
+      "layout": "LAYOUT_GALAR_ISLE_OF_ARMOR_05"
+    }
+  },
+  {
+    "id": "T106.4",
+    "nome": "Galar, G2: Crown Tundra (g37m05), a segunda DLC, carrega. Par da T106.3 do outro lado do conteudo pago: as duas DLC entraram na mesma leva e as duas MAPSEC reais precisam existir de verdade no enum, nao so como #define.",
+    "warp": "MAP_GALAR_CROWN_TUNDRA_08",
+    "prova": {
+      "mapa": "MAP_GALAR_CROWN_TUNDRA_08",
+      "layout": "LAYOUT_GALAR_CROWN_TUNDRA_08"
+    }
+  },
+  {
+    "id": "T106.5",
+    "nome": "Galar, G2: Wild Area (g03m35, 60x70) carrega. Este e um dos DOIS mapas cuja musica na fonte (id 264) fica FORA do bloco de musicas do FireRed que o repo importou como MUS_RG_*, e por isso foi a unica escolha por papel do bloco (MUS_RG_ROUTE1, o tema que o resto da Wild Area ja usa). Se o nome da musica nao existisse, o mapa nem compilaria; este caso e a sentinela disso.",
+    "warp": "MAP_GALAR_WILD_AREA_01",
+    "prova": {
+      "mapa": "MAP_GALAR_WILD_AREA_01",
+      "layout": "LAYOUT_GALAR_WILD_AREA_01"
+    }
+  },
+  {
+    "id": "T106.6",
+    "nome": "Galar, G2: Galar Mine 2 (g08m20, 48x73), caverna, carrega. Mapa que NAO foi para o grupo novo: ele esta em append no fim de gMapGroup_IndoorRoute117 (indice 22 de grupo, 1 dentro do grupo), que e como os 344 mapas nao exteriores entraram. Prova que append em grupo alheio carrega igual, e que o de-para do censo aponta para o indice certo.",
+    "warp": "MAP_GALAR_GALAR_MINE_03",
+    "prova": {
+      "mapa": "MAP_GALAR_GALAR_MINE_03",
+      "layout": "LAYOUT_GALAR_GALAR_MINE_03"
+    }
+  },
+  {
+    "id": "T106.7",
+    "nome": "Galar, G2: interior pequeno de Spikemuth (g40m09, 15x13) carrega. Mora no fim de gMapGroup_IndoorRoute121, no indice 80 dentro do grupo: o indice mais alto que este bloco usa fora dos dois grupos que encheram. Prova que numero de mapa alto dentro do grupo (mapNum e s8, teto 127) continua sendo lido certo.",
+    "warp": "MAP_GALAR_SPIKEMUTH_08",
+    "prova": {
+      "mapa": "MAP_GALAR_SPIKEMUTH_08",
+      "layout": "LAYOUT_GALAR_SPIKEMUTH_08"
+    }
+  },
+  {
+    "id": "T106.8",
+    "nome": "Galar, G2: Glimwood Tangle (g01m109, 99x74) carrega. Esta em gMapGroup_IndoorRoute116, um dos DOIS grupos que este bloco encheu ate o teto de 128. Se o teto tivesse sido estourado, o mapa seguinte cairia em indice 128 e o motor (s8) leria numero negativo; este caso e a sentinela do alocador.",
+    "warp": "MAP_GALAR_GLIMWOOD_TANGLE_01",
+    "prova": {
+      "mapa": "MAP_GALAR_GLIMWOOD_TANGLE_01",
+      "layout": "LAYOUT_GALAR_GLIMWOOD_TANGLE_01"
+    }
+  },
+  {
+    "id": "T106.9",
+    "nome": "Galar, G2, CASO DE RISCO 1: g10m07 (Galar_Hammerlocke13, 15x20) e o unico mapa cujo secundario da fonte (0x02D4F8C) o G1 NAO converteu, por LZ77 anomalo. O blockdata dele tem metatile maximo 94, ou seja nenhum metatile de faixa secundaria (>= 640), entao o secundario e decorativo e ele recebeu gTileset_Galar31 no lugar. Se essa leitura estivesse errada, o mapa carregaria com metatile fora de faixa e o layout na EWRAM nao fecharia.",
+    "warp": "MAP_GALAR_HAMMERLOCKE_13",
+    "prova": {
+      "mapa": "MAP_GALAR_HAMMERLOCKE_13",
+      "layout": "LAYOUT_GALAR_HAMMERLOCKE_13"
+    }
+  },
+  {
+    "id": "T106.10",
+    "nome": "Galar, G2, CASO DE RISCO 2: g42m03 (Galar_Postwick171) e um dos dois mapas degenerados que a fonte pareia com galar_00 nos DOIS slots de tileset. galar_00 foi registrado pelo G1 como primario (.isSecondary = FALSE) e nao pode ser secundario, entao entrou gTileset_Galar32 no lugar; o mapa tem 2x2 blocos e UM metatile distinto, de faixa primaria, logo a troca e invisivel. E tambem o menor mapa dos 438: se o motor tropecasse em mapa menor que a tela, seria aqui.",
+    "warp": "MAP_GALAR_POSTWICK_171",
+    "prova": {
+      "mapa": "MAP_GALAR_POSTWICK_171",
+      "layout": "LAYOUT_GALAR_POSTWICK_171"
+    }
+  }
+]

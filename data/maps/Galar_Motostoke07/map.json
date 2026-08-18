@@ -1,0 +1,21 @@
+{
+  "id": "MAP_GALAR_MOTOSTOKE_07",
+  "name": "Galar_Motostoke07",
+  "layout": "LAYOUT_GALAR_MOTOSTOKE_07",
+  "music": "MUS_RG_VICTORY_ROAD",
+  "region_map_section": "MAPSEC_GALAR_MOTOSTOKE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [],
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [],
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g06m14. Gerado por dev_scripts/mundo_galar.py; nao editar a mao. Eventos vazios de proposito: G3 (warps e conexoes) e G4 (NPCs e itens) ainda nao rodaram."
+}
