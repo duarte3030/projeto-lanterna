@@ -794,3 +794,146 @@ const u16 gMetatileAttributes_UnovaVirbank[] = INCBIN_U16("data/tilesets/seconda
 // FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
 // const u16 gMetatiles_UnovaRuinsOfAlph[] = INCBIN_U16("data/tilesets/secondary/unova_ruins_of_alph/metatiles.bin");
 // const u16 gMetatileAttributes_UnovaRuinsOfAlph[] = INCBIN_U16("data/tilesets/secondary/unova_ruins_of_alph/metatile_attributes.bin");
+
+// --- Galar (G1, tileset_galar.py) ---
+
+const u16 gMetatiles_Galar00[] = INCBIN_U16("data/tilesets/primary/galar_00/metatiles.bin");
+const u16 gMetatileAttributes_Galar00[] = INCBIN_U16("data/tilesets/primary/galar_00/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar01[] = INCBIN_U16("data/tilesets/secondary/galar_01/metatiles.bin");
+const u16 gMetatileAttributes_Galar01[] = INCBIN_U16("data/tilesets/secondary/galar_01/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar02[] = INCBIN_U16("data/tilesets/secondary/galar_02/metatiles.bin");
+const u16 gMetatileAttributes_Galar02[] = INCBIN_U16("data/tilesets/secondary/galar_02/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar03[] = INCBIN_U16("data/tilesets/secondary/galar_03/metatiles.bin");
+const u16 gMetatileAttributes_Galar03[] = INCBIN_U16("data/tilesets/secondary/galar_03/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar04[] = INCBIN_U16("data/tilesets/secondary/galar_04/metatiles.bin");
+const u16 gMetatileAttributes_Galar04[] = INCBIN_U16("data/tilesets/secondary/galar_04/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar05[] = INCBIN_U16("data/tilesets/secondary/galar_05/metatiles.bin");
+const u16 gMetatileAttributes_Galar05[] = INCBIN_U16("data/tilesets/secondary/galar_05/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar06[] = INCBIN_U16("data/tilesets/secondary/galar_06/metatiles.bin");
+const u16 gMetatileAttributes_Galar06[] = INCBIN_U16("data/tilesets/secondary/galar_06/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar07[] = INCBIN_U16("data/tilesets/secondary/galar_07/metatiles.bin");
+const u16 gMetatileAttributes_Galar07[] = INCBIN_U16("data/tilesets/secondary/galar_07/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar08[] = INCBIN_U16("data/tilesets/secondary/galar_08/metatiles.bin");
+const u16 gMetatileAttributes_Galar08[] = INCBIN_U16("data/tilesets/secondary/galar_08/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar09[] = INCBIN_U16("data/tilesets/secondary/galar_09/metatiles.bin");
+const u16 gMetatileAttributes_Galar09[] = INCBIN_U16("data/tilesets/secondary/galar_09/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar10[] = INCBIN_U16("data/tilesets/secondary/galar_10/metatiles.bin");
+const u16 gMetatileAttributes_Galar10[] = INCBIN_U16("data/tilesets/secondary/galar_10/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar11[] = INCBIN_U16("data/tilesets/primary/galar_11/metatiles.bin");
+const u16 gMetatileAttributes_Galar11[] = INCBIN_U16("data/tilesets/primary/galar_11/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar12[] = INCBIN_U16("data/tilesets/secondary/galar_12/metatiles.bin");
+const u16 gMetatileAttributes_Galar12[] = INCBIN_U16("data/tilesets/secondary/galar_12/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar13[] = INCBIN_U16("data/tilesets/secondary/galar_13/metatiles.bin");
+const u16 gMetatileAttributes_Galar13[] = INCBIN_U16("data/tilesets/secondary/galar_13/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar14[] = INCBIN_U16("data/tilesets/secondary/galar_14/metatiles.bin");
+const u16 gMetatileAttributes_Galar14[] = INCBIN_U16("data/tilesets/secondary/galar_14/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar15[] = INCBIN_U16("data/tilesets/secondary/galar_15/metatiles.bin");
+const u16 gMetatileAttributes_Galar15[] = INCBIN_U16("data/tilesets/secondary/galar_15/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar16[] = INCBIN_U16("data/tilesets/secondary/galar_16/metatiles.bin");
+const u16 gMetatileAttributes_Galar16[] = INCBIN_U16("data/tilesets/secondary/galar_16/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar17[] = INCBIN_U16("data/tilesets/secondary/galar_17/metatiles.bin");
+const u16 gMetatileAttributes_Galar17[] = INCBIN_U16("data/tilesets/secondary/galar_17/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar18[] = INCBIN_U16("data/tilesets/secondary/galar_18/metatiles.bin");
+const u16 gMetatileAttributes_Galar18[] = INCBIN_U16("data/tilesets/secondary/galar_18/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar19[] = INCBIN_U16("data/tilesets/secondary/galar_19/metatiles.bin");
+const u16 gMetatileAttributes_Galar19[] = INCBIN_U16("data/tilesets/secondary/galar_19/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar20[] = INCBIN_U16("data/tilesets/secondary/galar_20/metatiles.bin");
+const u16 gMetatileAttributes_Galar20[] = INCBIN_U16("data/tilesets/secondary/galar_20/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar21[] = INCBIN_U16("data/tilesets/secondary/galar_21/metatiles.bin");
+const u16 gMetatileAttributes_Galar21[] = INCBIN_U16("data/tilesets/secondary/galar_21/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar22[] = INCBIN_U16("data/tilesets/secondary/galar_22/metatiles.bin");
+const u16 gMetatileAttributes_Galar22[] = INCBIN_U16("data/tilesets/secondary/galar_22/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar23[] = INCBIN_U16("data/tilesets/secondary/galar_23/metatiles.bin");
+const u16 gMetatileAttributes_Galar23[] = INCBIN_U16("data/tilesets/secondary/galar_23/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar24[] = INCBIN_U16("data/tilesets/secondary/galar_24/metatiles.bin");
+const u16 gMetatileAttributes_Galar24[] = INCBIN_U16("data/tilesets/secondary/galar_24/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar25[] = INCBIN_U16("data/tilesets/secondary/galar_25/metatiles.bin");
+const u16 gMetatileAttributes_Galar25[] = INCBIN_U16("data/tilesets/secondary/galar_25/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar26[] = INCBIN_U16("data/tilesets/secondary/galar_26/metatiles.bin");
+const u16 gMetatileAttributes_Galar26[] = INCBIN_U16("data/tilesets/secondary/galar_26/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar27[] = INCBIN_U16("data/tilesets/secondary/galar_27/metatiles.bin");
+const u16 gMetatileAttributes_Galar27[] = INCBIN_U16("data/tilesets/secondary/galar_27/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar28[] = INCBIN_U16("data/tilesets/secondary/galar_28/metatiles.bin");
+const u16 gMetatileAttributes_Galar28[] = INCBIN_U16("data/tilesets/secondary/galar_28/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar29[] = INCBIN_U16("data/tilesets/secondary/galar_29/metatiles.bin");
+const u16 gMetatileAttributes_Galar29[] = INCBIN_U16("data/tilesets/secondary/galar_29/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar30[] = INCBIN_U16("data/tilesets/secondary/galar_30/metatiles.bin");
+const u16 gMetatileAttributes_Galar30[] = INCBIN_U16("data/tilesets/secondary/galar_30/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar31[] = INCBIN_U16("data/tilesets/secondary/galar_31/metatiles.bin");
+const u16 gMetatileAttributes_Galar31[] = INCBIN_U16("data/tilesets/secondary/galar_31/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar32[] = INCBIN_U16("data/tilesets/secondary/galar_32/metatiles.bin");
+const u16 gMetatileAttributes_Galar32[] = INCBIN_U16("data/tilesets/secondary/galar_32/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar33[] = INCBIN_U16("data/tilesets/secondary/galar_33/metatiles.bin");
+const u16 gMetatileAttributes_Galar33[] = INCBIN_U16("data/tilesets/secondary/galar_33/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar34[] = INCBIN_U16("data/tilesets/secondary/galar_34/metatiles.bin");
+const u16 gMetatileAttributes_Galar34[] = INCBIN_U16("data/tilesets/secondary/galar_34/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar35[] = INCBIN_U16("data/tilesets/secondary/galar_35/metatiles.bin");
+const u16 gMetatileAttributes_Galar35[] = INCBIN_U16("data/tilesets/secondary/galar_35/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar36[] = INCBIN_U16("data/tilesets/secondary/galar_36/metatiles.bin");
+const u16 gMetatileAttributes_Galar36[] = INCBIN_U16("data/tilesets/secondary/galar_36/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar37[] = INCBIN_U16("data/tilesets/secondary/galar_37/metatiles.bin");
+const u16 gMetatileAttributes_Galar37[] = INCBIN_U16("data/tilesets/secondary/galar_37/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar38[] = INCBIN_U16("data/tilesets/secondary/galar_38/metatiles.bin");
+const u16 gMetatileAttributes_Galar38[] = INCBIN_U16("data/tilesets/secondary/galar_38/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar39[] = INCBIN_U16("data/tilesets/secondary/galar_39/metatiles.bin");
+const u16 gMetatileAttributes_Galar39[] = INCBIN_U16("data/tilesets/secondary/galar_39/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar41[] = INCBIN_U16("data/tilesets/secondary/galar_41/metatiles.bin");
+const u16 gMetatileAttributes_Galar41[] = INCBIN_U16("data/tilesets/secondary/galar_41/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar42[] = INCBIN_U16("data/tilesets/secondary/galar_42/metatiles.bin");
+const u16 gMetatileAttributes_Galar42[] = INCBIN_U16("data/tilesets/secondary/galar_42/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar43[] = INCBIN_U16("data/tilesets/secondary/galar_43/metatiles.bin");
+const u16 gMetatileAttributes_Galar43[] = INCBIN_U16("data/tilesets/secondary/galar_43/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar44[] = INCBIN_U16("data/tilesets/secondary/galar_44/metatiles.bin");
+const u16 gMetatileAttributes_Galar44[] = INCBIN_U16("data/tilesets/secondary/galar_44/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar45[] = INCBIN_U16("data/tilesets/secondary/galar_45/metatiles.bin");
+const u16 gMetatileAttributes_Galar45[] = INCBIN_U16("data/tilesets/secondary/galar_45/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar46[] = INCBIN_U16("data/tilesets/secondary/galar_46/metatiles.bin");
+const u16 gMetatileAttributes_Galar46[] = INCBIN_U16("data/tilesets/secondary/galar_46/metatile_attributes.bin");
+
+const u16 gMetatiles_Galar47[] = INCBIN_U16("data/tilesets/secondary/galar_47/metatiles.bin");
+const u16 gMetatileAttributes_Galar47[] = INCBIN_U16("data/tilesets/secondary/galar_47/metatile_attributes.bin");

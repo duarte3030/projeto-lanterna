@@ -201,4 +201,101 @@ extern const struct Tileset gTileset_UnovaVirbank;
 // FORA DA BUILD: nenhum dos 291 mapas de Unova usa este tileset do BW3G (medido em maps.asm); convertido e guardado, fora da ROM
 // extern const struct Tileset gTileset_UnovaRuinsOfAlph;
 
+
+// --- Galar (G1, tileset_galar.py) ---
+
+extern const struct Tileset gTileset_Galar00;
+
+extern const struct Tileset gTileset_Galar01;
+
+extern const struct Tileset gTileset_Galar02;
+
+extern const struct Tileset gTileset_Galar03;
+
+extern const struct Tileset gTileset_Galar04;
+
+extern const struct Tileset gTileset_Galar05;
+
+extern const struct Tileset gTileset_Galar06;
+
+extern const struct Tileset gTileset_Galar07;
+
+extern const struct Tileset gTileset_Galar08;
+
+extern const struct Tileset gTileset_Galar09;
+
+extern const struct Tileset gTileset_Galar10;
+
+extern const struct Tileset gTileset_Galar11;
+
+extern const struct Tileset gTileset_Galar12;
+
+extern const struct Tileset gTileset_Galar13;
+
+extern const struct Tileset gTileset_Galar14;
+
+extern const struct Tileset gTileset_Galar15;
+
+extern const struct Tileset gTileset_Galar16;
+
+extern const struct Tileset gTileset_Galar17;
+
+extern const struct Tileset gTileset_Galar18;
+
+extern const struct Tileset gTileset_Galar19;
+
+extern const struct Tileset gTileset_Galar20;
+
+extern const struct Tileset gTileset_Galar21;
+
+extern const struct Tileset gTileset_Galar22;
+
+extern const struct Tileset gTileset_Galar23;
+
+extern const struct Tileset gTileset_Galar24;
+
+extern const struct Tileset gTileset_Galar25;
+
+extern const struct Tileset gTileset_Galar26;
+
+extern const struct Tileset gTileset_Galar27;
+
+extern const struct Tileset gTileset_Galar28;
+
+extern const struct Tileset gTileset_Galar29;
+
+extern const struct Tileset gTileset_Galar30;
+
+extern const struct Tileset gTileset_Galar31;
+
+extern const struct Tileset gTileset_Galar32;
+
+extern const struct Tileset gTileset_Galar33;
+
+extern const struct Tileset gTileset_Galar34;
+
+extern const struct Tileset gTileset_Galar35;
+
+extern const struct Tileset gTileset_Galar36;
+
+extern const struct Tileset gTileset_Galar37;
+
+extern const struct Tileset gTileset_Galar38;
+
+extern const struct Tileset gTileset_Galar39;
+
+extern const struct Tileset gTileset_Galar41;
+
+extern const struct Tileset gTileset_Galar42;
+
+extern const struct Tileset gTileset_Galar43;
+
+extern const struct Tileset gTileset_Galar44;
+
+extern const struct Tileset gTileset_Galar45;
+
+extern const struct Tileset gTileset_Galar46;
+
+extern const struct Tileset gTileset_Galar47;
+
 #endif //GUARD_tilesets_H

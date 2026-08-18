@@ -1,0 +1,1126 @@
+{
+ "gerado_por": "dev_scripts/tileset_galar.py",
+ "fonte": "fontes-mapas/galar-swsh/extraidos-ultimate",
+ "primarios_do_demake": {
+  "0x02D4A94": {
+   "nome": "galar_00",
+   "reusa_do_repo": null,
+   "primario_do_repo_mais_parecido": "general_frlg",
+   "fracao_de_pixels_iguais": 0.3644,
+   "comparados": 12
+  },
+  "0x02D4BB4": {
+   "nome": "galar_11",
+   "reusa_do_repo": null,
+   "primario_do_repo_mais_parecido": "building_frlg",
+   "fracao_de_pixels_iguais": 0.8552,
+   "comparados": 12
+  }
+ },
+ "papel_duplo": {
+  "0x02D4A94": {
+   "papel_adotado": "primario",
+   "usos_secundarios_degenerados": [
+    "g42m03",
+    "g42m09"
+   ],
+   "nota": "1 metatile distinto cada; o G2 NAO pode parear este tileset como secundario (.isSecondary=FALSE)"
+  }
+ },
+ "nao_convertidos": [
+  {
+   "endereco": "0x02D4F8C",
+   "nn": 40,
+   "motivo": "isCompressed=1 mas o byte em 0x028FBD8 é 0xFF, não 0x10 (cabeçalho LZ77)",
+   "mapas": [
+    "g10m07"
+   ]
+  }
+ ],
+ "de_para": {
+  "0x02D4A94": {
+   "nome": "galar_00",
+   "rotulo": "gTileset_Galar00",
+   "pasta": "data/tilesets/primary/galar_00",
+   "papel": "primario",
+   "papeis_de_uso": [
+    "primario",
+    "secundario"
+   ],
+   "n_tiles": 640,
+   "n_metatiles": 628,
+   "n_mapas": 177,
+   "animado": true,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {
+    "7": 1
+   },
+   "camadas_corrigidas": 0
+  },
+  "0x02D4AAC": {
+   "nome": "galar_01",
+   "rotulo": "gTileset_Galar01",
+   "pasta": "data/tilesets/secondary/galar_01",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 384,
+   "n_metatiles": 160,
+   "n_mapas": 17,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {
+    "306": 1,
+    "324": 1,
+    "308": 1,
+    "20": 1
+   },
+   "camadas_corrigidas": 1
+  },
+  "0x02D4AC4": {
+   "nome": "galar_02",
+   "rotulo": "gTileset_Galar02",
+   "pasta": "data/tilesets/secondary/galar_02",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 384,
+   "n_metatiles": 375,
+   "n_mapas": 3,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {
+    "511": 2,
+    "15": 4,
+    "164": 1,
+    "346": 1,
+    "255": 1,
+    "256": 3,
+    "28": 1,
+    "4": 2,
+    "264": 2,
+    "503": 1,
+    "9": 3,
+    "374": 2,
+    "266": 2,
+    "240": 1,
+    "361": 1,
+    "192": 1,
+    "223": 1,
+    "429": 1,
+    "217": 1,
+    "227": 2,
+    "481": 1,
+    "272": 1,
+    "274": 1,
+    "353": 1
+   },
+   "camadas_corrigidas": 14
+  },
+  "0x02D4ADC": {
+   "nome": "galar_03",
+   "rotulo": "gTileset_Galar03",
+   "pasta": "data/tilesets/secondary/galar_03",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 384,
+   "n_metatiles": 376,
+   "n_mapas": 4,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {
+    "255": 7,
+    "13": 1,
+    "262": 1,
+    "256": 12,
+    "125": 1,
+    "359": 1,
+    "264": 5,
+    "258": 3,
+    "4": 1,
+    "511": 33,
+    "5": 2,
+    "372": 1,
+    "461": 1,
+    "45": 2,
+    "332": 1,
+    "299": 1,
+    "371": 1,
+    "9": 1,
+    "486": 3,
+    "473": 1,
+    "488": 1,
+    "477": 1,
+    "217": 1,
+    "233": 1,
+    "387": 1
+   },
+   "camadas_corrigidas": 46
+  },
+  "0x02D4AF4": {
+   "nome": "galar_04",
+   "rotulo": "gTileset_Galar04",
+   "pasta": "data/tilesets/secondary/galar_04",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 384,
+   "n_metatiles": 300,
+   "n_mapas": 4,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {
+    "307": 151,
+    "256": 5
+   },
+   "camadas_corrigidas": 0
+  },
+  "0x02D4B0C": {
+   "nome": "galar_05",
+   "rotulo": "gTileset_Galar05",
+   "pasta": "data/tilesets/secondary/galar_05",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 384,
+   "n_metatiles": 299,
+   "n_mapas": 3,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {
+    "178": 1,
+    "307": 53,
+    "456": 8,
+    "36": 3,
+    "44": 12,
+    "176": 3
+   },
+   "camadas_corrigidas": 0
+  },
+  "0x02D4B24": {
+   "nome": "galar_06",
+   "rotulo": "gTileset_Galar06",
+   "pasta": "data/tilesets/secondary/galar_06",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 384,
+   "n_metatiles": 380,
+   "n_mapas": 6,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {
+    "178": 1,
+    "307": 31,
+    "258": 1,
+    "256": 10
+   },
+   "camadas_corrigidas": 0
+  },
+  "0x02D4B3C": {
+   "nome": "galar_07",
+   "rotulo": "gTileset_Galar07",
+   "pasta": "data/tilesets/secondary/galar_07",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 384,
+   "n_metatiles": 335,
+   "n_mapas": 3,
+   "animado": true,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {
+    "173": 2,
+    "248": 2,
+    "334": 2,
+    "249": 1,
+    "335": 1,
+    "511": 1
+   },
+   "camadas_corrigidas": 3
+  },
+  "0x02D4B6C": {
+   "nome": "galar_08",
+   "rotulo": "gTileset_Galar08",
+   "pasta": "data/tilesets/secondary/galar_08",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 384,
+   "n_metatiles": 368,
+   "n_mapas": 6,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {
+    "511": 9,
+    "354": 1,
+    "313": 1,
+    "255": 2,
+    "256": 7,
+    "213": 5,
+    "476": 1,
+    "221": 3,
+    "490": 2,
+    "469": 4,
+    "429": 1,
+    "487": 2,
+    "482": 1,
+    "481": 1,
+    "470": 1,
+    "230": 3,
+    "496": 1,
+    "226": 6,
+    "472": 3,
+    "510": 1,
+    "227": 4,
+    "217": 2,
+    "477": 2,
+    "484": 2,
+    "474": 1,
+    "483": 2,
+    "489": 1,
+    "215": 1,
+    "231": 1,
+    "480": 1,
+    "488": 1,
+    "444": 1,
+    "15": 1,
+    "165": 1,
+    "186": 1,
+    "41": 1,
+    "9": 1,
+    "423": 1,
+    "4": 2,
+    "336": 1,
+    "289": 1,
+    "166": 1,
+    "44": 1,
+    "307": 12
+   },
+   "camadas_corrigidas": 40
+  },
+  "0x02D4B84": {
+   "nome": "galar_09",
+   "rotulo": "gTileset_Galar09",
+   "pasta": "data/tilesets/secondary/galar_09",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 384,
+   "n_metatiles": 368,
+   "n_mapas": 1,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {
+    "511": 6,
+    "354": 1,
+    "313": 1,
+    "255": 2,
+    "256": 5,
+    "213": 4,
+    "490": 1,
+    "469": 3,
+    "429": 1,
+    "487": 1,
+    "230": 1,
+    "496": 1,
+    "226": 5,
+    "472": 1,
+    "221": 1,
+    "477": 1,
+    "217": 1,
+    "227": 1,
+    "444": 1,
+    "15": 1,
+    "165": 1,
+    "186": 1,
+    "41": 1,
+    "9": 1,
+    "300": 1,
+    "4": 1,
+    "257": 1,
+    "264": 1,
+    "44": 1
+   },
+   "camadas_corrigidas": 24
+  },
+  "0x02D4B9C": {
+   "nome": "galar_10",
+   "rotulo": "gTileset_Galar10",
+   "pasta": "data/tilesets/secondary/galar_10",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 384,
+   "n_metatiles": 375,
+   "n_mapas": 2,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {
+    "178": 1,
+    "307": 15,
+    "452": 9,
+    "456": 9,
+    "460": 8,
+    "464": 9,
+    "468": 8,
+    "256": 4,
+    "36": 12,
+    "44": 12,
+    "176": 11
+   },
+   "camadas_corrigidas": 0
+  },
+  "0x02D4BB4": {
+   "nome": "galar_11",
+   "rotulo": "gTileset_Galar11",
+   "pasta": "data/tilesets/primary/galar_11",
+   "papel": "primario",
+   "papeis_de_uso": [
+    "primario"
+   ],
+   "n_tiles": 640,
+   "n_metatiles": 640,
+   "n_mapas": 263,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D4BE4": {
+   "nome": "galar_12",
+   "rotulo": "gTileset_Galar12",
+   "pasta": "data/tilesets/secondary/galar_12",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 376,
+   "n_metatiles": 324,
+   "n_mapas": 52,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D4BFC": {
+   "nome": "galar_13",
+   "rotulo": "gTileset_Galar13",
+   "pasta": "data/tilesets/secondary/galar_13",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 256,
+   "n_metatiles": 189,
+   "n_mapas": 25,
+   "animado": false,
+   "guard_entradas": 3,
+   "guard_tile": 256,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D4C2C": {
+   "nome": "galar_14",
+   "rotulo": "gTileset_Galar14",
+   "pasta": "data/tilesets/secondary/galar_14",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 375,
+   "n_metatiles": 264,
+   "n_mapas": 12,
+   "animado": false,
+   "guard_entradas": 1,
+   "guard_tile": 375,
+   "comportamentos_desconhecidos": {
+    "179": 1,
+    "511": 1
+   },
+   "camadas_corrigidas": 1
+  },
+  "0x02D4C74": {
+   "nome": "galar_15",
+   "rotulo": "gTileset_Galar15",
+   "pasta": "data/tilesets/secondary/galar_15",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 255,
+   "n_metatiles": 176,
+   "n_mapas": 27,
+   "animado": false,
+   "guard_entradas": 1,
+   "guard_tile": 255,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D4C8C": {
+   "nome": "galar_16",
+   "rotulo": "gTileset_Galar16",
+   "pasta": "data/tilesets/secondary/galar_16",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 102,
+   "n_metatiles": 173,
+   "n_mapas": 2,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D4CBC": {
+   "nome": "galar_17",
+   "rotulo": "gTileset_Galar17",
+   "pasta": "data/tilesets/secondary/galar_17",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 90,
+   "n_metatiles": 36,
+   "n_mapas": 5,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D4CEC": {
+   "nome": "galar_18",
+   "rotulo": "gTileset_Galar18",
+   "pasta": "data/tilesets/secondary/galar_18",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 171,
+   "n_metatiles": 163,
+   "n_mapas": 2,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D4D04": {
+   "nome": "galar_19",
+   "rotulo": "gTileset_Galar19",
+   "pasta": "data/tilesets/secondary/galar_19",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 188,
+   "n_metatiles": 57,
+   "n_mapas": 1,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D4D1C": {
+   "nome": "galar_20",
+   "rotulo": "gTileset_Galar20",
+   "pasta": "data/tilesets/secondary/galar_20",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 356,
+   "n_metatiles": 163,
+   "n_mapas": 2,
+   "animado": false,
+   "guard_entradas": 57,
+   "guard_tile": 356,
+   "comportamentos_desconhecidos": {
+    "418": 11,
+    "256": 1,
+    "272": 1,
+    "416": 10,
+    "258": 1,
+    "274": 1,
+    "260": 1,
+    "276": 1,
+    "262": 1,
+    "278": 1,
+    "264": 1,
+    "280": 1,
+    "266": 1,
+    "282": 1,
+    "288": 1,
+    "304": 1,
+    "292": 1,
+    "296": 1,
+    "298": 1,
+    "320": 2,
+    "336": 2,
+    "511": 7,
+    "322": 1,
+    "338": 1,
+    "340": 3,
+    "341": 1,
+    "324": 1
+   },
+   "camadas_corrigidas": 8
+  },
+  "0x02D4D7C": {
+   "nome": "galar_21",
+   "rotulo": "gTileset_Galar21",
+   "pasta": "data/tilesets/secondary/galar_21",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 146,
+   "n_metatiles": 96,
+   "n_mapas": 1,
+   "animado": false,
+   "guard_entradas": 30,
+   "guard_tile": 146,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D4DC4": {
+   "nome": "galar_22",
+   "rotulo": "gTileset_Galar22",
+   "pasta": "data/tilesets/secondary/galar_22",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 384,
+   "n_metatiles": 384,
+   "n_mapas": 19,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {
+    "511": 2,
+    "15": 4,
+    "164": 1,
+    "346": 1,
+    "255": 1,
+    "256": 3,
+    "28": 1,
+    "4": 2,
+    "264": 2,
+    "503": 1,
+    "9": 3,
+    "374": 2,
+    "266": 2,
+    "240": 1,
+    "361": 1,
+    "192": 1,
+    "223": 1,
+    "429": 1,
+    "217": 1,
+    "227": 2,
+    "481": 1,
+    "272": 1,
+    "274": 1,
+    "353": 1
+   },
+   "camadas_corrigidas": 14
+  },
+  "0x02D4DDC": {
+   "nome": "galar_23",
+   "rotulo": "gTileset_Galar23",
+   "pasta": "data/tilesets/secondary/galar_23",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 384,
+   "n_metatiles": 369,
+   "n_mapas": 8,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {
+    "511": 1
+   },
+   "camadas_corrigidas": 1
+  },
+  "0x02D4DF4": {
+   "nome": "galar_24",
+   "rotulo": "gTileset_Galar24",
+   "pasta": "data/tilesets/secondary/galar_24",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 381,
+   "n_metatiles": 270,
+   "n_mapas": 9,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D4E0C": {
+   "nome": "galar_25",
+   "rotulo": "gTileset_Galar25",
+   "pasta": "data/tilesets/secondary/galar_25",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 222,
+   "n_metatiles": 75,
+   "n_mapas": 1,
+   "animado": false,
+   "guard_entradas": 2,
+   "guard_tile": 222,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D4E24": {
+   "nome": "galar_26",
+   "rotulo": "gTileset_Galar26",
+   "pasta": "data/tilesets/secondary/galar_26",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 318,
+   "n_metatiles": 243,
+   "n_mapas": 6,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D4E54": {
+   "nome": "galar_27",
+   "rotulo": "gTileset_Galar27",
+   "pasta": "data/tilesets/secondary/galar_27",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 378,
+   "n_metatiles": 252,
+   "n_mapas": 1,
+   "animado": false,
+   "guard_entradas": 29,
+   "guard_tile": 378,
+   "comportamentos_desconhecidos": {
+    "511": 6,
+    "15": 4,
+    "164": 1,
+    "346": 1,
+    "255": 2,
+    "256": 4,
+    "28": 1,
+    "4": 2,
+    "264": 4,
+    "503": 1,
+    "9": 3,
+    "374": 2,
+    "266": 2,
+    "240": 1,
+    "361": 1,
+    "192": 1,
+    "223": 1,
+    "429": 2,
+    "217": 1,
+    "227": 2,
+    "481": 1,
+    "233": 1,
+    "487": 1,
+    "272": 1,
+    "275": 1,
+    "274": 1,
+    "353": 1
+   },
+   "camadas_corrigidas": 20
+  },
+  "0x02D4E6C": {
+   "nome": "galar_28",
+   "rotulo": "gTileset_Galar28",
+   "pasta": "data/tilesets/secondary/galar_28",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 384,
+   "n_metatiles": 376,
+   "n_mapas": 2,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D4E84": {
+   "nome": "galar_29",
+   "rotulo": "gTileset_Galar29",
+   "pasta": "data/tilesets/secondary/galar_29",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 352,
+   "n_metatiles": 384,
+   "n_mapas": 29,
+   "animado": false,
+   "guard_entradas": 8,
+   "guard_tile": 352,
+   "comportamentos_desconhecidos": {
+    "211": 1,
+    "511": 4,
+    "192": 1,
+    "195": 2,
+    "193": 1,
+    "240": 1,
+    "196": 1,
+    "219": 2,
+    "194": 1
+   },
+   "camadas_corrigidas": 4
+  },
+  "0x02D4E9C": {
+   "nome": "galar_30",
+   "rotulo": "gTileset_Galar30",
+   "pasta": "data/tilesets/secondary/galar_30",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 252,
+   "n_metatiles": 142,
+   "n_mapas": 1,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D4EB4": {
+   "nome": "galar_31",
+   "rotulo": "gTileset_Galar31",
+   "pasta": "data/tilesets/secondary/galar_31",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 384,
+   "n_metatiles": 152,
+   "n_mapas": 79,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D4ECC": {
+   "nome": "galar_32",
+   "rotulo": "gTileset_Galar32",
+   "pasta": "data/tilesets/secondary/galar_32",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 384,
+   "n_metatiles": 370,
+   "n_mapas": 26,
+   "animado": true,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {
+    "6": 1
+   },
+   "camadas_corrigidas": 0
+  },
+  "0x02D4EE4": {
+   "nome": "galar_33",
+   "rotulo": "gTileset_Galar33",
+   "pasta": "data/tilesets/secondary/galar_33",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 384,
+   "n_metatiles": 208,
+   "n_mapas": 1,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D4EFC": {
+   "nome": "galar_34",
+   "rotulo": "gTileset_Galar34",
+   "pasta": "data/tilesets/secondary/galar_34",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 128,
+   "n_metatiles": 101,
+   "n_mapas": 4,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D4F14": {
+   "nome": "galar_35",
+   "rotulo": "gTileset_Galar35",
+   "pasta": "data/tilesets/secondary/galar_35",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 384,
+   "n_metatiles": 347,
+   "n_mapas": 3,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {
+    "511": 3
+   },
+   "camadas_corrigidas": 3
+  },
+  "0x02D4F2C": {
+   "nome": "galar_36",
+   "rotulo": "gTileset_Galar36",
+   "pasta": "data/tilesets/secondary/galar_36",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 240,
+   "n_metatiles": 195,
+   "n_mapas": 11,
+   "animado": false,
+   "guard_entradas": 68,
+   "guard_tile": 240,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D4F44": {
+   "nome": "galar_37",
+   "rotulo": "gTileset_Galar37",
+   "pasta": "data/tilesets/secondary/galar_37",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 76,
+   "n_metatiles": 101,
+   "n_mapas": 1,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D4F5C": {
+   "nome": "galar_38",
+   "rotulo": "gTileset_Galar38",
+   "pasta": "data/tilesets/secondary/galar_38",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 50,
+   "n_metatiles": 46,
+   "n_mapas": 2,
+   "animado": false,
+   "guard_entradas": 4,
+   "guard_tile": 50,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D4F74": {
+   "nome": "galar_39",
+   "rotulo": "gTileset_Galar39",
+   "pasta": "data/tilesets/secondary/galar_39",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 372,
+   "n_metatiles": 259,
+   "n_mapas": 4,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D4FA4": {
+   "nome": "galar_41",
+   "rotulo": "gTileset_Galar41",
+   "pasta": "data/tilesets/secondary/galar_41",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 384,
+   "n_metatiles": 376,
+   "n_mapas": 6,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {
+    "178": 1,
+    "307": 15,
+    "452": 9,
+    "456": 8,
+    "361": 1,
+    "460": 3,
+    "464": 2,
+    "468": 6,
+    "36": 9,
+    "44": 12,
+    "176": 8,
+    "256": 1
+   },
+   "camadas_corrigidas": 0
+  },
+  "0x02D5004": {
+   "nome": "galar_42",
+   "rotulo": "gTileset_Galar42",
+   "pasta": "data/tilesets/secondary/galar_42",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 384,
+   "n_metatiles": 215,
+   "n_mapas": 2,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D504C": {
+   "nome": "galar_43",
+   "rotulo": "gTileset_Galar43",
+   "pasta": "data/tilesets/secondary/galar_43",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 384,
+   "n_metatiles": 365,
+   "n_mapas": 7,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D5064": {
+   "nome": "galar_44",
+   "rotulo": "gTileset_Galar44",
+   "pasta": "data/tilesets/secondary/galar_44",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 120,
+   "n_metatiles": 28,
+   "n_mapas": 4,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D507C": {
+   "nome": "galar_45",
+   "rotulo": "gTileset_Galar45",
+   "pasta": "data/tilesets/secondary/galar_45",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 382,
+   "n_metatiles": 192,
+   "n_mapas": 5,
+   "animado": false,
+   "guard_entradas": 2,
+   "guard_tile": 382,
+   "comportamentos_desconhecidos": {
+    "46": 1,
+    "62": 1,
+    "289": 1
+   },
+   "camadas_corrigidas": 2
+  },
+  "0x02D5094": {
+   "nome": "galar_46",
+   "rotulo": "gTileset_Galar46",
+   "pasta": "data/tilesets/secondary/galar_46",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 343,
+   "n_metatiles": 248,
+   "n_mapas": 1,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  },
+  "0x02D50C4": {
+   "nome": "galar_47",
+   "rotulo": "gTileset_Galar47",
+   "pasta": "data/tilesets/secondary/galar_47",
+   "papel": "secundario",
+   "papeis_de_uso": [
+    "secundario"
+   ],
+   "n_tiles": 340,
+   "n_metatiles": 250,
+   "n_mapas": 25,
+   "animado": false,
+   "guard_entradas": 0,
+   "guard_tile": null,
+   "comportamentos_desconhecidos": {},
+   "camadas_corrigidas": 0
+  }
+ }
+}
