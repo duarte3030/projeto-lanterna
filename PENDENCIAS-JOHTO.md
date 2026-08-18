@@ -4,6 +4,28 @@ Escrito em 05/08/2026 pela sessão que portou do `fontes-mapas/hns` o arco da
 Equipe Rocket no Slowpoke Well e o arco da Torre Rádio de Goldenrod. Tudo aqui é
 coisa que **não** entrou, e o motivo. Quem orquestra decide o que vale a pena.
 
+## 0.a Dois riscos medidos em 18/08/2026 que a próxima sessão precisa achar
+
+- **A faixa de flag de Johto ACABOU.** `FLAG_UNUSED_0x1840` a `0x18FF` estão
+  192 de 192 apelidadas (medido pelo `livres()` do `porta_cenas_johto.py`, que
+  devolveu ZERO vaga, e confirmado por `dev_scripts/flags_livres.py`); quem
+  encheu o fim foram as flags de item escondido do esconderijo de Mahogany.
+  **Transbordo declarado: `0x1D00` a `0x1D3F`, 64 endereços, 62 livres** (o
+  `0x1D00` é a `FLAG_HIDE_LAKE_OF_RAGE_GYARADOS`). Ele não invade dono nenhum:
+  `0x1A00`-`0x1AFF` é de Unova, `0x1B00`-`0x1BFF` da obra de Sinnoh, `0x1C00`+
+  da obra de Galar. O `FAIXA_FLAG` do `porta_cenas_johto.py` já conhece as duas
+  faixas, então o alocador não bate na parede calado. Apelidar `FLAG_UNUSED`
+  que já existe não mexe em `FLAGS_COUNT`, ou seja não invalida save.
+- **`P_FLAG_FORCE_SHINY` deixou de ser 0.** Em `include/config/pokemon.h` ele
+  agora aponta para `FLAG_JOHTO_SHINY_FORCADO` = `FLAG_TEMP_7`, porque
+  `setwildbattleshiny` (o comando que o hns usa no GYARADOS vermelho) não
+  existe neste motor. **Consequência que ninguém pode esquecer: acender essa
+  flag em QUALQUER outro lugar faz todo Pokémon selvagem e de presente nascer
+  shiny** (`ComputePlayerShinyOdds`, `src/pokemon.c:871`). Hoje só a cena do
+  Lago da Fúria a acende, e ela apaga na linha seguinte, sem espera nem save no
+  meio; `FLAG_TEMP_7` foi conferida sem nenhum outro uso em `data/`, `src/` e
+  `include/`. Flag temporária custa zero bit de save.
+
 ## 0. Flags: nenhuma pendente
 
 As três flags que as cenas usam **já existiam** em `include/constants/flags.h`
@@ -491,15 +513,32 @@ o motivo escrito em `ESPERA` dentro da ferramenta.
    régua de sempre. Resultado, NÃO pendência: 7 dos 8 (`Route26` (18,8),
    `Route28` (19,19) e (7,16), `Route29` (37,11), (13,21), (29,18) e (14,10))
    têm vizinho dentro do raio 2, mas nenhum é gente (berry tree ou Pokémon de
-   overworld dia/noite) e caem corretamente em "par não é gente"; só
-   `LakeOfRage (49,34)` não tem absolutamente nada num quadrado 5x5 em volta e
-   continua "sem par na fonte". Zero dos 8 vira NPC. Nota definitiva do
-   censo: ver `demo()` de `restaura_npcs_johto.py`.
+   overworld dia/noite) e caem corretamente em "par não é gente".
+   **O oitavo, `LakeOfRage (49,34)`, fechou no fim do mesmo dia, e o raio nunca
+   foi o problema:** o mapa é cópia 1 para 1 do hns (17 objetos aqui, 17 lá, na
+   mesma ordem) e aquele era o ÚNICO cuja coordenada não batia. O par dele é o
+   objeto 13 da fonte, `OBJ_EVENT_GFX_MON_BASE+SPECIES_SKARMORY` em (52,37) —
+   tile de colisão 1 nos dois lados —, que a importação de 05/08 gravou três
+   tiles fora. Distância 3 nenhum raio 2 alcança, e subir para raio 3 seria
+   alargar a rede do censo de Johto inteira para consertar um objeto. O conserto
+   foi devolver o objeto à coordenada da fonte no `map.json`: ele casa no raio
+   ZERO, cai em "par não é gente" e continua item ball muda. **"Sem par na
+   fonte" agora é ZERO**, travado por assert no `demo()` de
+   `restaura_npcs_johto.py`, e nenhum dos 8 virou NPC. De quebra é o que
+   destravou a cena do Gyarados: `confere_objetos()` do `porta_cenas_johto.py`
+   exige coordenada a coordenada e reprovava o mapa inteiro por causa dele.
 6. **4 gráficos sem equivalente**: `OBJ_EVENT_GFX_TRAIN_FRONT`,
-   `OBJ_EVENT_GFX_SHINY_GYARADOS` (o GYARADOS vermelho do Lake of Rage) e dois
-   `OBJ_EVENT_GFX_WHIRLPOOL`. O GYARADOS agora tem saída barata que não existia
-   quando a tabela foi escrita: `OBJ_EVENT_GFX_SPECIES_SHINY(GYARADOS)`, do
-   mesmo mecanismo que os 16 Pokémon de ginásio usam.
+   ~~`OBJ_EVENT_GFX_SHINY_GYARADOS` (o GYARADOS vermelho do Lake of Rage)~~ e
+   dois `OBJ_EVENT_GFX_WHIRLPOOL`. **O GYARADOS saiu desta lista**: a leva de
+   arte deu a ele gráfico e palette próprios
+   (`OBJ_EVENT_GFX_GYARADOS_VERMELHO`), e em 18/08/2026 a CENA entrou junto,
+   pelo `CENAS` do `porta_cenas_johto.py` (falar com ele em (32,28) abre
+   batalha contra GYARADOS shiny de nível 30; vencer ou capturar acende
+   `FLAG_HIDE_LAKE_OF_RAGE_GYARADOS` e faz `removeobject`). O shiny sai do
+   gancho `P_FLAG_FORCE_SHINY`, porque `setwildbattleshiny` é comando do hns e
+   não existe neste motor. Provas: **T107.4** (nível 30 do inimigo lido da
+   EWRAM, com o jogador chegando de SURF pelo seletor de capítulo) e **T107.5**
+   (par negativo com a flag acesa: nenhuma batalha, nível 0).
 
 ### Recursos consumidos nesta leva
 

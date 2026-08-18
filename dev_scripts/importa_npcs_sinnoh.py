@@ -276,7 +276,64 @@ def caixa_da_matriz(matriz_id, header):
     return c0 * 32, r0 * 32, (c1 - c0 + 1) * 32, (r1 - r0 + 1) * 32
 
 
-def conversor_de_coordenada(fonte, larg, alt, header, matriz):
+# Mapa cujo layout AQUI e REDESENHO 1 PARA 1 da caixa da matriz do Platinum: a
+# conversao certa e TRANSLACAO, e a escala proporcional abaixo e que esta
+# errada. Nao e palpite, e o que os WARPS do proprio mapa provam (ver
+# `deslocamento_de_warp`): eles existem nos dois arquivos, sao poucos e
+# inequivocos, e se UM deslocamento unico leva todos os nossos aos da fonte,
+# entao a planta e a mesma e so foi transladada.
+#
+# MEDIDO em 18/08/2026 na Route 222, e foi o que tirou tres placas de dentro de
+# parede. A escala comprime o x (a caixa da fonte tem 96 colunas, o nosso layout
+# tem 92, e `int(x*91/95)` engole ate 4 tiles), enquanto os warps das duas casas
+# batem exatos em dx=736 / dz=767: as portas da fonte (795,784) e (801,784) sao
+# as nossas (59,17) e (65,17). Com a translacao, as placas caem em (57,17),
+# (68,17), (85,17) e (13,20): duas delas na parede logo ao lado de cada porta,
+# com o tile de leitura andavel embaixo, exatamente como a fonte desenha (la a
+# placa fica 2 tiles a esquerda de uma porta e 3 a direita da outra, e aqui
+# tambem). Pela escala elas caiam em (54,16) e (65,16), no meio da faixa de
+# parede das linhas 15-17, sem NENHUM vizinho andavel: placa que o jogador nunca
+# consegue ler.
+#
+# POR QUE UMA LISTA e nao o teste rodando em todo mapa: o teste de warp passa em
+# 50 mapas de Sinnoh e mudaria a conversao de 8 deles (EternaCityCondominiums2F,
+# FloaromaTown, HearthomeCity_Gym, HotelGrandLake, Route205_North, Route221,
+# Route222, WaywardCave1F), com 15 placas ja gravadas. Mover placa ja gravada e
+# conteudo, e conteudo se mede um a um: cada uma tem que ser conferida na grade
+# de colisao antes, como as quatro da Route 222 foram. Quem for medir o proximo
+# mapa acrescenta o header aqui, move as placas dele no map.json na mesma
+# rodada, e escreve a medicao junto. Sem mover as placas, `itens_escondidos_
+# sinnoh.alinha_por_coordenada` passa a ver orfao e recusa o mapa inteiro.
+# LISTA AUTORIZADA, e entrar nela e DECISAO MEDIDA, nunca automatica: o teste de
+# warp diz que a translacao e possivel, nao que as placas ja gravadas do mapa
+# caem em tile legivel depois de mover. Os outros 7 mapas que passam no teste
+# estao na FILA DE CONTEUDO (dev_scripts/fila_b6.py,
+# "sinnoh:placas:7_mapas_por_escala"), com o criterio de aceite escrito.
+REDESENHO_1PARA1 = {
+    "MAP_HEADER_ROUTE_222",
+}
+
+
+def deslocamento_de_warp(fonte, nosso):
+    """(dx, dz) UNICO que leva todo warp NOSSO a um warp da fonte, ou None.
+
+    Criterio de "este layout e a planta da fonte transladada". Warp e a melhor
+    testemunha que existe para isso: ele tem que casar dos dois lados para o
+    jogo funcionar, entao ninguem o desenha "mais ou menos". Exige pelo menos
+    dois warps (um so admite qualquer deslocamento) e um unico candidato
+    (ambiguidade nao e prova).
+    """
+    ns = nosso.get("warp_events") or []
+    fs = {(w["x"], w["z"]) for w in fonte.get("warp_events", [])}
+    if len(ns) < 2 or not fs:
+        return None
+    cands = {(fx - ns[0]["x"], fz - ns[0]["y"]) for fx, fz in fs}
+    bons = [d for d in cands
+            if all((w["x"] + d[0], w["y"] + d[1]) in fs for w in ns)]
+    return bons[0] if len(bons) == 1 else None
+
+
+def conversor_de_coordenada(fonte, larg, alt, header, matriz, nosso=None):
     """(x do Platinum, z do Platinum) -> (x, y) nosso, para UM mapa.
 
     Extraida de `main()` em 11/08/2026 e nao reescrita: `itens_escondidos_sinnoh`
@@ -284,7 +341,23 @@ def conversor_de_coordenada(fonte, larg, alt, header, matriz):
     fonte virou qual `bg_event` nosso. Duas copias da formula divergiriam calado
     no dia em que uma fosse ajustada, e o preco seria item escondido posto no
     lugar errado, exatamente o que a ferramenta existe para evitar.
+
+    `nosso` e o map.json daqui, e serve so ao caminho de translacao dos mapas de
+    `REDESENHO_1PARA1`; sem ele a funcao se comporta como sempre.
     """
+    if header in REDESENHO_1PARA1 and nosso is not None:
+        d = deslocamento_de_warp(fonte, nosso)
+        if d is None:
+            raise SystemExit(
+                f"{header} esta em REDESENHO_1PARA1 mas os warps nao provam "
+                "um deslocamento unico. Ou o mapa mudou, ou a lista mentiu: "
+                "meca de novo antes de importar nada.")
+        dx, dz = d
+
+        def conv_translacao(e):
+            return (min(max(e["x"] - dx, 0), larg - 1),
+                    min(max(e["z"] - dz, 0), alt - 1))
+        return conv_translacao
     todos = fonte.get("object_events", []) + fonte.get("bg_events", [])
     if not todos:
         return None
@@ -345,7 +418,7 @@ def main():
         L = layouts[d["layout"]]
         larg, alt = L["width"], L["height"]
 
-        conv = conversor_de_coordenada(fonte, larg, alt, header, matriz)
+        conv = conversor_de_coordenada(fonte, larg, alt, header, matriz, d)
         if conv is None:
             continue
 
@@ -466,12 +539,62 @@ def livre(layouts, layout_id, x, y, ocupados, raio=8):
     return None
 
 
+def leitura_de_placa(layouts, layout_id, x, y):
+    """Direções de onde essa placa PODE ser lida: vizinho ortogonal andável.
+
+    `BG_EVENT_PLAYER_FACING_ANY` lê de qualquer lado, então basta UM vizinho
+    andável. Placa sem nenhum é placa que o jogador nunca abre, e foi o defeito
+    de (54,16) e (65,16) na Route 222.
+    """
+    fora = []
+    L = layouts[layout_id]
+    for d, (dx, dy) in (("N", (0, -1)), ("S", (0, 1)),
+                        ("W", (-1, 0)), ("E", (1, 0))):
+        nx, ny = x + dx, y + dy
+        if 0 <= nx < L["width"] and 0 <= ny < L["height"] \
+                and V.colisao(layouts, layout_id, nx, ny) == 0:
+            fora.append(d)
+    return fora
+
+
 def demo():
-    """As duas regras que a primeira versão errou."""
+    """As regras que a primeira versão errou, e a que custou três placas."""
     # 1. andar escrito de dois jeitos é o mesmo andar
     assert chave("JubilifeCity_PokemonCenter_1F") == chave("MAP_HEADER_JUBILIFE_CITY_POKECENTER_1F")
     # 2. mapas diferentes continuam diferentes
     assert chave("Route205_North") != chave("MAP_HEADER_ROUTE_205_SOUTH")
+
+    # 3. `deslocamento_de_warp` só responde com PROVA.
+    f = {"warp_events": [{"x": 800, "z": 700}, {"x": 810, "z": 705}]}
+    assert deslocamento_de_warp(
+        f, {"warp_events": [{"x": 64, "y": 10}, {"x": 74, "y": 15}]}) == (736, 690)
+    # um warp só admite qualquer deslocamento: não é prova, e vira None
+    assert deslocamento_de_warp(f, {"warp_events": [{"x": 64, "y": 10}]}) is None
+    # nosso warp que não cai em warp nenhum da fonte derruba o candidato
+    assert deslocamento_de_warp(
+        f, {"warp_events": [{"x": 64, "y": 10}, {"x": 70, "y": 15}]}) is None
+
+    # 4. AS QUATRO PLACAS DA ROUTE 222, medidas no map.bin de verdade.
+    # Antes da translação, (54,16) e (65,16) estavam no meio da faixa de parede
+    # das linhas 15-17, sem UM vizinho andável, e (81,16) só era legível pelo
+    # lado. Com o deslocamento que os warps provam (736,767), as quatro caem em
+    # tile legível, e as duas de parede ficam com o tile de leitura embaixo,
+    # colado na porta de cada casa, como a fonte desenha.
+    layouts = {l["id"]: l for l in json.load(
+        open(os.path.join(REPO, "data/layouts/layouts.json")))["layouts"]}
+    d = json.load(open(os.path.join(REPO, "data/maps/Route222/map.json"),
+                       encoding="utf-8"))
+    fonte = json.load(open(os.path.join(
+        PLAT, "res/field/events/events_route_222.json")))
+    assert deslocamento_de_warp(fonte, d) == (736, 767)
+    esperado = {(85, 17): ["S", "W", "E"], (13, 20): ["N", "S", "W", "E"],
+                (57, 17): ["S"], (68, 17): ["S"], (0, 6): ["S"]}
+    achado = {}
+    for b in d["bg_events"]:
+        if b.get("origem") == "pokeplatinum":
+            achado[(b["x"], b["y"])] = leitura_de_placa(
+                layouts, d["layout"], b["x"], b["y"])
+    assert achado == esperado, achado
     print("demo ok")
 
 

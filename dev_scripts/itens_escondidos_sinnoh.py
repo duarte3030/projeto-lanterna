@@ -134,7 +134,8 @@ def alinha_por_coordenada(meu, header, matriz, fonte, d):
     L = _layouts().get(d.get("layout"))
     if not L:
         return None
-    conv = I.conversor_de_coordenada(fonte, L["width"], L["height"], header, matriz)
+    conv = I.conversor_de_coordenada(fonte, L["width"], L["height"], header,
+                                     matriz, d)
     if conv is None:
         return None
     _, f_placas = T.separa_fonte(fonte)

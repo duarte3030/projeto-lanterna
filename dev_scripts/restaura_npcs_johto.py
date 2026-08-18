@@ -25,9 +25,13 @@ por flag que já existe aqui.
 Resultado medido nos 8 que nem no raio 1 achavam par: o raio 2 acha vizinho
 para 7 (berry tree / Pokémon de overworld dia-noite), e `eh_pessoa` recusa os
 7 por não serem gente — migram de "sem par na fonte" para "par não é gente",
-que é mais verdadeiro. Só `LakeOfRage (49,34)` não tem NADA num quadrado 5x5
-e segue "sem par na fonte" de verdade. Zero dos 8 virou NPC novo: é nota
-definitiva do censo, ver `demo()`.
+que é mais verdadeiro. O oitavo, `LakeOfRage (49,34)`, FECHOU em 18/08/2026
+sem mexer no raio: o mapa é cópia 1 para 1 do hns (17 objetos, mesma ordem) e
+aquele era o único fora de lugar — o par dele é o objeto 13 da fonte,
+`MON_BASE+SPECIES_SKARMORY` em (52,37), três tiles adiante. O objeto voltou
+para a coordenada da fonte no `map.json` e passou a casar no raio ZERO. "Sem
+par na fonte" agora é ZERO e nenhum dos 8 virou NPC novo: é nota definitiva do
+censo, ver `demo()`.
 
 O que entra e o que fica de fora, e por quê:
 
@@ -1003,17 +1007,31 @@ def demo():
     # 1, o raio 2 acha ALGUMA coisa perto de 7 (berry tree / Pokémon de
     # overworld dia-noite), mas nenhum é GENTE: `eh_pessoa` recusa os 7 e eles
     # migram do balde "sem par na fonte" para "par não é gente" (achado, mas
-    # não é NPC), que é mais verdadeiro do que "não achei nada". Só
-    # LakeOfRage (49,34) não tem NADA num quadrado de 5x5 em volta e continua
-    # "sem par na fonte" de verdade. Zero dos 8 vira NPC novo: esta é a nota
-    # definitiva do censo, não pendência eterna. Assert trava o número: se
-    # mudar, a fonte ganhou vizinho novo ou o raio quebrou, e o jeito certo é
-    # olhar de novo, não editar o número para fazer passar.
+    # não é NPC), que é mais verdadeiro do que "não achei nada".
+    #
+    # O OITAVO, `LakeOfRage (49,34)`, ficou FECHADO em 18/08/2026, e o achado
+    # é que o raio nunca foi o problema: o mapa inteiro é cópia 1 para 1 do
+    # hns (17 objetos aqui, 17 lá, na mesma ORDEM) e esse era o ÚNICO cuja
+    # coordenada não batia. O par dele é o objeto 13 da fonte,
+    # `OBJ_EVENT_GFX_MON_BASE+SPECIES_SKARMORY` em (52,37), tile de colisão 1
+    # nos dois lados; a importação de 05/08 o gravou três tiles fora, em
+    # (49,34), e distância 3 nenhum raio 2 alcança. Aumentar o raio para 3
+    # seria alargar a rede do censo INTEIRO para consertar um objeto, e rede
+    # maior é mais casamento errado (a lição do raio de Sinnoh). O conserto
+    # foi devolver o objeto à coordenada da fonte em
+    # `data/maps/LakeOfRage/map.json`, onde ele passa a casar no raio ZERO,
+    # cair em "par não é gente" (Pokémon de overworld não é gente) e continuar
+    # item ball muda. Zero dos 8 vira NPC novo, e "sem par na fonte" fica em
+    # ZERO: esta é a nota definitiva do censo, não pendência eterna.
+    #
+    # Assert trava os números: se mudarem, ou a fonte ganhou vizinho novo, ou
+    # o raio quebrou, ou alguém mexeu numa coordenada. O jeito certo é olhar de
+    # novo, não editar o número para fazer passar.
     _plano, st_demo, recusas_demo, _pend, _pm, _falas = monta()
-    assert st_demo["sem par na fonte"] == 1, st_demo["sem par na fonte"]
-    assert recusas_demo["sem par na fonte"] == [("LakeOfRage", "(49,34) raio 2")], \
+    assert st_demo["sem par na fonte"] == 0, st_demo["sem par na fonte"]
+    assert recusas_demo["sem par na fonte"] == [], \
         recusas_demo["sem par na fonte"]
-    assert st_demo["par não é gente"] == 1312, st_demo["par não é gente"]
+    assert st_demo["par não é gente"] == 1313, st_demo["par não é gente"]
 
     # Contado do próprio corpo, não digitado: o número cravado aqui já estava
     # velho (dizia 20 com 24 asserts no arquivo) e número que mente não é

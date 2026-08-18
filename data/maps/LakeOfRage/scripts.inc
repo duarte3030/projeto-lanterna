@@ -1,14 +1,19 @@
 @ Treinadores de rota de LakeOfRage, portados de fontes-mapas/hns por
 @ dev_scripts/importa_treinadores_johto.py. Nao editar a mao: rode o script.
 
-@ TODO (leva de CONTEUDO, nao a de arte): a cena do Gyarados vermelho.
-@ Hoje o objeto em (32, 28) e so decorativo: graphics_id
-@ OBJ_EVENT_GFX_GYARADOS_VERMELHO, script "0", flag "0", parado.
-@ A cena de verdade esta na fonte, em
-@   fontes-mapas/hns/data/maps/LakeOfRage/scripts.inc  ->  LakeOfRage_EventScript_Gyarados
-@ e o objeto de la usa flag FLAG_HIDE_LAKE_OF_RAGE_GYARADOS com
-@ MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_UP_DOWN_LEFT. Quem portar a cena precisa
-@ trazer a flag e o movimento junto, senao o shiny fica visivel antes da hora.
+@ FEITO em 18/08/2026: a cena do Gyarados vermelho esta no bloco marcado no FIM
+@ deste arquivo, portada de
+@   fontes-mapas/hns/data/maps/LakeOfRage/scripts.inc -> LakeOfRage_EventScript_Gyarados
+@ pelo dev_scripts/porta_cenas_johto.py (--cenas). NAO editar a mao: o bloco
+@ entre as marcas `>>> B6 Johto: cena portada do hns` e reescrito por inteiro a
+@ cada rodada da ferramenta, e conserto a mao seria apagado calado. O que muda
+@ mora em CENAS/PODA/TROCA de la, que e onde estao escritos os cortes (LANCE,
+@ ESCAMA VERMELHA, var de Mahogany) e a substituicao do `setwildbattleshiny`,
+@ comando que este motor nao tem.
+@ O objeto de (32,28) deixou de ser decorativo: ganhou o script e a flag
+@ FLAG_HIDE_LAKE_OF_RAGE_GYARADOS, que a propria cena acende ao vencer ou
+@ capturar. Fica PARADO de proposito (a fonte usa
+@ MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_UP_DOWN_LEFT); o motivo esta na cena.
 
 LakeOfRage_MapScripts::
 	.byte 0
@@ -122,3 +127,40 @@ LakeOfRage_Text_SuperNerd::
     .string "I wonder if there is any\n"
     .string "connection to their mass outbreak\l"
     .string "now?$"
+
+@ >>> B6 Johto: cena portada do hns (porta_cenas_johto.py) >>>
+@ o GYARADOS VERMELHO do meio do lago: fala com ele e ele ataca (shiny, nível 30); vencer OU capturar tira o objeto do mapa para sempre
+.set LOCALID_LAKEOFRAGE_LAKEOFRAGE_GYARADOS, 8
+
+LakeOfRage_EventScript_Ran_Gyarados::
+	release
+	end
+
+LakeOfRage_EventScript_Defeated_Gyarados::
+	setflag FLAG_HIDE_LAKE_OF_RAGE_GYARADOS
+	removeobject LOCALID_LAKEOFRAGE_LAKEOFRAGE_GYARADOS
+	release
+	end
+
+LakeOfRage_EventScript_Gyarados::
+	lock
+	faceplayer
+	msgbox LakeOfRage_Text_GyaradosCry, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_GYARADOS, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setflag FLAG_JOHTO_SHINY_FORCADO
+	setwildbattle SPECIES_GYARADOS, 30
+	clearflag FLAG_JOHTO_SHINY_FORCADO
+	dowildbattle
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, LakeOfRage_EventScript_Defeated_Gyarados
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, LakeOfRage_EventScript_Ran_Gyarados
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, LakeOfRage_EventScript_Ran_Gyarados
+	goto LakeOfRage_EventScript_Defeated_Gyarados
+
+LakeOfRage_Text_GyaradosCry::
+    .string "GYARADOS: Gyashaa!$"
+
+@ <<< B6 Johto: cena portada do hns <<<

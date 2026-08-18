@@ -683,7 +683,7 @@ def fila_sinnoh():
         d = json.load(open(os.path.join(REPO, "data/maps", meu, "map.json")))
         L = layouts[d["layout"]]
         conv = S.conversor_de_coordenada(fonte, L["width"], L["height"],
-                                         header, matriz)
+                                         header, matriz, d)
         do_hack = d.get("object_events") or []
         # Gatilho só conta como feito se o rótulo dele tiver CENA: esqueleto
         # `@ TODO` + `end` é promessa, não trabalho (ver `rotulos_com_cena`).
@@ -889,18 +889,23 @@ JOHTO = [
                 "certo mas SEM FALA/BATALHA (fecho pede loadtrainer/ "
                 "callasm de um boss sem id nesta fase), tarefa nova para a "
                 "fila de treinador de Johto, não mais para esta linha"),
-    dict(id="johto:npcs:8_sem_par", tipo="portavel",
+    dict(id="johto:npcs:8_sem_par", tipo="portavel", feito=True,
          mapa_destino="vários", tamanho=8, precisa=[],
-         motivo="18/08/2026, Fase B, re-verificado: item ball do hack em "
-                "coordenada sem NENHUM object_event da fonte, nem num raio de "
-                "1 tile (LakeOfRage 49,34; Route26 18,8; Route28 19,19/7,16; "
-                "Route29 37,11/13,21/29,18/14,10). restaura_npcs_johto.py só "
-                "casa por coordenada EXATA (sem raio, ao contrário do "
-                "importador de Sinnoh); não há 'tabela à mão' que resolva "
-                "zero candidato, precisa de matcher com raio calibrado "
-                "(risco de casar errado, mesma lição do raio de Sinnoh) ou "
-                "aceitar que são item balls de verdade. Decisão de desenho, "
-                "não execução de cena"),
+         motivo="FECHADO em 18/08/2026, os 8, e nenhum virou NPC. Sete "
+                "(Route26 18,8; Route28 19,19/7,16; Route29 "
+                "37,11/13,21/29,18/14,10) acharam vizinho no raio 2 que NÃO é "
+                "gente (berry tree, Pokémon de overworld dia/noite) e caíram "
+                "em 'par não é gente'. O oitavo, LakeOfRage (49,34), fechou "
+                "sem mexer no raio: LakeOfRage é cópia 1 para 1 do hns (17 "
+                "objetos, mesma ordem) e esse era o ÚNICO com coordenada "
+                "diferente — o par dele é o objeto 13 da fonte, "
+                "MON_BASE+SPECIES_SKARMORY em (52,37), distância 3, que a "
+                "importação de 05/08 gravou em (49,34). O objeto voltou para "
+                "a coordenada da fonte no map.json e passou a casar no raio "
+                "ZERO; alargar o censo para raio 3 teria trocado um objeto "
+                "por rede maior em Johto inteira (lição do raio de Sinnoh). "
+                "Censo agora: 'sem par na fonte' = 0, travado por assert no "
+                "demo() do restaura_npcs_johto.py"),
     dict(id="johto:arte:4_graficos", tipo="portavel",
          mapa_destino="vários", tamanho=2, precisa=[],
          motivo="18/08/2026, Fase B, re-verificado: dos 4 originais, os dois "
@@ -970,13 +975,56 @@ FEITAS = [
 ]
 
 
+# ------------------------------------------------- fila de CONTEÚDO (não onda)
+
+# Decisão da condutora em 18/08/2026: estes NÃO entram em onda, vão para a fila
+# de conteúdo. Cada um traz o critério de aceite escrito, para a próxima sessão
+# não remedir nada.
+FILA_DE_CONTEUDO = [
+    dict(regiao="sinnoh", id="sinnoh:placas:7_mapas_por_escala",
+         mapa_destino="EternaCityCondominiums2F, FloaromaTown, "
+                      "HearthomeCity_Gym, HotelGrandLake, Route205_North, "
+                      "Route221, WaywardCave1F",
+         tipo="portavel", tamanho=15, bloqueio="nenhum", status="pendente",
+         motivo="18/08/2026: `conversor_de_coordenada` do importa_npcs_sinnoh."
+                "py converte por ESCALA da caixa da matriz do Platinum, e onde "
+                "o nosso layout é REDESENHO 1 para 1 a conta certa é "
+                "TRANSLAÇÃO. Foi o que pôs três placas da Route 222 dentro de "
+                "parede, sem nenhum vizinho andável. Estes 7 mapas passam no "
+                "mesmo teste (deslocamento único provado por >= 2 warps, "
+                "`deslocamento_de_warp`) e somam 15 placas JÁ GRAVADAS. Mover "
+                "placa gravada é CONTEÚDO, e se mede uma a uma: o critério de "
+                "aceite é o da Route 222, translação provada pelos warps MAIS "
+                "tile de leitura andável e alcançável na região do mapa "
+                "(conferido no map.bin, como no --demo do importador). Quem "
+                "medir um mapa acrescenta o header em REDESENHO_1PARA1, move "
+                "as placas dele no map.json na MESMA rodada (senão "
+                "itens_escondidos_sinnoh passa a ver órfão) e escreve a "
+                "medição junto"),
+    dict(regiao="johto", id="johto:gyarados:passeio_2x2",
+         mapa_destino="LakeOfRage", tipo="portavel", tamanho=1,
+         bloqueio="nenhum", status="pendente",
+         motivo="DÍVIDA DE FIDELIDADE assumida em 18/08/2026, não descuido: o "
+                "GYARADOS vermelho de (32,28) ficou com MOVEMENT_TYPE_NONE, e "
+                "a fonte usa MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_UP_DOWN_LEFT "
+                "(passeio num quadrado de 2x2). Parado, o tile é fixo e o "
+                "T107.4 pode mirar a interação; com o passeio, o bicho está "
+                "numa de quatro casas conforme o instante em que o jogador "
+                "chega. Devolver o passeio exige reescrever a prova para "
+                "mirar as QUATRO casas (ou provar a batalha sem depender da "
+                "posição); enquanto isso não existir, determinismo vale mais, "
+                "porque o passeio é decorativo"),
+]
+
+
 # --------------------------------------------------------------------- main
 
 def gera():
     unova, chamadas = fila_unova()
     sinnoh = fila_sinnoh()
     johto, livres = fila_johto()
-    itens = unova + sinnoh + johto + [dict(tem=[], **f) for f in FEITAS]
+    itens = (unova + sinnoh + johto
+             + [dict(tem=[], **f) for f in FEITAS + FILA_DE_CONTEUDO])
     return itens, chamadas, livres
 
 

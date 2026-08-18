@@ -69,7 +69,14 @@
 // Flag settings
 // To use the following features in scripting, replace the 0s with the flag ID you're assigning it to.
 // Eg: Replace with FLAG_UNUSED_0x264 so you can use that flag to toggle the feature.
-#define P_FLAG_FORCE_SHINY               0  // If this flag is set, all wild and gift Pokémon will forced into being Shiny.
+// (antes: 0) O GYARADOS VERMELHO do Lago da Fúria, 18/08/2026. O hns manda a
+// batalha dele com `setwildbattleshiny`, comando que ESTE motor não tem: aqui
+// quem faz Pokémon selvagem nascer shiny é justamente este gancho de config
+// (ComputePlayerShinyOdds, src/pokemon.c:871). A flag fica acesa por UM passo
+// de script, entre o `setflag` e o `clearflag` que cercam o `setwildbattle` em
+// data/maps/LakeOfRage/scripts.inc: não há espera nem save no meio, então
+// nenhum outro selvagem do jogo nasce shiny por causa dela.
+#define P_FLAG_FORCE_SHINY               FLAG_JOHTO_SHINY_FORCADO  // If this flag is set, all wild and gift Pokémon will forced into being Shiny.
 #define P_FLAG_FORCE_NO_SHINY            0  // If this flag is set, all wild and gift Pokémon will forced into NOT being Shiny.
 
 // Go here if you want to disable specific families of Pokémon.

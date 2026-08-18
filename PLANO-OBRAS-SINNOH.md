@@ -304,9 +304,23 @@ oeste, que CASA com o `ValorLakefront` em y=21..25 e é o que faz a estrada sul
 existir, e levaria junto a arte, os dois warps de casa (prédio de gen 4 é
 modelo 3D, a grade só entrega buraco bloqueado) e os 23 `object_events`.
 
-**Fica aberto, dito:** a estrada sul continua trancada de propósito, sem
+~~**Fica aberto, dito:** a estrada sul continua trancada de propósito, sem
 escritor para `VAR_SINNOH_VALOR_BLOQUEIO_SUNYSHORE`, então o jogo tem UMA
-estrada a pé para Sunyshore, a norte. E a busca em largura desta casa **não
+estrada a pé para Sunyshore, a norte.~~ **FECHADO no mesmo 18/08/2026, na onda
+de pendências**: o escritor entrou em `data/maps/SandgemTown_RowanLab/
+scripts.inc` (`SandgemTown_RowanLab_EventScript_RowanAbreSunyshore`). Na fonte
+quem escreve é `SandgemTownLab_ObtainSunyshoresBadge`, chamado pelo ON_FRAME da
+volta do Mundo Distorcido; como o Distorcido não está portado, o gatilho aqui é
+`FLAG_GALACTICA_QG_TOMADO`, o último passo do arco da Galáctica que existe nesta
+ROM e que na fonte fica imediatamente ANTES do Coronet/Spear Pillar/Distorcido
+(o texto da fonte concorda: "You've got seven already! That only leaves
+Sunyshore's Gym"). Zero flag e zero var novas: quem marca "já aconteceu" é a
+própria `FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_COLLECTOR` que a cena acende.
+Provas **T107.2** (var 0x415B vira 1 e a flag acende) e **T107.3** (par
+negativo, sem a flag da Galáctica nada é escrito); o efeito da var na estrada já
+era provado por T103.5/T103.6, que a pinam na mão.
+
+E a busca em largura desta casa **não
 modela `SIDEWAYS_STAIRS`**: a Route 222 tem escada lateral nas colunas 21, 28,
 39 e 46, que desloca o jogador uma linha ao andar de lado. Aqui não atrapalhou
 porque o degrau era de elevação pura, mas qualquer conta de alcance em mapa de

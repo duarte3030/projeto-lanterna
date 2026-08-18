@@ -4830,6 +4830,29 @@
 #define FLAG_JOHTO_HIDE_CIANWOOD_SUICUNE                     FLAG_UNUSED_0x186D
 #define FLAG_JOHTO_HIDE_CIANWOOD_EUSINE                      FLAG_UNUSED_0x186E
 // <<< B6 Johto, duelos de cena escritos a mao <<<
+
+// >>> B6 Johto, TRANSBORDO da faixa (18/08/2026) >>>
+// A FAIXA DE JOHTO 0x1840 a 0x18FF ACABOU: as 192 estao apelidadas (medido com
+// dev_scripts/flags_livres.py e pelo proprio `livres()` do
+// porta_cenas_johto.py, que devolveu ZERO vaga). Quem encheu o fim dela foram
+// as flags de item escondido do esconderijo de Mahogany, la em cima neste
+// arquivo, ate 0x18FF.
+//
+// O transbordo e 0x1D00 a 0x1D3F, e ele nao invade dono nenhum: 0x1A00-0x1AFF
+// e de Unova, 0x1B00-0x1BFF e da obra de Sinnoh, 0x1C00+ e da obra de Galar, e
+// a cabeca livre grande comeca em 0x1D00 (dev_scripts/flags_livres.py:
+// "0x1D00 a 0x2025, 806 flags"). Apelidar FLAG_UNUSED que ja existe nao mexe em
+// FLAGS_COUNT, entao a save do Gui continua valendo.
+#define FLAG_HIDE_LAKE_OF_RAGE_GYARADOS                      FLAG_UNUSED_0x1D00
+
+// O GYARADOS VERMELHO nasce shiny sem comando de shiny: este e o gancho de
+// P_FLAG_FORCE_SHINY (include/config/pokemon.h), aceso e apagado em volta do
+// `setwildbattle` da cena. E FLAG_TEMP de proposito, e nao flag de save: ela
+// vale por UM passo de script, e flag temporaria custa ZERO bit de save
+// (TEMP_FLAGS_START, apagada a cada troca de mapa). FLAG_TEMP_7 conferida sem
+// nenhum uso em data/, src/ e include/ em 18/08/2026.
+#define FLAG_JOHTO_SHINY_FORCADO                             FLAG_TEMP_7
+// <<< B6 Johto, TRANSBORDO da faixa <<<
 // Elenco de cena da Liga de Unova (11 objetos das duas salas do Campeão),
 // gasto pelo bloco B5 em 12/08/2026; sempre acesa ate o B6 portar a cena.
 #define FLAG_UNOVA_LIGA_ELENCO FLAG_UNUSED_0x2030
@@ -5139,6 +5162,16 @@
 #define FLAG_ITEM_GALAR_NEWMOON_ISLAND_02_PERSIM_BERRY   FLAG_UNUSED_0x1C1F  // ITEM_PERSIM_BERRY
 #define FLAG_ITEM_GALAR_CROWN_TUNDRA_11_SAPPHIRE         FLAG_UNUSED_0x1C20  // ITEM_SAPPHIRE
 // <<< G4 Galar, itens escondidos <<<
+
+// G5 Galar: flag de TESTE que abre o destino GALAR no barco
+// (data/scripts/travessia_regioes.inc, decisao 12 do PLANO-OBRAS-GALAR.md).
+// Fica no TOPO da faixa de Galar, longe do bloco gerado acima, que cresce a
+// partir de 0x1C00; `dev_scripts/gente_galar.RESERVADAS_A_MAO` a pula, para o
+// alocador nunca a entregar a um item escondido. Apelidar FLAG_UNUSED nao mexe
+// em FLAGS_COUNT, entao a janela de save continua fechada.
+// Nenhum script a acende: ela e ligada a mao pelo menu de debug enquanto a fase
+// de conteudo de Galar nao existe.
+#define FLAG_GALAR_QA_ANDAR                             FLAG_UNUSED_0x1CFF
 
 #endif // GUARD_CONSTANTS_FLAGS_H
 

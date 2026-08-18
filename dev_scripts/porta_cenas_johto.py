@@ -68,7 +68,12 @@ ANCORA = "#define FLAG_SINNOH_NPC_DUPLICADO"
 ABRE = "// >>> B6 Johto (dev_scripts/porta_cenas_johto.py) >>>"
 FECHA = "// <<< B6 Johto (dev_scripts/porta_cenas_johto.py) <<<"
 
-FAIXA_FLAG = range(0x1840, 0x1900)
+# 0x1840-0x18FF é a faixa histórica desta frente e ACABOU em 18/08/2026: as 192
+# estão apelidadas (o próprio `livres()` devolvia zero vaga, e
+# dev_scripts/flags_livres.py concorda). O transbordo é 0x1D00-0x1D3F, cabeça
+# livre que não pertence a Unova (0x1A00+), a Sinnoh (0x1B00+) nem a Galar
+# (0x1C00+). Ver o bloco "B6 Johto, TRANSBORDO da faixa" em flags.h.
+FAIXA_FLAG = list(range(0x1840, 0x1900)) + list(range(0x1D00, 0x1D40))
 FAIXA_VAR = range(0x4100, 0x4130)
 
 # NPC que NÃO entra agora, e o motivo. Chave é a flag do hns.
@@ -390,6 +395,31 @@ PODA = {
     "EcruteakCity_Theater_EventScript_Hooh": [
         "VAR_NEWBARKTOWN_LABSTATE", "FLAG_HIDE_TINTOWER_GUARD",
     ],
+    # --- GYARADOS VERMELHO do Lago da Fúria, 18/08/2026 ---
+    # O fecho da fonte continua a HISTÓRIA depois da batalha: o LANCE aparece,
+    # dá a ESCAMA VERMELHA e a Mahogany do Rocket abre. Nada disso existe
+    # aqui, e cada linha cortada tem motivo próprio, medido:
+    # - `giveitem ITEM_RED_SCALE`: ITEM_RED_SCALE NÃO existe em
+    #   include/constants/items.h. Item novo é append no fim da lista e
+    #   reimpressão da save, decisão de quem orquestra, não de cena.
+    # - `setvar VAR_MAHOGANY_TOWN_STATE, 2`: VAR_MAHOGANY_TOWN_STATE não
+    #   existe aqui, e a máquina de estados de Mahogany que a lê também não.
+    # - `clearflag FLAG_HIDE_LAKE_OF_RAGE_LANCE` + `addobject`: o LANCE deste
+    #   mapa é objeto MUDO (`script: "0"` no map.json) e a flag dele nasce
+    #   apagada, ou seja ele já está em campo hoje. Revelar de novo quem
+    #   nunca esteve escondido é linha à toa; a cena dele (a que fala e leva o
+    #   jogador ao esconderijo) é outra tarefa, e está na fila.
+    # - `setobjectxyperm LOCALID_LAKEOFRAGE_OLDMAN`: `setobjectxyperm` GRAVA
+    #   NA SAVE. Mover NPC para o palco de uma cena que não entrou deixaria o
+    #   velho fora do lugar para sempre (a lição do rival de Pastoria, ESTADO
+    #   0.e).
+    # - `clearflag FLAG_TEMP_1`: na fonte ela esconde a LOIS durante a cena;
+    #   aqui a LOIS nasce com `flag: "0"` e nunca foi escondida.
+    "LakeOfRage_EventScript_Defeated_Gyarados": [
+        "giveitem ITEM_RED_SCALE", "VAR_MAHOGANY_TOWN_STATE",
+        "FLAG_HIDE_LAKE_OF_RAGE_LANCE", "LOCALID_LAKEOFRAGE_LANCE",
+        "setobjectxyperm", "clearflag FLAG_TEMP_1",
+    ],
     "EcruteakCity_Theater_EventScript_Zuki": [
         # 15/08/2026: a poda CAIU. Os dois sinos existem agora
         # (include/constants/items.h, ITEM_CLEAR_BELL e ITEM_TIDAL_BELL) e a
@@ -418,6 +448,32 @@ TROCA = {
         ("setflag FLAG_BEAT_KIYO",
          "\tsetflag FLAG_BEAT_KIYO\n"
          "\tgoto MountMortar4_EventScript_KiyoTryGiveTyrogue"),
+    ],
+    # --- GYARADOS VERMELHO: o comando que este motor não tem, e a queda ---
+    # 1. `setwildbattleshiny` é comando do hns e NÃO existe aqui (só
+    #    `setwildbattle`, asm/macros/event.inc:1644, sem shininess). Quem faz
+    #    selvagem nascer shiny nesta engine é o gancho de config
+    #    P_FLAG_FORCE_SHINY (src/pokemon.c:871, ComputePlayerShinyOdds), lido
+    #    dentro do CreateMon que o próprio `setwildbattle` dispara. Por isso a
+    #    flag acende UMA linha antes e apaga UMA linha depois: a shininess já
+    #    ficou gravada no mon, e nenhum outro selvagem do jogo é afetado (não
+    #    há espera nem save entre as três linhas).
+    # 2. QUEDA DE RÓTULO: na fonte, `LakeOfRage_EventScript_Defeated_Gyarados`
+    #    vem escrito logo abaixo, sem `end` no meio, e é para lá que caem os
+    #    desfechos que os três `goto_if_eq` não pegam. O que cai ali é a
+    #    CAPTURA (B_OUTCOME_CAUGHT), e é por isso que capturar também tira o
+    #    GYARADOS do mapa no jogo original. Sem este `goto` reposto, esta
+    #    ferramenta emitiria os blocos em outra ordem e a captura sairia
+    #    executando o vizinho errado.
+    "LakeOfRage_EventScript_Gyarados": [
+        ("setwildbattleshiny SPECIES_GYARADOS, 30",
+         "\tsetflag FLAG_JOHTO_SHINY_FORCADO\n"
+         "\tsetwildbattle SPECIES_GYARADOS, 30\n"
+         "\tclearflag FLAG_JOHTO_SHINY_FORCADO"),
+        ("B_OUTCOME_PLAYER_TELEPORTED",
+         "\tgoto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, "
+         "LakeOfRage_EventScript_Ran_Gyarados\n"
+         "\tgoto LakeOfRage_EventScript_Defeated_Gyarados"),
     ],
     "EcruteakCity_Theater_EventScript_LegendaryCutscene": [
         ("setvar VAR_ECRUTEAK_CITY_THEATER, 6",
@@ -666,6 +722,33 @@ CENAS = [
             "TRAINER_SAYO": "TRAINER_JOHTO_KIMONO_SAYO",
             "TRAINER_KUNI": "TRAINER_JOHTO_KIMONO_KUNI",
         },
+    },
+    {
+        "mapa": "LakeOfRage",
+        "porque": "o GYARADOS VERMELHO do meio do lago: fala com ele e ele "
+                  "ataca (shiny, nível 30); vencer OU capturar tira o objeto "
+                  "do mapa para sempre",
+        # O objeto já existe no map.json desde a leva de arte (32,28), com o
+        # gráfico próprio OBJ_EVENT_GFX_GYARADOS_VERMELHO, mudo: `script: 0`,
+        # `flag: 0`. O TODO no cabeçalho do scripts.inc pedia exatamente isto.
+        "localid": {"LAKEOFRAGE_GYARADOS": 8},   # índice 7 + 1
+        "raizes": ["LakeOfRage_EventScript_Gyarados",
+                   "LakeOfRage_EventScript_Defeated_Gyarados",
+                   "LakeOfRage_EventScript_Ran_Gyarados"],
+        "objetos": {7: "LakeOfRage_EventScript_Gyarados"},
+        "objetos_campos": {
+            7: {"graphics_id": "OBJ_EVENT_GFX_GYARADOS_VERMELHO",
+                "flag": "FLAG_HIDE_LAKE_OF_RAGE_GYARADOS",
+                # ponytail: a fonte usa
+                # MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_UP_DOWN_LEFT, que faz o
+                # bicho girar num quadrado de 2x2. Aqui ele fica PARADO, de
+                # propósito: o quadrado é enfeite, e com ele o tile do
+                # GYARADOS deixa de ser fixo, o que torna a interação (e o
+                # caso de suíte que a prova) dependente do instante em que o
+                # jogador chega. Determinismo vale mais que o rodopio.
+                "movement_type": "MOVEMENT_TYPE_NONE"},
+        },
+        "flags": ["FLAG_HIDE_LAKE_OF_RAGE_GYARADOS", "FLAG_JOHTO_SHINY_FORCADO"],
     },
     {
         "mapa": "Route39",
@@ -1623,7 +1706,9 @@ def demo():
 
     # os dois números que esta rodada consumiu, para o relatório não chutar
     assert min(FAIXA_ID) == 2460 and max(FAIXA_ID) == 2499
-    assert min(FAIXA_FLAG) == 0x1840 and max(FAIXA_FLAG) == 0x18FF
+    # a faixa histórica acabou em 18/08/2026 e ganhou o transbordo 0x1D00-0x1D3F
+    assert min(FAIXA_FLAG) == 0x1840 and max(FAIXA_FLAG) == 0x1D3F
+    assert 0x1900 not in FAIXA_FLAG and len(FAIXA_FLAG) == 192 + 64
     assert min(FAIXA_VAR) == 0x4100 and max(FAIXA_VAR) == 0x412F
 
     # a mutação que TEM que reprovar: objeto fora de ordem contra a fonte.

@@ -462,7 +462,7 @@ def censo():
                            encoding="utf-8"))
         L = layouts[d["layout"]]
         conv = S.conversor_de_coordenada(fonte, L["width"], L["height"],
-                                         header, matriz)
+                                         header, matriz, d)
         inc = texto(os.path.join(REPO, "data/maps", meu, "scripts.inc"))
 
         for c in seus:

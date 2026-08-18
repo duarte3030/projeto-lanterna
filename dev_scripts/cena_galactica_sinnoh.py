@@ -1006,7 +1006,7 @@ def plano_do_horario():
         larg, alt = lays[lid]["width"], lays[lid]["height"]
         conv = I.conversor_de_coordenada(
             fonte, larg, alt, header,
-            I.headers_do_platinum().get(header, (None, None))[1])
+            I.headers_do_platinum().get(header, (None, None))[1], d)
         ocupados = ocupados_do_mapa(d)
         proibidos = proibidos_do_mapa(d)
         for e in fonte.get("object_events", []):
@@ -1094,7 +1094,7 @@ def plano_do_roteiro():
         lid = d["layout"]
         larg, alt = lays[lid]["width"], lays[lid]["height"]
         conv = I.conversor_de_coordenada(fonte, larg, alt, header,
-                                         heads.get(header, (None, None))[1])
+                                         heads.get(header, (None, None))[1], d)
         ocupados = ocupados_do_mapa(d)
         proibidos = proibidos_do_mapa(d)
         ja_no_mapa = {o.get("fonte_id") for o in (d.get("object_events") or [])}

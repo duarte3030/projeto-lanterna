@@ -121,8 +121,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "script": "LakeOfRage_EventScript_Gyarados",
+      "flag": "FLAG_HIDE_LAKE_OF_RAGE_GYARADOS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
@@ -178,8 +178,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 49,
-      "y": 34,
+      "x": 52,
+      "y": 37,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -187,7 +187,8 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0"
+      "flag": "0",
+      "origem": "hns: LOCALID 13 = OBJ_EVENT_GFX_MON_BASE+SPECIES_SKARMORY em (52,37). A importacao de 05/08 gravou (49,34), tres tiles fora, e por isso o censo do restaura_npcs_johto.py (raio 2) o dava como 'sem par na fonte'. Devolvido a coordenada da fonte em 18/08/2026: e o unico dos 17 objetos deste mapa que nao batia 1 para 1, e sem ele confere_objetos() do porta_cenas_johto.py reprova o mapa inteiro."
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",

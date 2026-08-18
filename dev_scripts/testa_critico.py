@@ -54,6 +54,7 @@ Formato de um caso
   "nome": "Ginásio de Pewter carrega",
   "flags": ["FLAG_BADGE01_GET", "0x2A0"],   # acesas por escrita direta na EWRAM
   "vars": {"0x4001": 3},                    # opcional
+  "antes_do_warp": "20:DOWN,60:NADA,20:A",  # apertos ANTES do warp, opcional
   "warp": "MAP_PEWTER_CITY_GYM",            # warp pelo menu de debug, opcional
   "roteiro": "20:UP*6,60:NADA",             # botões depois do warp, opcional
   "prova": {                                # obrigatório, e não pode ser vazio
@@ -379,14 +380,21 @@ def digita_numero(valor):
     return ",".join(passos)
 
 
-# O campo do WARP não é igual aos outros dois, e isso custou um teste em
-# 06/08/2026. Lido de `DebugAction_Util_Warp_SelectWarp` em src/debug.c: ele NÃO
-# trata DPAD_LEFT nem DPAD_RIGHT, então o dígito fica sempre na unidade, e o
-# valor é clampado em 10. `digita_numero` mandava RIGHT e LEFT achando que era um
-# campo de três dígitos, e pedir o warp 10 entrava o warp 1: o teste da casa
-# leste de Sunyshore (warp 10) reprovava com o mapa e a porta corretos.
+# O campo do WARP era diferente dos outros dois, e isso custou um teste em
+# 06/08/2026: `DebugAction_Util_Warp_SelectWarp` não tratava DPAD_LEFT nem
+# DPAD_RIGHT (o dígito ficava sempre na unidade) e clampava o valor em 10, então
+# pedir o warp 10 entrava o warp 1 e a casa leste de Sunyshore reprovava com o
+# mapa e a porta corretos.
+#
+# CONSERTADO EM 18/08/2026 (G5 de Galar), no motor e não no roteiro: aquele laço
+# à mão virou o mesmo `Debug_HandleInput_Numeric(taskId, 0, 127, 3)` que os
+# campos de grupo e de mapa logo acima já usavam. O teto 127 é o do motor (`s8
+# warpId` em `struct WarpData`), não um número escolhido. Com isso o campo passa
+# a ser de três dígitos como os outros e `digita_warp` é `digita_numero`; caso
+# de suíte não precisa mais evitar warp_id acima de 10. Roteiro antigo continua
+# valendo: para warp de 0 a 9 as duas formas digitam o mesmo valor.
 def digita_warp(valor):
-    return f"12:UP*{valor}" if valor else "12:NADA"
+    return digita_numero(valor)
 
 
 def rota_warp(grupo, num, warp=0):
@@ -454,6 +462,14 @@ def monta_roteiro(caso, por_nome, tabela_flags):
         partes.append(f"6:FLAG={num_flag(f, tabela_flags)}")
     for var, val in caso.get("vars", {}).items():
         partes.append(f"6:VAR={int(var, 0)}={val}")
+    # Apertos ANTES do warp de debug. Existe por um caso só, e ele é real: para
+    # provar cena que precisa de PARTY (surfar, por exemplo), o roteiro tem que
+    # passar pelo seletor de capítulo primeiro, que é quem dá o Pikachu com SURF
+    # ao jogador de party vazia (src/chapter_jump.c). O seletor abre ANTES de o
+    # jogador ter controle, então esses apertos não cabem no `roteiro`, que roda
+    # depois do warp.
+    if caso.get("antes_do_warp"):
+        partes.append(caso["antes_do_warp"])
     if caso.get("warp"):
         if caso["warp"] not in por_nome:
             raise KeyError(f"mapa de warp desconhecido: {caso['warp']}")

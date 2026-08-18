@@ -37,13 +37,69 @@ SandgemTown_RowanLab_SetCounterpartFemale::
 	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL
 	end
 
+@ >>> ESTRADA SUL DE SUNYSHORE: o escritor que faltava (18/08/2026) >>>
+@ O Collector do ValorLakefront tranca a estrada sul da Route 222 e NINGUEM
+@ escrevia VAR_SINNOH_VALOR_BLOQUEIO_SUNYSHORE, entao o bloqueio era eterno
+@ (dito em data/maps/ValorLakefront/scripts.inc e no PLANO-OBRAS-SINNOH).
+@
+@ NA FONTE quem desarma e `SandgemTownLab_ObtainSunyshoresBadge`
+@ (res/field/scripts/scripts_sandgem_town_pokemon_research_lab.s:108-118), e o
+@ que o CHAMA e `SandgemTownLab_OnFrame_ReturnedFromDistortionWorld`: a volta do
+@ Mundo Distorcido, depois do Spear Pillar. As duas linhas que interessam sao
+@ `SetFlag FLAG_HIDE_VALOR_LAKEFRONT_COLLECTOR` e
+@ `SetVar VAR_VALOR_LAKEFRONT_BLOCK_SUNYSHORE_STATE, 1`, e sao os UNICOS toques
+@ nessa flag e nessa var no pokeplatinum inteiro.
+@
+@ POR QUE O GATILHO AQUI E OUTRO, e por que este e o mais fiel que existe: o
+@ Mundo Distorcido e o climax do Spear Pillar NAO estao portados (ESTADO 0.e,
+@ "fora desta obra"). O ultimo passo do arco da Galactica que ESTA na ROM e a
+@ queda do Saturn, que acende FLAG_GALACTICA_QG_TOMADO
+@ (data/maps/GalacticHQ_1F/scripts.inc:203 e _2F:191), e na fonte ela fica
+@ exatamente ANTES do Coronet/Spear Pillar/Distorcido. O texto da fonte
+@ concorda com esse ponto da historia: "You've got seven already! That only
+@ leaves Sunyshore's Gym" e "the three Pokemon of the lakes appear to have
+@ returned to their homes" (res/text/sandgem_town_pokemon_research_lab.json,
+@ SandgemTownLab_Text_ObtainSunyshoresBadge). Ou seja: um passo antes do da
+@ fonte, e nunca antes da hora.
+@
+@ ponytail: la a cena e um ON_FRAME com o companheiro e duas telas de fala; aqui
+@ ela e a CONVERSA com o Rowan, que e o mesmo ator dizendo as mesmas linhas, sem
+@ tabela de frame nem var de estado nova (a janela de save esta fechada). Quem
+@ marca "ja aconteceu" e a PROPRIA flag que a cena acende,
+@ FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_COLLECTOR: zero flag nova, zero var nova.
 SandgemTown_RowanLab_EventScript_Rowan::
 	lock
 	faceplayer
+	goto_if_set FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_COLLECTOR, SandgemTown_RowanLab_EventScript_RowanAfter
+	goto_if_set FLAG_GALACTICA_QG_TOMADO, SandgemTown_RowanLab_EventScript_RowanAbreSunyshore
 	goto_if_set FLAG_INICIAL_SINNOH, SandgemTown_RowanLab_EventScript_RowanAfter
 	msgbox SandgemTown_RowanLab_Text_RowanEntrust, MSGBOX_DEFAULT
 	release
 	end
+
+SandgemTown_RowanLab_EventScript_RowanAbreSunyshore::
+	msgbox SandgemTown_RowanLab_Text_RowanObtainSunyshoresBadge, MSGBOX_DEFAULT
+	setflag FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_COLLECTOR
+	setvar VAR_SINNOH_VALOR_BLOQUEIO_SUNYSHORE, 1
+	release
+	end
+
+@ Fala do pokeplatinum, res/text/sandgem_town_pokemon_research_lab.json,
+@ SandgemTownLab_Text_ObtainSunyshoresBadge. Fora as duas contagens que a fonte
+@ monta com STRVAR (quantos Pokemon vistos e quantas insignias), que aqui
+@ virariam numero inventado.
+SandgemTown_RowanLab_Text_RowanObtainSunyshoresBadge:
+	.string "ROWAN: Oh, yes, there was something\n"
+	.string "I had to tell you.\p"
+	.string "The three POKéMON of the lakes appear\n"
+	.string "to have returned to their homes.\p"
+	.string "And the road along LAKE VALOR is\n"
+	.string "open again.\p"
+	.string "Hm! You've come this far.\n"
+	.string "Why not obtain SUNYSHORE's BADGE?\p"
+	.string "And why not challenge the POKéMON\n"
+	.string "LEAGUE?$"
+@ <<< ESTRADA SUL DE SUNYSHORE <<<
 
 SandgemTown_RowanLab_EventScript_RowanAfter::
 	msgbox SandgemTown_RowanLab_Text_RowanAdventureAwaits, MSGBOX_DEFAULT

@@ -319,7 +319,8 @@ def alinha_npcs(header, matriz, fonte, d, sprites):
     L = _layouts().get(d.get("layout"))
     if not L:
         return None, "sem_layout"
-    conv = I.conversor_de_coordenada(fonte, L["width"], L["height"], header, matriz)
+    conv = I.conversor_de_coordenada(fonte, L["width"], L["height"], header,
+                                     matriz, d)
     if conv is None:
         return None, "sem_conversor"
     fc = [(e, conv(e), g) for e, g in zip(f_npcs, esperado)]

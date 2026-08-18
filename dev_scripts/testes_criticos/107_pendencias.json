@@ -4,12 +4,98 @@
     "nome": "ESTRADA DE SUNYSHORE, de ponta a ponta a pé: ValorLakefront -> Route 222 inteira -> portão -> SunyshoreCity. Fecha a pendência 'MAP_ROUTE222 está partida no meio' do PLANO-OBRAS-SINNOH (onda 5). O QUE ESTAVA PARTIDO, e por que a medição antiga apontou para o lugar errado: o plano mediu 'coluna x=0 não alcança a coluna x=91' e concluiu que a estrada não era andável. A coluna 91 NÃO é a estrada: a Route 222 entrega em Sunyshore por WARP, o portão (89,23) -> Route222_Access -> (11,5) -> SunyshoreCity (4,48), e a borda direita do layout é um bolso decorativo de dois tiles cujo outro lado, a coluna x=0 de SunyshoreCity, é água ou parede em TODAS as linhas. O que estava partido de verdade era a ENTRADA NORTE, a única que sobra: a do sul (Route222 y=21..25) é a que o Collector tranca, e o desarme dela mora numa cena do laboratório de Sandgem que este porte não tem (está dito em data/maps/ValorLakefront/scripts.inc), então a estrada sul não abre neste jogo. A norte, que o mesmo scripts.inc diz que 'fica aberta' de propósito, entrava por Valor (55,39) e morria num bolso de QUATRO tiles, (0,3) a (3,3): a linha 3 era elevação 3 e a região grande logo abaixo é elevação 4, e IsElevationMismatchAt barra 3 contra 4 sem nada aparecer na colisão (lição 6 do ESTADO 0.e). Somando as duas, Sunyshore era inalcançável a pé vindo de Valor. O conserto está em dev_scripts/conserta_route222.py: (0,3), (1,3) e (2,3) passam a ELEVATION_TRANSITION, o mesmo idioma que o próprio mapa já usa em (21,10), (21,11), (21,19), (21,20), (39,10), (39,11), (81,18) e (81,19); metatile e colisão ficam intactos, então o desenho na tela não muda. PAR NEGATIVO NÃO SE APLICA: este caso é de TRAVESSIA, não de gatilho. Não existe estado em que a estrada deva ficar fechada e que este roteiro devesse falhar; o contraprova dele é a mutação plantada do --demo da ferramenta, que devolve a linha 3 para elevação 3 e exige que a entrada norte volte a NÃO alcançar o portão. AS ONZE FLAGS são os treinadores da rota marcados como derrotados: o jogador do harness sai do 'START FROM BEGINNING' com ZERO Pokémon, e um treinador que enxerga o jogador trava a corrida no script de aproximação (medido: duas corridas idênticas pararam em (22,21) e (24,21), congeladas, sem 'oponente' nenhum na EWRAM). Marcá-los como derrotados não move nenhum deles: eles continuam sendo object_events que bloqueiam tile, e a rota abaixo desvia de cada um. ROTA MEDIDA no traço de EWRAM, passo a passo, nunca contada no olho, e ela obedece as lições do ESTADO 0.e: pernas saturantes onde dá, e onde não dá (o mapa tem SIDEWAYS_STAIRS nas colunas 21, 28, 39 e 46, que deslocam o jogador uma linha ao andar de lado, e vinte e três object_events plantados no caminho) a perna é contada e conferida no traço. Pousadas medidas, em ordem: Valor (39,48) na saída da casa leste, (46,48), (46,46), (43,46), (43,35), (43,39), atravessa a costura e satura em Route222 (3,3); (1,3), (1,4) -- ESTE é o degrau consertado, sem ele o caso morre aqui --, (2,4), (2,7), (20,7), (20,25), (20,20), (24,21), (24,22), (40,22), (40,20), (50,20), (50,19), (77,18), (77,19), (89,20), (89,24), (85,24), (85,23), e o RIGHT final satura em cima de (89,23), que é MB_EAST_ARROW_WARP e dispara; Route222_Access (1,5), (1,6) para desviar do atendente em (7,5), (11,6), (11,5), e o RIGHT dispara a segunda seta; SunyshoreCity (4,48). A PROVA é posicional em duas camadas: o mapa final é MAP_SUNYSHORE_CITY com LAYOUT_SUNYSHORE_CITY (mapLayoutId só muda quando o mapa carrega de verdade), e 'andou' exige que o jogador mude de posição DENTRO de Sunyshore, o que a última perna faz andando pela rua da entrada.",
     "warp": "MAP_VALOR_LAKEFRONT",
     "warp_id": 2,
-    "flags": ["0x898", "0x8e9", "0x8eb", "0x8ed", "0x8f0", "0x95b", "0x979",
-              "0x983", "0x984", "0x9be", "0x9bf"],
+    "flags": [
+      "0x898",
+      "0x8e9",
+      "0x8eb",
+      "0x8ed",
+      "0x8f0",
+      "0x95b",
+      "0x979",
+      "0x983",
+      "0x984",
+      "0x9be",
+      "0x9bf"
+    ],
     "roteiro": "16:RIGHT*12,40:NADA,16:UP*8,40:NADA,16:LEFT*4,40:NADA,16:UP*16,40:NADA,16:DOWN*5,40:NADA,16:RIGHT*24,60:NADA,16:LEFT*3,40:NADA,16:DOWN*4,40:NADA,16:RIGHT*4,40:NADA,16:DOWN*6,40:NADA,16:RIGHT*24,60:NADA,16:DOWN*24,60:NADA,16:UP*6,40:NADA,16:RIGHT*70,90:NADA,16:DOWN*3,40:NADA,16:RIGHT*20,60:NADA,16:UP*3,40:NADA,16:RIGHT*20,60:NADA,16:UP*2,40:NADA,16:RIGHT*45,90:NADA,16:DOWN*2,40:NADA,16:RIGHT*20,60:NADA,16:DOWN*8,40:NADA,16:LEFT*8,40:NADA,16:UP*2,40:NADA,16:RIGHT*8,120:NADA,16:DOWN*2,40:NADA,16:RIGHT*14,60:NADA,16:UP*2,40:NADA,16:RIGHT*4,150:NADA,16:RIGHT*8,60:NADA",
     "prova": {
       "mapa": "MAP_SUNYSHORE_CITY",
       "layout": "LAYOUT_SUNYSHORE_CITY",
+      "andou": true
+    }
+  },
+  {
+    "id": "T107.2",
+    "nome": "ESCRITOR DA ESTRADA SUL DE SUNYSHORE. O Collector do ValorLakefront tranca a estrada sul da Route 222 e, ate 18/08/2026, NINGUEM escrevia VAR_SINNOH_VALOR_BLOQUEIO_SUNYSHORE (0x415B): o bloqueio era eterno, dito no scripts.inc do proprio Valor e no PLANO-OBRAS-SINNOH. Na fonte quem desarma e SandgemTownLab_ObtainSunyshoresBadge (scripts_sandgem_town_pokemon_research_lab.s:108-118), chamado pelo ON_FRAME da volta do Mundo Distorcido; aqui o Mundo Distorcido nao esta portado, entao o gatilho e o ultimo passo do arco da Galactica que ESTA na ROM, FLAG_GALACTICA_QG_TOMADO, que a fonte poe imediatamente antes do Coronet/Spear Pillar/Distorcido, e o texto da fonte concorda com esse ponto ('You've got seven already! That only leaves Sunyshore's Gym'). O caso: com a flag da Galactica acesa, falar com o ROWAN no laboratorio de Sandgem escreve a var em 1 e acende a flag que esconde o Collector. PROVA DE EWRAM, dupla: a var 0x415B vale 1 e FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_COLLECTOR esta acesa. O EFEITO da var na estrada ja e provado por T103.5 (var em 0: o Collector prende o jogador em MAP_VALOR_LAKEFRONT) e T103.6 (var em 1, mesma rota, mesmos apertos: o jogador atravessa e cai em MAP_ROUTE222); os dois pinam a var na mao, e este caso e quem prova que o JOGO sabe escreve-la. ROTA no LAYOUT_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB, que este mapa reusa: sai da porta em (6,12), LEFT satura em (4,12) (x=3 e parede na linha 12), UP satura em (4,11) (a EXPERT_F importada esta em (4,10) e bloqueia), LEFT satura em (2,11) (x=1 e parede), UP satura em (2,8) (a linha 7 e parede ate x=3), RIGHT satura em (4,8) (a Poke Bola do TURTWIG esta em (5,8)), UP satura em (4,2) (linha 1 e parede), e dai duas pernas CONTADAS, medidas no traco de EWRAM: RIGHT*3 anda 2 tiles ate (6,2) e DOWN*2 anda 1 ate (6,3), de cara para o ROWAN em (6,4). Os A do fim abrem e passam as cinco paginas da fala.",
+    "flags": [
+      "FLAG_GALACTICA_QG_TOMADO"
+    ],
+    "warp": "MAP_SANDGEM_TOWN_ROWAN_LAB",
+    "warp_id": 0,
+    "roteiro": "16:LEFT*6,40:NADA,16:UP*6,40:NADA,16:LEFT*6,40:NADA,16:UP*6,40:NADA,16:RIGHT*6,40:NADA,16:UP*10,40:NADA,16:RIGHT*3,40:NADA,16:DOWN*2,60:NADA,20:A,120:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN_ROWAN_LAB",
+      "vars": {
+        "0x415B": 1
+      },
+      "flags_acesas": [
+        "FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_COLLECTOR"
+      ]
+    }
+  },
+  {
+    "id": "T107.3",
+    "nome": "PAR NEGATIVO do T107.2: MESMA rota, MESMOS apertos, e SEM FLAG_GALACTICA_QG_TOMADO. O ROWAN fala a linha de sempre e NAO escreve nada: a var 0x415B continua em 0 e a flag do Collector continua apagada, ou seja a estrada sul segue trancada enquanto o arco da Galactica nao cair. Sem este caso o T107.2 passaria num jogo que escreve a var em qualquer conversa com o ROWAN (ou que ja nasce com ela escrita), que e exatamente o erro que um gatilho mal posto comete.",
+    "warp": "MAP_SANDGEM_TOWN_ROWAN_LAB",
+    "warp_id": 0,
+    "roteiro": "16:LEFT*6,40:NADA,16:UP*6,40:NADA,16:LEFT*6,40:NADA,16:UP*6,40:NADA,16:RIGHT*6,40:NADA,16:UP*10,40:NADA,16:RIGHT*3,40:NADA,16:DOWN*2,60:NADA,20:A,120:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,16:A,90:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN_ROWAN_LAB",
+      "vars": {
+        "0x415B": 0
+      },
+      "flags_apagadas": [
+        "FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_COLLECTOR"
+      ]
+    }
+  },
+  {
+    "id": "T107.4",
+    "nome": "GYARADOS VERMELHO do Lago da Furia: falar com ele COMECA A BATALHA. Fecha o TODO que estava no cabecalho de data/maps/LakeOfRage/scripts.inc desde a leva de arte: o objeto de (32,28) tinha o grafico proprio OBJ_EVENT_GFX_GYARADOS_VERMELHO e nada mais (script 0, flag 0). A cena entrou pelo mecanismo que o repo ja tem para cena propria em mapa gerado, o CENAS do dev_scripts/porta_cenas_johto.py, porque o scripts.inc deste mapa e ESCRITO pelo importa_treinadores_johto.py e conserto a mao seria apagado na proxima rodada. FIDELIDADE HGSS: fala, grito do Pokemon, e batalha selvagem contra GYARADOS SHINY de nivel 30; vencer OU capturar acende FLAG_HIDE_LAKE_OF_RAGE_GYARADOS e faz removeobject (a queda de rotulo da fonte, que e por onde passa a CAPTURA, foi reposta com um `goto` explicito, ver TROCA). O shiny sai do gancho P_FLAG_FORCE_SHINY (include/config/pokemon.h), porque `setwildbattleshiny` e comando do hns e nao existe neste motor; a flag e TEMPORARIA e vale por um passo de script. PROVA DE EWRAM: o nivel do inimigo em gParties[B_TRAINER_OPPONENT_A][0].level e 30, lido pelo runner com --inimigo. Especie e shininess NAO sao expostas pelo gba_runner hoje (seria mudanca no .c, fora do escopo desta onda); o par negativo T107.5 e quem fecha o buraco, porque la o mesmo roteiro nao abre batalha nenhuma e o nivel fica em 0. PARTY: este caso NAO usa 'START FROM BEGINNING'. O GYARADOS fica no MEIO do lago, agua funda em toda volta, e jogador sem Pokemon nao surfa; entao o roteiro passa pelo SELETOR DE CAPITULO (abertura 'seletor' + antes_do_warp escolhendo KANTO / Before Pokemon League), que acende as oito insignias do motor e da um PIKACHU nivel 20 com SURF a quem tem party vazia (src/chapter_jump.c). FLAG_SEM_ENCONTRO_SELVAGEM e obrigatoria: surfar no lago sorteia encontro, e encontro selvagem poria outro nivel no mesmo endereco que a prova le. ROTA MEDIDA no traco de EWRAM, nunca contada no olho: pousada do warp 0 em (39,42), LEFT*20 satura em (25,42), UP*20 para em (25,39), RIGHT*4 anda 3 ate (28,39), UP*20 satura em (28,38) porque (28,37) e agua. Ai os quatro A da montaria, na ordem medida: abre a caixa, passa a pergunta, escolhe YES e FECHA o 'Pikachu used SURF!' (sem esse quarto A a montagem nao acontece e todos os apertos seguintes sao comidos pela caixa aberta). Surfando em (28,37), UP*8 vai a (28,29), RIGHT*5 anda 4 ate (32,29), UP so VIRA (o corpo do GYARADOS bloqueia (32,28)) e o A abre a cena.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN,60:NADA,20:A,120:NADA,20:DOWN*12,60:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_LAKE_OF_RAGE",
+    "warp_id": 0,
+    "roteiro": "16:LEFT*20,60:NADA,16:UP*20,60:NADA,16:RIGHT*4,60:NADA,16:UP*20,60:NADA,20:A,150:NADA,20:A,150:NADA,20:A,200:NADA,20:A,300:NADA,300:NADA,16:UP*8,90:NADA,16:RIGHT*5,90:NADA,16:UP,60:NADA,20:A,150:NADA,16:A,150:NADA,16:A,300:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_LAKE_OF_RAGE",
+      "nivel_inimigo_faixa": [
+        30,
+        30
+      ]
+    }
+  },
+  {
+    "id": "T107.5",
+    "nome": "PAR NEGATIVO do T107.4: MESMA rota, MESMOS apertos, e FLAG_HIDE_LAKE_OF_RAGE_GYARADOS ACESA, que e o estado do save depois de vencer ou capturar o GYARADOS. Com ela o objeto nao nasce (o campo 'flag' do object_event so cria quando a flag esta APAGADA, src/event_object_movement.c), o tile (32,28) fica vazio, o A no fim nao encontra ninguem e NENHUMA batalha comeca: o nivel do inimigo continua ZERO. Discrimina duas coisas de uma vez: que a batalha do T107.4 veio do OBJETO (e nao de um encontro selvagem que passou pela FLAG_SEM_ENCONTRO_SELVAGEM) e que a flag de esconder do fecho da cena realmente tira o GYARADOS do mapa. 'andou' completa a prova: o jogador andou de verdade dentro do mapa, entao 'nivel 0' nao pode ser confundido com jogo travado.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN,60:NADA,20:A,120:NADA,20:DOWN*12,60:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_LAKE_OF_RAGE_GYARADOS"
+    ],
+    "warp": "MAP_LAKE_OF_RAGE",
+    "warp_id": 0,
+    "roteiro": "16:LEFT*20,60:NADA,16:UP*20,60:NADA,16:RIGHT*4,60:NADA,16:UP*20,60:NADA,20:A,150:NADA,20:A,150:NADA,20:A,200:NADA,20:A,300:NADA,300:NADA,16:UP*8,90:NADA,16:RIGHT*5,90:NADA,16:UP,60:NADA,20:A,150:NADA,16:A,150:NADA,16:A,300:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_LAKE_OF_RAGE",
+      "nivel_inimigo_faixa": [
+        0,
+        0
+      ],
       "andou": true
     }
   }
