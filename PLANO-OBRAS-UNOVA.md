@@ -85,8 +85,16 @@ mora no mapa. "Remoto" = o mapa só recebe `setmapscene` de fora, nunca tem
 | **R_12_VILLAGE_BRIDGE_GATE** (remoto) | `VAR_UNOVA_R12_VILLAGE_BRIDGE_PORTAO_CENA` | 0x417A | 0=SCENE_DEFAULT, 1=SCENE_FINISHED |
 | **PKMN_LEAGUE_MAIN** (remoto) | `VAR_UNOVA_LIGA_SALAO_CENA` | 0x417B | 0=SCENE_ELITE_FOUR_ROOM_ENTER, 1=SCENE_ELITE_FOUR_ROOM_NOTHING, 2=SCENE_ELITE_FOUR_ROOM_FINISHED |
 
-Faixa usada: `VAR_UNUSED_0x4161`–`0x417B` (27 endereços). Livres na faixa
-reservada (`0x4161`–`0x41BF`): **68** (`0x417C`–`0x41BF`).
+**Duas vars fora das 27 acima, autorizadas pela condutora na Fase B
+(18/08/2026), fora do desenho de 15/08/2026:**
+
+| mapa (MAP_CONST) | var | endereço | valores (0, 1, 2...) |
+|---|---|---|---|
+| MARLONS_HOUSE | `VAR_UNOVA_MARLON_CASA_CENA` | 0x417C | 0=SCENE_DEFAULT, 1=SCENE_FINISHED |
+| **MISTRALTON_CITY** (remoto) | `VAR_UNOVA_MISTRALTON_CENA` | 0x417D | 0=SCENE_DEFAULT, 1=SCENE_FINISHED — setado por Unova_CelestialTower1F/scripts.inc (cena da SKYLA), lido pelo trigger do Blocker em Unova_MistraltonCity/map.json |
+
+Faixa usada: `VAR_UNUSED_0x4161`–`0x417D` (29 endereços). Livres na faixa
+reservada (`0x4161`–`0x41BF`): **66** (`0x417E`–`0x41BF`).
 
 `HALL_OF_FAME` continua em `VAR_UNOVA_LIGA_CENA` (0x4160, já existia).
 
@@ -300,3 +308,72 @@ Conferido agora: **52 ids livres** na faixa (348 já usados de 400).
 agente de Johto está gravando lá agora) — quando o agente de treinadores de
 Unova rodar, ele consome dessa mesma faixa pelo molde já pronto, sem precisar
 de decisão nova aqui.
+
+## Decisões da condutora, Fase B do PRD (18/08/2026)
+
+- **Treinadores de história autorizados**: `TRAINER_UNOVA_BRONIUS1` e os três
+  `TRAINER_UNOVA_INFER4_{OSHAWOTT,SNIVY,TEPIG}` na faixa de Unova 1800-2199
+  (52 vagas livres, molde `gera_treinadores_unova.py`), e `ARCHER` de Johto
+  na faixa 2470-2499. Times literais da fonte, remapeamento medido por
+  irmãos escalados, vaga anotada. As cenas bloqueadas de VirbankComplexB1F,
+  PinwheelForest e Route41/DragonsDen ligam neles.
+- **Casa do MARLON: a cena entra SEM a entrega de inicial.** O inicial desta
+  ROM é dado no laboratório de Nuvema (obra 1, provado em suíte); a entrega
+  do Marlon na fonte é redundante e colidiria com ele. A cena porta a
+  conversa e o estado, o presente é descartado com comentário (mesma régua
+  da decisão 7). `EVENT_GOT_TEPIG` não é necessária. Var de cena nova
+  autorizada: `VAR_UNOVA_MARLON_CASA_CENA = VAR_UNUSED_0x417C` (primeira
+  livre da reserva de Unova, dono anotado).
+- **Despachantes que faltam**: portar o dispatcher on-load de
+  `NimbasaParkOutside` (CherenScene, priorityjump: o molde de priorityjump
+  portado existe na cena do MARLON em `Unova_UndellaTown/scripts.inc`) e o
+  `setmapscene MISTRALTON_CITY, SCENE_FINISHED` na cena correspondente de
+  `CelestialTower1F`, destravando os dois bloqueios registrados pela Fase B.
+- Seguem bloqueados por decisão externa (sem mudança): PWT (torneio),
+  ShoppingMallNine (decisão 5), BOARDINGPASS e SECRET_POTION (itens de
+  mecânica, entram se o Gui pedir os arcos), 8 sem-par de Johto (matcher
+  com raio é desenho), TRAIN_FRONT/SHINY_GYARADOS (arte, decisão do Gui).
+
+### Registros da Fase B (18/08/2026), pendências achadas e não consertadas
+
+Achados durante a rodada de consertos da Fase B. Nenhum foi mexido: os dois são
+decisão de desenho, não conserto mecânico.
+
+- **WINONA em cima da porta oeste do ginásio, `Unova_MistraltonCity`.** O
+  `object_event` de índice 8 (`OBJ_EVENT_GFX_WINONA`, `MOVEMENT_TYPE_FACE_DOWN`)
+  mora em **(6,5)**, que é exatamente o `warp_event` de índice **4**
+  (`MAP_UNOVA_MISTRALTON_GYM_1F`, a porta oeste; a porta leste é o warp 5, em
+  (7,5)). **Pré-existente**, não veio da Fase B: o objeto já estava assim antes
+  desta leva, e o `git diff` deste mapa na Fase B só acrescenta os dois
+  `coord_event` do Blocker. Efeito: a líder fica plantada na soleira, e quem
+  entrar pela porta oeste passa por dentro dela. Pendência de POSICIONAMENTO
+  (mover a WINONA para um tile livre ao lado, ou tirá-la do exterior), não de
+  script.
+- **`GoldenrodCity` (39,14): casamento N:1, RESOLVIDO em 18/08/2026.** Origem
+  confirmada: os dois `Rocket5` empilhados vieram da resolução dos 44 pares
+  ambíguos da Fase B em `dev_scripts/restaura_npcs_johto.py` (o desempate novo
+  por flag existente). A fonte tem DOIS objetos nessa coordenada,
+  `GoldenrodCity_EventScript_Rocket5` (flag `FLAG_HIDE_GOLDENROD_ROCKETS`) e
+  `GoldenrodCity_EventScript_Beauty` (flag `FLAG_HIDE_GOLDENROD_BEAUTY`); o
+  desempate descartou a BEAUTY porque `FLAG_HIDE_GOLDENROD_BEAUTY` **não
+  existe** em `include/constants/flags.h`. Só que o nosso mapa também tem DOIS
+  item ball nessa coordenada (índices 29 e 33), e os dois casaram com o MESMO
+  objeto da fonte, porque o matcher só compara coordenada.
+  Conserto de raiz no gerador, em duas metades, as duas com assert no `--demo`:
+  `livres()` garante que um objeto da fonte é consumido UMA vez por coordenada
+  DENTRO da rodada, e `semeia()` entra na rodada já marcando como gastos os
+  pares que rodadas ANTERIORES consumiram (reconhecidos pelo gráfico, que é o
+  que o gerador escreve, passando pela tabela `SPRITE`). Sem a segunda metade o
+  gerador não é idempotente entre levas e o N:1 voltaria sozinho na próxima.
+  Provado no arquivo, não só no `--demo`: zerando (39,14) e rodando três vezes,
+  a rodada 1 restaura 1 objeto e as rodadas 2 e 3 deixam o hash de todos os
+  `map.json` idêntico. Resultado: índice 29 é o `Rocket5`, índice 33 é
+  **item ball**, o estado neutro do gerador, porque a BEAUTY cai na regra da
+  casa "flag citada inexistente = bloqueado".
+- **Pendência da fila de JOHTO: a BEAUTY de `GoldenrodCity` (39,14),
+  índice 33.** Não entra agora: criar `FLAG_HIDE_GOLDENROD_BEAUTY` sem a máquina
+  que a acende e apaga plantaria bloqueio (personagem em campo no estado errado
+  da história, que é exatamente o que a regra da flag inexistente evita).
+  Candidata: `FLAG_HIDE_GOLDENROD_BEAUTY` na faixa de Johto. Entra quando o arco
+  da ocupação de Goldenrod pela Rocket ganhar leva, junto com quem seta e limpa
+  a flag; até lá o índice 33 fica item ball muda.

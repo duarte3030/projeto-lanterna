@@ -189,7 +189,26 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_UNOVA_MISTRALTON_CENA",
+      "var_value": "0",
+      "script": "Unova_MistraltonCity_EventScript_Blocker"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_UNOVA_MISTRALTON_CENA",
+      "var_value": "0",
+      "script": "Unova_MistraltonCity_EventScript_Blocker"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

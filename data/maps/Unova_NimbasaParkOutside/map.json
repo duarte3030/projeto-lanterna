@@ -64,7 +64,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Unova_NimbasaParkOutside_EventScript_Npc3",
-      "flag": "0"
+      "flag": "FLAG_UNOVA_CENA_JUNIPER"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_RED",
@@ -104,6 +104,19 @@
       "trainer_sight_or_berry_tree_id": "ITEM_AIR_BALLOON",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEMS_UNOVA_START + 0x10E"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL",
+      "x": 7,
+      "y": 8,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "FLAG_UNOVA_NIMBASA_PARK_FORA_CHEREN"
     }
   ],
   "warp_events": [

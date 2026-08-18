@@ -58,6 +58,25 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_UNOVA_R12_VILLAGE_BRIDGE_PORTAO_CENA",
+      "var_value": "0",
+      "script": "Unova_Rt12VillageBridgeGate_EventScript_PonteFechada"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_UNOVA_R12_VILLAGE_BRIDGE_PORTAO_CENA",
+      "var_value": "0",
+      "script": "Unova_Rt12VillageBridgeGate_EventScript_PonteFechada"
+    }
+  ],
   "bg_events": []
 }

@@ -1,7 +1,39 @@
 @ MistraltonCity do BW3G (Azure_Keys). Gerado por dev_scripts/importa_unova.py; nao editar a mao.
 
+@ >>> B6 Unova, Fase B (portada a mao em 18/08/2026, autorizacao da condutora) >>>
+@ `MistraltonCityBlockerScript` da fonte: na fonte e um `coord_event` gatilho
+@ em (6,6) e (7,6), so ativo em SCENE_DEFAULT (valor 0). Aqui vira gatilho
+@ "trigger" no map.json condicionado a VAR_UNOVA_MISTRALTON_CENA == 0 (mesmo
+@ molde do trigger de Unova_UndellaTown/scripts.inc, coord_events do
+@ map.json). Var nova, VAR_UNOVA_MISTRALTON_CENA = VAR_UNUSED_0x417D,
+@ autorizada pela condutora em 18/08/2026 (ver include/constants/vars.h e a
+@ tabela do PLANO-OBRAS-UNOVA.md); quem grava 1 e a cena da SKYLA em
+@ Unova_CelestialTower1F/scripts.inc. Como o trigger so
+@ dispara com a var em 0, ele para de acionar sozinho assim que a cena da
+@ torre grava 1: nao precisa de flag pra "esconder" nada, o proprio
+@ `var_value` do gatilho ja destrava a porta.
+@ `turnobject MISTRALTONCITY_GYM_GUY, RIGHT` -> `turnobject 1, DIR_EAST`
+@ (RIGHT do gen2 = leste). `applymovement PLAYER, MistraltonCityGymMovement`
+@ (step DOWN, o empurrao) -> `walk_down` x1.
+@ Rota conferida contra data/layouts/Unova_MistraltonCity/map.bin: (6,6),
+@ (7,6), (6,7) e (7,7) todos colisao 0.
 Unova_MistraltonCity_MapScripts::
 	.byte 0
+
+Unova_MistraltonCity_EventScript_Blocker::
+	lockall
+	turnobject 1, DIR_EAST
+	msgbox Unova_MistraltonCity_Text_MistraltonCityGymGuyText, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_PLAYER, Unova_MistraltonCity_Movement_JogadorEmpurrado
+	waitmovement 0
+	releaseall
+	end
+
+Unova_MistraltonCity_Movement_JogadorEmpurrado:
+	walk_down
+	step_end
+@ <<< B6 Unova, Fase B <<<
 
 Unova_MistraltonCity_EventScript_Placa0::
 	msgbox Unova_MistraltonCity_Text_MistraltonCitySignText, MSGBOX_SIGN

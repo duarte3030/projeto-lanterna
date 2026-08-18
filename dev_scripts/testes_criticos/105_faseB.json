@@ -1,0 +1,233 @@
+[
+ {
+  "id": "T105.1",
+  "nome": "Unova Fase B, BRONIUS: o coord_event de VirbankComplexB1F abre a batalha contra TRAINER_UNOVA_BRONIUS1 (2169), o treinador novo da leva. Prova por `oponente` LITERAL: nao basta 'abriu batalha', tem que ser ESTE id, porque o mapa ja tem a cientista TRAINER_UNOVA_SCIENTISTF_VIRBANK_COMPLEX_1 e um id torto passaria num teste de 'apareceu treinador'. GEOMETRIA medida em 18/08/2026 contra data/layouts/Unova_VirbankComplexB1F/map.bin (16x12): warp 0 e (7,4) e o jogador chega VIRADO PARA O SUL (medido pelo T98.2, que sai dali com DOWN,DOWN andando dois tiles). Todas as pernas SATURAM: DOWN para em (7,6) contra a parede de (7,7); LEFT para em (0,6); DOWN para em (0,11), o canto; RIGHT para em (6,11) contra a parede de (7,11). So o UP x3 e contado, e os dois resultados servem: (6,8) e (6,9) sao AMBOS linha de gatilho, porque os dois coord_events do BRONIUS sao (9,8) e (9,9). O RIGHT final satura em (11,8)/(11,9) e cruza x=9 no MEIO da perna (licao 8). Interior, sem entrada em src/data/wild_encounters.json. Os 6 apertos de A pagam os 2 prompts do BroniusIntro (1 \\p + 1 \\l, licao 4.13) no ritmo de ~2 por pagina.",
+  "warp": "MAP_UNOVA_VIRBANK_COMPLEX_B1F",
+  "warp_id": 0,
+  "roteiro": "60:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:UP,24:UP,24:UP,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,180:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,420:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_VIRBANK_COMPLEX_B1F",
+   "oponente": "TRAINER_UNOVA_BRONIUS1"
+  }
+ },
+ {
+  "id": "T105.2",
+  "nome": "PAR NEGATIVO do T105.1, e ele nao pode ser feito com VAR_TEMP_0: os dois coord_events pedem VAR_TEMP_0 == 0 e VAR_TEMP zera na troca de mapa, entao pinar 1 antes do warp nao sobrevive ate o mapa carregar e o par seria falso. O discriminador de verdade e a TRAVA QUE A PROPRIA FONTE USA: `goto_if_defeated TRAINER_UNOVA_BRONIUS1` na primeira linha do script. A flag de derrotado e TRAINER_FLAGS_START (0x500 = 1280) + 2169 = 3449, escrita direto na EWRAM pelo harness (mesmo mecanismo do T98.4). MESMO warp e MESMA rota do T105.1. Tres provas: `oponente` em 0 (gTrainerBattleParameter nasce zerado, src/battle_setup.c:93, e nada nesta corrida escreve nele), FLAG_UNOVA_VIRBANK_COMPLEX_PORTA apagada (o fecho da cena, que abre a porta e acende essa flag, tambem nao rodou) e `andou` (o gatilho disparou e RELEASEALL devolveu o controle em vez de travar). DISCRIMINA o mundo em que o BRONIUS reviveria a cada passagem pelo corredor, que e exatamente o que o T105.1 sozinho nao ve.",
+  "flags": [
+   "3449"
+  ],
+  "warp": "MAP_UNOVA_VIRBANK_COMPLEX_B1F",
+  "warp_id": 0,
+  "roteiro": "60:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:UP,24:UP,24:UP,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_VIRBANK_COMPLEX_B1F",
+   "oponente": 0,
+   "flags_apagadas": [
+    "FLAG_UNOVA_VIRBANK_COMPLEX_PORTA"
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T105.3",
+  "nome": "Unova Fase B, INFER de PinwheelForest, VARIANTE do jogador com SNIVY. VAR_STARTER_MON (0x4023) pinada em 0, que e o valor que Unova_NuvemaLab/scripts.inc:286 grava quando o jogador escolhe SNIVY. O `call_if_eq VAR_STARTER_MON, 0` do script chama a batalha do TEPIG, e a prova e o id LITERAL TRAINER_UNOVA_INFER4_TEPIG (2171): o sufixo nomeia o Pokemon DO INFER, entao jogador de grama enfrenta o de fogo (Pignite). Se a regra da casa estivesse invertida o caso reprova apontando 2170. As tres flags de treinador pinadas (3288, 3328, 3422 = TRAINER_FLAGS_START 0x500 + 2008/2048/2142) sao os RANGERF_2 de (19,28), PSYCHICM de (16,32) e YOUNGSTER de (30,31), os tres unicos cujo cone de visao a rota cruza; derrotado nao desafia, entao a rota fica deterministica em vez de depender do relogio do MOVEMENT_TYPE_ROTATE_CLOCKWISE. FLAG_SEM_ENCONTRO_SELVAGEM entra porque PinwheelForest tem land_mons em src/data/wild_encounters.json. GEOMETRIA REMEDIDA na rodada de fechamento de 18/08/2026, passo a passo no rastro do gba_runner, porque a rota antiga NUNCA chegava ao gatilho (o jogador morria em (36,26) e o caso reprovava com oponente 0). Duas causas, as duas medidas: (a) o warp 1 NAO pousa em (43,35), pousa em (43,36), o tile do warp 2; (b) aperto de 24 quadros e CURTO demais nesta rota e alguns apertos somem sem andar, o que desalinha toda perna seguinte. A rota nova e de 30 quadros por aperto e sai de busca em largura na colisao real de data/layouts/Unova_PinwheelForest/map.bin (46x42) com os object_events como parede: (43,36) -> (42,36) -> (42,34) -> (38,34) -> (38,31) -> (31,31) -> (31,33) -> (28,33) -> (28,34) -> (20,34) -> (20,26) -> (8,26). Cada perna leva um aperto a mais que o numero de tiles (o primeiro aperto de uma direcao nova so vira o jogador), e as pernas que batem em parede levam mais quatro de folga. Conferido tile a tile no rastro: o jogador pisa em (8,26) no passo 122. Os 8 apertos de A pagam os 3 prompts do InferIntro.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "3288",
+   "3328",
+   "3422"
+  ],
+  "vars": {
+   "0x4023": 0
+  },
+  "warp": "MAP_UNOVA_PINWHEEL_FOREST",
+  "warp_id": 1,
+  "roteiro": "60:NADA,30:LEFT,30:LEFT,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:UP,30:UP,30:UP,30:UP,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:DOWN,30:DOWN,30:DOWN,30:DOWN,30:DOWN,30:DOWN,30:DOWN,30:LEFT,30:LEFT,30:LEFT,30:DOWN,30:DOWN,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,180:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,420:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_PINWHEEL_FOREST",
+   "oponente": "TRAINER_UNOVA_INFER4_TEPIG"
+  }
+ },
+ {
+  "id": "T105.4",
+  "nome": "PAR DE VARIANTE do T105.3: mesma rota, mesmo gatilho, so muda VAR_STARTER_MON, agora em 2 (OSHAWOTT, o valor de Unova_NuvemaLab/scripts.inc:310). O switch tem que entregar TRAINER_UNOVA_INFER4_SNIVY (2170), o de grama contra o de agua. Este caso e o que separa 'o switch existe' de 'o switch le a var': se o `call_if_eq VAR_STARTER_MON, 2` estivesse ligado no ramo errado, o T105.3 passaria sozinho e este reprovaria com 2171 ou 2172 no relatorio. A terceira variante (0x4023 == 1 -> INFER4_OSHAWOTT, 2172) fica SEM CASO de proposito: ela usa a mesma rota e o mesmo mecanismo, e dois pontos ja fixam a reta; se algum dia o switch mudar, este par acusa. As tres flags de treinador pinadas (3288, 3328, 3422 = TRAINER_FLAGS_START 0x500 + 2008/2048/2142) sao os RANGERF_2 de (19,28), PSYCHICM de (16,32) e YOUNGSTER de (30,31), os tres unicos cujo cone de visao a rota cruza; derrotado nao desafia, entao a rota fica deterministica em vez de depender do relogio do MOVEMENT_TYPE_ROTATE_CLOCKWISE. FLAG_SEM_ENCONTRO_SELVAGEM entra porque PinwheelForest tem land_mons em src/data/wild_encounters.json. GEOMETRIA REMEDIDA na rodada de fechamento de 18/08/2026, passo a passo no rastro do gba_runner, porque a rota antiga NUNCA chegava ao gatilho (o jogador morria em (36,26) e o caso reprovava com oponente 0). Duas causas, as duas medidas: (a) o warp 1 NAO pousa em (43,35), pousa em (43,36), o tile do warp 2; (b) aperto de 24 quadros e CURTO demais nesta rota e alguns apertos somem sem andar, o que desalinha toda perna seguinte. A rota nova e de 30 quadros por aperto e sai de busca em largura na colisao real de data/layouts/Unova_PinwheelForest/map.bin (46x42) com os object_events como parede: (43,36) -> (42,36) -> (42,34) -> (38,34) -> (38,31) -> (31,31) -> (31,33) -> (28,33) -> (28,34) -> (20,34) -> (20,26) -> (8,26). Cada perna leva um aperto a mais que o numero de tiles (o primeiro aperto de uma direcao nova so vira o jogador), e as pernas que batem em parede levam mais quatro de folga. Conferido tile a tile no rastro: o jogador pisa em (8,26) no passo 122.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "3288",
+   "3328",
+   "3422"
+  ],
+  "vars": {
+   "0x4023": 2
+  },
+  "warp": "MAP_UNOVA_PINWHEEL_FOREST",
+  "warp_id": 1,
+  "roteiro": "60:NADA,30:LEFT,30:LEFT,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:UP,30:UP,30:UP,30:UP,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:DOWN,30:DOWN,30:DOWN,30:DOWN,30:DOWN,30:DOWN,30:DOWN,30:LEFT,30:LEFT,30:LEFT,30:DOWN,30:DOWN,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,180:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,420:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_PINWHEEL_FOREST",
+   "oponente": "TRAINER_UNOVA_INFER4_SNIVY"
+  }
+ },
+ {
+  "id": "T105.5",
+  "nome": "PAR NEGATIVO do T105.3/T105.4. Mesma rota, VAR_STARTER_MON em 0 (que escolheria TRAINER_UNOVA_INFER4_TEPIG) e a flag de derrotado DESSA variante pinada: 1280 + 2171 = 3451. O script abre com tres `goto_if_defeated` seguidos, um por variante, justamente para que vencer QUALQUER uma feche as tres; este caso prova que a trava funciona pela variante que de fato seria sorteada. Provas: `oponente` em 0 (nenhuma batalha foi montada) e `andou` (o gatilho pulou direto para o releaseall em vez de travar o jogador no corredor). Sem este caso, o INFER voltaria a duelar toda vez que o jogador cruzasse (8,26) e os T105.3/T105.4 passariam igual. As tres flags de treinador pinadas (3288, 3328, 3422 = TRAINER_FLAGS_START 0x500 + 2008/2048/2142) sao os RANGERF_2 de (19,28), PSYCHICM de (16,32) e YOUNGSTER de (30,31), os tres unicos cujo cone de visao a rota cruza; derrotado nao desafia, entao a rota fica deterministica em vez de depender do relogio do MOVEMENT_TYPE_ROTATE_CLOCKWISE. FLAG_SEM_ENCONTRO_SELVAGEM entra porque PinwheelForest tem land_mons em src/data/wild_encounters.json. GEOMETRIA REMEDIDA na rodada de fechamento de 18/08/2026, passo a passo no rastro do gba_runner, porque a rota antiga NUNCA chegava ao gatilho (o jogador morria em (36,26) e o caso reprovava com oponente 0). Duas causas, as duas medidas: (a) o warp 1 NAO pousa em (43,35), pousa em (43,36), o tile do warp 2; (b) aperto de 24 quadros e CURTO demais nesta rota e alguns apertos somem sem andar, o que desalinha toda perna seguinte. A rota nova e de 30 quadros por aperto e sai de busca em largura na colisao real de data/layouts/Unova_PinwheelForest/map.bin (46x42) com os object_events como parede: (43,36) -> (42,36) -> (42,34) -> (38,34) -> (38,31) -> (31,31) -> (31,33) -> (28,33) -> (28,34) -> (20,34) -> (20,26) -> (8,26). Cada perna leva um aperto a mais que o numero de tiles (o primeiro aperto de uma direcao nova so vira o jogador), e as pernas que batem em parede levam mais quatro de folga. Conferido tile a tile no rastro: o jogador pisa em (8,26) no passo 122.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "3288",
+   "3328",
+   "3422",
+   "3451"
+  ],
+  "vars": {
+   "0x4023": 0
+  },
+  "warp": "MAP_UNOVA_PINWHEEL_FOREST",
+  "warp_id": 1,
+  "roteiro": "60:NADA,30:LEFT,30:LEFT,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:UP,30:UP,30:UP,30:UP,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:DOWN,30:DOWN,30:DOWN,30:DOWN,30:DOWN,30:DOWN,30:DOWN,30:LEFT,30:LEFT,30:LEFT,30:DOWN,30:DOWN,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:UP,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,30:LEFT,180:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,420:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_PINWHEEL_FOREST",
+   "oponente": 0,
+   "andou": true
+  }
+ },
+ {
+  "id": "T105.6",
+  "nome": "Unova Fase B, casa do MARLON: o MAP_SCRIPT_ON_FRAME_TABLE dispara com VAR_UNOVA_MARLON_CASA_CENA (0x417C, var NOVA da Fase B) em 0 e a cena grava 1. A var NAO e pinada: 0 e o valor de nascimento e o caso testa o jogo como ele e. A prova e 0x417C == 1 no fim, e ela so fica verdadeira se a cena tiver chegado ate o `setvar`, que vem DEPOIS do msgbox: ou seja, prova o dispatcher, o applymovement e o fecho de uma vez. GEOMETRIA de Unova_MarlonsHouse medida em 18/08/2026 contra data/layouts/Unova_MarlonsHouse/map.bin (10x8): warp 0 e (4,7), a porta fica na ULTIMA linha, e o applymovement da cena (UP,UP,UP,LEFT) leva o jogador a (3,4) por tiles de colisao 0. Os 30 apertos de A pagam os 12 prompts do WifeText_Intro (7 \\p + 5 \\l, licao 4.13). Aperto de A que sobra so pode reabrir a fala normal da esposa, que fica em (2,4) de frente para o jogador: essa fala nao toca em var nenhuma, entao excesso aqui e inofensivo de propósito, e por isso o numero e generoso.",
+  "warp": "MAP_UNOVA_MARLONS_HOUSE",
+  "warp_id": 0,
+  "roteiro": "240:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_MARLONS_HOUSE",
+   "vars": {
+    "0x417C": 1
+   }
+  }
+ },
+ {
+  "id": "T105.7",
+  "nome": "PAR NEGATIVO do T105.6, e a prova e POSICIONAL. Com VAR_UNOVA_MARLON_CASA_CENA (0x417C) pinada em 1, o `map_script_2` do ON_FRAME_TABLE pede 0 e nao dispara: o jogador continua solto em cima do tapete de saida, e ZERO aperto de A e gasto de proposito. O jogador SAI para MAP_UNOVA_HUMILAU_CITY. No mundo em que a cena dispara de novo a cada entrada, o `lockall` prende o jogador antes do primeiro passo e, sem A nenhum, ele morre dentro da caixa de texto: o caso reprovaria com mapa MAP_UNOVA_MARLONS_HOUSE. Roteiro diferente do T105.6 de propósito, e a diferenca E o discriminador: no caso positivo a propria cena arrasta o jogador para (3,4), longe do tapete. GEOMETRIA REMEDIDA em 18/08/2026: o tapete de (4,7) NAO e seta sul, e um warp de PISAR EM CIMA, e o jogador NASCE nele vindo do warp. Por isso apertar DOWN ali nao faz nada (medido: quatro DOWN e zero movimento, (4,7) e a ultima linha do mapa 10x8). Para sair e preciso DESCER DO TILE e voltar: UP,UP leva a (4,6) (o primeiro UP so vira o jogador) e DOWN,DOWN volta a (4,7), que dispara o warp. Continua valendo como par negativo: no mundo em que a cena dispara de novo, o `lockall` prende o jogador antes do primeiro passo, ZERO aperto de A e gasto, e o caso reprova com mapa MAP_UNOVA_MARLONS_HOUSE.",
+  "vars": {
+   "0x417C": 1
+  },
+  "warp": "MAP_UNOVA_MARLONS_HOUSE",
+  "warp_id": 0,
+  "roteiro": "180:NADA,20:UP,60:NADA,20:UP,60:NADA,20:DOWN,90:NADA,20:DOWN,120:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_HUMILAU_CITY",
+   "vars": {
+    "0x417C": 1
+   }
+  }
+ },
+ {
+  "id": "T105.8",
+  "nome": "Unova Fase B, CHEREN de NimbasaParkOutside: o despachante ON_FRAME_TABLE portado do `priorityjump` da fonte dispara com VAR_UNOVA_NIMBASA_PARK_FORA_CENA (0x4179) em 1 e a cena grava 3. A var e pinada em 1 porque quem a poe em 1 e CasteliaCityStreets/NimbasaParkBasement, fora do escopo desta leva (alvo remoto declarado no PLANO-OBRAS-UNOVA.md). A prova principal e 0x4179 == 3, que so acontece na ULTIMA linha da cena, depois dos dois removeobject: prova a corrente inteira. As duas flags ACESAS sao a segunda prova, e elas provam o FECHO da cena, nao o ON_TRANSITION: `removeobject` ACENDE a flag do proprio object_event (RemoveObjectEventByLocalIdAndMap chama FlagSet(GetObjectEventFlagIdByObjectEventId(...)), src/event_object_movement.c:1696), e e exatamente isso que mantem o grunt e o CHEREN sumidos na visita seguinte. Entao os dois `removeobject` da cena tem que deixar FLAG_UNOVA_CENA_JUNIPER (do grunt, object_event 3) e FLAG_UNOVA_NIMBASA_PARK_FORA_CHEREN (do CHEREN, object_event 7) em 1. O recompute do ON_TRANSITION, que e outro fato, fica provado onde ja estava, nos T105.9 e T105.10. GEOMETRIA medida em 18/08/2026 contra data/layouts/Unova_NimbasaParkOutside/map.bin (54x20): warp 2 e (4,8) e o applymovement do jogador (RIGHT,RIGHT) cai em (6,8), colisao 0; o grunt e (8,8) e o CHEREN (7,8). ZERO tecla de direcao no roteiro: a cena e toda automatica. Os 20 apertos de A pagam 1 prompt do GruntText mais 5 do CherenText (4 \\p + 1 \\l). Aperto de A que sobra e inofensivo: no fim os dois objetos foram removidos e o jogador olha para leste, para tile vazio.",
+  "vars": {
+   "0x4179": 1
+  },
+  "warp": "MAP_UNOVA_NIMBASA_PARK_OUTSIDE",
+  "warp_id": 2,
+  "roteiro": "300:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_NIMBASA_PARK_OUTSIDE",
+   "vars": {
+    "0x4179": 3
+   },
+   "flags_acesas": [
+    "FLAG_UNOVA_NIMBASA_PARK_FORA_CHEREN",
+    "FLAG_UNOVA_CENA_JUNIPER"
+   ]
+  }
+ },
+ {
+  "id": "T105.9",
+  "nome": "PAR NEGATIVO do T105.8 pelo valor 0 (o de nascimento, NAO pinado): o `map_script_2` pede 1, entao a cena nao existe e 0x4179 continua 0 depois de 300 quadros parados. O caso tambem e a prova da TECNICA 2 nesta mao nova: FLAG_UNOVA_CENA_JUNIPER entra PINADA EM 1 (simulando a visita anterior a outro dos nove mapas que dividem o bit) e tem que sair APAGADA, porque o ON_TRANSITION deste mapa a reescreve toda entrada. Sem essa pre-condicao a prova seria vazia: a flag ja nasce em 0 e 'esta apagada' nao diria nada. FLAG_UNOVA_NIMBASA_PARK_FORA_CHEREN acesa prova o outro ramo do mesmo ON_TRANSITION, o CHEREN escondido enquanto a cena nao chegou. Este e o caso que acusaria o NimbasaParkOutside ter virado o nono consumidor do bit sem reescreve-lo.",
+  "flags": [
+   "FLAG_UNOVA_CENA_JUNIPER"
+  ],
+  "warp": "MAP_UNOVA_NIMBASA_PARK_OUTSIDE",
+  "warp_id": 2,
+  "roteiro": "300:NADA,20:RIGHT,20:RIGHT,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_NIMBASA_PARK_OUTSIDE",
+   "vars": {
+    "0x4179": 0
+   },
+   "flags_acesas": [
+    "FLAG_UNOVA_NIMBASA_PARK_FORA_CHEREN"
+   ],
+   "flags_apagadas": [
+    "FLAG_UNOVA_CENA_JUNIPER"
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T105.10",
+  "nome": "SEGUNDO PAR NEGATIVO do T105.8, pelo valor 2, que e o unico caminho de entrar no ramo `goto_if_ge VAR_UNOVA_NIMBASA_PARK_FORA_CENA, 2` do ON_TRANSITION. Com 0x4179 pinada em 2 a cena continua sem disparar (o ON_FRAME_TABLE pede 1 exato) e as DUAS flags tem que sair ACESAS: o grunt escondido por FLAG_UNOVA_CENA_JUNIPER e o CHEREN por FLAG_UNOVA_NIMBASA_PARK_FORA_CHEREN. Aqui a flag compartilhada NAO e pinada de proposito: ela nasce em 0, entao ve-la acesa no fim prova o `setflag` deste mapa e nao a lembranca de outro. O valor 2 esta declarado como dormant no comentario do arquivo (nada o grava hoje); este caso e o que garante que ele ja funciona no dia em que alguem gravar, em vez de descobrir na mao.",
+  "vars": {
+   "0x4179": 2
+  },
+  "warp": "MAP_UNOVA_NIMBASA_PARK_OUTSIDE",
+  "warp_id": 2,
+  "roteiro": "300:NADA,20:RIGHT,20:RIGHT,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_NIMBASA_PARK_OUTSIDE",
+   "vars": {
+    "0x4179": 2
+   },
+   "flags_acesas": [
+    "FLAG_UNOVA_NIMBASA_PARK_FORA_CHEREN",
+    "FLAG_UNOVA_CENA_JUNIPER"
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T105.11",
+  "nome": "Unova Fase B, SKYLA de CelestialTower1F: a cena da torre e quem grava VAR_UNOVA_MISTRALTON_CENA (0x417D, a segunda var nova da Fase B), traduzindo o `setmapscene MISTRALTON_CITY, SCENE_FINISHED` da fonte. Este caso e a metade ESCRITORA do bloqueio de Mistralton; T105.12 e T105.13 sao a metade leitora. A var NAO e pinada: nasce em 0 e a prova e 0x417D == 1 no fim. GEOMETRIA medida em 18/08/2026 contra data/layouts/Unova_CelestialTower1F/map.bin (10x12): warp 1 e (5,11) e a coluna 5 e andavel de y=11 ate y=7, porque (5,6) e a PROPRIA SKYLA; a perna UP SATURA nela, encostando o jogador em (5,7) virado para o NORTE, que e o que faz o A falar com ela E o que manda o script pelo ramo `goto_if_eq VAR_RESULT, DIR_NORTH` (a SKYLA desvia um tile para o oeste antes de descer, que e o ramo da fonte para o jogador parado na frente dela). Perna saturada: aperto a mais ou a menos nao muda o tile final. Os 32 apertos de A pagam os 13 prompts do CelestialTowerSkylaText (8 \\p + 5 \\l, licao 4.13). Aperto que sobra e inofensivo: no fim o `removeobject` ja tirou a SKYLA e o jogador olha para tile vazio.",
+  "warp": "MAP_UNOVA_CELESTIAL_TOWER_1F",
+  "warp_id": 1,
+  "roteiro": "60:NADA,24:UP,24:UP,24:UP,24:UP,24:UP,24:UP,24:UP,24:UP,120:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,20:A,80:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_CELESTIAL_TOWER_1F",
+   "vars": {
+    "0x417D": 1
+   }
+  }
+ },
+ {
+  "id": "T105.12",
+  "nome": "Unova Fase B, bloqueio de MistraltonCity MORTO: com VAR_UNOVA_MISTRALTON_CENA (0x417D) pinada em 1, que e o valor que a cena da SKYLA grava (provado pelo T105.11), os dois coord_events de (6,6) e (7,6) pedem `var_value` 0 e nao disparam, e o jogador ENTRA NO GINASIO. Prova POSICIONAL pura: mapa final MAP_UNOVA_MISTRALTON_GYM_1F. GEOMETRIA medida em 18/08/2026 contra data/layouts/Unova_MistraltonCity/map.bin (40x32): warp 5 e (7,5), a porta LESTE do ginasio, e o jogador pousa nela virado para o sul. O warp 4, a porta oeste (6,5), foi DESCARTADO porque o object_event 8 (OBJ_EVENT_GFX_WINONA, script 0, flag 0) mora exatamente em cima dele e tampa a casa. Desce tres (para (7,7) ou (7,8), tanto faz) e sobe: a perna UP SATURA, porque (7,4) e parede, e o unico jeito de a perna terminar e pisando em (7,5), que e warp. Licao 4: porta e warp mesmo com colisao, e subir para dentro dela tira o jogador do mapa.",
+  "vars": {
+   "0x417D": 1
+  },
+  "warp": "MAP_UNOVA_MISTRALTON_CITY",
+  "warp_id": 5,
+  "roteiro": "60:NADA,24:DOWN,24:DOWN,24:DOWN,60:NADA,24:UP,24:UP,24:UP,24:UP,24:UP,24:UP,24:UP,24:UP,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_MISTRALTON_GYM_1F"
+  }
+ },
+ {
+  "id": "T105.13",
+  "nome": "PAR NEGATIVO POSICIONAL do T105.12: 0x417D NAO e pinada (nasce em 0, o estado de quem ainda nao subiu a torre), MESMO warp e MESMA rota. Agora o coord_event de (7,6) dispara toda vez que o jogador pisa nele, o script empurra um tile para o sul, e o ginasio fica inalcancavel: o mapa final tem que ser MAP_UNOVA_MISTRALTON_CITY. Este par e o que prova que o bloqueio BLOQUEIA e que a var e mesmo a chave: as duas corridas so diferem por ela. Os 12 apertos de A pagam os 5 prompts do MistraltonCityGymGuyText (2 \\p + 3 \\l) para que o empurrao aconteca de verdade e o `andou` tenha o que provar; mesmo sem nenhum A o caso continuaria valido, porque jogador preso em caixa de texto tambem nao entra no ginasio. Aperto de A que sobra e inofensivo: depois do empurrao o jogador esta em (7,7) virado para o sul, com tile vazio na frente.",
+  "warp": "MAP_UNOVA_MISTRALTON_CITY",
+  "warp_id": 5,
+  "roteiro": "60:NADA,24:DOWN,24:DOWN,24:DOWN,120:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,24:UP,24:UP,24:UP,24:UP,24:UP,24:UP,24:UP,24:UP,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_MISTRALTON_CITY",
+   "andou": true
+  }
+ },
+ {
+  "id": "T105.14",
+  "nome": "Unova Fase B, chegada do AEROPORTO DE MISTRALTON (o mesmo molde das outras tres cenas de chegada: LentimasAirport, NimbasaSubway e AspertiaSubway). O coord_event de (7,5) usa VAR_TEMP_0 == 0, a tecnica 1 do SINNOH-PADRAO.md, ou seja dispara sempre e NAO tem par negativo possivel: declarado, nao esquecido. A prova e POSICIONAL e ela e a razao de este caso existir: medido em 18/08/2026 contra data/layouts/Unova_MistraltonAirport/map.bin (14x12), a recepcionista (object_event 0, localid 1) mora em (7,6) e TAMPA o unico corredor que sai do saguao de desembarque; busca em largura na colisao real confirma que de (7,4) o jogador alcanca 42 casas e NENHUMA delas e a porta de saida, e que de (7,8) ele alcanca 83 e a porta esta entre elas. Quem atravessa a recepcionista e o `applymovement` da cena, que ignora colisao. Portanto terminar em MAP_UNOVA_MISTRALTON_CITY prova tres coisas de uma vez: o gatilho disparou, a coreografia dos dois applymovement nao travou, e o `release` devolveu o controle. Os 6 apertos de A pagam os 2 prompts do ArrivedText (1 \\p + 1 \\l); a saida e tapete de seta sul, por isso os DOWN do fim vem com pausa e um aperto a mais (licao 5). GEOMETRIA REMEDIDA em 18/08/2026: o warp 2 pousa o jogador EXATAMENTE em (7,5), o tile do coord_event, e coord_event NAO dispara para quem nasce em cima dele, so para quem PISA nele (medido: com a rota antiga o jogador ficou parado em (7,5) do primeiro ao ultimo quadro e o caso reprovou por mapa). A rota nova sai do tile e volta: LEFT,LEFT leva a (6,5) (o primeiro aperto so vira o jogador) e RIGHT,RIGHT volta a (7,5), que dispara. Conferido no rastro: a cena arrasta o jogador por cima da recepcionista ate (7,8) e a saida pelos warps de (6,11)/(7,11) leva a MAP_UNOVA_MISTRALTON_CITY.",
+  "warp": "MAP_UNOVA_MISTRALTON_AIRPORT",
+  "warp_id": 2,
+  "roteiro": "60:NADA,24:LEFT,24:LEFT,24:RIGHT,24:RIGHT,300:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,30:DOWN,30:DOWN,30:DOWN,30:DOWN,30:DOWN,30:DOWN,120:NADA,20:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_MISTRALTON_CITY"
+  }
+ }
+]

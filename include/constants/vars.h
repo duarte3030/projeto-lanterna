@@ -851,6 +851,24 @@
 //   2 = SCENE_ELITE_FOUR_ROOM_FINISHED
 #define VAR_UNOVA_LIGA_SALAO_CENA                             VAR_UNUSED_0x417B
 // <<< B6 Unova, as 27 vars das cenas de setscene pendentes <<<
+
+// >>> B6 Unova, Fase B do PRD (18/08/2026): var nova alem das 27 acima >>>
+// MARLONS_HOUSE: nao estava no desenho de 15/08/2026 (mapa novo, decisao da
+// condutora na Fase B). Primeira vaga livre da reserva de Unova (0x4161-
+// 0x41BF). Cena entra SEM a entrega de inicial: so a conversa e o estado.
+//   0 = SCENE_DEFAULT
+//   1 = SCENE_FINISHED
+#define VAR_UNOVA_MARLON_CASA_CENA                            VAR_UNUSED_0x417C
+
+// MISTRALTON_CITY: ALVO REMOTO: nao estava no desenho de 15/08/2026 (fora da
+// tabela original das 27), autorizada pela condutora em 18/08/2026 pra
+// fechar o bloqueio de CelestialTower1F -> MistraltonCity. Setado por
+// Unova_CelestialTower1F/scripts.inc (cena da SKYLA); lido pelo trigger do
+// Blocker no map.json de Unova_MistraltonCity (coord_events, var_value 0).
+//   0 = SCENE_DEFAULT
+//   1 = SCENE_FINISHED
+#define VAR_UNOVA_MISTRALTON_CENA                             VAR_UNUSED_0x417D
+// <<< B6 Unova, Fase B do PRD (18/08/2026) <<<
 // <<< B6 Unova <<<
 
 // >>> B6 Sinnoh, as 49 vars da maquina de cenas (dev_scripts/maquina_sinnoh.py) >>>

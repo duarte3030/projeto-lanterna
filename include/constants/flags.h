@@ -4848,7 +4848,7 @@
 // ChampionsRoomEntrance) e ganhou um bit por grupo, porque a cena mostra e
 // esconde cada grupo em momento diferente.
 #define FLAG_UNOVA_CENA_ENTRADA_LIGA FLAG_UNUSED_0x1A00  // emboscada das 3 sombras já rodou
-#define FLAG_UNOVA_CENA_JUNIPER      FLAG_UNUSED_0x1A01  // bit compartilhado de esconder NPC de cena em 8 mapas (JUNIPER em NuvemaLab, P2LabEntrance, ChampionsRoom e FloccesyTown; MARLON em UndellaTown; CHEREN em CasteliaCityStreets; LENORA em NacreneCity; CHEREN e BIANCA juntos em PWTOutside); cada mapa o reescreve no próprio ON_TRANSITION
+#define FLAG_UNOVA_CENA_JUNIPER      FLAG_UNUSED_0x1A01  // bit compartilhado de esconder NPC de cena em 9 mapas (JUNIPER em NuvemaLab, P2LabEntrance, ChampionsRoom e FloccesyTown; MARLON em UndellaTown; CHEREN em CasteliaCityStreets; LENORA em NacreneCity; CHEREN e BIANCA juntos em PWTOutside; Blocker/grunt em NimbasaParkOutside, 18/08/2026); cada mapa o reescreve no próprio ON_TRANSITION
 #define FLAG_UNOVA_CENA_SOMBRAS      FLAG_UNUSED_0x1A02  // esconde as 3 sombras na sala do Campeão
 #define FLAG_UNOVA_CENA_GENESECT_1   FLAG_UNUSED_0x1A03  // esconde o GENESECT que fica na sala
 #define FLAG_UNOVA_CENA_GENESECT_2   FLAG_UNUSED_0x1A04  // esconde o GENESECT do pós-créditos

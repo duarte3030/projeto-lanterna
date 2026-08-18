@@ -869,17 +869,49 @@ JOHTO = [
     dict(id="johto:ginasio:olivine", tipo="setscene",
          mapa_destino="OlivineCity_Gym", tamanho=1, precisa=[],
          motivo="depende de VAR_OLIVINE_CITY_STATE em 5, que só o farol põe"),
-    dict(id="johto:npcs:44_pares_ambiguos", tipo="portavel",
+    dict(id="johto:npcs:44_pares_ambiguos", tipo="portavel", feito=True,
          mapa_destino="vários", tamanho=44, precisa=[],
-         motivo="duas coisas da fonte na mesma coordenada; restaura_npcs_johto.py "
-                "recusa de propósito, resolver exige tabela à mão"),
+         motivo="18/08/2026, Fase B: o número mentia para cima. "
+                "restaura_npcs_johto.py checava ambiguidade ANTES do filtro "
+                "eh_pessoa, então par Pokémon-dia x Pokémon-noite na mesma "
+                "coordenada (26 dos 44, BellchimeTrail/Route41) contava como "
+                "pendência de gente sem nunca ter sido. Consertado no "
+                "gerador (filtra pessoa antes de julgar ambíguo; desempate "
+                "por flag-que-existe, mesma regra de "
+                "importa_npcs_sinnoh.py). Sobraram 18 pares de gente de "
+                "verdade: 16 eram WHIRLPOOL escondendo ARCHER (Route41 x12, "
+                "DragonsDen_Cavern x4, mesmo `script`) e 2 eram "
+                "ROCKET_M/BEAUTY em GoldenrodCity (39,14), desempatados pela "
+                "flag existente FLAG_HIDE_GOLDENROD_ROCKETS. Os 18 já foram "
+                "restaurados (--aplica): GoldenrodCity aponta para "
+                "GoldenrodCity_EventScript_Rocket5, script daqui, feita "
+                "de verdade; os 16 ARCHER viraram NPC visível de gráfico "
+                "certo mas SEM FALA/BATALHA (fecho pede loadtrainer/ "
+                "callasm de um boss sem id nesta fase), tarefa nova para a "
+                "fila de treinador de Johto, não mais para esta linha"),
     dict(id="johto:npcs:8_sem_par", tipo="portavel",
          mapa_destino="vários", tamanho=8, precisa=[],
-         motivo="sem par na fonte; mesma tabela à mão"),
+         motivo="18/08/2026, Fase B, re-verificado: item ball do hack em "
+                "coordenada sem NENHUM object_event da fonte, nem num raio de "
+                "1 tile (LakeOfRage 49,34; Route26 18,8; Route28 19,19/7,16; "
+                "Route29 37,11/13,21/29,18/14,10). restaura_npcs_johto.py só "
+                "casa por coordenada EXATA (sem raio, ao contrário do "
+                "importador de Sinnoh); não há 'tabela à mão' que resolva "
+                "zero candidato, precisa de matcher com raio calibrado "
+                "(risco de casar errado, mesma lição do raio de Sinnoh) ou "
+                "aceitar que são item balls de verdade. Decisão de desenho, "
+                "não execução de cena"),
     dict(id="johto:arte:4_graficos", tipo="portavel",
-         mapa_destino="vários", tamanho=4, precisa=[],
-         motivo="TRAIN_FRONT, SHINY_GYARADOS e dois WHIRLPOOL; o GYARADOS tem "
-                "saída barata em OBJ_EVENT_GFX_SPECIES_SHINY(GYARADOS)"),
+         mapa_destino="vários", tamanho=2, precisa=[],
+         motivo="18/08/2026, Fase B, re-verificado: dos 4 originais, os dois "
+                "WHIRLPOOL eram falso positivo (decoração de campo, não "
+                "gente, corrigido em EXATOS_NAO_PESSOA do gerador); o "
+                "ARCHER que eles escondiam já foi restaurado, ver a linha "
+                "44_pares_ambiguos). Sobram só GoldenrodCity_TrainStation "
+                "TRAIN_FRONT e LakeOfRage SHINY_GYARADOS, sem equivalente "
+                "desenhado nesta ROM; o GYARADOS tem saída barata em "
+                "OBJ_EVENT_GFX_SPECIES_SHINY(GYARADOS) mas isso é decisão "
+                "de arte do Gui, não execução de cena"),
     dict(id="johto:torres_farol:18_treinadores", tipo="batalha", feito=True,
          mapa_destino="SproutTower / BurnedTower / OlivineCity_Lighthouse",
          tamanho=18, precisa=[],

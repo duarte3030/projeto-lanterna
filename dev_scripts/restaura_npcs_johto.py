@@ -48,6 +48,7 @@ Uso:
     python3 dev_scripts/restaura_npcs_johto.py --aplica   # escreve
     python3 dev_scripts/restaura_npcs_johto.py --demo     # autoteste
 """
+import inspect
 import json
 import os
 import re
@@ -136,14 +137,90 @@ TOKENS_NAO_PESSOA = frozenset("""
 BALL ROCK TREE BOULDER TRUCK DOLL CUSHION FOSSIL AMBER METEORITE MAP POKEDEX
 BAG STATUE SHADOW BOAT SEAGALLOP CLIPBOARD TRIANGLE SPRITE
 """.split())
-EXATOS_NAO_PESSOA = frozenset({"CABLE_CAR", "MOVING_BOX"})
+EXATOS_NAO_PESSOA = frozenset({"CABLE_CAR", "MOVING_BOX", "WHIRLPOOL"})
+# WHIRLPOOL: achado na Fase B (18/08/2026) escondendo o ARCHER em Route41 (6
+# coordenadas, mesmo `script`), decoração de campo com o mesmo defeito de
+# ROCK/TREE, não gente. Sem isto o par contava como "ambíguo" (WHIRLPOOL x
+# ARCHER) quando na verdade só há UM candidato de gente (ARCHER), que segue
+# bloqueado por outro motivo (batalha, sem id nesta fase).
+
+# Rótulo de script do hns que marca decoração de campo mesmo usando GRÁFICO
+# de gente (o redemoinho reaproveita OBJ_EVENT_GFX_ARCHER, sempre com
+# `movement_type: INVISIBLE`, só para ancorar o efeito; não é o executivo
+# ARCHER de verdade). Achado na Fase B (18/08/2026): a leva de treinadores
+# provou que Route41/DragonsDen_Cavern materializaram 24 desses (18 + 6) como
+# ROCKET_M mudo em vez de deixar a decoração fiel à fonte. Os outros 16 dos 40
+# objetos que moram em coordenada de redemoinho nunca chegaram a ser
+# materializados porque a coordenada tem WHIRLPOOL e ARCHER juntos e o par
+# caía em "ambíguo"; são exatamente os que continuam item ball. Mesma família
+# do filtro por gráfico acima, mas por SCRIPT, porque aqui o gráfico sozinho
+# não distingue decoração de NPC real.
+SCRIPTS_NAO_PESSOA = frozenset({"EventScript_Whirlpool"})
+
+# Recusar a decoração não basta: o objeto SOBREVIVE como item ball, e item ball
+# nasce com `MOVEMENT_TYPE_LOOK_AROUND`, ou seja pokébola boiando na água em
+# cima do redemoinho. A fonte já diz o que fazer com esse objeto: ela o desenha
+# INVISÍVEL (`movement_type: MOVEMENT_TYPE_INVISIBLE` nos 24 ARCHER-âncora).
+# Então a decoração é escondida no lugar, UM campo, gráfico e índice intactos:
+# nada de trocar sprite (mecânica de campo, ver o cabeçalho) e nada de fingir
+# que a pokébola é um Rocket.
+MOV_ESCONDIDO = "MOVEMENT_TYPE_INVISIBLE"
 
 
-def eh_pessoa(gfx):
+def eh_pessoa(gfx, script=None):
+    if script in SCRIPTS_NAO_PESSOA:
+        return False
     c = (gfx or "").replace("OBJ_EVENT_GFX_", "")
     if c in EXATOS_NAO_PESSOA or c.startswith(("SS_", "MON_BASE")):
         return False
     return not (set(c.split("_")) & TOKENS_NAO_PESSOA)
+
+
+def so_decoracao(cands):
+    """A coordenada inteira da fonte é decoração de campo, não gente nenhuma."""
+    return bool(cands) and all(
+        str(c.get("script", "")) in SCRIPTS_NAO_PESSOA for c in cands)
+
+
+def esconde(obj):
+    """Decoração no lugar: só o movimento muda, gráfico e índice ficam."""
+    return {**obj, "movement_type": MOV_ESCONDIDO}
+
+
+def livres(cands, consumidos):
+    """Candidatos da fonte que ainda não casaram com outro objeto NOSSO.
+
+    Um objeto da fonte vale por UM objeto nosso. O casamento é por coordenada, e
+    quando os DOIS lados têm mais de um objeto no mesmo x/y (GoldenrodCity
+    (39,14): `Rocket5` e `Beauty` na fonte, dois item ball aqui) o desempate
+    escolhia o mesmo vencedor para os dois nossos e plantava o NPC em dobro, no
+    mesmo tile. Achado em 18/08/2026, Fase B: dois `Rocket5` empilhados.
+    """
+    return [c for c in cands if id(c) not in consumidos]
+
+
+def semeia(nossos_objs, na_coord):
+    """Objetos da fonte que RODADAS ANTERIORES já gastaram.
+
+    `livres()` sozinho só protege dentro de UMA rodada: objeto nosso restaurado
+    ontem deixou de ser item ball, não entra mais no laço, e portanto não
+    reservaria o par dele. Numa segunda rodada o item ball que sobrou na mesma
+    coordenada casaria de novo com o objeto da fonte JÁ usado, e o N:1 voltaria
+    sozinho. A marca de "já gastei este" é o gráfico: o que o gerador escreve é
+    `SPRITE.get(gfx_da_fonte, gfx_da_fonte)`, então objeto nosso na mesma
+    coordenada e com esse gráfico É o par daquele objeto da fonte. Sem depender
+    do `script`, que pode ter sido renomeado por colisão de rótulo.
+    """
+    usados = set()
+    for o in nossos_objs:
+        if o.get("graphics_id") == "OBJ_EVENT_GFX_ITEM_BALL":
+            continue  # ainda não restaurado: é candidato, não par gasto
+        for c in na_coord.get((o["x"], o["y"]), []):
+            g = c.get("graphics_id", "")
+            if id(c) not in usados and SPRITE.get(g, g) == o.get("graphics_id"):
+                usados.add(id(c))
+                break
+    return usados
 
 
 # --------------------------------------------------------------------- leitura
@@ -409,6 +486,10 @@ def monta(relatorio_apenas=True):
         for o in fonte.get("object_events", []):
             na_coord[(o["x"], o["y"])].append(o)
 
+        # Pares já gastos por rodadas anteriores entram JÁ consumidos, senão o
+        # gerador não é idempotente entre rodadas e o N:1 volta sozinho na leva
+        # seguinte. O `livres()` cuida do resto DENTRO desta rodada.
+        consumidos = semeia(nosso.get("object_events", []), na_coord)
         trocas, pacote_do_mapa, ordem = [], set(), []
         for idx, obj in enumerate(nosso.get("object_events", [])):
             if obj.get("graphics_id") != "OBJ_EVENT_GFX_ITEM_BALL":
@@ -422,14 +503,59 @@ def monta(relatorio_apenas=True):
                 recusas["sem par na fonte"].append(
                     (mapa, f'({obj["x"]},{obj["y"]})'))
                 continue
-            if len(cands) > 1:
-                st["par ambíguo"] += 1
-                recusas["par ambíguo"].append(
-                    (mapa, f'({obj["x"]},{obj["y"]}) x{len(cands)}'))
+            if so_decoracao(cands):
+                # Decoração de campo (redemoinho). Não vira NPC, mas também não
+                # pode ficar como a importação deixou: item ball VISÍVEL boiando
+                # na água. Só o movimento é corrigido, para o INVISÍVEL que a
+                # própria fonte usa nesses objetos.
+                st["decoração escondida (movimento da fonte)"] += 1
+                if obj.get("movement_type") != MOV_ESCONDIDO:
+                    trocas.append((idx, esconde(obj)))
+                    por_mapa[mapa] += 1
                 continue
+            cands = livres(cands, consumidos)
+            if not cands:
+                st["fonte já casada nesta coordenada"] += 1
+                recusas["fonte já casada nesta coordenada"].append(
+                    (mapa, f'({obj["x"]},{obj["y"]})'))
+                continue
+            if len(cands) > 1:
+                # A colisão de coordenada só é ambiguidade de GENTE quando mais
+                # de um candidato passa em `eh_pessoa`. Antes desta conferência
+                # o par (37,39) de BellchimeTrail (PIDGEOT dia / NOCTOWL noite,
+                # nenhum dos dois pessoa) contava como "ambíguo" e nunca
+                # chegava ao filtro que já sabe descartar isso, e mentia para
+                # cima. Achado em 18/08/2026, Fase B: dos 44, a maioria eram
+                # pares de Pokémon dia/noite na mesma coordenada.
+                pessoas = [c for c in cands
+                          if eh_pessoa(c.get("graphics_id", ""), c.get("script"))]
+                if not pessoas:
+                    st["par não é gente"] += 1
+                    continue
+                if len(pessoas) > 1:
+                    # Desempate por flag de esconder, MESMA regra que
+                    # `dev_scripts/importa_npcs_sinnoh.py` já usa para Sinnoh
+                    # (fila_b6.py, seção "A mesma flag decide o BLOQUEIO"):
+                    # `flag` de verdade que EXISTE em flags.h marca objeto de
+                    # cena de propósito; `flag` que não existe aqui nunca passa
+                    # do próximo filtro mesmo se escolhida. Só resolve quando
+                    # EXATAMENTE UM candidato tem flag existente; dois com
+                    # flag existente (ou nenhum) continuam ambíguos de
+                    # verdade, sem invenção de identidade.
+                    com_flag = [c for c in pessoas
+                                if str(c.get("flag", "0")) in flags_daqui]
+                    if len(com_flag) == 1:
+                        pessoas = com_flag
+                    else:
+                        st["par ambíguo"] += 1
+                        recusas["par ambíguo"].append(
+                            (mapa, f'({obj["x"]},{obj["y"]}) x{len(pessoas)} gente'))
+                        continue
+                cands = pessoas
             src = cands[0]
+            consumidos.add(id(src))
             gfx_src = src.get("graphics_id", "")
-            if not eh_pessoa(gfx_src):
+            if not eh_pessoa(gfx_src, src.get("script")):
                 st["par não é gente"] += 1
                 continue
 
@@ -653,6 +779,73 @@ def demo():
     assert not eh_pessoa("OBJ_EVENT_GFX_BREAKABLE_ROCK")
     assert not eh_pessoa("OBJ_EVENT_GFX_MON_BASE+SPECIES_GOLBAT")
     assert not eh_pessoa("OBJ_EVENT_GFX_LIGHT_SPRITE")
+    # ARCHER e gente em geral, mas nao quando o script da fonte e a
+    # decoracao do redemoinho (mesmo grafico, papel diferente)
+    assert eh_pessoa("OBJ_EVENT_GFX_ARCHER")
+    assert not eh_pessoa("OBJ_EVENT_GFX_ARCHER", "EventScript_Whirlpool")
+
+    # decoracao de campo: a coordenada inteira tem que ser redemoinho
+    w = {"graphics_id": "OBJ_EVENT_GFX_WHIRLPOOL", "script": "EventScript_Whirlpool"}
+    a = {"graphics_id": "OBJ_EVENT_GFX_ARCHER", "script": "EventScript_Whirlpool"}
+    lass = {"graphics_id": "OBJ_EVENT_GFX_LASS", "script": "EventScript_Lass"}
+    assert so_decoracao([a])
+    assert so_decoracao([w, a])       # os 16 que antes contavam como ambiguos
+    assert not so_decoracao([])
+    assert not so_decoracao([a, lass])  # gente na coordenada manda
+    assert not so_decoracao([lass])
+
+    # o campo novo: esconder mexe em UM campo so, grafico e coordenada ficam
+    velho = {"graphics_id": "OBJ_EVENT_GFX_ITEM_BALL", "x": 7, "y": 41,
+             "elevation": 0, "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+             "script": "0", "flag": "0"}
+    novo = esconde(velho)
+    assert novo["movement_type"] == "MOVEMENT_TYPE_INVISIBLE"
+    assert sorted(novo) == sorted(velho)
+    assert [k for k in novo if novo[k] != velho[k]] == ["movement_type"]
+
+    # um objeto da fonte e consumido UMA vez por coordenada (GoldenrodCity
+    # (39,14): Rocket5 + Beauty na fonte, dois item ball nossos)
+    rocket = {"graphics_id": "OBJ_EVENT_GFX_ROCKET_M", "script": "Rocket5"}
+    beauty = {"graphics_id": "OBJ_EVENT_GFX_BEAUTY", "script": "Beauty"}
+    par, usados = [rocket, beauty], set()
+    assert livres(par, usados) == par
+    usados.add(id(livres(par, usados)[0]))       # o primeiro nosso leva o Rocket
+    assert livres(par, usados) == [beauty]       # o segundo nao repete o Rocket
+    usados.add(id(beauty))
+    assert livres(par, usados) == []             # terceiro nosso fica sem par
+
+    # SEMEADURA: idempotencia ENTRE rodadas, o estado real de GoldenrodCity
+    # (39,14) depois da rodada 1 (um Rocket restaurado, um item ball sobrando).
+    coord = {(39, 14): par}
+    r1 = [{"graphics_id": "OBJ_EVENT_GFX_ROCKET_M", "x": 39, "y": 14},
+          {"graphics_id": "OBJ_EVENT_GFX_ITEM_BALL", "x": 39, "y": 14}]
+    gastos = semeia(r1, coord)
+    assert livres(par, gastos) == [beauty]  # rodada 2 nao reaproveita o Rocket
+    # A BEAUTY e recusada la na frente pela flag inexistente, entao a rodada 2
+    # nao muda nada: e isso que "rodada dupla = zero mudanca" quer dizer aqui.
+
+    # Zero restaurado ainda: nada e semeado, os dois seguem livres.
+    zerado = [{"graphics_id": "OBJ_EVENT_GFX_ITEM_BALL", "x": 39, "y": 14},
+              {"graphics_id": "OBJ_EVENT_GFX_ITEM_BALL", "x": 39, "y": 14}]
+    assert semeia(zerado, coord) == set()
+    assert livres(par, semeia(zerado, coord)) == par
+
+    # Os DOIS restaurados (o defeito N:1 antigo, dois ROCKET_M no mesmo tile):
+    # a semeadura casa UM por objeto da fonte, nunca o mesmo duas vezes.
+    dobrado = [{"graphics_id": "OBJ_EVENT_GFX_ROCKET_M", "x": 39, "y": 14},
+               {"graphics_id": "OBJ_EVENT_GFX_ROCKET_M", "x": 39, "y": 14}]
+    assert len(semeia(dobrado, coord)) == 1
+
+    # O gráfico da fonte passa pela tabela SPRITE antes de comparar: a fonte diz
+    # ARCHER, o que foi escrito aqui e ROCKET_M, e mesmo assim o par e achado.
+    arq = {"graphics_id": "OBJ_EVENT_GFX_ARCHER", "script": "X"}
+    nosso_arq = [{"graphics_id": SPRITE["OBJ_EVENT_GFX_ARCHER"], "x": 1, "y": 2}]
+    assert semeia(nosso_arq, {(1, 2): [arq]}) == {id(arq)}
+
+    # Decoracao de redemoinho continua item ball e NAO e semeada (senao a
+    # coordenada perderia o candidato que o ramo de decoracao ainda precisa ver).
+    assert semeia([{"graphics_id": "OBJ_EVENT_GFX_ITEM_BALL", "x": 1, "y": 2}],
+                  {(1, 2): [arq]}) == set()
 
     # leitor de bloco
     b = blocos("A::\n\tlock\n\tend\nB::\n\t.string \"oi$\"\n")
@@ -703,7 +896,12 @@ def demo():
     na_coord = {(3, 4): [{"graphics_id": "OBJ_EVENT_GFX_LASS"}]}
     assert na_coord.get((9, 9), []) == []
 
-    print("demo: ok, 20 asserts")
+    # Contado do próprio corpo, não digitado: o número cravado aqui já estava
+    # velho (dizia 20 com 24 asserts no arquivo) e número que mente não é
+    # verificação.
+    n = sum(l.strip().startswith("assert ")
+            for l in inspect.getsource(demo).splitlines())
+    print(f"demo: ok, {n} asserts")
 
 
 # ----------------------------------------------------------------------- saída

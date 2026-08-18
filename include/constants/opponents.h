@@ -2047,6 +2047,24 @@
 #define TRAINER_UNOVA_ZINZOLIN1                              2168  // SeasideCaveChamber
 // <<< treinadores das cenas de batalha do setscene de Unova (B6 Obra 1 A3) <<<
 
+// >>> Fase B do PRD, treinadores de historia autorizados pela condutora
+// (18/08/2026, PLANO-OBRAS-UNOVA.md). Faixa 1800-2199, maior id em uso
+// medido antes de escrever era 2168 (bloco acima); comeca em 2169. Livres
+// depois desta leva: 2173-2199 (27).
+// BRONIUS1 e o mesmo Sabio da Plasma que BRONIUS2 ja usa em outro mapa:
+// mesma Classe/Pic/Genero (Expert / Expert M / Male), so muda o time.
+// INFER4 e a mesma trainerclass INFER (rival da historia) que INFER1/2/3/
+// SAGE ja usam (2148-2167): TRAINER_CLASS_RIVAL_EARLY_FRLG (nao e a
+// batalha final, essa e a INFER7/trainerclass "INFER2"). Regra da casa
+// conferida contra maps/PinwheelForest.asm da fonte: o sufixo nomeia o
+// Pokemon DO INFER, nao o do jogador (CheckEvent EVENT_GOT_OSHAWOTT ->
+// carrega INFER4_SNIVY, que tem Servine; contra-tipo, nao espelho).
+#define TRAINER_UNOVA_BRONIUS1                               2169  // Unova_VirbankComplexB1F
+#define TRAINER_UNOVA_INFER4_SNIVY                           2170  // Unova_PinwheelForest
+#define TRAINER_UNOVA_INFER4_TEPIG                           2171  // Unova_PinwheelForest
+#define TRAINER_UNOVA_INFER4_OSHAWOTT                        2172  // Unova_PinwheelForest
+// <<< Fase B do PRD, treinadores de historia autorizados <<<
+
 #define TRAINERS_COUNT_EMERALD     MAX_TRAINERS_COUNT_EMERALD
 // ponytail: teto elevado em 05/08/2026. Estava em 1330 com 1329 em uso, ou seja,
 // UMA vaga sobrando no jogo inteiro, e a historia de Johto ja tinha deixado 7

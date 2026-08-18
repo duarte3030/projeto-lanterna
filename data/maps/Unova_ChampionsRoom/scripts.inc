@@ -61,18 +61,21 @@ Unova_ChampionsRoom_MapScripts::
 @ Unova_P2LabEntrance, Unova_ChampionsRoom, Unova_UndellaTown (lá esconde o
 @ MARLON da cena de chegada), Unova_CasteliaCityStreets (lá esconde o CHEREN
 @ da cena da insígnia), Unova_FloccesyTown (JUNIPER), Unova_NacreneCity
-@ (LENORA) e Unova_PWTOutside (CHEREN e BIANCA juntos, que sempre escondem
-@ sob a mesma condição), porque `disappear`/`appear` desses NPCs de cena
+@ (LENORA), Unova_PWTOutside (CHEREN e BIANCA juntos, que sempre escondem
+@ sob a mesma condição) e Unova_NimbasaParkOutside (o NPC "Blocker"/grunt da
+@ cena do CHEREN, entrou em 18/08/2026: sem FLAG_ propria porque
+@ EVENT_NIMBASA_PARK_BLOCKER da fonte tambem nao esta nas 21 do plano),
+@ porque `disappear`/`appear` desses NPCs de cena
 @ nao tem FLAG_ propria na tabela do
-@ PLANO-OBRAS-UNOVA.md e a janela de save estava fechada. Os três últimos
-@ entraram em 16/08/2026: eles usavam ON_LOAD + `removeobject`, que é no-op
+@ PLANO-OBRAS-UNOVA.md e a janela de save estava fechada. Os três de
+@ 16/08/2026 usavam ON_LOAD + `removeobject`, que é no-op
 @ (ON_LOAD roda dentro de InitMap(), src/fieldmap.c:135-140, ANTES de
 @ InitObjectEventsLocal() criar os objetos), e o NPC renascia a cada
 @ reentrada. O contrato que faz
 @ isso funcionar e "todo mapa que usa o bit o REESCREVE no seu proprio
 @ ON_TRANSITION, antes de os objetos nascerem" (o `setflag` logo abaixo e a
-@ ponta deste mapa). Quem tirar ou condicionar essa escrita em UM dos oito
-@ quebra os outros sete. Mudou um, confira os oito.
+@ ponta deste mapa). Quem tirar ou condicionar essa escrita em UM dos nove
+@ quebra os outros oito. Mudou um, confira os nove.
 Unova_ChampionsRoom_OnTransition:
 	setflag FLAG_UNOVA_CENA_JUNIPER
 	setflag FLAG_UNOVA_CENA_SOMBRAS

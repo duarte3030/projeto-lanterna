@@ -11,6 +11,13 @@
 #include "constants/weather.h"
 #include "constants/trainer_hill.h"
 #include "constants/trainer_types.h"
+@ Acrescentado em 18/08/2026: o campo `flag` de um object_event pode ser a flag
+@ de treinador derrotado do motor (TRAINER_FLAGS_START + id), que e como o
+@ BRONIUS de Unova_VirbankComplexB1F e a INFER de Unova_PinwheelForest somem
+@ depois da cena sem gastar flag nova. Sem isto o id do treinador nao existe
+@ nesta unidade. So macros, conferido: nenhuma redefinicao contra os headers
+@ acima.
+#include "constants/opponents.h"
 #include "constants/berry.h"
 #include "constants/species.h"
 #include "constants/apricorn_tree.h"
