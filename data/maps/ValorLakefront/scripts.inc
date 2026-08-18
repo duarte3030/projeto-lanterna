@@ -123,10 +123,21 @@ ValorLakefront_Text_RestaurantSign:
 
 @ Historia: o grunt que corre com a bomba para o Lago Valor.
 @ Texto de pret/pokeplatinum, res/text/valor_lakefront.json.
-
+@ Fecho da corrente do Croagunk (onda 5/8, 18/08/2026): a fonte
+@ (scripts_valor_lakefront.s:118, ValorLakefront_RemoveGruntM) apaga
+@ FLAG_BLOCK_PASTORIA_CITY_CROAGUNK_EVENT so depois que o grunt sai
+@ derrotado, no fim da cadeia GruntMNorth->RemoveGruntM. Aqui a cadeia
+@ inteira de movimento/estados foi condensada num unico trainerbattle_single
+@ (decisao ja tomada nesta cena); o clearflag entra no mesmo ponto logico,
+@ apos a mensagem final do grunt derrotado. Quem acende
+@ FLAG_SINNOH_PASTORIA_CROAGUNK_BLOQUEADO e o ginasio de Pastoria
+@ (PastoriaCity_Gym/scripts.inc:60); quem checa e a placa do FaceBoard
+@ (PastoriaCity/scripts.inc:696). Sem este clearflag o Croagunk da placa
+@ ficava bloqueado para sempre depois do arco.
 ValorLakefront_EventScript_GalacticGrunt::
 	trainerbattle_single TRAINER_SINNOH_GALACTIC_GRUNT_LAKE_VALOR_3, ValorLakefront_Text_GruntIntro, ValorLakefront_Text_GruntDefeat
 	msgbox ValorLakefront_Text_GruntPostBattle, MSGBOX_AUTOCLOSE
+	clearflag FLAG_SINNOH_PASTORIA_CROAGUNK_BLOQUEADO
 	end
 
 ValorLakefront_Text_GruntIntro:

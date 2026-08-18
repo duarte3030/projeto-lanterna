@@ -482,9 +482,19 @@ o motivo escrito em `ESPERA` dentro da ferramenta.
    significaria INVENTAR um gatilho novo para repetir um texto que o jogador
    já pode ler. Ficou de fora de propósito; quando o arco do farol existir,
    ela é meia hora de trabalho.
-5. **44 pares ambíguos** (duas coisas da fonte na mesma coordenada) e **8 sem
-   par**, que `restaura_npcs_johto.py` recusa de propósito. Resolver exige
-   tabela escrita à mão, mapa a mapa.
+5. **44 pares ambíguos** (duas coisas da fonte na mesma coordenada), que
+   `restaura_npcs_johto.py` recusa de propósito. Resolver exige tabela
+   escrita à mão, mapa a mapa.
+   **Os 8 sem par FECHADOS em 18/08/2026** (raio 2, autorizado pela
+   condutora): coordenada exata vazia passa a buscar em anel de Chebyshev até
+   2 tiles, com desempate por sprite igual e depois por flag existente, mesma
+   régua de sempre. Resultado, NÃO pendência: 7 dos 8 (`Route26` (18,8),
+   `Route28` (19,19) e (7,16), `Route29` (37,11), (13,21), (29,18) e (14,10))
+   têm vizinho dentro do raio 2, mas nenhum é gente (berry tree ou Pokémon de
+   overworld dia/noite) e caem corretamente em "par não é gente"; só
+   `LakeOfRage (49,34)` não tem absolutamente nada num quadrado 5x5 em volta e
+   continua "sem par na fonte". Zero dos 8 vira NPC. Nota definitiva do
+   censo: ver `demo()` de `restaura_npcs_johto.py`.
 6. **4 gráficos sem equivalente**: `OBJ_EVENT_GFX_TRAIN_FRONT`,
    `OBJ_EVENT_GFX_SHINY_GYARADOS` (o GYARADOS vermelho do Lake of Rage) e dois
    `OBJ_EVENT_GFX_WHIRLPOOL`. O GYARADOS agora tem saída barata que não existia

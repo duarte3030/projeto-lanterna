@@ -15,6 +15,20 @@ O casamento aqui é por COORDENADA, dentro do mesmo mapa: item ball com
 coisas da fonte na mesma coordenada ficam de fora, porque escolher qual é qual
 seria inventar NPC, e inventar NPC é o oposto do que esta ferramenta faz.
 
+AUTORIZADO pela condutora (18/08/2026): coordenada exata vazia expande até
+RAIO 2 (quadrado de Chebyshev, anel mais perto primeiro) antes de desistir.
+Ambiguidade dentro do raio usa a MESMA régua de sempre, com um desempate novo
+na frente dela: candidatos de sprite igual (depois do mapeamento de `SPRITE`)
+não são identidade em disputa, são o mesmo papel visto duas vezes, e o mais
+próximo vence sem inventar nada; sprites diferentes caem no desempate antigo
+por flag que já existe aqui.
+Resultado medido nos 8 que nem no raio 1 achavam par: o raio 2 acha vizinho
+para 7 (berry tree / Pokémon de overworld dia-noite), e `eh_pessoa` recusa os
+7 por não serem gente — migram de "sem par na fonte" para "par não é gente",
+que é mais verdadeiro. Só `LakeOfRage (49,34)` não tem NADA num quadrado 5x5
+e segue "sem par na fonte" de verdade. Zero dos 8 virou NPC novo: é nota
+definitiva do censo, ver `demo()`.
+
 O que entra e o que fica de fora, e por quê:
 
 - Só GENTE. Pedra de Rock Smash, árvore de Cut, canteiro de berry, Pokémon de
@@ -187,6 +201,64 @@ def esconde(obj):
     return {**obj, "movement_type": MOV_ESCONDIDO}
 
 
+RAIO_MAX = 2
+
+
+def busca_candidatos(x, y, na_coord):
+    """Candidatos da fonte na coordenada exata; se vazio, expande até RAIO_MAX.
+
+    Anel de Chebyshev (quadrado), mais perto primeiro: raio 1 inteiro antes de
+    raio 2. Some vazio o coração todo, sem nunca voltar para um raio menor
+    depois de um maior. Autorizado pela condutora (18/08/2026) só para quando
+    a coordenada exata não acha ninguém; a coordenada exata continua sendo o
+    caminho normal, isto é só a rede de segurança dela.
+    """
+    exatos = na_coord.get((x, y), [])
+    if exatos:
+        return exatos
+    for r in range(1, RAIO_MAX + 1):
+        anel = []
+        for dx in range(-r, r + 1):
+            for dy in range(-r, r + 1):
+                if max(abs(dx), abs(dy)) != r:
+                    continue
+                anel += na_coord.get((x + dx, y + dy), [])
+        if anel:
+            return anel
+    return []
+
+
+def resolve_pessoas(cands, flags_daqui):
+    """Reduz candidatos ambíguos a UM, ou diz por que não dá sem inventar.
+
+    Devolve (pessoas, None) quando sobra exatamente um candidato de gente, ou
+    (pessoas, motivo) quando ainda sobra mais de um depois dos dois
+    desempates. Ordem dos desempates, do mais barato para o mais caro:
+    1) só GENTE conta (`eh_pessoa`); 2) sprite igual depois de `SPRITE` não é
+    identidade em disputa, é o mesmo papel em tile diferente (raio 2,
+    18/08/2026); 3) flag que já existe aqui, MESMA regra que
+    `importa_npcs_sinnoh.py` usa para Sinnoh. Dois candidatos que sobrevivem
+    aos três continuam ambíguos de verdade.
+    """
+    pessoas = [c for c in cands
+              if eh_pessoa(c.get("graphics_id", ""), c.get("script"))]
+    if not pessoas:
+        return pessoas, "não é gente"
+    if len(pessoas) > 1:
+        sprites_pessoas = {SPRITE.get(c.get("graphics_id", ""),
+                                      c.get("graphics_id", ""))
+                           for c in pessoas}
+        if len(sprites_pessoas) == 1:
+            pessoas = [pessoas[0]]
+    if len(pessoas) > 1:
+        com_flag = [c for c in pessoas if str(c.get("flag", "0")) in flags_daqui]
+        if len(com_flag) == 1:
+            pessoas = com_flag
+        else:
+            return pessoas, "ambíguo"
+    return pessoas, None
+
+
 def livres(cands, consumidos):
     """Candidatos da fonte que ainda não casaram com outro objeto NOSSO.
 
@@ -215,7 +287,10 @@ def semeia(nossos_objs, na_coord):
     for o in nossos_objs:
         if o.get("graphics_id") == "OBJ_EVENT_GFX_ITEM_BALL":
             continue  # ainda não restaurado: é candidato, não par gasto
-        for c in na_coord.get((o["x"], o["y"]), []):
+        # busca_candidatos() e não na_coord direto: um objeto nosso pode ter
+        # sido casado por raio (a fonte não está no x/y dele), e sem isto a
+        # rodada seguinte acharia o mesmo candidato "livre" de novo.
+        for c in busca_candidatos(o["x"], o["y"], na_coord):
             g = c.get("graphics_id", "")
             if id(c) not in usados and SPRITE.get(g, g) == o.get("graphics_id"):
                 usados.add(id(c))
@@ -497,11 +572,11 @@ def monta(relatorio_apenas=True):
             if str(obj.get("script", "0")) not in ("0", "NULL", ""):
                 continue
             st["item ball muda"] += 1
-            cands = na_coord.get((obj["x"], obj["y"]), [])
+            cands = busca_candidatos(obj["x"], obj["y"], na_coord)
             if not cands:
                 st["sem par na fonte"] += 1
                 recusas["sem par na fonte"].append(
-                    (mapa, f'({obj["x"]},{obj["y"]})'))
+                    (mapa, f'({obj["x"]},{obj["y"]}) raio {RAIO_MAX}'))
                 continue
             if so_decoracao(cands):
                 # Decoração de campo (redemoinho). Não vira NPC, mas também não
@@ -527,30 +602,15 @@ def monta(relatorio_apenas=True):
                 # chegava ao filtro que já sabe descartar isso, e mentia para
                 # cima. Achado em 18/08/2026, Fase B: dos 44, a maioria eram
                 # pares de Pokémon dia/noite na mesma coordenada.
-                pessoas = [c for c in cands
-                          if eh_pessoa(c.get("graphics_id", ""), c.get("script"))]
-                if not pessoas:
+                pessoas, motivo = resolve_pessoas(cands, flags_daqui)
+                if motivo == "não é gente":
                     st["par não é gente"] += 1
                     continue
-                if len(pessoas) > 1:
-                    # Desempate por flag de esconder, MESMA regra que
-                    # `dev_scripts/importa_npcs_sinnoh.py` já usa para Sinnoh
-                    # (fila_b6.py, seção "A mesma flag decide o BLOQUEIO"):
-                    # `flag` de verdade que EXISTE em flags.h marca objeto de
-                    # cena de propósito; `flag` que não existe aqui nunca passa
-                    # do próximo filtro mesmo se escolhida. Só resolve quando
-                    # EXATAMENTE UM candidato tem flag existente; dois com
-                    # flag existente (ou nenhum) continuam ambíguos de
-                    # verdade, sem invenção de identidade.
-                    com_flag = [c for c in pessoas
-                                if str(c.get("flag", "0")) in flags_daqui]
-                    if len(com_flag) == 1:
-                        pessoas = com_flag
-                    else:
-                        st["par ambíguo"] += 1
-                        recusas["par ambíguo"].append(
-                            (mapa, f'({obj["x"]},{obj["y"]}) x{len(pessoas)} gente'))
-                        continue
+                if motivo == "ambíguo":
+                    st["par ambíguo"] += 1
+                    recusas["par ambíguo"].append(
+                        (mapa, f'({obj["x"]},{obj["y"]}) x{len(pessoas)} gente'))
+                    continue
                 cands = pessoas
             src = cands[0]
             consumidos.add(id(src))
@@ -803,6 +863,49 @@ def demo():
     assert sorted(novo) == sorted(velho)
     assert [k for k in novo if novo[k] != velho[k]] == ["movement_type"]
 
+    # busca_candidatos: exata primeiro, sem cavar o raio se ela já respondeu
+    lass2 = {"graphics_id": "OBJ_EVENT_GFX_LASS", "script": "Y"}
+    coord_raio = {(10, 10): [lass], (11, 11): [lass2]}
+    assert busca_candidatos(10, 10, coord_raio) == [lass]
+    # raio 1 (Chebyshev): (11,11) esta a distancia 1 de (10,10), acha no anel 1
+    assert busca_candidatos(10, 10, {(11, 11): [lass2]}) == [lass2]
+    # raio 2: so acha quem esta em (12,12) porque o anel 1 (distancia 1) esta
+    # vazio; nunca volta para um raio menor depois de subir
+    assert busca_candidatos(10, 10, {(12, 12): [lass2]}) == [lass2]
+    # nada em ate 2 tiles: fica vazio, igual aos 8 sem-par reais do censo
+    assert busca_candidatos(10, 10, {(13, 13): [lass2]}) == []
+    assert busca_candidatos(10, 10, {}) == []
+
+    # resolve_pessoas: mobilia nao conta gente nenhuma
+    tree = {"graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK", "script": "0"}
+    p, motivo = resolve_pessoas([tree], set())
+    assert p == [] and motivo == "não é gente"
+    # sprite igual (raio 2): duas sentinelas com o MESMO grafico nao sao
+    # identidade em disputa, resolve sem flag nenhuma
+    guarda1 = {"graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M", "script": "G1"}
+    guarda2 = {"graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M", "script": "G2"}
+    p, motivo = resolve_pessoas([guarda1, guarda2], set())
+    assert motivo is None and p == [guarda1]
+    # sprite igual PASSA PELA TABELA SPRITE antes de comparar: FALKNER e
+    # BUGSY sao gente diferente, mas os dois mapeiam pro MESMO substituto
+    # (nao ha COOLTRAINER_M de Falkner nem BUG_CATCHER de Bugsy sobrando
+    # aqui), entao o desempate os trata como o mesmo papel visto 2x
+    falkner = {"graphics_id": "OBJ_EVENT_GFX_FALKNER", "script": "F"}
+    p, motivo = resolve_pessoas(
+        [falkner, {"graphics_id": SPRITE["OBJ_EVENT_GFX_FALKNER"], "script": "X"}],
+        set())
+    assert motivo is None and len(p) == 1
+    # sprites DIFERENTES ainda usam o desempate antigo, por flag existente
+    com_flag = {"graphics_id": "OBJ_EVENT_GFX_LASS", "script": "L",
+               "flag": "FLAG_TEMP_1"}
+    sem_flag_ok = {"graphics_id": "OBJ_EVENT_GFX_BEAUTY", "script": "B",
+                  "flag": "0"}
+    p, motivo = resolve_pessoas([com_flag, sem_flag_ok], {"FLAG_TEMP_1"})
+    assert motivo is None and p == [com_flag]
+    # dois sprites diferentes, nenhum com flag que exista: ambiguo de verdade
+    p, motivo = resolve_pessoas([com_flag, sem_flag_ok], set())
+    assert motivo == "ambíguo" and len(p) == 2
+
     # um objeto da fonte e consumido UMA vez por coordenada (GoldenrodCity
     # (39,14): Rocket5 + Beauty na fonte, dois item ball nossos)
     rocket = {"graphics_id": "OBJ_EVENT_GFX_ROCKET_M", "script": "Rocket5"}
@@ -895,6 +998,22 @@ def demo():
     # fonte não tem. O casamento é por coordenada, então par vazio é recusa.
     na_coord = {(3, 4): [{"graphics_id": "OBJ_EVENT_GFX_LASS"}]}
     assert na_coord.get((9, 9), []) == []
+
+    # CENSO real (raio 2, 18/08/2026): dos 8 item ball sem par mesmo no raio
+    # 1, o raio 2 acha ALGUMA coisa perto de 7 (berry tree / Pokémon de
+    # overworld dia-noite), mas nenhum é GENTE: `eh_pessoa` recusa os 7 e eles
+    # migram do balde "sem par na fonte" para "par não é gente" (achado, mas
+    # não é NPC), que é mais verdadeiro do que "não achei nada". Só
+    # LakeOfRage (49,34) não tem NADA num quadrado de 5x5 em volta e continua
+    # "sem par na fonte" de verdade. Zero dos 8 vira NPC novo: esta é a nota
+    # definitiva do censo, não pendência eterna. Assert trava o número: se
+    # mudar, a fonte ganhou vizinho novo ou o raio quebrou, e o jeito certo é
+    # olhar de novo, não editar o número para fazer passar.
+    _plano, st_demo, recusas_demo, _pend, _pm, _falas = monta()
+    assert st_demo["sem par na fonte"] == 1, st_demo["sem par na fonte"]
+    assert recusas_demo["sem par na fonte"] == [("LakeOfRage", "(49,34) raio 2")], \
+        recusas_demo["sem par na fonte"]
+    assert st_demo["par não é gente"] == 1312, st_demo["par não é gente"]
 
     # Contado do próprio corpo, não digitado: o número cravado aqui já estava
     # velho (dizia 20 com 24 asserts no arquivo) e número que mente não é
