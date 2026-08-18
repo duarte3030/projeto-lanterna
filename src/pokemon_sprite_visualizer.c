@@ -1995,7 +1995,7 @@ static void ReloadPokemonSprites(struct PokemonSpriteVisualizer *data)
 
     DestroySprite(&gSprites[data->frontspriteId]);
     DestroySprite(&gSprites[data->backspriteId]);
-    DestroySprite(&gSprites[data->iconspriteId]);
+    FreeAndDestroyMonIconSprite(&gSprites[data->iconspriteId]);
 
     if (data->followerspriteId != 0)
         DestroySprite(&gSprites[data->followerspriteId]);

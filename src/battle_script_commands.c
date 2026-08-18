@@ -6490,7 +6490,14 @@ static void PutMonIconOnLvlUpBanner(void)
     enum Species species = GetMonData(mon, MON_DATA_SPECIES);
     u32 personality = GetMonData(mon, MON_DATA_PERSONALITY);
 
-    iconSheet.data = GetMonIconPtr(species, personality);
+    // Ícone comprimido: LoadSpriteSheet copia na hora, então o buffer temporário
+    // pode ser liberado logo depois.
+    u8 *iconGfx = AllocDecompressedMonIcon(GetMonIconPtr(species, personality));
+
+    if (iconGfx == NULL)
+        return;
+
+    iconSheet.data = iconGfx;
     iconSheet.size = 0x200;
     iconSheet.tag = TAG_LVLUP_BANNER_MON_ICON;
 
@@ -6499,6 +6506,7 @@ static void PutMonIconOnLvlUpBanner(void)
 
     LoadSpriteSheet(&iconSheet);
     LoadSpritePalette(&iconPalSheet);
+    Free(iconGfx);
 
     spriteId = CreateSprite(&sSpriteTemplate_MonIconOnLvlUpBanner, 256, 10, 0);
     gSprites[spriteId].sDestroy = FALSE;

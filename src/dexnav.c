@@ -525,7 +525,7 @@ static void RemoveDexNavWindowAndGfx(void)
 {
     // try remove sprites
     if (sDexNavSearchDataPtr->iconSpriteId != MAX_SPRITES)
-        DestroySprite(&gSprites[sDexNavSearchDataPtr->iconSpriteId]);
+        FreeAndDestroyMonIconSprite(&gSprites[sDexNavSearchDataPtr->iconSpriteId]);
     if (sDexNavSearchDataPtr->itemSpriteId != MAX_SPRITES)
         DestroySprite(&gSprites[sDexNavSearchDataPtr->itemSpriteId]);
     if (sDexNavSearchDataPtr->eyeSpriteId != MAX_SPRITES)
@@ -940,7 +940,7 @@ static void RevealHiddenSearch(void)
     ClearStdWindowAndFrameToTransparent(sDexNavSearchDataPtr->windowId, FALSE);
     CopyWindowToVram(sDexNavSearchDataPtr->windowId, 3);
     RemoveWindow(sDexNavSearchDataPtr->windowId);
-    DestroySprite(&gSprites[sDexNavSearchDataPtr->iconSpriteId]);
+    FreeAndDestroyMonIconSprite(&gSprites[sDexNavSearchDataPtr->iconSpriteId]);
     sDexNavSearchDataPtr->hiddenSearch = FALSE; //now its a regular dexnav search
     RevealHiddenMon();
 }

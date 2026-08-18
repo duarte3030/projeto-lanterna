@@ -1083,21 +1083,25 @@ static void Task_FlashStarsAndHearts(u8 taskId)
 
 static void LoadContestMonIcon(enum Species species, u8 monIndex, u8 srcOffset, u8 useDmaNow, u32 personality)
 {
-    const u8 *iconPtr;
+    u8 *iconBuffer;
     u16 var0, var1;
 
-    iconPtr = GetMonIconPtr(species, personality);
-    iconPtr += srcOffset * 0x200 + 0x80;
+    // Ícone comprimido: descomprime para um buffer temporário e copia na hora.
+    // A cópia era por RequestDma3Copy, que é adiada, e o buffer não sobreviveria
+    // até a fila rodar. Aqui é seguro copiar direto: a única chamada acontece na
+    // montagem da tela, com o VBlank desligado e a transferência de palette parada.
+    iconBuffer = AllocDecompressedMonIcon(GetMonIconPtr(species, personality));
+    if (iconBuffer == NULL)
+        return;
+
+    CpuCopy32(iconBuffer + srcOffset * 0x200 + 0x80, (void *)BG_CHAR_ADDR(1) + monIndex * 0x200, 0x180);
+    Free(iconBuffer);
+
     if (useDmaNow)
     {
-        RequestDma3Copy(iconPtr, (void *)BG_CHAR_ADDR(1) + monIndex * 0x200, 0x180, 1);
         var0 = ((monIndex + 10) << 12);
         var1 = (monIndex * 0x10 + 0x200);
         WriteSequenceToBgTilemapBuffer(1, var1 | var0, 3, monIndex * 3 + 4, 4, 3, 17, 1);
-    }
-    else
-    {
-        RequestDma3Copy(iconPtr, (void *)BG_CHAR_ADDR(1) + monIndex * 0x200, 0x180, 1);
     }
 }
 

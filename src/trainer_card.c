@@ -1384,7 +1384,24 @@ static void LoadMonIconGfx(void)
     for (i = 0; i < PARTY_SIZE; i++)
     {
         if (sData->trainerCard.monSpecies[i])
-            LoadBgTiles(3, GetMonIconTiles(sData->trainerCard.monSpecies[i], 0), 512, 16 * i + 32);
+        {
+            // Ícone comprimido: LoadBgTiles copia por DMA ADIADO (RequestDma3Copy,
+            // processada só no VBlank) e o buffer do heap seria liberado antes
+            // disso, além de ser reusado pela volta seguinte do laço: as seis
+            // requisições apontariam para o mesmo endereço com o ícone do ÚLTIMO
+            // Pokémon. Copia direto, que aqui é seguro: o display ainda está
+            // desligado (ResetGpuRegs no estado 0, InitGpuRegs só no estado 8).
+            u8 *icon = AllocDecompressedMonIcon(GetMonIconTiles(sData->trainerCard.monSpecies[i], 0));
+
+            if (icon != NULL)
+            {
+                CpuCopy32(icon,
+                          (void *)(BG_CHAR_ADDR(sTrainerCardBgTemplates[3].charBaseIndex)
+                                   + (sTrainerCardBgTemplates[3].baseTile + 16 * i + 32) * TILE_SIZE_4BPP),
+                          512);
+                Free(icon);
+            }
+        }
     }
 }
 

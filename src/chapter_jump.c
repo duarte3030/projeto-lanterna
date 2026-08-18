@@ -422,6 +422,10 @@ void ChapterJump_AplicaCapitulo(void)
         CreateMon(&mon, SPECIES_PIKACHU, 20, 0, OTID_STRUCT_PLAYER_ID);
         SetMonMoveSlot(&mon, MOVE_THUNDERBOLT, 0);
         SetMonMoveSlot(&mon, MOVE_SURF, 1);
+        // Sem isto o mon nasce com maxHP 0 e chega DESMAIADO (o CreateMon
+        // deste fork deixa o cálculo de stats para o chamador, como o clamp
+        // de nível do LV.5 já fazia; bug pego pelo fechador do D3 em 18/08).
+        CalculateMonStats(&mon);
         CopyMon(&gPlayerParty[0], &mon, sizeof(mon));
         CalculatePlayerPartyCount();
         FlagSet(FLAG_SYS_POKEMON_GET);

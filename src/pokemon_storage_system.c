@@ -5171,11 +5171,20 @@ static u16 TryLoadMonIconTiles(enum Species species, enum SpeciesIconType iconTy
     }
 
     // Add species to icon list and load tiles
-    sStorage->iconSpeciesList[i] = iconId;
-    sStorage->numIconsPerSpecies[i]++;
     offset = 16 * i;
     species &= SPECIES_MASK;
-    CpuCopy32(GetMonIconTilesByIconType(species, iconType), (void *)(OBJ_VRAM0) + offset * TILE_SIZE_4BPP, 0x200);
+
+    // O ícone vem comprimido e só o primeiro quadro cabe no slot de 16 tiles,
+    // então descomprime os dois num buffer temporário e copia o quadro 0.
+    u8 *icon = AllocDecompressedMonIcon(GetMonIconTilesByIconType(species, iconType));
+
+    if (icon == NULL)
+        return 0xFFFF;
+
+    sStorage->iconSpeciesList[i] = iconId;
+    sStorage->numIconsPerSpecies[i]++;
+    CpuCopy32(icon, (void *)(OBJ_VRAM0) + offset * TILE_SIZE_4BPP, 0x200);
+    Free(icon);
 
     return offset;
 }
@@ -8580,8 +8589,11 @@ static void MultiMove_SetIconToBg(u8 x, u8 y)
 
     if (species != SPECIES_NONE)
     {
-        const u8 *iconGfx = GetMonIconPtrIsEgg(species, personality, isEgg);
+        u8 *iconGfx = AllocDecompressedMonIcon(GetMonIconPtrIsEgg(species, personality, isEgg));
         u8 index = GetValidMonIconPalIndex(species) + 8;
+
+        if (iconGfx == NULL)
+            return;
 
         BlitBitmapRectToWindow4BitTo8Bit(sStorage->multiMoveWindowId,
                                          iconGfx,
@@ -8594,6 +8606,7 @@ static void MultiMove_SetIconToBg(u8 x, u8 y)
                                          32,
                                          32,
                                          index);
+        Free(iconGfx);
     }
 }
 

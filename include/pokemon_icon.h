@@ -9,13 +9,14 @@ enum SpeciesIconType {
     EGG_ICON
 };
 
-const u8 *GetMonIconTiles(enum Species species, u32 personality);
-const u8 *GetMonIconTilesIsEgg(enum Species species, u32 personality, bool32 isEgg);
-const u8 *GetMonIconTilesByIconType(enum Species species, enum SpeciesIconType iconType);
+u8 *AllocDecompressedMonIcon(const u32 *icon);
+const u32 *GetMonIconTiles(enum Species species, u32 personality);
+const u32 *GetMonIconTilesIsEgg(enum Species species, u32 personality, bool32 isEgg);
+const u32 *GetMonIconTilesByIconType(enum Species species, enum SpeciesIconType iconType);
 void TryLoadAllMonIconPalettesAtOffset(u16 offset);
 u8 GetValidMonIconPalIndex(enum Species species);
-const u8 *GetMonIconPtr(enum Species species, u32 personality);
-const u8 *GetMonIconPtrIsEgg(enum Species species, u32 personality, bool32 isEgg);
+const u32 *GetMonIconPtr(enum Species species, u32 personality);
+const u32 *GetMonIconPtrIsEgg(enum Species species, u32 personality, bool32 isEgg);
 const u16 *GetValidMonIconPalettePtr(enum Species species);
 enum Species GetIconSpecies(enum Species species, u32 personality);
 u16 GetUnownLetterByPersonality(u32 personality);

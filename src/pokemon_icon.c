@@ -1,5 +1,7 @@
 #include "global.h"
+#include "decompress.h"
 #include "graphics.h"
+#include "malloc.h"
 #include "mail.h"
 #include "palette.h"
 #include "pokemon_sprite_visualizer.h"
@@ -8,10 +10,17 @@
 #include "data.h"
 #include "constants/pokemon_icon.h"
 
+// Os ícones são 32x32 4bpp com dois quadros de animação, guardados comprimidos
+// (.smol) na ROM. Cada sprite de ícone aloca os 32 tiles dos DOIS quadros e o
+// ícone é descomprimido direto para a VRAM na criação; animar passa a ser só
+// mover o tileNum, sem cópia por quadro.
+#define MON_ICON_FRAME_TILES  16
+#define MON_ICON_TILES        (MON_ICON_FRAME_TILES * 2)
+
 struct MonIconSpriteTemplate
 {
     const struct OamData *oam;
-    const u8 *image;
+    const u32 *image;
     const union AnimCmd *const *anims;
     const union AffineAnimCmd *const *affineAnims;
     void (*callback)(struct Sprite *);
@@ -109,30 +118,11 @@ static const union AffineAnimCmd *const sMonIconAffineAnims[] =
     sAffineAnim_1,
 };
 
-static const u16 sSpriteImageSizes[3][4] =
-{
-    [ST_OAM_SQUARE] =
-    {
-        [SPRITE_SIZE(8x8)]   =  8 * 8  / 2,
-        [SPRITE_SIZE(16x16)] = 16 * 16 / 2,
-        [SPRITE_SIZE(32x32)] = 32 * 32 / 2,
-        [SPRITE_SIZE(64x64)] = 64 * 64 / 2,
-    },
-    [ST_OAM_H_RECTANGLE] =
-    {
-        [SPRITE_SIZE(16x8)]  = 16 * 8  / 2,
-        [SPRITE_SIZE(32x8)]  = 32 * 8  / 2,
-        [SPRITE_SIZE(32x16)] = 32 * 16 / 2,
-        [SPRITE_SIZE(64x32)] = 64 * 32 / 2,
-    },
-    [ST_OAM_V_RECTANGLE] =
-    {
-        [SPRITE_SIZE(8x16)]  =  8 * 16 / 2,
-        [SPRITE_SIZE(8x32)]  =  8 * 32 / 2,
-        [SPRITE_SIZE(16x32)] = 16 * 32 / 2,
-        [SPRITE_SIZE(32x64)] = 32 * 64 / 2,
-    },
-};
+// Estático de propósito: o sprite guarda esse ponteiro a vida inteira e
+// DestroySprite lê o `.size` dele para devolver os tiles. Um temporário de pilha
+// (o que o código fazia antes) só sobrevive porque todo mundo passa por
+// FreeAndDestroyMonIconSprite; com o estático, DestroySprite direto também acerta.
+static const struct SpriteFrameImage sMonIconImage = { NULL, MON_ICON_TILES * TILE_SIZE_4BPP };
 
 u8 CreateMonIcon(enum Species species, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority, u32 personality)
 {
@@ -172,8 +162,8 @@ u8 CreateMonIconIsEgg(enum Species species, void (*callback)(struct Sprite *), s
 #endif
 
     spriteId = CreateMonIconSprite(&iconTemplate, x, y, subpriority);
-
-    UpdateMonIconFrame(&gSprites[spriteId]);
+    if (spriteId < MAX_SPRITES)
+        UpdateMonIconFrame(&gSprites[spriteId]);
 
     return spriteId;
 }
@@ -198,8 +188,8 @@ u8 CreateMonIconNoPersonalityIsEgg(enum Species species, void (*callback)(struct
 
     iconTemplate.image = GetMonIconTilesIsEgg(species, 0, isEgg);
     spriteId = CreateMonIconSprite(&iconTemplate, x, y, subpriority);
-
-    UpdateMonIconFrame(&gSprites[spriteId]);
+    if (spriteId < MAX_SPRITES)
+        UpdateMonIconFrame(&gSprites[spriteId]);
 
     return spriteId;
 }
@@ -229,12 +219,24 @@ enum Species GetIconSpeciesNoPersonality(enum Species species)
     return GetIconSpecies(species, 0);
 }
 
-const u8 *GetMonIconPtr(enum Species species, u32 personality)
+// Para quem precisa dos pixels do ícone na CPU (BG, blit em janela, folha de
+// sprite) e não do caminho de sprite acima. Devolve os 1024 B dos dois quadros
+// num buffer do heap; o chamador libera com Free. NULL se o heap estiver cheio.
+u8 *AllocDecompressedMonIcon(const u32 *icon)
+{
+    u8 *buffer = Alloc(MON_ICON_TILES * TILE_SIZE_4BPP);
+
+    if (buffer != NULL)
+        DecompressDataWithHeaderWram(icon, buffer);
+    return buffer;
+}
+
+const u32 *GetMonIconPtr(enum Species species, u32 personality)
 {
     return GetMonIconPtrIsEgg(species, personality, FALSE);
 }
 
-const u8 *GetMonIconPtrIsEgg(enum Species species, u32 personality, bool32 isEgg)
+const u32 *GetMonIconPtrIsEgg(enum Species species, u32 personality, bool32 isEgg)
 {
     return GetMonIconTilesIsEgg(GetIconSpecies(species, personality), personality, isEgg);
 }
@@ -308,14 +310,14 @@ void SpriteCB_MonIcon(struct Sprite *sprite)
     UpdateMonIconFrame(sprite);
 }
 
-const u8 *GetMonIconTiles(enum Species species, u32 personality)
+const u32 *GetMonIconTiles(enum Species species, u32 personality)
 {
     return GetMonIconTilesIsEgg(species, personality, FALSE);
 }
 
-const u8 *GetMonIconTilesIsEgg(enum Species species, u32 personality, bool32 isEgg)
+const u32 *GetMonIconTilesIsEgg(enum Species species, u32 personality, bool32 isEgg)
 {
-    const u8 *iconSprite;
+    const u32 *iconSprite;
 
     if (species > NUM_SPECIES)
         species = SPECIES_NONE;
@@ -343,7 +345,7 @@ const u8 *GetMonIconTilesIsEgg(enum Species species, u32 personality, bool32 isE
     return iconSprite;
 }
 
-const u8 *GetMonIconTilesByIconType(enum Species species, enum SpeciesIconType iconType)
+const u32 *GetMonIconTilesByIconType(enum Species species, enum SpeciesIconType iconType)
 {
     if (iconType == EGG_ICON)
         return gEggDatas[gSpeciesInfo[species].eggId].eggIcon;
@@ -396,13 +398,9 @@ u8 UpdateMonIconFrame(struct Sprite *sprite)
             sprite->animCmdIndex = 0;
             break;
         default:
-            RequestSpriteCopy(
-                // pointer arithmetic is needed to get the correct pointer to perform the sprite copy on.
-                // because sprite->images is a struct def, it has to be casted to (u8 *) before any
-                // arithmetic can be performed.
-                (u8 *)sprite->images + (sSpriteImageSizes[sprite->oam.shape][sprite->oam.size] * frame),
-                (u8 *)(OBJ_VRAM0 + sprite->oam.tileNum * TILE_SIZE_4BPP),
-                sSpriteImageSizes[sprite->oam.shape][sprite->oam.size]);
+            // Os dois quadros já estão na VRAM do próprio sprite (sheetTileStart
+            // guarda a base alocada), então trocar de quadro é só mover o tileNum.
+            sprite->oam.tileNum = sprite->sheetTileStart + (frame * MON_ICON_FRAME_TILES);
             sprite->animDelayCounter = sprite->anims[sprite->animNum][sprite->animCmdIndex].frame.duration & 0xFF;
             sprite->animCmdIndex++;
             result = sprite->animCmdIndex;
@@ -420,30 +418,34 @@ static u8 CreateMonIconSprite(struct MonIconSpriteTemplate *iconTemplate, s16 x,
 {
     u8 spriteId;
 
-    struct SpriteFrameImage image = { NULL, sSpriteImageSizes[iconTemplate->oam->shape][iconTemplate->oam->size] };
-
     struct SpriteTemplate spriteTemplate =
     {
         .tileTag = TAG_NONE,
         .paletteTag = iconTemplate->paletteTag,
         .oam = iconTemplate->oam,
         .anims = iconTemplate->anims,
-        .images = &image,
+        .images = &sMonIconImage,
         .affineAnims = iconTemplate->affineAnims,
         .callback = iconTemplate->callback,
     };
 
     spriteId = CreateSprite(&spriteTemplate, x, y, subpriority);
+    if (spriteId >= MAX_SPRITES) // sem tiles livres na OBJ VRAM
+        return spriteId;
+
     gSprites[spriteId].animPaused = TRUE;
     gSprites[spriteId].animBeginning = FALSE;
-    gSprites[spriteId].images = (const struct SpriteFrameImage *)iconTemplate->image;
+    gSprites[spriteId].sheetTileStart = gSprites[spriteId].oam.tileNum;
+    DecompressDataWithHeaderVram(iconTemplate->image,
+                                 (void *)(OBJ_VRAM0 + gSprites[spriteId].oam.tileNum * TILE_SIZE_4BPP));
     return spriteId;
 }
 
 static void FreeAndDestroyMonIconSprite_(struct Sprite *sprite)
 {
-    struct SpriteFrameImage image = { NULL, sSpriteImageSizes[sprite->oam.shape][sprite->oam.size] };
-    sprite->images = &image;
+    // O tileNum pode estar no segundo quadro; DestroySprite devolve os tiles a
+    // partir dele, então volta para a base antes de destruir.
+    sprite->oam.tileNum = sprite->sheetTileStart;
     DestroySprite(sprite);
 }
 

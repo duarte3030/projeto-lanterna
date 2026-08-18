@@ -445,13 +445,13 @@ struct SpeciesInfo /*0xC4*/
     const u32 *backPic;
     const u16 *palette;
     const u16 *shinyPalette;
-    const u8 *iconSprite;
+    const u32 *iconSprite;
 #if P_GENDER_DIFFERENCES
     const u32 *frontPicFemale;
     const u32 *backPicFemale;
     const u16 *paletteFemale;
     const u16 *shinyPaletteFemale;
-    const u8 *iconSpriteFemale;
+    const u32 *iconSpriteFemale;
 #endif //P_GENDER_DIFFERENCES
 #if P_FOOTPRINTS
     const u8 *footprint;
@@ -529,7 +529,7 @@ struct SpeciesInfo /*0xC4*/
 
 struct EggData
 {
-    const u8 *eggIcon;
+    const u32 *eggIcon;
     const u32 *eggSprite;
     const u16 *eggPalette;
     const u32 *eggHatchGfx;
