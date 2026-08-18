@@ -522,6 +522,148 @@ def casa_objetos(candidatos, do_hack, r, flags_reais):
     return sem_par, flag_de
 
 
+# ------------------------------------------- decisões DATADAS da obra de Sinnoh
+#
+# A obra de Sinnoh (`PLANO-OBRAS-SINNOH.md`, 16 a 18/08/2026) fechou por
+# DECISÃO uma parte grande desta fila: mecânica que não existe neste motor,
+# mapa que ainda é provisório, e três calibrações que a medição desta fila
+# erra sozinha. Sem estas tabelas a fila volta a cobrar tudo isso a cada
+# regeneração, e o executor da leva seguinte gasta o dia redescobrindo o que
+# já foi decidido, que é exatamente o custo que a fila existe para cortar.
+#
+# Dois status novos saem de "pendente" e entram no lugar dele:
+#   `descartada` = não vai existir neste porte, e o motivo é definitivo;
+#   `adiada`     = é conteúdo real, mas depende de coisa FORA desta obra
+#                  (mecânica sem desenho, mapa não importado).
+# Os dois somem da conta de PENDENTES do resumo, que é o número que a
+# condutora usa para dimensionar leva, e continuam no JSON com o motivo
+# escrito, que é o que o executor lê antes de decidir mexer.
+
+DESCARTE_VAR = {   # decisão 3: mecânica inexistente, não portada nem inventada
+    "VAR_GTS_ACCESS_STATE":
+        "GTS não existe aqui (decisão 3 do plano de Sinnoh, 16/08/2026)",
+    "VAR_POKETCH_CAMPAIGN_STATE":
+        "Pokétch não existe aqui (decisão 3, 16/08/2026)",
+    "VAR_PAL_PARK_STATE":
+        "migração de gen 3 não existe aqui (decisão 3, 16/08/2026)",
+    "VAR_BATTLE_FRONTIER_DUMMY_STATE":
+        "dummy declarado na própria fonte (decisão 3, 16/08/2026)",
+    "VAR_FOLLOWER_MON_ACTIVE":
+        "OW_FOLLOWERS_ENABLED é FALSE em include/config/overworld.h:61 "
+        "(decisão 3, 16/08/2026)",
+    # decisão 4, CORRIGIDA pela fonte em 18/08/2026 (retorno do S7): os 27
+    # gatilhos do Amity não são warp de saída, são reposicionamento INTERNO
+    # (pulo de cerca via applymovement), e o nosso Amity é passagem provisória
+    # com planta emprestada.
+    "VAR_AMITY_SQUARE_STATE":
+        "descartado-por-mapa-provisório: os 27 gatilhos são reposicionamento "
+        "interno da praça real do Platinum, e o nosso AmitySquare é passagem "
+        "com planta emprestada (decisão 4 corrigida, 18/08/2026). Importar o "
+        "exterior real do Platinum é pendência FORA desta obra",
+}
+
+ADIADO_VAR = {     # decisão 5: acompanhante que anda junto, mecânica sem desenho
+    v: "mecânica de parceiro em dupla sem desenho (decisão 5 do plano de "
+       "Sinnoh, 16/08/2026); ganha var quando a mecânica ganhar desenho"
+    for v in ("VAR_FOLLOWER_RIVAL_STATE",
+              "VAR_ETERNA_FOREST_FOLLOWER_CHERYL_STATE",
+              "VAR_IRON_ISLAND_B2F_LEFT_ROOM_FOLLOWER_RILEY_STATE",
+              "VAR_STARK_MOUNTAIN_ROOM_2_FOLLOWER_BUCK_STATE",
+              "VAR_VICTORY_ROAD_1F_ROOM_2_FOLLOWER_MARLEY_STATE",
+              "VAR_WAYWARD_CAVE_1F_FOLLOWER_MIRA_STATE")
+}
+
+# decisão 6: mecânica de batalha diária e de Mystery Gift, repetida por prédio.
+ADIADO_FLAG = ("FLAG_HIDE_POKECENTER_DAILY_TRAINER_1",
+               "FLAG_HIDE_POKECENTER_DAILY_TRAINER_2",
+               "FLAG_HIDE_MART_MYSTERY_GIFT_DELIVERYMAN")
+
+# Grupos que a obra fechou por decisão, um a um, com o motivo escrito.
+# Chave = o `id` da linha da fila.
+DECIDIDO_SINNOH = {
+    # Stark Mountain, retorno do S5 (18/08/2026): a cena está ESCRITA e
+    # correta, e mesmo assim é inalcançável.
+    "StarkMountainOutside:FLAG_HIDE_STARK_MOUNTAIN_OUTSIDE_GRUNTS": (
+        "descartada",
+        "descartado-por-mapa-provisório: StarkMountainOutside usa "
+        "LAYOUT_ROUTE226_ACCESS, molde de portão 13x9 com três linhas jogáveis "
+        "(y=4,5,6) e duas decorativas (y=2,8). Medido no map.bin: o gatilho "
+        "cai em (6,2) e o Grunt 1 em (3,2), linha morta; o Grunt 2 em (4,3) "
+        "está em colisão 1. Volta a existir quando o exterior real da Stark "
+        "Mountain for importado (18/08/2026)"),
+    "StarkMountainOutside:coord:VAR_STARK_MOUNTAIN_OUTSIDE_STATE:3": (
+        "descartada",
+        "descartado-por-mapa-provisório, mesmo motivo do grupo "
+        "FLAG_HIDE_STARK_MOUNTAIN_OUTSIDE_GRUNTS deste mapa (18/08/2026)"),
+    # CALIBRAÇÃO 1 (registro do S2 para o S8, 17/08/2026): falso "feita".
+    "VeilstoneCity:FLAG_HIDE_VEILSTONE_CITY_GRUNT_M_STORAGE_KEY": (
+        "pendente",
+        "CALIBRAÇÃO 17/08/2026: a fila deu por feito porque o desempate por "
+        "distância casou este grunt com outro objeto do mapa. O script 13 da "
+        "fonte (\"antennae\") não está portado em lugar nenhum: continua "
+        "pendente de verdade"),
+    # CALIBRAÇÃO 2 (mesmo registro): não é trabalho de cena, é id de treinador.
+    "MtCoronet1FTunnelRoom:FLAG_HIDE_MT_CORONET_GALACTIC_GRUNTS": (
+        "feita",
+        "CALIBRAÇÃO 17/08/2026: os 3 trainers deste grupo foram portados DE "
+        "PROPÓSITO para MtCoronet_1F_South e MtCoronet_B1F, porque id de "
+        "treinador não pode duplicar entre mapas (derrotável uma vez só). A "
+        "fila os procura aqui e não acha; o trabalho está feito, em outro mapa"),
+}
+
+# Notas que NÃO mudam status: calibração conhecida que o executor precisa ler
+# antes de "consertar" o que não está quebrado.
+NOTA_SINNOH = {
+    "Route209_Access:coord:VAR_ROUTE_209_GATE_TO_HEARTHOME_CITY_STATE:2":
+        "os portões de molde 13x9 têm duas linhas decorativas (y=2 e y=8) sem "
+        "ligação com o corredor jogável; o gerador do S1 plantou tile em (5,2) "
+        "e (5,8) além dos jogáveis. Registro do S8 (18/08/2026): a checagem de "
+        "andabilidade de maquina_sinnoh.py varre também o que já está gravado",
+    "Route218_West:coord:VAR_ROUTE_218_GATE_TO_CANALAVE_CITY_STATE:2":
+        "mesmo caso do Route209_Access: tiles decorativos em (7,2) e (7,8)",
+    "Route210_South:MAP_HEADER_ROUTE_210_NORTH":
+        "MAP_HEADER_* no campo hidden_flag é objeto CLONE (clone_id "
+        "preenchido), e o campo guarda o MAPA DE ORIGEM, não uma flag. Clone "
+        "nunca entrou no orçamento de flags desta obra (34 casos). O "
+        "Route210_North em si continua fora: mapa não importado",
+}
+
+
+def rotulos_com_cena(mapa):
+    """Rótulos do `data/maps/<mapa>/scripts.inc` que têm CENA de verdade.
+
+    Item de QA pedido pela condutora em 17/08/2026: o esqueleto que
+    `dev_scripts/maquina_sinnoh.py` planta é
+
+        <Rotulo>::
+            @ TODO S5: cena da fonte, rotulo <RotuloDaFonte>
+            end
+
+    e um `coord_event` apontando para isso não é cena nenhuma, é uma promessa.
+    Sem esta leitura a fila dá por FEITOS os 95 gatilhos que o S1 plantou e
+    para de cobrar as cenas deles, que é a mentira mais cara possível aqui.
+
+    Régua: corpo sem NENHUM comando além de `end` (comentário e linha em
+    branco não contam) é esqueleto. Rótulo que a leva resolveu de propósito
+    com um `end` só (GalacticHQ_Hall, MtCoronet_1F_South) cai na mesma régua,
+    e isso está certo: quem resolveu escreveu o motivo no `scripts.inc` e
+    APAGOU o `coord_event`, então nem chega aqui.
+    """
+    p = os.path.join(REPO, "data/maps", mapa, "scripts.inc")
+    if not os.path.exists(p):
+        return set()
+    txt = open(p, encoding="utf-8").read()
+    achados, reais = list(re.finditer(r"^(\w+)::", txt, re.M)), set()
+    for n, m in enumerate(achados):
+        fim = achados[n + 1].start() if n + 1 < len(achados) else len(txt)
+        corpo = [l.split("@")[0].strip()
+                 for l in txt[m.end():fim].splitlines()]
+        corpo = [l for l in corpo if l]
+        if corpo != ["end"]:
+            reais.add(m.group(1))
+    return reais
+
+
 def fila_sinnoh():
     r = raio()
     conhecidas = vars_do_repo()
@@ -543,8 +685,12 @@ def fila_sinnoh():
         conv = S.conversor_de_coordenada(fonte, L["width"], L["height"],
                                          header, matriz)
         do_hack = d.get("object_events") or []
+        # Gatilho só conta como feito se o rótulo dele tiver CENA: esqueleto
+        # `@ TODO` + `end` é promessa, não trabalho (ver `rotulos_com_cena`).
+        com_cena = rotulos_com_cena(meu)
         coords_hack = [(int(c.get("x", 0)), int(c.get("y", 0)))
-                       for c in (d.get("coord_events") or [])]
+                       for c in (d.get("coord_events") or [])
+                       if c.get("script") in com_cena]
 
         candidatos, chaves = [], []
         for e in fonte.get("object_events", []):
@@ -611,7 +757,46 @@ def fila_sinnoh():
                         "índice de narc, não rótulo",
             "status": "feita" if not faltam else "pendente",
         })
-    return itens
+    return [decidido(i) for i in itens]
+
+
+def decidido(i):
+    """Aplica as decisões DATADAS da obra de Sinnoh sobre uma linha da fila.
+
+    Ordem: o que foi decidido caso a caso (`DECIDIDO_SINNOH`) manda sobre a
+    regra geral, porque a regra geral é que errou; depois vêm as decisões por
+    var e por flag do plano. Linha já `feita` pela medição não é rebaixada por
+    tabela de descarte/adiamento: trabalho feito continua feito.
+    """
+    if i["id"] in DECIDIDO_SINNOH:
+        i["status"], i["bloqueio"] = DECIDIDO_SINNOH[i["id"]]
+    elif i["status"] == "pendente":
+        var = i["id"].split(":")[2] if ":coord:" in i["id"] else None
+        flag = i["id"].split(":", 1)[1]
+        if var in DESCARTE_VAR:
+            i["status"], i["bloqueio"] = "descartada", DESCARTE_VAR[var]
+        elif var in ADIADO_VAR:
+            i["status"], i["bloqueio"] = "adiada", ADIADO_VAR[var]
+        elif flag in ADIADO_FLAG:
+            i["status"] = "adiada"
+            i["bloqueio"] = ("mecânica diária/Mystery Gift, decisão 6 do plano "
+                             "de Sinnoh (16/08/2026): batalha é polimento de "
+                             "fim de projeto e Mystery Gift não existe aqui")
+        elif flag.startswith("MAP_HEADER_"):
+            i["status"] = "descartada"
+            i["bloqueio"] = ("objeto CLONE: o campo hidden_flag da fonte guarda "
+                             "o mapa de ORIGEM do clone, não uma flag. Nunca "
+                             "entrou no orçamento de flags (34 casos, medido em "
+                             "17/08/2026)")
+        elif i["mapa_destino"] == "Villa":
+            i["status"] = "adiada"
+            i["bloqueio"] = ("máquina de visitantes da Villa "
+                             "(VAR_RESORT_VILLA_VISITOR e afins) não existe "
+                             "neste motor; adiado por mecânica, mesma categoria "
+                             "da decisão 5 (retorno do S7, 18/08/2026)")
+    if i["id"] in NOTA_SINNOH:
+        i["nota"] = NOTA_SINNOH[i["id"]]
+    return i
 
 
 # ------------------------------------------------------------------- johto
@@ -764,7 +949,8 @@ def gera():
 
 
 def resumo(itens, chamadas, livres):
-    print(f"{'região':8} {'tipo':20} {'pend.':>6} {'feitas':>6} {'linhas':>8}")
+    print(f"{'região':8} {'tipo':20} {'pend.':>6} {'feitas':>6} "
+          f"{'descart':>8} {'adiadas':>8} {'linhas':>8}")
     conta = collections.Counter()
     for i in itens:
         conta[(i["regiao"], i["tipo"], i["status"])] += 1
@@ -773,7 +959,9 @@ def resumo(itens, chamadas, livres):
         tam[(i["regiao"], i["tipo"])] += i["tamanho"]
     for reg, tipo in sorted({(r, t) for r, t, _ in conta}):
         print(f"{reg:8} {tipo:20} {conta[(reg, tipo, 'pendente')]:6} "
-              f"{conta[(reg, tipo, 'feita')]:6} {tam[(reg, tipo)]:8}")
+              f"{conta[(reg, tipo, 'feita')]:6} "
+              f"{conta[(reg, tipo, 'descartada')]:8} "
+              f"{conta[(reg, tipo, 'adiada')]:8} {tam[(reg, tipo)]:8}")
     pend = [i for i in itens if i["status"] == "pendente"]
     print(f"\npendentes: {len(pend)}   sem bloqueio: "
           f"{sum(1 for i in pend if i['bloqueio'] == 'nenhum')}")
@@ -835,6 +1023,21 @@ def demo():
     qg = [i for i in sinnoh if i["id"].startswith("GalacticHQ_3F:FLAG_HIDE")]
     assert qg and qg[0]["tamanho"] < qg[0]["objetos_fonte"], \
         f"conferência de conteúdo não achou os grunts já plantados: {qg}"
+
+    # Item de QA de 17/08/2026: esqueleto NÃO é cena. Se `rotulos_com_cena`
+    # regredir, os gatilhos que `maquina_sinnoh.py` plantou voltam a contar
+    # como feitos e a fila para de cobrar as cenas deles. Os dois rótulos são
+    # do mesmo arquivo e nenhum dos dois é fotografia de contagem.
+    reais = rotulos_com_cena("PastoriaCity_Gym")
+    assert "PastoriaCity_Gym_EventScript_Leader" in reais, \
+        "cena de verdade lida como esqueleto"
+    assert "PastoriaCity_Gym_EventScript_BlueButton" not in reais, \
+        "rótulo com `end` sozinho passou por cena"
+    # E as decisões datadas têm de aparecer: se a tabela deixar de ser
+    # aplicada, os 34 clones e os 27 do Amity voltam a cobrar trabalho.
+    for st in ("descartada", "adiada"):
+        assert any(i["status"] == st for i in sinnoh), \
+            f"nenhuma linha de Sinnoh saiu como {st}: DECIDIDO_SINNOH não rodou"
 
     johto, livres = fila_johto()
     # ponytail: invariante, não fotografia. A faixa esvazia enquanto o executor

@@ -111,6 +111,20 @@
       "script": "PokemonLeagueNorthPokecenter1F_EventScript_Npc2",
       "flag": "0",
       "origem": "pokeplatinum"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_RICH_BOY",
+      "x": 10,
+      "y": 3,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "FLAG_SINNOH_ESCONDE_POKEMON_LEAGUE_NORTH_POKECENTER_1F_RIVAL",
+      "origem": "pokeplatinum: LOCALID_LEAGUE_NORTH_RIVAL. Sem local_id (id 7 por posicao, mesma tecnica de GalacticHq4F/Route209_Access; nada mais referencia por nome). A fonte SO faz AddObject dentro da cena (o rival nao existe no mapa ate o gatilho). Esta flag nasce ligada em scripts_init_new_game.s:79 da fonte, mas data/scripts/new_game.inc esta fora do escopo desta leva (nao tocar); falta esse setflag la para o rival nao aparecer parado no pokecenter desde o inicio do jogo."
     }
   ],
   "warp_events": [

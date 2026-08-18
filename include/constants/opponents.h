@@ -2128,7 +2128,7 @@
 
 // >>> cenas restantes da espinha da Galactica de Sinnoh (bloco B6,
 // dev_scripts/cena_galactica_sinnoh.py, 12/08/2026). Faixa exclusiva
-// desta frente: 2500 a 2519; gastos 15, livres 2515 a 2519. O vao 2462 a
+// desta frente: 2500 a 2519; gastos 18, livres 2518 a 2519. O vao 2462 a
 // 2499 fica DE PROPOSITO vazio, reservado para Johto retomar. >>>
 #define TRAINER_SINNOH_GALACTIC_GRUNT_CELESTIC_TOWN          2500
 #define TRAINER_SINNOH_COMMANDER_MARS_LAKE_VERITY            2501
@@ -2160,6 +2160,17 @@
 // BOSS_CYRUS_SPEAR_PILLAR (Magma Leader / Magma Leader Maxie: nao existe
 // TRAINER_CLASS_GALACTIC_BOSS neste codebase).
 #define TRAINER_SINNOH_GALACTIC_BOSS_CYRUS_GALACTIC_HQ       2514
+// 18/08/2026, leva final: condutora pre-atribuiu SO 2515, mas a fonte
+// (scripts_pokemon_league_north_pokecenter_1f.s:118-131, GetPlayerStarterSpecies
+// + StartTrainerBattle TRAINER_RIVAL_POKEMON_LEAGUE_TURTWIG/_CHIMCHAR/_PIPLUP)
+// e o mesmo triangulo de 3 variantes de todo rival de Sinnoh (precedente:
+// o proprio cabecalho de CanalaveCity_EventScript_Rival ja corrigiu essa
+// mesma suposicao de "1 treinador" pra Canalave). Apanhei 2515-2517, sobra
+// 2518-2519. Nome de constante = nome da fonte, so com o prefixo
+// TRAINER_SINNOH_ que todo treinador de Sinnoh usa aqui.
+#define TRAINER_SINNOH_RIVAL_POKEMON_LEAGUE_TURTWIG          2515
+#define TRAINER_SINNOH_RIVAL_POKEMON_LEAGUE_CHIMCHAR         2516
+#define TRAINER_SINNOH_RIVAL_POKEMON_LEAGUE_PIPLUP           2517
 // <<< cenas da Galactica de Sinnoh <<<
 
 // >>> Campea de Unova, bloco B6 (12/08/2026). Faixa exclusiva desta frente:

@@ -5289,6 +5289,7 @@
 #define FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_COLLECTOR                            FLAG_UNUSED_0x1B90  // FLAG_HIDE_VALOR_LAKEFRONT_COLLECTOR
 #define FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_GRUNT_M                              FLAG_UNUSED_0x1B91  // FLAG_HIDE_VALOR_LAKEFRONT_GRUNT_M
 #define FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_RIVAL                                FLAG_UNUSED_0x1B92  // FLAG_HIDE_VALOR_LAKEFRONT_RIVAL
+#define FLAG_SINNOH_ESCONDE_VEILSTONE_CITY_GRUNT_M_STORAGE_KEY                   FLAG_UNUSED_0x1BA1  // FLAG_HIDE_VEILSTONE_CITY_GRUNT_M_STORAGE_KEY
 #define FLAG_SINNOH_ESCONDE_VEILSTONE_COUNTERPART                                FLAG_UNUSED_0x1B93  // FLAG_HIDE_VEILSTONE_COUNTERPART
 #define FLAG_SINNOH_ESCONDE_VEILSTONE_STORE_B1F_PROF_ROWAN                       FLAG_UNUSED_0x1B94  // FLAG_HIDE_VEILSTONE_STORE_B1F_PROF_ROWAN
 #define FLAG_SINNOH_ESCONDE_VERITY_CAVERN_PROF_OAK                               FLAG_UNUSED_0x1B95  // FLAG_HIDE_VERITY_CAVERN_PROF_OAK
@@ -5303,16 +5304,29 @@
 
 // >>> B6 Sinnoh S6, onda 4, decisao da condutora de 18/08/2026: duas flags fora
 // do padrao FLAG_HIDE_* (o censo de hidden_flag do S1 nao pega, ver
-// PLANO-OBRAS-SINNOH.md). Proximas livres apos 0x1B9C. Consumo: 2.
-// Reservada para PastoriaCity_EventScript_CoordEvent_Bomb/_BlockGreatMarsh;
-// as duas cenas continuam BLOQUEADAS nesta leva (dependem do Crasher Wake,
-// fora do censo do S1). Ver o comentario da cena em
-// data/maps/PastoriaCity/scripts.inc antes de usar.
+// PLANO-OBRAS-SINNOH.md). Proximas livres apos 0x1B9C. Consumo: 2. Reservadas
+// para PastoriaCity_EventScript_CoordEvent_Bomb/_BlockGreatMarsh/_FaceBoard;
+// as duas cenas ficaram BLOQUEADAS na onda 4 (dependiam do Crasher Wake, fora
+// do censo do S1) e foram ESCRITAS na leva final (18/08/2026), que trouxe as
+// duas flags de visibilidade que faltavam (ver bloco "leva final" abaixo).
 #define FLAG_SINNOH_PASTORIA_GRUNT_FUGIU_LESTE                                   FLAG_UNUSED_0x1B9D  // FLAG_PASTORIA_CITY_GRUNT_M_MOVED_EAST
-// Usada por scripts_pastoria_city_gym.s (SetFlag), scripts_pastoria_city.s
-// PastoriaCity_CoordEvent_FaceBoard (GoToIfSet) e scripts_valor_lakefront.s
-// (ClearFlag), nenhum dos tres em mapas desta leva (Gym e S7/fora de escopo,
-// FaceBoard adiado para a S7 pela propria condutora). Reservada aqui so para
-// o consumo de endereco constar; quem grava o uso e quem escrever essas cenas.
+// Consumida por data/maps/PastoriaCity/scripts.inc (PastoriaCity_EventScript_
+// GoAfterThatGoon, setflag) na leva final. Tambem usada por
+// scripts_pastoria_city_gym.s (SetFlag) e scripts_valor_lakefront.s
+// (ClearFlag) na fonte, nenhum dos dois em mapas desta leva.
 #define FLAG_SINNOH_PASTORIA_CROAGUNK_BLOQUEADO                                  FLAG_UNUSED_0x1B9E  // FLAG_BLOCK_PASTORIA_CITY_CROAGUNK_EVENT
+// Consumida por data/maps/PastoriaCity/scripts.inc (PastoriaCity_EventScript_
+// CoordEvent_FaceBoard, goto_if_set) na leva final. Quem ACENDE (ginasio) e
+// quem APAGA (Valor Lakefront) esta flag continuam fora do escopo desta obra;
+// ate la ela fica sempre limpa, que e o mesmo estado inicial da fonte.
 // <<< B6 Sinnoh S6, onda 4, flags fora do padrao <<<
+
+// >>> B6 Sinnoh, leva final (18/08/2026): as duas flags de VISIBILIDADE que
+// faltavam para destravar a corrente da bomba (nenhuma das duas e a
+// GRUNT_FUGIU_LESTE/CROAGUNK_BLOQUEADO acima, que so travam re-disparo, nao
+// aparicao). Autorizadas pela condutora, proximas livres apos 0x1B9E.
+// Consumo: 2. Ver data/maps/PastoriaCity/scripts.inc para quem consome cada
+// uma (Crasher Wake e Croagunk como NPC de cena).
+#define FLAG_SINNOH_ESCONDE_PASTORIA_WAKE                                        FLAG_UNUSED_0x1B9F  // FLAG_HIDE_PASTORIA_CITY_CRASHER_WAKE
+#define FLAG_SINNOH_ESCONDE_PASTORIA_CROAGUNK                                    FLAG_UNUSED_0x1BA0  // FLAG_HIDE_PASTORIA_CITY_CROAGUNK
+// <<< B6 Sinnoh, leva final <<<

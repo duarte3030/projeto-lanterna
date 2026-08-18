@@ -26271,6 +26271,171 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Astonish
 - Faint Attack
 
+=== TRAINER_SINNOH_RIVAL_POKEMON_LEAGUE_TURTWIG ===
+Name: Cedric
+Class: TRAINER_CLASS_RIVAL
+Pic: TRAINER_PIC_RIVAL_LATE_FRLG
+Gender: Male
+Double Battle: No
+
+Staraptor
+Level: 186
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Close Combat
+- Aerial Ace
+- Steel Wing
+- U Turn
+
+Floatzel
+Level: 186
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Aqua Jet
+- Crunch
+- Ice Fang
+- Brick Break
+
+Heracross
+Level: 186
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Close Combat
+- Rock Slide
+- Night Slash
+- Aerial Ace
+
+Roserade
+Level: 186
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Poison Jab
+- Giga Drain
+- Shadow Ball
+- Grass Whistle
+
+Snorlax
+Level: 188
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Body Slam
+- Crunch
+- Earthquake
+- Rest
+
+Infernape
+Level: 190
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Flamethrower
+- Focus Blast
+- Shadow Claw
+- Aerial Ace
+
+=== TRAINER_SINNOH_RIVAL_POKEMON_LEAGUE_CHIMCHAR ===
+Name: Cedric
+Class: TRAINER_CLASS_RIVAL
+Pic: TRAINER_PIC_RIVAL_LATE_FRLG
+Gender: Male
+Double Battle: No
+
+Staraptor
+Level: 186
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Close Combat
+- Aerial Ace
+- Steel Wing
+- U Turn
+
+Roserade
+Level: 186
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Poison Jab
+- Giga Drain
+- Shadow Ball
+- Grass Whistle
+
+Heracross
+Level: 186
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Close Combat
+- Rock Slide
+- Night Slash
+- Aerial Ace
+
+Rapidash
+Level: 186
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Fire Blast
+- Sunny Day
+- Bounce
+- Will O Wisp
+
+Snorlax
+Level: 188
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Body Slam
+- Crunch
+- Earthquake
+- Rest
+
+Empoleon
+Level: 190
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Brine
+- Aerial Ace
+- Metal Claw
+- Shadow Claw
+
+=== TRAINER_SINNOH_RIVAL_POKEMON_LEAGUE_PIPLUP ===
+Name: Cedric
+Class: TRAINER_CLASS_RIVAL
+Pic: TRAINER_PIC_RIVAL_LATE_FRLG
+Gender: Male
+Double Battle: No
+
+Staraptor
+Level: 186
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Close Combat
+- Aerial Ace
+- Steel Wing
+- U Turn
+
+Floatzel
+Level: 186
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Aqua Jet
+- Crunch
+- Ice Fang
+- Brick Break
+
+Heracross
+Level: 186
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Close Combat
+- Rock Slide
+- Night Slash
+- Aerial Ace
+
+Rapidash
+Level: 186
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Fire Blast
+- Sunny Day
+- Bounce
+- Will O Wisp
+
+Snorlax
+Level: 188
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Body Slam
+- Crunch
+- Earthquake
+- Rest
+
+Torterra
+Level: 190
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Leaf Storm
+- Earthquake
+- Crunch
+- Synthesis
+
 === TRAINER_SINNOH_COMMANDER_SATURN_GALACTIC_HQ ===
 Name: Saturn
 Class: Magma Admin

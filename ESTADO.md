@@ -8,6 +8,178 @@ inteiras. Detalhe fica nos documentos apontados no fim.
 
 ---
 
+## 0.e FECHAMENTO DA OBRA DE SINNOH, 18/08/2026 (condutor Fable, executor Opus)
+
+Build verde (ROM 97,68% de 32 MB, EWRAM 85,94%, IWRAM 86,66%), **suíte
+322/323** (só T11.3 pulado, porque ele é o caso de duas ROMs), **T11 completo
+3/3 à parte** (a save da `roms/pokemon-claude-2026-08-15c.gba` carrega na build
+nova) e **SAVE COMPATIVEL** (a obra não criou item nenhum; SaveBlock1 em
+14388 B de 15872, 90,7%). ROM: `roms/pokemon-claude-2026-08-18.gba`, e a mesma
+build sobrescreveu `roms/pokemon-claude-teste-2026-08-16.gba` (md5 conferido,
+`16426067c02ccb74e51275ad141e021d` nas três).
+
+### O que a obra de Sinnoh foi, do começo ao fim
+
+Cinco ondas mais a leva final, todas desenhadas por `PLANO-OBRAS-SINNOH.md` e
+executadas contra `dev_scripts/maquina_sinnoh.json`, o censo que a máquina do
+bloco S1 gera:
+
+- **Onda 1 (S1+S2)**: a máquina de vars, flags e gatilhos. 49 alias de var no
+  gap `0x4130`-`0x415F` (+`0x41C2`), 157 flags novas em `0x1B00`-`0x1B9C`, e os
+  esqueletos de cena plantados nos `scripts.inc`; mais os 8 grupos de
+  `hidden_flag` que já estavam sem bloqueio.
+- **Onda 2 (S3)**: arco de abertura (Twinleaf, casa do jogador, Verity, Sandgem,
+  Route 202).
+- **Onda 3 (S4/S5)**: Jubilife/Oreburgh/Eterna e Hearthome/Veilstone/Pastoria.
+- **Onda 4 (S6)**: arco da Galáctica, rivais de Pastoria e do portão 209,
+  treinadores 2508-2513.
+- **Onda 5 (S7)**: pós-liga, Cyrus do 4F (2514) e o fim das cenas por arco.
+- **Leva final (S8)**: a bomba de Pastoria inteira, o Croagunk da placa, o rival
+  do Pokécenter da Liga (2515-2517), e a FIAÇÃO que sobrou das ondas.
+
+Casos de suíte da obra: **T100 a T104**, e os nove **T104** são desta leva.
+Faixa de treinador de Sinnoh: 2500-2517 gastos, 2518-2519 livres.
+
+### A fiação que a leva final fechou, e por que ela existia
+
+Três correntes estavam escritas e **inalcançáveis**, cada uma porque o escritor
+da var morava num arquivo que a onda dona da cena não tinha escopo para tocar.
+As três foram ligadas aqui, com o desvio da fonte documentado valor a valor:
+
+1. **Partida da corrente de Pastoria.** O único `SetVar VAR_PASTORIA_CITY_STATE,
+   1` da fonte inteira mora na cutscene do armazém da Galáctica de Veilstone
+   (`scripts_veilstone_city_galactic_warehouse.s:89`), cutscene que esta casa
+   descartou ao redesenhar o armazém. O `setvar` entrou no ponto equivalente do
+   fluxo NOSSO, colado na mesma fala (`..._Text_WeDidntLearnMuch`), com
+   `call_if_eq ... 0` na frente para a corrente nunca ANDAR PARA TRÁS.
+2. **Fecho pós-vitória do ginásio de Pastoria.** A fonte escreve 3 no ginásio e
+   só chega a 4 na cutscene `PastoriaCity_OnFrame_ExitGym`, que não foi portada.
+   O ginásio passou a escrever **4 direto** (o 3 é invisível: nada neste
+   repositório o lê), mais os dois `setflag` que a fonte põe na mesma linha
+   (esconder o Grunt_M, bloquear o evento do Croagunk).
+3. **Atores da cena da bomba.** O S7 escreveu a coreografia supondo um fecho
+   pós-ginásio que revelaria Crasher Wake e Rival; esse fecho não existia, e os
+   `applymovement` mirariam objetos ausentes. A própria cena passou a revelá-los
+   (`clearflag` + `setobjectxyperm` + `setobjectmovementtype` + `addobject`, o
+   molde que o `RivalBattle` do mesmo arquivo já usava), nas coordenadas
+   convertidas da fonte: Wake em (37,9) e Rival em (34,13). E o fecho ganhou o
+   `setflag` que faltava antes do `removeobject` do Wake: sem ele a cutscene
+   inteira ficava replayável pelo clique nele.
+
+Entrou também o `ON_TRANSITION` de PastoriaCity, porte do
+`PastoriaCity_OnTransition` da fonte. Ele zera `VAR_SINNOH_PASTORIA_CROAGUNK_CENA`
+a cada entrada no mapa (sem isso o sorteio de 10% da placa acontece UMA vez na
+vida do save, porque a própria cena escreve 1) e reposiciona o rival depois da
+explosão (sem isso ele volta ao tile que o `setobjectxyperm` da batalha gravou
+no SAVE, do outro lado da cidade).
+
+### As duas ferramentas, consertadas na causa
+
+- **`dev_scripts/maquina_sinnoh.py`**: o `--demo` era vermelho num ponto só, o
+  `coord_event` do Buck da Route 227 gravado em (30,19), tile que uma rodada
+  ANTERIOR escolheu e que hoje é ruim (o objeto do próprio Buck nasceu em cima
+  dele). A realocação só sabia casar pela posição ORIGINAL da fonte, e a posição
+  velha não batia com nada. Nasceu `plano_de_reparo`, que também casa por
+  SCRIPT o que está gravado e ruim sem explicação, e o manda para o tile que o
+  censo de hoje escolheu. Corrigido para (29,19), `--demo` verde, `--gravar`
+  idempotente.
+- **A idempotência custou uma tabela nova, e ela é a lição.** O primeiro
+  `--gravar` verde **ressuscitou 8 `coord_events` que levas anteriores tinham
+  APAGADO de propósito**: os três falso-gatilhos da onda 4 (CanalaveCity,
+  GalacticHQ_Hall e MtCoronet_1F_South, todos com cena equivalente já existente)
+  e o span do Collector do Valor, que a onda 5 escolheu tile a tile no
+  `map.bin`. **Gerador que não sabe o que a mão decidiu desfaz a decisão
+  calado.** `LEVA_DONA` lista os quatro, com commit e motivo, e a máquina não
+  planta, não move e não apaga nenhum deles.
+- **E a fila mexeu embaixo da máquina, que é o achado mais perigoso do dia.**
+  `maquina_sinnoh.py` escolhia o que portar filtrando `status == "pendente"` no
+  `fila_b6.json`, e a alocação de flag saía dessa mesma lista. Quando a fila
+  aprendeu `feita`/`descartada`/`adiada`, o conjunto de entrada encolheu de 164
+  para 56 e de 247 para 126: um `--gravar` inocente teria **reescrito o bloco de
+  flags de Sinnoh com endereços diferentes**, embaixo das dezenas de cenas que
+  já citam esses apelidos por nome. Duas travas entraram: a seleção passou a ser
+  por REGIÃO e TIPO, sem olhar status (`entradas_da_fila`), e **endereço de flag
+  já gravado virou HISTÓRIA** (`alias_ja_gravados` lê o bloco do `flags.h` e
+  devolve nome e endereço; alocação nova só existe para nome que nunca saiu, e
+  entra em append depois do maior endereço já apelidado da faixa, contando
+  também os que a condutora autorizou à mão fora do bloco). Consumo depois
+  disso: **158 flags** (as 157 de antes mais
+  `FLAG_SINNOH_ESCONDE_VEILSTONE_CITY_GRUNT_M_STORAGE_KEY` em `0x1BA1`, que é a
+  calibração do falso "feita" virando endereço reservado para quem escrever a
+  cena). Conferido: a ROM recompilada depois dessa linha tem o MESMO md5, porque
+  apelido que ninguém cita não muda binário.
+- **`dev_scripts/fila_b6.py`**: aprendeu que **esqueleto não é cena**. Gatilho
+  cujo rótulo só tem `@ TODO` + `end` deixou de contar como feito
+  (`rotulos_com_cena`), e isso desmascarou **38 gatilhos** que a fila dava por
+  prontos. E aprendeu as decisões DATADAS da obra: dois status novos,
+  `descartada` e `adiada`, com o motivo escrito em cada linha.
+
+### O placar da fila, antes e depois (`python3 dev_scripts/fila_b6.py`)
+
+| tipo | antes: pend. / feitas | depois: pend. / feitas / descart. / adiadas |
+|---|---|---|
+| sinnoh `coord_event` | 73 / 91 | 56 / 51 / 39 / 18 |
+| sinnoh `hidden_flag` | 206 / 70 | 126 / 69 / 35 / 46 |
+| **pendentes do B6 inteiro** | **312** | **215** |
+
+O que saiu de "pendente" por DECISÃO, e não por trabalho: os 34 clones (o campo
+`hidden_flag` da fonte guardando `MAP_HEADER_*`), os 27 do Amity e os 5 de
+mecânica inexistente (decisões 3 e 4), os 41 de Pokécenter/Mart (decisão 6), os
+17 de acompanhante (decisão 5), os visitantes da Villa, e Amity e Stark exterior
+como **descartados-por-mapa-provisório**. Mais três calibrações registradas: o
+grunt da Storage Key de Veilstone, que era falso "feita"; os trainers do
+`MtCoronet1FTunnelRoom`, que moram DE PROPÓSITO em outros mapas; e os
+`coord_events` decorativos dos portões de molde 13x9.
+
+### As lições de harness, consolidadas
+
+Valem para quem escrever caso novo. Todas medidas, nenhuma deduzida:
+
+1. **N+1 apertos por perna.** O runner segura o botão 6 quadros, e isso só VIRA
+   o jogador quando a direção é nova e ele está parado: perna de N tiles em
+   direção nova custa N+1 apertos.
+2. **Depois de uma perna que SATURA contra parede, a direção nova não custa o
+   aperto de virar.** Medido nesta leva, com traço de EWRAM: um `RIGHT` de dois
+   apertos contado como um tile andou DOIS e pôs o caso na coluna errada. As
+   duas regras juntas são o motivo de a régua boa ser "não conte tile".
+3. **~2 apertos de A por página de `msgbox`.** Espera é de graça, aperto de A
+   não é: A que sobra pode escolher coisa em menu.
+4. **Porta de casa só desce**, e **porta é WARP mesmo com colisão 1**: subir
+   para dentro dela tira o jogador do mapa. Foi assim que o par negativo da
+   bomba terminou dentro do portão do observatório enquanto o positivo passava
+   (a cena trancava o jogador antes de ele chegar na porta).
+5. **Tapete de saída é seta sul**: precisa de pausa e de um aperto a mais.
+6. **Elevação barra sem aparecer na colisão** (`IsElevationMismatchAt`); o bit
+   de colisão do `map.bin` não mostra isso.
+7. **Colisão não barra warp de seta**: a borda de conexão atravessa.
+8. **Rota se mede no `map.bin`, e se confere no traço de EWRAM.** Sempre que
+   der, use perna que SATURA: perna saturada não tem ambiguidade de um tile. Se
+   nenhuma perna saturar no eixo que interessa, faça a rota SERPENTINA entre
+   duas paredes, e **deixe o gatilho no MEIO da perna, não na ponta** (o
+   `coord_event` dispara ao ENTRAR no tile).
+
+### O que fica pendente, dito
+
+- **Mecânica de parceiro que anda junto** (decisão 5): as 6 vars dos cinco stat
+  trainers e do rival esperam desenho de mecânica.
+- **`MAP_ROUTE222` está partida no meio**: nenhuma entrada do lado de Valor
+  alcança a borda de Sunyshore. Pendência de MAPA, não de cena.
+- **Amity Square e Stark Mountain exterior são provisórios**: as cenas existem e
+  estão corretas, e voltam a existir quando os mapas reais do Platinum forem
+  importados.
+- **Visitantes da Villa**: a máquina de `VAR_RESORT_VILLA_VISITOR` não existe
+  neste motor.
+- **Pokécenter/Mart** (41 grupos): batalha diária e Mystery Gift, polimento de
+  fim de projeto.
+- **Biblioteca de Canalave**: continua sem escopo escrito (herdado do ESTADO 0).
+- **Dialga/Palkia do Spear Pillar** e o clímax da explosão dos lagos: fora desta
+  obra.
+- **`Route210_North`**: mapa não importado.
+- Da própria corrente de Pastoria: o valor 6, que a fonte põe em
+  `scripts_valor_lakefront.s:364`, continua sem escritor aqui, de propósito.
+
+---
+
 ## 0.d CONSOLIDAÇÃO DE 17/08/2026 (condutor Fable, executor Opus)
 
 Build verde (ROM 97,60% de 32 MB, EWRAM 85,94%, IWRAM 86,66%), **suíte 255/256**

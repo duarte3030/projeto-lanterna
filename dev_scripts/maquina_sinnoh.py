@@ -270,9 +270,24 @@ def fila():
                           encoding="utf-8"))
 
 
-def entradas_pendentes(tipo):
-    return [e for e in fila() if e["regiao"] == "sinnoh"
-            and e["tipo"] == tipo and e["status"] == "pendente"]
+def entradas_da_fila(tipo):
+    """Todas as linhas de Sinnoh daquele tipo, SEM olhar o `status`.
+
+    Era `entradas_pendentes`, e olhava `status == "pendente"`. Isso funcionou
+    enquanto a fila era a de 15/08/2026, em que os 164 gatilhos e os 247 grupos
+    estavam TODOS pendentes; virou bomba-relógio no dia em que a fila aprendeu
+    a marcar `feita`, `descartada` e `adiada` (fechamento de 18/08/2026): o
+    censo encolheu de 164 para 56 e o `--demo` ficou vermelho em três contagens
+    de uma vez, sem que nada da FONTE tivesse mudado.
+
+    O que esta máquina precisa da fila não é "o que falta fazer", é "quais
+    `coord_events` e grupos da fonte existem e casam com mapa importado". Isso
+    não muda quando um executor escreve uma cena, e por isso o status sai da
+    conta. O que NÃO deve ser portado continua fora por `FORA_DE_ESCOPO` e
+    `POKECENTER_MART`, que são as decisões do plano lidas aqui dentro, não por
+    efeito colateral do status de outra ferramenta.
+    """
+    return [e for e in fila() if e["regiao"] == "sinnoh" and e["tipo"] == tipo]
 
 
 def script_entries(arq_eventos):
@@ -427,7 +442,7 @@ def censo():
     flags_reais = set(re.findall(r"#define\s+(FLAG_\w+)", texto(FLAGS_H)))
 
     pend_gat = {(e["mapa_destino"], e["id"].split(":")[2], e["id"].split(":")[3])
-                for e in entradas_pendentes("coord_event")}
+                for e in entradas_da_fila("coord_event")}
     gatilhos, adiados = [], []
     tiles = collections.defaultdict(list)
     total_fonte = span_bruto = 0
@@ -543,10 +558,35 @@ def censo():
 
 def censo_vars():
     peso = collections.Counter(e["id"].split(":")[2]
-                               for e in entradas_pendentes("coord_event"))
+                               for e in entradas_da_fila("coord_event"))
     return [dict(fonte=f, alias=a, endereco=f"0x{e:04X}",
                  leva=LEVA.get(f, "?"), gatilhos_na_fila=peso.get(f, 0))
             for f, a, e in VARS]
+
+
+def alias_ja_gravados():
+    """`FLAG_HIDE_* da fonte -> (alias daqui, endereco)` já dentro de flags.h.
+
+    Existe porque ENDEREÇO DE FLAG GRAVADA É HISTÓRIA, não resultado de conta.
+    A alocação desta máquina saía inteira da fila, e a fila mexe: no fechamento
+    de 18/08/2026 ela aprendeu `feita`/`descartada`/`adiada`, o conjunto de
+    entrada mudou, e um `--gravar` inocente teria REESCRITO o bloco de flags de
+    Sinnoh com endereços diferentes, embaixo das dezenas de cenas que já citam
+    esses apelidos por nome. O `--demo` só pegou isso porque a contagem também
+    mudou; sem esta trava, o próximo executor teria descoberto pelo jogo.
+
+    A partir daqui: nome da fonte que já saiu gravado uma vez fica com o alias
+    e o endereço que ele tem, aconteça o que acontecer com a fila. Nome NOVO
+    (fonte nova, mapa importado depois) entra em append, depois do maior
+    endereço já usado, e é só isso que o gerador ainda decide.
+    """
+    t = texto(FLAGS_H)
+    if ABRE_F not in t:
+        return {}
+    bloco = t[t.index(ABRE_F):t.index(FECHA_F)]
+    return {fonte: (alias, ender) for alias, ender, fonte in re.findall(
+        r"#define\s+(FLAG_SINNOH_ESCONDE_\w+)\s+FLAG_UNUSED_(0x[0-9A-Fa-f]{4})"
+        r"\s*//\s*(FLAG_HIDE_\w+)", bloco)}
 
 
 def censo_flags(flags_reais):
@@ -558,17 +598,47 @@ def censo_flags(flags_reais):
     do nome da fonte, para a alocação não depender da ordem de varredura.
     """
     grupos = collections.defaultdict(list)
-    for e in entradas_pendentes("hidden_flag"):
+    for e in entradas_da_fila("hidden_flag"):
         nome = e["id"].split(":", 1)[1]
         grupos[nome].append(e)
+    ja_alocado = alias_ja_gravados()
 
     # candidato a reuso: nos grupos que a fila deu como "sem bloqueio" (ela já
     # provou que existe cena), a flag que o objeto plantado carrega.
     por_mapa = {}
     saida, alocado, reivindicada = [], FLAG_BASE, {}
+    # Endereço novo entra DEPOIS do maior já apelidado na faixa desta obra, e a
+    # varredura é o arquivo inteiro, não só o bloco gerado: as flags que a
+    # condutora autorizou à mão (0x1B9D a 0x1BA0, a corrente da bomba de
+    # Pastoria) moram FORA do bloco, e alocar por cima delas seria dar o mesmo
+    # bit para duas coisas.
+    usados = [int(e, 16) for e in re.findall(
+        r"#define\s+FLAG_\w+\s+FLAG_UNUSED_(0x[0-9A-Fa-f]{4})", texto(FLAGS_H))]
+    usados = [e for e in usados if FLAG_BASE <= e <= FLAG_TETO]
+    if usados:
+        alocado = max(usados) + 1
     for nome in sorted(grupos):
         gs = grupos[nome]
         mapas = sorted({g["mapa_destino"] for g in gs})
+        # HISTÓRIA MANDA. Nome da fonte que JÁ tem alias gravado em flags.h
+        # mantém alias e endereço, e nem passa pela classificação. Ver
+        # `alias_ja_gravados`: reclassificar isso reescreveria endereço de
+        # flag que dezenas de cenas já citam.
+        if nome in ja_alocado:
+            flag, ender = ja_alocado[nome]
+            saida.append(dict(fonte=nome, mapas=mapas, estado="nova",
+                              flag=flag, endereco=ender))
+            continue
+        # Grupo sem nenhuma linha PENDENTE na fila e sem alias gravado é grupo
+        # que já está no mapa carregando flag própria (ou que a fila descartou
+        # / adiou por decisão datada). Não é trabalho desta máquina, e alocar
+        # flag para ele gastaria endereço que nenhuma cena vai citar.
+        if not any(g["status"] == "pendente" for g in gs):
+            saida.append(dict(fonte=nome, mapas=mapas, estado="fora",
+                              motivo=("nenhuma linha pendente na fila e nenhum "
+                                      "alias gravado: feito, descartado ou "
+                                      "adiado por decisao datada")))
+            continue
         if nome.startswith("MAP_HEADER_"):
             saida.append(dict(fonte=nome, mapas=mapas, estado="clone",
                               motivo=("objeto clone da fonte: o campo "
@@ -678,6 +748,90 @@ def grava_flags(c):
     return len(novas)
 
 
+# --------------------------------------------------------- gatilhos da leva
+
+# Gatilhos cujo `coord_event` no `map.json` pertence à LEVA que escreveu a
+# cena, e não a esta máquina. Ela não planta, não move e não apaga nenhum
+# deles. Cada linha tem decisão ESCRITA no `scripts.inc` do próprio mapa, e
+# sem esta tabela um `--gravar` posterior desfazia calado o que a leva
+# decidiu (medido em 18/08/2026 pelo S8: 8 `coord_events` ressuscitados).
+#
+# Duas formas de entrar aqui:
+# (a) a leva REMOVEU o gatilho porque ele apontava para um rótulo morto (a
+#     cena equivalente já existe por clique/raio de visão, e o gatilho
+#     duplicaria a batalha ou custaria var só para lembrar que já rodou);
+# (b) a leva ESCOLHEU os tiles à mão contra o `map.bin`, e a conta
+#     proporcional desta máquina escolhe outros.
+LEVA_DONA = {
+    # (a), onda 4 (commit cfdb819d30), "três falso-gatilhos removidos com
+    # prova de cena equivalente já existente":
+    ("CanalaveCity", "CanalaveCity_EventScript_CoordEvent_Rival"):
+        "duplicaria a batalha de CanalaveCity_EventScript_Rival (raio de visao)",
+    ("GalacticHQ_Hall", "GalacticHQ_Hall_EventScript_CoordEvent_Speech"):
+        "discurso roda por dialogo replay-avel do Cyrus/Looker, sem var",
+    ("MtCoronet_1F_South", "MtCoronet_1F_South_EventScript_CoordEvent_Cyrus"):
+        "monologo ja portado no clique do Cyrus, sem var",
+    # (b), onda 5 (commit a7e7120d41 + PLANO-OBRAS-SINNOH.md, "Valor
+    # Lakefront: o bloqueio do Collector fecha UMA das duas saidas"): o span
+    # de 3 foi posto na seccao inteira da estrada sul, (45,57)/(45,58)/(45,59),
+    # medido em busca em largura sobre LAYOUT_VALOR_LAKEFRONT.
+    ("ValorLakefront", "ValorLakefront_EventScript_CoordEvent_BlockSunyshore"):
+        "tiles escolhidos a mao no map.bin, span de 3 na estrada sul",
+}
+
+
+def plano_de_reparo(gs, d, layout):
+    """De-para dos `coord_events` JÁ gravados que precisam mudar de tile.
+
+    Duas origens de tile ruim, e as duas saem daqui:
+
+    1. o tile que ESTE censo acabou de realocar (`tiles_movidos`) ou de perder
+       (`tiles_perdidos`). Casa pela posição ORIGINAL da fonte, que é a que
+       `realoca_tiles` conhece;
+    2. tile que uma rodada ANTERIOR gravou e que hoje é ruim sem bater com
+       nenhuma das duas listas acima. Isso acontece quando o mapa muda embaixo
+       do gatilho: o caso medido em 18/08/2026 é o Buck da Route227, gravado
+       em (30,19) por uma rodada em que aquele tile ainda estava livre, e
+       depois coberto pelo `object_event` do próprio Buck (objeto sem flag de
+       esconder entra em `tiles_bloqueados`). A posição velha não está em
+       `tiles_movidos` (que hoje diz (33,19) -> (29,19)), então o casamento
+       aqui é por SCRIPT: o gatilho vai para um tile que o censo de HOJE
+       escolheu e que ainda não está ocupado por outro gatilho do mesmo
+       script. Sem alvo livre, ele é apagado, que é o mesmo destino de um
+       tile perdido: gatilho em parede nunca dispara.
+
+    Tile gravado que está ANDÁVEL não entra em nenhum dos dois caminhos, e é
+    isso que preserva o que a leva mexeu à mão (o des-empilhamento de
+    `TwinleafTown_MainHouse_2F`, por exemplo).
+
+    Devolve `(mover, apagar)`: `mover` é `{(script, (x, y)): (x, y)}` e
+    `apagar` é um conjunto de `(script, (x, y))`.
+    """
+    gs = [g for g in gs if (g["mapa"], g["script"]) not in LEVA_DONA]
+    bloq = tiles_bloqueados(d)
+    ruim = lambda t: (not andavel(layout, *t)) or t in bloq   # noqa: E731
+    mover = {(g["script"], tuple(a)): tuple(b)
+             for g in gs for a, b in g["tiles_movidos"]}
+    apagar = {(g["script"], tuple(t))
+              for g in gs for t in g["tiles_perdidos"]}
+    alvos = {g["script"]: [tuple(t) for t in g["tiles"]] for g in gs}
+    gravados = collections.defaultdict(list)
+    for ce in (d.get("coord_events") or []):
+        if ce.get("script") in alvos:
+            gravados[ce["script"]].append(
+                (int(ce.get("x", 0)), int(ce.get("y", 0))))
+    for s, pts in sorted(gravados.items()):
+        livres = [t for t in alvos[s] if t not in pts]
+        for t in pts:
+            if (s, t) in mover or (s, t) in apagar or not ruim(t):
+                continue
+            if livres:
+                mover[(s, t)] = livres.pop(0)
+            else:
+                apagar.add((s, t))
+    return mover, apagar
+
+
 def grava_mapas(c):
     """Planta os `coord_events` e os esqueletos, um mapa por vez.
 
@@ -689,10 +843,15 @@ def grava_mapas(c):
     A CORREÇÃO DE ANDABILIDADE alcança o que já está gravado: gatilho nosso que
     hoje mora em parede/warp é MOVIDO para o destino que `realoca_tiles`
     calculou, e o que ficou sem destino é APAGADO (tile de parede nunca vai
-    disparar). Tile andável que a leva mexeu à mão não é tocado: ele não está
-    no `de_para`, e é isso que preserva o des-empilhamento de
-    `TwinleafTown_MainHouse_2F` que a condutora mandou fazer.
+    disparar). Quem decide isso é `plano_de_reparo`, que também alcança o tile
+    gravado por rodada ANTERIOR cuja posição velha não está no censo de hoje.
+    Tile andável que a leva mexeu à mão não é tocado: ele não entra no plano,
+    e é isso que preserva o des-empilhamento de `TwinleafTown_MainHouse_2F`
+    que a condutora mandou fazer.
     """
+    layouts = {l["id"]: l for l in json.load(
+        open(os.path.join(REPO, "data/layouts/layouts.json"),
+             encoding="utf-8"))["layouts"]}
     por_mapa = collections.defaultdict(list)
     for g in c["gatilhos"]:
         por_mapa[g["mapa"]].append(g)
@@ -701,10 +860,7 @@ def grava_mapas(c):
         pj = os.path.join(REPO, "data/maps", meu, "map.json")
         d = json.load(open(pj, encoding="utf-8"))
 
-        de_para = {(g["script"], tuple(a)): tuple(b)
-                   for g in gs for a, b in g["tiles_movidos"]}
-        morto = {(g["script"], tuple(t))
-                 for g in gs for t in g["tiles_perdidos"]}
+        de_para, morto = plano_de_reparo(gs, d, layouts[d["layout"]])
         vivos, mexeu = [], False
         for ce in (d.get("coord_events") or []):
             chave = (ce.get("script"),
@@ -723,6 +879,8 @@ def grava_mapas(c):
               for x in (d.get("coord_events") or [])}
         novos = []
         for g in gs:
+            if (g["mapa"], g["script"]) in LEVA_DONA:
+                continue
             for x, y in g["tiles"]:
                 if (x, y, g["var"]) in ja:
                     continue
@@ -771,11 +929,14 @@ def demo():
     DEPOIS: as contagens da FONTE e as provas de indexação não mudam de estado;
     as de pendência mudam, e por isso são conferidas contra o censo, não contra
     um número fixo de "quanto falta"."""
-    # 1. a fila continua com os 164 gatilhos que o plano mediu
-    pend = entradas_pendentes("coord_event")
-    assert len(pend) == 164, f"gatilhos pendentes na fila: {len(pend)} (esperado 164)"
-    hid = entradas_pendentes("hidden_flag")
-    assert len(hid) == 247, f"grupos de hidden_flag pendentes: {len(hid)} (esperado 247)"
+    # 1. a fila continua descrevendo os 164 gatilhos e os 247 grupos que o
+    # plano mediu (os 247 do plano eram os PENDENTES de 15/08; 276 é o
+    # total, que é o que não muda). É contagem da FONTE, não de pendência: ver
+    # `entradas_da_fila`, que foi o que quebrou no fechamento de 18/08.
+    pend = entradas_da_fila("coord_event")
+    assert len(pend) == 164, f"gatilhos de Sinnoh na fila: {len(pend)} (esperado 164)"
+    hid = entradas_da_fila("hidden_flag")
+    assert len(hid) == 276, f"grupos de hidden_flag na fila: {len(hid)} (esperado 276)"
 
     # 2. decisão 8: ScriptEntry é 1-based, provado nos dois mapas do plano
     am = script_entries("events_amity_square")
@@ -874,10 +1035,9 @@ def demo():
         # O que --gravar já sabe consertar não reprova o autoteste: é reparo
         # PENDENTE, e sai listado. Tile ruim que o gerador NÃO explica é
         # invariante quebrada, e aí sim para.
-        sabe_consertar = {(g["script"], tuple(t))
-                          for g in c["gatilhos"] if g["mapa"] == meu
-                          for t in ([a for a, _ in g["tiles_movidos"]]
-                                    + g["tiles_perdidos"])}
+        mover, apagar = plano_de_reparo(
+            [g for g in c["gatilhos"] if g["mapa"] == meu], d, L)
+        sabe_consertar = set(mover) | apagar
         for ce in (d.get("coord_events") or []):
             if ce.get("script") in nossos:
                 assert ce["script"] in rot, \
@@ -891,7 +1051,7 @@ def demo():
                 conferidos += 1
 
     print(f"demo ok ({MEDIDO_EM}):")
-    print(f"  fila: 164 gatilhos e 247 grupos pendentes de Sinnoh")
+    print(f"  fila: {len(pend)} gatilhos e {len(hid)} grupos de Sinnoh")
     print(f"  decisao 8 provada em Amity (27 warps, 18-44) e Twinleaf (2 e 4)")
     print(f"  vars: 49 alias, zero colisao de endereco em vars.h")
     print(f"  flags: {len(novas)} novas em 0x{FLAG_BASE:04X}+, zero colisao "

@@ -198,15 +198,31 @@ EventScript_ResetAllMapFlags::
 	setflag FLAG_SINNOH_ESCONDE_SOLACEON_TOWN_RIVAL
 	setflag FLAG_SINNOH_ESCONDE_VEILSTONE_STORE_B1F_PROF_ROWAN
 	@ Leva S6, onda 4 (18/08/2026): mesmo padrao das linhas acima. O rival de
-	@ Pastoria (PastoriaCity_EventScript_CoordEvent_RivalBattle) so cobre a
-	@ batalha em si (VAR_SINNOH_PASTORIA_ESTADO 1->2); o resto da corrente da
-	@ fonte (reposicionar depois do ginasio, bomba, BlockGreatMarsh) fica
-	@ bloqueado nesta leva porque depende do Crasher Wake, objeto fora do
-	@ censo do S1 (ver scripts.inc de PastoriaCity). Sem essas cenas, deixar o
-	@ objeto sempre visivel plantava ele preso na posicao de batalha depois do
-	@ primeiro encontro; nasce escondido, a propria cena revela e esconde de
-	@ volta no fecho, igual ao molde de Route203_EventScript_CoordEvent_Rival.
+	@ Pastoria (PastoriaCity_EventScript_CoordEvent_RivalBattle) cobre a
+	@ batalha em si (VAR_SINNOH_PASTORIA_ESTADO 1->2); a leva final (abaixo)
+	@ escreveu o resto da corrente (bomba, BlockGreatMarsh, Croagunk). Sem
+	@ esta linha o objeto do rival ficava preso na posicao de batalha depois
+	@ do primeiro encontro; nasce escondido, a propria cena revela e esconde
+	@ de volta no fecho, igual ao molde de Route203_EventScript_CoordEvent_
+	@ Rival.
 	setflag FLAG_SINNOH_ESCONDE_PASTORIA_CITY_RIVAL
+	@ Leva final (18/08/2026). Crasher Wake e Croagunk, os dois NPC de cena
+	@ que faltavam pra corrente da bomba (PastoriaCity_EventScript_
+	@ CoordEvent_Bomb/_CrasherWake/_CroagunkScene). Prova, ambas na fonte:
+	@ res/field/scripts/scripts_init_new_game.s:65 `SetFlag FLAG_HIDE_
+	@ PASTORIA_CITY_CROAGUNK` e :66 `SetFlag FLAG_HIDE_PASTORIA_CITY_
+	@ CRASHER_WAKE`. As duas so tem ClearFlag dentro da propria cena
+	@ (scripts_pastoria_city.s:477/519 pro Wake, :955 pro Croagunk); sem
+	@ esta linha os dois nasciam de pe no mapa desde o boot.
+	setflag FLAG_SINNOH_ESCONDE_PASTORIA_WAKE
+	setflag FLAG_SINNOH_ESCONDE_PASTORIA_CROAGUNK
+	@ Leva final (18/08/2026), prova colhida pelo executor de treinadores em
+	@ paralelo: a fonte liga isso no jogo novo em
+	@ res/field/scripts/scripts_init_new_game.s:79 `SetFlag FLAG_HIDE_
+	@ POKEMON_LEAGUE_NORTH_POKECENTER_1F_RIVAL`. Sem esta linha o rival da
+	@ leva paralela (PokemonLeagueNorthPokecenter1F) nascia de pe no
+	@ Pokecenter da Liga desde o boot.
+	setflag FLAG_SINNOH_ESCONDE_POKEMON_LEAGUE_NORTH_POKECENTER_1F_RIVAL
 	@ Cientista do portao da Route 218 (o pai do BARRY, que sobe a Pokedex).
 	@ Route218_West_EventScript_CoordEvent_ScientistM faz `clearflag`+`addobject`
 	@ no comeco e `setflag`+`removeobject` no fim: sem esta linha o `clearflag`

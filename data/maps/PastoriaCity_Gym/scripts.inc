@@ -33,6 +33,31 @@ PastoriaCity_Gym_EventScript_Leader::
 	trainerbattle_no_intro TRAINER_SINNOH_LEADER_WAKE, PastoriaCity_Gym_Text_Defeat
 	msgbox PastoriaCity_Gym_Text_Post, MSGBOX_DEFAULT
 	setflag FLAG_INSIGNIA_SINNOH_4
+	@ Leva final (18/08/2026): fecho da corrente de Pastoria, molde dos fechos
+	@ pos-vitoria de Maylene (VeilstoneCity_Gym) e Fantina (HearthomeCity_Gym).
+	@ Os tres comandos abaixo sao as tres linhas que a fonte poe aqui
+	@ (res/field/scripts/scripts_pastoria_city_gym.s:66-68).
+	@
+	@ DESVIO DE VALOR, documentado como a condutora pediu: a fonte escreve 3
+	@ aqui e so chega a 4 na cutscene `PastoriaCity_OnFrame_ExitGym`
+	@ (scripts_pastoria_city.s:524), a cena em que o Wake sai do ginasio atras
+	@ do jogador. Essa cutscene NAO foi portada (nao esta no censo do S1 nem em
+	@ nenhuma onda desta obra), e nada neste repositorio le o valor 3: `grep`
+	@ por VAR_SINNOH_PASTORIA_ESTADO em data/ da so os quatro coord_events de
+	@ PastoriaCity (valores 1, 4 e 5) e os escritores 2 e 5 do proprio mapa.
+	@ Escrever 3 e depois 4 seria duas linhas com uma sem efeito; escrevemos o
+	@ 4 direto, que e o estado em que a corrente da bomba fica ARMADA, e este
+	@ comentario e o registro do valor pulado.
+	setvar VAR_SINNOH_PASTORIA_ESTADO, 4
+	@ Fonte: SetFlag FLAG_HIDE_PASTORIA_CITY_GRUNT_M. O grunt que fica de pe na
+	@ cidade antes do ginasio some; quem o traz de volta e a propria cena da
+	@ bomba, com `clearflag`+`addobject` na posicao nova.
+	setflag FLAG_SINNOH_ESCONDE_PASTORIA_CITY_GRUNT_M
+	@ Fonte: SetFlag FLAG_BLOCK_PASTORIA_CITY_CROAGUNK_EVENT. Trava o sorteio
+	@ do Croagunk da placa (PastoriaCity_EventScript_CoordEvent_FaceBoard le
+	@ com goto_if_set). Quem apaga, na fonte, e scripts_valor_lakefront.s, fora
+	@ do escopo desta obra: aqui ela fica acesa a partir daqui.
+	setflag FLAG_SINNOH_PASTORIA_CROAGUNK_BLOQUEADO
 	release
 	end
 

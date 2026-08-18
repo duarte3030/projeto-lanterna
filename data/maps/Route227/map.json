@@ -185,7 +185,7 @@
     },
     {
       "type": "trigger",
-      "x": 30,
+      "x": 29,
       "y": 19,
       "elevation": 0,
       "var": "VAR_SINNOH_R227_BUCK_ESTADO",

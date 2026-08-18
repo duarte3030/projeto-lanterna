@@ -865,6 +865,14 @@
    ]
   },
   {
+   "estado": "fora",
+   "fonte": "FLAG_HIDE_CANALAVE_CITY_RIVAL_BRIDGE",
+   "mapas": [
+    "CanalaveCity"
+   ],
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
+  },
+  {
    "endereco": "0x1B0D",
    "estado": "nova",
    "flag": "FLAG_SINNOH_ESCONDE_CANALAVE_CITY_RIVAL_LIBRARY",
@@ -872,6 +880,14 @@
    "mapas": [
     "CanalaveCity"
    ]
+  },
+  {
+   "estado": "fora",
+   "fonte": "FLAG_HIDE_CANALAVE_CITY_SAILOR",
+   "mapas": [
+    "CanalaveCity"
+   ],
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
    "endereco": "0x1B0E",
@@ -926,6 +942,22 @@
    "mapas": [
     "CanalaveLibrary3F"
    ]
+  },
+  {
+   "estado": "fora",
+   "fonte": "FLAG_HIDE_CELESTIC_TOWN_ELDER",
+   "mapas": [
+    "CelesticTown"
+   ],
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
+  },
+  {
+   "estado": "fora",
+   "fonte": "FLAG_HIDE_CELESTIC_TOWN_GRUNT_M",
+   "mapas": [
+    "CelesticTown"
+   ],
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
    "endereco": "0x1B14",
@@ -997,6 +1029,7 @@
    "mapas": [
     "EternaCity",
     "TeamGalacticEternaBuilding_1F",
+    "TeamGalacticEternaBuilding_2F",
     "TeamGalacticEternaBuilding_3F"
    ],
    "prova": "a fila deu o grupo como sem bloqueio e o objeto ja plantado carrega esta flag"
@@ -1048,6 +1081,22 @@
    ]
   },
   {
+   "estado": "fora",
+   "fonte": "FLAG_HIDE_FLOAROMA_TOWN_GRUNTS",
+   "mapas": [
+    "FloaromaTown"
+   ],
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
+  },
+  {
+   "estado": "fora",
+   "fonte": "FLAG_HIDE_GALACTIC_HQ_HALL_GRUNTS",
+   "mapas": [
+    "GalacticHQ_Hall"
+   ],
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
+  },
+  {
    "candidatos": [
     "FLAG_GALACTICA_QG_CHAVE",
     "FLAG_GALACTICA_QG_TOMADO"
@@ -1055,6 +1104,7 @@
    "estado": "ambiguo",
    "fonte": "FLAG_HIDE_GALACTIC_HQ_TEAM_GALACTIC",
    "mapas": [
+    "GalacticHQ_1F",
     "GalacticHQ_2F",
     "GalacticHQ_3F",
     "GalacticHQ_B1F",
@@ -1191,6 +1241,22 @@
    ]
   },
   {
+   "estado": "fora",
+   "fonte": "FLAG_HIDE_JUBILIFE_GALACTIC_GRUNTS",
+   "mapas": [
+    "JubilifeCity"
+   ],
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
+  },
+  {
+   "estado": "fora",
+   "fonte": "FLAG_HIDE_JUBILIFE_ROWAN",
+   "mapas": [
+    "JubilifeCity"
+   ],
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
+  },
+  {
    "endereco": "0x1B2E",
    "estado": "nova",
    "flag": "FLAG_SINNOH_ESCONDE_JUBILIFE_TV_2F_REPORTER",
@@ -1216,6 +1282,22 @@
    "mapas": [
     "LakeAcuityLowWater"
    ]
+  },
+  {
+   "estado": "fora",
+   "fonte": "FLAG_HIDE_LAKE_ACUITY_RIVAL",
+   "mapas": [
+    "LakeAcuity"
+   ],
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
+  },
+  {
+   "estado": "fora",
+   "fonte": "FLAG_HIDE_LAKE_VALOR_GALACTIC",
+   "mapas": [
+    "LakeValorDrained"
+   ],
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
    "endereco": "0x1B31",
@@ -1263,7 +1345,15 @@
    ]
   },
   {
-   "estado": "adiado",
+   "estado": "fora",
+   "fonte": "FLAG_HIDE_LAKE_VERITY_TEAM_GALACTIC",
+   "mapas": [
+    "LakeVerity"
+   ],
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
+  },
+  {
+   "estado": "fora",
    "fonte": "FLAG_HIDE_MART_MYSTERY_GIFT_DELIVERYMAN",
    "mapas": [
     "CanalaveCityMart",
@@ -1280,16 +1370,35 @@
     "SunyshoreCityMart",
     "SurvivalAreaMart"
    ],
-   "motivo": "decisao 6: mecanica diaria/Mystery Gift, nao e cena de historia"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "reusada",
-   "flag": "FLAG_GALACTICA_MT_CORONET",
+   "estado": "fora",
+   "fonte": "FLAG_HIDE_MT_CORONET_1F_NORTH_ROOM_1_GRUNTS_M",
+   "mapas": [
+    "MtCoronet_1F_North_Room1"
+   ],
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
+  },
+  {
+   "estado": "fora",
+   "fonte": "FLAG_HIDE_MT_CORONET_1F_NORTH_ROOM_1_GRUNT_F",
+   "mapas": [
+    "MtCoronet_1F_North_Room1"
+   ],
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
+  },
+  {
+   "estado": "fora",
    "fonte": "FLAG_HIDE_MT_CORONET_GALACTIC_GRUNTS",
    "mapas": [
-    "MtCoronet1FTunnelRoom"
+    "MtCoronet1FTunnelRoom",
+    "MtCoronet3F",
+    "MtCoronet4FRooms1And2",
+    "MtCoronet5F",
+    "MtCoronet6F"
    ],
-   "prova": "a fila deu o grupo como sem bloqueio e o objeto ja plantado carrega esta flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
    "endereco": "0x1B36",
@@ -1374,7 +1483,7 @@
    ]
   },
   {
-   "estado": "adiado",
+   "estado": "fora",
    "fonte": "FLAG_HIDE_POKECENTER_DAILY_TRAINER_1",
    "mapas": [
     "CanalaveCityPokecenter1F",
@@ -1392,10 +1501,10 @@
     "SunyshoreCityPokecenter1F",
     "VeilstoneCityPokecenter1F"
    ],
-   "motivo": "decisao 6: mecanica diaria/Mystery Gift, nao e cena de historia"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "adiado",
+   "estado": "fora",
    "fonte": "FLAG_HIDE_POKECENTER_DAILY_TRAINER_2",
    "mapas": [
     "CanalaveCityPokecenter1F",
@@ -1413,7 +1522,7 @@
     "SunyshoreCityPokecenter1F",
     "VeilstoneCityPokecenter1F"
    ],
-   "motivo": "decisao 6: mecanica diaria/Mystery Gift, nao e cena de historia"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
    "endereco": "0x1B3F",
@@ -1432,6 +1541,14 @@
    "mapas": [
     "PokemonMansion"
    ]
+  },
+  {
+   "estado": "fora",
+   "fonte": "FLAG_HIDE_POKEMON_MANSION_FIVE_MAID_KNOCKOUT_MAID",
+   "mapas": [
+    "PokemonMansion"
+   ],
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
    "endereco": "0x1B41",
@@ -1614,6 +1731,14 @@
    ]
   },
   {
+   "estado": "fora",
+   "fonte": "FLAG_HIDE_ROUTE_205_SOUTH_GRUNTS",
+   "mapas": [
+    "Route205_South"
+   ],
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
+  },
+  {
    "endereco": "0x1B55",
    "estado": "nova",
    "flag": "FLAG_SINNOH_ESCONDE_ROUTE_205_SOUTH_LITTLE_GIRL",
@@ -1684,6 +1809,14 @@
    "mapas": [
     "Route209"
    ]
+  },
+  {
+   "estado": "fora",
+   "fonte": "FLAG_HIDE_ROUTE_210_SOUTH_JOGGER_WYATT",
+   "mapas": [
+    "Route210_South"
+   ],
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
    "endereco": "0x1B5D",
@@ -1866,6 +1999,14 @@
    ]
   },
   {
+   "estado": "fora",
+   "fonte": "FLAG_HIDE_ROUTE_218_BLOCKADE",
+   "mapas": [
+    "Route218"
+   ],
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
+  },
+  {
    "endereco": "0x1B71",
    "estado": "nova",
    "flag": "FLAG_SINNOH_ESCONDE_ROUTE_218_GATE_TO_CANALAVE_CITY_SCIENTIST_M",
@@ -1956,6 +2097,14 @@
    ]
   },
   {
+   "estado": "fora",
+   "fonte": "FLAG_HIDE_SANDGEM_TOWN_LAB_PROF_ROWAN",
+   "mapas": [
+    "SandgemTown_RowanLab"
+   ],
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
+  },
+  {
    "endereco": "0x1B7B",
    "estado": "nova",
    "flag": "FLAG_SINNOH_ESCONDE_SANDGEM_TOWN_PROF_ROWAN",
@@ -1972,6 +2121,14 @@
    "mapas": [
     "SandgemTown"
    ]
+  },
+  {
+   "estado": "fora",
+   "fonte": "FLAG_HIDE_SNOWPOINT_CITY_SAILOR_SS_SPIRAL",
+   "mapas": [
+    "SnowpointCity"
+   ],
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
    "endereco": "0x1B7D",
@@ -1992,15 +2149,12 @@
    ]
   },
   {
-   "candidatos": [
-    "FLAG_GALACTICA_MT_CORONET"
-   ],
-   "estado": "ambiguo",
+   "estado": "fora",
    "fonte": "FLAG_HIDE_SPEAR_PILLAR_GRUNTS",
    "mapas": [
     "SpearPillar"
    ],
-   "motivo": "decisao 9: reuso com mais de um candidato, ou candidato ja reivindicado por outro grupo da fonte; fusao e decisao de condutora, nao do gerador"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
    "endereco": "0x1B7F",
@@ -2064,6 +2218,22 @@
    "mapas": [
     "SurvivalArea"
    ]
+  },
+  {
+   "estado": "fora",
+   "fonte": "FLAG_HIDE_TEAM_GALACTIC_ETERNA_BUILDING_1F_GRUNT_M_LOOKER",
+   "mapas": [
+    "TeamGalacticEternaBuilding_1F"
+   ],
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
+  },
+  {
+   "estado": "fora",
+   "fonte": "FLAG_HIDE_TEAM_GALACTIC_ETERNA_BUILDING_4F_HOSTAGES",
+   "mapas": [
+    "TeamGalacticEternaBuilding_4F"
+   ],
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
    "endereco": "0x1B86",
@@ -2138,6 +2308,14 @@
    ]
   },
   {
+   "estado": "fora",
+   "fonte": "FLAG_HIDE_VALLEY_WINDWORKS_OUTSIDE_GRUNT_M",
+   "mapas": [
+    "ValleyWindworks"
+   ],
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
+  },
+  {
    "endereco": "0x1B8E",
    "estado": "nova",
    "flag": "FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_BEAUTY",
@@ -2183,6 +2361,15 @@
    ]
   },
   {
+   "endereco": "0x1BA1",
+   "estado": "nova",
+   "flag": "FLAG_SINNOH_ESCONDE_VEILSTONE_CITY_GRUNT_M_STORAGE_KEY",
+   "fonte": "FLAG_HIDE_VEILSTONE_CITY_GRUNT_M_STORAGE_KEY",
+   "mapas": [
+    "VeilstoneCity"
+   ]
+  },
+  {
    "endereco": "0x1B93",
    "estado": "nova",
    "flag": "FLAG_SINNOH_ESCONDE_VEILSTONE_COUNTERPART",
@@ -2192,13 +2379,16 @@
    ]
   },
   {
-   "estado": "reusada",
-   "flag": "FLAG_GALACTICA_QG_TOMADO",
+   "candidatos": [
+    "FLAG_GALACTICA_QG_TOMADO",
+    "FLAG_SINNOH_ESCONDE_VEILSTONE_COUNTERPART"
+   ],
+   "estado": "ambiguo",
    "fonte": "FLAG_HIDE_VEILSTONE_GALACTIC_GRUNTS",
    "mapas": [
     "VeilstoneCity"
    ],
-   "prova": "a fila deu o grupo como sem bloqueio e o objeto ja plantado carrega esta flag"
+   "motivo": "decisao 9: reuso com mais de um candidato, ou candidato ja reivindicado por outro grupo da fonte; fusao e decisao de condutora, nao do gerador"
   },
   {
    "endereco": "0x1B94",
@@ -2282,234 +2472,234 @@
    ]
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_ETERNA_CITY",
    "mapas": [
     "Route205_North",
     "Route211_West"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_FLOAROMA_TOWN",
    "mapas": [
     "Route205_South"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_GREAT_MARSH_4",
    "mapas": [
     "GreatMarsh6"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_GREAT_MARSH_5",
    "mapas": [
     "GreatMarsh6"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_JUBILIFE_CITY",
    "mapas": [
     "Route203"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_OREBURGH_CITY",
    "mapas": [
     "Route207"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_RESORT_AREA",
    "mapas": [
     "Route229"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_ROUTE_201",
    "mapas": [
     "SandgemTown",
     "TwinleafTown"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_ROUTE_202",
    "mapas": [
     "JubilifeCity",
     "SandgemTown"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_ROUTE_203",
    "mapas": [
     "JubilifeCity"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_ROUTE_205_NORTH",
    "mapas": [
     "EternaCity"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_ROUTE_205_SOUTH",
    "mapas": [
     "ValleyWindworks"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_ROUTE_206",
    "mapas": [
     "Route207"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_ROUTE_207",
    "mapas": [
     "Route206"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_ROUTE_209",
    "mapas": [
     "SolaceonTown"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_ROUTE_210_NORTH",
    "mapas": [
     "CelesticTown",
     "Route210_South"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_ROUTE_211_EAST",
    "mapas": [
     "CelesticTown"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_ROUTE_211_WEST",
    "mapas": [
     "EternaCity"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_ROUTE_212_SOUTH",
    "mapas": [
     "PastoriaCity"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_ROUTE_213",
    "mapas": [
     "ValorLakefront"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_ROUTE_215",
    "mapas": [
     "Route210_South"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_ROUTE_219",
    "mapas": [
     "SandgemTown"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_ROUTE_226",
    "mapas": [
     "SurvivalArea"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_ROUTE_227",
    "mapas": [
     "Route226"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_SANDGEM_TOWN",
    "mapas": [
     "Route201"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_SOLACEON_TOWN",
    "mapas": [
     "Route209",
     "Route210_South"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_SURVIVAL_AREA",
    "mapas": [
     "Route225",
     "Route226"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   },
   {
-   "estado": "clone",
+   "estado": "fora",
    "fonte": "MAP_HEADER_TWINLEAF_TOWN",
    "mapas": [
     "Route201"
    ],
-   "motivo": "objeto clone da fonte: o campo hidden_flag guarda o MAP_HEADER de origem, nao e flag"
+   "motivo": "nenhuma linha pendente na fila e nenhum alias gravado: feito, descartado ou adiado por decisao datada"
   }
  ],
  "gatilhos": [
@@ -4872,7 +5062,7 @@
    "script_fonte": 3,
    "tiles": [
     [
-     30,
+     29,
      19
     ]
    ],
@@ -4883,7 +5073,7 @@
       19
      ],
      [
-      30,
+      29,
       19
      ]
     ]

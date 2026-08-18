@@ -1,0 +1,158 @@
+[
+ {
+  "id": "T104.1",
+  "nome": "Sinnoh leva final: a BOMBA DE PASTORIA roda inteira e deixa a corrente em 5. VAR_SINNOH_PASTORIA_ESTADO (0x4142) vai PINADA em 4, que e o var_value do coord_event PastoriaCity_EventScript_CoordEvent_Bomb de (36,9). A pinagem e obrigatoria e o motivo esta escrito no proprio scripts.inc: quem escreve o 4 na fonte e a cutscene PastoriaCity_OnFrame_ExitGym, que este porte nao tem; na leva final o ginasio passou a escrever o 4 direto (PastoriaCity_Gym/scripts.inc, desvio de valor documentado la), e o ginasio so e alcancavel jogando a batalha do Wake ate o fim, coisa que este harness nao faz. A PROVA nao e 'apareceu texto': sao tres fatos de EWRAM que so existem depois da ULTIMA linha de PastoriaCity_EventScript_GoAfterThatGoon. (a) 0x4142 == 5, o setvar do fecho; (b) FLAG_SINNOH_PASTORIA_GRUNT_FUGIU_LESTE (0x1B9D) ACESA, o setflag da linha seguinte, que nasce APAGADA (nada em data/scripts/new_game.inc a acende) e so tem um escritor no repositorio inteiro, esta cena; (c) FLAG_SINNOH_ESCONDE_PASTORIA_WAKE (0x1B9F) ACESA, que aqui e o GUARDIAO DO CONSERTO DA LEVA FINAL: a cena APAGA essa flag no comeco (para poder addobject no Crasher Wake) e a ACENDE de novo imediatamente antes do removeobject do fecho. Se alguem tirar esse setflag, o Wake fica de pe no mapa depois da explosao carregando PastoriaCity_EventScript_CrasherWake como script de clique, e a cutscene inteira vira replayavel; este caso fica vermelho na hora. Os 40 apertos de A pagam as ~17 paginas de msgbox da corrente (2 de DontForgetImHere, 1 de WheresThisGalac, 1 de BigExplosion, 1 de ThatWasRough, 1 de WhatveYouDone, 5 de IPushedTheButton, 1 de GreatMarshIsInvaluable, 2 de DoNotFollowMe e 3 de GoAfterThatGoon) no ritmo medido de ~2 A por pagina. Aperto de A que sobra e inofensivo: no fim da cena o Wake ja foi removido, o Grunt_M esta em (63,11) e o jogador para em (37,10), sem NPC ao lado. GEOMETRIA de PastoriaCity medida em 18/08/2026 contra data/layouts/PastoriaCity/map.bin (68x60), e a rota foi corrigida DUAS vezes no fechamento, as duas por medicao de traco de EWRAM (x,y passo a passo), nao por leitura de mapa. As duas licoes ficam escritas aqui porque as duas sao gerais. (1) PORTA E WARP MESMO COM COLISAO 1: a primeira rota subia a coluna 36 ate saturar e pisava no proprio (36,8), o warp 4 (porta do portao do Great Marsh); o positivo nao acusava, porque a cena tranca o jogador em (36,9) antes, e o negativo, que nao tranca nada, terminou dentro de MAP_PASTORIA_CITY_OBSERVATORY_GATE_1F. (2) DEPOIS DE UMA PERNA QUE SATURA, aperto em direcao nova NAO gasta um toque para virar: a segunda rota fazia `RIGHT` duas vezes contando um tile pela regua N+1 e andou DOIS, parando na coluna 38, que e parede na linha 9; o jogador saturou em (38,10) e varreu a linha 10 inteira sem nunca pisar no gatilho. A rota final NAO CONTA TILE NENHUM: a pousada do warp 4 e (36,9) (medida no traco), LEFT satura em (32,9) porque x=31 e parede, e RIGHT satura em (37,9) porque x=38 e parede, PASSANDO por (36,9), que E o tile dos dois coord_events da corrente da bomba. O gatilho dispara ao ENTRAR no tile, entao sair dele na perna de ida nao conta e voltar nele na perna de volta conta. Nenhuma das duas pernas encosta em (36,8). Sem FLAG_SEM_ENCONTRO_SELVAGEM: MAP_PASTORIA_CITY so tem water_mons e fishing_mons em src/data/wild_encounters.json.",
+  "vars": {
+   "0x4142": 4
+  },
+  "warp": "MAP_PASTORIA_CITY",
+  "warp_id": 4,
+  "roteiro": "60:NADA,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,600:NADA",
+  "prova": {
+   "mapa": "MAP_PASTORIA_CITY",
+   "vars": {
+    "0x4142": 5
+   },
+   "flags_acesas": [
+    "FLAG_SINNOH_PASTORIA_GRUNT_FUGIU_LESTE",
+    "FLAG_SINNOH_ESCONDE_PASTORIA_WAKE"
+   ]
+  }
+ },
+ {
+  "id": "T104.2",
+  "nome": "PAR NEGATIVO do T104.1, e o caso que da sentido a ele. MESMO warp, MESMA rota, e VAR_SINNOH_PASTORIA_ESTADO (0x4142) PINADA em 3, que e EXATAMENTE o valor que a fonte escreve na vitoria do ginasio de Pastoria (res/field/scripts/scripts_pastoria_city_gym.s:66) e que o nosso porte deliberadamente PULA (o fecho do ginasio escreve 4 direto, porque a cutscene que levava 3 a 4 nao foi portada). Com 3, os dois coord_events de (36,9) pedem 4 e 5 e nenhum dispara: o jogador sobe ate a porta do Great Marsh e nada acontece. Tres provas: a var intacta em 3, FLAG_SINNOH_PASTORIA_GRUNT_FUGIU_LESTE APAGADA (se ela acender sem a cena, o setflag vazou para fora do fecho) e `andou`, que prova que o jogador cruzou os tiles em vez de ter congelado antes deles. DISCRIMINA duas coisas: que o coord_event respeita `var_value`, e que a corrente NAO dispara em qualquer estado, que e o mundo em que o T104.1 passaria com a bomba explodindo antes da insignia. SEM NENHUM A de proposito: nada deve abrir, entao nada precisa ser fechado, e um A perdido em (36,9) nao pode inventar cena (nenhum objeto com script mora ao lado; o Wake de (37,9) nasce escondido). GEOMETRIA de PastoriaCity medida em 18/08/2026 contra data/layouts/PastoriaCity/map.bin (68x60), e a rota foi corrigida DUAS vezes no fechamento, as duas por medicao de traco de EWRAM (x,y passo a passo), nao por leitura de mapa. As duas licoes ficam escritas aqui porque as duas sao gerais. (1) PORTA E WARP MESMO COM COLISAO 1: a primeira rota subia a coluna 36 ate saturar e pisava no proprio (36,8), o warp 4 (porta do portao do Great Marsh); o positivo nao acusava, porque a cena tranca o jogador em (36,9) antes, e o negativo, que nao tranca nada, terminou dentro de MAP_PASTORIA_CITY_OBSERVATORY_GATE_1F. (2) DEPOIS DE UMA PERNA QUE SATURA, aperto em direcao nova NAO gasta um toque para virar: a segunda rota fazia `RIGHT` duas vezes contando um tile pela regua N+1 e andou DOIS, parando na coluna 38, que e parede na linha 9; o jogador saturou em (38,10) e varreu a linha 10 inteira sem nunca pisar no gatilho. A rota final NAO CONTA TILE NENHUM: a pousada do warp 4 e (36,9) (medida no traco), LEFT satura em (32,9) porque x=31 e parede, e RIGHT satura em (37,9) porque x=38 e parede, PASSANDO por (36,9), que E o tile dos dois coord_events da corrente da bomba. O gatilho dispara ao ENTRAR no tile, entao sair dele na perna de ida nao conta e voltar nele na perna de volta conta. Nenhuma das duas pernas encosta em (36,8). Sem FLAG_SEM_ENCONTRO_SELVAGEM: MAP_PASTORIA_CITY so tem water_mons e fishing_mons em src/data/wild_encounters.json.",
+  "vars": {
+   "0x4142": 3
+  },
+  "warp": "MAP_PASTORIA_CITY",
+  "warp_id": 4,
+  "roteiro": "60:NADA,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,300:NADA",
+  "prova": {
+   "mapa": "MAP_PASTORIA_CITY",
+   "vars": {
+    "0x4142": 3
+   },
+   "flags_apagadas": [
+    "FLAG_SINNOH_PASTORIA_GRUNT_FUGIU_LESTE"
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T104.3",
+  "nome": "Sinnoh leva final: o GATILHO DA PLACA DO CROAGUNK dispara e escreve o ramo DETERMINISTICO da cena. A cena da placa (PastoriaCity_EventScript_CoordEvent_FaceBoard) tem um sorteio de 10% dentro (`randompercentage 10`, que e o GetRandom/GoToIfGe 90 da fonte), e sorteio nao se prova por corrida unica. O que se prova e o que roda ANTES do sorteio, e e por isso que a var existe: `setvar VAR_SINNOH_PASTORIA_CROAGUNK_CENA, 1` (0x4140) esta entre o goto_if_set da flag de bloqueio e o randompercentage, entao 0x4140 == 1 no fim prova que o gatilho disparou e que o ramo bloqueado NAO foi tomado, aconteca o que acontecer no sorteio. Se o Croagunk pular (10%), a cena so acrescenta movimento e o grito, sem msgbox, e termina no mesmo releaseall: a prova vale nos dois ramos, e por isso este caso nao e flakeavel. A var vai PINADA em 0 explicitamente, que e ao mesmo tempo o valor de nascimento e o var_value do coord_event, para o par negativo T104.4 ser a MESMA corrida com uma flag trocada. VAR_SINNOH_PASTORIA_ESTADO NAO e pinada: ela fica no 0 de nascimento, e com isso os dois coord_events de (36,9) (que pedem 4 e 5) ficam desarmados, o que mantem esta corrida limpa da corrente da bomba. SEM NENHUM A de proposito. GEOMETRIA de PastoriaCity medida em 18/08/2026 contra data/layouts/PastoriaCity/map.bin (68x60), e a rota e SERPENTINA de proposito, sem uma unica perna contada por tiles. As colunas 34, 35 e 36 sao andaveis de y=9 a y=20, a linha 8 e parede inteira e a linha 21 e parede de x=30 a x=39: toda perna vertical dessas tres colunas SATURA nas duas pontas. As pernas horizontais sao de UM tile (dois apertos: o primeiro so vira, porque o jogador vinha andando na vertical, que e a regua N+1 medida na onda 4). Rota: DOWN satura em (36,20), LEFT 1 para (35,20), UP satura em (35,9), LEFT 1 para (34,9), DOWN satura em (34,20) PASSANDO por (34,13), que e o coord_event da placa. O gatilho dispara ao ENTRAR no tile, entao ele nao precisa ser o fim da perna. Nenhum NPC de vagar encosta: os objetos fixos e vagantes do mapa moram em x=20..32 e x=37..49, fora das colunas 34/35/36 (o Croagunk de (37,19) e o Wake de (37,9) nascem escondidos por flag, e o Grunt_M de (40,9) esta em outra coluna). Sem FLAG_SEM_ENCONTRO_SELVAGEM: MAP_PASTORIA_CITY so tem water_mons e fishing_mons.",
+  "vars": {
+   "0x4140": 0
+  },
+  "warp": "MAP_PASTORIA_CITY",
+  "warp_id": 4,
+  "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_PASTORIA_CITY",
+   "vars": {
+    "0x4140": 1
+   },
+   "andou": true
+  }
+ },
+ {
+  "id": "T104.4",
+  "nome": "PAR NEGATIVO do T104.3, e ele guarda a fiacao do ginasio. MESMO warp, MESMA rota, MESMOS apertos, MESMA var pinada em 0, e uma unica diferenca: FLAG_SINNOH_PASTORIA_CROAGUNK_BLOQUEADO (0x1B9E) acesa por escrita direta na EWRAM. Essa e a flag que o fecho pos-vitoria de PastoriaCity_Gym passou a acender na leva final (fonte: SetFlag FLAG_BLOCK_PASTORIA_CITY_CROAGUNK_EVENT em scripts_pastoria_city_gym.s:68), e o primeiro comando da cena da placa e `goto_if_set` dela. Com ela acesa, a cena salta para PastoriaCity_EventScript_FaceBoardEnd ANTES do setvar, e 0x4140 fica em 0. Duas provas: a var intacta em 0 e `andou`. DISCRIMINA: sem este caso o T104.3 passaria num mundo em que o goto_if_set nao le nada e o Croagunk continua pulando na frente do jogador depois de o ginasio ter fechado o evento, que e exatamente o defeito que a flag existe para impedir. Vale tambem como guardiao indireto do fecho do ginasio: se alguem tirar aquele setflag, nada nesta ROM acende a flag e este par perde o sentido, mas o T104.4 continua provando que o ramo existe e funciona. SEM NENHUM A de proposito. GEOMETRIA de PastoriaCity medida em 18/08/2026 contra data/layouts/PastoriaCity/map.bin (68x60), e a rota e SERPENTINA de proposito, sem uma unica perna contada por tiles. As colunas 34, 35 e 36 sao andaveis de y=9 a y=20, a linha 8 e parede inteira e a linha 21 e parede de x=30 a x=39: toda perna vertical dessas tres colunas SATURA nas duas pontas. As pernas horizontais sao de UM tile (dois apertos: o primeiro so vira, porque o jogador vinha andando na vertical, que e a regua N+1 medida na onda 4). Rota: DOWN satura em (36,20), LEFT 1 para (35,20), UP satura em (35,9), LEFT 1 para (34,9), DOWN satura em (34,20) PASSANDO por (34,13), que e o coord_event da placa. O gatilho dispara ao ENTRAR no tile, entao ele nao precisa ser o fim da perna. Nenhum NPC de vagar encosta: os objetos fixos e vagantes do mapa moram em x=20..32 e x=37..49, fora das colunas 34/35/36 (o Croagunk de (37,19) e o Wake de (37,9) nascem escondidos por flag, e o Grunt_M de (40,9) esta em outra coluna). Sem FLAG_SEM_ENCONTRO_SELVAGEM: MAP_PASTORIA_CITY so tem water_mons e fishing_mons.",
+  "flags": [
+   "FLAG_SINNOH_PASTORIA_CROAGUNK_BLOQUEADO"
+  ],
+  "vars": {
+   "0x4140": 0
+  },
+  "warp": "MAP_PASTORIA_CITY",
+  "warp_id": 4,
+  "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_PASTORIA_CITY",
+   "vars": {
+    "0x4140": 0
+   },
+   "andou": true
+  }
+ },
+ {
+  "id": "T104.5",
+  "nome": "Sinnoh leva final: o RIVAL DO POKECENTER DA LIGA abre batalha, e o oponente e a VARIANTE certa do inicial. VAR_SINNOH_RIVAL_VENCEU_SUNYSHORE (0x4147) vai PINADA em 0, que e o valor de nascimento e o var_value dos tres coord_events do mapa; VAR_STARTER_MON (0x4023) vai PINADA em 1, que e o ramo do CHIMCHAR no `call_if_eq` da cena. A prova NAO e 'abriu batalha': e `oponente` == TRAINER_SINNOH_RIVAL_POKEMON_LEAGUE_CHIMCHAR, lido de gTrainerBattleParameter+2 na EWRAM, mais a faixa 2500..2519, que e a faixa EXCLUSIVA desta frente em include/constants/opponents.h e por isso separa 'o id caiu na familia certa' de 'o id caiu num vizinho de tabela'. Pinar o inicial em 1 e o ponto: o rival tem TRES ids (2515 TURTWIG, 2516 CHIMCHAR, 2517 PIPLUP) e um caso que so olhasse a faixa passaria com os tres trocados de lugar. A batalha nao se joga: o id ja esta escrito quando ScrCmd_trainerbattle chama TrainerBattleLoadArgs, antes de qualquer dotrainerbattle, e o mapa continua MAP_POKEMON_LEAGUE_NORTH_POKECENTER_1F porque batalha nao teleporta ninguem. Os 10 apertos de A pagam as 3 paginas de PokemonLeagueNorthPokecenter1F_Text_RivalIntro no ritmo medido de ~2 A por pagina, com folga. VAR_SINNOH_RIVAL_VENCEU_SUNYSHORE nao entra na prova de proposito: o `setvar ..., 1` mora DEPOIS da batalha, e o harness nao joga batalha. GEOMETRIA de PokemonLeagueNorthPokecenter1F medida em 18/08/2026 contra data/layouts/PokemonLeagueNorthPokecenter1F/map.bin (14x9). Warp 1 e (7,8), uma das duas casas do tapete de saida do sul; o warp 0 ((6,8)) foi DESCARTADO de proposito porque o objeto PICNICKER do map.json mora exatamente em (6,8) e a pousada ficaria disputada. A coluna 7 e andavel de y=4 a y=8 e (7,3) e parede, entao UP SATURA em (7,4), que E um dos tres coord_events do mapa (os outros dois sao (6,4) e (10,2)). A perna satura: aperto a mais ou a menos nao muda o tile final. Interior, sem entrada em src/data/wild_encounters.json, entao FLAG_SEM_ENCONTRO_SELVAGEM nao entra.",
+  "vars": {
+   "0x4147": 0,
+   "0x4023": 1
+  },
+  "warp": "MAP_POKEMON_LEAGUE_NORTH_POKECENTER_1F",
+  "warp_id": 1,
+  "roteiro": "60:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_POKEMON_LEAGUE_NORTH_POKECENTER_1F",
+   "oponente": "TRAINER_SINNOH_RIVAL_POKEMON_LEAGUE_CHIMCHAR",
+   "oponente_faixa": [
+    2500,
+    2519
+   ]
+  }
+ },
+ {
+  "id": "T104.6",
+  "nome": "PAR NEGATIVO do T104.5. MESMO warp, MESMA rota, MESMO inicial pinado, e VAR_SINNOH_RIVAL_VENCEU_SUNYSHORE (0x4147) PINADA em 1, que e EXATAMENTE o valor que o fecho da propria cena escreve depois da vitoria: os tres coord_events pedem 0, entao a emboscada nao existe, o jogador atravessa o Pokecenter e nenhuma batalha e montada. Tres provas: `oponente` em 0 (gTrainerBattleParameter nasce zerado no boot e nada nesta corrida escreve nele, entao 0 prova que nao houve duelo nenhum), a var intacta em 1, e `andou`. DISCRIMINA duas coisas: que o coord_event respeita `var_value`, e que a cena NAO ressuscita depois de rodada, que e o mundo em que o T104.5 passaria com o rival duelando para sempre na porta da Liga. SEM NENHUM A de proposito, e aqui isso e mais do que higiene: o objeto do rival tem `script: 0` no map.json (quem o traz e o addobject da cena), entao nem falar com ele abriria coisa alguma, e um A perdido nao pode inventar batalha. GEOMETRIA de PokemonLeagueNorthPokecenter1F medida em 18/08/2026 contra data/layouts/PokemonLeagueNorthPokecenter1F/map.bin (14x9). Warp 1 e (7,8), uma das duas casas do tapete de saida do sul; o warp 0 ((6,8)) foi DESCARTADO de proposito porque o objeto PICNICKER do map.json mora exatamente em (6,8) e a pousada ficaria disputada. A coluna 7 e andavel de y=4 a y=8 e (7,3) e parede, entao UP SATURA em (7,4), que E um dos tres coord_events do mapa (os outros dois sao (6,4) e (10,2)). A perna satura: aperto a mais ou a menos nao muda o tile final. Interior, sem entrada em src/data/wild_encounters.json, entao FLAG_SEM_ENCONTRO_SELVAGEM nao entra.",
+  "vars": {
+   "0x4147": 1,
+   "0x4023": 1
+  },
+  "warp": "MAP_POKEMON_LEAGUE_NORTH_POKECENTER_1F",
+  "warp_id": 1,
+  "roteiro": "60:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,300:NADA",
+  "prova": {
+   "mapa": "MAP_POKEMON_LEAGUE_NORTH_POKECENTER_1F",
+   "vars": {
+    "0x4147": 1
+   },
+   "oponente": 0,
+   "andou": true
+  }
+ },
+ {
+  "id": "T104.7",
+  "nome": "Sinnoh leva final: o LOOKER DO ARMAZEM DA GALACTICA DA A PARTIDA na corrente de Pastoria. Este caso guarda a fiacao 1b da leva final. Na fonte, o UNICO SetVar VAR_PASTORIA_CITY_STATE, 1 do jogo inteiro mora em res/field/scripts/scripts_veilstone_city_galactic_warehouse.s:89, dentro da cutscene OnFrame_EnterWithLooker que esta casa descartou ao redesenhar o armazem; sem ela, a corrente de Pastoria inteira ficava sem partida e so a suite alcancava as cenas dela. O ponto equivalente do fluxo NOSSO e a fala VeilstoneCity_GalacticWarehouse_Text_WeDidntLearnMuch, a mesma que vem logo depois do SetVar na fonte e a mesma que conta que a Galactica levou algo para Pastoria. VAR_SINNOH_PASTORIA_ESTADO (0x4142) NAO e pinada: 0 e o valor de nascimento e o caso testa o jogo como ele e. A prova e 0x4142 == 1 depois de falar com o Looker, e ela so fica verdadeira se o `call_if_eq` tiver rodado, ou seja se a conversa tiver chegado ate o rotulo LookerAfter. Os 34 apertos de A pagam as ~13 paginas do trecho (1 de IHaveKeptYouWaiting, 4 de IWillUseTheStorageKey, ~2 do giveitem ITEM_STORAGE_KEY, 2 de YouHadBetterKeepIt e 4 de WeDidntLearnMuch) no ritmo medido de ~2 A por pagina. Aperto de A que sobra reabre a conversa pelo ramo LookerAfter e no maximo reescreve o mesmo 1 (o call_if_eq so age com a var em 0), entao nao ha como passar torto por excesso. GEOMETRIA de VeilstoneCity_GalacticWarehouse medida em 18/08/2026 contra data/layouts/FallarborTown_LeftoverRSContestLobby/map.bin (15x7, o salao de concurso descartado que o armazem reaproveita). Warp 1 e (6,6). A coluna 6 e andavel em y=5 e y=6, e (6,4) e o proprio LOCALID_VEILSTONE_WAREHOUSE_LOOKER (objeto sem flag de esconder, sempre plantado): UP SATURA em (6,5), encostado nele e virado para cima, que e o que faz o A falar com o Looker. A perna satura. Os dois coord_events do mapa ((2,6) e (4,6)) pedem VAR_SINNOH_VEILSTONE_ARMAZEM_ESTADO em 3 e a var nasce em 0, entao a rota nao encosta em gatilho nenhum. Interior, sem entrada em src/data/wild_encounters.json.",
+  "warp": "MAP_VEILSTONE_CITY_GALACTIC_WAREHOUSE",
+  "warp_id": 1,
+  "roteiro": "60:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_VEILSTONE_CITY_GALACTIC_WAREHOUSE",
+   "vars": {
+    "0x4142": 1
+   }
+  }
+ },
+ {
+  "id": "T104.8",
+  "nome": "PAR NEGATIVO do T104.7, e o guardiao da GUARDA `call_if_eq` da fiacao 1b. MESMO warp, MESMA rota, MESMOS apertos, e VAR_SINNOH_PASTORIA_ESTADO (0x4142) PINADA em 5, que e o estado em que a bomba de Pastoria ja explodiu. Falar com o Looker de novo NAO pode devolver a var para 1: se devolvesse, o jogador que voltasse ao armazem depois da explosao rearmaria a batalha do rival de Pastoria e a corrente inteira andaria duas vezes. A prova e a var INTACTA em 5. DISCRIMINA exatamente a linha `call_if_eq VAR_SINNOH_PASTORIA_ESTADO, 0, ...`: sem ela, o setvar seria incondicional e este caso ficaria vermelho, enquanto o T104.7 continuaria verde. Os apertos de A sao os mesmos do positivo de proposito: par negativo com roteiro diferente nao e par, e a conversa do Looker roda igual nos dois (o ramo LookerAfter e o mesmo, so o setvar e que fica de fora). GEOMETRIA de VeilstoneCity_GalacticWarehouse medida em 18/08/2026 contra data/layouts/FallarborTown_LeftoverRSContestLobby/map.bin (15x7, o salao de concurso descartado que o armazem reaproveita). Warp 1 e (6,6). A coluna 6 e andavel em y=5 e y=6, e (6,4) e o proprio LOCALID_VEILSTONE_WAREHOUSE_LOOKER (objeto sem flag de esconder, sempre plantado): UP SATURA em (6,5), encostado nele e virado para cima, que e o que faz o A falar com o Looker. A perna satura. Os dois coord_events do mapa ((2,6) e (4,6)) pedem VAR_SINNOH_VEILSTONE_ARMAZEM_ESTADO em 3 e a var nasce em 0, entao a rota nao encosta em gatilho nenhum. Interior, sem entrada em src/data/wild_encounters.json.",
+  "vars": {
+   "0x4142": 5
+  },
+  "warp": "MAP_VEILSTONE_CITY_GALACTIC_WAREHOUSE",
+  "warp_id": 1,
+  "roteiro": "60:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_VEILSTONE_CITY_GALACTIC_WAREHOUSE",
+   "vars": {
+    "0x4142": 5
+   }
+  }
+ },
+ {
+  "id": "T104.9",
+  "nome": "GUARDIAO DAS TRES FLAGS NOVAS DO JOGO NOVO da leva final. Sem warp e sem roteiro: so a abertura padrao, que termina com o jogador no quarto de Pallet Town, e a leitura das flags na EWRAM. As tres nascem ACESAS porque data/scripts/new_game.inc as acende, e as tres tem prova na fonte: FLAG_SINNOH_ESCONDE_PASTORIA_CROAGUNK e FLAG_SINNOH_ESCONDE_PASTORIA_WAKE sao o SetFlag FLAG_HIDE_PASTORIA_CITY_CROAGUNK e o SetFlag FLAG_HIDE_PASTORIA_CITY_CRASHER_WAKE de res/field/scripts/scripts_init_new_game.s:65-66, e FLAG_SINNOH_ESCONDE_POKEMON_LEAGUE_NORTH_POKECENTER_1F_RIVAL e o SetFlag FLAG_HIDE_POKEMON_LEAGUE_NORTH_POKECENTER_1F_RIVAL da linha 79 do mesmo arquivo. O que este caso impede e concreto e ja aconteceu duas vezes nesta obra: objeto de cena plantado no map.json com flag de esconder e SEM a linha no new_game.inc nasce DE PE no mapa desde o boot, spoilando a cena e virando obstaculo (o Rival de Sunyshore da onda 5 e o counterpart de Veilstone da onda 4 foram os dois casos). Se alguem apagar qualquer uma das tres linhas, o Crasher Wake e o Croagunk aparecem parados em Pastoria e o rival aparece parado no Pokecenter da Liga desde o primeiro quadro do jogo, e este caso fica vermelho antes de qualquer humano abrir o emulador.",
+  "prova": {
+   "mapa": "MAP_PALLET_TOWN_PLAYERS_HOUSE_2F",
+   "flags_acesas": [
+    "FLAG_SINNOH_ESCONDE_PASTORIA_WAKE",
+    "FLAG_SINNOH_ESCONDE_PASTORIA_CROAGUNK",
+    "FLAG_SINNOH_ESCONDE_POKEMON_LEAGUE_NORTH_POKECENTER_1F_RIVAL"
+   ]
+  }
+ }
+]

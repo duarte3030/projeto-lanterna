@@ -43,14 +43,33 @@ VeilstoneCity_GalacticWarehouse_EventScript_Looker::
 	giveitem ITEM_STORAGE_KEY
 	goto_if_eq VAR_RESULT, FALSE, VeilstoneCity_GalacticWarehouse_EventScript_NoRoomForKey
 	msgbox VeilstoneCity_GalacticWarehouse_Text_YouHadBetterKeepIt, MSGBOX_DEFAULT
+	goto VeilstoneCity_GalacticWarehouse_EventScript_LookerAfter
+	end
+
+@ Leva final (18/08/2026). A fala WeDidntLearnMuch e a que diz que a Galactica
+@ levou ALGUMA COISA para Pastoria: na fonte ela vem logo depois de
+@ `SetVar VAR_PASTORIA_CITY_STATE, 1` (o UNICO escritor do valor 1 em toda a
+@ fonte, scripts_veilstone_city_galactic_warehouse.s:89), dentro da cutscene
+@ `VeilstoneCityGalacticWarehouse_OnFrame_EnterWithLooker`. Aquela cutscene
+@ foi descartada por esta casa (ver o ponytail do topo do arquivo: o fluxo
+@ virou "falar com o Looker" + "abrir a porta enferrujada"), e sem ela a
+@ corrente de Pastoria inteira ficava sem partida. O ponto equivalente do
+@ fluxo NOSSO e exatamente aqui, colado na mesma fala, e as duas portas de
+@ entrada (primeira conversa e conversa repetida) passam por este rotulo.
+@
+@ `call_if_eq ... 0` e obrigatorio, nao enfeite: sem ele, falar com o Looker
+@ depois de a corrente ter andado (batalha do rival = 2, ginasio = 4, bomba
+@ = 5) devolveria a var para 1 e rearmaria cenas ja vividas. Assim ele so
+@ da a PARTIDA, uma vez.
+VeilstoneCity_GalacticWarehouse_EventScript_LookerAfter::
+	call_if_eq VAR_SINNOH_PASTORIA_ESTADO, 0, VeilstoneCity_GalacticWarehouse_EventScript_ComecaCorrentePastoria
 	msgbox VeilstoneCity_GalacticWarehouse_Text_WeDidntLearnMuch, MSGBOX_DEFAULT
 	release
 	end
 
-VeilstoneCity_GalacticWarehouse_EventScript_LookerAfter::
-	msgbox VeilstoneCity_GalacticWarehouse_Text_WeDidntLearnMuch, MSGBOX_DEFAULT
-	release
-	end
+VeilstoneCity_GalacticWarehouse_EventScript_ComecaCorrentePastoria::
+	setvar VAR_SINNOH_PASTORIA_ESTADO, 1
+	return
 
 VeilstoneCity_GalacticWarehouse_EventScript_NoRoomForKey::
 	msgbox VeilstoneCity_GalacticWarehouse_Text_YourBagIsFull, MSGBOX_DEFAULT

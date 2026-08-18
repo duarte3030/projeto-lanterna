@@ -220,6 +220,48 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
       "flag": "FLAG_SINNOH_ESCONDE_PASTORIA_CITY_RIVAL"
+    },
+    {
+      "local_id": "LOCALID_PASTORIA_CITY_GRUNT_M",
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 40,
+      "y": 9,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "FLAG_SINNOH_ESCONDE_PASTORIA_CITY_GRUNT_M"
+    },
+    {
+      "local_id": "LOCALID_PASTORIA_CITY_CRASHER_WAKE",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_4",
+      "x": 37,
+      "y": 9,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PastoriaCity_EventScript_CrasherWake",
+      "flag": "FLAG_SINNOH_ESCONDE_PASTORIA_WAKE"
+    },
+    {
+      "local_id": "LOCALID_PASTORIA_CITY_CROAGUNK",
+      "graphics_id": "OBJ_EVENT_GFX_POLIWRATH",
+      "x": 37,
+      "y": 19,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "FLAG_SINNOH_ESCONDE_PASTORIA_CROAGUNK"
     }
   ],
   "warp_events": [
@@ -295,6 +337,15 @@
     }
   ],
   "coord_events": [
+    {
+      "type": "trigger",
+      "x": 36,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_SINNOH_PASTORIA_ESTADO",
+      "var_value": "4",
+      "script": "PastoriaCity_EventScript_CoordEvent_Bomb"
+    },
     {
       "type": "trigger",
       "x": 36,
