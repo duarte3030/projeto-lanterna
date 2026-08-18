@@ -9,20 +9,44 @@ PastoriaCity_MapScripts::
 	.byte 0
 
 @ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
-PastoriaCity_EventScript_CoordEvent_BlockGreatMarsh::
-	@ TODO S5: cena da fonte, rotulo PastoriaCity_CoordEvent_BlockGreatMarsh
-	end
-
-PastoriaCity_EventScript_CoordEvent_Bomb::
-	@ TODO S5: cena da fonte, rotulo PastoriaCity_CoordEvent_Bomb
-	end
-
-PastoriaCity_EventScript_CoordEvent_FaceBoard::
-	@ TODO S5: cena da fonte, rotulo PastoriaCity_CoordEvent_FaceBoard
-	end
-
+@ Os 4 gatilhos de Pastoria formam UMA corrente de historia (RivalBattle ->
+@ Bomb -> BlockGreatMarsh, nessa ordem, mais o FaceBoard solto). Bloqueados
+@ os 4, motivos anotados um a um; nenhum foi escrito pela metade.
+@
+@ RivalBattle (var=1): BLOQUEADO. TRAINER_RIVAL_PASTORIA_CITY_TURTWIG /
+@ _CHIMCHAR / _PIPLUP nao existem em opponents.h. Fica para o executor de
+@ treinadores desta onda.
 PastoriaCity_EventScript_CoordEvent_RivalBattle::
-	@ TODO S5: cena da fonte, rotulo PastoriaCity_CoordEvent_RivalBattle
+	end
+
+@ Bomb (var=4): BLOQUEADO. Cena de clima da Equipe Galactica (explosao,
+@ Grunt_M, Crasher Wake, o rival), grande (~15 sub-rotulos na fonte) e
+@ precisa de FLAG_PASTORIA_CITY_GRUNT_M_MOVED_EAST, que NAO esta na tabela
+@ do plano (nao segue o padrao FLAG_HIDE_*, o censo de hidden_flag nao pega)
+@ e nao pode ser inventada aqui. Termina com SetFlag FLAG_HIDE_VEILSTONE_
+@ CITY_GALACTIC_WAREHOUSE_LOOKER, flag de OUTRO mapa (Veilstone), e Crasher
+@ Wake e o lider do ginasio (presenca de historia, nao bate na regra do
+@ time dele, mas o porte inteiro depende da flag interna acima). Volta ao
+@ plano antes de escrever.
+PastoriaCity_EventScript_CoordEvent_Bomb::
+	end
+
+@ BlockGreatMarsh (var=5): BLOQUEADO. So dispara depois do Bomb (var vira 5
+@ so no fecho dele), e o objeto LOCALID_RIVAL que a cena move e escondido/
+@ mostrado em 3 lugares fora de Pastoria (scripts_valor_lakefront.s,
+@ scripts_veilstone_city.s) sem SetFlag em new_game.inc: o estado padrao
+@ dele nao fecha sozinho, e escrever agora arriscava plantar objeto com
+@ visibilidade errada. Junto com o Bomb quando a corrente inteira for
+@ desenhada.
+PastoriaCity_EventScript_CoordEvent_BlockGreatMarsh::
+	end
+
+@ FaceBoard, Croagunk (var=0): BLOQUEADO. Precisa de FLAG_BLOCK_PASTORIA_
+@ CITY_CROAGUNK_EVENT, tambem fora da tabela do plano (nao e FLAG_HIDE_*):
+@ acende em scripts_pastoria_city_gym.s (ginasio, ainda que nao seja
+@ batalha do lider) e apaga em scripts_valor_lakefront.s (S7). Volta ao
+@ plano.
+PastoriaCity_EventScript_CoordEvent_FaceBoard::
 	end
 
 @ <<< B6 Sinnoh S1: esqueletos de cena <<<

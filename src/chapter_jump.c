@@ -2,6 +2,9 @@
 #include "chapter_jump.h"
 #include "event_data.h"
 #include "field_screen_effect.h"
+#include "pokemon.h"
+#include "constants/moves.h"
+#include "constants/species.h"
 #include "list_menu.h"
 #include "malloc.h"
 #include "overworld.h"
@@ -422,11 +425,28 @@ void ChapterJump_AplicaCapitulo(void)
     for (i = 0; i + 1 < capitulo && i < regiao->numGinasios; i++)
         MarcaGinasioVencido(&regiao->ginasios[i]);
 
-    // (c) Time curado: chegar num capítulo novo com o time desmaiado da luta
+    // (c) Ninguém teleporta sem Pokémon (pedido do Gui, 18/08/2026): quem
+    // salta com a party VAZIA (jogo novo que pulou a escolha do inicial)
+    // ganha um Pikachu nível 20 com Thunderbolt e Surf. Personality fixa de
+    // propósito (ferramenta de teste, determinismo vale mais que variedade).
+    // Quem já tem time não ganha nada, e o fluxo "START FROM BEGINNING"
+    // continua escolhendo o inicial de verdade na história.
+    if (CalculatePlayerPartyCount() == 0)
+    {
+        struct Pokemon mon;
+        CreateMon(&mon, SPECIES_PIKACHU, 20, 0, OTID_STRUCT_PLAYER_ID);
+        SetMonMoveSlot(&mon, MOVE_THUNDERBOLT, 0);
+        SetMonMoveSlot(&mon, MOVE_SURF, 1);
+        CopyMon(&gPlayerParty[0], &mon, sizeof(mon));
+        CalculatePlayerPartyCount();
+        FlagSet(FLAG_SYS_POKEMON_GET);
+    }
+
+    // (d) Time curado: chegar num capítulo novo com o time desmaiado da luta
     // anterior não testa nada.
     HealPlayerParty();
 
-    // (d) O pulo.
+    // (e) O pulo.
     VaiPara(capitulo == 0 ? &regiao->inicio
           : capitulo > regiao->numGinasios ? &regiao->liga
           : &regiao->ginasios[capitulo - 1].onde);

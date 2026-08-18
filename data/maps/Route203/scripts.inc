@@ -13,12 +13,22 @@ Route203_MapScripts::
 @ Simplificacao anotada: a fonte ramifica o passo de aproximacao em 4 (um por
 @ tile do gatilho) e a batalha em 3 (um por inicial de Sinnoh). Sem colisao no
 @ NPC (so no jogador; ver CianwoodCity_EventScript_SuicuneTrigger) os 4 passos
-@ colapsam num so sem risco de travar o waitmovement. A ramificacao por
-@ inicial NAO existe aqui: nesta ROM o jogador ja chega a Sinnoh com o inicial
-@ de Kanto (regiao 1), Sinnoh nunca oferece TURTWIG/CHIMCHAR/PIPLUP. Por isso
-@ so sobra UM treinador, e esse nem existe ainda.
-@ BLOQUEADO: nenhum TRAINER_SINNOH_RIVAL_ROUTE_203_* existe em
-@ include/constants/opponents.h (so ha TRAINER_SINNOH_RIVAL_CANALAVE_CITY_*).
+@ colapsam num so sem risco de travar o waitmovement.
+@ CORRIGIDO em 17/08/2026: o comentario anterior dizia que Sinnoh nunca
+@ oferece TURTWIG/CHIMCHAR/PIPLUP nesta ROM e que so sobrava um treinador.
+@ Isso ficou velho quando data/maps/SandgemTown_RowanLab/scripts.inc virou
+@ mapa proprio (05/08/2026) e passou a entregar o inicial de Sinnoh de
+@ verdade, escrevendo VAR_STARTER_MON com 0=TURTWIG/1=CHIMCHAR/2=PIPLUP (o
+@ mesmo bug ja identificado pelo cabecalho de CanalaveCity_EventScript_Rival
+@ para o comentario do rival de Johto). O triangulo de tipos do rival e
+@ verdade aqui: os tres TRAINER_SINNOH_RIVAL_ROUTE_203_* e o time literal de
+@ cada um ja vinham prontos em src/data/trainers_sinnoh.party (bulk import),
+@ so faltava o id em opponents.h e esta cena. Nome da constante e o inicial
+@ DO JOGADOR (regra da casa: a fonte as vezes nomeia o do rival, nao foi o
+@ caso aqui, conferido contra res/trainers/data/rival_route_203_*.json).
+@ Gatilho por VAR_LAST_TALKED manual (precedente CeruleanCity_Frlg
+@ EventScript_Rival): esta cena e uma emboscada por coordevent, nao um clique
+@ em objeto, entao trainerbattle_no_intro precisa da var setada a mao.
 Route203_EventScript_CoordEvent_Rival::
 	lockall
 	clearflag FLAG_SINNOH_ESCONDE_ROUTE_203_RIVAL
@@ -28,8 +38,10 @@ Route203_EventScript_CoordEvent_Rival::
 	applymovement LOCALID_ROUTE203_RIVAL, Route203_Movement_RivalWalkToPlayer
 	waitmovement 0
 	msgbox Route203_Text_RivalIGotTougher, MSGBOX_DEFAULT
-	@ BLOQUEADO: trainerbattle_single TRAINER_SINNOH_RIVAL_ROUTE_203, Route203_Text_RivalIGotTougher, Route203_Text_RivalWhatDoYouMeanILost
-	msgbox Route203_Text_RivalWhatDoYouMeanILost, MSGBOX_DEFAULT
+	setvar VAR_LAST_TALKED, LOCALID_ROUTE203_RIVAL
+	call_if_eq VAR_STARTER_MON, 0, Route203_EventScript_RivalBattleTurtwig
+	call_if_eq VAR_STARTER_MON, 1, Route203_EventScript_RivalBattleChimchar
+	call_if_eq VAR_STARTER_MON, 2, Route203_EventScript_RivalBattlePiplup
 	applymovement LOCALID_ROUTE203_RIVAL, Route203_Movement_RivalLeave
 	waitmovement 0
 	setflag FLAG_SINNOH_ESCONDE_ROUTE_203_RIVAL
@@ -37,6 +49,18 @@ Route203_EventScript_CoordEvent_Rival::
 	setvar VAR_SINNOH_R203_RIVAL_ESTADO, 1
 	releaseall
 	end
+
+Route203_EventScript_RivalBattleTurtwig::
+	trainerbattle_no_intro TRAINER_SINNOH_RIVAL_ROUTE_203_TURTWIG, Route203_Text_RivalWhatDoYouMeanILost
+	return
+
+Route203_EventScript_RivalBattleChimchar::
+	trainerbattle_no_intro TRAINER_SINNOH_RIVAL_ROUTE_203_CHIMCHAR, Route203_Text_RivalWhatDoYouMeanILost
+	return
+
+Route203_EventScript_RivalBattlePiplup::
+	trainerbattle_no_intro TRAINER_SINNOH_RIVAL_ROUTE_203_PIPLUP, Route203_Text_RivalWhatDoYouMeanILost
+	return
 
 Route203_Movement_RivalNoticePlayer:
 	delay_8

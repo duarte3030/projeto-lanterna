@@ -4,16 +4,23 @@ PastoriaCity_Gym_MapScripts::
 	.byte 0
 
 @ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ S5: os 3 botoes da fonte (rotulos PastoriaGym_BlueButton/GreenButton/
+@ YellowButton) so chamam a special nativa `PressPastoriaGymButton`, que
+@ move o nivel d'agua/plataformas do labirinto aquatico do ginasio real de
+@ Pastoria. Ausente aqui (grep vazio em src/, include/, data/specials.inc),
+@ e o comentario do topo do arquivo ja avisa que este ginasio reaproveita
+@ interior de Hoenn: nao existe labirinto d'agua para mover. Mesmo caso do
+@ MoveHearthomeGymDPLift em HearthomeCityDpGymElevatorRoom1/2. Os SetVar
+@ de VAR_TEMP_1/2/3 da fonte tambem saem: sem a special, nada le esses
+@ temps neste mapa (conferido, nenhum outro coord_event/script daqui os
+@ usa), entao so ficariam soltos sem efeito. Descartado sem substituto.
 PastoriaCity_Gym_EventScript_BlueButton::
-	@ TODO S?: cena da fonte, rotulo PastoriaGym_BlueButton
 	end
 
 PastoriaCity_Gym_EventScript_GreenButton::
-	@ TODO S?: cena da fonte, rotulo PastoriaGym_GreenButton
 	end
 
 PastoriaCity_Gym_EventScript_YellowButton::
-	@ TODO S?: cena da fonte, rotulo PastoriaGym_YellowButton
 	end
 
 @ <<< B6 Sinnoh S1: esqueletos de cena <<<

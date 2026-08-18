@@ -18,8 +18,17 @@ VeilstoneCity_GalacticWarehouse_MapScripts::
 	.byte 0
 
 @ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ S5: rotulo da fonte VeilstoneCityGalacticWarehouse_CoordEvent_LookerOpenDoor.
+@ Descartado. A fonte usa esse gatilho pra o Looker abrir a porta enferrujada
+@ e depois ANDAR COM O JOGADOR ate o GalacticHQ (LOCALID_GALACTIC_HQ_DOOR_*,
+@ LookerEnterGalacticHQ), mapa fora do meu escopo (GalacticHQ_*, arco S6).
+@ O ponytail do topo deste arquivo ja registra que a leva anterior substituiu
+@ esse fluxo inteiro por um mais simples e autocontido: falar com o Looker
+@ (EventScript_Looker) da a Storage Key direto, e abrir a porta enferrujada
+@ (EventScript_RustyDoor) ja resolve chave + HM Fly sem depender do
+@ coord_event nem de FLAG_USED_STORAGE_KEY (que nao esta na tabela do
+@ plano). Este gatilho ficaria redundante com o que ja funciona.
 VeilstoneCity_GalacticWarehouse_EventScript_CoordEvent_LookerOpenDoor::
-	@ TODO S5: cena da fonte, rotulo VeilstoneCityGalacticWarehouse_CoordEvent_LookerOpenDoor
 	end
 
 @ <<< B6 Sinnoh S1: esqueletos de cena <<<

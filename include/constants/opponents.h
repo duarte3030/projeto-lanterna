@@ -2128,13 +2128,19 @@
 
 // >>> cenas restantes da espinha da Galactica de Sinnoh (bloco B6,
 // dev_scripts/cena_galactica_sinnoh.py, 12/08/2026). Faixa exclusiva
-// desta frente: 2500 a 2519; gastos 5, livres 2505 a 2519. O vao 2462 a
+// desta frente: 2500 a 2519; gastos 8, livres 2508 a 2519. O vao 2462 a
 // 2499 fica DE PROPOSITO vazio, reservado para Johto retomar. >>>
 #define TRAINER_SINNOH_GALACTIC_GRUNT_CELESTIC_TOWN          2500
 #define TRAINER_SINNOH_COMMANDER_MARS_LAKE_VERITY            2501
 #define TRAINER_SINNOH_RIVAL_CANALAVE_CITY_TURTWIG           2502
 #define TRAINER_SINNOH_RIVAL_CANALAVE_CITY_CHIMCHAR          2503
 #define TRAINER_SINNOH_RIVAL_CANALAVE_CITY_PIPLUP            2504
+// 17/08/2026: +3 pelo rival da Route 203 (treinadores de historia). Time e
+// nome de rotulo ja existiam prontos em trainers_sinnoh.party (bulk import),
+// so faltava o id e a cena.
+#define TRAINER_SINNOH_RIVAL_ROUTE_203_TURTWIG               2505
+#define TRAINER_SINNOH_RIVAL_ROUTE_203_CHIMCHAR              2506
+#define TRAINER_SINNOH_RIVAL_ROUTE_203_PIPLUP                2507
 // <<< cenas da Galactica de Sinnoh <<<
 
 // >>> Campea de Unova, bloco B6 (12/08/2026). Faixa exclusiva desta frente:

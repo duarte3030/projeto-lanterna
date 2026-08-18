@@ -109,6 +109,27 @@ mapa não importado" era esta armadilha vista pela metade.
   tile plantado contra `map.bin` (a conversão proporcional pode ter posto
   gatilho em tile intransponível; hoje só a leva descobre).
 
+### Decisões da condutora sobre os retornos do S5 (18/08/2026)
+
+- **Duas flags novas AUTORIZADAS na faixa de Sinnoh** (próximas livres após
+  `0x1B9C`): `FLAG_SINNOH_PASTORIA_GRUNT_FUGIU_LESTE` (o
+  `FLAG_PASTORIA_CITY_GRUNT_M_MOVED_EAST` da fonte, set-piece da bomba) e
+  `FLAG_SINNOH_PASTORIA_CROAGUNK_BLOQUEADO` (o
+  `FLAG_BLOCK_PASTORIA_CITY_CROAGUNK_EVENT`). Quem grava os defines é o
+  executor da onda 4 que escrever as cenas, anotando o consumo na faixa.
+- **Rivais de Pastoria e Route 209**: mesma régua do rival da Route 203
+  (executor de treinadores, 3 variantes por inicial, ids na faixa
+  2508-2519, times literais da fonte com o par de remapeamento 7→147/9→149
+  conferido na curva). Onda 4.
+- **Fechos que moram em script de vitória de líder** (Veilstone counterpart
+  na vitória da Maylene; rival do portão 209 na vitória da Fantina): é
+  fiação de cena, NÃO polimento de time (decisão 2 do Gui intocada); o
+  executor da onda 4 edita só o trecho pós-vitória do scripts.inc do
+  ginásio, sem tocar em time.
+- Set-piece da bomba de Pastoria + BlockGreatMarsh: onda 4, junto do arco
+  S6 (é Equipe Galáctica). FaceBoard/Croagunk cruza com Valor Lakefront e
+  fica para a S7, como o plano já previa.
+
 ## Decisões da condutora (16/08/2026)
 
 1. **`VAR_MAP_LOCAL_0xNN` da fonte vira `VAR_TEMP_N` daqui, sem alias novo.**

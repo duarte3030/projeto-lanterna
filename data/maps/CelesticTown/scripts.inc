@@ -9,8 +9,30 @@ CelesticTown_MapScripts::
 	.byte 0
 
 @ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ S5: rotulo da fonte CelesticTown_CoordEvent_Elder. Gatilho ambiente perto
+@ das ruinas, o mesmo texto que o ancião já fala se abordado direto
+@ (CelesticTown_EventScript_Elder, texto CelesticTown_Text_CenaOddSpaceman);
+@ a fonte dispara os dois sem condição, então este também fica sem condição.
+@ 18/08/2026: o gatilho tinha buraco. A fonte é uma faixa contínua
+@ (events_celestic_town.json: x 463, width 3, ou seja 463/464/465 em z 538,
+@ com o ancião em 462), e aqui os coord_events do map.json eram (17,28),
+@ (19,28) e (20,28), deixando (18,28) andável e sem gatilho no MEIO da
+@ faixa: quem descesse a linha 28 pelo tile do buraco atravessava a cena.
+@ (18,28) entrou, com a mesma var, valor e script dos irmãos.
+@ O Common_Movement_FaceLeft fixo NÃO é bug e fica: o ancião mora em
+@ (16,28) e os quatro tiles do gatilho estão todos na MESMA linha y=28, a
+@ leste dele (x=17 a 20), então oeste aponta para ele em todos os quatro.
+@ É também o que a fonte faz, um FaceWest fixo para a faixa inteira
+@ (CelesticTown_Movement_PlayerFaceWest). Ramificar por getplayerxy aqui
+@ só geraria quatro galhos com o mesmo DIR_WEST dentro.
 CelesticTown_EventScript_CoordEvent_Elder::
-	@ TODO S5: cena da fonte, rotulo CelesticTown_CoordEvent_Elder
+	lockall
+	applymovement LOCALID_PLAYER, Common_Movement_FaceLeft
+	applymovement LOCALID_CELESTIC_TOWN_ELDER, Common_Movement_WalkInPlaceRight
+	waitmovement 0
+	setvar VAR_SINNOH_CELESTIC_ANCIA_ESTADO, 1
+	msgbox CelesticTown_Text_CenaOddSpaceman, MSGBOX_DEFAULT
+	releaseall
 	end
 
 @ <<< B6 Sinnoh S1: esqueletos de cena <<<

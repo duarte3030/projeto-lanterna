@@ -79,7 +79,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
       "script": "Route209_EventScript_Trainer4",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_ESCONDE_ROUTE_209_JOGGER_RICHARD"
     },
     {
       "local_id": "LOCALID_ROUTE209_TRAINER5",
@@ -93,7 +93,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
       "script": "Route209_EventScript_Trainer5",
-      "flag": "0"
+      "flag": "FLAG_SINNOH_ESCONDE_ROUTE_209_JOGGER_RAUL"
     },
     {
       "local_id": "LOCALID_ROUTE209_TRAINER6",

@@ -47405,6 +47405,63 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Mega Drain
 - Leech Seed
 
+=== TRAINER_SINNOH_RIVAL_ROUTE_203_TURTWIG ===
+Name: Cedric
+Class: TRAINER_CLASS_RIVAL
+Pic: TRAINER_PIC_RIVAL_EARLY_FRLG
+Gender: Male
+Double Battle: No
+
+Starly
+Level: 147
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Quick Attack
+- Growl
+
+Chimchar
+Level: 149
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Scratch
+- Leer
+
+=== TRAINER_SINNOH_RIVAL_ROUTE_203_CHIMCHAR ===
+Name: Cedric
+Class: TRAINER_CLASS_RIVAL
+Pic: TRAINER_PIC_RIVAL_EARLY_FRLG
+Gender: Male
+Double Battle: No
+
+Starly
+Level: 147
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Quick Attack
+- Growl
+
+Piplup
+Level: 149
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Pound
+- Growl
+
+=== TRAINER_SINNOH_RIVAL_ROUTE_203_PIPLUP ===
+Name: Cedric
+Class: TRAINER_CLASS_RIVAL
+Pic: TRAINER_PIC_RIVAL_EARLY_FRLG
+Gender: Male
+Double Battle: No
+
+Starly
+Level: 147
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Quick Attack
+- Growl
+
+Turtwig
+Level: 149
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Tackle
+- Withdraw
+
 === TRAINER_UNOVA_CHAMPION_JUNIPER_SNIVY ===
 Name: Juniper
 Class: TRAINER_CLASS_CHAMPION

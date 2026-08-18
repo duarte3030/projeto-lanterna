@@ -171,6 +171,32 @@ EventScript_ResetAllMapFlags::
 	setflag FLAG_SINNOH_ESCONDE_LAKE_VERITY_COUNTERPART
 	setflag FLAG_SINNOH_ESCONDE_SANDGEM_TOWN_LAB_PROF_OAK
 	setflag FLAG_SINNOH_ESCONDE_SANDGEM_TOWN_LAB_COUNTERPART
+	@ Leva S5 (dev_scripts/maquina_sinnoh.json): mesmo padrao das linhas acima,
+	@ objeto que so entra em cena depois. Conferido com grep de SetFlag na
+	@ fonte antes de cada uma, scripts_init_new_game.s:35 (elder),
+	@ :62-64 (Buneary/Keira/rival do portao), :77 (Prof. Rowan), :96 (rival
+	@ de Solaceon); a fonte tambem esconde todos desde o jogo novo.
+	@ Quem apaga cada uma: a da Keira e a do rival de Solaceon são acesas de
+	@ volta pela PRÓPRIA cena, com setflag ANTES do removeobject, igual ao
+	@ molde de Route203_EventScript_CoordEvent_Rival. O removeobject sozinho
+	@ não bastaria: ele só tira o objeto da tela desta visita, e o objeto
+	@ renasceria na próxima entrada no mapa, porque quem decide se ele nasce
+	@ é a flag de esconder. (Até 18/08/2026 este comentário dizia que os
+	@ dois "somem sozinhos no fecho, nunca ficam permanentes", e era falso:
+	@ as duas cenas fechavam sem setflag nenhum, e os dois renasciam.)
+	@ O ancia da casa norte de Celestic e o Prof. Rowan do porao da loja de
+	@ Veilstone dependem de cena que ainda nao existe neste projeto
+	@ (ruinas de Celestic e Hall of Fame, nenhuma das duas construida);
+	@ o rival do portao de Route209 depende do script de vitoria do lider
+	@ de Hearthome (fora de escopo desta leva, decisao 2 do Gui). Os tres
+	@ ficam escondidos ate essas cenas existirem, sem quebrar nada: o
+	@ objeto so nasce visivel se alguem chamar clearflag, e ninguem chama
+	@ ainda.
+	setflag FLAG_SINNOH_ESCONDE_CELESTIC_TOWN_NORTH_HOUSE_ELDER
+	setflag FLAG_SINNOH_ESCONDE_HEARTHOME_CITY_KEIRA
+	setflag FLAG_SINNOH_ESCONDE_HEARTHOME_CITY_ROUTE_209_GATE_RIVAL
+	setflag FLAG_SINNOH_ESCONDE_SOLACEON_TOWN_RIVAL
+	setflag FLAG_SINNOH_ESCONDE_VEILSTONE_STORE_B1F_PROF_ROWAN
 	@ FICAM DE FORA, de proposito, as contrapartes de Route202 e de Sandgem
 	@ Town: a fonte NAO as esconde no jogo novo (nenhum SetFlag de
 	@ FLAG_HIDE_ROUTE_202_COUNTERPART nem de FLAG_HIDE_SANDGEM_TOWN_COUNTERPART

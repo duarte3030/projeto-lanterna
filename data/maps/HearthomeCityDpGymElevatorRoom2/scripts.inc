@@ -2,8 +2,10 @@ HearthomeCityDpGymElevatorRoom2_MapScripts::
 	.byte 0
 
 @ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ S5: mesmo caso de HearthomeCityDpGymElevatorRoom1 (ver comentario la).
+@ `MoveHearthomeGymDPLift` e special nativa ausente aqui; descartada sem
+@ substituto.
 HearthomeCityDpGymElevatorRoom2_EventScript_CoordEvent_MoveLift::
-	@ TODO S?: cena da fonte, rotulo HearthomeCityDPGymElevatorRoom2_CoordEvent_MoveLift
 	end
 
 @ <<< B6 Sinnoh S1: esqueletos de cena <<<

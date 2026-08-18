@@ -109,3 +109,29 @@ VeilstoneStoreB1F_Pokemart_Loja1:
 	.2byte ITEM_AGUAV_BERRY
 	.2byte ITEM_IAPAPA_BERRY
 	pokemartlistend
+
+@ >>> B6 Sinnoh S5: grupo de hidden_flag (dev_scripts/maquina_sinnoh.json) >>>
+@ Objeto plantado pelo executor S5. Fonte comeca escondido (SetFlag em
+@ scripts_init_new_game.s, ver data/scripts/new_game.inc) e so aparece
+@ (ClearFlag) em scripts_pokemon_league_hall_of_fame.s, pos-jogo, fora de
+@ qualquer escopo construido ate aqui. Fica escondido ate essa cena existir.
+@ Simplificado: a fonte guarda FLAG_TALKED_TO_VEILSTONE_STORE_B1F_PROF_ROWAN
+@ (fora da tabela do plano) so pra escolher entre duas falas quase iguais,
+@ mas o proprio ramo "antes" ja esconde ele na mesma interacao (SetFlag da
+@ flag de esconder ANTES do jogador poder falar de novo), entao o ramo
+@ "depois" nunca dispara na fonte. Fica so a fala unica, sem a segunda flag.
+VeilstoneStoreB1F_EventScript_ProfRowan::
+	lock
+	faceplayer
+	msgbox VeilstoneStoreB1F_Text_RageCandyBarsAreTooPopular, MSGBOX_DEFAULT
+	msgbox VeilstoneStoreB1F_Text_DoesLifeContinueToThrillYou, MSGBOX_DEFAULT
+	setflag FLAG_SINNOH_ESCONDE_VEILSTONE_STORE_B1F_PROF_ROWAN
+	release
+	end
+
+VeilstoneStoreB1F_Text_RageCandyBarsAreTooPopular:
+	.string "Prof. Rowan: Hmm... Rage Candy Bars\nare too popular, it seems.$"
+
+VeilstoneStoreB1F_Text_DoesLifeContinueToThrillYou:
+	.string "Ah, {PLAYER}, it's you.\pDoes life continue to thrill you?\nIt does for me.\pFor example, I recently discovered\nsome Pokémon evolve only in certain\nlocations.\pWhen I learned that, I felt thrilled!$"
+@ <<< B6 Sinnoh S5: grupo de hidden_flag <<<

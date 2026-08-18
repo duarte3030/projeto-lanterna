@@ -5,9 +5,76 @@ SolaceonTown_MapScripts::
 	.byte 0
 
 @ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ S5: rotulo da fonte SolaceonTown_CoordEvent_Rival. A fonte usa
+@ SetObjectEventPos com o X do jogador (GetPlayerMapPos) e Z fixo; aqui o
+@ mapa e proporcional (LAYOUT_SOLACEON_TOWN 66x44, conversor sem matriz
+@ propria, so a nuvem de eventos como caixa) e a mesma distancia em z da
+@ fonte (8 tiles) vira ~11 tiles aqui, deslocamento grande demais pra
+@ replicar literal. Em vez de portar a distancia absoluta, o rival nasce
+@ 3 tiles ao norte do jogador (mesma coluna, via getplayerxy + subvar) e
+@ anda 2 tiles pra baixo, parando a 1 tile do jogador: fica sempre alinhado
+@ com qualquer um dos 7 tiles do gatilho, e o terreno ao norte da linha do
+@ gatilho e andavel (conferido no map.bin, unico obstaculo e a coluna x=14,
+@ fora dos 7 tiles do gatilho).
+@ CORRIGIDO em 18/08/2026: a caminhada era de 3 tiles e terminava DENTRO do
+@ tile do jogador (applymovement não checa colisão), com os dois sprites
+@ sobrepostos. A fonte nasce o rival 8 tiles ao norte e anda 7 (z 661 ->
+@ 668, com o gatilho em z 669), ou seja para a UMA casa do jogador; manter
+@ o nascimento em 3 e andar 2 preserva as duas coisas da fonte, a parada
+@ adjacente e a volta que refaz o caminho exato (7 south / 7 north lá,
+@ 2 down / 2 up aqui). A alternativa (nascer 4 e andar 3) mudaria o
+@ nascimento, que foi medido no map.bin, só para manter o número 3.
 SolaceonTown_EventScript_CoordEvent_Rival::
-	@ TODO S5: cena da fonte, rotulo SolaceonTown_CoordEvent_Rival
+	lockall
+	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	getplayerxy VAR_0x8004, VAR_0x8005
+	subvar VAR_0x8005, 3
+	setobjectxy LOCALID_SOLACEON_TOWN_RIVAL, VAR_0x8004, VAR_0x8005
+	clearflag FLAG_SINNOH_ESCONDE_SOLACEON_TOWN_RIVAL
+	addobject LOCALID_SOLACEON_TOWN_RIVAL
+	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
+	applymovement LOCALID_SOLACEON_TOWN_RIVAL, SolaceonTown_Movement_RivalWalkSouth
+	waitmovement 0
+	msgbox SolaceonTown_Text_Yahoo, MSGBOX_DEFAULT
+	applymovement LOCALID_SOLACEON_TOWN_RIVAL, SolaceonTown_Movement_RivalLookAround
+	waitmovement 0
+	msgbox SolaceonTown_Text_IGotSomethingCool, MSGBOX_DEFAULT
+	applymovement LOCALID_SOLACEON_TOWN_RIVAL, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox SolaceonTown_Text_CheckOutTheRuins, MSGBOX_DEFAULT
+	applymovement LOCALID_SOLACEON_TOWN_RIVAL, SolaceonTown_Movement_RivalLeave
+	waitmovement 0
+	setflag FLAG_SINNOH_ESCONDE_SOLACEON_TOWN_RIVAL
+	removeobject LOCALID_SOLACEON_TOWN_RIVAL
+	setvar VAR_SINNOH_SOLACEON_ESTADO, 1
+	releaseall
 	end
+
+SolaceonTown_Movement_RivalWalkSouth:
+	walk_down
+	walk_down
+	step_end
+
+SolaceonTown_Movement_RivalLookAround:
+	walk_in_place_left
+	walk_in_place_right
+	walk_in_place_down
+	step_end
+
+SolaceonTown_Movement_RivalLeave:
+	walk_up
+	walk_up
+	step_end
+
+SolaceonTown_Text_Yahoo:
+	.string "Yahoo!$"
+
+SolaceonTown_Text_IGotSomethingCool:
+	.string "{RIVAL}: Hey, {PLAYER}!\pI got something cool.\nI'll show you as a special favor!$"
+
+SolaceonTown_Text_CheckOutTheRuins:
+	.string "Huh?\nWhat the...\pWhat's this all about?\p...I got some Seals, but I forgot to\nput them on.\pOh, right.\nIt's because I was at the ruins.\pThe ruins here are cool.\nYou have to check it out.\pI even found a Hidden Machine.\nIt was Defog!\pAnyway, I'll battle you another time.\nSee ya!$"
 
 @ <<< B6 Sinnoh S1: esqueletos de cena <<<
 

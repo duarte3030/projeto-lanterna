@@ -1,0 +1,238 @@
+[
+  {
+    "id": "T101.1",
+    "nome": "Sinnoh onda3, TREINADORES: a emboscada do rival na Route 203 abre batalha, e o OPONENTE e a variante do inicial PINADO. VAR_STARTER_MON (0x4023) vai pinada em 0 (grama) e o `call_if_eq VAR_STARTER_MON, 0` de Route203_EventScript_CoordEvent_Rival tem que cair em TRAINER_SINNOH_RIVAL_ROUTE_203_TURTWIG (2505). A prova NAO e 'abriu batalha': e `oponente=2505` lido da EWRAM (gTrainerBattleParameter+2), mais a faixa 2505..2507 que prova que o id caiu na familia certa e nao num vizinho da tabela. A batalha NAO se joga ate o fim: o id do oponente ja esta escrito quando o trainerbattle configura o duelo, e o mapa continua MAP_ROUTE203 porque batalha nao teleporta ninguem. A var VAR_SINNOH_R203_RIVAL_ESTADO nao entra na prova de proposito: o `setvar 1` dela mora DEPOIS da batalha na cena, e este caso para dentro dela. PINAR o inicial e obrigatorio: VAR_STARTER_MON e a var UNICA do motor (Kanto, Hoenn, Unova e Sinnoh escrevem a mesma), e o jogador do harness chega sem escolher inicial nenhum, entao sem pinar o valor seria o zero de nascimento por acidente e nao por desenho. GEOMETRIA medida contra data/layouts/Route203/map.bin com o modelo de andar que o fechador da onda 2 mediu (o toque de 20 quadros VIRA E ANDA no MESMO aperto), simulada a partir das DUAS pousadas possiveis do warp 0 (53,6) e (53,7): DOWN*15 desce a coluna 53 e SATURA em (53,20) (y=21 e parede); LEFT*20 anda a linha 20 e SATURA em (35,20) (x=34 e parede, e a linha 20 e a unica do sul que nao cruza x=34); UP*4 SATURA em (35,18) (y=17 e parede); LEFT*3 SATURA em (34,18) (x=33 e parede); DOWN*3 SATURA em (34,19) (x=34 da linha 20 e parede); LEFT*4 anda a linha 19 ate (30,19) e e a UNICA perna que nao satura, de proposito com folga: qualquer parada entre x=30 e x=32 desce para a linha 21 e qualquer parada em x=33 desce para a linha 20, e as DUAS linhas chegam limpas ate a coluna 4, entao ate tres apertos perdidos nao mudam o resultado (so x=34 seria beco, e sao quatro apertos para sair dele); DOWN*5 SATURA em (30,21) (y=22 e parede em x=30); LEFT*35 varre a linha 21 e pisa em (4,21), um dos quatro tiles do gatilho ((4,19) a (4,22)). O NPC de (14,19) e WANDER_AROUND e por isso NAO e usado como anteparo em nenhuma perna; os de (42,19), (51,19) e (30,18) carregam FLAG_SINNOH_NPC_DUPLICADO, acesa em new_game.inc:129, e a rota tambem nao encosta neles. Os cinco treinadores de raio 4 moram todos na linha 7, treze linhas acima da rota.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x4023": 0
+    },
+    "warp": "MAP_ROUTE203",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE203",
+      "oponente": "TRAINER_SINNOH_RIVAL_ROUTE_203_TURTWIG",
+      "oponente_faixa": [
+        2505,
+        2507
+      ]
+    }
+  },
+  {
+    "id": "T101.2",
+    "nome": "PAR NEGATIVO DE VARIANTE do T101.1, e o caso que da sentido a ele. MESMO warp, MESMA rota, MESMOS apertos: a UNICA diferenca e VAR_STARTER_MON pinada em 2 (agua) em vez de 0. O oponente tem que virar TRAINER_SINNOH_RIVAL_ROUTE_203_PIPLUP (2507). DISCRIMINA: sem ele o T101.1 passaria num mundo em que os tres `call_if_eq` foram escritos errado e todos caem no mesmo ramo, ou em que o ramo de baixo sobrescreve o de cima (os tres sao `call`, nao `goto`, e um `call` que voltasse deixaria o proximo rodar tambem). Passar T101.1 e T101.2 juntos prova que o galho LE a var, e nao que existe um galho so.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x4023": 2
+    },
+    "warp": "MAP_ROUTE203",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE203",
+      "oponente": "TRAINER_SINNOH_RIVAL_ROUTE_203_PIPLUP",
+      "oponente_faixa": [
+        2505,
+        2507
+      ]
+    }
+  },
+  {
+    "id": "T101.3",
+    "nome": "TERCEIRA VARIANTE do rival da Route 203, VAR_STARTER_MON pinada em 1 (fogo) -> TRAINER_SINNOH_RIVAL_ROUTE_203_CHIMCHAR (2506). Existe porque os tres ids sao NOVOS nesta leva (2505 a 2507 em include/constants/opponents.h) e cobrir dois de tres deixaria o id do meio sem nenhuma prova: bloco de trainers.party fora de lugar so aparece quando alguem entra naquela batalha, e 2506 e justamente o unico dos tres que nunca seria alcancado pelo par acima.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x4023": 1
+    },
+    "warp": "MAP_ROUTE203",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE203",
+      "oponente": "TRAINER_SINNOH_RIVAL_ROUTE_203_CHIMCHAR",
+      "oponente_faixa": [
+        2505,
+        2507
+      ]
+    }
+  },
+  {
+    "id": "T101.4",
+    "nome": "PAR NEGATIVO DE ESTADO do trio acima: depois da cena o gatilho tem que ficar MORTO. Os quatro coord_events de Route203/map.json pedem var_value 0; com VAR_SINNOH_R203_RIVAL_ESTADO (0x4149) PINADA em 1, que e o valor que a propria cena deixa no fim, a MESMA rota pisa no MESMO tile (4,21) e nada acontece. A prova e POSICIONAL e nao so de var: sem ninguem para segurar o jogador, os LEFT que sobram atravessam a coluna 4 e saem pela conexao 'left' de Route203 (MAP_JUBILIFE_CITY, offset 0), entao o mapa final vira MAP_JUBILIFE_CITY. CONFERIDO nos dois lados: Route203 y=21 cai em Jubilife (69,21), colisao 0 no map.bin, ou seja tile andavel de verdade e nao borda. `oponente` em 0 completa: gTrainerBattleParameter nasce zerado no boot e nenhuma batalha roda neste caso, entao 0 prova que a emboscada NAO abriu duelo nenhum. DISCRIMINA: sem ele, T101.1 a T101.3 passariam num mundo em que a emboscada roda toda vez que o jogador cruza a rota, com o rival ressuscitando e o duelo repetindo para sempre.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x4023": 0,
+      "0x4149": 1
+    },
+    "warp": "MAP_ROUTE203",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,300:NADA",
+    "prova": {
+      "mapa": "MAP_JUBILIFE_CITY",
+      "vars": {
+        "0x4149": 1
+      },
+      "oponente": 0
+    }
+  },
+  {
+    "id": "T101.5",
+    "nome": "Sinnoh onda3, S5: a MARS do INTERIOR da usina ANTES da flag externa. O coord_event (7,2) de ValleyWindworksBuilding pede var_value 0 e cai em ValleyWindworksBuilding_EventScript_CoordEvent_Mars, que sem FLAG_GALACTICA_WINDWORKS so mostra o grunt mandando o jogador embora e SAI, sem escrever var. PROVA DUPLA: VAR_SINNOH_WINDWORKS_GALACTICA_ESTADO (0x415A) continua 0, e `oponente` continua 0. O oponente e a parte que importa: a decisao da condutora de 17/08 foi que o interior NAO duplica a luta (TRAINER_SINNOH_COMMANDER_MARS_VALLEY_WINDWORKS pertence a ValleyWindworks, do lado de fora), e 'nao abriu batalha' so vira fato lido da EWRAM por gTrainerBattleParameter zerado. `andou` prova que o jogo respondeu ao controle ate o fim em vez de ter congelado. SEM NENHUM A de proposito: a caixa fica aberta e nao ha como um aperto perdido empurrar a cena para outro ramo. GEOMETRIA no map.bin de LAYOUT_OREBURGH_CITY_HOUSE1 (10x9), tres pernas TODAS SATURANTES, simuladas das quatro pousadas possiveis dos warps 0 (3,8) e 1 (4,8): LEFT*6 encosta em (0,8) (borda de mapa fechado, sem conexao), UP*8 sobe a coluna 0 e SATURA em (0,2) (y=1 e parede), RIGHT*9 varre a linha 2 e SATURA exatamente em (7,2), que E o tile do gatilho (x=8 e parede). Por saturar na parede, a rota nao depende de para onde o jogador olha ao entrar.",
+    "warp": "MAP_VALLEY_WINDWORKS_BUILDING",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,300:NADA",
+    "prova": {
+      "mapa": "MAP_VALLEY_WINDWORKS_BUILDING",
+      "vars": {
+        "0x415A": 0
+      },
+      "oponente": 0,
+      "andou": true
+    }
+  },
+  {
+    "id": "T101.6",
+    "nome": "PAR do T101.5: a MESMA rota, o MESMO tile, com FLAG_GALACTICA_WINDWORKS ACESA (a Mars ja caiu la fora). Agora o `goto_if_set` desvia para ValleyWindworksBuilding_EventScript_MarsAftermath, que fala do desfecho e escreve VAR_SINNOH_WINDWORKS_GALACTICA_ESTADO = 1. PROVA: a var sobe para 1 E `oponente` continua 0, ou seja o interior comemora o fim da ocupacao sem abrir uma SEGUNDA batalha contra a comandante que ja foi derrotada do lado de fora, que era o conflito registrado no cabecalho do arquivo. DISCRIMINA o T101.5 nos dois sentidos: a unica diferenca entre os dois casos e a flag, entao var 0 -> 1 so pode ter vindo do galho da flag, e nao de o gatilho escrever 1 sempre que e pisado. A flag tambem apaga os dois grunts mudos de (4,3) e (6,5), que NAO estao na rota nos dois casos (ela anda pela linha 8, pela coluna 0 e pela linha 2), entao a geometria e identica com e sem flag.",
+    "flags": [
+      "FLAG_GALACTICA_WINDWORKS"
+    ],
+    "warp": "MAP_VALLEY_WINDWORKS_BUILDING",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_VALLEY_WINDWORKS_BUILDING",
+      "vars": {
+        "0x415A": 1
+      },
+      "oponente": 0
+    }
+  },
+  {
+    "id": "T101.7",
+    "nome": "Sinnoh onda3, S5: a cena da KEIRA em Hearthome deixa VAR_SINNOH_HEARTHOME_ESTADO (0x4139) em 1. Os cinco coord_events pedem var_value 0 e chamam HearthomeCity_EventScript_CoordEvent_BunearyAndKeira, que ramifica por `getplayerxy` em cinco linhas (y=42 a y=46) e fecha com `setvar VAR_SINNOH_HEARTHOME_ESTADO, 1` depois do removeobject. O 1 nao e enfeite: ele e quem desarma os cinco gatilhos para sempre, e a Keira e removida da cena, entao rodar de novo mostraria a mesma mulher aparecendo do nada. Este caso entra pelo tile (11,43), ou seja pelo ramo Row43, e nao pelo primeiro da lista: o ramo de y=43 posiciona a Keira em (21,43) e os oito walk_fast_left dela param em (13,43), que e gatilho+2, o mesmo deslocamento literal da fonte. GEOMETRIA medida no map.bin de LAYOUT_HEARTHOME_CITY, simulada nas cinco pousadas plausiveis do warp 0 (4,45) e vizinhas: DOWN*4 SATURA em (x,46) (a linha 47 e parede inteira), LEFT*4 SATURA em (4,46) (x=3 e parede), UP*5 sobe a coluna 4 e SATURA em (4,43) (y=42 e parede em x=4), RIGHT*20 varre a linha 43 e pisa em (11,43). A volta por (4,46) e deliberada e NAO e desvio: ela e o unico jeito de fixar a coluna 4 sem depender da pousada, e o RIGHT so acontece na linha 43 justamente porque na linha 46 os tiles (8,46) e (9,46) sao os warps para MAP_ROUTE212_ACCESS e levariam o caso para outro mapa.",
+    "warp": "MAP_HEARTHOME_CITY",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_HEARTHOME_CITY",
+      "vars": {
+        "0x4139": 1
+      }
+    }
+  },
+  {
+    "id": "T101.8",
+    "nome": "PAR NEGATIVO do T101.7. Os cinco coord_events pedem var_value 0; com VAR_SINNOH_HEARTHOME_ESTADO PINADA em 2, valor que NENHUM deles pede, a MESMA rota atravessa (11,43) e a var sai INTACTA em 2. O 2 e escolhido de proposito, e nao o 1: com 1 o positivo e o negativo terminariam no MESMO numero e o par nao separaria nada. DISCRIMINA: um mundo em que o coord_event ignora o campo `var_value` rodaria a cena aqui e deixaria a var em 1, e e exatamente esse mundo que faria o T101.7 passar por engano, porque la a var so precisava ACABAR em 1. `andou` prova que o jogador cruzou a linha 43 em vez de ter travado antes dela. SEM NENHUM A: nada deve abrir, entao nada precisa ser fechado.",
+    "vars": {
+      "0x4139": 2
+    },
+    "warp": "MAP_HEARTHOME_CITY",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,300:NADA",
+    "prova": {
+      "mapa": "MAP_HEARTHOME_CITY",
+      "vars": {
+        "0x4139": 2
+      },
+      "andou": true
+    }
+  },
+  {
+    "id": "T101.9",
+    "nome": "Sinnoh onda3, S5: o RIVAL de Solaceon deixa VAR_SINNOH_SOLACEON_ESTADO (0x4153) em 1. Os sete coord_events pedem var_value 0 e chamam SolaceonTown_EventScript_CoordEvent_Rival, que nasce o rival em getplayerxy-3 no y, troca tres falas e fecha com removeobject + `setvar VAR_SINNOH_SOLACEON_ESTADO, 1`. Como o setvar mora no FIM da cena, depois de tres msgbox (uma delas com oito paginas), o roteiro tem vinte A: provar 1 aqui e provar que a cena rodou INTEIRA e nao que ela comecou. GEOMETRIA no map.bin de LAYOUT_SOLACEON_TOWN, simulada das duas pousadas do warp 1 (a porta (29,33) e parede no map.bin, colisao 1, entao a pousada real e (29,34)): DOWN*6 SATURA em (29,37) (a linha 38 so e aberta de x=15 a x=21), LEFT*20 varre a linha 37 e SATURA em (15,37) (x=14 e a parede que separa a faixa oeste da cidade), DOWN*10 desce o beco x=15 e pisa em (15,40), um dos seis tiles do gatilho da linha 40. A coluna 15 e escolhida e nao a 21 por um motivo medido: (21,40) e andavel e NAO e gatilho, entao descer pela borda leste do beco passaria reto pela cena.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_SOLACEON_TOWN",
+    "warp_id": 1,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_SOLACEON_TOWN",
+      "vars": {
+        "0x4153": 1
+      }
+    }
+  },
+  {
+    "id": "T101.10",
+    "nome": "PAR NEGATIVO do T101.9, com prova POSICIONAL alem da var. Com VAR_SINNOH_SOLACEON_ESTADO PINADA em 2 (valor que nenhum dos sete coord_events pede) o gatilho da linha 40 nao existe, ninguem trava o jogador, e os DOWN que sobram descem o beco (x=15, y=41 a 43) e saem pela conexao 'down' de SolaceonTown/map.json (MAP_ROUTE209, offset -34). CONFERIDO nos dois lados: Solaceon x=15 cai em Route209 x=49 (15 menos o offset -34), e (49,0) tem colisao 0 no map.bin de Route209, ou seja tile andavel; sair por x menor que 15 bateria na parede da linha 43. DISCRIMINA duas coisas de uma vez: que o coord_event respeita `var_value` (a var sai intacta em 2) e que o jogador REALMENTE cruzou a linha do gatilho, e nao ficou parado antes dela, que e a duvida que uma prova so de var nunca fecha. FLAG_SEM_ENCONTRO_SELVAGEM porque o caso termina DENTRO da Route209, que tem land_mons, e o time do harness e vazio: encontro selvagem com time vazio da blackout e reprovaria o caso por um motivo que nao e a cena.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x4153": 2
+    },
+    "warp": "MAP_SOLACEON_TOWN",
+    "warp_id": 1,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE209",
+      "vars": {
+        "0x4153": 2
+      }
+    }
+  },
+  {
+    "id": "T101.11",
+    "nome": "Sinnoh onda3, S5: o ANCIA de Celestic deixa VAR_SINNOH_CELESTIC_ANCIA_ESTADO (0x4132) em 1. Os quatro coord_events ((17,28) a (20,28)) pedem var_value 0 e chamam CelesticTown_EventScript_CoordEvent_Elder, que vira o jogador, vira o ancia e escreve a var ANTES do msgbox. Por isso este caso NAO tem nenhum A: a prova ja esta na memoria com a caixa ainda aberta, e nao gastar aperto e o que impede um A perdido de falar com o proprio ancia (CelesticTown_EventScript_Elder, mesmo texto) e criar uma segunda explicacao para a var. GEOMETRIA no map.bin de LAYOUT_CELESTIC_TOWN: a pousada do warp 0 e (27,28), uma casa ABAIXO da porta do Centro Pokemon, e a rota e LEFT puro pela linha 28, que e aberta de x=6 a x=31 e SATURA sozinha em (17,28): quem barra e o PROPRIO ancia, objeto fixo de (16,28) sem flag de esconder e sem movimento de vagar. MEDIDO em 18/08/2026 pelo fechador da onda 3: o roteiro anterior ancorava a coluna 27 com DOWN*2 + UP*4 na propria porta, apostando que (27,27) SATURA por ter colisao 1 no map.bin. FALSO, e o emulador provou, com os dois casos terminando em MAP_CELESTIC_TOWN_POKECENTER_1F: colisao 1 barra o ANDAR, nao o WARP DE PORTA, que dispara quando o jogador TENTA entrar no tile. Ancora nenhuma e necessaria: se a pousada nao fosse a linha 28, o LEFT varreria outra linha, nao encostaria em gatilho nenhum e o caso FICARIA VERMELHO, entao o proprio verde e a prova da linha.",
+    "warp": "MAP_CELESTIC_TOWN",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,300:NADA",
+    "prova": {
+      "mapa": "MAP_CELESTIC_TOWN",
+      "vars": {
+        "0x4132": 1
+      },
+      "andou": true
+    }
+  },
+  {
+    "id": "T101.12",
+    "nome": "PAR NEGATIVO do T101.11. Com VAR_SINNOH_CELESTIC_ANCIA_ESTADO PINADA em 2 (valor que nenhum dos quatro coord_events pede), a MESMA rota atravessa (20,28) a (17,28), os QUATRO tiles do gatilho, e a var sai INTACTA em 2. DISCRIMINA: sem ele o T101.11 passaria num mundo em que o coord_event ignora `var_value` e a cena do ancia roda toda vez que alguem passa em frente as ruinas. `andou` e o que prova que o jogador cruzou os quatro tiles em vez de ter parado antes, e aqui ele e forte porque o fim da rota e SATURANTE: sem o gatilho o jogador termina encostado no ancia em (17,28), duas casas a oeste do primeiro tile pisado. ROTEIRO CORRIGIDO em 18/08/2026 junto com o T101.11, pelo mesmo motivo medido la: o DOWN*2 + UP*4 que ancorava a coluna 27 entrava pela porta do Centro Pokemon, porque colisao 1 no map.bin barra o ANDAR e nao o WARP DE PORTA. A rota agora e LEFT puro pela linha 28, a partir da pousada (27,28).",
+    "vars": {
+      "0x4132": 2
+    },
+    "warp": "MAP_CELESTIC_TOWN",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,300:NADA",
+    "prova": {
+      "mapa": "MAP_CELESTIC_TOWN",
+      "vars": {
+        "0x4132": 2
+      },
+      "andou": true
+    }
+  },
+  {
+    "id": "T101.13",
+    "nome": "Sinnoh onda3, chapter_jump: NINGUEM TELEPORTA SEM POKEMON. ChapterJump_AplicaCapitulo (src/chapter_jump.c) ganhou um galho que, quando CalculatePlayerPartyCount() e 0, cria um Pikachu nivel 20 com Thunderbolt e Surf ANTES do warp. A prova e o partycount lido da EWRAM pelo simbolo gPartiesCount (campo `timevivo` do dump), depois do salto ja ter acontecido: `time` e 1 e nao `time_min`, de proposito, porque igualdade tambem reprova o mundo em que o galho roda duas vezes ou em que ele cria por cima de um time que ja existia. FLAG_SYS_POKEMON_GET acesa entra junto porque o codigo a acende na mesma linha: sem ela, o menu do time nem abre e o 'ganhou um Pokemon' seria so um numero. O roteiro e o MESMO ja medido do T99.1 (KANTO / Before Pokemon League), reaproveitado de proposito para nao inventar navegacao de menu nova: o mapa de chegada MAP_INDIGO_PLATEAU_EXTERIOR entra na prova como controle de que o salto de fato aconteceu, porque um Pikachu que aparecesse sem o pulo nao provaria o galho.",
+    "abertura": "seletor",
+    "roteiro": "20:DOWN,60:NADA,20:A,120:NADA,20:DOWN*12,60:NADA,20:A,300:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_INDIGO_PLATEAU_EXTERIOR",
+      "time": 1,
+      "flags_acesas": [
+        "FLAG_SYS_POKEMON_GET"
+      ]
+    }
+  },
+  {
+    "id": "T101.14",
+    "nome": "PAR NEGATIVO do T101.13: o MESMO seletor, a MESMA build, e a ultima linha da lista (START FROM BEGINNING) em vez de uma regiao. Sem SALTO nao ha Pikachu: o jogador acorda em MAP_PALLET_TOWN_PLAYERS_HOUSE_2F (o (6,6) de src/new_game.c, com DEV_SKIP_INTRO em FALSE conferido em include/config/debug.h) com o time VAZIO e FLAG_SYS_POKEMON_GET APAGADA. DISCRIMINA: sem ele o T101.13 passaria num mundo em que o Pikachu vem do jogo novo, ou do proprio seletor abrir, ou de qualquer outro lugar que nao ChapterJump_AplicaCapitulo, porque la o unico fato era 'no fim tinha um Pokemon'. Ele tambem e o controle de que o time do harness nasce vazio, premissa que TODOS os outros casos deste arquivo usam quando desligam encontro selvagem.",
+    "prova": {
+      "mapa": "MAP_PALLET_TOWN_PLAYERS_HOUSE_2F",
+      "time": 0,
+      "flags_apagadas": [
+        "FLAG_SYS_POKEMON_GET"
+      ]
+    }
+  }
+]

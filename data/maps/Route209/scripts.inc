@@ -1,5 +1,31 @@
 Route209_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Route209_OnTransition
 	.byte 0
+
+@ >>> B6 Sinnoh S5: grupo de hidden_flag (dev_scripts/maquina_sinnoh.json) >>>
+@ FLAG_HIDE_ROUTE_209_JOGGER_RAUL/_RICHARD: os dois joggers so correm de
+@ manha na fonte (scripts_route_209.s, Route209_OnTransition la troca entre
+@ o par "de batalha" e o par "sem batalha" via GetTimeOfDay). Os objetos
+@ Trainer4/Trainer5 ja existiam prontos neste arquivo (batalha, texto e
+@ TRAINER_SINNOH_JOGGER_* ja plantados por outro trabalho, sem o gatilho de
+@ horario). Mesmo precedente ja usado em Route210_South (Jogger Wyatt,
+@ FLAG_SINNOH_ROUTE210_WYATT_ESCONDIDO): so a flag de esconder por horario,
+@ SEM o par NO_BATTLE da fonte (o `trainerbattle_single` do motor ja pula a
+@ batalha sozinho quando o treinador foi vencido). Os aliases
+@ FLAG_SINNOH_ESCONDE_ROUTE_209_JOGGER_RAUL_NO_BATTLE/_RICHARD_NO_BATTLE
+@ ficam sem uso, mesma folga que a fila do Wyatt deixou.
+Route209_OnTransition:
+	gettimeofday
+	goto_if_eq VAR_0x8000, 0, Route209_EventScript_MostraJoggers
+	setflag FLAG_SINNOH_ESCONDE_ROUTE_209_JOGGER_RAUL
+	setflag FLAG_SINNOH_ESCONDE_ROUTE_209_JOGGER_RICHARD
+	end
+
+Route209_EventScript_MostraJoggers::
+	clearflag FLAG_SINNOH_ESCONDE_ROUTE_209_JOGGER_RAUL
+	clearflag FLAG_SINNOH_ESCONDE_ROUTE_209_JOGGER_RICHARD
+	end
+@ <<< B6 Sinnoh S5: grupo de hidden_flag <<<
 
 Route209_EventScript_Trainer1::
 	trainerbattle_single TRAINER_SINNOH_BREEDER_ALBERT, Route209_Text_Trainer1Intro, Route209_Text_Trainer1Defeat
