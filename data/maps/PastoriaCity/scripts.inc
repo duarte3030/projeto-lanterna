@@ -226,6 +226,23 @@ PastoriaCity_Text_YouDidGetTougher:
 @ de escrever a corrente. Termina tambem com SetFlag FLAG_HIDE_VEILSTONE_
 @ CITY_GALACTIC_WAREHOUSE_LOOKER, flag de OUTRO mapa (VeilstoneCity, fora do
 @ meu escopo nesta leva).
+@
+@ CONFERIDO DE NOVO (S7, 18/08/2026). A pre-atribuicao da condutora pra
+@ minha leva (PLANO-OBRAS-SINNOH.md, "PastoriaCity SO para a bomba... Crasher
+@ Wake como NPC de cena SEM batalha") cobre so 2 flags (0x1B9D GRUNT_FUGIU_
+@ LESTE, 0x1B9E CROAGUNK_BLOQUEADO); NENHUMA das duas e a flag de VISIBILIDADE
+@ do proprio Crasher Wake (FLAG_HIDE_PASTORIA_CITY_CRASHER_WAKE da fonte,
+@ ainda sem alias). Achado novo: o FaceBoard/Croagunk logo abaixo tem o MESMO
+@ buraco, so que pro Croagunk (FLAG_HIDE_PASTORIA_CITY_CROAGUNK, tambem sem
+@ alias, DIFERENTE de CROAGUNK_BLOQUEADO que so trava re-disparo, nao
+@ visibilidade). Confirmado que VeilstoneCity_GalacticWarehouse/scripts.inc
+@ (onda 3/S5) NAO escreve mais o `setvar VAR_SINNOH_PASTORIA_ESTADO, 1`
+@ (redesenhou o fluxo do Fly sem o OnFrame_EnterWithLooker da fonte, ver
+@ ponytail no topo daquele arquivo); a nota do plano de 18/08 pedindo esse
+@ setvar de quem escrever o armazem esta desatualizada, e a corrente inteira
+@ (RivalBattle em diante) segue inalcancavel em jogo normal, so por suite
+@ pinando a var. Segue BLOQUEADO; volta ao plano com os 2 enderecos que
+@ faltam (Crasher Wake e Croagunk) antes de qualquer cena aqui.
 PastoriaCity_EventScript_CoordEvent_Bomb::
 	end
 

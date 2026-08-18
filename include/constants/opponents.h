@@ -2128,7 +2128,7 @@
 
 // >>> cenas restantes da espinha da Galactica de Sinnoh (bloco B6,
 // dev_scripts/cena_galactica_sinnoh.py, 12/08/2026). Faixa exclusiva
-// desta frente: 2500 a 2519; gastos 14, livres 2514 a 2519. O vao 2462 a
+// desta frente: 2500 a 2519; gastos 15, livres 2515 a 2519. O vao 2462 a
 // 2499 fica DE PROPOSITO vazio, reservado para Johto retomar. >>>
 #define TRAINER_SINNOH_GALACTIC_GRUNT_CELESTIC_TOWN          2500
 #define TRAINER_SINNOH_COMMANDER_MARS_LAKE_VERITY            2501
@@ -2154,6 +2154,12 @@
 #define TRAINER_SINNOH_RIVAL_ROUTE_209_TURTWIG               2511
 #define TRAINER_SINNOH_RIVAL_ROUTE_209_CHIMCHAR              2512
 #define TRAINER_SINNOH_RIVAL_ROUTE_209_PIPLUP                2513
+// 18/08/2026, onda 5: id e nome PRE-ATRIBUIDOS pela condutora. Time literal
+// de res/trainers/data/galactic_boss_cyrus_galactic_hq.json; Class/Pic
+// seguem o mesmo reaproveitamento ja em uso por TRAINER_SINNOH_GALACTIC_
+// BOSS_CYRUS_SPEAR_PILLAR (Magma Leader / Magma Leader Maxie: nao existe
+// TRAINER_CLASS_GALACTIC_BOSS neste codebase).
+#define TRAINER_SINNOH_GALACTIC_BOSS_CYRUS_GALACTIC_HQ       2514
 // <<< cenas da Galactica de Sinnoh <<<
 
 // >>> Campea de Unova, bloco B6 (12/08/2026). Faixa exclusiva desta frente:

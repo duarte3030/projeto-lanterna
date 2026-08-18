@@ -219,6 +219,31 @@ EventScript_ResetAllMapFlags::
 	@ toda por coord_event), entao deixar ele plantado era por um obstaculo
 	@ mudo no corredor do portao antes da hora.
 	setflag FLAG_SINNOH_ESCONDE_ROUTE_218_GATE_TO_CANALAVE_CITY_SCIENTIST_M
+	@ Leva S7, onda 5 (18/08/2026). Rival de Sunyshore: a FONTE esconde no jogo
+	@ novo, textualmente. Prova: res/field/scripts/scripts_init_new_game.s:122
+	@ `SetFlag FLAG_HIDE_SUNYSHORE_CITY_RIVAL`, e o unico outro toque na flag e
+	@ o `ClearFlag` de scripts_sunyshore_city.s:48, dentro da propria cena
+	@ pos-8a insignia (SunyshoreCity_CoordEvent_RivalAndJasmine). Sem esta
+	@ linha o rival ficava de pe na esquina desde o boot, spoilando a cena, e o
+	@ `clearflag`+`addobject` do comeco da cena era no-op.
+	setflag FLAG_SINNOH_ESCONDE_SUNYSHORE_CITY_RIVAL
+	@ FICAM DE FORA as outras 4 flags de esconder da onda 5, cada uma com a
+	@ prova de que a fonte MOSTRA o objeto no jogo novo (grep de SetFlag/
+	@ ClearFlag no pokeplatinum inteiro, 18/08/2026):
+	@ - FLAG_SINNOH_ESCONDE_POKEMON_MANSION_OFFICE_POLICEMAN: quem decide e o
+	@   ON_TRANSITION do proprio mapa pela hora do relogio (fonte
+	@   scripts_pokemon_mansion_office.s:23 ClearFlag / :28 SetFlag), ja
+	@   portado em PokemonMansionOffice_OnTransition. Esconder no jogo novo
+	@   nao mudaria nada (o OnTransition roda antes de os objetos nascerem),
+	@   mas mentiria sobre quem manda na flag.
+	@ - FLAG_SINNOH_ESCONDE_RESORT_AREA_SCHOOL_KID_M e
+	@   FLAG_SINNOH_ESCONDE_VILLA_SCHOOL_KID_M: a fonte NUNCA toca nas duas
+	@   (unica ocorrencia de cada uma em res/, src/ e include/ e o campo
+	@   `hidden_flag` do objeto). Os dois School Kid ficam visiveis desde o
+	@   inicio, que e o que as cenas de la assumem (nenhuma faz clearflag).
+	@ - FLAG_SINNOH_ESCONDE_STARK_MOUNTAIN_OUTSIDE_GRUNTS: idem, a fonte so
+	@   declara (events_stark_mountain_outside.json, dois objetos) e nunca
+	@   acende nem apaga. Os grunts nascem visiveis e somem no fecho da cena.
 	@ FICA DE FORA, com prova: FLAG_SINNOH_ESCONDE_VEILSTONE_COUNTERPART. A
 	@ fonte NUNCA acende FLAG_HIDE_VEILSTONE_COUNTERPART (grep em res/, src/ e
 	@ include/ inteiros: so aparece no campo hidden_flag do objeto e em DOIS

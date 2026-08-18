@@ -4,13 +4,106 @@
 Route227_MapScripts::
 	.byte 0
 
-@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ >>> B6 Sinnoh S7: cena da fonte, rotulo Route227_CoordEvent_Buck >>>
+@ Buck (LOCALID_ROUTE227_BUCK, OBJ_EVENT_GFX_HIKER: nao existe OBJ_EVENT_GFX_
+@ BUCK aqui, mesmo molde de RICH_BOY pro Rival e MAGMA_MEMBER_M pro grunt) ja
+@ nasce visivel (fonte nao faz ClearFlag/AddObject nesta cena, so
+@ ApplyMovement); FLAG_HIDE_ROUTE_227_BUCK da fonte NAO esta no censo do S1
+@ (nao e um dos 247 grupos), entao fica sem alias aqui e o objeto sem `flag`
+@ de esconder (visivel sempre). Pede a patrulha da Stark Mountain; a fonte
+@ nao remove ele no fim (fica plantado esperando o jogador aparecer la).
 Route227_EventScript_CoordEvent_Buck::
-	@ TODO S7: cena da fonte, rotulo Route227_CoordEvent_Buck
+	lockall
+	applymovement LOCALID_ROUTE227_BUCK, Route227_Movement_BuckNoticePlayer
+	applymovement OBJ_EVENT_ID_PLAYER, Route227_Movement_PlayerFaceBuck
+	waitmovement 0
+	goto Route227_EventScript_AskPatrolStarkMountain
 	end
 
+Route227_EventScript_AskPatrolStarkMountain::
+	msgbox Route227_Text_PatrolStarkMountain, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route227_EventScript_GoonsCausingTrouble
+	goto_if_eq VAR_RESULT, NO, Route227_EventScript_IllKeepAsking
+	end
+
+Route227_EventScript_IllKeepAsking::
+	msgbox Route227_Text_IllKeepAsking, MSGBOX_DEFAULT
+	goto Route227_EventScript_AskPatrolStarkMountain
+	end
+
+Route227_EventScript_GoonsCausingTrouble::
+	applymovement LOCALID_ROUTE227_BUCK, Route227_Movement_BuckWalkOnSpotNorth
+	waitmovement 0
+	msgbox Route227_Text_GoonsCausingTrouble, MSGBOX_DEFAULT
+	applymovement LOCALID_ROUTE227_BUCK, Route227_Movement_BuckWalkOnSpotSouth
+	waitmovement 0
+	msgbox Route227_Text_WhatMe, MSGBOX_DEFAULT
+	setvar VAR_SINNOH_R227_BUCK_ESTADO, 1
+	releaseall
+	end
+
+Route227_Movement_BuckNoticePlayer:
+	walk_in_place_down
+	emote_exclamation_mark
+	walk_down
+	step_end
+
+Route227_Movement_PlayerFaceBuck:
+	face_up
+	step_end
+
+Route227_Movement_BuckWalkOnSpotNorth:
+	walk_in_place_up
+	step_end
+
+Route227_Movement_BuckWalkOnSpotSouth:
+	walk_in_place_down
+	step_end
+
+Route227_Text_PatrolStarkMountain:
+	.string "Buck: Yo, if it isn't {PLAYER}!\n"
+	.string "Out training right away, are you?\p"
+	.string "So, uh, since you're training anyway,\n"
+	.string "can you do me a favor?\p"
+	.string "I'd like you to patrol Stark Mountain\n"
+	.string "for me.$"
+
+Route227_Text_IllKeepAsking:
+	.string "I'll keep asking the same thing over and\n"
+	.string "over until you say “Yes!”$"
+
+Route227_Text_GoonsCausingTrouble:
+	.string "Buck: Up past here, there's this\n"
+	.string "volcano. It's Stark Mountain.\p"
+	.string "Deep inside it is this special rock\n"
+	.string "called the Magma Stone.\p"
+	.string "I can't explain it well, but it's\n"
+	.string "really important. It keeps a Pokémon\l"
+	.string "asleep.\p"
+	.string "But lately, I've been hearing rumors\n"
+	.string "about vandals in Stark Mountain.\p"
+	.string "They say goons in space suits are\n"
+	.string "causing trouble there.$"
+
+Route227_Text_WhatMe:
+	.string "Huh?\n"
+	.string "What, me?\p"
+	.string "I was on my way to the Pokémon Center\n"
+	.string "because my Pokémon's low on HP.\p"
+	.string "So, if you could get up to Stark\n"
+	.string "Mountain now, that'd be great. Thanks!$"
+
+@ <<< B6 Sinnoh S7: cena da fonte <<<
+
+@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ BLOQUEADO: precisa de LOCALID_CRASHER_WAKE, e FLAG_HIDE_ROUTE_227_CRASHER_
+@ WAKE (fonte) nao esta no censo do S1 (nao e um dos 247 grupos de
+@ hidden_flag; `grep` em dev_scripts/maquina_sinnoh.json confirma zero
+@ ocorrencias). Mesmo buraco do Crasher Wake em PastoriaCity e Villa (ver
+@ comentario la); sem endereco de flag da condutora, plantar o objeto
+@ permanentemente visivel do boot do jogo era bug novo, e nao plantar deixa
+@ o gatilho sem cena. Volta ao plano.
 Route227_EventScript_CoordEvent_WakeRival::
-	@ TODO S7: cena da fonte, rotulo Route227_CoordEvent_WakeRival
 	end
 
 @ <<< B6 Sinnoh S1: esqueletos de cena <<<

@@ -1,12 +1,21 @@
 Route224_MapScripts::
 	.byte 0
 
-@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ BLOQUEADO (S7, 18/08/2026). LOCALID_MARLEY precisa de FLAG_HIDE_ROUTE_224_
+@ MARLEY, que NAO esta no censo do S1 (nao e um dos 247 grupos de
+@ hidden_flag; `grep` em dev_scripts/maquina_sinnoh.json confirma zero
+@ ocorrencias), mesmo buraco do Crasher Wake em Pastoria/Route227/Villa.
+@ Achado extra (nao so este mapa): LOCALID_PROF_OAK, que TEM flag no censo
+@ (FLAG_SINNOH_ESCONDE_ROUTE_224_PROF_OAK, 0x1B76), NAO fica mais barato:
+@ a fonte so libera ele com `CheckDistributionEvent DISTRIBUTION_EVENT_
+@ SHAYMIN` (scripts_route_224.s:8-19), que e Mystery Gift, mecanica
+@ descartada pela decisao 3 do plano ("Mystery Gift nao existe aqui"). Sem
+@ Mystery Gift a condicao nunca fecha, entao mesmo com endereco de flag o
+@ Prof Oak nunca aparece; nao ha cena pra escrever, so o descarte a
+@ registrar (mesma familia de FLAG_HIDE_POKECENTER_*/MART_* da decisao 6).
+@ Volta ao plano nos dois casos.
 Route224_EventScript_CoordEvent_Marley::
-	@ TODO S7: cena da fonte, rotulo Route224_CoordEvent_Marley
 	end
-
-@ <<< B6 Sinnoh S1: esqueletos de cena <<<
 
 Route224_EventScript_Trainer1::
 	trainerbattle_single TRAINER_SINNOH_BLACK_BELT_CARL, Route224_Text_Trainer1Intro, Route224_Text_Trainer1Defeat

@@ -85,6 +85,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ValorLakefront_EventScript_GalacticGrunt",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_VALOR_LAKEFRONT_COLLECTOR",
+      "graphics_id": "OBJ_EVENT_GFX_MANIAC",
+      "x": 46,
+      "y": 58,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_COLLECTOR",
+      "origem": "pokeplatinum: LOCALID_COLLECTOR (724,788), bloqueia a estrada de Sunyshore (S7). CONSERTO onda 5: a conversao proporcional plantou ele em (45,55), colisao 1, dentro do paredao das linhas 54-56 do map.bin; (46,58) esta na estrada e uma casa a leste da coluna de gatilhos (45,57)/(45,58)/(45,59), que sao as UNICAS casas andaveis da coluna 45. Fiel a fonte, onde o Collector tambem fica encostado na estrada e entra nela na cena, e o corpo dele tapa uma casa. `flag` preenchida com a hidden_flag da fonte: quem a acende e a cena pos-8a insignia do laboratorio de Sandgem (scripts_sandgem_town_pokemon_research_lab.s:110), ainda nao portada, entao na pratica ele fica visivel."
     }
   ],
   "warp_events": [
@@ -135,7 +150,7 @@
     {
       "type": "trigger",
       "x": 45,
-      "y": 53,
+      "y": 59,
       "elevation": 0,
       "var": "VAR_SINNOH_VALOR_BLOQUEIO_SUNYSHORE",
       "var_value": "0",

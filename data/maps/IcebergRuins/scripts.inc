@@ -1,36 +1,41 @@
 IcebergRuins_MapScripts::
 	.byte 0
 
-@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ BLOQUEADO (S7, 18/08/2026), os 7 pontos deste santuario. A fonte
+@ (scripts_iceberg_ruins.s e irmas) trava a ativacao de cada ponto em
+@ VAR_ICEBERG_RUINS_STATE/VAR_IRON_RUINS_STATE/VAR_ROCK_PEAK_RUINS_STATE
+@ (nao e um dos VAR_MAP_LOCAL, e nao esta na tabela de 49 vars do plano; e
+@ var interna que so aparece durante o porte, decisao "volta ao plano, entra
+@ na tabela em append" da secao de vars) e no special ActivateRegiRuinsDot
+@ (com CheckPartyHasFatefulEncounterRegigigas e StartLegendaryBattle pro
+@ Regi em si), nenhum dos dois existe neste motor (`grep` em include/ e
+@ src/ confirma). "Specials inexistentes descartados com comentario": os 7
+@ `SetVar VAR_TEMP_N, 1` sao literais e portaveis, mas sozinhos nao fazem
+@ nada sem o special que conta quantos pontos foram ativados e libera a
+@ estatua; escrever so o SetVar era esqueleto vazio (ponytail: nao
+@ scaffolding sem consumidor). Volta ao plano: precisa de endereco de var
+@ nova da condutora e decisao sobre a mecanica do Regi (capturavel? so
+@ decorativo?) antes de qualquer cena aqui.
 IcebergRuins_EventScript_DotFarEast::
-	@ TODO S?: cena da fonte, rotulo IcebergRuins_DotFarEast
 	end
 
 IcebergRuins_EventScript_DotFarWest::
-	@ TODO S?: cena da fonte, rotulo IcebergRuins_DotFarWest
 	end
 
 IcebergRuins_EventScript_DotMiddle::
-	@ TODO S?: cena da fonte, rotulo IcebergRuins_DotMiddle
 	end
 
 IcebergRuins_EventScript_DotMiddleEast::
-	@ TODO S?: cena da fonte, rotulo IcebergRuins_DotMiddleEast
 	end
 
 IcebergRuins_EventScript_DotMiddleWest::
-	@ TODO S?: cena da fonte, rotulo IcebergRuins_DotMiddleWest
 	end
 
 IcebergRuins_EventScript_DotNorth::
-	@ TODO S?: cena da fonte, rotulo IcebergRuins_DotNorth
 	end
 
 IcebergRuins_EventScript_DotSouth::
-	@ TODO S?: cena da fonte, rotulo IcebergRuins_DotSouth
 	end
-
-@ <<< B6 Sinnoh S1: esqueletos de cena <<<
 
 IcebergRuins_EventScript_Placa1::
 	msgbox IcebergRuins_Text_Placa1, MSGBOX_SIGN

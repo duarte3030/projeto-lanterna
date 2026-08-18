@@ -1,0 +1,221 @@
+[
+ {
+  "id": "T103.1",
+  "nome": "Sinnoh onda5, S7+TREINADORES: o CYRUS DO 4F DO QG abre batalha, e o oponente e o id PRE-ATRIBUIDO pela condutora. VAR_SINNOH_QG_4F_ESTADO (0x4135) vai PINADA em 0, que e ao mesmo tempo o valor de nascimento (nenhum script do repo escreve essa var fora da propria cena) e o var_value que o unico coord_event do mapa ((4,5)) pede; a pinagem entra explicita para o par negativo T103.2 ser a MESMA corrida com um numero trocado. A prova NAO e 'abriu batalha': e `oponente=2514` lido de gTrainerBattleParameter+2 na EWRAM, mais a faixa 2500..2519, que e a faixa EXCLUSIVA desta frente em include/constants/opponents.h e por isso separa 'o id caiu na familia certa' de 'o id caiu num vizinho de tabela' (o modo como o bug dos apelidos de Kanto aparecia). O id 2514 e TRAINER_SINNOH_GALACTIC_BOSS_CYRUS_GALACTIC_HQ, definido nesta mesma onda, com time em src/data/trainers.party. A batalha nao se joga: o id ja esta escrito quando ScrCmd_trainerbattle chama TrainerBattleLoadArgs, antes de qualquer dotrainerbattle, e o mapa continua MAP_GALACTIC_HQ_4F porque batalha nao teleporta ninguem. Os 18 apertos de A existem so para atravessar as 7 paginas de msgbox que vem ANTES do trainerbattle_no_intro (4 paginas de GalacticHq4F_Text_SpeechWasBigLie e 3 de GalacticHq4F_Text_IKnowWhyYoureHere), no ritmo medido de ~2 A por pagina. VAR_SINNOH_QG_4F_ESTADO NAO entra na prova de proposito: o `setvar ..., 1` mora no FIM da cena, depois da batalha (o gotopostbattlescript so volta para la em caso de vitoria), e o harness nao joga batalha. GEOMETRIA medida em 18/08/2026 contra data/layouts/OreburghCityHouse1/map.bin (LAYOUT_OREBURGH_CITY_HOUSE1, 10x9, emprestado pelo 4F), com o modelo de andar da onda 2 e a folga da onda 4 (a perna que SATURA vale nos dois modelos de aperto). O warp 1 e (4,8), e o mapa so tem 9 linhas (y=0..8): nao existe y=9, entao a pousada e a PROPRIA casa do warp, sem a segunda pousada de porta de exterior. UP*20 sobe a coluna 4 ((4,7), (4,6), (4,5) que E o unico coord_event do mapa, (4,4), (4,3)) e SATURA em (4,3), encostada no proprio Cyrus, objeto fixo de (4,2) com MOVEMENT_TYPE_FACE_DOWN. A perna satura, entao aperto a mais ou a menos nao muda nada. O warp 0 ((3,8)) foi DESCARTADO de proposito: a coluna 3 e parede em (3,5), a perna saturaria em (3,6) e o gatilho nunca seria pisado. Sem FLAG_SEM_ENCONTRO_SELVAGEM: MAP_GALACTIC_HQ_4F nao aparece em src/data/wild_encounters.json.",
+  "vars": {
+   "0x4135": 0
+  },
+  "warp": "MAP_GALACTIC_HQ_4F",
+  "warp_id": 1,
+  "roteiro": "60:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALACTIC_HQ_4F",
+   "oponente": "TRAINER_SINNOH_GALACTIC_BOSS_CYRUS_GALACTIC_HQ",
+   "oponente_faixa": [
+    2500,
+    2519
+   ]
+  }
+ },
+ {
+  "id": "T103.2",
+  "nome": "PAR NEGATIVO do T103.1, e o caso que da sentido a ele. MESMO warp, MESMA rota, e VAR_SINNOH_QG_4F_ESTADO (0x4135) PINADA em 1, que e EXATAMENTE o valor que o fecho da propria cena escreve: o coord_event de (4,5) pede var_value 0, entao com 1 a emboscada nao existe, o jogador atravessa a sala e para encostado no Cyrus, e nenhuma batalha e montada. Tres provas juntas: `oponente` em 0 (gTrainerBattleParameter nasce zerado no boot e nada nesta corrida escreve nele, entao 0 prova que nao houve duelo nenhum), a var intacta em 1, e `andou`, que prova que o jogador cruzou o tile do gatilho em vez de ter congelado antes dele. DISCRIMINA duas coisas: que o coord_event respeita `var_value`, e que a cena do Cyrus NAO ressuscita depois de rodada, que e o mundo em que o T103.1 passaria com o chefe da Galactica duelando para sempre no mesmo tile. SEM NENHUM A de proposito, e aqui isso e mais do que higiene: o objeto do Cyrus tem `script: 0` no map.json, entao nem falar com ele abre coisa alguma, e um A perdido nao pode inventar batalha. GEOMETRIA medida em 18/08/2026 contra data/layouts/OreburghCityHouse1/map.bin (LAYOUT_OREBURGH_CITY_HOUSE1, 10x9, emprestado pelo 4F), com o modelo de andar da onda 2 e a folga da onda 4 (a perna que SATURA vale nos dois modelos de aperto). O warp 1 e (4,8), e o mapa so tem 9 linhas (y=0..8): nao existe y=9, entao a pousada e a PROPRIA casa do warp, sem a segunda pousada de porta de exterior. UP*20 sobe a coluna 4 ((4,7), (4,6), (4,5) que E o unico coord_event do mapa, (4,4), (4,3)) e SATURA em (4,3), encostada no proprio Cyrus, objeto fixo de (4,2) com MOVEMENT_TYPE_FACE_DOWN. A perna satura, entao aperto a mais ou a menos nao muda nada. O warp 0 ((3,8)) foi DESCARTADO de proposito: a coluna 3 e parede em (3,5), a perna saturaria em (3,6) e o gatilho nunca seria pisado. Sem FLAG_SEM_ENCONTRO_SELVAGEM: MAP_GALACTIC_HQ_4F nao aparece em src/data/wild_encounters.json.",
+  "vars": {
+   "0x4135": 1
+  },
+  "warp": "MAP_GALACTIC_HQ_4F",
+  "warp_id": 1,
+  "roteiro": "60:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALACTIC_HQ_4F",
+   "vars": {
+    "0x4135": 1
+   },
+   "oponente": 0,
+   "andou": true
+  }
+ },
+ {
+  "id": "T103.3",
+  "nome": "Sinnoh onda5, S7: a CENA DO RIVAL COM A JASMINE EM SUNYSHORE roda INTEIRA e entrega o HM07. VAR_SINNOH_SUNYSHORE_ESTADO (0x4156) vai PINADA em 2 porque os CINCO coord_events do map.json pedem var_value 2 e NADA no repo inteiro escreve esse 2 (o unico `setvar VAR_SINNOH_SUNYSHORE_ESTADO` que existe e o `, 3` do fecho da propria cena; achado registrado no relatorio). Sem a pinagem a cena e inalcancavel em jogo normal; COM ela, o que o caso prova e a cena, nao o enredo que ainda falta. DUAS provas de EWRAM, e as duas so ficam verdadeiras no FIM da coreografia: (a) 0x4156 == 3, escrito na ULTIMA linha antes do releaseall, depois da Jasmine sair andando; (b) FLAG_SINNOH_ESCONDE_SUNYSHORE_CITY_RIVAL ACESA, que e o `setflag` de penultima hora (imediatamente antes do removeobject do Rival). A flag e prova de CONTINUIDADE, e o texto dela foi CORRIGIDO no fechamento da onda 5: ela NASCE ACESA. O consertador achou na fonte o `SetFlag FLAG_HIDE_SUNYSHORE_CITY_RIVAL` de res/field/scripts/scripts_init_new_game.s:122 e o `setflag` entrou em data/scripts/new_game.inc; medido na EWRAM, a flag esta em 0 no boot e em 1 no primeiro passo do jogo. Ou seja: o peso de 'a cena rodou inteira' e da VAR (o 3), e a flag aqui prova outra coisa, que o `clearflag` do comeco da cena NAO ficou por isso mesmo, porque o `setflag` de penultima hora (imediatamente antes do removeobject do Rival) devolve o objeto ao estado escondido. Se alguem apagar esse setflag, o Rival fica plantado na esquina depois da cena e este caso acusa. Os 62 apertos de A pagam as ~31 paginas de msgbox do trecho (5 de YouGotAllBadges, 6 de YouWatchMe, 7 de HurryToPokemonLeague, 7 de HaveThisAsMyThanks, 1 de ThisIsntMuchBut, ~2 do giveitem ITEM_HM07 e 3 de ThatHMContainsWaterfall), no ritmo medido de ~2 A por pagina; a bolsa NAO entra na prova porque o harness nao le item nenhum da save, e por isso quem testemunha o giveitem e o par var+flag que so acontece DEPOIS dele. GEOMETRIA medida em 18/08/2026 contra data/layouts/SunyshoreCity/map.bin (70x64). Pousadas do warp 6 (a porta da casa oeste): (17,9) e (17,10), as duas convergem. DOWN*20 desce a coluna 17 e SATURA em (17,13) (a linha 14 e parede de x=0 a x=24); RIGHT*20 varre a linha 13 e SATURA em (19,13) (x=20 e parede); UP*20 sobe a coluna 19 e SATURA em (19,11) (x=19 e parede na linha 10). As tres pernas SATURAM. RIGHT*9 e a UNICA perna contada do caso, e a ambiguidade dela e INOFENSIVA DE PROPOSITO: 8 ou 9 tiles caem em (27,11) ou (28,11), e as colunas 27 e 28 servem as duas (as duas sobem limpas ate a praca e as duas tem coord_event na linha 7). A coluna 26 recebeu cuidado extra na medicao original porque o objeto do Rival mora em (26,10); depois do conserto de new_game.inc (a flag de esconder nasce ACESA, fiel a fonte) ele NAO esta mais plantado la, e a coluna deixou de ser obstaculo. UP*8 sobe 7 ou 8 tiles, pisa em (27,7)/(28,7) (dois dos cinco coord_events) e para em (x,4) ou (x,3), as duas dentro do mapa e nenhuma delas o outro gatilho, que mora em (23,3). Nenhum NPC de vagar encosta na rota: o SAILOR de (25,17) tem movement_range_y=5 (linhas 12 a 22, coluna 25 fixa) e a rota anda na linha 11 e nas colunas 27/28. Sem FLAG_SEM_ENCONTRO_SELVAGEM: MAP_SUNYSHORE_CITY so tem water_mons/fishing_mons. CORRECAO medida no fechamento da onda 5 (18/08/2026), com traco de EWRAM (x,y quadro a quadro): a rota antiga nunca chegava nos gatilhos. A praca da linha 7 esta em ELEVACAO 3 e a pousada do warp 6 esta em ELEVACAO 4; as casas F das colunas 25 a 31 sao ponte, nao escada (elevacao 15 MANTEM a do jogador), entao subir a coluna 27/28 da linha 11 e barrado por IsElevationMismatchAt, e nao por colisao, que e o unico bit que a medicao original olhou. A unica escada e a ilha de ELEVACAO 0 em (42..45, 20..23). Rota nova, conferida no emulador (chega em (28,7)): RIGHT 1, DOWN 1, RIGHT 25, DOWN 9, LEFT 1, DOWN 4, LEFT 14, UP 17, cada perna com o aperto a mais da regua N+1.",
+  "vars": {
+   "0x4156": 2
+  },
+  "warp": "MAP_SUNYSHORE_CITY",
+  "warp_id": 6,
+  "roteiro": "60:NADA,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,600:NADA",
+  "prova": {
+   "mapa": "MAP_SUNYSHORE_CITY",
+   "vars": {
+    "0x4156": 3
+   },
+   "flags_acesas": [
+    "FLAG_SINNOH_ESCONDE_SUNYSHORE_CITY_RIVAL"
+   ]
+  }
+ },
+ {
+  "id": "T103.4",
+  "nome": "PAR NEGATIVO do T103.3. MESMO warp, MESMA rota, e VAR_SINNOH_SUNYSHORE_ESTADO (0x4156) em 0, que e o valor de NASCIMENTO do jogo (nada no repo escreve essa var antes da propria cena): os cinco coord_events pedem 2, entao o jogador pisa em (27,7)/(28,7) e nada acontece. Tres provas: a var intacta em 0, `andou` (o jogador subiu a praca inteira em vez de ter congelado antes da linha do gatilho), e FLAG_SINNOH_ESCONDE_SUNYSHORE_CITY_RIVAL ACESA. A clausula da flag foi INVERTIDA no fechamento da onda 5 e passou a guardar outra coisa: o consertador provou na fonte (res/field/scripts/scripts_init_new_game.s:122) que o jogo novo ESCONDE o Rival de Sunyshore, o `setflag` entrou em data/scripts/new_game.inc, e a medicao de EWRAM confirma (0 no boot, 1 no primeiro passo). Entao aqui a flag acesa e o GUARDIAO DO SETFLAG DO JOGO NOVO: se alguem tirar aquela linha, o Rival volta a ficar de pe em (26,10) desde o boot, spoilando a cena pos-8a insignia e virando obstaculo no meio da praca, e este caso fica vermelho na hora. O discriminador do par continua sendo a VAR: 0 aqui contra 3 no T103.3. DISCRIMINA: sem este caso o T103.3 passaria num mundo em que o coord_event ignora `var_value` e o Rival aborda o jogador na primeira vez que ele entra em Sunyshore, entregando o HM07 da oitava insignia sem insignia nenhuma. SEM NENHUM A de proposito: nada deve abrir, entao nada precisa ser fechado. GEOMETRIA medida em 18/08/2026 contra data/layouts/SunyshoreCity/map.bin (70x64). Pousadas do warp 6 (a porta da casa oeste): (17,9) e (17,10), as duas convergem. DOWN*20 desce a coluna 17 e SATURA em (17,13) (a linha 14 e parede de x=0 a x=24); RIGHT*20 varre a linha 13 e SATURA em (19,13) (x=20 e parede); UP*20 sobe a coluna 19 e SATURA em (19,11) (x=19 e parede na linha 10). As tres pernas SATURAM. RIGHT*9 e a UNICA perna contada do caso, e a ambiguidade dela e INOFENSIVA DE PROPOSITO: 8 ou 9 tiles caem em (27,11) ou (28,11), e as colunas 27 e 28 servem as duas (as duas sobem limpas ate a praca e as duas tem coord_event na linha 7). A coluna 26 recebeu cuidado extra na medicao original porque o objeto do Rival mora em (26,10); depois do conserto de new_game.inc (a flag de esconder nasce ACESA, fiel a fonte) ele NAO esta mais plantado la, e a coluna deixou de ser obstaculo. UP*8 sobe 7 ou 8 tiles, pisa em (27,7)/(28,7) (dois dos cinco coord_events) e para em (x,4) ou (x,3), as duas dentro do mapa e nenhuma delas o outro gatilho, que mora em (23,3). Nenhum NPC de vagar encosta na rota: o SAILOR de (25,17) tem movement_range_y=5 (linhas 12 a 22, coluna 25 fixa) e a rota anda na linha 11 e nas colunas 27/28. Sem FLAG_SEM_ENCONTRO_SELVAGEM: MAP_SUNYSHORE_CITY so tem water_mons/fishing_mons. CORRECAO medida no fechamento da onda 5 (18/08/2026), com traco de EWRAM (x,y quadro a quadro): a rota antiga nunca chegava nos gatilhos. A praca da linha 7 esta em ELEVACAO 3 e a pousada do warp 6 esta em ELEVACAO 4; as casas F das colunas 25 a 31 sao ponte, nao escada (elevacao 15 MANTEM a do jogador), entao subir a coluna 27/28 da linha 11 e barrado por IsElevationMismatchAt, e nao por colisao, que e o unico bit que a medicao original olhou. A unica escada e a ilha de ELEVACAO 0 em (42..45, 20..23). Rota nova, conferida no emulador (chega em (28,7)): RIGHT 1, DOWN 1, RIGHT 25, DOWN 9, LEFT 1, DOWN 4, LEFT 14, UP 17, cada perna com o aperto a mais da regua N+1.",
+  "vars": {
+   "0x4156": 0
+  },
+  "warp": "MAP_SUNYSHORE_CITY",
+  "warp_id": 6,
+  "roteiro": "60:NADA,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,300:NADA",
+  "prova": {
+   "mapa": "MAP_SUNYSHORE_CITY",
+   "vars": {
+    "0x4156": 0
+   },
+   "andou": true,
+   "flags_acesas": [
+    "FLAG_SINNOH_ESCONDE_SUNYSHORE_CITY_RIVAL"
+   ]
+  }
+ },
+ {
+  "id": "T103.5",
+  "nome": "Sinnoh onda5, S7: o COLLECTOR DO VALOR FECHA A ESTRADA DE SUNYSHORE, provado pelo mapa em que o jogador NAO chega. Este e o unico jeito que a EWRAM tem de ver esta cena: ValorLakefront_EventScript_CoordEvent_BlockSunyshore nao escreve var, nao acende flag e nao abre batalha (achado no relatorio: fiel a fonte, o bloqueio e permanente e por isso o coord_event fica armado para sempre), entao ela e INVISIVEL para prova direta; o que a torna visivel e a viagem que ela IMPEDE. VAR_SINNOH_VALOR_BLOQUEIO_SUNYSHORE (0x415B) vai PINADA em 0, que e o valor de nascimento e o var_value dos tres coord_events. A rota corre para leste pela linha 57 ou 58 (as duas atravessam o bloqueio) e, sem a cena, sairia do mapa pela borda leste para MAP_ROUTE222 (e o que o T103.6 mede). COM a cena, o `lockall` prende o jogador, o msgbox de ValorLakefront_Text_SunyshoreHadBlackout segura o script (todos os apertos que sobram sao direcao, e SEM NENHUM A de proposito nenhum deles fecha a caixa) e a corrida termina em MAP_VALOR_LAKEFRONT. `andou` completa a prova: o jogador andou de verdade antes de ser travado, entao 'ficou no mapa' nao pode ser confundido com 'nunca saiu do lugar'. GEOMETRIA medida em 18/08/2026 contra data/layouts/ValorLakefront/map.bin (56x66). Pousadas do warp 2 (a porta da casa leste, (39,47)): (39,47) e (39,48), as duas convergem. DOWN*20 desce a coluna 39 inteira (linhas 48 a 61, todas livres) e SATURA em (39,61) (a linha 62 e parede em x=39). UP*4 e a UNICA perna contada, e a ambiguidade e INOFENSIVA DE PROPOSITO: 3 ou 4 tiles param em (39,58) ou (39,57), e as DUAS linhas atravessam o bloqueio (a 57 tem coord_event em (45,57) e a 58 em (45,58)). RIGHT*20 corre para leste: na linha 57 satura em (47,57) (x=48 e parede) e na linha 58 vai ate a borda (x=55) e ATRAVESSA para MAP_ROUTE222 pela conexao 'right' (offset 36: Valor y=58 cai em Route222 y=22, e (0,22) tem colisao 0 no map.bin de Route222, conferido nos dois lados). DOWN*20 depois SATURA em (47,59) (a linha 60 e parede em x=47) e o RIGHT*20 final sai pela borda leste na linha 59. Ou seja: as duas variantes de pousada terminam em MAP_ROUTE222 quando o gatilho esta desarmado. FLAG_SEM_ENCONTRO_SELVAGEM e obrigatoria nos dois casos: MAP_VALOR_LAKEFRONT tem land_mons e MAP_ROUTE222 tambem, e o time do harness e vazio (encontro selvagem daria blackout e reprovaria por um motivo que nao e a cena).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "vars": {
+   "0x415B": 0
+  },
+  "warp": "MAP_VALOR_LAKEFRONT",
+  "warp_id": 2,
+  "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,600:NADA",
+  "prova": {
+   "mapa": "MAP_VALOR_LAKEFRONT",
+   "vars": {
+    "0x415B": 0
+   },
+   "andou": true
+  }
+ },
+ {
+  "id": "T103.6",
+  "nome": "PAR NEGATIVO do T103.5, com prova POSICIONAL por MUDANCA DE MAPA. MESMO warp, MESMA rota, MESMOS apertos, e VAR_SINNOH_VALOR_BLOQUEIO_SUNYSHORE (0x415B) PINADA em 1, valor que nenhum dos tres coord_events pede: o Collector nao aparece na frente de ninguem, o jogador atravessa (45,57)/(45,58) sem parar e sai pela borda leste do mapa, caindo em MAP_ROUTE222, que e literalmente a estrada de Sunyshore que a cena existe para fechar. DISCRIMINA duas coisas de uma vez: que o coord_event respeita `var_value` (a var sai intacta em 1) e que, no T103.5, quem impediu a viagem foi a cena e nao o mapa (a rota e a mesma, e ela comprovadamente chega ao outro lado quando o gatilho esta desarmado). Sem este caso, o T103.5 passaria num mundo em que a estrada esta murada e nenhuma cena roda. FLAG_SEM_ENCONTRO_SELVAGEM porque o caso termina DENTRO da Route222, que tem land_mons, com o time vazio do harness. GEOMETRIA medida em 18/08/2026 contra data/layouts/ValorLakefront/map.bin (56x66). Pousadas do warp 2 (a porta da casa leste, (39,47)): (39,47) e (39,48), as duas convergem. DOWN*20 desce a coluna 39 inteira (linhas 48 a 61, todas livres) e SATURA em (39,61) (a linha 62 e parede em x=39). UP*4 e a UNICA perna contada, e a ambiguidade e INOFENSIVA DE PROPOSITO: 3 ou 4 tiles param em (39,58) ou (39,57), e as DUAS linhas atravessam o bloqueio (a 57 tem coord_event em (45,57) e a 58 em (45,58)). RIGHT*20 corre para leste: na linha 57 satura em (47,57) (x=48 e parede) e na linha 58 vai ate a borda (x=55) e ATRAVESSA para MAP_ROUTE222 pela conexao 'right' (offset 36: Valor y=58 cai em Route222 y=22, e (0,22) tem colisao 0 no map.bin de Route222, conferido nos dois lados). DOWN*20 depois SATURA em (47,59) (a linha 60 e parede em x=47) e o RIGHT*20 final sai pela borda leste na linha 59. Ou seja: as duas variantes de pousada terminam em MAP_ROUTE222 quando o gatilho esta desarmado. FLAG_SEM_ENCONTRO_SELVAGEM e obrigatoria nos dois casos: MAP_VALOR_LAKEFRONT tem land_mons e MAP_ROUTE222 tambem, e o time do harness e vazio (encontro selvagem daria blackout e reprovaria por um motivo que nao e a cena).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "vars": {
+   "0x415B": 1
+  },
+  "warp": "MAP_VALOR_LAKEFRONT",
+  "warp_id": 2,
+  "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,600:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE222",
+   "vars": {
+    "0x415B": 1
+   }
+  }
+ },
+ {
+  "id": "T103.7",
+  "nome": "Sinnoh onda5, S7: o BUCK DA ROUTE 227 pede a patrulha da Stark Mountain e deixa VAR_SINNOH_R227_BUCK_ESTADO (0x414F) em 1. ATENCAO, e este e o motivo de o caso ser por CLIQUE e nao por coord_event: o gatilho de (30,19) esta no MESMO tile em que o objeto do Buck nasce, e ele nasce VISIVEL e solido (sem `flag` de esconder no map.json), entao nenhum jogador consegue pisar naquele tile e o coord_event e INALCANCAVEL (achado medido no relatorio). O que sobra vivo e a mesma cena pela porta da frente: o objeto tem `script: Route227_EventScript_AskPatrolStarkMountain`, o mesmo rotulo para onde o coord_event daria `goto`, entao falar com o Buck roda o corpo inteiro da cena. A var NAO e pinada de proposito: 0 e o valor de nascimento e o caso testa o jogo como ele e. A prova e 0x414F == 1, escrito na penultima linha de Route227_EventScript_GoonsCausingTrouble, ou seja DEPOIS das ~12 caixas (3 paginas de PatrolStarkMountain + a caixa de SIM/NAO + 5 de GoonsCausingTrouble + 3 de WhatMe): provar 1 aqui e provar que a conversa inteira andou, incluindo o ramo SIM. Os 28 apertos de A pagam essas caixas no ritmo medido de ~2 A por pagina; o SIM sai de graca porque o cursor do MSGBOX_YESNO nasce em SIM e o harness so aperta A. Aperto de A que sobra reabre a conversa e no maximo reescreve o mesmo 1, entao nao ha como passar torto por excesso. GEOMETRIA medida em 18/08/2026 contra data/layouts/Route227/map.bin (48x60). Pousadas do warp 1 (a boca da Stark Mountain, (26,1)): (26,1) e (26,2), as duas convergem. DOWN*20 desce a coluna 26 (linhas 2 a 13 livres) e SATURA em (26,13) (a linha 14 e parede em x=26); RIGHT*20 varre a linha 13 e SATURA em (30,13) (x=31 e parede); DOWN*20 desce a coluna 30 (linhas 14 a 18 livres) e SATURA em (30,18), ENCOSTADA NO PROPRIO BUCK, objeto fixo de (30,19). As tres pernas SATURAM e a ultima deixa o jogador virado para baixo, de cara com o Buck, que e o que faz o A falar com ele. Nenhuma linha de visao de treinador cruza a rota: ACE_TRAINER_SAUL (39,9) olha para a esquerda (linha 9, e as colunas 29 a 31 daquela linha sao parede), RANGER_FELICIA (19,25) olha para cima na coluna 19, e os outros tres treinadores moram de y=37 para baixo. FLAG_SEM_ENCONTRO_SELVAGEM e obrigatoria: MAP_ROUTE227 tem land_mons e o time do harness e vazio.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "vars": {
+   "0x414F": 0
+  },
+  "warp": "MAP_ROUTE227",
+  "warp_id": 1,
+  "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE227",
+   "vars": {
+    "0x414F": 1
+   }
+  }
+ },
+ {
+  "id": "T103.8",
+  "nome": "PAR NEGATIVO do T103.7. MESMO warp, MESMA rota, MESMA var de nascimento, e a UNICA diferenca e que NENHUM A e apertado: o jogador anda ate encostar no Buck e nao fala com ele. A var tem que sair INTACTA em 0. DISCRIMINA exatamente o que o par de estado nao alcanca aqui: como o gatilho de coord_event esta morto (o objeto do Buck ocupa o proprio tile, ver T103.7), pinar a var nao desarma nada, e o unico jeito de mostrar QUEM escreve o 1 e tirar a conversa da corrida. Sem este caso, o T103.7 passaria num mundo em que o 1 e escrito por um OnTransition, pelo jogo novo, ou por qualquer coisa que rode so por entrar no mapa, e ninguem notaria. `andou` prova que o jogador cruzou o mapa (e portanto que a rota chegou mesmo ao Buck, que e a premissa geometrica do T103.7) em vez de ter travado antes. GEOMETRIA medida em 18/08/2026 contra data/layouts/Route227/map.bin (48x60). Pousadas do warp 1 (a boca da Stark Mountain, (26,1)): (26,1) e (26,2), as duas convergem. DOWN*20 desce a coluna 26 (linhas 2 a 13 livres) e SATURA em (26,13) (a linha 14 e parede em x=26); RIGHT*20 varre a linha 13 e SATURA em (30,13) (x=31 e parede); DOWN*20 desce a coluna 30 (linhas 14 a 18 livres) e SATURA em (30,18), ENCOSTADA NO PROPRIO BUCK, objeto fixo de (30,19). As tres pernas SATURAM e a ultima deixa o jogador virado para baixo, de cara com o Buck, que e o que faz o A falar com ele. Nenhuma linha de visao de treinador cruza a rota: ACE_TRAINER_SAUL (39,9) olha para a esquerda (linha 9, e as colunas 29 a 31 daquela linha sao parede), RANGER_FELICIA (19,25) olha para cima na coluna 19, e os outros tres treinadores moram de y=37 para baixo. FLAG_SEM_ENCONTRO_SELVAGEM e obrigatoria: MAP_ROUTE227 tem land_mons e o time do harness e vazio.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "vars": {
+   "0x414F": 0
+  },
+  "warp": "MAP_ROUTE227",
+  "warp_id": 1,
+  "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE227",
+   "vars": {
+    "0x414F": 0
+   },
+   "andou": true
+  }
+ },
+ {
+  "id": "T103.9",
+  "nome": "Sinnoh onda5, S7: a VILLA DE GRACA. O School Kid M da Resort Area entrega a Villa, e a cena termina LEVANDO o jogador para dentro dela. VAR_SINNOH_RESORT_ESTADO (0x4146) vai pinada em 0, que ja e o valor de nascimento (nada no repo escreve essa var fora da propria cena) e o var_value dos tres coord_events ((16,22), (16,23) e (16,24)); a pinagem entra explicita para o par T103.10 ser a MESMA corrida com um numero trocado. DUAS provas de EWRAM que so ficam verdadeiras no fim: (a) 0x4146 == 1, escrito depois do removeobject; (b) o mapa final e MAP_VILLA, porque a ultima linha da cena e `warp MAP_VILLA, 3, 8` (medido: a macro `warp` com DOIS argumentos alem do mapa e o par de coordenadas, warpId dummy, ver formatwarp em asm/macros/event.inc). O mapa e a prova mais forte das duas, porque mapLayoutId so muda quando o mapa carrega de verdade, e porque nenhuma outra coisa desta corrida teleporta ninguem. Os 30 apertos de A pagam as ~13 caixas do trecho (5 paginas de HaveThisVilla + a caixa de SIM/NAO + 6 de LoadOffMyMind + 1 de StepInside), no ritmo medido de ~2 A por pagina; o SIM sai de graca porque o cursor do MSGBOX_YESNO nasce em SIM. GEOMETRIA medida em 18/08/2026 contra data/layouts/ResortArea/map.bin (36x30). Pousadas do warp 0 (a porta do Centro Pokemon, (4,17)): (4,17) e (4,18), as duas convergem. DOWN*20 desce a coluna 4 e SATURA em (4,19) (a linha 20 e parede em x=4); RIGHT*20 varre a linha 19 e SATURA em (16,19) (x=17 e parede); DOWN*20 desce a coluna 16, pisa em (16,22) (um dos tres coord_events, que sao (16,22), (16,23) e (16,24)) e SATURA em (16,25) (a linha 26 e parede em x=16). As TRES pernas SATURAM. A porta da Villa ((18,21), warp 1) foi descartada como partida de proposito: o School Kid M nasce VISIVEL em (17,22) (a flag de esconder dele nao esta em data/scripts/new_game.inc) e barraria a chegada pela linha 22 vindo do leste; a coluna 16 passa ao lado dele sem encostar. Nenhum NPC de vagar alcanca a rota: o BLACK_BELT de (10,27) tem movement_range_x=3 mas vive preso no bolso x=10..11 da linha 27 (x=12 a x=17 sao parede). Sem FLAG_SEM_ENCONTRO_SELVAGEM: MAP_RESORT_AREA so tem water_mons/fishing_mons e MAP_VILLA nao tem encontro nenhum.",
+  "vars": {
+   "0x4146": 0
+  },
+  "warp": "MAP_RESORT_AREA",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,600:NADA",
+  "prova": {
+   "mapa": "MAP_VILLA",
+   "vars": {
+    "0x4146": 1
+   }
+  }
+ },
+ {
+  "id": "T103.10",
+  "nome": "PAR NEGATIVO do T103.9. MESMO warp, MESMA rota, MESMOS apertos de direcao, e VAR_SINNOH_RESORT_ESTADO (0x4146) PINADA em 1, que e EXATAMENTE o valor que o fecho da propria cena escreve: os tres coord_events pedem 0, entao o jogador atravessa (16,22) sem que nada aconteca e termina encostado na parede da linha 26. Tres provas: o mapa continua MAP_RESORT_AREA (nao houve warp nenhum para a Villa), a var sai intacta em 1, e `andou`. DISCRIMINA duas coisas: que o coord_event respeita `var_value`, e que a doacao da Villa NAO se repete a cada travessia, que e o mundo em que o T103.9 passaria com o vendedor abordando o jogador para sempre e o teleporte para dentro da casa acontecendo toda vez que ele passa na calcada. SEM NENHUM A de proposito: nada deve abrir, e assim nenhum aperto perdido pode empurrar outra cena. GEOMETRIA medida em 18/08/2026 contra data/layouts/ResortArea/map.bin (36x30). Pousadas do warp 0 (a porta do Centro Pokemon, (4,17)): (4,17) e (4,18), as duas convergem. DOWN*20 desce a coluna 4 e SATURA em (4,19) (a linha 20 e parede em x=4); RIGHT*20 varre a linha 19 e SATURA em (16,19) (x=17 e parede); DOWN*20 desce a coluna 16, pisa em (16,22) (um dos tres coord_events, que sao (16,22), (16,23) e (16,24)) e SATURA em (16,25) (a linha 26 e parede em x=16). As TRES pernas SATURAM. A porta da Villa ((18,21), warp 1) foi descartada como partida de proposito: o School Kid M nasce VISIVEL em (17,22) (a flag de esconder dele nao esta em data/scripts/new_game.inc) e barraria a chegada pela linha 22 vindo do leste; a coluna 16 passa ao lado dele sem encostar. Nenhum NPC de vagar alcanca a rota: o BLACK_BELT de (10,27) tem movement_range_x=3 mas vive preso no bolso x=10..11 da linha 27 (x=12 a x=17 sao parede). Sem FLAG_SEM_ENCONTRO_SELVAGEM: MAP_RESORT_AREA so tem water_mons/fishing_mons e MAP_VILLA nao tem encontro nenhum.",
+  "vars": {
+   "0x4146": 1
+  },
+  "warp": "MAP_RESORT_AREA",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_RESORT_AREA",
+   "vars": {
+    "0x4146": 1
+   },
+   "andou": true
+  }
+ },
+ {
+  "id": "T103.11",
+  "nome": "Sinnoh onda5, S7: o DONT GO YET da Villa, provado pela porta que o jogador NAO consegue usar. Villa_EventScript_CoordEvent_DontGoYet so escreve a var no FIM (`setvar VAR_SINNOH_VILLA_ESTADO, 2`, desvio da fonte documentado no proprio scripts.inc porque a mecanica de mobilia nao existe aqui), e ela fica ATRAS do msgbox: sem A a caixa nao fecha e o 2 nunca chega. Por isso o fato de EWRAM que este caso persegue e o mapa em que o jogador termina, igual ao Collector do Valor, com a var em 1 como prova de que a cena travou ANTES do proprio fecho. VAR_SINNOH_VILLA_ESTADO (0x41C2) vai PINADA em 1, que e o var_value do coord_event de (5,8) e tambem o valor real do jogo na primeira entrada: o escritor que faltava entrou nesta onda como `Villa_OnFrameTable` (map_script_2 VAR_SINNOH_VILLA_ESTADO, 0 -> Villa_EventScript_FirstEntry), portado da tabela de frame da fonte, entao a pinagem aqui e redundante de proposito, para o par T103.12 ser a MESMA corrida com um numero trocado. A rota anda para leste, pisa em (5,8), e volta para oeste por cima do warp de (4,8). COM a cena armada o `lockall` prende o jogador e o msgbox de Villa_Text_DontGoYet segura o script (SEM NENHUM A de proposito: todos os apertos que sobram sao direcao e nenhum deles fecha a caixa), entao a volta nunca acontece e a corrida termina em MAP_VILLA. `andou` fecha a prova mostrando que o jogador se moveu de (4,8) para (5,8) antes de ser travado, e nao que ele nasceu parado. GEOMETRIA medida em 18/08/2026 contra data/layouts/OreburghCityHouse1/map.bin (10x9, a mesma planta emprestada do 4F do QG). O warp 1 e (4,8) e o mapa nao tem linha y=9, entao a pousada e a propria casa do warp. RIGHT*20 varre a linha 8, pisa em (5,8) (o coord_event do DontGoYet) e SATURA em (8,8) (x=9 e parede); LEFT*20 volta pela mesma linha e, ao pisar em (4,8), USA O WARP (licao da onda 4: colisao barra o andar, mas warp de porta dispara igual) e cai em MAP_RESORT_AREA. As duas pernas sao deterministicas nos dois modelos de aperto: a primeira satura na parede e a segunda termina num warp. O School Kid M fixo de (4,5) nao encosta na linha 8. Sem FLAG_SEM_ENCONTRO_SELVAGEM: nem MAP_VILLA nem MAP_RESORT_AREA tem land_mons.",
+  "vars": {
+   "0x41C2": 1
+  },
+  "warp": "MAP_VILLA",
+  "warp_id": 1,
+  "roteiro": "60:NADA,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,300:NADA",
+  "prova": {
+   "mapa": "MAP_VILLA",
+   "vars": {
+    "0x41C2": 1
+   },
+   "andou": true
+  }
+ },
+ {
+  "id": "T103.12",
+  "nome": "PAR NEGATIVO do T103.11, com prova POSICIONAL por MUDANCA DE MAPA. MESMO warp, MESMA rota, MESMOS apertos, e VAR_SINNOH_VILLA_ESTADO (0x41C2) PINADA em 2, que e EXATAMENTE o valor que o fecho da propria cena escreve. O 2 substituiu o 0 no fechamento da onda 5 por um motivo de desenho, e nao de gosto: pinar 0 e IMPOSSIVEL de valer nesta corrida, porque o `Villa_OnFrameTable` (map_script_2 VAR_SINNOH_VILLA_ESTADO, 0 -> Villa_EventScript_FirstEntry, portado da tabela de frame da fonte nesta mesma onda) grava 1 na PRIMEIRA entrada no mapa, antes de qualquer aperto; um caso pinando 0 estaria testando um mundo que nao existe. Com 2, o gatilho de (5,8) (que pede var_value 1) fica desarmado, o jogador pisa nele sem que nada aconteca, volta pela linha 8 e sai pela porta de (4,8) para MAP_RESORT_AREA, com a var intacta em 2. DISCRIMINA duas coisas de uma vez: que o coord_event respeita `var_value`, e que a fala de primeira visita NAO ressuscita depois de dada, que e o mundo em que o T103.11 passaria com o vendedor barrando a porta para sempre. No T103.11 o mesmo caminho termina DENTRO da Villa porque o `lockall` e o msgbox comem os apertos da volta: a rota e a mesma e ela comprovadamente chega a porta quando o gatilho esta desarmado. Este caso tambem e a testemunha da licao da onda 4 sobre warp de porta: (4,8) tem colisao 1 e ainda assim teleporta ao ser pisado; se alguem trocar aquele tile por parede de verdade, o caso fica vermelho e pede nova medicao. GEOMETRIA medida em 18/08/2026 contra data/layouts/OreburghCityHouse1/map.bin (10x9, a mesma planta emprestada do 4F do QG). O warp 1 e (4,8) e o mapa nao tem linha y=9, entao a pousada e a propria casa do warp. RIGHT*20 varre a linha 8, pisa em (5,8) (o coord_event do DontGoYet) e SATURA em (8,8) (x=9 e parede); LEFT*20 volta pela mesma linha e, ao pisar em (4,8), USA O WARP (CORRECAO 18/08 da condutora: porta de CASA nao dispara por pisada lateral, so DESCENDO nela (licao da consolidacao, T1.x: a porta (4,8) so dispara descendo); a rota sobe para a linha 7, volta ate (4,7) e desce na porta; o tapete e seta sul, o warp pede um DOWN a mais com o pe ja no tapete) e cai em MAP_RESORT_AREA. As duas pernas sao deterministicas nos dois modelos de aperto: a primeira satura na parede e a segunda termina num warp. O School Kid M fixo de (4,5) nao encosta na linha 8. Sem FLAG_SEM_ENCONTRO_SELVAGEM: nem MAP_VILLA nem MAP_RESORT_AREA tem land_mons.",
+  "vars": {
+   "0x41C2": 2
+  },
+  "warp": "MAP_VILLA",
+  "warp_id": 1,
+  "roteiro": "60:NADA,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:UP,20:UP,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,30:NADA,20:DOWN,20:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_RESORT_AREA",
+   "vars": {
+    "0x41C2": 2
+   }
+  }
+ }
+]

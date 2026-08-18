@@ -126,6 +126,14 @@ mapa não importado" era esta armadilha vista pela metade.
   2510 `_PIPLUP`; 2511 `TRAINER_SINNOH_RIVAL_ROUTE_209_TURTWIG`,
   2512 `_CHIMCHAR`, 2513 `_PIPLUP`. Quem define é o executor de
   treinadores; quem cita em cena usa esses nomes literais.
+- **Onda 5 (18/08), pré-atribuição da condutora**: 2514
+  `TRAINER_SINNOH_GALACTIC_BOSS_CYRUS_GALACTIC_HQ` (a batalha do Cyrus no
+  4F do QG, time literal da fonte, executor de treinadores define e liga a
+  cena do 4F). O escritor que falta de `VAR_SINNOH_PASTORIA_ESTADO=1` é a
+  cena do HM Fly do `VeilstoneCity_GalacticWarehouse`
+  (`scripts_veilstone_city_galactic_warehouse.s:89` na fonte), que entra na
+  S7 junto com a bomba de Pastoria (Crasher Wake aparece como NPC de cena,
+  SEM batalha, que é fiel à fonte no set-piece).
 - **Fechos que moram em script de vitória de líder** (Veilstone counterpart
   na vitória da Maylene; rival do portão 209 na vitória da Fantina): é
   fiação de cena, NÃO polimento de time (decisão 2 do Gui intocada); o
@@ -160,6 +168,86 @@ mapa não importado" era esta armadilha vista pela metade.
   propósito: quem grava o 1 na fonte é a cena do armazém da Galáctica em
   Veilstone (`scripts_veilstone_city_galactic_warehouse.s:89`), que este
   porte ainda não tem. Quem escrever o armazém leva o `setvar` junto.
+
+### Decisões da condutora sobre os retornos do S7 (18/08/2026)
+
+- **Decisão 4 (Amity) CORRIGIDA pela fonte**: os 27 gatilhos não são warps
+  de saída, são reposicionamentos INTERNOS (pulos de cerca dentro da praça,
+  via applymovement), e o nosso Amity é passagem provisória com planta
+  emprestada. Nada a portar enquanto o exterior real do Platinum não for
+  importado; os 27 ficam descartados-por-mapa-provisório na fila, e a
+  importação do mapa real vira pendência FORA desta obra (registrar na
+  regeneração).
+- **Villa/Resort**: a máquina de visitantes (`VAR_RESORT_VILLA_VISITOR` e
+  afins) não existe neste motor; os grupos e gatilhos dependentes ficam
+  ADIADOS por mecânica, mesma categoria da decisão 5. Não inventar.
+- **Bomba de Pastoria, leva final (junto do S8)**: AUTORIZADAS
+  `FLAG_SINNOH_ESCONDE_PASTORIA_WAKE` (0x1B9F) e
+  `FLAG_SINNOH_ESCONDE_PASTORIA_CROAGUNK` (0x1BA0). A nota de 18/08 sobre o
+  Warehouse escrever `VAR_SINNOH_PASTORIA_ESTADO=1` está DESATUALIZADA (o
+  Warehouse foi redesenhado sem a var e está provado): o executor da leva
+  final alinha os valores da corrente de Pastoria ao fluxo NOSSO já
+  commitado, documentando o desvio da fonte valor a valor.
+- **PokemonLeagueNorthPokecenter1F**: batalha com treinador da fonte entra
+  na leva final com id PRÉ-ATRIBUÍDO 2515 (nome conforme a fonte, executor
+  mede o time como sempre). Se a fonte não tiver treinador ali, reporta.
+
+### Registros da onda 5 para o S8 (18/08/2026, consertador)
+
+- **Buck da Route 227: `coord_event` embaixo do próprio corpo, e é o ÚNICO
+  vermelho de `maquina_sinnoh.py --demo` hoje.** O objeto
+  `LOCALID_ROUTE227_BUCK` (sem flag de esconder) está em (30,19) e o gatilho
+  de `VAR_SINNOH_R227_BUCK_ESTADO == 0` está no MESMO tile, ou seja,
+  inalcançável. O `--demo` para exatamente aí ("gravado em (30,19), tile
+  inandavel que o gerador nao sabe realocar"), e para SÓ aí: rodando a mesma
+  checagem sem `assert`, o repo inteiro tem 1 tile ruim gravado, este. O
+  gerador, hoje, já sabe a resposta: o censo dele traz o Buck com
+  `tiles_movidos [[33,19] -> [29,19]]`, isto é, o tile certo é **(29,19)**, e
+  (30,19) é resto de uma gravação anterior. Não foi mexido nesta onda porque
+  a condutora pediu registro, não conserto, e porque a cena vive pelo clique
+  (o `script` do objeto é `Route227_EventScript_AskPatrolStarkMountain`, o
+  mesmo corpo), o que é fiel à fonte. Para o S8 é uma linha: mover o
+  `coord_event` para (29,19) fecha o `--demo`.
+- **Grunts da Stark: cena morta por mapa provisório**
+  (descartado-por-mapa-provisório na regeneração da fila, mesma categoria do
+  Amity da decisão 4 corrigida). `StarkMountainOutside` usa
+  `LAYOUT_ROUTE226_ACCESS`, o molde de portão 13x9 com três linhas jogáveis
+  (y=4,5,6) e duas decorativas (y=2 e y=8), exatamente o caso registrado na
+  onda 4. Medido no `map.bin`: o gatilho está em (6,2), linha decorativa sem
+  ligação com o corredor; o Grunt 1 em (3,2) mora na mesma linha morta e o
+  Grunt 2 em (4,3) está em colisão 1. A cena (diálogo, coreografia, `setflag`
+  + `removeobject`, `setvar` para 1) está escrita e correta; ela só volta a
+  existir quando o exterior real da Stark Mountain for importado. Não foi
+  reposicionada porque mover NPC e gatilho para o corredor do portão seria
+  inventar geografia de um mapa que ainda não é o mapa.
+- **Valor Lakefront: o bloqueio do Collector fecha UMA das duas saídas.**
+  Medido no `map.bin` de `LAYOUT_VALOR_LAKEFRONT` (56x66) com busca em
+  largura: da praça saem duas ligações andáveis para `MAP_ROUTE222` (a
+  estrada de Sunyshore), a sul pela borda direita nas linhas 57 a 61 e a
+  norte pelo corredor de uma casa de altura da linha 39 (chegando pelo
+  corredor vertical x=49). O corte mínimo para fechar as duas de uma vez são
+  dois tiles longe dali, no gargalo (34,55)/(34,56), que também trancaria
+  Lake Valor, a Route 214 e a casa leste: bloqueio errado. O gatilho desta
+  obra (span de 3 da fonte) foi posto na seção inteira da estrada sul,
+  (45,57)/(45,58)/(45,59), com o Collector em (46,58). A saída norte fica
+  aberta; fechá-la pedia um segundo bloqueador que a fonte não tem.
+- **`MAP_ROUTE222` está partida no meio (fora desta obra, mas relevante).**
+  Busca em largura no layout dela: nenhuma das entradas do lado de Valor
+  (coluna x=0, linhas 3,4,7,10,21,22,23,24,25,27,31) alcança a coluna x=91,
+  que é a borda de Sunyshore. Ou seja, hoje a estrada Valor -> Route222 ->
+  Sunyshore não é andável de ponta a ponta, independentemente do Collector.
+  Pendência de mapa, não de cena.
+- **Escritores de var achados e ligados nesta onda** (ficam anotados para
+  quem for reconferir a corrente): `VAR_SINNOH_SUNYSHORE_ESTADO = 2` mora na
+  vitória contra o Volkner (fonte
+  `scripts_sunyshore_city_gym_room_3.s:51`; aqui
+  `SunyshoreCity_Gym_EventScript_Leader`), e `VAR_SINNOH_VILLA_ESTADO = 1`
+  mora na tabela de frame da própria Villa (fonte `scripts_init_villa.s:9` +
+  `Villa_OnFrame_FirstEntry`; aqui `Villa_OnFrameTable`). Continua SEM
+  escritor, de propósito, `VAR_SINNOH_VALOR_BLOQUEIO_SUNYSHORE = 1`: quem
+  grava na fonte é a cena pós-8ª insígnia do laboratório de Sandgem
+  (`scripts_sandgem_town_pokemon_research_lab.s:110-111`), que este porte não
+  tem. Mesmo tratamento do `VAR_SINNOH_PASTORIA_ESTADO = 1` da onda 4.
 
 ## Decisões da condutora (16/08/2026)
 

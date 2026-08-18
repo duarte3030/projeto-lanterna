@@ -1,12 +1,91 @@
 ValorLakefront_MapScripts::
 	.byte 0
 
-@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ >>> B6 Sinnoh S7: cena da fonte, rotulo ValorLakefront_CoordEvent_BlockSunyshore >>>
+@ Collector (LOCALID_VALOR_LAKEFRONT_COLLECTOR) ja nasce visivel (fonte nao
+@ clearflag/addobject aqui, so ApplyMovement) e nunca some (RemoveObject
+@ nao existe no fecho da fonte), fica plantado bloqueando a estrada.
+@ FECHO: existe na fonte e NAO esta portado, igual ao caso de Pastoria. Quem
+@ desarma e `SandgemTownLab_ObtainSunyshoresBadge`
+@ (res/field/scripts/scripts_sandgem_town_pokemon_research_lab.s:110-111): a
+@ conversa com o Rowan depois da 8a insignia faz `SetFlag
+@ FLAG_HIDE_VALOR_LAKEFRONT_COLLECTOR` + `SetVar
+@ VAR_VALOR_LAKEFRONT_BLOCK_SUNYSHORE_STATE, 1` na mesma respiracao (grep no
+@ pokeplatinum inteiro: sao os UNICOS toques nessa flag e nessa var). Essa
+@ cena do laboratorio nao existe neste porte, entao aqui o bloqueio nao
+@ desarma; o objeto ja leva a flag no map.json para o dia em que ela entrar,
+@ e a pendencia esta no plano.
+@ ponytail: a fonte ramifica em 3 variantes de X (789/790/791) so pra
+@ calibrar quantos tiles o Collector/jogador andam; aqui uma rota unica
+@ (variante X790, a do meio), mesmo molde de simplificacao documentado em
+@ SunyshoreCity_CoordEvent_RivalAndJasmine.
+@
+@ CONSERTO DE GEOMETRIA (onda 5, 18/08/2026), medido no map.bin, nao no olho:
+@ - a fonte tem o Collector em (724,788) e o gatilho em (724, 789 a 791),
+@   width 1 / length 3: o gatilho e a SECAO INTEIRA de uma estrada leste-
+@   oeste (por isso o jogador leva empurrao pra OESTE, nao pro sul), e o
+@   corpo do Collector tapa a quarta faixa;
+@ - a conversao proporcional pos o Collector em (45,55), colisao 1 (parede),
+@   e o realocador de gatilho do S1 espalhou as tres casas em (45,53),
+@   (45,57) e (45,58). A (45,53) fica num bolso sem saida: a coluna 45 so e
+@   andavel ate y=53, tem parede em 54, 55 e 56, e volta a ser andavel em
+@   57, 58 e 59. Gatilho la nao barrava nada;
+@ - agora as tres casas sao (45,57), (45,58) e (45,59), que sao EXATAMENTE
+@   as tres unicas casas andaveis da coluna 45 (conferido no map.bin de
+@   LAYOUT_VALOR_LAKEFRONT): quem vem do oeste pela estrada sul pisa numa
+@   delas, sem desvio. O Collector foi para (46,58), na estrada, uma casa a
+@   leste da coluna, encostado como na fonte.
+@ LIMITE DITO: o nosso ValorLakefront tem DUAS saidas para MAP_ROUTE222 (a
+@ estrada de Sunyshore), a sul (borda direita, linhas 57 a 61) e a norte
+@ (corredor de uma casa de altura na linha 39, alcancado pelo corredor
+@ vertical x=49). Este bloqueio fecha a sul. Fechar as duas pedia um segundo
+@ bloqueador que a fonte nao tem, entao fica registrado no plano em vez de
+@ inventado.
 ValorLakefront_EventScript_CoordEvent_BlockSunyshore::
-	@ TODO S7: cena da fonte, rotulo ValorLakefront_CoordEvent_BlockSunyshore
+	lockall
+	applymovement LOCALID_VALOR_LAKEFRONT_COLLECTOR, ValorLakefront_Movement_CollectorExclamationMark
+	waitmovement 0
+	applymovement LOCALID_VALOR_LAKEFRONT_COLLECTOR, ValorLakefront_Movement_CollectorWalkWest
+	applymovement OBJ_EVENT_ID_PLAYER, ValorLakefront_Movement_PlayerGetPushedWest
+	waitmovement 0
+	msgbox ValorLakefront_Text_SunyshoreHadBlackout, MSGBOX_DEFAULT
+	applymovement LOCALID_VALOR_LAKEFRONT_COLLECTOR, ValorLakefront_Movement_CollectorWalkBack
+	waitmovement 0
+	releaseall
 	end
 
-@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+ValorLakefront_Movement_CollectorExclamationMark:
+	emote_exclamation_mark
+	delay_16
+	step_end
+
+ValorLakefront_Movement_CollectorWalkWest:
+	walk_left
+	step_end
+
+ValorLakefront_Movement_PlayerGetPushedWest:
+	lock_facing_direction
+	walk_left
+	unlock_facing_direction
+	step_end
+
+@ Volta pra casa dele, (46,58), e fica de cara pro oeste (pra estrada), como
+@ o `FaceSouth` dos ValorLakefront_Movement_CollectorWalkBackX* da fonte, que
+@ la e "de cara pra estrada" na orientacao de la.
+ValorLakefront_Movement_CollectorWalkBack:
+	walk_right
+	walk_in_place_left
+	step_end
+
+ValorLakefront_Text_SunyshoreHadBlackout:
+	.string "Stop, stop!\n"
+	.string "Yes, you!\p"
+	.string "Sunyshore City, which is down this\n"
+	.string "road, had a major blackout!\p"
+	.string "Crews are working on restoring\n"
+	.string "power, but the road's closed now.$"
+
+@ <<< B6 Sinnoh S7: cena da fonte <<<
 
 ValorLakefront_EventScript_Beauty::
 	msgbox ValorLakefront_Text_Beauty, MSGBOX_NPC

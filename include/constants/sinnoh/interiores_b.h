@@ -5,6 +5,13 @@
 
 // ResortArea
 #define LOCALID_RESORT_AREA_COOLTRAINER_F   1
+#define LOCALID_RESORT_AREA_SCHOOL_KID_M    7
+
+// PokemonMansionOffice
+#define LOCALID_POKEMON_MANSION_OFFICE_POLICEMAN 3
+
+// Villa
+#define LOCALID_VILLA_SCHOOL_KID_M          1
 
 // LakeVerity
 #define LOCALID_LAKE_VERITY_FISHERMAN       1

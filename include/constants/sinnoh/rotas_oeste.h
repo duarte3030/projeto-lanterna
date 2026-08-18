@@ -24,6 +24,7 @@
 // SunyshoreCity
 #define LOCALID_SUNYSHORE_JASMINE     1
 #define LOCALID_SUNYSHORE_BREEDER_F   2
+#define LOCALID_SUNYSHORE_RIVAL       8
 
 
 // treinadores de Route203 (referencia de batalha)

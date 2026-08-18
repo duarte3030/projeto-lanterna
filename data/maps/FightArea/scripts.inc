@@ -1,3 +1,16 @@
+@ BLOQUEADO, os 3 grupos de hidden_flag deste mapa (S7, 18/08/2026):
+@ FLAG_SINNOH_ESCONDE_FIGHT_AREA_RIVAL/_BLOCKADE/_BATTLERS_AND_SPECTATORS ja
+@ tem endereco no censo do S1, mas os 3 sao acendidos por
+@ VAR_FIGHT_AREA_STATE (progresso da Battle Frontier, nem alias nem var
+@ interna existe aqui) e/ou VAR_STARK_MOUNTAIN_ROOM_3_STATE (fonte:
+@ scripts_fight_area.s:29-40; a sala interna da Stark Mountain com o
+@ acompanhante Buck continua ADIADA, decisao 5 do plano). BUCK (LOCALID_
+@ BUCK) e PALMER (LOCALID_PALMER) somam mais 2 grupos que nem chegaram a
+@ entrar no censo (mesmo buraco do Crasher Wake, `grep` confirma zero
+@ ocorrencias). A fila corrigiu o falso "sem bloqueio" deste mapa em
+@ 15/08/2026; conferido aqui de novo (18/08) com a fonte aberta: o bloqueio
+@ e real, nao falso pendente. Volta ao plano (Battle Frontier inteira
+@ precisa de decisao da condutora antes de qualquer cena aqui).
 FightArea_MapScripts::
 	.byte 0
 

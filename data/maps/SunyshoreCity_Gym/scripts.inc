@@ -19,6 +19,18 @@ SunyshoreCity_Gym_EventScript_Leader::
 	trainerbattle_no_intro TRAINER_SINNOH_LEADER_VOLKNER, SunyshoreCity_Gym_Text_Defeat
 	msgbox SunyshoreCity_Gym_Text_Post, MSGBOX_DEFAULT
 	setflag FLAG_INSIGNIA_SINNOH_8
+	@ B6 Sinnoh S7, onda 5 (18/08/2026): escritor que faltava do 2 de
+	@ VAR_SINNOH_SUNYSHORE_ESTADO. Os 5 coord_events de SunyshoreCity pedem
+	@ == 2 (a cena do rival + Jasmine, pos-8a insignia) e ninguem gravava esse
+	@ valor: a cena era inalcancavel. Na fonte quem grava e a vitoria contra o
+	@ Volkner (res/field/scripts/scripts_sunyshore_city_gym_room_3.s:51,
+	@ `SetVar VAR_SUNYSHORE_CITY_STATE, 2`, logo depois do GiveBadge
+	@ BADGE_ID_BEACON), que aqui e este mesmo script (o porte tem UM ginasio
+	@ de Sunyshore, sem as salas 1-3 da fonte). A fonte grava o 2 sem
+	@ conferir o 1 anterior (o 1 e a cena do Flint no portao,
+	@ scripts_sunyshore_city.s:486, nao portada), entao pular de 0 para 2 aqui
+	@ e fiel: a corrente da fonte tolera o salto.
+	setvar VAR_SINNOH_SUNYSHORE_ESTADO, 2
 	release
 	end
 

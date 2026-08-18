@@ -26239,6 +26239,38 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Cross Poison
 - Confuse Ray
 
+=== TRAINER_SINNOH_GALACTIC_BOSS_CYRUS_GALACTIC_HQ ===
+Name: Cyrus
+Class: Magma Leader
+Pic: Magma Leader Maxie
+Gender: Male
+Items: Hyper Potion / Full Restore
+Double Battle: No
+
+Sneasel @ None
+Level: 182
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Slash
+- Ice Punch
+- Quick Attack
+- Screech
+
+Crobat @ None
+Level: 182
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Poison Fang
+- Air Cutter
+- Bite
+- Supersonic
+
+Honchkrow @ Sitrus Berry
+Level: 184
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Drill Peck
+- Night Shade
+- Astonish
+- Faint Attack
+
 === TRAINER_SINNOH_COMMANDER_SATURN_GALACTIC_HQ ===
 Name: Saturn
 Class: Magma Admin

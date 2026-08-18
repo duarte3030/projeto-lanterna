@@ -18,3 +18,7 @@
 // Route211_West
 
 // Route212_North
+
+// StarkMountainOutside
+#define LOCALID_STARK_MOUNTAIN_OUTSIDE_GRUNT_M_1 2
+#define LOCALID_STARK_MOUNTAIN_OUTSIDE_GRUNT_M_2 3

@@ -1,12 +1,18 @@
 PokemonLeagueNorthPokecenter1F_MapScripts::
 	.byte 0
 
-@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
+@ BLOQUEADO (S7, 18/08/2026). Mapa achado pela `leva` do censo do S1
+@ (dev_scripts/maquina_sinnoh.json), mas NAO esta na lista 'SEUS MAPAS' do
+@ executor S7 nem no arco S7 do PLANO-OBRAS-SINNOH.md; reportado como achado,
+@ nao tocado por fora do escopo escrito. Duas travas reais tambem: a cena e
+@ uma BATALHA de treinador (TRAINER_RIVAL_POKEMON_LEAGUE_TURTWIG/_CHIMCHAR/
+@ _PIPLUP na fonte, scripts_pokemon_league_north_pokecenter_1f.s:141-155),
+@ que e territorio do executor de treinadores (opponents.h/trainers.party,
+@ fora de alcance aqui) e nao tem id TRAINER_SINNOH_* pre-atribuido pela
+@ condutora (so 2508-2514 existem, PLANO-OBRAS-SINNOH.md); 'batalha so com
+@ TRAINER_SINNOH_* existente, senao BLOQUEADO e reporta'.
 PokemonLeagueNorthPokecenter1F_EventScript_CoordEvent_Rival::
-	@ TODO S7: cena da fonte, rotulo PokemonLeagueNorthPokecenter1F_CoordEvent_Rival
 	end
-
-@ <<< B6 Sinnoh S1: esqueletos de cena <<<
 
 PokemonLeagueNorthPokecenter1F_EventScript_Enfermeira::
 	setvar VAR_0x800B, 1

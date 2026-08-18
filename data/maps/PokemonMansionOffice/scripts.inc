@@ -1,12 +1,61 @@
 PokemonMansionOffice_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, PokemonMansionOffice_OnTransition
 	.byte 0
 
-@ >>> B6 Sinnoh S1: esqueletos de cena (dev_scripts/maquina_sinnoh.py) >>>
-PokemonMansionOffice_EventScript_CoordEvent_BlockStatue::
-	@ TODO S7: cena da fonte, rotulo PokemonMansionOffice_CoordEvent_BlockStatue
+@ >>> B6 Sinnoh S7: cena da fonte, PokemonMansionOffice_CoordEvent_BlockStatue >>>
+@ Fonte (scripts_pokemon_mansion_office.s:15): GetHour decide se o Policeman
+@ bloqueia a estatua (horas 0-1 e 6-23) ou libera (2-5). `gettime` (nao
+@ `gettimeofday`, que so da 3 baldes) devolve a hora exata em VAR_0x8000,
+@ mesmo precedente de Route209_OnTransition (S5, GetTimeOfDay ali; aqui e
+@ GetHour, comando irmao, mesma familia `gettime`).
+PokemonMansionOffice_OnTransition:
+	gettime
+	goto_if_eq VAR_0x8000, 0, PokemonMansionOffice_SetBlockStatue
+	goto_if_eq VAR_0x8000, 1, PokemonMansionOffice_SetBlockStatue
+	goto_if_le VAR_0x8000, 5, PokemonMansionOffice_SetDontBlockStatue
+	goto PokemonMansionOffice_SetBlockStatue
 	end
 
-@ <<< B6 Sinnoh S1: esqueletos de cena <<<
+PokemonMansionOffice_SetBlockStatue:
+	clearflag FLAG_SINNOH_ESCONDE_POKEMON_MANSION_OFFICE_POLICEMAN
+	setvar VAR_SINNOH_MANSAO_ESTATUA_ESTADO, 0
+	end
+
+PokemonMansionOffice_SetDontBlockStatue:
+	setflag FLAG_SINNOH_ESCONDE_POKEMON_MANSION_OFFICE_POLICEMAN
+	setvar VAR_SINNOH_MANSAO_ESTATUA_ESTADO, 1
+	end
+
+@ O coord_event so e alcancado com o Policeman ja visivel (flag clara), entao
+@ o corpo e so a fala + empurrao, sem clearflag/addobject.
+PokemonMansionOffice_EventScript_CoordEvent_BlockStatue::
+	lockall
+	applymovement LOCALID_POKEMON_MANSION_OFFICE_POLICEMAN, PokemonMansionOffice_Movement_PolicemanFaceWest
+	waitmovement 0
+	msgbox PokemonMansionOffice_Text_SorryDontTouchStatue, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, PokemonMansionOffice_Movement_PlayerWalkBackFromStatue
+	applymovement LOCALID_POKEMON_MANSION_OFFICE_POLICEMAN, PokemonMansionOffice_Movement_PolicemanFaceSouth
+	waitmovement 0
+	releaseall
+	end
+
+PokemonMansionOffice_Movement_PolicemanFaceWest:
+	walk_in_place_left
+	step_end
+
+PokemonMansionOffice_Movement_PolicemanFaceSouth:
+	walk_in_place_down
+	step_end
+
+PokemonMansionOffice_Movement_PlayerWalkBackFromStatue:
+	walk_left
+	step_end
+
+PokemonMansionOffice_Text_SorryDontTouchStatue:
+	.string "I'm sorry, but I can't let you touch\n"
+	.string "the statue.$"
+
+@ <<< B6 Sinnoh S7: cena da fonte <<<
 
 PokemonMansionOffice_EventScript_Placa1::
 	msgbox PokemonMansionOffice_Text_Placa1, MSGBOX_SIGN
