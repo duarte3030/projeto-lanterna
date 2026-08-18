@@ -850,6 +850,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Ekans[] = INCGFX_U8("graphics/pokemon/ekans/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Ekans[] = INCGFX_U8("graphics/pokemon/ekans/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -877,7 +878,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Arbok[] = INCGFX_U8("graphics/pokemon/arbok/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Arbok[] = INCGFX_U8("graphics/pokemon/arbok/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Arbok[ARRAY_COUNT(gMonFootprint_Ekans)] ASSET_ALIAS(gMonFootprint_Ekans); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Arbok[] = INCGFX_COMP("graphics/pokemon/arbok/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -1023,15 +1024,17 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_PikachuOriginal[] = INCGFX_U16("graphics/pokemon/pikachu/original/shiny.pal", ".gbapal");
     const u8 gMonIcon_PikachuOriginal[] = INCGFX_U8("graphics/pokemon/pikachu/original/icon.png", ".4bpp");
 
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u32 gMonFrontPic_PikachuHoenn[] = INCGFX_U32("graphics/pokemon/pikachu/hoenn/front.png", ".4bpp.smol");
     const u16 gMonPalette_PikachuHoenn[] = INCGFX_U16("graphics/pokemon/pikachu/hoenn/normal.pal", ".gbapal");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u32 gMonBackPic_PikachuHoenn[] = INCGFX_U32("graphics/pokemon/pikachu/hoenn/back.png", ".4bpp.smol");
     const u16 gMonShinyPalette_PikachuHoenn[] = INCGFX_U16("graphics/pokemon/pikachu/hoenn/shiny.pal", ".gbapal");
     const u8 gMonIcon_PikachuHoenn[] = INCGFX_U8("graphics/pokemon/pikachu/hoenn/icon.png", ".4bpp");
 
-    const u32 gMonFrontPic_PikachuSinnoh[] = INCGFX_U32("graphics/pokemon/pikachu/sinnoh/front.png", ".4bpp.smol");
+    extern const u32 gMonFrontPic_PikachuSinnoh[ARRAY_COUNT(gMonFrontPic_PikachuHoenn)] ASSET_ALIAS(gMonFrontPic_PikachuHoenn); // dedupe_assets.py: mesmos 544 B (md5 3b03f944)
     const u16 gMonPalette_PikachuSinnoh[] = INCGFX_U16("graphics/pokemon/pikachu/sinnoh/normal.pal", ".gbapal");
-    const u32 gMonBackPic_PikachuSinnoh[] = INCGFX_U32("graphics/pokemon/pikachu/sinnoh/back.png", ".4bpp.smol");
+    extern const u32 gMonBackPic_PikachuSinnoh[ARRAY_COUNT(gMonBackPic_PikachuHoenn)] ASSET_ALIAS(gMonBackPic_PikachuHoenn); // dedupe_assets.py: mesmos 636 B (md5 49f50f24)
     const u16 gMonShinyPalette_PikachuSinnoh[] = INCGFX_U16("graphics/pokemon/pikachu/sinnoh/shiny.pal", ".gbapal");
     const u8 gMonIcon_PikachuSinnoh[] = INCGFX_U8("graphics/pokemon/pikachu/sinnoh/icon.png", ".4bpp");
 
@@ -2036,8 +2039,10 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 #if P_FAMILY_DIGLETT
 #if !P_GBA_STYLE_SPECIES_GFX
     const u32 gMonFrontPic_Diglett[] = INCGFX_U32("graphics/pokemon/diglett/anim_front.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonPalette_Diglett[] = INCGFX_U16("graphics/pokemon/diglett/normal.pal", ".gbapal");
     const u32 gMonBackPic_Diglett[] = INCGFX_U32("graphics/pokemon/diglett/back.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonShinyPalette_Diglett[] = INCGFX_U16("graphics/pokemon/diglett/shiny.pal", ".gbapal");
 #else
     const u32 gMonFrontPic_Diglett[] = INCGFX_U32("graphics/pokemon/diglett/anim_front_gba.png", ".4bpp.smol");
@@ -2051,6 +2056,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Diglett[] = INCGFX_U8("graphics/pokemon/diglett/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Diglett[] = INCGFX_U8("graphics/pokemon/diglett/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -2063,9 +2069,9 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 
 #if !P_GBA_STYLE_SPECIES_GFX
     const u32 gMonFrontPic_Dugtrio[] = INCGFX_U32("graphics/pokemon/dugtrio/anim_front.png", ".4bpp.smol");
-    const u16 gMonPalette_Dugtrio[] = INCGFX_U16("graphics/pokemon/dugtrio/normal.pal", ".gbapal");
+    extern const u16 gMonPalette_Dugtrio[ARRAY_COUNT(gMonPalette_Diglett)] ASSET_ALIAS(gMonPalette_Diglett); // dedupe_assets.py: mesmos 32 B (md5 cfa1a1c7)
     const u32 gMonBackPic_Dugtrio[] = INCGFX_U32("graphics/pokemon/dugtrio/back.png", ".4bpp.smol");
-    const u16 gMonShinyPalette_Dugtrio[] = INCGFX_U16("graphics/pokemon/dugtrio/shiny.pal", ".gbapal");
+    extern const u16 gMonShinyPalette_Dugtrio[ARRAY_COUNT(gMonShinyPalette_Diglett)] ASSET_ALIAS(gMonShinyPalette_Diglett); // dedupe_assets.py: mesmos 32 B (md5 d337c020)
 #else
     const u32 gMonFrontPic_Dugtrio[] = INCGFX_U32("graphics/pokemon/dugtrio/anim_front_gba.png", ".4bpp.smol");
     const u16 gMonPalette_Dugtrio[] = INCGFX_U16("graphics/pokemon/dugtrio/normal_gba.pal", ".gbapal");
@@ -2078,7 +2084,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Dugtrio[] = INCGFX_U8("graphics/pokemon/dugtrio/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Dugtrio[] = INCGFX_U8("graphics/pokemon/dugtrio/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Dugtrio[ARRAY_COUNT(gMonFootprint_Diglett)] ASSET_ALIAS(gMonFootprint_Diglett); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Dugtrio[] = INCGFX_COMP("graphics/pokemon/dugtrio/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -2209,8 +2215,9 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_MeowthGalar[] = INCGFX_COMP("graphics/pokemon/meowth/galar/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gOverworldPalette_MeowthGalar[] = INCGFX_U16("graphics/pokemon/meowth/galar/overworld_normal.pal", ".gbapal");
-    const u16 gShinyOverworldPalette_MeowthGalar[] = INCGFX_U16("graphics/pokemon/meowth/galar/overworld_shiny.pal", ".gbapal");
+    extern const u16 gShinyOverworldPalette_MeowthGalar[ARRAY_COUNT(gOverworldPalette_MeowthGalar)] ASSET_ALIAS(gOverworldPalette_MeowthGalar); // dedupe_assets.py: mesmos 32 B (md5 fef63fa1)
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
 
@@ -2838,6 +2845,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Weepinbell[] = INCGFX_U8("graphics/pokemon/weepinbell/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Weepinbell[] = INCGFX_U8("graphics/pokemon/weepinbell/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -2865,7 +2873,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Victreebel[] = INCGFX_U8("graphics/pokemon/victreebel/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Victreebel[] = INCGFX_U8("graphics/pokemon/victreebel/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Victreebel[ARRAY_COUNT(gMonFootprint_Weepinbell)] ASSET_ALIAS(gMonFootprint_Weepinbell); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Victreebel[] = INCGFX_COMP("graphics/pokemon/victreebel/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -2909,6 +2917,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Tentacool[] = INCGFX_U8("graphics/pokemon/tentacool/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Tentacool[] = INCGFX_U8("graphics/pokemon/tentacool/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -2936,7 +2945,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Tentacruel[] = INCGFX_U8("graphics/pokemon/tentacruel/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Tentacruel[] = INCGFX_U8("graphics/pokemon/tentacruel/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Tentacruel[ARRAY_COUNT(gMonFootprint_Tentacool)] ASSET_ALIAS(gMonFootprint_Tentacool); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Tentacruel[] = INCGFX_COMP("graphics/pokemon/tentacruel/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -3307,9 +3316,11 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u32 gMonFrontPic_Magnemite[] = INCGFX_U32("graphics/pokemon/magnemite/anim_front.png", ".4bpp.smol");
     const u16 gMonPalette_Magnemite[] = INCGFX_U16("graphics/pokemon/magnemite/normal.pal", ".gbapal");
     const u32 gMonBackPic_Magnemite[] = INCGFX_U32("graphics/pokemon/magnemite/back.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonShinyPalette_Magnemite[] = INCGFX_U16("graphics/pokemon/magnemite/shiny.pal", ".gbapal");
 #else
     const u32 gMonFrontPic_Magnemite[] = INCGFX_U32("graphics/pokemon/magnemite/anim_front_gba.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonPalette_Magnemite[] = INCGFX_U16("graphics/pokemon/magnemite/normal_gba.pal", ".gbapal");
     const u32 gMonBackPic_Magnemite[] = INCGFX_U32("graphics/pokemon/magnemite/back_gba.png", ".4bpp.smol");
     const u16 gMonShinyPalette_Magnemite[] = INCGFX_U16("graphics/pokemon/magnemite/shiny_gba.pal", ".gbapal");
@@ -3334,10 +3345,10 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u32 gMonFrontPic_Magneton[] = INCGFX_U32("graphics/pokemon/magneton/anim_front.png", ".4bpp.smol");
     const u16 gMonPalette_Magneton[] = INCGFX_U16("graphics/pokemon/magneton/normal.pal", ".gbapal");
     const u32 gMonBackPic_Magneton[] = INCGFX_U32("graphics/pokemon/magneton/back.png", ".4bpp.smol");
-    const u16 gMonShinyPalette_Magneton[] = INCGFX_U16("graphics/pokemon/magneton/shiny.pal", ".gbapal");
+    extern const u16 gMonShinyPalette_Magneton[ARRAY_COUNT(gMonShinyPalette_Magnemite)] ASSET_ALIAS(gMonShinyPalette_Magnemite); // dedupe_assets.py: mesmos 32 B (md5 2a61b64a)
 #else
     const u32 gMonFrontPic_Magneton[] = INCGFX_U32("graphics/pokemon/magneton/anim_front_gba.png", ".4bpp.smol");
-    const u16 gMonPalette_Magneton[] = INCGFX_U16("graphics/pokemon/magneton/normal_gba.pal", ".gbapal");
+    extern const u16 gMonPalette_Magneton[ARRAY_COUNT(gMonPalette_Magnemite)] ASSET_ALIAS(gMonPalette_Magnemite); // dedupe_assets.py: mesmos 32 B (md5 02106be9)
     const u32 gMonBackPic_Magneton[] = INCGFX_U32("graphics/pokemon/magneton/back_gba.png", ".4bpp.smol");
     const u16 gMonShinyPalette_Magneton[] = INCGFX_U16("graphics/pokemon/magneton/shiny_gba.pal", ".gbapal");
 #endif //P_GBA_STYLE_SPECIES_GFX
@@ -3526,6 +3537,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Seel[] = INCGFX_U8("graphics/pokemon/seel/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Seel[] = INCGFX_U8("graphics/pokemon/seel/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -3553,7 +3565,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Dewgong[] = INCGFX_U8("graphics/pokemon/dewgong/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Dewgong[] = INCGFX_U8("graphics/pokemon/dewgong/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Dewgong[ARRAY_COUNT(gMonFootprint_Seel)] ASSET_ALIAS(gMonFootprint_Seel); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Dewgong[] = INCGFX_COMP("graphics/pokemon/dewgong/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -3582,6 +3594,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Grimer[] = INCGFX_U8("graphics/pokemon/grimer/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Grimer[] = INCGFX_U8("graphics/pokemon/grimer/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -3609,7 +3622,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Muk[] = INCGFX_U8("graphics/pokemon/muk/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Muk[] = INCGFX_U8("graphics/pokemon/muk/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Muk[ARRAY_COUNT(gMonFootprint_Grimer)] ASSET_ALIAS(gMonFootprint_Grimer); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Muk[] = INCGFX_COMP("graphics/pokemon/muk/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -3666,6 +3679,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Shellder[] = INCGFX_U8("graphics/pokemon/shellder/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Shellder[] = INCGFX_U8("graphics/pokemon/shellder/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -3693,7 +3707,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Cloyster[] = INCGFX_U8("graphics/pokemon/cloyster/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Cloyster[] = INCGFX_U8("graphics/pokemon/cloyster/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Cloyster[ARRAY_COUNT(gMonFootprint_Shellder)] ASSET_ALIAS(gMonFootprint_Shellder); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Cloyster[] = INCGFX_COMP("graphics/pokemon/cloyster/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -3722,6 +3736,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Gastly[] = INCGFX_U8("graphics/pokemon/gastly/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Gastly[] = INCGFX_U8("graphics/pokemon/gastly/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -3749,7 +3764,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Haunter[] = INCGFX_U8("graphics/pokemon/haunter/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Haunter[] = INCGFX_U8("graphics/pokemon/haunter/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Haunter[ARRAY_COUNT(gMonFootprint_Gastly)] ASSET_ALIAS(gMonFootprint_Gastly); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Haunter[] = INCGFX_COMP("graphics/pokemon/haunter/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -4051,6 +4066,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Voltorb[] = INCGFX_U8("graphics/pokemon/voltorb/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Voltorb[] = INCGFX_U8("graphics/pokemon/voltorb/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -4078,7 +4094,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Electrode[] = INCGFX_U8("graphics/pokemon/electrode/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Electrode[] = INCGFX_U8("graphics/pokemon/electrode/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Electrode[ARRAY_COUNT(gMonFootprint_Voltorb)] ASSET_ALIAS(gMonFootprint_Voltorb); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Electrode[] = INCGFX_COMP("graphics/pokemon/electrode/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -4438,6 +4454,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Koffing[] = INCGFX_U8("graphics/pokemon/koffing/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Koffing[] = INCGFX_U8("graphics/pokemon/koffing/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -4465,7 +4482,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Weezing[] = INCGFX_U8("graphics/pokemon/weezing/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Weezing[] = INCGFX_U8("graphics/pokemon/weezing/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Weezing[ARRAY_COUNT(gMonFootprint_Koffing)] ASSET_ALIAS(gMonFootprint_Koffing); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Weezing[] = INCGFX_COMP("graphics/pokemon/weezing/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -4781,6 +4798,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Horsea[] = INCGFX_U8("graphics/pokemon/horsea/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Horsea[] = INCGFX_U8("graphics/pokemon/horsea/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -4808,7 +4826,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Seadra[] = INCGFX_U8("graphics/pokemon/seadra/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Seadra[] = INCGFX_U8("graphics/pokemon/seadra/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Seadra[ARRAY_COUNT(gMonFootprint_Horsea)] ASSET_ALIAS(gMonFootprint_Horsea); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Seadra[] = INCGFX_COMP("graphics/pokemon/seadra/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -4866,6 +4884,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Goldeen[] = INCGFX_U8("graphics/pokemon/goldeen/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Goldeen[] = INCGFX_U8("graphics/pokemon/goldeen/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -4901,7 +4920,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Seaking[] = INCGFX_U8("graphics/pokemon/seaking/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Seaking[] = INCGFX_U8("graphics/pokemon/seaking/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Seaking[ARRAY_COUNT(gMonFootprint_Goldeen)] ASSET_ALIAS(gMonFootprint_Goldeen); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Seaking[] = INCGFX_COMP("graphics/pokemon/seaking/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -4938,6 +4957,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Staryu[] = INCGFX_U8("graphics/pokemon/staryu/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Staryu[] = INCGFX_U8("graphics/pokemon/staryu/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -4965,7 +4985,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Starmie[] = INCGFX_U8("graphics/pokemon/starmie/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Starmie[] = INCGFX_U8("graphics/pokemon/starmie/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Starmie[ARRAY_COUNT(gMonFootprint_Staryu)] ASSET_ALIAS(gMonFootprint_Staryu); // dedupe_assets.py: mesmos 32 B (md5 511911aa)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Starmie[] = INCGFX_COMP("graphics/pokemon/starmie/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -5509,6 +5529,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Magikarp[] = INCGFX_U8("graphics/pokemon/magikarp/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Magikarp[] = INCGFX_U8("graphics/pokemon/magikarp/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -5544,7 +5565,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Gyarados[] = INCGFX_U8("graphics/pokemon/gyarados/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Gyarados[] = INCGFX_U8("graphics/pokemon/gyarados/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Gyarados[ARRAY_COUNT(gMonFootprint_Magikarp)] ASSET_ALIAS(gMonFootprint_Magikarp); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Gyarados[] = INCGFX_COMP("graphics/pokemon/gyarados/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -5851,6 +5872,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Leafeon[] = INCGFX_U16("graphics/pokemon/leafeon/shiny.pal", ".gbapal");
     const u8 gMonIcon_Leafeon[] = INCGFX_U8("graphics/pokemon/leafeon/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Leafeon[] = INCGFX_U8("graphics/pokemon/leafeon/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -5867,7 +5889,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Glaceon[] = INCGFX_U16("graphics/pokemon/glaceon/shiny.pal", ".gbapal");
     const u8 gMonIcon_Glaceon[] = INCGFX_U8("graphics/pokemon/glaceon/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Glaceon[] = INCGFX_U8("graphics/pokemon/glaceon/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Glaceon[ARRAY_COUNT(gMonFootprint_Leafeon)] ASSET_ALIAS(gMonFootprint_Leafeon); // dedupe_assets.py: mesmos 32 B (md5 c5a12cea)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Glaceon[] = INCGFX_COMP("graphics/pokemon/glaceon/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -6341,6 +6363,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Dratini[] = INCGFX_U8("graphics/pokemon/dratini/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Dratini[] = INCGFX_U8("graphics/pokemon/dratini/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -6368,7 +6391,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Dragonair[] = INCGFX_U8("graphics/pokemon/dragonair/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Dragonair[] = INCGFX_U8("graphics/pokemon/dragonair/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Dragonair[ARRAY_COUNT(gMonFootprint_Dratini)] ASSET_ALIAS(gMonFootprint_Dratini); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Dragonair[] = INCGFX_COMP("graphics/pokemon/dragonair/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -6931,6 +6954,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u32 gMonFrontPic_Ledyba[] = INCGFX_U32("graphics/pokemon/ledyba/anim_front_gba.png", ".4bpp.smol");
     const u16 gMonPalette_Ledyba[] = INCGFX_U16("graphics/pokemon/ledyba/normal_gba.pal", ".gbapal");
     const u32 gMonBackPic_Ledyba[] = INCGFX_U32("graphics/pokemon/ledyba/back_gba.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonShinyPalette_Ledyba[] = INCGFX_U16("graphics/pokemon/ledyba/shiny_gba.pal", ".gbapal");
 #endif //P_GBA_STYLE_SPECIES_GFX
 #if !P_GBA_STYLE_SPECIES_ICONS
@@ -6966,7 +6990,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u32 gMonFrontPic_Ledian[] = INCGFX_U32("graphics/pokemon/ledian/anim_front_gba.png", ".4bpp.smol");
     const u16 gMonPalette_Ledian[] = INCGFX_U16("graphics/pokemon/ledian/normal_gba.pal", ".gbapal");
     const u32 gMonBackPic_Ledian[] = INCGFX_U32("graphics/pokemon/ledian/back_gba.png", ".4bpp.smol");
-    const u16 gMonShinyPalette_Ledian[] = INCGFX_U16("graphics/pokemon/ledian/shiny_gba.pal", ".gbapal");
+    extern const u16 gMonShinyPalette_Ledian[ARRAY_COUNT(gMonShinyPalette_Ledyba)] ASSET_ALIAS(gMonShinyPalette_Ledyba); // dedupe_assets.py: mesmos 32 B (md5 7ca056b0)
 #endif //P_GBA_STYLE_SPECIES_GFX
 #if !P_GBA_STYLE_SPECIES_ICONS
     const u8 gMonIcon_Ledian[] = INCGFX_U8("graphics/pokemon/ledian/icon.png", ".4bpp");
@@ -7067,6 +7091,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Chinchou[] = INCGFX_U8("graphics/pokemon/chinchou/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Chinchou[] = INCGFX_U8("graphics/pokemon/chinchou/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -7094,7 +7119,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Lanturn[] = INCGFX_U8("graphics/pokemon/lanturn/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Lanturn[] = INCGFX_U8("graphics/pokemon/lanturn/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Lanturn[ARRAY_COUNT(gMonFootprint_Chinchou)] ASSET_ALIAS(gMonFootprint_Chinchou); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Lanturn[] = INCGFX_COMP("graphics/pokemon/lanturn/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -7189,6 +7214,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u32 gMonFrontPic_Natu[] = INCGFX_U32("graphics/pokemon/natu/anim_front_gba.png", ".4bpp.smol");
     const u16 gMonPalette_Natu[] = INCGFX_U16("graphics/pokemon/natu/normal_gba.pal", ".gbapal");
     const u32 gMonBackPic_Natu[] = INCGFX_U32("graphics/pokemon/natu/back_gba.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonShinyPalette_Natu[] = INCGFX_U16("graphics/pokemon/natu/shiny_gba.pal", ".gbapal");
 #endif //P_GBA_STYLE_SPECIES_GFX
 #if !P_GBA_STYLE_SPECIES_ICONS
@@ -7216,7 +7242,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u32 gMonFrontPic_Xatu[] = INCGFX_U32("graphics/pokemon/xatu/anim_front_gba.png", ".4bpp.smol");
     const u16 gMonPalette_Xatu[] = INCGFX_U16("graphics/pokemon/xatu/normal_gba.pal", ".gbapal");
     const u32 gMonBackPic_Xatu[] = INCGFX_U32("graphics/pokemon/xatu/back_gba.png", ".4bpp.smol");
-    const u16 gMonShinyPalette_Xatu[] = INCGFX_U16("graphics/pokemon/xatu/shiny_gba.pal", ".gbapal");
+    extern const u16 gMonShinyPalette_Xatu[ARRAY_COUNT(gMonShinyPalette_Natu)] ASSET_ALIAS(gMonShinyPalette_Natu); // dedupe_assets.py: mesmos 32 B (md5 ab223b4a)
 #endif //P_GBA_STYLE_SPECIES_GFX
 #if !P_GBA_STYLE_SPECIES_ICONS
     const u8 gMonIcon_Xatu[] = INCGFX_U8("graphics/pokemon/xatu/icon.png", ".4bpp");
@@ -8231,6 +8257,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Pineco[] = INCGFX_U8("graphics/pokemon/pineco/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Pineco[] = INCGFX_U8("graphics/pokemon/pineco/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -8258,7 +8285,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Forretress[] = INCGFX_U8("graphics/pokemon/forretress/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Forretress[] = INCGFX_U8("graphics/pokemon/forretress/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Forretress[ARRAY_COUNT(gMonFootprint_Pineco)] ASSET_ALIAS(gMonFootprint_Pineco); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Forretress[] = INCGFX_COMP("graphics/pokemon/forretress/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -8790,6 +8817,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Slugma[] = INCGFX_U8("graphics/pokemon/slugma/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Slugma[] = INCGFX_U8("graphics/pokemon/slugma/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -8817,7 +8845,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Magcargo[] = INCGFX_U8("graphics/pokemon/magcargo/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Magcargo[] = INCGFX_U8("graphics/pokemon/magcargo/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Magcargo[ARRAY_COUNT(gMonFootprint_Slugma)] ASSET_ALIAS(gMonFootprint_Slugma); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Magcargo[] = INCGFX_COMP("graphics/pokemon/magcargo/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -8954,8 +8982,9 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_CorsolaGalar[] = INCGFX_COMP("graphics/pokemon/corsola/galar/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gOverworldPalette_CorsolaGalar[] = INCGFX_U16("graphics/pokemon/corsola/galar/overworld_normal.pal", ".gbapal");
-    const u16 gShinyOverworldPalette_CorsolaGalar[] = INCGFX_U16("graphics/pokemon/corsola/galar/overworld_shiny.pal", ".gbapal");
+    extern const u16 gShinyOverworldPalette_CorsolaGalar[ARRAY_COUNT(gOverworldPalette_CorsolaGalar)] ASSET_ALIAS(gOverworldPalette_CorsolaGalar); // dedupe_assets.py: mesmos 32 B (md5 a1db7c16)
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
 
@@ -9169,6 +9198,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Houndour[] = INCGFX_U16("graphics/pokemon/houndour/shiny.pal", ".gbapal");
 #else
     const u32 gMonFrontPic_Houndour[] = INCGFX_U32("graphics/pokemon/houndour/anim_front_gba.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonPalette_Houndour[] = INCGFX_U16("graphics/pokemon/houndour/normal_gba.pal", ".gbapal");
     const u32 gMonBackPic_Houndour[] = INCGFX_U32("graphics/pokemon/houndour/back_gba.png", ".4bpp.smol");
     const u16 gMonShinyPalette_Houndour[] = INCGFX_U16("graphics/pokemon/houndour/shiny_gba.pal", ".gbapal");
@@ -9196,7 +9226,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Houndoom[] = INCGFX_U16("graphics/pokemon/houndoom/shiny.pal", ".gbapal");
 #else
     const u32 gMonFrontPic_Houndoom[] = INCGFX_U32("graphics/pokemon/houndoom/anim_front_gba.png", ".4bpp.smol");
-    const u16 gMonPalette_Houndoom[] = INCGFX_U16("graphics/pokemon/houndoom/normal_gba.pal", ".gbapal");
+    extern const u16 gMonPalette_Houndoom[ARRAY_COUNT(gMonPalette_Houndour)] ASSET_ALIAS(gMonPalette_Houndour); // dedupe_assets.py: mesmos 32 B (md5 c7d06c82)
     const u32 gMonBackPic_Houndoom[] = INCGFX_U32("graphics/pokemon/houndoom/back_gba.png", ".4bpp.smol");
     const u16 gMonShinyPalette_Houndoom[] = INCGFX_U16("graphics/pokemon/houndoom/shiny_gba.pal", ".gbapal");
 #endif //P_GBA_STYLE_SPECIES_GFX
@@ -10199,6 +10229,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Silcoon[] = INCGFX_U8("graphics/pokemon/silcoon/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Silcoon[] = INCGFX_U8("graphics/pokemon/silcoon/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -10261,7 +10292,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Cascoon[] = INCGFX_U8("graphics/pokemon/cascoon/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Cascoon[] = INCGFX_U8("graphics/pokemon/cascoon/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Cascoon[ARRAY_COUNT(gMonFootprint_Silcoon)] ASSET_ALIAS(gMonFootprint_Silcoon); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Cascoon[] = INCGFX_COMP("graphics/pokemon/cascoon/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -10511,6 +10542,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u32 gMonFrontPic_Taillow[] = INCGFX_U32("graphics/pokemon/taillow/anim_front_gba.png", ".4bpp.smol");
     const u16 gMonPalette_Taillow[] = INCGFX_U16("graphics/pokemon/taillow/normal_gba.pal", ".gbapal");
     const u32 gMonBackPic_Taillow[] = INCGFX_U32("graphics/pokemon/taillow/back_gba.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonShinyPalette_Taillow[] = INCGFX_U16("graphics/pokemon/taillow/shiny_gba.pal", ".gbapal");
 #endif //P_GBA_STYLE_SPECIES_GFX
 #if !P_GBA_STYLE_SPECIES_ICONS
@@ -10538,7 +10570,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u32 gMonFrontPic_Swellow[] = INCGFX_U32("graphics/pokemon/swellow/anim_front_gba.png", ".4bpp.smol");
     const u16 gMonPalette_Swellow[] = INCGFX_U16("graphics/pokemon/swellow/normal_gba.pal", ".gbapal");
     const u32 gMonBackPic_Swellow[] = INCGFX_U32("graphics/pokemon/swellow/back_gba.png", ".4bpp.smol");
-    const u16 gMonShinyPalette_Swellow[] = INCGFX_U16("graphics/pokemon/swellow/shiny_gba.pal", ".gbapal");
+    extern const u16 gMonShinyPalette_Swellow[ARRAY_COUNT(gMonShinyPalette_Taillow)] ASSET_ALIAS(gMonShinyPalette_Taillow); // dedupe_assets.py: mesmos 32 B (md5 c2d599c7)
 #endif //P_GBA_STYLE_SPECIES_GFX
 #if !P_GBA_STYLE_SPECIES_ICONS
     const u8 gMonIcon_Swellow[] = INCGFX_U8("graphics/pokemon/swellow/icon.png", ".4bpp");
@@ -10621,8 +10653,10 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Ralts[] = INCGFX_U16("graphics/pokemon/ralts/shiny.pal", ".gbapal");
 #else
     const u32 gMonFrontPic_Ralts[] = INCGFX_U32("graphics/pokemon/ralts/anim_front_gba.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonPalette_Ralts[] = INCGFX_U16("graphics/pokemon/ralts/normal_gba.pal", ".gbapal");
     const u32 gMonBackPic_Ralts[] = INCGFX_U32("graphics/pokemon/ralts/back_gba.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonShinyPalette_Ralts[] = INCGFX_U16("graphics/pokemon/ralts/shiny_gba.pal", ".gbapal");
 #endif //P_GBA_STYLE_SPECIES_GFX
 #if !P_GBA_STYLE_SPECIES_ICONS
@@ -10675,9 +10709,9 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Gardevoir[] = INCGFX_U16("graphics/pokemon/gardevoir/shiny.pal", ".gbapal");
 #else
     const u32 gMonFrontPic_Gardevoir[] = INCGFX_U32("graphics/pokemon/gardevoir/anim_front_gba.png", ".4bpp.smol");
-    const u16 gMonPalette_Gardevoir[] = INCGFX_U16("graphics/pokemon/gardevoir/normal_gba.pal", ".gbapal");
+    extern const u16 gMonPalette_Gardevoir[ARRAY_COUNT(gMonPalette_Ralts)] ASSET_ALIAS(gMonPalette_Ralts); // dedupe_assets.py: mesmos 32 B (md5 41b465aa)
     const u32 gMonBackPic_Gardevoir[] = INCGFX_U32("graphics/pokemon/gardevoir/back_gba.png", ".4bpp.smol");
-    const u16 gMonShinyPalette_Gardevoir[] = INCGFX_U16("graphics/pokemon/gardevoir/shiny_gba.pal", ".gbapal");
+    extern const u16 gMonShinyPalette_Gardevoir[ARRAY_COUNT(gMonShinyPalette_Ralts)] ASSET_ALIAS(gMonShinyPalette_Ralts); // dedupe_assets.py: mesmos 32 B (md5 7319ac66)
 #endif //P_GBA_STYLE_SPECIES_GFX
 #if !P_GBA_STYLE_SPECIES_ICONS
     const u8 gMonIcon_Gardevoir[] = INCGFX_U8("graphics/pokemon/gardevoir/icon.png", ".4bpp");
@@ -11368,8 +11402,10 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Aron[] = INCGFX_U16("graphics/pokemon/aron/shiny.pal", ".gbapal");
 #else
     const u32 gMonFrontPic_Aron[] = INCGFX_U32("graphics/pokemon/aron/anim_front_gba.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 3 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonPalette_Aron[] = INCGFX_U16("graphics/pokemon/aron/normal_gba.pal", ".gbapal");
     const u32 gMonBackPic_Aron[] = INCGFX_U32("graphics/pokemon/aron/back_gba.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 3 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonShinyPalette_Aron[] = INCGFX_U16("graphics/pokemon/aron/shiny_gba.pal", ".gbapal");
 #endif //P_GBA_STYLE_SPECIES_GFX
 #if !P_GBA_STYLE_SPECIES_ICONS
@@ -11395,9 +11431,9 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Lairon[] = INCGFX_U16("graphics/pokemon/lairon/shiny.pal", ".gbapal");
 #else
     const u32 gMonFrontPic_Lairon[] = INCGFX_U32("graphics/pokemon/lairon/anim_front_gba.png", ".4bpp.smol");
-    const u16 gMonPalette_Lairon[] = INCGFX_U16("graphics/pokemon/lairon/normal_gba.pal", ".gbapal");
+    extern const u16 gMonPalette_Lairon[ARRAY_COUNT(gMonPalette_Aron)] ASSET_ALIAS(gMonPalette_Aron); // dedupe_assets.py: mesmos 32 B (md5 39c14a42)
     const u32 gMonBackPic_Lairon[] = INCGFX_U32("graphics/pokemon/lairon/back_gba.png", ".4bpp.smol");
-    const u16 gMonShinyPalette_Lairon[] = INCGFX_U16("graphics/pokemon/lairon/shiny_gba.pal", ".gbapal");
+    extern const u16 gMonShinyPalette_Lairon[ARRAY_COUNT(gMonShinyPalette_Aron)] ASSET_ALIAS(gMonShinyPalette_Aron); // dedupe_assets.py: mesmos 32 B (md5 6bc6f376)
 #endif //P_GBA_STYLE_SPECIES_GFX
 #if !P_GBA_STYLE_SPECIES_ICONS
     const u8 gMonIcon_Lairon[] = INCGFX_U8("graphics/pokemon/lairon/icon.png", ".4bpp");
@@ -11422,9 +11458,9 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Aggron[] = INCGFX_U16("graphics/pokemon/aggron/shiny.pal", ".gbapal");
 #else
     const u32 gMonFrontPic_Aggron[] = INCGFX_U32("graphics/pokemon/aggron/anim_front_gba.png", ".4bpp.smol");
-    const u16 gMonPalette_Aggron[] = INCGFX_U16("graphics/pokemon/aggron/normal_gba.pal", ".gbapal");
+    extern const u16 gMonPalette_Aggron[ARRAY_COUNT(gMonPalette_Aron)] ASSET_ALIAS(gMonPalette_Aron); // dedupe_assets.py: mesmos 32 B (md5 39c14a42)
     const u32 gMonBackPic_Aggron[] = INCGFX_U32("graphics/pokemon/aggron/back_gba.png", ".4bpp.smol");
-    const u16 gMonShinyPalette_Aggron[] = INCGFX_U16("graphics/pokemon/aggron/shiny_gba.pal", ".gbapal");
+    extern const u16 gMonShinyPalette_Aggron[ARRAY_COUNT(gMonShinyPalette_Aron)] ASSET_ALIAS(gMonShinyPalette_Aron); // dedupe_assets.py: mesmos 32 B (md5 6bc6f376)
 #endif //P_GBA_STYLE_SPECIES_GFX
 #if !P_GBA_STYLE_SPECIES_ICONS
     const u8 gMonIcon_Aggron[] = INCGFX_U8("graphics/pokemon/aggron/icon.png", ".4bpp");
@@ -11829,6 +11865,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Gulpin[] = INCGFX_U8("graphics/pokemon/gulpin/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Gulpin[] = INCGFX_U8("graphics/pokemon/gulpin/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -11864,7 +11901,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Swalot[] = INCGFX_U8("graphics/pokemon/swalot/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Swalot[] = INCGFX_U8("graphics/pokemon/swalot/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Swalot[ARRAY_COUNT(gMonFootprint_Gulpin)] ASSET_ALIAS(gMonFootprint_Gulpin); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Swalot[] = INCGFX_COMP("graphics/pokemon/swalot/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -11901,6 +11938,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Carvanha[] = INCGFX_U8("graphics/pokemon/carvanha/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Carvanha[] = INCGFX_U8("graphics/pokemon/carvanha/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -11928,7 +11966,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Sharpedo[] = INCGFX_U8("graphics/pokemon/sharpedo/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Sharpedo[] = INCGFX_U8("graphics/pokemon/sharpedo/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Sharpedo[ARRAY_COUNT(gMonFootprint_Carvanha)] ASSET_ALIAS(gMonFootprint_Carvanha); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Sharpedo[] = INCGFX_COMP("graphics/pokemon/sharpedo/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -11972,6 +12010,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Wailmer[] = INCGFX_U8("graphics/pokemon/wailmer/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Wailmer[] = INCGFX_U8("graphics/pokemon/wailmer/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -11999,7 +12038,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Wailord[] = INCGFX_U8("graphics/pokemon/wailord/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Wailord[] = INCGFX_U8("graphics/pokemon/wailord/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Wailord[ARRAY_COUNT(gMonFootprint_Wailmer)] ASSET_ALIAS(gMonFootprint_Wailmer); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Wailord[] = INCGFX_COMP("graphics/pokemon/wailord/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
@@ -12562,6 +12601,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Barboach[] = INCGFX_U8("graphics/pokemon/barboach/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Barboach[] = INCGFX_U8("graphics/pokemon/barboach/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -12589,7 +12629,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Whiscash[] = INCGFX_U8("graphics/pokemon/whiscash/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Whiscash[] = INCGFX_U8("graphics/pokemon/whiscash/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Whiscash[ARRAY_COUNT(gMonFootprint_Barboach)] ASSET_ALIAS(gMonFootprint_Barboach); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Whiscash[] = INCGFX_COMP("graphics/pokemon/whiscash/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -12842,6 +12882,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Feebas[] = INCGFX_U8("graphics/pokemon/feebas/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Feebas[] = INCGFX_U8("graphics/pokemon/feebas/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -12869,7 +12910,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Milotic[] = INCGFX_U8("graphics/pokemon/milotic/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Milotic[] = INCGFX_U8("graphics/pokemon/milotic/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Milotic[ARRAY_COUNT(gMonFootprint_Feebas)] ASSET_ALIAS(gMonFootprint_Feebas); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Milotic[] = INCGFX_COMP("graphics/pokemon/milotic/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -12916,19 +12957,22 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_CastformNormal[] = INCGFX_U16("graphics/pokemon/castform/shiny_gba.pal", ".gbapal");
 
     const u32 gMonFrontPic_CastformSunny[] = INCGFX_U32("graphics/pokemon/castform/sunny/front_gba.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonPalette_CastformSunny[] = INCGFX_U16("graphics/pokemon/castform/sunny/normal_gba.pal", ".gbapal");
     const u32 gMonBackPic_CastformSunny[] = INCGFX_U32("graphics/pokemon/castform/sunny/back_gba.png", ".4bpp.smol");
-    const u16 gMonShinyPalette_CastformSunny[] = INCGFX_U16("graphics/pokemon/castform/sunny/shiny_gba.pal", ".gbapal");
+    extern const u16 gMonShinyPalette_CastformSunny[ARRAY_COUNT(gMonPalette_CastformSunny)] ASSET_ALIAS(gMonPalette_CastformSunny); // dedupe_assets.py: mesmos 32 B (md5 7490664c)
 
     const u32 gMonFrontPic_CastformRainy[] = INCGFX_U32("graphics/pokemon/castform/rainy/front_gba.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonPalette_CastformRainy[] = INCGFX_U16("graphics/pokemon/castform/rainy/normal_gba.pal", ".gbapal");
     const u32 gMonBackPic_CastformRainy[] = INCGFX_U32("graphics/pokemon/castform/rainy/back_gba.png", ".4bpp.smol");
-    const u16 gMonShinyPalette_CastformRainy[] = INCGFX_U16("graphics/pokemon/castform/rainy/shiny_gba.pal", ".gbapal");
+    extern const u16 gMonShinyPalette_CastformRainy[ARRAY_COUNT(gMonPalette_CastformRainy)] ASSET_ALIAS(gMonPalette_CastformRainy); // dedupe_assets.py: mesmos 32 B (md5 4f721a65)
 
     const u32 gMonFrontPic_CastformSnowy[] = INCGFX_U32("graphics/pokemon/castform/snowy/front_gba.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonPalette_CastformSnowy[] = INCGFX_U16("graphics/pokemon/castform/snowy/normal_gba.pal", ".gbapal");
     const u32 gMonBackPic_CastformSnowy[] = INCGFX_U32("graphics/pokemon/castform/snowy/back_gba.png", ".4bpp.smol");
-    const u16 gMonShinyPalette_CastformSnowy[] = INCGFX_U16("graphics/pokemon/castform/snowy/shiny_gba.pal", ".gbapal");
+    extern const u16 gMonShinyPalette_CastformSnowy[ARRAY_COUNT(gMonPalette_CastformSnowy)] ASSET_ALIAS(gMonPalette_CastformSnowy); // dedupe_assets.py: mesmos 32 B (md5 d94e8195)
 #endif //P_GBA_STYLE_SPECIES_GFX
 #if !P_GBA_STYLE_SPECIES_ICONS
     const u8 gMonIcon_CastformNormal[] = INCGFX_U8("graphics/pokemon/castform/icon.png", ".4bpp");
@@ -13407,6 +13451,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Spheal[] = INCGFX_U8("graphics/pokemon/spheal/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 3 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Spheal[] = INCGFX_U8("graphics/pokemon/spheal/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -13434,7 +13479,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Sealeo[] = INCGFX_U8("graphics/pokemon/sealeo/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Sealeo[] = INCGFX_U8("graphics/pokemon/sealeo/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Sealeo[ARRAY_COUNT(gMonFootprint_Spheal)] ASSET_ALIAS(gMonFootprint_Spheal); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Sealeo[] = INCGFX_COMP("graphics/pokemon/sealeo/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -13461,7 +13506,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Walrein[] = INCGFX_U8("graphics/pokemon/walrein/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Walrein[] = INCGFX_U8("graphics/pokemon/walrein/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Walrein[ARRAY_COUNT(gMonFootprint_Spheal)] ASSET_ALIAS(gMonFootprint_Spheal); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Walrein[] = INCGFX_COMP("graphics/pokemon/walrein/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -13490,6 +13535,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Clamperl[] = INCGFX_U8("graphics/pokemon/clamperl/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 3 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Clamperl[] = INCGFX_U8("graphics/pokemon/clamperl/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -13517,7 +13563,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Huntail[] = INCGFX_U8("graphics/pokemon/huntail/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Huntail[] = INCGFX_U8("graphics/pokemon/huntail/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Huntail[ARRAY_COUNT(gMonFootprint_Clamperl)] ASSET_ALIAS(gMonFootprint_Clamperl); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Huntail[] = INCGFX_COMP("graphics/pokemon/huntail/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -13544,7 +13590,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Gorebyss[] = INCGFX_U8("graphics/pokemon/gorebyss/icon_gba.png", ".4bpp");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Gorebyss[] = INCGFX_U8("graphics/pokemon/gorebyss/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Gorebyss[ARRAY_COUNT(gMonFootprint_Clamperl)] ASSET_ALIAS(gMonFootprint_Clamperl); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Gorebyss[] = INCGFX_COMP("graphics/pokemon/gorebyss/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -13727,6 +13773,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Beldum[] = INCGFX_U16("graphics/pokemon/beldum/shiny.pal", ".gbapal");
 #else
     const u32 gMonFrontPic_Beldum[] = INCGFX_U32("graphics/pokemon/beldum/anim_front_gba.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonPalette_Beldum[] = INCGFX_U16("graphics/pokemon/beldum/normal_gba.pal", ".gbapal");
     const u32 gMonBackPic_Beldum[] = INCGFX_U32("graphics/pokemon/beldum/back_gba.png", ".4bpp.smol");
     const u16 gMonShinyPalette_Beldum[] = INCGFX_U16("graphics/pokemon/beldum/shiny_gba.pal", ".gbapal");
@@ -13754,7 +13801,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Metang[] = INCGFX_U16("graphics/pokemon/metang/shiny.pal", ".gbapal");
 #else
     const u32 gMonFrontPic_Metang[] = INCGFX_U32("graphics/pokemon/metang/anim_front_gba.png", ".4bpp.smol");
-    const u16 gMonPalette_Metang[] = INCGFX_U16("graphics/pokemon/metang/normal_gba.pal", ".gbapal");
+    extern const u16 gMonPalette_Metang[ARRAY_COUNT(gMonPalette_Beldum)] ASSET_ALIAS(gMonPalette_Beldum); // dedupe_assets.py: mesmos 32 B (md5 00c6cab4)
     const u32 gMonBackPic_Metang[] = INCGFX_U32("graphics/pokemon/metang/back_gba.png", ".4bpp.smol");
     const u16 gMonShinyPalette_Metang[] = INCGFX_U16("graphics/pokemon/metang/shiny_gba.pal", ".gbapal");
 #endif //P_GBA_STYLE_SPECIES_GFX
@@ -14176,24 +14223,28 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_DeoxysSpeed[] = INCGFX_U16("graphics/pokemon/deoxys/speed/shiny.pal", ".gbapal");
 #else
     const u32 gMonFrontPic_DeoxysNormal[] = INCGFX_U32("graphics/pokemon/deoxys/anim_front_gba.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonPalette_DeoxysNormal[] = INCGFX_U16("graphics/pokemon/deoxys/normal_gba.pal", ".gbapal");
     const u32 gMonBackPic_DeoxysNormal[] = INCGFX_U32("graphics/pokemon/deoxys/back_gba.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonShinyPalette_DeoxysNormal[] = INCGFX_U16("graphics/pokemon/deoxys/shiny_gba.pal", ".gbapal");
 
     const u32 gMonFrontPic_DeoxysAttack[] = INCGFX_U32("graphics/pokemon/deoxys/attack/front_gba.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonPalette_DeoxysAttack[] = INCGFX_U16("graphics/pokemon/deoxys/attack/normal_gba.pal", ".gbapal");
     const u32 gMonBackPic_DeoxysAttack[] = INCGFX_U32("graphics/pokemon/deoxys/attack/back_gba.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonShinyPalette_DeoxysAttack[] = INCGFX_U16("graphics/pokemon/deoxys/attack/shiny_gba.pal", ".gbapal");
 
     const u32 gMonFrontPic_DeoxysDefense[] = INCGFX_U32("graphics/pokemon/deoxys/defense/front_gba.png", ".4bpp.smol");
-    const u16 gMonPalette_DeoxysDefense[] = INCGFX_U16("graphics/pokemon/deoxys/defense/normal_gba.pal", ".gbapal");
+    extern const u16 gMonPalette_DeoxysDefense[ARRAY_COUNT(gMonPalette_DeoxysAttack)] ASSET_ALIAS(gMonPalette_DeoxysAttack); // dedupe_assets.py: mesmos 32 B (md5 f38c82e1)
     const u32 gMonBackPic_DeoxysDefense[] = INCGFX_U32("graphics/pokemon/deoxys/defense/back_gba.png", ".4bpp.smol");
-    const u16 gMonShinyPalette_DeoxysDefense[] = INCGFX_U16("graphics/pokemon/deoxys/defense/shiny_gba.pal", ".gbapal");
+    extern const u16 gMonShinyPalette_DeoxysDefense[ARRAY_COUNT(gMonShinyPalette_DeoxysAttack)] ASSET_ALIAS(gMonShinyPalette_DeoxysAttack); // dedupe_assets.py: mesmos 32 B (md5 24dec00f)
 
     const u32 gMonFrontPic_DeoxysSpeed[] = INCGFX_U32("graphics/pokemon/deoxys/speed/front_gba.png", ".4bpp.smol");
-    const u16 gMonPalette_DeoxysSpeed[] = INCGFX_U16("graphics/pokemon/deoxys/speed/normal_gba.pal", ".gbapal");
+    extern const u16 gMonPalette_DeoxysSpeed[ARRAY_COUNT(gMonPalette_DeoxysNormal)] ASSET_ALIAS(gMonPalette_DeoxysNormal); // dedupe_assets.py: mesmos 32 B (md5 6ca8b434)
     const u32 gMonBackPic_DeoxysSpeed[] = INCGFX_U32("graphics/pokemon/deoxys/speed/back_gba.png", ".4bpp.smol");
-    const u16 gMonShinyPalette_DeoxysSpeed[] = INCGFX_U16("graphics/pokemon/deoxys/speed/shiny_gba.pal", ".gbapal");
+    extern const u16 gMonShinyPalette_DeoxysSpeed[ARRAY_COUNT(gMonShinyPalette_DeoxysNormal)] ASSET_ALIAS(gMonShinyPalette_DeoxysNormal); // dedupe_assets.py: mesmos 32 B (md5 7af03311)
 #endif //P_GBA_STYLE_SPECIES_GFX
 #if !P_GBA_STYLE_SPECIES_ICONS
     const u8 gMonIcon_DeoxysNormal[] = INCGFX_U8("graphics/pokemon/deoxys/icon.png", ".4bpp");
@@ -14403,6 +14454,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 
     const u32 gMonFrontPic_Staravia[] = INCGFX_U32("graphics/pokemon/staravia/anim_front.png", ".4bpp.smol");
     const u16 gMonPalette_Staravia[] = INCGFX_U16("graphics/pokemon/staravia/normal.pal", ".gbapal");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u32 gMonBackPic_Staravia[] = INCGFX_U32("graphics/pokemon/staravia/back.png", ".4bpp.smol");
     const u16 gMonShinyPalette_Staravia[] = INCGFX_U16("graphics/pokemon/staravia/shiny.pal", ".gbapal");
     const u8 gMonIcon_Staravia[] = INCGFX_U8("graphics/pokemon/staravia/icon.png", ".4bpp");
@@ -14419,7 +14471,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 
 #if P_GENDER_DIFFERENCES
     const u32 gMonFrontPic_StaraviaF[] = INCGFX_U32("graphics/pokemon/staravia/anim_frontf.png", ".4bpp.smol");
-    const u32 gMonBackPic_StaraviaF[] = INCGFX_U32("graphics/pokemon/staravia/back.png", ".4bpp.smol");
+    extern const u32 gMonBackPic_StaraviaF[ARRAY_COUNT(gMonBackPic_Staravia)] ASSET_ALIAS(gMonBackPic_Staravia); // dedupe_assets.py: mesmos 648 B (md5 f3f3e19e)
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_StaraviaF[] = INCGFX_COMP("graphics/pokemon/staravia/overworldf.png", ".4bpp", "-mwidth 4 -mheight 4");
 #endif //OW_POKEMON_OBJECT_EVENTS
@@ -14712,6 +14764,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_BurmyPlant[] = INCGFX_U16("graphics/pokemon/burmy/shiny.pal", ".gbapal");
     const u8 gMonIcon_BurmyPlant[] = INCGFX_U8("graphics/pokemon/burmy/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Burmy[] = INCGFX_U8("graphics/pokemon/burmy/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 
@@ -14747,7 +14800,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_WormadamPlant[] = INCGFX_U16("graphics/pokemon/wormadam/shiny.pal", ".gbapal");
     const u8 gMonIcon_WormadamPlant[] = INCGFX_U8("graphics/pokemon/wormadam/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Wormadam[] = INCGFX_U8("graphics/pokemon/wormadam/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Wormadam[ARRAY_COUNT(gMonFootprint_Burmy)] ASSET_ALIAS(gMonFootprint_Burmy); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 
     const u32 gMonFrontPic_WormadamSandy[] = INCGFX_U32("graphics/pokemon/wormadam/sandy/anim_front.png", ".4bpp.smol");
@@ -14800,6 +14853,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Combee[] = INCGFX_U16("graphics/pokemon/combee/shiny.pal", ".gbapal");
     const u8 gMonIcon_Combee[] = INCGFX_U8("graphics/pokemon/combee/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Combee[] = INCGFX_U8("graphics/pokemon/combee/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -14824,7 +14878,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Vespiquen[] = INCGFX_U16("graphics/pokemon/vespiquen/shiny.pal", ".gbapal");
     const u8 gMonIcon_Vespiquen[] = INCGFX_U8("graphics/pokemon/vespiquen/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Vespiquen[] = INCGFX_U8("graphics/pokemon/vespiquen/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Vespiquen[ARRAY_COUNT(gMonFootprint_Combee)] ASSET_ALIAS(gMonFootprint_Combee); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Vespiquen[] = INCGFX_COMP("graphics/pokemon/vespiquen/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -14915,6 +14969,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Cherubi[] = INCGFX_U16("graphics/pokemon/cherubi/shiny.pal", ".gbapal");
     const u8 gMonIcon_Cherubi[] = INCGFX_U8("graphics/pokemon/cherubi/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Cherubi[] = INCGFX_U8("graphics/pokemon/cherubi/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -14931,12 +14986,14 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_CherrimOvercast[] = INCGFX_U16("graphics/pokemon/cherrim/shiny.pal", ".gbapal");
     const u8 gMonIcon_CherrimOvercast[] = INCGFX_U8("graphics/pokemon/cherrim/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Cherrim[] = INCGFX_U8("graphics/pokemon/cherrim/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Cherrim[ARRAY_COUNT(gMonFootprint_Cherubi)] ASSET_ALIAS(gMonFootprint_Cherubi); // dedupe_assets.py: mesmos 32 B (md5 511911aa)
 #endif //P_FOOTPRINTS
 
     const u32 gMonFrontPic_CherrimSunshine[] = INCGFX_U32("graphics/pokemon/cherrim/sunshine/anim_front.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonPalette_CherrimSunshine[] = INCGFX_U16("graphics/pokemon/cherrim/sunshine/normal.pal", ".gbapal");
     const u32 gMonBackPic_CherrimSunshine[] = INCGFX_U32("graphics/pokemon/cherrim/sunshine/back.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonShinyPalette_CherrimSunshine[] = INCGFX_U16("graphics/pokemon/cherrim/sunshine/shiny.pal", ".gbapal");
     const u8 gMonIcon_CherrimSunshine[] = INCGFX_U8("graphics/pokemon/cherrim/sunshine/icon.png", ".4bpp");
 
@@ -14945,9 +15002,9 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u32 gObjectEventPic_CherrimSunshine[] = INCGFX_COMP("graphics/pokemon/cherrim/sunshine/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
     const u16 gOverworldPalette_CherrimOvercast[] = INCGFX_U16("graphics/pokemon/cherrim/overworld_normal.pal", ".gbapal");
-    const u16 gOverworldPalette_CherrimSunshine[] = INCGFX_U16("graphics/pokemon/cherrim/sunshine/overworld_normal.pal", ".gbapal");
+    extern const u16 gOverworldPalette_CherrimSunshine[ARRAY_COUNT(gMonPalette_CherrimSunshine)] ASSET_ALIAS(gMonPalette_CherrimSunshine); // dedupe_assets.py: mesmos 32 B (md5 5d596e23)
     const u16 gShinyOverworldPalette_CherrimOvercast[] = INCGFX_U16("graphics/pokemon/cherrim/overworld_shiny.pal", ".gbapal");
-    const u16 gShinyOverworldPalette_CherrimSunshine[] = INCGFX_U16("graphics/pokemon/cherrim/sunshine/overworld_shiny.pal", ".gbapal");
+    extern const u16 gShinyOverworldPalette_CherrimSunshine[ARRAY_COUNT(gMonShinyPalette_CherrimSunshine)] ASSET_ALIAS(gMonShinyPalette_CherrimSunshine); // dedupe_assets.py: mesmos 32 B (md5 20312f3b)
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
 #endif //P_FAMILY_CHERUBI
@@ -15012,6 +15069,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Drifloon[] = INCGFX_U16("graphics/pokemon/drifloon/shiny.pal", ".gbapal");
     const u8 gMonIcon_Drifloon[] = INCGFX_U8("graphics/pokemon/drifloon/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Drifloon[] = INCGFX_U8("graphics/pokemon/drifloon/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -15028,7 +15086,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Drifblim[] = INCGFX_U16("graphics/pokemon/drifblim/shiny.pal", ".gbapal");
     const u8 gMonIcon_Drifblim[] = INCGFX_U8("graphics/pokemon/drifblim/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Drifblim[] = INCGFX_U8("graphics/pokemon/drifblim/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Drifblim[ARRAY_COUNT(gMonFootprint_Drifloon)] ASSET_ALIAS(gMonFootprint_Drifloon); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Drifblim[] = INCGFX_COMP("graphics/pokemon/drifblim/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -15163,6 +15221,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Bronzor[] = INCGFX_U16("graphics/pokemon/bronzor/shiny.pal", ".gbapal");
     const u8 gMonIcon_Bronzor[] = INCGFX_U8("graphics/pokemon/bronzor/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Bronzor[] = INCGFX_U8("graphics/pokemon/bronzor/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -15179,7 +15238,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Bronzong[] = INCGFX_U16("graphics/pokemon/bronzong/shiny.pal", ".gbapal");
     const u8 gMonIcon_Bronzong[] = INCGFX_U8("graphics/pokemon/bronzong/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Bronzong[] = INCGFX_U8("graphics/pokemon/bronzong/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Bronzong[ARRAY_COUNT(gMonFootprint_Bronzor)] ASSET_ALIAS(gMonFootprint_Bronzor); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Bronzong[] = INCGFX_COMP("graphics/pokemon/bronzong/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -15459,6 +15518,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Skorupi[] = INCGFX_U16("graphics/pokemon/skorupi/shiny.pal", ".gbapal");
     const u8 gMonIcon_Skorupi[] = INCGFX_U8("graphics/pokemon/skorupi/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Skorupi[] = INCGFX_U8("graphics/pokemon/skorupi/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -15475,7 +15535,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Drapion[] = INCGFX_U16("graphics/pokemon/drapion/shiny.pal", ".gbapal");
     const u8 gMonIcon_Drapion[] = INCGFX_U8("graphics/pokemon/drapion/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Drapion[] = INCGFX_U8("graphics/pokemon/drapion/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Drapion[ARRAY_COUNT(gMonFootprint_Skorupi)] ASSET_ALIAS(gMonFootprint_Skorupi); // dedupe_assets.py: mesmos 32 B (md5 1620bf37)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Drapion[] = INCGFX_COMP("graphics/pokemon/drapion/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -15561,6 +15621,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Finneon[] = INCGFX_U16("graphics/pokemon/finneon/shiny.pal", ".gbapal");
     const u8 gMonIcon_Finneon[] = INCGFX_U8("graphics/pokemon/finneon/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Finneon[] = INCGFX_U8("graphics/pokemon/finneon/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -15585,7 +15646,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Lumineon[] = INCGFX_U16("graphics/pokemon/lumineon/shiny.pal", ".gbapal");
     const u8 gMonIcon_Lumineon[] = INCGFX_U8("graphics/pokemon/lumineon/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Lumineon[] = INCGFX_U8("graphics/pokemon/lumineon/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Lumineon[ARRAY_COUNT(gMonFootprint_Finneon)] ASSET_ALIAS(gMonFootprint_Finneon); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Lumineon[] = INCGFX_COMP("graphics/pokemon/lumineon/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -15958,6 +16019,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Phione[] = INCGFX_U16("graphics/pokemon/phione/shiny.pal", ".gbapal");
     const u8 gMonIcon_Phione[] = INCGFX_U8("graphics/pokemon/phione/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Phione[] = INCGFX_U8("graphics/pokemon/phione/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -15975,11 +16037,12 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Manaphy[] = INCGFX_U8("graphics/pokemon/manaphy/icon.png", ".4bpp");
     const u8 gMonEggIcon_Manaphy[] = INCGFX_U8("graphics/pokemon/manaphy/icon_egg.png", ".4bpp");
     const u32 gMonEggGfx_Manaphy[] = INCGFX_U32("graphics/pokemon/manaphy/egg_sprite.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonEggPal_Manaphy[] = INCGFX_U16("graphics/pokemon/manaphy/egg_sprite.png", ".gbapal");
     const u32 gMonHatchGfx_Manaphy[] = INCGFX_U32("graphics/pokemon/manaphy/hatch.png", ".4bpp.smol");
-    const u16 gMonHatchPal_Manaphy[] = INCGFX_U16("graphics/pokemon/manaphy/hatch.png", ".gbapal");
+    extern const u16 gMonHatchPal_Manaphy[ARRAY_COUNT(gMonEggPal_Manaphy)] ASSET_ALIAS(gMonEggPal_Manaphy); // dedupe_assets.py: mesmos 32 B (md5 5f5617bb)
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Manaphy[] = INCGFX_U8("graphics/pokemon/manaphy/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Manaphy[ARRAY_COUNT(gMonFootprint_Phione)] ASSET_ALIAS(gMonFootprint_Phione); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Manaphy[] = INCGFX_COMP("graphics/pokemon/manaphy/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -16136,24 +16199,25 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_ArceusFairy[] = INCGFX_U8("graphics/pokemon/arceus/fairy/icon.png", ".4bpp");
 #endif //P_ARCEUS_UNIQUE_FORM_ICONS
 #if OW_POKEMON_OBJECT_EVENTS
+    // dedupe_assets.py: compartilhado por 18 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u32 gObjectEventPic_ArceusNormal[] = INCGFX_COMP("graphics/pokemon/arceus/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
-    const u32 gObjectEventPic_ArceusFighting[] = INCGFX_COMP("graphics/pokemon/arceus/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
-    const u32 gObjectEventPic_ArceusFlying[] = INCGFX_COMP("graphics/pokemon/arceus/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
-    const u32 gObjectEventPic_ArceusPoison[] = INCGFX_COMP("graphics/pokemon/arceus/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
-    const u32 gObjectEventPic_ArceusGround[] = INCGFX_COMP("graphics/pokemon/arceus/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
-    const u32 gObjectEventPic_ArceusRock[] = INCGFX_COMP("graphics/pokemon/arceus/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
-    const u32 gObjectEventPic_ArceusBug[] = INCGFX_COMP("graphics/pokemon/arceus/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
-    const u32 gObjectEventPic_ArceusGhost[] = INCGFX_COMP("graphics/pokemon/arceus/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
-    const u32 gObjectEventPic_ArceusSteel[] = INCGFX_COMP("graphics/pokemon/arceus/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
-    const u32 gObjectEventPic_ArceusFire[] = INCGFX_COMP("graphics/pokemon/arceus/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
-    const u32 gObjectEventPic_ArceusWater[] = INCGFX_COMP("graphics/pokemon/arceus/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
-    const u32 gObjectEventPic_ArceusGrass[] = INCGFX_COMP("graphics/pokemon/arceus/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
-    const u32 gObjectEventPic_ArceusElectric[] = INCGFX_COMP("graphics/pokemon/arceus/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
-    const u32 gObjectEventPic_ArceusPsychic[] = INCGFX_COMP("graphics/pokemon/arceus/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
-    const u32 gObjectEventPic_ArceusIce[] = INCGFX_COMP("graphics/pokemon/arceus/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
-    const u32 gObjectEventPic_ArceusDragon[] = INCGFX_COMP("graphics/pokemon/arceus/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
-    const u32 gObjectEventPic_ArceusDark[] = INCGFX_COMP("graphics/pokemon/arceus/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
-    const u32 gObjectEventPic_ArceusFairy[] = INCGFX_COMP("graphics/pokemon/arceus/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
+    extern const u32 gObjectEventPic_ArceusFighting[ARRAY_COUNT(gObjectEventPic_ArceusNormal)] ASSET_ALIAS(gObjectEventPic_ArceusNormal); // dedupe_assets.py: mesmos 1284 B (md5 41b36ae0)
+    extern const u32 gObjectEventPic_ArceusFlying[ARRAY_COUNT(gObjectEventPic_ArceusNormal)] ASSET_ALIAS(gObjectEventPic_ArceusNormal); // dedupe_assets.py: mesmos 1284 B (md5 41b36ae0)
+    extern const u32 gObjectEventPic_ArceusPoison[ARRAY_COUNT(gObjectEventPic_ArceusNormal)] ASSET_ALIAS(gObjectEventPic_ArceusNormal); // dedupe_assets.py: mesmos 1284 B (md5 41b36ae0)
+    extern const u32 gObjectEventPic_ArceusGround[ARRAY_COUNT(gObjectEventPic_ArceusNormal)] ASSET_ALIAS(gObjectEventPic_ArceusNormal); // dedupe_assets.py: mesmos 1284 B (md5 41b36ae0)
+    extern const u32 gObjectEventPic_ArceusRock[ARRAY_COUNT(gObjectEventPic_ArceusNormal)] ASSET_ALIAS(gObjectEventPic_ArceusNormal); // dedupe_assets.py: mesmos 1284 B (md5 41b36ae0)
+    extern const u32 gObjectEventPic_ArceusBug[ARRAY_COUNT(gObjectEventPic_ArceusNormal)] ASSET_ALIAS(gObjectEventPic_ArceusNormal); // dedupe_assets.py: mesmos 1284 B (md5 41b36ae0)
+    extern const u32 gObjectEventPic_ArceusGhost[ARRAY_COUNT(gObjectEventPic_ArceusNormal)] ASSET_ALIAS(gObjectEventPic_ArceusNormal); // dedupe_assets.py: mesmos 1284 B (md5 41b36ae0)
+    extern const u32 gObjectEventPic_ArceusSteel[ARRAY_COUNT(gObjectEventPic_ArceusNormal)] ASSET_ALIAS(gObjectEventPic_ArceusNormal); // dedupe_assets.py: mesmos 1284 B (md5 41b36ae0)
+    extern const u32 gObjectEventPic_ArceusFire[ARRAY_COUNT(gObjectEventPic_ArceusNormal)] ASSET_ALIAS(gObjectEventPic_ArceusNormal); // dedupe_assets.py: mesmos 1284 B (md5 41b36ae0)
+    extern const u32 gObjectEventPic_ArceusWater[ARRAY_COUNT(gObjectEventPic_ArceusNormal)] ASSET_ALIAS(gObjectEventPic_ArceusNormal); // dedupe_assets.py: mesmos 1284 B (md5 41b36ae0)
+    extern const u32 gObjectEventPic_ArceusGrass[ARRAY_COUNT(gObjectEventPic_ArceusNormal)] ASSET_ALIAS(gObjectEventPic_ArceusNormal); // dedupe_assets.py: mesmos 1284 B (md5 41b36ae0)
+    extern const u32 gObjectEventPic_ArceusElectric[ARRAY_COUNT(gObjectEventPic_ArceusNormal)] ASSET_ALIAS(gObjectEventPic_ArceusNormal); // dedupe_assets.py: mesmos 1284 B (md5 41b36ae0)
+    extern const u32 gObjectEventPic_ArceusPsychic[ARRAY_COUNT(gObjectEventPic_ArceusNormal)] ASSET_ALIAS(gObjectEventPic_ArceusNormal); // dedupe_assets.py: mesmos 1284 B (md5 41b36ae0)
+    extern const u32 gObjectEventPic_ArceusIce[ARRAY_COUNT(gObjectEventPic_ArceusNormal)] ASSET_ALIAS(gObjectEventPic_ArceusNormal); // dedupe_assets.py: mesmos 1284 B (md5 41b36ae0)
+    extern const u32 gObjectEventPic_ArceusDragon[ARRAY_COUNT(gObjectEventPic_ArceusNormal)] ASSET_ALIAS(gObjectEventPic_ArceusNormal); // dedupe_assets.py: mesmos 1284 B (md5 41b36ae0)
+    extern const u32 gObjectEventPic_ArceusDark[ARRAY_COUNT(gObjectEventPic_ArceusNormal)] ASSET_ALIAS(gObjectEventPic_ArceusNormal); // dedupe_assets.py: mesmos 1284 B (md5 41b36ae0)
+    extern const u32 gObjectEventPic_ArceusFairy[ARRAY_COUNT(gObjectEventPic_ArceusNormal)] ASSET_ALIAS(gObjectEventPic_ArceusNormal); // dedupe_assets.py: mesmos 1284 B (md5 41b36ae0)
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
     const u16 gOverworldPalette_ArceusNormal[] = INCGFX_U16("graphics/pokemon/arceus/overworld_normal.pal", ".gbapal");
     const u16 gOverworldPalette_ArceusFighting[] = INCGFX_U16("graphics/pokemon/arceus/fighting/overworld_normal.pal", ".gbapal");
@@ -16620,6 +16684,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Munna[] = INCGFX_U16("graphics/pokemon/munna/shiny.pal", ".gbapal");
     const u8 gMonIcon_Munna[] = INCGFX_U8("graphics/pokemon/munna/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Munna[] = INCGFX_U8("graphics/pokemon/munna/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -16636,7 +16701,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Musharna[] = INCGFX_U16("graphics/pokemon/musharna/shiny.pal", ".gbapal");
     const u8 gMonIcon_Musharna[] = INCGFX_U8("graphics/pokemon/musharna/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Musharna[] = INCGFX_U8("graphics/pokemon/musharna/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Musharna[ARRAY_COUNT(gMonFootprint_Munna)] ASSET_ALIAS(gMonFootprint_Munna); // dedupe_assets.py: mesmos 32 B (md5 511911aa)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Musharna[] = INCGFX_COMP("graphics/pokemon/musharna/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -17580,6 +17645,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Yamask[] = INCGFX_U16("graphics/pokemon/yamask/shiny.pal", ".gbapal");
     const u8 gMonIcon_Yamask[] = INCGFX_U8("graphics/pokemon/yamask/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Yamask[] = INCGFX_U8("graphics/pokemon/yamask/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -17596,7 +17662,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Cofagrigus[] = INCGFX_U16("graphics/pokemon/cofagrigus/shiny.pal", ".gbapal");
     const u8 gMonIcon_Cofagrigus[] = INCGFX_U8("graphics/pokemon/cofagrigus/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Cofagrigus[] = INCGFX_U8("graphics/pokemon/cofagrigus/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Cofagrigus[ARRAY_COUNT(gMonFootprint_Yamask)] ASSET_ALIAS(gMonFootprint_Yamask); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Cofagrigus[] = INCGFX_COMP("graphics/pokemon/cofagrigus/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -17908,6 +17974,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Solosis[] = INCGFX_U16("graphics/pokemon/solosis/shiny.pal", ".gbapal");
     const u8 gMonIcon_Solosis[] = INCGFX_U8("graphics/pokemon/solosis/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 3 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Solosis[] = INCGFX_U8("graphics/pokemon/solosis/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -17924,7 +17991,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Duosion[] = INCGFX_U16("graphics/pokemon/duosion/shiny.pal", ".gbapal");
     const u8 gMonIcon_Duosion[] = INCGFX_U8("graphics/pokemon/duosion/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Duosion[] = INCGFX_U8("graphics/pokemon/duosion/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Duosion[ARRAY_COUNT(gMonFootprint_Solosis)] ASSET_ALIAS(gMonFootprint_Solosis); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Duosion[] = INCGFX_COMP("graphics/pokemon/duosion/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -17940,7 +18007,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Reuniclus[] = INCGFX_U16("graphics/pokemon/reuniclus/shiny.pal", ".gbapal");
     const u8 gMonIcon_Reuniclus[] = INCGFX_U8("graphics/pokemon/reuniclus/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Reuniclus[] = INCGFX_U8("graphics/pokemon/reuniclus/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Reuniclus[ARRAY_COUNT(gMonFootprint_Solosis)] ASSET_ALIAS(gMonFootprint_Solosis); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Reuniclus[] = INCGFX_COMP("graphics/pokemon/reuniclus/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -17992,6 +18059,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Vanillite[] = INCGFX_U16("graphics/pokemon/vanillite/shiny.pal", ".gbapal");
     const u8 gMonIcon_Vanillite[] = INCGFX_U8("graphics/pokemon/vanillite/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 3 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Vanillite[] = INCGFX_U8("graphics/pokemon/vanillite/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -18008,7 +18076,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Vanillish[] = INCGFX_U16("graphics/pokemon/vanillish/shiny.pal", ".gbapal");
     const u8 gMonIcon_Vanillish[] = INCGFX_U8("graphics/pokemon/vanillish/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Vanillish[] = INCGFX_U8("graphics/pokemon/vanillish/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Vanillish[ARRAY_COUNT(gMonFootprint_Vanillite)] ASSET_ALIAS(gMonFootprint_Vanillite); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Vanillish[] = INCGFX_COMP("graphics/pokemon/vanillish/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -18024,7 +18092,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Vanilluxe[] = INCGFX_U16("graphics/pokemon/vanilluxe/shiny.pal", ".gbapal");
     const u8 gMonIcon_Vanilluxe[] = INCGFX_U8("graphics/pokemon/vanilluxe/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Vanilluxe[] = INCGFX_U8("graphics/pokemon/vanilluxe/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Vanilluxe[ARRAY_COUNT(gMonFootprint_Vanillite)] ASSET_ALIAS(gMonFootprint_Vanillite); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Vanilluxe[] = INCGFX_COMP("graphics/pokemon/vanilluxe/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -18059,10 +18127,11 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_DeerlingWinter[] = INCGFX_U8("graphics/pokemon/deerling/winter/icon.png", ".4bpp");
 
 #if OW_POKEMON_OBJECT_EVENTS
+    // dedupe_assets.py: compartilhado por 4 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u32 gObjectEventPic_DeerlingSpring[] = INCGFX_COMP("graphics/pokemon/deerling/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
-    const u32 gObjectEventPic_DeerlingSummer[] = INCGFX_COMP("graphics/pokemon/deerling/summer/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
-    const u32 gObjectEventPic_DeerlingAutumn[] = INCGFX_COMP("graphics/pokemon/deerling/autumn/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
-    const u32 gObjectEventPic_DeerlingWinter[] = INCGFX_COMP("graphics/pokemon/deerling/winter/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
+    extern const u32 gObjectEventPic_DeerlingSummer[ARRAY_COUNT(gObjectEventPic_DeerlingSpring)] ASSET_ALIAS(gObjectEventPic_DeerlingSpring); // dedupe_assets.py: mesmos 508 B (md5 99e14e8f)
+    extern const u32 gObjectEventPic_DeerlingAutumn[ARRAY_COUNT(gObjectEventPic_DeerlingSpring)] ASSET_ALIAS(gObjectEventPic_DeerlingSpring); // dedupe_assets.py: mesmos 508 B (md5 99e14e8f)
+    extern const u32 gObjectEventPic_DeerlingWinter[ARRAY_COUNT(gObjectEventPic_DeerlingSpring)] ASSET_ALIAS(gObjectEventPic_DeerlingSpring); // dedupe_assets.py: mesmos 508 B (md5 99e14e8f)
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
     const u16 gOverworldPalette_DeerlingSpring[] = INCGFX_U16("graphics/pokemon/deerling/overworld_normal.pal", ".gbapal");
     const u16 gOverworldPalette_DeerlingSummer[] = INCGFX_U16("graphics/pokemon/deerling/summer/overworld_normal.pal", ".gbapal");
@@ -18179,6 +18248,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Foongus[] = INCGFX_U16("graphics/pokemon/foongus/shiny.pal", ".gbapal");
     const u8 gMonIcon_Foongus[] = INCGFX_U8("graphics/pokemon/foongus/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Foongus[] = INCGFX_U8("graphics/pokemon/foongus/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -18195,7 +18265,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Amoonguss[] = INCGFX_U16("graphics/pokemon/amoonguss/shiny.pal", ".gbapal");
     const u8 gMonIcon_Amoonguss[] = INCGFX_U8("graphics/pokemon/amoonguss/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Amoonguss[] = INCGFX_U8("graphics/pokemon/amoonguss/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Amoonguss[ARRAY_COUNT(gMonFootprint_Foongus)] ASSET_ALIAS(gMonFootprint_Foongus); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Amoonguss[] = INCGFX_COMP("graphics/pokemon/amoonguss/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -18213,6 +18283,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Frillish[] = INCGFX_U16("graphics/pokemon/frillish/shiny.pal", ".gbapal");
     const u8 gMonIcon_Frillish[] = INCGFX_U8("graphics/pokemon/frillish/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Frillish[] = INCGFX_U8("graphics/pokemon/frillish/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -18244,7 +18315,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Jellicent[] = INCGFX_U16("graphics/pokemon/jellicent/shiny.pal", ".gbapal");
     const u8 gMonIcon_Jellicent[] = INCGFX_U8("graphics/pokemon/jellicent/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Jellicent[] = INCGFX_U8("graphics/pokemon/jellicent/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Jellicent[ARRAY_COUNT(gMonFootprint_Frillish)] ASSET_ALIAS(gMonFootprint_Frillish); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Jellicent[] = INCGFX_COMP("graphics/pokemon/jellicent/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -18363,6 +18434,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Klink[] = INCGFX_U16("graphics/pokemon/klink/shiny.pal", ".gbapal");
     const u8 gMonIcon_Klink[] = INCGFX_U8("graphics/pokemon/klink/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 3 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Klink[] = INCGFX_U8("graphics/pokemon/klink/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -18379,7 +18451,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Klang[] = INCGFX_U16("graphics/pokemon/klang/shiny.pal", ".gbapal");
     const u8 gMonIcon_Klang[] = INCGFX_U8("graphics/pokemon/klang/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Klang[] = INCGFX_U8("graphics/pokemon/klang/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Klang[ARRAY_COUNT(gMonFootprint_Klink)] ASSET_ALIAS(gMonFootprint_Klink); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Klang[] = INCGFX_COMP("graphics/pokemon/klang/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -18395,7 +18467,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Klinklang[] = INCGFX_U16("graphics/pokemon/klinklang/shiny.pal", ".gbapal");
     const u8 gMonIcon_Klinklang[] = INCGFX_U8("graphics/pokemon/klinklang/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Klinklang[] = INCGFX_U8("graphics/pokemon/klinklang/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Klinklang[ARRAY_COUNT(gMonFootprint_Klink)] ASSET_ALIAS(gMonFootprint_Klink); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Klinklang[] = INCGFX_COMP("graphics/pokemon/klinklang/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -18413,6 +18485,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Tynamo[] = INCGFX_U16("graphics/pokemon/tynamo/shiny.pal", ".gbapal");
     const u8 gMonIcon_Tynamo[] = INCGFX_U8("graphics/pokemon/tynamo/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 3 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Tynamo[] = INCGFX_U8("graphics/pokemon/tynamo/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -18429,7 +18502,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Eelektrik[] = INCGFX_U16("graphics/pokemon/eelektrik/shiny.pal", ".gbapal");
     const u8 gMonIcon_Eelektrik[] = INCGFX_U8("graphics/pokemon/eelektrik/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Eelektrik[] = INCGFX_U8("graphics/pokemon/eelektrik/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Eelektrik[ARRAY_COUNT(gMonFootprint_Tynamo)] ASSET_ALIAS(gMonFootprint_Tynamo); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Eelektrik[] = INCGFX_COMP("graphics/pokemon/eelektrik/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -18445,7 +18518,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Eelektross[] = INCGFX_U16("graphics/pokemon/eelektross/shiny.pal", ".gbapal");
     const u8 gMonIcon_Eelektross[] = INCGFX_U8("graphics/pokemon/eelektross/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Eelektross[] = INCGFX_U8("graphics/pokemon/eelektross/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Eelektross[ARRAY_COUNT(gMonFootprint_Tynamo)] ASSET_ALIAS(gMonFootprint_Tynamo); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Eelektross[] = INCGFX_COMP("graphics/pokemon/eelektross/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -18512,6 +18585,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Litwick[] = INCGFX_U16("graphics/pokemon/litwick/shiny.pal", ".gbapal");
     const u8 gMonIcon_Litwick[] = INCGFX_U8("graphics/pokemon/litwick/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 3 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Litwick[] = INCGFX_U8("graphics/pokemon/litwick/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -18528,7 +18602,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Lampent[] = INCGFX_U16("graphics/pokemon/lampent/shiny.pal", ".gbapal");
     const u8 gMonIcon_Lampent[] = INCGFX_U8("graphics/pokemon/lampent/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Lampent[] = INCGFX_U8("graphics/pokemon/lampent/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Lampent[ARRAY_COUNT(gMonFootprint_Litwick)] ASSET_ALIAS(gMonFootprint_Litwick); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Lampent[] = INCGFX_COMP("graphics/pokemon/lampent/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -18544,7 +18618,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Chandelure[] = INCGFX_U16("graphics/pokemon/chandelure/shiny.pal", ".gbapal");
     const u8 gMonIcon_Chandelure[] = INCGFX_U8("graphics/pokemon/chandelure/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Chandelure[] = INCGFX_U8("graphics/pokemon/chandelure/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Chandelure[ARRAY_COUNT(gMonFootprint_Litwick)] ASSET_ALIAS(gMonFootprint_Litwick); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Chandelure[] = INCGFX_COMP("graphics/pokemon/chandelure/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -19277,7 +19351,9 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_LandorusIncarnate[] = INCGFX_COMP("graphics/pokemon/landorus/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gOverworldPalette_LandorusIncarnate[] = INCGFX_U16("graphics/pokemon/landorus/overworld_normal.pal", ".gbapal");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gShinyOverworldPalette_LandorusIncarnate[] = INCGFX_U16("graphics/pokemon/landorus/overworld_shiny.pal", ".gbapal");
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
@@ -19290,8 +19366,8 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_LandorusTherian[] = INCGFX_COMP("graphics/pokemon/landorus/therian/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
-    const u16 gOverworldPalette_LandorusTherian[] = INCGFX_U16("graphics/pokemon/landorus/therian/overworld_normal.pal", ".gbapal");
-    const u16 gShinyOverworldPalette_LandorusTherian[] = INCGFX_U16("graphics/pokemon/landorus/therian/overworld_shiny.pal", ".gbapal");
+    extern const u16 gOverworldPalette_LandorusTherian[ARRAY_COUNT(gOverworldPalette_LandorusIncarnate)] ASSET_ALIAS(gOverworldPalette_LandorusIncarnate); // dedupe_assets.py: mesmos 32 B (md5 d0afd0c4)
+    extern const u16 gShinyOverworldPalette_LandorusTherian[ARRAY_COUNT(gShinyOverworldPalette_LandorusIncarnate)] ASSET_ALIAS(gShinyOverworldPalette_LandorusIncarnate); // dedupe_assets.py: mesmos 32 B (md5 879b72d0)
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
 #endif //P_FAMILY_LANDORUS
@@ -19780,6 +19856,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Spewpa[] = INCGFX_U16("graphics/pokemon/spewpa/shiny.pal", ".gbapal");
     const u8 gMonIcon_Spewpa[] = INCGFX_U8("graphics/pokemon/spewpa/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Spewpa[] = INCGFX_U8("graphics/pokemon/spewpa/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -19796,7 +19873,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_VivillonIcySnow[] = INCGFX_U16("graphics/pokemon/vivillon/shiny.pal", ".gbapal");
     const u8 gMonIcon_VivillonIcySnow[] = INCGFX_U8("graphics/pokemon/vivillon/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Vivillon[] = INCGFX_U8("graphics/pokemon/vivillon/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Vivillon[ARRAY_COUNT(gMonFootprint_Spewpa)] ASSET_ALIAS(gMonFootprint_Spewpa); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 
     const u32 gMonFrontPic_VivillonPolar[] = INCGFX_U32("graphics/pokemon/vivillon/polar/anim_front.png", ".4bpp.smol");
@@ -20041,6 +20118,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u32 gMonFrontPic_Flabebe[] = INCGFX_U32("graphics/pokemon/flabebe/anim_front.png", ".4bpp.smol");
     const u32 gMonBackPic_Flabebe[] = INCGFX_U32("graphics/pokemon/flabebe/back.png", ".4bpp.smol");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 3 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Flabebe[] = INCGFX_U8("graphics/pokemon/flabebe/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 
@@ -20066,8 +20144,9 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_FlabebeRed[] = INCGFX_COMP("graphics/pokemon/flabebe/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u32 gObjectEventPic_FlabebeYellow[] = INCGFX_COMP("graphics/pokemon/flabebe/yellow/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
-    const u32 gObjectEventPic_FlabebeOrange[] = INCGFX_COMP("graphics/pokemon/flabebe/orange/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
+    extern const u32 gObjectEventPic_FlabebeOrange[ARRAY_COUNT(gObjectEventPic_FlabebeYellow)] ASSET_ALIAS(gObjectEventPic_FlabebeYellow); // dedupe_assets.py: mesmos 596 B (md5 6dd0ca44)
     const u32 gObjectEventPic_FlabebeBlue[] = INCGFX_COMP("graphics/pokemon/flabebe/blue/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
     const u32 gObjectEventPic_FlabebeWhite[] = INCGFX_COMP("graphics/pokemon/flabebe/white/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
@@ -20087,7 +20166,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u32 gMonFrontPic_Floette[] = INCGFX_U32("graphics/pokemon/floette/anim_front.png", ".4bpp.smol");
     const u32 gMonBackPic_Floette[] = INCGFX_U32("graphics/pokemon/floette/back.png", ".4bpp.smol");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Floette[] = INCGFX_U8("graphics/pokemon/floette/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Floette[ARRAY_COUNT(gMonFootprint_Flabebe)] ASSET_ALIAS(gMonFootprint_Flabebe); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 
     const u16 gMonPalette_FloetteRed[] = INCGFX_U16("graphics/pokemon/floette/normal.pal", ".gbapal");
@@ -20117,11 +20196,12 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_FloetteEternal[] = INCGFX_U8("graphics/pokemon/floette/eternal/icon.png", ".4bpp");
 
 #if OW_POKEMON_OBJECT_EVENTS
+    // dedupe_assets.py: compartilhado por 5 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u32 gObjectEventPic_FloetteRed[] = INCGFX_COMP("graphics/pokemon/floette/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
-    const u32 gObjectEventPic_FloetteYellow[] = INCGFX_COMP("graphics/pokemon/floette/yellow/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
-    const u32 gObjectEventPic_FloetteOrange[] = INCGFX_COMP("graphics/pokemon/floette/orange/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
-    const u32 gObjectEventPic_FloetteBlue[] = INCGFX_COMP("graphics/pokemon/floette/blue/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
-    const u32 gObjectEventPic_FloetteWhite[] = INCGFX_COMP("graphics/pokemon/floette/white/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
+    extern const u32 gObjectEventPic_FloetteYellow[ARRAY_COUNT(gObjectEventPic_FloetteRed)] ASSET_ALIAS(gObjectEventPic_FloetteRed); // dedupe_assets.py: mesmos 912 B (md5 925569ce)
+    extern const u32 gObjectEventPic_FloetteOrange[ARRAY_COUNT(gObjectEventPic_FloetteRed)] ASSET_ALIAS(gObjectEventPic_FloetteRed); // dedupe_assets.py: mesmos 912 B (md5 925569ce)
+    extern const u32 gObjectEventPic_FloetteBlue[ARRAY_COUNT(gObjectEventPic_FloetteRed)] ASSET_ALIAS(gObjectEventPic_FloetteRed); // dedupe_assets.py: mesmos 912 B (md5 925569ce)
+    extern const u32 gObjectEventPic_FloetteWhite[ARRAY_COUNT(gObjectEventPic_FloetteRed)] ASSET_ALIAS(gObjectEventPic_FloetteRed); // dedupe_assets.py: mesmos 912 B (md5 925569ce)
     const u32 gObjectEventPic_FloetteEternal[] = INCGFX_COMP("graphics/pokemon/floette/eternal/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
     const u16 gOverworldPalette_FloetteRed[] = INCGFX_U16("graphics/pokemon/floette/overworld_normal.pal", ".gbapal");
@@ -20157,7 +20237,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u32 gMonFrontPic_Florges[] = INCGFX_U32("graphics/pokemon/florges/anim_front.png", ".4bpp.smol");
     const u32 gMonBackPic_Florges[] = INCGFX_U32("graphics/pokemon/florges/back.png", ".4bpp.smol");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Florges[] = INCGFX_U8("graphics/pokemon/florges/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Florges[ARRAY_COUNT(gMonFootprint_Flabebe)] ASSET_ALIAS(gMonFootprint_Flabebe); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 
     const u16 gMonPalette_FlorgesRed[] = INCGFX_U16("graphics/pokemon/florges/normal.pal", ".gbapal");
@@ -20181,11 +20261,12 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_FlorgesWhite[] = INCGFX_U8("graphics/pokemon/florges/white/icon.png", ".4bpp");
 
 #if OW_POKEMON_OBJECT_EVENTS
+    // dedupe_assets.py: compartilhado por 4 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u32 gObjectEventPic_FlorgesRed[] = INCGFX_COMP("graphics/pokemon/florges/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
     const u32 gObjectEventPic_FlorgesYellow[] = INCGFX_COMP("graphics/pokemon/florges/yellow/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
-    const u32 gObjectEventPic_FlorgesOrange[] = INCGFX_COMP("graphics/pokemon/florges/orange/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
-    const u32 gObjectEventPic_FlorgesBlue[] = INCGFX_COMP("graphics/pokemon/florges/blue/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
-    const u32 gObjectEventPic_FlorgesWhite[] = INCGFX_COMP("graphics/pokemon/florges/white/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
+    extern const u32 gObjectEventPic_FlorgesOrange[ARRAY_COUNT(gObjectEventPic_FlorgesRed)] ASSET_ALIAS(gObjectEventPic_FlorgesRed); // dedupe_assets.py: mesmos 1196 B (md5 a178d157)
+    extern const u32 gObjectEventPic_FlorgesBlue[ARRAY_COUNT(gObjectEventPic_FlorgesRed)] ASSET_ALIAS(gObjectEventPic_FlorgesRed); // dedupe_assets.py: mesmos 1196 B (md5 a178d157)
+    extern const u32 gObjectEventPic_FlorgesWhite[ARRAY_COUNT(gObjectEventPic_FlorgesRed)] ASSET_ALIAS(gObjectEventPic_FlorgesRed); // dedupe_assets.py: mesmos 1196 B (md5 a178d157)
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
     const u16 gOverworldPalette_FlorgesRed[] = INCGFX_U16("graphics/pokemon/florges/overworld_normal.pal", ".gbapal");
     const u16 gOverworldPalette_FlorgesYellow[] = INCGFX_U16("graphics/pokemon/florges/yellow/overworld_normal.pal", ".gbapal");
@@ -20376,6 +20457,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Espurr[] = INCGFX_U16("graphics/pokemon/espurr/shiny.pal", ".gbapal");
     const u8 gMonIcon_Espurr[] = INCGFX_U8("graphics/pokemon/espurr/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Espurr[] = INCGFX_U8("graphics/pokemon/espurr/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -20392,7 +20474,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_MeowsticM[] = INCGFX_U16("graphics/pokemon/meowstic/shiny.pal", ".gbapal");
     const u8 gMonIcon_MeowsticM[] = INCGFX_U8("graphics/pokemon/meowstic/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Meowstic[] = INCGFX_U8("graphics/pokemon/meowstic/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Meowstic[ARRAY_COUNT(gMonFootprint_Espurr)] ASSET_ALIAS(gMonFootprint_Espurr); // dedupe_assets.py: mesmos 32 B (md5 1620bf37)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_MeowsticM[] = INCGFX_COMP("graphics/pokemon/meowstic/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -20438,6 +20520,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Honedge[] = INCGFX_U16("graphics/pokemon/honedge/shiny.pal", ".gbapal");
     const u8 gMonIcon_Honedge[] = INCGFX_U8("graphics/pokemon/honedge/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 3 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Honedge[] = INCGFX_U8("graphics/pokemon/honedge/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -20454,7 +20537,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Doublade[] = INCGFX_U16("graphics/pokemon/doublade/shiny.pal", ".gbapal");
     const u8 gMonIcon_Doublade[] = INCGFX_U8("graphics/pokemon/doublade/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Doublade[] = INCGFX_U8("graphics/pokemon/doublade/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Doublade[ARRAY_COUNT(gMonFootprint_Honedge)] ASSET_ALIAS(gMonFootprint_Honedge); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Doublade[] = INCGFX_COMP("graphics/pokemon/doublade/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -20470,7 +20553,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_AegislashShield[] = INCGFX_U16("graphics/pokemon/aegislash/shiny.pal", ".gbapal");
     const u8 gMonIcon_AegislashShield[] = INCGFX_U8("graphics/pokemon/aegislash/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Aegislash[] = INCGFX_U8("graphics/pokemon/aegislash/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Aegislash[ARRAY_COUNT(gMonFootprint_Honedge)] ASSET_ALIAS(gMonFootprint_Honedge); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_AegislashShield[] = INCGFX_COMP("graphics/pokemon/aegislash/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -20667,6 +20750,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Skrelp[] = INCGFX_U16("graphics/pokemon/skrelp/shiny.pal", ".gbapal");
     const u8 gMonIcon_Skrelp[] = INCGFX_U8("graphics/pokemon/skrelp/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Skrelp[] = INCGFX_U8("graphics/pokemon/skrelp/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -20683,7 +20767,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Dragalge[] = INCGFX_U16("graphics/pokemon/dragalge/shiny.pal", ".gbapal");
     const u8 gMonIcon_Dragalge[] = INCGFX_U8("graphics/pokemon/dragalge/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Dragalge[] = INCGFX_U8("graphics/pokemon/dragalge/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Dragalge[ARRAY_COUNT(gMonFootprint_Skrelp)] ASSET_ALIAS(gMonFootprint_Skrelp); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Dragalge[] = INCGFX_COMP("graphics/pokemon/dragalge/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -20921,6 +21005,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Goomy[] = INCGFX_U16("graphics/pokemon/goomy/shiny.pal", ".gbapal");
     const u8 gMonIcon_Goomy[] = INCGFX_U8("graphics/pokemon/goomy/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Goomy[] = INCGFX_U8("graphics/pokemon/goomy/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -20937,7 +21022,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Sliggoo[] = INCGFX_U16("graphics/pokemon/sliggoo/shiny.pal", ".gbapal");
     const u8 gMonIcon_Sliggoo[] = INCGFX_U8("graphics/pokemon/sliggoo/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Sliggoo[] = INCGFX_U8("graphics/pokemon/sliggoo/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Sliggoo[ARRAY_COUNT(gMonFootprint_Goomy)] ASSET_ALIAS(gMonFootprint_Goomy); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Sliggoo[] = INCGFX_COMP("graphics/pokemon/sliggoo/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -21051,6 +21136,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Pumpkaboo[] = INCGFX_U16("graphics/pokemon/pumpkaboo/shiny.pal", ".gbapal");
     const u8 gMonIcon_Pumpkaboo[] = INCGFX_U8("graphics/pokemon/pumpkaboo/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Pumpkaboo[] = INCGFX_U8("graphics/pokemon/pumpkaboo/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 
@@ -21082,7 +21168,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Gourgeist[] = INCGFX_U16("graphics/pokemon/gourgeist/shiny.pal", ".gbapal");
     const u8 gMonIcon_Gourgeist[] = INCGFX_U8("graphics/pokemon/gourgeist/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Gourgeist[] = INCGFX_U8("graphics/pokemon/gourgeist/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Gourgeist[ARRAY_COUNT(gMonFootprint_Pumpkaboo)] ASSET_ALIAS(gMonFootprint_Pumpkaboo); // dedupe_assets.py: mesmos 32 B (md5 1620bf37)
 #endif //P_FOOTPRINTS
 
     const u32 gMonFrontPic_GourgeistAverage[] = INCGFX_U32("graphics/pokemon/gourgeist/anim_front.png", ".4bpp.smol");
@@ -21205,8 +21291,9 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_XerneasNeutral[] = INCGFX_COMP("graphics/pokemon/xerneas/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gOverworldPalette_XerneasNeutral[] = INCGFX_U16("graphics/pokemon/xerneas/overworld_normal.pal", ".gbapal");
-    const u16 gShinyOverworldPalette_XerneasNeutral[] = INCGFX_U16("graphics/pokemon/xerneas/overworld_shiny.pal", ".gbapal");
+    extern const u16 gShinyOverworldPalette_XerneasNeutral[ARRAY_COUNT(gOverworldPalette_XerneasNeutral)] ASSET_ALIAS(gOverworldPalette_XerneasNeutral); // dedupe_assets.py: mesmos 32 B (md5 0c790c87)
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
 
@@ -21506,6 +21593,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Popplio[] = INCGFX_U16("graphics/pokemon/popplio/shiny.pal", ".gbapal");
     const u8 gMonIcon_Popplio[] = INCGFX_U8("graphics/pokemon/popplio/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 3 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Popplio[] = INCGFX_U8("graphics/pokemon/popplio/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -21522,7 +21610,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Brionne[] = INCGFX_U16("graphics/pokemon/brionne/shiny.pal", ".gbapal");
     const u8 gMonIcon_Brionne[] = INCGFX_U8("graphics/pokemon/brionne/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Brionne[] = INCGFX_U8("graphics/pokemon/brionne/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Brionne[ARRAY_COUNT(gMonFootprint_Popplio)] ASSET_ALIAS(gMonFootprint_Popplio); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Brionne[] = INCGFX_COMP("graphics/pokemon/brionne/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -21538,7 +21626,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Primarina[] = INCGFX_U16("graphics/pokemon/primarina/shiny.pal", ".gbapal");
     const u8 gMonIcon_Primarina[] = INCGFX_U8("graphics/pokemon/primarina/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Primarina[] = INCGFX_U8("graphics/pokemon/primarina/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Primarina[ARRAY_COUNT(gMonFootprint_Popplio)] ASSET_ALIAS(gMonFootprint_Popplio); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Primarina[] = INCGFX_COMP("graphics/pokemon/primarina/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -21989,6 +22077,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Dewpider[] = INCGFX_U16("graphics/pokemon/dewpider/shiny.pal", ".gbapal");
     const u8 gMonIcon_Dewpider[] = INCGFX_U8("graphics/pokemon/dewpider/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Dewpider[] = INCGFX_U8("graphics/pokemon/dewpider/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -22005,7 +22094,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Araquanid[] = INCGFX_U16("graphics/pokemon/araquanid/shiny.pal", ".gbapal");
     const u8 gMonIcon_Araquanid[] = INCGFX_U8("graphics/pokemon/araquanid/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Araquanid[] = INCGFX_U8("graphics/pokemon/araquanid/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Araquanid[ARRAY_COUNT(gMonFootprint_Dewpider)] ASSET_ALIAS(gMonFootprint_Dewpider); // dedupe_assets.py: mesmos 32 B (md5 511911aa)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Araquanid[] = INCGFX_COMP("graphics/pokemon/araquanid/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -22023,6 +22112,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Fomantis[] = INCGFX_U16("graphics/pokemon/fomantis/shiny.pal", ".gbapal");
     const u8 gMonIcon_Fomantis[] = INCGFX_U8("graphics/pokemon/fomantis/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Fomantis[] = INCGFX_U8("graphics/pokemon/fomantis/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -22039,7 +22129,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Lurantis[] = INCGFX_U16("graphics/pokemon/lurantis/shiny.pal", ".gbapal");
     const u8 gMonIcon_Lurantis[] = INCGFX_U8("graphics/pokemon/lurantis/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Lurantis[] = INCGFX_U8("graphics/pokemon/lurantis/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Lurantis[ARRAY_COUNT(gMonFootprint_Fomantis)] ASSET_ALIAS(gMonFootprint_Fomantis); // dedupe_assets.py: mesmos 32 B (md5 511911aa)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Lurantis[] = INCGFX_COMP("graphics/pokemon/lurantis/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -22159,6 +22249,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Bounsweet[] = INCGFX_U16("graphics/pokemon/bounsweet/shiny.pal", ".gbapal");
     const u8 gMonIcon_Bounsweet[] = INCGFX_U8("graphics/pokemon/bounsweet/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 3 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Bounsweet[] = INCGFX_U8("graphics/pokemon/bounsweet/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -22175,7 +22266,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Steenee[] = INCGFX_U16("graphics/pokemon/steenee/shiny.pal", ".gbapal");
     const u8 gMonIcon_Steenee[] = INCGFX_U8("graphics/pokemon/steenee/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Steenee[] = INCGFX_U8("graphics/pokemon/steenee/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Steenee[ARRAY_COUNT(gMonFootprint_Bounsweet)] ASSET_ALIAS(gMonFootprint_Bounsweet); // dedupe_assets.py: mesmos 32 B (md5 511911aa)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Steenee[] = INCGFX_COMP("graphics/pokemon/steenee/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -22191,7 +22282,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Tsareena[] = INCGFX_U16("graphics/pokemon/tsareena/shiny.pal", ".gbapal");
     const u8 gMonIcon_Tsareena[] = INCGFX_U8("graphics/pokemon/tsareena/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Tsareena[] = INCGFX_U8("graphics/pokemon/tsareena/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Tsareena[ARRAY_COUNT(gMonFootprint_Bounsweet)] ASSET_ALIAS(gMonFootprint_Bounsweet); // dedupe_assets.py: mesmos 32 B (md5 511911aa)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Tsareena[] = INCGFX_COMP("graphics/pokemon/tsareena/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -22312,6 +22403,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Sandygast[] = INCGFX_U16("graphics/pokemon/sandygast/shiny.pal", ".gbapal");
     const u8 gMonIcon_Sandygast[] = INCGFX_U8("graphics/pokemon/sandygast/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Sandygast[] = INCGFX_U8("graphics/pokemon/sandygast/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -22328,7 +22420,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Palossand[] = INCGFX_U16("graphics/pokemon/palossand/shiny.pal", ".gbapal");
     const u8 gMonIcon_Palossand[] = INCGFX_U8("graphics/pokemon/palossand/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Palossand[] = INCGFX_U8("graphics/pokemon/palossand/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Palossand[ARRAY_COUNT(gMonFootprint_Sandygast)] ASSET_ALIAS(gMonFootprint_Sandygast); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Palossand[] = INCGFX_COMP("graphics/pokemon/palossand/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -22364,6 +22456,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_TypeNull[] = INCGFX_U16("graphics/pokemon/type_null/shiny.pal", ".gbapal");
     const u8 gMonIcon_TypeNull[] = INCGFX_U8("graphics/pokemon/type_null/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Type_Null[] = INCGFX_U8("graphics/pokemon/type_null/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -22378,7 +22471,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u32 gMonBackPic_Silvally[] = INCGFX_U32("graphics/pokemon/silvally/back.png", ".4bpp.smol");
     const u8 gMonIcon_Silvally[] = INCGFX_U8("graphics/pokemon/silvally/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Silvally[] = INCGFX_U8("graphics/pokemon/silvally/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Silvally[ARRAY_COUNT(gMonFootprint_Type_Null)] ASSET_ALIAS(gMonFootprint_Type_Null); // dedupe_assets.py: mesmos 32 B (md5 413ff231)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Silvally[] = INCGFX_COMP("graphics/pokemon/silvally/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -22445,9 +22538,10 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 
 #if P_FAMILY_MINIOR
     const u32 gMonFrontPic_MiniorMeteor[] = INCGFX_U32("graphics/pokemon/minior/anim_front.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonPalette_MiniorMeteor[] = INCGFX_U16("graphics/pokemon/minior/normal.pal", ".gbapal");
     const u32 gMonBackPic_MiniorMeteor[] = INCGFX_U32("graphics/pokemon/minior/back.png", ".4bpp.smol");
-    const u16 gMonShinyPalette_MiniorMeteor[] = INCGFX_U16("graphics/pokemon/minior/shiny.pal", ".gbapal");
+    extern const u16 gMonShinyPalette_MiniorMeteor[ARRAY_COUNT(gMonPalette_MiniorMeteor)] ASSET_ALIAS(gMonPalette_MiniorMeteor); // dedupe_assets.py: mesmos 32 B (md5 c7c5916d)
     const u8 gMonIcon_MiniorMeteor[] = INCGFX_U8("graphics/pokemon/minior/icon.png", ".4bpp");
 #if P_FOOTPRINTS
     const u8 gMonFootprint_Minior[] = INCGFX_U8("graphics/pokemon/minior/footprint.png", ".1bpp");
@@ -22481,8 +22575,9 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_MiniorMeteor[] = INCGFX_COMP("graphics/pokemon/minior/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gOverworldPalette_MiniorMeteor[] = INCGFX_U16("graphics/pokemon/minior/overworld_normal.pal", ".gbapal");
-    const u16 gShinyOverworldPalette_MiniorMeteor[] = INCGFX_U16("graphics/pokemon/minior/overworld_shiny.pal", ".gbapal");
+    extern const u16 gShinyOverworldPalette_MiniorMeteor[ARRAY_COUNT(gOverworldPalette_MiniorMeteor)] ASSET_ALIAS(gOverworldPalette_MiniorMeteor); // dedupe_assets.py: mesmos 32 B (md5 bb9963f2)
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
 #endif //P_FAMILY_MINIOR
@@ -22543,8 +22638,10 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 
 #if P_FAMILY_MIMIKYU
     const u32 gMonFrontPic_MimikyuDisguised[] = INCGFX_U32("graphics/pokemon/mimikyu/anim_front.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonPalette_MimikyuDisguised[] = INCGFX_U16("graphics/pokemon/mimikyu/normal.pal", ".gbapal");
     const u32 gMonBackPic_MimikyuDisguised[] = INCGFX_U32("graphics/pokemon/mimikyu/back.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonShinyPalette_MimikyuDisguised[] = INCGFX_U16("graphics/pokemon/mimikyu/shiny.pal", ".gbapal");
     const u8 gMonIcon_MimikyuDisguised[] = INCGFX_U8("graphics/pokemon/mimikyu/icon.png", ".4bpp");
 #if P_FOOTPRINTS
@@ -22559,9 +22656,9 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 #endif //OW_POKEMON_OBJECT_EVENTS
 
     const u32 gMonFrontPic_MimikyuBusted[] = INCGFX_U32("graphics/pokemon/mimikyu/busted/front.png", ".4bpp.smol");
-    const u16 gMonPalette_MimikyuBusted[] = INCGFX_U16("graphics/pokemon/mimikyu/busted/normal.pal", ".gbapal");
+    extern const u16 gMonPalette_MimikyuBusted[ARRAY_COUNT(gMonPalette_MimikyuDisguised)] ASSET_ALIAS(gMonPalette_MimikyuDisguised); // dedupe_assets.py: mesmos 32 B (md5 c5999e17)
     const u32 gMonBackPic_MimikyuBusted[] = INCGFX_U32("graphics/pokemon/mimikyu/busted/back.png", ".4bpp.smol");
-    const u16 gMonShinyPalette_MimikyuBusted[] = INCGFX_U16("graphics/pokemon/mimikyu/busted/shiny.pal", ".gbapal");
+    extern const u16 gMonShinyPalette_MimikyuBusted[ARRAY_COUNT(gMonShinyPalette_MimikyuDisguised)] ASSET_ALIAS(gMonShinyPalette_MimikyuDisguised); // dedupe_assets.py: mesmos 32 B (md5 c3b78d3e)
     const u8 gMonIcon_MimikyuBusted[] = INCGFX_U8("graphics/pokemon/mimikyu/busted/icon.png", ".4bpp");
 #if OW_POKEMON_OBJECT_EVENTS
     // const u32 gObjectEventPic_MimikyuBusted[] = INCGFX_COMP("graphics/pokemon/mimikyu/busted/overworld.png", ".4bpp");
@@ -22770,6 +22867,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Cosmog[] = INCGFX_U16("graphics/pokemon/cosmog/shiny.pal", ".gbapal");
     const u8 gMonIcon_Cosmog[] = INCGFX_U8("graphics/pokemon/cosmog/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 3 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Cosmog[] = INCGFX_U8("graphics/pokemon/cosmog/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -22786,7 +22884,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Cosmoem[] = INCGFX_U16("graphics/pokemon/cosmoem/shiny.pal", ".gbapal");
     const u8 gMonIcon_Cosmoem[] = INCGFX_U8("graphics/pokemon/cosmoem/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Cosmoem[] = INCGFX_U8("graphics/pokemon/cosmoem/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Cosmoem[ARRAY_COUNT(gMonFootprint_Cosmog)] ASSET_ALIAS(gMonFootprint_Cosmog); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Cosmoem[] = INCGFX_COMP("graphics/pokemon/cosmoem/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -22818,7 +22916,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Lunala[] = INCGFX_U16("graphics/pokemon/lunala/shiny.pal", ".gbapal");
     const u8 gMonIcon_Lunala[] = INCGFX_U8("graphics/pokemon/lunala/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Lunala[] = INCGFX_U8("graphics/pokemon/lunala/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Lunala[ARRAY_COUNT(gMonFootprint_Cosmog)] ASSET_ALIAS(gMonFootprint_Cosmog); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Lunala[] = INCGFX_COMP("graphics/pokemon/lunala/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -23606,6 +23704,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 
 #if P_FAMILY_NICKIT
     const u32 gMonFrontPic_Nickit[] = INCGFX_U32("graphics/pokemon/nickit/front.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonPalette_Nickit[] = INCGFX_U16("graphics/pokemon/nickit/normal.pal", ".gbapal");
     const u32 gMonBackPic_Nickit[] = INCGFX_U32("graphics/pokemon/nickit/back.png", ".4bpp.smol");
     const u16 gMonShinyPalette_Nickit[] = INCGFX_U16("graphics/pokemon/nickit/shiny.pal", ".gbapal");
@@ -23616,13 +23715,14 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Nickit[] = INCGFX_COMP("graphics/pokemon/nickit/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gOverworldPalette_Nickit[] = INCGFX_U16("graphics/pokemon/nickit/overworld_normal.pal", ".gbapal");
     const u16 gShinyOverworldPalette_Nickit[] = INCGFX_U16("graphics/pokemon/nickit/overworld_shiny.pal", ".gbapal");
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
 
     const u32 gMonFrontPic_Thievul[] = INCGFX_U32("graphics/pokemon/thievul/front.png", ".4bpp.smol");
-    const u16 gMonPalette_Thievul[] = INCGFX_U16("graphics/pokemon/thievul/normal.pal", ".gbapal");
+    extern const u16 gMonPalette_Thievul[ARRAY_COUNT(gMonPalette_Nickit)] ASSET_ALIAS(gMonPalette_Nickit); // dedupe_assets.py: mesmos 32 B (md5 8e9a7f8b)
     const u32 gMonBackPic_Thievul[] = INCGFX_U32("graphics/pokemon/thievul/back.png", ".4bpp.smol");
     const u16 gMonShinyPalette_Thievul[] = INCGFX_U16("graphics/pokemon/thievul/shiny.pal", ".gbapal");
     const u8 gMonIcon_Thievul[] = INCGFX_U8("graphics/pokemon/thievul/icon.png", ".4bpp");
@@ -23632,7 +23732,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Thievul[] = INCGFX_COMP("graphics/pokemon/thievul/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
-    const u16 gOverworldPalette_Thievul[] = INCGFX_U16("graphics/pokemon/thievul/overworld_normal.pal", ".gbapal");
+    extern const u16 gOverworldPalette_Thievul[ARRAY_COUNT(gOverworldPalette_Nickit)] ASSET_ALIAS(gOverworldPalette_Nickit); // dedupe_assets.py: mesmos 32 B (md5 b55750ad)
     const u16 gShinyOverworldPalette_Thievul[] = INCGFX_U16("graphics/pokemon/thievul/overworld_shiny.pal", ".gbapal");
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
@@ -23861,6 +23961,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Applin[] = INCGFX_U16("graphics/pokemon/applin/shiny.pal", ".gbapal");
     const u8 gMonIcon_Applin[] = INCGFX_U8("graphics/pokemon/applin/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Applin[] = INCGFX_U8("graphics/pokemon/applin/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -23877,7 +23978,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Flapple[] = INCGFX_U16("graphics/pokemon/flapple/shiny.pal", ".gbapal");
     const u8 gMonIcon_Flapple[] = INCGFX_U8("graphics/pokemon/flapple/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Flapple[] = INCGFX_U8("graphics/pokemon/flapple/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Flapple[ARRAY_COUNT(gMonFootprint_Applin)] ASSET_ALIAS(gMonFootprint_Applin); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Flapple[] = INCGFX_COMP("graphics/pokemon/flapple/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -23888,10 +23989,15 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 #endif //OW_POKEMON_OBJECT_EVENTS
 
 #if P_GIGANTAMAX_FORMS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u32 gMonFrontPic_FlappleGmax[] = INCGFX_U32("graphics/pokemon/flapple/gmax/front.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u32 gMonBackPic_FlappleGmax[] = INCGFX_U32("graphics/pokemon/flapple/gmax/back.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonPalette_FlappleGmax[] = INCGFX_U16("graphics/pokemon/flapple/gmax/normal.pal", ".gbapal");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonShinyPalette_FlappleGmax[] = INCGFX_U16("graphics/pokemon/flapple/gmax/shiny.pal", ".gbapal");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonIcon_FlappleGmax[] = INCGFX_U8("graphics/pokemon/flapple/gmax/icon.png", ".4bpp");
 #if OW_POKEMON_OBJECT_EVENTS
     // const u32 gObjectEventPic_FlappleGmax[] = INCGFX_COMP("graphics/pokemon/flapple/gmax/overworld.png", ".4bpp");
@@ -23919,11 +24025,11 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 #endif //OW_POKEMON_OBJECT_EVENTS
 
 #if P_GIGANTAMAX_FORMS
-    const u32 gMonFrontPic_AppletunGmax[] = INCGFX_U32("graphics/pokemon/appletun/gmax/front.png", ".4bpp.smol");
-    const u32 gMonBackPic_AppletunGmax[] = INCGFX_U32("graphics/pokemon/appletun/gmax/back.png", ".4bpp.smol");
-    const u16 gMonPalette_AppletunGmax[] = INCGFX_U16("graphics/pokemon/appletun/gmax/normal.pal", ".gbapal");
-    const u16 gMonShinyPalette_AppletunGmax[] = INCGFX_U16("graphics/pokemon/appletun/gmax/shiny.pal", ".gbapal");
-    const u8 gMonIcon_AppletunGmax[] = INCGFX_U8("graphics/pokemon/appletun/gmax/icon.png", ".4bpp");
+    extern const u32 gMonFrontPic_AppletunGmax[ARRAY_COUNT(gMonFrontPic_FlappleGmax)] ASSET_ALIAS(gMonFrontPic_FlappleGmax); // dedupe_assets.py: mesmos 668 B (md5 9531be3c)
+    extern const u32 gMonBackPic_AppletunGmax[ARRAY_COUNT(gMonBackPic_FlappleGmax)] ASSET_ALIAS(gMonBackPic_FlappleGmax); // dedupe_assets.py: mesmos 572 B (md5 54a47180)
+    extern const u16 gMonPalette_AppletunGmax[ARRAY_COUNT(gMonPalette_FlappleGmax)] ASSET_ALIAS(gMonPalette_FlappleGmax); // dedupe_assets.py: mesmos 32 B (md5 bb76c978)
+    extern const u16 gMonShinyPalette_AppletunGmax[ARRAY_COUNT(gMonShinyPalette_FlappleGmax)] ASSET_ALIAS(gMonShinyPalette_FlappleGmax); // dedupe_assets.py: mesmos 32 B (md5 a2557652)
+    extern const u8 gMonIcon_AppletunGmax[ARRAY_COUNT(gMonIcon_FlappleGmax)] ASSET_ALIAS(gMonIcon_FlappleGmax); // dedupe_assets.py: mesmos 1024 B (md5 eb51d137)
 #if OW_POKEMON_OBJECT_EVENTS
     // const u32 gObjectEventPic_AppletunGmax[] = INCGFX_COMP("graphics/pokemon/appletun/gmax/overworld.png", ".4bpp");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
@@ -23940,6 +24046,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Dipplin[] = INCGFX_U16("graphics/pokemon/dipplin/shiny.pal", ".gbapal");
     const u8 gMonIcon_Dipplin[] = INCGFX_U8("graphics/pokemon/dipplin/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Dipplin[] = INCGFX_U8("graphics/pokemon/dipplin/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -23956,7 +24063,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Hydrapple[] = INCGFX_U16("graphics/pokemon/hydrapple/shiny.pal", ".gbapal");
     const u8 gMonIcon_Hydrapple[] = INCGFX_U8("graphics/pokemon/hydrapple/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Hydrapple[] = INCGFX_U8("graphics/pokemon/hydrapple/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Hydrapple[ARRAY_COUNT(gMonFootprint_Dipplin)] ASSET_ALIAS(gMonFootprint_Dipplin); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Hydrapple[] = INCGFX_COMP("graphics/pokemon/hydrapple/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
@@ -23975,6 +24082,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Silicobra[] = INCGFX_U16("graphics/pokemon/silicobra/shiny.pal", ".gbapal");
     const u8 gMonIcon_Silicobra[] = INCGFX_U8("graphics/pokemon/silicobra/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Silicobra[] = INCGFX_U8("graphics/pokemon/silicobra/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -23991,7 +24099,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Sandaconda[] = INCGFX_U16("graphics/pokemon/sandaconda/shiny.pal", ".gbapal");
     const u8 gMonIcon_Sandaconda[] = INCGFX_U8("graphics/pokemon/sandaconda/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Sandaconda[] = INCGFX_U8("graphics/pokemon/sandaconda/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Sandaconda[ARRAY_COUNT(gMonFootprint_Silicobra)] ASSET_ALIAS(gMonFootprint_Silicobra); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Sandaconda[] = INCGFX_COMP("graphics/pokemon/sandaconda/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -24068,6 +24176,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Arrokuda[] = INCGFX_U16("graphics/pokemon/arrokuda/shiny.pal", ".gbapal");
     const u8 gMonIcon_Arrokuda[] = INCGFX_U8("graphics/pokemon/arrokuda/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Arrokuda[] = INCGFX_U8("graphics/pokemon/arrokuda/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -24084,7 +24193,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Barraskewda[] = INCGFX_U16("graphics/pokemon/barraskewda/shiny.pal", ".gbapal");
     const u8 gMonIcon_Barraskewda[] = INCGFX_U8("graphics/pokemon/barraskewda/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Barraskewda[] = INCGFX_U8("graphics/pokemon/barraskewda/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Barraskewda[ARRAY_COUNT(gMonFootprint_Arrokuda)] ASSET_ALIAS(gMonFootprint_Arrokuda); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Barraskewda[] = INCGFX_COMP("graphics/pokemon/barraskewda/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -24411,6 +24520,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Milcery[] = INCGFX_U16("graphics/pokemon/milcery/shiny.pal", ".gbapal");
     const u8 gMonIcon_Milcery[] = INCGFX_U8("graphics/pokemon/milcery/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Milcery[] = INCGFX_U8("graphics/pokemon/milcery/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -24448,7 +24558,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u32 gMonBackPic_AlcremieStrawberry[] = INCGFX_U32("graphics/pokemon/alcremie/strawberry/back.png", ".4bpp.smol");
     const u16 gMonShinyPalette_AlcremieStrawberry[] = INCGFX_U16("graphics/pokemon/alcremie/strawberry/strawberry_shiny.pal", ".gbapal");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Alcremie[] = INCGFX_U8("graphics/pokemon/alcremie/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Alcremie[ARRAY_COUNT(gMonFootprint_Milcery)] ASSET_ALIAS(gMonFootprint_Milcery); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 
     const u32 gMonFrontPic_AlcremieBerry[] = INCGFX_U32("graphics/pokemon/alcremie/berry/front.png", ".4bpp.smol");
@@ -24611,6 +24721,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Snom[] = INCGFX_U16("graphics/pokemon/snom/shiny.pal", ".gbapal");
     const u8 gMonIcon_Snom[] = INCGFX_U8("graphics/pokemon/snom/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Snom[] = INCGFX_U8("graphics/pokemon/snom/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -24627,7 +24738,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Frosmoth[] = INCGFX_U16("graphics/pokemon/frosmoth/shiny.pal", ".gbapal");
     const u8 gMonIcon_Frosmoth[] = INCGFX_U8("graphics/pokemon/frosmoth/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Frosmoth[] = INCGFX_U8("graphics/pokemon/frosmoth/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Frosmoth[ARRAY_COUNT(gMonFootprint_Snom)] ASSET_ALIAS(gMonFootprint_Snom); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Frosmoth[] = INCGFX_COMP("graphics/pokemon/frosmoth/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -25296,6 +25407,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Floragato[] = INCGFX_U16("graphics/pokemon/floragato/shiny.pal", ".gbapal");
     const u8 gMonIcon_Floragato[] = INCGFX_U8("graphics/pokemon/floragato/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Floragato[] = INCGFX_U8("graphics/pokemon/floragato/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -25312,7 +25424,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Meowscarada[] = INCGFX_U16("graphics/pokemon/meowscarada/shiny.pal", ".gbapal");
     const u8 gMonIcon_Meowscarada[] = INCGFX_U8("graphics/pokemon/meowscarada/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Meowscarada[] = INCGFX_U8("graphics/pokemon/meowscarada/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Meowscarada[ARRAY_COUNT(gMonFootprint_Floragato)] ASSET_ALIAS(gMonFootprint_Floragato); // dedupe_assets.py: mesmos 32 B (md5 e63e5582)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Meowscarada[] = INCGFX_COMP("graphics/pokemon/meowscarada/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -25600,7 +25712,9 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Tandemaus[] = INCGFX_COMP("graphics/pokemon/tandemaus/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+    // dedupe_assets.py: compartilhado por 3 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gOverworldPalette_Tandemaus[] = INCGFX_U16("graphics/pokemon/tandemaus/overworld_normal.pal", ".gbapal");
+    // dedupe_assets.py: compartilhado por 3 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gShinyOverworldPalette_Tandemaus[] = INCGFX_U16("graphics/pokemon/tandemaus/overworld_shiny.pal", ".gbapal");
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
@@ -25617,8 +25731,8 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_MausholdThree[] = INCGFX_COMP("graphics/pokemon/maushold/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
-    const u16 gOverworldPalette_MausholdThree[] = INCGFX_U16("graphics/pokemon/maushold/overworld_normal.pal", ".gbapal");
-    const u16 gShinyOverworldPalette_MausholdThree[] = INCGFX_U16("graphics/pokemon/maushold/overworld_shiny.pal", ".gbapal");
+    extern const u16 gOverworldPalette_MausholdThree[ARRAY_COUNT(gOverworldPalette_Tandemaus)] ASSET_ALIAS(gOverworldPalette_Tandemaus); // dedupe_assets.py: mesmos 32 B (md5 e05898d8)
+    extern const u16 gShinyOverworldPalette_MausholdThree[ARRAY_COUNT(gShinyOverworldPalette_Tandemaus)] ASSET_ALIAS(gShinyOverworldPalette_Tandemaus); // dedupe_assets.py: mesmos 32 B (md5 6af048f9)
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
 
@@ -25631,8 +25745,8 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_MausholdFour[] = INCGFX_COMP("graphics/pokemon/maushold/four/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
-    const u16 gOverworldPalette_MausholdFour[] = INCGFX_U16("graphics/pokemon/maushold/four/overworld_normal.pal", ".gbapal");
-    const u16 gShinyOverworldPalette_MausholdFour[] = INCGFX_U16("graphics/pokemon/maushold/four/overworld_shiny.pal", ".gbapal");
+    extern const u16 gOverworldPalette_MausholdFour[ARRAY_COUNT(gOverworldPalette_Tandemaus)] ASSET_ALIAS(gOverworldPalette_Tandemaus); // dedupe_assets.py: mesmos 32 B (md5 e05898d8)
+    extern const u16 gShinyOverworldPalette_MausholdFour[ARRAY_COUNT(gShinyOverworldPalette_Tandemaus)] ASSET_ALIAS(gShinyOverworldPalette_Tandemaus); // dedupe_assets.py: mesmos 32 B (md5 6af048f9)
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
 #endif //P_FAMILY_TANDEMAUS
@@ -25732,6 +25846,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_SquawkabillyGreen[] = INCGFX_U16("graphics/pokemon/squawkabilly/shiny.pal", ".gbapal");
     const u8 gMonIcon_SquawkabillyGreen[] = INCGFX_U8("graphics/pokemon/squawkabilly/icon.png", ".4bpp");
 #if OW_POKEMON_OBJECT_EVENTS
+    // dedupe_assets.py: compartilhado por 4 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u32 gObjectEventPic_SquawkabillyGreen[] = INCGFX_COMP("graphics/pokemon/squawkabilly/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
     const u16 gOverworldPalette_SquawkabillyGreen[] = INCGFX_U16("graphics/pokemon/squawkabilly/overworld_normal.pal", ".gbapal");
@@ -25743,7 +25858,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_SquawkabillyBlue[] = INCGFX_U16("graphics/pokemon/squawkabilly/blue/shiny.pal", ".gbapal");
     const u8 gMonIcon_SquawkabillyBlue[] = INCGFX_U8("graphics/pokemon/squawkabilly/blue/icon.png", ".4bpp");
 #if OW_POKEMON_OBJECT_EVENTS
-    const u32 gObjectEventPic_SquawkabillyBlue[] = INCGFX_COMP("graphics/pokemon/squawkabilly/blue/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
+    extern const u32 gObjectEventPic_SquawkabillyBlue[ARRAY_COUNT(gObjectEventPic_SquawkabillyGreen)] ASSET_ALIAS(gObjectEventPic_SquawkabillyGreen); // dedupe_assets.py: mesmos 920 B (md5 b6d294f5)
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
     const u16 gOverworldPalette_SquawkabillyBlue[] = INCGFX_U16("graphics/pokemon/squawkabilly/blue/overworld_normal.pal", ".gbapal");
     const u16 gShinyOverworldPalette_SquawkabillyBlue[] = INCGFX_U16("graphics/pokemon/squawkabilly/blue/overworld_shiny.pal", ".gbapal");
@@ -25754,7 +25869,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_SquawkabillyYellow[] = INCGFX_U16("graphics/pokemon/squawkabilly/yellow/shiny.pal", ".gbapal");
     const u8 gMonIcon_SquawkabillyYellow[] = INCGFX_U8("graphics/pokemon/squawkabilly/yellow/icon.png", ".4bpp");
 #if OW_POKEMON_OBJECT_EVENTS
-    const u32 gObjectEventPic_SquawkabillyYellow[] = INCGFX_COMP("graphics/pokemon/squawkabilly/yellow/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
+    extern const u32 gObjectEventPic_SquawkabillyYellow[ARRAY_COUNT(gObjectEventPic_SquawkabillyGreen)] ASSET_ALIAS(gObjectEventPic_SquawkabillyGreen); // dedupe_assets.py: mesmos 920 B (md5 b6d294f5)
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
     const u16 gOverworldPalette_SquawkabillyYellow[] = INCGFX_U16("graphics/pokemon/squawkabilly/yellow/overworld_normal.pal", ".gbapal");
     const u16 gShinyOverworldPalette_SquawkabillyYellow[] = INCGFX_U16("graphics/pokemon/squawkabilly/yellow/overworld_shiny.pal", ".gbapal");
@@ -25765,7 +25880,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_SquawkabillyWhite[] = INCGFX_U16("graphics/pokemon/squawkabilly/white/shiny.pal", ".gbapal");
     const u8 gMonIcon_SquawkabillyWhite[] = INCGFX_U8("graphics/pokemon/squawkabilly/white/icon.png", ".4bpp");
 #if OW_POKEMON_OBJECT_EVENTS
-    const u32 gObjectEventPic_SquawkabillyWhite[] = INCGFX_COMP("graphics/pokemon/squawkabilly/white/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
+    extern const u32 gObjectEventPic_SquawkabillyWhite[ARRAY_COUNT(gObjectEventPic_SquawkabillyGreen)] ASSET_ALIAS(gObjectEventPic_SquawkabillyGreen); // dedupe_assets.py: mesmos 920 B (md5 b6d294f5)
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
     const u16 gOverworldPalette_SquawkabillyWhite[] = INCGFX_U16("graphics/pokemon/squawkabilly/white/overworld_normal.pal", ".gbapal");
     const u16 gShinyOverworldPalette_SquawkabillyWhite[] = INCGFX_U16("graphics/pokemon/squawkabilly/white/overworld_shiny.pal", ".gbapal");
@@ -26016,6 +26131,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Bramblin[] = INCGFX_U16("graphics/pokemon/bramblin/shiny.pal", ".gbapal");
     const u8 gMonIcon_Bramblin[] = INCGFX_U8("graphics/pokemon/bramblin/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Bramblin[] = INCGFX_U8("graphics/pokemon/bramblin/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -26032,7 +26148,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Brambleghast[] = INCGFX_U16("graphics/pokemon/brambleghast/shiny.pal", ".gbapal");
     const u8 gMonIcon_Brambleghast[] = INCGFX_U8("graphics/pokemon/brambleghast/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Brambleghast[] = INCGFX_U8("graphics/pokemon/brambleghast/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Brambleghast[ARRAY_COUNT(gMonFootprint_Bramblin)] ASSET_ALIAS(gMonFootprint_Bramblin); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Brambleghast[] = INCGFX_COMP("graphics/pokemon/brambleghast/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -26269,6 +26385,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Wiglett[] = INCGFX_U16("graphics/pokemon/wiglett/shiny.pal", ".gbapal");
     const u8 gMonIcon_Wiglett[] = INCGFX_U8("graphics/pokemon/wiglett/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Wiglett[] = INCGFX_U8("graphics/pokemon/wiglett/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -26285,7 +26402,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Wugtrio[] = INCGFX_U16("graphics/pokemon/wugtrio/shiny.pal", ".gbapal");
     const u8 gMonIcon_Wugtrio[] = INCGFX_U8("graphics/pokemon/wugtrio/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Wugtrio[] = INCGFX_U8("graphics/pokemon/wugtrio/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Wugtrio[ARRAY_COUNT(gMonFootprint_Wiglett)] ASSET_ALIAS(gMonFootprint_Wiglett); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Wugtrio[] = INCGFX_COMP("graphics/pokemon/wugtrio/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -26316,11 +26433,15 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 
 #if P_FAMILY_FINIZEN
     const u32 gMonFrontPic_Finizen[] = INCGFX_U32("graphics/pokemon/finizen/front.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonPalette_Finizen[] = INCGFX_U16("graphics/pokemon/finizen/normal.pal", ".gbapal");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u32 gMonBackPic_Finizen[] = INCGFX_U32("graphics/pokemon/finizen/back.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonShinyPalette_Finizen[] = INCGFX_U16("graphics/pokemon/finizen/shiny.pal", ".gbapal");
     const u8 gMonIcon_Finizen[] = INCGFX_U8("graphics/pokemon/finizen/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Finizen[] = INCGFX_U8("graphics/pokemon/finizen/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -26332,12 +26453,12 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 #endif //OW_POKEMON_OBJECT_EVENTS
 
     const u32 gMonFrontPic_PalafinZero[] = INCGFX_U32("graphics/pokemon/palafin/front.png", ".4bpp.smol");
-    const u16 gMonPalette_PalafinZero[] = INCGFX_U16("graphics/pokemon/palafin/normal.pal", ".gbapal");
-    const u32 gMonBackPic_PalafinZero[] = INCGFX_U32("graphics/pokemon/palafin/back.png", ".4bpp.smol");
-    const u16 gMonShinyPalette_PalafinZero[] = INCGFX_U16("graphics/pokemon/palafin/shiny.pal", ".gbapal");
+    extern const u16 gMonPalette_PalafinZero[ARRAY_COUNT(gMonPalette_Finizen)] ASSET_ALIAS(gMonPalette_Finizen); // dedupe_assets.py: mesmos 32 B (md5 541fe0df)
+    extern const u32 gMonBackPic_PalafinZero[ARRAY_COUNT(gMonBackPic_Finizen)] ASSET_ALIAS(gMonBackPic_Finizen); // dedupe_assets.py: mesmos 412 B (md5 530ebcfd)
+    extern const u16 gMonShinyPalette_PalafinZero[ARRAY_COUNT(gMonShinyPalette_Finizen)] ASSET_ALIAS(gMonShinyPalette_Finizen); // dedupe_assets.py: mesmos 32 B (md5 64f7320b)
     const u8 gMonIcon_PalafinZero[] = INCGFX_U8("graphics/pokemon/palafin/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Palafin[] = INCGFX_U8("graphics/pokemon/palafin/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Palafin[ARRAY_COUNT(gMonFootprint_Finizen)] ASSET_ALIAS(gMonFootprint_Finizen); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_PalafinZero[] = INCGFX_COMP("graphics/pokemon/palafin/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -26368,6 +26489,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Varoom[] = INCGFX_U16("graphics/pokemon/varoom/shiny.pal", ".gbapal");
     const u8 gMonIcon_Varoom[] = INCGFX_U8("graphics/pokemon/varoom/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Varoom[] = INCGFX_U8("graphics/pokemon/varoom/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -26384,7 +26506,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Revavroom[] = INCGFX_U16("graphics/pokemon/revavroom/shiny.pal", ".gbapal");
     const u8 gMonIcon_Revavroom[] = INCGFX_U8("graphics/pokemon/revavroom/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Revavroom[] = INCGFX_U8("graphics/pokemon/revavroom/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Revavroom[ARRAY_COUNT(gMonFootprint_Varoom)] ASSET_ALIAS(gMonFootprint_Varoom); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Revavroom[] = INCGFX_COMP("graphics/pokemon/revavroom/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -26438,6 +26560,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Glimmet[] = INCGFX_U16("graphics/pokemon/glimmet/shiny.pal", ".gbapal");
     const u8 gMonIcon_Glimmet[] = INCGFX_U8("graphics/pokemon/glimmet/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_Glimmet[] = INCGFX_U8("graphics/pokemon/glimmet/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -26454,7 +26577,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Glimmora[] = INCGFX_U16("graphics/pokemon/glimmora/shiny.pal", ".gbapal");
     const u8 gMonIcon_Glimmora[] = INCGFX_U8("graphics/pokemon/glimmora/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_Glimmora[] = INCGFX_U8("graphics/pokemon/glimmora/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_Glimmora[ARRAY_COUNT(gMonFootprint_Glimmet)] ASSET_ALIAS(gMonFootprint_Glimmet); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Glimmora[] = INCGFX_COMP("graphics/pokemon/glimmora/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
@@ -27312,51 +27435,63 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonIcon_OgerponCornerstone[] = INCGFX_U8("graphics/pokemon/ogerpon/cornerstone/icon.png", ".4bpp");
 
     const u32 gMonFrontPic_OgerponTealTera[] = INCGFX_U32("graphics/pokemon/ogerpon/teal_tera/front.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonPalette_OgerponTealTera[] = INCGFX_U16("graphics/pokemon/ogerpon/teal_tera/normal.pal", ".gbapal");
     const u32 gMonBackPic_OgerponTealTera[] = INCGFX_U32("graphics/pokemon/ogerpon/teal_tera/back.png", ".4bpp.smol");
-    const u16 gMonShinyPalette_OgerponTealTera[] = INCGFX_U16("graphics/pokemon/ogerpon/teal_tera/shiny.pal", ".gbapal");
+    extern const u16 gMonShinyPalette_OgerponTealTera[ARRAY_COUNT(gMonPalette_OgerponTealTera)] ASSET_ALIAS(gMonPalette_OgerponTealTera); // dedupe_assets.py: mesmos 32 B (md5 a394bd94)
 
     const u32 gMonFrontPic_OgerponWellspringTera[] = INCGFX_U32("graphics/pokemon/ogerpon/wellspring_tera/front.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonPalette_OgerponWellspringTera[] = INCGFX_U16("graphics/pokemon/ogerpon/wellspring_tera/normal.pal", ".gbapal");
     const u32 gMonBackPic_OgerponWellspringTera[] = INCGFX_U32("graphics/pokemon/ogerpon/wellspring_tera/back.png", ".4bpp.smol");
-    const u16 gMonShinyPalette_OgerponWellspringTera[] = INCGFX_U16("graphics/pokemon/ogerpon/wellspring_tera/shiny.pal", ".gbapal");
+    extern const u16 gMonShinyPalette_OgerponWellspringTera[ARRAY_COUNT(gMonPalette_OgerponWellspringTera)] ASSET_ALIAS(gMonPalette_OgerponWellspringTera); // dedupe_assets.py: mesmos 32 B (md5 6df8d7af)
 
     const u32 gMonFrontPic_OgerponHearthflameTera[] = INCGFX_U32("graphics/pokemon/ogerpon/hearthflame_tera/front.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonPalette_OgerponHearthflameTera[] = INCGFX_U16("graphics/pokemon/ogerpon/hearthflame_tera/normal.pal", ".gbapal");
     const u32 gMonBackPic_OgerponHearthflameTera[] = INCGFX_U32("graphics/pokemon/ogerpon/hearthflame_tera/back.png", ".4bpp.smol");
-    const u16 gMonShinyPalette_OgerponHearthflameTera[] = INCGFX_U16("graphics/pokemon/ogerpon/hearthflame_tera/shiny.pal", ".gbapal");
+    extern const u16 gMonShinyPalette_OgerponHearthflameTera[ARRAY_COUNT(gMonPalette_OgerponHearthflameTera)] ASSET_ALIAS(gMonPalette_OgerponHearthflameTera); // dedupe_assets.py: mesmos 30 B (md5 64d7f9ca)
 
     const u32 gMonFrontPic_OgerponCornerstoneTera[] = INCGFX_U32("graphics/pokemon/ogerpon/cornerstone_tera/front.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gMonPalette_OgerponCornerstoneTera[] = INCGFX_U16("graphics/pokemon/ogerpon/cornerstone_tera/normal.pal", ".gbapal");
     const u32 gMonBackPic_OgerponCornerstoneTera[] = INCGFX_U32("graphics/pokemon/ogerpon/cornerstone_tera/back.png", ".4bpp.smol");
-    const u16 gMonShinyPalette_OgerponCornerstoneTera[] = INCGFX_U16("graphics/pokemon/ogerpon/cornerstone_tera/shiny.pal", ".gbapal");
+    extern const u16 gMonShinyPalette_OgerponCornerstoneTera[ARRAY_COUNT(gMonPalette_OgerponCornerstoneTera)] ASSET_ALIAS(gMonPalette_OgerponCornerstoneTera); // dedupe_assets.py: mesmos 32 B (md5 52da2e87)
 
 #if OW_POKEMON_OBJECT_EVENTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u32 gObjectEventPic_OgerponTeal[] = INCGFX_COMP("graphics/pokemon/ogerpon/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u32 gObjectEventPic_OgerponWellspring[] = INCGFX_COMP("graphics/pokemon/ogerpon/wellspring/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u32 gObjectEventPic_OgerponHearthflame[] = INCGFX_COMP("graphics/pokemon/ogerpon/hearthflame/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u32 gObjectEventPic_OgerponCornerstone[] = INCGFX_COMP("graphics/pokemon/ogerpon/cornerstone/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
+    // dedupe_assets.py: compartilhado por 4 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gOverworldPalette_OgerponWellspring[] = INCGFX_U16("graphics/pokemon/ogerpon/wellspring/overworld_normal.pal", ".gbapal");
-    const u16 gShinyOverworldPalette_OgerponWellspring[] = INCGFX_U16("graphics/pokemon/ogerpon/wellspring/overworld_shiny.pal", ".gbapal");
+    extern const u16 gShinyOverworldPalette_OgerponWellspring[ARRAY_COUNT(gOverworldPalette_OgerponWellspring)] ASSET_ALIAS(gOverworldPalette_OgerponWellspring); // dedupe_assets.py: mesmos 32 B (md5 8cae82b1)
+    // dedupe_assets.py: compartilhado por 4 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gOverworldPalette_OgerponHearthflame[] = INCGFX_U16("graphics/pokemon/ogerpon/hearthflame/overworld_normal.pal", ".gbapal");
-    const u16 gShinyOverworldPalette_OgerponHearthflame[] = INCGFX_U16("graphics/pokemon/ogerpon/hearthflame/overworld_shiny.pal", ".gbapal");
+    extern const u16 gShinyOverworldPalette_OgerponHearthflame[ARRAY_COUNT(gOverworldPalette_OgerponHearthflame)] ASSET_ALIAS(gOverworldPalette_OgerponHearthflame); // dedupe_assets.py: mesmos 32 B (md5 8075d5cf)
+    // dedupe_assets.py: compartilhado por 4 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gOverworldPalette_OgerponCornerstone[] = INCGFX_U16("graphics/pokemon/ogerpon/cornerstone/overworld_normal.pal", ".gbapal");
-    const u16 gShinyOverworldPalette_OgerponCornerstone[] = INCGFX_U16("graphics/pokemon/ogerpon/cornerstone/overworld_shiny.pal", ".gbapal");
+    extern const u16 gShinyOverworldPalette_OgerponCornerstone[ARRAY_COUNT(gOverworldPalette_OgerponCornerstone)] ASSET_ALIAS(gOverworldPalette_OgerponCornerstone); // dedupe_assets.py: mesmos 32 B (md5 cb080e0f)
+    // dedupe_assets.py: compartilhado por 4 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gOverworldPalette_OgerponTeal[] = INCGFX_U16("graphics/pokemon/ogerpon/overworld_normal.pal", ".gbapal");
-    const u16 gShinyOverworldPalette_OgerponTeal[] = INCGFX_U16("graphics/pokemon/ogerpon/overworld_shiny.pal", ".gbapal");
+    extern const u16 gShinyOverworldPalette_OgerponTeal[ARRAY_COUNT(gOverworldPalette_OgerponTeal)] ASSET_ALIAS(gOverworldPalette_OgerponTeal); // dedupe_assets.py: mesmos 32 B (md5 b3d7cac2)
 
-    const u32 gObjectEventPic_OgerponTealTera[] = INCGFX_COMP("graphics/pokemon/ogerpon/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
-    const u32 gObjectEventPic_OgerponWellspringTera[] = INCGFX_COMP("graphics/pokemon/ogerpon/wellspring/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
-    const u32 gObjectEventPic_OgerponHearthflameTera[] = INCGFX_COMP("graphics/pokemon/ogerpon/hearthflame/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
-    const u32 gObjectEventPic_OgerponCornerstoneTera[] = INCGFX_COMP("graphics/pokemon/ogerpon/cornerstone/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
-    const u16 gOverworldPalette_OgerponWellspringTera[] = INCGFX_U16("graphics/pokemon/ogerpon/wellspring/overworld_normal.pal", ".gbapal");
-    const u16 gShinyOverworldPalette_OgerponWellspringTera[] = INCGFX_U16("graphics/pokemon/ogerpon/wellspring/overworld_shiny.pal", ".gbapal");
-    const u16 gOverworldPalette_OgerponHearthflameTera[] = INCGFX_U16("graphics/pokemon/ogerpon/hearthflame/overworld_normal.pal", ".gbapal");
-    const u16 gShinyOverworldPalette_OgerponHearthflameTera[] = INCGFX_U16("graphics/pokemon/ogerpon/hearthflame/overworld_shiny.pal", ".gbapal");
-    const u16 gOverworldPalette_OgerponCornerstoneTera[] = INCGFX_U16("graphics/pokemon/ogerpon/cornerstone/overworld_normal.pal", ".gbapal");
-    const u16 gShinyOverworldPalette_OgerponCornerstoneTera[] = INCGFX_U16("graphics/pokemon/ogerpon/cornerstone/overworld_shiny.pal", ".gbapal");
-    const u16 gOverworldPalette_OgerponTealTera[] = INCGFX_U16("graphics/pokemon/ogerpon/overworld_normal.pal", ".gbapal");
-    const u16 gShinyOverworldPalette_OgerponTealTera[] = INCGFX_U16("graphics/pokemon/ogerpon/overworld_shiny.pal", ".gbapal");
+    extern const u32 gObjectEventPic_OgerponTealTera[ARRAY_COUNT(gObjectEventPic_OgerponTeal)] ASSET_ALIAS(gObjectEventPic_OgerponTeal); // dedupe_assets.py: mesmos 1004 B (md5 babaea11)
+    extern const u32 gObjectEventPic_OgerponWellspringTera[ARRAY_COUNT(gObjectEventPic_OgerponWellspring)] ASSET_ALIAS(gObjectEventPic_OgerponWellspring); // dedupe_assets.py: mesmos 956 B (md5 017d9e6f)
+    extern const u32 gObjectEventPic_OgerponHearthflameTera[ARRAY_COUNT(gObjectEventPic_OgerponHearthflame)] ASSET_ALIAS(gObjectEventPic_OgerponHearthflame); // dedupe_assets.py: mesmos 960 B (md5 28cbcde2)
+    extern const u32 gObjectEventPic_OgerponCornerstoneTera[ARRAY_COUNT(gObjectEventPic_OgerponCornerstone)] ASSET_ALIAS(gObjectEventPic_OgerponCornerstone); // dedupe_assets.py: mesmos 988 B (md5 c8ce9774)
+    extern const u16 gOverworldPalette_OgerponWellspringTera[ARRAY_COUNT(gOverworldPalette_OgerponWellspring)] ASSET_ALIAS(gOverworldPalette_OgerponWellspring); // dedupe_assets.py: mesmos 32 B (md5 8cae82b1)
+    extern const u16 gShinyOverworldPalette_OgerponWellspringTera[ARRAY_COUNT(gOverworldPalette_OgerponWellspring)] ASSET_ALIAS(gOverworldPalette_OgerponWellspring); // dedupe_assets.py: mesmos 32 B (md5 8cae82b1)
+    extern const u16 gOverworldPalette_OgerponHearthflameTera[ARRAY_COUNT(gOverworldPalette_OgerponHearthflame)] ASSET_ALIAS(gOverworldPalette_OgerponHearthflame); // dedupe_assets.py: mesmos 32 B (md5 8075d5cf)
+    extern const u16 gShinyOverworldPalette_OgerponHearthflameTera[ARRAY_COUNT(gOverworldPalette_OgerponHearthflame)] ASSET_ALIAS(gOverworldPalette_OgerponHearthflame); // dedupe_assets.py: mesmos 32 B (md5 8075d5cf)
+    extern const u16 gOverworldPalette_OgerponCornerstoneTera[ARRAY_COUNT(gOverworldPalette_OgerponCornerstone)] ASSET_ALIAS(gOverworldPalette_OgerponCornerstone); // dedupe_assets.py: mesmos 32 B (md5 cb080e0f)
+    extern const u16 gShinyOverworldPalette_OgerponCornerstoneTera[ARRAY_COUNT(gOverworldPalette_OgerponCornerstone)] ASSET_ALIAS(gOverworldPalette_OgerponCornerstone); // dedupe_assets.py: mesmos 32 B (md5 cb080e0f)
+    extern const u16 gOverworldPalette_OgerponTealTera[ARRAY_COUNT(gOverworldPalette_OgerponTeal)] ASSET_ALIAS(gOverworldPalette_OgerponTeal); // dedupe_assets.py: mesmos 32 B (md5 b3d7cac2)
+    extern const u16 gShinyOverworldPalette_OgerponTealTera[ARRAY_COUNT(gOverworldPalette_OgerponTeal)] ASSET_ALIAS(gOverworldPalette_OgerponTeal); // dedupe_assets.py: mesmos 32 B (md5 b3d7cac2)
 #endif //OW_POKEMON_OBJECT_EVENTS
 #endif //P_FAMILY_OGERPON
 
@@ -27455,6 +27590,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_TerapagosTerastal[] = INCGFX_U16("graphics/pokemon/terapagos/terastal/shiny.pal", ".gbapal");
     const u8 gMonIcon_TerapagosTerastal[] = INCGFX_U8("graphics/pokemon/terapagos/terastal/icon.png", ".4bpp");
 #if P_FOOTPRINTS
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u8 gMonFootprint_TerapagosTerastal[] = INCGFX_U8("graphics/pokemon/terapagos/terastal/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
@@ -27471,7 +27607,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_TerapagosStellar[] = INCGFX_U16("graphics/pokemon/terapagos/stellar/shiny.pal", ".gbapal");
     const u8 gMonIcon_TerapagosStellar[] = INCGFX_U8("graphics/pokemon/terapagos/stellar/icon.png", ".4bpp");
 #if P_FOOTPRINTS
-    const u8 gMonFootprint_TerapagosStellar[] = INCGFX_U8("graphics/pokemon/terapagos/stellar/footprint.png", ".1bpp");
+    extern const u8 gMonFootprint_TerapagosStellar[ARRAY_COUNT(gMonFootprint_TerapagosTerastal)] ASSET_ALIAS(gMonFootprint_TerapagosTerastal); // dedupe_assets.py: mesmos 32 B (md5 70bc8f4b)
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
 //    const u32 gObjectEventPic_TerapagosStellar[] = INCGFX_COMP("graphics/pokemon/terapagos/stellar/overworld.png", ".4bpp");

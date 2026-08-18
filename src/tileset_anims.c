@@ -204,16 +204,21 @@ const u16 *const gTilesetAnims_Pacifidlog_WaterCurrents[] = {
     gTilesetAnims_Pacifidlog_WaterCurrents_Frame7
 };
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetAnims_Mauville_Flower1_Frame0[] = INCGFX_U16("data/tilesets/secondary/mauville/anim/flower_1/0.png", ".4bpp");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetAnims_Mauville_Flower1_Frame1[] = INCGFX_U16("data/tilesets/secondary/mauville/anim/flower_1/1.png", ".4bpp");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetAnims_Mauville_Flower1_Frame2[] = INCGFX_U16("data/tilesets/secondary/mauville/anim/flower_1/2.png", ".4bpp");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetAnims_Mauville_Flower1_Frame3[] = INCGFX_U16("data/tilesets/secondary/mauville/anim/flower_1/3.png", ".4bpp");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetAnims_Mauville_Flower1_Frame4[] = INCGFX_U16("data/tilesets/secondary/mauville/anim/flower_1/4.png", ".4bpp");
-const u16 gTilesetAnims_Mauville_Flower2_Frame0[] = INCGFX_U16("data/tilesets/secondary/mauville/anim/flower_2/0.png", ".4bpp");
-const u16 gTilesetAnims_Mauville_Flower2_Frame1[] = INCGFX_U16("data/tilesets/secondary/mauville/anim/flower_2/1.png", ".4bpp");
-const u16 gTilesetAnims_Mauville_Flower2_Frame2[] = INCGFX_U16("data/tilesets/secondary/mauville/anim/flower_2/2.png", ".4bpp");
-const u16 gTilesetAnims_Mauville_Flower2_Frame3[] = INCGFX_U16("data/tilesets/secondary/mauville/anim/flower_2/3.png", ".4bpp");
-const u16 gTilesetAnims_Mauville_Flower2_Frame4[] = INCGFX_U16("data/tilesets/secondary/mauville/anim/flower_2/4.png", ".4bpp");
+extern const u16 gTilesetAnims_Mauville_Flower2_Frame0[ARRAY_COUNT(gTilesetAnims_Mauville_Flower1_Frame0)] ASSET_ALIAS(gTilesetAnims_Mauville_Flower1_Frame0); // dedupe_assets.py: mesmos 128 B (md5 2c0c7a05)
+extern const u16 gTilesetAnims_Mauville_Flower2_Frame1[ARRAY_COUNT(gTilesetAnims_Mauville_Flower1_Frame1)] ASSET_ALIAS(gTilesetAnims_Mauville_Flower1_Frame1); // dedupe_assets.py: mesmos 128 B (md5 abe7d00a)
+extern const u16 gTilesetAnims_Mauville_Flower2_Frame2[ARRAY_COUNT(gTilesetAnims_Mauville_Flower1_Frame2)] ASSET_ALIAS(gTilesetAnims_Mauville_Flower1_Frame2); // dedupe_assets.py: mesmos 128 B (md5 8be1198c)
+extern const u16 gTilesetAnims_Mauville_Flower2_Frame3[ARRAY_COUNT(gTilesetAnims_Mauville_Flower1_Frame3)] ASSET_ALIAS(gTilesetAnims_Mauville_Flower1_Frame3); // dedupe_assets.py: mesmos 128 B (md5 a9cde6a3)
+extern const u16 gTilesetAnims_Mauville_Flower2_Frame4[ARRAY_COUNT(gTilesetAnims_Mauville_Flower1_Frame4)] ASSET_ALIAS(gTilesetAnims_Mauville_Flower1_Frame4); // dedupe_assets.py: mesmos 128 B (md5 ffb6d275)
 const u16 tileset_anims_space_1[16] = {};
 
 u16 *const gTilesetAnims_Mauville_Flower1_VDests[] = {
@@ -284,12 +289,13 @@ const u16 *const gTilesetAnims_Mauville_Flower2_B[] = {
 
 const u16 gTilesetAnims_Rustboro_WindyWater_Frame0[] = INCGFX_U16("data/tilesets/secondary/rustboro/anim/windy_water/0.png", ".4bpp");
 const u16 gTilesetAnims_Rustboro_WindyWater_Frame1[] = INCGFX_U16("data/tilesets/secondary/rustboro/anim/windy_water/1.png", ".4bpp");
+// dedupe_assets.py: compartilhado por 6 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetAnims_Rustboro_WindyWater_Frame2[] = INCGFX_U16("data/tilesets/secondary/rustboro/anim/windy_water/2.png", ".4bpp");
-const u16 gTilesetAnims_Rustboro_WindyWater_Frame3[] = INCGFX_U16("data/tilesets/secondary/rustboro/anim/windy_water/3.png", ".4bpp");
-const u16 gTilesetAnims_Rustboro_WindyWater_Frame4[] = INCGFX_U16("data/tilesets/secondary/rustboro/anim/windy_water/4.png", ".4bpp");
-const u16 gTilesetAnims_Rustboro_WindyWater_Frame5[] = INCGFX_U16("data/tilesets/secondary/rustboro/anim/windy_water/5.png", ".4bpp");
-const u16 gTilesetAnims_Rustboro_WindyWater_Frame6[] = INCGFX_U16("data/tilesets/secondary/rustboro/anim/windy_water/6.png", ".4bpp");
-const u16 gTilesetAnims_Rustboro_WindyWater_Frame7[] = INCGFX_U16("data/tilesets/secondary/rustboro/anim/windy_water/7.png", ".4bpp");
+extern const u16 gTilesetAnims_Rustboro_WindyWater_Frame3[ARRAY_COUNT(gTilesetAnims_Rustboro_WindyWater_Frame2)] ASSET_ALIAS(gTilesetAnims_Rustboro_WindyWater_Frame2); // dedupe_assets.py: mesmos 128 B (md5 7179909b)
+extern const u16 gTilesetAnims_Rustboro_WindyWater_Frame4[ARRAY_COUNT(gTilesetAnims_Rustboro_WindyWater_Frame2)] ASSET_ALIAS(gTilesetAnims_Rustboro_WindyWater_Frame2); // dedupe_assets.py: mesmos 128 B (md5 7179909b)
+extern const u16 gTilesetAnims_Rustboro_WindyWater_Frame5[ARRAY_COUNT(gTilesetAnims_Rustboro_WindyWater_Frame2)] ASSET_ALIAS(gTilesetAnims_Rustboro_WindyWater_Frame2); // dedupe_assets.py: mesmos 128 B (md5 7179909b)
+extern const u16 gTilesetAnims_Rustboro_WindyWater_Frame6[ARRAY_COUNT(gTilesetAnims_Rustboro_WindyWater_Frame2)] ASSET_ALIAS(gTilesetAnims_Rustboro_WindyWater_Frame2); // dedupe_assets.py: mesmos 128 B (md5 7179909b)
+extern const u16 gTilesetAnims_Rustboro_WindyWater_Frame7[ARRAY_COUNT(gTilesetAnims_Rustboro_WindyWater_Frame2)] ASSET_ALIAS(gTilesetAnims_Rustboro_WindyWater_Frame2); // dedupe_assets.py: mesmos 128 B (md5 7179909b)
 
 u16 *const gTilesetAnims_Rustboro_WindyWater_VDests[] = {
     (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 128)),
@@ -339,14 +345,16 @@ const u16 *const gTilesetAnims_Lavaridge_Cave_Lava[] = {
     gTilesetAnims_Lavaridge_Cave_Lava_Frame3
 };
 
+// dedupe_assets.py: compartilhado por 4 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetAnims_EverGrande_Flowers_Frame0[] = INCGFX_U16("data/tilesets/secondary/ever_grande/anim/flowers/0.png", ".4bpp");
-const u16 gTilesetAnims_EverGrande_Flowers_Frame1[] = INCGFX_U16("data/tilesets/secondary/ever_grande/anim/flowers/1.png", ".4bpp");
+extern const u16 gTilesetAnims_EverGrande_Flowers_Frame1[ARRAY_COUNT(gTilesetAnims_EverGrande_Flowers_Frame0)] ASSET_ALIAS(gTilesetAnims_EverGrande_Flowers_Frame0); // dedupe_assets.py: mesmos 128 B (md5 80096d58)
 const u16 gTilesetAnims_EverGrande_Flowers_Frame2[] = INCGFX_U16("data/tilesets/secondary/ever_grande/anim/flowers/2.png", ".4bpp");
 const u16 gTilesetAnims_EverGrande_Flowers_Frame3[] = INCGFX_U16("data/tilesets/secondary/ever_grande/anim/flowers/3.png", ".4bpp");
-const u16 gTilesetAnims_EverGrande_Flowers_Frame4[] = INCGFX_U16("data/tilesets/secondary/ever_grande/anim/flowers/4.png", ".4bpp");
-const u16 gTilesetAnims_EverGrande_Flowers_Frame5[] = INCGFX_U16("data/tilesets/secondary/ever_grande/anim/flowers/5.png", ".4bpp");
+extern const u16 gTilesetAnims_EverGrande_Flowers_Frame4[ARRAY_COUNT(gTilesetAnims_EverGrande_Flowers_Frame0)] ASSET_ALIAS(gTilesetAnims_EverGrande_Flowers_Frame0); // dedupe_assets.py: mesmos 128 B (md5 80096d58)
+extern const u16 gTilesetAnims_EverGrande_Flowers_Frame5[ARRAY_COUNT(gTilesetAnims_EverGrande_Flowers_Frame0)] ASSET_ALIAS(gTilesetAnims_EverGrande_Flowers_Frame0); // dedupe_assets.py: mesmos 128 B (md5 80096d58)
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetAnims_EverGrande_Flowers_Frame6[] = INCGFX_U16("data/tilesets/secondary/ever_grande/anim/flowers/6.png", ".4bpp");
-const u16 gTilesetAnims_EverGrande_Flowers_Frame7[] = INCGFX_U16("data/tilesets/secondary/ever_grande/anim/flowers/7.png", ".4bpp");
+extern const u16 gTilesetAnims_EverGrande_Flowers_Frame7[ARRAY_COUNT(gTilesetAnims_EverGrande_Flowers_Frame6)] ASSET_ALIAS(gTilesetAnims_EverGrande_Flowers_Frame6); // dedupe_assets.py: mesmos 128 B (md5 17d5cb2d)
 const u16 tileset_anims_space_4[16] = {};
 
 u16 *const gTilesetAnims_EverGrande_VDests[] = {
@@ -383,9 +391,13 @@ const u16 *const gTilesetAnims_Dewford_Flag[] = {
     gTilesetAnims_Dewford_Flag_Frame3
 };
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetAnims_BattleFrontierOutsideWest_Flag_Frame0[] = INCGFX_U16("data/tilesets/secondary/battle_frontier_outside_west/anim/flag/0.png", ".4bpp");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetAnims_BattleFrontierOutsideWest_Flag_Frame1[] = INCGFX_U16("data/tilesets/secondary/battle_frontier_outside_west/anim/flag/1.png", ".4bpp");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetAnims_BattleFrontierOutsideWest_Flag_Frame2[] = INCGFX_U16("data/tilesets/secondary/battle_frontier_outside_west/anim/flag/2.png", ".4bpp");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetAnims_BattleFrontierOutsideWest_Flag_Frame3[] = INCGFX_U16("data/tilesets/secondary/battle_frontier_outside_west/anim/flag/3.png", ".4bpp");
 
 const u16 *const gTilesetAnims_BattleFrontierOutsideWest_Flag[] = {
@@ -395,10 +407,10 @@ const u16 *const gTilesetAnims_BattleFrontierOutsideWest_Flag[] = {
     gTilesetAnims_BattleFrontierOutsideWest_Flag_Frame3
 };
 
-const u16 gTilesetAnims_BattleFrontierOutsideEast_Flag_Frame0[] = INCGFX_U16("data/tilesets/secondary/battle_frontier_outside_east/anim/flag/0.png", ".4bpp");
-const u16 gTilesetAnims_BattleFrontierOutsideEast_Flag_Frame1[] = INCGFX_U16("data/tilesets/secondary/battle_frontier_outside_east/anim/flag/1.png", ".4bpp");
-const u16 gTilesetAnims_BattleFrontierOutsideEast_Flag_Frame2[] = INCGFX_U16("data/tilesets/secondary/battle_frontier_outside_east/anim/flag/2.png", ".4bpp");
-const u16 gTilesetAnims_BattleFrontierOutsideEast_Flag_Frame3[] = INCGFX_U16("data/tilesets/secondary/battle_frontier_outside_east/anim/flag/3.png", ".4bpp");
+extern const u16 gTilesetAnims_BattleFrontierOutsideEast_Flag_Frame0[ARRAY_COUNT(gTilesetAnims_BattleFrontierOutsideWest_Flag_Frame0)] ASSET_ALIAS(gTilesetAnims_BattleFrontierOutsideWest_Flag_Frame0); // dedupe_assets.py: mesmos 192 B (md5 f44e7a13)
+extern const u16 gTilesetAnims_BattleFrontierOutsideEast_Flag_Frame1[ARRAY_COUNT(gTilesetAnims_BattleFrontierOutsideWest_Flag_Frame1)] ASSET_ALIAS(gTilesetAnims_BattleFrontierOutsideWest_Flag_Frame1); // dedupe_assets.py: mesmos 192 B (md5 2989acc0)
+extern const u16 gTilesetAnims_BattleFrontierOutsideEast_Flag_Frame2[ARRAY_COUNT(gTilesetAnims_BattleFrontierOutsideWest_Flag_Frame2)] ASSET_ALIAS(gTilesetAnims_BattleFrontierOutsideWest_Flag_Frame2); // dedupe_assets.py: mesmos 192 B (md5 f8a1979b)
+extern const u16 gTilesetAnims_BattleFrontierOutsideEast_Flag_Frame3[ARRAY_COUNT(gTilesetAnims_BattleFrontierOutsideWest_Flag_Frame3)] ASSET_ALIAS(gTilesetAnims_BattleFrontierOutsideWest_Flag_Frame3); // dedupe_assets.py: mesmos 192 B (md5 d58b288c)
 
 const u16 *const gTilesetAnims_BattleFrontierOutsideEast_Flag[] = {
     gTilesetAnims_BattleFrontierOutsideEast_Flag_Frame0,
@@ -408,9 +420,10 @@ const u16 *const gTilesetAnims_BattleFrontierOutsideEast_Flag[] = {
 };
 
 const u16 gTilesetAnims_Slateport_Balloons_Frame0[] = INCGFX_U16("data/tilesets/secondary/slateport/anim/balloons/0.png", ".4bpp");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetAnims_Slateport_Balloons_Frame1[] = INCGFX_U16("data/tilesets/secondary/slateport/anim/balloons/1.png", ".4bpp");
 const u16 gTilesetAnims_Slateport_Balloons_Frame2[] = INCGFX_U16("data/tilesets/secondary/slateport/anim/balloons/2.png", ".4bpp");
-const u16 gTilesetAnims_Slateport_Balloons_Frame3[] = INCGFX_U16("data/tilesets/secondary/slateport/anim/balloons/3.png", ".4bpp");
+extern const u16 gTilesetAnims_Slateport_Balloons_Frame3[ARRAY_COUNT(gTilesetAnims_Slateport_Balloons_Frame1)] ASSET_ALIAS(gTilesetAnims_Slateport_Balloons_Frame1); // dedupe_assets.py: mesmos 128 B (md5 f59f4270)
 
 const u16 *const gTilesetAnims_Slateport_Balloons[] = {
     gTilesetAnims_Slateport_Balloons_Frame0,
@@ -449,9 +462,10 @@ const u16 *const gTilesetAnims_SootopolisGym_FrontWaterfall[] = {
 const u16 gTilesetAnims_EliteFour_FloorLight_Frame0[] = INCGFX_U16("data/tilesets/secondary/elite_four/anim/floor_light/0.png", ".4bpp");
 const u16 gTilesetAnims_EliteFour_FloorLight_Frame1[] = INCGFX_U16("data/tilesets/secondary/elite_four/anim/floor_light/1.png", ".4bpp");
 const u16 gTilesetAnims_EliteFour_WallLights_Frame0[] = INCGFX_U16("data/tilesets/secondary/elite_four/anim/wall_lights/0.png", ".4bpp");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetAnims_EliteFour_WallLights_Frame1[] = INCGFX_U16("data/tilesets/secondary/elite_four/anim/wall_lights/1.png", ".4bpp");
 const u16 gTilesetAnims_EliteFour_WallLights_Frame2[] = INCGFX_U16("data/tilesets/secondary/elite_four/anim/wall_lights/2.png", ".4bpp");
-const u16 gTilesetAnims_EliteFour_WallLights_Frame3[] = INCGFX_U16("data/tilesets/secondary/elite_four/anim/wall_lights/3.png", ".4bpp");
+extern const u16 gTilesetAnims_EliteFour_WallLights_Frame3[ARRAY_COUNT(gTilesetAnims_EliteFour_WallLights_Frame1)] ASSET_ALIAS(gTilesetAnims_EliteFour_WallLights_Frame1); // dedupe_assets.py: mesmos 32 B (md5 0be4453c)
 const u16 tileset_anims_space_5[16] = {};
 
 const u16 *const gTilesetAnims_EliteFour_WallLights[] = {
@@ -494,8 +508,9 @@ const u16 gTilesetAnims_Sootopolis_StormyWater_Frame6[] = INCBIN_U16("data/tiles
 const u16 gTilesetAnims_Sootopolis_StormyWater_Frame7[] = INCBIN_U16("data/tilesets/secondary/sootopolis/anim/stormy_water/7_kyogre.4bpp", "data/tilesets/secondary/sootopolis/anim/stormy_water/7_groudon.4bpp");
 const u16 tileset_anims_space_8[16] = {};
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetAnims_Unused1_Frame0[] = INCGFX_U16("data/tilesets/secondary/unused_1/0.png", ".4bpp");
-const u16 gTilesetAnims_Unused1_Frame1[] = INCGFX_U16("data/tilesets/secondary/unused_1/1.png", ".4bpp");
+extern const u16 gTilesetAnims_Unused1_Frame1[ARRAY_COUNT(gTilesetAnims_Unused1_Frame0)] ASSET_ALIAS(gTilesetAnims_Unused1_Frame0); // dedupe_assets.py: mesmos 2048 B (md5 c99a74c5)
 const u16 gTilesetAnims_Unused1_Frame2[] = INCGFX_U16("data/tilesets/secondary/unused_1/2.png", ".4bpp");
 const u16 gTilesetAnims_Unused1_Frame3[] = INCGFX_U16("data/tilesets/secondary/unused_1/3.png", ".4bpp");
 

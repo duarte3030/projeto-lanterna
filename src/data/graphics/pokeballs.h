@@ -2,6 +2,7 @@ const u32 gBallGfx_Strange[] = INCGFX_U32("graphics/balls/strange.png", ".4bpp.s
 const u16 gBallPal_Strange[] = INCGFX_U16("graphics/balls/strange.png", ".gbapal");
 
 const u32 gBallGfx_Poke[] = INCGFX_U32("graphics/balls/poke.png", ".4bpp.smol");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBallPal_Poke[] = INCGFX_U16("graphics/balls/poke.png", ".gbapal");
 
 const u32 gBallGfx_Great[] = INCGFX_U32("graphics/balls/great.png", ".4bpp.smol");
@@ -14,7 +15,7 @@ const u32 gBallGfx_Master[] = INCGFX_U32("graphics/balls/master.png", ".4bpp.smo
 const u16 gBallPal_Master[] = INCGFX_U16("graphics/balls/master.png", ".gbapal");
 
 const u32 gBallGfx_Premier[] = INCGFX_U32("graphics/balls/premier.png", ".4bpp.smol");
-const u16 gBallPal_Premier[] = INCGFX_U16("graphics/balls/premier.png", ".gbapal");
+extern const u16 gBallPal_Premier[ARRAY_COUNT(gBallPal_Poke)] ASSET_ALIAS(gBallPal_Poke); // dedupe_assets.py: mesmos 32 B (md5 d704cd6e)
 
 const u32 gBallGfx_Heal[] = INCGFX_U32("graphics/balls/heal.png", ".4bpp.smol");
 const u16 gBallPal_Heal[] = INCGFX_U16("graphics/balls/heal.png", ".gbapal");

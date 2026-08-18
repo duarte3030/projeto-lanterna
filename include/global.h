@@ -57,6 +57,13 @@
 
 #define ARRAY_COUNT(array) (size_t)(sizeof(array) / sizeof((array)[0]))
 
+// Asset cujos bytes sao IDENTICOS aos de outro simbolo ja definido nesta mesma
+// unidade de traducao: o alias de link nao ocupa nem um byte de ROM (os dois
+// nomes caem no mesmo endereco, com o mesmo tamanho), e quem consome continua
+// escrevendo o nome de sempre. Gerado e conferido por dev_scripts/dedupe_assets.py
+// (`--censo`, `--aplicar`, `--demo`); nao escreva alias na mao.
+#define ASSET_ALIAS(canonico) __attribute__((alias(#canonico)))
+
 // GameFreak used a macro called "NELEMS", as evidenced by
 // AgbAssert calls.
 #define NELEMS(arr) (sizeof(arr)/sizeof(*(arr)))

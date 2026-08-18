@@ -22,6 +22,7 @@ const u32 gItemIcon_MasterBall[] = INCGFX_U32("graphics/items/icons/master_ball.
 const u16 gItemIconPalette_MasterBall[] = INCGFX_U16("graphics/items/icon_palettes/master_ball.pal", ".gbapal");
 
 const u32 gItemIcon_PremierBall[] = INCGFX_U32("graphics/items/icons/premier_ball.png", ".4bpp.smol");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gItemIconPalette_PremierBall[] = INCGFX_U16("graphics/items/icon_palettes/premier_ball.pal", ".gbapal");
 
 const u32 gItemIcon_HealBall[] = INCGFX_U32("graphics/items/icons/heal_ball.png", ".4bpp.smol");
@@ -48,7 +49,7 @@ const u32 gItemIcon_RepeatBall[] = INCGFX_U32("graphics/items/icons/repeat_ball.
 const u16 gItemIconPalette_RepeatBall[] = INCGFX_U16("graphics/items/icon_palettes/repeat_ball.pal", ".gbapal");
 
 const u32 gItemIcon_LuxuryBall[] = INCGFX_U32("graphics/items/icons/luxury_ball.png", ".4bpp.smol");
-const u16 gItemIconPalette_LuxuryBall[] = INCGFX_U16("graphics/items/icon_palettes/luxury_ball.pal", ".gbapal");
+extern const u16 gItemIconPalette_LuxuryBall[ARRAY_COUNT(gItemIconPalette_PremierBall)] ASSET_ALIAS(gItemIconPalette_PremierBall); // dedupe_assets.py: mesmos 32 B (md5 044fc815)
 
 const u32 gItemIcon_LevelBall[] = INCGFX_U32("graphics/items/icons/level_ball.png", ".4bpp.smol");
 const u16 gItemIconPalette_LevelBall[] = INCGFX_U16("graphics/items/icon_palettes/level_ball.pal", ".gbapal");
@@ -735,40 +736,45 @@ const u16 gItemIconPalette_BlueOrb[] = INCGFX_U16("graphics/items/icon_palettes/
 
 // Mega Stones
 
+// dedupe_assets.py: compartilhado por 3 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gItemIcon_Venusaurite[] = INCGFX_U32("graphics/items/icons/venusaurite.png", ".4bpp.smol");
 const u16 gItemIconPalette_Venusaurite[] = INCGFX_U16("graphics/items/icon_palettes/venusaurite.pal", ".gbapal");
 
 const u32 gItemIcon_CharizarditeX[] = INCGFX_U32("graphics/items/icons/charizardite_x.png", ".4bpp.smol");
 const u16 gItemIconPalette_CharizarditeX[] = INCGFX_U16("graphics/items/icon_palettes/charizardite_x.pal", ".gbapal");
 
+// dedupe_assets.py: compartilhado por 4 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gItemIcon_CharizarditeY[] = INCGFX_U32("graphics/items/icons/charizardite_y.png", ".4bpp.smol");
 const u16 gItemIconPalette_CharizarditeY[] = INCGFX_U16("graphics/items/icon_palettes/charizardite_y.pal", ".gbapal");
 
-const u32 gItemIcon_Blastoisinite[] = INCGFX_U32("graphics/items/icons/blastoisinite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Blastoisinite[ARRAY_COUNT(gItemIcon_CharizarditeY)] ASSET_ALIAS(gItemIcon_CharizarditeY); // dedupe_assets.py: mesmos 120 B (md5 80117d5c)
 const u16 gItemIconPalette_Blastoisinite[] = INCGFX_U16("graphics/items/icon_palettes/blastoisinite.pal", ".gbapal");
 
 const u32 gItemIcon_Beedrillite[] = INCGFX_U32("graphics/items/icons/beedrillite.png", ".4bpp.smol");
 const u16 gItemIconPalette_Beedrillite[] = INCGFX_U16("graphics/items/icon_palettes/beedrillite.pal", ".gbapal");
 
+// dedupe_assets.py: compartilhado por 5 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gItemIcon_Pidgeotite[] = INCGFX_U32("graphics/items/icons/pidgeotite.png", ".4bpp.smol");
 const u16 gItemIconPalette_Pidgeotite[] = INCGFX_U16("graphics/items/icon_palettes/pidgeotite.pal", ".gbapal");
 
 const u32 gItemIcon_Alakazite[] = INCGFX_U32("graphics/items/icons/alakazite.png", ".4bpp.smol");
 const u16 gItemIconPalette_Alakazite[] = INCGFX_U16("graphics/items/icon_palettes/alakazite.pal", ".gbapal");
 
-const u32 gItemIcon_Slowbronite[] = INCGFX_U32("graphics/items/icons/slowbronite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Slowbronite[ARRAY_COUNT(gItemIcon_Pidgeotite)] ASSET_ALIAS(gItemIcon_Pidgeotite); // dedupe_assets.py: mesmos 120 B (md5 24f215d8)
 const u16 gItemIconPalette_Slowbronite[] = INCGFX_U16("graphics/items/icon_palettes/slowbronite.pal", ".gbapal");
 
-const u32 gItemIcon_Gengarite[] = INCGFX_U32("graphics/items/icons/gengarite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Gengarite[ARRAY_COUNT(gItemIcon_CharizarditeY)] ASSET_ALIAS(gItemIcon_CharizarditeY); // dedupe_assets.py: mesmos 120 B (md5 80117d5c)
 const u16 gItemIconPalette_Gengarite[] = INCGFX_U16("graphics/items/icon_palettes/gengarite.pal", ".gbapal");
 
+// dedupe_assets.py: compartilhado por 11 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gItemIcon_Kangaskhanite[] = INCGFX_U32("graphics/items/icons/kangaskhanite.png", ".4bpp.smol");
 const u16 gItemIconPalette_Kangaskhanite[] = INCGFX_U16("graphics/items/icon_palettes/kangaskhanite.pal", ".gbapal");
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gItemIcon_Pinsirite[] = INCGFX_U32("graphics/items/icons/pinsirite.png", ".4bpp.smol");
 const u16 gItemIconPalette_Pinsirite[] = INCGFX_U16("graphics/items/icon_palettes/pinsirite.pal", ".gbapal");
 
-const u32 gItemIcon_Gyaradosite[] = INCGFX_U32("graphics/items/icons/gyaradosite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Gyaradosite[ARRAY_COUNT(gItemIcon_Kangaskhanite)] ASSET_ALIAS(gItemIcon_Kangaskhanite); // dedupe_assets.py: mesmos 120 B (md5 9f4bf589)
 const u16 gItemIconPalette_Gyaradosite[] = INCGFX_U16("graphics/items/icon_palettes/gyaradosite.pal", ".gbapal");
 
 const u32 gItemIcon_Aerodactylite[] = INCGFX_U32("graphics/items/icons/aerodactylite.png", ".4bpp.smol");
@@ -780,34 +786,34 @@ const u16 gItemIconPalette_MewtwoniteX[] = INCGFX_U16("graphics/items/icon_palet
 const u32 gItemIcon_MewtwoniteY[] = INCGFX_U32("graphics/items/icons/mewtwonite_y.png", ".4bpp.smol");
 const u16 gItemIconPalette_MewtwoniteY[] = INCGFX_U16("graphics/items/icon_palettes/mewtwonite_y.pal", ".gbapal");
 
-const u32 gItemIcon_Ampharosite[] = INCGFX_U32("graphics/items/icons/ampharosite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Ampharosite[ARRAY_COUNT(gItemIcon_Venusaurite)] ASSET_ALIAS(gItemIcon_Venusaurite); // dedupe_assets.py: mesmos 120 B (md5 02f25226)
 const u16 gItemIconPalette_Ampharosite[] = INCGFX_U16("graphics/items/icon_palettes/ampharosite.pal", ".gbapal");
 
 const u32 gItemIcon_Steelixite[] = INCGFX_U32("graphics/items/icons/steelixite.png", ".4bpp.smol");
 const u16 gItemIconPalette_Steelixite[] = INCGFX_U16("graphics/items/icon_palettes/steelixite.pal", ".gbapal");
 
-const u32 gItemIcon_Scizorite[] = INCGFX_U32("graphics/items/icons/scizorite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Scizorite[ARRAY_COUNT(gItemIcon_Kangaskhanite)] ASSET_ALIAS(gItemIcon_Kangaskhanite); // dedupe_assets.py: mesmos 120 B (md5 9f4bf589)
 const u16 gItemIconPalette_Scizorite[] = INCGFX_U16("graphics/items/icon_palettes/scizorite.pal", ".gbapal");
 
-const u32 gItemIcon_Heracronite[] = INCGFX_U32("graphics/items/icons/heracronite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Heracronite[ARRAY_COUNT(gItemIcon_Kangaskhanite)] ASSET_ALIAS(gItemIcon_Kangaskhanite); // dedupe_assets.py: mesmos 120 B (md5 9f4bf589)
 const u16 gItemIconPalette_Heracronite[] = INCGFX_U16("graphics/items/icon_palettes/heracronite.pal", ".gbapal");
 
-const u32 gItemIcon_Houndoominite[] = INCGFX_U32("graphics/items/icons/houndoominite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Houndoominite[ARRAY_COUNT(gItemIcon_Kangaskhanite)] ASSET_ALIAS(gItemIcon_Kangaskhanite); // dedupe_assets.py: mesmos 120 B (md5 9f4bf589)
 const u16 gItemIconPalette_Houndoominite[] = INCGFX_U16("graphics/items/icon_palettes/houndoominite.pal", ".gbapal");
 
-const u32 gItemIcon_Tyranitarite[] = INCGFX_U32("graphics/items/icons/tyranitarite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Tyranitarite[ARRAY_COUNT(gItemIcon_Kangaskhanite)] ASSET_ALIAS(gItemIcon_Kangaskhanite); // dedupe_assets.py: mesmos 120 B (md5 9f4bf589)
 const u16 gItemIconPalette_Tyranitarite[] = INCGFX_U16("graphics/items/icon_palettes/tyranitarite.pal", ".gbapal");
 
 const u32 gItemIcon_Sceptilite[] = INCGFX_U32("graphics/items/icons/sceptilite.png", ".4bpp.smol");
 const u16 gItemIconPalette_Sceptilite[] = INCGFX_U16("graphics/items/icon_palettes/sceptilite.pal", ".gbapal");
 
-const u32 gItemIcon_Blazikenite[] = INCGFX_U32("graphics/items/icons/blazikenite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Blazikenite[ARRAY_COUNT(gItemIcon_Kangaskhanite)] ASSET_ALIAS(gItemIcon_Kangaskhanite); // dedupe_assets.py: mesmos 120 B (md5 9f4bf589)
 const u16 gItemIconPalette_Blazikenite[] = INCGFX_U16("graphics/items/icon_palettes/blazikenite.pal", ".gbapal");
 
 const u32 gItemIcon_Swampertite[] = INCGFX_U32("graphics/items/icons/swampertite.png", ".4bpp.smol");
 const u16 gItemIconPalette_Swampertite[] = INCGFX_U16("graphics/items/icon_palettes/swampertite.pal", ".gbapal");
 
-const u32 gItemIcon_Gardevoirite[] = INCGFX_U32("graphics/items/icons/gardevoirite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Gardevoirite[ARRAY_COUNT(gItemIcon_Venusaurite)] ASSET_ALIAS(gItemIcon_Venusaurite); // dedupe_assets.py: mesmos 120 B (md5 02f25226)
 const u16 gItemIconPalette_Gardevoirite[] = INCGFX_U16("graphics/items/icon_palettes/gardevoirite.pal", ".gbapal");
 
 const u32 gItemIcon_Sablenite[] = INCGFX_U32("graphics/items/icons/sablenite.png", ".4bpp.smol");
@@ -816,25 +822,25 @@ const u16 gItemIconPalette_Sablenite[] = INCGFX_U16("graphics/items/icon_palette
 const u32 gItemIcon_Mawilite[] = INCGFX_U32("graphics/items/icons/mawilite.png", ".4bpp.smol");
 const u16 gItemIconPalette_Mawilite[] = INCGFX_U16("graphics/items/icon_palettes/mawilite.pal", ".gbapal");
 
-const u32 gItemIcon_Aggronite[] = INCGFX_U32("graphics/items/icons/aggronite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Aggronite[ARRAY_COUNT(gItemIcon_Kangaskhanite)] ASSET_ALIAS(gItemIcon_Kangaskhanite); // dedupe_assets.py: mesmos 120 B (md5 9f4bf589)
 const u16 gItemIconPalette_Aggronite[] = INCGFX_U16("graphics/items/icon_palettes/aggronite.pal", ".gbapal");
 
-const u32 gItemIcon_Medichamite[] = INCGFX_U32("graphics/items/icons/medichamite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Medichamite[ARRAY_COUNT(gItemIcon_CharizarditeY)] ASSET_ALIAS(gItemIcon_CharizarditeY); // dedupe_assets.py: mesmos 120 B (md5 80117d5c)
 const u16 gItemIconPalette_Medichamite[] = INCGFX_U16("graphics/items/icon_palettes/medichamite.pal", ".gbapal");
 
-const u32 gItemIcon_Manectite[] = INCGFX_U32("graphics/items/icons/manectite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Manectite[ARRAY_COUNT(gItemIcon_Kangaskhanite)] ASSET_ALIAS(gItemIcon_Kangaskhanite); // dedupe_assets.py: mesmos 120 B (md5 9f4bf589)
 const u16 gItemIconPalette_Manectite[] = INCGFX_U16("graphics/items/icon_palettes/manectite.pal", ".gbapal");
 
-const u32 gItemIcon_Sharpedonite[] = INCGFX_U32("graphics/items/icons/sharpedonite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Sharpedonite[ARRAY_COUNT(gItemIcon_Pidgeotite)] ASSET_ALIAS(gItemIcon_Pidgeotite); // dedupe_assets.py: mesmos 120 B (md5 24f215d8)
 const u16 gItemIconPalette_Sharpedonite[] = INCGFX_U16("graphics/items/icon_palettes/sharpedonite.pal", ".gbapal");
 
-const u32 gItemIcon_Cameruptite[] = INCGFX_U32("graphics/items/icons/cameruptite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Cameruptite[ARRAY_COUNT(gItemIcon_Pidgeotite)] ASSET_ALIAS(gItemIcon_Pidgeotite); // dedupe_assets.py: mesmos 120 B (md5 24f215d8)
 const u16 gItemIconPalette_Cameruptite[] = INCGFX_U16("graphics/items/icon_palettes/cameruptite.pal", ".gbapal");
 
 const u32 gItemIcon_Altarianite[] = INCGFX_U32("graphics/items/icons/altarianite.png", ".4bpp.smol");
 const u16 gItemIconPalette_Altarianite[] = INCGFX_U16("graphics/items/icon_palettes/altarianite.pal", ".gbapal");
 
-const u32 gItemIcon_Banettite[] = INCGFX_U32("graphics/items/icons/banettite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Banettite[ARRAY_COUNT(gItemIcon_Kangaskhanite)] ASSET_ALIAS(gItemIcon_Kangaskhanite); // dedupe_assets.py: mesmos 120 B (md5 9f4bf589)
 const u16 gItemIconPalette_Banettite[] = INCGFX_U16("graphics/items/icon_palettes/banettite.pal", ".gbapal");
 
 const u32 gItemIcon_Absolite[] = INCGFX_U32("graphics/items/icons/absolite.png", ".4bpp.smol");
@@ -843,25 +849,26 @@ const u16 gItemIconPalette_Absolite[] = INCGFX_U16("graphics/items/icon_palettes
 const u32 gItemIcon_Glalitite[] = INCGFX_U32("graphics/items/icons/glalitite.png", ".4bpp.smol");
 const u16 gItemIconPalette_Glalitite[] = INCGFX_U16("graphics/items/icon_palettes/glalitite.pal", ".gbapal");
 
-const u32 gItemIcon_Salamencite[] = INCGFX_U32("graphics/items/icons/salamencite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Salamencite[ARRAY_COUNT(gItemIcon_Pidgeotite)] ASSET_ALIAS(gItemIcon_Pidgeotite); // dedupe_assets.py: mesmos 120 B (md5 24f215d8)
 const u16 gItemIconPalette_Salamencite[] = INCGFX_U16("graphics/items/icon_palettes/salamencite.pal", ".gbapal");
 
 const u32 gItemIcon_Metagrossite[] = INCGFX_U32("graphics/items/icons/metagrossite.png", ".4bpp.smol");
 const u16 gItemIconPalette_Metagrossite[] = INCGFX_U16("graphics/items/icon_palettes/metagrossite.pal", ".gbapal");
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gItemIcon_Latiasite[] = INCGFX_U32("graphics/items/icons/latiasite.png", ".4bpp.smol");
 const u16 gItemIconPalette_Latiasite[] = INCGFX_U16("graphics/items/icon_palettes/latiasite.pal", ".gbapal");
 
-const u32 gItemIcon_Latiosite[] = INCGFX_U32("graphics/items/icons/latiosite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Latiosite[ARRAY_COUNT(gItemIcon_Latiasite)] ASSET_ALIAS(gItemIcon_Latiasite); // dedupe_assets.py: mesmos 120 B (md5 b65606a9)
 const u16 gItemIconPalette_Latiosite[] = INCGFX_U16("graphics/items/icon_palettes/latiosite.pal", ".gbapal");
 
 const u32 gItemIcon_Lopunnite[] = INCGFX_U32("graphics/items/icons/lopunnite.png", ".4bpp.smol");
 const u16 gItemIconPalette_Lopunnite[] = INCGFX_U16("graphics/items/icon_palettes/lopunnite.pal", ".gbapal");
 
-const u32 gItemIcon_Garchompite[] = INCGFX_U32("graphics/items/icons/garchompite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Garchompite[ARRAY_COUNT(gItemIcon_Pinsirite)] ASSET_ALIAS(gItemIcon_Pinsirite); // dedupe_assets.py: mesmos 120 B (md5 de5944ad)
 const u16 gItemIconPalette_Garchompite[] = INCGFX_U16("graphics/items/icon_palettes/garchompite.pal", ".gbapal");
 
-const u32 gItemIcon_Lucarionite[] = INCGFX_U32("graphics/items/icons/lucarionite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Lucarionite[ARRAY_COUNT(gItemIcon_Kangaskhanite)] ASSET_ALIAS(gItemIcon_Kangaskhanite); // dedupe_assets.py: mesmos 120 B (md5 9f4bf589)
 const u16 gItemIconPalette_Lucarionite[] = INCGFX_U16("graphics/items/icon_palettes/lucarionite.pal", ".gbapal");
 
 const u32 gItemIcon_Abomasite[] = INCGFX_U32("graphics/items/icons/abomasite.png", ".4bpp.smol");
@@ -876,139 +883,142 @@ const u16 gItemIconPalette_Audinite[] = INCGFX_U16("graphics/items/icon_palettes
 const u32 gItemIcon_Diancite[] = INCGFX_U32("graphics/items/icons/diancite.png", ".4bpp.smol");
 const u16 gItemIconPalette_Diancite[] = INCGFX_U16("graphics/items/icon_palettes/diancite.pal", ".gbapal");
 
+// dedupe_assets.py: compartilhado por 5 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gItemIcon_Clefablite[] = INCGFX_U32("graphics/items/icons/clefablite.png", ".4bpp.smol");
 const u16 gItemIconPalette_Clefablite[] = INCGFX_U16("graphics/items/icon_palettes/clefablite.pal", ".gbapal");
 
 const u32 gItemIcon_Victreebelite[] = INCGFX_U32("graphics/items/icons/victreebelite.png", ".4bpp.smol");
 const u16 gItemIconPalette_Victreebelite[] = INCGFX_U16("graphics/items/icon_palettes/victreebelite.pal", ".gbapal");
 
-const u32 gItemIcon_Starminite[] = INCGFX_U32("graphics/items/icons/starminite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Starminite[ARRAY_COUNT(gItemIcon_Clefablite)] ASSET_ALIAS(gItemIcon_Clefablite); // dedupe_assets.py: mesmos 128 B (md5 4b5662eb)
 const u16 gItemIconPalette_Starminite[] = INCGFX_U16("graphics/items/icon_palettes/starminite.pal", ".gbapal");
 
-const u32 gItemIcon_Dragoninite[] = INCGFX_U32("graphics/items/icons/dragoninite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Dragoninite[ARRAY_COUNT(gItemIcon_Clefablite)] ASSET_ALIAS(gItemIcon_Clefablite); // dedupe_assets.py: mesmos 128 B (md5 4b5662eb)
 const u16 gItemIconPalette_Dragoninite[] = INCGFX_U16("graphics/items/icon_palettes/dragoninite.pal", ".gbapal");
 
-const u32 gItemIcon_Meganiumite[] = INCGFX_U32("graphics/items/icons/meganiumite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Meganiumite[ARRAY_COUNT(gItemIcon_Clefablite)] ASSET_ALIAS(gItemIcon_Clefablite); // dedupe_assets.py: mesmos 128 B (md5 4b5662eb)
 const u16 gItemIconPalette_Meganiumite[] = INCGFX_U16("graphics/items/icon_palettes/meganiumite.pal", ".gbapal");
 
-const u32 gItemIcon_Feraligite[] = INCGFX_U32("graphics/items/icons/feraligite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Feraligite[ARRAY_COUNT(gItemIcon_Clefablite)] ASSET_ALIAS(gItemIcon_Clefablite); // dedupe_assets.py: mesmos 128 B (md5 4b5662eb)
 const u16 gItemIconPalette_Feraligite[] = INCGFX_U16("graphics/items/icon_palettes/feraligite.pal", ".gbapal");
 
+// dedupe_assets.py: compartilhado por 36 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gItemIcon_Skarmorite[] = INCGFX_U32("graphics/items/icons/skarmorite.png", ".4bpp.smol");
 const u16 gItemIconPalette_Skarmorite[] = INCGFX_U16("graphics/items/icon_palettes/skarmorite.pal", ".gbapal");
 
-const u32 gItemIcon_Froslassite[] = INCGFX_U32("graphics/items/icons/froslassite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Froslassite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Froslassite[] = INCGFX_U16("graphics/items/icon_palettes/froslassite.pal", ".gbapal");
 
-const u32 gItemIcon_Emboarite[] = INCGFX_U32("graphics/items/icons/emboarite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Emboarite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Emboarite[] = INCGFX_U16("graphics/items/icon_palettes/emboarite.pal", ".gbapal");
 
-const u32 gItemIcon_Excadrite[] = INCGFX_U32("graphics/items/icons/excadrite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Excadrite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Excadrite[] = INCGFX_U16("graphics/items/icon_palettes/excadrite.pal", ".gbapal");
 
-const u32 gItemIcon_Scolipite[] = INCGFX_U32("graphics/items/icons/scolipite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Scolipite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Scolipite[] = INCGFX_U16("graphics/items/icon_palettes/scolipite.pal", ".gbapal");
 
-const u32 gItemIcon_Scraftinite[] = INCGFX_U32("graphics/items/icons/scraftinite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Scraftinite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Scraftinite[] = INCGFX_U16("graphics/items/icon_palettes/scraftinite.pal", ".gbapal");
 
-const u32 gItemIcon_Eelektrossite[] = INCGFX_U32("graphics/items/icons/eelektrossite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Eelektrossite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Eelektrossite[] = INCGFX_U16("graphics/items/icon_palettes/eelektrossite.pal", ".gbapal");
 
-const u32 gItemIcon_Chandelurite[] = INCGFX_U32("graphics/items/icons/chandelurite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Chandelurite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Chandelurite[] = INCGFX_U16("graphics/items/icon_palettes/chandelurite.pal", ".gbapal");
 
-const u32 gItemIcon_Chesnaughtite[] = INCGFX_U32("graphics/items/icons/chesnaughtite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Chesnaughtite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Chesnaughtite[] = INCGFX_U16("graphics/items/icon_palettes/chesnaughtite.pal", ".gbapal");
 
-const u32 gItemIcon_Delphoxite[] = INCGFX_U32("graphics/items/icons/delphoxite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Delphoxite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Delphoxite[] = INCGFX_U16("graphics/items/icon_palettes/delphoxite.pal", ".gbapal");
 
-const u32 gItemIcon_Greninjite[] = INCGFX_U32("graphics/items/icons/greninjite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Greninjite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Greninjite[] = INCGFX_U16("graphics/items/icon_palettes/greninjite.pal", ".gbapal");
 
-const u32 gItemIcon_Pyroarite[] = INCGFX_U32("graphics/items/icons/pyroarite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Pyroarite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Pyroarite[] = INCGFX_U16("graphics/items/icon_palettes/pyroarite.pal", ".gbapal");
 
-const u32 gItemIcon_Floettite[] = INCGFX_U32("graphics/items/icons/floettite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Floettite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Floettite[] = INCGFX_U16("graphics/items/icon_palettes/floettite.pal", ".gbapal");
 
-const u32 gItemIcon_Malamarite[] = INCGFX_U32("graphics/items/icons/malamarite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Malamarite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Malamarite[] = INCGFX_U16("graphics/items/icon_palettes/malamarite.pal", ".gbapal");
 
-const u32 gItemIcon_Barbaracite[] = INCGFX_U32("graphics/items/icons/barbaracite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Barbaracite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Barbaracite[] = INCGFX_U16("graphics/items/icon_palettes/barbaracite.pal", ".gbapal");
 
-const u32 gItemIcon_Dragalgite[] = INCGFX_U32("graphics/items/icons/dragalgite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Dragalgite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Dragalgite[] = INCGFX_U16("graphics/items/icon_palettes/dragalgite.pal", ".gbapal");
 
-const u32 gItemIcon_Hawluchanite[] = INCGFX_U32("graphics/items/icons/hawluchanite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Hawluchanite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Hawluchanite[] = INCGFX_U16("graphics/items/icon_palettes/hawluchanite.pal", ".gbapal");
 
-const u32 gItemIcon_Zygardite[] = INCGFX_U32("graphics/items/icons/zygardite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Zygardite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Zygardite[] = INCGFX_U16("graphics/items/icon_palettes/zygardite.pal", ".gbapal");
 
-const u32 gItemIcon_Drampanite[] = INCGFX_U32("graphics/items/icons/drampanite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Drampanite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Drampanite[] = INCGFX_U16("graphics/items/icon_palettes/drampanite.pal", ".gbapal");
 
-const u32 gItemIcon_Falinksite[] = INCGFX_U32("graphics/items/icons/falinksite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Falinksite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Falinksite[] = INCGFX_U16("graphics/items/icon_palettes/falinksite.pal", ".gbapal");
 
-const u32 gItemIcon_Heatranite[] = INCGFX_U32("graphics/items/icons/heatranite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Heatranite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Heatranite[] = INCGFX_U16("graphics/items/icon_palettes/heatranite.pal", ".gbapal");
 
-const u32 gItemIcon_Darkranite[] = INCGFX_U32("graphics/items/icons/darkranite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Darkranite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Darkranite[] = INCGFX_U16("graphics/items/icon_palettes/darkranite.pal", ".gbapal");
 
-const u32 gItemIcon_Zeraorite[] = INCGFX_U32("graphics/items/icons/zeraorite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Zeraorite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Zeraorite[] = INCGFX_U16("graphics/items/icon_palettes/zeraorite.pal", ".gbapal");
 
 const u32 gItemIcon_RaichuniteX[] = INCGFX_U32("graphics/items/icons/raichunite_x.png", ".4bpp.smol");
 const u16 gItemIconPalette_RaichuniteX[] = INCGFX_U16("graphics/items/icon_palettes/raichunite_x.pal", ".gbapal");
 
-const u32 gItemIcon_RaichuniteY[] = INCGFX_U32("graphics/items/icons/raichunite_y.png", ".4bpp.smol");
+extern const u32 gItemIcon_RaichuniteY[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_RaichuniteY[] = INCGFX_U16("graphics/items/icon_palettes/raichunite_y.pal", ".gbapal");
 
-const u32 gItemIcon_Chimechite[] = INCGFX_U32("graphics/items/icons/chimechite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Chimechite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Chimechite[] = INCGFX_U16("graphics/items/icon_palettes/chimechite.pal", ".gbapal");
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gItemIcon_AbsoliteZ[] = INCGFX_U32("graphics/items/icons/absolite_z.png", ".4bpp.smol");
 const u16 gItemIconPalette_AbsoliteZ[] = INCGFX_U16("graphics/items/icon_palettes/absolite_z.pal", ".gbapal");
 
-const u32 gItemIcon_Staraptite[] = INCGFX_U32("graphics/items/icons/staraptite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Staraptite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Staraptite[] = INCGFX_U16("graphics/items/icon_palettes/staraptite.pal", ".gbapal");
 
-const u32 gItemIcon_GarchompiteZ[] = INCGFX_U32("graphics/items/icons/garchompite_z.png", ".4bpp.smol");
+extern const u32 gItemIcon_GarchompiteZ[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_GarchompiteZ[] = INCGFX_U16("graphics/items/icon_palettes/garchompite_z.pal", ".gbapal");
 
-const u32 gItemIcon_LucarioniteZ[] = INCGFX_U32("graphics/items/icons/lucarionite_z.png", ".4bpp.smol");
+extern const u32 gItemIcon_LucarioniteZ[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_LucarioniteZ[] = INCGFX_U16("graphics/items/icon_palettes/lucarionite_z.pal", ".gbapal");
 
-const u32 gItemIcon_Golurkite[] = INCGFX_U32("graphics/items/icons/golurkite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Golurkite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Golurkite[] = INCGFX_U16("graphics/items/icon_palettes/golurkite.pal", ".gbapal");
 
-const u32 gItemIcon_Meowsticite[] = INCGFX_U32("graphics/items/icons/meowsticite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Meowsticite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Meowsticite[] = INCGFX_U16("graphics/items/icon_palettes/meowsticite.pal", ".gbapal");
 
-const u32 gItemIcon_Crabominite[] = INCGFX_U32("graphics/items/icons/crabominite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Crabominite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Crabominite[] = INCGFX_U16("graphics/items/icon_palettes/crabominite.pal", ".gbapal");
 
-const u32 gItemIcon_Golisopite[] = INCGFX_U32("graphics/items/icons/golisopite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Golisopite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Golisopite[] = INCGFX_U16("graphics/items/icon_palettes/golisopite.pal", ".gbapal");
 
-const u32 gItemIcon_Magearnite[] = INCGFX_U32("graphics/items/icons/magearnite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Magearnite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Magearnite[] = INCGFX_U16("graphics/items/icon_palettes/magearnite.pal", ".gbapal");
 
-const u32 gItemIcon_Scovillainite[] = INCGFX_U32("graphics/items/icons/scovillainite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Scovillainite[ARRAY_COUNT(gItemIcon_AbsoliteZ)] ASSET_ALIAS(gItemIcon_AbsoliteZ); // dedupe_assets.py: mesmos 128 B (md5 b82be8a3)
 const u16 gItemIconPalette_Scovillainite[] = INCGFX_U16("graphics/items/icon_palettes/scovillainite.pal", ".gbapal");
 
-const u32 gItemIcon_Baxcalibrite[] = INCGFX_U32("graphics/items/icons/baxcalibrite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Baxcalibrite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Baxcalibrite[] = INCGFX_U16("graphics/items/icon_palettes/baxcalibrite.pal", ".gbapal");
 
-const u32 gItemIcon_Tatsugirinite[] = INCGFX_U32("graphics/items/icons/tatsugirinite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Tatsugirinite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Tatsugirinite[] = INCGFX_U16("graphics/items/icon_palettes/tatsugirinite.pal", ".gbapal");
 
-const u32 gItemIcon_Glimmoranite[] = INCGFX_U32("graphics/items/icons/glimmoranite.png", ".4bpp.smol");
+extern const u32 gItemIcon_Glimmoranite[ARRAY_COUNT(gItemIcon_Skarmorite)] ASSET_ALIAS(gItemIcon_Skarmorite); // dedupe_assets.py: mesmos 128 B (md5 8b476ab2)
 const u16 gItemIconPalette_Glimmoranite[] = INCGFX_U16("graphics/items/icon_palettes/glimmoranite.pal", ".gbapal");
 
 // Gems
@@ -2007,10 +2017,11 @@ const u16 gItemIconPalette_MaliciousArmor[] = INCGFX_U16("graphics/items/icon_pa
 const u32 gItemIcon_MirrorHerb[] = INCGFX_U32("graphics/items/icons/mirror_herb.png", ".4bpp.smol");
 const u16 gItemIconPalette_MirrorHerb[] = INCGFX_U16("graphics/items/icon_palettes/mirror_herb.pal", ".gbapal");
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gItemIcon_ScrollOfDarkness[] = INCGFX_U32("graphics/items/icons/scroll_of_darkness.png", ".4bpp.smol");
 const u16 gItemIconPalette_ScrollOfDarkness[] = INCGFX_U16("graphics/items/icon_palettes/scroll_of_darkness.pal", ".gbapal");
 
-const u32 gItemIcon_ScrollOfWaters[] = INCGFX_U32("graphics/items/icons/scroll_of_waters.png", ".4bpp.smol");
+extern const u32 gItemIcon_ScrollOfWaters[ARRAY_COUNT(gItemIcon_ScrollOfDarkness)] ASSET_ALIAS(gItemIcon_ScrollOfDarkness); // dedupe_assets.py: mesmos 112 B (md5 7ede402b)
 const u16 gItemIconPalette_ScrollOfWaters[] = INCGFX_U16("graphics/items/icon_palettes/scroll_of_waters.pal", ".gbapal");
 
 const u32 gItemIcon_TeraOrb[] = INCGFX_U32("graphics/items/icons/tera_orb.png", ".4bpp.smol");

@@ -5,7 +5,9 @@ const u32 gRaySceneDuoFight_GroudonClaw_Gfx[]       = INCGFX_U32("graphics/rayqu
 const u32 gRaySceneDuoFight_Kyogre_Gfx[]            = INCGFX_U32("graphics/rayquaza_scene/scene_1/kyogre.png", ".4bpp.smol");
 const u32 gRaySceneDuoFight_KyogrePectoralFin_Gfx[] = INCGFX_U32("graphics/rayquaza_scene/scene_1/kyogre_pectoral_fin.png", ".4bpp.smol");
 const u32 gRaySceneDuoFight_KyogreDorsalFin_Gfx[]   = INCGFX_U32("graphics/rayquaza_scene/scene_1/kyogre_dorsal_fin.png", ".4bpp.smol");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gRaySceneDuoFight_Groudon_Pal[]           = INCGFX_U16("graphics/rayquaza_scene/scene_1/groudon.png", ".gbapal");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gRaySceneDuoFight_Kyogre_Pal[]            = INCGFX_U16("graphics/rayquaza_scene/scene_1/kyogre.png", ".gbapal");
 const u32 gRaySceneDuoFight_Clouds_Gfx[]            = INCGFX_U32("graphics/rayquaza_scene/scene_1/clouds.png", ".4bpp.smol");
 const u16 gRaySceneDuoFight_Clouds_Pal[]            = INCGFX_U16("graphics/rayquaza_scene/scene_1/clouds.png", ".gbapal"); // pal 1 clouds, pal 2 rain
@@ -48,8 +50,8 @@ const u32 gRaySceneChasesAway_Kyogre_Gfx[]       = INCGFX_U32("graphics/rayquaza
 const u32 gRaySceneChasesAway_Rayquaza_Gfx[]     = INCGFX_U32("graphics/rayquaza_scene/scene_5/rayquaza.png", ".4bpp.smol");
 const u32 gRaySceneChasesAway_RayquazaTail_Gfx[] = INCGFX_U32("graphics/rayquaza_scene/scene_5/rayquaza_tail.png", ".4bpp.smol");
 const u32 gRaySceneChasesAway_KyogreSplash_Gfx[] = INCGFX_U32("graphics/rayquaza_scene/scene_5/kyogre_splash.png", ".4bpp.smol");
-const u16 gRaySceneChasesAway_Groudon_Pal[]      = INCGFX_U16("graphics/rayquaza_scene/scene_5/groudon.png", ".gbapal");
-const u16 gRaySceneChasesAway_Kyogre_Pal[]       = INCGFX_U16("graphics/rayquaza_scene/scene_5/kyogre.png", ".gbapal");
+extern const u16 gRaySceneChasesAway_Groudon_Pal[ARRAY_COUNT(gRaySceneDuoFight_Groudon_Pal)] ASSET_ALIAS(gRaySceneDuoFight_Groudon_Pal); // dedupe_assets.py: mesmos 32 B (md5 c5fc7ff2)
+extern const u16 gRaySceneChasesAway_Kyogre_Pal[ARRAY_COUNT(gRaySceneDuoFight_Kyogre_Pal)] ASSET_ALIAS(gRaySceneDuoFight_Kyogre_Pal); // dedupe_assets.py: mesmos 32 B (md5 8ccec460)
 const u16 gRaySceneChasesAway_Rayquaza_Pal[]     = INCGFX_U16("graphics/rayquaza_scene/scene_5/rayquaza.png", ".gbapal");
 const u16 gRaySceneChasesAway_KyogreSplash_Pal[] = INCGFX_U16("graphics/rayquaza_scene/scene_5/kyogre_splash.png", ".gbapal");
 const u32 gRaySceneChasesAway_Light_Gfx[]        = INCGFX_U32("graphics/rayquaza_scene/scene_5/light.png", ".4bpp.smol");

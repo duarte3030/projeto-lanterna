@@ -74,6 +74,7 @@ const u32 gBerryPic_Rowap[] = INCGFX_U32("graphics/berries/rowap.png", ".4bpp.sm
 const u32 gBerryPic_Kee[] = INCGFX_U32("graphics/berries/kee.png", ".4bpp.smol");
 const u32 gBerryPic_Maranga[] = INCGFX_U32("graphics/berries/maranga.png", ".4bpp.smol");
 
+// dedupe_assets.py: compartilhado por 5 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBerryPalette_Cheri[] = INCGFX_U16("graphics/berries/cheri.png", ".gbapal");
 const u16 gBerryPalette_Chesto[] = INCGFX_U16("graphics/berries/chesto.png", ".gbapal");
 const u16 gBerryPalette_Pecha[] = INCGFX_U16("graphics/berries/pecha.png", ".gbapal");
@@ -85,26 +86,28 @@ const u16 gBerryPalette_Persim[] = INCGFX_U16("graphics/berries/persim.png", ".g
 const u16 gBerryPalette_Lum[] = INCGFX_U16("graphics/berries/lum.png", ".gbapal");
 const u16 gBerryPalette_Sitrus[] = INCGFX_U16("graphics/berries/sitrus.png", ".gbapal");
 const u16 gBerryPalette_Figy[] = INCGFX_U16("graphics/berries/figy.png", ".gbapal");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBerryPalette_Wiki[] = INCGFX_U16("graphics/berries/wiki.png", ".gbapal");
+// dedupe_assets.py: compartilhado por 3 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBerryPalette_Mago[] = INCGFX_U16("graphics/berries/mago.png", ".gbapal");
 const u16 gBerryPalette_Aguav[] = INCGFX_U16("graphics/berries/aguav.png", ".gbapal");
 const u16 gBerryPalette_Iapapa[] = INCGFX_U16("graphics/berries/iapapa.png", ".gbapal");
-const u16 gBerryPalette_Razz[] = INCGFX_U16("graphics/berries/razz.png", ".gbapal");
-const u16 gBerryPalette_Bluk[] = INCGFX_U16("graphics/berries/bluk.png", ".gbapal");
-const u16 gBerryPalette_Nanab[] = INCGFX_U16("graphics/berries/nanab.png", ".gbapal");
+extern const u16 gBerryPalette_Razz[ARRAY_COUNT(gBerryPalette_Cheri)] ASSET_ALIAS(gBerryPalette_Cheri); // dedupe_assets.py: mesmos 32 B (md5 f7a7dde1)
+extern const u16 gBerryPalette_Bluk[ARRAY_COUNT(gBerryPalette_Wiki)] ASSET_ALIAS(gBerryPalette_Wiki); // dedupe_assets.py: mesmos 32 B (md5 b5652831)
+extern const u16 gBerryPalette_Nanab[ARRAY_COUNT(gBerryPalette_Mago)] ASSET_ALIAS(gBerryPalette_Mago); // dedupe_assets.py: mesmos 32 B (md5 506a6777)
 const u16 gBerryPalette_Wepear[] = INCGFX_U16("graphics/berries/wepear.png", ".gbapal");
 const u16 gBerryPalette_Pinap[] = INCGFX_U16("graphics/berries/pinap.png", ".gbapal");
-const u16 gBerryPalette_Pomeg[] = INCGFX_U16("graphics/berries/pomeg.png", ".gbapal");
+extern const u16 gBerryPalette_Pomeg[ARRAY_COUNT(gBerryPalette_Cheri)] ASSET_ALIAS(gBerryPalette_Cheri); // dedupe_assets.py: mesmos 32 B (md5 f7a7dde1)
 const u16 gBerryPalette_Kelpsy[] = INCGFX_U16("graphics/berries/kelpsy.png", ".gbapal");
-const u16 gBerryPalette_Qualot[] = INCGFX_U16("graphics/berries/qualot.png", ".gbapal");
+extern const u16 gBerryPalette_Qualot[ARRAY_COUNT(gBerryPalette_Mago)] ASSET_ALIAS(gBerryPalette_Mago); // dedupe_assets.py: mesmos 32 B (md5 506a6777)
 const u16 gBerryPalette_Hondew[] = INCGFX_U16("graphics/berries/hondew.png", ".gbapal");
 const u16 gBerryPalette_Grepa[] = INCGFX_U16("graphics/berries/grepa.png", ".gbapal");
-const u16 gBerryPalette_Tamato[] = INCGFX_U16("graphics/berries/tamato.png", ".gbapal");
+extern const u16 gBerryPalette_Tamato[ARRAY_COUNT(gBerryPalette_Cheri)] ASSET_ALIAS(gBerryPalette_Cheri); // dedupe_assets.py: mesmos 32 B (md5 f7a7dde1)
 const u16 gBerryPalette_Cornn[] = INCGFX_U16("graphics/berries/cornn.png", ".gbapal");
 const u16 gBerryPalette_Magost[] = INCGFX_U16("graphics/berries/magost.png", ".gbapal");
 const u16 gBerryPalette_Rabuta[] = INCGFX_U16("graphics/berries/rabuta.png", ".gbapal");
 const u16 gBerryPalette_Nomel[] = INCGFX_U16("graphics/berries/nomel.png", ".gbapal");
-const u16 gBerryPalette_Spelon[] = INCGFX_U16("graphics/berries/spelon.png", ".gbapal");
+extern const u16 gBerryPalette_Spelon[ARRAY_COUNT(gBerryPalette_Cheri)] ASSET_ALIAS(gBerryPalette_Cheri); // dedupe_assets.py: mesmos 32 B (md5 f7a7dde1)
 const u16 gBerryPalette_Pamtre[] = INCGFX_U16("graphics/berries/pamtre.png", ".gbapal");
 const u16 gBerryPalette_Watmel[] = INCGFX_U16("graphics/berries/watmel.png", ".gbapal");
 const u16 gBerryPalette_Durin[] = INCGFX_U16("graphics/berries/durin.png", ".gbapal");

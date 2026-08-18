@@ -1,4 +1,5 @@
 const u16 gMetatiles_SecretBasePrimary[] = INCBIN_U16("data/tilesets/primary/secret_base/metatiles.bin");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gMetatileAttributes_SecretBasePrimary[] = INCBIN_U16("data/tilesets/primary/secret_base/metatile_attributes.bin");
 
 const u16 gMetatiles_SecretBaseSecondary[] = INCBIN_U16("data/tilesets/secondary/secret_base/metatiles.bin");
@@ -75,19 +76,23 @@ const u16 gMetatileAttributes_BattleFrontierOutsideWest[] = INCBIN_U16("data/til
 const u16 gMetatiles_BattleFrontierOutsideEast[] = INCBIN_U16("data/tilesets/secondary/battle_frontier_outside_east/metatiles.bin");
 const u16 gMetatileAttributes_BattleFrontierOutsideEast[] = INCBIN_U16("data/tilesets/secondary/battle_frontier_outside_east/metatile_attributes.bin");
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gMetatiles_InsideBuilding[] = INCBIN_U16("data/tilesets/primary/building/metatiles.bin");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gMetatileAttributes_InsideBuilding[] = INCBIN_U16("data/tilesets/primary/building/metatile_attributes.bin");
 
 const u16 gMetatiles_Shop[] = INCBIN_U16("data/tilesets/secondary/shop/metatiles.bin");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gMetatileAttributes_Shop[] = INCBIN_U16("data/tilesets/secondary/shop/metatile_attributes.bin");
 
 const u16 gMetatiles_ShopSinnoh[] = INCBIN_U16("data/tilesets/secondary/shop_sinnoh/metatiles.bin");
-const u16 gMetatileAttributes_ShopSinnoh[] = INCBIN_U16("data/tilesets/secondary/shop_sinnoh/metatile_attributes.bin");
+extern const u16 gMetatileAttributes_ShopSinnoh[ARRAY_COUNT(gMetatileAttributes_Shop)] ASSET_ALIAS(gMetatileAttributes_Shop); // dedupe_assets.py: mesmos 578 B (md5 9fd75068)
 
 const u16 gMetatiles_PokemonCenter[] = INCBIN_U16("data/tilesets/secondary/pokemon_center/metatiles.bin");
 const u16 gMetatileAttributes_PokemonCenter[] = INCBIN_U16("data/tilesets/secondary/pokemon_center/metatile_attributes.bin");
 
 const u16 gMetatiles_Cave[] = INCBIN_U16("data/tilesets/secondary/cave/metatiles.bin");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gMetatileAttributes_Cave[] = INCBIN_U16("data/tilesets/secondary/cave/metatile_attributes.bin");
 
 const u16 gMetatiles_CaveSinnoh[] = INCBIN_U16("data/tilesets/secondary/cave_sinnoh/metatiles.bin");
@@ -100,7 +105,7 @@ const u16 gMetatiles_PokemonFanClub[] = INCBIN_U16("data/tilesets/secondary/poke
 const u16 gMetatileAttributes_PokemonFanClub[] = INCBIN_U16("data/tilesets/secondary/pokemon_fan_club/metatile_attributes.bin");
 
 const u16 gMetatiles_Unused1[] = INCBIN_U16("data/tilesets/secondary/unused_1/metatiles.bin");
-const u16 gMetatileAttributes_Unused1[] = INCBIN_U16("data/tilesets/secondary/unused_1/metatile_attributes.bin");
+extern const u16 gMetatileAttributes_Unused1[ARRAY_COUNT(gMetatileAttributes_SecretBasePrimary)] ASSET_ALIAS(gMetatileAttributes_SecretBasePrimary); // dedupe_assets.py: mesmos 4 B (md5 f1d3ff84)
 
 const u16 gMetatiles_MeteorFalls[] = INCBIN_U16("data/tilesets/secondary/meteor_falls/metatiles.bin");
 const u16 gMetatileAttributes_MeteorFalls[] = INCBIN_U16("data/tilesets/secondary/meteor_falls/metatile_attributes.bin");
@@ -211,7 +216,7 @@ const u16 gMetatiles_BattlePyramid[] = INCBIN_U16("data/tilesets/secondary/battl
 const u16 gMetatileAttributes_BattlePyramid[] = INCBIN_U16("data/tilesets/secondary/battle_pyramid/metatile_attributes.bin");
 
 const u16 gMetatiles_MirageTower[] = INCBIN_U16("data/tilesets/secondary/mirage_tower/metatiles.bin");
-const u16 gMetatileAttributes_MirageTower[] = INCBIN_U16("data/tilesets/secondary/mirage_tower/metatile_attributes.bin");
+extern const u16 gMetatileAttributes_MirageTower[ARRAY_COUNT(gMetatileAttributes_Cave)] ASSET_ALIAS(gMetatileAttributes_Cave); // dedupe_assets.py: mesmos 828 B (md5 72670f59)
 
 const u16 gMetatiles_MossdeepGameCorner[] = INCBIN_U16("data/tilesets/secondary/mossdeep_game_corner/metatiles.bin");
 const u16 gMetatileAttributes_MossdeepGameCorner[] = INCBIN_U16("data/tilesets/secondary/mossdeep_game_corner/metatile_attributes.bin");
@@ -333,8 +338,8 @@ const u16 gMetatileAttributes_CinnabarGym[] = INCBIN_U16("data/tilesets/secondar
 const u16 gMetatiles_ViridianGym[] = INCBIN_U16("data/tilesets/secondary/viridian_gym_frlg/metatiles.bin");
 const u16 gMetatileAttributes_ViridianGym[] = INCBIN_U16("data/tilesets/secondary/viridian_gym_frlg/metatile_attributes.bin");
 
-const u16 gMetatiles_Building[] = INCBIN_U16("data/tilesets/primary/building/metatiles.bin");
-const u16 gMetatileAttributes_Building[] = INCBIN_U16("data/tilesets/primary/building/metatile_attributes.bin");
+extern const u16 gMetatiles_Building[ARRAY_COUNT(gMetatiles_InsideBuilding)] ASSET_ALIAS(gMetatiles_InsideBuilding); // dedupe_assets.py: mesmos 128 B (md5 0c8720e8)
+extern const u16 gMetatileAttributes_Building[ARRAY_COUNT(gMetatileAttributes_InsideBuilding)] ASSET_ALIAS(gMetatileAttributes_InsideBuilding); // dedupe_assets.py: mesmos 16 B (md5 190b0ef8)
 
 const u16 gMetatiles_HoennBuilding[] = INCBIN_U16("data/tilesets/secondary/hoenn_building_frlg/metatiles.bin");
 const u16 gMetatileAttributes_HoennBuilding[] = INCBIN_U16("data/tilesets/secondary/hoenn_building_frlg/metatile_attributes.bin");
@@ -363,7 +368,9 @@ const u16 gMetatileAttributes_SSAnne[] = INCBIN_U16("data/tilesets/secondary/ss_
 const u16 gMetatiles_ViridianForest[] = INCBIN_U16("data/tilesets/secondary/viridian_forest_frlg/metatiles.bin");
 const u16 gMetatileAttributes_ViridianForest[] = INCBIN_U16("data/tilesets/secondary/viridian_forest_frlg/metatile_attributes.bin");
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gMetatiles_UnusedGatehouse1[] = INCBIN_U16("data/tilesets/secondary/unused_gatehouse_1_frlg/metatiles.bin");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gMetatileAttributes_UnusedGatehouse1[] = INCBIN_U16("data/tilesets/secondary/unused_gatehouse_1_frlg/metatile_attributes.bin");
 
 const u16 gMetatiles_RockTunnel[] = INCBIN_U16("data/tilesets/secondary/rock_tunnel_frlg/metatiles.bin");
@@ -375,8 +382,8 @@ const u16 gMetatileAttributes_DiglettsCave[] = INCBIN_U16("data/tilesets/seconda
 const u16 gMetatiles_SeafoamIslands[] = INCBIN_U16("data/tilesets/secondary/seafoam_islands_frlg/metatiles.bin");
 const u16 gMetatileAttributes_SeafoamIslands[] = INCBIN_U16("data/tilesets/secondary/seafoam_islands_frlg/metatile_attributes.bin");
 
-const u16 gMetatiles_UnusedGatehouse2[] = INCBIN_U16("data/tilesets/secondary/unused_gatehouse_2_frlg/metatiles.bin");
-const u16 gMetatileAttributes_UnusedGatehouse2[] = INCBIN_U16("data/tilesets/secondary/unused_gatehouse_2_frlg/metatile_attributes.bin");
+extern const u16 gMetatiles_UnusedGatehouse2[ARRAY_COUNT(gMetatiles_UnusedGatehouse1)] ASSET_ALIAS(gMetatiles_UnusedGatehouse1); // dedupe_assets.py: mesmos 1824 B (md5 053bc09c)
+extern const u16 gMetatileAttributes_UnusedGatehouse2[ARRAY_COUNT(gMetatileAttributes_UnusedGatehouse1)] ASSET_ALIAS(gMetatileAttributes_UnusedGatehouse1); // dedupe_assets.py: mesmos 456 B (md5 ddff0518)
 
 const u16 gMetatiles_CeruleanCave[] = INCBIN_U16("data/tilesets/secondary/cerulean_cave_frlg/metatiles.bin");
 const u16 gMetatileAttributes_CeruleanCave[] = INCBIN_U16("data/tilesets/secondary/cerulean_cave_frlg/metatile_attributes.bin");
@@ -475,7 +482,9 @@ const u16 gMetatiles_BattleTowerOuter[] = INCBIN_U16("data/tilesets/secondary/ba
 const u16 gMetatileAttributes_BattleTowerOuter[] = INCBIN_U16("data/tilesets/secondary/battle_tower_outer/metatile_attributes.bin");
 const u16 gMetatiles_BellchimeTrail[] = INCBIN_U16("data/tilesets/secondary/bellchime_trail/metatiles.bin");
 const u16 gMetatileAttributes_BellchimeTrail[] = INCBIN_U16("data/tilesets/secondary/bellchime_trail/metatile_attributes.bin");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gMetatiles_BikeShopJohto[] = INCBIN_U16("data/tilesets/secondary/bike_shop_johto/metatiles.bin");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gMetatileAttributes_BikeShopJohto[] = INCBIN_U16("data/tilesets/secondary/bike_shop_johto/metatile_attributes.bin");
 const u16 gMetatiles_Blackthorn[] = INCBIN_U16("data/tilesets/secondary/blackthorn/metatiles.bin");
 const u16 gMetatileAttributes_Blackthorn[] = INCBIN_U16("data/tilesets/secondary/blackthorn/metatile_attributes.bin");
@@ -531,8 +540,8 @@ const u16 gMetatiles_HouseLab[] = INCBIN_U16("data/tilesets/secondary/house_lab/
 const u16 gMetatileAttributes_HouseLab[] = INCBIN_U16("data/tilesets/secondary/house_lab/metatile_attributes.bin");
 const u16 gMetatiles_IlexForest[] = INCBIN_U16("data/tilesets/secondary/ilex_forest/metatiles.bin");
 const u16 gMetatileAttributes_IlexForest[] = INCBIN_U16("data/tilesets/secondary/ilex_forest/metatile_attributes.bin");
-const u16 gMetatiles_JohtoBikeShop[] = INCBIN_U16("data/tilesets/secondary/johto_bike_shop/metatiles.bin");
-const u16 gMetatileAttributes_JohtoBikeShop[] = INCBIN_U16("data/tilesets/secondary/johto_bike_shop/metatile_attributes.bin");
+extern const u16 gMetatiles_JohtoBikeShop[ARRAY_COUNT(gMetatiles_BikeShopJohto)] ASSET_ALIAS(gMetatiles_BikeShopJohto); // dedupe_assets.py: mesmos 1056 B (md5 46ab01b2)
+extern const u16 gMetatileAttributes_JohtoBikeShop[ARRAY_COUNT(gMetatileAttributes_BikeShopJohto)] ASSET_ALIAS(gMetatileAttributes_BikeShopJohto); // dedupe_assets.py: mesmos 132 B (md5 909ab984)
 const u16 gMetatiles_JohtoBuilding[] = INCBIN_U16("data/tilesets/primary/johto_building/metatiles.bin");
 const u16 gMetatileAttributes_JohtoBuilding[] = INCBIN_U16("data/tilesets/primary/johto_building/metatile_attributes.bin");
 const u16 gMetatiles_JohtoGeneral[] = INCBIN_U16("data/tilesets/primary/johto_general/metatiles.bin");

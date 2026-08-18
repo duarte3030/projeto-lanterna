@@ -298,8 +298,9 @@ const u32 gFieldEffectObjectPic_ShadowExtraLarge[] = INCGFX_U32("graphics/field_
 const u32 gFieldEffectObjectPic_BallLight[] = INCGFX_U32("graphics/object_events/pics/misc/light.png", ".4bpp");
 const u32 gFieldEffectObjectPic_PokeCenterLight[] = INCGFX_U32("graphics/object_events/pics/misc/poke_center_light.png", ".4bpp");
 const u32 gFieldEffectObjectPic_MartLight[] = INCGFX_U32("graphics/object_events/pics/misc/mart_light.png", ".4bpp");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u8 gFieldEffectPic_CutGrass[] = INCGFX_U8("graphics/field_effects/pics/cut_grass.png", ".4bpp");
-const u32 gFieldEffectPic_CutGrass_Copy[] = INCGFX_U32("graphics/field_effects/pics/cut_grass.png", ".4bpp");
+extern const u32 gFieldEffectPic_CutGrass_Copy[ARRAY_COUNT(gFieldEffectPic_CutGrass)] ASSET_ALIAS(gFieldEffectPic_CutGrass); // dedupe_assets.py: mesmos 32 B (md5 4474dce7)
 const u16 gFieldEffectPal_CutGrass[] = INCGFX_U16("graphics/field_effects/palettes/cut_grass.pal", ".gbapal");
 const u32 gFieldEffectObjectPic_Ripple[] = INCGFX_U32("graphics/field_effects/pics/ripple.png", ".4bpp", "-mwidth 2 -mheight 2");
 const u32 gFieldEffectObjectPic_Ash[] = INCGFX_U32("graphics/field_effects/pics/ash.png", ".4bpp", "-mwidth 2 -mheight 2");
@@ -382,7 +383,9 @@ const u32 gObjectEventPic_VigorothMover[] = INCGFX_U32("graphics/object_events/p
 const u32 gObjectEventPic_SudowoodoTree[] = INCGFX_U32("graphics/object_events/pics/pokemon_old/sudowoodo_tree.png", ".4bpp", "-mwidth 2 -mheight 4");
 const u32 gObjectEventPic_RayquazaCutscene[] = INCGFX_U32("graphics/object_events/pics/pokemon_old/rayquaza_cutscene.png", ".4bpp", "-mwidth 8 -mheight 8");
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gObjectEventPal_HoOh[] = INCGFX_U16("graphics/object_events/palettes/ho_oh.pal", ".gbapal");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gObjectEventPal_Lugia[] = INCGFX_U16("graphics/object_events/palettes/lugia.pal", ".gbapal");
 
 const u16 gObjectEventPaletteLight[] = INCGFX_U16("graphics/object_events/palettes/light.pal", ".gbapal");
@@ -487,8 +490,8 @@ const u16 gObjectEventPic_GreenVSSeekerBike[] = INCGFX_U16("graphics/object_even
 
 const u16 gObjectEventPal_PlayerFrlg[] = INCGFX_U16("graphics/object_events/palettes/player_frlg.pal", ".gbapal");
 const u16 gObjectEventPal_PlayerReflectionFrlg[] = INCGFX_U16("graphics/object_events/palettes/player_reflection_frlg.pal", ".gbapal");
-const u16 gObjectEventPal_NpcBlue[] = INCGFX_U16("graphics/object_events/palettes/npc_blue.pal", ".gbapal");
-const u16 gObjectEventPal_NpcPink[] = INCGFX_U16("graphics/object_events/palettes/npc_pink.pal", ".gbapal");
+extern const u16 gObjectEventPal_NpcBlue[ARRAY_COUNT(gObjectEventPal_HoOh)] ASSET_ALIAS(gObjectEventPal_HoOh); // dedupe_assets.py: mesmos 32 B (md5 4ad1b335)
+extern const u16 gObjectEventPal_NpcPink[ARRAY_COUNT(gObjectEventPal_Lugia)] ASSET_ALIAS(gObjectEventPal_Lugia); // dedupe_assets.py: mesmos 32 B (md5 e506e518)
 const u16 gObjectEventPal_NpcGreen[] = INCGFX_U16("graphics/object_events/palettes/npc_green.pal", ".gbapal");
 const u16 gObjectEventPal_NpcWhite[] = INCGFX_U16("graphics/object_events/palettes/npc_white.pal", ".gbapal");
 const u16 gObjectEventPal_NpcBlueReflection[] = INCGFX_U16("graphics/object_events/palettes/npc_blue_reflection.pal", ".gbapal");

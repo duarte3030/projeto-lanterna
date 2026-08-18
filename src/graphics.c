@@ -62,10 +62,11 @@ const u32 gBattleAnimSpriteGfx_AlphaStone[] = INCGFX_U32("graphics/battle_anims/
 const u16 gBattleAnimSpritePal_AlphaStone[] = INCGFX_U16("graphics/battle_anims/sprites/alpha_stone.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_TeraCrystal[] = INCGFX_U32("graphics/battle_anims/sprites/tera_crystal.png", ".4bpp.smol");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_TeraCrystal[] = INCGFX_U16("graphics/battle_anims/sprites/tera_crystal.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_TeraShatter[] = INCGFX_U32("graphics/battle_anims/sprites/tera_shatter.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_TeraShatter[] = INCGFX_U16("graphics/battle_anims/sprites/tera_shatter.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_TeraShatter[ARRAY_COUNT(gBattleAnimSpritePal_TeraCrystal)] ASSET_ALIAS(gBattleAnimSpritePal_TeraCrystal); // dedupe_assets.py: mesmos 32 B (md5 016a44a1)
 
 const u32 gBattleAnimSpriteGfx_Anchor[] = INCGFX_U32("graphics/battle_anims/sprites/anchor.png", ".4bpp.smol");
 
@@ -78,6 +79,7 @@ const u32 gBattleAnimSpriteGfx_AssuranceHand[] = INCGFX_U32("graphics/battle_ani
 const u16 gBattleAnimSpritePal_AssuranceHand[] = INCGFX_U16("graphics/battle_anims/sprites/assurance_hand.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_AuraSphere[] = INCGFX_U32("graphics/battle_anims/sprites/aura_sphere.png", ".4bpp.smol");
+// dedupe_assets.py: compartilhado por 6 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_AuraSphere[] = INCGFX_U16("graphics/battle_anims/sprites/aura_sphere.png", ".gbapal");
 
 const u16 gBattleAnimSpritePal_AvalancheRocks[] = INCGFX_U16("graphics/battle_anims/sprites/avalanche_rocks.pal", ".gbapal");
@@ -89,12 +91,14 @@ const u32 gBattleAnimSpriteGfx_Beam[] = INCGFX_U32("graphics/battle_anims/sprite
 const u16 gBattleAnimSpritePal_Beam[] = INCGFX_U16("graphics/battle_anims/sprites/beam.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_BerryEaten[] = INCGFX_U32("graphics/battle_anims/sprites/berry_eaten.png", ".4bpp.smol");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_BerryEaten[] = INCGFX_U16("graphics/battle_anims/sprites/berry_eaten.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_BerryNormal[] = INCGFX_U32("graphics/battle_anims/sprites/berry_normal.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_BerryNormal[] = INCGFX_U16("graphics/battle_anims/sprites/berry_normal.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_BerryNormal[ARRAY_COUNT(gBattleAnimSpritePal_BerryEaten)] ASSET_ALIAS(gBattleAnimSpritePal_BerryEaten); // dedupe_assets.py: mesmos 32 B (md5 bcb42f0f)
 
 const u32 gBattleAnimSpriteGfx_BigRock[] = INCGFX_U32("graphics/battle_anims/sprites/big_rock.png", ".4bpp.smol");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_BigRock[] = INCGFX_U16("graphics/battle_anims/sprites/big_rock.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_BlacephalonHead[] = INCGFX_U32("graphics/battle_anims/sprites/blacephalon_head.png", ".4bpp.smol");
@@ -109,6 +113,7 @@ const u32 gBattleAnimSpriteGfx_Branch[] = INCGFX_U32("graphics/battle_anims/spri
 const u16 gBattleAnimSpritePal_Branch[] = INCGFX_U16("graphics/battle_anims/sprites/branch.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_Brine[] = INCGFX_U32("graphics/battle_anims/sprites/brine.png", ".4bpp.smol");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_Brine[] = INCGFX_U16("graphics/battle_anims/sprites/brine.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_ChainLink[] = INCGFX_U32("graphics/battle_anims/sprites/chain_link.png", ".4bpp.smol");
@@ -134,15 +139,17 @@ const u16 gBattleAnimSpritePal_DracoMeteor[] = INCGFX_U16("graphics/battle_anims
 const u32 gBattleAnimSpriteGfx_DragonPulseRing[] = INCGFX_U32("graphics/battle_anims/sprites/dragon_pulse_ring.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_DragonPulseRing[] = INCGFX_U16("graphics/battle_anims/sprites/dragon_pulse_ring.png", ".gbapal");
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gBattleAnimSpriteGfx_DreepyMissile[] = INCGFX_U32("graphics/battle_anims/sprites/dreepy_missile.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_DreepyMissile[] = INCGFX_U16("graphics/battle_anims/sprites/dreepy_missile.pal", ".gbapal");
-const u32 gBattleAnimSpriteGfx_DreepyMissileShiny[] = INCGFX_U32("graphics/battle_anims/sprites/dreepy_missile.png", ".4bpp.smol");
+extern const u32 gBattleAnimSpriteGfx_DreepyMissileShiny[ARRAY_COUNT(gBattleAnimSpriteGfx_DreepyMissile)] ASSET_ALIAS(gBattleAnimSpriteGfx_DreepyMissile); // dedupe_assets.py: mesmos 168 B (md5 3ebc2e6a)
 const u16 gBattleAnimSpritePal_DreepyMissileShiny[] = INCGFX_U16("graphics/battle_anims/sprites/dreepy_missile_shiny.pal", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_Drill[] = INCGFX_U32("graphics/battle_anims/sprites/drill.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_Drill[] = INCGFX_U16("graphics/battle_anims/sprites/drill.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_NewEmbers[] = INCGFX_U32("graphics/battle_anims/sprites/embers.png", ".4bpp.smol");
+// dedupe_assets.py: compartilhado por 19 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_NewEmbers[] = INCGFX_U16("graphics/battle_anims/sprites/embers.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_FairyLockChains[] = INCGFX_U32("graphics/battle_anims/sprites/fairy_lock_chains.png", ".4bpp.smol");
@@ -168,7 +175,9 @@ const u16 gBattleAnimSpritePal_GoldenApple[] = INCGFX_U16("graphics/battle_anims
 
 const u16 gBattleAnimSpritePal_GreenDrake[] = INCGFX_U16("graphics/battle_anims/sprites/green_drake.pal", ".gbapal");
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gBattleAnimSpriteGfx_NewGreenStar[] = INCGFX_U32("graphics/battle_anims/sprites/green_star_new.png", ".4bpp.smol");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_NewGreenStar[] = INCGFX_U16("graphics/battle_anims/sprites/green_star_new.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_HeartStamp[] = INCGFX_U32("graphics/battle_anims/sprites/heart_stamp.png", ".4bpp.smol");
@@ -184,6 +193,7 @@ const u32 gBattleAnimSpriteGfx_HoopaRing[] = INCGFX_U32("graphics/battle_anims/s
 const u16 gBattleAnimSpritePal_HoopaRing[] = INCGFX_U16("graphics/battle_anims/sprites/hoopa_ring.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_NewHornHit[] = INCGFX_U32("graphics/battle_anims/sprites/horn_hit_new.png", ".4bpp.smol");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_NewHornHit[] = INCGFX_U16("graphics/battle_anims/sprites/horn_hit_new.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_HornLeech[] = INCGFX_U32("graphics/battle_anims/sprites/horn_leech.png", ".4bpp.smol");
@@ -193,7 +203,7 @@ const u32 gBattleAnimSpriteGfx_HorseshoeFist[] = INCGFX_U32("graphics/battle_ani
 const u16 gBattleAnimSpritePal_HorseshoeFist[] = INCGFX_U16("graphics/battle_anims/sprites/horseshoe_fist.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_HydroPump[] = INCGFX_U32("graphics/battle_anims/sprites/hydro_pump.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_HydroPump[] = INCGFX_U16("graphics/battle_anims/sprites/hydro_pump.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_HydroPump[ARRAY_COUNT(gBattleAnimSpritePal_Brine)] ASSET_ALIAS(gBattleAnimSpritePal_Brine); // dedupe_assets.py: mesmos 32 B (md5 7e38c8cf)
 
 const u32 gBattleAnimSpriteGfx_IceRock[] = INCGFX_U32("graphics/battle_anims/sprites/ice_rock.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_IceRock[] = INCGFX_U16("graphics/battle_anims/sprites/ice_rock.png", ".gbapal");
@@ -226,7 +236,7 @@ const u16 gBattleAnimSpritePal_NaturalGiftRing[] = INCGFX_U16("graphics/battle_a
 const u32 gBattleAnimSpriteGfx_NecrozmaStar[] = INCGFX_U32("graphics/battle_anims/sprites/necrozma_star.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_NecrozmaStar[] = INCGFX_U16("graphics/battle_anims/sprites/necrozma_star.png", ".gbapal");
 
-const u16 gBattleAnimSpritePal_NewImpact[] = INCGFX_U16("graphics/battle_anims/sprites/impact_new.pal", ".gbapal");
+extern const u16 gBattleAnimSpritePal_NewImpact[ARRAY_COUNT(gBattleAnimSpritePal_NewHornHit)] ASSET_ALIAS(gBattleAnimSpritePal_NewHornHit); // dedupe_assets.py: mesmos 32 B (md5 b335a579)
 
 const u32 gBattleAnimSpriteGfx_Obstruct[] = INCGFX_U32("graphics/battle_anims/sprites/obstruct.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_Obstruct[] = INCGFX_U16("graphics/battle_anims/sprites/obstruct.png", ".gbapal");
@@ -258,7 +268,7 @@ const u16 gBattleAnimSpritePal_RedExplosion[] = INCGFX_U16("graphics/battle_anim
 const u32 gBattleAnimSpriteGfx_RocksSmall[] = INCGFX_U32("graphics/battle_anims/sprites/rock_small.png", ".4bpp.smol");
 
 const u32 gBattleAnimSpriteGfx_NewRocks[] = INCGFX_U32("graphics/battle_anims/sprites/rocks_new.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_NewRocks[] = INCGFX_U16("graphics/battle_anims/sprites/rocks_new.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_NewRocks[ARRAY_COUNT(gBattleAnimSpritePal_BigRock)] ASSET_ALIAS(gBattleAnimSpritePal_BigRock); // dedupe_assets.py: mesmos 32 B (md5 8ceee077)
 
 const u32 gBattleAnimSpriteGfx_ShellLeft[] = INCGFX_U32("graphics/battle_anims/sprites/shell_left.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_ShellLeft[] = INCGFX_U16("graphics/battle_anims/sprites/shell_left.png", ".gbapal");
@@ -267,6 +277,7 @@ const u32 gBattleAnimSpriteGfx_ShellRight[] = INCGFX_U32("graphics/battle_anims/
 
 const u16 gBattleAnimSpritePal_SpacialRendSlices[] = INCGFX_U16("graphics/battle_anims/sprites/spacial_rend_slices.pal", ".gbapal");
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gBattleAnimSpriteGfx_NewSpikes[] = INCGFX_U32("graphics/battle_anims/sprites/spikes_new.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_NewSpikes[] = INCGFX_U16("graphics/battle_anims/sprites/spikes_new.png", ".gbapal");
 
@@ -318,8 +329,11 @@ const u32 gBattleAnimSpriteGfx_Sword[] = INCGFX_U32("graphics/battle_anims/sprit
 const u32 gBattleAnimSpriteGfx_Seed[] = INCGFX_U32("graphics/battle_anims/sprites/seed.png", ".4bpp.smol");
 const u32 gBattleAnimSpriteGfx_SeedBrown[] = INCGFX_U32("graphics/battle_anims/sprites/seed_new.png", ".4bpp.smol");
 
+// dedupe_assets.py: compartilhado por 7 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_RainDrops[] = INCGFX_U16("graphics/battle_anims/sprites/rain_drops.png", ".gbapal");
+// dedupe_assets.py: compartilhado por 3 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_Bone[] = INCGFX_U16("graphics/battle_anims/sprites/bone.png", ".gbapal");
+// dedupe_assets.py: compartilhado por 6 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_AirWave[] = INCGFX_U16("graphics/battle_anims/sprites/air_wave.png", ".gbapal");
 const u16 gBattleAnimSpritePal_Orb[] = INCGFX_U16("graphics/battle_anims/sprites/orb.png", ".gbapal");
 const u16 gBattleAnimSpritePal_Sword[] = INCGFX_U16("graphics/battle_anims/sprites/sword.png", ".gbapal");
@@ -330,31 +344,34 @@ const u32 gBattleAnimSpriteGfx_Needle[] = INCGFX_U32("graphics/battle_anims/spri
 const u16 gBattleAnimSpritePal_Needle[] = INCGFX_U16("graphics/battle_anims/sprites/needle.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_Explosion6[] = INCGFX_U32("graphics/battle_anims/sprites/explosion_6.png", ".4bpp.smol");
+// dedupe_assets.py: compartilhado por 3 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_Explosion6[] = INCGFX_U16("graphics/battle_anims/sprites/explosion_6.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_PinkOrb[] = INCGFX_U32("graphics/battle_anims/sprites/pink_orb.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_PinkOrb[] = INCGFX_U16("graphics/battle_anims/sprites/pink_orb.png", ".gbapal");
 
-const u16 gBattleAnimSpritePal_IceCube[] = INCGFX_U16("graphics/battle_anims/sprites/ice_cube.pal", ".gbapal");
+extern const u16 gBattleAnimSpritePal_IceCube[ARRAY_COUNT(gBattleAnimSpritePal_RainDrops)] ASSET_ALIAS(gBattleAnimSpritePal_RainDrops); // dedupe_assets.py: mesmos 32 B (md5 7b8101c5)
 const u32 gBattleAnimSpriteGfx_IceCube[] = INCGFX_U32("graphics/battle_anims/sprites/ice_cube.4bpp", ".smol");
 
 const u32 gBattleAnimSpriteGfx_Gust[] = INCGFX_U32("graphics/battle_anims/sprites/gust.png", ".4bpp.smol");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_Gust[] = INCGFX_U16("graphics/battle_anims/sprites/gust.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_Spark2[] = INCGFX_U32("graphics/battle_anims/sprites/spark_2.png", ".4bpp.smol");
+// dedupe_assets.py: compartilhado por 4 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_Spark2[] = INCGFX_U16("graphics/battle_anims/sprites/spark_2.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_Orange[] = INCGFX_U32("graphics/battle_anims/sprites/orange.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_Orange[] = INCGFX_U16("graphics/battle_anims/sprites/orange.png", ".gbapal");
 
-const u32 gBattleAnimSpriteGfx_Spikes[] = INCGFX_U32("graphics/battle_anims/sprites/spikes.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_Spikes[] = INCGFX_U16("graphics/battle_anims/sprites/spikes.png", ".gbapal");
+extern const u32 gBattleAnimSpriteGfx_Spikes[ARRAY_COUNT(gBattleAnimSpriteGfx_NewSpikes)] ASSET_ALIAS(gBattleAnimSpriteGfx_NewSpikes); // dedupe_assets.py: mesmos 60 B (md5 fc523e83)
+extern const u16 gBattleAnimSpritePal_Spikes[ARRAY_COUNT(gBattleAnimSpritePal_Bone)] ASSET_ALIAS(gBattleAnimSpritePal_Bone); // dedupe_assets.py: mesmos 32 B (md5 15e8933f)
 
 const u32 gBattleAnimSpriteGfx_YellowBall[] = INCGFX_U32("graphics/battle_anims/sprites/yellow_ball.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_YellowBall[] = INCGFX_U16("graphics/battle_anims/sprites/yellow_ball.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_TiedBag[] = INCGFX_U32("graphics/battle_anims/sprites/tied_bag.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_TiedBag[] = INCGFX_U16("graphics/battle_anims/sprites/tied_bag.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_TiedBag[ARRAY_COUNT(gBattleAnimSpritePal_AirWave)] ASSET_ALIAS(gBattleAnimSpritePal_AirWave); // dedupe_assets.py: mesmos 32 B (md5 dd764196)
 
 const u32 gBattleAnimSpriteGfx_BlackSmoke[] = INCGFX_U32("graphics/battle_anims/sprites/black_smoke.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_BlackSmoke[] = INCGFX_U16("graphics/battle_anims/sprites/black_smoke.png", ".gbapal");
@@ -368,16 +385,18 @@ const u32 gBattleAnimSpriteGfx_Glass[] = INCGFX_U32("graphics/battle_anims/sprit
 const u32 gBattleAnimSpriteGfx_HornHit[] = INCGFX_U32("graphics/battle_anims/sprites/horn_hit.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_HornHit[] = INCGFX_U16("graphics/battle_anims/sprites/horn_hit.png", ".gbapal");
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_BlueShards[] = INCGFX_U16("graphics/battle_anims/sprites/blue_shards.png", ".gbapal");
 const u32 gBattleAnimSpriteGfx_BlueShards[] = INCGFX_U32("graphics/battle_anims/sprites/blue_shards.png", ".4bpp.smol");
 
-const u16 gBattleAnimUnusedPal_MusicNotes[] = INCGFX_U16("graphics/battle_anims/unused/music_notes.pal", ".gbapal");
+extern const u16 gBattleAnimUnusedPal_MusicNotes[ARRAY_COUNT(gBattleAnimSpritePal_BlueShards)] ASSET_ALIAS(gBattleAnimSpritePal_BlueShards); // dedupe_assets.py: mesmos 32 B (md5 8c03c9c8)
 const u32 gBattleAnimUnusedGfx_MusicNotes[] = INCGFX_U32("graphics/battle_anims/unused/music_notes.png", ".4bpp.smol");
 
-const u16 gBattleAnimSpritePal_Hit[] = INCGFX_U16("graphics/battle_anims/sprites/hit.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_Hit[ARRAY_COUNT(gBattleAnimSpritePal_NewEmbers)] ASSET_ALIAS(gBattleAnimSpritePal_NewEmbers); // dedupe_assets.py: mesmos 32 B (md5 44139220)
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gBattleAnimSpriteGfx_Hit[] = INCGFX_U32("graphics/battle_anims/sprites/hit.png", ".4bpp.smol");
 
-const u16 gBattleAnimSpritePal_Hit2[] = INCGFX_U16("graphics/battle_anims/sprites/hit_2.pal", ".gbapal");
+extern const u16 gBattleAnimSpritePal_Hit2[ARRAY_COUNT(gBattleAnimSpritePal_AuraSphere)] ASSET_ALIAS(gBattleAnimSpritePal_AuraSphere); // dedupe_assets.py: mesmos 32 B (md5 fa15aa2c)
 
 const u16 gBattleAnimSpritePal_WavingHand[] = INCGFX_U16("graphics/battle_anims/sprites/waving_hand.png", ".gbapal");
 const u32 gBattleAnimSpriteGfx_WavingHand[] = INCGFX_U32("graphics/battle_anims/sprites/waving_hand.png", ".4bpp.smol");
@@ -386,10 +405,11 @@ const u32 gBattleAnimSpriteGfx_Feint[] = INCGFX_U32("graphics/battle_anims/sprit
 const u16 gBattleAnimSpritePal_Feint[] = INCGFX_U16("graphics/battle_anims/sprites/feint_punch.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_TrumpCard[] = INCGFX_U32("graphics/battle_anims/sprites/trump_cards.png", ".4bpp.smol");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_TrumpCard[] = INCGFX_U16("graphics/battle_anims/sprites/trump_cards.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_TrumpCardParticles[] = INCGFX_U32("graphics/battle_anims/sprites/trump_card_particles.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_TrumpCardParticles[] = INCGFX_U16("graphics/battle_anims/sprites/trump_card_particles.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_TrumpCardParticles[ARRAY_COUNT(gBattleAnimSpritePal_TrumpCard)] ASSET_ALIAS(gBattleAnimSpritePal_TrumpCard); // dedupe_assets.py: mesmos 8 B (md5 6730806f)
 
 const u32 gBattleAnimSpriteGfx_Acupressure[] = INCGFX_U32("graphics/battle_anims/sprites/acupressure.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_Acupressure[] = INCGFX_U16("graphics/battle_anims/sprites/acupressure.png", ".gbapal");
@@ -406,19 +426,20 @@ const u16 gBattleAnimSpritePal_BlueStar[] = INCGFX_U16("graphics/battle_anims/sp
 const u16 gBattleAnimSpritePal_BubbleBurst[] = INCGFX_U16("graphics/battle_anims/sprites/bubble_burst.png", ".gbapal");
 const u32 gBattleAnimSpriteGfx_BubbleBurst[] = INCGFX_U32("graphics/battle_anims/sprites/bubble_burst.png", ".4bpp.smol");
 
-const u32 gBattleAnimSpriteGfx_HitDuplicate[] = INCGFX_U32("graphics/battle_anims/sprites/hit_duplicate.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_HitDuplicate[] = INCGFX_U16("graphics/battle_anims/sprites/hit_duplicate.png", ".gbapal");
+extern const u32 gBattleAnimSpriteGfx_HitDuplicate[ARRAY_COUNT(gBattleAnimSpriteGfx_Hit)] ASSET_ALIAS(gBattleAnimSpriteGfx_Hit); // dedupe_assets.py: mesmos 588 B (md5 57865a00)
+extern const u16 gBattleAnimSpritePal_HitDuplicate[ARRAY_COUNT(gBattleAnimSpritePal_NewEmbers)] ASSET_ALIAS(gBattleAnimSpritePal_NewEmbers); // dedupe_assets.py: mesmos 32 B (md5 44139220)
 
-const u16 gBattleAnimSpritePal_Leer[] = INCGFX_U16("graphics/battle_anims/sprites/leer.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_Leer[ARRAY_COUNT(gBattleAnimSpritePal_NewEmbers)] ASSET_ALIAS(gBattleAnimSpritePal_NewEmbers); // dedupe_assets.py: mesmos 32 B (md5 44139220)
 const u32 gBattleAnimSpriteGfx_Leer[] = INCGFX_U32("graphics/battle_anims/sprites/leer.png", ".4bpp.smol");
 
 const u16 gBattleAnimSpritePal_BlueBurst[] = INCGFX_U16("graphics/battle_anims/sprites/blue_burst.png", ".gbapal");
 const u32 gBattleAnimSpriteGfx_BlueBurst[] = INCGFX_U32("graphics/battle_anims/sprites/blue_burst.png", ".4bpp.smol");
 
 const u32 gBattleAnimSpriteGfx_SmallEmber[] = INCGFX_U32("graphics/battle_anims/sprites/small_ember.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_SmallEmber[] = INCGFX_U16("graphics/battle_anims/sprites/small_ember.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_SmallEmber[ARRAY_COUNT(gBattleAnimSpritePal_NewEmbers)] ASSET_ALIAS(gBattleAnimSpritePal_NewEmbers); // dedupe_assets.py: mesmos 32 B (md5 44139220)
 
 const u32 gBattleAnimSpriteGfx_GraySmoke[] = INCGFX_U32("graphics/battle_anims/sprites/gray_smoke.png", ".4bpp.smol");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_GraySmoke[] = INCGFX_U16("graphics/battle_anims/sprites/gray_smoke.png", ".gbapal");
 
 const u16 gBattleAnimSpritePal_Fire[] = INCGFX_U16("graphics/battle_anims/sprites/fire.png", ".gbapal");
@@ -427,6 +448,7 @@ const u32 gBattleAnimSpriteGfx_Fire[] = INCGFX_U32("graphics/battle_anims/sprite
 const u32 gBattleAnimSpriteGfx_SpinningFire[] = INCGFX_U32("graphics/battle_anims/sprites/spinning_fire.png", ".4bpp.smol");
 const u32 gBattleAnimSpriteGfx_FirePlume[] = INCGFX_U32("graphics/battle_anims/sprites/fire_plume.png", ".4bpp.smol");
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_Lightning2[] = INCGFX_U16("graphics/battle_anims/sprites/lightning_2.png", ".gbapal");
 const u32 gBattleAnimSpriteGfx_Lightning2[] = INCGFX_U32("graphics/battle_anims/sprites/lightning_2.png", ".4bpp.smol");
 
@@ -445,6 +467,7 @@ const u32 gBattleAnimSpriteGfx_AttackOrder[] = INCGFX_U32("graphics/battle_anims
 const u16 gBattleAnimSpritePal_AttackOrder[] = INCGFX_U16("graphics/battle_anims/sprites/attack_order.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_DragonPulse[] = INCGFX_U32("graphics/battle_anims/sprites/dragon_pulse.png", ".4bpp.smol");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_DragonPulse[] = INCGFX_U16("graphics/battle_anims/sprites/dragon_pulse.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_WoodHammer[] = INCGFX_U32("graphics/battle_anims/sprites/wood_hammer.png", ".4bpp.smol");
@@ -454,7 +477,7 @@ const u32 gBattleAnimSpriteGfx_PsychoCut[] = INCGFX_U32("graphics/battle_anims/s
 const u16 gBattleAnimSpritePal_PsychoCut[] = INCGFX_U16("graphics/battle_anims/sprites/psycho_cut.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_PowerGem[] = INCGFX_U32("graphics/battle_anims/sprites/power_gem.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_PowerGem[] = INCGFX_U16("graphics/battle_anims/sprites/power_gem.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_PowerGem[ARRAY_COUNT(gBattleAnimSpritePal_DragonPulse)] ASSET_ALIAS(gBattleAnimSpritePal_DragonPulse); // dedupe_assets.py: mesmos 32 B (md5 7a41a35e)
 
 const u32 gBattleAnimSpriteGfx_StoneEdge[] = INCGFX_U32("graphics/battle_anims/sprites/stone_edge.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_StoneEdge[] = INCGFX_U16("graphics/battle_anims/sprites/stone_edge.png", ".gbapal");
@@ -473,7 +496,7 @@ const u32 gBattleAnimSpriteGfx_WoodHammerHammer[] = INCGFX_U32("graphics/battle_
 const u16 gBattleAnimSpritePal_WoodHammerHammer[] = INCGFX_U16("graphics/battle_anims/sprites/wood_hammer_hammer.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_Snowflakes[] = INCGFX_U32("graphics/battle_anims/sprites/snowflakes.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_Snowflakes[] = INCGFX_U16("graphics/battle_anims/sprites/snowflakes.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_Snowflakes[ARRAY_COUNT(gBattleAnimSpritePal_RainDrops)] ASSET_ALIAS(gBattleAnimSpritePal_RainDrops); // dedupe_assets.py: mesmos 32 B (md5 7b8101c5)
 
 const u32 gBattleAnimSpriteGfx_SyrupBlob[] = INCGFX_U32("graphics/battle_anims/sprites/syrup_bomb_blob.png", ".4bpp.smol");
 const u32 gBattleAnimSpriteGfx_SyrupShell[] = INCGFX_U32("graphics/battle_anims/sprites/syrup_bomb_shell.png", ".4bpp.smol");
@@ -511,9 +534,9 @@ const u32 gBattleAnimSpriteGfx_BubbleBurst2[] = INCGFX_U32("graphics/battle_anim
 const u16 gBattleAnimSpritePal_BubbleBurst2[] = INCGFX_U16("graphics/battle_anims/sprites/bubble_burst_2.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_IceChunk[] = INCGFX_U32("graphics/battle_anims/sprites/ice_chunk.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_IceChunk[] = INCGFX_U16("graphics/battle_anims/sprites/ice_chunk.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_IceChunk[ARRAY_COUNT(gBattleAnimSpritePal_AuraSphere)] ASSET_ALIAS(gBattleAnimSpritePal_AuraSphere); // dedupe_assets.py: mesmos 32 B (md5 fa15aa2c)
 
-const u16 gBattleAnimSpritePal_Glass2[] = INCGFX_U16("graphics/battle_anims/sprites/glass_2.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_Glass2[ARRAY_COUNT(gBattleAnimSpritePal_AuraSphere)] ASSET_ALIAS(gBattleAnimSpritePal_AuraSphere); // dedupe_assets.py: mesmos 32 B (md5 fa15aa2c)
 const u32 gBattleAnimSpriteGfx_Glass2[] = INCGFX_U32("graphics/battle_anims/sprites/glass_2.png", ".4bpp.smol");
 
 const u16 gBattleAnimSpritePal_PinkHeart2[] = INCGFX_U16("graphics/battle_anims/sprites/pink_heart_2.png", ".gbapal");
@@ -576,6 +599,7 @@ const u16 gBattleAnimSpritePal_Leaf[] = INCGFX_U16("graphics/battle_anims/sprite
 
 const u32 gBattleAnimSpriteGfx_MetronomeSmallHand[] = INCGFX_U32("graphics/battle_anims/unused/metronome_hand_small.png", ".4bpp.smol"); // unused, was for metronome at one point
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_Clapping[] = INCGFX_U16("graphics/battle_anims/sprites/clapping.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_PoisonPowder[] = INCGFX_U32("graphics/battle_anims/sprites/poison_powder.png", ".4bpp.smol");
@@ -599,6 +623,7 @@ const u32 gBattleAnimSpriteGfx_Alert[] = INCGFX_U32("graphics/battle_anims/sprit
 const u16 gBattleAnimSpritePal_Alert[] = INCGFX_U16("graphics/battle_anims/sprites/alert.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_Shock4[] = INCGFX_U32("graphics/battle_anims/sprites/shock_4.png", ".4bpp.smol");
+// dedupe_assets.py: compartilhado por 3 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_Shock4[] = INCGFX_U16("graphics/battle_anims/sprites/shock_4.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_Shock[] = INCGFX_U32("graphics/battle_anims/sprites/shock.png", ".4bpp.smol");
@@ -607,7 +632,7 @@ const u32 gBattleAnimSpriteGfx_Bell2[] = INCGFX_U32("graphics/battle_anims/sprit
 const u16 gBattleAnimSpritePal_Bell2[] = INCGFX_U16("graphics/battle_anims/sprites/bell_2.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_PinkGlove[] = INCGFX_U32("graphics/battle_anims/sprites/pink_glove.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_PinkGlove[] = INCGFX_U16("graphics/battle_anims/sprites/pink_glove.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_PinkGlove[ARRAY_COUNT(gBattleAnimSpritePal_Clapping)] ASSET_ALIAS(gBattleAnimSpritePal_Clapping); // dedupe_assets.py: mesmos 32 B (md5 1ad1db06)
 
 const u16 gBattleAnimUnused_Unknown1[] = INCBIN_U16("graphics/battle_anims/unused/unknown_1.bin");
 const u16 gBattleAnimUnused_Unknown2[] = INCBIN_U16("graphics/battle_anims/unused/unknown_2.bin");
@@ -661,15 +686,15 @@ const u32 gBattleAnimSpriteGfx_HatchedEgg[] = INCGFX_U32("graphics/battle_anims/
 const u32 gBattleAnimSpriteGfx_FreshEgg[] = INCGFX_U32("graphics/battle_anims/sprites/fresh_egg.png", ".4bpp.smol");
 
 const u32 gBattleAnimSpriteGfx_Fangs[] = INCGFX_U32("graphics/battle_anims/sprites/fangs.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_Fangs[] = INCGFX_U16("graphics/battle_anims/sprites/fangs.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_Fangs[ARRAY_COUNT(gBattleAnimSpritePal_NewEmbers)] ASSET_ALIAS(gBattleAnimSpritePal_NewEmbers); // dedupe_assets.py: mesmos 32 B (md5 44139220)
 
 const u32 gBattleAnimSpriteGfx_Explosion2[] = INCGFX_U32("graphics/battle_anims/sprites/explosion_2.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_Explosion2[] = INCGFX_U16("graphics/battle_anims/sprites/explosion_2.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_Explosion2[ARRAY_COUNT(gBattleAnimSpritePal_NewEmbers)] ASSET_ALIAS(gBattleAnimSpritePal_NewEmbers); // dedupe_assets.py: mesmos 32 B (md5 44139220)
 
 const u32 gBattleAnimSpriteGfx_Explosion3[] = INCGFX_U32("graphics/battle_anims/sprites/explosion_3.png", ".4bpp.smol");
 
 const u32 gBattleAnimSpriteGfx_WaterDroplet[] = INCGFX_U32("graphics/battle_anims/sprites/water_droplet.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_WaterDroplet[] = INCGFX_U16("graphics/battle_anims/sprites/water_droplet.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_WaterDroplet[ARRAY_COUNT(gBattleAnimSpritePal_AuraSphere)] ASSET_ALIAS(gBattleAnimSpritePal_AuraSphere); // dedupe_assets.py: mesmos 32 B (md5 fa15aa2c)
 
 const u32 gBattleAnimSpriteGfx_WaterDroplet2[] = INCGFX_U32("graphics/battle_anims/sprites/water_droplet_2.png", ".4bpp.smol");
 
@@ -682,10 +707,10 @@ const u32 gBattleAnimSpriteGfx_RedWand[] = INCGFX_U32("graphics/battle_anims/spr
 const u16 gBattleAnimSpritePal_RedWand[] = INCGFX_U16("graphics/battle_anims/sprites/red_wand.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_PurpleGreenUnk[] = INCGFX_U32("graphics/battle_anims/sprites/purple_green_unk.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_PurpleGreenUnk[] = INCGFX_U16("graphics/battle_anims/sprites/purple_green_unk.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_PurpleGreenUnk[ARRAY_COUNT(gBattleAnimSpritePal_Lightning2)] ASSET_ALIAS(gBattleAnimSpritePal_Lightning2); // dedupe_assets.py: mesmos 32 B (md5 9af0f06b)
 
 const u32 gBattleAnimSpriteGfx_WaterColumn[] = INCGFX_U32("graphics/battle_anims/sprites/water_column.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_WaterColumn[] = INCGFX_U16("graphics/battle_anims/sprites/water_column.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_WaterColumn[ARRAY_COUNT(gBattleAnimSpritePal_AuraSphere)] ASSET_ALIAS(gBattleAnimSpritePal_AuraSphere); // dedupe_assets.py: mesmos 32 B (md5 fa15aa2c)
 
 const u32 gBattleAnimSpriteGfx_MudUnk[] = INCGFX_U32("graphics/battle_anims/sprites/mud_unk.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_MudUnk[] = INCGFX_U16("graphics/battle_anims/sprites/mud_unk.png", ".gbapal");
@@ -728,7 +753,7 @@ const u32 gBattleInterfaceGfx_UnusedWindow3[] = INCGFX_U32("graphics/battle_inte
 const u32 gBattleInterfaceGfx_UnusedWindow4[] = INCGFX_U32("graphics/battle_interface/unused_window4.png", ".4bpp.smol");
 
 const u32 gBattleAnimSpriteGfx_FurySwipes[] = INCGFX_U32("graphics/battle_anims/sprites/fury_swipes.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_FurySwipes[] = INCGFX_U16("graphics/battle_anims/sprites/fury_swipes.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_FurySwipes[ARRAY_COUNT(gBattleAnimSpritePal_NewEmbers)] ASSET_ALIAS(gBattleAnimSpritePal_NewEmbers); // dedupe_assets.py: mesmos 32 B (md5 44139220)
 
 const u32 gBattleAnimSpriteGfx_Vine2[] = INCGFX_U32("graphics/battle_anims/sprites/vine_2.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_Vine2[] = INCGFX_U16("graphics/battle_anims/sprites/vine_2.png", ".gbapal");
@@ -751,7 +776,7 @@ const u16 gBattleAnimSpritePal_PurpleCoral[] = INCGFX_U16("graphics/battle_anims
 const u32 gBattleAnimSpriteGfx_PurpleDroplet[] = INCGFX_U32("graphics/battle_anims/sprites/purple_droplet.png", ".4bpp.smol");
 
 const u32 gBattleAnimSpriteGfx_Shock2[] = INCGFX_U32("graphics/battle_anims/sprites/shock_2.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_Shock2[] = INCGFX_U16("graphics/battle_anims/sprites/shock_2.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_Shock2[ARRAY_COUNT(gBattleAnimSpritePal_Shock4)] ASSET_ALIAS(gBattleAnimSpritePal_Shock4); // dedupe_assets.py: mesmos 32 B (md5 11569716)
 
 const u32 gBattleAnimSpriteGfx_ClosingEye2[] = INCGFX_U32("graphics/battle_anims/sprites/closing_eye_2.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_ClosingEye2[] = INCGFX_U16("graphics/battle_anims/sprites/closing_eye_2.png", ".gbapal");
@@ -761,9 +786,11 @@ const u16 gBattleAnimSpritePal_MetalBall[] = INCGFX_U16("graphics/battle_anims/s
 
 #if !P_GBA_STYLE_SPECIES_GFX
     const u32 gBattleAnimSpriteGfx_MonsterDoll[] = INCGFX_U32("graphics/battle_anims/sprites/monster_doll.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gBattleAnimSpritePal_MonsterDoll[] = INCGFX_U16("graphics/battle_anims/sprites/monster_doll.png", ".gbapal");
 #else
     const u32 gBattleAnimSpriteGfx_MonsterDoll[] = INCGFX_U32("graphics/battle_anims/sprites/monster_doll_gba.png", ".4bpp.smol");
+    // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
     const u16 gBattleAnimSpritePal_MonsterDoll[] = INCGFX_U16("graphics/battle_anims/sprites/monster_doll_gba.png", ".gbapal");
 #endif //P_GBA_STYLE_SPECIES_GFX
 
@@ -773,7 +800,7 @@ const u16 gBattleAnimSpritePal_Whirlwind[] = INCGFX_U16("graphics/battle_anims/s
 const u32 gBattleAnimSpriteGfx_Whirlwind2[] = INCGFX_U32("graphics/battle_anims/sprites/whirlwind_2.png", ".4bpp.smol");
 
 const u32 gBattleAnimSpriteGfx_Explosion4[] = INCGFX_U32("graphics/battle_anims/sprites/explosion_4.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_Explosion4[] = INCGFX_U16("graphics/battle_anims/sprites/explosion_4.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_Explosion4[ARRAY_COUNT(gBattleAnimSpritePal_NewEmbers)] ASSET_ALIAS(gBattleAnimSpritePal_NewEmbers); // dedupe_assets.py: mesmos 32 B (md5 44139220)
 
 const u32 gBattleAnimSpriteGfx_Explosion5[] = INCGFX_U32("graphics/battle_anims/sprites/explosion_5.png", ".4bpp.smol");
 
@@ -845,7 +872,7 @@ const u16 gBattleAnimSpritePal_CircleImpact[] = INCGFX_U16("graphics/battle_anim
 const u32 gBattleAnimSpriteGfx_Scratch[] = INCGFX_U32("graphics/battle_anims/sprites/scratch.png", ".4bpp.smol");
 
 const u32 gBattleAnimSpriteGfx_SharpTeeth[] = INCGFX_U32("graphics/battle_anims/sprites/sharp_teeth.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_SharpTeeth[] = INCGFX_U16("graphics/battle_anims/sprites/sharp_teeth.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_SharpTeeth[ARRAY_COUNT(gBattleAnimSpritePal_Explosion6)] ASSET_ALIAS(gBattleAnimSpritePal_Explosion6); // dedupe_assets.py: mesmos 32 B (md5 38de0ae2)
 
 const u32 gBattleAnimSpriteGfx_Clamp[] = INCGFX_U32("graphics/battle_anims/sprites/clamp.png", ".4bpp.smol");
 
@@ -855,7 +882,7 @@ const u32 gBattleAnimSpriteGfx_RainbowRings[] = INCGFX_U32("graphics/battle_anim
 const u16 gBattleAnimSpritePal_RainbowRings[] = INCGFX_U16("graphics/battle_anims/sprites/rainbow_rings.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_IceCrystals[] = INCGFX_U32("graphics/battle_anims/sprites/ice_crystals.4bpp", ".smol");
-const u16 gBattleAnimSpritePal_IceCrystals[] = INCGFX_U16("graphics/battle_anims/sprites/ice_crystals.pal", ".gbapal");
+extern const u16 gBattleAnimSpritePal_IceCrystals[ARRAY_COUNT(gBattleAnimSpritePal_RainDrops)] ASSET_ALIAS(gBattleAnimSpritePal_RainDrops); // dedupe_assets.py: mesmos 32 B (md5 7b8101c5)
 
 const u32 gBattleAnimSpriteGfx_IceSpikes[] = INCGFX_U32("graphics/battle_anims/sprites/ice_spikes.png", ".4bpp.smol");
 
@@ -868,7 +895,7 @@ const u16 gBattleAnimSpritePal_Orbs[] = INCGFX_U16("graphics/battle_anims/sprite
 const u32 gBattleAnimSpriteGfx_WaterOrb[] = INCGFX_U32("graphics/battle_anims/sprites/water_orb.png", ".4bpp.smol");
 
 const u32 gBattleAnimSpriteGfx_WaterImpact[] = INCGFX_U32("graphics/battle_anims/sprites/water_impact.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_WaterImpact[] = INCGFX_U16("graphics/battle_anims/sprites/water_impact.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_WaterImpact[ARRAY_COUNT(gBattleAnimSpritePal_RainDrops)] ASSET_ALIAS(gBattleAnimSpritePal_RainDrops); // dedupe_assets.py: mesmos 32 B (md5 7b8101c5)
 
 const u16 gBattleAnimSpritePal_BrownOrb[] = INCGFX_U16("graphics/battle_anims/sprites/brown_orb.pal", ".gbapal");
 
@@ -881,42 +908,44 @@ const u16 gBattleAnimSpritePal_PoisonBubble[] = INCGFX_U16("graphics/battle_anim
 const u32 gBattleAnimSpriteGfx_ToxicBubble[] = INCGFX_U32("graphics/battle_anims/sprites/toxic_bubble.png", ".4bpp.smol");
 
 const u32 gBattleAnimSpriteGfx_HornHit2[] = INCGFX_U32("graphics/battle_anims/sprites/horn_hit_2.png", ".4bpp.smol");
+// dedupe_assets.py: compartilhado por 4 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_HornHit2[] = INCGFX_U16("graphics/battle_anims/sprites/horn_hit_2.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_AirWave2[] = INCGFX_U32("graphics/battle_anims/sprites/air_wave_2.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_AirWave2[] = INCGFX_U16("graphics/battle_anims/sprites/air_wave_2.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_AirWave2[ARRAY_COUNT(gBattleAnimSpritePal_Gust)] ASSET_ALIAS(gBattleAnimSpritePal_Gust); // dedupe_assets.py: mesmos 32 B (md5 c46e17c9)
 
 const u32 gBattleAnimSpriteGfx_SmallBubbles[] = INCGFX_U32("graphics/battle_anims/sprites/small_bubbles.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_SmallBubbles[] = INCGFX_U16("graphics/battle_anims/sprites/small_bubbles.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_SmallBubbles[ARRAY_COUNT(gBattleAnimSpritePal_RainDrops)] ASSET_ALIAS(gBattleAnimSpritePal_RainDrops); // dedupe_assets.py: mesmos 32 B (md5 7b8101c5)
 
 const u32 gBattleAnimSpriteGfx_RoundShadow[] = INCGFX_U32("graphics/battle_anims/sprites/round_shadow.png", ".4bpp.smol");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_RoundShadow[] = INCGFX_U16("graphics/battle_anims/sprites/round_shadow.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_Sunlight[] = INCGFX_U32("graphics/battle_anims/sprites/sunlight.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_Sunlight[] = INCGFX_U16("graphics/battle_anims/sprites/sunlight.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_Sunlight[ARRAY_COUNT(gBattleAnimSpritePal_HornHit2)] ASSET_ALIAS(gBattleAnimSpritePal_HornHit2); // dedupe_assets.py: mesmos 32 B (md5 21a87389)
 
 const u32 gBattleAnimSpriteGfx_Spore[] = INCGFX_U32("graphics/battle_anims/sprites/spore.png", ".4bpp.smol");
 
-const u16 gBattleAnimSpritePal_Spore[] = INCGFX_U16("graphics/battle_anims/sprites/spore.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_Spore[ARRAY_COUNT(gBattleAnimSpritePal_Bone)] ASSET_ALIAS(gBattleAnimSpritePal_Bone); // dedupe_assets.py: mesmos 32 B (md5 15e8933f)
 
 const u32 gBattleAnimSpriteGfx_Flower[] = INCGFX_U32("graphics/battle_anims/sprites/flower.4bpp", ".smol");
-const u16 gBattleAnimSpritePal_Flower[] = INCGFX_U16("graphics/battle_anims/sprites/flower.pal", ".gbapal");
+extern const u16 gBattleAnimSpritePal_Flower[ARRAY_COUNT(gBattleAnimSpritePal_Spark2)] ASSET_ALIAS(gBattleAnimSpritePal_Spark2); // dedupe_assets.py: mesmos 32 B (md5 617a768b)
 
 const u32 gBattleAnimSpriteGfx_RazorLeaf[] = INCGFX_U32("graphics/battle_anims/sprites/razor_leaf.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_RazorLeaf[] = INCGFX_U16("graphics/battle_anims/sprites/razor_leaf.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_MistCloud[] = INCGFX_U32("graphics/battle_anims/sprites/mist_cloud.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_MistCloud[] = INCGFX_U16("graphics/battle_anims/sprites/mist_cloud.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_MistCloud[ARRAY_COUNT(gBattleAnimSpritePal_RainDrops)] ASSET_ALIAS(gBattleAnimSpritePal_RainDrops); // dedupe_assets.py: mesmos 32 B (md5 7b8101c5)
 
 const u32 gBattleAnimUnusedGfx_Lights[] = INCGFX_U32("graphics/battle_anims/unused/lights.png", ".4bpp.smol");
 const u16 gBattleAnimUnusedPal_Lights[] = INCGFX_U16("graphics/battle_anims/unused/lights.png", ".gbapal");
 const u32 gBattleAnimUnusedTilemap_Lights[] = INCGFX_U32("graphics/battle_anims/unused/lights.bin", ".smolTM");
 
 const u32 gBattleAnimSpriteGfx_WhirlwindLines[] = INCGFX_U32("graphics/battle_anims/sprites/whirlwind_lines.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_WhirlwindLines[] = INCGFX_U16("graphics/battle_anims/sprites/whirlwind_lines.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_WhirlwindLines[ARRAY_COUNT(gBattleAnimSpritePal_Explosion6)] ASSET_ALIAS(gBattleAnimSpritePal_Explosion6); // dedupe_assets.py: mesmos 32 B (md5 38de0ae2)
 
 const u32 gBattleAnimSpriteGfx_GoldRing[] = INCGFX_U32("graphics/battle_anims/sprites/gold_ring.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_GoldRing[] = INCGFX_U16("graphics/battle_anims/sprites/gold_ring.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_GoldRing[ARRAY_COUNT(gBattleAnimSpritePal_HornHit2)] ASSET_ALIAS(gBattleAnimSpritePal_HornHit2); // dedupe_assets.py: mesmos 32 B (md5 21a87389)
 
 const u16 gBattleAnimSpritePal_BlueRing2[] = INCGFX_U16("graphics/battle_anims/sprites/blue_ring_2.pal", ".gbapal");
 const u16 gBattleAnimSpritePal_PurpleRing[] = INCGFX_U16("graphics/battle_anims/sprites/purple_ring.pal", ".gbapal");
@@ -931,7 +960,7 @@ const u16 gBattleAnimSpritePal_GrayLightWall[] = INCGFX_U16("graphics/battle_ani
 const u16 gBattleAnimSpritePal_OrangeLightWall[] = INCGFX_U16("graphics/battle_anims/sprites/orange_light_wall.pal", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_BlackBall2[] = INCGFX_U32("graphics/battle_anims/sprites/black_ball_2.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_BlackBall2[] = INCGFX_U16("graphics/battle_anims/sprites/black_ball_2.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_BlackBall2[ARRAY_COUNT(gBattleAnimSpritePal_AirWave)] ASSET_ALIAS(gBattleAnimSpritePal_AirWave); // dedupe_assets.py: mesmos 32 B (md5 dd764196)
 
 const u16 gBattleAnimSpritePal_PurpleGasCloud[] = INCGFX_U16("graphics/battle_anims/sprites/purple_gas_cloud.pal", ".gbapal");
 
@@ -939,7 +968,7 @@ const u32 gContestJudgeGfx[] = INCGFX_U32("graphics/contest/judge.png", ".4bpp.s
 const u16 gContest2Pal[] = INCGFX_U16("graphics/contest/judge.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_Spark[] = INCGFX_U32("graphics/battle_anims/sprites/spark.4bpp", ".smol");
-const u16 gBattleAnimSpritePal_Spark[] = INCGFX_U16("graphics/battle_anims/sprites/spark.pal", ".gbapal");
+extern const u16 gBattleAnimSpritePal_Spark[ARRAY_COUNT(gBattleAnimSpritePal_Spark2)] ASSET_ALIAS(gBattleAnimSpritePal_Spark2); // dedupe_assets.py: mesmos 32 B (md5 617a768b)
 
 const u32 gBattleAnimSpriteGfx_SparkH[] = INCGFX_U32("graphics/battle_anims/sprites/spark_h.png", ".4bpp.smol");
 
@@ -956,34 +985,34 @@ const u16 gUnusedPal_Goosuto[] = INCGFX_U16("graphics/battle_anims/unused/goosut
 const u32 gUnusedTilemap_Goosuto[] = INCGFX_U32("graphics/battle_anims/unused/goosuto.bin", ".smolTM");
 
 const u32 gBattleAnimSpriteGfx_YellowStar[] = INCGFX_U32("graphics/battle_anims/sprites/yellow_star.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_YellowStar[] = INCGFX_U16("graphics/battle_anims/sprites/yellow_star.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_YellowStar[ARRAY_COUNT(gBattleAnimSpritePal_Spark2)] ASSET_ALIAS(gBattleAnimSpritePal_Spark2); // dedupe_assets.py: mesmos 32 B (md5 617a768b)
 
 const u32 gBattleAnimSpriteGfx_LargeFreshEgg[] = INCGFX_U32("graphics/battle_anims/sprites/large_fresh_egg.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_LargeFreshEgg[] = INCGFX_U16("graphics/battle_anims/sprites/large_fresh_egg.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_LargeFreshEgg[ARRAY_COUNT(gBattleAnimSpritePal_AirWave)] ASSET_ALIAS(gBattleAnimSpritePal_AirWave); // dedupe_assets.py: mesmos 32 B (md5 dd764196)
 
 const u32 gBattleAnimSpriteGfx_ShadowBall[] = INCGFX_U32("graphics/battle_anims/sprites/shadow_ball.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_ShadowBall[] = INCGFX_U16("graphics/battle_anims/sprites/shadow_ball.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_ShadowBall[ARRAY_COUNT(gBattleAnimSpritePal_RoundShadow)] ASSET_ALIAS(gBattleAnimSpritePal_RoundShadow); // dedupe_assets.py: mesmos 32 B (md5 97e20ad8)
 
 const u32 gBattleAnimSpriteGfx_Lick[] = INCGFX_U32("graphics/battle_anims/sprites/lick.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_Lick[] = INCGFX_U16("graphics/battle_anims/sprites/lick.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_Lick[ARRAY_COUNT(gBattleAnimSpritePal_HornHit2)] ASSET_ALIAS(gBattleAnimSpritePal_HornHit2); // dedupe_assets.py: mesmos 32 B (md5 21a87389)
 
 const u32 gBattleAnimSpriteGfx_VoidLines[] = INCGFX_U32("graphics/battle_anims/sprites/void_lines.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_VoidLines[] = INCGFX_U16("graphics/battle_anims/sprites/void_lines.png", ".gbapal");
 
-const u16 gBattleAnimSpritePal_String[] = INCGFX_U16("graphics/battle_anims/sprites/string.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_String[ARRAY_COUNT(gBattleAnimSpritePal_AirWave)] ASSET_ALIAS(gBattleAnimSpritePal_AirWave); // dedupe_assets.py: mesmos 32 B (md5 dd764196)
 const u32 gBattleAnimSpriteGfx_String[] = INCGFX_U32("graphics/battle_anims/sprites/string.png", ".4bpp.smol");
 
 const u32 gBattleAnimSpriteGfx_WebThread[] = INCGFX_U32("graphics/battle_anims/sprites/web_thread.png", ".4bpp.smol");
 const u32 gBattleAnimSpriteGfx_SpiderWeb[] = INCGFX_U32("graphics/battle_anims/sprites/spider_web.png", ".4bpp.smol");
 
 const u32 gBattleAnimSpriteGfx_Lightbulb[] = INCGFX_U32("graphics/battle_anims/sprites/lightbulb.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_Lightbulb[] = INCGFX_U16("graphics/battle_anims/sprites/lightbulb.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_Lightbulb[ARRAY_COUNT(gBattleAnimSpritePal_AirWave)] ASSET_ALIAS(gBattleAnimSpritePal_AirWave); // dedupe_assets.py: mesmos 32 B (md5 dd764196)
 
 const u32 gBattleAnimSpriteGfx_Slash[] = INCGFX_U32("graphics/battle_anims/sprites/slash.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_Slash[] = INCGFX_U16("graphics/battle_anims/sprites/slash.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_Slash[ARRAY_COUNT(gBattleAnimSpritePal_NewEmbers)] ASSET_ALIAS(gBattleAnimSpritePal_NewEmbers); // dedupe_assets.py: mesmos 32 B (md5 44139220)
 
 const u32 gBattleAnimSpriteGfx_FocusEnergy[] = INCGFX_U32("graphics/battle_anims/sprites/focus_energy.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_FocusEnergy[] = INCGFX_U16("graphics/battle_anims/sprites/focus_energy.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_FocusEnergy[ARRAY_COUNT(gBattleAnimSpritePal_NewEmbers)] ASSET_ALIAS(gBattleAnimSpritePal_NewEmbers); // dedupe_assets.py: mesmos 32 B (md5 44139220)
 
 const u32 gBattleAnimSpriteGfx_SphereToCube[] = INCGFX_U32("graphics/battle_anims/sprites/sphere_to_cube.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_SphereToCube[] = INCGFX_U16("graphics/battle_anims/sprites/sphere_to_cube.png", ".gbapal");
@@ -993,6 +1022,7 @@ const u16 gBattleAnimBgPalette_Psychic[] = INCGFX_U16("graphics/battle_anims/bac
 const u32 gBattleAnimBgTilemap_Psychic[] = INCGFX_U32("graphics/battle_anims/backgrounds/psychic.bin", ".smolTM");
 
 const u32 gBattleAnimSpriteGfx_Eye[] = INCGFX_U32("graphics/battle_anims/sprites/eye.png", ".4bpp.smol");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gBattleAnimSpritePal_Eye[] = INCGFX_U16("graphics/battle_anims/sprites/eye.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_Tendrils[] = INCGFX_U32("graphics/battle_anims/sprites/tendrils.png", ".4bpp.smol");
@@ -1044,7 +1074,7 @@ const u32 gBattleAnimSpriteGfx_SnoreZ[] = INCGFX_U32("graphics/battle_anims/spri
 const u16 gBattleAnimSpritePal_SnoreZ[] = INCGFX_U16("graphics/battle_anims/sprites/snore_z.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_Explosion[] = INCGFX_U32("graphics/battle_anims/sprites/explosion.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_Explosion[] = INCGFX_U16("graphics/battle_anims/sprites/explosion.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_Explosion[ARRAY_COUNT(gBattleAnimSpritePal_NewEmbers)] ASSET_ALIAS(gBattleAnimSpritePal_NewEmbers); // dedupe_assets.py: mesmos 32 B (md5 44139220)
 
 const u32 gBattleAnimSpriteGfx_Nail[] = INCGFX_U32("graphics/battle_anims/sprites/nail.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_Nail[] = INCGFX_U16("graphics/battle_anims/sprites/nail.png", ".gbapal");
@@ -1056,7 +1086,7 @@ const u32 gBattleAnimSpriteGfx_WarmRock[] = INCGFX_U32("graphics/battle_anims/sp
 const u16 gBattleAnimSpritePal_WarmRock[] = INCGFX_U16("graphics/battle_anims/sprites/warm_rock.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_PunchImpact[] = INCGFX_U32("graphics/battle_anims/sprites/punch_impact.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_PunchImpact[] = INCGFX_U16("graphics/battle_anims/sprites/punch_impact.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_PunchImpact[ARRAY_COUNT(gBattleAnimSpritePal_NewEmbers)] ASSET_ALIAS(gBattleAnimSpritePal_NewEmbers); // dedupe_assets.py: mesmos 32 B (md5 44139220)
 
 const u32 gBattleAnimSpriteGfx_BreakingEgg[] = INCGFX_U32("graphics/battle_anims/sprites/breaking_egg.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_BreakingEgg[] = INCGFX_U16("graphics/battle_anims/sprites/breaking_egg.png", ".gbapal");
@@ -1071,7 +1101,7 @@ const u32 gBattleAnimSpriteGfx_Bell[] = INCGFX_U32("graphics/battle_anims/sprite
 const u16 gBattleAnimSpritePal_Bell[] = INCGFX_U16("graphics/battle_anims/sprites/bell.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_SpeedDust[] = INCGFX_U32("graphics/battle_anims/sprites/speed_dust.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_SpeedDust[] = INCGFX_U16("graphics/battle_anims/sprites/speed_dust.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_SpeedDust[ARRAY_COUNT(gBattleAnimSpritePal_GraySmoke)] ASSET_ALIAS(gBattleAnimSpritePal_GraySmoke); // dedupe_assets.py: mesmos 32 B (md5 ffad7f04)
 
 const u32 gBattleAnimSpriteGfx_TornMetal[] = INCGFX_U32("graphics/battle_anims/sprites/torn_metal.png", ".4bpp.smol");
 
@@ -1083,7 +1113,7 @@ const u16 gBattleAnimSpritePal_Finger[] = INCGFX_U16("graphics/battle_anims/spri
 
 const u32 gBattleAnimSpriteGfx_MagentaHeart[] = INCGFX_U32("graphics/battle_anims/sprites/magenta_heart.png", ".4bpp.smol");
 
-const u16 gBattleAnimSpritePal_PinkHeart[] = INCGFX_U16("graphics/battle_anims/sprites/pink_heart.pal", ".gbapal");
+extern const u16 gBattleAnimSpritePal_PinkHeart[ARRAY_COUNT(gBattleAnimSpritePal_Eye)] ASSET_ALIAS(gBattleAnimSpritePal_Eye); // dedupe_assets.py: mesmos 32 B (md5 1b6305d8)
 const u16 gBattleAnimSpritePal_MagentaHeart[] = INCGFX_U16("graphics/battle_anims/sprites/magenta_heart.png", ".gbapal");
 const u16 gBattleAnimSpritePal_RedHeart[] = INCGFX_U16("graphics/battle_anims/sprites/red_heart.pal", ".gbapal");
 
@@ -1108,11 +1138,11 @@ const u16 gBattleAnimSpritePal_MovementWaves[] = INCGFX_U16("graphics/battle_ani
 const u16 gBattleAnimBgPalette_ScaryFace[] = INCGFX_U16("graphics/battle_anims/backgrounds/scary_face.png", ".gbapal");
 const u32 gBattleAnimBgImage_ScaryFace[] = INCGFX_U32("graphics/battle_anims/backgrounds/scary_face.png", ".4bpp.smol");
 
-const u16 gBattleAnimSpritePal_EyeSparkle[] = INCGFX_U16("graphics/battle_anims/sprites/eye_sparkle.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_EyeSparkle[ARRAY_COUNT(gBattleAnimSpritePal_NewEmbers)] ASSET_ALIAS(gBattleAnimSpritePal_NewEmbers); // dedupe_assets.py: mesmos 32 B (md5 44139220)
 const u32 gBattleAnimSpriteGfx_EyeSparkle[] = INCGFX_U32("graphics/battle_anims/sprites/eye_sparkle.png", ".4bpp.smol");
 
 const u32 gBattleAnimSpriteGfx_Anger[] = INCGFX_U32("graphics/battle_anims/sprites/anger.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_Anger[] = INCGFX_U16("graphics/battle_anims/sprites/anger.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_Anger[ARRAY_COUNT(gBattleAnimSpritePal_NewEmbers)] ASSET_ALIAS(gBattleAnimSpritePal_NewEmbers); // dedupe_assets.py: mesmos 32 B (md5 44139220)
 
 const u32 gBattleAnimSpriteGfx_Conversion[] = INCGFX_U32("graphics/battle_anims/sprites/conversion.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_Conversion[] = INCGFX_U16("graphics/battle_anims/sprites/conversion.png", ".gbapal");
@@ -1124,7 +1154,7 @@ const u16 gBattleAnimSpritePal_Devil[] = INCGFX_U16("graphics/battle_anims/sprit
 const u32 gBattleAnimSpriteGfx_Devil[] = INCGFX_U32("graphics/battle_anims/sprites/devil.png", ".4bpp.smol");
 
 const u32 gBattleAnimSpriteGfx_Swipe[] = INCGFX_U32("graphics/battle_anims/sprites/swipe.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_Swipe[] = INCGFX_U16("graphics/battle_anims/sprites/swipe.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_Swipe[ARRAY_COUNT(gBattleAnimSpritePal_NewEmbers)] ASSET_ALIAS(gBattleAnimSpritePal_NewEmbers); // dedupe_assets.py: mesmos 32 B (md5 44139220)
 
 const u16 gBattleAnimSpritePal_Roots[] = INCGFX_U16("graphics/battle_anims/sprites/roots.png", ".gbapal");
 const u32 gBattleAnimSpriteGfx_Roots[] = INCGFX_U32("graphics/battle_anims/sprites/roots.png", ".4bpp.smol");
@@ -1140,6 +1170,7 @@ const u32 gBattleAnimSpriteGfx_LetterZ[] = INCGFX_U32("graphics/battle_anims/spr
 
 const u16 gBattleAnimBgPalette_Impact[] = INCGFX_U16("graphics/battle_anims/backgrounds/impact.png", ".gbapal");
 const u32 gBattleAnimBgImage_Impact[] = INCGFX_U32("graphics/battle_anims/backgrounds/impact.png", ".4bpp.smol");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gBattleAnimBgTilemap_ImpactOpponent[] = INCGFX_U32("graphics/battle_anims/backgrounds/impact_opponent.bin", ".smolTM");
 
 const u32 gBattleAnimBgTilemap_ImpactPlayer[] = INCGFX_U32("graphics/battle_anims/backgrounds/impact_player.bin", ".smolTM");
@@ -1215,7 +1246,7 @@ const u16 gBattleAnimBgPalette_Thunder[] = INCGFX_U16("graphics/battle_anims/bac
 const u32 gBattleAnimBgTilemap_Thunder[] = INCGFX_U32("graphics/battle_anims/backgrounds/thunder.bin", ".smolTM");
 
 const u32 gBattleAnimSpriteGfx_PainSplit[] = INCGFX_U32("graphics/battle_anims/sprites/pain_split.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_PainSplit[] = INCGFX_U16("graphics/battle_anims/sprites/pain_split.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_PainSplit[ARRAY_COUNT(gBattleAnimSpritePal_NewEmbers)] ASSET_ALIAS(gBattleAnimSpritePal_NewEmbers); // dedupe_assets.py: mesmos 32 B (md5 44139220)
 
 const u32 gBattleAnimSpriteGfx_HandsAndFeet[] = INCGFX_U32("graphics/battle_anims/sprites/hands_and_feet.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_HandsAndFeet[] = INCGFX_U16("graphics/battle_anims/sprites/hands_and_feet.png", ".gbapal");
@@ -1226,15 +1257,15 @@ const u16 gBattleAnimSpritePal_Confetti[] = INCGFX_U16("graphics/battle_anims/sp
 #if !P_GBA_STYLE_SPECIES_GFX
     const u32 gBattleAnimSpriteGfx_Substitute[] = INCGFX_U32("graphics/battle_anims/sprites/substitute.png", ".4bpp.smol");
     const u32 gBattleAnimSpriteGfx_SubstituteBack[] = INCGFX_U32("graphics/battle_anims/sprites/substitute_back.png", ".4bpp.smol");
-    const u16 gBattleAnimSpritePal_Substitute[] = INCGFX_U16("graphics/battle_anims/sprites/substitute.png", ".gbapal");
+    extern const u16 gBattleAnimSpritePal_Substitute[ARRAY_COUNT(gBattleAnimSpritePal_MonsterDoll)] ASSET_ALIAS(gBattleAnimSpritePal_MonsterDoll); // dedupe_assets.py: mesmos 32 B (md5 1e13425c)
 #else
     const u32 gBattleAnimSpriteGfx_Substitute[] = INCGFX_U32("graphics/battle_anims/sprites/substitute_gba.png", ".4bpp.smol");
     const u32 gBattleAnimSpriteGfx_SubstituteBack[] = INCGFX_U32("graphics/battle_anims/sprites/substitute_back_gba.png", ".4bpp.smol");
-    const u16 gBattleAnimSpritePal_Substitute[] = INCGFX_U16("graphics/battle_anims/sprites/substitute_gba.png", ".gbapal");
+    extern const u16 gBattleAnimSpritePal_Substitute[ARRAY_COUNT(gBattleAnimSpritePal_MonsterDoll)] ASSET_ALIAS(gBattleAnimSpritePal_MonsterDoll); // dedupe_assets.py: mesmos 32 B (md5 4daa98c3)
 #endif //P_GBA_STYLE_SPECIES_GFX
 
-const u32 gBattleAnimSpriteGfx_GreenStar[] = INCGFX_U32("graphics/battle_anims/sprites/green_star.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_GreenStar[] = INCGFX_U16("graphics/battle_anims/sprites/green_star.png", ".gbapal");
+extern const u32 gBattleAnimSpriteGfx_GreenStar[ARRAY_COUNT(gBattleAnimSpriteGfx_NewGreenStar)] ASSET_ALIAS(gBattleAnimSpriteGfx_NewGreenStar); // dedupe_assets.py: mesmos 132 B (md5 ee3c6794)
+extern const u16 gBattleAnimSpritePal_GreenStar[ARRAY_COUNT(gBattleAnimSpritePal_NewGreenStar)] ASSET_ALIAS(gBattleAnimSpritePal_NewGreenStar); // dedupe_assets.py: mesmos 32 B (md5 ea272f68)
 
 const u32 gConfetti_Gfx[] = INCGFX_U32("graphics/misc/confetti.png", ".4bpp.smol");
 const u16 gConfetti_Pal[] = INCGFX_U16("graphics/misc/confetti.png", ".gbapal");
@@ -1251,6 +1282,7 @@ const u32 gStatAnim_Decrease_Tilemap[] = INCGFX_U32("graphics/battle_anims/stat_
 const u16 gStatAnim_Defense_Pal[]      = INCGFX_U16("graphics/battle_anims/stat_change/defense.pal", ".gbapal");
 const u16 gStatAnim_Attack_Pal[]       = INCGFX_U16("graphics/battle_anims/stat_change/attack.pal", ".gbapal");
 const u16 gStatAnim_Accuracy_Pal[]     = INCGFX_U16("graphics/battle_anims/stat_change/accuracy.pal", ".gbapal");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gStatAnim_Speed_Pal[]        = INCGFX_U16("graphics/battle_anims/stat_change/speed.pal", ".gbapal");
 const u16 gStatAnim_Multiple_Pal[]     = INCGFX_U16("graphics/battle_anims/stat_change/multiple.pal", ".gbapal");
 const u16 gStatAnim_Evasion_Pal[]      = INCGFX_U16("graphics/battle_anims/stat_change/evasion.pal", ".gbapal");
@@ -1258,7 +1290,7 @@ const u16 gStatAnim_SpAttack_Pal[]     = INCGFX_U16("graphics/battle_anims/stat_
 const u16 gStatAnim_SpDefense_Pal[]    = INCGFX_U16("graphics/battle_anims/stat_change/sp_defense.pal", ".gbapal");
 
 const u32 gCureBubblesGfx[] = INCGFX_U32("graphics/battle_anims/masks/cure_bubbles.png", ".4bpp.smol");
-const u16 gCureBubblesPal[] = INCGFX_U16("graphics/battle_anims/masks/cure_bubbles.png", ".gbapal");
+extern const u16 gCureBubblesPal[ARRAY_COUNT(gStatAnim_Speed_Pal)] ASSET_ALIAS(gStatAnim_Speed_Pal); // dedupe_assets.py: mesmos 32 B (md5 5e26f89a)
 const u32 gCureBubblesTilemap[] = INCGFX_U32("graphics/battle_anims/masks/cure_bubbles.bin", ".smolTM");
 
 const u16 gBattleAnimSpritePal_PurpleScratch[] = INCGFX_U16("graphics/battle_anims/sprites/purple_scratch.png", ".gbapal");
@@ -1284,10 +1316,11 @@ const u16 gBattleAnimSpritePal_HollowOrb[] = INCGFX_U16("graphics/battle_anims/s
 
 const u32 gBattleAnimSpriteGfx_XSign[] = INCGFX_U32("graphics/battle_anims/sprites/x_sign.png", ".4bpp.smol");
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gBattleAnimSpriteGfx_BluegreenOrb[] = INCGFX_U32("graphics/battle_anims/sprites/bluegreen_orb.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_BluegreenOrb[] = INCGFX_U16("graphics/battle_anims/sprites/bluegreen_orb.png", ".gbapal");
 
-const u32 gBattleAnimSpriteGfx_PinkVioletOrb[] = INCGFX_U32("graphics/battle_anims/sprites/pinkvio_orb.png", ".4bpp.smol");
+extern const u32 gBattleAnimSpriteGfx_PinkVioletOrb[ARRAY_COUNT(gBattleAnimSpriteGfx_BluegreenOrb)] ASSET_ALIAS(gBattleAnimSpriteGfx_BluegreenOrb); // dedupe_assets.py: mesmos 100 B (md5 cd54f13d)
 const u16 gBattleAnimSpritePal_PinkVioletOrb[] = INCGFX_U16("graphics/battle_anims/sprites/pinkvio_orb.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_PawPrint[] = INCGFX_U32("graphics/battle_anims/sprites/paw_print.png", ".4bpp.smol");
@@ -1306,7 +1339,7 @@ const u32 gBattleAnimSpriteGfx_MagnifyingGlass[] = INCGFX_U32("graphics/battle_a
 const u16 gBattleAnimSpritePal_MagnifyingGlass[] = INCGFX_U16("graphics/battle_anims/sprites/magnifying_glass.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_Meteor[] = INCGFX_U32("graphics/battle_anims/sprites/meteor.png", ".4bpp.smol");
-const u16 gBattleAnimSpritePal_Meteor[] = INCGFX_U16("graphics/battle_anims/sprites/meteor.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_Meteor[ARRAY_COUNT(gBattleAnimSpritePal_NewEmbers)] ASSET_ALIAS(gBattleAnimSpritePal_NewEmbers); // dedupe_assets.py: mesmos 32 B (md5 44139220)
 
 const u32 gBattleAnimSpriteGfx_FlatRock[] = INCGFX_U32("graphics/battle_anims/sprites/flat_rock.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_FlatRock[] = INCGFX_U16("graphics/battle_anims/sprites/flat_rock.png", ".gbapal");
@@ -1431,7 +1464,7 @@ const u32 gBattleAnimBgTilemap_Ghost[] = INCGFX_U32("graphics/battle_anims/backg
 const u16 gBattleAnimSpritePal_WhipHit[] = INCGFX_U16("graphics/battle_anims/sprites/whip_hit.pal", ".gbapal");
 
 const u16 gBattleAnimBgPalette_SolarBeam[] = INCGFX_U16("graphics/battle_anims/backgrounds/solarbeam.pal", ".gbapal");
-const u32 gBattleAnimBgTilemap_SolarBeam[] = INCGFX_U32("graphics/battle_anims/backgrounds/solarbeam.bin", ".smolTM"); // Unused
+extern const u32 gBattleAnimBgTilemap_SolarBeam[ARRAY_COUNT(gBattleAnimBgTilemap_ImpactOpponent)] ASSET_ALIAS(gBattleAnimBgTilemap_ImpactOpponent); // dedupe_assets.py: mesmos 424 B (md5 f5dd5e40)
 
 const u16 gBattleAnimBgPalette_MagmaStorm[] = INCGFX_U16("graphics/battle_anims/backgrounds/magma_storm.pal", ".gbapal");
 
@@ -1529,19 +1562,20 @@ const u32 gBattleAnimBgTilemap_NeverendingNightmare[] = INCGFX_U32("graphics/bat
 #if B_NEW_TERRAIN_BACKGROUNDS
 const u32 gBattleAnimBgImage_ElectricTerrain[] = INCGFX_U32("graphics/battle_anims/backgrounds/new_electric_terrain.png", ".4bpp.smol");
 const u16 gBattleAnimBgPalette_ElectricTerrain[] = INCGFX_U16("graphics/battle_anims/backgrounds/new_electric_terrain.pal", ".gbapal");
+// dedupe_assets.py: compartilhado por 4 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gBattleAnimBgTilemap_ElectricTerrain[] = INCGFX_U32("graphics/battle_anims/backgrounds/new_electric_terrain.bin", ".smolTM");
 
 const u32 gBattleAnimBgImage_GrassyTerrain[] = INCGFX_U32("graphics/battle_anims/backgrounds/new_grassy_terrain.png", ".4bpp.smol");
 const u16 gBattleAnimBgPalette_GrassyTerrain[] = INCGFX_U16("graphics/battle_anims/backgrounds/new_grassy_terrain.pal", ".gbapal");
-const u32 gBattleAnimBgTilemap_GrassyTerrain[] = INCGFX_U32("graphics/battle_anims/backgrounds/new_grassy_terrain.bin", ".smolTM");
+extern const u32 gBattleAnimBgTilemap_GrassyTerrain[ARRAY_COUNT(gBattleAnimBgTilemap_ElectricTerrain)] ASSET_ALIAS(gBattleAnimBgTilemap_ElectricTerrain); // dedupe_assets.py: mesmos 284 B (md5 11a30d05)
 
 const u32 gBattleAnimBgImage_MistyTerrain[] = INCGFX_U32("graphics/battle_anims/backgrounds/new_misty_terrain.png", ".4bpp.smol");
 const u16 gBattleAnimBgPalette_MistyTerrain[] = INCGFX_U16("graphics/battle_anims/backgrounds/new_misty_terrain.pal", ".gbapal");
-const u32 gBattleAnimBgTilemap_MistyTerrain[] = INCGFX_U32("graphics/battle_anims/backgrounds/new_misty_terrain.bin", ".smolTM");
+extern const u32 gBattleAnimBgTilemap_MistyTerrain[ARRAY_COUNT(gBattleAnimBgTilemap_ElectricTerrain)] ASSET_ALIAS(gBattleAnimBgTilemap_ElectricTerrain); // dedupe_assets.py: mesmos 284 B (md5 11a30d05)
 
 const u32 gBattleAnimBgImage_PsychicTerrain[] = INCGFX_U32("graphics/battle_anims/backgrounds/new_psychic_terrain.png", ".4bpp.smol");
 const u16 gBattleAnimBgPalette_PsychicTerrain[] = INCGFX_U16("graphics/battle_anims/backgrounds/new_psychic_terrain.pal", ".gbapal");
-const u32 gBattleAnimBgTilemap_PsychicTerrain[] = INCGFX_U32("graphics/battle_anims/backgrounds/new_psychic_terrain.bin", ".smolTM");
+extern const u32 gBattleAnimBgTilemap_PsychicTerrain[ARRAY_COUNT(gBattleAnimBgTilemap_ElectricTerrain)] ASSET_ALIAS(gBattleAnimBgTilemap_ElectricTerrain); // dedupe_assets.py: mesmos 284 B (md5 11a30d05)
 #else
 const u32 gBattleAnimBgImage_PsychicTerrain[] = INCGFX_U32("graphics/battle_anims/backgrounds/psychic_terrain.png", ".4bpp.smol");
 const u16 gBattleAnimBgPalette_PsychicTerrain[] = INCGFX_U16("graphics/battle_anims/backgrounds/psychic_terrain.pal", ".gbapal");
@@ -1632,7 +1666,7 @@ const u16 gBattleAnimBgPalette_Cosmic[] = INCGFX_U16("graphics/battle_anims/back
 const u32 gBattleAnimBgImage_Cosmic[] = INCGFX_U32("graphics/battle_anims/backgrounds/cosmic.png", ".4bpp.smol");
 const u32 gBattleAnimBgTilemap_Cosmic[] = INCGFX_U32("graphics/battle_anims/backgrounds/cosmic.bin", ".smolTM");
 
-const u16 gBattleAnimSpritePal_SlamHit2[] = INCGFX_U16("graphics/battle_anims/sprites/slam_hit_2.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_SlamHit2[ARRAY_COUNT(gBattleAnimSpritePal_NewEmbers)] ASSET_ALIAS(gBattleAnimSpritePal_NewEmbers); // dedupe_assets.py: mesmos 32 B (md5 44139220)
 const u32 gBattleAnimSpriteGfx_SlamHit2[] = INCGFX_U32("graphics/battle_anims/sprites/slam_hit_2.png", ".4bpp.smol");
 
 const u32 gBattleAnimFogTilemap[] = INCGFX_U32("graphics/battle_anims/backgrounds/fog.bin", ".smolTM");
@@ -1783,7 +1817,7 @@ const u32 gPokeblockFeedBg_Tilemap[] = INCGFX_U32("graphics/pokeblock/feeding_bg
 #include "data/graphics/items.h"
 #include "data/graphics/decorations.h"
 
-const u16 gBattleAnimSpritePal_Shock3[] = INCGFX_U16("graphics/battle_anims/sprites/shock_3.png", ".gbapal");
+extern const u16 gBattleAnimSpritePal_Shock3[ARRAY_COUNT(gBattleAnimSpritePal_Shock4)] ASSET_ALIAS(gBattleAnimSpritePal_Shock4); // dedupe_assets.py: mesmos 32 B (md5 11569716)
 const u32 gBattleAnimSpriteGfx_Shock3[] = INCGFX_U32("graphics/battle_anims/sprites/shock_3.png", ".4bpp.smol");
 
 const u16 gBattleAnimSpritePal_WhiteFeather[] = INCGFX_U16("graphics/battle_anims/sprites/white_feather.png", ".gbapal");
@@ -1878,21 +1912,24 @@ const u16 gContestResultsTitle_Tilemap[]        = INCBIN_U16("graphics/contest/r
 
 // PokéNav
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gPokenavCondition_Pal[] = INCGFX_U16("graphics/pokenav/condition/graph.png", ".gbapal");
 const u32 gPokenavCondition_Gfx[] = INCGFX_U32("graphics/pokenav/condition/graph.png", ".4bpp.smol");
 const u32 gPokenavCondition_Tilemap[] = INCGFX_U32("graphics/pokenav/condition/graph.bin", ".smolTM");
 
 const u16 gPokenavOptions_Tilemap[] = INCBIN_U16("graphics/pokenav/options/options.bin");
 const u32 gPokenavOptions_Gfx[] = INCGFX_U32("graphics/pokenav/options/options.4bpp", ".smol");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gPokenavOptions_Pal[] = INCGFX_U16("graphics/pokenav/options/options.pal", ".gbapal");
 
 const u16 gPokenavHeader_Pal[] = INCGFX_U16("graphics/pokenav/header.png", ".gbapal");
 const u32 gPokenavHeader_Gfx[] = INCGFX_U32("graphics/pokenav/header.png", ".4bpp.smol", "-num_tiles 53 -Wnum_tiles"); // TODO: use width 9 and makefile rule for cleanliness, make wasnt behaving, didnt want to apply num_tiles to this
 const u32 gPokenavHeader_Tilemap[] = INCGFX_U32("graphics/pokenav/header.bin", ".smolTM");
 
-const u16 gPokenavLeftHeader_Pal[] = INCGFX_U16("graphics/pokenav/left_headers/palette.pal", ".gbapal");
+extern const u16 gPokenavLeftHeader_Pal[ARRAY_COUNT(gPokenavOptions_Pal)] ASSET_ALIAS(gPokenavOptions_Pal); // dedupe_assets.py: mesmos 160 B (md5 2e173c86)
 const u32 gPokenavLeftHeaderBeauty_Gfx[] = INCGFX_U32("graphics/pokenav/left_headers/beauty.png", ".4bpp.smol");
 const u32 gPokenavLeftHeaderSmart_Gfx[] = INCGFX_U32("graphics/pokenav/left_headers/smart.png", ".4bpp.smol");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gPokenavLeftHeaderCondition_Gfx[] = INCGFX_U32("graphics/pokenav/left_headers/condition.png", ".4bpp.smol");
 const u32 gPokenavLeftHeaderCute_Gfx[] = INCGFX_U32("graphics/pokenav/left_headers/cute.png", ".4bpp.smol");
 const u32 gPokenavLeftHeaderMatchCall_Gfx[] = INCGFX_U32("graphics/pokenav/left_headers/match_call.png", ".4bpp.smol");
@@ -1948,12 +1985,12 @@ const u32 gWallClockStart_Tilemap[] = INCGFX_U32("graphics/wallclock/clock_start
 const u32 gWallClockView_Tilemap[]  = INCGFX_U32("graphics/wallclock/clock_view.bin", ".smolTM");
 
 const u16 gUsePokeblockCondition_Pal[] = INCGFX_U16("graphics/pokeblock/use_screen/condition.png", ".gbapal");
-const u32 gUsePokeblockCondition_Gfx[] = INCGFX_U32("graphics/pokeblock/use_screen/condition.png", ".4bpp.smol");
+extern const u32 gUsePokeblockCondition_Gfx[ARRAY_COUNT(gPokenavLeftHeaderCondition_Gfx)] ASSET_ALIAS(gPokenavLeftHeaderCondition_Gfx); // dedupe_assets.py: mesmos 224 B (md5 636987b6)
 
 const u16 gUsePokeblockUpDown_Pal[] = INCGFX_U16("graphics/pokeblock/use_screen/updown.png", ".gbapal");
 const u8 gUsePokeblockUpDown_Gfx[] = INCGFX_U8("graphics/pokeblock/use_screen/updown.png", ".4bpp");
 
-const u16 gUsePokeblockGraph_Pal[] = INCGFX_U16("graphics/pokeblock/use_screen/graph.png", ".gbapal");
+extern const u16 gUsePokeblockGraph_Pal[ARRAY_COUNT(gPokenavCondition_Pal)] ASSET_ALIAS(gPokenavCondition_Pal); // dedupe_assets.py: mesmos 32 B (md5 a482b8b5)
 const u32 gUsePokeblockGraph_Gfx[] = INCGFX_U32("graphics/pokeblock/use_screen/graph.png", ".4bpp.smol");
 
 const u32 gUsePokeblockGraph_Tilemap[] = INCGFX_U32("graphics/pokeblock/use_screen/graph.bin", ".smolTM");
@@ -2095,9 +2132,10 @@ const u16 gMessageBox_Pal[] = INCGFX_U16("graphics/text_window/message_box.png",
 const u8 gMessageBox_Gfx[] = INCGFX_U8("graphics/text_window/message_box.png", ".4bpp");
 const u8 gSignpostWindow_Gfx[] = INCGFX_U8("graphics/text_window/signpost.png", ".4bpp");
 
+// dedupe_assets.py: compartilhado por 3 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gWallpaperIcon_Cross[] = INCGFX_U32("graphics/pokemon_storage/wallpapers/icons/cross.png", ".4bpp.smol");
-const u32 gWallpaperIcon_Bolt[] = INCGFX_U32("graphics/pokemon_storage/wallpapers/icons/bolt.png", ".4bpp.smol");
-const u32 gWallpaperIcon_Plusle[] = INCGFX_U32("graphics/pokemon_storage/wallpapers/icons/plusle.png", ".4bpp.smol");
+extern const u32 gWallpaperIcon_Bolt[ARRAY_COUNT(gWallpaperIcon_Cross)] ASSET_ALIAS(gWallpaperIcon_Cross); // dedupe_assets.py: mesmos 12 B (md5 5e58d3c2)
+extern const u32 gWallpaperIcon_Plusle[ARRAY_COUNT(gWallpaperIcon_Cross)] ASSET_ALIAS(gWallpaperIcon_Cross); // dedupe_assets.py: mesmos 12 B (md5 5e58d3c2)
 
 const u16 gWallpaperPalettes_Horizontal[][16] =
 {

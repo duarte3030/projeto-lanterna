@@ -37,13 +37,14 @@ const u16 gDecorIconPalette_BigPlant[] = INCGFX_U16("graphics/decorations/big_pl
 const u32 gDecorIcon_GorgeousPlant[] = INCGFX_U32("graphics/decorations/gorgeous_plant.png", ".4bpp.smol");
 const u16 gDecorIconPalette_GorgeousPlant[] = INCGFX_U16("graphics/decorations/gorgeous_plant.png", ".gbapal");
 
+// dedupe_assets.py: compartilhado por 3 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gDecorIcon_RedBrick[] = INCGFX_U32("graphics/decorations/red_brick.png", ".4bpp.smol");
 const u16 gDecorIconPalette_RedBrick[] = INCGFX_U16("graphics/decorations/red_brick.png", ".gbapal");
 
-const u32 gDecorIcon_YellowBrick[] = INCGFX_U32("graphics/decorations/yellow_brick.png", ".4bpp.smol");
+extern const u32 gDecorIcon_YellowBrick[ARRAY_COUNT(gDecorIcon_RedBrick)] ASSET_ALIAS(gDecorIcon_RedBrick); // dedupe_assets.py: mesmos 108 B (md5 a8e522bf)
 const u16 gDecorIconPalette_YellowBrick[] = INCGFX_U16("graphics/decorations/yellow_brick.png", ".gbapal");
 
-const u32 gDecorIcon_BlueBrick[] = INCGFX_U32("graphics/decorations/blue_brick.png", ".4bpp.smol");
+extern const u32 gDecorIcon_BlueBrick[ARRAY_COUNT(gDecorIcon_RedBrick)] ASSET_ALIAS(gDecorIcon_RedBrick); // dedupe_assets.py: mesmos 108 B (md5 a8e522bf)
 const u16 gDecorIconPalette_BlueBrick[] = INCGFX_U16("graphics/decorations/blue_brick.png", ".gbapal");
 
 const u32 gDecorIcon_RedTent[] = INCGFX_U32("graphics/decorations/red_tent.png", ".4bpp.smol");
