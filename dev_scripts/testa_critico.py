@@ -272,19 +272,27 @@ def carrega_layouts(src=None):
     return {n: int(v) for n, v in padrao.findall(open(caminho).read())}
 
 
+# Símbolos que uma ROM ANTIGA pode não ter (o T11 roda contra o .map dela).
+# Faltar um deles não é erro: o caso que precisa dele é que reprova, dizendo o
+# nome, em vez de a suíte inteira morrer na carga.
+SIMBOLOS_OPCIONAIS = ("gSaveBlock2Ptr", "gBattleMons", "gBattleStruct")
+
+
 def carrega_simbolos(mapfile):
     alvos = {"gSaveBlock1Ptr": None, "gPartiesCount": None,
              "gTrainerBattleParameter": None, "gParties": None}
+    alvos.update({k: None for k in SIMBOLOS_OPCIONAIS})
     padrao = re.compile(r"^\s+(0x[0-9a-f]+)\s+(\w+)\s*$")
     with open(mapfile) as f:
         for linha in f:
             m = padrao.match(linha)
             if m and m.group(2) in alvos and alvos[m.group(2)] is None:
                 alvos[m.group(2)] = m.group(1)
-    faltando = [k for k, v in alvos.items() if v is None]
+    faltando = [k for k, v in alvos.items()
+                if v is None and k not in SIMBOLOS_OPCIONAIS]
     if faltando:
         raise SystemExit(f"símbolo não achado em {mapfile}: {faltando}")
-    return alvos
+    return {k: v for k, v in alvos.items() if v is not None}
 
 
 def offsets_da_fonte(src):
@@ -346,6 +354,78 @@ def offsets_da_fonte(src):
     if len(palavras) < 8:
         raise SystemExit(f"leitura de offsets falhou em {src}: {d[:300]}")
     return palavras[:8]
+
+
+_BATALHA_CACHE = {}
+
+
+def offsets_de_batalha(src):
+    """Offsets de BATALHA e das opções do modo de teste, medidos compilando.
+
+    Separado de `offsets_da_fonte` de propósito: aquele é chamado também sobre a
+    ÁRVORE ANTIGA no T11, e não se mexe no contrato dele. Este só é chamado
+    quando um caso pede prova de batalha.
+
+    O achado que justifica a última entrada: `opponentMonCanTera:6` e
+    `opponentMonCanDynamax:6` (include/battle.h) são CAMPOS DE BITS, e
+    `offsetof` não fala de bit. Então o probe compila uma `struct BattleStruct`
+    constante com `.opponentMonCanDynamax = 0x3F` e o Python procura o primeiro
+    byte não zero do dump: o u16 que contém os dois campos está ali. Ler o u16
+    inteiro é de propósito, porque a prova é comparar o MESMO valor com a opção
+    LV.5 ligada e desligada, e isso não depende de saber em que bit cada gimmick
+    mora.
+    """
+    if src in _BATALHA_CACHE:
+        return _BATALHA_CACHE[src]
+    devkit = os.environ.get("DEVKITARM",
+                            os.path.expanduser("~/toolchains/arm-gnu-toolchain-15.2."
+                                               "rel1-darwin-arm64-arm-none-eabi"))
+    gcc = os.path.join(devkit, "bin", "arm-none-eabi-gcc")
+    objdump = os.path.join(devkit, "bin", "arm-none-eabi-objdump")
+    if not os.path.exists(gcc):
+        raise SystemExit(f"arm-none-eabi-gcc não encontrado em {gcc}. Exporte DEVKITARM.")
+    tmp = "/tmp/claude-501/frenteA/offsets"
+    os.makedirs(tmp, exist_ok=True)
+
+    def compila(nome, corpo):
+        c, o = os.path.join(tmp, nome + ".c"), os.path.join(tmp, nome + ".o")
+        with open(c, "w") as f:
+            f.write('#include "global.h"\n#include "battle.h"\n' + corpo)
+        r = subprocess.run([gcc, "-c", "-iquote", "include", "-Wno-trigraphs",
+                            "-DMODERN=1", "-DTESTING=0", "-DEMERALD", "-std=gnu17",
+                            "-mthumb", "-mabi=apcs-gnu", "-march=armv4t", "-O0",
+                            "-o", o, c], cwd=src, capture_output=True, text=True)
+        if r.returncode != 0:
+            raise SystemExit(f"probe de batalha não compilou em {src}:\n{r.stderr[-800:]}")
+        d = subprocess.run([objdump, "-s", "-j", ".rodata", o],
+                           capture_output=True, text=True).stdout
+        crus = bytearray()
+        for linha in d.splitlines():
+            m = re.match(r"^ [0-9a-f]{4} ((?:[0-9a-f]{2,8} ?){1,4})", linha)
+            if m:
+                crus.extend(bytes.fromhex(m.group(1).replace(" ", "")))
+        return crus
+
+    b = compila("batalha", "const unsigned gP[] = {\n"
+                "  offsetof(struct SaveBlock2, filler_90),\n"
+                "  sizeof(struct Pokemon),\n"
+                "  sizeof(struct BattlePokemon),\n"
+                "  offsetof(struct BattlePokemon, species),\n"
+                "  offsetof(struct BattlePokemon, level),\n"
+                "  offsetof(struct BattlePokemon, moves),\n"
+                "};\n")
+    v = [int.from_bytes(b[i:i + 4], "little") for i in range(0, 24, 4)]
+    g = compila("gimmick", "const struct BattleStruct gB = "
+                "{ .opponentMonCanDynamax = 0x3F };\n")
+    nz = [i for i, x in enumerate(g) if x]
+    if not nz:
+        raise SystemExit("probe de gimmick saiu todo zero: o campo de bits sumiu "
+                         "de struct BattleStruct?")
+    fora = {"opcoes_offset": v[0], "tam_pokemon": v[1], "tam_bmon": v[2],
+            "bmon_especie": v[3], "bmon_nivel": v[4], "bmon_golpes": v[5],
+            "gimmick_offset": nz[0] & ~1}
+    _BATALHA_CACHE[src] = fora
+    return fora
 
 
 def num_flag(nome, tabela):
@@ -419,7 +499,7 @@ LINHA_ESTADO = re.compile(r"^ESTADO (\S+) (.*)$")
 
 
 def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=None,
-         offsets=None, palobj_lidas=()):
+         offsets=None, palobj_lidas=(), batalha=None):
     os.makedirs(SAIDA, exist_ok=True)
     for f in glob.glob(f"{SAIDA}/{prefixo}-*.png"):
         os.remove(f)
@@ -432,6 +512,16 @@ def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=Non
         if len(offsets) > 7:
             cmd += ["--inimigo", simbolos["gParties"],
                     "--nivel-offset", str(offsets[7])]
+    if batalha:
+        cmd += ["--nivel-passo", str(batalha["tam_pokemon"])]
+        if "gSaveBlock2Ptr" in simbolos:
+            cmd += ["--opcoes", f"{simbolos['gSaveBlock2Ptr']},{batalha['opcoes_offset']}"]
+        if "gBattleMons" in simbolos:
+            cmd += ["--batalhamons", ",".join(str(x) for x in (
+                simbolos["gBattleMons"], batalha["tam_bmon"], batalha["bmon_especie"],
+                batalha["bmon_nivel"], batalha["bmon_golpes"]))]
+        if "gBattleStruct" in simbolos:
+            cmd += ["--gimmick", f"{simbolos['gBattleStruct']},{batalha['gimmick_offset']}"]
     for f in flags_lidas:
         cmd += ["--flag", hex(f)]
     for v in vars_lidas:
@@ -640,6 +730,26 @@ def confere(caso, estados, por_nome, por_id, tabela_flags, layouts, treinadores=
             falhas.append(f"cor {cor} ausente das palettes OBJ carregadas: a "
                           f"palette do sprite nao foi registrada (runner velho? "
                           f"recompile dev_scripts/gba_runner.c)")
+
+    # `campos`: qualquer chave que o runner reporte, com valor exato ou faixa
+    # [lo, hi]. Existe para não crescer uma chave de prova por leitura nova: o
+    # modo de teste em nível 5 precisa provar de uma vez o byte das opções
+    # (`opcoes`), os SEIS níveis do time (`nivelinimigo`, `nivelinimigo1..5`), a
+    # espécie e os golpes do adversário ativo (`bespecie`, `bgolpe0..3`) e a
+    # palavra de gimmick (`gimmick`). Chave ausente é FALHA dita pelo nome, e
+    # não silêncio, que é o modo como uma prova morre sem ninguém ver.
+    for chave, esperado in prova.get("campos", {}).items():
+        obtido = final.get(chave)
+        if obtido is None:
+            falhas.append(f"o runner nao reportou `{chave}`: runner velho "
+                          f"(recompile dev_scripts/gba_runner.c) ou simbolo "
+                          f"ausente do pokeemerald.map")
+        elif isinstance(esperado, list):
+            if not (esperado[0] <= obtido <= esperado[1]):
+                falhas.append(f"{chave}={obtido}, fora da faixa "
+                              f"{esperado[0]}..{esperado[1]}")
+        elif obtido != esperado:
+            falhas.append(f"{chave}={obtido}, esperado {esperado}")
 
     return falhas
 
@@ -876,7 +986,10 @@ def main():
             estados = roda(rom_do_caso, simbolos_do_caso, roteiro,
                            caso["id"].replace(".", "_"),
                            flags_lidas, vars_lidas, caso.get("sav"),
-                           offsets_do_caso, palobj_lidas)
+                           offsets_do_caso, palobj_lidas,
+                           batalha=offsets_de_batalha(
+                               src2 if (caso.get("rom") == "rom2" and src2) else src)
+                           if prova.get("campos") else None)
             falhas = confere(caso, estados, por_nome, por_id, tabela_flags, layouts,
                              treinadores)
         except Exception as e:                                  # noqa: BLE001

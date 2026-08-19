@@ -31,6 +31,15 @@
  *   --inimigo 0x02024xxx  endereco de gParties (vem do pokeemerald.map)
  *   --nivel-offset N      bytes de gParties ate o .level do 1o mon do inimigo
  *                         (medido pelo probe do testa_critico.py, nunca chutado)
+ *   --nivel-passo N       sizeof(struct Pokemon): faz o dump imprimir tambem
+ *                         nivelinimigo1..5, ou seja o time INTEIRO do adversario
+ *   --opcoes A,N          gSaveBlock2Ptr e o offset de filler_90: imprime
+ *                         opcoes=<byte das opcoes do modo de teste>
+ *   --batalhamons A,T,E,N,G  gBattleMons, sizeof(struct BattlePokemon) e os
+ *                         offsets de species/level/moves: imprime bespecie,
+ *                         bnivel e bgolpe0..3 do adversario ativo
+ *   --gimmick A,N         gBattleStruct e o offset do u16 de
+ *                         opponentMonCanTera/opponentMonCanDynamax
  *   --partycount 0x02031c38  endereco de gPartiesCount
  *   --oponente 0x02000928 endereco de gTrainerBattleParameter
  *   --offsets a,b,c,d,e,f,g  offsets dentro de SaveBlock1, medidos da fonte
@@ -104,6 +113,36 @@ static uint32_t g_oponente = 0x02000928;
    sizeof(struct Pokemon) muda com a versao do expansion. Zero = nao pedido. */
 static uint32_t g_inimigo = 0;
 static uint32_t g_nivel_offset = 0;
+/* Passo em bytes de um mon para o proximo dentro do time do inimigo, ou seja
+   sizeof(struct Pokemon). Com ele o dump imprime o nivel dos SEIS slots e nao
+   so o do primeiro, que e o que separa "o lider veio no nivel 5" de "o primeiro
+   bicho dele veio no nivel 5": o ACE, que e quem carrega o gimmick, e o ULTIMO
+   do time. Medido pelo probe do testa_critico.py, nunca chutado. */
+static uint32_t g_nivel_passo = 0;
+
+/* gSaveBlock2Ptr e o offset de filler_90 dentro do SaveBlock2. O byte
+   filler_90[0] e onde moram as seis opcoes do modo de teste (include/global.h,
+   TEST_OPT_*). Ler ele e o unico jeito de provar por FATO que o menu OPTION
+   gravou a opcao, em vez de deduzir do efeito. */
+static uint32_t g_sb2ptr = 0;
+static uint32_t g_opcoes_offset = 0;
+
+/* gBattleMons e o recorte da struct BattlePokemon. Ao contrario do time em
+   gParties, que guarda especie e golpes DENTRO dos substructs cifrados, o
+   gBattleMons e a copia decifrada do batalhador ativo: especie, nivel e os
+   quatro golpes sao campos simples. E a camada certa para provar que baixar o
+   nivel para 5 nao trocou o Pokemon nem regerou o moveset. O indice 1 e
+   B_POSITION_OPPONENT_LEFT. */
+static uint32_t g_bmons = 0, g_bmons_tam = 0, g_bmons_esp = 0,
+                g_bmons_niv = 0, g_bmons_gol = 0;
+
+/* gBattleStruct (um PONTEIRO em EWRAM) e o offset do u16 que carrega os dois
+   campos de bits opponentMonCanTera:6 e opponentMonCanDynamax:6
+   (include/battle.h). Sao eles que autorizam o adversario a usar o gimmick
+   (src/battle_gimmick.c). Le-se o u16 INTEIRO de proposito: comparar o mesmo
+   valor com a opcao LV.5 ligada e desligada prova que a queda de nivel nao
+   apaga gimmick nenhum, e nao depende de saber em que bit cada um mora. */
+static uint32_t g_bstruct = 0, g_gimmick_offset = 0;
 
 /* enderecos pedidos no dump */
 #define MAX_PEDIDOS 64
@@ -116,6 +155,19 @@ static int g_vars_pedidas[MAX_PEDIDOS], g_n_vars = 0;
 static int g_palobj_pedidas[MAX_PEDIDOS], g_n_palobj = 0;
 static int g_dump_estado = 0;
 static int g_sem_png = 0;
+
+/* "0x02031928,140,0" -> vetor de n numeros. strtoul com base 0 de proposito:
+   os enderecos chegam em hexadecimal do pokeemerald.map e sscanf("%u") os leria
+   como zero, calado. */
+static int le_lista(const char *s, uint32_t *v, int n) {
+    char *fim = (char *)s;
+    for (int i = 0; i < n; i++) {
+        if (i && *fim == ',') fim++;
+        else if (i) return 0;
+        v[i] = (uint32_t)strtoul(fim, &fim, 0);
+    }
+    return *fim == '\0';
+}
 
 static uint32_t sb1(struct mCore *core) {
     return core->busRead32(core, g_sb1ptr);
@@ -177,9 +229,31 @@ static void dump_estado(struct mCore *core, const char *rotulo) {
                (int)core->busRead8(core, g_partycount));
         printf(" oponente=%d",
                (int)core->busRead16(core, g_oponente + OPONENTE_A_OFFSET));
-        if (g_inimigo)
+        if (g_inimigo) {
             printf(" nivelinimigo=%d",
                    (int)core->busRead8(core, g_inimigo + g_nivel_offset));
+            for (int i = 1; g_nivel_passo && i < 6; i++)
+                printf(" nivelinimigo%d=%d", i,
+                       (int)core->busRead8(core, g_inimigo + g_nivel_offset
+                                                 + (uint32_t)i * g_nivel_passo));
+        }
+        if (g_sb2ptr) {
+            uint32_t sb2 = core->busRead32(core, g_sb2ptr);
+            printf(" opcoes=%d", sb2 ? (int)core->busRead8(core, sb2 + g_opcoes_offset) : -1);
+        }
+        if (g_bmons) {
+            uint32_t m = g_bmons + g_bmons_tam;  /* battler 1: oponente da esquerda */
+            printf(" bespecie=%d bnivel=%d",
+                   (int)core->busRead16(core, m + g_bmons_esp),
+                   (int)core->busRead8(core, m + g_bmons_niv));
+            for (int i = 0; i < 4; i++)
+                printf(" bgolpe%d=%d", i,
+                       (int)core->busRead16(core, m + g_bmons_gol + (uint32_t)i * 2));
+        }
+        if (g_bstruct) {
+            uint32_t bs = core->busRead32(core, g_bstruct);
+            printf(" gimmick=%d", bs ? (int)core->busRead16(core, bs + g_gimmick_offset) : -1);
+        }
         for (int i = 0; i < g_n_flags; i++)
             printf(" flag_0x%X=%d", g_flags_pedidas[i], le_flag(core, g_flags_pedidas[i]));
         for (int i = 0; i < g_n_vars; i++)
@@ -404,6 +478,30 @@ int main(int argc, char **argv) {
             g_inimigo = (uint32_t)strtoul(argv[++i], NULL, 0);
         } else if (!strcmp(argv[i], "--nivel-offset") && i + 1 < argc) {
             g_nivel_offset = (uint32_t)strtoul(argv[++i], NULL, 0);
+        } else if (!strcmp(argv[i], "--nivel-passo") && i + 1 < argc) {
+            g_nivel_passo = (uint32_t)strtoul(argv[++i], NULL, 0);
+        } else if (!strcmp(argv[i], "--opcoes") && i + 1 < argc) {
+            uint32_t v[2];
+            if (!le_lista(argv[++i], v, 2)) {
+                fprintf(stderr, "--opcoes precisa de addr,offset\n");
+                return 1;
+            }
+            g_sb2ptr = v[0]; g_opcoes_offset = v[1];
+        } else if (!strcmp(argv[i], "--batalhamons") && i + 1 < argc) {
+            uint32_t v[5];
+            if (!le_lista(argv[++i], v, 5)) {
+                fprintf(stderr, "--batalhamons precisa de addr,tam,esp,niv,gol\n");
+                return 1;
+            }
+            g_bmons = v[0]; g_bmons_tam = v[1]; g_bmons_esp = v[2];
+            g_bmons_niv = v[3]; g_bmons_gol = v[4];
+        } else if (!strcmp(argv[i], "--gimmick") && i + 1 < argc) {
+            uint32_t v[2];
+            if (!le_lista(argv[++i], v, 2)) {
+                fprintf(stderr, "--gimmick precisa de addr,offset\n");
+                return 1;
+            }
+            g_bstruct = v[0]; g_gimmick_offset = v[1];
         } else if (!strcmp(argv[i], "--offsets") && i + 1 < argc) {
             /* loc,layout,party,flags,vars,nflags,nvars, medidos da fonte da build */
             uint32_t v[7];
