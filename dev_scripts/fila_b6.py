@@ -1001,6 +1001,56 @@ FILA_DE_CONTEUDO = [
                 "as placas dele no map.json na MESMA rodada (senão "
                 "itens_escondidos_sinnoh passa a ver órfão) e escreve a "
                 "medição junto"),
+    dict(regiao="sinnoh", id="sinnoh:planta_provisoria:12_mapas_de_molde",
+         mapa_destino="AmitySquare, StarkMountainOutside, BattleFrontier, "
+                      "IronIsland, SendoffSpring, PalPark, GreatMarsh6, "
+                      "Route204North, MtCoronetOutsideNorth, "
+                      "MtCoronetOutsideSouth, SpringPath, TrophyGarden",
+         tipo="mapa", tamanho=12, bloqueio="geometria provisória",
+         status="pendente",
+         motivo="MEDIDO em 18/08/2026 na onda de povoar: estes 12 mapas NÃO "
+                "TÊM MAPA, têm o molde de portão 13x9. O critério é COMPARAÇÃO "
+                "DE map.bin contra `data/layouts/Route226_Access/map.bin`, "
+                "nunca nome de mapa: `BattleFrontier` e `IronIsland` têm "
+                "`map.bin` próprio e mesmo assim são idênticos ao molde em "
+                "todas as linhas menos a y=1, onde as portas são furadas (4 e "
+                "2 tiles de diferença). `SendoffSpring` entrou nesta lista por "
+                "esse critério e NÃO estava na lista de suspeitos de ninguém, "
+                "que é a razão de o critério ser medida e não lista. É a mesma "
+                "família de Amity Square e Stark Mountain Outside (seção de "
+                "18/08 do PLANO-OBRAS-SINNOH), que agora tem 12 membros e não "
+                "2. PRÊMIO MEDIDO esperando planta de verdade: só o "
+                "`BattleFrontier` são 24 NPCs e 25 placas elegíveis da fonte, "
+                "numa área de 48x47 que não cabe honestamente em 117 tiles; "
+                "somando os 12, mais as 21 pedras de Rock Smash que "
+                "`pedras_sinnoh.py` recusou pelo mesmo portão. CRITÉRIO DE "
+                "ACEITE, e a ordem importa: GEOMETRIA REAL PRIMEIRO (layout "
+                "convertido da fonte, warps casados nos dois sentidos, sem "
+                "mão única), OBJETO DEPOIS, na mesma rodada, pelos geradores "
+                "que já existem. Pôr objeto antes é plantar coordenada que vai "
+                "ter que ser refeita"),
+    dict(regiao="sinnoh", id="sinnoh:escala_nao_provada:10_mapas",
+         mapa_destino="ValorLakefront, LakeValor, LakeVerity, SpearPillar, "
+                      "GalacticHQ_B2F, HearthomeCityGymLeaderRoom, "
+                      "VeilstoneCity_GalacticWarehouse, JubilifeCity_Flat1_F3, "
+                      "MtCoronet_1F_North_Room1, MtCoronet_1F_North_Room2",
+         tipo="portavel", tamanho=10, bloqueio="nenhum", status="pendente",
+         motivo="18/08/2026, onda de povoar: nestes 10 a única régua de "
+                "coordenada disponível é a ESCALA da caixa da matriz, que é "
+                "justamente a regra que a correção da Route 222 provou errada "
+                "(três placas dentro de parede). Em "
+                "`MtCoronet_1F_North_Room2` a caixa da matriz mede 1x1 e a "
+                "conta joga TODOS os eventos em (0,0), o que mostra o tamanho "
+                "do erro. O gerador passou a RECUSAR escala em mapa que nasce "
+                "agora, e por isso eles ficam vazios de propósito, somando 39 "
+                "pedras e algumas dezenas de objetos e placas não escritos. "
+                "CRITÉRIO DE ACEITE, um mapa por vez: achar régua PROVADA para "
+                "aquele mapa (translação com deslocamento único provado por "
+                ">= 2 warps, ou conversão 1 para 1 do blockdata com acordo de "
+                "máscara medido, como os 100% de Mt Coronet), e só então "
+                "rodar o gerador com cada objeto conferido no map.bin "
+                "(andável e alcançável para gente, tile de leitura para "
+                "placa, portão de tranca para pedra)"),
     dict(regiao="johto", id="johto:gyarados:passeio_2x2",
          mapa_destino="LakeOfRage", tipo="portavel", tamanho=1,
          bloqueio="nenhum", status="pendente",
@@ -1014,6 +1064,168 @@ FILA_DE_CONTEUDO = [
                 "mirar as QUATRO casas (ou provar a batalha sem depender da "
                 "posição); enquanto isso não existir, determinismo vale mais, "
                 "porque o passeio é decorativo"),
+    dict(regiao="johto", id="johto:sprite_de_bola_em_quem_nao_e_bola",
+         mapa_destino="Johto inteira (54 mapas têm bola de verdade; o estrago "
+                      "é bem maior e se mede pelo gfx, não pela lista)",
+         tipo="arte_de_campo", tamanho=1211, bloqueio="nenhum",
+         status="pendente",
+         motivo="ACHADO DO J2, 18/08/2026, e é o mais caro da onda de janela "
+                "aberta: o jogador vê BOLA DE ITEM onde a fonte tem outra "
+                "coisa. `dev_scripts/sanitize_johto_map_json.py` achatou TODO "
+                "object event de Johto em OBJ_EVENT_GFX_ITEM_BALL mudo, e o "
+                "`restaura_npcs_johto.py` só devolveu os que eram GENTE. "
+                "MEDIÇÃO de 18/08/2026, refeita pelo J7 depois do J2 aplicar: "
+                "1212 object events de Johto ainda têm gfx de item ball com "
+                "`flag: 0`, `script: \"0\"` e `trainer_sight_or_berry_tree_id: "
+                "0`, e desses só UM é bola de verdade (a GS Ball da linha "
+                "abaixo). Ou seja 1211 são impostores. Cruzando por "
+                "coordenada exata com a fonte `fontes-mapas/hns`, 1364 dos "
+                "1372 achatados originais casaram e só 161 eram bola (98 "
+                "OBJ_EVENT_GFX_POKE_BALL mais 63 OBJ_EVENT_GFX_ITEM_BALL); o "
+                "resto é efeito de luz (219), pedra de Rock Smash, canteiro "
+                "de berry, Pokémon de overworld e NPC. CRITÉRIO DE ACEITE: "
+                "devolver o graphics_id que a FONTE diz, com a MESMA prova de "
+                "coordenada que o J2 usou (casar (mapa, x, y) exato contra o "
+                "objeto da fonte, nunca por escala nem por vizinhança), o "
+                "conserto morando no gerador e não no map.json, e o censo do "
+                "que entrou gravado como `dev_scripts/bolas_johto.json` fez "
+                "para as bolas. Esse arquivo é o ponteiro: ele lista as 161 "
+                "que a fonte prova serem bola, e portanto define por exclusão "
+                "quem NÃO pode continuar com sprite de bola. Cuidado medido: "
+                "objeto que deixa de ser bola muda de tamanho de sprite e "
+                "pode passar a bloquear passagem, então a prova de cada leva "
+                "inclui o tile andável, como no --demo do importador"),
+    dict(regiao="johto", id="johto:bolas:2_de_olivine_faltando",
+         mapa_destino="OlivineCity (53,47) e OlivineCity_Lighthouse (125,15)",
+         tipo="arte_de_campo", tamanho=2, bloqueio="nenhum", status="pendente",
+         motivo="18/08/2026, J2: são bolas GENUÍNAS da fonte que não casaram "
+                "por coordenada com nenhum objeto nosso, ou seja não estão "
+                "achatadas, estão AUSENTES. As duas rodam "
+                "`OlivineCity_EventScript_Item_Shockwave` na fonte (o TM de "
+                "Shock Wave). Ficaram fora do bloco J2 porque ele só devolve "
+                "script, item e flag a objeto que JÁ existe: criar objeto "
+                "novo é conteúdo, e conteúdo se mede um a um. CRITÉRIO DE "
+                "ACEITE: criar os dois object events com "
+                "Common_EventScript_FindItem, item da fonte e uma flag nova "
+                "em append no bloco do liga_bolas_johto.py (a faixa tem teto "
+                "em FLAG_SOBRA_ITEM_BALLS_START e ainda sobram vagas), mais a "
+                "prova de que o tile é alcançável"),
+    dict(regiao="johto", id="johto:gs_ball:ruins_of_alph",
+         mapa_destino="RuinsOfAlph_B1F (5,4)", tipo="arte_de_campo", tamanho=1,
+         bloqueio="ITEM_GS_BALL não existe no expansion", status="pendente",
+         motivo="18/08/2026, J2: a 161ª bola de Johto que a fonte prova, e a "
+                "única que ficou de fora das 160 gravadas. Está declarada em "
+                "`FORA` no dev_scripts/liga_bolas_johto.py, não esquecida. "
+                "Escolher outra bola no lugar mudaria conteúdo e inventar "
+                "item é outra obra, então isto espera decisão: ou nasce "
+                "ITEM_GS_BALL de verdade (com gráfico, texto e o gancho da "
+                "cena do Celebi), ou o objeto sai do mapa. CRITÉRIO DE "
+                "ACEITE: qualquer um dos dois caminhos, escrito antes de "
+                "mexer, e o objeto deixando de ser bola muda de sprite pela "
+                "mesma prova de coordenada da linha de cima"),
+    dict(regiao="johto", id="johto:flags:day_night_pokemon_em_special_flags",
+         mapa_destino="GoldenrodCity_UndergroundTunnel, "
+                      "GoldenrodCity_DepartmentStore_5F",
+         tipo="divida_tecnica", tamanho=2,
+         bloqueio="nenhum",
+         status="feita",
+         motivo="FEITA no J8, 18/08/2026, linha a linha do critério de aceite: "
+                "(1) FLAG_NIGHT_POKEMON foi para FLAG_UNUSED_0x1D01 e "
+                "FLAG_DAY_POKEMON para FLAG_UNUSED_0x1D02, no TRANSBORDO DE "
+                "JOHTO 0x1D00-0x1D3F e não na reserva do J1: as duas escondem "
+                "object event de Johto, exatamente como "
+                "FLAG_HIDE_LAKE_OF_RAGE_GYARADOS que já mora em 0x1D00, e a "
+                "reserva do J1 nasceu dimensionada para Galar e Wild Area. "
+                "Apelidar FLAG_UNUSED que já existe não mexe em FLAGS_COUNT, "
+                "então o tamanho da save NÃO mudou por causa desta linha; "
+                "(2) o stub `#ifndef` sumiu, e junto com ele FLAG_HIDE_RAYQUAZA "
+                "0x4002, que era a mesma armadilha sem nenhum uso medido em "
+                "data/, src/, include/ e test/. Para a classe não voltar, o "
+                "portão passou a REPROVAR qualquer `#ifndef FLAG_`/`#ifndef "
+                "VAR_` nos headers do perfil, com passo de mutação plantada no "
+                "`--demo`; (3) o portão de flags voltou a 1 grupo (só o 0x1F4) "
+                "e (4) dev_scripts/colisoes_flags_autorizadas.json perdeu as "
+                "duas linhas de DEFEITO VIVO. Os 3 usos em map.json NÃO "
+                "mudaram, porque referenciam o NOME. Prova na suíte: caso 111, "
+                "com par negativo acendendo FLAG_HIDE_MAP_NAME_POPUP. "
+                "ACHADO ORIGINAL DO J7 em 18/08/2026 ao estender o portão de colisão "
+                "para flags (`dev_scripts/guarda_colisao_vars.py --flags`), "
+                "medido e NÃO consertado por ordem do condutor. O import de "
+                "Johto deixou um stub em include/constants/flags.h:8192, "
+                "`#ifndef FLAG_NIGHT_POKEMON / #define FLAG_NIGHT_POKEMON "
+                "0x4000` (e FLAG_DAY_POKEMON 0x4001), que cai exatamente em "
+                "cima de FLAG_HIDE_MAP_NAME_POPUP (SPECIAL_FLAGS_START + 0x0, "
+                "citada em 17 arquivos) e FLAG_DONT_TRANSITION_MUSIC "
+                "(SPECIAL_FLAGS_START + 0x1, 9 arquivos). As duas do stub "
+                "estão VIVAS no campo `flag` de object events em "
+                "data/maps/GoldenrodCity_UndergroundTunnel/map.json:54 e :67 "
+                "e data/maps/GoldenrodCity_DepartmentStore_5F/map.json:28, "
+                "então o Pokémon de dia e o de noite somem do mapa sempre que "
+                "o motor acende a flag dele, e um `removeobject` neles "
+                "acenderia a flag do motor. Pior: 0x4000 em diante é "
+                "SPECIAL_FLAGS, que mora na EWRAM e NÃO persiste, ou seja o "
+                "endereço está errado também como flag de objeto. CRITÉRIO DE "
+                "ACEITE: as duas ganham endereço próprio na reserva do J1 "
+                "(FLAG_SOBRA_ITEM_BALLS_START ou FLAG_RESERVA_CONTEUDO_START), "
+                "o stub `#ifndef` some, o portão de flags volta a 1 grupo "
+                "declarado (só o 0x1F4, que é desenho do pokeemerald) e a "
+                "lista dev_scripts/colisoes_flags_autorizadas.json perde as "
+                "duas linhas de DEFEITO VIVO"),
+    dict(regiao="motor", id="motor:portao_colisao:headers_de_config",
+         mapa_destino="include/config/text.h:17, include/config/item.h:39",
+         tipo="ferramenta", tamanho=2, bloqueio="nenhum", status="pendente",
+         motivo="SOBRA DO J9, 18/08/2026, medida e NÃO consertada porque hoje "
+                "não há colisão: o portão dev_scripts/guarda_colisao_vars.py "
+                "só lê os headers do PERFIL (constants/flags.h, flags_frlg.h, "
+                "constants/vars.h, vars_frlg.h), e include/config/*.h define "
+                "flag e var FORA do alcance dele. Hoje são duas, as duas "
+                "valendo 0, que é o valor de 'desligado' e não endereço: "
+                "FLAG_TEXT_SPEED_INSTANT (text.h:17) e VAR_LAST_REPEL_LURE_USED "
+                "(item.h:39). Zero colisão em 18/08/2026, e é por isso que a "
+                "linha é DÍVIDA e não defeito. O risco é o dia em que alguém "
+                "ligar uma delas: quem escrever `#define FLAG_TEXT_SPEED_"
+                "INSTANT FLAG_UNUSED_0x1D10` num header que o portão não lê "
+                "recria exatamente a colisão calada que a onda inteira "
+                "existiu para matar. Junto vale o aviso do ESTADO 0.f: "
+                "P_FLAG_FORCE_SHINY aponta para FLAG_TEMP_7 e mora na mesma "
+                "cegueira. CRITÉRIO DE ACEITE: os headers de include/config/ "
+                "que definem FLAG_/VAR_ entram nos PERFIS do portão, na ordem "
+                "do include, e o --demo ganha um passo plantando alocação de "
+                "config em cima de flag viva"),
+    dict(regiao="motor", id="motor:portao_colisao:mascara_de_bit_com_nome_de_flag",
+         mapa_destino="include/constants/battle_frontier.h:131",
+         tipo="ferramenta", tamanho=1, bloqueio="nenhum", status="pendente",
+         motivo="SOBRA DO J9, 18/08/2026. FLAG_FRONTIER_MON_FACTORY é `(1 << "
+                "0)`, o mesmo número de FLAG_TEMP_1, e as duas são usadas "
+                "(src/battle_factory.c, src/battle_frontier.c, src/battle_"
+                "factory_screen.c de um lado; src/field_control_avatar.c, "
+                "src/debug.c e data/maps/TwoIsland_House_Frlg/scripts.inc do "
+                "outro). O portão não pega, e neste caso NÃO PEGAR ESTÁ CERTO: "
+                "aquele `(1 << 0)` é máscara de bit de CreateFacilityMonFlags, "
+                "não endereço de flag de save, e os dois nomes vivem em "
+                "espaços diferentes. Fica escrito porque o perigo é humano, "
+                "não do motor: o prefixo FLAG_ num arquivo que não é de flag "
+                "convida alguém a passar essa constante para FlagSet(). "
+                "CRITÉRIO DE ACEITE: ou o nome ganha prefixo próprio "
+                "(F_FRONTIER_MON_FACTORY, que é a convenção dos vizinhos "
+                "F_EV_SPREAD_* do mesmo arquivo), ou fica como está e esta "
+                "linha vira 'aceito, não mexer'. É renomeação de constante de "
+                "motor, portanto decisão do condutor"),
+    dict(regiao="motor", id="motor:worktrees_velhas_com_stub",
+         mapa_destino=".claude/worktrees/cool-liskov-5a5d35, "
+                      ".claude/worktrees/friendly-hawking-e6b67e",
+         tipo="ferramenta", tamanho=2, bloqueio="nenhum", status="pendente",
+         motivo="AVISO DO J9, 18/08/2026, e é AVISO e não tarefa: as duas "
+                "worktrees velhas (bde2d3216a e 20ac2eaac4) ainda têm o stub "
+                "`#ifndef FLAG_HIDE_RAYQUAZA / #define FLAG_HIDE_RAYQUAZA "
+                "0x4002` que o J8 matou na árvore principal (flags.h:2481 e "
+                ":5049). O portão não as lê, porque RAIZES_DE_USO é "
+                "data/src/include/test da RAIZ, e está certo assim: worktree "
+                "é foto de um commit passado e reescrevê-la seria falsificar "
+                "história. O que importa saber é que build feita DE DENTRO "
+                "delas continua com o defeito. NÃO MEXER; se a worktree for "
+                "reaproveitada para trabalho novo, ela primeiro puxa a "
+                "árvore principal"),
 ]
 
 
