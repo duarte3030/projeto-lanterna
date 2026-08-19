@@ -8,10 +8,100 @@ inteiras. Detalhe fica nos documentos apontados no fim.
 
 ---
 
+## 0.h ENCERRAMENTO DO PRD-GOAL, 19/08/2026 (condutor Opus, executores Opus)
+
+**O goal `PRD-GOAL.md` está CUMPRIDO no escopo que ele define, com UMA fase
+congelada por decisão do Gui.** Handoff da próxima sessão:
+`/tmp/handoff-pokemon-claude-2026-08-19.md`; auditoria item a item:
+`/tmp/fechamento-prd-2026-08-19.md`.
+
+Build verde, **ROM 98,58%**, EWRAM 86,16%, IWRAM 86,66%. **Suíte 413/414**
+(só T11.3 pulado na rodada normal, que é o caso de duas ROMs), **T11 3/3**
+à parte, **SAVE COMPATIVEL**, `valida_rom.py` dizendo que tudo que foi
+declarado entrou. ROM oficial: `roms/pokemon-claude-2026-08-19b.gba`
+(md5 `8f90f12f1279e557dd0f41899fa7d057`), com o `.map` ao lado, e a mesma
+build na ROM de teste de nome fixo, também com o `.map` casado.
+
+### Critério do PRD, item a item
+
+| critério | veredito |
+|---|---|
+| suíte verde completa | **cumprido** (413/414, zero vermelho) |
+| T11 3/3 contra a ROM congelada | **cumprido**, com o T11.3 provando a RECUSA da save velha |
+| fila sem pendente executável | **cumprido**: de 15 para **0**; os 192 que sobram têm bloqueio medido |
+| Galar jogável | **cumprido no escopo da obra** (ver decisão abaixo) |
+| ROM oficial + ROM de teste | cumprido, com `.map` ao lado das duas |
+| ESTADO com seção de fechamento | esta seção |
+| memória apontando o estado final | cumprido |
+| handoff de encerramento | cumprido |
+
+### Duas decisões de condução que ficam escritas, para ninguém reabrir
+
+1. **"Galar jogável" vale pelo critério final, não pelo "Pronto quando" da
+   Fase E.** O texto da Fase E pedia insígnias e Liga, mas a decisão 1 do
+   próprio `PLANO-OBRAS-GALAR.md` mandou cena, treinador e ginásio para uma
+   fase de conteúdo separada, e foi assim que a obra rodou. Galar hoje é a
+   região inteira andável (149 mapas a pé pelo barco, com volta, provado
+   nos casos T108.4 a T108.6), com 26,7% de objeto, zero cena e fila
+   própria de 3.257 linhas. **A Liga de Galar é fase futura nomeada**, não
+   pendência escondida deste goal.
+2. **A Fase F está CONGELADA pelo Gui**, não esquecida: "nao quero mexer em
+   times de lideres ainda nem curva de nivel, deixa todos lv 5, pra eu
+   poder testar o rom" (19/08/2026). A medição dela foi feita e está na
+   carta de trabalho abaixo, para quando ele destravar.
+
+### O que a Fase F mediu antes de congelar (carta de trabalho)
+
+- **7 chefes SEM GIMMICK NENHUM, e isso é defeito, não desenho**: os três
+  campeões de Unova (`GENESIS`, `JUNIPER_*`) e os E4 `COLRESS`, `ELESA`,
+  `MARSHAL`. Nasceram no B6, depois do B8, e o `gens69_treinadores.py`
+  nunca rodou de novo. É o clímax do jogo sem mecânica.
+- **26 blocos com Dynamax sem lenda** (eram 22 no B8; Sinnoh e Unova
+  ganharam chefes depois). Dar lenda exige trocar o mais fraco do time, o
+  que contraria "a fonte entra primeiro": decisão do Gui.
+- **Curva: quatro regiões de cinco estão certas.** Johto tem 76 mons acima
+  do teto, e **24 deles são a S.S. Aqua** (níveis 120 a 128, teto 100),
+  importada depois da rodada de curva e nunca reescalada. O 25º é o RED do
+  Mt. Silver, com 149, provavelmente proposital.
+- **Os 41 grupos de Pokécenter**: 28 são executáveis (o motor tem
+  `ClearDailyFlags`, sobram 52 flags no bloco diário e a faixa de id
+  2523-3999 está livre); os 13 do Mart são Mystery Gift, que não existe
+  neste motor, e devem sair do escopo.
+- **Armadilha para quem executar**: `gens69_treinadores.py --aplicar` NÃO é
+  idempotente. Rodar de novo hoje acrescentaria 580 Pokémon e 44 lendas,
+  porque ele só olha "tem vaga". Consertar isso é parte do trabalho.
+
+### O que a leva de encerramento consertou
+
+- **Johto parou de mostrar bola de item onde não há bola**: 1171 objetos
+  restaurados pelo que a fonte diz (775 Pokémon de overworld, 219 efeitos
+  de luz, 49 pedras, 33 canteiros, 13 árvores de Cut). Custo zero de ROM
+  nos Pokémon, porque o desenho vem de `gSpeciesInfo`. **61 tiles andáveis
+  abriram**: efeito de luz é tratado antes de virar object event.
+- **A fila passou a CALCULAR bloqueio** lendo `vars.h` e `flags.h`, em vez
+  de confiar no campo escrito à mão. Bloqueio some sozinho quando a var
+  nascer.
+- Duas armadilhas silenciosas de ferramenta: o validador de Sinnoh
+  contava Pokémon de overworld como sprite inexistente e, com
+  `--corrigir`, trocaria 781 deles por boneco genérico; e o harness não
+  conseguia nomear nenhuma das 1375 flags do pool novo, porque o regex
+  exigia hexadecimal maiúsculo.
+
+### O que fica aberto, dito
+
+Fase F inteira (congelada), os 8 ginásios de Sinnoh sem arte (decisão de
+desenho do Gui, com amostra pronta em `.../scratchpad/AMOSTRA_oreburgh_4_
+caminhos.png`), as 19 bolas de neve de Snowpoint (mecânica), os 12 mapas
+de Sinnoh que são molde de portão, as 31 pedras dentro de parede, a fase
+de conteúdo de Galar (3.257 linhas) e as gens 6-9 paradas por decisão de
+17/08. **ROM em 98,58%, com cerca de 460 KB livres.**
+
+---
+
 ## 0.g ONDA DE JANELA ABERTA E A RODADA DE COMPLETUDE, 18-19/08/2026 (condutor Fable até o G5, depois Opus; executores Opus)
 
-Build verde (**ROM 98,58% de 32 MB**, EWRAM 86,16%, IWRAM 86,66%), **suíte
-399/400** (só T11.3 pulado na rodada normal, que é o caso de duas ROMs),
+Build verde (**ROM 98,58% de 32 MB**, EWRAM 86,16%, IWRAM 86,66%), **suíte 399/400** na hora em que a seção foi escrita (hoje são 414 casos,
+413/414; ver 0.h),
 **T11 completo 3/3**, e **SAVE COMPATIVEL** depois da regravação da
 impressão. ROM oficial: `roms/pokemon-claude-2026-08-19.gba`, com o
 `.map` gravado ao lado (faltava, e o T11 precisa dele), e a mesma build na
