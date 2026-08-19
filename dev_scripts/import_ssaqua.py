@@ -61,11 +61,28 @@ MARCA_PARTY = "=== ACERVO JOHTO S.S. AQUA (import_ssaqua.py) ==="
 SENT_INI = "// >>> treinadores do S.S. Aqua (gerado) >>>"
 SENT_FIM = "// <<< treinadores do S.S. Aqua (gerado) <<<"
 
-# Faixa de nivel do hns medida por importa_treinadores_johto.py na mesma fonte
-# (ele imprime "nivel: origem hns 7..45 -> 45..100"). Cravada aqui de proposito:
-# se o S.S. Aqua entrasse na conta com faixa propria, os marinheiros dele
-# cairiam num lugar relativo diferente do resto de Johto.
-ORIGEM_NIVEL = (7, 45)
+# CONSERTADO em 19/08/2026. Aqui estava `ORIGEM_NIVEL = (7, 45)`, a faixa de
+# origem do RESTO de Johto no hns (medida por importa_treinadores_johto.py),
+# cravada na crenca de que o navio caberia dentro dela. Nao cabe: no hns o
+# navio so zarpa depois do Hall da Fama e os marinheiros vivem em 53..64, fora
+# de (7, 45). A reta de curva_de_nivel.transforma entao EXTRAPOLOU em vez de
+# interpolar, e o barco nasceu em 112..128 com teto de Johto em 100
+# (64 -> 45 + (64-7)*55/38 = 127,5 -> 128, o nivel do Garrett).
+#
+# Agora a origem e MEDIDA nos times que este import de fato emite, e o destino
+# vem de dev_scripts/curva_ss_aqua.py, que explica por que o navio fica na
+# sobreposicao Kanto/Johto (45..50): aqui ele e a ENTRADA de Johto, nao a
+# saida como no hns. Se este import rodar de novo, ele sai ja certo.
+ORIGEM_NIVEL = None   # None = medir da fonte; ver faixa_de_origem()
+
+
+def faixa_de_origem(fonte_times, nomes):
+    """(min, max) dos niveis que ESTES treinadores tem no hns. Nunca cravar."""
+    niveis = [int(m["lvl"] or 5) for tr in nomes
+              for m in (fonte_times.get(tr) or {"mons": []})["mons"]]
+    if not niveis:
+        sys.exit("ABORTADO: nenhum nivel no hns para os treinadores do barco")
+    return (min(niveis), max(niveis))
 
 FLAGS = {
     "FLAG_HIDE_SSAQUA_1F_GRANDPA": "FLAG_UNUSED_0x8E5",
@@ -235,7 +252,10 @@ def treinadores_dos_scripts(textos):
 def escreve_treinadores(nomes, it):
     """Gera os blocos .party e os #define. Devolve {nome_nosso: id}."""
     curva = _modulo("curva", "curva_de_nivel.py")
+    recurva = _modulo("recurva", "curva_ss_aqua.py")
     fonte_times = it.times_do_hns(HNS)
+    origem_nivel = ORIGEM_NIVEL or faixa_de_origem(
+        fonte_times, [n for n in nomes])
     ctx = {
         "species": it.constantes("include/constants/species.h", "SPECIES_"),
         "moves": it.constantes("include/constants/moves.h", "MOVE_"),
@@ -298,8 +318,8 @@ def escreve_treinadores(nomes, it):
             if macro.startswith("ITEM_") and mon["item"] and \
                     mon["item"] != "ITEM_NONE" and mon["item"] in ctx["itens"]:
                 cabeca += f" @ {mon['item']}"
-            nivel = curva.transforma(int(mon["lvl"] or 5), ORIGEM_NIVEL,
-                                     curva.ALVO["Johto"])
+            nivel = curva.transforma(int(mon["lvl"] or 5), origem_nivel,
+                                     recurva.DESTINO)
             v = min(31, int(mon["iv"] or 0) * 31 // 255)
             L += ["", cabeca, f"Level: {nivel}",
                   f"IVs: {v} HP / {v} Atk / {v} Def / {v} SpA / {v} SpD / {v} Spe"]

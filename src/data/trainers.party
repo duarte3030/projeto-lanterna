@@ -46487,15 +46487,15 @@ Pic: TRAINER_PIC_COOLTRAINER_F
 Double Battle: No
 
 SPECIES_ELECTRODE
-Level: 122
+Level: 48
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_STARMIE
-Level: 123
+Level: 49
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_NINETALES
-Level: 122
+Level: 48
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_JOHTO_CASSIE ===
@@ -46505,15 +46505,15 @@ Pic: TRAINER_PIC_BEAUTY
 Double Battle: No
 
 SPECIES_VILEPLUME
-Level: 122
+Level: 48
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_JYNX
-Level: 125
+Level: 49
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_TRUMBEAK @ None
-Level: 125
+Level: 49
 
 === TRAINER_JOHTO_CLYDE ===
 Name: Clyde
@@ -46522,7 +46522,7 @@ Pic: TRAINER_PIC_GUITARIST
 Double Battle: No
 
 SPECIES_ELECTABUZZ
-Level: 123
+Level: 49
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_JOHTO_COLIN ===
@@ -46532,11 +46532,11 @@ Pic: TRAINER_PIC_POKEFAN_M
 Double Battle: No
 
 SPECIES_DELIBIRD
-Level: 116
+Level: 46
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_AMAURA @ None
-Level: 116
+Level: 46
 
 === TRAINER_JOHTO_COREY ===
 Name: Corey
@@ -46545,19 +46545,19 @@ Pic: TRAINER_PIC_KINDLER
 Double Battle: No
 
 SPECIES_KOFFING
-Level: 114
+Level: 46
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_MAGMAR
-Level: 119
+Level: 47
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_KOFFING
-Level: 114
+Level: 46
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_KOFFING
-Level: 122
+Level: 48
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_JOHTO_DEBRA ===
@@ -46567,11 +46567,11 @@ Pic: TRAINER_PIC_PICNICKER
 Double Battle: No
 
 SPECIES_SEAKING
-Level: 119
+Level: 47
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_TYRUNT @ None
-Level: 119
+Level: 47
 
 === TRAINER_JOHTO_EDWARD ===
 Name: Edward
@@ -46580,7 +46580,7 @@ Pic: TRAINER_PIC_GENTLEMAN
 Double Battle: No
 
 SPECIES_PERSIAN
-Level: 126
+Level: 50
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_JOHTO_ETHAN ===
@@ -46590,15 +46590,15 @@ Pic: TRAINER_PIC_POKEMANIAC
 Double Battle: No
 
 SPECIES_HAUNTER
-Level: 123
+Level: 49
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_RHYDON
-Level: 123
+Level: 49
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_CORVISQUIRE @ None
-Level: 123
+Level: 49
 
 === TRAINER_JOHTO_FRITZ ===
 Name: Fritz
@@ -46607,15 +46607,15 @@ Pic: TRAINER_PIC_JUGGLER_FRLG
 Double Battle: No
 
 SPECIES_MR_MIME
-Level: 113
+Level: 45
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_MAGMAR
-Level: 113
+Level: 45
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_MACHOKE
-Level: 116
+Level: 46
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_JOHTO_GARRETT ===
@@ -46625,11 +46625,11 @@ Pic: TRAINER_PIC_SAILOR
 Double Battle: No
 
 SPECIES_KINGLER
-Level: 128
+Level: 50
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_LITLEO @ None
-Level: 128
+Level: 50
 
 === TRAINER_JOHTO_JEFF ===
 Name: Jeff
@@ -46638,11 +46638,11 @@ Pic: TRAINER_PIC_SAILOR
 Double Battle: No
 
 SPECIES_RATICATE
-Level: 119
+Level: 47
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_FURRET
-Level: 119
+Level: 47
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_JOHTO_JONAH ===
@@ -46652,23 +46652,23 @@ Pic: TRAINER_PIC_FISHERMAN
 Double Battle: No
 
 SPECIES_SHELLDER
-Level: 114
+Level: 46
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_OCTILLERY
-Level: 120
+Level: 48
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_REMORAID
-Level: 114
+Level: 46
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_CLOYSTER
-Level: 120
+Level: 48
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_HATTREM @ None
-Level: 120
+Level: 48
 
 === TRAINER_JOHTO_KEN ===
 Name: Ken
@@ -46677,11 +46677,11 @@ Pic: TRAINER_PIC_BUG_CATCHER
 Double Battle: No
 
 SPECIES_ARIADOS
-Level: 122
+Level: 48
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_PINSIR
-Level: 125
+Level: 49
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_JOHTO_KENNETH ===
@@ -46691,23 +46691,23 @@ Pic: TRAINER_PIC_SAILOR
 Double Battle: No
 
 SPECIES_MACHOP
-Level: 119
+Level: 47
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_MACHOKE
-Level: 119
+Level: 47
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_POLIWRATH
-Level: 119
+Level: 47
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_MACHAMP
-Level: 119
+Level: 47
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_MORGREM @ None
-Level: 119
+Level: 47
 
 === TRAINER_JOHTO_LYLE ===
 Name: Lyle
@@ -46716,15 +46716,15 @@ Pic: TRAINER_PIC_KINDLER
 Double Battle: No
 
 SPECIES_WEEZING
-Level: 113
+Level: 45
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_FLAREON
-Level: 113
+Level: 45
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_NINETALES
-Level: 113
+Level: 45
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_JOHTO_MEG_AND_PEG ===
@@ -46734,15 +46734,15 @@ Pic: TRAINER_PIC_TWINS
 Double Battle: Yes
 
 SPECIES_URSARING
-Level: 113
+Level: 45
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_DONPHAN
-Level: 113
+Level: 45
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_TINKATUFF @ None
-Level: 113
+Level: 45
 
 === TRAINER_JOHTO_NATE ===
 Name: Nate
@@ -46751,11 +46751,11 @@ Pic: TRAINER_PIC_SCHOOL_KID_M
 Double Battle: No
 
 SPECIES_LEDIAN
-Level: 125
+Level: 49
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_EXEGGUTOR
-Level: 125
+Level: 49
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_JOHTO_NOLAND ===
@@ -46765,15 +46765,15 @@ Pic: TRAINER_PIC_HIKER
 Double Battle: No
 
 SPECIES_SANDSLASH
-Level: 114
+Level: 46
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_GOLEM
-Level: 114
+Level: 46
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_FLETCHINDER @ None
-Level: 114
+Level: 46
 
 === TRAINER_JOHTO_RICKY ===
 Name: Ricky
@@ -46782,11 +46782,11 @@ Pic: TRAINER_PIC_SCHOOL_KID_M
 Double Battle: No
 
 SPECIES_AIPOM
-Level: 125
+Level: 49
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_DITTO
-Level: 125
+Level: 49
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_JOHTO_SEAN ===
@@ -46796,19 +46796,19 @@ Pic: TRAINER_PIC_COOLTRAINER_M
 Double Battle: No
 
 SPECIES_FLAREON
-Level: 122
+Level: 48
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_TANGELA
-Level: 122
+Level: 48
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_TAUROS
-Level: 122
+Level: 48
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_MUDBRAY @ None
-Level: 122
+Level: 48
 
 === TRAINER_JOHTO_SHIRLEY ===
 Name: Shirley
@@ -46817,11 +46817,11 @@ Pic: TRAINER_PIC_EXPERT_F
 Double Battle: No
 
 SPECIES_JIGGLYPUFF
-Level: 123
+Level: 49
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_WIGGLYTUFF
-Level: 126
+Level: 50
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_JOHTO_STANLY ===
@@ -46831,19 +46831,19 @@ Pic: TRAINER_PIC_SAILOR
 Double Battle: No
 
 SPECIES_QWILFISH
-Level: 112
+Level: 45
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_MACHOKE
-Level: 112
+Level: 45
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_GOLDUCK
-Level: 113
+Level: 45
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_CHARJABUG @ None
-Level: 113
+Level: 45
 
 === TRAINER_JOHTO_WAI ===
 Name: Wai
@@ -46852,15 +46852,15 @@ Pic: TRAINER_PIC_BLACK_BELT
 Double Battle: No
 
 SPECIES_MACHAMP
-Level: 116
+Level: 46
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_MACHOKE
-Level: 119
+Level: 47
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_MACHAMP
-Level: 122
+Level: 48
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 /*=== TREINADORES DE JOHTO QUE FALTAVAM (treinadores_faltantes_johto.py) ===*/

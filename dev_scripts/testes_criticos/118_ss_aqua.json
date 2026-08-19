@@ -1,0 +1,38 @@
+[
+ {
+  "id": "T118.1",
+  "nome": "CURVA DO S.S. AQUA, prova por fato de EWRAM. O navio foi importado depois de a rodada de curva ter passado e nunca foi reescalado: `import_ssaqua.py` cravava `ORIGEM_NIVEL = (7, 45)`, que e a faixa de origem do RESTO de Johto no hns, mas os marinheiros do navio vivem em 53..64 la (no hns o barco so zarpa depois do Hall da Fama). Fora do dominio, a reta de `curva_de_nivel.transforma` EXTRAPOLOU em vez de interpolar, e os 64 Pokemon dos 23 treinadores do barco nasceram em 112..128, com o teto de Johto em 100. Confere na mao: 64 -> 45 + (64-7)*55/38 = 127,5 -> 128, que era o nivel do Garrett. O conserto (dev_scripts/curva_ss_aqua.py) remapeou o barco inteiro para 45..50 pela MESMA funcao do gerador, com destino tirado da tabela ALVO que ja existia: `ALVO['Johto'][0]` a `ALVO['Kanto'][1]`, ou seja a sobreposicao das duas regioes. E a sobreposicao porque a POSICAO NA HISTORIA aqui e outra: nesta ROM Kanto e a primeira regiao e o jogador embarca em Vermilion depois de FLAG_SYS_GAME_CLEAR mais o PASSE TRI (caso T4.2), rumo a Olivine. O navio e a ENTRADA de Johto, nao a saida. Quem sobe a bordo e campeao de Kanto, com time no teto de Kanto (50). O CLYDE deste caso e `SSAqua_RoomSW_EventScript_Clyde`, um mon so, SPECIES_ELECTABUZZ (125), que agora vale 49 e valia 123. A prova NAO e 'abriu batalha': `oponente` crava contra QUEM a batalha comecou (id de TRAINER_JOHTO_CLYDE), `bespecie` crava QUAL Pokemon entrou (125, lido de gBattleMons[1], a copia decifrada), e `nivelinimigo`/`nivelinimigo1` cravam os slots de gParties[B_TRAINER_OPPONENT_A]: 49 no slot 0 e 0 no slot 1, porque o time tem um mon so. Reverter o conserto devolve 123 e o caso fica vermelho. ATENCAO ao `opcoes: 32`: desde 19/08/2026 o LV.5 TRAINERS NASCE LIGADO no jogo novo (src/new_game.c), entao medir a curva de verdade exige DECLARAR que se quer ele desligado, e 32 e o mundo em repouso so com TURBO A/B. Sem essa declaracao este caso leria 5 e provaria o modo de teste, nao a curva.",
+  "opcoes": 32,
+  "warp": "MAP_SSAQUA_ROOM_SW",
+  "roteiro": "150:NADA,20:UP,300:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_SSAQUA_ROOM_SW",
+   "oponente": "TRAINER_JOHTO_CLYDE",
+   "campos": {
+    "opcoes": 32,
+    "bespecie": 125,
+    "bnivel": 49,
+    "nivelinimigo": 49,
+    "nivelinimigo1": 0
+   }
+  }
+ },
+ {
+  "id": "T118.2",
+  "nome": "PAR NEGATIVO do T118.1, e ele existe porque 'o inimigo veio no nivel 49' sozinho nao prova de onde o 49 saiu. MESMO mapa, MESMO roteiro de botoes, MESMO treinador, MESMO Pokemon: muda uma coisa so, o byte das opcoes, de 32 para 36 (36 = TURBO A/B mais TEST_OPT_LV5_TRAINERS). Com o modo de teste do Gui LIGADO o gancho de src/battle_main.c da ao mon a experiencia do nivel 5 e CalculateMonStats recalcula, entao `nivelinimigo` tem que dar 5 e NAO 49. Isso separa duas coisas que um caso solitario confunde: se a leitura viesse de um lugar morto (um valor cravado, um campo que o runner sempre reporta igual, o nivel do time do JOGADOR), ela daria 49 nos dois casos e o par ficaria identico. Dando 49 com a opcao desligada e 5 com ela ligada, a leitura so pode ser gParties[B_TRAINER_OPPONENT_A] montado de verdade a partir do time do treinador. E `bespecie` continuar 125 nos dois prova a outra metade: o LV.5 derruba o NIVEL sem trocar a especie, entao o 5 nao e 'entrou outro Pokemon'.",
+  "opcoes": 36,
+  "warp": "MAP_SSAQUA_ROOM_SW",
+  "roteiro": "150:NADA,20:UP,300:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_SSAQUA_ROOM_SW",
+   "oponente": "TRAINER_JOHTO_CLYDE",
+   "campos": {
+    "opcoes": 36,
+    "bespecie": 125,
+    "bnivel": 5,
+    "nivelinimigo": 5,
+    "nivelinimigo1": 0
+   }
+  }
+ }
+]
