@@ -100,6 +100,36 @@ FORA = {
                      "conteúdo, e inventar item é outra obra"),
 }
 
+# Bola da fonte que não está ACHATADA aqui, está AUSENTE: nenhum objeto nosso
+# ocupa a coordenada, então não há o que restaurar, há o que CRIAR. Lista
+# explícita e curta de propósito, uma linha por objeto criado, porque criar
+# object event é conteúdo e conteúdo se mede um a um (leva de encerramento,
+# 19/08/2026; a dívida vinha da linha `johto:bolas:2_de_olivine_faltando`).
+AUSENTES = [
+    # Provado antes de entrar: colisão 0 no `map.bin`, e BFS a pé a partir dos
+    # 39 warps do mapa alcança o tile (1019 tiles alcançáveis, este entre eles),
+    # com três vizinhos livres. `movement_type` e `graphics_id` copiados da
+    # fonte, nada inventado.
+    dict(mapa="OlivineCity_Lighthouse", x=125, y=15,
+         graphics_id="OBJ_EVENT_GFX_POKE_BALL",
+         movement_type="MOVEMENT_TYPE_LOOK_AROUND"),
+]
+
+# A OUTRA bola de Olivine da mesma dívida, RECUSADA com medição. A fonte a
+# desenha em `OlivineCity (53,47)`, e `LAYOUT_OLIVINE_CITY` tem largura 52 na
+# FONTE e aqui (x válido é 0..51): o objeto está fora do próprio mapa dela, no
+# vazio da borda, e criá-lo aqui seria plantar um objeto inalcançável. Ela
+# também divide `script` e `flag` (`FLAG_ITEM_OLIVINE_TM_SHOCKWAVE`) com a do
+# farol acima, ou seja é a MESMA bola duplicada pelo dump da fonte: dar
+# endereço próprio a ela entregaria o TM Shock Wave duas vezes.
+AUSENTES_FORA = [
+    dict(mapa="OlivineCity", x=53, y=47, item="ITEM_TM_SHOCK_WAVE",
+         motivo="x=53 fora de LAYOUT_OLIVINE_CITY, que tem largura 52 (na "
+                "fonte também); e divide script e flag com "
+                "OlivineCity_Lighthouse (125,15), ou seja é a mesma bola "
+                "duplicada pelo dump, não uma segunda"),
+]
+
 
 def texto(p):
     return open(p, encoding="utf-8").read()
@@ -137,8 +167,12 @@ def nossa(obj, mapa, ja):
     Comparar o apelido junto, e não só a coordenada, para que uma bola que outra
     frente reaproveitou (script próprio, flag de cena) não seja recapturada.
     """
+    # BOLA e não GFX: a bola CRIADA por `AUSENTES` nasce com o sprite da fonte,
+    # que pode ser OBJ_EVENT_GFX_POKE_BALL. Comparando só com o sprite das
+    # achatadas, a rodada seguinte não a reconhecia, ela caía em `sumidas()` e
+    # a ferramenta parava acusando bola perdida que estava ali na frente.
     reg = ja.get((mapa, obj.get("x"), obj.get("y")))
-    return bool(reg) and obj.get("graphics_id") == GFX \
+    return bool(reg) and obj.get("graphics_id") in BOLA \
         and str(obj.get("flag")) == reg[0]
 
 
@@ -187,6 +221,33 @@ def fonte_bolas(ja=None):
                                    item=m.group(1), qtd=int(m.group(2) or 1),
                                    flag_fonte=str(c.get("flag", "")),
                                    script_fonte=str(c.get("script", ""))))
+    achado += ausentes_da_fonte(corpos)
+    return achado
+
+
+def ausentes_da_fonte(corpos):
+    """As bolas de `AUSENTES`, lidas da FONTE e marcadas para CRIAR.
+
+    Idempotente pelo mesmo motivo do resto: se o objeto já existe aqui (rodada
+    anterior criou), ele entra pelo laço normal e esta função não emite nada.
+    """
+    achado = []
+    for a in AUSENTES:
+        p = f"{REPO}/data/maps/{a['mapa']}/map.json"
+        nossos = json.load(open(p)).get("object_events", [])
+        if any((o.get("x"), o.get("y")) == (a["x"], a["y"]) for o in nossos):
+            continue
+        fonte = json.load(open(f"{HNS}/data/maps/{a['mapa']}/map.json"))
+        cands = [o for o in fonte.get("object_events", [])
+                 if (o.get("x"), o.get("y")) == (a["x"], a["y"])]
+        assert len(cands) == 1, (a, len(cands))
+        m = eh_bola_na_fonte(cands[0], corpos)
+        assert m, f"{a['mapa']} ({a['x']},{a['y']}) não é bola com finditem"
+        achado.append(dict(mapa=a["mapa"], x=a["x"], y=a["y"],
+                           item=m.group(1), qtd=int(m.group(2) or 1),
+                           flag_fonte=str(cands[0].get("flag", "")),
+                           script_fonte=str(cands[0].get("script", "")),
+                           criar=a))
     return achado
 
 
@@ -239,7 +300,7 @@ def censo():
     ja = alias_ja_gravados()
     usados = {a for a, _ in ja.values()}
     proximo = max((o for _, o in ja.values()), default=-1) + 1
-    dentro, fora = [], []
+    dentro, fora = [], list(AUSENTES_FORA)
     for b in sorted(fonte_bolas(ja), key=lambda b: (b["mapa"], b["x"], b["y"])):
         if b["item"] in FORA:
             fora.append(dict(b, motivo=FORA[b["item"]]))
@@ -335,9 +396,26 @@ def escreve_mapas(dentro):
         d = json.load(open(p))
         alvo = {(b["x"], b["y"]): b for b in bolas}
         mexeu = False
+        # Objeto AUSENTE: nasce aqui, com os campos da fonte, antes do laço que
+        # só sabe editar objeto que já existe. `criar` só chega quando a
+        # coordenada está vazia (ver `ausentes_da_fonte`), então rodar duas
+        # vezes não empilha bola em cima de bola.
+        for b in bolas:
+            a = b.get("criar")
+            if not a:
+                continue
+            d.setdefault("object_events", []).append({
+                "graphics_id": a["graphics_id"],
+                "x": a["x"], "y": a["y"], "elevation": 0,
+                "movement_type": a["movement_type"],
+                "movement_range_x": 0, "movement_range_y": 0,
+                "trainer_type": "TRAINER_TYPE_NONE",
+                "trainer_sight_or_berry_tree_id": b["item"],
+                "script": SCRIPT, "flag": b["flag"]})
+            mexeu = True
         for o in d.get("object_events", []):
             b = alvo.get((o.get("x"), o.get("y")))
-            if not b or o.get("graphics_id") != GFX:
+            if not b or o.get("graphics_id") not in BOLA:
                 continue
             # Só a bola achatada, ou a que ESTA ferramenta já escreveu. Objeto
             # com outro script é de outra frente e fica intocado.
@@ -487,8 +565,10 @@ def demo():
     assert "ITEM_GS_BALL" in FORA
 
     # 8. O teto posto pelo J7 é LIDO do flags.h e sobra do que já foi gravado.
+    # Andou para 0x0A1 na leva de encerramento (19/08/2026), quando a bola
+    # AUSENTE de OlivineCity_Lighthouse virou objeto e pediu endereço próprio.
     teto = teto_da_faixa()
-    assert teto == 0x0A0, hex(teto)
+    assert teto == 0x0A1, hex(teto)
     if ABRE in real:
         assert max(o for _, o in alias_ja_gravados(real).values()) < teto
     # e some junto com a declaração, em vez de virar número de fantasia

@@ -609,6 +609,44 @@ DECIDIDO_SINNOH = {
         "PROPÓSITO para MtCoronet_1F_South e MtCoronet_B1F, porque id de "
         "treinador não pode duplicar entre mapas (derrotável uma vez só). A "
         "fila os procura aqui e não acha; o trabalho está feito, em outro mapa"),
+    # CALIBRAÇÃO 3, leva de encerramento (19/08/2026): falso "pendente".
+    "VeilstoneCity:FLAG_HIDE_VEILSTONE_GALACTIC_GRUNTS": (
+        "feita",
+        "CALIBRAÇÃO 19/08/2026: a fonte tem TRÊS grunts neste grupo "
+        "(LOCALID_GRUNT_M_WAREHOUSE_NORTH, _SOUTH e _SOUTHEAST) e este repo "
+        "tem TRÊS, um por um, com nome: VeilstoneCity_EventScript_"
+        "WarehouseGruntNorth, ...South e ...Southeast, os três com "
+        "FLAG_GALACTICA_QG_TOMADO. O trabalho está feito. Quem erra é a régua: "
+        "VeilstoneCity é mapa de rua com coordenada de MATRIZ GLOBAL, e "
+        "cena_galactica_sinnoh.py põe esses NPCs no tile livre escolhido pela "
+        "cena, não na coordenada convertida (está escrito no cabeçalho dele). "
+        "Medido: a fonte converte para (25,20), (25,22) e (49,59), e os "
+        "nossos moram em (39,16), (40,16) e (41,16). Com raio 4, dois casaram "
+        "com vizinhos alheios e o terceiro não casou com ninguém, o que "
+        "deixava o grupo pendente por 1. Mesma família da calibração do "
+        "MtCoronet1FTunnelRoom: correspondência por NOME é prova, distância "
+        "não é"),
+    # LEVA DE ENCERRAMENTO, 19/08/2026. Os quatro grupos abaixo saíam como
+    # "parcialmente posto, sem bloqueio", e a régua que produz esse veredito
+    # está certa: parte do elenco está no mapa e a cena que apaga a flag
+    # existe. O que faltava era medir O QUE sobrou. Medido objeto a objeto
+    # contra o Platinum: TODAS as 6 unidades que faltam são
+    # `trainer_type: TRAINER_TYPE_NORMAL` ou `FACE_SIDES`, com script
+    # `TRAINER_GALACTIC_GRUNT_*` / `TRAINER_SCIENTIST_*`, ou seja pedem time e
+    # nível, não sprite. E time de treinador e curva de nível estão
+    # CONGELADOS por ordem do Gui em 19/08/2026 ("não quero mexer em times de
+    # líderes ainda nem curva de nível, deixa todos lv 5, pra eu poder testar
+    # o rom"). Não é bloqueio técnico: é decisão dele, com data, e por isso
+    # `adiada` e não `pendente`.
+    **{k: ("adiada",
+           "congelado-pela-Fase-F: o que falta neste grupo é treinador com "
+           "time (TRAINER_TYPE_NORMAL/FACE_SIDES na fonte), e time de "
+           "treinador e curva de nível estão parados por decisão do Gui de "
+           "19/08/2026. Volta a ser pendente quando a Fase F descongelar")
+       for k in ("GalacticHQ_3F:FLAG_HIDE_GALACTIC_HQ_TEAM_GALACTIC",
+                 "GalacticHQ_B2F:FLAG_HIDE_GALACTIC_HQ_TEAM_GALACTIC",
+                 "TeamGalacticEternaBuilding_3F:FLAG_HIDE_ETERNA_CITY_GALACTIC_GRUNTS",
+                 "ValleyWindworksBuilding:FLAG_HIDE_VALLEY_WINDWORKS_BUILDING_TEAM_GALACTIC")},
 }
 
 # Notas que NÃO mudam status: calibração conhecida que o executor precisa ler
@@ -803,7 +841,17 @@ def decidido(i):
 
 def existe(simbolo, arquivos=("include/constants/items.h",
                               "include/constants/event_objects.h",
-                              "include/constants/opponents.h")):
+                              "include/constants/opponents.h",
+                              # 19/08/2026: sem vars.h, um `precisa` de VAR_
+                              # dava "existe" por omissão e o item saía sem
+                              # bloqueio. Foi como `johto:ginasio:olivine`
+                              # apareceu como executável durante uma onda
+                              # inteira dependendo de VAR_OLIVINE_CITY_STATE,
+                              # que grep nenhum acha neste repo.
+                              "include/constants/vars.h",
+                              "include/constants/vars_frlg.h",
+                              "include/constants/flags.h",
+                              "include/constants/flags_frlg.h")):
     for a in arquivos:
         p = os.path.join(REPO, a)
         if os.path.exists(p) and re.search(rf"\b{simbolo}\b", open(p).read()):
@@ -867,7 +915,14 @@ JOHTO = [
                 "(VAR_JOHTO_GOLDENROD_GYM_STATE). A cena mora no gerador, em "
                 "dev_scripts/porta_ginasios_johto.py, funcao cena_choro"),
     dict(id="johto:ginasio:olivine", tipo="setscene",
-         mapa_destino="OlivineCity_Gym", tamanho=1, precisa=[],
+         mapa_destino="OlivineCity_Gym", tamanho=1,
+         # `precisa` vazio era o defeito: o motivo já dizia que a linha depende
+         # de VAR_OLIVINE_CITY_STATE, mas nada media isso, e por isso a linha
+         # saía com `bloqueio: "nenhum"` e passava por executável. A var não
+         # existe em include/, data/ nem src/ (medido em 19/08/2026): o arco do
+         # farol não está portado. Declarar a dependência faz o bloqueio ser
+         # CALCULADO, e ele some sozinho no dia em que a var nascer.
+         precisa=["VAR_OLIVINE_CITY_STATE"],
          motivo="depende de VAR_OLIVINE_CITY_STATE em 5, que só o farol põe"),
     dict(id="johto:npcs:44_pares_ambiguos", tipo="portavel", feito=True,
          mapa_destino="vários", tamanho=44, precisa=[],
@@ -906,9 +961,24 @@ JOHTO = [
                 "por rede maior em Johto inteira (lição do raio de Sinnoh). "
                 "Censo agora: 'sem par na fonte' = 0, travado por assert no "
                 "demo() do restaura_npcs_johto.py"),
-    dict(id="johto:arte:4_graficos", tipo="portavel",
+    dict(id="johto:arte:4_graficos", tipo="portavel", feito=True,
          mapa_destino="vários", tamanho=2, precisa=[],
-         motivo="18/08/2026, Fase B, re-verificado: dos 4 originais, os dois "
+         motivo="FEITA por medição em 19/08/2026: os DOIS que sobravam já "
+                "estão resolvidos e ninguém tinha reconferido. "
+                "OBJ_EVENT_GFX_TRAIN_FRONT EXISTE nesta ROM "
+                "(include/constants/event_objects.h:436), passa em "
+                "valida_mapas_sinnoh.sprites_utilizaveis() e já está em campo "
+                "em GoldenrodCity_TrainStation (1,5). E o SHINY_GYARADOS "
+                "ganhou arte PRÓPRIA, não substituto: "
+                "OBJ_EVENT_GFX_GYARADOS_VERMELHO, com graphics info e palette "
+                "declaradas (event_objects.h:439, "
+                "object_event_graphics_info_pointers.h:657, "
+                "OBJ_EVENT_PAL_TAG_GYARADOS_VERMELHO 0x1136), e é o gráfico "
+                "que o objeto de LakeOfRage (32,28) usa hoje. A decisão de "
+                "arte que estava em aberto foi tomada e executada pela leva de "
+                "arte; a saída barata do OBJ_EVENT_GFX_SPECIES_SHINY(GYARADOS) "
+                "não foi usada nem é mais necessária. Texto anterior abaixo. "
+                "18/08/2026, Fase B, re-verificado: dos 4 originais, os dois "
                 "WHIRLPOOL eram falso positivo (decoração de campo, não "
                 "gente, corrigido em EXATOS_NAO_PESSOA do gerador); o "
                 "ARCHER que eles escondiam já foi restaurado, ver a linha "
@@ -985,7 +1055,39 @@ FILA_DE_CONTEUDO = [
          mapa_destino="EternaCityCondominiums2F, FloaromaTown, "
                       "HearthomeCity_Gym, HotelGrandLake, Route205_North, "
                       "Route221, WaywardCave1F",
-         tipo="portavel", tamanho=15, bloqueio="nenhum", status="pendente",
+         # tamanho 2, e não 15: o número velho contava placa que não existe e
+         # placa que já está legível. O trabalho que sobra são as 2 de
+         # Route205_North, as únicas medidas como ilegíveis.
+         tipo="portavel", tamanho=2, status="pendente",
+         # MEDIDO mapa a mapa em 19/08/2026, e a medição derrubou o item quase
+         # inteiro. Ver o texto do bloqueio: o teste de warp passar não prova
+         # que mover melhora, e em um dos 7 ele prova o contrário.
+         bloqueio="medido mapa a mapa em 19/08/2026, e a régua não fecha: dos "
+                  "7, TRÊS não têm placa nenhuma para mover "
+                  "(EternaCityCondominiums2F, HotelGrandLake e WaywardCave1F: "
+                  "zero object_event com gráfico de placa na fonte e zero "
+                  "gravada aqui, então as '15 placas' do enunciado eram 8). "
+                  "HearthomeCity_Gym REPROVA a translação: as 2 placas dele "
+                  "já estão na coordenada da fonte pela regra de IDENTIDADE e "
+                  "as duas são legíveis, e o deslocamento que os 2 warps "
+                  "sugerem, d=(-3,-15), jogaria uma delas em (5,21), colisão "
+                  "1 e sem nenhum vizinho alcançável. É a prova de que "
+                  "'passa no teste de warp' com 2 warps pode ser coincidência. "
+                  "FloaromaTown (3 placas) e Route221 (1) passam nas duas "
+                  "metades do critério, mas as 4 já são LEGÍVEIS onde estão "
+                  "(vizinho ortogonal alcançável em todas), então mover não "
+                  "conserta defeito nenhum e cobraria mover junto todo o resto "
+                  "dos eventos importados desses mapas, senão "
+                  "itens_escondidos_sinnoh.alinha_por_coordenada vê órfão. "
+                  "Route205_North é o ÚNICO com o defeito da Route 222 de "
+                  "verdade (as 2 placas gravadas têm ZERO vizinho alcançável, "
+                  "ou seja o jogador nunca as abre) e é justamente onde a "
+                  "translação NÃO resolve: das 3 placas da fonte, uma cai "
+                  "legível em (49,9), outra em (68,18) sem vizinho alcançável "
+                  "e a terceira em (80,16), fora de um layout de 80 colunas. "
+                  "O que sobra de trabalho de verdade são essas 2 placas de "
+                  "Route205_North, e elas precisam de régua que ainda não "
+                  "existe, não de translação",
          motivo="18/08/2026: `conversor_de_coordenada` do importa_npcs_sinnoh."
                 "py converte por ESCALA da caixa da matriz do Platinum, e onde "
                 "o nosso layout é REDESENHO 1 para 1 a conta certa é "
@@ -1034,7 +1136,19 @@ FILA_DE_CONTEUDO = [
                       "GalacticHQ_B2F, HearthomeCityGymLeaderRoom, "
                       "VeilstoneCity_GalacticWarehouse, JubilifeCity_Flat1_F3, "
                       "MtCoronet_1F_North_Room1, MtCoronet_1F_North_Room2",
-         tipo="portavel", tamanho=10, bloqueio="nenhum", status="pendente",
+         tipo="portavel", tamanho=10, status="pendente",
+         bloqueio="MEDIDO nos 10, um a um, em 19/08/2026: "
+                  "`deslocamento_de_warp` devolve None em TODOS. Nenhum tem "
+                  "deslocamento único que leve os warps daqui aos da fonte, "
+                  "inclusive os que têm warp de sobra dos dois lados "
+                  "(HearthomeCityGymLeaderRoom 5 e 5, LakeVerity 3 e 3, "
+                  "MtCoronet_1F_North_Room1 4 e 4). Ou seja a primeira metade "
+                  "do critério de aceite, 'translação provada por >= 2 warps', "
+                  "está FECHADA para os dez, e o que sobra é a segunda: "
+                  "conversão 1 para 1 do blockdata com acordo de máscara "
+                  "medido. Isso é obra de geometria por mapa, não medição, e "
+                  "por isso a linha tem bloqueio de verdade e não fica na "
+                  "coluna de executável",
          motivo="18/08/2026, onda de povoar: nestes 10 a única régua de "
                 "coordenada disponível é a ESCALA da caixa da matriz, que é "
                 "justamente a regra que a correção da Route 222 provou errada "
@@ -1053,7 +1167,21 @@ FILA_DE_CONTEUDO = [
                 "placa, portão de tranca para pedra)"),
     dict(regiao="johto", id="johto:gyarados:passeio_2x2",
          mapa_destino="LakeOfRage", tipo="portavel", tamanho=1,
-         bloqueio="nenhum", status="pendente",
+         status="pendente",
+         bloqueio="MEDIDO em 19/08/2026 e o bloqueio é do MOTOR, não de gosto: "
+                  "o tile (32,28) tem colisão 0 no LAYOUT_LAKE_OF_RAGE, e o "
+                  "que segura o jogador em (32,29) é o CORPO do Gyarados. Com "
+                  "o passeio, na hora em que ele sai do tile o UP do roteiro "
+                  "deixa de virar e passa a ANDAR, e todos os apertos "
+                  "seguintes do T107.4 caem fora de fase: a prova para de "
+                  "provar, não fica só instável. Mirar as quatro casas também "
+                  "não fecha, porque a fase do WALK_SEQUENCE depende do "
+                  "número de quadros entre o warp e a chegada, e esse número "
+                  "varia (montagem do Surf, caixas de texto). Seria o terceiro "
+                  "flaky da mesma família dos T98.9 e T108.2, que são "
+                  "exatamente NPC que passeia sobre tile de gatilho, e desta "
+                  "vez num caso que prova batalha. Some quando existir prova "
+                  "de batalha que não dependa da posição do objeto",
          motivo="DÍVIDA DE FIDELIDADE assumida em 18/08/2026, não descuido: o "
                 "GYARADOS vermelho de (32,28) ficou com MOVEMENT_TYPE_NONE, e "
                 "a fonte usa MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_UP_DOWN_LEFT "
@@ -1068,8 +1196,34 @@ FILA_DE_CONTEUDO = [
          mapa_destino="Johto inteira (54 mapas têm bola de verdade; o estrago "
                       "é bem maior e se mede pelo gfx, não pela lista)",
          tipo="arte_de_campo", tamanho=1211, bloqueio="nenhum",
-         status="pendente",
-         motivo="ACHADO DO J2, 18/08/2026, e é o mais caro da onda de janela "
+         status="feita",
+         motivo="FEITA na leva de encerramento, 19/08/2026, por "
+                "dev_scripts/restaura_gfx_johto.py (idempotente, --demo com "
+                "mutação plantada, censo linha a linha em "
+                "dev_scripts/gfx_johto.json). Dos 1211, 1171 entraram: 775 "
+                "Pokémon de overworld (OBJ_EVENT_GFX_MON_BASE+SPECIES_X vira "
+                "OBJ_EVENT_GFX_SPECIES(X), forma que este repo já usava, a "
+                "custo ZERO de ROM porque OW_POKEMON_OBJECT_EVENTS já liga "
+                "gSpeciesInfo[].overworldData), 219 efeitos de luz, 49 pedras "
+                "de Rock Smash, 33 canteiros de berry, 13 árvores de Cut, 8 "
+                "pedras empurráveis e o resto miúdo; mais 42 âncoras de "
+                "redemoinho escondidas no lugar (MOVEMENT_TYPE_INVISIBLE, o "
+                "mesmo remédio já aprovado no restaura_npcs_johto.py, porque "
+                "OBJ_EVENT_GFX_WHIRLPOOL não existe aqui). Os 40 que sobraram "
+                "estão no censo com motivo, e nenhum sumiu: 18 são GENTE "
+                "(sprite de NPC é do outro gerador, que precisa da flag "
+                "junto), 13 são SPECIES_UNOWN (sem OVERWORLD() no "
+                "species_info, e cair no boneco de substituição do motor seria "
+                "invenção), 7 não têm objeto livre da fonte na coordenada "
+                "exata, 1 é OBJ_EVENT_GFX_LEGENDARY_SHADOW sem equivalente "
+                "desenhado e 1 é a GS Ball, que a fonte diz que é bola mesmo. "
+                "O cuidado escrito no critério de aceite foi MEDIDO e caiu: "
+                "graphics_id não entra em CheckForObjectEventCollision, então "
+                "trocar sprite não fecha passagem nenhuma; a única mudança de "
+                "passagem é permissiva, porque OBJ_EVENT_GFX_LIGHT_SPRITE é "
+                "tratado antes de virar object event e não ocupa tile. "
+                "Critério original abaixo. "
+                "ACHADO DO J2, 18/08/2026, e é o mais caro da onda de janela "
                 "aberta: o jogador vê BOLA DE ITEM onde a fonte tem outra "
                 "coisa. `dev_scripts/sanitize_johto_map_json.py` achatou TODO "
                 "object event de Johto em OBJ_EVENT_GFX_ITEM_BALL mudo, e o "
@@ -1097,8 +1251,31 @@ FILA_DE_CONTEUDO = [
                 "inclui o tile andável, como no --demo do importador"),
     dict(regiao="johto", id="johto:bolas:2_de_olivine_faltando",
          mapa_destino="OlivineCity (53,47) e OlivineCity_Lighthouse (125,15)",
-         tipo="arte_de_campo", tamanho=2, bloqueio="nenhum", status="pendente",
-         motivo="18/08/2026, J2: são bolas GENUÍNAS da fonte que não casaram "
+         tipo="arte_de_campo", tamanho=2, bloqueio="nenhum", status="feita",
+         motivo="FEITA na leva de encerramento, 19/08/2026, e a medição "
+                "derrubou metade do item. Das duas, UMA virou objeto: "
+                "OlivineCity_Lighthouse (125,15), criada por "
+                "dev_scripts/liga_bolas_johto.py (tabela AUSENTES) com "
+                "Common_EventScript_FindItem, ITEM_TM_SHOCK_WAVE e flag "
+                "própria FLAG_ITEM_JOHTO_OLIVINECITYLIGHTHOUSE_TM_SHOCK_WAVE "
+                "no offset 0x0A0 da faixa. Prova de alcance ANTES de criar: "
+                "colisão 0 no map.bin e BFS a pé a partir dos 39 warps do "
+                "mapa (1019 tiles alcançáveis, este entre eles, três vizinhos "
+                "livres). A faixa não tinha vaga (teto 0x0A0, 160 gravadas), "
+                "então a fronteira andou UM: FLAG_SOBRA_ITEM_BALLS_START foi "
+                "para +0x0A1, a linha FLAG_UNUSED_0x20D1 foi apagada e os 1375 "
+                "offsets restantes desceram 1, de modo que cada nome "
+                "FLAG_UNUSED_0xNNNN continua valendo o número que carrega. "
+                "Custo ZERO de save: FLAGS_COUNT não mudou. A OUTRA foi "
+                "RECUSADA com medição, não esquecida: OlivineCity (53,47) tem "
+                "x=53 num LAYOUT_OLIVINE_CITY de largura 52 (na FONTE também), "
+                "ou seja está fora do próprio mapa dela; e divide script e "
+                "flag (FLAG_ITEM_OLIVINE_TM_SHOCKWAVE) com a do farol, ou "
+                "seja é a MESMA bola duplicada pelo dump, e criá-la entregaria "
+                "o TM Shock Wave duas vezes. Está no censo, em "
+                "dev_scripts/bolas_johto.json, na lista `fora`. "
+                "Texto original abaixo. "
+                "18/08/2026, J2: são bolas GENUÍNAS da fonte que não casaram "
                 "por coordenada com nenhum objeto nosso, ou seja não estão "
                 "achatadas, estão AUSENTES. As duas rodam "
                 "`OlivineCity_EventScript_Item_Shockwave` na fonte (o TM de "
@@ -1173,8 +1350,23 @@ FILA_DE_CONTEUDO = [
                 "duas linhas de DEFEITO VIVO"),
     dict(regiao="motor", id="motor:portao_colisao:headers_de_config",
          mapa_destino="include/config/text.h:17, include/config/item.h:39",
-         tipo="ferramenta", tamanho=2, bloqueio="nenhum", status="pendente",
-         motivo="SOBRA DO J9, 18/08/2026, medida e NÃO consertada porque hoje "
+         tipo="ferramenta", tamanho=2, bloqueio="nenhum", status="feita",
+         motivo="FEITA na leva de encerramento, 19/08/2026, linha a linha do "
+                "critério de aceite: `include/config/item.h` entrou no perfil "
+                "de vars e `include/config/text.h` no de flags, na ordem do "
+                "include, e a `ponta` do portão virou LISTA porque nenhum dos "
+                "dois é alcançável a partir da ponta antiga (medido com o "
+                "próprio cpp). Os dois nomes agora resolvem para 0 DENTRO do "
+                "portão, e 0 não tem segundo dono usado, então o veredito "
+                "'sem colisão' passou a ser medido em vez de presumido. O "
+                "--demo ganhou o passo 7, que planta a mutação DENTRO do "
+                "include/config/ do perfil e exige vermelho; ele pegou de "
+                "quebra que a cópia da árvore de mentira precisa levar os "
+                "headers da ponta junto, senão o `#include \"config/text.h\"` "
+                "entre aspas resolve no diretório do arquivo que inclui e o "
+                "cpp lê o repo de verdade em vez da cópia mutada. Texto "
+                "original da dívida abaixo. SOBRA DO J9, 18/08/2026, medida e "
+                "NÃO consertada porque hoje "
                 "não há colisão: o portão dev_scripts/guarda_colisao_vars.py "
                 "só lê os headers do PERFIL (constants/flags.h, flags_frlg.h, "
                 "constants/vars.h, vars_frlg.h), e include/config/*.h define "
@@ -1194,7 +1386,15 @@ FILA_DE_CONTEUDO = [
                 "config em cima de flag viva"),
     dict(regiao="motor", id="motor:portao_colisao:mascara_de_bit_com_nome_de_flag",
          mapa_destino="include/constants/battle_frontier.h:131",
-         tipo="ferramenta", tamanho=1, bloqueio="nenhum", status="pendente",
+         tipo="ferramenta", tamanho=1, status="adiada",
+         # 19/08/2026: saía com `bloqueio: "nenhum"` e status `pendente`, o que
+         # a fazia contar como executável. O próprio motivo diz que NÃO é
+         # trabalho de executor: renomear constante de motor é decisão do
+         # condutor, e a alternativa legítima é aceitar como está. Enquanto a
+         # decisão não vier, `adiada`, e o bloqueio nomeia quem decide.
+         bloqueio="decisão do condutor, em aberto: renomear constante de motor "
+                  "(FLAG_FRONTIER_MON_FACTORY -> F_FRONTIER_MON_FACTORY) ou "
+                  "aceitar como está. NÃO PEGAR está tecnicamente certo aqui",
          motivo="SOBRA DO J9, 18/08/2026. FLAG_FRONTIER_MON_FACTORY é `(1 << "
                 "0)`, o mesmo número de FLAG_TEMP_1, e as duas são usadas "
                 "(src/battle_factory.c, src/battle_frontier.c, src/battle_"
@@ -1214,7 +1414,13 @@ FILA_DE_CONTEUDO = [
     dict(regiao="motor", id="motor:worktrees_velhas_com_stub",
          mapa_destino=".claude/worktrees/cool-liskov-5a5d35, "
                       ".claude/worktrees/friendly-hawking-e6b67e",
-         tipo="ferramenta", tamanho=2, bloqueio="nenhum", status="pendente",
+         tipo="ferramenta", tamanho=2, status="descartada",
+         # 19/08/2026: `pendente` com `bloqueio: "nenhum"` numa linha cujo
+         # próprio texto diz "NÃO MEXER" é classificação errada, e ela sozinha
+         # somava 2 unidades ao total executável da fila. Nenhum trabalho é
+         # devido aqui, então `descartada`.
+         bloqueio="não é tarefa: é aviso. A própria linha diz NÃO MEXER, e "
+                  "reescrever worktree velha seria falsificar história",
          motivo="AVISO DO J9, 18/08/2026, e é AVISO e não tarefa: as duas "
                 "worktrees velhas (bde2d3216a e 20ac2eaac4) ainda têm o stub "
                 "`#ifndef FLAG_HIDE_RAYQUAZA / #define FLAG_HIDE_RAYQUAZA "

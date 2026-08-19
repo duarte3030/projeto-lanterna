@@ -911,6 +911,26 @@
    "endereco": "0x2076"
   },
   {
+   "mapa": "OlivineCity_Lighthouse",
+   "x": 125,
+   "y": 15,
+   "item": "ITEM_TM_SHOCK_WAVE",
+   "qtd": 1,
+   "flag_fonte": "FLAG_ITEM_OLIVINE_TM_SHOCKWAVE",
+   "script_fonte": "OlivineCity_EventScript_Item_Shockwave",
+   "criar": {
+    "mapa": "OlivineCity_Lighthouse",
+    "x": 125,
+    "y": 15,
+    "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
+    "movement_type": "MOVEMENT_TYPE_LOOK_AROUND"
+   },
+   "item_fonte": "ITEM_TM_SHOCK_WAVE",
+   "flag": "FLAG_ITEM_JOHTO_OLIVINECITYLIGHTHOUSE_TM_SHOCK_WAVE",
+   "offset": 160,
+   "endereco": "0x20D1"
+  },
+  {
    "mapa": "Route27",
    "x": 69,
    "y": 14,
@@ -2082,6 +2102,13 @@
   }
  ],
  "fora": [
+  {
+   "mapa": "OlivineCity",
+   "x": 53,
+   "y": 47,
+   "item": "ITEM_TM_SHOCK_WAVE",
+   "motivo": "x=53 fora de LAYOUT_OLIVINE_CITY, que tem largura 52 (na fonte também); e divide script e flag com OlivineCity_Lighthouse (125,15), ou seja é a mesma bola duplicada pelo dump, não uma segunda"
+  },
   {
    "mapa": "RuinsOfAlph_B1F",
    "x": 5,

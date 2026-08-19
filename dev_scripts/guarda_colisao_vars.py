@@ -79,18 +79,31 @@ EXTENSOES = (".c", ".h", ".inc", ".json", ".s", ".pory")
 # Perfis. `headers` vai na ORDEM DO INCLUDE (o último é o que o cpp deixa
 # valer), `ponta` é o header que puxa o outro, `plante` é um endereço com
 # exatamente UM dono próprio e usado, onde o autoteste finge o segundo dono.
+#
+# `include/config/*.h` entra na leva de encerramento (19/08/2026). Ele estava
+# FORA do alcance e escondia dois nomes que o motor trata como endereço:
+# `FLAG_TEXT_SPEED_INSTANT` (include/config/text.h) e `VAR_LAST_REPEL_LURE_USED`
+# (include/config/item.h). Nenhum dos dois é alcançável a partir da ponta
+# antiga: medido com o próprio cpp, `#include "constants/flags.h"` deixa
+# `FLAG_TEXT_SPEED_INSTANT` sem expandir, e `constants/vars.h` faz o mesmo com
+# `VAR_LAST_REPEL_LURE_USED`. Por isso `ponta` virou LISTA: o segundo include é
+# quem puxa o header de config (`text.h` puxa `config/text.h`,
+# `constants/global.h` puxa `config/item.h`), e a ordem continua sendo a do
+# include de verdade, que é a regra que já custou o falso positivo de 0x20.
 PERFIS = {
     "vars": dict(
         prefixo="VAR",
-        headers=["include/constants/vars.h", "include/constants/vars_frlg.h"],
-        ponta="constants/vars.h",
+        headers=["include/constants/vars.h", "include/constants/vars_frlg.h",
+                 "include/config/item.h"],
+        ponta=["constants/vars.h", "constants/global.h"],
         autorizadas="colisoes_vars_autorizadas.json",
         plante=0x4060,
     ),
     "flags": dict(
         prefixo="FLAG",
-        headers=["include/constants/flags_frlg.h", "include/constants/flags.h"],
-        ponta="constants/flags.h",
+        headers=["include/constants/flags_frlg.h", "include/constants/flags.h",
+                 "include/config/text.h"],
+        ponta=["constants/flags.h", "text.h"],
         autorizadas="colisoes_flags_autorizadas.json",
         # 0x0001 é FLAG_TEMP_1, dono próprio citado em 13 arquivos em
         # 18/08/2026. Quem fabrica o SEGUNDO dono é o plante.
@@ -191,7 +204,7 @@ def resolve(nomes, inc_dir):
     O nome vai entre aspas na sonda de propósito: string não é expandida,
     então a etiqueta sobrevive e só o lado direito vira número.
     """
-    fonte = '#include "%s"\n' % PONTA
+    fonte = "".join('#include "%s"\n' % h for h in PONTA)
     fonte += "".join('@@ "%s" @@ %s\n' % (n, n) for n in nomes)
     # O include real entra DEPOIS do inc_dir de propósito: na árvore de mentira
     # do autoteste só os headers do perfil são copiados, e `flags.h` puxa
@@ -402,13 +415,37 @@ def demo():
     endereço cravado seria mentira no outro dialeto.
     """
     P = PREFIXO
-    ponta = os.path.basename(PONTA)  # o header que o cpp deixa valer
+    # Onde a mutação é plantada: o header PRINCIPAL do perfil, que é o primeiro
+    # include da ponta.
+    ponta = os.path.basename(PONTA[0])
+
+    def copia_headers(tmp):
+        """Headers do perfil E os da ponta, com o CAMINHO preservado.
+
+        Duas coisas que a versão achatada em `constants/` não fazia, e as duas
+        nasceram em 19/08/2026 com `include/config/*.h` entrando no perfil:
+
+        1. caminho preservado, senão o header de config nem existe na árvore de
+           mentira e o passo 7 não prova alcance nenhum;
+        2. os headers da PONTA junto. `#include "config/text.h"` dentro de
+           `include/text.h` é ASPAS, e aspas resolvem primeiro no diretório do
+           arquivo que inclui: sem uma cópia de `text.h` aqui dentro, o cpp
+           pegava `config/text.h` do repo de VERDADE e a mutação plantada na
+           cópia ficava invisível (medido: o plante em config/text.h passava
+           calado enquanto o de config/item.h reprovava, porque
+           `constants/global.h` mora um diretório abaixo e cai no -I).
+        """
+        for h in list(HEADERS) + [os.path.join("include", p) for p in PONTA]:
+            destino = os.path.join(tmp, h)
+            os.makedirs(os.path.dirname(destino), exist_ok=True)
+            if not os.path.exists(destino):
+                shutil.copy(os.path.join(RAIZ, h), destino)
+
     with tempfile.TemporaryDirectory() as tmp:
         inc = os.path.join(tmp, "include", "constants")
         os.makedirs(inc)
         os.makedirs(os.path.join(tmp, "data"))
-        for h in HEADERS:
-            shutil.copy(os.path.join(RAIZ, h), inc)
+        copia_headers(tmp)
         aut = os.path.join(tmp, "autorizadas.json")
         json.dump({"realias": [], "herdadas": []}, open(aut, "w"))
 
@@ -563,39 +600,61 @@ def demo():
     #    dono, que é o que o portão tem que acusar.
     assert portao(verboso=False) == [], \
         "a árvore de hoje devia estar verde antes do plante (perfil %s)" % PERFIL
-    with tempfile.TemporaryDirectory() as tmp:
-        inc = os.path.join(tmp, "include", "constants")
-        os.makedirs(inc)
-        for h in HEADERS:
-            shutil.copy(os.path.join(RAIZ, h), inc)
+    def arvore_de_verdade(tmp):
+        """Cópia mutável dos headers do perfil, com o resto do repo por link."""
+        copia_headers(tmp)
         for r in ("data", "src", "test"):
             os.symlink(os.path.join(RAIZ, r), os.path.join(tmp, r))
         os.makedirs(os.path.join(tmp, "plante"))
-        open(os.path.join(tmp, "plante", "usa.inc"), "w").write("%s_PLANTADA_D\n" % P)
-        with open(os.path.join(inc, ponta), "r+", encoding="utf-8") as f:
+
+    def planta_em(caminho, linha):
+        with open(caminho, "r+", encoding="utf-8") as f:
             texto = f.read()
             corte = texto.rindex("#endif")
             f.seek(0)
-            f.write(texto[:corte] + "#define %s_PLANTADA_D 0x%X\n" % (P, PLANTE)
-                    + texto[corte:])
+            f.write(texto[:corte] + linha + texto[corte:])
             f.truncate()
+
+    with tempfile.TemporaryDirectory() as tmp:
+        arvore_de_verdade(tmp)
+        open(os.path.join(tmp, "plante", "usa.inc"), "w").write("%s_PLANTADA_D\n" % P)
+        planta_em(os.path.join(tmp, "include", "constants", ponta),
+                  "#define %s_PLANTADA_D 0x%X\n" % (P, PLANTE))
         novas = portao(base=tmp, raizes=["data", "src", "include", "test", "plante"],
                        verboso=False)
         assert len(novas) == 1 and int(novas[0]["endereco"], 16) == PLANTE \
             and "%s_PLANTADA_D" % P in novas[0]["nomes"], \
             "o plante na árvore de verdade devia reprovar, deu %r" % novas
 
+    # 7. ALCANCE NOVO (19/08/2026): a mesma mutação, agora plantada dentro do
+    #    `include/config/*.h` do perfil. Antes desta leva o portão nem lia esse
+    #    arquivo, e um segundo dono declarado ali passava calado. É o passo que
+    #    prova o alcance: se alguém tirar o header de config do perfil, ele cai.
+    config = [h for h in HEADERS if h.startswith("include/config/")]
+    assert config, "o perfil %s perdeu o header de config" % PERFIL
+    with tempfile.TemporaryDirectory() as tmp:
+        arvore_de_verdade(tmp)
+        open(os.path.join(tmp, "plante", "usa.inc"), "w").write("%s_PLANTADA_G\n" % P)
+        planta_em(os.path.join(tmp, config[0]),
+                  "#define %s_PLANTADA_G 0x%X\n" % (P, PLANTE))
+        novas = portao(base=tmp, raizes=["data", "src", "include", "test", "plante"],
+                       verboso=False)
+        assert len(novas) == 1 and int(novas[0]["endereco"], 16) == PLANTE \
+            and "%s_PLANTADA_G" % P in novas[0]["nomes"], \
+            ("o plante em %s devia reprovar, deu %r" % (config[0], novas))
+
     assert stubs(verboso=False) == [], \
         "a árvore de hoje tem stub `#ifndef %s_` (perfil %s)" % (PREFIXO, PERFIL)
 
-    print("demo (%s): 13 checagens passaram (verde; vermelho com mutação, "
+    print("demo (%s): 14 checagens passaram (verde; vermelho com mutação, "
           "APELIDO DE NOME VIVO junto; verde com autorização; vermelho com nome "
           "novo; verde sem mutação; vermelho com as TRÊS formas de stub "
           "(`#ifndef`, `#ifndef` com comentário e `#if !defined`); vermelho com "
           "duas faixas de base+deslocamento; vermelho com DUAS ALOCAÇÕES na "
           "mesma vaga do pool; verde com alocação sozinha; vermelho com apelido "
-          "de apelido; vermelho com `#define` em dois ramos; e vermelho com "
-          "mutação plantada na árvore de verdade)" % PERFIL)
+          "de apelido; vermelho com `#define` em dois ramos; vermelho com "
+          "mutação plantada na árvore de verdade; e vermelho com mutação "
+          "plantada dentro do include/config/ do perfil)" % PERFIL)
 
 
 if __name__ == "__main__":

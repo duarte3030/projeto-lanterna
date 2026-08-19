@@ -1,0 +1,80 @@
+[
+ {
+  "id": "T117.1",
+  "nome": "Leva de encerramento, 19/08/2026: a item ball AUSENTE de OlivineCity_Lighthouse (125,15) existe, da o TM SHOCK WAVE e acende A FLAG DELA, e nenhuma vizinha. Ate esta leva ela nao estava achatada, estava FALTANDO: a fonte fontes-mapas/hns desenha o objeto ali e nenhum object_event nosso ocupava a coordenada, entao o liga_bolas_johto.py, que so devolve script/item/flag a objeto que JA existe, nunca a via. A tabela AUSENTES do gerador passou a CRIAR o objeto, com graphics_id e movement_type copiados da fonte, e a flag saiu em append no offset 0x0A0 da faixa das item balls de Johto (FLAG_ITEM_JOHTO_OLIVINECITYLIGHTHOUSE_TM_SHOCK_WAVE, 0x20D1). A faixa nao tinha vaga: o teto estava em 0x0A0 com 160 gravadas, entao FLAG_SOBRA_ITEM_BALLS_START andou UM, a linha FLAG_UNUSED_0x20D1 foi apagada e os 1375 offsets restantes desceram 1, de modo que cada nome FLAG_UNUSED_0xNNNN continua valendo o numero que carrega (custo ZERO de save: FLAGS_COUNT nao mudou, e guarda_save.py diz SAVE COMPATIVEL). O PAR NEGATIVO sao as QUATRO outras bolas do mesmo mapa (0x26C a 0x26F): se a flag nova tivesse caido em cima de vizinha, pegar esta acenderia outra junto, que e o defeito que a faixa existe para matar. ROTA MEDIDA no blockdata e nao deduzida: o warp 13 entrega em (129,15); a linha y=15 tem colisao 0 de x=125 a x=129 e colisao 1 em x=124 e x=130, ou seja o corredor e fechado dos dois lados. Seis LEFT saturam: o jogador anda (128,15), (127,15), (126,15) e para, porque (125,15) e a bola, que e solida. A posicao final (126,15) e meia prova: ela so e possivel com a bola ocupando (125,15); sem o objeto o jogador iria ate (125,15) e so pararia na parede de x=124. ARMADILHA MEDIDA nesta rota, e ela custou uma rodada vermelha: o tile (126,15) esta DENTRO do campo de visao do SAILOR ERNEST, que mora em (126,12) com trainer_sight_or_berry_tree_id 4 e olha para baixo. Ele descia ate (126,14), abria a fala de treinador e ENGOLIA o A do roteiro, que e por que o caso reprovava com o jogador na posicao certa e a flag apagada (visto no PNG do proprio harness, quadro 56: 'I wanted to battle JASMINE'). Por isso o caso acende FLAG_TRAINER_FLAGS_START + TRAINER_SAILOR_ERNEST (0x500 + 1356 = 0xA4C) antes de comecar: treinador ja derrotado nao enxerga ninguem. Nao e conveniencia, e isolamento: sem isso o caso mediria o campo de visao dele e nao a bola.",
+  "warp": "MAP_OLIVINE_CITY_LIGHTHOUSE",
+  "warp_id": 13,
+  "roteiro": "150:NADA,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,40:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_OLIVINE_CITY_LIGHTHOUSE",
+   "pos": [
+    126,
+    15
+   ],
+   "andou": true,
+   "flags_acesas": [
+    "FLAG_ITEM_JOHTO_OLIVINECITYLIGHTHOUSE_TM_SHOCK_WAVE"
+   ],
+   "flags_apagadas": [
+    "FLAG_UNUSED_0x26C",
+    "FLAG_UNUSED_0x26D",
+    "FLAG_UNUSED_0x26E",
+    "FLAG_UNUSED_0x26F"
+   ]
+  },
+  "flags": [
+   "0xA4C"
+  ]
+ },
+ {
+  "id": "T117.2",
+  "nome": "Par negativo do T117.1, e ele e obrigatorio porque flag acesa sozinha nao separa 'o A pegou a bola' de 'a flag ja nascia acesa'. MESMO warp, MESMA rota, sem o A do fim. O jogador anda os tres tiles e para no mesmo (126,15), com `andou: true` exigido para provar que o jogo continuou respondendo em vez de travar, e a flag da bola tem que estar APAGADA. Se este caso ficar vermelho junto com o T117.1 verde, o problema e a flag e nao a bola. ARMADILHA MEDIDA nesta rota, e ela custou uma rodada vermelha: o tile (126,15) esta DENTRO do campo de visao do SAILOR ERNEST, que mora em (126,12) com trainer_sight_or_berry_tree_id 4 e olha para baixo. Ele descia ate (126,14), abria a fala de treinador e ENGOLIA o A do roteiro, que e por que o caso reprovava com o jogador na posicao certa e a flag apagada (visto no PNG do proprio harness, quadro 56: 'I wanted to battle JASMINE'). Por isso o caso acende FLAG_TRAINER_FLAGS_START + TRAINER_SAILOR_ERNEST (0x500 + 1356 = 0xA4C) antes de comecar: treinador ja derrotado nao enxerga ninguem. Nao e conveniencia, e isolamento: sem isso o caso mediria o campo de visao dele e nao a bola.",
+  "warp": "MAP_OLIVINE_CITY_LIGHTHOUSE",
+  "warp_id": 13,
+  "roteiro": "150:NADA,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,40:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_OLIVINE_CITY_LIGHTHOUSE",
+   "pos": [
+    126,
+    15
+   ],
+   "andou": true,
+   "flags_apagadas": [
+    "FLAG_ITEM_JOHTO_OLIVINECITYLIGHTHOUSE_TM_SHOCK_WAVE"
+   ]
+  },
+  "flags": [
+   "0xA4C"
+  ]
+ },
+ {
+  "id": "T117.3",
+  "nome": "Leva de encerramento, 19/08/2026: os objetos de Johto que voltaram ao grafico da FONTE continuam EM CAMPO e continuam SOLIDOS. O conserto foi de 1171 object_events em 88 mapas (dev_scripts/restaura_gfx_johto.py, censo em dev_scripts/gfx_johto.json), e o risco de um conserto desse tamanho e mudo: grafico invalido nao nasce, e objeto apagado por engano nao aparece em lugar nenhum. TohjoFalls_GiovanniRoom e a sala mais barata de provar isso, porque os SETE objetos dela sao exatamente sete que esta leva mexeu, todos de OBJ_EVENT_GFX_ITEM_BALL muda para OBJ_EVENT_GFX_BREAKABLE_ROCK, que e o que a fonte desenha ali. A sala tem 11x11, um warp so e nenhum coord_event, entao nada mais pode mexer no resultado. ROTA MEDIDA: o warp 0 entrega em (5,8); a linha y=8 tem colisao 0 de x=3 a x=8 e colisao 1 em x=2 e x=9. Seis LEFT saturam e o jogador para em (4,8), porque (3,8) e uma das pedras. A posicao e meia prova, como no T110.1: SEM o objeto ele iria ate (3,8). Antes desta leva a pedra tambem parava o passo, porque item ball muda tambem e solida; o que este caso prova, entao, e que a troca de grafico NAO apagou o objeto nem impediu ele de nascer, que e a unica coisa que a troca poderia ter quebrado.",
+  "warp": "MAP_TOHJO_FALLS_GIOVANNI_ROOM",
+  "warp_id": 0,
+  "roteiro": "150:NADA,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,300:NADA",
+  "prova": {
+   "mapa": "MAP_TOHJO_FALLS_GIOVANNI_ROOM",
+   "pos": [
+    4,
+    8
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T117.4",
+  "nome": "Contraprova de lado do T117.3, na mesma sala e com a mesma regua, para a esquerda nao ser coincidencia de parede. O jogador sai do mesmo warp (5,8) e vai para a DIREITA: (6,8), (7,8), e para, porque (8,8) e outra pedra restaurada. A parede desta linha so comeca em x=9, entao a posicao final (7,8) so existe com o objeto de (8,8) em campo. As duas metades juntas provam que a leva devolveu grafico aos objetos dos DOIS lados da sala sem perder nenhum.",
+  "warp": "MAP_TOHJO_FALLS_GIOVANNI_ROOM",
+  "warp_id": 0,
+  "roteiro": "150:NADA,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,300:NADA",
+  "prova": {
+   "mapa": "MAP_TOHJO_FALLS_GIOVANNI_ROOM",
+   "pos": [
+    7,
+    8
+   ],
+   "andou": true
+  }
+ }
+]

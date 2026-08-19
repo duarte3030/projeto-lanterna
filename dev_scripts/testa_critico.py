@@ -191,7 +191,13 @@ def carrega_flags(src=None):
     if src in _FLAGS_CACHE:
         return _FLAGS_CACHE[src]
     caminho = os.path.join(src, "include", "constants", "flags.h")
-    nomes = sorted(set(re.findall(r"^#define\s+(FLAG_[A-Z0-9_]+)\b", open(caminho).read(), re.M)))
+    # `A-Za-z` e não `A-Z`: o pool inteiro se chama `FLAG_UNUSED_0xNNNN`, com
+    # `x` minúsculo, e a classe só-maiúscula parava o casamento em
+    # `FLAG_UNUSED_0`. Resultado medido em 19/08/2026: nenhum dos 1375 rótulos
+    # do pool era nomeável num caso, e quem quisesse usá-los como par negativo
+    # tinha que escrever o hexadecimal cru e perder o nome. Um caractere.
+    nomes = sorted(set(re.findall(r"^#define\s+(FLAG_[A-Za-z0-9_]+)\b",
+                                  open(caminho).read(), re.M)))
     tmp = "/tmp/claude-501/frenteA/offsets"
     os.makedirs(tmp, exist_ok=True)
     fonte = os.path.join(tmp, "flags.c")
@@ -206,7 +212,7 @@ def carrega_flags(src=None):
                        cwd=src, capture_output=True, text=True)
     tabela = {}
     for linha in r.stdout.splitlines():
-        m = re.match(r'^"(FLAG_[A-Z0-9_]+)"\s+(.+?)\s*$', linha)
+        m = re.match(r'^"(FLAG_[A-Za-z0-9_]+)"\s+(.+?)\s*$', linha)
         if not m:
             continue
         expr = m.group(2)

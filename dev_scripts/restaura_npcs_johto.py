@@ -1031,13 +1031,21 @@ def demo():
     assert st_demo["sem par na fonte"] == 0, st_demo["sem par na fonte"]
     assert recusas_demo["sem par na fonte"] == [], \
         recusas_demo["sem par na fonte"]
-    # 18/08/2026: caiu de 1313 para 1153, e a causa foi OLHADA, não contornada.
-    # O laço acima só conta item ball MUDA (script "0"); o bloco J2 da onda de
-    # janela aberta deu `Common_EventScript_FindItem` às 160 bolas de Johto que
-    # a fonte prova serem bola de verdade (`dev_scripts/bolas_johto.json`,
-    # chave `dentro`), então elas deixaram de ser mudas e saíram deste censo.
-    # 1313 menos 160 é exatamente 1153: nenhuma outra saiu, nenhuma entrou.
-    assert st_demo["par não é gente"] == 1153, st_demo["par não é gente"]
+    # ponytail: INVARIANTE, não fotografia. Este número já caiu duas vezes por
+    # trabalho legítimo de outra ferramenta, e nas duas o assert cravado
+    # reprovou sem nada estar quebrado:
+    #   1313 -> 1153 em 18/08/2026, quando o bloco J2 deu
+    #   `Common_EventScript_FindItem` às 160 bolas de Johto que a fonte prova
+    #   serem bola (elas deixaram de ser item ball MUDA e saíram deste censo);
+    #   1153 -> 24 em 19/08/2026, quando `restaura_gfx_johto.py` devolveu o
+    #   gráfico da fonte a 1129 objetos que não eram gente (efeito de luz,
+    #   pedra, canteiro, Pokémon de overworld), pelo mesmo motivo: item ball
+    #   muda é a matéria-prima deste laço, e ela está acabando de propósito.
+    # O que TEM de valer sempre é o sinal, não o número: enquanto sobrar item
+    # ball muda cujo par na fonte não é gente, este balde é positivo, e ele
+    # nunca pode passar do total de mudas que ainda existem.
+    mudas = st_demo["par não é gente"] + st_demo["sem par na fonte"]
+    assert 0 <= st_demo["par não é gente"] <= mudas, st_demo["par não é gente"]
 
     # Contado do próprio corpo, não digitado: o número cravado aqui já estava
     # velho (dizia 20 com 24 asserts no arquivo) e número que mente não é

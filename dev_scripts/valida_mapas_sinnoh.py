@@ -150,6 +150,27 @@ def sprites_utilizaveis():
     return fora_frlg | {f"OBJ_EVENT_GFX_VAR_{d}" for d in "0123456789ABCDEF"}
 
 
+# Pokémon de overworld NÃO mora na tabela de ponteiros: `OBJ_EVENT_GFX_SPECIES(X)`
+# é macro que soma OBJ_EVENT_MON à espécie, e o desenho vem de
+# `gSpeciesInfo[X].overworldData` (src/event_object_movement.c,
+# SpeciesToGraphicsInfo), ligado porque OW_POKEMON_OBJECT_EVENTS é TRUE.
+#
+# ACHADO em 19/08/2026, e ele era uma armadilha de verdade: o validador contava
+# TODA forma de macro como "sprite que esta build não desenha", e com
+# `--corrigir` trocaria cada uma por OBJ_EVENT_GFX_MAN_1. Antes desta leva eram
+# 6 objetos (os ARIADOS do ginásio de Azalea e companhia) e ninguém tropeçou;
+# depois que `restaura_gfx_johto.py` devolveu 775 Pokémon de overworld a Johto,
+# um `--corrigir` distraído viraria 781 Pokémon em homens de camisa vermelha.
+FORMA_ESPECIE = re.compile(
+    r"^OBJ_EVENT_GFX_SPECIES(?:_SHINY|_FEMALE|_SHINY_FEMALE)?\("
+    r"\s*[A-Z0-9_]+\s*\)$")
+
+
+def desenhavel(gfx, sprites):
+    """O gráfico existe nesta build, na tabela de ponteiros OU como espécie."""
+    return gfx in sprites or bool(FORMA_ESPECIE.match(gfx or ""))
+
+
 def colisao(layouts, layout_id, x, y):
     """0 = andável. None = fora do mapa."""
     L = layouts[layout_id]
@@ -262,7 +283,7 @@ def main():
         rotulos = rotulos_da_unidade()
 
         for o in objs:
-            if o.get("graphics_id", SPRITE_PADRAO) not in sprites:
+            if not desenhavel(o.get("graphics_id", SPRITE_PADRAO), sprites):
                 total["sprite"] += 1
                 novo = TROCA_SPRITE.get(o.get("graphics_id"), SPRITE_PADRAO)
                 print(f"  {nome}: sprite {o.get('graphics_id')} -> {novo}")
