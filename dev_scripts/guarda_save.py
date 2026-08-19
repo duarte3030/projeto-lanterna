@@ -418,6 +418,28 @@ def compara(velha, nova):
 def main():
     nova = impressao_atual()
     if "--gravar" in sys.argv:
+        # 19/08/2026: o --gravar era escape hatch MUDO. Quem esbarrasse na trava
+        # de revisao podia cala-la regravando a impressao, e a impressao passava
+        # a registrar layout novo com revisao velha, que e exatamente o estado
+        # em que save antiga carrega em silencio e e lida errada. Agora ele
+        # recusa. --forcar existe para o caso legitimo (quebra coberta por
+        # decisao escrita), e ele EXIGE que a decisao esteja escrita em algum
+        # lugar, porque quem digita --forcar sem plano esta se enganando.
+        if os.path.exists(IMPRESSAO) and "--forcar" not in sys.argv:
+            velha_g = json.load(open(IMPRESSAO))
+            quebras_g = [q for q in compara(velha_g, nova)
+                         if not q.startswith("AVISO")]
+            vl = velha_g.get("layout_da_save")
+            nl = nova.get("layout_da_save")
+            if quebras_g and vl is not None and nl is not None and nl <= vl:
+                print("RECUSADO: ha quebra de layout de save e "
+                      f"SAVE_LAYOUT_REVISION nao subiu (esta em {nl}).")
+                for q in quebras_g:
+                    print(f"  {q.splitlines()[0]}")
+                print(f"Suba a revisao para {vl + 1} em include/save.h e grave "
+                      "de novo, ou use --forcar se a quebra for aceita por "
+                      "decisao escrita (e escreva onde).")
+                return 1
         json.dump(nova, open(IMPRESSAO, "w"), indent=1, sort_keys=True)
         n = nova.get("sizeof_saveblock1")
         print(f"impressao gravada: {len(nova['mapas'])} mapas, "

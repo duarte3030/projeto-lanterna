@@ -1,8 +1,8 @@
 {
  "contagens": {
   "daily_flags_end_expr": "FLAG_UNUSED_0x95F + (7 - FLAG_UNUSED_0x95F % 8))",
-  "n_flag_unused": 3279,
-  "n_var_unused": 326,
+  "n_flag_unused": 7933,
+  "n_var_unused": 380,
   "vars_start_end": [
    "0x4000",
    "0x41FF"
@@ -3567,8 +3567,9 @@
    "SPECIES_ZYGARDE_MEGA": 1643
   }
  },
+ "layout_da_save": 1,
  "macros": {
-  "FLAGS_COUNT": 8248,
+  "FLAGS_COUNT": 12856,
   "MAX_TRAINERS_COUNT": 4000,
   "SYSTEM_FLAGS": 5280,
   "VARS_COUNT": 512
@@ -5085,6 +5086,1758 @@
   "GalacticHq4F": [
    125,
    25
+  ],
+  "Galar_AlteringCave01": [
+   21,
+   26
+  ],
+  "Galar_Ballonlea01": [
+   22,
+   33
+  ],
+  "Galar_Ballonlea02": [
+   22,
+   34
+  ],
+  "Galar_Ballonlea03": [
+   22,
+   35
+  ],
+  "Galar_Ballonlea04": [
+   22,
+   36
+  ],
+  "Galar_Ballonlea05": [
+   127,
+   43
+  ],
+  "Galar_Ballonlea06": [
+   22,
+   37
+  ],
+  "Galar_Ballonlea07": [
+   22,
+   38
+  ],
+  "Galar_Ballonlea08": [
+   22,
+   39
+  ],
+  "Galar_Ballonlea09": [
+   23,
+   76
+  ],
+  "Galar_Ballonlea10": [
+   127,
+   9
+  ],
+  "Galar_BrawlersCave01": [
+   21,
+   12
+  ],
+  "Galar_Circhester01": [
+   22,
+   6
+  ],
+  "Galar_Circhester02": [
+   22,
+   8
+  ],
+  "Galar_Circhester03": [
+   22,
+   40
+  ],
+  "Galar_Circhester04": [
+   22,
+   41
+  ],
+  "Galar_Circhester05": [
+   22,
+   42
+  ],
+  "Galar_Circhester06": [
+   127,
+   45
+  ],
+  "Galar_Circhester07": [
+   22,
+   44
+  ],
+  "Galar_Circhester08": [
+   22,
+   45
+  ],
+  "Galar_Circhester09": [
+   22,
+   46
+  ],
+  "Galar_Circhester10": [
+   22,
+   47
+  ],
+  "Galar_Circhester11": [
+   22,
+   48
+  ],
+  "Galar_Circhester12": [
+   22,
+   49
+  ],
+  "Galar_Circhester13": [
+   22,
+   50
+  ],
+  "Galar_Circhester14": [
+   22,
+   51
+  ],
+  "Galar_Circhester15": [
+   23,
+   77
+  ],
+  "Galar_Circhester16": [
+   127,
+   10
+  ],
+  "Galar_Circhester17": [
+   22,
+   63
+  ],
+  "Galar_Circhester18": [
+   22,
+   77
+  ],
+  "Galar_CourageousCavern01": [
+   21,
+   15
+  ],
+  "Galar_CrownTundra01": [
+   21,
+   5
+  ],
+  "Galar_CrownTundra02": [
+   21,
+   7
+  ],
+  "Galar_CrownTundra03": [
+   21,
+   23
+  ],
+  "Galar_CrownTundra04": [
+   21,
+   24
+  ],
+  "Galar_CrownTundra05": [
+   21,
+   71
+  ],
+  "Galar_CrownTundra06": [
+   22,
+   109
+  ],
+  "Galar_CrownTundra07": [
+   23,
+   3
+  ],
+  "Galar_CrownTundra08": [
+   127,
+   47
+  ],
+  "Galar_CrownTundra09": [
+   127,
+   48
+  ],
+  "Galar_CrownTundra10": [
+   127,
+   49
+  ],
+  "Galar_CrownTundra11": [
+   127,
+   50
+  ],
+  "Galar_CrownTundra12": [
+   127,
+   51
+  ],
+  "Galar_CrownTundra13": [
+   127,
+   52
+  ],
+  "Galar_CrownTundra14": [
+   127,
+   53
+  ],
+  "Galar_CrownTundra15": [
+   127,
+   54
+  ],
+  "Galar_CrownTundra16": [
+   127,
+   55
+  ],
+  "Galar_CrownTundra17": [
+   23,
+   10
+  ],
+  "Galar_CrownTundra18": [
+   127,
+   56
+  ],
+  "Galar_CrownTundra19": [
+   23,
+   85
+  ],
+  "Galar_CrownTundra20": [
+   22,
+   108
+  ],
+  "Galar_CrownTundraIndoor01": [
+   21,
+   8
+  ],
+  "Galar_DynamaxAdventure01": [
+   22,
+   87
+  ],
+  "Galar_DynamaxAdventure02": [
+   127,
+   3
+  ],
+  "Galar_DynamaxAdventure03": [
+   22,
+   82
+  ],
+  "Galar_DynamaxAdventure04": [
+   22,
+   84
+  ],
+  "Galar_GalarMine01": [
+   21,
+   13
+  ],
+  "Galar_GalarMine02": [
+   21,
+   92
+  ],
+  "Galar_GalarMine03": [
+   22,
+   1
+  ],
+  "Galar_GalarMine04": [
+   21,
+   82
+  ],
+  "Galar_GalarMine05": [
+   21,
+   99
+  ],
+  "Galar_GlimwoodTangle01": [
+   21,
+   22
+  ],
+  "Galar_Hammerlocke01": [
+   127,
+   7
+  ],
+  "Galar_Hammerlocke02": [
+   21,
+   57
+  ],
+  "Galar_Hammerlocke03": [
+   22,
+   9
+  ],
+  "Galar_Hammerlocke04": [
+   127,
+   37
+  ],
+  "Galar_Hammerlocke05": [
+   22,
+   10
+  ],
+  "Galar_Hammerlocke06": [
+   127,
+   38
+  ],
+  "Galar_Hammerlocke07": [
+   22,
+   11
+  ],
+  "Galar_Hammerlocke08": [
+   22,
+   12
+  ],
+  "Galar_Hammerlocke09": [
+   22,
+   13
+  ],
+  "Galar_Hammerlocke10": [
+   22,
+   14
+  ],
+  "Galar_Hammerlocke11": [
+   22,
+   17
+  ],
+  "Galar_Hammerlocke12": [
+   127,
+   40
+  ],
+  "Galar_Hammerlocke13": [
+   22,
+   18
+  ],
+  "Galar_Hammerlocke14": [
+   22,
+   19
+  ],
+  "Galar_Hammerlocke15": [
+   22,
+   20
+  ],
+  "Galar_Hammerlocke16": [
+   22,
+   21
+  ],
+  "Galar_Hammerlocke17": [
+   22,
+   22
+  ],
+  "Galar_Hammerlocke18": [
+   22,
+   23
+  ],
+  "Galar_Hammerlocke19": [
+   22,
+   24
+  ],
+  "Galar_Hammerlocke20": [
+   22,
+   69
+  ],
+  "Galar_Hammerlocke21": [
+   22,
+   83
+  ],
+  "Galar_Hammerlocke22": [
+   23,
+   74
+  ],
+  "Galar_Hammerlocke23": [
+   127,
+   8
+  ],
+  "Galar_Hammerlocke24": [
+   23,
+   88
+  ],
+  "Galar_Hulbury01": [
+   21,
+   3
+  ],
+  "Galar_Hulbury02": [
+   21,
+   111
+  ],
+  "Galar_Hulbury03": [
+   21,
+   112
+  ],
+  "Galar_Hulbury04": [
+   21,
+   113
+  ],
+  "Galar_Hulbury05": [
+   21,
+   114
+  ],
+  "Galar_Hulbury06": [
+   21,
+   116
+  ],
+  "Galar_Hulbury07": [
+   127,
+   32
+  ],
+  "Galar_Hulbury08": [
+   21,
+   122
+  ],
+  "Galar_Hulbury09": [
+   21,
+   123
+  ],
+  "Galar_Hulbury10": [
+   21,
+   124
+  ],
+  "Galar_Hulbury11": [
+   21,
+   127
+  ],
+  "Galar_Hulbury12": [
+   127,
+   36
+  ],
+  "Galar_Hulbury13": [
+   22,
+   26
+  ],
+  "Galar_Hulbury14": [
+   23,
+   71
+  ],
+  "Galar_Hulbury15": [
+   23,
+   81
+  ],
+  "Galar_Hulbury16": [
+   21,
+   45
+  ],
+  "Galar_IceDreamCave01": [
+   21,
+   47
+  ],
+  "Galar_IsleOfArmor01": [
+   127,
+   2
+  ],
+  "Galar_IsleOfArmor02": [
+   21,
+   14
+  ],
+  "Galar_IsleOfArmor03": [
+   21,
+   70
+  ],
+  "Galar_IsleOfArmor04": [
+   22,
+   86
+  ],
+  "Galar_IsleOfArmor05": [
+   127,
+   57
+  ],
+  "Galar_IsleOfArmor06": [
+   127,
+   58
+  ],
+  "Galar_IsleOfArmor07": [
+   127,
+   59
+  ],
+  "Galar_IsleOfArmor08": [
+   127,
+   60
+  ],
+  "Galar_IsleOfArmor09": [
+   127,
+   61
+  ],
+  "Galar_IsleOfArmor10": [
+   127,
+   62
+  ],
+  "Galar_IsleOfArmor11": [
+   127,
+   63
+  ],
+  "Galar_IsleOfArmor12": [
+   127,
+   64
+  ],
+  "Galar_IsleOfArmor13": [
+   127,
+   65
+  ],
+  "Galar_IsleOfArmor14": [
+   127,
+   66
+  ],
+  "Galar_IsleOfArmor15": [
+   127,
+   67
+  ],
+  "Galar_IsleOfArmor16": [
+   23,
+   11
+  ],
+  "Galar_IsleOfArmor17": [
+   23,
+   12
+  ],
+  "Galar_IsleOfArmor18": [
+   23,
+   13
+  ],
+  "Galar_IsleOfArmor19": [
+   23,
+   14
+  ],
+  "Galar_IsleOfArmor20": [
+   23,
+   15
+  ],
+  "Galar_IsleOfArmor21": [
+   23,
+   16
+  ],
+  "Galar_IsleOfArmor22": [
+   23,
+   17
+  ],
+  "Galar_IsleOfArmor23": [
+   23,
+   18
+  ],
+  "Galar_IsleOfArmor24": [
+   23,
+   19
+  ],
+  "Galar_IsleOfArmor25": [
+   23,
+   20
+  ],
+  "Galar_IsleOfArmor26": [
+   23,
+   21
+  ],
+  "Galar_IsleOfArmor27": [
+   23,
+   22
+  ],
+  "Galar_IsleOfArmor28": [
+   23,
+   23
+  ],
+  "Galar_IsleOfArmor29": [
+   23,
+   24
+  ],
+  "Galar_IsleOfArmor30": [
+   23,
+   25
+  ],
+  "Galar_IsleOfArmor31": [
+   23,
+   26
+  ],
+  "Galar_IsleOfArmor32": [
+   23,
+   27
+  ],
+  "Galar_IsleOfArmor33": [
+   23,
+   28
+  ],
+  "Galar_IsleOfArmor34": [
+   23,
+   29
+  ],
+  "Galar_IsleOfArmor35": [
+   127,
+   80
+  ],
+  "Galar_IsleOfArmor36": [
+   127,
+   81
+  ],
+  "Galar_IsleOfArmor37": [
+   23,
+   84
+  ],
+  "Galar_IsleOfArmor38": [
+   127,
+   68
+  ],
+  "Galar_IsleOfArmor39": [
+   127,
+   69
+  ],
+  "Galar_IsleOfArmor40": [
+   127,
+   70
+  ],
+  "Galar_IsleOfArmor41": [
+   127,
+   71
+  ],
+  "Galar_IsleOfArmor42": [
+   127,
+   72
+  ],
+  "Galar_IsleOfArmor43": [
+   127,
+   73
+  ],
+  "Galar_IsleOfArmor44": [
+   127,
+   74
+  ],
+  "Galar_IsleOfArmor45": [
+   127,
+   75
+  ],
+  "Galar_IsleOfArmor46": [
+   127,
+   76
+  ],
+  "Galar_IsleOfArmor47": [
+   127,
+   77
+  ],
+  "Galar_IsleOfArmor48": [
+   127,
+   78
+  ],
+  "Galar_IsleOfArmor49": [
+   127,
+   79
+  ],
+  "Galar_LiptooChamber01": [
+   23,
+   6
+  ],
+  "Galar_LostCave01": [
+   21,
+   28
+  ],
+  "Galar_LostCave02": [
+   21,
+   29
+  ],
+  "Galar_LostCave03": [
+   21,
+   30
+  ],
+  "Galar_LostCave04": [
+   21,
+   31
+  ],
+  "Galar_LostCave05": [
+   21,
+   32
+  ],
+  "Galar_LostCave06": [
+   21,
+   33
+  ],
+  "Galar_LostCave07": [
+   21,
+   34
+  ],
+  "Galar_LostCave08": [
+   21,
+   35
+  ],
+  "Galar_LostCave09": [
+   21,
+   36
+  ],
+  "Galar_LostCave10": [
+   21,
+   37
+  ],
+  "Galar_LostCave11": [
+   21,
+   38
+  ],
+  "Galar_LostCave12": [
+   21,
+   39
+  ],
+  "Galar_LostCave13": [
+   21,
+   40
+  ],
+  "Galar_Motostoke01": [
+   21,
+   1
+  ],
+  "Galar_Motostoke02": [
+   21,
+   51
+  ],
+  "Galar_Motostoke03": [
+   21,
+   73
+  ],
+  "Galar_Motostoke04": [
+   21,
+   74
+  ],
+  "Galar_Motostoke05": [
+   127,
+   22
+  ],
+  "Galar_Motostoke06": [
+   21,
+   78
+  ],
+  "Galar_Motostoke07": [
+   21,
+   80
+  ],
+  "Galar_Motostoke08": [
+   21,
+   83
+  ],
+  "Galar_Motostoke09": [
+   21,
+   84
+  ],
+  "Galar_Motostoke10": [
+   21,
+   85
+  ],
+  "Galar_Motostoke11": [
+   21,
+   86
+  ],
+  "Galar_Motostoke12": [
+   21,
+   87
+  ],
+  "Galar_Motostoke13": [
+   21,
+   88
+  ],
+  "Galar_Motostoke14": [
+   21,
+   89
+  ],
+  "Galar_Motostoke15": [
+   21,
+   90
+  ],
+  "Galar_Motostoke16": [
+   21,
+   91
+  ],
+  "Galar_Motostoke17": [
+   21,
+   93
+  ],
+  "Galar_Motostoke18": [
+   127,
+   28
+  ],
+  "Galar_Motostoke19": [
+   21,
+   94
+  ],
+  "Galar_Motostoke20": [
+   21,
+   95
+  ],
+  "Galar_Motostoke21": [
+   21,
+   110
+  ],
+  "Galar_Motostoke22": [
+   23,
+   73
+  ],
+  "Galar_Motostoke23": [
+   21,
+   43
+  ],
+  "Galar_NewmoonIsland01": [
+   21,
+   48
+  ],
+  "Galar_NewmoonIsland02": [
+   22,
+   81
+  ],
+  "Galar_Postwick02": [
+   127,
+   1
+  ],
+  "Galar_Postwick03": [
+   21,
+   6
+  ],
+  "Galar_Postwick06": [
+   21,
+   9
+  ],
+  "Galar_Postwick07": [
+   21,
+   10
+  ],
+  "Galar_Postwick10": [
+   127,
+   6
+  ],
+  "Galar_Postwick11": [
+   21,
+   25
+  ],
+  "Galar_Postwick111": [
+   23,
+   7
+  ],
+  "Galar_Postwick112": [
+   23,
+   8
+  ],
+  "Galar_Postwick113": [
+   23,
+   9
+  ],
+  "Galar_Postwick12": [
+   21,
+   41
+  ],
+  "Galar_Postwick166": [
+   23,
+   70
+  ],
+  "Galar_Postwick169": [
+   23,
+   83
+  ],
+  "Galar_Postwick172": [
+   23,
+   90
+  ],
+  "Galar_Postwick21": [
+   21,
+   52
+  ],
+  "Galar_Postwick22": [
+   21,
+   53
+  ],
+  "Galar_Postwick23": [
+   21,
+   54
+  ],
+  "Galar_Postwick24": [
+   21,
+   55
+  ],
+  "Galar_Postwick26": [
+   21,
+   56
+  ],
+  "Galar_Postwick27": [
+   127,
+   16
+  ],
+  "Galar_Postwick31": [
+   21,
+   59
+  ],
+  "Galar_Postwick34": [
+   21,
+   67
+  ],
+  "Galar_Postwick35": [
+   21,
+   75
+  ],
+  "Galar_Postwick37": [
+   21,
+   77
+  ],
+  "Galar_Postwick38": [
+   21,
+   81
+  ],
+  "Galar_Postwick40": [
+   21,
+   98
+  ],
+  "Galar_Postwick45": [
+   21,
+   115
+  ],
+  "Galar_Postwick46": [
+   21,
+   117
+  ],
+  "Galar_Postwick47": [
+   21,
+   118
+  ],
+  "Galar_Postwick49": [
+   21,
+   120
+  ],
+  "Galar_Postwick50": [
+   21,
+   121
+  ],
+  "Galar_Postwick53": [
+   22,
+   2
+  ],
+  "Galar_Postwick58": [
+   22,
+   62
+  ],
+  "Galar_RixyChamber01": [
+   21,
+   50
+  ],
+  "Galar_RoseTower01": [
+   21,
+   18
+  ],
+  "Galar_RoseTower02": [
+   21,
+   19
+  ],
+  "Galar_RoseTower03": [
+   21,
+   20
+  ],
+  "Galar_RoseTower04": [
+   21,
+   21
+  ],
+  "Galar_Route0101": [
+   127,
+   12
+  ],
+  "Galar_Route0102": [
+   127,
+   15
+  ],
+  "Galar_Route0201": [
+   21,
+   66
+  ],
+  "Galar_Route0202": [
+   127,
+   21
+  ],
+  "Galar_Route0203": [
+   21,
+   69
+  ],
+  "Galar_Route0204": [
+   21,
+   64
+  ],
+  "Galar_Route0301": [
+   127,
+   23
+  ],
+  "Galar_Route0302": [
+   127,
+   4
+  ],
+  "Galar_Route0401": [
+   127,
+   30
+  ],
+  "Galar_Route0501": [
+   127,
+   31
+  ],
+  "Galar_Route0601": [
+   127,
+   41
+  ],
+  "Galar_Route0701": [
+   127,
+   39
+  ],
+  "Galar_Route0801": [
+   22,
+   43
+  ],
+  "Galar_Route0802": [
+   127,
+   44
+  ],
+  "Galar_Route0803": [
+   22,
+   78
+  ],
+  "Galar_Route0901": [
+   127,
+   46
+  ],
+  "Galar_Route1001": [
+   21,
+   49
+  ],
+  "Galar_Route1002": [
+   22,
+   57
+  ],
+  "Galar_Route1601": [
+   22,
+   27
+  ],
+  "Galar_Route1602": [
+   22,
+   28
+  ],
+  "Galar_Route1603": [
+   22,
+   30
+  ],
+  "Galar_Route1604": [
+   22,
+   32
+  ],
+  "Galar_ScufibChamber01": [
+   23,
+   4
+  ],
+  "Galar_SixIsland01": [
+   127,
+   42
+  ],
+  "Galar_SlumberingWeald01": [
+   127,
+   5
+  ],
+  "Galar_SlumberingWeald02": [
+   127,
+   17
+  ],
+  "Galar_SlumberingWeald03": [
+   127,
+   18
+  ],
+  "Galar_SlumberingWeald04": [
+   127,
+   19
+  ],
+  "Galar_Spikemuth01": [
+   22,
+   53
+  ],
+  "Galar_Spikemuth02": [
+   22,
+   54
+  ],
+  "Galar_Spikemuth03": [
+   22,
+   55
+  ],
+  "Galar_Spikemuth04": [
+   22,
+   56
+  ],
+  "Galar_Spikemuth05": [
+   22,
+   74
+  ],
+  "Galar_Spikemuth06": [
+   22,
+   75
+  ],
+  "Galar_Spikemuth07": [
+   22,
+   76
+  ],
+  "Galar_Spikemuth08": [
+   23,
+   80
+  ],
+  "Galar_Spikemuth09": [
+   21,
+   46
+  ],
+  "Galar_StowOnSide01": [
+   21,
+   2
+  ],
+  "Galar_StowOnSide02": [
+   21,
+   4
+  ],
+  "Galar_StowOnSide03": [
+   22,
+   4
+  ],
+  "Galar_StowOnSide04": [
+   22,
+   5
+  ],
+  "Galar_StowOnSide05": [
+   22,
+   7
+  ],
+  "Galar_StowOnSide06": [
+   22,
+   15
+  ],
+  "Galar_StowOnSide07": [
+   22,
+   16
+  ],
+  "Galar_StowOnSide08": [
+   22,
+   25
+  ],
+  "Galar_StowOnSide09": [
+   22,
+   29
+  ],
+  "Galar_StowOnSide10": [
+   22,
+   31
+  ],
+  "Galar_StowOnSide11": [
+   22,
+   79
+  ],
+  "Galar_StowOnSide12": [
+   23,
+   72
+  ],
+  "Galar_TanobyKey01": [
+   23,
+   5
+  ],
+  "Galar_TrainerTower01": [
+   21,
+   27
+  ],
+  "Galar_Turffield01": [
+   21,
+   96
+  ],
+  "Galar_Turffield02": [
+   21,
+   97
+  ],
+  "Galar_Turffield03": [
+   127,
+   29
+  ],
+  "Galar_Turffield04": [
+   21,
+   100
+  ],
+  "Galar_Turffield05": [
+   21,
+   101
+  ],
+  "Galar_Turffield06": [
+   21,
+   102
+  ],
+  "Galar_Turffield07": [
+   21,
+   105
+  ],
+  "Galar_Turffield08": [
+   21,
+   106
+  ],
+  "Galar_Turffield09": [
+   21,
+   107
+  ],
+  "Galar_Turffield10": [
+   21,
+   108
+  ],
+  "Galar_Turffield11": [
+   23,
+   86
+  ],
+  "Galar_Turffield12": [
+   21,
+   44
+  ],
+  "Galar_TurffieldIndoor01": [
+   22,
+   59
+  ],
+  "Galar_TurffieldIndoor02": [
+   22,
+   60
+  ],
+  "Galar_TurffieldIndoor03": [
+   22,
+   64
+  ],
+  "Galar_TurffieldIndoor04": [
+   22,
+   65
+  ],
+  "Galar_TurffieldIndoor05": [
+   22,
+   66
+  ],
+  "Galar_TurffieldIndoor06": [
+   22,
+   67
+  ],
+  "Galar_TurffieldIndoor07": [
+   22,
+   68
+  ],
+  "Galar_TurffieldIndoor08": [
+   22,
+   70
+  ],
+  "Galar_TurffieldIndoor09": [
+   22,
+   88
+  ],
+  "Galar_TurffieldIndoor10": [
+   22,
+   89
+  ],
+  "Galar_TurffieldIndoor11": [
+   22,
+   90
+  ],
+  "Galar_TurffieldIndoor12": [
+   22,
+   91
+  ],
+  "Galar_TurffieldIndoor13": [
+   22,
+   92
+  ],
+  "Galar_TurffieldIndoor14": [
+   22,
+   93
+  ],
+  "Galar_TurffieldIndoor15": [
+   22,
+   94
+  ],
+  "Galar_TurffieldIndoor16": [
+   22,
+   95
+  ],
+  "Galar_TurffieldIndoor17": [
+   22,
+   96
+  ],
+  "Galar_TurffieldIndoor18": [
+   22,
+   97
+  ],
+  "Galar_TurffieldIndoor19": [
+   22,
+   98
+  ],
+  "Galar_TurffieldIndoor20": [
+   22,
+   99
+  ],
+  "Galar_TurffieldIndoor21": [
+   22,
+   100
+  ],
+  "Galar_TurffieldIndoor22": [
+   22,
+   101
+  ],
+  "Galar_TurffieldIndoor23": [
+   22,
+   102
+  ],
+  "Galar_TurffieldIndoor24": [
+   22,
+   103
+  ],
+  "Galar_TurffieldIndoor25": [
+   22,
+   104
+  ],
+  "Galar_TurffieldIndoor26": [
+   22,
+   105
+  ],
+  "Galar_TurffieldIndoor27": [
+   22,
+   106
+  ],
+  "Galar_TurffieldIndoor28": [
+   22,
+   107
+  ],
+  "Galar_TurffieldIndoor29": [
+   22,
+   110
+  ],
+  "Galar_TurffieldIndoor30": [
+   22,
+   111
+  ],
+  "Galar_TurffieldIndoor31": [
+   22,
+   112
+  ],
+  "Galar_TurffieldIndoor32": [
+   22,
+   113
+  ],
+  "Galar_TurffieldIndoor33": [
+   22,
+   114
+  ],
+  "Galar_TurffieldIndoor34": [
+   22,
+   115
+  ],
+  "Galar_TurffieldIndoor35": [
+   22,
+   116
+  ],
+  "Galar_TurffieldIndoor36": [
+   22,
+   117
+  ],
+  "Galar_TurffieldIndoor37": [
+   22,
+   118
+  ],
+  "Galar_TurffieldIndoor38": [
+   22,
+   119
+  ],
+  "Galar_TurffieldIndoor39": [
+   22,
+   120
+  ],
+  "Galar_TurffieldIndoor40": [
+   22,
+   121
+  ],
+  "Galar_TurffieldIndoor41": [
+   22,
+   122
+  ],
+  "Galar_TurffieldIndoor42": [
+   22,
+   123
+  ],
+  "Galar_TurffieldIndoor43": [
+   22,
+   124
+  ],
+  "Galar_TurffieldIndoor44": [
+   22,
+   125
+  ],
+  "Galar_TurffieldIndoor45": [
+   22,
+   126
+  ],
+  "Galar_TurffieldIndoor46": [
+   22,
+   127
+  ],
+  "Galar_TurffieldIndoor47": [
+   23,
+   1
+  ],
+  "Galar_TurffieldIndoor48": [
+   23,
+   2
+  ],
+  "Galar_TurffieldIndoor49": [
+   23,
+   30
+  ],
+  "Galar_TurffieldIndoor50": [
+   23,
+   31
+  ],
+  "Galar_TurffieldIndoor51": [
+   23,
+   32
+  ],
+  "Galar_TurffieldIndoor52": [
+   23,
+   33
+  ],
+  "Galar_TurffieldIndoor53": [
+   23,
+   34
+  ],
+  "Galar_TurffieldIndoor54": [
+   23,
+   35
+  ],
+  "Galar_TurffieldIndoor55": [
+   23,
+   36
+  ],
+  "Galar_TurffieldIndoor56": [
+   23,
+   37
+  ],
+  "Galar_TurffieldIndoor57": [
+   23,
+   38
+  ],
+  "Galar_TurffieldIndoor58": [
+   23,
+   39
+  ],
+  "Galar_TurffieldIndoor59": [
+   23,
+   40
+  ],
+  "Galar_TurffieldIndoor60": [
+   23,
+   41
+  ],
+  "Galar_TurffieldIndoor61": [
+   23,
+   42
+  ],
+  "Galar_TurffieldIndoor62": [
+   23,
+   43
+  ],
+  "Galar_TurffieldIndoor63": [
+   23,
+   44
+  ],
+  "Galar_Underwater01": [
+   21,
+   16
+  ],
+  "Galar_Underwater02": [
+   21,
+   17
+  ],
+  "Galar_WarmUpTunnel01": [
+   21,
+   11
+  ],
+  "Galar_Wedgehurst01": [
+   21,
+   58
+  ],
+  "Galar_Wedgehurst02": [
+   21,
+   60
+  ],
+  "Galar_Wedgehurst03": [
+   21,
+   62
+  ],
+  "Galar_Wedgehurst04": [
+   21,
+   63
+  ],
+  "Galar_Wedgehurst05": [
+   127,
+   20
+  ],
+  "Galar_Wedgehurst06": [
+   21,
+   65
+  ],
+  "Galar_Wedgehurst07": [
+   21,
+   68
+  ],
+  "Galar_Wedgehurst08": [
+   21,
+   72
+  ],
+  "Galar_Wedgehurst09": [
+   21,
+   79
+  ],
+  "Galar_Wedgehurst10": [
+   22,
+   80
+  ],
+  "Galar_Wedgehurst11": [
+   23,
+   78
+  ],
+  "Galar_Wedgehurst12": [
+   21,
+   42
+  ],
+  "Galar_Wedgehurst13": [
+   21,
+   61
+  ],
+  "Galar_Wedgehurst14": [
+   21,
+   109
+  ],
+  "Galar_Wedgehurst15": [
+   22,
+   3
+  ],
+  "Galar_Wedgehurst16": [
+   23,
+   75
+  ],
+  "Galar_Wedgehurst17": [
+   23,
+   79
+  ],
+  "Galar_WildArea01": [
+   127,
+   13
+  ],
+  "Galar_WildArea02": [
+   127,
+   14
+  ],
+  "Galar_WildArea03": [
+   127,
+   24
+  ],
+  "Galar_WildArea04": [
+   127,
+   25
+  ],
+  "Galar_WildArea05": [
+   127,
+   26
+  ],
+  "Galar_WildArea06": [
+   127,
+   27
+  ],
+  "Galar_WildArea07": [
+   127,
+   33
+  ],
+  "Galar_WildArea08": [
+   127,
+   34
+  ],
+  "Galar_WildArea09": [
+   127,
+   35
+  ],
+  "Galar_WildArea10": [
+   127,
+   82
+  ],
+  "Galar_WildArea11": [
+   127,
+   83
+  ],
+  "Galar_WildArea12": [
+   127,
+   84
+  ],
+  "Galar_WildArea13": [
+   127,
+   85
+  ],
+  "Galar_WildArea14": [
+   127,
+   86
+  ],
+  "Galar_WildArea15": [
+   127,
+   87
+  ],
+  "Galar_WildArea16": [
+   23,
+   89
+  ],
+  "Galar_WildArea17": [
+   127,
+   88
+  ],
+  "Galar_WildArea18": [
+   127,
+   89
+  ],
+  "Galar_WildArea19": [
+   127,
+   90
+  ],
+  "Galar_WildArea20": [
+   127,
+   91
+  ],
+  "Galar_WildArea21": [
+   127,
+   92
+  ],
+  "Galar_WildArea22": [
+   127,
+   93
+  ],
+  "Galar_WildArea23": [
+   127,
+   0
+  ],
+  "Galar_WildArea24": [
+   21,
+   76
+  ],
+  "Galar_WildArea25": [
+   21,
+   103
+  ],
+  "Galar_WildArea26": [
+   21,
+   104
+  ],
+  "Galar_WildArea27": [
+   21,
+   119
+  ],
+  "Galar_WildArea28": [
+   21,
+   125
+  ],
+  "Galar_WildArea29": [
+   21,
+   126
+  ],
+  "Galar_WildAreaCave01": [
+   23,
+   87
+  ],
+  "Galar_WildAreaIndoor01": [
+   23,
+   45
+  ],
+  "Galar_WildAreaIndoor02": [
+   23,
+   54
+  ],
+  "Galar_Wyndon01": [
+   127,
+   11
+  ],
+  "Galar_Wyndon02": [
+   22,
+   52
+  ],
+  "Galar_Wyndon03": [
+   22,
+   58
+  ],
+  "Galar_Wyndon04": [
+   22,
+   72
+  ],
+  "Galar_Wyndon05": [
+   22,
+   73
+  ],
+  "Galar_Wyndon06": [
+   22,
+   85
+  ],
+  "Galar_Wyndon07": [
+   23,
+   82
+  ],
+  "Galar_Wyndon08": [
+   22,
+   61
+  ],
+  "Galar_Wyndon09": [
+   22,
+   71
+  ],
+  "Galar_Wyndon10": [
+   23,
+   56
+  ],
+  "Galar_WyndonIndoor01": [
+   23,
+   46
+  ],
+  "Galar_WyndonIndoor02": [
+   23,
+   47
+  ],
+  "Galar_WyndonIndoor03": [
+   23,
+   48
+  ],
+  "Galar_WyndonIndoor04": [
+   23,
+   49
+  ],
+  "Galar_WyndonIndoor05": [
+   23,
+   50
+  ],
+  "Galar_WyndonIndoor06": [
+   23,
+   51
+  ],
+  "Galar_WyndonIndoor07": [
+   23,
+   52
+  ],
+  "Galar_WyndonIndoor08": [
+   23,
+   53
+  ],
+  "Galar_WyndonIndoor09": [
+   23,
+   55
+  ],
+  "Galar_WyndonIndoor10": [
+   23,
+   57
+  ],
+  "Galar_WyndonIndoor11": [
+   23,
+   58
+  ],
+  "Galar_WyndonIndoor12": [
+   23,
+   59
+  ],
+  "Galar_WyndonIndoor13": [
+   23,
+   60
+  ],
+  "Galar_WyndonIndoor14": [
+   23,
+   61
+  ],
+  "Galar_WyndonIndoor15": [
+   23,
+   62
+  ],
+  "Galar_WyndonIndoor16": [
+   23,
+   63
+  ],
+  "Galar_WyndonIndoor17": [
+   23,
+   64
+  ],
+  "Galar_WyndonIndoor18": [
+   23,
+   65
+  ],
+  "Galar_WyndonIndoor19": [
+   23,
+   66
+  ],
+  "Galar_WyndonIndoor20": [
+   23,
+   67
+  ],
+  "Galar_WyndonIndoor21": [
+   23,
+   68
+  ],
+  "Galar_WyndonIndoor22": [
+   23,
+   69
   ],
   "GameCorner": [
    123,
@@ -11331,7 +13084,7 @@
    1
   ]
  },
- "sizeof_saveblock1": 14388,
+ "sizeof_saveblock1": 14964,
  "structs": {
   "SaveBlock1": "f90f0a1baed70dd7",
   "SaveBlock2": "ec3552860cc5cce7",

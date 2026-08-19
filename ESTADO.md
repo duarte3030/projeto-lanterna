@@ -8,6 +8,145 @@ inteiras. Detalhe fica nos documentos apontados no fim.
 
 ---
 
+## 0.g ONDA DE JANELA ABERTA E A RODADA DE COMPLETUDE, 18-19/08/2026 (condutor Fable até o G5, depois Opus; executores Opus)
+
+Build verde (**ROM 98,58% de 32 MB**, EWRAM 86,16%, IWRAM 86,66%), **suíte
+399/400** (só T11.3 pulado na rodada normal, que é o caso de duas ROMs),
+**T11 completo 3/3**, e **SAVE COMPATIVEL** depois da regravação da
+impressão. ROM oficial: `roms/pokemon-claude-2026-08-19.gba`, com o
+`.map` gravado ao lado (faltava, e o T11 precisa dele), e a mesma build na
+ROM de teste de nome fixo. Commits: `f23c4e4ab2`, `c68e11fc55`,
+`3f922f893d`, `01b1874b83`, `fe8668803c`, `001ea8e056`.
+
+### A JANELA DE SAVE ABRIU E FECHOU DE NOVO. A save antiga NÃO carrega mais
+
+Decisão do Gui em 18/08/2026: pode quebrar a save, porque o Chapter Jump
+repõe o progresso em minutos. A onda fez o que a janela fechada proibia e
+**a janela está FECHADA outra vez** desde a regravação da impressão.
+
+O pool de flags cresceu (`FLAGS_COUNT` 8248 para 12856, SaveBlock1 em
+94,3% com 431 B de folga até o teto de 97%), as item balls de Johto
+ganharam flag própria uma a uma, e 19 vars de cena de Kanto saíram de
+cima do estado de Hoenn.
+
+**O defeito que o adversarial achou é a lição da rodada: a save velha não
+era recusada, era lida errada em silêncio.** O checksum batia por acidente
+(o setor é zerado antes de gravar, e os bytes a mais somam zero), então
+`GetSaveValidStatus` devolvia OK e o jogo carregava com todas as vars
+deslocadas 288 posições, Pokédex embaralhada, creche com Pokémon de
+espécie inválida e até 153 item balls nascendo como já pegas. **Carregar
+lixo calado é pior do que perder a save.** `SAVE_LAYOUT_REVISION` entrou
+na assinatura de setor: o menu agora abre só com NEW GAME (medido em
+print, não deduzido), e o T11.3 foi reescrito para provar o comportamento
+NOVO, ou seja a recusa.
+
+Três camadas de trava, e a terceira nasceu porque as duas primeiras
+dependiam de memória humana: o guarda detecta o deslocamento; a
+amarração reprova deslocamento sem subida de revisão; e o `--gravar`, que
+era escape hatch mudo, passa a RECUSAR gravação com quebra e revisão
+parada (`--forcar` existe e exige decisão escrita).
+
+### Portão de colisão: o que o pré-processador resolve, não o que o texto diz
+
+Ferramenta nova, `dev_scripts/guarda_colisao_vars.py` (faz vars e flags,
+`--flags`), lendo o valor que o `cpp` devolve. Achou o que ninguém sabia:
+
+- **38 endereços de var com dois donos vivos**, sendo **19 a doença real**
+  (cena de FRLG gravando sobre estado de Hoenn; medido: o `setvar` da
+  Pallet Town escrevia em `VAR_LITTLEROOT_TOWN_STATE`). Os 19 foram para
+  0x41C3-0x41D5. As outras 19 são utilitárias e ficam declaradas.
+- **Duas flags de Johto em 0x4000 e 0x4001**, que são flags especiais do
+  motor. Nasceram de um `#ifndef` de import que inventava endereço quando
+  não achava o nome. O portão passou a reprovar `#ifndef` nesses headers:
+  **mata a classe, não só o caso**.
+
+Calibração medida: em vars, apelido é regra larga; em flags, tem que ser
+a forma exata, senão faixa gerada por base mais deslocamento fica
+invisível justo para o portão que existe para vigiá-la. E a ordem dos
+headers segue a ordem do include, senão o portão grava o corpo de um
+arquivo e o valor de outro (foi o falso positivo de 0x20).
+
+### A régua enxerga arte, e Galar entrou na tabela
+
+`completude.py` contava presença e nunca abria o desenho. Era por isso que
+Unova aparecia com 94% sendo máscara de colisão em duas cores, e **o erro
+só caiu porque o Gui olhou o jogo e desconfiou**. Coluna de arte nova
+(mediana de metatile por mapa, piso 10), e Galar como sexta linha, pelos
+censos e nunca por nome de grupo.
+
+Dois documentos meus estavam mentindo e foram corrigidos com data: a arte
+de Unova já tinha sido feita em 12/08 (mediana 30, não 3; 2 mapas abaixo
+do piso, não 155), e a queda de objetos de Sinnoh não era regressão, era
+denominador maior mais 270 NPCs inventados apagados de propósito.
+
+### Sinnoh: o buraco era pedra, e a arte de ginásio não existe
+
+- **Completude de objetos de Sinnoh: 60,2% para 75,8%.** Dos 594 objetos
+  que faltavam, **447 eram pedra de Rock Smash**, não gente. Entraram 478
+  em 28 mapas, **a custo ZERO de save**: o motor pede flag por pedra, mas
+  da faixa temporária, então pedra quebrada volta ao sair e entrar, que é
+  o comportamento do jogo original.
+- **O portão de tranca recusou 14 pedras** que fechavam caminho, provado
+  por BFS sem Rock Smash na mochila, nos dois estados. Ele foi consertado
+  no meio: a primeira versão reprovava pedra por defeito que já existia
+  (seis mapas de Sinnoh nascem com warp fora do alcance a pé, porque a
+  fonte pede Surf ou Strength ali).
+- **A fonte de Sinnoh não tem arte de ginásio.** O Platinum guarda esses
+  mapas como modelo 3D; o 2D carrega só colisão e comportamento, de 2 a 6
+  valores. Já emitíamos mais do que a fonte sabe dizer. Conferido na
+  segunda fonte: o "Oreburgh Gym" do demake gen 3 é byte a byte o ginásio
+  da Roxanne. **A prova pixel a pixel que vale para Unova é indefinida
+  para Sinnoh**; a camada certa aqui é o comportamento.
+- **`MB_ICE` é atributo, não arte**: 5 metatiles em append (92 B)
+  devolveram os 497 tiles de gelo de Snowpoint e as passagens direcionais
+  de Oreburgh. Hoenn não mudou um pixel (bytes antigos são prefixo exato
+  dos novos).
+
+### Lições novas
+
+- **Com gelo, colisão livre não significa que dá para parar ali.**
+  Snowpoint tem 531 tiles andáveis e 84 paradas. Régua de treinador tem
+  que separar quem precisa de conversa (parada colada) de quem batalha por
+  vista (basta pisar).
+- **Em mapa de gelo, os apertos seguintes são comidos enquanto o jogador
+  desliza.** Caso de suíte ali precisa de ~240 quadros entre pernas, não
+  60.
+- **Coordenada errada só aparece quando alguém tropeça.** Os NPCs dos oito
+  ginásios de Sinnoh estavam 1 tile abaixo porque ginásio tem UM warp e a
+  régua de translação não podia provar nada, então a identidade assumiu,
+  cega ao recorte. Não é epidemia: medido nos 353 mapas com NPC
+  importado, o desvio é só dos ginásios.
+- **Pareamento por nome nosso esconde duplicata**; por evento da FONTE,
+  não. Oreburgh tinha a mesma pessoa duas vezes, invisível enquanto as
+  duas estavam desalinhadas.
+- **`pgrep -f <script>` dentro de um laço que contém esse nome se
+  enxerga.** Espera de processo casa por PID guardado. Um `pkill` por
+  padrão de texto matou vigias de outra onda nesta rodada.
+- **Flaky conhecidos, não regressão**: T98.9 (Unova, VirbankCity) e
+  T108.2 (Galar, Circhester06), os dois por NPC que passeia sobre tile de
+  gatilho. Rodar isolado 3 vezes antes de acusar.
+
+### O que fica pendente, dito
+
+- **Os 1211 objetos de Johto com sprite de item ball sem serem item
+  ball** (a fonte diz efeito de luz, pedra, canteiro, NPC). É o maior
+  defeito visível do repo hoje, está na fila com critério de aceite.
+- **12 mapas de Sinnoh são o molde de portão 13x9, não mapa** (o Battle
+  Frontier é o maior prêmio parado ali: 24 NPCs e 25 placas). Critério de
+  detecção é medido, comparação de blockdata contra o molde, nunca nome.
+- **31 pedras de Sinnoh caem dentro de parede**, porque a conversão do
+  Platinum marca o tile da pedra como bloqueado. Dívida de geometria.
+- **As 19 bolas de neve de Snowpoint** com a pergunta de mecânica em
+  aberto (empurrável no GBA é bloco de Strength; o Platinum empurra sem
+  HM). Enquanto não entrarem, **NÃO realinhar os 3 treinadores** que
+  estão 1 tile fora de propósito.
+- **Os 8 ginásios de Sinnoh continuam abaixo do piso de arte** e só saem
+  de lá inventando desenho, que é decisão do Gui, ainda em aberto.
+- `valida_warp_tile.py` não mede Galar (o filtro é por nome de grupo e o
+  alocador espalhou 344 dos 438 mapas em grupos alheios).
+
+---
+
 ## 0.f FECHAMENTO DA FASE E, GALAR ENTRA COMO SEXTA REGIÃO, 18/08/2026 (condutor Fable até o G5, depois Opus; executores Opus)
 
 Build verde (**ROM 98,55% de 32 MB**, EWRAM 85,94%, IWRAM 86,66%), **suíte
