@@ -1,0 +1,97 @@
+[
+ {
+  "id": "T115.1",
+  "nome": "ARTE SINNOH, B13: o GELO do ginásio de Snowpoint ESCORREGA de verdade. Os 497 tiles de gelo que a fonte (map_data_234 do pokeplatinum, TILE_BEHAVIOR_ICE) marca saíam como chão comum, porque nenhum metatile do par gTileset_Building + gTileset_SootopolisGym carrega MB_ICE. O conserto foi APPEND de 18 bytes: um metatile novo no fim do secundário (índice 634), com os 16 bytes de ARTE COPIADOS do metatile 520, o chão que este ginásio já usava, e só o atributo trocado para MB_ICE. Nenhum tile gráfico novo, nenhum índice renumerado, e o maior metatile que Hoenn referencia neste tileset continua sendo 633. ROTA, medida na grade de colisão do LAYOUT_SNOWPOINT_CITY_GYM: o warp entrega em (11,27), dentro da antecâmara de chão COMUM (x 9 a 11, linhas 24 a 27); LEFT saturante anda um tile por aperto até (9,27), e o aperto seguinte pisa em (8,27), que é GELO, e o jogador não para mais até bater na parede oeste, em (1,27). A PROVA é a posição final (1,27): são OITO tiles atravessados por um único aperto, e sem MB_ICE o jogador pararia em (8,27), que é onde o par negativo T115.2 o deixa com dois apertos. O caso é saturante de propósito, então não depende de o primeiro aperto virar ou andar.",
+  "warp": "MAP_SNOWPOINT_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "150:NADA,24:LEFT*12,90:NADA",
+  "prova": {
+   "mapa": "MAP_SNOWPOINT_CITY_GYM",
+   "pos": [
+    1,
+    27
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T115.2",
+  "nome": "PAR NEGATIVO do T115.1, no MESMO mapa, na MESMA direção e do MESMO tile de saída: a antecâmara da porta é chão COMUM (metatile 520, MB_NORMAL), não gelo, então aperto conta. Com dois apertos de LEFT o jogador continua dentro da antecâmara em vez de ser cuspido contra a parede oeste. Sem este caso o T115.1 passaria num jogo em que a linha 27 inteira fosse gelo, ou em que o jogador fosse empurrado para (1,27) por qualquer outro motivo, e não porque pisou no gelo em (8,27). A única diferença entre os dois roteiros é o número de apertos.",
+  "warp": "MAP_SNOWPOINT_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "150:NADA,24:LEFT*2,90:NADA",
+  "prova": {
+   "mapa": "MAP_SNOWPOINT_CITY_GYM",
+   "pos": [
+    10,
+    27
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T115.3",
+  "nome": "ARTE SINNOH, B13: a Candice continua ALCANÇÁVEL depois de o chão do ginásio virar gelo. Trocar desenho pode trocar colisão sem querer, e aqui o risco é maior do que o normal: com MB_ICE, colisão livre deixou de significar que dá para PARAR ali. Medido no blockdata gravado: dos 531 tiles andáveis de SnowpointCity_Gym só 86 são lugares onde o jogador consegue ficar de pé, e a líder está em (11,2). ROTA: UP saturante a partir do warp (11,27). O jogador sobe a antecâmara a pé, pisa no gelo em (11,23) e daí em diante cada aperto o leva até a próxima parede; a coluna 11 tem obstáculo direcional em (11,22), (11,19), (11,12) e (11,9), que é o que faz a subida ser possível em vez de um único deslize até o topo. A PROVA é parar em (11,3), colado na Candice, que é o único tile de onde dá para falar com ela pelo sul.",
+  "warp": "MAP_SNOWPOINT_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "150:NADA,24:UP*24,90:NADA",
+  "prova": {
+   "mapa": "MAP_SNOWPOINT_CITY_GYM",
+   "pos": [
+    11,
+    3
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T115.4",
+  "nome": "ARTE SINNOH, B13: a treinadora Alicia do ginásio de Snowpoint VOLTA A SER ENFRENTÁVEL, e a prova é a BATALHA, não a posição. Ela estava em (3,6) e o gelo a deixou fora do jogo: o único tile que ela vigia, (4,6), não é parada nem é pisado em nenhum caminho que saia da porta, então nem dava para falar com ela nem para cruzar a linha de vista dela. A causa NÃO foi o gelo, foi uma coordenada errada que o gelo revelou: na fonte (res/field/events/events_snowpoint_city_gym.json, LOCALID_ACE_TRAINER_ALICIA) ela está em (3,6) da grade do Platinum, e o corte deste mapa começa em z=1, logo a coordenada nossa é (3,5). Ela foi movida UM tile para cima, para a posição da FONTE, e com isso o tile que ela vigia passa a ser (4,5), que é PARADA alcançável da porta. ROTA em pernas contadas, todas medidas no emulador e não deduzidas: o jogador entra virado para o NORTE, então UP*3 são três passos e param em (11,24), o último tile de chão comum; RIGHT*3 é virar mais dois passos, o segundo já deslizando, e para em (17,24); UP*2 é virar mais um passo, que desliza DEZENOVE tiles até (17,5); LEFT*2 é virar mais um passo, que desliza até parar em (4,5), colado na Alicia, porque o corpo dela é sólido. A PROVA é gParties[OPPONENT][0] trazer TRAINER_SINNOH_ACE_TRAINER_ALICIA: o jogador não escolheu falar com ninguém, foi a linha de vista dela que disparou. ARMADILHA DE HARNESS medida aqui, e vale para qualquer caso futuro em mapa de gelo: com a pausa de 60 frames que os outros casos usam, os apertos seguintes são COMIDOS enquanto o jogador ainda desliza, e a rota termina em (17,5) como se o botão não tivesse sido apertado. As pausas deste caso são de 240 frames por isso.",
+  "warp": "MAP_SNOWPOINT_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "150:NADA,24:UP*3,240:NADA,24:RIGHT*3,240:NADA,24:UP*2,240:NADA,24:LEFT*2,300:NADA",
+  "prova": {
+   "oponente": "TRAINER_SINNOH_ACE_TRAINER_ALICIA"
+  }
+ },
+ {
+  "id": "T115.5",
+  "nome": "PAR NEGATIVO do T115.4: a MESMA rota, com a última perna encurtada de LEFT*2 para LEFT*1. Um aperto só VIRA o jogador para o oeste sem tirá-lo do lugar, então ele fica parado em (17,5), longe da linha de vista da Alicia, e NENHUMA batalha abre (oponente 0). Sem este caso o T115.4 passaria num jogo em que a batalha dela disparasse de qualquer lugar do salão, ou em que outro treinador do mapa a cobrisse, e não porque o jogador parou exatamente no tile (4,5) que ela vigia. A única diferença entre os dois roteiros é um aperto de LEFT.",
+  "warp": "MAP_SNOWPOINT_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "150:NADA,24:UP*3,240:NADA,24:RIGHT*3,240:NADA,24:UP*2,240:NADA,24:LEFT*1,300:NADA",
+  "prova": {
+   "mapa": "MAP_SNOWPOINT_CITY_GYM",
+   "oponente": 0,
+   "pos": [
+    17,
+    5
+   ]
+  }
+ },
+ {
+  "id": "T115.6",
+  "nome": "ARTE SINNOH, B13.b: o conserto do NPC deslocado pelo CORTE, provado num ginásio SEM gelo. O importador de NPC de Sinnoh escolhe entre três réguas e a do meio, a identidade, entra quando toda coordenada da fonte cabe dentro do nosso layout; ela ignora que o mapa pode ter sido RECORTADO. Nos 8 ginásios quem recortou foi o converte() deste gerador (margem de 1 tile dos lados e 2 em cima), então a coordenada cabia e mesmo assim apontava um tile abaixo do lugar. Medido: 5 dos 8 ginásios têm corte z0=1, e 16 NPCs andaram um tile para cima. Aqui a amostra é o YoungsterDarius de Oreburgh, que saiu de (7,11) para (7,10), a posição da fonte (LOCALID_YOUNGSTER_DARIUS em (7,11) na grade do Platinum, menos o corte). Ele é MOVEMENT_TYPE_FACE_LEFT com vista 1, então vigia (6,10). ROTA: UP*13 sobe a coluna 5 do warp (5,23) até (5,10) e RIGHT*2 vira e entra em (6,10). A PROVA é gParties[OPPONENT][0] trazer TRAINER_SINNOH_YOUNGSTER_DARIUS. O DESVIO da rota pela coluna 2 não é enfeite: o YoungsterJonathon é FACE_RIGHT com vista 3 e vigia a linha inteira logo acima da porta, então subir reto abre a batalha DELE e o caso mediria outra coisa. A rota sai do warp, desce para a coluna 2, sobe por fora do campo de visão dele e só volta para a coluna 5 acima da linha dele. Repare que o Jonathon TAMBÉM foi movido nesta leva, de (4,18) para (4,17), então a linha que ele vigia subiu junto; a rota foi conferida no emulador DEPOIS desse movimento, não antes.",
+  "warp": "MAP_OREBURGH_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "150:NADA,24:UP*3,60:NADA,24:LEFT*4,60:NADA,24:UP*7,60:NADA,24:RIGHT*4,60:NADA,24:UP*5,60:NADA,24:RIGHT*2,120:NADA",
+  "prova": {
+   "oponente": "TRAINER_SINNOH_YOUNGSTER_DARIUS"
+  }
+ },
+ {
+  "id": "T115.7",
+  "nome": "PAR NEGATIVO do T115.6, e ele é o par exato: a MESMA rota com um passo a MENOS na subida, terminando em (6,11), que é o tile que o Darius vigiava ANTES do conserto, quando ele estava em (7,11). Hoje ele está um tile acima, então este tile não dispara nada e o jogador simplesmente para ali. Sem este caso o T115.6 passaria num jogo em que o Darius batalhasse de qualquer lugar da sala, e não porque está exatamente em (7,10). Este par também é a prova de que o conserto MOVEU alguém: antes de 18/08/2026 os dois roteiros abriam a mesma batalha.",
+  "warp": "MAP_OREBURGH_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "150:NADA,24:UP*3,60:NADA,24:LEFT*4,60:NADA,24:UP*7,60:NADA,24:RIGHT*4,60:NADA,24:UP*4,60:NADA,24:RIGHT*2,120:NADA",
+  "prova": {
+   "mapa": "MAP_OREBURGH_CITY_GYM",
+   "oponente": 0,
+   "pos": [
+    6,
+    11
+   ]
+  }
+ }
+]

@@ -31,7 +31,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_GYM_GUY",
       "x": 12,
-      "y": 27,
+      "y": 26,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -45,7 +45,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
       "x": 17,
-      "y": 3,
+      "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -59,7 +59,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
       "x": 21,
-      "y": 9,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -73,7 +73,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
       "x": 3,
-      "y": 6,
+      "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -82,7 +82,7 @@
       "trainer_sight_or_berry_tree_id": "1",
       "script": "SnowpointCity_Gym_EventScript_AceTrainerAlicia",
       "flag": "0",
-      "origem": "pokeplatinum"
+      "origem": "pokeplatinum: LOCALID_ACE_TRAINER_ALICIA, (3,6) na grade da fonte. y corrigido de 6 para 5 em 18/08/2026: o corte deste mapa comeca em z=1, entao a coordenada da fonte vira y-1, e com y=6 ela ficava um tile abaixo do lugar. Com o gelo (B13) isso deixou de ser cosmetico: em (3,6) o tile que ela vigia nao e pisado nem parada, e a batalha dela era inalcancavel"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
