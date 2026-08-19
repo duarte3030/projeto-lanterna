@@ -1,0 +1,118 @@
+[
+ {
+  "id": "T110.1",
+  "nome": "J2, Johto: a AMULET COIN do subsolo da loja de Goldenrod acende A FLAG DELA, e nenhuma vizinha. Antes do J2 este objeto era item ball MUDA (script 0, item 0, flag 0), herança do dev_scripts/sanitize_johto_map_json.py, que achatou todo objeto de Johto; agora ele é Common_EventScript_FindItem com ITEM_AMULET_COIN e FLAG_ITEM_JOHTO_GOLDENRODCITYDEPARTMENTSTOREBASEMENT_AMULET_COIN, escrito por dev_scripts/liga_bolas_johto.py. O par negativo são as OUTRAS TRÊS bolas do mesmo mapa: se a flag fosse compartilhada, que é o defeito que o J2 existe para matar, pegar uma acenderia as quatro. Rota medida com o gba_runner e não deduzida do blockdata, porque MUDAR DE DIREÇÃO CUSTA UM APERTO: cada perna leva apertos a mais e termina numa parede, que absorve a sobra e torna a chegada determinística. Warp 0 entrega em (20,2); quatro DOWN param em (20,4) na parede da linha 5; oito LEFT param em (15,4) na parede da coluna 14; três UP param em (15,2) na parede da linha 1; quatro RIGHT param em (17,2) na parede da coluna 18; dois LEFT viram e andam para (16,2); dois DOWN viram e batem NA BOLA, que é sólida, então ele fica em (16,2) olhando para ela. O A pega. A posição final (16,2) é meia prova: ela só é possível com a bola ocupando (16,3).",
+  "warp": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_BASEMENT",
+  "warp_id": 0,
+  "roteiro": "150:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,40:NADA,24:UP,24:UP,24:UP,40:NADA,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,40:NADA,24:LEFT,24:LEFT,40:NADA,24:DOWN,24:DOWN,40:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_BASEMENT",
+   "pos": [
+    16,
+    2
+   ],
+   "andou": true,
+   "flags_acesas": [
+    "FLAG_ITEM_JOHTO_GOLDENRODCITYDEPARTMENTSTOREBASEMENT_AMULET_COIN"
+   ],
+   "flags_apagadas": [
+    "FLAG_ITEM_JOHTO_GOLDENRODCITYDEPARTMENTSTOREBASEMENT_ULTRA_BALL",
+    "FLAG_ITEM_JOHTO_GOLDENRODCITYDEPARTMENTSTOREBASEMENT_ETHER",
+    "FLAG_ITEM_JOHTO_GOLDENRODCITYDEPARTMENTSTOREBASEMENT_EXP_SHARE"
+   ]
+  }
+ },
+ {
+  "id": "T110.2",
+  "nome": "J2, Johto: A BOLA NÃO VOLTA. Mesmo mapa e MESMO roteiro do T110.1, com uma diferença só: a flag da AMULET COIN já entra ACESA, que é exatamente o estado do mapa recarregado depois de o jogador ter pegado a bola. Quem decide é TrySpawnObjectEvents, que lê FlagGet(template->flagId) toda vez que o mapa entra (src/event_object_movement.c). Com a flag acesa a bola não nasce, o tile (16,3) fica VAZIO, e os dois DOWN do fim do roteiro deixam de bater na bola e andam: o jogador termina em (16,3), um tile adiante do T110.1. A posição final é a prova inteira, e ela é de um lado só: com a bola de volta ele pararia em (16,2). Era esse o defeito com flag 0, porque GetFlagPointer(0) devolve NULL (src/event_data.c:229), o FlagSet do removeobject vira no-op e a bola renasce a cada entrada, com o item duplicando sem limite.",
+  "flags": [
+   "FLAG_ITEM_JOHTO_GOLDENRODCITYDEPARTMENTSTOREBASEMENT_AMULET_COIN"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_BASEMENT",
+  "warp_id": 0,
+  "roteiro": "150:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,40:NADA,24:UP,24:UP,24:UP,40:NADA,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,40:NADA,24:LEFT,24:LEFT,40:NADA,24:DOWN,24:DOWN,40:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_BASEMENT",
+   "pos": [
+    16,
+    3
+   ],
+   "flags_acesas": [
+    "FLAG_ITEM_JOHTO_GOLDENRODCITYDEPARTMENTSTOREBASEMENT_AMULET_COIN"
+   ],
+   "flags_apagadas": [
+    "FLAG_ITEM_JOHTO_GOLDENRODCITYDEPARTMENTSTOREBASEMENT_ULTRA_BALL",
+    "FLAG_ITEM_JOHTO_GOLDENRODCITYDEPARTMENTSTOREBASEMENT_ETHER",
+    "FLAG_ITEM_JOHTO_GOLDENRODCITYDEPARTMENTSTOREBASEMENT_EXP_SHARE"
+   ]
+  }
+ },
+ {
+  "id": "T110.3",
+  "nome": "J2, Johto: o controle de jogo novo. Mesmo mapa, ZERO tecla, e as quatro flags de bola continuam apagadas. Existe porque sem ele o T110.1 passaria igual se a flag nascesse acesa ou fosse acesa pelo carregamento do mapa, e 'a flag está acesa' não é 'o jogador pegou a bola'. É este caso que separa as duas coisas, e é ele que acusaria uma faixa nova de flag caindo em cima de território já usado.",
+  "warp": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_BASEMENT",
+  "warp_id": 0,
+  "roteiro": "300:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_BASEMENT",
+   "flags_apagadas": [
+    "FLAG_ITEM_JOHTO_GOLDENRODCITYDEPARTMENTSTOREBASEMENT_AMULET_COIN",
+    "FLAG_ITEM_JOHTO_GOLDENRODCITYDEPARTMENTSTOREBASEMENT_ULTRA_BALL",
+    "FLAG_ITEM_JOHTO_GOLDENRODCITYDEPARTMENTSTOREBASEMENT_ETHER",
+    "FLAG_ITEM_JOHTO_GOLDENRODCITYDEPARTMENTSTOREBASEMENT_EXP_SHARE"
+   ]
+  }
+ },
+ {
+  "id": "T110.4",
+  "nome": "J2, Unova: o par negativo da região que o J2 NÃO mexeu. O censo do J2 mediu Unova e não achou nada a consertar, porque as bolas dela já saíram do dev_scripts/importa_unova.py com FLAG_ITEMS_UNOVA_START + 0xNNN, uma por bola. Este caso é a guarda dessa afirmação: nas Strange House Rooms há duas bolas em salas separadas, a FULL HEAL em (5,1) e a RARE CANDY em (25,17). Pegar a primeira acende 0x1678 e a segunda continua em 0x1677 apagada; se alguém um dia encostar na faixa de Unova, este caso fica vermelho antes de o Gui descobrir jogando. Rota com sobra absorvida por parede: warp 0 entrega em (4,7), sete UP param em (4,1) na parede da linha 0, dois RIGHT viram e batem NA BOLA de (5,1), e o A pega. A posição final (4,1) só é possível com a bola ocupando (5,1).",
+  "warp": "MAP_UNOVA_STRANGE_HOUSE_ROOMS",
+  "warp_id": 0,
+  "roteiro": "150:NADA,24:UP,24:UP,24:UP,24:UP,24:UP,24:UP,24:UP,40:NADA,24:RIGHT,24:RIGHT,40:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_STRANGE_HOUSE_ROOMS",
+   "pos": [
+    4,
+    1
+   ],
+   "andou": true,
+   "flags_acesas": [
+    "0x1678"
+   ],
+   "flags_apagadas": [
+    "0x1677"
+   ]
+  }
+ },
+ {
+  "id": "T110.5",
+  "nome": "J2, Sinnoh: a ÚNICA item ball da região inteira. O censo do J2 varreu os mapas de Sinnoh e achou UMA bola com Common_EventScript_FindItem, a chave galáctica em GalacticHQ_2F (2,8): os 34 apelidos FLAG_ITEM_SINNOH_* de flags.h são de item ESCONDIDO (bg_event hidden_item), não de bola. Por isso Sinnoh não tem bola vizinha para servir de par negativo, e dizer isso é mais honesto do que inventar um; o par negativo de Sinnoh é o T110.6, o controle sem tecla. Rota medida com o gba_runner: warp 0 entrega em (7,9), sete LEFT param em (1,9) porque o primeiro aperto paga a virada e os seis seguintes andam até a parede da coluna 0, dois UP viram e sobem para (1,8), e dois RIGHT viram e BATEM NA BOLA de (2,8), que é sólida. O A pega. A posição final (1,8) só é possível com a bola ocupando (2,8): sem ela o segundo RIGHT teria andado.",
+  "warp": "MAP_GALACTIC_HQ_2F",
+  "warp_id": 0,
+  "roteiro": "150:NADA,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,40:NADA,24:UP,24:UP,40:NADA,24:RIGHT,24:RIGHT,40:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALACTIC_HQ_2F",
+   "pos": [
+    1,
+    8
+   ],
+   "andou": true,
+   "flags_acesas": [
+    "FLAG_GALACTICA_QG_CHAVE"
+   ]
+  }
+ },
+ {
+  "id": "T110.6",
+  "nome": "J2, Sinnoh: o controle do T110.5. Mesmo mapa, zero tecla, e a flag da chave galáctica continua apagada. Faz por Sinnoh o que o T110.3 faz por Johto: prova que quem acendeu a flag foi o A na bola, e não o carregamento do mapa.",
+  "warp": "MAP_GALACTIC_HQ_2F",
+  "warp_id": 0,
+  "roteiro": "300:NADA",
+  "prova": {
+   "mapa": "MAP_GALACTIC_HQ_2F",
+   "flags_apagadas": [
+    "FLAG_GALACTICA_QG_CHAVE"
+   ]
+  }
+ }
+]

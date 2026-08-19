@@ -1,0 +1,109 @@
+[
+ {
+  "id": "T111.1",
+  "nome": "J8, Johto: O POKÉMON DE NOITE DE GOLDENROD ESTÁ NO MAPA com a flag nova APAGADA, que é o estado de jogo novo. O objeto é o OBJ_EVENT_GFX_CLERK de (6,16) em data/maps/GoldenrodCity_UndergroundTunnel/map.json, campo `flag` igual a FLAG_NIGHT_POKEMON, hoje FLAG_UNUSED_0x1D01. Ele mora num nicho de três tiles da coluna 6 (linhas 15, 16 e 17, com parede nas linhas 14 e 18), então o jogador que chega em (6,15) e desce esbarra NELE e fica onde estava. PARAR em (6,15) é a prova de que o objeto nasceu. QUEM DECIDE é TrySpawnObjectEvents, que lê FlagGet(template->flagId) toda vez que o mapa entra (src/event_object_movement.c): com a flag acesa o objeto não nasce e o tile fica vazio. Objeto de mapa é SÓLIDO, então a posição final do jogador diz sozinha se ele estava lá, sem depender de nenhum efeito colateral. ROTA MEDIDA COM O gba_runner, NAO DEDUZIDA DO BLOCKDATA, e toda perna termina em PAREDE, que absorve a sobra e torna a chegada determinística. O warp 2 entrega em (12,10); dois DOWN levam a (12,12); vinte LEFT param em (1,12) na coluna 0; dez DOWN param em (1,13), porque a linha 14 fecha a coluna 1; doze RIGHT param em (6,13), porque a coluna 7 fecha a linha 13; dois LEFT viram e andam para (5,13); seis DOWN param em (5,15), porque a linha 16 fecha a coluna 5; seis RIGHT param em (6,15), porque a coluna 7 fecha a linha 15. A entrada é pelo warp 2 e não pelo 1 de propósito: a coluna 2, que é o caminho do warp 1, cruza o raio de visão de dois treinadores (Eric em (4,7) e Teru em (4,10), os dois MOVEMENT_TYPE_FACE_LEFT com alcance 3), e o roteiro morria no msgbox deles em (2,7). A linha 11 e a 12 passam por baixo dos dois.",
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
+  "warp_id": 2,
+  "roteiro": "150:NADA,24:DOWN,24:DOWN,40:NADA,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,40:NADA,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,40:NADA,24:LEFT,24:LEFT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,40:NADA,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
+   "pos": [
+    6,
+    15
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T111.2",
+  "nome": "J8, Johto: O POKÉMON DE NOITE OBEDECE À FLAG NOVA. Mesmo mapa e MESMO roteiro do T111.1, com uma diferença só: FLAG_NIGHT_POKEMON entra ACESA. O objeto não nasce, o tile (6,16) fica vazio, e os seis DOWN do fim deixam de esbarrar e andam até (6,17), onde a parede da linha 18 para. Dois tiles de diferença para o T111.1, e a posição é a prova inteira. Este é o lado POSITIVO do par: sem ele, uma flag que simplesmente não fosse lida passaria calada. A DOENÇA que este arquivo enterra (bloco J8 da onda de janela aberta, 18/08/2026): o import de Johto deixou em include/constants/flags.h um stub `#ifndef FLAG_NIGHT_POKEMON / #define FLAG_NIGHT_POKEMON 0x4000` (e FLAG_DAY_POKEMON 0x4001). 0x4000 é SPECIAL_FLAGS_START, ou seja o stub cravava o número de FLAG_HIDE_MAP_NAME_POPUP (citada em 17 arquivos) e de FLAG_DONT_TRANSITION_MUSIC (9 arquivos), e as duas do stub estavam VIVAS no campo `flag` de object event deste mapa. O Pokémon de dia e o de noite sumiam do mapa toda vez que o motor acendia a flag DELE. Pior: SPECIAL_FLAGS mora na EWRAM (sSpecialFlags, src/event_data.c) e não persiste na save, então o endereço estava errado até como flag de objeto. O J8 moveu as duas para o transbordo de Johto, FLAG_UNUSED_0x1D01 e 0x1D02.",
+  "flags": [
+   "FLAG_NIGHT_POKEMON"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
+  "warp_id": 2,
+  "roteiro": "150:NADA,24:DOWN,24:DOWN,40:NADA,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,40:NADA,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,40:NADA,24:LEFT,24:LEFT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,40:NADA,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
+   "pos": [
+    6,
+    17
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T111.3",
+  "nome": "J8, Johto: O PAR NEGATIVO DO POKÉMON DE NOITE, e é ele que separa os dois mundos. Mesmo mapa e MESMO roteiro, e agora quem entra acesa é FLAG_HIDE_MAP_NAME_POPUP, o endereço 0x4000 que o stub roubava. O jogador tem que parar em (6,15), igual ao T111.1: acender a flag DO MOTOR não pode mais fazer o Pokémon sumir. ANTES do J8 este caso era IMPOSSÍVEL de separar do T111.2, porque FLAG_NIGHT_POKEMON e FLAG_HIDE_MAP_NAME_POPUP eram o MESMO número, e os dois casos teriam que dar o mesmo resultado. É por isso que o par {T111.2 esconde, T111.3 não esconde} é a doença acabando, e não só mais um verde: ele não existe no mundo velho. A DOENÇA que este arquivo enterra (bloco J8 da onda de janela aberta, 18/08/2026): o import de Johto deixou em include/constants/flags.h um stub `#ifndef FLAG_NIGHT_POKEMON / #define FLAG_NIGHT_POKEMON 0x4000` (e FLAG_DAY_POKEMON 0x4001). 0x4000 é SPECIAL_FLAGS_START, ou seja o stub cravava o número de FLAG_HIDE_MAP_NAME_POPUP (citada em 17 arquivos) e de FLAG_DONT_TRANSITION_MUSIC (9 arquivos), e as duas do stub estavam VIVAS no campo `flag` de object event deste mapa. O Pokémon de dia e o de noite sumiam do mapa toda vez que o motor acendia a flag DELE. Pior: SPECIAL_FLAGS mora na EWRAM (sSpecialFlags, src/event_data.c) e não persiste na save, então o endereço estava errado até como flag de objeto. O J8 moveu as duas para o transbordo de Johto, FLAG_UNUSED_0x1D01 e 0x1D02.",
+  "flags": [
+   "FLAG_HIDE_MAP_NAME_POPUP"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
+  "warp_id": 2,
+  "roteiro": "150:NADA,24:DOWN,24:DOWN,40:NADA,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,40:NADA,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,40:NADA,24:LEFT,24:LEFT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,40:NADA,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
+   "pos": [
+    6,
+    15
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T111.4",
+  "nome": "J8, Johto: O POKÉMON DE DIA DE GOLDENROD ESTÁ NO MAPA com a flag dele apagada. O objeto é o OBJ_EVENT_GFX_WORKER_M de (6,20), campo `flag` igual a FLAG_DAY_POKEMON, hoje FLAG_UNUSED_0x1D02, e ele mora no nicho seguinte da mesma coluna (linhas 19, 20 e 21, com parede nas linhas 18 e 22). O roteiro é o do T111.2 mais uma perna: de (6,17) dois LEFT levam a (5,17), seis DOWN param em (5,19) na parede da linha 20, seis RIGHT param em (6,19) na parede da coluna 7, e seis DOWN esbarram no Pokémon de dia. FLAG_NIGHT_POKEMON entra acesa só para o caminho abrir; quem está sendo medido é o objeto de (6,20). PARAR em (6,19) é a prova de que ele nasceu.",
+  "flags": [
+   "FLAG_NIGHT_POKEMON"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
+  "warp_id": 2,
+  "roteiro": "150:NADA,24:DOWN,24:DOWN,40:NADA,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,40:NADA,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,40:NADA,24:LEFT,24:LEFT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,40:NADA,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,40:NADA,24:LEFT,24:LEFT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,40:NADA,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
+   "pos": [
+    6,
+    19
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T111.5",
+  "nome": "J8, Johto: O POKÉMON DE DIA OBEDECE À FLAG NOVA. Mesmo roteiro longo do T111.4, com FLAG_DAY_POKEMON também acesa: o objeto de (6,20) não nasce e os seis DOWN do fim andam até (6,21), onde a parede da linha 22 para. Lado positivo do par do Pokémon de dia.",
+  "flags": [
+   "FLAG_NIGHT_POKEMON",
+   "FLAG_DAY_POKEMON"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
+  "warp_id": 2,
+  "roteiro": "150:NADA,24:DOWN,24:DOWN,40:NADA,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,40:NADA,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,40:NADA,24:LEFT,24:LEFT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,40:NADA,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,40:NADA,24:LEFT,24:LEFT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,40:NADA,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
+   "pos": [
+    6,
+    21
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T111.6",
+  "nome": "J8, Johto: O PAR NEGATIVO DO POKÉMON DE DIA. Mesmo roteiro longo, e no lugar de FLAG_DAY_POKEMON entra acesa FLAG_DONT_TRANSITION_MUSIC, o endereço 0x4001 que o stub roubava. O jogador tem que parar em (6,19), igual ao T111.4: acender a flag do motor não esconde mais o Pokémon de dia. Mesma lógica do T111.3, e igualmente impossível no mundo velho, onde FLAG_DAY_POKEMON e FLAG_DONT_TRANSITION_MUSIC eram o mesmo 0x4001.",
+  "flags": [
+   "FLAG_NIGHT_POKEMON",
+   "FLAG_DONT_TRANSITION_MUSIC"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
+  "warp_id": 2,
+  "roteiro": "150:NADA,24:DOWN,24:DOWN,40:NADA,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,24:LEFT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,40:NADA,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,40:NADA,24:LEFT,24:LEFT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,40:NADA,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,40:NADA,24:LEFT,24:LEFT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,40:NADA,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,24:RIGHT,40:NADA,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN,24:DOWN",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
+   "pos": [
+    6,
+    19
+   ],
+   "andou": true
+  }
+ }
+]

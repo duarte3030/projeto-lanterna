@@ -64,6 +64,10 @@ Formato de um caso
      "flags_acesas": ["FLAG_..."],          # cada uma tem que estar em 1
      "flags_apagadas": ["FLAG_..."],
      "vars": {"0x4001": 3},
+     "pos": [16, 2],                        # onde o jogador PAROU (x,y da save).
+                                            # Prova de tile ocupado: objeto sólido
+                                            # para o passo, então a posição final
+                                            # separa "a bola estava lá" de "não".
      "palobj_presentes": ["0x32B9"],        # cor de 15 bits presente na PLTT OBJ
                                             # (prova que a palette do sprite carregou)
      "mapa_grupo": 79                       # quando só o grupo importa (região)
@@ -536,6 +540,18 @@ def confere(caso, estados, por_nome, por_id, tabela_flags, layouts, treinadores=
     # tela preta do reset também "não trava". Se a posição do jogador mudou entre
     # o primeiro e o último ESTADO, alguém andou, e para andar o jogo tem que
     # estar rodando o loop de campo com os objetos do mapa vivos.
+    # "pos": onde o jogador PAROU, lido de gSaveBlock1Ptr->pos. Serve para a
+    # família de prova em que o que importa é se um tile estava OCUPADO ou não:
+    # item ball, pedra, NPC de bloqueio. Objeto sólido para o passo, e a posição
+    # final diz se ele estava lá sem precisar de nenhum efeito colateral. Foi o
+    # que faltou ao J2 (a prova de que a bola pega NÃO renasce ao recarregar o
+    # mapa): com a bola de volta o jogador para um tile antes.
+    if "pos" in prova:
+        alvo = tuple(prova["pos"])
+        obtido = (final.get("x"), final.get("y"))
+        if obtido != alvo:
+            falhas.append(f"posição final errada: esperado {alvo}, obtido {obtido}")
+
     if prova.get("andou"):
         # Só valem os estados JÁ dentro do mapa final: o próprio warp muda a
         # posição, e contar com ele faria a prova passar com o jogo congelado.
