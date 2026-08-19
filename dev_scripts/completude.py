@@ -60,11 +60,36 @@ REGIOES = {
     # dar para medir. Ver le_gen2().
     "Unova":  {"grupo": "Unova",          "fonte": "/Users/duarte/Projetos/pokemon-claude/fontes-mapas/bw3g",
                "gen2": True},
+    # Galar (18/08/2026). ARMADILHA que custou uma sessao em `valida_warp_tile.py`
+    # e vale para qualquer ferramenta desta casa: **filtrar Galar por NOME DE
+    # GRUPO nao funciona**. O alocador espalhou 344 dos 438 mapas em append
+    # dentro de grupos alheios (gMapGroup_IndoorRoute116 e irmaos), entao um
+    # filtro por grupo enxergaria 283 mapas e mediria a regiao errada. Quem sabe
+    # quais mapas sao de Galar e o censo `dev_scripts/galar_mundo.json`, gerado
+    # por `mundo_galar.py` a partir da ROM do demake; e quem sabe o que a FONTE
+    # tinha de gente e placa e `dev_scripts/galar_gente.json`. A ROM nao e
+    # reaberta aqui: os dois censos ja estao extraidos. Ver galar().
+    "Galar":  {"censo": f"{RAIZ}/dev_scripts/galar_mundo.json",
+               "gente": f"{RAIZ}/dev_scripts/galar_gente.json"},
 }
 
 CAMPOS = [("object_events", "objetos (NPC, item)"),
           ("warp_events", "warps"),
           ("bg_events", "placas e sinais")]
+
+# Piso de ARTE: abaixo disto o mapa nao e desenho, e mascara de colisao.
+#
+# Existe porque a tabela de cima nao enxerga arte, e isso deixou uma regiao
+# inteira passar por 94% completa por SEIS DIAS. Unova tinha os 1396 NPCs, os
+# 1060 warps e as 497 placas nos lugares certos, dentro de caixas com TRES
+# metatiles distintos: chao, parede e porta. Presenca de evento nao e desenho.
+#
+# O piso e 10 e nao 3 porque 3 era o sintoma daquele bug especifico; 10 e o
+# ponto onde um mapa deixa de ter mobilia. Mapa minusculo legitimo cai aqui de
+# vez em quando (o elevador de Castelia tem 4 metatiles na FONTE tambem, medido
+# em DeptStoreElevator.ablk), entao a coluna diz "mediana (quantos abaixo)": o
+# numero entre parenteses e para investigar, nao para acusar.
+PISO_ARTE = 10
 
 
 def todos_os_mapas(raiz):
@@ -77,8 +102,13 @@ def todos_os_mapas(raiz):
 
 def nossos_da_regiao(mapa_grupo, chave):
     if chave == "TownsAndRoutes":
-        # Hoenn e "tudo que nao e das outras quatro"
-        outras = ("frlg", "johto", "sinnoh", "unova")
+        # Hoenn e "tudo que nao e das outras cinco". `galar` entrou em
+        # 18/08/2026: os 438 mapas dela moram em grupos alheios, entao sem o
+        # nome aqui eles caiam no balde de Hoenn. Nao mudava as tres colunas de
+        # evento (nome de Galar nao casa com mapa do pokeemerald, e casados
+        # descartava), mas envenenava a coluna de ARTE, que mede TODOS os
+        # nossos mapas da regiao e nao so os casados.
+        outras = ("frlg", "johto", "sinnoh", "unova", "galar")
         return [m for m, g in mapa_grupo.items()
                 if not any(o in g.lower() or o in m.lower() for o in outras)]
     return [m for m, g in mapa_grupo.items()
@@ -176,6 +206,76 @@ def le_plat(fonte, header):
             "bg_events": len(d.get("bg_events") or []) + len(placas)}
 
 
+def _distintos(blob):
+    """Metatiles distintos num `map.bin`.
+
+    Cada celula do layout e um u16: os 10 bits de baixo sao o METATILE e os 6 de
+    cima sao colisao e elevacao. Sem a mascara, dois pedacos do mesmo desenho com
+    elevacao diferente contariam como desenho diferente e a coluna mentiria para
+    cima. Ver `include/fieldmap.h` (MAPGRID_METATILE_ID_MASK = 0x03FF).
+    """
+    return {(blob[i] | (blob[i + 1] << 8)) & 0x3FF for i in range(0, len(blob), 2)}
+
+
+def _layouts(_cache={}):
+    if not _cache:
+        d = json.load(open(f"{RAIZ}/data/layouts/layouts.json"))
+        _cache.update({l["id"]: l["blockdata_filepath"] for l in d["layouts"]
+                       if l.get("id")})
+    return _cache
+
+
+def arte(nossos):
+    """(mediana de metatiles distintos por mapa, quantos abaixo do piso, n)."""
+    n = []
+    for m in nossos:
+        p = f"{RAIZ}/data/maps/{m}/map.json"
+        if not os.path.exists(p):
+            continue
+        arq = _layouts().get(json.load(open(p)).get("layout"))
+        if arq and os.path.exists(f"{RAIZ}/{arq}"):
+            n.append(len(_distintos(open(f"{RAIZ}/{arq}", "rb").read())))
+    if not n:
+        return None
+    n.sort()
+    meio = n[len(n) // 2] if len(n) % 2 else (n[len(n) // 2 - 1] + n[len(n) // 2]) / 2
+    return meio, sum(1 for x in n if x < PISO_ARTE), len(n)
+
+
+def fmt_arte(a):
+    if not a:
+        return "  --  "
+    meio, abaixo, _ = a
+    return f"{meio:g} ({abaixo})"
+
+
+def galar(cfg):
+    """Galar medida pelos dois censos, sem reabrir a ROM do demake.
+
+    Devolve (nossos_mapas, {campo: (nosso, da_fonte)}), com o denominador tirado
+    de `galar_gente.json`: cada objeto e cada bg da fonte esta la com o MOTIVO de
+    ter entrado ou nao. O que ficou de fora e filtro medido, nao perda; a legenda
+    impressa abaixo da tabela diz isso, senao a linha de Galar le como fracasso.
+    """
+    cen = json.load(open(cfg["censo"]))
+    gente = json.load(open(cfg["gente"]))
+    nossos = [v["nome"] for v in cen["de_para"].values()]
+    obj = [l for l in gente["linhas"] if l["tipo"] == "objeto"]
+    bg = [l for l in gente["linhas"] if l["tipo"] == "bg"]
+    # "NPC de obra" e o marinheiro da travessia, que nao veio da fonte: ele nao
+    # entra em nenhum dos dois lados, senao inventa numerador sem denominador.
+    fonte_obj = [l for l in obj if "nao vem da fonte" not in l["motivo"]]
+    # "lixo de leitura" sao os kinds 5 e 6, que nao existem em nenhum dos dois
+    # motores: nao sao placa que faltou, sao bytes que nao queriam dizer nada.
+    fonte_bg = [l for l in bg if "lixo de leitura" not in l["motivo"]]
+    return nossos, {
+        "object_events": (sum(1 for l in fonte_obj if l["motivo"] == "entrou mudo"),
+                          len(fonte_obj)),
+        "warp_events": (cen["warps_gravados"], cen["warps_gravados"]),
+        "bg_events": (gente["itens_gravados"], len(fonte_bg)),
+    }
+
+
 def eventos(raiz, mapa):
     p = f"{raiz}/data/maps/{mapa}/map.json"
     if not os.path.exists(p):
@@ -192,11 +292,25 @@ def main():
     nosso_mg = todos_os_mapas(RAIZ)
     print("Completude por regiao, normalizada pela FONTE, mapa a mapa.")
     print("100% = tao completo quanto o jogo de onde a regiao veio.\n")
-    print(f"{'regiao':8} {'mapas':>14} {'objetos':>14} {'warps':>14} {'placas':>14}")
+    print("A coluna ARTE nao e completude contra a fonte: e a variedade do "
+          "desenho, mediana de\nmetatiles distintos por mapa, com quantos mapas "
+          f"abaixo de {PISO_ARTE} entre parenteses.\n")
+    print(f"{'regiao':8} {'mapas':>14} {'objetos':>14} {'warps':>14} "
+          f"{'placas':>14} {'arte':>14}")
 
     faltando_total = {}
     for nome, cfg in REGIOES.items():
         if alvo and alvo.lower() != nome.lower():
+            continue
+        if cfg.get("censo"):
+            nossos, pares = galar(cfg)
+            def q(c, pares=pares):
+                a, b = pares[c]
+                return f"{100*a/b:5.1f}%" if b else "  --  "
+            print(f"{nome:8} {100.0:13.1f}% {q('object_events'):>14} "
+                  f"{q('warp_events'):>14} {q('bg_events'):>14} "
+                  f"{fmt_arte(arte(nossos)):>14}")
+            faltando_total[nome] = ([], [])
             continue
         fonte = cfg["fonte"]
         if not (fonte and os.path.isdir(fonte)):
@@ -269,8 +383,20 @@ def main():
         # fontes que sao o jogo inteiro isso e o total delas
         pm = 100.0 * len(casados) / max(1, len(casados) + len(so_na_fonte))
         print(f"{nome:8} {pm:13.1f}% {p('object_events'):>14} "
-              f"{p('warp_events'):>14} {p('bg_events'):>14}")
+              f"{p('warp_events'):>14} {p('bg_events'):>14} "
+              f"{fmt_arte(arte(nossos)):>14}")
         faltando_total[nome] = (so_na_fonte, sorted(piores)[:6])
+
+    if not alvo or alvo.lower() == "galar":
+        print("\nGalar e GEOMETRIA INTEIRA E CONTEUDO NENHUM, de proposito "
+              "(18/08/2026): 438 mapas\ncom tileset provado pixel a pixel, "
+              "1.473 warps e NPC que entra MUDO. Sem cena, treinador,\nencontro, "
+              "ginasio nem Liga: a fila esta em `dev_scripts/fila_galar.json`. Os "
+              "objetos\nda fonte que nao entraram sao filtro MEDIDO e nao perda "
+              "(sprite generico de Pokemon,\ncenario de script, e o deposito do "
+              "autor em tile bloqueado); o motivo de cada um\nesta em "
+              "`dev_scripts/galar_gente.json`. Ler a linha dela como fracasso e "
+              "erro de leitura.")
 
     if alvo:
         for nome, (falta, piores) in faltando_total.items():
@@ -287,12 +413,24 @@ def main():
 
 
 def demo():
-    """Duas regras que a primeira versao quebrou."""
+    """Duas regras que a primeira versao quebrou, mais a coluna de arte."""
     # 1. mapa da fonte com sufixo nosso e o MESMO mapa
     assert normaliza("PalletTown_Frlg") == normaliza("PalletTown")
     assert normaliza("Route3_Frlg") == normaliza("Route3")
     # 2. nomes diferentes continuam diferentes
     assert normaliza("Route3_Frlg") != normaliza("Route4")
+    # 3. arte conta METATILE, e metatile e so os 10 bits de baixo. A celula
+    #    0xF001 e o mesmo desenho da 0x0001 com outra colisao e elevacao.
+    assert _distintos(b"\x00\x00\x01\x04") == {0, 1}
+    assert _distintos(b"\x01\x00\x01\xF0") == {1}
+    assert _distintos(b"\xFF\xFF") == {0x3FF}
+    # 4. a mutacao tem que ser pega: trocar um metatile muda a conta
+    assert _distintos(b"\x01\x00\x01\x00") != _distintos(b"\x01\x00\x02\x00")
+    # 5. Galar sai dos censos, nunca de nome de grupo (os 438, nao 283)
+    nossos, pares = galar(REGIOES["Galar"])
+    assert len(nossos) == 438, len(nossos)
+    assert pares["warp_events"][0] == pares["warp_events"][1] == 1473
+    assert 0 < pares["object_events"][0] < pares["object_events"][1]
     print("demo ok")
 
 

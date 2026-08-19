@@ -314,7 +314,8 @@ de `abre_exteriores_folha_sinnoh.py`), a praça de 96x96 do Battle Frontier
 (hoje provisória de 13x9), e o caso-prova mais limpo é o par Fuego Ironworks
 (prédio e exterior apontam só um para o outro). Exige desenhar exterior de
 verdade (a grade do Platinum não guarda o cenário), então disputa a fila de
-arte com B12.d e as regiões novas.
+arte com as regiões novas (o B12.d de Unova saiu dessa fila em 18/08/2026,
+fechado sem objeto: os interiores dela ganharam tileset próprio no B12.a).
 
 ### B2. NPCs e falas de Sinnoh
 
@@ -538,6 +539,15 @@ parecido é aceitável e já foi feito (Maxie para Cyrus); inventar não.
 
 ### B12. Unova: tileset de verdade e mapa que não seja máscara de colisão
 
+> **FEITO. Commit `72820a01db` (12/08/2026); reconferido e medido de novo em
+> 18/08/2026.** B12.a, B12.b e B12.c entraram; B12.d ficou **sem objeto** (a
+> explicação está no fim do bloco). Números de hoje: 291 mapas, todos com
+> tileset secundário próprio de Unova, mediana de **30** metatiles distintos por
+> mapa (era 3), máximo 283, **zero** mapas com 3 ou menos (eram 155). Os 3 mapas
+> abaixo de 10 são fiéis à fonte, conferido byte a byte. O texto abaixo é o
+> plano original, mantido porque explica o casamento gen 2 → gen 3 e as decisões
+> de conversão; onde ele fala no presente ("Unova hoje é..."), leia como 12/08.
+
 **O maior bloco de arte do projeto, e ele existe porque o Gui olhou e desconfiou
 em 12/08.** A medição está na seção 4: mediana de **3 metatiles distintos por
 mapa**, máximo de 5 em 291 mapas, zero tileset próprio. Unova hoje é conteúdo
@@ -626,6 +636,61 @@ o caminho de upgrade está no cabeçalho de `tileset_gen2.py`);
 4 tintas aproximadas onde o gen 2 escolhe paleta por grupo de mapa
 (DragonspiralTowerOutside, entrada da Victory Road, aviões, ginásio de
 Humilau). Falta só o B12.d (interiores), que reusa o conversor do B1.a.
+
+#### Fechamento do B12, medido em 18/08/2026 (executor Opus, sem gravar nada)
+
+O bloco foi reaberto porque o `ESTADO.md` ainda anunciava Unova como máscara de
+colisão, seis dias depois de ela deixar de ser. Nada foi convertido nesta data:
+só medido, e o `ESTADO.md` corrigido. O que a medição diz:
+
+- **Aceite atendido.** Mediana 30 (o aceite pedia dezenas, não 3), máximo 283,
+  mínimo 4, **zero** mapas com 3 ou menos. Todos os 291 mapas têm tileset
+  secundário de Unova. Grama alta em 40 mapas (5377 tiles) e **80 de 80** mapas
+  com `land_mons` têm tile de encontro andável, ou seja os 18 que o B12.c
+  deixou para trás foram resolvidos pelo B12.a como o plano previa.
+- **A conversão é idempotente e a árvore bate com o gerador.**
+  `blockdata_unova.py --arte-propria` sem `--gravar` devolve "antes" idêntico a
+  "depois" nas quatro métricas, e 291 mapas convertidos com 0 pulados.
+  `tileset_gen2.py --demo` e `blockdata_unova.py --demo` verdes, com prova
+  pixel a pixel e mutação plantada.
+- **Os 3 mapas abaixo de 10 metatiles são FIÉIS À FONTE, não meio-feitos.**
+  `CasteliaPlazaElevator` e `VirbankComplexElevator` (4 cada) dividem o mesmo
+  `DeptStoreElevator.ablk`, que tem 4 bytes e 4 blocos distintos;
+  `FloccesyRanchBarn` (9) sai de `Route39Barn.ablk`, 16 bytes e 8 blocos. O
+  `blocks.asm` do BW3G tem **93 rótulos** apontando para o `.ablk` de outro
+  mapa (30 casas em `House1`, 18 Centros em `PokecenterNew`, 14 portões...), e
+  o conversor resolve todos: nenhum mapa ficou sem fonte.
+- **Tilesets: 57 convertidos, 46 na build e todos os 46 com mapa.** Nenhum
+  tileset órfão. Os 11 de fora (`johto`, `johto_modern`, `kanto`, `lighthouse`,
+  `ruins_of_alph`, `pokecom_center` e as 5 salas de palavra) são cenário de
+  Johto e de Kanto dentro do BW3G, e nenhum mapa de Unova os usa: ficar fora é
+  economia, não buraco.
+- **O primário continua sendo `Building` (184) ou `GeneralSinnoh` (107), e é de
+  projeto.** O tileset do BW3G cabe inteiro no slot SECUNDÁRIO do GBA; gastar o
+  primário seria pagar duas vezes pelo mesmo desenho.
+
+**B12.d perdeu o objeto: não há o que fazer.** Ele existia porque 138 interiores
+usavam `Building + GenericBuilding` "sem uma mesa sequer". Esses 138 mapas hoje
+usam `UnovaHouse`, `UnovaGate`, `UnovaPokecenter`, `UnovaMansion` e irmãos, com
+mediana de 21 a 43 metatiles, e a mobília deles vem do `.ablk` da própria fonte.
+Conversor de mobília inventada só faria o interior divergir do BW3G. **B12.d
+fica FECHADO como sem objeto**, e o que sobra de Unova é conteúdo, não arte.
+
+**Uma pendência daquela lista já não é pendência:** o texto acima diz "ledges de
+Unova viram rampa andável (`MB_NORMAL`), sem pulo", e isso foi **superado no
+mesmo commit `72820a01db`**, cuja mensagem registra "ledges do BW3G consertados
+pelo deslocamento correto do pulo, paridade de alcance 40/40 com a fonte". A
+tabela do `blockdata_unova.py` emite `MB_JUMP_SOUTH`/`WEST`/`EAST` de verdade
+(o `MB_JUMP_NORTH` cai em FALLBACK para chão onde o par de tilesets não tem um).
+As outras pendências daquela lista continuam de pé e continuam deliberadas:
+animação de paleta fora, 1 px de fase na rolagem, 4 tintas aproximadas.
+
+**O que sobrou de Unova, e não é arte:** as 209 cenas da fila
+`dev_scripts/fila_b6.json` e **67 NPCs em tile bloqueado ou de elevação errada,
+em 23 mapas** (de 1410; medido por `blockdata_unova.py --medir`, item (d);
+piores: `VictoryRoadEntranceSouthLeft` e `SouthRight` com 10 cada,
+`Unova_Rt21` e `SkyarrowBridge` com 6). Isso é conteúdo, e é onde mora o flaky
+conhecido T98.9.
 
 ### B10. Orçamento: o que estourou
 
@@ -791,7 +856,7 @@ B0  inventário          ── obrigatório antes de tudo
  ├─ B6  história         ── depende de B2 para os hidden_flag
  ├─ B9  sprite           ── destrava parte de B2 e B4
  ├─ B1  mapas de Sinnoh  ── B1.b e B1.c dependem de B1.a
- └─ B12 arte de Unova    ── B12.c antes do aceite de B7; B12.d reusa B1.a
+ └─ B12 arte de Unova    ── FEITO em `72820a01db`; B12.d fechado sem objeto (18/08)
 B10 orçamento           ── contínuo
 B11 jogar               ── contínuo, e é o aceite final
 ```
@@ -926,7 +991,11 @@ dizer "faça tudo".
 mapas de Sinnoh (B1) contra 291 mapas crus de Unova (B12), e as duas frentes
 disputam o mesmo conversor de mobília e o mesmo espaço. Ordem errada faz uma
 delas ser reescrita. B12.d diz para reusar B1.a; confirme que é o mesmo problema
-antes de fazer alguém escrever dois conversores.
+antes de fazer alguém escrever dois conversores. **RESOLVIDO em 18/08/2026: não
+era o mesmo problema.** Unova tinha `.ablk` com a mobília dentro e só precisava
+do tileset (B12.a), enquanto Sinnoh não tem cenário na grade do Platinum e
+precisa de mobília inventada. Nenhum conversor foi compartilhado, e B12.d foi
+fechado sem objeto.
 
 **T4. Apagar contra esconder, hoje.** Enquanto a janela de save está aberta,
 apagar conteúdo inventado é mais limpo e devolve índice. Depois de fechada, só

@@ -855,43 +855,125 @@ fonte, convertido. As fontes ficam em `../fontes-mapas/`.
 100% = tão completo quanto o jogo de onde a região veio. Rode
 `python3 dev_scripts/completude.py`.
 
-| região | mapas | objetos | warps | placas |
+**Medição de 18/08/2026** (a tabela anterior, de 11/08, está logo abaixo marcada
+como SUPERADA; nada foi apagado, porque duas investigações já foram reabertas
+por causa de número velho lido como número de hoje):
+
+| região | mapas | objetos | warps | placas | arte |
+|---|---|---|---|---|---|
+| Kanto | 98,1% | 100,1% | 100,0% | 100,0% | 52 (0) |
+| Johto | 95,9% | 95,2% | 100,0% | 96,0% | 55 (3) |
+| Hoenn | 100,0% | 100,1% | 100,0% | 100,0% | 39 (22) |
+| Sinnoh | **80,1%** | **60,2%** | 97,7% | 77,4% | 39 (**104**) |
+| Unova | 94,2% | 99,5% | 99,3% | 98,0% | **30** (3) |
+| **Galar** | 100,0% | 26,7% | 100,0% | 15,4% | 48 (32) |
+
+A coluna **arte** é nova (18/08/2026) e não é completude contra a fonte: é a
+mediana de metatiles distintos por mapa, e entre parênteses quantos mapas ficam
+abaixo de 10. Ela existe porque a régua velha deixou uma região inteira passar
+por "94% completa" durante seis dias; ver "A régua não enxergava arte" adiante.
+
+| SUPERADA em 18/08/2026, medição de 11/08 | mapas | objetos | warps | placas |
 |---|---|---|---|---|
 | Kanto | 98,1% | 100,1% | 100,0% | 100,0% |
-| Johto | **95,9%** | 94,0% | 100,0% | 96,0% |
+| Johto | 95,9% | 94,0% | 100,0% | 96,0% |
 | Hoenn | 100,0% | 100,1% | 100,0% | 100,0% |
-| Sinnoh | **72,7%** | 77,2% | **99,2%** | **81,2%** |
+| Sinnoh | 72,7% | 77,2% | 99,2% | 81,2% |
 | Unova | 94,2% | 98,5% | 98,9% | 98,0% |
 
-**ATENÇÃO, a linha de Unova está tecnicamente certa e mesmo assim engana.**
-`completude.py` conta PRESENÇA de mapa, objeto, warp e placa. Ele **nunca abre o
-`blockdata`**, então caixa vazia com as portas e os NPCs certos passa com 98%. O
-Gui olhou o jogo e desconfiou em 12/08/2026; a medição deu razão a ele.
+**A linha de Sinnoh mudou muito e NADA disso é regressão.** Mapas subiram de
+72,7% para 80,1% porque o bloco B1 pôs 44 mapas de Sinnoh na ROM. Os mesmos 44
+mapas derrubaram a coluna de objetos, e é aritmética de denominador: eles
+trazem 564 objetos da fonte contra 63 nossos, o que sozinho custa cerca de 12
+pontos. A outra metade da queda é deliberada: o B3 apagou 270 NPCs inventados
+(censo em `dev_scripts/limpa_clones_sinnoh.py`). Medido no MESMO conjunto de 432
+mapas dos dois lados, a queda honesta é de 77,2% para 71,1% (1963 para 1808 de
+2542), e o resto é o denominador novo. A obra de 17-18/08 só SUBIU o número
+(57,7% para 60,2%), e entre `d9dbdea770` e o HEAD **zero** mapas de Sinnoh
+perderam objeto, medido mapa a mapa nos 476 casados. O buraco de verdade são
+**1235 objetos que a fonte tem em mapas que entraram vazios** (`BattleFrontier`
+0 de 25, `StarkMountainRoom1` 0 de 17, `AmitySquare` 0 de 16, as sete salas de
+`TurnbackCave*`, `Route204North`, `MtCoronetOutside*`, `RotomsRoom`,
+`LakeVerityLowWater`): eles nunca tiveram gente, não perderam. **Uma frente de
+povoamento está mexendo nesses mapas AGORA**, então a coluna de objetos de
+Sinnoh vai subir de novo e este número é datado de 18/08/2026. O
+`completude.py` foi auditado nesta data e **não** tem defeito de régua aqui.
 
-Medindo **metatiles distintos por mapa**, que é a variedade do desenho:
+#### A régua não enxergava arte, e por isso Unova passou seis dias mentindo
 
-| região | mediana | máximo | mapas com 3 ou menos |
+`completude.py` contava PRESENÇA de mapa, objeto, warp e placa e **nunca abria o
+`blockdata`**, então caixa vazia com as portas e os NPCs certos passava com 98%.
+O Gui olhou o jogo e desconfiou em 12/08/2026; a medição deu razão a ele. Desde
+18/08/2026 a régua abre o `blockdata`: é a coluna **arte** da tabela acima, e o
+conserto de régua é o que faltava para este erro não se repetir em outra região.
+
+Metatiles distintos por mapa, **medição de 18/08/2026**:
+
+| região | mediana | máximo | mapas abaixo de 10 |
+|---|---|---|---|
+| Kanto | 52 | 319 | 0 |
+| Johto | 55 | 437 | 3 |
+| Hoenn | 39 | 545 | 22 |
+| Sinnoh | 39 | 303 | **104** |
+| Unova | **30** | **283** | **3** |
+| Galar | 48 | 401 | 32 |
+
+| SUPERADA em 18/08/2026, medição de 12/08 | mediana | máximo | mapas com 3 ou menos |
 |---|---|---|---|
 | Kanto | 52 | 319 | 0 |
 | Hoenn | 39 | 545 | 11 |
 | Sinnoh | 39 | 303 | 0 |
-| **Unova** | **3** | **5** | **155 de 291** |
+| Unova | 3 | 5 | 155 de 291 |
 
-Máximo 5 em 291 mapas: Unova é **máscara de colisão em duas cores**, chão e
-parede mais o metatile de porta. E não tem **um tileset próprio sequer**: os 291
-mapas usam tileset de Hoenn e de Sinnoh (138 em `Building + GenericBuilding`, 75
-exteriores em `GeneralSinnoh + PetalburgSinnoh`, 32 em `CaveSinnoh`).
+**O parágrafo abaixo é a descrição do defeito, e ele está CONSERTADO. SUPERADO
+em 18/08/2026, mantido porque explica a causa:** "Máximo 5 em 291 mapas: Unova é
+máscara de colisão em duas cores, chão e parede mais o metatile de porta. E não
+tem um tileset próprio sequer: os 291 mapas usam tileset de Hoenn e de Sinnoh
+(138 em `Building + GenericBuilding`, 75 exteriores em `GeneralSinnoh +
+PetalburgSinnoh`, 32 em `CaveSinnoh`). A conversão leu o `.ablk` certo
+(`AspertiaCity.ablk`, 308 bytes = 14x22 blocos de gen 2 = os 28x44 metatiles do
+nosso layout) e parou na tradução de bloco para metatile."
+
+**O que Unova é HOJE, medido em 18/08/2026:** 291 mapas, **todos** com tileset
+secundário próprio de Unova (46 tilesets do BW3G convertidos, registrados em
+`include/tilesets.h` e todos com mapa; os outros 11 do BW3G são de Johto, de
+Kanto e das salas de palavra das Ruins of Alph, que nenhum mapa nosso usa). O
+primário continua sendo `Building` (184 mapas) ou `GeneralSinnoh` (107), e isso
+é **de projeto**: o tileset do BW3G cabe inteiro no slot SECUNDÁRIO do GBA, e
+gastar o primário seria pagar duas vezes pelo mesmo desenho. Mediana 30,
+máximo 283 (`Unova_VillageBridge`), mínimo 4, **zero** mapas com 3 ou menos. Os
+3 mapas abaixo de 10 são **fiéis à fonte**, conferido byte a byte:
+`CasteliaPlazaElevator` e `VirbankComplexElevator` (4 metatiles; os dois
+compartilham `DeptStoreElevator.ablk`, que tem 4 bytes e 4 blocos distintos) e
+`FloccesyRanchBarn` (9; `Route39Barn.ablk`, 16 bytes e 8 blocos). Quem entrou:
+o commit **`72820a01db`** (12/08/2026), pelos geradores
+`dev_scripts/tileset_gen2.py` (tileset) e `dev_scripts/blockdata_unova.py`
+(blockdata), os dois com `--demo` verde em 18/08/2026 e prova de fidelidade
+pixel a pixel com mutação plantada. Rodar `blockdata_unova.py --arte-propria`
+sem `--gravar` hoje devolve "antes" idêntico a "depois" nas quatro métricas: a
+conversão é idempotente e a arte da árvore é a que o gerador produz.
 
 O que **está** pronto em Unova, e é por isso que a região não é lixo: 1396 NPCs,
 1060 warps, 497 placas, 6234 linhas de texto de verdade do BW3G, 360 treinadores
 únicos todos com time, 87 mapas com encontro selvagem, e as dimensões exatas da
-fonte. Unova é **conteúdo cheio com arte zerada**, o inverso de Sinnoh.
+fonte. **Superado em 18/08: a frase "conteúdo cheio com arte zerada, o inverso
+de Sinnoh" valeu até 12/08 e hoje está errada.** Unova é a região mais completa
+depois de Kanto e Hoenn; o que sobra dela é conteúdo (as 209 cenas da fila
+`fila_b6.json` e os 67 NPCs em tile bloqueado, medidos por
+`blockdata_unova.py --medir`, item (d)), não arte.
 
-A conversão leu o `.ablk` certo (`AspertiaCity.ablk`, 308 bytes = 14x22 blocos de
-gen 2 = os 28x44 metatiles do nosso layout) e parou na tradução de bloco para
-metatile. Conserto no bloco **B12** do `PRD-ROM-COMPLETA.md`: o mesmo `.ablk`
-relido com tabela honesta troca o `blockdata` sem mexer em índice nenhum, e a
-arte existe na fonte (`fontes-mapas/bw3g/gfx/tilesets`, 60 PNG com `.pal`).
+**A coluna de arte já achou serviço nas outras regiões, e isso é o ponto dela:**
+Sinnoh tem **104** mapas abaixo de 10, entre eles SETE ginásios (o de Hearthome
+com 4 metatiles, e Canalave, Eterna, Pastoria, Snowpoint, Sunyshore e Veilstone
+com 5), que são caixa vazia com piso e parede; Galar tem 32, sendo **11 com UM
+único metatile** (`Galar_Postwick23`, `Galar_WildArea16` e irmãos). Nenhum dos
+dois foi investigado nesta rodada: ficam anotados aqui como fila.
+
+Detalhe de régua, para o número bater quando alguém repetir a medição: a linha de
+Sinnoh é medida sobre os 477 mapas de `nossos_mapas_sinnoh()` (a mesma lista que
+o resto da linha dela usa), e as outras regiões sobre a lista de grupo. Galar não
+tem lista de grupo que preste e sai do censo `galar_mundo.json`; ver o comentário
+em `REGIOES` do `completude.py`.
 
 **As placas de Sinnoh caíram de 94,4% para 82,3% em 11/08/2026, e isso NÃO é
 regressão.** Medido antes e depois com `completude.py`, na mesma árvore. As 146
@@ -1176,7 +1258,10 @@ provado nessa build: save feita na ROM anterior carrega na recompilada.
 |---|---|---|---|---|
 | 3-50 | 45-100 | 95-150 | 145-200 | 195-255 |
 
-**Galar fica fora desta ROM.** Ver `RECURSOS-REGIOES.md`.
+~~**Galar fica fora desta ROM.**~~ **SUPERADO em 18/08/2026**: Galar entrou como
+sexta região (seção 0.f), com 438 mapas de geometria e conteúdo nenhum. Ela
+ainda **não tem faixa de nível**, porque não tem encontro nem treinador; quando
+tiver, a faixa entra nesta tabela. Ver `RECURSOS-REGIOES.md`.
 
 ---
 
