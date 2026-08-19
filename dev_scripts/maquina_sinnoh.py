@@ -712,11 +712,17 @@ def grava_vars(c):
     corpo = (
         "// Faixa exclusiva desta frente, transcrita de PLANO-OBRAS-SINNOH.md:\n"
         "// VAR_UNUSED_0x4130 a 0x415F (o gap de 48) mais o transbordo\n"
-        "// VAR_UNUSED_0x41C2. Alias 1:1 da var do Platinum, e os VALORES sao os\n"
-        "// da fonte, numero a numero (decisao 2 do plano). Apelidar var\n"
-        "// existente nao mexe em VARS_COUNT, ou seja, nao invalida save.\n"
-        "// Var interna de cena que aparecer no porte NAO ganha endereco de\n"
-        "// executor: volta ao plano e entra na tabela em append (0x41C3+).\n")
+        "// VAR_UNUSED_0x41C2. Alias 1:1 da var do Platinum, e os VALORES são os\n"
+        "// da fonte, número a número (decisão 2 do plano). Apelidar var\n"
+        "// existente não mexe em VARS_COUNT, ou seja, não invalida save.\n"
+        "// Var interna de cena que aparecer no porte NÃO ganha endereço de\n"
+        "// executor: volta ao plano, e o endereço sai do MAPA DE DONOS escrito\n"
+        "// em include/constants/vars.h, medido antes com\n"
+        "// `python3 dev_scripts/guarda_colisao_vars.py`. Esta linha já apontou\n"
+        "// um número cravado (\"append em 0x41C3+\") e ele apodreceu no mesmo\n"
+        "// dia: em 18/08/2026 o bloco J6 da janela aberta mudou as 19 vars de\n"
+        "// cena de Kanto justamente para 0x41C3-0x41D5. Endereço livre é o que\n"
+        "// a medição diz agora, nunca o que um comentário lembra.\n")
     larg = max(len(a) for _, a, _ in VARS) + 1
     for f, a, e in VARS:
         corpo += (f"#define {a:<{larg}} VAR_UNUSED_0x{e:04X}"
@@ -730,14 +736,18 @@ def grava_flags(c):
     corpo = (
         f"// DONO DA FAIXA 0x{FLAG_BASE:04X} a 0x{FLAG_TETO:04X}: a obra de Sinnoh\n"
         f"// (PLANO-OBRAS-SINNOH.md, bloco S1). Uma flag por grupo de\n"
-        f"// hidden_flag da fonte, nome mecanico da decisao 9.\n"
+        f"// hidden_flag da fonte, nome mecânico da decisão 9.\n"
         f"//\n"
-        f"// Por que NAO e a faixa 0x190B-0x19FF que o plano reservou: em\n"
-        f"// 17/08/2026 a consolidacao de Kanto (652776174a) apelidou os 245\n"
-        f"// enderecos dela e seguiu ate 0x1A4B (medido por\n"
-        f"// dev_scripts/flags_livres.py). 0x1A00-0x1AFF e reserva de Unova,\n"
-        f"// entao esta obra desce para o transbordo 0x1B00+, que o proprio\n"
-        f"// plano ja apontava. Cabeca livre depois daqui: ate 0x2025.\n")
+        f"// Por que NÃO é a faixa 0x190B-0x19FF que o plano reservou: em\n"
+        f"// 17/08/2026 a consolidação de Kanto (652776174a) apelidou os 245\n"
+        f"// endereços dela e seguiu até 0x1A4B (medido por\n"
+        f"// dev_scripts/flags_livres.py). 0x1A00-0x1AFF é reserva de Unova,\n"
+        f"// então esta obra desce para o transbordo 0x1B00+, que o próprio\n"
+        f"// plano já apontava. Cabeça livre depois daqui: NÃO se lê deste\n"
+        f"// comentário, mede-se com `python3 dev_scripts/flags_livres.py`. A\n"
+        f"// frase que ficava aqui dizia \"até 0x2025\" e envelheceu em\n"
+        f"// 18/08/2026, quando o bloco J1 da janela aberta subiu FLAGS_COUNT\n"
+        f"// e loteou 0x2031 em diante entre item balls e reserva.\n")
     if novas:
         larg = max(len(f["flag"]) for f in novas) + 1
         for f in novas:

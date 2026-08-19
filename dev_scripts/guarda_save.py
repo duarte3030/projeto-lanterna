@@ -136,6 +136,24 @@ def contagens():
     return out
 
 
+def revisao_de_layout():
+    """SAVE_LAYOUT_REVISION de include/save.h, que decide se a save velha CARREGA.
+
+    Este guarda nasceu cego para ela, e a cegueira era grande: ele lê global.h,
+    flags.h, vars.h e map_groups.json, nunca save.h. Quem invalida save de
+    verdade é `SECTOR_SIGNATURE`, e mexer nela apaga toda save existente do
+    mundo sem mudar um byte de nenhum arquivo que este script olhava.
+
+    Devolve None se o header não tiver a macro (build anterior ao J9, 18/08/2026).
+    """
+    try:
+        t = open(f"{RAIZ}/include/save.h", encoding="utf-8").read()
+    except OSError:
+        return None
+    m = re.search(r"^#define\s+SAVE_LAYOUT_REVISION\s+(\d+)", t, re.M)
+    return int(m.group(1)) if m else None
+
+
 def layout_dos_structs():
     """Hash do texto das structs de save. Muda o texto, muda o layout."""
     g = open(f"{RAIZ}/include/global.h").read()
@@ -244,6 +262,7 @@ def impressao_atual():
         "contagens": contagens(),
         "macros": valores_de_macro(),
         "structs": layout_dos_structs(),
+        "layout_da_save": revisao_de_layout(),
         "sizeof_saveblock1": tamanho_saveblock1(),
         "dados": indices_de_dado(),
     }
@@ -334,6 +353,65 @@ def compara(velha, nova):
             if nome not in vd and pos <= ultimo:
                 quebras.append(f"{tipo.upper()} INSERIDO NO MEIO: {nome} entrou em "
                                f"{pos}, empurrando os seguintes. Acrescente no FIM.")
+
+    # ------------------------------------------------------------------
+    # Revisao de layout, e a AMARRACAO dela com tudo que veio acima.
+    #
+    # Roda por ultimo de proposito: precisa da lista de quebras ja fechada.
+    # Ate 18/08/2026 o guarda apenas GUARDAVA SAVE_LAYOUT_REVISION, e as duas
+    # coisas nao se falavam: quem deslocasse campo do SaveBlock1 e esquecesse de
+    # subir a revisao voltava a ter save velha CARREGANDO em silencio e sendo
+    # lida deslocada, que e o defeito exato que esta onda gastou um bloco para
+    # matar. Disciplina nao e portao; isto e.
+    #
+    # So conta como "deslocou" o que reinterpreta a save. Os AVISO acima
+    # (impressao velha sem 'macros', falta de gcc) sao CEGUEIRA declarada, nao
+    # medida de quebra, e cegueira nao pode exigir revisao nova de ninguem.
+    desloca = [q for q in quebras if not q.startswith("AVISO")]
+
+    # Invalidacao DELIBERADA. Nao e a mesma coisa que as quebras acima: aqui a
+    # save antiga nao passa a ser lida errada, ela deixa de ser reconhecida, e o
+    # menu principal abre em NEW GAME. E a saida digna, e mesmo assim custa o
+    # progresso de quem esta jogando, entao tem que aparecer.
+    vl, nl = velha.get("layout_da_save"), nova.get("layout_da_save")
+    if vl is not None and nl is not None and vl != nl:
+        quebras.append(f"REVISÃO DE LAYOUT DA SAVE MUDOU: SAVE_LAYOUT_REVISION "
+                       f"era {vl}, virou {nl}. `SECTOR_SIGNATURE` muda junto e o "
+                       f"motor deixa de reconhecer QUALQUER save gravada antes: "
+                       f"os dois slots viram vazios e o jogo abre em NEW GAME. "
+                       f"So suba este numero com a janela de save aberta.")
+    elif vl is None and nl is not None:
+        quebras.append("AVISO: impressao velha nao tem 'layout_da_save'. Ela foi "
+                       "gravada antes de 18/08/2026, quando mexer em "
+                       "SECTOR_SIGNATURE (o que decide se a save velha CARREGA) "
+                       "passava batido. Enquanto ela nao for regravada NAO da "
+                       "para saber se a revisao subiu, entao a amarracao entre "
+                       "quebra de layout e revisao fica DESLIGADA nesta rodada. "
+                       "Regrave assim que a janela permitir.")
+
+    if vl is None or nl is None:
+        # Falta um dos dois lados. Caso escrito e nao acidental: e o estado da
+        # rodada de 18/08/2026, cuja impressao foi gravada antes do J9 e por isso
+        # nao tem a chave. Sem os dois numeros a amarracao nao tem o que comparar,
+        # e inventar quebra aqui reprovaria a propria onda que criou a revisao.
+        # O AVISO logo acima e quem cobra a regravacao.
+        pass
+    elif desloca and nl <= vl:
+        quebras.append(f"SAVE_LAYOUT_REVISION NAO SUBIU: o layout da save mudou "
+                       f"({len(desloca)} quebra(s) acima) e a revisao continua "
+                       f"{vl}. `SECTOR_SIGNATURE` fica igual, entao a save do "
+                       f"layout ANTIGO continua sendo aceita e passa a ser lida "
+                       f"DESLOCADA, em silencio, sem erro nenhum na tela. Suba "
+                       f"SAVE_LAYOUT_REVISION em include/save.h para {vl + 1}: "
+                       f"o jogador perde o progresso, mas perde SABENDO, e o "
+                       f"Chapter Jump repoe. Carregar lixo calado e pior.")
+    elif not desloca and nl > vl:
+        quebras.append(f"AVISO: SAVE_LAYOUT_REVISION subiu de {vl} para {nl} sem "
+                       f"nenhuma quebra de layout nesta impressao. Toda save do "
+                       f"mundo foi invalidada e pode ter sido a toa. Confira se a "
+                       f"quebra e real e simplesmente nao esta coberta por este "
+                       f"guarda (motivo legitimo, e ai escreva qual); se nao for, "
+                       f"volte a revisao para {vl}.")
     return quebras
 
 
@@ -446,6 +524,58 @@ def demo():
     # apagar do meio
     ap = {"species": {"SPECIES_NONE": 0, "SPECIES_IVYSAUR": 2}}
     assert any("APAGADO" in x for x in compara(comdados, {**comdados, "dados": ap}))
+
+    # Revisao de layout: a unica quebra que INVALIDA de proposito em vez de
+    # reinterpretar. Sem esta checagem o guarda era cego para SECTOR_SIGNATURE,
+    # que e exatamente o que decide se a save velha carrega.
+    comrev = json.loads(json.dumps(base)); comrev["layout_da_save"] = 1
+    assert compara(comrev, comrev) == [], "igual a igual nao quebra"
+    subiu = json.loads(json.dumps(comrev)); subiu["layout_da_save"] = 2
+    assert any("REVISÃO DE LAYOUT DA SAVE MUDOU" in x
+               for x in compara(comrev, subiu)), compara(comrev, subiu)
+    # impressao velha sem a chave: avisa, nao inventa quebra
+    assert any("layout_da_save" in x for x in compara(base, comrev))
+    assert compara(base, base) == [], "as duas sem a chave nao quebram"
+
+    # AMARRACAO (J10): a revisao so protege se o guarda EXIGIR que ela suba.
+    # Os quatro cantos, com mutacao plantada em cima de comrev (revisao 1).
+    def _quebrou(d):  # muda o layout de verdade: SaveBlock1 cresce 84 B
+        d = json.loads(json.dumps(d)); d["sizeof_saveblock1"] = 1084; return d
+
+    # canto 1: layout mudou E revisao subiu = quebra deliberada, sem cobranca
+    c1 = _quebrou(comrev); c1["layout_da_save"] = 2
+    q = compara(comrev, c1)
+    assert any("MUDOU DE TAMANHO" in x for x in q), q
+    assert any("REVISÃO DE LAYOUT DA SAVE MUDOU" in x for x in q), q
+    assert not any("NAO SUBIU" in x for x in q), q
+
+    # canto 2: layout mudou e revisao NAO subiu = REPROVA. E o defeito que o J9
+    # deixou aberto: sem esta linha a save velha volta a carregar lida deslocada.
+    q = compara(comrev, _quebrou(comrev))
+    assert any("SAVE_LAYOUT_REVISION NAO SUBIU" in x for x in q), q
+    # descer a revisao e tao ruim quanto nao subir: a assinatura volta a colidir
+    baixou = _quebrou(comrev); baixou["layout_da_save"] = 0
+    assert any("NAO SUBIU" in x for x in compara(comrev, baixou))
+
+    # canto 3: layout igual e revisao igual = passa calado
+    assert compara(comrev, json.loads(json.dumps(comrev))) == []
+
+    # canto 4: revisao subiu SEM quebra = avisa. Invalidar a save de todo mundo
+    # a toa nao e crime, mas nao pode passar em silencio.
+    so_rev = json.loads(json.dumps(comrev)); so_rev["layout_da_save"] = 2
+    q = compara(comrev, so_rev)
+    assert any("sem" in x and "quebra de layout" in x for x in q), q
+
+    # a rodada de 18/08/2026: impressao velha SEM a chave e layout quebrado.
+    # A amarracao tem que ficar DESLIGADA, senao ela reprova a propria onda que
+    # criou a revisao. Este e o caso que o compara() trata escrito, nao por acaso.
+    q = compara(base, _quebrou(comrev))
+    assert any("MUDOU DE TAMANHO" in x for x in q), q
+    assert not any("NAO SUBIU" in x for x in q), q
+    assert any("DESLIGADA" in x for x in q), q
+    # e o header de verdade tem que responder um numero
+    assert isinstance(revisao_de_layout(), int), \
+        "include/save.h perdeu SAVE_LAYOUT_REVISION"
 
     # a leitura de verdade do header tem que achar as tres tabelas e comecar em NONE
     reais = indices_de_dado()

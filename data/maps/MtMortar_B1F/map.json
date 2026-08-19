@@ -49,9 +49,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_PP_UP",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_MTMORTARB1F_PP_UP"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -62,9 +62,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_MAX_REVIVE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_MTMORTARB1F_MAX_REVIVE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -75,9 +75,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_CARBOS",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_MTMORTARB1F_CARBOS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -88,9 +88,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_MAX_ETHER",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_MTMORTARB1F_MAX_ETHER"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -101,9 +101,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_HYPER_POTION",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_MTMORTARB1F_HYPER_POTION"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",

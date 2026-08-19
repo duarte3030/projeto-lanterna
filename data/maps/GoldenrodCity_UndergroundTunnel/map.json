@@ -114,9 +114,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_COIN_CASE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_GOLDENRODCITYUNDERGROUNDTUNNEL_COIN_CASE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -127,9 +127,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_PARALYZE_HEAL",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_GOLDENRODCITYUNDERGROUNDTUNNEL_PARALYZE_HEAL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -140,9 +140,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_ANTIDOTE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_GOLDENRODCITYUNDERGROUNDTUNNEL_ANTIDOTE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -153,9 +153,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_SUPER_POTION",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_GOLDENRODCITYUNDERGROUNDTUNNEL_SUPER_POTION"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BEAUTY",

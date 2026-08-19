@@ -1,0 +1,93 @@
+{
+ "medido_em": "2026-08-18",
+ "perfil": "flags",
+ "regra": "grupo autorizado é par exato de endereço + nomes",
+ "realias": [],
+ "herdadas": [
+  {
+   "endereco": "0x1",
+   "nomes": [
+    "FLAG_TEMP_1",
+    "FLAG_TEMP_SKIP_GABBY_INTERVIEW"
+   ],
+   "onde": {
+    "FLAG_TEMP_1": "flags.h",
+    "FLAG_TEMP_SKIP_GABBY_INTERVIEW": "flags.h"
+   },
+   "arquivos_que_usam": {
+    "FLAG_TEMP_1": 13,
+    "FLAG_TEMP_SKIP_GABBY_INTERVIEW": 2
+   },
+   "dono": "pokeemerald de fábrica (apelido de vaga de rascunho)",
+   "motivo": "DESENHO, não defeito: upstream dá um nome legível a uma vaga TEMP e reusa a mesma vaga em cenas que não rodam juntas. Declarado para o portão não repetir a linha, e para que apelido NOVO em cima da mesma vaga volte a reprovar"
+  },
+  {
+   "endereco": "0x2",
+   "nomes": [
+    "FLAG_TEMP_2",
+    "FLAG_TEMP_REGICE_PUZZLE_STARTED"
+   ],
+   "onde": {
+    "FLAG_TEMP_2": "flags.h",
+    "FLAG_TEMP_REGICE_PUZZLE_STARTED": "flags.h"
+   },
+   "arquivos_que_usam": {
+    "FLAG_TEMP_2": 48,
+    "FLAG_TEMP_REGICE_PUZZLE_STARTED": 2
+   },
+   "dono": "pokeemerald de fábrica (apelido de vaga de rascunho)",
+   "motivo": "DESENHO, não defeito: upstream dá um nome legível a uma vaga TEMP e reusa a mesma vaga em cenas que não rodam juntas. Declarado para o portão não repetir a linha, e para que apelido NOVO em cima da mesma vaga volte a reprovar"
+  },
+  {
+   "endereco": "0x3",
+   "nomes": [
+    "FLAG_TEMP_3",
+    "FLAG_TEMP_REGICE_PUZZLE_FAILED"
+   ],
+   "onde": {
+    "FLAG_TEMP_3": "flags.h",
+    "FLAG_TEMP_REGICE_PUZZLE_FAILED": "flags.h"
+   },
+   "arquivos_que_usam": {
+    "FLAG_TEMP_3": 27,
+    "FLAG_TEMP_REGICE_PUZZLE_FAILED": 2
+   },
+   "dono": "pokeemerald de fábrica (apelido de vaga de rascunho)",
+   "motivo": "DESENHO, não defeito: upstream dá um nome legível a uma vaga TEMP e reusa a mesma vaga em cenas que não rodam juntas. Declarado para o portão não repetir a linha, e para que apelido NOVO em cima da mesma vaga volte a reprovar"
+  },
+  {
+   "endereco": "0x11",
+   "nomes": [
+    "FLAG_TEMP_11",
+    "FLAG_TEMP_HIDE_MIRAGE_ISLAND_BERRY_TREE"
+   ],
+   "onde": {
+    "FLAG_TEMP_11": "flags.h",
+    "FLAG_TEMP_HIDE_MIRAGE_ISLAND_BERRY_TREE": "flags.h"
+   },
+   "arquivos_que_usam": {
+    "FLAG_TEMP_11": 81,
+    "FLAG_TEMP_HIDE_MIRAGE_ISLAND_BERRY_TREE": 3
+   },
+   "dono": "pokeemerald de fábrica (apelido de vaga de rascunho)",
+   "motivo": "DESENHO, não defeito: upstream dá um nome legível a uma vaga TEMP e reusa a mesma vaga em cenas que não rodam juntas. Declarado para o portão não repetir a linha, e para que apelido NOVO em cima da mesma vaga volte a reprovar"
+  },
+  {
+   "endereco": "0x1f4",
+   "nomes": [
+    "FLAG_HIDDEN_ITEMS_START",
+    "FLAG_HIDDEN_ITEM_LAVARIDGE_TOWN_ICE_HEAL"
+   ],
+   "onde": {
+    "FLAG_HIDDEN_ITEMS_START": "flags.h",
+    "FLAG_HIDDEN_ITEM_LAVARIDGE_TOWN_ICE_HEAL": "flags.h"
+   },
+   "arquivos_que_usam": {
+    "FLAG_HIDDEN_ITEMS_START": 2,
+    "FLAG_HIDDEN_ITEM_LAVARIDGE_TOWN_ICE_HEAL": 2
+   },
+   "dono": "pokeemerald de fábrica (include/constants/flags.h:569)",
+   "motivo": "DESENHO, não defeito: FLAG_HIDDEN_ITEMS_START é o MARCADOR da faixa e vale o mesmo que o primeiro item dela (FLAG_HIDDEN_ITEM_LAVARIDGE_TOWN_ICE_HEAL = START + 0x00). Marcador de faixa não é dono de flag, e o par nasce assim no upstream. Só entra na lista para o portão não repetir a linha"
+  }
+ ]
+}

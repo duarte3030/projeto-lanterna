@@ -34,9 +34,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_SUPER_POTION",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_ROUTE42_SUPER_POTION"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -47,9 +47,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_ULTRA_BALL",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_ROUTE42_ULTRA_BALL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -242,9 +242,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_MODEST_MINT",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_ROUTE42_MODEST_MINT"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",

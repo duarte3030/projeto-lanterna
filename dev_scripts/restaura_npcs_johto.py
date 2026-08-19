@@ -1031,7 +1031,13 @@ def demo():
     assert st_demo["sem par na fonte"] == 0, st_demo["sem par na fonte"]
     assert recusas_demo["sem par na fonte"] == [], \
         recusas_demo["sem par na fonte"]
-    assert st_demo["par não é gente"] == 1313, st_demo["par não é gente"]
+    # 18/08/2026: caiu de 1313 para 1153, e a causa foi OLHADA, não contornada.
+    # O laço acima só conta item ball MUDA (script "0"); o bloco J2 da onda de
+    # janela aberta deu `Common_EventScript_FindItem` às 160 bolas de Johto que
+    # a fonte prova serem bola de verdade (`dev_scripts/bolas_johto.json`,
+    # chave `dentro`), então elas deixaram de ser mudas e saíram deste censo.
+    # 1313 menos 160 é exatamente 1153: nenhuma outra saiu, nenhuma entrou.
+    assert st_demo["par não é gente"] == 1153, st_demo["par não é gente"]
 
     # Contado do próprio corpo, não digitado: o número cravado aqui já estava
     # velho (dizia 20 com 24 asserts no arquivo) e número que mente não é

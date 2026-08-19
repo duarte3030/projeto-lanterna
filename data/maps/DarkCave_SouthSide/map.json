@@ -23,9 +23,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_POTION",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_DARKCAVESOUTHSIDE_POTION"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -88,9 +88,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_REVIVE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_DARKCAVESOUTHSIDE_REVIVE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -101,9 +101,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_MAX_REVIVE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_DARKCAVESOUTHSIDE_MAX_REVIVE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -114,9 +114,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_ELIXIR",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_DARKCAVESOUTHSIDE_ELIXIR"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",

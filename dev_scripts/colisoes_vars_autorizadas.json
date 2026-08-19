@@ -1,0 +1,419 @@
+{
+ "medido_em": "2026-08-18",
+ "perfil": "vars",
+ "regra": "grupo autorizado é par exato de endereço + nomes",
+ "historia": "Gravado pelo J4 em 18/08/2026 com 38 grupos. Regravado no mesmo dia pelo J6: as 19 colisões VIVAS (cena de Kanto contra estado de Hoenn, 0x4050, 0x4053, 0x4057, 0x4058, 0x405A, 0x405D, 0x4060, 0x4063, 0x4069, 0x4071, 0x4074, 0x407B, 0x4082, 0x4084, 0x4085, 0x4086, 0x4088, 0x4089, 0x408A) SAÍRAM da lista porque deixaram de existir, não porque foram perdoadas: as vars de Kanto foram realiasadas para 0x41C3-0x41D5 (ver include/constants/vars_frlg.h). Colisão que não existe não fica declarada, senão o portão aceitaria calado o dia em que ela voltasse.",
+ "ressalva_das_utilitarias": {
+  "enderecos_com_os_dois_lados_em_data": [
+   "0x4036",
+   "0x403a",
+   "0x403b",
+   "0x403e",
+   "0x4049"
+  ],
+  "texto": "O motivo pelo qual estas 19 ficaram de fora do J6 foi 'são utilitárias, quase todas do lado do motor em src/'. Medido em 18/08/2026, isso NÃO vale para os 5 endereços listados acima: neles os dois nomes são citados em data/. Continuam fora do J6 por decisão da condutora, mas quando a dívida voltar à mesa são estes os primeiros da fila, não os do motor."
+ },
+ "realias": [],
+ "herdadas": [
+  {
+   "endereco": "0x4000",
+   "nomes": [
+    "VAR_TEMP_0",
+    "VAR_TEMP_CHALLENGE_STATUS",
+    "VAR_TEMP_MIXED_RECORDS"
+   ],
+   "onde": {
+    "VAR_TEMP_0": "vars.h",
+    "VAR_TEMP_CHALLENGE_STATUS": "vars.h",
+    "VAR_TEMP_MIXED_RECORDS": "vars.h"
+   },
+   "arquivos_que_usam": {
+    "VAR_TEMP_0": 154,
+    "VAR_TEMP_CHALLENGE_STATUS": 22,
+    "VAR_TEMP_MIXED_RECORDS": 2
+   },
+   "dono": "pokeemerald de fábrica (apelido de vaga de rascunho)",
+   "motivo": "DESENHO, não defeito: upstream dá um nome legível a uma vaga TEMP e reusa a mesma vaga em cenas que não rodam juntas. Declarado para o portão não repetir a linha, e para que apelido NOVO em cima da mesma vaga volte a reprovar"
+  },
+  {
+   "endereco": "0x4001",
+   "nomes": [
+    "VAR_TEMP_1",
+    "VAR_TEMP_RECORD_MIX_GIFT_ITEM",
+    "VAR_TEMP_TRANSFERRED_SPECIES"
+   ],
+   "onde": {
+    "VAR_TEMP_1": "vars.h",
+    "VAR_TEMP_RECORD_MIX_GIFT_ITEM": "vars.h",
+    "VAR_TEMP_TRANSFERRED_SPECIES": "vars.h"
+   },
+   "arquivos_que_usam": {
+    "VAR_TEMP_1": 216,
+    "VAR_TEMP_RECORD_MIX_GIFT_ITEM": 2,
+    "VAR_TEMP_TRANSFERRED_SPECIES": 6
+   },
+   "dono": "pokeemerald de fábrica (apelido de vaga de rascunho)",
+   "motivo": "DESENHO, não defeito: upstream dá um nome legível a uma vaga TEMP e reusa a mesma vaga em cenas que não rodam juntas. Declarado para o portão não repetir a linha, e para que apelido NOVO em cima da mesma vaga volte a reprovar"
+  },
+  {
+   "endereco": "0x400d",
+   "nomes": [
+    "VAR_TEMP_D",
+    "VAR_TEMP_FRONTIER_TUTOR_SELECTION"
+   ],
+   "onde": {
+    "VAR_TEMP_D": "vars.h",
+    "VAR_TEMP_FRONTIER_TUTOR_SELECTION": "vars.h"
+   },
+   "arquivos_que_usam": {
+    "VAR_TEMP_D": 9,
+    "VAR_TEMP_FRONTIER_TUTOR_SELECTION": 1
+   },
+   "dono": "pokeemerald de fábrica (apelido de vaga de rascunho)",
+   "motivo": "DESENHO, não defeito: upstream dá um nome legível a uma vaga TEMP e reusa a mesma vaga em cenas que não rodam juntas. Declarado para o portão não repetir a linha, e para que apelido NOVO em cima da mesma vaga volte a reprovar"
+  },
+  {
+   "endereco": "0x400e",
+   "nomes": [
+    "VAR_TEMP_E",
+    "VAR_TEMP_FRONTIER_TUTOR_ID",
+    "VAR_TEMP_PLAYING_PYRAMID_MUSIC"
+   ],
+   "onde": {
+    "VAR_TEMP_E": "vars.h",
+    "VAR_TEMP_FRONTIER_TUTOR_ID": "vars.h",
+    "VAR_TEMP_PLAYING_PYRAMID_MUSIC": "vars.h"
+   },
+   "arquivos_que_usam": {
+    "VAR_TEMP_E": 22,
+    "VAR_TEMP_FRONTIER_TUTOR_ID": 1,
+    "VAR_TEMP_PLAYING_PYRAMID_MUSIC": 4
+   },
+   "dono": "pokeemerald de fábrica (apelido de vaga de rascunho)",
+   "motivo": "DESENHO, não defeito: upstream dá um nome legível a uma vaga TEMP e reusa a mesma vaga em cenas que não rodam juntas. Declarado para o portão não repetir a linha, e para que apelido NOVO em cima da mesma vaga volte a reprovar"
+  },
+  {
+   "endereco": "0x4025",
+   "nomes": [
+    "VAR_MASSAGE_COOLDOWN_STEP_COUNTER",
+    "VAR_MIRAGE_RND_L"
+   ],
+   "onde": {
+    "VAR_MASSAGE_COOLDOWN_STEP_COUNTER": "vars_frlg.h",
+    "VAR_MIRAGE_RND_L": "vars.h"
+   },
+   "arquivos_que_usam": {
+    "VAR_MASSAGE_COOLDOWN_STEP_COUNTER": 4,
+    "VAR_MIRAGE_RND_L": 2
+   },
+   "dono": "herança do merge de FRLG, medida em 18/08/2026",
+   "motivo": "colisão que já existia antes do portão; não consertada nesta onda, esperando decisão do condutor"
+  },
+  {
+   "endereco": "0x4026",
+   "nomes": [
+    "VAR_DEOXYS_INTERACTION_STEP_COUNTER",
+    "VAR_SECRET_BASE_MAP"
+   ],
+   "onde": {
+    "VAR_DEOXYS_INTERACTION_STEP_COUNTER": "vars_frlg.h",
+    "VAR_SECRET_BASE_MAP": "vars.h"
+   },
+   "arquivos_que_usam": {
+    "VAR_DEOXYS_INTERACTION_STEP_COUNTER": 1,
+    "VAR_SECRET_BASE_MAP": 2
+   },
+   "dono": "herança do merge de FRLG, medida em 18/08/2026",
+   "motivo": "colisão que já existia antes do portão; não consertada nesta onda, esperando decisão do condutor"
+  },
+  {
+   "endereco": "0x4035",
+   "nomes": [
+    "VAR_DEOXYS_ROCK_LEVEL",
+    "VAR_RESORT_GOREGEOUS_STEP_COUNTER"
+   ],
+   "onde": {
+    "VAR_DEOXYS_ROCK_LEVEL": "vars.h",
+    "VAR_RESORT_GOREGEOUS_STEP_COUNTER": "vars_frlg.h"
+   },
+   "arquivos_que_usam": {
+    "VAR_DEOXYS_ROCK_LEVEL": 2,
+    "VAR_RESORT_GOREGEOUS_STEP_COUNTER": 1
+   },
+   "dono": "herança do merge de FRLG, medida em 18/08/2026",
+   "motivo": "colisão que já existia antes do portão; não consertada nesta onda, esperando decisão do condutor"
+  },
+  {
+   "endereco": "0x4036",
+   "nomes": [
+    "VAR_PC_BOX_TO_SEND_MON",
+    "VAR_RESORT_GORGEOUS_REQUESTED_MON"
+   ],
+   "onde": {
+    "VAR_PC_BOX_TO_SEND_MON": "vars.h",
+    "VAR_RESORT_GORGEOUS_REQUESTED_MON": "vars_frlg.h"
+   },
+   "arquivos_que_usam": {
+    "VAR_PC_BOX_TO_SEND_MON": 6,
+    "VAR_RESORT_GORGEOUS_REQUESTED_MON": 2
+   },
+   "dono": "herança do merge de FRLG, medida em 18/08/2026",
+   "motivo": "colisão que já existia antes do portão; não consertada nesta onda, esperando decisão do condutor"
+  },
+  {
+   "endereco": "0x403a",
+   "nomes": [
+    "VAR_ELEVATOR_FLOOR",
+    "VAR_FARAWAY_ISLAND_STEP_COUNTER"
+   ],
+   "onde": {
+    "VAR_ELEVATOR_FLOOR": "vars_frlg.h",
+    "VAR_FARAWAY_ISLAND_STEP_COUNTER": "vars.h"
+   },
+   "arquivos_que_usam": {
+    "VAR_ELEVATOR_FLOOR": 5,
+    "VAR_FARAWAY_ISLAND_STEP_COUNTER": 2
+   },
+   "dono": "herança do merge de FRLG, medida em 18/08/2026",
+   "motivo": "colisão que já existia antes do portão; não consertada nesta onda, esperando decisão do condutor"
+  },
+  {
+   "endereco": "0x403b",
+   "nomes": [
+    "VAR_REGICE_STEPS_1",
+    "VAR_RESORT_GORGEOUS_REWARD"
+   ],
+   "onde": {
+    "VAR_REGICE_STEPS_1": "vars.h",
+    "VAR_RESORT_GORGEOUS_REWARD": "vars_frlg.h"
+   },
+   "arquivos_que_usam": {
+    "VAR_REGICE_STEPS_1": 2,
+    "VAR_RESORT_GORGEOUS_REWARD": 2
+   },
+   "dono": "herança do merge de FRLG, medida em 18/08/2026",
+   "motivo": "colisão que já existia antes do portão; não consertada nesta onda, esperando decisão do condutor"
+  },
+  {
+   "endereco": "0x403d",
+   "nomes": [
+    "VAR_HERACROSS_SIZE_RECORD",
+    "VAR_REGICE_STEPS_3"
+   ],
+   "onde": {
+    "VAR_HERACROSS_SIZE_RECORD": "vars_frlg.h",
+    "VAR_REGICE_STEPS_3": "vars.h"
+   },
+   "arquivos_que_usam": {
+    "VAR_HERACROSS_SIZE_RECORD": 1,
+    "VAR_REGICE_STEPS_3": 2
+   },
+   "dono": "herança do merge de FRLG, medida em 18/08/2026",
+   "motivo": "colisão que já existia antes do portão; não consertada nesta onda, esperando decisão do condutor"
+  },
+  {
+   "endereco": "0x403e",
+   "nomes": [
+    "VAR_ALTERING_CAVE_WILD_SET",
+    "VAR_DEOXYS_INTERACTION_NUM"
+   ],
+   "onde": {
+    "VAR_ALTERING_CAVE_WILD_SET": "vars.h",
+    "VAR_DEOXYS_INTERACTION_NUM": "vars_frlg.h"
+   },
+   "arquivos_que_usam": {
+    "VAR_ALTERING_CAVE_WILD_SET": 3,
+    "VAR_DEOXYS_INTERACTION_NUM": 1
+   },
+   "dono": "herança do merge de FRLG, medida em 18/08/2026",
+   "motivo": "colisão que já existia antes do portão; não consertada nesta onda, esperando decisão do condutor"
+  },
+  {
+   "endereco": "0x4040",
+   "nomes": [
+    "VAR_DAYS",
+    "VAR_MAGIKARP_SIZE_RECORD"
+   ],
+   "onde": {
+    "VAR_DAYS": "vars.h",
+    "VAR_MAGIKARP_SIZE_RECORD": "vars_frlg.h"
+   },
+   "arquivos_que_usam": {
+    "VAR_DAYS": 2,
+    "VAR_MAGIKARP_SIZE_RECORD": 1
+   },
+   "dono": "herança do merge de FRLG, medida em 18/08/2026",
+   "motivo": "colisão que já existia antes do portão; não consertada nesta onda, esperando decisão do condutor"
+  },
+  {
+   "endereco": "0x4042",
+   "nomes": [
+    "VAR_FANCLUB_LOSE_FAN_TIMER",
+    "VAR_TRAINER_CARD_MON_ICON_TINT_IDX"
+   ],
+   "onde": {
+    "VAR_FANCLUB_LOSE_FAN_TIMER": "vars.h",
+    "VAR_TRAINER_CARD_MON_ICON_TINT_IDX": "vars_frlg.h"
+   },
+   "arquivos_que_usam": {
+    "VAR_FANCLUB_LOSE_FAN_TIMER": 2,
+    "VAR_TRAINER_CARD_MON_ICON_TINT_IDX": 1
+   },
+   "dono": "herança do merge de FRLG, medida em 18/08/2026",
+   "motivo": "colisão que já existia antes do portão; não consertada nesta onda, esperando decisão do condutor"
+  },
+  {
+   "endereco": "0x4043",
+   "nomes": [
+    "VAR_DEPT_STORE_FLOOR",
+    "VAR_TRAINER_CARD_MON_ICON_1"
+   ],
+   "onde": {
+    "VAR_DEPT_STORE_FLOOR": "vars.h",
+    "VAR_TRAINER_CARD_MON_ICON_1": "vars_frlg.h"
+   },
+   "arquivos_que_usam": {
+    "VAR_DEPT_STORE_FLOOR": 2,
+    "VAR_TRAINER_CARD_MON_ICON_1": 1
+   },
+   "dono": "herança do merge de FRLG, medida em 18/08/2026",
+   "motivo": "colisão que já existia antes do portão; não consertada nesta onda, esperando decisão do condutor"
+  },
+  {
+   "endereco": "0x4044",
+   "nomes": [
+    "VAR_TRAINER_CARD_MON_ICON_2",
+    "VAR_TRICK_HOUSE_LEVEL"
+   ],
+   "onde": {
+    "VAR_TRAINER_CARD_MON_ICON_2": "vars_frlg.h",
+    "VAR_TRICK_HOUSE_LEVEL": "vars.h"
+   },
+   "arquivos_que_usam": {
+    "VAR_TRAINER_CARD_MON_ICON_2": 1,
+    "VAR_TRICK_HOUSE_LEVEL": 2
+   },
+   "dono": "herança do merge de FRLG, medida em 18/08/2026",
+   "motivo": "colisão que já existia antes do portão; não consertada nesta onda, esperando decisão do condutor"
+  },
+  {
+   "endereco": "0x4045",
+   "nomes": [
+    "VAR_POKELOT_PRIZE_ITEM",
+    "VAR_TRAINER_CARD_MON_ICON_3"
+   ],
+   "onde": {
+    "VAR_POKELOT_PRIZE_ITEM": "vars.h",
+    "VAR_TRAINER_CARD_MON_ICON_3": "vars_frlg.h"
+   },
+   "arquivos_que_usam": {
+    "VAR_POKELOT_PRIZE_ITEM": 2,
+    "VAR_TRAINER_CARD_MON_ICON_3": 1
+   },
+   "dono": "herança do merge de FRLG, medida em 18/08/2026",
+   "motivo": "colisão que já existia antes do portão; não consertada nesta onda, esperando decisão do condutor"
+  },
+  {
+   "endereco": "0x4046",
+   "nomes": [
+    "VAR_NATIONAL_DEX",
+    "VAR_TRAINER_CARD_MON_ICON_4"
+   ],
+   "onde": {
+    "VAR_NATIONAL_DEX": "vars.h",
+    "VAR_TRAINER_CARD_MON_ICON_4": "vars_frlg.h"
+   },
+   "arquivos_que_usam": {
+    "VAR_NATIONAL_DEX": 2,
+    "VAR_TRAINER_CARD_MON_ICON_4": 1
+   },
+   "dono": "herança do merge de FRLG, medida em 18/08/2026",
+   "motivo": "colisão que já existia antes do portão; não consertada nesta onda, esperando decisão do condutor"
+  },
+  {
+   "endereco": "0x4047",
+   "nomes": [
+    "VAR_SEEDOT_SIZE_RECORD",
+    "VAR_TRAINER_CARD_MON_ICON_5"
+   ],
+   "onde": {
+    "VAR_SEEDOT_SIZE_RECORD": "vars.h",
+    "VAR_TRAINER_CARD_MON_ICON_5": "vars_frlg.h"
+   },
+   "arquivos_que_usam": {
+    "VAR_SEEDOT_SIZE_RECORD": 1,
+    "VAR_TRAINER_CARD_MON_ICON_5": 1
+   },
+   "dono": "herança do merge de FRLG, medida em 18/08/2026",
+   "motivo": "colisão que já existia antes do portão; não consertada nesta onda, esperando decisão do condutor"
+  },
+  {
+   "endereco": "0x4048",
+   "nomes": [
+    "VAR_ASH_GATHER_COUNT",
+    "VAR_TRAINER_CARD_MON_ICON_6"
+   ],
+   "onde": {
+    "VAR_ASH_GATHER_COUNT": "vars.h",
+    "VAR_TRAINER_CARD_MON_ICON_6": "vars_frlg.h"
+   },
+   "arquivos_que_usam": {
+    "VAR_ASH_GATHER_COUNT": 2,
+    "VAR_TRAINER_CARD_MON_ICON_6": 1
+   },
+   "dono": "herança do merge de FRLG, medida em 18/08/2026",
+   "motivo": "colisão que já existia antes do portão; não consertada nesta onda, esperando decisão do condutor"
+  },
+  {
+   "endereco": "0x4049",
+   "nomes": [
+    "VAR_BIRCH_STATE",
+    "VAR_HOF_BRAG_STATE"
+   ],
+   "onde": {
+    "VAR_BIRCH_STATE": "vars.h",
+    "VAR_HOF_BRAG_STATE": "vars_frlg.h"
+   },
+   "arquivos_que_usam": {
+    "VAR_BIRCH_STATE": 2,
+    "VAR_HOF_BRAG_STATE": 1
+   },
+   "dono": "herança do merge de FRLG, medida em 18/08/2026",
+   "motivo": "colisão que já existia antes do portão; não consertada nesta onda, esperando decisão do condutor"
+  },
+  {
+   "endereco": "0x404a",
+   "nomes": [
+    "VAR_CRUISE_STEP_COUNT",
+    "VAR_EGG_BRAG_STATE"
+   ],
+   "onde": {
+    "VAR_CRUISE_STEP_COUNT": "vars.h",
+    "VAR_EGG_BRAG_STATE": "vars_frlg.h"
+   },
+   "arquivos_que_usam": {
+    "VAR_CRUISE_STEP_COUNT": 1,
+    "VAR_EGG_BRAG_STATE": 1
+   },
+   "dono": "herança do merge de FRLG, medida em 18/08/2026",
+   "motivo": "colisão que já existia antes do portão; não consertada nesta onda, esperando decisão do condutor"
+  },
+  {
+   "endereco": "0x404b",
+   "nomes": [
+    "VAR_LINK_WIN_BRAG_STATE",
+    "VAR_POKELOT_RND1"
+   ],
+   "onde": {
+    "VAR_LINK_WIN_BRAG_STATE": "vars_frlg.h",
+    "VAR_POKELOT_RND1": "vars.h"
+   },
+   "arquivos_que_usam": {
+    "VAR_LINK_WIN_BRAG_STATE": 1,
+    "VAR_POKELOT_RND1": 1
+   },
+   "dono": "herança do merge de FRLG, medida em 18/08/2026",
+   "motivo": "colisão que já existia antes do portão; não consertada nesta onda, esperando decisão do condutor"
+  }
+ ]
+}

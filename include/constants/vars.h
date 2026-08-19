@@ -504,9 +504,37 @@
 #define VAR_TURNBACK_PILARES_VISTOS              0x41C0 // Turnback Cave, B1.b
 #define VAR_UNUSED_0x41C1                        0x41C1 // Unused Var
 #define VAR_TURNBACK_SALAS_VISITADAS             0x41C1 // Turnback Cave, B1.b
-// DONO DA FAIXA 0x41C2 a 0x41FF: transbordo da obra de Sinnoh (B6), em
-// append. Ver PLANO-OBRAS-SINNOH.md (0x41C2 é VAR_SINNOH_VILLA_ESTADO; vars
-// internas de script descobertas no porte entram de 0x41C3 em diante).
+// DONO DE 0x41C2: transbordo da obra de Sinnoh (B6), em append. Ver
+// PLANO-OBRAS-SINNOH.md (0x41C2 é VAR_SINNOH_VILLA_ESTADO).
+//
+// Esta linha dizia "DONO DA FAIXA 0x41C2 a 0x41FF", e a frase deixou de valer
+// em 18/08/2026: a obra de Sinnoh FECHOU (ESTADO 0.f) sem gastar um endereço
+// sequer de 0x41C3 em diante, e a faixa foi dividida pela condutora naquele
+// dia. O que Sinnoh usa é 0x41C2, mais 0x4130-0x415F logo acima. O resto está
+// repartido assim, e quem for acrescentar var lê daqui:
+//
+// DONO DE 0x41C3 a 0x41D5 (19 vagas, TODAS ocupadas): realias das vars de cena
+// de KANTO que colidiam com var de estado de HOENN, feito em 18/08/2026 pelo
+// bloco J6 da onda de janela aberta. Os defines moram em
+// include/constants/vars_frlg.h, no bloco "Realias de 18/08/2026", que tem a
+// tabela de velho para novo. Motivo medido pelo portão
+// dev_scripts/guarda_colisao_vars.py: 19 endereços entre 0x4050 e 0x408A
+// tinham DOIS donos usados, os dois em data/maps, e o `setvar` de uma cena de
+// Kanto gravava no estado de uma cidade de Hoenn.
+//
+// DONO DE 0x41D6 a 0x41FF (42 vagas): NINGUÉM. Esta é a maior faixa livre de
+// verdade que resta no jogo. Fora dela sobram 13 endereços soltos em 0x40xx
+// (0x4091, 0x409B, 0x409D, 0x40A1, 0x40A8, 0x40DB, 0x40DC, 0x40E5 e
+// 0x40FA-0x40FE), guardados como reserva de emergência.
+//
+// CUIDADO com a aparência de espaço livre acima: a reserva de história aberta
+// em 12/08/2026 (0x4100-0x41FF) JÁ ESTÁ LOTEADA entre quatro frentes, e as
+// caudas não gastas delas continuam tendo dono. Medido em 18/08/2026: Johto
+// declarou 0x4100-0x412F "exclusiva" e usa 6; Sinnoh tem 0x4130-0x415F; Unova
+// declarou 0x4160-0x41BF "exclusiva, append-only" e usa 30; Turnback Cave tem
+// 0x41C0-0x41C1. Endereço sem uso dentro dessas faixas NÃO é endereço livre.
+// Antes de escolher endereço novo, meça com dev_scripts/guarda_colisao_vars.py
+// em vez de olhar quais VAR_UNUSED_* ninguém citou.
 #define VAR_UNUSED_0x41C2                        0x41C2 // Unused Var
 #define VAR_UNUSED_0x41C3                        0x41C3 // Unused Var
 #define VAR_UNUSED_0x41C4                        0x41C4 // Unused Var
@@ -874,11 +902,17 @@
 // >>> B6 Sinnoh, as 49 vars da maquina de cenas (dev_scripts/maquina_sinnoh.py) >>>
 // Faixa exclusiva desta frente, transcrita de PLANO-OBRAS-SINNOH.md:
 // VAR_UNUSED_0x4130 a 0x415F (o gap de 48) mais o transbordo
-// VAR_UNUSED_0x41C2. Alias 1:1 da var do Platinum, e os VALORES sao os
-// da fonte, numero a numero (decisao 2 do plano). Apelidar var
-// existente nao mexe em VARS_COUNT, ou seja, nao invalida save.
-// Var interna de cena que aparecer no porte NAO ganha endereco de
-// executor: volta ao plano e entra na tabela em append (0x41C3+).
+// VAR_UNUSED_0x41C2. Alias 1:1 da var do Platinum, e os VALORES são os
+// da fonte, número a número (decisão 2 do plano). Apelidar var
+// existente não mexe em VARS_COUNT, ou seja, não invalida save.
+// Var interna de cena que aparecer no porte NÃO ganha endereço de
+// executor: volta ao plano, e o endereço sai do MAPA DE DONOS escrito
+// em include/constants/vars.h, medido antes com
+// `python3 dev_scripts/guarda_colisao_vars.py`. Esta linha já apontou
+// um número cravado ("append em 0x41C3+") e ele apodreceu no mesmo
+// dia: em 18/08/2026 o bloco J6 da janela aberta mudou as 19 vars de
+// cena de Kanto justamente para 0x41C3-0x41D5. Endereço livre é o que
+// a medição diz agora, nunca o que um comentário lembra.
 #define VAR_SINNOH_ACUITY_BEIRA_ESTADO           VAR_UNUSED_0x4130  // VAR_ACUITY_LAKEFRONT_STATE, leva S6
 #define VAR_SINNOH_CANALAVE_ESTADO               VAR_UNUSED_0x4131  // VAR_CANALAVE_CITY_STATE, leva S6
 #define VAR_SINNOH_CELESTIC_ANCIA_ESTADO         VAR_UNUSED_0x4132  // VAR_CELESTIC_TOWN_ELDER_STATE, leva S5

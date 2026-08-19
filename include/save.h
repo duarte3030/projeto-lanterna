@@ -12,7 +12,28 @@
 #define NUM_SAVE_SLOTS 2
 
 // If the sector's signature field is not this value then the sector is either invalid or empty.
-#define SECTOR_SIGNATURE 0x8012025
+//
+// SAVE_LAYOUT_REVISION é a revisão do LAYOUT da save deste hack, e existe porque
+// pokeemerald não tem versionamento de save nem migração. Medido em 18/08/2026,
+// na onda de janela aberta: quando o `flags[]` do SaveBlock1 cresceu 576 B, uma
+// save do layout anterior NÃO era recusada. `HandleWriteSector` zera os 3968 B
+// do setor antes de gravar e `CalculateChecksum` soma palavras de 32 bits, então
+// os bytes a mais lidos são zeros, o checksum bate, e `GetSaveValidStatus`
+// devolvia SAVE_STATUS_OK para uma save que o jogo passava a ler DESLOCADA (as
+// 512 vars saíam 288 posições fora do lugar, Pokédex e creche embaralhadas).
+// Carregar lixo em silêncio é pior do que perder a save: o jogador joga horas em
+// cima de estado corrompido e só descobre num travamento.
+//
+// Somar a revisão à assinatura do setor faz o motor não reconhecer setor nenhum
+// da save velha, tratar os dois slots como VAZIOS e abrir o menu principal em
+// NEW GAME, que é um caminho digno (o Chapter Jump repõe o progresso).
+//
+// REGRA: SUBIR SAVE_LAYOUT_REVISION em toda mudança que desloque campo dentro de
+// SaveBlock1/2/3 (FLAGS_COUNT, VARS_COUNT, campo novo no meio, reordenação de
+// SPECIES/ITEM/MOVE). Quem diz o que desloca é `dev_scripts/guarda_save.py`.
+// Revisão 1 = onda de janela aberta de 18/08/2026 (FLAGS_COUNT 8248 -> 12856).
+#define SAVE_LAYOUT_REVISION 1
+#define SECTOR_SIGNATURE (0x8012025 + SAVE_LAYOUT_REVISION)
 
 #define SPECIAL_SECTOR_SENTINEL 0xB39D
 

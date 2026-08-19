@@ -36,9 +36,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_LUM_BERRY",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_RUINSOFALPHPUZZLEANDREWARDCHAMBERS_LUM_BERRY"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -49,9 +49,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_CHARCOAL",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_RUINSOFALPHPUZZLEANDREWARDCHAMBERS_CHARCOAL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -62,9 +62,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_MAX_REVIVE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_RUINSOFALPHPUZZLEANDREWARDCHAMBERS_MAX_REVIVE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -75,9 +75,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_SACRED_ASH",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_RUINSOFALPHPUZZLEANDREWARDCHAMBERS_SACRED_ASH"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -88,9 +88,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_HEAL_POWDER",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_RUINSOFALPHPUZZLEANDREWARDCHAMBERS_HEAL_POWDER_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -101,9 +101,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_ENERGY_ROOT",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_RUINSOFALPHPUZZLEANDREWARDCHAMBERS_ENERGY_ROOT"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -114,9 +114,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_SITRUS_BERRY",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_RUINSOFALPHPUZZLEANDREWARDCHAMBERS_SITRUS_BERRY"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -127,9 +127,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_MOON_STONE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_RUINSOFALPHPUZZLEANDREWARDCHAMBERS_MOON_STONE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -140,9 +140,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_PECHA_BERRY",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_RUINSOFALPHPUZZLEANDREWARDCHAMBERS_PECHA_BERRY"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -153,9 +153,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_ENERGY_POWDER",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_RUINSOFALPHPUZZLEANDREWARDCHAMBERS_ENERGY_POWDER"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -166,9 +166,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_HEAL_POWDER",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_RUINSOFALPHPUZZLEANDREWARDCHAMBERS_HEAL_POWDER"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -179,9 +179,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_ORAN_BERRY",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_RUINSOFALPHPUZZLEANDREWARDCHAMBERS_ORAN_BERRY"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -192,9 +192,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_WATER_STONE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_RUINSOFALPHPUZZLEANDREWARDCHAMBERS_WATER_STONE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -205,9 +205,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_STAR_PIECE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_RUINSOFALPHPUZZLEANDREWARDCHAMBERS_STAR_PIECE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -218,9 +218,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_STARDUST",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_RUINSOFALPHPUZZLEANDREWARDCHAMBERS_STARDUST"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -231,9 +231,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_LUM_BERRY",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_RUINSOFALPHPUZZLEANDREWARDCHAMBERS_LUM_BERRY_2"
     }
   ],
   "warp_events": [

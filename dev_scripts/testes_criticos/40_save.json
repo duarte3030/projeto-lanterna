@@ -41,18 +41,14 @@
   },
   {
     "id": "T11.3",
-    "nome": "A save da ROM antiga continua valendo na ROM RECOMPILADA (--rom2)",
+    "nome": "A save de LAYOUT VELHO e RECUSADA pela ROM nova, e o jogador cai num caminho digno (--rom2). ESTE CASO MUDOU DE SIGNIFICADO em 18/08/2026, no bloco J9 da onda de JANELA ABERTA, e a inversao esta autorizada por escrito no PLANO-JANELA-ABERTA.md (\"a save da 2026-08-15c DEIXA de carregar\"). ANTES ele exigia o contrario: que a save feita na ROM antiga continuasse valendo depois de atualizar. Por que virou: o J1 cresceu flags[] em 576 B e TUDO que vem depois dele no SaveBlock1 deslizou (vars[] saiu de 0x1678 para 0x18B8). O adversarial da onda mediu que a save velha NAO era recusada por isso: HandleWriteSector zera os 3968 B do setor antes de gravar e CalculateChecksum soma palavras de 32 bits, entao os 576 B a mais lidos sao zeros, o checksum bate e GetSaveValidStatus devolvia SAVE_STATUS_OK. O jogo carregava em SILENCIO e lia tudo DESLOCADO: time, dinheiro e insignias sobreviviam, mas as 512 vars saiam 288 posicoes fora do lugar (cena de Hoenn lendo var de Unova; Johto e Sinnoh lendo gameStats), Pokedex, correio, bases secretas e a CRECHE embaralhados, esta ultima com risco de especie invalida e travamento. Carregar lixo calado e PIOR do que perder a save, porque o Gui joga horas em cima de estado corrompido e so descobre no travamento. O CONSERTO (include/save.h) foi somar SAVE_LAYOUT_REVISION a SECTOR_SIGNATURE: nenhum setor da save velha casa a assinatura, os dois slots viram VAZIOS e o menu principal abre em NEW GAME. MEDIDO no harness em 18/08/2026, nao deduzido do codigo: a tela do menu tem NEW GAME e OPTION e nada mais, sem caixa de erro e sem travar (compare com o T11.2 na mesma save, que mostra CONTINUE / PLAYER / TIME / BADGES). A PROVA e o PAR NEGATIVO andam juntos: o mapa e o quarto de jogo novo (MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), e a flag 0x2BA (FLAG_HIDE_SEAFOAM_1F_BOULDER_1), que a save gravou acesa, esta APAGADA, que e o que separa \"a save foi recusada\" de \"a save foi lida\". Repare que flags[] NAO deslizou (0x1270 nas duas builds), ou seja uma save lida em silencio traria 0x2BA ACESA: e por isso que ela e a testemunha certa. A outra flag do T11.1, a 0x2B8, foi DEIXADA DE FORA depois de medida: data/scripts/new_game.inc:468 faz `setflag FLAG_HIDE_SAFFRON_FAN_CLUB_WOMAN`, entao jogo novo acende ela sozinho e ela nao distingue nada. Sem a segunda metade, uma ROM que carregasse a save e por acaso mandasse o jogador para o quarto passaria verde. QUANDO ESTE CASO VOLTA A SER O DE ANTES: na proxima onda de janela FECHADA, quando a ROM oficial nova virar baseline e a save passar a ser feita nela; ai o esperado volta a ser MAP_SANDGEM_TOWN com as flags acesas, e SAVE_LAYOUT_REVISION nao pode mais subir.",
     "rom": "rom2",
     "sav": "/tmp/claude-501/frenteA/t11.sav",
     "prova": {
-      "mapa": "MAP_SANDGEM_TOWN",
-      "layout": "LAYOUT_SANDGEM_TOWN",
-      "flags_acesas": [
-        "0x2B8",
-        "0x2BA"
-      ],
+      "mapa": "MAP_PALLET_TOWN_PLAYERS_HOUSE_2F",
+      "layout": "LAYOUT_PALLET_TOWN_PLAYERS_HOUSE_2F_FRLG",
       "flags_apagadas": [
-        "0x2B9"
+        "0x2BA"
       ]
     },
     "abertura": "continuar"

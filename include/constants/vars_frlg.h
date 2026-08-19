@@ -1,6 +1,15 @@
 #ifndef GUARD_CONSTANTS_VARS_FRLG_H
 #define GUARD_CONSTANTS_VARS_FRLG_H
 
+// CUIDADO: este header relê o MESMO espaço de 0x40xx que vars.h. Endereço
+// novo aqui pode cair em cima de var de Hoenn, e as duas passam a dividir o
+// mesmo slot da save sem erro de compilação. Antes de acrescentar ou mudar
+// endereço aqui, rode o portão:
+//     python3 dev_scripts/guarda_colisao_vars.py
+// Ele reprova quando dois nomes com define próprio, os dois usados na árvore,
+// caem no mesmo endereço sem estar declarados em
+// dev_scripts/colisoes_vars_autorizadas.json.
+
 
 
 
@@ -91,39 +100,46 @@
 #define VAR_LOTAD_SIZE_RECORD              0x404F
 
 // Map Scene
-#define VAR_MAP_SCENE_PALLET_TOWN_OAK                                          0x4050
+//
+// REALIAS DE 18/08/2026 (bloco J6 da onda de janela aberta). Dezenove vars
+// desta lista NAO moram mais aqui: elas foram para 0x41C3-0x41D5, e o bloco
+// no fim deste arquivo tem a tabela de velho para novo e o motivo. As vagas
+// que elas deixaram viraram VAR_0x40XX com o rastro no fim da linha, e NAO
+// estao livres: cada uma continua sendo o endereco de uma var de Hoenn viva
+// em include/constants/vars.h. Nao reaproveite nenhuma delas.
+#define VAR_0x4050                             0x4050 // era VAR_MAP_SCENE_PALLET_TOWN_OAK, foi para 0x41C3 (realias J6)
 // Ate 18/08/2026 era VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN; realiasada para
 // 0x40F8 porque colidia com VAR_OLDALE_TOWN_STATE (Hoenn, include/constants/
 // vars.h). Ver o realias de 0x40F7-0x40F9 mais abaixo.
 #define VAR_0x4051                                                             0x4051
 #define VAR_MAP_SCENE_CERULEAN_CITY_RIVAL                                      0x4052
-#define VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER                                0x4053
+#define VAR_0x4053                             0x4053 // era VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER, foi para 0x41C4 (realias J6)
 // Ate 18/08/2026 era VAR_MAP_SCENE_ROUTE22; realiasada para 0x40F7 porque
 // colidia com VAR_CURRENT_SECRET_BASE (Hoenn, include/constants/vars.h).
 #define VAR_0x4054                                                             0x4054
 #define VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB                           0x4055
 #define VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F                             0x4056
-#define VAR_MAP_SCENE_VIRIDIAN_CITY_MART                                       0x4057
-#define VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE                                 0x4058
+#define VAR_0x4057                             0x4057 // era VAR_MAP_SCENE_VIRIDIAN_CITY_MART, foi para 0x41C5 (realias J6)
+#define VAR_0x4058                             0x4058 // era VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, foi para 0x41C6 (realias J6)
 #define VAR_MAP_SCENE_POKEMON_TOWER_6F                                         0x4059
-#define VAR_MAP_SCENE_VIRIDIAN_CITY_GYM_DOOR                                   0x405A
+#define VAR_0x405A                             0x405A // era VAR_MAP_SCENE_VIRIDIAN_CITY_GYM_DOOR, foi para 0x41C7 (realias J6)
 #define VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR                                     0x405B
 #define VAR_MAP_SCENE_SILPH_CO_7F                                              0x405C
-#define VAR_MAP_SCENE_POKEMON_TOWER_2F                                         0x405D
+#define VAR_0x405D                             0x405D // era VAR_MAP_SCENE_POKEMON_TOWER_2F, foi para 0x41C8 (realias J6)
 // Ate 18/08/2026 era VAR_MAP_SCENE_ROUTE16; realiasada para 0x40F9 porque
 // colidia com VAR_SOOTOPOLIS_CITY_STATE (Hoenn, include/constants/vars.h).
 #define VAR_0x405E                                                             0x405E
 #define VAR_MAP_SCENE_ROUTE23                                                  0x405F
-#define VAR_MAP_SCENE_SILPH_CO_11F                                             0x4060
+#define VAR_0x4060                             0x4060 // era VAR_MAP_SCENE_SILPH_CO_11F, foi para 0x41C9 (realias J6)
 #define VAR_MAP_SCENE_PEWTER_CITY_MUSEUM_1F                                    0x4061
 #define VAR_MAP_SCENE_ROUTE5_ROUTE6_ROUTE7_ROUTE8_GATES                        0x4062
-#define VAR_MAP_SCENE_SEAFOAM_ISLANDS_B4F                                      0x4063
+#define VAR_0x4063                             0x4063 // era VAR_MAP_SCENE_SEAFOAM_ISLANDS_B4F, foi para 0x41CA (realias J6)
 #define VAR_MAP_SCENE_VICTORY_ROAD_1F                                          0x4064
 #define VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER1                                 0x4065
 #define VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER2                                 0x4066
 #define VAR_MAP_SCENE_VICTORY_ROAD_3F                                          0x4067
 #define VAR_MAP_SCENE_POKEMON_LEAGUE                                           0x4068
-#define VAR_MAP_SCENE_CINNABAR_ISLAND_POKEMON_LAB_EXPERIMENT_ROOM_WHICH_FOSSIL 0x4069
+#define VAR_0x4069                             0x4069 // era VAR_MAP_SCENE_CINNABAR_ISLAND_POKEMON_LAB_EXPERIMENT_ROOM_WHICH_FOSSIL, foi para 0x41CB (realias J6)
 #define VAR_MAP_SCENE_CINNABAR_ISLAND_POKEMON_LAB_EXPERIMENT_ROOM_REVIVE_STATE 0x406A
 #define VAR_MAP_SCENE_ROUTE24                                                  0x406B
 #define VAR_MAP_SCENE_PEWTER_CITY                                              0x406C
@@ -131,32 +147,32 @@
 #define VAR_MAP_SCENE_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE                        0x406E
 #define VAR_CABLE_CLUB_STATE_FRLG                                              0x406F
 #define VAR_MAP_SCENE_PALLET_TOWN_SIGN_LADY                                    0x4070
-#define VAR_MAP_SCENE_CINNABAR_ISLAND                                          0x4071
+#define VAR_0x4071                             0x4071 // era VAR_MAP_SCENE_CINNABAR_ISLAND, foi para 0x41CC (realias J6)
 #define VAR_0x4072                                                             0x4072
 #define VAR_MAP_SCENE_SAFFRON_CITY_POKEMON_TRAINER_FAN_CLUB                    0x4073
-#define VAR_MAP_SCENE_SEVEN_ISLAND_HOUSE_ROOM1                                 0x4074
+#define VAR_0x4074                             0x4074 // era VAR_MAP_SCENE_SEVEN_ISLAND_HOUSE_ROOM1, foi para 0x41CD (realias J6)
 #define VAR_MAP_SCENE_ONE_ISLAND_HARBOR                                        0x4075
 #define VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F                             0x4076
 #define VAR_0x4077                                                             0x4077
 #define VAR_MAP_SCENE_TWO_ISLAND                                               0x4078
 #define VAR_MAP_SCENE_TWO_ISLAND_JOYFUL_GAME_CORNER                            0x4079
 #define VAR_0x407A                                                             0x407A
-#define VAR_MAP_SCENE_THREE_ISLAND                                             0x407B
+#define VAR_0x407B                             0x407B // era VAR_MAP_SCENE_THREE_ISLAND, foi para 0x41CE (realias J6)
 #define VAR_MAP_SCENE_POKEMON_CENTER_TEALA                                     0x407C
 #define VAR_MAP_SCENE_CERULEAN_CITY_ROCKET                                     0x407D
 #define VAR_MAP_SCENE_VERMILION_CITY                                           0x407E
 #define VAR_MAP_SCENE_MT_EMBER_EXTERIOR                                        0x407F
 #define VAR_MAP_SCENE_ICEFALL_CAVE_BACK                                        0x4080
 #define VAR_MAP_SCENE_SAFFRON_CITY_DOJO                                        0x4081
-#define VAR_MAP_SCENE_TRAINER_TOWER                                            0x4082
+#define VAR_0x4082                             0x4082 // era VAR_MAP_SCENE_TRAINER_TOWER, foi para 0x41CF (realias J6)
 #define VAR_MAP_SCENE_FIVE_ISLAND_LOST_CAVE_ROOM10                             0x4083
-#define VAR_MAP_SCENE_FIVE_ISLAND_RESORT_GORGEOUS                              0x4084
-#define VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR                                  0x4085
-#define VAR_MAP_SCENE_FOUR_ISLAND                                              0x4086
+#define VAR_0x4084                             0x4084 // era VAR_MAP_SCENE_FIVE_ISLAND_RESORT_GORGEOUS, foi para 0x41D0 (realias J6)
+#define VAR_0x4085                             0x4085 // era VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR, foi para 0x41D1 (realias J6)
+#define VAR_0x4086                             0x4086 // era VAR_MAP_SCENE_FOUR_ISLAND, foi para 0x41D2 (realias J6)
 #define VAR_0x4087                                                             0x4087
-#define VAR_MAP_SCENE_ROCKET_WAREHOUSE                                         0x4088
-#define VAR_MAP_SCENE_SIX_ISLAND_POKEMON_CENTER_1F                             0x4089
-#define VAR_MAP_SCENE_CINNABAR_ISLAND_2                                        0x408A
+#define VAR_0x4088                             0x4088 // era VAR_MAP_SCENE_ROCKET_WAREHOUSE, foi para 0x41D3 (realias J6)
+#define VAR_0x4089                             0x4089 // era VAR_MAP_SCENE_SIX_ISLAND_POKEMON_CENTER_1F, foi para 0x41D4 (realias J6)
+#define VAR_0x408A                             0x408A // era VAR_MAP_SCENE_CINNABAR_ISLAND_2, foi para 0x41D5 (realias J6)
 #define VAR_MAP_SCENE_MT_MOON_B2F                                              0x408B
 
 
@@ -291,6 +307,71 @@
 
 #define VARS_END_FRLG              0x40FF
 #define VARS_COUNT_FRLG            (VARS_END_FRLG - VARS_START_FRLG + 1)
+
+// Realias de 18/08/2026 (bloco J6 da onda de janela aberta, decidido pela
+// condutora em cima da medicao do portao do J4). Estas 19 vars de cena de
+// KANTO dividiam endereco com var de estado de HOENN em
+// include/constants/vars.h, as duas referenciadas em data/maps, ou seja as
+// duas VIVAS: era o mesmo slot de gSaveBlock1Ptr->vars[] com dois donos.
+// Medido, nao suposto: data/maps/PalletTown_Frlg/scripts.inc fazia
+// `setvar VAR_MAP_SCENE_PALLET_TOWN_OAK, 3` em 0x4050 e isso gravava 3 em
+// VAR_LITTLEROOT_TOWN_STATE, que sete arquivos de data/maps/Littleroot* leem.
+//
+// A faixa 0x41C3-0x41D5 saiu do transbordo da obra de Sinnoh, que fechou em
+// 18/08/2026 (ESTADO 0.f) sem gastar nada dali. A divisao esta escrita no
+// arquivo do dono, include/constants/vars.h, junto do define de 0x41C2.
+//
+// Estes enderecos ficam ACIMA de VARS_END_FRLG (0x40FF) de proposito: esse
+// constante e do bookkeeping deste header e nao e usada por ninguem na arvore
+// (medido por grep em src, include, data, test e tools). O limite de verdade e
+// o de vars.h, VARS_END 0x41FF, e e ele que dimensiona vars[] em VARS_COUNT.
+//
+// Tabela de velho para novo:
+//   0x4050 -> 0x41C3  VAR_MAP_SCENE_PALLET_TOWN_OAK                                          (dividia com VAR_LITTLEROOT_TOWN_STATE)
+//   0x4053 -> 0x41C4  VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER                                (dividia com VAR_LAVARIDGE_TOWN_STATE)
+//   0x4057 -> 0x41C5  VAR_MAP_SCENE_VIRIDIAN_CITY_MART                                       (dividia com VAR_PETALBURG_CITY_STATE)
+//   0x4058 -> 0x41C6  VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE                                 (dividia com VAR_SLATEPORT_CITY_STATE)
+//   0x405A -> 0x41C7  VAR_MAP_SCENE_VIRIDIAN_CITY_GYM_DOOR                                   (dividia com VAR_RUSTBORO_CITY_STATE)
+//   0x405D -> 0x41C8  VAR_MAP_SCENE_POKEMON_TOWER_2F                                         (dividia com VAR_MOSSDEEP_CITY_STATE)
+//   0x4060 -> 0x41C9  VAR_MAP_SCENE_SILPH_CO_11F                                             (dividia com VAR_ROUTE101_STATE)
+//   0x4063 -> 0x41CA  VAR_MAP_SCENE_SEAFOAM_ISLANDS_B4F                                      (dividia com VAR_ROUTE104_STATE)
+//   0x4069 -> 0x41CB  VAR_MAP_SCENE_CINNABAR_ISLAND_POKEMON_LAB_EXPERIMENT_ROOM_WHICH_FOSSIL (dividia com VAR_ROUTE110_STATE)
+//   0x4071 -> 0x41CC  VAR_MAP_SCENE_CINNABAR_ISLAND                                          (dividia com VAR_ROUTE118_STATE)
+//   0x4074 -> 0x41CD  VAR_MAP_SCENE_SEVEN_ISLAND_HOUSE_ROOM1                                 (dividia com VAR_ROUTE121_STATE)
+//   0x407B -> 0x41CE  VAR_MAP_SCENE_THREE_ISLAND                                             (dividia com VAR_ROUTE128_STATE)
+//   0x4082 -> 0x41CF  VAR_MAP_SCENE_TRAINER_TOWER                                            (dividia com VAR_LITTLEROOT_HOUSES_STATE_MAY)
+//   0x4084 -> 0x41D0  VAR_MAP_SCENE_FIVE_ISLAND_RESORT_GORGEOUS                              (dividia com VAR_BIRCH_LAB_STATE)
+//   0x4085 -> 0x41D1  VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR                                  (dividia com VAR_PETALBURG_GYM_STATE)
+//   0x4086 -> 0x41D2  VAR_MAP_SCENE_FOUR_ISLAND                                              (dividia com VAR_CONTEST_HALL_STATE)
+//   0x4088 -> 0x41D3  VAR_MAP_SCENE_ROCKET_WAREHOUSE                                         (dividia com VAR_CONTEST_TYPE)
+//   0x4089 -> 0x41D4  VAR_MAP_SCENE_SIX_ISLAND_POKEMON_CENTER_1F                             (dividia com VAR_SECRET_BASE_INITIALIZED)
+//   0x408A -> 0x41D5  VAR_MAP_SCENE_CINNABAR_ISLAND_2                                        (dividia com VAR_CONTEST_PRIZE_PICKUP)
+//
+// Save existente PERDE o progresso destas 19 cenas de Kanto, que ja estava
+// corrompido pela colisao com Hoenn de qualquer jeito. Isso e autorizado: a
+// janela de save esta aberta nesta onda por decisao do Gui. ATENCAO, a mesma
+// do realias da Fase C: guarda_save.py NAO acusa isto e nao deveria, realias
+// de endereco nao muda VARS_COUNT nem layout do SaveBlock1. A perda e real e
+// invisivel para a ferramenta. Nao procure um vermelho que nunca vai existir.
+#define VAR_MAP_SCENE_PALLET_TOWN_OAK                                          0x41C3 // era 0x4050
+#define VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER                                0x41C4 // era 0x4053
+#define VAR_MAP_SCENE_VIRIDIAN_CITY_MART                                       0x41C5 // era 0x4057
+#define VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE                                 0x41C6 // era 0x4058
+#define VAR_MAP_SCENE_VIRIDIAN_CITY_GYM_DOOR                                   0x41C7 // era 0x405A
+#define VAR_MAP_SCENE_POKEMON_TOWER_2F                                         0x41C8 // era 0x405D
+#define VAR_MAP_SCENE_SILPH_CO_11F                                             0x41C9 // era 0x4060
+#define VAR_MAP_SCENE_SEAFOAM_ISLANDS_B4F                                      0x41CA // era 0x4063
+#define VAR_MAP_SCENE_CINNABAR_ISLAND_POKEMON_LAB_EXPERIMENT_ROOM_WHICH_FOSSIL 0x41CB // era 0x4069
+#define VAR_MAP_SCENE_CINNABAR_ISLAND                                          0x41CC // era 0x4071
+#define VAR_MAP_SCENE_SEVEN_ISLAND_HOUSE_ROOM1                                 0x41CD // era 0x4074
+#define VAR_MAP_SCENE_THREE_ISLAND                                             0x41CE // era 0x407B
+#define VAR_MAP_SCENE_TRAINER_TOWER                                            0x41CF // era 0x4082
+#define VAR_MAP_SCENE_FIVE_ISLAND_RESORT_GORGEOUS                              0x41D0 // era 0x4084
+#define VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR                                  0x41D1 // era 0x4085
+#define VAR_MAP_SCENE_FOUR_ISLAND                                              0x41D2 // era 0x4086
+#define VAR_MAP_SCENE_ROCKET_WAREHOUSE                                         0x41D3 // era 0x4088
+#define VAR_MAP_SCENE_SIX_ISLAND_POKEMON_CENTER_1F                             0x41D4 // era 0x4089
+#define VAR_MAP_SCENE_CINNABAR_ISLAND_2                                        0x41D5 // era 0x408A
 
 #define SPECIAL_VARS_START         0x8000
 
