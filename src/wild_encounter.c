@@ -465,6 +465,23 @@ static u8 PickWildMonNature(enum Species species)
 
 void CreateWildMon(enum Species species, u8 level)
 {
+    // Modo de teste, lado do MATO. O pedido do Gui em 19/08/2026 foi "todos os
+    // niveis de pokemon quero que sejam lv 5", e ate aqui a opcao so pegava
+    // treinador. Este e o funil unico do selvagem: grama, agua, pesca, rochas,
+    // surto e DexNav todos passam por CreateWildMon.
+    //
+    // A queda acontece AQUI e nao em ChooseWildMonLevel de proposito: os
+    // portoes de Repel e Keen Eye (TryGenerateWildMon) rodam sobre o nivel
+    // NATURAL da area, antes desta funcao. Rebaixar antes deles mudaria QUAIS
+    // encontros acontecem (com Repel ligado, tudo abaixo do lider vira encontro
+    // cancelado), e o pedido e mudar o nivel, nao matar o encontro.
+    //
+    // Especie e preservada: quem escolheu qual Pokemon aparece foi o chamador.
+    // O moveset e o que o motor da para o nivel 5, porque GiveMonInitialMoveset
+    // logo abaixo deriva o learnset do nivel do mon, e selvagem nao tem golpe
+    // declarado que se possa preservar (ao contrario do treinador).
+    if (TestOptionGet(TEST_OPT_LV5_TRAINERS))
+        level = 5;
     ZeroEnemyPartyMons();
     u32 personality = GetMonPersonality(species, GetSynchronizedGender(WILDMON_ORIGIN, species), PickWildMonNature(species), RANDOM_UNOWN_LETTER);
     CreateMonWithIVs(&gParties[B_TRAINER_OPPONENT_A][0], species, level, personality, OTID_STRUCT_PLAYER_ID, USE_RANDOM_IVS);

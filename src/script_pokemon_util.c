@@ -118,6 +118,14 @@ void CreateScriptedWildMon(enum Species species, u8 level, enum Item item)
 {
     u8 heldItem[2];
 
+    // Modo de teste, lado do SELVAGEM ESTATICO: lendario de cena, GYARADOS
+    // vermelho do Lago da Furia, Pokemon dado por script de batalha. Mesmo
+    // pedido do Gui de 19/08/2026 e mesma lei do CreateWildMon: so o nivel cai,
+    // especie e item segurado (logo abaixo) continuam de pe. Sem este segundo
+    // gancho o LUGIA continuaria em 100 e o GYARADOS em 30 com a opcao ligada,
+    // que e justamente onde "todos" deixaria de ser verdade.
+    if (TestOptionGet(TEST_OPT_LV5_TRAINERS))
+        level = 5;
     ZeroEnemyPartyMons();
     u32 personality = GetMonPersonality(species,
         GetSynchronizedGender(STATIC_WILDMON_ORIGIN, species),

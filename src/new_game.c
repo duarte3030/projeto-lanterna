@@ -306,6 +306,17 @@ void NewGameInitData(void)
     // Ele e inofensivo para a suite: o disparo so comeca depois de 20 quadros
     // de botao segurado, e o gba_runner segura 6.
     TestOptionSet(TEST_OPT_TURBO_AB, TRUE);
+    // LV.5 nasce LIGADO, por pedido direto do Gui em 19/08/2026 ("todos os
+    // niveis de pokemon quero que sejam lv 5"): ele joga a ROM para correr as
+    // seis regioes, e ter que entrar no menu de opcoes a cada jogo novo era
+    // pedagio. O bit agora vale para TREINADOR (src/battle_main.c) e para o
+    // SELVAGEM (src/wild_encounter.c e src/script_pokemon_util.c).
+    // Ao contrario do AUTO RUN logo abaixo, ligar este por padrao NAO deixa a
+    // suite fragil: nivel de inimigo so muda o numero lido, nunca a gramatica
+    // de andar. Os quatro casos que medem a curva natural (T95.2, T97.5, T97.6
+    // e T107.4) passaram a DECLARAR `"opcoes": 32`, que o gba_runner grava
+    // direto na EWRAM pelo passo `OPT=` (dev_scripts/gba_runner.c).
+    TestOptionSet(TEST_OPT_LV5_TRAINERS, TRUE);
     // AUTO RUN nasce DESLIGADO, e isto foi DECIDIDO PELA SUITE em 17/08/2026,
     // nao por gosto. Correr muda a gramatica de andar: com o jogador correndo,
     // mudar de direcao LOGO DEPOIS de um passo gasta um aperto so para virar, e

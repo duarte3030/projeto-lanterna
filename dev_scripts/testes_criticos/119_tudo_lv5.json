@@ -1,0 +1,43 @@
+[
+ {
+  "id": "T119.1",
+  "nome": "SELVAGEM em nivel 5. Pedido literal do Gui em 19/08/2026: 'todos os niveis de pokemon quero que sejam lv 5'. Ate aqui a opcao LV.5 TRAINERS so pegava treinador (src/battle_main.c, provado no 116); o mato continuava na curva da regiao, ou seja o pedido era falso pela metade. O gancho novo vive em CreateWildMon (src/wild_encounter.c), que e o FUNIL UNICO do selvagem: grama, agua, rochas, pesca, surto de Pokemon e DexNav todos chamam ele. Duas escolhas de lugar, e as duas sao de proposito. (1) A queda acontece DENTRO de CreateWildMon e nao em ChooseWildMonLevel: os portoes de Repel e Keen Eye rodam em TryGenerateWildMon, antes, sobre o nivel NATURAL da area. Rebaixar antes deles mudaria QUAIS encontros acontecem, porque com Repel ligado tudo abaixo do nivel do lider vira encontro cancelado, e o pedido e mudar o nivel do bicho, nao apagar o encontro. (2) A especie e preservada porque quem escolhe qual Pokemon aparece e o chamador, e o indice ja foi sorteado quando esta funcao roda. O moveset e o que o motor da para o nivel 5, e isso e aceito e dito: GiveMonInitialMoveset deriva o learnset do nivel do mon, e selvagem, ao contrario de treinador, nao tem golpe declarado que se possa preservar. A ROTA e a do T95.2, ja medida: grama da ETERNA FOREST, em Sinnoh, andando de lado ate a grama cuspir um encontro. `nivelinimigo` e gParties[B_TRAINER_OPPONENT_A][0].level, que num encontro selvagem e o bicho que apareceu. `opcoes` = 36 sem o caso mexer em nada e o segundo fato deste caso: e o jogo novo que ja nasce com a opcao ligada. Par negativo: T119.2.",
+  "warp": "MAP_ETERNA_FOREST",
+  "warp_id": 4,
+  "roteiro": "40:R+START!,60:NADA,20:A,40:NADA,20:DOWN*6,20:A,240:NADA,20:B,90:NADA,16:DOWN,16:DOWN,16:DOWN,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,240:NADA",
+  "prova": {
+   "mapa": "MAP_ETERNA_FOREST",
+   "oponente_faixa": [0, 0],
+   "campos": {
+    "opcoes": 36,
+    "nivelinimigo": 5
+   }
+  }
+ },
+ {
+  "id": "T119.2",
+  "nome": "PAR NEGATIVO do T119.1: MESMA rota, MESMA grama da ETERNA FOREST, e a UNICA diferenca e `\"opcoes\": 32`, que apaga o bit TEST_OPT_LV5_TRAINERS antes do warp. Com ele apagado o selvagem volta a nascer na faixa da regiao, 140 a 196 em Sinnoh (a mesma do T95.2, que e quem prova a curva do bloco B8). E este caso, e nao o T119.1 sozinho, que separa 'o selvagem esta em 5 porque a opcao o rebaixou' de 'o selvagem estava em 5 de qualquer jeito'. O 32 e escrito direto na EWRAM pelo passo `OPT=` do gba_runner (dev_scripts/gba_runner.c), que grava o byte SaveBlock2.filler_90[0]: mesmo efeito de TestOptionSet, sem depender da navegacao do menu OPTION. Quem prova que o MENU escreve o bit e o 116, que continua entrando no menu de verdade.",
+  "opcoes": 32,
+  "warp": "MAP_ETERNA_FOREST",
+  "warp_id": 4,
+  "roteiro": "40:R+START!,60:NADA,20:A,40:NADA,20:DOWN*6,20:A,240:NADA,20:B,90:NADA,16:DOWN,16:DOWN,16:DOWN,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,240:NADA",
+  "prova": {
+   "mapa": "MAP_ETERNA_FOREST",
+   "oponente_faixa": [0, 0],
+   "campos": {
+    "opcoes": 32,
+    "nivelinimigo": [140, 196]
+   }
+  }
+ },
+ {
+  "id": "T119.3",
+  "nome": "JOGO NOVO JA NASCE COM A OPCAO LIGADA, que e a metade do pedido do Gui que nenhum caso do 116 prova: la o roteiro sempre entra no menu OPTION e aperta RIGHT, entao todos eles medem o MENU, e nenhum mede o DEFAULT. Aqui o caso nao aperta nada alem da abertura: `opcoes` = 36 e o byte SaveBlock2.filler_90[0] com TEST_OPT_TURBO_AB (1 << 5, 32) e TEST_OPT_LV5_TRAINERS (1 << 2, 4) acesos, e os dois vem de TestOptionSet no NewGameInitData (src/new_game.c). Se alguem apagar a linha do LV.5 de la, este caso le 32 e reprova; se alguem ligar por engano uma opcao que deve nascer desligada, como o AUTO RUN (1 << 4, 16, DESLIGADO por decisao da suite em 17/08/2026 porque correr muda a gramatica de andar e reprovou 15 roteiros de percurso de uma vez), o byte vira 52 e este caso tambem reprova. O valor exato, e nao uma mascara, e o ponto: e ele que faz este caso ser sentinela dos DOIS lados do default.",
+  "prova": {
+   "mapa": "MAP_PALLET_TOWN_PLAYERS_HOUSE_2F",
+   "campos": {
+    "opcoes": 36
+   }
+  }
+ }
+]

@@ -54,6 +54,11 @@ Formato de um caso
   "nome": "Ginásio de Pewter carrega",
   "flags": ["FLAG_BADGE01_GET", "0x2A0"],   # acesas por escrita direta na EWRAM
   "vars": {"0x4001": 3},                    # opcional
+  "opcoes": 32,                             # byte do modo de teste, opcional.
+                                            # LV.5 TRAINERS nasce LIGADA desde
+                                            # 19/08/2026, então quem mede nível
+                                            # natural de inimigo declara 32 aqui
+                                            # (32 = só TURBO A/B; 36 = com LV.5)
   "antes_do_warp": "20:DOWN,60:NADA,20:A",  # apertos ANTES do warp, opcional
   "warp": "MAP_PEWTER_CITY_GYM",            # warp pelo menu de debug, opcional
   "roteiro": "20:UP*6,60:NADA",             # botões depois do warp, opcional
@@ -562,6 +567,14 @@ def monta_roteiro(caso, por_nome, tabela_flags):
         partes.append(f"6:FLAG={num_flag(f, tabela_flags)}")
     for var, val in caso.get("vars", {}).items():
         partes.append(f"6:VAR={int(var, 0)}={val}")
+    # `opcoes`: o byte do modo de teste (SaveBlock2.filler_90[0]) escrito direto
+    # na EWRAM. Existe desde 19/08/2026, quando LV.5 TRAINERS passou a NASCER
+    # LIGADA no jogo novo por pedido do Gui: quem mede a curva NATURAL de nível
+    # (T95.2, T97.5, T97.6, T107.4) tem que dizer que quer a opção desligada, e
+    # dizer isso pelo menu OPTION custaria ~700 quadros de navegação por caso.
+    # 32 é o mundo em repouso menos o LV.5 (só TURBO A/B), 36 é com ele.
+    if "opcoes" in caso:
+        partes.append(f"6:OPT={caso['opcoes']}")
     # Apertos ANTES do warp de debug. Existe por um caso só, e ele é real: para
     # provar cena que precisa de PARTY (surfar, por exemplo), o roteiro tem que
     # passar pelo seletor de capítulo primeiro, que é quem dá o Pikachu com SURF
@@ -995,7 +1008,7 @@ def main():
                            offsets_do_caso, palobj_lidas,
                            batalha=offsets_de_batalha(
                                src2 if (caso.get("rom") == "rom2" and src2) else src)
-                           if prova.get("campos") else None)
+                           if (prova.get("campos") or "opcoes" in caso) else None)
             falhas = confere(caso, estados, por_nome, por_id, tabela_flags, layouts,
                              treinadores)
         except Exception as e:                                  # noqa: BLE001

@@ -20,6 +20,8 @@
  *   sufixo "!" = segura o botao o passo inteiro (ex.: "30:R+START!")
  *   "N:FLAG=0x2A0" = acende a flag 0x2A0 direto na memoria e roda N quadros
  *   "N:VAR=0x4001=7" = grava 7 na var 0x4001 e roda N quadros
+ *   "N:OPT=32" = grava 32 no byte das opcoes do modo de teste (precisa de
+ *                --opcoes) e roda N quadros
  * Exemplo: "120:START,60:A,30:DOWN*10"
  * Roteiro vazio ("") so roda os N quadros iniciais sem apertar nada.
  *
@@ -196,6 +198,25 @@ static int le_var(struct mCore *core, int id) {
     int i = id - VARS_START;
     if (!base || i < 0 || i >= VARS_COUNT) return -1;
     return (int)core->busRead16(core, base + SB1_VARS + i * 2);
+}
+
+/* Grava o byte das opcoes do modo de teste (SaveBlock2.filler_90[0]).
+   Existe porque em 19/08/2026 a opcao LV.5 passou a NASCER LIGADA no jogo novo
+   (src/new_game.c), e os casos que medem a curva NATURAL de nivel precisam
+   declarar que querem ela desligada. Fazer isso pelo menu OPTION custaria ~700
+   quadros de navegacao por caso e amarraria a prova da curva ao layout do menu;
+   escrever o byte e o mesmo efeito do TestOptionSet e nao depende de menu. */
+static void grava_opcoes(struct mCore *core, int valor) {
+    if (!g_sb2ptr) {
+        fprintf(stderr, "OPT=: --opcoes nao foi passado, sem endereco de gSaveBlock2Ptr\n");
+        return;
+    }
+    uint32_t sb2 = core->busRead32(core, g_sb2ptr);
+    if (!sb2) {
+        fprintf(stderr, "OPT=: SaveBlock2 ainda nao existe\n");
+        return;
+    }
+    core->busWrite8(core, sb2 + g_opcoes_offset, (uint8_t)valor);
 }
 
 static void grava_var(struct mCore *core, int id, int valor) {
@@ -385,6 +406,14 @@ static void executa_roteiro(struct mCore *core, char *roteiro) {
            menu, que muda quando o menu de debug muda. */
         if (!strncmp(botoes, "FLAG=", 5)) {
             acende_flag(core, (int)strtol(botoes + 5, NULL, 0));
+            roda_quadros_mascara(core, 0, quadros, 0);
+            if (g_dump_estado) { char r[32]; snprintf(r, sizeof r, "passo%02d", indice + 1); dump_estado(core, r); }
+            salva_passo(++indice);
+            passo = strtok_r(NULL, ",", &salvo);
+            continue;
+        }
+        if (!strncmp(botoes, "OPT=", 4)) {
+            grava_opcoes(core, (int)strtol(botoes + 4, NULL, 0));
             roda_quadros_mascara(core, 0, quadros, 0);
             if (g_dump_estado) { char r[32]; snprintf(r, sizeof r, "passo%02d", indice + 1); dump_estado(core, r); }
             salva_passo(++indice);
