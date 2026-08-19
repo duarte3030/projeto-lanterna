@@ -1,0 +1,1237 @@
+mapa	tipo	x_fonte	z_fonte	x_nosso	y_nosso	gfx	trainer_type	regra	motivo
+AcuityCavern	objeto	14	10			OBJ_EVENT_GFX_UXIE	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+AcuityLakefront	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+AmitySquare	objeto	10	46			OBJ_EVENT_GFX_RECEPTIONIST	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+AmitySquare	objeto	53	46			OBJ_EVENT_GFX_RECEPTIONIST	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+AmitySquare	objeto	37	20			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+AmitySquare	objeto	27	36			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+AmitySquare	objeto	45	42			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+AmitySquare	objeto	12	45			OBJ_EVENT_GFX_VAR_0	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+AmitySquare	objeto	40	26			OBJ_EVENT_GFX_POKEMON_BREEDER_M	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+AmitySquare	objeto	41	26			OBJ_EVENT_GFX_DRIFLOON	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+AmitySquare	objeto	37	12			OBJ_EVENT_GFX_HAPPINY	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+AmitySquare	objeto	36	12			OBJ_EVENT_GFX_POKEMON_BREEDER_F	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+AmitySquare	objeto	17	33			OBJ_EVENT_GFX_COLLECTOR	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+AmitySquare	objeto	16	33			OBJ_EVENT_GFX_PIKACHU	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+AmitySquare	objeto	47	30			OBJ_EVENT_GFX_TWIN	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+AmitySquare	objeto	48	30			OBJ_EVENT_GFX_CLEFAIRY	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+AmitySquare	objeto	41	9			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+AmitySquare	objeto	20	13			OBJ_EVENT_GFX_COLLECTOR	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+BattleArcade	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+BattleCastle	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+BattleFactory	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+BattleFrontier	objeto	25	32			OBJ_EVENT_GFX_TRAINER_TIPS_SIGNPOST	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	47	19			OBJ_EVENT_GFX_TRAINER_TIPS_SIGNPOST	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	44	50			OBJ_EVENT_GFX_POKEMON_BREEDER_F	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	49	64			OBJ_EVENT_GFX_EXPERT_F	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	48	64			OBJ_EVENT_GFX_EXPERT_M	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	41	57			OBJ_EVENT_GFX_TWIN	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	59	45			OBJ_EVENT_GFX_SCHOOL_KID_M	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	50	19			OBJ_EVENT_GFX_NINJA_BOY	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	26	30			OBJ_EVENT_GFX_IDOL	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	67	39			OBJ_EVENT_GFX_ROUGHNECK	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	38	23			OBJ_EVENT_GFX_BLACK_BELT	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	45	43			OBJ_EVENT_GFX_FRONTIER_BOOTH_ATTENDANT	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	45	37			OBJ_EVENT_GFX_FRONTIER_BOOTH_ATTENDANT	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	52	43			OBJ_EVENT_GFX_FRONTIER_BOOTH_ATTENDANT	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	60	29			OBJ_EVENT_GFX_POKEFAN_M	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	59	18			OBJ_EVENT_GFX_COLLECTOR	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	38	37			OBJ_EVENT_GFX_GENTLEMAN	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	55	38			OBJ_EVENT_GFX_TUBER_M	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	54	49			OBJ_EVENT_GFX_ACE_TRAINER_M	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	66	50			OBJ_EVENT_GFX_COWGIRL	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	60	37			OBJ_EVENT_GFX_FISHERMAN	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	45	46			OBJ_EVENT_GFX_PICNICKER	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	44	61			OBJ_EVENT_GFX_PARASOL_LADY	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	54	59			OBJ_EVENT_GFX_WAITRESS	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	35	57			OBJ_EVENT_GFX_TRAINER_TIPS_SIGNPOST	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	62	57			OBJ_EVENT_GFX_TRAINER_TIPS_SIGNPOST	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	72	32			OBJ_EVENT_GFX_TRAINER_TIPS_SIGNPOST	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	42	41			OBJ_EVENT_GFX_ACE_TRAINER_M	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	31	40			OBJ_EVENT_GFX_ACE_TRAINER_SNOW_F	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	objeto	25	36			OBJ_EVENT_GFX_REPORTER	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	placa	46	49			-		-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	placa	50	49			-		-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	placa	46	48			-		-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	placa	47	48			-		-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	placa	47	49			-		-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	placa	50	48			-		-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	placa	51	49			-		-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	placa	51	48			-		-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	placa	50	39			-		-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	placa	51	39			-		-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	placa	50	38			-		-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	placa	50	37			-		-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	placa	50	36			-		-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	placa	51	36			-		-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	placa	52	39			-		-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	placa	52	36			-		-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	placa	53	36			-		-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	placa	53	37			-		-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	placa	53	38			-		-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontier	placa	53	39			-		-	planta provisoria: LAYOUT_BATTLEFRONTIER e o molde de portao 13x9
+BattleFrontierGateToFightArea	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+BattleHall	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+BattleTower	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Battleground	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Cafe	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+CanalaveCity	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+CanalaveCityEastHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+CanalaveCityHarborInn	objeto	4	7			OBJ_EVENT_GFX_GYM_GUIDE	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_CANALAVE_CITY_HARBOR_INN_GYM_GUIDE, decisao 2
+CanalaveCityMart	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+CanalaveCityPokecenter1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+CanalaveCityPokecenter2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+CanalaveCityPokecenterB1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+CanalaveCitySailorEldritchHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+CanalaveCitySoutheastHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+CanalaveCityWestHouse	objeto	3	5			OBJ_EVENT_GFX_REPORTER	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_CANALAVE_CITY_WEST_HOUSE_REPORTER, decisao 2
+CanalaveLibrary1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+CanalaveLibrary2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+CanalaveLibrary3F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+CelesticTown	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+CelesticTownNorthHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+CelesticTownNortheastHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+CelesticTownNorthwestHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+CelesticTownPokecenter1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+CelesticTownPokecenter2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+CelesticTownPokecenterB1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+CelesticTownSouthwestHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+ContestHallLobby	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+ContestHallStageNoContest	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+CycleShop	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+EternaCity	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+EternaCityCondominiums1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+EternaCityCondominiums2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+EternaCityCondominiums3F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+EternaCityEastHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+EternaCityHerbShop	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+EternaCityMart	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+EternaCityPokecenter1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+EternaCityPokecenter2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+EternaCityPokecenterB1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+EternaCitySouthHouse	objeto	4	5			OBJ_EVENT_GFX_PROF_OAK	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_ETERNA_CITY_SOUTH_HOUSE_PROF_OAK, decisao 2
+EternaCityUndergroundManHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+EternaCity_Gym	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+EternaForest	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+FightArea	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+FightAreaMart	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+FightAreaMiddleHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+FightAreaPokecenter1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+FightAreaPokecenter2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+FightAreaPokecenterB1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+FightAreaSouthHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+FloaromaTown	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+FloaromaTownPokecenterB1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+FloaromaTown_FlowerShop	objeto	14	4	14	4	OBJ_EVENT_GFX_BEAUTY	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	
+FloaromaTown_FlowerShop	objeto	4	7	5	6	OBJ_EVENT_GFX_LASS	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	empurrado 1 tile
+FloaromaTown_FlowerShop	objeto	14	8	14	8	OBJ_EVENT_GFX_POKEMON_BREEDER_F	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	
+FloaromaTown_House1	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+FloaromaTown_House2	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+FloaromaTown_Mart	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+FloaromaTown_PokemonCenter_1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+FloaromaTwon_PokemonCenter_2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+FootstepHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+ForeignBuilding	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+GalacticHQ_1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+GalacticHQ_2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+GalacticHQ_3F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+GalacticHQ_B1F	objeto	5	7			OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_GALACTIC_HQ_TEAM_GALACTIC, decisao 2
+GalacticHQ_B2F	objeto	26	5	9	3	OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NONE	escala da caixa 64x13 da matriz sobre 34x24	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+GalacticHQ_B2F	objeto	8	10	0	13	OBJ_EVENT_GFX_SCIENTIST_M	TRAINER_TYPE_NONE	escala da caixa 64x13 da matriz sobre 34x24	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+GalacticHQ_B2F	objeto	29	11	11	15	OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	escala da caixa 64x13 da matriz sobre 34x24	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+GalacticHQ_B2F	objeto	40	15	16	23	OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NORMAL	escala da caixa 64x13 da matriz sobre 34x24	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+GalacticHQ_B2F	objeto	71	10	33	13	OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NORMAL	escala da caixa 64x13 da matriz sobre 34x24	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+GalacticHQ_B2F	objeto	20	5	6	3	OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	escala da caixa 64x13 da matriz sobre 34x24	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+GalacticHQ_B2F	objeto	14	8	3	9	OBJ_EVENT_GFX_GALACTIC_HQ_DOOR	TRAINER_TYPE_NONE	escala da caixa 64x13 da matriz sobre 34x24	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+GalacticHQ_B2F	objeto	15	8	3	9	OBJ_EVENT_GFX_GALACTIC_HQ_DOOR	TRAINER_TYPE_NONE	escala da caixa 64x13 da matriz sobre 34x24	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+GalacticHQ_B2F	objeto	62	3	28	0	OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	escala da caixa 64x13 da matriz sobre 34x24	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+GalacticHQ_ControlRoom	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+GalacticHQ_Hall	objeto	11	10			OBJ_EVENT_GFX_GRUNTS_GROUP_OF_4	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+GalacticHQ_Hall	objeto	16	10			OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_GALACTIC_HQ_HALL_GRUNTS, decisao 2
+GalacticHQ_Hall	objeto	17	3			OBJ_EVENT_GFX_CYRUS	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+GalacticHQ_Hall	objeto	19	12			OBJ_EVENT_GFX_LOOKER	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+GalacticHQ_Hall	objeto	11	9			OBJ_EVENT_GFX_GRUNTS_GROUP_OF_4	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+GalacticHQ_Hall	objeto	11	11			OBJ_EVENT_GFX_GRUNTS_GROUP_OF_4	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+GalacticHQ_Hall	objeto	13	10			OBJ_EVENT_GFX_GRUNTS_GROUP_OF_3	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+GalacticHQ_Hall	objeto	11	12			OBJ_EVENT_GFX_GRUNTS_GROUP_OF_4	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+GalacticHQ_Hall	objeto	13	11			OBJ_EVENT_GFX_GRUNTS_GROUP_OF_3	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+GalacticHQ_Hall	objeto	13	12			OBJ_EVENT_GFX_GRUNTS_GROUP_OF_3	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+GalacticHQ_Hall	objeto	13	9			OBJ_EVENT_GFX_GRUNTS_GROUP_OF_3	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+GalacticHQ_Hall	objeto	11	13			OBJ_EVENT_GFX_GRUNTS_GROUP_OF_4	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+GalacticHQ_Hall	objeto	11	14			OBJ_EVENT_GFX_GRUNTS_GROUP_OF_4	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+GalacticHQ_Hall	objeto	11	15			OBJ_EVENT_GFX_GRUNTS_GROUP_OF_4	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+GalacticHQ_Hall	objeto	11	16			OBJ_EVENT_GFX_GRUNTS_GROUP_OF_4	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+GalacticHQ_Hall	objeto	13	13			OBJ_EVENT_GFX_GRUNTS_GROUP_OF_3	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+GalacticHQ_Hall	objeto	13	14			OBJ_EVENT_GFX_GRUNTS_GROUP_OF_3	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+GalacticHQ_Hall	objeto	13	15			OBJ_EVENT_GFX_GRUNTS_GROUP_OF_3	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+GalacticHQ_Hall	objeto	13	16			OBJ_EVENT_GFX_GRUNTS_GROUP_OF_3	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+GalacticHQ_Hall	objeto	16	9			OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_GALACTIC_HQ_HALL_GRUNTS, decisao 2
+GalacticHQ_Hall	objeto	13	16			OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_GALACTIC_HQ_HALL_GRUNTS, decisao 2
+GalacticHQ_Hall	objeto	16	13			OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_GALACTIC_HQ_HALL_GRUNTS, decisao 2
+GalacticHQ_Hall	objeto	10	11			OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_GALACTIC_HQ_HALL_GRUNTS, decisao 2
+GalacticHQ_Hall	objeto	10	15			OBJ_EVENT_GFX_GRUNT_F	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_GALACTIC_HQ_HALL_GRUNTS, decisao 2
+GalacticHQ_Hall	objeto	16	14			OBJ_EVENT_GFX_GRUNT_F	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_GALACTIC_HQ_HALL_GRUNTS, decisao 2
+GalacticHQ_Hall	objeto	10	12			OBJ_EVENT_GFX_GRUNT_F	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_GALACTIC_HQ_HALL_GRUNTS, decisao 2
+GalacticHQ_Hall	objeto	10	9			OBJ_EVENT_GFX_GRUNT_F	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_GALACTIC_HQ_HALL_GRUNTS, decisao 2
+GalacticHQ_Hall	objeto	14	17			OBJ_EVENT_GFX_GRUNTS_GROUP_OF_4	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+GalacticHQ_Hall	objeto	11	17			OBJ_EVENT_GFX_GRUNTS_GROUP_OF_4	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+GalacticHQ_Hall	objeto	16	15			OBJ_EVENT_GFX_GRUNT_F	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_GALACTIC_HQ_HALL_GRUNTS, decisao 2
+GalacticHQ_Hall	objeto	10	14			OBJ_EVENT_GFX_GRUNT_F	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_GALACTIC_HQ_HALL_GRUNTS, decisao 2
+GalacticHQ_Hall	objeto	13	10			OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_GALACTIC_HQ_HALL_GRUNTS, decisao 2
+GalacticHQ_Hall	objeto	13	13			OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_GALACTIC_HQ_HALL_GRUNTS, decisao 2
+GalacticHQ_Hall	objeto	13	9			OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_GALACTIC_HQ_HALL_GRUNTS, decisao 2
+GalacticHQ_Hall	objeto	13	11			OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_GALACTIC_HQ_HALL_GRUNTS, decisao 2
+GalacticHQ_Hall	objeto	16	11			OBJ_EVENT_GFX_GRUNT_F	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_GALACTIC_HQ_HALL_GRUNTS, decisao 2
+GalacticHQ_Laboratory	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+GalacticHq4F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+GameCorner	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+GlobalTerminal1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+GlobalTerminal2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+GlobalTerminal3F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+GrandLakeRoute213EastHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+GrandLakeRoute213NortheastHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+GrandLakeRoute213NorthwestHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+GrandLakeValorLakefrontEastHouse	objeto	5	3			OBJ_EVENT_GFX_BEAUTY	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_GRAND_LAKE_VALOR_LAKEFRONT_EAST_HOUSE_BEAUTY, decisao 2
+GrandLakeValorLakefrontWestHouse	objeto	5	3			OBJ_EVENT_GFX_GAME_DIRECTOR	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+GreatMarsh6	objeto	91	105			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+GreatMarsh6	objeto	72	113			OBJ_EVENT_GFX_SIGNBOARD	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+GreatMarsh6	objeto	74	115			OBJ_EVENT_GFX_ACE_TRAINER_M	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+GreatMarsh6	objeto	62	115			OBJ_EVENT_GFX_YOUNGSTER	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+GreatMarsh6	objeto	63	113			OBJ_EVENT_GFX_SIGNBOARD	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+GreatMarsh6	objeto	72	86			OBJ_EVENT_GFX_SIGNBOARD	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+GreatMarsh6	placa	69	106			-		-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+GreatMarsh6	placa	91	113			-		-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+HearthomeCity	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HearthomeCityDpGymElevatorRoom1	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HearthomeCityDpGymElevatorRoom2	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HearthomeCityDpGymLeaderRoom	objeto	9	5			OBJ_EVENT_GFX_FANTINA	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+HearthomeCityDpGymTrainerRoom1	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HearthomeCityDpGymTrainerRoom2	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HearthomeCityDpGymTrainerRoom3	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HearthomeCityDpGymTrainerRoom4	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HearthomeCityDpGymTrainerRoom5	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HearthomeCityDpGymTrainerRoom6	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HearthomeCityEastGateToAmitySquare	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HearthomeCityGymLeaderRoom	objeto	4	10	0	8	OBJ_EVENT_GFX_FANTINA	TRAINER_TYPE_NONE	escala da caixa 5x2 da matriz sobre 10x9	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+HearthomeCityGymLeaderRoom	objeto	8	10	9	8	OBJ_EVENT_GFX_BOLLARD	TRAINER_TYPE_NONE	escala da caixa 5x2 da matriz sobre 10x9	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+HearthomeCityGymLeaderRoom	objeto	8	9	9	0	OBJ_EVENT_GFX_BOLLARD	TRAINER_TYPE_NONE	escala da caixa 5x2 da matriz sobre 10x9	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+HearthomeCityGymTrainerRoom1	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HearthomeCityGymTrainerRoom2	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HearthomeCityMart	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HearthomeCityNortheastHouse1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HearthomeCityNortheastHouseElevator	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HearthomeCityNorthwestHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HearthomeCityPokecenter1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HearthomeCityPokecenter2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HearthomeCityPokecenterB1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HearthomeCityPokemonFanClub	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HearthomeCitySoutheastHouse1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HearthomeCitySoutheastHouseElevator	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HearthomeCityWestGateToAmitySquare	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HearthomeCity_Gym	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+HotelGrandLake	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+IcebergRuins	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+IronIsland	objeto	99	502			OBJ_EVENT_GFX_SAILOR	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_IRONISLAND e o molde de portao 13x9
+IronIsland	objeto	117	490			OBJ_EVENT_GFX_RILEY	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_IRONISLAND e o molde de portao 13x9
+IronIsland	placa	114	504			-		-	planta provisoria: LAYOUT_IRONISLAND e o molde de portao 13x9
+IronIslandB1FLeftRoom	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+IronIslandB1FRightRoom	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+IronIslandB2FLeftRoom	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+IronIslandB2FRightRoom	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+IronIslandB3F	objeto	14	7			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+IronIslandHouse	objeto	5	5			OBJ_EVENT_GFX_BYRON	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+IronIslandIronRuins	objeto	7	7			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+IronIslandIronRuins	placa	3	6	3	6	-		identidade (coordenada da fonte ja local e dentro do layout)	
+IronRuins	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+JubilifeCity	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+JubilifeCityPokecenterB1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+JubilifeCity_Flat1_F1	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+JubilifeCity_Flat1_F2	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+JubilifeCity_Flat1_F3	objeto	6	12	0	0	OBJ_EVENT_GFX_LASS	TRAINER_TYPE_NONE	escala da caixa 3x1 da matriz sobre 14x9	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+JubilifeCity_Flat1_F3	objeto	8	12	13	0	OBJ_EVENT_GFX_COLLECTOR	TRAINER_TYPE_NONE	escala da caixa 3x1 da matriz sobre 14x9	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+JubilifeCity_Flat2_F1	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+JubilifeCity_Flat2_F2	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+JubilifeCity_Flat2_F3	objeto	5	5	5	5	OBJ_EVENT_GFX_POKEFAN_M	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	
+JubilifeCity_Flat3_F1	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+JubilifeCity_Flat3_F2	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+JubilifeCity_JubilifeTV_F1	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+JubilifeCity_JubilifeTV_F2	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+JubilifeCity_JubilifeTV_F3	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+JubilifeCity_JubilifeTV_F4	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+JubilifeCity_Mart	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+JubilifeCity_PokemonCenter_1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+JubilifeCity_PokemonCenter_2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+JubilifeCity_PokemonSchool	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+JubilifeCity_PoketchCompany_F1	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+JubilifeCity_PoketchCompany_F2	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+JubilifeCity_PoketchCompany_F3	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+JubilifeTv2FGallery	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+JubilifeTv3FGroupRankingRoom	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+JubilifeTvElevator	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+LakeAcuity	objeto	38	8			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+LakeAcuity	objeto	17	44			OBJ_EVENT_GFX_JUPITER	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+LakeAcuity	objeto	17	45			OBJ_EVENT_GFX_BARRY	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_LAKE_ACUITY_RIVAL, decisao 2
+LakeAcuityLowWater	objeto	16	46			OBJ_EVENT_GFX_BARRY	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_LAKE_ACUITY_LOW_WATER_RIVAL, decisao 2
+LakeAcuityLowWater	objeto	38	8			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+LakeValor	objeto	53	46	0	0	OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	escala da caixa 1x1 da matriz sobre 48x52	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+LakeValorDrained	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+LakeVerity	objeto	43	49	28	30	OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NORMAL	escala da caixa 31x17 da matriz sobre 48x46	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+LakeVerity	objeto	48	43	36	14	OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NORMAL	escala da caixa 31x17 da matriz sobre 48x46	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+LakeVerity	objeto	50	49	39	30	OBJ_EVENT_GFX_GRUNT_F	TRAINER_TYPE_NORMAL	escala da caixa 31x17 da matriz sobre 48x46	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+LakeVerity	objeto	53	43	43	14	OBJ_EVENT_GFX_GRUNT_F	TRAINER_TYPE_NORMAL	escala da caixa 31x17 da matriz sobre 48x46	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+LakeVerity	objeto	25	54	0	45	OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	escala da caixa 31x17 da matriz sobre 48x46	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+LakeVerity	objeto	53	39	43	2	OBJ_EVENT_GFX_PROF_ROWAN	TRAINER_TYPE_NONE	escala da caixa 31x17 da matriz sobre 48x46	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+LakeVerity	objeto	54	38	45	0	OBJ_EVENT_GFX_VAR_0	TRAINER_TYPE_NONE	escala da caixa 31x17 da matriz sobre 48x46	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+LakeVerity	objeto	55	38	47	0	OBJ_EVENT_GFX_MARS	TRAINER_TYPE_NONE	escala da caixa 31x17 da matriz sobre 48x46	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+LakeVerity	objeto	47	51	34	36	OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NONE	escala da caixa 31x17 da matriz sobre 48x46	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+LakeVerityLowWater	objeto	48	43			OBJ_EVENT_GFX_PROF_ROWAN	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_LAKE_VERITY_LOW_WATER_PROF_ROWAN, decisao 2
+LakeVerityLowWater	objeto	49	43			OBJ_EVENT_GFX_VAR_0	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_LAKE_VERITY_LOW_WATER_COUNTERPART, decisao 2
+LakeVerityLowWater	objeto	57	43			OBJ_EVENT_GFX_STARLY	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+LakeVerityLowWater	objeto	48	51			OBJ_EVENT_GFX_STARLY	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+LakeVerityLowWater	objeto	48	43			OBJ_EVENT_GFX_CYRUS	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+LakeVerityLowWater	objeto	47	54			OBJ_EVENT_GFX_BARRY	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_LAKE_VERITY_LOW_WATER_RIVAL, decisao 2
+LakeVerityLowWater	objeto	25	54			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+ManiacTunnel	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+MiningMuseum	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+MtCoronet1FTunnelRoom	objeto	6	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet1FTunnelRoom	objeto	7	23			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet1FTunnelRoom	objeto	25	6			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet1FTunnelRoom	objeto	18	29			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet1FTunnelRoom	objeto	17	30			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet1FTunnelRoom	objeto	13	34			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet1FTunnelRoom	objeto	15	35			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet1FTunnelRoom	objeto	14	38			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet1FTunnelRoom	objeto	15	41			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet1FTunnelRoom	objeto	14	43			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet1FTunnelRoom	objeto	26	54			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet1FTunnelRoom	objeto	25	55			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet1FTunnelRoom	objeto	6	57			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet1FTunnelRoom	objeto	20	7			OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NORMAL	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_MT_CORONET_GALACTIC_GRUNTS, decisao 2
+MtCoronet1FTunnelRoom	objeto	3	48			OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NORMAL	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_MT_CORONET_GALACTIC_GRUNTS, decisao 2
+MtCoronet1FTunnelRoom	objeto	25	31			OBJ_EVENT_GFX_GRUNT_F	TRAINER_TYPE_FACE_SIDES	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_MT_CORONET_GALACTIC_GRUNTS, decisao 2
+MtCoronet1FTunnelRoom	objeto	16	14			OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_MT_CORONET_GALACTIC_GRUNTS, decisao 2
+MtCoronet1FTunnelRoom	placa	6	23	6	23	-		identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet1FTunnelRoom	placa	18	30	18	30	-		identidade (coordenada da fonte ja local e dentro do layout)	legivel, mas o tile de leitura nao sai dos warps a pe (Surf/Strength?)
+MtCoronet1FTunnelRoom	placa	16	35	16	35	-		identidade (coordenada da fonte ja local e dentro do layout)	legivel, mas o tile de leitura nao sai dos warps a pe (Surf/Strength?)
+MtCoronet1FTunnelRoom	placa	16	19	16	19	-		identidade (coordenada da fonte ja local e dentro do layout)	legivel, mas o tile de leitura nao sai dos warps a pe (Surf/Strength?)
+MtCoronet1FTunnelRoom	placa	24	38	24	38	-		identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet1FTunnelRoom	placa	20	58	20	58	-		identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet2F	objeto	3	31			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet2F	objeto	23	37			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet2F	objeto	3	55			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet2F	objeto	13	60			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet2F	objeto	7	23			OBJ_EVENT_GFX_CAVE_PAINTING	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet2F	objeto	10	26			OBJ_EVENT_GFX_LOOKER	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+MtCoronet2F	objeto	6	24			OBJ_EVENT_GFX_CAVE_PAINTING_SHARDS_LEFT	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet2F	objeto	8	24			OBJ_EVENT_GFX_CAVE_PAINTING_SHARDS_RIGHT	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet2F	objeto	14	45			OBJ_EVENT_GFX_STRENGTH_BOULDER	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet2F	placa	25	11	25	11	-		identidade (coordenada da fonte ja local e dentro do layout)	legivel, mas o tile de leitura nao sai dos warps a pe (Surf/Strength?)
+MtCoronet2F	placa	16	35	16	35	-		identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet3F	objeto	15	15			OBJ_EVENT_GFX_GRUNT_F	TRAINER_TYPE_NORMAL	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_MT_CORONET_GALACTIC_GRUNTS, decisao 2
+MtCoronet3F	objeto	2	20			OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_FACE_SIDES	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_MT_CORONET_GALACTIC_GRUNTS, decisao 2
+MtCoronet3F	placa	3	15	3	15	-		identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet4FRoom3	placa	11	8	11	8	-		identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet4FRooms1And2	objeto	6	6			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet4FRooms1And2	objeto	8	8			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet4FRooms1And2	objeto	5	9			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet4FRooms1And2	objeto	26	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet4FRooms1And2	objeto	29	23			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet4FRooms1And2	objeto	30	24			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet4FRooms1And2	objeto	23	5			OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NORMAL	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_MT_CORONET_GALACTIC_GRUNTS, decisao 2
+MtCoronet4FRooms1And2	objeto	10	7			OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_FACE_SIDES	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_MT_CORONET_GALACTIC_GRUNTS, decisao 2
+MtCoronet4FRooms1And2	objeto	57	2			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet4FRooms1And2	objeto	61	2			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet4FRooms1And2	placa	5	6	5	6	-		identidade (coordenada da fonte ja local e dentro do layout)	legivel, mas o tile de leitura nao sai dos warps a pe (Surf/Strength?)
+MtCoronet4FRooms1And2	placa	19	3	19	3	-		identidade (coordenada da fonte ja local e dentro do layout)	legivel, mas o tile de leitura nao sai dos warps a pe (Surf/Strength?)
+MtCoronet4FRooms1And2	placa	29	12	29	12	-		identidade (coordenada da fonte ja local e dentro do layout)	legivel, mas o tile de leitura nao sai dos warps a pe (Surf/Strength?)
+MtCoronet4FRooms1And2	placa	26	18	26	18	-		identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet4FRooms1And2	placa	29	24	29	24	-		identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet4FRooms1And2	placa	38	14	38	14	-		identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet4FRooms1And2	placa	59	3	59	3	-		identidade (coordenada da fonte ja local e dentro do layout)	legivel, mas o tile de leitura nao sai dos warps a pe (Surf/Strength?)
+MtCoronet4FRooms1And2	placa	37	9	37	9	-		identidade (coordenada da fonte ja local e dentro do layout)	legivel, mas o tile de leitura nao sai dos warps a pe (Surf/Strength?)
+MtCoronet5F	objeto	26	16			OBJ_EVENT_GFX_GRUNT_F	TRAINER_TYPE_NORMAL	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_MT_CORONET_GALACTIC_GRUNTS, decisao 2
+MtCoronet5F	objeto	20	22			OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NORMAL	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_MT_CORONET_GALACTIC_GRUNTS, decisao 2
+MtCoronet5F	placa	27	16	27	16	-		identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet5F	placa	27	23	27	23	-		identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet6F	objeto	10	15			OBJ_EVENT_GFX_GRUNT_F	TRAINER_TYPE_NORMAL	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_MT_CORONET_GALACTIC_GRUNTS, decisao 2
+MtCoronetIcebergRuins	objeto	7	7			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronetIcebergRuins	placa	6	5	6	5	-		identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronetOutsideNorth	objeto	42	44			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideNorth	objeto	43	42			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideNorth	objeto	45	43			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideNorth	objeto	45	39			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideNorth	objeto	42	37			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideNorth	objeto	39	20			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideNorth	objeto	35	17			OBJ_EVENT_GFX_STRENGTH_BOULDER	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideNorth	placa	41	44			-		-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideNorth	placa	44	47			-		-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideNorth	placa	33	9			-		-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideNorth	placa	19	12			-		-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideNorth	placa	43	17			-		-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideNorth	placa	32	14			-		-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideNorth	placa	10	20			-		-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideSouth	objeto	13	31			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideSouth	objeto	42	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideSouth	objeto	43	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideSouth	objeto	45	6			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideSouth	objeto	45	2			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideSouth	objeto	42	0			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideSouth	objeto	47	0			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideSouth	objeto	25	29			OBJ_EVENT_GFX_STRENGTH_BOULDER	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideSouth	placa	41	7			-		-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideSouth	placa	44	10			-		-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideSouth	placa	13	29			-		-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideSouth	placa	31	33			-		-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideSouth	placa	15	22			-		-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideSouth	placa	34	13			-		-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronet_1F_North_Room1	objeto	24	9	28	0	OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room1	objeto	22	26	25	16	OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room1	objeto	25	26	29	16	OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room1	objeto	26	27	31	17	OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room1	objeto	21	41	24	31	OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room1	objeto	10	36	10	26	OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room1	objeto	12	52	12	42	OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room1	objeto	29	30	35	20	OBJ_EVENT_GFX_STRENGTH_BOULDER	TRAINER_TYPE_NONE	escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room1	objeto	15	34	16	24	OBJ_EVENT_GFX_STRENGTH_BOULDER	TRAINER_TYPE_NONE	escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room1	objeto	18	39	20	29	OBJ_EVENT_GFX_STRENGTH_BOULDER	TRAINER_TYPE_NONE	escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room1	objeto	18	43	20	33	OBJ_EVENT_GFX_STRENGTH_BOULDER	TRAINER_TYPE_NONE	escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room1	objeto	14	26	15	16	OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room1	objeto	2	31	0	21	OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room1	objeto	28	43	33	33	OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room1	objeto	12	60	12	50	OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room1	objeto	19	41	22	31	OBJ_EVENT_GFX_GRUNT_F	TRAINER_TYPE_NONE	escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room1	objeto	14	10	15	0	OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NONE	escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room1	objeto	14	11	15	1	OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NONE	escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room1	objeto	12	37	12	27	OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room1	placa	14	9	15	0	-		escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room1	placa	23	35	27	25	-		escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room1	placa	15	38	16	28	-		escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room1	placa	4	41	2	31	-		escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room1	placa	12	59	12	49	-		escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_North_Room2	placa	14	17	0	0	-		escala da caixa 1x1 da matriz sobre 19x16	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+MtCoronet_1F_South	objeto	16	23			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet_1F_South	objeto	20	23			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet_1F_South	objeto	24	23			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet_1F_South	objeto	25	22			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet_1F_South	objeto	13	9			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet_1F_South	objeto	28	28			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+MtCoronet_1F_South	objeto	15	17			OBJ_EVENT_GFX_CYRUS	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+MtCoronet_1F_South	placa	13	18	13	18	-		identidade (coordenada da fonte ja local e dentro do layout)	legivel, mas o tile de leitura nao sai dos warps a pe (Surf/Strength?)
+MtCoronet_1F_South	placa	4	5	4	5	-		identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet_1F_South	placa	7	26	7	26	-		identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet_B1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+OldChateau	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+OldChateauBackEastRoom	objeto	10	4			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+OldChateauBackMiddleEastRoom	objeto	20	4			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+OldChateauBackMiddleEastRoom	objeto	20	5			OBJ_EVENT_GFX_TWIN	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_OLD_CHATEAU_BACK_MIDDLE_EAST_ROOM_TWIN, decisao 2
+OldChateauBackMiddleWestRoom	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+OldChateauBackWestRoom	objeto	3	4			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+OldChateauDiningArea	objeto	19	4			OBJ_EVENT_GFX_OLD_MAN	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_OLD_CHATEAU_DINING_AREA_OLD_MAN, decisao 2
+OldChateauDiningArea	objeto	5	3			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+OldChateauDiningArea	objeto	37	6			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+OldChateauDiningArea	placa	2	11	2	11	-		identidade (coordenada da fonte ja local e dentro do layout)	
+OldChateauSideRooms	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+OreburghCity	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+OreburghCityPokecenterB1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+OreburghCity_Flat1_F1	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+OreburghCity_Flat1_F2	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+OreburghCity_Flat2_F1	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+OreburghCity_Flat2_F2	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+OreburghCity_Flat3_F1	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+OreburghCity_Flat3_F2	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+OreburghCity_Gym	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+OreburghCity_House1	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+OreburghCity_House2	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+OreburghCity_House3	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+OreburghCity_Mart	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+OreburghCity_PokemonCenter_1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+OreburghCity_PokemonCenter_2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+OreburghGateB1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+OreburghGate_1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+OreburghMine_B1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+OreburghMine_B2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PalPark	objeto	28	48			OBJ_EVENT_GFX_WORKER	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+PalParkLobby	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PastoriaCity	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PastoriaCityEastHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PastoriaCityMart	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PastoriaCityMiddleHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PastoriaCityNorthHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PastoriaCityNortheastHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PastoriaCityObservatoryGate1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PastoriaCityObservatoryGate2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PastoriaCityPokecenter1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PastoriaCityPokecenter2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PastoriaCityPokecenterB1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PastoriaCitySouthwestHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PastoriaCity_Gym	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PoffinHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PokemonDayCare	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PokemonLeagueNorthPokecenter1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PokemonLeagueNorthPokecenter2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PokemonLeagueNorthPokecenterB1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PokemonLeagueSouthPokecenter1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PokemonLeagueSouthPokecenter2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PokemonLeagueSouthPokecenterB1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PokemonMansion	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PokemonMansionMaidsRoom	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PokemonMansionOffice	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+PokmonLeague	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+RavagedPath	objeto	23	44			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	22	43			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	22	42			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	17	40			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	12	41			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	13	39			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	9	40			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	7	40			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	10	39			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	10	38			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	8	38			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	7	37			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	12	37			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	11	36			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	5	24			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	3	22			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	2	20			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	3	16			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	4	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	3	12			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	5	8			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	11	12			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	12	12			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	13	12			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	11	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	12	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	13	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	7	38			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	17	11			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	28	5			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+RavagedPath	objeto	22	44			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+ResortArea	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+ResortAreaHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+ResortAreaPokecenter1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+ResortAreaPokecenter2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+ResortAreaPokecenterB1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+ResortAreaRibbonSyndicate1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+ResortAreaRibbonSyndicateElevator	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Restaurant	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+RockPeakRuins	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+RotomsRoom	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route201	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route202	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route203	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route204	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route204North	objeto	182	685			OBJ_EVENT_GFX_BUG_CATCHER	TRAINER_TYPE_NORMAL	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+Route204North	objeto	177	692			OBJ_EVENT_GFX_POKEMON_BREEDER_F	TRAINER_TYPE_NORMAL	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+Route204North	objeto	175	679			OBJ_EVENT_GFX_TWIN	TRAINER_TYPE_NORMAL	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+Route204North	objeto	176	679			OBJ_EVENT_GFX_TWIN	TRAINER_TYPE_NORMAL	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+Route204North	objeto	175	700			OBJ_EVENT_GFX_YOUNGSTER	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+Route204North	objeto	177	681			OBJ_EVENT_GFX_ARROW_SIGNPOST	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+Route204North	objeto	170	706			OBJ_EVENT_GFX_SIGNBOARD	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+Route204North	objeto	173	706			OBJ_EVENT_GFX_YOUNGSTER	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+Route204North	objeto	181	678			OBJ_EVENT_GFX_CUT_TREE	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+Route204North	objeto	162	682			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+Route204North	objeto	191	676			OBJ_EVENT_GFX_ACE_TRAINER_F	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+Route204North	objeto	180	695			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+Route205House	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route205_North	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route205_South	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route206	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route206_North	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route206_South	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route207	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route208	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route208House	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route208_Access	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route209	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route209LostTower1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route209LostTower2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route209LostTower3F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route209LostTower4F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route209LostTower5F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route209_Access	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route210GrandmaWilmaHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route210_North	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route210_South	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route211_East	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route211_West	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route212House	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route212_Access	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route212_North	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route212_South	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route213	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route213_Access	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route214	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route214_Access	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route215	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route215_Access	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route216	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route216House	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route217	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route217NortheastHouse	objeto	4	5			OBJ_EVENT_GFX_POKEMON_BREEDER_F	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_ROUTE_217_NORTHEAST_HOUSE_POKEMON_BREEDER_F, decisao 2
+Route217WestHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route218	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route218_East	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route218_West	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route219	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route220	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route221	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route221House	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route222	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route222EastHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route222WestHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route222_Access	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route223	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route224	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route225	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route225House	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route225_Access	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route226	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route226_Access	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route227	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route227House	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route228	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route228GateToRoute226	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route228NorthHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route228RockPeakRuins	objeto	7	7			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+Route228RockPeakRuins	placa	11	4	11	4	-		identidade (coordenada da fonte ja local e dentro do layout)	
+Route228SouthHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route229	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Route230	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+RuinManiacCaveLong	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+RuinManiacCaveShort	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SandgemTown	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SandgemTownPokecenterB1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SandgemTown_Mart	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SandgemTown_PokemonCenter_1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SandgemTown_PokemonCenter_2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SandgemTown_RivalHouse_F1	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SandgemTown_RivalHouse_F2	placa	2	3	2	3	-		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado
+SandgemTown_RowanLab	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SendoffSpring	objeto	31	17			OBJ_EVENT_GFX_CYNTHIA	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_SENDOFFSPRING e o molde de portao 13x9
+SinnohLeague_AaronsRoom	objeto	8	5			OBJ_EVENT_GFX_AARON	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+SinnohLeague_AaronsRoom	objeto	8	12			OBJ_EVENT_GFX_ELITE_FOUR_ROOM_DOOR	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+SinnohLeague_AaronsRoom	objeto	8	2			OBJ_EVENT_GFX_ELITE_FOUR_ROOM_DOOR	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+SinnohLeague_BerthasRoom	objeto	8	5			OBJ_EVENT_GFX_BERTHA	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+SinnohLeague_BerthasRoom	objeto	8	12			OBJ_EVENT_GFX_ELITE_FOUR_ROOM_DOOR	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+SinnohLeague_BerthasRoom	objeto	8	2			OBJ_EVENT_GFX_ELITE_FOUR_ROOM_DOOR	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+SinnohLeague_ChampionsRoom	objeto	8	11			OBJ_EVENT_GFX_CYNTHIA	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+SinnohLeague_Entrance	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SinnohLeague_FlintsRoom	objeto	8	5			OBJ_EVENT_GFX_FLINT	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+SinnohLeague_FlintsRoom	objeto	8	2			OBJ_EVENT_GFX_ELITE_FOUR_ROOM_DOOR	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+SinnohLeague_FlintsRoom	objeto	8	12			OBJ_EVENT_GFX_ELITE_FOUR_ROOM_DOOR	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+SinnohLeague_HallOfFame	objeto	9	6			OBJ_EVENT_GFX_CYNTHIA	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout) | alcance nao semeavel (sem warp), so andavel	nome proprio sem sprite aqui
+SinnohLeague_HallOfFame	objeto	7	6	7	6	OBJ_EVENT_GFX_PROF_ROWAN	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout) | alcance nao semeavel (sem warp), so andavel	
+SinnohLeague_LuciansRoom	objeto	8	5			OBJ_EVENT_GFX_LUCIAN	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+SinnohLeague_LuciansRoom	objeto	8	2			OBJ_EVENT_GFX_ELITE_FOUR_ROOM_DOOR	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+SinnohLeague_LuciansRoom	objeto	8	12			OBJ_EVENT_GFX_ELITE_FOUR_ROOM_DOOR	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+SinnohVictoryRoad1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SinnohVictoryRoad2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SinnohVictoryRoadB1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SnowpointCity	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SnowpointCityEastHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SnowpointCityMart	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SnowpointCityPokecenter1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SnowpointCityPokecenter2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SnowpointCityPokecenterB1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SnowpointCityWestHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SnowpointCity_Gym	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SnowpointTemple1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SnowpointTempleB1F	objeto	12	13			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	translacao provada por 2 warps, d=(0,0)	mobiliario/item, decisao 4: nunca vira NPC
+SnowpointTempleB2F	objeto	4	9			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+SnowpointTempleB2F	objeto	9	12			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+SnowpointTempleB3F	placa	10	8	10	8	-		translacao provada por 2 warps, d=(0,0)	
+SnowpointTempleB4F	objeto	11	18			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	translacao provada por 2 warps, d=(0,0)	mobiliario/item, decisao 4: nunca vira NPC
+SnowpointTempleB4F	objeto	5	17			OBJ_EVENT_GFX_STRENGTH_BOULDER	TRAINER_TYPE_NONE	translacao provada por 2 warps, d=(0,0)	mobiliario/item, decisao 4: nunca vira NPC
+SnowpointTempleB5F	objeto	11	12			OBJ_EVENT_GFX_REGIGIGAS	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+SolaceonRuinsManiacTunnelRoom	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SolaceonRuinsRoom1	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SolaceonRuinsRoom1NorthwestDeadEnd	placa	3	3	3	3	-		identidade (coordenada da fonte ja local e dentro do layout)	
+SolaceonRuinsRoom2	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SolaceonRuinsRoom3	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SolaceonRuinsRoom3SouthwestDeadEnd	placa	3	3	3	3	-		identidade (coordenada da fonte ja local e dentro do layout)	
+SolaceonRuinsRoom5SoutheastDeadend	placa	4	3	4	3	-		identidade (coordenada da fonte ja local e dentro do layout)	
+SolaceonRuinsRoom7	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SolaceonTown	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SolaceonTownEastHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SolaceonTownMart	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SolaceonTownNorthHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SolaceonTownNortheastHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SolaceonTownPokecenter1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SolaceonTownPokecenter2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SolaceonTownPokecenterB1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SolaceonTownPokemonNewsPress	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SpearPillar	objeto	30	48	6	23	OBJ_EVENT_GFX_GRUNT_F	TRAINER_TYPE_NONE	escala da caixa 5x21 da matriz sobre 27x24	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+SpearPillar	objeto	31	28	13	0	OBJ_EVENT_GFX_CYRUS	TRAINER_TYPE_NONE	escala da caixa 5x21 da matriz sobre 27x24	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+SpearPillar	objeto	33	32	26	4	OBJ_EVENT_GFX_MARS	TRAINER_TYPE_NONE	escala da caixa 5x21 da matriz sobre 27x24	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+SpearPillar	objeto	32	48	19	23	OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NONE	escala da caixa 5x21 da matriz sobre 27x24	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+SpearPillar	objeto	29	32	0	4	OBJ_EVENT_GFX_JUPITER	TRAINER_TYPE_NONE	escala da caixa 5x21 da matriz sobre 27x24	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+SpearPillar	objeto	30	35	6	8	OBJ_EVENT_GFX_BARRY	TRAINER_TYPE_NONE	escala da caixa 5x21 da matriz sobre 27x24	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+SpearPillar_Dialga	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SpearPillar_Distorted	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SpearPillar_Palkia	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+StarkMountainOutside	objeto	740	248			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+StarkMountainOutside	objeto	762	232			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+StarkMountainOutside	objeto	749	248			OBJ_EVENT_GFX_ACE_TRAINER_M	TRAINER_TYPE_NORMAL	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+StarkMountainOutside	objeto	748	232			OBJ_EVENT_GFX_SIGNBOARD	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+StarkMountainOutside	objeto	751	232			OBJ_EVENT_GFX_LOOKER	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+StarkMountainOutside	objeto	750	233			OBJ_EVENT_GFX_BUCK	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+StarkMountainOutside	objeto	742	232			OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+StarkMountainOutside	objeto	742	233			OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NONE	-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+StarkMountainRoom1	objeto	20	26			OBJ_EVENT_GFX_MARS	TRAINER_TYPE_NONE	translacao provada por 2 warps, d=(0,0)	nome proprio sem sprite aqui
+StarkMountainRoom1	objeto	11	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	translacao provada por 2 warps, d=(0,0)	mobiliario/item, decisao 4: nunca vira NPC
+StarkMountainRoom1	objeto	15	17			OBJ_EVENT_GFX_STRENGTH_BOULDER	TRAINER_TYPE_NONE	translacao provada por 2 warps, d=(0,0)	mobiliario/item, decisao 4: nunca vira NPC
+StarkMountainRoom1	objeto	18	15			OBJ_EVENT_GFX_STRENGTH_BOULDER	TRAINER_TYPE_NONE	translacao provada por 2 warps, d=(0,0)	mobiliario/item, decisao 4: nunca vira NPC
+StarkMountainRoom1	objeto	21	26			OBJ_EVENT_GFX_JUPITER	TRAINER_TYPE_NONE	translacao provada por 2 warps, d=(0,0)	nome proprio sem sprite aqui
+StarkMountainRoom1	objeto	26	15			OBJ_EVENT_GFX_STRENGTH_BOULDER	TRAINER_TYPE_NONE	translacao provada por 2 warps, d=(0,0)	mobiliario/item, decisao 4: nunca vira NPC
+StarkMountainRoom1	objeto	26	16			OBJ_EVENT_GFX_STRENGTH_BOULDER	TRAINER_TYPE_NONE	translacao provada por 2 warps, d=(0,0)	mobiliario/item, decisao 4: nunca vira NPC
+StarkMountainRoom1	objeto	26	17			OBJ_EVENT_GFX_STRENGTH_BOULDER	TRAINER_TYPE_NONE	translacao provada por 2 warps, d=(0,0)	mobiliario/item, decisao 4: nunca vira NPC
+StarkMountainRoom1	objeto	27	13			OBJ_EVENT_GFX_STRENGTH_BOULDER	TRAINER_TYPE_NONE	translacao provada por 2 warps, d=(0,0)	mobiliario/item, decisao 4: nunca vira NPC
+StarkMountainRoom1	objeto	18	9			OBJ_EVENT_GFX_STRENGTH_BOULDER	TRAINER_TYPE_NONE	translacao provada por 2 warps, d=(0,0)	mobiliario/item, decisao 4: nunca vira NPC
+StarkMountainRoom1	objeto	6	6			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	translacao provada por 2 warps, d=(0,0)	mobiliario/item, decisao 4: nunca vira NPC
+StarkMountainRoom1	objeto	8	23			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	translacao provada por 2 warps, d=(0,0)	mobiliario/item, decisao 4: nunca vira NPC
+StarkMountainRoom1	objeto	33	25			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	translacao provada por 2 warps, d=(0,0)	mobiliario/item, decisao 4: nunca vira NPC
+StarkMountainRoom1	objeto	25	7			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	translacao provada por 2 warps, d=(0,0)	mobiliario/item, decisao 4: nunca vira NPC
+StarkMountainRoom1	objeto	20	24			OBJ_EVENT_GFX_CHARON	TRAINER_TYPE_NONE	translacao provada por 2 warps, d=(0,0)	nome proprio sem sprite aqui
+StarkMountainRoom1	objeto	19	24			OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NONE	translacao provada por 2 warps, d=(0,0)	hidden_flag FLAG_HIDE_STARK_MOUNTAIN_ROOM_1_TEAM_GALACTIC, decisao 2
+StarkMountainRoom1	objeto	21	24			OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NONE	translacao provada por 2 warps, d=(0,0)	hidden_flag FLAG_HIDE_STARK_MOUNTAIN_ROOM_1_TEAM_GALACTIC, decisao 2
+StarkMountainRoom1	placa	25	4	25	4	-		translacao provada por 2 warps, d=(0,0)	
+StarkMountainRoom2	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+StarkMountainRoom3	objeto	9	13			OBJ_EVENT_GFX_CROAGUNK	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+StarkMountainRoom3	objeto	7	6			OBJ_EVENT_GFX_HEATRAN	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+StarkMountainRoom3	objeto	6	16			OBJ_EVENT_GFX_BUCK	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+StarkMountainRoom3	objeto	7	8			OBJ_EVENT_GFX_STRENGTH_BOULDER	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+StarkMountainRoom3	objeto	10	13			OBJ_EVENT_GFX_LOOKER	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+StarkMountainRoom3	objeto	7	11			OBJ_EVENT_GFX_CHARON	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+StarkMountainRoom3	objeto	10	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+StarkMountainRoom3	objeto	7	17			OBJ_EVENT_GFX_POLICEMAN	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_STARK_MOUNTAIN_ROOM_3_POLICEMEN, decisao 2
+StarkMountainRoom3	objeto	7	17			OBJ_EVENT_GFX_POLICEMAN	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_STARK_MOUNTAIN_ROOM_3_POLICEMEN, decisao 2
+StarkMountainRoom3	objeto	6	12			OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_STARK_MOUNTAIN_ROOM_3_TEAM_GALACTIC, decisao 2
+StarkMountainRoom3	objeto	8	12			OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_STARK_MOUNTAIN_ROOM_3_TEAM_GALACTIC, decisao 2
+SunyshoreCity	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SunyshoreCityEastHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SunyshoreCityGymRoom2	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SunyshoreCityGymRoom3	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SunyshoreCityMart	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SunyshoreCityNortheastHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SunyshoreCityNorthwestHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SunyshoreCityPokecenter1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SunyshoreCityPokecenter2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SunyshoreCityPokecenterB1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SunyshoreCityWestHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SunyshoreCity_Gym	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SunyshoreMarket	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SurvivalArea	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SurvivalAreaMart	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SurvivalAreaNorthHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SurvivalAreaPokecenter1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SurvivalAreaPokecenter2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SurvivalAreaPokecenterB1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+SurvivalAreaSouthHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+TeamGalacticEternaBuilding_1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+TeamGalacticEternaBuilding_2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+TeamGalacticEternaBuilding_3F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+TeamGalacticEternaBuilding_4F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+TurnbackCaveEntrance	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+TurnbackCaveGiratinaRoom	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+TurnbackCavePillar1Room1	objeto	9	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room1	objeto	13	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room1	objeto	9	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room1	objeto	12	6			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room1	objeto	11	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room1	objeto	10	6			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room1	objeto	10	16			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room1	objeto	11	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room1	objeto	12	16			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room1	objeto	13	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room1	objeto	11	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room2	objeto	7	9			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room2	objeto	7	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room2	objeto	15	9			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room2	objeto	6	12			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room2	objeto	5	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room2	objeto	6	10			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room2	objeto	15	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room2	objeto	16	12			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room2	objeto	17	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room2	objeto	16	10			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room2	objeto	11	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room3	objeto	7	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room3	objeto	6	12			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room3	objeto	5	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room3	objeto	4	10			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room3	objeto	3	9			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room3	objeto	2	8			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room3	objeto	15	9			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room3	objeto	16	10			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room3	objeto	17	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room3	objeto	18	12			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room3	objeto	19	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room3	objeto	20	14			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room3	objeto	11	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room4	objeto	5	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room4	objeto	6	10			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room4	objeto	7	9			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room4	objeto	4	12			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room4	objeto	3	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room4	objeto	2	14			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room4	objeto	18	10			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room4	objeto	20	8			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room4	objeto	19	9			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room4	objeto	15	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room4	objeto	16	12			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room4	objeto	17	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room4	objeto	11	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room5	objeto	11	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room5	objeto	12	6			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room5	objeto	13	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room5	objeto	10	4			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room5	objeto	9	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room5	objeto	8	2			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room5	objeto	13	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room5	objeto	9	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room5	objeto	14	20			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room5	objeto	10	16			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room5	objeto	11	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room5	objeto	12	18			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room5	objeto	11	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room6	objeto	11	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room6	objeto	10	6			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room6	objeto	9	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room6	objeto	12	4			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room6	objeto	13	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room6	objeto	14	2			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room6	objeto	9	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room6	objeto	13	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room6	objeto	8	20			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room6	objeto	12	16			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room6	objeto	11	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room6	objeto	10	18			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar1Room6	objeto	11	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	2	8			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	6	10			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	9	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	4	2			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	20	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	18	2			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	13	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	16	4			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	11	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	18	10			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	2	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	4	10			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	11	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	17	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	11	6			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	6	4			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	6	18			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	18	20			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	9	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	4	20			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	11	16			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	6	12			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	4	12			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	13	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	16	18			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	20	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	5	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	16	10			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	16	12			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room1	objeto	18	12			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	7	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	11	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	8	2			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	3	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	19	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	11	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	15	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	14	4			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	7	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	18	8			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	2	8			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	3	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	14	2			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	18	14			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	8	4			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	4	8			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	17	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	15	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	8	18			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	8	20			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	11	16			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	4	14			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	5	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	20	14			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	14	20			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	19	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	14	18			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	2	14			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room2	objeto	20	8			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	17	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	6	2			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	9	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	7	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	4	4			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	15	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	13	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	14	6			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	10	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	11	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	11	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	7	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	12	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	16	16			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	10	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	8	4			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	15	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	5	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	7	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	8	16			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	9	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	6	6			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	15	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	12	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	13	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	18	18			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	14	18			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	11	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room3	objeto	16	20			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	4	18			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	16	2			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	9	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	15	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	16	6			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	15	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	13	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	14	4			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	5	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	11	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	11	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	7	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	12	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	6	16			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	10	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	8	6			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	7	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	17	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	12	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	9	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	8	18			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	18	4			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	15	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	10	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	13	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	7	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	14	16			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	11	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room4	objeto	6	20			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	3	8			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	17	6			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	4	9			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	20	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	18	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	2	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	11	4			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	10	16			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	3	14			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	13	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	18	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	6	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	12	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	11	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	5	16			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	5	10			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	14	20			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	13	6			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	17	12			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	12	18			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	9	2			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	19	8			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	18	9			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	19	14			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	16	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	5	12			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	17	10			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	4	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	10	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room5	objeto	4	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	3	8			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	17	16			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	4	9			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	18	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	20	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	2	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	11	4			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	12	16			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	3	14			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	9	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	18	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	6	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	10	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	11	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	5	6			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	5	10			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	8	20			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	9	6			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	17	12			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	10	18			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	12	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	19	8			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	18	9			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	19	14			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	16	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	5	12			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	17	10			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	4	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	13	2			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar2Room6	objeto	4	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	3	9			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	20	20			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	5	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	17	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	15	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	3	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	13	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	13	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	3	20			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	9	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	19	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	7	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	11	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	13	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	13	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	7	9			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	9	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	9	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	19	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	11	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	6	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	19	9			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	17	6			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	17	16			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	17	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	5	16			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	15	9			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	3	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	9	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room1	objeto	5	6			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	2	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	11	4			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	4	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	11	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	18	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	2	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	20	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	12	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	15	8			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	11	18			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	15	14			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	17	10			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	13	6			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	5	12			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	17	12			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	4	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	10	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	12	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	18	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	7	14			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	7	8			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	18	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	9	6			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	5	10			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	20	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	9	16			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	13	16			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	4	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room2	objeto	10	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	7	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	15	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	3	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	3	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	17	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	5	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	17	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	13	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	19	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	11	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	19	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	15	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	13	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	7	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	15	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	7	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	9	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	13	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	19	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	5	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	7	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	15	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	9	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	3	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	19	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	9	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	13	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	3	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	9	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room3	objeto	11	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	9	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	13	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	4	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	5	18			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	16	18			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	6	4			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	16	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	13	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	18	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	11	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	17	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	14	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	12	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	7	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	10	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	8	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	9	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	15	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	17	4			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	6	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	8	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	15	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	10	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	4	2			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	18	20			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	12	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	14	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	5	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	7	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room4	objeto	11	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	3	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	7	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	7	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	5	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	15	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	5	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	17	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	17	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	19	9			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	15	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	19	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	3	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	3	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	3	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	19	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	15	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	19	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	15	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	15	9			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	7	19			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	7	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	19	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	7	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	3	9			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	19	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	17	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	15	3			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	7	9			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	3	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room5	objeto	5	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	5	8			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	3	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	5	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	5	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	18	6			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	5	10			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	17	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	20	4			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	17	9			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	17	12			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	17	8			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	5	12			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	3	4			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	4	16			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	17	14			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	19	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	17	15			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	17	10			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	17	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	5	14			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	3	17			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	19	5			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	2	18			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	5	9			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	17	13			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	18	16			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	19	18			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	5	7			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	5	11			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillar3Room6	objeto	4	6			OBJ_EVENT_GFX_ROCK_SMASH	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+TurnbackCavePillarRoom	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+TwinleafTown	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+TwinleafTown_Haouse1	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+TwinleafTown_House2	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+TwinleafTown_MainHouse_1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+TwinleafTown_MainHouse_2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Twinleaf_Town_RivalsHouse_F1	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Twinleaf_Town_RivalsHouse_F2	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+UnusedEternaCityCondominiums4F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+UnusedJubilifeCityCondominiums4F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+UnusedOreburghCityEastHouse3F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+UnusedOreburghCityNorthHouse3F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+UnusedOreburghCityNorthHouse4F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+UnusedOreburghCityNorthwestHouse3F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+UnusedOreburghCityNorthwestHouse4F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+UnusedSunyshoreCityHouse1	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+UnusedSunyshoreCityHouse2	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+ValleyWindworks	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+ValleyWindworksBuilding	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+ValorCavern	objeto	16	14			OBJ_EVENT_GFX_AZELF	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+ValorCavern	objeto	14	19			OBJ_EVENT_GFX_SATURN	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+ValorLakefront	objeto	723	760	44	24	OBJ_EVENT_GFX_CYNTHIA	TRAINER_TYPE_NONE	escala da caixa 64x64 da matriz sobre 56x66	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+ValorLakefront	objeto	718	760	40	24	OBJ_EVENT_GFX_CAMERAMAN	TRAINER_TYPE_NONE	escala da caixa 64x64 da matriz sobre 56x66	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+ValorLakefront	objeto	718	761	40	25	OBJ_EVENT_GFX_CAMERAMAN	TRAINER_TYPE_NONE	escala da caixa 64x64 da matriz sobre 56x66	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+ValorLakefront	objeto	712	783	34	48	OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	escala da caixa 64x64 da matriz sobre 56x66	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+ValorLakefront	objeto	717	748	39	12	OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	escala da caixa 64x64 da matriz sobre 56x66	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+ValorLakefront	objeto	719	790	41	55	OBJ_EVENT_GFX_GRUNT_M	TRAINER_TYPE_NONE	escala da caixa 64x64 da matriz sobre 56x66	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+ValorLakefront	objeto	694	804	19	65	OBJ_EVENT_GFX_BEAUTY	TRAINER_TYPE_NONE	escala da caixa 64x64 da matriz sobre 56x66	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+ValorLakefront	objeto	704	792	27	57	OBJ_EVENT_GFX_SIGNBOARD	TRAINER_TYPE_NONE	escala da caixa 64x64 da matriz sobre 56x66	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+ValorLakefront	objeto	715	782	37	47	OBJ_EVENT_GFX_BEAUTY	TRAINER_TYPE_NONE	escala da caixa 64x64 da matriz sobre 56x66	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+ValorLakefront	objeto	724	788	45	53	OBJ_EVENT_GFX_COLLECTOR	TRAINER_TYPE_NONE	escala da caixa 64x64 da matriz sobre 56x66	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+ValorLakefront	objeto	723	777	44	42	OBJ_EVENT_GFX_BARRY	TRAINER_TYPE_NONE	escala da caixa 64x64 da matriz sobre 56x66	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+ValorLakefront	objeto	712	780	34	45	OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	escala da caixa 64x64 da matriz sobre 56x66	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+ValorLakefront	placa	720	794	41	59	-		escala da caixa 64x64 da matriz sobre 56x66	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+ValorLakefront	placa	730	773	50	38	-		escala da caixa 64x64 da matriz sobre 56x66	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+ValorLakefront	placa	692	801	17	65	-		escala da caixa 64x64 da matriz sobre 56x66	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+ValorLakefront	placa	716	745	38	9	-		escala da caixa 64x64 da matriz sobre 56x66	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+VeilstoneCity	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+VeilstoneCityNortheastHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+VeilstoneCityNorthwestHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+VeilstoneCityPokecenter1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+VeilstoneCityPokecenter2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+VeilstoneCityPokecenterB1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+VeilstoneCityPrizeExchange	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+VeilstoneCitySoutheastHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+VeilstoneCitySouthwestHouse	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+VeilstoneCity_GalacticWarehouse	objeto	7	4	0	0	OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	escala da caixa 7x5 da matriz sobre 15x7	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+VeilstoneCity_GalacticWarehouse	objeto	13	8	14	6	OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	escala da caixa 7x5 da matriz sobre 15x7	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+VeilstoneCity_GalacticWarehouse	objeto	8	7	2	4	OBJ_EVENT_GFX_GALACTIC_HQ_DOOR	TRAINER_TYPE_NONE	escala da caixa 7x5 da matriz sobre 15x7	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+VeilstoneCity_GalacticWarehouse	objeto	9	7	4	4	OBJ_EVENT_GFX_GALACTIC_HQ_DOOR	TRAINER_TYPE_NONE	escala da caixa 7x5 da matriz sobre 15x7	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+VeilstoneCity_GalacticWarehouse	objeto	12	8	11	6	OBJ_EVENT_GFX_LOOKER	TRAINER_TYPE_NONE	escala da caixa 7x5 da matriz sobre 15x7	regra de coordenada nao provada (escala): mapa vai para a fila, medicao um a um
+VeilstoneCity_Gym	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+VeilstoneStore1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+VeilstoneStore2F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+VeilstoneStore3F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+VeilstoneStore4F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+VeilstoneStore5F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+VeilstoneStoreB1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+VeilstoneStoreElevator	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+VerityCavern	objeto	12	13			OBJ_EVENT_GFX_MESPRIT	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	nome proprio sem sprite aqui
+VerityCavern	objeto	12	22			OBJ_EVENT_GFX_PROF_ROWAN	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	hidden_flag FLAG_HIDE_VERITY_CAVERN_PROF_OAK, decisao 2
+VerityLakefront	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+VictoryRoad1FRoom2	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+Villa	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+WaywardCave1F	-					-	-	-	ja importado em rodada anterior (ver a marca no map.json)
+WaywardCaveB1F	objeto	22	9			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+WaywardCaveB1F	objeto	31	16			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+WaywardCaveB1F	objeto	33	8			OBJ_EVENT_GFX_POKEBALL	TRAINER_TYPE_NONE	identidade (coordenada da fonte ja local e dentro do layout)	mobiliario/item, decisao 4: nunca vira NPC
+WaywardCaveB1F	placa	3	10	3	10	-		identidade (coordenada da fonte ja local e dentro do layout)	legivel, mas o tile de leitura nao sai dos warps a pe (Surf/Strength?)
+WaywardCaveB1F	placa	4	39	4	39	-		identidade (coordenada da fonte ja local e dentro do layout)	

@@ -35,21 +35,44 @@ Quatro decisões que valem mais que o código, todas tomadas por segurança:
 
 4. **Mobiliário nunca vira NPC.** Pedra de Strength virada NPC tranca caverna
    para sempre. Toda a lista `GRAFICOS_PROIBIDOS` fica de fora.
+
+   **EMENDA DE 18/08/2026, decisão da condutora.** Esta decisão proíbe virar
+   BONECO, e nunca proibiu portar o obstáculo como obstáculo. As 447 pedras de
+   `OBJ_EVENT_GFX_ROCK_SMASH` de Sinnoh entram por
+   `dev_scripts/pedras_sinnoh.py` como PEDRA de verdade
+   (`OBJ_EVENT_GFX_BREAKABLE_ROCK` mais `EventScript_RockSmash`, os dois
+   nativos, os mesmos que a Hoenn de fábrica usa na Route 111). Isso é
+   fidelidade, não invenção: a fonte tem o obstáculo, e o que a decisão 4
+   barrava era transformá-lo em gente. O medo escrito acima continua de pé e
+   virou portão medido, não confiança: `pedras_sinnoh.py` prova por busca em
+   largura, tratando toda pedra nova como bloqueio e SEM Rock Smash na mochila,
+   que ninguém fica preso, e pedra que tranca não entra. Quem for reabrir isto
+   leia a seção datada de 18/08 do `PLANO-OBRAS-SINNOH.md` antes.
+   O resto da `GRAFICOS_PROIBIDOS` (canteiro, VENT, BOLLARD, pedra de Strength)
+   segue de fora, e a régua é a mesma: só sai da lista quem tiver mecânica
+   nativa E portão que prove que não tranca.
 """
 import json
 import os
 import re
+import struct
 import sys
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(REPO, "dev_scripts"))
 import valida_mapas_sinnoh as V  # noqa: E402  reaproveita sprites_utilizaveis e TROCA_SPRITE
+import conserta_route222 as R222  # noqa: E402  reaproveita a BFS com regra de elevacao
 
 PLAT = os.path.join(os.path.dirname(REPO), "fontes-mapas/pokeplatinum")
 APLICAR = "--aplicar" in sys.argv
 
 # Rótulo único para toda placa importada. Ver decisão 3 no topo.
 SCRIPT_PLACA = "Sinnoh_EventScript_PlacaImportada"
+
+# Censo linha a linha de TODO evento da fonte que este gerador olhou: o que
+# entrou, onde caiu, por que regra, e o motivo de quem ficou de fora. Artefato,
+# não se edita à mão (mesma régua da decisão 10 do plano).
+CENSO = os.path.join(REPO, "dev_scripts", "npcs_sinnoh_censo.tsv")
 
 # Marca de origem gravada em cada evento importado. O mapjson ignora campo que
 # não conhece, então ela é inerte na ROM e serve para uma coisa só: rodar
@@ -333,7 +356,77 @@ def deslocamento_de_warp(fonte, nosso):
     return bons[0] if len(bons) == 1 else None
 
 
-def conversor_de_coordenada(fonte, larg, alt, header, matriz, nosso=None):
+# ------------------------------------------------------------------ geometria
+#
+# Tres coisas medidas em 18/08/2026, na onda de povoar mapa vazio de Sinnoh, e
+# que sao a diferenca entre "NPC entrou" e "NPC entrou em lugar que existe":
+#
+# 1. PLANTA PROVISORIA. `AmitySquare`, `StarkMountainOutside`, `BattleFrontier`
+#    e `IronIsland` nao tem mapa: tem o MOLDE DE PORTAO 13x9. Medido byte a
+#    byte contra `data/layouts/Route226_Access/map.bin`: os quatro sao
+#    identicos a ele em TODAS as linhas menos a linha 1, onde as portas sao
+#    furadas (BattleFrontier difere em 4 tiles, IronIsland em 2, os dois so em
+#    y=1). Por a fonte de um mapa de 48x47 dentro de 13x9 e plantar coordenada
+#    que vai ter que ser refeita no dia em que o mapa real entrar. Recusado.
+# 2. ANDAVEL NAO BASTA, TEM QUE SER ALCANCAVEL. A regra do motor conta
+#    elevacao (`IsElevationMismatchAt`), e a lição da Route 222 e que um bolso
+#    de 4 tiles parece estrada na colisao. A BFS de `conserta_route222.alcance`
+#    e a mesma, semeada pelos NOSSOS warps: quem nasce fora do alcance deles e
+#    NPC que ninguem encontra.
+# 3. PLACA SEM TILE DE LEITURA e placa que o jogador nunca abre (o defeito das
+#    tres da Route 222). Exige vizinho ortogonal ALCANCAVEL, nao so andavel.
+
+_STENCIL = None
+
+
+def grade(layouts, layout_id):
+    """(largura, altura, matriz de palavras) do map.bin do layout."""
+    L = layouts[layout_id]
+    W, H = L["width"], L["height"]
+    b = open(os.path.join(REPO, L["blockdata_filepath"]), "rb").read()
+    return W, H, [[struct.unpack("<H", b[(y * W + x) * 2:(y * W + x) * 2 + 2])[0]
+                   for x in range(W)] for y in range(H)]
+
+
+def planta_provisoria(layouts, layout_id):
+    """True quando o layout e o molde de portao 13x9, com portas trocadas."""
+    global _STENCIL
+    L = layouts[layout_id]
+    if (L["width"], L["height"]) != (13, 9):
+        return False
+    if layout_id == "LAYOUT_ROUTE226_ACCESS":
+        return True
+    if _STENCIL is None:
+        _STENCIL = grade(layouts, "LAYOUT_ROUTE226_ACCESS")[2]
+    g = grade(layouts, layout_id)[2]
+    return all(g[y] == _STENCIL[y] for y in range(L["height"]) if y != 1)
+
+
+def alcancaveis(W, H, g, warps):
+    """Tiles que o jogador alcanca entrando pelos warps do mapa.
+
+    Warp costuma cair em tile de porta, que e bloqueado: nesse caso a semente e
+    o vizinho andavel dele, que e onde o jogador pousa de verdade.
+    """
+    sementes = []
+    for w in warps:
+        x, y = w.get("x"), w.get("y")
+        if not (isinstance(x, int) and isinstance(y, int)):
+            continue
+        if not (0 <= x < W and 0 <= y < H):
+            continue
+        if ((g[y][x] >> 10) & 3) == 0:
+            sementes.append((x, y))
+            continue
+        for dx, dy in ((0, 1), (0, -1), (1, 0), (-1, 0)):
+            nx, ny = x + dx, y + dy
+            if 0 <= nx < W and 0 <= ny < H and ((g[ny][nx] >> 10) & 3) == 0:
+                sementes.append((nx, ny))
+    return R222.alcance(W, H, g, sementes) if sementes else set()
+
+
+def conversor_de_coordenada(fonte, larg, alt, header, matriz, nosso=None,
+                            vazio=False):
     """(x do Platinum, z do Platinum) -> (x, y) nosso, para UM mapa.
 
     Extraida de `main()` em 11/08/2026 e nao reescrita: `itens_escondidos_sinnoh`
@@ -344,27 +437,50 @@ def conversor_de_coordenada(fonte, larg, alt, header, matriz, nosso=None):
 
     `nosso` e o map.json daqui, e serve so ao caminho de translacao dos mapas de
     `REDESENHO_1PARA1`; sem ele a funcao se comporta como sempre.
+
+    `vazio=True` diz que este mapa NAO TEM NENHUM evento importado ainda, e so
+    entao a translacao provada por warp vale sem estar na lista autorizada. A
+    lista existe por um motivo que nao se aplica a mapa vazio: mudar a regra de
+    quem JA tem placa gravada orfana a placa (ver o comentario de
+    `REDESENHO_1PARA1`). Onde nao ha nada gravado nao ha nada para orfanar, e
+    entao a prova dos warps e a melhor regua disponivel, sempre melhor que a
+    escala. Quem chama sem `vazio` continua recebendo o comportamento de antes,
+    byte a byte: `itens_escondidos_sinnoh`, `texto_sinnoh`, `maquina_sinnoh` e
+    `fila_b6` reencontram evento ja gravado e nao podem mudar de conta.
+
+    A regra escolhida fica em `conv.regra`, para o censo dizer por que cada
+    coordenada e a que e.
     """
+    def marca(f, regra):
+        f.regra = regra
+        return f
+
+    d = deslocamento_de_warp(fonte, nosso) if nosso is not None else None
     if header in REDESENHO_1PARA1 and nosso is not None:
-        d = deslocamento_de_warp(fonte, nosso)
         if d is None:
             raise SystemExit(
                 f"{header} esta em REDESENHO_1PARA1 mas os warps nao provam "
                 "um deslocamento unico. Ou o mapa mudou, ou a lista mentiu: "
                 "meca de novo antes de importar nada.")
+    elif not (vazio and d is not None):
+        d = None
+    if d is not None:
         dx, dz = d
 
         def conv_translacao(e):
             return (min(max(e["x"] - dx, 0), larg - 1),
                     min(max(e["z"] - dz, 0), alt - 1))
-        return conv_translacao
+        return marca(conv_translacao,
+                     f"translacao provada por {len(nosso.get('warp_events') or [])} "
+                     f"warps, d=({dx},{dz})")
     todos = fonte.get("object_events", []) + fonte.get("bg_events", [])
     if not todos:
         return None
     xs = [e["x"] for e in todos]
     zs = [e["z"] for e in todos]
     if min(xs) >= 0 and min(zs) >= 0 and max(xs) < larg and max(zs) < alt:
-        return lambda e: (e["x"], e["z"])
+        return marca(lambda e: (e["x"], e["z"]),
+                     "identidade (coordenada da fonte ja local e dentro do layout)")
     cx = caixa_da_matriz(matriz, header) if matriz else None
     if not cx:
         # sem matriz: usa a própria nuvem de eventos como caixa
@@ -376,7 +492,7 @@ def conversor_de_coordenada(fonte, larg, alt, header, matriz, nosso=None):
         x = int((e["x"] - ox) * (larg - 1) / max(1, cw - 1))
         y = int((e["z"] - oz) * (alt - 1) / max(1, ch - 1))
         return min(max(x, 0), larg - 1), min(max(y, 0), alt - 1)
-    return conv
+    return marca(conv, f"escala da caixa {cw}x{ch} da matriz sobre {larg}x{alt}")
 
 
 def main():
@@ -406,7 +522,29 @@ def main():
 
     stats = {"objetos": 0, "placas": 0, "fora_hidden": 0, "fora_mobilia": 0,
              "fora_coord": 0, "fora_sem_espaco": 0, "fora_nome_proprio": 0,
-             "trocas": 0, "mapas": 0, "ja_importado": 0}
+             "trocas": 0, "mapas": 0, "ja_importado": 0,
+             "fora_planta_provisoria": 0, "fora_inalcancavel": 0,
+             "fora_placa_ilegivel": 0, "fora_teto_64": 0, "empurrados": 0,
+             "fora_escala_nao_provada": 0}
+    censo = [("mapa", "tipo", "x_fonte", "z_fonte", "x_nosso", "y_nosso",
+              "gfx", "trainer_type", "regra", "motivo")]
+
+    def linha(m, tipo, e, pos, gfx, regra, motivo):
+        censo.append((m, tipo, e.get("x", ""), e.get("z", ""),
+                      pos[0] if pos else "", pos[1] if pos else "", gfx,
+                      e.get("trainer_type", ""), regra, motivo))
+
+    # O censo tem que SOBREVIVER a idempotencia: rodar de novo pula o mapa que
+    # ja foi escrito, e sem isto a segunda rodada apagaria justamente a linha
+    # que diz onde cada objeto entrou. Linha de mapa ja importado e reaproveitada
+    # do censo anterior.
+    antigo = {}
+    if os.path.exists(CENSO):
+        for l in open(CENSO, encoding="utf-8"):
+            c = tuple(l.rstrip("\n").split("\t"))
+            if len(c) == len(censo[0]) and c[0] != "mapa":
+                antigo.setdefault(c[0], []).append(c)
+
     trocados, deixados = {}, {}
     for meu, header, arq_ev, matriz in casados:
         pe = os.path.join(PLAT, "res/field/events", arq_ev + ".json")
@@ -418,14 +556,54 @@ def main():
         L = layouts[d["layout"]]
         larg, alt = L["width"], L["height"]
 
-        conv = conversor_de_coordenada(fonte, larg, alt, header, matriz, d)
-        if conv is None:
-            continue
-
         existentes = (d.get("object_events") or []) + (d.get("bg_events") or [])
         if any(e.get("origem") == "pokeplatinum" for e in existentes):
             stats["ja_importado"] += 1
+            censo.extend(antigo.get(meu) or [(
+                meu, "-", "", "", "", "", "-", "-", "-",
+                "ja importado em rodada anterior (ver a marca no map.json)")])
             continue
+
+        # Portao 1: geometria de verdade. NPC em planta emprestada e coordenada
+        # que vai ter que ser refeita.
+        if planta_provisoria(layouts, d["layout"]):
+            stats["fora_planta_provisoria"] += 1
+            for e in fonte.get("object_events", []):
+                linha(meu, "objeto", e, None, e.get("graphics_id", ""), "-",
+                      f"planta provisoria: {d['layout']} e o molde de portao 13x9")
+            for e in fonte.get("bg_events", []):
+                linha(meu, "placa", e, None, "-", "-",
+                      f"planta provisoria: {d['layout']} e o molde de portao 13x9")
+            continue
+
+        conv = conversor_de_coordenada(fonte, larg, alt, header, matriz, d,
+                                       vazio=not existentes)
+        if conv is None:
+            continue
+        regra = getattr(conv, "regra", "?")
+        # Portao 1.5: a ESCALA nao entra em mapa que nasce agora. Ela e a regra
+        # que a correcao da Route 222 provou errada (tres placas dentro de
+        # parede), e aqui ela nao tem nada que a sustente: em
+        # `MtCoronet_1F_North_Room2` a caixa da matriz mede 1x1 e a conta joga
+        # os eventos todos em (0,0). Mapa que so tem escala vai para a fila de
+        # conteudo, para ser medido um a um como a Route 222 foi.
+        if regra.startswith("escala"):
+            stats["fora_escala_nao_provada"] += 1
+            for e in fonte.get("object_events", []) + fonte.get("bg_events", []):
+                linha(meu, "objeto" if "graphics_id" in e else "placa", e,
+                      conv(e), e.get("graphics_id", "-"), regra,
+                      "regra de coordenada nao provada (escala): mapa vai para "
+                      "a fila, medicao um a um")
+            continue
+        W, H, g = grade(layouts, d["layout"])
+        pisa = alcancaveis(W, H, g, d.get("warp_events") or [])
+        # Mapa sem warp semeavel (a Liga entra por script) nao tem como provar
+        # alcance: cai para "andavel", que e a regua antiga, e o censo diz.
+        if not pisa:
+            pisa = {(x, y) for y in range(H) for x in range(W)
+                    if ((g[y][x] >> 10) & 3) == 0}
+            regra += " | alcance nao semeavel (sem warp), so andavel"
+        teto = 64 - len(d.get("object_events") or [])
         ja = {(o.get("x"), o.get("y")) for o in (d.get("object_events") or [])}
         ja |= {(o.get("x"), o.get("y")) for o in (d.get("bg_events") or [])}
         # ponytail: NÃO tratar tile de warp como ocupado. Parecia defeito ter
@@ -446,20 +624,39 @@ def main():
             # só depois o que sobrou é medido pela hidden_flag.
             if any(t in classe for t in GRAFICOS_PROIBIDOS):
                 stats["fora_mobilia"] += 1
+                linha(meu, "objeto", e, None, g, regra,
+                      "mobiliario/item, decisao 4: nunca vira NPC")
                 continue
             if any(t in classe for t in NOMES_PROPRIOS):
                 stats["fora_nome_proprio"] += 1
                 deixados[g] = deixados.get(g, 0) + 1
+                linha(meu, "objeto", e, None, g, regra,
+                      "nome proprio sem sprite aqui")
                 continue
             if str(e.get("hidden_flag", "0")) not in ("0", "0x0"):
                 stats["fora_hidden"] += 1
+                linha(meu, "objeto", e, None, g, regra,
+                      f"hidden_flag {e.get('hidden_flag')}, decisao 2")
                 continue
             if any(t in classe for t in GRAFICOS_PLACA):
                 x, y = conv(e)
-                if (x, y) not in ja:
+                if (x, y) in ja:
+                    linha(meu, "placa", e, (x, y), g, regra, "tile ja ocupado")
+                elif not leitura_de_placa(layouts, d["layout"], x, y):
+                    stats["fora_placa_ilegivel"] += 1
+                    linha(meu, "placa", e, (x, y), g, regra,
+                          "sem tile de leitura andavel: o jogador nunca leria")
+                else:
                     ja.add((x, y))
                     novas_placas.append(placa(x, y))
+                    linha(meu, "placa", e, (x, y), g, regra, so_com_hm(pisa, x, y))
                 continue
+            if len(novos_obj) >= teto:
+                stats["fora_teto_64"] += 1
+                linha(meu, "objeto", e, None, g, regra,
+                      "teto de 64 templates por mapa, cortado por ordem da fonte")
+                continue
+            gfx_fonte = g
             if g not in sprites:
                 novo = V.TROCA_SPRITE.get(g)
                 if not novo:
@@ -471,10 +668,24 @@ def main():
             if mov not in movimentos:
                 mov = V.MOVIMENTO_PADRAO
             x, y = conv(e)
-            pos = livre(layouts, d["layout"], x, y, ja)
+            # Portao 2: tem que cair em tile ALCANCAVEL. Empurrao de 1 tile e
+            # correcao de arredondamento; empurrao de 8 (o `livre` antigo) e
+            # invencao de posicao, e nao entra em mapa que nasce agora.
+            pos = next(((x + dx, y + dy) for r in (0, 1)
+                        for dx in range(-r, r + 1) for dy in range(-r, r + 1)
+                        if max(abs(dx), abs(dy)) == r
+                        and (x + dx, y + dy) in pisa
+                        and (x + dx, y + dy) not in ja), None)
             if pos is None:
-                stats["fora_sem_espaco"] += 1
+                stats["fora_inalcancavel"] += 1
+                linha(meu, "objeto", e, (x, y), gfx_fonte, regra,
+                      "coordenada nao cai em tile alcancavel (nem 1 tile ao lado)")
                 continue
+            if pos != (x, y):
+                stats["empurrados"] += 1
+            linha(meu, "objeto", e, pos, gfx_fonte, regra,
+                  "" if pos == (x, y) else f"empurrado 1 tile, gfx {g}"
+                  if g != gfx_fonte else "empurrado 1 tile")
             ja.add(pos)
             novos_obj.append({
                 "graphics_id": g, "x": pos[0], "y": pos[1], "elevation": 3,
@@ -489,9 +700,16 @@ def main():
         for e in fonte.get("bg_events", []):
             x, y = conv(e)
             if (x, y) in ja:
+                linha(meu, "placa", e, (x, y), "-", regra, "tile ja ocupado")
+                continue
+            if not leitura_de_placa(layouts, d["layout"], x, y):
+                stats["fora_placa_ilegivel"] += 1
+                linha(meu, "placa", e, (x, y), "-", regra,
+                      "sem tile de leitura andavel: o jogador nunca leria")
                 continue
             ja.add((x, y))
             novas_placas.append(placa(x, y))
+            linha(meu, "placa", e, (x, y), "-", regra, so_com_hm(pisa, x, y))
 
         stats["fora_coord"] += len(fonte.get("coord_events", []))
         if not (novos_obj or novas_placas):
@@ -505,6 +723,10 @@ def main():
         if APLICAR:
             json.dump(d, open(pm, "w"), indent=2, ensure_ascii=False)
 
+    with open(CENSO, "w", encoding="utf-8") as f:
+        for l in censo:
+            f.write("\t".join(str(c) for c in l) + "\n")
+    print(f"\ncenso: {len(censo) - 1} linhas em {os.path.relpath(CENSO, REPO)}")
     print("\nresumo:", stats)
     if trocados:
         print("\nsprites sem troca conhecida (viraram", V.SPRITE_PADRAO + "):")
@@ -516,6 +738,16 @@ def main():
             print(f"  {n:5}  {g}")
     print("\naplicado" if APLICAR else "\nnada escrito (use --aplicar)")
     return 0
+
+
+def so_com_hm(pisa, x, y):
+    """Aviso, nao recusa: a placa e legivel, mas o tile de leitura nao sai dos
+    warps deste mapa a pe. Em Mt Coronet isso quase sempre quer dizer Surf,
+    Strength ou Rock Climb, que a BFS nao modela e a fonte tambem exige.
+    """
+    perto = [(x, y - 1), (x, y + 1), (x - 1, y), (x + 1, y)]
+    return "" if any(p in pisa for p in perto) else \
+        "legivel, mas o tile de leitura nao sai dos warps a pe (Surf/Strength?)"
 
 
 def placa(x, y):
@@ -595,6 +827,36 @@ def demo():
             achado[(b["x"], b["y"])] = leitura_de_placa(
                 layouts, d["layout"], b["x"], b["y"])
     assert achado == esperado, achado
+
+    # 5. PLANTA PROVISORIA. Medido byte a byte: `BattleFrontier` e
+    # `IronIsland` tem map.bin proprio e mesmo assim SAO o molde de portao
+    # `Route226_Access`, diferindo so na linha 1, onde as portas sao furadas.
+    # Sao os dois maiores premios da onda de povoar (24 NPC e 25 placas so no
+    # Battle Frontier) e e por isso que o portao precisa existir.
+    assert planta_provisoria(layouts, "LAYOUT_BATTLEFRONTIER")
+    assert planta_provisoria(layouts, "LAYOUT_IRONISLAND")
+    assert planta_provisoria(layouts, "LAYOUT_ROUTE226_ACCESS")
+    # e nao pode ser um "13x9 e provisorio" preguicoso: a loja de flores tem
+    # 15x9 e a Mt Coronet 5F e 32x32, e as duas sao planta de verdade.
+    assert not planta_provisoria(layouts, "LAYOUT_MT_CORONET_5F")
+    assert not planta_provisoria(layouts, "LAYOUT_FLOAROMA_TOWN_FLOWER_SHOP")
+
+    # 6. MUTACAO PLANTADA no alcance. Emparedo, NA GRADE EM MEMORIA, os quatro
+    # vizinhos de cada warp de MtCoronet5F e exijo que o alcance caia a zero.
+    # Sem isto a BFS poderia estar devolvendo "todo tile andavel" e o portao de
+    # posicao seria enfeite: e exatamente o erro que poe NPC em ilha fechada.
+    m5 = json.load(open(os.path.join(REPO, "data/maps/MtCoronet5F/map.json")))
+    W, H, g = grade(layouts, m5["layout"])
+    warps = m5["warp_events"]
+    antes = alcancaveis(W, H, g, warps)
+    assert len(antes) > 100, len(antes)
+    for w in warps:
+        for dx, dy in ((0, 0), (0, 1), (0, -1), (1, 0), (-1, 0)):
+            x, y = w["x"] + dx, w["y"] + dy
+            if 0 <= x < W and 0 <= y < H:
+                g[y][x] |= 1 << 10          # colisao 1: parede
+    assert alcancaveis(W, H, g, warps) == set()
+
     print("demo ok")
 
 

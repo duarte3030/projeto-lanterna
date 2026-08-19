@@ -599,3 +599,168 @@ nesta obra (batalha fica para o fim, decisão 2 do Gui).
 - `Route210_North` (2 grupos): bloqueado por mapa não importado.
 - Biblioteca de Canalave: continua sem escopo escrito (herdado do ESTADO 0).
 - Os 29 de Unova e 4 de Johto não são desta obra.
+
+### POVOAR OS MAPAS VAZIOS DE SINNOH: o que a medição achou, 18/08/2026
+
+**A premissa da onda estava errada, e a medição é curta de explicar.** A onda
+nasceu para levar "1235 objetos que a fonte tem em mapas que entraram vazios"
+para dentro da ROM. Medido mapa a mapa (`dev_scripts/npcs_sinnoh_censo.tsv`,
+gerado pelo `importa_npcs_sinnoh.py`, 1236 linhas): os mapas nossos com ZERO
+`object_events` cujo par na fonte tem objeto são **62**, e a fonte põe neles
+**594 objetos**, assim repartidos:
+
+| bucket | quantos | régua que barra |
+|---|---|---|
+| mobiliário e item | **497** | decisão 4 do gerador |
+| nome próprio sem sprite | 31 | decisão do Gui, 05/08 |
+| `hidden_flag` | 22 | decisão 2 do gerador |
+| **elegível a virar NPC mudo** | **44** | — |
+
+E dos 497 de mobiliário, **447 são `OBJ_EVENT_GFX_ROCK_SMASH`**, quase todos
+nas sete salas da Turnback Cave (30 por sala) e no Mt Coronet. Ou seja: o buraco
+de objetos de Sinnoh **não é gente que falta, é pedra que falta**. Enquanto a
+decisão 4 valer como está, Sinnoh tem um teto de completude de objetos bem
+abaixo de 100%, e nenhuma onda de NPC muda isso.
+
+**DECIDIDO PELA CONDUTORA NO MESMO 18/08/2026, e FEITO: as pedras entram.** A
+decisão 4 do `importa_npcs_sinnoh.py` proíbe virar BONECO, e nunca proibiu
+portar obstáculo como obstáculo; pedra de Rock Smash é obstáculo funcional do
+Platinum, então trazê-la é fidelidade, não invenção. A emenda está escrita na
+própria decisão 4, com a data, para ninguém reabrir isto lendo a versão velha.
+Quem faz é `dev_scripts/pedras_sinnoh.py`, com `OBJ_EVENT_GFX_BREAKABLE_ROCK` e
+`EventScript_RockSmash`, os dois nativos e os mesmos da Route 111 de Hoenn. O
+risco que a decisão 4 temia (trancar quem não tem Rock Smash) virou PORTÃO
+MEDIDO, e ele manda mais que a fidelidade; está detalhado logo abaixo.
+
+**O que entrou nesta onda: 39 objetos em 20 mapas** (5 NPC mudos, 34 placas),
+todos por `importa_npcs_sinnoh.py --aplicar`, append no fim da lista de objetos
+do mapa, sem flag, item, mapa nem heal location novos. Custo de ROM calculado
+pelos tamanhos de struct (`ObjectEventTemplate` 0x18, `BgEvent` 0x0C):
+`5*24 + 34*12 = 528 B`. Provas: `T113.1` a `T113.4`.
+
+**Três portões novos no gerador, e o primeiro é o que mais recusou.**
+
+1. **Planta provisória, e o critério é COMPARAÇÃO DE `map.bin` CONTRA O MOLDE
+   DE PORTÃO, nunca nome de mapa** (`data/layouts/Route226_Access/map.bin`;
+   quem for medir o próximo não precisa refazer a descoberta, só rodar
+   `importa_npcs_sinnoh.planta_provisoria`). `AmitySquare`,
+   `StarkMountainOutside`, `BattleFrontier`, `IronIsland`, `SendoffSpring`,
+   `PalPark`, `GreatMarsh6`, `Route204North`, `MtCoronetOutsideNorth`,
+   `MtCoronetOutsideSouth`, `SpringPath` e `TrophyGarden` **não têm mapa: têm
+   o molde de portão 13x9**. `SendoffSpring` não estava em lista de suspeito
+   nenhuma e caiu por medição, que é exatamente a razão de o critério ser
+   medida. Os 12 estão na fila como UM item,
+   `sinnoh:planta_provisoria:12_mapas_de_molde`, com o prêmio medido e o
+   critério de aceite (geometria real primeiro, objeto depois); os 10 de escala
+   viraram `sinnoh:escala_nao_provada:10_mapas`.
+   Medido byte a byte: `BattleFrontier` e `IronIsland` têm `map.bin` próprio e
+   mesmo assim são idênticos ao `Route226_Access/map.bin` em todas as linhas
+   menos a `y=1`, onde as portas são furadas (4 e 2 tiles de diferença). O
+   critério do gerador é esse, não uma lista de nomes. **Recusa o maior prêmio
+   da onda de propósito**: só o Battle Frontier tinha 24 NPC e 25 placas
+   elegíveis, espalhados numa área de 48x47 da fonte que não cabe honestamente
+   em 117 tiles.
+2. **Escala não entra em mapa que nasce agora.** A conversão por proporção é a
+   regra que a correção da Route 222 provou errada, e aqui ela nem chega perto:
+   em `MtCoronet_1F_North_Room2` a caixa da matriz mede 1x1 e a conta joga todos
+   os eventos em (0,0). Os 10 mapas que só têm escala (`ValorLakefront`,
+   `LakeValor`, `LakeVerity`, `SpearPillar`, `GalacticHQ_B2F`,
+   `HearthomeCityGymLeaderRoom`, `VeilstoneCity_GalacticWarehouse`,
+   `JubilifeCity_Flat1_F3`, `MtCoronet_1F_North_Room1` e `_Room2`) vão para a
+   fila de conteúdo, para medição um a um como a Route 222 teve. Em troca, a
+   **translação provada por warp deixou de precisar da lista `REDESENHO_1PARA1`
+   quando o mapa está VAZIO**: a lista existe porque mudar a régua de quem já
+   tem placa gravada órfã a placa, e onde nada foi gravado não há nada a
+   órfãnar. Quem já tem conteúdo continua recebendo a conta de antes, byte a
+   byte (`itens_escondidos_sinnoh`, `texto_sinnoh`, `maquina_sinnoh`,
+   `fila_b6`), porque o parâmetro novo é `vazio=` e o padrão é `False`.
+3. **Posição provada, não empurrada.** NPC tem que cair em tile ALCANÇÁVEL pela
+   BFS com regra de elevação (`conserta_route222.alcance`, reusada, semeada
+   pelos nossos warps), com empurrão de no máximo 1 tile; o `livre()` de raio 8
+   não vale para mapa que nasce agora, porque raio 8 é invenção de posição.
+   Placa exige tile de leitura andável, o critério da Route 222. O censo marca
+   as placas que são legíveis mas cujo tile de leitura não sai dos warps a pé,
+   que em Mt Coronet quase sempre quer dizer Surf ou Strength.
+
+**O que NÃO foi tocado, dito:** os 360 mapas que já tinham import não foram
+reabertos (a marca `origem` os pula, e a onda é de mapa vazio); Amity Square e
+Stark Mountain Outside continuam parados pela decisão de 18/08, agora também
+pelo portão medido; nenhuma flag, var, item, mapa ou heal location foi criado.
+
+### AS PEDRAS DE ROCK SMASH DE SINNOH ENTRARAM, 18/08/2026 (decisão da condutora)
+
+Ferramenta: `dev_scripts/pedras_sinnoh.py` (idempotente, `--demo` com duas
+mutações plantadas, censo em `dev_scripts/pedras_sinnoh_censo.tsv`, 591 linhas).
+**478 pedras em 28 mapas**, como `OBJ_EVENT_GFX_BREAKABLE_ROCK` com
+`EventScript_RockSmash`, os dois nativos e os mesmos da Route 111 de Hoenn.
+
+| onde | quantas |
+|---|---|
+| as 12 salas de pilar 2 e 3 da Turnback Cave | 29 cada, 348 |
+| as 6 salas de pilar 1 da Turnback Cave | 11 a 13, 74 |
+| `MtCoronet1FTunnelRoom`, `MtCoronet_B1F`, `MtCoronet4FRooms1And2`, `MtCoronet_1F_South` | 32 |
+| `WaywardCave1F`, `SinnohVictoryRoad2F`, `RavagedPath`, `OreburghGate_1F`, `SnowpointTempleB2F`, `StarkMountainRoom2` | 24 |
+
+**A FLAG: esta onda NÃO GASTA FAIXA NENHUMA, e a conta é esta.**
+`EventScript_RockSmash` termina em `removeobject`, que faz
+`FlagSet(GetObjectEventFlagIdByObjectEventId(...))`
+(`src/event_object_movement.c:1700`). Duas medições:
+
+- **`flag: "0"` seria veneno.** O spawn lê `!FlagGet(template->flagId)` sem
+  guarda de `flagId != 0` (`src/event_object_movement.c:2893`), então quebrar
+  uma pedra de flag 0 acenderia a flag 0 e sumiria com TODO objeto de flag 0
+  do mapa, que é quase todo NPC do jogo.
+- **Flag permanente não é preciso.** A faixa `FLAG_TEMP_*` (`TEMP_FLAGS_START`
+  0x0 a `TEMP_FLAGS_END` 0x1F) é zerada na troca de mapa e não é estado de
+  jogo: pedra quebrada fica quebrada enquanto o jogador está na sala e volta
+  quando ele sai e entra, que é o comportamento do jogo original. **Zero flag
+  nova, zero endereço das 4448 livres, `guarda_save.py` sem quebra nova.**
+
+O preço disso é um TETO POR MAPA: **29 pedras**, que são as 31 temps de 0x1 a
+0x1F menos `FLAG_TEMP_7` (é para onde `P_FLAG_FORCE_SHINY` aponta desde o
+fechamento da Fase E: acendê-la faz todo selvagem nascer shiny) e
+`FLAG_TEMP_E` (o motor usa para não criar o Pokémon que segue). Duas pedras
+com a mesma temp somem juntas, então cada pedra do MESMO mapa precisa da sua;
+mapas diferentes reusam à vontade. **Custou 8 pedras**, uma em cada sala de
+pilar de 30, cortadas pela ordem da fonte.
+
+**O PORTÃO QUE MANDA MAIS QUE A FIDELIDADE, e ele mordeu.** Antes de gravar,
+`pedras_sinnoh.py` prova por BFS com regra de elevação, tratando toda pedra
+nova como bloqueio e SEM Rock Smash na mochila, e a aceitação é UMA A UMA (a
+pedra entra se, junto com as já aceitas, o mapa continua bom; medir as 30 de
+uma vez reprovaria e jogaria fora as 29 boas). São dois portões, e o segundo
+existe porque o primeiro tem um ponto cego medido:
+
+1. **Não perder ligação que existia.** Todo alvo da LINHA DE BASE (pouso de
+   warp e tile de leitura de item que já se alcançavam com zero pedra)
+   continua alcançável. A régua é a linha de base e não a conectividade
+   absoluta porque 6 mapas já nascem com warp fora do alcance a pé
+   (`Route213` com 6 alvos soltos, `MtCoronet4FRooms1And2` com 2,
+   `MtCoronet_1F_South`, `RavagedPath`, `Route210_North` e `WaywardCave1F`
+   com 1 cada; a fonte pede Surf ou Strength ali e a BFS não modela nenhum
+   dos dois). Cobrar perfeição reprovaria toda pedra por defeito que não é da
+   pedra. **Recusou 2.**
+2. **Ninguém fica preso.** Todo tile pisável antes das pedras ainda chega a
+   algum warp depois delas. Este portão existe porque em `WaywardCave1F` e
+   `MtCoronet4FRooms1And2` a linha de base liga UM alvo só, e com um alvo só o
+   portão 1 não tem dente nenhum. **Recusou 12.**
+
+Os dois estados são provados, não um: com as pedras e com tudo quebrado, mais
+a inclusão `alcance com pedra ⊆ alcance sem pedra`, que é asserção do gerador
+e falha alto se a conta inverter.
+
+Outras recusas, todas com tile e motivo no censo: **31 por tile não andável**,
+e essa merece leitura, porque não é defeito do gerador: `demake_ds.traduz_gen4`
+converte tile com bit 0x8000 em PAREDE, e a fonte marca o tile da pedra como
+bloqueado. Ou seja **a nossa conversão já assou boa parte das pedras dentro da
+parede**, e nesses lugares a passagem não está fechada por pedra quebrável,
+está fechada por rocha. `RavagedPath` é o caso extremo: 17 das 27 pedras dela
+são parede aqui, e o warp norte dela já era inalcançável a pé antes desta onda.
+Isso é dívida de GEOMETRIA, não de objeto, e está dita aqui para a fase de
+conteúdo não remedir. Mais **21 por planta provisória** e **39 por escala não
+provada**, os mesmos dois portões da onda de NPC.
+
+**Provas: `T113.5` (a pedra é sólida, sala de pilar da Turnback), `T113.6` (a
+linha de parada ANDA JUNTO com a pedra ao trocar de coluna, que é o que separa
+"tem pedra" de "aquela linha é intransponível") e `T113.7` (par negativo: a
+linha 4 da mesma sala não tem pedra e o jogador atravessa a sala inteira).**
