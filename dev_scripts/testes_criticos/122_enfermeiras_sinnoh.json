@@ -1,0 +1,62 @@
+[
+  {
+    "id": "T122.1",
+    "nome": "A ENFERMEIRA DE JUBILIFE PASSOU A ATENDER. Ate 21/08/2026 os Pokecenter de Jubilife e de Sandgem NAO CURAVAM, e ninguem tinha notado porque nada na suite nem na regua de completude olha a camada em que o defeito vive: os dois mapas tem enfermeira, com sprite, com script de cura e com movimento certo, e a regua conta presenca. O defeito era a COORDENADA. A enfermeira de Jubilife estava em (5,2) e a de Sandgem em (6,2), e o balcao debaixo delas nesses dois pontos e o metatile 545 do gTileset_PokemonCenter, comportamento MB_NORMAL (0x00). Para falar por cima de um balcao o motor exige MB_COUNTER (0x80) no tile encarado (src/field_control_avatar.c:351 e :411, via MetatileBehavior_IsCounter), e quem tem MB_COUNTER nesse tileset e o metatile 517, que fica em UMA coluna so, a do x=7. Medido nos 67 mapas do repo que tem enfermeira com script: 65 poem a moca exatamente onde o balcao fala (517 em Hoenn e nos outros Pokecenter de Sinnoh, 664 em Johto e no Mt. Silver, 577 em Unova, 774 no Trainer Hill, todos MB_COUNTER), e so esses DOIS caiam fora. O conserto foi mover as duas para (7,2), e NAO carimbar MB_COUNTER no metatile 545, que era a hipotese da fila: o 545 aparece tres vezes na linha do balcao de TODOS os 20 Pokecenter que usam esse tileset, entao dar MB_COUNTER a ele abriria conversa atraves da parede em Hoenn inteira para consertar dois mapas de Sinnoh. ROTA: warp 0 (a porta, em (6,8)), UP*6 satura em (6,4) porque (6,3) e o balcao, RIGHT*2 vira e anda para (7,4), UP*2 vira para cima e esbarra no balcao sem sair do lugar, A abre a fala da enfermeira e os tres LEFT seguintes sao COMIDOS pela caixa. A prova e o jogador parado em (7,4). O harness nao le HP nem texto de caixa (ver o cabecalho do dev_scripts/gba_runner.c: ele le EWRAM e grava PNG), entao a prova possivel e a de travamento, e ela so vale junto com o T122.2.",
+    "warp": "MAP_JUBILIFE_CITY_POKEMON_CENTER_1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:UP*6,90:NADA,16:RIGHT*2,90:NADA,16:UP*2,90:NADA,16:A,300:NADA,16:LEFT*3,240:NADA",
+    "prova": {
+      "mapa": "MAP_JUBILIFE_CITY_POKEMON_CENTER_1F",
+      "layout": "LAYOUT_JUBILIFE_CITY_POKEMON_CENTER_1F",
+      "pos": [
+        7,
+        4
+      ]
+    }
+  },
+  {
+    "id": "T122.2",
+    "nome": "PAR NEGATIVO DO T122.1, e sem ele o T122.1 nao prova nada. MESMO mapa, MESMO warp, MESMA caminhada, MESMO numero de quadros, e a UNICA diferenca e que o aperto de A virou espera. Sem caixa aberta os tres LEFT funcionam: vira e anda dois tiles, ate (5,4). Dois tiles de diferenca no mesmo roteiro e o que separa 'a enfermeira falou' de 'o jogador estava preso por qualquer outro motivo'. Esta e exatamente a medicao que reprovava o jogo ANTES do conserto: em 21/08/2026, na ROM oficial pokemon-claude-2026-08-19c.gba, a mesma rota feita para a enfermeira antiga de (5,2) terminava em (3,4) COM e SEM o A, ou seja o A nao fazia nada; a mesma rota no Pokecenter de Oreburgh, que sempre teve a enfermeira em (7,2), ja travava em (7,4) com o A e andava ate (5,4) sem ele.",
+    "warp": "MAP_JUBILIFE_CITY_POKEMON_CENTER_1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:UP*6,90:NADA,16:RIGHT*2,90:NADA,16:UP*2,90:NADA,300:NADA,16:LEFT*3,240:NADA",
+    "prova": {
+      "mapa": "MAP_JUBILIFE_CITY_POKEMON_CENTER_1F",
+      "layout": "LAYOUT_JUBILIFE_CITY_POKEMON_CENTER_1F",
+      "pos": [
+        5,
+        4
+      ]
+    }
+  },
+  {
+    "id": "T122.3",
+    "nome": "O SEGUNDO POKECENTER MUDO, SANDGEM, com a mesma prova. Ele entra separado e nao 'de brinde' porque os dois defeitos eram coordenadas diferentes ((5,2) em Jubilife, (6,2) aqui) e um conserto que acertasse so um passaria despercebido: a planta dos dois mapas e byte a byte a mesma (LAYOUT_SANDGEM_TOWN_POKEMON_CENTER_1F e LAYOUT_JUBILIFE_CITY_POKEMON_CENTER_1F sao copias do LAYOUT_POKEMON_CENTER_1F de Hoenn), entao a rota e identica letra por letra. Sandgem importa mais do que parece: e a cidade do professor Rowan e o primeiro Pokecenter que quem comeca por Sinnoh encontra.",
+    "warp": "MAP_SANDGEM_TOWN_POKEMON_CENTER_1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:UP*6,90:NADA,16:RIGHT*2,90:NADA,16:UP*2,90:NADA,16:A,300:NADA,16:LEFT*3,240:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN_POKEMON_CENTER_1F",
+      "layout": "LAYOUT_SANDGEM_TOWN_POKEMON_CENTER_1F",
+      "pos": [
+        7,
+        4
+      ]
+    }
+  },
+  {
+    "id": "T122.4",
+    "nome": "PAR NEGATIVO DO T122.3, Sandgem sem o aperto de A: o jogador anda ate (5,4). Mesmo motivo do T122.2, e por isso ele existe: prova de travamento sozinha nao separa fala de parede.",
+    "warp": "MAP_SANDGEM_TOWN_POKEMON_CENTER_1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:UP*6,90:NADA,16:RIGHT*2,90:NADA,16:UP*2,90:NADA,300:NADA,16:LEFT*3,240:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN_POKEMON_CENTER_1F",
+      "layout": "LAYOUT_SANDGEM_TOWN_POKEMON_CENTER_1F",
+      "pos": [
+        5,
+        4
+      ]
+    }
+  }
+]

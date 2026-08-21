@@ -17,7 +17,7 @@
     {
       "local_id": "LOCALID_SANDGEM_POKECENTER1F_NURSE",
       "graphics_id": "OBJ_EVENT_GFX_NURSE",
-      "x": 6,
+      "x": 7,
       "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -26,7 +26,8 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SandgemTown_PokemonCenter_1F_EventScript_Nurse",
-      "flag": "0"
+      "flag": "0",
+      "origem_correcao": "21/08/2026: a enfermeira estava em (6,2), fora do balcao. O tile de baixo era o metatile 545 do gTileset_PokemonCenter, MB_NORMAL, e nao o 517, MB_COUNTER: sem MB_COUNTER o motor nao deixa falar por cima do balcao e este Pokecenter nao curava. (7,2) e onde os outros 65 Pokecenter do repo poem a enfermeira."
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",

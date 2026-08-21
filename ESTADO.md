@@ -8,6 +8,164 @@ inteiras. Detalhe fica nos documentos apontados no fim.
 
 ---
 
+## 0.i CONTEÚDO DE GALAR, MOLDES DE SINNOH E PEDRAS, 21/08/2026 (condutor Opus, três executores Opus, fechador Opus)
+
+Build verde. **ROM 98,69% de 32 MB**, EWRAM 86,16%, IWRAM 86,66%, **suíte
+443/444** (só o T11.3 pulado na rodada normal, que é o caso de duas ROMs), **T11
+3/3** à parte contra a build do commit `cf6786b2ae` (worktree próprio; `vars` em
+0x1678 e 8248 flags do lado velho contra 0x18B8 e 12856 do novo), **SAVE
+COMPATIVEL**, `valida_rom.py` dizendo que tudo que foi declarado entrou, e
+`valida_mapas_sinnoh.py --so-sinnoh` fechando com `bloqueado: 0`. ROM oficial:
+`roms/pokemon-claude-2026-08-21.gba` (md5 `c4452153949d42b8aef2f57a65c7678a`),
+com o `.map` ao lado, e o MESMO binário na ROM de teste de nome fixo.
+
+| região | mapas | objetos | warps | placas | arte (mediana, pobres) |
+|---|---|---|---|---|---|
+| Kanto | 98,1% | 100,1% | 100% | 100% | 52 (0) |
+| Johto | 95,9% | 95,2% | 100% | 96% | 55 (3) |
+| Hoenn | 100% | 100,1% | 100% | 100% | 39 (22) |
+| Sinnoh | 80,1% | **75,9%** (era 75,8) | 97,7% | 81,3% | 39 (**105**, era 104) |
+| Unova | 94,2% | 99,5% | 99,3% | 98% | 30 (3) |
+| Galar | 100% | 26,7% | 100% | 15,4% | 48 (32) |
+
+**A linha de Galar não se mexeu e isso é defeito de régua, não da onda.** O
+`completude.py` lê Galar de censos congelados (`galar_gente.json`,
+`objetos_gravados: 1204`, `itens_gravados: 33`) e a onda não os regerou. Medido
+hoje no `map.json`: **1.260 objetos**, **394 com script** (era 1) e **85 bg
+events** (eram 33). Regerar o censo é item de fila; até lá a linha de Galar diz o
+mundo de anteontem.
+
+### O que a rodada fez
+
+- **Galar, onda 1 da fase de conteúdo** (`fala_galar.py`, novo): 337 NPCs mudos
+  ganharam a fala da fonte, 52 placas passaram a existir (Galar não tinha
+  nenhuma) e 56 bolas de item entraram com **flag própria por bola**, em
+  0x1C21-0x1C58, todas apelido de `FLAG_UNUSED` e portanto a **custo zero de
+  save**. A fila caiu de 3.257 para 3.195 linhas: 445 feitas, 104 descartadas com
+  motivo, 2.646 pendentes.
+- **Sinnoh, o 13º molde virou mapa** (`converte_moldes_sinnoh.py`, novo): o
+  `OreburghGateB1F` deixou de vestir o molde de portão 13x9 e virou a caverna
+  64x32 da grade 2D do Platinum, com 2 NPCs e 3 pedras. Os outros 12 seguem
+  parados por decisão do Gui, com o `--dry-run` pronto.
+- **Sinnoh, as pedras**: o validador passou a julgar por COMPORTAMENTO de
+  metatile e por ALCANÇABILIDADE, não por colisão crua, e o seletor de capítulo
+  passou a dar `MOVE_ROCK_SMASH` ao Pikachu (uma linha em `chapter_jump.c`, custo
+  zero de save), o que destravou a primeira prova de SMASH da suíte.
+
+### As três premissas que a medição derrubou
+
+1. **As 31 pedras de Sinnoh NÃO são dívida da conversão.** A 0.g dizia que "a
+   conversão do Platinum marca o tile da pedra como bloqueado". Errado: o nosso
+   `map.bin` é **byte a byte** o do demake 2D em `OreburghGate_1F`,
+   `MtCoronet_1F_South` e `MtCoronet_B1F`, e em `RavagedPath` difere em UM tile
+   do mapa inteiro, a 20 tiles da pedra mais próxima. Quem não desenhou a
+   passagem foi a FONTE. 28 das 31 caem em tile com ZERO vizinho alcançável.
+   Deslocamento não salva: varrendo (dx,dz) de -20 a 20, o melhor põe 18 das 27
+   pedras de RavagedPath em tile andável e casa ZERO warp. Pôr essas pedras é
+   DESENHAR corredor, ou seja decisão de fase e não conversão.
+2. **Eram 13 mapas de molde, não 12.** Há DOIS moldes no repo,
+   `LAYOUT_ROUTE226_ACCESS` e `LAYOUT_ROUTE208_ACCESS`, e `planta_provisoria`
+   sempre pegou os dois. Quem enxergava só 12 era a **lista escrita à mão** da
+   fila, que escondia o `OreburghGateB1F`. A fila passou a tirar a lista da
+   medição.
+3. **O pool de flags é 5.711 e não 1.375.** O 1.375 da 0.h era o que o harness
+   conseguia NOMEAR, não o que existe. Medido por `flags_livres.py`: **5.711
+   livres**, 4.447 numa faixa contígua. Flag não é gargalo nesta fase.
+
+### Vars de Galar: sobram 150, e a saída é uma var por MAPA
+
+Dos 512 endereços 0x4000-0x41FF, 16 são `TEMP_VARS`, 346 têm dono declarado (318
+citados de verdade, 28 recuperáveis um a um) e **150 estão livres**
+(0x417E-0x41BF, 0x41D6-0x41FF, 0x4107-0x412F, 0x4100). A fase de conteúdo estima
+200 a 260, ou seja **déficit de 50 a 110**, e crescer `VARS_COUNT` quebra a save.
+**A saída recomendada é uma var por MAPA com o valor codificando a etapa**, que é
+o que o FireRed faz com `VAR_MAP_SCENE_*`: cabe folgado, não abre janela de save,
+e o preço é não ter duas cenas independentes no mesmo mapa. O bloco c3 (144
+linhas de `ON_FRAME_TABLE` puro) é o teste dessa escolha: fazer 12 e MEDIR antes
+de comprometer a faixa. Rascunho em `PLANO-CONTEUDO-GALAR.md` (é rascunho de
+executor, não decisão).
+
+### O achado da rodada: dois Pokécenters de Sinnoh não curavam
+
+`JubilifeCity_PokemonCenter_1F` e `SandgemTown_PokemonCenter_1F` tinham
+enfermeira com sprite, script de cura e movimento certo, e mesmo assim **não
+havia de onde falar com ela**. Medido no emulador contra a ROM de 19/08, com par
+positivo e negativo: em Jubilife o jogador terminava em (3,4) COM e SEM o A; a
+MESMA rota em Oreburgh travava em (7,4) com o A e andava até (5,4) sem ele.
+
+**O conserto que a fila mandava fazer estava errado, e o número mostra por quê.**
+Ela pedia `MB_COUNTER` no metatile de balcão, que é o 545 do
+`gTileset_PokemonCenter`; ele aparece TRÊS vezes na linha do balcão de TODOS os
+20 Pokécenters desse tileset, Hoenn incluída, então dar `MB_COUNTER` a ele
+abriria conversa através da parede em 20 mapas para consertar 2. O defeito era a
+COORDENADA: varridos os 67 mapas com enfermeira com script, **65 põem a moça em
+cima da coluna que tem `MB_COUNTER`** (517 em Hoenn e no resto de Sinnoh, 664 em
+Johto e no Mt. Silver, 577 em Unova, 774 no Trainer Hill) e só estes 2 caíam
+fora. As duas foram para (7,2). Casos T122.1 a T122.4.
+
+**Lição, de régua e não de mapa: "o NPC está lá" não é "dá para falar com ele".**
+Entre o objeto e a conversa há um atributo de metatile, e nenhuma medida de
+completude enxerga isso.
+
+### Os casos adversariais (autor de caso ≠ autor de cena)
+
+- **T120.9 e T120.10 (Galar)**: a bola é pega, o jogo SALVA pelo menu e a save é
+  recarregada do zero. Os casos que já existiam acendiam a flag à mão na EWRAM, o
+  que prova o motor e não prova ONDE a flag mora: se as 56 tivessem caído na
+  faixa temporária ou acima de `SPECIAL_FLAGS_START`, todos passariam e o jogador
+  ganharia o item de novo a cada boot. Passou: a flag sobrevive.
+- **T112.5 (pedras)**: o par NEGATIVO do de cima. O jogador quebra a pedra, sai
+  pelo B1F, volta e ela está lá, porque a memória do smash é `FLAG_TEMP_2` e
+  `ClearTempFieldEventData` zera a faixa a cada carregamento de mapa. Era o que a
+  0.g afirmava sem medir, e é dele que depende o custo zero de save das 478
+  pedras.
+- **T121.6 (Oreburgh)**: o T121.2 provava que a escada dispara e que o mapa é o
+  certo, e parava aí; mapa certo não é tile certo. Agora a chegada é medida:
+  subindo pela escada de verdade o jogador para no MESMO (7,5) em que o T112.2
+  para saindo do mesmo tile por warp de debug.
+- **T121.4 nasceu FLAKY e foi reescrito pelo fechador**: terminava um tile abaixo
+  do ciclista `WANDER_AROUND` de (37,12), que o próprio T121.3 já tinha
+  descartado como alvo. Três rodadas isoladas: OK, OK, FALHA. A perna final virou
+  DOWN, saturando em (50,14), longe de tudo que se mexe. **Mesma família do
+  T98.9 e do T108.2.**
+
+### O que fica aberto para o Gui
+
+- **Os 12 mapas de molde de Sinnoh**: a ferramenta não trava mais nada, falta
+  gosto. A troca entrega forma honesta e desenho chapado: a arte cai de 46-48
+  metatiles distintos para 5-9 e Sinnoh vai de 105 para 116 mapas abaixo do piso.
+  O prêmio contado na fonte são 91 objetos e 36 placas, sendo 30 e 20 só no
+  `BattleFrontier`. **Pergunta separada: o `BattleFrontier` de Sinnoh vira a
+  praça do Platinum (a fonte) ou fica ligado ao Battle Frontier de Hoenn que já
+  existe na ROM?**
+- **A curva de Galar**: 278 ids de treinador citados pelos scripts, 774 Pokémon,
+  **mediana 70 e 276 exatamente no nível 100**. A fonte é pós-jogo, não campanha;
+  importada crua, Galar inteira nasce em 100. É a mesma decisão que congelou a
+  Fase F. **Aviso: o struct de party do demake NÃO é o do FireRed** (só 165 dos
+  741 times passam com o molde do FR); medir o stride antes de acreditar.
+- **A Fase F continua congelada** por decisão dele de 19/08 (carta de trabalho na
+  0.h). Seguem abertos as 19 bolas de neve de Snowpoint, os 8 ginásios de Sinnoh
+  sem arte, as 31 pedras (agora com o motivo certo), a alcançabilidade de
+  `RavagedPath` e de duas salas de Mt. Coronet (257, 652 e 153 tiles ilhados) e o
+  censo de Galar por regerar.
+
+### Dívida plantada: dois casos fixam um molde que vai morrer
+
+**`T93.6` e `T85.1` VÃO QUEBRAR no dia em que o `SendoffSpring` for convertido, e
+quem converter reescreve os dois na MESMA rodada.** O T93.6 prova
+`layout: LAYOUT_SENDOFFSPRING`, o molde 13x9, e o id muda com a planta nova; o
+T85.1 anda `16:RIGHT*11` dentro de um mapa de 13 colunas para chegar ao
+`MAP_TURNBACK_CAVE_ENTRANCE`, e no 64x64 essa rota não chega a lugar nenhum.
+
+**Régua para quem escrever rota**: andabilidade se mede por COLISÃO **e
+ELEVAÇÃO** (o lago do `OreburghGateB1F` tem colisão zero e elevação 1); warp só
+dispara sobre metatile com comportamento de porta ou escada (a primeira conversão
+do B1F nasceu de mão única sobre chão comum); a primeira tecla de uma direção
+nova só VIRA o boneco; e **aperto mandado durante a animação de escada é
+COMIDO**, então perna logo depois de warp precisa de espera antes.
+
+---
+
 ## 0.h ENCERRAMENTO DO PRD-GOAL, 19/08/2026 (condutor Opus, executores Opus)
 
 **O goal `PRD-GOAL.md` está CUMPRIDO no escopo que ele define, com UMA fase
