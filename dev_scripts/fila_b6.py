@@ -236,6 +236,7 @@ import inventario as INV                # noqa: E402  SEGUE_GEN2/JUMPSTD/corpos_
 import importa_unova as U               # noqa: E402  le_grupos/le_eventos/indice_asm
 import importa_npcs_sinnoh as S         # noqa: E402  a régua de recusa de Sinnoh
 import valida_mapas_sinnoh as V         # noqa: E402  TROCA_SPRITE/sprites_utilizaveis
+import completude as C                  # noqa: E402  a tabela CORTES_DO_GUI
 
 SAIDA = os.path.join(REPO, "dev_scripts/fila_b6.json")
 PROFUNDIDADE = 6
@@ -1045,6 +1046,83 @@ FEITAS = [
 ]
 
 
+# ------------------------------------------------- os CORTES DE ESCOPO do Gui
+#
+# Decisão dele em 21/08/2026: uma parte de Sinnoh e de Unova não vai existir
+# neste porte (Battle Zone, Turnback Cave, Great Marsh, Amity, Pal Park,
+# Underground, GTS, Pokétch, 2F de Wi-Fi, Cable Club, caça-níquel). A régua
+# `dev_scripts/completude.py` já tirou esses mapas do DENOMINADOR, e a fila tem
+# de parar de cobrá-los na mesma rodada: fila que continua pedindo trabalho de
+# mapa que saiu do escopo faz a próxima leva gastar o dia num lugar que ninguém
+# vai jogar.
+#
+# Dois status novos, ao lado de `descartada` e `adiada`:
+#   `cortada`  = o LUGAR saiu do escopo. Motivo é decisão do Gui, com data.
+#   `realocar` = o lugar saiu, mas o POKÉMON que morava nele não. A linha
+#                continua existindo e diz o nome do bicho, porque quem escolhe
+#                o lar novo é outro executor (lista em `PLANO-ESCOPO.md`).
+#
+# A lista de mapas é IMPORTADA de `completude.CORTES_DO_GUI`, nunca copiada:
+# duas cópias divergiriam no dia em que uma fosse ajustada, e o preço seria uma
+# fila cobrando trabalho que a régua já não mede. Mesmo motivo pelo qual
+# `SEGUE_GEN2` vem do `inventario.py` e não é redigitado aqui.
+
+
+def mapas_cortados():
+    """{mapa nosso: grupo do corte}, do modo `deficit` da tabela da régua.
+
+    O modo `mapa_fonte` não entra: ele fala de nome que existe SÓ na fonte, e
+    `mapa_destino` da fila é sempre mapa NOSSO.
+    """
+    return {m: x["grupo"] for x in C.CORTES_DO_GUI if x["modo"] == "deficit"
+            for m in x["alvo"]}
+
+
+# Pokémon lendário citado no `id` de uma linha. A busca é no ID e não no MAPA,
+# e a diferença é o ponto: `StarkMountainRoom3` é lar do Heatran E tem três
+# linhas de Grunt da Galáctica. Marcar o mapa inteiro como `realocar` diria que
+# os grunts precisam de casa nova, o que é falso; marcar por nome do bicho no
+# id acerta linha a linha. Medido em 21/08/2026: NENHUMA linha da fila casa com
+# esta tabela hoje (a fila é de grupo de `hidden_flag` e de gatilho, e lendário
+# aqui é encontro estático), então a realocação vive por enquanto só no
+# `PLANO-ESCOPO.md`. A tabela fica porque a próxima regeneração pode trazer uma.
+LENDARIO_NO_ID = {
+    "HEATRAN": "Heatran", "GIRATINA": "Giratina", "SHAYMIN": "Shaymin",
+    "DARKRAI": "Darkrai", "CRESSELIA": "Cresselia", "ARCEUS": "Arceus",
+    "REGIGIGAS": "Regigigas", "MANAPHY": "Manaphy", "PHIONE": "Phione",
+}
+
+
+def corta_por_escopo(itens, cortados=None):
+    """Aplica os cortes de escopo sobre as linhas PENDENTES.
+
+    Só pendente muda: linha `feita` não é rebaixada (trabalho feito continua
+    feito, mesma regra do `decidido()`), e `descartada`/`adiada` já estão fora
+    da conta de pendentes, então reescrevê-las só apagaria o motivo original.
+    """
+    cortados = mapas_cortados() if cortados is None else cortados
+    for i in itens:
+        if i["status"] != "pendente":
+            continue
+        grupo = cortados.get(i.get("mapa_destino") or "")
+        if not grupo:
+            continue
+        lend = next((n for k, n in LENDARIO_NO_ID.items()
+                     if k in i["id"].upper()), None)
+        if lend:
+            i["status"] = "realocar"
+            i["bloqueio"] = (
+                f"{lend} morava aqui, e o LUGAR saiu do escopo ({grupo}, "
+                "decisão do Gui 21/08/2026). O Pokémon NÃO é cortado: quem "
+                "escolhe o lar novo é outro executor, lista em PLANO-ESCOPO.md")
+        else:
+            i["status"] = "cortada"
+            i["bloqueio"] = ("decisão do Gui 21/08: fora do escopo "
+                             f"({grupo}). Remover o mapa da ROM para liberar "
+                             "espaço é obra separada, ver PLANO-ESCOPO.md")
+    return itens
+
+
 # ------------------------------------------------- fila de CONTEÚDO (não onda)
 
 # Decisão da condutora em 18/08/2026: estes NÃO entram em onda, vão para a fila
@@ -1066,15 +1144,21 @@ def _molde_pendente():
     nenhum dos tres batia com o `events_*.json` do Platinum.
     """
     import converte_moldes_sinnoh as CM   # noqa: E402  a medida do molde
-    mapas = [m for m, _ in CM.alvos()]
+    # Os moldes que caíram nos CORTES DO GUI de 21/08/2026 saem deste item, e
+    # ele ENCOLHE em vez de sumir: o mapa continua vestindo o molde, mas
+    # ninguém vai convertê-lo, porque o lugar saiu do escopo. Os que restam
+    # continuam no jogo e continuam cobrando a decisão de arte.
+    cortados = mapas_cortados()
+    alvos = [(m, h) for m, h in CM.alvos() if m not in cortados]
+    fora = sorted(m for m, _ in CM.alvos() if m in cortados)
+    mapas = [m for m, _ in alvos]
     fonte = {}
-    for meu, header in CM.alvos():
+    for meu, header in alvos:
         arq = os.path.join(CM.PLAT, "res/field/events",
                            S.headers_do_platinum()[header][0] + ".json")
         fonte[meu] = json.load(open(arq))
     obj = sum(len(d.get("object_events") or []) for d in fonte.values())
     placa = sum(len(d.get("bg_events") or []) for d in fonte.values())
-    bf = fonte.get("BattleFrontier") or {}
     pedra = sum(1 for d in fonte.values() for e in (d.get("object_events") or [])
                 if any(t in str(e.get("graphics_id", "")) for t in
                        ("ROCK_SMASH", "BOULDER")))
@@ -1095,11 +1179,13 @@ def _molde_pendente():
             f"a 97,8%). O `OreburghGateB1F` saiu desta lista em 21/08/2026: "
             f"ele é caverna na fonte, foi convertido por "
             f"`converte_moldes_sinnoh.py --aplicar` e as pedras dele entraram "
-            f"por `pedras_sinnoh.py`. PRÊMIO MEDIDO na fonte, contado e não "
-            f"lembrado: {obj} objetos e {placa} placas parados nos "
-            f"{len(mapas)}, sendo {len(bf.get('object_events') or [])} "
-            f"objetos e {len(bf.get('bg_events') or [])} placas só no "
-            f"`BattleFrontier`, mais {pedra} pedras de Rock Smash e blocos de "
+            f"por `pedras_sinnoh.py`. E {len(fora)} saíram do ESCOPO em "
+            f"21/08/2026, por decisão do Gui, e por isso não estão mais "
+            f"contados aqui ({', '.join(fora) or 'nenhum'}); com eles foi "
+            f"embora o prêmio do `BattleFrontier`, que era o maior de todos. "
+            f"PRÊMIO MEDIDO na fonte, contado e não lembrado, só nos que "
+            f"FICAM: {obj} objetos e {placa} placas parados nos "
+            f"{len(mapas)}, mais {pedra} pedras de Rock Smash e blocos de "
             f"Strength. BLOQUEIO: não é ferramenta, é GOSTO. O conversor está "
             f"pronto e o `--dry-run` dele imprime mapa a mapa o que sai; o "
             f"que falta é o Gui decidir pagar a troca, porque a grade do "
@@ -1568,12 +1654,13 @@ def gera():
     johto, livres = fila_johto()
     itens = (unova + sinnoh + johto
              + [dict(tem=[], **f) for f in FEITAS + FILA_DE_CONTEUDO])
-    return itens, chamadas, livres
+    return corta_por_escopo(itens), chamadas, livres
 
 
 def resumo(itens, chamadas, livres):
     print(f"{'região':8} {'tipo':20} {'pend.':>6} {'feitas':>6} "
-          f"{'descart':>8} {'adiadas':>8} {'linhas':>8}")
+          f"{'descart':>8} {'adiadas':>8} {'cortad':>7} {'realoc':>7} "
+          f"{'linhas':>8}")
     conta = collections.Counter()
     for i in itens:
         conta[(i["regiao"], i["tipo"], i["status"])] += 1
@@ -1584,9 +1671,17 @@ def resumo(itens, chamadas, livres):
         print(f"{reg:8} {tipo:20} {conta[(reg, tipo, 'pendente')]:6} "
               f"{conta[(reg, tipo, 'feita')]:6} "
               f"{conta[(reg, tipo, 'descartada')]:8} "
-              f"{conta[(reg, tipo, 'adiada')]:8} {tam[(reg, tipo)]:8}")
+              f"{conta[(reg, tipo, 'adiada')]:8} "
+              f"{conta[(reg, tipo, 'cortada')]:7} "
+              f"{conta[(reg, tipo, 'realocar')]:7} {tam[(reg, tipo)]:8}")
     pend = [i for i in itens if i["status"] == "pendente"]
-    print(f"\npendentes: {len(pend)}   sem bloqueio: "
+    # ANTES/DEPOIS sem plumbing: `corta_por_escopo` só converte PENDENTE, então
+    # a soma dos três é exatamente o que a fila cobrava antes do corte.
+    cortadas = sum(1 for i in itens if i["status"] == "cortada")
+    real = sum(1 for i in itens if i["status"] == "realocar")
+    print(f"\npendentes: {len(pend)} (eram {len(pend) + cortadas + real} antes "
+          f"dos cortes de escopo do Gui de 21/08: {cortadas} cortadas, "
+          f"{real} a realocar)   sem bloqueio: "
           f"{sum(1 for i in pend if i['bloqueio'] == 'nenhum')}")
     print(f"conferência de conteúdo de Sinnoh medida com raio {raio()} tiles")
     print("chamadas alcançadas em Unova:", dict(chamadas))
@@ -1676,6 +1771,36 @@ def demo():
         citado = any(simbolo in i["bloqueio"] for i in johto)
         assert citado != existe(simbolo), \
             f"{simbolo}: existe={existe(simbolo)} mas a fila diz citado={citado}"
+    # Os CORTES DE ESCOPO de 21/08/2026. A tabela é importada da régua, então o
+    # que se testa aqui é a APLICAÇÃO dela sobre a linha.
+    cortados = mapas_cortados()
+    assert "FightArea" in cortados and "GreatMarsh6" in cortados, cortados
+    # ...e o que o Gui mandou FICAR não pode estar lá dentro. Ginásio de Sinnoh
+    # e Distortion World são conteúdo; se aparecerem aqui, alguém alargou um
+    # corte e a fila parou de cobrar obra que existe.
+    assert not any("Gym" in m or "Distortion" in m for m in cortados), cortados
+    plantado = [
+        dict(id="FightArea:FLAG_HIDE_X", mapa_destino="FightArea",
+             status="pendente", bloqueio="nenhum"),
+        dict(id="StarkMountainRoom3:FLAG_HIDE_HEATRAN",
+             mapa_destino="StarkMountainRoom3", status="pendente",
+             bloqueio="nenhum"),
+        dict(id="FightArea:FLAG_HIDE_Y", mapa_destino="FightArea",
+             status="feita", bloqueio="nenhum"),
+        dict(id="SnowpointCity_Gym:FLAG_HIDE_Z",
+             mapa_destino="SnowpointCity_Gym", status="pendente",
+             bloqueio="nenhum"),
+    ]
+    corta_por_escopo(plantado, cortados)
+    assert [i["status"] for i in plantado] == ["cortada", "realocar", "feita",
+                                               "pendente"], plantado
+    assert "Heatran" in plantado[1]["bloqueio"], plantado[1]
+    # e na fila de verdade: os cortes têm de morder alguma coisa, senão a
+    # tabela virou decoração.
+    todos = corta_por_escopo(unova + sinnoh + johto)
+    assert sum(1 for i in todos if i["status"] == "cortada") > 10, \
+        "os cortes do Gui não pegaram nada: a tabela da régua sumiu?"
+
     print("demo ok:", len(unova), "cenas de Unova,", len(sinnoh),
           "unidades de Sinnoh,", len(johto), "itens de Johto")
 

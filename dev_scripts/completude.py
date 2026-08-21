@@ -52,6 +52,13 @@ REGIOES = {
     # fontes-mapas/sinnoh, que ja trazia placa propria. Medido: 31 placas a mais
     # espalhadas por 24 mapas, no maximo 2 por mapa. Nao e conversao gerando
     # placa falsa, e soma de duas fontes.
+    # A COLUNA `warps` PASSOU DE 100 EM 21/08/2026 (100,6%), pelo mesmo motivo
+    # e vale medir antes de acreditar: os `CORTES_DO_GUI` tiraram do
+    # denominador justamente os mapas que carregavam DÉFICIT de warp (o Battle
+    # Zone, o Turnback), e nos que ficaram somamos 164 warps a mais que o
+    # Platinum contra 157 a menos. O saldo é +7 e vem quase todo de UM mapa, o
+    # `GalacticHQ_B1F`, com 25 warps contra 2 da fonte. Ou seja o excedente é
+    # anterior ao corte e mora ali; o corte só parou de escondê-lo.
     "Sinnoh": {"grupo": "Sinnoh",         "fonte": f"{FONTES}/pokeplatinum",
                "plat": True},
     # BW3G e pokecrystal (gen 2). O formato e outro, mas e legivel: cada mapa
@@ -170,6 +177,242 @@ APELIDOS_FONTE = {
 }
 
 
+TODOS_OS_CAMPOS = tuple(c for c, _ in CAMPOS)
+
+# Mapa que a FONTE tem e que NÃO ENTRA NESTE PORTE, por decisão do Gui.
+#
+# Existe porque escopo é decisão dele, e decisão que não vira RÉGUA MEDIDA
+# envelhece: até 21/08/2026 a completude cobrava o Battle Zone inteiro, o
+# Underground e os mapas de Mystery Gift, que nunca vão existir aqui, e o
+# denominador media o Platinum em vez de medir a obra.
+#
+# Dois modos, os MESMOS do inventário de cortes que produziu esta tabela:
+#
+#   "mapa_fonte" -> o `alvo` é REGEX, casada contra os nomes que a fonte tem e
+#                   nós não. O registro sai da coluna `mapas`.
+#   "deficit"    -> o `alvo` é LISTA DE NOMES DE MAPA NOSSO, e só o BURACO dos
+#                   campos citados sai do denominador: o mapa passa a valer
+#                   100% naqueles campos (ver `corta_campo`). É o modo de mapa
+#                   que EXISTE na ROM e vai continuar existindo, mas que
+#                   ninguém vai terminar de povoar.
+#
+# O que cada linha tirou sai em `--detalhe <região>`: corte que não é visível
+# vira completude alta sem obra, que é a mentira mais cara desta casa.
+#
+# NÃO ESTÁ AQUI, de propósito, e cada ausência é decisão dele de 21/08/2026: o
+# **Distortion World** (fica, com gravidade normal), os 8 ginásios de Sinnoh
+# (ficam; a arte é obra de outro executor), o **Bug Contest** de Johto, e os 4
+# moldes que sobram (IronIsland, MtCoronetOutsideNorth, MtCoronetOutsideSouth,
+# Route204North). Dos 7 `UNUSED_*` da fonte de Sinnoh que têm conteúdo, ficam
+# 3: os outros 4 (Battle Park e o mart do Resort) moram DENTRO da Battle Zone e
+# saem com ela, por correção do condutor em 21/08/2026.
+CORTES_DO_GUI = [
+    # ---------------------------------------------------------------- Sinnoh
+    dict(regiao="Sinnoh", grupo="Battle Zone: a ilha inteira de pós-Liga",
+         modo="deficit", campos=TODOS_OS_CAMPOS, data="21/08/2026",
+         motivo="ilha que só abre depois da Liga, com o Battle Frontier de gen "
+                "4 e suas cinco instalações dentro; a ROM já tem o Battle "
+                "Frontier de Hoenn inteiro",
+         alvo=["FightArea", "FightAreaMart", "FightAreaMiddleHouse",
+               "FightAreaPokecenter1F", "FightAreaPokecenter2F",
+               "FightAreaPokecenterB1F", "FightAreaSouthHouse",
+               "SurvivalArea", "SurvivalAreaMart", "SurvivalAreaNorthHouse",
+               "SurvivalAreaPokecenter1F", "SurvivalAreaPokecenter2F",
+               "SurvivalAreaPokecenterB1F", "SurvivalAreaSouthHouse",
+               "ResortArea", "ResortAreaHouse", "ResortAreaPokecenter1F",
+               "ResortAreaPokecenter2F", "ResortAreaPokecenterB1F",
+               "ResortAreaRibbonSyndicate1F", "ResortAreaRibbonSyndicateElevator",
+               "Villa",
+               "Route225", "Route225House", "Route225_Access",
+               "Route226", "Route226_Access", "Route227", "Route227House",
+               "Route228", "Route228GateToRoute226", "Route228NorthHouse",
+               "Route228RockPeakRuins", "Route228SouthHouse",
+               "Route229", "Route230",
+               "StarkMountainOutside", "StarkMountainRoom1",
+               "StarkMountainRoom2", "StarkMountainRoom3",
+               "BattleFrontier", "BattleFrontierGateToFightArea", "BattleTower",
+               "BattleHall", "BattleFactory", "BattleCastle", "BattleArcade",
+               "Battleground"]),
+    dict(regiao="Sinnoh", grupo="Battle Zone: o que só a fonte tem",
+         modo="mapa_fonte", campos=TODOS_OS_CAMPOS, data="21/08/2026",
+         motivo="salas internas da Battle Tower de gen 4, o 2F do Ribbon "
+                "Syndicate e os 4 `UNUSED_*` que moram DENTRO da Battle Zone "
+                "(Battle Park e o mart do Resort): a ordem foi a ilha inteira, "
+                "e mapa não usado que fica dentro dela sai com ela",
+         alvo=r"BATTLE_TOWER|RIBBON_SYNDICATE|UNUSED_BATTLE_PARK"
+              r"|UNUSED_RESORT_AREA_MART"),
+    dict(regiao="Sinnoh", grupo="Pokémon Mansion e Trophy Garden (Route 212)",
+         modo="deficit", campos=TODOS_OS_CAMPOS, data="21/08/2026",
+         motivo="a mansão e o jardim do Sr. Backlot, cujo conteúdo é sorteio "
+                "diário de Pokémon e caça a estatueta",
+         alvo=["PokemonMansion", "PokemonMansionMaidsRoom",
+               "PokemonMansionOffice", "TrophyGarden"]),
+    dict(regiao="Sinnoh", grupo="Turnback Cave, Sendoff Spring e Spring Path",
+         modo="deficit", campos=TODOS_OS_CAMPOS, data="21/08/2026",
+         motivo="labirinto de pilares gerado por RNG, pós-jogo; o Giratina "
+                "passa a morar no Distortion World, que FICA no escopo",
+         alvo=["SendoffSpring", "SpringPath", "TurnbackCaveEntrance",
+               "TurnbackCavePillarRoom", "TurnbackCaveGiratinaRoom"]
+              + [f"TurnbackCavePillar{p}Room{s}"
+                 for p in (1, 2, 3) for s in range(1, 7)]),
+    dict(regiao="Sinnoh", grupo="Great Marsh (o Safari de gen 4)",
+         modo="deficit", campos=TODOS_OS_CAMPOS, data="21/08/2026",
+         motivo="Safari com bloco, lama e contador de passos de gen 4; o "
+                "Safari de Hoenn é outro jogo e continua na ROM",
+         alvo=["GreatMarsh6"]),
+    dict(regiao="Sinnoh", grupo="Great Marsh: as 5 áreas que só a fonte tem",
+         modo="mapa_fonte", campos=TODOS_OS_CAMPOS, data="21/08/2026",
+         motivo="mesmo motivo do GreatMarsh6", alvo=r"GREAT_MARSH"),
+    dict(regiao="Sinnoh", grupo="Amity Square", modo="deficit",
+         campos=TODOS_OS_CAMPOS, data="21/08/2026",
+         motivo="passear com o Pokémon seguindo; OW_FOLLOWERS_ENABLED é FALSE "
+                "em include/config/overworld.h (decisão 3, 16/08/2026)",
+         alvo=["AmitySquare", "HearthomeCityWestGateToAmitySquare",
+               "HearthomeCityEastGateToAmitySquare"]),
+    dict(regiao="Sinnoh", grupo="Pal Park", modo="deficit",
+         campos=TODOS_OS_CAMPOS, data="21/08/2026",
+         motivo="migração de GBA para DS; não há de onde migrar",
+         alvo=["PalPark", "PalParkLobby"]),
+    dict(regiao="Sinnoh", grupo="Underground (mineração e base secreta)",
+         modo="mapa_fonte", campos=TODOS_OS_CAMPOS, data="21/08/2026",
+         motivo="subterrâneo é minigame de tela dupla mais troca local",
+         alvo=r"UNDERGROUND"),
+    dict(regiao="Sinnoh", grupo="Palco de Contest", modo="deficit",
+         campos=TODOS_OS_CAMPOS, data="21/08/2026",
+         motivo="concurso de gen 4 (ritmo por toque) não tem motor aqui; o "
+                "Contest de Hoenn continua na ROM e o saguão fica de pé",
+         alvo=["ContestHallStageNoContest"]),
+    dict(regiao="Sinnoh", grupo="Palco de Contest em andamento (só a fonte)",
+         modo="mapa_fonte", campos=TODOS_OS_CAMPOS, data="21/08/2026",
+         motivo="variante do palco com concurso rolando",
+         alvo=r"CONTEST_HALL_STAGE"),
+    dict(regiao="Sinnoh", grupo="Pokétch Company", modo="deficit",
+         campos=TODOS_OS_CAMPOS, data="21/08/2026",
+         motivo="o Pokétch é a tela de baixo do DS (decisão 3, 16/08/2026)",
+         alvo=["JubilifeCity_PoketchCompany_F1",
+               "JubilifeCity_PoketchCompany_F2",
+               "JubilifeCity_PoketchCompany_F3"]),
+    dict(regiao="Sinnoh", grupo="GTS (Global Terminal)", modo="deficit",
+         campos=TODOS_OS_CAMPOS, data="21/08/2026",
+         motivo="troca global por Wi-Fi (decisão 3, 16/08/2026)",
+         alvo=["GlobalTerminal1F", "GlobalTerminal2F", "GlobalTerminal3F"]),
+    dict(regiao="Sinnoh", grupo="2º andar Wi-Fi dos Pokécenters",
+         modo="deficit", campos=TODOS_OS_CAMPOS, data="21/08/2026",
+         motivo="o 2F de gen 4 é só Union Room e Colosseum de Wi-Fi: sem "
+                "multiplayer não sobra nada jogável lá em cima",
+         alvo=["CanalaveCityPokecenter2F", "CelesticTownPokecenter2F",
+               "EternaCityPokecenter2F", "HearthomeCityPokecenter2F",
+               "PastoriaCityPokecenter2F", "PokemonLeagueNorthPokecenter2F",
+               "PokemonLeagueSouthPokecenter2F", "SnowpointCityPokecenter2F",
+               "SolaceonTownPokecenter2F", "SunyshoreCityPokecenter2F",
+               "VeilstoneCityPokecenter2F"]),
+    dict(regiao="Sinnoh", grupo="Union Room, Wi-Fi e Record Mixing",
+         modo="mapa_fonte", campos=TODOS_OS_CAMPOS, data="21/08/2026",
+         motivo="multiplayer de DS: não existe em GBA de um jogador",
+         alvo=r"UNION_ROOM|COMMUNICATION_CLUB|WIFI_PLAZA|GLOBAL_RANKING"
+              r"|RECORD_MIXING"),
+    dict(regiao="Sinnoh", grupo="Elevadores da Liga e corredor do Hall",
+         modo="deficit", campos=TODOS_OS_CAMPOS, data="21/08/2026",
+         motivo="cena de elevador entre as salas da Elite; a nossa Liga liga "
+                "sala a sala por warp",
+         alvo=["PokemonLeagueElevatorToAaronRoom"]),
+    dict(regiao="Sinnoh", grupo="Elevadores da Liga (só a fonte)",
+         modo="mapa_fonte", campos=TODOS_OS_CAMPOS, data="21/08/2026",
+         motivo="os outros quatro elevadores e o corredor do Hall of Fame",
+         alvo=r"POKEMON_LEAGUE_ELEVATOR|HALLWAY_TO_HALL_OF_FAME"),
+    dict(regiao="Sinnoh", grupo="Mapas de Mystery Gift", modo="mapa_fonte",
+         campos=TODOS_OS_CAMPOS, data="21/08/2026",
+         motivo="só abrem com item de distribuição, e Mystery Gift não existe "
+                "aqui (decisão 6 do plano de Sinnoh). Os lendários DELES não "
+                "são cortados: outro executor os realoca (ver PLANO-ESCOPO.md)",
+         alvo=r"FULLMOON|NEWMOON|FLOWER_PARADISE|HALL_OF_ORIGIN|SEABREAK"),
+    dict(regiao="Sinnoh", grupo="Game Corner de Veilstone", modo="deficit",
+         campos=TODOS_OS_CAMPOS, data="21/08/2026",
+         motivo="caça-níquel de gen 4, minigame sem motor aqui. SÓ ELE: o Bug "
+                "Contest de Johto fica, por decisão do Gui no mesmo dia",
+         alvo=["GameCorner"]),
+    # ----------------------------------------------------------------- Unova
+    dict(regiao="Unova", grupo="Battle Tower do BW3G", modo="mapa_fonte",
+         campos=TODOS_OS_CAMPOS, data="21/08/2026",
+         motivo="pós-jogo repetido; a ROM já tem o Battle Frontier de Hoenn",
+         alvo=r"^BattleTower"),
+    dict(regiao="Unova", grupo="Cable Club (troca e batalha por cabo)",
+         modo="deficit", campos=TODOS_OS_CAMPOS, data="21/08/2026",
+         motivo="Trade Center, Time Capsule e Colosseum são multiplayer local",
+         alvo=["Unova_TradeCenter", "Unova_TimeCapsule", "Unova_Colosseum"]),
+    dict(regiao="Unova", grupo="Castelia Plaza (caça-níquel)", modo="deficit",
+         campos=TODOS_OS_CAMPOS, data="21/08/2026",
+         motivo="Game Corner de gen 2 com o elevador, o saguão, a sala de "
+                "prêmios e o restaurante que servem a ele",
+         alvo=["Unova_CasteliaPlazaElevator", "Unova_CasteliaPlazaGameCorner",
+               "Unova_CasteliaPlazaLobby", "Unova_CasteliaPlazaPrizeRoom",
+               "Unova_CasteliaPlazaRestaurant"]),
+    dict(regiao="Unova", grupo="2º andar do Pokécenter", modo="deficit",
+         campos=TODOS_OS_CAMPOS, data="21/08/2026",
+         motivo="o 2F de gen 2 é troca e batalha por cabo, mesmo motivo do "
+                "Cable Club", alvo=["Unova_Pokecenter2F"]),
+]
+
+
+def corta_campo(a, b, cortado):
+    """(nosso, da fonte) depois do corte de DÉFICIT daquele campo.
+
+    `min(a, b)` e não `a = b = 0`: o campo passa a valer 100% naquele mapa, e o
+    excedente NOSSO não empurra a coluna acima de 100. Tirar só do denominador
+    (o erro óbvio aqui) daria 10 de 5 num mapa em que pusemos mais gente que a
+    fonte, e a coluna passaria de 200%. Travado no `--demo`.
+    """
+    return (min(a, b), min(a, b)) if cortado else (a, b)
+
+
+def cortes_da_regiao(regiao, tabela=None):
+    """(regex dos mapas da fonte cortados, {mapa nosso: campos cortados})."""
+    tabela = CORTES_DO_GUI if tabela is None else tabela
+    fonte, defi = [], {}
+    for x in tabela:
+        if x["regiao"] != regiao:
+            continue
+        if x["modo"] == "mapa_fonte":
+            fonte.append(x["alvo"])
+        else:
+            for m in x["alvo"]:
+                defi.setdefault(m, set()).update(x["campos"])
+    return (re.compile("|".join(fonte)) if fonte else None), defi
+
+
+def confere_cortes(tabela=None):
+    """Problemas na tabela de cortes. Lista vazia = tabela sã.
+
+    Mesma lógica de `confere_apelidos`: corte errado não aparece como erro,
+    aparece como completude ALTA. Um nome de mapa com um dígito trocado corta
+    NADA e ninguém percebe, porque o número sobe do mesmo jeito pelos outros.
+    """
+    tabela = CORTES_DO_GUI if tabela is None else tabela
+    ruim, vistos = [], set()
+    for x in tabela:
+        if x["grupo"] in vistos:
+            ruim.append(f"grupo repetido: {x['grupo']}")
+        vistos.add(x["grupo"])
+        if x["regiao"] not in REGIOES:
+            ruim.append(f"{x['grupo']}: região {x['regiao']} não existe")
+        for c in x["campos"]:
+            if c not in TODOS_OS_CAMPOS:
+                ruim.append(f"{x['grupo']}: campo {c} não existe")
+        if x["modo"] == "mapa_fonte":
+            try:
+                re.compile(x["alvo"])
+            except re.error as e:
+                ruim.append(f"{x['grupo']}: regex inválida ({e})")
+        elif x["modo"] == "deficit":
+            for m in x["alvo"]:
+                if not os.path.exists(f"{RAIZ}/data/maps/{m}/map.json"):
+                    ruim.append(f"{x['grupo']}: o mapa {m} não existe em "
+                                "data/maps")
+        else:
+            ruim.append(f"{x['grupo']}: modo {x['modo']} não existe")
+    return ruim
+
+
 def normaliza(nome):
     """Nosso 'PalletTown_Frlg' e o 'PalletTown' da fonte sao o mesmo mapa."""
     nome = APELIDOS_FONTE.get(nome, nome)
@@ -285,11 +528,28 @@ def _sobra_plat(fonte, heads):
     return {h: (n, _cru(h) in dest) for h, n in ev.items()}
 
 
+# Registro que a regra de sobra pegaria, e que é CONTEÚDO. Exceção por NOME, de
+# propósito e curta: a regra corta por AUSÊNCIA DE DADO (zero evento e nenhuma
+# porta de entrada), e há lugar de verdade cujo dado a fonte simplesmente não
+# traz no formato que lemos.
+#
+#   Distortion World: os 9 andares apontam para `events_empty` no Platinum
+#   porque a cena inteira é código, não tabela de evento; e o 1F, que TEM
+#   evento, prova que o lugar existe. O Gui decidiu em 21/08/2026 que ele FICA
+#   no escopo, com gravidade normal. Se ele ficasse no balde, o mapa sumiria do
+#   denominador calado e ninguém veria a dívida.
+#   Seabreak Path: idem, zero evento na fonte, e é caminho andável de verdade.
+#   Ele SAI do escopo, mas por decisão datada em `CORTES_DO_GUI` (Mystery
+#   Gift), que é o lugar onde o Gui enxerga o corte, e não por esta regra.
+CONTEUDO_APESAR_DE_VAZIO = re.compile(r"DISTORTION_WORLD|SEABREAK", re.I)
+
+
 def julga_sobra(medido):
     """As DUAS condições, e só elas. Julgamento separado da leitura de disco
     para poder ser testado com medição plantada em `--demo`."""
     return {m for m, (eventos, tem_entrada) in medido.items()
-            if not eventos and not tem_entrada}
+            if not eventos and not tem_entrada
+            and not CONTEUDO_APESAR_DE_VAZIO.search(m)}
 
 
 def sobra_de_tabela(fonte, cfg, heads=None, _cache={}):
@@ -499,6 +759,7 @@ def main():
 
     faltando_total = {}
     sobras = {}
+    cortes = {}
     galar_extras = None
     for nome, cfg in REGIOES.items():
         if alvo and alvo.lower() != nome.lower():
@@ -549,6 +810,12 @@ def main():
         # e o que saiu vai impresso em `--detalhe`.
         sobras[nome] = sorted(m for m in so_na_fonte if m in sobra)
         so_na_fonte = [m for m in so_na_fonte if m not in sobra]
+        # Os CORTES DO GUI, que são escopo e não régua: o que sai daqui está
+        # nomeado, datado e impresso em `--detalhe`.
+        rx_corte, defi = cortes_da_regiao(nome)
+        fora = {m for m in so_na_fonte if rx_corte and rx_corte.search(m)}
+        so_na_fonte = [m for m in so_na_fonte if m not in fora]
+        cortes[nome] = (sorted(fora), {m for m, _ in casados if m in defi})
         # Mapas que a FONTE tem e nos nao.
         #
         # ARMADILHA: o denominador tem que descontar o que ja veio por OUTRA
@@ -570,9 +837,10 @@ def main():
             if not a or not b:
                 continue
             for c, _ in CAMPOS:
-                soma_n[c] += a[c]
-                soma_f[c] += b[c]
-            if b["object_events"] >= 5:
+                x, y = corta_campo(a[c], b[c], c in defi.get(meu, ()))
+                soma_n[c] += x
+                soma_f[c] += y
+            if b["object_events"] >= 5 and "object_events" not in defi.get(meu, ()):
                 r = a["object_events"] / b["object_events"]
                 if r < 0.75:
                     piores.append((r, meu, a["object_events"], b["object_events"]))
@@ -616,6 +884,31 @@ def main():
                 print(f"\n=== {nome}: mapas mais vazios que o original ===")
                 for r, m, a, b in piores:
                     print(f"   {100*r:5.1f}%  {m:42} {a} de {b} objetos")
+        for nome, (fonte_fora, nossos_fora) in cortes.items():
+            grupos = [x for x in CORTES_DO_GUI if x["regiao"] == nome]
+            if not grupos:
+                continue
+            print(f"\n=== {nome}: o que os CORTES DO GUI tiraram do "
+                  f"denominador ===")
+            print(f"   {len(fonte_fora)} registros da fonte e "
+                  f"{len(nossos_fora)} mapas nossos, em {len(grupos)} grupos.")
+            print("   isto É corte de escopo, com data e motivo, ao contrário "
+                  "do balde de sobra abaixo.")
+            rest = set(fonte_fora)
+            for x in grupos:
+                if x["modo"] == "mapa_fonte":
+                    rx = re.compile(x["alvo"])
+                    saiu = sorted(m for m in rest if rx.search(m))
+                    rest -= set(saiu)
+                else:
+                    saiu = sorted(m for m in x["alvo"] if m in nossos_fora)
+                print(f"   [{x['data']}] {x['grupo']} ({x['modo']}, "
+                      f"{len(saiu)}): {x['motivo']}")
+                for m in saiu:
+                    print(f"      {m}")
+                if not saiu:
+                    print("      (nada: este grupo não casou com mapa nenhum "
+                          "hoje)")
         for nome, fora in sobras.items():
             if not fora:
                 continue
@@ -705,6 +998,50 @@ def demo():
     med2 = _sobra_gen2(REGIOES["Unova"]["fonte"])
     assert med2["ElmsLab"][0] > 0 and med2["ElmsLab"][1] is False
     assert "ElmsLab" not in julga_sobra(med2)
+    # 7.1 O Distortion World é CONTEÚDO e não pode cair no balde de sobra, nem
+    #     quando a fonte não traz evento nenhum dele (é o caso real: 9 dos 10
+    #     andares apontam para `events_empty`). Se ele sumir do denominador
+    #     calado, o corte de escopo deixa de ser decisão do Gui e vira efeito
+    #     colateral de uma régua.
+    assert julga_sobra({"MAP_HEADER_DISTORTION_WORLD_B3F": (0, False)}) == set()
+    assert julga_sobra({"MAP_HEADER_SEABREAK_PATH": (0, False)}) == set()
+    sys.path.insert(0, os.path.join(RAIZ, "dev_scripts"))
+    import importa_npcs_sinnoh as I
+    assert not any("DISTORTION" in m for m in
+                   julga_sobra(_sobra_plat(REGIOES["Sinnoh"]["fonte"],
+                                           I.headers_do_platinum())))
+
+    # 8. os CORTES DO GUI. Corte errado não aparece como erro: aparece como
+    #    completude alta sem obra nenhuma.
+    assert confere_cortes() == [], confere_cortes()
+    # mutação plantada 4: corte de déficit apontando para mapa que não existe
+    assert confere_cortes([dict(regiao="Sinnoh", grupo="x", modo="deficit",
+                                alvo=["MapaQueNaoExiste"], data="",
+                                campos=TODOS_OS_CAMPOS, motivo="")])
+    # mutação plantada 5: modo que não existe, e campo que não existe
+    assert confere_cortes([dict(regiao="Sinnoh", grupo="x", modo="apagar",
+                                alvo=[], campos=(), motivo="", data="")])
+    assert confere_cortes([dict(regiao="Sinnoh", grupo="x", modo="deficit",
+                                alvo=[], campos=("cor_dos_olhos",), motivo="",
+                                data="")])
+    # 8.1 corte de DÉFICIT nunca põe coluna acima de 100 por si só. O mapa A
+    #     tem MAIS gente que a fonte e o B tem menos; cortar os dois tem de dar
+    #     exatamente 100%, nunca 200%, que é o que sairia se o corte tirasse só
+    #     o denominador.
+    plantado = [("A", 10, 5), ("B", 0, 5)]
+    n = f = 0
+    for _, a, b in plantado:
+        x, y = corta_campo(a, b, True)
+        n += x
+        f += y
+    assert (n, f) == (5, 5), (n, f)
+    # ...e cortar nada não muda nada
+    assert [corta_campo(a, b, False) for _, a, b in plantado] == [(10, 5), (0, 5)]
+    # 8.2 o corte é POR CAMPO: o grupo do Cable Club não pode mexer em mapa de
+    #     fora dele, e a régua de Kanto não tem corte nenhum.
+    _, defi = cortes_da_regiao("Unova")
+    assert "Unova_TradeCenter" in defi and "Unova_CasteliaCity" not in defi
+    assert cortes_da_regiao("Kanto") == (None, {})
 
     print("demo ok")
 
