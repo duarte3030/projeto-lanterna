@@ -1,7 +1,7 @@
 [
  {
   "id": "T116.1",
-  "nome": "Modo de teste, LV.5 TRAINERS. O Gui joga a ROM com esta opcao ligada, entao ela e infraestrutura de playtest e nao enfeite. O gancho vive em src/battle_main.c, dentro de CreateNPCTrainerPartyFromTrainer, e e uma linha so: com TestOptionGet(TEST_OPT_LV5_TRAINERS) o mon recebe a EXPERIENCIA do nivel 5 (gExperienceTables[growthRate][5]) e CalculateMonStats logo abaixo recalcula o nivel a partir dela. Mexer na experiencia, e nao em MON_DATA_LEVEL, e de proposito: CalculateMonStats derivaria o nivel da experiencia de qualquer jeito e sobrescreveria um nivel gravado a mao. E a linha fica DEPOIS de CustomTrainerPartyAssignMoves porque baixar o nivel antes faria GiveMonInitialMoveset regerar o moveset como o de um nivel 5, que e o oposto do pedido. O ROTEIRO DO MENU, medido em PNG quadro a quadro e nao deduzido: depois da abertura o jogador esta no quarto de Pallet Town. START abre o menu; DOIS UP aproveitam que o cursor do menu inicial DA A VOLTA (Menu_MoveCursor, src/menu.c) para cair em OPTION sem depender de quantos itens o menu tem naquele momento (POKEDEX, POKEMON e POKENAV entram e saem por flag, EXIT e sempre o ultimo e OPTION o penultimo). A no OPTION abre o menu de opcoes com o cursor em TEXT SPEED; OITO DOWN chegam em LV.5 TRAINERS (MENUITEM_LV5TRAINERS = 8 em src/option_menu.c, contando de TEXT SPEED = 0); RIGHT alterna a opcao (TwoChoice_ProcessInput faz selection ^= 1, entao LEFT faria o mesmo); B roda Task_OptionMenuSave, que e quem chama TestOptionSet. O SEGUNDO B do fim nao e enfeite: sair do menu de opcoes devolve o jogo ao campo com o MENU INICIAL AINDA ABERTO, e com ele aberto o R+START do harness nao abre o menu de debug, ou seja o warp do caso nunca acontecia (medido: o caso terminava no quarto, grupo 38 mapa 1). A PROVA e por fato de EWRAM em quatro camadas, e nenhuma delas e 'abriu uma batalha'. (1) `opcoes` e o byte gSaveBlock2Ptr->filler_90[0], onde moram as seis opcoes do modo de teste (include/global.h): 36 e o mundo em repouso desde 19/08/2026 (TURBO A/B, 32, mais TEST_OPT_LV5_TRAINERS, 1 << 2, que agora nasce ligada), 32 e esse mesmo mundo com o LV.5 desligado no menu, 44 e 36 mais TEST_OPT_OPTIONAL_BATTLE (1 << 3). (2) `nivelinimigo` e `nivelinimigo1..5` sao os SEIS slots de gParties[B_TRAINER_OPPONENT_A], e nao so o primeiro: o ACE, que e quem carrega o gimmick, e o ULTIMO do time, entao provar o mon 0 sozinho deixaria o ace de fora. Slot vazio le 0. (3) `bespecie` e `bgolpe0..3` vem de gBattleMons[1], a copia DECIFRADA do adversario ativo (struct BattlePokemon): e o unico lugar onde especie e golpes sao campos simples, porque no time eles moram dentro dos substructs cifrados. Sao eles que separam 'veio no nivel 5' de 'veio outro Pokemon, com outro moveset'. (4) `gimmick` e o u16 de gBattleStruct que carrega opponentMonCanTera:6 e opponentMonCanDynamax:6 (include/battle.h), que sao os bits que autorizam o adversario a Dynamaxar ou Terastalizar (src/battle_gimmick.c). O offset dele nao e chumbado: campo de bits nao tem offsetof, entao o probe do testa_critico.py compila uma struct BattleStruct constante com .opponentMonCanDynamax = 0x3F e procura o primeiro byte nao zero. ESTE CASO: LIDER DE GINASIO. BYRON, de Canalave, com a opcao LIGADA. O caminho ate ele e o do T40.2/T95.1, ja provado, com as sete flags de treinador derrotado do ginasio acesas porque os sete tem raio de visao e roubariam a batalha. Time de QUATRO: os slots 4 e 5 leem 0 porque nao existem, e nao porque falharam. O par negativo e o T116.2. MUDANCA DE 19/08/2026, POR PEDIDO DIRETO DO GUI ('todos os niveis de pokemon quero que sejam lv 5'): a opcao LV.5 TRAINERS passou a NASCER LIGADA no jogo novo (src/new_game.c), entao o MUNDO EM REPOUSO agora e `opcoes` = 36 (32 do TURBO A/B mais 4 do LV.5), e nao mais 32. Nenhuma prova deste caso mudou de valor; o que mudou foi quantos RIGHT o roteiro do menu precisa dar para chegar no mesmo estado, porque o RIGHT alterna e o ponto de partida virou o outro. Aqui o RIGHT e apertado DUAS vezes: desliga e liga de novo. Duas e nao zero de proposito, para o caso continuar provando que o MENU escreve o bit, em vez de so herdar o default do jogo novo (isso quem prova e o T119.3).",
+  "nome": "Modo de teste, LV.5 TRAINERS. O Gui joga a ROM com esta opcao ligada, entao ela e infraestrutura de playtest e nao enfeite. O gancho vive em src/battle_main.c, dentro de CreateNPCTrainerPartyFromTrainer, e e uma linha so: com TestOptionGet(TEST_OPT_LV5_TRAINERS) o mon recebe a EXPERIENCIA do nivel 5 (gExperienceTables[growthRate][5]) e CalculateMonStats logo abaixo recalcula o nivel a partir dela. Mexer na experiencia, e nao em MON_DATA_LEVEL, e de proposito: CalculateMonStats derivaria o nivel da experiencia de qualquer jeito e sobrescreveria um nivel gravado a mao. E a linha fica DEPOIS de CustomTrainerPartyAssignMoves porque baixar o nivel antes faria GiveMonInitialMoveset regerar o moveset como o de um nivel 5, que e o oposto do pedido. O ROTEIRO DO MENU, medido em PNG quadro a quadro e nao deduzido: depois da abertura o jogador esta no quarto de Pallet Town. START abre o menu; DOIS UP aproveitam que o cursor do menu inicial DA A VOLTA (Menu_MoveCursor, src/menu.c) para cair em OPTION sem depender de quantos itens o menu tem naquele momento (POKEDEX, POKEMON e POKENAV entram e saem por flag, EXIT e sempre o ultimo e OPTION o penultimo). A no OPTION abre o menu de opcoes com o cursor em TEXT SPEED; OITO DOWN chegam em LV.5 TRAINERS (MENUITEM_LV5TRAINERS = 8 em src/option_menu.c, contando de TEXT SPEED = 0); RIGHT alterna a opcao (TwoChoice_ProcessInput faz selection ^= 1, entao LEFT faria o mesmo); B roda Task_OptionMenuSave, que e quem chama TestOptionSet. O SEGUNDO B do fim nao e enfeite: sair do menu de opcoes devolve o jogo ao campo com o MENU INICIAL AINDA ABERTO, e com ele aberto o R+START do harness nao abre o menu de debug, ou seja o warp do caso nunca acontecia (medido: o caso terminava no quarto, grupo 38 mapa 1). A PROVA e por fato de EWRAM em quatro camadas, e nenhuma delas e 'abriu uma batalha'. (1) `opcoes` e o byte gSaveBlock2Ptr->filler_90[0], onde moram as seis opcoes do modo de teste (include/global.h): 36 e o mundo em repouso desde 19/08/2026 (TURBO A/B, 32, mais TEST_OPT_LV5_TRAINERS, 1 << 2, que agora nasce ligada), 32 e esse mesmo mundo com o LV.5 desligado no menu, 44 e 36 mais TEST_OPT_OPTIONAL_BATTLE (1 << 3). (2) `nivelinimigo` e `nivelinimigo1..5` sao os SEIS slots de gParties[B_TRAINER_OPPONENT_A], e nao so o primeiro: o ACE, que e quem carrega o gimmick, e o ULTIMO do time, entao provar o mon 0 sozinho deixaria o ace de fora. Slot vazio le 0. (3) `bespecie` e `bgolpe0..3` vem de gBattleMons[1], a copia DECIFRADA do adversario ativo (struct BattlePokemon): e o unico lugar onde especie e golpes sao campos simples, porque no time eles moram dentro dos substructs cifrados. Sao eles que separam 'veio no nivel 5' de 'veio outro Pokemon, com outro moveset'. (4) `gimmick` e o u16 de gBattleStruct que carrega opponentMonCanTera:6 e opponentMonCanDynamax:6 (include/battle.h), que sao os bits que autorizam o adversario a Dynamaxar ou Terastalizar (src/battle_gimmick.c). O offset dele nao e chumbado: campo de bits nao tem offsetof, entao o probe do testa_critico.py compila uma struct BattleStruct constante com .opponentMonCanDynamax = 0x3F e procura o primeiro byte nao zero. ESTE CASO: LIDER DE GINASIO. BYRON, de Canalave, com a opcao LIGADA. O caminho ate ele e o do T40.2/T95.1, ja provado, com as sete flags de treinador derrotado do ginasio acesas porque os sete tem raio de visao e roubariam a batalha. Time de QUATRO: os slots 4 e 5 leem 0 porque nao existem, e nao porque falharam. O par negativo e o T116.2. MUDANCA DE 19/08/2026, POR PEDIDO DIRETO DO GUI ('todos os niveis de pokemon quero que sejam lv 5'): a opcao LV.5 TRAINERS passou a NASCER LIGADA no jogo novo (src/new_game.c), entao o MUNDO EM REPOUSO agora e `opcoes` = 36 (32 do TURBO A/B mais 4 do LV.5), e nao mais 32. Nenhuma prova deste caso mudou de valor; o que mudou foi quantos RIGHT o roteiro do menu precisa dar para chegar no mesmo estado, porque o RIGHT alterna e o ponto de partida virou o outro. Aqui o RIGHT e apertado DUAS vezes: desliga e liga de novo. Duas e nao zero de proposito, para o caso continuar provando que o MENU escreve o bit, em vez de so herdar o default do jogo novo (isso quem prova e o T119.3). [ATUALIZADO 21/08/2026, Fase F: os times de Byron, Aaron e Genesis foram reescritos por dev_scripts/fase_f_chefes.py a partir de fase_f_chefes.json. Os numeros esperados aqui sao os do time NOVO; o que este caso prova (o modo LV.5 TRAINERS rebaixa treinador preservando especie, moveset e gimmick) nao mudou. Ver PLANO-FASE-F.md e os casos T128.]",
   "flags": [
    "0x85f",
    "0x863",
@@ -22,22 +22,22 @@
     "nivelinimigo1": 5,
     "nivelinimigo2": 5,
     "nivelinimigo3": 5,
-    "nivelinimigo4": 0,
-    "nivelinimigo5": 0,
-    "bespecie": 82,
+    "nivelinimigo4": 5,
+    "nivelinimigo5": 5,
+    "bespecie": 462,
     "bnivel": 5,
-    "bgolpe0": 430,
-    "bgolpe1": 85,
-    "bgolpe2": 161,
-    "bgolpe3": 319,
-    "gimmick": 768
+    "bgolpe0": 85,
+    "bgolpe1": 430,
+    "bgolpe2": 521,
+    "bgolpe3": 704,
+    "gimmick": 0
    },
    "oponente": "TRAINER_SINNOH_LEADER_BYRON"
   }
  },
  {
   "id": "T116.2",
-  "nome": "PAR NEGATIVO do T116.1, e ele NAO e 'nao mexer no menu': o roteiro entra no menu de opcoes igualzinho e aperta RIGHT UMA VEZ, ou seja DESLIGA a opcao. E o que prova que ela desliga, e nao so que liga. Com ela desligada o BYRON volta ao nivel de Sinnoh (176 a 180, curva do dev_scripts/curva_de_nivel.py), `opcoes` volta a 32, e a ESPECIE, os QUATRO GOLPES e a palavra de gimmick sao BYTE A BYTE os mesmos do T116.1: e essa igualdade, e nao a diferenca de nivel, que prova que a queda para o nivel 5 nao troca Pokemon, nao regera moveset e nao apaga o Dynamax do ace. gimmick 768 e 0x300, ou seja os bits 8 e 9 do u16, ou seja Dynamax armado nos slots 2 e 3 (a metade alta do u16 e opponentMonCanDynamax). MUDANCA DE 19/08/2026, POR PEDIDO DIRETO DO GUI ('todos os niveis de pokemon quero que sejam lv 5'): a opcao LV.5 TRAINERS passou a NASCER LIGADA no jogo novo (src/new_game.c), entao o MUNDO EM REPOUSO agora e `opcoes` = 36 (32 do TURBO A/B mais 4 do LV.5), e nao mais 32. Nenhuma prova deste caso mudou de valor; o que mudou foi quantos RIGHT o roteiro do menu precisa dar para chegar no mesmo estado, porque o RIGHT alterna e o ponto de partida virou o outro. Aqui o RIGHT e apertado UMA vez so, e agora e ela que DESLIGA a opcao e deixa `opcoes` em 32.",
+  "nome": "PAR NEGATIVO do T116.1, e ele NAO e 'nao mexer no menu': o roteiro entra no menu de opcoes igualzinho e aperta RIGHT UMA VEZ, ou seja DESLIGA a opcao. E o que prova que ela desliga, e nao so que liga. Com ela desligada o BYRON volta ao nivel de Sinnoh (176 a 180, curva do dev_scripts/curva_de_nivel.py), `opcoes` volta a 32, e a ESPECIE, os QUATRO GOLPES e a palavra de gimmick sao BYTE A BYTE os mesmos do T116.1: e essa igualdade, e nao a diferenca de nivel, que prova que a queda para o nivel 5 nao troca Pokemon, nao regera moveset e nao apaga o Dynamax do ace. gimmick 768 e 0x300, ou seja os bits 8 e 9 do u16, ou seja Dynamax armado nos slots 2 e 3 (a metade alta do u16 e opponentMonCanDynamax). MUDANCA DE 19/08/2026, POR PEDIDO DIRETO DO GUI ('todos os niveis de pokemon quero que sejam lv 5'): a opcao LV.5 TRAINERS passou a NASCER LIGADA no jogo novo (src/new_game.c), entao o MUNDO EM REPOUSO agora e `opcoes` = 36 (32 do TURBO A/B mais 4 do LV.5), e nao mais 32. Nenhuma prova deste caso mudou de valor; o que mudou foi quantos RIGHT o roteiro do menu precisa dar para chegar no mesmo estado, porque o RIGHT alterna e o ponto de partida virou o outro. Aqui o RIGHT e apertado UMA vez so, e agora e ela que DESLIGA a opcao e deixa `opcoes` em 32. [ATUALIZADO 21/08/2026, Fase F: os times de Byron, Aaron e Genesis foram reescritos por dev_scripts/fase_f_chefes.py a partir de fase_f_chefes.json. Os numeros esperados aqui sao os do time NOVO; o que este caso prova (o modo LV.5 TRAINERS rebaixa treinador preservando especie, moveset e gimmick) nao mudou. Ver PLANO-FASE-F.md e os casos T128.]",
   "flags": [
    "0x85f",
    "0x863",
@@ -56,24 +56,24 @@
     "opcoes": 32,
     "nivelinimigo": 176,
     "nivelinimigo1": 176,
-    "nivelinimigo2": 180,
-    "nivelinimigo3": 180,
-    "nivelinimigo4": 0,
-    "nivelinimigo5": 0,
-    "bespecie": 82,
+    "nivelinimigo2": 177,
+    "nivelinimigo3": 178,
+    "nivelinimigo4": 179,
+    "nivelinimigo5": 180,
+    "bespecie": 462,
     "bnivel": 176,
-    "bgolpe0": 430,
-    "bgolpe1": 85,
-    "bgolpe2": 161,
-    "bgolpe3": 319,
-    "gimmick": 768
+    "bgolpe0": 85,
+    "bgolpe1": 430,
+    "bgolpe2": 521,
+    "bgolpe3": 704,
+    "gimmick": 0
    },
    "oponente": "TRAINER_SINNOH_LEADER_BYRON"
   }
  },
  {
   "id": "T116.3",
-  "nome": "ELITE DOS QUATRO com a opcao LIGADA: AARON, da Liga de Sinnoh (roteiro do T82.1). Os SEIS slots caem para 5, vindos de 188/188/188/190/192/192. gimmick 3072 e 0x0C00, bits 10 e 11, ou seja Dynamax armado nos slots 4 e 5, que sao o ace e a lenda que o bloco B8 deu a casa: e exatamente o caso em que 'preserva o gimmick' importa, porque o gimmick esta no ULTIMO mon do time e nao no primeiro. Par negativo: T116.4. MUDANCA DE 19/08/2026, POR PEDIDO DIRETO DO GUI ('todos os niveis de pokemon quero que sejam lv 5'): a opcao LV.5 TRAINERS passou a NASCER LIGADA no jogo novo (src/new_game.c), entao o MUNDO EM REPOUSO agora e `opcoes` = 36 (32 do TURBO A/B mais 4 do LV.5), e nao mais 32. Nenhuma prova deste caso mudou de valor; o que mudou foi quantos RIGHT o roteiro do menu precisa dar para chegar no mesmo estado, porque o RIGHT alterna e o ponto de partida virou o outro. Aqui o RIGHT e apertado DUAS vezes: desliga e liga de novo. Duas e nao zero de proposito, para o caso continuar provando que o MENU escreve o bit, em vez de so herdar o default do jogo novo (isso quem prova e o T119.3).",
+  "nome": "ELITE DOS QUATRO com a opcao LIGADA: AARON, da Liga de Sinnoh (roteiro do T82.1). Os SEIS slots caem para 5, vindos de 188/188/188/190/192/192. gimmick 3072 e 0x0C00, bits 10 e 11, ou seja Dynamax armado nos slots 4 e 5, que sao o ace e a lenda que o bloco B8 deu a casa: e exatamente o caso em que 'preserva o gimmick' importa, porque o gimmick esta no ULTIMO mon do time e nao no primeiro. Par negativo: T116.4. MUDANCA DE 19/08/2026, POR PEDIDO DIRETO DO GUI ('todos os niveis de pokemon quero que sejam lv 5'): a opcao LV.5 TRAINERS passou a NASCER LIGADA no jogo novo (src/new_game.c), entao o MUNDO EM REPOUSO agora e `opcoes` = 36 (32 do TURBO A/B mais 4 do LV.5), e nao mais 32. Nenhuma prova deste caso mudou de valor; o que mudou foi quantos RIGHT o roteiro do menu precisa dar para chegar no mesmo estado, porque o RIGHT alterna e o ponto de partida virou o outro. Aqui o RIGHT e apertado DUAS vezes: desliga e liga de novo. Duas e nao zero de proposito, para o caso continuar provando que o MENU escreve o bit, em vez de so herdar o default do jogo novo (isso quem prova e o T119.3). [ATUALIZADO 21/08/2026, Fase F: os times de Byron, Aaron e Genesis foram reescritos por dev_scripts/fase_f_chefes.py a partir de fase_f_chefes.json. Os numeros esperados aqui sao os do time NOVO; o que este caso prova (o modo LV.5 TRAINERS rebaixa treinador preservando especie, moveset e gimmick) nao mudou. Ver PLANO-FASE-F.md e os casos T128.]",
   "antes_do_warp": "60:START,60:NADA,20:UP,20:UP,30:NADA,20:A,120:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:RIGHT,30:NADA,16:RIGHT,30:NADA,20:B,180:NADA,20:B,90:NADA",
   "warp": "MAP_SINNOH_LEAGUE_AARONS_ROOM",
   "roteiro": "16:UP*9,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
@@ -89,17 +89,17 @@
     "nivelinimigo5": 5,
     "bespecie": 469,
     "bnivel": 5,
-    "bgolpe0": 403,
-    "bgolpe1": 405,
-    "bgolpe2": 369,
-    "bgolpe3": 104,
-    "gimmick": 3072
+    "bgolpe0": 405,
+    "bgolpe1": 403,
+    "bgolpe2": 202,
+    "bgolpe3": 182,
+    "gimmick": 0
    }
   }
  },
  {
   "id": "T116.4",
-  "nome": "PAR NEGATIVO do T116.3: mesmo caminho, menu aberto igual, RIGHT uma vez (desliga). O AARON volta a 188/188/188/190/192/192, `opcoes` volta a 32, e especie, golpes e gimmick ficam identicos aos do T116.3. MUDANCA DE 19/08/2026, POR PEDIDO DIRETO DO GUI ('todos os niveis de pokemon quero que sejam lv 5'): a opcao LV.5 TRAINERS passou a NASCER LIGADA no jogo novo (src/new_game.c), entao o MUNDO EM REPOUSO agora e `opcoes` = 36 (32 do TURBO A/B mais 4 do LV.5), e nao mais 32. Nenhuma prova deste caso mudou de valor; o que mudou foi quantos RIGHT o roteiro do menu precisa dar para chegar no mesmo estado, porque o RIGHT alterna e o ponto de partida virou o outro. Aqui o RIGHT e apertado UMA vez so, e agora e ela que DESLIGA a opcao e deixa `opcoes` em 32.",
+  "nome": "PAR NEGATIVO do T116.3: mesmo caminho, menu aberto igual, RIGHT uma vez (desliga). O AARON volta a 188/188/188/190/192/192, `opcoes` volta a 32, e especie, golpes e gimmick ficam identicos aos do T116.3. MUDANCA DE 19/08/2026, POR PEDIDO DIRETO DO GUI ('todos os niveis de pokemon quero que sejam lv 5'): a opcao LV.5 TRAINERS passou a NASCER LIGADA no jogo novo (src/new_game.c), entao o MUNDO EM REPOUSO agora e `opcoes` = 36 (32 do TURBO A/B mais 4 do LV.5), e nao mais 32. Nenhuma prova deste caso mudou de valor; o que mudou foi quantos RIGHT o roteiro do menu precisa dar para chegar no mesmo estado, porque o RIGHT alterna e o ponto de partida virou o outro. Aqui o RIGHT e apertado UMA vez so, e agora e ela que DESLIGA a opcao e deixa `opcoes` em 32. [ATUALIZADO 21/08/2026, Fase F: os times de Byron, Aaron e Genesis foram reescritos por dev_scripts/fase_f_chefes.py a partir de fase_f_chefes.json. Os numeros esperados aqui sao os do time NOVO; o que este caso prova (o modo LV.5 TRAINERS rebaixa treinador preservando especie, moveset e gimmick) nao mudou. Ver PLANO-FASE-F.md e os casos T128.]",
   "antes_do_warp": "60:START,60:NADA,20:UP,20:UP,30:NADA,20:A,120:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:RIGHT,30:NADA,20:B,180:NADA,20:B,90:NADA",
   "warp": "MAP_SINNOH_LEAGUE_AARONS_ROOM",
   "roteiro": "16:UP*9,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
@@ -109,17 +109,17 @@
     "opcoes": 32,
     "nivelinimigo": 188,
     "nivelinimigo1": 188,
-    "nivelinimigo2": 188,
+    "nivelinimigo2": 189,
     "nivelinimigo3": 190,
-    "nivelinimigo4": 192,
+    "nivelinimigo4": 191,
     "nivelinimigo5": 192,
     "bespecie": 469,
     "bnivel": 188,
-    "bgolpe0": 403,
-    "bgolpe1": 405,
-    "bgolpe2": 369,
-    "bgolpe3": 104,
-    "gimmick": 3072
+    "bgolpe0": 405,
+    "bgolpe1": 403,
+    "bgolpe2": 202,
+    "bgolpe3": 182,
+    "gimmick": 0
    }
   }
  },
@@ -144,18 +144,18 @@
     "nivelinimigo5": 5,
     "bespecie": 563,
     "bnivel": 5,
-    "bgolpe0": 92,
-    "bgolpe1": 182,
-    "bgolpe2": 247,
-    "bgolpe3": 94,
-    "gimmick": 0
+    "bgolpe0": 261,
+    "bgolpe1": 247,
+    "bgolpe2": 417,
+    "bgolpe3": 390,
+    "gimmick": 32
    },
    "oponente": "TRAINER_UNOVA_CHAMPION_GENESIS"
   }
  },
  {
   "id": "T116.6",
-  "nome": "PAR NEGATIVO do T116.5: desliga no menu, e o campeao de Unova volta aos niveis 253/255/255/253/253/255 com a mesma especie (563) e os mesmos quatro golpes (92, 182, 247, 94) do caso em nivel 5. MUDANCA DE 19/08/2026, POR PEDIDO DIRETO DO GUI ('todos os niveis de pokemon quero que sejam lv 5'): a opcao LV.5 TRAINERS passou a NASCER LIGADA no jogo novo (src/new_game.c), entao o MUNDO EM REPOUSO agora e `opcoes` = 36 (32 do TURBO A/B mais 4 do LV.5), e nao mais 32. Nenhuma prova deste caso mudou de valor; o que mudou foi quantos RIGHT o roteiro do menu precisa dar para chegar no mesmo estado, porque o RIGHT alterna e o ponto de partida virou o outro. Aqui o RIGHT e apertado UMA vez so, e agora e ela que DESLIGA a opcao e deixa `opcoes` em 32.",
+  "nome": "PAR NEGATIVO do T116.5: desliga no menu, e o campeao de Unova volta aos niveis 253/255/255/253/253/255 com a mesma especie (563) e os mesmos quatro golpes (92, 182, 247, 94) do caso em nivel 5. MUDANCA DE 19/08/2026, POR PEDIDO DIRETO DO GUI ('todos os niveis de pokemon quero que sejam lv 5'): a opcao LV.5 TRAINERS passou a NASCER LIGADA no jogo novo (src/new_game.c), entao o MUNDO EM REPOUSO agora e `opcoes` = 36 (32 do TURBO A/B mais 4 do LV.5), e nao mais 32. Nenhuma prova deste caso mudou de valor; o que mudou foi quantos RIGHT o roteiro do menu precisa dar para chegar no mesmo estado, porque o RIGHT alterna e o ponto de partida virou o outro. Aqui o RIGHT e apertado UMA vez so, e agora e ela que DESLIGA a opcao e deixa `opcoes` em 32. [ATUALIZADO 21/08/2026, Fase F: os times de Byron, Aaron e Genesis foram reescritos por dev_scripts/fase_f_chefes.py a partir de fase_f_chefes.json. Os numeros esperados aqui sao os do time NOVO; o que este caso prova (o modo LV.5 TRAINERS rebaixa treinador preservando especie, moveset e gimmick) nao mudou. Ver PLANO-FASE-F.md e os casos T128.]",
   "vars": {
    "0x4160": 0
   },
@@ -166,19 +166,19 @@
    "mapa": "MAP_UNOVA_CHAMPIONS_ROOM",
    "campos": {
     "opcoes": 32,
-    "nivelinimigo": 253,
-    "nivelinimigo1": 255,
-    "nivelinimigo2": 255,
+    "nivelinimigo": 251,
+    "nivelinimigo1": 251,
+    "nivelinimigo2": 252,
     "nivelinimigo3": 253,
-    "nivelinimigo4": 253,
+    "nivelinimigo4": 254,
     "nivelinimigo5": 255,
     "bespecie": 563,
-    "bnivel": 253,
-    "bgolpe0": 92,
-    "bgolpe1": 182,
-    "bgolpe2": 247,
-    "bgolpe3": 94,
-    "gimmick": 0
+    "bnivel": 251,
+    "bgolpe0": 261,
+    "bgolpe1": 247,
+    "bgolpe2": 417,
+    "bgolpe3": 390,
+    "gimmick": 32
    },
    "oponente": "TRAINER_UNOVA_CHAMPION_GENESIS"
   }

@@ -1,0 +1,124 @@
+[
+  {
+    "id": "T128.1",
+    "nome": "LIDER COM MEGA em nivel 5. Byron e o chefe da Fase F que carrega Mega Evolucao (Heatran com ITEM_HEATRANITE no slot do ace). O que este caso prova e que rebaixar o time para o nivel 5 pelo modo LV.5 TRAINERS nao quebra o time novo: a batalha ABRE, os SEIS slots vem no nivel 5 (o time da Fase F tem 6, contra os 4 do B8), e a especie e o moveset do lider ativo sao os da tabela dev_scripts/fase_f_chefes.json e nao os do B8. `bespecie` = 462 (SPECIES_MAGNEZONE) contra os 82 (SPECIES_MAGNETON) que o B8 deixava, e os quatro golpes sao Thunderbolt/Flash Cannon/Volt Switch/Body Press. `gimmick` = 0 de proposito: a palavra u16 de gBattleStruct so carrega opponentMonCanTera e opponentMonCanDynamax, e Mega nao mora la (CanMegaEvolve, src/battle_util.c, so olha a pedra segurada). Byron valia 768 antes porque o B8 tinha dado Dynamax a dois bichos dele; a Fase F tirou, e zero E a prova de que o Dynamax saiu. Rota igual a do T116.1, ja medida.",
+    "flags": [
+      "0x85f",
+      "0x863",
+      "0x8a7",
+      "0x8b7",
+      "0x9d5",
+      "0x9d6",
+      "0x9d8"
+    ],
+    "antes_do_warp": "60:START,60:NADA,20:UP,20:UP,30:NADA,20:A,120:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:RIGHT,30:NADA,16:RIGHT,30:NADA,20:B,180:NADA,20:B,90:NADA",
+    "warp": "MAP_CANALAVE_CITY_GYM",
+    "roteiro": "120:NADA,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:UP,16:UP,16:UP,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:UP,16:RIGHT,16:RIGHT,16:UP,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:UP,16:UP,16:UP,60:NADA,20:A,120:NADA,20:A,240:NADA",
+    "prova": {
+      "mapa": "MAP_CANALAVE_CITY_GYM",
+      "oponente": "TRAINER_SINNOH_LEADER_BYRON",
+      "campos": {
+        "opcoes": 36,
+        "nivelinimigo": 5,
+        "nivelinimigo1": 5,
+        "nivelinimigo2": 5,
+        "nivelinimigo3": 5,
+        "nivelinimigo4": 5,
+        "nivelinimigo5": 5,
+        "bespecie": 462,
+        "bnivel": 5,
+        "bgolpe0": 85,
+        "bgolpe1": 430,
+        "bgolpe2": 521,
+        "bgolpe3": 704,
+        "gimmick": 0
+      }
+    }
+  },
+  {
+    "id": "T128.2",
+    "nome": "E4 COM LENDARIO em nivel 5. Aaron e Elite Four de inseto de Sinnoh, ace no nivel 192, portanto acima do corte de 40 e portanto com lendario obrigatorio pela regra do Gui: SPECIES_GENESECT no slot 5, com Mega Scizor no ace. O runner nao le a especie de cada slot do time, so o nivel dos seis e a especie do ativo, entao o lendario e provado pelo conjunto: os SEIS slots existem e vem em 5 (o B8 deixava 6 tambem, mas com outro elenco) e o ativo e SPECIES_YANMEGA (469) com Bug Buzz/Air Slash/Giga Drain/Protect, que e a linha da tabela. `gimmick` = 0 pelo mesmo motivo do T128.1: o Dynamax que o B8 tinha dado aos slots 4 e 5 (palavra 3072) saiu. Rota igual a do T116.3.",
+    "antes_do_warp": "60:START,60:NADA,20:UP,20:UP,30:NADA,20:A,120:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:RIGHT,30:NADA,16:RIGHT,30:NADA,20:B,180:NADA,20:B,90:NADA",
+    "warp": "MAP_SINNOH_LEAGUE_AARONS_ROOM",
+    "roteiro": "16:UP*9,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_SINNOH_LEAGUE_AARONS_ROOM",
+      "campos": {
+        "opcoes": 36,
+        "nivelinimigo": 5,
+        "nivelinimigo1": 5,
+        "nivelinimigo2": 5,
+        "nivelinimigo3": 5,
+        "nivelinimigo4": 5,
+        "nivelinimigo5": 5,
+        "bespecie": 469,
+        "bnivel": 5,
+        "bgolpe0": 405,
+        "bgolpe1": 403,
+        "bgolpe2": 202,
+        "bgolpe3": 182,
+        "gimmick": 0
+      }
+    }
+  },
+  {
+    "id": "T128.3",
+    "nome": "CAMPEAO COM TERASTAL em nivel 5. Genesis e campeao de Unova e era um dos SETE chefes que a 0.h achou SEM GIMMICK NENHUM. A Fase F deu Terastal a ele (Hydreigon com `Tera Type: TYPE_STEEL` no slot do ace) e este caso prova que o gimmick sobrevive ao rebaixamento: com LV.5 TRAINERS ligado os seis slots vem em 5 e a palavra `gimmick` continua com o bit de Terastal aceso, porque quem acende e CreateNPCTrainerPartyFromTrainer (src/battle_main.c:1982), que roda ANTES da queda de nivel. Terastal do lado do adversario nao precisa de flag nenhuma: src/battle_terastal.c:78 deixa o inimigo pular as checagens de Tera Orb, e por isso include/config/battle.h nao foi tocado. Rota igual a do T116.5.",
+    "vars": {
+      "0x4160": 0
+    },
+    "antes_do_warp": "60:START,60:NADA,20:UP,20:UP,30:NADA,20:A,120:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:RIGHT,30:NADA,16:RIGHT,30:NADA,20:B,180:NADA,20:B,90:NADA",
+    "warp": "MAP_UNOVA_CHAMPIONS_ROOM",
+    "roteiro": "300:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_CHAMPIONS_ROOM",
+      "oponente": "TRAINER_UNOVA_CHAMPION_GENESIS",
+      "campos": {
+        "opcoes": 36,
+        "nivelinimigo": 5,
+        "nivelinimigo1": 5,
+        "nivelinimigo2": 5,
+        "nivelinimigo3": 5,
+        "nivelinimigo4": 5,
+        "nivelinimigo5": 5,
+        "bespecie": 563,
+        "bnivel": 5,
+        "bgolpe0": 261,
+        "bgolpe1": 247,
+        "bgolpe2": 417,
+        "bgolpe3": 390,
+        "gimmick": 32
+      }
+    }
+  },
+  {
+    "id": "T128.4",
+    "nome": "PAR NEGATIVO do T128.3: MESMA rota, MESMO campeao, e a unica diferenca e o `antes_do_warp`, que tem UM RIGHT a menos no menu OPTION e portanto deixa TEST_OPT_LV5_TRAINERS DESLIGADO (exatamente como o T116.6 faz). Nao se usa aqui a chave `opcoes`, que escreveria o byte direto na EWRAM ANTES do menu: o menu rodaria depois e inverteria o bit de novo, e o caso mediria 36 achando que media 32. O time volta para a curva de Unova (251 a 255) e a palavra `gimmick` fica IGUAL a do T128.3. E isso, e nao o T128.3 sozinho, que separa 'o Terastal esta ligado porque a tabela o ligou' de 'o Terastal aparece porque o nivel 5 mexeu em alguma coisa'.",
+    "vars": {
+      "0x4160": 0
+    },
+    "antes_do_warp": "60:START,60:NADA,20:UP,20:UP,30:NADA,20:A,120:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:RIGHT,30:NADA,20:B,180:NADA,20:B,90:NADA",
+    "warp": "MAP_UNOVA_CHAMPIONS_ROOM",
+    "roteiro": "300:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_CHAMPIONS_ROOM",
+      "oponente": "TRAINER_UNOVA_CHAMPION_GENESIS",
+      "campos": {
+        "opcoes": 32,
+        "nivelinimigo": 251,
+        "nivelinimigo1": 251,
+        "nivelinimigo2": 252,
+        "nivelinimigo3": 253,
+        "nivelinimigo4": 254,
+        "nivelinimigo5": 255,
+        "bespecie": 563,
+        "bnivel": 251,
+        "bgolpe0": 261,
+        "bgolpe1": 247,
+        "bgolpe2": 417,
+        "bgolpe3": 390,
+        "gimmick": 32
+      }
+    }
+  }
+]

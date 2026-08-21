@@ -1,6 +1,16 @@
 #!/usr/bin/env python3
 """B8, lado do TREINADOR: gerações 6 a 9 nos times, lendas em líder e Elite Four.
 
+APOSENTADO PARA CHEFE desde 21/08/2026 (Fase F). Líder de ginásio, rival, Elite
+Four e campeão das cinco regiões passaram a ser escritos por
+`dev_scripts/fase_f_chefes.py`, a partir da tabela `fase_f_chefes.json`.
+NÃO rode `--aplicar` aqui de novo: este script não é idempotente (ele só olha
+"tem vaga" e acrescenta), e rodar hoje acrescentaria Pokémon e lendas por cima
+dos times da Fase F, quebrando as regras dela (um lendário por chefe, um
+gimmick por chefe, teto de 5 Dynamax e 6 Terastal no jogo inteiro).
+O que sobra de vivo aqui é a parte 2 (gens 6 a 9 no TREINADOR COMUM), que a
+Fase F não tocou; se for reaproveitar, recorte só essa parte.
+
     python3 dev_scripts/gens69_treinadores.py             # só mede
     python3 dev_scripts/gens69_treinadores.py --aplicar
     python3 dev_scripts/gens69_treinadores.py --aplicar --seco   # sem escrever
