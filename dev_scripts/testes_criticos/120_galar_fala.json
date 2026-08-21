@@ -1,0 +1,167 @@
+[
+  {
+    "id": "T120.1",
+    "nome": "Galar, fase de conteudo (balde a): NPC MUDO GANHOU FALA. Galar_Hulbury04 (g08m03) tem UM objeto so, a mulher de (4,4), MOVEMENT_TYPE_FACE_DOWN, ou seja parada: nao e da familia dos flaky T98.9/T108.2, que sao NPC que passeia sobre tile de gatilho. O jogador nasce no warp 0, em (4,7), sobe seis toques de UP e satura em (4,5), porque o proprio NPC e solido e barra o (4,4). A e a fala. A PROVA e que a caixa de texto TRAVA o jogador: `Std_MsgboxAutoclose` faz `message/waitmessage/waitbuttonpress`, e `waitbuttonpress` so aceita A ou B, entao os dois toques de LEFT do fim nao andam nada e nem fecham a caixa. Se o script nao existisse (o `script` do objeto ainda em \"0\"), o A nao abriria caixa nenhuma e o LEFT andaria: e exatamente esse o par T120.2.",
+    "warp": "MAP_GALAR_HULBURY_04",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:UP*6,90:NADA,16:A,120:NADA,16:LEFT*2,120:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_HULBURY_04",
+      "pos": [
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "id": "T120.2",
+    "nome": "PAR NEGATIVO do T120.1: MESMO mapa, MESMO warp, MESMO comeco de roteiro, SEM o aperto de A. Sem caixa aberta o jogador nao esta travado, e os dois toques de LEFT viram uma virada mais um passo, parando em (3,5). Sem este par, o T120.1 provaria so \"o jogador terminou em (4,5)\", que um NPC solido tambem provaria sozinho, sem fala nenhuma.",
+    "warp": "MAP_GALAR_HULBURY_04",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:UP*6,90:NADA,120:NADA,16:LEFT*2,120:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_HULBURY_04",
+      "pos": [
+        3,
+        5
+      ]
+    }
+  },
+  {
+    "id": "T120.3",
+    "nome": "Galar, fase de conteudo (balde a): PLACA QUE SE LE. Galar_Circhester02 (g09m08) ganhou um bg event de tipo `sign` em (6,5), tile NAO andavel, com `GalarFala_G09M08_bg0` e MSGBOX_SIGN. Placa nao existia em Galar nenhuma: o G4 mandou os 254 bg events de placa para o censo com \"placa/script sem script\". O jogador nasce no warp 2, em (5,7), sobe e satura em (5,6) (o (5,5) e parede), anda um tile para (6,6), vira para cima encarando a placa e le. Trava igual ao T120.1, entao os LEFT do fim nao andam.",
+    "warp": "MAP_GALAR_CIRCHESTER_02",
+    "warp_id": 2,
+    "roteiro": "60:NADA,16:UP*6,90:NADA,16:RIGHT*2,60:NADA,16:UP*2,60:NADA,16:A,120:NADA,16:LEFT*2,120:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_CIRCHESTER_02",
+      "pos": [
+        6,
+        6
+      ]
+    }
+  },
+  {
+    "id": "T120.4",
+    "nome": "PAR NEGATIVO do T120.3: mesma caminhada ate (6,6) encarando a placa, SEM apertar A. O jogador nao trava e os dois LEFT viram uma virada mais um passo, parando em (5,6). E o que separa \"a placa fala\" de \"o jogador simplesmente parou de andar porque bateu na parede\".",
+    "warp": "MAP_GALAR_CIRCHESTER_02",
+    "warp_id": 2,
+    "roteiro": "60:NADA,16:UP*6,90:NADA,16:RIGHT*2,60:NADA,16:UP*2,60:NADA,120:NADA,16:LEFT*2,120:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_CIRCHESTER_02",
+      "pos": [
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "id": "T120.5",
+    "nome": "Galar, fase de conteudo (balde b): BOLA DE ITEM QUE SOME QUANDO E PEGA. Galar_RoseTower03 (g01m92) ganhou a bola de (2,8) com ITEM_CLEANSE_TAG e FLAG_BOLA_GALAR_G01M92_05. O jogador nasce no warp 0, em (4,10), sobe e satura em (4,8) (o (4,7) e parede), anda para (3,8) encarando a bola, aperta A e pega: `finditem` roda `Std_FindItem`, que faz `removeobject VAR_LAST_TALKED`, e `RemoveObjectEventByLocalIdAndMap` ACENDE a flag do objeto (src/event_object_movement.c:1700). Depois disso o tile (2,8) fica livre e os LEFT do fim levam o jogador ate la, saturando porque (1,8) e parede. Duas coisas provadas de uma vez: a flag acendeu e a bola sumiu do caminho.",
+    "warp": "MAP_GALAR_ROSE_TOWER_03",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:UP*6,90:NADA,16:LEFT*4,90:NADA,16:A,240:NADA,16:A,240:NADA,16:A,180:NADA,16:LEFT*3,150:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_ROSE_TOWER_03",
+      "pos": [
+        2,
+        8
+      ],
+      "flags_acesas": [
+        "FLAG_BOLA_GALAR_G01M92_05"
+      ]
+    }
+  },
+  {
+    "id": "T120.6",
+    "nome": "PAR NEGATIVO do T120.5: MESMO mapa, MESMO warp, MESMOS toques de LEFT, SEM o aperto de A que pega a bola. A bola e objeto solido: ela BARRA o passo, o jogador para em (3,8) e a flag continua apagada. Sem este par, o T120.5 provaria so \"o jogador chegou em (2,8)\", que um mapa sem bola nenhuma provaria igual, e a bola poderia nunca ter sido gravada.",
+    "warp": "MAP_GALAR_ROSE_TOWER_03",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:UP*6,90:NADA,16:LEFT*4,240:NADA,16:LEFT*3,150:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_ROSE_TOWER_03",
+      "pos": [
+        3,
+        8
+      ],
+      "flags_apagadas": [
+        "FLAG_BOLA_GALAR_G01M92_05"
+      ]
+    }
+  },
+  {
+    "id": "T120.7",
+    "nome": "Galar, balde b: A BOLA CONTINUA SUMIDA DEPOIS DE SAIR E VOLTAR NO MAPA, e por isso NAO da o item duas vezes. Entrada NOVA no mapa, do zero, com FLAG_BOLA_GALAR_G01M92_05 JA ACESA, que e exatamente o estado da save de quem ja pegou a bola e voltou: o motor recria os object events do template a cada carregamento de mapa e esconde os que tem flag acesa (`GetObjectEventFlagIdByObjectEventId`). O jogador faz a mesma caminhada do T120.6, e desta vez NAO ha nada para barrar: ele atravessa e para em (2,8). Se a flag do map.json estivesse em \"0\" (que era o estado de todas as bolas de Johto antes do bloco J2), a bola renasceria a cada entrada e poderia ser pega sem limite; entao este caso ao lado do T120.6 e a prova de que o item so vem uma vez.",
+    "flags": [
+      "FLAG_BOLA_GALAR_G01M92_05"
+    ],
+    "warp": "MAP_GALAR_ROSE_TOWER_03",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:UP*6,90:NADA,16:LEFT*4,240:NADA,16:LEFT*3,150:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_ROSE_TOWER_03",
+      "pos": [
+        2,
+        8
+      ],
+      "flags_acesas": [
+        "FLAG_BOLA_GALAR_G01M92_05"
+      ]
+    }
+  },
+  {
+    "id": "T120.8",
+    "nome": "Galar, balde b: CADA BOLA TEM FLAG PROPRIA. Entra em Galar_LostCave13 (g02m26, bola de ITEM_RARE_CANDY em (5,5), FLAG_BOLA_GALAR_G02M26_00) com a flag da bola de OUTRO mapa acesa (FLAG_BOLA_GALAR_G02M25_00, a de Galar_LostCave12). A bola daqui tem que continuar SOLIDA: o jogador nasce no warp 0 em (8,5), anda para a esquerda e para em (6,5), colado nela. Se o alocador tivesse dado a mesma flag para duas bolas, pegar uma apagaria a outra do mapa e o jogador iria ate (3,5). E o mesmo defeito que o J2 mediu em Johto ao contrario: la o problema era flag 0 para todo mundo, aqui seria flag repetida.",
+    "flags": [
+      "FLAG_BOLA_GALAR_G02M25_00"
+    ],
+    "warp": "MAP_GALAR_LOST_CAVE_13",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:LEFT*6,180:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_LOST_CAVE_13",
+      "pos": [
+        6,
+        5
+      ],
+      "flags_apagadas": [
+        "FLAG_BOLA_GALAR_G02M26_00"
+      ]
+    }
+  },
+  {
+    "id": "T120.9",
+    "nome": "A FLAG DA BOLA DE GALAR SOBREVIVE A SAVE. Caso do FECHADOR, escrito para DERRUBAR o T120.7: la a bola continua sumida porque a flag foi ACESA A MAO na EWRAM antes do mapa carregar, o que prova o motor e nao prova nada sobre onde a flag mora. Se `fala_galar.py` tivesse alocado essas 56 flags na faixa temporaria (TEMP_FLAGS_START, zerada a cada troca de mapa) ou acima de SPECIAL_FLAGS_START 0x4000 (que mora na EWRAM e nunca e gravada), o T120.5, o T120.7 e o T120.8 passariam TODOS e mesmo assim o jogador perderia a bola a cada vez que desligasse o jogo, ganhando o item de novo para sempre. Este caso e a primeira metade da prova: ele repete o T120.5 letra por letra (warp 0 do Galar_RoseTower03, UP*6, LEFT*4, tres A que pegam a bola, LEFT*3 ate (2,8), o tile onde ela estava) e entao SALVA pelo menu, com a mesma sequencia medida do T11.1 (START, dois DOWN ate SAVE, e os quatro A de confirmacao). A prova aqui e so o controle, ou seja que a bola foi mesmo pega antes de gravar; quem responde a pergunta e o T120.10, que recarrega ESTE arquivo. A .sav e apagada no comeco (`apaga_sav`) para o caso nunca passar por causa de uma sobra de rodada anterior.",
+    "apaga_sav": true,
+    "sav": "/tmp/claude-501/frenteA/t120-bola-galar.sav",
+    "warp": "MAP_GALAR_ROSE_TOWER_03",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:UP*6,90:NADA,16:LEFT*4,90:NADA,16:A,240:NADA,16:A,240:NADA,16:A,180:NADA,16:LEFT*3,150:NADA,40:START!,90:NADA,20:DOWN,20:DOWN,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_ROSE_TOWER_03",
+      "pos": [
+        2,
+        8
+      ],
+      "flags_acesas": [
+        "FLAG_BOLA_GALAR_G01M92_05"
+      ]
+    }
+  },
+  {
+    "id": "T120.10",
+    "nome": "SEGUNDA METADE, E E ELA QUE RESPONDE: a save gravada pelo T120.9 e recarregada do zero (abertura `continuar`, nenhum aperto de warp, nenhuma escrita de flag na EWRAM) e a FLAG_BOLA_GALAR_G01M92_05 tem que voltar ACESA. Isso so acontece se a flag morar dentro de `SaveBlock1.flags[]`, ou seja abaixo de FLAGS_COUNT e fora da faixa temporaria: 0x1C30 esta em ambos os lados certos, e o par negativo desta prova e o T112.5, em que a pedra de Sinnoh usa FLAG_TEMP_2 de proposito e por isso VOLTA. A posicao (2,8) entra na prova junto porque ela e a segunda testemunha de que a save e mesmo a do T120.9 e nao um jogo novo: jogo novo nasce no quarto de Pallet Town. Depende do T120.9 ter rodado antes, e roda mesmo: o harness ordena os casos pelo numero do id.",
+    "sav": "/tmp/claude-501/frenteA/t120-bola-galar.sav",
+    "abertura": "continuar",
+    "prova": {
+      "mapa": "MAP_GALAR_ROSE_TOWER_03",
+      "pos": [
+        2,
+        8
+      ],
+      "flags_acesas": [
+        "FLAG_BOLA_GALAR_G01M92_05"
+      ]
+    }
+  }
+]

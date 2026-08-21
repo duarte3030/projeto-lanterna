@@ -6,6 +6,21 @@ Uso:
     python3 dev_scripts/mundo_galar.py --conferir   # simula tudo e imprime o censo
     python3 dev_scripts/mundo_galar.py --gravar     # grava (idempotente)
 
+ATENCAO, ORDEM DA CORRENTE (lei LEVA_DONA): este arquivo reescreve
+`data/maps/Galar_*/{map.json,scripts.inc}` INTEIROS, e a fase de conteudo
+escreve DEPOIS dele. Quem rodar `--gravar` aqui apaga as 337 falas, as 52
+placas e as 56 bolas de item da fase de conteudo, e tem de repor rodando, na
+ordem:
+
+    python3 dev_scripts/gente_galar.py --gravar
+    python3 dev_scripts/mundo_galar.py --gravar
+    python3 dev_scripts/fala_galar.py  --aplicar   # repoe a fase de conteudo
+    python3 dev_scripts/fila_galar.py  --gravar    # a fila reconta a verdade
+
+`python3 dev_scripts/fala_galar.py --demo` REPROVA quando o
+`data/scripts/galar_fala.inc` gravado nao e o que o gerador produz hoje, entao
+esquecer o passo acima aparece na suite em vez de sumir calado.
+
 O que ele faz, e o que NAO faz
 ------------------------------
 Faz (G2): alocador de grupo (de-para gravado em `dev_scripts/galar_mundo.json`),

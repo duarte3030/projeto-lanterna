@@ -72,6 +72,7 @@ import argparse
 import collections
 import json
 import os
+import re
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CENSO_GENTE = f"{RAIZ}/dev_scripts/galar_gente.json"
@@ -84,6 +85,77 @@ STATUS = ("pendente", "feita", "descartada", "adiada")
 
 # Ponteiro nulo da fonte, nas duas grafias que os censos usam.
 NULOS = ("0x0", "0x00000000", "0", None, 0)
+
+
+INC_FALA = f"{RAIZ}/data/scripts/galar_fala.inc"
+ROTEIROS = f"{RAIZ}/dev_scripts/galar_roteiros.json"
+
+# DECISAO DA CONDUTORA, 21/08/2026 (duvida 1 da fase de conteudo). Os NPCs que a
+# FONTE manda falar e que o G4 NAO pos no mapa (grafico de Pokemon ou de
+# cenario, tile nao andavel, tile de warp) NAO voltam para o mapa so porque a
+# fala existe: por o sprite substituto de volta mentiria a especie, que e a
+# mesma lei que valeu em Sinnoh, e realocar despeja fantasma dentro de sala
+# pequena (medido no G4, ver o filtro 2 de gente_galar.py). Ficam DESCARTADAS
+# com motivo, para ninguem reabrir sem querer.
+DESCARTE_FORA_DO_MAPA = ("fonte manda falar, G4 nao pos no mapa: sprite "
+                         "mentiria especie (decisao da condutora, 21/08/2026)")
+
+
+def baldes():
+    """{chave: balde} de dev_scripts/galar_roteiros.json, se ele existir."""
+    if not os.path.exists(ROTEIROS):
+        return {}
+    return {l["chave"]: l.get("balde")
+            for l in json.load(open(ROTEIROS)).get("linhas", [])}
+
+
+def map_scripts_vazios(de_para):
+    """Chaves cujo `map_script_ptr` aponta para uma TABELA VAZIA na fonte.
+
+    MEDIDO em 21/08/2026: `map_script_ptr` nao aponta para bytecode, aponta para
+    a tabela `.byte tipo / .4byte script` terminada por tipo 0 (asm/macros/map.inc
+    do FireRed). Sessenta e dois dos 256 mapas com ponteiro tem a tabela VAZIA no
+    primeiro byte: nao ha cena nenhuma para portar ali, e cobra-las era a fila
+    mentindo para cima. Le-se a fonte, nao um campo escrito.
+
+    Sem o datamine em disco a leitura nao acontece e a fila fica como estava,
+    dizendo isso em voz alta: silencio aqui viraria 62 linhas ressuscitando
+    calado na proxima rodada.
+    """
+    try:
+        import fala_galar
+        rom = open(fala_galar.ROM_FONTE, "rb").read()
+    except Exception as e:                                          # noqa: BLE001
+        print("AVISO: nao consegui abrir a fonte para medir map script (%s);"
+              " as 62 linhas de tabela vazia continuam na fila" % e)
+        return set()
+    vazios = set()
+    for chave, d in de_para.items():
+        ptr = d.get("map_script_ptr")
+        if ptr in NULOS:
+            continue
+        if not fala_galar.tabela_de_map_script(rom, int(ptr, 16)):
+            vazios.add(chave)
+    return vazios
+
+
+def feitas():
+    """{chave: motivo} MEDIDO na arvore, lendo os rotulos gravados no .inc.
+
+    A fase de conteudo (baldes a e b, `dev_scripts/fala_galar.py`) grava
+    `GalarFala_<CHAVE DA FONTE>_o<N>` / `_bg<N>`. Ler o rotulo e ler o que EXISTE
+    no jogo; escrever "feita" a mao no JSON seria acreditar num campo, que e
+    exatamente o que a rodada de 19/08 tirou desta fila (ESTADO 0.h, "a fila
+    passou a CALCULAR bloqueio").
+    """
+    if not os.path.exists(INC_FALA):
+        return {}
+    achados = {}
+    for k, tipo, i in re.findall(r"^GalarFala_([Gg]\d+[Mm]\d+)_(o|bg)(\d+)::",
+                                 open(INC_FALA).read(), re.M):
+        chave = "%s/%s/%d" % (k.lower(), "objeto" if tipo == "o" else "bg", int(i))
+        achados[chave] = "escrita por dev_scripts/fala_galar.py (balde a ou b)"
+    return achados
 
 
 def carrega():
@@ -145,9 +217,10 @@ def varre():
                 "bloqueio": "",
             })
 
+    vazios = map_scripts_vazios(de_para)
     for chave, d in de_para.items():
         ptr = d.get("map_script_ptr")
-        if ptr in NULOS:
+        if ptr in NULOS or chave in vazios:
             continue
         linhas.append({
             "chave": "%s/map_script" % chave,
@@ -172,8 +245,15 @@ def varre():
 
     linhas.sort(key=lambda l: l["chave"])
     velhas = decisoes_anteriores()
+    prontas = feitas()
+    balde = baldes()
     for l in linhas:
         st, motivo = velhas.get(l["chave"], ("pendente", ""))
+        if (l["tipo"] == "script_objeto" and not l["no_mapa"]
+                and balde.get(l["chave"]) in ("a_fala", "b_flag")):
+            st, motivo = "descartada", DESCARTE_FORA_DO_MAPA
+        if l["chave"] in prontas:
+            st, motivo = "feita", prontas[l["chave"]]
         l["status"] = st
         l["motivo_do_status"] = motivo
     return linhas, velhas
@@ -243,11 +323,19 @@ def demo():
     # 7. contraprova de que a fila LE o censo e nao um numero cravado: o total de
     # map_script tem que bater com os ponteiros nao nulos do de-para do G3.
     _gente, mundo = carrega()
-    esperado = sum(1 for d in mundo["de_para"].values()
-                   if d.get("map_script_ptr") not in NULOS)
+    vazios = map_scripts_vazios(mundo["de_para"])
+    esperado = sum(1 for chave, d in mundo["de_para"].items()
+                   if d.get("map_script_ptr") not in NULOS and chave not in vazios)
     achado = sum(1 for l in linhas if l["tipo"] == "map_script")
     if esperado != achado:
-        falhas.append("map_script: fila diz %d, censo do G3 diz %d" % (achado, esperado))
+        falhas.append("map_script: fila diz %d, censo do G3 menos tabela vazia "
+                      "diz %d" % (achado, esperado))
+    # 8. a tabela vazia nao pode voltar sozinha: nenhuma linha de map_script
+    # sobrevivente pode ter tabela vazia na fonte.
+    vivas = {l["mapa_fonte"] for l in linhas if l["tipo"] == "map_script"}
+    if vivas & vazios:
+        falhas.append("%d map_script de tabela vazia voltaram para a fila"
+                      % len(vivas & vazios))
 
     print("\n".join("  FALHA " + f for f in falhas) if falhas else "demo: OK")
     imprime(linhas, velhas)
