@@ -1,0 +1,87 @@
+[
+  {
+    "id": "T121.1",
+    "nome": "ENTRADA NO OREBURGH GATE B1F, o 13o mapa que vestia o molde de portao 13x9 e que virou caverna de verdade em 21/08/2026. Ate esta rodada o B1F usava LAYOUT_ROUTE208_ACCESS, ou seja o jogador descia a escada de Oreburgh Gate e caia numa salinha de portao de 117 tiles com dois NPCs; agora ele cai na caverna de 64x32 convertida da grade 2D do Platinum (map_matrix_004, 679 tiles de chao de caverna contra 1369 de rocha). ROTA: o warp 2 do LAYOUT_OREBURGH_GATE_1F e a escada e poe o jogador EM CIMA dela, em (19,5), sem disparar (ficar parado num tile de warp nao warpa, so CHEGAR nele warpa). Entao UP*3 satura em (19,4), que o T112.1 ja mediu como o topo daquela coluna, e DOWN*2 volta a pisar na escada e dispara. Os apertos sao *2 e *3 e nao *1 porque neste harness a PRIMEIRA tecla de uma direcao nova so VIRA o boneco, nao anda: medido na sonda de 21/08/2026 (RIGHT*2 saindo de (48,6) virado para baixo anda UM tile, nao dois). Caso escrito com *1 nunca sai do lugar e reprova por motivo errado. A PROVA nao e so o mapa: e o LAYOUT, porque mapa certo com layout velho e exatamente o defeito que este caso existe para pegar, e era o estado do repo ate ontem.",
+    "warp": "MAP_OREBURGH_GATE_1F",
+    "warp_id": 2,
+    "roteiro": "60:NADA,16:UP*3,60:NADA,16:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_GATE_B1F",
+      "layout": "LAYOUT_OREBURGH_GATE_B1F"
+    }
+  },
+  {
+    "id": "T121.2",
+    "nome": "SAIDA DO OREBURGH GATE B1F, e este e o caso da MAO UNICA. A primeira conversao de 21/08/2026 gravou o warp do B1F em cima do metatile 513, que e chao de caverna comum, e neste motor warp em chao comum NAO DISPARA: o mapa nascia com entrada boa e sem saida, que e a licao 4.1 do ESTADO e o erro que o abre_exteriores_sinnoh.py ja pagou uma vez. O conserto foi carimbar o metatile 575 debaixo do warp, o MESMO que o lado de cima da escada usa em LAYOUT_OREBURGH_GATE_1F (19,5), medido no map.bin e nao lembrado; hoje `converte_moldes_sinnoh.py` RECUSA converter mapa cujo warp ficaria sem tile de porta. ROTA: o warp 0 do B1F poe o jogador em (48,4), a escada, virado para baixo; DOWN*3 satura em (48,6), porque a linha 7 e rocha, e UP*3 volta a pisar na escada em (48,4) e dispara. O metatile 575 e MB_LADDER (comportamento 97, lido em data/tilesets/secondary/cave_sinnoh/metatile_attributes.bin), que dispara ao CHEGAR no tile, venha de onde vier. Se o carimbo sumir, este caso fica vermelho e o T121.1 continua verde, que e a razao de os dois serem separados.",
+    "warp": "MAP_OREBURGH_GATE_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:DOWN*3,60:NADA,16:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_GATE_1F",
+      "layout": "LAYOUT_OREBURGH_GATE_1F"
+    }
+  },
+  {
+    "id": "T121.3",
+    "nome": "OBJETO LIDO NO B1F, E O CAMINHO ATE ELE EXISTE. Quem e lido aqui e a pedra de Rock Smash de (38,19), uma das 3 que `pedras_sinnoh.py` plantou no mapa na mesma rodada da conversao, e ela foi escolhida MEDINDO, nao por gosto. Os dois NPCs do mapa nao servem: o Veteran Grant (13,17) esta ILHADO atras do lago, e isso e FIEL a fonte (167 tiles a pe a partir do warp, o mesmo numero na grade do Platinum e no nosso map.bin, porque os 376 tiles de agua do B1F sao do jogo original e pedem Surf); e o ciclista (37,12) tem MOVEMENT_TYPE_WANDER_AROUND com raio 1, entao ele fica ora em (36,12) ora em (37,12) e caso escrito contra ele nasce flaky, que e a familia do T98.9 e do T108.2. Pedra nao anda. ROTA saida de busca em largura sobre o map.bin novo, com a andabilidade medida por COLISAO E ELEVACAO (o lago tem colisao zero e elevacao 1: quem so olha colisao acha caminho que o jogador nao pode fazer, e foi assim que a primeira versao deste caso errou), pernas engordadas ate saturarem onde isso nao muda o destino. A ultima perna, LEFT*15, satura em (39,19) porque (38,19) e a pedra: essa parada ja e meia prova. O A abre o `EventScript_RockSmash`, que comeca com `lockall`, e por isso o RIGHT*8 seguinte NAO move o jogador. A prova e a posicao (39,19), e o par dela e o T121.5, que faz a MESMA rota e o MESMO RIGHT*8 sem apertar A e anda 7 tiles.",
+    "warp": "MAP_OREBURGH_GATE_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:DOWN*8,40:NADA,16:RIGHT*2,40:NADA,16:DOWN*8,40:NADA,16:RIGHT*2,40:NADA,16:DOWN*14,60:NADA,16:LEFT*10,60:NADA,16:DOWN*12,60:NADA,16:LEFT*15,90:NADA,8:A,180:NADA,16:RIGHT*8,120:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_GATE_B1F",
+      "layout": "LAYOUT_OREBURGH_GATE_B1F",
+      "pos": [
+        39,
+        19
+      ]
+    }
+  },
+  {
+    "id": "T121.4",
+    "nome": "PAR NEGATIVO DO T121.2, e sem ele o T121.2 nao prova nada. MESMO mapa, MESMO warp de partida, MESMO numero de quadros, e o jogador SAI da escada e nao volta a pisar nela: ele desce para dentro da caverna e anda ate (36,13). A prova e que ele continua em MAP_OREBURGH_GATE_B1F. Sem este caso, o T121.2 passaria num jogo em que o B1F cospe o jogador de volta sozinho, por warp perdido em tile errado ou por mapa que nao carrega, e nao ha diferenca visivel entre 'a escada funcionou' e 'o mapa devolveu o jogador'. A rota tambem e a segunda prova da planta: (36,13) fica a 23 tiles de distancia horizontal do warp, e o molde de portao tinha 13 colunas no total, entao esta posicao so existe no layout convertido. REESCRITO PELO FECHADOR EM 21/08/2026 PORQUE NASCEU FLAKY, e a familia e a mesma do T98.9 e do T108.2: a versao original terminava a rota com LEFT*21 pela linha 13 e provava (36,13), que fica UM tile abaixo do ciclista de MOVEMENT_TYPE_WANDER_AROUND de (37,12), o mesmo NPC que o T121.3 ja tinha descartado como alvo por passear. Medido: tres rodadas isoladas deram OK, OK e FALHA, e a falha veio (37,13), ou seja um tile a mais, que e a assinatura de objeto que se move dentro da rota. A perna final passou a ser DOWN, e ela satura em (50,14) porque (50,15) e rocha (colisao 1), a catorze colunas do ciclista e a trinta e sete do Veteran Grant: nao ha objeto movel dentro do alcance da prova. O que o caso prova nao mudou, so o lugar onde ele para.",
+    "warp": "MAP_OREBURGH_GATE_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:DOWN*8,40:NADA,16:RIGHT*2,40:NADA,16:DOWN*8,40:NADA,16:RIGHT*2,40:NADA,16:DOWN*7,60:NADA,16:DOWN*12,240:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_GATE_B1F",
+      "layout": "LAYOUT_OREBURGH_GATE_B1F",
+      "pos": [
+        50,
+        14
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T121.5",
+    "nome": "PAR NEGATIVO DO T121.3. Mesma rota, mesmo RIGHT*8, e SEM o A: sem caixa de texto aberta o jogador anda os 7 tiles ate (46,19). A diferenca entre os dois casos e exatamente um aperto de A, e e ela que separa 'a pedra foi lida' de 'o jogador estava preso por qualquer outro motivo', que e o erro que uma prova de posicao sozinha comete.",
+    "warp": "MAP_OREBURGH_GATE_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:DOWN*8,40:NADA,16:RIGHT*2,40:NADA,16:DOWN*8,40:NADA,16:RIGHT*2,40:NADA,16:DOWN*14,60:NADA,16:LEFT*10,60:NADA,16:DOWN*12,60:NADA,16:LEFT*15,90:NADA,180:NADA,16:RIGHT*8,120:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_GATE_B1F",
+      "layout": "LAYOUT_OREBURGH_GATE_B1F",
+      "pos": [
+        46,
+        19
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T121.6",
+    "nome": "A ESCADA DO B1F NAO CUSPE O JOGADOR DENTRO DE PAREDE NO 1F. Caso do FECHADOR, escrito para DERRUBAR o T121.2: aquele caso prova que o warp de (48,4) DISPARA e que o jogador termina em MAP_OREBURGH_GATE_1F, e para por ai. Mapa certo nao e tile certo: um warp que chega em cima de rocha deixa o jogador travado sem nenhum sintoma visivel no campo `mapa`, e o T121.2 passaria igual. Aqui a chegada e MEDIDA. O caso comeca no B1F (warp 0), repete a perna ja provada do T121.2 (DOWN*3 desce da escada, UP*3 pisa nela de volta) e, ja no 1F, anda LEFT*24 pela linha 5. Ele tem que parar em (7,5), que e exatamente onde o T112.2 para saindo do MESMO tile (19,5), so que la a chegada foi por warp do menu de debug e aqui e pela escada de verdade. Os dois numeros coincidirem e a prova de que a escada entrega o jogador no mesmo lugar que o mapa diz, e o `andou` e a prova de que ele nao ficou parado. LEFT*24 e saturante de proposito: sao 12 tiles de caminho para 24 apertos, entao aperto sobrando durante o fade do warp nao muda o resultado. Sem party de proposito: `MAP_OREBURGH_GATE_1F` tem `land_mons` e jogador sem Pokemon nao abre encontro selvagem, o que dispensa a FLAG_SEM_ENCONTRO_SELVAGEM e deixa o caso mais curto.",
+    "warp": "MAP_OREBURGH_GATE_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:DOWN*3,60:NADA,16:UP*3,300:NADA,16:LEFT*24,180:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_GATE_1F",
+      "layout": "LAYOUT_OREBURGH_GATE_1F",
+      "pos": [
+        7,
+        5
+      ],
+      "andou": true
+    }
+  }
+]

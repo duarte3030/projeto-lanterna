@@ -1050,6 +1050,71 @@ FEITAS = [
 # Decisão da condutora em 18/08/2026: estes NÃO entram em onda, vão para a fila
 # de conteúdo. Cada um traz o critério de aceite escrito, para a próxima sessão
 # não remedir nada.
+def _molde_pendente():
+    """O item de fila dos mapas que vestem o molde de portao 13x9, MEDIDO.
+
+    Este item era uma lista escrita a mao, e a lista mentia: ela dizia 12 mapas
+    e o repo tinha 13, porque o `OreburghGateB1F` vestia o SEGUNDO molde
+    (`LAYOUT_ROUTE208_ACCESS`) e ninguem tinha olhado. O `planta_provisoria` do
+    importador sempre pegou os dois moldes; quem enxergava so um era o texto
+    daqui. Entao o texto saiu e a medida entrou: quem manda agora e
+    `converte_moldes_sinnoh.alvos()`, e mapa convertido some deste item sozinho
+    (foi o que o OreburghGateB1F fez em 21/08/2026).
+
+    Os numeros do premio tambem sao contados na fonte, um por um. Os antigos
+    ("24 NPCs e 25 placas" no Battle Frontier, "21 pedras") eram de memoria e
+    nenhum dos tres batia com o `events_*.json` do Platinum.
+    """
+    import converte_moldes_sinnoh as CM   # noqa: E402  a medida do molde
+    mapas = [m for m, _ in CM.alvos()]
+    fonte = {}
+    for meu, header in CM.alvos():
+        arq = os.path.join(CM.PLAT, "res/field/events",
+                           S.headers_do_platinum()[header][0] + ".json")
+        fonte[meu] = json.load(open(arq))
+    obj = sum(len(d.get("object_events") or []) for d in fonte.values())
+    placa = sum(len(d.get("bg_events") or []) for d in fonte.values())
+    bf = fonte.get("BattleFrontier") or {}
+    pedra = sum(1 for d in fonte.values() for e in (d.get("object_events") or [])
+                if any(t in str(e.get("graphics_id", "")) for t in
+                       ("ROCK_SMASH", "BOULDER")))
+    return dict(
+        regiao="sinnoh", id="sinnoh:planta_provisoria:12_mapas_de_molde",
+        mapa_destino=", ".join(sorted(mapas)),
+        tipo="mapa", tamanho=len(mapas), status="pendente",
+        bloqueio="decisão do Gui: arte",
+        motivo=(
+            f"MEDIDO de novo em 21/08/2026, e a lista agora SAI da medida: "
+            f"{len(mapas)} mapas de Sinnoh NÃO TÊM MAPA, vestem o molde de "
+            f"portão 13x9. O critério é comparação de `map.bin` contra o "
+            f"molde (`importa_npcs_sinnoh.planta_provisoria`), nunca nome, e "
+            f"são DOIS moldes no repo, `LAYOUT_ROUTE226_ACCESS` e "
+            f"`LAYOUT_ROUTE208_ACCESS`. O que separa vítima de portão de "
+            f"verdade também é medida: portão do Platinum tem a grade 2D "
+            f"vazia (6,3% a 12,7% de colisão) e vítima tem mapa dentro (25,3% "
+            f"a 97,8%). O `OreburghGateB1F` saiu desta lista em 21/08/2026: "
+            f"ele é caverna na fonte, foi convertido por "
+            f"`converte_moldes_sinnoh.py --aplicar` e as pedras dele entraram "
+            f"por `pedras_sinnoh.py`. PRÊMIO MEDIDO na fonte, contado e não "
+            f"lembrado: {obj} objetos e {placa} placas parados nos "
+            f"{len(mapas)}, sendo {len(bf.get('object_events') or [])} "
+            f"objetos e {len(bf.get('bg_events') or [])} placas só no "
+            f"`BattleFrontier`, mais {pedra} pedras de Rock Smash e blocos de "
+            f"Strength. BLOQUEIO: não é ferramenta, é GOSTO. O conversor está "
+            f"pronto e o `--dry-run` dele imprime mapa a mapa o que sai; o "
+            f"que falta é o Gui decidir pagar a troca, porque a grade do "
+            f"Platinum entrega forma honesta e desenho chapado, e a arte "
+            f"destes mapas cairia de 46-48 metatiles distintos para 5-9, "
+            f"levando Sinnoh de 104 para 116 mapas abaixo do piso da régua. "
+            f"CRITÉRIO DE ACEITE, e a ordem importa: GEOMETRIA REAL PRIMEIRO "
+            f"(layout convertido da fonte, warps casados nos dois sentidos, "
+            f"sem mão única; a porta de volta da Stark Mountain é inventada "
+            f"por decisão do condutor em 21/08/2026 e está declarada em "
+            f"`PORTAS_INVENTADAS`), OBJETO DEPOIS, na mesma rodada, pelos "
+            f"geradores que já existem. Pôr objeto antes é plantar coordenada "
+            f"que vai ter que ser refeita"))
+
+
 FILA_DE_CONTEUDO = [
     dict(regiao="sinnoh", id="sinnoh:placas:7_mapas_por_escala",
          mapa_destino="EternaCityCondominiums2F, FloaromaTown, "
@@ -1103,34 +1168,94 @@ FILA_DE_CONTEUDO = [
                 "as placas dele no map.json na MESMA rodada (senão "
                 "itens_escondidos_sinnoh passa a ver órfão) e escreve a "
                 "medição junto"),
-    dict(regiao="sinnoh", id="sinnoh:planta_provisoria:12_mapas_de_molde",
-         mapa_destino="AmitySquare, StarkMountainOutside, BattleFrontier, "
-                      "IronIsland, SendoffSpring, PalPark, GreatMarsh6, "
-                      "Route204North, MtCoronetOutsideNorth, "
-                      "MtCoronetOutsideSouth, SpringPath, TrophyGarden",
-         tipo="mapa", tamanho=12, bloqueio="geometria provisória",
-         status="pendente",
-         motivo="MEDIDO em 18/08/2026 na onda de povoar: estes 12 mapas NÃO "
-                "TÊM MAPA, têm o molde de portão 13x9. O critério é COMPARAÇÃO "
-                "DE map.bin contra `data/layouts/Route226_Access/map.bin`, "
-                "nunca nome de mapa: `BattleFrontier` e `IronIsland` têm "
-                "`map.bin` próprio e mesmo assim são idênticos ao molde em "
-                "todas as linhas menos a y=1, onde as portas são furadas (4 e "
-                "2 tiles de diferença). `SendoffSpring` entrou nesta lista por "
-                "esse critério e NÃO estava na lista de suspeitos de ninguém, "
-                "que é a razão de o critério ser medida e não lista. É a mesma "
-                "família de Amity Square e Stark Mountain Outside (seção de "
-                "18/08 do PLANO-OBRAS-SINNOH), que agora tem 12 membros e não "
-                "2. PRÊMIO MEDIDO esperando planta de verdade: só o "
-                "`BattleFrontier` são 24 NPCs e 25 placas elegíveis da fonte, "
-                "numa área de 48x47 que não cabe honestamente em 117 tiles; "
-                "somando os 12, mais as 21 pedras de Rock Smash que "
-                "`pedras_sinnoh.py` recusou pelo mesmo portão. CRITÉRIO DE "
-                "ACEITE, e a ordem importa: GEOMETRIA REAL PRIMEIRO (layout "
-                "convertido da fonte, warps casados nos dois sentidos, sem "
-                "mão única), OBJETO DEPOIS, na mesma rodada, pelos geradores "
-                "que já existem. Pôr objeto antes é plantar coordenada que vai "
-                "ter que ser refeita"),
+    _molde_pendente(),
+    dict(regiao="sinnoh", id="sinnoh:pedras:31_em_parede_do_demake",
+         mapa_destino="RavagedPath (23), OreburghGate_1F (6), "
+                      "MtCoronet_1F_South (1), MtCoronet_B1F (1)",
+         tipo="mapa", tamanho=31, status="pendente",
+         bloqueio="MEDIDO em 21/08/2026, e a medição derrubou o enunciado "
+                  "antigo. O ESTADO 0.g dizia 'a conversão do Platinum marca "
+                  "o tile da pedra como bloqueado. Dívida de geometria', e "
+                  "isso NÃO se sustenta: o nosso map.bin é BYTE A BYTE o do "
+                  "demake 2D (`fontes-mapas/sinnoh`) em OreburghGate_1F, "
+                  "MtCoronet_1F_South e MtCoronet_B1F, e em RavagedPath há UM "
+                  "tile de diferença no mapa inteiro, o (26,1), que é boca de "
+                  "caverna aberta de propósito e fica a 20 tiles da pedra mais "
+                  "próxima. A conversão não tocou em nenhum desses 31 tiles. "
+                  "Quem não desenhou a pedra foi a FONTE: o demake 2D pôs "
+                  "rocha maciça onde o Platinum tem pedra de Rock Smash MAIS "
+                  "o corredor atrás dela. 28 das 31 caem em tile com ZERO "
+                  "vizinho ALCANÇÁVEL a pé pelos warps, ou seja dentro de um "
+                  "bloco de parede em que o jogador nunca encosta; as outras "
+                  "3 são saliência e abrir o tile ganharia 4, 1 e 1 tiles. "
+                  "Deslocamento também não explica: varrendo todo (dx,dz) de "
+                  "-20 a 20, o melhor põe 18 das 27 pedras de RavagedPath em "
+                  "tile andável (contra 4 da identidade) e casa ZERO warp, e "
+                  "os warps provam que translação única não existe ali (a "
+                  "fonte tem (19,50) e (28,44) onde temos (19,40) e (28,35), "
+                  "dz 10 e 9: o demake REDESENHOU, não transladou). Portanto "
+                  "pôr essas 31 pedras exige DESENHAR o corredor que o demake "
+                  "não desenhou, e isso é decisão de fase do Gui, não "
+                  "conversão",
+         motivo="CRITÉRIO DE ACEITE, e ele é de arte antes de ferramenta: "
+                "quem for executar desenha, no map.bin, a passagem que cada "
+                "pedra bloqueia (o tile da pedra andável MAIS o corredor do "
+                "outro lado), e só então roda `pedras_sinnoh.py --aplicar`, "
+                "que já recusa sozinho pedra que tranque ou que crie bolso "
+                "(portão de tranca e portão de bolso, provados no --demo). A "
+                "prova de pronto é a mesma das outras: a pedra fica em tile "
+                "ALCANÇÁVEL (não só andável), ela bloqueia caminho de "
+                "verdade, e quebrada abre passagem. RavagedPath tem um "
+                "segundo defeito, medido junto e maior que as pedras: dos 364 "
+                "tiles andáveis do mapa, só 107 são ALCANÇÁVEIS pelos 3 "
+                "warps, e os 4 rock smash já gravados ali ((3,12), (3,16), "
+                "(11,12), (11,13)) estão nos 257 ilhados, ou seja hoje são "
+                "objeto que o jogador nunca vê. MtCoronet_B1F tem 652 tiles "
+                "ilhados de 1116 e MtCoronet_1F_South tem 153 de 519, pela "
+                "mesma medição. Consertar a alcançabilidade desses três mapas "
+                "vem ANTES de discutir pedra, porque é ela que decide onde a "
+                "pedra faz sentido. Censo linha a linha em "
+                "`dev_scripts/pedras_sinnoh_censo.tsv`, coluna motivo"),
+    dict(regiao="sinnoh", id="sinnoh:balcao:2_enfermeiras_inalcancaveis",
+         mapa_destino="JubilifeCity_PokemonCenter_1F, "
+                      "SandgemTown_PokemonCenter_1F",
+         tipo="mapa", tamanho=2, status="feita",
+         bloqueio="nenhum",
+         motivo="FEITA em 21/08/2026 pelo fechador, e a medição DERRUBOU o "
+                "critério de aceite que esta própria linha trazia. O achado "
+                "original está certo e é grave: nestes dois Pokécenters não "
+                "havia de onde falar com a enfermeira, ou seja eles não "
+                "curavam o time. Medido no emulador contra a ROM oficial "
+                "`pokemon-claude-2026-08-19c.gba`, com par positivo e "
+                "negativo: em Jubilife o jogador terminava em (3,4) COM e SEM "
+                "o aperto de A, ou seja o A não fazia nada; a MESMA rota no "
+                "Pokécenter de Oreburgh travava em (7,4) com o A e andava até "
+                "(5,4) sem ele. O que a linha antiga mandava fazer, pôr "
+                "MB_COUNTER no metatile de balcão, seria ERRADO e foi "
+                "abandonado com número: o balcão desses dois pontos é o "
+                "metatile 545 do `gTileset_PokemonCenter`, e ele aparece TRÊS "
+                "vezes na linha do balcão de TODOS os 20 Pokécenters que usam "
+                "esse tileset, Hoenn inteira incluída. Dar MB_COUNTER a ele "
+                "abriria conversa através da parede em 20 mapas para "
+                "consertar 2. O defeito era a COORDENADA da enfermeira, não o "
+                "atributo do tile: varridos os 67 mapas do repo que têm "
+                "enfermeira com script, 65 põem a moça exatamente em cima da "
+                "coluna que tem MB_COUNTER (metatile 517 em Hoenn e no resto "
+                "de Sinnoh, 664 em Johto e no Mt. Silver, 577 em Unova, 774 "
+                "no Trainer Hill) e só estes 2 caíam fora, em (5,2) e (6,2). "
+                "As duas foram para (7,2), que é onde as outras 65 estão, e "
+                "onde a planta desses mapas (cópia byte a byte do "
+                "LAYOUT_POKEMON_CENTER_1F de Hoenn) põe o balcão que fala. "
+                "Casos T122.1 a T122.4, com par negativo em cada Pokécenter. "
+                "A REGRA que os achou está em `da_para_falar`, e ela nasceu "
+                "de um erro medido: a versão crua desta varredura acusou 3 "
+                "NPCs de Sinnoh (OreburghCity BARRY, Route206_North "
+                "SCIENTIST, SpearPillar GRUNT_2), eles foram movidos e o "
+                "T100.14 QUEBROU, porque aquele caso encara o cientista da "
+                "Route 206 em (6,4) desde 18/08 e o texto dele já dizia que "
+                "falar com NPC atrás de balcão é legal neste motor. Os 3 "
+                "voltaram ao lugar e não são defeito. Placar da varredura em "
+                "Sinnoh: 31 acusados na régua crua, 2 na régua do motor"),
     dict(regiao="sinnoh", id="sinnoh:escala_nao_provada:10_mapas",
          mapa_destino="ValorLakefront, LakeValor, LakeVerity, SpearPillar, "
                       "GalacticHQ_B2F, HearthomeCityGymLeaderRoom, "

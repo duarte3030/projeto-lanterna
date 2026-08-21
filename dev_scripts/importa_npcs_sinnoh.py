@@ -389,7 +389,15 @@ def grade(layouts, layout_id):
 
 
 def planta_provisoria(layouts, layout_id):
-    """True quando o layout e o molde de portao 13x9, com portas trocadas."""
+    """True quando o layout e o molde de portao 13x9, com portas trocadas.
+
+    Medido em 21/08/2026: existem DOIS moldes no repo, `LAYOUT_ROUTE226_ACCESS`
+    e `LAYOUT_ROUTE208_ACCESS`, e o segundo e byte a byte igual ao primeiro fora
+    da linha das portas. Esta funcao ja pegava os dois pela comparacao de
+    blockdata; quem enxergava so 12 vitimas era a LISTA ESCRITA A MAO da fila,
+    que escondia o `OreburghGateB1F`. Nao ha conserto a fazer aqui, e o
+    autoteste abaixo passou a fixar isso para ninguem "consertar" o que funciona.
+    """
     global _STENCIL
     L = layouts[layout_id]
     if (L["width"], L["height"]) != (13, 9):
@@ -836,6 +844,11 @@ def demo():
     assert planta_provisoria(layouts, "LAYOUT_BATTLEFRONTIER")
     assert planta_provisoria(layouts, "LAYOUT_IRONISLAND")
     assert planta_provisoria(layouts, "LAYOUT_ROUTE226_ACCESS")
+    # O SEGUNDO molde, fixado em 21/08/2026: `LAYOUT_ROUTE208_ACCESS` e igual ao
+    # de cima fora da linha das portas, e e ele que vestia o `OreburghGateB1F`.
+    # Sem esta linha, alguem "simplifica" a comparacao para um `==` de nome e
+    # perde metade das vitimas sem que nada fique vermelho.
+    assert planta_provisoria(layouts, "LAYOUT_ROUTE208_ACCESS")
     # e nao pode ser um "13x9 e provisorio" preguicoso: a loja de flores tem
     # 15x9 e a Mt Coronet 5F e 32x32, e as duas sao planta de verdade.
     assert not planta_provisoria(layouts, "LAYOUT_MT_CORONET_5F")

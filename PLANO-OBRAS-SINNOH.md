@@ -764,3 +764,60 @@ provada**, os mesmos dois portões da onda de NPC.
 linha de parada ANDA JUNTO com a pedra ao trocar de coluna, que é o que separa
 "tem pedra" de "aquela linha é intransponível") e `T113.7` (par negativo: a
 linha 4 da mesma sala não tem pedra e o jogador atravessa a sala inteira).**
+
+---
+
+## OS MAPAS DE MOLDE: o conversor está pronto, a decisão não (21/08/2026)
+
+`dev_scripts/converte_moldes_sinnoh.py` converte os mapas que vestem o molde de
+portão 13x9 pela grade 2D do Platinum. `--dry-run` imprime uma linha por mapa,
+`--demo` é o autoteste com mutação plantada, e `--aplicar <mapa>` escreve, um
+mapa por vez de propósito. **Os 12 exteriores continuam parados por decisão de
+gosto do Gui** (a arte cai de 46-48 metatiles distintos para 6-10, o que leva
+Sinnoh de 104 para 116 mapas abaixo do piso da régua); o que travava por
+FERRAMENTA não trava mais.
+
+**Eram 13 e não 12.** O `OreburghGateB1F` vestia o segundo molde
+(`LAYOUT_ROUTE208_ACCESS`) e ficou fora da lista escrita à mão da fila. O
+`planta_provisoria` sempre pegou os dois moldes; o texto da fila é que mentia.
+Ele é caverna na fonte, foi convertido em 21/08/2026 (64x32, `map_matrix_004`)
+e a fila passou a tirar a lista da medição em vez da mão.
+
+**Tile debaixo do warp, medido e não decorado.** Warp não dispara em chão comum
+neste motor: quem dispara é o comportamento do metatile. A primeira conversão do
+`OreburghGateB1F` gravou o warp sobre o metatile 513 e o mapa nasceu de MÃO
+ÚNICA. A tabela abaixo saiu de varrer os dois `metatile_attributes.bin` de
+Sinnoh e conferir os warps que já funcionam:
+
+| destino | tile | comportamento |
+|---|---|---|
+| de caverna para caverna | 575 | `MB_LADDER` |
+| de caverna para fora | 519 | `MB_SOUTH_ARROW_WARP` |
+| de exterior para lugar fechado | 167 | `MB_NON_ANIMATED_DOOR` |
+| de exterior para exterior | 484 / 36 / 94 / 93 | seta N / S / L / O |
+
+Porta ANIMADA (33, 65, 97, 461, 475, 553, 556, 594) é casada com a fachada do
+prédio e por isso não entra: Sandgem usa três delas em três portas vizinhas. As
+setas saem do `gTileset_GeneralSinnoh`, que é o primário de todos os layouts de
+Sinnoh, porque as do `gTileset_PetalburgSinnoh` só existem em norte e sul e
+deixariam metade das bordas sem valor.
+
+**A porta de volta da Stark Mountain é INVENTADA, por decisão do condutor em
+21/08/2026**, e está declarada em `PORTAS_INVENTADAS`. A fonte tem um warp só
+(entra-se andando pela matriz do mundo) e converter cru deixaria a Stark de mão
+única, o que a lição 4.1 do ESTADO proíbe.
+
+**DOIS CASOS DA SUÍTE FIXAM O MOLDE DO SENDOFF SPRING E VÃO QUEBRAR NO DIA DA
+CONVERSÃO.** Quem converter reescreve os dois na MESMA rodada, senão a suíte
+fica vermelha por motivo certo e ninguém entende:
+
+- **`T93.6`** prova `layout: LAYOUT_SENDOFFSPRING`, que é o molde 13x9. Com a
+  planta nova o id do layout muda e a prova cai sozinha.
+- **`T85.1`** anda `16:RIGHT*11` dentro do `SendoffSpring` e prova a chegada em
+  `MAP_TURNBACK_CAVE_ENTRANCE`. A rota é de um mapa de 13 colunas; no 64x64
+  convertido ela não chega a lugar nenhum.
+
+Régua para as rotas novas: a andabilidade se mede por COLISÃO **e ELEVAÇÃO**
+(o lago do OreburghGateB1F tem colisão zero e elevação 1, e quem só olhou
+colisão achou caminho que o jogador não pode fazer), e neste harness **a
+primeira tecla de uma direção nova só VIRA o boneco**, não anda.

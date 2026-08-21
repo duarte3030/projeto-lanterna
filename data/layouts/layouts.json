@@ -25190,6 +25190,17 @@
       "border_filepath": "data/layouts/Galar_Postwick172/border.bin",
       "blockdata_filepath": "data/layouts/Galar_Postwick172/map.bin",
       "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_OREBURGH_GATE_B1F",
+      "name": "OreburghGateB1F_Layout",
+      "width": 64,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/OreburghGateB1F/border.bin",
+      "blockdata_filepath": "data/layouts/OreburghGateB1F/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }
