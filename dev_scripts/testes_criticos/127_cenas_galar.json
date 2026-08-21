@@ -1,0 +1,164 @@
+[
+  {
+    "id": "T127.1",
+    "nome": "Galar, bloco c3: A CENA DE MAP SCRIPT DISPARA NA PRIMEIRA ENTRADA. Galar_Hammerlocke01 (g03m05) recebeu do demake uma tabela ON_FRAME_TABLE com UMA entrada, `map_script_2 VAR_GALAR_G03M05_CENA, 2, GalarCena_G03M05_t2_v2`, e a cena e a da fonte inteira: `lockall`, dois passos de WALK_NORMAL_UP no jogador, `setvar` da mesma var para 3, `releaseall`. VAR_GALAR_G03M05_CENA e apelido de VAR_UNUSED_0x4100, da faixa livre MEDIDA (0x4100, 0x4107-0x412F, 0x417E-0x41BF, 0x41D6-0x41FF), entao a var entra na conta como 0x4100 aqui. Com a var em 2 o jogador entra pelo warp 0, e largado em (61,16) pela animacao de porta, e a CENA o empurra dois tiles para cima sem ele apertar nada: termina em (61,14) e a var passa a 3. Sem `roteiro` nenhum depois do warp: quem anda e o script, e e exatamente isso que se quer provar.",
+    "vars": {
+      "0x4100": 2
+    },
+    "warp": "MAP_GALAR_HAMMERLOCKE_01",
+    "warp_id": 0,
+    "roteiro": "300:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_HAMMERLOCKE_01",
+      "pos": [
+        61,
+        14
+      ],
+      "vars": {
+        "0x4100": 3
+      }
+    }
+  },
+  {
+    "id": "T127.2",
+    "nome": "PAR NEGATIVO do T127.1, e ele e a SEGUNDA ENTRADA no mapa: mesmo mapa, mesmo warp, mesmo tempo de espera, com a var ja em 3, que e o valor que a propria cena do T127.1 deixou. A tabela so tem a entrada de valor 2, entao nada dispara: o jogador fica em (61,16), o tile do pouso, e a var continua 3. Sem este caso o T127.1 provaria so que ALGUMA coisa anda com o jogador, e nao que a cena tem memoria: cena que rodasse toda vez passaria no T127.1 e reprovaria aqui.",
+    "vars": {
+      "0x4100": 3
+    },
+    "warp": "MAP_GALAR_HAMMERLOCKE_01",
+    "warp_id": 0,
+    "roteiro": "300:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_HAMMERLOCKE_01",
+      "pos": [
+        61,
+        16
+      ],
+      "vars": {
+        "0x4100": 3
+      }
+    }
+  },
+  {
+    "id": "T127.3",
+    "nome": "PRIMEIRA METADE DA PROVA DE SAVE: repete o T127.1 letra por letra e entao SALVA pelo menu, com a mesma sequencia medida do T11.1 (START, dois DOWN ate SAVE, quatro A de confirmacao). A pergunta que ele abre e a mesma que o T120.9/T120.10 fizeram para a flag da bola: a var de cena MORA no SaveBlock1 ou so na EWRAM? Se `cenas_galar.py` tivesse alocado nas TEMP_VARS (0x4000-0x400F, zeradas a cada carregamento de mapa) ou acima de 0x8000 (especiais, que nunca sao gravadas), o T127.1 e o T127.2 passariam os dois e mesmo assim a cena voltaria a rodar toda vez que o Gui desligasse o jogo. A prova daqui e so o controle, ou seja que a cena rodou antes de gravar; quem responde e o T127.4. A .sav e apagada no comeco para o caso nunca passar por sobra de rodada anterior.",
+    "apaga_sav": true,
+    "sav": "/tmp/claude-501/frenteGalar/t127-cena-galar.sav",
+    "vars": {
+      "0x4100": 2
+    },
+    "warp": "MAP_GALAR_HAMMERLOCKE_01",
+    "warp_id": 0,
+    "roteiro": "300:NADA,40:START!,90:NADA,20:DOWN,20:DOWN,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_HAMMERLOCKE_01",
+      "pos": [
+        61,
+        14
+      ],
+      "vars": {
+        "0x4100": 3
+      }
+    }
+  },
+  {
+    "id": "T127.4",
+    "nome": "SEGUNDA METADE, E E ELA QUE RESPONDE: a save gravada pelo T127.3 e recarregada do zero (abertura `continuar`, nenhum warp, nenhuma escrita de var na EWRAM) e VAR_GALAR_G03M05_CENA tem que voltar valendo 3. Isso so acontece se a var morar dentro de `SaveBlock1.vars[]`, ou seja entre 0x4010 e VARS_COUNT: 0x4100 esta dentro. A posicao (61,14) entra na prova junto porque e a segunda testemunha de que a save e a do T127.3 e nao um jogo novo, que nasceria no quarto de Pallet Town. Depende do T127.3 ter rodado antes, e roda mesmo: o harness ordena os casos pelo numero do id.",
+    "sav": "/tmp/claude-501/frenteGalar/t127-cena-galar.sav",
+    "abertura": "continuar",
+    "prova": {
+      "mapa": "MAP_GALAR_HAMMERLOCKE_01",
+      "pos": [
+        61,
+        14
+      ],
+      "vars": {
+        "0x4100": 3
+      }
+    }
+  },
+  {
+    "id": "T127.5",
+    "nome": "Galar, bloco c3: A CENA APAGA O NPC DO CAMINHO. Galar_Circhester16 (g03m08) recebeu `map_script_2 VAR_GALAR_G03M08_CENA, 3, GalarCena_G03M08_t2_v3` (apelido de VAR_UNUSED_0x4107), e a cena da fonte e: fala de cinco paginas, o NPC de (10,56) desce seis tiles, `removeobject` nele, e a var vai para 4. O jogador entra pelo warp 7 e para em (9,56), colado no NPC. Os oito A fecham as cinco paginas (`MSGBOX_DEFAULT` e `message/waitmessage/waitbuttonpress`, uma tecla por pagina); enquanto a caixa esta aberta o jogador esta travado e os A que sobram nao fazem nada. Depois da cena o tile (10,56) esta VAZIO e os quatro RIGHT levam o jogador ate (12,56).",
+    "vars": {
+      "0x4107": 3
+    },
+    "warp": "MAP_GALAR_CIRCHESTER_16",
+    "warp_id": 7,
+    "roteiro": "300:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:RIGHT*4,150:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_CIRCHESTER_16",
+      "pos": [
+        12,
+        56
+      ],
+      "vars": {
+        "0x4107": 4
+      }
+    }
+  },
+  {
+    "id": "T127.6",
+    "nome": "PAR NEGATIVO do T127.5: mesmo mapa, mesmo warp, MESMOS oito A e MESMOS quatro RIGHT, com a var em 0. A tabela so dispara em 3, entao nao ha cena, nao ha caixa de texto (os oito A batem no vazio) e o NPC de (10,56) continua SOLIDO: o primeiro RIGHT so vira o boneco e os outros tres batem nele, entao o jogador termina em (9,56), onde comecou. E este caso que separa `o NPC saiu` de `o jogador andou porque o caminho sempre esteve livre`.",
+    "vars": {
+      "0x4107": 0
+    },
+    "warp": "MAP_GALAR_CIRCHESTER_16",
+    "warp_id": 7,
+    "roteiro": "300:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:RIGHT*4,150:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_CIRCHESTER_16",
+      "pos": [
+        9,
+        56
+      ],
+      "vars": {
+        "0x4107": 0
+      }
+    }
+  },
+  {
+    "id": "T127.7",
+    "nome": "DUAS CENAS EM MAPAS DIFERENTES NAO SE ATRAPALHAM, primeira metade: entra em Galar_Circhester16 com a var de OUTRO mapa (VAR_GALAR_G03M05_CENA = 0x4100, a de Galar_Hammerlocke01) no valor que dispara LA, 2. Se o desenho `uma var por MAPA` tivesse dado a mesma casa para os dois mapas, a cena de Circhester rodaria aqui e o NPC sairia da frente. Tem que acontecer o mesmo do T127.6: NPC solido, jogador parado em (9,56), a var de Circhester ainda 0 e a de Hammerlocke intacta em 2, porque entrar num mapa nao pode mexer no estado do outro.",
+    "vars": {
+      "0x4100": 2,
+      "0x4107": 0
+    },
+    "warp": "MAP_GALAR_CIRCHESTER_16",
+    "warp_id": 7,
+    "roteiro": "300:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:RIGHT*4,150:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_CIRCHESTER_16",
+      "pos": [
+        9,
+        56
+      ],
+      "vars": {
+        "0x4107": 0,
+        "0x4100": 2
+      }
+    }
+  },
+  {
+    "id": "T127.8",
+    "nome": "SEGUNDA METADE da independencia, com os papeis trocados: entra em Galar_Hammerlocke01 com a var de Circhester (0x4107) em 3, o valor que dispara LA, e a de Hammerlocke em 0, que a tabela daqui nao tem. Nada roda: o jogador fica em (61,16), a var de Hammerlocke continua 0 e a de Circhester continua 3. Junto com o T127.7 isto fecha os dois sentidos do mesmo defeito, que e o unico que o desenho de uma var por mapa poderia introduzir: duas cenas dividindo endereco.",
+    "vars": {
+      "0x4100": 0,
+      "0x4107": 3
+    },
+    "warp": "MAP_GALAR_HAMMERLOCKE_01",
+    "warp_id": 0,
+    "roteiro": "300:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_HAMMERLOCKE_01",
+      "pos": [
+        61,
+        16
+      ],
+      "vars": {
+        "0x4100": 0,
+        "0x4107": 3
+      }
+    }
+  }
+]

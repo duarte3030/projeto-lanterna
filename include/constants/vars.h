@@ -963,3 +963,15 @@
 #define VAR_SINNOH_VERITY_BEIRA_ESTADO           VAR_UNUSED_0x415F  // VAR_VERITY_LAKEFRONT_STATE, leva S3
 #define VAR_SINNOH_VILLA_ESTADO                  VAR_UNUSED_0x41C2  // VAR_VILLA_STATE, leva S7
 // <<< B6 Sinnoh, as 49 vars da maquina de cenas <<<
+
+// >>> Fase de conteudo de Galar, bloco c1: vars de cena (dev_scripts/cenas_galar.py) >>>
+// Uma var por MAPA de Galar com tabela de map script (tipo 2 ou 4
+// do FireRed), com o VALOR codificando a etapa da cena, que e o
+// que o proprio FireRed faz com VAR_MAP_SCENE_*. Decisao da
+// condutora em 21/08/2026.
+// Apelidar VAR_UNUSED nao mexe em VARS_COUNT: a save nao muda.
+// Gerado por dev_scripts/cenas_galar.py; nao editar a mao.
+#define VAR_GALAR_G03M05_CENA   VAR_UNUSED_0x4100  // mapa g03m05 da fonte
+#define VAR_GALAR_G03M08_CENA   VAR_UNUSED_0x4107  // mapa g03m08 da fonte
+#define VAR_GALAR_G04M03_CENA   VAR_UNUSED_0x4108  // mapa g04m03 da fonte
+// <<< Fase de conteudo de Galar, bloco c1 <<<

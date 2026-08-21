@@ -88,6 +88,7 @@ NULOS = ("0x0", "0x00000000", "0", None, 0)
 
 
 INC_FALA = f"{RAIZ}/data/scripts/galar_fala.inc"
+INC_CENAS = f"{RAIZ}/data/scripts/galar_cenas.inc"
 ROTEIROS = f"{RAIZ}/dev_scripts/galar_roteiros.json"
 
 # DECISAO DA CONDUTORA, 21/08/2026 (duvida 1 da fase de conteudo). Os NPCs que a
@@ -155,6 +156,27 @@ def feitas():
                                  open(INC_FALA).read(), re.M):
         chave = "%s/%s/%d" % (k.lower(), "objeto" if tipo == "o" else "bg", int(i))
         achados[chave] = "escrita por dev_scripts/fala_galar.py (balde a ou b)"
+    return achados
+
+
+def map_scripts_feitos(de_para):
+    """{chave: motivo} dos mapas cujo `scripts.inc` JA aponta para uma cena.
+
+    Mesma regra do `feitas()` acima, um andar acima: lê o que EXISTE na árvore,
+    nunca um campo escrito. A leitura é no `data/maps/<nome>/scripts.inc` de
+    cada mapa e não no `galar_cenas.inc`, porque `dev_scripts/cenas_galar.py`
+    DEDUPLICA corpo de cena (os 13 mapas da Wild Area dividem uma cena só, com
+    o rótulo do primeiro deles): quem procurasse o rótulo do próprio mapa no
+    .inc daria 12 desses por pendentes, calado.
+    """
+    achados = {}
+    for chave, d in de_para.items():
+        caminho = "%s/data/maps/%s/scripts.inc" % (RAIZ, d.get("nome", ""))
+        if not os.path.exists(caminho):
+            continue
+        if "GalarCena_" in open(caminho).read():
+            achados["%s/map_script" % chave] = ("escrita por "
+                                               "dev_scripts/cenas_galar.py (c3)")
     return achados
 
 
@@ -246,6 +268,7 @@ def varre():
     linhas.sort(key=lambda l: l["chave"])
     velhas = decisoes_anteriores()
     prontas = feitas()
+    prontas.update(map_scripts_feitos(de_para))
     balde = baldes()
     for l in linhas:
         st, motivo = velhas.get(l["chave"], ("pendente", ""))
@@ -336,6 +359,16 @@ def demo():
     if vivas & vazios:
         falhas.append("%d map_script de tabela vazia voltaram para a fila"
                       % len(vivas & vazios))
+
+    # 9. o que a arvore JA tem nao pode voltar a ser cobranca: mapa cujo
+    #    scripts.inc aponta para uma cena de cenas_galar.py tem que estar feito.
+    _g, mundo2 = carrega()
+    feitos = map_scripts_feitos(mundo2["de_para"])
+    ainda = [l["chave"] for l in linhas
+             if l["chave"] in feitos and l["status"] != "feita"]
+    if ainda:
+        falhas.append("%d map_script com cena na arvore continuam pendentes: %s"
+                      % (len(ainda), ainda[:5]))
 
     print("\n".join("  FALHA " + f for f in falhas) if falhas else "demo: OK")
     imprime(linhas, velhas)

@@ -5713,8 +5713,8 @@
    "ponteiro_fonte": "0x01668DC",
    "no_mapa": true,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/cenas_galar.py (c3)"
   },
   {
    "chave": "g03m05/objeto/10",
@@ -6350,8 +6350,8 @@
    "ponteiro_fonte": "0x0166ED6",
    "no_mapa": true,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/cenas_galar.py (c3)"
   },
   {
    "chave": "g03m08/objeto/0",
@@ -8364,8 +8364,8 @@
    "ponteiro_fonte": "0x0168F7E",
    "no_mapa": true,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/cenas_galar.py (c3)"
   },
   {
    "chave": "g04m03/objeto/0",
@@ -12242,8 +12242,8 @@
    "ponteiro_fonte": "0x075C110",
    "no_mapa": true,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/cenas_galar.py (c3)"
   },
   {
    "chave": "g06m27/objeto/0",
@@ -12879,8 +12879,8 @@
    "ponteiro_fonte": "0x071B95C",
    "no_mapa": true,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/cenas_galar.py (c3)"
   },
   {
    "chave": "g06m29/objeto/0",
@@ -13156,8 +13156,8 @@
    "ponteiro_fonte": "0x071B964",
    "no_mapa": true,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/cenas_galar.py (c3)"
   },
   {
    "chave": "g06m30/objeto/0",
@@ -13562,8 +13562,8 @@
    "ponteiro_fonte": "0x071B96C",
    "no_mapa": true,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/cenas_galar.py (c3)"
   },
   {
    "chave": "g06m31/objeto/0",
@@ -18262,8 +18262,8 @@
    "ponteiro_fonte": "0x07AC55C",
    "no_mapa": true,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/cenas_galar.py (c3)"
   },
   {
    "chave": "g08m22/objeto/0",
@@ -18530,8 +18530,8 @@
    "ponteiro_fonte": "0x07AF86C",
    "no_mapa": true,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/cenas_galar.py (c3)"
   },
   {
    "chave": "g08m23/objeto/0",
@@ -18841,8 +18841,8 @@
    "ponteiro_fonte": "0x07AF874",
    "no_mapa": true,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/cenas_galar.py (c3)"
   },
   {
    "chave": "g08m24/objeto/0",
@@ -42769,8 +42769,8 @@
    "ponteiro_fonte": "0x075D2D4",
    "no_mapa": true,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/cenas_galar.py (c3)"
   },
   {
    "chave": "g42m02/objeto/0",
@@ -43547,8 +43547,8 @@
    "ponteiro_fonte": "0x075E12C",
    "no_mapa": true,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/cenas_galar.py (c3)"
   },
   {
    "chave": "g42m05/objeto/0",
@@ -43830,8 +43830,8 @@
    "ponteiro_fonte": "0x075E134",
    "no_mapa": true,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/cenas_galar.py (c3)"
   },
   {
    "chave": "g42m06/objeto/0",
@@ -44008,8 +44008,8 @@
    "ponteiro_fonte": "0x075FA98",
    "no_mapa": true,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/cenas_galar.py (c3)"
   },
   {
    "chave": "g42m07/objeto/0",
@@ -45067,8 +45067,8 @@
    "ponteiro_fonte": "0x0760BA8",
    "no_mapa": true,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/cenas_galar.py (c3)"
   },
   {
    "chave": "g42m11/objeto/0",
@@ -45275,8 +45275,8 @@
    "ponteiro_fonte": "0x0760C24",
    "no_mapa": true,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/cenas_galar.py (c3)"
   },
   {
    "chave": "g42m12/objeto/0",
