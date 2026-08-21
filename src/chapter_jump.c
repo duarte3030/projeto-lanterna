@@ -431,8 +431,21 @@ void ChapterJump_AplicaCapitulo(void)
 
     // (c) Ninguém teleporta sem Pokémon (pedido do Gui, 18/08/2026): quem
     // salta com a party VAZIA (jogo novo que pulou a escolha do inicial)
-    // ganha um Pikachu nível 20 com Thunderbolt e Surf. Personality fixa de
-    // propósito (ferramenta de teste, determinismo vale mais que variedade).
+    // ganha um Pikachu nível 20 com Thunderbolt, Surf e Rock Smash.
+    // Personality fixa de propósito (ferramenta de teste, determinismo vale
+    // mais que variedade).
+    //
+    // ROCK SMASH entrou em 21/08/2026, na onda das pedras de Sinnoh, e é
+    // golpe de MOVIMENTAÇÃO igual ao Surf, não conteúdo: sem ele nenhum caso
+    // da suíte conseguia quebrar nenhuma das 478 pedras de Rock Smash de
+    // Sinnoh, porque `EventScript_RockSmash` faz `checkfieldmove
+    // FIELD_MOVE_ROCK_SMASH, TRUE` e isso pede Pokémon COM o golpe MAIS
+    // insígnia. A insígnia já vem de graça deste mesmo salto: o item (b)
+    // acima acende os ginásios anteriores, e o capítulo "Before Pokémon
+    // League" de Kanto acende as oito, entre elas FLAG_BADGE03_GET, que é a
+    // que `IsFieldMoveUnlocked_RockSmash` exige fora de FRLG
+    // (src/field_move.c:27). Custo de save: ZERO, o time do seletor é criado
+    // na hora e nunca foi gravado em disco.
     // Quem já tem time não ganha nada, e o fluxo "START FROM BEGINNING"
     // continua escolhendo o inicial de verdade na história.
     if (CalculatePlayerPartyCount() == 0)
@@ -441,6 +454,7 @@ void ChapterJump_AplicaCapitulo(void)
         CreateMon(&mon, SPECIES_PIKACHU, 20, 0, OTID_STRUCT_PLAYER_ID);
         SetMonMoveSlot(&mon, MOVE_THUNDERBOLT, 0);
         SetMonMoveSlot(&mon, MOVE_SURF, 1);
+        SetMonMoveSlot(&mon, MOVE_ROCK_SMASH, 2);
         // Sem isto o mon nasce com maxHP 0 e chega DESMAIADO (o CreateMon
         // deste fork deixa o cálculo de stats para o chamador, como o clamp
         // de nível do LV.5 já fazia; bug pego pelo fechador do D3 em 18/08).

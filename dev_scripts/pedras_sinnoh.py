@@ -91,6 +91,51 @@ def andavel(v):
     return ((v >> 10) & 3) == 0
 
 
+def diagnostico_de_parede(W, H, g, base, x, y):
+    """Por que a pedra da fonte cai em parede, MEDIDO, e não "dívida de geometria".
+
+    ATÉ 21/08/2026 este caso virava a linha de censo "tile nao e andavel: pedra
+    invisivel dentro de parede", e o ESTADO 0.g leu isso como dívida da nossa
+    conversão ("a conversão do Platinum marca o tile da pedra como bloqueado").
+    A medição da onda das pedras derrubou essa leitura, com número:
+
+    - **A conversão não corrompeu geometria nenhuma.** O nosso `map.bin` é BYTE
+      A BYTE o do demake 2D em `fontes-mapas/sinnoh` nos três mapas que
+      concentram 8 das 31 pedras (OreburghGate_1F, MtCoronet_1F_South,
+      MtCoronet_B1F); em RavagedPath, que tem as outras 23, há UM tile de
+      diferença no mapa inteiro, em (26,1), que é a boca de caverna aberta de
+      propósito por `abre_bocas_cavernas_sinnoh.py` e fica a 20 tiles da pedra
+      mais próxima. Não há o que consertar no conversor de blockdata: ele não
+      mexeu em nenhum desses tiles.
+    - **A parede é do DEMAKE, não nossa.** Quem desenhou Sinnoh em 2D não
+      desenhou nem a pedra de Rock Smash nem a passagem atrás dela: pôs rocha
+      maciça. 29 das 31 pedras caem em tile com ZERO vizinho ALCANÇÁVEL, ou
+      seja num bloco de parede em que o jogador nunca encosta. Abrir esses
+      tiles não restaura passagem nenhuma: fura buraco para dentro de rocha e
+      obriga a inventar o corredor do outro lado, que é desenho de fase e
+      decisão do Gui, não conversão.
+    - **Deslocamento não explica.** Varredura de todos os (dx,dz) de -20 a 20:
+      o melhor deslocamento põe 18 das 27 pedras de RavagedPath em tile andável
+      contra 4 da identidade, mas casa ZERO warp; e os warps provam que não há
+      translação única (os (19,50) e (28,44) da fonte são os nossos (19,40) e
+      (28,35), dz 10 e 9). O demake REDESENHOU o mapa, não transladou.
+
+    Devolve o motivo escrito, com o número que o sustenta, para o censo parar de
+    acusar o conversor por um buraco que é da fonte.
+    """
+    viz = [(x + dx, y + dy) for dx, dy in ((0, 1), (0, -1), (1, 0), (-1, 0))
+           if 0 <= x + dx < W and 0 <= y + dy < H]
+    alcanc = sum(1 for t in viz if t in base)
+    if alcanc == 0:
+        return ("parede maciça do demake: ZERO vizinho alcançável, a fonte 2D "
+                "não desenhou nem a pedra nem a passagem atrás dela")
+    gg = [linha[:] for linha in g]
+    gg[y][x] &= ~(3 << 10)
+    ganho = len(R222.alcance(W, H, gg, sorted(base))) - len(base)
+    return (f"saliência de parede do demake: {alcanc} vizinho(s) alcançável(is)"
+            f", e abrir o tile ganharia só {ganho} tile(s)")
+
+
 def pousos(W, H, g, mapa):
     """Tiles que o mapa PRECISA manter ligados: pouso de cada warp e leitura de
     cada item. Se dois deles deixarem de se alcancar, uma pedra prendeu alguem.
@@ -211,9 +256,34 @@ def main():
         objs = d.get("object_events") or []
         if any(o.get("origem") == "pokeplatinum-pedra" for o in objs):
             stats["ja_importado"] += 1
-            censo.extend(antigo.get(meu) or [(
+            linhas = list(antigo.get(meu) or [(
                 meu, "", "", "", "", "", "-",
                 "ja importado em rodada anterior (ver a marca no map.json)")])
+            # O DIAGNOSTICO DE PAREDE E RECALCULADO mesmo em mapa ja escrito,
+            # e a linha de pedra aceita e que fica intacta. Motivo: o
+            # diagnostico e medicao do mapa de HOJE, nao registro historico, e
+            # sem isto a segunda rodada eternizaria o texto de 18/08 que culpava
+            # o conversor (ver `diagnostico_de_parede`). A pedra ACEITA nao se
+            # recalcula porque na segunda rodada ela ja e objeto do mapa e
+            # cairia em "tile ja ocupado", que e o que `antigo` existe para
+            # evitar.
+            recusadas = [c for c in linhas
+                         if not c[5] and str(c[3]).isdigit() and str(c[4]).isdigit()]
+            if recusadas:
+                W, H, g = I.grade(layouts, d["layout"])
+                saidas = pousos(W, H, g,
+                                {"warp_events": d.get("warp_events") or []})
+                base = R222.alcance(W, H, g, saidas)
+                for i, c in enumerate(linhas):
+                    if c not in recusadas:
+                        continue
+                    x, y = int(c[3]), int(c[4])
+                    if andavel(g[y][x]):
+                        continue
+                    stats["fora_tile"] += 1
+                    linhas[i] = c[:7] + (
+                        diagnostico_de_parede(W, H, g, base, x, y),)
+            censo.extend(linhas)
             continue
         if I.planta_provisoria(layouts, d["layout"]):
             stats["fora_planta_provisoria"] += len(cruas)
@@ -251,8 +321,8 @@ def main():
             if not andavel(g[y][x]):
                 stats["fora_tile"] += 1
                 censo.append((meu, e["x"], e["z"], x, y, "", regra,
-                              "tile nao e andavel: pedra invisivel dentro de "
-                              "parede"))
+                              diagnostico_de_parede(W, H, g, base_andavel,
+                                                    x, y)))
                 continue
             if (x, y) in ocupados:
                 stats["fora_ocupado"] += 1
@@ -370,6 +440,33 @@ def demo():
                               for y, linha in enumerate(gg)], [(5, 3)])
     sem = R222.alcance(W, H, gg, [(5, 3)])
     assert com <= sem and com != sem
+
+    # 4. MUTACAO PLANTADA no diagnostico de parede, em RavagedPath, que e o
+    #    mapa das 23 pedras. Sem esta prova o motivo do censo voltaria a ser
+    #    texto de fe, e foi texto de fe que fez o ESTADO culpar o conversor.
+    dr = json.load(open(os.path.join(REPO, "data/maps/RavagedPath/map.json")))
+    W, H, g = I.grade(layouts, dr["layout"])
+    saidas = pousos(W, H, g, {"warp_events": dr.get("warp_events") or []})
+    base = R222.alcance(W, H, g, saidas)
+    # (7,37) e uma das 23: parede com ZERO vizinho alcancavel
+    assert not andavel(g[37][7])
+    assert "parede maciça" in diagnostico_de_parede(W, H, g, base, 7, 37)
+    # (12,12) e a ARMADILHA que separa "andavel" de "alcancavel", e ela e
+    # medida: o vizinho (11,12) e andavel, mas cai nos 257 tiles de RavagedPath
+    # que o jogador NAO alcanca a pe pelos warps. Diagnostico por vizinho
+    # andavel diria "saliencia" e mentiria; por vizinho ALCANCAVEL diz parede.
+    assert andavel(g[12][11]) and (11, 12) not in base
+    assert "parede maciça" in diagnostico_de_parede(W, H, g, base, 12, 12)
+    # MUTACAO PLANTADA do outro lado: MtCoronet_B1F (28,14) e a unica familia
+    # que sobra, saliencia de verdade, com vizinho ALCANCAVEL. Se o diagnostico
+    # colapsar num rotulo so, este assert cai.
+    dm = json.load(open(os.path.join(REPO, "data/maps/MtCoronet_B1F/map.json")))
+    Wm, Hm, gm = I.grade(layouts, dm["layout"])
+    bm = R222.alcance(Wm, Hm, gm,
+                      pousos(Wm, Hm, gm,
+                             {"warp_events": dm.get("warp_events") or []}))
+    assert not andavel(gm[14][28])
+    assert "saliência" in diagnostico_de_parede(Wm, Hm, gm, bm, 28, 14)
 
     print("demo ok")
 

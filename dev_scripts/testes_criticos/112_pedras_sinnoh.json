@@ -1,0 +1,95 @@
+[
+  {
+    "id": "T112.1",
+    "nome": "PEDRA DE ROCK SMASH DE SINNOH BLOQUEIA TILE DE VERDADE. OreburghGate_1F, a pedra em (14,4), uma das 478 que dev_scripts/pedras_sinnoh.py importou do pokeplatinum em 18/08/2026. Até hoje NENHUM caso da suíte provava que essas pedras existem no jogo: o gerador provava a conta (portão de tranca e portão de bolso, no --demo), e a régua de completude provava a presença no map.json, mas 'está no JSON' não é 'ocupa tile na ROM'. Este caso mede na camada da afirmação: o jogador anda contra a pedra e PARA. ROTA, medida na grade de colisão do LAYOUT_OREBURGH_GATE_1F: o warp 2 é a escada para o B1F e põe o jogador em (19,5); UP*4 satura em (19,4), porque a linha 3 é parede em toda a largura; LEFT*24 desce a linha 4 por (18,4), (17,4), (16,4) e PARA em (15,4), porque (14,4) é a pedra. A perna é saturante de propósito (24 apertos para 4 tiles de caminho): apertos sobrando não movem o jogador um tile a mais, e é isso que transforma 'parou' em prova. A PROVA é `pos` em (15,4) mais `andou`, e o par dela é o T112.2, que percorre a linha DE BAIXO com o mesmo aperto e vai 8 tiles além. Nenhuma flag: os dois treinadores do mapa (PicnickerDiana em (23,20) e CamperCurtis em (14,22)) estão dezesseis linhas abaixo da rota e não enxergam nada dela.",
+    "warp": "MAP_OREBURGH_GATE_1F",
+    "warp_id": 2,
+    "roteiro": "16:UP*4,60:NADA,16:LEFT*24,90:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_GATE_1F",
+      "layout": "LAYOUT_OREBURGH_GATE_1F",
+      "pos": [
+        15,
+        4
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T112.2",
+    "nome": "PAR NEGATIVO DO T112.1, e é ele que separa 'a pedra bloqueou' de 'o mapa acabou'. MESMO mapa, MESMO warp, MESMO aperto de LEFT, e uma linha abaixo: a linha 5 do LAYOUT_OREBURGH_GATE_1F é andável de (7,5) a (18,5) e NÃO tem pedra nenhuma. Saindo de (19,5), LEFT*24 satura em (7,5), porque a coluna 6 é parede. Sem este caso o T112.1 passaria num jogo em que a linha 4 simplesmente terminasse em (15,4) por desenho do mapa, que é exatamente o erro que uma prova de posição sozinha comete. A diferença entre os dois é de OITO tiles, no mesmo mapa, no mesmo aperto, e o único objeto entre eles é a pedra.",
+    "warp": "MAP_OREBURGH_GATE_1F",
+    "warp_id": 2,
+    "roteiro": "16:LEFT*24,90:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_GATE_1F",
+      "layout": "LAYOUT_OREBURGH_GATE_1F",
+      "pos": [
+        7,
+        5
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T112.3",
+    "nome": "A PEDRA BLOQUEIA DOS DOIS LADOS, E O QUE ELA FECHA É ATALHO, NUNCA CAMINHO. Este caso é a prova positiva do PORTÃO DE TRANCA de dev_scripts/pedras_sinnoh.py: nenhuma pedra importada pode desconectar alvo do mapa, e é por isso que 14 delas foram recusadas em 18/08/2026 e outras 2 continuam recusadas hoje no censo. Aqui a garantia vira medida: o tile do OUTRO lado da pedra, (13,4), é alcançável a pé pela linha 5, sem Rock Smash na mochila, que é o estado do jogador do harness. ROTA: de (19,5), LEFT*24 satura em (7,5) (é o T112.2); UP*4 satura em (7,4), porque a linha 3 é parede; RIGHT*24 sobe a linha 4 por (8,4) até (13,4) e PARA ali, porque (14,4) é a MESMA pedra vista pelo lado oposto. A prova é `pos` em (13,4): ela diz as duas coisas de uma vez, que a pedra bloqueia também vindo da esquerda e que o trecho atrás dela não ficou ilhado. NOTA MEDIDA em 21/08/2026, para quem for mexer nas pedras: por construção do gerador NENHUMA das 478 pedras do repo fecha passagem obrigatória, todas fecham atalho, então 'quebrar abre caminho que não existia' não é provável em nenhum mapa de Sinnoh hoje. Provar o SMASH em si continua impossível na suíte por um motivo de harness e não de mapa: EventScript_RockSmash exige `checkfieldmove FIELD_MOVE_ROCK_SMASH, TRUE`, ou seja Pokémon com MOVE_ROCK_SMASH mais insígnia, e o time que o seletor de capítulo entrega é um Pikachu com THUNDERBOLT e SURF (src/chapter_jump.c). Enquanto ninguém puser Rock Smash nesse time, a suíte prova o bloqueio e o desbloqueio geométrico, não a animação.",
+    "warp": "MAP_OREBURGH_GATE_1F",
+    "warp_id": 2,
+    "roteiro": "16:LEFT*24,90:NADA,16:UP*4,60:NADA,16:RIGHT*24,90:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_GATE_1F",
+      "layout": "LAYOUT_OREBURGH_GATE_1F",
+      "pos": [
+        13,
+        4
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T112.4",
+    "nome": "A PEDRA QUEBRA E O JOGADOR PASSA PELO TILE DELA. É o par positivo do T112.1: mesmo mapa, mesma pedra em (14,4), mesma perna de LEFT, e a única diferença é que aqui o jogador TEM Rock Smash. Até 21/08/2026 esta prova era impossível na suíte, e o bloqueio era de harness e não de mapa: `EventScript_RockSmash` faz `checkfieldmove FIELD_MOVE_ROCK_SMASH, TRUE`, ou seja exige Pokémon COM o golpe MAIS insígnia (`IsFieldMoveUnlocked_RockSmash` pede FLAG_BADGE03_GET fora de FRLG, src/field_move.c:27), e o time que o seletor de capítulo entrega a quem tem party vazia era um Pikachu com THUNDERBOLT e SURF. A onda das pedras acrescentou `SetMonMoveSlot(&mon, MOVE_ROCK_SMASH, 2)` em src/chapter_jump.c, uma linha, custo ZERO de save (o time do seletor nasce na hora e nunca foi gravado). A INSÍGNIA vem de graça do mesmo salto: escolher KANTO / 'Before Pokémon League' acende as oito do motor, entre elas a BADGE03. ROTA: seletor (os mesmos apertos do T107.4), warp 2 põe o jogador em (19,5), UP*4 satura em (19,4), LEFT*24 para em (15,4) de cara para a pedra (é exatamente o T112.1 até aqui), e então A abre 'quer usar ROCK SMASH?', A responde YES, A passa o 'Pikachu used ROCK SMASH!' e o `removeobject` tira a pedra. SÃO QUATRO A E NÃO TRÊS, medido: com três apertos e esperas de 150/180/300 quadros o jogador terminava em (15,4), ou seja a caixa continuava aberta e o LEFT final era comido inteiro. Aperto sobrando aqui não custa nada, porque depois da pedra sumir o A na parede não faz nada, e aperto de menos mata a prova calada. O LEFT*24 FINAL é a prova: agora ele atravessa (14,4), o tile onde a pedra estava, e satura em (7,4), porque a coluna 6 é parede. `pos` em (7,4) diz as duas coisas de uma vez, que a pedra sumiu e que o tile dela virou caminho. WE_FLAG_NO_ENCOUNTER (FLAG_SEM_ENCONTRO_SELVAGEM) é obrigatória: MAP_OREBURGH_GATE_1F tem `land_mons`, e um encontro selvagem no meio da perna final pararia o jogador num tile qualquer e a prova de posição morreria. Não precisa dela para o smash em si: este mapa NÃO tem `rock_smash_mons`, então `RockSmashWildEncounter` devolve FALSE e o script termina em EventScript_EndSmash.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN,60:NADA,20:A,120:NADA,20:DOWN*12,60:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_OREBURGH_GATE_1F",
+    "warp_id": 2,
+    "roteiro": "16:UP*4,60:NADA,16:LEFT*24,120:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,300:NADA,16:LEFT*24,150:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_GATE_1F",
+      "layout": "LAYOUT_OREBURGH_GATE_1F",
+      "pos": [
+        7,
+        4
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T112.5",
+    "nome": "A PEDRA QUEBRADA VOLTA QUANDO O JOGADOR SAI E REENTRA NO MAPA, e este caso e do FECHADOR e nao de quem escreveu a cena (autor de caso e diferente de autor de cena). Ele existe para DERRUBAR a leitura otimista do T112.4: la o smash e provado uma vez e o jogador termina em (7,4), o que deixa em aberto se o buraco na parede virou permanente. Ele e tambem o PAR NEGATIVO do T120.9/T120.10 de Galar: la a bola de item some PARA SEMPRE porque a flag dela e flag de save de verdade (0x1C30), e aqui a pedra VOLTA porque a memoria do smash e FLAG_TEMP_2, que `ClearTempFieldEventData` (src/event_data.c:58, chamada em src/overworld.c:893 e :958) zera a CADA carregamento de mapa. Era isso que o ESTADO 0.g afirmava sem medir ('pedra quebrada volta ao sair e entrar, que e o comportamento do jogo original'), e o custo ZERO de save das 478 pedras de Sinnoh depende de isso ser verdade. ROTA: seletor (o time com MOVE_ROCK_SMASH e as oito insignias), warp 2 do 1F -> (19,5), UP*4 satura em (19,4), LEFT*24 para em (15,4) de cara para a pedra, quatro A quebram ela (a cadencia de quatro e a medida do T112.4), LEFT*24 atravessa o tile vazio e satura em (7,4). Volta: RIGHT*24 satura em (20,4) e NAO desce dali, porque (20,5) e o HIKER de MOVEMENT_TYPE_FACE_DOWN do proprio mapa, medido na sonda de 21/08/2026 quando a primeira versao deste caso terminou no B1F em (48,3) por causa dele; por isso o caso anda LEFT*2 ate (19,4) primeiro e so entao DOWN*3 pisa na escada (19,5) e cai no B1F. La ele repete a perna ja provada do T121.2 (DOWN*3 satura em (48,6), UP*3 pisa na escada de volta) e sobe para o 1F, ou seja o mapa foi DESCARREGADO E CARREGADO DE NOVO. As esperas de 300 quadros depois de cada escada nao sao conforto: a segunda sonda mostrou que os apertos mandados durante a animacao de subir a escada sao COMIDOS, e foi isso que desalinhou a primeira versao. Entao UP*4 satura em (19,4) outra vez e o LEFT*24 FINAL e a prova: ele para em (15,4), exatamente onde parava no T112.1, porque a pedra esta de volta. Se o motor tivesse guardado o smash, o mesmo aperto terminaria em (7,4), oito tiles adiante, que e a mesma distancia que separa o T112.1 do T112.2. FLAG_SEM_ENCONTRO_SELVAGEM e obrigatoria e nao e conforto: o time do seletor NAO e vazio, os dois mapas tem `land_mons`, e um encontro selvagem no meio de qualquer perna pararia o jogador num tile qualquer.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN,60:NADA,20:A,120:NADA,20:DOWN*12,60:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_OREBURGH_GATE_1F",
+    "warp_id": 2,
+    "roteiro": "16:UP*4,60:NADA,16:LEFT*24,120:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,300:NADA,16:LEFT*24,150:NADA,16:RIGHT*24,180:NADA,16:LEFT*2,120:NADA,16:DOWN*3,300:NADA,300:NADA,16:DOWN*3,90:NADA,16:UP*3,300:NADA,300:NADA,16:UP*4,90:NADA,16:LEFT*24,180:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_GATE_1F",
+      "layout": "LAYOUT_OREBURGH_GATE_1F",
+      "pos": [
+        15,
+        4
+      ],
+      "andou": true,
+      "flags_apagadas": [
+        "FLAG_TEMP_2"
+      ]
+    }
+  }
+]

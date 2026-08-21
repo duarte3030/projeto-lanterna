@@ -41,12 +41,12 @@ MtCoronet_1F_North_Room1	12	52				escala da caixa 28x52 da matriz sobre 36x51	re
 MtCoronet_1F_South	16	23	16	23		identidade (coordenada da fonte ja local e dentro do layout)	TRANCA: com esta pedra um warp ou item do mapa deixa de ser alcancavel sem Rock Smash
 MtCoronet_1F_South	20	23	20	23	FLAG_TEMP_1	identidade (coordenada da fonte ja local e dentro do layout)	
 MtCoronet_1F_South	24	23	24	23		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-MtCoronet_1F_South	25	22	25	22		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
+MtCoronet_1F_South	25	22	25	22		identidade (coordenada da fonte ja local e dentro do layout)	saliência de parede do demake: 1 vizinho(s) alcançável(is), e abrir o tile ganharia só 4 tile(s)
 MtCoronet_B1F	2	4	2	4	FLAG_TEMP_1	identidade (coordenada da fonte ja local e dentro do layout)	
 MtCoronet_B1F	4	15	4	15	FLAG_TEMP_2	identidade (coordenada da fonte ja local e dentro do layout)	
 MtCoronet_B1F	13	17	13	17	FLAG_TEMP_3	identidade (coordenada da fonte ja local e dentro do layout)	
 MtCoronet_B1F	25	13	25	13	FLAG_TEMP_4	identidade (coordenada da fonte ja local e dentro do layout)	
-MtCoronet_B1F	28	14	28	14		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
+MtCoronet_B1F	28	14	28	14		identidade (coordenada da fonte ja local e dentro do layout)	saliência de parede do demake: 2 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
 MtCoronet_B1F	29	15	29	15		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
 MtCoronet_B1F	6	23	6	23	FLAG_TEMP_5	identidade (coordenada da fonte ja local e dentro do layout)	
 MtCoronet_B1F	7	25	7	25	FLAG_TEMP_6	identidade (coordenada da fonte ja local e dentro do layout)	
@@ -58,51 +58,51 @@ MtCoronet_B1F	4	43	4	43	FLAG_TEMP_A	identidade (coordenada da fonte ja local e d
 MtCoronet_B1F	7	45	7	45	FLAG_TEMP_B	identidade (coordenada da fonte ja local e dentro do layout)	
 MtCoronet_B1F	4	57	4	57	FLAG_TEMP_C	identidade (coordenada da fonte ja local e dentro do layout)	
 MtCoronet_B1F	3	60	3	60	FLAG_TEMP_D	identidade (coordenada da fonte ja local e dentro do layout)	
-OreburghGateB1F	9	12				-	planta provisoria: LAYOUT_ROUTE208_ACCESS e o molde de portao 13x9
-OreburghGateB1F	38	19				-	planta provisoria: LAYOUT_ROUTE208_ACCESS e o molde de portao 13x9
-OreburghGateB1F	28	18				-	planta provisoria: LAYOUT_ROUTE208_ACCESS e o molde de portao 13x9
-OreburghGateB1F	39	13				-	planta provisoria: LAYOUT_ROUTE208_ACCESS e o molde de portao 13x9
-OreburghGateB1F	43	13				-	planta provisoria: LAYOUT_ROUTE208_ACCESS e o molde de portao 13x9
-OreburghGateB1F	47	13				-	planta provisoria: LAYOUT_ROUTE208_ACCESS e o molde de portao 13x9
-OreburghGateB1F	53	10				-	planta provisoria: LAYOUT_ROUTE208_ACCESS e o molde de portao 13x9
-OreburghGateB1F	55	8				-	planta provisoria: LAYOUT_ROUTE208_ACCESS e o molde de portao 13x9
+OreburghGateB1F	9	12	9	12	FLAG_TEMP_1	identidade (coordenada da fonte ja local e dentro do layout)	
+OreburghGateB1F	38	19	38	19	FLAG_TEMP_2	identidade (coordenada da fonte ja local e dentro do layout)	
+OreburghGateB1F	28	18	28	18	FLAG_TEMP_3	identidade (coordenada da fonte ja local e dentro do layout)	
+OreburghGateB1F	39	13	39	13		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
+OreburghGateB1F	43	13	43	13		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
+OreburghGateB1F	47	13	47	13		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
+OreburghGateB1F	53	10	53	10		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
+OreburghGateB1F	55	8	55	8		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
 OreburghGate_1F	19	6	19	6	FLAG_TEMP_1	identidade (coordenada da fonte ja local e dentro do layout)	
 OreburghGate_1F	14	4	14	4	FLAG_TEMP_2	identidade (coordenada da fonte ja local e dentro do layout)	
-OreburghGate_1F	12	10	12	10		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
-OreburghGate_1F	11	11	11	11		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
-OreburghGate_1F	11	25	11	25		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
-OreburghGate_1F	13	26	13	26		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
-OreburghGate_1F	15	26	15	26		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
-OreburghGate_1F	25	24	25	24		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
+OreburghGate_1F	12	10	12	10		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+OreburghGate_1F	11	11	11	11		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+OreburghGate_1F	11	25	11	25		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+OreburghGate_1F	13	26	13	26		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+OreburghGate_1F	15	26	15	26		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+OreburghGate_1F	25	24	25	24		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
 OreburghMine_B2F	19	28				escala da caixa 24x14 da matriz sobre 32x28	regra de coordenada nao provada (escala)
 OreburghMine_B2F	17	28				escala da caixa 24x14 da matriz sobre 32x28	regra de coordenada nao provada (escala)
-RavagedPath	23	44	23	44		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
-RavagedPath	22	43	22	43		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
-RavagedPath	22	42	22	42		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
-RavagedPath	17	40	17	40		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
-RavagedPath	12	41	12	41		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
-RavagedPath	13	39	13	39		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
-RavagedPath	9	40	9	40		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
-RavagedPath	7	40	7	40		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
-RavagedPath	10	39	10	39		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
-RavagedPath	10	38	10	38		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
-RavagedPath	8	38	8	38		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
-RavagedPath	7	37	7	37		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
-RavagedPath	12	37	12	37		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
-RavagedPath	11	36	11	36		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
-RavagedPath	5	24	5	24		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
-RavagedPath	3	22	3	22		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
-RavagedPath	2	20	2	20		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
+RavagedPath	23	44	23	44		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+RavagedPath	22	43	22	43		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+RavagedPath	22	42	22	42		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+RavagedPath	17	40	17	40		identidade (coordenada da fonte ja local e dentro do layout)	saliência de parede do demake: 1 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
+RavagedPath	12	41	12	41		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+RavagedPath	13	39	13	39		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+RavagedPath	9	40	9	40		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+RavagedPath	7	40	7	40		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+RavagedPath	10	39	10	39		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+RavagedPath	10	38	10	38		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+RavagedPath	8	38	8	38		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+RavagedPath	7	37	7	37		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+RavagedPath	12	37	12	37		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+RavagedPath	11	36	11	36		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+RavagedPath	5	24	5	24		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+RavagedPath	3	22	3	22		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+RavagedPath	2	20	2	20		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
 RavagedPath	3	16	3	16	FLAG_TEMP_1	identidade (coordenada da fonte ja local e dentro do layout)	
-RavagedPath	4	13	4	13		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
+RavagedPath	4	13	4	13		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
 RavagedPath	3	12	3	12	FLAG_TEMP_2	identidade (coordenada da fonte ja local e dentro do layout)	
-RavagedPath	5	8	5	8		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
+RavagedPath	5	8	5	8		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
 RavagedPath	11	12	11	12	FLAG_TEMP_3	identidade (coordenada da fonte ja local e dentro do layout)	
-RavagedPath	12	12	12	12		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
-RavagedPath	13	12	13	12		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
+RavagedPath	12	12	12	12		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+RavagedPath	13	12	13	12		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
 RavagedPath	11	13	11	13	FLAG_TEMP_4	identidade (coordenada da fonte ja local e dentro do layout)	
-RavagedPath	12	13	12	13		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
-RavagedPath	13	13	13	13		identidade (coordenada da fonte ja local e dentro do layout)	tile nao e andavel: pedra invisivel dentro de parede
+RavagedPath	12	13	12	13		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+RavagedPath	13	13	13	13		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
 Route208	419	713				escala da caixa 64x32 da matriz sobre 68x38	regra de coordenada nao provada (escala)
 Route208	420	714				escala da caixa 64x32 da matriz sobre 68x38	regra de coordenada nao provada (escala)
 Route208	420	715				escala da caixa 64x32 da matriz sobre 68x38	regra de coordenada nao provada (escala)
