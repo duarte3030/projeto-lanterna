@@ -25201,6 +25201,61 @@
       "border_filepath": "data/layouts/OreburghGateB1F/border.bin",
       "blockdata_filepath": "data/layouts/OreburghGateB1F/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_MT_CORONET_OUTSIDE_SOUTH",
+      "name": "MtCoronetOutsideSouth_Layout",
+      "width": 64,
+      "height": 64,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "border_filepath": "data/layouts/MtCoronetOutsideSouth/border.bin",
+      "blockdata_filepath": "data/layouts/MtCoronetOutsideSouth/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_MT_CORONET_OUTSIDE_NORTH",
+      "name": "MtCoronetOutsideNorth_Layout",
+      "width": 64,
+      "height": 64,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "border_filepath": "data/layouts/MtCoronetOutsideNorth/border.bin",
+      "blockdata_filepath": "data/layouts/MtCoronetOutsideNorth/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ROUTE_204_NORTH",
+      "name": "Route204North_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "border_filepath": "data/layouts/Route204North/border.bin",
+      "blockdata_filepath": "data/layouts/Route204North/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_DISTORTION_WORLD",
+      "name": "DistortionWorld_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/DistortionWorld/border.bin",
+      "blockdata_filepath": "data/layouts/DistortionWorld/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_IRON_ISLAND",
+      "name": "IronIsland_Layout_Platinum",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "border_filepath": "data/layouts/IronIsland/border.bin",
+      "blockdata_filepath": "data/layouts/IronIsland/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

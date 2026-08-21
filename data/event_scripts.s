@@ -3246,3 +3246,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/Galar_WildArea22/scripts.inc"
 	.include "data/maps/Galar_Postwick172/scripts.inc"
 	.include "data/scripts/galar_fala.inc"
+	.include "data/maps/DistortionWorld/scripts.inc"
+	.include "data/scripts/galar_cenas.inc"

@@ -106,6 +106,14 @@
       "elevation": 0,
       "dest_map": "MAP_MT_CORONET_6F",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 14,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_DISTORTION_WORLD",
+      "dest_warp_id": "0",
+      "origem": "portal INVENTADO: no Platinum a entrada do Distortion World e cena de script, nao warp de tabela. Decisao do Gui em 21/08/2026. Fica em append, no fim da lista, para nao andar com o indice dos tres warps que ja existiam"
     }
   ],
   "coord_events": [],

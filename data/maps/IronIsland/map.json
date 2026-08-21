@@ -1,7 +1,7 @@
 {
   "id": "MAP_IRON_ISLAND",
   "name": "IronIsland",
-  "layout": "LAYOUT_IRONISLAND",
+  "layout": "LAYOUT_IRON_ISLAND",
   "music": "MUS_POKE_CENTER",
   "region_map_section": "MAPSEC_SINNOH_WEST",
   "requires_flash": false,
@@ -15,29 +15,29 @@
   "object_events": [],
   "warp_events": [
     {
-      "x": 1,
-      "y": 5,
+      "x": 15,
+      "y": 20,
       "elevation": 0,
       "dest_map": "MAP_CANALAVE_CITY",
       "dest_warp_id": "10"
     },
     {
-      "x": 11,
-      "y": 5,
+      "x": 21,
+      "y": 9,
       "elevation": 0,
       "dest_map": "MAP_IRON_ISLAND_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 2,
-      "y": 1,
+      "x": 7,
+      "y": 16,
       "elevation": 0,
       "dest_map": "MAP_IRON_ISLAND_B3F",
       "dest_warp_id": "0"
     },
     {
-      "x": 4,
-      "y": 1,
+      "x": 6,
+      "y": 16,
       "elevation": 0,
       "dest_map": "MAP_IRON_ISLAND_HOUSE",
       "dest_warp_id": "0"
@@ -45,5 +45,6 @@
   ],
   "coord_events": [],
   "bg_events": [],
-  "origem": "passagem provisoria: planta reaproveitada de Route226_Access do repo, so para dar entrada e saida na masmorra. Exterior do Platinum nao e convertido, ver o topo de abre_exteriores_sinnoh.py"
+  "origem": "passagem provisoria: planta reaproveitada de Route226_Access do repo, so para dar entrada e saida na masmorra. Exterior do Platinum nao e convertido, ver o topo de abre_exteriores_sinnoh.py",
+  "origem_geometria": "converte_moldes_sinnoh.py: grade 2D do Platinum (MAP_HEADER_IRON_ISLAND), 32x32, offset (96, 480). Antes vestia o molde de portao 13x9"
 }

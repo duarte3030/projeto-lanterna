@@ -104,6 +104,41 @@ _MB = valores_dos_comportamentos()
 COMPORTA_WARP = {_MB[n] for n in NOMES_QUE_DISPARAM if n in _MB}
 NOME = {v: k for k, v in _MB.items()}
 
+# COMPORTAMENTO CERTO E TILE SOLIDO CONTINUA SENDO WARP MORTO. Medido em
+# 21/08/2026: `RavagedPath` warp 2 esta sobre o metatile 774, que TEM
+# MB_NON_ANIMATED_DOOR e tem COLISAO 1. Este validador dizia que ele dispara, e
+# na sonda no emulador o jogador parado ao lado apertando UP nao sai do lugar.
+#
+# O mecanismo, lido do motor e nao lembrado: quase todo caminho de warp exige
+# que o jogador ESTEJA no tile. `TryStartWarpEventScript` chama
+# `IsWarpMetatileBehavior` sobre a posicao DELE; `TryArrowWarp` e as escadas
+# diagonais idem. Tile com colisao nunca e pisado, entao nada dispara.
+#
+# A UNICA excecao e a porta ANIMADA: `TryDoorWarp` (src/field_control_avatar.c)
+# olha o tile da FRENTE quando o jogador anda para o norte, e por isso a porta
+# de casa de Hoenn e solida de proposito, em centenas de mapas legitimos. Ela
+# so aceita `MB_ANIMATED_DOOR`, nunca a nao animada, e a base secreta tem
+# caminho proprio (`WarpIntoSecretBase`).
+DISPARA_SENDO_SOLIDO = {_MB[n] for n in
+                        ("MB_ANIMATED_DOOR", "MB_SECRET_BASE_SPOT_RED_CAVE",
+                         "MB_SECRET_BASE_SPOT_BROWN_CAVE",
+                         "MB_SECRET_BASE_SPOT_YELLOW_CAVE",
+                         "MB_SECRET_BASE_SPOT_TREE_LEFT",
+                         "MB_SECRET_BASE_SPOT_SHRUB",
+                         "MB_SECRET_BASE_SPOT_BLUE_CAVE",
+                         "MB_SECRET_BASE_SPOT_TREE_RIGHT",
+                         "MB_SECRET_BASE_ENTRANCE") if n in _MB}
+
+
+def warp_morto(comportamento, colisao):
+    """(morto?, motivo). O par comportamento+colisao, e nao so o comportamento."""
+    if comportamento not in COMPORTA_WARP:
+        return True, NOME.get(comportamento, f"comportamento {comportamento}")
+    if colisao and comportamento not in DISPARA_SENDO_SOLIDO:
+        return True, (NOME.get(comportamento, comportamento) + " SOLIDO "
+                      "(colisao 1: o jogador nunca pisa, entao nao dispara)")
+    return False, None
+
 
 # TERCEIRA ARMADILHA, achada em 05/08/2026: a pasta do tileset NAO sai do nome do
 # simbolo. `gTileset_Route38Farmland` mora em `secondary/route_38_farmland` e
@@ -261,10 +296,12 @@ def main():
                     ruins.append((i, x, y, f"metatile {mt} alem da tabela"))
                     continue
                 c = tab[rel]
-                if c in COMPORTA_WARP:
-                    ok += 1
+                colisao = (struct.unpack("<H", blk[idx:idx + 2])[0] >> 10) & 3
+                morto, motivo = warp_morto(c, colisao)
+                if morto:
+                    ruins.append((i, x, y, motivo))
                 else:
-                    ruins.append((i, x, y, NOME.get(c, f"comportamento {c}")))
+                    ok += 1
             if ruins:
                 por_mapa[m] = ruins
 

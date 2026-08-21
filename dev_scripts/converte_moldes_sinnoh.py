@@ -83,6 +83,14 @@ PLAT = F.PLAT
 # `SpringPath`, que e vitima, cai junto dos portoes com 2 tiles nomeados.
 PISO_COLISAO = 0.20
 
+# Os que JA SAIRAM do molde, e que por isso nao aparecem mais em `alvos()`.
+# Existe para o `--demo` continuar afirmando alguma coisa sobre eles: mapa
+# convertido some da medida e nenhuma outra checagem do autoteste o alcanca.
+# Os 8 que faltam foram CORTADOS do escopo por decisao do Gui em 21/08/2026 e
+# ficam vestindo o molde de proposito.
+CONVERTIDOS = ("OreburghGateB1F", "IronIsland", "MtCoronetOutsideSouth",
+               "MtCoronetOutsideNorth", "Route204North")
+
 # Porta que a FONTE nao tem e nos precisamos, para nao deixar mapa de mao unica.
 # mapa nosso -> (mapa destino, warp de destino). Ver o cabecalho.
 PORTAS_INVENTADAS = {
@@ -223,7 +231,7 @@ def _tipo_do_mapa(dest_map):
     return None
 
 
-def tile_de_warp(caverna, dest_map, pos=None, tamanho=None):
+def tile_de_warp(caverna, dest_map, pos=None, tamanho=None, pal=None):
     """Palavra que tem que ficar DEBAIXO do warp, ou None se nao for medida.
 
     Warp nao dispara em chao comum neste motor: quem dispara e o comportamento
@@ -244,8 +252,31 @@ def tile_de_warp(caverna, dest_map, pos=None, tamanho=None):
         return None
     x, y = pos
     larg, alt = tamanho
-    return SETA[min((y, "N"), (alt - 1 - y, "S"),
-                    (x, "O"), (larg - 1 - x, "L"))[1]]
+    perto = [(y, "N"), (alt - 1 - y, "S"), (x, "O"), (larg - 1 - x, "L")]
+    if pal is None:
+        return SETA[min(perto)[1]]
+    # A DIRECAO DA SETA SAI DE POR ONDE O JOGADOR CHEGA, e nao da borda mais
+    # proxima. Custou o T85.7 em 21/08/2026: o warp 0 do IronIsland caiu em
+    # (15,20), cuja borda mais proxima e a de baixo, e ganhou seta SUL; mas o
+    # tile de cima, (15,19), e ROCHA, entao nao ha de onde andar para o sul e a
+    # seta NUNCA dispara. Mapa com entrada e sem saida de novo, calado.
+    #
+    # Seta dispara quando o jogador anda NAQUELE sentido. Ele chega vindo do
+    # vizinho andavel, logo a seta aponta para o lado OPOSTO ao vizinho: vizinho
+    # ao norte quer dizer que ele desce, ou seja seta SUL.
+    vizinhos = {"N": (x, y - 1), "S": (x, y + 1),
+                "O": (x - 1, y), "L": (x + 1, y)}
+    oposto = {"N": "S", "S": "N", "O": "L", "L": "O"}
+    livres = {k for k, (vx, vy) in vizinhos.items()
+              if 0 <= vx < larg and 0 <= vy < alt and _andavel(pal[vy * larg + vx])}
+    if not livres:
+        # Warp cercado de rocha nao tem seta que preste. Devolver None faz o
+        # `aplica` RECUSAR o mapa, que e melhor do que gravar mao unica.
+        return None
+    # O filtro ja carrega a inversao: fica a seta cuja direcao de entrada
+    # (`oposto`) tem vizinho andavel. Entre as que sobram vale a mais perto da
+    # borda, que e a regra velha e continua certa quando ha mais de um lado.
+    return SETA[min(d for d in perto if oposto[d[1]] in livres)[1]]
 
 
 def traduz(header, larg, alt, grade):
@@ -404,7 +435,8 @@ def plano(meu, header):
     # precisa conferir isso sem gravar nada.
     sem_porta = []
     for _i, (x, y), _motivo, dest in warps:
-        palavra = tile_de_warp(e_caverna(header), dest, (x, y), (larg, alt))
+        palavra = tile_de_warp(e_caverna(header), dest, (x, y), (larg, alt),
+                               palavras)
         if palavra is None:
             sem_porta.append(dest)
         else:
@@ -427,11 +459,34 @@ def arte_atual(meu):
 
 
 # ------------------------------------------------------------------ escrita
+def lid_de(header):
+    return "LAYOUT_" + F.const_do_header(header)[len("MAP_"):]
+
+
+def convertido(meu, header):
+    """Convertido de VERDADE: a marca no map.json E o layout existindo.
+
+    A marca sozinha mentia. Medido em 21/08/2026, com seis executores na mesma
+    arvore: um `git restore` de outra frente levou embora o `layouts.json` e o
+    `data/layouts/IronIsland/` e deixou os quatro `map.json` apontando para
+    layout que nao existe mais. `--aplicar` respondia "ja convertido, nada a
+    fazer" e o repo ficava quebrado calado. Guarda que so olha um lado dos dois
+    arquivos que a conversao escreve nao e guarda.
+    """
+    arq = f"{REPO}/data/maps/{meu}/map.json"
+    if not os.path.exists(arq):
+        return False
+    d = json.load(open(arq))
+    if not d.get("origem_geometria"):
+        return False
+    return lid_de(header) in _layouts()
+
+
 def aplica(meu, header):
     """Escreve layout novo e reancora os eventos. Idempotente."""
     arq = f"{REPO}/data/maps/{meu}/map.json"
     d = json.load(open(arq))
-    if d.get("origem_geometria"):
+    if convertido(meu, header):
         return f"{meu}: ja convertido, nada a fazer"
     p = plano(meu, header)
     if p["sem_porta"]:
@@ -449,12 +504,25 @@ def aplica(meu, header):
     borda = C.ROCHA_TOPO if p["caverna"] else ARVORE_TOPO
     open(f"{dst}/border.bin", "wb").write(struct.pack("<4H", *([borda] * 4)))
 
-    lid = "LAYOUT_" + F.const_do_header(header)[len("MAP_"):]
+    lid = lid_de(header)
     lay = json.load(open(f"{REPO}/data/layouts/layouts.json"))
     if not any(l.get("id") == lid for l in lay["layouts"]):
         # FIM da lista, sempre: indice de layout que anda quebra ROM ja gravada.
+        # NOME unico, e nao so id unico. O `layouts.inc` gera simbolo de
+        # assembler a partir do NOME (`<nome>_Blockdata`, `<nome>_Border`), e
+        # nome repetido para o assembler com "symbol already defined". Bate de
+        # verdade: o `IronIsland` vestia um molde que se chamava
+        # `IronIsland_Layout`, entao o layout novo dele nasceu homonimo e a
+        # build quebrou (medido em 21/08/2026). O molde velho NAO pode ser
+        # apagado para resolver, porque indice de layout que anda quebra ROM ja
+        # gravada; quem cede e o nome do novo.
+        nomes = {l.get("name") for l in lay["layouts"]}
+        nome = f"{pasta}_Layout"
+        if nome in nomes:
+            nome = f"{pasta}_Layout_Platinum"
+        assert nome not in nomes, nome
         lay["layouts"].append({
-            "id": lid, "name": f"{pasta}_Layout",
+            "id": lid, "name": nome,
             "width": p["larg"], "height": p["alt"],
             "primary_tileset": "gTileset_GeneralSinnoh",
             # Os dois pares mais usados de Sinnoh, contados em `layouts.json`:
@@ -522,14 +590,17 @@ def demo():
     #    chute. Mutacao plantada: com o piso no chao, portao entra junto.
     nomes = {m for m, _ in alvos()}
     assert "HearthomeCityEastGateToAmitySquare" not in nomes, nomes
-    assert "OreburghGateB1F" not in nomes, "convertido em 21/08: tem que SAIR"
-    assert len(nomes) == 12, sorted(nomes)
+    for ja in CONVERTIDOS:
+        assert ja not in nomes, f"{ja} ja foi convertido: tem que SAIR de alvos()"
+    # 13 vitimas medidas, 5 ja convertidas (o B1F em 21/08 e os 4 do escopo em
+    # 21/08), 8 CORTADAS do escopo por decisao do Gui e que ficam como estao.
+    assert len(nomes) == 8, sorted(nomes)
     global PISO_COLISAO
     guarda, PISO_COLISAO = PISO_COLISAO, 0.0
     try:
         largo = {m for m, _ in alvos()}
         assert "HearthomeCityEastGateToAmitySquare" in largo
-        assert len(largo) == 24, len(largo)
+        assert len(largo) == 20, len(largo)
     finally:
         PISO_COLISAO = guarda
 
@@ -562,25 +633,52 @@ def demo():
     assert len(p["palavras"]) == p["larg"] * p["alt"]
     assert all(0 <= w < 0x10000 for w in p["palavras"])
 
-    # 4.b O QUE JA FOI CONVERTIDO continua de pe. O OreburghGateB1F saiu do
-    #     molde em 21/08/2026, e o que prova isso no arquivo, e nao no plano:
-    #     layout proprio de 64x32 e ESCADA debaixo do warp. Sem esta checagem, o
-    #     defeito da primeira rodada (warp sobre chao comum, mapa de mao unica)
-    #     voltaria calado, porque o mapa ja nao esta em `alvos()`.
-    ore = json.load(open(f"{REPO}/data/maps/OreburghGateB1F/map.json"))
-    assert ore["layout"] == "LAYOUT_OREBURGH_GATE_B1F", ore["layout"]
-    assert ore.get("origem_geometria")
-    L = layouts[ore["layout"]]
-    assert (L["width"], L["height"]) == (64, 32), (L["width"], L["height"])
-    bin_ = open(f"{REPO}/{L['blockdata_filepath']}", "rb").read()
+    # 4.b O QUE JA FOI CONVERTIDO continua de pe, e a checagem vale para TODOS
+    #     eles e nao so para o primeiro. Sao 5: o OreburghGateB1F de 21/08 e os
+    #     4 do escopo do Gui na mesma data. O que prova a conversao e o ARQUIVO,
+    #     nao o plano: layout proprio com o tamanho da grade do Platinum, tile
+    #     de porta debaixo de cada warp e todo objeto em tile andavel. Sem esta
+    #     checagem o defeito da primeira rodada (warp sobre chao comum, mapa de
+    #     mao unica) voltaria calado, porque mapa convertido ja nao esta em
+    #     `alvos()` e nenhuma outra afirmacao do demo o alcanca.
+    #
+    #     Mutacao plantada: apagar a linha do layout em `layouts.json` (foi o
+    #     que um `git restore` de outra frente fez de verdade em 21/08/2026)
+    #     tem que ser pego aqui, e nao pela build meia hora depois.
+    heads = I.headers_do_platinum()
+    deles = {}
+    for h in heads:
+        deles.setdefault(I.chave(h), h)
+    for meu in CONVERTIDOS:
+        d = json.load(open(f"{REPO}/data/maps/{meu}/map.json"))
+        header = _header_de(meu, heads, deles)
+        assert convertido(meu, header), f"{meu}: marca ou layout sumiu"
+        assert d["layout"] == lid_de(header), (meu, d["layout"])
+        L = layouts_agora = _layouts()[d["layout"]]
+        larg, alt, grade, _off = grade_do_mapa(header)
+        assert (L["width"], L["height"]) == (larg, alt), (meu, L["width"], larg)
+        bin_ = open(f"{REPO}/{L['blockdata_filepath']}", "rb").read()
+        assert len(bin_) == larg * alt * 2, meu
 
-    def palavra_em(x, y):
-        i = (y * L["width"] + x) * 2
-        return bin_[i] | (bin_[i + 1] << 8)
-    for w in ore["warp_events"]:
-        assert palavra_em(w["x"], w["y"]) in (ESCADA, SAIDA), (w["x"], w["y"])
-    for o in ore["object_events"]:
-        assert _andavel(palavra_em(o["x"], o["y"])), (o["graphics_id"], o["x"])
+        def palavra_em(x, y, _b=bin_, _w=L["width"]):
+            i = (y * _w + x) * 2
+            return _b[i] | (_b[i + 1] << 8)
+        for w in d["warp_events"]:
+            mb = comportamento(palavra_em(w["x"], w["y"]) & 0x3FF,
+                               secundario=L["secondary_tileset"])
+            assert ("DOOR" in mb or "WARP" in mb or mb == "MB_LADDER"), (meu, mb)
+        for o in d.get("object_events") or []:
+            assert _andavel(palavra_em(o["x"], o["y"])), (meu, o["graphics_id"])
+
+    # 4.c NOME de layout e unico em TODA a lista, e nao so o id. O simbolo do
+    #     assembler sai do nome, entao dois layouts homonimos param a build com
+    #     "symbol already defined", que foi o que o IronIsland fez em
+    #     21/08/2026 (o molde velho dele ja se chamava `IronIsland_Layout`).
+    import collections as _c
+    repetidos = [n for n, k in _c.Counter(
+        l.get("name") for l in json.load(open(
+            f"{REPO}/data/layouts/layouts.json"))["layouts"]).items() if k > 1]
+    assert not repetidos, repetidos
 
     # 5. Nenhum evento reancorado nasce dentro de parede, e isso vale para TODOS
     #    os 13, nao so para o que esta sendo convertido hoje. Mutacao plantada:
@@ -641,17 +739,19 @@ def main():
             return 2
         todos = dict(alvos())
         for meu in pedidos:
-            arq = f"{REPO}/data/maps/{meu}/map.json"
             # Idempotencia: mapa ja convertido SAI da lista de alvos (ele deixou
-            # de vestir o molde), entao a marca tem que ser lida antes, senao
-            # rodar de novo devolve erro em vez de "nada a fazer".
-            if os.path.exists(arq) and json.load(open(arq)).get("origem_geometria"):
-                print(f"{meu}: ja convertido, nada a fazer")
-                continue
-            if meu not in todos:
+            # de vestir o molde), entao o header tem que sair do casamento por
+            # nome, e nao de `alvos()`. Isso tambem e o que deixa `--aplicar`
+            # REFAZER a metade que outra frente apagou: `convertido` olha o
+            # `map.json` E o `layouts.json`, e nao so a marca.
+            header = todos.get(meu) or _header_de(meu)
+            if header is None:
                 print(f"{meu}: nao esta na lista medida de molde")
                 return 2
-            print(aplica(meu, todos[meu]))
+            if convertido(meu, header):
+                print(f"{meu}: ja convertido, nada a fazer")
+                continue
+            print(aplica(meu, header))
         return 0
     return dry_run()
 

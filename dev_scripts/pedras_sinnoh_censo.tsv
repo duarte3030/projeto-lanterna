@@ -18,19 +18,19 @@ MtCoronet4FRooms1And2	5	9	5	9	FLAG_TEMP_3	identidade (coordenada da fonte ja loc
 MtCoronet4FRooms1And2	26	19	26	19	FLAG_TEMP_4	identidade (coordenada da fonte ja local e dentro do layout)	
 MtCoronet4FRooms1And2	29	23	29	23	FLAG_TEMP_5	identidade (coordenada da fonte ja local e dentro do layout)	
 MtCoronet4FRooms1And2	30	24	30	24	FLAG_TEMP_6	identidade (coordenada da fonte ja local e dentro do layout)	
-MtCoronetOutsideNorth	42	44				-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
-MtCoronetOutsideNorth	43	42				-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
-MtCoronetOutsideNorth	45	43				-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
-MtCoronetOutsideNorth	45	39				-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
-MtCoronetOutsideNorth	42	37				-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
-MtCoronetOutsideNorth	39	20				-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
-MtCoronetOutsideSouth	13	31				-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
-MtCoronetOutsideSouth	42	7				-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
-MtCoronetOutsideSouth	43	5				-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
-MtCoronetOutsideSouth	45	6				-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
-MtCoronetOutsideSouth	45	2				-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
-MtCoronetOutsideSouth	42	0				-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
-MtCoronetOutsideSouth	47	0				-	planta provisoria: LAYOUT_ROUTE226_ACCESS e o molde de portao 13x9
+MtCoronetOutsideNorth	42	44	42	44	FLAG_TEMP_1	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronetOutsideNorth	43	42	43	42	FLAG_TEMP_2	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronetOutsideNorth	45	43	45	43	FLAG_TEMP_3	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronetOutsideNorth	45	39	45	39	FLAG_TEMP_4	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronetOutsideNorth	42	37	42	37	FLAG_TEMP_5	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronetOutsideNorth	39	20	39	20	FLAG_TEMP_6	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronetOutsideSouth	13	31	13	31		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
+MtCoronetOutsideSouth	42	7	42	7	FLAG_TEMP_1	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronetOutsideSouth	43	5	43	5	FLAG_TEMP_2	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronetOutsideSouth	45	6	45	6	FLAG_TEMP_3	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronetOutsideSouth	45	2	45	2	FLAG_TEMP_4	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronetOutsideSouth	42	0	42	0	FLAG_TEMP_5	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronetOutsideSouth	47	0	47	0	FLAG_TEMP_6	identidade (coordenada da fonte ja local e dentro do layout)	
 MtCoronet_1F_North_Room1	24	9				escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala)
 MtCoronet_1F_North_Room1	22	26				escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala)
 MtCoronet_1F_North_Room1	25	26				escala da caixa 28x52 da matriz sobre 36x51	regra de coordenada nao provada (escala)

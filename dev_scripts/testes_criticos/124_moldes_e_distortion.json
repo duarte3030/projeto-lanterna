@@ -1,0 +1,283 @@
+[
+  {
+    "id": "T124.1",
+    "nome": "ENTRADA NO IRON ISLAND, que ate 21/08/2026 vestia o molde de portao 13x9 e virou a ilha 32x32 da grade 2D do Platinum. O caso comeca do LADO DE DENTRO, no IronIsland1F, e volta pela porta: warp de debug para o warp 0 do 1F (que aponta para MAP_IRON_ISLAND, warp 1), UP*7 sobe e satura em (6,3), DOWN*7 volta a pisar no tile do warp em (6,8) e dispara. Ja no Iron Island, DOWN*18 desce a coluna 21 e satura em (21,25). Essa posicao e a segunda prova da planta: o molde tinha 13 colunas e 9 linhas, entao (21,25) nao existe nele, e caso que so olhasse `mapa` passaria com o layout velho. O tile debaixo do warp e o metatile 167, MB_NON_ANIMATED_DOOR, medido no gTileset_GeneralSinnoh e carimbado pelo conversor: warp em chao comum NAO dispara neste motor.",
+    "warp": "MAP_IRON_ISLAND_1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:UP*7,60:NADA,16:DOWN*7,300:NADA,16:DOWN*18,180:NADA",
+    "prova": {
+      "mapa": "MAP_IRON_ISLAND",
+      "layout": "LAYOUT_IRON_ISLAND",
+      "pos": [
+        21,
+        25
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T124.2",
+    "nome": "SAIDA DO IRON ISLAND, o par de MAO UNICA do T124.1. Sem ele o T124.1 passaria num mapa em que se entra e nao se sai, que e a licao 4.1 do ESTADO e o defeito que o OreburghGateB1F pagou na primeira conversao. Warp de debug para o warp 1 do Iron Island, que poe o jogador em (21,9) em cima da porta; DOWN*18 desce e satura em (21,25), UP*18 sobe e volta a pisar em (21,9), o que dispara. A prova e a chegada MEDIDA no 1F, (6,8), e nao so o nome do mapa: mapa certo nao e tile certo, que foi o que o T121.6 ensinou.",
+    "warp": "MAP_IRON_ISLAND",
+    "warp_id": 1,
+    "roteiro": "60:NADA,16:DOWN*18,60:NADA,16:UP*18,300:NADA",
+    "prova": {
+      "mapa": "MAP_IRON_ISLAND_1F",
+      "pos": [
+        6,
+        8
+      ]
+    }
+  },
+  {
+    "id": "T124.3",
+    "nome": "GEOMETRIA DA ROUTE 204 NORTH, convertida em 21/08/2026 do molde 13x9 para a rota 32x32 da grade do Platinum. Warp de debug para o warp 0, que poe o jogador em (20,27) e nao em (20,26). A chegada NAO e a coordenada do warp: tile de porta empurra o jogador UM tile para o SUL na entrada, medido em 21/08/2026 nas quatro portas desta rodada (o MB_LADDER do Distortion World nao empurra). DOWN*8 e saturante e para em (20,30): o molde tinha NOVE linhas, entao a linha 30 so existe na planta nova, e caso que so olhasse `mapa` passaria com o layout velho. Os DOIS eventos que o `--dry-run` contava como `fora` foram medidos e sao da CELULA VIZINHA da matriz do mundo (placa e Youngster em z=706, ou seja y=34 num mapa de 32 linhas): nunca pertenceram a este header e por isso nao entraram. O nosso map.json tinha zero objetos, entao nao ha nada reancorado aqui para dar errado. NOTA DE 21/08/2026, na mesma rodada: a volta pela Ravaged Path ESTAVA morta e foi destravada por `dev_scripts/porta_morta.py`. Este caso continua entrando pelo warp de debug de proposito, para provar a GEOMETRIA sem depender do conserto; quem prova a porta e o T124.15 com o par negativo T124.16.",
+    "warp": "MAP_ROUTE_204_NORTH",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:DOWN*8,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE_204_NORTH",
+      "layout": "LAYOUT_ROUTE_204_NORTH",
+      "pos": [
+        20,
+        30
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T124.4",
+    "nome": "SAIDA DA ROUTE 204 NORTH, par de mao unica do T124.3. Warp de debug para o warp 0 da rota, que poe o jogador em (20,26); DOWN*6 satura em (20,30) e UP*6 volta a pisar no warp e dispara. A prova e a chegada em (26,1) da Ravaged Path, medida no map.json dela e nao suposta. A CHEGADA E (26,2) E NAO (26,1). A chegada NAO e a coordenada do warp: tile de porta empurra o jogador UM tile para o SUL na entrada, medido em 21/08/2026 nas quatro portas desta rodada (o MB_LADDER do Distortion World nao empurra). ACHADO DESTA RODADA, e ele nao e defeito da conversao: a VOLTA NAO EXISTIA. O tile de (26,1) da Ravaged Path e o metatile 774, que tem MB_NON_ANIMATED_DOOR e COLISAO 1, e porta nao animada so dispara por `IsWarpMetatileBehavior`, ou seja PISANDO nela; tile solido nunca e pisado. `TryDoorWarp` nao salva, porque ele so aceita MB_ANIMATED_DOOR. Medido na sonda: parado em (26,2), UP*6 nao move o jogador e DOWN*6 seguido de UP*8 tambem nao. Sao 5 warps assim no repo inteiro (SSAnne_Exterior_Frlg, RavagedPath, MtCoronet_1F_North_Room1, MtCoronet1FTunnelRoom e Galar_CrownTundra14), todos anteriores a esta rodada, e dois deles eram justamente a volta dos mapas convertidos hoje. O censo correto, com o corte de 640 do ramo frlg, virou 14 warps: 9 consertados, 5 recusados com motivo (ver `porta_morta.py`).",
+    "warp": "MAP_ROUTE_204_NORTH",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:DOWN*6,60:NADA,16:UP*6,300:NADA",
+    "prova": {
+      "mapa": "MAP_RAVAGED_PATH",
+      "pos": [
+        26,
+        2
+      ]
+    }
+  },
+  {
+    "id": "T124.5",
+    "nome": "GEOMETRIA DO MT CORONET OUTSIDE SOUTH, que virou o exterior 64x64 da grade do Platinum, e prova do SEGUNDO warp dele. Warp de debug para o warp 1, o que vem do MtCoronet4FRooms1And2; DOWN*15 e saturante e para em (11,30), treze linhas abaixo, o que a planta de 9 linhas do molde nao comportava. REESCRITO NA PROPRIA RODADA: a primeira versao entrava andando pelo MtCoronet3F e nasceu FLAKY, da mesma familia do T121.4, do T98.9 e do T108.2. Ela passou na primeira execucao e reprovou na segunda, parando em (3,20); a causa foi medida e nao chutada: o objeto de (2,20) do MtCoronet3F e TRAINER_TYPE_NORMAL com alcance de vista 2 e MOVEMENT_TYPE_LOOK_AROUND, ou seja ele GIRA, e quando calha de olhar para leste no quadro em que o jogador passa em (3,20) ele puxa batalha e a rota morre ali. Rota que atravessa o campo de visao de treinador que gira e sorteio, nao teste.",
+    "warp": "MAP_MT_CORONET_OUTSIDE_SOUTH",
+    "warp_id": 1,
+    "roteiro": "60:NADA,16:DOWN*15,240:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_OUTSIDE_SOUTH",
+      "layout": "LAYOUT_MT_CORONET_OUTSIDE_SOUTH",
+      "pos": [
+        11,
+        30
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T124.6",
+    "nome": "SAIDA DO MT CORONET OUTSIDE SOUTH, par de mao unica do T124.5. Warp de debug para o warp 0, RIGHT*14 satura em (24,32), LEFT*14 volta a pisar no warp de (12,32) e dispara. Prova a chegada em (3,29) do 3F.",
+    "warp": "MAP_MT_CORONET_OUTSIDE_SOUTH",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:RIGHT*14,60:NADA,16:LEFT*14,300:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_3F",
+      "pos": [
+        3,
+        29
+      ]
+    }
+  },
+  {
+    "id": "T124.7",
+    "nome": "GEOMETRIA DO MT CORONET OUTSIDE NORTH, o quarto e ultimo molde do escopo do Gui, agora exterior 64x64. Warp de debug para o warp 0, que poe o jogador em (39,22) (aqui a porta nao empurra, porque (39,23) e rocha); LEFT*10 e saturante e para em (31,22), oito tiles a esquerda, o que nenhuma planta de 13 colunas comportaria. NOTA DE 21/08/2026: a volta pelo Tunnel Room ESTAVA morta e foi destravada por `porta_morta.py`; quem a prova e o T124.17, com o par negativo T124.18. Aqui continua sendo warp de debug para separar geometria de porta.",
+    "warp": "MAP_MT_CORONET_OUTSIDE_NORTH",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:LEFT*10,240:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_OUTSIDE_NORTH",
+      "layout": "LAYOUT_MT_CORONET_OUTSIDE_NORTH",
+      "pos": [
+        31,
+        22
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T124.8",
+    "nome": "SAIDA DO MT CORONET OUTSIDE NORTH, par de mao unica do T124.7. Warp de debug para o warp 0, LEFT*10 satura em (31,22), RIGHT*10 volta a pisar no warp de (39,22) e dispara. Prova a chegada em (7,5) do Tunnel Room. A chegada e (7,6) e nao (7,5). A chegada NAO e a coordenada do warp: tile de porta empurra o jogador UM tile para o SUL na entrada, medido em 21/08/2026 nas quatro portas desta rodada (o MB_LADDER do Distortion World nao empurra). O tile de (7,5) do Tunnel Room era o metatile 774 SOLIDO e a volta NAO EXISTIA: dava para SAIR do Mt Coronet Outside North e nao dava para ENTRAR nele andando, num mapa que tem UM warp so. Divida anterior a esta rodada, medida aqui e consertada por `porta_morta.py` na mesma rodada; o T124.17 prova a entrada a pe.",
+    "warp": "MAP_MT_CORONET_OUTSIDE_NORTH",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:LEFT*10,60:NADA,16:RIGHT*10,300:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_1F_TUNNEL_ROOM",
+      "pos": [
+        7,
+        6
+      ]
+    }
+  },
+  {
+    "id": "T124.9",
+    "nome": "OBJETO LIDO DENTRO DE UM MOLDE CONVERTIDO: a pedra de Rock Smash de (39,20) do Mt Coronet Outside North, uma das 12 que `pedras_sinnoh.py` plantou nos dois exteriores na mesma rodada da conversao. A pedra foi escolhida MEDINDO e nao por gosto: ela e a UNICA dos 12 que cai na mancha andavel que contem os warps. As 6 do Outside South e as outras 5 do North estao em bolsoes que o jogador nao alcanca a pe, que e a mesma divida de alcancabilidade que a 0.i ja registra para a RavagedPath e para duas salas do Mt Coronet, e nao defeito desta rodada. ROTA: o warp 0 poe o jogador em (39,22); UP*4 e saturante e para em (39,21) porque a pedra esta em (39,20) e objeto solido para o passo. O A abre o `EventScript_RockSmash`, que comeca com `lockall`, e por isso o LEFT*10 seguinte NAO move o jogador. A prova e a posicao (39,21), e o par dela e o T124.10.",
+    "warp": "MAP_MT_CORONET_OUTSIDE_NORTH",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:UP*4,90:NADA,8:A,180:NADA,16:LEFT*10,120:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_OUTSIDE_NORTH",
+      "layout": "LAYOUT_MT_CORONET_OUTSIDE_NORTH",
+      "pos": [
+        39,
+        21
+      ]
+    }
+  },
+  {
+    "id": "T124.10",
+    "nome": "PAR NEGATIVO DO T124.9. Mesma rota, mesmo LEFT*10, e SEM o A: sem caixa de texto aberta o jogador anda os 8 tiles ate (31,21). A diferenca entre os dois casos e exatamente um aperto de A, e e ela que separa 'a pedra foi lida' de 'o jogador estava preso por outro motivo qualquer', que e o erro que uma prova de posicao sozinha comete. Nao da para fazer este par apagando a pedra por flag: a memoria do smash e `FLAG_TEMP_1`, e `ClearTempFieldEventData` zera a faixa a cada carregamento de mapa, que e o que o T112.5 mediu.",
+    "warp": "MAP_MT_CORONET_OUTSIDE_NORTH",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:UP*4,90:NADA,180:NADA,16:LEFT*10,120:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_OUTSIDE_NORTH",
+      "layout": "LAYOUT_MT_CORONET_OUTSIDE_NORTH",
+      "pos": [
+        31,
+        21
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T124.11",
+    "nome": "ENTRADA NO DISTORTION WORLD PELO SPEAR PILLAR. O mapa e novo em 21/08/2026 e e INVENCAO DECLARADA: a grade 2D do Platinum para os DEZ headers de Distortion World nao tem chao nenhum (a maior mancha andavel dos dez juntos tem DEZ tiles, e a da sala do Giratina tem DOIS), porque a geometria mora no modelo 3D de gravidade variavel. Foi desenhado UM andar so, 32x32 como a matriz da fonte, com o corredor na coluna 15, que e onde estao os seis unicos tiles marcados da fonte. A entrada tambem e inventada: no Platinum o portal e cena de script, nao warp de tabela. ROTA: warp de debug para o warp 3 do Spear Pillar, que e o novo e o ULTIMO da lista de proposito (entrar no meio andaria com o indice dos tres que ja existiam e mudaria o destino de script que cita warp_id); UP*9 satura em (14,4), DOWN*9 volta a pisar em (14,11) e dispara. O tile debaixo dele e o metatile 588, MB_NON_ANIMATED_DOOR, que e a MESMA palavra ja usada nos warps de (14,14) e (16,14) do proprio Spear Pillar, lida do map.bin. A rota termina com um DOWN*22 SATURANTE ja dentro do Distortion World, e nao na coordenada de chegada, porque aperto que sobra do DOWN*9 atravessa o fade e anda: medido, o jogador parava em (15,18) com a rota curta. Perna saturante nao tem esse problema, e ela para em (15,25) porque o Giratina esta em (15,26).",
+    "warp": "MAP_SPEAR_PILLAR",
+    "warp_id": 3,
+    "roteiro": "60:NADA,16:UP*9,60:NADA,16:DOWN*9,400:NADA,16:DOWN*22,240:NADA",
+    "prova": {
+      "mapa": "MAP_DISTORTION_WORLD",
+      "layout": "LAYOUT_DISTORTION_WORLD",
+      "pos": [
+        15,
+        25
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T124.12",
+    "nome": "VOLTA DO DISTORTION WORLD PARA O SPEAR PILLAR, par de mao unica do T124.11. Mapa de lendario sem porta de volta tranca o jogador com o save gravado la dentro, que e o pior caso da licao 4.1. Warp de debug para o warp 0 do Distortion World, que poe o jogador em (15,10) em cima da escada; DOWN*17 desce o corredor e satura em (15,25), UP*17 sobe e volta a pisar em (15,10) e dispara. O tile e o metatile 575, MB_LADDER, que `IsWarpMetatileBehavior` aceita e que por isso dispara ao CHEGAR no tile, venha o jogador de onde vier. A prova e a chegada em (14,11). A chegada e (14,12). A chegada NAO e a coordenada do warp: tile de porta empurra o jogador UM tile para o SUL na entrada, medido em 21/08/2026 nas quatro portas desta rodada (o MB_LADDER do Distortion World nao empurra).",
+    "warp": "MAP_DISTORTION_WORLD",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:DOWN*17,60:NADA,16:UP*17,300:NADA",
+    "prova": {
+      "mapa": "MAP_SPEAR_PILLAR",
+      "pos": [
+        14,
+        12
+      ]
+    }
+  },
+  {
+    "id": "T124.13",
+    "nome": "A TRAVA DO GIRATINA. O Giratina e object_event solido em (15,26), no fundo da camara, com `OBJ_EVENT_GFX_SPECIES(GIRATINA)` (o sprite existe nesta build: graphics/pokemon/giratina/overworld.png), e por isso ele PARA o passo do jogador, ao contrario do Dialga e do Palkia do Spear Pillar, que sao placa por falta de sprite. ROTA: warp 0 do Distortion World, DOWN*17 saturante pela coluna 15. O jogador desceria ate (15,29), o fundo da camara, e para em (15,25) porque o Giratina esta um tile abaixo. A prova e essa parada, e o par dela e o T124.14. O DOWN e *22, saturante de proposito: com *17 o jogador ja parava em (15,25), mas aperto contado justo esconde a diferenca entre 'parou no Giratina' e 'acabaram os apertos'. Com *22 sobram cinco, e eles nao mudam nada porque ha um obstaculo na frente. No par negativo os MESMOS *22 levam ate (15,29), quatro tiles adiante.",
+    "warp": "MAP_DISTORTION_WORLD",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:DOWN*22,300:NADA",
+    "prova": {
+      "mapa": "MAP_DISTORTION_WORLD",
+      "layout": "LAYOUT_DISTORTION_WORLD",
+      "pos": [
+        15,
+        25
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T124.14",
+    "nome": "PAR NEGATIVO DO T124.13, e o que prova que a parada do outro e o GIRATINA e nao parede. Mesma rota, mesmo numero de quadros, com FLAG_HIDE_GIRATINA acesa antes de comecar: o objeto nao nasce, o tile fica vazio e o jogador desce ate o fundo da camara, (15,29). A flag e permanente (apelido de FLAG_UNUSED_0x1C59, custo zero de save) e por isso sobrevive ao carregamento do mapa, ao contrario da FLAG_TEMP das pedras, que `ClearTempFieldEventData` apaga: e por isso que o par negativo da pedra (T124.10) tem de ser feito com o A e este aqui pode ser feito com a flag. Este e tambem o estado do jogo depois de vencer ou capturar o Giratina, porque `DistortionWorld_EventScript_GiratinaSumiu` acende exatamente esta flag: o caso prova a camara vazia sem precisar ganhar a batalha.",
+    "flags": [
+      "FLAG_HIDE_GIRATINA"
+    ],
+    "warp": "MAP_DISTORTION_WORLD",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:DOWN*22,300:NADA",
+    "prova": {
+      "mapa": "MAP_DISTORTION_WORLD",
+      "layout": "LAYOUT_DISTORTION_WORLD",
+      "pos": [
+        15,
+        29
+      ],
+      "andou": true,
+      "flags_acesas": [
+        "FLAG_HIDE_GIRATINA"
+      ]
+    }
+  },
+  {
+    "id": "T124.15",
+    "nome": "ENTRAR A PE NA ROUTE 204 NORTH PELA RAVAGED PATH, o lado que ate hoje era LETRA MORTA. O tile de (26,1) era o metatile 774 com COLISAO 1. Ele TEM comportamento de porta nao animada, e por isso `valida_warp_tile.py` jurava que o warp disparava; mas porta nao animada so dispara por `IsWarpMetatileBehavior`, ou seja PISANDO nela, e tile solido nunca e pisado. `TryDoorWarp` nao salva, porque so aceita MB_ANIMATED_DOOR. `dev_scripts/porta_morta.py` zerou os dois bits de colisao, sem tocar em arte, elevacao nem comportamento. ROTA: warp de debug para o warp 2 da Ravaged Path, que poe o jogador em (26,2), um tile ao sul da porta (porta empurra para o sul na chegada); UP*6 sobe, PISA em (26,1) e dispara. Ja na rota, DOWN*8 e saturante e para em (20,30). Antes do conserto a mesma rota terminava parada em (26,2) sem sair do lugar, medido na sonda de 21/08/2026. O par negativo e o T124.16.",
+    "warp": "MAP_RAVAGED_PATH",
+    "warp_id": 2,
+    "roteiro": "120:NADA,16:UP*6,300:NADA,16:DOWN*8,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE_204_NORTH",
+      "layout": "LAYOUT_ROUTE_204_NORTH",
+      "pos": [
+        20,
+        30
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T124.16",
+    "nome": "PAR NEGATIVO DO T124.15. Mesmo mapa de partida, mesmo warp, mesmo numero de quadros, e a primeira perna e DOWN em vez de UP: o jogador desce para (26,3), nunca pisa na porta de (26,1) e CONTINUA na Ravaged Path. Sem este caso o T124.15 passaria num jogo que cospe o jogador para a rota sozinho, por warp perdido ou mapa que nao carrega, e nao haveria diferenca visivel entre 'a porta funcionou' e 'o jogo me mandou para la'. A diferenca entre os dois casos e exatamente o sentido da primeira perna.",
+    "warp": "MAP_RAVAGED_PATH",
+    "warp_id": 2,
+    "roteiro": "120:NADA,16:DOWN*6,300:NADA,16:DOWN*8,240:NADA",
+    "prova": {
+      "mapa": "MAP_RAVAGED_PATH",
+      "pos": [
+        26,
+        3
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T124.17",
+    "nome": "ENTRAR A PE NO MT CORONET OUTSIDE NORTH PELO TUNNEL ROOM, o outro lado que era letra morta, e o que fechava um mapa inteiro: o Outside North tem UM warp so, entao antes do conserto dava para sair dele e nao dava para entrar de jeito nenhum andando. O tile de (7,5) era o metatile 774 com COLISAO 1. Ele TEM comportamento de porta nao animada, e por isso `valida_warp_tile.py` jurava que o warp disparava; mas porta nao animada so dispara por `IsWarpMetatileBehavior`, ou seja PISANDO nela, e tile solido nunca e pisado. `TryDoorWarp` nao salva, porque so aceita MB_ANIMATED_DOOR. `dev_scripts/porta_morta.py` zerou os dois bits de colisao, sem tocar em arte, elevacao nem comportamento. ROTA: warp de debug para o warp 1 do Tunnel Room, que poe o jogador em (7,6); UP*6 pisa em (7,5) e dispara, chegando em (39,22) (aqui a porta nao empurra, porque (39,23) e rocha); LEFT*12 satura em (31,22). O par negativo e o T124.18.",
+    "warp": "MAP_MT_CORONET_1F_TUNNEL_ROOM",
+    "warp_id": 1,
+    "roteiro": "120:NADA,16:UP*6,300:NADA,16:LEFT*12,240:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_OUTSIDE_NORTH",
+      "layout": "LAYOUT_MT_CORONET_OUTSIDE_NORTH",
+      "pos": [
+        31,
+        22
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T124.18",
+    "nome": "PAR NEGATIVO DO T124.17. Mesma partida, mesmos quadros, primeira perna DOWN em vez de UP: o jogador desce pelo tunel e o LEFT*12 seguinte nao acha corredor, parando em (7,12), ainda dentro do MAP_MT_CORONET_1F_TUNNEL_ROOM. Prova que quem tirou o jogador de la no T124.17 foi a porta de (7,5) e nao o mapa se desfazendo sozinho.",
+    "warp": "MAP_MT_CORONET_1F_TUNNEL_ROOM",
+    "warp_id": 1,
+    "roteiro": "120:NADA,16:DOWN*6,300:NADA,16:LEFT*12,240:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_1F_TUNNEL_ROOM",
+      "pos": [
+        7,
+        12
+      ],
+      "andou": true
+    }
+  }
+]

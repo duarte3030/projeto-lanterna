@@ -10260,3 +10260,23 @@
 #define FLAG_BOLA_GALAR_G42M04_04    FLAG_UNUSED_0x1C57  // ITEM_ROOT_FOSSIL
 #define FLAG_BOLA_GALAR_G42M14_00    FLAG_UNUSED_0x1C58  // ITEM_CLAW_FOSSIL
 // <<< Fase de conteudo de Galar, baldes a e b <<<
+#define FLAG_HIDE_GIRATINA          FLAG_UNUSED_0x1C59  // Distortion World, 21/08/2026
+
+// >>> Lendarios de Sinnoh (dev_scripts/lendarios_sinnoh.py) >>>
+// Uma flag de HIDE por lendario de Sinnoh, na CAUDA da maior faixa
+// livre (0x20D2-0x3230, medida por dev_scripts/flags_livres.py).
+// A cauda e de proposito: quem pede reserva pega a cabeca da faixa.
+// Apelidar FLAG_UNUSED nao mexe em FLAGS_COUNT: a save nao muda.
+// Gerado por dev_scripts/lendarios_sinnoh.py; nao editar a mao.
+#define FLAG_HIDE_UXIE_SINNOH        FLAG_UNUSED_0x3220  // AcuityCavern
+#define FLAG_HIDE_AZELF_SINNOH       FLAG_UNUSED_0x3221  // ValorCavern
+#define FLAG_HIDE_MESPRIT_SINNOH     FLAG_UNUSED_0x3222  // VerityCavern
+#define FLAG_HIDE_ROTOM_SINNOH       FLAG_UNUSED_0x3223  // OldChateauBackMiddleWestRoom
+#define FLAG_HIDE_REGIGIGAS_SINNOH   FLAG_UNUSED_0x3224  // SnowpointTempleB5F
+#define FLAG_HIDE_HEATRAN_SINNOH     FLAG_UNUSED_0x3225  // MtCoronet_B1F
+#define FLAG_HIDE_SHAYMIN_SINNOH     FLAG_UNUSED_0x3226  // FloaromaTown
+#define FLAG_HIDE_DARKRAI_SINNOH     FLAG_UNUSED_0x3227  // CanalaveCity
+#define FLAG_HIDE_CRESSELIA_SINNOH   FLAG_UNUSED_0x3228  // CanalaveCity
+#define FLAG_HIDE_ARCEUS_SINNOH      FLAG_UNUSED_0x3229  // SpearPillar
+#define FLAG_ARCEUS_SINNOH_RESOLVIDO FLAG_UNUSED_0x322A  // SpearPillar, ja pego: trava o portao
+// <<< Lendarios de Sinnoh <<<
