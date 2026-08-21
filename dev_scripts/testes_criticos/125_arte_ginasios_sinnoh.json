@@ -1,0 +1,152 @@
+[
+  {
+    "id": "T125.1",
+    "nome": "ARTE DOS GINASIOS DE SINNOH, ETERNA: depois de o desenho do salão ser reescrito por `dev_scripts/arte_ginasios_sinnoh.py`, a rota da porta até Gardenia continua andável e falar com Gardenia continua travando o jogador. Este caso existe porque trocar desenho é a maneira mais fácil de trocar colisão sem querer: o gerador escreve só os 10 bits de baixo de cada célula do map.bin e nunca os 6 de cima, que são colisão e elevação, mas 'o script promete' não é medida, e a lição do T115.3 é que arte nova pede prova de caminho. ROTA: uma perna só, UP*23 a partir do warp (11,26). O jogador entra virado para o NORTE (medido no T115.4, e por isso a primeira perna NÃO leva o aperto extra de virada), e a coluna 11 é livre da porta até o pé da líder. A perna extra UP*2 antes do A não anda: o corpo de Gardenia é sólido e o que ela faz é VIRAR o jogador para o norte, sem o que o A falaria com o vazio (a última perna de várias destas rotas é lateral). A PROVA é o jogador terminar em (11, 3), colado na líder, DEPOIS de a perna final LEFT*4, saturante: de (11,3) só há dois tiles livres para oeste e (8,3) é parede, então quatro apertos param em (9,3) venha o que vier ter sido apertada: ela é comida porque o script da líder abre com lock. O par negativo é o T125.2, que faz a MESMA rota sem o A e anda.",
+    "warp": "MAP_ETERNA_CITY_GYM",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*23,60:NADA,16:UP*2,60:NADA,8:A,180:NADA,16:LEFT*4,120:NADA",
+    "prova": {
+      "mapa": "MAP_ETERNA_CITY_GYM",
+      "pos": [
+        11,
+        3
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T125.2",
+    "nome": "PAR NEGATIVO DO T125.1, e sem ele o T125.1 não prova nada. MESMO mapa, MESMO warp, MESMA rota e MESMA perna final; a única diferença é que o A não é apertado. Sem caixa de texto aberta o jogador anda e a perna LEFT*4, saturante: de (11,3) só há dois tiles livres para oeste e (8,3) é parede, então quatro apertos param em (9,3) venha o que vier o leva até (9, 3). Sem este caso o T125.1 passaria num jogo em que o jogador estivesse preso por qualquer outro motivo (parede desenhada por cima do caminho pelo gerador, objeto no lugar errado, controle morto), e uma prova de posição sozinha não sabe distinguir 'a líder travou o jogador' de 'o jogador não conseguia mesmo andar'. É a família do T121.3 com o T121.5.",
+    "warp": "MAP_ETERNA_CITY_GYM",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*23,60:NADA,16:UP*2,60:NADA,180:NADA,16:LEFT*4,120:NADA",
+    "prova": {
+      "mapa": "MAP_ETERNA_CITY_GYM",
+      "pos": [
+        9,
+        3
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T125.3",
+    "nome": "ARTE DOS GINASIOS DE SINNOH, VEILSTONE: depois de o desenho do salão ser reescrito por `dev_scripts/arte_ginasios_sinnoh.py`, a rota da porta até Maylene continua andável e falar com Maylene continua travando o jogador. Este caso existe porque trocar desenho é a maneira mais fácil de trocar colisão sem querer: o gerador escreve só os 10 bits de baixo de cada célula do map.bin e nunca os 6 de cima, que são colisão e elevação, mas 'o script promete' não é medida, e a lição do T115.3 é que arte nova pede prova de caminho. ROTA: 43 passos em 13 pernas, saída de busca em largura sobre o blockdata GRAVADO, com os quatro Black Belts tratados como vigias de 360 graus (todos são MOVEMENT_TYPE_LOOK_AROUND, ou seja giram, e caminho que passa na linha de vista deles abre batalha e a prova de posição vira sorteio). O caminho achado não toca nenhum cone de visão, então este caso NÃO precisa acender flag de treinador derrotado como o T40.2 precisou. A perna extra UP*2 antes do A não anda: o corpo de Maylene é sólido e o que ela faz é VIRAR o jogador para o norte, sem o que o A falaria com o vazio (a última perna de várias destas rotas é lateral). A PROVA é o jogador terminar em (12, 4), colado na líder, DEPOIS de a perna final LEFT*5, saturante em (9,4) ter sido apertada: ela é comida porque o script da líder abre com lock. O par negativo é o T125.4, que faz a MESMA rota sem o A e anda.",
+    "warp": "MAP_VEILSTONE_CITY_GYM",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*3,60:NADA,16:RIGHT*3,60:NADA,16:UP*2,60:NADA,16:RIGHT*7,60:NADA,16:UP*7,60:NADA,16:RIGHT*2,60:NADA,16:UP*6,60:NADA,16:LEFT*2,60:NADA,16:UP*5,60:NADA,16:LEFT*2,60:NADA,16:UP*5,60:NADA,16:LEFT*8,60:NADA,16:UP*3,60:NADA,16:UP*2,60:NADA,8:A,180:NADA,16:LEFT*5,120:NADA",
+    "prova": {
+      "mapa": "MAP_VEILSTONE_CITY_GYM",
+      "pos": [
+        12,
+        4
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T125.4",
+    "nome": "PAR NEGATIVO DO T125.3, e sem ele o T125.3 não prova nada. MESMO mapa, MESMO warp, MESMA rota e MESMA perna final; a única diferença é que o A não é apertado. Sem caixa de texto aberta o jogador anda e a perna LEFT*5, saturante em (9,4) o leva até (9, 4). Sem este caso o T125.3 passaria num jogo em que o jogador estivesse preso por qualquer outro motivo (parede desenhada por cima do caminho pelo gerador, objeto no lugar errado, controle morto), e uma prova de posição sozinha não sabe distinguir 'a líder travou o jogador' de 'o jogador não conseguia mesmo andar'. É a família do T121.3 com o T121.5.",
+    "warp": "MAP_VEILSTONE_CITY_GYM",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*3,60:NADA,16:RIGHT*3,60:NADA,16:UP*2,60:NADA,16:RIGHT*7,60:NADA,16:UP*7,60:NADA,16:RIGHT*2,60:NADA,16:UP*6,60:NADA,16:LEFT*2,60:NADA,16:UP*5,60:NADA,16:LEFT*2,60:NADA,16:UP*5,60:NADA,16:LEFT*8,60:NADA,16:UP*3,60:NADA,16:UP*2,60:NADA,180:NADA,16:LEFT*5,120:NADA",
+    "prova": {
+      "mapa": "MAP_VEILSTONE_CITY_GYM",
+      "pos": [
+        9,
+        4
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T125.5",
+    "nome": "ARTE DOS GINASIOS DE SINNOH, PASTORIA: depois de o desenho do salão ser reescrito por `dev_scripts/arte_ginasios_sinnoh.py`, a rota da porta até Crasher Wake continua andável e falar com Crasher Wake continua travando o jogador. Este caso existe porque trocar desenho é a maneira mais fácil de trocar colisão sem querer: o gerador escreve só os 10 bits de baixo de cada célula do map.bin e nunca os 6 de cima, que são colisão e elevação, mas 'o script promete' não é medida, e a lição do T115.3 é que arte nova pede prova de caminho. ROTA: 43 passos em 5 pernas no mapa mais alto dos oito (27x44). O desvio pela direita entre as linhas 26 e 22 existe para sair dos cones de visão do Sailor Damian e do Fisherman Walter. A perna extra UP*2 antes do A não anda: o corpo de Crasher Wake é sólido e o que ela faz é VIRAR o jogador para o norte, sem o que o A falaria com o vazio (a última perna de várias destas rotas é lateral). A PROVA é o jogador terminar em (13, 5), colado na líder, DEPOIS de a perna final LEFT*5, saturante em (10,5) ter sido apertada: ela é comida porque o script da líder abre com lock. O par negativo é o T125.6, que faz a MESMA rota sem o A e anda.",
+    "warp": "MAP_PASTORIA_CITY_GYM",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*16,60:NADA,16:RIGHT*4,60:NADA,16:UP*5,60:NADA,16:LEFT*4,60:NADA,16:UP*18,60:NADA,16:UP*2,60:NADA,8:A,180:NADA,16:LEFT*5,120:NADA",
+    "prova": {
+      "mapa": "MAP_PASTORIA_CITY_GYM",
+      "pos": [
+        13,
+        5
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T125.6",
+    "nome": "PAR NEGATIVO DO T125.5, e sem ele o T125.5 não prova nada. MESMO mapa, MESMO warp, MESMA rota e MESMA perna final; a única diferença é que o A não é apertado. Sem caixa de texto aberta o jogador anda e a perna LEFT*5, saturante em (10,5) o leva até (10, 5). Sem este caso o T125.5 passaria num jogo em que o jogador estivesse preso por qualquer outro motivo (parede desenhada por cima do caminho pelo gerador, objeto no lugar errado, controle morto), e uma prova de posição sozinha não sabe distinguir 'a líder travou o jogador' de 'o jogador não conseguia mesmo andar'. É a família do T121.3 com o T121.5.",
+    "warp": "MAP_PASTORIA_CITY_GYM",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*16,60:NADA,16:RIGHT*4,60:NADA,16:UP*5,60:NADA,16:LEFT*4,60:NADA,16:UP*18,60:NADA,16:UP*2,60:NADA,180:NADA,16:LEFT*5,120:NADA",
+    "prova": {
+      "mapa": "MAP_PASTORIA_CITY_GYM",
+      "pos": [
+        10,
+        5
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T125.7",
+    "nome": "ARTE DOS GINASIOS DE SINNOH, HEARTHOME: depois de o desenho do salão ser reescrito por `dev_scripts/arte_ginasios_sinnoh.py`, a rota da porta até Fantina continua andável e falar com Fantina continua travando o jogador. Este caso existe porque trocar desenho é a maneira mais fácil de trocar colisão sem querer: o gerador escreve só os 10 bits de baixo de cada célula do map.bin e nunca os 6 de cima, que são colisão e elevação, mas 'o script promete' não é medida, e a lição do T115.3 é que arte nova pede prova de caminho. ROTA: 28 passos em 14 pernas: a planta do Platinum aqui é um labirinto de pilares, e é o ginásio com mais troca de direção dos oito. Só há dois objetos no mapa (a Fantina e o guia), nenhum com raio de visão, então nada na rota se mexe sozinho. A perna extra UP*2 antes do A não anda: o corpo de Fantina é sólido e o que ela faz é VIRAR o jogador para o norte, sem o que o A falaria com o vazio (a última perna de várias destas rotas é lateral). A PROVA é o jogador terminar em (14, 4), colado na líder, DEPOIS de a perna final LEFT*4, saturante em (12,4) ter sido apertada: ela é comida porque o script da líder abre com lock. O par negativo é o T125.8, que faz a MESMA rota sem o A e anda.",
+    "warp": "MAP_HEARTHOME_CITY_GYM",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*1,60:NADA,16:LEFT*2,60:NADA,16:UP*3,60:NADA,16:LEFT*3,60:NADA,16:UP*4,60:NADA,16:RIGHT*2,60:NADA,16:UP*3,60:NADA,16:LEFT*3,60:NADA,16:UP*5,60:NADA,16:RIGHT*2,60:NADA,16:UP*5,60:NADA,16:RIGHT*3,60:NADA,16:UP*3,60:NADA,16:RIGHT*2,60:NADA,16:UP*2,60:NADA,8:A,180:NADA,16:LEFT*4,120:NADA",
+    "prova": {
+      "mapa": "MAP_HEARTHOME_CITY_GYM",
+      "pos": [
+        14,
+        4
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T125.8",
+    "nome": "PAR NEGATIVO DO T125.7, e sem ele o T125.7 não prova nada. MESMO mapa, MESMO warp, MESMA rota e MESMA perna final; a única diferença é que o A não é apertado. Sem caixa de texto aberta o jogador anda e a perna LEFT*4, saturante em (12,4) o leva até (12, 4). Sem este caso o T125.7 passaria num jogo em que o jogador estivesse preso por qualquer outro motivo (parede desenhada por cima do caminho pelo gerador, objeto no lugar errado, controle morto), e uma prova de posição sozinha não sabe distinguir 'a líder travou o jogador' de 'o jogador não conseguia mesmo andar'. É a família do T121.3 com o T121.5.",
+    "warp": "MAP_HEARTHOME_CITY_GYM",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*1,60:NADA,16:LEFT*2,60:NADA,16:UP*3,60:NADA,16:LEFT*3,60:NADA,16:UP*4,60:NADA,16:RIGHT*2,60:NADA,16:UP*3,60:NADA,16:LEFT*3,60:NADA,16:UP*5,60:NADA,16:RIGHT*2,60:NADA,16:UP*5,60:NADA,16:RIGHT*3,60:NADA,16:UP*3,60:NADA,16:RIGHT*2,60:NADA,16:UP*2,60:NADA,180:NADA,16:LEFT*4,120:NADA",
+    "prova": {
+      "mapa": "MAP_HEARTHOME_CITY_GYM",
+      "pos": [
+        12,
+        4
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T125.9",
+    "nome": "ARTE DOS GINASIOS DE SINNOH, SUNYSHORE: depois de o desenho do salão ser reescrito por `dev_scripts/arte_ginasios_sinnoh.py`, a rota da porta até Volkner continua andável e falar com Volkner continua travando o jogador. Este caso existe porque trocar desenho é a maneira mais fácil de trocar colisão sem querer: o gerador escreve só os 10 bits de baixo de cada célula do map.bin e nunca os 6 de cima, que são colisão e elevação, mas 'o script promete' não é medida, e a lição do T115.3 é que arte nova pede prova de caminho. ROTA: 31 passos em 5 pernas. O desvio para oeste na linha 17 sai do cone do School Kid Tiera, que olha para leste de (6,3) com alcance 4. A perna extra UP*2 antes do A não anda: o corpo de Volkner é sólido e o que ela faz é VIRAR o jogador para o norte, sem o que o A falaria com o vazio (a última perna de várias destas rotas é lateral). A PROVA é o jogador terminar em (11, 3), colado na líder, DEPOIS de a perna final DOWN*10, saturante em (11,11) porque (11,12) é o corpo do guia do ginásio ter sido apertada: ela é comida porque o script da líder abre com lock. O par negativo é o T125.10, que faz a MESMA rota sem o A e anda.",
+    "warp": "MAP_SUNYSHORE_CITY_GYM",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*7,60:NADA,16:LEFT*6,60:NADA,16:UP*14,60:NADA,16:RIGHT*6,60:NADA,16:UP*2,60:NADA,16:UP*2,60:NADA,8:A,180:NADA,16:DOWN*10,120:NADA",
+    "prova": {
+      "mapa": "MAP_SUNYSHORE_CITY_GYM",
+      "pos": [
+        11,
+        3
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T125.10",
+    "nome": "PAR NEGATIVO DO T125.9, e sem ele o T125.9 não prova nada. MESMO mapa, MESMO warp, MESMA rota e MESMA perna final; a única diferença é que o A não é apertado. Sem caixa de texto aberta o jogador anda e a perna DOWN*10, saturante em (11,11) porque (11,12) é o corpo do guia do ginásio o leva até (11, 11). Sem este caso o T125.9 passaria num jogo em que o jogador estivesse preso por qualquer outro motivo (parede desenhada por cima do caminho pelo gerador, objeto no lugar errado, controle morto), e uma prova de posição sozinha não sabe distinguir 'a líder travou o jogador' de 'o jogador não conseguia mesmo andar'. É a família do T121.3 com o T121.5.",
+    "warp": "MAP_SUNYSHORE_CITY_GYM",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*7,60:NADA,16:LEFT*6,60:NADA,16:UP*14,60:NADA,16:RIGHT*6,60:NADA,16:UP*2,60:NADA,16:UP*2,60:NADA,180:NADA,16:DOWN*10,120:NADA",
+    "prova": {
+      "mapa": "MAP_SUNYSHORE_CITY_GYM",
+      "pos": [
+        11,
+        11
+      ],
+      "andou": true
+    }
+  }
+]
