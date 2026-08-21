@@ -303,3 +303,90 @@ CanalaveCity_OnTransition:
 CanalaveCity_EventScript_EsconderRival::
 	setflag FLAG_GALACTICA_CANALAVE_RIVAL
 	return
+
+@ >>> Lendarios de Sinnoh (dev_scripts/lendarios_sinnoh.py) >>>
+CanalaveCity_EventScript_Darkrai::
+	lockall
+	msgbox CanalaveCity_Text_DarkraiIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_DARKRAI, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_DARKRAI, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_CANALAVE_CITY_DARKRAI
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, CanalaveCity_EventScript_DarkraiSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, CanalaveCity_EventScript_DarkraiPreso
+	releaseall
+	end
+
+@ ponytail: so apaga o bicho em VITORIA ou CAPTURA. Fugir, perder ou
+@ ser teleportado deixa ele no mapa, senao uma bola errada tira o
+@ lendario do save. Mesma regra do LUGIA e do SpearPillar_Dialga.
+CanalaveCity_EventScript_DarkraiPreso::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_CANALAVE_CITY_DARKRAI
+	setflag FLAG_HIDE_DARKRAI_SINNOH
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+CanalaveCity_EventScript_DarkraiSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_CANALAVE_CITY_DARKRAI
+	setflag FLAG_HIDE_DARKRAI_SINNOH
+	fadescreenswapbuffers FADE_FROM_BLACK
+	msgbox CanalaveCity_Text_DarkraiSome, MSGBOX_DEFAULT
+	return
+
+CanalaveCity_Text_DarkraiIntro:
+	.string "A shadow with no one to cast it\nstands still by the harbor...$"
+
+CanalaveCity_Text_DarkraiSome:
+	.string "DARKRAI melted away into the\ndarkness...$"
+
+CanalaveCity_EventScript_Cresselia::
+	lockall
+	msgbox CanalaveCity_Text_CresseliaIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_CRESSELIA, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_CRESSELIA, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_CANALAVE_CITY_CRESSELIA
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, CanalaveCity_EventScript_CresseliaSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, CanalaveCity_EventScript_CresseliaPreso
+	releaseall
+	end
+
+@ ponytail: so apaga o bicho em VITORIA ou CAPTURA. Fugir, perder ou
+@ ser teleportado deixa ele no mapa, senao uma bola errada tira o
+@ lendario do save. Mesma regra do LUGIA e do SpearPillar_Dialga.
+CanalaveCity_EventScript_CresseliaPreso::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_CANALAVE_CITY_CRESSELIA
+	setflag FLAG_HIDE_CRESSELIA_SINNOH
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+CanalaveCity_EventScript_CresseliaSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_CANALAVE_CITY_CRESSELIA
+	setflag FLAG_HIDE_CRESSELIA_SINNOH
+	fadescreenswapbuffers FADE_FROM_BLACK
+	msgbox CanalaveCity_Text_CresseliaSome, MSGBOX_DEFAULT
+	return
+
+CanalaveCity_Text_CresseliaIntro:
+	.string "A crescent glow drifts in from over\nthe sea...$"
+
+CanalaveCity_Text_CresseliaSome:
+	.string "The Pokemon flew off somewhere...$"
+
+@ <<< Lendarios de Sinnoh <<<

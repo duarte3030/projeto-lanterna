@@ -25,6 +25,7 @@ SpearPillar_MapScripts::
 @ nao caiu, e some depois; mesma flag que o Mt. Coronet inteiro ja usa, porque e
 @ o mesmo marco (derrotar o Cyrus AQUI mesmo, no Spear Pillar). Zero var.
 SpearPillar_OnTransition:
+	call SpearPillar_EventScript_PortaoLendario
 	call_if_defeated TRAINER_SINNOH_GALACTIC_BOSS_CYRUS_SPEAR_PILLAR, SpearPillar_EventScript_HideGalactica_mt_coronet
 	end
 
@@ -259,3 +260,58 @@ SpearPillar_Text_IHaveHarnessedPowers:
 SpearPillar_Text_NoMoreInterference:
 	.string "I, Cyrus, won't have any more\n"
 	.string "interferererererere...!$"
+
+@ >>> Lendarios de Sinnoh (dev_scripts/lendarios_sinnoh.py) >>>
+SpearPillar_EventScript_PortaoLendario::
+	goto_if_set FLAG_ARCEUS_SINNOH_RESOLVIDO, Common_EventScript_NopReturn
+	setflag FLAG_HIDE_ARCEUS_SINNOH
+	goto_if_unset FLAG_CAUGHT_DIALGA, Common_EventScript_NopReturn
+	goto_if_unset FLAG_CAUGHT_PALKIA, Common_EventScript_NopReturn
+	clearflag FLAG_HIDE_ARCEUS_SINNOH
+	return
+
+SpearPillar_EventScript_Arceus::
+	lockall
+	msgbox SpearPillar_Text_ArceusIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ARCEUS, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ARCEUS, 80
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_SPEAR_PILLAR_ARCEUS
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, SpearPillar_EventScript_ArceusSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SpearPillar_EventScript_ArceusPreso
+	releaseall
+	end
+
+@ ponytail: so apaga o bicho em VITORIA ou CAPTURA. Fugir, perder ou
+@ ser teleportado deixa ele no mapa, senao uma bola errada tira o
+@ lendario do save. Mesma regra do LUGIA e do SpearPillar_Dialga.
+SpearPillar_EventScript_ArceusPreso::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_SPEAR_PILLAR_ARCEUS
+	setflag FLAG_HIDE_ARCEUS_SINNOH
+	setflag FLAG_ARCEUS_SINNOH_RESOLVIDO
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+SpearPillar_EventScript_ArceusSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_SPEAR_PILLAR_ARCEUS
+	setflag FLAG_HIDE_ARCEUS_SINNOH
+	setflag FLAG_ARCEUS_SINNOH_RESOLVIDO
+	fadescreenswapbuffers FADE_FROM_BLACK
+	msgbox SpearPillar_Text_ArceusSome, MSGBOX_DEFAULT
+	return
+
+SpearPillar_Text_ArceusIntro:
+	.string "Dodogyuuun!$"
+
+SpearPillar_Text_ArceusSome:
+	.string "ARCEUS disappeared from sight...$"
+
+@ <<< Lendarios de Sinnoh <<<

@@ -105,3 +105,48 @@ FloaromaTown_EventScript_Placa7::
 
 FloaromaTown_Text_Placa7:
 	.string "Floaroma Town\nVivid & Scented$"
+
+@ >>> Lendarios de Sinnoh (dev_scripts/lendarios_sinnoh.py) >>>
+FloaromaTown_EventScript_Shaymin::
+	lockall
+	msgbox FloaromaTown_Text_ShayminIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_SHAYMIN, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_SHAYMIN, 30
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_FLOAROMA_TOWN_SHAYMIN
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, FloaromaTown_EventScript_ShayminSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, FloaromaTown_EventScript_ShayminPreso
+	releaseall
+	end
+
+@ ponytail: so apaga o bicho em VITORIA ou CAPTURA. Fugir, perder ou
+@ ser teleportado deixa ele no mapa, senao uma bola errada tira o
+@ lendario do save. Mesma regra do LUGIA e do SpearPillar_Dialga.
+FloaromaTown_EventScript_ShayminPreso::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_FLOAROMA_TOWN_SHAYMIN
+	setflag FLAG_HIDE_SHAYMIN_SINNOH
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+FloaromaTown_EventScript_ShayminSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_FLOAROMA_TOWN_SHAYMIN
+	setflag FLAG_HIDE_SHAYMIN_SINNOH
+	fadescreenswapbuffers FADE_FROM_BLACK
+	msgbox FloaromaTown_Text_ShayminSome, MSGBOX_DEFAULT
+	return
+
+FloaromaTown_Text_ShayminIntro:
+	.string "Kyuu uuhn.$"
+
+FloaromaTown_Text_ShayminSome:
+	.string "SHAYMIN disappeared among\nthe flowers...$"
+
+@ <<< Lendarios de Sinnoh <<<

@@ -40,3 +40,48 @@ MtCoronet_B1F_Text_GruntPostBattle:
 	.string "the peak.\p"
 	.string "I'm just a lowly grunt.\n"
 	.string "Nobody tells me anything.$"
+
+@ >>> Lendarios de Sinnoh (dev_scripts/lendarios_sinnoh.py) >>>
+MtCoronet_B1F_EventScript_Heatran::
+	lockall
+	msgbox MtCoronet_B1F_Text_HeatranIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_HEATRAN, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_HEATRAN, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_MT_CORONET_B1_F_HEATRAN
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, MtCoronet_B1F_EventScript_HeatranSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MtCoronet_B1F_EventScript_HeatranPreso
+	releaseall
+	end
+
+@ ponytail: so apaga o bicho em VITORIA ou CAPTURA. Fugir, perder ou
+@ ser teleportado deixa ele no mapa, senao uma bola errada tira o
+@ lendario do save. Mesma regra do LUGIA e do SpearPillar_Dialga.
+MtCoronet_B1F_EventScript_HeatranPreso::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_MT_CORONET_B1_F_HEATRAN
+	setflag FLAG_HIDE_HEATRAN_SINNOH
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+MtCoronet_B1F_EventScript_HeatranSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_MT_CORONET_B1_F_HEATRAN
+	setflag FLAG_HIDE_HEATRAN_SINNOH
+	fadescreenswapbuffers FADE_FROM_BLACK
+	msgbox MtCoronet_B1F_Text_HeatranSome, MSGBOX_DEFAULT
+	return
+
+MtCoronet_B1F_Text_HeatranIntro:
+	.string "A furnace heat wells up from the\nbottom of the mountain...$"
+
+MtCoronet_B1F_Text_HeatranSome:
+	.string "HEATRAN sank back into the rock...$"
+
+@ <<< Lendarios de Sinnoh <<<
