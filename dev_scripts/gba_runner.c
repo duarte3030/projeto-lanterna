@@ -35,6 +35,10 @@
  *                         (medido pelo probe do testa_critico.py, nunca chutado)
  *   --nivel-passo N       sizeof(struct Pokemon): faz o dump imprimir tambem
  *                         nivelinimigo1..5, ou seja o time INTEIRO do adversario
+ *   --timeinimigo P,O,S,T,L  offsets de personality, otId, secure, o tamanho de
+ *                         um substruct e o offset de level dentro de struct
+ *                         Pokemon: DECIFRA o time do inimigo e imprime
+ *                         especie0..5, tera0..5 e item0..5
  *   --opcoes A,N          gSaveBlock2Ptr e o offset de filler_90: imprime
  *                         opcoes=<byte das opcoes do modo de teste>
  *   --batalhamons A,T,E,N,G  gBattleMons, sizeof(struct BattlePokemon) e os
@@ -121,6 +125,24 @@ static uint32_t g_nivel_offset = 0;
    bicho dele veio no nivel 5": o ACE, que e quem carrega o gimmick, e o ULTIMO
    do time. Medido pelo probe do testa_critico.py, nunca chutado. */
 static uint32_t g_nivel_passo = 0;
+
+/* ESPECIE, TERA e ITEM dos SEIS slots do time do inimigo, DECIFRADOS.
+   O comentario do g_bmons abaixo dizia que gParties guarda especie e item
+   "dentro dos substructs cifrados", e por isso ate 21/08/2026 o runner so lia
+   NIVEL do time e especie do batalhador ATIVO. Isso deixava um buraco de
+   prova: com o modo LV.5 ligado os seis niveis viram 5, e entao o time inteiro
+   passa a ser indistinguivel de qualquer outro time de seis. Quem carrega o
+   Mega e o ACE, que e o ULTIMO slot e nunca o ativo, e a pedra dele e
+   justamente um ITEM.
+   A decifra e a mesma de src/pokemon.c: cada u32 de `secure.raw` guarda
+   valor ^ otId ^ personality, e qual dos quatro substructs e o 0 sai da
+   tabela sSubstructOffsets[SUBSTRUCT_TYPE_0][personality % 24], copiada
+   literal abaixo. O primeiro u32 do substruct 0 carrega os tres campos de bits
+   que interessam (include/pokemon.h): species:11, teraType:5, heldItem:10.
+   Nenhum offset e chumbado: todos vem do probe do testa_critico.py. */
+static uint32_t g_time_pers = 0, g_time_otid = 0, g_time_sec = 0,
+                g_time_sub = 0, g_time_niv = 0;
+static int g_tem_time = 0;
 
 /* gSaveBlock2Ptr e o offset de filler_90 dentro do SaveBlock2. O byte
    filler_90[0] e onde moram as seis opcoes do modo de teste (include/global.h,
@@ -257,6 +279,26 @@ static void dump_estado(struct mCore *core, const char *rotulo) {
                 printf(" nivelinimigo%d=%d", i,
                        (int)core->busRead8(core, g_inimigo + g_nivel_offset
                                                  + (uint32_t)i * g_nivel_passo));
+            if (g_tem_time && g_nivel_passo) {
+                /* src/pokemon.c, sSubstructOffsets[SUBSTRUCT_TYPE_0] */
+                static const uint8_t sub0[24] = {0, 0, 0, 0, 0, 0, 1, 1, 2, 3,
+                                                 2, 3, 1, 1, 2, 3, 2, 3, 1, 1,
+                                                 2, 3, 2, 3};
+                uint32_t mon0 = g_inimigo + g_nivel_offset - g_time_niv;
+                for (int i = 0; i < 6; i++) {
+                    uint32_t mon = mon0 + (uint32_t)i * g_nivel_passo;
+                    uint32_t pers = core->busRead32(core, mon + g_time_pers);
+                    uint32_t otid = core->busRead32(core, mon + g_time_otid);
+                    uint32_t w = core->busRead32(core, mon + g_time_sec
+                                                 + (uint32_t)sub0[pers % 24]
+                                                   * g_time_sub);
+                    w ^= otid;
+                    w ^= pers;
+                    printf(" especie%d=%d tera%d=%d item%d=%d",
+                           i, (int)(w & 0x7FF), i, (int)((w >> 11) & 0x1F),
+                           i, (int)((w >> 16) & 0x3FF));
+                }
+            }
         }
         if (g_sb2ptr) {
             uint32_t sb2 = core->busRead32(core, g_sb2ptr);
@@ -509,6 +551,15 @@ int main(int argc, char **argv) {
             g_nivel_offset = (uint32_t)strtoul(argv[++i], NULL, 0);
         } else if (!strcmp(argv[i], "--nivel-passo") && i + 1 < argc) {
             g_nivel_passo = (uint32_t)strtoul(argv[++i], NULL, 0);
+        } else if (!strcmp(argv[i], "--timeinimigo") && i + 1 < argc) {
+            uint32_t v[5];
+            if (!le_lista(argv[++i], v, 5)) {
+                fprintf(stderr, "--timeinimigo precisa de "
+                                "pers,otid,secure,tamsubstruct,nivel\n");
+                return 1;
+            }
+            g_time_pers = v[0]; g_time_otid = v[1]; g_time_sec = v[2];
+            g_time_sub = v[3]; g_time_niv = v[4]; g_tem_time = 1;
         } else if (!strcmp(argv[i], "--opcoes") && i + 1 < argc) {
             uint32_t v[2];
             if (!le_lista(argv[++i], v, 2)) {

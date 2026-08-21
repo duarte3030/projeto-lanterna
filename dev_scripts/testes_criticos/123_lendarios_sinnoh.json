@@ -359,5 +359,108 @@
       ],
       "andou": true
     }
+  },
+  {
+    "id": "T123.21",
+    "nome": "PRIMEIRA METADE DA PROVA DE SAVE DOS LENDÁRIOS, e ela é do FECHADOR, não do autor da cena. Os vinte casos deste arquivo acendem a FLAG_HIDE por escrita direta na EWRAM e leem o efeito no MESMO boot: isso prova o motor de object_event e não prova ONDE a flag mora. Se as dez tivessem caído na faixa temporária (0x0 a 0x1F, que ClearTempFieldEventData zera a cada carregamento de mapa) ou acima de FLAGS_COUNT, os vinte passariam do mesmo jeito e o lendário capturado RENASCERIA a cada boot, que é a pior falha possível numa captura única. Aqui o jogo entra na AcuityCavern com FLAG_HIDE_UXIE_SINNOH acesa e SALVA pelo menu, com a mesma sequência medida do T11.1 (START, dois DOWN até SAVE, quatro A de confirmação). Esta metade é só o controle: quem responde é o T123.22. A .sav é apagada no começo para o caso nunca passar por sobra de rodada anterior. Mesmo desenho do T120.9/T120.10, que fez esta pergunta pelas 56 bolas de Galar.",
+    "apaga_sav": true,
+    "sav": "/tmp/claude-501/fechador/t123-uxie-save.sav",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_UXIE_SINNOH"
+    ],
+    "warp": "MAP_ACUITY_CAVERN",
+    "warp_id": 0,
+    "roteiro": "300:NADA,40:START!,90:NADA,20:DOWN,20:DOWN,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
+    "prova": {
+      "mapa": "MAP_ACUITY_CAVERN",
+      "flags_acesas": [
+        "FLAG_HIDE_UXIE_SINNOH"
+      ]
+    }
+  },
+  {
+    "id": "T123.22",
+    "nome": "SEGUNDA METADE, E É ELA QUE RESPONDE: a save gravada pelo T123.21 é recarregada do zero (abertura `continuar`, NENHUMA escrita de flag do Uxie na EWRAM) e o tile (16,9) tem que continuar VAZIO. As flags 0x3220-0x3229 são apelido de FLAG_UNUSED dentro de FLAGS_COUNT (12856), então moram em SaveBlock1.flags[] e sobrevivem ao desligamento; se morassem fora, o Uxie estaria de volta aqui e o jogador poderia pegar o mesmo lendário quantas vezes quisesse. A rota é a MESMA do T123.2, o par negativo, e a chegada em (16,8) é a segunda testemunha: com o Uxie no lugar o jogador pararia em (16,10). O FLAG_SEM_ENCONTRO_SELVAGEM é reescrito porque ele É temporário de propósito e o time do harness é vazio. Depende do T123.21 ter rodado antes, e roda: o harness ordena os casos pelo número do id.",
+    "sav": "/tmp/claude-501/fechador/t123-uxie-save.sav",
+    "abertura": "continuar",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "roteiro": "60:NADA,16:LEFT*2,40:NADA,16:UP*15,90:NADA",
+    "prova": {
+      "mapa": "MAP_ACUITY_CAVERN",
+      "pos": [
+        16,
+        8
+      ],
+      "andou": true,
+      "flags_acesas": [
+        "FLAG_HIDE_UXIE_SINNOH"
+      ]
+    }
+  },
+  {
+    "id": "T123.23",
+    "nome": "O PORTÃO DO ARCEUS COM UMA FLAG SÓ, metade que faltava. O T123.20 prova o portão com NENHUM dos dois marcos feitos, e portão de duas condições que ninguém testa em separado é onde mora o `or` escrito no lugar do `and`: com um `goto_if_unset` a menos, ou com os dois trocados por um só, o T123.19 e o T123.20 continuariam os dois verdes e o Arceus nasceria com o Dialga apenas. Aqui só FLAG_CAUGHT_DIALGA está acesa. MESMA rota do T123.20, mesmos LEFT*7: o tile (12,15) tem que estar vazio e o jogador atravessa até (11,15). Se o Arceus estivesse lá, ele pararia em (13,15), que é a prova positiva do T123.19.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_CAUGHT_DIALGA"
+    ],
+    "warp": "MAP_SPEAR_PILLAR",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:LEFT*7,90:NADA",
+    "prova": {
+      "mapa": "MAP_SPEAR_PILLAR",
+      "pos": [
+        11,
+        15
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T123.24",
+    "nome": "A OUTRA metade do portão do Arceus: só FLAG_CAUGHT_PALKIA acesa, e o resto igual ao T123.23. Os dois juntos varrem as três combinações que NÃO abrem o portão (nenhuma, só Dialga, só Palkia), e o T123.19 varre a única que abre. Sem este par, trocar a ordem dos dois `goto_if_unset` ou apagar o segundo passaria despercebido.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_CAUGHT_PALKIA"
+    ],
+    "warp": "MAP_SPEAR_PILLAR",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:LEFT*7,90:NADA",
+    "prova": {
+      "mapa": "MAP_SPEAR_PILLAR",
+      "pos": [
+        11,
+        15
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T123.25",
+    "nome": "O ARCEUS JÁ PEGO NÃO VOLTA, e este caso ACHOU UM BUG DE VERDADE em 21/08/2026. A cabeça de portão roda no ON_TRANSITION, ou seja a CADA entrada no Spear Pillar, e a versão original acendia FLAG_HIDE_ARCEUS_SINNOH e a apagava sempre que Dialga e Palkia estivessem os dois marcados. Só que a captura do Arceus acende essa MESMA flag: quem pegava o Arceus (o que exige os dois marcos) e saía da sala via a flag ser APAGADA na volta, e o lendário nascia de novo, quantas vezes quisesse. Uma flag não distingue `escondido porque o portão está fechado` de `escondido porque o bicho já foi`, e por isso agora são duas: a captura acende também FLAG_ARCEUS_SINNOH_RESOLVIDO (0x322A, apelido de FLAG_UNUSED, custo zero de save) e ela é a PRIMEIRA linha do portão. O caso simula o estado de depois da captura (os dois marcos, a HIDE e a RESOLVIDO acesas), anda os MESMOS LEFT*7 do T123.20 e exige (11,15) com a HIDE ainda acesa. Medido antes do conserto: (13,15) e a HIDE em 0, ou seja o Arceus estava de volta. Conserto na raiz, em dev_scripts/lendarios_sinnoh.py.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_CAUGHT_DIALGA",
+      "FLAG_CAUGHT_PALKIA",
+      "FLAG_HIDE_ARCEUS_SINNOH",
+      "FLAG_ARCEUS_SINNOH_RESOLVIDO"
+    ],
+    "warp": "MAP_SPEAR_PILLAR",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:LEFT*7,90:NADA",
+    "prova": {
+      "mapa": "MAP_SPEAR_PILLAR",
+      "pos": [
+        11,
+        15
+      ],
+      "andou": true,
+      "flags_acesas": [
+        "FLAG_HIDE_ARCEUS_SINNOH"
+      ]
+    }
   }
 ]

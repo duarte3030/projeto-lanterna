@@ -160,5 +160,46 @@
         "0x4107": 3
       }
     }
+  },
+  {
+    "id": "T127.9",
+    "nome": "DUAS ENTRADAS NO MESMO MAPA DE CENA, COM SAVE NO MEIO: primeira metade. O T127.3 e o T127.4 provam que a var sobrevive ao desligamento, mas o T127.4 nunca RECARREGA O MAPA depois: ele acorda dentro dele. E é o carregamento do mapa que roda a tabela de cenas. Ou seja, o par existente não distingue `a var voltou valendo 3` de `a cena não roda mais`. Esta metade repete o T127.1 (var em 2, entrada em Galar_Hammerlocke01, a cena empurra o jogador dois tiles para cima e deixa a var em 3) e SALVA pelo menu, com a mesma sequência medida do T11.1. A .sav é própria, e apagada no começo, para não depender da do T127.3.",
+    "apaga_sav": true,
+    "sav": "/tmp/claude-501/fechador/t127-duas-entradas.sav",
+    "vars": {
+      "0x4100": 2
+    },
+    "warp": "MAP_GALAR_HAMMERLOCKE_01",
+    "warp_id": 0,
+    "roteiro": "300:NADA,40:START!,90:NADA,20:DOWN,20:DOWN,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_HAMMERLOCKE_01",
+      "pos": [
+        61,
+        14
+      ],
+      "vars": {
+        "0x4100": 3
+      }
+    }
+  },
+  {
+    "id": "T127.10",
+    "nome": "SEGUNDA METADE, E É A PERGUNTA QUE FALTAVA: a save do T127.9 é recarregada do zero e o jogador ENTRA DE NOVO no mesmo mapa, por warp, sem pinar var nenhuma na EWRAM. A tabela de cenas só tem a entrada de valor 2 e a save trouxe 3, então nada dispara: o jogador fica em (61,16), o tile do pouso, exatamente como no T127.2, e a var continua 3. Se `cenas_galar.py` tivesse usado uma TEMP_VAR (0x4000-0x400F, zerada a cada carregamento de mapa), este caso encontraria 0 na var e a cena rodaria pela segunda vez, empurrando o jogador para (61,14): é essa a diferença que ele mede, e nenhum caso anterior a mede, porque nenhum recarrega o mapa depois de recarregar a save.",
+    "sav": "/tmp/claude-501/fechador/t127-duas-entradas.sav",
+    "abertura": "continuar",
+    "warp": "MAP_GALAR_HAMMERLOCKE_01",
+    "warp_id": 0,
+    "roteiro": "300:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_HAMMERLOCKE_01",
+      "pos": [
+        61,
+        16
+      ],
+      "vars": {
+        "0x4100": 3
+      }
+    }
   }
 ]

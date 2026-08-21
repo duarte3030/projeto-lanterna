@@ -120,5 +120,38 @@
         "gimmick": 32
       }
     }
+  },
+  {
+    "id": "T128.5",
+    "nome": "O TIME INTEIRO DO CHEFE, LIDO DA EWRAM, BATE COM O dev_scripts/fase_f_chefes.json. Os quatro casos acima leem os seis NÍVEIS e a espécie do batalhador ATIVO, e com o modo LV.5 ligado os seis níveis viram 5: a partir daí um time da Fase F é indistinguível de qualquer outro time de seis. Pior, quem carrega o gimmick é o ACE, que é o ÚLTIMO slot e nunca o ativo, e a Mega Evolução é um ITEM (`CanMegaEvolve`, src/battle_util.c, só olha a pedra segurada): perder a pedra do ace desliga o Mega em silêncio e nada na suíte reclamava. Este caso lê as SEIS espécies e os itens direto de gParties, decifrando o substruct 0 como src/pokemon.c faz (raw ^ otId ^ personality, com a posição do substruct vindo de sSubstructOffsets[0][personality % 24]); os offsets saem do probe compilado, nenhum é chumbado. Byron: 462 Magnezone, 437 Bronzong, 411 Bastiodon, 208 Steelix, 448 Lucario e 485 Heatran, na ordem da tabela, com ITEM_ASSAULT_VEST (503) no primeiro e ITEM_HEATRANITE (855) no ace. MESMA rota do T128.1, já medida, e com LV.5 ligado (opcoes=36): o que muda é só o que se lê.",
+    "flags": [
+      "0x85f",
+      "0x863",
+      "0x8a7",
+      "0x8b7",
+      "0x9d5",
+      "0x9d6",
+      "0x9d8"
+    ],
+    "antes_do_warp": "60:START,60:NADA,20:UP,20:UP,30:NADA,20:A,120:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:RIGHT,30:NADA,16:RIGHT,30:NADA,20:B,180:NADA,20:B,90:NADA",
+    "warp": "MAP_CANALAVE_CITY_GYM",
+    "roteiro": "120:NADA,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:UP,16:UP,16:UP,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:UP,16:RIGHT,16:RIGHT,16:UP,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:UP,16:UP,16:UP,60:NADA,20:A,120:NADA,20:A,240:NADA",
+    "prova": {
+      "mapa": "MAP_CANALAVE_CITY_GYM",
+      "oponente": "TRAINER_SINNOH_LEADER_BYRON",
+      "campos": {
+        "opcoes": 36,
+        "especie0": 462,
+        "especie1": 437,
+        "especie2": 411,
+        "especie3": 208,
+        "especie4": 448,
+        "especie5": 485,
+        "item0": 503,
+        "item5": 855,
+        "nivelinimigo": 5,
+        "nivelinimigo5": 5
+      }
+    }
   }
 ]

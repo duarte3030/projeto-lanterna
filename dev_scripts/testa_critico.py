@@ -424,8 +424,17 @@ def offsets_de_batalha(src):
                 "  offsetof(struct BattlePokemon, species),\n"
                 "  offsetof(struct BattlePokemon, level),\n"
                 "  offsetof(struct BattlePokemon, moves),\n"
+                # Os cinco de baixo servem ao `--timeinimigo` do runner, que
+                # DECIFRA o time do adversario em gParties. Sem eles a prova de
+                # time parava no batalhador ativo, e o ACE, que e quem carrega a
+                # pedra Mega, e o ULTIMO slot e nunca o ativo.
+                "  offsetof(struct Pokemon, box.personality),\n"
+                "  offsetof(struct Pokemon, box.otId),\n"
+                "  offsetof(struct Pokemon, box.secure),\n"
+                "  sizeof(union PokemonSubstruct),\n"
+                "  offsetof(struct Pokemon, level),\n"
                 "};\n")
-    v = [int.from_bytes(b[i:i + 4], "little") for i in range(0, 24, 4)]
+    v = [int.from_bytes(b[i:i + 4], "little") for i in range(0, 44, 4)]
     g = compila("gimmick", "const struct BattleStruct gB = "
                 "{ .opponentMonCanDynamax = 0x3F };\n")
     nz = [i for i, x in enumerate(g) if x]
@@ -434,6 +443,8 @@ def offsets_de_batalha(src):
                          "de struct BattleStruct?")
     fora = {"opcoes_offset": v[0], "tam_pokemon": v[1], "tam_bmon": v[2],
             "bmon_especie": v[3], "bmon_nivel": v[4], "bmon_golpes": v[5],
+            "mon_pers": v[6], "mon_otid": v[7], "mon_secure": v[8],
+            "tam_substruct": v[9], "mon_nivel": v[10],
             "gimmick_offset": nz[0] & ~1}
     _BATALHA_CACHE[src] = fora
     return fora
@@ -525,6 +536,10 @@ def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=Non
                     "--nivel-offset", str(offsets[7])]
     if batalha:
         cmd += ["--nivel-passo", str(batalha["tam_pokemon"])]
+        if "--inimigo" in cmd:
+            cmd += ["--timeinimigo", ",".join(str(batalha[k]) for k in (
+                "mon_pers", "mon_otid", "mon_secure", "tam_substruct",
+                "mon_nivel"))]
         if "gSaveBlock2Ptr" in simbolos:
             cmd += ["--opcoes", f"{simbolos['gSaveBlock2Ptr']},{batalha['opcoes_offset']}"]
         if "gBattleMons" in simbolos:

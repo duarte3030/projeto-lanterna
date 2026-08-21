@@ -8,6 +8,199 @@ inteiras. Detalhe fica nos documentos apontados no fim.
 
 ---
 
+## 0.j ESCOPO DECIDIDO, LENDÁRIOS, DISTORTION WORLD E FASE F DESTRAVADA, 21/08/2026 (rodada 2; condutor Opus, sete executores Opus, fechador Opus)
+
+Build verde. **ROM 98,80% de 32 MB**, EWRAM 86,16%, IWRAM 86,66%, **suíte
+524/525** (só o T11.3 pulado na rodada normal), **T11 3/3** à parte contra a
+build `cf6786b2ae` (worktree em `/private/tmp/claude-501/t11-antiga`; `vars` em
+0x1678 e 8248 flags do lado velho contra 0x18B8 e 12856 do novo), **SAVE
+COMPATIVEL**, `valida_rom.py` dizendo que os 2.378 mapas declarados entraram, e
+`guarda_colisao_vars.py` com 23 colisões herdadas e **0 novas**. ROM oficial:
+`roms/pokemon-claude-2026-08-21b.gba` (md5
+`8c01c21bdaad23f79e93f3b70f852471`), com o `.map` ao lado, e o MESMO binário
+na ROM de teste de nome fixo.
+
+| região | mapas | objetos | warps | placas | script | arte (mediana, pobres) |
+|---|---|---|---|---|---|---|
+| Kanto | 100% | 100,1% | 100% | 100% | -- | 52 (0) |
+| Johto | 100% | 95,2% | 100,1% | 96,2% | -- | 55 (3) |
+| Hoenn | 100% | 100,1% | 100,1% | 100% | -- | 39 (21) |
+| Sinnoh | **95,4%** | **82,2%** | **100,7%** | **86,3%** | -- | 39 (**102**) |
+| Unova | **99,0%** | 99,5% | **100%** | **99,6%** | -- | 30 (3) |
+| Galar | 100% | 113,4% | 100% | 42,1% | 31,3% | 48 (32) |
+
+Kanto, Johto e Hoenn subiram para 100% **no commit `e905a87d3d`, de ontem**, por
+conserto de régua e não por obra: quem quiser o antes/depois lê a mensagem dele.
+O que esta rodada mexeu é Sinnoh e Unova, e por DUAS causas separadas: os cortes
+de escopo (mapas, warps e placas) e obra de verdade (os objetos de Sinnoh saíram
+de 81,9% para 82,2% com os 10 lendários, e a arte pobre caiu de 105 para 102 com
+os ginásios decorados).
+
+### As decisões do Gui, que é o que esta seção existe para gravar
+
+- **Sai do porte**, em Sinnoh: Battle Zone inteira (três Areas, rotas 225 a 230,
+  Stark Mountain, Villa, o Frontier de gen 4 e as cinco instalações), Pokémon
+  Mansion e Trophy Garden, Turnback Cave / Sendoff Spring / Spring Path, Great
+  Marsh, Amity Square, Pal Park, Underground, GTS, Pokétch Company, 2º andar dos
+  Pokécenters, Union Room / Wi-Fi / Record Mixing, elevadores da Liga, mapas de
+  Mystery Gift, palco de Contest e o Game Corner de Veilstone. Em Unova: Battle
+  Tower do BW3G, Cable Club, caça-níquel de Castelia e o 2F do Pokécenter.
+- **Fica**: o **Distortion World** (com gravidade normal), os 8 ginásios de
+  Sinnoh, o Bug Contest de Johto, o Snowpoint Temple, o trem-bala de Unova e o
+  `Restaurant`, que é o Seven Stars do Valor Lakefront com 9 duplas e não fachada
+  de Game Corner como o inventário dizia.
+- **Uma battle facility só na ROM**, a de Hoenn, alcançável a pé de Johto.
+- **Lendário nunca é cortado**: o lar sai, o Pokémon fica, em lugar fácil.
+- **A Fase F foi DESTRAVADA**, com regra própria: times no espírito do Radical Red
+  modo insano em líder, rival, Elite Four e campeão; **nível da curva intocado**,
+  porque quem rebaixa é o modo lv5; lendário em todo chefe de ace acima de 40;
+  Mega e Z à vontade, **pouco Dynamax**, **pouco Tera**.
+- **Planejada, executa na próxima onda**: Dex completa nas 5 regiões, censo em
+  `scratchpad/dex/`.
+
+A régua é `CORTES_DO_GUI` em `dev_scripts/completude.py` (`--detalhe <região>` diz
+o que cada grupo tirou) e a cobrança é o status `cortada` de `fila_b6.json`. Texto
+em `PLANO-ESCOPO.md`; se ele e a tabela discordarem, a **tabela** está certa.
+
+### O que cada frente fez
+
+- **F1, régua e fila**: 24 grupos de corte na `completude.py`, em dois modos
+  (`mapa_fonte` para o que só a fonte tem, `deficit` para o que existe na ROM e
+  ninguém vai terminar), com `--demo` cobrindo alvo inexistente e grupo repetido.
+  Fila do B6 de **193 para 165 pendentes**, com **28 cortadas**.
+- **F2, lendários de Sinnoh**: **10 encontros estáticos** (Uxie, Azelf e Mesprit
+  nas cavernas dos lagos, Rotom no Old Chateau, Regigigas no B5F do Snowpoint
+  Temple **sem trava de pós-jogo**, Heatran no `MtCoronet_B1F`, Shaymin em
+  Floaroma, Darkrai e Cresselia no porto de Canalave, Arceus no Spear Pillar
+  atrás de Dialga **e** Palkia), flags 0x3220-0x322A, apelido de `FLAG_UNUSED`.
+- **F3, moldes, Distortion World e portas**: os **4 moldes de portão** do escopo
+  viraram mapa (`IronIsland`, `MtCoronetOutsideNorth` e `South`, `Route204North`);
+  o **Distortion World** nasceu com UM andar 32x32, o Giratina no fundo e portal
+  novo no Spear Pillar; `porta_morta.py` mais um `valida_warp_tile.py` que agora
+  olha COLISÃO destravaram **9 portas**.
+- **F4, arte de ginásio**: 8 `map.bin` de Sinnoh redesenhados. Conferido pelo
+  fechador byte a byte contra o HEAD: **colisão e elevação idênticas nos oito, e
+  nenhum tile mudou de comportamento de metatile** (a primeira medição do
+  fechador acusou 362 mudanças e estava ERRADA: cortava primário/secundário pelo
+  tamanho do arquivo, a quarta armadilha do `valida_warp_tile.py`).
+- **F5, Frontier por Johto**: porta em `TrainerHill_Courtyard` (24,29) para o cais
+  do `BattleFrontier_OutsideWest` (20,68), volta por seta ao sul, UM metatile
+  mudado no cais de Hoenn (2 bytes).
+- **F6, cenas de Galar**: 16 cenas de map script e 3 `VAR_GALAR_*`; a fila de lá
+  foi de 445 para **461 feitas** (3.195 linhas, 2.630 pendentes).
+- **Fase F**: **144 batalhas, 742 Pokémon, 61 lendários distintos, 80 Mega, 9 Z,
+  5 Dynamax e 6 Terastal**, escritas em `trainers.party` por gerador idempotente
+  que só toca bloco de chefe.
+
+### As premissas que a rodada derrubou
+
+1. **Os 144 map_scripts de Galar NÃO são `ON_FRAME_TABLE`** (a 0.i diz isso e
+   está errada). No FireRed, que é a fonte do demake, o tipo **3 é
+   `ON_TRANSITION`** e o **2 é `ON_FRAME_TABLE`**: os 144 são bytecode solto, sem
+   var e sem valor, e tabela de cena a fonte tem **19, em 17 mapas**. Ainda por
+   cima **139 dos 144 não escrevem var nenhuma**, e 77 são só dois `setflag` de
+   flags que nenhum script LÊ (0x90E tem 98 `setflag` e zero `checkflag`): quem
+   as lia era código C do hack, que aqui não existe.
+2. **O Distortion World não tem chão na fonte.** Os dez headers do Platinum
+   juntos têm no máximo dez tiles andáveis, porque a geometria mora no modelo 3D
+   de gravidade variável. O andar que entrou é **invenção declarada**.
+3. **Nenhum lendário de Sinnoh existia na ROM**: zero em `wild_encounters.json`,
+   zero batalha estática. Havia o que colocar, não o que realocar, e por isso o
+   status `realocar` da fila segue em zero linhas (medido de novo hoje: nenhuma
+   linha do B6 casa a tabela `LENDARIO_NO_ID`, porque a fila é de `hidden_flag` e
+   de gatilho). O pedido do F2 ao dono da fila era, portanto, **um no-op**, e a
+   cobrança da realocação mora no `PLANO-ESCOPO.md`.
+4. **Vars de Galar: 3 bastaram, não 200.** A conta de 200 a 260 da 0.i vinha da
+   premissa 1; com 19 tabelas na fonte, a fase cabe nos **147 que ainda sobram**.
+5. **Porta sólida nunca dispara.** O `valida_warp_tile.py` julgava warp só pelo
+   comportamento do metatile e dava por boas portas em tile de colisão 1, onde o
+   jogador nunca pisa. Passou a olhar os dois.
+
+### O bug que o caso adversarial achou: o Arceus infinito
+
+O portão do Arceus rodava no `ON_TRANSITION` e, a cada entrada no Spear Pillar,
+acendia `FLAG_HIDE_ARCEUS_SINNOH` e a apagava se `FLAG_CAUGHT_DIALGA` e
+`FLAG_CAUGHT_PALKIA` estivessem acesas. Só que **capturar o Arceus acende essa
+MESMA flag**: quem o pegava (o que exige os dois marcos) e saía da sala tinha a
+flag apagada na volta, e o lendário nascia de novo, **quantas vezes quisesse**.
+Uma flag não distingue "escondido porque o portão está fechado" de "escondido
+porque o bicho já foi". Medido no emulador antes do conserto: (13,15), barrado
+pelo Arceus, com a HIDE em 0. O conserto é na raiz, em
+`dev_scripts/lendarios_sinnoh.py`: nasceu `FLAG_ARCEUS_SINNOH_RESOLVIDO`
+(0x322A, apelido de `FLAG_UNUSED`), acesa na vitória e na captura, e ela é a
+PRIMEIRA linha do portão. Caso **T123.25**.
+
+### Os outros casos adversariais (autor de caso ≠ autor de cena)
+
+- **T123.21 e T123.22**: os vinte casos do F2 acendem a HIDE na EWRAM e leem o
+  efeito no MESMO boot, o que prova o motor e não prova ONDE a flag mora. Agora o
+  jogo salva pelo menu e recarrega do zero, e o tile do Uxie continua vazio.
+- **T123.23 e T123.24**: o portão do Arceus com UMA flag só. Com um
+  `goto_if_unset` a menos os casos do F2 passariam e o Arceus nasceria só com o
+  Dialga; as três combinações que fecham o portão agora estão medidas.
+- **T124.19**: entrada e saída do Distortion World eram dois casos de mão única,
+  cada um do seu warp de debug. O circuito ida-volta-ida corre numa sequência só.
+- **T125.11 e T125.12**: a lição da 0.i aplicada. O T115.3 provava só que o
+  jogador CHEGA em (11,3); agora ele aperta A e a batalha da Candice abre, no
+  ginásio de gelo, o mais arriscado dos oito.
+- **T126.9 e T126.10**: a razão escrita da porta nova é que largar o jogador na
+  praça o deixaria sem o Frontier Pass PARA SEMPRE, e ninguém tinha medido que a
+  cena do Scott dispara para quem vem de Johto: agora uma corrida só vai do warp
+  10 da Route 40 até `FLAG_SYS_FRONTIER_PASS` acesa, e outra faz a volta inteira
+  até `MAP_ROUTE40` (11,14). Medido e dito: dali até a Olivine City o caminho
+  EXISTE (a varredura de colisão alcança a borda leste em (33,13) a (33,18)), mas
+  este harness não o estabilizou, e o caso para no chão de Johto em vez de fingir
+  que chega na cidade.
+- **T127.9 e T127.10**: o T127.4 recarrega a save mas acorda DENTRO do mapa e
+  nunca o recarrega, e é o carregamento que roda a tabela de cenas. Agora o
+  jogador salva, o jogo recarrega do zero e ele ENTRA de novo: a cena não repete.
+- **T128.5**: com LV.5 ligado os seis níveis viram 5, e a partir daí um time da
+  Fase F é indistinguível de qualquer outro; pior, quem carrega o Mega é o ACE,
+  que é o ÚLTIMO slot e nunca o ativo, e a Mega é um ITEM. O `gba_runner` ganhou
+  `--timeinimigo`, que decifra o substruct 0 de `gParties` como `src/pokemon.c`
+  faz, e imprime `especie0..5`, `item0..5` e `tera0..5`. As seis espécies do
+  Byron e a `ITEM_HEATRANITE` no ace batem com o `fase_f_chefes.json`.
+
+### O elenco de rival: nada ficou de fora, o buraco é do IMPORT
+
+A tabela da Fase F chama a atenção com **4 batalhas de rival em Johto e ZERO em
+Unova**. Medido contra `trainers.party` e `opponents.h`, e não contra a memória
+das fontes: existem exatamente **quatro** Silver com time próprio
+(`TRAINER_JOHTO_RIVAL_SILVER_1` a `_4`) e **os quatro estão na Fase F**; o HGSS
+enfrenta o Silver sete vezes, e as outras três nunca foram importadas. Em Unova,
+as 403 constantes de `TRAINER_UNOVA_*` **não têm rival nenhum**: os
+`TRAINER_BIANCA`, `TRAINER_HUGH` e `TRAINER_NATE` que existem são NPCs de HOENN
+(Route 111, Route 119 e o ginásio de Mossdeep), homônimos. Varredura fechada:
+**zero** treinadores com `RIVAL` no nome e time próprio ficaram fora da tabela.
+O item de fila é **importar** as três batalhas de Silver e os rivais do BW3G;
+dar time a eles é depois, com o mesmo gerador.
+
+### O que fica aberto para o Gui
+
+- **A obra da Dex completa nas 5 regiões**, planejada aqui e por executar.
+- **Os chefes de equipe vilã** (Rocket, Magma/Aqua, Galáctica, Plasma) não
+  entraram na Fase F, por decisão do condutor; são o próximo alvo natural.
+- **O bloco c4 de Galar por padrão**: 2.630 linhas pendentes e vars de sobra.
+- **Remoção física dos mapas cortados**: nada foi apagado, e os mapas fora do
+  escopo continuam compilando, ocupando ROM e alcançáveis por warp. Com a ROM em
+  98,80% de 32 MB é a economia mais óbvia que existe; mexe em `data/`, em
+  `map_groups.json` e nos warps de lá, então pede build e suíte.
+- **Pergunta 14, ainda de pé**: o `BattleFrontier` de Sinnoh vira a praça do
+  Platinum ou fica ligado ao Frontier de Hoenn que já existe? E os ginásios de
+  **Eterna** e **Canalave**, cujos moldes o corte não pegou, ficam como estão?
+- Seguem abertos, da 0.i: as 19 bolas de neve de Snowpoint, as 31 pedras de
+  Sinnoh, a alcançabilidade de `RavagedPath` e de duas salas de Mt. Coronet, e a
+  curva de Galar (mediana 70, 276 bichos no nível 100, e o struct de party do
+  demake que NÃO é o do FireRed).
+
+**Dívida que continua plantada**: o `T93.6` e o `T85.1` seguem fixando o molde
+do `SendoffSpring`, que agora está **cortado do escopo** e portanto nunca será
+convertido. A dívida da 0.i virou letra morta em vez de bomba, mas os dois casos
+continuam medindo um mapa que o Gui decidiu não terminar; quem apagar os mapas
+cortados reescreve os dois.
+
+---
+
 ## 0.i CONTEÚDO DE GALAR, MOLDES DE SINNOH E PEDRAS, 21/08/2026 (condutor Opus, três executores Opus, fechador Opus)
 
 Build verde. **ROM 98,69% de 32 MB**, EWRAM 86,16%, IWRAM 86,66%, **suíte
@@ -82,7 +275,9 @@ citados de verdade, 28 recuperáveis um a um) e **150 estão livres**
 o que o FireRed faz com `VAR_MAP_SCENE_*`: cabe folgado, não abre janela de save,
 e o preço é não ter duas cenas independentes no mesmo mapa. O bloco c3 (144
 linhas de `ON_FRAME_TABLE` puro) é o teste dessa escolha: fazer 12 e MEDIR antes
-de comprometer a faixa. Rascunho em `PLANO-CONTEUDO-GALAR.md` (é rascunho de
+de comprometer a faixa. **ERRADO, e corrigido na 0.j:** no FireRed o tipo 3 é
+`ON_TRANSITION`, não `ON_FRAME_TABLE`; os 144 são bytecode solto, e tabela de
+cena a fonte tem 19, em 17 mapas. Por isso 3 vars bastaram, e não 200. Rascunho em `PLANO-CONTEUDO-GALAR.md` (é rascunho de
 executor, não decisão).
 
 ### O achado da rodada: dois Pokécenters de Sinnoh não curavam

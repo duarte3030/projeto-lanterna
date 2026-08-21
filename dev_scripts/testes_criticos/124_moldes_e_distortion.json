@@ -279,5 +279,20 @@
       ],
       "andou": true
     }
+  },
+  {
+    "id": "T124.19",
+    "nome": "IDA, VOLTA E IDA DE NOVO NO DISTORTION WORLD, NUMA SEQUÊNCIA SÓ, sem teleporte de debug no meio depois do primeiro. O T124.11 prova a entrada e o T124.12 prova a saída, cada um começando de um warp de debug próprio: dois casos de mão única não provam que a porta é a MESMA nos dois sentidos nem que ela continua valendo depois de usada. Este anda o circuito inteiro: entra pelo portal do Spear Pillar (UP*9 sai de cima dele, DOWN*9 pisa nele de novo e dispara), desce o corredor do Distortion World até esbarrar no Giratina em (15,25), sobe os mesmos 17 e pisa na escada de (15,10) que devolve ao Spear Pillar em (14,12), e então sobe os quatro UP que põem o jogador de volta em (14,11), o portal, e caem outra vez no Distortion World em (15,10). A prova é o mapa E o layout E a posição do SEGUNDO desembarque: mapa de lendário que só deixa entrar, ou que deixa entrar uma vez e depois trava, é o pior caso da lição 4.1, e é o que este circuito recusa. Os apertos que sobram durante o desvanecimento da escada são COMIDOS de propósito, que é a regra medida na 0.i.",
+    "warp": "MAP_SPEAR_PILLAR",
+    "warp_id": 3,
+    "roteiro": "60:NADA,16:UP*9,60:NADA,16:DOWN*9,400:NADA,16:DOWN*17,90:NADA,16:UP*17,400:NADA,16:UP*4,400:NADA",
+    "prova": {
+      "mapa": "MAP_DISTORTION_WORLD",
+      "layout": "LAYOUT_DISTORTION_WORLD",
+      "pos": [
+        15,
+        10
+      ]
+    }
   }
 ]

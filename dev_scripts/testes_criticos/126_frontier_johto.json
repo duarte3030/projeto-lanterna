@@ -101,5 +101,36 @@
     "prova": {
       "mapa": "MAP_BATTLE_FRONTIER_OUTSIDE_EAST"
     }
+  },
+  {
+    "id": "T126.9",
+    "nome": "DE JOHTO ATÉ O FRONTIER PASS, NUMA SEQUÊNCIA SÓ. O T126.1 para no cais e o T126.6 começa no cais: juntos eles não provam que UM jogador faz o percurso inteiro, e é o percurso inteiro que carrega a razão de ser da porta nova. A justificativa escrita no T126.1 é que largar o jogador direto na praça o deixaria sem o Frontier Pass PARA SEMPRE, porque a cena do Scott mora no ON_FRAME_TABLE da recepção; ninguém tinha medido que ela realmente dispara para quem vem de Johto. Aqui a corrida é única: warp 10 da Route 40, 21 para cima (rota, conexão e praça), 12 para a direita, a porta nova de (24,29), o cais em (20,68), sobe, 7 para a direita, entra na recepção, e então doze A atravessam a fala do Scott. A PROVA É A FLAG: FLAG_SYS_FRONTIER_PASS acesa, mais a posição (2,11) em que a coreografia da cena larga o jogador, que é a testemunha de que a cena rodou INTEIRA e não só começou.",
+    "warp": "MAP_ROUTE40",
+    "warp_id": 10,
+    "roteiro": "90:NADA,16:UP*21,90:NADA,16:RIGHT*12,90:NADA,16:UP*2,240:NADA,16:UP*2,90:NADA,16:RIGHT*7,90:NADA,16:UP*2,300:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_BATTLE_FRONTIER_RECEPTION_GATE",
+      "pos": [
+        2,
+        11
+      ],
+      "flags_acesas": [
+        "FLAG_SYS_FRONTIER_PASS"
+      ]
+    }
+  },
+  {
+    "id": "T126.10",
+    "nome": "A VOLTA INTEIRA ATÉ O CHÃO DE JOHTO, também numa sequência só, e é ela que fecha a armadilha. O T126.3 prova só o primeiro salto da volta, da Frontier para a praça: quem chega na praça ainda não voltou a Johto, porque a praça é mapa de Hoenn. Aqui o jogador começa onde o T126.3 termina (warp 4 da praça, o pé da porta nova), anda 13 para a esquerda, desce os 25 da praça, atravessa o portão de passagem que o demake põe entre a praça e a rota, desce mais 8 e termina em MAP_ROUTE40 (11,14), pisando em Johto. MEDIDO e dito: daqui até a Olivine City o caminho existe (a varredura de colisão da Route 40 alcança a borda leste em (33,13) a (33,18), que é a conexão com a cidade), mas ele passa por um trecho que este harness não estabilizou, e por isso o caso para no chão de Johto em vez de fingir que chega na cidade.",
+    "warp": "MAP_TRAINER_HILL_COURTYARD",
+    "warp_id": 4,
+    "roteiro": "90:NADA,16:LEFT*13,90:NADA,16:DOWN*25,300:NADA,16:DOWN*8,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE40",
+      "pos": [
+        11,
+        14
+      ]
+    }
   }
 ]

@@ -148,5 +148,31 @@
       ],
       "andou": true
     }
+  },
+  {
+    "id": "T125.11",
+    "nome": "DÁ PARA FALAR COM A CANDICE DEPOIS DA DECORAÇÃO, e a prova é a BATALHA e não a posição. Este é o caso que a lição da 0.i pede: entre o objeto e a conversa há um atributo de METATILE, e nenhuma medida de arte o enxerga. A decoração de `arte_ginasios_sinnoh.py` trocou 109 metatiles do salão de Snowpoint, e o T115.3 prova só que o jogador CHEGA em (11,3), colado na líder de (11,2). Aqui ele aperta A: o `lock`+`faceplayer` roda, a msgbox de introdução passa e o `trainerbattle_no_intro` abre a batalha, com `oponente` cravado em TRAINER_SINNOH_LEADER_CANDICE. Snowpoint é o ginásio escolhido de propósito entre os oito porque é o de MB_ICE: colisão livre lá não significa que dá para PARAR no tile, e é o único em que uma troca de comportamento passaria por decoração inofensiva. Conferido também fora do emulador, byte a byte contra o HEAD: nos oito ginásios decorados os bits de colisão e elevação de TODOS os tiles são idênticos, e nenhum tile mudou de comportamento de metatile.",
+    "warp": "MAP_SNOWPOINT_CITY_GYM",
+    "warp_id": 0,
+    "roteiro": "150:NADA,24:UP*24,90:NADA,20:A,180:NADA,20:A,300:NADA",
+    "prova": {
+      "oponente": "TRAINER_SINNOH_LEADER_CANDICE"
+    }
+  },
+  {
+    "id": "T125.12",
+    "nome": "PAR NEGATIVO do T125.11, e sem ele o outro não separa `a conversa abriu` de `qualquer coisa aqui abre batalha`. MESMO warp, MESMA rota de 24 UP no gelo, e a única diferença é que NENHUM A é apertado: o jogador para em (11,3), a líder continua de pé em (11,2) e `oponente` fica em 0. É ele que prova que a batalha do T125.11 veio do A e não da linha de visão de alguém, e é ele que fixa a chegada da corrida de gelo depois da decoração.",
+    "warp": "MAP_SNOWPOINT_CITY_GYM",
+    "warp_id": 0,
+    "roteiro": "150:NADA,24:UP*24,300:NADA",
+    "prova": {
+      "mapa": "MAP_SNOWPOINT_CITY_GYM",
+      "pos": [
+        11,
+        3
+      ],
+      "oponente": 0,
+      "andou": true
+    }
   }
 ]
