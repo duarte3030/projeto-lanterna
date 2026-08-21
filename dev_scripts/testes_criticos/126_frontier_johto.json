@@ -1,0 +1,105 @@
+[
+  {
+    "id": "T126.1",
+    "nome": "A CADEIA INTEIRA, da Route 40 ate a Battle Frontier, sem teleporte de debug no meio. Decisao do Gui de 21/08/2026: a ROM tem UMA battle facility, a de Hoenn, e ela passa a ser alcancavel a pe de Johto, perto de Olivine. O caso comeca no warp 10 da Route 40 (11,5), que e a porta norte do portao de passagem que o demake de HGSS ja punha no meio da rota, sobe 21 vezes (5 passos ate a borda de cima da rota, 1 atravessando a CONEXAO para MAP_TRAINER_HILL_COURTYARD, que e a praca de instalacoes que o demake poe justamente onde HGSS poe a Frontier, e mais 15 dentro dela ate (13,30)), anda 12 para a direita ate (24,30) e entra na porta nova de (24,29). A prova nao e 'mudou de mapa': `mapa` crava MAP_BATTLE_FRONTIER_OUTSIDE_WEST e `pos` crava (20,68), a prancha de embarque do cais, um tile ao lado de (19,67), onde a balsa de Lilycove larga o jogador. Chegar NO CAIS e de proposito: a cena do Scott e o `setflag FLAG_SYS_FRONTIER_PASS` moram no ON_FRAME_TABLE de BattleFrontier_ReceptionGate, ao NORTE daqui, entao quem vem de Johto passa pela recepcao igual a quem vem de balsa. Largar o jogador direto na praca deixaria ele sem o Frontier Pass para sempre.",
+    "warp": "MAP_ROUTE40",
+    "warp_id": 10,
+    "roteiro": "90:NADA,16:UP*21,90:NADA,16:RIGHT*12,90:NADA,16:UP*2,240:NADA",
+    "prova": {
+      "mapa": "MAP_BATTLE_FRONTIER_OUTSIDE_WEST",
+      "layout": "LAYOUT_BATTLE_FRONTIER_OUTSIDE_WEST",
+      "pos": [
+        20,
+        68
+      ]
+    }
+  },
+  {
+    "id": "T126.2",
+    "nome": "MESMO destino por outro caminho, e por isso nao e repeticao do T126.1: comeca na porta da Battle Tent do meio (warp 2 da praca), uma das quatro portas que a praca ja tinha. Prova que a porta nova convive com as antigas em vez de roubar o warp de alguma: se o metatile 98 tivesse ido para o tile errado, ou se o warp novo tivesse empurrado os indices dos que ja existiam, o jogador sairia da tenda em outro lugar e este caso mudaria de cor. Sai da tenda virado para baixo (por isso o primeiro DOWN anda de verdade e o primeiro RIGHT so vira), anda ate (24,30) e sobe na porta.",
+    "warp": "MAP_TRAINER_HILL_COURTYARD",
+    "warp_id": 2,
+    "roteiro": "90:NADA,16:DOWN,60:NADA,16:RIGHT*5,90:NADA,16:UP*2,240:NADA",
+    "prova": {
+      "mapa": "MAP_BATTLE_FRONTIER_OUTSIDE_WEST",
+      "pos": [
+        20,
+        68
+      ]
+    }
+  },
+  {
+    "id": "T126.3",
+    "nome": "A VOLTA, que e o que separa entrada de armadilha. Mao unica e proibida: quem entra na Frontier por Johto tem que voltar a Johto pelo mesmo lugar. Comeca no warp 11 do OutsideWest, o warp novo, em (20,68), e segura BAIXO. O tile e MB_SOUTH_ARROW_WARP (metatile 857, do proprio tileset do mapa), entao o motor dispara por TryArrowWarp, que exige a direcao SEGURADA e nao o passo. A prova crava a chegada em (24,30) do TrainerHill_Courtyard, o tile ABAIXO da porta: o jogador sai andando dela, como sai das Battle Tents ao lado.",
+    "warp": "MAP_BATTLE_FRONTIER_OUTSIDE_WEST",
+    "warp_id": 11,
+    "roteiro": "90:NADA,16:DOWN*2,240:NADA",
+    "prova": {
+      "mapa": "MAP_TRAINER_HILL_COURTYARD",
+      "layout": "LAYOUT_TRAINER_HILL_COURTYARD",
+      "pos": [
+        24,
+        30
+      ]
+    }
+  },
+  {
+    "id": "T126.4",
+    "nome": "PAR NEGATIVO do T126.3, e existe porque 'chegou em MAP_TRAINER_HILL_COURTYARD' sozinho nao prova de onde a chegada veio. MESMO mapa de partida, MESMO warp, MESMO tile: muda so a DIRECAO, de BAIXO para CIMA. Se o (20,68) tivesse virado um warp que dispara ao pisar em vez de ao segurar a seta, ou se o runner estivesse reportando um valor morto, este caso tambem daria a praca de Johto. Tem que dar OutsideWest e parar em (20,66), saturando contra a fachada do portao de recepcao em (20,65), que e parede.",
+    "warp": "MAP_BATTLE_FRONTIER_OUTSIDE_WEST",
+    "warp_id": 11,
+    "roteiro": "90:NADA,16:UP*4,240:NADA",
+    "prova": {
+      "mapa": "MAP_BATTLE_FRONTIER_OUTSIDE_WEST",
+      "pos": [
+        20,
+        66
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T126.5",
+    "nome": "PAR NEGATIVO do T126.1 e do T126.2: a mesma caminhada, menos o ultimo passo. O jogador para em (24,30), colado na porta, e NAO atravessa. Separa 'a porta funciona' de 'qualquer tile daquela praca manda para a Frontier': se o warp tivesse sido declarado num tile andavel do meio da praca em vez de na porta, o T126.2 passaria do mesmo jeito e este aqui ficaria vermelho.",
+    "warp": "MAP_TRAINER_HILL_COURTYARD",
+    "warp_id": 2,
+    "roteiro": "90:NADA,16:DOWN,60:NADA,16:RIGHT*5,240:NADA",
+    "prova": {
+      "mapa": "MAP_TRAINER_HILL_COURTYARD",
+      "pos": [
+        24,
+        30
+      ]
+    }
+  },
+  {
+    "id": "T126.6",
+    "nome": "O CAIS LEVA A RECEPCAO, ou seja quem entra por Johto cai no lado certo do portao. Comeca no warp novo (20,68), sobe, anda 7 para a direita ate a frente do predio e entra pela porta de (26,65). A prova crava MAP_BATTLE_FRONTIER_RECEPTION_GATE, o mapa onde `VAR_HAS_ENTERED_BATTLE_FRONTIER` dispara a cena do Scott e o `setflag FLAG_SYS_FRONTIER_PASS`. Sem este caso, 'a cena do Scott continua funcionando vindo de Johto' seria leitura de codigo, nao medida.",
+    "warp": "MAP_BATTLE_FRONTIER_OUTSIDE_WEST",
+    "warp_id": 11,
+    "roteiro": "90:NADA,16:UP*2,90:NADA,16:RIGHT*7,90:NADA,16:UP*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_BATTLE_FRONTIER_RECEPTION_GATE"
+    }
+  },
+  {
+    "id": "T126.7",
+    "nome": "ENTRAR numa instalacao. A unica battle facility da ROM so vale se der para entrar nela: o caso sobe a porta da Battle Tower em (16,14) do OutsideEast e crava MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY. As instalacoes rodam em lv50/open e o modo de teste LV.5 TRAINERS nao as toca, porque o gancho de src/battle_main.c:2003 mora dentro do `if` de CreateNPCTrainerPartyFromTrainer que exclui BATTLE_TYPE_FRONTIER (src/battle_main.c:1868); por isso este caso nao declara `opcoes`.",
+    "warp": "MAP_BATTLE_FRONTIER_OUTSIDE_EAST",
+    "warp_id": 0,
+    "roteiro": "90:NADA,16:UP*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY"
+    }
+  },
+  {
+    "id": "T126.8",
+    "nome": "SAIR da instalacao, o par do T126.7. Lobby em que se entra e nao se sai e beco sem saida, que e exatamente o que o valida_conectividade.py existe para achar. Comeca dentro do lobby da Battle Tower e desce pela porta de (12,9), cravando MAP_BATTLE_FRONTIER_OUTSIDE_EAST.",
+    "warp": "MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY",
+    "warp_id": 0,
+    "roteiro": "90:NADA,16:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_BATTLE_FRONTIER_OUTSIDE_EAST"
+    }
+  }
+]

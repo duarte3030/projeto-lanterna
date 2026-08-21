@@ -419,6 +419,13 @@
       "elevation": 0,
       "dest_map": "MAP_ARTISAN_CAVE_B1F",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 20,
+      "y": 68,
+      "elevation": 0,
+      "dest_map": "MAP_TRAINER_HILL_COURTYARD",
+      "dest_warp_id": "4"
     }
   ],
   "coord_events": [],

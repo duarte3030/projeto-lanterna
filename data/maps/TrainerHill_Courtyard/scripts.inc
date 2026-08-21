@@ -28,6 +28,20 @@ TrainerHill_Courtyard_EventScript_BattleTowerSign::
 	release
 	end
 
+@ Porta para a BATTLE FRONTIER de Hoenn, posta por dev_scripts/frontier_johto.py.
+@ A praca ja tinha quatro portas iguais; sem placa a quinta some no meio delas.
+BattleFrontierAccessSignText::
+	.string "{UP_ARROW} BATTLE FRONTIER\p"
+	.string "“The finest TRAINERS in the world\n"
+	.string "gather beyond this gate!”$"
+
+TrainerHill_Courtyard_EventScript_FrontierSign::
+	lock
+	msgbox BattleFrontierAccessSignText, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
 TrainerHill_Courtyard_EventScript_Tent_Arena::
 	lock
 	msgbox BattleTower_Battle_Tent_Text_Arena, MSGBOX_SIGN	
