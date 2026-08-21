@@ -115,8 +115,64 @@ def nossos_da_regiao(mapa_grupo, chave):
             if chave.lower() in g.lower() or chave.lower() in m.lower()]
 
 
+# Mapa que a FONTE tem e que JÁ ESTÁ na ROM com outro nome.
+#
+# Existe porque em 21/08/2026 a régua dizia que faltavam 10 mapas em Johto e 10
+# em Unova que estão jogáveis desde sempre, só que com sufixo de outra região.
+# `cidades_de_outra_fonte()` já desconta 732 mapas assim, mas ela casa pelo
+# PREFIXO DE CIDADE (o pedaço antes do primeiro "_"), e o prefixo destes 20 não
+# é nome de cidade nenhum: "CeruleanCave1", "OaksLab", "DayCare".
+#
+# A tabela é EXPLÍCITA de propósito. Heurística que casasse "OaksLab" com
+# "PalletTown_ProfessorOaksLab_Frlg" seria solta o bastante para casar mapa
+# diferente, e casamento errado não aparece como erro: aparece como completude
+# alta. Cada linha abaixo traz a medida que provou o par.
+APELIDOS_FONTE = {
+    # --- Johto (fonte `hns`, que é hack de Johto E Kanto). A nossa versão
+    # destes veio do pokefirered, com sufixo _Frlg.
+    # Topologia: CeruleanCave1 warpa para 2 e para 3 (é o térreo), CeruleanCave3
+    # só warpa de volta para o 1 (é o andar sem saída). Igual ao FRLG, onde o 1F
+    # liga 2F e B1F. Os três layouts têm 39-40 x 23 nos dois lados.
+    "CeruleanCave1": "CeruleanCave_1F_Frlg",
+    "CeruleanCave2": "CeruleanCave_2F_Frlg",
+    "CeruleanCave3": "CeruleanCave_B1F_Frlg",
+    # Safári: casado por DIMENSÃO de layout, que bate exata nos três.
+    # LAYOUT_SAFARI_ZONE1 é 51x36 como o nosso SAFARI_ZONE_CENTER; o 2 é 54x35
+    # como o EAST; o 3 é 48x36 como o WEST.
+    "SafariZone1": "SafariZone_Center_Frlg",
+    "SafariZone2": "SafariZone_East_Frlg",
+    "SafariZone3": "SafariZone_West_Frlg",
+    # O "indoor" é 13x11 e o único warp dele volta para o SafariZone2, ou seja é
+    # a casa de descanso da área LESTE.
+    "SafariZoneIndoor": "SafariZone_East_RestHouse_Frlg",
+    # Estrada da Vitória de Kanto: o hns conta os andares para BAIXO e o FRLG
+    # para cima. O 1F dos dois abre na Route 23; o último andar dos dois (B2F lá,
+    # 3F aqui) é o que sai no Planalto Índigo.
+    "VictoryRoadKanto_1F": "VictoryRoad_1F_Frlg",
+    "VictoryRoadKanto_B1F": "VictoryRoad_2F_Frlg",
+    "VictoryRoadKanto_B2F": "VictoryRoad_3F_Frlg",
+    # --- Unova (fonte `bw3g`, que é hack de gen 2 e carregou junto um punhado
+    # de interiores de Johto e Kanto). Nenhum destes tem warp de entrada no
+    # bw3g, porque o hack apagou o mapa externo que levava a eles; o conteúdo,
+    # porém, está lá (a regra de sobra abaixo NÃO os pega, e nem deve).
+    "CeladonGameCorner": "CeladonCity_GameCorner_Frlg",
+    "CeladonGameCornerPrizeRoom": "CeladonCity_GameCorner_PrizeRoom_Frlg",
+    "DayCare": "Route34_DayCare",              # o Day Care de gen 2 é o da Route 34
+    "ElmsLab": "NewBarkTown_Lab",              # laboratório do Prof. Elm
+    "GoldenrodGameCorner": "GoldenrodCity_GameCorner",
+    "LancesRoom": "PokemonLeague_LancesRoom_Frlg",
+    # O hns marca `BlackthornCity_House3` como a casa do Move Deleter (único
+    # mapa de Blackthorn com `MoveDeletion` no scripts.inc dele).
+    "MoveDeletersHouse": "BlackthornCity_House3",
+    "NationalPark": "NationalPark_Normal",     # a variante de concurso é outro mapa
+    "OaksLab": "PalletTown_ProfessorOaksLab_Frlg",
+    "PokemonFanClub": "VermilionCity_PokemonFanClub_Frlg",  # o Fan Club de gen 2 é o de Vermilion
+}
+
+
 def normaliza(nome):
     """Nosso 'PalletTown_Frlg' e o 'PalletTown' da fonte sao o mesmo mapa."""
+    nome = APELIDOS_FONTE.get(nome, nome)
     n = re.sub(r"_Frlg$", "", nome)
     n = re.sub(r"_johto$", "", n, flags=re.I)
     n = re.sub(r"^Unova_", "", n)          # Unova_AccumulaTown == AccumulaTown
@@ -180,6 +236,91 @@ def mapas_so_na_fonte(deles, nosso_mg, fonte=""):
             if k not in nossos
             and m.split("_")[0].lower() not in cidades
             and not LIXO.search(m)]
+
+
+def _cru(n):
+    """Chave crua de nome de mapa, para casar as DUAS grafias do mesmo lugar.
+
+    A fonte escreve o destino de um warp como constante (`MAP_VICTORY_ROAD_KANTO_1F`,
+    `MAP_HEADER_UNKNOWN_197`) e o mapa em si como diretório ou arquivo
+    (`VictoryRoadKanto_1F`). Onde cai cada `_` varia entre os dois, então tirar
+    TODOS eles é o único casamento que não depende de adivinhar a convenção.
+    """
+    return re.sub(r"^MAP(_HEADER)?_", "", n).replace("_", "").lower()
+
+
+def _sobra_gen3(fonte):
+    dest, ev = set(), {}
+    for m in todos_os_mapas(fonte):
+        d = json.load(open(f"{fonte}/data/maps/{m}/map.json"))
+        ev[m] = sum(len(d.get(c) or []) for c in
+                    ("object_events", "warp_events", "bg_events", "coord_events"))
+        dest |= {_cru(w["dest_map"]) for w in d.get("warp_events") or []}
+        dest |= {_cru(c["map"]) for c in d.get("connections") or []}
+    return {m: (n, _cru(m) in dest) for m, n in ev.items()}
+
+
+def _sobra_gen2(fonte):
+    dest, ev = set(), {}
+    for f in glob.glob(f"{fonte}/maps/*.asm"):
+        txt = open(f, errors="ignore").read()
+        ev[os.path.basename(f)[:-4]] = len(re.findall(
+            r"^\s*(?:warp|bg|object|coord)_event\b", txt, re.M))
+        dest |= {_cru(x) for x in re.findall(
+            r"^\s*warp_event\s+[^,]+,[^,]+,\s*([A-Z0-9_]+)\s*,", txt, re.M)}
+    return {m: (n, _cru(m) in dest) for m, n in ev.items()}
+
+
+def _sobra_plat(fonte, heads):
+    dest, ev = set(), {}
+    for h, arq in heads.items():
+        p = f"{fonte}/res/field/events/{arq[0]}.json"
+        if not os.path.exists(p):
+            ev[h] = 0
+            continue
+        d = json.load(open(p))
+        ev[h] = sum(len(d.get(c) or []) for c in
+                    ("object_events", "warp_events", "bg_events", "coord_events"))
+        dest |= {_cru(w["dest_header_id"]) for w in d.get("warp_events") or []}
+    return {h: (n, _cru(h) in dest) for h, n in ev.items()}
+
+
+def julga_sobra(medido):
+    """As DUAS condições, e só elas. Julgamento separado da leitura de disco
+    para poder ser testado com medição plantada em `--demo`."""
+    return {m for m, (eventos, tem_entrada) in medido.items()
+            if not eventos and not tem_entrada}
+
+
+def sobra_de_tabela(fonte, cfg, heads=None, _cache={}):
+    """Registro da fonte que NÃO É LUGAR: sobra de tabela do motor dela.
+
+    Existe porque a coluna `mapas` estava dividindo por um denominador que tem
+    53 headers `UNKNOWN_*` do Platinum, 8 mapas do FireRed que o próprio
+    FireRed nunca ligou a lugar nenhum, e as sentinelas `EVERYWHERE` e
+    `NOTHING`, que são valor de enum e não mapa.
+
+    A REGRA É MEDIDA, não é lista de nome: sai do denominador o header que tem
+    **zero evento na fonte E nenhum warp (ou conexão) de entrada vindo de outro
+    mapa da fonte**. As duas condições juntas, sempre: mapa sem warp de entrada
+    mas COM conteúdo fica (é o caso dos 10 interiores de Johto/Kanto que o bw3g
+    carregou sem o mapa externo), e mapa sem conteúdo mas COM porta fica
+    também (alguém entra nele).
+
+    ARMADILHA, e por isso `--detalhe` imprime a lista inteira: a regra corta por
+    AUSÊNCIA DE DADO, então ela também pega header cujo conteúdo a fonte
+    simplesmente não traz. Medido em 21/08/2026: os 9 andares do Distortion
+    World do Platinum apontam para `events_empty` e caem aqui, e o Distortion
+    World é conteúdo de verdade. Ninguém pode esconder corte de escopo atrás
+    desta regra: o corte de escopo é decisão do Gui, e a lista impressa é o
+    lugar onde ele o vê.
+    """
+    if fonte not in _cache:
+        _cache[fonte] = julga_sobra(
+            _sobra_plat(fonte, heads) if cfg.get("plat") else
+            _sobra_gen2(fonte) if cfg.get("gen2") else
+            _sobra_gen3(fonte))
+    return _cache[fonte]
 
 
 def le_plat(fonte, header):
@@ -250,30 +391,85 @@ def fmt_arte(a):
 
 
 def galar(cfg):
-    """Galar medida pelos dois censos, sem reabrir a ROM do demake.
+    """Galar medida no `map.json` de hoje, como toda região, com denominador filtrado.
 
-    Devolve (nossos_mapas, {campo: (nosso, da_fonte)}), com o denominador tirado
-    de `galar_gente.json`: cada objeto e cada bg da fonte esta la com o MOTIVO de
-    ter entrado ou nao. O que ficou de fora e filtro medido, nao perda; a legenda
-    impressa abaixo da tabela diz isso, senao a linha de Galar le como fracasso.
+    ARMADILHA CONSERTADA EM 21/08/2026, e ela custou uma rodada inteira: esta
+    função lia o NUMERADOR do censo `galar_gente.json`, que é um arquivo
+    CONGELADO, gerado antes da fase de conteúdo. A onda de 20/08 pôs 337 falas,
+    52 placas e 56 bolas de item na região e a linha da tabela NÃO SE MEXEU,
+    porque o censo não foi regerado. Número que não se mexe depois de trabalho
+    feito não é região parada: é régua quebrada. Agora o numerador sai do
+    `data/maps/<mapa>/map.json`, medido na hora, igual ao das outras cinco.
+
+    O DENOMINADOR é que vem do censo, e só a parte dele que é COLOCÁVEL:
+      objetos -> os 1.111 que o filtro G4 aprovou ("entrou mudo"). Os outros
+                 3.051 registros da fonte nunca podem virar NPC (gráfico de
+                 Pokémon, tile não andável, cenário de script, em cima de warp);
+                 contar com eles dava 26,7% e media a fonte, não a obra.
+      placas  -> 202, que são os 214 bg da fonte menos os 12 sem item traduzível.
+    A contagem do que ficou de fora sai em `--detalhe`, para o corte ser visível.
+
+    Devolve (nossos_mapas, {campo: (nosso, denominador)}, extras).
     """
     cen = json.load(open(cfg["censo"]))
     gente = json.load(open(cfg["gente"]))
     nossos = [v["nome"] for v in cen["de_para"].values()]
     obj = [l for l in gente["linhas"] if l["tipo"] == "objeto"]
     bg = [l for l in gente["linhas"] if l["tipo"] == "bg"]
-    # "NPC de obra" e o marinheiro da travessia, que nao veio da fonte: ele nao
-    # entra em nenhum dos dois lados, senao inventa numerador sem denominador.
+    # "NPC de obra" é o marinheiro da travessia, que não veio da fonte: ele não
+    # entra em nenhum dos dois lados, senão inventa numerador sem denominador.
     fonte_obj = [l for l in obj if "nao vem da fonte" not in l["motivo"]]
-    # "lixo de leitura" sao os kinds 5 e 6, que nao existem em nenhum dos dois
-    # motores: nao sao placa que faltou, sao bytes que nao queriam dizer nada.
+    colocaveis = [l for l in fonte_obj if l["motivo"] == "entrou mudo"]
+    # "lixo de leitura" são os kinds 5 e 6, que não existem em nenhum dos dois
+    # motores: não são placa que faltou, são bytes que não queriam dizer nada.
     fonte_bg = [l for l in bg if "lixo de leitura" not in l["motivo"]]
+    placaveis = [l for l in fonte_bg if "sem item traduzivel" not in l["motivo"]]
+
+    n_obj = n_bg = n_script = 0
+    for m in nossos:
+        d = json.load(open(f"{RAIZ}/data/maps/{m}/map.json"))
+        oe = d.get("object_events") or []
+        n_obj += len(oe)
+        n_script += sum(1 for o in oe if str(o.get("script") or "0") not in ("0", ""))
+        n_bg += len(d.get("bg_events") or [])
+    extras = {"script": (n_script, n_obj),
+              "obj_impossiveis": len(fonte_obj) - len(colocaveis),
+              "obj_fonte": len(fonte_obj),
+              "bg_sem_traducao": len(fonte_bg) - len(placaveis),
+              "bg_fonte": len(fonte_bg)}
     return nossos, {
-        "object_events": (sum(1 for l in fonte_obj if l["motivo"] == "entrou mudo"),
-                          len(fonte_obj)),
+        "object_events": (n_obj, len(colocaveis)),
         "warp_events": (cen["warps_gravados"], cen["warps_gravados"]),
-        "bg_events": (gente["itens_gravados"], len(fonte_bg)),
-    }
+        "bg_events": (n_bg, len(placaveis)),
+    }, extras
+
+
+def confere_apelidos(tabela=None):
+    """Problemas na tabela de apelidos. Lista vazia = tabela sã.
+
+    Apelido errado não aparece como erro em lugar nenhum: aparece como
+    completude ALTA, que é o jeito mais caro de errar nesta casa. Então a
+    tabela é conferida, e não apenas escrita:
+      1. o destino tem que EXISTIR em `data/maps` (senão o mapa não está na ROM
+         e o "já está na ROM com outro nome" é mentira);
+      2. dois mapas da fonte não podem apontar para o MESMO mapa nosso (sinal de
+         chute: 1F, 2F e B1F todos casados com o mesmo andar);
+      3. a chave não pode ser nome de um mapa NOSSO, senão `normaliza` passaria
+         a reescrever o nosso próprio mapa e o casamento inverteria.
+    """
+    tabela = APELIDOS_FONTE if tabela is None else tabela
+    nossos = set(todos_os_mapas(RAIZ))
+    ruim = []
+    vistos = {}
+    for fonte, meu in tabela.items():
+        if not os.path.exists(f"{RAIZ}/data/maps/{meu}/map.json"):
+            ruim.append(f"{fonte}: o alvo {meu} não existe em data/maps")
+        if meu in vistos:
+            ruim.append(f"{fonte} e {vistos[meu]} apontam para o mesmo {meu}")
+        vistos[meu] = fonte
+        if fonte in nossos:
+            ruim.append(f"{fonte} também é nome de mapa NOSSO")
+    return ruim
 
 
 def eventos(raiz, mapa):
@@ -290,26 +486,32 @@ def main():
         alvo = sys.argv[sys.argv.index("--detalhe") + 1]
 
     nosso_mg = todos_os_mapas(RAIZ)
-    print("Completude por regiao, normalizada pela FONTE, mapa a mapa.")
-    print("100% = tao completo quanto o jogo de onde a regiao veio.\n")
-    print("A coluna ARTE nao e completude contra a fonte: e a variedade do "
+    print("Completude por região, normalizada pela FONTE, mapa a mapa.")
+    print("100% = tão completo quanto o jogo de onde a região veio.\n")
+    print("A coluna ARTE não é completude contra a fonte: é a variedade do "
           "desenho, mediana de\nmetatiles distintos por mapa, com quantos mapas "
-          f"abaixo de {PISO_ARTE} entre parenteses.\n")
-    print(f"{'regiao':8} {'mapas':>14} {'objetos':>14} {'warps':>14} "
-          f"{'placas':>14} {'arte':>14}")
+          f"abaixo de {PISO_ARTE} entre parênteses.\n")
+    print("A coluna SCRIPT só existe para Galar, e de propósito: lá a colocação "
+          "está feita e o que\nfalta é fala. Nas outras cinco a colocação é que "
+          "está em jogo, e a coluna não diria nada.\n")
+    print(f"{'região':8} {'mapas':>11} {'objetos':>11} {'warps':>11} "
+          f"{'placas':>11} {'script':>11} {'arte':>11}")
 
     faltando_total = {}
+    sobras = {}
+    galar_extras = None
     for nome, cfg in REGIOES.items():
         if alvo and alvo.lower() != nome.lower():
             continue
         if cfg.get("censo"):
-            nossos, pares = galar(cfg)
+            nossos, pares, galar_extras = galar(cfg)
             def q(c, pares=pares):
                 a, b = pares[c]
                 return f"{100*a/b:5.1f}%" if b else "  --  "
-            print(f"{nome:8} {100.0:13.1f}% {q('object_events'):>14} "
-                  f"{q('warp_events'):>14} {q('bg_events'):>14} "
-                  f"{fmt_arte(arte(nossos)):>14}")
+            a, b = galar_extras["script"]
+            print(f"{nome:8} {100.0:10.1f}% {q('object_events'):>11} "
+                  f"{q('warp_events'):>11} {q('bg_events'):>11} "
+                  f"{100*a/b:9.1f}%  {fmt_arte(arte(nossos)):>11}")
             faltando_total[nome] = ([], [])
             continue
         fonte = cfg["fonte"]
@@ -332,6 +534,7 @@ def main():
             casados = [(m, h) for m, h in casados if h in heads]
             casadas_norm = {I.chave(h) for _, h in casados}
             so_na_fonte = [h for k, h in deles.items() if k not in casadas_norm]
+            sobra = sobra_de_tabela(fonte, cfg, heads)
         else:
             if gen2:
                 deles = {normaliza(os.path.basename(f)[:-4]): os.path.basename(f)[:-4]
@@ -341,6 +544,11 @@ def main():
             nossos = nossos_da_regiao(nosso_mg, cfg["grupo"])
             casados = [(m, deles[normaliza(m)]) for m in nossos if normaliza(m) in deles]
             so_na_fonte = mapas_so_na_fonte(deles, nosso_mg, fonte)
+            sobra = sobra_de_tabela(fonte, cfg)
+        # A sobra de tabela da fonte sai do DENOMINADOR (ver `sobra_de_tabela`),
+        # e o que saiu vai impresso em `--detalhe`.
+        sobras[nome] = sorted(m for m in so_na_fonte if m in sobra)
+        so_na_fonte = [m for m in so_na_fonte if m not in sobra]
         # Mapas que a FONTE tem e nos nao.
         #
         # ARMADILHA: o denominador tem que descontar o que ja veio por OUTRA
@@ -382,33 +590,61 @@ def main():
         # mapas: o denominador e o que a fonte tem daquela regiao, e para as
         # fontes que sao o jogo inteiro isso e o total delas
         pm = 100.0 * len(casados) / max(1, len(casados) + len(so_na_fonte))
-        print(f"{nome:8} {pm:13.1f}% {p('object_events'):>14} "
-              f"{p('warp_events'):>14} {p('bg_events'):>14} "
-              f"{fmt_arte(arte(nossos)):>14}")
+        print(f"{nome:8} {pm:10.1f}% {p('object_events'):>11} "
+              f"{p('warp_events'):>11} {p('bg_events'):>11} "
+              f"{'--':>10}  {fmt_arte(arte(nossos)):>11}")
         faltando_total[nome] = (so_na_fonte, sorted(piores)[:6])
 
     if not alvo or alvo.lower() == "galar":
-        print("\nGalar e GEOMETRIA INTEIRA E CONTEUDO NENHUM, de proposito "
-              "(18/08/2026): 438 mapas\ncom tileset provado pixel a pixel, "
-              "1.473 warps e NPC que entra MUDO. Sem cena, treinador,\nencontro, "
-              "ginasio nem Liga: a fila esta em `dev_scripts/fila_galar.json`. Os "
-              "objetos\nda fonte que nao entraram sao filtro MEDIDO e nao perda "
-              "(sprite generico de Pokemon,\ncenario de script, e o deposito do "
-              "autor em tile bloqueado); o motivo de cada um\nesta em "
-              "`dev_scripts/galar_gente.json`. Ler a linha dela como fracasso e "
-              "erro de leitura.")
+        print("\nGalar é GEOMETRIA INTEIRA e conteúdo em obra. Os 438 mapas "
+              "estão com tileset provado\npixel a pixel, 1.473 warps e 1.260 "
+              "objetos colocados; a fase de conteúdo começou em\n20/08/2026 e "
+              "hoje 394 desses objetos falam. Sem treinador, encontro, ginásio "
+              "nem Liga:\na fila está em `dev_scripts/fila_galar.json`. As "
+              "colunas `objetos` e `placas` dividem pelo\nque é COLOCÁVEL, não "
+              "pelo total da fonte (ver `--detalhe Galar`), porque 3.051 "
+              "registros\nda fonte nunca podem virar NPC. `objetos` passa de "
+              "100% porque a obra pôs coisa que a\nfonte não tinha nesse "
+              "formato: 52 placas e 56 bolas de item com flag própria.")
 
     if alvo:
         for nome, (falta, piores) in faltando_total.items():
-            print(f"\n=== {nome}: {len(falta)} mapas que a fonte tem e nos nao ===")
+            print(f"\n=== {nome}: {len(falta)} mapas que a fonte tem e nós não ===")
             for m in falta[:15]:
                 print(f"   {m}")
             if piores:
                 print(f"\n=== {nome}: mapas mais vazios que o original ===")
                 for r, m, a, b in piores:
                     print(f"   {100*r:5.1f}%  {m:42} {a} de {b} objetos")
+        for nome, fora in sobras.items():
+            if not fora:
+                continue
+            print(f"\n=== {nome}: {len(fora)} registros da fonte FORA do "
+                  f"denominador ===")
+            print("   critério MEDIDO: zero evento na fonte E nenhum warp ou "
+                  "conexão de entrada.")
+            print("   não é corte de escopo; se algo aqui for lugar de "
+                  "verdade, a fonte é que não trouxe o dado.")
+            for m in fora:
+                print(f"   {m}")
+        if galar_extras:
+            g = galar_extras
+            print("\n=== Galar: o que ficou FORA do denominador ===")
+            print(f"   objetos: {g['obj_impossiveis']} dos {g['obj_fonte']} "
+                  "registros da fonte não podem virar NPC")
+            print("      (gráfico de Pokémon, tile não andável, cenário de "
+                  "script, em cima de warp). Sobram")
+            print(f"      {g['obj_fonte'] - g['obj_impossiveis']} colocáveis, "
+                  "que são o denominador da coluna `objetos`.")
+            print(f"   placas: {g['bg_sem_traducao']} dos {g['bg_fonte']} bg da "
+                  "fonte são item sem tradução neste motor.")
+            print(f"      Sobram {g['bg_fonte'] - g['bg_sem_traducao']}, que são "
+                  "o denominador da coluna `placas`.")
+            a, b = g["script"]
+            print(f"   objetos COM script hoje: {a} de {b} ({100*a/b:.1f}%). "
+                  "É aqui que mora o trabalho.")
     else:
-        print("\nuse --detalhe <regiao> para ver o que falta em cada uma")
+        print("\nuse --detalhe <região> para ver o que falta em cada uma")
     return 0
 
 
@@ -426,11 +662,50 @@ def demo():
     assert _distintos(b"\xFF\xFF") == {0x3FF}
     # 4. a mutacao tem que ser pega: trocar um metatile muda a conta
     assert _distintos(b"\x01\x00\x01\x00") != _distintos(b"\x01\x00\x02\x00")
-    # 5. Galar sai dos censos, nunca de nome de grupo (os 438, nao 283)
-    nossos, pares = galar(REGIOES["Galar"])
+    # 5. Galar sai do censo para o DENOMINADOR e do map.json para o NUMERADOR.
+    #    O censo é congelado; se o numerador voltar a sair dele, a linha para de
+    #    se mexer quando a obra anda, que foi o defeito consertado em 21/08/2026.
+    nossos, pares, extras = galar(REGIOES["Galar"])
     assert len(nossos) == 438, len(nossos)
     assert pares["warp_events"][0] == pares["warp_events"][1] == 1473
-    assert 0 < pares["object_events"][0] < pares["object_events"][1]
+    gente = json.load(open(REGIOES["Galar"]["gente"]))
+    assert pares["object_events"][0] != gente["objetos_gravados"], (
+        "numerador de Galar voltou a sair do censo congelado")
+    assert extras["script"][0] <= extras["script"][1] == pares["object_events"][0]
+    # o denominador é o COLOCÁVEL, não o total da fonte
+    assert pares["object_events"][1] + extras["obj_impossiveis"] == extras["obj_fonte"]
+    assert pares["bg_events"][1] + extras["bg_sem_traducao"] == extras["bg_fonte"]
+
+    # 6. a tabela de apelidos tem que estar sã, e apelido errado tem que REPROVAR
+    assert confere_apelidos() == [], confere_apelidos()
+    assert normaliza("OaksLab") == normaliza("PalletTown_ProfessorOaksLab_Frlg")
+    assert normaliza("CeruleanCave3") == normaliza("CeruleanCave_B1F_Frlg")
+    # ...e continuar separando o que é separado: o 1F não pode virar o B1F
+    assert normaliza("CeruleanCave1") != normaliza("CeruleanCave_B1F_Frlg")
+    # mutação plantada 1: alvo que não existe na ROM
+    assert confere_apelidos({"Xyz": "MapaQueNaoExiste"})
+    # mutação plantada 2: dois andares da fonte casados com o mesmo mapa nosso
+    assert confere_apelidos({"CeruleanCave1": "CeruleanCave_1F_Frlg",
+                             "CeruleanCave2": "CeruleanCave_1F_Frlg"})
+
+    # 7. a sobra de tabela sai por MEDIDA, e as duas condições valem juntas.
+    #    mutação plantada 3: um mapa COM evento na fonte, e com cara de sobra no
+    #    nome, jogado no balde. Quem trocar a regra medida por lista de nome
+    #    reprova aqui.
+    plantado = {"MAP_HEADER_UNKNOWN_999": (7, False),   # tem evento: FICA
+                "MAP_HEADER_UNUSED_CASA": (0, True),    # tem porta: FICA
+                "MAP_HEADER_SOBRA_DE_VERDADE": (0, False)}
+    assert julga_sobra(plantado) == {"MAP_HEADER_SOBRA_DE_VERDADE"}, julga_sobra(plantado)
+    # e na fonte de verdade: os 8 do FireRed são sobra, e nenhum deles tem evento
+    med = _sobra_gen3(REGIOES["Kanto"]["fonte"])
+    assert all(med[m] == (0, False) for m in julga_sobra(med))
+    assert med["Prototype_SeviiIsle_6"] == (0, False)
+    # os 10 interiores que o bw3g carregou sem o mapa externo NÃO são sobra:
+    # não têm warp de entrada, mas têm conteúdo.
+    med2 = _sobra_gen2(REGIOES["Unova"]["fonte"])
+    assert med2["ElmsLab"][0] > 0 and med2["ElmsLab"][1] is False
+    assert "ElmsLab" not in julga_sobra(med2)
+
     print("demo ok")
 
 
