@@ -1,0 +1,192 @@
+[
+  {
+    "id": "T136.1",
+    "nome": "PRIMEIRA METADE: uma flag de HIDE da DEX (faixa 0x31A0) sobrevive ao desligamento? Os 212 casos das ondas A e B acendem a FLAG_HIDE_DEX_* por escrita direta na EWRAM e leem o efeito no MESMO boot, exatamente como os vinte casos do F2 faziam antes do T123.21: isso prova o motor de object_event e NAO prova onde a flag mora. A faixa nova (0x31A0 a 0x3209, 106 flags) e OUTRA que a do lendarios_sinnoh.py (0x3220 a 0x322A), que foi a unica provada em 21/08, e nenhum caso desta rodada pergunta se ela cabe dentro de FLAGS_COUNT (12856 = 0x3238). Se qualquer uma delas tivesse caido na faixa temporaria (0x0 a 0x1F, zerada por ClearTempFieldEventData a cada carregamento de mapa) ou acima do teto, os 212 passariam do mesmo jeito e o lendario capturado RENASCERIA a cada boot, que e a pior falha possivel numa captura unica. Aqui o jogo entra no RuinsOfAlph_Outside com FLAG_HIDE_DEX_TING_LU acesa e SALVA pelo menu, com a mesma sequencia medida do T11.1 (START, dois DOWN ate SAVE, quatro A de confirmacao). Esta metade e so o controle; quem responde e o T136.2. A .sav e apagada no comeco para o caso nunca passar por sobra de rodada anterior.",
+    "apaga_sav": true,
+    "sav": "/tmp/claude-501/fechador/t136-tinglu.sav",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_TING_LU"
+    ],
+    "warp": "MAP_RUINS_OF_ALPH_OUTSIDE",
+    "warp_id": 1,
+    "roteiro": "300:NADA,40:START!,90:NADA,20:DOWN,20:DOWN,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
+    "prova": {
+      "mapa": "MAP_RUINS_OF_ALPH_OUTSIDE",
+      "flags_acesas": [
+        "FLAG_HIDE_DEX_TING_LU"
+      ]
+    }
+  },
+  {
+    "id": "T136.2",
+    "nome": "SEGUNDA METADE, E E ELA QUE RESPONDE: a save gravada pelo T136.1 e recarregada do zero (abertura `continuar`, NENHUMA escrita da flag do Ting-Lu na EWRAM) e o tile (20, 9) tem que continuar VAZIO. A rota e a MESMA do T132.38, o par negativo da onda B, e a chegada em (20, 13) e a segunda testemunha: com o Ting-Lu de pe o jogador pararia em (20, 8), sete tiles antes. O FLAG_SEM_ENCONTRO_SELVAGEM e reescrito porque ele E temporario de proposito e o time do harness e vazio. Depende do T136.1 ter rodado antes, e roda: o harness ordena os casos pelo numero do id.",
+    "sav": "/tmp/claude-501/fechador/t136-tinglu.sav",
+    "abertura": "continuar",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_RUINS_OF_ALPH_OUTSIDE",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:DOWN*8,90:NADA",
+    "prova": {
+      "mapa": "MAP_RUINS_OF_ALPH_OUTSIDE",
+      "pos": [
+        20,
+        13
+      ],
+      "andou": true,
+      "flags_acesas": [
+        "FLAG_HIDE_DEX_TING_LU"
+      ]
+    }
+  },
+  {
+    "id": "T136.3",
+    "nome": "OS SEIS PIKACHU DE BONE ENTRAM NO TIME COM A FORMA CERTA, e nao como Pikachu comum. O T129.5 le UMA especie (a do slot 0) e para ali; se o motor colapsasse forma em especie-base, o slot 0 leria 25 e o caso reprovaria, mas se ele entregasse SEIS vezes a MESMA forma o T129.5 passaria igual. Aqui os seis slots sao lidos de gPlayerParty, decifrando o substruct 0 como src/pokemon.c faz (raw ^ otId ^ personality, com a posicao vinda de sSubstructOffsets[0][personality % 24]), e cobrados um a um contra a ORDEM dos givemon do NPC de distribuicao: PIKACHU_ALOLA 1020, PIKACHU_BELLE 1011, PIKACHU_COSPLAY 1009, PIKACHU_HOENN 1016, PIKACHU_KALOS 1019, PIKACHU_LIBRE 1014. Os numeros NAO sao crescentes nem contiguos, entao um motor que escrevesse a sequencia errada, ou que ordenasse o time por especie, reprovaria aqui e passaria no T129.5. As 19 entradas do NPC nao cabem em seis slots: o que sobra vai para o PC, e por isso a prova de time e 6. Par negativo: T136.4.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+    "warp_id": 1,
+    "time_jogador": true,
+    "roteiro": "240:NADA,16:UP*7,90:NADA,16:A,240:NADA,16:A*2,300:NADA,16:A*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+      "time": 6,
+      "campos": {
+        "especie0": 1020,
+        "especie1": 1011,
+        "especie2": 1009,
+        "especie3": 1016,
+        "especie4": 1019,
+        "especie5": 1014
+      }
+    }
+  },
+  {
+    "id": "T136.4",
+    "nome": "PAR NEGATIVO DO T136.3, que a onda A nao escreveu para o NPC de distribuicao (o T129.4 e par do T129.3, que e o OUTRO NPC, o dos iniciais de Hoenn). MESMA rota, MESMO warp, NENHUM A: o time continua vazio e o jogador para em (7, 11), encostado no NPC. Sem ele o positivo passaria num jogo em que os seis Pikachu de bone ja estivessem no time desde o comeco, e tambem num jogo em que o NPC esta la e nao responde, que e o defeito dos dois Pokecenters mudos de Sinnoh.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+    "warp_id": 1,
+    "time_jogador": true,
+    "roteiro": "240:NADA,16:UP*7,90:NADA",
+    "prova": {
+      "mapa": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+      "time": 0,
+      "pos": [
+        7,
+        11
+      ]
+    }
+  },
+  {
+    "id": "T136.5",
+    "nome": "PRIMEIRA METADE: a cena de objeto do bloco c4a de Galar aguenta um desligamento? Os oito casos do T130 rodam a cena no MESMO boot em que o mapa foi carregado pela primeira vez, e cena portada de outro motor e exatamente onde se planta um travamento que so aparece na segunda vida da save. Aqui o jogo entra na sala de aula de Galar_Wedgehurst02 e SALVA pelo menu, com a sequencia medida do T11.1. Quem responde e o T136.6. A .sav e propria e apagada no comeco, para nao depender das do T123 nem das do T127.",
+    "apaga_sav": true,
+    "sav": "/tmp/claude-501/fechador/t136-galar-c4a.sav",
+    "warp": "MAP_GALAR_WEDGEHURST_02",
+    "warp_id": 1,
+    "roteiro": "300:NADA,40:START!,90:NADA,20:DOWN,20:DOWN,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_WEDGEHURST_02"
+    }
+  },
+  {
+    "id": "T136.6",
+    "nome": "SEGUNDA METADE: a save do T136.5 e recarregada do zero, o jogador ENTRA DE NOVO no mapa por warp e roda a cena inteira do c4a, com os DOIS apertos de A do T130.3. A prova e a mesma do T130.3, o `release` devolvendo o jogador a (4, 7) depois do applymovement, so que agora depois de um boot frio: se o script portado dependesse de estado de RAM que so o primeiro carregamento monta, ou se o `applymovement` sobre o proprio NPC deixasse o jogador preso, o caso pararia em (4, 6) e ninguem na suite atual notaria. Trocar o T130.3 por este seria perder o par de mesmo boot; os dois convivem porque medem coisas diferentes.",
+    "sav": "/tmp/claude-501/fechador/t136-galar-c4a.sav",
+    "abertura": "continuar",
+    "warp": "MAP_GALAR_WEDGEHURST_02",
+    "warp_id": 1,
+    "roteiro": "240:NADA,16:UP*3,90:NADA,16:A,180:NADA,16:A,180:NADA,16:DOWN*2,150:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_WEDGEHURST_02",
+      "pos": [
+        4,
+        7
+      ]
+    }
+  },
+  {
+    "id": "T136.7",
+    "nome": "DA PARA FALAR COM A GARDENIA DEPOIS DA DECORACAO DO GINASIO DE ETERNA, e a prova e a BATALHA e nao a posicao. O T125 media os oito ginasios que o F4 decorou; Eterna e Canalave sao os DOIS que o corte do Gui nao pegou e que so ganharam tileset nesta rodada (FortreeGym e Lab), e para eles nao havia caso nenhum, nem de chegada nem de conversa. Entre o objeto e o dialogo ha um atributo de METATILE, e nenhuma medida de arte o enxerga: colisao igual byte a byte nao promete que o tile em frente a lider continua sendo tile em que se PARA. O jogador entra pelo unico warp (11, 26), da um toque de DOWN contra a parede so para fixar a direcao (o warp de debug nao promete para onde ele olha) e sobe a coluna 11 com 40 toques, SATURANDO contra a Gardenia de (11, 2) e parando em (11, 3). Os 40 toques nao sao enfeite: 23 tiles mais o toque que vira dariam 24, e MEDIDO em 21/08/2026 o jogador para em (11, 10) com 25; a subida so fecha com folga larga, e como a ultima perna satura, toque a mais e inofensivo. Os dois A abrem o `lock`+`faceplayer`, passam a msgbox de introducao e o `trainerbattle_no_intro` abre a batalha, com `oponente` cravado em TRAINER_SINNOH_LEADER_GARDENIA. Par negativo: T136.8.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ETERNA_CITY_GYM",
+    "warp_id": 0,
+    "roteiro": "150:NADA,17:DOWN*1,40:NADA,17:UP*40,90:NADA,20:A,180:NADA,20:A,300:NADA",
+    "prova": {
+      "oponente": "TRAINER_SINNOH_LEADER_GARDENIA"
+    }
+  },
+  {
+    "id": "T136.8",
+    "nome": "PAR NEGATIVO do T136.7, e sem ele o outro nao separa `a conversa abriu` de `qualquer coisa aqui abre batalha`. MESMO warp, MESMA subida saturante de 40 toques na coluna 11, e a unica diferenca e que NENHUM A e apertado: o jogador para em (11, 3), a lider continua de pe em (11, 2) e `oponente` fica em 0. E ele que prova que a batalha do T136.7 veio do A e nao da linha de visao de alguem (a Gardenia e TRAINER_TYPE_NONE, entao ela nao puxa duelo sozinha), e e ele que fixa a chegada depois da decoracao.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ETERNA_CITY_GYM",
+    "warp_id": 0,
+    "roteiro": "150:NADA,17:DOWN*1,40:NADA,17:UP*40,300:NADA",
+    "prova": {
+      "mapa": "MAP_ETERNA_CITY_GYM",
+      "pos": [
+        11,
+        3
+      ],
+      "oponente": 0,
+      "andou": true
+    }
+  },
+  {
+    "id": "T136.9",
+    "nome": "DA PARA FALAR COM O BYRON DEPOIS DA DECORACAO DO GINASIO DE CANALAVE. Este e o caso caro dos dois, e a razao esta medida: os SETE treinadores do ginasio sao MOVEMENT_TYPE_LOOK_AROUND, ou seja olham para os quatro lados, e a varredura de alcance mostra que NAO EXISTE caminho do warp (11, 19) ate o Byron de (21, 4) sem atravessar linha de visao de pelo menos um deles. Por isso as sete flags de derrotado (TRAINER_FLAGS_START 0x500 mais o id do treinador: Breanna 0x85F, Cesar 0x863, David 0x8A7, Ricky 0x8B7, Gary 0x9D5, Gerardo 0x9D6, Jackson 0x9D8) sao acesas na EWRAM: e o estado de quem limpou o ginasio, e sem elas o caso mede um duelo de sentinela e nunca chega no lider. A rota tem NOVE pernas, com o primeiro toque de LEFT contra a parede so para fixar a direcao, e a ultima perna sobe a coluna 21 saturando contra o Byron, parando em (21, 5). Os dois A abrem o `trainerbattle_no_intro`, com `oponente` em TRAINER_SINNOH_LEADER_BYRON. Par negativo: T136.10.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0x85F",
+      "0x863",
+      "0x8A7",
+      "0x8B7",
+      "0x9D5",
+      "0x9D6",
+      "0x9D8"
+    ],
+    "warp": "MAP_CANALAVE_CITY_GYM",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*1,40:NADA,17:UP*2,40:NADA,17:LEFT*8,40:NADA,17:UP*2,40:NADA,17:LEFT*3,40:NADA,17:UP*8,40:NADA,17:RIGHT*2,40:NADA,17:UP*2,40:NADA,17:RIGHT*19,40:NADA,17:UP*6,90:NADA,20:A,180:NADA,20:A,300:NADA",
+    "prova": {
+      "oponente": "TRAINER_SINNOH_LEADER_BYRON"
+    }
+  },
+  {
+    "id": "T136.10",
+    "nome": "PAR NEGATIVO do T136.9: MESMAS sete flags de derrotado, MESMA rota de nove pernas, NENHUM A. O jogador para em (21, 5), colado no Byron de (21, 4), e `oponente` fica em 0. Ele e o que prova duas coisas de uma vez: que a batalha do T136.9 veio do aperto e nao de sentinela nenhuma (com as sete flags acesas ninguem mais puxa duelo), e que a rota de nove pernas chega mesmo onde diz que chega, e nao para no meio por causa de uma perna que perdeu aperto.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0x85F",
+      "0x863",
+      "0x8A7",
+      "0x8B7",
+      "0x9D5",
+      "0x9D6",
+      "0x9D8"
+    ],
+    "warp": "MAP_CANALAVE_CITY_GYM",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*1,40:NADA,17:UP*2,40:NADA,17:LEFT*8,40:NADA,17:UP*2,40:NADA,17:LEFT*3,40:NADA,17:UP*8,40:NADA,17:RIGHT*2,40:NADA,17:UP*2,40:NADA,17:RIGHT*19,40:NADA,17:UP*6,300:NADA",
+    "prova": {
+      "mapa": "MAP_CANALAVE_CITY_GYM",
+      "pos": [
+        21,
+        5
+      ],
+      "oponente": 0,
+      "andou": true
+    }
+  }
+]

@@ -8,6 +8,218 @@ inteiras. Detalhe fica nos documentos apontados no fim.
 
 ---
 
+## 0.k A DEX COMPLETA NAS CINCO REGIÕES, 21-22/08/2026 (rodada 3; condutor Opus, executores Opus, fechador Opus)
+
+Build verde. **ROM 98,85% de 32 MB** (+16 KB sobre a 0.j, 375 KB livres), EWRAM
+86,16% e IWRAM 86,66% (iguais às de ontem), **suíte 757/758** (só o T11.3
+pulado na rodada normal), **T11 3/3** à parte contra a build `cf6786b2ae`
+(worktree em `/private/tmp/claude-501/t11-antiga`), **SAVE COMPATIVEL** com
+SaveBlock1 em 14.964 de 15.872 B, `valida_rom.py` com os 2.378 mapas declarados
+dentro da ROM, `guarda_colisao_vars.py` com as 23 colisões herdadas e **0 novas**,
+e os sete `--demo` de gerador tocados (`distribui_dex`, `objetos_galar`,
+`cenas_galar`, `fala_galar`, `fila_galar`, `arte_ginasios_sinnoh`,
+`lendarios_sinnoh`) verdes. ROM oficial: `roms/pokemon-claude-2026-08-22.gba`
+(md5 `3cd78228b0803ff6ef3ed67100c24fb9`), com o `.map` ao lado, e o MESMO binário na ROM de teste de nome
+fixo.
+
+| região | mapas | objetos | warps | placas | script | arte | Dex |
+|---|---|---|---|---|---|---|---|
+| Kanto | 100% | **101,0%** | 100% | 100% | -- | 52 (0) | **290** |
+| Johto | 100% | **96,1%** | 100,1% | 96,2% | -- | 55 (3) | **305** |
+| Hoenn | 100% | **100,7%** | 100,1% | 100% | -- | 39 (21) | **297** |
+| Sinnoh | 95,4% | **82,7%** | 100,7% | 86,3% | -- | 39 (102) | **295** |
+| Unova | 99,0% | **102,3%** | 100% | 99,6% | -- | 30 (3) | **315** |
+| Galar | 100% | 113,4% | 100% | **43,1%** | **31,7%** | 48 (32) | 0 |
+
+**Dex obtenível: 1.096 → 1.566 de 1.571 (69,8% → 99,7%).** É a obra que a 0.j
+deixou planejada, feita em duas ondas.
+
+### O censo, a régua e a pesquisa
+
+O pedido supunha 1.200 a 1.300 entradas. O censo (`dev_scripts/censo_dex.py`,
+importável, com `--demo`) mediu **1.571 entradas distintas de `gSpeciesInfo`**:
+1.668 ids do enum menos 97 apelidos, 1.025 bases e 546 formas, porque mega,
+gmax, regional, padrão de Vivillon, letra de Unown, sabor de Alcremie e prato de
+Arceus são entrada própria. **Armadilha de 243 entradas**: o
+`catalogo_especies.py` só enxerga `[SPECIES_X] = { ... }`, e dez famílias são
+escritas por MACRO; `censo_dex.entradas_macro()` existe só para isso. **Achado
+que vale por si: os iniciais de Hoenn não existiam neste jogo**, o
+`SPECIES_TREECKO` só aparecia em `debug.inc` e o Birch entregava os de Johto; os
+outros buracos de espécie comum são exatamente os exclusivos de versão, porque
+quem importou pegou um lado só.
+
+A decisão mora em `dev_scripts/dex_distribuicao.json`, uma linha por entrada
+inobtenível; o executor é `dev_scripts/distribui_dex.py` e não decide nada. As
+regras que mudam o resultado: **nível não se toca** (a linha nova herda o nível
+do slot, o estático herda o da fonte); **"slot vazio" tem definição medida**, e
+não é slot vazio nenhum, são os **5.622 slots duplicados** (48% dos 11.732) em
+que a mesma espécie ocupa duas linhas da MESMA tabela, e a nova entra na segunda
+ocorrência, de modo que nenhuma espécie da fonte sai e nenhum mapa nem tabela
+nova foi preciso; **gen 1 a 5 vai para a região da geração**, sem exceção, e as
+gens 6 a 9 vão por bioma tirado do PERFIL DE TIPOS da própria tabela, com empate
+resolvido por cota; **água é água**; **lenda nunca vai para o mato**, é sempre
+estático; e **nada de trava de pós-jogo**.
+
+A pesquisa de lendários (`dev_scripts/lendarios_referencia.csv`, 117 linhas) leu
+o que vanilla e sete rom hacks (Radical Red, Unbound, Renegade Platinum, Sacred
+Gold, Blaze Black 2 Redux, Elite Redux, Liquid Crystal) fizeram com cada lenda
+fora da região de origem, e decidiu: **lar canônico quando o mapa existe neste
+repo, bioma quando não existe**. N's Castle, Abundant Shrine e Liberty Garden
+NÃO existem aqui, e nesses casos vale o vizinho mais próximo. A régua sozinha põe
+Xerneas em floresta de Johto, Yveltal em torre de Unova, Zacian e Zamazenta nas
+Ruins of Alph, Koraidon e Miraidon no Mt. Coronet e Glastrier na neve de
+Snowpoint.
+
+### O que entrou, por caminho
+
+| caminho | linhas | onde |
+|---|---:|---|
+| mato (slot duplicado) | **233** | Kanto 47, Johto 41, Hoenn 47, Sinnoh 54, Unova 44 |
+| estático novo | **106** | Kanto 15, Johto 22, Hoenn 16, Sinnoh 14, Unova 39, em 29 mapas |
+| presente por NPC | **22** | 3 iniciais de Hoenn por `dynmultichoice`, 19 sem sprite por `givemon` |
+| evolução em cascata | **114** | sai de graça quando a base ou a forma entra |
+| `EVO_ITEM` novo | **2** | Karrablast e Shelmet, com `ITEM_LINKING_CORD` (id 796, já existia) |
+
+O motor ganhou 29 linhas em `include/regions.h`: **Johto sai por GRUPO DE MAPA**
+(84 a 98) e não por mapsec, porque os 65 apelidos de MAPSEC de Johto são todos
+`#define ... MAPSEC_SINNOH_WEST` e nenhuma comparação de `sectionId` separa as
+duas; Sinnoh, Unova e Galar saem por faixa de mapsec. **Custo de save zero**: é
+leitura de `location.mapGroup`, que o motor já gravava. As 106
+`FLAG_HIDE_DEX_*` (0x31A0 a 0x3209) mais duas de presente (0x319E, 0x319F) são
+apelido de `FLAG_UNUSED`, então `FLAGS_COUNT` não muda.
+
+**Os 5 que faltam, e por quê**: `DEOXYS_DEFENSE`, `DEOXYS_SPEED`,
+`ZYGARDE_10_POWER_CONSTRUCT`, `ZYGARDE_COMPLETE` e `ZYGARDE_MEGA`. Nenhum é
+questão de lugar: os cinco dependem de **mecânica de troca de forma** que este
+jogo não tem ligada (o meteorito das torres para o Deoxys, as células e o Cube
+para o Zygarde). Pôr como estático seria mentir a forma.
+
+### Os seis defeitos de gerador que a onda B achou
+
+Todos vieram de rodar o gerador contra a árvore JÁ MEXIDA, que a onda A nunca
+exercitou, e todos são de posicionamento silencioso: nenhum dá erro de compilação.
+
+1. **Estático em cima de objeto que já existia**: a busca ignorava os objetos do
+   `lendarios_sinnoh` e três caíram sobre o Shaymin, o Heatran e o Regigigas. A
+   marca a ignorar virou parâmetro; as dos outros valem como parede.
+2. **Estático em cima da CAMINHADA de um caso gerado** (T123.9, T123.10, T123.13,
+   T123.14). Não ilhar tile nenhum não basta: caso de emulador é rota exata.
+3. **A mesma coisa com caso escrito À MÃO** (T124.11, T124.13, T124.14, no
+   Distortion World): nasceu o `corredor_de_casos`, que relê o roteiro de todo
+   caso e refaz a caminhada sobre a grade de colisão.
+4. **Estático órfão**: mudar um lendário de mapa deixava o objeto velho no mapa
+   velho para sempre (SnowpointTempleB5F guardou um em (5,3)).
+5. **Rota atravessando linha de visão de treinador** (MtPyre_Summit, quatorze
+   tiles antes do lendário). O raio vai nas QUATRO direções, porque NPC anda.
+6. **Parede não segura seta**: a perna de zerar escolheu DOWN sobre um
+   `MB_SOUTH_ARROW_WARP` na Viridian Forest, o motor decide o warp ANTES da
+   colisão, e o jogador foi parar na guarita, dois mapas adiante.
+
+### A janela de 15 sprites, o defeito que não dá sintoma
+
+`OBJECT_EVENTS_COUNT` é 16 e um slot é sempre o jogador, então sobram **15**.
+`TrySpawnObjectEvents` acorda todo template dentro de uma janela em volta do
+jogador que, refeita a partir de `MAP_OFFSET` 7, é de **20 por 17 tiles**
+(`pos.x - 9 <= tile.x <= pos.x + 10`, `pos.y - 7 <= tile.y <= pos.y + 9`). Do 16º
+em diante o motor desiste CALADO: o lendário existe no mapa, tem script, tem
+flag, e não aparece. Distância de 5 tiles não basta (4 por 4 de 5 em 5 já são
+16), e por isso o gerador tem portão de lotação por janela.
+
+**Folga medida pelo fechador em 22/08, e que não estava escrita**: template de
+`OBJ_EVENT_GFX_LIGHT_SPRITE` **não gasta slot de ObjectEvent** (o motor o manda
+para `SpawnLightSprite`, no ramo de cima do `if`). O `lotacao()` conta as luzes,
+então a régua é PESSIMISTA: no `RuinsOfAlph_Outside`, o mapa no teto (15 numa
+janela só, ancorada em (8,8), ou seja jogador em (17,14) ou (17,15)), cinco
+daqueles 15 são luz e o motor vê 10. **Não afrouxe a conta sem medir de novo**:
+errar para esse lado custa um reposicionamento, para o outro custa um lendário
+invisível.
+
+**Os 17 quadros por toque não garantem o passo.** Os 202 casos da onda B usam
+`17:` e não `16:` para o aperto não empatar com o passo do jogador, que dura 16
+quadros; medido em 22/08 no ginásio de Eterna, uma subida reta de 23 tiles com
+`17:UP*25` (24 de folga, contando o toque que só vira o boneco) para em (11,10),
+treze tiles antes do alvo, e só fecha com `17:UP*40`. Regra: **perna longa e reta
+usa contagem SATURANTE com folga larga**, nunca a exata.
+
+### Eterna e Canalave, e o Galar c4a
+
+A pergunta 14 da 0.j foi respondida com obra: os dois ginásios que o corte não
+pegou ganharam tileset secundário próprio (`gTileset_FortreeGym` em Eterna,
+`gTileset_Lab` em Canalave) pelo `arte_ginasios_sinnoh.py`, que subiu de 6 para 8
+ginásios decorados. **Custo de ROM zero** (tilesets que já existiam) e **colisão
+idêntica**, conferida byte a byte. T125 em 12/12.
+
+Em Galar, `dev_scripts/objetos_galar.py` portou **8 cenas de objeto em 6 mapas**
+(6 NPCs mudos e 2 placas que não existiam), a custo de 0 var e 0 flag; a fila caiu
+de 2.630 para **2.622**. O que muda o plano é o tamanho: das 1.891 linhas de
+objeto e placa, **1.398 são de objetos que o G4 não pôs no mapa**, então o teto
+real do c4a é **79** e não 1.038. Dentro daquelas 1.398 estão os **859 scripts de
+encontro estático de Galar**, insumo de uma Pokédex de Galar futura.
+**AVISO GRAVE**: `warp` de script de objeto traduz e a cena roda, mas **não troca
+de mapa**; e `warp` seguido de `waitstate` **prende o jogador para sempre**.
+
+### Os casos adversariais do fechador (autor de caso ≠ autor de cena)
+
+- **T136.1 e T136.2**: os 212 casos das ondas A e B acendem a `FLAG_HIDE_DEX_*`
+  na EWRAM e leem o efeito no MESMO boot, o que prova o motor e não prova ONDE a
+  flag mora; e a faixa nova (0x31A0) é OUTRA que a do `lendarios_sinnoh.py`
+  (0x3220), a única provada em 21/08. Agora o jogo salva pelo menu, recarrega do
+  zero e o tile do Ting-Lu continua vazio.
+- **T136.3 e T136.4**: o T129.5 lê UMA espécie do time, então o NPC podia
+  entregar seis vezes a mesma forma e passar. Agora os SEIS slots são lidos de
+  `gPlayerParty` e cobrados contra a ordem dos `givemon` (1020, 1011, 1009, 1016,
+  1019, 1014, que não é crescente nem contígua), com o par negativo que faltava.
+- **T136.5 e T136.6**: a cena do c4a agora roda inteira depois de salvar e
+  recarregar do zero, e o `release` devolve o jogador a (4,7).
+- **T136.7 a T136.10**: Eterna e Canalave não tinham caso NENHUM, nem de chegada.
+  Agora a Gardenia e o Byron abrem batalha de verdade, com par negativo cada. O de
+  Canalave custou sete flags de derrotado, e a razão está medida: os sete
+  treinadores do ginásio são `MOVEMENT_TYPE_LOOK_AROUND` e **não existe caminho do
+  warp até o Byron sem atravessar linha de visão**.
+- **T129.13, fora do emulador**: o mato conferido contra o GIT
+  (`git show 0cb8724099:src/data/wild_encounters.json`), tabela a tabela e slot a
+  slot. **1.005 tabelas intactas em número e tamanho, 233 slots trocados, ZERO
+  espécies perdidas e ZERO níveis alterados.** O T129.2 comparava o arquivo de
+  hoje com ele mesmo desfeito pela coluna `substituido`: se a tabela mentisse, os
+  dois lados mentiriam junto.
+- **T129.14 e T129.15, por sonda**, porque `GetCurrentRegion` não aparece na
+  EWRAM e o teto de sprite não tem sintoma: os `_Static_assert` agora afirmam que
+  a **Ilex Forest**, onde mora o Okidogi, cairia em `REGION_SINNOH` pelo mapsec e
+  só o ramo do GRUPO a devolve como `REGION_JOHTO`, com `IF_REGION` vivo; e o
+  `--demo` refaz `TETO_SPRITE` e `JANELA_SPRITE` a partir de
+  `OBJECT_EVENTS_COUNT` e de `MAP_OFFSET` em vez de confiar no número escrito à
+  mão. Mutação plantada reprovada nos dois.
+
+**A circularidade do `--demo`**: ele reprovava, e não era defeito de dado. O
+`corredor_de_casos` lia os arquivos 129 e 131 a 135, que são ESCRITOS a partir da
+tabela depois de ela existir; na segunda rodada o `plano()` reservava corredores
+que ele mesmo criara e mudava de decisão (Kanto de 15 estáticos para 16, Johto de
+22 para 30), e o autoteste comparava a tabela gravada com um plano que nunca
+poderia bater. Conserto: **arquivo derivado desta tabela não entra na conta dos
+corredores**, e o `--demo` passa a provar a TABELA GRAVADA contra os mapas, com
+um plano refeito do zero cobrando espécie para região e mapa, e não tile, porque
+Great Tusk e Scream Tail tiveram o tile movido à mão por linha de visão.
+
+### O que fica aberto para o Gui
+
+- **A Dex de Galar**: 859 encontros estáticos da fonte medidos e parados,
+  esperando decisão de sprite. Galar hoje tem zero linha de encontro.
+- **Zygarde e Deoxys**: os 5 que faltam pedem mecânica de forma, não lugar.
+- **Os chefes de equipe vilã** (Rocket, Magma/Aqua, Galáctica, Plasma) seguem
+  fora da Fase F.
+- **Galar c4b a c4f**, com o teto real medido e o aviso do `warp` escrito.
+- **Remoção física dos mapas cortados**: nada foi apagado, e com a ROM em 98,85%
+  de 32 MB é a economia mais óbvia que existe.
+- Seguem abertos, da 0.j e da 0.i: as três batalhas de Silver e os rivais do BW3G
+  a importar, as 19 bolas de neve de Snowpoint, as 31 pedras de Sinnoh, a
+  alcançabilidade de `RavagedPath` e de duas salas do Mt. Coronet, e a curva de
+  Galar.
+
+**Dívida que continua plantada**: o `T93.6` e o `T85.1` seguem fixando o molde do
+`SendoffSpring`, cortado do escopo e portanto nunca convertido.
+
+---
+
 ## 0.j ESCOPO DECIDIDO, LENDÁRIOS, DISTORTION WORLD E FASE F DESTRAVADA, 21/08/2026 (rodada 2; condutor Opus, sete executores Opus, fechador Opus)
 
 Build verde. **ROM 98,80% de 32 MB**, EWRAM 86,16%, IWRAM 86,66%, **suíte
