@@ -29,3 +29,61 @@ SafariZone_Center_Text_PressStartToCheckTime::
 SafariZone_Center_Text_CenterArea::
 	.string "CENTER AREA$"
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+SafariZone_Center_Frlg_EventScript_DexMeltan::
+	lockall
+	msgbox SafariZone_Center_Frlg_Text_DexMeltanIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_MELTAN, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_MELTAN, 30
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_MELTAN
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, SafariZone_Center_Frlg_EventScript_DexMeltanSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SafariZone_Center_Frlg_EventScript_DexMeltanSome
+	releaseall
+	end
+
+SafariZone_Center_Frlg_EventScript_DexMeltanSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_MELTAN
+	setflag FLAG_HIDE_DEX_MELTAN
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+SafariZone_Center_Frlg_Text_DexMeltanIntro:
+	.string "MELTAN appeared!$"
+
+SafariZone_Center_Frlg_EventScript_DexMelmetal::
+	lockall
+	msgbox SafariZone_Center_Frlg_Text_DexMelmetalIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_MELMETAL, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_MELMETAL, 30
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_MELMETAL
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, SafariZone_Center_Frlg_EventScript_DexMelmetalSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SafariZone_Center_Frlg_EventScript_DexMelmetalSome
+	releaseall
+	end
+
+SafariZone_Center_Frlg_EventScript_DexMelmetalSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_MELMETAL
+	setflag FLAG_HIDE_DEX_MELMETAL
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+SafariZone_Center_Frlg_Text_DexMelmetalIntro:
+	.string "MELMETAL appeared!$"
+
+@ <<< Dex completa <<<

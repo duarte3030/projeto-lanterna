@@ -187,3 +187,34 @@ SnowpointCity_EventScript_Placa7::
 
 SnowpointCity_Text_Placa7:
 	.string "Snowpoint City\nCity of Snow$"
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+SnowpointCity_EventScript_DexGlastrier::
+	lockall
+	msgbox SnowpointCity_Text_DexGlastrierIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_GLASTRIER, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_GLASTRIER, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_GLASTRIER
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, SnowpointCity_EventScript_DexGlastrierSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SnowpointCity_EventScript_DexGlastrierSome
+	releaseall
+	end
+
+SnowpointCity_EventScript_DexGlastrierSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_GLASTRIER
+	setflag FLAG_HIDE_DEX_GLASTRIER
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+SnowpointCity_Text_DexGlastrierIntro:
+	.string "GLASTRIER appeared!$"
+
+@ <<< Dex completa <<<

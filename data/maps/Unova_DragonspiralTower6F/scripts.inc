@@ -221,3 +221,62 @@ Unova_DragonspiralTower6F_Text_InferAfterBattle::
 	.string "\nthat I don't?!"
 	.string "\p…I-"
 	.string "\pAaaargh!!!$"
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+Unova_DragonspiralTower6F_EventScript_DexReshiram::
+	lockall
+	msgbox Unova_DragonspiralTower6F_Text_DexReshiramIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_RESHIRAM, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_RESHIRAM, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_RESHIRAM
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, Unova_DragonspiralTower6F_EventScript_DexReshiramSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Unova_DragonspiralTower6F_EventScript_DexReshiramSome
+	releaseall
+	end
+
+Unova_DragonspiralTower6F_EventScript_DexReshiramSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_RESHIRAM
+	setflag FLAG_HIDE_DEX_RESHIRAM
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+Unova_DragonspiralTower6F_Text_DexReshiramIntro:
+	.string "RESHIRAM appeared!$"
+
+Unova_DragonspiralTower6F_EventScript_DexZekrom::
+	lockall
+	msgbox Unova_DragonspiralTower6F_Text_DexZekromIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ZEKROM, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ZEKROM, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ZEKROM
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, Unova_DragonspiralTower6F_EventScript_DexZekromSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Unova_DragonspiralTower6F_EventScript_DexZekromSome
+	releaseall
+	end
+
+Unova_DragonspiralTower6F_EventScript_DexZekromSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ZEKROM
+	setflag FLAG_HIDE_DEX_ZEKROM
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+Unova_DragonspiralTower6F_Text_DexZekromIntro:
+	.string "ZEKROM appeared!$"
+
+@ <<< Dex completa <<<

@@ -71,3 +71,34 @@ Unova_VictoryRoadPokecenter1F_Text_VictoryRoadPokecenterRangerFText::
 	.string "\plittle by little,"
 	.string "\nand get close to"
 	.string "\lthe Champion!$"
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+Unova_VictoryRoadPokecenter1F_EventScript_DexVictini::
+	lockall
+	msgbox Unova_VictoryRoadPokecenter1F_Text_DexVictiniIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_VICTINI, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_VICTINI, 30
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_VICTINI
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, Unova_VictoryRoadPokecenter1F_EventScript_DexVictiniSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Unova_VictoryRoadPokecenter1F_EventScript_DexVictiniSome
+	releaseall
+	end
+
+Unova_VictoryRoadPokecenter1F_EventScript_DexVictiniSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_VICTINI
+	setflag FLAG_HIDE_DEX_VICTINI
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+Unova_VictoryRoadPokecenter1F_Text_DexVictiniIntro:
+	.string "VICTINI appeared!$"
+
+@ <<< Dex completa <<<

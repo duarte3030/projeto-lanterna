@@ -157,3 +157,4 @@ Unova_CelestialTower_Text_GentlemanCelestialTowerSeenText::
 Unova_CelestialTower_Text_GentlemanCelestialTowerBeatenText::
 	.string "Ho ho ho! Quite"
 	.string "\nthe affront!$"
+

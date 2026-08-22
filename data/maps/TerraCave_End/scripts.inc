@@ -69,3 +69,33 @@ TerraCave_End_Movement_GroudonApproach:
 	walk_down_affine
 	step_end
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+TerraCave_End_EventScript_DexBlacephalon::
+	lockall
+	msgbox TerraCave_End_Text_DexBlacephalonIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_BLACEPHALON, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_BLACEPHALON, 60
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_BLACEPHALON
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, TerraCave_End_EventScript_DexBlacephalonSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, TerraCave_End_EventScript_DexBlacephalonSome
+	releaseall
+	end
+
+TerraCave_End_EventScript_DexBlacephalonSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_BLACEPHALON
+	setflag FLAG_HIDE_DEX_BLACEPHALON
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+TerraCave_End_Text_DexBlacephalonIntro:
+	.string "BLACEPHALON appeared!$"
+
+@ <<< Dex completa <<<

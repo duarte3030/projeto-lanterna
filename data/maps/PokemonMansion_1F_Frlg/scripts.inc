@@ -55,3 +55,33 @@ PokemonMansion_1F_Text_JohnsonPostBattle::
 	.string "but I feel spooked.\p"
 	.string "I ought to go soon.$"
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+PokemonMansion_1F_Frlg_EventScript_DexHoopaConfined::
+	lockall
+	msgbox PokemonMansion_1F_Frlg_Text_DexHoopaConfinedIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_HOOPA_CONFINED, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_HOOPA_CONFINED, 30
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_HOOPA_CONFINED
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, PokemonMansion_1F_Frlg_EventScript_DexHoopaConfinedSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, PokemonMansion_1F_Frlg_EventScript_DexHoopaConfinedSome
+	releaseall
+	end
+
+PokemonMansion_1F_Frlg_EventScript_DexHoopaConfinedSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_HOOPA_CONFINED
+	setflag FLAG_HIDE_DEX_HOOPA_CONFINED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+PokemonMansion_1F_Frlg_Text_DexHoopaConfinedIntro:
+	.string "HOOPA_CONFINED appeared!$"
+
+@ <<< Dex completa <<<

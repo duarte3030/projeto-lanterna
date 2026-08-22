@@ -45,3 +45,4 @@ DistortionWorld_EventScript_GiratinaSumiu::
 	fadescreenswapbuffers FADE_FROM_BLACK
 	releaseall
 	end
+

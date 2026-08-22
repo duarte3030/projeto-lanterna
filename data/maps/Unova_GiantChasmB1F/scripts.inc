@@ -102,3 +102,62 @@ Unova_GiantChasmB1F_EventScript_Gruta4B4::
 	goto_if_set FLAG_UNOVA_GRUTA_GIANTCHASMB1F, Unova_EventScript_GrutaVazia
 	setflag FLAG_UNOVA_GRUTA_GIANTCHASMB1F
 	goto Unova_EventScript_GrutaTier3
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+Unova_GiantChasmB1F_EventScript_DexLandorusIncarnate::
+	lockall
+	msgbox Unova_GiantChasmB1F_Text_DexLandorusIncarnateIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_LANDORUS_INCARNATE, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_LANDORUS_INCARNATE, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_LANDORUS_INCARNATE
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, Unova_GiantChasmB1F_EventScript_DexLandorusIncarnateSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Unova_GiantChasmB1F_EventScript_DexLandorusIncarnateSome
+	releaseall
+	end
+
+Unova_GiantChasmB1F_EventScript_DexLandorusIncarnateSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_LANDORUS_INCARNATE
+	setflag FLAG_HIDE_DEX_LANDORUS_INCARNATE
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+Unova_GiantChasmB1F_Text_DexLandorusIncarnateIntro:
+	.string "LANDORUS_INCARNATE appeared!$"
+
+Unova_GiantChasmB1F_EventScript_DexKyurem::
+	lockall
+	msgbox Unova_GiantChasmB1F_Text_DexKyuremIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_KYUREM, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_KYUREM, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_KYUREM
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, Unova_GiantChasmB1F_EventScript_DexKyuremSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Unova_GiantChasmB1F_EventScript_DexKyuremSome
+	releaseall
+	end
+
+Unova_GiantChasmB1F_EventScript_DexKyuremSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_KYUREM
+	setflag FLAG_HIDE_DEX_KYUREM
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+Unova_GiantChasmB1F_Text_DexKyuremIntro:
+	.string "KYUREM appeared!$"
+
+@ <<< Dex completa <<<

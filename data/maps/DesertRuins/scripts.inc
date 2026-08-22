@@ -83,3 +83,33 @@ DesertRuins_EventScript_RanFromRegirock::
 	goto Common_EventScript_LegendaryFlewAway
 	end
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+DesertRuins_EventScript_DexRegieleki::
+	lockall
+	msgbox DesertRuins_Text_DexRegielekiIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_REGIELEKI, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_REGIELEKI, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_REGIELEKI
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, DesertRuins_EventScript_DexRegielekiSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, DesertRuins_EventScript_DexRegielekiSome
+	releaseall
+	end
+
+DesertRuins_EventScript_DexRegielekiSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_REGIELEKI
+	setflag FLAG_HIDE_DEX_REGIELEKI
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+DesertRuins_Text_DexRegielekiIntro:
+	.string "REGIELEKI appeared!$"
+
+@ <<< Dex completa <<<

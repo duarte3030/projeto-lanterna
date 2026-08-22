@@ -112,3 +112,90 @@ PowerPlant_EventScript_FoughtElectrode2::
 	setflag FLAG_FOUGHT_POWER_PLANT_ELECTRODE_2
 	goto EventScript_RemoveStaticMon
 	end
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+PowerPlant_Frlg_EventScript_DexTapuKoko::
+	lockall
+	msgbox PowerPlant_Frlg_Text_DexTapuKokoIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_TAPU_KOKO, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_TAPU_KOKO, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_TAPU_KOKO
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, PowerPlant_Frlg_EventScript_DexTapuKokoSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, PowerPlant_Frlg_EventScript_DexTapuKokoSome
+	releaseall
+	end
+
+PowerPlant_Frlg_EventScript_DexTapuKokoSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_TAPU_KOKO
+	setflag FLAG_HIDE_DEX_TAPU_KOKO
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+PowerPlant_Frlg_Text_DexTapuKokoIntro:
+	.string "TAPU_KOKO appeared!$"
+
+PowerPlant_Frlg_EventScript_DexZeraora::
+	lockall
+	msgbox PowerPlant_Frlg_Text_DexZeraoraIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ZERAORA, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ZERAORA, 30
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ZERAORA
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, PowerPlant_Frlg_EventScript_DexZeraoraSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, PowerPlant_Frlg_EventScript_DexZeraoraSome
+	releaseall
+	end
+
+PowerPlant_Frlg_EventScript_DexZeraoraSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ZERAORA
+	setflag FLAG_HIDE_DEX_ZERAORA
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+PowerPlant_Frlg_Text_DexZeraoraIntro:
+	.string "ZERAORA appeared!$"
+
+PowerPlant_Frlg_EventScript_DexMiraidon::
+	lockall
+	msgbox PowerPlant_Frlg_Text_DexMiraidonIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_MIRAIDON, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_MIRAIDON, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_MIRAIDON
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, PowerPlant_Frlg_EventScript_DexMiraidonSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, PowerPlant_Frlg_EventScript_DexMiraidonSome
+	releaseall
+	end
+
+PowerPlant_Frlg_EventScript_DexMiraidonSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_MIRAIDON
+	setflag FLAG_HIDE_DEX_MIRAIDON
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+PowerPlant_Frlg_Text_DexMiraidonIntro:
+	.string "MIRAIDON appeared!$"
+
+@ <<< Dex completa <<<

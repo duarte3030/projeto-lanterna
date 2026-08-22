@@ -35,3 +35,90 @@ Unova_VictoryRoadGrove_Text_AceTrainerFVictoryRoadGroveBeatenText::
 	.string "\nlove for my POKé-"
 	.string "\pMON if I go and"
 	.string "\nlose…$"
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+Unova_VictoryRoadGrove_EventScript_DexIronLeaves::
+	lockall
+	msgbox Unova_VictoryRoadGrove_Text_DexIronLeavesIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_IRON_LEAVES, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_IRON_LEAVES, 60
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_IRON_LEAVES
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, Unova_VictoryRoadGrove_EventScript_DexIronLeavesSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Unova_VictoryRoadGrove_EventScript_DexIronLeavesSome
+	releaseall
+	end
+
+Unova_VictoryRoadGrove_EventScript_DexIronLeavesSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_IRON_LEAVES
+	setflag FLAG_HIDE_DEX_IRON_LEAVES
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+Unova_VictoryRoadGrove_Text_DexIronLeavesIntro:
+	.string "IRON_LEAVES appeared!$"
+
+Unova_VictoryRoadGrove_EventScript_DexIronBoulder::
+	lockall
+	msgbox Unova_VictoryRoadGrove_Text_DexIronBoulderIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_IRON_BOULDER, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_IRON_BOULDER, 60
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_IRON_BOULDER
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, Unova_VictoryRoadGrove_EventScript_DexIronBoulderSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Unova_VictoryRoadGrove_EventScript_DexIronBoulderSome
+	releaseall
+	end
+
+Unova_VictoryRoadGrove_EventScript_DexIronBoulderSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_IRON_BOULDER
+	setflag FLAG_HIDE_DEX_IRON_BOULDER
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+Unova_VictoryRoadGrove_Text_DexIronBoulderIntro:
+	.string "IRON_BOULDER appeared!$"
+
+Unova_VictoryRoadGrove_EventScript_DexIronCrown::
+	lockall
+	msgbox Unova_VictoryRoadGrove_Text_DexIronCrownIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_IRON_CROWN, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_IRON_CROWN, 60
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_IRON_CROWN
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, Unova_VictoryRoadGrove_EventScript_DexIronCrownSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Unova_VictoryRoadGrove_EventScript_DexIronCrownSome
+	releaseall
+	end
+
+Unova_VictoryRoadGrove_EventScript_DexIronCrownSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_IRON_CROWN
+	setflag FLAG_HIDE_DEX_IRON_CROWN
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+Unova_VictoryRoadGrove_Text_DexIronCrownIntro:
+	.string "IRON_CROWN appeared!$"
+
+@ <<< Dex completa <<<

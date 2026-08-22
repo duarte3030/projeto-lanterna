@@ -85,3 +85,62 @@ Unova_GiantChasm1F_Text_GiantChasmInferLeave::
 	.string "\pGet out of here!"
 	.string "\nForget what you"
 	.string "\lsaw here!$"
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+Unova_GiantChasm1F_EventScript_DexTornadusIncarnate::
+	lockall
+	msgbox Unova_GiantChasm1F_Text_DexTornadusIncarnateIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_TORNADUS_INCARNATE, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_TORNADUS_INCARNATE, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_TORNADUS_INCARNATE
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, Unova_GiantChasm1F_EventScript_DexTornadusIncarnateSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Unova_GiantChasm1F_EventScript_DexTornadusIncarnateSome
+	releaseall
+	end
+
+Unova_GiantChasm1F_EventScript_DexTornadusIncarnateSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_TORNADUS_INCARNATE
+	setflag FLAG_HIDE_DEX_TORNADUS_INCARNATE
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+Unova_GiantChasm1F_Text_DexTornadusIncarnateIntro:
+	.string "TORNADUS_INCARNATE appeared!$"
+
+Unova_GiantChasm1F_EventScript_DexThundurusIncarnate::
+	lockall
+	msgbox Unova_GiantChasm1F_Text_DexThundurusIncarnateIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_THUNDURUS_INCARNATE, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_THUNDURUS_INCARNATE, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_THUNDURUS_INCARNATE
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, Unova_GiantChasm1F_EventScript_DexThundurusIncarnateSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Unova_GiantChasm1F_EventScript_DexThundurusIncarnateSome
+	releaseall
+	end
+
+Unova_GiantChasm1F_EventScript_DexThundurusIncarnateSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_THUNDURUS_INCARNATE
+	setflag FLAG_HIDE_DEX_THUNDURUS_INCARNATE
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+Unova_GiantChasm1F_Text_DexThundurusIncarnateIntro:
+	.string "THUNDURUS_INCARNATE appeared!$"
+
+@ <<< Dex completa <<<

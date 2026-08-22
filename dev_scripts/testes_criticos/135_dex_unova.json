@@ -1,0 +1,1370 @@
+[
+  {
+    "id": "T135.1",
+    "nome": "ZAPDOS_GALAR EXISTE EM MAP_UNOVA_RELIC_CASTLE_B1F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (14,2), pousando em (14, 2), pela rota UP(zera) DOWN*6. O tile (14, 7) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (14, 6); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.2.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_RELIC_CASTLE_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:DOWN*8,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_RELIC_CASTLE_B1F",
+      "pos": [
+        14,
+        6
+      ]
+    }
+  },
+  {
+    "id": "T135.2",
+    "nome": "PAR NEGATIVO DO T135.1: com FLAG_HIDE_DEX_ZAPDOS_GALAR ACESA o tile (14, 7) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (14, 8) em vez de parar em (14, 6). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ZAPDOS_GALAR"
+    ],
+    "warp": "MAP_UNOVA_RELIC_CASTLE_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:DOWN*8,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_RELIC_CASTLE_B1F",
+      "pos": [
+        14,
+        8
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.3",
+    "nome": "VICTINI EXISTE EM MAP_UNOVA_VICTORY_ROAD_POKECENTER_1F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (4,9), pousando em (4, 9), pela rota DOWN(zera) UP*5. O tile (4, 5) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (4, 6); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.4.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_POKECENTER_1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:DOWN*2,40:NADA,17:UP*7,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_POKECENTER_1F",
+      "pos": [
+        4,
+        6
+      ]
+    }
+  },
+  {
+    "id": "T135.4",
+    "nome": "PAR NEGATIVO DO T135.3: com FLAG_HIDE_DEX_VICTINI ACESA o tile (4, 5) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (4, 4) em vez de parar em (4, 6). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_VICTINI"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_POKECENTER_1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:DOWN*2,40:NADA,17:UP*7,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_POKECENTER_1F",
+      "pos": [
+        4,
+        4
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.5",
+    "nome": "COBALION EXISTE EM MAP_UNOVA_RELIC_CASTLE_B1F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (14,2), pousando em (14, 2), pela rota UP(zera) LEFT*1 DOWN*6 RIGHT*4 DOWN*9. O tile (17, 16) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (17, 15); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.6.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_RELIC_CASTLE_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:LEFT*2,40:NADA,17:DOWN*8,40:NADA,17:RIGHT*6,40:NADA,17:DOWN*11,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_RELIC_CASTLE_B1F",
+      "pos": [
+        17,
+        15
+      ]
+    }
+  },
+  {
+    "id": "T135.6",
+    "nome": "PAR NEGATIVO DO T135.5: com FLAG_HIDE_DEX_COBALION ACESA o tile (17, 16) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (17, 17) em vez de parar em (17, 15). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_COBALION"
+    ],
+    "warp": "MAP_UNOVA_RELIC_CASTLE_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:LEFT*2,40:NADA,17:DOWN*8,40:NADA,17:RIGHT*6,40:NADA,17:DOWN*11,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_RELIC_CASTLE_B1F",
+      "pos": [
+        17,
+        17
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.7",
+    "nome": "TERRAKION EXISTE EM MAP_UNOVA_VICTORY_ROAD_CAVE_1F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 4 (5,8), pousando em (5, 9), pela rota LEFT(zera) RIGHT*1 DOWN*4. O tile (6, 12) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (6, 11); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.8.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+    "warp_id": 4,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*3,40:NADA,17:DOWN*5,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+      "pos": [
+        6,
+        11
+      ]
+    }
+  },
+  {
+    "id": "T135.8",
+    "nome": "PAR NEGATIVO DO T135.7: com FLAG_HIDE_DEX_TERRAKION ACESA o tile (6, 12) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (6, 13) em vez de parar em (6, 11). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_TERRAKION"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+    "warp_id": 4,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*3,40:NADA,17:DOWN*5,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+      "pos": [
+        6,
+        13
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.9",
+    "nome": "VIRIZION EXISTE EM MAP_UNOVA_VICTORY_ROAD_CAVE_2F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 8 (22,33), pousando em (22, 34), pela rota LEFT(zera) RIGHT*2 DOWN*2 LEFT*1 DOWN*5. O tile (23, 40) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (23, 39); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.10.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+    "warp_id": 8,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*4,40:NADA,17:DOWN*3,40:NADA,17:LEFT*2,40:NADA,17:DOWN*7,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "pos": [
+        23,
+        39
+      ]
+    }
+  },
+  {
+    "id": "T135.10",
+    "nome": "PAR NEGATIVO DO T135.9: com FLAG_HIDE_DEX_VIRIZION ACESA o tile (23, 40) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (23, 41) em vez de parar em (23, 39). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_VIRIZION"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+    "warp_id": 8,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*4,40:NADA,17:DOWN*3,40:NADA,17:LEFT*2,40:NADA,17:DOWN*7,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "pos": [
+        23,
+        41
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.11",
+    "nome": "TORNADUS_INCARNATE EXISTE EM MAP_UNOVA_GIANT_CHASM_1F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (15,3), pousando em (15, 4), pela rota RIGHT(zera) DOWN*4. O tile (15, 7) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (15, 6); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.12.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_GIANT_CHASM_1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*6,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_GIANT_CHASM_1F",
+      "pos": [
+        15,
+        6
+      ]
+    }
+  },
+  {
+    "id": "T135.12",
+    "nome": "PAR NEGATIVO DO T135.11: com FLAG_HIDE_DEX_TORNADUS_INCARNATE ACESA o tile (15, 7) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (15, 8) em vez de parar em (15, 6). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_TORNADUS_INCARNATE"
+    ],
+    "warp": "MAP_UNOVA_GIANT_CHASM_1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*6,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_GIANT_CHASM_1F",
+      "pos": [
+        15,
+        8
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.13",
+    "nome": "THUNDURUS_INCARNATE EXISTE EM MAP_UNOVA_GIANT_CHASM_1F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 2 (3,1), pousando em (3, 2), pela rota DOWN(zera) LEFT*1 DOWN*13. O tile (2, 14) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (2, 13); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.14.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_GIANT_CHASM_1F",
+    "warp_id": 2,
+    "roteiro": "60:NADA,17:DOWN*2,40:NADA,17:LEFT*3,40:NADA,17:DOWN*15,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_GIANT_CHASM_1F",
+      "pos": [
+        2,
+        13
+      ]
+    }
+  },
+  {
+    "id": "T135.14",
+    "nome": "PAR NEGATIVO DO T135.13: com FLAG_HIDE_DEX_THUNDURUS_INCARNATE ACESA o tile (2, 14) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (2, 15) em vez de parar em (2, 13). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_THUNDURUS_INCARNATE"
+    ],
+    "warp": "MAP_UNOVA_GIANT_CHASM_1F",
+    "warp_id": 2,
+    "roteiro": "60:NADA,17:DOWN*2,40:NADA,17:LEFT*3,40:NADA,17:DOWN*15,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_GIANT_CHASM_1F",
+      "pos": [
+        2,
+        15
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.15",
+    "nome": "RESHIRAM EXISTE EM MAP_UNOVA_DRAGONSPIRAL_TOWER_6F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (9,17), pousando em (9, 17), pela rota RIGHT(zera) LEFT*1 UP*3 RIGHT*5. O tile (12, 14) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (11, 14); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.16.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_DRAGONSPIRAL_TOWER_6F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*3,40:NADA,17:UP*5,40:NADA,17:RIGHT*7,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_DRAGONSPIRAL_TOWER_6F",
+      "pos": [
+        11,
+        14
+      ]
+    }
+  },
+  {
+    "id": "T135.16",
+    "nome": "PAR NEGATIVO DO T135.15: com FLAG_HIDE_DEX_RESHIRAM ACESA o tile (12, 14) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (13, 14) em vez de parar em (11, 14). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_RESHIRAM"
+    ],
+    "warp": "MAP_UNOVA_DRAGONSPIRAL_TOWER_6F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*3,40:NADA,17:UP*5,40:NADA,17:RIGHT*7,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_DRAGONSPIRAL_TOWER_6F",
+      "pos": [
+        13,
+        14
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.17",
+    "nome": "ZEKROM EXISTE EM MAP_UNOVA_DRAGONSPIRAL_TOWER_6F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (9,17), pousando em (9, 17), pela rota RIGHT(zera) LEFT*1 UP*2 RIGHT*5 UP*12. O tile (13, 5) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (13, 6); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.18.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_DRAGONSPIRAL_TOWER_6F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*3,40:NADA,17:UP*3,40:NADA,17:RIGHT*7,40:NADA,17:UP*14,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_DRAGONSPIRAL_TOWER_6F",
+      "pos": [
+        13,
+        6
+      ]
+    }
+  },
+  {
+    "id": "T135.18",
+    "nome": "PAR NEGATIVO DO T135.17: com FLAG_HIDE_DEX_ZEKROM ACESA o tile (13, 5) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (13, 3) em vez de parar em (13, 6). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ZEKROM"
+    ],
+    "warp": "MAP_UNOVA_DRAGONSPIRAL_TOWER_6F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*3,40:NADA,17:UP*3,40:NADA,17:RIGHT*7,40:NADA,17:UP*14,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_DRAGONSPIRAL_TOWER_6F",
+      "pos": [
+        13,
+        3
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.19",
+    "nome": "LANDORUS_INCARNATE EXISTE EM MAP_UNOVA_GIANT_CHASM_B1F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (4,35), pousando em (4, 36), pela rota LEFT(zera) RIGHT*5. O tile (8, 36) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (7, 36); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.20.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_GIANT_CHASM_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*7,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_GIANT_CHASM_B1F",
+      "pos": [
+        7,
+        36
+      ]
+    }
+  },
+  {
+    "id": "T135.20",
+    "nome": "PAR NEGATIVO DO T135.19: com FLAG_HIDE_DEX_LANDORUS_INCARNATE ACESA o tile (8, 36) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (9, 36) em vez de parar em (7, 36). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_LANDORUS_INCARNATE"
+    ],
+    "warp": "MAP_UNOVA_GIANT_CHASM_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*7,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_GIANT_CHASM_B1F",
+      "pos": [
+        9,
+        36
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.21",
+    "nome": "KYUREM EXISTE EM MAP_UNOVA_GIANT_CHASM_B1F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (4,35), pousando em (4, 36), pela rota LEFT(zera) DOWN*3 RIGHT*13. O tile (16, 39) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (15, 39); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.22.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_GIANT_CHASM_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:DOWN*5,40:NADA,17:RIGHT*15,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_GIANT_CHASM_B1F",
+      "pos": [
+        15,
+        39
+      ]
+    }
+  },
+  {
+    "id": "T135.22",
+    "nome": "PAR NEGATIVO DO T135.21: com FLAG_HIDE_DEX_KYUREM ACESA o tile (16, 39) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (17, 39) em vez de parar em (15, 39). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_KYUREM"
+    ],
+    "warp": "MAP_UNOVA_GIANT_CHASM_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:DOWN*5,40:NADA,17:RIGHT*15,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_GIANT_CHASM_B1F",
+      "pos": [
+        17,
+        39
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.23",
+    "nome": "NAGANADEL EXISTE EM MAP_UNOVA_RELIC_CASTLE_B1F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (14,2), pousando em (14, 2), pela rota UP(zera) LEFT*1 DOWN*6 RIGHT*4 UP*8. O tile (17, 1) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (17, 2); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.24.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_RELIC_CASTLE_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:LEFT*2,40:NADA,17:DOWN*8,40:NADA,17:RIGHT*6,40:NADA,17:UP*10,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_RELIC_CASTLE_B1F",
+      "pos": [
+        17,
+        2
+      ]
+    }
+  },
+  {
+    "id": "T135.24",
+    "nome": "PAR NEGATIVO DO T135.23: com FLAG_HIDE_DEX_NAGANADEL ACESA o tile (17, 1) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (17, 0) em vez de parar em (17, 2). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_NAGANADEL"
+    ],
+    "warp": "MAP_UNOVA_RELIC_CASTLE_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:LEFT*2,40:NADA,17:DOWN*8,40:NADA,17:RIGHT*6,40:NADA,17:UP*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_RELIC_CASTLE_B1F",
+      "pos": [
+        17,
+        0
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.25",
+    "nome": "ZAMAZENTA_HERO EXISTE EM MAP_UNOVA_RELIC_CASTLE_B1F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 1 (2,12), pousando em (2, 12), pela rota LEFT(zera) RIGHT*7. O tile (8, 12) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (7, 12); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.26.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_RELIC_CASTLE_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*9,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_RELIC_CASTLE_B1F",
+      "pos": [
+        7,
+        12
+      ]
+    }
+  },
+  {
+    "id": "T135.26",
+    "nome": "PAR NEGATIVO DO T135.25: com FLAG_HIDE_DEX_ZAMAZENTA_HERO ACESA o tile (8, 12) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (9, 12) em vez de parar em (7, 12). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ZAMAZENTA_HERO"
+    ],
+    "warp": "MAP_UNOVA_RELIC_CASTLE_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*9,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_RELIC_CASTLE_B1F",
+      "pos": [
+        9,
+        12
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.27",
+    "nome": "ETERNATUS EXISTE EM MAP_UNOVA_RELIC_CASTLE_B1F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 1 (2,12), pousando em (2, 12), pela rota LEFT(zera) DOWN*5. O tile (2, 16) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (2, 15); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.28.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_RELIC_CASTLE_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:DOWN*7,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_RELIC_CASTLE_B1F",
+      "pos": [
+        2,
+        15
+      ]
+    }
+  },
+  {
+    "id": "T135.28",
+    "nome": "PAR NEGATIVO DO T135.27: com FLAG_HIDE_DEX_ETERNATUS ACESA o tile (2, 16) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (2, 17) em vez de parar em (2, 15). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ETERNATUS"
+    ],
+    "warp": "MAP_UNOVA_RELIC_CASTLE_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:DOWN*7,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_RELIC_CASTLE_B1F",
+      "pos": [
+        2,
+        17
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.29",
+    "nome": "KUBFU EXISTE EM MAP_UNOVA_RELIC_CASTLE_B1F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 1 (2,12), pousando em (2, 12), pela rota LEFT(zera) DOWN*2 RIGHT*13 DOWN*3 LEFT*7. O tile (12, 17) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (13, 17); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.30.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_RELIC_CASTLE_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:DOWN*3,40:NADA,17:RIGHT*15,40:NADA,17:DOWN*5,40:NADA,17:LEFT*9,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_RELIC_CASTLE_B1F",
+      "pos": [
+        13,
+        17
+      ]
+    }
+  },
+  {
+    "id": "T135.30",
+    "nome": "PAR NEGATIVO DO T135.29: com FLAG_HIDE_DEX_KUBFU ACESA o tile (12, 17) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (8, 17) em vez de parar em (13, 17). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_KUBFU"
+    ],
+    "warp": "MAP_UNOVA_RELIC_CASTLE_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:DOWN*3,40:NADA,17:RIGHT*15,40:NADA,17:DOWN*5,40:NADA,17:LEFT*9,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_RELIC_CASTLE_B1F",
+      "pos": [
+        8,
+        17
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.31",
+    "nome": "URSHIFU_SINGLE_STRIKE EXISTE EM MAP_UNOVA_RELIC_CASTLE_B1F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 1 (2,12), pousando em (2, 12), pela rota LEFT(zera) RIGHT*1 DOWN*5 RIGHT*8. O tile (7, 17) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (6, 17); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.32.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_RELIC_CASTLE_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*2,40:NADA,17:DOWN*7,40:NADA,17:RIGHT*10,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_RELIC_CASTLE_B1F",
+      "pos": [
+        6,
+        17
+      ]
+    }
+  },
+  {
+    "id": "T135.32",
+    "nome": "PAR NEGATIVO DO T135.31: com FLAG_HIDE_DEX_URSHIFU_SINGLE_STRIKE ACESA o tile (7, 17) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (11, 17) em vez de parar em (6, 17). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_URSHIFU_SINGLE_STRIKE"
+    ],
+    "warp": "MAP_UNOVA_RELIC_CASTLE_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*2,40:NADA,17:DOWN*7,40:NADA,17:RIGHT*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_RELIC_CASTLE_B1F",
+      "pos": [
+        11,
+        17
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.33",
+    "nome": "GREAT_TUSK EXISTE EM MAP_UNOVA_VICTORY_ROAD_CAVE_2F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 10 (24,33), pousando em (24, 34), pela rota RIGHT(zera) DOWN*1 RIGHT*1 DOWN*3 RIGHT*2 UP*8. O tile (27, 31) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (27, 32); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.34.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+    "warp_id": 10,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*2,40:NADA,17:RIGHT*3,40:NADA,17:DOWN*5,40:NADA,17:RIGHT*3,40:NADA,17:UP*10,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "pos": [
+        27,
+        32
+      ]
+    }
+  },
+  {
+    "id": "T135.34",
+    "nome": "PAR NEGATIVO DO T135.33: com FLAG_HIDE_DEX_GREAT_TUSK ACESA o tile (27, 31) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (27, 30) em vez de parar em (27, 32). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_GREAT_TUSK"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+    "warp_id": 10,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*2,40:NADA,17:RIGHT*3,40:NADA,17:DOWN*5,40:NADA,17:RIGHT*3,40:NADA,17:UP*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "pos": [
+        27,
+        30
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.35",
+    "nome": "SCREAM_TAIL EXISTE EM MAP_UNOVA_VICTORY_ROAD_CAVE_2F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 10 (24,33), pousando em (24, 34), pela rota RIGHT(zera) DOWN*2 LEFT*2 DOWN*7 RIGHT*1 DOWN*3. O tile (23, 45) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (23, 44); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.36.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+    "warp_id": 10,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*3,40:NADA,17:DOWN*8,40:NADA,17:RIGHT*3,40:NADA,17:DOWN*5,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "pos": [
+        23,
+        44
+      ]
+    }
+  },
+  {
+    "id": "T135.36",
+    "nome": "PAR NEGATIVO DO T135.35: com FLAG_HIDE_DEX_SCREAM_TAIL ACESA o tile (23, 45) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (23, 46) em vez de parar em (23, 44). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_SCREAM_TAIL"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+    "warp_id": 10,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*3,40:NADA,17:DOWN*8,40:NADA,17:RIGHT*3,40:NADA,17:DOWN*5,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "pos": [
+        23,
+        46
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.37",
+    "nome": "FLUTTER_MANE EXISTE EM MAP_UNOVA_VICTORY_ROAD_CAVE_2F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 10 (24,33), pousando em (24, 34), pela rota RIGHT(zera) DOWN*1 RIGHT*1 DOWN*3 RIGHT*2 UP*6 RIGHT*12 DOWN*9. O tile (39, 38) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (39, 37); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.38.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+    "warp_id": 10,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*2,40:NADA,17:RIGHT*3,40:NADA,17:DOWN*5,40:NADA,17:RIGHT*3,40:NADA,17:UP*7,40:NADA,17:RIGHT*14,40:NADA,17:DOWN*11,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "pos": [
+        39,
+        37
+      ]
+    }
+  },
+  {
+    "id": "T135.38",
+    "nome": "PAR NEGATIVO DO T135.37: com FLAG_HIDE_DEX_FLUTTER_MANE ACESA o tile (39, 38) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (39, 41) em vez de parar em (39, 37). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_FLUTTER_MANE"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+    "warp_id": 10,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*2,40:NADA,17:RIGHT*3,40:NADA,17:DOWN*5,40:NADA,17:RIGHT*3,40:NADA,17:UP*7,40:NADA,17:RIGHT*14,40:NADA,17:DOWN*11,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "pos": [
+        39,
+        41
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.39",
+    "nome": "SLITHER_WING EXISTE EM MAP_UNOVA_VICTORY_ROAD_CAVE_2F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 8 (22,33), pousando em (22, 34), pela rota LEFT(zera) RIGHT*2 DOWN*2 LEFT*4 DOWN*2 LEFT*4 UP*5 LEFT*10 DOWN*5 RIGHT*8. O tile (10, 38) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (9, 38); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.40.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+    "warp_id": 8,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*4,40:NADA,17:DOWN*3,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*6,40:NADA,17:UP*6,40:NADA,17:LEFT*11,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*10,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "pos": [
+        9,
+        38
+      ]
+    }
+  },
+  {
+    "id": "T135.40",
+    "nome": "PAR NEGATIVO DO T135.39: com FLAG_HIDE_DEX_SLITHER_WING ACESA o tile (10, 38) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (14, 38) em vez de parar em (9, 38). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_SLITHER_WING"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+    "warp_id": 8,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*4,40:NADA,17:DOWN*3,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*6,40:NADA,17:UP*6,40:NADA,17:LEFT*11,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "pos": [
+        14,
+        38
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.41",
+    "nome": "SANDY_SHOCKS EXISTE EM MAP_UNOVA_VICTORY_ROAD_CAVE_2F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 10 (24,33), pousando em (24, 34), pela rota RIGHT(zera) DOWN*1 RIGHT*1 DOWN*3 RIGHT*2 UP*6 RIGHT*7 DOWN*9. O tile (34, 38) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (34, 37); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.42.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+    "warp_id": 10,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*2,40:NADA,17:RIGHT*3,40:NADA,17:DOWN*5,40:NADA,17:RIGHT*3,40:NADA,17:UP*7,40:NADA,17:RIGHT*8,40:NADA,17:DOWN*11,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "pos": [
+        34,
+        37
+      ]
+    }
+  },
+  {
+    "id": "T135.42",
+    "nome": "PAR NEGATIVO DO T135.41: com FLAG_HIDE_DEX_SANDY_SHOCKS ACESA o tile (34, 38) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (34, 41) em vez de parar em (34, 37). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_SANDY_SHOCKS"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+    "warp_id": 10,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*2,40:NADA,17:RIGHT*3,40:NADA,17:DOWN*5,40:NADA,17:RIGHT*3,40:NADA,17:UP*7,40:NADA,17:RIGHT*8,40:NADA,17:DOWN*11,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "pos": [
+        34,
+        41
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.43",
+    "nome": "IRON_TREADS EXISTE EM MAP_UNOVA_VICTORY_ROAD_CAVE_1F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 7 (21,2), pousando em (21, 3), pela rota LEFT(zera) DOWN*1 LEFT*1 DOWN*5. O tile (20, 8) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (20, 7); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.44.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+    "warp_id": 7,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*3,40:NADA,17:DOWN*7,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+      "pos": [
+        20,
+        7
+      ]
+    }
+  },
+  {
+    "id": "T135.44",
+    "nome": "PAR NEGATIVO DO T135.43: com FLAG_HIDE_DEX_IRON_TREADS ACESA o tile (20, 8) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (20, 9) em vez de parar em (20, 7). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_IRON_TREADS"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+    "warp_id": 7,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*3,40:NADA,17:DOWN*7,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+      "pos": [
+        20,
+        9
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.45",
+    "nome": "IRON_BUNDLE EXISTE EM MAP_UNOVA_VICTORY_ROAD_CAVE_1F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 9 (11,22), pousando em (11, 22), pela rota DOWN*2 RIGHT*3 UP*2 RIGHT*8. O tile (20, 22) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (19, 22); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.46.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+    "warp_id": 9,
+    "roteiro": "60:NADA,17:DOWN*4,40:NADA,17:RIGHT*5,40:NADA,17:UP*3,40:NADA,17:RIGHT*10,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+      "pos": [
+        19,
+        22
+      ]
+    }
+  },
+  {
+    "id": "T135.46",
+    "nome": "PAR NEGATIVO DO T135.45: com FLAG_HIDE_DEX_IRON_BUNDLE ACESA o tile (20, 22) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (22, 22) em vez de parar em (19, 22). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_IRON_BUNDLE"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+    "warp_id": 9,
+    "roteiro": "60:NADA,17:DOWN*4,40:NADA,17:RIGHT*5,40:NADA,17:UP*3,40:NADA,17:RIGHT*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+      "pos": [
+        22,
+        22
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.47",
+    "nome": "IRON_HANDS EXISTE EM MAP_UNOVA_VICTORY_ROAD_CAVE_1F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 9 (11,22), pousando em (11, 22), pela rota LEFT*4. O tile (8, 22) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (9, 22); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.48.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+    "warp_id": 9,
+    "roteiro": "60:NADA,17:LEFT*6,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+      "pos": [
+        9,
+        22
+      ]
+    }
+  },
+  {
+    "id": "T135.48",
+    "nome": "PAR NEGATIVO DO T135.47: com FLAG_HIDE_DEX_IRON_HANDS ACESA o tile (8, 22) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (7, 22) em vez de parar em (9, 22). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_IRON_HANDS"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+    "warp_id": 9,
+    "roteiro": "60:NADA,17:LEFT*6,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+      "pos": [
+        7,
+        22
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.49",
+    "nome": "IRON_JUGULIS EXISTE EM MAP_UNOVA_VICTORY_ROAD_CAVE_1F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 9 (11,22), pousando em (11, 22), pela rota RIGHT*8. O tile (13, 22) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (12, 22); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.50.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+    "warp_id": 9,
+    "roteiro": "60:NADA,17:RIGHT*10,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+      "pos": [
+        12,
+        22
+      ]
+    }
+  },
+  {
+    "id": "T135.50",
+    "nome": "PAR NEGATIVO DO T135.49: com FLAG_HIDE_DEX_IRON_JUGULIS ACESA o tile (13, 22) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (19, 22) em vez de parar em (12, 22). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_IRON_JUGULIS"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+    "warp_id": 9,
+    "roteiro": "60:NADA,17:RIGHT*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+      "pos": [
+        19,
+        22
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.51",
+    "nome": "IRON_MOTH EXISTE EM MAP_UNOVA_VICTORY_ROAD_CAVE_1F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 9 (11,22), pousando em (11, 22), pela rota UP*1 LEFT*5 UP*6. O tile (6, 17) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (6, 18); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.52.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+    "warp_id": 9,
+    "roteiro": "60:NADA,17:UP*3,40:NADA,17:LEFT*7,40:NADA,17:UP*7,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+      "pos": [
+        6,
+        18
+      ]
+    }
+  },
+  {
+    "id": "T135.52",
+    "nome": "PAR NEGATIVO DO T135.51: com FLAG_HIDE_DEX_IRON_MOTH ACESA o tile (6, 17) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (6, 15) em vez de parar em (6, 18). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_IRON_MOTH"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+    "warp_id": 9,
+    "roteiro": "60:NADA,17:UP*3,40:NADA,17:LEFT*7,40:NADA,17:UP*7,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+      "pos": [
+        6,
+        15
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.53",
+    "nome": "IRON_THORNS EXISTE EM MAP_UNOVA_VICTORY_ROAD_CAVE_1F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 10 (32,10), pousando em (32, 10), pela rota LEFT(zera) DOWN*5. O tile (32, 14) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (32, 13); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.54.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+    "warp_id": 10,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:DOWN*7,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+      "pos": [
+        32,
+        13
+      ]
+    }
+  },
+  {
+    "id": "T135.54",
+    "nome": "PAR NEGATIVO DO T135.53: com FLAG_HIDE_DEX_IRON_THORNS ACESA o tile (32, 14) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (32, 15) em vez de parar em (32, 13). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_IRON_THORNS"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+    "warp_id": 10,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:DOWN*7,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+      "pos": [
+        32,
+        15
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.55",
+    "nome": "ROARING_MOON EXISTE EM MAP_UNOVA_VICTORY_ROAD_CAVE_2F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 8 (22,33), pousando em (22, 34), pela rota LEFT(zera) RIGHT*2 DOWN*2 LEFT*4 DOWN*2 LEFT*9. O tile (15, 38) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (16, 38); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.56.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+    "warp_id": 8,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*4,40:NADA,17:DOWN*3,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*11,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "pos": [
+        16,
+        38
+      ]
+    }
+  },
+  {
+    "id": "T135.56",
+    "nome": "PAR NEGATIVO DO T135.55: com FLAG_HIDE_DEX_ROARING_MOON ACESA o tile (15, 38) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (11, 38) em vez de parar em (16, 38). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ROARING_MOON"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+    "warp_id": 8,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*4,40:NADA,17:DOWN*3,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*11,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "pos": [
+        11,
+        38
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.57",
+    "nome": "IRON_VALIANT EXISTE EM MAP_UNOVA_VICTORY_ROAD_CAVE_1F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 10 (32,10), pousando em (32, 10), pela rota LEFT(zera) DOWN*3 LEFT*7. O tile (27, 13) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (28, 13); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.58.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+    "warp_id": 10,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:DOWN*5,40:NADA,17:LEFT*8,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+      "pos": [
+        28,
+        13
+      ]
+    }
+  },
+  {
+    "id": "T135.58",
+    "nome": "PAR NEGATIVO DO T135.57: com FLAG_HIDE_DEX_IRON_VALIANT ACESA o tile (27, 13) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (25, 13) em vez de parar em (28, 13). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_IRON_VALIANT"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+    "warp_id": 10,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:DOWN*5,40:NADA,17:LEFT*8,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+      "pos": [
+        25,
+        13
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.59",
+    "nome": "KORAIDON EXISTE EM MAP_UNOVA_RELIC_CASTLE_B1F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 4 (3,9), pousando em (3, 10), pela rota DOWN(zera) LEFT*3 UP*10. O tile (0, 1) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (0, 2); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.60.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_RELIC_CASTLE_B1F",
+    "warp_id": 4,
+    "roteiro": "60:NADA,17:DOWN*2,40:NADA,17:LEFT*5,40:NADA,17:UP*12,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_RELIC_CASTLE_B1F",
+      "pos": [
+        0,
+        2
+      ]
+    }
+  },
+  {
+    "id": "T135.60",
+    "nome": "PAR NEGATIVO DO T135.59: com FLAG_HIDE_DEX_KORAIDON ACESA o tile (0, 1) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (0, 0) em vez de parar em (0, 2). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_KORAIDON"
+    ],
+    "warp": "MAP_UNOVA_RELIC_CASTLE_B1F",
+    "warp_id": 4,
+    "roteiro": "60:NADA,17:DOWN*2,40:NADA,17:LEFT*5,40:NADA,17:UP*12,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_RELIC_CASTLE_B1F",
+      "pos": [
+        0,
+        0
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.61",
+    "nome": "WALKING_WAKE EXISTE EM MAP_UNOVA_VICTORY_ROAD_CAVE_2F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 8 (22,33), pousando em (22, 34), pela rota LEFT(zera) RIGHT*2 DOWN*1 RIGHT*1 DOWN*3 RIGHT*8. O tile (29, 38) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (28, 38); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.62.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+    "warp_id": 8,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*4,40:NADA,17:DOWN*2,40:NADA,17:RIGHT*3,40:NADA,17:DOWN*5,40:NADA,17:RIGHT*10,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "pos": [
+        28,
+        38
+      ]
+    }
+  },
+  {
+    "id": "T135.62",
+    "nome": "PAR NEGATIVO DO T135.61: com FLAG_HIDE_DEX_WALKING_WAKE ACESA o tile (29, 38) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (33, 38) em vez de parar em (28, 38). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_WALKING_WAKE"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+    "warp_id": 8,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*4,40:NADA,17:DOWN*2,40:NADA,17:RIGHT*3,40:NADA,17:DOWN*5,40:NADA,17:RIGHT*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "pos": [
+        33,
+        38
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.63",
+    "nome": "IRON_LEAVES EXISTE EM MAP_UNOVA_VICTORY_ROAD_GROVE (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 2 (5,5), pousando em (5, 6), pela rota DOWN*7. O tile (5, 12) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (5, 11); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.64.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_GROVE",
+    "warp_id": 2,
+    "roteiro": "60:NADA,17:DOWN*9,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_GROVE",
+      "pos": [
+        5,
+        11
+      ]
+    }
+  },
+  {
+    "id": "T135.64",
+    "nome": "PAR NEGATIVO DO T135.63: com FLAG_HIDE_DEX_IRON_LEAVES ACESA o tile (5, 12) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (5, 13) em vez de parar em (5, 11). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_IRON_LEAVES"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_GROVE",
+    "warp_id": 2,
+    "roteiro": "60:NADA,17:DOWN*9,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_GROVE",
+      "pos": [
+        5,
+        13
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.65",
+    "nome": "GOUGING_FIRE EXISTE EM MAP_UNOVA_VICTORY_ROAD_CAVE_2F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 10 (24,33), pousando em (24, 34), pela rota RIGHT(zera) DOWN*2 LEFT*4 DOWN*2 LEFT*4 UP*10. O tile (16, 29) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (16, 30); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.66.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+    "warp_id": 10,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*6,40:NADA,17:UP*12,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "pos": [
+        16,
+        30
+      ]
+    }
+  },
+  {
+    "id": "T135.66",
+    "nome": "PAR NEGATIVO DO T135.65: com FLAG_HIDE_DEX_GOUGING_FIRE ACESA o tile (16, 29) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (16, 28) em vez de parar em (16, 30). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_GOUGING_FIRE"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+    "warp_id": 10,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*6,40:NADA,17:UP*12,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "pos": [
+        16,
+        28
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.67",
+    "nome": "RAGING_BOLT EXISTE EM MAP_UNOVA_VICTORY_ROAD_CAVE_2F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 10 (24,33), pousando em (24, 34), pela rota RIGHT(zera) DOWN*2 LEFT*2 DOWN*5 RIGHT*3 DOWN*10. O tile (25, 50) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (25, 49); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.68.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+    "warp_id": 10,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*3,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*5,40:NADA,17:DOWN*12,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "pos": [
+        25,
+        49
+      ]
+    }
+  },
+  {
+    "id": "T135.68",
+    "nome": "PAR NEGATIVO DO T135.67: com FLAG_HIDE_DEX_RAGING_BOLT ACESA o tile (25, 50) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (25, 51) em vez de parar em (25, 49). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_RAGING_BOLT"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+    "warp_id": 10,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*3,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*5,40:NADA,17:DOWN*12,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "pos": [
+        25,
+        51
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.69",
+    "nome": "IRON_BOULDER EXISTE EM MAP_UNOVA_VICTORY_ROAD_GROVE (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 2 (5,5), pousando em (5, 6), pela rota RIGHT*4. O tile (8, 6) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (7, 6); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.70.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_GROVE",
+    "warp_id": 2,
+    "roteiro": "60:NADA,17:RIGHT*6,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_GROVE",
+      "pos": [
+        7,
+        6
+      ]
+    }
+  },
+  {
+    "id": "T135.70",
+    "nome": "PAR NEGATIVO DO T135.69: com FLAG_HIDE_DEX_IRON_BOULDER ACESA o tile (8, 6) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (9, 6) em vez de parar em (7, 6). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_IRON_BOULDER"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_GROVE",
+    "warp_id": 2,
+    "roteiro": "60:NADA,17:RIGHT*6,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_GROVE",
+      "pos": [
+        9,
+        6
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.71",
+    "nome": "IRON_CROWN EXISTE EM MAP_UNOVA_VICTORY_ROAD_GROVE (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 2 (5,5), pousando em (5, 6), pela rota LEFT*3. O tile (3, 6) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (4, 6); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.72.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_GROVE",
+    "warp_id": 2,
+    "roteiro": "60:NADA,17:LEFT*5,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_GROVE",
+      "pos": [
+        4,
+        6
+      ]
+    }
+  },
+  {
+    "id": "T135.72",
+    "nome": "PAR NEGATIVO DO T135.71: com FLAG_HIDE_DEX_IRON_CROWN ACESA o tile (3, 6) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (2, 6) em vez de parar em (4, 6). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_IRON_CROWN"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_GROVE",
+    "warp_id": 2,
+    "roteiro": "60:NADA,17:LEFT*5,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_GROVE",
+      "pos": [
+        2,
+        6
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.73",
+    "nome": "TERAPAGOS_NORMAL EXISTE EM MAP_UNOVA_RELIC_CASTLE_B4F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (2,2), pousando em (2, 2), pela rota LEFT(zera) DOWN*12. O tile (2, 13) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (2, 12); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.74.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_RELIC_CASTLE_B4F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:DOWN*14,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_RELIC_CASTLE_B4F",
+      "pos": [
+        2,
+        12
+      ]
+    }
+  },
+  {
+    "id": "T135.74",
+    "nome": "PAR NEGATIVO DO T135.73: com FLAG_HIDE_DEX_TERAPAGOS_NORMAL ACESA o tile (2, 13) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (2, 14) em vez de parar em (2, 12). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_TERAPAGOS_NORMAL"
+    ],
+    "warp": "MAP_UNOVA_RELIC_CASTLE_B4F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:DOWN*14,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_RELIC_CASTLE_B4F",
+      "pos": [
+        2,
+        14
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T135.75",
+    "nome": "PECHARUNT EXISTE EM MAP_UNOVA_RELIC_CASTLE_B1F (Unova) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Unova: a fumaça do T129 andou até UM estático por região (o Brute Bonnet), e este arquivo cobre os 38 de Unova que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 1 (2,12), pousando em (2, 12), pela rota LEFT(zera) RIGHT*1 DOWN*5 LEFT*3 UP*15. O tile (0, 11) saiu da busca em largura do T123 (colisão E elevação, portão de não ilhar nenhum tile, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. A última perna satura CONTRA o Pokémon e para em (0, 12); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo do jogador. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T135.76.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_RELIC_CASTLE_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*2,40:NADA,17:DOWN*7,40:NADA,17:LEFT*5,40:NADA,17:UP*17,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_RELIC_CASTLE_B1F",
+      "pos": [
+        0,
+        12
+      ]
+    }
+  },
+  {
+    "id": "T135.76",
+    "nome": "PAR NEGATIVO DO T135.75: com FLAG_HIDE_DEX_PECHARUNT ACESA o tile (0, 11) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (0, 2) em vez de parar em (0, 12). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_PECHARUNT"
+    ],
+    "warp": "MAP_UNOVA_RELIC_CASTLE_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*2,40:NADA,17:DOWN*7,40:NADA,17:LEFT*5,40:NADA,17:UP*17,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_RELIC_CASTLE_B1F",
+      "pos": [
+        0,
+        2
+      ],
+      "andou": true
+    }
+  }
+]

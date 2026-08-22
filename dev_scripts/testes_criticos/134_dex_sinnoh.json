@@ -1,0 +1,470 @@
+[
+  {
+    "id": "T134.1",
+    "nome": "SHAYMIN_LAND EXISTE EM MAP_FLOAROMA_TOWN (Sinnoh) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, regiao Sinnoh: sao 14 estaticos novos na regiao e o T129.13 so cobriu um deles (NIHILEGO, o mais longe do warp). Este arquivo cobre os outros 13, um par por especie, na mesma forma. O tile (22, 29) saiu da busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o Pokemon sem dizer nada. ROTA: LEFT*5, a partir do warp 1 (26,28), pousando em (26, 29). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar; as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1), e a que satura leva DOIS, porque toque a mais contra parede nao custa nada. Cada toque dura 17 quadros e nao 16: 16 empata com o passo do jogador e come um toque por perna exata (medido no MtCoronet_B1F, 21/08/2026). A ultima perna satura CONTRA o Pokemon e para em (23, 29). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T134.2.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_FLOAROMA_TOWN",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:LEFT*7,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_FLOAROMA_TOWN",
+      "pos": [
+        23,
+        29
+      ]
+    }
+  },
+  {
+    "id": "T134.2",
+    "nome": "PAR NEGATIVO DO T134.1: com FLAG_HIDE_DEX_SHAYMIN_LAND ACESA o tile (22, 29) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (21, 29) em vez de parar em (23, 29). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_SHAYMIN_LAND"
+    ],
+    "warp": "MAP_FLOAROMA_TOWN",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:LEFT*7,90:NADA",
+    "prova": {
+      "mapa": "MAP_FLOAROMA_TOWN",
+      "pos": [
+        21,
+        29
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T134.3",
+    "nome": "KYUREM_WHITE EXISTE EM MAP_MT_CORONET_B1F (Sinnoh) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, regiao Sinnoh: sao 14 estaticos novos na regiao e o T129.13 so cobriu um deles (NIHILEGO, o mais longe do warp). Este arquivo cobre os outros 13, um par por especie, na mesma forma. O tile (3, 2) saiu da busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o Pokemon sem dizer nada. ROTA: RIGHT(zera) LEFT*6, a partir do warp 1 (8,2), pousando em (8, 2). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar; as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1), e a que satura leva DOIS, porque toque a mais contra parede nao custa nada. Cada toque dura 17 quadros e nao 16: 16 empata com o passo do jogador e come um toque por perna exata (medido no MtCoronet_B1F, 21/08/2026). A ultima perna satura CONTRA o Pokemon e para em (4, 2). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T134.4.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*8,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        4,
+        2
+      ]
+    }
+  },
+  {
+    "id": "T134.4",
+    "nome": "PAR NEGATIVO DO T134.3: com FLAG_HIDE_DEX_KYUREM_WHITE ACESA o tile (3, 2) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (2, 2) em vez de parar em (4, 2). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_KYUREM_WHITE"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*8,90:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        2,
+        2
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T134.5",
+    "nome": "ZYGARDE_50 EXISTE EM MAP_MT_CORONET_B1F (Sinnoh) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, regiao Sinnoh: sao 14 estaticos novos na regiao e o T129.13 so cobriu um deles (NIHILEGO, o mais longe do warp). Este arquivo cobre os outros 13, um par por especie, na mesma forma. O tile (4, 13) saiu da busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o Pokemon sem dizer nada. ROTA: RIGHT(zera) LEFT*4 DOWN*3 LEFT*2 DOWN*8 RIGHT*9, a partir do warp 1 (8,2), pousando em (8, 2). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar; as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1), e a que satura leva DOIS, porque toque a mais contra parede nao custa nada. Cada toque dura 17 quadros e nao 16: 16 empata com o passo do jogador e come um toque por perna exata (medido no MtCoronet_B1F, 21/08/2026). A ultima perna satura CONTRA o Pokemon e para em (3, 13). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. ROTA CORRIGIDA NO CASO, NAO NO MAPA (medido em 21/08/2026): a tabela previa a perna final saturante de 22 tiles escorregando ate (24, 13) no par negativo, contra a pedra quebravel de (25,13). O jogador nunca chega la: em (12,12) mora o LOCALID_MT_CORONET_B1F_GALACTIC_GRUNT, TRAINER_TYPE_NORMAL virado para BAIXO com sight 2, e a linha de visao dele pega (12,13). Medido tres vezes, sempre igual: o jogador para em (12,13) e o grunt o aborda. O tile do Pokemon esta CERTO (o map.json bate com a tabela); errado esta o `vazio` da tabela, que sai de colisao e elevacao e nao enxerga linha de visao de treinador. Por isso a perna final aqui e EXATA de 9 tiles: o negativo para em (11, 13), um tile antes da coluna do grunt, e o positivo continua saturando contra o Pokemon com 8 toques sobrando. Par negativo: T134.6.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*4,40:NADA,17:DOWN*9,40:NADA,17:RIGHT*10,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        3,
+        13
+      ]
+    }
+  },
+  {
+    "id": "T134.6",
+    "nome": "PAR NEGATIVO DO T134.5: com FLAG_HIDE_DEX_ZYGARDE_50 ACESA o tile (4, 13) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (11, 13) em vez de parar em (3, 13). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo. ROTA CORRIGIDA NO CASO, NAO NO MAPA (medido em 21/08/2026): a tabela previa a perna final saturante de 22 tiles escorregando ate (24, 13) no par negativo, contra a pedra quebravel de (25,13). O jogador nunca chega la: em (12,12) mora o LOCALID_MT_CORONET_B1F_GALACTIC_GRUNT, TRAINER_TYPE_NORMAL virado para BAIXO com sight 2, e a linha de visao dele pega (12,13). Medido tres vezes, sempre igual: o jogador para em (12,13) e o grunt o aborda. O tile do Pokemon esta CERTO (o map.json bate com a tabela); errado esta o `vazio` da tabela, que sai de colisao e elevacao e nao enxerga linha de visao de treinador. Por isso a perna final aqui e EXATA de 9 tiles: o negativo para em (11, 13), um tile antes da coluna do grunt, e o positivo continua saturando contra o Pokemon com 8 toques sobrando.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ZYGARDE_50"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*4,40:NADA,17:DOWN*9,40:NADA,17:RIGHT*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        11,
+        13
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T134.7",
+    "nome": "VOLCANION EXISTE EM MAP_MT_CORONET_B1F (Sinnoh) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, regiao Sinnoh: sao 14 estaticos novos na regiao e o T129.13 so cobriu um deles (NIHILEGO, o mais longe do warp). Este arquivo cobre os outros 13, um par por especie, na mesma forma. O tile (4, 8) saiu da busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o Pokemon sem dizer nada. ROTA: RIGHT(zera) LEFT*4 DOWN*10, a partir do warp 1 (8,2), pousando em (8, 2). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar; as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1), e a que satura leva DOIS, porque toque a mais contra parede nao custa nada. Cada toque dura 17 quadros e nao 16: 16 empata com o passo do jogador e come um toque por perna exata (medido no MtCoronet_B1F, 21/08/2026). A ultima perna satura CONTRA o Pokemon e para em (4, 7). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T134.8.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*12,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        4,
+        7
+      ]
+    }
+  },
+  {
+    "id": "T134.8",
+    "nome": "PAR NEGATIVO DO T134.7: com FLAG_HIDE_DEX_VOLCANION ACESA o tile (4, 8) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (4, 12) em vez de parar em (4, 7). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_VOLCANION"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*12,90:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        4,
+        12
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T134.9",
+    "nome": "BUZZWOLE EXISTE EM MAP_MT_CORONET_B1F (Sinnoh) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, regiao Sinnoh: sao 14 estaticos novos na regiao e o T129.13 so cobriu um deles (NIHILEGO, o mais longe do warp). Este arquivo cobre os outros 13, um par por especie, na mesma forma. O tile (2, 53) saiu da busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o Pokemon sem dizer nada. ROTA: RIGHT(zera) LEFT*4 DOWN*3 LEFT*2 DOWN*5 RIGHT*1 DOWN*47 LEFT*1 UP*8, a partir do warp 1 (8,2), pousando em (8, 2). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar; as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1), e a que satura leva DOIS, porque toque a mais contra parede nao custa nada. Cada toque dura 17 quadros e nao 16: 16 empata com o passo do jogador e come um toque por perna exata (medido no MtCoronet_B1F, 21/08/2026). A ultima perna satura CONTRA o Pokemon e para em (2, 54). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T134.10.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*4,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*2,40:NADA,17:DOWN*48,40:NADA,17:LEFT*3,40:NADA,17:UP*10,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        2,
+        54
+      ]
+    }
+  },
+  {
+    "id": "T134.10",
+    "nome": "PAR NEGATIVO DO T134.9: com FLAG_HIDE_DEX_BUZZWOLE ACESA o tile (2, 53) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (2, 49) em vez de parar em (2, 54). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_BUZZWOLE"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*4,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*2,40:NADA,17:DOWN*48,40:NADA,17:LEFT*3,40:NADA,17:UP*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        2,
+        49
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T134.11",
+    "nome": "PHEROMOSA EXISTE EM MAP_MT_CORONET_B1F (Sinnoh) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, regiao Sinnoh: sao 14 estaticos novos na regiao e o T129.13 so cobriu um deles (NIHILEGO, o mais longe do warp). Este arquivo cobre os outros 13, um par por especie, na mesma forma. O tile (2, 48) saiu da busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o Pokemon sem dizer nada. ROTA: RIGHT(zera) LEFT*4 DOWN*3 LEFT*2 DOWN*5 RIGHT*1 DOWN*42 LEFT*1 UP*8, a partir do warp 1 (8,2), pousando em (8, 2). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar; as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1), e a que satura leva DOIS, porque toque a mais contra parede nao custa nada. Cada toque dura 17 quadros e nao 16: 16 empata com o passo do jogador e come um toque por perna exata (medido no MtCoronet_B1F, 21/08/2026). A ultima perna satura CONTRA o Pokemon e para em (2, 49). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T134.12.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*4,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*2,40:NADA,17:DOWN*43,40:NADA,17:LEFT*3,40:NADA,17:UP*10,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        2,
+        49
+      ]
+    }
+  },
+  {
+    "id": "T134.12",
+    "nome": "PAR NEGATIVO DO T134.11: com FLAG_HIDE_DEX_PHEROMOSA ACESA o tile (2, 48) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (2, 44) em vez de parar em (2, 49). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_PHEROMOSA"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*4,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*2,40:NADA,17:DOWN*43,40:NADA,17:LEFT*3,40:NADA,17:UP*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        2,
+        44
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T134.13",
+    "nome": "XURKITREE EXISTE EM MAP_MT_CORONET_B1F (Sinnoh) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, regiao Sinnoh: sao 14 estaticos novos na regiao e o T129.13 so cobriu um deles (NIHILEGO, o mais longe do warp). Este arquivo cobre os outros 13, um par por especie, na mesma forma. O tile (2, 43) saiu da busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o Pokemon sem dizer nada. ROTA: RIGHT(zera) LEFT*4 DOWN*3 LEFT*2 DOWN*5 RIGHT*1 DOWN*37 LEFT*1 UP*8, a partir do warp 1 (8,2), pousando em (8, 2). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar; as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1), e a que satura leva DOIS, porque toque a mais contra parede nao custa nada. Cada toque dura 17 quadros e nao 16: 16 empata com o passo do jogador e come um toque por perna exata (medido no MtCoronet_B1F, 21/08/2026). A ultima perna satura CONTRA o Pokemon e para em (2, 44). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T134.14.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*4,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*2,40:NADA,17:DOWN*38,40:NADA,17:LEFT*3,40:NADA,17:UP*10,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        2,
+        44
+      ]
+    }
+  },
+  {
+    "id": "T134.14",
+    "nome": "PAR NEGATIVO DO T134.13: com FLAG_HIDE_DEX_XURKITREE ACESA o tile (2, 43) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (2, 39) em vez de parar em (2, 44). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_XURKITREE"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*4,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*2,40:NADA,17:DOWN*38,40:NADA,17:LEFT*3,40:NADA,17:UP*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        2,
+        39
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T134.15",
+    "nome": "CELESTEELA EXISTE EM MAP_MT_CORONET_B1F (Sinnoh) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, regiao Sinnoh: sao 14 estaticos novos na regiao e o T129.13 so cobriu um deles (NIHILEGO, o mais longe do warp). Este arquivo cobre os outros 13, um par por especie, na mesma forma. O tile (2, 38) saiu da busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o Pokemon sem dizer nada. ROTA: RIGHT(zera) LEFT*4 DOWN*3 LEFT*2 DOWN*5 RIGHT*1 DOWN*32 LEFT*1 UP*8, a partir do warp 1 (8,2), pousando em (8, 2). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar; as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1), e a que satura leva DOIS, porque toque a mais contra parede nao custa nada. Cada toque dura 17 quadros e nao 16: 16 empata com o passo do jogador e come um toque por perna exata (medido no MtCoronet_B1F, 21/08/2026). A ultima perna satura CONTRA o Pokemon e para em (2, 39). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T134.16.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*4,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*2,40:NADA,17:DOWN*33,40:NADA,17:LEFT*3,40:NADA,17:UP*10,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        2,
+        39
+      ]
+    }
+  },
+  {
+    "id": "T134.16",
+    "nome": "PAR NEGATIVO DO T134.15: com FLAG_HIDE_DEX_CELESTEELA ACESA o tile (2, 38) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (2, 34) em vez de parar em (2, 39). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_CELESTEELA"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*4,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*2,40:NADA,17:DOWN*33,40:NADA,17:LEFT*3,40:NADA,17:UP*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        2,
+        34
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T134.17",
+    "nome": "KARTANA EXISTE EM MAP_MT_CORONET_B1F (Sinnoh) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, regiao Sinnoh: sao 14 estaticos novos na regiao e o T129.13 so cobriu um deles (NIHILEGO, o mais longe do warp). Este arquivo cobre os outros 13, um par por especie, na mesma forma. O tile (2, 33) saiu da busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o Pokemon sem dizer nada. ROTA: RIGHT(zera) LEFT*4 DOWN*3 LEFT*2 DOWN*5 RIGHT*1 DOWN*27 LEFT*1 UP*8, a partir do warp 1 (8,2), pousando em (8, 2). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar; as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1), e a que satura leva DOIS, porque toque a mais contra parede nao custa nada. Cada toque dura 17 quadros e nao 16: 16 empata com o passo do jogador e come um toque por perna exata (medido no MtCoronet_B1F, 21/08/2026). A ultima perna satura CONTRA o Pokemon e para em (2, 34). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T134.18.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*4,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*2,40:NADA,17:DOWN*28,40:NADA,17:LEFT*3,40:NADA,17:UP*10,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        2,
+        34
+      ]
+    }
+  },
+  {
+    "id": "T134.18",
+    "nome": "PAR NEGATIVO DO T134.17: com FLAG_HIDE_DEX_KARTANA ACESA o tile (2, 33) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (2, 29) em vez de parar em (2, 34). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_KARTANA"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*4,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*2,40:NADA,17:DOWN*28,40:NADA,17:LEFT*3,40:NADA,17:UP*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        2,
+        29
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T134.19",
+    "nome": "GUZZLORD EXISTE EM MAP_MT_CORONET_B1F (Sinnoh) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, regiao Sinnoh: sao 14 estaticos novos na regiao e o T129.13 so cobriu um deles (NIHILEGO, o mais longe do warp). Este arquivo cobre os outros 13, um par por especie, na mesma forma. O tile (2, 28) saiu da busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o Pokemon sem dizer nada. ROTA: RIGHT(zera) LEFT*4 DOWN*3 LEFT*2 DOWN*5 RIGHT*1 DOWN*22 LEFT*1 UP*8, a partir do warp 1 (8,2), pousando em (8, 2). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar; as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1), e a que satura leva DOIS, porque toque a mais contra parede nao custa nada. Cada toque dura 17 quadros e nao 16: 16 empata com o passo do jogador e come um toque por perna exata (medido no MtCoronet_B1F, 21/08/2026). A ultima perna satura CONTRA o Pokemon e para em (2, 29). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T134.20.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*4,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*2,40:NADA,17:DOWN*23,40:NADA,17:LEFT*3,40:NADA,17:UP*10,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        2,
+        29
+      ]
+    }
+  },
+  {
+    "id": "T134.20",
+    "nome": "PAR NEGATIVO DO T134.19: com FLAG_HIDE_DEX_GUZZLORD ACESA o tile (2, 28) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (2, 24) em vez de parar em (2, 29). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_GUZZLORD"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*4,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*2,40:NADA,17:DOWN*23,40:NADA,17:LEFT*3,40:NADA,17:UP*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        2,
+        24
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T134.21",
+    "nome": "NECROZMA EXISTE EM MAP_MT_CORONET_B1F (Sinnoh) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, regiao Sinnoh: sao 14 estaticos novos na regiao e o T129.13 so cobriu um deles (NIHILEGO, o mais longe do warp). Este arquivo cobre os outros 13, um par por especie, na mesma forma. O tile (2, 23) saiu da busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o Pokemon sem dizer nada. ROTA: RIGHT(zera) LEFT*4 DOWN*3 LEFT*2 DOWN*5 RIGHT*1 DOWN*17 LEFT*1 UP*8, a partir do warp 1 (8,2), pousando em (8, 2). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar; as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1), e a que satura leva DOIS, porque toque a mais contra parede nao custa nada. Cada toque dura 17 quadros e nao 16: 16 empata com o passo do jogador e come um toque por perna exata (medido no MtCoronet_B1F, 21/08/2026). A ultima perna satura CONTRA o Pokemon e para em (2, 24). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T134.22.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*4,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*2,40:NADA,17:DOWN*18,40:NADA,17:LEFT*3,40:NADA,17:UP*10,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        2,
+        24
+      ]
+    }
+  },
+  {
+    "id": "T134.22",
+    "nome": "PAR NEGATIVO DO T134.21: com FLAG_HIDE_DEX_NECROZMA ACESA o tile (2, 23) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (2, 19) em vez de parar em (2, 24). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_NECROZMA"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*4,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*2,40:NADA,17:DOWN*18,40:NADA,17:LEFT*3,40:NADA,17:UP*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        2,
+        19
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T134.23",
+    "nome": "POIPOLE EXISTE EM MAP_MT_CORONET_B1F (Sinnoh) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, regiao Sinnoh: sao 14 estaticos novos na regiao e o T129.13 so cobriu um deles (NIHILEGO, o mais longe do warp). Este arquivo cobre os outros 13, um par por especie, na mesma forma. O tile (2, 18) saiu da busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o Pokemon sem dizer nada. ROTA: RIGHT(zera) LEFT*4 DOWN*3 LEFT*2 DOWN*17, a partir do warp 1 (8,2), pousando em (8, 2). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar; as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1), e a que satura leva DOIS, porque toque a mais contra parede nao custa nada. Cada toque dura 17 quadros e nao 16: 16 empata com o passo do jogador e come um toque por perna exata (medido no MtCoronet_B1F, 21/08/2026). A ultima perna satura CONTRA o Pokemon e para em (2, 17). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T134.24.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*4,40:NADA,17:DOWN*19,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        2,
+        17
+      ]
+    }
+  },
+  {
+    "id": "T134.24",
+    "nome": "PAR NEGATIVO DO T134.23: com FLAG_HIDE_DEX_POIPOLE ACESA o tile (2, 18) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (2, 22) em vez de parar em (2, 17). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_POIPOLE"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*4,40:NADA,17:DOWN*19,90:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        2,
+        22
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T134.25",
+    "nome": "GLASTRIER EXISTE EM MAP_SNOWPOINT_CITY (Sinnoh) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, regiao Sinnoh: sao 14 estaticos novos na regiao e o T129.13 so cobriu um deles (NIHILEGO, o mais longe do warp). Este arquivo cobre os outros 13, um par por especie, na mesma forma. O tile (17, 56) saiu da busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o Pokemon sem dizer nada. ROTA: UP(zera) DOWN*23, a partir do warp 0 (17,34), pousando em (17, 34). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar; as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1), e a que satura leva DOIS, porque toque a mais contra parede nao custa nada. Cada toque dura 17 quadros e nao 16: 16 empata com o passo do jogador e come um toque por perna exata (medido no MtCoronet_B1F, 21/08/2026). A ultima perna satura CONTRA o Pokemon e para em (17, 55). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T134.26.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_SNOWPOINT_CITY",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:DOWN*25,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_SNOWPOINT_CITY",
+      "pos": [
+        17,
+        55
+      ]
+    }
+  },
+  {
+    "id": "T134.26",
+    "nome": "PAR NEGATIVO DO T134.25: com FLAG_HIDE_DEX_GLASTRIER ACESA o tile (17, 56) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (17, 57) em vez de parar em (17, 55). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_GLASTRIER"
+    ],
+    "warp": "MAP_SNOWPOINT_CITY",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:DOWN*25,90:NADA",
+    "prova": {
+      "mapa": "MAP_SNOWPOINT_CITY",
+      "pos": [
+        17,
+        57
+      ],
+      "andou": true
+    }
+  }
+]

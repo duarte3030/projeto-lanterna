@@ -615,3 +615,61 @@ MtPyre_Summit_Text_HoennTrioTale:
 	.string "Then, its duty done, the green POKéMON\n"
 	.string "flew off into the wild blue yonder…$"
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+MtPyre_Summit_EventScript_DexMeloettaAria::
+	lockall
+	msgbox MtPyre_Summit_Text_DexMeloettaAriaIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_MELOETTA_ARIA, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_MELOETTA_ARIA, 30
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_MELOETTA_ARIA
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, MtPyre_Summit_EventScript_DexMeloettaAriaSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MtPyre_Summit_EventScript_DexMeloettaAriaSome
+	releaseall
+	end
+
+MtPyre_Summit_EventScript_DexMeloettaAriaSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_MELOETTA_ARIA
+	setflag FLAG_HIDE_DEX_MELOETTA_ARIA
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+MtPyre_Summit_Text_DexMeloettaAriaIntro:
+	.string "MELOETTA_ARIA appeared!$"
+
+MtPyre_Summit_EventScript_DexTypeNull::
+	lockall
+	msgbox MtPyre_Summit_Text_DexTypeNullIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_TYPE_NULL, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_TYPE_NULL, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_TYPE_NULL
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, MtPyre_Summit_EventScript_DexTypeNullSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MtPyre_Summit_EventScript_DexTypeNullSome
+	releaseall
+	end
+
+MtPyre_Summit_EventScript_DexTypeNullSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_TYPE_NULL
+	setflag FLAG_HIDE_DEX_TYPE_NULL
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+MtPyre_Summit_Text_DexTypeNullIntro:
+	.string "TYPE_NULL appeared!$"
+
+@ <<< Dex completa <<<

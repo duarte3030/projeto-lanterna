@@ -277,3 +277,34 @@ CianwoodCity_Text_Engineer::
 	.string "This path is under construction.\n"
 	.string "We're getting the new SAFARI ZONE\l"
 	.string "up and running!$"
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+CianwoodCity_EventScript_DexSuicune::
+	lockall
+	msgbox CianwoodCity_Text_DexSuicuneIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_SUICUNE, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_SUICUNE, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_SUICUNE
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, CianwoodCity_EventScript_DexSuicuneSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, CianwoodCity_EventScript_DexSuicuneSome
+	releaseall
+	end
+
+CianwoodCity_EventScript_DexSuicuneSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_SUICUNE
+	setflag FLAG_HIDE_DEX_SUICUNE
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+CianwoodCity_Text_DexSuicuneIntro:
+	.string "SUICUNE appeared!$"
+
+@ <<< Dex completa <<<

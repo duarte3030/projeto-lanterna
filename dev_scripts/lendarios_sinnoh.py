@@ -131,6 +131,13 @@ import valida_warp_tile as V   # o leitor de comportamento de metatile ja existe
 # isso que a primeira versao desta ferramenta acertou oito mapas e errou um: ela
 # olhava COLISAO, que e uma camada mais rasa que a da afirmacao (licao 4.1).
 PORTAS = ("MB_ANIMATED_DOOR", "MB_NON_ANIMATED_DOOR", "MB_WATER_DOOR")
+# Tile de SETA: quem esta em cima dele e anda NAQUELA direcao sai do mapa, e o
+# motor decide isso ANTES de olhar colisao. Medido em 21/08/2026 na Viridian
+# Forest: a perna de ZERAR escolheu DOWN porque o tile de baixo e parede, e o
+# jogador foi parar na guarita, dois mapas de distancia do lendario. A parede
+# nao segura seta.
+SETAS = {"MB_SOUTH_ARROW_WARP": "DOWN", "MB_NORTH_ARROW_WARP": "UP",
+         "MB_EAST_ARROW_WARP": "RIGHT", "MB_WEST_ARROW_WARP": "LEFT"}
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FLAGS_H = f"{RAIZ}/include/constants/flags.h"
@@ -313,11 +320,22 @@ def comportamento(d, x, y):
     return inv.get(tab[mt])
 
 
-def contexto(nome, extra=()):
+def contexto(nome, extra=(), ignora=(MARCA,)):
+    """`ignora` = as marcas do PROPRIO chamador, e so elas.
+
+    Um gerador de tile nao pode enxergar o proprio trabalho da rodada anterior
+    como obstaculo, senao devolve resposta diferente a cada vez e deixa de ser
+    idempotente. Mas ele tambem NAO pode ficar cego para o trabalho dos OUTROS:
+    ate 21/08/2026 esta linha ignorava `lendarios_sinnoh` fixo, e o
+    `distribui_dex`, que reusa esta mesma busca, plantou tres estaticos EM CIMA
+    de lendarios ja colocados (Shaymin em Floaroma, Heatran em Mt. Coronet,
+    Regigigas em Snowpoint). Por isso a marca virou parametro: cada chamador
+    passa a SUA, e todas as outras valem como parede.
+    """
     d = json.load(open(f"{RAIZ}/data/maps/{nome}/map.json", encoding="utf-8"))
     W, H, g = grade(d["layout"])
     objs = {(o["x"], o["y"]) for o in d.get("object_events", [])
-            if o.get("origem") != MARCA}
+            if o.get("origem") not in ignora}
     objs |= set(extra)
     moveis = {(o["x"], o["y"]) for o in d.get("object_events", [])
               if any(k in o.get("movement_type", "") for k in MOVEIS)}
@@ -325,14 +343,15 @@ def contexto(nome, extra=()):
     return d, W, H, g, objs, moveis, warps
 
 
-def planeja(nome, warp_id, extra=(), longe=(), max_pernas=4):
+def planeja(nome, warp_id, extra=(), longe=(), max_pernas=4, ignora=(MARCA,),
+            alvo=None):
     """Onde por o lendario, e a rota que o T123 anda ate ele.
 
     Devolve o melhor candidato como dict, ou None se o mapa nao der nenhum.
     Determinismo: a ordenacao nao empata (desempate por coordenada), entao rodar
     de novo devolve a MESMA escolha, que e o que faz o gerador ser idempotente.
     """
-    d, W, H, g, objs, moveis, warps = contexto(nome, extra)
+    d, W, H, g, objs, moveis, warps = contexto(nome, extra, ignora)
     w = d["warp_events"][warp_id]
     porta = (w["x"], w["y"])
     zerar = None
@@ -346,11 +365,16 @@ def planeja(nome, warp_id, extra=(), longe=(), max_pernas=4):
     if anda(g[pouso[1]][pouso[0]]):
         inicio = (pouso[0], pouso[1], elev(g[pouso[1]][pouso[0]]))
         saida = None
+        # A direcao da SETA embaixo do pouso e proibida em toda perna que sai
+        # dali: andar para la nao e um passo, e um warp para outro mapa.
+        proibida = SETAS.get(comportamento(d, *pouso))
         # Perna de ZERAR: um aperto contra parede fixa a direcao do boneco sem
         # andar, e a partir dai toda perna exata vale. Existe porque o warp de
         # debug nao promete para onde o jogador fica olhando, e caso que depende
         # disso nasce dependente de um detalhe que ninguem mediu.
         for D, (dx, dy) in DIRS.items():
+            if D == proibida:
+                continue
             viz = (pouso[0] + dx, pouso[1] + dy)
             # NENHUM warp serve de parede, nem o de colisao 1. Medido em
             # 21/08/2026: a porta da Floaroma Town tem colisao 1 e o jogador
@@ -395,6 +419,8 @@ def planeja(nome, warp_id, extra=(), longe=(), max_pernas=4):
         for D in ("UP", "DOWN", "LEFT", "RIGHT"):
             if nivel == 0 and saida not in (None, "*") and D != saida:
                 continue
+            if nivel == 0 and D == proibida:
+                continue
             c = escorrega(W, H, g, objs, *st, D)
             if not c or not limpo(c):
                 continue
@@ -421,6 +447,8 @@ def planeja(nome, warp_id, extra=(), longe=(), max_pernas=4):
                 T = (c[j - 1][0], c[j - 1][1])
                 P = (c[j - 2][0], c[j - 2][1])
                 R = (c[-1][0], c[-1][1])
+                if alvo is not None and T != tuple(alvo):
+                    continue
                 if T in perto_warp or T in objs or T not in base:
                     continue
                 # Dois lendarios no mesmo mapa nao ficam colados: o segundo

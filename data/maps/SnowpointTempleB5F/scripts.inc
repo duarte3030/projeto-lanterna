@@ -45,3 +45,4 @@ SnowpointTempleB5F_Text_RegigigasSome:
 	.string "REGIGIGAS disappeared from view...$"
 
 @ <<< Lendarios de Sinnoh <<<
+

@@ -65,3 +65,118 @@ BurnedTower_B1F_Text_Suicune:
 	.string "water in sight…\p"
 	.string "SUICUNE was here. You're sure\n"
 	.string "of it.$"
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+BurnedTower_B1F_EventScript_DexRaikou::
+	lockall
+	msgbox BurnedTower_B1F_Text_DexRaikouIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_RAIKOU, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_RAIKOU, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_RAIKOU
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, BurnedTower_B1F_EventScript_DexRaikouSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, BurnedTower_B1F_EventScript_DexRaikouSome
+	releaseall
+	end
+
+BurnedTower_B1F_EventScript_DexRaikouSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_RAIKOU
+	setflag FLAG_HIDE_DEX_RAIKOU
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+BurnedTower_B1F_Text_DexRaikouIntro:
+	.string "RAIKOU appeared!$"
+
+BurnedTower_B1F_EventScript_DexEntei::
+	lockall
+	msgbox BurnedTower_B1F_Text_DexEnteiIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ENTEI, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ENTEI, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ENTEI
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, BurnedTower_B1F_EventScript_DexEnteiSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, BurnedTower_B1F_EventScript_DexEnteiSome
+	releaseall
+	end
+
+BurnedTower_B1F_EventScript_DexEnteiSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ENTEI
+	setflag FLAG_HIDE_DEX_ENTEI
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+BurnedTower_B1F_Text_DexEnteiIntro:
+	.string "ENTEI appeared!$"
+
+BurnedTower_B1F_EventScript_DexMarshadow::
+	lockall
+	msgbox BurnedTower_B1F_Text_DexMarshadowIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_MARSHADOW, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_MARSHADOW, 30
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_MARSHADOW
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, BurnedTower_B1F_EventScript_DexMarshadowSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, BurnedTower_B1F_EventScript_DexMarshadowSome
+	releaseall
+	end
+
+BurnedTower_B1F_EventScript_DexMarshadowSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_MARSHADOW
+	setflag FLAG_HIDE_DEX_MARSHADOW
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+BurnedTower_B1F_Text_DexMarshadowIntro:
+	.string "MARSHADOW appeared!$"
+
+BurnedTower_B1F_EventScript_DexSpectrier::
+	lockall
+	msgbox BurnedTower_B1F_Text_DexSpectrierIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_SPECTRIER, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_SPECTRIER, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_SPECTRIER
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, BurnedTower_B1F_EventScript_DexSpectrierSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, BurnedTower_B1F_EventScript_DexSpectrierSome
+	releaseall
+	end
+
+BurnedTower_B1F_EventScript_DexSpectrierSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_SPECTRIER
+	setflag FLAG_HIDE_DEX_SPECTRIER
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+BurnedTower_B1F_Text_DexSpectrierIntro:
+	.string "SPECTRIER appeared!$"
+
+@ <<< Dex completa <<<

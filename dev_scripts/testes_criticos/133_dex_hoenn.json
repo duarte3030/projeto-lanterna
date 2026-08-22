@@ -1,0 +1,542 @@
+[
+  {
+    "id": "T133.1",
+    "nome": "ARTICUNO_GALAR EXISTE EM MAP_ANCIENT_TOMB (Hoenn) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, varredura de Hoenn: a fumaca do T129 cobriu UM estatico por regiao, e aqui entram os 15 de Hoenn que sobraram (o 16o, MELOETTA_ARIA, ja e o T129.11/T129.12 e nao se repete). Hoenn e a regiao 100% e intocada do projeto, entao o que este arquivo mede e se a obra da dex entrou nela sem quebrar nada. O tile (5, 29) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: LEFT*4, a partir do warp 0 (8,29), pousando em (8, 29). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar. A ultima perna satura CONTRA o Pokemon e para em (6, 29). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Sao 17 quadros por toque, nao 16: com 16 o toque seguinte cai no mesmo quadro em que o passo acaba e a perna exata anda um tile a menos. Par negativo: T133.2.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ANCIENT_TOMB",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*6,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_ANCIENT_TOMB",
+      "pos": [
+        6,
+        29
+      ]
+    }
+  },
+  {
+    "id": "T133.2",
+    "nome": "PAR NEGATIVO DO T133.1: com FLAG_HIDE_DEX_ARTICUNO_GALAR ACESA o tile (5, 29) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (4, 29) em vez de parar em (6, 29). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ARTICUNO_GALAR"
+    ],
+    "warp": "MAP_ANCIENT_TOMB",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*6,90:NADA",
+    "prova": {
+      "mapa": "MAP_ANCIENT_TOMB",
+      "pos": [
+        4,
+        29
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T133.3",
+    "nome": "GIRATINA_ALTERED EXISTE EM MAP_ANCIENT_TOMB (Hoenn) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, varredura de Hoenn: a fumaca do T129 cobriu UM estatico por regiao, e aqui entram os 15 de Hoenn que sobraram (o 16o, MELOETTA_ARIA, ja e o T129.11/T129.12 e nao se repete). Hoenn e a regiao 100% e intocada do projeto, entao o que este arquivo mede e se a obra da dex entrou nela sem quebrar nada. O tile (11, 29) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: RIGHT*4, a partir do warp 0 (8,29), pousando em (8, 29). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar. A ultima perna satura CONTRA o Pokemon e para em (10, 29). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Sao 17 quadros por toque, nao 16: com 16 o toque seguinte cai no mesmo quadro em que o passo acaba e a perna exata anda um tile a menos. Par negativo: T133.4.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ANCIENT_TOMB",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:RIGHT*6,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_ANCIENT_TOMB",
+      "pos": [
+        10,
+        29
+      ]
+    }
+  },
+  {
+    "id": "T133.4",
+    "nome": "PAR NEGATIVO DO T133.3: com FLAG_HIDE_DEX_GIRATINA_ALTERED ACESA o tile (11, 29) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (12, 29) em vez de parar em (10, 29). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_GIRATINA_ALTERED"
+    ],
+    "warp": "MAP_ANCIENT_TOMB",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:RIGHT*6,90:NADA",
+    "prova": {
+      "mapa": "MAP_ANCIENT_TOMB",
+      "pos": [
+        12,
+        29
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T133.5",
+    "nome": "PHIONE EXISTE EM MAP_MARINE_CAVE_END (Hoenn) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, varredura de Hoenn: a fumaca do T129 cobriu UM estatico por regiao, e aqui entram os 15 de Hoenn que sobraram (o 16o, MELOETTA_ARIA, ja e o T129.11/T129.12 e nao se repete). Hoenn e a regiao 100% e intocada do projeto, entao o que este arquivo mede e se a obra da dex entrou nela sem quebrar nada. O tile (10, 4) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: UP*2 LEFT*10 DOWN*6, a partir do warp 0 (20,4), pousando em (20, 4). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar. A ultima perna satura CONTRA o Pokemon e para em (10, 3). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Sao 17 quadros por toque, nao 16: com 16 o toque seguinte cai no mesmo quadro em que o passo acaba e a perna exata anda um tile a menos. Par negativo: T133.6.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MARINE_CAVE_END",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*4,40:NADA,17:LEFT*12,40:NADA,17:DOWN*8,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MARINE_CAVE_END",
+      "pos": [
+        10,
+        3
+      ]
+    }
+  },
+  {
+    "id": "T133.6",
+    "nome": "PAR NEGATIVO DO T133.5: com FLAG_HIDE_DEX_PHIONE ACESA o tile (10, 4) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (10, 8) em vez de parar em (10, 3). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_PHIONE"
+    ],
+    "warp": "MAP_MARINE_CAVE_END",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*4,40:NADA,17:LEFT*12,40:NADA,17:DOWN*8,90:NADA",
+    "prova": {
+      "mapa": "MAP_MARINE_CAVE_END",
+      "pos": [
+        10,
+        8
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T133.7",
+    "nome": "MANAPHY EXISTE EM MAP_MARINE_CAVE_END (Hoenn) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, varredura de Hoenn: a fumaca do T129 cobriu UM estatico por regiao, e aqui entram os 15 de Hoenn que sobraram (o 16o, MELOETTA_ARIA, ja e o T129.11/T129.12 e nao se repete). Hoenn e a regiao 100% e intocada do projeto, entao o que este arquivo mede e se a obra da dex entrou nela sem quebrar nada. O tile (15, 4) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: LEFT*9, a partir do warp 0 (20,4), pousando em (20, 4). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar. A ultima perna satura CONTRA o Pokemon e para em (16, 4). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Sao 17 quadros por toque, nao 16: com 16 o toque seguinte cai no mesmo quadro em que o passo acaba e a perna exata anda um tile a menos. Par negativo: T133.8.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MARINE_CAVE_END",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*11,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MARINE_CAVE_END",
+      "pos": [
+        16,
+        4
+      ]
+    }
+  },
+  {
+    "id": "T133.8",
+    "nome": "PAR NEGATIVO DO T133.7: com FLAG_HIDE_DEX_MANAPHY ACESA o tile (15, 4) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (11, 4) em vez de parar em (16, 4). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_MANAPHY"
+    ],
+    "warp": "MAP_MARINE_CAVE_END",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*11,90:NADA",
+    "prova": {
+      "mapa": "MAP_MARINE_CAVE_END",
+      "pos": [
+        11,
+        4
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T133.9",
+    "nome": "KELDEO_ORDINARY EXISTE EM MAP_MARINE_CAVE_END (Hoenn) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, varredura de Hoenn: a fumaca do T129 cobriu UM estatico por regiao, e aqui entram os 15 de Hoenn que sobraram (o 16o, MELOETTA_ARIA, ja e o T129.11/T129.12 e nao se repete). Hoenn e a regiao 100% e intocada do projeto, entao o que este arquivo mede e se a obra da dex entrou nela sem quebrar nada. O tile (21, 2) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: UP*2 LEFT*10 RIGHT*12, a partir do warp 0 (20,4), pousando em (20, 4). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar. A ultima perna satura CONTRA o Pokemon e para em (20, 2). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Sao 17 quadros por toque, nao 16: com 16 o toque seguinte cai no mesmo quadro em que o passo acaba e a perna exata anda um tile a menos. Par negativo: T133.10.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MARINE_CAVE_END",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*4,40:NADA,17:LEFT*12,40:NADA,17:RIGHT*14,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MARINE_CAVE_END",
+      "pos": [
+        20,
+        2
+      ]
+    }
+  },
+  {
+    "id": "T133.10",
+    "nome": "PAR NEGATIVO DO T133.9: com FLAG_HIDE_DEX_KELDEO_ORDINARY ACESA o tile (21, 2) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (22, 2) em vez de parar em (20, 2). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_KELDEO_ORDINARY"
+    ],
+    "warp": "MAP_MARINE_CAVE_END",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*4,40:NADA,17:LEFT*12,40:NADA,17:RIGHT*14,90:NADA",
+    "prova": {
+      "mapa": "MAP_MARINE_CAVE_END",
+      "pos": [
+        22,
+        2
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T133.11",
+    "nome": "DIANCIE EXISTE EM MAP_ANCIENT_TOMB (Hoenn) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, varredura de Hoenn: a fumaca do T129 cobriu UM estatico por regiao, e aqui entram os 15 de Hoenn que sobraram (o 16o, MELOETTA_ARIA, ja e o T129.11/T129.12 e nao se repete). Hoenn e a regiao 100% e intocada do projeto, entao o que este arquivo mede e se a obra da dex entrou nela sem quebrar nada. O tile (6, 22) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: LEFT*2 UP*8, a partir do warp 0 (8,29), pousando em (8, 29). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar. A ultima perna satura CONTRA o Pokemon e para em (6, 23). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Sao 17 quadros por toque, nao 16: com 16 o toque seguinte cai no mesmo quadro em que o passo acaba e a perna exata anda um tile a menos. Par negativo: T133.12.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ANCIENT_TOMB",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*4,40:NADA,17:UP*10,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_ANCIENT_TOMB",
+      "pos": [
+        6,
+        23
+      ]
+    }
+  },
+  {
+    "id": "T133.12",
+    "nome": "PAR NEGATIVO DO T133.11: com FLAG_HIDE_DEX_DIANCIE ACESA o tile (6, 22) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (6, 21) em vez de parar em (6, 23). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_DIANCIE"
+    ],
+    "warp": "MAP_ANCIENT_TOMB",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*4,40:NADA,17:UP*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_ANCIENT_TOMB",
+      "pos": [
+        6,
+        21
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T133.13",
+    "nome": "TYPE_NULL EXISTE EM MAP_MT_PYRE_SUMMIT (Hoenn) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, varredura de Hoenn: a fumaca do T129 cobriu UM estatico por regiao, e aqui entram os 15 de Hoenn que sobraram (o 16o, MELOETTA_ARIA, ja e o T129.11/T129.12 e nao se repete). Hoenn e a regiao 100% e intocada do projeto, entao o que este arquivo mede e se a obra da dex entrou nela sem quebrar nada. O tile (22, 25) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: LEFT(zera) UP*10, a partir do warp 0 (22,31), pousando em (22, 31). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar. A ultima perna satura CONTRA o Pokemon e para em (22, 26). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Sao 17 quadros por toque, nao 16: com 16 o toque seguinte cai no mesmo quadro em que o passo acaba e a perna exata anda um tile a menos. Par negativo: T133.14.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MT_PYRE_SUMMIT",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:UP*12,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MT_PYRE_SUMMIT",
+      "pos": [
+        22,
+        26
+      ]
+    }
+  },
+  {
+    "id": "T133.14",
+    "nome": "PAR NEGATIVO DO T133.13: com FLAG_HIDE_DEX_TYPE_NULL ACESA o tile (22, 25) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (22, 21) em vez de parar em (22, 26). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_TYPE_NULL"
+    ],
+    "warp": "MAP_MT_PYRE_SUMMIT",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:UP*12,90:NADA",
+    "prova": {
+      "mapa": "MAP_MT_PYRE_SUMMIT",
+      "pos": [
+        22,
+        21
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T133.15",
+    "nome": "TAPU_LELE EXISTE EM MAP_ANCIENT_TOMB (Hoenn) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, varredura de Hoenn: a fumaca do T129 cobriu UM estatico por regiao, e aqui entram os 15 de Hoenn que sobraram (o 16o, MELOETTA_ARIA, ja e o T129.11/T129.12 e nao se repete). Hoenn e a regiao 100% e intocada do projeto, entao o que este arquivo mede e se a obra da dex entrou nela sem quebrar nada. O tile (12, 23) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: LEFT*2 UP*6 RIGHT*7, a partir do warp 0 (8,29), pousando em (8, 29). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar. A ultima perna satura CONTRA o Pokemon e para em (11, 23). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Sao 17 quadros por toque, nao 16: com 16 o toque seguinte cai no mesmo quadro em que o passo acaba e a perna exata anda um tile a menos. Par negativo: T133.16.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ANCIENT_TOMB",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*4,40:NADA,17:UP*8,40:NADA,17:RIGHT*9,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_ANCIENT_TOMB",
+      "pos": [
+        11,
+        23
+      ]
+    }
+  },
+  {
+    "id": "T133.16",
+    "nome": "PAR NEGATIVO DO T133.15: com FLAG_HIDE_DEX_TAPU_LELE ACESA o tile (12, 23) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (13, 23) em vez de parar em (11, 23). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_TAPU_LELE"
+    ],
+    "warp": "MAP_ANCIENT_TOMB",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*4,40:NADA,17:UP*8,40:NADA,17:RIGHT*9,90:NADA",
+    "prova": {
+      "mapa": "MAP_ANCIENT_TOMB",
+      "pos": [
+        13,
+        23
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T133.17",
+    "nome": "TAPU_FINI EXISTE EM MAP_MARINE_CAVE_END (Hoenn) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, varredura de Hoenn: a fumaca do T129 cobriu UM estatico por regiao, e aqui entram os 15 de Hoenn que sobraram (o 16o, MELOETTA_ARIA, ja e o T129.11/T129.12 e nao se repete). Hoenn e a regiao 100% e intocada do projeto, entao o que este arquivo mede e se a obra da dex entrou nela sem quebrar nada. O tile (14, 13) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: UP*2 LEFT*6 DOWN*12, a partir do warp 0 (20,4), pousando em (20, 4). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar. A ultima perna satura CONTRA o Pokemon e para em (14, 12). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Sao 17 quadros por toque, nao 16: com 16 o toque seguinte cai no mesmo quadro em que o passo acaba e a perna exata anda um tile a menos. Par negativo: T133.18.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MARINE_CAVE_END",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*4,40:NADA,17:LEFT*7,40:NADA,17:DOWN*14,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MARINE_CAVE_END",
+      "pos": [
+        14,
+        12
+      ]
+    }
+  },
+  {
+    "id": "T133.18",
+    "nome": "PAR NEGATIVO DO T133.17: com FLAG_HIDE_DEX_TAPU_FINI ACESA o tile (14, 13) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (14, 14) em vez de parar em (14, 12). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_TAPU_FINI"
+    ],
+    "warp": "MAP_MARINE_CAVE_END",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*4,40:NADA,17:LEFT*7,40:NADA,17:DOWN*14,90:NADA",
+    "prova": {
+      "mapa": "MAP_MARINE_CAVE_END",
+      "pos": [
+        14,
+        14
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T133.19",
+    "nome": "NECROZMA_DAWN_WINGS EXISTE EM MAP_ANCIENT_TOMB (Hoenn) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, varredura de Hoenn: a fumaca do T129 cobriu UM estatico por regiao, e aqui entram os 15 de Hoenn que sobraram (o 16o, MELOETTA_ARIA, ja e o T129.11/T129.12 e nao se repete). Hoenn e a regiao 100% e intocada do projeto, entao o que este arquivo mede e se a obra da dex entrou nela sem quebrar nada. O tile (5, 11) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: LEFT*4, a partir do warp 2 (8,11), pousando em (8, 11). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar. A ultima perna satura CONTRA o Pokemon e para em (6, 11). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Sao 17 quadros por toque, nao 16: com 16 o toque seguinte cai no mesmo quadro em que o passo acaba e a perna exata anda um tile a menos. Par negativo: T133.20.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ANCIENT_TOMB",
+    "warp_id": 2,
+    "roteiro": "60:NADA,17:LEFT*6,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_ANCIENT_TOMB",
+      "pos": [
+        6,
+        11
+      ]
+    }
+  },
+  {
+    "id": "T133.20",
+    "nome": "PAR NEGATIVO DO T133.19: com FLAG_HIDE_DEX_NECROZMA_DAWN_WINGS ACESA o tile (5, 11) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (4, 11) em vez de parar em (6, 11). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_NECROZMA_DAWN_WINGS"
+    ],
+    "warp": "MAP_ANCIENT_TOMB",
+    "warp_id": 2,
+    "roteiro": "60:NADA,17:LEFT*6,90:NADA",
+    "prova": {
+      "mapa": "MAP_ANCIENT_TOMB",
+      "pos": [
+        4,
+        11
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T133.21",
+    "nome": "NECROZMA_DUSK_MANE EXISTE EM MAP_ANCIENT_TOMB (Hoenn) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, varredura de Hoenn: a fumaca do T129 cobriu UM estatico por regiao, e aqui entram os 15 de Hoenn que sobraram (o 16o, MELOETTA_ARIA, ja e o T129.11/T129.12 e nao se repete). Hoenn e a regiao 100% e intocada do projeto, entao o que este arquivo mede e se a obra da dex entrou nela sem quebrar nada. O tile (11, 11) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: RIGHT*4, a partir do warp 2 (8,11), pousando em (8, 11). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar. A ultima perna satura CONTRA o Pokemon e para em (10, 11). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Sao 17 quadros por toque, nao 16: com 16 o toque seguinte cai no mesmo quadro em que o passo acaba e a perna exata anda um tile a menos. Par negativo: T133.22.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ANCIENT_TOMB",
+    "warp_id": 2,
+    "roteiro": "60:NADA,17:RIGHT*6,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_ANCIENT_TOMB",
+      "pos": [
+        10,
+        11
+      ]
+    }
+  },
+  {
+    "id": "T133.22",
+    "nome": "PAR NEGATIVO DO T133.21: com FLAG_HIDE_DEX_NECROZMA_DUSK_MANE ACESA o tile (11, 11) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (12, 11) em vez de parar em (10, 11). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_NECROZMA_DUSK_MANE"
+    ],
+    "warp": "MAP_ANCIENT_TOMB",
+    "warp_id": 2,
+    "roteiro": "60:NADA,17:RIGHT*6,90:NADA",
+    "prova": {
+      "mapa": "MAP_ANCIENT_TOMB",
+      "pos": [
+        12,
+        11
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T133.23",
+    "nome": "BLACEPHALON EXISTE EM MAP_TERRA_CAVE_END (Hoenn) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, varredura de Hoenn: a fumaca do T129 cobriu UM estatico por regiao, e aqui entram os 15 de Hoenn que sobraram (o 16o, MELOETTA_ARIA, ja e o T129.11/T129.12 e nao se repete). Hoenn e a regiao 100% e intocada do projeto, entao o que este arquivo mede e se a obra da dex entrou nela sem quebrar nada. O tile (14, 4) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: UP(zera) RIGHT*10, a partir do warp 0 (5,4), pousando em (5, 4). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar. A ultima perna satura CONTRA o Pokemon e para em (13, 4). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Sao 17 quadros por toque, nao 16: com 16 o toque seguinte cai no mesmo quadro em que o passo acaba e a perna exata anda um tile a menos. Par negativo: T133.24.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_TERRA_CAVE_END",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:RIGHT*12,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_TERRA_CAVE_END",
+      "pos": [
+        13,
+        4
+      ]
+    }
+  },
+  {
+    "id": "T133.24",
+    "nome": "PAR NEGATIVO DO T133.23: com FLAG_HIDE_DEX_BLACEPHALON ACESA o tile (14, 4) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (15, 4) em vez de parar em (13, 4). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_BLACEPHALON"
+    ],
+    "warp": "MAP_TERRA_CAVE_END",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:RIGHT*12,90:NADA",
+    "prova": {
+      "mapa": "MAP_TERRA_CAVE_END",
+      "pos": [
+        15,
+        4
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T133.25",
+    "nome": "REGIELEKI EXISTE EM MAP_DESERT_RUINS (Hoenn) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, varredura de Hoenn: a fumaca do T129 cobriu UM estatico por regiao, e aqui entram os 15 de Hoenn que sobraram (o 16o, MELOETTA_ARIA, ja e o T129.11/T129.12 e nao se repete). Hoenn e a regiao 100% e intocada do projeto, entao o que este arquivo mede e se a obra da dex entrou nela sem quebrar nada. O tile (5, 29) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: LEFT*4, a partir do warp 0 (8,29), pousando em (8, 29). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar. A ultima perna satura CONTRA o Pokemon e para em (6, 29). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Sao 17 quadros por toque, nao 16: com 16 o toque seguinte cai no mesmo quadro em que o passo acaba e a perna exata anda um tile a menos. Par negativo: T133.26.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_DESERT_RUINS",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*6,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_DESERT_RUINS",
+      "pos": [
+        6,
+        29
+      ]
+    }
+  },
+  {
+    "id": "T133.26",
+    "nome": "PAR NEGATIVO DO T133.25: com FLAG_HIDE_DEX_REGIELEKI ACESA o tile (5, 29) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (4, 29) em vez de parar em (6, 29). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_REGIELEKI"
+    ],
+    "warp": "MAP_DESERT_RUINS",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*6,90:NADA",
+    "prova": {
+      "mapa": "MAP_DESERT_RUINS",
+      "pos": [
+        4,
+        29
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T133.27",
+    "nome": "CALYREX EXISTE EM MAP_ANCIENT_TOMB (Hoenn) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, varredura de Hoenn: a fumaca do T129 cobriu UM estatico por regiao, e aqui entram os 15 de Hoenn que sobraram (o 16o, MELOETTA_ARIA, ja e o T129.11/T129.12 e nao se repete). Hoenn e a regiao 100% e intocada do projeto, entao o que este arquivo mede e se a obra da dex entrou nela sem quebrar nada. O tile (3, 6) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: UP*3 LEFT*5 UP*3, a partir do warp 2 (8,11), pousando em (8, 11). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar. A ultima perna satura CONTRA o Pokemon e para em (3, 7). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Sao 17 quadros por toque, nao 16: com 16 o toque seguinte cai no mesmo quadro em que o passo acaba e a perna exata anda um tile a menos. Par negativo: T133.28.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ANCIENT_TOMB",
+    "warp_id": 2,
+    "roteiro": "60:NADA,17:UP*5,40:NADA,17:LEFT*7,40:NADA,17:UP*5,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_ANCIENT_TOMB",
+      "pos": [
+        3,
+        7
+      ]
+    }
+  },
+  {
+    "id": "T133.28",
+    "nome": "PAR NEGATIVO DO T133.27: com FLAG_HIDE_DEX_CALYREX ACESA o tile (3, 6) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (3, 5) em vez de parar em (3, 7). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_CALYREX"
+    ],
+    "warp": "MAP_ANCIENT_TOMB",
+    "warp_id": 2,
+    "roteiro": "60:NADA,17:UP*5,40:NADA,17:LEFT*7,40:NADA,17:UP*5,90:NADA",
+    "prova": {
+      "mapa": "MAP_ANCIENT_TOMB",
+      "pos": [
+        3,
+        5
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T133.29",
+    "nome": "CALYREX_SHADOW EXISTE EM MAP_ANCIENT_TOMB (Hoenn) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, varredura de Hoenn: a fumaca do T129 cobriu UM estatico por regiao, e aqui entram os 15 de Hoenn que sobraram (o 16o, MELOETTA_ARIA, ja e o T129.11/T129.12 e nao se repete). Hoenn e a regiao 100% e intocada do projeto, entao o que este arquivo mede e se a obra da dex entrou nela sem quebrar nada. O tile (11, 4) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: UP*3 RIGHT*3 UP*5, a partir do warp 2 (8,11), pousando em (8, 11). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar. A ultima perna satura CONTRA o Pokemon e para em (11, 5). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Sao 17 quadros por toque, nao 16: com 16 o toque seguinte cai no mesmo quadro em que o passo acaba e a perna exata anda um tile a menos. Par negativo: T133.30.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ANCIENT_TOMB",
+    "warp_id": 2,
+    "roteiro": "60:NADA,17:UP*5,40:NADA,17:RIGHT*4,40:NADA,17:UP*7,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_ANCIENT_TOMB",
+      "pos": [
+        11,
+        5
+      ]
+    }
+  },
+  {
+    "id": "T133.30",
+    "nome": "PAR NEGATIVO DO T133.29: com FLAG_HIDE_DEX_CALYREX_SHADOW ACESA o tile (11, 4) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (11, 3) em vez de parar em (11, 5). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_CALYREX_SHADOW"
+    ],
+    "warp": "MAP_ANCIENT_TOMB",
+    "warp_id": 2,
+    "roteiro": "60:NADA,17:UP*5,40:NADA,17:RIGHT*4,40:NADA,17:UP*7,90:NADA",
+    "prova": {
+      "mapa": "MAP_ANCIENT_TOMB",
+      "pos": [
+        11,
+        3
+      ],
+      "andou": true
+    }
+  }
+]

@@ -168,3 +168,89 @@ ViridianForest_Text_LeavingViridianForest::
 	.string "LEAVING VIRIDIAN FOREST\n"
 	.string "PEWTER CITY AHEAD$"
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+ViridianForest_Frlg_EventScript_DexXerneasNeutral::
+	lockall
+	msgbox ViridianForest_Frlg_Text_DexXerneasNeutralIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_XERNEAS_NEUTRAL, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_XERNEAS_NEUTRAL, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_XERNEAS_NEUTRAL
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, ViridianForest_Frlg_EventScript_DexXerneasNeutralSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ViridianForest_Frlg_EventScript_DexXerneasNeutralSome
+	releaseall
+	end
+
+ViridianForest_Frlg_EventScript_DexXerneasNeutralSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_XERNEAS_NEUTRAL
+	setflag FLAG_HIDE_DEX_XERNEAS_NEUTRAL
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+ViridianForest_Frlg_Text_DexXerneasNeutralIntro:
+	.string "XERNEAS_NEUTRAL appeared!$"
+
+ViridianForest_Frlg_EventScript_DexZacianHero::
+	lockall
+	msgbox ViridianForest_Frlg_Text_DexZacianHeroIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ZACIAN_HERO, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ZACIAN_HERO, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ZACIAN_HERO
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, ViridianForest_Frlg_EventScript_DexZacianHeroSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ViridianForest_Frlg_EventScript_DexZacianHeroSome
+	releaseall
+	end
+
+ViridianForest_Frlg_EventScript_DexZacianHeroSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ZACIAN_HERO
+	setflag FLAG_HIDE_DEX_ZACIAN_HERO
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+ViridianForest_Frlg_Text_DexZacianHeroIntro:
+	.string "ZACIAN_HERO appeared!$"
+
+ViridianForest_Frlg_EventScript_DexEnamorusIncarnate::
+	lockall
+	msgbox ViridianForest_Frlg_Text_DexEnamorusIncarnateIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ENAMORUS_INCARNATE, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ENAMORUS_INCARNATE, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ENAMORUS_INCARNATE
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, ViridianForest_Frlg_EventScript_DexEnamorusIncarnateSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ViridianForest_Frlg_EventScript_DexEnamorusIncarnateSome
+	releaseall
+	end
+
+ViridianForest_Frlg_EventScript_DexEnamorusIncarnateSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ENAMORUS_INCARNATE
+	setflag FLAG_HIDE_DEX_ENAMORUS_INCARNATE
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+ViridianForest_Frlg_Text_DexEnamorusIncarnateIntro:
+	.string "ENAMORUS_INCARNATE appeared!$"
+
+@ <<< Dex completa <<<

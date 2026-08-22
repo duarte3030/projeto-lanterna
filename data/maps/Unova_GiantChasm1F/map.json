@@ -39,6 +39,36 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
       "flag": "FLAG_TEMP_11"
+    },
+    {
+      "local_id": "LOCALID_DEX_TORNADUS_INCARNATE",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(TORNADUS_INCARNATE)",
+      "x": 15,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_GiantChasm1F_EventScript_DexTornadusIncarnate",
+      "flag": "FLAG_HIDE_DEX_TORNADUS_INCARNATE",
+      "origem": "distribui_dex"
+    },
+    {
+      "local_id": "LOCALID_DEX_THUNDURUS_INCARNATE",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(THUNDURUS_INCARNATE)",
+      "x": 2,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Unova_GiantChasm1F_EventScript_DexThundurusIncarnate",
+      "flag": "FLAG_HIDE_DEX_THUNDURUS_INCARNATE",
+      "origem": "distribui_dex"
     }
   ],
   "warp_events": [

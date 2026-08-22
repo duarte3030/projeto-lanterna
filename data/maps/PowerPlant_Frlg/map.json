@@ -127,6 +127,51 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PowerPlant_EventScript_Electrode1",
       "flag": "FLAG_HIDE_POWER_PLANT_ELECTRODE_1"
+    },
+    {
+      "local_id": "LOCALID_DEX_TAPU_KOKO",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(TAPU_KOKO)",
+      "x": 5,
+      "y": 32,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PowerPlant_Frlg_EventScript_DexTapuKoko",
+      "flag": "FLAG_HIDE_DEX_TAPU_KOKO",
+      "origem": "distribui_dex"
+    },
+    {
+      "local_id": "LOCALID_DEX_ZERAORA",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ZERAORA)",
+      "x": 2,
+      "y": 38,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PowerPlant_Frlg_EventScript_DexZeraora",
+      "flag": "FLAG_HIDE_DEX_ZERAORA",
+      "origem": "distribui_dex"
+    },
+    {
+      "local_id": "LOCALID_DEX_MIRAIDON",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MIRAIDON)",
+      "x": 8,
+      "y": 38,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PowerPlant_Frlg_EventScript_DexMiraidon",
+      "flag": "FLAG_HIDE_DEX_MIRAIDON",
+      "origem": "distribui_dex"
     }
   ],
   "warp_events": [
@@ -166,9 +211,7 @@
       "dest_warp_id": "2"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "hidden_item",

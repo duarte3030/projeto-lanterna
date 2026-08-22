@@ -1,0 +1,506 @@
+[
+  {
+    "id": "T131.1",
+    "nome": "JIRACHI EXISTE EM MAP_CERULEAN_CAVE_B1F (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (5,7), pousando em (5, 7), pela rota LEFT(zera) RIGHT*2 UP*6. A última perna satura CONTRA o Pokémon em (7, 2) e para em (7, 3); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.2.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_CERULEAN_CAVE_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*4,40:NADA,17:UP*8,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_CERULEAN_CAVE_B1F",
+      "pos": [
+        7,
+        3
+      ]
+    }
+  },
+  {
+    "id": "T131.2",
+    "nome": "PAR NEGATIVO DO T131.1: com FLAG_HIDE_DEX_JIRACHI ACESA o tile (7, 2) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (7, 1) em vez de parar em (7, 3). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_JIRACHI"
+    ],
+    "warp": "MAP_CERULEAN_CAVE_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*4,40:NADA,17:UP*8,90:NADA",
+    "prova": {
+      "mapa": "MAP_CERULEAN_CAVE_B1F",
+      "pos": [
+        7,
+        1
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T131.3",
+    "nome": "KYUREM_BLACK EXISTE EM MAP_CERULEAN_CAVE_B1F (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (5,7), pousando em (5, 7), pela rota LEFT(zera) DOWN*1 LEFT*3. A última perna satura CONTRA o Pokémon em (3, 8) e para em (4, 8); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.4.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_CERULEAN_CAVE_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*5,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_CERULEAN_CAVE_B1F",
+      "pos": [
+        4,
+        8
+      ]
+    }
+  },
+  {
+    "id": "T131.4",
+    "nome": "PAR NEGATIVO DO T131.3: com FLAG_HIDE_DEX_KYUREM_BLACK ACESA o tile (3, 8) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (2, 8) em vez de parar em (4, 8). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_KYUREM_BLACK"
+    ],
+    "warp": "MAP_CERULEAN_CAVE_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*5,90:NADA",
+    "prova": {
+      "mapa": "MAP_CERULEAN_CAVE_B1F",
+      "pos": [
+        2,
+        8
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T131.5",
+    "nome": "XERNEAS_NEUTRAL EXISTE EM MAP_VIRIDIAN_FOREST (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (29,62), pousando em (29, 62), pela rota UP*3. A última perna satura CONTRA o Pokémon em (29, 60) e para em (29, 61); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.6.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_VIRIDIAN_FOREST",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*5,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_VIRIDIAN_FOREST",
+      "pos": [
+        29,
+        61
+      ]
+    }
+  },
+  {
+    "id": "T131.6",
+    "nome": "PAR NEGATIVO DO T131.5: com FLAG_HIDE_DEX_XERNEAS_NEUTRAL ACESA o tile (29, 60) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (29, 59) em vez de parar em (29, 61). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_XERNEAS_NEUTRAL"
+    ],
+    "warp": "MAP_VIRIDIAN_FOREST",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*5,90:NADA",
+    "prova": {
+      "mapa": "MAP_VIRIDIAN_FOREST",
+      "pos": [
+        29,
+        59
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T131.7",
+    "nome": "HOOPA_CONFINED EXISTE EM MAP_POKEMON_MANSION_1F (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (7,33), pousando em (7, 33), pela rota DOWN(zera) UP*20. A última perna satura CONTRA o Pokémon em (7, 14) e para em (7, 15); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.8.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_POKEMON_MANSION_1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:DOWN*2,40:NADA,17:UP*22,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_POKEMON_MANSION_1F",
+      "pos": [
+        7,
+        15
+      ]
+    }
+  },
+  {
+    "id": "T131.8",
+    "nome": "PAR NEGATIVO DO T131.7: com FLAG_HIDE_DEX_HOOPA_CONFINED ACESA o tile (7, 14) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (7, 13) em vez de parar em (7, 15). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_HOOPA_CONFINED"
+    ],
+    "warp": "MAP_POKEMON_MANSION_1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:DOWN*2,40:NADA,17:UP*22,90:NADA",
+    "prova": {
+      "mapa": "MAP_POKEMON_MANSION_1F",
+      "pos": [
+        7,
+        13
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T131.9",
+    "nome": "TAPU_KOKO EXISTE EM MAP_POWER_PLANT (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 1 (5,38), pousando em (5, 38), pela rota UP*7. A última perna satura CONTRA o Pokémon em (5, 32) e para em (5, 33); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.10.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_POWER_PLANT",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:UP*9,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_POWER_PLANT",
+      "pos": [
+        5,
+        33
+      ]
+    }
+  },
+  {
+    "id": "T131.10",
+    "nome": "PAR NEGATIVO DO T131.9: com FLAG_HIDE_DEX_TAPU_KOKO ACESA o tile (5, 32) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (5, 31) em vez de parar em (5, 33). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_TAPU_KOKO"
+    ],
+    "warp": "MAP_POWER_PLANT",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:UP*9,90:NADA",
+    "prova": {
+      "mapa": "MAP_POWER_PLANT",
+      "pos": [
+        5,
+        31
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T131.11",
+    "nome": "MAGEARNA EXISTE EM MAP_ROCK_TUNNEL_1F (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (17,2), pousando em (17, 2), pela rota UP(zera) DOWN*6. A última perna satura CONTRA o Pokémon em (17, 7) e para em (17, 6); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.12.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ROCK_TUNNEL_1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:DOWN*8,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_ROCK_TUNNEL_1F",
+      "pos": [
+        17,
+        6
+      ]
+    }
+  },
+  {
+    "id": "T131.12",
+    "nome": "PAR NEGATIVO DO T131.11: com FLAG_HIDE_DEX_MAGEARNA ACESA o tile (17, 7) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (17, 8) em vez de parar em (17, 6). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_MAGEARNA"
+    ],
+    "warp": "MAP_ROCK_TUNNEL_1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:DOWN*8,90:NADA",
+    "prova": {
+      "mapa": "MAP_ROCK_TUNNEL_1F",
+      "pos": [
+        17,
+        8
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T131.13",
+    "nome": "MAGEARNA_ORIGINAL EXISTE EM MAP_CERULEAN_CAVE_B1F (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (5,7), pousando em (5, 7), pela rota LEFT(zera) RIGHT*1 UP*4 RIGHT*9. A última perna satura CONTRA o Pokémon em (14, 3) e para em (13, 3); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.14.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_CERULEAN_CAVE_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*2,40:NADA,17:UP*5,40:NADA,17:RIGHT*11,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_CERULEAN_CAVE_B1F",
+      "pos": [
+        13,
+        3
+      ]
+    }
+  },
+  {
+    "id": "T131.14",
+    "nome": "PAR NEGATIVO DO T131.13: com FLAG_HIDE_DEX_MAGEARNA_ORIGINAL ACESA o tile (14, 3) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (15, 3) em vez de parar em (13, 3). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_MAGEARNA_ORIGINAL"
+    ],
+    "warp": "MAP_CERULEAN_CAVE_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*2,40:NADA,17:UP*5,40:NADA,17:RIGHT*11,90:NADA",
+    "prova": {
+      "mapa": "MAP_CERULEAN_CAVE_B1F",
+      "pos": [
+        15,
+        3
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T131.15",
+    "nome": "STAKATAKA EXISTE EM MAP_CERULEAN_CAVE_1F (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (33,21), pousando em (33, 21), pela rota UP*7. A última perna satura CONTRA o Pokémon em (33, 15) e para em (33, 16); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.16.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_CERULEAN_CAVE_1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*9,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_CERULEAN_CAVE_1F",
+      "pos": [
+        33,
+        16
+      ]
+    }
+  },
+  {
+    "id": "T131.16",
+    "nome": "PAR NEGATIVO DO T131.15: com FLAG_HIDE_DEX_STAKATAKA ACESA o tile (33, 15) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (33, 14) em vez de parar em (33, 16). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_STAKATAKA"
+    ],
+    "warp": "MAP_CERULEAN_CAVE_1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*9,90:NADA",
+    "prova": {
+      "mapa": "MAP_CERULEAN_CAVE_1F",
+      "pos": [
+        33,
+        14
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T131.17",
+    "nome": "ZERAORA EXISTE EM MAP_POWER_PLANT (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 1 (5,38), pousando em (5, 38), pela rota LEFT*4. A última perna satura CONTRA o Pokémon em (2, 38) e para em (3, 38); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.18.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_POWER_PLANT",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:LEFT*6,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_POWER_PLANT",
+      "pos": [
+        3,
+        38
+      ]
+    }
+  },
+  {
+    "id": "T131.18",
+    "nome": "PAR NEGATIVO DO T131.17: com FLAG_HIDE_DEX_ZERAORA ACESA o tile (2, 38) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (1, 38) em vez de parar em (3, 38). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ZERAORA"
+    ],
+    "warp": "MAP_POWER_PLANT",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:LEFT*6,90:NADA",
+    "prova": {
+      "mapa": "MAP_POWER_PLANT",
+      "pos": [
+        1,
+        38
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T131.19",
+    "nome": "MELTAN EXISTE EM MAP_SAFARI_ZONE_CENTER (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (25,30), pousando em (25, 30), pela rota UP*2 RIGHT*17. A última perna satura CONTRA o Pokémon em (41, 28) e para em (40, 28); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.20.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_SAFARI_ZONE_CENTER",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*4,40:NADA,17:RIGHT*19,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_CENTER",
+      "pos": [
+        40,
+        28
+      ]
+    }
+  },
+  {
+    "id": "T131.20",
+    "nome": "PAR NEGATIVO DO T131.19: com FLAG_HIDE_DEX_MELTAN ACESA o tile (41, 28) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (42, 28) em vez de parar em (40, 28). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_MELTAN"
+    ],
+    "warp": "MAP_SAFARI_ZONE_CENTER",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*4,40:NADA,17:RIGHT*19,90:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_CENTER",
+      "pos": [
+        42,
+        28
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T131.21",
+    "nome": "MELMETAL EXISTE EM MAP_SAFARI_ZONE_CENTER (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (25,30), pousando em (25, 30), pela rota UP*2 LEFT*16. A última perna satura CONTRA o Pokémon em (10, 28) e para em (11, 28); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.22.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_SAFARI_ZONE_CENTER",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*4,40:NADA,17:LEFT*18,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_CENTER",
+      "pos": [
+        11,
+        28
+      ]
+    }
+  },
+  {
+    "id": "T131.22",
+    "nome": "PAR NEGATIVO DO T131.21: com FLAG_HIDE_DEX_MELMETAL ACESA o tile (10, 28) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (9, 28) em vez de parar em (11, 28). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_MELMETAL"
+    ],
+    "warp": "MAP_SAFARI_ZONE_CENTER",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*4,40:NADA,17:LEFT*18,90:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_CENTER",
+      "pos": [
+        9,
+        28
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T131.23",
+    "nome": "REGIDRAGO EXISTE EM MAP_CERULEAN_CAVE_1F (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 1 (34,2), pousando em (34, 2), pela rota UP(zera) RIGHT*3. A última perna satura CONTRA o Pokémon em (36, 2) e para em (35, 2); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.24.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_CERULEAN_CAVE_1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:RIGHT*5,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_CERULEAN_CAVE_1F",
+      "pos": [
+        35,
+        2
+      ]
+    }
+  },
+  {
+    "id": "T131.24",
+    "nome": "PAR NEGATIVO DO T131.23: com FLAG_HIDE_DEX_REGIDRAGO ACESA o tile (36, 2) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (37, 2) em vez de parar em (35, 2). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_REGIDRAGO"
+    ],
+    "warp": "MAP_CERULEAN_CAVE_1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:RIGHT*5,90:NADA",
+    "prova": {
+      "mapa": "MAP_CERULEAN_CAVE_1F",
+      "pos": [
+        37,
+        2
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T131.25",
+    "nome": "ENAMORUS_INCARNATE EXISTE EM MAP_VIRIDIAN_FOREST (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (29,62), pousando em (29, 62), pela rota UP*1 LEFT*24. A última perna satura CONTRA o Pokémon em (9, 61) e para em (10, 61); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.26.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_VIRIDIAN_FOREST",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*3,40:NADA,17:LEFT*26,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_VIRIDIAN_FOREST",
+      "pos": [
+        10,
+        61
+      ]
+    }
+  },
+  {
+    "id": "T131.26",
+    "nome": "PAR NEGATIVO DO T131.25: com FLAG_HIDE_DEX_ENAMORUS_INCARNATE ACESA o tile (9, 61) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (5, 61) em vez de parar em (10, 61). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ENAMORUS_INCARNATE"
+    ],
+    "warp": "MAP_VIRIDIAN_FOREST",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*3,40:NADA,17:LEFT*26,90:NADA",
+    "prova": {
+      "mapa": "MAP_VIRIDIAN_FOREST",
+      "pos": [
+        5,
+        61
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T131.27",
+    "nome": "MIRAIDON EXISTE EM MAP_POWER_PLANT (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 1 (5,38), pousando em (5, 38), pela rota RIGHT*4. A última perna satura CONTRA o Pokémon em (8, 38) e para em (7, 38); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.28.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_POWER_PLANT",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*6,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_POWER_PLANT",
+      "pos": [
+        7,
+        38
+      ]
+    }
+  },
+  {
+    "id": "T131.28",
+    "nome": "PAR NEGATIVO DO T131.27: com FLAG_HIDE_DEX_MIRAIDON ACESA o tile (8, 38) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (9, 38) em vez de parar em (7, 38). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_MIRAIDON"
+    ],
+    "warp": "MAP_POWER_PLANT",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*6,90:NADA",
+    "prova": {
+      "mapa": "MAP_POWER_PLANT",
+      "pos": [
+        9,
+        38
+      ],
+      "andou": true
+    }
+  }
+]

@@ -128,3 +128,33 @@ RockTunnel_1F_Text_RouteSign::
 	.string "ROCK TUNNEL\n"
 	.string "CERULEAN CITY - LAVENDER TOWN$"
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+RockTunnel_1F_Frlg_EventScript_DexMagearna::
+	lockall
+	msgbox RockTunnel_1F_Frlg_Text_DexMagearnaIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_MAGEARNA, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_MAGEARNA, 30
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_MAGEARNA
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, RockTunnel_1F_Frlg_EventScript_DexMagearnaSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, RockTunnel_1F_Frlg_EventScript_DexMagearnaSome
+	releaseall
+	end
+
+RockTunnel_1F_Frlg_EventScript_DexMagearnaSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_MAGEARNA
+	setflag FLAG_HIDE_DEX_MAGEARNA
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+RockTunnel_1F_Frlg_Text_DexMagearnaIntro:
+	.string "MAGEARNA appeared!$"
+
+@ <<< Dex completa <<<

@@ -150,3 +150,34 @@ FloaromaTown_Text_ShayminSome:
 	.string "SHAYMIN disappeared among\nthe flowers...$"
 
 @ <<< Lendarios de Sinnoh <<<
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+FloaromaTown_EventScript_DexShayminLand::
+	lockall
+	msgbox FloaromaTown_Text_DexShayminLandIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_SHAYMIN_LAND, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_SHAYMIN_LAND, 30
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_SHAYMIN_LAND
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, FloaromaTown_EventScript_DexShayminLandSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, FloaromaTown_EventScript_DexShayminLandSome
+	releaseall
+	end
+
+FloaromaTown_EventScript_DexShayminLandSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_SHAYMIN_LAND
+	setflag FLAG_HIDE_DEX_SHAYMIN_LAND
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+FloaromaTown_Text_DexShayminLandIntro:
+	.string "SHAYMIN_LAND appeared!$"
+
+@ <<< Dex completa <<<
