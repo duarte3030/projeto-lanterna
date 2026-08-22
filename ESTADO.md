@@ -4,7 +4,169 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 22/08/2026, na build de fechamento da rodada 4. A seção 0.l abaixo é a passagem de bastão dela.
+Última medição: 22/08/2026, na build de fechamento da rodada 5. A seção 0.m abaixo é a passagem de bastão dela.
+
+---
+
+## 0.m O WARP DE OBJETO DE GALAR ANDA, E O ELENCO QUE FALTAVA ENTRA, 22/08/2026 (rodada 5; condutor Opus, dois executores Opus, fechador Opus)
+
+Build verde. **ROM 98,43% de 32 MB** (33.026.864 B, 515,2 KB livres; era 98,38%
+na 0.l), EWRAM 86,16% e IWRAM 86,66% (iguais às de ontem), **suíte 794/795**
+(só o T11.3 pulado na rodada normal), **T11 3/3** à parte contra a build
+`cf6786b2ae` (worktree em `/private/tmp/claude-501/t11-antiga`), **SAVE
+COMPATIVEL** com SaveBlock1 em 14.964 de 15.872 B e 2.032 layouts numerados sem
+nenhum movido, `valida_rom.py` com os 2.378 mapas declarados dentro da ROM,
+`guarda_colisao_vars.py` com 23 colisões herdadas em vars e 5 em flags e **0
+novas nos dois perfis**, `valida_conectividade` com **0 warps quebrados e nenhum
+órfão novo**, `valida_warp_tile --piso 60` com 5.869 de 6.829 warps disparando
+(85,9%, igual à 0.l) e os cinco `--demo` de gerador tocados verdes. ROM oficial:
+`roms/pokemon-claude-2026-08-22c.gba` (md5 `462fef1424fc2ae5b467346df11f518a`), com o `.map` ao
+lado, e o MESMO binário na ROM de teste de nome fixo.
+
+| região | mapas | objetos | warps | placas | script | arte | Dex |
+|---|---|---|---|---|---|---|---|
+| Kanto | 100% | 101,2% | 100% | 100% | -- | 52 (0) | 290 |
+| Johto | 100% | 96,1% | 100,1% | 96,2% | -- | 55 (3) | 305 |
+| Hoenn | 100% | 100,7% | 100,1% | 100% | -- | 39 (21) | 297 |
+| Sinnoh | 95,4% | 76,3% | 100,9% | 86,8% | -- | 39 (76) | 267 |
+| Unova | 99,0% | 102,3% | 99,6% | 100,2% | -- | 30 (2) | 315 |
+| Galar | 100% | 113,4% | 100% | **44,1%** | **35,6%** | 48 (32) | 0 |
+
+**Dex obtenível: 1.571 de 1.571, 100%**, intocada nesta rodada.
+### As decisões desta rodada
+
+Do Gui: **"pode continuar isso aí tudo"**, que autorizou as duas frentes de uma
+vez; **Primal para Maxie e Archie**; **importar o que a fonte tiver**, sem
+inventar batalha nenhuma; e o **teto de seis regiões fica de pé**.
+
+Do condutor: **no chefe de equipe vilã a lore vence** (herança da 0.l, e é ela
+que põe o orbe na mão do vilão e não do herói). **Kalos, Alola e Paldea não entram no repo**: material e julgamento ficam em
+`fontes-mapas/` (`PLANO-OBRAS-KALOS/ALOLA/PALDEA.md`,
+`AUDITORIA-PRONTIDAO-2026-08-22.md`, `INFRA-GENS-6-9.md`).
+
+### Frente 1: Galar, blocos c4e e c4f, e o warp que sempre esteve certo
+
+`objetos_galar.py` e `cenas_galar.py`: **58 cenas de objeto em 34 mapas** (eram
+31 em 15 na 0.l), com **7 flags de esconder** na faixa 0x1C80 (apelidos de
+`FLAG_UNUSED`, save intocada), **5 vars de etapa do c4d** e as 5 do c3 reusadas.
+A fila de Galar caiu de 2.597 para **2.570 de 3.195**, a coluna `script` subiu de
+33,6% para **35,6%** e a de placas de 43,1% para **44,1%**. T142 4/4 e T130 10/10.
+
+**O `warp` de objeto nunca esteve quebrado.** A 0.l deixou como pré-requisito do
+c4e um "aviso grave" dizendo que `warp` de script de objeto traduz mas não troca
+de mapa, e que `warp` seguido de `waitstate` prende o jogador para sempre. Está
+errado, e a receita boa é justamente a proibida: **`warp` mais `waitstate`**. O
+que estava quebrado era a SONDA: ela entrou pelo warp de debug num mapa SEM warp
+nenhum (`Galar_StowOnSide02`, `Galar_Wedgehurst09`), pedindo um índice de warp
+que não existe, e isso deixa o estado de warp do jogador sujo. A cena rodava e a
+troca de mapa não acontecia, e o defeito era do banco de provas. O parágrafo
+velho do `PLANO-CONTEUDO-GALAR.md` ficou marcado como vencido, para lembrar que
+conclusão tirada de sonda montada errado custou uma rodada de bloco caro.
+
+**O de-para de opcode: 214 contra 214.** A `gScriptCmdTable` do demake tem o
+mesmo tamanho da do FireRed, ou seja **nenhum opcode novo**, e o c4e não pedia
+motor. O buraco era do nosso lado: o parser de `fala_galar.py` só guardava o
+PRIMEIRO ramo das macros de dois ramos (`.ifb \map`), e `applymovement_at` (0x50),
+`waitmovement_at` (0x52), `removeobject_at` (0x54) e `addobject_at` (0x56) caíam
+no balde de "opcode indecodificável". Conferido pelo fechador: a tabela responde
+213 opcodes com tamanho, com os quatro `_at` dentro. E o bloco c4f resolve
+`special` por NOME e não por índice (o do FireRed não é o nosso, e por número a
+função errada entraria calada): **192 nomes em comum** (444 na tabela do FireRed
+contra 623 na nossa, conferido pelo fechador), e de fora ficam **64 chamadas de
+`GetQuestLogState`**, motor de Quest Log que não existe aqui.
+
+### Frente 2: Fase F, o Primal, e as batalhas que a fonte tinha
+
+**Primal em Maxie e Archie, sem gastar o gimmick.** O motor foi medido ANTES de a
+tabela mudar: a Primal Reversion **não está no `enum Gimmick`**
+(`include/battle_gimmick.h:4`), roda sozinha na entrada em campo
+(`src/battle_switch_in.c:276`) e não passa por escolha de gimmick nenhuma. Ou
+seja o Red Orb no Groudon do Maxie e o Blue Orb no Kyogre do Archie **convivem**
+com a Mega Camerupt e a Mega Sharpedo dos aces, e a regra "um gimmick por chefe"
+segue de pé. O guarda do gerador aprendeu orbe (`--demo` 10/10, com a mutação de
+orbe em espécie sem Primal reprovando).
+
+**Seis batalhas que a fonte tinha e este repo não**, mais oito de uma segunda
+leva, todas importadas e nenhuma inventada: SILVER 5, 6 e 7 (ids 2523 a 2525,
+fechando as sete batalhas de rival do HGSS), `RYOKU1` (2526), **N** (2527),
+HUGH_TEPIG (2528), BIANCA (2529), CHEREN_2 (2530) e as **seis variantes de
+Nate/Rosa** (2531 a 2536, gênero vezes inicial, times idênticos mon a mon como na
+fonte). A Fase F fecha em **198 batalhas e 1.054 Pokémon**, com Dynamax em 5 (teto
+5) e Terastal em 6 (teto 6), as cotas do Gui gastas e não estouradas. T143 22/22.
+
+**O N mudou de tile de propósito**: ficou em (0,4) do `Unova_NsRoom`, o ÚNICO
+tile de porta do mapa; quem sai da sala é quem venceu, e o `setflag
+FLAG_HIDE_UNOVA_N` mais `removeobject` do fim da batalha é o que devolve a porta.
+
+**Quem NÃO existe na fonte, e por isso não entrou**: Ghetsis, o Shadow Triad,
+Courtney e Charon. Dos dois primeiros o BW3G tem texto e nome de música, e nem
+constante nem time. Isso sai da fila como inexistente, não como pendência.
+
+### Os casos adversariais do fechador (autor de caso ≠ autor de cena)
+
+`dev_scripts/testes_criticos/144_fechador_r5.json`, 9 casos, 9 verdes.
+
+- **T144.1 a T144.4, o warp de objeto com SAVE no meio.** O T130 prova a receita
+  dentro de UMA execução, e execução única não responde se o `warp` de script
+  grava `SaveBlock1.location` do jeito que o SAVE espera. Aqui o T144.1 dá
+  `ITEM_GO_GOGGLES` pelo menu de debug, sai de `Galar_Underwater01` pelo objeto
+  de (32,9) e SALVA já do outro lado; o **T144.2 carrega ESSA save** e faz a
+  volta, que passa por `checkitem`, ou seja também prova que a bolsa sobreviveu.
+  O T144.4 é o portão: sem os óculos a volta cai no texto de recusa e o jogador
+  fica parado. De quebra ficou medido que a `Galar_WildArea17` tem `warp_events`
+  VAZIO e o `warp` de script funciona nela do mesmo jeito.
+- **T144.5 e T144.6, e eles pediram ferramenta nova**: a suíte sabia dizer QUAL
+  Pokémon estava no slot e em que nível, e não sabia dizer se ele estava
+  machucado, então cena de enfermeira e cena que só imprime texto eram
+  indistinguíveis. O `gba_runner` ganhou **`--hp`** (hp0..hp5 e hpmax0..hpmax5,
+  com os offsets medidos pelo probe, porque hp e maxHP ficam FORA do bloco
+  cifrado) e o passo de roteiro **`HP=slot=valor`**, que existe porque não há
+  caminho de jogo determinístico que machuque um time. Com o Bulbasaur em 1 de
+  HP, a enfermeira de `Galar_Wedgehurst03` devolve o HP cheio; o par negativo
+  refaz tudo sem apertar A e o HP fica em 1 cravado. **Achado do caso**: o
+  `Party… > Set Party` do menu de debug NÃO serve para isto, porque
+  `DebugAction_Party_SetParty` não atualiza `gPartiesCount` e `HealPlayerParty`
+  itera até ele; com Set Party o time existe na memória e a cura não toca nele.
+- **T144.7**: o N sai da porta. O T143.11 prova que a batalha abre e o T143.12
+  que o jogador esbarra nele; nenhum dos dois chega ao DEPOIS. Com a
+  `FLAG_HIDE_UNOVA_N` acesa (o estado de quem venceu), os MESMOS dois passos do
+  T143.12 pisam em (0,4) e o jogador SAI da sala. NPC parado em cima da única
+  porta é sala sem saída enquanto ele estiver lá, e agora isso tem caso.
+- **T144.8**: o ramo de GÊNERO do Nate/Rosa. O T143.19, o T143.21 e o T143.22
+  varrem os três valores do inicial e param todos do MESMO lado do primeiro teste,
+  porque a abertura da suíte grava gênero masculino: as três ROSA eram código
+  morto para a suíte. Com o `Player… > Toggle gender` do debug e mais nada
+  mudando, o oponente passa a ser `TRAINER_UNOVA_ROSA_OSHAWOTT`.
+- **T144.9**: os portões dos três Silvers novos não são apelidos um do outro.
+  0xEDB e 0xEDC são vizinhas, e trocá-las daria um jogo em que vencer o Silver 5
+  faz aparecer o Silver 7, sem erro de build e sem vermelho. Com só a 0xEDB
+  acesa, o Centro Pokémon do Indigo Plateau tem que ficar vazio.
+
+### O vermelho que o fechador achou, e o conserto é de uma função
+
+`cenas_galar.py --demo` **nasceu vermelho** nesta árvore: "segunda passada ainda
+mexeria em vars.h". Nenhuma letra de conteúdo mudava, só a ORDEM: `poe_bloco`
+apagava o bloco marcado e colava o novo no FIM do arquivo, então dois geradores
+que escrevem no MESMO header (o bloco c1 daqui e o c4d do `objetos_galar.py`, que
+chama esta mesma função) ficavam trocando de última posição a cada rodada. Agora
+o bloco é trocado NO LUGAR e o fim do arquivo só é usado quando o bloco é novo.
+Os dois `--demo` ficaram verdes e o conteúdo dos headers não mudou uma linha.
+
+### O que fica aberto para o Gui
+
+- **Galar, o que sobrou do c4**: **340 chamadas de `special`** que dependem do
+  Quest Log do FireRed, **1.398 linhas de objeto que não estão no mapa** (descarte
+  do condutor de 21/08) e **859 encontros estáticos** da fonte medidos e parados,
+  esperando decisão de sprite. Galar segue com **zero linha de encontro** e Dex 0.
+- **A curva de Galar**: a fonte é de pós-jogo (mediana 70, 276 times no nível
+  100). Importada crua, Galar inteira nasce em nível 100.
+- **Fase F**: a moldura de torneio da Bianca **não foi portada** de propósito (na
+  fonte ela é `scene_script` com `priorityjump`, `setmapscene` e `warpcheck` do
+  PWT); só a batalha entrou.
+- **Gens 6, 7 e 9**: assets e planos em `fontes-mapas/`, fora do repo, como acima.
+- Seguem abertos, da 0.l: `valida_warp_tile` sem linha de base, as 19 bolas de
+  neve de Snowpoint, as 31 pedras de Sinnoh, a alcançabilidade de `RavagedPath` e
+  de duas salas do Mt. Coronet.
 
 ---
 

@@ -154,7 +154,23 @@ linhas de fora, por motivo, na medição de 22/08:
 **78 dessas linhas parariam numa flag** e ficaram de fora sem pedir nenhuma:
 `include/constants/flags.h` não era desta frente na onda de 22/08.
 
-### AVISO GRAVE: `warp` de objeto traduz, mas NÃO troca de mapa
+### DESFEITO EM 22/08/2026: o `warp` de objeto sempre esteve certo
+
+O aviso abaixo ficou de pé por uma rodada e **estava errado**. O bytecode sempre
+foi o certo: a receita é `warp` seguido de `waitstate`, exatamente como o
+parágrafo abaixo proibia. O que estava errado era a SONDA: ela entrava pelo warp
+de debug num mapa SEM warp nenhum (`Galar_StowOnSide02`, `Galar_Wedgehurst09`),
+pedindo um índice de warp que não existe, o que deixa o estado de warp do jogador
+sujo. A cena rodava e a troca de mapa não acontecia, e o defeito era do banco de
+provas, não da cena. Provado agora nos dois sentidos, com caso de suíte: T130
+(par do warp) e T144.1 a T144.4, este bloco com SAVE no meio, indo de
+`Galar_Underwater01` para a `Galar_WildArea17` e voltando. De quebra a
+`Galar_WildArea17` também tem `warp_events` vazio e o `warp` de script funciona
+nela do mesmo jeito, então falta de warp declarado na ORIGEM não atrapalha nada.
+O parágrafo abaixo fica de propósito, como registro de conclusão tirada de sonda
+montada errado.
+
+### AVISO (VENCIDO, ver acima): `warp` de objeto traduz, mas NÃO troca de mapa
 
 O emissor sabe traduzir `warp` (mapa pelo de-para dos 7 bytes de `formatwarp`,
 coordenada 1:1) e a cena CHEGA A RODAR: no `Galar_StowOnSide02` o jogador trava

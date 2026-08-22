@@ -90,7 +90,7 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Fonte do runner: dev_scripts/gba_runner.c (o cabeçalho dele tem o comando de
 # compilação). Se o binário local não existir, cai no que já está compilado na
 # pasta de ferramentas do workspace.
-RUNNER = os.path.join(RAIZ, "dev_scripts", "gba_runner")
+RUNNER = os.environ.get("GBA_RUNNER") or os.path.join(RAIZ, "dev_scripts", "gba_runner")
 if not os.path.exists(RUNNER):
     RUNNER = ("/Users/duarte/Documents/ANTIGRAVITY/Pokemon Claude/Pokemon Claude"
               "/ferramentas/gba_runner")
@@ -449,8 +449,14 @@ def offsets_de_batalha(src):
                 "  offsetof(struct SaveBlock1, bag),\n"
                 "  sizeof(struct Bag) / sizeof(struct ItemSlot),\n"
                 "  offsetof(struct SaveBlock2, encryptionKey),\n"
+                # Os dois de baixo servem ao `--hp` do runner. Ler espécie e
+                # nível não prova cura: o `special HealPlayerParty` das cenas de
+                # Galar só é distinguível de "cena que imprime texto" pelo HP,
+                # e HP e maxHP ficam FORA do bloco cifrado de `struct Pokemon`.
+                "  offsetof(struct Pokemon, hp),\n"
+                "  offsetof(struct Pokemon, maxHP),\n"
                 "};\n")
-    v = [int.from_bytes(b[i:i + 4], "little") for i in range(0, 56, 4)]
+    v = [int.from_bytes(b[i:i + 4], "little") for i in range(0, 64, 4)]
     g = compila("gimmick", "const struct BattleStruct gB = "
                 "{ .opponentMonCanDynamax = 0x3F };\n")
     nz = [i for i, x in enumerate(g) if x]
@@ -462,6 +468,7 @@ def offsets_de_batalha(src):
             "mon_pers": v[6], "mon_otid": v[7], "mon_secure": v[8],
             "tam_substruct": v[9], "mon_nivel": v[10],
             "bolsa": v[11], "bolsa_n": v[12], "chave_cripto": v[13],
+            "mon_hp": v[14], "mon_hpmax": v[15],
             "gimmick_offset": nz[0] & ~1}
     _BATALHA_CACHE[src] = fora
     return fora
@@ -569,6 +576,11 @@ def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=Non
             cmd += ["--timeinimigo", ",".join(str(batalha[k]) for k in (
                 "mon_pers", "mon_otid", "mon_secure", "tam_substruct",
                 "mon_nivel"))]
+            # `--hp` anda junto do `--timeinimigo` porque depende da MESMA base
+            # de time. Ele só acrescenta chaves ao dump (hp0..hp5), e é ele que
+            # habilita o passo de roteiro `HP=slot=valor`, sem o qual não há
+            # como machucar um time de forma determinística.
+            cmd += ["--hp", f"{batalha['mon_hp']},{batalha['mon_hpmax']}"]
         if "gSaveBlock2Ptr" in simbolos:
             cmd += ["--opcoes", f"{simbolos['gSaveBlock2Ptr']},{batalha['opcoes_offset']}"]
         if "gBattleMons" in simbolos:

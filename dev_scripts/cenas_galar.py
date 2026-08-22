@@ -629,11 +629,24 @@ def sem_bloco(texto, ini, fim):
 
 
 def poe_bloco(texto, ini, fim, corpo):
-    """Idempotente: troca o bloco marcado, ou acrescenta no fim do arquivo."""
-    limpo = sem_bloco(texto, ini, fim)
+    """Idempotente: troca o bloco marcado NO LUGAR, ou acrescenta no fim.
+
+    O "no lugar" é de 22/08/2026 e nasceu do `--demo` vermelho do fechador.
+    Até aqui a função apagava o bloco e colava o novo no FIM do arquivo, e por
+    isso dois geradores que escrevem no MESMO header (o bloco c1 daqui e o c4d
+    do `objetos_galar.py`, que chama esta mesma função) ficavam trocando de
+    última posição a cada rodada: quem rodasse por último empurrava o outro
+    para cima. Nenhuma letra do conteúdo mudava, só a ordem, e mesmo assim
+    `aplica()` via arquivo diferente e a idempotência caía.
+    """
+    i = texto.find(ini)
+    if i >= 0:
+        j = texto.find(fim, i)
+        j = len(texto) if j < 0 else j + len(fim) + 1
+        return texto[:i] + corpo + texto[j:]
     if not corpo:
-        return limpo
-    return limpo.rstrip("\n") + "\n\n" + corpo
+        return texto
+    return texto.rstrip("\n") + "\n\n" + corpo
 
 
 # ------------------------------------------------------------------ plano ----

@@ -1,0 +1,93 @@
+[
+ {
+  "id": "T144.1",
+  "nome": "GALAR, WARP DE OBJETO, IDA, COM SAVE NO MEIO. A receita nova desta rodada (`warp` + `waitstate` dentro de script de objeto) foi provada pelo T130 dentro de UMA execução, e execução única não responde a pergunta que assusta: o `warp` de script grava `SaveBlock1.location` do jeito que o SAVE espera, ou deixa o jogador num estado que só existe na RAM? Este caso fecha isso. O `antes_do_warp` dá ITEM_GO_GOGGLES (734) pelo menu de debug, porque os seis objetos de mergulho de Galar fazem `checkitem ITEM_GO_GOGGLES, 1` antes do `warp` e sem o item a volta do T144.2 nunca aconteceria; o campo do item começa em 1 e tem quatro dígitos (DEBUG_NUMBER_DIGITS_ITEMS, src/debug.c:193), então o roteiro soma 733 pela ordem milhar, centena, dezena, unidade. Depois: warp 0 do `Galar_Underwater01` larga em (32,11), dois UP (o primeiro vira, o segundo anda) param em (32,10), o A abre o `GalarObj_G01M63_o0` de (32,9) (`Emergir?`, MSGBOX_YESNO) e o segundo A escolhe SIM, que é `warp MAP_GALAR_WILD_AREA_17, 19, 50`. O jogador chega em (19,50) e SALVA pelo menu START. Par negativo: T144.3. Continuação: T144.2 carrega ESTA save.",
+  "flags": ["FLAG_SEM_ENCONTRO_SELVAGEM"],
+  "sav": "/tmp/claude-501/frenteA/t144.sav",
+  "apaga_sav": true,
+  "antes_do_warp": "40:R+START!,60:NADA,20:DOWN*3,20:A,60:NADA,20:A,90:NADA,12:RIGHT*3,12:LEFT,12:UP*7,12:LEFT,12:UP*3,12:LEFT,12:UP*3,20:A,90:NADA,20:A,240:NADA,20:B*3,120:NADA",
+  "warp": "MAP_GALAR_UNDERWATER_01",
+  "warp_id": 0,
+  "roteiro": "300:NADA,16:UP*2,90:NADA,20:A,150:NADA,20:A,240:NADA,40:START!,90:NADA,20:DOWN,20:DOWN,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,180:NADA",
+  "prova": {"mapa": "MAP_GALAR_WILD_AREA_17", "pos": [19, 50]}
+ },
+ {
+  "id": "T144.2",
+  "nome": "GALAR, WARP DE OBJETO, VOLTA, LIDA DA SAVE DO T144.1. Sem roteiro de jogo nenhum antes: a ROM abre em CONTINUAR e o estado inteiro vem do arquivo. É aqui que a ida do T144.1 vira fato e não impressão de tela, porque só chega neste mapa quem teve `mapGroup`, `mapNum` e `pos` gravados pelo `warp` de script. Da save o jogador acorda em `Galar_WildArea17` (19,50); dois LEFT (o primeiro vira) param em (18,50), o UP vira para o norte e NÃO anda, porque o objeto de mergulho ocupa (18,49) e é sólido, e então o A abre o `GalarObj_G42M10_o23`. Esse script começa com `checkitem ITEM_GO_GOGGLES, 1`, ou seja este caso também prova que a BOLSA sobreviveu à save: sem os óculos ele cairia no texto de recusa, que é exatamente o que o T144.4 mede. Com eles vem o `Mergulhar?` e o SIM é `warp MAP_GALAR_UNDERWATER_01, 32, 10`, o mesmo mapa de onde o T144.1 partiu. A `Galar_WildArea17` não tem warp de mapa nenhum (`warp_events` vazio) e tem uma única conexão, a oeste, então esse objeto é a única porta dela, e é ela que está sendo cobrada.",
+  "sav": "/tmp/claude-501/frenteA/t144.sav",
+  "abertura": "continuar",
+  "roteiro": "120:NADA,16:LEFT*2,90:NADA,16:UP,60:NADA,20:A,150:NADA,20:A,240:NADA",
+  "prova": {"mapa": "MAP_GALAR_UNDERWATER_01", "pos": [32, 10]}
+ },
+ {
+  "id": "T144.3",
+  "nome": "PAR NEGATIVO DO T144.1: o MESMO `antes_do_warp`, o MESMO warp, os MESMOS dois UP e o MESMO número de quadros, com os dois apertos de A trocados por espera. O jogador para em (32,10), encostado no objeto de (32,9), e continua em `Galar_Underwater01`. Sem ele o T144.1 passaria num jogo em que o próprio warp de debug já tivesse levado à `Galar_WildArea17` por outro caminho, e a receita `warp` mais `waitstate` não teria sido medida em nada.",
+  "flags": ["FLAG_SEM_ENCONTRO_SELVAGEM"],
+  "antes_do_warp": "40:R+START!,60:NADA,20:DOWN*3,20:A,60:NADA,20:A,90:NADA,12:RIGHT*3,12:LEFT,12:UP*7,12:LEFT,12:UP*3,12:LEFT,12:UP*3,20:A,90:NADA,20:A,240:NADA,20:B*3,120:NADA",
+  "warp": "MAP_GALAR_UNDERWATER_01",
+  "warp_id": 0,
+  "roteiro": "300:NADA,16:UP*2,90:NADA,20:NADA,150:NADA,20:NADA,240:NADA",
+  "prova": {"mapa": "MAP_GALAR_UNDERWATER_01", "pos": [32, 10]}
+ },
+ {
+  "id": "T144.4",
+  "nome": "PAR NEGATIVO DO T144.2, e ele mede o PORTÃO: jogo novo, sem save e SEM os óculos, fazendo a ida e a volta de uma vez só. A ida (que não tem `checkitem` nenhum, é só `Emergir?`) funciona igual e larga o jogador na `Galar_WildArea17` (19,50); a volta esbarra no `checkitem ITEM_GO_GOGGLES, 1`, cai no texto de recusa e o `warp` nunca roda. O jogador termina em (18,50), parado no mesmo tile de onde o T144.2 sai do mapa. Isto separa três coisas que passariam juntas: que a receita de warp funciona nos dois sentidos, que o portão de item existe de verdade, e que o SIM do T144.2 foi lido da bolsa gravada na save e não de um `checkitem` que devolve sempre 1.",
+  "flags": ["FLAG_SEM_ENCONTRO_SELVAGEM"],
+  "warp": "MAP_GALAR_UNDERWATER_01",
+  "warp_id": 0,
+  "roteiro": "300:NADA,16:UP*2,90:NADA,20:A,150:NADA,20:A,240:NADA,16:LEFT*2,90:NADA,16:UP,60:NADA,20:A,150:NADA,20:A,240:NADA",
+  "prova": {"mapa": "MAP_GALAR_WILD_AREA_17", "pos": [18, 50]}
+ },
+ {
+  "id": "T144.5",
+  "nome": "O `special HealPlayerParty` DE GALAR CURA DE VERDADE, com HP lido de `gPlayerParty` antes e depois. O bloco c4f resolve `special` por NOME porque o índice do FireRed não é o nosso, e o T142 prova que a cena da enfermeira RODA, o que é coisa diferente de ter chamado a função CERTA: cena que só imprime texto e cena que chama o `special` errado são indistinguíveis por posição de jogador. Para medir efeito, o `gba_runner` ganhou `--hp` (hp0..hp5 e hpmax0..hpmax5, com os dois offsets vindos do probe de `offsets_de_batalha`, nunca chumbados, porque hp e maxHP ficam FORA do bloco cifrado de `struct Pokemon`) e o passo de roteiro `HP=slot=valor`, que existe porque não há caminho de jogo DETERMINÍSTICO que machuque um time (batalha selvagem é sorteio). O `antes_do_warp` dá um BULBASAUR nível 1 pelo `Give X… > Pokémon (Basic)` (os dois campos nascem em 1, então dois A bastam), e não pelo `Set Party`, e a razão foi MEDIDA aqui: o `DebugAction_Party_SetParty` chama `CreateNPCTrainerPartyFromTrainer` e NÃO atualiza `gPartiesCount`, enquanto `HealPlayerParty` (src/script_pokemon_util.c:41) itera até `gPartiesCount[B_TRAINER_PLAYER]`, ou seja com o Set Party o time existe na memória e a cura não toca nele. Depois: warp 1 do `Galar_Wedgehurst03` larga em (7,8), quatro UP param em (7,4) diante do balcão, o passo `HP=0=1` deixa o Bulbasaur com 1 de HP e os apertos de A abrem a cena inteira (msgbox, `fadescreen`, fanfarra, `special HealPlayerParty`, msgbox). No fim hp0 volta ao cheio. A faixa 11 a 12 não é frouxidão: o maxHP de um Bulbasaur nível 1 é 11 ou 12 conforme o IV de HP sorteado, e é por isso que `hpmax0` é cobrado na MESMA faixa; quem carrega a prova exata é o par negativo T144.6, onde hp0 tem que ser 1 cravado.",
+  "flags": ["FLAG_SEM_ENCONTRO_SELVAGEM"],
+  "antes_do_warp": "40:R+START!,60:NADA,20:DOWN*3,20:A,60:NADA,20:DOWN,20:A,90:NADA,20:A,120:NADA,20:A,240:NADA,20:B*3,120:NADA",
+  "warp": "MAP_GALAR_WEDGEHURST_03",
+  "warp_id": 1,
+  "time_jogador": true,
+  "roteiro": "300:NADA,16:UP*4,90:NADA,10:HP=0=1,20:A,150:NADA,20:A,240:NADA,20:A,150:NADA,20:A,150:NADA",
+  "prova": {"mapa": "MAP_GALAR_WEDGEHURST_03", "time": 1, "campos": {"hp0": [11, 12], "hpmax0": [11, 12]}}
+ },
+ {
+  "id": "T144.6",
+  "nome": "PAR NEGATIVO DO T144.5: o MESMO time, o MESMO caminho, o MESMO `HP=0=1` e o MESMO número de quadros, com todos os apertos de A trocados por espera. A cena da enfermeira nunca começa e hp0 fica em 1 CRAVADO, com hpmax0 na faixa cheia. Ele é o caso que impede as três leituras erradas do T144.5: que o HP já estivesse cheio (aqui o mesmo passo `HP=` o deixa em 1), que o `--hp` estivesse lendo endereço morto que devolve sempre o mesmo número (aqui o mesmo leitor devolve 1 num campo e 11 a 12 no outro), e que qualquer coisa no caminho até o balcão curasse por conta própria (aqui o caminho é o mesmo e não cura).",
+  "flags": ["FLAG_SEM_ENCONTRO_SELVAGEM"],
+  "antes_do_warp": "40:R+START!,60:NADA,20:DOWN*3,20:A,60:NADA,20:DOWN,20:A,90:NADA,20:A,120:NADA,20:A,240:NADA,20:B*3,120:NADA",
+  "warp": "MAP_GALAR_WEDGEHURST_03",
+  "warp_id": 1,
+  "time_jogador": true,
+  "roteiro": "300:NADA,16:UP*4,90:NADA,10:HP=0=1,20:NADA,150:NADA,20:NADA,240:NADA,20:NADA,150:NADA,20:NADA,150:NADA",
+  "prova": {"mapa": "MAP_GALAR_WEDGEHURST_03", "time": 1, "campos": {"hp0": 1, "hpmax0": [11, 12]}}
+ },
+ {
+  "id": "T144.7",
+  "nome": "O N SAI DA PORTA DEPOIS DE PERDER, E A SALA VOLTA A TER SAÍDA. O N foi movido para (0,4) do `Unova_NsRoom` porque é o ÚNICO tile de porta do mapa (o `warp_events` tem uma entrada só, em (0,4), para `MAP_UNOVA_VICTORY_ROAD_CASTLE_OUTSIDE`), e isso é o que faz a cena funcionar e também o que a torna perigosa: NPC parado em cima da única porta é sala sem saída enquanto ele estiver lá. O T143.11 prova que a batalha abre e o T143.12 prova que o jogador esbarra nele e para em (0,5); nenhum dos dois chega ao DEPOIS. Aqui a `FLAG_HIDE_UNOVA_N` (a mesma que o `setflag` do fim de `Unova_NsRoom_EventScript_N` acende, ao lado do `removeobject`) é escrita direto na EWRAM, que é o estado em que o jogador fica ao vencer, e os MESMOS dois UP do T143.12 deixam de esbarrar em ninguém: eles pisam em (0,4) e o jogador SAI do mapa. A prova é o mapa de destino, não a posição, porque posição dentro do NsRoom não separa `o N sumiu` de `o N está lá e o passo falhou`. O par negativo é o próprio T143.12, que é esta rota com a flag apagada e termina em (0,5), dentro da sala.",
+  "flags": ["FLAG_SEM_ENCONTRO_SELVAGEM", "FLAG_HIDE_UNOVA_N"],
+  "warp": "MAP_UNOVA_NS_ROOM",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*2,240:NADA",
+  "prova": {"mapa": "MAP_UNOVA_VICTORY_ROAD_CASTLE_OUTSIDE"}
+ },
+ {
+  "id": "T144.8",
+  "nome": "O RAMO DE GÊNERO DO NATE/ROSA ABRE OUTRA TREINADORA, e é o ramo que a suíte não tinha. A cena tem DOIS testes em série (`checkplayergender` e depois `VAR_STARTER_MON`, Unova_NimbasaParkOutside/scripts.inc:151-160) e as seis variantes da fonte saem do cruzamento dos dois. O T143.19, o T143.21 e o T143.22 varrem os três valores do inicial e param todos no MESMO lado do primeiro teste: os três abrem um NATE, porque a abertura da suíte grava gênero masculino direto. Se o `goto_if_eq VAR_RESULT, FEMALE` estivesse invertido, apontasse para o rótulo errado ou tivesse se perdido na tradução, os três continuariam verdes e as três ROSA seriam código morto. Aqui o `antes_do_warp` usa o `Player… > Toggle gender` do menu de debug (src/debug.c:662) e mais nada muda: mesmo warp 3, mesmos quatro RIGHT, mesmos apertos. O oponente passa a ser TRAINER_UNOVA_ROSA_OSHAWOTT, id diferente do NATE_OSHAWOTT do T143.19, com o MESMO time mon a mon (ace SAMUROTT 503), que é como a fonte escreveu as seis: times idênticos, treinadores distintos.",
+  "flags": ["FLAG_SEM_ENCONTRO_SELVAGEM"],
+  "opcoes": 36,
+  "antes_do_warp": "40:R+START!,60:NADA,20:DOWN*4,20:A,60:NADA,20:DOWN,20:A,120:NADA",
+  "warp": "MAP_UNOVA_NIMBASA_PARK_OUTSIDE",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:RIGHT*4,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,60:NADA",
+  "prova": {"mapa": "MAP_UNOVA_NIMBASA_PARK_OUTSIDE", "oponente": "TRAINER_UNOVA_ROSA_OSHAWOTT", "campos": {"opcoes": 36, "especie4": 648, "especie5": 503, "nivelinimigo": 5}}
+ },
+ {
+  "id": "T144.9",
+  "nome": "OS PORTÕES DOS TRÊS SILVERS NOVOS NÃO SÃO APELIDOS UM DO OUTRO. Os três importados nesta rodada nascem escondidos atrás da flag de treinador derrotado do ANTERIOR (0xEDB para o 6, 0xEDC para o 7), e essas flags são vizinhas: trocar uma pela outra no gerador dá um jogo em que vencer o Silver 5 faz aparecer o Silver 7, a corrente pula um degrau, e não há erro de build nem caso vermelho. O T143.7 acende a 0xEDC e acha o Silver 7; o T143.8 não acende nada e não acha ninguém. Faltava o meio: aqui a 0xEDB é acesa e a 0xEDC NÃO, ou seja o jogador acabou de vencer o Silver 5 e ainda deve o 6. A MESMA rota do T143.7 dentro do Centro Pokémon do Indigo Plateau tem que não achar ninguém: `oponente` continua TRAINER_NONE e o time fica zerado.",
+  "flags": ["FLAG_SEM_ENCONTRO_SELVAGEM", "0xEDB"],
+  "opcoes": 36,
+  "warp": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*10,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA",
+  "prova": {"mapa": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F", "oponente": 0, "campos": {"especie4": 0, "especie5": 0, "item5": 0}}
+ }
+]

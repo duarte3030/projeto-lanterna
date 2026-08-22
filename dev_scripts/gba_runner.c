@@ -47,6 +47,10 @@
  *                         passou --bolsa (nunca 0, que se confundiria com
  *                         "nao tem")
  *   --item N              inclui o item N (decimal ou 0x..) no dump da bolsa
+ *   --hp HP,MAXHP         offsets de hp e maxHP dentro de struct Pokemon
+ *                         (medidos pelo probe do testa_critico.py): imprime
+ *                         hp0..hp5 e hpmax0..hpmax5 do time decifrado, e
+ *                         habilita o passo de roteiro "N:HP=slot=valor"
  *   --opcoes A,N          gSaveBlock2Ptr e o offset de filler_90: imprime
  *                         opcoes=<byte das opcoes do modo de teste>
  *   --batalhamons A,T,E,N,G  gBattleMons, sizeof(struct BattlePokemon) e os
@@ -151,6 +155,24 @@ static uint32_t g_nivel_passo = 0;
 static uint32_t g_time_pers = 0, g_time_otid = 0, g_time_sec = 0,
                 g_time_sub = 0, g_time_niv = 0;
 static int g_tem_time = 0;
+
+/* HP e maxHP dentro de struct Pokemon (--hp). Nasceram em 22/08/2026 para o
+   caso adversarial do `special HealPlayerParty` de Galar: ate aqui o runner
+   sabia dizer QUAL Pokemon estava no slot e em que nivel, e nao sabia dizer se
+   ele estava machucado. Sem isso, cena de enfermeira e indistinguivel de cena
+   que so imprime texto, que e exatamente o modo como um `special` traduzido
+   para o indice ERRADO passaria verde.
+   Os dois offsets vem do probe do testa_critico.py, nunca chumbados: hp e
+   maxHP ficam FORA do bloco cifrado (struct Pokemon, depois de box), entao a
+   leitura e direta e nao passa pela decifra do substruct. */
+static uint32_t g_hp_off = 0, g_hpmax_off = 0;
+static int g_tem_hp = 0;
+
+/* Base do time decifrado (gParties do lado pedido), ou 0 se ninguem pediu. */
+static uint32_t base_do_time(void) {
+    if (!g_inimigo || !g_nivel_passo || !g_tem_time) return 0;
+    return g_inimigo + g_nivel_offset - g_time_niv;
+}
 
 /* gSaveBlock2Ptr e o offset de filler_90 dentro do SaveBlock2. O byte
    filler_90[0] e onde moram as seis opcoes do modo de teste (include/global.h,
@@ -315,6 +337,15 @@ static void dump_estado(struct mCore *core, const char *rotulo) {
                     printf(" especie%d=%d tera%d=%d item%d=%d",
                            i, (int)(w & 0x7FF), i, (int)((w >> 11) & 0x1F),
                            i, (int)((w >> 16) & 0x3FF));
+                }
+            }
+            if (g_tem_hp && base_do_time()) {
+                uint32_t mon0 = base_do_time();
+                for (int i = 0; i < 6; i++) {
+                    uint32_t mon = mon0 + (uint32_t)i * g_nivel_passo;
+                    printf(" hp%d=%d hpmax%d=%d",
+                           i, (int)core->busRead16(core, mon + g_hp_off),
+                           i, (int)core->busRead16(core, mon + g_hpmax_off));
                 }
             }
         }
@@ -497,6 +528,28 @@ static void executa_roteiro(struct mCore *core, char *roteiro) {
             passo = strtok_r(NULL, ",", &salvo);
             continue;
         }
+        /* "N:HP=slot=valor" grava HP direto no slot do time decifrado. Existe
+           porque nao ha caminho de jogo que MACHUQUE o time de forma
+           deterministica (batalha selvagem depende de sorteio), e sem um time
+           machucado nao da para provar que uma cena de cura CUROU. */
+        if (!strncmp(botoes, "HP=", 3)) {
+            char *igual = strchr(botoes + 3, '=');
+            if (!igual) { fprintf(stderr, "HP= precisa de slot=valor: %s\n", botoes); exit(1); }
+            *igual = '\0';
+            uint32_t mon0 = base_do_time();
+            if (!mon0 || !g_tem_hp) {
+                fprintf(stderr, "HP=: precisa de --inimigo, --timeinimigo e --hp\n");
+                exit(1);
+            }
+            core->busWrite16(core,
+                mon0 + (uint32_t)strtol(botoes + 3, NULL, 0) * g_nivel_passo + g_hp_off,
+                (uint16_t)strtol(igual + 1, NULL, 0));
+            roda_quadros_mascara(core, 0, quadros, 0);
+            if (g_dump_estado) { char r[32]; snprintf(r, sizeof r, "passo%02d", indice + 1); dump_estado(core, r); }
+            salva_passo(++indice);
+            passo = strtok_r(NULL, ",", &salvo);
+            continue;
+        }
         if (!strncmp(botoes, "VAR=", 4)) {
             char *igual = strchr(botoes + 4, '=');
             if (!igual) { fprintf(stderr, "VAR= precisa de id=valor: %s\n", botoes); exit(1); }
@@ -604,6 +657,13 @@ int main(int argc, char **argv) {
             }
             g_time_pers = v[0]; g_time_otid = v[1]; g_time_sec = v[2];
             g_time_sub = v[3]; g_time_niv = v[4]; g_tem_time = 1;
+        } else if (!strcmp(argv[i], "--hp") && i + 1 < argc) {
+            uint32_t v[2];
+            if (!le_lista(argv[++i], v, 2)) {
+                fprintf(stderr, "--hp precisa de offset_hp,offset_maxhp\n");
+                return 1;
+            }
+            g_hp_off = v[0]; g_hpmax_off = v[1]; g_tem_hp = 1;
         } else if (!strcmp(argv[i], "--opcoes") && i + 1 < argc) {
             uint32_t v[2];
             if (!le_lista(argv[++i], v, 2)) {
