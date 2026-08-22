@@ -39,6 +39,14 @@
  *                         um substruct e o offset de level dentro de struct
  *                         Pokemon: DECIFRA o time do inimigo e imprime
  *                         especie0..5, tera0..5 e item0..5
+ *   --bolsa OFF,N,KEY     offset da BOLSA (struct Bag) dentro do SaveBlock1, o
+ *                         numero total de slots dos cinco bolsos e o offset de
+ *                         encryptionKey dentro do SaveBlock2 (todos medidos
+ *                         pelo probe do testa_critico.py). Com --item, imprime
+ *                         item_0xNNN=<quantidade decifrada>, ou -1 se ninguem
+ *                         passou --bolsa (nunca 0, que se confundiria com
+ *                         "nao tem")
+ *   --item N              inclui o item N (decimal ou 0x..) no dump da bolsa
  *   --opcoes A,N          gSaveBlock2Ptr e o offset de filler_90: imprime
  *                         opcoes=<byte das opcoes do modo de teste>
  *   --batalhamons A,T,E,N,G  gBattleMons, sizeof(struct BattlePokemon) e os
@@ -177,6 +185,16 @@ static int g_vars_pedidas[MAX_PEDIDOS], g_n_vars = 0;
    sprite foi registrada de verdade: o caso dos NPCs verdes de Kanto passou
    por toda a suite porque nenhum teste olhava isso. */
 static int g_palobj_pedidas[MAX_PEDIDOS], g_n_palobj = 0;
+/* --bolsa OFF,N,KEY + --item 0xNNN: quantidade do item NA BOLSA (os cinco bolsos).
+   `struct ItemSlot` e {u16 itemId; u16 quantity} e a QUANTIDADE e cifrada com
+   os 16 bits baixos de gSaveBlock2Ptr->encryptionKey (src/item.c). Ler o time
+   nao prova a bolsa: o NPC da Dex entrega NOVE itens de troca de forma (cinco
+   sao POCKET_KEY_ITEMS e os quatro nectares de Alola sao POCKET_ITEMS), e
+   nenhum deles entra em gPlayerParty. Por isso a varredura e do struct Bag
+   INTEIRO, cujos cinco bolsos sao `struct ItemSlot` contiguos: a pergunta e
+   "esta na bolsa?", e responder isso nao devia exigir saber de bolso. */
+static uint32_t g_bolsa_off = 0, g_bolsa_n = 0, g_chave_off = 0;
+static int g_itens_pedidos[MAX_PEDIDOS], g_n_itens = 0;
 static int g_dump_estado = 0;
 static int g_sem_png = 0;
 
@@ -316,6 +334,23 @@ static void dump_estado(struct mCore *core, const char *rotulo) {
         if (g_bstruct) {
             uint32_t bs = core->busRead32(core, g_bstruct);
             printf(" gimmick=%d", bs ? (int)core->busRead16(core, bs + g_gimmick_offset) : -1);
+        }
+        for (int i = 0; i < g_n_itens; i++) {
+            int quantos = 0;
+            if (g_bolsa_n && g_sb2ptr) {
+                uint32_t sb2 = core->busRead32(core, g_sb2ptr);
+                uint16_t chave = sb2 ? (uint16_t)core->busRead32(core, sb2 + g_chave_off) : 0;
+                for (uint32_t s = 0; s < g_bolsa_n; s++) {
+                    uint32_t slot = base + g_bolsa_off + s * 4;
+                    if ((int)core->busRead16(core, slot) != g_itens_pedidos[i])
+                        continue;
+                    quantos = (int)(uint16_t)(core->busRead16(core, slot + 2) ^ chave);
+                    break;
+                }
+            } else {
+                quantos = -1;   /* sem --bolsa: dito, nunca fingido como zero */
+            }
+            printf(" item_0x%X=%d", g_itens_pedidos[i], quantos);
         }
         for (int i = 0; i < g_n_flags; i++)
             printf(" flag_0x%X=%d", g_flags_pedidas[i], le_flag(core, g_flags_pedidas[i]));
@@ -535,6 +570,15 @@ int main(int argc, char **argv) {
             if (g_n_flags < MAX_PEDIDOS) g_flags_pedidas[g_n_flags++] = (int)strtol(argv[++i], NULL, 0);
         } else if (!strcmp(argv[i], "--var") && i + 1 < argc) {
             if (g_n_vars < MAX_PEDIDOS) g_vars_pedidas[g_n_vars++] = (int)strtol(argv[++i], NULL, 0);
+        } else if (!strcmp(argv[i], "--item") && i + 1 < argc) {
+            if (g_n_itens < MAX_PEDIDOS) g_itens_pedidos[g_n_itens++] = (int)strtol(argv[++i], NULL, 0);
+        } else if (!strcmp(argv[i], "--bolsa") && i + 1 < argc) {
+            uint32_t v[3];
+            if (!le_lista(argv[++i], v, 3)) {
+                fprintf(stderr, "--bolsa precisa de offset,nslots,chave\n");
+                return 1;
+            }
+            g_bolsa_off = v[0]; g_bolsa_n = v[1]; g_chave_off = v[2];
         } else if (!strcmp(argv[i], "--palobj") && i + 1 < argc) {
             if (g_n_palobj < MAX_PEDIDOS) g_palobj_pedidas[g_n_palobj++] = (int)strtol(argv[++i], NULL, 0);
         } else if (!strcmp(argv[i], "--sav") && i + 1 < argc) {

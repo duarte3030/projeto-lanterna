@@ -4,10 +4,216 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 12/08/2026, na build de fechamento (sessão de fechamento do dia). A seção 0 abaixo é a passagem de bastão dela.
+Última medição: 22/08/2026, na build de fechamento da rodada 4. A seção 0.l abaixo é a passagem de bastão dela.
 
 ---
 
+## 0.l A DEX FECHA EM 1.571, OS VILÕES ENTRAM E OS CORTADOS SAEM DA ROM, 22/08/2026 (rodada 4; condutor Opus, quatro executores Opus, fechador Opus)
+
+Build verde. **ROM 98,38% de 32 MB** (33.011.952 B, 529,8 KB livres; era 98,85%
+na 0.k, ou seja meio ponto e cerca de 150 KB devolvidos), EWRAM 86,16% e IWRAM
+86,66% (iguais às de ontem), **suíte 757/758** (só o T11.3 pulado na
+rodada normal), **T11 3/3** à parte contra a build `cf6786b2ae` (worktree em
+`/private/tmp/claude-501/t11-antiga`), **SAVE COMPATIVEL** com SaveBlock1 em
+14.964 de 15.872 B e agora com o **`mapLayoutId` coberto**, `valida_rom.py` com
+os 2.378 mapas declarados dentro da ROM, `guarda_colisao_vars.py` com 23
+colisões herdadas em vars e 5 em flags e **0 novas nos dois perfis**,
+`valida_conectividade` com **0 warps quebrados e nenhum órfão novo**,
+`valida_warp_tile --piso 60` com 5.869 de 6.829 warps disparando (85,9%), e os
+oito `--demo` de gerador tocados verdes. ROM oficial:
+`roms/pokemon-claude-2026-08-22b.gba` (md5 `470666cf982cec334a950db80987a4ea`), com o `.map` ao lado, e o
+MESMO binário na ROM de teste de nome fixo.
+
+| região | mapas | objetos | warps | placas | script | arte | Dex |
+|---|---|---|---|---|---|---|---|
+| Kanto | 100% | 101,0% | 100% | 100% | -- | 52 (0) | 290 |
+| Johto | 100% | 96,1% | 100,1% | 96,2% | -- | 55 (3) | 305 |
+| Hoenn | 100% | 100,7% | 100,1% | 100% | -- | 39 (21) | 297 |
+| Sinnoh | 95,4% | **76,3%** | 100,9% | 86,8% | -- | 39 (**76**) | **267** |
+| Unova | 99,0% | 102,3% | 99,6% | 100,2% | -- | 30 (2) | 315 |
+| Galar | 100% | 113,4% | 100% | 43,1% | **33,6%** | 48 (32) | 0 |
+
+**Dex obtenível: 1.571 de 1.571, 100%.** Os três números de Sinnoh que CAÍRAM
+(objetos 82,7 → 76,3, arte pobre 102 → 76, Dex 295 → 267) não são regressão de
+obra: são honestidade. Os 111 mapas cortados viraram túmulo e pararam de
+emprestar objeto, arte e encontro a uma coluna que os contava.
+
+### As decisões desta rodada
+
+Do Gui: **"completa a dex, falta 5; pode continuar"**; os **ginásios ficam** como
+estão (pergunta 3); e o **Giovanni de Tohjo Falls mantém os níveis 111 a 114**
+(pergunta 6), com a palavra dele, *"a curva pode ter outliers coerentes"*.
+
+Do condutor: **no chefe de equipe vilã a lore vence, e o herói é quem cede**
+(Maxie fica com Groudon e Archie com Kyogre; Brendan cede para Latios e Wallace
+para Palkia); a **`RockPeakRuins` entra no corte da Battle Zone**; e importar
+Ghetsis, N e o Shadow Triad **depende de a fonte tê-los**, o que ninguém mediu
+ainda, então segue hipótese e não promessa.
+
+### Frente 1: a Dex fecha em 1.571, e o buraco era do CENSO
+
+A 0.k dizia 1.566 e culpava mecânica de troca de forma. Estava errada, e o
+conserto é de UMA função: `censo_dex.censo()` fechava um passo só de forma, e as
+cinco que faltavam saem de correntes de DOIS e TRÊS passos (Deoxys-Defesa e
+Deoxys-Velocidade vêm do Deoxys-Ataque, que vem do Normal; as três formas de
+Zygarde saem umas das outras pelo Cube). Com o fecho em cadeia o repositório
+responde sozinho, e nenhum estático novo foi preciso. A obra acrescentou os **nove
+itens de troca de forma**, entregues pelo NPC do laboratório do Birch com
+`checkitem` de guarda antes de cada `additem`. T137 2/2, mais sonda.
+
+**O que o fechador consertou**: a remoção física apagou a tabela de mato da
+`Route229`, **única casa de Surskit e Masquerain no jogo inteiro**, e o censo
+voltou a 1.569. O conserto é pelo gerador, com a régua nomeada: nasceu
+`REPOE_NA_REGIAO` em `distribui_dex.py`, a **única exceção à regra 3** (gen 1 a 5
+vai para a região da geração), porque isto é REPOSIÇÃO de um lar que obra nossa
+destruiu. O Surskit voltou para `MAP_CANALAVE_CITY`, `fishing_mons`, slot
+duplicado 1, em Sinnoh; o **Masquerain não ganha linha e não precisa**, porque é
+Bug/Flying, a regra 6 proíbe água para quem não é `TYPE_WATER`, e ele sai do
+Surskit por `EVO_LEVEL`.
+
+**O defeito que esse conserto revelou vale mais do que ele**: o `decide_selvagem`
+não era estável contra árvore já mexida. Espécie nova no meio da lista empurrava
+a escolha de todas as seguintes um slot adiante, e o `aplica_selvagem` deixava
+ÓRFÃ a linha antiga que a tabela nova não mencionava mais. Medido: o
+replanejamento mexia em NOVE linhas que ninguém pediu, uma delas deixando a
+`SeafloorCavernRoom1` com um Salazzle-Totem no lugar do Zubat **para sempre**.
+Agora quem já tem escolha gravada e ainda válida FICA ONDE ESTÁ, e o
+replanejamento tocou **duas** linhas. Conferido contra o `git`: o
+`wild_encounters.json` de hoje difere do de `852be4632a` em **2 slots**, zero
+níveis e zero tabelas redimensionadas.
+
+O `diff_do_mato` (T129.13) também estava vermelho e ninguém tinha rodado: exigia
+o CONJUNTO de tabelas idêntico ao de `0cb8724099`, e 26 saíram legitimamente com
+os cortados. Agora sumir só vale para mapa cortado e **nascer nunca vale**.
+
+### Frente 2: os 40 chefes de equipe vilã
+
+`fase_f_chefes.json` com `papel: "vilao"`, o mesmo gerador idempotente: **40
+batalhas, 228 Pokémon, 18 lendários distintos, 39 Mega e 1 Z, e ZERO Dynamax e
+Tera novos** (as cotas do Gui, 5 e 6, seguem gastas nos 144 chefes da primeira
+leva). A Fase F vai a **184 batalhas e 970 Pokémon**, com a curva de nível
+intocada. As quatro trocas de Hoenn foram feitas pelo gerador e não à mão, e **nem
+Groudon nem Kyogre ganharam orbe de Primal**, de propósito: Primal entraria POR
+CIMA da Mega Camerupt e da Mega Sharpedo e quebraria o "um gimmick por chefe" sem
+que o guarda visse, porque ele só conhece pedra de Mega e cristal Z. Tabela e
+razão de cada lendário em `PLANO-FASE-F.md`. T138 2/2.
+
+### Frente 3: Galar, blocos c4b a c4d
+
+`objetos_galar.py`: **31 cenas de objeto em 15 mapas e 30 cenas de mapa**, com **5
+flags de esconder** (`FLAG_GALAR_ESCONDE_*`, 0x1C80 a 0x1C84, apelido de
+`FLAG_UNUSED`, save intocada) em **10 objetos** e **5 vars de etapa**. A fila de
+Galar caiu de 2.622 para **2.597** e a coluna `script` subiu de 31,7% para 33,6%.
+T139 6/6.
+
+**Diagnóstico pendente, e pré-requisito do c4e**: `warp` dentro de script de
+OBJETO traduz e a cena roda, mas **não troca de mapa**; e `warp` seguido de
+`waitstate` **prende o jogador para sempre**. Até isso ser entendido, nenhuma
+cena portada pode usar `warp`.
+
+### Frente 4: os 111 mapas cortados saíram da ROM, e nenhum id andou
+
+`dev_scripts/remove_mapas_cortados.py`. **111 mapas viraram túmulo** (110 da
+primeira medição mais a `RockPeakRuins`, acrescentada pelo fechador por decisão do
+condutor: o único warp dela ia para a `Route228` e sem ela o mapa ficava sem
+caminho nenhum; as irmãs `IronRuins` e `IcebergRuins` NÃO entram, e foi medido,
+porque saem da `IronIslandB3F` e do `MtCoronet_1F_North_Room2`, dois mapas vivos).
+**45 layouts exclusivos encolhidos para 1x1**, **26 tabelas de mato fora**, **29
+portas fechadas em 23 mapas vivos** com **22 placas** (a 23ª foi embora com a
+`RockPeakRuins`), e **24 casos de suíte** que morriam nos cortados removidos.
+
+**Por que a entrada da tabela NÃO é apagada**, e este é o parágrafo que salva a
+próxima pessoa: a save guarda **índices**, e são dois.
+`SaveBlock1.location.mapGroup`/`mapNum` (0x04) é a POSIÇÃO do mapa dentro do
+grupo, e os 111 cortados estão espalhados NO MEIO de nove grupos (o
+`gMapGroup_IndoorSinnohPortas` perde 38 de 128, do índice 1 ao 123), então apagar
+a entrada desloca todo mapa vivo que vem depois. E `SaveBlock1.mapLayoutId` (0x32)
+é o ordinal do layout, e por isso o layout **encolhe** para 1x1 em vez de ser
+apagado. Pelo mesmo motivo o warp que ia para túmulo vira **lápide**: a entrada
+fica no MESMO índice e passa a repetir as coordenadas do warp vivo de menor índice
+do mapa, porque `dest_warp_id` também é índice e a `HearthomeCity` sozinha
+perderia os índices 7 e 8 de 16 e desalinharia 14 ponteiros de terceiros. Duas
+entradas no mesmo tile: `GetWarpEventAtPosition` devolve a PRIMEIRA, então o
+doador ganha e a lápide nunca dispara.
+
+### A guarda nova: `mapLayoutId`, o ponto cego que a própria remoção denunciou
+
+`guarda_save.py` agora cobre o `mapLayoutId`, e a régua **replica o gerador**
+(`tools/mapjson/mapjson.cpp:895`) em vez de contar posições no JSON: o número do
+layout é a posição contando SÓ os layouts cujo `border_filepath` existe no disco.
+Medido: **2.167 entradas no `layouts.json` e 2.032 numeradas**, conferido contra o
+`layouts.h` gerado, divergência zero. A consequência é a que assusta: **apagar um
+`border.bin` desloca o id de todo layout seguinte**, sem mudar uma letra de
+arquivo nenhum e sem erro de compilação, e a save parada lá carrega a geometria de
+outro mapa. É por isso que a remoção encolhe o `border.bin` em vez de apagá-lo. O
+lado velho vem de `852be4632a` por `git ls-tree` enquanto a impressão gravada não
+tiver a chave. Rodado hoje: **2.032 layouts, nenhum movido**.
+
+### Os casos adversariais do fechador (autor de caso ≠ autor de cena)
+
+`dev_scripts/testes_criticos/141_fechador_r4.json`, 8 casos, 8 verdes, cada um
+com o par negativo.
+
+- **T141.1 e T141.2**: o T138 provou o Cyrus de Sinnoh e **nenhum caso chegava a
+  um Maxie**, que é justamente onde a troca do Groudon foi feita. Agora o caso
+  entra pelo warp 1 do `MagmaHideout_4F`, anda três tiles, abre a cena do
+  despertar do Groudon e lê `gParties` decifrado: Groudon no slot 4 e Camerupt no
+  ace com `ITEM_CAMERUPTITE`. Os números vieram do pré-processador (Groudon 383,
+  Cameruptite 323) e não da saída do runner, senão a prova seria circular.
+- **T141.3 e T141.4, e este NASCEU VERMELHO**: a suíte só sabia ler o TIME, e item
+  de troca de forma não entra em `gPlayerParty` nenhum, ou seja os nove `additem`
+  poderiam estar vazios sem um caso reclamar. O `gba_runner` ganhou `--bolsa` +
+  `--item`, que varre a bolsa e DECIFRA a quantidade com os 16 bits baixos de
+  `encryptionKey` (`src/item.c`), com os offsets medidos pelo probe e nunca
+  chumbados. **O achado é do caso**: dos nove itens só CINCO são
+  `POCKET_KEY_ITEMS`, e os quatro néctares de Alola são `POCKET_ITEMS`, ao
+  contrário do que o comentário do gerador dizia. Por isso a varredura é do
+  `struct Bag` inteiro.
+- **T141.5 e T141.6**: o T139 prova a mecânica de esconder no `CrownTundra08`, que
+  tem UM objeto com flag nova. O `Galar_Hammerlocke05` tem DOIS, e é nele que
+  trocar as duas passaria calado; pior, a cena faz `removeobject 4` e
+  `removeobject 5`, que são LOCAL IDs de base 1, ou seja os objetos de ÍNDICE 3 e
+  4 do `map.json`, e errar a base por um apagaria o vizinho. Com a `BA7` acesa o
+  jogador atravessa (16,10) e sai do mapa; com a `BA8`, a do outro NPC, para em
+  (16,11).
+- **T141.7 e T141.8**: a lápide no caso mais apertado que existe. No
+  `CanalaveCityPokecenter1F` a escada do 2F virou uma SEGUNDA entrada em (6,8), o
+  mesmo tile do warp 0 que sai para a cidade; pisar ali sai em `MAP_CANALAVE_CITY`
+  (28,23), sem travar. Medido de quebra: (1,6), o tile da escada velha, é colisão
+  sólida, então aquele warp **nunca disparava nem antes**.
+- **T129.18, fora do emulador**: nenhuma das 234 linhas de mato aponta para tabela
+  morta (o Burmy-Planta apontava, e o `--selvagem` morria com `SystemExit`), e o
+  Surskit está em água de Sinnoh e deixou de ser inobtenível.
+- **Passo 5 do `remove_mapas_cortados --demo`**: a pergunta do condutor, "dá para
+  entrar num túmulo pelo seletor de capítulo?", foi respondida por medição. **Não,
+  e nenhum capítulo precisou sair**: o seletor (`src/chapter_jump.c`) só oferece
+  `HEAL_LOCATION` de cidade de ginásio e de Liga. O que faltava era a trava,
+  porque o Chapter Jump é o único caminho do jogo que ignora warp: cortar uma
+  cidade de ginásio um dia daria um capítulo que larga o jogador num mapa vazio
+  SEM SAÍDA, e nem o build nem a suíte diriam nada.
+
+### O que fica aberto para o Gui
+
+- **`warp` em script de objeto de Galar**, o diagnóstico acima, e os blocos **c4e
+  (390 indecisos)** e **c4f (282 de `special`)**, os dois caros.
+- **A Dex de Galar**: 859 encontros estáticos da fonte medidos e parados,
+  esperando decisão de sprite. Galar segue com zero linha de encontro.
+- **Importar as batalhas que não existem**: as três de Silver, a `RYOKU1`, os
+  rivais do BW3G e, do lado vilão, Ghetsis, N, o Shadow Triad, Courtney e Charon.
+  **Ninguém mediu a fonte ainda**, e o BW3G pode não trazê-los, como não trouxe
+  rival nenhum.
+- **Primal para Maxie e Archie**, se o Gui quiser: custa trocar o gimmick deles.
+- **`valida_warp_tile` sem linha de base**: os 85,9% de hoje não têm com o que ser
+  comparados, e o portão só cobra piso de 60% por região.
+- Seguem abertos, da 0.k e da 0.j: as 19 bolas de neve de Snowpoint, as 31 pedras
+  de Sinnoh, a alcançabilidade de `RavagedPath` e de duas salas do Mt. Coronet, e
+  a curva de Galar.
+
+**Dívida quitada**: o `T93.6` e o `T85.1`, que desde a 0.i fixavam o molde do
+`SendoffSpring` (cortado do escopo e portanto nunca convertido), foram embora com
+os outros 22 casos de mapa cortado. A bomba plantada em 0.i saiu do mapa.
+
+---
 ## 0.k A DEX COMPLETA NAS CINCO REGIÕES, 21-22/08/2026 (rodada 3; condutor Opus, executores Opus, fechador Opus)
 
 Build verde. **ROM 98,85% de 32 MB** (+16 KB sobre a 0.j, 375 KB livres), EWRAM

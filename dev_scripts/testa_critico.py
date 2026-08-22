@@ -433,8 +433,24 @@ def offsets_de_batalha(src):
                 "  offsetof(struct Pokemon, box.secure),\n"
                 "  sizeof(union PokemonSubstruct),\n"
                 "  offsetof(struct Pokemon, level),\n"
+                # Os tres de baixo servem ao `--bolsa` do runner. Ler o TIME nao
+                # prova a bolsa: o NPC da Dex entrega nove itens de troca de
+                # forma, e nenhum deles entra em gPlayerParty. A quantidade e
+                # cifrada com encryptionKey (src/item.c), por isso o offset dela
+                # vem junto e nao chumbado.
+                #
+                # A varredura e da BOLSA INTEIRA, e nao do bolso de itens-chave.
+                # Medido em 22/08/2026 pelo T141.3, que nasceu vermelho: dos
+                # nove itens de forma so CINCO sao `POCKET_KEY_ITEMS`; os quatro
+                # nectares de Alola sao `POCKET_ITEMS` (src/data/items.h). Os
+                # cinco bolsos de `struct Bag` sao `struct ItemSlot` contiguos,
+                # entao varrer o struct inteiro responde "esta na bolsa?" sem
+                # precisar saber de bolso.
+                "  offsetof(struct SaveBlock1, bag),\n"
+                "  sizeof(struct Bag) / sizeof(struct ItemSlot),\n"
+                "  offsetof(struct SaveBlock2, encryptionKey),\n"
                 "};\n")
-    v = [int.from_bytes(b[i:i + 4], "little") for i in range(0, 44, 4)]
+    v = [int.from_bytes(b[i:i + 4], "little") for i in range(0, 56, 4)]
     g = compila("gimmick", "const struct BattleStruct gB = "
                 "{ .opponentMonCanDynamax = 0x3F };\n")
     nz = [i for i, x in enumerate(g) if x]
@@ -445,6 +461,7 @@ def offsets_de_batalha(src):
             "bmon_especie": v[3], "bmon_nivel": v[4], "bmon_golpes": v[5],
             "mon_pers": v[6], "mon_otid": v[7], "mon_secure": v[8],
             "tam_substruct": v[9], "mon_nivel": v[10],
+            "bolsa": v[11], "bolsa_n": v[12], "chave_cripto": v[13],
             "gimmick_offset": nz[0] & ~1}
     _BATALHA_CACHE[src] = fora
     return fora
@@ -521,7 +538,8 @@ LINHA_ESTADO = re.compile(r"^ESTADO (\S+) (.*)$")
 
 
 def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=None,
-         offsets=None, palobj_lidas=(), batalha=None, time_jogador=False):
+         offsets=None, palobj_lidas=(), batalha=None, time_jogador=False,
+         itens_lidos=()):
     os.makedirs(SAIDA, exist_ok=True)
     for f in glob.glob(f"{SAIDA}/{prefixo}-*.png"):
         os.remove(f)
@@ -565,6 +583,14 @@ def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=Non
         cmd += ["--var", hex(v)]
     for c in palobj_lidas:
         cmd += ["--palobj", hex(c)]
+    if itens_lidos:
+        if not (batalha and "gSaveBlock2Ptr" in simbolos):
+            raise RuntimeError("prova de item na bolsa precisa dos offsets de "
+                               "batalha e de gSaveBlock2Ptr no pokeemerald.map")
+        cmd += ["--bolsa", ",".join(str(batalha[k]) for k in (
+            "bolsa", "bolsa_n", "chave_cripto"))]
+        for it in itens_lidos:
+            cmd += ["--item", hex(it)]
     if sav:
         cmd += ["--sav", sav]
     p = subprocess.run(cmd, capture_output=True, text=True, timeout=900)
@@ -1026,6 +1052,12 @@ def main():
                        for n in prova.get("flags_acesas", []) + prova.get("flags_apagadas", [])]
         vars_lidas = [int(v, 0) for v in prova.get("vars", {})]
         palobj_lidas = [int(c, 0) for c in prova.get("palobj_presentes", [])]
+        # Item na bolsa nao ganhou chave de prova propria: o runner reporta
+        # `item_0xNNN` e o bloco `campos` ja sabe cobrar qualquer chave. Aqui so
+        # se descobre QUAIS itens o caso quer lidos, para o runner nao ter de
+        # varrer os 30 slots atras de nada.
+        itens_lidos = [int(k[5:], 0) for k in prova.get("campos", {})
+                       if k.startswith("item_0x")]
         try:
             roteiro = monta_roteiro(caso, por_nome, tabela_flags)
             estados = roda(rom_do_caso, simbolos_do_caso, roteiro,
@@ -1036,7 +1068,8 @@ def main():
                                src2 if (caso.get("rom") == "rom2" and src2) else src)
                            if (prova.get("campos") or "opcoes" in caso
                                or caso.get("time_jogador")) else None,
-                           time_jogador=caso.get("time_jogador", False))
+                           time_jogador=caso.get("time_jogador", False),
+                           itens_lidos=itens_lidos)
             falhas = confere(caso, estados, por_nome, por_id, tabela_flags, layouts,
                              treinadores)
         except Exception as e:                                  # noqa: BLE001

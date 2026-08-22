@@ -1,0 +1,184 @@
+[
+ {
+  "id": "T141.1",
+  "nome": "O CHEFE VILAO DE HOENN ABRE A BATALHA COM O GROUDON QUE A TABELA MANDOU, lido slot a slot de gParties decifrado. A rodada dos vilaes trocou o Groudon do Wallace para o Maxie e o Kyogre do Brendan para o Archie (decisao do condutor: no chefe vilao a lore ganha), e o T138 so provou o Cyrus de Sinnoh: nenhum caso chegava a um Maxie. Este chega. Warp 1 do MagmaHideout_4F larga o jogador em (20,21), quatro tiles a leste do Maxie em (16,21); tres passos para a esquerda encostam nele em (17,21) e o A abre a cena inteira do despertar do Groudon (sparkle, DoOrbEffect, duas tremidas de camera, tres msgbox) ate o `trainerbattle_no_intro`. A leitura e a do T128.5: com LV.5 ligado (opcoes=36) os seis niveis viram 5 e um time novo fica indistinguivel de qualquer outro, entao o que se cobra e a ESPECIE de cada slot e o ITEM do ace. NINETALES 38, TORKOAL 324, MAGCARGO 219, EXCADRILL 530, GROUDON 383 no slot 4 com ITEM_LEFTOVERS 472, e CAMERUPT 323 no ace com ITEM_CAMERUPTITE 323. Perder a pedra do ace desliga a Mega em silencio, e item5 e o unico campo que reclamaria. Par negativo: T141.2.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_MAGMA_HIDEOUT_4F",
+  "warp_id": 1,
+  "roteiro": "300:NADA,17:LEFT*8,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_MAGMA_HIDEOUT_4F",
+   "oponente": "TRAINER_MAXIE_MAGMA_HIDEOUT",
+   "campos": {
+    "opcoes": 36,
+    "especie0": 38,
+    "especie1": 324,
+    "especie2": 219,
+    "especie3": 530,
+    "especie4": 383,
+    "especie5": 323,
+    "item4": 472,
+    "item5": 323,
+    "nivelinimigo": 5,
+    "nivelinimigo5": 5
+   }
+  }
+ },
+ {
+  "id": "T141.2",
+  "nome": "PAR NEGATIVO DO T141.1: a MESMA rota, com o MESMO numero de quadros, e nenhum aperto de A. O jogador para encostado no Maxie em (17,21), a cena nunca comeca, `oponente` continua TRAINER_NONE e o slot 4 de gParties continua zerado. Sem ele o T141.1 passaria num jogo em que a memoria de gParties ja viesse suja de outra batalha, que e exatamente o modo como uma prova de time morre sem ninguem ver.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_MAGMA_HIDEOUT_4F",
+  "warp_id": 1,
+  "roteiro": "300:NADA,17:LEFT*8,120:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_MAGMA_HIDEOUT_4F",
+   "pos": [
+    17,
+    21
+   ],
+   "oponente": 0,
+   "campos": {
+    "especie4": 0,
+    "especie5": 0,
+    "item5": 0
+   }
+  }
+ },
+ {
+  "id": "T141.3",
+  "nome": "OS NOVE ITENS DE FORMA ESTAO NA BOLSA, e nao so no script. A rodada da Dex fechou os cinco ultimos inobteniveis entregando nove itens de troca de forma no laboratorio do Birch, e o T137.1 le o TIME (`especie0`), que e a unica coisa que a suite sabia ler: item-chave nao entra em gPlayerParty nenhum e os nove `additem` passariam vazios sem um caso reclamar. O `gba_runner` ganhou `--bolsa`, que varre a BOLSA INTEIRA dentro do SaveBlock1 e DECIFRA a quantidade com os 16 bits baixos de gSaveBlock2Ptr->encryptionKey (src/item.c), com os tres offsets medidos pelo probe e nunca chumbados. Este caso nasceu VERMELHO e o achado e dele: dos nove, so CINCO sao `POCKET_KEY_ITEMS`, e os quatro nectares de Alola sao `POCKET_ITEMS` (src/data/items.h), ao contrario do que o comentario do gerador dizia. Varrer so o bolso de chaves teria dado quatro zeros para itens que ESTAO na bolsa. Cobrados um a um: ROTOM_CATALOG 0x2B6, GRACIDEA 0x2B7, REVEAL_GLASS 0x2B8, ZYGARDE_CUBE 0x2BA, PRISON_BOTTLE 0x2BB, RED_NECTAR 0xF6, YELLOW_NECTAR 0xF7, PINK_NECTAR 0xF8 e PURPLE_NECTAR 0xF9, cada um com quantidade 1. Par negativo: T141.4.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+  "warp_id": 1,
+  "time_jogador": true,
+  "roteiro": "240:NADA,16:UP*7,90:NADA,16:A,240:NADA,16:A*2,300:NADA,16:A*2,300:NADA,16:A,240:NADA,16:A*2,300:NADA,16:A*2,300:NADA",
+  "prova": {
+   "mapa": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+   "time": 6,
+   "campos": {
+    "especie0": 1020,
+    "item_0x2B6": 1,
+    "item_0x2B7": 1,
+    "item_0x2B8": 1,
+    "item_0x2BA": 1,
+    "item_0x2BB": 1,
+    "item_0xF6": 1,
+    "item_0xF7": 1,
+    "item_0xF8": 1,
+    "item_0xF9": 1
+   }
+  }
+ },
+ {
+  "id": "T141.4",
+  "nome": "PAR NEGATIVO DO T141.3: a MESMA rota, SEM apertar A nenhuma vez. A bolsa de itens-chave continua sem os nove, e o time continua vazio. Sem ele o T141.3 passaria num jogo que ja nascesse com esses itens na bolsa, e passaria tambem num leitor de bolsa quebrado que devolvesse 1 para qualquer coisa: aqui o MESMO leitor tem que devolver 0 nos nove.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+  "warp_id": 1,
+  "time_jogador": true,
+  "roteiro": "240:NADA,16:UP*7,90:NADA",
+  "prova": {
+   "mapa": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+   "time": 0,
+   "pos": [
+    7,
+    11
+   ],
+   "campos": {
+    "item_0x2B6": 0,
+    "item_0x2B7": 0,
+    "item_0x2B8": 0,
+    "item_0x2BA": 0,
+    "item_0x2BB": 0,
+    "item_0xF6": 0,
+    "item_0xF7": 0,
+    "item_0xF8": 0,
+    "item_0xF9": 0
+   }
+  }
+ },
+ {
+  "id": "T141.5",
+  "nome": "GALAR c4b COM DOIS NPCs ESCONDIDOS NO MESMO MAPA: a flag certa apaga o objeto certo. O T139 prova a mecanica no CrownTundra08, que tem UM so objeto com flag nova; o `Galar_Hammerlocke05` tem DOIS (o policial de (16,10) com FLAG_GALAR_ESCONDE_BA7 e a moca de (2,3) com FLAG_GALAR_ESCONDE_BA8) e e nele que trocar as duas passaria calado. Ainda por cima a cena `GalarObj_G09M11_o4` faz `removeobject 4` e `removeobject 5`, que sao LOCAL IDs de base 1, ou seja os objetos de INDICE 3 e 4 do map.json: errar a base por um apagaria o vizinho. Aqui a BA7 e escrita direta na EWRAM antes do warp, o jogador entra pelo warp 2, desce tres tiles ate (16,12) e sobe: com o policial fora do caminho ele atravessa (16,10), pisa no proprio warp 2 em (16,9) e sai no Galar_Hammerlocke10. Par negativo: T141.6.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_GALAR_ESCONDE_BA7"
+  ],
+  "warp": "MAP_GALAR_HAMMERLOCKE_05",
+  "warp_id": 2,
+  "roteiro": "300:NADA,17:DOWN*3,90:NADA,17:UP*6,150:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_HAMMERLOCKE_10",
+   "flags_acesas": [
+    "FLAG_GALAR_ESCONDE_BA7"
+   ],
+   "flags_apagadas": [
+    "FLAG_GALAR_ESCONDE_BA8"
+   ]
+  }
+ },
+ {
+  "id": "T141.6",
+  "nome": "PAR NEGATIVO DO T141.5, e o que prova que cada uma das duas flags e do SEU objeto: MESMO mapa, MESMO warp, MESMO caminho, e a flag acesa e a do OUTRO NPC (FLAG_GALAR_ESCONDE_BA8, a da moca de (2,3)). O policial de (16,10) continua solido, os seis UP batem nele e o jogador para em (16,11), um tile antes, DENTRO do Hammerlocke05. Se as duas flags estivessem trocadas entre os objetos, este caso sairia do mapa junto com o T141.5 e os dois passariam.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_GALAR_ESCONDE_BA8"
+  ],
+  "warp": "MAP_GALAR_HAMMERLOCKE_05",
+  "warp_id": 2,
+  "roteiro": "300:NADA,17:DOWN*3,90:NADA,17:UP*6,150:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_HAMMERLOCKE_05",
+   "pos": [
+    16,
+    11
+   ],
+   "flags_apagadas": [
+    "FLAG_GALAR_ESCONDE_BA7"
+   ]
+  }
+ },
+ {
+  "id": "T141.7",
+  "nome": "A LAPIDE NAO SOMBREIA O DOADOR, E NAO TRAVA. A remocao fisica dos mapas cortados nao apaga a entrada de warp que apontava para tumulo (`dest_warp_id` e INDICE e apagar desalinharia os ponteiros de terceiros): a entrada fica no MESMO indice e passa a repetir as coordenadas do warp vivo de menor indice do mapa. O CanalaveCityPokecenter1F e o caso mais apertado que existe, porque a escada do 2F, que era o warp 2 em (1,6), virou uma SEGUNDA entrada em (6,8), o mesmo tile do warp 0 que sai para a cidade. Duas entradas no mesmo tile: `GetWarpEventAtPosition` devolve a PRIMEIRA, entao o doador tem que ganhar. O jogador entra pelo warp 0, sobe tres tiles e volta a pisar em (6,8): tem que sair em MAP_CANALAVE_CITY, em (28,23), e nao ficar preso nem cair no tumulo do 2F. Medido de quebra: (1,6), o tile da escada velha, e colisao solida, entao aquele warp nunca disparava nem antes. Par negativo: T141.8.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_CANALAVE_CITY_POKECENTER_1F",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*4,90:NADA,17:DOWN*8,400:NADA",
+  "prova": {
+   "mapa": "MAP_CANALAVE_CITY",
+   "pos": [
+    28,
+    23
+   ]
+  }
+ },
+ {
+  "id": "T141.8",
+  "nome": "PAR NEGATIVO DO T141.7: a MESMA entrada e o MESMO tempo, subindo sem voltar. O jogador para em (6,4), dentro do Pokecenter, e o mapa continua sendo o Pokecenter. Sem ele o T141.7 passaria num jogo em que o mapa cuspisse o jogador para a cidade sozinho, por qualquer motivo que nao fosse pisar no tile do doador.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_CANALAVE_CITY_POKECENTER_1F",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*4,490:NADA",
+  "prova": {
+   "mapa": "MAP_CANALAVE_CITY_POKECENTER_1F",
+   "pos": [
+    6,
+    4
+   ]
+  }
+ }
+]

@@ -48,10 +48,20 @@ O que quebra uma save, em ordem de facilidade de errar:
    `indices_de_dado()`, que guarda a POSICAO de cada nome dentro do enum:
    acrescentar no FIM e livre, mover ou inserir no meio reprova.
 
+6. **`mapLayoutId` (0x32 do SaveBlock1).** Irmao do item 1, e ate 22/08/2026 um
+   PONTO CEGO declarado: a save guarda o NUMERO do layout, e esse numero e a
+   posicao do layout dentro de `data/layouts/layouts.json` contando SO os que
+   tem `border_filepath` no disco. Apagar um layout, mover um layout ou apagar
+   um border.bin desloca o id de todos os seguintes, sem mudar mapa nenhum e
+   sem erro de compilacao: quem estivesse parado la carrega a geometria de
+   outro mapa. Coberto por `numeros_de_layout()`, com o lado velho lido do
+   commit `REF_LAYOUT` enquanto a impressao gravada nao tiver a chave.
+
 O que este script continua NAO cobrindo: qualquer estado novo que alguem
 resolva salvar. Campo novo em struct de save e quebra por definicao, e a
 checagem 3 pega, mas so depois de escrito.
 """
+import collections
 import hashlib
 import json
 import os
@@ -134,6 +144,59 @@ def contagens():
     out["vars_start_end"] = re.findall(r"#define\s+VARS_(?:START|END)\s+(\S+)", varsh)
     out["n_var_unused"] = varsh.count("VAR_UNUSED")
     return out
+
+
+REF_LAYOUT = "852be4632a"
+
+
+def numeros_de_layout(texto, existe):
+    """LAYOUT_* -> numero, REPLICANDO `generate_layouts_constants_text`.
+
+    `SaveBlock1.mapLayoutId` (0x32) guarda esse numero, e ele nao e a posicao
+    dentro de `layouts.json`: o gerador (tools/mapjson/mapjson.cpp:895) PULA,
+    sem gastar numero, todo layout cujo `border_filepath` nao existe no disco.
+    Medido em 22/08/2026: 2.167 entradas no JSON, 2.032 numeradas, e por isso
+    apagar um border.bin desloca o id de TODO layout seguinte e manda a save
+    parada la carregar outro mapa. Este era o ponto CEGO do guarda, e o achado
+    e da remocao fisica dos mapas cortados, que encolhe border.bin em vez de
+    apagar exatamente para nao mexer nisto.
+
+    Fica de fora, de proposito: mapa VIVO que troca o campo `layout` de nome.
+    Isso tambem muda o `mapLayoutId` dele, mas e mudanca deliberada de conteudo,
+    e nao deslocamento silencioso de indice, que e o que este bloco caca.
+    """
+    num, i = {}, 1
+    for l in json.loads(texto)["layouts"]:
+        if not existe(l.get("border_filepath", "")):
+            continue
+        num[l["id"]] = i
+        i += 1
+    return num
+
+
+def indices_de_layout():
+    return numeros_de_layout(
+        open(f"{RAIZ}/data/layouts/layouts.json", encoding="utf-8").read(),
+        lambda p: os.path.exists(f"{RAIZ}/{p}"))
+
+
+def layouts_do_git(ref=REF_LAYOUT):
+    """Os numeros de layout COMO ERAM no commit de referencia, ou None.
+
+    A impressao gravada e de 11/08/2026 e nao tem esta chave; sem um lado velho
+    a checagem so sabe avisar. O repositorio e o lado velho: `git ls-tree` diz
+    quais border.bin existiam la, que e o que decide quem gasta numero.
+    """
+    import subprocess
+    def sai(*a):
+        r = subprocess.run(a, cwd=RAIZ, capture_output=True, text=True)
+        return r.stdout if r.returncode == 0 else None
+    js = sai("git", "show", f"{ref}:data/layouts/layouts.json")
+    arv = sai("git", "ls-tree", "-r", "--name-only", ref, "data/layouts/")
+    if js is None or arv is None:
+        return None
+    tinha = set(arv.split())
+    return numeros_de_layout(js, lambda p: p in tinha)
 
 
 def revisao_de_layout():
@@ -265,6 +328,7 @@ def impressao_atual():
         "layout_da_save": revisao_de_layout(),
         "sizeof_saveblock1": tamanho_saveblock1(),
         "dados": indices_de_dado(),
+        "layouts": indices_de_layout(),
     }
 
 
@@ -316,6 +380,26 @@ def compara(velha, nova):
                 quebras.append(f"MACRO DE TAMANHO MUDOU: {k} era {a}, virou {b}. "
                                f"flags[] e vars[] mudam de tamanho e empurram tudo "
                                f"que vem depois deles no SaveBlock1.")
+
+    # `mapLayoutId` (0x32). Mesma regra dos mapas: sumir e mover reprovam,
+    # entrar no FIM e livre. Impressao velha sem a chave nao inventa quebra; o
+    # `main` enche esse lado com o commit REF_LAYOUT antes de chamar aqui.
+    vlay = velha.get("layouts") or {}
+    nlay = nova.get("layouts") or {}
+    ultimo = max(vlay.values()) if vlay else -1
+    for nome, pos in vlay.items():
+        if nome not in nlay:
+            quebras.append(f"LAYOUT APAGADO: {nome} era o mapLayoutId {pos}. "
+                           f"Todo layout depois dele anda um, e save parada num "
+                           f"deles carrega a geometria de outro mapa.")
+        elif nlay[nome] != pos:
+            quebras.append(f"LAYOUT MOVIDO: {nome} era o mapLayoutId {pos}, "
+                           f"virou {nlay[nome]}. Save parada nele carrega a "
+                           f"geometria de outro mapa.")
+    for nome, pos in nlay.items():
+        if nome not in vlay and pos <= ultimo:
+            quebras.append(f"LAYOUT INSERIDO NO MEIO: {nome} entrou como "
+                           f"mapLayoutId {pos}, empurrando os seguintes.")
 
     for k, v in velha["structs"].items():
         if nova["structs"].get(k) != v:
@@ -451,7 +535,17 @@ def main():
         return 0
 
     velha = json.load(open(IMPRESSAO))
+    de_onde = "impressao"
+    if "layouts" not in velha:
+        velha["layouts"] = layouts_do_git()
+        de_onde = f"git {REF_LAYOUT}"
+        if velha["layouts"] is None:
+            print(f"AVISO: sem `git show {REF_LAYOUT}:data/layouts/layouts.json` "
+                  "neste clone, o mapLayoutId fica SEM lado velho. Nao conte "
+                  "esta rodada como verificada.")
     quebras = compara(velha, nova)
+    print(f"mapLayoutId: {len(nova['layouts'])} layouts numerados, lado velho "
+          f"lido de {de_onde}")
     # I/O fica fora do compara(), que e funcao pura e tem demo em cima dela.
     if nova.get("sizeof_saveblock1") and elf_esta_velho():
         quebras.insert(0, "AVISO: o ELF e mais velho que os headers. O tamanho "
@@ -598,6 +692,46 @@ def demo():
     # e o header de verdade tem que responder um numero
     assert isinstance(revisao_de_layout(), int), \
         "include/save.h perdeu SAVE_LAYOUT_REVISION"
+
+    # mapLayoutId. Impressao sem a chave nao inventa quebra; sumir e mover
+    # reprovam; entrar no fim e livre.
+    comlay = json.loads(json.dumps(base))
+    comlay["layouts"] = {"LAYOUT_A": 1, "LAYOUT_B": 2}
+    assert compara(base, comlay) == [], compara(base, comlay)
+    assert compara(comlay, comlay) == [], "igual a igual nao quebra"
+    fim = json.loads(json.dumps(comlay)); fim["layouts"]["LAYOUT_C"] = 3
+    assert compara(comlay, fim) == [], compara(comlay, fim)
+    meio = json.loads(json.dumps(comlay))
+    meio["layouts"] = {"LAYOUT_C": 1, "LAYOUT_A": 2, "LAYOUT_B": 3}
+    q = compara(comlay, meio)
+    assert any("LAYOUT MOVIDO" in x and "LAYOUT_A" in x for x in q), q
+    assert any("LAYOUT INSERIDO NO MEIO" in x for x in q), q
+    sem = json.loads(json.dumps(comlay)); del sem["layouts"]["LAYOUT_A"]
+    assert any("LAYOUT APAGADO" in x for x in compara(comlay, sem))
+
+    # A MUTACAO que interessa, plantada na regra de verdade: apagar o border.bin
+    # de um layout do meio nao muda UMA letra do layouts.json e mesmo assim
+    # desloca todo mundo depois dele. Se `numeros_de_layout` ignorasse o
+    # border_filepath, este caso passaria calado.
+    texto = open(f"{RAIZ}/data/layouts/layouts.json", encoding="utf-8").read()
+    vivo = lambda p: os.path.exists(f"{RAIZ}/{p}")
+    reais_lay = numeros_de_layout(texto, vivo)
+    assert len(reais_lay) > 1000, len(reais_lay)
+    # Borda EXCLUSIVA de um layout so: 4 arquivos de borda sao compartilhados
+    # por mais de um layout, e escolher um deles apagaria varios de uma vez e
+    # embaralharia a conta.
+    usos = collections.Counter(l["border_filepath"]
+                               for l in json.loads(texto)["layouts"])
+    alvo = next(l["border_filepath"] for l in json.loads(texto)["layouts"]
+                if usos[l["border_filepath"]] == 1 and vivo(l["border_filepath"]))
+    depois = len(reais_lay) - numeros_de_layout(
+        texto, vivo)[next(l["id"] for l in json.loads(texto)["layouts"]
+                          if l["border_filepath"] == alvo)]
+    mutante = numeros_de_layout(texto, lambda p: p != alvo and vivo(p))
+    q = compara({**base, "layouts": reais_lay}, {**base, "layouts": mutante})
+    assert sum("LAYOUT APAGADO" in x for x in q) == 1, q[:3]
+    assert sum("LAYOUT MOVIDO" in x for x in q) == depois, \
+        "apagar um border.bin tem que deslocar TODOS os layouts seguintes"
 
     # a leitura de verdade do header tem que achar as tres tabelas e comecar em NONE
     reais = indices_de_dado()
