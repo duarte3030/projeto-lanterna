@@ -740,6 +740,31 @@ def eventos(raiz, mapa):
     return {c: len(d.get(c) or []) for c, _ in CAMPOS}
 
 
+def linha_da_dex():
+    """Dex obtenível: N/1.571 por região e total, lido do censo e não decorado.
+
+    A régua do resto deste arquivo mede MAPA. Esta linha mede POKÉMON, e sai do
+    mesmo `dev_scripts/censo_dex.py` que a obra da dex usa como fonte da
+    verdade: se a régua e o censo discordarem, quem manda é o censo. "Obtenível"
+    aqui é o que o censo NÃO chama de `inobtenivel`; a coluna por região conta
+    entradas distintas com fonte selvagem, estática ou de presente naquela
+    região, e por isso a soma das cinco é MAIOR que o total (o mesmo Pokémon
+    aparece em várias regiões) e menor que ele ao mesmo tempo (evolução e forma
+    não têm região).
+    """
+    import censo_dex
+    linhas = censo_dex.censo()
+    total = len(linhas)
+    obt = sum(1 for l in linhas if l.categoria != "inobtenivel")
+    por_regiao = {r: len({l.nome for l in linhas if r in l.regioes.split(",")})
+                  for r in censo_dex.CINCO}
+    print(f"\nDex obtenível: {obt}/{total} ({100 * obt / total:.1f}%) — "
+          + ", ".join(f"{r} {n}" for r, n in por_regiao.items()))
+    print("   por região = entradas com encontro selvagem, estático ou presente "
+          "NAQUELA região;\n   o total inclui também evolução e troca de forma, "
+          "que não têm região.")
+
+
 def main():
     alvo = None
     if "--detalhe" in sys.argv:
@@ -862,6 +887,9 @@ def main():
               f"{p('warp_events'):>11} {p('bg_events'):>11} "
               f"{'--':>10}  {fmt_arte(arte(nossos)):>11}")
         faltando_total[nome] = (so_na_fonte, sorted(piores)[:6])
+
+    if not alvo:
+        linha_da_dex()
 
     if not alvo or alvo.lower() == "galar":
         print("\nGalar é GEOMETRIA INTEIRA e conteúdo em obra. Os 438 mapas "

@@ -10280,3 +10280,121 @@
 #define FLAG_HIDE_ARCEUS_SINNOH      FLAG_UNUSED_0x3229  // SpearPillar
 #define FLAG_ARCEUS_SINNOH_RESOLVIDO FLAG_UNUSED_0x322A  // SpearPillar, ja pego: trava o portao
 // <<< Lendarios de Sinnoh <<<
+
+// >>> Dex completa: HIDE dos estaticos (dev_scripts/distribui_dex.py) >>>
+// Uma flag de HIDE por estatico da Dex completa, na CAUDA da maior
+// faixa livre (0x20D2-0x321F, medida por dev_scripts/flags_livres.py);
+// logo acima moram as 11 do dev_scripts/lendarios_sinnoh.py.
+// Todas alocadas de uma vez, aqui, para que os executores de cada
+// regiao NAO disputem este arquivo na hora de escrever o estatico.
+// Apelidar FLAG_UNUSED nao mexe em FLAGS_COUNT: a save nao muda.
+// Gerado por dev_scripts/distribui_dex.py; nao editar a mao.
+#define FLAG_HIDE_DEX_ARTICUNO_GALAR          FLAG_UNUSED_0x31A0  // Hoenn, AncientTomb
+#define FLAG_HIDE_DEX_ZAPDOS_GALAR            FLAG_UNUSED_0x31A1  // Unova, Unova_RelicCastleB1F
+#define FLAG_HIDE_DEX_MOLTRES_GALAR           FLAG_UNUSED_0x31A2  // Johto, RuinsOfAlph_Outside
+#define FLAG_HIDE_DEX_RAIKOU                  FLAG_UNUSED_0x31A3  // Johto, BurnedTower_B1F
+#define FLAG_HIDE_DEX_ENTEI                   FLAG_UNUSED_0x31A4  // Johto, BurnedTower_B1F
+#define FLAG_HIDE_DEX_SUICUNE                 FLAG_UNUSED_0x31A5  // Johto, CianwoodCity
+#define FLAG_HIDE_DEX_CELEBI                  FLAG_UNUSED_0x31A6  // Johto, IlexForest
+#define FLAG_HIDE_DEX_JIRACHI                 FLAG_UNUSED_0x31A7  // Kanto, CeruleanCave_B1F_Frlg
+#define FLAG_HIDE_DEX_GIRATINA_ALTERED        FLAG_UNUSED_0x31A8  // Hoenn, AncientTomb
+#define FLAG_HIDE_DEX_PHIONE                  FLAG_UNUSED_0x31A9  // Hoenn, MarineCave_End
+#define FLAG_HIDE_DEX_MANAPHY                 FLAG_UNUSED_0x31AA  // Hoenn, MarineCave_End
+#define FLAG_HIDE_DEX_SHAYMIN_LAND            FLAG_UNUSED_0x31AB  // Sinnoh, FloaromaTown
+#define FLAG_HIDE_DEX_VICTINI                 FLAG_UNUSED_0x31AC  // Unova, Unova_VictoryRoadPokecenter1F
+#define FLAG_HIDE_DEX_COBALION                FLAG_UNUSED_0x31AD  // Unova, Unova_RelicCastleB1F
+#define FLAG_HIDE_DEX_TERRAKION               FLAG_UNUSED_0x31AE  // Unova, Unova_VictoryRoadCave1F
+#define FLAG_HIDE_DEX_VIRIZION                FLAG_UNUSED_0x31AF  // Unova, Unova_VictoryRoadCave2F
+#define FLAG_HIDE_DEX_TORNADUS_INCARNATE      FLAG_UNUSED_0x31B0  // Unova, Unova_GiantChasm1F
+#define FLAG_HIDE_DEX_THUNDURUS_INCARNATE     FLAG_UNUSED_0x31B1  // Unova, Unova_GiantChasm1F
+#define FLAG_HIDE_DEX_RESHIRAM                FLAG_UNUSED_0x31B2  // Unova, Unova_DragonspiralTower6F
+#define FLAG_HIDE_DEX_ZEKROM                  FLAG_UNUSED_0x31B3  // Unova, Unova_DragonspiralTower6F
+#define FLAG_HIDE_DEX_LANDORUS_INCARNATE      FLAG_UNUSED_0x31B4  // Unova, Unova_GiantChasmB1F
+#define FLAG_HIDE_DEX_KYUREM                  FLAG_UNUSED_0x31B5  // Unova, Unova_GiantChasmB1F
+#define FLAG_HIDE_DEX_KYUREM_BLACK            FLAG_UNUSED_0x31B6  // Kanto, CeruleanCave_B1F_Frlg
+#define FLAG_HIDE_DEX_KYUREM_WHITE            FLAG_UNUSED_0x31B7  // Sinnoh, MtCoronet_B1F
+#define FLAG_HIDE_DEX_KELDEO_ORDINARY         FLAG_UNUSED_0x31B8  // Hoenn, MarineCave_End
+#define FLAG_HIDE_DEX_MELOETTA_ARIA           FLAG_UNUSED_0x31B9  // Hoenn, MtPyre_Summit
+#define FLAG_HIDE_DEX_XERNEAS_NEUTRAL         FLAG_UNUSED_0x31BA  // Kanto, ViridianForest_Frlg
+#define FLAG_HIDE_DEX_YVELTAL                 FLAG_UNUSED_0x31BB  // Johto, RuinsOfAlph_Outside
+#define FLAG_HIDE_DEX_ZYGARDE_50              FLAG_UNUSED_0x31BC  // Sinnoh, MtCoronet_B1F
+#define FLAG_HIDE_DEX_DIANCIE                 FLAG_UNUSED_0x31BD  // Hoenn, AncientTomb
+#define FLAG_HIDE_DEX_HOOPA_CONFINED          FLAG_UNUSED_0x31BE  // Kanto, PokemonMansion_1F_Frlg
+#define FLAG_HIDE_DEX_VOLCANION               FLAG_UNUSED_0x31BF  // Sinnoh, MtCoronet_B1F
+#define FLAG_HIDE_DEX_TYPE_NULL               FLAG_UNUSED_0x31C0  // Hoenn, MtPyre_Summit
+#define FLAG_HIDE_DEX_TAPU_KOKO               FLAG_UNUSED_0x31C1  // Kanto, PowerPlant_Frlg
+#define FLAG_HIDE_DEX_TAPU_LELE               FLAG_UNUSED_0x31C2  // Hoenn, AncientTomb
+#define FLAG_HIDE_DEX_TAPU_BULU               FLAG_UNUSED_0x31C3  // Johto, IlexForest
+#define FLAG_HIDE_DEX_TAPU_FINI               FLAG_UNUSED_0x31C4  // Hoenn, MarineCave_End
+#define FLAG_HIDE_DEX_COSMOG                  FLAG_UNUSED_0x31C5  // Johto, MtSilver_Outside
+#define FLAG_HIDE_DEX_COSMOEM                 FLAG_UNUSED_0x31C6  // Johto, RuinsOfAlph_Outside
+#define FLAG_HIDE_DEX_SOLGALEO                FLAG_UNUSED_0x31C7  // Johto, MtSilver_Outside
+#define FLAG_HIDE_DEX_LUNALA                  FLAG_UNUSED_0x31C8  // Johto, MtSilver_Outside
+#define FLAG_HIDE_DEX_NIHILEGO                FLAG_UNUSED_0x31C9  // Sinnoh, MtCoronet_B1F
+#define FLAG_HIDE_DEX_BUZZWOLE                FLAG_UNUSED_0x31CA  // Sinnoh, MtCoronet_B1F
+#define FLAG_HIDE_DEX_PHEROMOSA               FLAG_UNUSED_0x31CB  // Sinnoh, MtCoronet_B1F
+#define FLAG_HIDE_DEX_XURKITREE               FLAG_UNUSED_0x31CC  // Sinnoh, MtCoronet_B1F
+#define FLAG_HIDE_DEX_CELESTEELA              FLAG_UNUSED_0x31CD  // Sinnoh, MtCoronet_B1F
+#define FLAG_HIDE_DEX_KARTANA                 FLAG_UNUSED_0x31CE  // Sinnoh, MtCoronet_B1F
+#define FLAG_HIDE_DEX_GUZZLORD                FLAG_UNUSED_0x31CF  // Sinnoh, MtCoronet_B1F
+#define FLAG_HIDE_DEX_NECROZMA                FLAG_UNUSED_0x31D0  // Sinnoh, MtCoronet_B1F
+#define FLAG_HIDE_DEX_NECROZMA_DAWN_WINGS     FLAG_UNUSED_0x31D1  // Hoenn, AncientTomb
+#define FLAG_HIDE_DEX_NECROZMA_DUSK_MANE      FLAG_UNUSED_0x31D2  // Hoenn, AncientTomb
+#define FLAG_HIDE_DEX_MAGEARNA                FLAG_UNUSED_0x31D3  // Kanto, RockTunnel_1F_Frlg
+#define FLAG_HIDE_DEX_MAGEARNA_ORIGINAL       FLAG_UNUSED_0x31D4  // Kanto, CeruleanCave_B1F_Frlg
+#define FLAG_HIDE_DEX_MARSHADOW               FLAG_UNUSED_0x31D5  // Johto, BurnedTower_B1F
+#define FLAG_HIDE_DEX_POIPOLE                 FLAG_UNUSED_0x31D6  // Sinnoh, MtCoronet_B1F
+#define FLAG_HIDE_DEX_NAGANADEL               FLAG_UNUSED_0x31D7  // Unova, Unova_RelicCastleB1F
+#define FLAG_HIDE_DEX_STAKATAKA               FLAG_UNUSED_0x31D8  // Kanto, CeruleanCave_1F_Frlg
+#define FLAG_HIDE_DEX_BLACEPHALON             FLAG_UNUSED_0x31D9  // Hoenn, TerraCave_End
+#define FLAG_HIDE_DEX_ZERAORA                 FLAG_UNUSED_0x31DA  // Kanto, PowerPlant_Frlg
+#define FLAG_HIDE_DEX_MELTAN                  FLAG_UNUSED_0x31DB  // Kanto, SafariZone_Center_Frlg
+#define FLAG_HIDE_DEX_MELMETAL                FLAG_UNUSED_0x31DC  // Kanto, SafariZone_Center_Frlg
+#define FLAG_HIDE_DEX_ZACIAN_HERO             FLAG_UNUSED_0x31DD  // Kanto, ViridianForest_Frlg
+#define FLAG_HIDE_DEX_ZAMAZENTA_HERO          FLAG_UNUSED_0x31DE  // Unova, Unova_RelicCastleB1F
+#define FLAG_HIDE_DEX_ETERNATUS               FLAG_UNUSED_0x31DF  // Unova, Unova_RelicCastleB1F
+#define FLAG_HIDE_DEX_KUBFU                   FLAG_UNUSED_0x31E0  // Unova, Unova_RelicCastleB1F
+#define FLAG_HIDE_DEX_URSHIFU_SINGLE_STRIKE   FLAG_UNUSED_0x31E1  // Unova, Unova_RelicCastleB1F
+#define FLAG_HIDE_DEX_ZARUDE                  FLAG_UNUSED_0x31E2  // Johto, IlexForest
+#define FLAG_HIDE_DEX_REGIELEKI               FLAG_UNUSED_0x31E3  // Hoenn, DesertRuins
+#define FLAG_HIDE_DEX_REGIDRAGO               FLAG_UNUSED_0x31E4  // Kanto, CeruleanCave_1F_Frlg
+#define FLAG_HIDE_DEX_GLASTRIER               FLAG_UNUSED_0x31E5  // Sinnoh, SnowpointCity
+#define FLAG_HIDE_DEX_SPECTRIER               FLAG_UNUSED_0x31E6  // Johto, BurnedTower_B1F
+#define FLAG_HIDE_DEX_CALYREX                 FLAG_UNUSED_0x31E7  // Hoenn, AncientTomb
+#define FLAG_HIDE_DEX_CALYREX_ICE             FLAG_UNUSED_0x31E8  // Johto, RuinsOfAlph_Outside
+#define FLAG_HIDE_DEX_CALYREX_SHADOW          FLAG_UNUSED_0x31E9  // Hoenn, AncientTomb
+#define FLAG_HIDE_DEX_ENAMORUS_INCARNATE      FLAG_UNUSED_0x31EA  // Kanto, ViridianForest_Frlg
+#define FLAG_HIDE_DEX_GREAT_TUSK              FLAG_UNUSED_0x31EB  // Unova, Unova_VictoryRoadCave2F
+#define FLAG_HIDE_DEX_SCREAM_TAIL             FLAG_UNUSED_0x31EC  // Unova, Unova_VictoryRoadCave2F
+#define FLAG_HIDE_DEX_BRUTE_BONNET            FLAG_UNUSED_0x31ED  // Unova, Unova_VictoryRoadCave2F
+#define FLAG_HIDE_DEX_FLUTTER_MANE            FLAG_UNUSED_0x31EE  // Unova, Unova_VictoryRoadCave2F
+#define FLAG_HIDE_DEX_SLITHER_WING            FLAG_UNUSED_0x31EF  // Unova, Unova_VictoryRoadCave2F
+#define FLAG_HIDE_DEX_SANDY_SHOCKS            FLAG_UNUSED_0x31F0  // Unova, Unova_VictoryRoadCave2F
+#define FLAG_HIDE_DEX_IRON_TREADS             FLAG_UNUSED_0x31F1  // Unova, Unova_VictoryRoadCave1F
+#define FLAG_HIDE_DEX_IRON_BUNDLE             FLAG_UNUSED_0x31F2  // Unova, Unova_VictoryRoadCave1F
+#define FLAG_HIDE_DEX_IRON_HANDS              FLAG_UNUSED_0x31F3  // Unova, Unova_VictoryRoadCave1F
+#define FLAG_HIDE_DEX_IRON_JUGULIS            FLAG_UNUSED_0x31F4  // Unova, Unova_VictoryRoadCave1F
+#define FLAG_HIDE_DEX_IRON_MOTH               FLAG_UNUSED_0x31F5  // Unova, Unova_VictoryRoadCave1F
+#define FLAG_HIDE_DEX_IRON_THORNS             FLAG_UNUSED_0x31F6  // Unova, Unova_VictoryRoadCave1F
+#define FLAG_HIDE_DEX_WO_CHIEN                FLAG_UNUSED_0x31F7  // Johto, RuinsOfAlph_Outside
+#define FLAG_HIDE_DEX_CHIEN_PAO               FLAG_UNUSED_0x31F8  // Johto, RuinsOfAlph_Outside
+#define FLAG_HIDE_DEX_TING_LU                 FLAG_UNUSED_0x31F9  // Johto, RuinsOfAlph_Outside
+#define FLAG_HIDE_DEX_CHI_YU                  FLAG_UNUSED_0x31FA  // Johto, RuinsOfAlph_Outside
+#define FLAG_HIDE_DEX_ROARING_MOON            FLAG_UNUSED_0x31FB  // Unova, Unova_VictoryRoadCave2F
+#define FLAG_HIDE_DEX_IRON_VALIANT            FLAG_UNUSED_0x31FC  // Unova, Unova_VictoryRoadCave1F
+#define FLAG_HIDE_DEX_KORAIDON                FLAG_UNUSED_0x31FD  // Unova, Unova_RelicCastleB1F
+#define FLAG_HIDE_DEX_MIRAIDON                FLAG_UNUSED_0x31FE  // Kanto, PowerPlant_Frlg
+#define FLAG_HIDE_DEX_WALKING_WAKE            FLAG_UNUSED_0x31FF  // Unova, Unova_VictoryRoadCave2F
+#define FLAG_HIDE_DEX_IRON_LEAVES             FLAG_UNUSED_0x3200  // Unova, Unova_VictoryRoadGrove
+#define FLAG_HIDE_DEX_OKIDOGI                 FLAG_UNUSED_0x3201  // Johto, IlexForest
+#define FLAG_HIDE_DEX_MUNKIDORI               FLAG_UNUSED_0x3202  // Johto, IlexForest
+#define FLAG_HIDE_DEX_FEZANDIPITI             FLAG_UNUSED_0x3203  // Johto, IlexForest
+#define FLAG_HIDE_DEX_GOUGING_FIRE            FLAG_UNUSED_0x3204  // Unova, Unova_VictoryRoadCave2F
+#define FLAG_HIDE_DEX_RAGING_BOLT             FLAG_UNUSED_0x3205  // Unova, Unova_VictoryRoadCave2F
+#define FLAG_HIDE_DEX_IRON_BOULDER            FLAG_UNUSED_0x3206  // Unova, Unova_VictoryRoadGrove
+#define FLAG_HIDE_DEX_IRON_CROWN              FLAG_UNUSED_0x3207  // Unova, Unova_VictoryRoadGrove
+#define FLAG_HIDE_DEX_TERAPAGOS_NORMAL        FLAG_UNUSED_0x3208  // Unova, Unova_RelicCastleB4F
+#define FLAG_HIDE_DEX_PECHARUNT               FLAG_UNUSED_0x3209  // Unova, Unova_RelicCastleB1F
+#define FLAG_DEX_PRESENTE_INICIAL             FLAG_UNUSED_0x319E  // Birch ja entregou o inicial
+#define FLAG_DEX_PRESENTE_EVENTO              FLAG_UNUSED_0x319F  // os event-only ja foram dados
+// <<< Dex completa <<<

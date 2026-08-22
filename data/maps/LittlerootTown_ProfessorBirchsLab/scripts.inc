@@ -992,3 +992,127 @@ LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall:
 	.string "we meet. I'll be waiting!\p"
 	.string "… … … … … …\n"
 	.string "… … … … … Click!$"
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+@ Gerado por dev_scripts/distribui_dex.py --presentes. Nao editar a mao.
+
+@ O Birch entrega UM dos tres iniciais de Hoenn, a escolha. Medido em
+@ 21/08/2026: SPECIES_TREECKO so aparecia em data/scripts/debug.inc, e o
+@ laboratorio entregava Chikorita/Cyndaquil/Totodile. A abertura do jogo
+@ NAO foi tocada; isto e um NPC a mais na sala.
+@ Sem `waitstate` depois do dynmultistack: ScrCmd_dynmultichoice ja para
+@ o contexto sozinho, e o segundo o travaria para sempre (licao do
+@ chapter_jump.inc, 17/08/2026).
+LittlerootTown_ProfessorBirchsLab_EventScript_DexIniciaisHoenn::
+	lock
+	faceplayer
+	goto_if_set FLAG_DEX_PRESENTE_INICIAL, LittlerootTown_ProfessorBirchsLab_EventScript_DexIniciaisJaDeu
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_DexIniciaisPergunta, MSGBOX_DEFAULT
+	dynmultipush LittlerootTown_ProfessorBirchsLab_Text_DexInicialTreecko, 0
+	dynmultipush LittlerootTown_ProfessorBirchsLab_Text_DexInicialTorchic, 1
+	dynmultipush LittlerootTown_ProfessorBirchsLab_Text_DexInicialMudkip, 2
+	dynmultistack 0, 0, FALSE, 4, FALSE, 0, DYN_MULTICHOICE_CB_NONE
+	compare VAR_RESULT, MULTI_B_PRESSED
+	goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_DexIniciaisSai
+	goto_if_eq VAR_RESULT, 0, LittlerootTown_ProfessorBirchsLab_EventScript_DexInicialTreecko
+	goto_if_eq VAR_RESULT, 1, LittlerootTown_ProfessorBirchsLab_EventScript_DexInicialTorchic
+	goto_if_eq VAR_RESULT, 2, LittlerootTown_ProfessorBirchsLab_EventScript_DexInicialMudkip
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_DexIniciaisSai
+
+LittlerootTown_ProfessorBirchsLab_EventScript_DexInicialTreecko::
+	givemon SPECIES_TREECKO, 5
+	setflag FLAG_DEX_PRESENTE_INICIAL
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_DexIniciaisEntregue, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_DexInicialTorchic::
+	givemon SPECIES_TORCHIC, 5
+	setflag FLAG_DEX_PRESENTE_INICIAL
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_DexIniciaisEntregue, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_DexInicialMudkip::
+	givemon SPECIES_MUDKIP, 5
+	setflag FLAG_DEX_PRESENTE_INICIAL
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_DexIniciaisEntregue, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_DexIniciaisJaDeu::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_DexIniciaisJaDeu, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_DexIniciaisSai::
+	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_Text_DexIniciaisPergunta:
+	.string "There are three POKéMON here that\n"
+	.string "no TRAINER ever claimed.\p"
+	.string "Go on, take the one you like!$"
+
+LittlerootTown_ProfessorBirchsLab_Text_DexInicialTreecko:
+	.string "TREECKO$"
+
+LittlerootTown_ProfessorBirchsLab_Text_DexInicialTorchic:
+	.string "TORCHIC$"
+
+LittlerootTown_ProfessorBirchsLab_Text_DexInicialMudkip:
+	.string "MUDKIP$"
+
+LittlerootTown_ProfessorBirchsLab_Text_DexIniciaisEntregue:
+	.string "Take good care of it!$"
+
+LittlerootTown_ProfessorBirchsLab_Text_DexIniciaisJaDeu:
+	.string "I hope the one you chose is\ndoing well.$"
+
+@ Os event-only: as entradas SEM gfx de overworld, que por isso NAO
+@ podem virar encontro estatico (bone do Pikachu, Pichu de orelha
+@ espetada, Pikachu e Eevee iniciais). `givemon` manda para o PC
+@ quando o time esta cheio, entao a ordem da lista nao importa.
+LittlerootTown_ProfessorBirchsLab_EventScript_DexDistribuicao::
+	lock
+	faceplayer
+	goto_if_set FLAG_DEX_PRESENTE_EVENTO, LittlerootTown_ProfessorBirchsLab_EventScript_DexDistribuicaoJaDeu
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_DexDistribuicao, MSGBOX_DEFAULT
+	givemon SPECIES_PIKACHU_ALOLA, 5
+	givemon SPECIES_PIKACHU_BELLE, 5
+	givemon SPECIES_PIKACHU_COSPLAY, 5
+	givemon SPECIES_PIKACHU_HOENN, 5
+	givemon SPECIES_PIKACHU_KALOS, 5
+	givemon SPECIES_PIKACHU_LIBRE, 5
+	givemon SPECIES_PIKACHU_ORIGINAL, 5
+	givemon SPECIES_PIKACHU_PARTNER, 5
+	givemon SPECIES_PIKACHU_PHD, 5
+	givemon SPECIES_PIKACHU_POP_STAR, 5
+	givemon SPECIES_PIKACHU_ROCK_STAR, 5
+	givemon SPECIES_PIKACHU_SINNOH, 5
+	givemon SPECIES_PIKACHU_STARTER, 5
+	givemon SPECIES_PIKACHU_UNOVA, 5
+	givemon SPECIES_PIKACHU_WORLD, 5
+	givemon SPECIES_EEVEE_STARTER, 5
+	givemon SPECIES_PICHU_SPIKY_EARED, 5
+	givemon SPECIES_ETERNATUS_ETERNAMAX, 5
+	givemon SPECIES_ZARUDE_DADA, 5
+	setflag FLAG_DEX_PRESENTE_EVENTO
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_DexDistribuicaoFim, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_DexDistribuicaoJaDeu::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_DexDistribuicaoFim, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_Text_DexDistribuicao:
+	.string "I keep the POKéMON from every\n"
+	.string "event that never came to us.\p"
+	.string "You should have them.$"
+
+LittlerootTown_ProfessorBirchsLab_Text_DexDistribuicaoFim:
+	.string "Whatever does not fit in your\nparty goes to your PC.$"
+
+@ <<< Dex completa <<<

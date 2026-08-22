@@ -98,6 +98,36 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Chikorita",
       "flag": "FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_CHIKORITA"
+    },
+    {
+      "local_id": "LOCALID_BIRCHS_LAB_DEX_INICIAIS",
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_2",
+      "x": 6,
+      "y": 10,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_DexIniciaisHoenn",
+      "flag": "0",
+      "origem": "distribui_dex"
+    },
+    {
+      "local_id": "LOCALID_BIRCHS_LAB_DEX_EVENTO",
+      "graphics_id": "OBJ_EVENT_GFX_MANIAC",
+      "x": 7,
+      "y": 10,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_DexDistribuicao",
+      "flag": "0",
+      "origem": "distribui_dex"
     }
   ],
   "warp_events": [

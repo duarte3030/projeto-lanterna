@@ -521,7 +521,7 @@ LINHA_ESTADO = re.compile(r"^ESTADO (\S+) (.*)$")
 
 
 def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=None,
-         offsets=None, palobj_lidas=(), batalha=None):
+         offsets=None, palobj_lidas=(), batalha=None, time_jogador=False):
     os.makedirs(SAIDA, exist_ok=True)
     for f in glob.glob(f"{SAIDA}/{prefixo}-*.png"):
         os.remove(f)
@@ -532,8 +532,19 @@ def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=Non
     if offsets:
         cmd += ["--offsets", ",".join(str(v) for v in offsets[:7])]
         if len(offsets) > 7:
+            # `gParties[MAX_BATTLE_TRAINERS][PARTY_SIZE]` (include/pokemon.h:704),
+            # e `gParties[B_TRAINER_PLAYER]` E o gPlayerParty. Por padrao o
+            # runner decifra a fatia do ADVERSARIO, que e onde mora `especie0..5`
+            # do T128; com `time_jogador` no caso, o offset passa a ser o do
+            # PROPRIO jogador (offsetof(struct Pokemon, level), ja medido em
+            # `offsets_de_batalha`), e as mesmas chaves `especie0..5` passam a ler
+            # o time do jogador. Sem isto nao ha como provar QUAL Pokemon um NPC
+            # entregou: `time` so conta quantos.
+            alvo = offsets[7]
+            if time_jogador and batalha:
+                alvo = batalha["mon_nivel"]
             cmd += ["--inimigo", simbolos["gParties"],
-                    "--nivel-offset", str(offsets[7])]
+                    "--nivel-offset", str(alvo)]
     if batalha:
         cmd += ["--nivel-passo", str(batalha["tam_pokemon"])]
         if "--inimigo" in cmd:
@@ -1023,7 +1034,9 @@ def main():
                            offsets_do_caso, palobj_lidas,
                            batalha=offsets_de_batalha(
                                src2 if (caso.get("rom") == "rom2" and src2) else src)
-                           if (prova.get("campos") or "opcoes" in caso) else None)
+                           if (prova.get("campos") or "opcoes" in caso
+                               or caso.get("time_jogador")) else None,
+                           time_jogador=caso.get("time_jogador", False))
             falhas = confere(caso, estados, por_nome, por_id, tabela_flags, layouts,
                              treinadores)
         except Exception as e:                                  # noqa: BLE001

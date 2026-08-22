@@ -1,0 +1,237 @@
+[
+  {
+    "id": "T129.3",
+    "nome": "O NPC do laboratorio do Birch ENTREGA o inicial de Hoenn escolhido. Medido em 21/08/2026 e por isso este caso existe: SPECIES_TREECKO, SPECIES_TORCHIC e SPECIES_MUDKIP nao existiam neste jogo em lugar nenhum fora de data/scripts/debug.inc, e o laboratorio entregava Chikorita, Cyndaquil e Totodile. A abertura do jogo NAO foi tocada: isto e um NPC a mais na sala, em (6, 10), com tile medido pela mesma busca em largura dos lendarios (alcancavel, sem ilhar ninguem, longe do Aide, que e MOVEMENT_TYPE_WANDER_AROUND). A rota tem a ultima perna saturando CONTRA o NPC e para em (6, 11). Os A seguintes abrem a fala, avancam e escolhem a PRIMEIRA linha do dynmultichoice, que e o TREECKO. A prova nao e 'o time cresceu': e a ESPECIE lida do gPlayerParty pela decifracao do substruct 0, com `time_jogador` ligado. Par negativo: T129.4.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+    "warp_id": 0,
+    "time_jogador": true,
+    "roteiro": "240:NADA,16:UP*7,90:NADA,16:A,150:NADA,16:A,150:NADA,16:A,240:NADA,16:A*3,180:NADA",
+    "prova": {
+      "mapa": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+      "time": 1,
+      "campos": {
+        "especie0": 252
+      }
+    }
+  },
+  {
+    "id": "T129.4",
+    "nome": "PAR NEGATIVO DO T129.3: a MESMA rota, SEM apertar A. O time continua vazio e o jogador para em (6, 11), encostado no NPC. Sem este caso o positivo passaria num jogo em que o inicial ja estivesse no time desde o comeco, e tambem num jogo em que o NPC esta la mas nao responde, que e exatamente o defeito dos dois Pokecenters mudos de Sinnoh: 'o NPC esta la' nao e 'da para falar com ele'.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+    "warp_id": 0,
+    "time_jogador": true,
+    "roteiro": "240:NADA,16:UP*7,90:NADA",
+    "prova": {
+      "mapa": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+      "time": 0,
+      "pos": [
+        6,
+        11
+      ]
+    }
+  },
+  {
+    "id": "T129.5",
+    "nome": "O NPC de distribuicao entrega os event-only, e o primeiro que cai no time e o PIKACHU_ALOLA. Sao 19 entradas SEM gfx de overworld (os bones do Pikachu, o Pichu de orelha espetada, o Pikachu e o Eevee iniciais, e as lendas que nao tem desenho de overworld): elas NAO podem virar encontro estatico, porque object_event exige OBJ_EVENT_GFX_SPECIES, e por isso vao por `givemon`. O que nao couber no time vai para o PC, entao a prova de time e 6 e nao 19. O NPC fica em (7, 10), medido pela mesma busca em largura, e a rota para em (7, 11).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+    "warp_id": 1,
+    "time_jogador": true,
+    "roteiro": "240:NADA,16:UP*7,90:NADA,16:A,240:NADA,16:A*2,300:NADA,16:A*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+      "time": 6,
+      "campos": {
+        "especie0": 1020
+      }
+    }
+  },
+  {
+    "id": "T129.7",
+    "nome": "ZACIAN_HERO EXISTE EM MAP_VIRIDIAN_FOREST (Kanto) E A INTERACAO TRAVA O JOGADOR. Fumaca da onda B1 da dex: sao 106 estaticos novos e este e o de Kanto MAIS LONGE do warp de chegada, que e o caso mais caro de andar. O tile (4, 61) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: UP*4 LEFT*20 DOWN*3 LEFT*5, a partir do warp 1 (28,62), pousando em (28, 62). A ultima perna satura CONTRA o Pokemon e para em (5, 61). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T129.8.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_VIRIDIAN_FOREST",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:UP*6,40:NADA,17:LEFT*21,40:NADA,17:DOWN*5,40:NADA,17:LEFT*7,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_VIRIDIAN_FOREST",
+      "pos": [
+        5,
+        61
+      ]
+    }
+  },
+  {
+    "id": "T129.8",
+    "nome": "PAR NEGATIVO DO T129.7: com FLAG_HIDE_DEX_ZACIAN_HERO ACESA o tile (4, 61) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (3, 61) em vez de parar em (5, 61). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ZACIAN_HERO"
+    ],
+    "warp": "MAP_VIRIDIAN_FOREST",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:UP*6,40:NADA,17:LEFT*21,40:NADA,17:DOWN*5,40:NADA,17:LEFT*7,90:NADA",
+    "prova": {
+      "mapa": "MAP_VIRIDIAN_FOREST",
+      "pos": [
+        3,
+        61
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T129.9",
+    "nome": "OKIDOGI EXISTE EM MAP_ILEX_FOREST (Johto) E A INTERACAO TRAVA O JOGADOR. Fumaca da onda B1 da dex: sao 106 estaticos novos e este e o de Johto MAIS LONGE do warp de chegada, que e o caso mais caro de andar. O tile (22, 43) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: UP*3 LEFT*4 UP*11 RIGHT*4 UP*7, a partir do warp 0 (22,63), pousando em (22, 63). A ultima perna satura CONTRA o Pokemon e para em (22, 44). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T129.10.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ILEX_FOREST",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*5,40:NADA,17:LEFT*5,40:NADA,17:UP*13,40:NADA,17:RIGHT*6,40:NADA,17:UP*9,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_ILEX_FOREST",
+      "pos": [
+        22,
+        44
+      ]
+    }
+  },
+  {
+    "id": "T129.10",
+    "nome": "PAR NEGATIVO DO T129.9: com FLAG_HIDE_DEX_OKIDOGI ACESA o tile (22, 43) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (22, 42) em vez de parar em (22, 44). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_OKIDOGI"
+    ],
+    "warp": "MAP_ILEX_FOREST",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*5,40:NADA,17:LEFT*5,40:NADA,17:UP*13,40:NADA,17:RIGHT*6,40:NADA,17:UP*9,90:NADA",
+    "prova": {
+      "mapa": "MAP_ILEX_FOREST",
+      "pos": [
+        22,
+        42
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T129.11",
+    "nome": "MELOETTA_ARIA EXISTE EM MAP_MT_PYRE_SUMMIT (Hoenn) E A INTERACAO TRAVA O JOGADOR. Fumaca da onda B1 da dex: sao 106 estaticos novos e este e o de Hoenn MAIS LONGE do warp de chegada, que e o caso mais caro de andar. O tile (22, 20) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: LEFT(zera) UP*1 RIGHT*2 UP*10 LEFT*3, a partir do warp 0 (22,31), pousando em (22, 31). A ultima perna satura CONTRA o Pokemon e para em (23, 20). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T129.12.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MT_PYRE_SUMMIT",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:UP*2,40:NADA,17:RIGHT*3,40:NADA,17:UP*11,40:NADA,17:LEFT*5,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MT_PYRE_SUMMIT",
+      "pos": [
+        23,
+        20
+      ]
+    }
+  },
+  {
+    "id": "T129.12",
+    "nome": "PAR NEGATIVO DO T129.11: com FLAG_HIDE_DEX_MELOETTA_ARIA ACESA o tile (22, 20) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (21, 20) em vez de parar em (23, 20). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_MELOETTA_ARIA"
+    ],
+    "warp": "MAP_MT_PYRE_SUMMIT",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:UP*2,40:NADA,17:RIGHT*3,40:NADA,17:UP*11,40:NADA,17:LEFT*5,90:NADA",
+    "prova": {
+      "mapa": "MAP_MT_PYRE_SUMMIT",
+      "pos": [
+        21,
+        20
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T129.13",
+    "nome": "NIHILEGO EXISTE EM MAP_MT_CORONET_B1F (Sinnoh) E A INTERACAO TRAVA O JOGADOR. Fumaca da onda B1 da dex: sao 106 estaticos novos e este e o de Sinnoh MAIS LONGE do warp de chegada, que e o caso mais caro de andar. O tile (2, 58) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: RIGHT(zera) LEFT*4 DOWN*3 LEFT*2 DOWN*5 RIGHT*1 DOWN*44 LEFT*1 DOWN*8, a partir do warp 1 (8,2), pousando em (8, 2). A ultima perna satura CONTRA o Pokemon e para em (2, 57). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T129.14.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*4,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*2,40:NADA,17:DOWN*45,40:NADA,17:LEFT*3,40:NADA,17:DOWN*10,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        2,
+        57
+      ]
+    }
+  },
+  {
+    "id": "T129.14",
+    "nome": "PAR NEGATIVO DO T129.13: com FLAG_HIDE_DEX_NIHILEGO ACESA o tile (2, 58) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (2, 62) em vez de parar em (2, 57). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_NIHILEGO"
+    ],
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*4,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*2,40:NADA,17:DOWN*45,40:NADA,17:LEFT*3,40:NADA,17:DOWN*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        2,
+        62
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T129.15",
+    "nome": "BRUTE_BONNET EXISTE EM MAP_UNOVA_VICTORY_ROAD_CAVE_2F (Unova) E A INTERACAO TRAVA O JOGADOR. Fumaca da onda B1 da dex: sao 106 estaticos novos e este e o de Unova MAIS LONGE do warp de chegada, que e o caso mais caro de andar. O tile (5, 38) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: RIGHT(zera) DOWN*2 LEFT*4 DOWN*2 LEFT*4 UP*6 LEFT*11 DOWN*8, a partir do warp 10 (24,33), pousando em (24, 34). A ultima perna satura CONTRA o Pokemon e para em (5, 37). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T129.16.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+    "warp_id": 10,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*6,40:NADA,17:UP*7,40:NADA,17:LEFT*12,40:NADA,17:DOWN*10,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "pos": [
+        5,
+        37
+      ]
+    }
+  },
+  {
+    "id": "T129.16",
+    "nome": "PAR NEGATIVO DO T129.15: com FLAG_HIDE_DEX_BRUTE_BONNET ACESA o tile (5, 38) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (5, 40) em vez de parar em (5, 37). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_BRUTE_BONNET"
+    ],
+    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+    "warp_id": 10,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*6,40:NADA,17:UP*7,40:NADA,17:LEFT*12,40:NADA,17:DOWN*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+      "pos": [
+        5,
+        40
+      ],
+      "andou": true
+    }
+  }
+]
