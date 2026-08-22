@@ -206,6 +206,12 @@ APELIDOS = {
     "Route225_Access": "MAP_HEADER_ROUTE_225_GATE_TO_FIGHT_AREA",
     "Route226_Access": "MAP_HEADER_ROUTE_226_HOUSE",
     "HotelGrandLake": "MAP_HEADER_GRAND_LAKE_ROUTE_213_LOBBY",
+    # O `DistortionWorld` esta na ROM desde 21/08/2026 (dev_scripts/
+    # distortion_world.py) e a regua contava ele como AUSENTE por causa do
+    # nome: a pasta e `DistortionWorld` e o header e o da SALA DO GIRATINA. E o
+    # mesmo defeito de medida das seis salas da Elite dos Quatro. Nada de mapa
+    # entra aqui, so a medida acerta.
+    "DistortionWorld": "MAP_HEADER_DISTORTION_WORLD_GIRATINA_ROOM",
 }
 
 # Prefixos que identificam mapa de Sinnoh no nosso data/maps.
@@ -378,6 +384,10 @@ def deslocamento_de_warp(fonte, nosso):
 
 _STENCIL = None
 
+# Os dois moldes de portao 13x9 do repo. `LAYOUT_ROUTE226_ACCESS` vem primeiro
+# por historia, mas quem manda e o que ainda mede 13x9 (ver `planta_provisoria`).
+MOLDES = ("LAYOUT_ROUTE226_ACCESS", "LAYOUT_ROUTE208_ACCESS")
+
 
 def grade(layouts, layout_id):
     """(largura, altura, matriz de palavras) do map.bin do layout."""
@@ -402,10 +412,21 @@ def planta_provisoria(layouts, layout_id):
     L = layouts[layout_id]
     if (L["width"], L["height"]) != (13, 9):
         return False
-    if layout_id == "LAYOUT_ROUTE226_ACCESS":
+    if layout_id in MOLDES:
         return True
     if _STENCIL is None:
-        _STENCIL = grade(layouts, "LAYOUT_ROUTE226_ACCESS")[2]
+        # O MOLDE DE REFERENCIA NAO E FIXO, e isso e conserto de 22/08/2026 com
+        # a medida junto: o commit `721c77fb63` ("os 111 mapas cortados saem da
+        # ROM") encolheu `LAYOUT_ROUTE226_ACCESS` para 1x1, e desde entao esta
+        # funcao lia 2 bytes como se fossem 234 e respondia False para TODO
+        # mundo, calada. O portao inteiro estava morto e o `--demo` vermelho.
+        # Agora o estencil e o primeiro molde que ainda MEDE 13x9.
+        alvo = next((m for m in MOLDES if m in layouts
+                     and (layouts[m]["width"], layouts[m]["height"]) == (13, 9)),
+                    None)
+        if alvo is None:
+            return False
+        _STENCIL = grade(layouts, alvo)[2]
     g = grade(layouts, layout_id)[2]
     return all(g[y] == _STENCIL[y] for y in range(L["height"]) if y != 1)
 
@@ -533,7 +554,7 @@ def main():
              "trocas": 0, "mapas": 0, "ja_importado": 0,
              "fora_planta_provisoria": 0, "fora_inalcancavel": 0,
              "fora_placa_ilegivel": 0, "fora_teto_64": 0, "empurrados": 0,
-             "fora_escala_nao_provada": 0}
+             "fora_escala_nao_provada": 0, "fora_teto_fonte": 0}
     censo = [("mapa", "tipo", "x_fonte", "z_fonte", "x_nosso", "y_nosso",
               "gfx", "trainer_type", "regra", "motivo")]
 
@@ -553,8 +574,16 @@ def main():
             if len(c) == len(censo[0]) and c[0] != "mapa":
                 antigo.setdefault(c[0], []).append(c)
 
+    # CORTES DO GUI: mapa cujo campo saiu do porte nao recebe evento novo. Nao e
+    # regua (a regua ja o desconta) e sim ROM: povoar as 18 salas de pilar da
+    # Turnback Cave custaria bytes num mapa que outro executor esta REMOVENDO da
+    # ROM. A lista e a MESMA que mede, `completude.CORTES_DO_GUI`.
+    import completude as _CP
+    _rx, _defi = _CP.cortes_da_regiao("Sinnoh")
+
     trocados, deixados = {}, {}
     for meu, header, arq_ev, matriz in casados:
+        cortado = _defi.get(meu) or ()
         pe = os.path.join(PLAT, "res/field/events", arq_ev + ".json")
         if not os.path.exists(pe):
             continue
@@ -565,12 +594,64 @@ def main():
         larg, alt = L["width"], L["height"]
 
         existentes = (d.get("object_events") or []) + (d.get("bg_events") or [])
-        if any(e.get("origem") == "pokeplatinum" for e in existentes):
+        # IDEMPOTENCIA POR EVENTO, e nao por mapa (22/08/2026, decisao do Gui
+        # "completa ate ficar 100 em tudo").
+        #
+        # Ate aqui, mapa com UM evento da marca era pulado INTEIRO na rodada
+        # seguinte. Medido no dia: 306 dos 474 mapas casados caiam nesse ramo, e
+        # com eles ia embora quase todo o deficit de Sinnoh (499 objetos e 91
+        # placas contra a fonte). Idempotencia de MAPA mede a rodada; o que
+        # interessa medir e o EVENTO.
+        #
+        # Duas guardas no lugar do pulo, e as duas sao de contagem, nao de fe:
+        #
+        # 1. RECLAMACAO POR COORDENADA. Evento da fonte cuja coordenada
+        #    convertida ja tem um objeto NOSSO com a marca (dele ou de um
+        #    vizinho a 1 tile, que e o empurrao que o proprio gerador da) e
+        #    considerado JA IMPORTADO e nao entra de novo. Cada objeto so pode
+        #    ser reclamado uma vez, senao dois eventos vizinhos casariam com o
+        #    mesmo e o segundo viraria duplicata.
+        # 2. TETO DA FONTE. Nenhum mapa pode terminar com mais objeto (ou mais
+        #    placa) do que a FONTE tem. E a mesma régua do `completude.py`, e ela
+        #    fecha a porta para qualquer duplicata que a guarda 1 deixe passar:
+        #    no pior caso o mapa para em 100%, nunca em 130%.
+        ja_import = [e for e in existentes
+                     if e.get("origem") == "pokeplatinum"]
+        if ja_import:
             stats["ja_importado"] += 1
-            censo.extend(antigo.get(meu) or [(
-                meu, "-", "", "", "", "", "-", "-", "-",
-                "ja importado em rodada anterior (ver a marca no map.json)")])
-            continue
+        reclamados = set()
+
+        def reclama(x, y, lista, gfx=None):
+            """True se ja existe evento NOSSO em (x,y) ou ao lado que E este.
+
+            A primeira versao so olhava objeto com a MARCA `pokeplatinum`, e isso
+            criou 30 clones em 12 mapas na propria rodada de 22/08/2026: os
+            treinadores de rota entraram no repo por OUTRA ferramenta
+            (`treinadores_rota_sinnoh.py`), sem marca nenhuma e um tile acima da
+            coordenada da fonte, entao o importador nao os reconheceu e plantou
+            uma copia de cada um logo abaixo. Em `Route222` foram DEZ, e tres
+            delas caem em cima da estrada: o T107.1 congelou em (89,19).
+            Quem reclama agora e QUALQUER objeto nosso a <= 1 tile com o MESMO
+            `graphics_id`, marcado ou nao. Fora de par de gfx, a marca continua
+            valendo sozinha, que e o caso de placa e de objeto sem sprite igual.
+            """
+            for e in lista:
+                if id(e) in reclamados:
+                    continue
+                if abs(e.get("x", -99) - x) > 1 or abs(e.get("y", -99) - y) > 1:
+                    continue
+                if e.get("origem") == "pokeplatinum" or (
+                        gfx is not None and e.get("graphics_id") == gfx):
+                    reclamados.add(id(e))
+                    return True
+            return False
+
+        teto_fonte = (0 if "object_events" in cortado else
+                      len(fonte.get("object_events") or [])
+                      - len(d.get("object_events") or []))
+        teto_bg = (0 if "bg_events" in cortado else
+                   len(fonte.get("bg_events") or [])
+                   - len(d.get("bg_events") or []))
 
         # Portao 1: geometria de verdade. NPC em planta emprestada e coordenada
         # que vai ter que ser refeita.
@@ -589,20 +670,34 @@ def main():
         if conv is None:
             continue
         regra = getattr(conv, "regra", "?")
-        # Portao 1.5: a ESCALA nao entra em mapa que nasce agora. Ela e a regra
-        # que a correcao da Route 222 provou errada (tres placas dentro de
-        # parede), e aqui ela nao tem nada que a sustente: em
-        # `MtCoronet_1F_North_Room2` a caixa da matriz mede 1x1 e a conta joga
-        # os eventos todos em (0,0). Mapa que so tem escala vai para a fila de
-        # conteudo, para ser medido um a um como a Route 222 foi.
+        # Portao 1.5, REABERTO em 22/08/2026 com a decisao do Gui "completa ate
+        # ficar 100 em tudo", e a reabertura vem com a medida do porque.
+        #
+        # A escala foi fechada em 18/08 porque a correcao da Route 222 provou
+        # que ela punha placa DENTRO DE PAREDE, sem nenhum vizinho andavel: o
+        # jogador nunca leria. O defeito era real, mas o conserto foi grosso, e
+        # o preco esta medido: com o portao fechado, 1.328 eventos da fonte em
+        # mapa de ESCOPO ficavam de fora, quase todo o deficit de objetos de
+        # Sinnoh, e mapas inteiros de rua (Route 207 a 215, Route 224,
+        # EternaCity, SolaceonTown) paravam de crescer.
+        #
+        # O que MUDOU desde 18/08 nao e a confianca na escala, e o portao
+        # DEPOIS dela. Hoje todo evento colocado passa por tres provas que na
+        # epoca da Route 222 nao existiam, e sao exatamente as que pegam o
+        # defeito daquele dia:
+        #   - objeto tem que cair em tile ALCANCAVEL a pe pelos warps (`pisa`),
+        #     com empurrao de no maximo 1 tile, senao e recusado;
+        #   - placa tem que ter tile de LEITURA andavel (`leitura_de_placa`),
+        #     que e literalmente a regua da Route 222;
+        #   - e nada pode passar do que a FONTE tem (`teto_fonte`).
+        # Ou seja: a escala escolhe a REGIAO do mapa, e o portao decide se
+        # aquele tile serve. Coordenada aproximada com prova de tile e forma
+        # honesta; coordenada aproximada sem prova era o defeito.
+        #
+        # A regra continua escrita no censo, evento a evento, para que a
+        # diferenca entre "identidade" e "escala" nunca vire invisivel.
         if regra.startswith("escala"):
-            stats["fora_escala_nao_provada"] += 1
-            for e in fonte.get("object_events", []) + fonte.get("bg_events", []):
-                linha(meu, "objeto" if "graphics_id" in e else "placa", e,
-                      conv(e), e.get("graphics_id", "-"), regra,
-                      "regra de coordenada nao provada (escala): mapa vai para "
-                      "a fila, medicao um a um")
-            continue
+            regra += " + portao de alcance (22/08/2026)"
         W, H, g = grade(layouts, d["layout"])
         pisa = alcancaveis(W, H, g, d.get("warp_events") or [])
         # Mapa sem warp semeavel (a Liga entra por script) nao tem como provar
@@ -648,6 +743,21 @@ def main():
                 continue
             if any(t in classe for t in GRAFICOS_PLACA):
                 x, y = conv(e)
+                if reclama(x, y, d.get("bg_events") or []):
+                    linha(meu, "placa", e, (x, y), g, regra,
+                          "ja importado em rodada anterior (placa nossa com a "
+                          "marca nesta coordenada)")
+                    continue
+                if len(novas_placas) >= max(0, teto_bg):
+                    # A placa da fonte que e OBJETO (SIGNBOARD) vira `bg_event`
+                    # nosso, e a regua compara bg com bg: sem este teto o mapa
+                    # sai com mais placa do que o Platinum tem e a coluna passa
+                    # de 100 por construcao, nao por conteudo.
+                    stats["fora_teto_fonte"] += 1
+                    linha(meu, "placa", e, (x, y), g, regra,
+                          f"teto da fonte: este mapa ja tem tanta placa quanto "
+                          f"o Platinum ({len(fonte.get('bg_events') or [])})")
+                    continue
                 if (x, y) in ja:
                     linha(meu, "placa", e, (x, y), g, regra, "tile ja ocupado")
                 elif not leitura_de_placa(layouts, d["layout"], x, y):
@@ -658,6 +768,17 @@ def main():
                     ja.add((x, y))
                     novas_placas.append(placa(x, y))
                     linha(meu, "placa", e, (x, y), g, regra, so_com_hm(pisa, x, y))
+                continue
+            if reclama(*conv(e), d.get("object_events") or [], g):
+                linha(meu, "objeto", e, conv(e), g, regra,
+                      "ja importado em rodada anterior (objeto nosso com a "
+                      "marca nesta coordenada)")
+                continue
+            if len(novos_obj) >= max(0, teto_fonte):
+                stats["fora_teto_fonte"] += 1
+                linha(meu, "objeto", e, None, g, regra,
+                      f"teto da fonte: este mapa ja tem tanto objeto quanto o "
+                      f"Platinum ({len(fonte.get('object_events') or [])})")
                 continue
             if len(novos_obj) >= teto:
                 stats["fora_teto_64"] += 1
@@ -707,6 +828,17 @@ def main():
 
         for e in fonte.get("bg_events", []):
             x, y = conv(e)
+            if reclama(x, y, d.get("bg_events") or []):
+                linha(meu, "placa", e, (x, y), "-", regra,
+                      "ja importado em rodada anterior (placa nossa com a "
+                      "marca nesta coordenada)")
+                continue
+            if len(novas_placas) >= max(0, teto_bg):
+                stats["fora_teto_fonte"] += 1
+                linha(meu, "placa", e, (x, y), "-", regra,
+                      f"teto da fonte: este mapa ja tem tanta placa quanto o "
+                      f"Platinum ({len(fonte.get('bg_events') or [])})")
+                continue
             if (x, y) in ja:
                 linha(meu, "placa", e, (x, y), "-", regra, "tile ja ocupado")
                 continue
@@ -827,28 +959,50 @@ def demo():
     fonte = json.load(open(os.path.join(
         PLAT, "res/field/events/events_route_222.json")))
     assert deslocamento_de_warp(fonte, d) == (736, 767)
+    # As QUATRO da licao de 18/08 continuam cobradas uma a uma, com o lado de
+    # leitura que a translacao entrega. O que deixou de ser cobrado e a lista
+    # FECHADA: a idempotencia por evento de 22/08/2026 traz placa nova para o
+    # mesmo mapa a cada rodada (esta trouxe a de (70,25)), e um `==` de conjunto
+    # transforma "importou mais" em vermelho. O invariante de verdade nunca foi
+    # "sao exatamente estas quatro", e sim "NENHUMA placa importada fica sem
+    # tile de leitura", que e literalmente o defeito da Route 222.
     esperado = {(85, 17): ["S", "W", "E"], (13, 20): ["N", "S", "W", "E"],
-                (57, 17): ["S"], (68, 17): ["S"], (0, 6): ["S"]}
+                (57, 17): ["S"], (68, 17): ["S"]}
     achado = {}
     for b in d["bg_events"]:
         if b.get("origem") == "pokeplatinum":
             achado[(b["x"], b["y"])] = leitura_de_placa(
                 layouts, d["layout"], b["x"], b["y"])
-    assert achado == esperado, achado
+    for k, v in esperado.items():
+        assert achado.get(k) == v, (k, achado.get(k))
+    ilegiveis = {k: v for k, v in achado.items() if not v}
+    assert not ilegiveis, ilegiveis
 
-    # 5. PLANTA PROVISORIA. Medido byte a byte: `BattleFrontier` e
-    # `IronIsland` tem map.bin proprio e mesmo assim SAO o molde de portao
-    # `Route226_Access`, diferindo so na linha 1, onde as portas sao furadas.
-    # Sao os dois maiores premios da onda de povoar (24 NPC e 25 placas so no
-    # Battle Frontier) e e por isso que o portao precisa existir.
-    assert planta_provisoria(layouts, "LAYOUT_BATTLEFRONTIER")
-    assert planta_provisoria(layouts, "LAYOUT_IRONISLAND")
-    assert planta_provisoria(layouts, "LAYOUT_ROUTE226_ACCESS")
+    # 5. PLANTA PROVISORIA. Medido byte a byte: `IronIsland` tem map.bin
+    # proprio e mesmo assim E o molde de portao `Route226_Access`, diferindo so
+    # na linha 1, onde as portas sao furadas.
+    #
+    # O `LAYOUT_BATTLEFRONTIER` SAIU desta prova em 22/08/2026, e a razao esta
+    # medida: a obra de tirar da ROM os mapas CORTADOS ja o encolheu para 1x1
+    # (`data/layouts/BattleFrontier/map.bin` tem 2 bytes), entao ele deixou de
+    # ser 13x9 e `planta_provisoria` responde False com razao. A prova estava
+    # VERMELHA desde o commit da 0.l e nao por causa desta rodada; trocar o alvo
+    # e medicao, nao afrouxamento, e o `IronIsland` continua guardando o portao.
+    assert not planta_provisoria(layouts, "LAYOUT_BATTLEFRONTIER")
+    # `LAYOUT_IRONISLAND` tambem saiu: o `converte_moldes_sinnoh.py` reescreveu
+    # `data/layouts/IronIsland/map.bin` com a planta 32x32 do Platinum em
+    # 21/08/2026, e o layout velho de 13x9 aponta para o MESMO arquivo. Ele
+    # continua existindo so porque indice de layout que anda quebra save.
+    assert not planta_provisoria(layouts, "LAYOUT_IRONISLAND")
     # O SEGUNDO molde, fixado em 21/08/2026: `LAYOUT_ROUTE208_ACCESS` e igual ao
     # de cima fora da linha das portas, e e ele que vestia o `OreburghGateB1F`.
     # Sem esta linha, alguem "simplifica" a comparacao para um `==` de nome e
     # perde metade das vitimas sem que nada fique vermelho.
     assert planta_provisoria(layouts, "LAYOUT_ROUTE208_ACCESS")
+    # E a prova de que o estencil se conserta sozinho: com o molde historico
+    # encolhido para 1x1, quem responde tem que ser o segundo, e nao "False para
+    # todo mundo". Sem esta linha o portao volta a morrer calado.
+    assert any(planta_provisoria(layouts, m) for m in MOLDES)
     # e nao pode ser um "13x9 e provisorio" preguicoso: a loja de flores tem
     # 15x9 e a Mt Coronet 5F e 32x32, e as duas sao planta de verdade.
     assert not planta_provisoria(layouts, "LAYOUT_MT_CORONET_5F")

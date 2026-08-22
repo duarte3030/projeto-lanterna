@@ -224,8 +224,12 @@ NOMEADOS = {
 # em 11/08/2026: os dois mapas voltaram para `nossos_mapas_sinnoh()`, que deixou
 # de descontar a trava de escrita `NAO_TOCAR`, e o segundo ganhou apelido em
 # `I.APELIDOS`. Eles nunca estiveram faltando, so estavam invisiveis para a regua.
+# `MAP_HEADER_ETERNA_CITY_DP_GYM` saiu daqui em 22/08/2026: ele NAO e o nosso
+# `EternaCity_Gym` (esse casa com `MAP_HEADER_ETERNA_CITY_GYM`, e a regua sempre
+# soube), e sim a sala do ginasio da era DP que o Platinum guardou a parte, com
+# grade propria de 301 tiles andaveis e um warp de volta para o ginasio.
 JA_TEMOS = {
-    "MAP_HEADER_FLOWER_SHOP", "MAP_HEADER_ETERNA_CITY_DP_GYM",
+    "MAP_HEADER_FLOWER_SHOP",
     "MAP_HEADER_UNUSED_JUBILIFE_CITY_CONDOMINIUMS_3F",
     "MAP_HEADER_UNUSED_JUBILIFE_CITY_SOUTH_HOUSE_3F",
 }
@@ -408,12 +412,19 @@ def texto_do_indice(header, idx):
 
 
 # ------------------------------------------------------------ monta o mapa
-def conteudo_do_mapa(header, pasta, larg, alt, sprites, movimentos, layout_id):
+def conteudo_do_mapa(header, pasta, larg, alt, sprites, movimentos, layout_id,
+                     off=(0, 0)):
     """NPCs, placas e o trecho de scripts.inc do mapa novo.
 
     Os filtros sao os mesmos de `importa_npcs_sinnoh.py`, e pelo mesmo motivo:
     mobilia virada NPC tranca sala, NPC com hidden_flag vira bloqueio
     permanente, e nome proprio sem sprite faz o mapa mentir.
+
+    `off` e o canto da caixa da matriz do Platinum, que `converte_moldes_sinnoh.
+    grade_do_mapa` devolve. Interior tem matriz propria e comeca em (0,0), e por
+    isso o padrao continua sendo nao deslocar nada; mapa de RUA usa coordenada
+    GLOBAL da matriz de Sinnoh (o patio do Fuego Ironworks tem eventos em x=169,
+    z=587) e sem o desconto todos eles cairiam grudados na borda pelo clamp.
     """
     arq = os.path.join(PLAT, "res/field/events",
                        I.headers_do_platinum()[header][0] + ".json")
@@ -425,8 +436,8 @@ def conteudo_do_mapa(header, pasta, larg, alt, sprites, movimentos, layout_id):
     n_txt = 0
 
     def poe(x, y):
-        x = min(max(int(x), 0), larg - 1)
-        y = min(max(int(y), 0), alt - 1)
+        x = min(max(int(x) - off[0], 0), larg - 1)
+        y = min(max(int(y) - off[1], 0), alt - 1)
         return I.livre(layouts(), layout_id, x, y, ocupados)
 
     for e in fonte.get("object_events", []):

@@ -1,0 +1,36 @@
+{
+  "music": "MUS_ABNORMAL_WEATHER",
+  "region_map_section": "MAPSEC_SINNOH_NORTH",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "id": "MAP_DISTORTION_WORLD_B3F",
+  "name": "DistortionWorldB3F",
+  "layout": "LAYOUT_DISTORTION_WORLD_B3F",
+  "connections": 0,
+  "warp_events": [
+    {
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_DISTORTION_WORLD_B2F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 63,
+      "y": 63,
+      "elevation": 0,
+      "dest_map": "MAP_DISTORTION_WORLD_B4F",
+      "dest_warp_id": "0"
+    }
+  ],
+  "object_events": [],
+  "bg_events": [],
+  "coord_events": [],
+  "origem_geometria": "cria_mapas_sinnoh.py: a grade 2D do Platinum (MAP_HEADER_DISTORTION_WORLD_B3F) tem 3161 tiles abertos e NENHUM chão, porque o Distortion World mora no modelo 3D de gravidade variável. O tamanho 64x64 e os tiles por onde o corredor passa são da fonte; o PISO é invenção declarada, decisão do Gui em 21/08/2026 (o mapa) e 22/08/2026 (completar até 100)"
+}

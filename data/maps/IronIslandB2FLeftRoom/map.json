@@ -124,6 +124,90 @@
       "script": "IronIslandB2FLeftRoom_EventScript_AceTrainerBrenda",
       "flag": "0",
       "origem": "pokeplatinum"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 38,
+      "y": 15,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_ULTRA_BALL",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_SINNOH_BOLA_IRONISLANDB2FLEFTROOM_ULTRA_BALL",
+      "origem": "pokeplatinum-bola"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 9,
+      "y": 3,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_DUSK_BALL",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_SINNOH_BOLA_IRONISLANDB2FLEFTROOM_DUSK_BALL",
+      "origem": "pokeplatinum-bola"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 5,
+      "y": 16,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_MAX_POTION",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_SINNOH_BOLA_IRONISLANDB2FLEFTROOM_MAX_POTION",
+      "origem": "pokeplatinum-bola"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 21,
+      "y": 38,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_HP_UP",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_SINNOH_BOLA_IRONISLANDB2FLEFTROOM_HP_UP",
+      "origem": "pokeplatinum-bola"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 17,
+      "y": 19,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_RED_SHARD",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_SINNOH_BOLA_IRONISLANDB2FLEFTROOM_RED_SHARD",
+      "origem": "pokeplatinum-bola"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 1,
+      "y": 23,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_MAGNET",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_SINNOH_BOLA_IRONISLANDB2FLEFTROOM_MAGNET",
+      "origem": "pokeplatinum-bola"
     }
   ],
   "warp_events": [
@@ -146,6 +230,34 @@
       "script": "IronIslandB2FLeftRoom_EventScript_CoordEvent_PlatformLift"
     }
   ],
-  "bg_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 32,
+      "y": 40,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Sinnoh_EventScript_PlacaImportada",
+      "origem": "pokeplatinum"
+    },
+    {
+      "type": "sign",
+      "x": 29,
+      "y": 29,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Sinnoh_EventScript_PlacaImportada",
+      "origem": "pokeplatinum"
+    },
+    {
+      "type": "sign",
+      "x": 14,
+      "y": 31,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Sinnoh_EventScript_PlacaImportada",
+      "origem": "pokeplatinum"
+    }
+  ],
   "origem": "pokeplatinum: geometria convertida da grade 2D (map_data), mais NPC, placa e texto"
 }

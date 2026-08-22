@@ -1613,7 +1613,10 @@
     "AcuityLakefront",
     "FightArea",
     "SurvivalArea",
-    "ResortArea"
+    "ResortArea",
+    "FloaromaMeadow",
+    "EternaForestOutside",
+    "FuegoIronworksOutside"
   ],
   "gMapGroup_SpecialAreasSinnoh": [
     "LakeVerity",
@@ -2576,7 +2579,16 @@
     "TurnbackCavePillar3Room6",
     "TurnbackCavePillarRoom",
     "TurnbackCaveGiratinaRoom",
-    "DistortionWorld"
+    "DistortionWorld",
+    "DistortionWorld1F",
+    "DistortionWorldB1F",
+    "DistortionWorldB2F",
+    "DistortionWorldB3F",
+    "DistortionWorldB4F",
+    "DistortionWorldB5F",
+    "DistortionWorldB6F",
+    "DistortionWorldB7F",
+    "DistortionWorldTurnbackCaveRoom"
   ],
   "gMapGroup_IndoorSinnohPortas2": [
     "PastoriaCityPokecenterB1F",
@@ -2665,7 +2677,17 @@
     "BattleHall",
     "BattleCastle",
     "BattleArcade",
-    "IronIslandHouse"
+    "IronIslandHouse",
+    "CelesticTownCave",
+    "EternaCityDpGym",
+    "HearthomeCityNortheastHouse2F",
+    "HearthomeCitySoutheastHouse2F",
+    "UnusedGateBetweenEternaCityRoute206",
+    "UnusedJubilifeCityHouse1",
+    "UnusedJubilifeCityHouse2",
+    "VistaLighthouse",
+    "FuegoIronworksBuilding",
+    "FloaromaMeadowHouse"
   ],
   "gMapGroup_Galar": [
     "Galar_WildArea23",

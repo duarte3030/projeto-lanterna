@@ -255,20 +255,6 @@
       "origem": "pokeplatinum"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
-      "x": 23,
-      "y": 34,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 2,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "HearthomeCity_EventScript_Npc14",
-      "flag": "0",
-      "origem": "pokeplatinum"
-    },
-    {
       "graphics_id": "OBJ_EVENT_GFX_ARTIST",
       "x": 31,
       "y": 29,
@@ -365,6 +351,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
       "flag": "FLAG_SINNOH_ESCONDE_HEARTHOME_CITY_KEIRA",
+      "origem": "pokeplatinum"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+      "x": 23,
+      "y": 34,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "0",
       "origem": "pokeplatinum"
     }
   ],

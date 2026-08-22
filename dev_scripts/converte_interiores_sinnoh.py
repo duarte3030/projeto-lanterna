@@ -137,7 +137,13 @@ NAO_CRIAR = {
     # Caverna de pedra: cair no par Building+GenericBuilding sairia com parede
     # de casa e tapete de sala. Ela e do conversor de caverna, que hoje a reprova
     # por ter ZERO chao de masmorra na grade; consertar aquilo e trabalho de la.
-    "MAP_HEADER_CELESTIC_TOWN_CAVE": "caverna, tileset errado aqui",
+    # A CELESTIC_TOWN_CAVE SAIU DAQUI em 22/08/2026, com a decisao do Gui de
+    # completar ate 100: o Platinum a marca MAP_TYPE_INDOORS e a grade dela e de
+    # QUARTO (19x26 recortado, 637 tiles andaveis, chao_de_caverna ZERO), nao de
+    # masmorra. O conversor de caverna a reprova por isso mesmo. Entra aqui, com
+    # a ressalva escrita: o par Building + GenericBuilding desenha o quarto das
+    # ruinas com parede de casa, que e a forma honesta com arte chapada que a
+    # decisao aceita, e nao a rocha do original.
     # Decisao 17 do Gui, confirmada em 12/08/2026: os NPCs de Wi-Fi e Union Room
     # foram ESCONDIDOS porque os sistemas de link nao existem nesta ROM. Criar a
     # sala seria um quarto sem funcao, e ainda por cima com dono arbitrario (18
@@ -375,8 +381,18 @@ def fila():
     pastas, consts = _consts_existentes()
     H = C.headers()
 
+    # CORTES DO GUI (22/08/2026): mapa fora do escopo nao entra na ROM. Sem
+    # este portao a descoberta pela volta trazia os 4 elevadores da Liga, o 2F
+    # do Ribbon Syndicate e o mart do Resort, todos cortados por decisao datada
+    # em `completude.CORTES_DO_GUI`, e cada um custaria ROM sem mover a regua.
+    # A regua e a MESMA que mede, nunca uma lista paralela.
+    import completude as _CP
+    rx_corte, _defi = _CP.cortes_da_regiao("Sinnoh")
+
     def serve(d):
         if d in existentes or d in NAO_CRIAR:
+            return False
+        if rx_corte and rx_corte.search(d):
             return False
         if H.get(d, {}).get("mapType") != "MAP_TYPE_INDOORS":
             return False
@@ -398,6 +414,24 @@ def fila():
                 continue
             vistos.add(d)
             saida.append((meu, d))
+    # DESCOBERTA PELA VOLTA (22/08/2026, "completa ate ficar 100"). O laco de
+    # cima so acha filho que um PAI nosso aponta, e mapa marcado UNUSED no
+    # Platinum nunca e apontado por ninguem: as duas casas UNUSED de Jubilife, o
+    # portao UNUSED entre Eterna e a Route 206, os dois 2F de Hearthome (que sao
+    # apontados so pelo ELEVADOR, que aponta por script) e o Vista Lighthouse
+    # ficavam invisiveis para a fila mesmo com grade de interior boa e medida.
+    # Eles SAEM para um mapa nosso, e e por essa porta que se entra: a mesma
+    # regra de `pais_possiveis`, que ja diz que vale qualquer mapa que a fonte
+    # ligue nos DOIS sentidos.
+    for d in sorted(heads):
+        if d in vistos or not serve(d):
+            continue
+        pais = [casados[wp["dest_header_id"]] for wp in destinos(d, heads)
+                if wp["dest_header_id"] in casados]
+        if not pais:
+            continue
+        vistos.add(d)
+        saida.append((pais[0], d))
     # voltas seguintes: pai que entrou agora
     mudou = True
     while mudou:

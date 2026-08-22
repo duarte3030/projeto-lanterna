@@ -225,6 +225,34 @@
       "script": "EternaCity_EventScript_Npc8",
       "flag": "0",
       "origem": "pokeplatinum"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 34,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_TM46",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_SINNOH_BOLA_ETERNACITY_TM46",
+      "origem": "pokeplatinum-bola"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 27,
+      "y": 39,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_SUPER_POTION",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_SINNOH_BOLA_ETERNACITY_SUPER_POTION",
+      "origem": "pokeplatinum-bola"
     }
   ],
   "warp_events": [
@@ -303,6 +331,13 @@
       "y": 11,
       "elevation": 0,
       "dest_map": "MAP_ETERNA_CITY_UNDERGROUND_MAN_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 9,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_UNUSED_GATE_BETWEEN_ETERNA_CITY_ROUTE_206",
       "dest_warp_id": "0"
     }
   ],

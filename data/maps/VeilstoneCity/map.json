@@ -262,6 +262,34 @@
       "script": "0",
       "flag": "FLAG_SINNOH_ESCONDE_VEILSTONE_COUNTERPART",
       "origem": "pokeplatinum: LOCALID_COUNTERPART, parado perto da porta do ginasio (warp em 8,36). Sem script proprio ainda (questline da fonte em VeilstoneCity_Counterpart, ~1300 linhas, fora desta onda). ATENCAO: precisa do mesmo conversor de VAR_OBJ_GFX_ID_0 que Route207/scripts.inc:1-19 tem (checkplayergender no MAP_SCRIPT_ON_TRANSITION); VeilstoneCity/scripts.inc nao e arquivo desta onda, entao o conversor nao foi escrito aqui."
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 19,
+      "y": 38,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_FULL_INCENSE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_SINNOH_BOLA_VEILSTONECITY_FULL_INCENSE",
+      "origem": "pokeplatinum-bola"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 18,
+      "y": 11,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_STAR_PIECE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_SINNOH_BOLA_VEILSTONECITY_STAR_PIECE",
+      "origem": "pokeplatinum-bola"
     }
   ],
   "warp_events": [

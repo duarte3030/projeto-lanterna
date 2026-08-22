@@ -185,6 +185,14 @@
       "elevation": 0,
       "dest_map": "MAP_ETERNA_FOREST",
       "dest_warp_id": "3"
+    },
+    {
+      "x": 54,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_FUEGO_IRONWORKS_OUTSIDE",
+      "dest_warp_id": "0",
+      "origem": "fonte"
     }
   ],
   "coord_events": [],

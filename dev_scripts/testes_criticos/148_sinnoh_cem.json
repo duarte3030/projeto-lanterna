@@ -1,0 +1,140 @@
+[
+ {
+  "id": "T148.1",
+  "nome": "ENTRADA NO FLOAROMA MEADOW, um dos 22 mapas que a fonte tinha e nós não até 22/08/2026 (`dev_scripts/cria_mapas_sinnoh.py`, grade 2D do Platinum, 64x64, 3.044 tiles andáveis). O caso entra PELA PORTA e não pelo menu: o warp de debug põe o jogador na porta (4,2) da FloaromaTown, DOWN*3 desce para (4,5) ou (4,6) conforme o empurrão de porta, e UP*5 sobe de volta e PISA em (4,2), que é o que dispara. Os dois números de partida são de propósito: o empurrão de um tile ao sul na chegada de porta foi medido em 21/08/2026 e não vale para toda palavra de warp, então a perna é saturante e converge dos dois lados (conferido tile a tile na grade de colisão do LAYOUT_FLOAROMA_TOWN). Já no prado, DOWN*60 satura em (50,39) e LEFT*60 satura em (11,39). A POSIÇÃO É A PROVA DA PLANTA: (11,39) não existe em mapa nenhum de 34x36 (o tamanho da FloaromaTown), então um caso que só olhasse `mapa` passaria com o prado errado. O prado NÃO tem tabela de encontro selvagem (medido em src/data/wild_encounters.json), por isso não precisa de FLAG_SEM_ENCONTRO_SELVAGEM.",
+  "warp": "MAP_FLOAROMA_TOWN",
+  "warp_id": 5,
+  "roteiro": "60:NADA,16:DOWN*3,60:NADA,16:UP*5,300:NADA,16:DOWN*60,90:NADA,16:LEFT*60,150:NADA",
+  "prova": {
+   "mapa": "MAP_FLOAROMA_MEADOW",
+   "layout": "LAYOUT_FLOAROMA_MEADOW",
+   "pos": [
+    11,
+    39
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T148.2",
+  "nome": "SAÍDA DO FLOAROMA MEADOW, o par de MÃO ÚNICA do T148.1. Sem ele o T148.1 passaria num mapa em que se entra e não se sai, que é a lição 4.1 do ESTADO e o defeito que o OreburghGateB1F pagou na primeira conversão. Warp de debug para o warp 0 do prado, DOWN*3 sai do tile de warp (para (50,12) ou (50,13), pelo mesmo motivo do T148.1) e UP*5 volta a pisar em (50,9), o que dispara. A prova é a CHEGADA MEDIDA na FloaromaTown, e não só o nome do mapa: a porta de volta está em (4,2), e o jogador para em (4,3), um tile ao sul, que é o empurrão de porta. Mapa certo não é tile certo, que foi o que o T121.6 ensinou.",
+  "warp": "MAP_FLOAROMA_MEADOW",
+  "warp_id": 0,
+  "roteiro": "60:NADA,16:DOWN*3,60:NADA,16:UP*5,300:NADA",
+  "prova": {
+   "mapa": "MAP_FLOAROMA_TOWN",
+   "layout": "LAYOUT_FLOAROMA_TOWN"
+  }
+ },
+ {
+  "id": "T148.3",
+  "nome": "LEITURA DE PLACA DENTRO DE MAPA NOVO: o FuegoIronworksBuilding, criado em 22/08/2026 da grade 2D do Platinum (53x28 depois do recorte, 843 tiles andáveis, mobília lida do comportamento do tile). A placa fica em (44,15), que é PAREDE, e o tile de leitura é (44,16), logo abaixo. ROTA, medida na grade de colisão: o warp 0 põe o jogador em (4,3) (ou (4,4), pelo empurrão de porta; a rota converge dos dois, conferido tile a tile), e as dez pernas levam a (44,16). Então UP não anda um tile sequer, porque (44,15) é parede: ele só VIRA o jogador para o norte, de cara para a placa. A quem serve isso: o A seguinte abre a caixa da placa, e caixa aberta faz `lockall`, ou seja o jogador para de andar. É por isso que a prova é DOWN*5 e `pos` em (44,16): o passo é COMIDO pela caixa. O par negativo é o T148.4, que faz a mesma rota SEM apertar A e desce cinco tiles. Este mapa não tem tabela de encontro selvagem, então não precisa de FLAG_SEM_ENCONTRO_SELVAGEM. A CONTAGEM DE APERTOS PAGA A VIRADA, e isso reprovou a primeira versao deste caso em 22/08/2026: o primeiro aperto numa direcao diferente da que o jogador ENCARA so vira, nao anda. Perna saturante absorve isso sozinha (por isso o T148.5 passou de primeira), perna curta nao: cada `dir*n` aqui anda no maximo n-1 tiles, e os numeros foram refeitos num simulador que modela a virada.",
+  "warp": "MAP_FUEGO_IRONWORKS_BUILDING",
+  "warp_id": 0,
+  "roteiro": "60:NADA,16:DOWN*60,40:NADA,16:RIGHT*60,40:NADA,16:UP*60,40:NADA,16:RIGHT*60,40:NADA,16:LEFT*2,40:NADA,16:UP*5,40:NADA,16:RIGHT*60,40:NADA,16:LEFT*4,40:NADA,16:UP*60,40:NADA,16:RIGHT*3,90:NADA,16:UP*2,60:NADA,20:A,240:NADA,16:DOWN*6,150:NADA",
+  "prova": {
+   "mapa": "MAP_FUEGO_IRONWORKS_BUILDING",
+   "layout": "LAYOUT_FUEGO_IRONWORKS_BUILDING",
+   "pos": [
+    44,
+    16
+   ]
+  }
+ },
+ {
+  "id": "T148.4",
+  "nome": "PAR NEGATIVO DO T148.3, e é ele que separa 'a caixa da placa travou o passo' de 'a parede travou o passo'. MESMO mapa, MESMO warp, MESMA rota de dez pernas até (44,16), MESMO UP que só vira o jogador, e a ÚNICA diferença é que aqui o A não é apertado. Sem caixa aberta, o DOWN*5 anda de verdade e satura em (44,18), porque a linha 19 é parede. Sem este caso o T148.3 passaria num jogo em que a placa não existisse e o jogador estivesse simplesmente encurralado, que é exatamente o erro que uma prova de posição sozinha comete. A diferença entre os dois é de dois tiles, no mesmo mapa, com o mesmo aperto. A CONTAGEM DE APERTOS PAGA A VIRADA, e isso reprovou a primeira versao deste caso em 22/08/2026: o primeiro aperto numa direcao diferente da que o jogador ENCARA so vira, nao anda. Perna saturante absorve isso sozinha (por isso o T148.5 passou de primeira), perna curta nao: cada `dir*n` aqui anda no maximo n-1 tiles, e os numeros foram refeitos num simulador que modela a virada.",
+  "warp": "MAP_FUEGO_IRONWORKS_BUILDING",
+  "warp_id": 0,
+  "roteiro": "60:NADA,16:DOWN*60,40:NADA,16:RIGHT*60,40:NADA,16:UP*60,40:NADA,16:RIGHT*60,40:NADA,16:LEFT*2,40:NADA,16:UP*5,40:NADA,16:RIGHT*60,40:NADA,16:LEFT*4,40:NADA,16:UP*60,40:NADA,16:RIGHT*3,90:NADA,16:UP*2,60:NADA,16:DOWN*6,150:NADA",
+  "prova": {
+   "mapa": "MAP_FUEGO_IRONWORKS_BUILDING",
+   "layout": "LAYOUT_FUEGO_IRONWORKS_BUILDING",
+   "pos": [
+    44,
+    18
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T148.5",
+  "nome": "O TILE ILHADO QUE VIROU ALCANÇÁVEL. Até 22/08/2026 o RavagedPath tinha 364 tiles andáveis e só 108 ALCANÇÁVEIS pelos três warps: o demake 2D pôs rocha maciça onde o Platinum tem passagem, e 133 tiles de TERRA (os outros 124 são elevação 1, água de Surf, e não são defeito) ficavam desenhados e inúteis. `dev_scripts/corredores_sinnoh.py` abriu 34 tiles de parede e o alcance foi de 108 para 275, medido. Este caso anda a diferença: entrando pelo warp 0 em (19,40), cinco pares de LEFT*45 e UP*45 saturantes sobem o mapa inteiro e param em (2,4), no canto noroeste. Na árvore de ontem (HEAD 71184bca3d) o MESMO aperto parava em (6,28), vinte e oito tiles atrás, porque o quarto UP não tinha por onde continuar. As pernas são saturantes de propósito: aperto sobrando não move o jogador um tile a mais, e é isso que transforma 'chegou' em prova. FLAG_SEM_ENCONTRO_SELVAGEM é obrigatória, porque o RavagedPath tem `land_mons` e um encontro no meio da subida pararia o jogador num tile qualquer.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_RAVAGED_PATH",
+  "warp_id": 0,
+  "roteiro": "60:NADA,16:LEFT*45,40:NADA,16:UP*45,40:NADA,16:LEFT*45,40:NADA,16:UP*45,40:NADA,16:LEFT*45,40:NADA,16:UP*45,40:NADA,16:LEFT*45,40:NADA,16:UP*45,40:NADA,16:LEFT*45,40:NADA,16:UP*45,150:NADA",
+  "prova": {
+   "mapa": "MAP_RAVAGED_PATH",
+   "layout": "LAYOUT_RAVAGED_PATH",
+   "pos": [
+    2,
+    4
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T148.6",
+  "nome": "A PEDRA NOVA DO CORREDOR BLOQUEIA TILE DE VERDADE. (5,8) do RavagedPath é uma das 31 pedras que o Platinum tem e que estavam paradas desde 18/08/2026 dentro de parede maciça do demake, sem um vizinho alcançável. O túnel que `corredores_sinnoh.py` abriu em 22/08 pôs a pedra num ATALHO: (4,8) e (6,8) são chão, (5,7) e (5,9) são rocha. ROTA: warp 0 em (19,40), quatro pares de LEFT*45 e UP*45 saturantes chegam a (4,7), DOWN*2 desce um tile para (4,8), e sao DOIS apertos porque o primeiro so vira o jogador, que vinha encarando o norte, e então RIGHT*30 NÃO ANDA NADA, porque (5,8) é a pedra. A prova é `pos` em (4,8), e o par dela é o T148.7, que faz o mesmo aperto com Rock Smash na mochila e vai quatorze tiles além. `andou` fica FALSO de propósito na perna final: o jogador andou o mapa inteiro para chegar ali e travou no último aperto, que é o que se quer provar. A CONTAGEM DE APERTOS PAGA A VIRADA, e isso reprovou a primeira versao deste caso em 22/08/2026: o primeiro aperto numa direcao diferente da que o jogador ENCARA so vira, nao anda. Perna saturante absorve isso sozinha (por isso o T148.5 passou de primeira), perna curta nao: cada `dir*n` aqui anda no maximo n-1 tiles, e os numeros foram refeitos num simulador que modela a virada.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_RAVAGED_PATH",
+  "warp_id": 0,
+  "roteiro": "60:NADA,16:LEFT*45,40:NADA,16:UP*45,40:NADA,16:LEFT*45,40:NADA,16:UP*45,40:NADA,16:LEFT*45,40:NADA,16:UP*45,40:NADA,16:LEFT*45,40:NADA,16:UP*45,40:NADA,16:DOWN*2,60:NADA,16:RIGHT*30,150:NADA",
+  "prova": {
+   "mapa": "MAP_RAVAGED_PATH",
+   "layout": "LAYOUT_RAVAGED_PATH",
+   "pos": [
+    4,
+    8
+   ]
+  }
+ },
+ {
+  "id": "T148.7",
+  "nome": "A PEDRA NOVA QUEBRA E O JOGADOR PASSA PELO TILE DELA. Par positivo do T148.6: mesmo mapa, mesma pedra em (5,8), mesma perna de RIGHT, e a única diferença é que aqui o jogador TEM Rock Smash. O time vem do SELETOR DE CAPÍTULO, que dá um Pikachu com THUNDERBOLT, SURF e ROCK_SMASH a quem salta com a party vazia (src/chapter_jump.c, linha acrescentada em 21/08/2026), e a insígnia que `IsFieldMoveUnlocked_RockSmash` exige vem de graça do mesmo salto (KANTO / 'Before Pokémon League' acende as oito). ROTA: a do T148.6 até (4,8) de cara para a pedra, e então QUATRO A, a mesma cadência que o T112.4 mediu (com três apertos a caixa ficava aberta e o movimento seguinte era comido inteiro). Depois do `removeobject`, RIGHT*30 atravessa (5,8) e para em (13,8). PARA EM (13,8) E NAO EM (18,8) POR UM MOTIVO MEDIDO, e ele prova outra obra da mesma rodada: (14,8) tem uma BOLA DE ITEM, uma das 166 que `dev_scripts/bolas_sinnoh.py` trouxe do Platinum em 22/08/2026 (ITEM_TM39, indice 11 da tabela `scripts_visible_items.s`), e bola de item e objeto solido. `pos` em (13,8) diz tres coisas de uma vez: a pedra sumiu, o tile dela virou caminho, e a bola esta la. Nove tiles separam este caso do T148.6, no mesmo mapa, com o mesmo aperto. O RavagedPath TEM `land_mons`, daí a FLAG_SEM_ENCONTRO_SELVAGEM; ele não tem `rock_smash_mons`, então o smash termina em EventScript_EndSmash sem batalha. A CONTAGEM DE APERTOS PAGA A VIRADA, e isso reprovou a primeira versao deste caso em 22/08/2026: o primeiro aperto numa direcao diferente da que o jogador ENCARA so vira, nao anda. Perna saturante absorve isso sozinha (por isso o T148.5 passou de primeira), perna curta nao: cada `dir*n` aqui anda no maximo n-1 tiles, e os numeros foram refeitos num simulador que modela a virada.",
+  "abertura": "seletor",
+  "antes_do_warp": "20:DOWN,60:NADA,20:A,120:NADA,20:DOWN*12,60:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_RAVAGED_PATH",
+  "warp_id": 0,
+  "roteiro": "60:NADA,16:LEFT*45,40:NADA,16:UP*45,40:NADA,16:LEFT*45,40:NADA,16:UP*45,40:NADA,16:LEFT*45,40:NADA,16:UP*45,40:NADA,16:LEFT*45,40:NADA,16:UP*45,40:NADA,16:DOWN*2,60:NADA,16:RIGHT,120:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,300:NADA,16:RIGHT*30,150:NADA",
+  "prova": {
+   "mapa": "MAP_RAVAGED_PATH",
+   "layout": "LAYOUT_RAVAGED_PATH",
+   "pos": [
+    13,
+    8
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T148.8",
+  "nome": "O DISTORTION WORLD EXISTE E TEM CORRENTE, e este é o caso que separa 'o mapa está no map_groups.json' de 'o jogador anda dentro dele'. Os nove andares que faltavam nasceram em 22/08/2026 com PISO INVENTADO E DECLARADO (a grade 2D do Platinum não tem chão nenhum lá: o Distortion World mora no modelo 3D de gravidade variável, e o que a fonte dá é o TAMANHO da matriz e os tiles de marcador por onde o corredor passa). O caso entra pelo warp 1 do DistortionWorldB1F, que é a escada para o B2F, e prova a CHEGADA no B2F. Junto com o T148.9, que faz o caminho de volta, os dois fecham a lição 4.1: mapa novo não pode nascer de mão única.",
+  "warp": "MAP_DISTORTION_WORLD_B1F",
+  "warp_id": 1,
+  "roteiro": "60:NADA,16:DOWN*3,60:NADA,16:UP*5,300:NADA",
+  "prova": {
+   "mapa": "MAP_DISTORTION_WORLD_B2F",
+   "layout": "LAYOUT_DISTORTION_WORLD_B2F"
+  }
+ },
+ {
+  "id": "T148.9",
+  "nome": "A VOLTA DO B2F PARA O B1F, o par de MÃO ÚNICA do T148.8. Warp de debug para o warp 0 do DistortionWorldB2F, que é a escada de subida; DOWN*3 sai do degrau e UP*5 volta a pisar nele, o que dispara. A prova é o mapa de chegada. Os dois casos juntos provam que a corrente de dez andares (1F -> B1F -> ... -> B7F -> sala do Giratina, mais a sala da Turnback pendurada no 1F) anda nos dois sentidos, e não só no papel.",
+  "warp": "MAP_DISTORTION_WORLD_B2F",
+  "warp_id": 0,
+  "roteiro": "60:NADA,16:DOWN*3,60:NADA,16:UP*5,300:NADA",
+  "prova": {
+   "mapa": "MAP_DISTORTION_WORLD_B1F",
+   "layout": "LAYOUT_DISTORTION_WORLD_B1F"
+  }
+ }
+]

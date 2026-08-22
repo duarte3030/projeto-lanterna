@@ -36,6 +36,14 @@
       "elevation": 0,
       "dest_map": "MAP_SPEAR_PILLAR",
       "dest_warp_id": "3"
+    },
+    {
+      "x": 20,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_DISTORTION_WORLD_B7F",
+      "dest_warp_id": "1",
+      "origem": "escada de volta para o B7F, aberta em 22/08/2026"
     }
   ],
   "bg_events": [],

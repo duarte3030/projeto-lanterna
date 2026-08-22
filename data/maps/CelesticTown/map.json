@@ -56,7 +56,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
       "x": 8,
-      "y": 5,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -65,7 +65,8 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CelesticTown_EventScript_Npc3",
       "flag": "0",
-      "origem": "pokeplatinum"
+      "origem": "pokeplatinum",
+      "origem_movida": "saiu de (8,5) em 22/08/2026: aquele era o UNICO vizinho andavel da porta nova para a CelesticTownCave (8,4), e com ela em cima a caverna nascia inalcancavel a pe. (8,7) e o proximo tile livre da MESMA elevacao 4, dois passos ao sul"
     },
     {
       "local_id": "LOCALID_CELESTIC_TOWN_GALACTIC_GRUNT",
@@ -114,6 +115,34 @@
       "flag": "FLAG_CELESTIC_CYNTHIA_ESCONDIDA",
       "origem": "cena_galactica_sinnoh",
       "fonte_id": "LOCALID_CYNTHIA"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 25,
+      "y": 23,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_DRAGON_FANG",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_SINNOH_BOLA_CELESTICTOWN_DRAGON_FANG",
+      "origem": "pokeplatinum-bola"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
+      "x": 8,
+      "y": 4,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "0",
+      "origem": "pokeplatinum"
     }
   ],
   "warp_events": [
@@ -150,6 +179,13 @@
       "y": 26,
       "elevation": 0,
       "dest_map": "MAP_CELESTIC_TOWN_SOUTHWEST_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 8,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_CELESTIC_TOWN_CAVE",
       "dest_warp_id": "0"
     }
   ],

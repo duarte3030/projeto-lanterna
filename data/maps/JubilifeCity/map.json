@@ -258,6 +258,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
       "flag": "FLAG_SINNOH_ESCONDE_JUBILIFE_CITY_COUNTERPART"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 13,
+      "y": 28,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_POTION",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_SINNOH_BOLA_JUBILIFECITY_POTION",
+      "origem": "pokeplatinum-bola"
     }
   ],
   "warp_events": [
@@ -368,6 +382,20 @@
       "y": 48,
       "elevation": 0,
       "dest_map": "MAP_UNUSED_JUBILIFE_CITY_HOUSE_4",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 17,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_UNUSED_JUBILIFE_CITY_HOUSE_1",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 20,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_UNUSED_JUBILIFE_CITY_HOUSE_2",
       "dest_warp_id": "0"
     }
   ],

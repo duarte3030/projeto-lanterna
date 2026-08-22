@@ -579,9 +579,19 @@ def demo():
     """Autoteste com mutacao plantada: o que quebra tem que ser PEGO."""
     layouts = _layouts()
 
-    # 1. Os dois moldes sao reconhecidos como molde, e mapa de verdade nao e.
-    assert I.planta_provisoria(layouts, "LAYOUT_ROUTE226_ACCESS")
+    # 1. O molde e reconhecido como molde, e mapa de verdade nao e.
+    #
+    # O `LAYOUT_ROUTE226_ACCESS` SAIU desta linha em 22/08/2026, e a razao esta
+    # medida: a obra de tirar da ROM os mapas CORTADOS (commit 721c77fb63) o
+    # encolheu para 1x1, entao ele deixou de ser 13x9 e `planta_provisoria`
+    # responde False com razao. A prova estava VERMELHA desde aquele commit e
+    # nao por causa desta rodada. Quem guarda o portao agora e o
+    # `LAYOUT_ROUTE208_ACCESS`, que continua medindo 13x9, e o proprio
+    # `importa_npcs_sinnoh.planta_provisoria` passou a escolher o estencil pelo
+    # primeiro molde que AINDA mede 13x9, em vez de morrer calado.
+    assert not I.planta_provisoria(layouts, "LAYOUT_ROUTE226_ACCESS")
     assert I.planta_provisoria(layouts, "LAYOUT_ROUTE208_ACCESS")
+    assert any(I.planta_provisoria(layouts, m) for m in I.MOLDES)
     assert not I.planta_provisoria(layouts, "LAYOUT_MT_CORONET_5F")
 
     # 2. O corte de portao legitimo x vitima e o que separa a lista. Os 25 que
@@ -592,15 +602,23 @@ def demo():
     assert "HearthomeCityEastGateToAmitySquare" not in nomes, nomes
     for ja in CONVERTIDOS:
         assert ja not in nomes, f"{ja} ja foi convertido: tem que SAIR de alvos()"
-    # 13 vitimas medidas, 5 ja convertidas (o B1F em 21/08 e os 4 do escopo em
-    # 21/08), 8 CORTADAS do escopo por decisao do Gui e que ficam como estao.
-    assert len(nomes) == 8, sorted(nomes)
+    # ZERO desde 22/08/2026, e por duas obras somadas, nao por defeito: as 5
+    # vitimas do ESCOPO ja foram convertidas (o B1F em 21/08 e as 4 do bloco de
+    # moldes), e as 8 CORTADAS sairam da ROM na obra de 22/08 que encolheu todo
+    # mapa cortado para 1x1 (commit 721c77fb63). Mapa de 1x1 nao veste molde
+    # 13x9, entao `planta_provisoria` responde False neles com razao. Nao ha
+    # mais vitima de molde em Sinnoh, e e isso que esta linha passa a fixar.
+    assert len(nomes) == 0, sorted(nomes)
     global PISO_COLISAO
     guarda, PISO_COLISAO = PISO_COLISAO, 0.0
     try:
         largo = {m for m, _ in alvos()}
         assert "HearthomeCityEastGateToAmitySquare" in largo
-        assert len(largo) == 20, len(largo)
+        # 11 e nao 20 pelo mesmo motivo da linha de cima: nove dos vinte eram
+        # mapa cortado, e mapa cortado agora mede 1x1. O que esta prova guarda
+        # continua de pe: com o piso no chao, PORTAO DE VERDADE entra junto com
+        # vitima, e o `HearthomeCityEastGateToAmitySquare` e a testemunha.
+        assert len(largo) == 11, len(largo)
     finally:
         PISO_COLISAO = guarda
 
@@ -628,10 +646,17 @@ def demo():
     assert densidade_de_colisao([0x00FF] * 4) == 0.0
 
     # 4. O `map.bin` que sai tem uma palavra por tile, nem uma a mais.
-    meu, header = next((m, h) for m, h in alvos() if m == "SendoffSpring")
-    p = plano(meu, header)
-    assert len(p["palavras"]) == p["larg"] * p["alt"]
-    assert all(0 <= w < 0x10000 for w in p["palavras"])
+    #
+    #    A prova saiu de `alvos()` em 22/08/2026 e passou a falar direto com o
+    #    header: `alvos()` esta VAZIO desde que as 8 vitimas cortadas viraram
+    #    1x1 (ver o item 2), e a testemunha de antes, `SendoffSpring`, e uma
+    #    delas. O que se afirma aqui e da TRADUCAO, nao da lista: a grade do
+    #    Platinum entra e sai com uma palavra de 16 bits por tile.
+    header = "MAP_HEADER_SENDOFF_SPRING"
+    larg, alt, grade, _off = grade_do_mapa(header)
+    palavras = traduz(header, larg, alt, grade)
+    assert len(palavras) == larg * alt, (larg, alt, len(palavras))
+    assert all(0 <= w < 0x10000 for w in palavras)
 
     # 4.b O QUE JA FOI CONVERTIDO continua de pe, e a checagem vale para TODOS
     #     eles e nao so para o primeiro. Sao 5: o OreburghGateB1F de 21/08 e os
@@ -699,13 +724,24 @@ def demo():
                 "gTileset_CaveSinnoh" if q["caverna"]
                 else "gTileset_PetalburgSinnoh"))
             assert ("DOOR" in mb or "WARP" in mb or mb == "MB_LADDER"), (meu, mb)
-    pedra = next(i for i, w in enumerate(p["palavras"]) if not _andavel(w))
-    assert not _andavel(p["palavras"][pedra])
+    # A grade traduzida tem rocha de verdade: mapa que sai 100% andavel nao e
+    #    conversao, e mascara vazia. Roda sobre as `palavras` do item 4, que
+    #    nao dependem mais de `alvos()`.
+    assert any(not _andavel(w) for w in palavras), header
 
     # 6. Warp reancorado tem que cair no CORPO do mapa, senao o jogador pousa
     #    num bolsao de onde nao sai. E a licao que o conversor de caverna pagou.
-    for _i, (x, y), _m, _d in p["warps"]:
-        assert y * p["larg"] + x in p["regiao"]
+    #    Vale para o que ESTA em `alvos()` hoje (zero) e para os CONVERTIDOS, que
+    #    e onde a afirmacao tem dono desde 22/08/2026.
+    for meu, header_c in ((m, _header_de(m, heads, deles)) for m in CONVERTIDOS):
+        d = json.load(open(f"{REPO}/data/maps/{meu}/map.json"))
+        L = _layouts()[d["layout"]]
+        b = open(f"{REPO}/{L['blockdata_filepath']}", "rb").read()
+        pal = [b[i] | (b[i + 1] << 8) for i in range(0, len(b), 2)]
+        reg = C.regiao_principal(pal, L["width"], L["height"])
+        for w in d["warp_events"]:
+            i = w["y"] * L["width"] + w["x"]
+            assert i in reg or not _andavel(pal[i]), (meu, w["x"], w["y"])
 
     # 7. Mao unica e proibida: todo warp nosso tem volta do outro lado.
     por_id = {}

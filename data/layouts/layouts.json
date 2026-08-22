@@ -25256,6 +25256,248 @@
       "border_filepath": "data/layouts/IronIsland/border.bin",
       "blockdata_filepath": "data/layouts/IronIsland/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_CELESTIC_TOWN_CAVE",
+      "name": "CelesticTownCave_Layout",
+      "width": 19,
+      "height": 26,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/CelesticTownCave/border.bin",
+      "blockdata_filepath": "data/layouts/CelesticTownCave/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ETERNA_CITY_DP_GYM",
+      "name": "EternaCityDpGym_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/EternaCityDpGym/border.bin",
+      "blockdata_filepath": "data/layouts/EternaCityDpGym/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HEARTHOME_CITY_NORTHEAST_HOUSE_2F",
+      "name": "HearthomeCityNortheastHouse2F_Layout",
+      "width": 22,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/HearthomeCityNortheastHouse2F/border.bin",
+      "blockdata_filepath": "data/layouts/HearthomeCityNortheastHouse2F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HEARTHOME_CITY_SOUTHEAST_HOUSE_2F",
+      "name": "HearthomeCitySoutheastHouse2F_Layout",
+      "width": 22,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/HearthomeCitySoutheastHouse2F/border.bin",
+      "blockdata_filepath": "data/layouts/HearthomeCitySoutheastHouse2F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_UNUSED_GATE_BETWEEN_ETERNA_CITY_ROUTE_206",
+      "name": "UnusedGateBetweenEternaCityRoute206_Layout",
+      "width": 11,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/UnusedGateBetweenEternaCityRoute206/border.bin",
+      "blockdata_filepath": "data/layouts/UnusedGateBetweenEternaCityRoute206/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_UNUSED_JUBILIFE_CITY_HOUSE_1",
+      "name": "UnusedJubilifeCityHouse1_Layout",
+      "width": 11,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/UnusedJubilifeCityHouse1/border.bin",
+      "blockdata_filepath": "data/layouts/UnusedJubilifeCityHouse1/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_UNUSED_JUBILIFE_CITY_HOUSE_2",
+      "name": "UnusedJubilifeCityHouse2_Layout",
+      "width": 11,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/UnusedJubilifeCityHouse2/border.bin",
+      "blockdata_filepath": "data/layouts/UnusedJubilifeCityHouse2/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_VISTA_LIGHTHOUSE",
+      "name": "VistaLighthouse_Layout",
+      "width": 13,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/VistaLighthouse/border.bin",
+      "blockdata_filepath": "data/layouts/VistaLighthouse/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_FLOAROMA_MEADOW",
+      "name": "FloaromaMeadow_Layout",
+      "width": 64,
+      "height": 64,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "border_filepath": "data/layouts/FloaromaMeadow/border.bin",
+      "blockdata_filepath": "data/layouts/FloaromaMeadow/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ETERNA_FOREST_OUTSIDE",
+      "name": "EternaForestOutside_Layout",
+      "width": 64,
+      "height": 64,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "border_filepath": "data/layouts/EternaForestOutside/border.bin",
+      "blockdata_filepath": "data/layouts/EternaForestOutside/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_FUEGO_IRONWORKS_OUTSIDE",
+      "name": "FuegoIronworksOutside_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "border_filepath": "data/layouts/FuegoIronworksOutside/border.bin",
+      "blockdata_filepath": "data/layouts/FuegoIronworksOutside/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_FUEGO_IRONWORKS_BUILDING",
+      "name": "FuegoIronworksBuilding_Layout",
+      "width": 53,
+      "height": 28,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FuegoIronworksBuilding/border.bin",
+      "blockdata_filepath": "data/layouts/FuegoIronworksBuilding/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_DISTORTION_WORLD_1F",
+      "name": "DistortionWorld1F_Layout",
+      "width": 64,
+      "height": 64,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/DistortionWorld1F/border.bin",
+      "blockdata_filepath": "data/layouts/DistortionWorld1F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_DISTORTION_WORLD_B1F",
+      "name": "DistortionWorldB1F_Layout",
+      "width": 64,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/DistortionWorldB1F/border.bin",
+      "blockdata_filepath": "data/layouts/DistortionWorldB1F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_DISTORTION_WORLD_B2F",
+      "name": "DistortionWorldB2F_Layout",
+      "width": 64,
+      "height": 64,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/DistortionWorldB2F/border.bin",
+      "blockdata_filepath": "data/layouts/DistortionWorldB2F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_DISTORTION_WORLD_B3F",
+      "name": "DistortionWorldB3F_Layout",
+      "width": 64,
+      "height": 64,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/DistortionWorldB3F/border.bin",
+      "blockdata_filepath": "data/layouts/DistortionWorldB3F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_DISTORTION_WORLD_B4F",
+      "name": "DistortionWorldB4F_Layout",
+      "width": 64,
+      "height": 64,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/DistortionWorldB4F/border.bin",
+      "blockdata_filepath": "data/layouts/DistortionWorldB4F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_DISTORTION_WORLD_B5F",
+      "name": "DistortionWorldB5F_Layout",
+      "width": 64,
+      "height": 64,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/DistortionWorldB5F/border.bin",
+      "blockdata_filepath": "data/layouts/DistortionWorldB5F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_DISTORTION_WORLD_B6F",
+      "name": "DistortionWorldB6F_Layout",
+      "width": 64,
+      "height": 64,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/DistortionWorldB6F/border.bin",
+      "blockdata_filepath": "data/layouts/DistortionWorldB6F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_DISTORTION_WORLD_B7F",
+      "name": "DistortionWorldB7F_Layout",
+      "width": 32,
+      "height": 64,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/DistortionWorldB7F/border.bin",
+      "blockdata_filepath": "data/layouts/DistortionWorldB7F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_DISTORTION_WORLD_TURNBACK_CAVE_ROOM",
+      "name": "DistortionWorldTurnbackCaveRoom_Layout",
+      "width": 64,
+      "height": 64,
+      "primary_tileset": "gTileset_GeneralSinnoh",
+      "secondary_tileset": "gTileset_CaveSinnoh",
+      "border_filepath": "data/layouts/DistortionWorldTurnbackCaveRoom/border.bin",
+      "blockdata_filepath": "data/layouts/DistortionWorldTurnbackCaveRoom/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_FLOAROMA_MEADOW_HOUSE",
+      "name": "FloaromaMeadowHouse_Layout",
+      "width": 11,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FloaromaMeadowHouse/border.bin",
+      "blockdata_filepath": "data/layouts/FloaromaMeadowHouse/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

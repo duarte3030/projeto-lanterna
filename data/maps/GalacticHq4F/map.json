@@ -74,6 +74,15 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "GalacticHq4F_EventScript_Placa1",
       "origem": "pokeplatinum"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Sinnoh_EventScript_PlacaImportada",
+      "origem": "pokeplatinum"
     }
   ],
   "origem": "pokeplatinum: NPC, placa e texto. planta reaproveitada de OreburghCity_House1"

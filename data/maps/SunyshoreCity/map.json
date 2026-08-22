@@ -137,6 +137,20 @@
       "script": "0",
       "flag": "FLAG_SINNOH_ESCONDE_SUNYSHORE_CITY_RIVAL",
       "origem": "pokeplatinum: LOCALID_RIVAL, cena pos-8a insignia com Jasmine (S7)"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 51,
+      "y": 45,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_THUNDERSTONE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_SINNOH_BOLA_SUNYSHORECITY_THUNDERSTONE",
+      "origem": "pokeplatinum-bola"
     }
   ],
   "warp_events": [

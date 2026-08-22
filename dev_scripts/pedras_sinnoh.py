@@ -77,6 +77,32 @@ MARCA = {"origem": "pokeplatinum-pedra"}
 SCRIPT = "EventScript_RockSmash"
 GFX = "OBJ_EVENT_GFX_BREAKABLE_ROCK"
 
+# AS TRES FAMILIAS DE OBSTACULO DE HM, acrescentadas em 22/08/2026 pela decisao
+# do Gui "completa ate ficar 100 em tudo". A emenda de 18/08 que abriu a pedra
+# vale igual para as outras duas, e pelo mesmo motivo: a decisao 4 do importador
+# proibe virar BONECO, nunca proibiu portar o obstaculo COMO OBSTACULO. As tres
+# tem mecanica NATIVA neste motor, e nenhuma e invencao:
+#
+#   fonte                     nosso gfx                       script do motor
+#   OBJ_EVENT_GFX_ROCK_SMASH  OBJ_EVENT_GFX_BREAKABLE_ROCK    EventScript_RockSmash
+#   OBJ_EVENT_GFX_CUT_TREE    OBJ_EVENT_GFX_CUTTABLE_TREE     EventScript_CutTree
+#   ..._STRENGTH_BOULDER      OBJ_EVENT_GFX_PUSHABLE_BOULDER  EventScript_StrengthBoulder
+#
+# Os tres pares foram LIDOS de mapa que ja esta na ROM (CeladonCity_Frlg para a
+# arvore, BurnedTower_B1F para o bloco), nao lembrados. Medido em 22/08/2026 nos
+# mapas de ESCOPO: 148 pedras, 36 arvores e 39 blocos da fonte fora, o segundo
+# maior bloco do deficit de objetos depois das bolas de item.
+#
+# O PORTAO E O MESMO PARA AS TRES, e ele e que segura o bloco de Strength: a
+# prova por busca em largura trata todo obstaculo novo como bloqueio PERMANENTE
+# e sem HM nenhuma na mochila. Bloco que tranca ou que fecha bolso nao entra.
+FAMILIAS = (
+    ("ROCK_SMASH", GFX, SCRIPT),
+    ("CUT_TREE", "OBJ_EVENT_GFX_CUTTABLE_TREE", "EventScript_CutTree"),
+    ("STRENGTH_BOULDER", "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+     "EventScript_StrengthBoulder"),
+)
+
 # Temps que este script NAO pode usar, e o motivo de cada uma:
 # 0x0  nao e flag, e o "sem flag" de todo objeto (ver o cabecalho).
 # 0x7  `P_FLAG_FORCE_SHINY` aponta para ela desde 18/08/2026 (ESTADO 0.f):
@@ -85,6 +111,18 @@ GFX = "OBJ_EVENT_GFX_BREAKABLE_ROCK"
 TEMPS_PROIBIDAS = {0x0, 0x7, 0xE}
 TEMPS_LIVRES = [f"FLAG_TEMP_{n:X}" for n in range(0x1, 0x20)
                 if n not in TEMPS_PROIBIDAS]
+
+
+# CORTES DO GUI: mapa cujo campo `object_events` saiu do porte nao recebe objeto
+# novo. Nao e regua (a regua ja o desconta), e ROM: escrever pedra dentro das 18
+# salas de pilar da Turnback Cave custaria bytes num mapa que outro executor
+# esta REMOVENDO da ROM. A lista e a mesma que mede, `completude.CORTES_DO_GUI`.
+def _cortados(_c={}):
+    if not _c:
+        import completude as _CP
+        _rx, defi = _CP.cortes_da_regiao("Sinnoh")
+        _c["s"] = {m for m, campos in defi.items() if "object_events" in campos}
+    return _c["s"]
 
 
 def andavel(v):
@@ -208,9 +246,18 @@ def linha_de_base(W, H, g, mapa):
     return ligados, len(alvos) - len(ligados)
 
 
+def familia_de(e):
+    """(gfx nosso, script) do obstaculo da fonte, ou None se nao for um."""
+    g = e.get("graphics_id", "")
+    for chave, gfx, script in FAMILIAS:
+        if chave in g:
+            return gfx, script
+    return None
+
+
 def pedras_da_fonte(fonte):
     return [e for e in fonte.get("object_events", [])
-            if "ROCK_SMASH" in e.get("graphics_id", "")]
+            if familia_de(e) is not None]
 
 
 def main():
@@ -238,6 +285,8 @@ def main():
                 antigo.setdefault(c[0], []).append(c)
 
     for meu in I.mapas_editaveis_sinnoh():
+        if meu in _cortados():
+            continue
         h = I.APELIDOS.get(meu)
         alvo = (h,) + heads[h] if h in heads else por_chave.get(I.chave(meu))
         if not alvo:
@@ -254,37 +303,25 @@ def main():
         pm = os.path.join(REPO, "data/maps", meu, "map.json")
         d = json.load(open(pm))
         objs = d.get("object_events") or []
-        if any(o.get("origem") == "pokeplatinum-pedra" for o in objs):
-            stats["ja_importado"] += 1
-            linhas = list(antigo.get(meu) or [(
-                meu, "", "", "", "", "", "-",
-                "ja importado em rodada anterior (ver a marca no map.json)")])
-            # O DIAGNOSTICO DE PAREDE E RECALCULADO mesmo em mapa ja escrito,
-            # e a linha de pedra aceita e que fica intacta. Motivo: o
-            # diagnostico e medicao do mapa de HOJE, nao registro historico, e
-            # sem isto a segunda rodada eternizaria o texto de 18/08 que culpava
-            # o conversor (ver `diagnostico_de_parede`). A pedra ACEITA nao se
-            # recalcula porque na segunda rodada ela ja e objeto do mapa e
-            # cairia em "tile ja ocupado", que e o que `antigo` existe para
-            # evitar.
-            recusadas = [c for c in linhas
-                         if not c[5] and str(c[3]).isdigit() and str(c[4]).isdigit()]
-            if recusadas:
-                W, H, g = I.grade(layouts, d["layout"])
-                saidas = pousos(W, H, g,
-                                {"warp_events": d.get("warp_events") or []})
-                base = R222.alcance(W, H, g, saidas)
-                for i, c in enumerate(linhas):
-                    if c not in recusadas:
-                        continue
-                    x, y = int(c[3]), int(c[4])
-                    if andavel(g[y][x]):
-                        continue
-                    stats["fora_tile"] += 1
-                    linhas[i] = c[:7] + (
-                        diagnostico_de_parede(W, H, g, base, x, y),)
-            censo.extend(linhas)
-            continue
+        # IDEMPOTENCIA POR PEDRA, e nao por mapa (22/08/2026).
+        #
+        # Ate aqui, mapa que ja tivesse UMA pedra da marca era pulado INTEIRO, e
+        # com ele iam embora todas as pedras que passaram a caber depois. Foi o
+        # que segurou os quatro mapas do corredor: `corredores_sinnoh.py` abriu
+        # 63 tiles de parede em RavagedPath, OreburghGate_1F, MtCoronet_1F_South
+        # e MtCoronet_B1F, e a rodada seguinte respondia "ja importado" e escrevia
+        # ZERO. Idempotencia de mapa mede a rodada, e o que interessa medir e a
+        # PEDRA: a que ja esta la cai em "tile ja ocupado" no laco normal, que e
+        # a mesma guarda, so que por evento.
+        #
+        # As pedras que JA estao no mapa entram em `aceitas` antes do laco, senao
+        # a prova de conectividade julgaria as novas num mapa em que as velhas
+        # nao bloqueiam nada, e a FLAG_TEMP delas sai da lista de livres, senao
+        # duas pedras do mesmo mapa dividiriam a flag e sumiriam juntas.
+        ja_pedras = [(o["x"], o["y"]) for o in objs
+                     if o.get("origem") == "pokeplatinum-pedra"]
+        usadas = {o.get("flag") for o in objs}
+        livres = [f for f in TEMPS_LIVRES if f not in usadas]
         if I.planta_provisoria(layouts, d["layout"]):
             stats["fora_planta_provisoria"] += len(cruas)
             for e in cruas:
@@ -299,12 +336,17 @@ def main():
         if conv is None:
             continue
         regra = getattr(conv, "regra", "?")
+        # A ESCALA FOI REABERTA em 22/08/2026, com a mesma medida que reabriu a
+        # do `importa_npcs_sinnoh.py`: o defeito que fechou o portao (evento
+        # dentro de parede, na Route 222) e hoje PEGO pelos portoes que rodam
+        # depois dela, e aqui eles sao os mais duros da casa. Obstaculo so entra
+        # se o tile for andavel, se ninguem ficar preso (`conectado`) e se
+        # nenhum bolso nascer (`sem_bolso`), tudo com a HM fora da mochila. Ou
+        # seja: a escala escolhe a regiao e a busca em largura decide. Medido no
+        # dia: 70 obstaculos de mapa em ESCOPO estavam parados so por este
+        # portao. A regra continua escrita no censo, linha a linha.
         if regra.startswith("escala"):
-            stats["fora_escala_nao_provada"] += len(cruas)
-            for e in cruas:
-                censo.append((meu, e["x"], e["z"], "", "", "", regra,
-                              "regra de coordenada nao provada (escala)"))
-            continue
+            regra += " + portao de conectividade (22/08/2026)"
 
         W, H, g = I.grade(layouts, d["layout"])
         alvos, soltos = linha_de_base(W, H, g, d)
@@ -314,8 +356,8 @@ def main():
         base_andavel = R222.alcance(W, H, g, saidas)
         ocupados = {(o["x"], o["y"]) for o in objs}
         ocupados |= {(w["x"], w["y"]) for w in (d.get("warp_events") or [])}
-        aceitas, novas = [], []
-        teto = min(len(TEMPS_LIVRES), 64 - len(objs))
+        aceitas, novas = list(ja_pedras), []
+        teto = len(ja_pedras) + min(len(livres), 64 - len(objs))
         for e in cruas:
             x, y = conv(e)
             if not andavel(g[y][x]):
@@ -330,7 +372,7 @@ def main():
                               "tile ja ocupado por objeto ou warp"))
                 continue
             if len(aceitas) >= teto:
-                stats["fora_teto_temp" if len(TEMPS_LIVRES) <= 64 - len(objs)
+                stats["fora_teto_temp" if len(livres) <= 64 - len(objs)
                       else "fora_teto_64"] += 1
                 censo.append((meu, e["x"], e["z"], x, y, "", regra,
                               f"teto de {teto} pedras neste mapa (FLAG_TEMP "
@@ -349,19 +391,19 @@ def main():
                               "BOLSO: com esta pedra sobra tile pisavel de onde "
                               "nao se chega a nenhum warp, sem Rock Smash"))
                 continue
-            aceitas.append((x, y))
             ocupados.add((x, y))
-            flag = TEMPS_LIVRES[len(aceitas) - 1]
+            flag = livres[len(novas)]
+            aceitas.append((x, y))
             censo.append((meu, e["x"], e["z"], x, y, flag, regra, ""))
             elev = (g[y][x] >> 12) & 0xF
             novas.append({
-                "graphics_id": GFX, "x": x, "y": y,
+                "graphics_id": familia_de(e)[0], "x": x, "y": y,
                 "elevation": elev if elev else 3,
                 "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
                 "movement_range_x": 0, "movement_range_y": 0,
                 "trainer_type": "TRAINER_TYPE_NONE",
                 "trainer_sight_or_berry_tree_id": "0",
-                "script": SCRIPT, "flag": flag, **MARCA,
+                "script": familia_de(e)[1], "flag": flag, **MARCA,
             })
         if not novas:
             continue
@@ -451,12 +493,22 @@ def demo():
     # (7,37) e uma das 23: parede com ZERO vizinho alcancavel
     assert not andavel(g[37][7])
     assert "parede maciça" in diagnostico_de_parede(W, H, g, base, 7, 37)
-    # (12,12) e a ARMADILHA que separa "andavel" de "alcancavel", e ela e
-    # medida: o vizinho (11,12) e andavel, mas cai nos 257 tiles de RavagedPath
-    # que o jogador NAO alcanca a pe pelos warps. Diagnostico por vizinho
-    # andavel diria "saliencia" e mentiria; por vizinho ALCANCAVEL diz parede.
-    assert andavel(g[12][11]) and (11, 12) not in base
-    assert "parede maciça" in diagnostico_de_parede(W, H, g, base, 12, 12)
+    # A ARMADILHA que separa "andavel" de "alcancavel" continua sendo provada,
+    # so que noutro tile, e a troca e MEDICAO e nao conserto de teste:
+    # `corredores_sinnoh.py` ligou em 22/08/2026 os 133 tiles de TERRA ilhados
+    # de RavagedPath, e com eles (11,12) passou a ser alcancavel, ou seja o
+    # (12,12) desta prova virou saliencia de verdade. O que NAO foi ligado, de
+    # proposito, sao os 124 tiles de elevacao 1 (agua de Surf): cavar corredor
+    # de pedra por dentro do lago o secaria. (25,4) e parede cujo unico vizinho
+    # andavel e agua, e por isso ainda separa as duas reguas.
+    assert not andavel(g[4][25])
+    assert any(andavel(g[b][a]) and (a, b) not in base
+               for a, b in ((25, 3), (25, 5), (24, 4), (26, 4)))
+    assert "parede maciça" in diagnostico_de_parede(W, H, g, base, 25, 4)
+    # e o (12,12), que ANTES do corredor era parede maciça, agora responde
+    # saliencia: a mesma funcao, a mesma pergunta, o mapa e que mudou.
+    assert andavel(g[12][11]) and (11, 12) in base
+    assert "saliência" in diagnostico_de_parede(W, H, g, base, 12, 12)
     # MUTACAO PLANTADA do outro lado: MtCoronet_B1F (28,14) e a unica familia
     # que sobra, saliencia de verdade, com vizinho ALCANCAVEL. Se o diagnostico
     # colapsar num rotulo so, este assert cai.

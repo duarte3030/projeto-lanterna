@@ -21,6 +21,13 @@
       "elevation": 0,
       "dest_map": "MAP_HEARTHOME_CITY_NORTHEAST_HOUSE_1F",
       "dest_warp_id": "2"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_HEARTHOME_CITY_NORTHEAST_HOUSE_2F",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
