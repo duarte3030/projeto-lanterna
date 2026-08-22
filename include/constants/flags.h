@@ -10425,3 +10425,15 @@
 #define FLAG_HIDE_UNOVA_CHEREN_2                 FLAG_UNUSED_0x1D08  // Unova_OpelucidBattleHouse
 #define FLAG_HIDE_UNOVA_NATE_ROSA                FLAG_UNUSED_0x1D09  // Unova_NimbasaParkOutside
 // <<< esconde o SILVER nos tres mapas novos (importa_chefes_faltantes.py) <<<
+
+// >>> Fase de conteudo de Galar, bloco c5: encontros estaticos (dev_scripts/estaticos_galar.py) >>>
+// Uma flag por encontro UNICO (o que a fonte apaga para sempre).
+// O encontro COMUM nao aparece aqui de proposito: ele renasce, e
+// renascer nao custa endereco nenhum.
+// Apelidar FLAG_UNUSED nao mexe em FLAGS_COUNT: a save nao muda.
+// Gerado por dev_scripts/estaticos_galar.py; nao editar a mao.
+#define FLAG_GALAR_ESTATICO_G11M10_O7   FLAG_UNUSED_0x1D0A  // g11m10/objeto/7
+#define FLAG_GALAR_ESTATICO_G38M04_O2   FLAG_UNUSED_0x1D0B  // g38m04/objeto/2
+#define FLAG_GALAR_ESTATICO_G38M04_O3   FLAG_UNUSED_0x1D0C  // g38m04/objeto/3
+#define FLAG_GALAR_ESTATICO_G38M04_O4   FLAG_UNUSED_0x1D0D  // g38m04/objeto/4
+// <<< Fase de conteudo de Galar, bloco c5 <<<

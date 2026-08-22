@@ -13,7 +13,53 @@
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [],
-  "object_events": [],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MEWTWO)",
+      "x": 6,
+      "y": 4,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalarSelvagem_MEWTWO_L70",
+      "flag": "0",
+      "origem": "estaticos_galar",
+      "origem_chave": "g30m00/objeto/1"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(PALKIA)",
+      "x": 5,
+      "y": 47,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalarSelvagem_PALKIA_L70",
+      "flag": "0",
+      "origem": "estaticos_galar",
+      "origem_chave": "g30m00/objeto/5"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DIALGA)",
+      "x": 9,
+      "y": 47,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalarSelvagem_DIALGA_L70",
+      "flag": "0",
+      "origem": "estaticos_galar",
+      "origem_chave": "g30m00/objeto/6"
+    }
+  ],
   "warp_events": [
     {
       "x": 7,

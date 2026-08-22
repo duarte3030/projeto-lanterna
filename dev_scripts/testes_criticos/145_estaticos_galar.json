@@ -1,0 +1,193 @@
+[
+ {
+  "id": "T145.1",
+  "nome": "GALAR, ENCONTRO ESTATICO VISIVEL, A BATALHA ABRE COM A ESPECIE E O NIVEL DA FONTE. O bloco c5 (dev_scripts/estaticos_galar.py) poe o Pokemon selvagem no overworld, como em Sword/Shield: um object event com OBJ_EVENT_GFX_SPECIES(DREEPY) parado em (26,21) do Galar_CrownTundra13, e o script dele e `setwildbattle SPECIES_DREEPY, 50` + `dowildbattle`. O que este caso cobra e a unica coisa que uma compilacao verde NAO responde: a especie que aparece e a que a fonte mandou, e nao o vizinho dela. A traducao da fonte e por NOME lido da tabela gSpeciesNames do demake, porque o id 1177 de la nao e o 885 daqui; se alguem trocar a traducao por VALOR, o bicho na tela muda e nada mais muda. Entrada pelo warp 0, que larga em (26,18); o DOWN e SATURANTE (a folga e de proposito, ver ESTADO 0.k) e para em (26,20), porque (26,21) tem o objeto solido. O A abre a batalha.",
+  "opcoes": 32,
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GALAR_CROWN_TUNDRA_13",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:DOWN*8,90:NADA,20:A,400:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_CROWN_TUNDRA_13",
+   "nivel_inimigo_faixa": [
+    50,
+    50
+   ],
+   "campos": {
+    "bespecie": 885
+   }
+  }
+ },
+ {
+  "id": "T145.2",
+  "nome": "PAR NEGATIVO DO T145.1: sem o A nao ha batalha, e o jogador continua andando. A mesma entrada e a mesma perna de DOWN, e depois RIGHT saturante, que so para na parede da coluna 30. Prova tres coisas de uma vez: o objeto nao dispara sozinho por aproximacao (nivel_inimigo_faixa [0,0]), o jogo continua respondendo (`andou`) e o campo esta livre para o leste. Sem este par, o T145.1 sozinho nao separa `a batalha abriu porque o jogador falou com o Pokemon` de `a batalha abriu sozinha`.",
+  "opcoes": 32,
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GALAR_CROWN_TUNDRA_13",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:DOWN*8,90:NADA,17:RIGHT*8,120:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_CROWN_TUNDRA_13",
+   "pos": [
+    29,
+    20
+   ],
+   "nivel_inimigo_faixa": [
+    0,
+    0
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T145.3",
+  "nome": "GALAR, DEPOIS DA BATALHA O SELVAGEM COMUM SOME, E ELE NAO GASTOU FLAG NENHUMA. O script comum guarda o id do objeto em VAR_TEMP_1 antes da batalha e faz `removeobject VAR_TEMP_1` depois dela; esse removeobject NAO e persistente, porque o campo `flag` do template e 0 e `TrySpawnObjectEvents` recria o template na proxima carga de mapa. A prova e de POSICAO, e a diferenca e larga de proposito: no Galar_WildArea03 o warp 1 larga o jogador em (48,17) e a linha 17 e um corredor limpo de 41 tiles com UM so objeto dentro, o Skwovet de nivel 7 de (18,17). Com ele de pe o LEFT saturante anda 29 tiles e para em (19,17) (e o que o T145.2 mede no outro mapa); depois da batalha o MESMO LEFT saturante anda os 41 e chega a (7,17), doze tiles adiante. A batalha e resolvida por FUGA e nao por vitoria, e isso e medicao e nao preguica: o Bulbasaur de nivel 51 que o `antes_do_warp` pede ao menu de debug tem SYNTHESIS no slot 0 do golpe (learnset de gen 9: os quatro ultimos que ele aprende ate 51 sao Synthesis, Worry Seed, Power Whip e Solar Beam, e o cursor de golpe abre sempre no slot 0), entao marretar A cura o proprio Bulbasaur turno a turno e a batalha nunca termina. Medido: quarenta ciclos de A deixaram o jogador dentro da batalha nas tres execucoes. O texto de abertura da batalha NAO passa sozinho neste build: e por isso que a travessia dele e feita com B, que anda o texto e nao escolhe nada no menu de acao. No fim o jogo SALVA, e a save e a entrada do T145.4.",
+  "opcoes": 32,
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GALAR_WILD_AREA_03",
+  "warp_id": 1,
+  "roteiro": "300:NADA,17:LEFT*45,150:NADA,20:A,300:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:DOWN,150:NADA,20:RIGHT,150:NADA,20:A,600:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,600:NADA,17:LEFT*50,300:NADA,40:START!,90:NADA,20:DOWN,20:DOWN,20:DOWN,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_WILD_AREA_03",
+   "pos": [
+    7,
+    17
+   ]
+  },
+  "antes_do_warp": "40:R+START!,60:NADA,20:DOWN*3,20:A,60:NADA,20:DOWN,20:A,90:NADA,20:A,120:NADA,12:RIGHT,60:NADA,12:UP*5,60:NADA,20:A,240:NADA,20:B*3,120:NADA",
+  "sav": "/tmp/claude-501/frenteA/t145a.sav",
+  "apaga_sav": true
+ },
+ {
+  "id": "T145.4",
+  "nome": "PAR DO T145.3: recarregada a save, o selvagem comum VOLTA. E a metade que nenhum teste de uma execucao so alcanca. Como o encontro comum nao gasta flag, `TrySpawnObjectEvents` recria o template quando o mapa carrega, e e isso que faz o Pokemon do overworld de Galar renascer ao sair e reentrar, como em Sword/Shield. Sem roteiro de jogo antes: a ROM abre em CONTINUAR e o estado vem do arquivo do T145.3, que deixou o jogador em (7,17). O RIGHT saturante anda dez tiles e para em (17,17), barrado pelo MESMO Skwovet de (18,17) que a batalha tinha tirado. Se o removeobject fosse persistente, o jogador atravessaria o corredor inteiro ate (48,17) e este caso reprovaria por 31 tiles.",
+  "opcoes": 32,
+  "sav": "/tmp/claude-501/frenteA/t145a.sav",
+  "abertura": "continuar",
+  "roteiro": "240:NADA,17:RIGHT*50,150:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_WILD_AREA_03",
+   "pos": [
+    17,
+    17
+   ]
+  }
+ },
+ {
+  "id": "T145.5",
+  "nome": "GALAR, ESTATICO UNICO, ESTADO DE PE. Dos 795 encontros do c5, sete sao UNICOS: a fonte acende a propria flag de esconder do objeto, ou seja o encontro se apaga para sempre quando resolvido. Quatro passaram nos portoes, e tres deles sao os Slowpoke de Galar do Isle of Armor. Este caso e o controle: com a FLAG_GALAR_ESTATICO_G38M04_O3 APAGADA o Slowpoke de (26,30) esta no mapa e e solido. Entrada pelo warp 4 (28,1); DOWN saturante desce a coluna 28 e para em (28,21), LEFT anda dois tiles ate (26,21) e o segundo DOWN saturante para em (26,29), colado no Slowpoke.",
+  "opcoes": 32,
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GALAR_ISLE_OF_ARMOR_08",
+  "warp_id": 4,
+  "roteiro": "300:NADA,17:DOWN*30,120:NADA,17:LEFT*3,90:NADA,17:DOWN*20,150:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_ISLE_OF_ARMOR_08",
+   "pos": [
+    26,
+    29
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T145.6",
+  "nome": "PAR DO T145.5: com a flag ACESA o estatico unico SOME, e o corredor abre. Mesma entrada, mesmo roteiro, e a UNICA coisa que muda e a FLAG_GALAR_ESTATICO_G38M04_O3, escrita direto na EWRAM. O motor so esconde um objeto quando sabe de qual objeto a flag e, e isso vem do campo `flag` do map.json, que o gerador escreve junto com o script; se o gerador acendesse a flag sem pendurar ela no template (o defeito que o c4b ja pagou uma vez), este caso pararia em (26,29) igual ao T145.5 e a diferenca sumiria. Com o Slowpoke fora do caminho o DOWN saturante desce a coluna 26 inteira e para em (26,66), 37 tiles adiante.",
+  "opcoes": 32,
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_GALAR_ESTATICO_G38M04_O3"
+  ],
+  "warp": "MAP_GALAR_ISLE_OF_ARMOR_08",
+  "warp_id": 4,
+  "roteiro": "300:NADA,17:DOWN*30,120:NADA,17:LEFT*3,90:NADA,17:DOWN*60,150:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_ISLE_OF_ARMOR_08",
+   "pos": [
+    26,
+    66
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T145.7",
+  "nome": "GALAR, ESTATICO UNICO, A FLAG ATRAVESSA O SAVE (IDA). Igual ao T145.6, mas o jogo SALVA no fim, em (26,66), com a flag acesa. Existe para o T145.8 poder cobrar a outra metade: flag de esconder que vive so na EWRAM daria o mesmo resultado que uma flag salva enquanto a execucao nao termina, e a diferenca entre as duas so aparece depois de fechar e abrir o jogo. A save fica em /tmp/claude-501/frenteA/t145b.sav. O SALVAR daqui aperta DOWN duas vezes e nao tres, e a diferenca e medida: este caso NAO tem time (o seletor de capitulo nao entrega nenhum), entao o menu do START abre sem a linha POKeMON e o SAVE sobe uma posicao. No T145.3, que pede um Bulbasaur ao menu de debug para poder fugir da batalha, o mesmo SAVE precisa de tres.",
+  "opcoes": 32,
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_GALAR_ESTATICO_G38M04_O3"
+  ],
+  "sav": "/tmp/claude-501/frenteA/t145b.sav",
+  "apaga_sav": true,
+  "warp": "MAP_GALAR_ISLE_OF_ARMOR_08",
+  "warp_id": 4,
+  "roteiro": "300:NADA,17:DOWN*30,120:NADA,17:LEFT*3,90:NADA,17:DOWN*60,150:NADA,40:START!,90:NADA,20:DOWN,20:DOWN,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,180:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_ISLE_OF_ARMOR_08",
+   "pos": [
+    26,
+    66
+   ]
+  }
+ },
+ {
+  "id": "T145.8",
+  "nome": "PAR DO T145.7: recarregada a save, o estatico unico CONTINUA sumido. A ROM abre em CONTINUAR, sem flag escrita por fora: tudo vem do arquivo. O jogador acorda em (26,66) e sobe. Com o Slowpoke ainda escondido o UP saturante sobe 47 tiles e para em (26,19); se a flag nao tivesse sobrevivido a save, o Slowpoke estaria de volta em (26,30) e o jogador pararia em (26,31), doze tiles antes. E o contrario exato do T145.4: la o objeto TEM que voltar (encontro comum, sem flag), aqui ele NAO pode voltar (encontro unico, com flag).",
+  "opcoes": 32,
+  "sav": "/tmp/claude-501/frenteA/t145b.sav",
+  "abertura": "continuar",
+  "roteiro": "240:NADA,17:UP*60,150:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_ISLE_OF_ARMOR_08",
+   "pos": [
+    26,
+    19
+   ],
+   "flags_acesas": [
+    "FLAG_GALAR_ESTATICO_G38M04_O3"
+   ]
+  }
+ },
+ {
+  "id": "T145.9",
+  "nome": "GALAR, MAPA COM 43 OBJETOS: A JANELA DE SPRITE ENCHEU E OS WARPS CONTINUAM VIVOS. O Galar_CrownTundra08 e o mapa mais cheio do bloco c5: 15 objetos herdados mais 28 encontros novos, 43 de 64 templates. O risco que nenhuma compilacao acusa e o dos DOIS tetos do motor: passar de 64 templates, ou passar de 15 sprites dentro da janela de 20 por 17 tiles em volta do jogador, quando `TrySpawnObjectEventTemplate` desiste CALADO. Se o encontro de (41,23) nao acordasse, o DOWN saturante nao pararia em (41,22). E o warp 2, em (41,15), tem que continuar funcionando com o mapa cheio: o jogador desce, volta pelo UP saturante, pisa nele e sai para o Galar_CrownTundra01.",
+  "opcoes": 32,
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GALAR_CROWN_TUNDRA_08",
+  "warp_id": 2,
+  "roteiro": "300:NADA,17:DOWN*14,120:NADA,17:UP*14,240:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_CROWN_TUNDRA_01"
+  }
+ },
+ {
+  "id": "T145.10",
+  "nome": "PAR DO T145.9: sem pisar no warp, o jogador fica no mapa cheio, e o encontro de (41,23) e quem o segura. O mesmo comeco, e so a perna de volta nao acontece. A prova de posicao e a que separa `o objeto acordou` de `o objeto existe no map.json`: (41,23) esta a oito tiles do warp e dentro da mesma janela de sprite dos outros doze objetos daquele canto, entao ele e justamente o que cairia fora se a conta de lotacao do gerador estivesse frouxa.",
+  "opcoes": 32,
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GALAR_CROWN_TUNDRA_08",
+  "warp_id": 2,
+  "roteiro": "300:NADA,17:DOWN*14,240:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_CROWN_TUNDRA_08",
+   "pos": [
+    41,
+    22
+   ],
+   "andou": true
+  }
+ }
+]

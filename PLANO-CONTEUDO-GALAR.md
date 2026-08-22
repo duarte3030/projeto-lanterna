@@ -129,11 +129,46 @@ A tabela acima conta LINHA, e não LUGAR ONDE PENDURAR A LINHA. Medido em
 de objetos que o G4 NÃO pôs no mapa** (gráfico de Pokémon ou de cenário, tile não
 andável, tile de warp), e a condutora já as descartou em 21/08 porque devolver o
 sprite mentiria a espécie. Sobram **79 linhas com objeto de verdade no mapa** (70
-objetos e 9 placas), e é esse o teto do c4a. **Dentro das 1.398 estão os 859
-scripts de encontro estático** (`setwildbattle`/`dowildbattle`, Pokémon parado no
-overworld): eles são insumo de uma **Pokédex de Galar** futura, não cena de NPC,
-e hoje estão FORA DE ESCOPO por decisão do Gui. Voltam junto com a decisão de
-sprite, nunca por este balde.
+objetos e 9 placas), e é esse o teto do c4a. **Dentro das 1.398 estão os scripts
+de encontro estático** (`setwildbattle`/`dowildbattle`, Pokémon parado no
+overworld): eles não são cena de NPC e não entram por este balde. **Entraram em
+22/08/2026, pelo bloco c5**; ver a seção logo abaixo.
+
+### O c5, os encontros estáticos, FEITO em 22/08/2026
+
+Decisão do Gui: o teto de seis regiões fica de pé, Galar fica, e o conteúdo
+próprio dela entra. Com isso caiu o descarte de "gráfico de Pokémon mentiria a
+espécie", que era verdade em 18/08 e deixou de ser: `OBJ_EVENT_GFX_SPECIES`
+existe nesta build e o `distribui_dex.py` já pôs 106 estáticos com ela. Executor:
+`dev_scripts/estaticos_galar.py`.
+
+**O número 859 não se reproduz, e o medido hoje é 1.092.** Remedido sobre a MESMA
+fonte: 1.092 linhas de `script_objeto` carregam `setwildbattle`, 1.088 delas são
+de objeto que o G4 não pôs no mapa e 1.085 caem no recorte exato que o c4a chama
+de descarte. Nenhuma das definições testadas devolve 859 (com e sem
+`dowildbattle`; só gráfico de Pokémon; com e sem o conserto do parser de macros de
+dois ramos; por ponteiro de script distinto, que dá 265). O 859 fica registrado
+como número de uma medição que não se reproduz; quem citar o assunto cita 1.092.
+
+**A espécie sai da tabela de nomes da PRÓPRIA ROM da fonte**, achada por âncora,
+porque o id do demake não é o nosso (o 331 de lá é `Sharpedo`) e nem o do FireRed
+(a tabela do demake vai até 1.267). Nome repetido na tabela é forma (mega, Gmax,
+regional) e só entra com decisão escrita uma a uma; Gigantamax é recusado.
+
+**Resultado: 795 aplicados em 68 mapas** (791 comuns, 4 únicos), 4 flags, 145
+cenas no `.inc`, 79 espécies distintas. De fora ficaram 293 com motivo contado:
+200 de mesa de raide (script que sorteia até 59 espécies, e escolher uma seria
+inventar), 89 de geometria (52 inalcançáveis, 28 em tile não andável, 9 em tile já
+ocupado), 3 de forma que o nome sozinho não distingue (2 sem decisão medida, 1
+Gigantamax) e 1 de id que nem existe na tabela de nomes da fonte. Nenhuma linha
+caiu por teto de objeto nem por janela de sprite: os dois portões estão medidos e
+o pior mapa é a `Galar_Route0202`, com 15 templates numa janela (o teto exato).
+Provado pelo T145, 10 casos em 5 pares, e pelo T146 do fechador, mais 10: o comum
+renasce ao SAIR do mapa e voltar sem passar pelo save, fugir do único NÃO acende a
+flag dele nem depois de recarregar, os CINCO warps do mapa mais cheio (43 objetos)
+continuam disparando com o NPC de cena ainda acordando, e a corrida do
+`VAR_LAST_TALKED` passou 5 de 5 execuções. A régua foi consertada junto: ver a
+seção 0.n do ESTADO.
 
 Das 79, **8 foram portadas** e o resto caiu no filtro. Recontagem das 1.883
 linhas de fora, por motivo, na medição de 22/08:

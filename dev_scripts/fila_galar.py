@@ -167,6 +167,29 @@ def feitas():
     return achados
 
 
+def estaticos_feitos(de_para):
+    """{chave: motivo} dos encontros estaticos que ESTAO no mapa (bloco c5).
+
+    Mesma lei do `feitas()` acima: le o que existe na arvore, nunca um campo
+    escrito a mao. Aqui a prova nao pode ser o rotulo do `.inc`, porque o c5
+    COMPARTILHA uma cena entre todos os objetos do mesmo (especie, nivel, item)
+    -- os 24 Rolycoly de nivel 20 dividem `GalarSelvagem_ROLYCOLY_L20`, e
+    procurar o rotulo do proprio objeto daria 23 deles por pendentes. Entao a
+    prova e o OBJECT EVENT gravado no `map.json`, que carrega a chave da fonte
+    em `origem_chave`.
+    """
+    achados = {}
+    for chave, d in de_para.items():
+        caminho = "%s/data/maps/%s/map.json" % (RAIZ, d.get("nome", ""))
+        if not os.path.exists(caminho):
+            continue
+        for o in json.load(open(caminho)).get("object_events", []):
+            if o.get("origem") == "estaticos_galar" and o.get("origem_chave"):
+                achados[o["origem_chave"]] = ("escrita por "
+                                              "dev_scripts/estaticos_galar.py (c5)")
+    return achados
+
+
 def map_scripts_feitos(de_para):
     """{chave: motivo} dos mapas cujo `scripts.inc` JA aponta para uma cena.
 
@@ -277,6 +300,7 @@ def varre():
     velhas = decisoes_anteriores()
     prontas = feitas()
     prontas.update(map_scripts_feitos(de_para))
+    prontas.update(estaticos_feitos(de_para))
     balde = baldes()
     for l in linhas:
         st, motivo = velhas.get(l["chave"], ("pendente", ""))
@@ -398,6 +422,7 @@ def demo():
     #     ser cobranca em vez de ficar como trabalho fantasma.
     escritas2 = dict(feitas())
     escritas2.update(map_scripts_feitos(mundo2["de_para"]))
+    escritas2.update(estaticos_feitos(mundo2["de_para"]))
     fantasma = [l["chave"] for l in linhas
                 if l["status"] == "feita"
                 and l["motivo_do_status"].startswith("escrita por")
