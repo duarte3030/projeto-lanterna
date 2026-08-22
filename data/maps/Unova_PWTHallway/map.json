@@ -44,6 +44,25 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_UNOVA_PWT_CORREDOR_CENA",
+      "var_value": "0",
+      "script": "Unova_PWTHallway_EventScript_PwtEnterFromLeftScript"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_UNOVA_PWT_CORREDOR_CENA",
+      "var_value": "0",
+      "script": "Unova_PWTHallway_EventScript_PwtEnterFromRightScript"
+    }
+  ],
   "bg_events": []
 }

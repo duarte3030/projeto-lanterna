@@ -14,3 +14,12 @@ Unova_PlayersHouse2F_Text_PlayersRadioText4::
 	.string "\lthe radio…$"
 
 @ Placas trazidas do BW3G por dev_scripts/importa_placas_unova.py
+
+@ Placas fechadas por dev_scripts/completa_placas_unova.py
+Unova_PlayersHouse2F_EventScript_Poster::
+	msgbox Unova_PlayersHouse2F_Text_Poster, MSGBOX_SIGN
+	end
+
+Unova_PlayersHouse2F_Text_Poster::
+	.string "A POKéMON poster is stuck to\n"
+	.string "the wall.$"

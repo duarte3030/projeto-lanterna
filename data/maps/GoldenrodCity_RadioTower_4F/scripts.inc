@@ -120,3 +120,18 @@ RadioTower4F_Text_RichBeaten:
 RadioTower4F_Text_RichAfter:
 	.string "Do you honestly believe you can stop\n"
 	.string "TEAM ROCKET?$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+GoldenrodCity_RadioTower_4F4_EventScript_Fisher::
+	lock
+	faceplayer
+	msgbox GoldenrodCity_RadioTower_4F4_Text_Fisher, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+GoldenrodCity_RadioTower_4F4_Text_Fisher::
+	.string "I listened to the radio while I was\n"
+	.string "at the RUINS.\p"
+	.string "I heard a strange broadcast there.$"

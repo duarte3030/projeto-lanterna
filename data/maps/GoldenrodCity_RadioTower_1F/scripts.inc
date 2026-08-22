@@ -93,3 +93,17 @@ RadioTower1F_Text_Directory::
     .string "3F PERSONNEL\n"
     .string "4F PRODUCTION\p"
     .string "5F DIRECTOR'S OFFICE$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+RadioTower1F_Text_Whitney1::
+	.string "WHITNEY: Hi!\p"
+	.string "My name is WHITNEY!\p"
+	.string "I heard about the QUIZ to win a\n"
+	.string "RADIO, so I came here to get\l"
+	.string "one...\p"
+	.string "But this QUIZ is so hard!$"
+
+GoldenrodCity_RadioTower_1F_EventScript_WhitneyFala::
+	msgbox RadioTower1F_Text_Whitney1, MSGBOX_NPC
+	end

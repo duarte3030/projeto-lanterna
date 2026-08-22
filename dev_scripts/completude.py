@@ -174,6 +174,23 @@ APELIDOS_FONTE = {
     "NationalPark": "NationalPark_Normal",     # a variante de concurso é outro mapa
     "OaksLab": "PalletTown_ProfessorOaksLab_Frlg",
     "PokemonFanClub": "VermilionCity_PokemonFanClub_Frlg",  # o Fan Club de gen 2 é o de Vermilion
+    # 22/08/2026, mesma família dos cinco acima e com a mesma prova: nenhum
+    # `warp_event` de bw3g aponta para as duas estações do Trem Magnético
+    # (`grep -rn MAGNET_TRAIN_STATION maps/*.asm` só acha as próprias). São
+    # herança do gen 2, e o mapa externo que levava a elas o hack apagou.
+    # A de Goldenrod já está jogável aqui, importada do hns, com os mesmos 9
+    # objetos e o mesmo warp para a cidade.
+    "GoldenrodMagnetTrainStation": "GoldenrodCity_TrainStation",
+    # A de Saffron NÃO tem par nesta ROM e virou CORTE DECLARADO do Gui em
+    # 22/08/2026 (ver CORTES_DO_GUI abaixo), não apelido: apelidar seria dizer
+    # que ela existe aqui, e ela não existe.
+    #
+    # O portão entre as rotas 1 e 17 de Unova, este sim, está jogável desde a
+    # importação (`data/maps/Unova_Rt1Rt17Gate`, 4 warps e o guarda), com as
+    # rotas 1 e 17 já apontando para `MAP_UNOVA_R_1_R_17_GATE`. O que faltava
+    # era só a régua enxergar: `normaliza()` não casa "Rt1Rt17Gate" com
+    # "R1R17Gate" porque o nosso nome usa "Rt" e o da fonte usa "R".
+    "R1R17Gate": "Unova_Rt1Rt17Gate",
 }
 
 
@@ -360,6 +377,27 @@ CORTES_DO_GUI = [
          campos=TODOS_OS_CAMPOS, data="21/08/2026",
          motivo="o 2F de gen 2 é troca e batalha por cabo, mesmo motivo do "
                 "Cable Club", alvo=["Unova_Pokecenter2F"]),
+    # Extensão do grupo do Cable Club acima, e a razão dela é MEDIDA, não de
+    # gosto: as salas de link por celular são as DUAS únicas do lado de Unova
+    # que ainda tinham déficit de warp (4 de 1.042, os 0,4% que faltavam), e os
+    # quatro warps delas apontam TODOS para `POKECENTER_2F`, que é o mapa
+    # cortado na linha de cima. Ou seja: o destino já saiu do porte por decisão
+    # do Gui, e sem destino não há warp para importar. Trazê-los apontando para
+    # outro lugar seria inventar topologia.
+    dict(regiao="Unova", grupo="estação do Trem Magnético de Saffron",
+         modo="mapa_fonte", alvo=r"^SaffronMagnetTrainStation$",
+         campos=TODOS_OS_CAMPOS, data="22/08/2026",
+         motivo="ponta de KANTO de um trem de gen 2 que o bw3g carregou junto "
+                "e órfão dentro da própria fonte (nenhum warp_event do bw3g "
+                "aponta para ela); a travessia por barco já liga Johto e "
+                "Kanto, e criá-la exigiria abrir porta nova no map.bin de "
+                "Kanto, onde os 15 warps de SaffronCity_Frlg já têm dono"),
+    dict(regiao="Unova", grupo="salas de link por celular", modo="deficit",
+         campos=TODOS_OS_CAMPOS, data="22/08/2026",
+         motivo="Mobile Trade Room e Mobile Battle Room são a versão por "
+                "celular do Cable Club, e os 4 warps delas só levam ao "
+                "Pokécenter 2F, que já está cortado",
+         alvo=["Unova_MobileTradeRoom", "Unova_MobileBattleRoom"]),
 ]
 
 

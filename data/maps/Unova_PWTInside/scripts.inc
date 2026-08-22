@@ -3,6 +3,22 @@
 Unova_PWTInside_MapScripts::
 	.byte 0
 
+@ >>> B6 Unova, Obra 1: gatilhos de setscene (dev_scripts/gatilhos_setscene_unova.py) >>>
+@ STUB A2: cena do bloco A4/A5/A6, rotulo PwtEnterFromBackScript
+Unova_PWTInside_EventScript_PwtEnterFromBackScript::
+	lockall
+	setvar VAR_UNOVA_PWT_DENTRO_CENA, 1
+	applymovement 1, Unova_PWTInside_Movement_BloqueadorSai
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Unova_PWTInside_Movement_JogadorEntra
+	waitmovement 0
+	applymovement 1, Unova_PWTInside_Movement_BloqueadorVolta
+	waitmovement 0
+	releaseall
+	end
+
+@ <<< B6 Unova, Obra 1: gatilhos de setscene <<<
+
 Unova_PWTInside_EventScript_Npc0::
 	msgbox Unova_PWTInside_Text_PwtInsideQualifierText, MSGBOX_NPC
 	end
@@ -73,3 +89,25 @@ Unova_PWTInside_Text_PwtInsideOfficerText::
 	.string "\nenter, you should"
 	.string "\pgo talk to the"
 	.string "\nreceptionist.$"
+
+@ Cenas do PWT (dev_scripts/cenas_pwt_unova.py), autorizadas em 22/08/2026
+
+	.align 2
+Unova_PWTInside_Movement_BloqueadorSai:
+	walk_up
+	walk_right
+	walk_in_place_faster_left
+	step_end
+
+	.align 2
+Unova_PWTInside_Movement_JogadorEntra:
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+	.align 2
+Unova_PWTInside_Movement_BloqueadorVolta:
+	walk_left
+	walk_down
+	step_end

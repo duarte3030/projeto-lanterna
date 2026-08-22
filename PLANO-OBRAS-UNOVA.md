@@ -85,6 +85,17 @@ mora no mapa. "Remoto" = o mapa só recebe `setmapscene` de fora, nunca tem
 | **R_12_VILLAGE_BRIDGE_GATE** (remoto) | `VAR_UNOVA_R12_VILLAGE_BRIDGE_PORTAO_CENA` | 0x417A | 0=SCENE_DEFAULT, 1=SCENE_FINISHED |
 | **PKMN_LEAGUE_MAIN** (remoto) | `VAR_UNOVA_LIGA_SALAO_CENA` | 0x417B | 0=SCENE_ELITE_FOUR_ROOM_ENTER, 1=SCENE_ELITE_FOUR_ROOM_NOTHING, 2=SCENE_ELITE_FOUR_ROOM_FINISHED |
 
+**Duas vars a mais, autorizadas pelo condutor em 22/08/2026**, que tiram as 3
+cenas do PWT da fila de bloqueio residual. Sem var de cena o gatilho de (4,1)
+do corredor dispara toda vez que o jogador sobe para a porta da sala de
+qualificação e o arrasta embora, ou seja TRANCA a sala; com ela a cena dispara
+uma vez e para (ver `dev_scripts/cenas_pwt_unova.py`):
+
+| mapa (MAP_CONST) | var | endereço | valores (0, 1, 2...) |
+|---|---|---|---|
+| PWT_HALLWAY | `VAR_UNOVA_PWT_CORREDOR_CENA` | 0x417E | 0=SCENE_DEFAULT, 1=SCENE_FINISHED |
+| PWT_INSIDE | `VAR_UNOVA_PWT_DENTRO_CENA` | 0x417F | 0=SCENE_DEFAULT, 1=SCENE_FINISHED |
+
 **Duas vars fora das 27 acima, autorizadas pela condutora na Fase B
 (18/08/2026), fora do desenho de 15/08/2026:**
 
@@ -377,3 +388,51 @@ decisão de desenho, não conserto mecânico.
   Candidata: `FLAG_HIDE_GOLDENROD_BEAUTY` na faixa de Johto. Entra quando o arco
   da ocupação de Goldenrod pela Rocket ganhar leva, junto com quem seta e limpa
   a flag; até lá o índice 33 fica item ball muda.
+
+## Fechamento das colunas de Unova, 22/08/2026
+
+`warps` foi de 99,6% para **100,0%** e `placas` de 100,2% para **100,2%** (ela
+tinha caído para 99,8% no meio do caminho, ver abaixo); `mapas` foi de 99,0%
+para **99,7%**, e o que sobrou está nomeado no fim desta seção.
+
+- **Os 4 warps que faltavam** eram os das duas salas de link por CELULAR
+  (`Unova_MobileTradeRoom` e `Unova_MobileBattleRoom`). Os quatro apontam para
+  `POKECENTER_2F`, que já é corte do Gui de 21/08 pelo mesmo motivo (multiplayer
+  local). Sem destino não há warp para importar, e apontá-los para outro lugar
+  seria inventar topologia: as duas salas entraram no MESMO grupo de corte do
+  Cable Club em `dev_scripts/completude.py`, com data e motivo.
+- **Foi esse corte que derrubou `placas` para 99,8%**, porque `corta_campo` usa
+  `min(a, b)` e as duas salas tinham 2 `bg_events` a mais que a fonte. As duas
+  que faltavam de verdade estavam no `Unova_PlayersHouse2F` (a estante e o
+  pôster do quarto do jogador) e entraram por
+  `dev_scripts/completa_placas_unova.py`.
+- **Dos 3 mapas que a régua dizia faltar, 2 nunca faltaram.** O
+  `GoldenrodMagnetTrainStation` é a estação do Trem Magnético que já está
+  jogável importada do hns, e o `R1R17Gate` é o `data/maps/Unova_Rt1Rt17Gate`,
+  jogável desde a importação, com os 4 warps e o guarda: o que falhava era o
+  `normaliza()` da régua, que não casa `Rt1Rt17Gate` com `R1R17Gate`. Os dois
+  viraram linha de `APELIDOS_FONTE`, com a prova de cada um escrita ao lado. A
+  travessia do portão está provada de verdade pelo **T149.9**, com par negativo.
+
+### O que impede Unova de fechar `mapas` em 100%, com número
+
+**Um mapa: `SaffronMagnetTrainStation`** (0,33% da coluna). É a ponta de Kanto do
+Trem Magnético, herança de gen 2 que o bw3g carregou junto e órfã lá dentro
+(nenhum `warp_event` do bw3g aponta para ela). Ela NÃO tem par nesta ROM, e
+criá-la não é trabalho de importador: o Saffron de Kanto vem do pokefirered e
+não tem porta sobrando: todos os 15 warps do `SaffronCity_Frlg` já têm dono, e
+abrir uma porta nova é mexer no `map.bin` de Kanto, que é arte de outra região.
+Enquanto isso não for decidido, a linha fica aqui, medida e nomeada, em vez de
+sumir num apelido falso.
+
+### As linhas de fila com bloqueio residual: eram 9, ficaram 6
+
+- **3 saíram em 22/08/2026** (`PWTHallway` x2, `PWTInside`), autorizadas pelo
+  condutor: eram cena de movimento puro, e o que as segurava era o
+  `SCENE_DEFAULT` da fonte, não enredo. As duas vars novas estão na tabela
+  acima e as cenas em `dev_scripts/cenas_pwt_unova.py`; provadas pelos T149.11
+  a T149.14, com par negativo em cada uma provando que a cena NÃO repete.
+- **5 são bloqueio de enredo de verdade** (`MarlonsHouse` x2, `HumilauCity`,
+  `LentimasTown`, `NimbasaParkOutside`): a cena empurra o jogador de volta e só
+  para de empurrar quando o enredo avança. Sem o enredo, parede permanente.
+- **1 é a máquina da Plasma** (`ShoppingMallNine`), que não existe nesta ROM.

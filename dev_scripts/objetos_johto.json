@@ -1,0 +1,956 @@
+{
+ "dentro": [
+  {
+   "mapa": "AzaleaTown",
+   "x": 57,
+   "y": 7,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_EKANS",
+   "entrou": true,
+   "nota": "tile de colisão 1 (decoração em cima de cenário)"
+  },
+  {
+   "mapa": "AzaleaTown",
+   "x": 45,
+   "y": 21,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_EKANS",
+   "entrou": true,
+   "nota": "tile de colisão 1 (decoração em cima de cenário)"
+  },
+  {
+   "mapa": "AzaleaTown",
+   "x": 34,
+   "y": 14,
+   "gfx_fonte": "OBJ_EVENT_GFX_SLOWPOKE_NO_TAIL",
+   "entrou": true
+  },
+  {
+   "mapa": "AzaleaTown",
+   "x": 23,
+   "y": 14,
+   "gfx_fonte": "OBJ_EVENT_GFX_SLOWPOKE_NO_TAIL",
+   "entrou": true
+  },
+  {
+   "mapa": "AzaleaTown",
+   "x": 28,
+   "y": 24,
+   "gfx_fonte": "OBJ_EVENT_GFX_SLOWPOKE_NO_TAIL",
+   "entrou": true
+  },
+  {
+   "mapa": "AzaleaTown",
+   "x": 48,
+   "y": 5,
+   "gfx_fonte": "OBJ_EVENT_GFX_SLOWPOKE_NO_TAIL",
+   "entrou": true
+  },
+  {
+   "mapa": "AzaleaTown",
+   "x": 22,
+   "y": 21,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_SCYTHER",
+   "entrou": true
+  },
+  {
+   "mapa": "AzaleaTown",
+   "x": 9,
+   "y": 23,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_EKANS",
+   "entrou": true,
+   "nota": "tile de colisão 1 (decoração em cima de cenário)"
+  },
+  {
+   "mapa": "AzaleaTown",
+   "x": 5,
+   "y": 7,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_HAUNTER",
+   "entrou": true,
+   "nota": "tile de colisão 1 (decoração em cima de cenário)"
+  },
+  {
+   "mapa": "AzaleaTown",
+   "x": 45,
+   "y": 14,
+   "gfx_fonte": "OBJ_EVENT_GFX_SLOWPOKE_NO_TAIL",
+   "entrou": true
+  },
+  {
+   "mapa": "AzaleaTown",
+   "x": 12,
+   "y": 7,
+   "gfx_fonte": "OBJ_EVENT_GFX_BERRY_TREE",
+   "entrou": true,
+   "nota": "tile de colisão 1 (decoração em cima de cenário)"
+  },
+  {
+   "mapa": "AzaleaTown",
+   "x": 1,
+   "y": 1,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_HERACROSS",
+   "entrou": true,
+   "nota": "tile de colisão 1 (decoração em cima de cenário)"
+  },
+  {
+   "mapa": "BurnedTower_1F",
+   "x": 13,
+   "y": 1,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_RATICATE",
+   "entrou": true
+  },
+  {
+   "mapa": "BurnedTower_1F",
+   "x": 20,
+   "y": 10,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_ZUBAT",
+   "entrou": true
+  },
+  {
+   "mapa": "BurnedTower_1F",
+   "x": 11,
+   "y": 5,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_KOFFING",
+   "entrou": true
+  },
+  {
+   "mapa": "BurnedTower_1F",
+   "x": 7,
+   "y": 16,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_KOFFING",
+   "entrou": true
+  },
+  {
+   "mapa": "BurnedTower_1F",
+   "x": 25,
+   "y": 21,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_HOUNDOUR",
+   "entrou": true
+  },
+  {
+   "mapa": "BurnedTower_1F",
+   "x": 2,
+   "y": 21,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_SLUGMA",
+   "entrou": true
+  },
+  {
+   "mapa": "BurnedTower_1F",
+   "x": 18,
+   "y": 17,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_KOFFING",
+   "entrou": true
+  },
+  {
+   "mapa": "BurnedTower_B1F",
+   "x": 18,
+   "y": 8,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_ENTEI",
+   "entrou": true
+  },
+  {
+   "mapa": "BurnedTower_B1F",
+   "x": 14,
+   "y": 8,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_RAIKOU",
+   "entrou": true
+  },
+  {
+   "mapa": "BurnedTower_B1F",
+   "x": 16,
+   "y": 9,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_SUICUNE",
+   "entrou": true
+  },
+  {
+   "mapa": "BurnedTower_B1F",
+   "x": 23,
+   "y": 0,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_KOFFING",
+   "entrou": true
+  },
+  {
+   "mapa": "BurnedTower_B1F",
+   "x": 20,
+   "y": 0,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_KOFFING",
+   "entrou": true
+  },
+  {
+   "mapa": "BurnedTower_B1F",
+   "x": 8,
+   "y": 0,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_MISDREAVUS",
+   "entrou": true
+  },
+  {
+   "mapa": "BurnedTower_B1F",
+   "x": 25,
+   "y": 17,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_MAGMAR",
+   "entrou": true
+  },
+  {
+   "mapa": "CherrygroveCity",
+   "x": 65,
+   "y": 10,
+   "gfx_fonte": "OBJ_EVENT_GFX_SILVER",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "Gate_GoldenrodCity_Route35",
+   "x": 18,
+   "y": 15,
+   "gfx_fonte": "OBJ_EVENT_GFX_ENGINEER",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "GoldenrodCity_RadioTower_1F",
+   "x": 19,
+   "y": 10,
+   "gfx_fonte": "OBJ_EVENT_GFX_ATTENDANT_M",
+   "entrou": true
+  },
+  {
+   "mapa": "GoldenrodCity_RadioTower_1F",
+   "x": 13,
+   "y": 8,
+   "gfx_fonte": "OBJ_EVENT_GFX_WHITNEY",
+   "entrou": true
+  },
+  {
+   "mapa": "GoldenrodCity_RadioTower_2F",
+   "x": 29,
+   "y": 15,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_JIGGLYPUFF",
+   "entrou": true
+  },
+  {
+   "mapa": "GoldenrodCity_RadioTower_2F",
+   "x": 28,
+   "y": 14,
+   "gfx_fonte": "OBJ_EVENT_GFX_BEAUTY",
+   "entrou": true
+  },
+  {
+   "mapa": "GoldenrodCity_RadioTower_3F",
+   "x": 12,
+   "y": 10,
+   "gfx_fonte": "OBJ_EVENT_GFX_SUPER_NERD",
+   "entrou": true
+  },
+  {
+   "mapa": "GoldenrodCity_RadioTower_4F",
+   "x": 17,
+   "y": 10,
+   "gfx_fonte": "OBJ_EVENT_GFX_FAT_MAN",
+   "entrou": true
+  },
+  {
+   "mapa": "GoldenrodCity_RadioTower_4F",
+   "x": 26,
+   "y": 13,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_MEOWTH",
+   "entrou": true
+  },
+  {
+   "mapa": "MahoganyTown_Shop",
+   "x": 4,
+   "y": 8,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_DRAGONITE",
+   "entrou": true
+  },
+  {
+   "mapa": "NationalPark_BugContest",
+   "x": 22,
+   "y": -3,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_WEEDLE",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "NationalPark_BugContest",
+   "x": 24,
+   "y": -3,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_PINSIR",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "NationalPark_BugContest",
+   "x": 18,
+   "y": -3,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_BUTTERFREE",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "NationalPark_BugContest",
+   "x": 16,
+   "y": -3,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_METAPOD",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "NationalPark_BugContest",
+   "x": -3,
+   "y": -3,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_CATERPIE",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "NationalPark_BugContest",
+   "x": -2,
+   "y": -3,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_WEEDLE",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "NationalPark_BugContest",
+   "x": -3,
+   "y": -2,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_METAPOD",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "NationalPark_BugContest",
+   "x": -2,
+   "y": -2,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_KAKUNA",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "NationalPark_BugContest",
+   "x": -3,
+   "y": -1,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_PARAS",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "NationalPark_BugContest",
+   "x": -2,
+   "y": -1,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_VENONAT",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "NationalPark_BugContest",
+   "x": -3,
+   "y": 0,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_BUTTERFREE",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "NationalPark_BugContest",
+   "x": -2,
+   "y": 0,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_BEEDRILL",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "NationalPark_BugContest",
+   "x": -3,
+   "y": 1,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_SCYTHER",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "NationalPark_BugContest",
+   "x": -2,
+   "y": 1,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_PINSIR",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "NewBarkTown",
+   "x": -2,
+   "y": 23,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_PINECO",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "OlivineCity_Lighthouse",
+   "x": 156,
+   "y": 9,
+   "gfx_fonte": "OBJ_EVENT_GFX_JASMINE",
+   "entrou": true
+  },
+  {
+   "mapa": "OlivineCity_Lighthouse",
+   "x": 156,
+   "y": 8,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_AMPHAROS",
+   "entrou": true
+  },
+  {
+   "mapa": "OlivineCity_PortInside",
+   "x": 5,
+   "y": 12,
+   "gfx_fonte": "OBJ_EVENT_GFX_YOUNGSTER",
+   "entrou": true
+  },
+  {
+   "mapa": "OlivineCity_PortInside",
+   "x": 12,
+   "y": 12,
+   "gfx_fonte": "OBJ_EVENT_GFX_COOLTRAINER_F",
+   "entrou": true
+  },
+  {
+   "mapa": "OlivineCity_PortInside",
+   "x": 3,
+   "y": 14,
+   "gfx_fonte": "OBJ_EVENT_GFX_FISHER",
+   "entrou": true
+  },
+  {
+   "mapa": "OlivineCity_PortInside",
+   "x": 14,
+   "y": 12,
+   "gfx_fonte": "OBJ_EVENT_GFX_FISHER",
+   "entrou": true
+  },
+  {
+   "mapa": "OlivineCity_PortInside",
+   "x": 8,
+   "y": 20,
+   "gfx_fonte": "OBJ_EVENT_GFX_SS_TIDAL",
+   "entrou": true,
+   "nota": "tile de colisão 1 (decoração em cima de cenário)"
+  },
+  {
+   "mapa": "OlivineCity_PortOutside",
+   "x": 12,
+   "y": 5,
+   "gfx_fonte": "OBJ_EVENT_GFX_FISHER",
+   "entrou": true
+  },
+  {
+   "mapa": "OlivineCity_PortOutside",
+   "x": 21,
+   "y": 6,
+   "gfx_fonte": "OBJ_EVENT_GFX_FISHER",
+   "entrou": true
+  },
+  {
+   "mapa": "Route26",
+   "x": 16,
+   "y": -10,
+   "gfx_fonte": "OBJ_EVENT_GFX_COOLTRAINER_M",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "Route26",
+   "x": 9,
+   "y": -19,
+   "gfx_fonte": "OBJ_EVENT_GFX_COOLTRAINER_F",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "Route26",
+   "x": 23,
+   "y": -13,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_BULBASAUR",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "Route26",
+   "x": 11,
+   "y": -8,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_SQUIRTLE",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "Route26",
+   "x": 20,
+   "y": -19,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_CHARMANDER",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "Route26",
+   "x": 11,
+   "y": -28,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_MURKROW",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "Route26",
+   "x": 19,
+   "y": 9,
+   "gfx_fonte": "OBJ_EVENT_GFX_BERRY_TREE",
+   "entrou": true,
+   "nota": "tile de colisão 1 (decoração em cima de cenário)"
+  },
+  {
+   "mapa": "Route28",
+   "x": 19,
+   "y": 21,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_GOLBAT",
+   "entrou": true,
+   "nota": "tile de colisão 1 (decoração em cima de cenário)"
+  },
+  {
+   "mapa": "Route28",
+   "x": 9,
+   "y": 18,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_GOLBAT",
+   "entrou": true,
+   "nota": "tile de colisão 1 (decoração em cima de cenário)"
+  },
+  {
+   "mapa": "Route29",
+   "x": 39,
+   "y": 10,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_PIDGEY",
+   "entrou": true,
+   "nota": "tile de colisão 1 (decoração em cima de cenário)"
+  },
+  {
+   "mapa": "Route29",
+   "x": 15,
+   "y": 23,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_RATTATA",
+   "entrou": true,
+   "nota": "tile de colisão 1 (decoração em cima de cenário)"
+  },
+  {
+   "mapa": "Route29",
+   "x": 30,
+   "y": 18,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_HOPPIP",
+   "entrou": true,
+   "nota": "tile de colisão 1 (decoração em cima de cenário)"
+  },
+  {
+   "mapa": "Route29",
+   "x": 15,
+   "y": 11,
+   "gfx_fonte": "OBJ_EVENT_GFX_BERRY_TREE",
+   "entrou": true,
+   "nota": "tile de colisão 1 (decoração em cima de cenário)"
+  },
+  {
+   "mapa": "Route31",
+   "x": 45,
+   "y": 24,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_HOOTHOOT",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "Route31",
+   "x": 45,
+   "y": 24,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_PIDGEY",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "Route32",
+   "x": 20,
+   "y": -2,
+   "gfx_fonte": "OBJ_EVENT_GFX_LIGHT_SPRITE",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "Route32",
+   "x": 23,
+   "y": -2,
+   "gfx_fonte": "OBJ_EVENT_GFX_LIGHT_SPRITE",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "Route36",
+   "x": 32,
+   "y": 31,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_GASTLY",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "Route42",
+   "x": 49,
+   "y": 29,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_ARBOK",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "Route45",
+   "x": 25,
+   "y": -2,
+   "gfx_fonte": "OBJ_EVENT_GFX_LIGHT_SPRITE",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "Route45",
+   "x": 29,
+   "y": -2,
+   "gfx_fonte": "OBJ_EVENT_GFX_LIGHT_SPRITE",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "SlowpokeWell_B1F",
+   "x": 7,
+   "y": 12,
+   "gfx_fonte": "OBJ_EVENT_GFX_SLOWPOKE_NO_TAIL",
+   "entrou": true
+  },
+  {
+   "mapa": "SlowpokeWell_B1F",
+   "x": 10,
+   "y": 9,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_SLOWBRO",
+   "entrou": true
+  },
+  {
+   "mapa": "SlowpokeWell_B1F",
+   "x": 6,
+   "y": 11,
+   "gfx_fonte": "OBJ_EVENT_GFX_SLOWPOKE_NO_TAIL",
+   "entrou": true
+  },
+  {
+   "mapa": "SlowpokeWell_B1F",
+   "x": 2,
+   "y": 2,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_ZUBAT",
+   "entrou": true,
+   "nota": "tile de colisão 1 (decoração em cima de cenário)"
+  },
+  {
+   "mapa": "SlowpokeWell_B1F",
+   "x": 32,
+   "y": 12,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_GEODUDE",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "SlowpokeWell_B1F",
+   "x": 13,
+   "y": 29,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_SLOWPOKE",
+   "entrou": true
+  },
+  {
+   "mapa": "SlowpokeWell_B1F",
+   "x": 13,
+   "y": 28,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_SLOWBRO",
+   "entrou": true
+  },
+  {
+   "mapa": "SlowpokeWell_B1F",
+   "x": 23,
+   "y": 4,
+   "gfx_fonte": "OBJ_EVENT_GFX_SLOWPOKE_NO_TAIL",
+   "entrou": true,
+   "nota": "tile de colisão 1 (decoração em cima de cenário)"
+  },
+  {
+   "mapa": "SlowpokeWell_B1F",
+   "x": 27,
+   "y": 26,
+   "gfx_fonte": "OBJ_EVENT_GFX_BIG_WAILMER_DOLL",
+   "entrou": true
+  },
+  {
+   "mapa": "SlowpokeWell_B1F",
+   "x": 22,
+   "y": 6,
+   "gfx_fonte": "OBJ_EVENT_GFX_POKE_BALL",
+   "entrou": true
+  },
+  {
+   "mapa": "SlowpokeWell_B1F",
+   "x": 14,
+   "y": 29,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_SLOWPOKE",
+   "entrou": true
+  },
+  {
+   "mapa": "SlowpokeWell_B1F",
+   "x": 23,
+   "y": 16,
+   "gfx_fonte": "OBJ_EVENT_GFX_SLOWPOKE_NO_TAIL",
+   "entrou": true
+  },
+  {
+   "mapa": "SlowpokeWell_B1F",
+   "x": 18,
+   "y": 13,
+   "gfx_fonte": "OBJ_EVENT_GFX_SLOWPOKE_NO_TAIL",
+   "entrou": true
+  },
+  {
+   "mapa": "SlowpokeWell_B1F",
+   "x": 12,
+   "y": 15,
+   "gfx_fonte": "OBJ_EVENT_GFX_POKE_BALL",
+   "entrou": true
+  },
+  {
+   "mapa": "SlowpokeWell_B1F",
+   "x": 21,
+   "y": 15,
+   "gfx_fonte": "OBJ_EVENT_GFX_POKE_BALL",
+   "entrou": true
+  },
+  {
+   "mapa": "SlowpokeWell_B1F",
+   "x": 23,
+   "y": 21,
+   "gfx_fonte": "OBJ_EVENT_GFX_POKE_BALL",
+   "entrou": true
+  },
+  {
+   "mapa": "SproutTower_1F",
+   "x": 18,
+   "y": 13,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_BELLSPROUT",
+   "entrou": true
+  },
+  {
+   "mapa": "SproutTower_1F",
+   "x": 1,
+   "y": 11,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_BELLSPROUT",
+   "entrou": true
+  },
+  {
+   "mapa": "SproutTower_1F",
+   "x": 10,
+   "y": 9,
+   "gfx_fonte": "OBJ_EVENT_GFX_RAYQUAZA",
+   "entrou": true,
+   "nota": "tile de colisão 1 (decoração em cima de cenário)"
+  },
+  {
+   "mapa": "SproutTower_2F",
+   "x": 11,
+   "y": 12,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_BELLSPROUT",
+   "entrou": true
+  },
+  {
+   "mapa": "SproutTower_2F",
+   "x": 8,
+   "y": 7,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_BELLSPROUT",
+   "entrou": true
+  },
+  {
+   "mapa": "SproutTower_2F",
+   "x": 18,
+   "y": 15,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_RATTATA",
+   "entrou": true
+  },
+  {
+   "mapa": "SproutTower_2F",
+   "x": 10,
+   "y": 8,
+   "gfx_fonte": "OBJ_EVENT_GFX_RAYQUAZA",
+   "entrou": true,
+   "nota": "tile de colisão 1 (decoração em cima de cenário)"
+  },
+  {
+   "mapa": "SproutTower_3F",
+   "x": 17,
+   "y": 12,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_GASTLY",
+   "entrou": true,
+   "nota": "tile de colisão 1 (decoração em cima de cenário)"
+  },
+  {
+   "mapa": "SproutTower_3F",
+   "x": 2,
+   "y": 5,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_GASTLY",
+   "entrou": true,
+   "nota": "tile de colisão 1 (decoração em cima de cenário)"
+  },
+  {
+   "mapa": "SproutTower_3F",
+   "x": 2,
+   "y": 13,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_RATTATA",
+   "entrou": true,
+   "nota": "tile de colisão 1 (decoração em cima de cenário)"
+  },
+  {
+   "mapa": "SproutTower_3F",
+   "x": 11,
+   "y": 10,
+   "gfx_fonte": "OBJ_EVENT_GFX_RAYQUAZA",
+   "entrou": true,
+   "nota": "tile de colisão 1 (decoração em cima de cenário)"
+  },
+  {
+   "mapa": "TinTower_RoofDay",
+   "x": -6,
+   "y": 18,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_HO_OH",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "TinTower_RoofDay",
+   "x": -5,
+   "y": 18,
+   "gfx_fonte": "OBJ_EVENT_GFX_KIMONO_GIRL",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "UnionCave_B1F",
+   "x": 21,
+   "y": -1,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_ZUBAT",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  },
+  {
+   "mapa": "WhirlIslands_B1F_Inner",
+   "x": 22,
+   "y": -2,
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_MANTINE",
+   "entrou": true,
+   "nota": "fora do retângulo do layout (objeto estacionado)"
+  }
+ ],
+ "fora": [
+  {
+   "mapa": "AzaleaTown",
+   "x": 19,
+   "y": 11,
+   "gfx_fonte": "OBJ_EVENT_GFX_KURT",
+   "motivo": "tile de warp (trancaria o warp para sempre)"
+  },
+  {
+   "mapa": "GoldenrodCity_RadioTower_2F",
+   "x": 10,
+   "y": 5,
+   "gfx_fonte": "OBJ_EVENT_GFX_POLICEMAN",
+   "motivo": "tile de warp (trancaria o warp para sempre)"
+  },
+  {
+   "mapa": "AzaleaTown",
+   "x": 19,
+   "y": 16,
+   "gfx_fonte": "OBJ_EVENT_GFX_SILVER",
+   "motivo": "nenhum dos dois geradores deu identidade: continuaria bola muda na tela"
+  },
+  {
+   "mapa": "BurnedTower_1F",
+   "x": 9,
+   "y": 20,
+   "gfx_fonte": "OBJ_EVENT_GFX_MORTY",
+   "motivo": "nenhum dos dois geradores deu identidade: continuaria bola muda na tela"
+  },
+  {
+   "mapa": "BurnedTower_1F",
+   "x": 18,
+   "y": 12,
+   "gfx_fonte": "OBJ_EVENT_GFX_SILVER",
+   "motivo": "nenhum dos dois geradores deu identidade: continuaria bola muda na tela"
+  },
+  {
+   "mapa": "BurnedTower_B1F",
+   "x": 25,
+   "y": 9,
+   "gfx_fonte": "OBJ_EVENT_GFX_EUSINE",
+   "motivo": "nenhum dos dois geradores deu identidade: continuaria bola muda na tela"
+  },
+  {
+   "mapa": "GoldenrodCity_RadioTower_5F",
+   "x": 11,
+   "y": 9,
+   "gfx_fonte": "OBJ_EVENT_GFX_PETREL",
+   "nota": "tile de colisão 1 (decoração em cima de cenário)",
+   "motivo": "nenhum dos dois geradores deu identidade: continuaria bola muda na tela"
+  },
+  {
+   "mapa": "GoldenrodCity_RadioTower_5F",
+   "x": 29,
+   "y": 5,
+   "gfx_fonte": "OBJ_EVENT_GFX_GENTLEMAN",
+   "motivo": "nenhum dos dois geradores deu identidade: continuaria bola muda na tela"
+  },
+  {
+   "mapa": "GoldenrodCity_UndergroundSwitches",
+   "x": 35,
+   "y": 2,
+   "gfx_fonte": "OBJ_EVENT_GFX_SILVER",
+   "nota": "tile de colisão 1 (decoração em cima de cenário)",
+   "motivo": "nenhum dos dois geradores deu identidade: continuaria bola muda na tela"
+  },
+  {
+   "mapa": "MahoganyTown_Shop",
+   "x": 6,
+   "y": 8,
+   "gfx_fonte": "OBJ_EVENT_GFX_ROCKET_M",
+   "motivo": "nenhum dos dois geradores deu identidade: continuaria bola muda na tela"
+  },
+  {
+   "mapa": "MahoganyTown_Shop",
+   "x": 3,
+   "y": 8,
+   "gfx_fonte": "OBJ_EVENT_GFX_LANCE",
+   "motivo": "nenhum dos dois geradores deu identidade: continuaria bola muda na tela"
+  },
+  {
+   "mapa": "OlivineCity",
+   "x": 53,
+   "y": 47,
+   "gfx_fonte": "OBJ_EVENT_GFX_ITEM_BALL",
+   "nota": "fora do retângulo do layout (objeto estacionado)",
+   "motivo": "nenhum dos dois geradores deu identidade: continuaria bola muda na tela"
+  },
+  {
+   "mapa": "OlivineCity_PortInside",
+   "x": 8,
+   "y": 16,
+   "gfx_fonte": "OBJ_EVENT_GFX_PROF_OAK",
+   "motivo": "nenhum dos dois geradores deu identidade: continuaria bola muda na tela"
+  },
+  {
+   "mapa": "OlivineCity_PortOutside",
+   "x": 24,
+   "y": 5,
+   "gfx_fonte": "OBJ_EVENT_GFX_SABRINA",
+   "motivo": "nenhum dos dois geradores deu identidade: continuaria bola muda na tela"
+  },
+  {
+   "mapa": "SproutTower_3F",
+   "x": 11,
+   "y": 6,
+   "gfx_fonte": "OBJ_EVENT_GFX_SILVER",
+   "motivo": "nenhum dos dois geradores deu identidade: continuaria bola muda na tela"
+  }
+ ]
+}

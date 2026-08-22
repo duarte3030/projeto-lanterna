@@ -18,6 +18,7 @@
 @ PENDENCIAS-JOHTO.md.
 
 OlivineCity_Lighthouse_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, OlivineCity_Lighthouse_OnTransition
 	.byte 0
 
 OlivineLighthouse_EventScript_1FSailor::
@@ -83,7 +84,20 @@ OlivineLighthouse_EventScript_BirdKeeperDenis::
 
 OlivineLighthouse_EventScript_Ampharos::
 	lock
-	msgbox OlivineLighthouse_Text_JasmineNote, MSGBOX_DEFAULT
+	faceplayer
+	goto_if_lt VAR_OLIVINE_CITY_STATE, 5, OlivineLighthouse_EventScript_AmpharosSick
+	fadescreen FADE_TO_WHITE
+	playse SE_M_THUNDERBOLT2
+	waitse
+	fadescreen FADE_FROM_WHITE
+	playmoncry SPECIES_AMPHAROS, CRY_MODE_NORMAL
+	msgbox OlivineLighthouse_Text_AmphyPaluPalulu, MSGBOX_DEFAULT
+	waitmoncry
+	closemessage
+	release
+	end
+
+OlivineLighthouse_EventScript_AmpharosSick::
 	playmoncry SPECIES_AMPHAROS, CRY_MODE_NORMAL
 	msgbox OlivineLighthouse_Text_AmphyBreathingLabored, MSGBOX_DEFAULT
 	waitmoncry
@@ -234,3 +248,128 @@ OlivineLighthouse_Text_JasmineNote:
 OlivineLighthouse_Text_AmphyBreathingLabored:
 	.string "Its breathing is terribly\n"
 	.string "labored…$"
+
+@ ARCO DO FAROL DE OLIVINE, dev_scripts/arco_farol_johto.py
+@ A cena inteira do alto do farol. O bilhete que existia aqui era o remendo de
+@ quando a JASMINE nao podia entrar como objeto; agora ela entra, e o bilhete
+@ some junto com o remendo.
+OlivineCity_Lighthouse_OnTransition::
+	goto_if_ge VAR_OLIVINE_CITY_STATE, 5, OlivineCity_Lighthouse_JasmineJaFoi
+	clearflag FLAG_HIDE_LIGHTHOUSE_JASMINE
+	end
+
+OlivineCity_Lighthouse_JasmineJaFoi::
+	setflag FLAG_HIDE_LIGHTHOUSE_JASMINE
+	end
+
+OlivineLighthouse_EventScript_Jasmine::
+	lock
+	faceplayer
+	goto_if_eq VAR_OLIVINE_CITY_STATE, 3, OlivineLighthouse_EventScript_JasmineGoGetPotion
+	goto_if_eq VAR_OLIVINE_CITY_STATE, 4, OlivineLighthouse_EventScript_JasmineDeliverPotion
+	msgbox OlivineLighthouse_Text_JasmineCianwoodPharmacy, MSGBOX_DEFAULT
+	msgbox OlivineLighthouse_Text_JasmineGetMedicine, MSGBOX_DEFAULT
+	closemessage
+	setvar VAR_OLIVINE_CITY_STATE, 3
+	release
+	end
+
+OlivineLighthouse_EventScript_JasmineGoGetPotion::
+	msgbox OlivineLighthouse_Text_JasmineGetMedicine2, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+OlivineLighthouse_EventScript_JasmineDeliverPotion::
+	msgbox OlivineLighthouse_Text_JasmineCureAmphy, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, OlivineLighthouse_EventScript_JasmineRefuse
+	playse SE_USE_ITEM
+	removeitem ITEM_SECRET_POTION
+	msgbox OlivineLighthouse_Text_PlayerHandedSecretpotion, MSGBOX_DEFAULT
+	waitse
+	msgbox OlivineLighthouse_Text_JasmineDontBeOffended, MSGBOX_DEFAULT
+	closemessage
+	applymovement 17, OlivineLighthouse_Movement_JasmineOlhaAmphy
+	waitmovement 0
+	msgbox OlivineLighthouse_Text_JasmineAmphyHowFeeling, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_WHITE
+	playse SE_M_THUNDERBOLT2
+	waitse
+	fadescreen FADE_FROM_WHITE
+	playmoncry SPECIES_AMPHAROS, CRY_MODE_NORMAL
+	msgbox OlivineLighthouse_Text_AmphyPaluPalulu, MSGBOX_DEFAULT
+	waitmoncry
+	closemessage
+	msgbox OlivineLighthouse_Text_JasmineThankYou, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	playse SE_EXIT
+	waitse
+	delay 50
+	setvar VAR_OLIVINE_CITY_STATE, 5
+	setflag FLAG_AMPHAROS_HEALED
+	setflag FLAG_HIDE_LIGHTHOUSE_JASMINE
+	clearflag FLAG_HIDE_OLIVINE_CITY_GYM_JASMINE
+	removeobject 17
+	fadescreen FADE_FROM_BLACK
+	release
+	end
+
+OlivineLighthouse_EventScript_JasmineRefuse::
+	msgbox OlivineLighthouse_Text_JasmineGetMedicine2, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+	.align 2
+OlivineLighthouse_Movement_JasmineOlhaAmphy:
+	walk_in_place_faster_up
+	step_end
+
+OlivineLighthouse_Text_JasmineCianwoodPharmacy:
+	.string "JASMINE: …This POKéMON always kept\n"
+	.string "the sea lit at night.\p"
+	.string "…But it suddenly got sick… It's\n"
+	.string "gasping for air…\p"
+	.string "…I understand that there is a\n"
+	.string "wonderful PHARMACY in CIANWOOD…\p"
+	.string "But that's across the sea…\n"
+	.string "And I can't leave AMPHY unattended…$"
+
+OlivineLighthouse_Text_JasmineGetMedicine:
+	.string "…May I ask you to get some medicine\n"
+	.string "for me? Please?$"
+
+OlivineLighthouse_Text_JasmineGetMedicine2:
+	.string "There is a wonderful PHARMACY\n"
+	.string "in CIANWOOD…\p"
+	.string "But that's across the sea…\n"
+	.string "And I can't leave AMPHY unattended…\p"
+	.string "…May I ask you to get some medicine\n"
+	.string "for me? Please?$"
+
+OlivineLighthouse_Text_JasmineCureAmphy:
+	.string "JASMINE: …Will that medicine cure\n"
+	.string "AMPHY?$"
+
+OlivineLighthouse_Text_PlayerHandedSecretpotion:
+	.string "{PLAYER} handed the SECRETPOTION\n"
+	.string "to JASMINE.$"
+
+OlivineLighthouse_Text_JasmineDontBeOffended:
+	.string "JASMINE: …Please don't be offended.\n"
+	.string "I have to give this to AMPHY.$"
+
+OlivineLighthouse_Text_JasmineAmphyHowFeeling:
+	.string "JASMINE: AMPHY, how are you\n"
+	.string "feeling?$"
+
+OlivineLighthouse_Text_AmphyPaluPalulu:
+	.string "AMPHY: Palu palulu!$"
+
+OlivineLighthouse_Text_JasmineThankYou:
+	.string "JASMINE: …Thank you. AMPHY looks\n"
+	.string "so much better.\p"
+	.string "I'll return to the GYM at once.\n"
+	.string "Please come and challenge me.$"

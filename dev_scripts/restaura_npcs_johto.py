@@ -141,6 +141,13 @@ SPRITE = {
     "OBJ_EVENT_GFX_SURGE": "OBJ_EVENT_GFX_LT_SURGE",
     "OBJ_EVENT_GFX_WILL": "OBJ_EVENT_GFX_PSYCHIC_M",
     "OBJ_EVENT_GFX_KAREN": "OBJ_EVENT_GFX_GLACIA",
+    # Pokémon com sprite próprio no hns, que aqui vira a ESPÉCIE do motor. Não
+    # é figurante no lugar de cena: é o mesmo bicho, desenhado pelo sistema de
+    # overworld de espécie (`OW_POKEMON_OBJECT_EVENTS`) que este repo já usa em
+    # 6 mapas. O rabo é o que se perde, e o rabo é justamente o enredo de
+    # Azalea; nenhum sprite deste motor tem Slowpoke sem rabo, e desenhar um é
+    # obra de arte, não de importador.
+    "OBJ_EVENT_GFX_SLOWPOKE_NO_TAIL": "OBJ_EVENT_GFX_SPECIES(SLOWPOKE)",
 }
 # Sem equivalente honesto e de propósito: OBJ_EVENT_GFX_WHIRLPOOL e
 # OBJ_EVENT_GFX_SHINY_GYARADOS (o Gyarados vermelho do Lake of Rage) são
@@ -155,7 +162,12 @@ TOKENS_NAO_PESSOA = frozenset("""
 BALL ROCK TREE BOULDER TRUCK DOLL CUSHION FOSSIL AMBER METEORITE MAP POKEDEX
 BAG STATUE SHADOW BOAT SEAGALLOP CLIPBOARD TRIANGLE SPRITE
 """.split())
-EXATOS_NAO_PESSOA = frozenset({"CABLE_CAR", "MOVING_BOX", "WHIRLPOOL"})
+EXATOS_NAO_PESSOA = frozenset({"CABLE_CAR", "MOVING_BOX", "WHIRLPOOL",
+                               "SLOWPOKE_NO_TAIL"})
+# SLOWPOKE_NO_TAIL: entrou em 22/08/2026, com os 111 objetos que o
+# `completa_objetos_johto.py` trouxe. É o Slowpoke sem rabo de Azalea e do
+# poço, POKÉMON e não gente; sem esta linha os 10 caíam em "gráfico sem
+# equivalente" aqui em vez de virarem espécie no `restaura_gfx_johto.py`.
 # WHIRLPOOL: achado na Fase B (18/08/2026) escondendo o ARCHER em Route41 (6
 # coordenadas, mesmo `script`), decoração de campo com o mesmo defeito de
 # ROCK/TREE, não gente. Sem isto o par contava como "ambíguo" (WHIRLPOOL x

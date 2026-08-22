@@ -129,6 +129,17 @@ TABELA = {
         valores={"SCENE_P2_LAB_ENTRANCE_DEFAULT": "0",
                  "SCENE_P2_LAB_ENTRANCE_AFTER": "1",
                  "SCENE_P2_LAB_ENTRANCE_NOTHING": "2"}),
+    # AUTORIZADO pelo condutor em 22/08/2026, junto com a linha nova na
+    # "Tabela mapa -> var -> valores" do PLANO-OBRAS-UNOVA.md: sem var de cena,
+    # o gatilho de (4,1) dispara toda vez que o jogador sobe para a porta da
+    # sala de qualificacao e o arrasta embora, ou seja TRANCA a sala. Com ela, a
+    # cena dispara uma vez e para.
+    "PWTHallway": dict(
+        const="PWT_HALLWAY", var="VAR_UNOVA_PWT_CORREDOR_CENA",
+        valores={"SCENE_DEFAULT": "0", "SCENE_FINISHED": "1"}),
+    "PWTInside": dict(
+        const="PWT_INSIDE", var="VAR_UNOVA_PWT_DENTRO_CENA",
+        valores={"SCENE_DEFAULT": "0", "SCENE_FINISHED": "1"}),
     "PWTOutside": dict(
         const="PWT_OUTSIDE", var="VAR_UNOVA_PWT_FORA_CENA",
         valores={"SCENE_DEFAULT": "0", "SCENE_FINISHED": "1"}),
@@ -364,7 +375,9 @@ def demo():
     depois de aplicado), mas a contagem da FONTE não muda nunca, e é ela que
     trava os números, junto com a cobertura fonte-contra-hack e as regras de
     processo (colisão, preservação, stub existente, idempotência)."""
-    assert len(TABELA) == 24, f"mapas locais na TABELA: {len(TABELA)} (esperado 24)"
+    assert len(TABELA) == 26, (
+        f"mapas locais na TABELA: {len(TABELA)} (esperado 26: os 24 do desenho\n"
+        "        de 15/08 mais PWTHallway e PWTInside, autorizados em 22/08/2026)")
 
     idx = U.indice_asm()
     fonte_total = 0
@@ -386,7 +399,9 @@ def demo():
             assert c == 0, f"{mapa} ({x},{y}): colisão {c} (esperado 0)"
     # 71 pendentes + 1 já preservado (ChampionsRoomEntrance) na varredura de
     # 15/08/2026; é a fonte que trava este número, e ela não muda de estado.
-    assert fonte_total == 72, f"coord_events de setscene na fonte: {fonte_total} (esperado 72)"
+    assert fonte_total == 75, (
+        f"coord_events de setscene na fonte: {fonte_total} (esperado 75: os 72\n"
+        "        do desenho de 15/08 mais os 3 do PWT, autorizados em 22/08/2026)")
 
     # CHAMPIONS_ROOM_ENTRANCE: a fonte só tem UM coord_event, (7,6), e o mapa
     # já tinha um gatilho ali (a emboscada de outra leva) -- coordenada é

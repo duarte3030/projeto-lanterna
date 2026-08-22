@@ -144,7 +144,12 @@ def traduz(gfx, utilizaveis, especies):
     if gfx in utilizaveis:
         return gfx, None
     equivalente = RN.SPRITE.get(gfx)
-    if equivalente and equivalente in utilizaveis:
+    # `desenhavel` e não `in utilizaveis`: a tabela de equivalentes passou a ter
+    # forma de ESPÉCIE (`OBJ_EVENT_GFX_SPECIES(X)`, o Slowpoke sem rabo em
+    # 22/08/2026), que nunca aparece na tabela de ponteiros de sprite e mesmo
+    # assim o motor desenha. `VM.desenhavel` já sabia a diferença; só esta
+    # linha ainda não.
+    if equivalente and VM.desenhavel(equivalente, utilizaveis):
         return equivalente, None
     return None, f"sem equivalente desenhado nesta build ({gfx})"
 

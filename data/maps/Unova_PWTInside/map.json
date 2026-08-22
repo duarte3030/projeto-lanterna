@@ -142,6 +142,16 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_UNOVA_PWT_DENTRO_CENA",
+      "var_value": "0",
+      "script": "Unova_PWTInside_EventScript_PwtEnterFromBackScript"
+    }
+  ],
   "bg_events": []
 }

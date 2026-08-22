@@ -237,3 +237,15 @@ IlexForest_Text_DexFezandipitiIntro:
 	.string "FEZANDIPITI appeared!$"
 
 @ <<< Dex completa <<<
+
+@ Placas e mecanica portadas do hns por completa_placas_johto.py
+IlexForest_Text_Shrine:
+	.string "ILEX FOREST SHRINE…\p"
+	.string "It's in honor of the forest's\n"
+	.string "protector…$"
+IlexForest_EventScript_Santuario::
+	lock
+	msgbox IlexForest_Text_Shrine, MSGBOX_DEFAULT
+	closemessage
+	release
+	end

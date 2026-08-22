@@ -72,3 +72,35 @@ GoldenrodCity_UndergroundTunnel_Text_DonaldAfter:
 	.string "When I was walking near the BIKE\n"
 	.string "SHOP last night, I felt like I was\l"
 	.string "being watched from the rooftops...$"
+
+@ Placas e mecanica portadas do hns por completa_placas_johto.py
+GoldenrodCity_UndergroundTunnel_EventScript_Door::
+	lock
+	goto_if_set FLAG_UNLOCKED_GOLDENROD_UNDERGROUND_DOOR, GoldenrodCity_UndergroundTunnel_EventScript_DoorAlreadyOpened
+	checkitem ITEM_BASEMENT_KEY
+	goto_if_eq VAR_RESULT, TRUE, GoldenrodCity_UndergroundTunnel_EventScript_OpenDoor
+	msgbox GoldenrodUnderground_Text_DoorsLocked, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+GoldenrodCity_UndergroundTunnel_EventScript_OpenDoor::
+	msgbox GoldenrodUnderground_Text_KeyOpenedDoor, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_UNLOCKED_GOLDENROD_UNDERGROUND_DOOR
+	setmetatile 12, 10, 0x2DD, FALSE
+	playse SE_BANG
+	special DrawWholeMapView
+	waitse
+	release
+	end
+GoldenrodCity_UndergroundTunnel_EventScript_DoorAlreadyOpened::
+	msgbox GoldenrodUnderground_Text_DoorIsOpen, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+GoldenrodUnderground_Text_DoorsLocked:
+    .string "The door's locked…$"
+GoldenrodUnderground_Text_DoorIsOpen:
+    .string "The door is open.$"
+GoldenrodUnderground_Text_KeyOpenedDoor:
+    .string "The BASEMENT KEY opened the door.$"

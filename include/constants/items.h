@@ -1073,6 +1073,11 @@ enum __attribute__((packed)) Item
     // teleporta para qualquer capítulo do jogo com o estado mínimo consistente.
     // Ver src/chapter_jump.c.
     ITEM_CHAPTER_JUMP = 879,
+    // Johto, arco do farol de Olivine. APPEND PURO como os dois
+    // sinos acima: a bolsa guarda (itemId, quantidade), entao id novo
+    // no fim nao mexe em struct de save.
+    ITEM_SECRET_POTION = 880,
+
 
     ITEMS_COUNT,
     ITEM_FIELD_ARROW = ITEMS_COUNT,

@@ -4,6 +4,7 @@
 @ batalha, fala e FLAG_INSIGNIA_JOHTO_5. Zero var gasta.
 
 OlivineCity_Gym_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, OlivineCity_Gym_OnTransition
 	.byte 0
 
 OlivineCity_Gym_EventScript_Jasmine::
@@ -125,3 +126,17 @@ OlivineCity_Gym_Text_StatueCertified:
 	.string "OLIVINE CITY POKéMON GYM\p"
 	.string "JASMINE'S CERTIFIED TRAINERS:\n"
 	.string "{PLAYER}$"
+
+@ ARCO DO FAROL DE OLIVINE, dev_scripts/arco_farol_johto.py
+@ A JASMINE do ginasio nasce ESCONDIDA e so aparece depois da AMPHY. Flag nasce
+@ apagada e objeto com flag apagada nasce visivel, entao quem decide e este
+@ ON_TRANSITION, que roda toda vez que o jogador entra e nao depende de gancho
+@ de inicio de jogo nenhum.
+OlivineCity_Gym_OnTransition::
+	goto_if_ge VAR_OLIVINE_CITY_STATE, 5, OlivineCity_Gym_JasmineVoltou
+	setflag FLAG_HIDE_OLIVINE_CITY_GYM_JASMINE
+	end
+
+OlivineCity_Gym_JasmineVoltou::
+	clearflag FLAG_HIDE_OLIVINE_CITY_GYM_JASMINE
+	end

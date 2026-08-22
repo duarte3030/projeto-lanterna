@@ -167,3 +167,20 @@ SlowpokeWell_B1F_Text_ProtonAfter:
 	.string "much of a problem for our mission.\p"
 	.string "I advise you to be very afraid of\n"
 	.string "what is to come!$"
+
+@ Item balls ligadas por dev_scripts/bolas_faltantes_johto.py
+SlowpokeWell_B1F_EventScript_Item_Super_Potion_1::
+	finditem ITEM_SUPER_POTION
+	end
+
+SlowpokeWell_B1F_EventScript_Item_Super_Potion_2::
+	finditem ITEM_SUPER_POTION
+	end
+
+SlowpokeWell_B1F_EventScript_Item_Great_Ball::
+	finditem ITEM_GREAT_BALL
+	end
+
+SlowpokeWell_B1F_EventScript_Item_Full_Heal::
+	finditem ITEM_FULL_HEAL
+	end

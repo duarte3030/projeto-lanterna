@@ -650,3 +650,14 @@ gSpecials::
 	def_special ChapterJump_MontaListaDeRegioes
 	def_special ChapterJump_MontaListaDeCapitulos
 	def_special ChapterJump_AplicaCapitulo, waitstate=1
+
+@ Quebra-cabeca deslizante das Ruinas de Alph (src/sliding_puzzle.c).
+@ Uso: setvar VAR_0x8004, SLIDING_PUZZLE_<ESPECIE>
+@      setvar VAR_0x8005, FALSE  @ TRUE mostra o quadro ja resolvido
+@      special DoSlidingPuzzle / waitstate / VAR_RESULT == TRUE se resolveu.
+	def_special DoSlidingPuzzle
+@ Checagens de especie no primeiro slot da equipe (src/braille_puzzles.c).
+	def_special CheckHooh
+	def_special CheckAerodactyl
+	def_special CheckKabuto
+	def_special CheckOmanyte

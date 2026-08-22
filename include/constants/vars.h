@@ -990,3 +990,19 @@
 #define VAR_GALAR_G12M10_OBJ   VAR_UNUSED_0x410E  // mapa g12m10 da fonte
 #define VAR_GALAR_G42M06_OBJ   VAR_UNUSED_0x410F  // mapa g42m06 da fonte
 // <<< Fase de conteudo de Galar, bloco c4d <<<
+
+// ARCO DO FAROL DE OLIVINE (dev_scripts/arco_farol_johto.py)
+// Apelido de VAR_UNUSED que ja existe: VARS_COUNT nao muda.
+#define VAR_OLIVINE_CITY_STATE                 VAR_UNUSED_0x4110  // arco do farol: 3 pediu remedio, 4 remedio na mao, 5 AMPHY curada
+
+// PLACAS DE JOHTO (dev_scripts/completa_placas_johto.py)
+// Apelido de VAR_UNUSED que ja existe: VARS_COUNT nao muda.
+#define VAR_RUINSOFALPH_STATE                  VAR_UNUSED_0x4111  // camaras das Ruinas de Alph: 1 assim que um quebra-cabeca cai
+
+// PWT de Unova (dev_scripts/cenas_pwt_unova.py), autorizado em 22/08/2026.
+// Apelido de VAR_UNUSED que ja existe: VARS_COUNT nao muda, save intacta.
+#define VAR_UNOVA_PWT_CORREDOR_CENA            VAR_UNUSED_0x417E  // cena do corredor do PWT: 1 depois que ela roda uma vez
+
+// PWT de Unova (dev_scripts/cenas_pwt_unova.py), autorizado em 22/08/2026.
+// Apelido de VAR_UNUSED que ja existe: VARS_COUNT nao muda, save intacta.
+#define VAR_UNOVA_PWT_DENTRO_CENA              VAR_UNUSED_0x417F  // cena de entrada do saguao do PWT, mesma regra

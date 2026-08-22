@@ -334,7 +334,42 @@ Cortado por falta de recurso:
   original, BurnedTower1F nem tem estátua lá — era um script trocado por
   engano no hns. Não recriei.
 
-### 4.5 Farol de Olivine — só a metade que fecha sem mexer no ginásio
+### 4.5 Farol de Olivine — FECHADO EM 22/08/2026, e a seção abaixo é história
+
+A nota original desta seção (mantida abaixo, riscada por este parágrafo) listava
+três bloqueios. Os três caíram, e o gerador é `dev_scripts/arco_farol_johto.py`:
+
+- **`ITEM_SECRET_POTION` nasceu**, em APPEND PURO no fim do enum (id 880), o
+  mesmo método já provado com `ITEM_CLEAR_BELL`: a bolsa guarda
+  `(itemId, quantidade)` e não um bit por item, então id novo no fim não mexe em
+  struct de save. `guarda_save.py` mediu depois: **SAVE COMPATIVEL**.
+- **O sprite** continua não existindo, e a resposta não é nova: a tabela `SPRITE`
+  do `restaura_npcs_johto.py` já dizia `OBJ_EVENT_GFX_WOMAN_1` desde a Fase B.
+- **`OlivineCity_Gym` passou a ser da mesma frente** que o farol nesta rodada.
+
+A máquina de estado é a do hns, sem renumerar (`VAR_OLIVINE_CITY_STATE`: 3 ela
+pediu o remédio, 4 o remédio está com o jogador, 5 a AMPHY está curada), com UMA
+diferença de desenho que vale escrever: em vez de acender
+`FLAG_HIDE_OLIVINE_CITY_GYM_JASMINE` numa cena de cidade (o que exigiria acender
+a flag no começo do jogo, porque flag nasce APAGADA e objeto com flag apagada
+nasce VISÍVEL, e a JASMINE apareceria nos dois lugares desde o primeiro minuto),
+cada um dos dois mapas ganhou um `MAP_SCRIPT_ON_TRANSITION` que **deriva** as
+duas flags da var toda vez que o jogador entra. Nenhum estado intermediário
+sobrevive a um save no meio da cena, e nenhuma ordem de visita quebra.
+
+Provado de ponta a ponta em `dev_scripts/testes_criticos/149_farol_e_desambiguacao.json`,
+10 de 10, com par negativo dos dois lados: o T149.6 é o que barra a JASMINE
+duplicada, que é o pior defeito possível deste arco.
+
+**Fica de fora, com motivo:** a tempestade que o hns põe em `Route40`, `Route41`
+e `OlivineCity` até o estado 5. É clima, não enredo, e mexe no campo `weather`
+de três mapas que já têm o clima escolhido nesta ROM.
+
+O TM Shock Wave continua cortado, e agora medido: `ITEM_TM_SHOCK_WAVE` não
+existe nesta build, e é por isso que a bola de `OlivineCity (53,47)` é a única
+recusa do `dev_scripts/bolas_faltantes_johto.py`.
+
+### 4.5 (nota original, de quando o arco estava pela metade)
 
 1F: Sailor e Pokéfan (falas) funcionam. As 9 batalhas (Huey, Alfred, Theo,
 Terrell, Preston, Kent, Connie, Ernest, Denis) estão escritas mas não
@@ -787,3 +822,57 @@ nominal da regiao, contra 50 da fonte.
    acompanham. Quem tiver SURF continua podendo nadar; quem nao tiver deixa de
    ficar preso olhando para um lendario inalcancavel depois de vencer as cinco
    KIMONO. O HO-OH da Tin Tower nao tinha o problema: o telhado e terra inteira.
+
+## 12. A completude de Johto fechada em 22/08/2026, e o que sobrou dela
+
+Johto foi de `objetos 96,1%` e `placas 96,2%` para **100,8% e 100,4%** (mapas
+100%, warps 100,1%). O buraco não era de identidade, era de CONTAGEM: 111
+objetos e 24 placas que a fonte tem e que nunca chegaram a existir aqui. Três
+geradores novos, todos com `--demo`:
+
+- **`dev_scripts/completa_objetos_johto.py`** põe o objeto que faltava no
+  ESTADO DO SANITIZE (bola muda), e deixa o `restaura_gfx_johto.py` e o
+  `restaura_npcs_johto.py` darem gráfico e identidade, com as regras deles, que
+  já estavam auditadas. **112 objetos entraram**; 2 foram recusados por serem
+  tile de warp (o policial da Torre Rádio 2F trancaria os andares 3F a 5F para
+  sempre) e 13 saíram no `--limpa`, que é a limpeza obrigatória do fim.
+  Duas medições que mudaram a régua deste gerador: objeto em tile de COLISÃO 1
+  aparece na tela (é o Pokémon em cima da árvore), e coordenada NEGATIVA é
+  objeto estacionado que a fonte usa de propósito, e o motor aceita.
+- **`dev_scripts/completa_placas_johto.py`** porta placa COM a mecânica atrás
+  dela, por fecho transitivo de rótulo sobre o `scripts.inc` da fonte, e confere
+  todo símbolo de fora contra este repo antes de escrever. **21 placas** (painel
+  de cartão da Torre Rádio, os três interruptores do subterrâneo, a porta do
+  porão, o santuário de Ilex e os oito painéis das Ruínas de Alph). De quebra,
+  os 3 fósseis do `RuinsOfAlph_B1F` ganharam script e flag: sem eles, resolver o
+  quebra-cabeça não entregava nada.
+- **`dev_scripts/bolas_faltantes_johto.py`** liga a bola cujo script na fonte é
+  exatamente um `finditem` (4, no Slowpoke Well). A faixa
+  `FLAG_ITEM_BALLS_JSU_START` ACABOU e o próprio `flags.h` proíbe append lá;
+  estas usam a faixa de transbordo de Johto (0x1D0E+), apelidando `FLAG_UNUSED`
+  que já existe.
+
+**O quebra-cabeça deslizante das Ruínas de Alph virou motor de verdade**
+(`src/sliding_puzzle.c`, ~17,3 KB de ROM medidos com `arm-none-eabi-size`, mais
+os specials `DoSlidingPuzzle` e os quatro `Check*`). Sem ele as 8 placas das
+câmaras não tinham para onde apontar.
+
+### O que continua aberto em Johto, com número
+
+1. **13 NPCs de cena** que o `--limpa` tirou do mapa em vez de deixar como bola
+   muda: 4 SILVER, MORTY, EUSINE, PETREL, GENTLEMAN, ROCKET_M, LANCE, PROF_OAK,
+   SABRINA e a bola de `OlivineCity (53,47)`. Quase todos caem pela mesma razão:
+   a `FLAG_HIDE_*` de cena que a fonte usa não existe nesta build, e ligar a
+   flag em zero põe o personagem em campo para sempre, no estado errado da
+   história. Estão nomeados em `dev_scripts/objetos_johto.json`, chave `fora`,
+   e a lista é o que impede a rodada seguinte de repô-los sem decidir a cena.
+2. **3 placas do `GoldenrodCity_House1`**: dependem dos specials `NameRival` e
+   `ToggleShinyColors`, que não existem em `data/specials.inc`. Portar a caixa
+   de texto sem o special prometeria ao jogador uma tela que não existe.
+3. **13 UNOWN sem sprite de overworld** (`SPECIES_UNOWN` não tem `OVERWORLD(...)`
+   no `species_info`), que continuam bola muda no `RuinsOfAlph_B1F` e irmãos.
+4. As duas linhas de fila de sempre: o passeio 2x2 do GYARADOS do Lago da Fúria
+   (bloqueio de MOTOR, ver `dev_scripts/fila_b6.json`) e a GS Ball
+   (`ITEM_GS_BALL` não existe, e a decisão é do Gui). A flag
+   `FLAG_ITEM_GS_BALL` já nasceu com o pacote das Ruínas de Alph, e o
+   `clearflag` da câmara do HO-OH é no-op até a decisão, de propósito.

@@ -343,3 +343,30 @@ bool8 ShouldDoBrailleRegicePuzzle(void)
 
     return FALSE;
 }
+
+// Quebra-cabecas das Ruinas de Alph: cada camara so abre se o Pokemon
+// correspondente estiver no primeiro slot da equipe.
+static bool8 IsFirstPartyMonSpecies(u16 species)
+{
+    return GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_SPECIES_OR_EGG, 0) == species;
+}
+
+bool8 CheckHooh(void)
+{
+    return IsFirstPartyMonSpecies(SPECIES_HO_OH);
+}
+
+bool8 CheckAerodactyl(void)
+{
+    return IsFirstPartyMonSpecies(SPECIES_AERODACTYL);
+}
+
+bool8 CheckKabuto(void)
+{
+    return IsFirstPartyMonSpecies(SPECIES_KABUTO);
+}
+
+bool8 CheckOmanyte(void)
+{
+    return IsFirstPartyMonSpecies(SPECIES_OMANYTE);
+}

@@ -114,3 +114,73 @@ RadioTower3F_Text_MarcAfter:
 	.string "Bwahahaha…\p"
 	.string "I can transmit as strong a signal\n"
 	.string "as I need from here.$"
+
+@ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
+
+GoldenrodCity_RadioTower_3F_EventScript_Nerd::
+	lock
+	faceplayer
+	msgbox GoldenrodCity_RadioTower_3F_Text_SuperNerd, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+GoldenrodCity_RadioTower_3F_Text_SuperNerd::
+	.string "We have recordings of the cries\n"
+	.string "of all POKéMON that have been\l"
+	.string "found.\p"
+	.string "We must have about 400 kinds.$"
+
+@ Placas e mecanica portadas do hns por completa_placas_johto.py
+GoldenrodCity_RadioTower_3F_HideGate::
+	setmetatile 25, 8, 0x335, FALSE
+	setmetatile 25, 9, 0x335, FALSE
+
+	setmetatile 26, 8, 0X334, FALSE
+	setmetatile 26, 9, 0X334, FALSE
+
+	setmetatile 27, 8, 0X334, FALSE
+	setmetatile 27, 9, 0X334, FALSE
+
+	setmetatile 28, 8, 0X334, FALSE
+	setmetatile 28, 9, 0X334, FALSE
+
+	setmetatile 29, 8, 0X334, FALSE
+	setmetatile 29, 9, 0X334, FALSE
+
+	setmetatile 30, 8, 0X334, FALSE
+	setmetatile 30, 9, 0X334, FALSE
+
+	setmetatile 31, 8, 0X334, FALSE
+	setmetatile 31, 9, 0X334, FALSE
+	return
+GoldenrodCity_RadioTower_3F_EventScript_Gate::
+	lock
+	msgbox GoldenrodCity_RadioTower_3F_Text_CardKeySlot, MSGBOX_SIGN
+	goto_if_set FLAG_HIDE_RADIOTOWER_GATE, GoldenrodCity_RadioTower_3F_EventScript_GateOpened
+	checkitem ITEM_CARD_KEY
+	goto_if_eq VAR_RESULT, TRUE, GoldenrodCity_RadioTower_3F_EventScript_OpenGate
+	closemessage
+	release
+	end
+GoldenrodCity_RadioTower_3F_EventScript_GateOpened::
+	msgbox GoldenrodCity_RadioTower_3F_Text_Open, MSGBOX_SIGN
+	closemessage
+	release
+	end
+GoldenrodCity_RadioTower_3F_EventScript_OpenGate::
+	msgbox GoldenrodCity_RadioTower_3F_Text_InsertedCardKey, MSGBOX_SIGN
+	call GoldenrodCity_RadioTower_3F_HideGate
+	playse SE_CLICK
+	special DrawWholeMapView
+	msgbox GoldenrodCity_RadioTower_3F_Text_Open, MSGBOX_SIGN
+	setflag FLAG_HIDE_RADIOTOWER_GATE
+	closemessage
+	release
+	end
+GoldenrodCity_RadioTower_3F_Text_CardKeySlot:
+	.string "It's the CARD KEY slot.$"
+GoldenrodCity_RadioTower_3F_Text_InsertedCardKey:
+	.string "{PLAYER} inserted the CARD KEY.$"
+GoldenrodCity_RadioTower_3F_Text_Open:
+	.string "The gate is open.$"

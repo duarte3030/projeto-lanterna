@@ -15878,6 +15878,22 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_SootheBell,
     },
 
+    [ITEM_SECRET_POTION] =
+    {
+        .name = ITEM_NAME("SecretPotion"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A wonderful\n"
+            "medicine from\n"
+            "CIANWOOD CITY."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_LargePotion,
+        .iconPalette = gItemIconPalette_MaxPotion,
+    },
+
     [ITEM_TIDAL_BELL] =
     {
         .name = ITEM_NAME("Tidal Bell"),

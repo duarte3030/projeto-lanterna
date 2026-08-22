@@ -182,3 +182,271 @@ GoldenrodCity_UndergroundSwitches_Text_Grunt27Beaten:
 GoldenrodCity_UndergroundSwitches_Text_Grunt27After:
 	.string "Go wherever you'd like! Get lost!\n"
 	.string "See if I care!$"
+
+@ Placas e mecanica portadas do hns por completa_placas_johto.py
+GoldenrodCity_UndergroundSwitches_EventScript_Panel1::
+	lock
+	goto_if_unset FLAG_GOLDENROD_SWITCH_1, GoldenrodCity_UndergroundSwitches_EventScript_Panel1Activate @lock all
+	clearflag FLAG_GOLDENROD_SWITCH_1
+	playse SE_BANG
+	msgbox GoldenrodUnderground_Text_Switch1Off, MSGBOX_DEFAULT
+	closemessage
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall1
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall2
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall3
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall4
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall5
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall6
+	special DrawWholeMapView
+	waitse
+	release
+	end
+GoldenrodCity_UndergroundSwitches_EventScript_Panel1Activate::
+	setflag FLAG_GOLDENROD_SWITCH_1
+	goto_if_set FLAG_GOLDENROD_SWITCH_ORDER, GoldenrodCity_UndergroundSwitches_EventScript_Panel1ActivateCorrect
+	clearflag FLAG_GOLDENROD_SWITCH_ORDER
+	playse SE_BANG
+	msgbox GoldenrodUnderground_Text_Switch1, MSGBOX_DEFAULT
+	closemessage
+	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall1
+	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall2
+	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall3
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall4	
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall5
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall6	
+	special DrawWholeMapView
+	waitse
+	release
+	end
+GoldenrodCity_UndergroundSwitches_EventScript_Panel1ActivateCorrect::
+	playse SE_CLICK
+	setflag FLAG_COMPLETED_SWITCHES
+	msgbox GoldenrodUnderground_Text_Switch1, MSGBOX_DEFAULT
+	closemessage
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall1
+	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall2
+	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall3
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall4
+	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall5
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall6
+	special DrawWholeMapView
+	waitse
+	release
+	end
+@==============================================================================================================================================
+GoldenrodCity_UndergroundSwitches_EventScript_Panel2::
+	lock
+	goto_if_unset FLAG_GOLDENROD_SWITCH_2, GoldenrodCity_UndergroundSwitches_EventScript_Panel2Activate
+	clearflag FLAG_GOLDENROD_SWITCH_2
+	clearflag FLAG_GOLDENROD_SWITCH_ORDER
+	playse SE_BANG
+	msgbox GoldenrodUnderground_Text_Switch2Off, MSGBOX_DEFAULT
+	closemessage
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall1
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall2
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall3
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall4
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall5
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall6
+	special DrawWholeMapView
+	waitse
+	release
+	end
+GoldenrodCity_UndergroundSwitches_EventScript_Panel2Activate::
+	setflag FLAG_GOLDENROD_SWITCH_2
+	goto_if_set FLAG_GOLDENROD_SWITCH_1, GoldenrodCity_UndergroundSwitches_EventScript_Panel2ActivateWrong
+	goto_if_set FLAG_GOLDENROD_SWITCH_3, GoldenrodCity_UndergroundSwitches_EventScript_Panel2ActivateCorrect
+	playse SE_BANG
+	msgbox GoldenrodUnderground_Text_Switch2, MSGBOX_DEFAULT
+	closemessage
+	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall1
+	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall2
+	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall3
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall4	
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall5
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall6	
+	special DrawWholeMapView
+	waitse
+	release
+	end
+GoldenrodCity_UndergroundSwitches_EventScript_Panel2ActivateWrong::
+	clearflag FLAG_GOLDENROD_SWITCH_ORDER
+	playse SE_BANG
+	msgbox GoldenrodUnderground_Text_Switch2, MSGBOX_DEFAULT
+	closemessage
+	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall1
+	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall2
+	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall3
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall4	
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall5
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall6	
+	special DrawWholeMapView
+	waitse
+	release
+	end
+GoldenrodCity_UndergroundSwitches_EventScript_Panel2ActivateCorrect::
+	setflag FLAG_GOLDENROD_SWITCH_ORDER
+	playse SE_CLICK
+	msgbox GoldenrodUnderground_Text_Switch2, MSGBOX_DEFAULT
+	closemessage
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall1
+	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall2
+	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall3
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall4	
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall5
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall6	
+	special DrawWholeMapView
+	waitse
+	release
+	end
+
+
+@==============================================================================================================================================
+GoldenrodCity_UndergroundSwitches_EventScript_Panel3::
+	lock
+	goto_if_unset FLAG_GOLDENROD_SWITCH_3, GoldenrodCity_UndergroundSwitches_EventScript_Panel3Activate
+	clearflag FLAG_GOLDENROD_SWITCH_3
+	clearflag FLAG_GOLDENROD_SWITCH_ORDER
+	playse SE_BANG
+	msgbox GoldenrodUnderground_Text_Switch3Off, MSGBOX_DEFAULT
+	closemessage
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall1
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall2
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall3
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall4
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall5
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall6
+	special DrawWholeMapView
+	waitse
+	release
+	end
+GoldenrodCity_UndergroundSwitches_EventScript_Panel3Activate::
+	setflag FLAG_GOLDENROD_SWITCH_3
+	clearflag FLAG_GOLDENROD_SWITCH_ORDER
+	playse SE_CLICK
+	msgbox GoldenrodUnderground_Text_Switch3, MSGBOX_DEFAULT
+	closemessage
+	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall1
+	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall4
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall2
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall3
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall5
+	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall6
+	special DrawWholeMapView
+	waitse
+	release
+	end
+
+@==============================================================================================================================================
+GoldenrodCity_UndergroundSwitches_EventScript_CreateWall1::
+	setmetatile 5, 7, 0x399, FALSE
+	setmetatile 6, 7, 0x39A, FALSE
+	setmetatile 7, 7, 0x39B, FALSE
+
+	setmetatile 5, 8, 0x3A1, FALSE
+	setmetatile 6, 8, 0x3A2, FALSE
+	setmetatile 7, 8, 0x3A3, FALSE
+	return
+GoldenrodCity_UndergroundSwitches_EventScript_CreateWall2::
+	setmetatile 14, 7, 0x399, FALSE
+	setmetatile 15, 7, 0x39A, FALSE
+	setmetatile 16, 7, 0x39B, FALSE
+
+	setmetatile 14, 8, 0x3A1, FALSE
+	setmetatile 15, 8, 0x3A2, FALSE
+	setmetatile 16, 8, 0x3A3, FALSE
+	return
+GoldenrodCity_UndergroundSwitches_EventScript_CreateWall3::
+	setmetatile 23, 7, 0x399, FALSE
+	setmetatile 24, 7, 0x39A, FALSE
+	setmetatile 25, 7, 0x39B, FALSE
+
+	setmetatile 23, 8, 0x3A1, FALSE
+	setmetatile 24, 8, 0x3A2, FALSE
+	setmetatile 25, 8, 0x3A3, FALSE
+	return
+GoldenrodCity_UndergroundSwitches_EventScript_CreateWall4::
+	setmetatile 5, 11, 0x399, FALSE
+	setmetatile 6, 11, 0x39A, FALSE
+	setmetatile 7, 11, 0x39B, FALSE
+
+	setmetatile 5, 12, 0x3A1, FALSE
+	setmetatile 6, 12, 0x3A2, FALSE
+	setmetatile 7, 12, 0x3A3, FALSE
+	return
+GoldenrodCity_UndergroundSwitches_EventScript_CreateWall5::
+	setmetatile 14, 11, 0x399, FALSE
+	setmetatile 15, 11, 0x39A, FALSE
+	setmetatile 16, 11, 0x39B, FALSE
+
+	setmetatile 14, 12, 0x3A1, FALSE
+	setmetatile 15, 12, 0x3A2, FALSE
+	setmetatile 16, 12, 0x3A3, FALSE
+	return
+GoldenrodCity_UndergroundSwitches_EventScript_CreateWall6::
+	setmetatile 23, 11, 0x399, FALSE
+	setmetatile 24, 11, 0x39A, FALSE
+	setmetatile 25, 11, 0x39B, FALSE
+
+	setmetatile 23, 12, 0x3A1, FALSE
+	setmetatile 24, 12, 0x3A2, FALSE
+	setmetatile 25, 12, 0x3A3, FALSE
+	return
+@======================================================================================================================
+GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall1::
+	setmetatile 5, 7, 0x378, FALSE
+	setmetatile 6, 7, 0x379, FALSE
+	setmetatile 7, 7, 0x37A, FALSE
+	
+	setmetatile 5, 8, 0x380, FALSE
+	setmetatile 6, 8, 0x381, FALSE
+	setmetatile 7, 8, 0x382, FALSE
+	return
+GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall2::
+	setmetatile 14, 7, 0x378, FALSE
+	setmetatile 15, 7, 0x379, FALSE
+	setmetatile 16, 7, 0x37A, FALSE
+	
+	setmetatile 14, 8, 0x380, FALSE
+	setmetatile 15, 8, 0x381, FALSE
+	setmetatile 16, 8, 0x382, FALSE
+	return
+GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall3::
+	setmetatile 23, 7, 0x378, FALSE
+	setmetatile 24, 7, 0x379, FALSE
+	setmetatile 25, 7, 0x37A, FALSE
+	
+	setmetatile 23, 8, 0x380, FALSE
+	setmetatile 24, 8, 0x381, FALSE
+	setmetatile 25, 8, 0x382, FALSE
+	return
+GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall4::
+	setmetatile 5, 11, 0x378, FALSE
+	setmetatile 6, 11, 0x379, FALSE
+	setmetatile 7, 11, 0x37A, FALSE
+	
+	setmetatile 5, 12, 0x380, FALSE
+	setmetatile 6, 12, 0x381, FALSE
+	setmetatile 7, 12, 0x382, FALSE
+	return
+GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall5::
+	setmetatile 14, 11, 0x378, FALSE
+	setmetatile 15, 11, 0x379, FALSE
+	setmetatile 16, 11, 0x37A, FALSE
+	
+	setmetatile 14, 12, 0x380, FALSE
+	setmetatile 15, 12, 0x381, FALSE
+	setmetatile 16, 12, 0x382, FALSE
+	return
+GoldenrodUnderground_Text_Switch1:
+    .string "SWITCH 1 activated.$"
+GoldenrodUnderground_Text_Switch2:
+    .string "SWITCH 2 activated.$"
+GoldenrodUnderground_Text_Switch3:
+    .string "SWITCH 3 activated.$"
+GoldenrodUnderground_Text_Switch1Off:
+    .string "SWITCH 1 deactivated.$"
+GoldenrodUnderground_Text_Switch2Off:
+    .string "SWITCH 2 deactivated.$"
+GoldenrodUnderground_Text_Switch3Off:
+    .string "SWITCH 3 deactivated.$"
