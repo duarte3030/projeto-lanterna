@@ -110,5 +110,33 @@
         12
       ]
     }
+  },
+  {
+    "id": "T130.9",
+    "nome": "Galar, c4a: WARP DE OBJETO TROCA DE MAPA, e a RECEITA e o `waitstate`. Galar_Underwater01 (g01m63) tem sete mergulhadores que perguntam `Emergir?`; o de (32,9) leva a MAP_GALAR_WILD_AREA_17 em (19,50). A cena e `msgbox MSGBOX_YESNO`, `compare VAR_RESULT, 1`, ramo com `warp` e `waitstate`. O `waitstate` foi MEDIDO em 22/08/2026 com uma sonda de cinco variantes numa build so (escolhidas por var): com ele a troca acontece em todas as formas testadas, sem ele o jogador fica no mapa. O bytecode do warp ja estava certo desde o comeco: a macro `formatwarp` daqui e igual a do FireRed, sete bytes, e `warp MAPA, x, y` cai no ramo de coordenada. O jogador entra pelo warp 0, em (32,11), sobe dois UP e satura em (32,10) porque o mergulhador barra (32,9); o primeiro A abre a pergunta e o segundo responde SIM.",
+    "warp": "MAP_GALAR_UNDERWATER_01",
+    "warp_id": 0,
+    "roteiro": "300:NADA,16:UP*2,120:NADA,16:A,180:NADA,16:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_WILD_AREA_17",
+      "pos": [
+        19,
+        50
+      ]
+    }
+  },
+  {
+    "id": "T130.10",
+    "nome": "PAR NEGATIVO do T130.9: MESMO mapa, MESMO warp, MESMO caminho ate (32,10), SEM aperto de A nenhum. Sem falar com o mergulhador nao ha pergunta, nao ha SIM e nao ha warp: o jogador continua em Galar_Underwater01, parado em (32,10). Sem este par o T130.9 provaria so 'terminou na Wild Area', que um warp de debug mal digitado provaria igual.",
+    "warp": "MAP_GALAR_UNDERWATER_01",
+    "warp_id": 0,
+    "roteiro": "300:NADA,16:UP*2,120:NADA,480:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_UNDERWATER_01",
+      "pos": [
+        32,
+        10
+      ]
+    }
   }
 ]

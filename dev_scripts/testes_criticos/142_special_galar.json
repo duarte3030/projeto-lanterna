@@ -1,0 +1,58 @@
+[
+  {
+    "id": "T142.1",
+    "nome": "Galar, bloco c4f: CENA COM `special` DO FIRERED RODA AQUI. A enfermeira de Galar_Wedgehurst03 (g05m04, o Centro Pokemon que o G3 achou por impressao de layout e que e o HEAL_LOCATION_GALAR_WEDGEHURST) estava MUDA: o script dela chama `special`, e o INDICE do FireRed nao e o nosso, entao ela caia fora de todos os baldes. O c4f traduziu por NOME: as duas tabelas sao listas ordenadas de `def_special` (444 la, 623 aqui) e 194 nomes existem dos dois lados; `HealPlayerParty` e um deles. O jogador entra pelo warp 1, sobe quatro UP e satura em (7,4), porque o balcao de (7,3) e parede; o A fala com a moca por cima do balcao (MB_COUNTER, licao do T122) e a caixa TRAVA, entao os dois LEFT do fim nao andam.",
+    "warp": "MAP_GALAR_WEDGEHURST_03",
+    "warp_id": 1,
+    "roteiro": "300:NADA,16:UP*4,90:NADA,16:A,180:NADA,16:LEFT*2,150:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_WEDGEHURST_03",
+      "pos": [
+        7,
+        4
+      ]
+    }
+  },
+  {
+    "id": "T142.2",
+    "nome": "PAR NEGATIVO do T142.1: MESMO mapa, MESMO warp, MESMO caminho, SEM o A. Sem caixa o jogador nao trava e os dois LEFT viram uma virada mais um passo, parando em (6,4). E o que separa 'a enfermeira ganhou script' de 'o jogador bateu no balcao'.",
+    "warp": "MAP_GALAR_WEDGEHURST_03",
+    "warp_id": 1,
+    "roteiro": "300:NADA,16:UP*4,90:NADA,180:NADA,16:LEFT*2,150:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_WEDGEHURST_03",
+      "pos": [
+        6,
+        4
+      ]
+    }
+  },
+  {
+    "id": "T142.3",
+    "nome": "Galar, bloco c4f, SEGUNDA cena de `special`, para o T142.1 nao ser prova de um NPC so: Galar_IsleOfArmor02 (g01m34), o mesmo mapa dos itens escondidos do T106.20, tem em (21,7) um NPC cujo script tambem passa por `special` e que so entrou agora. O jogador entra pelo warp 1, desce cinco (o NPC de (18,9) do T106.18 barra em (18,8)), anda quatro para a direita ate (21,8) e sobe dois, que so o viram para cima. O A trava a caixa e os tres LEFT nao andam.",
+    "warp": "MAP_GALAR_ISLE_OF_ARMOR_02",
+    "warp_id": 1,
+    "roteiro": "300:NADA,16:DOWN*5,120:NADA,16:RIGHT*4,120:NADA,16:UP*2,120:NADA,16:A,180:NADA,16:LEFT*3,180:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_ISLE_OF_ARMOR_02",
+      "pos": [
+        21,
+        8
+      ]
+    }
+  },
+  {
+    "id": "T142.4",
+    "nome": "PAR NEGATIVO do T142.3: mesmo caminho, SEM o A. Os tres LEFT viram uma virada mais dois passos e o jogador termina em (19,8).",
+    "warp": "MAP_GALAR_ISLE_OF_ARMOR_02",
+    "warp_id": 1,
+    "roteiro": "300:NADA,16:DOWN*5,120:NADA,16:RIGHT*4,120:NADA,16:UP*2,120:NADA,180:NADA,16:LEFT*3,180:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_ISLE_OF_ARMOR_02",
+      "pos": [
+        19,
+        8
+      ]
+    }
+  }
+]

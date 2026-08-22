@@ -10408,7 +10408,20 @@
 // Gerado por dev_scripts/objetos_galar.py; nao editar a mao.
 #define FLAG_GALAR_ESCONDE_20B    FLAG_UNUSED_0x1C80  // flag 0x20B da fonte
 #define FLAG_GALAR_ESCONDE_23C    FLAG_UNUSED_0x1C81  // flag 0x23C da fonte
-#define FLAG_GALAR_ESCONDE_BA7    FLAG_UNUSED_0x1C82  // flag 0xBA7 da fonte
-#define FLAG_GALAR_ESCONDE_BA8    FLAG_UNUSED_0x1C83  // flag 0xBA8 da fonte
-#define FLAG_GALAR_ESCONDE_1800   FLAG_UNUSED_0x1C84  // flag 0x1800 da fonte
+#define FLAG_GALAR_ESCONDE_5FD    FLAG_UNUSED_0x1C82  // flag 0x5FD da fonte
+#define FLAG_GALAR_ESCONDE_5FE    FLAG_UNUSED_0x1C83  // flag 0x5FE da fonte
+#define FLAG_GALAR_ESCONDE_BA7    FLAG_UNUSED_0x1C84  // flag 0xBA7 da fonte
+#define FLAG_GALAR_ESCONDE_BA8    FLAG_UNUSED_0x1C85  // flag 0xBA8 da fonte
+#define FLAG_GALAR_ESCONDE_1800   FLAG_UNUSED_0x1C86  // flag 0x1800 da fonte
 // <<< Fase de conteudo de Galar, bloco c4b <<<
+
+// >>> esconde o SILVER nos tres mapas novos (importa_chefes_faltantes.py) >>>
+// Apelidar FLAG_UNUSED nao mexe em FLAGS_COUNT: a save nao muda.
+#define FLAG_HIDE_SILVER_VICTORY_ROAD            FLAG_UNUSED_0x1D03  // VictoryRoad_1F_Frlg
+#define FLAG_HIDE_SILVER_MT_MOON                 FLAG_UNUSED_0x1D04  // MtMoon_1F_Frlg
+#define FLAG_HIDE_SILVER_INDIGO                  FLAG_UNUSED_0x1D05  // IndigoPlateau_PokemonCenter_1F_Frlg
+#define FLAG_HIDE_UNOVA_N                        FLAG_UNUSED_0x1D06  // Unova_NsRoom
+#define FLAG_HIDE_UNOVA_BIANCA                   FLAG_UNUSED_0x1D07  // Unova_PWTBattleRoom
+#define FLAG_HIDE_UNOVA_CHEREN_2                 FLAG_UNUSED_0x1D08  // Unova_OpelucidBattleHouse
+#define FLAG_HIDE_UNOVA_NATE_ROSA                FLAG_UNUSED_0x1D09  // Unova_NimbasaParkOutside
+// <<< esconde o SILVER nos tres mapas novos (importa_chefes_faltantes.py) <<<

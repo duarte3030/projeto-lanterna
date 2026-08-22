@@ -118,43 +118,55 @@ def tabela_de_opcodes(caminho=None):
         nome, corpo = m.group(1), m.group(3)
         linhas = [l.split("@")[0].strip() for l in corpo.split("\n")]
         linhas = [l for l in linhas if l]
+        ramos = [linhas]
         if linhas and linhas[0].startswith(".ifb"):
-            corte, prof = [], 0
+            # MACRO DE DOIS RAMOS: `.ifb \map` separa `applymovement` (0x4F) de
+            # `applymovement_at` (0x50), e o mesmo vale para waitmovement,
+            # removeobject e addobject. Ate 22/08/2026 este parser guardava so o
+            # PRIMEIRO ramo, e com isso 0x50, 0x52, 0x54 e 0x56 ficavam fora da
+            # tabela: script que os usasse virava "opcode indecodificavel" e a
+            # cena caia no balde errado. Agora os DOIS ramos entram.
+            corte, outro, prof = [], [], 0
+            alvo = corte
             for l in linhas[1:]:
                 if l.startswith(".if"):
                     prof += 1
+                    alvo.append(l)
                 elif l.startswith(".endif"):
                     if prof == 0:
                         break
                     prof -= 1
+                    alvo.append(l)
                 elif l.startswith(".else") and prof == 0:
-                    break
+                    alvo = outro
                 else:
-                    corte.append(l)
-            linhas = corte
-        if not linhas or not linhas[0].startswith(".byte 0x"):
-            continue
-        toks = linhas[0].split()
-        if len(toks) != 2:
-            continue
-        op = int(toks[1], 16)
-        tamanhos, ok = [], True
-        for l in linhas[1:]:
-            p = l.split(None, 1)
-            if p[0] in TAM:
-                tamanhos.extend([TAM[p[0]]] *
-                                ((p[1].count(",") + 1) if len(p) > 1 else 1))
-            elif p[0] in AUX:
-                tamanhos.append(AUX[p[0]])
-            else:
-                ok = False
-                break
-        if not ok:
-            tab.setdefault(op, (nome, None))
-            continue
-        if op in tab and tab[op][1] is not None:
-            continue
-        tab[op] = (nome, tamanhos)
+                    alvo.append(l)
+            ramos = [corte, outro]
+        for ramo in ramos:
+            if not ramo or not ramo[0].startswith(".byte 0x"):
+                continue
+            toks = ramo[0].split()
+            if len(toks) != 2:
+                continue
+            op = int(toks[1], 16)
+            sufixo = nome if ramo is ramos[0] else nome + "_at"
+            tamanhos, ok = [], True
+            for l in ramo[1:]:
+                p = l.split(None, 1)
+                if p[0] in TAM:
+                    tamanhos.extend([TAM[p[0]]] *
+                                    ((p[1].count(",") + 1) if len(p) > 1 else 1))
+                elif p[0] in AUX:
+                    tamanhos.append(AUX[p[0]])
+                else:
+                    ok = False
+                    break
+            if not ok:
+                tab.setdefault(op, (sufixo, None))
+                continue
+            if op in tab and tab[op][1] is not None:
+                continue
+            tab[op] = (sufixo, tamanhos)
     return tab
 
 

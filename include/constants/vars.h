@@ -977,3 +977,16 @@
 #define VAR_GALAR_G05M05_CENA   VAR_UNUSED_0x4109  // mapa g05m05 da fonte
 #define VAR_GALAR_G21M01_CENA   VAR_UNUSED_0x410A  // mapa g21m01 da fonte
 // <<< Fase de conteudo de Galar, bloco c1 <<<
+
+// >>> Fase de conteudo de Galar, bloco c4d: vars de etapa de objeto (dev_scripts/objetos_galar.py) >>>
+// Uma var por MAPA para a etapa que a cena de OBJETO guarda
+// (bloco c4d). Mapa que o c3 ja atendeu com VAR_GALAR_*_CENA reusa
+// aquela var e nao aparece aqui: mesmo estado, mesma casa.
+// Apelidar VAR_UNUSED nao mexe em VARS_COUNT: a save nao muda.
+// Gerado por dev_scripts/objetos_galar.py; nao editar a mao.
+#define VAR_GALAR_G01M34_OBJ   VAR_UNUSED_0x410B  // mapa g01m34 da fonte
+#define VAR_GALAR_G05M04_OBJ   VAR_UNUSED_0x410C  // mapa g05m04 da fonte
+#define VAR_GALAR_G06M31_OBJ   VAR_UNUSED_0x410D  // mapa g06m31 da fonte
+#define VAR_GALAR_G12M10_OBJ   VAR_UNUSED_0x410E  // mapa g12m10 da fonte
+#define VAR_GALAR_G42M06_OBJ   VAR_UNUSED_0x410F  // mapa g42m06 da fonte
+// <<< Fase de conteudo de Galar, bloco c4d <<<

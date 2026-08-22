@@ -44,6 +44,36 @@ Nesta onda o `include/constants/flags.h` NAO e desta frente (o executor da Dex
 esta alocando um bloco grande la), entao nenhuma flag nova e pedida: cena que
 precisaria de flag de esconder sai com motivo e o relatorio diz quantas foram.
 
+## RECEITA DO WARP DE OBJETO, medida em 22/08/2026
+
+**`warp` precisa de `waitstate` logo depois.** Foi medido no emulador, nao
+deduzido: uma build unica levou cinco variantes do mesmo warp penduradas no
+mesmo NPC, escolhidas por uma var que o harness escreve. As quatro que tinham
+`waitstate` trocaram de mapa (com e sem `lock`, com e sem `release`, com e sem
+caixa de texto antes); a unica sem `waitstate` deixou o jogador parado no mapa.
+O bytecode nunca esteve errado: a macro `formatwarp` daqui e IGUAL a do
+FireRed, sete bytes (grupo, num, warpId, x, y), e `warp MAPA, x, y` cai no ramo
+de coordenada com `warpId = WARP_ID_NONE`.
+
+Armadilha de MEDICAO, nao do jogo: mapa de Galar que nao tem warp nenhum
+(`Galar_StowOnSide02`, `Galar_Wedgehurst09`) nao pode ser usado como ENTRADA do
+caso de suite, porque o warp de debug pede um indice de warp que nao existe e o
+estado de warp do jogador fica sujo; nesses mapas a cena roda (o jogador trava
+na caixa) e a troca de mapa nao acontece. Nao e defeito da cena.
+
+## O QUE O c4e MEDIU, e a resposta e "nao ha comando novo"
+
+A `gScriptCmdTable` da ROM do demake tem **214 entradas**, e o
+`data/script_cmd_table.inc` do FireRed tem **214**. O demake nao acrescentou
+comando nenhum ao motor de script. Logo, opcode acima de 0xD5 num ponteiro de
+script NAO e comando: aquele ponteiro aponta para DADO, e o script nunca roda
+(era a segunda hipotese do PLANO-CONTEUDO-GALAR.md, agora medida). O que sobrou
+de "opcode indecodificavel" tinha duas causas, e as duas eram nossas: o byte de
+enchimento 0xFF e um BURACO DO PARSER, consertado nesta leva -- `tabela_de_opcodes`
+guardava so o primeiro ramo das macros de dois ramos, e com isso 0x50, 0x52,
+0x54 e 0x56 (`applymovement_at`, `waitmovement_at`, `removeobject_at`,
+`addobject_at`) ficavam fora da tabela.
+
 ## Ordem da rota da historia
 
 O `.inc` sai na ordem da campanha (Postwick, Wedgehurst, Motostoke, ...), nao em
@@ -118,6 +148,15 @@ class TradutorObjeto(C3.Tradutor):
         self.especies_nossas = set(re.findall(
             r"\bSPECIES_[A-Z0-9_]+\b",
             open(f"{RAIZ}/include/constants/species.h").read()))
+        # SPECIAL: indice do FireRed -> nome, e o nome tem que existir AQUI.
+        # As duas tabelas sao listas ordenadas (`def_special`), 444 la e 623
+        # aqui, e o indice NAO e o mesmo nos dois; so o nome atravessa.
+        self.specials_fonte = re.findall(
+            r"^\s*def_special\s+(\w+)",
+            open(f"{C3.PKFR}/data/specials.inc").read(), re.M)
+        self.specials_nossos = set(re.findall(
+            r"^\s*def_special\s+(\w+)",
+            open(f"{RAIZ}/data/specials.inc").read(), re.M))
 
     def item(self, ident):
         nome = self.itens_fonte.get(ident)
@@ -160,7 +199,48 @@ class TradutorObjeto(C3.Tradutor):
                                   + ["\t.2byte ITEM_NONE"])
         return rot
 
+    def special_nome(self, idx):
+        nome = (self.specials_fonte[idx] if idx < len(self.specials_fonte)
+                else None)
+        if nome is None or nome not in self.specials_nossos:
+            raise C3.Recusa("special %s do FireRed nao existe aqui"
+                            % (nome or "0x%03X" % idx))
+        return nome
+
+    def mapa_de(self, grupo, num):
+        chave = self.rev_mapa.get((grupo, num))
+        if chave is None:
+            raise C3.Recusa("mapa %d.%d nao esta nos 438 da fonte"
+                            % (grupo, num))
+        return self.de_para_mapa[chave], chave
+
     def extra(self, nome, args, corpo, base):
+        if nome == "special":
+            corpo.append("\t%s %s" % (self.macro(nome),
+                                      self.special_nome(args[0])))
+            return True
+        if nome == "specialvar":
+            corpo.append("\t%s %s, %s" % (self.macro(nome), self.var(args[0]),
+                                          self.special_nome(args[1])))
+            return True
+        if nome in ("applymovement_at", "waitmovement_at", "removeobject_at",
+                    "addobject_at"):
+            # No nosso motor a variante `_at` nao tem macro propria: e a MESMA
+            # macro com um terceiro argumento de mapa (`.ifb \map` em
+            # asm/macros/event.inc). Emitir o nome base com o mapa a mais e o
+            # jeito certo; inventar `applymovement_at` nao compila.
+            base_nome = nome[:-3]
+            dp, _k = self.mapa_de(args[-1] >> 8, args[-1] & 0xFF)
+            if base_nome == "applymovement":
+                r = "%s_MovAt%d" % (base, len(self.extras_gancho))
+                self.extras_gancho.extend(self.movimento(args[1], r))
+                corpo.append("\t%s %s, %s, %s" % (self.macro(base_nome),
+                                                  self.objeto(args[0]), r,
+                                                  dp["mapa"]))
+            else:
+                corpo.append("\t%s %s, %s" % (self.macro(base_nome),
+                                              self.objeto(args[0]), dp["mapa"]))
+            return True
         if nome == "givemon":
             corpo.append("\t%s %s, %d, %s" % (self.macro(nome),
                                               self.especie(args[0]), args[1],
@@ -233,21 +313,18 @@ class TradutorObjeto(C3.Tradutor):
                             "indice da fonte nao vale mais")
         if x == SEM_COORD or y == SEM_COORD:
             raise C3.Recusa("warp sem indice e sem coordenada")
-        del corpo
-        # WARP DE OBJETO FICA DE FORA NESTA ONDA, e o motivo e MEDIDO, nao
-        # suposto. O emissor sabe traduzir (mapa pelo de-para, coordenada 1:1),
-        # e a cena chega a rodar: no Galar_StowOnSide02 o jogador trava na
-        # caixa, ou seja o script entrou. O que nao acontece e a TROCA DE MAPA.
-        # Duas formas foram testadas em 22/08/2026, as duas na ROM de verdade:
-        # `warp` sozinho (o jogador fecha a caixa, fica solto e continua no
-        # mapa) e `warp` seguido de `waitstate` (o jogador fica preso para
-        # sempre, nem A nem B soltam). Sem entender o porque, emitir seria
-        # plantar 10 NPCs que prendem o jogador. Volta quando alguem medir o
-        # caminho do `ScrCmd_warp` a partir de script de objeto; ate la a linha
-        # e cobranca da fila, com este motivo escrito.
-        raise C3.Recusa("warp de objeto para %s: traduz, mas a troca de mapa "
-                        "nao foi provada no motor (medido 22/08/2026)"
-                        % alvo["mapa"])
+        # RECEITA DO WARP, medida no emulador em 22/08/2026 (sonda de cinco
+        # variantes numa build so, escolhidas por var): `warp` PRECISA de
+        # `waitstate` logo depois. Com ele a troca de mapa acontece em todas as
+        # formas testadas (com e sem `lock`, com e sem `release`, com e sem
+        # caixa de texto antes); sem ele o jogador fica no mapa, que era o
+        # sintoma de 22/08. O bytecode do `warp` ja estava certo: a macro
+        # `formatwarp` daqui e IGUAL a do FireRed, sete bytes (grupo, num,
+        # warpId, x, y), e `warp MAPA, x, y` cai no ramo de coordenada com
+        # warpId = WARP_ID_NONE.
+        corpo.append("\t%s %s, %d, %d" % (self.macro(nome), alvo["mapa"], x, y))
+        corpo.append("\t" + self.macro("waitstate"))
+        return True
 
 
 def rotulo(chave, l):
@@ -641,27 +718,35 @@ def demo():
     t = TradutorObjeto(b"\0" * 16, {}, {}, {}, {}, {}, {}, {}, rev_mapa=rev)
     t.de_para_mapa = de_para
     (g, n), chave = next(iter(rev.items()))
-    def motivo_do_warp(bs):
+    def emite_warp(bs):
+        """(linhas emitidas, motivo da recusa) para um blob de 7 bytes."""
+        saida = []
         try:
-            t.extra("warp", [int.from_bytes(bytes(bs), "little")], [], "X")
+            t.extra("warp", [int.from_bytes(bytes(bs), "little")], saida, "X")
         except C3.Recusa as e:
-            return str(e)
-        return ""
+            return saida, str(e)
+        return saida, ""
 
-    # 4a. O warp esta FORA nesta onda, e a recusa tem que citar o mapa CERTO:
-    #     e a unica prova de que o decodificador de 7 bytes acertou grupo e num
-    #     (trocar os dois cita outro mapa, ou nenhum).
-    bom = motivo_do_warp([g, n, WARP_ID_NONE, 3, 0, 4, 0])
-    if de_para[chave]["mapa"] not in bom:
-        falhas.append("recusa do warp nao citou %s: %r" % (chave, bom))
-    trocado = motivo_do_warp([n, g, WARP_ID_NONE, 3, 0, 4, 0])
-    if trocado == bom:
-        falhas.append("trocar grupo por num deu a MESMA recusa: o plante nao "
+    # 4a. O decodificador de 7 bytes do `warp` tem que acertar grupo e num, e o
+    #     emissor tem que por o `waitstate` (a RECEITA medida em 22/08: sem ele
+    #     a troca de mapa nao acontece). Trocar os dois bytes cita outro mapa,
+    #     ou nenhum: e o plante que mostraria um de-para invertido.
+    bom, motivo_bom = emite_warp([g, n, WARP_ID_NONE, 3, 0, 4, 0])
+    if motivo_bom or not bom:
+        falhas.append("warp bom foi recusado: %r" % motivo_bom)
+    elif de_para[chave]["mapa"] not in bom[0]:
+        falhas.append("warp bom nao apontou para %s: %r" % (chave, bom))
+    elif len(bom) < 2 or "waitstate" not in bom[1]:
+        falhas.append("warp saiu SEM `waitstate`: a troca de mapa nao acontece "
+                      "(receita medida em 22/08/2026): %r" % bom)
+    trocado, motivo_troca = emite_warp([n, g, WARP_ID_NONE, 3, 0, 4, 0])
+    if not motivo_troca and trocado and trocado[0] == bom[0]:
+        falhas.append("trocar grupo por num deu o MESMO mapa: o plante nao "
                       "seria visto")
 
-    # 5. MUTACAO PLANTADA 2: warp por INDICE de warp tem motivo PROPRIO, porque
-    #    e outro defeito (o G3 encolheu a lista de warps).
-    idx = motivo_do_warp([g, n, 3, 0xFF, 0xFF, 0xFF, 0xFF])
+    # 5. MUTACAO PLANTADA 2: warp por INDICE de warp continua recusado, com
+    #    motivo proprio, porque o G3 encolheu a lista de warps do destino.
+    _l, idx = emite_warp([g, n, 3, 0xFF, 0xFF, 0xFF, 0xFF])
     if "indice" not in idx:
         falhas.append("warp por indice nao foi recusado pelo motivo dele: %r"
                       % idx)
