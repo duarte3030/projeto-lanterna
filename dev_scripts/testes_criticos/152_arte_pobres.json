@@ -1,0 +1,72 @@
+[
+  {
+    "id": "T152.1",
+    "nome": "ARTE POBRE, JOHTO: depois de o desenho do esconderijo da Rocket em Mahogany ser reescrito por `dev_scripts/arte_mapas_pobres.py` (B1F de 4 para 36 metatiles distintos), o salão continua atravessável de ponta a ponta e a parede oeste continua sólida. O caso existe porque trocar desenho é a maneira mais fácil de trocar colisão sem querer: o gerador escreve só os 10 bits de baixo de cada célula do map.bin e nunca os 6 de cima, que são colisão e elevação, e isso está provado célula a célula contra o `git show HEAD:` no `--demo` dele, mas 'o script promete' não é medida, e a lição do T115.3 é que arte nova pede prova de caminho DENTRO do jogo. PRÉ-CONDIÇÃO: `FLAG_HIDE_MAHOGANY_HIDEOUT_ROCKETS` (0x44) acesa. Os SETE objetos do B1F são todos treinadores de verdade (TRAINER_TYPE_NORMAL, com raio de visão 4 e 5) e todos moram atrás dessa flag; sem apagá-los, o corpo do guarda em (19,2) barra a linha 2 e a linha de vista dele abre batalha, e uma prova de posição vira sorteio. ROTA: uma perna só, LEFT SATURANTE a partir do warp 0. O warp fica em (27,2), mas quem chega por ele NÃO para ali: o tile é porta, e o jogador desce um e acorda em (27,3). Isso foi MEDIDO no emulador, não deduzido, e a primeira versão deste caso reprovou por causa disso (esperava (1,2) e obteve (1,3)). A linha 3 é livre de x=1 a x=28 (medido na grade de colisão do LAYOUT_MAHOGANY_HIDEOUT_B1F, com a flag de esconder acesa: sem ela o guarda em (11,3) barra o caminho no meio), então são 26 tiles em linha reta cruzando o salão inteiro que o gerador repintou, e o jogador só para quando bate na parede em (0,3). A contagem é 40 e não 26 de propósito: a regra da 0.n é que perna longa e reta usa contagem saturante com folga larga, porque aperto de andar é comido. A PROVA é a posição final (1,3). O par negativo é o T152.2.",
+    "flags": [
+      "0x44"
+    ],
+    "warp": "MAP_MAHOGANY_HIDEOUT_B1F",
+    "warp_id": 0,
+    "roteiro": "150:NADA,17:LEFT*40,120:NADA",
+    "prova": {
+      "mapa": "MAP_MAHOGANY_HIDEOUT_B1F",
+      "layout": "LAYOUT_MAHOGANY_HIDEOUT_B1F",
+      "pos": [
+        1,
+        3
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T152.2",
+    "nome": "PAR NEGATIVO DO T152.1, e sem ele o T152.1 não prova nada. MESMO mapa, MESMO warp, MESMA pré-condição e MESMA primeira perna; a diferença é UMA perna a mais, DOWN saturante, a partir de (1,3). A coluna 1 tem chão em y=4 e PAREDE em (1,5), e essa parede é uma das que o gerador repintou (era o metatile 0x201, preto puro; virou parede de instalação). Com a colisão intacta o jogador desce UM tile e para em (1,4); se o gerador tivesse aberto aquela parede, os oito apertos saturantes o levariam até (1,11), sete tiles adiante e em cima das armadilhas de piso da linha 8, e este caso reprovaria enquanto o T152.1 continuaria passando. Sem este caso o T152.1 passaria também num jogo em que o jogador tivesse sido EMPURRADO para o canto oeste por qualquer outro motivo (parede desenhada por cima do caminho, esteira, gelo), porque posição final sozinha não sabe distinguir 'andou 26 tiles' de 'foi parar ali'. É a família do T115.1 com o T115.2. Os oito apertos de DOWN são saturantes e sobram seis: o que se mede é onde ele PARA, não quantos passos deu.",
+    "flags": [
+      "0x44"
+    ],
+    "warp": "MAP_MAHOGANY_HIDEOUT_B1F",
+    "warp_id": 0,
+    "roteiro": "150:NADA,17:LEFT*40,60:NADA,17:DOWN*8,120:NADA",
+    "prova": {
+      "mapa": "MAP_MAHOGANY_HIDEOUT_B1F",
+      "layout": "LAYOUT_MAHOGANY_HIDEOUT_B1F",
+      "pos": [
+        1,
+        4
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T152.3",
+    "nome": "ARTE POBRE, UNOVA: depois de o celeiro do Floccesy Ranch ser reescrito pelo MESMO gerador (de 9 para 16 metatiles distintos, com piso de tábua, tapete, quadro na parede e feno), ele continua andável e as duas paredes que o gerador repintou continuam sólidas. ROTA em duas pernas saturantes, a partir do warp 0, em (3,7): UP saturante sobe a coluna 3 e para em (3,4), porque em (3,3) está o Pikachu do celeiro e corpo de NPC é sólido (os três objetos do mapa não têm flag e são TRAINER_TYPE_NONE, então não somem e não abrem batalha: não há sorteio a evitar aqui); RIGHT saturante corre a linha 4, que é livre de x=0 a x=7, e para em (7,4), contra a borda leste do mapa. A perna UP tem que vir ANTES, e isso é medido e não estético: (3,7) e (4,7) são as duas folhas da porta do celeiro, com comportamento MB_LADDER (96), e qualquer perna lateral na linha 7 pisaria na folha vizinha e mandaria o jogador de volta para o rancho no meio do caso. A PROVA é a posição final (7,4). O par negativo é o T152.4.",
+    "warp": "MAP_UNOVA_FLOCCESY_RANCH_BARN",
+    "warp_id": 0,
+    "roteiro": "150:NADA,17:UP*12,60:NADA,17:RIGHT*16,120:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_FLOCCESY_RANCH_BARN",
+      "layout": "LAYOUT_UNOVA_FLOCCESY_RANCH_BARN",
+      "pos": [
+        7,
+        4
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T152.4",
+    "nome": "PAR NEGATIVO DO T152.3, e sem ele o T152.3 não prova nada. MESMO mapa, MESMO warp e MESMA primeira perna; a única diferença é que a perna RIGHT não é apertada. Com a colisão intacta o jogador fica onde a subida o deixou, em (3,4), e é isso que separa 'ele atravessou o celeiro para leste' de 'ele já estava no leste' ou 'ele não saiu do lugar nenhuma vez'. Este par também mede a subida sozinha: se o gerador tivesse aberto a parede de fundo, ou se o corpo do Pikachu tivesse deixado de ser sólido, a perna UP saturante não pararia em (3,4). É a família do T115.1 com o T115.2.",
+    "warp": "MAP_UNOVA_FLOCCESY_RANCH_BARN",
+    "warp_id": 0,
+    "roteiro": "150:NADA,17:UP*12,60:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_FLOCCESY_RANCH_BARN",
+      "layout": "LAYOUT_UNOVA_FLOCCESY_RANCH_BARN",
+      "pos": [
+        3,
+        4
+      ],
+      "andou": true
+    }
+  }
+]
