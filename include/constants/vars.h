@@ -974,4 +974,6 @@
 #define VAR_GALAR_G03M05_CENA   VAR_UNUSED_0x4100  // mapa g03m05 da fonte
 #define VAR_GALAR_G03M08_CENA   VAR_UNUSED_0x4107  // mapa g03m08 da fonte
 #define VAR_GALAR_G04M03_CENA   VAR_UNUSED_0x4108  // mapa g04m03 da fonte
+#define VAR_GALAR_G05M05_CENA   VAR_UNUSED_0x4109  // mapa g05m05 da fonte
+#define VAR_GALAR_G21M01_CENA   VAR_UNUSED_0x410A  // mapa g21m01 da fonte
 // <<< Fase de conteudo de Galar, bloco c1 <<<

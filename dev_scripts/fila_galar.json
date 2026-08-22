@@ -9157,8 +9157,8 @@
    "ponteiro_fonte": "0x016A2F3",
    "no_mapa": true,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/cenas_galar.py (c3)"
   },
   {
    "chave": "g05m05/objeto/0",
@@ -11562,8 +11562,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 62,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g06m17/objeto/1",
@@ -13907,8 +13907,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 523,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g06m33/objeto/1",
@@ -14252,8 +14252,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 4249,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g07m00/objeto/0",
@@ -14649,8 +14649,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 99,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g07m11/objeto/1",
@@ -14664,8 +14664,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 99,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g07m11/objeto/12",
@@ -15473,8 +15473,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g08m02/objeto/5",
@@ -17769,8 +17769,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 4353,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g08m19/objeto/1",
@@ -17784,8 +17784,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 4353,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g08m19/objeto/2",
@@ -17799,8 +17799,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 4353,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g08m19/objeto/3",
@@ -17874,8 +17874,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 536,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g08m20/objeto/1",
@@ -17889,8 +17889,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 536,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g08m20/objeto/10",
@@ -18129,8 +18129,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 521,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g08m20/objeto/6",
@@ -18144,8 +18144,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 536,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g08m20/objeto/7",
@@ -18159,8 +18159,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 536,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g08m20/objeto/8",
@@ -19725,8 +19725,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 2808,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g09m10/objeto/19",
@@ -19740,8 +19740,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 2808,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g09m10/objeto/20",
@@ -19755,8 +19755,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 2808,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g09m10/objeto/21",
@@ -19770,8 +19770,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 2810,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g09m10/objeto/22",
@@ -21448,8 +21448,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g10m14/objeto/2",
@@ -21463,8 +21463,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g10m14/objeto/3",
@@ -21508,8 +21508,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g10m14/objeto/6",
@@ -21523,8 +21523,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g10m14/objeto/7",
@@ -27659,8 +27659,8 @@
    "ponteiro_fonte": "0x016FCFA",
    "no_mapa": true,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/cenas_galar.py (c3)"
   },
   {
    "chave": "g21m01/objeto/0",
@@ -30113,8 +30113,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 6144,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g37m05/objeto/20",

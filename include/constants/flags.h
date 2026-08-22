@@ -10398,3 +10398,17 @@
 #define FLAG_DEX_PRESENTE_INICIAL             FLAG_UNUSED_0x319E  // Birch ja entregou o inicial
 #define FLAG_DEX_PRESENTE_EVENTO              FLAG_UNUSED_0x319F  // os event-only ja foram dados
 // <<< Dex completa <<<
+
+// >>> Fase de conteudo de Galar, bloco c4b: flags de esconder (dev_scripts/objetos_galar.py) >>>
+// Uma flag por FLAG DE ESCONDER da fonte, bloco c4b. A fonte ja
+// pendura essa flag no proprio object event; aqui ela ganha nome e
+// o campo `flag` do map.json passa a cita-la, para o motor saber
+// de qual objeto ela e.
+// Apelidar FLAG_UNUSED nao mexe em FLAGS_COUNT: a save nao muda.
+// Gerado por dev_scripts/objetos_galar.py; nao editar a mao.
+#define FLAG_GALAR_ESCONDE_20B    FLAG_UNUSED_0x1C80  // flag 0x20B da fonte
+#define FLAG_GALAR_ESCONDE_23C    FLAG_UNUSED_0x1C81  // flag 0x23C da fonte
+#define FLAG_GALAR_ESCONDE_BA7    FLAG_UNUSED_0x1C82  // flag 0xBA7 da fonte
+#define FLAG_GALAR_ESCONDE_BA8    FLAG_UNUSED_0x1C83  // flag 0xBA8 da fonte
+#define FLAG_GALAR_ESCONDE_1800   FLAG_UNUSED_0x1C84  // flag 0x1800 da fonte
+// <<< Fase de conteudo de Galar, bloco c4b <<<

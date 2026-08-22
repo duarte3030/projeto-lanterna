@@ -310,6 +310,10 @@ class Tradutor:
             f"{PKFR}/include/constants/weather.h",
             f"{RAIZ}/include/constants/weather.h", "WEATHER")
         self.usou_flag = set()
+        # Bloco solto que o gancho `extra` precisa emitir fora do corpo (lista
+        # de loja, por exemplo). Fica aqui e nao no gancho porque quem monta o
+        # arquivo e o `cena()`.
+        self.extras_gancho = []
         self.var_especial = {v: n for n, v in
                              constantes(f"{RAIZ}/include/constants/vars.h",
                                         "VAR").items()
@@ -332,9 +336,16 @@ class Tradutor:
             return "OBJ_EVENT_ID_PLAYER"
         if local == 0x7F:
             return "OBJ_EVENT_ID_CAMERA"
+        if 0x8000 <= local <= 0x800F:
+            # Id de objeto que vem de VAR e legitimo: `ScrCmd_applymovement` e
+            # irmaos leem o id por `VarGet`, entao `applymovement
+            # VAR_LAST_TALKED` e o idioma de "mexa no NPC com quem eu falei".
+            # Emitir o NOME da var e fiel; recusar seria perder a cena por um
+            # detalhe que o nosso motor entende igual.
+            return self.var(local)
         if local >= 0x4000:
-            raise Recusa("id de objeto vem de var (0x%04X), nao de literal"
-                         % local)
+            raise Recusa("id de objeto vem de var salva (0x%04X), fora do "
+                         "alcance deste bloco" % local)
         nosso = self.de_para_obj.get(local)
         if nosso is None:
             raise Recusa("objeto local %d nao entrou no mapa no G4" % local)
@@ -514,7 +525,7 @@ class Tradutor:
             # `release; end`. Escrever map script que não faz nada é pior que
             # não escrever: fica dívida com cara de trabalho feito.
             raise Recusa("cena vira no-op depois da traducao (so moldura)")
-        return corpo + extras, usadas
+        return corpo + extras + self.extras_gancho, usadas
 
     def extra(self, nome, args, corpo, base):
         """Gancho para quem herda: emite um comando a mais, ou devolve False.
@@ -578,7 +589,13 @@ def vars_livres():
         limpo = os.path.join(tmp, "include/constants/vars.h")
         # LER ANTES de abrir para escrita: `open(x, "w")` trunca o arquivo na
         # hora, e a leitura no meio da mesma expressão devolveria vazio.
-        texto = sem_bloco(open(limpo).read(), MARCA_VAR_INI, MARCA_VAR_FIM)
+        # Tira TODOS os blocos da fase de conteudo de Galar, nao so o deste
+        # gerador: o c4d (`dev_scripts/objetos_galar.py`) tem bloco proprio no
+        # mesmo header, e deixa-lo de pe faria a segunda rodada ver as vars que
+        # ela mesma alocou como ocupadas e escolher outras, virando diff eterno.
+        texto = re.sub(r"// >>> Fase de conteudo de Galar.*?// <<< Fase de "
+                       r"conteudo de Galar[^\n]*\n", "",
+                       open(limpo).read(), flags=re.S)
         open(limpo, "w").write(texto)
         caminhos = [os.path.join(tmp, h) for h in GUARDA.HEADERS]
         defs = GUARDA.le_defines(caminhos)

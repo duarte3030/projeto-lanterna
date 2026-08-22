@@ -49,6 +49,77 @@ GalarCena_G04M03_t4_v1::
 	end
 
 
+@ ---- Galar_Wedgehurst04 (g05m05) ----
+GalarCena_G05M05_t4_v1::
+	compare VAR_0x8007, 0
+	goto_if 1, GalarCena_G05M05_t4_v1_b1
+	turnobject VAR_0x8007, DIR_WEST
+	end
+
+GalarCena_G05M05_t4_v1_b1::
+	end
+
+
+GalarCena_G05M05_t4_v2::
+	compare VAR_0x8007, 0
+	goto_if 1, GalarCena_G05M05_t4_v2_b1
+	turnobject VAR_0x8007, DIR_WEST
+	end
+
+GalarCena_G05M05_t4_v2_b1::
+	end
+
+
+GalarCena_G05M05_t4_v3::
+	compare VAR_0x8007, 0
+	goto_if 1, GalarCena_G05M05_t4_v3_b1
+	turnobject VAR_0x8007, DIR_WEST
+	end
+
+GalarCena_G05M05_t4_v3_b1::
+	end
+
+
+GalarCena_G05M05_t4_v5::
+	compare VAR_0x8007, 0
+	goto_if 1, GalarCena_G05M05_t4_v5_b1
+	turnobject VAR_0x8007, DIR_WEST
+	end
+
+GalarCena_G05M05_t4_v5_b1::
+	end
+
+
+GalarCena_G05M05_t4_v6::
+	compare VAR_0x8007, 0
+	goto_if 1, GalarCena_G05M05_t4_v6_b1
+	turnobject VAR_0x8007, DIR_WEST
+	end
+
+GalarCena_G05M05_t4_v6_b1::
+	end
+
+
+GalarCena_G05M05_t4_v7::
+	compare VAR_0x8007, 0
+	goto_if 1, GalarCena_G05M05_t4_v7_b1
+	turnobject VAR_0x8007, DIR_WEST
+	end
+
+GalarCena_G05M05_t4_v7_b1::
+	end
+
+
+GalarCena_G05M05_t4_v8::
+	compare VAR_0x8007, 0
+	goto_if 1, GalarCena_G05M05_t4_v8_b1
+	turnobject VAR_0x8007, DIR_WEST
+	end
+
+GalarCena_G05M05_t4_v8_b1::
+	end
+
+
 @ ---- Galar_WildArea03 (g06m27) ----
 GalarCena_G06M27_t3_x::
 	@ setflag 0x91A da fonte: flag de motor do demake, sem leitor aqui (cenas_galar.py)
@@ -106,6 +177,77 @@ GalarCena_G06M27_t3_x_b3::
 @ ---- Galar_WildArea08 (g08m23) ----
 
 @ ---- Galar_WildArea09 (g08m24) ----
+
+@ ---- Galar_Wedgehurst10 (g21m01) ----
+GalarCena_G21M01_t4_v1::
+	compare VAR_0x8007, 0
+	goto_if 1, GalarCena_G21M01_t4_v1_b1
+	turnobject VAR_0x8007, DIR_WEST
+	end
+
+GalarCena_G21M01_t4_v1_b1::
+	end
+
+
+GalarCena_G21M01_t4_v2::
+	compare VAR_0x8007, 0
+	goto_if 1, GalarCena_G21M01_t4_v2_b1
+	turnobject VAR_0x8007, DIR_WEST
+	end
+
+GalarCena_G21M01_t4_v2_b1::
+	end
+
+
+GalarCena_G21M01_t4_v3::
+	compare VAR_0x8007, 0
+	goto_if 1, GalarCena_G21M01_t4_v3_b1
+	turnobject VAR_0x8007, DIR_WEST
+	end
+
+GalarCena_G21M01_t4_v3_b1::
+	end
+
+
+GalarCena_G21M01_t4_v5::
+	compare VAR_0x8007, 0
+	goto_if 1, GalarCena_G21M01_t4_v5_b1
+	turnobject VAR_0x8007, DIR_WEST
+	end
+
+GalarCena_G21M01_t4_v5_b1::
+	end
+
+
+GalarCena_G21M01_t4_v6::
+	compare VAR_0x8007, 0
+	goto_if 1, GalarCena_G21M01_t4_v6_b1
+	turnobject VAR_0x8007, DIR_WEST
+	end
+
+GalarCena_G21M01_t4_v6_b1::
+	end
+
+
+GalarCena_G21M01_t4_v7::
+	compare VAR_0x8007, 0
+	goto_if 1, GalarCena_G21M01_t4_v7_b1
+	turnobject VAR_0x8007, DIR_WEST
+	end
+
+GalarCena_G21M01_t4_v7_b1::
+	end
+
+
+GalarCena_G21M01_t4_v8::
+	compare VAR_0x8007, 0
+	goto_if 1, GalarCena_G21M01_t4_v8_b1
+	turnobject VAR_0x8007, DIR_WEST
+	end
+
+GalarCena_G21M01_t4_v8_b1::
+	end
+
 
 @ ---- Galar_WildArea10 (g42m02) ----
 

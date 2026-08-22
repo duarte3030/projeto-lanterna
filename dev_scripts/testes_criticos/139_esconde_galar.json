@@ -1,0 +1,111 @@
+[
+  {
+    "id": "T139.1",
+    "nome": "Galar, bloco c4b: A CENA APAGA O NPC E ACENDE A FLAG DELE. Galar_CrownTundra08 (g37m05) tem em (22,54) um NPC que a FONTE esconde pela flag 0x1800; o G4 trouxe o objeto MUDO e com `flag: \"0\"`, ou seja a flag da fonte ficou no censo e nao no mapa. O c4b deu nome a ela (FLAG_GALAR_ESCONDE_1800, apelido de FLAG_UNUSED na faixa 0x1C80+ de Galar, custo zero de save) e fez DUAS coisas: pos o nome no campo `flag` do object event, para o motor saber de qual objeto ela e (`GetObjectEventFlagIdByObjectEventId`), e portou a cena da fonte, que e `setflag` mais `removeobject VAR_LAST_TALKED`. O jogador entra pelo warp 3, e largado em (25,55), anda quatro LEFT ate (22,55) e sobe dois UP, que so o viram para cima porque o NPC barra (22,54). O A dispara a cena: o NPC some e os tres UP seguintes atravessam o tile dele, ate (22,52).",
+    "warp": "MAP_GALAR_CROWN_TUNDRA_08",
+    "warp_id": 3,
+    "roteiro": "300:NADA,16:LEFT*4,90:NADA,16:UP*2,90:NADA,16:A,180:NADA,16:UP*3,150:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_CROWN_TUNDRA_08",
+      "pos": [
+        22,
+        52
+      ],
+      "flags_acesas": [
+        "FLAG_GALAR_ESCONDE_1800"
+      ]
+    }
+  },
+  {
+    "id": "T139.2",
+    "nome": "PAR NEGATIVO do T139.1: MESMO mapa, MESMO warp, MESMO caminho, SEM o aperto de A. Sem a cena o NPC continua solido, os tres UP batem nele e o jogador termina em (22,55), onde parou. A flag continua APAGADA. E o que separa 'a cena apagou o NPC' de 'o caminho sempre esteve livre'.",
+    "warp": "MAP_GALAR_CROWN_TUNDRA_08",
+    "warp_id": 3,
+    "roteiro": "300:NADA,16:LEFT*4,90:NADA,16:UP*2,90:NADA,180:NADA,16:UP*3,150:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_CROWN_TUNDRA_08",
+      "pos": [
+        22,
+        55
+      ],
+      "flags_apagadas": [
+        "FLAG_GALAR_ESCONDE_1800"
+      ]
+    }
+  },
+  {
+    "id": "T139.3",
+    "nome": "PRIMEIRA METADE DA PROVA DE SAVE: repete o T139.1 letra por letra e entao SALVA pelo menu, com a mesma sequencia medida do T11.1. A pergunta e a mesma que o T120.9/T120.10 fez para a bola: a flag de esconder MORA no SaveBlock1 ou so na EWRAM? Se o c4b tivesse alocado na faixa temporaria ou acima de SPECIAL_FLAGS_START, o T139.1 passaria e mesmo assim o NPC voltaria de pe a cada boot, e a cena rodaria de novo para sempre. Aqui a prova e so o controle (a cena rodou antes de gravar); quem responde e o T139.4. A .sav e apagada no comeco para o caso nunca passar por sobra de rodada anterior.",
+    "apaga_sav": true,
+    "sav": "/tmp/claude-501/frenteGalar/t139-esconde-galar.sav",
+    "warp": "MAP_GALAR_CROWN_TUNDRA_08",
+    "warp_id": 3,
+    "roteiro": "300:NADA,16:LEFT*4,90:NADA,16:UP*2,90:NADA,16:A,180:NADA,16:UP*3,150:NADA,40:START!,90:NADA,20:DOWN,20:DOWN,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_CROWN_TUNDRA_08",
+      "pos": [
+        22,
+        52
+      ],
+      "flags_acesas": [
+        "FLAG_GALAR_ESCONDE_1800"
+      ]
+    }
+  },
+  {
+    "id": "T139.4",
+    "nome": "SEGUNDA METADE, E E ELA QUE RESPONDE: a save gravada pelo T139.3 e recarregada do zero (abertura `continuar`, nenhum warp, nenhuma escrita de flag na EWRAM) e FLAG_GALAR_ESCONDE_1800 tem que voltar ACESA, com o jogador ainda em (22,52), o tile que so e alcancavel depois de o NPC sair. Isso so acontece se a flag morar dentro de `SaveBlock1.flags[]`, abaixo de FLAGS_COUNT e fora da faixa temporaria: 0x1C80 em diante esta nos dois lados certos. Depende do T139.3 ter rodado antes, e roda mesmo: o harness ordena os casos pelo numero do id.",
+    "sav": "/tmp/claude-501/frenteGalar/t139-esconde-galar.sav",
+    "abertura": "continuar",
+    "prova": {
+      "mapa": "MAP_GALAR_CROWN_TUNDRA_08",
+      "pos": [
+        22,
+        52
+      ],
+      "flags_acesas": [
+        "FLAG_GALAR_ESCONDE_1800"
+      ]
+    }
+  },
+  {
+    "id": "T139.5",
+    "nome": "A FLAG ESCONDE O NPC JA NA ENTRADA DO MAPA, sem cena nenhuma. Entrada NOVA com FLAG_GALAR_ESCONDE_1800 escrita direta na EWRAM antes do warp, que e o estado da save de quem ja falou com ele: o motor recria os object events do template a cada carregamento e pula os que tem flag acesa. O jogador faz o MESMO caminho do T139.2 (sem A nenhum) e desta vez atravessa (22,54) sem barreira, indo ate (22,51). Este caso e o que prova que o campo `flag` do map.json foi mesmo preenchido: sem ele o `setflag` da cena acenderia um endereco que ninguem le e o NPC continuaria de pe.",
+    "flags": [
+      "FLAG_GALAR_ESCONDE_1800"
+    ],
+    "warp": "MAP_GALAR_CROWN_TUNDRA_08",
+    "warp_id": 3,
+    "roteiro": "300:NADA,16:LEFT*4,90:NADA,16:UP*2,90:NADA,16:UP*3,150:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_CROWN_TUNDRA_08",
+      "pos": [
+        22,
+        51
+      ],
+      "flags_acesas": [
+        "FLAG_GALAR_ESCONDE_1800"
+      ]
+    }
+  },
+  {
+    "id": "T139.6",
+    "nome": "PAR NEGATIVO do T139.5, e ele prova que CADA OBJETO TEM A SUA FLAG: mesma entrada, mesmo caminho, com OUTRA flag de esconder de Galar acesa (FLAG_GALAR_ESCONDE_20B, do NPC de Galar_Route0203). O NPC daqui tem que continuar solido, e o jogador para em (22,55). Se o alocador do c4b tivesse dado a mesma vaga para duas flags, acender uma apagaria o NPC da outra, e este caso viraria copia do T139.5. E o mesmo defeito que o T120.8 mede do lado das bolas.",
+    "flags": [
+      "FLAG_GALAR_ESCONDE_20B"
+    ],
+    "warp": "MAP_GALAR_CROWN_TUNDRA_08",
+    "warp_id": 3,
+    "roteiro": "300:NADA,16:LEFT*4,90:NADA,16:UP*2,90:NADA,16:UP*3,150:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_CROWN_TUNDRA_08",
+      "pos": [
+        22,
+        55
+      ],
+      "flags_apagadas": [
+        "FLAG_GALAR_ESCONDE_1800"
+      ]
+    }
+  }
+]
