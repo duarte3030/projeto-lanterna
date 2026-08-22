@@ -3,9 +3,10 @@
 """Fase F: escreve os times de chefe em src/data/trainers.party a partir de
 dev_scripts/fase_f_chefes.json, que e a FONTE DA VERDADE.
 
-Escopo: lider de ginasio, rival, Elite Four e campeao das cinco regioes
-(Kanto, Johto, Hoenn, Sinnoh, Unova). Treinador comum e chefe de equipe vila
-NAO entram; Galar nao tem treinador.
+Escopo: lider de ginasio, rival, Elite Four, campeao e CHEFE DE EQUIPE VILA
+(papel "vilao": Rocket, Magma, Aqua, Galactica, Plasma) das cinco regioes
+(Kanto, Johto, Hoenn, Sinnoh, Unova). Treinador comum NAO entra; Galar nao tem
+treinador.
 
 Ao contrario de dev_scripts/gens69_treinadores.py, este script E IDEMPOTENTE:
 ele SUBSTITUI o time inteiro da batalha pelo que a tabela diz, entao rodar duas
@@ -18,8 +19,9 @@ Uso:
 
 O guarda (valida) reprova, entre outras coisas: time com mais de 6 Pokemon,
 pedra de Mega no Pokemon que nao tem Mega, lendario repetido dentro da regiao,
-batalha com ace acima do nivel 40 sem lendario, e mais de 5 chefes com Dynamax
-ou mais de 6 com Terastal no jogo inteiro.
+batalha com ace acima do nivel 40 sem lendario, mais de 5 chefes com Dynamax
+ou mais de 6 com Terastal no jogo inteiro, e chefe de equipe vila sem TEMA
+declarado ou com time fora do tema que ele mesmo declarou.
 """
 import argparse
 import collections
@@ -60,12 +62,26 @@ def cristais_z():
     return set(re.findall(r'\b(ITEM_[A-Z]+IUM_Z[A-Z_]*)\b', texto))
 
 
+def tipos_do_motor():
+    """{SPECIES_X: ('TYPE_A', 'TYPE_B')} lido do species_info pelo catalogo_especies.
+
+    Especie escrita por MACRO nao aparece la (medido em 22/08/2026: Genesect,
+    Darmanitan e Sawsbuck estao fora; o Gengar TEM tipos e so a habilidade dele e
+    que nao da para ler). Quem some conta como FORA do tema, que e o lado seguro:
+    erra para o lado de reprovar, nunca para o de aprovar em silencio.
+    """
+    sys.path.insert(0, os.path.join(RAIZ, 'dev_scripts'))
+    import catalogo_especies
+    return {n: e.tipos for n, e in catalogo_especies.carrega().items()}
+
+
 # ---------------------------------------------------------------- guarda
 def valida(doc):
     """Devolve a lista de reprovacoes. Lista vazia = tabela sadia."""
     erros = []
     mega = megas_do_motor()
     zs = cristais_z()
+    tipos = tipos_do_motor()
     itens_mega = {i for v in mega.values() for i in v}
     por_regiao = collections.defaultdict(lambda: collections.defaultdict(set))
     conta = collections.Counter()
@@ -104,6 +120,19 @@ def valida(doc):
                              % (tid, m['especie']))
             if len(m['golpes']) != 4:
                 erros.append('%s: %s com %d golpes' % (tid, m['especie'], len(m['golpes'])))
+
+        if c['papel'] == 'vilao':
+            tema = c.get('tema')
+            if not tema:
+                erros.append('%s: chefe de equipe vila sem tema declarado' % tid)
+            else:
+                dentro = sum(1 for m in time
+                             if set(tipos.get(m['especie'], ())) & set(tema))
+                if dentro * 2 < len(time):
+                    erros.append('%s: so %d de %d no tema %s da equipe %s'
+                                 % (tid, dentro, len(time),
+                                    '/'.join(t.replace('TYPE_', '') for t in tema),
+                                    c.get('equipe', '?')))
 
         lend = c['lendario']
         if c['ace'] > NIVEL_LENDARIO and lend is None:
@@ -235,17 +264,18 @@ def dry_run(doc):
     porregiao = collections.OrderedDict()
     for c in doc['chefes']:
         porregiao.setdefault(c['regiao'], []).append(c)
-    print('%-8s %6s %5s %5s %5s %5s %6s %5s %5s %5s  %s'
-          % ('regiao', 'chefes', 'lider', 'rival', 'e4', 'camp', 'lendas', 'mega', 'z', 'dmax/tera', 'ace min-max'))
+    print('%-8s %6s %5s %5s %5s %5s %5s %6s %5s %5s %5s  %s'
+          % ('regiao', 'chefes', 'lider', 'rival', 'e4', 'camp', 'vilao', 'lendas',
+             'mega', 'z', 'dmax/tera', 'ace min-max'))
     for regiao, lista in porregiao.items():
         papel = collections.Counter(c['papel'] for c in lista)
         gim = collections.Counter(c['gimmick'] for c in lista)
         aces = [c['ace'] for c in lista]
         lendas = len({c['lendario'] for c in lista if c['lendario']})
-        print('%-8s %6d %5d %5d %5d %5d %6d %5d %5d %4d/%-4d  %d-%d'
+        print('%-8s %6d %5d %5d %5d %5d %5d %6d %5d %5d %4d/%-4d  %d-%d'
               % (regiao, len(lista), papel['lider'], papel['rival'], papel['e4'],
-                 papel['campeao'] + papel['superchefe'], lendas, gim['mega'], gim['z'],
-                 gim['dynamax'], gim['tera'], min(aces), max(aces)))
+                 papel['campeao'] + papel['superchefe'], papel['vilao'], lendas,
+                 gim['mega'], gim['z'], gim['dynamax'], gim['tera'], min(aces), max(aces)))
     tot = collections.Counter(c['gimmick'] for c in doc['chefes'])
     print('\ntotal: %d batalhas, %d Pokemon, Dynamax em %d (teto %d), Terastal em %d (teto %d)'
           % (len(doc['chefes']), sum(len(c['time']) for c in doc['chefes']),
@@ -320,6 +350,54 @@ def demo(doc):
             c['time'][c['gimmick_slot']]['dynamax'] = 10
             dados += 1
     casos.append(('Dynamax acima do teto de %d' % MAX_DYNAMAX, d))
+
+    d = copia()
+    dados = 0
+    for c in d['chefes']:
+        if c['gimmick'] == 'mega' and dados < MAX_TERA + 1:
+            c['gimmick'] = 'tera'
+            c['time'][c['gimmick_slot']]['item'] = 'ITEM_LEFTOVERS'
+            c['time'][c['gimmick_slot']]['tera'] = 'TYPE_STEEL'
+            dados += 1
+    casos.append(('Terastal acima do teto de %d' % MAX_TERA, d))
+
+    # Os tres de baixo sao os que a rodada dos vilaes trouxe. Sem eles o papel
+    # "vilao" entraria sem tema nenhum e ninguem reclamaria.
+    d = copia()
+    for c in d['chefes']:
+        if c['papel'] == 'vilao':
+            c.pop('tema', None)
+            break
+    casos.append(('vilao sem tema declarado', d))
+
+    d = copia()
+    for c in d['chefes']:
+        if c['papel'] == 'vilao':
+            # Magikarp em tudo MENOS no slot do gimmick: trocar o ace tambem faria
+            # a pedra de Mega reprovar primeiro e o caso passaria pelo motivo
+            # errado, que e como um guarda de enfeite se disfarca de guarda.
+            for i, m in enumerate(c['time']):
+                if i != c['gimmick_slot']:
+                    m['especie'] = 'SPECIES_MAGIKARP'
+            c['lendario'] = None
+            c['ace'] = NIVEL_LENDARIO
+            break
+    casos.append(('vilao com o time fora do tema que ele declarou', d))
+
+    d = copia()
+    donos = {}
+    for c in d['chefes']:
+        if c['papel'] != 'vilao' and c['lendario']:
+            donos.setdefault((c['regiao'], c['identidade']), c['lendario'])
+    for c in d['chefes']:
+        if c['papel'] == 'vilao' and c['lendario']:
+            roubo = next((v for (r, _), v in donos.items() if r == c['regiao']), None)
+            if roubo:
+                i = [m['especie'] for m in c['time']].index(c['lendario'])
+                c['lendario'] = roubo
+                c['time'][i]['especie'] = roubo
+                break
+    casos.append(('vilao com o lendario de um lider da mesma regiao', d))
 
     ruim = 0
     for nome, mutante in casos:

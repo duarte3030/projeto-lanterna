@@ -42,7 +42,10 @@ já diz isso.
   **Nenhum nível foi mudado**: o ace de cada batalha ficou no nível que já tinha, e
   o resto do time entra até 4 níveis abaixo dele.
 
-## Contagem: 144 batalhas de chefe
+## Contagem: 144 batalhas de chefe (líder, rival, E4, campeão)
+
+Os **40 chefes de equipe vilã** entraram depois, em 22/08/2026, e têm seção
+própria mais abaixo; com eles a tabela vai a **184 batalhas e 970 Pokémon**.
 
 | região | batalhas | líder | rival | E4 | campeão | lendários distintos | mega | Z | dmax | tera |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -89,7 +92,9 @@ Mega e Z.
 
 - **Kanto**: Lorelei-2 Articuno, Bruno-2 Terrakion, Agatha-2 Spectrier, Lance-2 Latios, Blue Zapdos (primeira) e Mewtwo (revanche).
 - **Johto**: Falkner Tornadus-T, Bugsy Genesect, Whitney Regigigas, Morty Marshadow, Chuck Cobalion, Jasmine Registeel, Pryce Regice, Clair Latias, Silver Lugia, Red Ho-Oh.
-- **Hoenn**: Roxanne Regirock, Brawly Urshifu-Rapid, Wattson Thundurus-T, Flannery Heatran, Norman Regigigas, Winona Ho-Oh, Tate&Liza Cresselia, Juan Suicune, Sidney Darkrai, Phoebe Giratina-Origin, Glacia Glastrier, Drake Regidrago, Wallace Kyogre, Steven Rayquaza, Brendan Groudon, May Latias.
+- **Hoenn**: Roxanne Regirock, Brawly Urshifu-Rapid, Wattson Thundurus-T, Flannery Heatran, Norman Regigigas, Winona Ho-Oh, Tate&Liza Cresselia, Juan Suicune, Sidney Darkrai, Phoebe Giratina-Origin, Glacia Glastrier, Drake Regidrago, **Wallace Palkia**, Steven Rayquaza, **Brendan Latios**, May Latias.
+  (Wallace e Brendan trocaram em 22/08/2026 para o Archie e o Maxie ficarem com
+  Kyogre e Groudon; a razão está na seção dos chefes de equipe vilã.)
 - **Sinnoh**: Roark Terrakion, Gardenia Shaymin-Céu, Fantina Pecharunt, Maylene Keldeo, Wake Suicune, Byron Heatran, Candice Calyrex-Gelo, Volkner Raikou, Aaron Genesect, Bertha Landorus-T, Flint Volcanion, Lucian Azelf, Cynthia Giratina-Origin, Barry Palkia (e Dialga na Liga).
 - **Unova**: Marlon Kyogre, Shauntal Hoopa-Solto, Burgh Pheromosa, Roxie Eternatus, Cheren Regigigas, Cilan Virizion, Skyla Yveltal, Drayden Zygarde-50, Grimsley Darkrai, Marshal Urshifu-Single, Elesa Zeraora, Colress Magearna, Genesis Kyurem-Preto, Juniper Reshiram.
 
@@ -127,14 +132,131 @@ e `include/constants/opponents.h`, e não contra a memória das fontes:
 Portanto o item de fila é **importar as três batalhas de Silver que faltam e os
 rivais do BW3G**, e só depois dar time a eles com o mesmo gerador.
 
+## Os chefes de equipe vilã: 40 batalhas, 228 Pokémon (22/08/2026)
+
+Entraram na MESMA tabela e no MESMO gerador, com `papel: "vilao"`. Nível da curva
+intocado: cada batalha ficou no ace que já tinha, e o resto do time entra até 4
+níveis abaixo dele, como no resto da Fase F.
+
+| região | equipe | batalhas | pessoas | ace | lendários | Mega | Z |
+|---|---|---|---|---|---|---|---|
+| Kanto | Rocket | 4 | 3 | 20-36 | **nenhum** | 4 | 0 |
+| Johto | Rocket | 8 | 5 | 59-114 | Naganadel, Nihilego, Yveltal, Darkrai, Ting-Lu | 8 | 0 |
+| Hoenn | Magma | 6 | 2 | 109-124 | **Groudon**, Chi-Yu | 6 | 0 |
+| Hoenn | Aqua | 4 | 3 | 114-124 | **Kyogre**, Guzzlord, Tapu Fini | 4 | 0 |
+| Sinnoh | Galáctica | 9 | 4 | 157-186 | Mesprit, Uxie, Cobalion, Darkrai | 9 | 0 |
+| Unova | Plasma | 9 | 5 | 219-245 | Zekrom, Victini, Suicune, Wo-Chien, Chien-Pao | 8 | 1 |
+
+**Dynamax e Terastal: zero novos.** As cotas do Gui (5 e 6) já estavam gastas nos
+144 chefes da primeira leva e continuam em 5 e 6; nenhum vilão ganhou nem um nem
+outro. O Z é UM só, no Ryoku (Decidueye com `ITEM_DECIDIUM_Z`), e ele foi
+escolhido porque o time de grama dele é o único onde **nenhuma das seis espécies
+tem Mega** na `form_change_tables.h`: dar Mega ali exigiria trocar o elenco.
+
+**Os quatro chefes de Kanto não têm lendário e isso é a regra, não esquecimento**:
+Giovanni do Rocket Hideout (ace 20), do Silph Co. (27) e os dois Admin do
+Rocket Warehouse de Five Island (36) estão todos em 40 ou abaixo, e a regra do Gui
+é "lendário acima do lv 40".
+
+### A lore vence para o chefe vilão: quem cede é o herói (decisão do Gui, 22/08/2026)
+
+A primeira escrita desta rodada tinha dado Entei ao Maxie e Palkia ao Archie,
+porque Groudon estava com o **Brendan** (rival) e Kyogre com o **Wallace**
+(campeão), e a regra proíbe repetir lendário dentro da região. O Gui inverteu a
+prioridade: **para chefe de equipe vilã a lore vence, e o herói é quem cede.**
+Quatro trocas, todas em Hoenn, feitas pelo gerador e não à mão:
+
+| pessoa | antes | depois | por quê |
+|---|---|---|---|
+| Maxie (3 batalhas) | Entei | **Groudon** | é o Pokémon que a Magma quer despertar |
+| Archie (1 batalha) | Palkia | **Kyogre** | é o Pokémon que a Aqua quer despertar |
+| Brendan (15 batalhas) | Groudon | **Latios** | Latias é da May, e Latios só estava em KANTO (Lance-2), então é o único do par livre em Hoenn |
+| Wallace (1 batalha) | Kyogre | **Palkia** | é o Água/Dragão que o Archie acabou de liberar; Suicune não servia porque já é do Juan, na mesma região |
+
+**Nem Groudon nem Kyogre ganharam o orbe de Primal**: seguem com `ITEM_LEFTOVERS`
+e `ITEM_CHOICE_SPECS`, os itens que já carregavam com Brendan e Wallace. A Primal
+Reversion é gimmick à parte do Mega e entraria POR CIMA da Mega Camerupt do Maxie
+e da Mega Sharpedo do Archie, quebrando o "um gimmick por chefe" sem que o guarda
+visse, porque ele só conhece pedra de Mega e cristal Z.
+
+**Cyrus ficou como estava, e é decisão e não esquecimento**: o trio da criação
+está todo com Barry (Palkia, Dialga) e Cynthia (Giratina-Origin), e Darkrai é o
+pesadelo de Sinnoh, que é o que o Cyrus quer ser no Platinum. As outras escolhas
+que a regra ditou seguem valendo: **Tabitha Chi-Yu**, **Matt Guzzlord**, **Shelly
+Tapu Fini**, e os comandantes com o **trio dos lagos que a Galáctica sequestra na
+história** (Mars Mesprit do Lago Verity, Jupiter Uxie do Lago Acuity, e Saturn com
+**Cobalion** porque o Azelf do Lago Valor é do Lucian). **Giovanni de Johto ficou
+com Ting-Lu** e não com Mewtwo: o Mewtwo segue reservado ao Blue da revanche.
+
+### Ghetsis, N e o Shadow Triad NÃO EXISTEM nesta ROM
+
+Medido em 22/08/2026 contra `src/data/trainers.party` e
+`include/constants/opponents.h`, não contra a memória do BW2: **zero** ocorrência
+de `GHETSIS`, `SHADOW_TRIAD` ou de um `TRAINER_N`. O nome "GHETSIS" aparece só
+como TEXTO, em três `scripts.inc` de Unova (`ChampionsRoom`,
+`ChampionsRoomEntrance`, `DragonspiralTowerRoof`), onde os Sete Sábios o citam.
+Quem batalha pela Plasma são **Zinzolin e quatro dos Sete Sábios**: Gorm, Giallo,
+Bronius e Ryoku, com duas batalhas cada menos o Ryoku, que só tem a `RYOKU2` (a
+`RYOKU1` nunca foi importada, como as três batalhas de Silver). Colress e Marshal
+já eram Elite Four e continuam lá. Portanto **Kyurem para o Ghetsis e
+Reshiram/Zekrom para o N são item de IMPORTAÇÃO**, não de elenco; o Zekrom entrou
+com o Giallo, que é o sábio de elétrico. **Courtney e Charon também não existem**
+(a ausência da Courtney já estava escrita em `SINNOH-PADRAO.md`).
+
+### As regras próprias do papel `vilao`
+
+1. **Tema por equipe, cobrado pelo guarda**: Rocket veneno/sombrio/normal, Magma
+   fogo/terra, Aqua água/sombrio, Galáctica psíquico/sombrio/aço e, na Plasma,
+   **o tipo do próprio sábio na fonte** (Zinzolin gelo, Gorm água, Giallo
+   elétrico, Bronius fogo, Ryoku grama), porque a Plasma não tem tipo único. Cada
+   linha declara `tema`, e o `--demo` reprova tanto vilão SEM tema quanto vilão
+   cujo time caiu fora do tema que ele mesmo declarou. Os tipos saem do
+   `species_info` pelo `catalogo_especies`; espécie escrita por macro (Genesect,
+   Darmanitan, Sawsbuck) não tem tipo legível e conta como FORA, que é o lado
+   seguro.
+2. **6 Pokémon, menos na PRIMEIRA batalha de cada equipe por região**, onde a
+   contagem segue a fonte + 1, pelo mesmo motivo das primeiras batalhas de rival:
+   Giovanni do Hideout 5, Proton do Slowpoke Well 4, Tabitha do Mt. Chimney 5,
+   Shelly do Weather Institute 3, Mars do Valley Windworks 3 e Giallo do Nimbasa
+   Park 4. Da segunda em diante, 6.
+3. Mega em todo chefe que tenha Pokémon com Mega (39 dos 40), IV 31, EV
+   252/252/4, natureza, habilidade, item e quatro golpes em todos, e as mesmas
+   oito flags de IA do resto da Fase F (batalha de vilão é toda simples, então o
+   `ACE_POKEMON` fica).
+
+### O caso T138
+
+`dev_scripts/testes_criticos/138_viloes.json`. O **T138.1** herda a rota já medida
+do T103.1 até o Cyrus do Galactic HQ, com LV.5 ligado, e lê as SEIS espécies e os
+itens dos slots 4 e 5 direto de `gParties` pelo `--timeinimigo`, como o T128.5:
+`ITEM_METAGROSSITE` no ace é o único campo da suíte que reclamaria se a pedra
+caísse do time, e mutação plantada (`item5` esperado 855) reprovou. O **T138.2** é
+o par negativo: MESMA rota até a última tecla de caminhada, sem nenhum `A` para
+avançar as falas, e então a batalha não abre, o oponente fica em 0 e o `especie5`
+fica em 0. Sem ele o T138.1 não separaria "a batalha carregou o time" de "a
+leitura pegou lixo que já estava na EWRAM desde o boot".
+
 ## O que fica para o próximo bloco
 
-1. **Chefes de equipe vilã** (Rocket, Magma/Aqua, Galáctica, Plasma): não entraram
-   nesta rodada por decisão do condutor. São o próximo alvo natural, com a mesma
-   tabela e o mesmo gerador.
-2. **Treinador comum**: intocado. Se o Gui quiser subir o piso, o corte é
+1. **Treinador comum**: intocado. Se o Gui quiser subir o piso, o corte é
    `gens69_treinadores.py` parte 2, que continua válido para eles.
+2. **Bloco pendente: IMPORTAR as batalhas que não existem** (adiado pelo Gui em
+   22/08/2026, depois da rodada dos vilões). São as três batalhas de Silver, a
+   `RYOKU1`, os rivais do BW3G e, do lado vilão, **Ghetsis, N, o Shadow Triad,
+   Courtney e Charon**. Medido aqui: nenhuma delas existe em
+   `src/data/trainers.party` nem em `include/constants/opponents.h`, e "GHETSIS"
+   só aparece como TEXTO em três `scripts.inc` de Unova.
+   **Este bloco depende de a FONTE ter essas batalhas, e ninguém mediu isso
+   ainda**: o BW3G pode simplesmente não trazer o Ghetsis nem o N como treinador,
+   do mesmo jeito que não trouxe rival nenhum, e o HGSS pode não ter a `RYOKU1`.
+   **Quem executar MEDE a fonte primeiro** e só depois promete elenco; enquanto
+   isso, Kyurem para o Ghetsis e Reshiram/Zekrom para o N não são decisão tomada,
+   são hipótese. O Zekrom, hoje, está com o Giallo, e o Kyurem-Preto com o
+   Genesis.
 3. **Rematches de líder de Hoenn** (`ROXANNE_2` a `JUAN_5`, 40 batalhas) e os
    `KAREN_1..5`: fora do escopo porque são o sistema de revanche por Match Call,
    não a linha principal.
-4. **Galar** não tem treinador nenhum; a Liga de Galar é fase futura nomeada na 0.h.
+4. **Os grunts de equipe vilã** (78 blocos só de Rocket, mais os de Magma, Aqua,
+   Galáctica e Plasma) seguem sendo treinador comum, e a `TRAINER_JOHTO_ROCKET_ETO`
+   com eles: só os executivos e os chefes entraram.
+5. **Galar** não tem treinador nenhum; a Liga de Galar é fase futura nomeada na 0.h.

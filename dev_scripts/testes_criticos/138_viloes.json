@@ -1,0 +1,47 @@
+[
+ {
+  "id": "T138.1",
+  "nome": "CHEFE DE EQUIPE VILA COM MEGA, EM NIVEL 5, LIDO SLOT A SLOT DA EWRAM. O Cyrus do Galactic HQ e o chefe da Equipe Galactica que a rodada dos vilaes escreveu com Mega Metagross no ace e SPECIES_DARKRAI como lendario. O caso herda a rota ja medida do T103.1 e muda o que se LE, nao por onde se anda, pela mesma razao do T128.5: com o modo LV.5 TRAINERS ligado (opcoes=36) os seis niveis viram 5 e a partir dai um time novo e indistinguivel de qualquer outro time de seis, e quem carrega a Mega e o ACE, que e o ULTIMO slot e nunca o batalhador ativo. Le-se gParties decifrado: HONCHKROW 430, CROBAT 169, WEAVILE 461, HOUNDOOM 229, DARKRAI 491 e METAGROSS 376, na ordem da tabela, com ITEM_LIFE_ORB (479) no lendario do slot 4 e ITEM_METAGROSSITE (329) no ace. Perder a pedra do ace desliga a Mega em silencio (CanMegaEvolve, src/battle_util.c, so olha a pedra segurada), e item5 e o unico campo desta suite que reclamaria disso.",
+  "vars": {
+   "0x4135": 0
+  },
+  "warp": "MAP_GALACTIC_HQ_4F",
+  "warp_id": 1,
+  "roteiro": "60:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALACTIC_HQ_4F",
+   "oponente": "TRAINER_SINNOH_GALACTIC_BOSS_CYRUS_GALACTIC_HQ",
+   "campos": {
+    "opcoes": 36,
+    "especie0": 430,
+    "especie1": 169,
+    "especie2": 461,
+    "especie3": 229,
+    "especie4": 491,
+    "especie5": 376,
+    "item4": 479,
+    "item5": 329,
+    "nivelinimigo": 5,
+    "nivelinimigo5": 5
+   }
+  }
+ },
+ {
+  "id": "T138.2",
+  "nome": "PAR NEGATIVO DO T138.1: sem a batalha, o time do Cyrus NAO esta na EWRAM. O T138.1 le seis especies e dois itens de gParties e afirma que sao os da tabela; sozinho ele nao separa 'a batalha carregou o time' de 'aqueles bytes ja estavam ali desde o boot e a leitura pegou lixo que por acaso bate'. Aqui a rota e a MESMA ate a ultima tecla de caminhada e o gatilho de coordenada do Cyrus chega a disparar, so que nenhum A avanca as falas, entao o trainerbattle_no_intro nunca roda: o oponente continua 0 e o slot do ace continua vazio. Se este caso passar a acusar METAGROSS 376 no especie5, a leitura do T138.1 nao vale nada e os dois tem de ser reescritos juntos.",
+  "vars": {
+   "0x4135": 0
+  },
+  "warp": "MAP_GALACTIC_HQ_4F",
+  "warp_id": 1,
+  "roteiro": "60:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALACTIC_HQ_4F",
+   "oponente": 0,
+   "campos": {
+    "opcoes": 36,
+    "especie5": 0
+   }
+  }
+ }
+]
