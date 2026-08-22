@@ -45,16 +45,16 @@
  },
  {
   "id": "T145.3",
-  "nome": "GALAR, DEPOIS DA BATALHA O SELVAGEM COMUM SOME, E ELE NAO GASTOU FLAG NENHUMA. O script comum guarda o id do objeto em VAR_TEMP_1 antes da batalha e faz `removeobject VAR_TEMP_1` depois dela; esse removeobject NAO e persistente, porque o campo `flag` do template e 0 e `TrySpawnObjectEvents` recria o template na proxima carga de mapa. A prova e de POSICAO, e a diferenca e larga de proposito: no Galar_WildArea03 o warp 1 larga o jogador em (48,17) e a linha 17 e um corredor limpo de 41 tiles com UM so objeto dentro, o Skwovet de nivel 7 de (18,17). Com ele de pe o LEFT saturante anda 29 tiles e para em (19,17) (e o que o T145.2 mede no outro mapa); depois da batalha o MESMO LEFT saturante anda os 41 e chega a (7,17), doze tiles adiante. A batalha e resolvida por FUGA e nao por vitoria, e isso e medicao e nao preguica: o Bulbasaur de nivel 51 que o `antes_do_warp` pede ao menu de debug tem SYNTHESIS no slot 0 do golpe (learnset de gen 9: os quatro ultimos que ele aprende ate 51 sao Synthesis, Worry Seed, Power Whip e Solar Beam, e o cursor de golpe abre sempre no slot 0), entao marretar A cura o proprio Bulbasaur turno a turno e a batalha nunca termina. Medido: quarenta ciclos de A deixaram o jogador dentro da batalha nas tres execucoes. O texto de abertura da batalha NAO passa sozinho neste build: e por isso que a travessia dele e feita com B, que anda o texto e nao escolhe nada no menu de acao. No fim o jogo SALVA, e a save e a entrada do T145.4.",
+  "nome": "GALAR, DEPOIS DA BATALHA O SELVAGEM COMUM SOME, E ELE NAO GASTOU FLAG NENHUMA. O script comum guarda o id do objeto em VAR_TEMP_1 antes da batalha e faz `removeobject VAR_TEMP_1` depois dela; esse removeobject NAO e persistente, porque o campo `flag` do template e 0 e `TrySpawnObjectEvents` recria o template na proxima carga de mapa. A prova e de POSICAO, e a diferenca e larga de proposito: no Galar_WildArea03 o warp 1 larga o jogador em (48,17) e a linha 17 e um corredor limpo de 41 tiles com UM so objeto dentro, o Skwovet de nivel 7 de (18,17). Com ele de pe o LEFT saturante anda 29 tiles e para em (19,17) (e o que o T145.2 mede no outro mapa); depois da batalha o MESMO LEFT saturante anda os 41 e chega a (7,17), doze tiles adiante. A batalha e resolvida por FUGA e nao por vitoria, e isso e medicao e nao preguica: o Bulbasaur de nivel 51 que o `antes_do_warp` pede ao menu de debug tem SYNTHESIS no slot 0 do golpe (learnset de gen 9: os quatro ultimos que ele aprende ate 51 sao Synthesis, Worry Seed, Power Whip e Solar Beam, e o cursor de golpe abre sempre no slot 0), entao marretar A cura o proprio Bulbasaur turno a turno e a batalha nunca termina. Medido: quarenta ciclos de A deixaram o jogador dentro da batalha nas tres execucoes. O texto de abertura da batalha NAO passa sozinho neste build: e por isso que a travessia dele e feita com B, que anda o texto e nao escolhe nada no menu de acao. No fim o jogo SALVA, e a save e a entrada do T145.4. CONSERTO DE 22/08/2026 (fechador da rodada 7): este roteiro contava o menu de START DE CIMA para achar SAVE, e contar de cima e apostar em quantos itens o jogo ja liberou. BuildNormalStartMenu (src/start_menu.c:332) monta o TOPO conforme o estado (POKEDEX, DEXNAV, POKEMON, BAG, POKENAV entram ou nao) e so o RABO e fixo: PLAYER, SAVE, OPTION, EXIT. Menu_MoveCursor (src/menu.c:704) DA A VOLTA, entao tres UP a partir da linha 0 caem sempre em EXIT, OPTION e SAVE, quantos itens houver em cima. E o mesmo padrao do T11.1, e apaga a diferenca de dois-contra-tres DOWN que o T145.7 e o T145.3 tinham de administrar a mao. Junto veio prova.sav_gravada: sem ela mapa, posicao e flags passam verdes com a flash inteira em 0xFF, ou seja com o SAVE nunca tendo rodado, que foi o verde falso medido no T11.1.",
   "opcoes": 32,
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM"
   ],
   "warp": "MAP_GALAR_WILD_AREA_03",
   "warp_id": 1,
-  "roteiro": "300:NADA,17:LEFT*45,150:NADA,20:A,300:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:DOWN,150:NADA,20:RIGHT,150:NADA,20:A,600:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,600:NADA,17:LEFT*50,300:NADA,40:START!,90:NADA,20:DOWN,20:DOWN,20:DOWN,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA",
+  "roteiro": "300:NADA,17:LEFT*45,150:NADA,20:A,300:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:DOWN,150:NADA,20:RIGHT,150:NADA,20:A,600:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,600:NADA,17:LEFT*50,300:NADA,40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA",
   "prova": {
-   "mapa": "MAP_GALAR_WILD_AREA_03",
+   "sav_gravada": true, "mapa": "MAP_GALAR_WILD_AREA_03",
    "pos": [
     7,
     17
@@ -120,7 +120,7 @@
  },
  {
   "id": "T145.7",
-  "nome": "GALAR, ESTATICO UNICO, A FLAG ATRAVESSA O SAVE (IDA). Igual ao T145.6, mas o jogo SALVA no fim, em (26,66), com a flag acesa. Existe para o T145.8 poder cobrar a outra metade: flag de esconder que vive so na EWRAM daria o mesmo resultado que uma flag salva enquanto a execucao nao termina, e a diferenca entre as duas so aparece depois de fechar e abrir o jogo. A save fica em /tmp/claude-501/frenteA/t145b.sav. O SALVAR daqui aperta DOWN duas vezes e nao tres, e a diferenca e medida: este caso NAO tem time (o seletor de capitulo nao entrega nenhum), entao o menu do START abre sem a linha POKeMON e o SAVE sobe uma posicao. No T145.3, que pede um Bulbasaur ao menu de debug para poder fugir da batalha, o mesmo SAVE precisa de tres.",
+  "nome": "GALAR, ESTATICO UNICO, A FLAG ATRAVESSA O SAVE (IDA). Igual ao T145.6, mas o jogo SALVA no fim, em (26,66), com a flag acesa. Existe para o T145.8 poder cobrar a outra metade: flag de esconder que vive so na EWRAM daria o mesmo resultado que uma flag salva enquanto a execucao nao termina, e a diferenca entre as duas so aparece depois de fechar e abrir o jogo. A save fica em /tmp/claude-501/frenteA/t145b.sav. O SALVAR daqui aperta DOWN duas vezes e nao tres, e a diferenca e medida: este caso NAO tem time (o seletor de capitulo nao entrega nenhum), entao o menu do START abre sem a linha POKeMON e o SAVE sobe uma posicao. No T145.3, que pede um Bulbasaur ao menu de debug para poder fugir da batalha, o mesmo SAVE precisa de tres. CONSERTO DE 22/08/2026 (fechador da rodada 7): este roteiro contava o menu de START DE CIMA para achar SAVE, e contar de cima e apostar em quantos itens o jogo ja liberou. BuildNormalStartMenu (src/start_menu.c:332) monta o TOPO conforme o estado (POKEDEX, DEXNAV, POKEMON, BAG, POKENAV entram ou nao) e so o RABO e fixo: PLAYER, SAVE, OPTION, EXIT. Menu_MoveCursor (src/menu.c:704) DA A VOLTA, entao tres UP a partir da linha 0 caem sempre em EXIT, OPTION e SAVE, quantos itens houver em cima. E o mesmo padrao do T11.1, e apaga a diferenca de dois-contra-tres DOWN que o T145.7 e o T145.3 tinham de administrar a mao. Junto veio prova.sav_gravada: sem ela mapa, posicao e flags passam verdes com a flash inteira em 0xFF, ou seja com o SAVE nunca tendo rodado, que foi o verde falso medido no T11.1.",
   "opcoes": 32,
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM",
@@ -130,9 +130,9 @@
   "apaga_sav": true,
   "warp": "MAP_GALAR_ISLE_OF_ARMOR_08",
   "warp_id": 4,
-  "roteiro": "300:NADA,17:DOWN*30,120:NADA,17:LEFT*3,90:NADA,17:DOWN*60,150:NADA,40:START!,90:NADA,20:DOWN,20:DOWN,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,180:NADA",
+  "roteiro": "300:NADA,17:DOWN*30,120:NADA,17:LEFT*3,90:NADA,17:DOWN*60,150:NADA,40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,180:NADA",
   "prova": {
-   "mapa": "MAP_GALAR_ISLE_OF_ARMOR_08",
+   "sav_gravada": true, "mapa": "MAP_GALAR_ISLE_OF_ARMOR_08",
    "pos": [
     26,
     66

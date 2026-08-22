@@ -1,7 +1,7 @@
 [
   {
     "id": "T11.1",
-    "nome": "Salvar em jogo grava a save na flash, com mapa e flags",
+    "nome": "Salvar em jogo grava a save na flash, com mapa e flags. O roteiro conta o menu de START DE BAIXO PARA CIMA, e isso e o conserto de 22/08/2026: ele contava de cima (dois DOWN ate SAVE) e passou a cair no CARTAO do jogador. BuildNormalStartMenu (src/start_menu.c:332) monta o TOPO conforme o estado do jogo (POKEDEX se FLAG_SYS_POKEDEX_GET, DEXNAV, POKEMON se FLAG_SYS_POKEMON_GET, BAG, POKENAV) e so o RABO e fixo: PLAYER, SAVE, OPTION, EXIT. Contar de cima e apostar em quantos itens o jogo ja liberou; na ROM velha do T11 a abertura intro_carvalho deixa o jogador COM Pokemon, entao POKEMON entra no topo, SAVE desce uma linha e os dois DOWN paravam no cartao. Medido no framebuffer (T11_1-50.png: POKEMON / BAG / RED / SAVE / OPTION / EXIT). Menu_MoveCursor (src/menu.c:704) DA A VOLTA, ao contrario do seletor de capitulo, entao tres UP a partir da linha 0 caem em EXIT, OPTION e SAVE, quantos itens houver em cima. Junto veio prova.sav_gravada: mapa e flags ficam certos quer o SAVE tenha rodado, quer nao, e era por isso que este caso passava com a flash inteira em 0xFF, derrubando o T11.2 e dando verde vazio no T11.3.",
     "apaga_sav": true,
     "sav": "/tmp/claude-501/frenteA/t11.sav",
     "flags": [
@@ -9,8 +9,9 @@
       "0x2BA"
     ],
     "warp": "MAP_SANDGEM_TOWN",
-    "roteiro": "40:START!,90:NADA,20:DOWN,20:DOWN,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
+    "roteiro": "40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
     "prova": {
+      "sav_gravada": true,
       "mapa": "MAP_SANDGEM_TOWN",
       "layout": "LAYOUT_SANDGEM_TOWN",
       "flags_acesas": [

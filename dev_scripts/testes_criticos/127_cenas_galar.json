@@ -41,7 +41,7 @@
   },
   {
     "id": "T127.3",
-    "nome": "PRIMEIRA METADE DA PROVA DE SAVE: repete o T127.1 letra por letra e entao SALVA pelo menu, com a mesma sequencia medida do T11.1 (START, dois DOWN ate SAVE, quatro A de confirmacao). A pergunta que ele abre e a mesma que o T120.9/T120.10 fizeram para a flag da bola: a var de cena MORA no SaveBlock1 ou so na EWRAM? Se `cenas_galar.py` tivesse alocado nas TEMP_VARS (0x4000-0x400F, zeradas a cada carregamento de mapa) ou acima de 0x8000 (especiais, que nunca sao gravadas), o T127.1 e o T127.2 passariam os dois e mesmo assim a cena voltaria a rodar toda vez que o Gui desligasse o jogo. A prova daqui e so o controle, ou seja que a cena rodou antes de gravar; quem responde e o T127.4. A .sav e apagada no comeco para o caso nunca passar por sobra de rodada anterior.",
+    "nome": "PRIMEIRA METADE DA PROVA DE SAVE: repete o T127.1 letra por letra e entao SALVA pelo menu, com a mesma sequencia medida do T11.1 (START, dois DOWN ate SAVE, quatro A de confirmacao). A pergunta que ele abre e a mesma que o T120.9/T120.10 fizeram para a flag da bola: a var de cena MORA no SaveBlock1 ou so na EWRAM? Se `cenas_galar.py` tivesse alocado nas TEMP_VARS (0x4000-0x400F, zeradas a cada carregamento de mapa) ou acima de 0x8000 (especiais, que nunca sao gravadas), o T127.1 e o T127.2 passariam os dois e mesmo assim a cena voltaria a rodar toda vez que o Gui desligasse o jogo. A prova daqui e so o controle, ou seja que a cena rodou antes de gravar; quem responde e o T127.4. A .sav e apagada no comeco para o caso nunca passar por sobra de rodada anterior. CONSERTO DE 22/08/2026 (fechador da rodada 7): este roteiro contava o menu de START DE CIMA para achar SAVE, e contar de cima e apostar em quantos itens o jogo ja liberou. BuildNormalStartMenu (src/start_menu.c:332) monta o TOPO conforme o estado (POKEDEX, DEXNAV, POKEMON, BAG, POKENAV entram ou nao) e so o RABO e fixo: PLAYER, SAVE, OPTION, EXIT. Menu_MoveCursor (src/menu.c:704) DA A VOLTA, entao tres UP a partir da linha 0 caem sempre em EXIT, OPTION e SAVE, quantos itens houver em cima. E o mesmo padrao do T11.1. Junto veio prova.sav_gravada: sem ela mapa, posicao e flags passam verdes com a flash inteira em 0xFF, ou seja com o SAVE nunca tendo rodado, que foi o verde falso medido no T11.1.",
     "apaga_sav": true,
     "sav": "/tmp/claude-501/frenteGalar/t127-cena-galar.sav",
     "vars": {
@@ -49,8 +49,9 @@
     },
     "warp": "MAP_GALAR_HAMMERLOCKE_01",
     "warp_id": 0,
-    "roteiro": "300:NADA,40:START!,90:NADA,20:DOWN,20:DOWN,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
+    "roteiro": "300:NADA,40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
     "prova": {
+      "sav_gravada": true,
       "mapa": "MAP_GALAR_HAMMERLOCKE_01",
       "pos": [
         61,
@@ -163,7 +164,7 @@
   },
   {
     "id": "T127.9",
-    "nome": "DUAS ENTRADAS NO MESMO MAPA DE CENA, COM SAVE NO MEIO: primeira metade. O T127.3 e o T127.4 provam que a var sobrevive ao desligamento, mas o T127.4 nunca RECARREGA O MAPA depois: ele acorda dentro dele. E é o carregamento do mapa que roda a tabela de cenas. Ou seja, o par existente não distingue `a var voltou valendo 3` de `a cena não roda mais`. Esta metade repete o T127.1 (var em 2, entrada em Galar_Hammerlocke01, a cena empurra o jogador dois tiles para cima e deixa a var em 3) e SALVA pelo menu, com a mesma sequência medida do T11.1. A .sav é própria, e apagada no começo, para não depender da do T127.3.",
+    "nome": "DUAS ENTRADAS NO MESMO MAPA DE CENA, COM SAVE NO MEIO: primeira metade. O T127.3 e o T127.4 provam que a var sobrevive ao desligamento, mas o T127.4 nunca RECARREGA O MAPA depois: ele acorda dentro dele. E é o carregamento do mapa que roda a tabela de cenas. Ou seja, o par existente não distingue `a var voltou valendo 3` de `a cena não roda mais`. Esta metade repete o T127.1 (var em 2, entrada em Galar_Hammerlocke01, a cena empurra o jogador dois tiles para cima e deixa a var em 3) e SALVA pelo menu, com a mesma sequência medida do T11.1. A .sav é própria, e apagada no começo, para não depender da do T127.3. CONSERTO DE 22/08/2026 (fechador da rodada 7): este roteiro contava o menu de START DE CIMA para achar SAVE, e contar de cima e apostar em quantos itens o jogo ja liberou. BuildNormalStartMenu (src/start_menu.c:332) monta o TOPO conforme o estado (POKEDEX, DEXNAV, POKEMON, BAG, POKENAV entram ou nao) e so o RABO e fixo: PLAYER, SAVE, OPTION, EXIT. Menu_MoveCursor (src/menu.c:704) DA A VOLTA, entao tres UP a partir da linha 0 caem sempre em EXIT, OPTION e SAVE, quantos itens houver em cima. E o mesmo padrao do T11.1. Junto veio prova.sav_gravada: sem ela mapa, posicao e flags passam verdes com a flash inteira em 0xFF, ou seja com o SAVE nunca tendo rodado, que foi o verde falso medido no T11.1.",
     "apaga_sav": true,
     "sav": "/tmp/claude-501/fechador/t127-duas-entradas.sav",
     "vars": {
@@ -171,8 +172,9 @@
     },
     "warp": "MAP_GALAR_HAMMERLOCKE_01",
     "warp_id": 0,
-    "roteiro": "300:NADA,40:START!,90:NADA,20:DOWN,20:DOWN,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
+    "roteiro": "300:NADA,40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
     "prova": {
+      "sav_gravada": true,
       "mapa": "MAP_GALAR_HAMMERLOCKE_01",
       "pos": [
         61,

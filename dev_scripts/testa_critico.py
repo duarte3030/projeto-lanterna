@@ -67,6 +67,11 @@ Formato de um caso
                                             # que um caso sai do mapa e volta na
                                             # MESMA execução (ver expande_warps)
   "prova": {                                # obrigatório, e não pode ser vazio
+     "sav_gravada": true,                   # o .sav do caso tem um slot inteiro
+                                            # escrito (ver confere_sav). Cobre o
+                                            # caso que APERTA SAVE no menu: sem
+                                            # ela, mapa e flags passam verde com
+                                            # a flash virgem
      "mapa": "MAP_PEWTER_CITY_GYM",         # mapa atual no fim
      "time": 1,                             # tamanho do time (>= por padrão? não: igual)
      "time_min": 1,                         # alternativa: pelo menos N
@@ -863,7 +868,49 @@ def confere(caso, estados, por_nome, por_id, tabela_flags, layouts, treinadores=
         elif obtido != esperado:
             falhas.append(f"{chave}={obtido}, esperado {esperado}")
 
+    if prova.get("sav_gravada"):
+        falhas += confere_sav(caso.get("sav"))
+
     return falhas
+
+
+def confere_sav(caminho):
+    """"O jogo SALVOU" lido do arquivo .sav, e não do estado da EWRAM.
+
+    Existe por um verde falso medido em 22/08/2026: o T11.1 dizia "salvar em
+    jogo grava a save na flash" e provava só mapa e flags, que estão certos
+    quer o menu de SAVE tenha rodado, quer o roteiro tenha aberto o CARTÃO do
+    jogador por engano. O `.sav` saía inteiro em 0xFF (flash virgem), o T11.2
+    caía num menu sem CONTINUE e o T11.3 passava por não ter save nenhuma para
+    recusar. Prova de save que não abre o arquivo não é prova de save.
+
+    O que se cobra: um SLOT inteiro (14 setores de 4 KB, ids 0..13) escrito com
+    UMA assinatura só. A assinatura não é comparada com número chumbado aqui de
+    propósito: quem julga assinatura é o T11.3, contra a ROM nova. Aqui só se
+    afirma que existe save de verdade, e o valor achado vai no texto da falha
+    para quem for depurar.
+    """
+    if not caminho or not os.path.exists(caminho):
+        return [f"a save nunca foi criada: não existe {caminho}"]
+    dados = open(caminho, "rb").read()
+    # O rodapé de `struct SaveSector` são os 12 últimos bytes do setor de 4 KB:
+    # id (u16), checksum (u16), signature (u32), counter (u32). Ler pelo fim
+    # evita depender de SECTOR_DATA_SIZE, que muda quando SaveBlock3 cresce.
+    slot = {}
+    for i in range(len(dados) // 4096):
+        s = dados[i * 4096:(i + 1) * 4096]
+        ident = int.from_bytes(s[4084:4086], "little")
+        assinatura = int.from_bytes(s[4088:4092], "little")
+        if assinatura not in (0, 0xFFFFFFFF) and ident <= 13:
+            slot.setdefault(assinatura, set()).add(ident)
+    if not slot:
+        return [f"a save está VIRGEM: nenhum setor de {caminho} tem assinatura "
+                "(o menu de SAVE não chegou a gravar)"]
+    assinatura, ids = max(slot.items(), key=lambda kv: len(kv[1]))
+    if len(ids) < 14:
+        return [f"save incompleta em {caminho}: assinatura {assinatura:#x} em só "
+                f"{len(ids)} setores dos 14 do slot (ids {sorted(ids)})"]
+    return []
 
 
 def censo(rom, simbolos, offsets, por_nome, por_id, layouts, trabalhadores=6):
