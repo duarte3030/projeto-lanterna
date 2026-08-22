@@ -1,0 +1,92 @@
+[
+  {
+    "id": "T150.1",
+    "nome": "ARTE DAS CAVERNAS DE SINNOH, WAYWARD CAVE B1F: depois de o desenho ser reescrito por `dev_scripts/arte_cavernas_sinnoh.py` (8 -> 29 metatiles distintos), o labirinto continua andável, e a prova anda 25 tiles em TRÊS pernas, virando duas vezes, para não medir um corredor reto só. ROTA a partir do warp 0 em (35,24), que larga o jogador EM CIMA do tile do warp (medido no T123.2, que entra em MAP_ACUITY_CAVERN pelo warp 0 em (16,21) e fecha em (16,8)): `17:LEFT*40` corre 23 tiles até (12,24), `17:UP*10` sobe 1 até (12,23) e `17:LEFT*10` fecha em (11,23), que é um bolso com rocha ao norte, ao sul e a oeste. Todas as contagens são SATURANTES e com folga larga de propósito: a lição de 22/08 é que o aperto que só VIRA o boneco come um passo e que perna longa com contagem exata para no meio do caminho. O gerador escreve só os 10 bits de baixo de cada célula do map.bin e nunca os 6 de cima, que são colisão e elevação, mas 'o script promete' não é medida, e a lição do T125.1 e do T115.3 é que arte nova pede prova de caminho no emulador. A PROVA é a posição final exata (11,23) mais `andou`, e ela pega os dois defeitos que a decoração pode causar: se algum metatile novo tivesse trazido colisão junto, uma das pernas pararia antes e a posição seria outra; se uma parede tivesse virado chão, os apertos que sobram levariam o jogador para dentro dela.",
+    "warp": "MAP_WAYWARD_CAVE_B1F",
+    "warp_id": 0,
+    "roteiro": "150:NADA,17:LEFT*40,60:NADA,17:UP*10,60:NADA,17:LEFT*10,240:NADA",
+    "prova": {
+      "mapa": "MAP_WAYWARD_CAVE_B1F",
+      "pos": [
+        11,
+        23
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T150.2",
+    "nome": "PAR NEGATIVO DO T150.1, e sem ele o T150.1 prova metade. MESMO mapa, MESMO warp e MESMAS três pernas; a diferença é a perna EXTRA no fim, `17:DOWN*20`, empurrando contra a rocha ao SUL de (11,23), que o gerador repintou (o metatile mudou, a colisão não). A prova é o jogador terminar no MESMO tile (11,23) do caso positivo. O que este caso separa: o T150.1 sozinho não distingue 'a parede segurou' de 'a decoração abriu um buraco', e nenhum dos dois distingue parede sólida de controle morto. Aqui as duas coisas ficam separadas na MESMA execução, porque as três primeiras pernas andam 25 tiles (`andou` é verdadeiro, o jogo responde e o labirinto está aberto) e a quarta não anda nenhum (a rocha continua rocha). É a família do T125.1 com o T125.2 e do T121.3 com o T121.5.",
+    "warp": "MAP_WAYWARD_CAVE_B1F",
+    "warp_id": 0,
+    "roteiro": "150:NADA,17:LEFT*40,60:NADA,17:UP*10,60:NADA,17:LEFT*10,90:NADA,17:DOWN*20,240:NADA",
+    "prova": {
+      "mapa": "MAP_WAYWARD_CAVE_B1F",
+      "pos": [
+        11,
+        23
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T150.3",
+    "nome": "ARTE DAS CAVERNAS DE SINNOH, VICTORY ROAD 1F SALA 3: mesma prova do T150.1 num mapa de propósito DIFERENTE, e a diferença importa. Se os três casos andassem na mesma direção, um só estaria sendo provado: aqui a perna longa é HORIZONTAL para LESTE, `17:RIGHT*32` a partir do warp 1 em (13,16), 16 tiles até (29,16), e fecha com `17:UP*10`, que sobe 2 até (29,14), um canto com rocha ao norte e a leste. A face de rocha que o gerador desenha muda conforme a parede fique acima, abaixo ou ao lado do chão (é autotiling aprendido por assinatura de vizinhança), então corredor deitado e corredor em pé exercitam ramos diferentes do gerador. O mapa não tem objeto nem gatilho, e a arte subiu de 8 para 21 metatiles distintos. Contagens SATURANTES com folga larga, pela mesma razão do T150.1.",
+    "warp": "MAP_VICTORY_ROAD_1F_ROOM_3",
+    "warp_id": 1,
+    "roteiro": "150:NADA,17:RIGHT*32,60:NADA,17:UP*10,240:NADA",
+    "prova": {
+      "mapa": "MAP_VICTORY_ROAD_1F_ROOM_3",
+      "pos": [
+        29,
+        14
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T150.4",
+    "nome": "PAR NEGATIVO DO T150.3. MESMO mapa, MESMO warp, MESMAS duas pernas, mais `17:RIGHT*20` no fim contra a rocha a LESTE de (29,14), que o gerador repintou. A prova é o mesmo tile (29,14). Vale palavra por palavra o que o T150.2 diz: as duas primeiras pernas andam 18 tiles e provam que o jogo responde, a terceira não anda nenhum e prova que a rocha continua rocha, e as duas coisas na mesma execução.",
+    "warp": "MAP_VICTORY_ROAD_1F_ROOM_3",
+    "warp_id": 1,
+    "roteiro": "150:NADA,17:RIGHT*32,60:NADA,17:UP*10,90:NADA,17:RIGHT*20,240:NADA",
+    "prova": {
+      "mapa": "MAP_VICTORY_ROAD_1F_ROOM_3",
+      "pos": [
+        29,
+        14
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T150.5",
+    "nome": "ARTE DAS CAVERNAS DE SINNOH, CORREDOR DO OLD CHATEAU: terceiro caminho, e de novo escolhido para NÃO repetir os outros dois. Os lagos drenados são caverna aberta, com maciço de rocha de todos os lados; o Old Chateau é o oposto, um corredor estreito de 18 tiles (de (19,5) até (37,5)) com parede colada nas duas laterais e nada mais no mapa. É o pior caso para um gerador de arte, porque quase toda célula do corredor é vizinha de parede e portanto quase toda célula foi reescrita: se o passo estrutural tivesse trazido colisão junto, aqui é onde apareceria primeiro. A arte subiu de 9 para 20 metatiles distintos. Contagem SATURANTE, `17:RIGHT*32`, pela razão do T150.1.",
+    "warp": "MAP_OLD_CHATEAU_CORRIDOR",
+    "warp_id": 0,
+    "roteiro": "150:NADA,17:RIGHT*32,240:NADA",
+    "prova": {
+      "mapa": "MAP_OLD_CHATEAU_CORRIDOR",
+      "pos": [
+        37,
+        5
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T150.6",
+    "nome": "PAR NEGATIVO DO T150.5. MESMO mapa, MESMO warp, MESMA perna longa, mais `17:DOWN*20` contra a parede SUL de (37,5). A prova é o mesmo tile (37,5). Vale o que o T150.2 diz, com um detalhe que só existe aqui: no corredor do Old Chateau a parede sul acompanha o jogador o caminho inteiro, então este caso não prova só o tile do fim, prova que ele não vazou por baixo em NENHUM ponto da caminhada, porque qualquer vazamento teria mudado a linha em que ele termina.",
+    "warp": "MAP_OLD_CHATEAU_CORRIDOR",
+    "warp_id": 0,
+    "roteiro": "150:NADA,17:RIGHT*32,90:NADA,17:DOWN*20,240:NADA",
+    "prova": {
+      "mapa": "MAP_OLD_CHATEAU_CORRIDOR",
+      "pos": [
+        37,
+        5
+      ],
+      "andou": true
+    }
+  }
+]
