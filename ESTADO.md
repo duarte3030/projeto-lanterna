@@ -4,7 +4,172 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 22/08/2026, na build de fechamento da rodada 6. A seção 0.n abaixo é a passagem de bastão dela.
+Última medição: 22/08/2026, na build de fechamento da rodada 7. A seção 0.o abaixo é a passagem de bastão dela.
+
+---
+
+## 0.o AS SEIS REGIÕES FECHAM O QUE DAVA PARA FECHAR, E A ROM ENCOSTA NO TETO, 22/08/2026 (rodada 7; condutor Opus, sete executores Opus, fechador Opus)
+
+Build verde. **ROM 99,28% de 32 MB** (33.313.260 B, **241.172 B livres**, 235,5 KB; era 98,50% na
+0.n), EWRAM 86,16% e IWRAM 86,68%. **Suíte 886 de 887**: a varredura normal deu 865/866 com só o
+T11.3 pulado, e o bloco novo T153 deu **21/21**. **T11 3 de 3** contra a build `cf6786b2ae`
+(worktree em `/private/tmp/claude-501/t11-antiga`), que é o primeiro 3/3 desde que o T11.1 foi
+calibrado. **SAVE COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B, **2.054 layouts numerados sem
+nenhum movido** e **2.400 mapas** (eram 2.377); `valida_rom.py` com os 2.400 declarados dentro da
+ROM; `guarda_colisao_vars.py` com 23 colisões herdadas em vars e 5 em flags e **0 novas nos dois
+perfis**; `valida_conectividade` com **0 warps quebrados** e nenhum mapa de Sinnoh ou Johto
+inalcançável; `valida_warp_tile --piso 60` em 5.914 de 6.874 (86,0%, era 85,9%), nenhuma região
+abaixo do piso; `valida_mapas_sinnoh --so-sinnoh` com **0 mapas com problema**. Os **26 `--demo`
+de gerador tocados** rodaram verdes, dois deles depois de conserto (abaixo). ROM oficial
+`roms/pokemon-claude-2026-08-22e.gba` (md5 `bba1d16835302015348c7bc374b66127`), com o `.map` ao
+lado, e o MESMO binário na ROM de teste de nome fixo.
+
+| região | mapas | objetos | warps | placas | script | arte | Dex |
+|---|---|---|---|---|---|---|---|
+| Kanto | 100% | 101,2% | 100% | 100% | -- | 52 (0) | 290 |
+| Johto | **100%** | **100,8%** | **100,1%** | **100,4%** | -- | **55 (0)** | 305 |
+| Hoenn | 100% | 100,7% | 100,1% | 100% | -- | 39 (21) | 297 |
+| Sinnoh | **100%** | **87,0%** | 103,7% | **98,1%** | -- | **39 (18)** | 267 |
+| Unova | **100%** | 102,3% | 100% | 100,2% | -- | 30,5 (1) | 315 |
+| Galar | 100% | 93,5% | 100% | **65,8%** | **55,6%** | 48 (32) | 0 |
+
+**Dex obtenível: 1.571 de 1.571, 100%**, intocada nesta rodada.
+
+### As decisões, e quem as tomou
+
+Do **Gui**: "completa até ficar 100 em tudo", "agentes para melhorar as artes pobres das 5
+primeiras regiões", **Galar travada em nível 255** e **seis regiões**, teto de pé.
+
+Do **condutor**: **Galar fecha `objetos` em 93,5%** e os registros de "gráfico é cenário" ficam
+sendo cenário, sem virar objeto; **a GS Ball sai** (não existe item nem cena que a use); o **trem
+magnético de Saffron é corte declarado** (`SaffronMagnetTrainStation` entrou em `CORTES_DO_GUI`);
+o **PWT é autorizado**; e os **nove andares novos do Distortion World FICAM**, com forma honesta e
+arte chapada, com a decoração adiada para outra rodada.
+
+### As sete frentes, com número
+
+1. **Harness (T11).** O T11.1 contava o menu de START **de cima** e caía na tela de CARTÃO na ROM
+   velha, porque `BuildNormalStartMenu` (`src/start_menu.c:332`) monta o TOPO conforme o estado do
+   jogo e só o RABO é fixo: PLAYER, SAVE, OPTION, EXIT. Passou a contar **de baixo**, três UP a
+   partir da linha 0, que `Menu_MoveCursor` (`src/menu.c:704`) faz dar a volta; junto veio
+   `prova.sav_gravada`, que abre o `.sav` e cobra um slot inteiro escrito. T11 **3/3**.
+2. **Galar, treinadores e placas.** `treinadores_galar.py`, `galar_fase_f.py` e `placas_galar.py`:
+   **266 batalhas em 148 mapas** a nível 255, **38 chefes** com 17 lendários, 31 Mega e 7 Z, zero
+   Dynamax e zero Tera; **206 times novos** em `trainers.party` (ids 3000 a 3205); placas de 44,1%
+   para **65,8%** e `script` de 35,6% para **55,6%**; a fila de Galar caiu de 1.775 para **1.476
+   de 3.195**. T147 **12/12**. Conserto de motor: **`trainerbattle_no_intro` NÃO consulta a flag de
+   vitória**, então o gerador emite `goto_if_set TRAINER_FLAGS_START + id` antes dela, senão o
+   treinador rebrigaria para sempre.
+3. **Sinnoh, os 100% de mapa.** `converte_interiores_sinnoh.py`, `cria_mapas_sinnoh.py`,
+   `corredores_sinnoh.py`, `bolas_sinnoh.py`, `pedras_sinnoh.py` e `importa_npcs_sinnoh.py`:
+   **23 mapas novos** (90 KB), entre eles os 9 andares do Distortion World; mapas de 95,4% para
+   **100%**; RavagedPath saiu de 133 tiles ilhados para **0**; objetos de 76,3% para **87,0%**;
+   placas de 86,8% para **98,1%**; **166 bolas**, **51 obstáculos** e 30 clones removidos.
+   T148 **9/9**.
+4. **Johto e Unova, os 100%.** `completa_objetos_johto.py`, `completa_placas_johto.py`,
+   `bolas_faltantes_johto.py`, `arco_farol_johto.py`, `cenas_pwt_unova.py` e
+   `completa_placas_unova.py`, mais o **quebra-cabeça deslizante** como motor novo
+   (`src/sliding_puzzle.c` e 13.476 B de arte comprimida), usado pelas quatro placas do
+   `RuinsOfAlph_PuzzleAndRewardChambers`. Johto **100 / 100,8 / 100,1 / 100,4** e Unova
+   **100 / 102,3 / 100 / 100,2**, com **2 vars novas** do PWT. T149 **14/14**.
+5, 6 e 7. **Arte.** `arte_cavernas_sinnoh.py` em **70 mapas** (mediana de 8 para 21 metatiles
+   distintos, T150 **6/6**), `arte_exteriores_sinnoh.py` em **11 salas** do ginásio D/P de
+   Hearthome e na casa da Iron Island (de 12 para 27, T151 **6/6**) e `arte_mapas_pobres.py` em
+   **4 mapas** de Johto e Unova (T152 **4/4**). Os **21 pobres de Hoenn são vanilla e ficam**, e o
+   elevador de Virbank foi descartado no olho.
+
+Nas três frentes de arte a regra é a mesma e está provada célula a célula no `--demo`: o gerador
+escreve só os **10 bits de baixo** de cada célula do `map.bin`, então colisão, elevação e
+comportamento saem byte a byte idênticos ao `git show HEAD:`.
+
+### O que o fechador consertou
+
+- **Os 12 casos que apertam SAVE** pelo menu do START passaram a contar **de baixo** (três UP) e
+  ganharam `prova.sav_gravada`: T11.1, T120.9, T123.21, T127.3, T127.9, T136.1, T136.5, T139.3,
+  T144.1, T145.3, T145.7 e T146.3. Dois apertavam três DOWN e dez apertavam dois, e a diferença era
+  administrada à mão conforme o jogador tivesse ou não Pokémon.
+- **Dois `--demo` vermelhos, os dois da mesma família: autoteste que não sabe que o gerador já
+  rodou.** O `arte_exteriores_sinnoh.py` comparava a arte de DEPOIS com o DISCO (que já estava
+  decorado) em vez do HEAD do git, e reprovava um gerador idempotente e correto; passou a usar
+  `base`, como o `arte_mapas_pobres.py` já fazia. O `placas_galar.py` montava o plano só com o que
+  ainda está `pendente`, e depois do `--aplicar` o plano fica VAZIO: ganhou `plano(incluir_feitas)`
+  para o autoteste e um portão que soma o que já está no mapa.
+- **Os lagos `LakeVerityLowWater` e `LakeAcuityLowWater` foram para a fila, com motivo**, e não
+  consertados. Medido: o jogador chega pela boca e alcança **um tile, ele mesmo**, e a causa é
+  ELEVAÇÃO, não colisão (a boca é elevação 3 e os 799 tiles em volta são elevação 1, água;
+  `IsElevationMismatchAt`, `src/event_object_movement.c:10014`, barra 3 contra 1). Não é trava
+  dura: a seta do warp devolve o jogador, e quem tem Surf entra na água. Corredor não resolve,
+  porque as ilhas de chão de verdade são o metatile 0x201, preto puro de enchimento de caverna, e
+  a passagem levaria ao vazio: o conserto honesto é **converter o leito do lago**, drenado no
+  Platinum, e isso é obra de conversão.
+
+### Os casos adversariais desta rodada
+
+`dev_scripts/testes_criticos/153_fechador_r7.json`, **21 casos, 21 verdes**, autor de caso
+diferente do autor de cena em todos.
+
+- **T153.1 a T153.4, Galar.** O treinador comum vencido não rebriga depois de **sair do mapa e
+  voltar** (`WARP=` no roteiro) nem depois de **salvar e recarregar**, e o par negativo prova que
+  sem a flag a batalha começa (`TRAINER_GALAR_RUAN_POKE_372`, flag 0x500+3137 = 0x1141).
+- **T153.5 a T153.10, arte.** Um mapa decorado de cada gerador, com rota longa e leitura de NPC:
+  MtCoronet2F (o Looker fala e solta o jogador), Mahogany B2F (o Lance cura e solta) e a segunda
+  sala de elevador de Hearthome, onde não existe NPC com script nos 11 mapas daquele gerador e o
+  que se prova é o corpo no mesmo tile do HEAD.
+- **T153.11 a T153.15, Sinnoh.** O corredor novo do RavagedPath é atravessado em **16 pernas e 69
+  tiles**, dos quais **nove eram parede no HEAD**, até uma item ball nova, pega **uma vez**; e os
+  **três warps** do andar novo `DistortionWorld1F` disparam, um caso cada.
+- **T153.16 a T153.18, Johto.** O quebra-cabeça deslizante **abre e toma o controle** (seis DOWN
+  são engolidos), **fecha com B e devolve o jogador** (a perna seguinte anda quatro tiles), e o par
+  negativo prova que sem abrir nada os mesmos apertos andam.
+- **T153.19 a T153.21, Unova.** A cena do PWT dispara **uma vez**, com **save no meio**, e o
+  recepcionista volta ao posto de (7,3) no fim da coreografia.
+
+### Lições desta rodada
+
+- **Aperto de direção que o jogador NÃO está encarando só VIRA, não anda.** Passo solto pede dois
+  apertos quando muda de direção. Quatro casos do T153 reprovaram exatamente por isso.
+- **Porta empurra um tile ao sul na chegada.** Quem entra por `MB_NON_ANIMATED_DOOR` não nasce na
+  coordenada do warp. O primeiro T153.7 andava de (3,14), pisava de novo no próprio warp no meio da
+  perna e caía no B1F.
+- **O menu de START se conta de baixo**, porque o topo depende do que o jogo já liberou, e
+  **`trainerbattle_no_intro` não consulta a flag de vitória**: quem desvia é o `goto_if_set`.
+- **Stride do CFRU é 8/16 B** nos times da fonte de Galar, e **`planta_provisoria` está morta
+  desde os túmulos**: nenhum mapa de Sinnoh veste mais o molde.
+- **Autoteste tem de saber que o gerador já rodou.** Linha de base é o `git show HEAD:`, nunca o
+  disco.
+
+### O que impede 100% onde não chegou
+
+- **Sinnoh, objetos em 87,0%**, e nenhum dos baldes é trabalho de ferramenta parado: **128** são
+  nome próprio sem sprite aqui (Cynthia, Cyrus, os oito líderes, os lendários), **~100** têm
+  `hidden_flag` do Platinum que esta ROM não tem, **115 bolas e 59 obstáculos** foram recusados por
+  tile fora de alcance, **90** são canteiros de berry (id de árvore de berry MORA NA SAVE, então é
+  obra de janela), e **63** são VENT e BOLLARD, cenário sem mecânica nativa.
+- **Galar, objetos em 93,5% e `script` em 55,6%.** Faltam os 200 encontros de raide (o script da
+  fonte sorteia até 59 espécies, e escolher uma seria inventar) e 89 recusados por geometria; a
+  coluna `script` conta só NPC, e o que falta lá é fala, não colocação. Galar segue com **Dex 0**
+  na régua, porque estático não conta como entrada de Dex de região.
+- **Fila:** `fila_b6.json` com **157 pendentes** (150 de Sinnoh, 6 de Unova, 1 de Johto) e
+  `fila_galar.json` com **1.476 de 3.195**.
+- **Assimetria medida e não consertada:** os **17 warps dos 9 andares novos do Distortion World**
+  sobem sempre para o índice 0 do andar de cima, que é o warp de subida DELE e não o par
+  correspondente; ninguém fica preso, mas o jogador reaparece no tile errado.
+- **O ramo de SUCESSO do quebra-cabeça deslizante não virou caso de suíte**: `CheckForSolution`
+  (`src/sliding_puzzle.c:972`) exige as 24 casas na ordem e em `ORIENTATION_0`, o que não sai de
+  martelada de botão; é pendência de FERRAMENTA, como a vitória do estático único da 0.n.
+
+### O teto de ROM, e o que ele custa a partir de agora
+
+**A ROM está em 99,28% de 32 MB, com 241.172 B livres**, e esta rodada gastou 261.332 B: nesse
+ritmo resta menos de uma rodada. **A próxima obra grande exige o B10** (compressão de ícones mais
+indireção de tabela de treinador, ~1,1 MB estimados) **ou um corte novo declarado pelo Gui**; a
+economia mais óbvia continua sendo tirar da ROM os mapas que o `PLANO-ESCOPO.md` já cortou e que
+hoje ainda compilam.
+
+**Para o Gui olhar**: as três folhas de contato da arte nova estão em
+`scratchpad/arte/sinnoh-cavernas/CONTATO.png`, `scratchpad/arte/sinnoh-exteriores/CONTATO.png` e
+`scratchpad/arte/johto-unova-hoenn/CONTATO.png`, e são a única coisa desta rodada que depende de
+gosto e não de medida.
 
 ---
 

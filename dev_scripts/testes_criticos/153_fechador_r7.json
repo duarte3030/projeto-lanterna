@@ -1,0 +1,428 @@
+[
+  {
+    "id": "T153.1",
+    "nome": "GALAR, TREINADOR COMUM VENCIDO NAO REBRIGA DEPOIS DE SAIR DO MAPA E VOLTAR. O T147.8 ja acende a flag de vitoria a mao e prova que a fala nao abre batalha, mas prova isso UMA vez, na MESMA carga de mapa e no MESMO boot: um jogo em que a flag morresse na troca de mapa passaria nele igualzinho, e o treinador voltaria a brigar assim que o jogador saisse da sala e entrasse de novo, que e o defeito classico de quem aloca flag na faixa temporaria (0x0 a 0x1F, zerada por ClearTempFieldEventData a cada carregamento de mapa). Aqui a MESMA execucao fala com o treinador, SAI para o Galar_Wyndon02 pelo menu de debug, VOLTA para a sala e fala DE NOVO. A flag e a do motor, TRAINER_FLAGS_START (0x500, include/constants/flags.h:1359) mais o id do treinador: TRAINER_GALAR_RUAN_POKE_372 e 3137 (include/constants/opponents.h), entao 0x500+3137 = 0x1141, e e ela que o `goto_if_set` de GalarTrn_G39M39_o0 (data/scripts/galar_treinadores.inc) consulta. O conserto desta rodada foi justamente esse `goto_if_set`: `trainerbattle_no_intro` NAO consulta a flag de vitoria sozinho, entao sem o desvio o treinador rebrigaria para sempre. ROTA: o Galar_WyndonIndoor21 e 13x13, o warp 0 fica em (6,12) e o treinador em (6,5), de frente para o sul; UP saturante sobe a coluna 6 e para em (6,6) porque corpo de NPC e solido (medido na grade de colisao do LAYOUT_GALAR_WYNDON_INDOOR_21). A PROVA e dupla: oponente_faixa [0,0] (nenhuma batalha de treinador comecou em execucao nenhuma) e a posicao final (6,6), que so existe se o corpo do treinador continuar la depois da ida e volta. O par negativo e o T153.2.",
+    "opcoes": 32,
+    "flags": [
+      "0x1141"
+    ],
+    "warp": "MAP_GALAR_WYNDON_INDOOR_21",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,300:NADA,20:B,180:NADA,WARP=MAP_GALAR_WYNDON_02:0,300:NADA,WARP=MAP_GALAR_WYNDON_INDOOR_21:0,300:NADA,16:UP*10,90:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_WYNDON_INDOOR_21",
+      "pos": [
+        6,
+        6
+      ],
+      "oponente_faixa": [
+        0,
+        0
+      ],
+      "flags_acesas": [
+        "0x1141"
+      ]
+    }
+  },
+  {
+    "id": "T153.2",
+    "nome": "PAR NEGATIVO DO T153.1, e sem ele o T153.1 nao prova nada. MESMO mapa, MESMO warp, MESMA rota e MESMA ida e volta pelo Galar_Wyndon02; a unica diferenca e que a flag 0x1141 NAO e acesa. Com ela apagada o `goto_if_set` nao desvia e o `trainerbattle_no_intro` roda: a batalha COMECA, e o que se le e o oponente exato TRAINER_GALAR_RUAN_POKE_372, o mesmo do T147.7. Sem este caso, o T153.1 passaria tambem num jogo em que o objeto tivesse sumido do mapa, em que o script estivesse desligado, ou em que a fala nunca chegasse ao treinador: 'nao brigou' sozinho nao separa 'a flag funcionou' de 'nao ha treinador nenhum ali'. O nivel 255 vem junto porque Galar inteira nasce em nivel 255 nesta rodada (`opcoes` 32 desliga o LV.5 TRAINERS).",
+    "opcoes": 32,
+    "warp": "MAP_GALAR_WYNDON_INDOOR_21",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_WYNDON_INDOOR_21",
+      "oponente": "TRAINER_GALAR_RUAN_POKE_372",
+      "campos": {
+        "opcoes": 32,
+        "nivelinimigo": 255
+      }
+    }
+  },
+  {
+    "id": "T153.3",
+    "nome": "GALAR, TREINADOR COMUM VENCIDO: PRIMEIRA METADE DA PROVA DE SAVE. Repete o T147.8 letra por letra (flag 0x1141 acesa, warp 0 do Galar_WyndonIndoor21, UP saturante ate (6,6), um A que fala com o treinador sem abrir batalha) e entao SALVA pelo menu, com a sequencia de baixo para cima do T11.1: tres UP a partir da linha 0 do menu do START caem sempre em EXIT, OPTION e SAVE, porque so o rabo do BuildNormalStartMenu (src/start_menu.c:332) e fixo. Esta metade e so o controle, ou seja que a fala aconteceu e nenhuma batalha comecou antes de gravar; quem responde a pergunta e o T153.4, que recarrega ESTE arquivo. `prova.sav_gravada` cobra que a flash tenha um slot inteiro escrito: sem ela mapa, posicao e flag passam verdes com a save nunca tendo sido gravada. A .sav e apagada no comeco para o caso nunca passar por sobra de rodada anterior.",
+    "opcoes": 32,
+    "flags": [
+      "0x1141"
+    ],
+    "sav": "/tmp/claude-501/fechador/t153-galar-treinador.sav",
+    "apaga_sav": true,
+    "warp": "MAP_GALAR_WYNDON_INDOOR_21",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,300:NADA,20:B,180:NADA,40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,180:NADA",
+    "prova": {
+      "sav_gravada": true,
+      "mapa": "MAP_GALAR_WYNDON_INDOOR_21",
+      "pos": [
+        6,
+        6
+      ],
+      "oponente_faixa": [
+        0,
+        0
+      ],
+      "flags_acesas": [
+        "0x1141"
+      ]
+    }
+  },
+  {
+    "id": "T153.4",
+    "nome": "SEGUNDA METADE, E E ELA QUE RESPONDE: a flag de vitoria do treinador comum de Galar atravessa o DESLIGAMENTO. O jogo abre em CONTINUAR sobre o arquivo que o T153.3 gravou, e este caso NAO acende flag nenhuma a mao (essa e a diferenca inteira: o que estiver aceso aqui veio da save, e nao do harness). Ele entra na sala pelo mesmo warp 0, sobe a mesma coluna e fala com o treinador de novo. Se 0x1141 vivesse so na EWRAM, ou caisse fora de FLAGS_COUNT, ou fosse temporaria, ela chegaria APAGADA aqui e a batalha comecaria, e o jogador que ja venceu aquele treinador teria de vence-lo outra vez a cada vez que desligasse o jogo. PROVA: oponente_faixa [0,0], a flag 0x1141 ainda acesa lida da save, e a posicao final (6,6), que continua provando que o corpo do treinador esta no mapa.",
+    "opcoes": 32,
+    "sav": "/tmp/claude-501/fechador/t153-galar-treinador.sav",
+    "abertura": "continuar",
+    "warp": "MAP_GALAR_WYNDON_INDOOR_21",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_WYNDON_INDOOR_21",
+      "pos": [
+        6,
+        6
+      ],
+      "oponente_faixa": [
+        0,
+        0
+      ],
+      "flags_acesas": [
+        "0x1141"
+      ]
+    }
+  },
+  {
+    "id": "T153.5",
+    "nome": "ARTE, GERADOR DAS CAVERNAS (dev_scripts/arte_cavernas_sinnoh.py): rota LONGA no MtCoronet2F e o NPC continua falando. O T150 mede tres mapas deste gerador (WaywardCaveB1F, VictoryRoad1FRoom3 e OldChateauCorridor) e nenhum deles tem NPC com script: mede caminho e so. Este caso pega um QUARTO mapa, que o gerador tambem repintou, e junta as duas coisas que faltavam, rota longa e LEITURA de NPC. O Looker mora em (20,25) (LOCALID do map.json, MOVEMENT_TYPE_FACE_LEFT, TRAINER_TYPE_NONE, sem flag de esconder) e o script de clique MtCoronet2F_EventScript_Looker e `lock / faceplayer / msgbox / release` (data/maps/MtCoronet2F/scripts.inc:44). ROTA em tres pernas saturantes a partir do warp 1, em (7,23): DOWN desce a coluna 7 e para em (7,25), porque a linha 26 e parede de x=0 a x=7; RIGHT corre a linha 25, que e livre de x=5 a x=19, e para em (19,25) porque o CORPO do Looker em (20,25) e solido. Ai o jogador aperta A e le a fala. A TERCEIRA perna e a que prova que o script SOLTOU o jogador: DOWN saturante desce a coluna 19 e para em (19,31), seis tiles adiante, e um `release` que nao tivesse rodado deixaria o jogador em (19,25) para sempre. Os tres coord_events do mapa, em (11,24), (11,25) e (11,26), estao presos a VAR_SINNOH_CORONET_2F_ESTADO igual a 1 e a var nasce em 0, entao a cena do Looker NAO dispara ao passar por cima: o que se le aqui e a fala de clique, e nao a cutscene. FLAG_SEM_ENCONTRO_SELVAGEM entra porque caverna tem encontro e batalha selvagem no meio da rota viraria sorteio. O par negativo e o T153.6.",
+    "opcoes": 32,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MT_CORONET_2F",
+    "warp_id": 1,
+    "roteiro": "150:NADA,17:DOWN*10,90:NADA,17:RIGHT*30,150:NADA,20:A,240:NADA,20:A,240:NADA,17:DOWN*20,240:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_2F",
+      "pos": [
+        19,
+        31
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T153.6",
+    "nome": "PAR NEGATIVO DO T153.5, e sem ele o T153.5 nao prova nada. MESMO mapa, MESMO warp e MESMAS duas primeiras pernas; a diferenca e que o A NAO e apertado e a terceira perna nao existe. Com o corpo do Looker de pe o RIGHT saturante para em (19,25), e e isso que separa 'a segunda perna atravessou a caverna e bateu no NPC' de 'o jogador ja estava ali' ou 'a decoracao apagou o NPC'. Se o gerador de arte tivesse escrito por cima do tile do Looker, ou movido o objeto, o RIGHT saturante seguiria ate (20,25), o proprio tile dele, que e chao, e pararia so na parede de x=21: um tile adiante, e este caso reprovaria enquanto o T153.5 ainda poderia passar por outro motivo. O gerador promete no `--demo` que so escreve os 10 bits de baixo de cada celula e nunca toca map.json, mas 'o script promete' nao e medida: e a licao do T115.3.",
+    "opcoes": 32,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MT_CORONET_2F",
+    "warp_id": 1,
+    "roteiro": "150:NADA,17:DOWN*10,90:NADA,17:RIGHT*30,240:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_2F",
+      "pos": [
+        19,
+        25
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T153.7",
+    "nome": "ARTE, GERADOR DOS MAPAS POBRES (dev_scripts/arte_mapas_pobres.py): rota LONGA no B2F do esconderijo da Rocket em Mahogany e o LANCE continua curando. O T152 mede o B1F e o celeiro do Floccesy; este caso pega o B2F, que o MESMO gerador repintou (8 enfeites, colisao identica pelo `--lista`), e e o unico dos quatro que tem NPC com script de verdade. PRE-CONDICAO: FLAG_HIDE_MAHOGANY_HIDEOUT_ROCKETS acesa, igual ao T152.1. Os quatro Rockets do B2F sao TRAINER_TYPE_NORMAL e moram atras dessa flag; sem apaga-los o corpo do de (21,14) barra a linha 14 no meio da rota e a linha de vista abre batalha, e prova de posicao vira sorteio. O LANCE, objeto 0 em (5,13), e TRAINER_TYPE_NONE e NAO tem flag: fica de pe sempre. E A SEGUNDA LICAO, tambem medida por sonda nesta rodada: o warp 0 do B2F esta sobre MB_NON_ANIMATED_DOOR (comportamento 96), e porta EMPURRA o jogador um tile ao sul na chegada (src/field_screen_effect.c). Quem entra por ele NAO nasce em (3,14), nasce em (3,15). A primeira versao deste caso comecava a andar de (3,14), a perna LEFT da linha 14 voltava a PISAR o (3,14) no meio do caminho e o jogador caia no B1F: o caso reprovava dizendo 'mapa errado', que e o sintoma certo de rota que atravessa warp. ROTA em cinco pernas saturantes a partir de (3,15): RIGHT corre a linha 15, que so tem chao de x=1 a x=5, e para em (5,15); UP sobe um tile ate (5,14), porque (5,13) e o CORPO do Lance; RIGHT corre a linha 14 inteira e para em (22,14), dezessete tiles, contra a parede de x=23; UP sobe um tile ate (22,13), porque a linha 12 e parede macica de x=0 a x=23; LEFT corre a linha 13 de volta e para em (6,13), dezesseis tiles, de novo contra o corpo do Lance. Nenhuma dessas pernas encosta em (3,14). Ai o A abre MahoganyHideout_B2F_EventScript_Lance (data/maps/MahoganyHideout_B2F/scripts.inc:135), que e `lock / faceplayer / msgbox / fadescreen / special HealPlayerParty / fadescreen / msgbox / release`: sao DUAS caixas de texto e duas transicoes de tela, e por isso o roteiro abre a conversa com UM A e depois martela DEZ B. O B anda o texto igual ao A e nao ESCOLHE nada, entao aperto que sobra depois do `release` cai no vazio; com A, o aperto que sobra reabriria a conversa com o Lance (o jogador fica de frente para ele) e o caso terminaria trancado. Medido: com seis A exatos, que e a conta de paginas (LanceHeal1 tem dois \\p e LanceHeal2 tem um), o caso ainda reprovava parado em (6,13). A SEXTA perna e a prova de que o `release` rodou: RIGHT saturante volta a linha 13 ate (22,13), dezesseis tiles, e um jogador ainda trancado pelo `lock` nao andaria nenhum. Os seis coord_events dos Electrodes ficam nas linhas 5, 7 e 9, e a rota inteira corre nas linhas 13, 14 e 15: nenhum e pisado.",
+    "opcoes": 32,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_MAHOGANY_HIDEOUT_ROCKETS"
+    ],
+    "warp": "MAP_MAHOGANY_HIDEOUT_B2F",
+    "warp_id": 0,
+    "roteiro": "150:NADA,17:RIGHT*30,90:NADA,17:UP*10,90:NADA,17:RIGHT*30,90:NADA,17:UP*10,90:NADA,17:LEFT*30,150:NADA,20:A,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,20:B,240:NADA,17:RIGHT*30,240:NADA",
+    "prova": {
+      "mapa": "MAP_MAHOGANY_HIDEOUT_B2F",
+      "layout": "LAYOUT_MAHOGANY_HIDEOUT_B2F",
+      "pos": [
+        22,
+        13
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T153.8",
+    "nome": "PAR NEGATIVO DO T153.7. MESMO mapa, MESMA pre-condicao e MESMAS cinco pernas; sem o A e sem a sexta perna. Com o corpo do Lance de pe a quinta perna para em (6,13); se a decoracao tivesse apagado ou movido o objeto, a SEGUNDA perna ja subiria ate (5,13) e a rota inteira sairia de fase, terminando em (1,13), cinco tiles adiante. Ele tambem mede a terceira perna sozinha, que e a mais longa das cinco: sem ela o T153.7 passaria num jogo em que o jogador tivesse sido empurrado para o meio da sala por qualquer outro motivo. E A SEGUNDA LICAO, tambem medida por sonda nesta rodada: o warp 0 do B2F esta sobre MB_NON_ANIMATED_DOOR (comportamento 96), e porta EMPURRA o jogador um tile ao sul na chegada (src/field_screen_effect.c). Quem entra por ele NAO nasce em (3,14), nasce em (3,15). A primeira versao deste caso comecava a andar de (3,14), a perna LEFT da linha 14 voltava a PISAR o (3,14) no meio do caminho e o jogador caia no B1F: o caso reprovava dizendo 'mapa errado', que e o sintoma certo de rota que atravessa warp.",
+    "opcoes": 32,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_MAHOGANY_HIDEOUT_ROCKETS"
+    ],
+    "warp": "MAP_MAHOGANY_HIDEOUT_B2F",
+    "warp_id": 0,
+    "roteiro": "150:NADA,17:RIGHT*30,90:NADA,17:UP*10,90:NADA,17:RIGHT*30,90:NADA,17:UP*10,90:NADA,17:LEFT*30,240:NADA",
+    "prova": {
+      "mapa": "MAP_MAHOGANY_HIDEOUT_B2F",
+      "layout": "LAYOUT_MAHOGANY_HIDEOUT_B2F",
+      "pos": [
+        6,
+        13
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T153.9",
+    "nome": "ARTE, GERADOR DOS INTERIORES DE SINNOH (dev_scripts/arte_exteriores_sinnoh.py): rota LONGA na segunda sala de elevador do ginasio D/P de Hearthome, e o corpo do NPC no mesmo tile do HEAD. O T151 mede tres dos onze mapas deste gerador; este pega um quarto. MEDIDO e dito em voz alta: NENHUM dos onze mapas tem NPC com script (todos os object_events deles tem `script: 0`), entao 'leitura de NPC' aqui nao existe para ser medida, e o que se cobra e o que da para cobrar, o CORPO no lugar certo. O Picnicker do HearthomeCityDpGymTrainerRoom2 fica em (6,5) com MOVEMENT_TYPE_LOOK_AROUND, que vira a cara e NAO anda, entao a posicao dele nao e sorteio. ROTA em sete pernas a partir do warp 0, em (7,10), num labirinto 17x12: UP saturante para em (7,8) (linha 7 e parede em x=7); RIGHT saturante corre ate (12,8); UP saturante sobe a coluna 12 inteira e para em (12,2), seis tiles, que e a perna longa; TRES apertos soltos de DOWN descem ate (12,4), no corredor aberto da linha 4; LEFT saturante corre a linha 4 de x=12 a x=1, onze tiles; SEIS apertos soltos de RIGHT param em (6,4), em cima do NPC. Os apertos soltos estao escritos um a um de proposito: `16:LEFT*5` NAO anda cinco tiles, o *N repete os quadros dentro do MESMO passo (ESTADO.md, armadilha de 06/08/2026). A ULTIMA perna e a prova: DOWN saturante a partir de (6,4). Com o corpo do NPC em (6,5) o jogador NAO SAI DO LUGAR e a posicao final e (6,4); se a decoracao tivesse apagado o objeto, os mesmos apertos o levariam a (6,6), porque (6,5) e (6,6) sao chao e a linha 7 e que e parede em x=6. O par negativo e o T153.10. LICAO MEDIDA NESTA RODADA E QUE VALE PARA TODO CASO NOVO: aperto de direcao que o jogador NAO esta encarando so VIRA, nao anda. Por isso todo passo solto aqui e escrito DUAS vezes quando muda de direcao (o primeiro vira, o segundo anda), e a contagem de apertos e uma a mais que a de tiles. As quatro primeiras versoes deste bloco reprovaram exatamente por isso, cada uma com um tile a menos do que a conta dizia.",
+    "opcoes": 32,
+    "warp": "MAP_HEARTHOME_CITY_DP_GYM_TRAINER_ROOM_2",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*10,60:NADA,16:RIGHT*12,60:NADA,16:UP*12,60:NADA,20:DOWN,12:NADA,20:DOWN,12:NADA,20:DOWN,60:NADA,16:LEFT*14,60:NADA,20:RIGHT,12:NADA,20:RIGHT,12:NADA,20:RIGHT,12:NADA,20:RIGHT,12:NADA,20:RIGHT,12:NADA,20:RIGHT,90:NADA,16:DOWN*8,240:NADA",
+    "prova": {
+      "mapa": "MAP_HEARTHOME_CITY_DP_GYM_TRAINER_ROOM_2",
+      "pos": [
+        6,
+        4
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T153.10",
+    "nome": "PAR NEGATIVO DO T153.9, e ele existe porque 'ficou parado' e a afirmacao mais facil de passar por acidente que existe: um jogador que nunca andou tambem fica parado. MESMO mapa, MESMO warp e MESMAS pernas ATE a travessia do corredor da linha 4, sem os seis RIGHT e sem o DOWN final. A posicao final aqui e (1,4), a ponta oeste do corredor, dezessete tiles de caminhada depois do warp. Comparado com o (6,4) do T153.9, o par mede as duas coisas ao mesmo tempo: que o labirinto foi mesmo atravessado depois de repintado, e que os seis apertos soltos de RIGHT andaram cinco tiles e nao um. LICAO MEDIDA NESTA RODADA E QUE VALE PARA TODO CASO NOVO: aperto de direcao que o jogador NAO esta encarando so VIRA, nao anda. Por isso todo passo solto aqui e escrito DUAS vezes quando muda de direcao (o primeiro vira, o segundo anda), e a contagem de apertos e uma a mais que a de tiles. As quatro primeiras versoes deste bloco reprovaram exatamente por isso, cada uma com um tile a menos do que a conta dizia.",
+    "opcoes": 32,
+    "warp": "MAP_HEARTHOME_CITY_DP_GYM_TRAINER_ROOM_2",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*10,60:NADA,16:RIGHT*12,60:NADA,16:UP*12,60:NADA,20:DOWN,12:NADA,20:DOWN,12:NADA,20:DOWN,60:NADA,16:LEFT*14,240:NADA",
+    "prova": {
+      "mapa": "MAP_HEARTHOME_CITY_DP_GYM_TRAINER_ROOM_2",
+      "pos": [
+        1,
+        4
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T153.11",
+    "nome": "SINNOH, O CORREDOR NOVO DO RAVAGEDPATH LEVA A UMA BOLA NOVA, E ELA E PEGA UMA VEZ SO. Duas coisas desta rodada de uma vez: o `corredores_sinnoh.py` abriu 34 celulas de parede do LAYOUT_RAVAGED_PATH (32x45) e os tiles ilhados cairam de 133 para ZERO, e o `bolas_sinnoh.py` pos duas item balls no mapa, das quais a de (14,8) esta DENTRO do que so o corredor alcanca. MEDIDO no `git show HEAD:data/layouts/RavagedPath/map.bin`: no HEAD o mapa tinha 241 tiles de terra e so 108 alcancaveis dos tres warps, e (13,8), (14,8) e (15,8) estavam FORA desse conjunto; hoje sao 275 de 275. Dos 69 tiles que esta rota pisa, NOVE eram parede no HEAD: (5,23) a (5,28) e (4,13) a (4,15). Ou seja o caso e impossivel contra o mapa antigo e possivel contra o novo, que e a definicao de prova de corredor. ROTA de 16 pernas a partir do warp 0, em (19,40): LEFT ate (18,40); UP ate (18,32); LEFT ate (6,32); UP ate (6,28) (para por ELEVACAO, nao por parede: (6,27) e MB_OCEAN_WATER na elevacao 1); LEFT ate (5,28); UP pelo corredor novo ate (5,18); LEFT ate (4,18); UP pelo outro corredor novo ate (4,7); LEFT ate (2,7); UP ate (2,4); RIGHT ate (9,4); DOWN 1 ate (9,5) (para no CORPO do Camper de (9,6)); RIGHT ate (10,5); DOWN ate (10,6); RIGHT ate (13,6); DOWN ate (13,8), colado na bola. A primeira perna NAO pode ser DOWN: o warp 0 e MB_SOUTH_ARROW_WARP e o jogador sairia do mapa. Ai o A pega a bola. A PROVA e dupla e a segunda metade e que responde: FLAG_ITEM_SINNOH_BOLA_RAVAGEDPATH_LUCK_INCENSE acesa, e a posicao final (18,8), que so existe DEPOIS de a bola sumir: com o objeto de pe o RIGHT saturante nao anda nenhum tile, e sem ele corre cinco ate bater na parede de (19,8). E tambem a prova de 'uma vez': o campo `flag` do object_event e essa mesma flag, e TrySpawnObjectEvents nao cria template com flag acesa, entao a bola nao renasce em carga de mapa nenhuma. FLAG_SEM_ENCONTRO_SELVAGEM e obrigatoria e o numero esta medido: RavagedPath tem land_mons com encounter_rate 10, que da 5,56% por passo, e em 69 passos a chance de chegar sem batalha selvagem e de 1,9%. O par negativo e o T153.12. DETALHE MEDIDO E QUE FEZ A PRIMEIRA VERSAO REPROVAR: a decima sexta perna e DOWN, entao o jogador chega a (13,8) OLHANDO PARA BAIXO, e A para baixo nao fala com a bola de (14,8). Vai um aperto de RIGHT antes do A: ele nao anda (a bola e solida) e so VIRA, que e o que `PlayerNotOnBikeCollide` faz.",
+    "opcoes": 32,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_RAVAGED_PATH",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:LEFT*4,60:NADA,16:UP*14,60:NADA,16:LEFT*18,60:NADA,16:UP*10,60:NADA,16:LEFT*4,60:NADA,16:UP*16,60:NADA,16:LEFT*4,60:NADA,16:UP*17,60:NADA,16:LEFT*7,60:NADA,16:UP*8,60:NADA,16:RIGHT*12,60:NADA,16:DOWN*4,60:NADA,16:RIGHT*4,60:NADA,16:DOWN*4,60:NADA,16:RIGHT*7,60:NADA,16:DOWN*6,120:NADA,20:RIGHT,90:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA,16:RIGHT*8,240:NADA",
+    "prova": {
+      "mapa": "MAP_RAVAGED_PATH",
+      "pos": [
+        18,
+        8
+      ],
+      "andou": true,
+      "flags_acesas": [
+        "FLAG_ITEM_SINNOH_BOLA_RAVAGEDPATH_LUCK_INCENSE"
+      ]
+    }
+  },
+  {
+    "id": "T153.12",
+    "nome": "PAR NEGATIVO DO T153.11, e sem ele o T153.11 nao prova nem o corredor nem a bola. MESMO mapa, MESMO warp e MESMAS 16 pernas; a diferenca e que o A NAO e apertado. Sem pegar a bola, o corpo dela em (14,8) e solido e o RIGHT saturante final anda ZERO tiles: a posicao final e (13,8), cinco tiles atras do (18,8) do positivo, e a flag continua APAGADA. Ele mede as duas metades separadas: que as 16 pernas atravessam mesmo o corredor novo (chegar a (13,8) ja e impossivel no mapa do HEAD) e que o (18,8) do positivo veio de a bola ter sumido, e nao de o jogador ter escorregado. Sem este caso, o T153.11 passaria tambem num jogo em que a bola nunca tivesse sido colocada.",
+    "opcoes": 32,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_RAVAGED_PATH",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:LEFT*4,60:NADA,16:UP*14,60:NADA,16:LEFT*18,60:NADA,16:UP*10,60:NADA,16:LEFT*4,60:NADA,16:UP*16,60:NADA,16:LEFT*4,60:NADA,16:UP*17,60:NADA,16:LEFT*7,60:NADA,16:UP*8,60:NADA,16:RIGHT*12,60:NADA,16:DOWN*4,60:NADA,16:RIGHT*4,60:NADA,16:DOWN*4,60:NADA,16:RIGHT*7,60:NADA,16:DOWN*6,120:NADA,16:RIGHT*8,240:NADA",
+    "prova": {
+      "mapa": "MAP_RAVAGED_PATH",
+      "pos": [
+        13,
+        8
+      ],
+      "andou": true,
+      "flags_apagadas": [
+        "FLAG_ITEM_SINNOH_BOLA_RAVAGEDPATH_LUCK_INCENSE"
+      ]
+    }
+  },
+  {
+    "id": "T153.13",
+    "nome": "SINNOH, DISTORTION WORLD: O WARP 2 DO ANDAR NOVO DISPARA, E SE CHEGA A ELE A PE. Dos nove andares que o `cria_mapas_sinnoh.py` criou nesta rodada, o DistortionWorld1F e o unico com tres warps, e por isso e o escolhido para provar 'todos os warps vivos'. O layout e 64x64 com 159 tiles andaveis, todos na elevacao 3, e a planta e um L: a faixa y=18..20 de x=18 a x=45 e a coluna x=18..20 de y=18 a y=45. Os tres warps estao no metatile 575, MB_LADDER (comportamento 97), colisao 0, e MB_LADDER esta dentro do que `IsWarpMetatileBehavior` aceita: `valida_warp_tile.py` nao lista nenhum DistortionWorld entre os mapas com warp morto de Sinnoh. ROTA a partir do warp 0, em (19,44): UP saturante sobe a coluna 19 inteira e para em (19,18), vinte e seis tiles; RIGHT saturante corre a linha 18 e para em (45,18), vinte e seis tiles; DOWN saturante desce ate (45,20); e CINCO apertos soltos de LEFT, escritos um a um de proposito: o primeiro so VIRA o jogador, que vinha olhando para baixo, e os quatro seguintes pisam (44,20), (43,20), (42,20) e por fim (41,20), que e o warp 2. Perna saturante aqui seria armadilha: os apertos que sobram cairiam ja dentro do mapa de destino. A PROVA e o mapa de chegada, MAP_DISTORTION_WORLD_TURNBACK_CAVE_ROOM, e a posicao (48,25), que e o warp 0 de la; a sala inteira e um quadrado de 3 por 5 (x=47..49, y=24..28), entao chegar em (48,25) so acontece por warp. LICAO MEDIDA NESTA RODADA E QUE VALE PARA TODO CASO NOVO: aperto de direcao que o jogador NAO esta encarando so VIRA, nao anda. Por isso todo passo solto aqui e escrito DUAS vezes quando muda de direcao (o primeiro vira, o segundo anda), e a contagem de apertos e uma a mais que a de tiles. As quatro primeiras versoes deste bloco reprovaram exatamente por isso, cada uma com um tile a menos do que a conta dizia.",
+    "opcoes": 32,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_DISTORTION_WORLD_1F",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*30,90:NADA,16:RIGHT*30,90:NADA,16:DOWN*6,90:NADA,20:LEFT,12:NADA,20:LEFT,12:NADA,20:LEFT,12:NADA,20:LEFT,12:NADA,20:LEFT,300:NADA",
+    "prova": {
+      "mapa": "MAP_DISTORTION_WORLD_TURNBACK_CAVE_ROOM",
+      "pos": [
+        48,
+        25
+      ]
+    }
+  },
+  {
+    "id": "T153.14",
+    "nome": "DISTORTION WORLD, O WARP 0 DO MESMO ANDAR DISPARA. Segunda das tres metades do 'todos os warps vivos'. Aqui o jogo entra pelo warp 1, em (44,19), e vai a pe ate o warp 0: LEFT saturante corre a linha 19 de x=44 a x=18, vinte e seis tiles (a linha 19 e livre de 18 a 45); DOIS apertos soltos de RIGHT voltam a (19,19), porque o primeiro so vira o jogador, que vinha olhando para a esquerda, que e a unica coluna que desce ate o warp; DOWN saturante desce a coluna 19 e PISA (19,44), que e o warp 0. A prova e o mapa de chegada, MAP_MT_CORONET_6F, e a posicao (10,24), que e o warp 0 de la. Cuidado medido e dito: o warp 0 do MtCoronet6F NAO volta para o Distortion World, ele vai para o Spear Pillar, entao esta e uma porta de MAO UNICA. Isso e assimetria de fiacao dos nove andares novos, esta anotada na secao 0.o do ESTADO e na fila, e nao muda o que este caso afirma: que o warp 0 do 1F esta vivo e leva ao mapa declarado. LICAO MEDIDA NESTA RODADA E QUE VALE PARA TODO CASO NOVO: aperto de direcao que o jogador NAO esta encarando so VIRA, nao anda. Por isso todo passo solto aqui e escrito DUAS vezes quando muda de direcao (o primeiro vira, o segundo anda), e a contagem de apertos e uma a mais que a de tiles. As quatro primeiras versoes deste bloco reprovaram exatamente por isso, cada uma com um tile a menos do que a conta dizia.",
+    "opcoes": 32,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_DISTORTION_WORLD_1F",
+    "warp_id": 1,
+    "roteiro": "150:NADA,16:LEFT*30,90:NADA,20:RIGHT,12:NADA,20:RIGHT,90:NADA,16:DOWN*30,300:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_6F",
+      "pos": [
+        10,
+        24
+      ]
+    }
+  },
+  {
+    "id": "T153.15",
+    "nome": "DISTORTION WORLD, O WARP 1 DO MESMO ANDAR DISPARA, E A ROTA DELE E DE DOIS APERTOS DE PROPOSITO. Terceira e ultima metade do 'todos os warps vivos'. MEDIDO e dito em voz alta: o warp 1, em (44,19), NAO tem rota de pernas saturantes a partir de warp nenhum. As colunas x=21..45 so existem em y=18, 19 e 20, entao perna vertical satura em 18 ou em 20 e ATRAVESSA a linha 19 sem parar nela; e perna horizontal na linha 19 so comeca com o jogador ja em cima dela. Por isso este caso entra pelo proprio warp 1 (o menu de debug poe o jogador na coordenada, e MB_LADDER nao empurra um tile como porta empurra, o que o T124.1 ja mediu), SOBE um tile ate (44,18) com uma perna saturante (a linha 17 e parede, entao ela para sozinha) e DESCE de volta com DOIS apertos soltos, o primeiro so virando: e a descida que pisa o warp e o dispara, porque warp de chegada nao se redispara sozinho. A prova e o mapa de chegada, MAP_DISTORTION_WORLD_B1F, e a posicao (33,10), que e o warp 0 de la. Os dois apertos sao escritos um a um, e nao como perna saturante: UP saturante iria ate (44,18) e pararia (a linha 17 e parede), mas DOWN saturante desceria de (44,18) para (44,20) atravessando o warp, e 'atravessar' e exatamente o que nao se quer medir aqui. LICAO MEDIDA NESTA RODADA E QUE VALE PARA TODO CASO NOVO: aperto de direcao que o jogador NAO esta encarando so VIRA, nao anda. Por isso todo passo solto aqui e escrito DUAS vezes quando muda de direcao (o primeiro vira, o segundo anda), e a contagem de apertos e uma a mais que a de tiles. As quatro primeiras versoes deste bloco reprovaram exatamente por isso, cada uma com um tile a menos do que a conta dizia.",
+    "opcoes": 32,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_DISTORTION_WORLD_1F",
+    "warp_id": 1,
+    "roteiro": "150:NADA,16:UP*10,90:NADA,20:DOWN,12:NADA,20:DOWN,300:NADA",
+    "prova": {
+      "mapa": "MAP_DISTORTION_WORLD_B1F",
+      "pos": [
+        33,
+        10
+      ]
+    }
+  },
+  {
+    "id": "T153.16",
+    "nome": "JOHTO, O QUEBRA-CABECA DESLIZANTE ABRE, E ELE FICA COM O CONTROLE. O motor novo desta rodada (src/sliding_puzzle.c, include/sliding_puzzle.h, include/constants/sliding_puzzles.h e graphics/sliding_puzzle/, mais 13.476 B de arte comprimida) e chamado pelo special DoSlidingPuzzle, e o unico mapa que o usa e o RuinsOfAlph_PuzzleAndRewardChambers, por QUATRO placas (bg_event do tipo sign): HO-OH em (5,4), KABUTO em (21,4), OMANYTE em (5,21) e AERODACTYL em (21,21). Este caso mede o KABUTO. ROTA a partir do warp 0, em (20,9): UP saturante sobe a coluna 20 e para em (20,5), porque (20,4) e parede; RIGHT saturante anda um tile ate (21,5), porque (22,5) e parede; UM aperto de UP so VIRA o jogador, ja que (21,4) e a propria parede onde a placa mora. Ai o A abre o quebra-cabeca. A PROVA e de INPUT, e nao de tela, e e por isso que ela vale: depois do A o roteiro martela SEIS apertos de DOWN, e a coluna 21 e chao livre de y=5 a y=9. Se o quebra-cabeca nao tivesse aberto, ou se tivesse aberto sem tomar o controle do campo (o script faz `fadescreen FADE_TO_BLACK` SEM `lock`, e era essa a duvida), o jogador desceria quatro tiles. A posicao final e (21,5): ele nao anda nenhum. O par que fecha a conta e o T153.17, que aperta os MESMOS seis DOWN sem ter aberto nada. A flag FLAG_COMPLETED_KABUTO_PUZZLE (0x1D18) tem de continuar APAGADA: entrar no quebra-cabeca nao e resolve-lo.",
+    "opcoes": 32,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_RUINS_OF_ALPH_PUZZLE_AND_REWARD_CHAMBERS",
+    "warp_id": 0,
+    "roteiro": "180:NADA,20:UP*30,90:NADA,20:RIGHT*30,90:NADA,20:UP,90:NADA,20:A,300:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_RUINS_OF_ALPH_PUZZLE_AND_REWARD_CHAMBERS",
+      "pos": [
+        21,
+        5
+      ],
+      "flags_apagadas": [
+        "FLAG_COMPLETED_KABUTO_PUZZLE"
+      ]
+    }
+  },
+  {
+    "id": "T153.17",
+    "nome": "PAR NEGATIVO DO T153.16, e sem ele o T153.16 nao prova nada. MESMO mapa, MESMO warp, MESMA rota e OS MESMOS seis apertos de DOWN; a unica diferenca e que o A NAO e apertado, entao nada abre. Sem o quebra-cabeca no caminho, o primeiro DOWN vira o jogador (ele estava olhando para cima) e os cinco seguintes descem a coluna 21 ate (21,9), quatro tiles, porque a linha 10 e parede. E esse (21,9) contra o (21,5) do positivo que separa 'o quebra-cabeca engoliu o input' de 'o jogador nunca teve para onde andar'.",
+    "opcoes": 32,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_RUINS_OF_ALPH_PUZZLE_AND_REWARD_CHAMBERS",
+    "warp_id": 0,
+    "roteiro": "180:NADA,20:UP*30,90:NADA,20:RIGHT*30,90:NADA,20:UP,90:NADA,300:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_RUINS_OF_ALPH_PUZZLE_AND_REWARD_CHAMBERS",
+      "pos": [
+        21,
+        9
+      ],
+      "flags_apagadas": [
+        "FLAG_COMPLETED_KABUTO_PUZZLE"
+      ]
+    }
+  },
+  {
+    "id": "T153.18",
+    "nome": "JOHTO, O QUEBRA-CABECA DESLIZANTE FECHA, E DEVOLVE O JOGADOR INTEIRO. Terceira metade da pergunta que o condutor fez ('abre e fecha sem travar o jogador'), e a que mais importa: sair de uma tela de UI que tomou o controle e a hora classica de esquecer o `release` e deixar o jogador de pe sem poder andar para sempre, sem crash e sem tela preta, que e a falha mais dificil de achar depois. MESMA rota do T153.16 e MESMO A; a diferenca e o B logo depois, que e como se sai do quebra-cabeca sem resolver (Task_SlidingPuzzle_HandleInput, src/sliding_puzzle.c:659, chama ExitSlidingPuzzle, e o script segue para o `end`). Depois do B vem uma perna SATURANTE de DOWN, e a prova e ela: o jogador desce a coluna 21 ate (21,9) e para na parede da linha 10. Se o controle nao tivesse voltado, a posicao final seria (21,5), igual a do T153.16, e o caso reprovaria. A flag 0x1D18 continua apagada: sair com B nao resolve o quebra-cabeca, e `CheckForSolution` (src/sliding_puzzle.c:972) exige as 24 casas na ordem E todas em ORIENTATION_0, o que nao sai de martelada de botao. Por isso o ramo de SUCESSO nao vira caso de suite aqui, e isso esta dito na 0.o como pendencia de ferramenta, nao de conteudo.",
+    "opcoes": 32,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_RUINS_OF_ALPH_PUZZLE_AND_REWARD_CHAMBERS",
+    "warp_id": 0,
+    "roteiro": "180:NADA,20:UP*30,90:NADA,20:RIGHT*30,90:NADA,20:UP,90:NADA,20:A,300:NADA,20:B,300:NADA,20:DOWN*30,240:NADA",
+    "prova": {
+      "mapa": "MAP_RUINS_OF_ALPH_PUZZLE_AND_REWARD_CHAMBERS",
+      "pos": [
+        21,
+        9
+      ],
+      "andou": true,
+      "flags_apagadas": [
+        "FLAG_COMPLETED_KABUTO_PUZZLE"
+      ]
+    }
+  },
+  {
+    "id": "T153.19",
+    "nome": "UNOVA, A CENA DO PWT DISPARA, E ESTA E A PRIMEIRA METADE DA PROVA DE SAVE. O `cenas_pwt_unova.py` criou tres coord_events e duas vars: VAR_UNOVA_PWT_CORREDOR_CENA (0x417E) no Unova_PWTHallway, em (4,1) e (14,1), e VAR_UNOVA_PWT_DENTRO_CENA (0x417F) no Unova_PWTInside, em (7,1). Este caso mede o do saguao. MEDIDO por sonda nesta rodada e e o detalhe que faz o caso funcionar: o warp 2 do Unova_PWTInside fica em (7,0), que e MB_NON_ANIMATED_DOOR, e porta EMPURRA o jogador um tile ao sul, ou seja ele nasce JA EM CIMA do gatilho, em (7,1) - e o gatilho NAO dispara, porque o empurrao da porta nao e passo sob controle do jogador. Por isso o roteiro pisa fora e volta: DOWN vira, DOWN anda ate (7,2), UP vira, UP volta a (7,1), e AI a cena roda. Ela e `lockall / setvar VAR_UNOVA_PWT_DENTRO_CENA,1 / o bloqueador sai / o jogador entra / o bloqueador volta / releaseall`, e o `setvar` e a PRIMEIRA linha depois do `lockall`, de proposito. A coreografia anda o jogador tres tiles para baixo, de (7,1) a (7,4). PROVA: mapa Unova_PWTInside, posicao (7,4) e a var 0x417F valendo 1. Depois disso o jogo SALVA, com os tres UP de baixo para cima do T11.1, e `prova.sav_gravada` cobra que a flash tenha slot escrito. Quem responde a pergunta e o T153.20.",
+    "opcoes": 32,
+    "sav": "/tmp/claude-501/fechador/t153-pwt.sav",
+    "apaga_sav": true,
+    "warp": "MAP_UNOVA_PWT_INSIDE",
+    "warp_id": 2,
+    "roteiro": "300:NADA,20:DOWN,20:DOWN,90:NADA,20:UP,20:UP,600:NADA,40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,180:NADA",
+    "prova": {
+      "sav_gravada": true,
+      "mapa": "MAP_UNOVA_PWT_INSIDE",
+      "pos": [
+        7,
+        4
+      ],
+      "vars": {
+        "0x417F": 1
+      }
+    }
+  },
+  {
+    "id": "T153.20",
+    "nome": "SEGUNDA METADE, E E ELA QUE RESPONDE: a cena do PWT dispara UMA VEZ, e a var que a fecha atravessa o DESLIGAMENTO. O jogo abre em CONTINUAR sobre o arquivo que o T153.19 gravou e NAO declara var nenhuma a mao: o que estiver aqui veio da save. Ele volta ao Unova_PWTInside pelo MESMO warp 2, e repete os MESMOS quatro apertos, pisando fora e voltando ao tile (7,1) do gatilho. A cena NAO pode rodar de novo, e a prova e de posicao: com a var em 1 o coord_event e inerte, ninguem move o jogador e ele fica em (7,1); se a var vivesse so na EWRAM, ou se o `setvar` estivesse depois da coreografia em vez de antes, a cena rodaria outra vez e a posicao final seria (7,4). Um jogador que salvasse dentro do PWT e desligasse assistiria a cena de entrada a cada vez que voltasse, para sempre, e nenhum caso do T98 enxerga isso.",
+    "opcoes": 32,
+    "sav": "/tmp/claude-501/fechador/t153-pwt.sav",
+    "abertura": "continuar",
+    "warp": "MAP_UNOVA_PWT_INSIDE",
+    "warp_id": 2,
+    "roteiro": "300:NADA,20:DOWN,20:DOWN,90:NADA,20:UP,20:UP,600:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_PWT_INSIDE",
+      "pos": [
+        7,
+        1
+      ],
+      "vars": {
+        "0x417F": 1
+      }
+    }
+  },
+  {
+    "id": "T153.21",
+    "nome": "UNOVA, O BLOQUEADOR DO PWT VOLTA PARA O POSTO DEPOIS DA CENA, E ISSO E DE PROPOSITO. O object_event 1 do Unova_PWTInside e o recepcionista da qualificacao (OBJ_EVENT_GFX_UNION_ROOM_NURSE, MOVEMENT_TYPE_FACE_DOWN, TRAINER_TYPE_NONE, campo `flag` igual a 0, ou seja sem flag de esconder), e ele mora em (7,3), que e o UNICO tile de colisao 0 da linha 3 do saguao (a linha inteira e `....111.1111....`). A cena de entrada o tira da frente com `Movement_BloqueadorSai` (sobe para (7,2), anda para (8,2)) e o devolve com `Movement_BloqueadorVolta`. Este caso roda a MESMA cena do T153.19, sem salvar, e no fim aperta TRES UP a partir de (7,4). Se o recepcionista tivesse ficado em (8,2), o primeiro UP viraria o jogador e os dois seguintes o levariam a (7,2); com ele de volta em (7,3) o corpo e solido e o jogador NAO SAI DE (7,4). E a diferenca entre 'a coreografia terminou' e 'a coreografia deixou o mapa aberto por engano', que ninguem mediria olhando so a var.",
+    "opcoes": 32,
+    "warp": "MAP_UNOVA_PWT_INSIDE",
+    "warp_id": 2,
+    "roteiro": "300:NADA,20:DOWN,20:DOWN,90:NADA,20:UP,20:UP,600:NADA,20:UP,20:UP,20:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_UNOVA_PWT_INSIDE",
+      "pos": [
+        7,
+        4
+      ],
+      "vars": {
+        "0x417F": 1
+      }
+    }
+  }
+]

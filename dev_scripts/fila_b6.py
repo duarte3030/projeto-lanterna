@@ -915,7 +915,7 @@ JOHTO = [
                 "nao logo depois da batalha. Custou UMA var "
                 "(VAR_JOHTO_GOLDENROD_GYM_STATE). A cena mora no gerador, em "
                 "dev_scripts/porta_ginasios_johto.py, funcao cena_choro"),
-    dict(id="johto:ginasio:olivine", tipo="setscene",
+    dict(id="johto:ginasio:olivine", tipo="setscene", feito=True,
          mapa_destino="OlivineCity_Gym", tamanho=1,
          # `precisa` vazio era o defeito: o motivo já dizia que a linha depende
          # de VAR_OLIVINE_CITY_STATE, mas nada media isso, e por isso a linha
@@ -924,7 +924,15 @@ JOHTO = [
          # farol não está portado. Declarar a dependência faz o bloqueio ser
          # CALCULADO, e ele some sozinho no dia em que a var nascer.
          precisa=["VAR_OLIVINE_CITY_STATE"],
-         motivo="depende de VAR_OLIVINE_CITY_STATE em 5, que só o farol põe"),
+         motivo="22/08/2026: a var NASCEU, e com ela o arco inteiro. "
+                "dev_scripts/arco_farol_johto.py porta a cena da JASMINE no "
+                "alto do farol, a SECRETPOTION da farmácia de Cianwood (item "
+                "novo em append puro, save intacta) e a cura da AMPHY; o "
+                "ginásio ganha um MAP_SCRIPT_ON_TRANSITION que DERIVA "
+                "FLAG_HIDE_OLIVINE_CITY_GYM_JASMINE da var, então a JASMINE "
+                "não está em dois lugares ao mesmo tempo e o arco não precisa "
+                "de gancho de início de jogo. Provado de ponta a ponta pelo "
+                "T149.1 a T149.6, com par negativo nos dois lados"),
     dict(id="johto:npcs:44_pares_ambiguos", tipo="portavel", feito=True,
          mapa_destino="vários", tamanho=44, precisa=[],
          motivo="18/08/2026, Fase B: o número mentia para cima. "
@@ -1258,126 +1266,90 @@ FILA_DE_CONTEUDO = [
                 "medição junto"),
     _molde_pendente(),
     dict(regiao="sinnoh", id="sinnoh:pedras:31_em_parede_do_demake",
-         mapa_destino="RavagedPath (23), OreburghGate_1F (6), "
-                      "MtCoronet_1F_South (1), MtCoronet_B1F (1)",
-         tipo="mapa", tamanho=31, status="pendente",
-         bloqueio="MEDIDO em 21/08/2026, e a medição derrubou o enunciado "
-                  "antigo. O ESTADO 0.g dizia 'a conversão do Platinum marca "
-                  "o tile da pedra como bloqueado. Dívida de geometria', e "
-                  "isso NÃO se sustenta: o nosso map.bin é BYTE A BYTE o do "
-                  "demake 2D (`fontes-mapas/sinnoh`) em OreburghGate_1F, "
-                  "MtCoronet_1F_South e MtCoronet_B1F, e em RavagedPath há UM "
-                  "tile de diferença no mapa inteiro, o (26,1), que é boca de "
-                  "caverna aberta de propósito e fica a 20 tiles da pedra mais "
-                  "próxima. A conversão não tocou em nenhum desses 31 tiles. "
-                  "Quem não desenhou a pedra foi a FONTE: o demake 2D pôs "
-                  "rocha maciça onde o Platinum tem pedra de Rock Smash MAIS "
-                  "o corredor atrás dela. 28 das 31 caem em tile com ZERO "
-                  "vizinho ALCANÇÁVEL a pé pelos warps, ou seja dentro de um "
-                  "bloco de parede em que o jogador nunca encosta; as outras "
-                  "3 são saliência e abrir o tile ganharia 4, 1 e 1 tiles. "
-                  "Deslocamento também não explica: varrendo todo (dx,dz) de "
-                  "-20 a 20, o melhor põe 18 das 27 pedras de RavagedPath em "
-                  "tile andável (contra 4 da identidade) e casa ZERO warp, e "
-                  "os warps provam que translação única não existe ali (a "
-                  "fonte tem (19,50) e (28,44) onde temos (19,40) e (28,35), "
-                  "dz 10 e 9: o demake REDESENHOU, não transladou). Portanto "
-                  "pôr essas 31 pedras exige DESENHAR o corredor que o demake "
-                  "não desenhou, e isso é decisão de fase do Gui, não "
-                  "conversão",
-         motivo="CRITÉRIO DE ACEITE, e ele é de arte antes de ferramenta: "
-                "quem for executar desenha, no map.bin, a passagem que cada "
-                "pedra bloqueia (o tile da pedra andável MAIS o corredor do "
-                "outro lado), e só então roda `pedras_sinnoh.py --aplicar`, "
-                "que já recusa sozinho pedra que tranque ou que crie bolso "
-                "(portão de tranca e portão de bolso, provados no --demo). A "
-                "prova de pronto é a mesma das outras: a pedra fica em tile "
-                "ALCANÇÁVEL (não só andável), ela bloqueia caminho de "
-                "verdade, e quebrada abre passagem. RavagedPath tem um "
-                "segundo defeito, medido junto e maior que as pedras: dos 364 "
-                "tiles andáveis do mapa, só 107 são ALCANÇÁVEIS pelos 3 "
-                "warps, e os 4 rock smash já gravados ali ((3,12), (3,16), "
-                "(11,12), (11,13)) estão nos 257 ilhados, ou seja hoje são "
-                "objeto que o jogador nunca vê. MtCoronet_B1F tem 652 tiles "
-                "ilhados de 1116 e MtCoronet_1F_South tem 153 de 519, pela "
-                "mesma medição. Consertar a alcançabilidade desses três mapas "
-                "vem ANTES de discutir pedra, porque é ela que decide onde a "
-                "pedra faz sentido. Censo linha a linha em "
-                "`dev_scripts/pedras_sinnoh_censo.tsv`, coluna motivo"),
-    dict(regiao="sinnoh", id="sinnoh:balcao:2_enfermeiras_inalcancaveis",
-         mapa_destino="JubilifeCity_PokemonCenter_1F, "
-                      "SandgemTown_PokemonCenter_1F",
-         tipo="mapa", tamanho=2, status="feita",
+         mapa_destino="RavagedPath, OreburghGate_1F, MtCoronet_1F_South, "
+                      "MtCoronet_B1F",
+         tipo="mapa", tamanho=31, status="feita",
          bloqueio="nenhum",
-         motivo="FEITA em 21/08/2026 pelo fechador, e a medição DERRUBOU o "
-                "critério de aceite que esta própria linha trazia. O achado "
-                "original está certo e é grave: nestes dois Pokécenters não "
-                "havia de onde falar com a enfermeira, ou seja eles não "
-                "curavam o time. Medido no emulador contra a ROM oficial "
-                "`pokemon-claude-2026-08-19c.gba`, com par positivo e "
-                "negativo: em Jubilife o jogador terminava em (3,4) COM e SEM "
-                "o aperto de A, ou seja o A não fazia nada; a MESMA rota no "
-                "Pokécenter de Oreburgh travava em (7,4) com o A e andava até "
-                "(5,4) sem ele. O que a linha antiga mandava fazer, pôr "
-                "MB_COUNTER no metatile de balcão, seria ERRADO e foi "
-                "abandonado com número: o balcão desses dois pontos é o "
-                "metatile 545 do `gTileset_PokemonCenter`, e ele aparece TRÊS "
-                "vezes na linha do balcão de TODOS os 20 Pokécenters que usam "
-                "esse tileset, Hoenn inteira incluída. Dar MB_COUNTER a ele "
-                "abriria conversa através da parede em 20 mapas para "
-                "consertar 2. O defeito era a COORDENADA da enfermeira, não o "
-                "atributo do tile: varridos os 67 mapas do repo que têm "
-                "enfermeira com script, 65 põem a moça exatamente em cima da "
-                "coluna que tem MB_COUNTER (metatile 517 em Hoenn e no resto "
-                "de Sinnoh, 664 em Johto e no Mt. Silver, 577 em Unova, 774 "
-                "no Trainer Hill) e só estes 2 caíam fora, em (5,2) e (6,2). "
-                "As duas foram para (7,2), que é onde as outras 65 estão, e "
-                "onde a planta desses mapas (cópia byte a byte do "
-                "LAYOUT_POKEMON_CENTER_1F de Hoenn) põe o balcão que fala. "
-                "Casos T122.1 a T122.4, com par negativo em cada Pokécenter. "
-                "A REGRA que os achou está em `da_para_falar`, e ela nasceu "
-                "de um erro medido: a versão crua desta varredura acusou 3 "
-                "NPCs de Sinnoh (OreburghCity BARRY, Route206_North "
-                "SCIENTIST, SpearPillar GRUNT_2), eles foram movidos e o "
-                "T100.14 QUEBROU, porque aquele caso encara o cientista da "
-                "Route 206 em (6,4) desde 18/08 e o texto dele já dizia que "
-                "falar com NPC atrás de balcão é legal neste motor. Os 3 "
-                "voltaram ao lugar e não são defeito. Placar da varredura em "
-                "Sinnoh: 31 acusados na régua crua, 2 na régua do motor"),
+         motivo="FEITA em 22/08/2026, com a decisão do Gui de completar até "
+                "100. O critério de aceite era 'desenhar, no map.bin, a "
+                "passagem que cada pedra bloqueia', e foi o que "
+                "`dev_scripts/corredores_sinnoh.py` fez, em duas passadas e "
+                "com o autoteste junto. PASSADA 1, a alcançabilidade, que a "
+                "linha antiga já dizia vir ANTES da pedra: toda mancha de "
+                "TERRA que os warps não alcançavam ganhou corredor em L até a "
+                "mancha alcançável mais próxima, por busca 0-1 (andar em chão "
+                "custa 0, furar parede custa 1), e RavagedPath foi de 108 "
+                "tiles alcançáveis para 275. E a medição corrigiu o próprio "
+                "enunciado: dos '257 ilhados' de RavagedPath, 124 são "
+                "elevação 1, ou seja ÁGUA de Surf, e dos 652 de MtCoronet_B1F "
+                "são 591; o defeito de verdade era 133, 15 e 12 tiles de "
+                "terra, e sobraram 4 (uma ilha do B1F a mais de 24 tiles de "
+                "qualquer chão). Água nunca foi cavada: corredor de pedra por "
+                "dentro do lago o secaria. PASSADA 2, o túnel de cada pedra: "
+                "quem caiu em parede maciça ganhou a linha reta entre o "
+                "primeiro chão de cada lado (até 12 tiles), o que põe a pedra "
+                "num ATALHO, e é isso que faz `pedras_sinnoh.py` aceitá-la "
+                "sem criar bolso. RESULTADO MEDIDO: 63 tiles de parede "
+                "viraram chão nos quatro mapas, e as pedras aceitas subiram. "
+                "O QUE SOBRA, e é linha nova: 25 pedras da fonte continuam "
+                "fora nesses quatro mapas, quase todas em RavagedPath entre "
+                "y=36 e y=44, onde a nossa planta (32x45) simplesmente NÃO "
+                "TEM o pedaço que a fonte (32x64) tem: um dos lados do túnel "
+                "é a borda do mapa. Provas na suíte: T148.5 anda os 28 tiles "
+                "que o corredor abriu, T148.6 bate na pedra nova de (5,8) e "
+                "T148.7 quebra ela com Rock Smash e passa"),
     dict(regiao="sinnoh", id="sinnoh:escala_nao_provada:10_mapas",
          mapa_destino="ValorLakefront, LakeValor, LakeVerity, SpearPillar, "
                       "GalacticHQ_B2F, HearthomeCityGymLeaderRoom, "
                       "VeilstoneCity_GalacticWarehouse, JubilifeCity_Flat1_F3, "
                       "MtCoronet_1F_North_Room1, MtCoronet_1F_North_Room2",
-         tipo="portavel", tamanho=10, status="pendente",
-         bloqueio="MEDIDO nos 10, um a um, em 19/08/2026: "
-                  "`deslocamento_de_warp` devolve None em TODOS. Nenhum tem "
-                  "deslocamento único que leve os warps daqui aos da fonte, "
-                  "inclusive os que têm warp de sobra dos dois lados "
-                  "(HearthomeCityGymLeaderRoom 5 e 5, LakeVerity 3 e 3, "
-                  "MtCoronet_1F_North_Room1 4 e 4). Ou seja a primeira metade "
-                  "do critério de aceite, 'translação provada por >= 2 warps', "
-                  "está FECHADA para os dez, e o que sobra é a segunda: "
-                  "conversão 1 para 1 do blockdata com acordo de máscara "
-                  "medido. Isso é obra de geometria por mapa, não medição, e "
-                  "por isso a linha tem bloqueio de verdade e não fica na "
-                  "coluna de executável",
-         motivo="18/08/2026, onda de povoar: nestes 10 a única régua de "
-                "coordenada disponível é a ESCALA da caixa da matriz, que é "
-                "justamente a regra que a correção da Route 222 provou errada "
-                "(três placas dentro de parede). Em "
-                "`MtCoronet_1F_North_Room2` a caixa da matriz mede 1x1 e a "
-                "conta joga TODOS os eventos em (0,0), o que mostra o tamanho "
-                "do erro. O gerador passou a RECUSAR escala em mapa que nasce "
-                "agora, e por isso eles ficam vazios de propósito, somando 39 "
-                "pedras e algumas dezenas de objetos e placas não escritos. "
-                "CRITÉRIO DE ACEITE, um mapa por vez: achar régua PROVADA para "
-                "aquele mapa (translação com deslocamento único provado por "
-                ">= 2 warps, ou conversão 1 para 1 do blockdata com acordo de "
-                "máscara medido, como os 100% de Mt Coronet), e só então "
-                "rodar o gerador com cada objeto conferido no map.bin "
-                "(andável e alcançável para gente, tile de leitura para "
-                "placa, portão de tranca para pedra)"),
+         tipo="portavel", tamanho=10, status="feita",
+         bloqueio="nenhum",
+         motivo="FEITA em 22/08/2026, e o que mudou NÃO foi a confiança na "
+                "escala: foi o PORTÃO depois dela. A escala foi fechada em "
+                "18/08 porque pôs placa dentro de parede na Route 222; hoje "
+                "todo evento colocado passa por provas que naquele dia não "
+                "existiam, e são exatamente as que pegam aquele defeito: "
+                "objeto tem que cair em tile ALCANÇÁVEL a pé pelos warps (com "
+                "empurrão de no máximo 1 tile, senão é recusado), placa tem "
+                "que ter tile de LEITURA andável, obstáculo tem que passar "
+                "pela busca em largura de tranca E de bolso com a HM fora da "
+                "mochila, e nenhum mapa pode terminar com mais evento do que "
+                "a FONTE tem (`teto_fonte`). A escala escolhe a REGIÃO do "
+                "mapa e o portão decide o tile. PREÇO DE TER FICADO FECHADA, "
+                "medido no dia: 1.328 eventos da fonte em mapa de ESCOPO "
+                "ficavam de fora, e mapas inteiros de rua (Route 207 a 215, "
+                "Route 224, EternaCity, SolaceonTown) tinham parado de "
+                "crescer. A regra continua escrita evento a evento no censo "
+                "(`escala + portao de alcance`), para que a diferença entre "
+                "identidade e escala nunca vire invisível"),
+    dict(regiao="sinnoh", id="sinnoh:objetos:o_que_sobra_depois_do_100",
+         mapa_destino="Sinnoh inteira", tipo="portavel", tamanho=449,
+         status="pendente",
+         bloqueio="não é ferramenta e não é régua: é DECISÃO e ARTE, e cada "
+                  "balde tem número. Medido em 22/08/2026 com Sinnoh em "
+                  "100% de mapas, 86,8% de objetos e 98,1% de placas: (a) 128 "
+                  "objetos são NOME PRÓPRIO sem sprite aqui (Cynthia, Cyrus, "
+                  "os oito líderes, os lendários), e trocar por genérico faz "
+                  "o mapa mentir, que é a decisão do Gui de 05/08; (b) ~100 "
+                  "têm `hidden_flag` do Platinum que não existe nesta ROM, e "
+                  "trazê-los sem a cena que apaga a flag planta bloqueio "
+                  "permanente (decisão 2 do importador); (c) 115 bolas de "
+                  "item e 59 obstáculos foram RECUSADOS por tile, ou seja a "
+                  "coordenada da fonte não cai em nada alcançável nem a 3 "
+                  "tiles; (d) 90 canteiros de berry (`BERRY_SOIL`) seriam "
+                  "árvore de berry, e id de árvore de berry MORA NA SAVE, "
+                  "então isso é obra de janela de save e não desta; (e) 55 "
+                  "VENT e 8 BOLLARD são cenário sem mecânica nativa. "
+                  "Nenhum deles é trabalho de ferramenta parado",
+         motivo="CRITÉRIO DE ACEITE por balde, e nesta ordem de prêmio: (b) "
+                  "abrir uma faixa de FLAG_HIDE de Sinnoh e trazer a cena que "
+                  "apaga cada uma, junto com o objeto (é o maior e o mais "
+                  "arriscado); (c) medir mapa a mapa se a coordenada recusada "
+                  "é erro da escala ou lugar que a nossa planta não tem, como "
+                  "as 25 pedras de RavagedPath; (a) desenhar sprite, que é "
+                  "arte e não conversão; (d) só depois de uma janela de save "
+                  "aberta de propósito"),
     dict(regiao="johto", id="johto:gyarados:passeio_2x2",
          mapa_destino="LakeOfRage", tipo="portavel", tamanho=1,
          status="pendente",
@@ -1502,17 +1474,20 @@ FILA_DE_CONTEUDO = [
                 "prova de que o tile é alcançável"),
     dict(regiao="johto", id="johto:gs_ball:ruins_of_alph",
          mapa_destino="RuinsOfAlph_B1F (5,4)", tipo="arte_de_campo", tamanho=1,
-         bloqueio="ITEM_GS_BALL não existe no expansion", status="pendente",
-         motivo="18/08/2026, J2: a 161ª bola de Johto que a fonte prova, e a "
-                "única que ficou de fora das 160 gravadas. Está declarada em "
-                "`FORA` no dev_scripts/liga_bolas_johto.py, não esquecida. "
-                "Escolher outra bola no lugar mudaria conteúdo e inventar "
-                "item é outra obra, então isto espera decisão: ou nasce "
-                "ITEM_GS_BALL de verdade (com gráfico, texto e o gancho da "
-                "cena do Celebi), ou o objeto sai do mapa. CRITÉRIO DE "
-                "ACEITE: qualquer um dos dois caminhos, escrito antes de "
-                "mexer, e o objeto deixando de ser bola muda de sprite pela "
-                "mesma prova de coordenada da linha de cima"),
+         bloqueio="nenhum", status="cortada",
+         motivo="CORTADA pelo condutor em 22/08/2026, e o critério de aceite "
+                "escrito em 18/08 previa exatamente este caminho: `ou nasce "
+                "ITEM_GS_BALL de verdade, ou o objeto sai do mapa`. Saiu. A "
+                "razão medida é que o item não paga o próprio custo: a GS Ball "
+                "só existe para abrir a cena do CELEBI em Ilex, e o CELEBI já "
+                "é OBTENÍVEL nesta ROM como estático de Ilex (ver a coluna Dex "
+                "de Johto, 305 de 305, em dev_scripts/completude.py). Criar "
+                "item novo, com gráfico e texto, para entregar um Pokémon que "
+                "o jogador já pode pegar seria conteúdo pelo conteúdo. O "
+                "objeto de (5,4) foi APAGADO do map.json; a flag "
+                "FLAG_ITEM_GS_BALL continua existindo porque o `clearflag` da "
+                "câmara do HO-OH nas Ruínas de Alph a cita, e ali ela é no-op "
+                "de propósito, não lixo esquecido"),
     dict(regiao="johto", id="johto:flags:day_night_pokemon_em_special_flags",
          mapa_destino="GoldenrodCity_UndergroundTunnel, "
                       "GoldenrodCity_DepartmentStore_5F",
@@ -1645,6 +1620,35 @@ FILA_DE_CONTEUDO = [
                 "delas continua com o defeito. NÃO MEXER; se a worktree for "
                 "reaproveitada para trabalho novo, ela primeiro puxa a "
                 "árvore principal"),
+dict(regiao="sinnoh", id="sinnoh:lagos_low_water:boca_ilhada",
+         mapa_destino="LakeVerityLowWater, LakeAcuityLowWater",
+         tipo="mapa", tamanho=2, status="pendente",
+         bloqueio="não é conserto de corredor, é conversão do leito do lago",
+         motivo="MEDIDO em 22/08/2026, no fechamento da rodada 7, e a medida "
+                "derruba o conserto barato que tinha sido cogitado. Nos dois "
+                "mapas o jogador chega pela boca da caverna e alcança UM tile: "
+                "ele mesmo. A causa é ELEVAÇÃO, não colisão. O warp de "
+                "LakeVerityLowWater fica em (39,47) e o de LakeAcuityLowWater "
+                "em (20,43), os dois no metatile 0x207 do gTileset_CaveSinnoh, "
+                "que é MB_SOUTH_ARROW_WARP (comportamento 101), colisão 0 e "
+                "ELEVAÇÃO 3; a mancha de 800 tiles que os cerca tem 799 na "
+                "ELEVAÇÃO 1, que é água (metatile 0x0A1 do "
+                "gTileset_GeneralSinnoh, MB_POND_WATER). IsElevationMismatchAt "
+                "(src/event_object_movement.c:10014) barra 3 contra 1, então "
+                "cada passo a pé é recusado. Não é trava dura: a seta do warp "
+                "devolve o jogador ao lakefront apertando para o sul, e quem "
+                "tem Surf entra na água normalmente. O que falta é o mapa: no "
+                "Platinum o lago está DRENADO e o leito é chão, e a nossa "
+                "conversão manteve a água. Os 163 tiles de chão de verdade "
+                "(elevação 3) do LakeVerityLowWater e os 218 do "
+                "LakeAcuityLowWater moram em ilhas separadas por parede, e "
+                "todos são o metatile 0x201, o preto puro do enchimento de "
+                "caverna: ligar a boca a eles com corredor entregaria uma "
+                "passagem para o vazio, não para o leito. CRITÉRIO DE ACEITE: "
+                "converter o leito (baixar os 799 tiles de água para chão "
+                "andável com desenho de leito, elevação 3), e só então medir a "
+                "conectividade. Enquanto isso não existir, corredor aqui é "
+                "remendo que esconde o defeito de conversão"),
 ]
 
 
@@ -1734,8 +1738,15 @@ def demo():
     sinnoh = fila_sinnoh()
     obj = sum(i["objetos_fonte"] for i in sinnoh if i["tipo"] == "hidden_flag")
     tri = sum(i["objetos_fonte"] for i in sinnoh if i["tipo"] == "coord_event")
-    assert obj == 371, f"objetos com hidden_flag na fonte: {obj} (esperado 371)"
-    assert tri == 177, f"coord_events na fonte: {tri} (esperado 177)"
+    # 374 e nao 371 desde 22/08/2026, e a diferenca e MAPA e nao contagem: os
+    # 23 mapas que a fonte tinha e nos nao entraram na ROM naquele dia
+    # (`cria_mapas_sinnoh.py` e `converte_interiores_sinnoh.py`), e tres deles
+    # trazem objeto com `hidden_flag` do Platinum junto. O numero e da FONTE, e
+    # cresce quando o casamento mapa a mapa alcanca mais mapa dela.
+    assert obj == 374, f"objetos com hidden_flag na fonte: {obj} (esperado 374)"
+    # 178 pelo mesmo motivo do numero de cima: mapa novo casado em 22/08/2026
+    # traz o coord_event que a fonte tem nele.
+    assert tri == 178, f"coord_events na fonte: {tri} (esperado 178)"
     assert all(i["tamanho"] <= i["objetos_fonte"] for i in sinnoh), \
         "faltando maior que o total: o casamento 1:1 furou"
     # A trava do proxy que este critério substituiu: os 5 grunts do QG do 3F
