@@ -3248,3 +3248,4 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/scripts/galar_fala.inc"
 	.include "data/maps/DistortionWorld/scripts.inc"
 	.include "data/scripts/galar_cenas.inc"
+	.include "data/scripts/galar_objetos.inc"

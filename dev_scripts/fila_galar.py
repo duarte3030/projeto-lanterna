@@ -89,6 +89,7 @@ NULOS = ("0x0", "0x00000000", "0", None, 0)
 
 INC_FALA = f"{RAIZ}/data/scripts/galar_fala.inc"
 INC_CENAS = f"{RAIZ}/data/scripts/galar_cenas.inc"
+INC_OBJETOS = f"{RAIZ}/data/scripts/galar_objetos.inc"
 ROTEIROS = f"{RAIZ}/dev_scripts/galar_roteiros.json"
 
 # DECISAO DA CONDUTORA, 21/08/2026 (duvida 1 da fase de conteudo). Os NPCs que a
@@ -152,10 +153,17 @@ def feitas():
     if not os.path.exists(INC_FALA):
         return {}
     achados = {}
-    for k, tipo, i in re.findall(r"^GalarFala_([Gg]\d+[Mm]\d+)_(o|bg)(\d+)::",
-                                 open(INC_FALA).read(), re.M):
-        chave = "%s/%s/%d" % (k.lower(), "objeto" if tipo == "o" else "bg", int(i))
-        achados[chave] = "escrita por dev_scripts/fala_galar.py (balde a ou b)"
+    for arq, quem in ((INC_FALA, "dev_scripts/fala_galar.py (balde a ou b)"),
+                      (INC_OBJETOS, "dev_scripts/objetos_galar.py (bloco c4a)")):
+        if not os.path.exists(arq):
+            continue
+        for pref, k, tipo, i in re.findall(
+                r"^(GalarFala|GalarObj)_([Gg]\d+[Mm]\d+)_(o|bg)(\d+)::",
+                open(arq).read(), re.M):
+            del pref
+            chave = "%s/%s/%d" % (k.lower(), "objeto" if tipo == "o" else "bg",
+                                  int(i))
+            achados[chave] = "escrita por " + quem
     return achados
 
 
@@ -277,6 +285,13 @@ def varre():
             st, motivo = "descartada", DESCARTE_FORA_DO_MAPA
         if l["chave"] in prontas:
             st, motivo = "feita", prontas[l["chave"]]
+        elif st == "feita" and motivo.startswith("escrita por"):
+            # O rotulo SUMIU da arvore (o gerador deixou de portar a linha).
+            # Sem esta volta, "feita" gravado numa rodada anterior sobreviveria
+            # a remocao e a fila diria trabalho que nao existe mais: e a mesma
+            # doenca do gerador que so escreve e nunca apaga, agora do lado da
+            # medicao. Decisao escrita a mao (descartada/adiada) nao mexe.
+            st, motivo = "pendente", ""
         l["status"] = st
         l["motivo_do_status"] = motivo
     return linhas, velhas
@@ -369,6 +384,27 @@ def demo():
     if ainda:
         falhas.append("%d map_script com cena na arvore continuam pendentes: %s"
                       % (len(ainda), ainda[:5]))
+
+    # 10. o mesmo para o c4a: rotulo GalarObj_ gravado nao pode voltar a cobrar.
+    escritas = feitas()
+    ainda2 = [l["chave"] for l in linhas
+              if l["chave"] in escritas and l["status"] != "feita"]
+    if ainda2:
+        falhas.append("%d linhas com script gravado continuam pendentes: %s"
+                      % (len(ainda2), ainda2[:5]))
+
+    # 11. o contrario do 9 e do 10: linha marcada "feita" por gerador tem que
+    #     ter o rotulo NA ARVORE. Se o gerador deixou de porta-la, ela volta a
+    #     ser cobranca em vez de ficar como trabalho fantasma.
+    escritas2 = dict(feitas())
+    escritas2.update(map_scripts_feitos(mundo2["de_para"]))
+    fantasma = [l["chave"] for l in linhas
+                if l["status"] == "feita"
+                and l["motivo_do_status"].startswith("escrita por")
+                and l["chave"] not in escritas2]
+    if fantasma:
+        falhas.append("%d linhas dizem feita sem rotulo na arvore: %s"
+                      % (len(fantasma), fantasma[:5]))
 
     print("\n".join("  FALHA " + f for f in falhas) if falhas else "demo: OK")
     imprime(linhas, velhas)

@@ -1,0 +1,114 @@
+[
+  {
+    "id": "T130.1",
+    "nome": "Galar, bloco c4a: CENA DE OBJETO PORTADA DA FONTE RODA. Galar_Wedgehurst02 (g05m02) e a sala de aula, e o NPC de (4,5) estava MUDO (`script \"0\"`) porque o balde (a) do fala_galar.py so escreve fala de UM texto e a cena da fonte tem `applymovement` dentro. O c4a portou a cena inteira pelo mesmo tradutor do c3: `lock`, `faceplayer`, `msgbox ... MSGBOX_DEFAULT`, `closemessage`, `applymovement` no proprio NPC, `waitmovement`, `release`, `end`. O jogador entra pelo warp 1, e largado em (4,7), sobe tres toques de UP (o primeiro so vira o boneco) e satura em (4,6), porque o NPC de (4,5) e solido. O A abre a caixa, e a PROVA e que a caixa TRAVA: `Std_Msgbox*` termina em `waitbuttonpress`, que so aceita A ou B, entao os dois toques de LEFT do fim nao andam nada. Molde do T120.1, agora sobre script do c4a e nao do balde (a).",
+    "warp": "MAP_GALAR_WEDGEHURST_02",
+    "warp_id": 1,
+    "roteiro": "240:NADA,16:UP*3,90:NADA,16:A,180:NADA,16:LEFT*2,150:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_WEDGEHURST_02",
+      "pos": [
+        4,
+        6
+      ]
+    }
+  },
+  {
+    "id": "T130.2",
+    "nome": "PAR NEGATIVO do T130.1: MESMO mapa, MESMO warp, MESMO comeco, SEM o aperto de A. Sem caixa aberta o jogador nao esta travado, e os dois LEFT viram uma virada mais um passo: ele termina em (3,6). Sem este par o T130.1 provaria so 'o jogador parou em (4,6)', que o corpo solido do NPC ja provaria sozinho, com script ou sem.",
+    "warp": "MAP_GALAR_WEDGEHURST_02",
+    "warp_id": 1,
+    "roteiro": "240:NADA,16:UP*3,90:NADA,180:NADA,16:LEFT*2,150:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_WEDGEHURST_02",
+      "pos": [
+        3,
+        6
+      ]
+    }
+  },
+  {
+    "id": "T130.3",
+    "nome": "A CENA DO c4a NAO TRAVA O JOGO: o `release` no fim devolve o jogador. Mesmo NPC do T130.1, agora com DOIS apertos de A (o primeiro abre a caixa, o segundo satisfaz o `waitbuttonpress`), e depois dois DOWN. Com a caixa fechada o script segue para `applymovement`/`waitmovement`/`release` e o jogador anda de volta ate (4,7), o tile do warp. Este caso existe porque cena portada de outro motor e exatamente onde se planta um travamento: o T130.1 prova que ela PRENDE enquanto fala, e este prova que ela SOLTA quando acaba.",
+    "warp": "MAP_GALAR_WEDGEHURST_02",
+    "warp_id": 1,
+    "roteiro": "240:NADA,16:UP*3,90:NADA,16:A,180:NADA,16:A,180:NADA,16:DOWN*2,150:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_WEDGEHURST_02",
+      "pos": [
+        4,
+        7
+      ]
+    }
+  },
+  {
+    "id": "T130.4",
+    "nome": "PAR NEGATIVO do T130.3: o MESMO roteiro com UM aperto de A so. Com a caixa ainda aberta os dois DOWN sao comidos pelo `waitbuttonpress` e o jogador fica em (4,6). E o que separa 'a cena soltou o jogador' de 'o jogador andou porque nunca esteve preso'.",
+    "warp": "MAP_GALAR_WEDGEHURST_02",
+    "warp_id": 1,
+    "roteiro": "240:NADA,16:UP*3,90:NADA,16:A,180:NADA,16:DOWN*2,150:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_WEDGEHURST_02",
+      "pos": [
+        4,
+        6
+      ]
+    }
+  },
+  {
+    "id": "T130.5",
+    "nome": "Galar, bloco c4a: PLACA QUE O BLOCO CRIOU DO NADA. Galar_Postwick21 (g04m00) nao tinha bg_event nenhum: o G4 mandou a placa da fonte para o censo e o balde (a) do fala_galar.py nao a pegou, porque a cena tem `checkplayergender` dentro (a TV mostra um filme diferente para menino e menina). O c4a acrescentou o bg_event em (6,1) com `GalarObj_G04M00_bg0`, que e `lockall`, `compare VAR_FACING`, ramo por genero com dois textos, `releaseall`. O jogador entra pelo warp 2, e largado em (10,2), anda quatro LEFT ate (6,2) e sobe dois UP, que so o viram para cima porque (6,1) e o tile da TV. O A le, a caixa trava e os dois LEFT do fim nao andam.",
+    "warp": "MAP_GALAR_POSTWICK_21",
+    "warp_id": 2,
+    "roteiro": "240:NADA,16:LEFT*4,90:NADA,16:UP*2,90:NADA,16:A,180:NADA,16:LEFT*2,150:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_POSTWICK_21",
+      "pos": [
+        6,
+        2
+      ]
+    }
+  },
+  {
+    "id": "T130.6",
+    "nome": "PAR NEGATIVO do T130.5: mesma caminhada ate (6,2) encarando a TV, SEM apertar A. Sem caixa o jogador nao trava e os dois LEFT viram mais um passo, parando em (5,2). E o que separa 'a placa existe e fala' de 'o jogador bateu na parede'.",
+    "warp": "MAP_GALAR_POSTWICK_21",
+    "warp_id": 2,
+    "roteiro": "240:NADA,16:LEFT*4,90:NADA,16:UP*2,90:NADA,180:NADA,16:LEFT*2,150:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_POSTWICK_21",
+      "pos": [
+        5,
+        2
+      ]
+    }
+  },
+  {
+    "id": "T130.7",
+    "nome": "PRECEDENCIA, o lado que o c4a NAO tocou: objeto deixado de fora continua com a fala simples do balde (a). Galar_StowOnSide02 (g00m10) tem seis NPC; o c4a nao portou nenhum deles nesta onda (o unico candidato do mapa era o de (2,16), que pede `warp` e ficou de fora com motivo), e o de (2,12) segue com `GalarFala_G00M10_o5`, escrito pelo fala_galar.py. O jogador entra pelo warp de debug, e largado em (5,14), sobe tres UP ate (5,12), anda quatro LEFT e satura em (3,12) colado no NPC; o A abre a fala e trava, entao os tres RIGHT do fim nao andam. Se a onda do c4a tivesse sobrescrito o campo `script` desse objeto (o defeito que a guarda de precedencia no `fala_galar.aplica` existe para impedir), o A nao abriria caixa nenhuma e ele andaria.",
+    "warp": "MAP_GALAR_STOW_ON_SIDE_02",
+    "warp_id": 0,
+    "roteiro": "300:NADA,16:UP*3,90:NADA,16:LEFT*4,90:NADA,16:A,180:NADA,16:RIGHT*3,150:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_STOW_ON_SIDE_02",
+      "pos": [
+        3,
+        12
+      ]
+    }
+  },
+  {
+    "id": "T130.8",
+    "nome": "PAR NEGATIVO do T130.7: mesma caminhada, SEM o A. O jogador nao trava e os tres RIGHT o levam ate (5,12). E o par que torna o T130.7 nao-vacuo: sem ele, 'terminou em (3,12)' seria explicado pelo corpo do NPC sozinho.",
+    "warp": "MAP_GALAR_STOW_ON_SIDE_02",
+    "warp_id": 0,
+    "roteiro": "300:NADA,16:UP*3,90:NADA,16:LEFT*4,90:NADA,180:NADA,16:RIGHT*3,150:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_STOW_ON_SIDE_02",
+      "pos": [
+        5,
+        12
+      ]
+    }
+  }
+]

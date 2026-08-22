@@ -8310,8 +8310,8 @@
    "ponteiro_fonte": "0x168C62",
    "no_mapa": false,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g04m00/map_script",
@@ -9030,8 +9030,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g05m02/objeto/1",
@@ -9045,8 +9045,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g05m03/map_script",
@@ -10189,8 +10189,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1296,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g05m13/objeto/4",
@@ -19830,8 +19830,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 560,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g09m10/objeto/4",
@@ -19860,8 +19860,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 560,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g09m10/objeto/6",
@@ -20008,8 +20008,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 2984,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g09m11/objeto/5",
@@ -20379,8 +20379,8 @@
    "ponteiro_fonte": "0x168C62",
    "no_mapa": false,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g09m15/objeto/0",

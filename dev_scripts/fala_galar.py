@@ -53,6 +53,11 @@ ficam pendentes, e o NPC continua mudo. Nunca se inventa fala.
     python3 dev_scripts/fala_galar.py   --aplicar  # ESTE, por ultimo
     python3 dev_scripts/fila_galar.py   --gravar   # a fila reconta a verdade
 
+PRECEDENCIA: rotulo `GalarObj_*` (bloco c4a, dev_scripts/objetos_galar.py) VENCE
+`GalarFala_*`. Onde a cena inteira do objeto foi portada, ela ja contem a fala
+que este balde daria, e por isso `aplica()` nao sobrescreve campo `script` que ja
+comece com `GalarObj_`. A mesma regra esta escrita no cabecalho de la.
+
 `mundo_galar.py` reescreve `data/maps/Galar_*/{map.json,scripts.inc}` inteiros.
 Por isso este arquivo NAO escreve dentro de `scripts.inc`: a fala mora em
 `data/scripts/galar_fala.inc`, arquivo so dele, e no `map.json` ele toca apenas
@@ -689,6 +694,18 @@ def aplica(falas, placas, bolas, gravar):
             i, motivo = casa_objeto(doc, l["x"], l["y"])
             if i is None:
                 recusa.append({"chave": l["chave"], "motivo": motivo})
+                continue
+            # PRECEDENCIA (regra do bloco c4a, 22/08/2026): cena INTEIRA vence
+            # fala simples. Um object event tem UM campo `script`; onde
+            # `dev_scripts/objetos_galar.py` portou a cena da fonte, ela ja
+            # contem a fala que este balde daria, e sobrescrever aqui apagaria
+            # a cena calado na proxima rodada de LEVA_DONA. Hoje os dois
+            # conjuntos sao disjuntos por construcao (este balde so pega
+            # a_fala/b_flag e o c4a so pega c_var_cena), entao esta guarda e
+            # cinto de seguranca, nao conserto de defeito visto.
+            if str(doc["object_events"][i].get("script", "")).startswith("GalarObj_"):
+                recusa.append({"chave": l["chave"],
+                               "motivo": "cena do c4a tem precedencia sobre a fala"})
                 continue
             doc["object_events"][i]["script"] = l["rotulo"]
             mudou["fala"] += 1

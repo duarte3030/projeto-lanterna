@@ -138,7 +138,7 @@ def constantes(caminho, prefixo):
     entrada de tabela de tradução.
     """
     fora = {}
-    for m in re.finditer(r"^#define\s+(%s_[A-Z0-9_]+)\s+(0x[0-9A-Fa-f]+|\d+)"
+    for m in re.finditer(r"^#define\s+(%s_[A-Za-z0-9_]+)\s+(0x[0-9A-Fa-f]+|\d+)"
                          r"\s*(?://.*)?$" % prefixo, open(caminho).read(), re.M):
         fora[m.group(1)] = int(m.group(2), 0)
     return fora
@@ -270,7 +270,8 @@ class Recusa(Exception):
 IGUAIS_SEM_ARG = {"lock", "lockall", "release", "releaseall", "faceplayer",
                   "end", "return", "waitstate", "closemessage", "waitmessage",
                   "waitbuttonpress", "waitse", "waitfanfare", "doweather",
-                  "fadedefaultbgm", "hidemonpic", "waitmoncry"}
+                  "fadedefaultbgm", "hidemonpic", "waitmoncry", "waitdooranim",
+                  "nop", "nop1"}
 IGUAIS_COM_ARG = {"delay": 1, "playse": 1, "playfanfare": 1, "waitmovement": 1,
                   "fadescreen": 1, "textcolor": 1, "savebgm": 1, "random": 1}
 # Comando que mexe em objeto pelo id LOCAL da fonte.
@@ -283,7 +284,7 @@ POR_ID = {"applymovement": 2, "addobject": 1, "removeobject": 1,
 MOLDURA = {"lock", "lockall", "release", "releaseall", "faceplayer", "end",
            "return", "delay", "waitstate", "closemessage", "waitmessage",
            "waitbuttonpress", "goto", "call", "goto_if", "call_if",
-           "compare_var_to_value", "textcolor", "waitmovement"}
+           "compare_var_to_value", "textcolor", "waitmovement", "nop", "nop1"}
 
 STD_MSGBOX = {2: "MSGBOX_NPC", 3: "MSGBOX_SIGN", 4: "MSGBOX_DEFAULT",
               5: "MSGBOX_YESNO", 6: "MSGBOX_AUTOCLOSE"}
@@ -309,6 +310,10 @@ class Tradutor:
             f"{PKFR}/include/constants/weather.h",
             f"{RAIZ}/include/constants/weather.h", "WEATHER")
         self.usou_flag = set()
+        self.var_especial = {v: n for n, v in
+                             constantes(f"{RAIZ}/include/constants/vars.h",
+                                        "VAR").items()
+                             if 0x8000 <= v < 0x8100}
         # DIR_* é enum no nosso global.h e #define no da fonte: a conferência é
         # pelo NOME aparecer no nosso header, que é o que o assembler vai pedir.
         self.dir_fonte = {v: k for k, v in constantes(
@@ -336,10 +341,17 @@ class Tradutor:
         return str(nosso)
 
     def var(self, endereco):
-        if endereco == 0x800D:
-            return "VAR_RESULT"
-        if 0x8000 <= endereco <= 0x800F:
-            return "VAR_0x%04X" % endereco
+        # Var especial sai pelo NOME que o NOSSO header da, nunca por
+        # `VAR_0x%04X` montado a mao: 0x800C e VAR_FACING, 0x800D e VAR_RESULT,
+        # 0x800E e VAR_ITEM_ID e 0x800F e VAR_LAST_TALKED, e so quatro dos
+        # dezesseis primeiros tem o nome numerico. Montar o nome errado nao
+        # passa no assembler, mas so na hora do link, longe daqui.
+        if 0x8000 <= endereco < 0x8100:
+            nome = self.var_especial.get(endereco)
+            if nome is None:
+                raise Recusa("var especial 0x%04X sem nome no nosso vars.h"
+                             % endereco)
+            return nome
         nome = self.nome_da_var.get(endereco)
         if nome is None:
             raise Recusa("var salva 0x%04X da fonte sem dono nosso" % endereco)
@@ -492,7 +504,7 @@ class Tradutor:
                 elif nome in ("goto_if", "call_if"):
                     corpo.append("\t%s %d, %s" % (self.macro(nome), args[0],
                                                   alvo(args[1])))
-                else:
+                elif not self.extra(nome, args, corpo, base):
                     raise Recusa("comando de cena fora do filtro: " + nome)
                 if nome not in MOLDURA:
                     usadas["efeito"] += 1
@@ -503,6 +515,16 @@ class Tradutor:
             # não escrever: fica dívida com cara de trabalho feito.
             raise Recusa("cena vira no-op depois da traducao (so moldura)")
         return corpo + extras, usadas
+
+    def extra(self, nome, args, corpo, base):
+        """Gancho para quem herda: emite um comando a mais, ou devolve False.
+
+        Existe para o bloco c4a (`dev_scripts/objetos_galar.py`) acrescentar
+        `warp` sem tocar no filtro do c3, que ja esta commitado e provado pelo
+        T127. Quem herda so acrescenta; nunca tira nada daqui.
+        """
+        del nome, args, corpo, base
+        return False
 
     def _esconde(self, local):
         """`setflag` da flag que a FONTE pendurou no objeto (DECISÃO do topo)."""

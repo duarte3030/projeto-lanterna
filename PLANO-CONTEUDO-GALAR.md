@@ -73,8 +73,12 @@ MAPA e só 17 mapas com tabela, **não há déficit nenhum**. Nada de crescer
   não na segunda; a var sobrevive a salvar e recarregar a `.sav`; duas cenas em
   mapas diferentes não se atrapalham, nos dois sentidos; o NPC sai do caminho
   depois da cena.
-- **c4, cena de OBJETO com estado.** É o que sobra, e agora é o grosso. Ver a
-  classificação medida abaixo.
+- **c4a, cena de objeto sem estado. FEITO em 22/08: 8 cenas em 6 mapas**
+  (6 NPCs e 2 placas que não existiam), por `dev_scripts/objetos_galar.py`, que
+  herda o tradutor do c3 inteiro. Custo: 0 var, 0 flag. Provado por T130, 8
+  casos em 4 pares. **Ver o teto real logo abaixo: ele não é 1.038.**
+- **c4b a c4f, cena de OBJETO com estado.** É o que sobra. Ver a classificação
+  medida abaixo.
 
 ### As 301 entradas de map script que ficaram de fora do c3, por motivo
 
@@ -118,6 +122,53 @@ executável quando todos os bloqueios dela caem. Ordem: opcode, `special`,
 | `setvar`/`compare` de etapa | **19** | var de cena, e é o único padrão que gasta var |
 | **TOTAL** | **1.891** | |
 
+### O TETO DO c4a: 79, e não 1.038
+
+A tabela acima conta LINHA, e não LUGAR ONDE PENDURAR A LINHA. Medido em
+22/08/2026, ao executar o bloco: das 1.891 linhas de objeto e placa, **1.398 são
+de objetos que o G4 NÃO pôs no mapa** (gráfico de Pokémon ou de cenário, tile não
+andável, tile de warp), e a condutora já as descartou em 21/08 porque devolver o
+sprite mentiria a espécie. Sobram **79 linhas com objeto de verdade no mapa** (70
+objetos e 9 placas), e é esse o teto do c4a. **Dentro das 1.398 estão os 859
+scripts de encontro estático** (`setwildbattle`/`dowildbattle`, Pokémon parado no
+overworld): eles são insumo de uma **Pokédex de Galar** futura, não cena de NPC,
+e hoje estão FORA DE ESCOPO por decisão do Gui. Voltam junto com a decisão de
+sprite, nunca por este balde.
+
+Das 79, **8 foram portadas** e o resto caiu no filtro. Recontagem das 1.883
+linhas de fora, por motivo, na medição de 22/08:
+
+    1.398  objeto nao esta no mapa (descarte da condutora, 21/08)
+      122  decodificacao incompleta: opcode 0xFF
+       80  `special` (indice do FireRed nao e o nosso)
+       32  texto recusado por marcador de buffer (0xFD e 0xFC)
+       29  flag de motor do demake (0x243, 0x827 e irmas)
+       21  id de objeto vindo de var (0x800F), nao de literal
+       17  `message` (fluxo de caixa que este emissor nao escreve)
+       10  `warp` de objeto (ver o aviso abaixo)
+        9  `checkitem`
+        6  `pokemart`
+        5  opcode 0xD7
+       ...  o resto pulverizado em var salva sem dono e comando solto
+
+**78 dessas linhas parariam numa flag** e ficaram de fora sem pedir nenhuma:
+`include/constants/flags.h` não era desta frente na onda de 22/08.
+
+### AVISO GRAVE: `warp` de objeto traduz, mas NÃO troca de mapa
+
+O emissor sabe traduzir `warp` (mapa pelo de-para dos 7 bytes de `formatwarp`,
+coordenada 1:1) e a cena CHEGA A RODAR: no `Galar_StowOnSide02` o jogador trava
+na caixa de texto, ou seja o script entrou. O que não acontece é a troca de mapa.
+Duas formas foram testadas na ROM de verdade em 22/08/2026:
+
+  - `warp` sozinho: o jogador fecha a caixa, fica solto e CONTINUA no mapa;
+  - `warp` seguido de `waitstate`: o jogador fica **PRESO PARA SEMPRE**, e nem A
+    nem B soltam.
+
+Por isso as 10 linhas saíram com motivo. **Quem for executar c4b a c4f não repita
+o `waitstate` depois do `warp`**: ele prende o jogador. As linhas voltam quando
+alguém medir o caminho do `ScrCmd_warp` a partir de script de objeto.
+
 **Quanto "uma var por MAPA" cobre, medido:** só **43 linhas** de objeto e placa
 tocam var de estado salva, espalhadas por **28 mapas** e **22 vars distintas** da
 fonte. Desses 28 mapas, **18 usam UMA var só** (22 linhas, cobertas inteiras pelo
@@ -129,8 +180,8 @@ gargalo é `special` e opcode.**
 
 ### Sugestão de ordem para despachar o c4 (a condutora decide)
 
-1. **c4a, os 1.038 do resto**: maior volume, zero endereço novo, e reusa o
-   tradutor do `cenas_galar.py` sem uma linha de desenho nova.
+1. **c4a. FEITO em 22/08**, e o teto era 79 e não 1.038: 8 portadas, 0 endereço
+   novo, reusando o tradutor do `cenas_galar.py`.
 2. **c4b, as 104 de flag de esconder**: barato e visível (NPC que some de vez).
 3. **c4c, as 58 de item e Pokémon**: precisa do de-para de espécie e item.
 4. **c4d, as 19 de var de etapa**: 28 vars no pior caso, dentro do orçamento.
