@@ -705,14 +705,37 @@ def galar(cfg):
     fonte_bg = [l for l in bg if "lixo de leitura" not in l["motivo"]]
     placaveis = [l for l in fonte_bg if "sem item traduzivel" not in l["motivo"]]
 
-    n_obj = n_bg = n_script = 0
+    n_obj = n_bg = n_script = n_estatico = n_script_npc = 0
     for m in nossos:
         d = json.load(open(f"{RAIZ}/data/maps/{m}/map.json"))
         oe = d.get("object_events") or []
         n_obj += len(oe)
+        n_estatico += sum(1 for o in oe if o.get("origem") == "estaticos_galar")
         n_script += sum(1 for o in oe if str(o.get("script") or "0") not in ("0", ""))
+        n_script_npc += sum(1 for o in oe
+                            if str(o.get("script") or "0") not in ("0", "")
+                            and o.get("origem") != "estaticos_galar")
         n_bg += len(d.get("bg_events") or [])
-    extras = {"script": (n_script, n_obj),
+    # ENCONTRO ESTATICO (bloco c5, `dev_scripts/estaticos_galar.py`), 22/08/2026.
+    #
+    # Ele entra nos DOIS lados da coluna `objetos`, e o do DENOMINADOR sai do
+    # censo do gerador, NUNCA da nossa própria contagem. A diferença não é
+    # estética: o encontro estático nasce de um registro da fonte que o G4 tinha
+    # marcado como impossível ("gráfico é Pokémon"), e que hoje é possível porque
+    # `OBJ_EVENT_GFX_SPECIES` devolve a espécie de verdade, então ele SAI dos
+    # impossíveis e ENTRA nos colocáveis. Somar ao denominador os 795 que nós
+    # gravamos daria uma fatia que lê 100% para sempre e esconderia os 293 que a
+    # fonte tem e nós não pusemos; somar os 1.088 que a FONTE oferece mede a obra.
+    # (A primeira versão desta função somava os 795 nos dois lados E mantinha os
+    # mesmos 795 dentro de `obj_impossiveis`, e com isso as partes deixavam de
+    # somar o todo: o `--demo` desta ferramenta reprovava.)
+    est = json.load(open(f"{RAIZ}/dev_scripts/galar_estaticos.json"))
+    colocaveis = list(colocaveis) + [None] * est["da_fonte"]
+    # A coluna SCRIPT continua contando só NPC. Ela existe para dizer quanta FALA
+    # falta em Galar, e todo estático já nasce com script próprio: misturá-los
+    # levaria a coluna de 35,6% para 60,5% sem uma linha de fala nova.
+    extras = {"script": (n_script_npc, n_obj - n_estatico),
+              "estaticos": (n_estatico, est["da_fonte"]),
               "obj_impossiveis": len(fonte_obj) - len(colocaveis),
               "obj_fonte": len(fonte_obj),
               "bg_sem_traducao": len(fonte_bg) - len(placaveis),
@@ -912,16 +935,20 @@ def main():
         linha_da_dex()
 
     if not alvo or alvo.lower() == "galar":
+        g = galar(REGIOES["Galar"])[2]
+        est_n, est_f = g["estaticos"]
         print("\nGalar é GEOMETRIA INTEIRA e conteúdo em obra. Os 438 mapas "
-              "estão com tileset provado\npixel a pixel, 1.473 warps e 1.260 "
-              "objetos colocados; a fase de conteúdo começou em\n20/08/2026 e "
-              "hoje 394 desses objetos falam. Sem treinador, encontro, ginásio "
-              "nem Liga:\na fila está em `dev_scripts/fila_galar.json`. As "
-              "colunas `objetos` e `placas` dividem pelo\nque é COLOCÁVEL, não "
-              "pelo total da fonte (ver `--detalhe Galar`), porque 3.051 "
-              "registros\nda fonte nunca podem virar NPC. `objetos` passa de "
-              "100% porque a obra pôs coisa que a\nfonte não tinha nesse "
-              "formato: 52 placas e 56 bolas de item com flag própria.")
+              "estão com tileset provado\npixel a pixel e 1.473 warps. As colunas "
+              "`objetos` e `placas` dividem pelo que é\nCOLOCÁVEL, não pelo total "
+              f"da fonte (ver `--detalhe Galar`), porque {g['obj_impossiveis']} "
+              "registros\nda fonte nunca podem virar objeto nosso (cenário de "
+              "script, tile não andável, em cima de\nwarp). Dentro do denominador "
+              f"estão os {est_f} ENCONTROS ESTÁTICOS que a fonte tem, dos\nquais "
+              f"{est_n} já estão no mapa (bloco c5, 22/08/2026); os que faltam "
+              "são mesa de raide e\ngeometria recusada, e estão na fila em "
+              "`dev_scripts/fila_galar.json`. A coluna `script`\nconta só NPC, "
+              "porque encontro estático já nasce com script e misturá-los "
+              "esconderia\na fala que falta. Sem treinador, ginásio nem Liga.")
 
     if alvo:
         for nome, (falta, piores) in faltando_total.items():
@@ -972,18 +999,20 @@ def main():
             g = galar_extras
             print("\n=== Galar: o que ficou FORA do denominador ===")
             print(f"   objetos: {g['obj_impossiveis']} dos {g['obj_fonte']} "
-                  "registros da fonte não podem virar NPC")
-            print("      (gráfico de Pokémon, tile não andável, cenário de "
-                  "script, em cima de warp). Sobram")
+                  "registros da fonte não podem virar objeto nosso")
+            print("      (cenário de script, tile não andável, em cima de warp, "
+                  "gráfico de Pokémon que\n      não é encontro). Sobram")
             print(f"      {g['obj_fonte'] - g['obj_impossiveis']} colocáveis, "
-                  "que são o denominador da coluna `objetos`.")
+                  "que são o denominador da coluna `objetos`, e dentro deles")
+            print(f"      os {g['estaticos'][1]} encontros estáticos da fonte, "
+                  f"dos quais {g['estaticos'][0]} já estão no mapa.")
             print(f"   placas: {g['bg_sem_traducao']} dos {g['bg_fonte']} bg da "
                   "fonte são item sem tradução neste motor.")
             print(f"      Sobram {g['bg_fonte'] - g['bg_sem_traducao']}, que são "
                   "o denominador da coluna `placas`.")
             a, b = g["script"]
-            print(f"   objetos COM script hoje: {a} de {b} ({100*a/b:.1f}%). "
-                  "É aqui que mora o trabalho.")
+            print(f"   NPC COM script hoje: {a} de {b} ({100*a/b:.1f}%), sem "
+                  "contar encontro estático.\n      É aqui que mora o trabalho.")
     else:
         print("\nuse --detalhe <região> para ver o que falta em cada uma")
     return 0
@@ -1012,7 +1041,13 @@ def demo():
     gente = json.load(open(REGIOES["Galar"]["gente"]))
     assert pares["object_events"][0] != gente["objetos_gravados"], (
         "numerador de Galar voltou a sair do censo congelado")
-    assert extras["script"][0] <= extras["script"][1] == pares["object_events"][0]
+    # a coluna SCRIPT mede NPC, então o denominador dela é o nosso total de
+    # objetos MENOS os encontros estáticos, que já nascem com script
+    assert extras["script"][0] <= extras["script"][1] == (
+        pares["object_events"][0] - extras["estaticos"][0])
+    # e o estático não pode passar do que a FONTE oferece: denominador feito da
+    # nossa própria contagem leria 100% para sempre
+    assert extras["estaticos"][0] <= extras["estaticos"][1]
     # o denominador é o COLOCÁVEL, não o total da fonte
     assert pares["object_events"][1] + extras["obj_impossiveis"] == extras["obj_fonte"]
     assert pares["bg_events"][1] + extras["bg_sem_traducao"] == extras["bg_fonte"]

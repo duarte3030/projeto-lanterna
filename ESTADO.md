@@ -4,7 +4,127 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 22/08/2026, na build de fechamento da rodada 5. A seção 0.m abaixo é a passagem de bastão dela.
+Última medição: 22/08/2026, na build de fechamento da rodada 6. A seção 0.n abaixo é a passagem de bastão dela.
+
+---
+
+## 0.n GALAR GANHA OS 795 POKÉMON DO OVERWORLD, E A RÉGUA VOLTA A FECHAR, 22/08/2026 (rodada 6; condutor Opus, um executor Opus, fechador Opus)
+
+Build verde. **ROM 98,50% de 32 MB** (33.051.928 B, 490,7 KB livres; era 98,43% na 0.m), EWRAM
+86,16% e IWRAM 86,66% (iguais às de ontem), **suíte 814/815** (só o T11.3 pulado na rodada
+normal), **T146 10/10** e o **T11 em 2 de 3** contra a build `cf6786b2ae`
+(`/private/tmp/claude-501/t11-antiga`), com esse vermelho explicado no fim desta seção. **SAVE
+COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B e 2.032 layouts sem nenhum movido;
+`valida_rom.py` com os 2.378 mapas declarados dentro da ROM; `guarda_colisao_vars.py` com 23
+colisões herdadas e **0 novas nos dois perfis**; `valida_conectividade` com **0 warps
+quebrados**; `valida_warp_tile --piso 60` em 5.869 de 6.829 (85,9%, igual à 0.m); `--demo`
+tocados verdes. ROM oficial `roms/pokemon-claude-2026-08-22d.gba` (md5
+`17e5f891bfb0862e8443644ff73a3e74`), com o `.map` ao lado, e o MESMO binário na ROM de teste de
+nome fixo.
+
+| região | mapas | objetos | warps | placas | script | arte | Dex |
+|---|---|---|---|---|---|---|---|
+| Kanto | 100% | 101,2% | 100% | 100% | -- | 52 (0) | 290 |
+| Johto | 100% | 96,1% | 100,1% | 96,2% | -- | 55 (3) | 305 |
+| Hoenn | 100% | 100,7% | 100,1% | 100% | -- | 39 (21) | 297 |
+| Sinnoh | 95,4% | 76,3% | 100,9% | 86,8% | -- | 39 (76) | 267 |
+| Unova | 99,0% | 102,3% | 99,6% | 100,2% | -- | 30 (2) | 315 |
+| Galar | 100% | **93,5%** | 100% | 44,1% | 35,6% | 48 (32) | 0 |
+
+### O bloco c5: 795 Pokémon parados no mapa, como em Sword/Shield
+
+Decisão do Gui: **o teto de seis regiões fica de pé, Galar fica, e o conteúdo próprio dela
+entra.** Caiu com ela o descarte de 18/08 ("gráfico de Pokémon mentiria a espécie"), verdade
+naquele dia e não mais: `OBJ_EVENT_GFX_SPECIES` existe nesta build e o `distribui_dex.py` já
+punha 106 estáticos com ela. `dev_scripts/estaticos_galar.py`: **795 encontros em 68 mapas**
+(791 comuns e 4 únicos), 79 espécies, 145 cenas no `.inc` e **4 flags** (0x1D0A a 0x1D0D,
+apelidos de `FLAG_UNUSED`, save intocada); a fila de Galar caiu de 2.570 para **1.775 de
+3.195**. A espécie sai da `gSpeciesNames` da PRÓPRIA ROM da fonte, achada por âncora, **por NOME
+e nunca por id** (o 331 do demake é `Sharpedo`); nome repetido é forma e só entra com decisão
+escrita uma a uma.
+
+**Comum e único são medidos, não arbitrados.** Único é aquele cujo script da fonte acende a
+própria flag de esconder: gasta flag e a acende só em vitória ou captura. Comum não gasta flag
+NENHUMA, e é isso que o faz renascer quando o mapa recarrega. **De fora ficaram 293 linhas com
+motivo contado**: 200 de raide (o script sorteia até 59 espécies, e escolher uma seria
+inventar), 89 de geometria, 3 de forma e 1 de id fora da tabela da fonte; nenhuma caiu por teto
+nem por janela.
+
+**O 859 do plano era 1.092.** Remedido sobre a MESMA fonte: 1.092 linhas de `script_objeto`
+carregam `setwildbattle`, e 1.088 são de objeto que o G4 não pôs no mapa. Nenhuma definição
+testada devolve 859: cita-se 1.092, e a régua divide por 1.088, que é o recorte de objeto.
+
+### Os dois defeitos de motor, que viram lição
+
+1. **`VAR_LAST_TALKED` não guarda id entre a batalha e o fim do script**, porque
+   `ProcessPlayerFieldInput` regrava essa var a cada quadro em que o jogador tem controle:
+   `removeobject VAR_LAST_TALKED` depois de `dowildbattle` é aposta na ordem dos quadros. O
+   gerador guarda o id em `VAR_TEMP_1` ANTES da batalha, e o **T146.7** martela LEFT na saída da
+   batalha: passou **5 de 5 execuções seguidas**.
+2. **Remover o objeto ANTES da batalha congela o jogador**: a ordem é a da fonte. E
+   **`FLAG_SYS_CTRL_OBJ_DELETE` não é lida por ninguém neste fork**: fica no script do único
+   porque é o idioma do vanilla, não porque faça efeito.
+
+### A régua contava o mesmo objeto duas vezes, e o `--demo` dela dizia
+
+Vermelho real da rodada. A primeira versão somava os **795 que NÓS gravamos** nos dois lados da
+coluna `objetos` E mantinha esses mesmos 795 dentro de `obj_impossiveis`: as partes deixavam de
+somar o todo (1.906 + 3.051 = 4.957 contra 4.162 da fonte) e o `completude.py --demo`
+**reprovava**. Pior que a soma: denominador feito da própria resposta lê 100% para sempre, e os
+293 que a fonte tem e nós não pusemos sumiam; o `--detalhe` ainda imprimia "sobram 1.111
+colocáveis" com o divisor já em 1.906.
+
+Conserto: o denominador sai do **lado da fonte**, por um censo que o próprio gerador escreve
+(`dev_scripts/galar_estaticos.json`, `da_fonte: 1088`), e os 1.088 saem dos impossíveis e entram
+nos colocáveis. Galar `objetos` vai a **93,5%** (2.055 de 2.199) no lugar dos 107,8% de antes, e
+1.963 + 2.199 = 4.162 fecha. A coluna `script` conta **só NPC** (448 de 1.260, 35,6%): estático
+já nasce com script, e misturá-lo levaria a coluna a 60,5% sem uma linha de fala nova.
+
+### Os casos adversariais do fechador (autor de caso ≠ autor de cena)
+
+`dev_scripts/testes_criticos/146_fechador_r6.json`, 10 casos, 10 verdes.
+
+- **T146.1 e T146.2, o comum renasce sem passar pelo save.** Numa execução só: batalha, fuga, o
+  Skwovet some, o jogador SAI para o `Galar_WildArea05` e VOLTA, e o corredor volta a barrar em
+  (19,17); o par sem a ida e volta anda os 41 tiles até (7,17) e é quem isola a carga de mapa.
+  Pediu ferramenta nova: `WARP=MAP_X[:id]` no roteiro (`expande_warps` em `testa_critico.py`),
+  com o mapa resolvido pela tabela.
+- **T146.3 e T146.4, o único que NÃO se apaga.** O T145.7 acende a flag na mão e passa nos dois
+  mundos; aqui a batalha termina em FUGA, e a flag tem de seguir apagada e o Slowpoke sólido,
+  inclusive depois do save.
+- **T146.5, T146.8, T146.9 e T146.10: os cinco warps do mapa mais cheio.** O
+  `Galar_CrownTundra08` tem 43 objetos de 64 (15 herdados, 28 do c5); somados ao T145.9, os
+  cinco ficam provados com o mapa cheio. **T146.6**: no mesmo mapa o NPC de cena de (22,54)
+  continua acordando, prova de que o herdado não perdeu a vez na janela de sprite, com os
+  encontros no FIM da lista de templates.
+- **A prova de que o recusado NÃO está no mapa é de SCRIPT**, porque tile não andável, ocupado e
+  inalcançável são onde o jogador não chega, e andar por cima não separa "o objeto não existe"
+  de "não consigo chegar lá". Virou o portão 9 do `--demo` do gerador: chave recusada não
+  aparece em `map.json` nenhum, chave aceita aparece uma vez, e não há objeto nosso com chave
+  que a fonte não tenha.
+
+### O que fica aberto para o Gui
+
+- **A curva de Galar (pergunta 16)**: o nível é o da fonte, cru, e a fonte é de pós-jogo, então
+  Galar ainda nasce em nível alto. **Os 200 de raide e os 89 de geometria** seguem na fila. E
+  **Galar continua com Dex 0 na régua**: estático não conta como entrada de Dex de região, e
+  ligar isso é escopo.
+- **Vencer o estático único não virou caso de suíte.** A vitória FOI medida à mão (a flag foi de
+  0 para 1 e o objeto saiu do mapa), mas o Pokémon do menu de debug chega à batalha DORMINDO em
+  parte das execuções, sem que o inimigo tenha golpe de sono: flaky por construção, e pendência
+  de FERRAMENTA.
+- **`lendarios_sinnoh.comportamento` não julga warp morto**: responde MB_NORMAL para os warps 1,
+  3 e 4 do `Galar_CrownTundra08` e os três disparam. **T108.2 é flaky**: reprovou por "não andou"
+  numa varredura, passou na outra e 3 de 3 isolado.
+- **O T11 está 2 de 3, e o verde do T11.3 NÃO vale hoje.** O T11.1 passa, mas o menu de SAVE
+  dele para na TELA DE CARTÃO na ROM velha (medido no framebuffer): a save nunca é escrita, e o
+  T11.2, que é o controle, cai num menu principal SEM "CONTINUE". Com save inválida, o T11.3
+  ("a ROM nova RECUSA a save velha") passa por não ter o que carregar: verde falso. Reprova
+  igual com o `testa_critico.py` do HEAD, ou seja não é desta rodada; é calibração do roteiro
+  do T11.1 contra a ROM velha.
+- **Gens 6, 7 e 9 andaram FORA do repo**, em `fontes-mapas/`: scripts de XY extraídos, Alola com
+  268 treinadores com lugar por guia e Paldea com 23 interiores. E seguem abertos os cinco itens
+  da 0.m, do `valida_warp_tile` sem linha de base às duas salas do Mt. Coronet.
 
 ---
 
@@ -21,7 +141,7 @@ novas nos dois perfis**, `valida_conectividade` com **0 warps quebrados e nenhum
 órfão novo**, `valida_warp_tile --piso 60` com 5.869 de 6.829 warps disparando
 (85,9%, igual à 0.l) e os cinco `--demo` de gerador tocados verdes. ROM oficial:
 `roms/pokemon-claude-2026-08-22c.gba` (md5 `462fef1424fc2ae5b467346df11f518a`), com o `.map` ao
-lado, e o MESMO binário na ROM de teste de nome fixo.
+lado, e o MESMO binário na ROM de teste de nome fixo. **Dex obtenível: 1.571 de 1.571, 100%**, intocada nesta rodada.
 
 | região | mapas | objetos | warps | placas | script | arte | Dex |
 |---|---|---|---|---|---|---|---|
@@ -184,7 +304,7 @@ colisões herdadas em vars e 5 em flags e **0 novas nos dois perfis**,
 `valida_warp_tile --piso 60` com 5.869 de 6.829 warps disparando (85,9%), e os
 oito `--demo` de gerador tocados verdes. ROM oficial:
 `roms/pokemon-claude-2026-08-22b.gba` (md5 `470666cf982cec334a950db80987a4ea`), com o `.map` ao lado, e o
-MESMO binário na ROM de teste de nome fixo.
+MESMO binário na ROM de teste de nome fixo. **Dex obtenível: 1.571 de 1.571, 100%**, intocada nesta rodada.
 
 | região | mapas | objetos | warps | placas | script | arte | Dex |
 |---|---|---|---|---|---|---|---|
@@ -598,7 +718,7 @@ COMPATIVEL**, `valida_rom.py` dizendo que os 2.378 mapas declarados entraram, e
 `guarda_colisao_vars.py` com 23 colisões herdadas e **0 novas**. ROM oficial:
 `roms/pokemon-claude-2026-08-21b.gba` (md5
 `8c01c21bdaad23f79e93f3b70f852471`), com o `.map` ao lado, e o MESMO binário
-na ROM de teste de nome fixo.
+na ROM de teste de nome fixo. **Dex obtenível: 1.571 de 1.571, 100%**, intocada nesta rodada.
 
 | região | mapas | objetos | warps | placas | script | arte (mediana, pobres) |
 |---|---|---|---|---|---|---|
@@ -790,7 +910,7 @@ Build verde. **ROM 98,69% de 32 MB**, EWRAM 86,16%, IWRAM 86,66%, **suíte
 COMPATIVEL**, `valida_rom.py` dizendo que tudo que foi declarado entrou, e
 `valida_mapas_sinnoh.py --so-sinnoh` fechando com `bloqueado: 0`. ROM oficial:
 `roms/pokemon-claude-2026-08-21.gba` (md5 `c4452153949d42b8aef2f57a65c7678a`),
-com o `.map` ao lado, e o MESMO binário na ROM de teste de nome fixo.
+com o `.map` ao lado, e o MESMO binário na ROM de teste de nome fixo. **Dex obtenível: 1.571 de 1.571, 100%**, intocada nesta rodada.
 
 | região | mapas | objetos | warps | placas | arte (mediana, pobres) |
 |---|---|---|---|---|---|
@@ -1038,7 +1158,7 @@ Build verde (**ROM 98,58% de 32 MB**, EWRAM 86,16%, IWRAM 86,66%), **suíte 399/
 **T11 completo 3/3**, e **SAVE COMPATIVEL** depois da regravação da
 impressão. ROM oficial: `roms/pokemon-claude-2026-08-19.gba`, com o
 `.map` gravado ao lado (faltava, e o T11 precisa dele), e a mesma build na
-ROM de teste de nome fixo. Commits: `f23c4e4ab2`, `c68e11fc55`,
+ROM de teste de nome fixo. **Dex obtenível: 1.571 de 1.571, 100%**, intocada nesta rodada. Commits: `f23c4e4ab2`, `c68e11fc55`,
 `3f922f893d`, `01b1874b83`, `fe8668803c`, `001ea8e056`.
 
 ### A JANELA DE SAVE ABRIU E FECHOU DE NOVO. A save antiga NÃO carrega mais

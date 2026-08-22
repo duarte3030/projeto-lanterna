@@ -61,7 +61,11 @@ Formato de um caso
                                             # (32 = só TURBO A/B; 36 = com LV.5)
   "antes_do_warp": "20:DOWN,60:NADA,20:A",  # apertos ANTES do warp, opcional
   "warp": "MAP_PEWTER_CITY_GYM",            # warp pelo menu de debug, opcional
-  "roteiro": "20:UP*6,60:NADA",             # botões depois do warp, opcional
+  "roteiro": "20:UP*6,60:NADA",             # botões depois do warp, opcional.
+                                            # `WARP=MAP_X[:id]` dentro dele warpa
+                                            # DE NOVO pelo menu de debug: é assim
+                                            # que um caso sai do mapa e volta na
+                                            # MESMA execução (ver expande_warps)
   "prova": {                                # obrigatório, e não pode ser vazio
      "mapa": "MAP_PEWTER_CITY_GYM",         # mapa atual no fim
      "time": 1,                             # tamanho do time (>= por padrão? não: igual)
@@ -622,6 +626,31 @@ def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=Non
     return estados
 
 
+_WARP_NO_ROTEIRO = re.compile(r"WARP=(MAP_[A-Z0-9_]+)(?::(\d+))?")
+
+
+def expande_warps(roteiro, por_nome):
+    """`WARP=MAP_X[:id]` DENTRO do roteiro vira a navegação do menu de debug.
+
+    Existe por uma família de caso que o campo `warp` do JSON não alcança: a que
+    precisa SAIR do mapa e VOLTAR na MESMA execução. O encontro estático comum
+    de Galar renasce quando o mapa recarrega, e "recarregar" não é o mesmo que
+    "abrir o jogo de novo": a prova de save (T145.4) responde uma metade, e a
+    volta pelo mapa vizinho responde a outra.
+
+    O nome do mapa é resolvido pela MESMA tabela do campo `warp`, e nunca
+    digitado como número, porque id de mapa anda quando alguém insere mapa no
+    meio de um grupo, e roteiro com número cravado passaria a testar outro mapa
+    em silêncio.
+    """
+    def troca(m):
+        if m.group(1) not in por_nome:
+            raise KeyError(f"mapa de warp desconhecido no roteiro: {m.group(1)}")
+        g, n = por_nome[m.group(1)]
+        return rota_warp(g, n, int(m.group(2) or 0))
+    return _WARP_NO_ROTEIRO.sub(troca, roteiro)
+
+
 def monta_roteiro(caso, por_nome, tabela_flags):
     modo = caso.get("abertura", ABERTURA_PADRAO)
     if modo not in ABERTURAS:
@@ -653,7 +682,7 @@ def monta_roteiro(caso, por_nome, tabela_flags):
         g, n = por_nome[caso["warp"]]
         partes.append(rota_warp(g, n, caso.get("warp_id", 0)))
     if caso.get("roteiro"):
-        partes.append(caso["roteiro"])
+        partes.append(expande_warps(caso["roteiro"], por_nome))
     # prova de vida no fim: abrir o menu tem que mudar a tela. Não substitui a
     # prova de estado, é só um sinal a mais quando a prova falha.
     partes.append("60:NADA")
