@@ -243,6 +243,62 @@ gargalo é `special` e opcode.**
 6. **c4f, os 282 de `special`**: o mais caro por linha, e o único que pede
    decisão caso a caso. Provavelmente nunca entra inteiro.
 
+## (d) EXECUTADO em 22/08/2026, e o AVISO acima estava meio errado
+
+`dev_scripts/treinadores_galar.py`. O stride foi MEDIDO antes de acreditar em
+qualquer numero, como o aviso mandava, e o resultado corrige o aviso:
+
+- **`gTrainers` E a tabela do FireRed**: base 0x23EAC8, **40 B por entrada**,
+  ponteiro de party em +0x24. Provado por contagem e nao por fe: varrendo
+  palavras alinhadas na regiao, **736 dos 774** ponteiros de ROM achados estao a
+  exatamente 40 B do anterior, e nenhum outro delta chega perto.
+- **O molde errado era o do POKEMON, nao o do treinador.** O FireRed usa
+  `u16 iv; u8 lvl; u16 species` (6/8/14/16 B por `partyFlags`); o demake usa o
+  do CFRU, `u16 iv; u16 lvl; u16 species; u16 heldItem` mais `u16 moves[4]`, ou
+  seja **8 e 16 B, so dois tamanhos**. `lvl` como u8 desalinha `species` em dois
+  bytes e o resto da party vira lixo: era isso que reprovava os 576.
+- Com 8/16, **735 dos 741 times passam** (1 e o id 0, de ponteiro nulo, e 5 sao
+  sobra da fonte). 2.057 Pokemon, 511 especies distintas, nivel 2 a 100 com
+  **mediana 48** (e nao 70, que era leitura do molde errado).
+
+**Curva: 255 em tudo, decisao do Gui de 22/08/2026.** O nivel da fonte e lido
+para medir e descartado para escrever. Galar e regiao plana de pos-jogo.
+
+**Resultado: 266 batalhas em 148 mapas, 206 treinadores novos (ids 3000-3205).**
+De fora ficaram 59 linhas contadas: 26 de objeto que o G4 nao pos no mapa, 14 de
+especie fora da tabela de nomes da fonte, 8 de bytecode indecodificavel, 3 de
+time ilegivel, 3 de texto com marcador de buffer, 3 de ramo condicional com
+treinadores DIFERENTES (rival de tres iniciais), 2 de especie sem equivalente.
+Custo de flag: **ZERO** (a flag de vitoria e `TRAINER_FLAGS_START + id`, e a
+faixa ja esta dimensionada por `MAX_TRAINERS_COUNT = 4000`).
+
+**ARMADILHA DE ORDEM, e ela mordeu uma vez**: `treinadores_galar.py --aplicar`
+REESCREVE o bloco inteiro de Galar em `src/data/trainers.party`, inclusive os
+chefes. Quem rodar os dois tem de rodar **treinadores_galar ANTES de
+fase_f_chefes**, sempre; na ordem trocada o Kabu volta ao time cru da fonte e o
+T147.3 acusa (foi assim que se descobriu).
+
+**DEFEITO DE MOTOR ACHADO PELO T147.8, e o conserto e do gerador.**
+`trainerbattle_no_intro` e `trainerbattle_earlyrival` caem em
+`EventScript_DoNoIntroTrainerBattle`, que vai DIRETO ao `dotrainerbattle` sem o
+`specialvar GetTrainerFlag` que o `EventScript_TryDoNormalTrainerBattle` tem.
+No FireRed isso esta certo (esses moldes so sao alcancados depois de o treinador
+AVISTAR o jogador, e a flag ja foi conferida antes); aqui o objeto e FALADO, e
+sem portao o treinador rebriga para sempre. O gerador passou a emitir
+`lock / faceplayer / goto_if_set TRAINER_FLAGS_START + <id>, <rotulo>_Fim` antes
+dos dois moldes. Custo: zero flag nova.
+
+## (placa) o balde c das placas, EXECUTADO em 22/08/2026
+
+`dev_scripts/placas_galar.py`, 33 placas em 6 mapas. A regra e uma frase: **uma
+placa diz o que diz.** O que barrava essas 66 era bloqueio de OBJETO (`setvar`,
+`special`, `dofieldeffect`), e um `sign` do nosso motor nao anda, nao some, nao
+entrega item e nao guarda estado: o estado que o script da fonte carrega ao lado
+do texto nao tem onde caber numa placa. E o mesmo contrato que as 52 placas do
+balde (a) ja usavam. De fora: 24 sem texto aproveitavel, 9 com marcador de
+buffer, 4 que outro balde ja colocou, 1 em coordenada ja ocupada.
+A coluna `placas` da regua foi de **44,1% para 65,8%**.
+
 ## (d) treinadores: medição, com o aviso na frente
 
 **AVISO, e ele vale mais que os números abaixo: o struct de party do demake não

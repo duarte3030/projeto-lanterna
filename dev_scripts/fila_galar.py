@@ -90,6 +90,8 @@ NULOS = ("0x0", "0x00000000", "0", None, 0)
 INC_FALA = f"{RAIZ}/data/scripts/galar_fala.inc"
 INC_CENAS = f"{RAIZ}/data/scripts/galar_cenas.inc"
 INC_OBJETOS = f"{RAIZ}/data/scripts/galar_objetos.inc"
+INC_TREINADORES = f"{RAIZ}/data/scripts/galar_treinadores.inc"
+INC_PLACAS = f"{RAIZ}/data/scripts/galar_placas.inc"
 ROTEIROS = f"{RAIZ}/dev_scripts/galar_roteiros.json"
 
 # DECISAO DA CONDUTORA, 21/08/2026 (duvida 1 da fase de conteudo). Os NPCs que a
@@ -154,11 +156,15 @@ def feitas():
         return {}
     achados = {}
     for arq, quem in ((INC_FALA, "dev_scripts/fala_galar.py (balde a ou b)"),
-                      (INC_OBJETOS, "dev_scripts/objetos_galar.py (bloco c4a)")):
+                      (INC_OBJETOS, "dev_scripts/objetos_galar.py (bloco c4a)"),
+                      (INC_TREINADORES,
+                       "dev_scripts/treinadores_galar.py (balde d)"),
+                      (INC_PLACAS, "dev_scripts/placas_galar.py (placa do c)")):
         if not os.path.exists(arq):
             continue
         for pref, k, tipo, i in re.findall(
-                r"^(GalarFala|GalarObj)_([Gg]\d+[Mm]\d+)_(o|bg)(\d+)::",
+                r"^(GalarFala|GalarObj|GalarTrn|GalarPlaca)"
+                r"_([Gg]\d+[Mm]\d+)_(o|bg)(\d+)::",
                 open(arq).read(), re.M):
             del pref
             chave = "%s/%s/%d" % (k.lower(), "objeto" if tipo == "o" else "bg",

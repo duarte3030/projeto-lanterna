@@ -42,6 +42,50 @@ já diz isso.
   **Nenhum nível foi mudado**: o ace de cada batalha ficou no nível que já tinha, e
   o resto do time entra até 4 níveis abaixo dele.
 
+## GALAR ENTRA, 22/08/2026: 38 batalhas, 17 pessoas, e a ironia registrada
+
+`dev_scripts/galar_fase_f.py` acrescenta a regiao `galar` a
+`dev_scripts/fase_f_chefes.json` (idempotente: apaga o que ja estiver marcado
+como galar e reescreve). Depois dele, quem escreve o `.party` continua sendo o
+`fase_f_chefes.py --aplicar` de sempre. **Ordem obrigatoria**: primeiro
+`dev_scripts/treinadores_galar.py --aplicar`, que cria os treinadores, depois
+este, senao o time cru da fonte fica por cima do time de chefe.
+
+**A IRONIA, e ela fica escrita**: Galar e a regiao do Dynamax, e Galar nao
+Dinamaxa. A cota de Dynamax (5 no jogo inteiro: Whitney, Chuck, Norman, Roark,
+Cheren) e a de Terastal (6: Lance-2, Drake, Steven, Lucian, Cynthia, Genesis)
+foram gastas ANTES de Galar existir, e a regra do Gui era "Dynamax e o que eu
+menos gosto, deixa pouco disso". Mexer na cota agora seria reabrir uma decisao
+dele sem ele pedir. Os chefes de Galar lutam com **Mega (31) e Z (7)**.
+
+**Um time por PESSOA**, e nao por batalha: as cinco entradas do Hop, as quatro
+da Marnie e as duas do Leon levam o mesmo esquadrao. A regra de lendario da Fase
+F ja era por identidade; aqui o time inteiro e. Isso esta cobrado por caso:
+T147.11 e T147.12 leem o mesmo Flygon e o mesmo Dialga nas duas entradas do
+Raihan (lider, fonte 168, e Elite Four da Champion Cup, fonte 338), com o
+`oponente` diferente. Se alguem der times distintos por etapa, o par reprova.
+
+**Nivel 255 do primeiro ao sexto**, inclusive nos chefes: decisao do Gui para
+Galar inteira, entao nao ha ace num nivel e resto quatro abaixo.
+
+**Habilidade nao e declarada em Galar.** `src/battle_main.c` tem
+`assertf(abilityNum < maxAbilityNum, ...)`: habilidade errada e crash, nao aviso.
+O `.party` aceita o bloco sem `Ability:` e o motor cai no slot 0, sempre valido.
+Nenhum dos 17 times depende de habilidade escondida.
+
+| regiao | batalhas | lider | rival | E4 | campeao | vilao | lendarios distintos | mega | Z |
+|---|---|---|---|---|---|---|---|---|
+| Galar | 38 | 13 | 11 | 2 | 2 | 10 | 17 | 31 | 7 |
+
+Os 17 lendarios de Galar, por pessoa: Milo Zarude, Nessa Manaphy, Kabu Entei,
+Bea Terrakion, Allister Spectrier, Opal Zacian, Gordie Regirock, Melony
+Glastrier, Piers Darkrai, Raihan Dialga, Hop Zamazenta, Bede Calyrex, Marnie
+Urshifu, Leon Eternatus, Rose Regieleki, Oleana Regidrago, Team Yell Kubfu.
+Os oito de Galar de verdade (Zacian, Zamazenta, Eternatus, Calyrex, Regieleki,
+Regidrago, Urshifu, Kubfu) ficaram com rivais, campeao, viloes e a Opal; os
+outros nove sao repeticao ENTRE regioes, que e de proposito.
+
+---
 ## Contagem: 144 batalhas de chefe (líder, rival, E4, campeão)
 
 Os **40 chefes de equipe vilã** entraram depois, em 22/08/2026, e têm seção

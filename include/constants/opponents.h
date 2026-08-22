@@ -2228,6 +2228,221 @@
 #define TRAINER_UNOVA_ROSA_OSHAWOTT                          2536  // bw3g ROSA_OSHAWOTT (parties.asm:5330, maps/NimbasaParkOutside.asm:153)
 // <<< chefes que faltavam de Johto e Unova (importa_chefes_faltantes.py) <<<
 
+// >>> Fase de conteudo de Galar, balde d: treinadores (dev_scripts/treinadores_galar.py) >>>
+// Um id por treinador de Galar CITADO por script de objeto ou placa.
+// Faixa exclusiva desta frente: 3000 a 3399 (o maior id fora dela era
+// 2536, e o proximo livre e onde as outras frentes apendem).
+// Custo ZERO de save: a flag de 'ja venci' e TRAINER_FLAGS_START + id,
+// e a faixa inteira ja esta dimensionada por MAX_TRAINERS_COUNT (4000).
+// Gerado por dev_scripts/treinadores_galar.py; nao editar a mao.
+#define TRAINER_GALAR_KEVIN_1           3000  // fonte 1, TEAM YELL kevin
+#define TRAINER_GALAR_JONH_5            3001  // fonte 5, TEAM YELL JONH
+#define TRAINER_GALAR_BEDE_11           3002  // fonte 11, Rival Bede
+#define TRAINER_GALAR_GRUNT_12          3003  // fonte 12, TEAM YELL Grunt
+#define TRAINER_GALAR_GRUNT_13          3004  // fonte 13, TEAM YELL Grunt
+#define TRAINER_GALAR_BIANCA_21         3005  // fonte 21, Lass Bianca
+#define TRAINER_GALAR_ISADORA_22        3006  // fonte 22, Lass Isadora
+#define TRAINER_GALAR_ARTHUR_23         3007  // fonte 23, Trainer Star Arthur
+#define TRAINER_GALAR_BEA_27            3008  // fonte 27, Leader Bea
+#define TRAINER_GALAR_GORDIE_49         3009  // fonte 49, Leader Gordie
+#define TRAINER_GALAR_PCL_G_50          3010  // fonte 50, Champion Pcl.g
+#define TRAINER_GALAR_ANA_59            3011  // fonte 59, TEAM YELL Ana
+#define TRAINER_GALAR_MARNIE_60         3012  // fonte 60, Rival Marnie
+#define TRAINER_GALAR_MARNIE_76         3013  // fonte 76, Rival Marnie
+#define TRAINER_GALAR_ERIC_77           3014  // fonte 77, Macro Cosmos Eric
+#define TRAINER_GALAR_FELIPE_78         3015  // fonte 78, Macro Cosmos Felipe
+#define TRAINER_GALAR_VINICIUS_79       3016  // fonte 79, Macro Cosmos Vinicius
+#define TRAINER_GALAR_OLENA_80          3017  // fonte 80, Macro Cosmos Olena
+#define TRAINER_GALAR_ROSE_85           3018  // fonte 85, Macro Cosmos Rose
+#define TRAINER_GALAR_CALVIN_90         3019  // fonte 90, Youngster Calvin
+#define TRAINER_GALAR_TYLER_96          3020  // fonte 96, Youngster Tyler
+#define TRAINER_GALAR_LASS_102          3021  // fonte 102, Lady Lass
+#define TRAINER_GALAR_SAMMY_104         3022  // fonte 104, Youngster Sammy
+#define TRAINER_GALAR_GREG_106          3023  // fonte 106, Youngster Greg
+#define TRAINER_GALAR_JAMES_107         3024  // fonte 107, Camper James
+#define TRAINER_GALAR_KENT_108          3025  // fonte 108, Cook Derek Kent
+#define TRAINER_GALAR_RUTH_111          3026  // fonte 111, Model Ruth
+#define TRAINER_GALAR_KAYSER_113        3027  // fonte 113, School Kid kayser
+#define TRAINER_GALAR_LASSA_114         3028  // fonte 114, Camper lassa
+#define TRAINER_GALAR_CONNER_115        3029  // fonte 115, Bug Catcher Conner
+#define TRAINER_GALAR_HANNAH_116        3030  // fonte 116, Lass Hannah
+#define TRAINER_GALAR_ROBIN_118         3031  // fonte 118, Lass Robin
+#define TRAINER_GALAR_HANNAH_121        3032  // fonte 121, Camper Hannah
+#define TRAINER_GALAR_ALEX_124          3033  // fonte 124, Doctor Alex
+#define TRAINER_GALAR_ANDO_126          3034  // fonte 126, ウエ Trainter Ando
+#define TRAINER_GALAR_ETHAN_128         3035  // fonte 128, Worker Ethan
+#define TRAINER_GALAR_ANDRE_129         3036  // fonte 129, Worker Andre
+#define TRAINER_GALAR_MOGAN_130         3037  // fonte 130, Worker Mogan
+#define TRAINER_GALAR_LIAM_142          3038  // fonte 142, Camper Liam
+#define TRAINER_GALAR_IWAN_E_EVEL_145   3039  // fonte 145, Bug Maniac Iwan e Evel
+#define TRAINER_GALAR_BEDE_147          3040  // fonte 147, Rival Bede
+#define TRAINER_GALAR_DIANA_150         3041  // fonte 150, Swimmer♀ Diana
+#define TRAINER_GALAR_DIANE_151         3042  // fonte 151, Picnicker Diane
+#define TRAINER_GALAR_ISABELLE_152      3043  // fonte 152, Beldade Isabelle
+#define TRAINER_GALAR_ALICIA_154        3044  // fonte 154, Picnicker Alicia
+#define TRAINER_GALAR_ROBERT_157        3045  // fonte 157, Policial Robert
+#define TRAINER_GALAR_MARKA_162         3046  // fonte 162, Dancer Marka
+#define TRAINER_GALAR_JUDY_163          3047  // fonte 163, Madame Judy
+#define TRAINER_GALAR_MARNIE_165        3048  // fonte 165, Rival Marnie
+#define TRAINER_GALAR_WINSTON_166       3049  // fonte 166, Musician Winston
+#define TRAINER_GALAR_DAWSON_167        3050  // fonte 167, Musician Dawson
+#define TRAINER_GALAR_RAIHAN_168        3051  // fonte 168, Leader Raihan
+#define TRAINER_GALAR_JOVAN_169         3052  // fonte 169, Worker Jovan
+#define TRAINER_GALAR_HANNA_172         3053  // fonte 172, Mochileira Hanna
+#define TRAINER_GALAR_LESLIE_173        3054  // fonte 173, Worker Leslie
+#define TRAINER_GALAR_BRADLEY_174       3055  // fonte 174, Super Nerd Bradley
+#define TRAINER_GALAR_ERIKA_177         3056  // fonte 177, Beauty Erika
+#define TRAINER_GALAR_AVA_178           3057  // fonte 178, Beauty Ava
+#define TRAINER_GALAR_DELIA_179         3058  // fonte 179, Beauty Delia
+#define TRAINER_GALAR_LANA_180          3059  // fonte 180, Beauty Lana
+#define TRAINER_GALAR_MARCOS_181        3060  // fonte 181, Worker Marcos
+#define TRAINER_GALAR_ALAN_185          3061  // fonte 185, Camper Alan
+#define TRAINER_GALAR_BRICE_186         3062  // fonte 186, Camper Brice
+#define TRAINER_GALAR_CLARK_187         3063  // fonte 187, Cook Derek Clark
+#define TRAINER_GALAR_JACQUELINE_188    3064  // fonte 188, Beauty Jacqueline
+#define TRAINER_GALAR_JOANNA_195        3065  // fonte 195, Doctor Joanna
+#define TRAINER_GALAR_ERNEST_197        3066  // fonte 197, Swimmer♂ Ernest
+#define TRAINER_GALAR_ANA_210           3067  // fonte 210, Burglar Ana
+#define TRAINER_GALAR_ANA_211           3068  // fonte 211, Lass Ana
+#define TRAINER_GALAR_TALIA_213         3069  // fonte 213, Beauty Talia
+#define TRAINER_GALAR_CLOTILDE_214      3070  // fonte 214, Beauty Clotilde
+#define TRAINER_GALAR_KARLA_215         3071  // fonte 215, Beauty Karla
+#define TRAINER_GALAR_KLARA_225         3072  // fonte 225, Rival Klara
+#define TRAINER_GALAR_MUSTARD_230       3073  // fonte 230, Dojo Master Mustard
+#define TRAINER_GALAR_LUCAS_231         3074  // fonte 231, Leader Lucas
+#define TRAINER_GALAR_C_PHENE_232       3075  // fonte 232, Leader C.Phene
+#define TRAINER_GALAR_VANESSA_233       3076  // fonte 233, Leader Vanessa
+#define TRAINER_GALAR_JULIA_234         3077  // fonte 234, Swimmer♀ Julia
+#define TRAINER_GALAR_ISAIAH_252        3078  // fonte 252, Swimmer♀ Isaiah
+#define TRAINER_GALAR_JASPER_259        3079  // fonte 259, Collector Jasper
+#define TRAINER_GALAR_GRACE_273         3080  // fonte 273, Beauty Grace
+#define TRAINER_GALAR_OLIVIER_274       3081  // fonte 274, Black Belt Olivier
+#define TRAINER_GALAR_GLENN_277         3082  // fonte 277, Gentleman Glenn
+#define TRAINER_GALAR_GILLI_E_CAM_278   3083  // fonte 278, Interviewer Gilli E Cam
+#define TRAINER_GALAR_JON_299           3084  // fonte 299, Tamer Jon
+#define TRAINER_GALAR_TOMMY_300         3085  // fonte 300, Backpacker Tommy
+#define TRAINER_GALAR_PERRY_301         3086  // fonte 301, Backpacker Perry
+#define TRAINER_GALAR_CHARLES_302       3087  // fonte 302, Psychic Charles
+#define TRAINER_GALAR_MILO_304          3088  // fonte 304, Leader Milo
+#define TRAINER_GALAR_MILA_305          3089  // fonte 305, Model Mila
+#define TRAINER_GALAR_BRUCE_306         3090  // fonte 306, Backpacker Bruce
+#define TRAINER_GALAR_NESSA_307         3091  // fonte 307, Leader Nessa
+#define TRAINER_GALAR_KABU_308          3092  // fonte 308, Leader Kabu
+#define TRAINER_GALAR_BOBBY_309         3093  // fonte 309, Policial Bobby
+#define TRAINER_GALAR_ALLISTER_310      3094  // fonte 310, Leader Allister
+#define TRAINER_GALAR_BEA_311           3095  // fonte 311, Leader Bea
+#define TRAINER_GALAR_BEDE_312          3096  // fonte 312, Leader Bede
+#define TRAINER_GALAR_CARTER_313        3097  // fonte 313, Cabbie Carter
+#define TRAINER_GALAR_MITCH_314         3098  // fonte 314, Cabbie Mitch
+#define TRAINER_GALAR_BECK_315          3099  // fonte 315, Cabbie Beck
+#define TRAINER_GALAR_MARLON_316        3100  // fonte 316, Cabbie Marlon
+#define TRAINER_GALAR_HIDEKI_319        3101  // fonte 319, Black Belt Hideki
+#define TRAINER_GALAR_AARON_320         3102  // fonte 320, Black Belt Aaron
+#define TRAINER_GALAR_HITOSHI_321       3103  // fonte 321, Black Belt Hitoshi
+#define TRAINER_GALAR_HOP_332           3104  // fonte 332, Rival HOP
+#define TRAINER_GALAR_MELONY_336        3105  // fonte 336, Leader Melony
+#define TRAINER_GALAR_PIERS_337         3106  // fonte 337, Leader Piers
+#define TRAINER_GALAR_RAIHAN_338        3107  // fonte 338, Elite Four Raihan
+#define TRAINER_GALAR_GORDIE_339        3108  // fonte 339, Leader Gordie
+#define TRAINER_GALAR_KLARA_340         3109  // fonte 340, Leader Klara
+#define TRAINER_GALAR_AVERY_341         3110  // fonte 341, Leader Avery
+#define TRAINER_GALAR_MUSTARD_342       3111  // fonte 342, Champion Mustard
+#define TRAINER_GALAR_PEONY_343         3112  // fonte 343, Leader Peony
+#define TRAINER_GALAR_MARNIE_344        3113  // fonte 344, Rival Marnie
+#define TRAINER_GALAR_ALLANA_345        3114  // fonte 345, Leader Allana
+#define TRAINER_GALAR_ALEXANDER_346     3115  // fonte 346, Leader Alexander
+#define TRAINER_GALAR_LUCAS_347         3116  // fonte 347, Leader Lucas
+#define TRAINER_GALAR_VANESSA_348       3117  // fonte 348, Leader Vanessa
+#define TRAINER_GALAR_C_PHENE_349       3118  // fonte 349, Boss C.Phene
+#define TRAINER_GALAR_MARCELO_AF_351    3119  // fonte 351, Membro Marcelo AF.
+#define TRAINER_GALAR_GOLD_GAM2_0_352   3120  // fonte 352, Membro Gold Gam2.0
+#define TRAINER_GALAR_PEDRO_GA_13_353   3121  // fonte 353, Membro pedro ga.13
+#define TRAINER_GALAR_PERG_PIKACH_354   3122  // fonte 354, Membro Perg.Pikach
+#define TRAINER_GALAR_NEO_GIF_355       3123  // fonte 355, Membro Neo.Gif
+#define TRAINER_GALAR_FABIO_RODR_356    3124  // fonte 356, Membro Fabio Rodr.
+#define TRAINER_GALAR_EDUARDO_357       3125  // fonte 357, Membro Eduardo
+#define TRAINER_GALAR_BRENO_MENE_359    3126  // fonte 359, Membro Breno Mene.
+#define TRAINER_GALAR_KALEDK_360        3127  // fonte 360, Membro Kaledk
+#define TRAINER_GALAR_DEIDARA_YT_361    3128  // fonte 361, Membro Deidara YT
+#define TRAINER_GALAR_CATZU_D_NE_363    3129  // fonte 363, Membro Catzu D. Ne
+#define TRAINER_GALAR_BISCOITOMOL_364   3130  // fonte 364, Membro Biscoitomol
+#define TRAINER_GALAR_SASUKEZIN69_365   3131  // fonte 365, Membro Sasukezin69
+#define TRAINER_GALAR_LORD_367          3132  // fonte 367, Membro Lord
+#define TRAINER_GALAR_EURICO_368        3133  // fonte 368, Membro Eurico
+#define TRAINER_GALAR_CLOVES_369        3134  // fonte 369, Membro Cloves
+#define TRAINER_GALAR_JUAN_GRSON_370    3135  // fonte 370, Membro Juan grson
+#define TRAINER_GALAR_CELINA_FER_371    3136  // fonte 371, Membro Celina Fer.
+#define TRAINER_GALAR_RUAN_POKE_372     3137  // fonte 372, Membro Ruan Poke
+#define TRAINER_GALAR_CLAYTON_SA_373    3138  // fonte 373, Membro Clayton sa.
+#define TRAINER_GALAR_PLANETA_POK_374   3139  // fonte 374, Membro Planeta Pok
+#define TRAINER_GALAR_GRUNT_375         3140  // fonte 375, TEAM YELL Grunt
+#define TRAINER_GALAR_GRUNT_378         3141  // fonte 378, TEAM YELL Grunt
+#define TRAINER_GALAR_GRUNT_379         3142  // fonte 379, TEAM YELL Grunt
+#define TRAINER_GALAR_MARTHA_SANT_381   3143  // fonte 381, Membro Martha Sant
+#define TRAINER_GALAR_GRUNT_390         3144  // fonte 390, Rival Grunt
+#define TRAINER_GALAR_GRUNT_391         3145  // fonte 391, Rival Grunt
+#define TRAINER_GALAR_ASH_402           3146  // fonte 402, Champion Ash
+#define TRAINER_GALAR_RED_403           3147  // fonte 403, Champion Red
+#define TRAINER_GALAR_ETHAN_404         3148  // fonte 404, Champion Ethan
+#define TRAINER_GALAR_MISTY_406         3149  // fonte 406, Leader Misty
+#define TRAINER_GALAR_GREEN_407         3150  // fonte 407, ウエ Trainter Green
+#define TRAINER_GALAR_HILDA_409         3151  // fonte 409, Champion Hilda
+#define TRAINER_GALAR_OPAL_418          3152  // fonte 418, Leader Opal
+#define TRAINER_GALAR_PIERS_419         3153  // fonte 419, Leader Piers
+#define TRAINER_GALAR_SERENA_421        3154  // fonte 421, Model Serena
+#define TRAINER_GALAR_BROCK_422         3155  // fonte 422, Leader Brock
+#define TRAINER_GALAR_CYNTHIA_423       3156  // fonte 423, Champion Cynthia
+#define TRAINER_GALAR_IRIS_424          3157  // fonte 424, Champion Iris
+#define TRAINER_GALAR_HILBERT_425       3158  // fonte 425, Gentleman Hilbert
+#define TRAINER_GALAR_HOP_429           3159  // fonte 429, Rival Hop
+#define TRAINER_GALAR_HOP_432           3160  // fonte 432, Rival Hop
+#define TRAINER_GALAR_HOP_435           3161  // fonte 435, Rival Hop
+#define TRAINER_GALAR_HOP_438           3162  // fonte 438, Rival Hop
+#define TRAINER_GALAR_CARLOS_442        3163  // fonte 442, Macro Cosmos Carlos
+#define TRAINER_GALAR_LAURO_445         3164  // fonte 445, Dojo Master Lauro
+#define TRAINER_GALAR_JODY_446          3165  // fonte 446, Macro Cosmos Jody
+#define TRAINER_GALAR_TAMMY_447         3166  // fonte 447, Channeler Tammy
+#define TRAINER_GALAR_ANGELICA_451      3167  // fonte 451, Channeler Angelica
+#define TRAINER_GALAR_EMILIA_452        3168  // fonte 452, Channeler Emilia
+#define TRAINER_GALAR_JENNIFER_453      3169  // fonte 453, Channeler Jennifer
+#define TRAINER_GALAR_CARLOS_457        3170  // fonte 457, Channeler Carlos
+#define TRAINER_GALAR_GABRIEL_458       3171  // fonte 458, Channeler Gabriel
+#define TRAINER_GALAR_MARCIO_459        3172  // fonte 459, Channeler Marcio
+#define TRAINER_GALAR_JEREMY_465        3173  // fonte 465, Worker Jeremy
+#define TRAINER_GALAR_ALAN_466          3174  // fonte 466, Champion Alan
+#define TRAINER_GALAR_FELIPEMX_467      3175  // fonte 467, Champion FelipeMX
+#define TRAINER_GALAR_JORDAN_469        3176  // fonte 469, Office Worke Jordan
+#define TRAINER_GALAR_VIRGIL_470        3177  // fonte 470, Biker Virgil
+#define TRAINER_GALAR_MAY_471           3178  // fonte 471, Champion May
+#define TRAINER_GALAR_BRENDAN_472       3179  // fonte 472, Champion Brendan
+#define TRAINER_GALAR_DAWN_473          3180  // fonte 473, Champion Dawn
+#define TRAINER_GALAR_DANA_474          3181  // fonte 474, Worker Dana
+#define TRAINER_GALAR_ARIANA_475        3182  // fonte 475, Worker Ariana
+#define TRAINER_GALAR_LEAH_476          3183  // fonte 476, Worker Leah
+#define TRAINER_GALAR_YAZMIN_478        3184  // fonte 478, Gentleman Yazmin
+#define TRAINER_GALAR_KINDRA_479        3185  // fonte 479, Dancer Kindra
+#define TRAINER_GALAR_BECKY_480         3186  // fonte 480, Swimmer♂ Becky
+#define TRAINER_GALAR_BROOKS_482        3187  // fonte 482, Gentleman Brooks
+#define TRAINER_GALAR_STEVEN_485        3188  // fonte 485, Champion Steven
+#define TRAINER_GALAR_LANCE_486         3189  // fonte 486, Champion Lance
+#define TRAINER_GALAR_CHAD_509          3190  // fonte 509, Youngster Chad
+#define TRAINER_GALAR_NICOLAS_521       3191  // fonte 521, ウエ Ranger Nicolas
+#define TRAINER_GALAR_MADELINE_522      3192  // fonte 522, ウエ Ranger Madeline
+#define TRAINER_GALAR_ANTHONY_531       3193  // fonte 531, Bug Catcher Anthony
+#define TRAINER_GALAR_MIAH_588          3194  // fonte 588, Aroma Lady Miah
+#define TRAINER_GALAR_EVE_JON_589       3195  // fonte 589, Young Couple Eve & Jon
+#define TRAINER_GALAR_MASON_590         3196  // fonte 590, Juggler Mason
+#define TRAINER_GALAR_CYNDY_591         3197  // fonte 591, Crush Girl Cyndy
+#define TRAINER_GALAR_EVAN_593          3198  // fonte 593, Tamer Evan
+#define TRAINER_GALAR_KATELYN_598       3199  // fonte 598, ウエ Ranger Katelyn
+#define TRAINER_GALAR_LEROY_599         3200  // fonte 599, Ace Trainer Leroy
+#define TRAINER_GALAR_LEX_NYA_601       3201  // fonte 601, Cool Couple Lex & Nya
+#define TRAINER_GALAR_MEGAN_648         3202  // fonte 648, Lass Megan
+#define TRAINER_GALAR_ROBERT_656        3203  // fonte 656, Collector Robert
+#define TRAINER_GALAR_LEON_736          3204  // fonte 736, Rival Leon
+#define TRAINER_GALAR_LEON_739          3205  // fonte 739, Rival Leon
+// <<< Fase de conteudo de Galar, balde d <<<
+
 #define MAX_TRAINERS_COUNT_EMERALD 4000
 
 #if IS_FRLG
