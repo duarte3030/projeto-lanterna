@@ -453,6 +453,37 @@ def censo():
                     mudou = True
                     break
 
+    # Alcancavel TAMBEM por troca de forma que nao reverte. Sem este segundo
+    # fecho o censo so enxerga UM passo de forma, e uma corrente de duas
+    # quebra calada: Deoxys-Defesa e Deoxys-Velocidade saem do Deoxys-Ataque,
+    # que por sua vez sai do Normal, e as tres formas de Zygarde com Power
+    # Construct saem umas das outras pelo Cube. Eram justamente esses os 5
+    # "inobteniveis" de 22/08/2026. `distribui_dex._fecha` sempre fechou assim
+    # e dizia no comentario que era "a mesma regra" do censo; nao era, e a
+    # divergencia e que fazia a conta parar em 1.566.
+    # Fica em conjunto SEPARADO de proposito: `alcancavel` sozinho decide a
+    # categoria "evolucao", e forma que virasse "evolucao" perderia o detalhe.
+    alc_forma = set(alcancavel)
+    mudou = True
+    while mudou:
+        mudou = False
+        for alvo, origens in fmc.items():
+            if alvo in alc_forma:
+                continue
+            for de, t_, _p in origens:
+                if t_ not in FORMA_REVERTE and de in alc_forma:
+                    alc_forma.add(alvo)
+                    mudou = True
+                    break
+        for alvo, origens in evo.items():
+            if alvo in alc_forma:
+                continue
+            for de, metodo, _param, _cond in origens:
+                if de in alc_forma and not _evo_travada(metodo, _cond):
+                    alc_forma.add(alvo)
+                    mudou = True
+                    break
+
     linhas = []
     for nome, e in sorted(cat.items(), key=lambda kv: (kv[1].dex, kv[0])):
         regioes, detalhe = set(), ""
@@ -484,21 +515,21 @@ def censo():
                 + (f" [{cond}]" if cond else "")
                 for de, met, par, cond in evo.get(nome, []))
         elif nome in fmc and any(
-                t_ in FORMA_PERMANENTE and de in alcancavel
+                t_ in FORMA_PERMANENTE and de in alc_forma
                 for de, t_, _p in fmc[nome]):
             categoria = "forma_permanente"
             detalhe = "; ".join(
                 f"de {de.replace('SPECIES_', '')} por {t_} {p}"
                 for de, t_, p in fmc[nome]
-                if t_ in FORMA_PERMANENTE and de in alcancavel)
+                if t_ in FORMA_PERMANENTE and de in alc_forma)
         elif nome in fmc and any(
-                t_ not in FORMA_REVERTE and de in alcancavel
+                t_ not in FORMA_REVERTE and de in alc_forma
                 for de, t_, _p in fmc[nome]):
             categoria = "forma_batalha"
             detalhe = "; ".join(
                 f"de {de.replace('SPECIES_', '')} por {t_} {p}"
                 for de, t_, p in fmc[nome]
-                if t_ not in FORMA_REVERTE and de in alcancavel)[:200]
+                if t_ not in FORMA_REVERTE and de in alc_forma)[:200]
         elif nome in sel:
             categoria = "frontier"
             regioes = {"Frontier"}
@@ -592,12 +623,37 @@ def demo():
     # Rotom-Calor sai do catálogo do Rotom e FICA: forma permanente.
     assert por_nome["SPECIES_ROTOM_HEAT"].categoria in (
         "forma_permanente", "inobtenivel")
-    # Regional gated por IF_REGION nunca dispara neste motor.
-    assert por_nome["SPECIES_RAICHU_ALOLA"].categoria == "inobtenivel"
+    # Regional gated por IF_REGION nunca dispara neste motor. A afirmação é
+    # sobre a REGRA, e não sobre o Raichu-de-Alola: em 21/08/2026 ele ganhou
+    # linha de mato pela obra da Dex e virou "selvagem", o que deixou este
+    # `assert` vermelho no HEAD sem que nada estivesse errado.
+    assert _evo_travada("EVO_LEVEL", "IF_REGION, REGION_ALOLA")
+    assert not _evo_travada("EVO_LEVEL", "")
+    # Corrente de troca de forma de MAIS DE UM PASSO. Deoxys-Velocidade está a
+    # três usos do Meteorito do Deoxys-Normal, que é estático de Ilha Nascente;
+    # até 22/08/2026 o fecho do censo só andava por evolução e parava no
+    # primeiro passo, e os cinco "inobteníveis" da rodada eram só isso.
+    assert por_nome["SPECIES_DEOXYS_SPEED"].categoria == "forma_permanente", (
+        por_nome["SPECIES_DEOXYS_SPEED"])
+    assert por_nome["SPECIES_ZYGARDE_COMPLETE"].categoria == "forma_batalha"
     # Régua de sanidade do universo.
     assert len(linhas) > 1300, len(linhas)
     cat = collections.Counter(l.categoria for l in linhas)
-    assert cat["inobtenivel"] > 0 and cat["selvagem"] > 100, cat
+    assert cat["selvagem"] > 100, cat
+
+    # MUTAÇÃO PLANTADA: sem o segundo fecho, a corrente de dois passos volta a
+    # quebrar. Se este bloco NÃO reprovar, o fecho de forma não está provando
+    # nada e o 1.571 é decorado.
+    global FORMA_REVERTE
+    guarda = FORMA_REVERTE
+    try:
+        FORMA_REVERTE = FORMA_REVERTE + FORMA_PERMANENTE
+        mutante = {l.nome: l for l in censo()}
+        assert mutante["SPECIES_DEOXYS_SPEED"].categoria == "inobtenivel", (
+            "mutação plantada NÃO reprovou: o fecho de forma não é o que "
+            "sustenta o Deoxys-Velocidade")
+    finally:
+        FORMA_REVERTE = guarda
     print("demo OK:", dict(cat))
 
 

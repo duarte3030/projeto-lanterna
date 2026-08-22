@@ -36691,7 +36691,7 @@
               {
                 "min_level": 140,
                 "max_level": 144,
-                "species": "SPECIES_MAGIKARP"
+                "species": "SPECIES_SURSKIT"
               },
               {
                 "min_level": 153,
@@ -38607,7 +38607,7 @@
               {
                 "min_level": 142,
                 "max_level": 142,
-                "species": "SPECIES_ABRA"
+                "species": "SPECIES_BURMY_PLANT"
               },
               {
                 "min_level": 142,
@@ -42173,7 +42173,7 @@
               {
                 "min_level": 190,
                 "max_level": 190,
-                "species": "SPECIES_BURMY_PLANT"
+                "species": "SPECIES_ROSELIA"
               },
               {
                 "min_level": 191,

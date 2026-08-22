@@ -1076,6 +1076,24 @@ LittlerootTown_ProfessorBirchsLab_Text_DexIniciaisJaDeu:
 LittlerootTown_ProfessorBirchsLab_EventScript_DexDistribuicao::
 	lock
 	faceplayer
+	checkitem ITEM_GRACIDEA
+	call_if_eq VAR_RESULT, FALSE, LittlerootTown_ProfessorBirchsLab_EventScript_DexChaveGracidea
+	checkitem ITEM_PINK_NECTAR
+	call_if_eq VAR_RESULT, FALSE, LittlerootTown_ProfessorBirchsLab_EventScript_DexChavePinkNectar
+	checkitem ITEM_PRISON_BOTTLE
+	call_if_eq VAR_RESULT, FALSE, LittlerootTown_ProfessorBirchsLab_EventScript_DexChavePrisonBottle
+	checkitem ITEM_PURPLE_NECTAR
+	call_if_eq VAR_RESULT, FALSE, LittlerootTown_ProfessorBirchsLab_EventScript_DexChavePurpleNectar
+	checkitem ITEM_RED_NECTAR
+	call_if_eq VAR_RESULT, FALSE, LittlerootTown_ProfessorBirchsLab_EventScript_DexChaveRedNectar
+	checkitem ITEM_REVEAL_GLASS
+	call_if_eq VAR_RESULT, FALSE, LittlerootTown_ProfessorBirchsLab_EventScript_DexChaveRevealGlass
+	checkitem ITEM_ROTOM_CATALOG
+	call_if_eq VAR_RESULT, FALSE, LittlerootTown_ProfessorBirchsLab_EventScript_DexChaveRotomCatalog
+	checkitem ITEM_YELLOW_NECTAR
+	call_if_eq VAR_RESULT, FALSE, LittlerootTown_ProfessorBirchsLab_EventScript_DexChaveYellowNectar
+	checkitem ITEM_ZYGARDE_CUBE
+	call_if_eq VAR_RESULT, FALSE, LittlerootTown_ProfessorBirchsLab_EventScript_DexChaveZygardeCube
 	goto_if_set FLAG_DEX_PRESENTE_EVENTO, LittlerootTown_ProfessorBirchsLab_EventScript_DexDistribuicaoJaDeu
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_DexDistribuicao, MSGBOX_DEFAULT
 	givemon SPECIES_PIKACHU_ALOLA, 5
@@ -1113,6 +1131,46 @@ LittlerootTown_ProfessorBirchsLab_Text_DexDistribuicao:
 	.string "You should have them.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_DexDistribuicaoFim:
-	.string "Whatever does not fit in your\nparty goes to your PC.$"
+	.string "Whatever does not fit in your\n"
+	.string "party goes to your PC.\p"
+	.string "The odd trinkets are in your KEY\n"
+	.string "ITEMS. Some POKéMON change shape\l"
+	.string "when you use them.$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_DexChaveGracidea::
+	additem ITEM_GRACIDEA
+	return
+
+LittlerootTown_ProfessorBirchsLab_EventScript_DexChavePinkNectar::
+	additem ITEM_PINK_NECTAR
+	return
+
+LittlerootTown_ProfessorBirchsLab_EventScript_DexChavePrisonBottle::
+	additem ITEM_PRISON_BOTTLE
+	return
+
+LittlerootTown_ProfessorBirchsLab_EventScript_DexChavePurpleNectar::
+	additem ITEM_PURPLE_NECTAR
+	return
+
+LittlerootTown_ProfessorBirchsLab_EventScript_DexChaveRedNectar::
+	additem ITEM_RED_NECTAR
+	return
+
+LittlerootTown_ProfessorBirchsLab_EventScript_DexChaveRevealGlass::
+	additem ITEM_REVEAL_GLASS
+	return
+
+LittlerootTown_ProfessorBirchsLab_EventScript_DexChaveRotomCatalog::
+	additem ITEM_ROTOM_CATALOG
+	return
+
+LittlerootTown_ProfessorBirchsLab_EventScript_DexChaveYellowNectar::
+	additem ITEM_YELLOW_NECTAR
+	return
+
+LittlerootTown_ProfessorBirchsLab_EventScript_DexChaveZygardeCube::
+	additem ITEM_ZYGARDE_CUBE
+	return
 
 @ <<< Dex completa <<<

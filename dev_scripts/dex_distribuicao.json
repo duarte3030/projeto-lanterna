@@ -4,9 +4,11 @@
   "flag_base": "0x31A0",
   "totais": {
     "estaticos": 106,
-    "selvagens": 233,
+    "selvagens": 234,
     "presentes": 22,
-    "evolucoes": 114
+    "evolucoes": 113,
+    "chaves": 9,
+    "formas": 5
   },
   "npcs_presente": [
     {
@@ -747,7 +749,7 @@
       ],
       "vazio": [
         6,
-        13
+        16
       ],
       "porta": [
         5,
@@ -770,8 +772,8 @@
         ],
         [
           "DOWN",
-          4,
-          false
+          7,
+          true
         ]
       ],
       "rota_irmas": true
@@ -4092,57 +4094,47 @@
       "flag": "FLAG_HIDE_DEX_GREAT_TUSK",
       "origem": "pesquisa",
       "tile": [
-        27,
-        31
+        23,
+        35
       ],
       "nota": "gen 9; tipos GROUND/FIGHTING",
-      "warp": 10,
+      "warp": 8,
       "dir": "UP",
       "para": [
-        27,
-        32
+        23,
+        36
       ],
       "vazio": [
-        27,
-        30
+        23,
+        33
       ],
       "porta": [
-        24,
+        22,
         33
       ],
       "pouso": [
-        24,
+        22,
         34
       ],
       "rota": [
         [
-          "RIGHT",
+          "LEFT",
           0,
           false
         ],
         [
-          "DOWN",
+          "RIGHT",
           1,
           false
         ],
         [
-          "RIGHT",
-          1,
-          true
-        ],
-        [
           "DOWN",
-          3,
+          5,
           true
-        ],
-        [
-          "RIGHT",
-          2,
-          false
         ],
         [
           "UP",
-          8,
+          6,
           true
         ]
       ],
@@ -4159,47 +4151,42 @@
       "flag": "FLAG_HIDE_DEX_SCREAM_TAIL",
       "origem": "pesquisa",
       "tile": [
-        23,
-        45
+        44,
+        38
       ],
       "nota": "gen 9; tipos FAIRY/PSYCHIC",
-      "warp": 10,
-      "dir": "DOWN",
+      "warp": 8,
+      "dir": "RIGHT",
       "para": [
-        23,
-        44
+        43,
+        38
       ],
       "vazio": [
-        23,
-        46
+        45,
+        38
       ],
       "porta": [
-        24,
+        22,
         33
       ],
       "pouso": [
-        24,
+        22,
         34
       ],
       "rota": [
         [
-          "RIGHT",
+          "LEFT",
           0,
           false
         ],
         [
-          "DOWN",
+          "RIGHT",
           2,
-          false
-        ],
-        [
-          "LEFT",
-          2,
-          false
+          true
         ],
         [
           "DOWN",
-          7,
+          1,
           false
         ],
         [
@@ -4211,9 +4198,14 @@
           "DOWN",
           3,
           true
+        ],
+        [
+          "RIGHT",
+          20,
+          true
         ]
       ],
-      "rota_irmas": true
+      "rota_irmas": false
     },
     {
       "especie": "SPECIES_BRUTE_BONNET",
@@ -4754,7 +4746,7 @@
       ],
       "vazio": [
         6,
-        15
+        13
       ],
       "porta": [
         11,
@@ -4777,8 +4769,8 @@
         ],
         [
           "UP",
-          6,
-          false
+          8,
+          true
         ]
       ],
       "rota_irmas": true
@@ -5127,7 +5119,7 @@
         13
       ],
       "vazio": [
-        25,
+        22,
         13
       ],
       "porta": [
@@ -5151,8 +5143,8 @@
         ],
         [
           "LEFT",
-          7,
-          false
+          10,
+          true
         ]
       ],
       "rota_irmas": true
@@ -6303,6 +6295,22 @@
       "origem": "bioma",
       "substituido": "SPECIES_RATTATA",
       "nota": "gen 3; tipos DARK/NORMAL; slot duplicado 1 de 12"
+    },
+    {
+      "especie": "SPECIES_SURSKIT",
+      "como": "selvagem",
+      "regiao": "Sinnoh",
+      "mapa": "MAP_CANALAVE_CITY",
+      "metodo": "fishing_mons",
+      "slot": 1,
+      "nivel": [
+        140,
+        144
+      ],
+      "flag": "",
+      "origem": "corte",
+      "substituido": "SPECIES_MAGIKARP",
+      "nota": "gen 3; tipos BUG/WATER; slot duplicado 1 de 10"
     },
     {
       "especie": "SPECIES_ZANGOOSE",
@@ -9140,17 +9148,17 @@
       "especie": "SPECIES_BURMY_PLANT",
       "como": "selvagem",
       "regiao": "Sinnoh",
-      "mapa": "MAP_ROUTE229",
+      "mapa": "MAP_ROUTE203",
       "metodo": "land_mons",
-      "slot": 1,
+      "slot": 6,
       "nivel": [
-        190,
-        190
+        142,
+        142
       ],
       "flag": "",
       "origem": "censo",
-      "substituido": "SPECIES_ROSELIA",
-      "nota": "gen 4; tipos BUG; slot duplicado 1 de 12"
+      "substituido": "SPECIES_ABRA",
+      "nota": "gen 4; tipos BUG; slot duplicado 6 de 12"
     },
     {
       "especie": "SPECIES_BURMY_SANDY",
@@ -10113,7 +10121,7 @@
       "nota": "sai de graca no efeito cascata: ZIGZAGOON_GALAR"
     },
     {
-      "especie": "SPECIES_DEOXYS_DEFENSE",
+      "especie": "SPECIES_MASQUERAIN",
       "como": "evolucao",
       "regiao": "",
       "mapa": "",
@@ -10122,19 +10130,7 @@
       "nivel": 0,
       "flag": "",
       "origem": "censo",
-      "nota": "sai de graca no efeito cascata: DEOXYS_ATTACK"
-    },
-    {
-      "especie": "SPECIES_DEOXYS_SPEED",
-      "como": "evolucao",
-      "regiao": "",
-      "mapa": "",
-      "metodo": "",
-      "slot": null,
-      "nivel": 0,
-      "flag": "",
-      "origem": "censo",
-      "nota": "sai de graca no efeito cascata: DEOXYS_DEFENSE"
+      "nota": "sai de graca no efeito cascata: SURSKIT"
     },
     {
       "especie": "SPECIES_RAMPARDOS",
@@ -11203,6 +11199,189 @@
       "flag": "",
       "origem": "censo",
       "nota": "sai de graca no efeito cascata: TERAPAGOS_NORMAL; TERAPAGOS_STELLAR"
+    }
+  ],
+  "chaves": [
+    {
+      "item": "ITEM_GRACIDEA",
+      "como": "chave",
+      "mapa": "LittlerootTown_ProfessorBirchsLab",
+      "metodo": "additem",
+      "origem": "censo",
+      "destrava": [
+        "SHAYMIN_SKY"
+      ],
+      "nota": "1 entrada(s) de Dex dependiam deste item e nenhuma linha de data/ o entregava"
+    },
+    {
+      "item": "ITEM_PINK_NECTAR",
+      "como": "chave",
+      "mapa": "LittlerootTown_ProfessorBirchsLab",
+      "metodo": "additem",
+      "origem": "censo",
+      "destrava": [
+        "ORICORIO_PAU"
+      ],
+      "nota": "1 entrada(s) de Dex dependiam deste item e nenhuma linha de data/ o entregava"
+    },
+    {
+      "item": "ITEM_PRISON_BOTTLE",
+      "como": "chave",
+      "mapa": "LittlerootTown_ProfessorBirchsLab",
+      "metodo": "additem",
+      "origem": "censo",
+      "destrava": [
+        "HOOPA_UNBOUND"
+      ],
+      "nota": "1 entrada(s) de Dex dependiam deste item e nenhuma linha de data/ o entregava"
+    },
+    {
+      "item": "ITEM_PURPLE_NECTAR",
+      "como": "chave",
+      "mapa": "LittlerootTown_ProfessorBirchsLab",
+      "metodo": "additem",
+      "origem": "censo",
+      "destrava": [
+        "ORICORIO_SENSU"
+      ],
+      "nota": "1 entrada(s) de Dex dependiam deste item e nenhuma linha de data/ o entregava"
+    },
+    {
+      "item": "ITEM_RED_NECTAR",
+      "como": "chave",
+      "mapa": "LittlerootTown_ProfessorBirchsLab",
+      "metodo": "additem",
+      "origem": "censo",
+      "destrava": [
+        "ORICORIO_BAILE"
+      ],
+      "nota": "1 entrada(s) de Dex dependiam deste item e nenhuma linha de data/ o entregava"
+    },
+    {
+      "item": "ITEM_REVEAL_GLASS",
+      "como": "chave",
+      "mapa": "LittlerootTown_ProfessorBirchsLab",
+      "metodo": "additem",
+      "origem": "censo",
+      "destrava": [
+        "ENAMORUS_INCARNATE",
+        "ENAMORUS_THERIAN",
+        "LANDORUS_INCARNATE",
+        "LANDORUS_THERIAN",
+        "THUNDURUS_INCARNATE",
+        "THUNDURUS_THERIAN",
+        "TORNADUS_INCARNATE",
+        "TORNADUS_THERIAN"
+      ],
+      "nota": "8 entrada(s) de Dex dependiam deste item e nenhuma linha de data/ o entregava"
+    },
+    {
+      "item": "ITEM_ROTOM_CATALOG",
+      "como": "chave",
+      "mapa": "LittlerootTown_ProfessorBirchsLab",
+      "metodo": "additem",
+      "origem": "censo",
+      "destrava": [
+        "ROTOM",
+        "ROTOM_FAN",
+        "ROTOM_FROST",
+        "ROTOM_HEAT",
+        "ROTOM_MOW",
+        "ROTOM_WASH"
+      ],
+      "nota": "6 entrada(s) de Dex dependiam deste item e nenhuma linha de data/ o entregava"
+    },
+    {
+      "item": "ITEM_YELLOW_NECTAR",
+      "como": "chave",
+      "mapa": "LittlerootTown_ProfessorBirchsLab",
+      "metodo": "additem",
+      "origem": "censo",
+      "destrava": [
+        "ORICORIO_POM_POM"
+      ],
+      "nota": "1 entrada(s) de Dex dependiam deste item e nenhuma linha de data/ o entregava"
+    },
+    {
+      "item": "ITEM_ZYGARDE_CUBE",
+      "como": "chave",
+      "mapa": "LittlerootTown_ProfessorBirchsLab",
+      "metodo": "additem",
+      "origem": "censo",
+      "destrava": [
+        "ZYGARDE_10_AURA_BREAK",
+        "ZYGARDE_10_POWER_CONSTRUCT",
+        "ZYGARDE_50",
+        "ZYGARDE_50_POWER_CONSTRUCT"
+      ],
+      "nota": "4 entrada(s) de Dex dependiam deste item e nenhuma linha de data/ o entregava"
+    }
+  ],
+  "formas": [
+    {
+      "especie": "SPECIES_DEOXYS_DEFENSE",
+      "como": "forma",
+      "regiao": "",
+      "mapa": "",
+      "metodo": "",
+      "slot": null,
+      "nivel": 0,
+      "flag": "",
+      "origem": "censo",
+      "passos": 2,
+      "nota": "2 trocas de forma a partir de DEOXYS_ATTACK"
+    },
+    {
+      "especie": "SPECIES_DEOXYS_SPEED",
+      "como": "forma",
+      "regiao": "",
+      "mapa": "",
+      "metodo": "",
+      "slot": null,
+      "nivel": 0,
+      "flag": "",
+      "origem": "censo",
+      "passos": 3,
+      "nota": "3 trocas de forma a partir de DEOXYS_DEFENSE"
+    },
+    {
+      "especie": "SPECIES_ZYGARDE_10_POWER_CONSTRUCT",
+      "como": "forma",
+      "regiao": "",
+      "mapa": "",
+      "metodo": "",
+      "slot": null,
+      "nivel": 0,
+      "flag": "",
+      "origem": "censo",
+      "passos": 2,
+      "nota": "2 trocas de forma a partir de ZYGARDE_10_AURA_BREAK; ZYGARDE_50_POWER_CONSTRUCT"
+    },
+    {
+      "especie": "SPECIES_ZYGARDE_COMPLETE",
+      "como": "forma",
+      "regiao": "",
+      "mapa": "",
+      "metodo": "",
+      "slot": null,
+      "nivel": 0,
+      "flag": "",
+      "origem": "censo",
+      "passos": 2,
+      "nota": "2 trocas de forma a partir de ZYGARDE_50_POWER_CONSTRUCT"
+    },
+    {
+      "especie": "SPECIES_ZYGARDE_MEGA",
+      "como": "forma",
+      "regiao": "",
+      "mapa": "",
+      "metodo": "",
+      "slot": null,
+      "nivel": 0,
+      "flag": "",
+      "origem": "censo",
+      "passos": 3,
+      "nota": "3 trocas de forma a partir de ZYGARDE_COMPLETE"
     }
   ]
 }

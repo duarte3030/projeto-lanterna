@@ -1,0 +1,39 @@
+[
+  {
+    "id": "T137.1",
+    "nome": "O NPC de distribuicao aguenta a SEGUNDA fala com os 9 `checkitem` novos no comeco do script. A rota e a do T129.5 e a fala inteira roda DUAS vezes. Na primeira o NPC entrega os 19 event-only e faz `additem` dos 9 itens-chave de troca de forma (Gracidea, os quatro nectares, Prison Bottle, Reveal Glass, Rotom Catalog e Zygarde Cube); na segunda os nove `checkitem` devolvem TRUE, nenhum `call_if_eq` dispara, e o `goto_if_set FLAG_DEX_PRESENTE_EVENTO` desvia antes dos `givemon`. A prova e que o time continua em 6 e o primeiro continua sendo o PIKACHU_ALOLA: se algum dos nove `call` nao voltasse, o contexto de script travaria e o time pararia em 0; se a guarda de flag tivesse quebrado, os 19 `givemon` rodariam de novo. Par negativo: T137.2.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+    "warp_id": 1,
+    "time_jogador": true,
+    "roteiro": "240:NADA,16:UP*7,90:NADA,16:A,240:NADA,16:A*2,300:NADA,16:A*2,300:NADA,16:A,240:NADA,16:A*2,300:NADA,16:A*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+      "time": 6,
+      "campos": {
+        "especie0": 1020
+      }
+    }
+  },
+  {
+    "id": "T137.2",
+    "nome": "PAR NEGATIVO DO T137.1: a MESMA rota, SEM apertar A nenhuma vez. O time continua vazio e o jogador para em (7, 11), encostado no NPC. Sem ele o T137.1 passaria num jogo em que o time ja viesse cheio de fabrica, e tambem num jogo em que o NPC esta la e nao responde.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+    "warp_id": 1,
+    "time_jogador": true,
+    "roteiro": "240:NADA,16:UP*7,90:NADA",
+    "prova": {
+      "mapa": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+      "time": 0,
+      "pos": [
+        7,
+        11
+      ]
+    }
+  }
+]

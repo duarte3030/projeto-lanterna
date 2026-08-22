@@ -81,6 +81,7 @@ ENCONTROS = f"{RAIZ}/src/data/wild_encounters.json"
 FLAGS_H = f"{RAIZ}/include/constants/flags.h"
 REGIOES_H = f"{RAIZ}/include/regions.h"
 CASOS = f"{RAIZ}/dev_scripts/testes_criticos/129_dex_completa.json"
+CASOS_FORMA = f"{RAIZ}/dev_scripts/testes_criticos/137_dex_formas.json"
 # Arquivos de caso que SAEM desta tabela (129 da onda A, 131 a 135 da onda B, e
 # 136, o arquivo adversarial do fechador, que reanda as MESMAS rotas do 132).
 # Ler o proprio rastro fecha um ciclo: ver `corredor_de_casos`.
@@ -138,6 +139,21 @@ COSMETICAS = ("VIVILLON", "SCATTERBUG", "SPEWPA", "FURFROU", "FLABEBE",
               "PUMPKABOO", "GOURGEIST", "SQUAWKABILLY", "TATSUGIRI",
               "ALCREMIE", "UNOWN", "BASCULIN", "SHELLOS", "GASTRODON",
               "SILVALLY", "ARCEUS", "GENESECT", "OGERPON")
+
+# EXCECAO NOMEADA a regra 3, e a unica que existe. Especie que ficou
+# inobtenivel porque a REMOCAO FISICA dos mapas cortados
+# (`remove_mapas_cortados.py`, 22/08/2026) apagou a tabela de mato onde ela
+# morava volta para a regiao de onde o corte a tirou, e nao para a regiao da
+# geracao dela. Razao: isto e REPOSICAO de um lar destruido por obra nossa, e
+# nao colocacao nova, e mandar o Surskit para Hoenn (gen 3) tiraria de Sinnoh
+# uma especie que a FONTE tinha posto la. A regra 3 continua valendo para todo
+# o resto; a excecao fica escrita aqui para nao ser silenciosa.
+#
+# Medido em 22/08/2026: a `Route229` era a UNICA casa de Surskit e Masquerain
+# no jogo inteiro, `water_mons`, e saiu com a Battle Zone. O Masquerain NAO
+# ganha linha de mato: e Bug/Flying, a regra 6 proibe agua para quem nao e
+# TYPE_WATER, e ele sai de graca do Surskit por `EVO_LEVEL` 22.
+REPOE_NA_REGIAO = {"SPECIES_SURSKIT": "Sinnoh"}
 
 # Nivel da FONTE do estatico. Nao e chute de dificuldade: e o nivel em que o
 # jogo de origem entrega o bicho. O modo LV.5 de fabrica rebaixa tudo sozinho.
@@ -493,6 +509,94 @@ def censo_base():
         censo_dex.evolucoes = evo_orig
 
 
+ITEM_DE_USO = ("FORM_CHANGE_ITEM_USE", "FORM_CHANGE_ITEM_USE_MULTICHOICE")
+
+
+def _itens_citados_em_data():
+    """Todo ITEM_* que aparece em `data/`: giveitem, additem, bola de item,
+    pokemart. E a unica prova barata de que o jogo ENTREGA o item."""
+    fora = set()
+    for cam in glob.glob(f"{RAIZ}/data/**/*", recursive=True):
+        if not cam.endswith((".inc", ".json")):
+            continue
+        txt = open(cam, encoding="utf-8", errors="ignore").read()
+        # O PROPRIO bloco desta ferramenta sai da varredura. Sem isto a
+        # segunda rodada de `--tabela` acha os nove itens ja citados em
+        # `data/`, conclui que o jogo os entrega e APAGA as linhas de
+        # `chaves` da tabela; a de `--presentes` seguinte tiraria o
+        # `additem` do NPC. Mesma armadilha que `censo_base` desarma para o
+        # mato, e sem uma linha de erro na tela.
+        txt = re.sub(re.escape(INC_INI) + r".*?" + re.escape(INC_FIM), "",
+                     txt, flags=re.S)
+        fora.update(re.findall(r"\bITEM_[A-Z0-9_]+", txt))
+    return fora
+
+
+def chaves_de_forma(fmc):
+    """Os itens-chave que uma troca de forma exige e que o jogo NAO entrega.
+
+    Medido em 22/08/2026: nove itens de `FORM_CHANGE_ITEM_USE*` nao apareciam
+    em UMA linha de `data/` (Gracidea, os quatro nectares, Prison Bottle,
+    Reveal Glass, Rotom Catalog e Zygarde Cube). O censo nunca olhou para o
+    item, entao contava as formas deles como obteniveis com o item fora do
+    jogo: a conta da Dex estava certa no papel e mentia no cartucho. Aqui o
+    item vira linha de decisao e sai pelo MESMO NPC de presente do
+    laboratorio, que ja e o guarda-chuva de tudo que nao tem lugar proprio.
+    """
+    citados = _itens_citados_em_data()
+    destrava = collections.defaultdict(set)
+    for alvo, origens in fmc.items():
+        for _de, t_, par in origens:
+            if t_ not in ITEM_DE_USO:
+                continue
+            m = re.match(r"(ITEM_[A-Z0-9_]+)", (par or "").strip())
+            if m and m.group(1) not in citados:
+                destrava[m.group(1)].add(alvo)
+    return [dict(item=k, como="chave", mapa=MAPA_PRESENTE, metodo="additem",
+                 origem="censo",
+                 destrava=sorted(x.replace("SPECIES_", "") for x in v),
+                 nota=f"{len(v)} entrada(s) de Dex dependiam deste item e "
+                      "nenhuma linha de data/ o entregava")
+            for k, v in sorted(destrava.items())]
+
+
+def formas_em_cadeia(alc_direto, fmc):
+    """As entradas que so aparecem depois de DUAS ou mais trocas de forma.
+
+    Eram os 5 "inobteniveis" de 22/08/2026 (Deoxys-Defesa, Deoxys-Velocidade,
+    Zygarde-10%-Power-Construct, Zygarde-Completo e Zygarde-Mega). Nenhum era
+    questao de lugar: `censo_dex.censo()` fechava a alcancabilidade so por
+    EVOLUCAO e testava a troca de forma contra esse fecho, entao enxergava UM
+    passo de forma e a corrente de dois quebrava calada. O fecho de forma
+    entrou no censo; esta lista existe para a tabela registrar quais entradas
+    dependiam dele, e serve de sentinela: se ela crescer, apareceu corrente
+    nova que ninguem conferiu.
+    """
+    profund, fila = {n: 0 for n in alc_direto}, list(alc_direto)
+    while fila:
+        atual = fila.pop()
+        for alvo, origens in fmc.items():
+            if alvo in profund:
+                continue
+            for de, t_, _p in origens:
+                if de == atual and t_ not in censo_dex.FORMA_REVERTE:
+                    profund[alvo] = profund[atual] + 1
+                    fila.append(alvo)
+                    break
+    cat = catalogo_completo()
+    return [dict(especie=n, como="forma", regiao="", mapa="", metodo="",
+                 slot=None, nivel=0, flag="", origem="censo",
+                 passos=profund[n],
+                 nota=f"{profund[n]} trocas de forma a partir de "
+                      + "; ".join(sorted(
+                          de.replace("SPECIES_", "") for de, t_, _p in fmc[n]
+                          if t_ not in censo_dex.FORMA_REVERTE
+                          and profund.get(de, 99) == profund[n] - 1)))
+            for n in sorted((x for x, d in profund.items()
+                             if d >= 2 and x in cat),
+                            key=lambda n: (cat[n].dex, n))]
+
+
 _PLANO = {}
 
 
@@ -566,6 +670,11 @@ def plano():
                  sorted(x.replace("SPECIES_", "")
                         for x in _origens(n, evo, fmc)) or ["troca de forma"]))
         for n in sorted(nomes_ino - resolvidos, key=lambda n: (cat[n].dex, n))]
+    _PLANO["chaves"] = chaves_de_forma(fmc)
+    direta = {l.nome for l in linhas
+              if l.categoria in ("selvagem", "estatico", "presente", "troca",
+                                 "evolucao")}
+    _PLANO["formas"] = formas_em_cadeia(_fecha(direta | diretos, evo, {}), fmc)
     return _PLANO
 
 
@@ -949,6 +1058,9 @@ def decide_estaticos(nomes, cat):
 
 
 BUCKETS = ("estaticos", "selvagens", "presentes", "evolucoes")
+# FORA de BUCKETS de proposito: `censo_base` varre BUCKETS por `especie` para
+# desmontar o que ja foi aplicado, e linha de `chaves` nao tem especie.
+EXTRAS = ("chaves", "formas")
 
 
 def decide_npcs_presente():
@@ -1024,18 +1136,63 @@ def decide_presentes(nomes, cat):
 
 def decide_selvagem(nomes, cat):
     """Bioma pelo PERFIL DE TIPOS da propria tabela (regra 4), com cota (5),
-    agua separada de terra (6) e rodizio de regiao para cosmetico (10)."""
+    agua separada de terra (6) e rodizio de regiao para cosmetico (10).
+
+    ESTAVEL contra arvore ja mexida (22/08/2026): quem ja tem escolha GRAVADA e
+    ainda valida (a tabela existe, o slot continua duplicado e ainda guarda a
+    especie que a linha diz ter substituido) FICA ONDE ESTA, e so o resto e
+    replanejado. Sem isto, uma especie nova no meio da lista empurra a escolha
+    de todas as seguintes um slot adiante, e `aplica_selvagem` deixa ORFA a
+    linha antiga que a tabela nova nao menciona mais: o slot velho continua com
+    a especie nova escrita e ninguem mais o restaura. Medido: a remocao fisica
+    dos mapas cortados matou a tabela da `Route229` e o replanejamento sem esta
+    trava mexia em NOVE linhas que ninguem pediu, uma delas deixando a
+    `SeafloorCavernRoom1` com um Salazzle-Totem no lugar do Zubat para sempre.
+    """
     tabelas = tabelas_de_encontro(censo_dex.mapas())
     livres = {(t["mapa"], t["tipo"]): list(t["dup"]) for t in tabelas}
+    por_chave = {(t["mapa"], t["tipo"]): t for t in tabelas}
     usos = collections.Counter()
     cota = collections.Counter()
     ordem_cosmetica = collections.Counter()
+
+    reserva = {}
+    for l in tabela_gravada().get("selvagens", []):
+        chave = (l["mapa"], l["metodo"])
+        if l["especie"] not in nomes or chave not in livres:
+            continue
+        if l["slot"] not in livres[chave]:
+            continue
+        if _nivel_do_slot(l["mapa"], l["metodo"], l["slot"])[1] != l["substituido"]:
+            continue
+        livres[chave].remove(l["slot"])
+        usos[chave] += 1
+        cota[por_chave[chave]["regiao"]] += 1
+        reserva[l["especie"]] = (por_chave[chave], l["slot"], l["origem"])
+
     fora = []
     for n in nomes:
         e = cat[n]
         tipos = set(e.tipos)
         grupo = AGUA if "TYPE_WATER" in tipos else TERRA
-        if eh_cosmetica(n):
+        if n in reserva:
+            # O rodizio de cosmetico continua correndo, senao a familia inteira
+            # muda de pino so porque um irmao ficou reservado.
+            if eh_cosmetica(n):
+                ordem_cosmetica[_familia(n)] += 1
+            t, slot, origem = reserva[n]
+            nivel, antes = _nivel_do_slot(t["mapa"], t["tipo"], slot)
+            fora.append(dict(especie=n, como="selvagem", regiao=t["regiao"],
+                             mapa=t["mapa"], metodo=t["tipo"], slot=slot,
+                             nivel=nivel, flag="", origem=origem,
+                             substituido=antes,
+                             nota=f"gen {e.gen}; tipos "
+                                  f"{'/'.join(x.replace('TYPE_', '') for x in e.tipos)}; "
+                                  f"slot duplicado {slot} de {t['n']}"))
+            continue
+        if n in REPOE_NA_REGIAO:
+            permitidas, origem = [REPOE_NA_REGIAO[n]], "corte"
+        elif eh_cosmetica(n):
             fam = _familia(n)
             pin = [CINCO[ordem_cosmetica[fam] % len(CINCO)]]
             ordem_cosmetica[fam] += 1
@@ -1126,7 +1283,7 @@ def escreve_tabela(gravar):
                       "de onde a decisao saiu: censo (regra mecanica), pesquisa "
                       "(lendarios_referencia.csv) ou bioma (perfil de tipos).",
         "flag_base": f"0x{FLAG_BASE:04X}",
-        "totais": {k: len(p[k]) for k in BUCKETS},
+        "totais": {k: len(p[k]) for k in BUCKETS + EXTRAS},
         **p,
     }
     novo = json.dumps(d, indent=2, ensure_ascii=False) + "\n"
@@ -1135,8 +1292,8 @@ def escreve_tabela(gravar):
         return []
     if gravar:
         open(TABELA, "w", encoding="utf-8").write(novo)
-    return [f"dex_distribuicao.json: {sum(len(p[k]) for k in BUCKETS)} linhas "
-            f"({', '.join(f'{k} {len(p[k])}' for k in BUCKETS)})"]
+    return [f"dex_distribuicao.json: {sum(len(p[k]) for k in BUCKETS + EXTRAS)} "
+            f"linhas ({', '.join(f'{k} {len(p[k])}' for k in BUCKETS + EXTRAS)})"]
 
 
 def aplica_selvagem(gravar):
@@ -1416,8 +1573,18 @@ def _script_presentes():
           "@ quando o time esta cheio, entao a ordem da lista nao importa.",
           f"{m}_EventScript_DexDistribuicao::",
           "\tlock",
-          "\tfaceplayer",
-          f"\tgoto_if_set FLAG_DEX_PRESENTE_EVENTO, {m}_EventScript_DexDistribuicaoJaDeu",
+          "\tfaceplayer"]
+    # As chaves de troca de forma vem ANTES do `goto_if_set`, e de proposito:
+    # a guarda e o `checkitem` de cada item, nao a flag do NPC. Assim quem
+    # falou com ele de bolso cheio ganha o item na proxima fala, em vez de
+    # perde-lo para sempre; e quem ja tem tudo nao ve nada acontecer.
+    # `additem` no lugar de `giveitem` porque `giveitem` abre janela e fanfarra
+    # nove vezes seguidas.
+    for l in tabela().get("chaves", []):
+        p += [f"\tcheckitem {l['item']}",
+              f"\tcall_if_eq VAR_RESULT, FALSE, {m}_EventScript_DexChave"
+              + l["item"].replace("ITEM_", "").title().replace("_", "")]
+    p += [f"\tgoto_if_set FLAG_DEX_PRESENTE_EVENTO, {m}_EventScript_DexDistribuicaoJaDeu",
           f"\tmsgbox {m}_Text_DexDistribuicao, MSGBOX_DEFAULT"]
     for l in evento:
         p.append(f"\tgivemon {l['especie']}, {l['nivel']}")
@@ -1436,8 +1603,18 @@ def _script_presentes():
           '\t.string "event that never came to us.\\p"',
           '\t.string "You should have them.$"', "",
           f"{m}_Text_DexDistribuicaoFim:",
-          '\t.string "Whatever does not fit in your\\nparty goes to your PC.$"', "",
-          INC_FIM]
+          '\t.string "Whatever does not fit in your\\n"',
+          '\t.string "party goes to your PC.\\p"',
+          '\t.string "The odd trinkets are in your KEY\\n"',
+          '\t.string "ITEMS. Some POKéMON change shape\\l"',
+          '\t.string "when you use them.$"', ""]
+    for l in tabela().get("chaves", []):
+        p += [f"{m}_EventScript_DexChave"
+              + l["item"].replace("ITEM_", "").title().replace("_", "") + "::",
+              f"\tadditem {l['item']}",
+              "\treturn",
+              ""]
+    p += [INC_FIM]
     return "\n".join(p) + "\n"
 
 
@@ -1748,8 +1925,19 @@ def diff_do_mato(ref=None):
         return fora
     a, b = tudo(json.loads(r.stdout)), tudo(
         json.load(open(ENCONTROS, encoding="utf-8")))
-    assert set(a) == set(b), f"T129.13: tabela de encontro apareceu ou sumiu: " \
-                             f"{sorted(set(a) ^ set(b))[:4]}"
+    # A remocao fisica dos mapas cortados (`remove_mapas_cortados.py`,
+    # 22/08/2026) tira a tabela de mato do cortado POR CHAVE. Sumir e legitimo
+    # SO para mapa cortado, e nascer nunca e legitimo; as duas coisas separadas,
+    # porque "o conjunto mudou" sozinho aceitaria perda silenciosa de mapa vivo.
+    fora_do_escopo = {c for c, (pasta, _r) in censo_dex.mapas().items()
+                      if pasta in mapas_cortados()}
+    sumiram = {k for k in set(a) - set(b) if k[1] not in fora_do_escopo}
+    assert not sumiram, ("T129.13: tabela de mapa VIVO sumiu: "
+                         f"{sorted(sumiram)[:4]}")
+    assert not set(b) - set(a), ("T129.13: tabela de encontro apareceu: "
+                                 f"{sorted(set(b) - set(a))[:4]}")
+    cortadas = len(set(a) - set(b))
+    a = {k: v for k, v in a.items() if k in b}
     perdidas, trocas, niveis = set(), 0, []
     for k in a:
         assert len(a[k]) == len(b[k]), f"T129.13: {k} mudou de tamanho"
@@ -1764,7 +1952,8 @@ def diff_do_mato(ref=None):
     assert not niveis, f"T129.13: slot trocado mudou de nivel: {niveis[:4]}"
     return (f"T129.13 OK: contra {ref}, {len(a)} tabelas intactas em numero e "
             f"tamanho, {trocas} slots trocados, ZERO especies perdidas e ZERO "
-            f"niveis alterados")
+            f"niveis alterados; {cortadas} tabelas de mapa CORTADO fora, e "
+            "quem morava so nelas e cobrado pelo censo, nao aqui")
 
 
 def plano_congelado():
@@ -1776,8 +1965,8 @@ def plano_congelado():
     """
     t = tabela()
     p = plano()
-    for k in BUCKETS:
-        assert len(p[k]) == len(t[k]), (k, len(p[k]), len(t[k]))
+    for k in BUCKETS + EXTRAS:
+        assert len(p[k]) == len(t.get(k, [])), (k, len(p[k]), len(t.get(k, [])))
     de_para = {l["especie"]: (l["regiao"], l["mapa"]) for l in t["estaticos"]}
     fora = [(l["especie"], de_para.get(l["especie"]), (l["regiao"], l["mapa"]))
             for l in p["estaticos"] if de_para.get(l["especie"]) !=
@@ -1947,6 +2136,7 @@ def demo():
 
     # ---- T129.6: o conserto de motor provado pelo COMPILADOR, e nao por regex.
     print(sonda_de_regiao())
+    print(sonda_de_formas())
 
     # AVISO, nao falha: estatico cujo mapa JA tem um objeto daquela especie.
     # Sao objetos de CENA (o Suicune que passa correndo por Cianwood, os dois
@@ -1966,7 +2156,79 @@ def demo():
                   f"{l['especie'].replace('SPECIES_', '')} (cena, escondido por "
                   f"flag); o estatico novo entra ao lado")
 
-    print("tabela: " + ", ".join(f"{k} {len(t[k])}" for k in BUCKETS))
+    # ---- T129.17: as chaves de troca de forma SAIREM do NPC, e a corrente de
+    # dois passos ficar de pe. Sujeito da prova e o scripts.inc no disco.
+    inc = open(f"{RAIZ}/data/maps/{MAPA_PRESENTE}/scripts.inc",
+               encoding="utf-8").read()
+    for l in t["chaves"]:
+        if f"\tadditem {l['item']}\n" not in inc:
+            falhas.append(f"T129.17: {l['item']} nao e entregue por "
+                          f"{MAPA_PRESENTE}; {len(l['destrava'])} entradas de "
+                          "Dex dependem dele")
+        if f"\tcheckitem {l['item']}\n" not in inc:
+            falhas.append(f"T129.17: {l['item']} e entregue sem guarda de "
+                          "checkitem; a segunda fala com o NPC duplica o item")
+    depois = {x.nome: x for x in censo_dex.censo()}
+    ino = [n for n, x in depois.items() if x.categoria == "inobtenivel"]
+    if ino:
+        falhas.append(f"T129.17: ainda ha {len(ino)} entrada(s) inobtenivel: "
+                      f"{sorted(ino)[:6]}")
+    # Mutacao plantada: sem o fecho de forma do censo, as 5 correntes de dois
+    # passos voltam a ser inobteniveis. Se a mutacao NAO reprovar, esta demo
+    # nao esta provando que o 1.571 vem do motor.
+    guarda = censo_dex.FORMA_REVERTE
+    try:
+        censo_dex.FORMA_REVERTE = guarda + censo_dex.FORMA_PERMANENTE
+        mut = {x.nome for x in censo_dex.censo() if x.categoria == "inobtenivel"}
+    finally:
+        censo_dex.FORMA_REVERTE = guarda
+    esperado = {l["especie"] for l in t["formas"]}
+    if not esperado <= mut:
+        falhas.append("T129.17: mutacao plantada NAO reprovou; as "
+                      f"{len(esperado)} linhas de `formas` nao dependem do "
+                      "fecho de troca de forma do censo")
+    # ---- T129.18: quem perdeu o LAR na remocao fisica dos mapas cortados esta
+    # de volta, e num mapa VIVO. A `Route229` era a unica casa de Surskit e
+    # Masquerain no jogo inteiro e saiu com a Battle Zone em 22/08/2026; o censo
+    # acusou os dois e a excecao `REPOE_NA_REGIAO` os devolveu a Sinnoh. A
+    # armadilha que este bloco caca e a que o replanejamento de fato criou: o
+    # `plano()` chegou a mandar uma linha para uma tabela que NAO EXISTE MAIS
+    # (o Burmy-Planta ficou apontando para `MAP_ROUTE229/land_mons` e o
+    # `--selvagem` parava com SystemExit). Cobrado para TODA a tabela, e nao so
+    # para o Surskit.
+    vivos = {(l["mapa"], l["metodo"]) for l in t["selvagens"]}
+    idx = _indice(json.load(open(ENCONTROS, encoding="utf-8")))
+    mortas = sorted(vivos - set(idx))
+    if mortas:
+        falhas.append(f"T129.18: {len(mortas)} linha(s) de mato apontam para "
+                      f"tabela que nao existe mais: {mortas[:4]}")
+    for n in REPOE_NA_REGIAO:
+        linha = next((l for l in t["selvagens"] if l["especie"] == n), None)
+        if linha is None:
+            falhas.append(f"T129.18: {n} perdeu o lar no corte e nao tem linha")
+        elif linha["regiao"] != REPOE_NA_REGIAO[n]:
+            falhas.append(f"T129.18: {n} voltou para {linha['regiao']} e nao "
+                          f"para {REPOE_NA_REGIAO[n]}, de onde o corte o tirou")
+        elif linha["metodo"] not in AGUA:
+            falhas.append(f"T129.18: {n} e de agua e foi para {linha['metodo']}")
+        elif depois[n].categoria == "inobtenivel":
+            falhas.append(f"T129.18: {n} tem linha e continua inobtenivel")
+    if "SPECIES_MASQUERAIN" in depois and \
+            depois["SPECIES_MASQUERAIN"].categoria not in ("evolucao", "selvagem"):
+        falhas.append("T129.18: o Masquerain nao volta pelo Surskit; ele e "
+                      "Bug/Flying e a regra 6 proibe agua para quem nao e "
+                      "TYPE_WATER, entao a evolucao e o unico caminho")
+    if not falhas:
+        print(f"T129.18 OK: nenhuma das {len(t['selvagens'])} linhas de mato "
+              f"aponta para tabela morta, e {'/'.join(sorted(REPOE_NA_REGIAO))} "
+              "voltou para a agua da regiao de onde o corte o tirou")
+    if not falhas:
+        print(f"T129.17 OK: {len(t['chaves'])} itens-chave entregues com guarda "
+              f"de checkitem, {len(depois)} entradas de Dex e ZERO inobtenivel; "
+              f"as {len(esperado)} correntes de {'/'.join(sorted({str(l['passos']) for l in t['formas']}))} "
+              "passos caem com a mutacao plantada")
+
+    print("tabela: " + ", ".join(f"{k} {len(t[k])}" for k in BUCKETS + EXTRAS))
     print("estaticos por regiao: " + str(dict(collections.Counter(
         l["regiao"] for l in est))))
     print("selvagem por regiao: " + str(dict(collections.Counter(
@@ -2366,6 +2628,132 @@ def casos_estaticos():
     return fora
 
 
+SONDA_FORMA = """
+#include "global.h"
+#include "constants/items.h"
+#include "constants/species.h"
+#include "constants/abilities.h"
+#include "constants/form_change_types.h"
+
+// T137.3: o que sustenta as CINCO ultimas entradas da Dex nao e um mapa, e a
+// mecanica de troca de forma. Ela mora em `src/data/pokemon/form_change_tables.h`,
+// que e `static const struct FormChange[]` e por isso nao cabe em
+// `_Static_assert` (membro de struct nao e expressao constante). O que cabe, e
+// e o que quebraria calado, sao os interruptores: se `P_FAMILY_DEOXYS` ou
+// `P_FAMILY_ZYGARDE` cair, as tabelas somem do binario inteiras; se
+// `P_GEN_9_MEGA_EVOLUTIONS` cair, o Zygarde-Mega perde a unica origem; e se
+// algum dos tres itens virar ITEM_NONE, o `FORM_CHANGE_ITEM_USE` nunca dispara.
+// O conteudo das tabelas fica com o T129.17, que le o header e derruba a
+// afirmacao com mutacao plantada.
+_Static_assert(P_FAMILY_DEOXYS, "sem_familia_deoxys");
+_Static_assert(P_FAMILY_ZYGARDE, "sem_familia_zygarde");
+_Static_assert(P_GEN_9_MEGA_EVOLUTIONS, "sem_mega_de_gen9_o_zygarde_mega_morre");
+_Static_assert(ITEM_METEORITE != ITEM_NONE, "meteorito_sumiu");
+_Static_assert(ITEM_ZYGARDE_CUBE != ITEM_NONE, "cubo_sumiu");
+_Static_assert(ITEM_ZYGARDITE != ITEM_NONE, "zygardita_sumiu");
+_Static_assert(ABILITY_POWER_CONSTRUCT != ABILITY_NONE, "power_construct_sumiu");
+_Static_assert(SPECIES_DEOXYS_DEFENSE != SPECIES_NONE, "deoxys_defesa_sumiu");
+_Static_assert(SPECIES_DEOXYS_SPEED != SPECIES_NONE, "deoxys_velocidade_sumiu");
+_Static_assert(SPECIES_ZYGARDE_10_POWER_CONSTRUCT != SPECIES_NONE, "zygarde10pc_sumiu");
+_Static_assert(SPECIES_ZYGARDE_COMPLETE != SPECIES_NONE, "zygarde_completo_sumiu");
+_Static_assert(SPECIES_ZYGARDE_MEGA != SPECIES_NONE, "zygarde_mega_sumiu");
+// A troca por USO de item e a por HP em batalha sao tipos DIFERENTES: e a
+// diferenca entre "forma permanente" e "forma de batalha" no censo.
+_Static_assert(FORM_CHANGE_ITEM_USE != FORM_CHANGE_BATTLE_HP_PERCENT_TURN_END,
+               "uso_de_item_virou_a_mesma_coisa_que_hp_de_batalha");
+%s
+"""
+
+
+def sonda_de_formas():
+    """T137.3: os interruptores das cinco ultimas entradas, provados pelo gcc.
+
+    Mutacao plantada junto, pelo mesmo motivo do `sonda_de_regiao`: uma sonda
+    que nao compila por outro motivo passaria como verde.
+    """
+    ok = _compila_sonda(SONDA_FORMA % "")
+    if ok is None:
+        return ("T137.3 PULADO: arm-none-eabi-gcc nao encontrado (exporte "
+                "DEVKITARM). NAO conte como passou.")
+    if not ok:
+        raise SystemExit("T137.3 REPROVADO: os interruptores de troca de forma "
+                         "nao estao todos de pe; as cinco ultimas entradas da "
+                         "Dex sairiam do binario sem uma linha de erro.")
+    mutante = _compila_sonda(SONDA_FORMA % (
+        '_Static_assert(ITEM_ZYGARDE_CUBE == ITEM_NONE, "mutacao");'))
+    if mutante:
+        raise SystemExit("T137.3 REPROVADO: a mutacao plantada COMPILOU, entao "
+                         "a sonda nao esta provando nada.")
+    return ("T137.3 OK: P_FAMILY_DEOXYS, P_FAMILY_ZYGARDE e "
+            "P_GEN_9_MEGA_EVOLUTIONS de pe, Meteorito/Cubo/Zygardita e "
+            "ABILITY_POWER_CONSTRUCT vivos, as cinco especies existem e "
+            "FORM_CHANGE_ITEM_USE != FORM_CHANGE_BATTLE_HP_PERCENT_TURN_END; "
+            "mutacao plantada reprovada")
+
+
+def casos_t137():
+    """Os dois casos de emulador da rodada das formas.
+
+    O que este par prova e o BLOCO DE CHAVES novo no NPC de distribuicao: nove
+    `checkitem` seguidos de `call_if_eq`, cada um chamando um rotulo que faz
+    `additem` e `return`. `call` mal fechado nao da erro de compilacao, trava o
+    contexto de script; foi a licao do `chapter_jump.inc` em 17/08/2026. Se
+    qualquer um dos nove estiver torto, a fala nao chega aos `givemon` e o time
+    nao enche.
+
+    O que ele NAO prova, e fica dito: a BOLSA. O `gba_runner` le SaveBlock1 por
+    offsets fixos (location, layout, party, flags, vars) e nao tem leitor de
+    `bagPocket_KeyItems`; por-lo la significa mexer no runner e no
+    `offsets_da_fonte`, que sao de TODO mundo e estao em uso por outros
+    executores nesta mesma arvore. A posse do item fica provada em duas outras
+    camadas: T129.17 le o `scripts.inc` gravado e exige `checkitem` + `additem`
+    para os nove, e T137.3 prova no compilador que os itens e os interruptores
+    de forma existem.
+    """
+    b = next(x for x in tabela()["npcs_presente"] if x["papel"] != "iniciais")
+    mapa = "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB"
+    evento = [l for l in tabela()["presentes"] if l["metodo"] == "givemon"]
+    chaves = tabela()["chaves"]
+    num = numeros_de_especie()
+    base = casos_t129()
+    rota = next(c["roteiro"] for c in base if c["id"] == "T129.4")
+    fala = next(c["roteiro"] for c in base if c["id"] == "T129.5")[len(rota):]
+    return [
+        dict(id="T137.1",
+             nome=(
+                 f"O NPC de distribuicao aguenta a SEGUNDA fala com os {len(chaves)} "
+                 "`checkitem` novos no comeco do script. A rota e a do T129.5 e a "
+                 "fala inteira roda DUAS vezes. Na primeira o NPC entrega os "
+                 f"{len(evento)} event-only e faz `additem` dos {len(chaves)} "
+                 "itens-chave de troca de forma (Gracidea, os quatro nectares, "
+                 "Prison Bottle, Reveal Glass, Rotom Catalog e Zygarde Cube); na "
+                 "segunda os nove `checkitem` devolvem TRUE, nenhum `call_if_eq` "
+                 "dispara, e o `goto_if_set FLAG_DEX_PRESENTE_EVENTO` desvia "
+                 "antes dos `givemon`. A prova e que o time continua em 6 e o "
+                 f"primeiro continua sendo o "
+                 f"{evento[0]['especie'].replace('SPECIES_', '')}: se algum dos "
+                 "nove `call` nao voltasse, o contexto de script travaria e o "
+                 "time pararia em 0; se a guarda de flag tivesse quebrado, os "
+                 f"{len(evento)} `givemon` rodariam de novo. Par negativo: T137.2."),
+             flags=["FLAG_SEM_ENCONTRO_SELVAGEM"],
+             warp=mapa, warp_id=b["warp"], time_jogador=True,
+             roteiro=rota + fala + fala,
+             prova=dict(mapa=mapa, time=6,
+                        campos={"especie0": num[evento[0]["especie"]]})),
+        dict(id="T137.2",
+             nome=(
+                 "PAR NEGATIVO DO T137.1: a MESMA rota, SEM apertar A nenhuma "
+                 "vez. O time continua vazio e o jogador para "
+                 f"em {tuple(b['para'])}, encostado no NPC. Sem ele o T137.1 passaria "
+                 "num jogo em que o time ja viesse cheio de fabrica, e tambem "
+                 "num jogo em que o NPC esta la e nao responde."),
+             flags=["FLAG_SEM_ENCONTRO_SELVAGEM"],
+             warp=mapa, warp_id=b["warp"], time_jogador=True,
+             roteiro=rota,
+             prova=dict(mapa=mapa, time=0, pos=list(b["para"]))),
+    ]
+
+
 def aplica_casos(gravar):
     """Escreve os casos GERADOS e preserva os escritos a mao.
 
@@ -2382,13 +2770,22 @@ def aplica_casos(gravar):
         a, b = c["id"].split(".")
         return (a, int(b))
     casos = sorted(gerados + [c for c in antigo if c["id"] not in meus], key=chave)
-    if antigo == casos:
-        return []
-    if gravar:
-        open(CASOS, "w", encoding="utf-8").write(
-            json.dumps(casos, indent=2, ensure_ascii=False) + "\n")
-    return [f"testes_criticos/129_dex_completa.json: {len(casos)} casos "
-            f"({len(gerados)} gerados, {len(casos) - len(gerados)} a mao)"]
+    fora = []
+    if antigo != casos:
+        if gravar:
+            open(CASOS, "w", encoding="utf-8").write(
+                json.dumps(casos, indent=2, ensure_ascii=False) + "\n")
+        fora.append(f"testes_criticos/129_dex_completa.json: {len(casos)} casos "
+                    f"({len(gerados)} gerados, {len(casos) - len(gerados)} a mao)")
+    t137 = casos_t137()
+    novo = json.dumps(t137, indent=2, ensure_ascii=False) + "\n"
+    velho = open(CASOS_FORMA, encoding="utf-8").read() if os.path.exists(
+        CASOS_FORMA) else ""
+    if novo != velho:
+        if gravar:
+            open(CASOS_FORMA, "w", encoding="utf-8").write(novo)
+        fora.append(f"testes_criticos/137_dex_formas.json: {len(t137)} casos")
+    return fora
 
 if __name__ == "__main__":
     main()
