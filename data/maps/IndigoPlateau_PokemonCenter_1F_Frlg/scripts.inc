@@ -7,6 +7,7 @@ IndigoPlateau_PokemonCenter_1F_OnTransition::
 	setrespawn HEAL_LOCATION_INDIGO_PLATEAU
 	specialvar VAR_RESULT, IsNationalPokedexEnabled
 	call_if_eq VAR_RESULT, TRUE, IndigoPlateau_PokemonCenter_1F_EventScript_CheckBlockDoor
+	call IndigoPlateau_PokemonCenter_1F_EventScript_SilverPorta
 	end
 
 IndigoPlateau_PokemonCenter_1F_EventScript_CheckBlockDoor::
@@ -111,3 +112,40 @@ IndigoPlateau_PokemonCenter_1F_Text_LancesCousinGymLeaderFarAway::
 	.string "a cousin who's a GYM LEADER\l"
 	.string "somewhere far away.$"
 
+@ >>> cena importada por dev_scripts/importa_chefes_faltantes.py >>>
+IndigoPlateau_PokemonCenter_1F_EventScript_SilverPorta::
+	setflag FLAG_HIDE_SILVER_INDIGO
+	goto_if_not_defeated TRAINER_JOHTO_RIVAL_SILVER_6, Common_EventScript_NopReturn
+	goto_if_defeated TRAINER_JOHTO_RIVAL_SILVER_7, Common_EventScript_NopReturn
+	clearflag FLAG_HIDE_SILVER_INDIGO
+	return
+
+IndigoPlateau_PokemonCenter_1F_EventScript_Silver::
+	trainerbattle_single TRAINER_JOHTO_RIVAL_SILVER_7, IndigoPlateau_PokemonCenter_1F_Text_SilverSeen, IndigoPlateau_PokemonCenter_1F_Text_SilverBeaten
+	msgbox IndigoPlateau_PokemonCenter_1F_Text_SilverAfter, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_HIDE_SILVER_INDIGO
+	removeobject LOCALID_INDIGO_PLATEAU_POKEMON_CENTER_1F_SILVER
+	release
+	end
+
+IndigoPlateau_PokemonCenter_1F_Text_SilverSeen::
+	.string "Hold it.\p"
+	.string "You're going to take the POKéMON\n"
+	.string "LEAGUE challenge now?\p"
+	.string "That's not going to happen.\p"
+	.string "My super-well-trained POKéMON\n"
+	.string "are going to pound you.\p"
+	.string "{PLAYER}!\n"
+	.string "I challenge you!$"
+
+IndigoPlateau_PokemonCenter_1F_Text_SilverBeaten::
+	.string "…\p"
+	.string "OK--I lost…$"
+
+IndigoPlateau_PokemonCenter_1F_Text_SilverAfter::
+	.string "…Darn… I still can't win…\p"
+	.string "I… I have to think more about my\n"
+	.string "POKéMON…\p"
+	.string "Humph! Try not to lose!$"
+@ <<< cena importada por dev_scripts/importa_chefes_faltantes.py <<<

@@ -45,7 +45,12 @@ já diz isso.
 ## Contagem: 144 batalhas de chefe (líder, rival, E4, campeão)
 
 Os **40 chefes de equipe vilã** entraram depois, em 22/08/2026, e têm seção
-própria mais abaixo; com eles a tabela vai a **184 batalhas e 970 Pokémon**.
+própria mais abaixo; com eles a tabela foi a **184 batalhas e 970 Pokémon**. Na
+rodada seguinte do mesmo dia entraram as **6 batalhas que a fonte tinha e este
+repo não** (três de Silver, a `RYOKU1`, o N e o Hugh), e a tabela fechou em
+**190 batalhas e 1.006 Pokémon**; a leva 2 do mesmo dia trouxe Bianca, Cheren 2 e
+as seis variantes de Nate/Rosa, e a tabela fechou em **198 batalhas e 1.054
+Pokémon**.
 
 | região | batalhas | líder | rival | E4 | campeão | lendários distintos | mega | Z | dmax | tera |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -117,20 +122,25 @@ Conferido pelo fechador em 21/08/2026, porque a tabela chama a atenção: Johto 
 4 batalhas de rival e **Unova tem ZERO**. Medido contra `src/data/trainers.party`
 e `include/constants/opponents.h`, e não contra a memória das fontes:
 
-- **Johto**: existem exatamente **quatro** entradas de Silver com time próprio,
-  `TRAINER_JOHTO_RIVAL_SILVER_1` a `_4`, e **as quatro estão na Fase F**. O
-  HGSS enfrenta o Silver sete vezes; as outras três nunca foram importadas. Ou
-  seja o que falta é **importação de Johto**, não elenco da Fase F.
-- **Unova**: o espaço `TRAINER_UNOVA_*` tem 403 constantes e **nenhuma de
-  rival**. O BW3G não trouxe rival nenhum: os `TRAINER_BIANCA`, `TRAINER_HUGH` e
-  `TRAINER_NATE` que existem no `.party` são NPCs de HOENN (Route 111, Route 119
-  e o ginásio de Mossdeep), homônimos e não os rivais de Unova. O Cheren de lá é
-  líder de ginásio (`TRAINER_UNOVA_LEADER_CHEREN`), como em BW2.
+- **Johto**: eram **quatro** entradas de Silver com time próprio,
+  `TRAINER_JOHTO_RIVAL_SILVER_1` a `_4`. O HGSS enfrenta o Silver sete vezes, e as
+  outras três **foram importadas em 22/08/2026** (`_5`, `_6` e `_7`, ids 2523 a
+  2525). Johto passa a ter **sete** batalhas de rival, e o buraco de importação
+  fechou.
+- **Unova**: o espaço `TRAINER_UNOVA_*` tinha 403 constantes e **nenhuma de
+  rival**, e a leitura de então ("o BW3G não trouxe rival nenhum") estava errada
+  por não ter aberto a fonte: o que não tinha rival era o IMPORT, não o BW3G. Os
+  `TRAINER_BIANCA`, `TRAINER_HUGH` e `TRAINER_NATE` do `.party` seguem sendo NPCs
+  de HOENN (Route 111, Route 119 e o ginásio de Mossdeep), homônimos. Em
+  22/08/2026 entraram **dois** rivais de verdade: `TRAINER_UNOVA_N` (2527) e
+  `TRAINER_UNOVA_HUGH_TEPIG` (2528). O Cheren de lá continua líder de ginásio
+  (`TRAINER_UNOVA_LEADER_CHEREN`), como em BW2.
 - Varredura fechada: **zero** treinadores com `RIVAL` no nome e time próprio
   ficaram fora da tabela de chefes.
 
-Portanto o item de fila é **importar as três batalhas de Silver que faltam e os
-rivais do BW3G**, e só depois dar time a eles com o mesmo gerador.
+Esse item de fila foi cumprido em 22/08/2026: as três batalhas de Silver e dois
+rivais do BW3G entraram, e o time delas foi escrito pelo mesmo gerador. O que
+ficou para trás está na tabela da seção "A FONTE FOI MEDIDA", com o motivo.
 
 ## Os chefes de equipe vilã: 40 batalhas, 228 Pokémon (22/08/2026)
 
@@ -173,11 +183,34 @@ Quatro trocas, todas em Hoenn, feitas pelo gerador e não à mão:
 | Brendan (15 batalhas) | Groudon | **Latios** | Latias é da May, e Latios só estava em KANTO (Lance-2), então é o único do par livre em Hoenn |
 | Wallace (1 batalha) | Kyogre | **Palkia** | é o Água/Dragão que o Archie acabou de liberar; Suicune não servia porque já é do Juan, na mesma região |
 
-**Nem Groudon nem Kyogre ganharam o orbe de Primal**: seguem com `ITEM_LEFTOVERS`
-e `ITEM_CHOICE_SPECS`, os itens que já carregavam com Brendan e Wallace. A Primal
-Reversion é gimmick à parte do Mega e entraria POR CIMA da Mega Camerupt do Maxie
-e da Mega Sharpedo do Archie, quebrando o "um gimmick por chefe" sem que o guarda
-visse, porque ele só conhece pedra de Mega e cristal Z.
+**O orbe de Primal ENTROU em 22/08/2026 (rodada 5), e a 0.l estava errada sobre o
+motor.** O Groudon do Maxie passa a carregar `ITEM_RED_ORB` nas três batalhas e o
+Kyogre do Archie passa a carregar `ITEM_BLUE_ORB`; **a Mega Camerupt e a Mega
+Sharpedo FICAM**. A 0.l dizia que a Primal entraria "por cima" do Mega e quebraria
+o "um gimmick por chefe"; medido no código de batalha, ela não entra por cima de
+nada:
+
+- a Primal **não está no `enum Gimmick`** (`include/battle_gimmick.h:4`, que só
+  tem MEGA, ULTRA_BURST, Z_MOVE, DYNAMAX e TERA);
+- ela roda **sozinha ao entrar em campo**, sem botão e sem escolha do treinador
+  (`src/battle_switch_in.c:276` chama `TryPrimalReversion` dentro do
+  `FIRST_EVENT_BLOCK_GENERAL_ABILITIES`);
+- ela **nunca chama `SetActiveGimmick` nem `SetGimmickAsActivated`**: a varredura
+  dos dois só acha `battle_z_move.c`, `battle_dynamax.c`, `battle_terastal.c`,
+  `battle_ai_util.c` e as duas de Mega/Ultra Burst em `battle_util.c:8496` e
+  `:8514`.
+
+Logo `CanMegaEvolve` (`src/battle_util.c:8418`) continua devolvendo TRUE para o
+ace com pedra depois de o Groudon reverter, porque nem
+`HasTrainerUsedGimmick(GIMMICK_MEGA)` nem `GetActiveGimmick` enxergam a Primal.
+`P_PRIMAL_REVERSIONS` é TRUE (`include/config/species_enabled.h:24`) e as duas
+entradas de forma existem (`form_change_tables.h:739` e `:750`).
+
+**O guarda aprendeu o orbe** (`orbes_do_motor` em `fase_f_chefes.py`): ele lê as
+entradas `FORM_CHANGE_BATTLE_PRIMAL_REVERSION` do motor, reprova orbe em espécie
+que não tem Primal, reprova a tabela inteira se alguém desligar
+`P_PRIMAL_REVERSIONS`, e **não** conta o orbe contra o "um gimmick por chefe",
+porque o motor não conta. O `--demo` foi de 9 para 10 mutações.
 
 **Cyrus ficou como estava, e é decisão e não esquecimento**: o trio da criação
 está todo com Barry (Palkia, Dialga) e Cynthia (Giratina-Origin), e Darkrai é o
@@ -202,6 +235,135 @@ já eram Elite Four e continuam lá. Portanto **Kyurem para o Ghetsis e
 Reshiram/Zekrom para o N são item de IMPORTAÇÃO**, não de elenco; o Zekrom entrou
 com o Giallo, que é o sábio de elétrico. **Courtney e Charon também não existem**
 (a ausência da Courtney já estava escrita em `SINNOH-PADRAO.md`).
+
+## A FONTE FOI MEDIDA (22/08/2026, rodada 5): quem existe, quem não existe
+
+A 0.l e a seção acima diziam que Kyurem para o Ghetsis e Reshiram/Zekrom para o N
+eram "hipótese e não promessa", porque **ninguém tinha aberto a fonte**. Agora
+abriu. Medição contra os arquivos, com caminho e linha:
+
+| pessoa | existe na fonte? | id da fonte | mapa da fonte | ace da fonte | cena portável? |
+|---|---|---|---|---|---|
+| Silver 5 | **sim** | `TRAINER_RIVAL_TOTODILE_5` | `VictoryRoadKanto_1F` | Tyranitar 48 | **não**: `applymovement2`, `OBJ_EVENT_ID_FOLLOWER`, três ramos de `getplayerxy` |
+| Silver 6 | **sim** | `TRAINER_RIVAL_TOTODILE_6` | `MtMoon_Cave` | Tyranitar 64 | **não**: `MAP_SCRIPT_ON_FRAME_TABLE`, `applymovement2`, `clearflag` de outro mapa |
+| Silver 7 | **sim** | `TRAINER_RIVAL_TOTODILE_7` | `IndigoPlateau_PokemonCenter` | Tyranitar 68 | **sim**, e é o único: só `lock`/`faceplayer`/`msgbox`/`trainerbattle_no_intro` |
+| Ryoku 1 | **sim** | `RYOKU1` | `AccumulaTown` (`maps/AccumulaTown.asm:43`) | Amoonguss 40 | **não**: `checkcode VAR_FACING`, `FadeBlackQuickly`, 5 `disappear` + 4 `appear` |
+| N | **sim** | `N1` (`parties.asm:4989`) | `NsRoom` (`maps/NsRoom.asm:29`) | Zoroark 73 | **sim**: `faceplayer` + texto + batalha |
+| Hugh | **sim**, 3 variantes de inicial | `HUGH_SNIVY/_TEPIG/_OSHAWOTT` (`parties.asm:4875`) | `DriftveilShelter` (revanche em `:222-252`) | starter 73 | **sim** na revanche: só falas + batalha |
+| Bianca | **sim**, 1 | `BIANCA1` (`parties.asm:4075`) | `PWTBattleRoom` | Musharna 45 | **não**: moldura de torneio (`scene_script`, `priorityjump`, `warpcheck`, `setmapscene`) |
+| Nate / Rosa | **sim**, 3+3 variantes | `NATE_*`, `ROSA_*` | `NimbasaParkOutside` | starter 76 | médio, atrás de ramo de gênero **e** de inicial |
+| Cheren 2 | **sim** | `CHEREN2` (`parties.asm:3731`) | `OpelucidBattleHouse` | Stoutland 68 | sim, mas é **revanche**, e revanche já estava fora de escopo |
+| **Ghetsis** | **NÃO EXISTE** | — | só como texto em 5 mapas e como `MUSIC_GHETSIS_BATTLE` | — | — |
+| **Shadow Triad** | **NÃO EXISTE como treinador** | só `SPRITE_SHADOW` em `OBJECTTYPE_SCRIPT` | — | — | — |
+| **Courtney** | **NÃO EXISTE** | zero ocorrência em `fontes-mapas/pokeemerald` | — | — | — |
+| **Charon** | **NÃO EXISTE como treinador** | é NPC de cena no `pokeplatinum`; a lista de 929 treinadores não tem nenhum | — | — | — |
+
+Achado de quebra, e ele desmonta a hipótese da 0.l: a `MUSIC_GHETSIS_BATTLE` do
+BW3G **não é do Ghetsis**. Em `engine/battle/start_battle.asm:135` ela pertence à
+`trainerclass GENESIS`, o chefe original do hack, que já é o campeão de Unova
+aqui. O slot narrativo do Ghetsis já está ocupado, e por isso **Ghetsis, Shadow
+Triad, Courtney e Charon saem da fila como INEXISTENTES, não como pendentes.**
+
+### O que foi importado, e por quê o resto não
+
+Seis batalhas, por `dev_scripts/importa_chefes_faltantes.py` (idempotente,
+`--demo` com três mutações plantadas), e depois vestidas pelo `fase_f_chefes.py`
+como qualquer outro chefe. A Fase F vai a **190 batalhas e 1.006 Pokémon**; a leva 2 do mesmo dia trouxe Bianca, Cheren 2 e
+as seis variantes de Nate/Rosa, e a tabela fechou em **198 batalhas e 1.054
+Pokémon**.
+
+| batalha | id | mapa deste repo | ace | gimmick | lendário |
+|---|---|---|---|---|---|
+| `TRAINER_JOHTO_RIVAL_SILVER_5` | 2523 | `VictoryRoad_1F_Frlg` (8,20) | 92 | Mega Tyranitar | Lugia |
+| `TRAINER_JOHTO_RIVAL_SILVER_6` | 2524 | `MtMoon_1F_Frlg` (4,6) | 109 | Mega Tyranitar | Lugia |
+| `TRAINER_JOHTO_RIVAL_SILVER_7` | 2525 | `IndigoPlateau_PokemonCenter_1F_Frlg` (11,13) | 113 | Mega Tyranitar | Lugia |
+| `TRAINER_UNOVA_RYOKU1` | 2526 | `Unova_AccumulaTown`, NPC que já existia | 228 | Z Decidueye | Wo-Chien |
+| `TRAINER_UNOVA_N` | 2527 | `Unova_NsRoom`, NPC que já existia | 255 | Z Zoroark | Kyurem-Branco |
+| `TRAINER_UNOVA_HUGH_TEPIG` | 2528 | `Unova_DriftveilShelter`, NPC que já existia | 255 | Mega Emboar | Landorus-T |
+
+- **As três de Silver foram REESCRITAS, não copiadas**, e isso é decisão: duas das
+  três cenas da fonte são cinema (`ShakeCamera`, `setmetatile`, `warphole`,
+  `applymovement2`, `OBJ_EVENT_ID_FOLLOWER`). O molde usado é o das QUATRO cenas de
+  Silver que este repo já provou na ROM (`CherrygroveCity/scripts.inc`):
+  `ON_TRANSITION` acende a flag de esconder, `goto_if_not_defeated` da batalha
+  anterior e `goto_if_defeated` da própria abrem o NPC, e a cena é
+  `trainerbattle_single` + `msgbox` + `removeobject`. **Os textos são os da
+  fonte, verbatim.** A fonte tem três linhas de inicial e este repo segue com a
+  do TOTODILE, como as quatro batalhas antigas.
+- **As três de Unova não precisaram de objeto nem de flag**: o import de mapa já
+  tinha posto o NPC no lugar certo, com o sprite e o texto da fonte, só falando.
+  O `msgbox` virou `trainerbattle_single`.
+- **O Hugh entra na variante TEPIG por MEDIÇÃO**: das três, só ela põe no slot de
+  ace um Pokémon com Mega na `form_change_tables.h` (Emboar / `ITEM_EMBOARITE`).
+  Com Snivy ou Oshawott o ace ficaria sem gimmick.
+- **N e Ryoku 1 ganharam Z e não Mega** pelo mesmo motivo do Ryoku 2: nenhuma das
+  seis espécies do time da fonte tem Mega.
+- **Bianca, Nate/Rosa e Cheren 2 entraram na leva 2** (decisão do condutor,
+  22/08/2026), com ids 2529 a 2536:
+
+| batalha | id | mapa deste repo | ace | gimmick | lendário |
+|---|---|---|---|---|---|
+| `TRAINER_UNOVA_BIANCA` | 2529 | `Unova_PWTBattleRoom`, NPC que já existia mudo | 232 | Z Musharna | Cresselia |
+| `TRAINER_UNOVA_CHEREN_2` | 2530 | `Unova_OpelucidBattleHouse` (4,2) | 253 | Z Stoutland | Regigigas |
+| `TRAINER_UNOVA_{NATE,ROSA}_{SNIVY,TEPIG,OSHAWOTT}` | 2531-2536 | `Unova_NimbasaParkOutside` (6,9) | 255 | Mega Froslass | Meloetta |
+
+  - **A moldura de torneio da Bianca NÃO foi portada, e isso é decisão**: na fonte
+    ela é `scene_script` + `priorityjump` na entrada do mapa + `setmapscene` +
+    `warpcheck` (`PWTBattleRoom.asm:8-16`, `:59-61`), e o diagnóstico aberto na
+    0.l diz que `warp` dentro de script portado não troca de mapa. Entrou a
+    BATALHA, pendurada no NPC que o import já tinha deixado com `script: "0"`,
+    com os textos da fonte.
+  - **As seis variantes de Nate/Rosa vieram inteiras**, com o ramo da fonte
+    comando a comando (`NimbasaParkOutside.asm:127-156`): primeiro
+    `checkplayergender`, depois `VAR_STARTER_MON`, e o inicial testa só DOIS
+    valores porque o terceiro cai por fallthrough, exatamente como os dois
+    `checkevent` de lá. O mapa inicial→rival é o da fonte e dá a vantagem de tipo
+    ao JOGADOR (Snivy enfrenta a variante Oshawott), que é o mesmo mapa que o
+    `Unova_ChampionsRoom` já usa para a Juniper.
+  - **Cheren 2 leva o MESMO Regigigas do Cheren líder**, e é a regra e não
+    descuido: a proibição de repetir lendário vale entre pessoas diferentes.
+  - **Gimmick por medição, não por gosto**: Bianca e Cheren 2 ganharam Z porque
+    nenhuma das espécies da fonte deles tem Mega; Nate/Rosa ganharam Mega no
+    **Froslass**, a única das seis espécies da fonte com entrada na
+    `form_change_tables.h`, e por isso o `gimmick_slot` deles é o 3 e não o ace.
+    Dynamax e Terastal seguem em 5 e 6, intocados.
+  - **Níveis pela mesma reta**: Bianca ace 45 da fonte → 232; Cheren 2 ace 68 →
+    253; Nate/Rosa ace 76 → satura em 255.
+
+**Os níveis não foram escolhidos a dedo.** Cada um saiu do MESMO ajuste linear que
+os irmãos já obedecem, e a conta está em `NIVEL_MEDIDO`, no importador:
+
+- Silver: os quatro aces daqui (45, 60, 68, 82) contra os quatro da fonte (5, 18,
+  24, 40) dão `nível = 40,69 + 1,0601 × fonte`, resíduo máximo de 2. Nos aces 48,
+  64 e 68 isso dá **92, 109 e 113**. Os dois últimos passam do teto de 100 da
+  faixa de Johto de propósito: são batalhas de pós-jogo, e a
+  `TRAINER_JOHTO_GIOVANNI` já está em 114 com a palavra do Gui.
+- Plasma: Giallo 30→219, Bronius 36→224, Gorm 45→232 e Zinzolin 57→242 dão
+  `nível = 192,5 + 0,885 × fonte`, que reproduz **os quatro exatamente**. O ace 40
+  do Ryoku 1 cai em **228**.
+- N e Hugh têm ace 73 na fonte e a mesma reta daria 257: os dois **saturam em
+  255**, o MAX_LEVEL desta build.
+
+### A sala do N era um beco, e foi consertada movendo o N
+
+`Unova_NsRoom` tem UM warp, em (0,4), com comportamento `MB_NON_ANIMATED_DOOR`, e
+porta larga o jogador UM tile ao sul, em **(0,5)**. O (0,5) faz fronteira só com
+(1,5) e (0,6), que são parede, e com o próprio warp: para sair de lá o jogador
+PISA no warp e volta para a Victory Road. Com o N na posição da fonte, (5,2), ele
+era inalcançável, e a suíte provou isso antes de qualquer conserto.
+
+**Mover o warp não servia, e isso é medição e não palpite**: a varredura do
+comportamento dos metatiles do layout inteiro diz que **(0,4) é o ÚNICO tile do
+mapa que dispara warp**. Warp em coordenada nova não dispararia, e o jogador
+ficaria preso de vez, que é pior do que o beco.
+
+O conserto foi o mais barato que existia: **o N foi para (0,4)**, a própria porta,
+com `FLAG_HIDE_UNOVA_N`, e some depois da batalha, que é o que a fonte também faz
+(`disappear NSROOM_N`, `maps/NsRoom.asm:43`). Ele bloqueia a saída até a batalha,
+que é exatamente o papel dele na cena. Só posição de objeto mudou; nada de
+geometria, nada de save. T143.11 prova que a batalha abre e T143.12 prova o
+bloqueio: os mesmos dois UP que antes levavam o jogador para
+`MAP_UNOVA_VICTORY_ROAD_CASTLE_OUTSIDE` agora param em (0,5).
 
 ### As regras próprias do papel `vilao`
 
@@ -240,19 +402,18 @@ leitura pegou lixo que já estava na EWRAM desde o boot".
 
 1. **Treinador comum**: intocado. Se o Gui quiser subir o piso, o corte é
    `gens69_treinadores.py` parte 2, que continua válido para eles.
-2. **Bloco pendente: IMPORTAR as batalhas que não existem** (adiado pelo Gui em
-   22/08/2026, depois da rodada dos vilões). São as três batalhas de Silver, a
-   `RYOKU1`, os rivais do BW3G e, do lado vilão, **Ghetsis, N, o Shadow Triad,
-   Courtney e Charon**. Medido aqui: nenhuma delas existe em
-   `src/data/trainers.party` nem em `include/constants/opponents.h`, e "GHETSIS"
-   só aparece como TEXTO em três `scripts.inc` de Unova.
-   **Este bloco depende de a FONTE ter essas batalhas, e ninguém mediu isso
-   ainda**: o BW3G pode simplesmente não trazer o Ghetsis nem o N como treinador,
-   do mesmo jeito que não trouxe rival nenhum, e o HGSS pode não ter a `RYOKU1`.
-   **Quem executar MEDE a fonte primeiro** e só depois promete elenco; enquanto
-   isso, Kyurem para o Ghetsis e Reshiram/Zekrom para o N não são decisão tomada,
-   são hipótese. O Zekrom, hoje, está com o Giallo, e o Kyurem-Preto com o
-   Genesis.
+2. **Bloco cumprido em 22/08/2026: as batalhas que não existiam.** A fonte foi
+   medida (tabela na seção "A FONTE FOI MEDIDA"). Entraram **seis**: as três de
+   Silver, a `RYOKU1`, o N e o Hugh. **Ghetsis, Shadow Triad, Courtney e Charon
+   saíram da fila como INEXISTENTES**, e não como pendentes: nenhum dos quatro é
+   treinador com time em fonte nenhuma. Kyurem para o Ghetsis e Reshiram/Zekrom
+   para o N deixaram de ser hipótese: o N ficou com **Kyurem-Branco**, porque
+   Reshiram é da Juniper e Zekrom é do Giallo, na mesma região. Ficaram de fora,
+   e existem na fonte: **Bianca** (moldura de torneio do PWT), **Nate/Rosa**
+   (seis variantes atrás de ramo de gênero e de inicial) e **Cheren 2**
+   (revanche). **Os três entraram na leva 2 do mesmo dia**, por decisão do
+   condutor, e com eles a fila de importação de batalha de chefe fica VAZIA:
+   não sobrou treinador com time em fonte nenhuma que este repo não tenha.
 3. **Rematches de líder de Hoenn** (`ROXANNE_2` a `JUAN_5`, 40 batalhas) e os
    `KAREN_1..5`: fora do escopo porque são o sistema de revanche por Match Call,
    não a linha principal.

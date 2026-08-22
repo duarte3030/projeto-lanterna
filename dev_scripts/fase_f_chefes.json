@@ -15878,7 +15878,7 @@
     {
      "especie": "SPECIES_GROUDON",
      "nivel": 109,
-     "item": "ITEM_LEFTOVERS",
+     "item": "ITEM_RED_ORB",
      "habilidade": "ABILITY_DROUGHT",
      "natureza": "NATURE_ADAMANT",
      "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
@@ -16112,7 +16112,7 @@
     {
      "especie": "SPECIES_GROUDON",
      "nivel": 120,
-     "item": "ITEM_LEFTOVERS",
+     "item": "ITEM_RED_ORB",
      "habilidade": "ABILITY_DROUGHT",
      "natureza": "NATURE_ADAMANT",
      "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
@@ -16346,7 +16346,7 @@
     {
      "especie": "SPECIES_GROUDON",
      "nivel": 123,
-     "item": "ITEM_LEFTOVERS",
+     "item": "ITEM_RED_ORB",
      "habilidade": "ABILITY_DROUGHT",
      "natureza": "NATURE_ADAMANT",
      "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
@@ -16769,7 +16769,7 @@
     {
      "especie": "SPECIES_KYOGRE",
      "nivel": 123,
-     "item": "ITEM_CHOICE_SPECS",
+     "item": "ITEM_BLUE_ORB",
      "habilidade": "ABILITY_DRIZZLE",
      "natureza": "NATURE_MODEST",
      "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
@@ -18827,6 +18827,1578 @@
       "MOVE_ICICLE_CRASH",
       "MOVE_EARTHQUAKE",
       "MOVE_EXPLOSION"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "TRAINER_JOHTO_RIVAL_SILVER_5",
+   "regiao": "johto",
+   "papel": "rival",
+   "identidade": "silver",
+   "ace": 92,
+   "gimmick": "mega",
+   "gimmick_slot": 5,
+   "lendario": "SPECIES_LUGIA",
+   "ai": [
+    "AI_FLAG_SMART_TRAINER",
+    "AI_FLAG_HP_AWARE",
+    "AI_FLAG_TRY_TO_2HKO",
+    "AI_FLAG_POWERFUL_STATUS",
+    "AI_FLAG_PREDICTION",
+    "AI_FLAG_ASSUMPTIONS",
+    "AI_FLAG_KNOW_OPPONENT_PARTY",
+    "AI_FLAG_ACE_POKEMON"
+   ],
+   "time": [
+    {
+     "especie": "SPECIES_CROBAT",
+     "nivel": 88,
+     "item": "ITEM_HEAVY_DUTY_BOOTS",
+     "habilidade": "ABILITY_INFILTRATOR",
+     "natureza": "NATURE_JOLLY",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_BRAVE_BIRD",
+      "MOVE_U_TURN",
+      "MOVE_ROOST",
+      "MOVE_DEFOG"
+     ]
+    },
+    {
+     "especie": "SPECIES_VICTREEBEL",
+     "nivel": 88,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_CHLOROPHYLL",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_GROWTH",
+      "MOVE_GIGA_DRAIN",
+      "MOVE_SLUDGE_BOMB",
+      "MOVE_SLEEP_POWDER"
+     ]
+    },
+    {
+     "especie": "SPECIES_HOUNDOOM",
+     "nivel": 89,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_FLASH_FIRE",
+     "natureza": "NATURE_TIMID",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_NASTY_PLOT",
+      "MOVE_DARK_PULSE",
+      "MOVE_FIRE_BLAST",
+      "MOVE_SLUDGE_BOMB"
+     ]
+    },
+    {
+     "especie": "SPECIES_FERALIGATR",
+     "nivel": 90,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_SHEER_FORCE",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_DRAGON_DANCE",
+      "MOVE_LIQUIDATION",
+      "MOVE_ICE_PUNCH",
+      "MOVE_CRUNCH"
+     ]
+    },
+    {
+     "especie": "SPECIES_LUGIA",
+     "nivel": 91,
+     "item": "ITEM_HEAVY_DUTY_BOOTS",
+     "habilidade": "ABILITY_MULTISCALE",
+     "natureza": "NATURE_BOLD",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 Def / 4 SpD",
+     "golpes": [
+      "MOVE_AEROBLAST",
+      "MOVE_ROOST",
+      "MOVE_CALM_MIND",
+      "MOVE_WHIRLWIND"
+     ]
+    },
+    {
+     "especie": "SPECIES_TYRANITAR",
+     "nivel": 92,
+     "item": "ITEM_TYRANITARITE",
+     "habilidade": "ABILITY_SAND_STREAM",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_DRAGON_DANCE",
+      "MOVE_STONE_EDGE",
+      "MOVE_CRUNCH",
+      "MOVE_EARTHQUAKE"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "TRAINER_JOHTO_RIVAL_SILVER_6",
+   "regiao": "johto",
+   "papel": "rival",
+   "identidade": "silver",
+   "ace": 109,
+   "gimmick": "mega",
+   "gimmick_slot": 5,
+   "lendario": "SPECIES_LUGIA",
+   "ai": [
+    "AI_FLAG_SMART_TRAINER",
+    "AI_FLAG_HP_AWARE",
+    "AI_FLAG_TRY_TO_2HKO",
+    "AI_FLAG_POWERFUL_STATUS",
+    "AI_FLAG_PREDICTION",
+    "AI_FLAG_ASSUMPTIONS",
+    "AI_FLAG_KNOW_OPPONENT_PARTY",
+    "AI_FLAG_ACE_POKEMON"
+   ],
+   "time": [
+    {
+     "especie": "SPECIES_URSALUNA_BLOODMOON",
+     "nivel": 105,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_MINDS_EYE",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 SpA / 4 SpD",
+     "golpes": [
+      "MOVE_BLOOD_MOON",
+      "MOVE_EARTH_POWER",
+      "MOVE_CALM_MIND",
+      "MOVE_MOONLIGHT"
+     ]
+    },
+    {
+     "especie": "SPECIES_VICTREEBEL",
+     "nivel": 105,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_CHLOROPHYLL",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_GROWTH",
+      "MOVE_GIGA_DRAIN",
+      "MOVE_SLUDGE_BOMB",
+      "MOVE_SLEEP_POWDER"
+     ]
+    },
+    {
+     "especie": "SPECIES_HOUNDOOM",
+     "nivel": 106,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_FLASH_FIRE",
+     "natureza": "NATURE_TIMID",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_NASTY_PLOT",
+      "MOVE_DARK_PULSE",
+      "MOVE_FIRE_BLAST",
+      "MOVE_SLUDGE_BOMB"
+     ]
+    },
+    {
+     "especie": "SPECIES_FERALIGATR",
+     "nivel": 107,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_SHEER_FORCE",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_DRAGON_DANCE",
+      "MOVE_LIQUIDATION",
+      "MOVE_ICE_PUNCH",
+      "MOVE_CRUNCH"
+     ]
+    },
+    {
+     "especie": "SPECIES_LUGIA",
+     "nivel": 108,
+     "item": "ITEM_HEAVY_DUTY_BOOTS",
+     "habilidade": "ABILITY_MULTISCALE",
+     "natureza": "NATURE_BOLD",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 Def / 4 SpD",
+     "golpes": [
+      "MOVE_AEROBLAST",
+      "MOVE_ROOST",
+      "MOVE_CALM_MIND",
+      "MOVE_WHIRLWIND"
+     ]
+    },
+    {
+     "especie": "SPECIES_TYRANITAR",
+     "nivel": 109,
+     "item": "ITEM_TYRANITARITE",
+     "habilidade": "ABILITY_SAND_STREAM",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_DRAGON_DANCE",
+      "MOVE_STONE_EDGE",
+      "MOVE_CRUNCH",
+      "MOVE_EARTHQUAKE"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "TRAINER_JOHTO_RIVAL_SILVER_7",
+   "regiao": "johto",
+   "papel": "rival",
+   "identidade": "silver",
+   "ace": 113,
+   "gimmick": "mega",
+   "gimmick_slot": 5,
+   "lendario": "SPECIES_LUGIA",
+   "ai": [
+    "AI_FLAG_SMART_TRAINER",
+    "AI_FLAG_HP_AWARE",
+    "AI_FLAG_TRY_TO_2HKO",
+    "AI_FLAG_POWERFUL_STATUS",
+    "AI_FLAG_PREDICTION",
+    "AI_FLAG_ASSUMPTIONS",
+    "AI_FLAG_KNOW_OPPONENT_PARTY",
+    "AI_FLAG_ACE_POKEMON"
+   ],
+   "time": [
+    {
+     "especie": "SPECIES_URSALUNA_BLOODMOON",
+     "nivel": 109,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_MINDS_EYE",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 SpA / 4 SpD",
+     "golpes": [
+      "MOVE_BLOOD_MOON",
+      "MOVE_EARTH_POWER",
+      "MOVE_CALM_MIND",
+      "MOVE_MOONLIGHT"
+     ]
+    },
+    {
+     "especie": "SPECIES_VICTREEBEL",
+     "nivel": 109,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_CHLOROPHYLL",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_GROWTH",
+      "MOVE_GIGA_DRAIN",
+      "MOVE_SLUDGE_BOMB",
+      "MOVE_SLEEP_POWDER"
+     ]
+    },
+    {
+     "especie": "SPECIES_HOUNDOOM",
+     "nivel": 110,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_FLASH_FIRE",
+     "natureza": "NATURE_TIMID",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_NASTY_PLOT",
+      "MOVE_DARK_PULSE",
+      "MOVE_FIRE_BLAST",
+      "MOVE_SLUDGE_BOMB"
+     ]
+    },
+    {
+     "especie": "SPECIES_FERALIGATR",
+     "nivel": 111,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_SHEER_FORCE",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_DRAGON_DANCE",
+      "MOVE_LIQUIDATION",
+      "MOVE_ICE_PUNCH",
+      "MOVE_CRUNCH"
+     ]
+    },
+    {
+     "especie": "SPECIES_LUGIA",
+     "nivel": 112,
+     "item": "ITEM_HEAVY_DUTY_BOOTS",
+     "habilidade": "ABILITY_MULTISCALE",
+     "natureza": "NATURE_BOLD",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 Def / 4 SpD",
+     "golpes": [
+      "MOVE_AEROBLAST",
+      "MOVE_ROOST",
+      "MOVE_CALM_MIND",
+      "MOVE_WHIRLWIND"
+     ]
+    },
+    {
+     "especie": "SPECIES_TYRANITAR",
+     "nivel": 113,
+     "item": "ITEM_TYRANITARITE",
+     "habilidade": "ABILITY_SAND_STREAM",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_DRAGON_DANCE",
+      "MOVE_STONE_EDGE",
+      "MOVE_CRUNCH",
+      "MOVE_EARTHQUAKE"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "TRAINER_UNOVA_RYOKU1",
+   "regiao": "unova",
+   "papel": "vilao",
+   "identidade": "ryoku",
+   "ace": 228,
+   "gimmick": "z",
+   "gimmick_slot": 5,
+   "lendario": "SPECIES_WO_CHIEN",
+   "ai": [
+    "AI_FLAG_SMART_TRAINER",
+    "AI_FLAG_HP_AWARE",
+    "AI_FLAG_TRY_TO_2HKO",
+    "AI_FLAG_POWERFUL_STATUS",
+    "AI_FLAG_PREDICTION",
+    "AI_FLAG_ASSUMPTIONS",
+    "AI_FLAG_KNOW_OPPONENT_PARTY",
+    "AI_FLAG_ACE_POKEMON"
+   ],
+   "time": [
+    {
+     "especie": "SPECIES_FERROTHORN",
+     "nivel": 224,
+     "item": "ITEM_LEFTOVERS",
+     "habilidade": "ABILITY_IRON_BARBS",
+     "natureza": "NATURE_RELAXED",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 Def / 4 SpD",
+     "golpes": [
+      "MOVE_SPIKES",
+      "MOVE_LEECH_SEED",
+      "MOVE_POWER_WHIP",
+      "MOVE_GYRO_BALL"
+     ]
+    },
+    {
+     "especie": "SPECIES_AMOONGUSS",
+     "nivel": 224,
+     "item": "ITEM_BLACK_SLUDGE",
+     "habilidade": "ABILITY_REGENERATOR",
+     "natureza": "NATURE_BOLD",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 Def / 4 SpD",
+     "golpes": [
+      "MOVE_SPORE",
+      "MOVE_GIGA_DRAIN",
+      "MOVE_SLUDGE_BOMB",
+      "MOVE_CLEAR_SMOG"
+     ]
+    },
+    {
+     "especie": "SPECIES_ROSERADE",
+     "nivel": 225,
+     "item": "ITEM_BLACK_SLUDGE",
+     "habilidade": "ABILITY_TECHNICIAN",
+     "natureza": "NATURE_TIMID",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_SPIKES",
+      "MOVE_GIGA_DRAIN",
+      "MOVE_SLUDGE_BOMB",
+      "MOVE_SLEEP_POWDER"
+     ]
+    },
+    {
+     "especie": "SPECIES_TANGROWTH",
+     "nivel": 226,
+     "item": "ITEM_ASSAULT_VEST",
+     "habilidade": "ABILITY_REGENERATOR",
+     "natureza": "NATURE_RELAXED",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 Def / 4 SpD",
+     "golpes": [
+      "MOVE_GIGA_DRAIN",
+      "MOVE_POWER_WHIP",
+      "MOVE_EARTHQUAKE",
+      "MOVE_KNOCK_OFF"
+     ]
+    },
+    {
+     "especie": "SPECIES_WO_CHIEN",
+     "nivel": 227,
+     "item": "ITEM_LEFTOVERS",
+     "habilidade": "ABILITY_TABLETS_OF_RUIN",
+     "natureza": "NATURE_CALM",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 Def / 4 SpD",
+     "golpes": [
+      "MOVE_LEECH_SEED",
+      "MOVE_GIGA_DRAIN",
+      "MOVE_KNOCK_OFF",
+      "MOVE_PROTECT"
+     ]
+    },
+    {
+     "especie": "SPECIES_DECIDUEYE",
+     "nivel": 228,
+     "item": "ITEM_DECIDIUM_Z",
+     "habilidade": "ABILITY_LONG_REACH",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_SPIRIT_SHACKLE",
+      "MOVE_LEAF_BLADE",
+      "MOVE_SHADOW_SNEAK",
+      "MOVE_SWORDS_DANCE"
+     ]
+    }
+   ],
+   "equipe": "plasma",
+   "tema": [
+    "TYPE_GRASS"
+   ]
+  },
+  {
+   "id": "TRAINER_UNOVA_N",
+   "regiao": "unova",
+   "papel": "rival",
+   "identidade": "n",
+   "ace": 255,
+   "gimmick": "z",
+   "gimmick_slot": 5,
+   "lendario": "SPECIES_KYUREM_WHITE",
+   "ai": [
+    "AI_FLAG_SMART_TRAINER",
+    "AI_FLAG_HP_AWARE",
+    "AI_FLAG_TRY_TO_2HKO",
+    "AI_FLAG_POWERFUL_STATUS",
+    "AI_FLAG_PREDICTION",
+    "AI_FLAG_ASSUMPTIONS",
+    "AI_FLAG_KNOW_OPPONENT_PARTY",
+    "AI_FLAG_ACE_POKEMON"
+   ],
+   "time": [
+    {
+     "especie": "SPECIES_KLINKLANG",
+     "nivel": 251,
+     "item": "ITEM_LEFTOVERS",
+     "habilidade": "ABILITY_CLEAR_BODY",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_SHIFT_GEAR",
+      "MOVE_GEAR_GRIND",
+      "MOVE_WILD_CHARGE",
+      "MOVE_SUBSTITUTE"
+     ]
+    },
+    {
+     "especie": "SPECIES_ARCHEOPS",
+     "nivel": 251,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_DEFEATIST",
+     "natureza": "NATURE_JOLLY",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_ROCK_SLIDE",
+      "MOVE_ACROBATICS",
+      "MOVE_EARTHQUAKE",
+      "MOVE_U_TURN"
+     ]
+    },
+    {
+     "especie": "SPECIES_VANILLUXE",
+     "nivel": 252,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_SNOW_WARNING",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_AURORA_VEIL",
+      "MOVE_BLIZZARD",
+      "MOVE_FREEZE_DRY",
+      "MOVE_FLASH_CANNON"
+     ]
+    },
+    {
+     "especie": "SPECIES_CARRACOSTA",
+     "nivel": 253,
+     "item": "ITEM_WHITE_HERB",
+     "habilidade": "ABILITY_SOLID_ROCK",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_SHELL_SMASH",
+      "MOVE_LIQUIDATION",
+      "MOVE_STONE_EDGE",
+      "MOVE_AQUA_JET"
+     ]
+    },
+    {
+     "especie": "SPECIES_KYUREM_WHITE",
+     "nivel": 254,
+     "item": "ITEM_CHOICE_SPECS",
+     "habilidade": "ABILITY_TURBOBLAZE",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_ICE_BEAM",
+      "MOVE_DRACO_METEOR",
+      "MOVE_FUSION_FLARE",
+      "MOVE_EARTH_POWER"
+     ]
+    },
+    {
+     "especie": "SPECIES_ZOROARK",
+     "nivel": 255,
+     "item": "ITEM_DARKINIUM_Z",
+     "habilidade": "ABILITY_ILLUSION",
+     "natureza": "NATURE_TIMID",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_NASTY_PLOT",
+      "MOVE_DARK_PULSE",
+      "MOVE_FLAMETHROWER",
+      "MOVE_SLUDGE_BOMB"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "TRAINER_UNOVA_HUGH_TEPIG",
+   "regiao": "unova",
+   "papel": "rival",
+   "identidade": "hugh",
+   "ace": 255,
+   "gimmick": "mega",
+   "gimmick_slot": 5,
+   "lendario": "SPECIES_LANDORUS_THERIAN",
+   "ai": [
+    "AI_FLAG_SMART_TRAINER",
+    "AI_FLAG_HP_AWARE",
+    "AI_FLAG_TRY_TO_2HKO",
+    "AI_FLAG_POWERFUL_STATUS",
+    "AI_FLAG_PREDICTION",
+    "AI_FLAG_ASSUMPTIONS",
+    "AI_FLAG_KNOW_OPPONENT_PARTY",
+    "AI_FLAG_ACE_POKEMON"
+   ],
+   "time": [
+    {
+     "especie": "SPECIES_UNFEZANT",
+     "nivel": 251,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_SUPER_LUCK",
+     "natureza": "NATURE_JOLLY",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_BRAVE_BIRD",
+      "MOVE_FACADE",
+      "MOVE_U_TURN",
+      "MOVE_ROOST"
+     ]
+    },
+    {
+     "especie": "SPECIES_LIEPARD",
+     "nivel": 251,
+     "item": "ITEM_FOCUS_SASH",
+     "habilidade": "ABILITY_PRANKSTER",
+     "natureza": "NATURE_JOLLY",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_ENCORE",
+      "MOVE_THUNDER_WAVE",
+      "MOVE_KNOCK_OFF",
+      "MOVE_U_TURN"
+     ]
+    },
+    {
+     "especie": "SPECIES_FLYGON",
+     "nivel": 252,
+     "item": "ITEM_CHOICE_SCARF",
+     "habilidade": "ABILITY_LEVITATE",
+     "natureza": "NATURE_JOLLY",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_EARTHQUAKE",
+      "MOVE_OUTRAGE",
+      "MOVE_U_TURN",
+      "MOVE_STONE_EDGE"
+     ]
+    },
+    {
+     "especie": "SPECIES_EELEKTROSS",
+     "nivel": 253,
+     "item": "ITEM_ASSAULT_VEST",
+     "habilidade": "ABILITY_LEVITATE",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 SpA / 4 SpD",
+     "golpes": [
+      "MOVE_THUNDERBOLT",
+      "MOVE_FLAMETHROWER",
+      "MOVE_GIGA_DRAIN",
+      "MOVE_KNOCK_OFF"
+     ]
+    },
+    {
+     "especie": "SPECIES_LANDORUS_THERIAN",
+     "nivel": 254,
+     "item": "ITEM_LEFTOVERS",
+     "habilidade": "ABILITY_INTIMIDATE",
+     "natureza": "NATURE_IMPISH",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 Def / 4 SpD",
+     "golpes": [
+      "MOVE_EARTHQUAKE",
+      "MOVE_U_TURN",
+      "MOVE_STEALTH_ROCK",
+      "MOVE_KNOCK_OFF"
+     ]
+    },
+    {
+     "especie": "SPECIES_EMBOAR",
+     "nivel": 255,
+     "item": "ITEM_EMBOARITE",
+     "habilidade": "ABILITY_RECKLESS",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_FLARE_BLITZ",
+      "MOVE_CLOSE_COMBAT",
+      "MOVE_WILD_CHARGE",
+      "MOVE_SUCKER_PUNCH"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "TRAINER_UNOVA_BIANCA",
+   "regiao": "unova",
+   "papel": "rival",
+   "identidade": "bianca",
+   "ace": 232,
+   "gimmick": "z",
+   "gimmick_slot": 5,
+   "lendario": "SPECIES_CRESSELIA",
+   "ai": [
+    "AI_FLAG_SMART_TRAINER",
+    "AI_FLAG_HP_AWARE",
+    "AI_FLAG_TRY_TO_2HKO",
+    "AI_FLAG_POWERFUL_STATUS",
+    "AI_FLAG_PREDICTION",
+    "AI_FLAG_ASSUMPTIONS",
+    "AI_FLAG_KNOW_OPPONENT_PARTY",
+    "AI_FLAG_ACE_POKEMON"
+   ],
+   "time": [
+    {
+     "especie": "SPECIES_STOUTLAND",
+     "nivel": 228,
+     "item": "ITEM_CHOICE_BAND",
+     "habilidade": "ABILITY_INTIMIDATE",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_RETALIATE",
+      "MOVE_CRUNCH",
+      "MOVE_PLAY_ROUGH",
+      "MOVE_WILD_CHARGE"
+     ]
+    },
+    {
+     "especie": "SPECIES_SERVINE",
+     "nivel": 228,
+     "item": "ITEM_EVIOLITE",
+     "habilidade": "ABILITY_CONTRARY",
+     "natureza": "NATURE_TIMID",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 Def / 4 SpD",
+     "golpes": [
+      "MOVE_LEAF_STORM",
+      "MOVE_GIGA_DRAIN",
+      "MOVE_GLARE",
+      "MOVE_SUBSTITUTE"
+     ]
+    },
+    {
+     "especie": "SPECIES_PIGNITE",
+     "nivel": 229,
+     "item": "ITEM_EVIOLITE",
+     "habilidade": "ABILITY_THICK_FAT",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_FLARE_BLITZ",
+      "MOVE_BRICK_BREAK",
+      "MOVE_ROCK_SLIDE",
+      "MOVE_BULK_UP"
+     ]
+    },
+    {
+     "especie": "SPECIES_DEWOTT",
+     "nivel": 230,
+     "item": "ITEM_EVIOLITE",
+     "habilidade": "ABILITY_SHELL_ARMOR",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_AQUA_JET",
+      "MOVE_LIQUIDATION",
+      "MOVE_ICE_BEAM",
+      "MOVE_SWORDS_DANCE"
+     ]
+    },
+    {
+     "especie": "SPECIES_CRESSELIA",
+     "nivel": 231,
+     "item": "ITEM_LEFTOVERS",
+     "habilidade": "ABILITY_LEVITATE",
+     "natureza": "NATURE_BOLD",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 Def / 4 SpD",
+     "golpes": [
+      "MOVE_MOONLIGHT",
+      "MOVE_CALM_MIND",
+      "MOVE_PSYSHOCK",
+      "MOVE_MOONBLAST"
+     ]
+    },
+    {
+     "especie": "SPECIES_MUSHARNA",
+     "nivel": 232,
+     "item": "ITEM_PSYCHIUM_Z",
+     "habilidade": "ABILITY_SYNCHRONIZE",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 SpA / 4 SpD",
+     "golpes": [
+      "MOVE_CALM_MIND",
+      "MOVE_PSYCHIC",
+      "MOVE_DAZZLING_GLEAM",
+      "MOVE_MOONLIGHT"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "TRAINER_UNOVA_CHEREN_2",
+   "regiao": "unova",
+   "papel": "lider",
+   "identidade": "cheren",
+   "ace": 253,
+   "gimmick": "z",
+   "gimmick_slot": 5,
+   "lendario": "SPECIES_REGIGIGAS",
+   "ai": [
+    "AI_FLAG_SMART_TRAINER",
+    "AI_FLAG_HP_AWARE",
+    "AI_FLAG_TRY_TO_2HKO",
+    "AI_FLAG_POWERFUL_STATUS",
+    "AI_FLAG_PREDICTION",
+    "AI_FLAG_ASSUMPTIONS",
+    "AI_FLAG_KNOW_OPPONENT_PARTY",
+    "AI_FLAG_ACE_POKEMON"
+   ],
+   "time": [
+    {
+     "especie": "SPECIES_WATCHOG",
+     "nivel": 249,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_ANALYTIC",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_CRUNCH",
+      "MOVE_RETALIATE",
+      "MOVE_LOW_KICK",
+      "MOVE_SUCKER_PUNCH"
+     ]
+    },
+    {
+     "especie": "SPECIES_WIGGLYTUFF",
+     "nivel": 249,
+     "item": "ITEM_LEFTOVERS",
+     "habilidade": "ABILITY_COMPETITIVE",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 SpA / 4 SpD",
+     "golpes": [
+      "MOVE_DAZZLING_GLEAM",
+      "MOVE_THUNDERBOLT",
+      "MOVE_ICE_BEAM",
+      "MOVE_WISH"
+     ]
+    },
+    {
+     "especie": "SPECIES_BRAVIARY",
+     "nivel": 250,
+     "item": "ITEM_CHOICE_SCARF",
+     "habilidade": "ABILITY_DEFIANT",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_BRAVE_BIRD",
+      "MOVE_CLOSE_COMBAT",
+      "MOVE_U_TURN",
+      "MOVE_ROCK_SLIDE"
+     ]
+    },
+    {
+     "especie": "SPECIES_BOUFFALANT",
+     "nivel": 251,
+     "item": "ITEM_ASSAULT_VEST",
+     "habilidade": "ABILITY_SAP_SIPPER",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_HEAD_CHARGE",
+      "MOVE_EARTHQUAKE",
+      "MOVE_WILD_CHARGE",
+      "MOVE_ZEN_HEADBUTT"
+     ]
+    },
+    {
+     "especie": "SPECIES_REGIGIGAS",
+     "nivel": 252,
+     "item": "ITEM_FLAME_ORB",
+     "habilidade": "ABILITY_SLOW_START",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_FACADE",
+      "MOVE_KNOCK_OFF",
+      "MOVE_DRAIN_PUNCH",
+      "MOVE_THUNDER_WAVE"
+     ]
+    },
+    {
+     "especie": "SPECIES_STOUTLAND",
+     "nivel": 253,
+     "item": "ITEM_NORMALIUM_Z",
+     "habilidade": "ABILITY_SCRAPPY",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_GIGA_IMPACT",
+      "MOVE_CRUNCH",
+      "MOVE_PLAY_ROUGH",
+      "MOVE_WILD_CHARGE"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "TRAINER_UNOVA_NATE_SNIVY",
+   "regiao": "unova",
+   "papel": "rival",
+   "identidade": "nate_rosa",
+   "ace": 255,
+   "gimmick": "mega",
+   "gimmick_slot": 3,
+   "lendario": "SPECIES_MELOETTA",
+   "ai": [
+    "AI_FLAG_SMART_TRAINER",
+    "AI_FLAG_HP_AWARE",
+    "AI_FLAG_TRY_TO_2HKO",
+    "AI_FLAG_POWERFUL_STATUS",
+    "AI_FLAG_PREDICTION",
+    "AI_FLAG_ASSUMPTIONS",
+    "AI_FLAG_KNOW_OPPONENT_PARTY",
+    "AI_FLAG_ACE_POKEMON"
+   ],
+   "time": [
+    {
+     "especie": "SPECIES_DARMANITAN",
+     "nivel": 251,
+     "item": "ITEM_CHOICE_SCARF",
+     "habilidade": null,
+     "natureza": "NATURE_JOLLY",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_FLARE_BLITZ",
+      "MOVE_EARTHQUAKE",
+      "MOVE_U_TURN",
+      "MOVE_ROCK_SLIDE"
+     ]
+    },
+    {
+     "especie": "SPECIES_KINGDRA",
+     "nivel": 251,
+     "item": "ITEM_LEFTOVERS",
+     "habilidade": "ABILITY_SNIPER",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 SpA / 4 SpD",
+     "golpes": [
+      "MOVE_HYDRO_PUMP",
+      "MOVE_DRACO_METEOR",
+      "MOVE_ICE_BEAM",
+      "MOVE_RAIN_DANCE"
+     ]
+    },
+    {
+     "especie": "SPECIES_KROOKODILE",
+     "nivel": 252,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_MOXIE",
+     "natureza": "NATURE_JOLLY",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_EARTHQUAKE",
+      "MOVE_KNOCK_OFF",
+      "MOVE_STONE_EDGE",
+      "MOVE_SWORDS_DANCE"
+     ]
+    },
+    {
+     "especie": "SPECIES_FROSLASS",
+     "nivel": 253,
+     "item": "ITEM_FROSLASSITE",
+     "habilidade": "ABILITY_CURSED_BODY",
+     "natureza": "NATURE_TIMID",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_SPIKES",
+      "MOVE_ICE_BEAM",
+      "MOVE_SHADOW_BALL",
+      "MOVE_DESTINY_BOND"
+     ]
+    },
+    {
+     "especie": "SPECIES_MELOETTA",
+     "nivel": 254,
+     "item": "ITEM_LEFTOVERS",
+     "habilidade": null,
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 SpA / 4 SpD",
+     "golpes": [
+      "MOVE_CALM_MIND",
+      "MOVE_PSYSHOCK",
+      "MOVE_DAZZLING_GLEAM",
+      "MOVE_SHADOW_BALL"
+     ]
+    },
+    {
+     "especie": "SPECIES_SERPERIOR",
+     "nivel": 255,
+     "item": "ITEM_LEFTOVERS",
+     "habilidade": "ABILITY_CONTRARY",
+     "natureza": "NATURE_TIMID",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_LEAF_STORM",
+      "MOVE_GIGA_DRAIN",
+      "MOVE_GLARE",
+      "MOVE_SUBSTITUTE"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "TRAINER_UNOVA_NATE_TEPIG",
+   "regiao": "unova",
+   "papel": "rival",
+   "identidade": "nate_rosa",
+   "ace": 255,
+   "gimmick": "mega",
+   "gimmick_slot": 3,
+   "lendario": "SPECIES_MELOETTA",
+   "ai": [
+    "AI_FLAG_SMART_TRAINER",
+    "AI_FLAG_HP_AWARE",
+    "AI_FLAG_TRY_TO_2HKO",
+    "AI_FLAG_POWERFUL_STATUS",
+    "AI_FLAG_PREDICTION",
+    "AI_FLAG_ASSUMPTIONS",
+    "AI_FLAG_KNOW_OPPONENT_PARTY",
+    "AI_FLAG_ACE_POKEMON"
+   ],
+   "time": [
+    {
+     "especie": "SPECIES_DARMANITAN",
+     "nivel": 251,
+     "item": "ITEM_CHOICE_SCARF",
+     "habilidade": null,
+     "natureza": "NATURE_JOLLY",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_FLARE_BLITZ",
+      "MOVE_EARTHQUAKE",
+      "MOVE_U_TURN",
+      "MOVE_ROCK_SLIDE"
+     ]
+    },
+    {
+     "especie": "SPECIES_KINGDRA",
+     "nivel": 251,
+     "item": "ITEM_LEFTOVERS",
+     "habilidade": "ABILITY_SNIPER",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 SpA / 4 SpD",
+     "golpes": [
+      "MOVE_HYDRO_PUMP",
+      "MOVE_DRACO_METEOR",
+      "MOVE_ICE_BEAM",
+      "MOVE_RAIN_DANCE"
+     ]
+    },
+    {
+     "especie": "SPECIES_KROOKODILE",
+     "nivel": 252,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_MOXIE",
+     "natureza": "NATURE_JOLLY",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_EARTHQUAKE",
+      "MOVE_KNOCK_OFF",
+      "MOVE_STONE_EDGE",
+      "MOVE_SWORDS_DANCE"
+     ]
+    },
+    {
+     "especie": "SPECIES_FROSLASS",
+     "nivel": 253,
+     "item": "ITEM_FROSLASSITE",
+     "habilidade": "ABILITY_CURSED_BODY",
+     "natureza": "NATURE_TIMID",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_SPIKES",
+      "MOVE_ICE_BEAM",
+      "MOVE_SHADOW_BALL",
+      "MOVE_DESTINY_BOND"
+     ]
+    },
+    {
+     "especie": "SPECIES_MELOETTA",
+     "nivel": 254,
+     "item": "ITEM_LEFTOVERS",
+     "habilidade": null,
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 SpA / 4 SpD",
+     "golpes": [
+      "MOVE_CALM_MIND",
+      "MOVE_PSYSHOCK",
+      "MOVE_DAZZLING_GLEAM",
+      "MOVE_SHADOW_BALL"
+     ]
+    },
+    {
+     "especie": "SPECIES_EMBOAR",
+     "nivel": 255,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_RECKLESS",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_FLARE_BLITZ",
+      "MOVE_CLOSE_COMBAT",
+      "MOVE_WILD_CHARGE",
+      "MOVE_SUCKER_PUNCH"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "TRAINER_UNOVA_NATE_OSHAWOTT",
+   "regiao": "unova",
+   "papel": "rival",
+   "identidade": "nate_rosa",
+   "ace": 255,
+   "gimmick": "mega",
+   "gimmick_slot": 3,
+   "lendario": "SPECIES_MELOETTA",
+   "ai": [
+    "AI_FLAG_SMART_TRAINER",
+    "AI_FLAG_HP_AWARE",
+    "AI_FLAG_TRY_TO_2HKO",
+    "AI_FLAG_POWERFUL_STATUS",
+    "AI_FLAG_PREDICTION",
+    "AI_FLAG_ASSUMPTIONS",
+    "AI_FLAG_KNOW_OPPONENT_PARTY",
+    "AI_FLAG_ACE_POKEMON"
+   ],
+   "time": [
+    {
+     "especie": "SPECIES_DARMANITAN",
+     "nivel": 251,
+     "item": "ITEM_CHOICE_SCARF",
+     "habilidade": null,
+     "natureza": "NATURE_JOLLY",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_FLARE_BLITZ",
+      "MOVE_EARTHQUAKE",
+      "MOVE_U_TURN",
+      "MOVE_ROCK_SLIDE"
+     ]
+    },
+    {
+     "especie": "SPECIES_KINGDRA",
+     "nivel": 251,
+     "item": "ITEM_LEFTOVERS",
+     "habilidade": "ABILITY_SNIPER",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 SpA / 4 SpD",
+     "golpes": [
+      "MOVE_HYDRO_PUMP",
+      "MOVE_DRACO_METEOR",
+      "MOVE_ICE_BEAM",
+      "MOVE_RAIN_DANCE"
+     ]
+    },
+    {
+     "especie": "SPECIES_KROOKODILE",
+     "nivel": 252,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_MOXIE",
+     "natureza": "NATURE_JOLLY",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_EARTHQUAKE",
+      "MOVE_KNOCK_OFF",
+      "MOVE_STONE_EDGE",
+      "MOVE_SWORDS_DANCE"
+     ]
+    },
+    {
+     "especie": "SPECIES_FROSLASS",
+     "nivel": 253,
+     "item": "ITEM_FROSLASSITE",
+     "habilidade": "ABILITY_CURSED_BODY",
+     "natureza": "NATURE_TIMID",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_SPIKES",
+      "MOVE_ICE_BEAM",
+      "MOVE_SHADOW_BALL",
+      "MOVE_DESTINY_BOND"
+     ]
+    },
+    {
+     "especie": "SPECIES_MELOETTA",
+     "nivel": 254,
+     "item": "ITEM_LEFTOVERS",
+     "habilidade": null,
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 SpA / 4 SpD",
+     "golpes": [
+      "MOVE_CALM_MIND",
+      "MOVE_PSYSHOCK",
+      "MOVE_DAZZLING_GLEAM",
+      "MOVE_SHADOW_BALL"
+     ]
+    },
+    {
+     "especie": "SPECIES_SAMUROTT",
+     "nivel": 255,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_SHELL_ARMOR",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_SWORDS_DANCE",
+      "MOVE_LIQUIDATION",
+      "MOVE_MEGAHORN",
+      "MOVE_AQUA_JET"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "TRAINER_UNOVA_ROSA_SNIVY",
+   "regiao": "unova",
+   "papel": "rival",
+   "identidade": "nate_rosa",
+   "ace": 255,
+   "gimmick": "mega",
+   "gimmick_slot": 3,
+   "lendario": "SPECIES_MELOETTA",
+   "ai": [
+    "AI_FLAG_SMART_TRAINER",
+    "AI_FLAG_HP_AWARE",
+    "AI_FLAG_TRY_TO_2HKO",
+    "AI_FLAG_POWERFUL_STATUS",
+    "AI_FLAG_PREDICTION",
+    "AI_FLAG_ASSUMPTIONS",
+    "AI_FLAG_KNOW_OPPONENT_PARTY",
+    "AI_FLAG_ACE_POKEMON"
+   ],
+   "time": [
+    {
+     "especie": "SPECIES_DARMANITAN",
+     "nivel": 251,
+     "item": "ITEM_CHOICE_SCARF",
+     "habilidade": null,
+     "natureza": "NATURE_JOLLY",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_FLARE_BLITZ",
+      "MOVE_EARTHQUAKE",
+      "MOVE_U_TURN",
+      "MOVE_ROCK_SLIDE"
+     ]
+    },
+    {
+     "especie": "SPECIES_KINGDRA",
+     "nivel": 251,
+     "item": "ITEM_LEFTOVERS",
+     "habilidade": "ABILITY_SNIPER",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 SpA / 4 SpD",
+     "golpes": [
+      "MOVE_HYDRO_PUMP",
+      "MOVE_DRACO_METEOR",
+      "MOVE_ICE_BEAM",
+      "MOVE_RAIN_DANCE"
+     ]
+    },
+    {
+     "especie": "SPECIES_KROOKODILE",
+     "nivel": 252,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_MOXIE",
+     "natureza": "NATURE_JOLLY",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_EARTHQUAKE",
+      "MOVE_KNOCK_OFF",
+      "MOVE_STONE_EDGE",
+      "MOVE_SWORDS_DANCE"
+     ]
+    },
+    {
+     "especie": "SPECIES_FROSLASS",
+     "nivel": 253,
+     "item": "ITEM_FROSLASSITE",
+     "habilidade": "ABILITY_CURSED_BODY",
+     "natureza": "NATURE_TIMID",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_SPIKES",
+      "MOVE_ICE_BEAM",
+      "MOVE_SHADOW_BALL",
+      "MOVE_DESTINY_BOND"
+     ]
+    },
+    {
+     "especie": "SPECIES_MELOETTA",
+     "nivel": 254,
+     "item": "ITEM_LEFTOVERS",
+     "habilidade": null,
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 SpA / 4 SpD",
+     "golpes": [
+      "MOVE_CALM_MIND",
+      "MOVE_PSYSHOCK",
+      "MOVE_DAZZLING_GLEAM",
+      "MOVE_SHADOW_BALL"
+     ]
+    },
+    {
+     "especie": "SPECIES_SERPERIOR",
+     "nivel": 255,
+     "item": "ITEM_LEFTOVERS",
+     "habilidade": "ABILITY_CONTRARY",
+     "natureza": "NATURE_TIMID",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_LEAF_STORM",
+      "MOVE_GIGA_DRAIN",
+      "MOVE_GLARE",
+      "MOVE_SUBSTITUTE"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "TRAINER_UNOVA_ROSA_TEPIG",
+   "regiao": "unova",
+   "papel": "rival",
+   "identidade": "nate_rosa",
+   "ace": 255,
+   "gimmick": "mega",
+   "gimmick_slot": 3,
+   "lendario": "SPECIES_MELOETTA",
+   "ai": [
+    "AI_FLAG_SMART_TRAINER",
+    "AI_FLAG_HP_AWARE",
+    "AI_FLAG_TRY_TO_2HKO",
+    "AI_FLAG_POWERFUL_STATUS",
+    "AI_FLAG_PREDICTION",
+    "AI_FLAG_ASSUMPTIONS",
+    "AI_FLAG_KNOW_OPPONENT_PARTY",
+    "AI_FLAG_ACE_POKEMON"
+   ],
+   "time": [
+    {
+     "especie": "SPECIES_DARMANITAN",
+     "nivel": 251,
+     "item": "ITEM_CHOICE_SCARF",
+     "habilidade": null,
+     "natureza": "NATURE_JOLLY",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_FLARE_BLITZ",
+      "MOVE_EARTHQUAKE",
+      "MOVE_U_TURN",
+      "MOVE_ROCK_SLIDE"
+     ]
+    },
+    {
+     "especie": "SPECIES_KINGDRA",
+     "nivel": 251,
+     "item": "ITEM_LEFTOVERS",
+     "habilidade": "ABILITY_SNIPER",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 SpA / 4 SpD",
+     "golpes": [
+      "MOVE_HYDRO_PUMP",
+      "MOVE_DRACO_METEOR",
+      "MOVE_ICE_BEAM",
+      "MOVE_RAIN_DANCE"
+     ]
+    },
+    {
+     "especie": "SPECIES_KROOKODILE",
+     "nivel": 252,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_MOXIE",
+     "natureza": "NATURE_JOLLY",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_EARTHQUAKE",
+      "MOVE_KNOCK_OFF",
+      "MOVE_STONE_EDGE",
+      "MOVE_SWORDS_DANCE"
+     ]
+    },
+    {
+     "especie": "SPECIES_FROSLASS",
+     "nivel": 253,
+     "item": "ITEM_FROSLASSITE",
+     "habilidade": "ABILITY_CURSED_BODY",
+     "natureza": "NATURE_TIMID",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_SPIKES",
+      "MOVE_ICE_BEAM",
+      "MOVE_SHADOW_BALL",
+      "MOVE_DESTINY_BOND"
+     ]
+    },
+    {
+     "especie": "SPECIES_MELOETTA",
+     "nivel": 254,
+     "item": "ITEM_LEFTOVERS",
+     "habilidade": null,
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 SpA / 4 SpD",
+     "golpes": [
+      "MOVE_CALM_MIND",
+      "MOVE_PSYSHOCK",
+      "MOVE_DAZZLING_GLEAM",
+      "MOVE_SHADOW_BALL"
+     ]
+    },
+    {
+     "especie": "SPECIES_EMBOAR",
+     "nivel": 255,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_RECKLESS",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_FLARE_BLITZ",
+      "MOVE_CLOSE_COMBAT",
+      "MOVE_WILD_CHARGE",
+      "MOVE_SUCKER_PUNCH"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "TRAINER_UNOVA_ROSA_OSHAWOTT",
+   "regiao": "unova",
+   "papel": "rival",
+   "identidade": "nate_rosa",
+   "ace": 255,
+   "gimmick": "mega",
+   "gimmick_slot": 3,
+   "lendario": "SPECIES_MELOETTA",
+   "ai": [
+    "AI_FLAG_SMART_TRAINER",
+    "AI_FLAG_HP_AWARE",
+    "AI_FLAG_TRY_TO_2HKO",
+    "AI_FLAG_POWERFUL_STATUS",
+    "AI_FLAG_PREDICTION",
+    "AI_FLAG_ASSUMPTIONS",
+    "AI_FLAG_KNOW_OPPONENT_PARTY",
+    "AI_FLAG_ACE_POKEMON"
+   ],
+   "time": [
+    {
+     "especie": "SPECIES_DARMANITAN",
+     "nivel": 251,
+     "item": "ITEM_CHOICE_SCARF",
+     "habilidade": null,
+     "natureza": "NATURE_JOLLY",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_FLARE_BLITZ",
+      "MOVE_EARTHQUAKE",
+      "MOVE_U_TURN",
+      "MOVE_ROCK_SLIDE"
+     ]
+    },
+    {
+     "especie": "SPECIES_KINGDRA",
+     "nivel": 251,
+     "item": "ITEM_LEFTOVERS",
+     "habilidade": "ABILITY_SNIPER",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 SpA / 4 SpD",
+     "golpes": [
+      "MOVE_HYDRO_PUMP",
+      "MOVE_DRACO_METEOR",
+      "MOVE_ICE_BEAM",
+      "MOVE_RAIN_DANCE"
+     ]
+    },
+    {
+     "especie": "SPECIES_KROOKODILE",
+     "nivel": 252,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_MOXIE",
+     "natureza": "NATURE_JOLLY",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_EARTHQUAKE",
+      "MOVE_KNOCK_OFF",
+      "MOVE_STONE_EDGE",
+      "MOVE_SWORDS_DANCE"
+     ]
+    },
+    {
+     "especie": "SPECIES_FROSLASS",
+     "nivel": 253,
+     "item": "ITEM_FROSLASSITE",
+     "habilidade": "ABILITY_CURSED_BODY",
+     "natureza": "NATURE_TIMID",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_SPIKES",
+      "MOVE_ICE_BEAM",
+      "MOVE_SHADOW_BALL",
+      "MOVE_DESTINY_BOND"
+     ]
+    },
+    {
+     "especie": "SPECIES_MELOETTA",
+     "nivel": 254,
+     "item": "ITEM_LEFTOVERS",
+     "habilidade": null,
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 SpA / 4 SpD",
+     "golpes": [
+      "MOVE_CALM_MIND",
+      "MOVE_PSYSHOCK",
+      "MOVE_DAZZLING_GLEAM",
+      "MOVE_SHADOW_BALL"
+     ]
+    },
+    {
+     "especie": "SPECIES_SAMUROTT",
+     "nivel": 255,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_SHELL_ARMOR",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_SWORDS_DANCE",
+      "MOVE_LIQUIDATION",
+      "MOVE_MEGAHORN",
+      "MOVE_AQUA_JET"
      ]
     }
    ]

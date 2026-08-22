@@ -12,8 +12,7 @@ Unova_DriftveilShelter_EventScript_Npc3::
 	end
 
 Unova_DriftveilShelter_EventScript_Npc4::
-	msgbox Unova_DriftveilShelter_Text_DriftveilShelterHughRematchText, MSGBOX_NPC
-	end
+	goto Unova_DriftveilShelter_EventScript_HUGH_TEPIG
 
 
 Unova_DriftveilShelter_Text_DriftveilShelterPostgameRoodInitialText::
@@ -62,3 +61,23 @@ Unova_DriftveilShelter_Text_DriftveilShelterHughRematchText::
 	.string "\ptest out what I've"
 	.string "\ncome up with. Come"
 	.string "\lon, let's go!$"
+
+@ >>> cena importada por dev_scripts/importa_chefes_faltantes.py >>>
+Unova_DriftveilShelter_EventScript_HUGH_TEPIG::
+	trainerbattle_single TRAINER_UNOVA_HUGH_TEPIG, Unova_DriftveilShelter_Text_DriftveilShelterHughRematchText, Unova_DriftveilShelter_Text_HUGH_TEPIGBeaten
+	msgbox Unova_DriftveilShelter_Text_HUGH_TEPIGDepois, MSGBOX_DEFAULT
+	release
+	end
+
+Unova_DriftveilShelter_Text_HUGH_TEPIGBeaten::
+	.string "Ugh… This power.$"
+
+Unova_DriftveilShelter_Text_HUGH_TEPIGDepois::
+	.string "Hmph… You really\n"
+	.string "are strong enough\l"
+	.string "to have bested\l"
+	.string "TEAM PLASMA.\p"
+	.string "You and I should\n"
+	.string "have a rematch\l"
+	.string "someday.$"
+@ <<< cena importada por dev_scripts/importa_chefes_faltantes.py <<<

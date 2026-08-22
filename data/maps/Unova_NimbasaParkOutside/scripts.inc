@@ -111,12 +111,10 @@ Unova_NimbasaParkOutside_EventScript_Npc3::
 	end
 
 Unova_NimbasaParkOutside_EventScript_Npc4::
-	msgbox Unova_NimbasaParkOutside_Text_NimbasaParkOutsideNateRosaText, MSGBOX_NPC
-	end
+	goto Unova_NimbasaParkOutside_EventScript_NateRosa
 
 Unova_NimbasaParkOutside_EventScript_Npc5::
-	msgbox Unova_NimbasaParkOutside_Text_NimbasaParkOutsideNateRosaText, MSGBOX_NPC
-	end
+	goto Unova_NimbasaParkOutside_EventScript_NateRosa
 
 
 Unova_NimbasaParkOutside_Text_NimbasaParkOutsideBlockerText::
@@ -147,3 +145,83 @@ Unova_NimbasaParkOutside_Text_NimbasaParkOutsideCherenText::
 	.string "\nthe coaster room."
 	.string "\pGood luck,"
 	.string "\n{PLAYER}.$"
+
+@ >>> cena importada por dev_scripts/importa_chefes_faltantes.py >>>
+Unova_NimbasaParkOutside_EventScript_NateRosa::
+	checkplayergender
+	goto_if_eq VAR_RESULT, FEMALE, Unova_NimbasaParkOutside_EventScript_NateRosaFeminino
+	goto_if_eq VAR_STARTER_MON, 1, Unova_NimbasaParkOutside_EventScript_NATE_SNIVY
+	goto_if_eq VAR_STARTER_MON, 0, Unova_NimbasaParkOutside_EventScript_NATE_OSHAWOTT
+	goto Unova_NimbasaParkOutside_EventScript_NATE_TEPIG
+
+Unova_NimbasaParkOutside_EventScript_NateRosaFeminino::
+	goto_if_eq VAR_STARTER_MON, 1, Unova_NimbasaParkOutside_EventScript_ROSA_SNIVY
+	goto_if_eq VAR_STARTER_MON, 0, Unova_NimbasaParkOutside_EventScript_ROSA_OSHAWOTT
+	goto Unova_NimbasaParkOutside_EventScript_ROSA_TEPIG
+
+Unova_NimbasaParkOutside_EventScript_NATE_SNIVY::
+	trainerbattle_single TRAINER_UNOVA_NATE_SNIVY, Unova_NimbasaParkOutside_Text_NimbasaParkOutsideNateRosaText, Unova_NimbasaParkOutside_Text_NateRosaBeaten
+	msgbox Unova_NimbasaParkOutside_Text_NateRosaDepois, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_HIDE_UNOVA_NATE_ROSA
+	removeobject LOCALID_UNOVA_NIMBASA_NATE
+	removeobject LOCALID_UNOVA_NIMBASA_ROSA
+	release
+	end
+
+Unova_NimbasaParkOutside_EventScript_NATE_TEPIG::
+	trainerbattle_single TRAINER_UNOVA_NATE_TEPIG, Unova_NimbasaParkOutside_Text_NimbasaParkOutsideNateRosaText, Unova_NimbasaParkOutside_Text_NateRosaBeaten
+	msgbox Unova_NimbasaParkOutside_Text_NateRosaDepois, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_HIDE_UNOVA_NATE_ROSA
+	removeobject LOCALID_UNOVA_NIMBASA_NATE
+	removeobject LOCALID_UNOVA_NIMBASA_ROSA
+	release
+	end
+
+Unova_NimbasaParkOutside_EventScript_NATE_OSHAWOTT::
+	trainerbattle_single TRAINER_UNOVA_NATE_OSHAWOTT, Unova_NimbasaParkOutside_Text_NimbasaParkOutsideNateRosaText, Unova_NimbasaParkOutside_Text_NateRosaBeaten
+	msgbox Unova_NimbasaParkOutside_Text_NateRosaDepois, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_HIDE_UNOVA_NATE_ROSA
+	removeobject LOCALID_UNOVA_NIMBASA_NATE
+	removeobject LOCALID_UNOVA_NIMBASA_ROSA
+	release
+	end
+
+Unova_NimbasaParkOutside_EventScript_ROSA_SNIVY::
+	trainerbattle_single TRAINER_UNOVA_ROSA_SNIVY, Unova_NimbasaParkOutside_Text_NimbasaParkOutsideNateRosaText, Unova_NimbasaParkOutside_Text_NateRosaBeaten
+	msgbox Unova_NimbasaParkOutside_Text_NateRosaDepois, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_HIDE_UNOVA_NATE_ROSA
+	removeobject LOCALID_UNOVA_NIMBASA_NATE
+	removeobject LOCALID_UNOVA_NIMBASA_ROSA
+	release
+	end
+
+Unova_NimbasaParkOutside_EventScript_ROSA_TEPIG::
+	trainerbattle_single TRAINER_UNOVA_ROSA_TEPIG, Unova_NimbasaParkOutside_Text_NimbasaParkOutsideNateRosaText, Unova_NimbasaParkOutside_Text_NateRosaBeaten
+	msgbox Unova_NimbasaParkOutside_Text_NateRosaDepois, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_HIDE_UNOVA_NATE_ROSA
+	removeobject LOCALID_UNOVA_NIMBASA_NATE
+	removeobject LOCALID_UNOVA_NIMBASA_ROSA
+	release
+	end
+
+Unova_NimbasaParkOutside_EventScript_ROSA_OSHAWOTT::
+	trainerbattle_single TRAINER_UNOVA_ROSA_OSHAWOTT, Unova_NimbasaParkOutside_Text_NimbasaParkOutsideNateRosaText, Unova_NimbasaParkOutside_Text_NateRosaBeaten
+	msgbox Unova_NimbasaParkOutside_Text_NateRosaDepois, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_HIDE_UNOVA_NATE_ROSA
+	removeobject LOCALID_UNOVA_NIMBASA_NATE
+	removeobject LOCALID_UNOVA_NIMBASA_ROSA
+	release
+	end
+
+Unova_NimbasaParkOutside_Text_NateRosaBeaten::
+	.string "...!$"
+
+Unova_NimbasaParkOutside_Text_NateRosaDepois::
+	.string "......$"
+@ <<< cena importada por dev_scripts/importa_chefes_faltantes.py <<<

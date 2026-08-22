@@ -4,6 +4,7 @@ MtMoon_1F_Frlg_MapScripts::
 
 MtMoon_1F_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_MT_MOON_1F
+	call MtMoon_1F_EventScript_SilverPorta
 	end
 
 MtMoon_1F_EventScript_ZubatSign::
@@ -137,3 +138,43 @@ MtMoon_1F_Text_BrockHelpsExcavateFossils::
 	.string "under MT. MOON.\p"
 	.string "Sometimes, BROCK of PEWTER GYM\n"
 	.string "lends me a hand.$"
+
+@ >>> cena importada por dev_scripts/importa_chefes_faltantes.py >>>
+MtMoon_1F_EventScript_SilverPorta::
+	setflag FLAG_HIDE_SILVER_MT_MOON
+	goto_if_not_defeated TRAINER_JOHTO_RIVAL_SILVER_5, Common_EventScript_NopReturn
+	goto_if_defeated TRAINER_JOHTO_RIVAL_SILVER_6, Common_EventScript_NopReturn
+	clearflag FLAG_HIDE_SILVER_MT_MOON
+	return
+
+MtMoon_1F_EventScript_Silver::
+	trainerbattle_single TRAINER_JOHTO_RIVAL_SILVER_6, MtMoon_1F_Text_SilverSeen, MtMoon_1F_Text_SilverBeaten
+	msgbox MtMoon_1F_Text_SilverAfter, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_HIDE_SILVER_MT_MOON
+	removeobject LOCALID_MT_MOON_1F_SILVER
+	release
+	end
+
+MtMoon_1F_Text_SilverSeen::
+	.string "..................................\p"
+	.string "It's been a while, {PLAYER}.\p"
+	.string "…Since I lost to you, I thought about\n"
+	.string "what I was lacking with my POKéMON…\p"
+	.string "And we came up with an answer.\p"
+	.string "{PLAYER}, now we'll show you!$"
+
+MtMoon_1F_Text_SilverBeaten::
+	.string "..................................\p"
+	.string "I thought I raised my POKéMON to be the\n"
+	.string "best they could be…\p"
+	.string "…But it still wasn't enough…$"
+
+MtMoon_1F_Text_SilverAfter::
+	.string "..................................\p"
+	.string "…You won, fair and square.\p"
+	.string "I admit it. But this isn't the end.\p"
+	.string "I'm going to be the greatest POKéMON\n"
+	.string "trainer ever.\p"
+	.string "Because these guys are behind me.$"
+@ <<< cena importada por dev_scripts/importa_chefes_faltantes.py <<<

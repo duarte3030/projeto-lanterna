@@ -1,0 +1,506 @@
+[
+ {
+  "id": "T143.1",
+  "nome": "O MAXIE CARREGA ORBE E PEDRA NA MESMA BATALHA, e e isso que a decisao de hoje vale. O motor foi MEDIDO antes da tabela mudar: a Primal Reversion nao esta no `enum Gimmick` (include/battle_gimmick.h:4), roda sozinha ao entrar em campo (src/battle_switch_in.c:276 chama TryPrimalReversion) e nunca chama SetGimmickAsActivated, entao `CanMegaEvolve` (src/battle_util.c:8418) segue liberando a Mega do ace depois de o Groudon reverter. O T141.1 prova as SEIS especies; este prova os DOIS ITENS juntos, que e o par que a 0.l dizia ser impossivel: ITEM_RED_ORB 290 no slot 4 e ITEM_CAMERUPTITE 323 no slot 5. Perder um dos dois desliga um gimmick em silencio, e nenhum outro campo da suite reclamaria. Rota herdada do T141.1 (warp 1 do MagmaHideout_4F, tres tiles a esquerda ate encostar no Maxie de (16,21)).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 36,
+  "warp": "MAP_MAGMA_HIDEOUT_4F",
+  "warp_id": 1,
+  "roteiro": "300:NADA,17:LEFT*8,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_MAGMA_HIDEOUT_4F",
+   "oponente": "TRAINER_MAXIE_MAGMA_HIDEOUT",
+   "campos": {
+    "opcoes": 36,
+    "especie4": 383,
+    "item4": 290,
+    "especie5": 323,
+    "item5": 323,
+    "nivelinimigo": 5
+   }
+  }
+ },
+ {
+  "id": "T143.2",
+  "nome": "PAR NEGATIVO DO T143.1: mesma rota, mesmo numero de quadros, zero A. A cena do despertar nunca comeca, `oponente` fica em TRAINER_NONE e os dois itens ficam em 0. Sem ele o T143.1 nao separaria 'a batalha carregou os dois itens' de 'a EWRAM ja tinha 290 e 323 de outra coisa'.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 36,
+  "warp": "MAP_MAGMA_HIDEOUT_4F",
+  "warp_id": 1,
+  "roteiro": "300:NADA,17:LEFT*8,120:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_MAGMA_HIDEOUT_4F",
+   "oponente": 0,
+   "campos": {
+    "especie4": 0,
+    "item4": 0,
+    "item5": 0
+   },
+   "pos": [
+    17,
+    21
+   ]
+  }
+ },
+ {
+  "id": "T143.3",
+  "nome": "SILVER 5 DE 7 EXISTE, ESTA NA VICTORY ROAD DE KANTO E TRAZ O TIME DA TABELA. O demake HGSS tem SETE encontros de rival e este repo so tinha quatro (medido em 22/08/2026: hns TRAINER_RIVAL_TOTODILE_5, VictoryRoadKanto_1F/scripts.inc:70). O NPC so aparece com o SILVER 4 ja derrotado, e por isso a flag de treinador 0xA51 (TRAINER_FLAGS_START 0x500 + o id 1361) entra acesa: e ela que o `goto_if_not_defeated` do ON_TRANSITION le. Warp 1 larga o jogador em (11,20) e andar para a esquerda para NO Silver de (8,20), que e obstaculo solido; por isso a rota nao precisa contar passo. Cobrado: LUGIA 249 no slot 4 e TYRANITAR 248 com ITEM_TYRANITARITE 312 no ace.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xA51"
+  ],
+  "opcoes": 36,
+  "warp": "MAP_VICTORY_ROAD_1F_FRLG",
+  "warp_id": 1,
+  "roteiro": "300:NADA,17:LEFT*10,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_VICTORY_ROAD_1F_FRLG",
+   "oponente": "TRAINER_JOHTO_RIVAL_SILVER_5",
+   "campos": {
+    "opcoes": 36,
+    "especie4": 249,
+    "especie5": 248,
+    "item5": 312,
+    "nivelinimigo": 5
+   }
+  }
+ },
+ {
+  "id": "T143.4",
+  "nome": "PAR NEGATIVO DO T143.3, e ele prova o PORTAO e nao so a batalha: MESMA rota, MESMOS apertos de A, e a unica diferenca e a flag 0xA51 apagada, ou seja o SILVER 4 nunca foi derrotado. O ON_TRANSITION deixa FLAG_HIDE_SILVER_VICTORY_ROAD acesa, o NPC nao nasce, e o jogador anda ate (8,20), o proprio tile onde o Silver estaria, porque a esquerda dali e parede. Parar EM (8,20) e a prova de que o objeto nao esta la; parar em (9,20) seria a prova de que esta.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 36,
+  "warp": "MAP_VICTORY_ROAD_1F_FRLG",
+  "warp_id": 1,
+  "roteiro": "300:NADA,17:LEFT*10,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_VICTORY_ROAD_1F_FRLG",
+   "oponente": 0,
+   "campos": {
+    "especie5": 0,
+    "item5": 0
+   },
+   "pos": [
+    8,
+    20
+   ]
+  }
+ },
+ {
+  "id": "T143.5",
+  "nome": "SILVER 6 DE 7, NA MT. MOON, com o URSALUNA-BLOODMOON que a fonte da a ele (hns TRAINER_RIVAL_TOTODILE_6, MtMoon_Cave/scripts.inc:46). Portao: flag de treinador 0xEDB (TRAINER_FLAGS_START 0x500 + o id 2523), o SILVER 5 derrotado. O posto do Silver e (4,6), colado no warp 0, e NAO o (5,9) da primeira escrita: (5,9) esta no raio do TRAINER_HIKER_MARCOS de (7,10), que e WANDER_AROUND com visao 1, e a primeira rodada desta suite pegou o Marcos abrindo batalha ANTES do Silver. Agora o jogador nasce em (5,6), o primeiro LEFT ja bate no Silver e ele nao anda nenhum tile. Cobrado: URSALUNA_BLOODMOON 1424 no slot 0, LUGIA 249 no 4 e TYRANITAR 248 com a pedra 312 no ace.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xEDB"
+  ],
+  "opcoes": 36,
+  "warp": "MAP_MT_MOON_1F",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:LEFT*4,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_MT_MOON_1F",
+   "oponente": "TRAINER_JOHTO_RIVAL_SILVER_6",
+   "campos": {
+    "opcoes": 36,
+    "especie0": 1424,
+    "especie4": 249,
+    "especie5": 248,
+    "item5": 312,
+    "nivelinimigo": 5
+   }
+  }
+ },
+ {
+  "id": "T143.6",
+  "nome": "PAR NEGATIVO DO T143.5, e ele prova o PORTAO: sem a 0xEDB o NPC nao nasce e os mesmos quatro LEFT levam o jogador de (5,6) ate (2,6), atravessando o (4,6) onde o Silver estaria. Parar em (5,6) seria a prova de que ele esta la; parar em (2,6) e a prova de que nao esta.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 36,
+  "warp": "MAP_MT_MOON_1F",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:LEFT*4,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_MT_MOON_1F",
+   "oponente": 0,
+   "campos": {
+    "especie0": 0,
+    "especie5": 0,
+    "item5": 0
+   },
+   "pos": [
+    2,
+    6
+   ]
+  }
+ },
+ {
+  "id": "T143.7",
+  "nome": "SILVER 7 DE 7, o do INDIGO PLATEAU (hns TRAINER_RIVAL_TOTODILE_7, IndigoPlateau_PokemonCenter/scripts.inc:84). Portao: 0xEDC (0x500 + 2524). Warp 0 larga em (11,16) e subir para NO Silver de (11,13). Este e o unico dos tres em que a fonte tinha cena PORTAVEL de verdade (so lock/faceplayer/msgbox/trainerbattle); os outros dois vinham com ShakeCamera, warphole e applymovement2, e por isso os tres foram REESCRITOS no molde das quatro cenas de Silver que este repo ja tinha, e nao copiados.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xEDC"
+  ],
+  "opcoes": 36,
+  "warp": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*10,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
+   "oponente": "TRAINER_JOHTO_RIVAL_SILVER_7",
+   "campos": {
+    "opcoes": 36,
+    "especie4": 249,
+    "especie5": 248,
+    "item5": 312,
+    "nivelinimigo": 5
+   }
+  }
+ },
+ {
+  "id": "T143.8",
+  "nome": "PAR NEGATIVO DO T143.7: sem a 0xEDC nao ha Silver no centro pokemon.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 36,
+  "warp": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*10,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
+   "oponente": 0,
+   "campos": {
+    "especie4": 0,
+    "especie5": 0,
+    "item5": 0
+   }
+  }
+ },
+ {
+  "id": "T143.9",
+  "nome": "A RYOKU1 EXISTE NA FONTE E AGORA EXISTE AQUI. O plano dizia que 'a RYOKU1 nunca foi importada' e nao sabia se a fonte a tinha; tem: bw3g maps/AccumulaTown.asm:43, `loadtrainer RYOKU, RYOKU1`, com ROSELIA 37 / TROPIUS 38 / AMOONGUSS 40. A rota foi MEDIDA e nao chutada: descer do warp 3 para em (25,15), ir para a esquerda para na parede de (17,15), descer para no canto (17,21), e so entao dois UP e uma caminhada para a direita param NO Ryoku de (19,19), em (18,19). O NPC dela JA estava no mapa desde o import de Unova, so falando (Unova_AccumulaTown_EventScript_Npc8), entao a cena nao precisou de objeto novo nem de flag nova: o `msgbox` virou `trainerbattle_single`. Cobrado: WO_CHIEN 1394 no slot 4 e DECIDUEYE 724 com ITEM_DECIDIUM_Z 379 no ace, o mesmo Z da RYOKU2, porque e a mesma pessoa e nenhuma das seis especies de grama dele tem Mega. A JANELA DE APERTOS FOI MEDIDA e nao chutada, e ela e estreita porque o texto de entrada do Ryoku e longo e o jogador de teste nao tem time: com 10 A e cauda de 300 quadros o dialogo ainda esta rolando e `oponente` fica em 0; com 12 A o jogador ja perdeu, foi para MAP_PALLET_TOWN_PLAYERS_HOUSE_1F e gParties voltou a zero. Onze A com cauda de 60 quadros para com a batalha ABERTA, que e o unico instante em que o time da para ser lido.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 36,
+  "warp": "MAP_UNOVA_ACCUMULA_TOWN",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:DOWN*20,17:LEFT*30,17:DOWN*20,17:UP*2,17:RIGHT*20,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,60:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_ACCUMULA_TOWN",
+   "oponente": "TRAINER_UNOVA_RYOKU1",
+   "campos": {
+    "opcoes": 36,
+    "especie4": 1394,
+    "especie5": 724,
+    "item5": 379,
+    "nivelinimigo": 5
+   }
+  }
+ },
+ {
+  "id": "T143.10",
+  "nome": "PAR NEGATIVO DO T143.9: a MESMA caminhada, e nenhum A. A batalha nao abre e o time fica zerado. Este par NAO cobra posicao final, e a razao esta medida: a Accumula Town tem quatro NPCs MOVEMENT_TYPE_WANDER_AROUND no caminho, e a mesma rota parou em (18,19), (21,20) e (27,13) em execucoes diferentes conforme onde eles estavam. Quem prova que a rota CHEGA e o T143.9, que so passa se a batalha abrir.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 36,
+  "warp": "MAP_UNOVA_ACCUMULA_TOWN",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:DOWN*20,17:LEFT*30,17:DOWN*20,17:UP*2,17:RIGHT*20,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_ACCUMULA_TOWN",
+   "oponente": 0,
+   "campos": {
+    "especie4": 0,
+    "especie5": 0,
+    "item5": 0
+   }
+  }
+ },
+ {
+  "id": "T143.11",
+  "nome": "O N E ALCANCAVEL E A BATALHA ABRE. O treinador existe na fonte (bw3g `trainerclass N` com `N1`, data/trainers/parties.asm:4989, maps/NsRoom.asm:29; de GHETSIS e de SHADOW TRIAD nao ha constante nem time, so texto e nome de musica). A primeira escrita deixou ele em (5,2), a posicao da fonte, e a suite provou que ninguem chegava la: o unico warp do NsRoom e um MB_NON_ANIMATED_DOOR em (0,4), porta larga o jogador em (0,5), e (0,5) so faz fronteira com parede e com o proprio warp. Mover o WARP nao servia, e isso foi MEDIDO varrendo o comportamento dos 100 metatiles do layout: (0,4) e o UNICO tile do mapa que dispara warp, entao warp em coordenada nova nao dispararia e o jogador ficaria preso de vez. O N foi para (0,4), a porta, com FLAG_HIDE_UNOVA_N, e some depois da batalha, que e o que a fonte tambem faz (`disappear NSROOM_N`). Rota: o jogador nasce em (0,5), UP bate NELE, e o A abre a batalha. Cobrado: KYUREM_WHITE 1104 no slot 4 (o Reshiram e da Juniper e o Zekrom e do Giallo, entao o par livre em Unova era este) e ZOROARK 571 com ITEM_DARKINIUM_Z 372 no ace. Os 34 A nao sao chute: o texto de entrada do N tem 19 `\\p` e 10 `\\l`, ou seja 29 paradas de botao antes de a batalha comecar, e a varredura mediu a janela: com 26 A a tela ainda esta no texto e a flag pos-batalha nem acende; de 32 a 38 a batalha esta aberta e o time da para ler.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 36,
+  "warp": "MAP_UNOVA_NS_ROOM",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*2,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,60:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_NS_ROOM",
+   "oponente": "TRAINER_UNOVA_N",
+   "campos": {
+    "opcoes": 36,
+    "especie4": 1104,
+    "especie5": 571,
+    "item5": 372,
+    "nivelinimigo": 5
+   }
+  }
+ },
+ {
+  "id": "T143.12",
+  "nome": "PAR NEGATIVO DO T143.11, e ele prova o BLOQUEIO junto: a MESMA rota, os MESMOS dois UP, zero A. O jogador continua no NsRoom, em (0,5), a batalha nao abre e o time fica zerado. O par vale duplo porque, ANTES do N mudar de lugar, esses mesmos dois UP levavam o jogador para MAP_UNOVA_VICTORY_ROAD_CASTLE_OUTSIDE (18,11): parar em (0,5) e a prova de que ha alguem em cima da porta.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 36,
+  "warp": "MAP_UNOVA_NS_ROOM",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*2,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,60:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_NS_ROOM",
+   "pos": [
+    0,
+    5
+   ],
+   "oponente": 0,
+   "campos": {
+    "especie4": 0,
+    "especie5": 0,
+    "item5": 0
+   }
+  }
+ },
+ {
+  "id": "T143.13",
+  "nome": "O HUGH DO BW3G, na variante TEPIG, e a escolha da variante e MEDICAO e nao gosto: a fonte tem HUGH_SNIVY, HUGH_TEPIG e HUGH_OSHAWOTT (data/trainers/parties.asm:4875), e das tres so a do TEPIG poe no slot de ace um Pokemon com Mega na form_change_tables.h (EMBOAR / ITEM_EMBOARITE 837). Com SNIVY ou OSHAWOTT o ace ficaria sem gimmick nenhum. O NPC ja estava no DriftveilShelter com o texto de revanche da fonte (Unova_DriftveilShelter_EventScript_Npc4, OBJ_EVENT_GFX_WALLY em (7,8)). Rota toda por parede: sobe do warp ate (4,6), vai a direita ate (7,6) e desce ate PARAR no Hugh. Cobrado: LANDORUS_THERIAN 1102 no slot 4 e EMBOAR 500 com a pedra 837 no ace.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 36,
+  "warp": "MAP_UNOVA_DRIFTVEIL_SHELTER",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*14,17:RIGHT*10,17:DOWN*8,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_DRIFTVEIL_SHELTER",
+   "oponente": "TRAINER_UNOVA_HUGH_TEPIG",
+   "campos": {
+    "opcoes": 36,
+    "especie4": 1102,
+    "especie5": 500,
+    "item5": 837,
+    "nivelinimigo": 5
+   }
+  }
+ },
+ {
+  "id": "T143.14",
+  "nome": "PAR NEGATIVO DO T143.13: mesma caminhada ate encostar no Hugh, zero A.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 36,
+  "warp": "MAP_UNOVA_DRIFTVEIL_SHELTER",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*14,17:RIGHT*10,17:DOWN*8,120:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_DRIFTVEIL_SHELTER",
+   "oponente": 0,
+   "campos": {
+    "especie4": 0,
+    "especie5": 0,
+    "item5": 0
+   },
+   "pos": [
+    7,
+    7
+   ]
+  }
+ },
+ {
+  "id": "T143.15",
+  "nome": "A BIANCA EXISTE NA FONTE (bw3g BIANCA1, data/trainers/parties.asm:4075) e agora batalha aqui. A cena da fonte NAO foi portada, e isso e decisao com motivo: la ela e moldura de torneio do PWT, com `scene_script`, `priorityjump` na entrada do mapa, `setmapscene PWT_BACK_ROOM` e `warpcheck` (maps/PWTBattleRoom.asm:8-16 e :59-61), e o diagnostico aberto na 0.l diz que `warp` dentro de script portado nao troca de mapa. O que entrou foi a BATALHA, pendurada no NPC que o import de Unova ja tinha deixado no mapa com `script: \"0\"` (objeto 1, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL em (11,5)), com os textos da fonte. Rota por parede: o warp 0 larga em (0,5) e andar para a direita para NELA. Cobrado: CRESSELIA 488 no slot 4 e MUSHARNA 518 com ITEM_PSYCHIUM_Z 367 no ace, que e Z e nao Mega porque nenhuma das cinco especies da fonte tem Mega.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 36,
+  "warp": "MAP_UNOVA_PWT_BATTLE_ROOM",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:RIGHT*30,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_PWT_BATTLE_ROOM",
+   "oponente": "TRAINER_UNOVA_BIANCA",
+   "campos": {
+    "opcoes": 36,
+    "especie4": 488,
+    "especie5": 518,
+    "item5": 367,
+    "nivelinimigo": 5
+   }
+  }
+ },
+ {
+  "id": "T143.16",
+  "nome": "PAR NEGATIVO DO T143.15: a MESMA caminhada, zero A. O jogador para em (10,5), encostado na Bianca de (11,5), e a batalha nao abre.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 36,
+  "warp": "MAP_UNOVA_PWT_BATTLE_ROOM",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:RIGHT*30,120:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_PWT_BATTLE_ROOM",
+   "pos": [
+    10,
+    5
+   ],
+   "oponente": 0,
+   "campos": {
+    "especie4": 0,
+    "especie5": 0,
+    "item5": 0
+   }
+  }
+ },
+ {
+  "id": "T143.17",
+  "nome": "O CHEREN 2 EXISTE NA FONTE (bw3g CHEREN2, parties.asm:3731, maps/OpelucidBattleHouse.asm:171) e e revanche, que o plano tinha posto fora de escopo ate o condutor pedir. Ele guarda o MESMO REGIGIGAS do TRAINER_UNOVA_LEADER_CHEREN, e isso e a regra e nao descuido: a proibicao de repetir lendario vale entre pessoas diferentes, e este e o mesmo Cheren. O NPC dele saiu do monte de quatro objetos empilhados em (5,2) para (4,2), porque `GetObjectEventIdByPosition` devolve o PRIMEIRO objeto do tile e no monte quem responderia ao A seria sempre o Marlon. Rota: warp 0 em (4,7), subir ate parar NELE. Cobrado: REGIGIGAS 486 no slot 4 e STOUTLAND 508 com ITEM_NORMALIUM_Z 357 no ace (Z porque nenhuma das cinco especies tem Mega, e o Dynamax esta fora: a cota de 5 do Gui ja esta gasta e o Cheren lider e um dos cinco).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 36,
+  "warp": "MAP_UNOVA_OPELUCID_BATTLE_HOUSE",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*10,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_OPELUCID_BATTLE_HOUSE",
+   "oponente": "TRAINER_UNOVA_CHEREN_2",
+   "campos": {
+    "opcoes": 36,
+    "especie4": 486,
+    "especie5": 508,
+    "item5": 357,
+    "nivelinimigo": 5
+   }
+  }
+ },
+ {
+  "id": "T143.18",
+  "nome": "PAR NEGATIVO DO T143.17: mesma subida, zero A. O jogador para em (4,3) e nada abre.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 36,
+  "warp": "MAP_UNOVA_OPELUCID_BATTLE_HOUSE",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*10,120:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_OPELUCID_BATTLE_HOUSE",
+   "pos": [
+    4,
+    3
+   ],
+   "oponente": 0,
+   "campos": {
+    "especie4": 0,
+    "especie5": 0,
+    "item5": 0
+   }
+  }
+ },
+ {
+  "id": "T143.19",
+  "nome": "NATE/ROSA, RAMO PADRAO. A fonte tem SEIS variantes (NATE_ e ROSA_ vezes tres iniciais, parties.asm:5189 e :5274, times identicos mon a mon) atras de dois testes: `checkflag ENGINE_PLAYER_IS_FEMALE` e depois o inicial (maps/NimbasaParkOutside.asm:127-156). Aqui isso virou `checkplayergender` + `VAR_STARTER_MON`, com o MESMO mapa da fonte, que da a vantagem de tipo ao JOGADOR: Snivy (0) enfrenta a variante OSHAWOTT. O jogador de teste nasce masculino e com VAR_STARTER_MON 0, entao este caso cai no NATE_OSHAWOTT. Rota: warp 3 em (4,9), um passo a direita ate parar NELES em (6,9). Cobrado: MELOETTA 648 no slot 4 e SAMUROTT 503 no ace. Cinco A, e a janela foi medida: o texto de entrada da fonte e so `...`, entao com 10 A a batalha ja terminou e gParties volta a zero.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 36,
+  "warp": "MAP_UNOVA_NIMBASA_PARK_OUTSIDE",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:RIGHT*4,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,60:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_NIMBASA_PARK_OUTSIDE",
+   "oponente": "TRAINER_UNOVA_NATE_OSHAWOTT",
+   "campos": {
+    "opcoes": 36,
+    "especie3": 478,
+    "item3": 836,
+    "especie4": 648,
+    "especie5": 503,
+    "nivelinimigo": 5
+   }
+  }
+ },
+ {
+  "id": "T143.20",
+  "nome": "PAR NEGATIVO DO T143.19: mesmo passo, zero A. O jogador para em (5,9).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 36,
+  "warp": "MAP_UNOVA_NIMBASA_PARK_OUTSIDE",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:RIGHT*4,120:NADA,170:NADA,170:NADA,170:NADA,170:NADA,170:NADA,60:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_NIMBASA_PARK_OUTSIDE",
+   "pos": [
+    5,
+    9
+   ],
+   "oponente": 0,
+   "campos": {
+    "especie4": 0,
+    "especie5": 0
+   }
+  }
+ },
+ {
+  "id": "T143.21",
+  "nome": "O RAMO DO INICIAL FUNCIONA, e sem este caso ele seria decoracao: MESMA rota do T143.19, e a UNICA diferenca e VAR_STARTER_MON escrita em 1 (Tepig). O `goto_if_eq` leva para a outra variante e o ace deixa de ser SAMUROTT 503 e passa a ser SERPERIOR 497, com um treinador de id diferente. Se os seis ramos apontassem para o mesmo treinador, o T143.19 sozinho nao notaria.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 36,
+  "vars": {
+   "0x4023": 1
+  },
+  "warp": "MAP_UNOVA_NIMBASA_PARK_OUTSIDE",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:RIGHT*4,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,60:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_NIMBASA_PARK_OUTSIDE",
+   "oponente": "TRAINER_UNOVA_NATE_SNIVY",
+   "campos": {
+    "opcoes": 36,
+    "especie4": 648,
+    "especie5": 497,
+    "nivelinimigo": 5
+   }
+  }
+ },
+ {
+  "id": "T143.22",
+  "nome": "O FALLBACK DO RAMO, que e o unico caminho que nao tem `goto_if_eq` proprio: VAR_STARTER_MON em 2 (Oshawott) nao casa com nenhuma das duas comparacoes e cai no `goto` final, exatamente como os dois `checkevent` da fonte caem no `loadtrainer NATE, NATE_TEPIG` de maps/NimbasaParkOutside.asm:135. Ace EMBOAR 500.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 36,
+  "vars": {
+   "0x4023": 2
+  },
+  "warp": "MAP_UNOVA_NIMBASA_PARK_OUTSIDE",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:RIGHT*4,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,60:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_NIMBASA_PARK_OUTSIDE",
+   "oponente": "TRAINER_UNOVA_NATE_TEPIG",
+   "campos": {
+    "opcoes": 36,
+    "especie4": 648,
+    "especie5": 500,
+    "nivelinimigo": 5
+   }
+  }
+ }
+]

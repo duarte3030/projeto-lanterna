@@ -1,7 +1,7 @@
 [
  {
   "id": "T141.1",
-  "nome": "O CHEFE VILAO DE HOENN ABRE A BATALHA COM O GROUDON QUE A TABELA MANDOU, lido slot a slot de gParties decifrado. A rodada dos vilaes trocou o Groudon do Wallace para o Maxie e o Kyogre do Brendan para o Archie (decisao do condutor: no chefe vilao a lore ganha), e o T138 so provou o Cyrus de Sinnoh: nenhum caso chegava a um Maxie. Este chega. Warp 1 do MagmaHideout_4F larga o jogador em (20,21), quatro tiles a leste do Maxie em (16,21); tres passos para a esquerda encostam nele em (17,21) e o A abre a cena inteira do despertar do Groudon (sparkle, DoOrbEffect, duas tremidas de camera, tres msgbox) ate o `trainerbattle_no_intro`. A leitura e a do T128.5: com LV.5 ligado (opcoes=36) os seis niveis viram 5 e um time novo fica indistinguivel de qualquer outro, entao o que se cobra e a ESPECIE de cada slot e o ITEM do ace. NINETALES 38, TORKOAL 324, MAGCARGO 219, EXCADRILL 530, GROUDON 383 no slot 4 com ITEM_LEFTOVERS 472, e CAMERUPT 323 no ace com ITEM_CAMERUPTITE 323. Perder a pedra do ace desliga a Mega em silencio, e item5 e o unico campo que reclamaria. Par negativo: T141.2.",
+  "nome": "O CHEFE VILAO DE HOENN ABRE A BATALHA COM O GROUDON QUE A TABELA MANDOU, lido slot a slot de gParties decifrado. A rodada dos vilaes trocou o Groudon do Wallace para o Maxie e o Kyogre do Brendan para o Archie (decisao do condutor: no chefe vilao a lore ganha), e o T138 so provou o Cyrus de Sinnoh: nenhum caso chegava a um Maxie. Este chega. Warp 1 do MagmaHideout_4F larga o jogador em (20,21), quatro tiles a leste do Maxie em (16,21); tres passos para a esquerda encostam nele em (17,21) e o A abre a cena inteira do despertar do Groudon (sparkle, DoOrbEffect, duas tremidas de camera, tres msgbox) ate o `trainerbattle_no_intro`. A leitura e a do T128.5: com LV.5 ligado (opcoes=36) os seis niveis viram 5 e um time novo fica indistinguivel de qualquer outro, entao o que se cobra e a ESPECIE de cada slot e o ITEM do ace. NINETALES 38, TORKOAL 324, MAGCARGO 219, EXCADRILL 530, GROUDON 383 no slot 4 com ITEM_RED_ORB 290 (era ITEM_LEFTOVERS 472 ate 22/08/2026; a Primal entrou por decisao do Gui e o orbe NAO gasta o gimmick, entao o ace segue com a Cameruptite), e CAMERUPT 323 no ace com ITEM_CAMERUPTITE 323. Perder a pedra do ace desliga a Mega em silencio, e item5 e o unico campo que reclamaria. Par negativo: T141.2.",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM"
   ],
@@ -19,7 +19,7 @@
     "especie3": 530,
     "especie4": 383,
     "especie5": 323,
-    "item4": 472,
+    "item4": 290,
     "item5": 323,
     "nivelinimigo": 5,
     "nivelinimigo5": 5

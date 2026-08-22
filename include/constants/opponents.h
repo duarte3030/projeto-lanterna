@@ -2211,6 +2211,23 @@
 #define TRAINER_UNOVA_CHAMPION_JUNIPER_OSHAWOTT              2522
 // <<< Campea de Unova <<<
 
+// >>> chefes que faltavam de Johto e Unova (importa_chefes_faltantes.py) >>>
+#define TRAINER_JOHTO_RIVAL_SILVER_5                         2523  // hns TRAINER_RIVAL_TOTODILE_5 (VictoryRoadKanto_1F/scripts.inc:70)
+#define TRAINER_JOHTO_RIVAL_SILVER_6                         2524  // hns TRAINER_RIVAL_TOTODILE_6 (MtMoon_Cave/scripts.inc:46)
+#define TRAINER_JOHTO_RIVAL_SILVER_7                         2525  // hns TRAINER_RIVAL_TOTODILE_7 (IndigoPlateau_PokemonCenter/scripts.inc:84)
+#define TRAINER_UNOVA_RYOKU1                                 2526  // bw3g RYOKU1 (data/trainers/parties.asm:4161, maps/AccumulaTown.asm:43)
+#define TRAINER_UNOVA_N                                      2527  // bw3g N1 (data/trainers/parties.asm:4989, maps/NsRoom.asm:29)
+#define TRAINER_UNOVA_HUGH_TEPIG                             2528  // bw3g HUGH_TEPIG (data/trainers/parties.asm:4875, maps/DriftveilShelter.asm:237)
+#define TRAINER_UNOVA_BIANCA                                 2529  // bw3g BIANCA1 (parties.asm:4075, maps/PWTBattleRoom.asm:39)
+#define TRAINER_UNOVA_CHEREN_2                               2530  // bw3g CHEREN2 (parties.asm:3731, maps/OpelucidBattleHouse.asm:171)
+#define TRAINER_UNOVA_NATE_SNIVY                             2531  // bw3g NATE_SNIVY (parties.asm:5189, maps/NimbasaParkOutside.asm:141)
+#define TRAINER_UNOVA_NATE_TEPIG                             2532  // bw3g NATE_TEPIG (parties.asm:5217, maps/NimbasaParkOutside.asm:135)
+#define TRAINER_UNOVA_NATE_OSHAWOTT                          2533  // bw3g NATE_OSHAWOTT (parties.asm:5245, maps/NimbasaParkOutside.asm:138)
+#define TRAINER_UNOVA_ROSA_SNIVY                             2534  // bw3g ROSA_SNIVY (parties.asm:5274, maps/NimbasaParkOutside.asm:156)
+#define TRAINER_UNOVA_ROSA_TEPIG                             2535  // bw3g ROSA_TEPIG (parties.asm:5302, maps/NimbasaParkOutside.asm:150)
+#define TRAINER_UNOVA_ROSA_OSHAWOTT                          2536  // bw3g ROSA_OSHAWOTT (parties.asm:5330, maps/NimbasaParkOutside.asm:153)
+// <<< chefes que faltavam de Johto e Unova (importa_chefes_faltantes.py) <<<
+
 #define MAX_TRAINERS_COUNT_EMERALD 4000
 
 #if IS_FRLG

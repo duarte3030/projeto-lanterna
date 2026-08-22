@@ -4,8 +4,7 @@ Unova_NsRoom_MapScripts::
 	.byte 0
 
 Unova_NsRoom_EventScript_Npc0::
-	msgbox Unova_NsRoom_Text_NsRoomIntroText, MSGBOX_NPC
-	end
+	goto Unova_NsRoom_EventScript_N
 
 
 Unova_NsRoom_Text_NsRoomIntroText::
@@ -57,3 +56,26 @@ Unova_NsRoom_Text_NsRoomIntroText::
 	.string "\npower of the POKé-"
 	.string "\lMON who defeated"
 	.string "\lTEAM PLASMA!$"
+
+@ >>> cena importada por dev_scripts/importa_chefes_faltantes.py >>>
+Unova_NsRoom_EventScript_N::
+	trainerbattle_single TRAINER_UNOVA_N, Unova_NsRoom_Text_NsRoomIntroText, Unova_NsRoom_Text_NBeaten
+	msgbox Unova_NsRoom_Text_NDepois, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_HIDE_UNOVA_N
+	removeobject LOCALID_UNOVA_NS_ROOM_N
+	release
+	end
+
+Unova_NsRoom_Text_NBeaten::
+	.string "I see… So that's\n"
+	.string "the kind of\l"
+	.string "trainer you are…$"
+
+Unova_NsRoom_Text_NDepois::
+	.string "Your POKéMON…\p"
+	.string "I can hear them.\p"
+	.string "You truly are a\n"
+	.string "kind and noble\l"
+	.string "trainer.$"
+@ <<< cena importada por dev_scripts/importa_chefes_faltantes.py <<<

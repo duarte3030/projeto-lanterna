@@ -62,6 +62,48 @@ def cristais_z():
     return set(re.findall(r'\b(ITEM_[A-Z]+IUM_Z[A-Z_]*)\b', texto))
 
 
+def orbes_do_motor():
+    """{SPECIES_BASE: {ITEM_ORBE, ...}} lido de form_change_tables.h.
+
+    A Primal Reversion NAO e gimmick para o motor, e isso foi MEDIDO em
+    22/08/2026, nao lembrado:
+
+    - ela nao esta no `enum Gimmick` (include/battle_gimmick.h:4, que so tem
+      MEGA, ULTRA_BURST, Z_MOVE, DYNAMAX e TERA);
+    - ela roda sozinha ao entrar em campo (src/battle_switch_in.c:276 chama
+      TryPrimalReversion no bloco FIRST_EVENT_BLOCK_GENERAL_ABILITIES), sem
+      botao e sem escolha do treinador;
+    - ela nunca chama SetActiveGimmick nem SetGimmickAsActivated (a varredura
+      dos dois so acha battle_z_move.c, battle_dynamax.c, battle_terastal.c,
+      battle_ai_util.c e as duas de Mega/Ultra Burst em battle_util.c:8496 e
+      :8514).
+
+    Consequencia: `CanMegaEvolve` (src/battle_util.c:8418) segue devolvendo
+    TRUE para o ace com pedra depois do Groudon reverter, porque nem
+    HasTrainerUsedGimmick(GIMMICK_MEGA) nem GetActiveGimmick veem a Primal.
+    Mega e Primal CONVIVEM na mesma batalha, e por isso o orbe nao gasta o
+    "um gimmick por chefe": o guarda o conhece para exigir que ele esteja na
+    especie certa, e nada alem disso.
+    """
+    caminho = os.path.join(RAIZ, 'src', 'data', 'pokemon', 'form_change_tables.h')
+    texto = open(caminho, encoding='utf-8', errors='replace').read()
+    mapa = collections.defaultdict(set)
+    padrao = r'FORM_CHANGE_BATTLE_PRIMAL_REVERSION,\s*(SPECIES_[A-Z0-9_]+),\s*(ITEM_[A-Z0-9_]+)'
+    for forma, item in re.findall(padrao, texto):
+        mapa[re.sub(r'_PRIMAL$', '', forma)].add(item)
+    return mapa
+
+
+def primal_ligada():
+    """A tabela de formas fica atras de `#if P_PRIMAL_REVERSIONS`; se alguem
+    desligar o config, o orbe vira item morto e o time perde um Pokemon de fato
+    sem erro de compilacao nenhum."""
+    caminho = os.path.join(RAIZ, 'include', 'config', 'species_enabled.h')
+    texto = open(caminho, encoding='utf-8').read()
+    m = re.search(r'#define\s+P_PRIMAL_REVERSIONS\s+(TRUE|FALSE)', texto)
+    return bool(m) and m.group(1) == 'TRUE'
+
+
 def tipos_do_motor():
     """{SPECIES_X: ('TYPE_A', 'TYPE_B')} lido do species_info pelo catalogo_especies.
 
@@ -82,7 +124,11 @@ def valida(doc):
     mega = megas_do_motor()
     zs = cristais_z()
     tipos = tipos_do_motor()
+    orbes = orbes_do_motor()
     itens_mega = {i for v in mega.values() for i in v}
+    itens_orbe = {i for v in orbes.values() for i in v}
+    if itens_orbe and not primal_ligada():
+        erros.append('P_PRIMAL_REVERSIONS esta FALSE: nenhum orbe reverte nada')
     por_regiao = collections.defaultdict(lambda: collections.defaultdict(set))
     conta = collections.Counter()
 
@@ -115,6 +161,14 @@ def valida(doc):
             if not gimm_aqui and (m['item'] in itens_mega or m['item'] in zs):
                 erros.append('%s: %s carrega gimmick %s fora do slot do gimmick'
                              % (tid, m['especie'], m['item']))
+            # O orbe de Primal e a UNICA excecao a linha de cima, e de proposito:
+            # ele nao entra em itens_mega nem em zs, entao nunca cai naquele erro.
+            # Ele pode viver em qualquer slot, inclusive ao lado do slot do
+            # gimmick, porque o motor deixa (ver orbes_do_motor). O que o guarda
+            # cobra e so que ele esteja na especie que tem Primal.
+            if m['item'] in itens_orbe and m['item'] not in orbes.get(m['especie'], set()):
+                erros.append('%s: orbe %s em %s, que nao tem Primal Reversion'
+                             % (tid, m['item'], m['especie']))
             if not gimm_aqui and (m.get('dynamax') or m.get('tera')):
                 erros.append('%s: %s tem Dynamax/Tera fora do slot do gimmick'
                              % (tid, m['especie']))
@@ -398,6 +452,22 @@ def demo(doc):
                 c['time'][i]['especie'] = roubo
                 break
     casos.append(('vilao com o lendario de um lider da mesma regiao', d))
+
+    # O de baixo nasceu com a Primal do Maxie e do Archie (22/08/2026). Sem ele o
+    # orbe passaria calado em qualquer bicho, porque orbe nao e pedra de Mega nem
+    # cristal Z e nenhuma das duas varreduras de antes o enxergava.
+    d = copia()
+    orbes = orbes_do_motor()
+    algum_orbe = sorted(i for v in orbes.values() for i in v)
+    for c in d['chefes']:
+        # fora do slot do gimmick, senao a pedra de Mega reprovaria primeiro e o
+        # caso passaria pelo motivo errado
+        errado = next((m for i, m in enumerate(c['time'])
+                       if i != c['gimmick_slot'] and m['especie'] not in orbes), None)
+        if algum_orbe and errado:
+            errado['item'] = algum_orbe[0]
+            break
+    casos.append(('orbe de Primal na especie que nao tem Primal', d))
 
     ruim = 0
     for nome, mutante in casos:

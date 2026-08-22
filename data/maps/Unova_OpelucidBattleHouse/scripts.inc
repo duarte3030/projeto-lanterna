@@ -71,3 +71,33 @@ Unova_OpelucidBattleHouse_Text_BattleHouseCilanIntroText::
 	.string "\nMON strategy."
 	.string "\pHere, I'll give"
 	.string "\nyou a taste!$"
+
+@ >>> cena importada por dev_scripts/importa_chefes_faltantes.py >>>
+Unova_OpelucidBattleHouse_EventScript_CHEREN_2::
+	trainerbattle_single TRAINER_UNOVA_CHEREN_2, Unova_OpelucidBattleHouse_Text_CHEREN_2Seen, Unova_OpelucidBattleHouse_Text_CHEREN_2Beaten
+	msgbox Unova_OpelucidBattleHouse_Text_CHEREN_2Depois, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_HIDE_UNOVA_CHEREN_2
+	removeobject LOCALID_UNOVA_OPELUCID_CHEREN
+	release
+	end
+
+Unova_OpelucidBattleHouse_Text_CHEREN_2Seen::
+	.string "Ah, {PLAYER}.\n"
+	.string "Welcome to the\l"
+	.string "BATTLE HOUSE.\p"
+	.string "How'd you like to\n"
+	.string "be my opponent\l"
+	.string "today?$"
+
+Unova_OpelucidBattleHouse_Text_CHEREN_2Beaten::
+	.string "I see, so that was\n"
+	.string "your strategy.$"
+
+Unova_OpelucidBattleHouse_Text_CHEREN_2Depois::
+	.string "If you want to be\n"
+	.string "a great POKéMON\l"
+	.string "trainer, you've got\l"
+	.string "to keep improving\l"
+	.string "yourself.$"
+@ <<< cena importada por dev_scripts/importa_chefes_faltantes.py <<<

@@ -14,6 +14,7 @@ VictoryRoad_1F_EventScript_SetRockBarrier::
 
 VictoryRoad_1F_Frlg_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_VICTORY_ROAD_1F
+	call VictoryRoad_1F_EventScript_SilverPorta
 	end
 
 VictoryRoad_1F_EventScript_FloorSwitch::
@@ -65,3 +66,48 @@ VictoryRoad_1F_Text_RolandoPostBattle::
 	.string "Tch!\n"
 	.string "I concede, you are better than I!$"
 
+@ >>> cena importada por dev_scripts/importa_chefes_faltantes.py >>>
+VictoryRoad_1F_EventScript_SilverPorta::
+	setflag FLAG_HIDE_SILVER_VICTORY_ROAD
+	goto_if_not_defeated TRAINER_JOHTO_RIVAL_SILVER_4, Common_EventScript_NopReturn
+	goto_if_defeated TRAINER_JOHTO_RIVAL_SILVER_5, Common_EventScript_NopReturn
+	clearflag FLAG_HIDE_SILVER_VICTORY_ROAD
+	return
+
+VictoryRoad_1F_EventScript_Silver::
+	trainerbattle_single TRAINER_JOHTO_RIVAL_SILVER_5, VictoryRoad_1F_Text_SilverSeen, VictoryRoad_1F_Text_SilverBeaten
+	msgbox VictoryRoad_1F_Text_SilverAfter, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_HIDE_SILVER_VICTORY_ROAD
+	removeobject LOCALID_VICTORY_ROAD_1F_SILVER
+	release
+	end
+
+VictoryRoad_1F_Text_SilverSeen::
+	.string "Hold it.\p"
+	.string "…Are you going to take the POKéMON\n"
+	.string "LEAGUE challenge?\p"
+	.string "…Don't make me laugh.\p"
+	.string "You're so much weaker than I am.\p"
+	.string "I'm not like I was before.\p"
+	.string "I now have the best and strongest\n"
+	.string "POKéMON with me.\p"
+	.string "I'm invincible!\p"
+	.string "{PLAYER}!\n"
+	.string "I challenge you!$"
+
+VictoryRoad_1F_Text_SilverBeaten::
+	.string "…I couldn't win…\p"
+	.string "I gave it every-thing I had…\p"
+	.string "What you possess, and what I lack…\p"
+	.string "I'm beginning to understand what\n"
+	.string "that dragon master said to me…$"
+
+VictoryRoad_1F_Text_SilverAfter::
+	.string "…I haven't given up on becoming the\n"
+	.string "greatest trainer…\p"
+	.string "I'm going to find out why I can't\n"
+	.string "win and become stronger…\p"
+	.string "When I do, I will challenge you.\p"
+	.string "…Humph! You keep at it until then.$"
+@ <<< cena importada por dev_scripts/importa_chefes_faltantes.py <<<

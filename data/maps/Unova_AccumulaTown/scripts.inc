@@ -40,8 +40,7 @@ Unova_AccumulaTown_EventScript_Npc7::
 	end
 
 Unova_AccumulaTown_EventScript_Npc8::
-	msgbox Unova_AccumulaTown_Text_AccumulaTownRyokuIntroText, MSGBOX_NPC
-	end
+	goto Unova_AccumulaTown_EventScript_RYOKU1
 
 
 Unova_AccumulaTown_Text_AccumulaTownSignText::
@@ -122,3 +121,19 @@ Unova_AccumulaTown_Text_AccumulaTownRyokuIntroText::
 	.string "???: Oh dear…"
 	.string "\pPlease, you must"
 	.string "\nallow me through.$"
+
+@ >>> cena importada por dev_scripts/importa_chefes_faltantes.py >>>
+Unova_AccumulaTown_EventScript_RYOKU1::
+	trainerbattle_single TRAINER_UNOVA_RYOKU1, Unova_AccumulaTown_Text_AccumulaTownRyokuIntroText, Unova_AccumulaTown_Text_RYOKU1Beaten
+	msgbox Unova_AccumulaTown_Text_RYOKU1Depois, MSGBOX_DEFAULT
+	release
+	end
+
+Unova_AccumulaTown_Text_RYOKU1Beaten::
+	.string "Oh dear…$"
+
+Unova_AccumulaTown_Text_RYOKU1Depois::
+	.string "RYOKU: I-I must\n"
+	.string "retreat! Here,\l"
+	.string "take it!$"
+@ <<< cena importada por dev_scripts/importa_chefes_faltantes.py <<<
