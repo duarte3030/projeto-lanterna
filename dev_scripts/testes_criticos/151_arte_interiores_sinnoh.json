@@ -1,0 +1,92 @@
+[
+ {
+  "id": "T151.1",
+  "nome": "ARTE DOS INTERIORES POBRES DE SINNOH, LABIRINTO DO GINÁSIO D/P DE HEARTHOME, A TRAVESSIA LONGA. Depois de `dev_scripts/arte_exteriores_sinnoh.py` carimbar 23 móveis nesta sala (12 para 39 metatiles distintos), a travessia do labirinto continua exatamente a mesma. Este caso existe porque decorar é a maneira mais fácil de mudar colisão sem querer: o gerador escreve só os 10 bits de baixo de cada célula do map.bin e nunca os 6 de cima, que são colisão e elevação, mas 'o script promete' não é medida, e a lição do T115.3 é que arte nova pede prova de caminho. Esta é a rota LONGA do par: 44 passos efetivos, cinco pernas saturantes a partir do warp (9,22), o do fundo, que liga a sala da líder. O jogador entra virado para o NORTE, então a primeira perna leva um aperto a mais que os tiles que ela anda, para pagar a virada. As pernas efetivas, medidas sobre o map.bin DEPOIS da decoração e sobre o `git show HEAD:` de ANTES dela, dão o MESMO fim nos dois: LEFT anda 1 e para em (8,22), UP anda 6 até (8,16), LEFT anda 7 até (1,16), UP anda 4 até (1,12) e RIGHT satura 26 colunas até (27,12), que é a parede leste. O par curto é o T151.2, que sai do mesmo warp para o outro lado do labirinto.",
+  "warp": "MAP_HEARTHOME_CITY_DP_GYM_ELEVATOR_ROOM_1",
+  "warp_id": 3,
+  "roteiro": "150:NADA,16:LEFT*5,60:NADA,16:UP*10,60:NADA,16:LEFT*11,60:NADA,16:UP*8,60:NADA,16:RIGHT*30,120:NADA",
+  "prova": {
+   "mapa": "MAP_HEARTHOME_CITY_DP_GYM_ELEVATOR_ROOM_1",
+   "pos": [
+    27,
+    12
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T151.2",
+  "nome": "O PAR do T151.1, no MESMO labirinto e a partir do MESMO warp (9,22), virando para o lado oposto: 27 passos por um ramo que a rota longa não pisa, para que os móveis carimbados na METADE LESTE da sala também fiquem cobertos. RIGHT satura 11 colunas até (20,22), UP sobe 6 até (20,16), RIGHT anda 3 até (23,16), DOWN desce 2 até (23,18) e LEFT volta 5 até (18,18), onde há balcão. Duas rotas do mesmo ponto que param em paredes diferentes separam 'o mapa carregou' de 'o mapa continua sendo o labirinto que era': um enfeite carimbado por engano em cima do corredor mudaria UMA das duas e não as duas.",
+  "warp": "MAP_HEARTHOME_CITY_DP_GYM_ELEVATOR_ROOM_1",
+  "warp_id": 3,
+  "roteiro": "150:NADA,16:RIGHT*15,60:NADA,16:UP*10,60:NADA,16:RIGHT*7,60:NADA,16:DOWN*6,60:NADA,16:LEFT*9,120:NADA",
+  "prova": {
+   "mapa": "MAP_HEARTHOME_CITY_DP_GYM_ELEVATOR_ROOM_1",
+   "pos": [
+    18,
+    18
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T151.3",
+  "nome": "ARTE DOS INTERIORES POBRES DE SINNOH, SALA DE TREINADOR 1 DO GINÁSIO D/P DE HEARTHOME, ROTA LONGA ATÉ A PAREDE OESTE. A sala saiu de 12 para 27 metatiles distintos com 7 móveis; a rota atravessa o labirinto de ponta a ponta em 28 passos e nenhum deles muda. Cinco pernas saturantes do warp (7,10), que é a porta: RIGHT anda 8 até (15,10), UP anda 4 até (15,6), LEFT anda 5 até (10,6), UP anda 2 até (10,4) e LEFT satura 9 até (1,4). O NPC do treinador está em (6,5) e a rota não passa por ele de propósito: quem está sendo medido aqui é o tile, não o script. Par: T151.4, mesma rota até (10,4) e final para LESTE.",
+  "warp": "MAP_HEARTHOME_CITY_DP_GYM_TRAINER_ROOM_1",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:RIGHT*12,60:NADA,16:UP*8,60:NADA,16:LEFT*9,60:NADA,16:UP*6,60:NADA,16:LEFT*13,120:NADA",
+  "prova": {
+   "mapa": "MAP_HEARTHOME_CITY_DP_GYM_TRAINER_ROOM_1",
+   "pos": [
+    1,
+    4
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T151.4",
+  "nome": "O PAR do T151.3: mesma sala, mesmo warp, mesmas quatro primeiras pernas, e a quinta vai para LESTE em vez de OESTE, saturando em (15,4). Os dois casos juntos provam que a fileira 4 continua livre nas DUAS direções depois da decoração; um só provaria metade dela. 24 passos efetivos.",
+  "warp": "MAP_HEARTHOME_CITY_DP_GYM_TRAINER_ROOM_1",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:RIGHT*12,60:NADA,16:UP*8,60:NADA,16:LEFT*9,60:NADA,16:UP*6,60:NADA,16:RIGHT*9,120:NADA",
+  "prova": {
+   "mapa": "MAP_HEARTHOME_CITY_DP_GYM_TRAINER_ROOM_1",
+   "pos": [
+    15,
+    4
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T151.5",
+  "nome": "ARTE DOS INTERIORES POBRES DE SINNOH, CASA DA IRON ISLAND, VOLTA COMPLETA. É a menor sala do lote (11x10) e a que menos subiu, de 14 para 16 metatiles distintos com 4 móveis, justamente porque quase não tem parede solta onde carimbar. A rota dá a volta pela sala inteira em 27 passos e torna a encostar na parede leste: RIGHT anda 5 até (9,8), UP anda 4 até (9,4), LEFT satura 8 até (1,4), DOWN anda 2 até (1,6) e RIGHT satura 8 até (9,6). O warp de saída está em (4,8) e a rota não volta a pisar nele: pisar dispararia a porta e a prova de posição viraria prova de outro mapa.",
+  "warp": "MAP_IRON_ISLAND_HOUSE",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:RIGHT*9,60:NADA,16:UP*8,60:NADA,16:LEFT*12,60:NADA,16:DOWN*6,60:NADA,16:RIGHT*12,120:NADA",
+  "prova": {
+   "mapa": "MAP_IRON_ISLAND_HOUSE",
+   "pos": [
+    9,
+    6
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T151.6",
+  "nome": "O PAR do T151.5: a MESMA casa percorrida no sentido contrário, 21 passos, saindo do warp (4,8) para OESTE. LEFT anda 2 até (2,8), UP anda 2 até (2,6), RIGHT anda 7 até (9,6), UP anda 2 até (9,4) e LEFT satura 8 até (1,4). Os quatro móveis desta sala ficam entre as duas rotas, e por isso o par cobre os dois lados dos quatro. Como nas outras duas duplas, o fim foi medido no map.bin de DEPOIS e no `git show HEAD:` de ANTES da decoração, e deu igual nos dois: a arte mudou, o caminho não.",
+  "warp": "MAP_IRON_ISLAND_HOUSE",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:LEFT*6,60:NADA,16:UP*6,60:NADA,16:RIGHT*11,60:NADA,16:UP*6,60:NADA,16:LEFT*12,120:NADA",
+  "prova": {
+   "mapa": "MAP_IRON_ISLAND_HOUSE",
+   "pos": [
+    1,
+    4
+   ],
+   "andou": true
+  }
+ }
+]
