@@ -79,8 +79,14 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # ginásio de Sinnoh -> ginásio de Hoenn que empresta o vocabulário (mesmo tileset)
 PARES = {
     "OreburghCity_Gym":  "RustboroCity_Gym",
-    "EternaCity_Gym":    "RustboroCity_Gym",
-    "CanalaveCity_Gym":  "RustboroCity_Gym",
+    "EternaCity_Gym":    "FortreeCity_Gym",
+    # Lista, e não um mapa só: os mapas de `gTileset_Lab` são todos pequenos
+    # (o maior tem 260 células) e um sozinho não tem assinatura nem enfeite
+    # suficientes para chegar aos 25 metatiles distintos. As tabelas somam.
+    "CanalaveCity_Gym":  ("TeamGalacticEternaBuilding_1F",
+                          "Route119_WeatherInstitute_1F",
+                          "Route119_WeatherInstitute_2F",
+                          "LittlerootTown_ProfessorBirchsLab"),
     "VeilstoneCity_Gym": "DewfordTown_Gym",
     "PastoriaCity_Gym":  "SootopolisCity_Gym_1F",
     "SnowpointCity_Gym": "SootopolisCity_Gym_1F",
@@ -88,14 +94,46 @@ PARES = {
     "SunyshoreCity_Gym": "MauvilleCity_Gym",
 }
 
+# Os dois ginásios que TROCARAM de tileset secundário em 21/08/2026, por decisão
+# do Gui ("aprimora o tileset"): o `gTileset_RustboroGym` não tem folha, vaso,
+# viga nem chapa, e Gardenia (planta) e Byron (aço) saíam com cara de salão de
+# pedra. A troca custa ZERO KB de ROM, porque os dois tilesets novos já estão no
+# jogo (a ROM está em 98,69% de 32 MB e não cabe append de arte nova), e o preço
+# é recarimbar o map.bin inteiro, que é o que este script faz de qualquer jeito.
+#
+# ARMADILHA QUE A TROCA CRIA, e é a razão do `set` aqui em vez de um `if` solto:
+# com o tileset trocado, CONGELAR a célula pelo id do metatile deixa de congelar
+# o COMPORTAMENTO dela, porque o mesmo id aponta para outro atributo no tileset
+# novo. Então nestes dois a célula de evento também é reescrita, e quem garante
+# a andabilidade é a regra que já existia (só entra e só sai metatile com
+# comportamento 0), medida célula a célula pelo `--demo`. O metatile abaixo de
+# 512 vem do PRIMÁRIO, que não mudou, e continua valendo o que valia.
+# alvo -> (secundário NOVO, secundário VELHO). O velho fica escrito porque a
+# prova de comportamento precisa dele: ler o `antes` com o tileset NOVO faria a
+# checagem comparar o metatile consigo mesmo e passar sempre.
+TROCA_TILESET = {
+    "EternaCity_Gym":   ("gTileset_FortreeGym", "gTileset_RustboroGym"),  # sebe e folhagem, Gardenia
+    "CanalaveCity_Gym": ("gTileset_Lab", "gTileset_RustboroGym"),         # chapa, pilar e máquina, Byron
+}
+
 N8 = [(0, -1), (1, -1), (1, 0), (1, 1), (0, 1), (-1, 1), (-1, 0), (-1, -1)]
 N4 = [N8[0], N8[2], N8[4], N8[6]]
 
 KMIN = 3           # metatile precisa aparecer 3+ vezes na fonte para ser estrutural
 FRACAO_VAZIO = 0.4  # acima disso o metatile é "vazio" e não entra no passo estrutural
+# ESCURO não é o mesmo que VAZIO, e foi preciso medir para ver: o chão do
+# `gTileset_UnovaFacility` que a votação escolhia para o Canalave é o metatile
+# 513, que tem ZERO pixel na cor de fundo (portanto passa no filtro de vazio) e
+# luminância média 57 de 255. Na imagem o salão inteiro saía como um buraco
+# preto entre paredes claras. O piso de luz só vale para os ginásios que
+# TROCARAM de tileset: os outros seis já foram aprovados pelo Gui com o
+# vocabulário que tinham, e mexer no filtro deles mudaria desenho fora do
+# escopo desta rodada.
+LUZ_MINIMA = 90.0
 ENFEITES_MAX = 8    # por ginásio, mais os que a régua de arte ainda pedir
-ENFEITES_TETO = 24  # e nunca mais que isso
+ENFEITES_TETO = 32  # e nunca mais que isso
 PISO_ARTE = 15      # metatiles distintos por ginásio (régua do completude.py, dobrada)
+PISO_ARTE_TROCA = 25  # e quem trocou de tileset foi trocar para ter MAIS vocabulário
 ESPACO = 4          # distância mínima (Chebyshev) entre dois enfeites
 
 
@@ -154,8 +192,8 @@ def grade(nome):
 
 
 # ----------------------------------------------------------- filtro de "vazio"
-def fracao_vazio(pri, sec, _c={}):
-    """{metatile: fração de pixels na cor de fundo}, renderizando o metatile.
+def metricas(pri, sec, _c={}):
+    """{metatile: (fração de pixels na cor de fundo, luminância média)}.
 
     Reusa `render_maps.py` em vez de reimplementar 4bpp e paleta JASC.
     """
@@ -180,7 +218,9 @@ def fracao_vazio(pri, sec, _c={}):
                     continue
                 RM.desenhar_tile(px, (k % 4 % 2) * 8, (k % 4 // 2) * 8, t, cores, fh, fv)
             n = sum(1 for y in range(16) for x in range(16) if px[x, y] == fundo)
-            out[base + i] = n / 256.0
+            luz = sum(0.299 * px[x, y][0] + 0.587 * px[x, y][1] + 0.114 * px[x, y][2]
+                      for y in range(16) for x in range(16)) / 256.0
+            out[base + i] = (n / 256.0, luz)
     _c[(pri, sec)] = out
     return out
 
@@ -220,11 +260,20 @@ def _perto_do_jogavel(d, W, H, mask):
     return perto
 
 
-def aprende(ref):
-    """(tabela de assinatura -> metatile, lista de enfeites) do ginásio de Hoenn."""
+def aprende(ref, escuro_proibido=False):
+    """(tabela de assinatura -> metatile, lista de enfeites) do(s) mapa(s) de referência."""
+    if not isinstance(ref, str):
+        tab, enfeites = collections.defaultdict(collections.Counter), []
+        for um in ref:
+            t, e = aprende(um, escuro_proibido)
+            for k, c in t.items():
+                tab[k].update(c)
+            enfeites += e
+        enfeites.sort(key=lambda x: (-min(c[3] for c in x["cel"]), -len(x["cel"])))
+        return tab, enfeites
     d, L, W, H, v = grade(ref)
     beh = comportamento(L["primary_tileset"], L["secondary_tileset"])
-    vazio = fracao_vazio(L["primary_tileset"], L["secondary_tileset"])
+    med = metricas(L["primary_tileset"], L["secondary_tileset"])
     mask = _mascara(v)
     perto = _perto_do_jogavel(d, W, H, mask)
 
@@ -232,8 +281,9 @@ def aprende(ref):
                                for y in range(H) for x in range(W) if (x, y) in perto)
 
     def estrutural(mt):
-        return (freq[mt] >= KMIN and beh(mt) == 0
-                and vazio.get(mt, 1.0) <= FRACAO_VAZIO)
+        vazio, luz = med.get(mt, (1.0, 0.0))
+        return (freq[mt] >= KMIN and beh(mt) == 0 and vazio <= FRACAO_VAZIO
+                and not (escuro_proibido and luz < LUZ_MINIMA))
 
     tab = collections.defaultdict(collections.Counter)
     for y in range(H):
@@ -296,16 +346,31 @@ def _escolhe(tab, chaves):
 # ---------------------------------------------------------------------- geração
 def decora(alvo):
     """Devolve (layout, W, H, antes, depois, quantos enfeites)."""
-    tab, enfeites = aprende(PARES[alvo])
+    tab, enfeites = aprende(PARES[alvo], escuro_proibido=alvo in TROCA_TILESET)
     d, L, W, H, v = grade(alvo)
     beh = comportamento(L["primary_tileset"], L["secondary_tileset"])
-    ev = {(o["x"], o["y"])
-          for k in ("object_events", "warp_events", "bg_events", "coord_events")
-          for o in (d.get(k) or [])}
+    if alvo in TROCA_TILESET:
+        esperado = TROCA_TILESET[alvo][0]
+        if L["secondary_tileset"] != esperado:
+            sys.exit(f"{alvo}: layouts.json diz {L['secondary_tileset']}, "
+                     f"e este gerador só sabe desenhar com {esperado}")
+        ev = set()
+    else:
+        ev = {(o["x"], o["y"])
+              for k in ("object_events", "warp_events", "bg_events", "coord_events")
+              for o in (d.get(k) or [])}
     mask = _mascara(v)
     out = list(v)
 
-    livre = lambda x, y: (x, y) not in ev and beh(v[y * W + x] & 0x3FF) == 0
+    if alvo in TROCA_TILESET:
+        # Com o tileset trocado, o id VELHO não quer dizer mais nada: congelar
+        # por ele congelaria o desenho errado e deixaria escapar mudança de
+        # comportamento. Toda célula do SECUNDÁRIO é reescrita; as do primário
+        # (metatile < 512, aqui só os dois cantos 6 e 7) ficam como estavam,
+        # porque `gTileset_Building` não mudou.
+        livre = lambda x, y: (v[y * W + x] & 0x3FF) >= 512
+    else:
+        livre = lambda x, y: (x, y) not in ev and beh(v[y * W + x] & 0x3FF) == 0
 
     for y in range(H):
         for x in range(W):
@@ -323,7 +388,8 @@ def decora(alvo):
     # Mauville é magro (corredor sobre o vazio), e só o passo estrutural deixa
     # ele em 13 metatiles distintos, abaixo do piso.
     postos, n = [], 0
-    basta = lambda: (n >= ENFEITES_MAX and distintos(out) >= PISO_ARTE) or n >= ENFEITES_TETO
+    piso = PISO_ARTE_TROCA if alvo in TROCA_TILESET else PISO_ARTE
+    basta = lambda: (n >= ENFEITES_MAX and distintos(out) >= piso) or n >= ENFEITES_TETO
 
     def cabe(e, x, y):
         if any(max(abs(x - px), abs(y - py)) < ESPACO for px, py in postos):
@@ -357,6 +423,23 @@ def decora(alvo):
     return L, W, H, v, out, n
 
 
+def do_git(rel):
+    """O `map.bin` como está no HEAD, ou None se o git não responder.
+
+    Existe por causa da troca de tileset: depois de `--gravar`, o `antes` que
+    `decora()` devolve já é o desenho NOVO, e comparar comportamento contra ele
+    lendo o tileset VELHO é uma conta sem sentido que reprova (ou aprova) por
+    acidente. A linha de base honesta de quem trocou é o commit.
+    """
+    import subprocess
+    r = subprocess.run(["git", "-C", RAIZ, "show", f"HEAD:{rel}"],
+                       capture_output=True)
+    if r.returncode != 0:
+        return None
+    b = r.stdout
+    return list(struct.unpack_from("<%dH" % (len(b) // 2), b, 0))
+
+
 def confere(antes, depois):
     """Colisão e elevação idênticas célula a célula. Devolve lista de defeitos."""
     return [i for i, (a, b) in enumerate(zip(antes, depois))
@@ -382,14 +465,22 @@ def demo():
         assert not confere(antes, depois), f"{alvo}: colisão/elevação mudou"
 
         # 2. comportamento de metatile idêntico célula a célula (andabilidade,
-        #    gelo, tapete e porta continuam o que eram)
-        maus = [i for i, (a, b) in enumerate(zip(antes, depois))
-                if beh(a & 0x3FF) != beh(b & 0x3FF)]
+        #    gelo, tapete e porta continuam o que eram). Quem trocou de tileset
+        #    lê o `antes` com o tileset VELHO, senão a checagem é circular.
+        beh_antes, base = beh, antes
+        if alvo in TROCA_TILESET:
+            beh_antes = comportamento(L["primary_tileset"], TROCA_TILESET[alvo][1])
+            base = do_git(L["blockdata_filepath"])
+            assert base is not None, f"{alvo}: sem git, e sem git não há prova"
+            assert not confere(base, depois), f"{alvo}: colisão mudou contra o HEAD"
+        maus = [i for i, (a, b) in enumerate(zip(base, depois))
+                if beh_antes(a & 0x3FF) != beh(b & 0x3FF)]
         assert not maus, f"{alvo}: comportamento mudou em {len(maus)} células"
 
         # 3. a régua de arte sobe e passa de 15
-        assert distintos(depois) >= 15, \
-            f"{alvo}: {distintos(depois)} metatiles distintos, piso é 15"
+        piso = PISO_ARTE_TROCA if alvo in TROCA_TILESET else PISO_ARTE
+        assert distintos(depois) >= piso, \
+            f"{alvo}: {distintos(depois)} metatiles distintos, piso é {piso}"
 
         # 4. a mutação plantada TEM que ser pega: se o gerador escrevesse a
         #    célula inteira em vez dos 10 bits de baixo, a colisão viajaria
