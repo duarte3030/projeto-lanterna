@@ -37,3 +37,12 @@ SnowpointCityPokecenter1F_EventScript_Npc3::
 
 SnowpointCityPokecenter1F_Text_Npc3:
 	.string "PSYDUCK: Gaga guwawa!$"
+
+@ >>> porta fechada (remove_mapas_cortados.py) >>>
+SnowpointCityPokecenter1F_EventScript_PortaFechada::
+	msgbox SnowpointCityPokecenter1F_Text_PortaFechada, MSGBOX_SIGN
+	end
+
+SnowpointCityPokecenter1F_Text_PortaFechada:
+	.string "Fechado. Área em obras.$"
+@ <<< porta fechada <<<

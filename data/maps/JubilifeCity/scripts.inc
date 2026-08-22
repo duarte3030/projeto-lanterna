@@ -459,3 +459,12 @@ JubilifeCity_EventScript_Placa14::
 
 JubilifeCity_Text_Placa14:
 	.string "Jubilife City\nCity of Joy$"
+
+@ >>> porta fechada (remove_mapas_cortados.py) >>>
+JubilifeCity_EventScript_PortaFechada::
+	msgbox JubilifeCity_Text_PortaFechada, MSGBOX_SIGN
+	end
+
+JubilifeCity_Text_PortaFechada:
+	.string "Fechado. Área em obras.$"
+@ <<< porta fechada <<<

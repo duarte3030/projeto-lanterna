@@ -1118,8 +1118,10 @@ def corta_por_escopo(itens, cortados=None):
         else:
             i["status"] = "cortada"
             i["bloqueio"] = ("decisão do Gui 21/08: fora do escopo "
-                             f"({grupo}). Remover o mapa da ROM para liberar "
-                             "espaço é obra separada, ver PLANO-ESCOPO.md")
+                             f"({grupo}). O mapa já é TÚMULO na ROM desde "
+                             "22/08/2026 (dev_scripts/remove_mapas_cortados.py): "
+                             "o id fica, o conteúdo saiu, e a porta do outro "
+                             "lado está fechada")
     return itens
 
 

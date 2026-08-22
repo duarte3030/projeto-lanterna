@@ -471,6 +471,21 @@ def demo():
     # 8. depois de aplicado: toda sala tem as quatro portas MAP_DYNAMIC, o mapa
     #    da entrada nao ganhou nem perdeu warp (save congelada), e as portas dele
     #    que apontavam para si mesmas agora sorteiam.
+    # A TURNBACK CAVE SAIU DO ESCOPO em 21/08/2026 (PLANO-ESCOPO.md) e virou
+    # TUMULO na ROM em 22/08 (dev_scripts/remove_mapas_cortados.py): as 21 salas
+    # continuam em `map_groups.json`, para nao deslocar id de mapa que a save
+    # guarda, mas sem warp, sem objeto e com layout de 1x1. As oito conferencias
+    # acima ainda valem, porque leem a FONTE e o motor; da 8 para baixo le a
+    # nossa arvore, e la nao ha mais o que conferir. Isto e saida limpa, nao
+    # `assert` desligado: o gerador fica como registro do desenho, e se o Gui
+    # reabrir a caverna basta apagar estas linhas e rodar `--aplicar`.
+    if not json.load(open(f"{REPO}/data/maps/TurnbackCaveEntrance/map.json")
+                     ).get("warp_events"):
+        print("demo ok (parcial): as 8 conferencias de FONTE passaram; a "
+              "caverna esta CORTADA do escopo e nao ha mais mapa nosso para "
+              "conferir. Ver PLANO-ESCOPO.md.")
+        return 0
+
     pastas = set(os.listdir(f"{REPO}/data/maps"))
     conferidos = 0
     for h in todos():

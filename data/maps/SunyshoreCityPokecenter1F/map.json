@@ -102,11 +102,17 @@
       "dest_warp_id": "2"
     },
     {
-      "x": 1,
-      "y": 6,
+      "x": 6,
+      "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_SUNYSHORE_CITY_POKECENTER_2F",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_SUNYSHORE_CITY",
+      "dest_warp_id": "2",
+      "fechado": "porta fechada, ver PLANO-ESCOPO.md",
+      "porta_original": [
+        1,
+        6,
+        "MAP_SUNYSHORE_CITY_POKECENTER_2F"
+      ]
     },
     {
       "x": 13,
@@ -117,6 +123,16 @@
     }
   ],
   "coord_events": [],
-  "bg_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 0,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SunyshoreCityPokecenter1F_EventScript_PortaFechada",
+      "origem": "porta fechada (remove_mapas_cortados.py)"
+    }
+  ],
   "origem": "pokeplatinum: NPC, placa e texto. planta reaproveitada de OreburghCity_PokemonCenter_1F"
 }

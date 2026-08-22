@@ -164,3 +164,12 @@ PokemonLeagueNorthPokecenter1F_Pokemart_Loja2:
 	.2byte ITEM_REPEAT_BALL
 	.2byte ITEM_LUXURY_BALL
 	pokemartlistend
+
+@ >>> porta fechada (remove_mapas_cortados.py) >>>
+PokemonLeagueNorthPokecenter1F_EventScript_PortaFechada::
+	msgbox PokemonLeagueNorthPokecenter1F_Text_PortaFechada, MSGBOX_SIGN
+	end
+
+PokemonLeagueNorthPokecenter1F_Text_PortaFechada:
+	.string "Fechado. Área em obras.$"
+@ <<< porta fechada <<<

@@ -1,107 +1,62 @@
 [
-  {
-    "id": "T113.1",
-    "nome": "SINNOH POVOAR, prédio: o NPC novo de JubilifeCity_Flat2_F3 EXISTE E É SÓLIDO. O mapa entrou na ROM com UM objeto só (o POKEFAN_M de (7,3)) e a fonte (MAP_HEADER_UNUSED_JUBILIFE_CITY_SOUTH_HOUSE_3F) tem dois; o segundo, POKEFAN_M em (5,5), entrou por dev_scripts/importa_npcs_sinnoh.py --aplicar, mudo (script 0) e TRAINER_TYPE_NONE, pela régua de identidade (a coordenada da fonte já é local e cabe no nosso layout 14x9). ESCOLHA DO MAPA: os dois objetos aqui são MOVEMENT_TYPE_NONE, e por isso a prova é determinística. A flower shop de Floaroma, que também ganhou gente nesta onda, tem TRÊS WANDER_AROUND e foi descartada como amostra pela lição do T98.9 (NPC que passeia dentro da caixa faz o caso oscilar). ROTA, medida na grade de colisão do LAYOUT_JUBILIFE_CITY_FLAT2_F3: o warp 0 entrega em (1,1); DOWN satura em (1,8), que é a última linha; RIGHT é perna CONTADA de 5 apertos (o primeiro só vira, os quatro seguintes andam) e para em (5,8); UP satura e para em (5,6), porque (5,5) é o NPC novo. A PROVA é a posição (5,6): sem o objeto novo o jogador subiria até (5,2), que é onde a parede da linha 1 o pararia, e é exatamente o que o par negativo T113.2 mostra na coluna vizinha.",
-    "warp": "MAP_JUBILIFE_CITY_FLAT2_F3",
-    "warp_id": 0,
-    "roteiro": "150:NADA,24:DOWN*12,60:NADA,24:RIGHT*5,60:NADA,24:UP*12,60:NADA",
-    "prova": {
-      "mapa": "MAP_JUBILIFE_CITY_FLAT2_F3",
-      "pos": [
-        5,
-        6
-      ],
-      "andou": true
-    }
-  },
-  {
-    "id": "T113.2",
-    "nome": "PAR NEGATIVO do T113.1, no MESMO mapa e com a MESMA forma de rota, uma coluna à direita: em x=6 não há objeto nenhum, então o jogador sobe os quatro tiles a mais e para em (6,2), contra a parede da linha 1. Sem este caso o T113.1 passaria num jogo onde a coluna toda fosse intransponível por qualquer outro motivo (parede desenhada errada, elevação, objeto herdado), e não porque o NPC importado está lá. A única diferença entre os dois roteiros é um aperto na perna contada de RIGHT.",
-    "warp": "MAP_JUBILIFE_CITY_FLAT2_F3",
-    "warp_id": 0,
-    "roteiro": "150:NADA,24:DOWN*12,60:NADA,24:RIGHT*6,60:NADA,24:UP*12,60:NADA",
-    "prova": {
-      "mapa": "MAP_JUBILIFE_CITY_FLAT2_F3",
-      "pos": [
-        6,
-        2
-      ],
-      "andou": true
-    }
-  },
-  {
-    "id": "T113.3",
-    "nome": "SINNOH POVOAR, ruína: a PLACA nova de SolaceonRuinsRoom1NorthwestDeadEnd É LEGÍVEL. O beco entrou na ROM sem evento nenhum e a fonte (MAP_HEADER_SOLACEON_RUINS_ROOM_1_NORTHWEST_DEAD_END) tem um bg_event em (3,3); ele entrou pela régua de identidade e passou no portão de legibilidade novo do gerador (vizinho ortogonal andável, o mesmo critério que a correção da Route 222 escreveu, que é o que separa placa de placa dentro de parede). PROVA POR CONSEQUÊNCIA, não por pixel: o warp 0 entrega em (5,3); LEFT satura em (4,3), porque (3,3) é a própria coluna de parede onde a placa mora; o A abre o msgbox de Sinnoh_EventScript_PlacaImportada (MSGBOX_SIGN); e os UP seguintes NÃO MOVEM O JOGADOR, porque msgbox aberto come direcional (só A e B fecham). Logo a posição final (4,3) só é possível se a placa estiver lá e tiver respondido ao A. O par negativo T113.4 aperta o mesmo A contra a parede do outro lado, sem placa, e o jogador anda.",
-    "warp": "MAP_SOLACEON_RUINS_ROOM_1_NORTHWEST_DEAD_END",
-    "warp_id": 0,
-    "roteiro": "150:NADA,24:LEFT*8,60:NADA,20:A,90:NADA,24:UP*6,60:NADA",
-    "prova": {
-      "mapa": "MAP_SOLACEON_RUINS_ROOM_1_NORTHWEST_DEAD_END",
-      "pos": [
-        4,
-        3
-      ],
-      "andou": true
-    }
-  },
-  {
-    "id": "T113.4",
-    "nome": "PAR NEGATIVO do T113.3, no MESMO beco: o jogador vira para a DIREITA em (5,3), onde a parede não tem placa, aperta o mesmo A (que não abre nada) e sobe. Termina em (5,2). Sem este caso o T113.3 passaria num jogo em que o jogador simplesmente não conseguisse subir da linha 3, e não porque um msgbox estava aberto.",
-    "warp": "MAP_SOLACEON_RUINS_ROOM_1_NORTHWEST_DEAD_END",
-    "warp_id": 0,
-    "roteiro": "150:NADA,24:RIGHT*4,60:NADA,20:A,90:NADA,24:UP*6,60:NADA",
-    "prova": {
-      "mapa": "MAP_SOLACEON_RUINS_ROOM_1_NORTHWEST_DEAD_END",
-      "pos": [
-        5,
-        2
-      ],
-      "andou": true
-    }
-  },
-  {
-    "id": "T113.5",
-    "nome": "SINNOH PEDRAS, Turnback Cave: a PEDRA DE ROCK SMASH nova É SÓLIDA. As sete salas de pilar entraram na ROM sem objeto nenhum e a fonte põe 30 `OBJ_EVENT_GFX_ROCK_SMASH` em cada; elas entraram por dev_scripts/pedras_sinnoh.py como PEDRA de verdade (OBJ_EVENT_GFX_BREAKABLE_ROCK mais EventScript_RockSmash, os dois nativos, os mesmos da Route 111 de Hoenn), pela régua de identidade e depois de passar nos dois portões de tranca (nenhum warp perde alcance, nenhum bolso sem saída se forma). O desenho da sala é um losango de pedras em volta do pilar central. ROTA: o warp 0 entrega em (11,1), a porta da parede da linha 1; DOWN satura e PARA EM (11,4), porque (11,5) é a ponta de cima do losango. A PROVA é a posição: a coluna 11 é andável até a linha 20, então nada além da pedra pode parar o jogador ali, e o T113.7 mostra isso andando a linha 4 inteira sem encontrar nada.",
-    "warp": "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_1",
-    "warp_id": 0,
-    "roteiro": "150:NADA,24:DOWN*8,60:NADA",
-    "prova": {
-      "mapa": "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_1",
-      "pos": [
-        11,
-        4
-      ],
-      "andou": true
-    }
-  },
-  {
-    "id": "T113.6",
-    "nome": "SINNOH PEDRAS: A PARADA ANDA JUNTO COM A PEDRA. Mesma sala e mesmo começo do T113.5, e depois UM tile para a esquerda: em (10,4) o jogador desce mais uma linha e para em (10,5), porque nesta coluna a pedra do losango está em (10,6), uma linha abaixo da anterior. Se o que parasse o jogador fosse parede, elevação ou borda de mapa, a linha de parada NÃO se moveria ao trocar de coluna. É o discriminador que separa 'tem pedra ali' de 'aquela linha é intransponível'.",
-    "warp": "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_1",
-    "warp_id": 0,
-    "roteiro": "150:NADA,24:DOWN*8,60:NADA,24:LEFT*2,60:NADA,24:DOWN*8,60:NADA",
-    "prova": {
-      "mapa": "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_1",
-      "pos": [
-        10,
-        5
-      ],
-      "andou": true
-    }
-  },
-  {
-    "id": "T113.7",
-    "nome": "PAR NEGATIVO dos T113.5 e T113.6: a linha 4 da mesma sala NÃO TEM PEDRA NENHUMA, e o jogador atravessa a sala inteira até bater na parede da coluna 1, parando em (2,4). Sem este caso os dois anteriores passariam num jogo onde a sala fosse só um corredor estreito, e não porque as pedras novas estão lá. Também é a prova de que o portão de tranca do pedras_sinnoh.py fez o que devia neste mapa: dá para circular.",
-    "warp": "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_1",
-    "warp_id": 0,
-    "roteiro": "150:NADA,24:DOWN*8,60:NADA,24:LEFT*24,90:NADA",
-    "prova": {
-      "mapa": "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_1",
-      "pos": [
-        2,
-        4
-      ],
-      "andou": true
-    }
+ {
+  "id": "T113.1",
+  "nome": "SINNOH POVOAR, prédio: o NPC novo de JubilifeCity_Flat2_F3 EXISTE E É SÓLIDO. O mapa entrou na ROM com UM objeto só (o POKEFAN_M de (7,3)) e a fonte (MAP_HEADER_UNUSED_JUBILIFE_CITY_SOUTH_HOUSE_3F) tem dois; o segundo, POKEFAN_M em (5,5), entrou por dev_scripts/importa_npcs_sinnoh.py --aplicar, mudo (script 0) e TRAINER_TYPE_NONE, pela régua de identidade (a coordenada da fonte já é local e cabe no nosso layout 14x9). ESCOLHA DO MAPA: os dois objetos aqui são MOVEMENT_TYPE_NONE, e por isso a prova é determinística. A flower shop de Floaroma, que também ganhou gente nesta onda, tem TRÊS WANDER_AROUND e foi descartada como amostra pela lição do T98.9 (NPC que passeia dentro da caixa faz o caso oscilar). ROTA, medida na grade de colisão do LAYOUT_JUBILIFE_CITY_FLAT2_F3: o warp 0 entrega em (1,1); DOWN satura em (1,8), que é a última linha; RIGHT é perna CONTADA de 5 apertos (o primeiro só vira, os quatro seguintes andam) e para em (5,8); UP satura e para em (5,6), porque (5,5) é o NPC novo. A PROVA é a posição (5,6): sem o objeto novo o jogador subiria até (5,2), que é onde a parede da linha 1 o pararia, e é exatamente o que o par negativo T113.2 mostra na coluna vizinha.",
+  "warp": "MAP_JUBILIFE_CITY_FLAT2_F3",
+  "warp_id": 0,
+  "roteiro": "150:NADA,24:DOWN*12,60:NADA,24:RIGHT*5,60:NADA,24:UP*12,60:NADA",
+  "prova": {
+   "mapa": "MAP_JUBILIFE_CITY_FLAT2_F3",
+   "pos": [
+    5,
+    6
+   ],
+   "andou": true
   }
+ },
+ {
+  "id": "T113.2",
+  "nome": "PAR NEGATIVO do T113.1, no MESMO mapa e com a MESMA forma de rota, uma coluna à direita: em x=6 não há objeto nenhum, então o jogador sobe os quatro tiles a mais e para em (6,2), contra a parede da linha 1. Sem este caso o T113.1 passaria num jogo onde a coluna toda fosse intransponível por qualquer outro motivo (parede desenhada errada, elevação, objeto herdado), e não porque o NPC importado está lá. A única diferença entre os dois roteiros é um aperto na perna contada de RIGHT.",
+  "warp": "MAP_JUBILIFE_CITY_FLAT2_F3",
+  "warp_id": 0,
+  "roteiro": "150:NADA,24:DOWN*12,60:NADA,24:RIGHT*6,60:NADA,24:UP*12,60:NADA",
+  "prova": {
+   "mapa": "MAP_JUBILIFE_CITY_FLAT2_F3",
+   "pos": [
+    6,
+    2
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T113.3",
+  "nome": "SINNOH POVOAR, ruína: a PLACA nova de SolaceonRuinsRoom1NorthwestDeadEnd É LEGÍVEL. O beco entrou na ROM sem evento nenhum e a fonte (MAP_HEADER_SOLACEON_RUINS_ROOM_1_NORTHWEST_DEAD_END) tem um bg_event em (3,3); ele entrou pela régua de identidade e passou no portão de legibilidade novo do gerador (vizinho ortogonal andável, o mesmo critério que a correção da Route 222 escreveu, que é o que separa placa de placa dentro de parede). PROVA POR CONSEQUÊNCIA, não por pixel: o warp 0 entrega em (5,3); LEFT satura em (4,3), porque (3,3) é a própria coluna de parede onde a placa mora; o A abre o msgbox de Sinnoh_EventScript_PlacaImportada (MSGBOX_SIGN); e os UP seguintes NÃO MOVEM O JOGADOR, porque msgbox aberto come direcional (só A e B fecham). Logo a posição final (4,3) só é possível se a placa estiver lá e tiver respondido ao A. O par negativo T113.4 aperta o mesmo A contra a parede do outro lado, sem placa, e o jogador anda.",
+  "warp": "MAP_SOLACEON_RUINS_ROOM_1_NORTHWEST_DEAD_END",
+  "warp_id": 0,
+  "roteiro": "150:NADA,24:LEFT*8,60:NADA,20:A,90:NADA,24:UP*6,60:NADA",
+  "prova": {
+   "mapa": "MAP_SOLACEON_RUINS_ROOM_1_NORTHWEST_DEAD_END",
+   "pos": [
+    4,
+    3
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T113.4",
+  "nome": "PAR NEGATIVO do T113.3, no MESMO beco: o jogador vira para a DIREITA em (5,3), onde a parede não tem placa, aperta o mesmo A (que não abre nada) e sobe. Termina em (5,2). Sem este caso o T113.3 passaria num jogo em que o jogador simplesmente não conseguisse subir da linha 3, e não porque um msgbox estava aberto.",
+  "warp": "MAP_SOLACEON_RUINS_ROOM_1_NORTHWEST_DEAD_END",
+  "warp_id": 0,
+  "roteiro": "150:NADA,24:RIGHT*4,60:NADA,20:A,90:NADA,24:UP*6,60:NADA",
+  "prova": {
+   "mapa": "MAP_SOLACEON_RUINS_ROOM_1_NORTHWEST_DEAD_END",
+   "pos": [
+    5,
+    2
+   ],
+   "andou": true
+  }
+ }
 ]

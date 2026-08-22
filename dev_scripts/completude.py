@@ -227,6 +227,15 @@ CORTES_DO_GUI = [
                "Route226", "Route226_Access", "Route227", "Route227House",
                "Route228", "Route228GateToRoute226", "Route228NorthHouse",
                "Route228RockPeakRuins", "Route228SouthHouse",
+               # Acrescentado em 22/08/2026 pelo condutor, depois que a remoção
+               # física mediu: o ÚNICO warp da `RockPeakRuins` ia para a
+               # `Route228`, e sem ela o mapa fica sem caminho nenhum. Ele é a
+               # sala das Ruínas do Pico de Pedra, dentro da Battle Zone, e a
+               # ordem do Gui foi a ilha inteira. As irmãs `IronRuins` e
+               # `IcebergRuins` NÃO entram, e foi medido: elas saem da
+               # `IronIslandB3F` e do `MtCoronet_1F_North_Room2`, dois mapas
+               # vivos, e continuam alcançáveis.
+               "RockPeakRuins",
                "Route229", "Route230",
                "StarkMountainOutside", "StarkMountainRoom1",
                "StarkMountainRoom2", "StarkMountainRoom3",
@@ -626,12 +635,23 @@ def _layouts(_cache={}):
     return _cache
 
 
+def _cortados_deficit():
+    """Todo mapa nosso que saiu do escopo (modo `deficit` de CORTES_DO_GUI)."""
+    return {m for x in CORTES_DO_GUI if x["modo"] == "deficit" for m in x["alvo"]}
+
+
 def arte(nossos):
-    """(mediana de metatiles distintos por mapa, quantos abaixo do piso, n)."""
+    """(mediana de metatiles distintos por mapa, quantos abaixo do piso, n).
+
+    Mapa CORTADO nao entra. Desde 22/08/2026 ele e um tumulo de 1x1
+    (`dev_scripts/remove_mapas_cortados.py`): contar o metatile unico dele
+    afundaria a mediana de arte de Sinnoh sem nada ter piorado no desenho.
+    """
+    fora = _cortados_deficit()
     n = []
     for m in nossos:
         p = f"{RAIZ}/data/maps/{m}/map.json"
-        if not os.path.exists(p):
+        if not os.path.exists(p) or m in fora:
             continue
         arq = _layouts().get(json.load(open(p)).get("layout"))
         if arq and os.path.exists(f"{RAIZ}/{arq}"):

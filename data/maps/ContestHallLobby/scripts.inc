@@ -23,3 +23,12 @@ ContestHallLobby_EventScript_Npc3::
 
 ContestHallLobby_Text_Npc3:
 	.string "They put up photos of the winners!$"
+
+@ >>> porta fechada (remove_mapas_cortados.py) >>>
+ContestHallLobby_EventScript_PortaFechada::
+	msgbox ContestHallLobby_Text_PortaFechada, MSGBOX_SIGN
+	end
+
+ContestHallLobby_Text_PortaFechada:
+	.string "Fechado. Área em obras.$"
+@ <<< porta fechada <<<

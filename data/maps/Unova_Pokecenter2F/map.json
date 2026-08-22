@@ -3,7 +3,7 @@
   "name": "Unova_Pokecenter2F",
   "layout": "LAYOUT_UNOVA_POKECENTER_2F",
   "music": "MUS_POKE_CENTER",
-  "region_map_section": "MAPSEC_UNOVA_SPECIAL_MAP",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -12,98 +12,11 @@
   "allow_running": true,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [],
-  "object_events": [
-    {
-      "graphics_id": "OBJ_EVENT_GFX_LINK_RECEPTIONIST",
-      "x": 5,
-      "y": 2,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Unova_Pokecenter2F_EventScript_Npc0",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_LINK_RECEPTIONIST",
-      "x": 9,
-      "y": 2,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Unova_Pokecenter2F_EventScript_Npc1",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_LINK_RECEPTIONIST",
-      "x": 13,
-      "y": 3,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Unova_Pokecenter2F_EventScript_Npc2",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SAILOR",
-      "x": 1,
-      "y": 1,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Unova_Pokecenter2F_EventScript_Npc3",
-      "flag": "0"
-    }
-  ],
-  "warp_events": [
-    {
-      "x": 5,
-      "y": 0,
-      "elevation": 0,
-      "dest_map": "MAP_UNOVA_TRADE_CENTER",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 9,
-      "y": 0,
-      "elevation": 0,
-      "dest_map": "MAP_UNOVA_COLOSSEUM",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 13,
-      "y": 2,
-      "elevation": 0,
-      "dest_map": "MAP_UNOVA_TIME_CAPSULE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 6,
-      "y": 0,
-      "elevation": 0,
-      "dest_map": "MAP_UNOVA_MOBILE_TRADE_ROOM",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 10,
-      "y": 0,
-      "elevation": 0,
-      "dest_map": "MAP_UNOVA_MOBILE_BATTLE_ROOM",
-      "dest_warp_id": "0"
-    }
-  ],
+  "connections": null,
+  "object_events": [],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "destinos_dinamicos": [],
+  "cortado_por": "decisao do Gui 21/08/2026, ver PLANO-ESCOPO.md"
 }

@@ -129,11 +129,17 @@
       "dest_warp_id": "9"
     },
     {
-      "x": 6,
-      "y": 1,
+      "x": 3,
+      "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_CONTEST_HALL_STAGE_NO_CONTEST",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_HEARTHOME_CITY",
+      "dest_warp_id": "9",
+      "fechado": "porta fechada, ver PLANO-ESCOPO.md",
+      "porta_original": [
+        6,
+        1,
+        "MAP_CONTEST_HALL_STAGE_NO_CONTEST"
+      ]
     }
   ],
   "coord_events": [],
@@ -182,6 +188,15 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Sinnoh_EventScript_PlacaImportada",
       "origem": "pokeplatinum"
+    },
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 0,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "ContestHallLobby_EventScript_PortaFechada",
+      "origem": "porta fechada (remove_mapas_cortados.py)"
     }
   ],
   "origem": "pokeplatinum: NPC, placa e texto. planta reaproveitada de OreburghCity_House1"

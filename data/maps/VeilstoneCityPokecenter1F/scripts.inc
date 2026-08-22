@@ -30,3 +30,12 @@ VeilstoneCityPokecenter1F_EventScript_Npc2::
 
 VeilstoneCityPokecenter1F_Text_Npc2:
 	.string "Maylene, the Gym Leader, is a cute\ngirl.\pBut don't let her looks fool you.\nEven grown-ups have trouble with her.$"
+
+@ >>> porta fechada (remove_mapas_cortados.py) >>>
+VeilstoneCityPokecenter1F_EventScript_PortaFechada::
+	msgbox VeilstoneCityPokecenter1F_Text_PortaFechada, MSGBOX_SIGN
+	end
+
+VeilstoneCityPokecenter1F_Text_PortaFechada:
+	.string "Fechado. Área em obras.$"
+@ <<< porta fechada <<<

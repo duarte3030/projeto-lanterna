@@ -3,7 +3,7 @@
   "name": "BattleFrontier",
   "layout": "LAYOUT_BATTLEFRONTIER",
   "music": "MUS_POKE_CENTER",
-  "region_map_section": "MAPSEC_SINNOH_WEST",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -13,51 +13,11 @@
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "object_events": [],
-  "warp_events": [
-    {
-      "x": 1,
-      "y": 5,
-      "elevation": 0,
-      "dest_map": "MAP_BATTLE_FRONTIER_GATE_TO_FIGHT_AREA",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 11,
-      "y": 5,
-      "elevation": 0,
-      "dest_map": "MAP_BATTLE_TOWER",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 2,
-      "y": 1,
-      "elevation": 0,
-      "dest_map": "MAP_BATTLE_FACTORY",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 4,
-      "y": 1,
-      "elevation": 0,
-      "dest_map": "MAP_BATTLE_HALL",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 6,
-      "y": 1,
-      "elevation": 0,
-      "dest_map": "MAP_BATTLE_CASTLE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 8,
-      "y": 1,
-      "elevation": 0,
-      "dest_map": "MAP_BATTLE_ARCADE",
-      "dest_warp_id": "0"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
   "bg_events": [],
-  "origem": "passagem provisoria: planta reaproveitada de Route226_Access do repo, so para dar entrada e saida na masmorra. Exterior do Platinum nao e convertido, ver o topo de abre_exteriores_sinnoh.py"
+  "origem": "passagem provisoria: planta reaproveitada de Route226_Access do repo, so para dar entrada e saida na masmorra. Exterior do Platinum nao e convertido, ver o topo de abre_exteriores_sinnoh.py",
+  "connections": null,
+  "destinos_dinamicos": [],
+  "cortado_por": "decisao do Gui 21/08/2026, ver PLANO-ESCOPO.md"
 }

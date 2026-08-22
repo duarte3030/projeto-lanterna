@@ -78,15 +78,9 @@ SnowpointCity_EventScript_Sailor::
 @ no repo e era inalcancavel: nenhum warp, nenhuma conexao levava la. No original
 @ so se chega de barco em Snowpoint depois da Liga, entao o porto abre com a
 @ FLAG_ELITE_SINNOH_VENCIDA, que ja estava reservada.
-	goto_if_unset FLAG_ELITE_SINNOH_VENCIDA, SnowpointCity_EventScript_SailorFechado
-	msgbox SnowpointCity_Text_SailorOferece, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, SnowpointCity_EventScript_SailorRecusa
-	msgbox SnowpointCity_Text_SailorZarpa, MSGBOX_DEFAULT
-	closemessage
-	warpsilent MAP_FIGHT_AREA, 35, 17
-	waitstate
-	release
-	end
+@ A Battle Zone saiu do escopo (PLANO-ESCOPO.md, 21/08/2026): a viagem
+@ some e o marinheiro fica no ramo que ja existia.
+	goto SnowpointCity_EventScript_SailorFechado
 
 SnowpointCity_EventScript_SailorFechado::
 	msgbox SnowpointCity_Text_Sailor, MSGBOX_DEFAULT

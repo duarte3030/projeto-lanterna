@@ -11,3 +11,12 @@ Unova_MobileTradeRoom_EventScript_Placa0::
 Unova_MobileTradeRoom_Text_MobileTradeRoom_EstablishingCommsText::
 	.string "Establishing"
 	.string "\ncommunications…$"
+
+@ >>> porta fechada (remove_mapas_cortados.py) >>>
+Unova_MobileTradeRoom_EventScript_PortaFechada::
+	msgbox Unova_MobileTradeRoom_Text_PortaFechada, MSGBOX_SIGN
+	end
+
+Unova_MobileTradeRoom_Text_PortaFechada:
+	.string "Fechado. Área em obras.$"
+@ <<< porta fechada <<<

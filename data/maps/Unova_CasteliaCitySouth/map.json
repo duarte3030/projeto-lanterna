@@ -210,11 +210,17 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 12,
-      "y": 7,
+      "x": 5,
+      "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_UNOVA_CASTELIA_PLAZA_LOBBY",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_UNOVA_CASTELIA_CITY_STREETS",
+      "dest_warp_id": "8",
+      "fechado": "porta fechada, ver PLANO-ESCOPO.md",
+      "porta_original": [
+        12,
+        7,
+        "MAP_UNOVA_CASTELIA_PLAZA_LOBBY"
+      ]
     },
     {
       "x": 55,
@@ -285,6 +291,15 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Unova_CasteliaCitySouth_EventScript_Placa3"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Unova_CasteliaCitySouth_EventScript_PortaFechada",
+      "origem": "porta fechada (remove_mapas_cortados.py)"
     }
   ]
 }

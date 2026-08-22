@@ -1,0 +1,75 @@
+[
+ {
+  "id": "T140.1",
+  "nome": "A PORTA FECHADA NAO WARPA. Em 22/08/2026 os 110 mapas cortados viraram tumulo (dev_scripts/remove_mapas_cortados.py) e o warp que levava a eles virou LAPIDE: a entrada continua no mesmo indice, para nao deslocar `dest_warp_id` de terceiro, mas passa a repetir a coordenada do warp DOADOR do proprio mapa, de modo que o tile da porta antiga fica sem warp nenhum. Quem prova que isso basta e o motor: `TryStartWarpEventScript` (src/field_control_avatar.c:988) so warpa se `GetWarpEventAtMapPosition` achar evento NAQUELA posicao. Aqui o jogador entra no CONTEST HALL LOBBY pela porta da rua, atravessa o saguao ate (6,1), que era a porta do palco de Contest (MAP_CONTEST_HALL_STAGE_NO_CONTEST, cortado), pisa nela e CONTINUA no saguao. O ultimo UP nao anda porque (6,0) e parede, entao a posicao final tambem prova que ele chegou ate la",
+  "warp": "MAP_CONTEST_HALL_LOBBY",
+  "warp_id": 0,
+  "roteiro": "120:NADA,16:UP*2,16:RIGHT,16:UP*4,16:RIGHT*2,16:UP*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_CONTEST_HALL_LOBBY",
+   "pos": [
+    6,
+    1
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T140.2",
+  "nome": "PAR do T140.1, e ele prova as duas metades que o T140.1 sozinho nao prova: que o mapa nao ficou mudo (warp vivo do MESMO mapa continua disparando) e que a LAPIDE nao sombreia o doador. O warp 2 do ContestHallLobby agora repete a coordenada (3,8) do warp 0, entao ha DUAS entradas no mesmo tile; `GetWarpEventAtPosition` devolve a PRIMEIRA, e a primeira e a viva. Mesma entrada do T140.1, e a unica diferenca e o roteiro: (3,8) e MB_SOUTH_ARROW_WARP (medido no metatile 520 de ContestHallLobby_Layout), entao a saida nao e pisar, e APERTAR PARA BAIXO em cima dela; o primeiro DOWN so vira o jogador, que nasce olhando para cima. Se a lapide sombreasse, ele cairia no palco cortado; se o tile tivesse perdido o warp junto, ele ficaria no saguao. As duas falhas dariam mapa diferente de MAP_HEARTHOME_CITY",
+  "warp": "MAP_CONTEST_HALL_LOBBY",
+  "warp_id": 0,
+  "roteiro": "120:NADA,16:DOWN*2,240:NADA",
+  "prova": {
+   "mapa": "MAP_HEARTHOME_CITY"
+  }
+ },
+ {
+  "id": "T140.3",
+  "nome": "A PLACA DA PORTA FECHADA SE LE. O gerador poe um bg_event `sign` na PAREDE vizinha da porta que fechou (aqui (6,0), acima da porta do palco) apontando para ContestHallLobby_EventScript_PortaFechada, com o texto curto 'Fechado. Área em obras.'. Prova pelo mesmo caminho do T120.3, que e o unico jeito de provar leitura sem ler VRAM: a msgbox TRAVA a entrada, entao os tres DOWN do fim NAO andam e a posicao final continua (6,1). Mesma rota do T140.1 mais um A no fim, com o jogador ja virado para cima porque o ultimo passo foi UP",
+  "warp": "MAP_CONTEST_HALL_LOBBY",
+  "warp_id": 0,
+  "roteiro": "120:NADA,16:UP*2,16:RIGHT,16:UP*4,16:RIGHT*2,16:UP*2,60:NADA,16:A,120:NADA,16:DOWN*3,120:NADA",
+  "prova": {
+   "mapa": "MAP_CONTEST_HALL_LOBBY",
+   "pos": [
+    6,
+    1
+   ]
+  }
+ },
+ {
+  "id": "T140.4",
+  "nome": "PAR NEGATIVO do T140.3, e o que impede que ele passe por acidente. MESMO warp, MESMA rota, MESMOS tres DOWN do fim, e a UNICA diferenca e que o A nao e apertado. Sem msgbox aberta a entrada nao trava e os DOWN andam: a posicao final e (6,3) (o primeiro DOWN vira o jogador, que vinha subindo, e os outros dois andam), e nao (6,1). Se o T140.3 estivesse passando so porque o jogador nao conseguia descer (parede, NPC, elevacao), este caso falharia junto e denunciaria a prova",
+  "warp": "MAP_CONTEST_HALL_LOBBY",
+  "warp_id": 0,
+  "roteiro": "120:NADA,16:UP*2,16:RIGHT,16:UP*4,16:RIGHT*2,16:UP*2,60:NADA,120:NADA,16:DOWN*3,120:NADA",
+  "prova": {
+   "mapa": "MAP_CONTEST_HALL_LOBBY",
+   "pos": [
+    6,
+    3
+   ]
+  }
+ },
+ {
+  "id": "T140.5",
+  "nome": "O VIZINHO VIVO CONTINUA COM OS OUTROS WARPS, indice por indice. HearthomeCity e o pior caso medido: ela perdeu os warps 7 e 8 de 16 (os dois portoes da Amity Square) e tem 14 ponteiros de terceiros para indices DEPOIS deles. Se o corte tivesse APAGADO as duas entradas em vez de virar lapide, todo `dest_warp_id` maior teria escorregado dois e cada porta de Hearthome abriria na porta errada, sem erro de compilacao e sem warp quebrado: o jogo so levaria o jogador para o predio ao lado. Aqui ele nasce no warp 9, que e a porta do CONTEST HALL, sai dela (o motor o deposita em (29,13), porque (29,12) e porta e nao e andavel) e volta a empurrar para cima. Tem que entrar no Contest Hall",
+  "warp": "MAP_HEARTHOME_CITY",
+  "warp_id": 9,
+  "roteiro": "150:NADA,16:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_CONTEST_HALL_LOBBY"
+  }
+ },
+ {
+  "id": "T140.6",
+  "nome": "PAR do T140.5 no indice seguinte, e e o par que fecha o argumento: dois indices consecutivos DEPOIS do buraco tem que abrir em dois predios DIFERENTES. Warp 10 de HearthomeCity e a NORTHWEST HOUSE. Mesma mecanica do T140.5 (nasce na porta, o motor deposita em (37,31), um UP entra). Se os indices tivessem escorregado, os dois casos cairiam no mesmo lugar ou trocariam de lugar entre si, e um so deles nao pegaria isso",
+  "warp": "MAP_HEARTHOME_CITY",
+  "warp_id": 10,
+  "roteiro": "150:NADA,16:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_HEARTHOME_CITY_NORTHWEST_HOUSE"
+  }
+ }
+]

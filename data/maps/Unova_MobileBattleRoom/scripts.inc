@@ -12,3 +12,12 @@ Unova_MobileBattleRoom_Text_MobileBattleRoom_HealText::
 	.string "Your POKéMON will"
 	.string "\nbe fully healed"
 	.string "\lbefore battle.$"
+
+@ >>> porta fechada (remove_mapas_cortados.py) >>>
+Unova_MobileBattleRoom_EventScript_PortaFechada::
+	msgbox Unova_MobileBattleRoom_Text_PortaFechada, MSGBOX_SIGN
+	end
+
+Unova_MobileBattleRoom_Text_PortaFechada:
+	.string "Fechado. Área em obras.$"
+@ <<< porta fechada <<<

@@ -203,11 +203,17 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 82,
-      "y": 15,
+      "x": 37,
+      "y": 6,
       "elevation": 0,
-      "dest_map": "MAP_PAL_PARK_LOBBY",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_ROUTE_221_HOUSE",
+      "dest_warp_id": "0",
+      "fechado": "porta fechada, ver PLANO-ESCOPO.md",
+      "porta_original": [
+        82,
+        15,
+        "MAP_PAL_PARK_LOBBY"
+      ]
     }
   ],
   "coord_events": [],
@@ -250,6 +256,15 @@
       "quantity": 1,
       "underfoot": false,
       "origem": "pokeplatinum"
+    },
+    {
+      "type": "sign",
+      "x": 82,
+      "y": 14,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route221_EventScript_PortaFechada",
+      "origem": "porta fechada (remove_mapas_cortados.py)"
     }
   ]
 }

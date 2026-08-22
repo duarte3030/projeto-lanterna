@@ -3,7 +3,7 @@
   "name": "RockPeakRuins",
   "layout": "LAYOUT_ROCK_PEAK_RUINS",
   "music": "MUS_RG_MT_MOON",
-  "region_map_section": "MAPSEC_SINNOH_NORTH",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
@@ -13,108 +13,11 @@
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "object_events": [],
-  "warp_events": [
-    {
-      "x": 7,
-      "y": 12,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE228",
-      "dest_warp_id": "3"
-    }
-  ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 7,
-      "elevation": 0,
-      "var": "VAR_TEMP_4",
-      "var_value": "0",
-      "script": "RockPeakRuins_EventScript_DotMiddle"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 9,
-      "elevation": 0,
-      "var": "VAR_TEMP_6",
-      "var_value": "0",
-      "script": "RockPeakRuins_EventScript_DotSouthWest"
-    },
-    {
-      "type": "trigger",
-      "x": 9,
-      "y": 9,
-      "elevation": 0,
-      "var": "VAR_TEMP_7",
-      "var_value": "0",
-      "script": "RockPeakRuins_EventScript_DotSouthEast"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 5,
-      "elevation": 0,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "RockPeakRuins_EventScript_DotNorthWest"
-    },
-    {
-      "type": "trigger",
-      "x": 9,
-      "y": 5,
-      "elevation": 0,
-      "var": "VAR_TEMP_2",
-      "var_value": "0",
-      "script": "RockPeakRuins_EventScript_DotNorthEast"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 7,
-      "elevation": 0,
-      "var": "VAR_TEMP_3",
-      "var_value": "0",
-      "script": "RockPeakRuins_EventScript_DotWest"
-    },
-    {
-      "type": "trigger",
-      "x": 9,
-      "y": 7,
-      "elevation": 0,
-      "var": "VAR_TEMP_5",
-      "var_value": "0",
-      "script": "RockPeakRuins_EventScript_DotEast"
-    }
-  ],
-  "bg_events": [
-    {
-      "type": "sign",
-      "x": 5,
-      "y": 2,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "RockPeakRuins_EventScript_Placa1",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 6,
-      "y": 2,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "RockPeakRuins_EventScript_Placa2",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 7,
-      "y": 2,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "RockPeakRuins_EventScript_Placa3",
-      "origem": "pokeplatinum"
-    }
-  ],
-  "origem": "pokeplatinum: geometria convertida da grade 2D (map_data), mais NPC, placa e texto"
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [],
+  "origem": "pokeplatinum: geometria convertida da grade 2D (map_data), mais NPC, placa e texto",
+  "connections": null,
+  "destinos_dinamicos": [],
+  "cortado_por": "decisao do Gui 21/08/2026, ver PLANO-ESCOPO.md"
 }

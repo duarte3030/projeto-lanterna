@@ -14,22 +14,7 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [],
   "object_events": [],
-  "warp_events": [
-    {
-      "x": 4,
-      "y": 7,
-      "elevation": 0,
-      "dest_map": "MAP_UNOVA_POKECENTER_2F",
-      "dest_warp_id": "4"
-    },
-    {
-      "x": 5,
-      "y": 7,
-      "elevation": 0,
-      "dest_map": "MAP_UNOVA_POKECENTER_2F",
-      "dest_warp_id": "4"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
   "bg_events": [
     {
@@ -39,6 +24,15 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Unova_MobileTradeRoom_EventScript_Placa0"
+    },
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Unova_MobileTradeRoom_EventScript_PortaFechada",
+      "origem": "porta fechada (remove_mapas_cortados.py)"
     }
   ]
 }

@@ -1,6 +1,5 @@
-@ CasteliaPlazaElevator do BW3G (Azure_Keys). Gerado por dev_scripts/importa_unova.py; nao editar a mao.
+@ Mapa CORTADO do escopo (PLANO-ESCOPO.md). O rotulo abaixo fica
+@ porque header.inc, gerado, aponta para ele.
 
 Unova_CasteliaPlazaElevator_MapScripts::
 	.byte 0
-
-

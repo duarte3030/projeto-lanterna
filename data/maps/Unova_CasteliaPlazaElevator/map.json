@@ -3,7 +3,7 @@
   "name": "Unova_CasteliaPlazaElevator",
   "layout": "LAYOUT_UNOVA_CASTELIA_PLAZA_ELEVATOR",
   "music": "MUS_GAME_CORNER",
-  "region_map_section": "MAPSEC_UNOVA_CASTELIA_CITY",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -12,9 +12,11 @@
   "allow_running": true,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [],
+  "connections": null,
   "object_events": [],
   "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "destinos_dinamicos": [],
+  "cortado_por": "decisao do Gui 21/08/2026, ver PLANO-ESCOPO.md"
 }

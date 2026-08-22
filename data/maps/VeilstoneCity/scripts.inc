@@ -271,3 +271,12 @@ VeilstoneCity_EventScript_Placa1::
 
 VeilstoneCity_Text_Placa1:
 	.string "Veilstone City\nHewn from Rock$"
+
+@ >>> porta fechada (remove_mapas_cortados.py) >>>
+VeilstoneCity_EventScript_PortaFechada::
+	msgbox VeilstoneCity_Text_PortaFechada, MSGBOX_SIGN
+	end
+
+VeilstoneCity_Text_PortaFechada:
+	.string "Fechado. Área em obras.$"
+@ <<< porta fechada <<<

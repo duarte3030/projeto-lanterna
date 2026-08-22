@@ -30,3 +30,12 @@ PokemonLeagueSouthPokecenter1F_EventScript_Npc2::
 
 PokemonLeagueSouthPokecenter1F_Text_Npc2:
 	.string "Victory Road confuses me.\nI should draw up a map.$"
+
+@ >>> porta fechada (remove_mapas_cortados.py) >>>
+PokemonLeagueSouthPokecenter1F_EventScript_PortaFechada::
+	msgbox PokemonLeagueSouthPokecenter1F_Text_PortaFechada, MSGBOX_SIGN
+	end
+
+PokemonLeagueSouthPokecenter1F_Text_PortaFechada:
+	.string "Fechado. Área em obras.$"
+@ <<< porta fechada <<<

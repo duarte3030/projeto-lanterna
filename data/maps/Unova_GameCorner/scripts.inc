@@ -225,3 +225,13 @@ Unova_GameCorner_EventScript_Maquina28::
 Unova_GameCorner_EventScript_Maquina29::
 	setvar VAR_0x8004, 5
 	goto Unova_EventScript_CacaNiquel
+
+@ migrado de Unova_CasteliaPlazaGameCorner, que virou tumulo (remove_mapas_cortados.py)
+Unova_EventScript_CacaNiquel::
+	lockall
+	checkitem ITEM_COIN_CASE
+	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoCoinCase
+	specialvar VAR_RESULT, GetSlotMachineId
+	playslotmachine VAR_RESULT
+	releaseall
+	end

@@ -3,7 +3,7 @@
   "name": "ResortAreaRibbonSyndicate1F",
   "layout": "LAYOUT_RESORTAREARIBBONSYNDICATE1F",
   "music": "MUS_PETALBURG",
-  "region_map_section": "MAPSEC_SINNOH_WEST",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -12,117 +12,12 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
-  "object_events": [
-    {
-      "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
-      "x": 8,
-      "y": 7,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "ResortAreaRibbonSyndicate1F_EventScript_Npc1",
-      "flag": "0",
-      "origem": "pokeplatinum"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
-      "x": 9,
-      "y": 4,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "ResortAreaRibbonSyndicate1F_EventScript_Npc5",
-      "flag": "0",
-      "origem": "pokeplatinum"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_4",
-      "x": 9,
-      "y": 5,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 2,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "ResortAreaRibbonSyndicate1F_EventScript_Npc2",
-      "flag": "0",
-      "origem": "pokeplatinum"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
-      "x": 6,
-      "y": 8,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 2,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0",
-      "origem": "pokeplatinum"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SKITTY",
-      "x": 8,
-      "y": 8,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 1,
-      "movement_range_y": 3,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "ResortAreaRibbonSyndicate1F_EventScript_Npc3",
-      "flag": "0",
-      "origem": "pokeplatinum"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_PSYDUCK",
-      "x": 9,
-      "y": 6,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "ResortAreaRibbonSyndicate1F_EventScript_Npc4",
-      "flag": "0",
-      "origem": "pokeplatinum"
-    }
-  ],
-  "warp_events": [
-    {
-      "x": 3,
-      "y": 8,
-      "elevation": 0,
-      "dest_map": "MAP_RESORT_AREA",
-      "dest_warp_id": "3"
-    },
-    {
-      "x": 4,
-      "y": 8,
-      "elevation": 0,
-      "dest_map": "MAP_RESORT_AREA",
-      "dest_warp_id": "3"
-    },
-    {
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "dest_map": "MAP_RESORT_AREA_RIBBON_SYNDICATE_ELEVATOR",
-      "dest_warp_id": "0"
-    }
-  ],
+  "connections": null,
+  "object_events": [],
+  "warp_events": [],
   "coord_events": [],
   "bg_events": [],
-  "origem": "pokeplatinum: NPC, placa e texto. planta reaproveitada de OreburghCity_House1"
+  "origem": "pokeplatinum: NPC, placa e texto. planta reaproveitada de OreburghCity_House1",
+  "destinos_dinamicos": [],
+  "cortado_por": "decisao do Gui 21/08/2026, ver PLANO-ESCOPO.md"
 }

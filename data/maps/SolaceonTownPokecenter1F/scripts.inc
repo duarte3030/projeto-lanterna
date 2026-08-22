@@ -31,3 +31,12 @@ SolaceonTownPokecenter1F_EventScript_Npc3::
 
 SolaceonTownPokecenter1F_Text_Npc3:
 	.string "The Hidden Machine Defog can be found\nin the Solaceon Ruins.\pBut my Pokémon can't learn the hidden\nmove.\pI'm going to give the ruins a miss, this\ntime.$"
+
+@ >>> porta fechada (remove_mapas_cortados.py) >>>
+SolaceonTownPokecenter1F_EventScript_PortaFechada::
+	msgbox SolaceonTownPokecenter1F_Text_PortaFechada, MSGBOX_SIGN
+	end
+
+SolaceonTownPokecenter1F_Text_PortaFechada:
+	.string "Fechado. Área em obras.$"
+@ <<< porta fechada <<<

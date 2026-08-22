@@ -178,3 +178,12 @@ Route212_North_EventScript_Npc2::
 
 Route212_North_Text_Npc2:
 	.string "There are good trees that you can\nsmear with Honey, and some you can't.\pIf you want to lure rare Pokémon,\nyou have to find an attractive tree.$"
+
+@ >>> porta fechada (remove_mapas_cortados.py) >>>
+Route212_North_EventScript_PortaFechada::
+	msgbox Route212_North_Text_PortaFechada, MSGBOX_SIGN
+	end
+
+Route212_North_Text_PortaFechada:
+	.string "Fechado. Área em obras.$"
+@ <<< porta fechada <<<

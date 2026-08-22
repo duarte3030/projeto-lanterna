@@ -373,3 +373,12 @@ HearthomeCity_EventScript_Placa17::
 
 HearthomeCity_Text_Placa17:
 	.string "Hearthome City\nWarm & Kind$"
+
+@ >>> porta fechada (remove_mapas_cortados.py) >>>
+HearthomeCity_EventScript_PortaFechada::
+	msgbox HearthomeCity_Text_PortaFechada, MSGBOX_SIGN
+	end
+
+HearthomeCity_Text_PortaFechada:
+	.string "Fechado. Área em obras.$"
+@ <<< porta fechada <<<

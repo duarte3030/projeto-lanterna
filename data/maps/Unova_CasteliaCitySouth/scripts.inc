@@ -135,3 +135,12 @@ Unova_CasteliaCitySouth_Text_CasteliaSouthMysticWaterGiver_AskScaleText::
 	.string "\pYou wouldn't have"
 	.string "\none you could"
 	.string "\lspare, would ya?$"
+
+@ >>> porta fechada (remove_mapas_cortados.py) >>>
+Unova_CasteliaCitySouth_EventScript_PortaFechada::
+	msgbox Unova_CasteliaCitySouth_Text_PortaFechada, MSGBOX_SIGN
+	end
+
+Unova_CasteliaCitySouth_Text_PortaFechada:
+	.string "Fechado. Área em obras.$"
+@ <<< porta fechada <<<

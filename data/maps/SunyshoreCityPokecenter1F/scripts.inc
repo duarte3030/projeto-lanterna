@@ -37,3 +37,12 @@ SunyshoreCityPokecenter1F_EventScript_Npc2::
 
 SunyshoreCityPokecenter1F_Text_Npc2:
 	.string "To make up for the lack of space, the\ncity built roads out of solar panels.\pThose solar panels provide us with\nclean energy, and they're good roads.\pIt's a symbol of Sunyshore's will to\nsurvive, I think.$"
+
+@ >>> porta fechada (remove_mapas_cortados.py) >>>
+SunyshoreCityPokecenter1F_EventScript_PortaFechada::
+	msgbox SunyshoreCityPokecenter1F_Text_PortaFechada, MSGBOX_SIGN
+	end
+
+SunyshoreCityPokecenter1F_Text_PortaFechada:
+	.string "Fechado. Área em obras.$"
+@ <<< porta fechada <<<

@@ -30,3 +30,12 @@ PastoriaCityPokecenter1F_EventScript_Npc2::
 
 PastoriaCityPokecenter1F_Text_Npc2:
 	.string "Pastoria's Great Marsh was once\na part of the sea.\pThe seawater drained slowly away over\ntime, leaving the huge marshland.\pThat's why they say there are rare\nPokémon that you can only see here.$"
+
+@ >>> porta fechada (remove_mapas_cortados.py) >>>
+PastoriaCityPokecenter1F_EventScript_PortaFechada::
+	msgbox PastoriaCityPokecenter1F_Text_PortaFechada, MSGBOX_SIGN
+	end
+
+PastoriaCityPokecenter1F_Text_PortaFechada:
+	.string "Fechado. Área em obras.$"
+@ <<< porta fechada <<<

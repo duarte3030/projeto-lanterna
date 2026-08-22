@@ -73,11 +73,17 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 2,
-      "y": 1,
+      "x": 1,
+      "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_GREAT_MARSH_6",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_PASTORIA_CITY",
+      "dest_warp_id": "4",
+      "fechado": "porta fechada, ver PLANO-ESCOPO.md",
+      "porta_original": [
+        2,
+        1,
+        "MAP_GREAT_MARSH_6"
+      ]
     }
   ],
   "coord_events": [
@@ -91,6 +97,16 @@
       "script": "PastoriaCityObservatoryGate1F_EventScript_CoordEvent_TryStartSafariGame"
     }
   ],
-  "bg_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 2,
+      "y": 0,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PastoriaCityObservatoryGate1F_EventScript_PortaFechada",
+      "origem": "porta fechada (remove_mapas_cortados.py)"
+    }
+  ],
   "origem": "pokeplatinum: NPC, placa e texto. planta reaproveitada de Route208_Access"
 }

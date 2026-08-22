@@ -419,18 +419,30 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 8,
-      "y": 6,
+      "x": 4,
+      "y": 45,
       "elevation": 0,
-      "dest_map": "MAP_HEARTHOME_CITY_WEST_GATE_TO_AMITY_SQUARE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_ROUTE208_ACCESS",
+      "dest_warp_id": "1",
+      "fechado": "porta fechada, ver PLANO-ESCOPO.md",
+      "porta_original": [
+        8,
+        6,
+        "MAP_HEARTHOME_CITY_WEST_GATE_TO_AMITY_SQUARE"
+      ]
     },
     {
-      "x": 51,
-      "y": 6,
+      "x": 4,
+      "y": 45,
       "elevation": 0,
-      "dest_map": "MAP_HEARTHOME_CITY_EAST_GATE_TO_AMITY_SQUARE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_ROUTE208_ACCESS",
+      "dest_warp_id": "1",
+      "fechado": "porta fechada, ver PLANO-ESCOPO.md",
+      "porta_original": [
+        51,
+        6,
+        "MAP_HEARTHOME_CITY_EAST_GATE_TO_AMITY_SQUARE"
+      ]
     },
     {
       "x": 29,
@@ -626,6 +638,15 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "HearthomeCity_EventScript_Placa9",
       "origem": "pokeplatinum"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "HearthomeCity_EventScript_PortaFechada",
+      "origem": "porta fechada (remove_mapas_cortados.py)"
     }
   ]
 }

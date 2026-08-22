@@ -3,7 +3,7 @@
   "name": "StarkMountainOutside",
   "layout": "LAYOUT_ROUTE226_ACCESS",
   "music": "MUS_POKE_CENTER",
-  "region_map_section": "MAPSEC_SINNOH_WEST",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -12,79 +12,12 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "object_events": [
-    {
-      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 6,
-      "y": 6,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "StarkMountainOutside_EventScript_DragonTamerDarien",
-      "flag": "0",
-      "origem": "pokeplatinum_b4"
-    },
-    {
-      "local_id": "LOCALID_STARK_MOUNTAIN_OUTSIDE_GRUNT_M_1",
-      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
-      "x": 3,
-      "y": 2,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_ESCONDE_STARK_MOUNTAIN_OUTSIDE_GRUNTS",
-      "origem": "pokeplatinum: LOCALID_GRUNT_M_1 (S7). hidden_flag do objeto na fonte; a fonte nunca acende nem apaga essa flag (por isso nao ha setflag no new_game.inc), mas a cena daqui faz setflag antes do removeobject e sem este campo aquele setflag era no-op e os grunts renasciam na proxima entrada. Mapa ainda e a passagem provisoria (planta de Route226_Access, ver origem do map.json); movimento fiel a fonte pode visualmente sair dos limites da salinha ate o exterior de verdade ser importado."
-    },
-    {
-      "local_id": "LOCALID_STARK_MOUNTAIN_OUTSIDE_GRUNT_M_2",
-      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
-      "x": 4,
-      "y": 3,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_ESCONDE_STARK_MOUNTAIN_OUTSIDE_GRUNTS",
-      "origem": "pokeplatinum: LOCALID_GRUNT_M_2 (S7), mesma flag do irmao"
-    }
-  ],
-  "warp_events": [
-    {
-      "x": 1,
-      "y": 5,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE227",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 11,
-      "y": 5,
-      "elevation": 0,
-      "dest_map": "MAP_STARK_MOUNTAIN_ROOM_1",
-      "dest_warp_id": "0"
-    }
-  ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 6,
-      "y": 2,
-      "elevation": 0,
-      "var": "VAR_SINNOH_STARK_FORA_ESTADO",
-      "var_value": "0",
-      "script": "StarkMountainOutside_EventScript_CoordEvent_Grunts"
-    }
-  ],
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
   "bg_events": [],
-  "origem": "passagem provisoria: planta reaproveitada de Route226_Access do repo, so para dar entrada e saida na masmorra. Exterior do Platinum nao e convertido, ver o topo de abre_exteriores_sinnoh.py"
+  "origem": "passagem provisoria: planta reaproveitada de Route226_Access do repo, so para dar entrada e saida na masmorra. Exterior do Platinum nao e convertido, ver o topo de abre_exteriores_sinnoh.py",
+  "connections": null,
+  "destinos_dinamicos": [],
+  "cortado_por": "decisao do Gui 21/08/2026, ver PLANO-ESCOPO.md"
 }

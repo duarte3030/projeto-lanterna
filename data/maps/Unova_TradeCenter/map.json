@@ -3,7 +3,7 @@
   "name": "Unova_TradeCenter",
   "layout": "LAYOUT_UNOVA_TRADE_CENTER",
   "music": "MUS_POKE_CENTER",
-  "region_map_section": "MAPSEC_UNOVA_SPECIAL_MAP",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -12,51 +12,11 @@
   "allow_running": true,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [],
-  "object_events": [
-    {
-      "graphics_id": "OBJ_EVENT_GFX_LINK_RS_BRENDAN",
-      "x": 3,
-      "y": 4,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_LINK_RS_BRENDAN",
-      "x": 6,
-      "y": 4,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
-    }
-  ],
-  "warp_events": [
-    {
-      "x": 4,
-      "y": 7,
-      "elevation": 0,
-      "dest_map": "MAP_UNOVA_POKECENTER_2F",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 5,
-      "y": 7,
-      "elevation": 0,
-      "dest_map": "MAP_UNOVA_POKECENTER_2F",
-      "dest_warp_id": "1"
-    }
-  ],
+  "connections": null,
+  "object_events": [],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "destinos_dinamicos": [],
+  "cortado_por": "decisao do Gui 21/08/2026, ver PLANO-ESCOPO.md"
 }
