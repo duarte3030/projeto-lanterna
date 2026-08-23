@@ -73,7 +73,7 @@
   },
   {
     "id": "T157.5",
-    "nome": "LAGO: o jogador ENTRA e ANDA PELO LEITO do Lago Verity com a agua baixa. Este mapa era a trava medida na fila (sinnoh:lagos_low_water:boca_ilhada): a boca do warp e elevacao 3, os ~800 tiles em volta eram agua de elevacao 1, e IsElevationMismatchAt (src/event_object_movement.c:10014) barra 3 contra 1, entao o jogador chegava e alcancava UM tile, ele mesmo. dev_scripts/lagos_sinnoh.py reconverteu o leito pela grade do Platinum (PUDDLE e SHALLOW_WATER sao ANDAVEIS la, e TILE_BEHAVIOR_NONE sem colisao e chao e nao rocha) e moveu o warp para a coordenada da fonte, (46,54). A PROVA e a posicao final depois de seis pernas e 50 tiles: (42,49). Com o mapa de antes o jogador nao sai de (46,54), entao qualquer posicao diferente dela ja seria noticia, e esta e a mais longe que a margem seca leva.",
+    "nome": "LAGO: o jogador ENTRA e ANDA PELO LEITO do Lago Verity com a agua baixa. Este mapa era a trava medida na fila (sinnoh:lagos_low_water:boca_ilhada): a boca do warp e elevacao 3, os ~800 tiles em volta eram agua de elevacao 1, e IsElevationMismatchAt (src/event_object_movement.c:10014) barra 3 contra 1, entao o jogador chegava e alcancava UM tile, ele mesmo. dev_scripts/lagos_sinnoh.py reconverteu o leito pela grade do Platinum (PUDDLE e SHALLOW_WATER sao ANDAVEIS la, e TILE_BEHAVIOR_NONE sem colisao e chao e nao rocha) e moveu o warp para a coordenada da fonte, (46,54). A PROVA e a posicao final depois de seis pernas e 50 tiles: (42,49). Com o mapa de antes o jogador nao sai de (46,54), entao qualquer posicao diferente dela ja seria noticia, e esta e a mais longe que a margem seca leva. MEDIDA REFEITA EM 23/08/2026, e a causa e conteudo novo e nao regressao: a leva b3 (dev_scripts/cenas_sinnoh_b3.py) trouxe os dois STARLY que a fonte tem no leito, em (46,49) e (55,41), e corpo de NPC e solido. O de (46,49) esta na coluna 46, que e a coluna da boca, entao a primeira perna UP*11 para em (46,50) em vez de (46,43) e as cinco pernas seguintes correm deslocadas. O fim passou de (42,49) para (48,42), e a prova continua sendo a MESMA que o caso sempre fez: com o mapa de antes da conversao o jogador nao sai de (46,54), e (48,42) esta a doze linhas dali, dentro do leito. Quem mexer no leito remede, nao adivinhe.",
     "opcoes": 32,
     "warp": "MAP_LAKE_VERITY_LOW_WATER",
     "warp_id": 0,
@@ -81,8 +81,8 @@
     "prova": {
       "mapa": "MAP_LAKE_VERITY_LOW_WATER",
       "pos": [
-        42,
-        49
+        48,
+        42
       ]
     }
   },
@@ -125,6 +125,51 @@
         4,
         6
       ]
+    }
+  },
+  {
+    "id": "T157.9",
+    "nome": "AS ONZE BOLAS DE NEVE ATRAVESSADAS DE PONTA A PONTA, DA PORTA ATE A CANDICE, EM DEZESSEIS PERNAS. Este e o caso de travessia do puzzle inteiro: ele nao mede um tile, mede o labirinto de gelo resolvido com as bolas no lugar. A rota comeca no warp 0 em (11,27), sobe a antecamara a pe ate (11,24), vai para (12,24) e ENCOSTA NA BOLA NOVA: UP escorrega dois tiles e para em (12,22), um tile acima do batente de (12,21), que e uma das cinco bolas que entraram nesta rodada. Dali volta para (12,24), passa para (11,24) e sobe a COLUNA 11 inteira em nove pernas, (11,22), (11,21), (11,19), (11,16), (11,12), (11,9), (11,6), (11,4) e (11,3), que sao os degraus que os tiles de bloqueio direcional 193 desenham: sem eles a coluna seria um deslize unico ate o topo, e com a regra errada de escorregao o modelo prometia parada em outro lugar em quase todas elas. A PROVA e parar em (11,3), colado na lider de (11,2). A rota foi escolhida por NAO cruzar a linha de vista de treinador nenhum: nenhuma batalha abre no meio, entao a posicao final e do puzzle e nao de sorte. A REGRA DO ESCORREGAO, calibrada contra o emulador em 23/08/2026 com 174 sondas lidas da EWRAM: o deslize continua enquanto o tile SOB OS PES for MB_ICE e so ele (`MetatileBehavior_IsIce_2`, src/metatile_behavior.c:370), e o bloqueio direcional dos tiles 192/193 do labirinto vale tambem para SAIR, porque `IsMetatileDirectionallyImpassable` (src/event_object_movement.c:6615) olha o tile de ORIGEM com `gOppositeDirectionBlockedMetatileFuncs` alem do de destino. Em chao COMUM a perna leva DOIS toques, porque a primeira tecla de uma direcao nova so vira o boneco; em cima do GELO leva UM, porque ali o jogador nao esta CONTROLLABLE e o toque ja anda.",
+    "warp": "MAP_SNOWPOINT_CITY_GYM",
+    "warp_id": 0,
+    "roteiro": "150:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:RIGHT*2,300:NADA,24:UP*2,300:NADA,24:DOWN,300:NADA,24:LEFT*2,300:NADA,24:UP*2,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA",
+    "prova": {
+      "mapa": "MAP_SNOWPOINT_CITY_GYM",
+      "pos": [
+        11,
+        3
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T157.10",
+    "nome": "A BOLA NOVA DE (12,21) E O BATENTE, E ELA ESTA ACORDADA. Bola de neve aqui nao e bloco de Strength (o chao e MB_ICE inteiro e o motor entra em movimento forcado antes de chegar em `TryPushBoulder`): ela e OBJETO SOLIDO, e objeto solido so vale se o motor o ACORDAR. `gObjectEvents` tem 16 vagas (OBJECT_EVENTS_COUNT, include/constants/global.h:95), a vaga 0 e do jogador, e `TrySpawnObjectEvents` (src/event_object_movement.c:2899) so acorda quem cai na janela de 20 por 17 tiles em volta da camera: passando de 15 objetos vivos ele simplesmente PARA de acordar, sem erro nenhum, e a bola que nao acordou deixa de ser solida. Este caso mede que a de (12,21), uma das cinco que entraram em 23/08/2026, esta acordada: do warp o jogador sobe a antecamara ate (11,24), anda para (12,24) e UP escorrega DOIS tiles so, parando em (12,22). Sem a bola o mesmo escorregao subiria treze tiles ate (12,9), que e o que `bolas_neve_sinnoh.desliza` devolve com ela fora do conjunto de solidos. O par e o T157.11. Em chao COMUM a perna leva DOIS toques, porque a primeira tecla de uma direcao nova so vira o boneco; em cima do GELO leva UM, porque ali o jogador nao esta CONTROLLABLE e o toque ja anda.",
+    "warp": "MAP_SNOWPOINT_CITY_GYM",
+    "warp_id": 0,
+    "roteiro": "150:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:RIGHT*2,300:NADA,24:UP*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_SNOWPOINT_CITY_GYM",
+      "pos": [
+        12,
+        22
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T157.11",
+    "nome": "PAR DO T157.10, DO MESMO TILE E NA DIRECAO QUE NAO TEM BOLA. O jogador chega no MESMO (12,24) pelo MESMO caminho e com o MESMO numero de toques; a unica variavel e a direcao. Para o norte a bola de (12,21) segura o escorregao em dois tiles (T157.10); para o leste a linha 24 nao tem bola nenhuma e ele corre CINCO tiles, ate (17,24), onde o chao deixa de ser gelo. Sem este par o T157.10 passaria num jogo em que o jogador parasse em (12,22) por qualquer outro motivo, parede desenhada por cima, elevacao errada ou controle morto, e nao porque ha um corpo solido em (12,21). A REGRA DO ESCORREGAO, calibrada contra o emulador em 23/08/2026 com 174 sondas lidas da EWRAM: o deslize continua enquanto o tile SOB OS PES for MB_ICE e so ele (`MetatileBehavior_IsIce_2`, src/metatile_behavior.c:370), e o bloqueio direcional dos tiles 192/193 do labirinto vale tambem para SAIR, porque `IsMetatileDirectionallyImpassable` (src/event_object_movement.c:6615) olha o tile de ORIGEM com `gOppositeDirectionBlockedMetatileFuncs` alem do de destino.",
+    "warp": "MAP_SNOWPOINT_CITY_GYM",
+    "warp_id": 0,
+    "roteiro": "150:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:RIGHT*2,300:NADA,24:RIGHT,300:NADA",
+    "prova": {
+      "mapa": "MAP_SNOWPOINT_CITY_GYM",
+      "pos": [
+        17,
+        24
+      ],
+      "andou": true
     }
   }
 ]
