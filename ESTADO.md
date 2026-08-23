@@ -4,7 +4,128 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 22/08/2026, na build de fechamento da rodada 7. A seção 0.o abaixo é a passagem de bastão dela.
+Última medição: 22/08/2026, na build de fechamento da rodada 8. A seção 0.p abaixo é a passagem de bastão dela.
+
+---
+
+## 0.p O B10 DERRUBA A ROM DE 99,28% PARA 96,06%, E O DISTORTION WORLD FICA SIMÉTRICO, 22/08/2026 (rodada 8; condutor Opus, dois executores Opus, fechador Opus)
+
+Build verde, um build só. **ROM 96,06% de 32 MB** (32.233.996 B, **1.320.436 B livres**, 1,26 MB;
+era 99,28% e 241.172 B livres na 0.o), **EWRAM 86,16% e IWRAM 86,68%, idênticos aos da 0.o**: o B10
+é obra de ROM e não encostou em RAM. **Suíte 900 de 902**, com o T11.3 pulado e UM vermelho de
+tempo no T143.9 (ver "o que fica aberto"), e o bloco novo **T155 em 6/6**; **T11 3/3** contra a
+build `cf6786b2ae` (worktree em
+`/private/tmp/claude-501/t11-antiga`). **SAVE COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B,
+**2.054 layouts sem nenhum movido** e **2.400 mapas**, os 2.400 declarados dentro da ROM;
+`guarda_colisao_vars.py` com 23 colisões herdadas em vars e 5 em flags e **0 novas nos dois
+perfis**; `valida_conectividade` com **0 warps quebrados**; `valida_warp_tile --piso 60` em
+**5.915 de 6.875 (86,0%)**, nenhuma região abaixo do piso; `valida_mapas_sinnoh` com 0 mapas com
+problema; os três `--demo` tocados verdes, um deles depois de conserto. ROM oficial
+`roms/pokemon-claude-2026-08-22f.gba` (md5 `fb239ede296088906761daece2e7d6d5`), com o `.map` ao
+lado, e o MESMO binário em `roms/pokemon-claude-teste-2026-08-16.gba`.
+
+**A régua de completude não se mexeu**, e isso é o critério de aceitação do B10, não um detalhe:
+
+| região | mapas | objetos | warps | placas | script | arte | Dex |
+|---|---|---|---|---|---|---|---|
+| Kanto | 100% | 101,2% | 100% | 100% | -- | 52 (0) | 290 |
+| Johto | 100% | 100,8% | 100,1% | 100,4% | -- | 55 (0) | 305 |
+| Hoenn | 100% | 100,7% | 100,1% | 100% | -- | 39 (21) | 297 |
+| Sinnoh | 100% | 87,0% | 103,7% | 98,1% | -- | 39 (18) | 267 |
+| Unova | 100% | 102,3% | 100% | 100,2% | -- | 30,5 (1) | 315 |
+| Galar | 100% | 93,5% | 100% | 65,8% | 55,6% | 48 (32) | 0 |
+
+**Dex obtenível: 1.571 de 1.571, 100%**, intocada.
+
+### O B10, fatia por fatia
+
+| fatia | onde | B de volta |
+|---|---|---|
+| tabelas de fala de treinador, VAZIAS desde sempre | `src/trainer_slide.c` | **498.400** (448.056 + 50.400 viraram 56) |
+| dificuldade colapsada: EASY e HARD de `gTrainers` | `include/constants/difficulty.h` | **277.160** |
+| blockdata repetido virando referência, 2.373 de 4.108 blobs | `dev_scripts/dedupe_blockdata.py`, chamado pelo `map_data_rules.mk` | **264.080** |
+| 20 famílias novas de asset, criadas pela entrada de Galar | `dev_scripts/dedupe_assets.json` | **38.700** |
+
+Somadas dão 1.078.340 B previstos contra **1.079.264 B medidos no link**; a diferença é alinhamento
+de seção, e vale o medido. `B_VAR_DIFFICULTY == 0` faz `GetCurrentDifficultyLevel()` devolver
+`DIFFICULTY_NORMAL` sempre, então EASY e HARD eram zeros inalcançáveis e `[DIFFICULTY_NORMAL]` virou
+`[0]` sozinho (dar um var a `B_VAR_DIFFICULTY` devolve as três na hora, e `TESTING` segue com as
+três); as duas tabelas de fala nunca tiveram uma fala cadastrada; e o dedupe de layout só troca o
+`.incbin` do repetido pelo símbolo do primeiro de conteúdo igual, sem tocar em `map.bin`, em
+`layouts.json` nem no motor.
+
+**Descartado, com número e não no olho:** a **indireção de tabela de treinador** renderia ~52 KB
+líquidos, caro demais para o tamanho, e os **ícones já estão em `.smol` desde a Fase D**.
+
+### Distortion World, a corrente ficou simétrica
+
+O `cria_mapas_sinnoh.py` ganhou `simetriza`, e ele mora ali, e não numa ferramenta à parte, porque
+o `--aplicar` não recria mapa que já existe: sem esse passo o defeito ficaria congelado para sempre.
+Ele corrigiu **9 `dest_warp_id` em 8 `map.json`**, e o `pares` é simétrico POR CONSTRUÇÃO (o mesmo
+`zip` produz A→B e B→A), o que o `--demo` cobra com mutação plantada. **Uma assimetria FICA, e é
+honesta**: o warp 0 do `DistortionWorld1F` leva ao `MtCoronet6F`, que não tem escada de volta, então
+essa porta é de mão única; está no T153.14, e é falta de degrau, não fiação errada.
+
+### Os casos adversariais desta rodada
+
+`dev_scripts/testes_criticos/155_fechador_r8.json`, **6 casos, 6 verdes**, autor de caso diferente
+do autor de cena em todos.
+
+- **T155.1, dificuldade no CHEFE.** O time de `TRAINER_SINNOH_LEADER_CANDICE` lido de `gParties`:
+  seis espécies diferentes, seis níveis em escada (178 a 182) e o item do ace (`ITEM_ABOMASITE`). O
+  "antes" foi RODADO, não argumentado: o mesmo caso passou verde contra a ROM da rodada anterior
+  (`pokemon-claude-2026-08-22e.gba`), com os mesmos doze campos.
+- **T155.2 e T155.3, blockdata aliasado com PLACA.** O `CanalaveLibrary2F` (layout aliasado) é
+  cruzado de ponta a ponta e uma placa é lida; a prova é a posição, porque a caixa aberta ENGOLE a
+  perna seguinte. O par negativo tira só o A e termina em (0,7) em vez de (13,7).
+- **T155.4, Galar com o tileset inteiro aliasado.** No `gTileset_Galar19` metatiles, ATRIBUTOS e
+  paletas viraram alias; o único mapa que o usa entra, SAI para o vizinho e VOLTA, para medir a
+  segunda carga e não só a primeira.
+- **T155.5, trainer slide no pior id.** `TRAINER_GALAR_LEON_739` é o id **3205**, o maior de
+  `opponents.h` e o que ocupava a última linha da tabela que saiu; a batalha abre e entrega as seis
+  espécies. Medido no caminho: batalha de Frontier **não** é desviada por `IsSpecialTrainer`
+  (`include/data.h:275`), ela chega em `GetTrainerSlideArray`.
+- **T155.6, o Distortion World inteiro.** Nove andares a pé numa sequência só, 27 pernas e ~345
+  tiles, terminando no Spear Pillar em (14,12). É o único jeito de medir simetria: par torto põe o
+  jogador no tile errado e a rota do andar seguinte quebra na hora.
+
+### O que o fechador consertou
+
+- **`dedupe_blockdata.py --demo` era verde VAZIO.** Ele lia o `layouts.inc` do DISCO, que já passou
+  pelo próprio passo dentro do `make`, e imprimia "0 repetidos, 0 B de volta" com exit 0. Passou a
+  rodar o `mapjson` num diretório temporário e medir A LINHA DE BASE: **4.108 blobs, 2.373 repetidos,
+  264.080 B**, com `assert` que reprova se o número der zero. É a mesma armadilha dos dois `--demo`
+  consertados na 0.o: autoteste tem de saber que o gerador já rodou.
+- **`valida_warp_tile.py` ia CEGO em tileset aliasado.** A varredura de pastas só enxergava
+  `INCBIN`, e o `dedupe_assets.py` troca o `INCBIN` do repetido por `ASSET_ALIAS`:
+  `Galar_Motostoke03` e `GoldenrodCity_BikeShop` caíam em "sem pasta" e saíam da conta sem virar
+  vermelho. Ele passou a seguir o alias até o canônico, e o total subiu de **6.873 para 6.875
+  conferidos, com 5.915 vivos**; os dois escondidos são VIVOS. O defeito é anterior a esta rodada (o
+  BikeShop já estava cego) e cresce a cada família nova de alias.
+- **A primeira versão do T155.2 era prova vazia**: as duas histórias, com placa e sem placa,
+  terminavam no MESMO tile. Foi redesenhada até o par discriminar, e só então o negativo entrou.
+
+### O que fica aberto
+
+- **Próximas fatias de ROM, não executadas:** **blockdata cru ~1,5 a 2 MB**, o maior prêmio que
+  sobra, mas é obra de MOTOR (comprimir `map.bin` e descomprimir na carga do mapa) e não de script;
+  **metatiles crus ~600 KB**, mesma natureza; **glifos japoneses 130 KB**, barato e sem risco, e é
+  por onde começar se a próxima rodada precisar de pouco. Com 1,26 MB livres, nada é urgente.
+- **Lagos `LakeVerityLowWater` e `LakeAcuityLowWater`** seguem na fila: a trava é de ELEVAÇÃO (boca
+  em 3, os 799 tiles em volta em 1), e o conserto honesto é converter o leito drenado do Platinum.
+- **Sinnoh, objetos em 87,0%**, e nenhum balde é ferramenta parada: 128 nomes próprios sem sprite,
+  ~100 com `hidden_flag` que esta ROM não tem, 115 bolas e 59 obstáculos recusados por tile fora de
+  alcance, 90 canteiros de berry (id mora na SAVE) e 63 VENT e BOLLARD.
+- **Galar, objetos em 93,5% e `script` em 55,6%**, com os 200 encontros de raide fora por decisão e
+  89 recusados por geometria. `fila_b6.json` com 157 pendentes, `fila_galar.json` com 1.476 de 3.195.
+- **Gens 6, 7 e 9** seguem paradas por escopo, com o julgamento em `fontes-mapas/PLANO-GENS-6-9.md`.
+- **T143.9 é INSTÁVEL, e isso não é regressão desta rodada.** Ele reprovou na varredura de fechamento
+  e passou **3 de 3 rodado sozinho**, na MESMA ROM (md5 `fb239ede296088906761daece2e7d6d5`), e tinha
+  passado na varredura anterior do mesmo binário. A causa está escrita no próprio caso: a janela de
+  apertos dele é de UM aperto (com 10 A o diálogo ainda rola, com 12 A o jogador já perdeu), e o
+  jogador de teste entra sem time, então o instante em que a batalha fica aberta depende de RNG.
+  Quem for mexer: o conserto não é aumentar a cauda, é dar um Pokémon ao jogador pelo
+  `antes_do_warp`, como o T144.5 faz, para a batalha parar de se resolver sozinha.
 
 ---
 
@@ -151,9 +272,12 @@ diferente do autor de cena em todos.
   na régua, porque estático não conta como entrada de Dex de região.
 - **Fila:** `fila_b6.json` com **157 pendentes** (150 de Sinnoh, 6 de Unova, 1 de Johto) e
   `fila_galar.json` com **1.476 de 3.195**.
-- **Assimetria medida e não consertada:** os **17 warps dos 9 andares novos do Distortion World**
-  sobem sempre para o índice 0 do andar de cima, que é o warp de subida DELE e não o par
-  correspondente; ninguém fica preso, mas o jogador reaparece no tile errado.
+- **Assimetria medida e CONSERTADA na 0.p** (quando esta seção foi escrita ela ainda estava de pé,
+  e a frase original dizia "não consertada"): os **17 warps dos 9 andares novos do Distortion World**
+  subiam sempre para o índice 0 do andar de cima, que é o warp de subida DELE e não o par
+  correspondente; ninguém ficava preso, mas o jogador reaparecia no tile errado. O `simetriza` do
+  `cria_mapas_sinnoh.py` corrigiu **9 `dest_warp_id` em 8 `map.json`** em 22/08/2026, e o T155.6
+  desce a corrente inteira de uma vez.
 - **O ramo de SUCESSO do quebra-cabeça deslizante não virou caso de suíte**: `CheckForSolution`
   (`src/sliding_puzzle.c:972`) exige as 24 casas na ordem e em `ORIENTATION_0`, o que não sai de
   martelada de botão; é pendência de FERRAMENTA, como a vitória do estático único da 0.n.
