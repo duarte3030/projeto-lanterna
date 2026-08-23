@@ -99,6 +99,20 @@
       "origem": "pokeplatinum"
     },
     {
+      "graphics_id": "OBJ_EVENT_GFX_RICH_BOY",
+      "x": 10,
+      "y": 3,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "FLAG_SINNOH_ESCONDE_POKEMON_LEAGUE_NORTH_POKECENTER_1F_RIVAL",
+      "origem": "pokeplatinum: LOCALID_LEAGUE_NORTH_RIVAL. Sem local_id, entao o id dele e a POSICAO na lista mais um: ele TEM que ser o 7o, porque PokemonLeagueNorthPokecenter1F_EventScript_CoordEvent_Rival faz addobject/applymovement/removeobject 7. Entrou em 442735a754, foi apagado por importa_npcs_sinnoh em 73432f3dad (a cena passou a mover a PICNICKER) e voltou em 23/08/2026 por dev_scripts/conserta_sinnoh_b12.py."
+    },
+    {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
       "x": 2,
       "y": 6,

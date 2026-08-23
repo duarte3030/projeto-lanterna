@@ -44,8 +44,9 @@ Route206_Text_Trainer3Intro:
 	.string "Or, did you want to battle?$"
 
 Route206_Text_Trainer3Defeat:
-	.string "Despite all the effort, I'm just spinning\n"
-	.string "my wheels...\pIt's always that way with me!$"
+	.string "Despite all the effort, I'm just\n"
+	.string "spinning my wheels...\p"
+	.string "It's always that way with me!$"
 
 Route206_Text_Trainer3Post:
 	.string "I might try racing through Cycling\n"

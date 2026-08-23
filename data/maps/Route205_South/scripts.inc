@@ -73,6 +73,8 @@ Route205_South_Text_SlatherHoneyOnATree:
 @ somem depois; mesma FLAG_GALACTICA_WINDWORKS que a Valley Windworks ja usa,
 @ porque e o mesmo marco (a rota liga a Floaroma com a usina). Zero var.
 Route205_South_OnTransition:
+	setflag FLAG_SINNOH_ESCONDE_ROUTE_205_SOUTH_YOUNGSTER
+	call_if_set FLAG_GALACTICA_WINDWORKS, Route205_South_EventScript_Mostra_ROUTE_205_SOUTH_YOUNGSTER
 	call_if_defeated TRAINER_SINNOH_COMMANDER_MARS_VALLEY_WINDWORKS, Route205_South_EventScript_HideGalactica_windworks
 	end
 
@@ -237,3 +239,7 @@ Route205_South_Text_CamperZackaryDefeat:
 
 Route205_South_Text_CamperZackaryPost:
 	.string "Camping with Pokémon!\nDo you have any idea how fun that is?$"
+
+Route205_South_EventScript_Mostra_ROUTE_205_SOUTH_YOUNGSTER::
+	clearflag FLAG_SINNOH_ESCONDE_ROUTE_205_SOUTH_YOUNGSTER
+	return

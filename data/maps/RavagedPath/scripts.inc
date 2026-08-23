@@ -20,7 +20,7 @@ RavagedPath_Text_Ranger:
 
 RavagedPath_Text_Hiker:
 	.string "The water cutting through here used\n"
-	.string "to be a proper trail, or so I'm\n"
+	.string "to be a proper trail, or so I'm\l"
 	.string "told.$"
 
 RavagedPath_Text_Camper:

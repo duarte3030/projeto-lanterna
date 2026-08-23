@@ -8,7 +8,7 @@ SandgemTown_RivalHouse_F1_EventScript_Twin::
 SandgemTown_RivalHouse_F1_Text_Twin:
 	.string "Oh, hi! There was news on TV saying\n"
 	.string "there's a massive outbreak of\l"
-	.string "POKéMON! That'd be great for filling\n"
+	.string "POKéMON! That'd be great for filling\l"
 	.string "up your POKéDEX!$"
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)

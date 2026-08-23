@@ -23,7 +23,7 @@ PokmonLeague_Text_Staff:
 
 PokmonLeague_Text_Gentleman:
 	.string "Every step past this gate belongs\n"
-	.string "to Trainers strong enough to take\n"
+	.string "to Trainers strong enough to take\l"
 	.string "on SINNOH's best.$"
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)

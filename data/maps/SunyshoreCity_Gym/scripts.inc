@@ -43,7 +43,10 @@ SunyshoreCity_Gym_Text_Intro:
 	.string "...$"
 
 SunyshoreCity_Gym_Text_Defeat:
-	.string "You've got me beat...Your desire and the noble way\nyour Pokémon battled for you...I even felt thrilled during our\nmatch.That was a very good battle.$"
+	.string "You've got me beat...Your desire and the\n"
+	.string "noble way your Pokémon battled for\l"
+	.string "you...I even felt thrilled during our\l"
+	.string "match.That was a very good battle.$"
 
 SunyshoreCity_Gym_Text_Post:
 	.string "...$"

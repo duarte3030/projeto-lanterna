@@ -35,12 +35,12 @@ EternaForest_Text_Hiker:
 
 EternaForest_Text_Signboard:
 	.string "ETERNA FOREST\n"
-	.string "Sunlight barely reaches the ground\n"
+	.string "Sunlight barely reaches the ground\l"
 	.string "here.$"
 
 EternaForest_Text_TrainerTipsSign:
 	.string "TRAINER TIPS\n"
-	.string "A sharp Trainer studies type\n"
+	.string "A sharp Trainer studies type\l"
 	.string "matchups before every battle.$"
 
 EternaForest_EventScript_Trainer1::

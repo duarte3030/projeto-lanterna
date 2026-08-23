@@ -18,10 +18,12 @@ Route214_Text_Trainer1Intro:
 	.string "When I toss this coin, you call it.\nHeads, we battle.\pTails, we battle!\pNow, how will this play out, my friend?\p$"
 
 Route214_Text_Trainer1Defeat:
-	.string "The coin came up tails, and like it, my\nPokémon is facedown...\n$"
+	.string "The coin came up tails, and like it, my\n"
+	.string "Pokémon is facedown...$"
 
 Route214_Text_Trainer1Post:
-	.string "I flipped a coin when I was ten.\nI decided to live in Sinnoh then.\n$"
+	.string "I flipped a coin when I was ten.\n"
+	.string "I decided to live in Sinnoh then.$"
 
 Route214_EventScript_Trainer2::
 	trainerbattle_single TRAINER_SINNOH_BEAUTY_DEVON, Route214_Text_Trainer2Intro, Route214_Text_Trainer2Defeat
@@ -32,10 +34,11 @@ Route214_Text_Trainer2Intro:
 	.string "Oh? A little kid like you is going to\nteach me about Pokémon?\p$"
 
 Route214_Text_Trainer2Defeat:
-	.string "Wow, is that right?\n$"
+	.string "Wow, is that right?$"
 
 Route214_Text_Trainer2Post:
-	.string "There are so many kinds of Pokémon.\nI can't decide which one to pamper.\n$"
+	.string "There are so many kinds of Pokémon.\n"
+	.string "I can't decide which one to pamper.$"
 
 
 Route214_EventScript_Trainer3::
@@ -47,10 +50,14 @@ Route214_Text_Trainer3Intro:
 	.string "For the sake of my collection, I\ntake on people I know I can't beat.\pThat's what a Collector does.\p$"
 
 Route214_Text_Trainer3Defeat:
-	.string "That attack right then was remarkable!\nYou ought to be proud of it!\n$"
+	.string "That attack right then was remarkable!\n"
+	.string "You ought to be proud of it!$"
 
 Route214_Text_Trainer3Post:
-	.string "I take pride in having Pokémon that\nothers don't.\pOh, I'm also proud about winning second\nprize in one of Jubilife TV's drawings.\n$"
+	.string "I take pride in having Pokémon that\n"
+	.string "others don't.\p"
+	.string "Oh, I'm also proud about winning second\n"
+	.string "prize in one of Jubilife TV's drawings.$"
 
 Route214_EventScript_Trainer4::
 	trainerbattle_single TRAINER_SINNOH_COLLECTOR_BRADY, Route214_Text_Trainer4Intro, Route214_Text_Trainer4Defeat
@@ -61,10 +68,14 @@ Route214_Text_Trainer4Intro:
 	.string "What's that?!\pYou say you have a Pokédex?\nAn authentic one!\p$"
 
 Route214_Text_Trainer4Defeat:
-	.string "Your Pokédex fills me with such envy,\nenvy, envy...\n$"
+	.string "Your Pokédex fills me with such envy,\n"
+	.string "envy, envy...$"
 
 Route214_Text_Trainer4Post:
-	.string "There's all kinds of Trainers with all\nsorts of Pokémon with them.\pThe more you battle, the more your\nPokédex is filled!\n$"
+	.string "There's all kinds of Trainers with all\n"
+	.string "sorts of Pokémon with them.\p"
+	.string "The more you battle, the more your\n"
+	.string "Pokédex is filled!$"
 
 Route214_EventScript_Trainer5::
 	trainerbattle_single TRAINER_SINNOH_RUIN_MANIAC_BRYAN, Route214_Text_Trainer5Intro, Route214_Text_Trainer5Defeat
@@ -75,10 +86,12 @@ Route214_Text_Trainer5Intro:
 	.string "Ah-ha! I found me a Trainer!\pI challenge you to battle with\nthe Pokémon I've found!\p$"
 
 Route214_Text_Trainer5Defeat:
-	.string "It's a challenge trying to win with\nPokémon one isn't familiar with...\n$"
+	.string "It's a challenge trying to win with\n"
+	.string "Pokémon one isn't familiar with...$"
 
 Route214_Text_Trainer5Post:
-	.string "Discovery is the treasure I seek.\nCollecting a lot is my life!\n$"
+	.string "Discovery is the treasure I seek.\n"
+	.string "Collecting a lot is my life!$"
 
 Route214_EventScript_Trainer6::
 	trainerbattle_single TRAINER_SINNOH_RUIN_MANIAC_RONALD, Route214_Text_Trainer6Intro, Route214_Text_Trainer6Defeat
@@ -89,10 +102,14 @@ Route214_Text_Trainer6Intro:
 	.string "I travel all over the world in search of\nmysteries.\p$"
 
 Route214_Text_Trainer6Defeat:
-	.string "Gasp... One more... Gasp...\nIt's like I went on a diet...\n$"
+	.string "Gasp... One more... Gasp...\n"
+	.string "It's like I went on a diet...$"
 
 Route214_Text_Trainer6Post:
-	.string "There are mysteries waiting for me\nto investigate around the world.\pThis is no time to be feeling sorry\nfor myself.\n$"
+	.string "There are mysteries waiting for me\n"
+	.string "to investigate around the world.\p"
+	.string "This is no time to be feeling sorry\n"
+	.string "for myself.$"
 
 Route214_EventScript_Trainer7::
 	trainerbattle_single TRAINER_SINNOH_COLLECTOR_JAMAL, Route214_Text_Trainer7Intro, Route214_Text_Trainer7Defeat
@@ -103,7 +120,7 @@ Route214_Text_Trainer7Intro:
 	.string "To find my favorite Pokémon, I'll go\neast, west, or any which way!\p$"
 
 Route214_Text_Trainer7Defeat:
-	.string "But they're rare Pokémon!\n$"
+	.string "But they're rare Pokémon!$"
 
 Route214_Text_Trainer7Post:
 	.string "If you're trying to find the Pokémon\nyou want, you need to go everywhere!\pNot just east and west, either.\nSouth and north are important, too!$"
@@ -117,10 +134,11 @@ Route214_Text_Trainer8Intro:
 	.string "I'd sensed the presence of a\nTrainer for a while. It was you!\p$"
 
 Route214_Text_Trainer8Defeat:
-	.string "Defeating you will be no easy matter.\n$"
+	.string "Defeating you will be no easy matter.$"
 
 Route214_Text_Trainer8Post:
-	.string "Is it possible to become more\npowerful by understanding Pokémon?\n$"
+	.string "Is it possible to become more\n"
+	.string "powerful by understanding Pokémon?$"
 
 Route214_EventScript_Trainer9::
 	trainerbattle_single TRAINER_SINNOH_PSYCHIC_ABIGAIL, Route214_Text_Trainer9Intro, Route214_Text_Trainer9Defeat
@@ -131,10 +149,12 @@ Route214_Text_Trainer9Intro:
 	.string "There!\nBehind you!\p$"
 
 Route214_Text_Trainer9Defeat:
-	.string "My plan to spook you didn't go over\nwell at all.\n$"
+	.string "My plan to spook you didn't go over\n"
+	.string "well at all.$"
 
 Route214_Text_Trainer9Post:
-	.string "You might be tough, but let down\nyour guard at your own risk!\n$"
+	.string "You might be tough, but let down\n"
+	.string "your guard at your own risk!$"
 
 
 @ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)

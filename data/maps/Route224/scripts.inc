@@ -26,10 +26,12 @@ Route224_Text_Trainer1Intro:
 	.string "All right, my Pokémon squad!\nGet out there and kick up a storm!\p$"
 
 Route224_Text_Trainer1Defeat:
-	.string "The squad failed to hit its stride...\n$"
+	.string "The squad failed to hit its stride...$"
 
 Route224_Text_Trainer1Post:
-	.string "Hmm...\pGazing out over the sea doesn't do a\nthing for toughening up my Pokémon!\n$"
+	.string "Hmm...\p"
+	.string "Gazing out over the sea doesn't do a\n"
+	.string "thing for toughening up my Pokémon!$"
 
 Route224_EventScript_Trainer2::
 	trainerbattle_single TRAINER_SINNOH_VETERAN_ARMANDO, Route224_Text_Trainer2Intro, Route224_Text_Trainer2Defeat
@@ -43,7 +45,10 @@ Route224_Text_Trainer2Defeat:
 	.string "I see...\nSimply outstanding.$"
 
 Route224_Text_Trainer2Post:
-	.string "I've seen countless Trainers and\neven more Pokémon.\pYou're a strong Trainer.\nMoreover, your heart is strong.\n$"
+	.string "I've seen countless Trainers and\n"
+	.string "even more Pokémon.\p"
+	.string "You're a strong Trainer.\n"
+	.string "Moreover, your heart is strong.$"
 
 
 Route224_EventScript_Trainer3::
@@ -55,10 +60,12 @@ Route224_Text_Trainer3Intro:
 	.string "There's something about you...\nYou're not just anybody.\pI challenge you!\p$"
 
 Route224_Text_Trainer3Defeat:
-	.string "You're at a different level of\nexpertise for sure!\n$"
+	.string "You're at a different level of\n"
+	.string "expertise for sure!$"
 
 Route224_Text_Trainer3Post:
-	.string "You've won countless times...\nThat has made you very powerful.\n$"
+	.string "You've won countless times...\n"
+	.string "That has made you very powerful.$"
 
 Route224_EventScript_Trainer4::
 	trainerbattle_single TRAINER_SINNOH_PSYCHIC_MAXWELL, Route224_Text_Trainer4Intro, Route224_Text_Trainer4Defeat
@@ -69,10 +76,12 @@ Route224_Text_Trainer4Intro:
 	.string "For some reason I was drawn here,\nand it is here that I met you...\pI want to know what all this means!\p$"
 
 Route224_Text_Trainer4Defeat:
-	.string "I see...\pSo that's what it means...\n$"
+	.string "I see...\p"
+	.string "So that's what it means...$"
 
 Route224_Text_Trainer4Post:
-	.string "I feel... I feel some sort of a mystic\npresence emanating from here...\n$"
+	.string "I feel... I feel some sort of a mystic\n"
+	.string "presence emanating from here...$"
 
 Route224_EventScript_Trainer5::
 	trainerbattle_single TRAINER_SINNOH_PSYCHIC_BRITTNEY, Route224_Text_Trainer5Intro, Route224_Text_Trainer5Defeat
@@ -83,10 +92,13 @@ Route224_Text_Trainer5Intro:
 	.string "There is nothing here... And yet\nthere is a power lurking...\pWere you drawn by it, as well?\p$"
 
 Route224_Text_Trainer5Defeat:
-	.string "The power that slumbers within you...\nIt is rather marvelous indeed...\n$"
+	.string "The power that slumbers within you...\n"
+	.string "It is rather marvelous indeed...$"
 
 Route224_Text_Trainer5Post:
-	.string "A place where nothing else exists...\pA place such as that is better suited\nto awaken the power within.\n$"
+	.string "A place where nothing else exists...\p"
+	.string "A place such as that is better suited\n"
+	.string "to awaken the power within.$"
 
 Route224_EventScript_Trainer6::
 	trainerbattle_single TRAINER_SINNOH_ACE_TRAINER_JAMIE, Route224_Text_Trainer6Intro, Route224_Text_Trainer6Defeat
@@ -97,10 +109,16 @@ Route224_Text_Trainer6Intro:
 	.string "I constantly analyze Pokémon and\nvarious battles on my laptop.\p$"
 
 Route224_Text_Trainer6Defeat:
-	.string "...Things don't always work out\naccording to my calculations...\n$"
+	.string "...Things don't always work out\n"
+	.string "according to my calculations...$"
 
 Route224_Text_Trainer6Post:
-	.string "I had a lot of fun battling with\nyou, though.\pI wonder if I can analyze the\nbattle data properly?\pI could use a rematch to get\nsome additional data.\n$"
+	.string "I had a lot of fun battling with\n"
+	.string "you, though.\p"
+	.string "I wonder if I can analyze the\n"
+	.string "battle data properly?\p"
+	.string "I could use a rematch to get\n"
+	.string "some additional data.$"
 
 Route224_EventScript_Trainer7::
 	trainerbattle_single TRAINER_SINNOH_RUIN_MANIAC_LARRY, Route224_Text_Trainer7Intro, Route224_Text_Trainer7Defeat
@@ -111,10 +129,12 @@ Route224_Text_Trainer7Intro:
 	.string "I don't care who you are--no one\ninterferes with my treasure hunting!\p$"
 
 Route224_Text_Trainer7Defeat:
-	.string "My Pokémon!\nMy treasures!\n$"
+	.string "My Pokémon!\n"
+	.string "My treasures!$"
 
 Route224_Text_Trainer7Post:
-	.string "I heard there's an intriguing stone\nmonument around, so I came running.\n$"
+	.string "I heard there's an intriguing stone\n"
+	.string "monument around, so I came running.$"
 
 Route224_EventScript_Trainer8::
 	trainerbattle_single TRAINER_SINNOH_DRAGON_TAMER_HAYDEN, Route224_Text_Trainer8Intro, Route224_Text_Trainer8Defeat
@@ -125,7 +145,8 @@ Route224_Text_Trainer8Intro:
 	.string "My dragon Pokémon chose to become\npowerful here. They sure like it!\p$"
 
 Route224_Text_Trainer8Defeat:
-	.string "Your battle style...\nSo savage...\n$"
+	.string "Your battle style...\n"
+	.string "So savage...$"
 
 Route224_Text_Trainer8Post:
 	.string "It's been several years since I left\nthe Dragon's Den.\pI've got to say, your Pokémon are\nin the top class for toughness.$"

@@ -18,10 +18,11 @@ Route218_Text_Trainer1Intro:
 	.string "A man of the sea is also a man of\nPokémon!\p$"
 
 Route218_Text_Trainer1Defeat:
-	.string "Anchors away!\n$"
+	.string "Anchors away!$"
 
 Route218_Text_Trainer1Post:
-	.string "You've got what it takes to be\na Trainer among Trainers!\n$"
+	.string "You've got what it takes to be\n"
+	.string "a Trainer among Trainers!$"
 
 Route218_EventScript_Trainer2::
 	trainerbattle_single TRAINER_SINNOH_FISHERMAN_MIGUEL, Route218_Text_Trainer2Intro, Route218_Text_Trainer2Defeat
@@ -32,10 +33,12 @@ Route218_Text_Trainer2Intro:
 	.string "Outdoor fishing for the win!\pShouting doesn't help my fishing any,\nbut shout I must!\p$"
 
 Route218_Text_Trainer2Defeat:
-	.string "Gwaaah!\nThis is hurting!\n$"
+	.string "Gwaaah!\n"
+	.string "This is hurting!$"
 
 Route218_Text_Trainer2Post:
-	.string "Oh, right... My shouting is scaring\naway the Pokémon.\n$"
+	.string "Oh, right... My shouting is scaring\n"
+	.string "away the Pokémon.$"
 
 Route218_EventScript_Trainer3::
 	trainerbattle_single TRAINER_SINNOH_FISHERMAN_LUC, Route218_Text_Trainer3Intro, Route218_Text_Trainer3Defeat
@@ -46,10 +49,14 @@ Route218_Text_Trainer3Intro:
 	.string "Yeah, yeah...\nNothing's biting!\p$"
 
 Route218_Text_Trainer3Defeat:
-	.string "Can't catch a fish!\nCan't catch a break!\n$"
+	.string "Can't catch a fish!\n"
+	.string "Can't catch a break!$"
 
 Route218_Text_Trainer3Post:
-	.string "I was counting on strength in numbers,\nbut...\pPacking it in and going home sounds good\nat a time like this...\n$"
+	.string "I was counting on strength in numbers,\n"
+	.string "but...\p"
+	.string "Packing it in and going home sounds\n"
+	.string "good at a time like this...$"
 
 
 Route218_EventScript_Trainer4::
@@ -61,10 +68,12 @@ Route218_Text_Trainer4Intro:
 	.string "Let it rock!\nIt's the rhythm of battle!\p$"
 
 Route218_Text_Trainer4Defeat:
-	.string "Can you hear it?\nThat's my guitar weeping...\n$"
+	.string "Can you hear it?\n"
+	.string "That's my guitar weeping...$"
 
 Route218_Text_Trainer4Post:
-	.string "I'm too torn up to sing anymore...\nI am so cool that way...\n$"
+	.string "I'm too torn up to sing anymore...\n"
+	.string "I am so cool that way...$"
 
 
 @ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)

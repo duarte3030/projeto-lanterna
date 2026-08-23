@@ -159,7 +159,190 @@ def para_gba(linhas):
             saida += "\\p"
             na_caixa = 0
         del quebra
-    return saida.removesuffix("\\p") + "$"
+    return requebra(saida.removesuffix("\\p")) + "$"
+
+
+# --------------------------------------------------------------------------
+# O REQUEBRADOR. Mede em PIXEL, nao em caractere.
+#
+# A caixa de fala padrao tem 26 tiles de 8 px (208 px uteis) e mostra DUAS
+# linhas por vez: `\n` abre a segunda, e da TERCEIRA em diante quem serve e
+# `\l`, que rola a janela. Terceiro `\n` escreve fora da janela, e linha mais
+# larga que 208 px passa da borda direita: os dois somem sem erro nenhum, nem
+# de build nem de motor.
+#
+# A regra e CONSERVADORA de proposito: so mexe no que estoura. Ponto de quebra
+# que ja cabe fica onde esta, porque placa curta ("ETERNA FOREST") e quebra de
+# efeito sao desenho, nao defeito. Por isso `requebra` e idempotente e o
+# `para_gba` continua devolvendo byte a byte a mesma coisa para texto sao.
+#
+# A tabela de largura sai de `gFontNormalLatinGlyphWidths` (`src/fonts.c`) e o
+# byte de cada letra sai do `charmap.txt` DESTE repo. E a mesma regua do
+# `qa/checa_texto.py`, inclusive nos casos torto (`{PLAYER}` vale 42 px,
+# chave desconhecida vale 36), senao a ferramenta consertaria uma coisa e a
+# auditoria cobraria outra.
+# --------------------------------------------------------------------------
+LARGURA_CAIXA = 208
+LINHAS_POR_CAIXA = 2
+NOMINAL = {"PLAYER": 7, "RIVAL": 7, "STR_VAR_1": 0, "STR_VAR_2": 0,
+           "STR_VAR_3": 0, "KUN": 0}
+_CHAVE = re.compile(r"\{([A-Z0-9_]+)(?:\s+[^}]*)?\}")
+_MEDIDA = {}
+
+
+def _regua():
+    """(charmap: letra -> bytes, larguras: byte -> px)."""
+    if _MEDIDA:
+        return _MEDIDA["charmap"], _MEDIDA["larguras"]
+    mapa = {}
+    rx1 = re.compile(r"^'(.+?)'\s*=\s*((?:[0-9A-Fa-f]{2}\s*)+)")
+    rx2 = re.compile(r"^([A-Za-z_][A-Za-z0-9_]*)\s*=\s*((?:[0-9A-Fa-f]{2}\s*)+)")
+    for linha in open(f"{REPO}/charmap.txt", encoding="utf-8", errors="replace"):
+        linha = linha.rstrip("\n")
+        if linha.startswith("@"):
+            continue
+        m = rx1.match(linha) or rx2.match(linha)
+        if not m:
+            continue
+        chave = m.group(1)
+        if len(chave) == 2 and chave[0] == "\\":
+            chave = {"n": "\n", "l": "\l", "p": "\p"}.get(chave[1], chave[1])
+        mapa.setdefault(chave, [int(x, 16) for x in m.group(2).split()])
+    txt = le(f"{REPO}/src/fonts.c")
+    m = re.search(r"gFontNormalLatinGlyphWidths\[\]\s*=\s*\{(.*?)\};", txt, re.S)
+    nums = [int(x) for x in re.findall(r"\d+", m.group(1))] if m else []
+    larguras = nums + [6] * (256 - len(nums))
+    _MEDIDA["charmap"], _MEDIDA["larguras"] = mapa, larguras
+    return mapa, larguras
+
+
+def largura_px(trecho):
+    """Largura em px de um pedaco SEM quebra de linha."""
+    charmap, larguras = _regua()
+    px, i = 0, 0
+    while i < len(trecho):
+        c = trecho[i]
+        if c == "{":
+            m = _CHAVE.match(trecho, i)
+            if m:
+                nome = m.group(1)
+                n = NOMINAL.get(nome)
+                if n is None:
+                    n = 6 if nome not in charmap else 1
+                px += n * 6
+                i = m.end()
+                continue
+        if c == "\\":       # `\n`, `\l`, `\p` nao ocupam pixel
+            i += 2
+            continue
+        for b in charmap.get(c, [0x00]):
+            px += larguras[b] if c in charmap else 6
+        i += 1
+    return px
+
+
+def _quebra_larga(ln):
+    """[linha] se ja cabe; senao a MESMA linha reparada em pedacos que cabem."""
+    if largura_px(ln) <= LARGURA_CAIXA:
+        return [ln]
+    guardadas = []
+
+    def guarda(m):
+        guardadas.append(m.group(0))
+        return "\x01%d\x02" % (len(guardadas) - 1)
+
+    def solta(s):
+        return re.sub(r"\x01(\d+)\x02",
+                      lambda m: guardadas[int(m.group(1))], s)
+
+    palavras = _CHAVE.sub(guarda, ln).split(" ")
+    linhas, atual = [], ""
+    for p in palavras:
+        cand = p if not atual else atual + " " + p
+        if atual and largura_px(solta(cand)) > LARGURA_CAIXA:
+            linhas.append(solta(atual))
+            atual = p
+        else:
+            atual = cand
+    linhas.append(solta(atual))
+    return linhas
+
+
+def requebra(corpo):
+    """Corpo de `.string` (sem o `$`) com a caixa respeitada. Idempotente."""
+    saida = []
+    for caixa in corpo.split("\\p"):
+        linhas = re.split(r"\\[nl]", caixa)
+        if any(largura_px(l) > LARGURA_CAIXA for l in linhas):
+            # Caixa com linha estourada e refluida INTEIRA. Repartir so a linha
+            # culpada deixa orfa de uma palavra a linha seguinte, que ja estava
+            # cheia: o defeito sai e a fala fica torta do mesmo jeito.
+            linhas = _quebra_larga(" ".join(l for l in linhas if l != ""))
+        while len(linhas) > 1 and linhas[-1] == "":
+            linhas.pop()            # `...round!\n$` e uma terceira linha VAZIA
+        montada = linhas[0] if linhas else ""
+        for i, ln in enumerate(linhas[1:], start=1):
+            montada += ("\\n" if i < LINHAS_POR_CAIXA else "\\l") + ln
+        saida.append(montada)
+    return "\\p".join(saida)
+
+
+BLOCO_TEXTO = re.compile(r'^([A-Za-z_]\w*):{1,2}[ \t]*\n'
+                         r'((?:[ \t]*\.string ".*"[ \t]*\n)+)', re.M)
+
+
+# Sinnoh nao mora so nos grupos com "Sinnoh" no nome: os interiores das cinco
+# primeiras cidades tem grupo proprio. Mesma lista de `qa/leitor.GRUPO_REGIAO`;
+# filtrar so por "Sinnoh" deixava de fora 2 dos 141 textos tortos.
+GRUPOS_SINNOH = ("Sinnoh", "TeamGalactic", "IndoorTwinleaf", "IndoorSandgem",
+                 "IndoorJubilife", "IndoorOreburgh", "IndoorFloaroma")
+
+
+def mapas_de_sinnoh():
+    mg = json.load(open(f"{REPO}/data/maps/map_groups.json"))
+    return sorted({m for g, v in mg.items() if isinstance(v, list)
+                   and any(t in g for t in GRUPOS_SINNOH) for m in v})
+
+
+def aplica_requebra(escreve):
+    """Passa o requebrador nos `.string` que JA estao na arvore, em Sinnoh."""
+    tocados, blocos = 0, 0
+    for nome in mapas_de_sinnoh():
+        p = f"{REPO}/data/maps/{nome}/scripts.inc"
+        if not os.path.exists(p):
+            continue
+        original = le(p)
+
+        def um(m):
+            nonlocal blocos
+            pedacos = re.findall(r'\.string "(.*)"', m.group(2))
+            inteiro = "".join(pedacos)
+            if not inteiro.endswith("$"):
+                return m.group(0)
+            novo = requebra(inteiro[:-1])
+            if novo == inteiro[:-1]:
+                return m.group(0)
+            blocos += 1
+            partes = re.split(r"(\\[nlp])", novo)
+            linhas, i = [], 0
+            while i < len(partes):
+                pedaco = partes[i] + (partes[i + 1] if i + 1 < len(partes) else "")
+                linhas.append(pedaco)
+                i += 2
+            linhas[-1] += "$"
+            corpo = "".join('\t.string "%s"\n' % l for l in linhas)
+            return "%s:%s\n%s" % (m.group(1),
+                                  ":" if m.group(0).startswith(m.group(1) + "::")
+                                  else "", corpo)
+
+        novo_arq = BLOCO_TEXTO.sub(um, original)
+        if novo_arq != original:
+            tocados += 1
+            if escreve:
+                open(p, "w", encoding="utf-8").write(novo_arq)
+    print(f"requebrador: {blocos} blocos de texto reparados em {tocados} arquivos"
+          + ("" if escreve else "  (nada escrito; rode com --aplica)"))
+    return 0
 
 
 def main():
@@ -256,11 +439,43 @@ def demo():
     assert para_gba(["a\n", "b\r", "c\n", "d"]) == "a\\nb\\pc\\nd$"
     assert para_gba(["um\n", "dois\n", "tres"]) == "um\\ndois\\ltres$"
     assert para_gba(["Don’t\r"]) == "Don't$"
+
+    # --- requebrador -------------------------------------------------------
+    # 1. a regua e de PIXEL e nao de caractere, e e A MESMA do qa/checa_texto:
+    #    a auditoria de 23/08 mediu 210 px nesta linha de Canalave, e 40 `i`
+    #    cabem onde 40 `W` nao cabem (160 px contra 240 px).
+    assert largura_px("The access to the Wi-Fi Plaza is through") == 210
+    assert largura_px("i" * 40) <= LARGURA_CAIXA < largura_px("W" * 40)
+    # 2. texto sao nao e tocado (e por isso os quatro asserts acima sobrevivem)
+    for sao in ("um\\ndois", "um\\ndois\\ltres", "a\\nb\\pc\\nd", ""):
+        assert requebra(sao) == sao, sao
+    # 3. terceira linha com `\\n` vira `\\l` (o defeito de 141 textos de Sinnoh)
+    assert requebra("um\\ndois\\ntres") == "um\\ndois\\ltres"
+    # 4. terceira linha VAZIA (o `...round!\\n$` dos treinadores de rota) some
+    assert requebra("um\\ndois\\n") == "um\\ndois"
+    # 5. linha larga demais e repartida, e cada pedaco cabe
+    larga = "You've got me beat...Your desire and the noble way " \
+            "your Pokemon battled for you...I even felt thrilled"
+    assert largura_px(larga) > LARGURA_CAIXA
+    quebrada = requebra(larga)
+    assert all(largura_px(l) <= LARGURA_CAIXA
+               for l in re.split(r"\\[nlp]", quebrada)), quebrada
+    # 6. e o resultado nao perde nem inventa palavra
+    assert re.split(r"\\[nlp]", quebrada) != [larga]
+    assert " ".join(re.split(r"\\[nlp]", quebrada)).split() == larga.split()
+    # 7. IDEMPOTENTE: rodar de novo no proprio resultado nao muda nada
+    assert requebra(quebrada) == quebrada
+    # 8. `{PLAYER}` nao e cortado no meio
+    with_chave = "{PLAYER} " + "palavra " * 12 + "{PLAYER}"
+    assert "{PLAYER}" in requebra(with_chave)
+    assert requebra(with_chave).count("{PLAYER}") == 2
     print("demo ok")
 
 
 if __name__ == "__main__":
     if "--demo" in sys.argv:
         demo()
+    elif "--requebra" in sys.argv:
+        sys.exit(aplica_requebra(APLICA))
     else:
         sys.exit(main())

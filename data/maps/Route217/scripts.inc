@@ -38,10 +38,12 @@ Route217_Text_Trainer1Intro:
 	.string "Poof!\pYou've got a good eye spotting me!\p$"
 
 Route217_Text_Trainer1Defeat:
-	.string "You also saw through my weak\nspots...\n$"
+	.string "You also saw through my weak\n"
+	.string "spots...$"
 
 Route217_Text_Trainer1Post:
-	.string "I'll play with my Pokémon--even in a\nblizzard!\n$"
+	.string "I'll play with my Pokémon--even in a\n"
+	.string "blizzard!$"
 
 Route217_EventScript_Trainer2::
 	trainerbattle_single TRAINER_SINNOH_NINJA_BOY_ETHAN, Route217_Text_Trainer2Intro, Route217_Text_Trainer2Defeat
@@ -52,10 +54,11 @@ Route217_Text_Trainer2Intro:
 	.string "There are several clans of ninjas.\nAre you from the Iga clan? Or Kouga?\p$"
 
 Route217_Text_Trainer2Defeat:
-	.string "I'm not much of a ninja either way...\n$"
+	.string "I'm not much of a ninja either way...$"
 
 Route217_Text_Trainer2Post:
-	.string "I wonder why everyone stops being\na ninja when they grow up?\n$"
+	.string "I wonder why everyone stops being\n"
+	.string "a ninja when they grow up?$"
 
 Route217_EventScript_Trainer3::
 	trainerbattle_single TRAINER_SINNOH_BLACK_BELT_LUKE, Route217_Text_Trainer3Intro, Route217_Text_Trainer3Defeat
@@ -66,10 +69,11 @@ Route217_Text_Trainer3Intro:
 	.string "I dress light wherever I go.\nHiyah!\p$"
 
 Route217_Text_Trainer3Defeat:
-	.string "Achoo!\n$"
+	.string "Achoo!$"
 
 Route217_Text_Trainer3Post:
-	.string "Maybe I'll dress warm and come back.\nHiyah!\n$"
+	.string "Maybe I'll dress warm and come back.\n"
+	.string "Hiyah!$"
 
 
 Route217_EventScript_Trainer4::
@@ -81,10 +85,12 @@ Route217_Text_Trainer4Intro:
 	.string "I'll show you the techniques I had\ndrummed into me at ski school!\p$"
 
 Route217_Text_Trainer4Defeat:
-	.string "I don't believe it...\nMy techniques were rebuffed...\n$"
+	.string "I don't believe it...\n"
+	.string "My techniques were rebuffed...$"
 
 Route217_Text_Trainer4Post:
-	.string "Maybe I should've studied at the\nTrainers' school instead...\n$"
+	.string "Maybe I should've studied at the\n"
+	.string "Trainers' school instead...$"
 
 Route217_EventScript_Trainer5::
 	trainerbattle_single TRAINER_SINNOH_SKIER_LEXIE, Route217_Text_Trainer5Intro, Route217_Text_Trainer5Defeat
@@ -95,10 +101,12 @@ Route217_Text_Trainer5Intro:
 	.string "I've been skiing with Pokémon since\nI was just five years old.\p$"
 
 Route217_Text_Trainer5Defeat:
-	.string "Hunh, what...?\nI repeat, hunh, what...?\n$"
+	.string "Hunh, what...?\n"
+	.string "I repeat, hunh, what...?$"
 
 Route217_Text_Trainer5Post:
-	.string "The scenery doesn't change very much\naround here. Don't go getting lost!\n$"
+	.string "The scenery doesn't change very much\n"
+	.string "around here. Don't go getting lost!$"
 
 Route217_EventScript_Trainer6::
 	trainerbattle_single TRAINER_SINNOH_SKIER_BJORN, Route217_Text_Trainer6Intro, Route217_Text_Trainer6Defeat
@@ -109,10 +117,11 @@ Route217_Text_Trainer6Intro:
 	.string "We Skiers feel Mother Nature through\nthe soles of our feet!\p$"
 
 Route217_Text_Trainer6Defeat:
-	.string "I got a good taste of your power!\n$"
+	.string "I got a good taste of your power!$"
 
 Route217_Text_Trainer6Post:
-	.string "Trainers get an appreciation of life\nthrough Pokémon. At least I think so.\n$"
+	.string "Trainers get an appreciation of life\n"
+	.string "through Pokémon. At least I think so.$"
 
 Route217_EventScript_Trainer7::
 	trainerbattle_single TRAINER_SINNOH_SKIER_MADISON, Route217_Text_Trainer7Intro, Route217_Text_Trainer7Defeat
@@ -123,10 +132,11 @@ Route217_Text_Trainer7Intro:
 	.string "Rainy days make me feel blue...\pBut the instant it starts to snow,\nI'm as happy as can be!\p$"
 
 Route217_Text_Trainer7Defeat:
-	.string "The conditions weren't very good.\n$"
+	.string "The conditions weren't very good.$"
 
 Route217_Text_Trainer7Post:
-	.string "Can any of your Pokémon use that\nhidden move to climb cliffs?\n$"
+	.string "Can any of your Pokémon use that\n"
+	.string "hidden move to climb cliffs?$"
 
 Route217_EventScript_Trainer8::
 	trainerbattle_single TRAINER_SINNOH_ACE_TRAINER_DALTON, Route217_Text_Trainer8Intro, Route217_Text_Trainer8Defeat
@@ -137,10 +147,11 @@ Route217_Text_Trainer8Intro:
 	.string "This cold is but nothing compared\nto the fire that burns in my heart!\p$"
 
 Route217_Text_Trainer8Defeat:
-	.string "Your heart burns as hot as mine!\n$"
+	.string "Your heart burns as hot as mine!$"
 
 Route217_Text_Trainer8Post:
-	.string "The weather clears up sometimes.\nThe view is breathtaking then.\n$"
+	.string "The weather clears up sometimes.\n"
+	.string "The view is breathtaking then.$"
 
 Route217_EventScript_Trainer9::
 	trainerbattle_single TRAINER_SINNOH_ACE_TRAINER_OLIVIA, Route217_Text_Trainer9Intro, Route217_Text_Trainer9Defeat
@@ -151,10 +162,13 @@ Route217_Text_Trainer9Intro:
 	.string "Wh-what is it?\nP-Pokémon battle?!\p$"
 
 Route217_Text_Trainer9Defeat:
-	.string "Whew...\nYou are alive, aren't you?\n$"
+	.string "Whew...\n"
+	.string "You are alive, aren't you?$"
 
 Route217_Text_Trainer9Post:
-	.string "Around these parts, perhaps because\nof all the snow, there are many\pfolktales of hauntings...\n$"
+	.string "Around these parts, perhaps because\n"
+	.string "of all the snow, there are many\p"
+	.string "folktales of hauntings...$"
 
 
 @ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)

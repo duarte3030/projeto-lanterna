@@ -11,7 +11,7 @@ LakeValor_EventScript_Hiker::
 
 LakeValor_Text_Fisherman:
 	.string "The water's deep out there.\n"
-	.string "I've heard strange stories about\n"
+	.string "I've heard strange stories about\l"
 	.string "this lake.$"
 
 LakeValor_Text_Hiker:

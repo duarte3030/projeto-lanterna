@@ -1,175 +1,175 @@
 [
-  {
-    "id": "T157.1",
-    "nome": "BALDE (b1), GRUPO COM CENA: o grunt novo do Hall do QG ESTA no mapa antes da cena. Os 20 grunts do Hall ja estavam no map.json com FLAG_GALACTICA_QG_TOMADO, escritos a mao; a fonte tem 34 no mesmo grupo (FLAG_HIDE_GALACTIC_HQ_HALL_GRUNTS, events_galactic_hq_hall.json) e os outros 14 estavam de fora pela decisao 2 do importador (objeto com flag sem a cena que a apaga planta bloqueio permanente). Aqui a cena EXISTE: GalacticHQ_1F:203 e GalacticHQ_2F:191 fazem setflag FLAG_GALACTICA_QG_TOMADO quando o Saturn cai. A PROVA e a POSICAO, e nao a contagem: corpo de NPC e solido, entao a caminhada de oito pernas do warp 0 (19,32) ate a coluna 17 para em (17,15), encostada no grunt novo de (16,15) (OBJ_EVENT_GFX_MAGMA_MEMBER_F, marca origem=pokeplatinum). O par negativo e o T157.2, que com a MESMA rota e a flag acesa termina em (14,15).",
-    "opcoes": 32,
-    "warp": "MAP_GALACTIC_HQ_HALL",
-    "warp_id": 0,
-    "roteiro": "150:NADA,16:UP*4,40:NADA,16:RIGHT*3,40:NADA,16:UP*12,40:NADA,16:LEFT*3,40:NADA,16:UP*2,40:NADA,16:LEFT*3,40:NADA,16:UP*3,40:NADA,16:LEFT*4,120:NADA",
-    "prova": {
-      "mapa": "MAP_GALACTIC_HQ_HALL",
-      "pos": [
-        17,
-        15
-      ],
-      "flags_apagadas": [
-        "FLAG_GALACTICA_QG_TOMADO"
-      ]
-    }
-  },
-  {
-    "id": "T157.2",
-    "nome": "BALDE (b1): o MESMO grunt SOME depois da cena, e continua sumido depois de salvar e de recarregar o mapa. Par negativo do T157.1: unica diferenca e FLAG_GALACTICA_QG_TOMADO acesa na entrada, que e o que o setflag da queda do Saturn faz. Com ele fora do caminho a mesma perna de LEFT anda tres tiles a mais e para em (14,15), na parede. Depois disso o caso GRAVA a save pelo menu de START (contado DE BAIXO, tres UP a partir da linha 0, como toda a suite faz desde a 0.o), SAI para o GalacticHQ_1F e VOLTA, e refaz a rota inteira: se a flag morresse na troca de mapa ou na gravacao, o grunt reapareceria e a segunda passada pararia em (17,15) de novo. prova.sav_gravada cobra um slot inteiro escrito, senao a flash virgem passaria verde.",
-    "opcoes": 32,
-    "flags": [
-      "FLAG_GALACTICA_QG_TOMADO"
-    ],
-    "warp": "MAP_GALACTIC_HQ_HALL",
-    "warp_id": 0,
-    "roteiro": "150:NADA,16:UP*4,40:NADA,16:RIGHT*3,40:NADA,16:UP*12,40:NADA,16:LEFT*3,40:NADA,16:UP*2,40:NADA,16:LEFT*3,40:NADA,16:UP*3,40:NADA,16:LEFT*4,120:NADA,40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,180:NADA,WARP=MAP_GALACTIC_HQ_1F:0,300:NADA,WARP=MAP_GALACTIC_HQ_HALL:0,300:NADA,16:UP*4,40:NADA,16:RIGHT*3,40:NADA,16:UP*12,40:NADA,16:LEFT*3,40:NADA,16:UP*2,40:NADA,16:LEFT*3,40:NADA,16:UP*3,40:NADA,16:LEFT*4,120:NADA",
-    "prova": {
-      "sav_gravada": true,
-      "mapa": "MAP_GALACTIC_HQ_HALL",
-      "pos": [
-        14,
-        15
-      ],
-      "flags_acesas": [
-        "FLAG_GALACTICA_QG_TOMADO"
-      ]
-    },
-    "sav": "/tmp/claude-501/fechador/t157-qg-grunt.sav",
-    "apaga_sav": true
-  },
-  {
-    "id": "T157.3",
-    "nome": "BALDE (b2), RODIZIO: os casais do Restaurante entram VISIVEIS, e nao escondidos. As nove FLAG_HIDE_RESTAURANT_* da fonte nao guardam marco de historia: res/field/scripts/scripts_restaurant.s acende as nove em Restaurant_ResetTrainers e depois faz ClearFlag num subconjunto SORTEADO por GetRandom, e acende todas de novo entre 23h e 9h (Restaurant_SetClosed). Nao existe cena que apague a flag para sempre, entao esperar por ela seria esperar por nada; aqui o objeto entra visivel e mudo, e o mapa sai de 2 de 19 objetos para 19 de 19. A PROVA e a posicao: entrando pelo warp 0 (3,8) o jogador ja chega olhando para o norte, entao UM aperto de UP anda um tile e o LEFT seguinte (um toque para virar e dois para andar) encosta em (3,7), porque a Beauty nova de (2,7) e corpo solido. Sem ela a perna de LEFT iria ate a parede em (0,7).",
-    "opcoes": 32,
-    "warp": "MAP_RESTAURANT",
-    "warp_id": 0,
-    "roteiro": "150:NADA,16:UP*1,40:NADA,16:LEFT*3,120:NADA",
-    "prova": {
-      "mapa": "MAP_RESTAURANT",
-      "pos": [
-        3,
-        7
-      ]
-    }
-  },
-  {
-    "id": "T157.4",
-    "nome": "BALDE (b3 virado b1) FLAG MORTA, e SPRITE DE ESPECIE: o Magikarp do leito do Lago Valor. Dois consertos na mesma prova. Primeiro: FLAG_HIDE_LAKE_VALOR_DRAINED_MAGIKARP so aparece no generated/vars_flags.txt e no proprio events_lake_valor_drained.json do pokeplatinum, e NENHUM script e nenhum .c da fonte a acende ou apaga (varredura de res/field/scripts, src e include). Flag que ninguem acende nasce apagada, e objeto de flag apagada aparece: no jogo original esses 23 Magikarp estao sempre la, entao recusa-los era mapa vazio de graca. Segundo: o gfx OBJ_EVENT_GFX_MAGIKARP nao existe aqui, mas OBJ_EVENT_GFX_SPECIES(MAGIKARP) existe desde a entrada dos 795 overworld de Galar, e por isso o objeto entra como MAGIKARP de verdade em vez de virar OBJ_EVENT_GFX_MAN_1. A rota sai do warp 0 (52,10), atravessa o leito drenado (que so e atravessavel por causa da conversao do T157.5) e encosta em (35,19), com o Magikarp de (36,19) na frente. ARMADILHA CONSERTADA NO MEIO DESTE CASO: a primeira versao do lagos_sinnoh.py pintava metatile de SETA DE WARP em TODO tile WARP_* da fonte, e a fonte marca duas portas lado a lado em (52,10) e (52,11) onde o nosso mapa tem UM warp_event. O tile (52,11) ficava com MB_SOUTH_ARROW_WARP sem warp embaixo e o motor jogava o jogador no VALOR_LAKEFRONT no segundo aperto; agora so a coordenada que tem warp_event nosso vira boca, e o `--demo` do gerador cobra isso. SEGUNDA ARMADILHA, e ela e do TESTE e nao do mapa: o jogador nasce EM CIMA da boca, e boca e MB_SOUTH_ARROW_WARP, entao o primeiro aperto de DOWN dispara o warp de volta antes de qualquer passo. A rota comeca com LEFT por isso, e nao por gosto.",
-    "opcoes": 32,
-    "warp": "MAP_LAKE_VALOR_DRAINED",
-    "warp_id": 0,
-    "roteiro": "150:NADA,16:LEFT*2,40:NADA,16:DOWN*2,40:NADA,16:LEFT*9,40:NADA,16:DOWN*2,40:NADA,16:LEFT*4,40:NADA,16:DOWN*4,40:NADA,16:LEFT*6,40:NADA,16:DOWN*3,40:NADA,16:LEFT*3,40:NADA,16:DOWN*3,40:NADA,16:RIGHT*3,40:NADA,16:RIGHT*2,120:NADA",
-    "prova": {
-      "mapa": "MAP_LAKE_VALOR_DRAINED",
-      "pos": [
-        35,
-        19
-      ]
-    }
-  },
-  {
-    "id": "T157.5",
-    "nome": "LAGO: o jogador ENTRA e ANDA PELO LEITO do Lago Verity com a agua baixa. Este mapa era a trava medida na fila (sinnoh:lagos_low_water:boca_ilhada): a boca do warp e elevacao 3, os ~800 tiles em volta eram agua de elevacao 1, e IsElevationMismatchAt (src/event_object_movement.c:10014) barra 3 contra 1, entao o jogador chegava e alcancava UM tile, ele mesmo. dev_scripts/lagos_sinnoh.py reconverteu o leito pela grade do Platinum (PUDDLE e SHALLOW_WATER sao ANDAVEIS la, e TILE_BEHAVIOR_NONE sem colisao e chao e nao rocha) e moveu o warp para a coordenada da fonte, (46,54). A PROVA e a posicao final depois de seis pernas e 50 tiles: (42,49). Com o mapa de antes o jogador nao sai de (46,54), entao qualquer posicao diferente dela ja seria noticia, e esta e a mais longe que a margem seca leva. MEDIDA REFEITA EM 23/08/2026, e a causa e conteudo novo e nao regressao: a leva b3 (dev_scripts/cenas_sinnoh_b3.py) trouxe os dois STARLY que a fonte tem no leito, em (46,49) e (55,41), e corpo de NPC e solido. O de (46,49) esta na coluna 46, que e a coluna da boca, entao a primeira perna UP*11 para em (46,50) em vez de (46,43) e as cinco pernas seguintes correm deslocadas. O fim passou de (42,49) para (48,42), e a prova continua sendo a MESMA que o caso sempre fez: com o mapa de antes da conversao o jogador nao sai de (46,54), e (48,42) esta a doze linhas dali, dentro do leito. Quem mexer no leito remede, nao adivinhe.",
-    "opcoes": 32,
-    "warp": "MAP_LAKE_VERITY_LOW_WATER",
-    "warp_id": 0,
-    "roteiro": "150:NADA,16:UP*11,40:NADA,16:RIGHT*8,40:NADA,16:UP*9,40:NADA,16:LEFT*4,40:NADA,16:DOWN*14,40:NADA,16:LEFT*9,120:NADA",
-    "prova": {
-      "mapa": "MAP_LAKE_VERITY_LOW_WATER",
-      "pos": [
-        48,
-        42
-      ]
-    }
-  },
-  {
-    "id": "T157.6",
-    "nome": "LAGO: e SAI. Segunda metade do pedido, e ela precisa de caso proprio porque a prova do T157.5 e a posicao DENTRO do mapa e esta e o mapa de destino. O jogador entra pelo warp 0, sobe quatro tiles pelo leito e volta descendo: ao pisar de novo na boca e continuar para o sul, o metatile 519 (MB_SOUTH_ARROW_WARP) dispara e devolve o jogador ao VerityLakefront. Antes da conversao este caso seria vazio, porque o jogador nao conseguia dar o primeiro passo para longe da boca: a subida de quatro tiles e a metade que discrimina.",
-    "opcoes": 32,
-    "warp": "MAP_LAKE_VERITY_LOW_WATER",
-    "warp_id": 0,
-    "roteiro": "150:NADA,16:UP*5,60:NADA,16:DOWN*8,240:NADA",
-    "prova": {
-      "mapa": "MAP_VERITY_LAKEFRONT"
-    }
-  },
-  {
-    "id": "T157.7",
-    "nome": "BALDE (c), OBSTACULO REPOSICIONADO: a pedra empurrada da Oreburgh Mine B2F. O balde (c) sao os obstaculos que a coordenada da fonte punha em parede ou em cima de outro objeto, e ate 22/08/2026 o pedras_sinnoh.py simplesmente os recusava: 93 saiam por 'tile ja ocupado' e 36 por 'parede macica'. O empurrao de ate 3 tiles (o mesmo raio que bolas_sinnoh.py e o importador de NPC ja usavam) traz de volta o que cai perto, e nenhum portao foi afrouxado: o tile de destino continua tendo que ser andavel, livre, alcancavel a pe e passar por `conectado` e `sem_bolso`, que provam por busca em largura, SEM Rock Smash na mochila, que ninguem fica preso. Esta pedra andou 2 tiles (censo pedras_sinnoh_censo.tsv, OreburghMine_B2F 18,25) e a rota de oito pernas do warp 0 encosta nela em (19,25). A rota DESVIA pela linha 24 de proposito: em 23/08/2026 o sprite proprio do Roark entrou nesta ROM e o NPC dele nasceu em (20,25), no meio da linha 25; descer para a 24, atravessar e voltar e o unico caminho que chega em (19,25) com a pedra na frente, e nao com o Roark.",
-    "opcoes": 32,
-    "warp": "MAP_OREBURGH_MINE_B2F",
-    "warp_id": 0,
-    "roteiro": "150:NADA,16:DOWN*2,40:NADA,16:RIGHT*11,40:NADA,16:DOWN*4,40:NADA,16:RIGHT*3,40:NADA,16:DOWN*4,40:NADA,16:LEFT*2,40:NADA,16:DOWN*4,40:NADA,16:LEFT*9,40:NADA,16:DOWN*2,40:NADA,16:LEFT*3,120:NADA",
-    "prova": {
-      "mapa": "MAP_OREBURGH_MINE_B2F",
-      "pos": [
-        19,
-        25
-      ]
-    }
-  },
-  {
-    "id": "T157.8",
-    "nome": "QUARTO DO ROTOM: o eletrodomestico e CENARIO QUE FALA, e a caixa dele engole o passo seguinte. Os 5 aparelhos e os 2 livros da fonte tem `hidden_flag` viva e cada um abre o menu de troca de forma do Rotom, mecanica de gen 4 que este motor nao tem no mapa; o que ele TEM e o item, `ITEM_ROTOM_CATALOG` com `ItemUseOutOfBattle_RotomCatalog` (src/data/items.h:13629), entregue pela Dex. Por decisao do condutor os sete entraram como movel com texto que manda usar o catalogo, e o mapa saiu de 0 de 8 objetos para 7 de 8. ROTA e PROVA numa coisa so: entrando pelo warp 0 em (3,8), UP saturante para em (3,6) (a linha 5 e parede em x=2 e x=3), RIGHT leva a (4,6) e UP encosta no aparelho de (4,5) sem andar, porque corpo e solido. O A abre a caixa, e entao DOWN*4 NAO ANDA: se a caixa nao tivesse aberto, esses quatro apertos desceriam ate (4,8), que e warp, e o caso terminaria no TeamGalacticEternaBuilding_1F. Ou seja, o mapa de chegada sozinho ja discrimina, e a posicao (4,6) confirma.",
-    "opcoes": 32,
-    "warp": "MAP_ROTOMS_ROOM",
-    "warp_id": 0,
-    "roteiro": "150:NADA,16:UP*20,60:NADA,16:RIGHT*2,60:NADA,16:UP*2,90:NADA,20:A,240:NADA,16:DOWN*4,180:NADA",
-    "prova": {
-      "mapa": "MAP_ROTOMS_ROOM",
-      "pos": [
-        4,
-        6
-      ]
-    }
-  },
-  {
-    "id": "T157.9",
-    "nome": "AS ONZE BOLAS DE NEVE ATRAVESSADAS DE PONTA A PONTA, DA PORTA ATE A CANDICE, EM DEZESSEIS PERNAS. Este e o caso de travessia do puzzle inteiro: ele nao mede um tile, mede o labirinto de gelo resolvido com as bolas no lugar. A rota comeca no warp 0 em (11,27), sobe a antecamara a pe ate (11,24), vai para (12,24) e ENCOSTA NA BOLA NOVA: UP escorrega dois tiles e para em (12,22), um tile acima do batente de (12,21), que e uma das cinco bolas que entraram nesta rodada. Dali volta para (12,24), passa para (11,24) e sobe a COLUNA 11 inteira em nove pernas, (11,22), (11,21), (11,19), (11,16), (11,12), (11,9), (11,6), (11,4) e (11,3), que sao os degraus que os tiles de bloqueio direcional 193 desenham: sem eles a coluna seria um deslize unico ate o topo, e com a regra errada de escorregao o modelo prometia parada em outro lugar em quase todas elas. A PROVA e parar em (11,3), colado na lider de (11,2). A rota foi escolhida por NAO cruzar a linha de vista de treinador nenhum: nenhuma batalha abre no meio, entao a posicao final e do puzzle e nao de sorte. A REGRA DO ESCORREGAO, calibrada contra o emulador em 23/08/2026 com 174 sondas lidas da EWRAM: o deslize continua enquanto o tile SOB OS PES for MB_ICE e so ele (`MetatileBehavior_IsIce_2`, src/metatile_behavior.c:370), e o bloqueio direcional dos tiles 192/193 do labirinto vale tambem para SAIR, porque `IsMetatileDirectionallyImpassable` (src/event_object_movement.c:6615) olha o tile de ORIGEM com `gOppositeDirectionBlockedMetatileFuncs` alem do de destino. Em chao COMUM a perna leva DOIS toques, porque a primeira tecla de uma direcao nova so vira o boneco; em cima do GELO leva UM, porque ali o jogador nao esta CONTROLLABLE e o toque ja anda.",
-    "warp": "MAP_SNOWPOINT_CITY_GYM",
-    "warp_id": 0,
-    "roteiro": "150:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:RIGHT*2,300:NADA,24:UP*2,300:NADA,24:DOWN,300:NADA,24:LEFT*2,300:NADA,24:UP*2,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA",
-    "prova": {
-      "mapa": "MAP_SNOWPOINT_CITY_GYM",
-      "pos": [
-        11,
-        3
-      ],
-      "andou": true
-    }
-  },
-  {
-    "id": "T157.10",
-    "nome": "A BOLA NOVA DE (12,21) E O BATENTE, E ELA ESTA ACORDADA. Bola de neve aqui nao e bloco de Strength (o chao e MB_ICE inteiro e o motor entra em movimento forcado antes de chegar em `TryPushBoulder`): ela e OBJETO SOLIDO, e objeto solido so vale se o motor o ACORDAR. `gObjectEvents` tem 16 vagas (OBJECT_EVENTS_COUNT, include/constants/global.h:95), a vaga 0 e do jogador, e `TrySpawnObjectEvents` (src/event_object_movement.c:2899) so acorda quem cai na janela de 20 por 17 tiles em volta da camera: passando de 15 objetos vivos ele simplesmente PARA de acordar, sem erro nenhum, e a bola que nao acordou deixa de ser solida. Este caso mede que a de (12,21), uma das cinco que entraram em 23/08/2026, esta acordada: do warp o jogador sobe a antecamara ate (11,24), anda para (12,24) e UP escorrega DOIS tiles so, parando em (12,22). Sem a bola o mesmo escorregao subiria treze tiles ate (12,9), que e o que `bolas_neve_sinnoh.desliza` devolve com ela fora do conjunto de solidos. O par e o T157.11. Em chao COMUM a perna leva DOIS toques, porque a primeira tecla de uma direcao nova so vira o boneco; em cima do GELO leva UM, porque ali o jogador nao esta CONTROLLABLE e o toque ja anda.",
-    "warp": "MAP_SNOWPOINT_CITY_GYM",
-    "warp_id": 0,
-    "roteiro": "150:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:RIGHT*2,300:NADA,24:UP*2,300:NADA",
-    "prova": {
-      "mapa": "MAP_SNOWPOINT_CITY_GYM",
-      "pos": [
-        12,
-        22
-      ],
-      "andou": true
-    }
-  },
-  {
-    "id": "T157.11",
-    "nome": "PAR DO T157.10, DO MESMO TILE E NA DIRECAO QUE NAO TEM BOLA. O jogador chega no MESMO (12,24) pelo MESMO caminho e com o MESMO numero de toques; a unica variavel e a direcao. Para o norte a bola de (12,21) segura o escorregao em dois tiles (T157.10); para o leste a linha 24 nao tem bola nenhuma e ele corre CINCO tiles, ate (17,24), onde o chao deixa de ser gelo. Sem este par o T157.10 passaria num jogo em que o jogador parasse em (12,22) por qualquer outro motivo, parede desenhada por cima, elevacao errada ou controle morto, e nao porque ha um corpo solido em (12,21). A REGRA DO ESCORREGAO, calibrada contra o emulador em 23/08/2026 com 174 sondas lidas da EWRAM: o deslize continua enquanto o tile SOB OS PES for MB_ICE e so ele (`MetatileBehavior_IsIce_2`, src/metatile_behavior.c:370), e o bloqueio direcional dos tiles 192/193 do labirinto vale tambem para SAIR, porque `IsMetatileDirectionallyImpassable` (src/event_object_movement.c:6615) olha o tile de ORIGEM com `gOppositeDirectionBlockedMetatileFuncs` alem do de destino.",
-    "warp": "MAP_SNOWPOINT_CITY_GYM",
-    "warp_id": 0,
-    "roteiro": "150:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:RIGHT*2,300:NADA,24:RIGHT,300:NADA",
-    "prova": {
-      "mapa": "MAP_SNOWPOINT_CITY_GYM",
-      "pos": [
-        17,
-        24
-      ],
-      "andou": true
-    }
+ {
+  "id": "T157.1",
+  "nome": "BALDE (b1), GRUPO COM CENA: o grunt novo do Hall do QG ESTA no mapa antes da cena. Os 20 grunts do Hall ja estavam no map.json com FLAG_GALACTICA_QG_TOMADO, escritos a mao; a fonte tem 34 no mesmo grupo (FLAG_HIDE_GALACTIC_HQ_HALL_GRUNTS, events_galactic_hq_hall.json) e os outros 14 estavam de fora pela decisao 2 do importador (objeto com flag sem a cena que a apaga planta bloqueio permanente). Aqui a cena EXISTE: GalacticHQ_1F:203 e GalacticHQ_2F:191 fazem setflag FLAG_GALACTICA_QG_TOMADO quando o Saturn cai. A PROVA e a POSICAO, e nao a contagem: corpo de NPC e solido, entao a caminhada de oito pernas do warp 0 (19,32) ate a coluna 17 para em (17,15), encostada no grunt novo de (16,15) (OBJ_EVENT_GFX_MAGMA_MEMBER_F, marca origem=pokeplatinum). O par negativo e o T157.2, que com a MESMA rota e a flag acesa termina em (14,15). ROTA REFEITA EM 23/08/2026 (rodada 12): a ultima perna era `LEFT*4`, contada, e o grunt-testemunha morava em (16,15). dev_scripts/conserta_sinnoh_b12.py ESPALHOU o salao porque ele tinha 31 objetos dentro de uma janela de 20x17 e o motor so acorda 15, e a testemunha andou para (5,15). A perna passou a SATURAR (`LEFT*20`) em vez de contar passo, que e o que impede este caso de reprovar de novo a cada vez que alguem mexer na arrumacao: a fileira 15 tem chao de x=0 a x=17, entao com corpo na frente ela para em (6,15) e sem corpo nenhum ela vai ate (0,15). A testemunha continua sendo um MAGMA_MEMBER_F com origem=pokeplatinum do mesmo grupo FLAG_GALACTICA_QG_TOMADO; so o tile mudou. SEGUNDA MEDIDA, no mesmo dia: a perna saturada de LEFT na fileira 15 NAO chega ao corredor oeste, e a culpa nao e de objeto e sim de METATILE. (14,15) e (12,15) sao MB_IMPASSABLE_WEST, que `IsMetatileDirectionallyImpassable` cobra tambem na SAIDA do tile, entao quem vem do leste pela fileira 15 para em (14,15) com ou sem grunt. A rota passou a descer para a fileira 18, que e chao corrido de ponta a ponta, e a subir pela coluna 0: com o grunt de (0,9) de pe ela satura em (0,10), e com a flag acesa ela vai ate (0,8), onde a fileira 7 e parede. As tres pernas saturam, entao nenhuma depende de contar passo.",
+  "opcoes": 32,
+  "warp": "MAP_GALACTIC_HQ_HALL",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:UP*4,40:NADA,16:RIGHT*3,40:NADA,16:UP*12,40:NADA,16:LEFT*3,40:NADA,16:UP*2,40:NADA,16:LEFT*3,40:NADA,16:UP*3,40:NADA,16:DOWN*6,40:NADA,16:LEFT*30,40:NADA,16:UP*20,120:NADA",
+  "prova": {
+   "mapa": "MAP_GALACTIC_HQ_HALL",
+   "pos": [
+    0,
+    10
+   ],
+   "flags_apagadas": [
+    "FLAG_GALACTICA_QG_TOMADO"
+   ]
   }
+ },
+ {
+  "id": "T157.2",
+  "nome": "BALDE (b1): o MESMO grunt SOME depois da cena, e continua sumido depois de salvar e de recarregar o mapa. Par negativo do T157.1: unica diferenca e FLAG_GALACTICA_QG_TOMADO acesa na entrada, que e o que o setflag da queda do Saturn faz. Com ele fora do caminho a mesma perna de LEFT anda tres tiles a mais e para em (14,15), na parede. Depois disso o caso GRAVA a save pelo menu de START (contado DE BAIXO, tres UP a partir da linha 0, como toda a suite faz desde a 0.o), SAI para o GalacticHQ_1F e VOLTA, e refaz a rota inteira: se a flag morresse na troca de mapa ou na gravacao, o grunt reapareceria e a segunda passada pararia em (17,15) de novo. prova.sav_gravada cobra um slot inteiro escrito, senao a flash virgem passaria verde. ROTA REFEITA EM 23/08/2026 (rodada 12): a ultima perna era `LEFT*4`, contada, e o grunt-testemunha morava em (16,15). dev_scripts/conserta_sinnoh_b12.py ESPALHOU o salao porque ele tinha 31 objetos dentro de uma janela de 20x17 e o motor so acorda 15, e a testemunha andou para (5,15). A perna passou a SATURAR (`LEFT*20`) em vez de contar passo, que e o que impede este caso de reprovar de novo a cada vez que alguem mexer na arrumacao: a fileira 15 tem chao de x=0 a x=17, entao com corpo na frente ela para em (6,15) e sem corpo nenhum ela vai ate (0,15). A testemunha continua sendo um MAGMA_MEMBER_F com origem=pokeplatinum do mesmo grupo FLAG_GALACTICA_QG_TOMADO; so o tile mudou. SEGUNDA MEDIDA, no mesmo dia: a perna saturada de LEFT na fileira 15 NAO chega ao corredor oeste, e a culpa nao e de objeto e sim de METATILE. (14,15) e (12,15) sao MB_IMPASSABLE_WEST, que `IsMetatileDirectionallyImpassable` cobra tambem na SAIDA do tile, entao quem vem do leste pela fileira 15 para em (14,15) com ou sem grunt. A rota passou a descer para a fileira 18, que e chao corrido de ponta a ponta, e a subir pela coluna 0: com o grunt de (0,9) de pe ela satura em (0,10), e com a flag acesa ela vai ate (0,8), onde a fileira 7 e parede. As tres pernas saturam, entao nenhuma depende de contar passo.",
+  "opcoes": 32,
+  "flags": [
+   "FLAG_GALACTICA_QG_TOMADO"
+  ],
+  "warp": "MAP_GALACTIC_HQ_HALL",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:UP*4,40:NADA,16:RIGHT*3,40:NADA,16:UP*12,40:NADA,16:LEFT*3,40:NADA,16:UP*2,40:NADA,16:LEFT*3,40:NADA,16:UP*3,40:NADA,16:DOWN*6,40:NADA,16:LEFT*30,40:NADA,16:UP*20,120:NADA,40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,180:NADA,WARP=MAP_GALACTIC_HQ_1F:0,300:NADA,WARP=MAP_GALACTIC_HQ_HALL:0,300:NADA,16:UP*4,40:NADA,16:RIGHT*3,40:NADA,16:UP*12,40:NADA,16:LEFT*3,40:NADA,16:UP*2,40:NADA,16:LEFT*3,40:NADA,16:UP*3,40:NADA,16:DOWN*6,40:NADA,16:LEFT*30,40:NADA,16:UP*20,120:NADA",
+  "prova": {
+   "sav_gravada": true,
+   "mapa": "MAP_GALACTIC_HQ_HALL",
+   "pos": [
+    0,
+    8
+   ],
+   "flags_acesas": [
+    "FLAG_GALACTICA_QG_TOMADO"
+   ]
+  },
+  "sav": "/tmp/claude-501/fechador/t157-qg-grunt.sav",
+  "apaga_sav": true
+ },
+ {
+  "id": "T157.3",
+  "nome": "BALDE (b2), RODIZIO: os casais do Restaurante entram VISIVEIS, e nao escondidos. As nove FLAG_HIDE_RESTAURANT_* da fonte nao guardam marco de historia: res/field/scripts/scripts_restaurant.s acende as nove em Restaurant_ResetTrainers e depois faz ClearFlag num subconjunto SORTEADO por GetRandom, e acende todas de novo entre 23h e 9h (Restaurant_SetClosed). Nao existe cena que apague a flag para sempre, entao esperar por ela seria esperar por nada; aqui o objeto entra visivel e mudo, e o mapa sai de 2 de 19 objetos para 19 de 19. A PROVA e a posicao: entrando pelo warp 0 (3,8) o jogador ja chega olhando para o norte, entao UM aperto de UP anda um tile e o LEFT seguinte (um toque para virar e dois para andar) encosta em (3,7), porque a Beauty nova de (2,7) e corpo solido. Sem ela a perna de LEFT iria ate a parede em (0,7).",
+  "opcoes": 32,
+  "warp": "MAP_RESTAURANT",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:UP*1,40:NADA,16:LEFT*3,120:NADA",
+  "prova": {
+   "mapa": "MAP_RESTAURANT",
+   "pos": [
+    3,
+    7
+   ]
+  }
+ },
+ {
+  "id": "T157.4",
+  "nome": "BALDE (b3 virado b1) FLAG MORTA, e SPRITE DE ESPECIE: o Magikarp do leito do Lago Valor. Dois consertos na mesma prova. Primeiro: FLAG_HIDE_LAKE_VALOR_DRAINED_MAGIKARP so aparece no generated/vars_flags.txt e no proprio events_lake_valor_drained.json do pokeplatinum, e NENHUM script e nenhum .c da fonte a acende ou apaga (varredura de res/field/scripts, src e include). Flag que ninguem acende nasce apagada, e objeto de flag apagada aparece: no jogo original esses 23 Magikarp estao sempre la, entao recusa-los era mapa vazio de graca. Segundo: o gfx OBJ_EVENT_GFX_MAGIKARP nao existe aqui, mas OBJ_EVENT_GFX_SPECIES(MAGIKARP) existe desde a entrada dos 795 overworld de Galar, e por isso o objeto entra como MAGIKARP de verdade em vez de virar OBJ_EVENT_GFX_MAN_1. A rota sai do warp 0 (52,10), atravessa o leito drenado (que so e atravessavel por causa da conversao do T157.5) e encosta em (35,19), com o Magikarp de (36,19) na frente. ARMADILHA CONSERTADA NO MEIO DESTE CASO: a primeira versao do lagos_sinnoh.py pintava metatile de SETA DE WARP em TODO tile WARP_* da fonte, e a fonte marca duas portas lado a lado em (52,10) e (52,11) onde o nosso mapa tem UM warp_event. O tile (52,11) ficava com MB_SOUTH_ARROW_WARP sem warp embaixo e o motor jogava o jogador no VALOR_LAKEFRONT no segundo aperto; agora so a coordenada que tem warp_event nosso vira boca, e o `--demo` do gerador cobra isso. SEGUNDA ARMADILHA, e ela e do TESTE e nao do mapa: o jogador nasce EM CIMA da boca, e boca e MB_SOUTH_ARROW_WARP, entao o primeiro aperto de DOWN dispara o warp de volta antes de qualquer passo. A rota comeca com LEFT por isso, e nao por gosto.",
+  "opcoes": 32,
+  "warp": "MAP_LAKE_VALOR_DRAINED",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:LEFT*2,40:NADA,16:DOWN*2,40:NADA,16:LEFT*9,40:NADA,16:DOWN*2,40:NADA,16:LEFT*4,40:NADA,16:DOWN*4,40:NADA,16:LEFT*6,40:NADA,16:DOWN*3,40:NADA,16:LEFT*3,40:NADA,16:DOWN*3,40:NADA,16:RIGHT*3,40:NADA,16:RIGHT*2,120:NADA",
+  "prova": {
+   "mapa": "MAP_LAKE_VALOR_DRAINED",
+   "pos": [
+    35,
+    19
+   ]
+  }
+ },
+ {
+  "id": "T157.5",
+  "nome": "LAGO: o jogador ENTRA e ANDA PELO LEITO do Lago Verity com a agua baixa. Este mapa era a trava medida na fila (sinnoh:lagos_low_water:boca_ilhada): a boca do warp e elevacao 3, os ~800 tiles em volta eram agua de elevacao 1, e IsElevationMismatchAt (src/event_object_movement.c:10014) barra 3 contra 1, entao o jogador chegava e alcancava UM tile, ele mesmo. dev_scripts/lagos_sinnoh.py reconverteu o leito pela grade do Platinum (PUDDLE e SHALLOW_WATER sao ANDAVEIS la, e TILE_BEHAVIOR_NONE sem colisao e chao e nao rocha) e moveu o warp para a coordenada da fonte, (46,54). A PROVA e a posicao final depois de seis pernas e 50 tiles: (42,49). Com o mapa de antes o jogador nao sai de (46,54), entao qualquer posicao diferente dela ja seria noticia, e esta e a mais longe que a margem seca leva. MEDIDA REFEITA EM 23/08/2026, e a causa e conteudo novo e nao regressao: a leva b3 (dev_scripts/cenas_sinnoh_b3.py) trouxe os dois STARLY que a fonte tem no leito, em (46,49) e (55,41), e corpo de NPC e solido. O de (46,49) esta na coluna 46, que e a coluna da boca, entao a primeira perna UP*11 para em (46,50) em vez de (46,43) e as cinco pernas seguintes correm deslocadas. O fim passou de (42,49) para (48,42), e a prova continua sendo a MESMA que o caso sempre fez: com o mapa de antes da conversao o jogador nao sai de (46,54), e (48,42) esta a doze linhas dali, dentro do leito. Quem mexer no leito remede, nao adivinhe.",
+  "opcoes": 32,
+  "warp": "MAP_LAKE_VERITY_LOW_WATER",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:UP*11,40:NADA,16:RIGHT*8,40:NADA,16:UP*9,40:NADA,16:LEFT*4,40:NADA,16:DOWN*14,40:NADA,16:LEFT*9,120:NADA",
+  "prova": {
+   "mapa": "MAP_LAKE_VERITY_LOW_WATER",
+   "pos": [
+    48,
+    42
+   ]
+  }
+ },
+ {
+  "id": "T157.6",
+  "nome": "LAGO: e SAI. Segunda metade do pedido, e ela precisa de caso proprio porque a prova do T157.5 e a posicao DENTRO do mapa e esta e o mapa de destino. O jogador entra pelo warp 0, sobe quatro tiles pelo leito e volta descendo: ao pisar de novo na boca e continuar para o sul, o metatile 519 (MB_SOUTH_ARROW_WARP) dispara e devolve o jogador ao VerityLakefront. Antes da conversao este caso seria vazio, porque o jogador nao conseguia dar o primeiro passo para longe da boca: a subida de quatro tiles e a metade que discrimina.",
+  "opcoes": 32,
+  "warp": "MAP_LAKE_VERITY_LOW_WATER",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:UP*5,60:NADA,16:DOWN*8,240:NADA",
+  "prova": {
+   "mapa": "MAP_VERITY_LAKEFRONT"
+  }
+ },
+ {
+  "id": "T157.7",
+  "nome": "BALDE (c), OBSTACULO REPOSICIONADO: a pedra empurrada da Oreburgh Mine B2F. O balde (c) sao os obstaculos que a coordenada da fonte punha em parede ou em cima de outro objeto, e ate 22/08/2026 o pedras_sinnoh.py simplesmente os recusava: 93 saiam por 'tile ja ocupado' e 36 por 'parede macica'. O empurrao de ate 3 tiles (o mesmo raio que bolas_sinnoh.py e o importador de NPC ja usavam) traz de volta o que cai perto, e nenhum portao foi afrouxado: o tile de destino continua tendo que ser andavel, livre, alcancavel a pe e passar por `conectado` e `sem_bolso`, que provam por busca em largura, SEM Rock Smash na mochila, que ninguem fica preso. Esta pedra andou 2 tiles (censo pedras_sinnoh_censo.tsv, OreburghMine_B2F 18,25) e a rota de oito pernas do warp 0 encosta nela em (19,25). A rota DESVIA pela linha 24 de proposito: em 23/08/2026 o sprite proprio do Roark entrou nesta ROM e o NPC dele nasceu em (20,25), no meio da linha 25; descer para a 24, atravessar e voltar e o unico caminho que chega em (19,25) com a pedra na frente, e nao com o Roark.",
+  "opcoes": 32,
+  "warp": "MAP_OREBURGH_MINE_B2F",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:DOWN*2,40:NADA,16:RIGHT*11,40:NADA,16:DOWN*4,40:NADA,16:RIGHT*3,40:NADA,16:DOWN*4,40:NADA,16:LEFT*2,40:NADA,16:DOWN*4,40:NADA,16:LEFT*9,40:NADA,16:DOWN*2,40:NADA,16:LEFT*3,120:NADA",
+  "prova": {
+   "mapa": "MAP_OREBURGH_MINE_B2F",
+   "pos": [
+    19,
+    25
+   ]
+  }
+ },
+ {
+  "id": "T157.8",
+  "nome": "QUARTO DO ROTOM: o eletrodomestico e CENARIO QUE FALA, e a caixa dele engole o passo seguinte. Os 5 aparelhos e os 2 livros da fonte tem `hidden_flag` viva e cada um abre o menu de troca de forma do Rotom, mecanica de gen 4 que este motor nao tem no mapa; o que ele TEM e o item, `ITEM_ROTOM_CATALOG` com `ItemUseOutOfBattle_RotomCatalog` (src/data/items.h:13629), entregue pela Dex. Por decisao do condutor os sete entraram como movel com texto que manda usar o catalogo, e o mapa saiu de 0 de 8 objetos para 7 de 8. ROTA e PROVA numa coisa so: entrando pelo warp 0 em (3,8), UP saturante para em (3,6) (a linha 5 e parede em x=2 e x=3), RIGHT leva a (4,6) e UP encosta no aparelho de (4,5) sem andar, porque corpo e solido. O A abre a caixa, e entao DOWN*4 NAO ANDA: se a caixa nao tivesse aberto, esses quatro apertos desceriam ate (4,8), que e warp, e o caso terminaria no TeamGalacticEternaBuilding_1F. Ou seja, o mapa de chegada sozinho ja discrimina, e a posicao (4,6) confirma.",
+  "opcoes": 32,
+  "warp": "MAP_ROTOMS_ROOM",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:UP*20,60:NADA,16:RIGHT*2,60:NADA,16:UP*2,90:NADA,20:A,240:NADA,16:DOWN*4,180:NADA",
+  "prova": {
+   "mapa": "MAP_ROTOMS_ROOM",
+   "pos": [
+    4,
+    6
+   ]
+  }
+ },
+ {
+  "id": "T157.9",
+  "nome": "AS ONZE BOLAS DE NEVE ATRAVESSADAS DE PONTA A PONTA, DA PORTA ATE A CANDICE, EM DEZESSEIS PERNAS. Este e o caso de travessia do puzzle inteiro: ele nao mede um tile, mede o labirinto de gelo resolvido com as bolas no lugar. A rota comeca no warp 0 em (11,27), sobe a antecamara a pe ate (11,24), vai para (12,24) e ENCOSTA NA BOLA NOVA: UP escorrega dois tiles e para em (12,22), um tile acima do batente de (12,21), que e uma das cinco bolas que entraram nesta rodada. Dali volta para (12,24), passa para (11,24) e sobe a COLUNA 11 inteira em nove pernas, (11,22), (11,21), (11,19), (11,16), (11,12), (11,9), (11,6), (11,4) e (11,3), que sao os degraus que os tiles de bloqueio direcional 193 desenham: sem eles a coluna seria um deslize unico ate o topo, e com a regra errada de escorregao o modelo prometia parada em outro lugar em quase todas elas. A PROVA e parar em (11,3), colado na lider de (11,2). A rota foi escolhida por NAO cruzar a linha de vista de treinador nenhum: nenhuma batalha abre no meio, entao a posicao final e do puzzle e nao de sorte. A REGRA DO ESCORREGAO, calibrada contra o emulador em 23/08/2026 com 174 sondas lidas da EWRAM: o deslize continua enquanto o tile SOB OS PES for MB_ICE e so ele (`MetatileBehavior_IsIce_2`, src/metatile_behavior.c:370), e o bloqueio direcional dos tiles 192/193 do labirinto vale tambem para SAIR, porque `IsMetatileDirectionallyImpassable` (src/event_object_movement.c:6615) olha o tile de ORIGEM com `gOppositeDirectionBlockedMetatileFuncs` alem do de destino. Em chao COMUM a perna leva DOIS toques, porque a primeira tecla de uma direcao nova so vira o boneco; em cima do GELO leva UM, porque ali o jogador nao esta CONTROLLABLE e o toque ja anda.",
+  "warp": "MAP_SNOWPOINT_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "150:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:RIGHT*2,300:NADA,24:UP*2,300:NADA,24:DOWN,300:NADA,24:LEFT*2,300:NADA,24:UP*2,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA",
+  "prova": {
+   "mapa": "MAP_SNOWPOINT_CITY_GYM",
+   "pos": [
+    11,
+    3
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T157.10",
+  "nome": "A BOLA NOVA DE (12,21) E O BATENTE, E ELA ESTA ACORDADA. Bola de neve aqui nao e bloco de Strength (o chao e MB_ICE inteiro e o motor entra em movimento forcado antes de chegar em `TryPushBoulder`): ela e OBJETO SOLIDO, e objeto solido so vale se o motor o ACORDAR. `gObjectEvents` tem 16 vagas (OBJECT_EVENTS_COUNT, include/constants/global.h:95), a vaga 0 e do jogador, e `TrySpawnObjectEvents` (src/event_object_movement.c:2899) so acorda quem cai na janela de 20 por 17 tiles em volta da camera: passando de 15 objetos vivos ele simplesmente PARA de acordar, sem erro nenhum, e a bola que nao acordou deixa de ser solida. Este caso mede que a de (12,21), uma das cinco que entraram em 23/08/2026, esta acordada: do warp o jogador sobe a antecamara ate (11,24), anda para (12,24) e UP escorrega DOIS tiles so, parando em (12,22). Sem a bola o mesmo escorregao subiria treze tiles ate (12,9), que e o que `bolas_neve_sinnoh.desliza` devolve com ela fora do conjunto de solidos. O par e o T157.11. Em chao COMUM a perna leva DOIS toques, porque a primeira tecla de uma direcao nova so vira o boneco; em cima do GELO leva UM, porque ali o jogador nao esta CONTROLLABLE e o toque ja anda.",
+  "warp": "MAP_SNOWPOINT_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "150:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:RIGHT*2,300:NADA,24:UP*2,300:NADA",
+  "prova": {
+   "mapa": "MAP_SNOWPOINT_CITY_GYM",
+   "pos": [
+    12,
+    22
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T157.11",
+  "nome": "PAR DO T157.10, DO MESMO TILE E NA DIRECAO QUE NAO TEM BOLA. O jogador chega no MESMO (12,24) pelo MESMO caminho e com o MESMO numero de toques; a unica variavel e a direcao. Para o norte a bola de (12,21) segura o escorregao em dois tiles (T157.10); para o leste a linha 24 nao tem bola nenhuma e ele corre CINCO tiles, ate (17,24), onde o chao deixa de ser gelo. Sem este par o T157.10 passaria num jogo em que o jogador parasse em (12,22) por qualquer outro motivo, parede desenhada por cima, elevacao errada ou controle morto, e nao porque ha um corpo solido em (12,21). A REGRA DO ESCORREGAO, calibrada contra o emulador em 23/08/2026 com 174 sondas lidas da EWRAM: o deslize continua enquanto o tile SOB OS PES for MB_ICE e so ele (`MetatileBehavior_IsIce_2`, src/metatile_behavior.c:370), e o bloqueio direcional dos tiles 192/193 do labirinto vale tambem para SAIR, porque `IsMetatileDirectionallyImpassable` (src/event_object_movement.c:6615) olha o tile de ORIGEM com `gOppositeDirectionBlockedMetatileFuncs` alem do de destino.",
+  "warp": "MAP_SNOWPOINT_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "150:NADA,24:UP,300:NADA,24:UP,300:NADA,24:UP,300:NADA,24:RIGHT*2,300:NADA,24:RIGHT,300:NADA",
+  "prova": {
+   "mapa": "MAP_SNOWPOINT_CITY_GYM",
+   "pos": [
+    17,
+    24
+   ],
+   "andou": true
+  }
+ }
 ]

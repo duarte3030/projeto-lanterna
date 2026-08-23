@@ -6,7 +6,13 @@ VeilstoneCityNortheastHouse_EventScript_Npc1::
 	end
 
 VeilstoneCityNortheastHouse_Text_Npc1:
-	.string "You're a Trainer, aren't you?\pYou see, there's this Pokémon I'd like\nsomeone to look after.\pIt's a Pokémon called PORYGON.\nI found it near Team Galactic's building.\pI'm no Trainer, so can you take it off\nmy hands?$"
+	.string "You're a Trainer, aren't you?\p"
+	.string "You see, there's this Pokémon I'd like\n"
+	.string "someone to look after.\p"
+	.string "It's a Pokémon called PORYGON. I found\n"
+	.string "it near Team Galactic's building.\p"
+	.string "I'm no Trainer, so can you take it off\n"
+	.string "my hands?$"
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
 

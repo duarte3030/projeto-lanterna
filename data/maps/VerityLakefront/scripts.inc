@@ -14,11 +14,11 @@ VerityLakefront_EventScript_CoordEvent_WereAtTheLake::
 	lockall
 	msgbox VerityLakefront_Text_WereAtTheLake, MSGBOX_DEFAULT
 	setvar VAR_SINNOH_VERITY_BEIRA_ESTADO, 1
-	releaseall
 	playse SE_M_SURF
-	fadescreen FADE_TO_BLACK
+	delay 30
 	warp MAP_LAKE_VERITY_LOW_WATER, 39, 47
-	fadescreen FADE_FROM_BLACK
+	waitstate
+	releaseall
 	end
 
 VerityLakefront_Text_WereAtTheLake:

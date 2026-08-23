@@ -1,4 +1,5 @@
 CelesticTownNorthHouse_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, CelesticTownNorthHouse_OnTransition
 	.byte 0
 
 CelesticTownNorthHouse_EventScript_Npc1::
@@ -45,3 +46,15 @@ CelesticTownNorthHouse_EventScript_Elder::
 CelesticTownNorthHouse_Text_UsingSurfGoPlaces:
 	.string "Using the move Surf, you'll be able to\ngo to places that were inaccessible.\pYou'd be surprised where you can go.$"
 @ <<< B6 Sinnoh S5: grupo de hidden_flag <<<
+
+@ ponytail: portao de NPC de cena com a flag RECALCULADA a cada entrada.
+@ Acende sempre e so apaga se o marco ja caiu, entao nao depende de
+@ linha nenhuma em new_game.inc e save antiga se comporta igual a nova.
+CelesticTownNorthHouse_OnTransition:
+	setflag FLAG_SINNOH_ESCONDE_CELESTIC_TOWN_NORTH_HOUSE_ELDER
+	call_if_set FLAG_GALACTICA_CELESTIC, CelesticTownNorthHouse_EventScript_Mostra_CELESTIC_TOWN_NORTH_HOUSE_ELDER
+	end
+
+CelesticTownNorthHouse_EventScript_Mostra_CELESTIC_TOWN_NORTH_HOUSE_ELDER::
+	clearflag FLAG_SINNOH_ESCONDE_CELESTIC_TOWN_NORTH_HOUSE_ELDER
+	return

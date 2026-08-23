@@ -57,7 +57,10 @@ MiningMuseum_EventScript_Npc7::
 	end
 
 MiningMuseum_Text_Npc7:
-	.string "The history of Oreburgh Mine...\pYou could call it a history of effort and\nfriendship between people and Pokémon.$"
+	.string "The history of Oreburgh Mine...\p"
+	.string "You could call it a history of effort\n"
+	.string "and friendship between people and\l"
+	.string "Pokémon.$"
 
 MiningMuseum_EventScript_Placa8::
 	msgbox MiningMuseum_Text_Placa8, MSGBOX_SIGN

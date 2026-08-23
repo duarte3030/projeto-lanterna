@@ -22,7 +22,10 @@ SnowpointCityPokecenter1F_EventScript_Npc1::
 	end
 
 SnowpointCityPokecenter1F_Text_Npc1:
-	.string "You know how there are many Ice-type\nPokémon around Snowpoint City?\pI wonder if they also live in the temple?$"
+	.string "You know how there are many Ice-type\n"
+	.string "Pokémon around Snowpoint City?\p"
+	.string "I wonder if they also live in the\n"
+	.string "temple?$"
 
 SnowpointCityPokecenter1F_EventScript_Npc2::
 	msgbox SnowpointCityPokecenter1F_Text_Npc2, MSGBOX_NPC

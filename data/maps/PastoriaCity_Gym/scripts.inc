@@ -70,7 +70,9 @@ PastoriaCity_Gym_Text_Intro:
 	.string "...$"
 
 PastoriaCity_Gym_Text_Defeat:
-	.string "Hunwah!\nIt's gone and ended!How will I say this... I want more!\nI wanted to battle a lot more!$"
+	.string "Hunwah! It's gone and ended!How will I\n"
+	.string "say this... I want more! I wanted to\l"
+	.string "battle a lot more!$"
 
 PastoriaCity_Gym_Text_Post:
 	.string "...$"

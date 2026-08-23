@@ -638,7 +638,15 @@ def demo():
     """Autoteste. As duas mutacoes plantadas sao as duas que MATAM o jogo."""
     cort = cortados()
     const = constantes()
-    assert len(cort) == 111, len(cort)
+    # O numero NAO fica cravado (23/08/2026): ele estava em 111 e a lista do Gui
+    # ja tinha ido a 113, entao o `--demo` reprovava por envelhecimento e nao por
+    # defeito. O que vale afirmar aqui e que `cortados()` le a MESMA lista que
+    # mede (`completude.CORTES_DO_GUI`, modo `deficit`) e nao perde entrada pelo
+    # caminho: numero decorado envelhece, cruzamento nao.
+    declarados = {m for x in C.CORTES_DO_GUI if x["modo"] == "deficit"
+                  for m in x["alvo"]}
+    assert set(cort) == {m for m in declarados if os.path.isdir(f"{MAPS}/{m}")}
+    assert len(cort) >= 100, len(cort)
 
     # 1. mapa que e PASSAGEM OBRIGATORIA entre dois vivos reprova.
     #    Planto um cortado no meio do unico caminho: se o BFS nao acusar, a

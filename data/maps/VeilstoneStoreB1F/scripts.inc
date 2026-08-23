@@ -1,4 +1,5 @@
 VeilstoneStoreB1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, VeilstoneStoreB1F_OnTransition
 	.byte 0
 
 VeilstoneStoreB1F_EventScript_Caixa::
@@ -125,7 +126,9 @@ VeilstoneStoreB1F_EventScript_ProfRowan::
 	faceplayer
 	msgbox VeilstoneStoreB1F_Text_RageCandyBarsAreTooPopular, MSGBOX_DEFAULT
 	msgbox VeilstoneStoreB1F_Text_DoesLifeContinueToThrillYou, MSGBOX_DEFAULT
-	setflag FLAG_SINNOH_ESCONDE_VEILSTONE_STORE_B1F_PROF_ROWAN
+	@ 23/08/2026: o `setflag` de esconder saiu daqui. Quem manda na
+	@ flag agora e o ON_TRANSITION do mapa, que a recalcula a cada
+	@ entrada a partir de FLAG_SYS_GAME_CLEAR.
 	release
 	end
 
@@ -133,5 +136,23 @@ VeilstoneStoreB1F_Text_RageCandyBarsAreTooPopular:
 	.string "Prof. Rowan: Hmm... Rage Candy Bars\nare too popular, it seems.$"
 
 VeilstoneStoreB1F_Text_DoesLifeContinueToThrillYou:
-	.string "Ah, {PLAYER}, it's you.\pDoes life continue to thrill you?\nIt does for me.\pFor example, I recently discovered\nsome Pokémon evolve only in certain\nlocations.\pWhen I learned that, I felt thrilled!$"
+	.string "Ah, {PLAYER}, it's you.\p"
+	.string "Does life continue to thrill you?\n"
+	.string "It does for me.\p"
+	.string "For example, I recently discovered\n"
+	.string "some Pokémon evolve only in certain\l"
+	.string "locations.\p"
+	.string "When I learned that, I felt thrilled!$"
 @ <<< B6 Sinnoh S5: grupo de hidden_flag <<<
+
+@ ponytail: portao de NPC de cena com a flag RECALCULADA a cada entrada.
+@ Acende sempre e so apaga se o marco ja caiu, entao nao depende de
+@ linha nenhuma em new_game.inc e save antiga se comporta igual a nova.
+VeilstoneStoreB1F_OnTransition:
+	setflag FLAG_SINNOH_ESCONDE_VEILSTONE_STORE_B1F_PROF_ROWAN
+	call_if_set FLAG_SYS_GAME_CLEAR, VeilstoneStoreB1F_EventScript_Mostra_VEILSTONE_STORE_B1F_PROF_ROWAN
+	end
+
+VeilstoneStoreB1F_EventScript_Mostra_VEILSTONE_STORE_B1F_PROF_ROWAN::
+	clearflag FLAG_SINNOH_ESCONDE_VEILSTONE_STORE_B1F_PROF_ROWAN
+	return

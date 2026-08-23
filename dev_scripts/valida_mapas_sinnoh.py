@@ -232,14 +232,22 @@ def comportamento(layouts, layout_id, x, y):
     if len(dados) < 2:
         return None
     mt = struct.unpack("<H", dados)[0] & 0x3FF
-    # O corte primario/secundario e a CONSTANTE do motor (512), nunca o tamanho
-    # do arquivo: gTileset_Building tem 8 metatiles e e primario mesmo assim.
-    if mt < 512:
+    # O corte primario/secundario e a CONSTANTE do motor, nunca o tamanho do
+    # arquivo: gTileset_Building tem 8 metatiles e e primario mesmo assim.
+    # A constante NAO e uma so, e ate 23/08/2026 este arquivo cravava 512:
+    # `GetNumMetatilesInPrimary` vale 512 em Emerald e 640 no ramo grande (FRLG e
+    # Johto), e `valida_warp_tile.py:300` ja lia isso do `layout_version` do
+    # layout. Com 512 num layout `frlg` ou `johto` o metatile 600 virava indice
+    # 88 do SECUNDARIO em vez de indice 600 do primario, e a funcao devolvia o
+    # comportamento ERRADO, calado. Hoje nao mordia porque a varredura oficial
+    # roda com `--so-sinnoh`; quem tirasse o filtro mediria lixo.
+    corte = 640 if L.get("layout_version") in ("frlg", "johto") else 512
+    if mt < corte:
         tab = W.tabela_de_atributos(L["primary_tileset"])[0] or []
         idx = mt
     else:
         tab = W.tabela_de_atributos(L["secondary_tileset"])[0] or []
-        idx = mt - 512
+        idx = mt - corte
     if idx >= len(tab):
         return None
     return nomes_de_comportamento().get(tab[idx])
@@ -567,9 +575,22 @@ def demo():
     assert colisao(layouts, lay, 11, 12) == 0, "o corredor plantado sumiu"
     homem = {"graphics_id": "OBJ_EVENT_GFX_MAN_1", "x": 12, "y": 12}
     assert fica_ai_de_proposito(homem, layouts, lay)[0] is False
-    # e com o mapa na mao a resposta continua False, porque (12,12) esta
-    # cercado de tile ILHADO: nao ha de onde encarar o coitado
-    assert fica_ai_de_proposito(homem, layouts, lay, d)[0] is False
+    # A SEGUNDA CAMADA, e o tile MUDOU em 23/08/2026. Ela cobra que, COM o mapa
+    # na mao, o veredito continue False quando nao ha de onde encarar o objeto.
+    # O tile antigo era o proprio (12,12), e ele deixou de servir: (11,12), o
+    # corredor ao lado, e andavel E alcancavel, entao `da_para_falar` acha um
+    # vizinho e responde True, que e a resposta CERTA (NPC em parede com quem se
+    # fala e desenho, nao defeito). O `--demo` estava vermelho por isso, na
+    # arvore limpa do 010cc1dd67, e nao por conserto nenhum desta rodada:
+    # a premissa "esta cercado de tile ILHADO" e que era falsa.
+    # (13,12) foi MEDIDO agora: `MB_CAVE`, colisao 1, e os QUATRO vizinhos
+    # ortogonais tambem solidos, ou seja parede macica de verdade.
+    murado = {"graphics_id": "OBJ_EVENT_GFX_MAN_1", "x": 13, "y": 12}
+    assert colisao(layouts, lay, 13, 12) != 0, "a parede macica plantada sumiu"
+    for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+        assert colisao(layouts, lay, 13 + dx, 12 + dy) != 0, \
+            "(13,12) deixou de ser parede macica: escolha outro tile murado"
+    assert fica_ai_de_proposito(murado, layouts, lay, d)[0] is False
     # e o MESMO sprite no corredor nem chega a esta pergunta: a colisao e zero
     assert colisao(layouts, lay, 11, 12) == 0
 
@@ -595,18 +616,25 @@ def demo():
         layouts, lay)[0] is False
 
     # 5. O ALVO DE `--corrigir` tem que ser ALCANÇÁVEL e VAZIO. Prova plantada
-    #    em RavagedPath, o mapa com 257 tiles andáveis e ilhados: (12,12) é
-    #    parede, o vizinho (11,12) é andável mas ILHADO, e a versão antiga de
-    #    `tile_livre_perto` mandaria o NPC justamente para lá. Esta é a
-    #    mutação: o alvo devolvido nunca pode ser um tile fora do alcance.
+    #    em RavagedPath, que ainda tem 124 tiles andáveis e ILHADOS: (25,4) é
+    #    parede e o vizinho (26,4) é andável mas fora do alcance dos warps, e a
+    #    versão antiga de `tile_livre_perto` mandaria o NPC justamente para lá.
+    #    Esta é a mutação: o alvo devolvido nunca pode ser um tile fora do
+    #    alcance.
+    #    O PAR ANTIGO ERA (12,12)/(11,12) e MORREU: medido em 23/08/2026, na
+    #    árvore limpa do 010cc1dd67, (11,12) É alcançável, então a premissa
+    #    "andável mas ilhado" era falsa e o `--demo` estava vermelho antes desta
+    #    rodada. O par novo foi medido nas duas árvores.
     Wr, Hr, gr = __import__("importa_npcs_sinnoh").grade(layouts, lay)
     alcance = __import__("importa_npcs_sinnoh").alcancaveis(
         Wr, Hr, gr, d.get("warp_events") or [])
-    assert colisao(layouts, lay, 11, 12) == 0 and (11, 12) not in alcance
-    alvo = tile_livre_perto(layouts, lay, 12, 12, mapa=d)
+    assert colisao(layouts, lay, 25, 4) != 0, "a parede plantada do item 5 sumiu"
+    assert colisao(layouts, lay, 26, 4) == 0 and (26, 4) not in alcance, \
+        "(26,4) deixou de ser andável e ilhado: escolha outro par"
+    alvo = tile_livre_perto(layouts, lay, 25, 4, mapa=d)
     assert alvo is None or alvo in alcance, alvo
     # sem `mapa` a função se recusa a chutar, em vez de devolver tile qualquer
-    assert tile_livre_perto(layouts, lay, 12, 12) is None
+    assert tile_livre_perto(layouts, lay, 25, 4) is None
 
     print("demo ok")
 

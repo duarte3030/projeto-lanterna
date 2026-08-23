@@ -137,13 +137,17 @@ Route203_Text_Trainer1Post:
 	.string "I guess if you don't have a single\nGym Badge, you're a total nobody...$"
 
 Route203_Text_Trainer2Intro:
-	.string "I get my get-up-and-go from my\nPokémon!Here we go!\nKRICKETOT! ZUBAT!$"
+	.string "I get my get-up-and-go from my\n"
+	.string "Pokémon!Here we go!\l"
+	.string "KRICKETOT! ZUBAT!$"
 
 Route203_Text_Trainer2Defeat:
 	.string "Ack! My Pokémon...$"
 
 Route203_Text_Trainer2Post:
-	.string "Keep out of the grass or dodge the\neyes of Trainers...?I always have a tough time choosing.$"
+	.string "Keep out of the grass or dodge the eyes\n"
+	.string "of Trainers...?I always have a tough\l"
+	.string "time choosing.$"
 
 Route203_Text_Trainer3Intro:
 	.string "I found a Trainer while looking for\nsome Pokémon!$"

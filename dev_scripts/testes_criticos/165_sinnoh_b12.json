@@ -1,0 +1,171 @@
+[
+ {
+  "id": "T165.1",
+  "nome": "A BEIRA DO LAGO VERITY WARPA E POUSA NO TILE CERTO. dev_scripts/conserta_sinnoh_b12.py trocou a ordem de VerityLakefront_EventScript_CoordEvent_WereAtTheLake, que era `releaseall` / `playse` / `fadescreen FADE_TO_BLACK` / `warp` / `fadescreen FADE_FROM_BLACK` / `end`: o `releaseall` desfazia o LockPlayerFieldControls que o proprio `warp` acabara de por (DoWarp, src/field_screen_effect.c) e nao havia `waitstate` nenhum, entao o script seguia rodando por cima da troca de mapa e o segundo `fadescreen` brigava com o fade do warp. A ordem agora e a canonica do proprio repo (RustboroCity/scripts.inc:602): `warp` / `waitstate` / `releaseall` / `end`. Rota: entra por warp 0 (2,4), DOWN satura na coluna 2 e para em (2,15) porque a fileira 16 e parede, RIGHT anda 12 na fileira 15 ate (14,15) e UP satura em (14,13), que e o UNICO coord_event do mapa (VAR_SINNOH_VERITY_BEIRA_ESTADO == 0). O A fecha a caixa do {RIVAL} e a cena warpa. A prova e o TILE, e nao so o mapa: (39,47) e a coordenada que o `warp` escreve.",
+  "opcoes": 32,
+  "warp": "MAP_VERITY_LAKEFRONT",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:DOWN*16,40:NADA,16:RIGHT*13,40:NADA,16:UP*6,150:NADA,20:A*3,300:NADA",
+  "prova": {
+   "mapa": "MAP_LAKE_VERITY_LOW_WATER",
+   "pos": [
+    39,
+    47
+   ],
+   "vars": {
+    "0x415F": 1
+   }
+  }
+ },
+ {
+  "id": "T165.2",
+  "nome": "O JOGADOR ESTA SOLTO DO OUTRO LADO, e e por isso que o T165.1 sozinho nao bastaria. MESMA cena do T165.1, mais uma perna de LEFT depois que o mapa trocou: se o `releaseall` nao tivesse vindo DEPOIS do `waitstate`, o controle voltaria no meio do fade (o defeito antigo) ou nao voltaria (o erro oposto, que a pressa costuma criar). A perna satura: da fileira 47 do LakeVerityLowWater so ha chao de x=24 a x=39, entao LEFT*20 tem de terminar exatamente em (24,47).",
+  "opcoes": 32,
+  "warp": "MAP_VERITY_LAKEFRONT",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:DOWN*16,40:NADA,16:RIGHT*13,40:NADA,16:UP*6,150:NADA,20:A*3,300:NADA,16:LEFT*20,150:NADA",
+  "prova": {
+   "mapa": "MAP_LAKE_VERITY_LOW_WATER",
+   "pos": [
+    24,
+    47
+   ]
+  }
+ },
+ {
+  "id": "T165.3",
+  "nome": "PAR NEGATIVO do T165.1: com VAR_SINNOH_VERITY_BEIRA_ESTADO ja em 1 o coord_event (var_value 0) nao dispara, e a MESMA rota nao sai do mapa. O UP satura um tile ALEM do gatilho, em (14,12), porque a fileira 11 e parede: um caso que so dissesse 'continua em VerityLakefront' passaria tambem se o jogador tivesse travado no gatilho, e este nao passa.",
+  "opcoes": 32,
+  "vars": {
+   "0x415F": 1
+  },
+  "warp": "MAP_VERITY_LAKEFRONT",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:DOWN*16,40:NADA,16:RIGHT*13,40:NADA,16:UP*6,150:NADA,20:A*3,300:NADA",
+  "prova": {
+   "mapa": "MAP_VERITY_LAKEFRONT",
+   "pos": [
+    14,
+    12
+   ]
+  }
+ },
+ {
+  "id": "T165.4",
+  "nome": "O ANCIAO DE CELESTIC APARECE PELO MARCO, e nao por linha de jogo novo. Ele nasce escondido (new_game.inc acende FLAG_SINNOH_ESCONDE_CELESTIC_TOWN_NORTH_HOUSE_ELDER) e ate 23/08/2026 NENHUM script o trazia de volta: a fonte o revela em scripts_celestic_town_cave.s:133, cena que esta ROM ainda nao portou. Entrou o idioma da 0.s, o MAP_SCRIPT_ON_TRANSITION que RECALCULA a flag a cada entrada: acende sempre e so apaga se FLAG_GALACTICA_CELESTIC (CelesticTown/scripts.inc:140, o grunt da bomba caiu) ja estiver acesa. Save velha e save nova se comportam igual, e nada foi acrescentado a new_game.inc. AQUI A PROVA E DE FLAG E NAO DE POSICAO, e isso foi MEDIDO e nao escolhido: a primeira versao deste caso provava tile e reprovou porque o anciao e MOVEMENT_TYPE_WANDER_AROUND com movement_range_x 1, ou seja ele passeia entre (1,6) e (3,6) e o tile em que o jogador o encontra nao e determinista. Quem cobra POSICAO do mesmo idioma e o par T165.6/T165.7, onde o NPC e parado. O que este caso afirma e a metade que o wander nao mexe: entrando com o marco aceso, o ON_TRANSITION APAGA a flag de esconder, que e o que faz o objeto nascer.",
+  "opcoes": 32,
+  "flags": [
+   "FLAG_GALACTICA_CELESTIC"
+  ],
+  "warp": "MAP_CELESTIC_TOWN_NORTH_HOUSE",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:UP*6,40:NADA,16:LEFT*6,120:NADA",
+  "prova": {
+   "mapa": "MAP_CELESTIC_TOWN_NORTH_HOUSE",
+   "flags_apagadas": [
+    "FLAG_SINNOH_ESCONDE_CELESTIC_TOWN_NORTH_HOUSE_ELDER"
+   ]
+  }
+ },
+ {
+  "id": "T165.5",
+  "nome": "PAR NEGATIVO do T165.4, e o que da sentido a prova de posicao dele. MESMO warp, MESMA rota, unica diferenca FLAG_GALACTICA_CELESTIC apagada. Sem o anciao na frente a perna de LEFT corre a fileira 6 inteira e termina em (0,6), tres tiles alem. Ele tambem cobra a outra metade do ON_TRANSITION: a flag de esconder tem de estar ACESA aqui, porque o script a reacende toda vez que o mapa carrega. Um caso sozinho so diria que ALGUEM anda pela fileira 6; o par diz que quem segura o passo e o anciao, e que quem o solta e o marco.",
+  "opcoes": 32,
+  "warp": "MAP_CELESTIC_TOWN_NORTH_HOUSE",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:UP*6,40:NADA,16:LEFT*6,120:NADA",
+  "prova": {
+   "mapa": "MAP_CELESTIC_TOWN_NORTH_HOUSE",
+   "pos": [
+    0,
+    6
+   ],
+   "flags_acesas": [
+    "FLAG_SINNOH_ESCONDE_CELESTIC_TOWN_NORTH_HOUSE_ELDER"
+   ]
+  }
+ },
+ {
+  "id": "T165.6",
+  "nome": "O PROF. ROWAN DO ARMAZEM DE VEILSTONE, mesmo idioma e outro marco. A fonte o revela em scripts_pokemon_league_hall_of_fame.s:207, ou seja depois do Hall da Fama, e o equivalente desta ROM e FLAG_SYS_GAME_CLEAR (src/post_battle_event_funcs.c:44). Junto com o ON_TRANSITION saiu o `setflag` que ele fazia de SI MESMO no fim da fala: com a flag recalculada a cada entrada, esconder-se ali o faria sumir por um mapa e voltar no seguinte, que e pior que ficar de pe. Rota: warp 1 (4,7), UP satura em (4,2) porque a fileira 1 e parede, e o RIGHT bate no Rowan de (5,2).",
+  "opcoes": 32,
+  "flags": [
+   "FLAG_SYS_GAME_CLEAR"
+  ],
+  "warp": "MAP_VEILSTONE_STORE_B1F",
+  "warp_id": 1,
+  "roteiro": "150:NADA,16:UP*8,40:NADA,16:RIGHT*8,120:NADA",
+  "prova": {
+   "mapa": "MAP_VEILSTONE_STORE_B1F",
+   "pos": [
+    4,
+    2
+   ],
+   "flags_apagadas": [
+    "FLAG_SINNOH_ESCONDE_VEILSTONE_STORE_B1F_PROF_ROWAN"
+   ]
+  }
+ },
+ {
+  "id": "T165.7",
+  "nome": "PAR NEGATIVO do T165.6: MESMA rota sem FLAG_SYS_GAME_CLEAR, e a prova aqui e de FLAG e nao de tile. O motivo foi MEDIDO: a primeira versao cobrava (8,2) e a segunda rodada deu (6,2), porque o armazem tem duas BEAUTY em MOVEMENT_TYPE_WANDER_AROUND com raio 1 e a de (6,3) passeia por (5,2), (6,2) e (7,2). Com o Rowan de pe isso nao atrapalha o T165.6, e por um motivo do motor e nao por sorte: dois objetos nao ocupam o mesmo tile, entao quem para o passo em (5,2) so pode ser ele. Sem o Rowan, o tile em que o jogador encosta e loteria, e caso que depende de loteria e caso que um dia reprova sozinho. O que este caso afirma e a metade determinista: sem o marco, o ON_TRANSITION deixa a flag de esconder ACESA, e por isso nao ha ninguem para nascer em (5,2).",
+  "opcoes": 32,
+  "warp": "MAP_VEILSTONE_STORE_B1F",
+  "warp_id": 1,
+  "roteiro": "150:NADA,16:UP*8,40:NADA,16:RIGHT*8,120:NADA",
+  "prova": {
+   "mapa": "MAP_VEILSTONE_STORE_B1F",
+   "flags_acesas": [
+    "FLAG_SINNOH_ESCONDE_VEILSTONE_STORE_B1F_PROF_ROWAN"
+   ]
+  }
+ },
+ {
+  "id": "T165.8",
+  "nome": "O 21o GRUNT DO SALAO GALACTICO ACORDA, e antes ele nao acordava. GalacticHQ_Hall tinha 31 objetos dentro de UMA janela de 20x17 e o motor so tem 15 vagas (OBJECT_EVENTS_COUNT menos a do jogador): TrySpawnObjectEvents percorre a lista em ordem e simplesmente NAO acorda o resto, sem erro nenhum, e objeto que nao acordou tambem nao e solido. O conserto ESPALHOU, e nao apagou: os 16 primeiros ficaram onde estavam (o Cyrus e o Looker sao intocaveis por terem script proprio) e do 17o em diante cada um andou para o tile livre mais proximo que nao estoura janela nenhuma. O objeto 21 saiu de (24,14), no meio da formacao, para (24,27), no corredor central. A prova e de POSICAO: warp 2 (30,32), UP satura em (30,29) porque a fileira 28 e parede, LEFT anda 6 ate (24,29), e UP satura de novo ao bater NELE, em (24,28).",
+  "opcoes": 32,
+  "warp": "MAP_GALACTIC_HQ_HALL",
+  "warp_id": 2,
+  "roteiro": "150:NADA,16:UP*6,40:NADA,16:LEFT*7,40:NADA,16:UP*30,150:NADA",
+  "prova": {
+   "mapa": "MAP_GALACTIC_HQ_HALL",
+   "pos": [
+    24,
+    28
+   ]
+  }
+ },
+ {
+  "id": "T165.9",
+  "nome": "PAR NEGATIVO do T165.8: MESMA rota com FLAG_GALACTICA_QG_TOMADO acesa, que e a flag de esconder dos 34 grunts (o QG ja caiu). Sem ninguem na coluna 24 o UP corre o salao inteiro e so para em (24,10), porque a fileira 9 e parede ali. Dezoito tiles de diferenca: o par prova que quem segurou o passo do T165.8 foi um sprite ACORDADO, e nao geometria.",
+  "opcoes": 32,
+  "flags": [
+   "FLAG_GALACTICA_QG_TOMADO"
+  ],
+  "warp": "MAP_GALACTIC_HQ_HALL",
+  "warp_id": 2,
+  "roteiro": "150:NADA,16:UP*6,40:NADA,16:LEFT*7,40:NADA,16:UP*30,150:NADA",
+  "prova": {
+   "mapa": "MAP_GALACTIC_HQ_HALL",
+   "pos": [
+    24,
+    10
+   ]
+  }
+ },
+ {
+  "id": "T165.10",
+  "nome": "A SOLEIRA DO RESTAURANTE FICOU LIVRE. O Restaurant e 10x9, ou seja o mapa INTEIRO cabe dentro da janela de 20x17: la espalhar nao existe como opcao, e os 19 objetos tiveram de virar 15. Quem saiu primeiro nao foi o de indice maior e sim o que estava NA SOLEIRA, porque NPC mudo colado na porta e o que tranca o jogador assim que ele entra: sairam os dois CHEF de (5,8) e (4,7), os dois vizinhos do warp 1. A prova e que a fileira 8 abriu: entrando por esse warp, RIGHT satura em (8,8) porque a coluna 9 e parede. Antes do conserto o CHEF de (5,8) parava o primeiro passo e o jogador terminava em (4,8), em cima da propria porta.",
+  "opcoes": 32,
+  "warp": "MAP_RESTAURANT",
+  "warp_id": 1,
+  "roteiro": "150:NADA,16:RIGHT*10,150:NADA",
+  "prova": {
+   "mapa": "MAP_RESTAURANT",
+   "pos": [
+    8,
+    8
+   ]
+  }
+ }
+]

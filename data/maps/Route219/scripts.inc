@@ -18,10 +18,13 @@ Route219_Text_Trainer1Intro:
 	.string "I love my inflatable tube.\nSo I admire jellyfish Pokémon!\p$"
 
 Route219_Text_Trainer1Defeat:
-	.string "I'm drifting away...\n$"
+	.string "I'm drifting away...$"
 
 Route219_Text_Trainer1Post:
-	.string "I wish Professor Rowan would\ngive me a Pokédex.\pBut that old guy looks kind of\nscary.\n$"
+	.string "I wish Professor Rowan would\n"
+	.string "give me a Pokédex.\p"
+	.string "But that old guy looks kind of\n"
+	.string "scary.$"
 
 Route219_EventScript_Trainer2::
 	trainerbattle_single TRAINER_SINNOH_TUBER_MARIEL, Route219_Text_Trainer2Intro, Route219_Text_Trainer2Defeat
@@ -32,7 +35,7 @@ Route219_Text_Trainer2Intro:
 	.string "I can't swim without my inflatable tube.\nBut my Pokémon might be strong!\p$"
 
 Route219_Text_Trainer2Defeat:
-	.string "They weren't tough, my Pokémon...\n$"
+	.string "They weren't tough, my Pokémon...$"
 
 Route219_Text_Trainer2Post:
 	.string "My mommy said that Professor Rowan\nis really kindhearted.$"

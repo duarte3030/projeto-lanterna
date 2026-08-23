@@ -19,10 +19,12 @@ Route213_Text_Trainer1Intro:
 	.string "I swim the whole year round.\nI'm not losing a battle at sea!\p$"
 
 Route213_Text_Trainer1Defeat:
-	.string "I lost at sea! But I swim here the\nwhole year round!\n$"
+	.string "I lost at sea! But I swim here the\n"
+	.string "whole year round!$"
 
 Route213_Text_Trainer1Post:
-	.string "When you're out at sea, Water-type\nPokémon look more lively.\n$"
+	.string "When you're out at sea, Water-type\n"
+	.string "Pokémon look more lively.$"
 
 Route213_EventScript_Trainer2::
 	trainerbattle_single TRAINER_SINNOH_SWIMMER_EVAN, Route213_Text_Trainer2Intro, Route213_Text_Trainer2Defeat
@@ -33,10 +35,13 @@ Route213_Text_Trainer2Intro:
 	.string "Brr... I'm starting to get chilly.\nI could use a win to get warmed up.\p$"
 
 Route213_Text_Trainer2Defeat:
-	.string "The chill of the sea, and the\ncoldness of defeat...\pIt's a double whammy.\n$"
+	.string "The chill of the sea, and the\n"
+	.string "coldness of defeat...\p"
+	.string "It's a double whammy.$"
 
 Route213_Text_Trainer2Post:
-	.string "Look at my lips...\nThey're the color of prunes!\n$"
+	.string "Look at my lips...\n"
+	.string "They're the color of prunes!$"
 
 Route213_EventScript_Trainer3::
 	trainerbattle_single TRAINER_SINNOH_SWIMMER_MARY, Route213_Text_Trainer3Intro, Route213_Text_Trainer3Defeat
@@ -47,10 +52,14 @@ Route213_Text_Trainer3Intro:
 	.string "Hello, there!\nAren't you going to swim?\p$"
 
 Route213_Text_Trainer3Defeat:
-	.string "What's saltier?\nMy tears or the sea...\n$"
+	.string "What's saltier?\n"
+	.string "My tears or the sea...$"
 
 Route213_Text_Trainer3Post:
-	.string "There aren't many sea routes that\nyou can swim in Sinnoh.\pIt makes me want to take a vacation\nin the Hoenn region.\n$"
+	.string "There aren't many sea routes that\n"
+	.string "you can swim in Sinnoh.\p"
+	.string "It makes me want to take a vacation\n"
+	.string "in the Hoenn region.$"
 
 Route213_EventScript_Trainer4::
 	trainerbattle_single TRAINER_SINNOH_SWIMMER_HALEY, Route213_Text_Trainer4Intro, Route213_Text_Trainer4Defeat
@@ -61,10 +70,11 @@ Route213_Text_Trainer4Intro:
 	.string "Hi, wave-riding Trainer!\nHow about a battle on the sea?\p$"
 
 Route213_Text_Trainer4Defeat:
-	.string "You sure schooled me there.\n$"
+	.string "You sure schooled me there.$"
 
 Route213_Text_Trainer4Post:
-	.string "Maybe I should switch to surfing,\ntoo...\n$"
+	.string "Maybe I should switch to surfing,\n"
+	.string "too...$"
 
 Route213_EventScript_Trainer5::
 	trainerbattle_single TRAINER_SINNOH_TUBER_JARED, Route213_Text_Trainer5Intro, Route213_Text_Trainer5Defeat
@@ -75,10 +85,12 @@ Route213_Text_Trainer5Intro:
 	.string "Isn't this nice?\nI love my inflatable tube!\p$"
 
 Route213_Text_Trainer5Defeat:
-	.string "It's not easy trying to move holding\non to this inflatable tube.\n$"
+	.string "It's not easy trying to move holding\n"
+	.string "on to this inflatable tube.$"
 
 Route213_Text_Trainer5Post:
-	.string "Mom blew up my inflatable tube for me.\nI ran out of breath just opening it!\n$"
+	.string "Mom blew up my inflatable tube for me.\n"
+	.string "I ran out of breath just opening it!$"
 
 Route213_EventScript_Trainer6::
 	trainerbattle_single TRAINER_SINNOH_TUBER_CHELSEA, Route213_Text_Trainer6Intro, Route213_Text_Trainer6Defeat
@@ -89,10 +101,11 @@ Route213_Text_Trainer6Intro:
 	.string "Ehehe...\nI can battle, too!\p$"
 
 Route213_Text_Trainer6Defeat:
-	.string "Losing made me all hungry now.\n$"
+	.string "Losing made me all hungry now.$"
 
 Route213_Text_Trainer6Post:
-	.string "That cloud looks like giant ice cream!\nI bet it tastes yummy!\n$"
+	.string "That cloud looks like giant ice cream!\n"
+	.string "I bet it tastes yummy!$"
 
 Route213_EventScript_Trainer7::
 	trainerbattle_single TRAINER_SINNOH_BEAUTY_CYNDY, Route213_Text_Trainer7Intro, Route213_Text_Trainer7Defeat
@@ -103,10 +116,12 @@ Route213_Text_Trainer7Intro:
 	.string "Let me demonstrate my technique.\nIt's how this grown-up battles.\p$"
 
 Route213_Text_Trainer7Defeat:
-	.string "Oh, my gosh!\nYou attack that savagely?\n$"
+	.string "Oh, my gosh!\n"
+	.string "You attack that savagely?$"
 
 Route213_Text_Trainer7Post:
-	.string "You're so much more of a Trainer\nthan you look!\n$"
+	.string "You're so much more of a Trainer\n"
+	.string "than you look!$"
 
 Route213_EventScript_Trainer8::
 	trainerbattle_single TRAINER_SINNOH_FISHERMAN_KENNETH, Route213_Text_Trainer8Intro, Route213_Text_Trainer8Defeat
@@ -117,10 +132,13 @@ Route213_Text_Trainer8Intro:
 	.string "Waah! Now! Just now!\nI was just about to reel it in!\p$"
 
 Route213_Text_Trainer8Defeat:
-	.string "You need to have more respect for\na grown-up...\n$"
+	.string "You need to have more respect for\n"
+	.string "a grown-up...$"
 
 Route213_Text_Trainer8Post:
-	.string "Go on. Don't be shy about going up to\npeople to hear what they have to say...\pJust don't you talk to me.\n$"
+	.string "Go on. Don't be shy about going up to\n"
+	.string "people to hear what they have to say...\p"
+	.string "Just don't you talk to me.$"
 
 Route213_EventScript_Trainer9::
 	trainerbattle_single TRAINER_SINNOH_SAILOR_PAUL, Route213_Text_Trainer9Intro, Route213_Text_Trainer9Defeat
@@ -131,10 +149,13 @@ Route213_Text_Trainer9Intro:
 	.string "Traveling alone, are you? That's\nimpressive! How about we battle?\p$"
 
 Route213_Text_Trainer9Defeat:
-	.string "You're good, pip-squeak!\n$"
+	.string "You're good, pip-squeak!$"
 
 Route213_Text_Trainer9Post:
-	.string "Maybe I'll go work out down at the\nrestaurant again.\pThat place gets different people in\nevery day, and they all like battles.\n$"
+	.string "Maybe I'll go work out down at the\n"
+	.string "restaurant again.\p"
+	.string "That place gets different people in\n"
+	.string "every day, and they all like battles.$"
 
 
 @ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)

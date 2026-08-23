@@ -7,5 +7,5 @@ Twinleaf_Town_RivalsHouse_F1_EventScript_Mom::
 
 Twinleaf_Town_RivalsHouse_F1_Text_Mom:
 	.string "That boy is impossible to keep\n"
-	.string "still. He was gone in a flash\n"
+	.string "still. He was gone in a flash\l"
 	.string "again today.$"

@@ -36,7 +36,13 @@ CanalaveCityPokecenter1F_EventScript_Npc3::
 	end
 
 CanalaveCityPokecenter1F_Text_Npc3:
-	.string "I heard this cool rumor.\pIf you can get on Nintendo Wi-Fi\nConnection, you can go to the Wi-Fi\pPlaza.\pThe access to the Wi-Fi Plaza is through\nthe basement of any Pokémon Center.$"
+	.string "I heard this cool rumor.\p"
+	.string "If you can get on Nintendo Wi-Fi\n"
+	.string "Connection, you can go to the Wi-Fi\p"
+	.string "Plaza.\p"
+	.string "The access to the Wi-Fi Plaza is\n"
+	.string "through the basement of any Pokémon\l"
+	.string "Center.$"
 
 CanalaveCityPokecenter1F_EventScript_Npc4::
 	msgbox CanalaveCityPokecenter1F_Text_Npc4, MSGBOX_NPC

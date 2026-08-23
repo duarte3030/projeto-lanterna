@@ -20,10 +20,10 @@ Route215_Text_Trainer1Intro:
 	.string "Check the sharpness of my fighting\nPokémon's moves.\p$"
 
 Route215_Text_Trainer1Defeat:
-	.string "You've dulled its sharpness...\n$"
+	.string "You've dulled its sharpness...$"
 
 Route215_Text_Trainer1Post:
-	.string "Back to training for us!\n$"
+	.string "Back to training for us!$"
 
 Route215_EventScript_Trainer2::
 	trainerbattle_single TRAINER_SINNOH_BLACK_BELT_GREGORY, Route215_Text_Trainer2Intro, Route215_Text_Trainer2Defeat
@@ -34,10 +34,13 @@ Route215_Text_Trainer2Intro:
 	.string "You come along with your heart\npounding!\pYou think you can win like that?!\nHiyah!\p$"
 
 Route215_Text_Trainer2Defeat:
-	.string "Gurgle...\n$"
+	.string "Gurgle...$"
 
 Route215_Text_Trainer2Post:
-	.string "If I lose here, I wouldn't stand a\nchance at the Battle Frontier.\pNot against those hard-core pros,\nI wouldn't!\n$"
+	.string "If I lose here, I wouldn't stand a\n"
+	.string "chance at the Battle Frontier.\p"
+	.string "Not against those hard-core pros,\n"
+	.string "I wouldn't!$"
 
 Route215_EventScript_Trainer3::
 	trainerbattle_single TRAINER_SINNOH_BLACK_BELT_NATHANIEL, Route215_Text_Trainer3Intro, Route215_Text_Trainer3Defeat
@@ -51,7 +54,8 @@ Route215_Text_Trainer3Defeat:
 	.string "I should be lighter by the amount of\nsweat I just shed!\p$"
 
 Route215_Text_Trainer3Post:
-	.string "It's time for another workout.\nThe more I sweat, the tougher I get!\n$"
+	.string "It's time for another workout.\n"
+	.string "The more I sweat, the tougher I get!$"
 
 
 Route215_EventScript_Trainer4::
@@ -63,10 +67,11 @@ Route215_Text_Trainer4Intro:
 	.string "Hufff-huff, huff-huff.\nWant-huff a battle-huff?\p$"
 
 Route215_Text_Trainer4Defeat:
-	.string "Huff-huff, we-huff lose-huff.\n$"
+	.string "Huff-huff, we-huff lose-huff.$"
 
 Route215_Text_Trainer4Post:
-	.string "Bye-huff now-huff.\nHuff-huff, huff-huff.\n$"
+	.string "Bye-huff now-huff.\n"
+	.string "Huff-huff, huff-huff.$"
 
 Route215_EventScript_Trainer5::
 	trainerbattle_single TRAINER_SINNOH_RUIN_MANIAC_CALVIN, Route215_Text_Trainer5Intro, Route215_Text_Trainer5Defeat
@@ -77,10 +82,12 @@ Route215_Text_Trainer5Intro:
 	.string "I'm a treasure hunter.\pToday, the loot is a victory from\nyou!\p$"
 
 Route215_Text_Trainer5Defeat:
-	.string "I can't win.\nYou're too strong for me to win.\n$"
+	.string "I can't win.\n"
+	.string "You're too strong for me to win.$"
 
 Route215_Text_Trainer5Post:
-	.string "If one's after treasures, maybe the\nUnderground is the better choice.\n$"
+	.string "If one's after treasures, maybe the\n"
+	.string "Underground is the better choice.$"
 
 Route215_EventScript_Trainer6::
 	trainerbattle_single TRAINER_SINNOH_ACE_TRAINER_DENNIS, Route215_Text_Trainer6Intro, Route215_Text_Trainer6Defeat
@@ -91,10 +98,14 @@ Route215_Text_Trainer6Intro:
 	.string "I'll take on anyone!\nIt can only make me stronger!\p$"
 
 Route215_Text_Trainer6Defeat:
-	.string "You won and I lost, but the both of\nus gained something from this.\n$"
+	.string "You won and I lost, but the both of\n"
+	.string "us gained something from this.$"
 
 Route215_Text_Trainer6Post:
-	.string "In a Pokémon battle, it doesn't\nmatter how old or young you are.\pYour gender doesn't matter, either.\nNothing like that means anything!\n$"
+	.string "In a Pokémon battle, it doesn't\n"
+	.string "matter how old or young you are.\p"
+	.string "Your gender doesn't matter, either.\n"
+	.string "Nothing like that means anything!$"
 
 Route215_EventScript_Trainer7::
 	trainerbattle_single TRAINER_SINNOH_ACE_TRAINER_MAYA, Route215_Text_Trainer7Intro, Route215_Text_Trainer7Defeat
@@ -105,10 +116,11 @@ Route215_Text_Trainer7Intro:
 	.string "I'm taking the Veilstone Gym\nchallenge. But first...\p$"
 
 Route215_Text_Trainer7Defeat:
-	.string "...My confidence is crushed.\n$"
+	.string "...My confidence is crushed.$"
 
 Route215_Text_Trainer7Post:
-	.string "I think about Pokémon all day long.\nI was confident, you know.\n$"
+	.string "I think about Pokémon all day long.\n"
+	.string "I was confident, you know.$"
 
 Route215_EventScript_Trainer8::
 	trainerbattle_single TRAINER_SINNOH_JOGGER_CRAIG, Route215_Text_Trainer8Intro, Route215_Text_Trainer8Defeat
@@ -119,10 +131,13 @@ Route215_Text_Trainer8Intro:
 	.string "If I battle now, won't it mess up my\nusual pace?\p$"
 
 Route215_Text_Trainer8Defeat:
-	.string "My pace is completely off...\n$"
+	.string "My pace is completely off...$"
 
 Route215_Text_Trainer8Post:
-	.string "Sticking to one's own goal is more\nimportant than it seems.\pIf you match your goal with someone\nelse, you'll lose your identity.\n$"
+	.string "Sticking to one's own goal is more\n"
+	.string "important than it seems.\p"
+	.string "If you match your goal with someone\n"
+	.string "else, you'll lose your identity.$"
 
 
 @ Texto de placa vindo do pokeplatinum (dev_scripts/texto_placas_sinnoh.py)

@@ -66,8 +66,9 @@ Route210_North_Text_Trainer4Defeat:
 	.string "I didn't expect to lose...$"
 
 Route210_North_Text_Trainer4Post:
-	.string "While hiding, I think about what Pokémon\n"
-	.string "must be thinking inside their Poké Balls.$"
+	.string "While hiding, I think about what\n"
+	.string "Pokémon must be thinking inside their\l"
+	.string "Poké Balls.$"
 
 Route210_North_EventScript_Trainer5::
 	trainerbattle_single TRAINER_SINNOH_NINJA_BOY_DAVIDO, Route210_North_Text_Trainer5Intro, Route210_North_Text_Trainer5Defeat

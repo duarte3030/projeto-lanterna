@@ -125,7 +125,7 @@ TwinleafTown_MainHouse_2F_Text_TV:
 TwinleafTown_MainHouse_2F_Text_PC:
 	.string "POKéMON BASICS\p"
 	.string "People live alongside POKéMON in\n"
-	.string "this world. The people that battle\n"
+	.string "this world. The people that battle\l"
 	.string "POKéMON are called POKéMON Trainers.$"
 
 @ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
