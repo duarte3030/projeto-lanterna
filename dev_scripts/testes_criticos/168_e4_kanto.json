@@ -1,0 +1,94 @@
+[
+  {
+    "id": "T168.1",
+    "nome": "AS SALAS DO E4 DE KANTO ABREM, e o mecanismo NAO e o que a auditoria supos. O achado era real de ler: o warp 0 das salas de LORELEI, BRUNO e AGATHA fica em (6,12) e esse tile e SOLIDO com os quatro vizinhos solidos; as linhas 11 e 12 inteiras sao parede no blockdata. Medido depois: o blockdata e IDENTICO ao do pokefirered (colisao 1 em (6,11) e (6,12) nas duas arvores, metatile 675 nos dois), ou seja e estado herdado e nao estrago nosso; e quem tira o jogador de la NAO e `setmetatile`, que foi o que a auditoria procurou no scripts.inc da sala e nao achou. E o ON_FRAME: `PokemonLeague_LoreleisRoom_OnFrame` dispara com VAR_MAP_SCENE_POKEMON_LEAGUE em 0 e chama `PokemonLeague_EventScript_EnterRoom` (data/scripts/pokemon_league.inc:10), que faz `Common_Movement_WalkUp5` e SO DEPOIS sela a entrada com CloseEntry. applymovement de script nao consulta colisao, entao o jogador sai de (6,12) e para em (6,7). Este caso mede exatamente isso, sem apertar botao nenhum: warp para o warp 0 e espera. A prova e tripla e cada parte cobre um jeito de enganar: `pos` (6,7) diz que ele andou os cinco tiles, `andou` diz que o jogo respondeu, e a var em 1 diz que foi o roteiro da sala que rodou e nao um empurrao qualquer do motor. MEDIDO: a prova de `pos` saiu de (6,7) para (11,7) e ganhou uma perna, e o motivo e o mesmo do T92.4: a cena de entrada inteira roda DENTRO de um passo do roteiro, entao o leitor de EWRAM so ve o jogador ja parado em (6,7) e `andou` concluia 'o jogo nao respondeu'. O RIGHT*20 satura em (11,7), porque (12,7) e parede, e faz as duas coisas de uma vez: amostra duas posicoes distintas e prova que o jogador anda DENTRO da sala, ou seja que saiu mesmo do (6,12) selado.",
+    "warp": "MAP_POKEMON_LEAGUE_LORELEIS_ROOM",
+    "warp_id": 0,
+    "roteiro": "420:NADA,16:RIGHT*20,90:NADA",
+    "prova": {
+      "mapa": "MAP_POKEMON_LEAGUE_LORELEIS_ROOM",
+      "layout": "LAYOUT_POKEMON_LEAGUE_LORELEIS_ROOM",
+      "pos": [
+        11,
+        7
+      ],
+      "andou": true,
+      "vars": {
+        "0x4068": 1
+      }
+    }
+  },
+  {
+    "id": "T168.2",
+    "nome": "A TERCEIRA SALA, a da AGATHA, com a cena NA VEZ DELA. Nao e repeticao do T168.1: cada sala tem o SEU numero na mesma var, e a de Agatha so roda com VAR_MAP_SCENE_POKEMON_LEAGUE em 2 (`PokemonLeague_AgathasRoom_OnFrame`, data/maps/PokemonLeague_AgathasRoom_Frlg/scripts.inc:35), que e o estado de quem acabou de passar por Bruno. O harness escreve a var direto na EWRAM, que e mais barato que atravessar duas salas. Mesma prova tripla, e ela vale por todas as tres: a geometria de (6,12) e a mesma nas tres salas e o roteiro que abre tambem. MEDIDO: a prova de `pos` saiu de (6,7) para (11,7) e ganhou uma perna, e o motivo e o mesmo do T92.4: a cena de entrada inteira roda DENTRO de um passo do roteiro, entao o leitor de EWRAM so ve o jogador ja parado em (6,7) e `andou` concluia 'o jogo nao respondeu'. O RIGHT*20 satura em (11,7), porque (12,7) e parede, e faz as duas coisas de uma vez: amostra duas posicoes distintas e prova que o jogador anda DENTRO da sala, ou seja que saiu mesmo do (6,12) selado.",
+    "vars": {
+      "0x4068": 2
+    },
+    "warp": "MAP_POKEMON_LEAGUE_AGATHAS_ROOM",
+    "warp_id": 0,
+    "roteiro": "420:NADA,16:RIGHT*20,90:NADA",
+    "prova": {
+      "mapa": "MAP_POKEMON_LEAGUE_AGATHAS_ROOM",
+      "layout": "LAYOUT_POKEMON_LEAGUE_AGATHAS_ROOM",
+      "pos": [
+        11,
+        7
+      ],
+      "andou": true,
+      "vars": {
+        "0x4068": 3
+      }
+    }
+  },
+  {
+    "id": "T168.3",
+    "nome": "PAR NEGATIVO DO T168.2, e ele existe para deixar escrito POR QUE a leitura estatica viu uma trava. MESMA sala da Agatha, MESMO warp, MESMA espera, e a var em 0 em vez de 2: o `map_script_2` da sala nao casa, EnterRoom nao roda, e o jogador fica exatamente onde o warp o pos, em (6,12), cercado de parede. Ou seja: a geometria ESTA fechada, como a auditoria mediu, e quem a abre e a cena na vez certa. Chegar ali com a var errada so acontece por warp de debug; no jogo a var vem da sala anterior. Sem `andou` de proposito, porque aqui o certo e o jogador NAO andar.",
+    "vars": {
+      "0x4068": 0
+    },
+    "warp": "MAP_POKEMON_LEAGUE_AGATHAS_ROOM",
+    "warp_id": 0,
+    "roteiro": "420:NADA",
+    "prova": {
+      "mapa": "MAP_POKEMON_LEAGUE_AGATHAS_ROOM",
+      "layout": "LAYOUT_POKEMON_LEAGUE_AGATHAS_ROOM",
+      "pos": [
+        6,
+        12
+      ],
+      "vars": {
+        "0x4068": 0
+      }
+    }
+  },
+  {
+    "id": "T168.4",
+    "nome": "AS DUAS BIRTH ISLAND GANHAM PORTA, e a porta e a que a ROM ja tinha. O achado da caca a bugs era meio verdade: `FLAG_HIDE_DEOXYS` nunca ser apagada NAO e bug, e idioma vanilla (o Deoxys entra por `addobject` quando o triangulo e resolvido, e a flag so o esconde ate la). O bug e o outro lado: o menu da balsa de Lilycove cobra BOLSA E FLAG (src/script_menu.c:853, `CheckBagHasItem(ITEM_AURORA_TICKET) && FlagGet(FLAG_ENABLE_SHIP_BIRTH_ISLAND)`), o Seagallop de Vermilion cobra o mesmo par, e o UNICO `giveitem ITEM_AURORA_TICKET` do repo mora em `data/scripts/gift_aurora_ticket.inc`, dentro do Mystery Gift, que este cartucho nao tem. Resultado medido em 23/08/2026: `MAP_BIRTH_ISLAND_HARBOR` e `MAP_BIRTH_ISLAND_HARBOR_FRLG` eram inalcancaveis no JOGO estando alcancaveis no grafo de warp, e o Deoxys da Dex tinha estatico, mapa e script e nenhum caminho. O conserto segue a regra da pesquisa de lendarios (linha 22 de dev_scripts/lendarios_referencia.csv: 'nao copiar o gate por Mystery Gift'): o Aurora Ticket virou a decima linha de `chaves` em dex_distribuicao.json e sai pelo MESMO NPC do laboratorio que ja entrega os nove itens de troca de forma, com `setflag FLAG_ENABLE_SHIP_BIRTH_ISLAND` colado no `additem`. Nenhum mapa novo, nenhum estatico movido, zero custo de save (a flag e SYSTEM_FLAGS + 0x75, ja existia). O portao de ENREDO fica de pe: a atendente da balsa so atende com `FLAG_SYS_GAME_CLEAR`, entao Deoxys continua pos-Liga. Este caso anda a rota do T129.5, fala UMA vez com o NPC e le a flag da balsa acesa na EWRAM. Par negativo: T168.5.",
+    "warp": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+    "warp_id": 1,
+    "roteiro": "240:NADA,16:UP*7,90:NADA,16:A,240:NADA,16:A*2,300:NADA,16:A*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+      "flags_acesas": [
+        "FLAG_ENABLE_SHIP_BIRTH_ISLAND"
+      ]
+    }
+  },
+  {
+    "id": "T168.5",
+    "nome": "PAR NEGATIVO DO T168.4: a MESMA rota, SEM apertar A nenhuma vez. A flag da balsa continua APAGADA e o jogador para em (7,11), encostado no NPC. Sem ele o T168.4 passaria num jogo que ja nascesse com FLAG_ENABLE_SHIP_BIRTH_ISLAND acesa de fabrica, que e exatamente o atalho errado que este conserto recusou (por o setflag em new_game.inc daria a balsa a quem nunca falou com ninguem, e nao daria nada a save antiga).",
+    "warp": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+    "warp_id": 1,
+    "roteiro": "240:NADA,16:UP*7,90:NADA",
+    "prova": {
+      "mapa": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+      "pos": [
+        7,
+        11
+      ],
+      "flags_apagadas": [
+        "FLAG_ENABLE_SHIP_BIRTH_ISLAND"
+      ]
+    }
+  }
+]

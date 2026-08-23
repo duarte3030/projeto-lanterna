@@ -1,94 +1,103 @@
 [
- {
-  "id": "T154.1",
-  "nome": "BLOCKDATA COMPARTILHADO, O LADO CANONICO. A rodada do B10 fez layout de conteudo repetido apontar para UM unico .incbin (dev_scripts/dedupe_blockdata.py, chamado pelo map_data_rules.mk logo depois do mapjson): 2.373 dos 4.108 blobs de layouts.inc eram copia exata de outro e viraram referencia ao primeiro, 264.080 B de volta. Galar_TurffieldIndoor09 e o CANONICO do maior grupo, 40 layouts que agora leem os mesmos 448 B. O que este caso prova nao e que o mapa carrega: e a GEOMETRIA lida daquele blob, que so pode vir do map.bin. Entra-se pelo warp 0, em (7,12), no fundo do corredor de duas colunas (x=7 e x=8, y de 10 a 13, com y=13 fechado), e UP saturante sobe a coluna 7 inteira ate bater na parede da linha 2, parando em (7,3). Se o ponteiro compartilhado apontasse para blob errado, ou a parada mudaria ou o jogador nem sairia do lugar.",
-  "warp": "MAP_GALAR_TURFFIELD_INDOOR_09",
-  "warp_id": 0,
-  "roteiro": "150:NADA,16:UP*14,90:NADA",
-  "prova": {
-   "mapa": "MAP_GALAR_TURFFIELD_INDOOR_09",
-   "layout": "LAYOUT_GALAR_TURFFIELD_INDOOR_09",
-   "pos": [7, 3],
-   "andou": true
-  }
- },
- {
-  "id": "T154.2",
-  "nome": "BLOCKDATA COMPARTILHADO, O LADO ALIAS, E E ELE QUE PROVA O DEDUPE. Galar_TurffieldIndoor12 esta no MESMO grupo de 40 do T154.1 e foi um dos 2.373 que perderam o proprio .incbin: o `.4byte` do layout dele agora aponta para Galar_TurffieldIndoor09_Layout_Blockdata. O layout continua sendo o DELE (LAYOUT_GALAR_TURFFIELD_INDOOR_12, com largura e altura proprias na struct), so os bytes do mapa e que passaram a ser os mesmos. Mesma rota do T154.1, mesma parada (7,3). Este par com o T154.1 e a prova de ida e volta: canonico e alias entregam identicamente a mesma geometria.",
-  "warp": "MAP_GALAR_TURFFIELD_INDOOR_12",
-  "warp_id": 0,
-  "roteiro": "150:NADA,16:UP*14,90:NADA",
-  "prova": {
-   "mapa": "MAP_GALAR_TURFFIELD_INDOOR_12",
-   "layout": "LAYOUT_GALAR_TURFFIELD_INDOOR_12",
-   "pos": [7, 3],
-   "andou": true
-  }
- },
- {
-  "id": "T154.3",
-  "nome": "PAR NEGATIVO DO T154.1 E DO T154.2: mapa de blob DIFERENTE, mesma rota, parada DIFERENTE. Galar_TurffieldIndoor02 tambem tem o warp 0 em (7,12) e tambem tem o corredor nas colunas 7 e 8, mas o blockdata dele e outro (grupo de 2, nao o de 40): a parede fecha na linha 3 e nao na 2, entao o mesmo UP saturante para em (7,4). Sem este caso, o (7,3) dos dois primeiros nao separa `a colisao veio do map.bin certo` de `o harness sempre para em (7,3) nesse formato de sala`.",
-  "warp": "MAP_GALAR_TURFFIELD_INDOOR_02",
-  "warp_id": 0,
-  "roteiro": "150:NADA,16:UP*14,90:NADA",
-  "prova": {
-   "mapa": "MAP_GALAR_TURFFIELD_INDOOR_02",
-   "layout": "LAYOUT_GALAR_TURFFIELD_INDOOR_02",
-   "pos": [7, 4],
-   "andou": true
-  }
- },
- {
-  "id": "T154.4",
-  "nome": "TILESET QUE VIROU ASSET_ALIAS AINDA DESENHA E AINDA COLIDE. A mesma rodada rodou o dev_scripts/dedupe_assets.py, que achou 20 familias novas (37,8 KB) criadas pela entrada de Galar, entre elas gTilesetTiles_Galar26, byte a byte igual a gTilesetTiles_SeafoamIslands: a definicao virou `extern ... ASSET_ALIAS(gTilesetTiles_SeafoamIslands)` e os dois nomes passaram a ser o MESMO endereco. Galar_Circhester08 usa gTileset_Galar26 como tileset secundario. Alias quebrado nao da erro de link (o `__attribute__((alias))` resolve), da tela ou colisao errada em tempo de execucao: por isso a prova e uma rota andada, do warp 16 em (8,1) descendo a coluna 8, e nao `o mapa carregou`.",
-  "warp": "MAP_GALAR_CIRCHESTER_08",
-  "warp_id": 16,
-  "roteiro": "180:NADA,16:DOWN*6,90:NADA",
-  "prova": {
-   "mapa": "MAP_GALAR_CIRCHESTER_08",
-   "layout": "LAYOUT_GALAR_CIRCHESTER_08",
-   "andou": true
-  }
- },
- {
-  "id": "T154.5",
-  "nome": "gTrainers COM UMA DIFICULDADE SO AINDA ENTREGA O TIME CERTO. A rodada colapsou a dimensao de dificuldade de gTrainers (include/constants/difficulty.h): com B_VAR_DIFFICULTY == 0, GetCurrentDifficultyLevel() devolve DIFFICULTY_NORMAL sempre, entao as fatias EASY e HARD eram 277.160 B de zeros inalcancaveis e sairam. Se o colapso tivesse errado o indice, GetTrainerStructAtDifficulty leria uma `struct Trainer` ZERADA e o adversario entraria com party NULL. A cena e a do treinador comum de Galar (dev_scripts/treinadores_galar.py, autor da cena), TRAINER_GALAR_PLANETA_POK_374 no Galar_WyndonIndoor22: chega-se pelo warp 0 em (6,12), UP saturante para em (6,6) barrado pelo proprio NPC e um A abre a batalha. A prova sao os SEIS niveis do time inimigo lidos de gParties pelo --timeinimigo, todos em 255, mais especie0 = 6 (SPECIES_CHARIZARD). `opcoes` 32 declara LV.5 TRAINERS DESLIGADO, senao a leitura daria 5 e a prova morreria calada.",
-  "opcoes": 32,
-  "warp": "MAP_GALAR_WYNDON_INDOOR_22",
-  "warp_id": 0,
-  "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,300:NADA",
-  "prova": {
-   "mapa": "MAP_GALAR_WYNDON_INDOOR_22",
-   "oponente": "TRAINER_GALAR_PLANETA_POK_374",
-   "campos": {
+  {
+    "id": "T154.1",
+    "nome": "BLOCKDATA COMPARTILHADO, O LADO CANONICO. A rodada do B10 fez layout de conteudo repetido apontar para UM unico .incbin (dev_scripts/dedupe_blockdata.py, chamado pelo map_data_rules.mk logo depois do mapjson): 2.373 dos 4.108 blobs de layouts.inc eram copia exata de outro e viraram referencia ao primeiro, 264.080 B de volta. Galar_TurffieldIndoor09 e o CANONICO do maior grupo, 40 layouts que agora leem os mesmos 448 B. O que este caso prova nao e que o mapa carrega: e a GEOMETRIA lida daquele blob, que so pode vir do map.bin. Entra-se pelo warp 0, em (7,12), no fundo do corredor de duas colunas (x=7 e x=8, y de 10 a 13, com y=13 fechado), e UP saturante sobe a coluna 7 inteira ate bater na parede da linha 2, parando em (7,3). Se o ponteiro compartilhado apontasse para blob errado, ou a parada mudaria ou o jogador nem sairia do lugar.",
+    "warp": "MAP_GALAR_TURFFIELD_INDOOR_09",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*14,90:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_TURFFIELD_INDOOR_09",
+      "layout": "LAYOUT_GALAR_TURFFIELD_INDOOR_09",
+      "pos": [
+        7,
+        3
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T154.2",
+    "nome": "BLOCKDATA COMPARTILHADO, O LADO ALIAS, E E ELE QUE PROVA O DEDUPE. Galar_TurffieldIndoor12 esta no MESMO grupo de 40 do T154.1 e foi um dos 2.373 que perderam o proprio .incbin: o `.4byte` do layout dele agora aponta para Galar_TurffieldIndoor09_Layout_Blockdata. O layout continua sendo o DELE (LAYOUT_GALAR_TURFFIELD_INDOOR_12, com largura e altura proprias na struct), so os bytes do mapa e que passaram a ser os mesmos. Mesma rota do T154.1, mesma parada (7,3). Este par com o T154.1 e a prova de ida e volta: canonico e alias entregam identicamente a mesma geometria.",
+    "warp": "MAP_GALAR_TURFFIELD_INDOOR_12",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*14,90:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_TURFFIELD_INDOOR_12",
+      "layout": "LAYOUT_GALAR_TURFFIELD_INDOOR_12",
+      "pos": [
+        7,
+        3
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T154.3",
+    "nome": "PAR NEGATIVO DO T154.1 E DO T154.2: mapa de blob DIFERENTE, mesma rota, parada DIFERENTE. Galar_TurffieldIndoor02 tambem tem o warp 0 em (7,12) e tambem tem o corredor nas colunas 7 e 8, mas o blockdata dele e outro (grupo de 2, nao o de 40): a parede fecha na linha 3 e nao na 2, entao o mesmo UP saturante para em (7,4). Sem este caso, o (7,3) dos dois primeiros nao separa `a colisao veio do map.bin certo` de `o harness sempre para em (7,3) nesse formato de sala`.",
+    "warp": "MAP_GALAR_TURFFIELD_INDOOR_02",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*14,90:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_TURFFIELD_INDOOR_02",
+      "layout": "LAYOUT_GALAR_TURFFIELD_INDOOR_02",
+      "pos": [
+        7,
+        4
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T154.4",
+    "nome": "TILESET QUE VIROU ASSET_ALIAS AINDA DESENHA E AINDA COLIDE. A mesma rodada rodou o dev_scripts/dedupe_assets.py, que achou 20 familias novas (37,8 KB) criadas pela entrada de Galar, entre elas gTilesetTiles_Galar26, byte a byte igual a gTilesetTiles_SeafoamIslands: a definicao virou `extern ... ASSET_ALIAS(gTilesetTiles_SeafoamIslands)` e os dois nomes passaram a ser o MESMO endereco. Galar_Circhester08 usa gTileset_Galar26 como tileset secundario. Alias quebrado nao da erro de link (o `__attribute__((alias))` resolve), da tela ou colisao errada em tempo de execucao: por isso a prova e uma rota andada, do warp 16 em (8,1) descendo a coluna 8, e nao `o mapa carregou`.",
+    "warp": "MAP_GALAR_CIRCHESTER_08",
+    "warp_id": 16,
+    "roteiro": "180:NADA,16:DOWN*6,90:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_CIRCHESTER_08",
+      "layout": "LAYOUT_GALAR_CIRCHESTER_08",
+      "andou": true
+    }
+  },
+  {
+    "id": "T154.5",
+    "nome": "gTrainers COM UMA DIFICULDADE SO AINDA ENTREGA O TIME CERTO. A rodada colapsou a dimensao de dificuldade de gTrainers (include/constants/difficulty.h): com B_VAR_DIFFICULTY == 0, GetCurrentDifficultyLevel() devolve DIFFICULTY_NORMAL sempre, entao as fatias EASY e HARD eram 277.160 B de zeros inalcancaveis e sairam. Se o colapso tivesse errado o indice, GetTrainerStructAtDifficulty leria uma `struct Trainer` ZERADA e o adversario entraria com party NULL. A cena e a do treinador comum de Galar (dev_scripts/treinadores_galar.py, autor da cena), TRAINER_GALAR_PLANETA_POK_374 no Galar_WyndonIndoor22: chega-se pelo warp 0 em (6,12), UP saturante para em (6,6) barrado pelo proprio NPC e um A abre a batalha. A prova sao os SEIS niveis do time inimigo lidos de gParties pelo --timeinimigo, todos em 255, mais especie0 = 6 (SPECIES_CHARIZARD). `opcoes` 32 declara LV.5 TRAINERS DESLIGADO, senao a leitura daria 5 e a prova morreria calada. MEDIDO E CORRIGIDO em 23/08/2026, pelo fechador da rodada 12: este caso ficou vermelho quando os 127 blocos `nointro` de Galar viraram `trainerbattle_single` + `msgbox GalarTrn_Depois_*` (a rodada da fala de pos-batalha). A troca de idioma muda DUAS coisas que a prova antiga lia errado. (1) `gTrainerBattleParameter` passa a ser escrito no SETUP do comando, ANTES do `specialvar GetTrainerFlag` de `EventScript_TryDoNormalTrainerBattle` desviar para `gotopostbattlescript`: `oponente_faixa [0,0]` deixou de significar 'nenhuma batalha comecou' e passou a acusar quem so LEU o id. Quem responde 'a batalha comecou mesmo?' agora e o time do adversario, que so e carregado quando ela comeca: `especie0` em 0 e batalha nenhuma, `nivelinimigo` em 255 e batalha de Galar de pe. (2) o caminho de quem NAO venceu ganhou uma caixa: o `nointro` batia direto, e o `single` mostra o texto de entrada e espera botao (`EventScript_ShowTrainerIntroMsg`), entao a rota precisa de UM A a mais. Nenhuma das duas e defeito de jogo, e as duas eram invisiveis para quem so lesse o diff.",
     "opcoes": 32,
-    "nivelinimigo": 255,
-    "nivelinimigo1": 255,
-    "nivelinimigo2": 255,
-    "nivelinimigo3": 255,
-    "nivelinimigo4": 255,
-    "nivelinimigo5": 255,
-    "especie0": 6
-   }
-  }
- },
- {
-  "id": "T154.6",
-  "nome": "PAR NEGATIVO DO T154.5. Mesmo mapa, mesmo NPC, mesma rota, mesmo A: muda so o byte de opcoes, de 32 para 36, que liga LV.5 TRAINERS. Se o 255 do T154.5 fosse constante do harness em vez de leitura de gParties, ele apareceria aqui tambem; como vem do time de verdade, o modo rebaixa os seis slots para 5. Sem este par, o T154.5 nao separa `gTrainers com uma dificuldade entregou o time` de `o runner sempre imprime 255`.",
-  "opcoes": 36,
-  "warp": "MAP_GALAR_WYNDON_INDOOR_22",
-  "warp_id": 0,
-  "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,300:NADA",
-  "prova": {
-   "mapa": "MAP_GALAR_WYNDON_INDOOR_22",
-   "oponente": "TRAINER_GALAR_PLANETA_POK_374",
-   "campos": {
+    "warp": "MAP_GALAR_WYNDON_INDOOR_22",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,240:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_WYNDON_INDOOR_22",
+      "oponente": "TRAINER_GALAR_PLANETA_POK_374",
+      "campos": {
+        "opcoes": 32,
+        "nivelinimigo": 255,
+        "nivelinimigo1": 255,
+        "nivelinimigo2": 255,
+        "nivelinimigo3": 255,
+        "nivelinimigo4": 255,
+        "nivelinimigo5": 255,
+        "especie0": 6
+      }
+    }
+  },
+  {
+    "id": "T154.6",
+    "nome": "PAR NEGATIVO DO T154.5. Mesmo mapa, mesmo NPC, mesma rota, mesmo A: muda so o byte de opcoes, de 32 para 36, que liga LV.5 TRAINERS. Se o 255 do T154.5 fosse constante do harness em vez de leitura de gParties, ele apareceria aqui tambem; como vem do time de verdade, o modo rebaixa os seis slots para 5. Sem este par, o T154.5 nao separa `gTrainers com uma dificuldade entregou o time` de `o runner sempre imprime 255`. MEDIDO E CORRIGIDO em 23/08/2026, pelo fechador da rodada 12: este caso ficou vermelho quando os 127 blocos `nointro` de Galar viraram `trainerbattle_single` + `msgbox GalarTrn_Depois_*` (a rodada da fala de pos-batalha). A troca de idioma muda DUAS coisas que a prova antiga lia errado. (1) `gTrainerBattleParameter` passa a ser escrito no SETUP do comando, ANTES do `specialvar GetTrainerFlag` de `EventScript_TryDoNormalTrainerBattle` desviar para `gotopostbattlescript`: `oponente_faixa [0,0]` deixou de significar 'nenhuma batalha comecou' e passou a acusar quem so LEU o id. Quem responde 'a batalha comecou mesmo?' agora e o time do adversario, que so e carregado quando ela comeca: `especie0` em 0 e batalha nenhuma, `nivelinimigo` em 255 e batalha de Galar de pe. (2) o caminho de quem NAO venceu ganhou uma caixa: o `nointro` batia direto, e o `single` mostra o texto de entrada e espera botao (`EventScript_ShowTrainerIntroMsg`), entao a rota precisa de UM A a mais. Nenhuma das duas e defeito de jogo, e as duas eram invisiveis para quem so lesse o diff.",
     "opcoes": 36,
-    "nivelinimigo": 5,
-    "nivelinimigo1": 5,
-    "nivelinimigo5": 5,
-    "especie0": 6
-   }
+    "warp": "MAP_GALAR_WYNDON_INDOOR_22",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,240:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_GALAR_WYNDON_INDOOR_22",
+      "oponente": "TRAINER_GALAR_PLANETA_POK_374",
+      "campos": {
+        "opcoes": 36,
+        "nivelinimigo": 5,
+        "nivelinimigo1": 5,
+        "nivelinimigo5": 5,
+        "especie0": 6
+      }
+    }
   }
- }
 ]

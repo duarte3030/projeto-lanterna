@@ -1,7 +1,7 @@
 [
   {
     "id": "T153.1",
-    "nome": "GALAR, TREINADOR COMUM VENCIDO NAO REBRIGA DEPOIS DE SAIR DO MAPA E VOLTAR. O T147.8 ja acende a flag de vitoria a mao e prova que a fala nao abre batalha, mas prova isso UMA vez, na MESMA carga de mapa e no MESMO boot: um jogo em que a flag morresse na troca de mapa passaria nele igualzinho, e o treinador voltaria a brigar assim que o jogador saisse da sala e entrasse de novo, que e o defeito classico de quem aloca flag na faixa temporaria (0x0 a 0x1F, zerada por ClearTempFieldEventData a cada carregamento de mapa). Aqui a MESMA execucao fala com o treinador, SAI para o Galar_Wyndon02 pelo menu de debug, VOLTA para a sala e fala DE NOVO. A flag e a do motor, TRAINER_FLAGS_START (0x500, include/constants/flags.h:1359) mais o id do treinador: TRAINER_GALAR_RUAN_POKE_372 e 3137 (include/constants/opponents.h), entao 0x500+3137 = 0x1141, e e ela que o `goto_if_set` de GalarTrn_G39M39_o0 (data/scripts/galar_treinadores.inc) consulta. O conserto desta rodada foi justamente esse `goto_if_set`: `trainerbattle_no_intro` NAO consulta a flag de vitoria sozinho, entao sem o desvio o treinador rebrigaria para sempre. ROTA: o Galar_WyndonIndoor21 e 13x13, o warp 0 fica em (6,12) e o treinador em (6,5), de frente para o sul; UP saturante sobe a coluna 6 e para em (6,6) porque corpo de NPC e solido (medido na grade de colisao do LAYOUT_GALAR_WYNDON_INDOOR_21). A PROVA e dupla: oponente_faixa [0,0] (nenhuma batalha de treinador comecou em execucao nenhuma) e a posicao final (6,6), que so existe se o corpo do treinador continuar la depois da ida e volta. O par negativo e o T153.2.",
+    "nome": "GALAR, TREINADOR COMUM VENCIDO NAO REBRIGA DEPOIS DE SAIR DO MAPA E VOLTAR. O T147.8 ja acende a flag de vitoria a mao e prova que a fala nao abre batalha, mas prova isso UMA vez, na MESMA carga de mapa e no MESMO boot: um jogo em que a flag morresse na troca de mapa passaria nele igualzinho, e o treinador voltaria a brigar assim que o jogador saisse da sala e entrasse de novo, que e o defeito classico de quem aloca flag na faixa temporaria (0x0 a 0x1F, zerada por ClearTempFieldEventData a cada carregamento de mapa). Aqui a MESMA execucao fala com o treinador, SAI para o Galar_Wyndon02 pelo menu de debug, VOLTA para a sala e fala DE NOVO. A flag e a do motor, TRAINER_FLAGS_START (0x500, include/constants/flags.h:1359) mais o id do treinador: TRAINER_GALAR_RUAN_POKE_372 e 3137 (include/constants/opponents.h), entao 0x500+3137 = 0x1141, e e ela que o `goto_if_set` de GalarTrn_G39M39_o0 (data/scripts/galar_treinadores.inc) consulta. O conserto desta rodada foi justamente esse `goto_if_set`: `trainerbattle_no_intro` NAO consulta a flag de vitoria sozinho, entao sem o desvio o treinador rebrigaria para sempre. ROTA: o Galar_WyndonIndoor21 e 13x13, o warp 0 fica em (6,12) e o treinador em (6,5), de frente para o sul; UP saturante sobe a coluna 6 e para em (6,6) porque corpo de NPC e solido (medido na grade de colisao do LAYOUT_GALAR_WYNDON_INDOOR_21). A PROVA e dupla: oponente_faixa [0,0] (nenhuma batalha de treinador comecou em execucao nenhuma) e a posicao final (6,6), que so existe se o corpo do treinador continuar la depois da ida e volta. O par negativo e o T153.2. MEDIDO E CORRIGIDO em 23/08/2026, pelo fechador da rodada 12: este caso ficou vermelho quando os 127 blocos `nointro` de Galar viraram `trainerbattle_single` + `msgbox GalarTrn_Depois_*` (a rodada da fala de pos-batalha). A troca de idioma muda DUAS coisas que a prova antiga lia errado. (1) `gTrainerBattleParameter` passa a ser escrito no SETUP do comando, ANTES do `specialvar GetTrainerFlag` de `EventScript_TryDoNormalTrainerBattle` desviar para `gotopostbattlescript`: `oponente_faixa [0,0]` deixou de significar 'nenhuma batalha comecou' e passou a acusar quem so LEU o id. Quem responde 'a batalha comecou mesmo?' agora e o time do adversario, que so e carregado quando ela comeca: `especie0` em 0 e batalha nenhuma, `nivelinimigo` em 255 e batalha de Galar de pe. (2) o caminho de quem NAO venceu ganhou uma caixa: o `nointro` batia direto, e o `single` mostra o texto de entrada e espera botao (`EventScript_ShowTrainerIntroMsg`), entao a rota precisa de UM A a mais. Nenhuma das duas e defeito de jogo, e as duas eram invisiveis para quem so lesse o diff.",
     "opcoes": 32,
     "flags": [
       "0x1141"
@@ -15,22 +15,21 @@
         6,
         6
       ],
-      "oponente_faixa": [
-        0,
-        0
-      ],
       "flags_acesas": [
         "0x1141"
-      ]
+      ],
+      "campos": {
+        "especie0": 0
+      }
     }
   },
   {
     "id": "T153.2",
-    "nome": "PAR NEGATIVO DO T153.1, e sem ele o T153.1 nao prova nada. MESMO mapa, MESMO warp, MESMA rota e MESMA ida e volta pelo Galar_Wyndon02; a unica diferenca e que a flag 0x1141 NAO e acesa. Com ela apagada o `goto_if_set` nao desvia e o `trainerbattle_no_intro` roda: a batalha COMECA, e o que se le e o oponente exato TRAINER_GALAR_RUAN_POKE_372, o mesmo do T147.7. Sem este caso, o T153.1 passaria tambem num jogo em que o objeto tivesse sumido do mapa, em que o script estivesse desligado, ou em que a fala nunca chegasse ao treinador: 'nao brigou' sozinho nao separa 'a flag funcionou' de 'nao ha treinador nenhum ali'. O nivel 255 vem junto porque Galar inteira nasce em nivel 255 nesta rodada (`opcoes` 32 desliga o LV.5 TRAINERS).",
+    "nome": "PAR NEGATIVO DO T153.1, e sem ele o T153.1 nao prova nada. MESMO mapa, MESMO warp, MESMA rota e MESMA ida e volta pelo Galar_Wyndon02; a unica diferenca e que a flag 0x1141 NAO e acesa. Com ela apagada o `goto_if_set` nao desvia e o `trainerbattle_no_intro` roda: a batalha COMECA, e o que se le e o oponente exato TRAINER_GALAR_RUAN_POKE_372, o mesmo do T147.7. Sem este caso, o T153.1 passaria tambem num jogo em que o objeto tivesse sumido do mapa, em que o script estivesse desligado, ou em que a fala nunca chegasse ao treinador: 'nao brigou' sozinho nao separa 'a flag funcionou' de 'nao ha treinador nenhum ali'. O nivel 255 vem junto porque Galar inteira nasce em nivel 255 nesta rodada (`opcoes` 32 desliga o LV.5 TRAINERS). MEDIDO E CORRIGIDO em 23/08/2026, pelo fechador da rodada 12: este caso ficou vermelho quando os 127 blocos `nointro` de Galar viraram `trainerbattle_single` + `msgbox GalarTrn_Depois_*` (a rodada da fala de pos-batalha). A troca de idioma muda DUAS coisas que a prova antiga lia errado. (1) `gTrainerBattleParameter` passa a ser escrito no SETUP do comando, ANTES do `specialvar GetTrainerFlag` de `EventScript_TryDoNormalTrainerBattle` desviar para `gotopostbattlescript`: `oponente_faixa [0,0]` deixou de significar 'nenhuma batalha comecou' e passou a acusar quem so LEU o id. Quem responde 'a batalha comecou mesmo?' agora e o time do adversario, que so e carregado quando ela comeca: `especie0` em 0 e batalha nenhuma, `nivelinimigo` em 255 e batalha de Galar de pe. (2) o caminho de quem NAO venceu ganhou uma caixa: o `nointro` batia direto, e o `single` mostra o texto de entrada e espera botao (`EventScript_ShowTrainerIntroMsg`), entao a rota precisa de UM A a mais. Nenhuma das duas e defeito de jogo, e as duas eram invisiveis para quem so lesse o diff.",
     "opcoes": 32,
     "warp": "MAP_GALAR_WYNDON_INDOOR_21",
     "warp_id": 0,
-    "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,300:NADA",
+    "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,240:NADA,20:A,300:NADA",
     "prova": {
       "mapa": "MAP_GALAR_WYNDON_INDOOR_21",
       "oponente": "TRAINER_GALAR_RUAN_POKE_372",
@@ -42,7 +41,7 @@
   },
   {
     "id": "T153.3",
-    "nome": "GALAR, TREINADOR COMUM VENCIDO: PRIMEIRA METADE DA PROVA DE SAVE. Repete o T147.8 letra por letra (flag 0x1141 acesa, warp 0 do Galar_WyndonIndoor21, UP saturante ate (6,6), um A que fala com o treinador sem abrir batalha) e entao SALVA pelo menu, com a sequencia de baixo para cima do T11.1: tres UP a partir da linha 0 do menu do START caem sempre em EXIT, OPTION e SAVE, porque so o rabo do BuildNormalStartMenu (src/start_menu.c:332) e fixo. Esta metade e so o controle, ou seja que a fala aconteceu e nenhuma batalha comecou antes de gravar; quem responde a pergunta e o T153.4, que recarrega ESTE arquivo. `prova.sav_gravada` cobra que a flash tenha um slot inteiro escrito: sem ela mapa, posicao e flag passam verdes com a save nunca tendo sido gravada. A .sav e apagada no comeco para o caso nunca passar por sobra de rodada anterior.",
+    "nome": "GALAR, TREINADOR COMUM VENCIDO: PRIMEIRA METADE DA PROVA DE SAVE. Repete o T147.8 letra por letra (flag 0x1141 acesa, warp 0 do Galar_WyndonIndoor21, UP saturante ate (6,6), um A que fala com o treinador sem abrir batalha) e entao SALVA pelo menu, com a sequencia de baixo para cima do T11.1: tres UP a partir da linha 0 do menu do START caem sempre em EXIT, OPTION e SAVE, porque so o rabo do BuildNormalStartMenu (src/start_menu.c:332) e fixo. Esta metade e so o controle, ou seja que a fala aconteceu e nenhuma batalha comecou antes de gravar; quem responde a pergunta e o T153.4, que recarrega ESTE arquivo. `prova.sav_gravada` cobra que a flash tenha um slot inteiro escrito: sem ela mapa, posicao e flag passam verdes com a save nunca tendo sido gravada. A .sav e apagada no comeco para o caso nunca passar por sobra de rodada anterior. MEDIDO E CORRIGIDO em 23/08/2026, pelo fechador da rodada 12: este caso ficou vermelho quando os 127 blocos `nointro` de Galar viraram `trainerbattle_single` + `msgbox GalarTrn_Depois_*` (a rodada da fala de pos-batalha). A troca de idioma muda DUAS coisas que a prova antiga lia errado. (1) `gTrainerBattleParameter` passa a ser escrito no SETUP do comando, ANTES do `specialvar GetTrainerFlag` de `EventScript_TryDoNormalTrainerBattle` desviar para `gotopostbattlescript`: `oponente_faixa [0,0]` deixou de significar 'nenhuma batalha comecou' e passou a acusar quem so LEU o id. Quem responde 'a batalha comecou mesmo?' agora e o time do adversario, que so e carregado quando ela comeca: `especie0` em 0 e batalha nenhuma, `nivelinimigo` em 255 e batalha de Galar de pe. (2) o caminho de quem NAO venceu ganhou uma caixa: o `nointro` batia direto, e o `single` mostra o texto de entrada e espera botao (`EventScript_ShowTrainerIntroMsg`), entao a rota precisa de UM A a mais. Nenhuma das duas e defeito de jogo, e as duas eram invisiveis para quem so lesse o diff.",
     "opcoes": 32,
     "flags": [
       "0x1141"
@@ -59,18 +58,17 @@
         6,
         6
       ],
-      "oponente_faixa": [
-        0,
-        0
-      ],
       "flags_acesas": [
         "0x1141"
-      ]
+      ],
+      "campos": {
+        "especie0": 0
+      }
     }
   },
   {
     "id": "T153.4",
-    "nome": "SEGUNDA METADE, E E ELA QUE RESPONDE: a flag de vitoria do treinador comum de Galar atravessa o DESLIGAMENTO. O jogo abre em CONTINUAR sobre o arquivo que o T153.3 gravou, e este caso NAO acende flag nenhuma a mao (essa e a diferenca inteira: o que estiver aceso aqui veio da save, e nao do harness). Ele entra na sala pelo mesmo warp 0, sobe a mesma coluna e fala com o treinador de novo. Se 0x1141 vivesse so na EWRAM, ou caisse fora de FLAGS_COUNT, ou fosse temporaria, ela chegaria APAGADA aqui e a batalha comecaria, e o jogador que ja venceu aquele treinador teria de vence-lo outra vez a cada vez que desligasse o jogo. PROVA: oponente_faixa [0,0], a flag 0x1141 ainda acesa lida da save, e a posicao final (6,6), que continua provando que o corpo do treinador esta no mapa.",
+    "nome": "SEGUNDA METADE, E E ELA QUE RESPONDE: a flag de vitoria do treinador comum de Galar atravessa o DESLIGAMENTO. O jogo abre em CONTINUAR sobre o arquivo que o T153.3 gravou, e este caso NAO acende flag nenhuma a mao (essa e a diferenca inteira: o que estiver aceso aqui veio da save, e nao do harness). Ele entra na sala pelo mesmo warp 0, sobe a mesma coluna e fala com o treinador de novo. Se 0x1141 vivesse so na EWRAM, ou caisse fora de FLAGS_COUNT, ou fosse temporaria, ela chegaria APAGADA aqui e a batalha comecaria, e o jogador que ja venceu aquele treinador teria de vence-lo outra vez a cada vez que desligasse o jogo. PROVA: oponente_faixa [0,0], a flag 0x1141 ainda acesa lida da save, e a posicao final (6,6), que continua provando que o corpo do treinador esta no mapa. MEDIDO E CORRIGIDO em 23/08/2026, pelo fechador da rodada 12: este caso ficou vermelho quando os 127 blocos `nointro` de Galar viraram `trainerbattle_single` + `msgbox GalarTrn_Depois_*` (a rodada da fala de pos-batalha). A troca de idioma muda DUAS coisas que a prova antiga lia errado. (1) `gTrainerBattleParameter` passa a ser escrito no SETUP do comando, ANTES do `specialvar GetTrainerFlag` de `EventScript_TryDoNormalTrainerBattle` desviar para `gotopostbattlescript`: `oponente_faixa [0,0]` deixou de significar 'nenhuma batalha comecou' e passou a acusar quem so LEU o id. Quem responde 'a batalha comecou mesmo?' agora e o time do adversario, que so e carregado quando ela comeca: `especie0` em 0 e batalha nenhuma, `nivelinimigo` em 255 e batalha de Galar de pe. (2) o caminho de quem NAO venceu ganhou uma caixa: o `nointro` batia direto, e o `single` mostra o texto de entrada e espera botao (`EventScript_ShowTrainerIntroMsg`), entao a rota precisa de UM A a mais. Nenhuma das duas e defeito de jogo, e as duas eram invisiveis para quem so lesse o diff.",
     "opcoes": 32,
     "sav": "/tmp/claude-501/fechador/t153-galar-treinador.sav",
     "abertura": "continuar",
@@ -83,13 +81,12 @@
         6,
         6
       ],
-      "oponente_faixa": [
-        0,
-        0
-      ],
       "flags_acesas": [
         "0x1141"
-      ]
+      ],
+      "campos": {
+        "especie0": 0
+      }
     }
   },
   {

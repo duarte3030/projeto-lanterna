@@ -528,6 +528,16 @@ def _itens_citados_em_data():
         # mato, e sem uma linha de erro na tela.
         txt = re.sub(re.escape(INC_INI) + r".*?" + re.escape(INC_FIM), "",
                      txt, flags=re.S)
+        # COMENTARIO NAO ENTREGA ITEM. `data/maps/RotomsRoom/scripts.inc:44`
+        # cita ITEM_ROTOM_CATALOG dentro de um `@` explicativo, e so por causa
+        # dessa linha o Rotom Catalog saia da lista de chaves: a ferramenta
+        # concluia que o jogo entrega o item, o NPC do laboratorio parava de
+        # dar, e as cinco formas do Rotom voltavam a ser inobteniveis sem uma
+        # linha de erro. Medido em 23/08/2026, no `--demo` do fechador da
+        # rodada 12. Comentario de `.inc` comeca em `@` e vai ate o fim da
+        # linha; `.json` nao tem comentario, entao a poda so cabe aqui.
+        if cam.endswith(".inc"):
+            txt = re.sub(r"@[^\n]*", "", txt)
         fora.update(re.findall(r"\bITEM_[A-Z0-9_]+", txt))
     return fora
 
@@ -558,6 +568,35 @@ def chaves_de_forma(fmc):
                  nota=f"{len(v)} entrada(s) de Dex dependiam deste item e "
                       "nenhuma linha de data/ o entregava")
             for k, v in sorted(destrava.items())]
+
+
+def chaves_de_acesso():
+    """Item-chave de ACESSO: o que abre MAPA, e nao o que troca de forma.
+
+    `chaves_de_forma` so olha `FORM_CHANGE_ITEM_USE`, entao nao enxerga este
+    caso, e o filtro `_itens_citados_em_data` tambem nao ajudaria: o Aurora
+    Ticket APARECE em `data/`, com um `giveitem` que mora dentro do Mystery
+    Gift (`data/scripts/gift_aurora_ticket.inc`), que este cartucho nao tem.
+    O item passava por entregue e nao era.
+
+    Medido em 23/08/2026: sem ele, `FLAG_ENABLE_SHIP_BIRTH_ISLAND` nunca
+    acende, o menu da balsa de Lilycove (src/script_menu.c, que cobra bolsa E
+    flag) nunca lista a Birth Island, o Seagallop de Vermilion tampouco, e as
+    DUAS Birth Island ficam sem uma porta: o Deoxys da Dex tinha estatico,
+    mapa e script, e nenhum caminho ate ele. A regra da pesquisa de lendarios
+    (`dev_scripts/lendarios_referencia.csv`, linha 22) ja mandava "nao copiar
+    o gate por Mystery Gift"; aqui ela vira codigo. O portao de ENREDO fica de
+    pe: a balsa so atende com `FLAG_SYS_GAME_CLEAR`, entao Deoxys continua
+    pos-Liga.
+    """
+    return [dict(item="ITEM_AURORA_TICKET", como="chave", mapa=MAPA_PRESENTE,
+                 metodo="additem", flag="FLAG_ENABLE_SHIP_BIRTH_ISLAND",
+                 origem="pesquisa",
+                 destrava=["DEOXYS_ATTACK", "DEOXYS_DEFENSE",
+                           "DEOXYS_NORMAL", "DEOXYS_SPEED"],
+                 nota="as duas Birth Island nao tinham porta: o unico "
+                      "`giveitem` deste item mora no Mystery Gift, que este "
+                      "cartucho nao tem. A flag da balsa sai junto com o item")]
 
 
 def formas_em_cadeia(alc_direto, fmc):
@@ -670,7 +709,8 @@ def plano():
                  sorted(x.replace("SPECIES_", "")
                         for x in _origens(n, evo, fmc)) or ["troca de forma"]))
         for n in sorted(nomes_ino - resolvidos, key=lambda n: (cat[n].dex, n))]
-    _PLANO["chaves"] = chaves_de_forma(fmc)
+    _PLANO["chaves"] = sorted(chaves_de_forma(fmc) + chaves_de_acesso(),
+                               key=lambda l: l["item"])
     direta = {l.nome for l in linhas
               if l.categoria in ("selvagem", "estatico", "presente", "troca",
                                  "evolucao")}
@@ -1611,8 +1651,12 @@ def _script_presentes():
     for l in tabela().get("chaves", []):
         p += [f"{m}_EventScript_DexChave"
               + l["item"].replace("ITEM_", "").title().replace("_", "") + "::",
-              f"\tadditem {l['item']}",
-              "\treturn",
+              f"\tadditem {l['item']}"]
+        # Chave de ACESSO carrega a flag do transporte junto: o item sozinho
+        # nao abre a balsa, o menu cobra os dois (src/script_menu.c).
+        if l.get("flag"):
+            p += [f"\tsetflag {l['flag']}"]
+        p += ["\treturn",
               ""]
     p += [INC_FIM]
     return "\n".join(p) + "\n"
@@ -1931,7 +1975,15 @@ def diff_do_mato(ref=None):
     # porque "o conjunto mudou" sozinho aceitaria perda silenciosa de mapa vivo.
     fora_do_escopo = {c for c, (pasta, _r) in censo_dex.mapas().items()
                       if pasta in mapas_cortados()}
-    sumiram = {k for k in set(a) - set(b) if k[1] not in fora_do_escopo}
+    # TABELA VAZIA NAO E CONTEUDO. A rodada 12 tirou `water_mons` e
+    # `fishing_mons` da Diglett's Cave de Johto, e as duas eram placeholder:
+    # `encounter_rate` 0 e SPECIES_NONE em todos os slots. Sumir com elas nao
+    # perde um encontro, e este guarda existe para perda de ENCONTRO. Sem a
+    # poda, limpar placeholder ficava proibido para sempre.
+    def vazia(mons):
+        return all(m["species"] == "SPECIES_NONE" for m in mons)
+    sumiram = {k for k in set(a) - set(b)
+               if k[1] not in fora_do_escopo and not vazia(a[k])}
     assert not sumiram, ("T129.13: tabela de mapa VIVO sumiu: "
                          f"{sorted(sumiram)[:4]}")
     assert not set(b) - set(a), ("T129.13: tabela de encontro apareceu: "
@@ -1959,19 +2011,29 @@ def diff_do_mato(ref=None):
 def plano_congelado():
     """A tabela gravada, DEPOIS de conferida contra um plano feito do zero.
 
-    O plano do zero nao pode mandar no tile (ver `demo`), mas pode e deve mandar
-    no par especie -> regiao/mapa: se ele discordar, ou a regua mudou sem que a
-    tabela fosse regerada, ou alguem editou a tabela a mao no lugar da regua.
+    O plano do zero manda no CONJUNTO de linhas: quem entra em cada balde. Se
+    ele discordar disso, ou a regua mudou sem que a tabela fosse regerada, ou
+    alguem editou a tabela a mao no lugar da regua. Foi assim que o fechador da
+    rodada 12 achou os tres selvagens duplicados da Diglett's Cave.
+
+    O que ele NAO manda, e isto e medido e nao suposto: o par especie -> CASA de
+    um estatico. Ate 23/08/2026 havia um assert cobrando esse par, e ele estava
+    VERMELHO com 8 casas trocadas em 106; a causa nao e edicao a mao, e a mesma
+    que o proprio `demo` ja tinha escrito duas funcoes abaixo: `decide_estaticos`
+    escolhe casa por COTA de regiao e por LOTACAO do mapa, e as duas leem a
+    arvore. Depois de `--estaticos --aplica` a arvore ja tem os 106 objetos, e o
+    plano refeito distribui as mesmas casas entre as mesmas especies numa ordem
+    diferente. Cobrar o par era cobrar que uma funcao dependente de estado
+    devolvesse o estado anterior, e isso nunca ia ficar verde de novo.
     """
     t = tabela()
     p = plano()
     for k in BUCKETS + EXTRAS:
         assert len(p[k]) == len(t.get(k, [])), (k, len(p[k]), len(t.get(k, [])))
-    de_para = {l["especie"]: (l["regiao"], l["mapa"]) for l in t["estaticos"]}
-    fora = [(l["especie"], de_para.get(l["especie"]), (l["regiao"], l["mapa"]))
-            for l in p["estaticos"] if de_para.get(l["especie"]) !=
-            (l["regiao"], l["mapa"])]
-    assert not fora, f"o plano do zero discorda da tabela gravada: {fora[:5]}"
+        chave = "item" if k == "chaves" else "especie"
+        a = {l[chave] for l in t.get(k, [])}
+        b = {l[chave] for l in p[k]}
+        assert a == b, (k, sorted(a - b)[:5], sorted(b - a)[:5])
     return t
 
 
@@ -2213,11 +2275,17 @@ def demo():
             falhas.append(f"T129.18: {n} e de agua e foi para {linha['metodo']}")
         elif depois[n].categoria == "inobtenivel":
             falhas.append(f"T129.18: {n} tem linha e continua inobtenivel")
+    # A lista aceita ESTATICO desde 23/08/2026, e a razao e medida: o Masquerain
+    # ganhou um encontro estatico proprio na Galar_WildArea08 (bloco c5,
+    # 22/08/2026, `data/scripts/galar_estaticos.inc`), que e um caminho de
+    # obtencao tao bom quanto a evolucao. A pergunta deste bloco sempre foi "o
+    # Masquerain ficou sem caminho depois que a Route229 caiu?", e "estatico" e
+    # uma resposta SIM; recusa-lo era cobrar o caminho em vez do resultado.
     if "SPECIES_MASQUERAIN" in depois and \
-            depois["SPECIES_MASQUERAIN"].categoria not in ("evolucao", "selvagem"):
-        falhas.append("T129.18: o Masquerain nao volta pelo Surskit; ele e "
+            depois["SPECIES_MASQUERAIN"].categoria == "inobtenivel":
+        falhas.append("T129.18: o Masquerain ficou sem caminho nenhum; ele e "
                       "Bug/Flying e a regra 6 proibe agua para quem nao e "
-                      "TYPE_WATER, entao a evolucao e o unico caminho")
+                      "TYPE_WATER, entao so evolucao ou estatico o devolvem")
     if not falhas:
         print(f"T129.18 OK: nenhuma das {len(t['selvagens'])} linhas de mato "
               f"aponta para tabela morta, e {'/'.join(sorted(REPOE_NA_REGIAO))} "
@@ -2725,14 +2793,15 @@ def casos_t137():
                  "`checkitem` novos no comeco do script. A rota e a do T129.5 e a "
                  "fala inteira roda DUAS vezes. Na primeira o NPC entrega os "
                  f"{len(evento)} event-only e faz `additem` dos {len(chaves)} "
-                 "itens-chave de troca de forma (Gracidea, os quatro nectares, "
-                 "Prison Bottle, Reveal Glass, Rotom Catalog e Zygarde Cube); na "
-                 "segunda os nove `checkitem` devolvem TRUE, nenhum `call_if_eq` "
+                 "itens-chave que o jogo nao entrega (Gracidea, os quatro "
+                 "nectares, Prison Bottle, Reveal Glass, Rotom Catalog, Zygarde "
+                 "Cube e o Aurora Ticket, que abre a balsa da Birth Island); na "
+                 f"segunda os {len(chaves)} `checkitem` devolvem TRUE, nenhum `call_if_eq` "
                  "dispara, e o `goto_if_set FLAG_DEX_PRESENTE_EVENTO` desvia "
                  "antes dos `givemon`. A prova e que o time continua em 6 e o "
                  f"primeiro continua sendo o "
                  f"{evento[0]['especie'].replace('SPECIES_', '')}: se algum dos "
-                 "nove `call` nao voltasse, o contexto de script travaria e o "
+                 f"{len(chaves)} `call` nao voltasse, o contexto de script travaria e o "
                  "time pararia em 0; se a guarda de flag tivesse quebrado, os "
                  f"{len(evento)} `givemon` rodariam de novo. Par negativo: T137.2."),
              flags=["FLAG_SEM_ENCONTRO_SELVAGEM"],

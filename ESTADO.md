@@ -4,7 +4,196 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 23/08/2026, na build de fechamento da rodada 11. A seção 0.s abaixo é a passagem de bastão dela.
+Última medição: 23/08/2026, na build de fechamento da rodada 12, a caça a bugs. A seção 0.t abaixo é a passagem de bastão dela.
+
+---
+
+## 0.t A CAÇA A BUGS ANTES DO PLAYTEST: A RÉGUA PARA DE MEDIR PORCENTAGEM E PASSA A MEDIR DEFEITO, 23/08/2026 (rodada 12; condutor Opus, quatro executores Opus, fechador Opus)
+
+Build verde, uma build só, e a primeira rodada em que **nenhuma coluna de completude era o alvo**: o
+que a régua não mede é jogo travando, cena abrindo na pessoa errada, texto cortado e mapa alcançável
+no papel e intransitável no cartucho. **A varredura de QA caiu de 39 travas para 22 e de 2.244
+prováveis para 1.972**, e as quedas são obra e medição, não recalibragem de conveniência.
+
+**ROM 96,41% de 32 MB** (32.350.596 B, **1.203.836 B livres**, 10.120 B a mais que a 0.s), **EWRAM
+86,16% e IWRAM 86,68%**, idênticos aos da 0.s, **Dex obtenível 1.571 de 1.571 e ZERO inobtenível**.
+**Suíte 1.002 de 1.003, ZERO reprovado**, com o T11.3 pulado na varredura (ele só prova algo com duas
+ROMs); a varredura inteira foi REFEITA pelo fechador sobre a ROM `23d` e deu o mesmo 1.002/1.003, com
+**T143.9 verde**, que antes já tinha sido rodado sozinho CINCO vezes e passado nas cinco. **T11 3/3**
+contra a build `cf6786b2ae` (worktree em `/private/tmp/claude-501/t11-antiga`). Blocos novos: **T163 4/4, T164 4/4, T165 10/10, T166 4/4, T167 5/5, T168 5/5** (dois do
+Deoxys) e **T169 8/8**, o adversarial. **SAVE COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B (94,3%),
+**2.054 layouts e 2.400 mapas**, os 2.400 dentro da ROM, 2.252 ids de treinador e 1.716 apelidos
+conferidos; `guarda_colisao_vars` com 23 colisões herdadas, **0 novas** e 0 stub;
+`valida_conectividade` com **0 warps quebrados**; `valida_warp_tile --piso 60` em 5.915 de 6.875
+(86,0%), nenhuma região abaixo do piso; `valida_mapas_sinnoh --so-sinnoh` com `'sprite': 0` e 0 mapas
+com problema; os quinze `--demo` de ferramenta tocada verdes, mais `dev_scripts/qa/roda_qa.py --demo`
+nas quatro varreduras. ROM oficial **`roms/pokemon-claude-2026-08-23d.gba`**
+(md5 `b6cdb072b9fd904215c21a544df389d8`), com o `.map`, e o MESMO binário em
+`roms/pokemon-claude-teste-2026-08-16.gba`.
+
+| região | mapas | objetos | warps | placas | script | arte | Dex |
+|---|---|---|---|---|---|---|---|
+| Kanto | 100% | 101,2% | 100% | 100% | -- | 52 (0) | 290 |
+| Johto | 100% | 100,8% | 100,1% | 100,4% | -- | 55 (0) | 305 |
+| Hoenn | 100% | 100,7% | 100,1% | 100% | -- | 39 (21) | 297 |
+| Sinnoh | 100% | 101,5% | 103,7% | 103,5% | -- | 39 (18) | 267 |
+| Unova | 100% | 102,3% | 100% | 100,2% | -- | 30,5 (1) | 315 |
+| Galar | 100% | 103,6% | 100% | 70,3% | 59,2% | 48 (32) | 0 |
+
+### Três lentes, e a tabela de QA antes e depois
+
+**(1) A varredura estática** (`dev_scripts/qa/`, quatro ferramentas, 8.746 achados no começo) lê a
+árvore e acha CANDIDATO em escala. **(2) O emulador** (`testa_critico.py`) roda o jogo e lê a EWRAM, e
+PROVA o fato. **(3) O olho no framebuffer**, o PNG que o `gba_runner` grava, aberto e olhado, a única
+que responde "a caixa está desenhada e a linha cabe". Nenhuma substitui a próxima. Abaixo,
+`roda_qa.py`, a MESMA ferramenta, em `010cc1dd67` e na árvore desta rodada:
+
+| classe | Kanto | Johto | Hoenn | Sinnoh | Unova | Galar | comum | total |
+|---|---|---|---|---|---|---|---|---|
+| trava, antes | 5 | **19** | 2 | 0 | 0 | 0 | 13 | **39** |
+| trava, depois | 5 | **2** | 2 | 0 | 0 | 0 | 13 | **22** |
+| provável, antes | 373 | 108 | 811 | 130 | 141 | **264** | 417 | **2.244** |
+| provável, depois | 359 | 104 | 759 | 121 | 137 | **76** | 416 | **1.972** |
+| cosmético, antes | 718 | 449 | 1.538 | 2.085 | 1.154 | 475 | 42 | 6.461 |
+| cosmético, depois | 718 | 444 | 1.538 | 1.929 | 1.154 | 474 | 42 | 6.299 |
+| falso positivo | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2 |
+| falso positivo, depois | 11 | 0 | 48 | 0 | 0 | 0 | 2 | **61** |
+
+As duas linhas que mais andaram dizem onde a obra foi: **Johto perdeu 17 das 19 travas** e **Galar
+perdeu 188 prováveis**.
+
+### As quatro frentes
+
+**Galar.** Os 127 blocos `nointro` (`lock`/`faceplayer`/`goto_if_set`/`trainerbattle_no_intro`/`end`)
+viraram `trainerbattle_single` + `msgbox GalarTrn_Depois_*` + `release`. **108 objetos dividiam id de
+treinador** e por isso nasciam vencidos junto com o gêmeo; a numeração passou a ser por OBJETO, ids
+publicados intactos e **60 ids novos em append, 3208 a 3267**. Alocadores de flag e var viraram
+append-only com os 16 endereços repostos nos da 22f, e `guarda_save.py` ganhou guarda de apelido.
+
+**Johto.** Sete travas de verdade na raiz, `release` e `waitstate` fora de ordem. Ho-Oh, Lugia e
+Deoxys tinham UMA flag de esconder pendurando dois ou três objetos em regiões diferentes; cada mapa
+ganhou apelido na faixa 0x1BB4, custo zero de var. Unown invisível em tile sólido, e três espécies da
+Dex realocadas para mapa vivo.
+
+**Sinnoh.** **203 textos requebrados por pixel**, contra a caixa de 208 px e não por contagem de
+caractere. O rival do Pokecenter da Liga voltou **na posição 7 da lista**, e não no fim, porque
+`local_id` sem nome é a POSIÇÃO mais um: com ele fora, o `addobject 7` da cena mirava a PICNICKER do
+canto, que fazia o "!", andava até o jogador, lutava como BARRY e sumia do mapa para sempre. Três
+NPCs ligados por `ON_TRANSITION`, `VerityLakefront` com `warp`/`waitstate`/`releaseall` na ordem
+canônica, `GalacticHQ_Hall` de 34 para 15 objetos na janela e `Restaurant` de 19 para 15, e 69
+túmulos repovoados limpos.
+
+**Resto.** O seletor de capítulo passou a acender **FLAG_BADGE01..08_GET por ÍNDICE**: os oito golpes
+de campo perguntam por elas e mais nada (`src/field_move.c`), e a coluna `flagInsignia` do seletor só
+É a insígnia do motor em KANTO, então quem pulava para "Before CANDICE" ganhava um Pikachu com Surf,
+Rock Smash e Strength que o motor RECUSAVA em cinco das seis regiões. Capítulo 0 continua sem insígnia
+(T99 2/2). Twist Mountain portada no gerador, Driftveil por `ON_TRANSITION`, três `dual_connection` de
+Unova consertadas (15 órfãos para 3), e a QA promovida para `dev_scripts/qa/`.
+
+### Os falsos positivos PROVADOS (a régua não via o mecanismo)
+
+**Azalea e Blackthorn**: quem tira o jogador dali é `applymovement`/`setmetatile`, e a régua procurava
+`release`. **E4 de Kanto** (Lorelei, Bruno, Agatha): o warp 0 pousa em tile sólido, blockdata IDÊNTICO
+ao `pokefirered`, e quem tira o jogador é o `ON_FRAME` com `Common_Movement_WalkUp5`, porque
+`applymovement` de script não consulta colisão. **Sevii, 162 mapas fora do grafo de warp**: portão de
+ENREDO intacto, a balsa é `special DoSeagallopFerryScene` e a corrente Blaine -> Bill -> TRI PASS está
+inteira. **Hearthome e ThreeIsland**: o mapa TROCA DE LAYOUT no `ON_TRANSITION`, e não é
+`setmetatile`, que foi o que a auditoria procurou e não achou.
+
+### O Deoxys ganha caminho, e a porta é a que a ROM já tinha
+
+`FLAG_HIDE_DEOXYS` nunca ser apagada é **falso positivo**: é idioma vanilla, o Deoxys entra por
+`addobject` quando o triângulo é resolvido. A outra metade era verdade: o menu da balsa de Lilycove
+cobra **BOLSA E FLAG** (`src/script_menu.c:853`), o Seagallop de Vermilion cobra o mesmo par, e o
+único `giveitem ITEM_AURORA_TICKET` do repo mora **dentro do Mystery Gift, que este cartucho não
+tem**: as duas Birth Island eram alcançáveis no grafo de warp e sem porta no jogo. O conserto segue a
+regra que a pesquisa de lendários já tinha escrito ("não copiar o gate por Mystery Gift") e usa o
+guarda-chuva que a ROM já usa para item-chave que ninguém entrega: o Aurora Ticket virou a **décima
+linha de `chaves`** e sai pelo MESMO NPC do laboratório, com `setflag
+FLAG_ENABLE_SHIP_BIRTH_ISLAND` colado no `additem`. **Nenhum mapa novo, nenhum estático movido, custo
+ZERO de save**, e o portão de ENREDO fica de pé: a atendente só atende com `FLAG_SYS_GAME_CLEAR`,
+então Deoxys continua pós-Liga. **T168.4 e T168.5.**
+
+### Os cinco casos adversariais (T169, 8 casos)
+
+1. **Galar, vencer e falar de novo.** Dito por inteiro: vencer de verdade no harness NÃO dá, o time
+   de Galar é `Level: 255` e o Pikachu 20 do seletor não ganha; plantar a flag do id é o MESMO estado
+   de save. O que este caso tem a mais que o T163.3 é a camada da afirmação: **o PNG foi aberto e a
+   caixa de pós-batalha está desenhada, com texto dentro**, e depois dela o jogador anda.
+2. **Johto, capítulo alto, Surf e Strength.** Liga de Johto, oito insígnias. Surf em
+   `OlivineCity_PortOutside`, escolhido por varredura dos 236 mapas atrás de "warp cuja linha reta
+   bate em água funda com corredor limpo e água terminando em PAREDE": a Route41, candidata óbvia,
+   tem oito TILES DE WARP em fila na linha de caminhada. Strength no ginásio de Cianwood, o único
+   lugar de Johto com bloco de Strength e script próprio. **Os dois com par negativo em "Start of
+   region"**, que prova que quem destrava é o capítulo, e não o Pikachu.
+3. **Sinnoh, o texto no framebuffer.** Das 433 linhas acrescentadas, a mais larga em mapa alcançável
+   por rota curta tem **200 px de 208** e está em `VeilstoneCityNortheastHouse`. **PNG aberto: as duas
+   linhas cabem, sem letra cortada e sem terceira linha.**
+4. **Accumula, T143.9, cinco vezes seguidas: 5/5.**
+5. **O gêmeo atravessa o desligamento.** T169.7 planta a flag do gêmeo PUBLICADO (0x10BE, id 3006) e
+   SALVA sem falar com ninguém; T169.8 abre em CONTINUAR **sem acender flag à mão** e a batalha que
+   abre é `TRAINER_GALAR_ISADORA_22_3`, id 3250.
+
+### O que a caça achou DENTRO do próprio ferramental
+
+Cinco vermelhos que ninguém via porque um `assert` anterior sempre caía primeiro. (a) **Três espécies
+da Dex moradas em DOIS lugares**: a realocação de Johto pôs cópia nos mapas novos e deixou as
+originais na órfã Diglett's Cave, e como `encontros_base()` desfaz a escrita pela coluna
+`substituido`, o censo-base voltava a vê-las e o plano as dava por obtidas; os três slots voltaram a
+`SPECIES_DIGLETT`. (b) **Um COMENTÁRIO entregava um item**: `RotomsRoom/scripts.inc:44` cita
+`ITEM_ROTOM_CATALOG` dentro de um `@`, e a varredura era regex no texto cru, então o NPC parava de
+dar o item e **as cinco formas do Rotom voltavam a inobteníveis sem uma linha de erro**. (c)
+**`plano_congelado` cobrava o irreproduzível**: exigia o mesmo par espécie -> casa de cada estático, e
+`decide_estaticos` escolhe casa por cota e por lotação, que leem a árvore; passou a cobrar o CONJUNTO
+de linhas por balde, e foi essa cobrança que pegou o item (a). (d) **Tabela de encontro VAZIA não é
+conteúdo**. (e) **O Masquerain tem estático próprio** desde 22/08 e a régua só aceitava evolução ou
+mato: cobrava o caminho em vez do resultado.
+
+E seis casos ficaram vermelhos pela troca de idioma de Galar, **sem defeito de jogo** (T153.1 a
+T153.4, T154.5, T154.6): `trainerbattle_single` escreve `gTrainerBattleParameter` no SETUP, ANTES de o
+`GetTrainerFlag` desviar para `gotopostbattlescript`, então **`oponente_faixa [0,0]` deixou de
+significar "nenhuma batalha começou"** e quem responde isso agora é o time do adversário, carregado só
+quando ela começa. E o caminho de quem ainda não venceu ganhou uma caixa: o `nointro` batia direto, o
+`single` mostra o texto de entrada e espera botão, então a rota precisa de UM A a mais.
+
+### Lições
+
+1. **`UnlockPlayerFieldControls` é solta no FIM do script, e não pelo `release`.** O `frozen` que o
+   `lock` põe é do OBJETO, não do jogador. Ler `lock` sem `release` e gritar "trava" errou 127 vezes
+   numa rodada só; o que o `end` seco custava era outro, NPC congelado e zero fala.
+2. **Alocador de flag e de var é APPEND-ONLY, sempre.** Reordenar endereço publicado invalida save em
+   silêncio, e save inválida é o único defeito desta obra sem conserto.
+3. **Túmulo fora do denominador.** Mapa sem warp, sem conexão e com `MAPSEC_NONE` não entra em alcance
+   nem em completude; contá-lo faz a régua mentir dos dois lados.
+4. **QA mora em `dev_scripts/qa/`**, com uma contagem só, um `--demo` só e os vereditos de calibração
+   escritos DENTRO da ferramenta: auditoria fora do repo envelhece sem ninguém ver. E **falso positivo
+   que volta todo mês custa mais que o bug**: os 61 reclassificados foram medidos contra o
+   `pret/pokeemerald` intocado ou contra o mecanismo real, com arquivo e linha por escrito.
+
+### O que fica aberto
+
+- **Galar: 246 mapas órfãos**, e o retrato NÃO é o que se supunha. Medido nesta rodada: 58 interiores
+  de Turffield, 49 da Isle of Armor, 27 de Postwick, 22 interiores de Wyndon, 20 da Crown Tundra, 13
+  da Wild Area, 13 da Lost Cave e o resto pulverizado. O grosso é **interior sem porta**, e não DLC:
+  86 dos 246 são de DLC. É o maior item da região, e é obra de warp, não de escopo.
+- **22 travas e ~1.970 prováveis** ainda na varredura. Não é fila de conserto, é fila de VEREDITO, e
+  cada um passa por medir, como os 61 desta rodada. Hoenn concentra 759 prováveis.
+- **A fala de Galar é em PORTUGUÊS** (intro e pós-batalha, 308 textos), porque o demake de origem é
+  brasileiro; as outras cinco regiões são em inglês. Decisão herdada, não regressão, mas o Gui vai ver
+  a troca de idioma ao atravessar.
+- **Galar** segue com 70 estáticos dos 1.088, 25 placas, 514 NPCs mudos e `fila_galar.json` em 1.198
+  de 3.195; a **pergunta 18** segue sem resposta; **gens 6, 7 e 9** paradas por escopo. Os **90
+  canteiros de berry**, as **8 bolas de neve** e os **141 objetos em 49 mapas** de Sinnoh continuam
+  onde a 0.s os deixou.
+- **Playthrough por região é a PRÓXIMA rodada.** Esta caçou defeito por lente; falta percorrer o
+  enredo de ponta a ponta, uma região por vez, que é a única lente que pega ordem de cena e ritmo.
+
+### A ROM `23d` é a candidata ao playtest do Gui
+
+`roms/pokemon-claude-2026-08-23d.gba`, md5 `b6cdb072b9fd904215c21a544df389d8`, com o `.map` ao lado, e
+o mesmo binário em `roms/pokemon-claude-teste-2026-08-16.gba`, que é o arquivo que o emulador dele já
+aponta. Save antiga continua valendo: `SAVE_LAYOUT_REVISION` segue em 1 e `guarda_save.py` fechou
+COMPATIVEL.
 
 ---
 

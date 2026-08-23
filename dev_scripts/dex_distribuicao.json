@@ -7,7 +7,7 @@
     "selvagens": 234,
     "presentes": 22,
     "evolucoes": 113,
-    "chaves": 9,
+    "chaves": 10,
     "formas": 5
   },
   "npcs_presente": [
@@ -6220,17 +6220,17 @@
       "especie": "SPECIES_WOOPER_PALDEA",
       "como": "selvagem",
       "regiao": "Johto",
-      "mapa": "MAP_DIGLETTS_CAVE_TUNNEL",
+      "mapa": "MAP_UNION_CAVE_1F",
       "metodo": "land_mons",
-      "slot": 1,
+      "slot": 3,
       "nivel": [
-        42,
-        60
+        50,
+        50
       ],
       "flag": "",
       "origem": "bioma",
-      "substituido": "SPECIES_DIGLETT",
-      "nota": "gen 2; tipos POISON/GROUND; slot duplicado 1 de 12"
+      "substituido": "SPECIES_SANDSHREW",
+      "nota": "gen 2; tipos POISON/GROUND; slot duplicado 1 de 12; movida de MAP_DIGLETTS_CAVE_TUNNEL em 23/08/2026: aquele mapa e orfao (nenhum warp aponta para ele) e as tres unicas especies dele eram inobteniveis"
     },
     {
       "especie": "SPECIES_QWILFISH_HISUI",
@@ -6716,17 +6716,17 @@
       "especie": "SPECIES_YAMASK_GALAR",
       "como": "selvagem",
       "regiao": "Johto",
-      "mapa": "MAP_DIGLETTS_CAVE_TUNNEL",
+      "mapa": "MAP_DARK_CAVE_SOUTH_SIDE",
       "metodo": "land_mons",
-      "slot": 2,
+      "slot": 4,
       "nivel": [
-        42,
-        60
+        43,
+        45
       ],
       "flag": "",
       "origem": "bioma",
-      "substituido": "SPECIES_DIGLETT",
-      "nota": "gen 5; tipos GROUND/GHOST; slot duplicado 2 de 12"
+      "substituido": "SPECIES_GEODUDE",
+      "nota": "gen 5; tipos GROUND/GHOST; slot duplicado 2 de 12; movida de MAP_DIGLETTS_CAVE_TUNNEL em 23/08/2026: aquele mapa e orfao (nenhum warp aponta para ele) e as tres unicas especies dele eram inobteniveis"
     },
     {
       "especie": "SPECIES_TIRTOUGA",
@@ -8892,17 +8892,17 @@
       "especie": "SPECIES_URSALUNA_BLOODMOON",
       "como": "selvagem",
       "regiao": "Johto",
-      "mapa": "MAP_DIGLETTS_CAVE_TUNNEL",
+      "mapa": "MAP_MT_MORTAR_2F",
       "metodo": "land_mons",
-      "slot": 3,
+      "slot": 5,
       "nivel": [
-        42,
-        60
+        80,
+        80
       ],
       "flag": "",
       "origem": "bioma",
-      "substituido": "SPECIES_DIGLETT",
-      "nota": "gen 8; tipos GROUND/NORMAL; slot duplicado 3 de 12"
+      "substituido": "SPECIES_MACHOKE",
+      "nota": "gen 8; tipos GROUND/NORMAL; slot duplicado 3 de 12; movida de MAP_DIGLETTS_CAVE_TUNNEL em 23/08/2026: aquele mapa e orfao (nenhum warp aponta para ele) e as tres unicas especies dele eram inobteniveis"
     },
     {
       "especie": "SPECIES_SQUAWKABILLY_BLUE",
@@ -11202,6 +11202,21 @@
     }
   ],
   "chaves": [
+    {
+      "item": "ITEM_AURORA_TICKET",
+      "como": "chave",
+      "mapa": "LittlerootTown_ProfessorBirchsLab",
+      "metodo": "additem",
+      "flag": "FLAG_ENABLE_SHIP_BIRTH_ISLAND",
+      "origem": "pesquisa",
+      "destrava": [
+        "DEOXYS_ATTACK",
+        "DEOXYS_DEFENSE",
+        "DEOXYS_NORMAL",
+        "DEOXYS_SPEED"
+      ],
+      "nota": "as duas Birth Island nao tinham porta: o unico `giveitem` deste item mora no Mystery Gift, que este cartucho nao tem. A flag da balsa sai junto com o item"
+    },
     {
       "item": "ITEM_GRACIDEA",
       "como": "chave",

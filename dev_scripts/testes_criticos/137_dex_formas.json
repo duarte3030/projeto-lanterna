@@ -1,7 +1,7 @@
 [
   {
     "id": "T137.1",
-    "nome": "O NPC de distribuicao aguenta a SEGUNDA fala com os 9 `checkitem` novos no comeco do script. A rota e a do T129.5 e a fala inteira roda DUAS vezes. Na primeira o NPC entrega os 19 event-only e faz `additem` dos 9 itens-chave de troca de forma (Gracidea, os quatro nectares, Prison Bottle, Reveal Glass, Rotom Catalog e Zygarde Cube); na segunda os nove `checkitem` devolvem TRUE, nenhum `call_if_eq` dispara, e o `goto_if_set FLAG_DEX_PRESENTE_EVENTO` desvia antes dos `givemon`. A prova e que o time continua em 6 e o primeiro continua sendo o PIKACHU_ALOLA: se algum dos nove `call` nao voltasse, o contexto de script travaria e o time pararia em 0; se a guarda de flag tivesse quebrado, os 19 `givemon` rodariam de novo. Par negativo: T137.2.",
+    "nome": "O NPC de distribuicao aguenta a SEGUNDA fala com os 10 `checkitem` novos no comeco do script. A rota e a do T129.5 e a fala inteira roda DUAS vezes. Na primeira o NPC entrega os 19 event-only e faz `additem` dos 10 itens-chave que o jogo nao entrega (Gracidea, os quatro nectares, Prison Bottle, Reveal Glass, Rotom Catalog, Zygarde Cube e o Aurora Ticket, que abre a balsa da Birth Island); na segunda os 10 `checkitem` devolvem TRUE, nenhum `call_if_eq` dispara, e o `goto_if_set FLAG_DEX_PRESENTE_EVENTO` desvia antes dos `givemon`. A prova e que o time continua em 6 e o primeiro continua sendo o PIKACHU_ALOLA: se algum dos 10 `call` nao voltasse, o contexto de script travaria e o time pararia em 0; se a guarda de flag tivesse quebrado, os 19 `givemon` rodariam de novo. Par negativo: T137.2.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],

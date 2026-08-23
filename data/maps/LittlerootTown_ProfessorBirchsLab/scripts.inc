@@ -1076,6 +1076,8 @@ LittlerootTown_ProfessorBirchsLab_Text_DexIniciaisJaDeu:
 LittlerootTown_ProfessorBirchsLab_EventScript_DexDistribuicao::
 	lock
 	faceplayer
+	checkitem ITEM_AURORA_TICKET
+	call_if_eq VAR_RESULT, FALSE, LittlerootTown_ProfessorBirchsLab_EventScript_DexChaveAuroraTicket
 	checkitem ITEM_GRACIDEA
 	call_if_eq VAR_RESULT, FALSE, LittlerootTown_ProfessorBirchsLab_EventScript_DexChaveGracidea
 	checkitem ITEM_PINK_NECTAR
@@ -1136,6 +1138,11 @@ LittlerootTown_ProfessorBirchsLab_Text_DexDistribuicaoFim:
 	.string "The odd trinkets are in your KEY\n"
 	.string "ITEMS. Some POKéMON change shape\l"
 	.string "when you use them.$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_DexChaveAuroraTicket::
+	additem ITEM_AURORA_TICKET
+	setflag FLAG_ENABLE_SHIP_BIRTH_ISLAND
+	return
 
 LittlerootTown_ProfessorBirchsLab_EventScript_DexChaveGracidea::
 	additem ITEM_GRACIDEA
