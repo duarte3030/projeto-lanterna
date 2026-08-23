@@ -2439,10 +2439,10 @@
 #define TRAINER_GALAR_LEX_NYA_601       3201  // fonte 601, Cool Couple Lex & Nya
 #define TRAINER_GALAR_MEGAN_648         3202  // fonte 648, Lass Megan
 #define TRAINER_GALAR_ROBERT_656        3203  // fonte 656, Collector Robert
-#define TRAINER_GALAR_WANDA_686         3204  // fonte 686, Fisherman Wanda
-#define TRAINER_GALAR_HOP_733           3205  // fonte 733, Rival Hop
-#define TRAINER_GALAR_LEON_736          3206  // fonte 736, Rival Leon
-#define TRAINER_GALAR_LEON_739          3207  // fonte 739, Rival Leon
+#define TRAINER_GALAR_LEON_736          3204  // fonte 736, Rival Leon
+#define TRAINER_GALAR_LEON_739          3205  // fonte 739, Rival Leon
+#define TRAINER_GALAR_WANDA_686         3206  // fonte 686, Fisherman Wanda
+#define TRAINER_GALAR_HOP_733           3207  // fonte 733, Rival Hop
 // <<< Fase de conteudo de Galar, balde d <<<
 
 #define MAX_TRAINERS_COUNT_EMERALD 4000

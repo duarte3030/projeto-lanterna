@@ -88,5 +88,35 @@
     6
    ]
   }
+ },
+ {
+  "id": "T158.7",
+  "warp": "MAP_ETERNA_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "60:NADA,16:UP*40,150:NADA",
+  "nome": "SPRITE PROPRIO SO ENTRA EM OBJETO QUE NAO CONTRADIZ, LADO QUE PASSA: A GARDENIA DO GINASIO DE ETERNA. A regra de 23/08/2026 (dev_scripts/importa_npcs_sinnoh.pode_vestir) so deixa o sprite proprio de uma pessoa cair num objeto NOSSO quando o objeto e mudo ou quando o script dele fala como ela; a Gardenia de (11,2) e o caso que PASSA, porque o script dela e EternaCity_Gym_EventScript_Gardenia, com TRAINER_SINNOH_LEADER_GARDENIA dentro. Este caso prova que o OBJ_EVENT_GFX_SINNOH_GARDENIA resolve no motor: graphics_id que nao resolve nao da erro de build, da objeto que nao carrega, e objeto que nao carrega deixa de ser solido. ROTA, medida no LAYOUT_ETERNA_CITY_GYM (23x28): o warp 0 poe o jogador em (11,26) e a coluna 11 e livre de y=26 ate y=3, entao UM UP saturante sobe vinte e tres tiles e PARA em (11,3), colado nela. A prova e a POSICAO.",
+  "prova": {
+   "mapa": "MAP_ETERNA_CITY_GYM",
+   "layout": "LAYOUT_ETERNA_CITY_GYM",
+   "pos": [
+    11,
+    3
+   ]
+  }
+ },
+ {
+  "id": "T158.8",
+  "warp": "MAP_ETERNA_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "60:NADA,16:UP*40,120:NADA,16:RIGHT*2,120:NADA,16:UP*40,150:NADA",
+  "nome": "PAR NEGATIVO DO T158.7: a coluna VIZINHA sobe uma casa a mais. Mesmo UP saturante ate (11,3); dali RIGHT*2 anda UM tile (o primeiro aperto numa direcao nova so VIRA) e leva a (12,3); e o UP saturante seguinte ANDA, parando em (12,2), porque a linha 2 e livre em x=9,10,12,13 e so tem parede a partir de x=14. Sem este caso o (11,3) do T158.7 seria compativel com a linha 2 ser parede inteira, isto e, ele estaria medindo planta e chamando de corpo. Com ele, a diferenca de uma casa entre (11,3) e (12,2) so pode ser o corpo da Gardenia.",
+  "prova": {
+   "mapa": "MAP_ETERNA_CITY_GYM",
+   "layout": "LAYOUT_ETERNA_CITY_GYM",
+   "pos": [
+    12,
+    2
+   ]
+  }
  }
 ]

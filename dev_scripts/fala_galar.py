@@ -901,6 +901,33 @@ def demo():
     if ruins:
         falhas.append("%d textos nao voltam byte a byte pelo charmap" % ruins)
 
+    # 2b. O TIL, COM MUTACAO PLANTADA (23/08/2026). O passo 2 acima fechava
+    # verde com o defeito dentro: a fonte escreve "nao" com o byte 0xF4, o
+    # charmap chamava 0xF4 de trema alemao, e a ida e volta batia byte a byte
+    # com o jogador lendo "N-trema-o" em 315 lugares. Prova que fecha e prova
+    # que nao mede: byte igual nao e letra certa. Estes quatro casos medem a
+    # LETRA, e o ultimo planta a mutacao.
+    if cmap.get(0xF4) != "\u00e3":
+        falhas.append("0xF4 devia decodificar como a-til, veio %r"
+                      % cmap.get(0xF4))
+    if inverso.get("\u00e3") != 0xF4:
+        falhas.append("a-til devia voltar em 0xF4, veio %r"
+                      % inverso.get("\u00e3"))
+    com_til = [l for l in falas + placas if "\u00e3" in l["texto"]]
+    # Piso 50, medido em 23/08/2026: 90 falas e placas trazem a-til. O piso
+    # existe para o caso vazio, nao para congelar o numero.
+    if len(com_til) < 50:
+        falhas.append("so %d frases com a-til: o de-para do til nao pegou"
+                      % len(com_til))
+    if inverso.get("\u00e4") is not None:
+        falhas.append("o trema ainda tem byte no charmap: 'N-trema-o' voltaria "
+                      "a atravessar a ida e volta sem ninguem ver")
+    if com_til:
+        mutante = com_til[0]["texto"].replace("\u00e3", "\u00e4")
+        if all(inverso.get(c) is not None for c in mutante if c.isalpha()):
+            falhas.append("MUTACAO PLANTADA PASSOU: %r voltou pelo charmap; "
+                          "o portao do til e cego" % mutante[:40])
+
     # 3. rotulo unico, senao o assembler junta duas falas numa so.
     rot = [l["rotulo"] for l in falas + placas + bolas]
     if len(set(rot)) != len(rot):

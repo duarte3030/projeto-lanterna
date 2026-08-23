@@ -93,7 +93,7 @@ GalarFala_G00M07_o10::
 	end
 
 GalarFala_G00M07_o10_Text:
-	.string "Este Corviknight näo está pronto\npara voar!$"
+	.string "Este Corviknight não está pronto\npara voar!$"
 
 GalarFala_G00M07_o11::
 	lock
@@ -103,7 +103,7 @@ GalarFala_G00M07_o11::
 	end
 
 GalarFala_G00M07_o11_Text:
-	.string "Este Corviknight näo está pronto\npara voar!$"
+	.string "Este Corviknight não está pronto\npara voar!$"
 
 GalarFala_G00M07_o12::
 	lock
@@ -113,7 +113,7 @@ GalarFala_G00M07_o12::
 	end
 
 GalarFala_G00M07_o12_Text:
-	.string "Este Corviknight näo está pronto\npara voar!$"
+	.string "Este Corviknight não está pronto\npara voar!$"
 
 GalarFala_G00M07_o13::
 	lock
@@ -123,7 +123,7 @@ GalarFala_G00M07_o13::
 	end
 
 GalarFala_G00M07_o13_Text:
-	.string "Este Corviknight näo está pronto\npara voar!$"
+	.string "Este Corviknight não está pronto\npara voar!$"
 
 GalarFala_G00M07_o14::
 	lock
@@ -133,7 +133,7 @@ GalarFala_G00M07_o14::
 	end
 
 GalarFala_G00M07_o14_Text:
-	.string "Este Corviknight näo está pronto\npara voar!$"
+	.string "Este Corviknight não está pronto\npara voar!$"
 
 GalarFala_G00M07_o15::
 	lock
@@ -143,7 +143,7 @@ GalarFala_G00M07_o15::
 	end
 
 GalarFala_G00M07_o15_Text:
-	.string "Este Corviknight näo está pronto\npara voar!$"
+	.string "Este Corviknight não está pronto\npara voar!$"
 
 GalarFala_G00M07_o16::
 	lock
@@ -153,7 +153,7 @@ GalarFala_G00M07_o16::
 	end
 
 GalarFala_G00M07_o16_Text:
-	.string "Este Corviknight näo está pronto\npara voar!$"
+	.string "Este Corviknight não está pronto\npara voar!$"
 
 GalarFala_G00M07_o17::
 	lock
@@ -163,7 +163,7 @@ GalarFala_G00M07_o17::
 	end
 
 GalarFala_G00M07_o17_Text:
-	.string "Este Corviknight näo está pronto\npara voar!$"
+	.string "Este Corviknight não está pronto\npara voar!$"
 
 GalarFala_G00M07_o18::
 	lock
@@ -173,7 +173,7 @@ GalarFala_G00M07_o18::
 	end
 
 GalarFala_G00M07_o18_Text:
-	.string "Este Corviknight näo está pronto\npara voar!$"
+	.string "Este Corviknight não está pronto\npara voar!$"
 
 @ ---- Galar_Hulbury01 (g00m08) ----
 GalarFala_G00M08_o0::
@@ -194,7 +194,7 @@ GalarFala_G00M08_o2::
 	end
 
 GalarFala_G00M08_o2_Text:
-	.string "Bem-vindo ao meu restaurante, ele\nestá aqui há cinco geraçöes da\lnossa família.$"
+	.string "Bem-vindo ao meu restaurante, ele\nestá aqui há cinco gerações da\lnossa família.$"
 
 GalarFala_G00M08_o3::
 	lock
@@ -214,7 +214,7 @@ GalarFala_G00M08_o4::
 	end
 
 GalarFala_G00M08_o4_Text:
-	.string "Por acaso eles so fazem curry\nnessa regiäo?$"
+	.string "Por acaso eles so fazem curry\nnessa região?$"
 
 @ ---- Galar_StowOnSide02 (g00m10) ----
 GalarFala_G00M10_o0::
@@ -225,7 +225,7 @@ GalarFala_G00M10_o0::
 	end
 
 GalarFala_G00M10_o0_Text:
-	.string "Você sabia? Pokémon com a\nhabilidade Clear Body näo seräo\lafetados por movimentos de\lreduçäo de estatisticas.$"
+	.string "Você sabia? Pokémon com a\nhabilidade Clear Body não serão\lafetados por movimentos de\lredução de estatisticas.$"
 
 GalarFala_G00M10_o1::
 	lock
@@ -235,7 +235,7 @@ GalarFala_G00M10_o1::
 	end
 
 GalarFala_G00M10_o1_Text:
-	.string "Duraludons Selvagens habitam a\nrota 10. Ouvi dizer que säo\ldificeis de capturar.$"
+	.string "Duraludons Selvagens habitam a\nrota 10. Ouvi dizer que são\ldificeis de capturar.$"
 
 GalarFala_G00M10_o2::
 	lock
@@ -245,7 +245,7 @@ GalarFala_G00M10_o2::
 	end
 
 GalarFala_G00M10_o2_Text:
-	.string "Mesmo que algumas pessoas digam\nque os tipos de veneno säo comuns,\leu acho que eles säo legais!$"
+	.string "Mesmo que algumas pessoas digam\nque os tipos de veneno são comuns,\leu acho que eles são legais!$"
 
 GalarFala_G00M10_o5::
 	lock
@@ -265,7 +265,7 @@ GalarFala_G00M10_o6::
 	end
 
 GalarFala_G00M10_o6_Text:
-	.string "Lucas costumava ser o lider\nde ginásio, mas se mudou há\lalgun sanos.\lSeus Pokémon säo täo dificeis!$"
+	.string "Lucas costumava ser o lider\nde ginásio, mas se mudou há\lalgun sanos.\lSeus Pokémon são tão dificeis!$"
 
 @ ---- Galar_CrownTundraIndoor01 (g00m16) ----
 GalarFala_G00M16_bg0::
@@ -430,7 +430,7 @@ GalarFala_G01M34_o1::
 	end
 
 GalarFala_G01M34_o1_Text:
-	.string "Hyde: Näo tenho tempo pra você\nestou ocupado.$"
+	.string "Hyde: Não tenho tempo pra você\nestou ocupado.$"
 
 GalarFala_G01M34_o3::
 	lock
@@ -440,7 +440,7 @@ GalarFala_G01M34_o3::
 	end
 
 GalarFala_G01M34_o3_Text:
-	.string "Esta é a entrada para a arena do\nDojo Master, você so pode entar\lcom autorizaçäo!$"
+	.string "Esta é a entrada para a arena do\nDojo Master, você so pode entar\lcom autorização!$"
 
 GalarFala_G01M34_o4::
 	lock
@@ -507,14 +507,14 @@ GalarFala_G02M10_o3::
 	end
 
 GalarFala_G02M10_o3_Text:
-	.string "Estou aqui para ver o quäo bom sou.\pEu me pergunto que tipos de\ntreinadores estäo esperando\lpor mim?\pÉ desesperador!$"
+	.string "Estou aqui para ver o quão bom sou.\pEu me pergunto que tipos de\ntreinadores estão esperando\lpor mim?\pÉ desesperador!$"
 
 GalarFala_G02M10_o4::
 	msgbox GalarFala_G02M10_o4_Text, MSGBOX_NPC
 	end
 
 GalarFala_G02M10_o4_Text:
-	.string "Estas escadas…\nsäo mais difíceis do\lque qualquer batalha.$"
+	.string "Estas escadas…\nsão mais difíceis do\lque qualquer batalha.$"
 
 @ ---- Galar_LostCave10 (g02m22) ----
 GalarFala_G02M22_o0::
@@ -587,7 +587,7 @@ GalarFala_G03M02_o12::
 	end
 
 GalarFala_G03M02_o12_Text:
-	.string "Essa näo é a cidade do primeiro\nginasio para chegar ate ele você\ldeve ir pela rota 3 que fica a\lesquerda da cidade.$"
+	.string "Essa não é a cidade do primeiro\nginasio para chegar ate ele você\ldeve ir pela rota 3 que fica a\lesquerda da cidade.$"
 
 GalarFala_G03M02_o15::
 	lock
@@ -607,7 +607,7 @@ GalarFala_G03M02_o16::
 	end
 
 GalarFala_G03M02_o16_Text:
-	.string "Essa näo é a cidade do primeiro\nginasio para chegar ate ele você\ldeve ir pela rota 3 que fica a\lesquerda da cidade.$"
+	.string "Essa não é a cidade do primeiro\nginasio para chegar ate ele você\ldeve ir pela rota 3 que fica a\lesquerda da cidade.$"
 
 GalarFala_G03M02_o17::
 	lock
@@ -627,7 +627,7 @@ GalarFala_G03M02_o18::
 	end
 
 GalarFala_G03M02_o18_Text:
-	.string "Eu estou täo animado com a\nserimonia de abertura!!!$"
+	.string "Eu estou tão animado com a\nserimonia de abertura!!!$"
 
 GalarFala_G03M02_o19::
 	lock
@@ -781,7 +781,7 @@ GalarFala_G03M09_o15::
 	end
 
 GalarFala_G03M09_o15_Text:
-	.string "Kabu treina na galar mine todos\nos dias.\pSeus Pokémon säo täo fortes!$"
+	.string "Kabu treina na galar mine todos\nos dias.\pSeus Pokémon são tão fortes!$"
 
 GalarFala_G03M09_o16::
 	lock
@@ -791,7 +791,7 @@ GalarFala_G03M09_o16::
 	end
 
 GalarFala_G03M09_o16_Text:
-	.string "Gosto de usar Pokémon que outros\ntreinadores subestimaräo!$"
+	.string "Gosto de usar Pokémon que outros\ntreinadores subestimarão!$"
 
 GalarFala_G03M09_o18::
 	lock
@@ -976,7 +976,7 @@ GalarFala_G04M11_o6::
 	end
 
 GalarFala_G04M11_o6_Text:
-	.string "Hop:Dê uma olhada nisso, {PLAYER}!\nIsso é algo que você näo vê todos\los dias ...\pEste lugar definitivamente parece\nsair de uma lenda.$"
+	.string "Hop:Dê uma olhada nisso, {PLAYER}!\nIsso é algo que você não vê todos\los dias ...\pEste lugar definitivamente parece\nsair de uma lenda.$"
 
 @ ---- Galar_SlumberingWeald04 (g04m12) ----
 GalarFala_G04M12_o2::
@@ -987,7 +987,7 @@ GalarFala_G04M12_o2::
 	end
 
 GalarFala_G04M12_o2_Text:
-	.string "Hop: Näo consigo achar aquela\nWoolo em lugar nenhum!$"
+	.string "Hop: Não consigo achar aquela\nWoolo em lugar nenhum!$"
 
 @ ---- Galar_Wedgehurst01 (g05m00) ----
 GalarFala_G05M00_bg0::
@@ -1005,7 +1005,7 @@ GalarFala_G05M00_o0::
 	end
 
 GalarFala_G05M00_o0_Text:
-	.string "Sabe o que a pessoa fala quando\nela tá morrendo?\pEla näo gruda na tua mäo e diz\nassim, doutor, pelo amor de Deus,\ldeixa eu viver mais um dia que eu\lquero mandar em mais gente.\pDoutor, por favor, deixa eu viver\nmais uma hora que eu quero\lhumilhar mais algumas pessoas.\pDoutor, pelo amor de Deus, deixa\neu viver mais uma semana, que eu\lquero estragar um pouco mais o\lmeio ambiente.\pSabe o que as pessoas falam quando\nelas estäo morrendo?\pela gruda na tua mäo e fala,\ndoutor, pelo amor de Deus, deixa\leu ficar vivo mais um dia só pra\leu abraçar meu irmäo, com quem eu\lbriguei faz 10 anos e a gente\lnunca mais se falou.\pDoutor, por favor, deixa eu ficar\nvivo mais um pouco, só pra eu\lpoder brincar com os meus filhos\lque eu achei que eu näo tinha\ltempo.\pDoutor, por favor, deixa eu ficar\nvivo só mais um pouco só pra poder\ldizer pra minha mulher o quanto\lque eu amo.\pPorque eu achei que se eu falasse\nmuito isso ela ia ficar mal\lacostumada.\pNäo espere o fim da vida para\npeceber o que é importante!$"
+	.string "Sabe o que a pessoa fala quando\nela tá morrendo?\pEla não gruda na tua mão e diz\nassim, doutor, pelo amor de Deus,\ldeixa eu viver mais um dia que eu\lquero mandar em mais gente.\pDoutor, por favor, deixa eu viver\nmais uma hora que eu quero\lhumilhar mais algumas pessoas.\pDoutor, pelo amor de Deus, deixa\neu viver mais uma semana, que eu\lquero estragar um pouco mais o\lmeio ambiente.\pSabe o que as pessoas falam quando\nelas estão morrendo?\pela gruda na tua mão e fala,\ndoutor, pelo amor de Deus, deixa\leu ficar vivo mais um dia só pra\leu abraçar meu irmão, com quem eu\lbriguei faz 10 anos e a gente\lnunca mais se falou.\pDoutor, por favor, deixa eu ficar\nvivo mais um pouco, só pra eu\lpoder brincar com os meus filhos\lque eu achei que eu não tinha\ltempo.\pDoutor, por favor, deixa eu ficar\nvivo só mais um pouco só pra poder\ldizer pra minha mulher o quanto\lque eu amo.\pPorque eu achei que se eu falasse\nmuito isso ela ia ficar mal\lacostumada.\pNão espere o fim da vida para\npeceber o que é importante!$"
 
 @ ---- Galar_Wedgehurst03 (g05m04) ----
 GalarFala_G05M04_o1::
@@ -1027,7 +1027,7 @@ GalarFala_G05M06_o0::
 	end
 
 GalarFala_G05M06_o0_Text:
-	.string "Ei, é melhor você comprar POÇÖES\nantes de ir para essa rota.\pVocê pode comprá-las\nno Centro Pokémon!$"
+	.string "Ei, é melhor você comprar POÇÕES\nantes de ir para essa rota.\pVocê pode comprá-las\nno Centro Pokémon!$"
 
 GalarFala_G05M06_o3::
 	lock
@@ -1161,7 +1161,7 @@ GalarFala_G06M10_o11::
 	end
 
 GalarFala_G06M10_o11_Text:
-	.string "Essa näo é a cidade do primeiro\nginasio para chegar ate ele você\ldeve ir pela rota 3 que fica a\lesquerda da cidade.$"
+	.string "Essa não é a cidade do primeiro\nginasio para chegar ate ele você\ldeve ir pela rota 3 que fica a\lesquerda da cidade.$"
 
 GalarFala_G06M10_o16::
 	lock
@@ -1181,7 +1181,7 @@ GalarFala_G06M10_o17::
 	end
 
 GalarFala_G06M10_o17_Text:
-	.string "Estou täo animada para a\ncerimônia da abertura!!!$"
+	.string "Estou tão animada para a\ncerimônia da abertura!!!$"
 
 GalarFala_G06M10_o18::
 	lock
@@ -1439,7 +1439,7 @@ GalarFala_G06M24_o0::
 	end
 
 GalarFala_G06M24_o0_Text:
-	.string "Passe no Centro Pokémon!\nSeus pokemón väo agradecer!$"
+	.string "Passe no Centro Pokémon!\nSeus pokemón vão agradecer!$"
 
 @ ---- Galar_Motostoke15 (g06m25) ----
 GalarFala_G06M25_o0::
@@ -1743,7 +1743,7 @@ GalarFala_G07M00_o0::
 	end
 
 GalarFala_G07M00_o0_Text:
-	.string "insignias säo um simbolo de\nrespeito e poder!!!\pVocê ja tem quantas?$"
+	.string "insignias são um simbolo de\nrespeito e poder!!!\pVocê ja tem quantas?$"
 
 @ ---- Galar_Turffield02 (g07m03) ----
 GalarFala_G07M03_o1::
@@ -1988,7 +1988,7 @@ GalarFala_G08M07_o3::
 	end
 
 GalarFala_G08M07_o3_Text:
-	.string "{COLOR DARK_GRAY}Parece que hoje o mar näo está\npara peixe...$"
+	.string "{COLOR DARK_GRAY}Parece que hoje o mar não está\npara peixe...$"
 
 GalarFala_G08M07_o9::
 	lock
@@ -1998,7 +1998,7 @@ GalarFala_G08M07_o9::
 	end
 
 GalarFala_G08M07_o9_Text:
-	.string "A líder de ginásio Nessa näo está.$"
+	.string "A líder de ginásio Nessa não está.$"
 
 @ ---- Galar_Hulbury07 (g08m08) ----
 GalarFala_G08M08_o1::
@@ -2040,7 +2040,7 @@ GalarFala_G08M15_o1::
 	end
 
 GalarFala_G08M15_o1_Text:
-	.string "Meu irmäo foi enfrentar a Nessa\ne perdeu kkk.$"
+	.string "Meu irmão foi enfrentar a Nessa\ne perdeu kkk.$"
 
 GalarFala_G08M15_o2::
 	lock
@@ -2133,7 +2133,7 @@ GalarFala_G09M00_o0::
 	end
 
 GalarFala_G09M00_o0_Text:
-	.string "Você sabia? Pokémon com a\nhabilidade Clear Body näo seräo\lafetados por movimentos de\lreduçäo de estatisticas.$"
+	.string "Você sabia? Pokémon com a\nhabilidade Clear Body não serão\lafetados por movimentos de\lredução de estatisticas.$"
 
 GalarFala_G09M00_o1::
 	lock
@@ -2143,7 +2143,7 @@ GalarFala_G09M00_o1::
 	end
 
 GalarFala_G09M00_o1_Text:
-	.string "Duraludons Selvagens habitam a\nrota 10. Ouvi dizer que säo\ldificeis de capturar.$"
+	.string "Duraludons Selvagens habitam a\nrota 10. Ouvi dizer que são\ldificeis de capturar.$"
 
 GalarFala_G09M00_o2::
 	lock
@@ -2153,7 +2153,7 @@ GalarFala_G09M00_o2::
 	end
 
 GalarFala_G09M00_o2_Text:
-	.string "Mesmo que algumas pessoas digam\nque os tipos de veneno säo comuns,\leu acho que eles säo legais!$"
+	.string "Mesmo que algumas pessoas digam\nque os tipos de veneno são comuns,\leu acho que eles são legais!$"
 
 GalarFala_G09M00_o5::
 	lock
@@ -2193,7 +2193,7 @@ GalarFala_G09M01_o2::
 	end
 
 GalarFala_G09M01_o2_Text:
-	.string "É verdade que um nivel superior\nPokémon vai ser mais poderoso …\pMas, todos os Pokémon teräo fracos\npontos contra tipos especificos.\pEntäo, parece näo haver\nPokémon universalmente forte.$"
+	.string "É verdade que um nivel superior\nPokémon vai ser mais poderoso …\pMas, todos os Pokémon terão fracos\npontos contra tipos especificos.\pEntão, parece não haver\nPokémon universalmente forte.$"
 
 @ ---- Galar_Circhester01 (g09m03) ----
 GalarFala_G09M03_bg0::
@@ -2218,7 +2218,7 @@ GalarFala_G09M03_o0::
 	end
 
 GalarFala_G09M03_o0_Text:
-	.string "Olá jovem, seja bem vindo ao\pFä Clube Pokemon!!!\paqui demostramos o nosso afeto a\na todos pokemons.$"
+	.string "Olá jovem, seja bem vindo ao\pFã Clube Pokemon!!!\paqui demostramos o nosso afeto a\na todos pokemons.$"
 
 GalarFala_G09M03_o1::
 	lock
@@ -2238,7 +2238,7 @@ GalarFala_G09M03_o4::
 	end
 
 GalarFala_G09M03_o4_Text:
-	.string "Eu adoro meu Morpeko!\ntäo adorável!\pEle grita,“Uraraka“,\nquando eu o pego!$"
+	.string "Eu adoro meu Morpeko!\ntão adorável!\pEle grita,“Uraraka“,\nquando eu o pego!$"
 
 GalarFala_G09M03_o5::
 	lock
@@ -2248,7 +2248,7 @@ GalarFala_G09M03_o5::
 	end
 
 GalarFala_G09M03_o5_Text:
-	.string "Meu applin é uma gracinha näo é?$"
+	.string "Meu applin é uma gracinha não é?$"
 
 @ ---- Galar_Circhester02 (g09m08) ----
 GalarFala_G09M08_bg0::
@@ -2276,7 +2276,7 @@ GalarFala_G09M08_o2::
 	end
 
 GalarFala_G09M08_o2_Text:
-	.string "Eu quero trocar Mail com todos\ntipos de pessoas.\pEu mando meu rookidee para\numa sala da Uniäo\lpara trocar Mail por mim.$"
+	.string "Eu quero trocar Mail com todos\ntipos de pessoas.\pEu mando meu rookidee para\numa sala da União\lpara trocar Mail por mim.$"
 
 @ ---- Galar_Hammerlocke04 (g09m10) ----
 GalarFala_G09M10_o11::
@@ -2455,7 +2455,7 @@ GalarFala_G09M17_o2::
 	end
 
 GalarFala_G09M17_o2_Text:
-	.string "Por motivos de segurança, este\nlocal näo pode ser acessado.$"
+	.string "Por motivos de segurança, este\nlocal não pode ser acessado.$"
 
 @ ---- Galar_StowOnSide06 (g09m18) ----
 GalarFala_G09M18_o2::
@@ -2466,7 +2466,7 @@ GalarFala_G09M18_o2::
 	end
 
 GalarFala_G09M18_o2_Text:
-	.string "Eu quero trocar Mail com todos\ntipos de pessoas.\pEu mando meu rookidee para\numa sala da Uniäo\lpara trocar Mail por mim.$"
+	.string "Eu quero trocar Mail com todos\ntipos de pessoas.\pEu mando meu rookidee para\numa sala da União\lpara trocar Mail por mim.$"
 
 @ ---- Galar_Hammerlocke11 (g09m20) ----
 GalarFala_G09M20_bg1::
@@ -2509,7 +2509,7 @@ GalarFala_G10M12_o1::
 	end
 
 GalarFala_G10M12_o1_Text:
-	.string "Eu montei aqui de stow-on-side.\pÉ um passeio dificil no ciclismo\nEstrada, entäo estou exausta.$"
+	.string "Eu montei aqui de stow-on-side.\pÉ um passeio dificil no ciclismo\nEstrada, então estou exausta.$"
 
 GalarFala_G10M12_o2::
 	lock
@@ -2552,7 +2552,7 @@ GalarFala_G10M18_o0::
 	end
 
 GalarFala_G10M18_o0_Text:
-	.string "Você sabia?\nSe um Pokémon do seu grupo\ltiver a habilidade Flame Body\lou Magma Armor, os ovos\leclodiräo mais rapidamente!$"
+	.string "Você sabia?\nSe um Pokémon do seu grupo\ltiver a habilidade Flame Body\lou Magma Armor, os ovos\leclodirão mais rapidamente!$"
 
 GalarFala_G10M18_o1::
 	lock
@@ -2572,7 +2572,7 @@ GalarFala_G10M18_o2::
 	end
 
 GalarFala_G10M18_o2_Text:
-	.string "Eu adoro Pokémon que säo \nincomuns e deixam outros \ltreinadores com inveja!$"
+	.string "Eu adoro Pokémon que são \nincomuns e deixam outros \ltreinadores com inveja!$"
 
 @ ---- Galar_Hammerlocke19 (g10m19) ----
 GalarFala_G10M19_o0::
@@ -2583,7 +2583,7 @@ GalarFala_G10M19_o0::
 	end
 
 GalarFala_G10M19_o0_Text:
-	.string "Pokémon?\nNäo, este é um hotel para pessoas.\lInfelizmente estamos cheio.$"
+	.string "Pokémon?\nNão, este é um hotel para pessoas.\lInfelizmente estamos cheio.$"
 
 GalarFala_G10M19_o1::
 	lock
@@ -2593,7 +2593,7 @@ GalarFala_G10M19_o1::
 	end
 
 GalarFala_G10M19_o1_Text:
-	.string "Estou de férias com meu irmäo e\nnamorado.\phammerlock é uma cidade\ntäo bonita!$"
+	.string "Estou de férias com meu irmão e\nnamorado.\phammerlock é uma cidade\ntão bonita!$"
 
 GalarFala_G10M19_o2::
 	lock
@@ -2603,7 +2603,7 @@ GalarFala_G10M19_o2::
 	end
 
 GalarFala_G10M19_o2_Text:
-	.string "Por quê?\nPor que ela trouxe o irmäo?$"
+	.string "Por quê?\nPor que ela trouxe o irmão?$"
 
 @ ---- Galar_Route0601 (g10m20) ----
 GalarFala_G10M20_o22::
@@ -2659,7 +2659,7 @@ GalarFala_G10M21_o3::
 	end
 
 GalarFala_G10M21_o3_Text:
-	.string "As nickits säo täo fofas!$"
+	.string "As nickits são tão fofas!$"
 
 GalarFala_G10M21_o4::
 	lock
@@ -2669,7 +2669,7 @@ GalarFala_G10M21_o4::
 	end
 
 GalarFala_G10M21_o4_Text:
-	.string "As nickits säo täo fofas!$"
+	.string "As nickits são tão fofas!$"
 
 GalarFala_G10M21_o8::
 	lock
@@ -2816,7 +2816,7 @@ GalarFala_G11M13_o2::
 	end
 
 GalarFala_G11M13_o2_Text:
-	.string "Impidimp selvagens habitam \nglimwood tangle.\lOuvi dizer que säo bastante comuns.$"
+	.string "Impidimp selvagens habitam \nglimwood tangle.\lOuvi dizer que são bastante comuns.$"
 
 @ ---- Galar_Circhester04 (g12m02) ----
 GalarFala_G12M02_o0::
@@ -2855,7 +2855,7 @@ GalarFala_G12M05_o3::
 	end
 
 GalarFala_G12M05_o3_Text:
-	.string "Pokémon ainda pode aprender\ntécnicas apos cancelar a evoluçäo.\pA evoluçäo pode esperar até que\nnovos movimentos sejam aprendidos.$"
+	.string "Pokémon ainda pode aprender\ntécnicas apos cancelar a evolução.\pA evolução pode esperar até que\nnovos movimentos sejam aprendidos.$"
 
 @ ---- Galar_Route0801 (g12m08) ----
 GalarFala_G12M08_o0::
@@ -3001,7 +3001,7 @@ GalarFala_G12M10_o5::
 	end
 
 GalarFala_G12M10_o5_Text:
-	.string "Durante uma grande nevasca um\ngigantamax coalossal aqueceu\la populaçäo de galar.$"
+	.string "Durante uma grande nevasca um\ngigantamax coalossal aqueceu\la população de galar.$"
 
 GalarFala_G12M10_o6::
 	lock
@@ -3011,7 +3011,7 @@ GalarFala_G12M10_o6::
 	end
 
 GalarFala_G12M10_o6_Text:
-	.string "As wooloos säo täo macias que\nate podem pular de penhascos\lsem se machucarem.$"
+	.string "As wooloos são tão macias que\nate podem pular de penhascos\lsem se machucarem.$"
 
 GalarFala_G12M10_o7::
 	lock
@@ -3041,7 +3041,7 @@ GalarFala_G12M10_o9::
 	end
 
 GalarFala_G12M10_o9_Text:
-	.string "O que você  prefere gigantamax\nou mega evoluçäo?$"
+	.string "O que você  prefere gigantamax\nou mega evolução?$"
 
 @ ---- Galar_Circhester07 (g12m11) ----
 GalarFala_G12M11_o2::
@@ -3092,7 +3092,7 @@ GalarFala_G12M11_o6::
 	end
 
 GalarFala_G12M11_o6_Text:
-	.string "Näo acredito fiquei horas no\nmini game para  perder para a Melony$"
+	.string "Não acredito fiquei horas no\nmini game para  perder para a Melony$"
 
 GalarFala_G12M11_o7::
 	lock
@@ -3102,7 +3102,7 @@ GalarFala_G12M11_o7::
 	end
 
 GalarFala_G12M11_o7_Text:
-	.string "Eu näo esperava aquele max geyser$"
+	.string "Eu não esperava aquele max geyser$"
 
 @ ---- Galar_Circhester12 (g12m16) ----
 GalarFala_G12M16_o2::
@@ -3134,7 +3134,7 @@ GalarFala_G12M18_o1::
 	end
 
 GalarFala_G12M18_o1_Text:
-	.string "Meu marido gosta de trocar Pokémon\pVocê está coletando Pokémon para a\nsua Pokédex, näo é?\pVocê poderia trocar com ele?$"
+	.string "Meu marido gosta de trocar Pokémon\pVocê está coletando Pokémon para a\nsua Pokédex, não é?\pVocê poderia trocar com ele?$"
 
 @ ---- Galar_Wyndon02 (g13m00) ----
 GalarFala_G13M00_o2::
@@ -3165,7 +3165,7 @@ GalarFala_G13M00_o4::
 	end
 
 GalarFala_G13M00_o4_Text:
-	.string "Esta é a recepçäo!\nAcontece que fui o primeiro a me\linscrever para a Copa dos Campeoes\pEm outras palavras, já sou o\nnumero um. Está praticamente\lna bolsa que vou ganhar essa\lcoisa!$"
+	.string "Esta é a recepção!\nAcontece que fui o primeiro a me\linscrever para a Copa dos Campeoes\pEm outras palavras, já sou o\nnumero um. Está praticamente\lna bolsa que vou ganhar essa\lcoisa!$"
 
 GalarFala_G13M00_o6::
 	lock
@@ -3196,7 +3196,7 @@ GalarFala_G13M02_o0::
 	end
 
 GalarFala_G13M02_o0_Text:
-	.string "Esta cidade costumava ser uma\npequena vila de pescadores.\pSua populaçäo cresceu\nconstantemente.$"
+	.string "Esta cidade costumava ser uma\npequena vila de pescadores.\pSua população cresceu\nconstantemente.$"
 
 @ ---- Galar_Spikemuth02 (g13m03) ----
 GalarFala_G13M03_o0::
@@ -3207,7 +3207,7 @@ GalarFala_G13M03_o0::
 	end
 
 GalarFala_G13M03_o0_Text:
-	.string "Meu Pokémon favorito é Chansey!\nEles säo täo bonitinhos!$"
+	.string "Meu Pokémon favorito é Chansey!\nEles são tão bonitinhos!$"
 
 @ ---- Galar_Spikemuth03 (g13m04) ----
 GalarFala_G13M04_o0::
@@ -3240,7 +3240,7 @@ GalarFala_G13M10_o0::
 	end
 
 GalarFala_G13M10_o0_Text:
-	.string "Você sabia? Pokémon com a\nhabilidade Pickup podem encontrar\litens no chäo.\pNäo dê a eles nenhum item\nretido, ou você pode perder!$"
+	.string "Você sabia? Pokémon com a\nhabilidade Pickup podem encontrar\litens no chão.\pNão dê a eles nenhum item\nretido, ou você pode perder!$"
 
 GalarFala_G13M10_o10::
 	lock
@@ -3270,7 +3270,7 @@ GalarFala_G13M10_o4::
 	end
 
 GalarFala_G13M10_o4_Text:
-	.string "Eu acho que Aguav Berries säo\nfascinantes.\pEles recuperam HP perdido, mas\ncausam confusäo para Pokémon\lcom certas\lnaturezas.$"
+	.string "Eu acho que Aguav Berries são\nfascinantes.\pEles recuperam HP perdido, mas\ncausam confusão para Pokémon\lcom certas\lnaturezas.$"
 
 GalarFala_G13M10_o5::
 	lock
@@ -3290,7 +3290,7 @@ GalarFala_G13M10_o6::
 	end
 
 GalarFala_G13M10_o6_Text:
-	.string "Gosto de usar movimentos que\ncausam confusäo.$"
+	.string "Gosto de usar movimentos que\ncausam confusão.$"
 
 GalarFala_G13M10_o7::
 	lock
@@ -3300,7 +3300,7 @@ GalarFala_G13M10_o7::
 	end
 
 GalarFala_G13M10_o7_Text:
-	.string "Gosto de usar Pokémon que outros\ntreinadores subestimaräo!$"
+	.string "Gosto de usar Pokémon que outros\ntreinadores subestimarão!$"
 
 GalarFala_G13M10_o8::
 	lock
@@ -3310,7 +3310,7 @@ GalarFala_G13M10_o8::
 	end
 
 GalarFala_G13M10_o8_Text:
-	.string "Gosto de usar Pokémon que outros\ntreinadores subestimaräo!$"
+	.string "Gosto de usar Pokémon que outros\ntreinadores subestimarão!$"
 
 @ ---- Galar_Hammerlocke20 (g13m18) ----
 GalarFala_G13M18_o0::
@@ -3349,7 +3349,7 @@ GalarFala_G13M20_o11::
 	end
 
 GalarFala_G13M20_o11_Text:
-	.string "Eu acho que Aguav Berries säo\nfascinantes.\pEles recuperam HP perdido, mas\ncausam confusäo para Pokémon\lcom certas\lnaturezas.$"
+	.string "Eu acho que Aguav Berries são\nfascinantes.\pEles recuperam HP perdido, mas\ncausam confusão para Pokémon\lcom certas\lnaturezas.$"
 
 GalarFala_G13M20_o12::
 	lock
@@ -3359,7 +3359,7 @@ GalarFala_G13M20_o12::
 	end
 
 GalarFala_G13M20_o12_Text:
-	.string "Gosto de usar Pokémon que outros\ntreinadores subestimaräo!$"
+	.string "Gosto de usar Pokémon que outros\ntreinadores subestimarão!$"
 
 GalarFala_G13M20_o13::
 	lock
@@ -3449,7 +3449,7 @@ GalarFala_G13M20_o9::
 	end
 
 GalarFala_G13M20_o9_Text:
-	.string "Gosto de usar movimentos que\ncausam confusäo.$"
+	.string "Gosto de usar movimentos que\ncausam confusão.$"
 
 @ ---- Galar_Wyndon04 (g14m00) ----
 GalarFala_G14M00_o0::
@@ -3460,7 +3460,7 @@ GalarFala_G14M00_o0::
 	end
 
 GalarFala_G14M00_o0_Text:
-	.string "Esta cidade costumava ser uma\npequena vila de pescadores.\pSua populaçäo cresceu\nconstantemente.$"
+	.string "Esta cidade costumava ser uma\npequena vila de pescadores.\pSua população cresceu\nconstantemente.$"
 
 GalarFala_G14M00_o1::
 	lock
@@ -3470,7 +3470,7 @@ GalarFala_G14M00_o1::
 	end
 
 GalarFala_G14M00_o1_Text:
-	.string "Embora algumas pessoas digam que\nos tipos Poison säo feios, eu os\lacho legais!$"
+	.string "Embora algumas pessoas digam que\nos tipos Poison são feios, eu os\lacho legais!$"
 
 @ ---- Galar_Wyndon05 (g14m04) ----
 GalarFala_G14M04_o0::
@@ -3481,7 +3481,7 @@ GalarFala_G14M04_o0::
 	end
 
 GalarFala_G14M04_o0_Text:
-	.string "Mesmo que a maioria das pessoas\ndissesse que os tipos lutadores\lsäo todos iguais, acho que eles\lsäo fortes!$"
+	.string "Mesmo que a maioria das pessoas\ndissesse que os tipos lutadores\lsão todos iguais, acho que eles\lsão fortes!$"
 
 @ ---- Galar_Spikemuth05 (g14m06) ----
 GalarFala_G14M06_o1::
@@ -3502,7 +3502,7 @@ GalarFala_G14M06_o2::
 	end
 
 GalarFala_G14M06_o2_Text:
-	.string "Nos näo ivadimos a cidade nos\nmoramos aqui!$"
+	.string "Nos não ivadimos a cidade nos\nmoramos aqui!$"
 
 GalarFala_G14M06_o3::
 	lock
@@ -3533,7 +3533,7 @@ GalarFala_G14M09_o1::
 	end
 
 GalarFala_G14M09_o1_Text:
-	.string "Mesmo que algumas pessoas digam\nque os tipos de insetos\lsäo comuns, acho que eles säo\ldificeis!$"
+	.string "Mesmo que algumas pessoas digam\nque os tipos de insetos\lsão comuns, acho que eles são\ldificeis!$"
 
 @ ---- Galar_Spikemuth07 (g14m10) ----
 GalarFala_G14M10_o5::
@@ -3643,7 +3643,7 @@ GalarFala_G20M00_bg0::
 	end
 
 GalarFala_G20M00_bg0_Text:
-	.string "{COLOR RED}XX.YY.ZZZZ\n{COLOR GREEN}HH.DD\p{COLOR BLUE}Querido Diário, eu näo aguento\nmais...\pNäo sei há quanto tempo isso\nacontece, dias? Meses? Anos?\pMinha vida näo tem paz há muito\ntempo. Passo dias e dias em claro\ltendo visoes, vivendo com medo...\pNäo como há um tempo...\pNäo me lembro da última vez que\nbebi água...\pE toda vez que durmo, tenho os\nmesmos pesadelos, e cada vez\lpiores, cada vez mais longos...\pNäo sei mais o que fazer...\pNäo sei quanto tempo vou aguentar\nou se vou superar isso...\pOh, Arceus, me ajude...$"
+	.string "{COLOR RED}XX.YY.ZZZZ\n{COLOR GREEN}HH.DD\p{COLOR BLUE}Querido Diário, eu não aguento\nmais...\pNão sei há quanto tempo isso\nacontece, dias? Meses? Anos?\pMinha vida não tem paz há muito\ntempo. Passo dias e dias em claro\ltendo visoes, vivendo com medo...\pNão como há um tempo...\pNão me lembro da última vez que\nbebi água...\pE toda vez que durmo, tenho os\nmesmos pesadelos, e cada vez\lpiores, cada vez mais longos...\pNão sei mais o que fazer...\pNão sei quanto tempo vou aguentar\nou se vou superar isso...\pOh, Arceus, me ajude...$"
 
 @ ---- Galar_StowOnSide11 (g21m00) ----
 GalarFala_G21M00_o1::
@@ -3664,7 +3664,7 @@ GalarFala_G21M00_o2::
 	end
 
 GalarFala_G21M00_o2_Text:
-	.string "É verdade que um nivel superior\nPokémon vai ser mais poderoso …\pMas, todos os Pokémon teräo fracos\npontos contra tipos especificos.\pEntäo, parece näo haver\nPokémon universalmente forte.$"
+	.string "É verdade que um nivel superior\nPokémon vai ser mais poderoso …\pMas, todos os Pokémon terão fracos\npontos contra tipos especificos.\pEntão, parece não haver\nPokémon universalmente forte.$"
 
 @ ---- Galar_NewmoonIsland02 (g21m02) ----
 GalarFala_G21M02_bg0::
@@ -3717,7 +3717,7 @@ GalarFala_G27M00_o8::
 	end
 
 GalarFala_G27M00_o8_Text:
-	.string "Vi na TV que em Hoenn nasceram\ndois gêmeos siameses, mas näo no\lcorpo, e sim na mente.\pEles säo dois, mas compartilham a\nmesma mente.\pO que um pensa, o outro já sabe.\pQue loucura, näo é?$"
+	.string "Vi na TV que em Hoenn nasceram\ndois gêmeos siameses, mas não no\lcorpo, e sim na mente.\pEles são dois, mas compartilham a\nmesma mente.\pO que um pensa, o outro já sabe.\pQue loucura, não é?$"
 
 GalarFala_G27M00_o9::
 	lock
@@ -3759,7 +3759,7 @@ GalarFala_G34M01_o1::
 	end
 
 GalarFala_G34M01_o1_Text:
-	.string "Ei, você ouviu as novidades?\pA rede de PC aqui agora pode se\nconectar a PCs em Galar.\pNäo sei como isso aconteceu, mas é\nfantástico!$"
+	.string "Ei, você ouviu as novidades?\pA rede de PC aqui agora pode se\nconectar a PCs em Galar.\pNão sei como isso aconteceu, mas é\nfantástico!$"
 
 GalarFala_G34M01_o2::
 	lock
@@ -3779,7 +3779,7 @@ GalarFala_G34M01_o3::
 	end
 
 GalarFala_G34M01_o3_Text:
-	.string "É impossivel surfar nos confins\nda ilha.\pAs marés estäo muito rápidas e\ntraiçoeiras.$"
+	.string "É impossivel surfar nos confins\nda ilha.\pAs marés estão muito rápidas e\ntraiçoeiras.$"
 
 @ ---- Galar_CrownTundra06 (g36m00) ----
 GalarFala_G36M00_o1::
@@ -3849,7 +3849,7 @@ GalarFala_G37M05_o44::
 	end
 
 GalarFala_G37M05_o44_Text:
-	.string "A bea treina na Wild area todos\nos dias.\pSeus Pokémon säo täo fortes!$"
+	.string "A bea treina na Wild area todos\nos dias.\pSeus Pokémon são tão fortes!$"
 
 GalarFala_G37M05_o45::
 	lock
@@ -3869,7 +3869,7 @@ GalarFala_G37M05_o46::
 	end
 
 GalarFala_G37M05_o46_Text:
-	.string "Você sabia? Pokémon com a\nhabilidade Pickup podem encontrar\litens no chäo.\pNäo dê a eles nenhum item retido,\nou você pode perder!\l$"
+	.string "Você sabia? Pokémon com a\nhabilidade Pickup podem encontrar\litens no chão.\pNão dê a eles nenhum item retido,\nou você pode perder!\l$"
 
 GalarFala_G37M05_o47::
 	lock
@@ -3879,7 +3879,7 @@ GalarFala_G37M05_o47::
 	end
 
 GalarFala_G37M05_o47_Text:
-	.string "Eu gosto de usar o Sand-Attack\npara diminuir a precisäo dos meus\loponentes.\pQual é o seu movimento favorito?$"
+	.string "Eu gosto de usar o Sand-Attack\npara diminuir a precisão dos meus\loponentes.\pQual é o seu movimento favorito?$"
 
 GalarFala_G37M05_o48::
 	lock
@@ -3889,7 +3889,7 @@ GalarFala_G37M05_o48::
 	end
 
 GalarFala_G37M05_o48_Text:
-	.string "Embora a maioria das pessoas diga\nque os tipo Ground säo feios,\lacho que eles säo duroes!$"
+	.string "Embora a maioria das pessoas diga\nque os tipo Ground são feios,\lacho que eles são duroes!$"
 
 @ ---- Galar_CrownTundra17 (g37m21) ----
 GalarFala_G37M21_o0::
@@ -3900,7 +3900,7 @@ GalarFala_G37M21_o0::
 	end
 
 GalarFala_G37M21_o0_Text:
-	.string "Duraludons Selvagens habitam a\nrota 10. Ouvi dizer que säo\ldificeis de capturar.$"
+	.string "Duraludons Selvagens habitam a\nrota 10. Ouvi dizer que são\ldificeis de capturar.$"
 
 GalarFala_G37M21_o1::
 	lock
@@ -3910,7 +3910,7 @@ GalarFala_G37M21_o1::
 	end
 
 GalarFala_G37M21_o1_Text:
-	.string "Você sabia?Pokémon com a\nhabilidade Clear Body näo seräo\lafetados por movimentos de\lreduçäo de estatisticas.$"
+	.string "Você sabia?Pokémon com a\nhabilidade Clear Body não serão\lafetados por movimentos de\lredução de estatisticas.$"
 
 @ ---- Galar_IsleOfArmor08 (g38m04) ----
 GalarFala_G38M04_o12::
@@ -3932,7 +3932,7 @@ GalarFala_G38M05_o2::
 	end
 
 GalarFala_G38M05_o2_Text:
-	.string "Para entar nessa torre você tem\nque ter a permiçäo do\lDojo Master Mustard!!!$"
+	.string "Para entar nessa torre você tem\nque ter a permição do\lDojo Master Mustard!!!$"
 
 GalarFala_G38M05_o3::
 	lock
@@ -3953,7 +3953,7 @@ GalarFala_G38M08_o2::
 	end
 
 GalarFala_G38M08_o2_Text:
-	.string "Para entar nessa torre você tem\nque ter a permiçäo do\lDojo Master Mustard!!!$"
+	.string "Para entar nessa torre você tem\nque ter a permição do\lDojo Master Mustard!!!$"
 
 @ ---- Galar_IsleOfArmor16 (g38m12) ----
 GalarFala_G38M12_o0::
@@ -4215,7 +4215,7 @@ GalarFala_G42M02_o2::
 	end
 
 GalarFala_G42M02_o2_Text:
-	.string "Togepi usa as boas energias como\nfonte do seu poder, ent äo\lquanto mais feliz e otimista for\lo seu treinador, mais forte ser \lo Togepi.$"
+	.string "Togepi usa as boas energias como\nfonte do seu poder, ent ão\lquanto mais feliz e otimista for\lo seu treinador, mais forte ser \lo Togepi.$"
 
 GalarFala_G42M02_o5::
 	lock
@@ -4240,7 +4240,7 @@ GalarFala_G42M04_o12::
 	end
 
 GalarFala_G42M04_o12_Text:
-	.string "Você näo pode passar aqui até o\nquinto ginásio.$"
+	.string "Você não pode passar aqui até o\nquinto ginásio.$"
 
 GalarFala_G42M04_o4::
 	finditem ITEM_ROOT_FOSSIL

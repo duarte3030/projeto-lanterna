@@ -151,11 +151,19 @@ SUPER_RE    = A0
 'z'         = EE
 '▶'         = EF
 ':'         = F0
-'Ä'         = F1
-'Ö'         = F2
+@ TIL, NAO TREMA, em F1 F2 F4 F5 (23/08/2026). A fonte de Galar (o demake
+@ Ultimate Plus, base FireRed) escreve "nao" como E2 F4 E3 e redesenhou o glifo
+@ desses quatro bytes de trema para til. Enquanto o nome aqui era o trema, a
+@ ida e volta byte a byte fechava e o jogador lia "N-trema-o" em 315 lugares,
+@ com o gerador dizendo que estava certo. Os glifos de
+@ graphics/fonts/latin_*.png foram redesenhados por dev_scripts/glifo_til.py.
+@ 'Ü' (F3) e 'ü' (F6) continuam trema, e sao os unicos vivos: o "JÜRGEN" de
+@ src/data/battle_frontier/apprentice.h.
+'Ã'         = F1
+'Õ'         = F2
 'Ü'         = F3
-'ä'         = F4
-'ö'         = F5
+'ã'         = F4
+'õ'         = F5
 'ü'         = F6
 EMOJI_DIZZYEGG = F7
 TALL_PLUS   = FC 0C FB

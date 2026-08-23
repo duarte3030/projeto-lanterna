@@ -644,14 +644,50 @@ def plano():
 
 
 # ---------------------------------------------------------------- escrita ---
-def numera(usados):
-    """{fonte_id: (id nosso, constante)}, estavel: ordem do id da fonte."""
+def ids_gravados(texto=None):
+    """{fonte_id: id nosso} JA GRAVADO no bloco de opponents.h, ou {}.
+
+    Fonte da verdade do de-para. O header e o lado velho porque e ele que a
+    ROM publicada e as saves conhecem; guardar a mesma tabela num JSON ao lado
+    so criaria dois donos do mesmo numero.
+    """
+    t = texto if texto is not None else open(OPPS, encoding="utf-8").read()
+    i, j = t.find(MARCA_INI), t.find(MARCA_FIM)
+    if i < 0 or j < 0:
+        return {}
     fora = {}
-    for n, fid in enumerate(sorted(usados)):
-        nid = ID_BASE + n
-        if nid >= ID_TETO:
-            raise SystemExit("faixa 3000-3399 estourou em %d treinadores" % n)
+    for m in re.finditer(r"#define\s+\S+\s+(\d+)\s*//\s*fonte\s+(\d+)",
+                         t[i:j]):
+        fora[int(m.group(2))] = int(m.group(1))
+    return fora
+
+
+def numera(usados, ja=None):
+    """{fonte_id: (id nosso, constante)}. APPEND-ONLY, e isso e o ponto.
+
+    Ate 23/08/2026 esta funcao numerava `ID_BASE + n` sobre `sorted(usados)`,
+    e a rodada 9 mostrou o preco: dois treinadores novos (fonte 686 e 733)
+    entraram com id de fonte MENOR que o da dupla Leon (736/739) e empurraram
+    os dois de 3204/3205 para 3206/3207. A flag de "ja venci" e
+    `TRAINER_FLAGS_START + id`, entao um id que anda leva a vitoria do jogador
+    junto: quem tivesse derrotado o Leon voltaria com a vitoria de outro. Nao
+    mordeu porque Galar ainda nao tem treinador jogavel, e essa foi a ultima
+    hora em que sair de graca.
+
+    A regra agora: id ja gravado NUNCA muda de numero, e id novo entra depois
+    do maior que existe. A ordem da fonte segue mandando SO no desempate entre
+    ids novos da mesma rodada, para a rodada ser reproduzivel.
+    """
+    ja = ids_gravados() if ja is None else ja
+    fora, prox = {}, max(ja.values(), default=ID_BASE - 1) + 1
+    for fid in sorted(usados):
         u = usados[fid]
+        nid = ja.get(fid)
+        if nid is None:
+            nid, prox = prox, prox + 1
+        if not ID_BASE <= nid < ID_TETO:
+            raise SystemExit("faixa %d-%d estourou no treinador de fonte %d"
+                             % (ID_BASE, ID_TETO - 1, fid))
         fora[fid] = (nid, const_id(fid, u["nome"], u["classe_fonte"]))
     return fora
 
@@ -666,7 +702,10 @@ def bloco_opponents(usados, num):
            "// e a faixa inteira ja esta dimensionada por MAX_TRAINERS_COUNT (4000).",
            "// Gerado por dev_scripts/treinadores_galar.py; nao editar a mao."]
     larg = max((len(c) for _, c in num.values()), default=10) + 2
-    for fid in sorted(num):
+    # Ordem de ESCRITA pelo id nosso, para o arquivo ler como o que ele e:
+    # uma lista append-only. Ordenar pelo id da fonte esconderia a insercao no
+    # meio, que foi o defeito de 23/08/2026.
+    for fid in sorted(num, key=lambda f: num[f][0]):
         nid, const = num[fid]
         u = usados[fid]
         out.append("#define %-*s %d  // fonte %d, %s %s"
@@ -914,6 +953,26 @@ def demo():
          all(ID_BASE <= n < ID_TETO for n, _ in num.values()))
     caso("as constantes de id nao repetem",
          len({c for _, c in num.values()}) == len(num))
+    # APPEND-ONLY, com mutacao plantada. O lado velho e o header de verdade;
+    # a mutacao TIRA dele o menor id da fonte, que e exatamente a forma do
+    # defeito de 23/08/2026 (um treinador novo com id de fonte pequeno).
+    ja = ids_gravados()
+    caso("o header ja tem de-para gravado (senao o caso abaixo e vazio)",
+         len(ja) > 100)
+    caso("com o header inteiro, NENHUM id se move",
+         all(num[f][0] == ja[f] for f in num if f in ja))
+    sem_um = dict(ja)
+    del sem_um[min(sem_um)]
+    n2 = numera(usados, sem_um)
+    caso("tirar o menor do lado velho NAO empurra os outros",
+         all(n2[f][0] == ja[f] for f in n2 if f in sem_um))
+    caso("e o que voltou entra DEPOIS do maior que existia",
+         n2[min(ja)][0] > max(sem_um.values()))
+    # PAR NEGATIVO: a regra velha (ID_BASE + posicao na ordem da fonte)
+    # move sim, e por isso o caso acima nao e vacuo.
+    velha = {f: ID_BASE + i for i, f in enumerate(sorted(usados))}
+    caso("a regra velha MOVERIA ids (o caso acima nao e vacuo)",
+         any(velha[f] != ja[f] for f in velha if f in ja))
     esp_h = open(f"{RAIZ}/include/constants/species.h").read()
     caso("toda especie escrita existe em species.h",
          all(("%s " % e) in esp_h or ("%s\n" % e) in esp_h
@@ -945,9 +1004,10 @@ def main():
           % (st, quantos, total))
     aceitas, usados, recusa, novas, extra, gin = plano()
     num = numera(usados)
+    ids = [n for n, _ in num.values()]
     print("batalhas portadas: %d em %d mapas; treinadores novos: %d (ids %d-%d)"
           % (len(aceitas), len({l["mapa"] for l in aceitas}), len(num),
-             ID_BASE, ID_BASE + len(num) - 1))
+             min(ids), max(ids)))
     print("de fora: %d linhas" % sum(recusa.values()))
     for m, n in recusa.most_common():
         print("  %5d  %s" % (n, m))

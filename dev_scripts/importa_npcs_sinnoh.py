@@ -296,6 +296,92 @@ def sprite_proprio(sprites, _c={}):
     return _c
 
 
+# SPRITE PROPRIO SO ENTRA EM OBJETO QUE NAO CONTRADIZ, 23/08/2026.
+#
+# O de-para de `sprite_proprio()` casa pelo NOME DO OBJETO DA FONTE, e a fonte
+# rotula como MARS o objeto de CENA da comandante em `ValleyWindworksBuilding`:
+# ela aparece, fala e some, e quem fica no mapa e o pai da familia. O casamento
+# do sprite com o objeto NOSSO era por VIZINHANCA pura (<= 1 tile, com script
+# qualquer), entao a cara da Mars foi parar no objeto cujo script e a fala
+# portada que comeca com "Papa:". Sprite e script sao as duas metades da mesma
+# afirmacao de identidade, e discordar e o mapa mentindo, que e exatamente o
+# que a decisao do Gui de 05/08/2026 proibe.
+#
+# A regra agora: objeto nosso so recebe o sprite proprio de uma pessoa quando
+#   - ele e MUDO (`script` "0"): nao afirma ser ninguem, e o sprite so da cara
+#     ao corpo que a fonte pos ali; ou
+#   - o script dele E DA PESSOA: o nome dela aparece no ROTULO ou no texto
+#     alcancavel a partir dele (a fala, a constante de treinador, o rotulo de
+#     uma sub-rotina). E assim que a Candice de Snowpoint continua passando: o
+#     rotulo dela e `_EventScript_Leader`, mudo sobre o nome, mas o corpo tem
+#     `TRAINER_SINNOH_LEADER_CANDICE`.
+# Quem nao passa fica com o sprite generico que ja tinha, e o censo diz por que.
+def blocos_de_script(_c={}):
+    """{rotulo: corpo} de todo .inc de script do repo, lido uma vez."""
+    if _c:
+        return _c
+    import glob
+    arqs = (glob.glob(f"{REPO}/data/maps/*/scripts.inc")
+            + glob.glob(f"{REPO}/data/scripts/*.inc"))
+    for caminho in arqs:
+        try:
+            texto = open(caminho, encoding="utf-8").read()
+        except OSError:
+            continue
+        rot, corpo = None, []
+        for l in texto.split("\n"):
+            m = re.match(r"^([A-Za-z_]\w*):{1,2}\s*$", l)
+            if m:
+                if rot:
+                    _c.setdefault(rot, "\n".join(corpo))
+                rot, corpo = m.group(1), []
+            elif rot:
+                corpo.append(l)
+        if rot:
+            _c.setdefault(rot, "\n".join(corpo))
+    return _c
+
+
+def texto_do_script(rotulo, teto=40):
+    """Todo o texto ALCANCAVEL a partir de `rotulo`, rotulos seguidos inclusive.
+
+    Sem seguir os saltos a Candice reprovaria por acidente: o `goto_if_set` dela
+    leva a um rotulo, e o nome da pessoa costuma estar do outro lado do salto.
+    """
+    blocos = blocos_de_script()
+    vistos, fila, saida = set(), [rotulo], [rotulo]
+    while fila and len(vistos) < teto:
+        r = fila.pop()
+        if r in vistos or r not in blocos:
+            continue
+        vistos.add(r)
+        corpo = blocos[r]
+        saida.append(corpo)
+        for s in re.findall(r"[A-Za-z_]\w*", corpo):
+            if s in blocos and s not in vistos:
+                fila.append(s)
+    return "\n".join(saida)
+
+
+def script_e_da_pessoa(nome, rotulo):
+    """O script `rotulo` fala como `nome` (MARS, CRASHER_WAKE, ...)?"""
+    if not rotulo or str(rotulo) in ("0", ""):
+        return True   # objeto mudo nao afirma identidade nenhuma
+    alvo = re.escape(nome.upper())
+    return bool(re.search(r"(?<![A-Z])%s(?![A-Z])" % alvo,
+                          texto_do_script(str(rotulo)).upper()))
+
+
+def pode_vestir(obj, proprio):
+    """(pode, motivo). Portao unico dos DOIS pontos que repintam objeto nosso."""
+    nome = proprio.replace("OBJ_EVENT_GFX_SINNOH_", "")
+    rot = str(obj.get("script", "0"))
+    if script_e_da_pessoa(nome, rot):
+        return True, None
+    return False, ("script %s nao fala como %s: sprite generico %s fica"
+                   % (rot, nome, obj.get("graphics_id")))
+
+
 # Personagem com nome próprio e Pokémon: sem sprite aqui, e trocar por genérico
 # faz o mapa mentir (líder de ginásio com cara de nadador). Fica de fora e é
 # registrado em PENDENCIAS-NPC-SINNOH.md. Decisão do Gui, 05/08/2026.
@@ -1045,6 +1131,12 @@ def main():
                              None)
                 if gemeo is not None:
                     reclamados.add(id(gemeo))
+                    pode, porque = pode_vestir(gemeo, proprio)
+                    if not pode:
+                        stats["sprite_recusado"] = stats.get("sprite_recusado", 0) + 1
+                        linha(meu, "objeto", e, conv(e), g, regra,
+                              "ja existe a mao com script, e " + porque)
+                        continue
                     if gemeo.get("graphics_id") != proprio:
                         gemeo["graphics_id"] = proprio
                         stats["sprite_corrigido"] = stats.get("sprite_corrigido", 0) + 1
@@ -1062,13 +1154,24 @@ def main():
                 velho = getattr(reclama, "ultimo", None)
                 novo_g = (f"OBJ_EVENT_GFX_SPECIES({especie})" if especie
                           else proprio)
+                # MESMO PORTAO do gemeo, e por isso ele e uma funcao. Este
+                # caminho tambem repinta objeto NOSSO, e casa por coordenada e
+                # marca, nao por identidade: sem o portao ele repoe o defeito
+                # que o de cima passou a recusar.
+                recusa_sprite = None
+                if velho is not None and proprio and not especie:
+                    pode, recusa_sprite = pode_vestir(velho, proprio)
+                    if not pode:
+                        stats["sprite_recusado"] = stats.get("sprite_recusado", 0) + 1
+                        novo_g = None
                 if velho is not None and novo_g and velho.get("graphics_id") != novo_g:
                     velho["graphics_id"] = novo_g
                     stats["sprite_corrigido"] = stats.get("sprite_corrigido", 0) + 1
                     tocado.add(pm)
                 linha(meu, "objeto", e, conv(e), g, regra,
                       "ja importado em rodada anterior (objeto nosso com a "
-                      "marca nesta coordenada)")
+                      "marca nesta coordenada)"
+                      + (", e " + recusa_sprite if recusa_sprite else ""))
                 continue
             if len(novos_obj) >= max(0, teto_fonte):
                 stats["fora_teto_fonte"] += 1

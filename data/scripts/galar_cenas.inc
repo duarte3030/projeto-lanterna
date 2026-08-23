@@ -199,7 +199,7 @@ GalarCena_G09M11_t2_v0::
 GalarCena_G09M11_t2_v0_Text0:
 	.string "Rose:O estádio de Hammerlocke\nfunciona como uma usina de energia.\pAgora,dê uma olhada no meu tablet.$"
 GalarCena_G09M11_t2_v0_Text1:
-	.string "Eu tenho todas as informacoes que\pvocê precisa vê.\pRose:Vejo?Uma descricäo fácil de\nentender da usina de energia!Primeiro,\pa energia é absorvida na torre do\nestádio de Hammerlocke.Em seguida,\pé transformada em eletricidade na\nusina subterranea e entregue as\ppessoas de toda a regiäo de Galar!\nNossas vidas e a sociedade exigem\pvários tipos de fontes de energia,\ncomo eletricidade,gás natural,Meus\pgrupos associados visam melhorar\na vida de todos, aproveitando o$"
+	.string "Eu tenho todas as informacoes que\pvocê precisa vê.\pRose:Vejo?Uma descricão fácil de\nentender da usina de energia!Primeiro,\pa energia é absorvida na torre do\nestádio de Hammerlocke.Em seguida,\pé transformada em eletricidade na\nusina subterranea e entregue as\ppessoas de toda a região de Galar!\nNossas vidas e a sociedade exigem\pvários tipos de fontes de energia,\ncomo eletricidade,gás natural,Meus\pgrupos associados visam melhorar\na vida de todos, aproveitando o$"
 GalarCena_G09M11_t2_v0_Mov0:
 	.byte MOVEMENT_ACTION_FACE_RIGHT
 	.byte MOVEMENT_ACTION_EMOTE_EXCLAMATION_MARK
@@ -208,7 +208,7 @@ GalarCena_G09M11_t2_v0_Mov1:
 	.byte MOVEMENT_ACTION_EMOTE_EXCLAMATION_MARK
 	.byte MOVEMENT_ACTION_STEP_END
 GalarCena_G09M11_t2_v0_Text2:
-	.string "rose:hora de eu comecar a trabalhar.\nEu devo me mexer logo antes que\pOleana decida me dar mais avisos,\n{PLAYER},sugiro que você vá para o\pcofre em seguida.Apenas siga em\ndirecäo   Rota 6 do estádio e você\pencontrará o cofre sem problemas!$"
+	.string "rose:hora de eu comecar a trabalhar.\nEu devo me mexer logo antes que\pOleana decida me dar mais avisos,\n{PLAYER},sugiro que você vá para o\pcofre em seguida.Apenas siga em\ndirecão   Rota 6 do estádio e você\pencontrará o cofre sem problemas!$"
 
 @ ---- Galar_Wedgehurst10 (g21m01) ----
 GalarCena_G21M01_t4_v1::

@@ -199,6 +199,36 @@ def layouts_do_git(ref=REF_LAYOUT):
     return numeros_de_layout(js, lambda p: p in tinha)
 
 
+# Commit da ROM oficial ANTERIOR (2026-08-19b / rodada 8). Lado velho dos ids
+# de treinador: e o header que a ROM publicada e qualquer save feita nela
+# conhecem.
+REF_TREINADOR = "e5224a3d67"
+
+
+def ids_de_treinador(texto):
+    """{TRAINER_*: id} de opponents.h.
+
+    A flag de "ja derrotei este treinador" e `TRAINER_FLAGS_START + id`, e ela
+    mora na save. Entao id de treinador e INDICE DE SAVE como o de mapa e o de
+    layout, e a regra e a mesma dos dois: quem existe nao se move, e quem entra
+    entra no FIM. O guarda nasceu cego para isso porque so media TAMANHO
+    (`MAX_TRAINERS_COUNT`), e em 23/08/2026 dois ids andaram duas casas com o
+    guarda dizendo SAVE COMPATIVEL, que estava certo pela regua dele e mudo
+    sobre a vitoria que mudava de dono.
+    """
+    return {m.group(1): int(m.group(2)) for m in
+            re.finditer(r"^#define\s+(TRAINER_\w+)\s+(\d+)\s*(?://.*)?$",
+                        texto, re.M)}
+
+
+def treinadores_do_git(ref=REF_TREINADOR):
+    """Os ids de treinador COMO ERAM no commit de referencia, ou None."""
+    import subprocess
+    r = subprocess.run(["git", "show", f"{ref}:include/constants/opponents.h"],
+                       cwd=RAIZ, capture_output=True, text=True)
+    return ids_de_treinador(r.stdout) if r.returncode == 0 else None
+
+
 def revisao_de_layout():
     """SAVE_LAYOUT_REVISION de include/save.h, que decide se a save velha CARREGA.
 
@@ -401,6 +431,28 @@ def compara(velha, nova):
             quebras.append(f"LAYOUT INSERIDO NO MEIO: {nome} entrou como "
                            f"mapLayoutId {pos}, empurrando os seguintes.")
 
+    # Ids de treinador. Mesma regra dos mapas e dos layouts: mover ou apagar
+    # reprova, apendar no fim e livre. Sem lado velho, nao inventa quebra.
+    vtr = velha.get("treinadores") or {}
+    ntr = nova.get("treinadores") or {}
+    if vtr and ntr:
+        maior = max(vtr.values())
+        for nome, tid in vtr.items():
+            if nome not in ntr:
+                quebras.append(f"TREINADOR APAGADO: {nome} era o id {tid}. "
+                               f"A flag TRAINER_FLAGS_START + {tid} passa a ser "
+                               f"de outro treinador, ou de ninguem.")
+            elif ntr[nome] != tid:
+                quebras.append(f"TREINADOR MOVIDO: {nome} era o id {tid}, virou "
+                               f"{ntr[nome]}. A vitoria gravada na save vale "
+                               f"TRAINER_FLAGS_START + id, entao ela muda de dono.")
+        for nome, tid in ntr.items():
+            if nome not in vtr and tid <= maior:
+                quebras.append(f"TREINADOR INSERIDO NO MEIO: {nome} entrou como "
+                               f"id {tid}, que e menor ou igual ao maior id que "
+                               f"ja existia ({maior}). Id de treinador e "
+                               f"APPEND-ONLY.")
+
     for k, v in velha["structs"].items():
         if nova["structs"].get(k) != v:
             quebras.append(f"STRUCT MUDOU: {k} teve o corpo alterado. "
@@ -543,9 +595,20 @@ def main():
             print(f"AVISO: sem `git show {REF_LAYOUT}:data/layouts/layouts.json` "
                   "neste clone, o mapLayoutId fica SEM lado velho. Nao conte "
                   "esta rodada como verificada.")
+    # Ids de treinador: os DOIS lados sao lidos na hora (git + disco), e por
+    # isso nao entram na impressao gravada. Impressao velha nao envelhece um
+    # de-para de 3 mil linhas, e o commit de referencia e o da ROM publicada.
+    nova["treinadores"] = ids_de_treinador(
+        open(f"{RAIZ}/include/constants/opponents.h", encoding="utf-8").read())
+    velha["treinadores"] = treinadores_do_git()
+    if velha["treinadores"] is None:
+        print(f"AVISO: sem `git show {REF_TREINADOR}:include/constants/"
+              "opponents.h` neste clone, o id de treinador fica SEM lado velho.")
     quebras = compara(velha, nova)
     print(f"mapLayoutId: {len(nova['layouts'])} layouts numerados, lado velho "
           f"lido de {de_onde}")
+    print(f"ids de treinador: {len(nova['treinadores'])} conferidos contra "
+          f"git {REF_TREINADOR}")
     # I/O fica fora do compara(), que e funcao pura e tem demo em cima dela.
     if nova.get("sizeof_saveblock1") and elf_esta_velho():
         quebras.insert(0, "AVISO: o ELF e mais velho que os headers. O tamanho "
@@ -586,6 +649,29 @@ def demo():
     # acrescentar no FIM e legitimo, nao quebra
     fim = json.loads(json.dumps(base)); fim["mapas"]["C"] = [0, 2]
     assert compara(base, fim) == [], compara(base, fim)
+
+    # ids de treinador: mover reprova, apendar no fim nao
+    tr = {"treinadores": {"T_A": 1, "T_B": 2}}
+    v = dict(base, **tr)
+    assert compara(v, v) == [], "de-para igual nao quebra"
+    movido = json.loads(json.dumps(v)); movido["treinadores"] = {"T_A": 2, "T_B": 3}
+    assert any("TREINADOR MOVIDO" in x for x in compara(v, movido))
+    apagado = json.loads(json.dumps(v)); del apagado["treinadores"]["T_A"]
+    assert any("TREINADOR APAGADO" in x for x in compara(v, apagado))
+    meio = json.loads(json.dumps(v)); meio["treinadores"]["T_C"] = 2
+    assert any("INSERIDO NO MEIO" in x for x in compara(v, meio))
+    fim = json.loads(json.dumps(v)); fim["treinadores"]["T_C"] = 3
+    assert compara(v, fim) == [], compara(v, fim)
+    # MUTACAO PLANTADA NO ARQUIVO DE VERDADE: o defeito de 23/08/2026 tal como
+    # aconteceu, dois ids empurrados por uma insercao no meio.
+    real = ids_de_treinador(
+        open(f"{RAIZ}/include/constants/opponents.h", encoding="utf-8").read())
+    assert len(real) > 2000, "opponents.h com poucos ids: leitura errada"
+    empurrados = ("TRAINER_GALAR_LEON_736", "TRAINER_GALAR_LEON_739")
+    mutante = {k: (v_ + 2 if k in empurrados else v_) for k, v_ in real.items()}
+    q = compara({**base, "treinadores": real}, {**base, "treinadores": mutante})
+    assert sum("TREINADOR MOVIDO" in x for x in q) == 2, q[:3]
+    assert all(any(n in x for x in q) for n in empurrados), q[:3]
 
     # struct mudou
     st = json.loads(json.dumps(base)); st["structs"]["SaveBlock1"] = "zzz"
