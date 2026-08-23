@@ -1,0 +1,73 @@
+[
+ {
+  "id": "T167.1",
+  "nome": "CHEGAR A DRIFTVEIL ACENDE FLAG_UNOVA_DRIFTVEIL_BLOQUEIO. Medido antes de mexer: quem acende EVENT_DRIFTVEIL_BLOCKER na fonte e bw3g maps/PWTBackRoom.asm:346, no fim da cena do Zinzolin, e essa cena NAO foi portada (Unova_PWTBackRoom/scripts.inc so tem fala de NPC). Sem setter a flag ficava apagada para sempre e o portao da Rota 5 empurrava o jogador de volta em TODA tentativa. Na fonte o muro nunca e encontrado cedo demais porque a propria Driftveil esta bloqueada pelos guardas que essa mesma flag esconde; aqui a cidade se alcanca por Rt6 e pelo PWTDriftveilGate, entao o portao ficava assimetrico. O marco escolhido e CHEGAR A DRIFTVEIL, pelo idioma ON_TRANSITION e nao por new_game.inc: a janela de save esta fechada, e assim save velha e save nova se comportam igual, porque a flag e reacesa a cada carga do mapa. Este caso mede so isso: warp para a cidade, e a flag tem que estar acesa.",
+  "warp": "MAP_UNOVA_DRIFTVEIL_CITY",
+  "warp_id": 0,
+  "roteiro": "180:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_DRIFTVEIL_CITY",
+   "flags_acesas": [
+    "FLAG_UNOVA_DRIFTVEIL_BLOQUEIO"
+   ]
+  }
+ },
+ {
+  "id": "T167.2",
+  "nome": "PAR NEGATIVO DO T167.1: outro mapa de Unova, e a flag continua APAGADA. Sem ele o T167.1 passaria numa build que acendesse a flag no jogo novo, que e justamente o que a janela de save fechada proibe. Icirrus foi escolhida por ser Unova e por ter ON_LOAD proprio, ou seja o mapa RODA script e mesmo assim nao toca nesta flag.",
+  "warp": "MAP_UNOVA_ICIRRUS_CITY_SOUTH",
+  "warp_id": 0,
+  "roteiro": "180:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_ICIRRUS_CITY_SOUTH",
+   "flags_apagadas": [
+    "FLAG_UNOVA_DRIFTVEIL_BLOQUEIO"
+   ]
+  }
+ },
+ {
+  "id": "T167.3",
+  "nome": "E A PONTE DA ROTA 5 ABRE DE VERDADE. Flag acesa e afirmacao de memoria; isto e a afirmacao na camada do jogo. O roteiro passa por Driftveil primeiro (e o ON_TRANSITION que acende a flag) e SO ENTAO warpa para o portao, usando o `WARP=` de dentro do roteiro. ROTA, medida na grade do LAYOUT_UNOVA_R_5_BRIDGE_GATE (10x8): o warp 0 e a porta da Rota 5 e poe o jogador em (9,4); LEFT*20 anda a linha 4 e pisa no coord_event de (5,4), que so dispara com VAR_UNOVA_R5_PORTAO_PONTE_CENA em 0; com a flag acesa o oficial abaixa a ponte, os quatro A passam as duas caixas, e o script grava 1 nas DUAS vars de cena (a daqui e a do portao gemeo de Driftveil). O segundo LEFT*20 e a prova: agora nada empurra o jogador, ele chega em (0,4) e o warp o leva para a DRIFTVEIL DRAWBRIDGE. Cobrar mapa E var junto separa 'a ponte abriu' de 'o jogador andou por acaso'. A var da prova vai em NUMERO (0x4176) e nao em nome porque o harness le `prova.vars` com int(chave, 0) (dev_scripts/testa_critico.py:1141): e VAR_UNOVA_R5_PORTAO_PONTE_CENA, resolvida pelo cpp. MEDIDO NO EMULADOR, e as duas medidas corrigiram o que eu tinha deduzido: (a) o jogador NAO sai do warp 0 em (9,4), e sim em (9,5), porque porta larga o jogador um tile ao sul quando o tile de baixo e andavel (SetUpWarpExitTask, src/field_screen_effect.c:314), entao o coord_event que ele pisa e o de (5,5) e nao o de (5,4); os dois chamam o MESMO rotulo, entao a cena e a mesma. (b) QUATRO A nao bastam: com quatro a var ficava em 0 e o jogador parado em cima do gatilho, porque a cena tem DUAS caixas com um `special ShakeScreen`, um `delay 60` e um `waitse` no meio. Com OITO a var vai a 1 e o jogador atravessa. Aperto sobrando aqui nao custa nada: depois do `releaseall` o A na parede nao faz nada.",
+  "warp": "MAP_UNOVA_DRIFTVEIL_CITY",
+  "warp_id": 0,
+  "roteiro": "180:NADA,WARP=MAP_UNOVA_R_5_BRIDGE_GATE:0,300:NADA,16:LEFT*20,120:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,16:LEFT*20,180:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_DRIFTVEIL_DRAWBRIDGE",
+   "vars": {
+    "0x4176": 1
+   },
+   "flags_acesas": [
+    "FLAG_UNOVA_DRIFTVEIL_BLOQUEIO"
+   ]
+  }
+ },
+ {
+  "id": "T167.4",
+  "nome": "PAR NEGATIVO DO T167.3: a MESMA rota no MESMO portao, sem passar por Driftveil antes. Com a flag apagada o `goto_if_unset` cai em Unova_Rt5BridgeGate_EventScript_PonteFechada, que fala 'the DRAWBRIDGE is raised right now' e aplica Common_Movement_WalkRight: o jogador e empurrado de volta, a var de cena NAO e gravada, e o segundo LEFT so o traz para cima do gatilho outra vez. NAO cobra posicao de proposito, porque a de saida depende de quantas vezes o empurrao rodou; cobra o que importa e e estavel, que o jogador CONTINUA no portao e que a var continua em 0. A var da prova vai em NUMERO (0x4176) e nao em nome porque o harness le `prova.vars` com int(chave, 0) (dev_scripts/testa_critico.py:1141): e VAR_UNOVA_R5_PORTAO_PONTE_CENA, resolvida pelo cpp. Mesmo orcamento de OITO A do T167.3, para a unica diferenca entre os dois continuar sendo a passagem por Driftveil.",
+  "warp": "MAP_UNOVA_R_5_BRIDGE_GATE",
+  "warp_id": 0,
+  "roteiro": "300:NADA,16:LEFT*20,120:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,16:LEFT*20,180:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_R_5_BRIDGE_GATE",
+   "vars": {
+    "0x4176": 0
+   },
+   "flags_apagadas": [
+    "FLAG_UNOVA_DRIFTVEIL_BLOQUEIO"
+   ]
+  }
+ },
+ {
+  "id": "T167.5",
+  "nome": "ICIRRUS NORTE VOLTA AO MAPA: da metade sul se ANDA para a metade norte. O bw3g resolve borda dupla em tempo de execucao (data/maps/dual_connections.asm: andar ao norte de Icirrus South cai em IcirrusCityNorth se x < 21 e na Rota 8 caso contrario), e pokeemerald so aceita UMA conexao por direcao, entao o importador criou uma tira vazia de 52x6, a Unova_IcirrusCitySouthConnectionDummy, e apontou a borda para ela. Resultado medido pelo valida_conectividade estendido as seis regioes: QUINZE mapas de Unova sem caminho nenhum, entre eles a Icirrus norte inteira, a boutique, o fa-clube, a caverna e os OITO andares da DRAGONSPIRAL TOWER. A borda passou a apontar para o destino principal do par, com o MESMO offset -2 que a tira ja tinha, e que e o espelho do `down` offset 2 que a Icirrus norte sempre declarou. ROTA, medida na grade do LAYOUT_UNOVA_ICIRRUS_CITY_SOUTH: warp 0 (a porta do Centro Pokemon) poe o jogador em (13,3); DOWN*20 satura em (13,7), porque (13,8) e parede; LEFT*20 satura em (12,7); UP*20 satura em (12,4), porque (12,3) e parede; LEFT*20 satura em (9,4), porque (8,4) e parede; e o UP*20 final sobe a coluna 9 pela abertura de x8..x11 da linha 0 e ATRAVESSA a borda. Nenhuma das tres perna encosta nos tres NPCs WANDER_AROUND do mapa, que moram em (13,14), (42,11) e (6,15). A prova e o MAPA: chegar em MAP_UNOVA_ICIRRUS_CITY_NORTH a pe so acontece se a conexao existir.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_UNOVA_ICIRRUS_CITY_SOUTH",
+  "warp_id": 0,
+  "roteiro": "300:NADA,16:DOWN*20,60:NADA,16:LEFT*20,60:NADA,16:UP*20,60:NADA,16:LEFT*20,60:NADA,16:UP*20,180:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_ICIRRUS_CITY_NORTH"
+  }
+ }
+]

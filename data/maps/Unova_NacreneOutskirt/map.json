@@ -14,7 +14,7 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_UNOVA_NACRENE_OUTSKIRT_CONNECTION_DUMMY",
+      "map": "MAP_UNOVA_NACRENE_CITY",
       "offset": 0,
       "direction": "right"
     }

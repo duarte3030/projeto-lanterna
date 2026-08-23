@@ -14,7 +14,7 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_UNOVA_ICIRRUS_CITY_SOUTH_CONNECTION_DUMMY",
+      "map": "MAP_UNOVA_ICIRRUS_CITY_NORTH",
       "offset": -2,
       "direction": "up"
     }

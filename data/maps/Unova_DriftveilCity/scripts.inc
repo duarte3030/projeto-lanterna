@@ -1,7 +1,32 @@
 @ DriftveilCity do BW3G (Azure_Keys). Gerado por dev_scripts/importa_unova.py; nao editar a mao.
 
 Unova_DriftveilCity_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Unova_DriftveilCity_OnTransition
 	.byte 0
+
+@ >>> 23/08/2026: o marco que esta ROM tem no lugar do enredo do PWT >>>
+@ MEDIDO na fonte: quem acende EVENT_DRIFTVEIL_BLOCKER em bw3g é
+@ maps/PWTBackRoom.asm:346, no fim da cena do Zinzolin, e essa cena NÃO foi
+@ portada (Unova_PWTBackRoom/scripts.inc só tem fala de NPC). Sem setter,
+@ FLAG_UNOVA_DRIFTVEIL_BLOQUEIO ficava apagada para sempre e o portão da Rota 5
+@ (Unova_Rt5BridgeGate/scripts.inc:13) empurrava o jogador de volta em TODA
+@ tentativa: a travessia Route 5 -> Driftveil era um muro permanente.
+@
+@ Na fonte o muro nunca é encontrado antes da hora porque a própria Driftveil
+@ está bloqueada pelos guardas que essa mesma flag esconde; aqui a cidade se
+@ alcança por Rt6 e pelo PWTDriftveilGate, então o portão ficava assimétrico: o
+@ lado de Driftveil (Unova_DriftveilBridgeGate) abre a ponte SEM checar nada,
+@ como na fonte, e só o lado da Rota 5 cobra a flag.
+@
+@ Polaridade honesta escolhida: o marco é CHEGAR a Driftveil. O texto do oficial
+@ da Rota 5 diz "o atendente de DRIFTVEIL não atende minhas chamadas"; quem já
+@ esteve na cidade passou por ele. ON_TRANSITION, e não new_game.inc, porque a
+@ janela de save está FECHADA e porque assim save velha e save nova se comportam
+@ igual: a flag é reacesa a cada carga de mapa, e `setflag` é idempotente.
+Unova_DriftveilCity_OnTransition::
+	setflag FLAG_UNOVA_DRIFTVEIL_BLOQUEIO
+	end
+@ <<< 23/08/2026 <<<
 
 Unova_DriftveilCity_EventScript_Placa0::
 	msgbox Unova_DriftveilCity_Text_DriftveilSignText, MSGBOX_SIGN

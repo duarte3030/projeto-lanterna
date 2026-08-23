@@ -1,0 +1,89 @@
+[
+ {
+  "id": "T166.1",
+  "nome": "O CAPITULO DE SINNOH ACENDE A INSIGNIA DO MOTOR, e e isso que o conserto de 23/08/2026 vale. MEDIDO antes de mexer: os oito golpes de campo perguntam FLAG_BADGE01..08_GET e mais nada (src/field_move.c:11-64), e a coluna `flagInsignia` da tabela de src/chapter_jump.c so E a insignia do motor em KANTO: Hoenn, Johto e Sinnoh acendem FLAG_INSIGNIA_*, Unova FLAG_BADGE_UNOVA_* e Galar nada. O seletor entrega um Pikachu com Surf, Rock Smash e Strength (item (c) de ChapterJump_AplicaCapitulo), e ate ontem o motor RECUSAVA os tres em cinco das seis regioes: quem pulava para 'Before CANDICE' nao atravessava lago nem quebrava uma das 478 pedras de Sinnoh. O conserto e uma linha dentro do laco dos ginasios anteriores, `FlagSet(FLAG_BADGE01_GET + i)`, custo ZERO de save. Este caso mede o RESULTADO, nao a linha: SINNOH / 'Before CANDICE' e o setimo capitulo, entao o laco marca os SEIS ginasios anteriores (ROARK a BYRON) e as insignias 01 a 06 tem que estar ACESAS e as 07 e 08 APAGADAS. As duas apagadas sao metade da prova: sem elas o caso passaria numa build que acendesse as oito de qualquer jeito, que e exatamente o que o par negativo T99.2 proibe. ROTA do menu: o cursor nasce em HOENN, DOWN*3 leva a SINNOH, A abre a lista de capitulos, DOWN*7 desce de 'Start of region' ate 'Before CANDICE' (0=inicio, 1=ROARK ... 7=CANDICE, 8=VOLKNER, 9=Liga) e A escolhe. O destino e HEAL_LOCATION_SNOWPOINT_CITY, ou seja MAP_SNOWPOINT_CITY_POKECENTER_1F, e cobrar o mapa e o que separa 'escolheu CANDICE' de 'escolheu outra linha'.",
+  "abertura": "seletor",
+  "roteiro": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_SNOWPOINT_CITY_POKECENTER_1F",
+   "time_min": 1,
+   "flags_acesas": [
+    "FLAG_BADGE01_GET",
+    "FLAG_BADGE02_GET",
+    "FLAG_BADGE03_GET",
+    "FLAG_BADGE04_GET",
+    "FLAG_BADGE05_GET",
+    "FLAG_BADGE06_GET"
+   ],
+   "flags_apagadas": [
+    "FLAG_BADGE07_GET",
+    "FLAG_BADGE08_GET"
+   ]
+  }
+ },
+ {
+  "id": "T166.2",
+  "nome": "E O JOGADOR SURFA DE VERDADE. Flag acesa e afirmacao de memoria; isto e a afirmacao na camada do jogo. MAPA ESCOLHIDO POR MEDICAO, e nao por gosto: uma varredura das seis regioes atras de 'warp cuja linha reta bate em agua' achou FuegoIronworksOutside como o unico ponto de Sinnoh com ZERO object_event e ZERO coord_event no mapa inteiro (Lake Verity, o candidato obvio, tem dez NPCs de cena em cima da praia, entre eles um pescador em (38,33) parado no proprio tile de embarque). ROTA, medida na grade do LAYOUT_FUEGO_IRONWORKS_OUTSIDE: o warp 0 poe o jogador em (17,2); DOWN*40 desce a coluna 17 inteira e SATURA em (17,23), porque (17,24) e MB_OCEAN_WATER e agua nao se pisa a pe; quatro A abrem 'quer usar SURF?', respondem YES e passam o 'Pikachu used SURF!'. Sao quatro e nao dois pela licao do T112.4: aperto sobrando na agua nao faz nada, aperto de menos mata a prova calada. O DOWN*20 final e a prova: ele atravessa (17,24) a (17,27) e satura em (17,27), porque (17,28) e parede. `pos` em (17,27) diz as duas coisas de uma vez, que o motor aceitou o Surf e que o Pikachu cruzou quatro tiles de mar. FLAG_SEM_ENCONTRO_SELVAGEM e obrigatoria: encontro no meio da travessia pararia o jogador num tile qualquer.",
+  "abertura": "seletor",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,120:NADA",
+  "warp": "MAP_FUEGO_IRONWORKS_OUTSIDE",
+  "warp_id": 0,
+  "roteiro": "300:NADA,16:DOWN*40,120:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,16:DOWN*20,150:NADA",
+  "prova": {
+   "mapa": "MAP_FUEGO_IRONWORKS_OUTSIDE",
+   "layout": "LAYOUT_FUEGO_IRONWORKS_OUTSIDE",
+   "pos": [
+    17,
+    27
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T166.3",
+  "nome": "PAR NEGATIVO DO T166.2, e e ele que prova que quem destrava e o CAPITULO e nao o Pikachu. MESMO mapa, MESMO warp, MESMA rota, MESMOS apertos, e uma unica diferenca no menu: 'Start of region' em vez de 'Before CANDICE'. O capitulo 0 nao marca ginasio nenhum, entao NENHUMA FLAG_BADGE0N_GET acende, e `IsFieldMoveUnlocked_Surf` (src/field_move.c:40) recusa. O Pikachu e o MESMO: o item (c) do seletor entrega Surf, Rock Smash e Strength a quem tem party vazia em qualquer capitulo. Entao o jogador desce a coluna 17, para em (17,23) de cara para a agua, os quatro A so tiram a caixa de 'a agua e de um azul profundo' e o DOWN*20 final nao move um tile. `pos` em (17,23). Sem este caso o T166.2 passaria numa build que acendesse insignia em todo capitulo, que e exatamente o que o T99.2 proibe.",
+  "abertura": "seletor",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "warp": "MAP_FUEGO_IRONWORKS_OUTSIDE",
+  "warp_id": 0,
+  "roteiro": "300:NADA,16:DOWN*40,120:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,16:DOWN*20,150:NADA",
+  "prova": {
+   "mapa": "MAP_FUEGO_IRONWORKS_OUTSIDE",
+   "layout": "LAYOUT_FUEGO_IRONWORKS_OUTSIDE",
+   "pos": [
+    17,
+    23
+   ],
+   "flags_apagadas": [
+    "FLAG_BADGE05_GET"
+   ]
+  }
+ },
+ {
+  "id": "T166.4",
+  "nome": "E QUEBRA PEDRA. A METADE DE ROCK SMASH do mesmo conserto, e de proposito ela e o T112.4 LETRA POR LETRA com uma unica troca: o T112.4 abre o seletor em KANTO / 'Before Pokemon League', que acende as oito insignias do motor porque em Kanto a coluna `flagInsignia` JA e a insignia do motor, e por isso ele passava verde e escondia o buraco das outras cinco regioes. Aqui a abertura e SINNOH / 'Before CANDICE', que ate ontem nao acendia nenhuma. Mesmo mapa (MAP_OREBURGH_GATE_1F), mesma pedra em (14,4), mesma rota e a mesma prova: LEFT*24 atravessa o tile onde a pedra estava e satura em (7,4). Se este caso reprovar e o T112.4 passar, o que quebrou foi a insignia por indice do src/chapter_jump.c, e nao a pedra.",
+  "abertura": "seletor",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,120:NADA",
+  "warp": "MAP_OREBURGH_GATE_1F",
+  "warp_id": 2,
+  "roteiro": "16:UP*4,60:NADA,16:LEFT*24,120:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,300:NADA,16:LEFT*24,150:NADA",
+  "prova": {
+   "mapa": "MAP_OREBURGH_GATE_1F",
+   "layout": "LAYOUT_OREBURGH_GATE_1F",
+   "pos": [
+    7,
+    4
+   ],
+   "andou": true
+  }
+ }
+]

@@ -14,7 +14,7 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_UNOVA_VICTORY_ROAD_ENTRANCE_NORTH_CONNECTION_DUMMY",
+      "map": "MAP_UNOVA_VICTORY_ROAD_ENTRANCE_SOUTH_LEFT",
       "offset": 0,
       "direction": "down"
     }

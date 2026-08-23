@@ -426,8 +426,31 @@ void ChapterJump_AplicaCapitulo(void)
 
     // (b) Os ginásios ANTERIORES ao capítulo. Antes do primeiro líder não acende
     // nenhum; "Before Pokémon League" acende os oito.
+    //
+    // A INSÍGNIA DO MOTOR entra JUNTO, por ÍNDICE, e isso entrou em 23/08/2026.
+    // Medido, não suposto: os oito golpes de campo perguntam FLAG_BADGE01..08_GET
+    // e mais nada (src/field_move.c:11-64). Nesta ROM os ramos `IS_FRLG` daquele
+    // arquivo estão MORTOS, e isso foi medido e não suposto: `IS_FRLG` é
+    // constante de compilação e vale 0 aqui (include/constants/global.h:76, o
+    // ramo Emerald), então Rock Smash pede a 03 em Kanto também, Strength pede a
+    // 04 e Surf a 05, no mapa que for. `flagInsignia` só É a insígnia do
+    // motor em KANTO; Hoenn, Johto e Sinnoh acendem FLAG_INSIGNIA_*, Unova
+    // FLAG_BADGE_UNOVA_* e Galar nada, e nenhuma dessas destrava golpe de campo.
+    // Consequência que o playtest batia de frente: pular para "Before CANDICE"
+    // entregava um Pikachu com Surf, Rock Smash e Strength que o motor RECUSA, e
+    // o jogador de teste não atravessava lago nem quebrava pedra em cinco das
+    // seis regiões. Uma linha, custo ZERO de save (as oito já existem).
+    //
+    // Por ÍNDICE, e não incondicional, porque o par negativo T99.2 mede o
+    // contrário e está certo: "Start of region" de Kanto tem que sair em Pallet
+    // Town com as OITO APAGADAS. Capítulo 0 é "não ganhei nada ainda" em toda
+    // região; quem quer andar com HM escolhe o capítulo do ginásio.
     for (i = 0; i + 1 < capitulo && i < regiao->numGinasios; i++)
+    {
         MarcaGinasioVencido(&regiao->ginasios[i]);
+        if (i < 8)
+            FlagSet(FLAG_BADGE01_GET + i);
+    }
 
     // (c) Ninguém teleporta sem Pokémon (pedido do Gui, 18/08/2026): quem
     // salta com a party VAZIA (jogo novo que pulou a escolha do inicial)

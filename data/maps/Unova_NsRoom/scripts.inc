@@ -63,6 +63,7 @@ Unova_NsRoom_EventScript_N::
 	msgbox Unova_NsRoom_Text_NDepois, MSGBOX_DEFAULT
 	closemessage
 	setflag FLAG_HIDE_UNOVA_N
+	setflag FLAG_UNOVA_TWIST_MOUNTAIN_ABERTO
 	removeobject LOCALID_UNOVA_NS_ROOM_N
 	release
 	end

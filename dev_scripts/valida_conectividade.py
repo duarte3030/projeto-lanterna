@@ -13,7 +13,27 @@ porta, e 6 de 7 ginasios cuspindo o jogador numa rota ao sair.
 Reporta:
   1. warp cujo `dest_warp_id` nao existe no mapa de destino  (trava garantida)
   2. mapa alcancavel de onde NAO se volta                    (beco sem saida)
-  3. mapa de Sinnoh/Johto que nenhum caminho alcanca         (conteudo morto)
+  3. mapa de QUALQUER das seis regioes que nenhum caminho alcanca (conteudo morto)
+
+Tres buracos fechados em 23/08/2026, medidos pela auditoria de mapas
+-------------------------------------------------------------------
+1. **A checagem de orfao so olhava Sinnoh e Johto.** Kanto, Hoenn, Unova e Galar
+   nunca tinham sido medidas por ela. Agora `regiao()` classifica pelo GRUPO do
+   mapa, a mesma regra da auditoria, e as seis entram.
+2. **O regex de warp de script perdia `setdivewarp`, `setescapewarp` e
+   `warpwhitefade`.** Foi por essa fresta que Sootopolis inteira, a cidade que so
+   se entra por mergulho, aparecia inalcancavel.
+3. **Transporte que NAO e warp de script ficava de fora**, e sao dois nesta ROM:
+   a balsa Seagallop das Sevii (`special DoSeagallopFerryScene`, tabela `sSeag`
+   em src/seagallop.c) e o SELETOR DE CAPITULO (src/chapter_jump.c), que e a
+   unica porta de Galar por decisao registrada no PLANO-OBRAS-GALAR. Sem eles a
+   ferramenta acusava 162 mapas de Kanto e os 438 de Galar como conteudo morto,
+   e os dois numeros eram da MEDICAO, nao do jogo.
+
+Mapa com `cortado_por` no map.json e CORTE REGISTRADO (a CasteliaPlaza de Unova,
+por exemplo, PLANO-ESCOPO.md): ele sai da conta de orfao em vez de reaparecer
+toda rodada, e o mesmo vale para as tres tiras `*ConnectionDummy`, que sao sobra
+de recurso de motor e nao mapa perdido (ver a nota no corpo).
 """
 import json
 import os
@@ -44,7 +64,7 @@ def tabela_de_constantes():
         for m_idx, nome_mapa in enumerate(grupos.get(nome_grupo, [])):
             const = por_valor.get((g_idx, m_idx))
             if const:
-                tabela[nome_mapa] = const
+                tabela[nome_mapa] = (const, nome_grupo)
     return tabela
 
 
@@ -62,7 +82,7 @@ def carrega():
         except json.JSONDecodeError as e:
             print(f"  JSON QUEBRADO: {nome}/map.json: {e}")
             continue
-        mapas[const[nome]] = dict(dir=nome, dados=d)
+        mapas[const[nome][0]] = dict(dir=nome, grupo=const[nome][1], dados=d)
     return mapas
 
 
@@ -81,6 +101,61 @@ def mapa_de_partida(mapas):
         if nome in mapas:
             return nome
     raise SystemExit("nao achei o mapa de partida em src/new_game.c: " + str(achados))
+
+
+# Todo comando de script que MOVE o jogador para outro mapa. `warpwhitefade` cai
+# no sufixo, `setdivewarp` e `setescapewarp` no prefixo. Sem os tres, Sootopolis
+# ficava fora do grafo.
+RE_WARP_DE_SCRIPT = re.compile(
+    r"\b(?:set)?(?:dive|escape|dynamic)?warp"
+    r"(?:silent|hole|door|teleport|whitefade)?\s+(MAP_[A-Z0-9_]+)")
+
+
+def transportes_por_special(mapas):
+    """Conjuntos de mapas ligados por transporte que NAO e warp de script.
+
+    Devolve lista de conjuntos MUTUAMENTE ligados. Lido da fonte, nunca copiado:
+    quem mexer na tabela muda a medicao junto.
+    """
+    grupos = []
+    # A balsa Seagallop das Sevii. `sSeag` (src/seagallop.c) e a tabela de
+    # destinos que `DoSeagallopFerryScene` usa; qualquer porto alcanca qualquer
+    # outro conforme o passe, entao o conjunto e mutuamente ligado. O PORTAO e de
+    # ENREDO e esta intacto (Blaine acende VAR_MAP_SCENE_CINNABAR_ISLAND=1 em
+    # CinnabarIsland_Gym_Frlg/scripts.inc:61, a cena do Bill leva a One Island, e
+    # la nasce o TRI PASS): as Sevii sao pos-setima-insignia, nao conteudo morto.
+    fonte = os.path.join(REPO, "src/seagallop.c")
+    if os.path.exists(fonte):
+        t = open(fonte, encoding="utf-8", errors="replace").read()
+        m = re.search(r"sSeag\[\]\[4\]\s*=\s*\{(.*?)\n\};", t, re.S)
+        if m:
+            portos = {n for n in re.findall(r"MAP_GROUP\((MAP_\w+)\)", m.group(1))
+                      if n in mapas}
+            if len(portos) > 1:
+                grupos.append(portos)
+    return grupos
+
+
+def sementes_do_seletor(mapas):
+    """Mapas que o SELETOR DE CAPITULO alcanca sem warp nenhum.
+
+    src/chapter_jump.c pula por HEAL_LOCATION_*, e e a UNICA porta de Galar
+    (decisao registrada no PLANO-OBRAS-GALAR): nao existe warp nem conexao
+    ligando Galar as outras cinco regioes. Medir Galar sem isto so mede a
+    decisao de novo.
+    """
+    cj = os.path.join(REPO, "src/chapter_jump.c")
+    hl = os.path.join(REPO, "src/data/heal_locations.json")
+    if not (os.path.exists(cj) and os.path.exists(hl)):
+        return set()
+    usados = set(re.findall(r"HEAL_LOCATION_[A-Z0-9_]+",
+                            open(cj, encoding="utf-8", errors="replace").read()))
+    por_id = {h["id"]: h.get("map") for h in json.load(open(hl))["heal_locations"]}
+    return {por_id[i] for i in usados if por_id.get(i) in mapas}
+
+
+GRUPO_DE_REGIAO = (("Frlg", "Kanto"), ("Johto", "Johto"), ("Unova", "Unova"),
+                   ("Galar", "Galar"), ("Sinnoh", "Sinnoh"), ("Galactic", "Sinnoh"))
 
 
 def main():
@@ -136,11 +211,15 @@ def main():
         inc = os.path.join(MAPS, info["dir"], "scripts.inc")
         if os.path.exists(inc):
             texto = open(inc, encoding="utf-8", errors="replace").read()
-            for destino in re.findall(r"\bwarp(?:silent|hole|door|teleport)?\s+(MAP_[A-Z0-9_]+)",
-                                      texto):
+            for destino in RE_WARP_DE_SCRIPT.findall(texto):
                 if destino in mapas:
                     vizinhos.add(destino)
         saidas[origem] = vizinhos
+
+    # Transporte por `special` (a balsa das Sevii): liga o conjunto inteiro.
+    for conjunto in transportes_por_special(mapas):
+        for a in conjunto:
+            saidas.setdefault(a, set()).update(conjunto - {a})
 
     # ---------------------------------------------------------------
     # Regra de ida-e-volta, VERSAO ESTREITA. Estava na especificacao desde o
@@ -196,15 +275,29 @@ def main():
     if len(quebrados) > 25:
         print(f"  ... e mais {len(quebrados) - 25}")
 
-    vistos = {partida}
-    fila = deque([partida])
+    sementes = {partida} | sementes_do_seletor(mapas)
+    vistos = set(sementes)
+    fila = deque(sorted(sementes))
     while fila:
         atual = fila.popleft()
         for v in saidas.get(atual, ()):
             if v not in vistos:
                 vistos.add(v)
                 fila.append(v)
-    print(f"\n=== 2. alcance: {len(vistos)} de {len(mapas)} mapas ===")
+    # TUMULO nao entra no denominador (23/08/2026). `remove_mapas_cortados.py`
+    # deixa o mapa cortado na tabela, para nao deslocar `mapGroup`/`mapNum` da
+    # save, mas o esvazia: sem warp, sem conexao e com `region_map_section` em
+    # MAPSEC_NONE. Contar isso como "mapa que ninguem alcanca" e cobrar da regua
+    # um alcance que o Gui cortou de proposito, e o numero so piora a cada corte
+    # novo. Os tres sinais juntos, e nao so o MAPSEC, porque mapa vivo de sala
+    # de link tambem nasce sem secao de mapa-mundi.
+    tumulos = {m for m, i in mapas.items()
+               if str(i["dados"].get("region_map_section")) == "MAPSEC_NONE"
+               and not i["dados"].get("warp_events")
+               and not i["dados"].get("connections")}
+    vivos = len(mapas) - len(tumulos)
+    print(f"\n=== 2. alcance: {len(vistos - tumulos)} de {vivos} mapas vivos "
+          f"({len(tumulos)} tumulos de mapa cortado fora da conta) ===")
 
     becos = [m for m in vistos if not saidas.get(m)]
     print(f"\n=== 3. becos sem saida (entra e nao sai): {len(becos)} ===")
@@ -212,25 +305,45 @@ def main():
         print("  ", m)
 
     def regiao(m):
-        d = mapas[m]["dados"]
-        ms = str(d.get("region_map_section", ""))
-        if "SINNOH" in ms:
-            return "Sinnoh"
-        nome = mapas[m]["dir"]
-        johto = ("Azalea", "Blackthorn", "Cherrygrove", "Cianwood", "Ecruteak",
-                 "Goldenrod", "Mahogany", "Olivine", "Violet", "NewBark", "Ilex",
-                 "UnionCave", "MtMortar", "IcePath", "Whirl", "Sprout", "Burned",
-                 "Tin", "RuinsOfAlph", "Dragons", "MtSilver", "National", "Bellchime",
-                 "LakeOfRage")
-        return "Johto" if any(nome.startswith(p) for p in johto) else "outro"
+        """Regiao pelo GRUPO do mapa, a mesma regra da auditoria de mapas.
 
-    orfaos = {}
-    for m in mapas:
+        A versao antiga classificava por prefixo de diretorio e so sabia dizer
+        Sinnoh e Johto; tudo mais caia em "outro" e sumia da conta. Grupo e o
+        que map_groups.json ja declara, e nao envelhece com nome de mapa novo.
+        """
+        nome, grupo = mapas[m]["dir"], mapas[m]["grupo"]
+        if nome.startswith("Galar_"):
+            return "Galar"
+        for chave, r in GRUPO_DE_REGIAO:
+            if chave in grupo:
+                return r
+        return "Hoenn"
+
+    # `cortado_por` e CORTE REGISTRADO no map.json (PLANO-ESCOPO.md). Ele sai da
+    # conta em vez de reaparecer toda rodada: acusar de novo o que o Gui ja
+    # decidiu cortar e ruido, e ruido e o que faz validador deixar de ser lido.
+    # Medido em 23/08/2026: 68 mapas trazem o carimbo, entre eles as cinco da
+    # CasteliaPlaza de Unova, que sao tumulo de verdade (zero warp, zero objeto).
+    orfaos, cortados = {}, 0
+    for m, info in mapas.items():
+        if info["dados"].get("cortado_por"):
+            cortados += 1
+            continue
+        # `*ConnectionDummy`: sobra de RECURSO DE MOTOR que esta ROM nao tem, e
+        # nao mapa perdido. O bw3g resolve borda dupla em tempo de execucao
+        # (data/maps/dual_connections.asm: andar ao norte de Icirrus South cai em
+        # IcirrusCityNorth se x < 21 e na Rota 8 caso contrario), e o importador
+        # criou uma tira vazia para segurar a borda. Pokeemerald so aceita UMA
+        # conexao por direcao, entao em 23/08/2026 as tres bordas passaram a
+        # apontar para o destino PRINCIPAL de cada par e as tiras ficaram sem
+        # dono. Elas nao podem ser apagadas: indice de mapa e promessa de save.
+        if info["dir"].endswith("ConnectionDummy"):
+            cortados += 1
+            continue
         if m not in vistos:
-            r = regiao(m)
-            if r != "outro":
-                orfaos.setdefault(r, []).append(m)
-    print("\n=== 4. mapas de Sinnoh/Johto que NENHUM caminho alcanca ===")
+            orfaos.setdefault(regiao(m), []).append(m)
+    print(f"\n=== 4. mapas que NENHUM caminho alcanca, por regiao "
+          f"({cortados} cortados registrados fora da conta) ===")
     for r, lst in sorted(orfaos.items()):
         print(f"  {r}: {len(lst)}")
         for m in sorted(lst)[:12]:
