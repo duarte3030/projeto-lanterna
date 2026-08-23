@@ -9,6 +9,7 @@
 @ chegar neste mapa o jogador ja precisou vencer o Cyrus.
 
 SpearPillar_Distorted_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, SpearPillar_Distorted_OnTransition
 	map_script MAP_SCRIPT_ON_LOAD, SpearPillar_Distorted_OnLoad
 	.byte 0
 
@@ -102,3 +103,28 @@ SpearPillar_Distorted_EventScript_Placa2::
 
 SpearPillar_Distorted_Text_Placa2:
 	.string "An overwhelming feeling of space\nemanates powerfully from this rift...\pWhere does it lead to?$"
+
+SpearPillar_Distorted_EventScript_Cynthia2::
+	msgbox SpearPillar_Distorted_Text_Cynthia2, MSGBOX_NPC
+	end
+
+SpearPillar_Distorted_Text_Cynthia2:
+	.string "Cynthia: Are you ready?\nWe have to chase Cyrus!$"
+
+@ ponytail: portao de NPC de cena com a flag RECALCULADA a cada entrada.
+@ Acende sempre e so apaga se o marco ja caiu, entao nao depende de
+@ linha nenhuma em new_game.inc e save antiga se comporta igual a nova.
+SpearPillar_Distorted_OnTransition:
+	setflag FLAG_SINNOH_ESCONDE_SPEAR_PILLAR_DISTORTED_CYNTHIA
+	call_if_set FLAG_GALACTICA_MT_CORONET, SpearPillar_Distorted_EventScript_Mostra_SPEAR_PILLAR_DISTORTED_CYNTHIA
+	setflag FLAG_SINNOH_ESCONDE_SPEAR_PILLAR_DISTORTED_MESPRIT
+	call_if_set FLAG_GALACTICA_MT_CORONET, SpearPillar_Distorted_EventScript_Mostra_SPEAR_PILLAR_DISTORTED_MESPRIT
+	end
+
+SpearPillar_Distorted_EventScript_Mostra_SPEAR_PILLAR_DISTORTED_CYNTHIA::
+	clearflag FLAG_SINNOH_ESCONDE_SPEAR_PILLAR_DISTORTED_CYNTHIA
+	return
+
+SpearPillar_Distorted_EventScript_Mostra_SPEAR_PILLAR_DISTORTED_MESPRIT::
+	clearflag FLAG_SINNOH_ESCONDE_SPEAR_PILLAR_DISTORTED_MESPRIT
+	return

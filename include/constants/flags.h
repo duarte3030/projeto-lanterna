@@ -8581,6 +8581,20 @@
 #define FLAG_SINNOH_ESCONDE_PASTORIA_CROAGUNK                                    FLAG_UNUSED_0x1BA0  // FLAG_HIDE_PASTORIA_CITY_CROAGUNK
 // <<< B6 Sinnoh, leva final <<<
 
+// >>> B6 Sinnoh, leva b3 (23/08/2026): apelido de esconder para o NPC de cena
+// que a fonte revela num marco que esta ROM tem. Gerado por
+// dev_scripts/cenas_sinnoh_b3.py, polaridade "aparece": quem ACENDE e APAGA cada
+// uma e o MAP_SCRIPT_ON_TRANSITION do proprio mapa, que recalcula a cada entrada;
+// nada aqui entra em new_game.inc, e por isso save antiga e nova se comportam
+// igual. Consumo: 6.
+#define FLAG_SINNOH_ESCONDE_CELESTIC_TOWN_CAVE_ELDER                             FLAG_UNUSED_0x1BA4  // FLAG_HIDE_CELESTIC_TOWN_CAVE_ELDER
+#define FLAG_SINNOH_ESCONDE_CELESTIC_TOWN_CAVE_CYNTHIA                           FLAG_UNUSED_0x1BA5  // FLAG_HIDE_CELESTIC_TOWN_CAVE_CYNTHIA
+#define FLAG_SINNOH_ESCONDE_IRON_ISLAND_HOUSE_BYRON                              FLAG_UNUSED_0x1BAB  // FLAG_HIDE_IRON_ISLAND_HOUSE_BYRON
+#define FLAG_SINNOH_ESCONDE_SPEAR_PILLAR_DISTORTED_CYNTHIA                       FLAG_UNUSED_0x1BB0  // FLAG_HIDE_SPEAR_PILLAR_DISTORTED_CYNTHIA
+#define FLAG_SINNOH_ESCONDE_SPEAR_PILLAR_DISTORTED_MESPRIT                       FLAG_UNUSED_0x1BB1  // FLAG_HIDE_SPEAR_PILLAR_DISTORTED_MESPRIT
+#define FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_CYNTHIA                              FLAG_UNUSED_0x1BB3  // FLAG_HIDE_VALOR_LAKEFRONT_CYNTHIA
+// <<< B6 Sinnoh, leva b3 <<<
+
 // >>> Onda de JANELA ABERTA, bloco J2 (18/08/2026): uma flag por item ball de
 // Johto, gerado por dev_scripts/liga_bolas_johto.py >>>
 //

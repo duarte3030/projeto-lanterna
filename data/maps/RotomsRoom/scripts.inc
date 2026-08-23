@@ -61,3 +61,10 @@ RotomsRoom_EventScript_Livro::
 
 RotomsRoom_Text_Livro:
 	.string "A notebook left open on the shelf.\p“The ROTOM CATALOG lists every\nappliance ROTOM can possess.”$"
+
+RotomsRoom_EventScript_Microwave::
+	msgbox RotomsRoom_Text_Microwave, MSGBOX_NPC
+	end
+
+RotomsRoom_Text_Microwave:
+	.string "Which ROTOM are you choosing?$"

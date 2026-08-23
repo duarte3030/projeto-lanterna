@@ -312,6 +312,24 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "CelesticTown_EventScript_Placa10",
       "origem": "pokeplatinum"
+    },
+    {
+      "type": "sign",
+      "x": 37,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Sinnoh_EventScript_PlacaImportada",
+      "origem": "pokeplatinum"
+    },
+    {
+      "type": "sign",
+      "x": 0,
+      "y": 15,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Sinnoh_EventScript_PlacaImportada",
+      "origem": "pokeplatinum"
     }
   ]
 }

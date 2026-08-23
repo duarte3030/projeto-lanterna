@@ -152,6 +152,21 @@
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_SINNOH_BOLA_SINNOHVICTORYROAD1F_ZINC",
       "origem": "pokeplatinum-bola"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MANIAC",
+      "x": 45,
+      "y": 33,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SinnohVictoryRoad1F_EventScript_Collector",
+      "flag": "0",
+      "origem": "cenas_sinnoh_b3",
+      "fonte_id": "LOCALID_COLLECTOR"
     }
   ],
   "warp_events": [

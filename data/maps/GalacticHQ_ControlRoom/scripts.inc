@@ -306,3 +306,10 @@ GalacticHQ_ControlRoom_EventScript_Placa4::
 
 GalacticHQ_ControlRoom_Text_Placa4:
 	.string "Press the button and set\nthe Pokémon free?$"
+
+GalacticHQ_ControlRoom_EventScript_Uxie::
+	msgbox GalacticHQ_ControlRoom_Text_Uxie, MSGBOX_NPC
+	end
+
+GalacticHQ_ControlRoom_Text_Uxie:
+	.string "UXIE is sealed inside! It appears to\nbe suffering, with eyes squeezed shut.$"

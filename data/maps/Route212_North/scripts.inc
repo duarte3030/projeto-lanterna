@@ -187,3 +187,24 @@ Route212_North_EventScript_PortaFechada::
 Route212_North_Text_PortaFechada:
 	.string "Fechado. Área em obras.$"
 @ <<< porta fechada <<<
+
+Route212_North_EventScript_PolicemanBobbyNoBattle::
+	msgbox Route212_North_Text_PolicemanBobbyNoBattle, MSGBOX_NPC
+	end
+
+Route212_North_Text_PolicemanBobbyNoBattle:
+	.string "Why, hello there!\pIt's nice to have an average citizen\nsay hi to us Policemen!$"
+
+Route212_North_EventScript_PolicemanAlexNoBattle::
+	msgbox Route212_North_Text_PolicemanAlexNoBattle, MSGBOX_NPC
+	end
+
+Route212_North_Text_PolicemanAlexNoBattle:
+	.string "Patrols day and night...\nI'm feeling drowsy... Yawn...$"
+
+Route212_North_EventScript_PolicemanDylanNoBattle::
+	msgbox Route212_North_Text_PolicemanDylanNoBattle, MSGBOX_NPC
+	end
+
+Route212_North_Text_PolicemanDylanNoBattle:
+	.string "Yo!\nWorking hard at it, Trainer?$"

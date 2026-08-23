@@ -87,3 +87,10 @@ SinnohVictoryRoad1F_Text_DragonTamerClintonDefeat:
 
 SinnohVictoryRoad1F_Text_DragonTamerClintonPost:
 	.string "When two roads diverge, you must\nchoose the path less traveled...$"
+
+SinnohVictoryRoad1F_EventScript_Collector::
+	msgbox SinnohVictoryRoad1F_Text_Collector, MSGBOX_NPC
+	end
+
+SinnohVictoryRoad1F_Text_Collector:
+	.string "Let me size you up...\pAim for the Pokémon League!\nThat's all you should be thinking about.$"

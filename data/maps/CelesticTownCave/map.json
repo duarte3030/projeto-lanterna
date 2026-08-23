@@ -12,11 +12,57 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "object_events": [],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SINNOH_CYRUS",
+      "x": 9,
+      "y": 3,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CelesticTownCave_EventScript_Cyrus",
+      "flag": "FLAG_GALACTICA_CELESTIC",
+      "origem": "cenas_sinnoh_b3",
+      "fonte_id": "LOCALID_CYRUS"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
+      "x": 10,
+      "y": 3,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CelesticTownCave_EventScript_Elder",
+      "flag": "FLAG_SINNOH_ESCONDE_CELESTIC_TOWN_CAVE_ELDER",
+      "origem": "cenas_sinnoh_b3",
+      "fonte_id": "LOCALID_ELDER"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SINNOH_CYNTHIA",
+      "x": 8,
+      "y": 9,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "FLAG_SINNOH_ESCONDE_CELESTIC_TOWN_CAVE_CYNTHIA",
+      "origem": "cenas_sinnoh_b3",
+      "fonte_id": "LOCALID_CYNTHIA"
+    }
+  ],
   "warp_events": [
     {
       "x": 10,
-      "y": 20,
+      "y": 21,
       "elevation": 0,
       "dest_map": "MAP_CELESTIC_TOWN",
       "dest_warp_id": "5"

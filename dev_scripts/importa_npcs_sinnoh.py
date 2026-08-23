@@ -949,10 +949,23 @@ def main():
         objs_fonte = [o for o in (fonte.get("object_events") or [])
                       if not any(t in o.get("graphics_id", "")
                                  for t in GRAFICOS_PLACA)]
+        placas_fonte = (len(fonte.get("object_events") or []) - len(objs_fonte))
         teto_fonte = (0 if "object_events" in cortado else
                       len(objs_fonte) - len(d.get("object_events") or []))
+        # A CORRECAO DE 22/08 SO TINHA METADE, e a metade que faltava fechava a
+        # porta pela qual a placa devia entrar (medido em 23/08/2026).
+        #
+        # `completude.le_plat` conta como PLACA da fonte `bg_events` MAIS os
+        # object_events com grafico de SIGNBOARD, e o teto de objeto acima ja
+        # desconta essas placas do lado dos objetos. O teto de placa, porem,
+        # continuava contando so `bg_events`: o denominador da regua era maior
+        # que o teto do portao, e a placa que o portao acabara de mandar para o
+        # lado das placas era recusada la por "teto". Resultado medido: 14 placas
+        # de deficit liquido em Sinnoh (731 de 745, 98,12%), das quais 11
+        # estavam paradas SO por esta conta, com texto e tile prontos. As tres
+        # que sobram sao "sem tile de leitura andavel", que e outro motivo.
         teto_bg = (0 if "bg_events" in cortado else
-                   len(fonte.get("bg_events") or [])
+                   len(fonte.get("bg_events") or []) + placas_fonte
                    - len(d.get("bg_events") or []))
 
         # Portao 1: geometria de verdade. NPC em planta emprestada e coordenada

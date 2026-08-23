@@ -1,4 +1,5 @@
 ValorLakefront_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, ValorLakefront_OnTransition
 	.byte 0
 
 @ >>> B6 Sinnoh S7: cena da fonte, rotulo ValorLakefront_CoordEvent_BlockSunyshore >>>
@@ -159,3 +160,35 @@ ValorLakefront_Text_GruntPostBattle:
 	.string "Commander...\p"
 	.string "I wish...\n"
 	.string "I got to use it at the lake...$"
+
+ValorLakefront_EventScript_CameramanNorth::
+	msgbox ValorLakefront_Text_CameramanNorth, MSGBOX_NPC
+	end
+
+ValorLakefront_Text_CameramanNorth:
+	.string "The Pokémon of the lake won't come out\nif it senses people.\pWe're lying in ambush for it here.$"
+
+ValorLakefront_EventScript_CameramanSouth::
+	msgbox ValorLakefront_Text_CameramanSouth, MSGBOX_NPC
+	end
+
+ValorLakefront_Text_CameramanSouth:
+	.string "They say there's a legendary Pokémon\nin this lake.\pI aim to capture it on film like I've\ndone before.\pIt was me who filmed that red GYARADOS\nat Lake of Rage.$"
+
+@ ponytail: portao de NPC de cena com a flag RECALCULADA a cada entrada.
+@ Acende sempre e so apaga se o marco ja caiu, entao nao depende de
+@ linha nenhuma em new_game.inc e save antiga se comporta igual a nova.
+ValorLakefront_OnTransition:
+	setflag FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_CYNTHIA
+	call_if_set FLAG_SINNOH_LAGO_VALOR_ESVAZIADO, ValorLakefront_EventScript_Mostra_VALOR_LAKEFRONT_CYNTHIA
+	setflag FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_RIVAL
+	call_if_set FLAG_SINNOH_LAGO_VALOR_ESVAZIADO, ValorLakefront_EventScript_Mostra_VALOR_LAKEFRONT_RIVAL
+	end
+
+ValorLakefront_EventScript_Mostra_VALOR_LAKEFRONT_CYNTHIA::
+	clearflag FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_CYNTHIA
+	return
+
+ValorLakefront_EventScript_Mostra_VALOR_LAKEFRONT_RIVAL::
+	clearflag FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_RIVAL
+	return

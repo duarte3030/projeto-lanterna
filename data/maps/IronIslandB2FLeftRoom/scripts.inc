@@ -126,3 +126,10 @@ IronIslandB2FLeftRoom_Text_AceTrainerBrendaDefeat:
 
 IronIslandB2FLeftRoom_Text_AceTrainerBrendaPost:
 	.string "Tough Pokémon...\nTough Trainers...\pTheir strength comes from their bond.\nAnd that's something that can be\pmade stronger anywhere.$"
+
+IronIslandB2FLeftRoom_EventScript_Riley::
+	msgbox IronIslandB2FLeftRoom_Text_Riley, MSGBOX_NPC
+	end
+
+IronIslandB2FLeftRoom_Text_Riley:
+	.string "Riley: Haha, I'd have to agree.\pPeople training here would be those\nwith too much time on their hands.$"

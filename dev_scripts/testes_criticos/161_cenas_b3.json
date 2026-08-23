@@ -1,0 +1,128 @@
+[
+ {
+  "id": "T161.1",
+  "nome": "ARCO DOS TRES GUARDIOES, o cativo na sala de controle do QG. dev_scripts/cenas_sinnoh_b3.py trouxe o LOCALID_UXIE de events_galactic_hq_control_room.json, que na fonte esta atras de FLAG_HIDE_GALACTIC_HQ_CONTROL_ROOM_LAKE_GUARDIANS, com a NOSSA FLAG_GALACTICA_LAKE_TRIO_FREED, que ja quer dizer 'o botao do QG soltou Uxie, Mesprit e Azelf' e ja existia em flags.h: ZERO flag nova nesta leva inteira. A polaridade e a da fonte lida ao contrario, e de proposito: la o script do QG APAGA a flag na cena da soltura; aqui o cativo esta no mapa ENQUANTO a soltura nao aconteceu, que e como esta ROM ja modela o momento. A prova e POSICAO e nao contagem: entrando pelo unico warp (13,1), DOWN saturante desce a coluna 13 ate (13,9), LEFT*6 leva a (8,9), UP*6 sobe UM tile e para em (8,8) porque a fileira 7 e o padrao de pilares `..##.##.##.##...` e a coluna 8 e parede, e a perna final de LEFT na fileira 8 para em (7,8), encostada no Uxie de (6,8). O par negativo e o T161.2. TILE ESCOLHIDO POR PORTAO, e nao por gosto: a primeira medida desta leva pos o Uxie em (7,9), que e o UNICO coord_event do mapa, e o T102.9 acusou na hora (a batalha do Saturn abriu com TRAINER_NONE). O gerador ganhou o portao 3c, que proibe tile de coord_event como proibe tile de warp.",
+  "opcoes": 32,
+  "warp": "MAP_GALACTIC_HQ_CONTROL_ROOM",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:DOWN*12,40:NADA,16:LEFT*6,40:NADA,16:UP*6,40:NADA,16:LEFT*16,120:NADA",
+  "prova": {
+   "mapa": "MAP_GALACTIC_HQ_CONTROL_ROOM",
+   "pos": [
+    7,
+    8
+   ],
+   "flags_apagadas": [
+    "FLAG_GALACTICA_LAKE_TRIO_FREED"
+   ]
+  }
+ },
+ {
+  "id": "T161.2",
+  "nome": "PAR NEGATIVO do T161.1, e o que da sentido a prova de posicao dele. MESMO warp, MESMA rota, unica diferenca FLAG_GALACTICA_LAKE_TRIO_FREED acesa na entrada. Sem o Uxie na frente a perna final de LEFT corre a fileira 8 inteira e termina em (0,8), sete tiles alem. Um caso sozinho so diria que ALGUEM anda pela fileira 8; o par diz que quem segura o passo e o objeto novo, e que o marco do enredo o desfaz.",
+  "opcoes": 32,
+  "flags": [
+   "FLAG_GALACTICA_LAKE_TRIO_FREED"
+  ],
+  "warp": "MAP_GALACTIC_HQ_CONTROL_ROOM",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:DOWN*12,40:NADA,16:LEFT*6,40:NADA,16:UP*6,40:NADA,16:LEFT*16,120:NADA",
+  "prova": {
+   "mapa": "MAP_GALACTIC_HQ_CONTROL_ROOM",
+   "pos": [
+    0,
+    8
+   ]
+  }
+ },
+ {
+  "id": "T161.3",
+  "nome": "O TEXTO PORTADO CHEGA NA TELA, e nao so o corpo. graphics_id que nao resolve nao da erro de build, e script que nao resolve tambem nao: da NPC mudo, e mudo passaria no T161.1 igualzinho. Aqui o caso para em (7,8) como o T161.1, aperta A, e a caixa de GalacticHQ_ControlRoom_EventScript_Uxie abre com a fala tirada do banco de texto do PROPRIO mapa da fonte (res/text, via texto_sinnoh.resolve). Com a caixa aberta os seis apertos de DOWN sao ENGOLIDOS e o jogador continua em (7,8). ARMADILHA QUE ESTE CASO GUARDA: `resolve` devolve a TUPLA (texto, comandos de buffer), e a primeira build desta leva gravou o repr dela dentro das aspas (\"('AZELF is sealed inside!...$', [])\" em GalacticHQ_ControlRoom/scripts.inc:315). O assembler so reclamou da barra invertida, e nao do repr: sem este caso, um texto sem barra passaria.",
+  "opcoes": 32,
+  "warp": "MAP_GALACTIC_HQ_CONTROL_ROOM",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:DOWN*12,40:NADA,16:LEFT*6,40:NADA,16:UP*6,40:NADA,16:LEFT*16,120:NADA,20:A,120:NADA,16:DOWN*6,120:NADA",
+  "prova": {
+   "mapa": "MAP_GALACTIC_HQ_CONTROL_ROOM",
+   "pos": [
+    7,
+    8
+   ]
+  }
+ },
+ {
+  "id": "T161.4",
+  "nome": "PAR NEGATIVO do T161.3: MESMA rota, MESMO numero de quadros, e NENHUM A. Sem caixa aberta os seis apertos de DOWN andam e param em (7,9), na fileira de baixo. Um tile de diferenca e pouco, e e por isso que o par existe: a prova do T161.3 nao e 'nao travou', e 'a caixa comeu o passo'.",
+  "opcoes": 32,
+  "warp": "MAP_GALACTIC_HQ_CONTROL_ROOM",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:DOWN*12,40:NADA,16:LEFT*6,40:NADA,16:UP*6,40:NADA,16:LEFT*16,120:NADA,140:NADA,16:DOWN*6,120:NADA",
+  "prova": {
+   "mapa": "MAP_GALACTIC_HQ_CONTROL_ROOM",
+   "pos": [
+    7,
+    9
+   ]
+  }
+ },
+ {
+  "id": "T161.5",
+  "nome": "POLARIDADE 'SOME', e a caverna de Celestic DEPOIS do conserto da porta. Duas coisas de uma vez, e as duas sao novas nesta rodada. (a) Ate hoje este mapa era um BECO: o unico warp fica em (10,20), o metatile dele era MB_NON_ANIMATED_DOOR, o motor largava o jogador em (10,21) e o primeiro passo para o norte pisava na porta e devolvia o jogador a Celestic Town; com o tile do warp tratado como parede, o pouso alcancava UM tile de 108 andaveis. dev_scripts/porta_morta.py mediu isso mapa a mapa, achou este e SO este em Sinnoh, e virou a boca pelo idioma que lagos_sinnoh.py ja usa: a porta virou chao, o tile de pouso virou MB_SOUTH_ARROW_WARP (0x208, o metatile que 86 bocas de Sinnoh do MESMO par de tilesets ja usam) e o warp desceu para (10,21). (b) O Cyrus que cenas_sinnoh_b3.py trouxe para (9,3) esta la ENQUANTO a Galactica esta em Celestic, com FLAG_GALACTICA_CELESTIC. A prova junta as duas: seis pernas do warp ate a fileira 3, e a ultima para em (8,3), encostada nele. Antes do conserto a rota inteira terminaria em MAP_CELESTIC_TOWN.",
+  "opcoes": 32,
+  "warp": "MAP_CELESTIC_TOWN_CAVE",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:UP*20,40:NADA,16:LEFT*14,40:NADA,16:UP*14,40:NADA,16:RIGHT*6,40:NADA,16:UP*6,40:NADA,16:RIGHT*9,120:NADA",
+  "prova": {
+   "mapa": "MAP_CELESTIC_TOWN_CAVE",
+   "pos": [
+    8,
+    3
+   ],
+   "flags_apagadas": [
+    "FLAG_GALACTICA_CELESTIC"
+   ]
+  }
+ },
+ {
+  "id": "T161.6",
+  "nome": "POLARIDADE 'APARECE', no MESMO mapa e com a MESMA rota do T161.5, e por isso o par prova as duas polaridades de uma vez. Unica diferenca: FLAG_GALACTICA_CELESTIC acesa na entrada. O Cyrus SOME (flag de esconder direta) e o ANCIAO APARECE em (10,3), porque o MAP_SCRIPT_ON_TRANSITION do mapa recalcula FLAG_SINNOH_ESCONDE_CELESTIC_TOWN_CAVE_ELDER a cada entrada: acende sempre e so apaga se o marco ja caiu. A rota entao anda UM tile a mais e para em (9,3), encostada no anciao. Se a polaridade 'aparece' nao funcionasse a rota iria a (12,3), na parede; se a 'some' nao funcionasse ela ficaria em (8,3). Ou seja, este unico numero separa tres mundos.",
+  "opcoes": 32,
+  "flags": [
+   "FLAG_GALACTICA_CELESTIC"
+  ],
+  "warp": "MAP_CELESTIC_TOWN_CAVE",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:UP*20,40:NADA,16:LEFT*14,40:NADA,16:UP*14,40:NADA,16:RIGHT*6,40:NADA,16:UP*6,40:NADA,16:RIGHT*9,120:NADA",
+  "prova": {
+   "mapa": "MAP_CELESTIC_TOWN_CAVE",
+   "pos": [
+    9,
+    3
+   ]
+  }
+ },
+ {
+  "id": "T161.7",
+  "nome": "SAVE NO MEIO DO ARCO: a flag recalculada sobrevive a gravacao e a recarga do mapa. Este e o caso que justifica o idioma inteiro. A alternativa que a pergunta 19 propunha era setflag em EventScript_ResetAllMapFlags, que so roda em jogo NOVO: save antiga veria o anciao plantado desde o primeiro dia. Aqui nao ha estado inicial nenhum para acertar, porque o ON_TRANSITION reescreve a flag toda vez que o mapa carrega. O caso joga a rota do T161.6, GRAVA pelo menu de START (tres UP contados de baixo, como toda a suite faz desde a 0.o), SAI para MAP_CELESTIC_TOWN, VOLTA pelo mesmo warp e refaz a rota inteira: se a flag morresse na troca de mapa ou na gravacao, o anciao sumiria e a segunda passada pararia em (12,3), na parede. prova.sav_gravada cobra um slot inteiro escrito, senao a flash virgem passaria verde.",
+  "opcoes": 32,
+  "flags": [
+   "FLAG_GALACTICA_CELESTIC"
+  ],
+  "warp": "MAP_CELESTIC_TOWN_CAVE",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:UP*20,40:NADA,16:LEFT*14,40:NADA,16:UP*14,40:NADA,16:RIGHT*6,40:NADA,16:UP*6,40:NADA,16:RIGHT*9,120:NADA,40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,180:NADA,WARP=MAP_CELESTIC_TOWN:4,300:NADA,WARP=MAP_CELESTIC_TOWN_CAVE:0,300:NADA,150:NADA,16:UP*20,40:NADA,16:LEFT*14,40:NADA,16:UP*14,40:NADA,16:RIGHT*6,40:NADA,16:UP*6,40:NADA,16:RIGHT*9,120:NADA",
+  "sav": "/tmp/claude-501/fechador/t161-celestic.sav",
+  "apaga_sav": true,
+  "prova": {
+   "mapa": "MAP_CELESTIC_TOWN_CAVE",
+   "pos": [
+    9,
+    3
+   ],
+   "sav_gravada": true,
+   "flags_acesas": [
+    "FLAG_GALACTICA_CELESTIC"
+   ]
+  }
+ }
+]

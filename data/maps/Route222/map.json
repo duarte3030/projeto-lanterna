@@ -388,6 +388,21 @@
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_SINNOH_BOLA_ROUTE222_PP_UP_2",
       "origem": "pokeplatinum-bola"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+      "x": 58,
+      "y": 11,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route222_EventScript_PolicemanThomasNoBattle",
+      "flag": "0",
+      "origem": "cenas_sinnoh_b3",
+      "fonte_id": "LOCALID_POLICEMAN_THOMAS_NO_BATTLE"
     }
   ],
   "warp_events": [
@@ -482,6 +497,42 @@
       "type": "sign",
       "x": 70,
       "y": 25,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Sinnoh_EventScript_PlacaImportada",
+      "origem": "pokeplatinum"
+    },
+    {
+      "type": "sign",
+      "x": 77,
+      "y": 25,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Sinnoh_EventScript_PlacaImportada",
+      "origem": "pokeplatinum"
+    },
+    {
+      "type": "sign",
+      "x": 47,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Sinnoh_EventScript_PlacaImportada",
+      "origem": "pokeplatinum"
+    },
+    {
+      "type": "sign",
+      "x": 83,
+      "y": 22,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Sinnoh_EventScript_PlacaImportada",
+      "origem": "pokeplatinum"
+    },
+    {
+      "type": "sign",
+      "x": 29,
+      "y": 21,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Sinnoh_EventScript_PlacaImportada",

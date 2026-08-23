@@ -150,7 +150,26 @@
     }
   ],
   "coord_events": [],
-  "bg_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 17,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route204North_EventScript_Placa1",
+      "origem": "pokeplatinum"
+    },
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 31,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Sinnoh_EventScript_PlacaImportada",
+      "origem": "pokeplatinum"
+    }
+  ],
   "origem": "passagem provisoria: planta reaproveitada de Route226_Access do repo, so para dar entrada e saida na masmorra. Exterior do Platinum nao e convertido, ver o topo de abre_exteriores_sinnoh.py",
   "origem_geometria": "converte_moldes_sinnoh.py: grade 2D do Platinum (MAP_HEADER_ROUTE_204_NORTH), 32x32, offset (160, 672). Antes vestia o molde de portao 13x9"
 }

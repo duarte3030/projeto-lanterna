@@ -1,4 +1,5 @@
 CanalaveLibrary3F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, CanalaveLibrary3F_OnTransition
 	.byte 0
 
 CanalaveLibrary3F_EventScript_Npc1::
@@ -170,3 +171,15 @@ CanalaveLibrary3F_EventScript_Placa22::
 
 CanalaveLibrary3F_Text_Placa22:
 	.string "On this floor, you will find many\nbooks on the myths and legends of\pthe Sinnoh region.$"
+
+@ ponytail: portao de NPC de cena com a flag RECALCULADA a cada entrada.
+@ Acende sempre e so apaga se o marco ja caiu, entao nao depende de
+@ linha nenhuma em new_game.inc e save antiga se comporta igual a nova.
+CanalaveLibrary3F_OnTransition:
+	setflag FLAG_SINNOH_ESCONDE_CANALAVE_LIBRARY_ROWAN
+	call_if_defeated TRAINER_SINNOH_LEADER_BYRON, CanalaveLibrary3F_EventScript_Mostra_CANALAVE_LIBRARY_ROWAN
+	end
+
+CanalaveLibrary3F_EventScript_Mostra_CANALAVE_LIBRARY_ROWAN::
+	clearflag FLAG_SINNOH_ESCONDE_CANALAVE_LIBRARY_ROWAN
+	return

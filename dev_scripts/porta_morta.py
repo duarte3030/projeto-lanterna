@@ -1,252 +1,259 @@
 #!/usr/bin/env python3
-"""Warp com comportamento de porta em cima de tile SOLIDO: acha e conserta.
+"""Acha (e conserta) a boca de caverna montada ao contrário em Sinnoh.
 
-    python3 dev_scripts/porta_morta.py            # censo, nao escreve
-    python3 dev_scripts/porta_morta.py --demo     # autoteste, nao escreve
-    python3 dev_scripts/porta_morta.py --aplicar  # escreve
+    python3 dev_scripts/porta_morta.py            # só relata
+    python3 dev_scripts/porta_morta.py --corrigir
+    python3 dev_scripts/porta_morta.py --demo
 
-O DEFEITO, medido em 21/08/2026
--------------------------------
-`valida_warp_tile.py` conferia so o COMPORTAMENTO do metatile debaixo do warp.
-Falta metade: quase todo caminho de warp do motor exige que o jogador ESTEJA no
-tile (`TryStartWarpEventScript` -> `IsWarpMetatileBehavior` sobre a posicao
-dele; `TryArrowWarp` e as escadas diagonais idem). Tile com COLISAO nunca e
-pisado, entao comportamento certo em tile solido e warp morto.
+## O defeito, medido antes de escrito
 
-A UNICA excecao e a porta ANIMADA: `TryDoorWarp` olha o tile da FRENTE quando o
-jogador anda para o norte, e por isso a porta de casa de Hoenn e solida de
-proposito em centenas de mapas legitimos. Ela so aceita `MB_ANIMATED_DOOR`.
+`MAP_CELESTIC_TOWN_CAVE` tem UM warp, em (10,20), e o metatile dele é
+`MB_NON_ANIMATED_DOOR`. Entrando por ele o motor larga o jogador em (10,21),
+uma casa ao SUL, porque porta empurra para fora. O corpo da caverna (fileiras 3
+a 19, ~120 tiles andáveis, com a sala das pinturas) fica ao NORTE. E porta
+dispara quando o jogador PISA nela, venha de onde vier: o primeiro passo para o
+norte devolve o jogador a Celestic Town. Medido com
+`dev_scripts/testa_critico.py`, roteiro `150:NADA,16:UP*3,120:NADA` a partir de
+`MAP_CELESTIC_TOWN_CAVE:0` termina em `MAP_CELESTIC_TOWN (8,5)`.
 
-Sonda no emulador que fechou o diagnostico: parado em (26,2) da `RavagedPath`,
-ao lado do warp de (26,1), `UP*6` nao move o jogador e `DOWN*6` seguido de
-`UP*8` tambem nao. O warp existia, apontava para o mapa certo, tinha o indice
-certo dos dois lados e simplesmente nunca disparava.
+A causa NÃO é a fonte: `res/field/events/events_celestic_town_cave.json` põe o
+warp em (10,20) também. É a diferença de motor. No DS a saída de caverna dispara
+pelo sentido do passo; aqui `MB_NON_ANIMATED_DOOR` dispara pelo pisão. Quem já
+tinha resolvido isso nesta ROM foi `dev_scripts/lagos_sinnoh.py`, com o idioma
+certo para boca de caverna: `MB_SOUTH_ARROW_WARP` no tile MAIS AO SUL do par, e
+o jogador nasce EM CIMA dele olhando para dentro. Seta dispara só quando o passo
+vai no sentido dela, então subir entra e descer sai.
 
-O CONSERTO E UM BIT, e nao um metatile novo
--------------------------------------------
-O tile ja E porta: o que sobra e a colisao. Zerar os dois bits de colisao da
-palavra do `map.bin` deixa a arte, a elevacao e o comportamento exatamente como
-estavam. Trocar o metatile mudaria o desenho do mapa sem precisar.
+## O portão, e por que ele não é "olhar o metatile"
 
-Elevacao fica como esta, inclusive quando e 0: `ELEVATION_TRANSITION` e o valor
-normal de tile de porta, e os proprios `warp_events` destes mapas declaram
-`elevation: 0`.
-
-O QUE NAO E CONSERTADO, e por que
----------------------------------
-Ver `RECUSADOS`. Em resumo: ginasio nao se mexe (o buraco do EcruteakCity_Gym e
-quebra-cabeca, nao porta), porta ANIMADA solida e o padrao legitimo do motor, e
-warp que so duplica um irmao que JA funciona nao esta trancando ninguem.
+Metatile de porta não é defeito por si: quase toda casa de Sinnoh tem um e
+funciona, porque o corpo do mapa fica ao SUL da porta, do lado onde o jogador é
+largado. O defeito é TOPOLÓGICO: com o tile do warp tratado como PAREDE, o tile
+onde o jogador é largado alcança quase nada do mapa. É isso que este script
+mede, mapa a mapa, e é por isso que ele acha o caso de Celestic sem uma lista
+escrita à mão.
 """
 import json
 import os
-import struct
+import re
 import sys
+from collections import deque
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import valida_warp_tile as V   # noqa: E402
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(REPO, "dev_scripts"))
+import importa_npcs_sinnoh as I  # noqa: E402
+import valida_mapas_sinnoh as V  # noqa: E402
 
-REPO = V.RAIZ
-
-# Recusa por MAPA, com o motivo medido. Nunca uma lista muda.
-RECUSADOS = {
-    "EcruteakCity_Gym": (
-        "ginasio, fora de qualquer fronteira desta rodada, e os quatro warps "
-        "sao MB_MT_PYRE_HOLE apontando para o PROPRIO mapa: e o quebra-cabeca "
-        "de buraco no chao, nao porta emperrada. Zerar a colisao mudaria o "
-        "enigma"),
-    "Galar_Hammerlocke21": (
-        "o warp 14 aponta para o proprio MAP_GALAR_HAMMERLOCKE_21. Warp que "
-        "volta para onde ja se esta nao tranca ninguem, e Galar ainda esta em "
-        "fase de conteudo: sem saber a cena, zerar colisao e chute"),
-    "Galar_CrownTundra14": (
-        "o metatile 774 aqui e MB_ANIMATED_DOOR e nao MB_NON_ANIMATED_DOOR "
-        "(lido com o corte de 640 do layout_version frlg, que e o certo para "
-        "Galar). Porta animada solida e o jeito CERTO do motor: TryDoorWarp le "
-        "o tile da frente. Nao ha defeito aqui"),
-    "SSAnne_Exterior_Frlg": (
-        "os warps 0 e 4, em (31,5) e (33,5), sao gemeos do warp 2 de (32,5), "
-        "que e o metatile 767 com COLISAO 0 e funciona. Os tres vao para o "
-        "MAP_VERMILION_CITY e a passarela abaixo, em y=6, e andavel: o mapa "
-        "nao esta trancado. Zerar a colisao poria o jogador em cima do casco "
-        "do navio para consertar nada"),
-}
+CORRIGIR = "--corrigir" in sys.argv
+PORTA = "MB_NON_ANIMATED_DOOR"
+SETA_SUL = "MB_SOUTH_ARROW_WARP"
+# BECO: com o tile do warp tratado como parede, o pouso enxerga ISTO ou menos.
+# O número é pequeno de propósito. A primeira régua deste script era "menos de
+# metade do mapa" e ela acusou SETE mapas, dos quais seis eram falsos: os dois
+# lagos e a Route 224 são partidos por água, e a Wayward Cave e o Old Chateau
+# por corredor que pede outro warp. O que separa o defeito de verdade não é o
+# tamanho da parte alcançada, é o BECO: em `CelesticTownCave` o pouso enxerga UM
+# tile, ele mesmo, e a caverna inteira está do outro lado da porta.
+TETO_BECO = 8
 
 
-def _layouts():
-    return {l["id"]: l for l in json.load(
-        open(f"{REPO}/data/layouts/layouts.json"))["layouts"]}
+def pouso(lays, lid, x, y):
+    """Onde o motor larga quem entra por este warp.
 
-
-def censo():
-    """[(mapa, i, x, y, metatile, comportamento, veredito, motivo)] do repo todo.
-
-    A lista SAI da medida, sempre. Nao ha nome de mapa escrito a mao aqui: o que
-    e escrito a mao e so a RECUSA, que e decisao e por isso vem com motivo.
+    Porta empurra uma casa para o SUL (`src/field_door.c` mais o
+    `MetatileBehavior_IsNonAnimDoor` de `src/overworld.c`); o resto larga em
+    cima do próprio tile. Conferido na EWRAM: warp (10,20) de
+    `CelesticTownCave` larga em (10,21).
     """
-    layouts = _layouts()
-    grupos = json.load(open(f"{REPO}/data/maps/map_groups.json"))
-    cache, linhas = {}, []
-
-    def atributos(ts):
-        if ts not in cache:
-            cache[ts] = V.tabela_de_atributos(ts)
-        return cache[ts]
-
-    for grp in grupos["group_order"]:
-        for m in grupos.get(grp, []):
-            p = f"{REPO}/data/maps/{m}/map.json"
-            if not os.path.exists(p):
-                continue
-            d = json.load(open(p))
-            warps = d.get("warp_events") or []
-            lay = layouts.get(d.get("layout"))
-            if not warps or not lay:
-                continue
-            bp = f"{REPO}/{lay.get('blockdata_filepath', '')}"
-            if not os.path.exists(bp):
-                continue
-            blk = open(bp, "rb").read()
-            w, h = lay["width"], lay["height"]
-            prim, _ = atributos(lay.get("primary_tileset"))
-            seg, _ = atributos(lay.get("secondary_tileset"))
-            if prim is None or seg is None:
-                continue
-            # O corte primario/secundario e a CONSTANTE do motor, nunca o
-            # tamanho do arquivo: 640 no ramo frlg/johto, 512 no resto. Ler
-            # errado aqui foi o que fez o primeiro censo desta rodada dizer que
-            # o SSAnne e o Galar_CrownTundra14 eram o mesmo defeito dos de
-            # Sinnoh, e eles nao sao.
-            corte = 640 if lay.get("layout_version", "") in ("frlg", "johto") else 512
-            for i, wp in enumerate(warps):
-                x, y = wp.get("x", 0), wp.get("y", 0)
-                idx = (y * w + x) * 2
-                if not (0 <= x < w and 0 <= y < h and idx + 2 <= len(blk)):
-                    continue
-                pal = struct.unpack("<H", blk[idx:idx + 2])[0]
-                mt, col = pal & 0x3FF, (pal >> 10) & 3
-                tab, rel = (prim, mt) if mt < corte else (seg, mt - corte)
-                if rel >= len(tab) or not col:
-                    continue
-                c = tab[rel]
-                if c not in V.COMPORTA_WARP or c in V.DISPARA_SENDO_SOLIDO:
-                    continue
-                motivo = RECUSADOS.get(m)
-                linhas.append((m, i, x, y, mt, V.NOME.get(c, c),
-                               "recusado" if motivo else "consertar", motivo))
-    return linhas
+    return (x, y + 1) if V.comportamento(lays, lid, x, y) == PORTA else (x, y)
 
 
-def aplica():
-    """Zera os dois bits de colisao dos alvos. Idempotente por natureza."""
-    feitos, layouts = [], _layouts()
-    for m, i, x, y, mt, mb, veredito, _motivo in censo():
-        if veredito != "consertar":
+def alcance(lays, lid, W, H, inicio, paredes):
+    vistos, fila = {inicio}, deque([inicio])
+    while fila:
+        x, y = fila.popleft()
+        for p in ((x, y - 1), (x, y + 1), (x - 1, y), (x + 1, y)):
+            if p in vistos or p in paredes:
+                continue
+            if not (0 <= p[0] < W and 0 <= p[1] < H):
+                continue
+            if V.colisao(lays, lid, *p) != 0:
+                continue
+            vistos.add(p)
+            fila.append(p)
+    return vistos
+
+
+def portas_mortas():
+    """[(mapa, warp, pouso, alcançados, andáveis)] das bocas montadas ao contrário."""
+    lays = {l["id"]: l for l in json.load(
+        open(os.path.join(REPO, "data/layouts/layouts.json"),
+             encoding="utf-8"))["layouts"]}
+    saida = []
+    for meu in sorted(I.nossos_mapas_sinnoh()):
+        pm = os.path.join(REPO, "data/maps", meu, "map.json")
+        if not os.path.exists(pm):
             continue
-        d = json.load(open(f"{REPO}/data/maps/{m}/map.json"))
-        lay = layouts[d["layout"]]
-        caminho = f"{REPO}/{lay['blockdata_filepath']}"
-        b = bytearray(open(caminho, "rb").read())
-        j = (y * lay["width"] + x) * 2
-        antes = b[j] | (b[j + 1] << 8)
-        depois = antes & ~(3 << 10)
-        b[j], b[j + 1] = depois & 0xFF, depois >> 8
-        open(caminho, "wb").write(bytes(b))
-        feitos.append((m, i, x, y, mt, mb, antes, depois))
-    return feitos
+        d = json.load(open(pm, encoding="utf-8"))
+        lid = d.get("layout")
+        if lid not in lays:
+            continue
+        W, H = lays[lid]["width"], lays[lid]["height"]
+        warps = [(w["x"], w["y"]) for w in (d.get("warp_events") or [])
+                 if isinstance(w.get("x"), int)]
+        if len(warps) != 1:
+            continue          # com dois warps a topologia não prova nada sozinha
+        anda = sum(1 for y in range(H) for x in range(W)
+                   if V.colisao(lays, lid, x, y) == 0)
+        if anda < 20:
+            continue          # sala minúscula: metade de nada não é medida
+        wx, wy = warps[0]
+        p = pouso(lays, lid, wx, wy)
+        if not (0 <= p[0] < W and 0 <= p[1] < H) or V.colisao(lays, lid, *p) != 0:
+            continue
+        if p == (wx, wy):
+            continue          # não é porta: o motor não empurra, não há beco
+        viz = alcance(lays, lid, W, H, p, {(wx, wy)})
+        if len(viz) <= TETO_BECO and len(
+                alcance(lays, lid, W, H, p, set())) > 4 * len(viz):
+            saida.append((meu, (wx, wy), p, len(viz), anda))
+    return saida
 
 
-def imprime_censo():
-    linhas = censo()
-    print(f"{'mapa':30s} {'w':>3s} {'x,y':>9s} {'tile':>5s}  comportamento")
-    for m, i, x, y, mt, mb, veredito, motivo in linhas:
-        marca = " " if veredito == "consertar" else "R"
-        print(f"{marca} {m:28s} {i:3d} {f'{x},{y}':>9s} {mt:5d}  {mb}")
-        if motivo:
-            print(f"      recusado: {motivo}")
-    print(f"\n{sum(1 for l in linhas if l[6] == 'consertar')} a consertar, "
-          f"{sum(1 for l in linhas if l[6] == 'recusado')} recusados com motivo")
-    return 0
+def metatile_de_boca(lay, lays_json):
+    """O metatile de boca que os mapas de Sinnoh DESTE par de tilesets já usam.
+
+    Não é uma constante e não é "o primeiro do tileset", e as duas coisas foram
+    medidas antes de escritas. O 519 de `lagos_sinnoh.py` é do
+    `gTileset_CaveSinnoh`, e a caverna de Celestic está em
+    `gTileset_Building`/`gTileset_GenericBuilding`. E o MENOR índice com
+    `MB_SOUTH_ARROW_WARP` nesse par é o 6, do tileset primário, que mapa nenhum
+    usa: as bocas de verdade são `0x208` (86 vezes) e `0x209` (81), do
+    secundário. Escolher pelo índice teria plantado um desenho que ninguém viu.
+    Aqui a escolha é por VOTO: o metatile mais usado embaixo de um `warp_event`
+    de comportamento de seta, nos mapas de Sinnoh com o MESMO par de tilesets.
+    """
+    import collections
+    import struct
+    par = (lay.get("primary_tileset"), lay.get("secondary_tileset"))
+    votos = collections.Counter()
+    for meu in I.nossos_mapas_sinnoh():
+        pm = os.path.join(REPO, "data/maps", meu, "map.json")
+        if not os.path.exists(pm):
+            continue
+        d = json.load(open(pm, encoding="utf-8"))
+        L = lays_json.get(d.get("layout"))
+        if not L or (L.get("primary_tileset"), L.get("secondary_tileset")) != par:
+            continue
+        blob = open(os.path.join(REPO, L["blockdata_filepath"]), "rb").read()
+        for w in d.get("warp_events") or []:
+            x, y = w.get("x"), w.get("y")
+            if not isinstance(x, int) or not isinstance(y, int):
+                continue
+            if V.comportamento(lays_json, d["layout"], x, y) != SETA_SUL:
+                continue
+            i = (y * L["width"] + x) * 2
+            votos[struct.unpack("<H", blob[i:i + 2])[0]] += 1
+    return votos.most_common(1)[0][0] if votos else None
+
+
+def corrige(meu, warp, lays_json):
+    """Vira a boca: o warp desce um tile e o tile de baixo vira seta para o sul.
+
+    Três escritas, e as três são obrigatórias juntas.
+
+    1. O tile da PORTA vira chão comum (cópia do vizinho de dentro), porque
+       porta dispara por pisão e é ela que estava selando o caminho.
+    2. O tile de POUSO vira `MB_SOUTH_ARROW_WARP`, que só dispara quando o passo
+       vai no sentido da seta. Subir entra, descer sai.
+    3. O `warp_event` desce para o tile de pouso, senão o motor continuaria
+       largando o jogador uma casa ao sul de um tile que não empurra mais.
+
+    É o mesmo idioma que `dev_scripts/lagos_sinnoh.py` usa nas bocas dos três
+    lagos, e o T157.6 já prova que ele funciona neste motor.
+    """
+    import struct
+    pm = os.path.join(REPO, "data/maps", meu, "map.json")
+    d = json.load(open(pm, encoding="utf-8"))
+    wx, wy = warp
+    lay = lays_json[d["layout"]]
+    W = lay["width"]
+    boca = metatile_de_boca(lay, lays_json)
+    if boca is None:
+        return f"{meu}: nenhum metatile de {SETA_SUL} neste par de tilesets"
+    caminho = os.path.join(REPO, lay["blockdata_filepath"])
+    blob = bytearray(open(caminho, "rb").read())
+
+    def i(x, y):
+        return (y * W + x) * 2
+
+    dentro = struct.unpack("<H", blob[i(wx, wy - 1):i(wx, wy - 1) + 2])[0]
+    blob[i(wx, wy):i(wx, wy) + 2] = struct.pack("<H", dentro)
+    blob[i(wx, wy + 1):i(wx, wy + 1) + 2] = struct.pack("<H", boca)
+    for w in d["warp_events"]:
+        if (w["x"], w["y"]) == (wx, wy):
+            w["y"] = wy + 1
+    open(caminho, "wb").write(bytes(blob))
+    with open(pm, "w", encoding="utf-8") as f:
+        json.dump(d, f, indent=2, ensure_ascii=False)
+        f.write("\n")
+    return (f"{meu}: warp ({wx},{wy}) -> ({wx},{wy + 1}), porta virou chao "
+            f"0x{dentro:04X} e o pouso virou boca 0x{boca:04X}")
 
 
 def demo():
-    """Autoteste com mutacao plantada: o que quebra tem que ser PEGO."""
-    # 1. A REGRA, que e do motor e nao minha. Porta animada solida dispara;
-    #    porta nao animada solida nao. Mutacao plantada: inverter isso faria
-    #    centenas de mapas legitimos de Hoenn virarem defeito.
-    assert V.warp_morto(V._MB["MB_ANIMATED_DOOR"], 1)[0] is False
-    assert V.warp_morto(V._MB["MB_NON_ANIMATED_DOOR"], 1)[0] is True
-    assert V.warp_morto(V._MB["MB_NON_ANIMATED_DOOR"], 0)[0] is False
-    assert V.warp_morto(V._MB["MB_NORMAL"], 0)[0] is True
+    """As tres armadilhas deste script, com a mutacao plantada em memoria."""
+    lays = {l["id"]: l for l in json.load(
+        open(os.path.join(REPO, "data/layouts/layouts.json"),
+             encoding="utf-8"))["layouts"]}
+    d = json.load(open(os.path.join(REPO, "data/maps/CelesticTownCave/map.json"),
+                       encoding="utf-8"))
+    lid = d["layout"]
+    W, H = lays[lid]["width"], lays[lid]["height"]
+    anda = sum(1 for y in range(H) for x in range(W)
+               if V.colisao(lays, lid, x, y) == 0)
 
-    # 2. O corte de 640 do ramo frlg NAO e detalhe: com 512 o metatile 774 do
-    #    Galar_CrownTundra14 le como porta NAO animada e o script "consertaria"
-    #    um mapa que esta certo. Mutacao plantada, e ela ja aconteceu de
-    #    verdade no primeiro censo desta rodada.
-    lay = _layouts()[json.load(open(
-        f"{REPO}/data/maps/Galar_CrownTundra14/map.json"))["layout"]]
-    assert lay.get("layout_version") == "frlg", lay.get("layout_version")
-    seg, _ = V.tabela_de_atributos(lay["secondary_tileset"])
-    assert V.NOME.get(seg[774 - 640]) == "MB_ANIMATED_DOOR"
+    # 1. DEPOIS do conserto: o warp esta no tile de pouso, a boca e seta para o
+    #    sul, e o pouso enxerga a caverna inteira.
+    w = d["warp_events"][0]
+    assert (w["x"], w["y"]) == (10, 21), f"o warp voltou para {w}"
+    assert V.comportamento(lays, lid, 10, 21) == SETA_SUL
+    assert pouso(lays, lid, 10, 21) == (10, 21), "seta nao empurra"
+    viz = alcance(lays, lid, W, H, (10, 21), set())
+    assert len(viz) == anda, f"pouso alcanca {len(viz)} de {anda}"
 
-    # 3. O conserto e UM BIT: a arte e a elevacao nao podem andar.
-    antes = 0x0706
-    depois = antes & ~(3 << 10)
-    assert depois & 0x3FF == antes & 0x3FF          # mesmo metatile
-    assert (depois >> 12) & 0xF == (antes >> 12) & 0xF   # mesma elevacao
-    assert (depois >> 10) & 3 == 0
+    # 2. MUTACAO PLANTADA: a geometria de ANTES, calculada no mapa de hoje. Se
+    #    (10,20) voltasse a ser porta, o pouso ficaria a UM tile de 108, que e
+    #    exatamente o que o detector procura. Sem este assert, `portas_mortas`
+    #    poderia parar de achar qualquer coisa e ninguem notaria.
+    beco = alcance(lays, lid, W, H, (10, 21), {(10, 20)})
+    assert len(beco) <= TETO_BECO and len(viz) > 4 * len(beco), \
+        f"a mutacao nao reprova: beco={len(beco)}, aberto={len(viz)}"
 
-    # 4. Toda recusa tem motivo escrito, e todo mapa recusado aparece mesmo no
-    #    censo (recusa que nao e medida e so uma lista que envelhece calada).
-    linhas = censo()
-    assert all(l[7] for l in linhas if l[6] == "recusado")
-    vistos = {l[0] for l in linhas}
-    # Dois recusados NAO chegam ao censo, e isso e afirmacao e nao esquecimento:
-    # o Galar_CrownTundra14 porque a porta dele e animada (item 2), e o SSAnne
-    # porque o tile de (31,5) nem porta e. Cada um e provado onde mora.
-    FORA_DO_CENSO = ("Galar_CrownTundra14", "SSAnne_Exterior_Frlg")
-    for m in RECUSADOS:
-        if m in FORA_DO_CENSO:
-            assert m not in vistos, f"{m} entrou no censo: a recusa mudou de motivo"
-            continue
-        assert m in vistos, f"{m} esta em RECUSADOS e sumiu da medida"
-
-    # 4.b O SSAnne nao esta trancado, e isso e MEDIDO e nao suposto: dos tres
-    #     warps que vao para Vermilion, o do meio tem colisao ZERO, e a linha
-    #     de baixo e andavel. Se um dia essa passagem fechar, a recusa cai.
-    d = json.load(open(f"{REPO}/data/maps/SSAnne_Exterior_Frlg/map.json"))
-    lay = _layouts()[d["layout"]]
-    blk = open(f"{REPO}/{lay['blockdata_filepath']}", "rb").read()
-
-    def palavra(x, y, _w=lay["width"]):
-        i = (y * _w + x) * 2
-        return blk[i] | (blk[i + 1] << 8)
-    vivos = [w for w in d["warp_events"] if w["dest_map"] == "MAP_VERMILION_CITY"
-             and not ((palavra(w["x"], w["y"]) >> 10) & 3)]
-    assert vivos, "o SSAnne perdeu a passagem viva: a recusa nao vale mais"
-    assert not (palavra(vivos[0]["x"], vivos[0]["y"] + 1) >> 10) & 3
-
-    # 5. Depois de aplicado nao sobra alvo, e o que sobra e so recusa. Isto so
-    #    vale depois do `--aplicar`, e por isso e condicional em vez de mentira.
-    if not any(l[6] == "consertar" for l in linhas):
-        assert {l[0] for l in linhas} <= set(RECUSADOS), linhas
-
-    print("demo ok")
-    return 0
+    # 3. O metatile de boca sai do VOTO dos mapas do mesmo par de tilesets, e
+    #    nao do menor indice: o menor aqui e 6, do tileset primario, que mapa
+    #    nenhum usa.
+    assert metatile_de_boca(lays[lid], lays) == 0x208, \
+        "o metatile de boca deste par de tilesets mudou de valor"
+    assert not portas_mortas(), "sobrou porta morta em Sinnoh"
+    print(f"porta_morta --demo: 3 armadilhas provadas; a caverna de Celestic tem "
+          f"{anda} tiles andaveis e o pouso alcanca {len(viz)} (era {len(beco)})")
 
 
 def main():
     if "--demo" in sys.argv:
         return demo()
-    if "--aplicar" in sys.argv:
-        feitos = aplica()
-        for m, i, x, y, mt, mb, antes, depois in feitos:
-            print(f"{m:28s} warp{i} ({x},{y}) tile {mt} {mb}: "
-                  f"0x{antes:04X} -> 0x{depois:04X}")
-        print(f"\n{len(feitos)} portas destravadas")
-        return 0
-    return imprime_censo()
+    achados = portas_mortas()
+    print(f"portas mortas em Sinnoh: {len(achados)}")
+    for meu, w, p, viz, anda in achados:
+        print(f"  {meu:34} warp {w} pouso {p}: alcança {viz} de {anda} andáveis")
+    if CORRIGIR:
+        lays = {l["id"]: l for l in json.load(
+            open(os.path.join(REPO, "data/layouts/layouts.json"),
+                 encoding="utf-8"))["layouts"]}
+        for meu, w, _, _, _ in achados:
+            print("  ", corrige(meu, w, lays))
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()

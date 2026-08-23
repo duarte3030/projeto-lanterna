@@ -187,3 +187,10 @@ Route222_EventScript_Npc2::
 
 Route222_Text_Npc2:
 	.string "The only items you ever throw are\nPoké Balls!\pBut is that true?!\nI want people to think about that.\pThat's why I give away the Technical\nMachine Fling.$"
+
+Route222_EventScript_PolicemanThomasNoBattle::
+	msgbox Route222_Text_PolicemanThomasNoBattle, MSGBOX_NPC
+	end
+
+Route222_Text_PolicemanThomasNoBattle:
+	.string "I can't explain it.\nI get more easily agitated at night.$"
