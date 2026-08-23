@@ -136,5 +136,62 @@
    "mapa": "MAP_DISTORTION_WORLD_B1F",
    "layout": "LAYOUT_DISTORTION_WORLD_B1F"
   }
+ },
+ {
+  "id": "T148.10",
+  "nome": "DISTORTION WORLD, DESCER E SUBIR PELA MESMA ESCADA E VOLTAR AO TILE DE PARTIDA (1F <-> B1F). Este caso mede a SIMETRIA dos warps dos nove andares novos, consertada em 22/08/2026 pelo `dev_scripts/cria_mapas_sinnoh.py` (função `simetriza`): até então todo `dest_warp_id` da corrente era \"0\", porque é o que o gerador escreve na criação, quando o mapa de destino ainda nem tem warp, e quem subia caía sempre no PRIMEIRO warp do andar de cima, que é a escada de subida DELE e não o par. Ninguém ficava preso, e por isso nenhum caso antigo pegava: T148.8, T148.9 e T153.15 provam mapa, não tile. Aqui a prova é o TILE. ROTA, medida na grade de colisão do LAYOUT_DISTORTION_WORLD_1F e do LAYOUT_DISTORTION_WORLD_B1F: o warp de debug põe o jogador no warp 1 do 1F, em (44,19), que é a escada de descida; UP saturante sobe um tile e para em (44,18), porque a linha 17 é parede; DOWN solto duas vezes volta a pisar (44,19) e dispara. Chega no B1F em (33,10), que é o warp 0 de lá, num poço de três colunas (x=32..34) cujo teto é a linha 8: UP saturante para em (33,9) e DOWN solto duas vezes volta a pisar (33,10). A PROVA É A POSIÇÃO: antes do conserto a volta caía em (19,44), o warp 0 do 1F, que é a boca do Mt. Coronet do outro lado do mapa; depois dele cai em (44,19), o mesmo degrau de onde se partiu. Mapa certo não é tile certo, que foi o que o T121.6 ensinou. LIÇÃO MEDIDA E REPETIDA AQUI: aperto de direção que o jogador NÃO está encarando só VIRA, não anda; por isso a volta ao degrau é escrita como DOIS apertos soltos, o primeiro virando e o segundo pisando, e nunca como perna saturante, que atravessaria o degrau sem parar nele.",
+  "opcoes": 32,
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_DISTORTION_WORLD_1F",
+  "warp_id": 1,
+  "roteiro": "150:NADA,16:UP*10,90:NADA,20:DOWN,12:NADA,20:DOWN,300:NADA,16:UP*10,90:NADA,20:DOWN,12:NADA,20:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_DISTORTION_WORLD_1F",
+   "layout": "LAYOUT_DISTORTION_WORLD_1F",
+   "pos": [
+    44,
+    19
+   ]
+  }
+ },
+ {
+  "id": "T148.11",
+  "nome": "A MESMA IDA E VOLTA NUM SEGUNDO ANDAR (B6F <-> B7F), porque simetria em UM par de andares pode ser coincidência de geometria. O par escolhido é o outro extremo da corrente, e a rota é o espelho da do T148.10: o warp de debug põe o jogador no warp 1 do B6F, em (29,48), num poço de três colunas (x=28..30) cujo FUNDO é a linha 50; DOWN saturante desce um tile e para em (29,49), e UP solto duas vezes volta a pisar (29,48) e dispara. Chega no B7F em (15,15), que é o warp 0 de lá, e lá o poço é ao contrário: o teto é a linha 13, então UP saturante para em (15,14) e DOWN solto duas vezes volta a pisar (15,15). A PROVA É A POSIÇÃO (29,48): antes do conserto de 22/08/2026 o warp 0 do B7F apontava para o índice 0 do B6F e a volta caía em (30,22), a escada de SUBIDA do B6F, vinte e seis tiles acima e num poço que nem se comunica com este. As duas metades usam sentidos opostos de saturação de propósito (DOWN aqui, UP no T148.10), porque um caso que só soubesse subir provaria metade. LIÇÃO MEDIDA E REPETIDA AQUI: aperto de direção que o jogador NÃO está encarando só VIRA, não anda; por isso a volta ao degrau é escrita como DOIS apertos soltos, o primeiro virando e o segundo pisando, e nunca como perna saturante, que atravessaria o degrau sem parar nele.",
+  "opcoes": 32,
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_DISTORTION_WORLD_B6F",
+  "warp_id": 1,
+  "roteiro": "150:NADA,16:DOWN*10,90:NADA,20:UP,12:NADA,20:UP,300:NADA,16:UP*10,90:NADA,20:DOWN,12:NADA,20:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_DISTORTION_WORLD_B6F",
+   "layout": "LAYOUT_DISTORTION_WORLD_B6F",
+   "pos": [
+    29,
+    48
+   ]
+  }
+ },
+ {
+  "id": "T148.12",
+  "nome": "O PAR NEGATIVO DOS DOIS DE CIMA: ESCADA DIFERENTE CAI EM TILE DIFERENTE. Sem ele, um conserto preguiçoso que apontasse TODOS os warps de um andar para o mesmo destino passaria verde no T148.10 e no T148.11. Aqui o mapa de partida é o MESMO do T148.11, o B6F, e o que muda é a ESCADA: o warp de debug põe o jogador no warp 0, em (30,22), que é a de subida, e não no warp 1 de (29,48). O poço dele tem teto na linha 20, então UP saturante para em (30,21) e DOWN solto duas vezes volta a pisar (30,22) e dispara. A PROVA é que a chegada NÃO é o B7F de (15,15) do T148.11 e sim o B5F em (50,49), que é o warp 1 de lá, o degrau de descida que devolve ao B6F. Ou seja: os dois warps do mesmo andar levam a dois mapas diferentes e a dois tiles diferentes, e o par de cada um é o que devolve ao degrau de origem, não o índice 0 do vizinho. LIÇÃO MEDIDA E REPETIDA AQUI: aperto de direção que o jogador NÃO está encarando só VIRA, não anda; por isso a volta ao degrau é escrita como DOIS apertos soltos, o primeiro virando e o segundo pisando, e nunca como perna saturante, que atravessaria o degrau sem parar nele.",
+  "opcoes": 32,
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_DISTORTION_WORLD_B6F",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:UP*10,90:NADA,20:DOWN,12:NADA,20:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_DISTORTION_WORLD_B5F",
+   "layout": "LAYOUT_DISTORTION_WORLD_B5F",
+   "pos": [
+    50,
+    49
+   ]
+  }
  }
 ]

@@ -63,6 +63,7 @@ import converte_moldes_sinnoh as M          # noqa: E402
 import demake_ds as D                       # noqa: E402
 import fecha_portas_sinnoh as F             # noqa: E402
 import importa_npcs_sinnoh as I             # noqa: E402
+import valida_conectividade as VC           # noqa: E402
 import valida_mapas_sinnoh as V             # noqa: E402
 
 APLICAR = "--aplicar" in sys.argv
@@ -486,6 +487,98 @@ def _saida_do_mt_coronet():
     return _nosso_id("MAP_HEADER_SPEAR_PILLAR") or "MAP_SPEAR_PILLAR"
 
 
+# ------------------------------------------------- simetria dos warps
+# O warp N do andar X tem que levar ao warp PAR do andar X±1, e esse par tem que
+# devolver ao N. Até 22/08/2026 todo `dest_warp_id` da corrente era "0" (é o que
+# `poe` escreve na criação, porque nessa hora o mapa de destino ainda nem tem
+# warp), e quem subia caía sempre no PRIMEIRO warp do andar de cima, que é a
+# escada de subida DELE e não o par. Ninguém ficava preso, mas o tile de chegada
+# era o errado. O conserto mora aqui, e não numa ferramenta à parte, porque o
+# `--aplicar` não recria mapa que já existe: sem este passo o defeito ficaria
+# congelado nos nove andares para sempre.
+
+
+def pares(warps_por_mapa):
+    """{(mapa, i): "j"} do warp PAR de cada warp que tem volta.
+
+    O par do i-ésimo warp de A para B é o i-ésimo warp de B para A. Escrito
+    assim ele é simétrico POR CONSTRUÇÃO (o mesmo `zip` produz (A,i)->j e
+    (B,j)->i) e determinístico quando há mais de um warp entre o mesmo par de
+    mapas. Warp cujo destino não volta fica de FORA: só entra quem tem par de
+    verdade, e o que sobra é dito em voz alta em `simetriza`.
+    """
+    idx = {}
+    for a, ws in warps_por_mapa.items():
+        for i, w in enumerate(ws):
+            idx.setdefault((a, w.get("dest_map")), []).append(i)
+    saida = {}
+    for (a, b), meus in idx.items():
+        for i, j in zip(meus, idx.get((b, a)) or []):
+            saida[(a, i)] = str(j)
+    return saida
+
+
+def assimetricos(warps_por_mapa, familia):
+    """(mapa, i, tem, devia) de todo warp da `familia` apontado para o índice
+    errado. Lista vazia quer dizer corrente simétrica."""
+    p = pares(warps_por_mapa)
+    ruins = []
+    for m in familia:
+        for i, w in enumerate(warps_por_mapa.get(m) or []):
+            devia = p.get((m, i))
+            if devia is not None and str(w.get("dest_warp_id")) != devia:
+                ruins.append((m, i, str(w.get("dest_warp_id")), devia))
+    return ruins
+
+
+def familia_dw():
+    """Os MAP_* da corrente: os nove andares novos mais a sala do Giratina."""
+    ids = [F.const_do_header(h) for h in DW + [DW_TURNBACK]]
+    p = f"{REPO}/data/maps/{DW_GIRATINA}/map.json"
+    if os.path.exists(p):
+        ids.append(json.load(open(p))["id"])
+    return ids
+
+
+def _warps_do_repo():
+    """(mapas do repo, {MAP_*: lista de warps}). Leitura, não escreve nada."""
+    mapas = VC.carrega()
+    return mapas, {k: (v["dados"].get("warp_events") or [])
+                   for k, v in mapas.items()}
+
+
+def simetriza(relato):
+    """Reescreve só `dest_warp_id` dos mapas da corrente. Idempotente.
+
+    Não toca em `map.bin`, não cria warp e não reordena a lista: a save guarda
+    a POSIÇÃO do jogador, mas os casos gravados da suíte entram por ÍNDICE de
+    warp, então mover um warp de lugar invalidaria caso verde.
+    """
+    mapas, ws = _warps_do_repo()
+    familia = [m for m in familia_dw() if m in mapas]
+    por_mapa = {}
+    for m, i, tem, devia in assimetricos(ws, familia):
+        por_mapa.setdefault(m, []).append((i, tem, devia))
+    for m, itens in por_mapa.items():
+        d = mapas[m]["dados"]
+        for i, _tem, devia in itens:
+            d["warp_events"][i]["dest_warp_id"] = devia
+        json.dump(d, open(f"{REPO}/data/maps/{mapas[m]['dir']}/map.json", "w"),
+                  indent=2, ensure_ascii=False)
+        relato.append(f"{mapas[m]['dir']}: " + ", ".join(
+            f"warp {i} {tem}->{devia}" for i, tem, devia in itens))
+    p = pares(ws)
+    for m in familia:
+        for i, w in enumerate(ws[m]):
+            if (m, i) not in p:
+                relato.append(f"{mapas[m]['dir']}: warp {i} para "
+                              f"{w['dest_map']} NÃO tem par (o destino não "
+                              f"volta), fica em {w['dest_warp_id']}")
+    if not por_mapa:
+        relato.append("simetria: nada a mudar, a corrente já é simétrica")
+    return sum(len(v) for v in por_mapa.values())
+
+
 # --------------------------------------------------------------- relatório
 def relatorio():
     print(f"{'mapa':34s} {'tamanho':>9s} {'KB':>6s} {'andáveis':>9s}  fonte")
@@ -523,6 +616,7 @@ def main():
     incs, desenhadas, relato = [], {}, []
     aplica_quatro(grupos, incs, sprites, movimentos, desenhadas, relato)
     aplica_dw(grupos, incs, relato)
+    simetriza(relato)
     json.dump(grupos, open(f"{REPO}/data/maps/map_groups.json", "w"),
               indent=2, ensure_ascii=False)
     with open(f"{REPO}/data/event_scripts.s", "a") as f:
@@ -587,6 +681,34 @@ def demo():
     rx, _d = CP.cortes_da_regiao("Sinnoh")
     for h in [x[0] for x in FILA] + DW + [DW_TURNBACK]:
         assert not (rx and rx.search(h)), h
+
+    # 7. a corrente do Distortion World é SIMÉTRICA no disco: o warp N do
+    #    andar X leva ao par no andar X±1, e esse par devolve ao N. Olha o
+    #    disco de propósito, porque o invariante é do repo e não do plano: o
+    #    `--aplicar` não recria mapa que já existe, então plano verde com disco
+    #    torto seria mentira (foi o defeito dos dois `--demo` de 22/08/2026).
+    mapas, ws = _warps_do_repo()
+    familia = [m for m in familia_dw() if m in mapas]
+    assert familia, "a corrente do Distortion World não está no disco"
+    assert not assimetricos(ws, familia), assimetricos(ws, familia)
+
+    # 8. a mutação plantada TEM que reprovar: um par assimétrico, escrito à
+    #    mão no primeiro warp com par da corrente, e só na cópia em memória.
+    alvo = next((m, i) for m in familia for i in range(len(ws[m]))
+                if (m, i) in pares(ws))
+    torto = {k: [dict(w) for w in v] for k, v in ws.items()}
+    w = torto[alvo[0]][alvo[1]]
+    w["dest_warp_id"] = str(int(w["dest_warp_id"]) + 1)
+    assert assimetricos(torto, familia), \
+        "a mutação de par assimétrico passou despercebida"
+
+    # 9. `pares` é simétrico por construção: se (A,i) aponta para j, (B,j)
+    #    aponta de volta para i. É o que separa "consertei um lado" de
+    #    "consertei o par".
+    p = pares(ws)
+    for (a, i), j in p.items():
+        b = ws[a][i]["dest_map"]
+        assert p.get((b, int(j))) == str(i), (a, i, b, j)
 
     print("demo ok")
     return 0
