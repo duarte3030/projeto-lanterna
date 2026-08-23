@@ -3044,3 +3044,109 @@ static const struct SpriteFrameImage sPicTable_MomFrlg[] = {
 };
 
 // (antes: #endif de #if IS_FRLG)
+
+// >>> sprites de Sinnoh, gerados por dev_scripts/sprites_sinnoh.py
+static const struct SpriteFrameImage sPicTable_SinnohLooker[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohLooker, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohCynthia[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohCynthia, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohCyrus[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohCyrus, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohBuck[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohBuck, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohMaylene[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohMaylene, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohMars[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohMars, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohJupiter[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohJupiter, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohGardenia[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohGardenia, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohCrasherWake[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohCrasherWake, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohVolkner[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohVolkner, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohRoark[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohRoark, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohFlint[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohFlint, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohFantina[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohFantina, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohCharon[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohCharon, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohSaturn[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohSaturn, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohCandice[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohCandice, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohByron[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohByron, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohRiley[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohRiley, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohMarley[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohMarley, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohLucian[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohLucian, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohJasmine[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohJasmine, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohPalmer[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohPalmer, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohMira[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohMira, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohCheryl[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohCheryl, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohBertha[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohBertha, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SinnohAaron[] = {
+    overworld_ascending_frames(gObjectEventPic_SinnohAaron, 2, 4),
+};
+// <<< fim dos sprites de Sinnoh

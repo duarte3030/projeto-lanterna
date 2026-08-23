@@ -404,6 +404,34 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvi
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvilleOldMan2;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ApricornTree;
 
+// >>> sprites de Sinnoh, gerados por dev_scripts/sprites_sinnoh.py
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohLooker;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohCynthia;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohCyrus;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohBuck;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohMaylene;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohMars;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohJupiter;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohGardenia;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohCrasherWake;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohVolkner;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohRoark;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohFlint;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohFantina;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohCharon;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohSaturn;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohCandice;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohByron;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohRiley;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohMarley;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohLucian;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohJasmine;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohPalmer;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohMira;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohCheryl;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohBertha;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohAaron;
+// <<< fim dos sprites de Sinnoh
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
     [OBJ_EVENT_GFX_BRENDAN_MACH_BIKE] =        &gObjectEventGraphicsInfo_BrendanMachBike,
@@ -799,6 +827,34 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_DEOXYS_N]                 = &gObjectEventGraphicsInfo_DeoxysN,
     [OBJ_EVENT_GFX_SS_ANNE]                  = &gObjectEventGraphicsInfo_SSAnne,
 // (antes: #endif de #if IS_FRLG)
+// >>> sprites de Sinnoh, gerados por dev_scripts/sprites_sinnoh.py (tabela)
+    [OBJ_EVENT_GFX_SINNOH_LOOKER] = &gObjectEventGraphicsInfo_SinnohLooker,
+    [OBJ_EVENT_GFX_SINNOH_CYNTHIA] = &gObjectEventGraphicsInfo_SinnohCynthia,
+    [OBJ_EVENT_GFX_SINNOH_CYRUS] = &gObjectEventGraphicsInfo_SinnohCyrus,
+    [OBJ_EVENT_GFX_SINNOH_BUCK] = &gObjectEventGraphicsInfo_SinnohBuck,
+    [OBJ_EVENT_GFX_SINNOH_MAYLENE] = &gObjectEventGraphicsInfo_SinnohMaylene,
+    [OBJ_EVENT_GFX_SINNOH_MARS] = &gObjectEventGraphicsInfo_SinnohMars,
+    [OBJ_EVENT_GFX_SINNOH_JUPITER] = &gObjectEventGraphicsInfo_SinnohJupiter,
+    [OBJ_EVENT_GFX_SINNOH_GARDENIA] = &gObjectEventGraphicsInfo_SinnohGardenia,
+    [OBJ_EVENT_GFX_SINNOH_CRASHER_WAKE] = &gObjectEventGraphicsInfo_SinnohCrasherWake,
+    [OBJ_EVENT_GFX_SINNOH_VOLKNER] = &gObjectEventGraphicsInfo_SinnohVolkner,
+    [OBJ_EVENT_GFX_SINNOH_ROARK] = &gObjectEventGraphicsInfo_SinnohRoark,
+    [OBJ_EVENT_GFX_SINNOH_FLINT] = &gObjectEventGraphicsInfo_SinnohFlint,
+    [OBJ_EVENT_GFX_SINNOH_FANTINA] = &gObjectEventGraphicsInfo_SinnohFantina,
+    [OBJ_EVENT_GFX_SINNOH_CHARON] = &gObjectEventGraphicsInfo_SinnohCharon,
+    [OBJ_EVENT_GFX_SINNOH_SATURN] = &gObjectEventGraphicsInfo_SinnohSaturn,
+    [OBJ_EVENT_GFX_SINNOH_CANDICE] = &gObjectEventGraphicsInfo_SinnohCandice,
+    [OBJ_EVENT_GFX_SINNOH_BYRON] = &gObjectEventGraphicsInfo_SinnohByron,
+    [OBJ_EVENT_GFX_SINNOH_RILEY] = &gObjectEventGraphicsInfo_SinnohRiley,
+    [OBJ_EVENT_GFX_SINNOH_MARLEY] = &gObjectEventGraphicsInfo_SinnohMarley,
+    [OBJ_EVENT_GFX_SINNOH_LUCIAN] = &gObjectEventGraphicsInfo_SinnohLucian,
+    [OBJ_EVENT_GFX_SINNOH_JASMINE] = &gObjectEventGraphicsInfo_SinnohJasmine,
+    [OBJ_EVENT_GFX_SINNOH_PALMER] = &gObjectEventGraphicsInfo_SinnohPalmer,
+    [OBJ_EVENT_GFX_SINNOH_MIRA] = &gObjectEventGraphicsInfo_SinnohMira,
+    [OBJ_EVENT_GFX_SINNOH_CHERYL] = &gObjectEventGraphicsInfo_SinnohCheryl,
+    [OBJ_EVENT_GFX_SINNOH_BERTHA] = &gObjectEventGraphicsInfo_SinnohBertha,
+    [OBJ_EVENT_GFX_SINNOH_AARON] = &gObjectEventGraphicsInfo_SinnohAaron,
+// <<< fim dos sprites de Sinnoh (tabela)
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

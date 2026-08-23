@@ -650,3 +650,32 @@ const u16 gObjectEventPic_PidgeyOld[] = INCGFX_U16("graphics/object_events/pics/
 const u16 gObjectEventPic_ClefairyOld[] = INCGFX_U16("graphics/object_events/pics/pokemon_old/clefairy.png", ".4bpp", "-mwidth 2 -mheight 2");
 
 // (antes: #endif de #if IS_FRLG)
+
+// >>> sprites de Sinnoh, gerados por dev_scripts/sprites_sinnoh.py
+const u32 gObjectEventPic_SinnohLooker[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/looker.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohCynthia[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/cynthia.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohCyrus[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/cyrus.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohBuck[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/buck.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohMaylene[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/maylene.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohMars[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/mars.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohJupiter[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/jupiter.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohGardenia[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/gardenia.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohCrasherWake[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/crasher_wake.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohVolkner[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/volkner.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohRoark[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/roark.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohFlint[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/flint.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohFantina[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/fantina.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohCharon[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/charon.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohSaturn[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/saturn.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohCandice[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/candice.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohByron[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/byron.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohRiley[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/riley.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohMarley[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/marley.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohLucian[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/lucian.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohJasmine[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/jasmine.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohPalmer[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/palmer.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohMira[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/mira.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohCheryl[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/cheryl.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohBertha[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/bertha.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_SinnohAaron[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/aaron.png", ".4bpp", "-mwidth 2 -mheight 4");
+// <<< fim dos sprites de Sinnoh

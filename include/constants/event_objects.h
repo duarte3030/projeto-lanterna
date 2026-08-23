@@ -437,6 +437,37 @@ enum
     // GYARADOS_VERMELHO: o vulto do shiny no Lago da Furia. Arte e palette ja
     // vem vermelhas da fonte; aqui nao se recoloriu nada.
     OBJ_EVENT_GFX_GYARADOS_VERMELHO,
+// >>> sprites de Sinnoh, gerados por dev_scripts/sprites_sinnoh.py
+// Os 26 nomes próprios de Sinnoh que o censo achou sem sprite
+// (fontes-mapas/SPRITES-SINNOH.md, 104 objetos). Entram no FIM
+// do enum: id de gráfico só vive no map.json, nunca na save.
+    OBJ_EVENT_GFX_SINNOH_LOOKER,
+    OBJ_EVENT_GFX_SINNOH_CYNTHIA,
+    OBJ_EVENT_GFX_SINNOH_CYRUS,
+    OBJ_EVENT_GFX_SINNOH_BUCK,
+    OBJ_EVENT_GFX_SINNOH_MAYLENE,
+    OBJ_EVENT_GFX_SINNOH_MARS,
+    OBJ_EVENT_GFX_SINNOH_JUPITER,
+    OBJ_EVENT_GFX_SINNOH_GARDENIA,
+    OBJ_EVENT_GFX_SINNOH_CRASHER_WAKE,
+    OBJ_EVENT_GFX_SINNOH_VOLKNER,
+    OBJ_EVENT_GFX_SINNOH_ROARK,
+    OBJ_EVENT_GFX_SINNOH_FLINT,
+    OBJ_EVENT_GFX_SINNOH_FANTINA,
+    OBJ_EVENT_GFX_SINNOH_CHARON,
+    OBJ_EVENT_GFX_SINNOH_SATURN,
+    OBJ_EVENT_GFX_SINNOH_CANDICE,
+    OBJ_EVENT_GFX_SINNOH_BYRON,
+    OBJ_EVENT_GFX_SINNOH_RILEY,
+    OBJ_EVENT_GFX_SINNOH_MARLEY,
+    OBJ_EVENT_GFX_SINNOH_LUCIAN,
+    OBJ_EVENT_GFX_SINNOH_JASMINE,
+    OBJ_EVENT_GFX_SINNOH_PALMER,
+    OBJ_EVENT_GFX_SINNOH_MIRA,
+    OBJ_EVENT_GFX_SINNOH_CHERYL,
+    OBJ_EVENT_GFX_SINNOH_BERTHA,
+    OBJ_EVENT_GFX_SINNOH_AARON,
+// <<< fim dos sprites de Sinnoh
     NUM_OBJ_EVENT_GFX,
 };
 

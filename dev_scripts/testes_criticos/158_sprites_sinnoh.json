@@ -1,0 +1,92 @@
+[
+ {
+  "id": "T158.1",
+  "nome": "CYRUS TEM CORPO NO GALACTIC HQ 4F. Ele é um dos 26 sprites de Sinnoh desenhados em 22/08/2026 (dev_scripts/sprites_sinnoh.py, OBJ_EVENT_GFX_SINNOH_CYRUS) e colocado pelo importa_npcs_sinnoh.py em (3,2). Sprite que existe no header e não existe na tela é o defeito clássico desta ROM (id sem gráfico derruba para a tela de título), então o caso prova o corpo ANDANDO ATÉ ELE e batendo. ROTA, medida na grade de colisão do LAYOUT_OREBURGH_CITY_HOUSE1: o warp 0 põe o jogador em (3,8); UP satura em (3,6), porque a coluna 3 tem parede em y=4 e y=5 (por isso NÃO dá para subir reto até o Cyrus, e essa foi a primeira rota, medida errada e refeita); RIGHT satura em (9,6); UP sobe a coluna 9 e satura em (9,3); LEFT*7 anda 6 tiles (o primeiro aperto numa direção nova só VIRA) e para em (3,3); e o UP final NÃO ANDA, porque (3,2) é o Cyrus. A prova é a POSIÇÃO (3,3): sem o corpo dele o jogador subiria para (3,2), que é andável e é o que o T158.2 mostra na coluna vizinha.",
+  "warp": "MAP_GALACTIC_HQ_4F",
+  "warp_id": 0,
+  "roteiro": "60:NADA,16:UP*30,40:NADA,16:RIGHT*30,40:NADA,16:UP*30,40:NADA,16:LEFT*7,40:NADA,16:UP*30,150:NADA",
+  "prova": {
+   "mapa": "MAP_GALACTIC_HQ_4F",
+   "layout": "LAYOUT_OREBURGH_CITY_HOUSE1",
+   "pos": [
+    3,
+    3
+   ]
+  }
+ },
+ {
+  "id": "T158.2",
+  "nome": "PAR NEGATIVO DO T158.1: a coluna VIZINHA sobe. Mesma rota até (9,3), mas LEFT*8 anda 7 tiles e para em (2,3), uma casa à esquerda do Cyrus. Dali o UP ANDA, e o jogador chega a (2,2), porque a linha 2 é livre em x=0,1,2 e só tem parede a partir de x=8. Sem este caso o T158.1 passaria mesmo se a linha 2 fosse parede inteira, isto é, ele estaria medindo geometria e chamando de NPC. Com ele, a diferença entre (3,3) e (2,2) só pode ser o corpo do Cyrus.",
+  "warp": "MAP_GALACTIC_HQ_4F",
+  "warp_id": 0,
+  "roteiro": "60:NADA,16:UP*30,40:NADA,16:RIGHT*30,40:NADA,16:UP*30,40:NADA,16:LEFT*8,40:NADA,16:UP*30,150:NADA",
+  "prova": {
+   "mapa": "MAP_GALACTIC_HQ_4F",
+   "layout": "LAYOUT_OREBURGH_CITY_HOUSE1",
+   "pos": [
+    2,
+    2
+   ]
+  }
+ },
+ {
+  "id": "T158.3",
+  "nome": "VOLKNER TEM CORPO NO VISTA LIGHTHOUSE, em (6,4), o alto do farol de Sunyshore, que é onde o Platinum o põe. ROTA, medida no LAYOUT_VISTA_LIGHTHOUSE: o warp 0 põe o jogador em (6,9), um bolso de parede de onde só se sai pelo sul; DOWN satura em (6,11); RIGHT satura em (10,11); UP sobe a coluna 10 e satura em (10,3); DOWN*2 anda UM tile (o primeiro aperto vira) e desce para (10,4), a linha do Volkner; e o LEFT final anda três tiles e PARA em (7,4), encostado nele. A linha 4 é livre de x=2 a x=10 fora o corpo dele, então a parada em x=7 não é parede.",
+  "warp": "MAP_VISTA_LIGHTHOUSE",
+  "warp_id": 0,
+  "roteiro": "60:NADA,16:DOWN*30,40:NADA,16:RIGHT*30,40:NADA,16:UP*30,40:NADA,16:DOWN*2,40:NADA,16:LEFT*30,150:NADA",
+  "prova": {
+   "mapa": "MAP_VISTA_LIGHTHOUSE",
+   "layout": "LAYOUT_VISTA_LIGHTHOUSE",
+   "pos": [
+    7,
+    4
+   ]
+  }
+ },
+ {
+  "id": "T158.4",
+  "nome": "PAR NEGATIVO DO T158.3: a linha de BAIXO atravessa o farol inteiro. Mesma rota até (10,3), mas DOWN*3 desce dois tiles até (10,5), e o LEFT satura em (1,5), a parede oeste. A linha 5 é a única do farol que vai de ponta a ponta. Ou seja: com corpo, a caminhada morre em x=7; sem corpo, ela vai até x=1. É a mesma perna de LEFT saturante nos dois casos, o que tira a contagem de apertos da conta.",
+  "warp": "MAP_VISTA_LIGHTHOUSE",
+  "warp_id": 0,
+  "roteiro": "60:NADA,16:DOWN*30,40:NADA,16:RIGHT*30,40:NADA,16:UP*30,40:NADA,16:DOWN*3,40:NADA,16:LEFT*30,150:NADA",
+  "prova": {
+   "mapa": "MAP_VISTA_LIGHTHOUSE",
+   "layout": "LAYOUT_VISTA_LIGHTHOUSE",
+   "pos": [
+    1,
+    5
+   ]
+  }
+ },
+ {
+  "id": "T158.5",
+  "nome": "FANTINA TEM CORPO NA SALA DA LÍDER DE HEARTHOME, em (0,8), o canto oeste da sala. Este par entrou no lugar do da CYNTHIA, e o motivo é um achado e não uma troca de conveniência: o único objeto de Cynthia que a importação conseguiu colocar está no MAP_SINNOH_LEAGUE_HALL_OF_FAME, que não tem NENHUM warp_event, e por isso o warp de debug cai no ramo de warpId inválido de SetPlayerCoordsFromWarp (src/overworld.c:687) e larga o jogador em (7,3), que é PAREDE com as quatro vizinhas fechadas: medido em 23/08/2026, DOWN e LEFT saturantes não movem um tile. Enquanto aquele mapa não ganhar porta, não existe caso de andar dentro dele. ROTA daqui: warp 0 põe o jogador em (3,8) e o LEFT saturante anda dois tiles e PARA em (1,8), encostado na Fantina.",
+  "warp": "MAP_HEARTHOME_CITY_GYM_LEADER_ROOM",
+  "warp_id": 0,
+  "roteiro": "60:NADA,16:LEFT*30,150:NADA",
+  "prova": {
+   "mapa": "MAP_HEARTHOME_CITY_GYM_LEADER_ROOM",
+   "layout": "LAYOUT_HEARTHOMECITYGYMLEADERROOM",
+   "pos": [
+    1,
+    8
+   ]
+  }
+ },
+ {
+  "id": "T158.6",
+  "nome": "PAR NEGATIVO DO T158.5: a linha de cima atravessa a sala inteira ate o x=0. UP*2 sobe DOIS tiles, de (3,8) para (3,6), e nao um: o jogador sai do warp JA VIRADO para o norte, entao nao ha aperto gasto em virar. Isso foi MEDIDO em 23/08/2026, depois de este caso reprovar pedindo (0,7): a regra da virada do T148.3 vale quando a direcao e nova, e aqui ela nao era. Dali o MESMO LEFT saturante do T158.5 atravessa a linha 6 inteira e para em (0,6), a parede oeste. Ou seja: uma linha acima da Fantina o caminho vai ate x=0, e na linha dela ele morre em x=1. A diferenca de uma casa e o corpo dela, e nao a planta.",
+  "warp": "MAP_HEARTHOME_CITY_GYM_LEADER_ROOM",
+  "warp_id": 0,
+  "roteiro": "60:NADA,16:UP*2,40:NADA,16:LEFT*30,150:NADA",
+  "prova": {
+   "mapa": "MAP_HEARTHOME_CITY_GYM_LEADER_ROOM",
+   "layout": "LAYOUT_HEARTHOMECITYGYMLEADERROOM",
+   "pos": [
+    0,
+    6
+   ]
+  }
+ }
+]
