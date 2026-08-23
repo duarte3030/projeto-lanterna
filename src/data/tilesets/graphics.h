@@ -2309,8 +2309,10 @@ const u16 gTilesetPalettes_BikeShop_Frlg[][16] =
     INCGFX_U16("data/tilesets/secondary/bike_shop_frlg/palettes/15.pal", ".gbapal"),
 };
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gTilesetTiles_Lab_Frlg[] = INCGFX_U32("data/tilesets/secondary/lab_frlg/tiles.png", ".4bpp.fastSmol");
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetPalettes_Lab_Frlg[][16] =
 {
     INCGFX_U16("data/tilesets/secondary/lab_frlg/palettes/00.pal", ".gbapal"),
@@ -2353,8 +2355,10 @@ const u16 gTilesetPalettes_HoennBuilding[][16] =
     INCGFX_U16("data/tilesets/secondary/hoenn_building_frlg/palettes/15.pal", ".gbapal"),
 };
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gTilesetTiles_GameCorner[] = INCGFX_U32("data/tilesets/secondary/game_corner_frlg/tiles.png", ".4bpp.fastSmol");
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetPalettes_GameCorner[][16] =
 {
     INCGFX_U16("data/tilesets/secondary/game_corner_frlg/palettes/00.pal", ".gbapal"),
@@ -2377,6 +2381,7 @@ const u16 gTilesetPalettes_GameCorner[][16] =
 
 const u32 gTilesetTiles_PewterGym[] = INCGFX_U32("data/tilesets/secondary/pewter_gym_frlg/tiles.png", ".4bpp.fastSmol");
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetPalettes_PewterGym[][16] =
 {
     INCGFX_U16("data/tilesets/secondary/pewter_gym_frlg/palettes/00.pal", ".gbapal"),
@@ -2507,6 +2512,7 @@ const u16 gTilesetPalettes_SaffronGym[][16] =
     INCGFX_U16("data/tilesets/secondary/saffron_gym_frlg/palettes/15.pal", ".gbapal"),
 };
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gTilesetTiles_CinnabarGym[] = INCGFX_U32("data/tilesets/secondary/cinnabar_gym_frlg/tiles.png", ".4bpp.fastSmol");
 
 const u16 gTilesetPalettes_CinnabarGym[][16] =
@@ -2529,6 +2535,7 @@ const u16 gTilesetPalettes_CinnabarGym[][16] =
     INCGFX_U16("data/tilesets/secondary/cinnabar_gym_frlg/palettes/15.pal", ".gbapal"),
 };
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gTilesetTiles_ViridianGym[] = INCGFX_U32("data/tilesets/secondary/viridian_gym_frlg/tiles.png", ".4bpp.fastSmol");
 
 const u16 gTilesetPalettes_ViridianGym[][16] =
@@ -2663,6 +2670,7 @@ const u16 gTilesetPalettes_DiglettsCave[][16] =
     INCGFX_U16("data/tilesets/secondary/digletts_cave_frlg/palettes/15.pal", ".gbapal"),
 };
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gTilesetTiles_SeafoamIslands[] = INCGFX_U32("data/tilesets/secondary/seafoam_islands_frlg/tiles.png", ".4bpp.fastSmol");
 
 const u16 gTilesetPalettes_SeafoamIslands[][16] =
@@ -2778,6 +2786,7 @@ const u16 gTilesetPalettes_SeaCottage[][16] =
 };
 
 // Shared by SilphCo
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gTilesetTiles_Condominiums[] = INCGFX_U32("data/tilesets/secondary/condominiums_frlg/tiles.png", ".4bpp.fastSmol");
 
 // Shared by SilphCo
@@ -2889,8 +2898,10 @@ const u16 gTilesetPalettes_PokemonMansion[][16] =
     INCGFX_U16("data/tilesets/secondary/pokemon_mansion_frlg/palettes/15.pal", ".gbapal"),
 };
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gTilesetTiles_RestaurantHotel[] = INCGFX_U32("data/tilesets/secondary/restaurant_hotel_frlg/tiles.png", ".4bpp.fastSmol");
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetPalettes_RestaurantHotel[][16] =
 {
     INCGFX_U16("data/tilesets/secondary/restaurant_hotel_frlg/palettes/00.pal", ".gbapal"),
@@ -2911,8 +2922,10 @@ const u16 gTilesetPalettes_RestaurantHotel[][16] =
     INCGFX_U16("data/tilesets/secondary/restaurant_hotel_frlg/palettes/15.pal", ".gbapal"),
 };
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gTilesetTiles_School[] = INCGFX_U32("data/tilesets/secondary/school_frlg/tiles.png", ".4bpp.fastSmol");
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetPalettes_School[][16] =
 {
     INCGFX_U16("data/tilesets/secondary/school_frlg/palettes/00.pal", ".gbapal"),
@@ -3131,6 +3144,7 @@ const u16 gTilesetPalettes_SeviiIslands67[][16] =
     INCGFX_U16("data/tilesets/secondary/sevii_islands_67_frlg/palettes/15.pal", ".gbapal"),
 };
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gTilesetTiles_TrainerTower[] = INCGFX_U32("data/tilesets/secondary/trainer_tower_frlg/tiles.png", ".4bpp.fastSmol");
 
 const u16 gTilesetPalettes_TrainerTower[][16] =
@@ -3175,8 +3189,10 @@ const u16 gTilesetPalettes_IslandHarbor_Frlg[][16] =
     INCGFX_U16("data/tilesets/secondary/island_harbor_frlg/palettes/15.pal", ".gbapal"),
 };
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gTilesetTiles_PokemonLeague[] = INCGFX_U32("data/tilesets/secondary/pokemon_league_frlg/tiles.png", ".4bpp.fastSmol");
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetPalettes_PokemonLeague[][16] =
 {
     INCGFX_U16("data/tilesets/secondary/pokemon_league_frlg/palettes/00.pal", ".gbapal"),
@@ -5884,29 +5900,11 @@ const u16 gTilesetPalettes_Galar15[][16] =
     INCGFX_U16("data/tilesets/secondary/galar_15/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_Galar16[] = INCGFX_U32("data/tilesets/secondary/galar_16/tiles.png", ".4bpp.fastSmol");
+extern const u32 gTilesetTiles_Galar16[ARRAY_COUNT(gTilesetTiles_Lab_Frlg)] ASSET_ALIAS(gTilesetTiles_Lab_Frlg); // dedupe_assets.py: mesmos 1864 B (md5 e1c6f3bb)
 
-const u16 gTilesetPalettes_Galar16[][16] =
-{
-    INCGFX_U16("data/tilesets/secondary/galar_16/palettes/00.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_16/palettes/01.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_16/palettes/02.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_16/palettes/03.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_16/palettes/04.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_16/palettes/05.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_16/palettes/06.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_16/palettes/07.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_16/palettes/08.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_16/palettes/09.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_16/palettes/10.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_16/palettes/11.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_16/palettes/12.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_16/palettes/13.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_16/palettes/14.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_16/palettes/15.pal", ".gbapal"),
-};
+extern const u16 gTilesetPalettes_Galar16[ARRAY_COUNT(gTilesetPalettes_Lab_Frlg)][16] ASSET_ALIAS(gTilesetPalettes_Lab_Frlg); // dedupe_assets.py: mesmos 512 B (md5 08b63255)
 
-const u32 gTilesetTiles_Galar17[] = INCGFX_U32("data/tilesets/secondary/galar_17/tiles.png", ".4bpp.fastSmol");
+extern const u32 gTilesetTiles_Galar17[ARRAY_COUNT(gTilesetTiles_ViridianGym)] ASSET_ALIAS(gTilesetTiles_ViridianGym); // dedupe_assets.py: mesmos 1316 B (md5 676d9349)
 
 const u16 gTilesetPalettes_Galar17[][16] =
 {
@@ -5928,49 +5926,13 @@ const u16 gTilesetPalettes_Galar17[][16] =
     INCGFX_U16("data/tilesets/secondary/galar_17/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_Galar18[] = INCGFX_U32("data/tilesets/secondary/galar_18/tiles.png", ".4bpp.fastSmol");
+extern const u32 gTilesetTiles_Galar18[ARRAY_COUNT(gTilesetTiles_GameCorner)] ASSET_ALIAS(gTilesetTiles_GameCorner); // dedupe_assets.py: mesmos 3244 B (md5 89d2ae27)
 
-const u16 gTilesetPalettes_Galar18[][16] =
-{
-    INCGFX_U16("data/tilesets/secondary/galar_18/palettes/00.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_18/palettes/01.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_18/palettes/02.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_18/palettes/03.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_18/palettes/04.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_18/palettes/05.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_18/palettes/06.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_18/palettes/07.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_18/palettes/08.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_18/palettes/09.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_18/palettes/10.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_18/palettes/11.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_18/palettes/12.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_18/palettes/13.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_18/palettes/14.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_18/palettes/15.pal", ".gbapal"),
-};
+extern const u16 gTilesetPalettes_Galar18[ARRAY_COUNT(gTilesetPalettes_GameCorner)][16] ASSET_ALIAS(gTilesetPalettes_GameCorner); // dedupe_assets.py: mesmos 512 B (md5 46a4181c)
 
 const u32 gTilesetTiles_Galar19[] = INCGFX_U32("data/tilesets/secondary/galar_19/tiles.png", ".4bpp.fastSmol");
 
-const u16 gTilesetPalettes_Galar19[][16] =
-{
-    INCGFX_U16("data/tilesets/secondary/galar_19/palettes/00.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_19/palettes/01.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_19/palettes/02.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_19/palettes/03.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_19/palettes/04.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_19/palettes/05.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_19/palettes/06.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_19/palettes/07.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_19/palettes/08.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_19/palettes/09.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_19/palettes/10.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_19/palettes/11.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_19/palettes/12.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_19/palettes/13.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_19/palettes/14.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_19/palettes/15.pal", ".gbapal"),
-};
+extern const u16 gTilesetPalettes_Galar19[ARRAY_COUNT(gTilesetPalettes_PewterGym)][16] ASSET_ALIAS(gTilesetPalettes_PewterGym); // dedupe_assets.py: mesmos 512 B (md5 4ae77d68)
 
 const u32 gTilesetTiles_Galar20[] = INCGFX_U32("data/tilesets/secondary/galar_20/tiles.png", ".4bpp.fastSmol");
 
@@ -5994,7 +5956,7 @@ const u16 gTilesetPalettes_Galar20[][16] =
     INCGFX_U16("data/tilesets/secondary/galar_20/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_Galar21[] = INCGFX_U32("data/tilesets/secondary/galar_21/tiles.png", ".4bpp.fastSmol");
+extern const u32 gTilesetTiles_Galar21[ARRAY_COUNT(gTilesetTiles_CinnabarGym)] ASSET_ALIAS(gTilesetTiles_CinnabarGym); // dedupe_assets.py: mesmos 2044 B (md5 27514895)
 
 const u16 gTilesetPalettes_Galar21[][16] =
 {
@@ -6104,7 +6066,7 @@ const u16 gTilesetPalettes_Galar25[][16] =
     INCGFX_U16("data/tilesets/secondary/galar_25/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_Galar26[] = INCGFX_U32("data/tilesets/secondary/galar_26/tiles.png", ".4bpp.fastSmol");
+extern const u32 gTilesetTiles_Galar26[ARRAY_COUNT(gTilesetTiles_SeafoamIslands)] ASSET_ALIAS(gTilesetTiles_SeafoamIslands); // dedupe_assets.py: mesmos 6460 B (md5 9d3fa119)
 
 const u16 gTilesetPalettes_Galar26[][16] =
 {
@@ -6346,49 +6308,13 @@ const u16 gTilesetPalettes_Galar36[][16] =
     INCGFX_U16("data/tilesets/secondary/galar_36/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_Galar37[] = INCGFX_U32("data/tilesets/secondary/galar_37/tiles.png", ".4bpp.fastSmol");
+extern const u32 gTilesetTiles_Galar37[ARRAY_COUNT(gTilesetTiles_RestaurantHotel)] ASSET_ALIAS(gTilesetTiles_RestaurantHotel); // dedupe_assets.py: mesmos 1388 B (md5 04e2c8e1)
 
-const u16 gTilesetPalettes_Galar37[][16] =
-{
-    INCGFX_U16("data/tilesets/secondary/galar_37/palettes/00.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_37/palettes/01.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_37/palettes/02.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_37/palettes/03.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_37/palettes/04.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_37/palettes/05.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_37/palettes/06.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_37/palettes/07.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_37/palettes/08.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_37/palettes/09.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_37/palettes/10.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_37/palettes/11.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_37/palettes/12.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_37/palettes/13.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_37/palettes/14.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_37/palettes/15.pal", ".gbapal"),
-};
+extern const u16 gTilesetPalettes_Galar37[ARRAY_COUNT(gTilesetPalettes_RestaurantHotel)][16] ASSET_ALIAS(gTilesetPalettes_RestaurantHotel); // dedupe_assets.py: mesmos 512 B (md5 72b23240)
 
-const u32 gTilesetTiles_Galar38[] = INCGFX_U32("data/tilesets/secondary/galar_38/tiles.png", ".4bpp.fastSmol");
+extern const u32 gTilesetTiles_Galar38[ARRAY_COUNT(gTilesetTiles_School)] ASSET_ALIAS(gTilesetTiles_School); // dedupe_assets.py: mesmos 832 B (md5 4b1c55e6)
 
-const u16 gTilesetPalettes_Galar38[][16] =
-{
-    INCGFX_U16("data/tilesets/secondary/galar_38/palettes/00.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_38/palettes/01.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_38/palettes/02.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_38/palettes/03.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_38/palettes/04.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_38/palettes/05.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_38/palettes/06.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_38/palettes/07.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_38/palettes/08.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_38/palettes/09.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_38/palettes/10.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_38/palettes/11.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_38/palettes/12.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_38/palettes/13.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_38/palettes/14.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_38/palettes/15.pal", ".gbapal"),
-};
+extern const u16 gTilesetPalettes_Galar38[ARRAY_COUNT(gTilesetPalettes_School)][16] ASSET_ALIAS(gTilesetPalettes_School); // dedupe_assets.py: mesmos 512 B (md5 92be5f33)
 
 const u32 gTilesetTiles_Galar39[] = INCGFX_U32("data/tilesets/secondary/galar_39/tiles.png", ".4bpp.fastSmol");
 
@@ -6434,7 +6360,7 @@ const u16 gTilesetPalettes_Galar41[][16] =
     INCGFX_U16("data/tilesets/secondary/galar_41/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_Galar42[] = INCGFX_U32("data/tilesets/secondary/galar_42/tiles.png", ".4bpp.fastSmol");
+extern const u32 gTilesetTiles_Galar42[ARRAY_COUNT(gTilesetTiles_Condominiums)] ASSET_ALIAS(gTilesetTiles_Condominiums); // dedupe_assets.py: mesmos 6080 B (md5 bba3b452)
 
 const u16 gTilesetPalettes_Galar42[][16] =
 {
@@ -6522,7 +6448,7 @@ const u16 gTilesetPalettes_Galar45[][16] =
     INCGFX_U16("data/tilesets/secondary/galar_45/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_Galar46[] = INCGFX_U32("data/tilesets/secondary/galar_46/tiles.png", ".4bpp.fastSmol");
+extern const u32 gTilesetTiles_Galar46[ARRAY_COUNT(gTilesetTiles_TrainerTower)] ASSET_ALIAS(gTilesetTiles_TrainerTower); // dedupe_assets.py: mesmos 5232 B (md5 d83f6455)
 
 const u16 gTilesetPalettes_Galar46[][16] =
 {
@@ -6544,24 +6470,6 @@ const u16 gTilesetPalettes_Galar46[][16] =
     INCGFX_U16("data/tilesets/secondary/galar_46/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_Galar47[] = INCGFX_U32("data/tilesets/secondary/galar_47/tiles.png", ".4bpp.fastSmol");
+extern const u32 gTilesetTiles_Galar47[ARRAY_COUNT(gTilesetTiles_PokemonLeague)] ASSET_ALIAS(gTilesetTiles_PokemonLeague); // dedupe_assets.py: mesmos 4772 B (md5 1cc62492)
 
-const u16 gTilesetPalettes_Galar47[][16] =
-{
-    INCGFX_U16("data/tilesets/secondary/galar_47/palettes/00.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_47/palettes/01.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_47/palettes/02.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_47/palettes/03.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_47/palettes/04.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_47/palettes/05.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_47/palettes/06.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_47/palettes/07.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_47/palettes/08.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_47/palettes/09.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_47/palettes/10.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_47/palettes/11.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_47/palettes/12.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_47/palettes/13.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_47/palettes/14.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/galar_47/palettes/15.pal", ".gbapal"),
-};
+extern const u16 gTilesetPalettes_Galar47[ARRAY_COUNT(gTilesetPalettes_PokemonLeague)][16] ASSET_ALIAS(gTilesetPalettes_PokemonLeague); // dedupe_assets.py: mesmos 512 B (md5 ee4b43f9)

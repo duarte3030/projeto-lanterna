@@ -63,12 +63,15 @@ static bool32 IsSlideInitalizedOrPlayed(enum BattlerId battler, enum TrainerSlid
 #define TRAINER_SLIDE_SLOT(id)        TRAINER_DENSE_##id
 #define TRAINER_SLIDE_PARTNER_SLOT(p) (TRAINERS_ARRAY_COUNT + (p))
 
-static const u8* const sTrainerSlides[DIFFICULTY_COUNT][TRAINERS_ARRAY_COUNT + PARTNER_COUNT][TRAINER_SLIDE_COUNT] =
-{
-    [DIFFICULTY_NORMAL] =
-    {
-    },
-};
+// ponytail: sTrainerSlides e sFrontierTrainerSlides estao VAZIAS (nenhuma fala
+// cadastrada em nenhuma dificuldade) desde sempre neste hack, e mesmo assim
+// custavam 448.056 B + 50.400 B de zeros em ROM, porque o array e dimensionado
+// por [DIFFICULTY_COUNT][todos os treinadores][TRAINER_SLIDE_COUNT]. Uma unica
+// linha nula responde exatamente o mesmo a qualquer consulta (era zero, continua
+// zero), por 56 B. Para voltar a ter fala de treinador: redeclarar os arrays
+// como estavam (o corpo esta no historico, commit anterior a este) e apontar
+// GetTrainerSlideArray neles de novo; nada mais no arquivo muda.
+static const u8* const sNoTrainerSlides[TRAINER_SLIDE_COUNT] = {0};
 
 #if !TESTING
 static u32 TrainerIdToSlideSlot(u32 trainerId)
@@ -79,13 +82,6 @@ static u32 TrainerIdToSlideSlot(u32 trainerId)
     return TrainerIdToDenseIndex(SanitizeTrainerId(trainerId));
 }
 #endif
-
-static const u8* const sFrontierTrainerSlides[DIFFICULTY_COUNT][FRONTIER_TRAINERS_COUNT][TRAINER_SLIDE_COUNT] =
-{
-    [DIFFICULTY_NORMAL] =
-    {
-    },
-};
 
 #define TRAINER_RED_TEST    1
 #define TRAINER_LEAF_TEST   2
@@ -141,10 +137,11 @@ static const u8* const *GetTrainerSlideArray(enum DifficultyLevel difficulty, u3
 #if TESTING
     return (FlagGet(TESTING_FLAG_TRAINER_SLIDES) ? sTestTrainerSlides[difficulty][trainerId] : NULL);
 #else
-    if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
-        return sFrontierTrainerSlides[difficulty][trainerId];
-    else
-        return sTrainerSlides[difficulty][TrainerIdToSlideSlot(trainerId)];
+    // TrainerIdToSlideSlot continua sendo chamado de proposito: ele carrega o
+    // assert de id valido que a tabela antiga cobrava a cada consulta.
+    if (!(gBattleTypeFlags & BATTLE_TYPE_FRONTIER))
+        TrainerIdToSlideSlot(trainerId);
+    return sNoTrainerSlides;
 #endif // TESTING
 }
 

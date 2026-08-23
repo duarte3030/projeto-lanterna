@@ -333,6 +333,7 @@ const u16 gMetatiles_SaffronGym[] = INCBIN_U16("data/tilesets/secondary/saffron_
 const u16 gMetatileAttributes_SaffronGym[] = INCBIN_U16("data/tilesets/secondary/saffron_gym_frlg/metatile_attributes.bin");
 
 const u16 gMetatiles_CinnabarGym[] = INCBIN_U16("data/tilesets/secondary/cinnabar_gym_frlg/metatiles.bin");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gMetatileAttributes_CinnabarGym[] = INCBIN_U16("data/tilesets/secondary/cinnabar_gym_frlg/metatile_attributes.bin");
 
 const u16 gMetatiles_ViridianGym[] = INCBIN_U16("data/tilesets/secondary/viridian_gym_frlg/metatiles.bin");
@@ -431,9 +432,12 @@ const u16 gMetatiles_FanClubDaycare[] = INCBIN_U16("data/tilesets/secondary/fan_
 const u16 gMetatileAttributes_FanClubDaycare[] = INCBIN_U16("data/tilesets/secondary/fan_club_daycare_frlg/metatile_attributes.bin");
 
 const u16 gMetatiles_Condominiums[] = INCBIN_U16("data/tilesets/secondary/condominiums_frlg/metatiles.bin");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gMetatileAttributes_Condominiums[] = INCBIN_U16("data/tilesets/secondary/condominiums_frlg/metatile_attributes.bin");
 
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gMetatiles_BurgledHouse[] = INCBIN_U16("data/tilesets/secondary/burgled_house_frlg/metatiles.bin");
+// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gMetatileAttributes_BurgledHouse[] = INCBIN_U16("data/tilesets/secondary/burgled_house_frlg/metatile_attributes.bin");
 
 const u16 gMetatiles_MtEmber[] = INCBIN_U16("data/tilesets/secondary/mt_ember_frlg/metatiles.bin");
@@ -854,14 +858,14 @@ const u16 gMetatileAttributes_Galar17[] = INCBIN_U16("data/tilesets/secondary/ga
 const u16 gMetatiles_Galar18[] = INCBIN_U16("data/tilesets/secondary/galar_18/metatiles.bin");
 const u16 gMetatileAttributes_Galar18[] = INCBIN_U16("data/tilesets/secondary/galar_18/metatile_attributes.bin");
 
-const u16 gMetatiles_Galar19[] = INCBIN_U16("data/tilesets/secondary/galar_19/metatiles.bin");
-const u16 gMetatileAttributes_Galar19[] = INCBIN_U16("data/tilesets/secondary/galar_19/metatile_attributes.bin");
+extern const u16 gMetatiles_Galar19[ARRAY_COUNT(gMetatiles_BurgledHouse)] ASSET_ALIAS(gMetatiles_BurgledHouse); // dedupe_assets.py: mesmos 912 B (md5 2cbecf91)
+extern const u16 gMetatileAttributes_Galar19[ARRAY_COUNT(gMetatileAttributes_BurgledHouse)] ASSET_ALIAS(gMetatileAttributes_BurgledHouse); // dedupe_assets.py: mesmos 228 B (md5 7b81b14d)
 
 const u16 gMetatiles_Galar20[] = INCBIN_U16("data/tilesets/secondary/galar_20/metatiles.bin");
 const u16 gMetatileAttributes_Galar20[] = INCBIN_U16("data/tilesets/secondary/galar_20/metatile_attributes.bin");
 
 const u16 gMetatiles_Galar21[] = INCBIN_U16("data/tilesets/secondary/galar_21/metatiles.bin");
-const u16 gMetatileAttributes_Galar21[] = INCBIN_U16("data/tilesets/secondary/galar_21/metatile_attributes.bin");
+extern const u16 gMetatileAttributes_Galar21[ARRAY_COUNT(gMetatileAttributes_CinnabarGym)] ASSET_ALIAS(gMetatileAttributes_CinnabarGym); // dedupe_assets.py: mesmos 384 B (md5 37e37296)
 
 const u16 gMetatiles_Galar22[] = INCBIN_U16("data/tilesets/secondary/galar_22/metatiles.bin");
 const u16 gMetatileAttributes_Galar22[] = INCBIN_U16("data/tilesets/secondary/galar_22/metatile_attributes.bin");
@@ -921,7 +925,7 @@ const u16 gMetatiles_Galar41[] = INCBIN_U16("data/tilesets/secondary/galar_41/me
 const u16 gMetatileAttributes_Galar41[] = INCBIN_U16("data/tilesets/secondary/galar_41/metatile_attributes.bin");
 
 const u16 gMetatiles_Galar42[] = INCBIN_U16("data/tilesets/secondary/galar_42/metatiles.bin");
-const u16 gMetatileAttributes_Galar42[] = INCBIN_U16("data/tilesets/secondary/galar_42/metatile_attributes.bin");
+extern const u16 gMetatileAttributes_Galar42[ARRAY_COUNT(gMetatileAttributes_Condominiums)] ASSET_ALIAS(gMetatileAttributes_Condominiums); // dedupe_assets.py: mesmos 860 B (md5 8d38de46)
 
 const u16 gMetatiles_Galar43[] = INCBIN_U16("data/tilesets/secondary/galar_43/metatiles.bin");
 const u16 gMetatileAttributes_Galar43[] = INCBIN_U16("data/tilesets/secondary/galar_43/metatile_attributes.bin");

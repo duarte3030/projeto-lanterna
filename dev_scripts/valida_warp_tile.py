@@ -153,6 +153,23 @@ def _mapa_de_pastas():
     sym2dir = dict(re.findall(
         r'gMetatiles_(\w+)\[\]\s*=\s*INCBIN_U16\("(data/tilesets/\w+/\w+)/metatiles\.bin"\)',
         mt))
+    # QUINTA ARMADILHA, medida em 22/08/2026: `dedupe_assets.py` troca o INCBIN
+    # do tileset repetido por `extern ... ASSET_ALIAS(canonico)`, e a linha
+    # some da varredura acima. O mapa ficava SEM PASTA e caia em `mudos`, ou
+    # seja o validador ia CEGO nele em vez de acusar warp morto. Foi assim que
+    # Galar_Motostoke03 (gTileset_Galar19) e GoldenrodCity_BikeShop
+    # (gTileset_JohtoBikeShop) sairam da conta. O alias aponta para os MESMOS
+    # bytes, entao a pasta certa e a do canonico.
+    for apelido, canonico in re.findall(
+            r'gMetatiles_(\w+)\[[^\]]*\]\s*ASSET_ALIAS\(gMetatiles_(\w+)\)', mt):
+        sym2dir.setdefault(apelido, canonico)
+    for _ in range(len(sym2dir)):          # resolve alias de alias
+        mudou = False
+        for k, v in sym2dir.items():
+            if not v.startswith("data/") and v in sym2dir:
+                sym2dir[k], mudou = sym2dir[v], True
+        if not mudou:
+            break
     hdr = open(f"{RAIZ}/src/data/tilesets/headers.h").read()
     fora = {}
     for nome, corpo in re.findall(

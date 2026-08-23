@@ -6423,6 +6423,566 @@
      ]
     }
    ]
+  },
+  {
+   "md5": "9d3fa11912c11f4ad18f65b72d03df81",
+   "bytes": 6460,
+   "arquivo": "src/data/tilesets/graphics.h",
+   "canonico": {
+    "nome": "gTilesetTiles_SeafoamIslands",
+    "fontes": [
+     "build.nosync/assets/data/tilesets/secondary/seafoam_islands_frlg/tiles.png.4bpp.fastSmol"
+    ]
+   },
+   "aliases": [
+    {
+     "nome": "gTilesetTiles_Galar26",
+     "fontes": [
+      "build.nosync/assets/data/tilesets/secondary/galar_26/tiles.png.4bpp.fastSmol"
+     ]
+    }
+   ]
+  },
+  {
+   "md5": "bba3b452c478e3d61e3b0b447dbb6d9a",
+   "bytes": 6080,
+   "arquivo": "src/data/tilesets/graphics.h",
+   "canonico": {
+    "nome": "gTilesetTiles_Condominiums",
+    "fontes": [
+     "build.nosync/assets/data/tilesets/secondary/condominiums_frlg/tiles.png.4bpp.fastSmol"
+    ]
+   },
+   "aliases": [
+    {
+     "nome": "gTilesetTiles_Galar42",
+     "fontes": [
+      "build.nosync/assets/data/tilesets/secondary/galar_42/tiles.png.4bpp.fastSmol"
+     ]
+    }
+   ]
+  },
+  {
+   "md5": "d83f645576a6e49ee7bb3f5f696f57eb",
+   "bytes": 5232,
+   "arquivo": "src/data/tilesets/graphics.h",
+   "canonico": {
+    "nome": "gTilesetTiles_TrainerTower",
+    "fontes": [
+     "build.nosync/assets/data/tilesets/secondary/trainer_tower_frlg/tiles.png.4bpp.fastSmol"
+    ]
+   },
+   "aliases": [
+    {
+     "nome": "gTilesetTiles_Galar46",
+     "fontes": [
+      "build.nosync/assets/data/tilesets/secondary/galar_46/tiles.png.4bpp.fastSmol"
+     ]
+    }
+   ]
+  },
+  {
+   "md5": "1cc624927b7b8b28a6020aba8a025356",
+   "bytes": 4772,
+   "arquivo": "src/data/tilesets/graphics.h",
+   "canonico": {
+    "nome": "gTilesetTiles_PokemonLeague",
+    "fontes": [
+     "build.nosync/assets/data/tilesets/secondary/pokemon_league_frlg/tiles.png.4bpp.fastSmol"
+    ]
+   },
+   "aliases": [
+    {
+     "nome": "gTilesetTiles_Galar47",
+     "fontes": [
+      "build.nosync/assets/data/tilesets/secondary/galar_47/tiles.png.4bpp.fastSmol"
+     ]
+    }
+   ]
+  },
+  {
+   "md5": "89d2ae27da133e06fc90e4e0a11c13d6",
+   "bytes": 3244,
+   "arquivo": "src/data/tilesets/graphics.h",
+   "canonico": {
+    "nome": "gTilesetTiles_GameCorner",
+    "fontes": [
+     "build.nosync/assets/data/tilesets/secondary/game_corner_frlg/tiles.png.4bpp.fastSmol"
+    ]
+   },
+   "aliases": [
+    {
+     "nome": "gTilesetTiles_Galar18",
+     "fontes": [
+      "build.nosync/assets/data/tilesets/secondary/galar_18/tiles.png.4bpp.fastSmol"
+     ]
+    }
+   ]
+  },
+  {
+   "md5": "27514895098075d441c43ee909d00ba8",
+   "bytes": 2044,
+   "arquivo": "src/data/tilesets/graphics.h",
+   "canonico": {
+    "nome": "gTilesetTiles_CinnabarGym",
+    "fontes": [
+     "build.nosync/assets/data/tilesets/secondary/cinnabar_gym_frlg/tiles.png.4bpp.fastSmol"
+    ]
+   },
+   "aliases": [
+    {
+     "nome": "gTilesetTiles_Galar21",
+     "fontes": [
+      "build.nosync/assets/data/tilesets/secondary/galar_21/tiles.png.4bpp.fastSmol"
+     ]
+    }
+   ]
+  },
+  {
+   "md5": "e1c6f3bb7487ccfc71e6402220de5934",
+   "bytes": 1864,
+   "arquivo": "src/data/tilesets/graphics.h",
+   "canonico": {
+    "nome": "gTilesetTiles_Lab_Frlg",
+    "fontes": [
+     "build.nosync/assets/data/tilesets/secondary/lab_frlg/tiles.png.4bpp.fastSmol"
+    ]
+   },
+   "aliases": [
+    {
+     "nome": "gTilesetTiles_Galar16",
+     "fontes": [
+      "build.nosync/assets/data/tilesets/secondary/galar_16/tiles.png.4bpp.fastSmol"
+     ]
+    }
+   ]
+  },
+  {
+   "md5": "04e2c8e10f8e75e2082eba6c73346e8c",
+   "bytes": 1388,
+   "arquivo": "src/data/tilesets/graphics.h",
+   "canonico": {
+    "nome": "gTilesetTiles_RestaurantHotel",
+    "fontes": [
+     "build.nosync/assets/data/tilesets/secondary/restaurant_hotel_frlg/tiles.png.4bpp.fastSmol"
+    ]
+   },
+   "aliases": [
+    {
+     "nome": "gTilesetTiles_Galar37",
+     "fontes": [
+      "build.nosync/assets/data/tilesets/secondary/galar_37/tiles.png.4bpp.fastSmol"
+     ]
+    }
+   ]
+  },
+  {
+   "md5": "676d93495cabf859bf7f8981200ca57a",
+   "bytes": 1316,
+   "arquivo": "src/data/tilesets/graphics.h",
+   "canonico": {
+    "nome": "gTilesetTiles_ViridianGym",
+    "fontes": [
+     "build.nosync/assets/data/tilesets/secondary/viridian_gym_frlg/tiles.png.4bpp.fastSmol"
+    ]
+   },
+   "aliases": [
+    {
+     "nome": "gTilesetTiles_Galar17",
+     "fontes": [
+      "build.nosync/assets/data/tilesets/secondary/galar_17/tiles.png.4bpp.fastSmol"
+     ]
+    }
+   ]
+  },
+  {
+   "md5": "4b1c55e67ceec0df3f91e3976105ab20",
+   "bytes": 832,
+   "arquivo": "src/data/tilesets/graphics.h",
+   "canonico": {
+    "nome": "gTilesetTiles_School",
+    "fontes": [
+     "build.nosync/assets/data/tilesets/secondary/school_frlg/tiles.png.4bpp.fastSmol"
+    ]
+   },
+   "aliases": [
+    {
+     "nome": "gTilesetTiles_Galar38",
+     "fontes": [
+      "build.nosync/assets/data/tilesets/secondary/galar_38/tiles.png.4bpp.fastSmol"
+     ]
+    }
+   ]
+  },
+  {
+   "md5": "08b6325536a487014b833b69b6449c47",
+   "bytes": 512,
+   "arquivo": "src/data/tilesets/graphics.h",
+   "canonico": {
+    "nome": "gTilesetPalettes_Lab_Frlg",
+    "fontes": [
+     "build.nosync/assets/data/tilesets/secondary/lab_frlg/palettes/00.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/lab_frlg/palettes/01.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/lab_frlg/palettes/02.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/lab_frlg/palettes/03.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/lab_frlg/palettes/04.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/lab_frlg/palettes/05.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/lab_frlg/palettes/06.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/lab_frlg/palettes/07.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/lab_frlg/palettes/08.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/lab_frlg/palettes/09.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/lab_frlg/palettes/10.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/lab_frlg/palettes/11.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/lab_frlg/palettes/12.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/lab_frlg/palettes/13.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/lab_frlg/palettes/14.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/lab_frlg/palettes/15.pal.gbapal"
+    ]
+   },
+   "aliases": [
+    {
+     "nome": "gTilesetPalettes_Galar16",
+     "fontes": [
+      "build.nosync/assets/data/tilesets/secondary/galar_16/palettes/00.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_16/palettes/01.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_16/palettes/02.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_16/palettes/03.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_16/palettes/04.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_16/palettes/05.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_16/palettes/06.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_16/palettes/07.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_16/palettes/08.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_16/palettes/09.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_16/palettes/10.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_16/palettes/11.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_16/palettes/12.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_16/palettes/13.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_16/palettes/14.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_16/palettes/15.pal.gbapal"
+     ]
+    }
+   ]
+  },
+  {
+   "md5": "46a4181cb1b251adf109f0b8603fec89",
+   "bytes": 512,
+   "arquivo": "src/data/tilesets/graphics.h",
+   "canonico": {
+    "nome": "gTilesetPalettes_GameCorner",
+    "fontes": [
+     "build.nosync/assets/data/tilesets/secondary/game_corner_frlg/palettes/00.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/game_corner_frlg/palettes/01.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/game_corner_frlg/palettes/02.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/game_corner_frlg/palettes/03.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/game_corner_frlg/palettes/04.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/game_corner_frlg/palettes/05.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/game_corner_frlg/palettes/06.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/game_corner_frlg/palettes/07.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/game_corner_frlg/palettes/08.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/game_corner_frlg/palettes/09.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/game_corner_frlg/palettes/10.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/game_corner_frlg/palettes/11.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/game_corner_frlg/palettes/12.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/game_corner_frlg/palettes/13.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/game_corner_frlg/palettes/14.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/game_corner_frlg/palettes/15.pal.gbapal"
+    ]
+   },
+   "aliases": [
+    {
+     "nome": "gTilesetPalettes_Galar18",
+     "fontes": [
+      "build.nosync/assets/data/tilesets/secondary/galar_18/palettes/00.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_18/palettes/01.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_18/palettes/02.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_18/palettes/03.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_18/palettes/04.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_18/palettes/05.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_18/palettes/06.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_18/palettes/07.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_18/palettes/08.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_18/palettes/09.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_18/palettes/10.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_18/palettes/11.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_18/palettes/12.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_18/palettes/13.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_18/palettes/14.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_18/palettes/15.pal.gbapal"
+     ]
+    }
+   ]
+  },
+  {
+   "md5": "4ae77d68833950de261478b6ceeafa9f",
+   "bytes": 512,
+   "arquivo": "src/data/tilesets/graphics.h",
+   "canonico": {
+    "nome": "gTilesetPalettes_PewterGym",
+    "fontes": [
+     "build.nosync/assets/data/tilesets/secondary/pewter_gym_frlg/palettes/00.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pewter_gym_frlg/palettes/01.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pewter_gym_frlg/palettes/02.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pewter_gym_frlg/palettes/03.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pewter_gym_frlg/palettes/04.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pewter_gym_frlg/palettes/05.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pewter_gym_frlg/palettes/06.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pewter_gym_frlg/palettes/07.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pewter_gym_frlg/palettes/08.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pewter_gym_frlg/palettes/09.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pewter_gym_frlg/palettes/10.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pewter_gym_frlg/palettes/11.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pewter_gym_frlg/palettes/12.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pewter_gym_frlg/palettes/13.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pewter_gym_frlg/palettes/14.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pewter_gym_frlg/palettes/15.pal.gbapal"
+    ]
+   },
+   "aliases": [
+    {
+     "nome": "gTilesetPalettes_Galar19",
+     "fontes": [
+      "build.nosync/assets/data/tilesets/secondary/galar_19/palettes/00.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_19/palettes/01.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_19/palettes/02.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_19/palettes/03.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_19/palettes/04.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_19/palettes/05.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_19/palettes/06.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_19/palettes/07.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_19/palettes/08.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_19/palettes/09.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_19/palettes/10.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_19/palettes/11.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_19/palettes/12.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_19/palettes/13.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_19/palettes/14.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_19/palettes/15.pal.gbapal"
+     ]
+    }
+   ]
+  },
+  {
+   "md5": "72b23240c9cc17f0fa0eb86893e78e6f",
+   "bytes": 512,
+   "arquivo": "src/data/tilesets/graphics.h",
+   "canonico": {
+    "nome": "gTilesetPalettes_RestaurantHotel",
+    "fontes": [
+     "build.nosync/assets/data/tilesets/secondary/restaurant_hotel_frlg/palettes/00.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/restaurant_hotel_frlg/palettes/01.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/restaurant_hotel_frlg/palettes/02.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/restaurant_hotel_frlg/palettes/03.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/restaurant_hotel_frlg/palettes/04.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/restaurant_hotel_frlg/palettes/05.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/restaurant_hotel_frlg/palettes/06.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/restaurant_hotel_frlg/palettes/07.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/restaurant_hotel_frlg/palettes/08.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/restaurant_hotel_frlg/palettes/09.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/restaurant_hotel_frlg/palettes/10.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/restaurant_hotel_frlg/palettes/11.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/restaurant_hotel_frlg/palettes/12.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/restaurant_hotel_frlg/palettes/13.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/restaurant_hotel_frlg/palettes/14.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/restaurant_hotel_frlg/palettes/15.pal.gbapal"
+    ]
+   },
+   "aliases": [
+    {
+     "nome": "gTilesetPalettes_Galar37",
+     "fontes": [
+      "build.nosync/assets/data/tilesets/secondary/galar_37/palettes/00.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_37/palettes/01.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_37/palettes/02.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_37/palettes/03.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_37/palettes/04.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_37/palettes/05.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_37/palettes/06.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_37/palettes/07.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_37/palettes/08.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_37/palettes/09.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_37/palettes/10.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_37/palettes/11.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_37/palettes/12.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_37/palettes/13.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_37/palettes/14.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_37/palettes/15.pal.gbapal"
+     ]
+    }
+   ]
+  },
+  {
+   "md5": "92be5f337e12a45640da6d8c044eb0cd",
+   "bytes": 512,
+   "arquivo": "src/data/tilesets/graphics.h",
+   "canonico": {
+    "nome": "gTilesetPalettes_School",
+    "fontes": [
+     "build.nosync/assets/data/tilesets/secondary/school_frlg/palettes/00.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/school_frlg/palettes/01.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/school_frlg/palettes/02.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/school_frlg/palettes/03.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/school_frlg/palettes/04.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/school_frlg/palettes/05.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/school_frlg/palettes/06.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/school_frlg/palettes/07.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/school_frlg/palettes/08.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/school_frlg/palettes/09.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/school_frlg/palettes/10.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/school_frlg/palettes/11.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/school_frlg/palettes/12.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/school_frlg/palettes/13.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/school_frlg/palettes/14.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/school_frlg/palettes/15.pal.gbapal"
+    ]
+   },
+   "aliases": [
+    {
+     "nome": "gTilesetPalettes_Galar38",
+     "fontes": [
+      "build.nosync/assets/data/tilesets/secondary/galar_38/palettes/00.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_38/palettes/01.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_38/palettes/02.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_38/palettes/03.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_38/palettes/04.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_38/palettes/05.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_38/palettes/06.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_38/palettes/07.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_38/palettes/08.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_38/palettes/09.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_38/palettes/10.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_38/palettes/11.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_38/palettes/12.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_38/palettes/13.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_38/palettes/14.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_38/palettes/15.pal.gbapal"
+     ]
+    }
+   ]
+  },
+  {
+   "md5": "ee4b43f9fd9ad6782d0026bc75958191",
+   "bytes": 512,
+   "arquivo": "src/data/tilesets/graphics.h",
+   "canonico": {
+    "nome": "gTilesetPalettes_PokemonLeague",
+    "fontes": [
+     "build.nosync/assets/data/tilesets/secondary/pokemon_league_frlg/palettes/00.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pokemon_league_frlg/palettes/01.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pokemon_league_frlg/palettes/02.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pokemon_league_frlg/palettes/03.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pokemon_league_frlg/palettes/04.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pokemon_league_frlg/palettes/05.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pokemon_league_frlg/palettes/06.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pokemon_league_frlg/palettes/07.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pokemon_league_frlg/palettes/08.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pokemon_league_frlg/palettes/09.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pokemon_league_frlg/palettes/10.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pokemon_league_frlg/palettes/11.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pokemon_league_frlg/palettes/12.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pokemon_league_frlg/palettes/13.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pokemon_league_frlg/palettes/14.pal.gbapal",
+     "build.nosync/assets/data/tilesets/secondary/pokemon_league_frlg/palettes/15.pal.gbapal"
+    ]
+   },
+   "aliases": [
+    {
+     "nome": "gTilesetPalettes_Galar47",
+     "fontes": [
+      "build.nosync/assets/data/tilesets/secondary/galar_47/palettes/00.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_47/palettes/01.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_47/palettes/02.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_47/palettes/03.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_47/palettes/04.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_47/palettes/05.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_47/palettes/06.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_47/palettes/07.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_47/palettes/08.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_47/palettes/09.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_47/palettes/10.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_47/palettes/11.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_47/palettes/12.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_47/palettes/13.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_47/palettes/14.pal.gbapal",
+      "build.nosync/assets/data/tilesets/secondary/galar_47/palettes/15.pal.gbapal"
+     ]
+    }
+   ]
+  },
+  {
+   "md5": "2cbecf913aaca79847e8a407b009dd61",
+   "bytes": 912,
+   "arquivo": "src/data/tilesets/metatiles.h",
+   "canonico": {
+    "nome": "gMetatiles_BurgledHouse",
+    "fontes": [
+     "data/tilesets/secondary/burgled_house_frlg/metatiles.bin"
+    ]
+   },
+   "aliases": [
+    {
+     "nome": "gMetatiles_Galar19",
+     "fontes": [
+      "data/tilesets/secondary/galar_19/metatiles.bin"
+     ]
+    }
+   ]
+  },
+  {
+   "md5": "8d38de464d65a8b09d317e2952c0c87a",
+   "bytes": 860,
+   "arquivo": "src/data/tilesets/metatiles.h",
+   "canonico": {
+    "nome": "gMetatileAttributes_Condominiums",
+    "fontes": [
+     "data/tilesets/secondary/condominiums_frlg/metatile_attributes.bin"
+    ]
+   },
+   "aliases": [
+    {
+     "nome": "gMetatileAttributes_Galar42",
+     "fontes": [
+      "data/tilesets/secondary/galar_42/metatile_attributes.bin"
+     ]
+    }
+   ]
+  },
+  {
+   "md5": "37e37296fe0b1f25ba2f7d1edad34126",
+   "bytes": 384,
+   "arquivo": "src/data/tilesets/metatiles.h",
+   "canonico": {
+    "nome": "gMetatileAttributes_CinnabarGym",
+    "fontes": [
+     "data/tilesets/secondary/cinnabar_gym_frlg/metatile_attributes.bin"
+    ]
+   },
+   "aliases": [
+    {
+     "nome": "gMetatileAttributes_Galar21",
+     "fontes": [
+      "data/tilesets/secondary/galar_21/metatile_attributes.bin"
+     ]
+    }
+   ]
+  },
+  {
+   "md5": "7b81b14dae4d6fc1c050fb3a8d049ce3",
+   "bytes": 228,
+   "arquivo": "src/data/tilesets/metatiles.h",
+   "canonico": {
+    "nome": "gMetatileAttributes_BurgledHouse",
+    "fontes": [
+     "data/tilesets/secondary/burgled_house_frlg/metatile_attributes.bin"
+    ]
+   },
+   "aliases": [
+    {
+     "nome": "gMetatileAttributes_Galar19",
+     "fontes": [
+      "data/tilesets/secondary/galar_19/metatile_attributes.bin"
+     ]
+    }
+   ]
   }
  ]
 }

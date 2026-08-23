@@ -35,6 +35,9 @@ $(MAPS_OUTDIR)/connections.inc $(MAPS_OUTDIR)/groups.inc $(MAPS_OUTDIR)/events.i
 
 $(LAYOUTS_OUTDIR)/layouts.inc $(LAYOUTS_OUTDIR)/layouts_table.inc $(INCLUDECONSTS_OUTDIR)/layouts.h: $(LAYOUTS_DIR)/layouts.json .map_version
 	$(MAPJSON) layouts $(MAP_VERSION) $< $(LAYOUTS_OUTDIR) $(INCLUDECONSTS_OUTDIR)
+# Layout cujo map.bin/border.bin e copia exata de outro passa a apontar para o
+# mesmo .incbin. Ver dev_scripts/dedupe_blockdata.py.
+	@python3 dev_scripts/dedupe_blockdata.py $(LAYOUTS_OUTDIR)/layouts.inc
 
 # Generate constants for map events, which depend on data that's distributed across the map.json files.
 # There's a lot of map.json files, so we print an abbreviated output with echo.
