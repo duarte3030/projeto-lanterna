@@ -29,6 +29,7 @@ o unico jeito de garantir isso e casar MAPA A MAPA pelo nome.
 Regiao sem fonte em disco aparece como "sem fonte", nunca como 100%. Nao saber e
 um resultado; fingir que sabe foi o erro que esta sessao cometeu a noite toda.
 """
+import collections
 import glob
 import json
 import os
@@ -203,15 +204,28 @@ TODOS_OS_CAMPOS = tuple(c for c, _ in CAMPOS)
 # Underground e os mapas de Mystery Gift, que nunca vão existir aqui, e o
 # denominador media o Platinum em vez de medir a obra.
 #
-# Dois modos, os MESMOS do inventário de cortes que produziu esta tabela:
+# Três modos, os do inventário de cortes que produziu esta tabela mais o de
+# OBJETO, aberto em 23/08/2026:
 #
-#   "mapa_fonte" -> o `alvo` é REGEX, casada contra os nomes que a fonte tem e
-#                   nós não. O registro sai da coluna `mapas`.
-#   "deficit"    -> o `alvo` é LISTA DE NOMES DE MAPA NOSSO, e só o BURACO dos
-#                   campos citados sai do denominador: o mapa passa a valer
-#                   100% naqueles campos (ver `corta_campo`). É o modo de mapa
-#                   que EXISTE na ROM e vai continuar existindo, mas que
-#                   ninguém vai terminar de povoar.
+#   "mapa_fonte"   -> o `alvo` é REGEX, casada contra os nomes que a fonte tem
+#                     e nós não. O registro sai da coluna `mapas`.
+#   "deficit"      -> o `alvo` é LISTA DE NOMES DE MAPA NOSSO, e só o BURACO
+#                     dos campos citados sai do denominador: o mapa passa a
+#                     valer 100% naqueles campos (ver `corta_campo`). É o modo
+#                     de mapa que EXISTE na ROM e vai continuar existindo, mas
+#                     que ninguém vai terminar de povoar.
+#   "objeto_fonte" -> o `alvo` é REGEX casada contra o `graphics_id` de cada
+#                     OBJETO da fonte, e o objeto que casa sai do denominador
+#                     da coluna `objetos` em TODOS os mapas da região. É o modo
+#                     do mobiliário: o mapa fica, a obra dele fica, e só aquele
+#                     tipo de registro é que nunca vai virar objeto nosso.
+#
+#                     A TRAVA que o torna honesto, conferida em
+#                     `confere_cortes` e travada no `--demo`: o gráfico cortado
+#                     tem que ter ZERO ocorrências nos NOSSOS map.json da
+#                     região. Cortar do denominador um gráfico que nós usamos
+#                     seria contá-lo só de um lado, e a coluna subiria sem obra
+#                     nenhuma, que é o jeito mais caro de errar nesta casa.
 #
 # O que cada linha tirou sai em `--detalhe <região>`: corte que não é visível
 # vira completude alta sem obra, que é a mentira mais cara desta casa.
@@ -357,6 +371,36 @@ CORTES_DO_GUI = [
          motivo="caça-níquel de gen 4, minigame sem motor aqui. SÓ ELE: o Bug "
                 "Contest de Johto fica, por decisão do Gui no mesmo dia",
          alvo=["GameCorner"]),
+    # Os dois cortes de OBJETO de Sinnoh, decisão do Gui em 23/08/2026 ("vamos
+    # completar Sinnoh" e "normalizar a porcentagem com base no que realmente
+    # vai ficar"). Eles não tiram mapa nenhum do porte: tiram do denominador da
+    # coluna `objetos` os REGISTROS que nunca vão virar objeto nosso, e por isso
+    # o modo é `objeto_fonte` e não `deficit`.
+    #
+    # MEDIDO no dia, e é o que autoriza os dois: nenhum dos três gráficos tem
+    # UMA ocorrência sequer nos nossos `data/maps/*/map.json`. Eles são
+    # denominador puro, então tirá-los não conta nada duas vezes.
+    dict(regiao="Sinnoh", grupo="Mobiliário sem mecânica: respiro e balizador",
+         modo="objeto_fonte", campos=("object_events",), data="23/08/2026",
+         motivo="`VENT` (o respiro de calçada, 55 registros em 14 mapas) e "
+                "`BOLLARD` (o balizador de rua, 8 em 3) são DESENHO com "
+                "colisão, sem fala, sem item e sem gatilho. Este motor não tem "
+                "objeto decorativo sólido: o que existe é NPC, e NPC de pé em "
+                "cima de respiro de calçada faz o mapa mentir (decisão 4 do "
+                "importador de Sinnoh). Onde eles importam, o desenho já está "
+                "no tileset",
+         alvo=r"OBJ_EVENT_GFX_(VENT|BOLLARD)$"),
+    dict(regiao="Sinnoh", grupo="Canteiros de berry, até a janela de save",
+         modo="objeto_fonte", campos=("object_events",), data="23/08/2026",
+         motivo="os 90 `BERRY_SOIL` em 23 mapas. O canteiro não é desenho: é "
+                "estado, e o id da árvore de berry MORA NA SAVE "
+                "(`SaveBlock1.berryTrees`). Plantá-los hoje mexe no leiaute da "
+                "save com a janela FECHADA (ver `guarda_save.py` e ESTADO 0.h), "
+                "e a ordem é que quem quebra a save sobe "
+                "`SAVE_LAYOUT_REVISION` junto. Corte com prazo, não para "
+                "sempre: ele cai na primeira janela de save aberta de "
+                "propósito",
+         alvo=r"OBJ_EVENT_GFX_BERRY_SOIL$"),
     # ----------------------------------------------------------------- Unova
     dict(regiao="Unova", grupo="Battle Tower do BW3G", modo="mapa_fonte",
          campos=TODOS_OS_CAMPOS, data="21/08/2026",
@@ -421,10 +465,24 @@ def cortes_da_regiao(regiao, tabela=None):
             continue
         if x["modo"] == "mapa_fonte":
             fonte.append(x["alvo"])
-        else:
+        elif x["modo"] == "deficit":
             for m in x["alvo"]:
                 defi.setdefault(m, set()).update(x["campos"])
     return (re.compile("|".join(fonte)) if fonte else None), defi
+
+
+def cortes_de_objeto(regiao, tabela=None):
+    """(regex dos gráficos cortados, [grupos]) do modo `objeto_fonte`.
+
+    Separada de `cortes_da_regiao` de propósito: aquela devolve MAPA, esta
+    devolve GRÁFICO, e juntar os dois num retorno só já seria a próxima
+    armadilha.
+    """
+    tabela = CORTES_DO_GUI if tabela is None else tabela
+    g = [x for x in tabela
+         if x["regiao"] == regiao and x["modo"] == "objeto_fonte"]
+    rx = re.compile("|".join(x["alvo"] for x in g)) if g else None
+    return rx, g
 
 
 def confere_cortes(tabela=None):
@@ -455,9 +513,53 @@ def confere_cortes(tabela=None):
                 if not os.path.exists(f"{RAIZ}/data/maps/{m}/map.json"):
                     ruim.append(f"{x['grupo']}: o mapa {m} não existe em "
                                 "data/maps")
+        elif x["modo"] == "objeto_fonte":
+            try:
+                rx = re.compile(x["alvo"])
+            except re.error as e:
+                ruim.append(f"{x['grupo']}: regex inválida ({e})")
+                continue
+            if x["campos"] != ("object_events",):
+                ruim.append(f"{x['grupo']}: corte de objeto só corta "
+                            "object_events")
+            usados = graficos_nossos(x["regiao"])
+            meus = sorted(g for g in usados if rx.search(g))
+            if meus:
+                ruim.append(f"{x['grupo']}: corta gráfico que NÓS usamos "
+                            f"({', '.join(meus)}); sairia do denominador e "
+                            "ficaria no numerador")
         else:
             ruim.append(f"{x['grupo']}: modo {x['modo']} não existe")
     return ruim
+
+
+def graficos_nossos(regiao, _cache={}):
+    """Todo `graphics_id` que aparece nos NOSSOS mapas daquela região.
+
+    É a trava do modo `objeto_fonte`: gráfico que nós usamos não pode sair do
+    denominador, senão a mesma coisa é descontada de um lado e contada do
+    outro.
+    """
+    if regiao not in _cache:
+        cfg = REGIOES[regiao]
+        if cfg.get("plat"):
+            sys.path.insert(0, os.path.join(RAIZ, "dev_scripts"))
+            import importa_npcs_sinnoh as I
+            nossos = I.nossos_mapas_sinnoh()
+        elif cfg.get("censo"):
+            nossos = [v["nome"] for v in
+                      json.load(open(cfg["censo"]))["de_para"].values()]
+        else:
+            nossos = nossos_da_regiao(todos_os_mapas(RAIZ), cfg["grupo"])
+        g = set()
+        for m in nossos:
+            p = f"{RAIZ}/data/maps/{m}/map.json"
+            if not os.path.exists(p):
+                continue
+            g |= {o.get("graphics_id", "") for o in
+                  (json.load(open(p)).get("object_events") or [])}
+        _cache[regiao] = g
+    return _cache[regiao]
 
 
 def normaliza(nome):
@@ -630,13 +732,19 @@ def sobra_de_tabela(fonte, cfg, heads=None, _cache={}):
     return _cache[fonte]
 
 
-def le_plat(fonte, header):
+def le_plat(fonte, header, rx_obj=None):
     """Conta eventos num mapa do pokeplatinum (formato de DS).
 
     O mapa la nao guarda os eventos: guarda o NOME do arquivo de eventos, em
     include/data/map_headers.h. Placa de rua no Platinum e object_event com
     grafico de SIGNBOARD, nao bg_event, entao ela e contada como placa aqui,
     senao o denominador de "placas" fica quase zero e a coluna mente para cima.
+
+    `rx_obj` e o corte de OBJETO do modo `objeto_fonte` (ver CORTES_DO_GUI): o
+    objeto da fonte cujo `graphics_id` casa com ele sai do denominador e vai
+    contado em `_cortados`, para `--detalhe` poder imprimir quantos e de que
+    tipo. Ele NUNCA pode casar com grafico que nos usamos, e isso e conferido
+    em `confere_cortes`.
     """
     import importa_npcs_sinnoh as I
     arq = I.headers_do_platinum().get(header)
@@ -649,9 +757,14 @@ def le_plat(fonte, header):
     objs = d.get("object_events") or []
     placas = [o for o in objs
               if any(t in o.get("graphics_id", "") for t in I.GRAFICOS_PLACA)]
-    return {"object_events": len(objs) - len(placas),
+    cortados = collections.Counter(
+        o.get("graphics_id", "") for o in objs
+        if rx_obj and rx_obj.search(o.get("graphics_id", ""))
+        and not any(t in o.get("graphics_id", "") for t in I.GRAFICOS_PLACA))
+    return {"object_events": len(objs) - len(placas) - sum(cortados.values()),
             "warp_events": len(d.get("warp_events") or []),
-            "bg_events": len(d.get("bg_events") or []) + len(placas)}
+            "bg_events": len(d.get("bg_events") or []) + len(placas),
+            "_cortados": cortados}
 
 
 def _distintos(blob):
@@ -866,6 +979,7 @@ def main():
     faltando_total = {}
     sobras = {}
     cortes = {}
+    cortes_obj = {}
     galar_extras = None
     for nome, cfg in REGIOES.items():
         if alvo and alvo.lower() != nome.lower():
@@ -919,6 +1033,7 @@ def main():
         # Os CORTES DO GUI, que são escopo e não régua: o que sai daqui está
         # nomeado, datado e impresso em `--detalhe`.
         rx_corte, defi = cortes_da_regiao(nome)
+        rx_obj, grupos_obj = cortes_de_objeto(nome)
         fora = {m for m in so_na_fonte if rx_corte and rx_corte.search(m)}
         so_na_fonte = [m for m in so_na_fonte if m not in fora]
         cortes[nome] = (sorted(fora), {m for m, _ in casados if m in defi})
@@ -935,13 +1050,20 @@ def main():
         soma_n = {c: 0 for c, _ in CAMPOS}
         soma_f = {c: 0 for c, _ in CAMPOS}
         piores = []
+        obj_cortados = collections.Counter()
+        vazios = []
         for meu, seu in casados:
             a = eventos(RAIZ, meu)
-            b = (le_plat(fonte, seu) if plat else
+            b = (le_plat(fonte, seu, rx_obj) if plat else
                  le_gen2(f"{fonte}/maps/{seu}.asm") if gen2 else
                  eventos(fonte, seu))
             if not a or not b:
                 continue
+            if "object_events" not in defi.get(meu, ()):
+                obj_cortados.update(b.get("_cortados") or {})
+                if b["object_events"] > a["object_events"]:
+                    vazios.append((b["object_events"] - a["object_events"], meu,
+                                   a["object_events"], b["object_events"]))
             for c, _ in CAMPOS:
                 x, y = corta_campo(a[c], b[c], c in defi.get(meu, ()))
                 soma_n[c] += x
@@ -968,6 +1090,9 @@ def main():
               f"{p('warp_events'):>11} {p('bg_events'):>11} "
               f"{'--':>10}  {fmt_arte(arte(nossos)):>11}")
         faltando_total[nome] = (so_na_fonte, sorted(piores)[:6])
+        if grupos_obj:
+            cortes_obj[nome] = (obj_cortados, grupos_obj, sorted(vazios,
+                                                                reverse=True))
 
     if not alvo:
         linha_da_dex()
@@ -1022,6 +1147,29 @@ def main():
                 if not saiu:
                     print("      (nada: este grupo não casou com mapa nenhum "
                           "hoje)")
+        for nome, (contagem, grupos, vazios) in cortes_obj.items():
+            print(f"\n=== {nome}: o que os CORTES DE OBJETO tiraram do "
+                  "denominador ===")
+            print(f"   {sum(contagem.values())} objetos da fonte, em "
+                  f"{len(grupos)} grupos. O mapa FICA; só este tipo de "
+                  "registro é que sai.")
+            print("   a trava: nenhum destes gráficos aparece nos NOSSOS "
+                  "map.json (conferida em --demo).")
+            for x in grupos:
+                rx = re.compile(x["alvo"])
+                saiu = {g: n for g, n in contagem.items() if rx.search(g)}
+                print(f"   [{x['data']}] {x['grupo']} (objeto_fonte, "
+                      f"{sum(saiu.values())}): {x['motivo']}")
+                for g, n in sorted(saiu.items(), key=lambda kv: -kv[1]):
+                    print(f"      {n:4}  {g}")
+                if not saiu:
+                    print("      (nada: este grupo não casou com objeto "
+                          "nenhum hoje)")
+            print(f"\n   DEPOIS do corte, {len(vazios)} mapas ainda têm menos "
+                  f"objeto que a fonte ({sum(v[0] for v in vazios)} no total).")
+            print("   isto é o que AINDA falta, e não é corte de ninguém:")
+            for d, m, a, b in vazios:
+                print(f"      -{d:<3} {m:44} {a} de {b}")
         for nome, fora in sobras.items():
             if not fora:
                 continue
@@ -1163,6 +1311,50 @@ def demo():
     _, defi = cortes_da_regiao("Unova")
     assert "Unova_TradeCenter" in defi and "Unova_CasteliaCity" not in defi
     assert cortes_da_regiao("Kanto") == (None, {})
+
+    # 9. O corte de OBJETO (modo `objeto_fonte`, 23/08/2026). Ele é o mais
+    #    perigoso dos três, porque não tira mapa nenhum da vista: some com
+    #    REGISTRO dentro de mapa que fica. Três travas.
+    # 9.1 o regex do corte não pode pegar mapa nenhum, só gráfico
+    rx_obj, grupos_obj = cortes_de_objeto("Sinnoh")
+    assert len(grupos_obj) == 2, grupos_obj
+    assert rx_obj.search("OBJ_EVENT_GFX_VENT")
+    assert rx_obj.search("OBJ_EVENT_GFX_BOLLARD")
+    assert rx_obj.search("OBJ_EVENT_GFX_BERRY_SOIL")
+    # ...e não pode pegar quem só PARECE: `SOLAR_VENT` não existe, mas
+    # `PREVENT`, `ADVENTURER` e o `BERRY_TREE` de verdade, sim.
+    assert not rx_obj.search("OBJ_EVENT_GFX_BERRY_TREE")
+    assert not rx_obj.search("OBJ_EVENT_GFX_ADVENTURER")
+    assert not rx_obj.search("OBJ_EVENT_GFX_VENTRILOQUIST")
+    assert cortes_de_objeto("Kanto") == (None, [])
+    # 9.2 nenhuma outra região tem corte de objeto hoje, e o de Sinnoh corta só
+    #     `object_events`
+    assert all(x["campos"] == ("object_events",) for x in grupos_obj)
+    # 9.3 A TRAVA: gráfico cortado não pode aparecer nos NOSSOS mapas. Mutação
+    #     plantada: cortar o `ITEM_BALL`, que nós usamos 167 vezes em Sinnoh, e
+    #     que sairia do denominador continuando no numerador.
+    nossos_gfx = graficos_nossos("Sinnoh")
+    assert "OBJ_EVENT_GFX_ITEM_BALL" in nossos_gfx
+    assert not any(rx_obj.search(g) for g in nossos_gfx), \
+        [g for g in nossos_gfx if rx_obj.search(g)]
+    assert confere_cortes([dict(regiao="Sinnoh", grupo="x", modo="objeto_fonte",
+                                alvo=r"OBJ_EVENT_GFX_ITEM_BALL$", data="",
+                                campos=("object_events",), motivo="")])
+    # mutação plantada: corte de objeto que também mexeria em warp
+    assert confere_cortes([dict(regiao="Sinnoh", grupo="x", modo="objeto_fonte",
+                                alvo=r"OBJ_EVENT_GFX_VENT$", data="",
+                                campos=TODOS_OS_CAMPOS, motivo="")])
+    # 9.4 e o corte tem que CONTAR: `le_plat` devolve o que tirou, senão
+    #     `--detalhe` imprimiria zero e o corte ficaria invisível.
+    f = REGIOES["Sinnoh"]["fonte"]
+    if os.path.isdir(f):
+        antes = le_plat(f, "MAP_HEADER_ROUTE_209")
+        depois = le_plat(f, "MAP_HEADER_ROUTE_209", rx_obj)
+        tirou = sum(depois["_cortados"].values())
+        assert tirou > 0
+        assert antes["object_events"] - tirou == depois["object_events"]
+        assert antes["bg_events"] == depois["bg_events"]
+        assert antes["warp_events"] == depois["warp_events"]
 
     print("demo ok")
 

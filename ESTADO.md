@@ -4,7 +4,162 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 23/08/2026, na build de fechamento da rodada 10. A seção 0.r abaixo é a passagem de bastão dela.
+Última medição: 23/08/2026, na build de fechamento da rodada 11. A seção 0.s abaixo é a passagem de bastão dela.
+
+---
+
+## 0.s SINNOH FECHA: O ENREDO ENTRA POR FLAG RECALCULADA, O GELO GANHA BATENTE, E A PORCENTAGEM PASSA A MEDIR O QUE VAI FICAR, 23/08/2026 (rodada 11; condutor Opus, três executores Opus, fechador Opus)
+
+Build verde, uma build só, e a rodada em que **Sinnoh passa de 100% nas quatro colunas**: mapas 100%,
+**objetos 93,3 → 101,6%**, warps 103,7% e **placas 98,1 → 103,4%**. **ROM 96,38% de 32 MB**
+(32.340.476 B, **1.213.956 B livres**, 3.932 B a mais que a 0.r), **EWRAM 86,16% e IWRAM 86,68%**,
+os dois idênticos aos da 0.r, Dex obtenível em 1.571 de 1.571. **Suíte 961 de 963**, com o T11.3
+pulado na varredura porque ele só prova algo com duas ROMs e **um reprovado que é o T143.9, o
+instável conhecido**: ele mora na Accumula Town, que tem quatro NPCs `MOVEMENT_TYPE_WANDER_AROUND`
+no caminho da rota, e ele mesmo diz isso no par negativo T143.10. Foi **rodado sozinho três vezes
+depois da varredura e passou nas três**; Unova não foi tocada nesta rodada. O bloco novo **T162 em
+3/3**; **T11 3/3** contra a build `cf6786b2ae` (worktree em `/private/tmp/claude-501/t11-antiga`).
+**SAVE COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B, **2.054 layouts e 2.400 mapas**, os 2.400
+declarados dentro da ROM, 2.192 ids de treinador conferidos e os 38 chefes de Galar da Fase F
+conferidos um a um; `guarda_colisao_vars.py` com 23 colisões herdadas em vars e 5 em flags, **0 novas
+nos dois perfis** e 0 stub; `valida_conectividade` com **0 warps quebrados**; `valida_warp_tile
+--piso 60` em **5.915 de 6.875 (86,0%)**, nenhuma região abaixo do piso; `valida_mapas_sinnoh
+--so-sinnoh` com `'sprite': 0` e 0 mapas com problema; os nove `--demo` rodados, oito deles TOCADOS nesta rodada (`completude`,
+`bolas_neve_sinnoh`, `cenas_sinnoh_b3`, `porta_morta`, `texto_placas_sinnoh`, `importa_npcs_sinnoh`,
+`treinadores_galar`, `guarda_party`, `guarda_save`) verdes. ROM oficial
+`roms/pokemon-claude-2026-08-23c.gba` (md5 `1924d5cf6d7c38c2310d1445382e648f`), com o `.map` ao lado, e o MESMO binário em
+`roms/pokemon-claude-teste-2026-08-16.gba`.
+
+| região | mapas | objetos | warps | placas | script | arte | Dex |
+|---|---|---|---|---|---|---|---|
+| Kanto | 100% | 101,2% | 100% | 100% | -- | 52 (0) | 290 |
+| Johto | 100% | 100,8% | 100,1% | 100,4% | -- | 55 (0) | 305 |
+| Hoenn | 100% | 100,7% | 100,1% | 100% | -- | 39 (21) | 297 |
+| Sinnoh | 100% | **101,6%** | 103,7% | **103,4%** | -- | 39 (18) | 267 |
+| Unova | 100% | 102,3% | 100% | 100,2% | -- | 30,5 (1) | 315 |
+| Galar | 100% | 103,6% | 100% | 70,3% | 59,2% | 48 (32) | 0 |
+
+### O enredo de Sinnoh entra por flag RECALCULADA, e não por estado inicial
+
+`dev_scripts/cenas_sinnoh_b3.py` trouxe **30 objetos de cena** do Platinum para 18 mapas: 13 que
+estão sempre visíveis, 13 de polaridade **"aparece"** e 4 de polaridade **"some"**. Custo de save:
+**6 apelidos de flag e ZERO var**. O idioma é o que importa, e ele foi escolhido contra a alternativa
+óbvia: pôr `setflag` em `EventScript_ResetAllMapFlags` só roda em JOGO NOVO, e save antiga veria o
+ancião de Celestic plantado desde o primeiro dia. Aqui não há estado inicial nenhum para acertar,
+porque o `MAP_SCRIPT_ON_TRANSITION` de cada mapa **reescreve a flag toda vez que o mapa carrega**:
+acende sempre, e só apaga se o marco já caiu. Save velha e save nova se comportam igual, e nada
+entrou em `new_game.inc`.
+
+`dev_scripts/porta_morta.py` mediu mapa a mapa quem tem warp em cima de metatile de porta e achou
+**um só em Sinnoh**: a **caverna de Celestic**, onde o pouso do warp alcançava UM tile de 108
+andáveis, porque o primeiro passo ao norte pisava na porta e devolvia o jogador à cidade. A porta
+virou chão, o tile de pouso virou `MB_SOUTH_ARROW_WARP` (0x208, o metatile que 86 bocas de Sinnoh do
+mesmo par de tilesets já usam) e o warp desceu para (10,21). `texto_placas_sinnoh` liberou **39
+placas** (7 com texto do próprio banco do Platinum; 3 ficaram de fora por não haver tile de leitura),
+e o conserto de `teto_bg` no importador é o que deixou a coluna `placas` sair de 98,1% para 103,4%.
+**T161 em 7/7.**
+
+### O gelo: a bola de neve é BATENTE, e o teto real é o de SPRITE
+
+A primeira tentativa trouxe as bolas como bloco de Strength, e a medida derrubou a ideia: o chão do
+ginásio é `MB_ICE`, e em tile de gelo o motor entra em movimento forçado ANTES de chegar em
+`TryPushBoulder`. Então elas entraram pelo que são: objeto sólido, sem script e sem flag, na
+coordenada da fonte. `desliza()` foi **calibrada contra o emulador com 197 sondas** lidas da EWRAM, e
+as duas regras que faltavam estão escritas no topo do arquivo. Das 19 bolas do Platinum, **11
+entraram e 8 ficaram de fora**: 7 pelo teto de sprite e 1 por acesso. **T115 7/7, T125 12/12 e T157
+11/11**, este último em duas passadas.
+
+### A ordem de rodar virou GUARDA, e a guarda foi provada na árvore de verdade
+
+A 0.r deixou escrito que `treinadores_galar.py --aplicar` APAGA a Fase F se rodado sozinho, e que
+isso era "disciplina de quem roda". Deixou de ser: `bloco_party` passou a **preservar o AI e os
+Pokémon dos 38 chefes** que moram dentro do bloco de Galar, e `dev_scripts/guarda_party.py`, chamado
+por `guarda_save.py`, reprova chefe cru. A prova não é só de laboratório: `--aplicar` foi rodado
+**na árvore real desta rodada, duas vezes**, e o `git diff` inteiro ficou com o MESMO md5
+(`f4a8c6ad0f211bc8c02b5ea5642c15de`) antes e depois, com `opponents.h` e `trainers.party` byte a
+byte iguais. Nada precisou de `git checkout`.
+
+### O corte honesto: a régua contava MAPA, e o que faltava era REGISTRO
+
+Ordem do Gui: "vamos completar Sinnoh" e "normalizar a porcentagem com base no que realmente vai
+ficar". `CORTES_DO_GUI` tinha dois modos, e os dois eram de MAPA: `mapa_fonte` tira o que a fonte tem
+e nós não, `deficit` zera o buraco de um mapa inteiro. Nenhum dos dois enxerga **um tipo de registro
+dentro de mapa que fica**, e era exatamente aí que Sinnoh sangrava. Nasceu o terceiro modo,
+**`objeto_fonte`**: regex contra o `graphics_id` de cada objeto da fonte, e quem casa sai do
+denominador da coluna `objetos` na região inteira.
+
+Os dois grupos, ambos datados de 23/08/2026 e impressos por `--detalhe Sinnoh`:
+
+| grupo | registros | motivo |
+|---|---|---|
+| Mobiliário sem mecânica | **63** (55 `VENT` em 14 mapas, 8 `BOLLARD` em 3) | desenho com colisão, sem fala, sem item e sem gatilho; este motor não tem objeto decorativo sólido, e NPC de pé em cima de respiro de calçada faz o mapa mentir |
+| Canteiros de berry | **90** `BERRY_SOIL` em 23 mapas | o canteiro é ESTADO, e o id da árvore mora na save; corte **com prazo**, cai na primeira janela de save aberta de propósito |
+
+**A trava que torna isso honesto, e ela é medida, não jurada:** o gráfico cortado tem que ter ZERO
+ocorrências nos NOSSOS `map.json` da região. Cortar do denominador o que nós usamos seria descontar
+de um lado e contar do outro, e a coluna subiria sem obra nenhuma. `confere_cortes` cobra isso, e o
+`--demo` tem a mutação plantada: cortar `OBJ_EVENT_GFX_ITEM_BALL`, que Sinnoh usa 167 vezes, reprova.
+
+O **"teto da fonte"** foi MEDIDO e NÃO virou corte, de propósito: mapa em que já pusemos tanto objeto
+quanto o Platinum tem déficit ZERO, então o registro dele já não pesa no denominador. A régua já o
+tratava; inventar um corte para ele seria maquiagem.
+
+Resultado: objetos de Sinnoh de **2.181 sobre 2.300 (94,8%)** para **2.181 sobre 2.147 (101,6%)**.
+O excedente acima de 100 é o mesmo fenômeno de `warps` e `placas`: NPC e cena nossos que a fonte não
+tem.
+
+### O que AINDA falta em Sinnoh, nomeado
+
+Depois do corte, **49 mapas ainda têm menos objeto que a fonte, 141 no total**, e `--detalhe Sinnoh`
+imprime a lista mapa a mapa. Atribuindo o buraco de cada mapa aos gráficos da fonte que ele não tem
+(heurística, e é declarada como tal), o retrato é: **71 obstáculos de HM** (34 `ROCK_SMASH`, 26
+`STRENGTH_BOULDER`, 11 `CUT_TREE`), quase todos recusados pelo portão de TRANCA ou de BOLSO, que é o
+portão provando que ninguém fica preso; **23 item balls**; **7 bolas de neve**, as recusadas por teto
+de sprite; **6 portas animadas** de Elite e do QG, que aqui são warp e não objeto; e **34 pessoas**,
+o balde de nome próprio sem sprite mais os 24 objetos de marco sem equivalente nesta ROM. Os piores
+mapas são `SinnohVictoryRoad2F` (14 de 32) e `RavagedPath` (13 de 31), os dois de pedra quebrável.
+
+### Lições
+
+1. **O teto real de objeto por sala não é o do mapa, é o de SPRITE.** `gObjectEvents` tem 16 vagas e
+   a 0 é do jogador, então sobram 15, e `TrySpawnObjectEvents` simplesmente NÃO acorda o resto quando
+   elas acabam: sem erro, sem aviso. Objeto que não acordou não é sólido, e bola de neve que não é
+   sólida não para escorregão nenhum. O ginásio de Snowpoint é a janela mais apertada de Sinnoh (20
+   objetos: 11 bolas e 9 corpos, com câmera que enxerga as 15 vagas cheias), e o `--demo` agora liga
+   o `VAGAS_DE_SPRITE` ao `OBJECT_EVENTS_COUNT` lido do `.h`: quem mexer no motor quebra ali.
+2. **Os tiles 192 e 193 PARAM o deslize, e bloqueiam também a SAÍDA.** `MetatileBehavior_IsIce_2` só
+   aceita `MB_ICE`, e `IsMetatileDirectionallyImpassable` olha o tile de ORIGEM e o de DESTINO. Sem a
+   primeira regra são 12 divergências em 161 medidas; sem a segunda, 6.
+3. **Porta de beco: warp em cima de metatile de porta come o primeiro passo.** O mapa fica alcançável
+   pelo validador estático e intransitável no jogo. A busca vale a pena e é barata: `porta_morta.py`
+   varreu Sinnoh inteira e achou um único caso.
+4. **Censo que não reconhece o próprio trabalho mente para baixo.** Os "166 objetos de enredo" que a
+   0.r listava eram 169, dos quais **12 já estavam no mapa**, 97 moravam em mapa já no teto da fonte
+   e 122 eram mobiliário. Régua e fila envelhecem juntas, e remedir custa minutos.
+
+### O que fica aberto
+
+- **9 divergências residuais** do simulador de gelo contra o motor (o deslize foi encerrado a 7
+  tiles, não fechado) e as **8 bolas** que ficaram de fora, 7 delas por teto de sprite: subir isso
+  pede reduzir corpo no salão, não calibrar melhor.
+- **141 objetos em 49 mapas de Sinnoh**, no retrato da seção acima, mais os **24 objetos de marco sem
+  equivalente nesta ROM**, que só andam com a máquina de cenas de Sinnoh avançando.
+- **Os 90 canteiros de berry** voltam ao denominador na primeira janela de save aberta de propósito,
+  e quem a abrir sobe `SAVE_LAYOUT_REVISION` junto.
+- **8 das 10 constantes `OBJ_EVENT_GFX_SINNOH_*` sem uso** continuam sem uso (BUCK, CHARON, CHERYL,
+  CRASHER_WAKE, LOOKER, MARS, MAYLENE, PALMER); a leva b3 gastou BYRON e RILEY, uma vez cada.
+- **Galar** com 70 estáticos dos 1.088, 25 placas, 514 NPCs mudos por motivo e `fila_galar.json` em
+  1.198 de 3.195; **T143.9 continua instável**; a **pergunta 18** (sprites dos 26) segue sem resposta;
+  e **gens 6, 7 e 9** seguem paradas por escopo, com o julgamento em `fontes-mapas/PLANO-GENS-6-9.md`.
+- **FECHADO nesta rodada**, e a 0.r o listava aqui: `treinadores_galar.py --aplicar` não apaga mais a
+  Fase F. Virou guarda, não disciplina, e a prova foi rodada na árvore de verdade.
+
+### A próxima rodada é CAÇA A BUGS, antes de o Gui jogar
+
+As seis regiões estão em cem por cento ou acima nas colunas que a régua mede, e a régua agora só
+conta o que vai ficar. O que ela **não** mede é jogo travando, cena abrindo duas vezes, texto
+cortado, NPC que fala pela pessoa errada, warp que leva ao lugar certo pelo lado errado. A rodada 12
+é de **caça a bugs**, com a ROM na mão, antes do playtest do Gui: procurar defeito, não porcentagem.
 
 ---
 

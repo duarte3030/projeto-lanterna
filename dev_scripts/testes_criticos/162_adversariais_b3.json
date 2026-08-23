@@ -1,0 +1,43 @@
+[
+ {
+  "id": "T162.1",
+  "nome": "ADVERSARIAL 1, PAR NEGATIVO: o NPC de cena NAO ESTA antes do marco, e o arco e OUTRO. O T161 provou a polaridade 'aparece' na caverna de Celestic, com FLAG_GALACTICA_CELESTIC; este par troca de arco de proposito, para a prova nao depender de um unico MAP_SCRIPT_ON_TRANSITION escrito a mao. Aqui o mapa e GrandLakeValorLakefrontEastHouse, a casa da margem leste do Lago Valor, e o marco e FLAG_SINNOH_LAGO_VALOR_ESVAZIADO, que quer dizer 'a Galactica secou o lago'. A Beauty de (5,3) so entra depois disso. Rota: entrando pelo warp 1, em (4,8), UP saturante sobe a coluna 4 e para em (4,2), porque a fileira 1 e parede de x0 a x7; dois toques de RIGHT (o primeiro vira o corpo, o segundo anda) levam a (5,2); DOWN saturante desce a coluna 5. COM o marco apagado nao ha ninguem na frente e o escorregao de passo vai ate (5,8), a fileira do warp. O par positivo e o T162.2, e a diferenca entre os dois e de SEIS tiles.",
+  "opcoes": 32,
+  "warp": "MAP_GRAND_LAKE_VALOR_LAKEFRONT_EAST_HOUSE",
+  "warp_id": 1,
+  "roteiro": "150:NADA,16:UP*12,40:NADA,16:RIGHT*2,40:NADA,16:DOWN*12,120:NADA",
+  "prova": {
+   "mapa": "MAP_GRAND_LAKE_VALOR_LAKEFRONT_EAST_HOUSE",
+   "pos": [5, 8],
+   "flags_apagadas": ["FLAG_SINNOH_LAGO_VALOR_ESVAZIADO"]
+  }
+ },
+ {
+  "id": "T162.2",
+  "nome": "ADVERSARIAL 1, PAR POSITIVO E COM SAVE NO MEIO: o mesmo mapa, a mesma rota, e a unica diferenca e FLAG_SINNOH_LAGO_VALOR_ESVAZIADO acesa na entrada. A Beauty aparece em (5,3), o DOWN da coluna 5 bate nela e o jogador para em (5,2), seis tiles acima do T162.1. Depois disso o caso faz o que nenhum caso do T161 fez neste arco: GRAVA pelo menu de START, SAI da casa para MAP_VALOR_LAKEFRONT, VOLTA pelo mesmo warp e REFAZ a rota inteira. E aqui que a decisao de idioma e cobrada: o corpo nao esta plantado por new_game.inc nem por nenhum estado inicial, ele existe porque o MAP_SCRIPT_ON_TRANSITION da casa RECALCULA FLAG_SINNOH_ESCONDE_GRAND_LAKE_VALOR_LAKEFRONT_EAST_HOUSE_BEAUTY a cada carga de mapa (acende sempre, so apaga se o marco ja caiu). Se a recalculada morresse na gravacao ou na troca de mapa, a segunda passada terminaria em (5,8) como o T162.1 e este caso ficaria vermelho. prova.sav_gravada cobra um slot inteiro escrito, senao a flash virgem passaria verde com a save que nunca aconteceu.",
+  "opcoes": 32,
+  "flags": ["FLAG_SINNOH_LAGO_VALOR_ESVAZIADO"],
+  "warp": "MAP_GRAND_LAKE_VALOR_LAKEFRONT_EAST_HOUSE",
+  "warp_id": 1,
+  "roteiro": "150:NADA,16:UP*12,40:NADA,16:RIGHT*2,40:NADA,16:DOWN*12,120:NADA,40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,180:NADA,WARP=MAP_VALOR_LAKEFRONT:2,300:NADA,WARP=MAP_GRAND_LAKE_VALOR_LAKEFRONT_EAST_HOUSE:1,300:NADA,150:NADA,16:UP*12,40:NADA,16:RIGHT*2,40:NADA,16:DOWN*12,120:NADA",
+  "sav": "/tmp/claude-501/fechador/t162-valor-leste.sav",
+  "apaga_sav": true,
+  "prova": {
+   "mapa": "MAP_GRAND_LAKE_VALOR_LAKEFRONT_EAST_HOUSE",
+   "pos": [5, 2],
+   "sav_gravada": true,
+   "flags_acesas": ["FLAG_SINNOH_LAGO_VALOR_ESVAZIADO"]
+  }
+ },
+ {
+  "id": "T162.3",
+  "nome": "ADVERSARIAL 2: a caverna de Celestic com a porta consertada e uma BOCA DE MAO DUPLA, e nao so uma entrada. O T161.5 provou a ida (o pouso deixou de pisar na porta e devolver o jogador a cidade). Ele nao provou a VOLTA, e a volta e onde este tipo de conserto costuma morrer: o warp desceu de (10,20) para (10,21) e o tile de pouso virou MB_SOUTH_ARROW_WARP, o metatile 0x208 que 86 bocas de Sinnoh do mesmo par de tilesets ja usam. Seta de sul dispara quando se ANDA PARA O SUL em cima dela, e se o conserto tivesse escolhido a seta errada (norte, leste, oeste) a entrada continuaria funcionando e a saida ficaria morta, sem erro de build nenhum. Este caso entra, ANDA 28 TILES PARA DENTRO pela rota ja provada do T161.5 (9 subindo a coluna 10, 6 pela fileira 12, 7 subindo a coluna 4, 2 pela fileira 5, 2 subindo a coluna 6, 2 pela fileira 3, parando encostado no Cyrus em (8,3)) e volta pelo caminho inverso: LEFT ate (6,3), DOWN ate (6,5), LEFT ate (4,5), DOWN ate (4,12), RIGHT contado ate (10,12) e DOWN pela coluna 10 ate pisar na seta de (10,21). A prova e o MAPA e nao a posicao: quem termina em MAP_CELESTIC_TOWN saiu de verdade; quem ficar em MAP_CELESTIC_TOWN_CAVE ficou preso la dentro.",
+  "opcoes": 32,
+  "warp": "MAP_CELESTIC_TOWN_CAVE",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:UP*20,40:NADA,16:LEFT*14,40:NADA,16:UP*14,40:NADA,16:RIGHT*6,40:NADA,16:UP*6,40:NADA,16:RIGHT*9,120:NADA,16:LEFT*10,40:NADA,16:DOWN*8,40:NADA,16:LEFT*8,40:NADA,16:DOWN*20,40:NADA,16:RIGHT*7,40:NADA,16:DOWN*20,180:NADA",
+  "prova": {
+   "mapa": "MAP_CELESTIC_TOWN"
+  }
+ }
+]
