@@ -165,6 +165,22 @@
       "origem_chave": "g42m14/objeto/16"
     },
     {
+      "local_id": "LOCALID_GALAR_ESTATICO_G42M14_O5",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DURALUDON)",
+      "x": 3,
+      "y": 23,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalarEstatico_G42M14_O5",
+      "flag": "FLAG_GALAR_ESTATICO_G42M14_O5",
+      "origem": "estaticos_galar",
+      "origem_chave": "g42m14/objeto/5"
+    },
+    {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(PALOSSAND)",
       "x": 11,
       "y": 6,
@@ -178,6 +194,22 @@
       "flag": "0",
       "origem": "estaticos_galar",
       "origem_chave": "g42m14/objeto/6"
+    },
+    {
+      "local_id": "LOCALID_GALAR_ESTATICO_G42M14_O7",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ODDISH)",
+      "x": 19,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalarEstatico_G42M14_O7",
+      "flag": "FLAG_GALAR_ESTATICO_G42M14_O7",
+      "origem": "estaticos_galar",
+      "origem_chave": "g42m14/objeto/7"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(TRAPINCH)",

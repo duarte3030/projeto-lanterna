@@ -610,13 +610,28 @@ def vars_livres():
 
 
 def flags_livres_de_galar(bloco_atual):
-    """Faixa de Galar ainda livre, tirando o que este próprio bloco já apelidou."""
+    """Faixa de Galar ainda livre, tirando o que este próprio bloco já apelidou.
+
+    CONSERTO DE 22/08/2026 (rodada 9): a varredura casava QUALQUER ocorrência de
+    `FLAG_UNUSED_0xNNNN`, e a maior parte delas é a PRÓPRIA DEFINIÇÃO
+    (`#define FLAG_UNUSED_0x1C80 ...`). Com isso a faixa inteira lia como tomada
+    e o pool vinha VAZIO; enquanto nenhuma cena pedia flag de esconder ninguém
+    percebeu, e na primeira que pediu o gerador parou com "0 livres na faixa de
+    Galar". Tomada agora é só a flag que tem APELIDO de outro dono, que é o mesmo
+    critério do `estaticos_galar.flags_realmente_livres`. A faixa é
+    COMPARTILHADA com o bloco c4b do `objetos_galar.py`, e é por isso que os dois
+    lados têm de enxergar o apelido do outro: quem roda depois pula o que o
+    primeiro já pegou.
+    """
     texto = sem_bloco(open(FLAGS_H).read(), MARCA_FLAG_INI, MARCA_FLAG_FIM)
-    tomadas = {int(m, 16) for m in re.findall(r"FLAG_UNUSED_0x([0-9A-Fa-f]{4})",
-                                              texto)}
+    tomadas = {int(m, 16) for m in re.findall(
+        r"#define\s+(?!FLAG_UNUSED)\w+\s+\(?\s*FLAG_UNUSED_0x([0-9A-Fa-f]{3,4})\b",
+        texto)}
+    definidas = {int(m, 16) for m in re.findall(
+        r"#define\s+FLAG_UNUSED_0x([0-9A-Fa-f]{3,4})\b", texto)}
     del bloco_atual
     return [f for f in range(PRIMEIRA_FLAG_CENA, ULTIMA_FLAG_CENA + 1)
-            if f not in tomadas]
+            if f in definidas and f not in tomadas]
 
 
 def sem_bloco(texto, ini, fim):

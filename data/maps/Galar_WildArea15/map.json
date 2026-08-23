@@ -161,6 +161,37 @@
       "flag": "0",
       "origem": "estaticos_galar",
       "origem_chave": "g42m08/objeto/19"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SHAYMIN)",
+      "x": 2,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalarSelvagem_SHAYMIN_L40",
+      "flag": "0",
+      "origem": "estaticos_galar",
+      "origem_chave": "g42m08/objeto/3"
+    },
+    {
+      "local_id": "LOCALID_GALAR_ESTATICO_G42M08_O5",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(KLANG)",
+      "x": 24,
+      "y": 24,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalarEstatico_G42M08_O5",
+      "flag": "FLAG_GALAR_ESTATICO_G42M08_O5",
+      "origem": "estaticos_galar",
+      "origem_chave": "g42m08/objeto/5"
     }
   ],
   "warp_events": [

@@ -178,6 +178,38 @@ GalarCena_G06M27_t3_x_b3::
 
 @ ---- Galar_WildArea09 (g08m24) ----
 
+@ ---- Galar_Hammerlocke05 (g09m11) ----
+GalarCena_G09M11_t2_v0::
+	msgbox GalarCena_G09M11_t2_v0_Text0, MSGBOX_AUTOCLOSE
+	msgbox GalarCena_G09M11_t2_v0_Text1, MSGBOX_AUTOCLOSE
+	setvar VAR_GALAR_G09M11_CENA, 1
+	applymovement 3, GalarCena_G09M11_t2_v0_Mov0
+	applymovement 2, GalarCena_G09M11_t2_v0_Mov1
+	waitmovement 0
+	msgbox GalarCena_G09M11_t2_v0_Text2, MSGBOX_AUTOCLOSE
+	@ DECISAO cenas_galar.py: removeobject so vale a sessao de mapa; a flag e a que a FONTE pendurou neste objeto, o que se acrescenta e o momento de acende-la
+	setflag FLAG_GALAR_ESCONDE_G09M11_230
+	removeobject 3
+	@ DECISAO cenas_galar.py: removeobject so vale a sessao de mapa; a flag e a que a FONTE pendurou neste objeto, o que se acrescenta e o momento de acende-la
+	setflag FLAG_GALAR_ESCONDE_G09M11_230
+	removeobject 2
+	fadescreen 0
+	end
+
+GalarCena_G09M11_t2_v0_Text0:
+	.string "Rose:O estádio de Hammerlocke\nfunciona como uma usina de energia.\pAgora,dê uma olhada no meu tablet.$"
+GalarCena_G09M11_t2_v0_Text1:
+	.string "Eu tenho todas as informacoes que\pvocê precisa vê.\pRose:Vejo?Uma descricäo fácil de\nentender da usina de energia!Primeiro,\pa energia é absorvida na torre do\nestádio de Hammerlocke.Em seguida,\pé transformada em eletricidade na\nusina subterranea e entregue as\ppessoas de toda a regiäo de Galar!\nNossas vidas e a sociedade exigem\pvários tipos de fontes de energia,\ncomo eletricidade,gás natural,Meus\pgrupos associados visam melhorar\na vida de todos, aproveitando o$"
+GalarCena_G09M11_t2_v0_Mov0:
+	.byte MOVEMENT_ACTION_FACE_RIGHT
+	.byte MOVEMENT_ACTION_EMOTE_EXCLAMATION_MARK
+	.byte MOVEMENT_ACTION_STEP_END
+GalarCena_G09M11_t2_v0_Mov1:
+	.byte MOVEMENT_ACTION_EMOTE_EXCLAMATION_MARK
+	.byte MOVEMENT_ACTION_STEP_END
+GalarCena_G09M11_t2_v0_Text2:
+	.string "rose:hora de eu comecar a trabalhar.\nEu devo me mexer logo antes que\pOleana decida me dar mais avisos,\n{PLAYER},sugiro que você vá para o\pcofre em seguida.Apenas siga em\ndirecäo   Rota 6 do estádio e você\pencontrará o cofre sem problemas!$"
+
 @ ---- Galar_Wedgehurst10 (g21m01) ----
 GalarCena_G21M01_t4_v1::
 	compare VAR_0x8007, 0

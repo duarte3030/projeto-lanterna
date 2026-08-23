@@ -661,3 +661,16 @@ gSpecials::
 	def_special CheckAerodactyl
 	def_special CheckKabuto
 	def_special CheckOmanyte
+
+@ >>> Galar, conserto de motor: Quest Log e Help System do FireRed (rodada 9) >>>
+@ Corpo em src/field_specials.c, e a semantica e NULA de proposito: este motor
+@ nao tem Quest Log nem Help System, e o demake de Galar chama os dois o tempo
+@ todo. Registrar o NOME aqui e o que faz o tradutor de Galar parar de recusar a
+@ cena inteira por um comando que nao muda nada observavel.
+	def_special GetQuestLogState
+	def_special QuestLog_CutRecording
+	def_special HelpSystem_Enable
+	def_special HelpSystem_Disable
+	def_special SetUsedPkmnCenterQuestLogEvent
+	def_special NullFieldSpecial
+@ <<< Galar, conserto de motor: Quest Log e Help System do FireRed <<<

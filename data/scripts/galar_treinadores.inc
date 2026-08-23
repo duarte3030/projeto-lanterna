@@ -740,6 +740,16 @@ GalarTrn_G03M06_o9_Derrota:
 	.string "Minha estratégia vai direto ao buraco \nquando tenho todos esses pensamentos\lruins passando pela minha cabeça. $"
 
 @ ---- Galar_Hulbury06 ----
+GalarTrn_G08M07_o17::
+	trainerbattle_single TRAINER_GALAR_WANDA_686, GalarTrn_G08M07_o17_Intro, GalarTrn_G08M07_o17_Derrota
+	end
+
+GalarTrn_G08M07_o17_Intro:
+	.string "{COLOR LIGHT_RED}Ei, está uma chatice isso aqui.\pQue tal uma batalha para\ndescontrair?$"
+
+GalarTrn_G08M07_o17_Derrota:
+	.string "{COLOR LIGHT_RED}É hora de voltar ao trabalho.$"
+
 GalarTrn_G08M07_o39::
 	lock
 	faceplayer
@@ -2722,6 +2732,24 @@ GalarTrn_G39M05_o12_Fim:
 
 GalarTrn_G39M05_o12_Derrota:
 	.string "Você ganhou!$"
+
+@ ---- Galar_TurffieldIndoor54 ----
+GalarTrn_G39M06_o12::
+	lock
+	faceplayer
+	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_HOP_733, GalarTrn_G39M06_o12_Fim
+	trainerbattle_earlyrival TRAINER_GALAR_HOP_733, 0, GalarTrn_G39M06_o12_Derrota, GalarTrn_G39M06_o12_Vitoria
+	end
+
+GalarTrn_G39M06_o12_Fim:
+	release
+	end
+
+GalarTrn_G39M06_o12_Derrota:
+	.string "Ugh! Estripado! Você está sempre\num passo a frente de mim, cara!$"
+
+GalarTrn_G39M06_o12_Vitoria:
+	.string "Mesmo as páginas que detalham\nminhas derrotas iräo adicionar a\lhist ria da minha lenda\lbrilhante!\pMas näo pretendo perder para você\nde novo!\pComo seu rival, prometo que\nvencerei da proxima vez!\pagora,{PLAYER},va para o hall da\nfama o leon vai te acompanhar!$"
 
 @ ---- Galar_TurffieldIndoor55 ----
 GalarTrn_G39M07_o12::

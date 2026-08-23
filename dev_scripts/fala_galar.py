@@ -352,24 +352,68 @@ def tabela_de_map_script(rom, off, maxi=16):
     return fora
 
 
+# Marcador 0xFD (placeholder) que ATRAVESSA sem buffer, porque quem o preenche e
+# o motor e nao o script: `{PLAYER}` e o nome do jogador e `{RIVAL}` o do rival, e
+# os dois bytes sao IDENTICOS no charmap do FireRed e no nosso (FD 01 e FD 06,
+# conferido nos dois arquivos em 22/08/2026). Os outros (`{STR_VAR_1}` a
+# `{STR_VAR_3}`, FD 02 a FD 04) continuam RECUSANDO a frase, e de proposito: quem
+# os enche e `buffer*`, comando de estado, e sem ele a frase sai com um buraco.
+PLACEHOLDER_SEM_BUFFER = {0x01: "{PLAYER}", 0x06: "{RIVAL}"}
+# Codigo de controle 0xFC. `COLOR` (FC 01, com um byte de cor) e o unico que
+# aparece nas frases de Galar, 312 vezes, e ele ATRAVESSA pelo nome, nao e
+# descartado: o nosso charmap tem `COLOR` no MESMO byte (FC 01) e os mesmos
+# nomes de cor nos mesmos valores, entao `{COLOR DARK_GRAY}` assembla FC 01 02,
+# igual ao byte da fonte. Isso importa mais do que parece: o `--demo` daqui
+# confere a volta BYTE A BYTE contra a ROM da fonte, e codigo descartado nao
+# volta. Os valores medidos nas frases de Galar sao 2, 4, 5, 6 e 8. Qualquer
+# outro codigo 0xFC continua recusando a frase, porque o tamanho do argumento
+# dele nao esta medido aqui e adivinhar comeria letra.
+COR_DO_BYTE = {0x00: "TRANSPARENT", 0x01: "WHITE", 0x02: "DARK_GRAY",
+               0x03: "LIGHT_GRAY", 0x04: "RED", 0x05: "LIGHT_RED",
+               0x06: "GREEN", 0x07: "LIGHT_GREEN", 0x08: "BLUE",
+               0x09: "LIGHT_BLUE"}
+
+
 def texto(rom, cmap, off, limite=1000):
     """(texto decodificado, motivo de recusa ou None)."""
     saida = []
-    for i in range(limite):
+    i = 0
+    while i < limite:
         if off + i >= len(rom):
             return "", "texto sem fim"
         b = rom[off + i]
         if b == 0xFF:
             return "".join(saida), None
-        if b in (0xFC, 0xFD):
-            return "", "texto com marcador 0x%02X (buffer/controle)" % b
+        if b == 0xFD:
+            if off + i + 1 >= len(rom):
+                return "", "texto sem fim"
+            arg = rom[off + i + 1]
+            nome = PLACEHOLDER_SEM_BUFFER.get(arg)
+            if nome is None:
+                return "", ("texto com marcador 0xFD %02X (buffer/controle)"
+                            % arg)
+            saida.append(nome)
+            i += 2
+            continue
+        if b == 0xFC:
+            if off + i + 2 >= len(rom):
+                return "", "texto sem fim"
+            arg, cor = rom[off + i + 1], rom[off + i + 2]
+            if arg != 0x01 or cor not in COR_DO_BYTE:
+                return "", ("texto com marcador 0xFC %02X (buffer/controle)"
+                            % arg)
+            saida.append("{COLOR %s}" % COR_DO_BYTE[cor])
+            i += 3
+            continue
         if b in CONTROLE:
             saida.append(CONTROLE[b])
+            i += 1
             continue
         c = cmap.get(b)
         if c is None:
             return "", "byte 0x%02X fora do charmap" % b
         saida.append(c)
+        i += 1
     return "", "texto sem fim"
 
 
@@ -722,10 +766,26 @@ def aplica(falas, placas, bolas, gravar):
             doc["object_events"][i]["script"] = l["rotulo"]
             mudou["fala"] += 1
         # bg de placa: append no fim, depois dos itens escondidos do G4.
+        #
+        # DEFEITO ACHADO EM 22/08/2026 (rodada 9), e ele era latente ate agora:
+        # a guarda era so pelo ROTULO, e por isso este bloco acrescentava um bg
+        # NOVO em cima de uma coordenada que outro balde ja tinha ocupado. Com o
+        # leitor de texto passando a decodificar `{PLAYER}`, cinco placas do
+        # `objetos_galar.py` (que roda DEPOIS deste, e tem precedencia) cairam
+        # exatamente nessas coordenadas e o `map.json` ficou com DOIS bg_events
+        # no mesmo tile; o `objetos_galar.aplica` entao recusava a colocacao com
+        # "2 bg events no mesmo tile" e a placa dele sumia. A guarda passou a ser
+        # pela COORDENADA, que e o que o motor enxerga: um tile, uma placa.
         ja = {b.get("script") for b in doc.get("bg_events", [])}
+        ocupado_bg = {(b.get("x"), b.get("y")) for b in doc.get("bg_events", [])}
         for l in sorted(d["placas"], key=lambda z: z["chave"]):
             if l["rotulo"] in ja:
                 continue
+            if (l["x"], l["y"]) in ocupado_bg:
+                recusa.append({"chave": l["chave"],
+                               "motivo": "ja ha bg em (%d,%d)" % (l["x"], l["y"])})
+                continue
+            ocupado_bg.add((l["x"], l["y"]))
             doc.setdefault("bg_events", []).append({
                 "type": "sign", "x": l["x"], "y": l["y"], "elevation": 0,
                 "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -801,10 +861,25 @@ def demo():
     for b, c in sorted(cmap.items()):
         inverso.setdefault(c, b)
     ctrl = {"\\n": 0xFE, "\\l": 0xFA, "\\p": 0xFB}
+    # As chaves que o `texto()` emite tambem tem de saber voltar, senao esta
+    # prova viraria "nenhuma frase com {PLAYER} passa" e o guarda mediria a si
+    # mesmo. Cada uma volta ao byte EXATO que o assembler geraria.
+    chaves = {"{PLAYER}": bytes([0xFD, 0x01]), "{RIVAL}": bytes([0xFD, 0x06])}
+    for b_cor, nome_cor in COR_DO_BYTE.items():
+        chaves["{COLOR %s}" % nome_cor] = bytes([0xFC, 0x01, b_cor])
     ruins = 0
     for l in falas + placas:
         bruto, i, saida = l["texto"], 0, []
         while i < len(bruto):
+            if bruto[i] == "{":
+                fim = bruto.find("}", i)
+                token = bruto[i:fim + 1] if fim > 0 else None
+                if token not in chaves:
+                    ruins += 1
+                    break
+                saida.extend(chaves[token])
+                i = fim + 1
+                continue
             if bruto[i] == "\\" and bruto[i:i + 2] in ctrl:
                 saida.append(ctrl[bruto[i:i + 2]])
                 i += 2

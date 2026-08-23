@@ -1324,32 +1324,38 @@ FILA_DE_CONTEUDO = [
                 "(`escala + portao de alcance`), para que a diferença entre "
                 "identidade e escala nunca vire invisível"),
     dict(regiao="sinnoh", id="sinnoh:objetos:o_que_sobra_depois_do_100",
-         mapa_destino="Sinnoh inteira", tipo="portavel", tamanho=449,
+         mapa_destino="Sinnoh inteira", tipo="portavel", tamanho=250,
          status="pendente",
-         bloqueio="não é ferramenta e não é régua: é DECISÃO e ARTE, e cada "
-                  "balde tem número. Medido em 22/08/2026 com Sinnoh em "
-                  "100% de mapas, 86,8% de objetos e 98,1% de placas: (a) 128 "
-                  "objetos são NOME PRÓPRIO sem sprite aqui (Cynthia, Cyrus, "
-                  "os oito líderes, os lendários), e trocar por genérico faz "
-                  "o mapa mentir, que é a decisão do Gui de 05/08; (b) ~100 "
-                  "têm `hidden_flag` do Platinum que não existe nesta ROM, e "
-                  "trazê-los sem a cena que apaga a flag planta bloqueio "
-                  "permanente (decisão 2 do importador); (c) 115 bolas de "
-                  "item e 59 obstáculos foram RECUSADOS por tile, ou seja a "
-                  "coordenada da fonte não cai em nada alcançável nem a 3 "
-                  "tiles; (d) 90 canteiros de berry (`BERRY_SOIL`) seriam "
-                  "árvore de berry, e id de árvore de berry MORA NA SAVE, "
-                  "então isso é obra de janela de save e não desta; (e) 55 "
-                  "VENT e 8 BOLLARD são cenário sem mecânica nativa. "
-                  "Nenhum deles é trabalho de ferramenta parado",
-         motivo="CRITÉRIO DE ACEITE por balde, e nesta ordem de prêmio: (b) "
-                  "abrir uma faixa de FLAG_HIDE de Sinnoh e trazer a cena que "
-                  "apaga cada uma, junto com o objeto (é o maior e o mais "
-                  "arriscado); (c) medir mapa a mapa se a coordenada recusada "
-                  "é erro da escala ou lugar que a nossa planta não tem, como "
-                  "as 25 pedras de RavagedPath; (a) desenhar sprite, que é "
-                  "arte e não conversão; (d) só depois de uma janela de save "
-                  "aberta de propósito"),
+         bloqueio="REMEDIDO em 23/08/2026, depois da rodada que levou `objetos` "
+                  "de Sinnoh de 87,0% para 95,9%. Os três baldes que ERAM "
+                  "trabalho de ferramenta foram feitos e saíram daqui: (b) "
+                  "hidden_flag, (c) obstáculo recusado por tile e o leito dos "
+                  "lagos. O que sobra tem 250 objetos em 69 mapas, e nenhum é "
+                  "ferramenta parada: (a) 38 são NOME PRÓPRIO HUMANO sem "
+                  "sprite aqui, em 22 nomes (Cynthia 6, Cyrus 4, Looker 4, "
+                  "Byron/Saturn/Fantina/Riley/Flint 2 cada, mais 14 com 1), e "
+                  "trocar por genérico faz o mapa mentir, decisão do Gui de "
+                  "05/08; os 64 que eram ESPÉCIE DE POKÉMON saíram deste balde "
+                  "em 22/08, porque `OBJ_EVENT_GFX_SPECIES` existe desde a "
+                  "entrada de Galar; (d) 56 são canteiro de berry "
+                  "(`BERRY_SOIL`) em 14 mapas, 4 por mapa, e id de árvore de "
+                  "berry MORA NA SAVE, então é obra de janela; (e) 44 são VENT "
+                  "e BOLLARD em 12 mapas, cenário sem mecânica nativa; (f) 19 "
+                  "SNOWBALL do ginásio de Snowpoint e 5 aparelho de ROTOM são "
+                  "puzzle de gen 4 sem motor aqui; o resto é `hidden_flag` de "
+                  "enredo que esta ROM não tem (166 objetos, dos quais 33 já "
+                  "têm cena NOSSA com dono, e pôr um segundo corpo faria a "
+                  "cena revelar dois) mais obstáculo recusado por TRANCA ou "
+                  "BOLSO, que é o portão provando que ninguém fica preso",
+         motivo="CRITÉRIO DE ACEITE por balde, e nesta ordem de prêmio: (a) "
+                  "desenhar os 22 sprites humanos, que é ARTE e não conversão, "
+                  "e é o maior balde executável que sobrou; (d) só depois de "
+                  "uma janela de save aberta de propósito; (e) e (f) pedem "
+                  "mecânica nova (cenário decorativo com colisão, empurrão de "
+                  "bola de neve sem Strength, troca de forma do Rotom), "
+                  "portanto DECISÃO do Gui antes de qualquer código. O balde "
+                  "de enredo só anda com a máquina de cenas de Sinnoh "
+                  "avançando, e ela é obra de história, não de importador"),
     dict(regiao="johto", id="johto:gyarados:passeio_2x2",
          mapa_destino="LakeOfRage", tipo="portavel", tamanho=1,
          status="pendente",
@@ -1621,34 +1627,37 @@ FILA_DE_CONTEUDO = [
                 "reaproveitada para trabalho novo, ela primeiro puxa a "
                 "árvore principal"),
 dict(regiao="sinnoh", id="sinnoh:lagos_low_water:boca_ilhada",
-         mapa_destino="LakeVerityLowWater, LakeAcuityLowWater",
-         tipo="mapa", tamanho=2, status="pendente",
-         bloqueio="não é conserto de corredor, é conversão do leito do lago",
-         motivo="MEDIDO em 22/08/2026, no fechamento da rodada 7, e a medida "
-                "derruba o conserto barato que tinha sido cogitado. Nos dois "
-                "mapas o jogador chega pela boca da caverna e alcança UM tile: "
-                "ele mesmo. A causa é ELEVAÇÃO, não colisão. O warp de "
-                "LakeVerityLowWater fica em (39,47) e o de LakeAcuityLowWater "
-                "em (20,43), os dois no metatile 0x207 do gTileset_CaveSinnoh, "
-                "que é MB_SOUTH_ARROW_WARP (comportamento 101), colisão 0 e "
-                "ELEVAÇÃO 3; a mancha de 800 tiles que os cerca tem 799 na "
-                "ELEVAÇÃO 1, que é água (metatile 0x0A1 do "
-                "gTileset_GeneralSinnoh, MB_POND_WATER). IsElevationMismatchAt "
-                "(src/event_object_movement.c:10014) barra 3 contra 1, então "
-                "cada passo a pé é recusado. Não é trava dura: a seta do warp "
-                "devolve o jogador ao lakefront apertando para o sul, e quem "
-                "tem Surf entra na água normalmente. O que falta é o mapa: no "
-                "Platinum o lago está DRENADO e o leito é chão, e a nossa "
-                "conversão manteve a água. Os 163 tiles de chão de verdade "
-                "(elevação 3) do LakeVerityLowWater e os 218 do "
-                "LakeAcuityLowWater moram em ilhas separadas por parede, e "
-                "todos são o metatile 0x201, o preto puro do enchimento de "
-                "caverna: ligar a boca a eles com corredor entregaria uma "
-                "passagem para o vazio, não para o leito. CRITÉRIO DE ACEITE: "
-                "converter o leito (baixar os 799 tiles de água para chão "
-                "andável com desenho de leito, elevação 3), e só então medir a "
-                "conectividade. Enquanto isso não existir, corredor aqui é "
-                "remendo que esconde o defeito de conversão"),
+         mapa_destino="LakeVerityLowWater, LakeAcuityLowWater, LakeValorDrained",
+         tipo="mapa", tamanho=3, status="feita",
+         bloqueio="nenhum",
+         motivo="FEITA em 22/08/2026 por `dev_scripts/lagos_sinnoh.py`, e o "
+                "critério de aceite escrito aqui foi cumprido ao pé da letra: "
+                "converter o leito e SÓ ENTÃO medir a conectividade. A causa "
+                "não era o mapa da fonte, era a REGRA de conversão: "
+                "`converte_cavernas_sinnoh.traduz` foi escrita para caverna de "
+                "pedra e tem duas linhas que mentem num lago drenado, as duas "
+                "conferidas na grade antes de mexer: `0x00 sem colisão` vira "
+                "ROCHA (no LAKE_VALOR_DRAINED são 718 tiles de "
+                "TILE_BEHAVIOR_NONE que ali são o LEITO), e PUDDLE (0x16) e "
+                "SHALLOW_WATER (0x17) viram água de elevação 1 (no Platinum os "
+                "dois são ANDÁVEIS: são 213 tiles no Verity, e são o caminho "
+                "da boca para o leito). O gerador novo traduz pela régua do "
+                "lago e move cada warp para a coordenada da FONTE, casando por "
+                "DESTINO e não por índice (o warp 1 do Valor vai para a "
+                "ValorCavern, e a boca de índice 1 da fonte é a segunda porta "
+                "do lakefront: casar por ordem trocaria as duas de lugar). "
+                "MEDIDO depois de escrever, com a BFS de elevação: alcançável "
+                "a pé saindo do warp, LakeVerityLowWater 1 -> 126, "
+                "LakeAcuityLowWater 1 -> 42, LakeValorDrained 3 -> 662. Com "
+                "isso os 30 objetos do leito do Valor entraram e o mapa saiu "
+                "de 4/30 para 30/30. ARMADILHA REGISTRADA: "
+                "`arte_cavernas_sinnoh.py` lê a linha de base do "
+                "`git show HEAD:`, então enquanto a geometria nova não estiver "
+                "commitada ele DESFAZ a conversão (medido: 867 tiles voltavam "
+                "à colisão antiga e o alcance do Valor caía de 662 para 2). "
+                "Os três lagos saíram da lista ALVOS dele nesta rodada e "
+                "voltam na rodada seguinte ao commit; até lá contam como mapa "
+                "pobre na coluna `arte`, o que é verdade e não maquiagem"),
 ]
 
 

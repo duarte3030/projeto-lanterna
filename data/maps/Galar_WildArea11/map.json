@@ -112,6 +112,22 @@
       "flag": "FLAG_BOLA_GALAR_G42M04_04"
     },
     {
+      "local_id": "LOCALID_GALAR_ESTATICO_G42M04_O10",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(PORYGON2)",
+      "x": 19,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalarEstatico_G42M04_O10",
+      "flag": "FLAG_GALAR_ESTATICO_G42M04_O10",
+      "origem": "estaticos_galar",
+      "origem_chave": "g42m04/objeto/10"
+    },
+    {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ROCKRUFF)",
       "x": 15,
       "y": 32,
@@ -380,6 +396,22 @@
       "flag": "0",
       "origem": "estaticos_galar",
       "origem_chave": "g42m04/objeto/8"
+    },
+    {
+      "local_id": "LOCALID_GALAR_ESTATICO_G42M04_O9",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ELECTRIKE)",
+      "x": 24,
+      "y": 32,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalarEstatico_G42M04_O9",
+      "flag": "FLAG_GALAR_ESTATICO_G42M04_O9",
+      "origem": "estaticos_galar",
+      "origem_chave": "g42m04/objeto/9"
     }
   ],
   "warp_events": [

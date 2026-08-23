@@ -176,6 +176,16 @@ GalarFala_G00M07_o18_Text:
 	.string "Este Corviknight näo está pronto\npara voar!$"
 
 @ ---- Galar_Hulbury01 (g00m08) ----
+GalarFala_G00M08_o0::
+	lock
+	faceplayer
+	msgbox GalarFala_G00M08_o0_Text, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarFala_G00M08_o0_Text:
+	.string "Oi {PLAYER}, você veio tambem?!\pque tal batalhamos depois de comer$"
+
 GalarFala_G00M08_o2::
 	lock
 	faceplayer
@@ -256,6 +266,46 @@ GalarFala_G00M10_o6::
 
 GalarFala_G00M10_o6_Text:
 	.string "Lucas costumava ser o lider\nde ginásio, mas se mudou há\lalgun sanos.\lSeus Pokémon säo täo dificeis!$"
+
+@ ---- Galar_CrownTundraIndoor01 (g00m16) ----
+GalarFala_G00M16_bg0::
+	msgbox GalarFala_G00M16_bg0_Text, MSGBOX_SIGN
+	end
+
+GalarFala_G00M16_bg0_Text:
+	.string "{PLAYER}:Nada de interessante aqui!$"
+
+GalarFala_G00M16_bg1::
+	msgbox GalarFala_G00M16_bg1_Text, MSGBOX_SIGN
+	end
+
+GalarFala_G00M16_bg1_Text:
+	.string "{PLAYER}: O que é isso? A HONRA\nMONTANHA DO REI: o pokémon cavalo\lque se uniu ao rei como um só e\lem uma única noite eles criaram\luma floresta, esse pokémon já foi\lselvagem, roubava as colheitas\ldas pessoas, mas o rei domou,\lsobre sua aparência alguns dizem\lque ele era branco como a neve, e\loutros dizem que ele era escuro\lcomo a noite, ninguém sabe ao\lcerto quem está certo.$"
+
+GalarFala_G00M16_bg2::
+	msgbox GalarFala_G00M16_bg2_Text, MSGBOX_SIGN
+	end
+
+GalarFala_G00M16_bg2_Text:
+	.string "{PLAYER}: O que é isso? GUIA DE\nSEMENTES: tem algumas sementes\lbem curiosas na coroa tundra, se\las cenouras crescerem debaixo da\lneve elas viram Cenouras da Neve\le se crescerem perto dos\lcemitérios Viram Cenouras\lNegras,pokemon Tipo gelo adoram\lCenouras da Neve e os tipo\lfantasmas adoram as Cenouras\lNegras , de acordo com as lendas\lantigas a montaria do rei adora\las duas cenouras ou uma delas ou\la outra, as historias se\lcontradizem muitos relatos de uma\lmontaria branca que gostava de\lCenouras da Neve e outras\lhistorias de uma montaria preta\lque gostava de Cenouras Negras.$"
+
+GalarFala_G00M16_bg3::
+	msgbox GalarFala_G00M16_bg3_Text, MSGBOX_SIGN
+	end
+
+GalarFala_G00M16_bg3_Text:
+	.string "{PLAYER}:Nada de interessante aqui!$"
+
+@ ---- Galar_DynamaxAdventure02 (g00m17) ----
+GalarFala_G00M17_o6::
+	lock
+	faceplayer
+	msgbox GalarFala_G00M17_o6_Text, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarFala_G00M17_o6_Text:
+	.string "Hop: {PLAYER}, aquela Wooloo sumiu.\nAcho que ela quebrou a cerca!!\pAcho…\nque devemos ir atrás dela …$"
 
 @ ---- Galar_SlumberingWeald01 (g01m00) ----
 GalarFala_G01M00_o3::
@@ -431,6 +481,16 @@ GalarFala_G01M94_o0::
 
 GalarFala_G01M94_o0_Text:
 	.string "...$"
+
+GalarFala_G01M94_o2::
+	lock
+	faceplayer
+	msgbox GalarFala_G01M94_o2_Text, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarFala_G01M94_o2_Text:
+	.string "Hop: Ei {PLAYER}, olha quem eu achei\naqui!$"
 
 GalarFala_G01M94_o3::
 	lock
@@ -673,6 +733,26 @@ GalarFala_G03M06_o2::
 	end
 
 @ ---- Galar_Wyndon01 (g03m09) ----
+GalarFala_G03M09_o10::
+	lock
+	faceplayer
+	msgbox GalarFala_G03M09_o10_Text, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarFala_G03M09_o10_Text:
+	.string "Va logo {PLAYER}!!!$"
+
+GalarFala_G03M09_o12::
+	lock
+	faceplayer
+	msgbox GalarFala_G03M09_o12_Text, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarFala_G03M09_o12_Text:
+	.string "Va logo {PLAYER}!!!$"
+
 GalarFala_G03M09_o13::
 	lock
 	faceplayer
@@ -835,6 +915,16 @@ GalarFala_G03M42_o3::
 GalarFala_G03M42_o3_Text:
 	.string "Gostei muito desse local,acho que\nvou até morar aqui$"
 
+GalarFala_G03M42_o4::
+	lock
+	faceplayer
+	msgbox GalarFala_G03M42_o4_Text, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarFala_G03M42_o4_Text:
+	.string "Você por acaso é o {PLAYER}?Ouvir\ndizer que você foi endoçado pelo\lcampeao$"
+
 @ ---- Galar_Route0102 (g04m06) ----
 GalarFala_G04M06_bg0::
 	msgbox GalarFala_G04M06_bg0_Text, MSGBOX_SIGN
@@ -876,6 +966,17 @@ GalarFala_G04M06_o24::
 
 GalarFala_G04M06_o24_Text:
 	.string "O Leon voltou!$"
+
+@ ---- Galar_SlumberingWeald03 (g04m11) ----
+GalarFala_G04M11_o6::
+	lock
+	faceplayer
+	msgbox GalarFala_G04M11_o6_Text, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarFala_G04M11_o6_Text:
+	.string "Hop:Dê uma olhada nisso, {PLAYER}!\nIsso é algo que você näo vê todos\los dias ...\pEste lugar definitivamente parece\nsair de uma lenda.$"
 
 @ ---- Galar_SlumberingWeald04 (g04m12) ----
 GalarFala_G04M12_o2::
@@ -1153,6 +1254,26 @@ GalarFala_G06M10_o9_Text:
 	.string "Você é um treinador pokemon?\nJa se escreveu na liga pokemon?$"
 
 @ ---- Galar_Motostoke06 (g06m12) ----
+GalarFala_G06M12_o0::
+	lock
+	faceplayer
+	msgbox GalarFala_G06M12_o0_Text, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarFala_G06M12_o0_Text:
+	.string "Melhor você ir se resgistrar\n {PLAYER}$"
+
+GalarFala_G06M12_o1::
+	lock
+	faceplayer
+	msgbox GalarFala_G06M12_o1_Text, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarFala_G06M12_o1_Text:
+	.string "faCa o nosso chek-in {PLAYER}$"
+
 GalarFala_G06M12_o3::
 	lock
 	faceplayer
@@ -1192,6 +1313,17 @@ GalarFala_G06M12_o6::
 
 GalarFala_G06M12_o6_Text:
 	.string "Que lugar chique!$"
+
+@ ---- Galar_Wedgehurst09 (g06m13) ----
+GalarFala_G06M13_o1::
+	lock
+	faceplayer
+	msgbox GalarFala_G06M13_o1_Text, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarFala_G06M13_o1_Text:
+	.string "Hop: Vamos, {PLAYER}! A cerimônia é \nagora!$"
 
 @ ---- Galar_Motostoke07 (g06m14) ----
 GalarFala_G06M14_o11::
@@ -1810,6 +1942,54 @@ GalarFala_G08M06_o0::
 	end
 
 @ ---- Galar_Hulbury06 (g08m07) ----
+GalarFala_G08M07_o11::
+	lock
+	faceplayer
+	msgbox GalarFala_G08M07_o11_Text, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarFala_G08M07_o11_Text:
+	.string " {COLOR DARK_GRAY}Me dê licença, o presidente Rose\nestá neste restaurante\pEu estou tentando fazer uma\nmatéria sobre isso.$"
+
+GalarFala_G08M07_o13::
+	lock
+	faceplayer
+	msgbox GalarFala_G08M07_o13_Text, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarFala_G08M07_o13_Text:
+	.string " {COLOR DARK_GRAY}É sempre bom passear com seus\nPokémons.\pA cada {COLOR RED}128 passos{COLOR DARK_GRAY}, eles\nficam cada vez mais felizes.$"
+
+GalarFala_G08M07_o14::
+	lock
+	faceplayer
+	msgbox GalarFala_G08M07_o14_Text, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarFala_G08M07_o14_Text:
+	.string " {COLOR LIGHT_RED}Sério que você usa seus Pokémon\nem combate?\pEu nunca faria isso com meu\nZigzagoon, ele é um bebê.$"
+
+GalarFala_G08M07_o18::
+	lock
+	faceplayer
+	msgbox GalarFala_G08M07_o18_Text, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarFala_G08M07_o18_Text:
+	.string " {COLOR DARK_GRAY}Juro pela luz que me ilumina que\nvi um {COLOR BLUE}eevee{COLOR DARK_GRAY}, nadando até o\lhorizonte.\po Bolt tentou pular atrás dele mas\neu segurei.$"
+
+GalarFala_G08M07_o3::
+	msgbox GalarFala_G08M07_o3_Text, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarFala_G08M07_o3_Text:
+	.string "{COLOR DARK_GRAY}Parece que hoje o mar näo está\npara peixe...$"
+
 GalarFala_G08M07_o9::
 	lock
 	faceplayer
@@ -2148,6 +2328,16 @@ GalarFala_G09M10_o16::
 
 GalarFala_G09M10_o16_Text:
 	.string "Haammelock é uma cidade incrivel!$"
+
+GalarFala_G09M10_o17::
+	lock
+	faceplayer
+	msgbox GalarFala_G09M10_o17_Text, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarFala_G09M10_o17_Text:
+	.string "Ol {PLAYER},Viu a Sonia?$"
 
 GalarFala_G09M10_o9::
 	lock
@@ -2773,6 +2963,16 @@ GalarFala_G12M10_o17::
 GalarFala_G12M10_o17_Text:
 	.string "Ja reparou que a cidade é\nsimetrica?$"
 
+GalarFala_G12M10_o20::
+	lock
+	faceplayer
+	msgbox GalarFala_G12M10_o20_Text, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarFala_G12M10_o20_Text:
+	.string "Hop: Olha {PLAYER}, esse é o\nbanho dos herois!$"
+
 GalarFala_G12M10_o3::
 	lock
 	faceplayer
@@ -2977,6 +3177,16 @@ GalarFala_G13M00_o6::
 GalarFala_G13M00_o6_Text:
 	.string "Meu lugar favorito para estar é\nHulbury.\pAmo sentar na beira da água.$"
 
+GalarFala_G13M00_o7::
+	lock
+	faceplayer
+	msgbox GalarFala_G13M00_o7_Text, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarFala_G13M00_o7_Text:
+	.string "Hop: olha ,{PLAYER}, quem esta aqui!$"
+
 @ ---- Galar_Spikemuth01 (g13m02) ----
 GalarFala_G13M02_o0::
 	lock
@@ -3041,6 +3251,16 @@ GalarFala_G13M10_o10::
 
 GalarFala_G13M10_o10_Text:
 	.string "Gosto de usar movimentos que\ncausam paralisia.$"
+
+GalarFala_G13M10_o12::
+	lock
+	faceplayer
+	msgbox GalarFala_G13M10_o12_Text, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarFala_G13M10_o12_Text:
+	.string "{COLOR DARK_GRAY}Seja Bem-vindo ao {COLOR RED}Rose of the\n Rondelands.$"
 
 GalarFala_G13M10_o4::
 	lock
@@ -3416,6 +3636,14 @@ GalarFala_G14M11_o31::
 GalarFala_G14M11_o32::
 	finditem ITEM_ULTRA_BALL
 	end
+
+@ ---- Galar_Route0803 (g20m00) ----
+GalarFala_G20M00_bg0::
+	msgbox GalarFala_G20M00_bg0_Text, MSGBOX_SIGN
+	end
+
+GalarFala_G20M00_bg0_Text:
+	.string "{COLOR RED}XX.YY.ZZZZ\n{COLOR GREEN}HH.DD\p{COLOR BLUE}Querido Diário, eu näo aguento\nmais...\pNäo sei há quanto tempo isso\nacontece, dias? Meses? Anos?\pMinha vida näo tem paz há muito\ntempo. Passo dias e dias em claro\ltendo visoes, vivendo com medo...\pNäo como há um tempo...\pNäo me lembro da última vez que\nbebi água...\pE toda vez que durmo, tenho os\nmesmos pesadelos, e cada vez\lpiores, cada vez mais longos...\pNäo sei mais o que fazer...\pNäo sei quanto tempo vou aguentar\nou se vou superar isso...\pOh, Arceus, me ajude...$"
 
 @ ---- Galar_StowOnSide11 (g21m00) ----
 GalarFala_G21M00_o1::

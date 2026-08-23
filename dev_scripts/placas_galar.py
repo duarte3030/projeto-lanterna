@@ -68,6 +68,30 @@ def rotulo(chave):
                                    "bg" if tipo == "bg" else "o", int(i))
 
 
+def bg_de_outro_balde():
+    """{(mapa, x, y): rotulo} dos bg que um balde de PRECEDENCIA MAIOR ja pos.
+
+    CONSERTO DE 22/08/2026 (rodada 9), e o defeito era CIRCULAR: o corte era
+    `l["status"] == "feita"`, e o status vem da FILA, que marca "feita" a linha
+    cujo rotulo esta gravado -- inclusive quando quem gravou foi ESTE bloco. Com
+    a limpeza de rotulo orfao entrando nesta rodada, o par virou um moedor: a
+    fila dizia "feita", o plano pulava a linha, e o `aplica` apagava o bg dela
+    por nao estar mais na lista de vivos. Trinta e duas placas sumiram do mapa
+    numa passada e a coluna `placas` da regua caiu de 70,3% para 54,5%. Agora
+    quem decide e o MAPA de hoje, e so o dono de precedencia maior barra:
+    `GalarTrn_`, `GalarObj_` e `GalarFala_` (a ordem esta no cabecalho).
+    """
+    import glob
+    fora = {}
+    for caminho in glob.glob(f"{RAIZ}/data/maps/Galar_*/map.json"):
+        nome = os.path.basename(os.path.dirname(caminho))
+        for b in json.load(open(caminho)).get("bg_events") or []:
+            s = str(b.get("script") or "")
+            if s.startswith(ANTES):
+                fora[(nome, b.get("x"), b.get("y"))] = s
+    return fora
+
+
 def plano(incluir_feitas=False):
     """(aceitas, recusa). So placa do balde c com texto de verdade.
 
@@ -79,11 +103,13 @@ def plano(incluir_feitas=False):
     """
     rom, tab, cmap, fila = FALA.carrega()
     linhas = FALA.varre(rom, tab, cmap, fila)
+    ocupados = bg_de_outro_balde()
     aceitas, recusa = [], collections.Counter()
     for l in sorted(linhas, key=lambda z: z["chave"]):
         if l["tipo"] != "placa" or l["balde"] != "c_var_cena":
             continue
-        if l["status"] == "feita" and not incluir_feitas:
+        dono = ocupados.get((l["mapa"], l["x"], l["y"]))
+        if dono and not incluir_feitas:
             recusa["placa que outro balde ja colocou"] += 1
             continue
         p = l.get("ponteiro_fonte")
@@ -137,6 +163,31 @@ def aplica(aceitas, gravar):
     por_mapa = collections.defaultdict(list)
     for l in aceitas:
         por_mapa[l["mapa"]].append(l)
+
+    # LIMPEZA ANTES DE ESCREVER, em TODOS os mapas de Galar (licao LEVA_DONA, a
+    # mesma que o `objetos_galar.aplica` ja fazia). Este passo NASCEU DE UM LINK
+    # VERMELHO em 22/08/2026: quando o `fala_galar` passou a decodificar
+    # `{PLAYER}`, 33 placas deste bloco mudaram de dono e sairam do `.inc`, mas o
+    # `bg_event` delas continuou no `map.json` apontando para um rotulo que nao
+    # existe mais. Gerador que so escreve e nunca apaga mente na segunda rodada, e
+    # aqui a mentira so aparecia no LINK, longe daqui.
+    import glob
+    vivos = {l["rotulo"] for l in aceitas}
+    for caminho in sorted(glob.glob("%s/data/maps/Galar_*/map.json" % RAIZ)):
+        doc = json.load(open(caminho))
+        bgs = doc.get("bg_events") or []
+        sobrou = [b for b in bgs
+                  if not (str(b.get("script", "")).startswith("GalarPlaca_")
+                          and b["script"] not in vivos)]
+        if len(sobrou) != len(bgs):
+            doc["bg_events"] = sobrou
+            mudou["rotulo_orfao"] += len(bgs) - len(sobrou)
+            mudou["mapa"] += 1
+            if gravar:
+                with open(caminho, "w") as f:
+                    json.dump(doc, f, indent=2, ensure_ascii=False)
+                    f.write("\n")
+
     for mapa, lista in sorted(por_mapa.items()):
         caminho = "%s/data/maps/%s/map.json" % (RAIZ, mapa)
         if not os.path.exists(caminho):

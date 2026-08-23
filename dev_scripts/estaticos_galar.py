@@ -137,10 +137,32 @@ MARCA_FLAG_INI = ("// >>> Fase de conteudo de Galar, bloco c5: encontros estatic
 MARCA_FLAG_FIM = "// <<< Fase de conteudo de Galar, bloco c5 <<<"
 
 # Faixa propria, longe da do c4b (0x1C80-0x1CFE) para uma leva nova de la nao
-# encostar aqui. 0x1D0A-0x2025 e a segunda maior faixa contigua livre medida por
-# `flags_livres.py` em 22/08/2026 (796 flags).
+# encostar aqui.
+#
+# ARMADILHA CONSERTADA EM 22/08/2026 (rodada 9), e ela estava a um passo de
+# morder: a faixa dizia 0x1D0A-0x2025 "livre", mas 0x1D0E a 0x1D26 JA TEM DONO
+# (Jasmine do farol, os interruptores de Goldenrod e irmas). O teste de "livre"
+# era so `"FLAG_UNUSED_0x%04X" in flags.h`, e apelidar NAO apaga o
+# `#define FLAG_UNUSED_...`, entao flag com dono continuava lendo como livre. Com
+# 4 flags gastas o bloco parou antes de encostar; pedir 200 teria escrito por
+# cima de Johto CALADO. Agora quem decide e `flags_realmente_livres`, que so
+# aceita a flag sem NENHUM apelido (o nosso proprio bloco nao conta, porque ele e
+# reescrito inteiro a cada rodada).
 PRIMEIRA_FLAG = 0x1D0A
-ULTIMA_FLAG = 0x1D49
+ULTIMA_FLAG = 0x2025
+
+
+def flags_realmente_livres(primeira=PRIMEIRA_FLAG, ultima=ULTIMA_FLAG):
+    """Enderecos da faixa que existem como FLAG_UNUSED e nao tem apelido."""
+    texto = open(FLAGS_H).read()
+    com_dono = set()
+    for nome, end in re.findall(
+            r"#define\s+(?!FLAG_UNUSED)(\w+)\s+\(?\s*FLAG_UNUSED_0x"
+            r"([0-9A-Fa-f]{3,4})\b", texto):
+        if not nome.startswith("FLAG_GALAR_ESTATICO_"):
+            com_dono.add(int(end, 16))
+    return [f for f in range(primeira, ultima + 1)
+            if ("#define FLAG_UNUSED_0x%04X" % f) in texto and f not in com_dono]
 
 TETO_OBJETOS = 64          # OBJECT_EVENT_TEMPLATES_COUNT
 JANELA_SPRITE = (20, 17)   # TrySpawnObjectEvents, com MAP_OFFSET 7
@@ -313,6 +335,29 @@ def lotacao(pontos):
 
 
 # ---------------------------------------------------------------- leitura ---
+RAIO_REPOSICIONA = 3
+
+
+def _perto(p, W, H, raio):
+    """Tiles ate `raio` de distancia de Chebyshev, do mais perto ao mais longe.
+
+    A ordem e FIXA (distancia de Manhattan, depois dy, depois dx) para o gerador
+    devolver sempre o mesmo mapa na segunda rodada; qualquer ordem de conjunto
+    aqui viraria diff novo a cada `--aplicar`.
+    """
+    for d in range(1, raio + 1):
+        anel = []
+        for dy in range(-d, d + 1):
+            for dx in range(-d, d + 1):
+                if max(abs(dx), abs(dy)) != d:
+                    continue
+                x, y = p[0] + dx, p[1] + dy
+                if 0 <= x < W and 0 <= y < H:
+                    anel.append((abs(dx) + abs(dy), dy, dx, x, y))
+        for _m, _dy, _dx, x, y in sorted(anel):
+            yield (x, y)
+
+
 def _elevacoes():
     """{(chave da fonte, indice do objeto): elevacao da fonte}."""
     import gente_galar
@@ -324,13 +369,169 @@ def _elevacoes():
     return fora
 
 
-def _encontros(rom, tab, linhas):
-    """[(linha, especie_id, nivel, item_id)] das linhas com `setwildbattle`.
+def especies_lendarias():
+    """Nomes SPECIES_* que este motor marca como lendario, sublendario ou mitico.
+
+    Sai de `src/data/pokemon/species_info/*.h`, que e a fonte da verdade do
+    motor; nao existe lista de lendario em constante nenhuma, e escrever uma a
+    mao aqui envelheceria calada a cada especie nova.
+    """
+    import glob
+    pat = re.compile(r"\[(SPECIES_[A-Z0-9_]+)\]\s*=\s*\{")
+    fora = set()
+    for caminho in sorted(glob.glob(
+            f"{RAIZ}/src/data/pokemon/species_info/*.h")):
+        texto = open(caminho).read()
+        ms = list(pat.finditer(texto))
+        for i, m in enumerate(ms):
+            fim = ms[i + 1].start() if i + 1 < len(ms) else len(texto)
+            if re.search(r"\.(isRestrictedLegendary|isSubLegendary|isMythical)"
+                         r"\s*=\s*TRUE", texto[m.start():fim]):
+                fora.add(m.group(1))
+    return fora
+
+
+# REGRA DA MESA DE RAIDE, escrita antes de rodar e determinista de ponta a ponta
+# (decisao do condutor, 22/08/2026, REVISADA no mesmo dia: a primeira versao era
+# "vence o maior nivel, desempate pelo maior id" e amontoava os 166 antros em 12
+# especies, 48 delas Mr. Rime, porque o maior id da mesa e quase sempre o mesmo).
+#
+# Na fonte, o antro sorteia ate 59 especies com `random`. Aqui ele vira UM
+# encontro fixo, escolhido assim, nesta ordem:
+#
+#   1. LENDARIO/MITICO manda, mas UMA VEZ SO. Se a mesa tem lendario, ganha o
+#      maximo de (nivel, id da fonte) entre os lendarios dela; e se aquele
+#      lendario JA ficou com outro antro, este cai na regra 2. Um lendario, um
+#      antro: e o que separa "lendario" de "bicho comum de rota".
+#   2. ROTACAO: `indice_do_antro % tamanho_da_mesa` sobre as especies distintas
+#      da mesa, ordenadas pelo id da fonte. O indice e a POSICAO do antro na
+#      ordem da fila (chave da fonte), que e estavel entre rodadas.
+#   3. VIZINHANCA: se a especie sorteada pela rotacao ja esta em outro antro a
+#      MENOS DE 3 MAPAS de distancia no grafo de warps e conexoes (ou seja
+#      distancia 0, 1 ou 2), a rotacao anda uma casa e tenta a seguinte, ate dar
+#      a volta. Se a mesa inteira estiver "vizinha", fica a da rotacao pura: a
+#      regra afasta repeticao quando HA alternativa, nunca recusa o antro.
+#
+# Tudo depende so da fonte e da ordem da chave, entao duas rodadas dao o mesmo
+# mapa; o `--demo` cobra isso, mais "um lendario por antro" e o piso de especies
+# distintas.
+RAIO_VIZINHANCA = 2          # "menos de 3 mapas" = distancia 0, 1 ou 2
+PISO_ESPECIES_MESA = 60      # piso pedido pelo condutor para os antros
+
+
+def grafo_de_mapas():
+    """{mapa: {vizinhos}} de Galar, por warp e por conexao, nao dirigido."""
+    import glob
+    porid = {}
+    bruto = {}
+    for caminho in sorted(glob.glob(f"{RAIZ}/data/maps/Galar_*/map.json")):
+        nome = os.path.basename(os.path.dirname(caminho))
+        d = json.load(open(caminho))
+        porid[d["id"]] = nome
+        bruto[nome] = ([w.get("dest_map") for w in d.get("warp_events") or []]
+                       + [c.get("map") for c in d.get("connections") or []])
+    g = collections.defaultdict(set)
+    for nome, destinos in bruto.items():
+        g[nome]
+        for dst in destinos:
+            viz = porid.get(dst)
+            if viz and viz != nome:
+                g[nome].add(viz)
+                g[viz].add(nome)
+    return g
+
+
+def vizinhanca(g, origem, raio=RAIO_VIZINHANCA):
+    """Mapas a ate `raio` passos de `origem`, incluindo ela."""
+    vistos, borda = {origem}, {origem}
+    for _ in range(raio):
+        nova = set()
+        for m in borda:
+            nova |= g.get(m, set()) - vistos
+        vistos |= nova
+        borda = nova
+        if not borda:
+            break
+    return vistos
+
+
+def resolve_mesas(mesas, especies, lendarias, grafo):
+    """{chave: (especie_fonte, nivel, item)} para as mesas, pela regra acima.
+
+    `mesas` e [(linha, [(especie, nivel, item), ...])] na ORDEM DA FILA. Chave
+    que nao tem nenhuma especie com nome aqui simplesmente nao aparece na saida.
+    """
+    escolhido, usada_perto = {}, collections.defaultdict(set)
+    lendario_tomado = set()
+    for i, (l, tabela) in enumerate(mesas):
+        cand = []
+        vistos = set()
+        for sp, lv, it in tabela:
+            if sp in vistos:
+                continue
+            vistos.add(sp)
+            nome = especies.get(sp, (None, ""))[0]
+            if nome is not None:
+                cand.append((sp, lv, it, nome))
+        if not cand:
+            continue
+        cand.sort(key=lambda z: z[0])
+        perto = vizinhanca(grafo, l["mapa"])
+        proibidas = set()
+        for m in perto:
+            proibidas |= usada_perto[m]
+        # A rotacao NAO pega lendario: lendario so entra pela regra 1, e assim
+        # "um lendario, um antro" vale sem excecao. Sem esta linha um antro cuja
+        # rotacao caisse num lendario ja tomado o repetiria, e foi o que a
+        # primeira medicao mostrou (17 antros para 16 lendarios distintos).
+        proibidas |= {c[3] for c in cand if c[3] in lendarias}
+
+        lend = [c for c in cand
+                if c[3] in lendarias and c[3] not in lendario_tomado]
+        if lend:
+            alvo = max(lend, key=lambda z: (z[1], z[0]))
+            lendario_tomado.add(alvo[3])
+        else:
+            # Rotacao em dois degraus. O primeiro respeita as duas restricoes
+            # (vizinhanca e "lendario so pela regra 1"); o segundo abre mao da
+            # VIZINHANCA, que e a restricao mole, e nunca do lendario, que e a
+            # dura. Se nem assim houver candidato (mesa 100% lendaria e o
+            # lendario ja tomado), fica a rotacao pura, e ai o antro repete de
+            # propria falta de alternativa, nao por descuido.
+            n = len(cand)
+            alvo = cand[i % n]
+            so_lendarias = {c[3] for c in cand if c[3] in lendarias}
+            for veto in (proibidas, so_lendarias):
+                achou = None
+                for k in range(n):
+                    tentativa = cand[(i + k) % n]
+                    if tentativa[3] not in veto:
+                        achou = tentativa
+                        break
+                if achou is not None:
+                    alvo = achou
+                    break
+        escolhido[l["chave"]] = (alvo[0], alvo[1], alvo[2])
+        usada_perto[l["mapa"]].add(alvo[3])
+    return escolhido
+
+
+def _encontros(rom, tab, linhas, especies, lendarias, grafo=None):
+    """[(linha, especie_id, nivel, item_id, mesa)] das linhas com `setwildbattle`.
+
+    `mesa` e True quando a linha era uma MESA DE RAIDE (varias especies sorteadas
+    pelo script da fonte) e o vencedor saiu pela `resolve_mesas`. Mesa entra
+    sempre como encontro UNICO: ela nao renasce, e some com flag propria.
+
+    As mesas sao resolvidas em BLOCO e nao uma a uma, porque a regra de rotacao
+    precisa do indice do antro na fila e a de vizinhanca precisa do que os antros
+    anteriores ja pegaram.
 
     Recusa por dentro fica em `motivos`, e nao vira silencio.
     """
     fora, motivos = [], collections.Counter()
-    for l in linhas:
+    simples, mesas = [], []
+    for l in sorted(linhas, key=lambda z: z["chave"]):
         if l["tipo"] != "script_objeto" or not l.get("ponteiro_fonte"):
             continue
         if l["no_mapa"]:
@@ -343,10 +544,18 @@ def _encontros(rom, tab, linhas):
         if not swb:
             continue
         if len({a[0] for a in swb}) != 1:
-            motivos["sorteio de %d especies no script (mesa de raide)"
-                    % len({a[0] for a in swb})] += 1
+            mesas.append((l, [(a[0], a[1], a[2]) for a in swb]))
+        else:
+            simples.append((l, swb[0][0], swb[0][1], swb[0][2], False))
+    escolhido = resolve_mesas(mesas, especies, lendarias,
+                              grafo if grafo is not None else grafo_de_mapas())
+    for l, _tabela in mesas:
+        alvo = escolhido.get(l["chave"])
+        if alvo is None:
+            motivos["mesa de raide sem nenhuma especie com nome aqui"] += 1
             continue
-        fora.append((l, swb[0][0], swb[0][1], swb[0][2]))
+        fora.append((l,) + alvo + (True,))
+    fora.extend(simples)
     return fora, motivos
 
 
@@ -379,12 +588,14 @@ def plano():
     itens_fonte = FALA._gente().itens_da_fonte()
     itens_nossos = FALA._gente().nossos_itens()
 
-    brutos, recusa = _encontros(rom, tab, linhas)
+    lendarias = especies_lendarias()
+    brutos, recusa = _encontros(rom, tab, linhas, especies, lendarias)
     unicos = _unicos(rom, tab, [l for l, *_ in brutos], flag_do_objeto)
+    unicos |= {l["chave"] for l, _sp, _lv, _it, mesa in brutos if mesa}
 
     # Primeira peneira: especie e mapa. Depois vem a geometria, mapa a mapa.
     por_mapa = collections.defaultdict(list)
-    for l, sp, lv, it in sorted(brutos, key=lambda z: z[0]["chave"]):
+    for l, sp, lv, it, _mesa in sorted(brutos, key=lambda z: z[0]["chave"]):
         alvo, motivo = especies.get(sp, (None, "id %d fora da tabela de nomes "
                                                "da fonte" % sp))
         if alvo is None:
@@ -423,19 +634,76 @@ def plano():
         warps = {(w["x"], w["y"]) for w in d.get("warp_events", [])}
         alc = LS.alcance(W, H, g, sementes(d, W, H, g), bloq=ocupado)
         postos = []
+
+        def onde_doi(q, cobra_alcance=True):
+            """O motivo pelo qual o tile `q` nao serve, ou None se serve."""
+            if not (0 <= q[0] < W and 0 <= q[1] < H):
+                return "tile fora do mapa"
+            if not LS.anda(g[q[1]][q[0]]):
+                return "tile nao andavel no nosso map.bin"
+            if q in warps:
+                return "tile de warp: trancaria a porta"
+            if q in ocupado:
+                return "tile ja ocupado por objeto nosso"
+            if cobra_alcance and q not in alc:
+                return "tile inalcancavel (BFS de colisao e elevacao)"
+            return None
+
+        def semente_e_que_esta_pobre(p):
+            """True quando o PEDACO DE MAPA em volta do objeto e MAIOR do que
+            tudo que as nossas sementes alcancam.
+
+            Medido em 22/08/2026, e e o que separa bolso de verdade de defeito de
+            semente: `Galar_Postwick111` tem 170 tiles andaveis e o unico warp
+            dele aponta para ELE MESMO, em cima de parede, entao a BFS comeca sem
+            semente nenhuma e alcanca ZERO; `Galar_WildArea01` tem 2.137 andaveis
+            e o warp cai num tile de elevacao 3 cercado de elevacao 1, e alcanca
+            UM. Nesses o teste de alcance nao esta medindo o mapa, esta medindo a
+            nossa lista de warps (o G3 filtrou warp sujo, e mapa de antro no
+            demake se entra por `warp` de SCRIPT, que nao aparece em
+            `warp_events`). Comparar os dois tamanhos dispensa numero magico: se o
+            mundo do objeto e maior que o mundo das sementes, quem esta errado e a
+            semente. Onde a BFS alcanca a maior parte do mapa (Route0901 com
+            4.250 de 5.705) a comparacao continua REPROVANDO, que e o que se quer.
+            """
+            perto = [q for q in [p] + list(_perto(p, W, H, RAIO_REPOSICIONA))
+                     if 0 <= q[0] < W and 0 <= q[1] < H and LS.anda(g[q[1]][q[0]])]
+            if not perto:
+                return False
+            return len(LS.alcance(W, H, g, perto, bloq=ocupado)) > len(alc)
+
         for c in por_mapa[nome]:
             p = (c["x"], c["y"])
-            if not (0 <= p[0] < W and 0 <= p[1] < H):
-                recusa["tile fora do mapa"] += 1
-            elif not LS.anda(g[p[1]][p[0]]):
-                recusa["tile nao andavel no nosso map.bin"] += 1
-            elif p in warps:
-                recusa["tile de warp: trancaria a porta"] += 1
-            elif p in ocupado:
-                recusa["tile ja ocupado por objeto nosso"] += 1
-            elif p not in alc:
-                recusa["tile inalcancavel (BFS de colisao e elevacao)"] += 1
-            elif len(fixos) + len(postos) + 1 > TETO_OBJETOS:
+            dor = onde_doi(p)
+            cobra = True
+            if dor is not None and semente_e_que_esta_pobre(p):
+                cobra = False
+                c["semente_pobre"] = True
+                dor = onde_doi(p, cobra_alcance=False)
+            if dor is not None:
+                # REPOSICIONAMENTO A <= RAIO_REPOSICIONA, e ele NAO e um chute
+                # para salvar numero. O `map.bin` de Galar e copia BYTE A BYTE do
+                # blockdata da fonte (`mundo_galar.escreve_layouts`), medido em
+                # 22/08/2026 em 437 dos 438 mapas, entao colisao e elevacao aqui
+                # sao as da fonte e "virou parede na conversao" NAO EXISTE: o
+                # objeto esta em cima de parede na fonte tambem, porque no demake
+                # o antro de raide e o desenho do buraco e o jogador fala com ele
+                # de lado. Mover para o tile andavel mais perto e o que devolve o
+                # encontro sem inventar geometria; passar de 3 tiles ja seria pOr
+                # o Pokemon em outro lugar do mapa, e ai sai com motivo.
+                for q in _perto(p, W, H, RAIO_REPOSICIONA):
+                    if onde_doi(q, cobra_alcance=cobra) is None:
+                        c["x"], c["y"] = q
+                        e = LS.elev(g[q[1]][q[0]])
+                        c["elevacao"] = 0 if e == 15 else e
+                        c["movido"] = dor
+                        p, dor = q, None
+                        break
+            if dor is not None:
+                recusa["%s, e nenhum tile bom a <= %d" % (dor,
+                                                          RAIO_REPOSICIONA)] += 1
+                continue
+            if len(fixos) + len(postos) + 1 > TETO_OBJETOS:
                 recusa["mapa no teto de %d objetos" % TETO_OBJETOS] += 1
             elif lotacao(fixos + postos + [p]) > TETO_SPRITE:
                 recusa["janela de sprite cheia (%d templates em 20x17)"
@@ -444,14 +712,12 @@ def plano():
                 postos.append(p)
                 ocupado.add(p)
                 aceitas.append(c)
-                continue
         del postos
 
     # Flag so para os unicos, e so para os que ENTRARAM, na ordem da chave da
     # fonte: endereco nao se gasta por linha recusada e nao anda de lugar entre
     # rodadas.
-    livres = [f for f in range(PRIMEIRA_FLAG, ULTIMA_FLAG + 1)
-              if "FLAG_UNUSED_0x%04X" % f in open(FLAGS_H).read()]
+    livres = flags_realmente_livres()
     querem = [c for c in sorted(aceitas, key=lambda z: z["chave"]) if c["unico"]]
     if len(querem) > len(livres):
         raise SystemExit("PARE: %d flags de estatico unico pedidas e %d livres "
@@ -783,6 +1049,16 @@ def demo():
                  if o.get("origem") != MARCA]
         warps = {(w["x"], w["y"]) for w in d.get("warp_events", [])}
         alc = LS.alcance(W, H, g, sementes(d, W, H, g), bloq=set(fixos))
+        # Mapa onde as NOSSAS sementes acham menos mundo do que o proprio objeto
+        # tem em volta nao e mapa com bolso: e mapa cuja lista de warps o G3
+        # filtrou, ou mapa de antro em que se entra por `warp` de SCRIPT (ver
+        # `semente_e_que_esta_pobre` no `plano`). La o teste de alcance abstem-se,
+        # e aqui ele tem de abster-se pelo MESMO criterio, senao o autoteste
+        # reprova o que o gerador aceitou de proposito e vira ruido.
+        def _mundo_do_objeto(p):
+            perto = [q for q in [p] + list(_perto(p, W, H, RAIO_REPOSICIONA))
+                     if LS.anda(g[q[1]][q[0]])]
+            return LS.alcance(W, H, g, perto, bloq=set(fixos)) if perto else set()
         meus = [(c["x"], c["y"]) for c in cs]
         if len(set(meus)) != len(meus):
             falhas.append("%s: dois encontros no mesmo tile" % nome)
@@ -792,7 +1068,7 @@ def demo():
                               % (nome, p))
             if p in warps:
                 falhas.append("%s: encontro em cima de warp %r" % (nome, p))
-            if p not in alc:
+            if p not in alc and len(_mundo_do_objeto(p)) <= len(alc):
                 falhas.append("%s: encontro inalcancavel %r" % (nome, p))
         if len(fixos) + len(meus) > TETO_OBJETOS:
             falhas.append("%s: %d objetos, acima do teto %d"
@@ -891,9 +1167,10 @@ def demo():
     #    mapa nenhum, cada chave aceita aparece UMA vez, e nao existe objeto
     #    nosso com chave que a fonte nao tenha.
     import glob as _glob
-    _brutos, _ = _encontros(open(FALA.ROM_FONTE, "rb").read(),
-                            FALA.tabela_de_opcodes(),
-                            json.load(open(FALA.ROTEIROS))["linhas"])
+    _rom_demo = open(FALA.ROM_FONTE, "rb").read()
+    _brutos, _ = _encontros(_rom_demo, FALA.tabela_de_opcodes(),
+                            json.load(open(FALA.ROTEIROS))["linhas"],
+                            de_para_especie(_rom_demo), especies_lendarias())
     candidatas = {l["chave"] for l, *_ in _brutos}
     entraram = {c["chave"] for c in aceitas}
     recusadas = candidatas - entraram
@@ -919,6 +1196,53 @@ def demo():
           "estao gravadas uma vez cada" % (len(recusadas), len(candidatas),
                                            len(entraram)))
 
+    # 10. A REGRA DA MESA DE RAIDE (rodada 9). Ela e a unica parte deste gerador
+    #     que ESCOLHE conteudo em vez de copiar, entao e a unica que uma build
+    #     verde nao consegue julgar: trocar a regra muda o bicho na tela e mais
+    #     nada. Quatro cobrancas, e a ultima e mutacao plantada.
+    _rom_m = open(FALA.ROM_FONTE, "rb").read()
+    _tabm = FALA.tabela_de_opcodes()
+    _linm = json.load(open(FALA.ROTEIROS))["linhas"]
+    _esp, _lend = de_para_especie(_rom_m), especies_lendarias()
+    _grafo = grafo_de_mapas()
+    _mesas = []
+    for _l in sorted(_linm, key=lambda z: z["chave"]):
+        if _l["tipo"] != "script_objeto" or not _l.get("ponteiro_fonte"):
+            continue
+        if _l["no_mapa"]:
+            continue
+        _ins, _f = C3.blocos(_rom_m, _tabm, int(_l["ponteiro_fonte"], 16))
+        _swb = [a for b in _ins for n, a in b.ins
+                if n == "setwildbattle" and len(a) >= 3]
+        if _swb and len({a[0] for a in _swb}) != 1:
+            _mesas.append((_l, [(a[0], a[1], a[2]) for a in _swb]))
+    _um = resolve_mesas(_mesas, _esp, _lend, _grafo)
+    _dois = resolve_mesas(_mesas, _esp, _lend, _grafo)
+    if _um != _dois:
+        falhas.append("a regra da mesa nao e determinista: duas chamadas, dois "
+                      "resultados")
+    _nomes = [_esp[sp][0] for sp, _lv, _it in _um.values()]
+    _lend_usados = [n for n in _nomes if n in _lend]
+    if len(_lend_usados) != len(set(_lend_usados)):
+        falhas.append("lendario em mais de um antro: %r"
+                      % [n for n in set(_lend_usados)
+                         if _lend_usados.count(n) > 1][:3])
+    if len(set(_nomes)) < PISO_ESPECIES_MESA:
+        falhas.append("so %d especies distintas nos %d antros de raide, e o "
+                      "piso e %d" % (len(set(_nomes)), len(_nomes),
+                                     PISO_ESPECIES_MESA))
+    # MUTACAO PLANTADA: girar a fila uma casa tem que MUDAR a escolha de alguma
+    # mesa. Se nao mudar, a rotacao nao esta sendo usada e a regra virou "pega
+    # sempre a primeira", que e exatamente o defeito que esta rodada consertou.
+    _girado = resolve_mesas(_mesas[1:] + _mesas[:1], _esp, _lend, _grafo)
+    if _girado == _um:
+        falhas.append("girar a fila nao mudou nenhuma mesa: a rotacao nao esta "
+                      "pesando")
+    print("mesa de raide: %d antros, %d especies distintas (piso %d), %d "
+          "lendarios em %d antros"
+          % (len(_nomes), len(set(_nomes)), PISO_ESPECIES_MESA,
+             len(set(_lend_usados)), len(_lend_usados)))
+
     print("demo: %s" % ("OK" if not falhas else "REPROVADO"))
     for f in falhas:
         print("  FALHA", f)
@@ -927,10 +1251,15 @@ def demo():
 
 
 def proxima_flag_livre(flags):
+    """Vaga da faixa que ninguem usa: nem o c5, nem apelido de outra frente.
+
+    Antes daqui saia a PRIMEIRA vaga com `FLAG_UNUSED_0x...` no header, e isso
+    devolvia 0x1D0E, que e a FLAG_HIDE_LIGHTHOUSE_JASMINE de Johto: o plante do
+    `--demo` acendia flag de outro dono e o portao reprovava com razao.
+    """
     usadas = {e for _n, e in flags.values()}
-    texto = open(FLAGS_H).read()
-    for f in range(PRIMEIRA_FLAG, ULTIMA_FLAG + 1):
-        if f not in usadas and "FLAG_UNUSED_0x%04X" % f in texto:
+    for f in flags_realmente_livres():
+        if f not in usadas:
             return f
     raise SystemExit("faixa de flags do c5 esgotada")
 

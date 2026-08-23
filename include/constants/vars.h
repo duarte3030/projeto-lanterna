@@ -975,7 +975,8 @@
 #define VAR_GALAR_G03M08_CENA   VAR_UNUSED_0x4107  // mapa g03m08 da fonte
 #define VAR_GALAR_G04M03_CENA   VAR_UNUSED_0x4108  // mapa g04m03 da fonte
 #define VAR_GALAR_G05M05_CENA   VAR_UNUSED_0x4109  // mapa g05m05 da fonte
-#define VAR_GALAR_G21M01_CENA   VAR_UNUSED_0x410A  // mapa g21m01 da fonte
+#define VAR_GALAR_G09M11_CENA   VAR_UNUSED_0x410A  // mapa g09m11 da fonte
+#define VAR_GALAR_G21M01_CENA   VAR_UNUSED_0x410B  // mapa g21m01 da fonte
 // <<< Fase de conteudo de Galar, bloco c1 <<<
 
 // >>> Fase de conteudo de Galar, bloco c4d: vars de etapa de objeto (dev_scripts/objetos_galar.py) >>>
@@ -984,11 +985,12 @@
 // aquela var e nao aparece aqui: mesmo estado, mesma casa.
 // Apelidar VAR_UNUSED nao mexe em VARS_COUNT: a save nao muda.
 // Gerado por dev_scripts/objetos_galar.py; nao editar a mao.
-#define VAR_GALAR_G01M34_OBJ   VAR_UNUSED_0x410B  // mapa g01m34 da fonte
-#define VAR_GALAR_G05M04_OBJ   VAR_UNUSED_0x410C  // mapa g05m04 da fonte
-#define VAR_GALAR_G06M31_OBJ   VAR_UNUSED_0x410D  // mapa g06m31 da fonte
-#define VAR_GALAR_G12M10_OBJ   VAR_UNUSED_0x410E  // mapa g12m10 da fonte
-#define VAR_GALAR_G42M06_OBJ   VAR_UNUSED_0x410F  // mapa g42m06 da fonte
+#define VAR_GALAR_G00M17_OBJ   VAR_UNUSED_0x410C  // mapa g00m17 da fonte
+#define VAR_GALAR_G01M34_OBJ   VAR_UNUSED_0x410D  // mapa g01m34 da fonte
+#define VAR_GALAR_G05M04_OBJ   VAR_UNUSED_0x410E  // mapa g05m04 da fonte
+#define VAR_GALAR_G06M31_OBJ   VAR_UNUSED_0x410F  // mapa g06m31 da fonte
+#define VAR_GALAR_G12M10_OBJ   VAR_UNUSED_0x4112  // mapa g12m10 da fonte
+#define VAR_GALAR_G42M06_OBJ   VAR_UNUSED_0x4113  // mapa g42m06 da fonte
 // <<< Fase de conteudo de Galar, bloco c4d <<<
 
 // ARCO DO FAROL DE OLIVINE (dev_scripts/arco_farol_johto.py)

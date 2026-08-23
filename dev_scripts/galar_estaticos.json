@@ -1,22 +1,13 @@
 {
- "aceitos": 795,
+ "aceitos": 1018,
  "da_fonte": 1088,
  "gerado_por": "dev_scripts/estaticos_galar.py --aplicar",
  "recusa": {
   "forma Gigantamax: nao e encontro selvagem comum": 1,
   "id 35846 fora da tabela de nomes da fonte": 1,
   "id de forma na tabela da fonte sem decisao medida (nome repetido)": 2,
-  "sorteio de 10 especies no script (mesa de raide)": 67,
-  "sorteio de 12 especies no script (mesa de raide)": 38,
-  "sorteio de 15 especies no script (mesa de raide)": 1,
-  "sorteio de 26 especies no script (mesa de raide)": 7,
-  "sorteio de 34 especies no script (mesa de raide)": 19,
-  "sorteio de 45 especies no script (mesa de raide)": 27,
-  "sorteio de 50 especies no script (mesa de raide)": 2,
-  "sorteio de 51 especies no script (mesa de raide)": 2,
-  "sorteio de 59 especies no script (mesa de raide)": 37,
-  "tile inalcancavel (BFS de colisao e elevacao)": 52,
-  "tile ja ocupado por objeto nosso": 9,
-  "tile nao andavel no nosso map.bin": 28
+  "mesa de raide sem nenhuma especie com nome aqui": 4,
+  "tile inalcancavel (BFS de colisao e elevacao), e nenhum tile bom a <= 3": 37,
+  "tile nao andavel no nosso map.bin, e nenhum tile bom a <= 3": 25
  }
 }

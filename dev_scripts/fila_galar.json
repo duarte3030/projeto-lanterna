@@ -81,8 +81,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g00m06/objeto/4",
@@ -526,8 +526,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1531,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g00m08/objeto/1",
@@ -601,8 +601,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g00m09/objeto/1",
@@ -616,8 +616,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g00m09/objeto/2",
@@ -631,8 +631,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g00m09/objeto/3",
@@ -646,8 +646,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g00m09/objeto/4",
@@ -661,8 +661,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g00m09/objeto/5",
@@ -676,8 +676,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g00m09/objeto/6",
@@ -691,8 +691,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g00m10/objeto/0",
@@ -1227,8 +1227,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1902,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g00m14/objeto/6",
@@ -1242,8 +1242,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1904,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g00m14/objeto/7",
@@ -1257,8 +1257,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1903,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g00m14/objeto/8",
@@ -1371,8 +1371,8 @@
    "ponteiro_fonte": "0x81F104",
    "no_mapa": false,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g00m16/bg/1",
@@ -1384,8 +1384,8 @@
    "ponteiro_fonte": "0x81F130",
    "no_mapa": false,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g00m16/bg/2",
@@ -1397,8 +1397,8 @@
    "ponteiro_fonte": "0x81F2B4",
    "no_mapa": false,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g00m16/bg/3",
@@ -1410,8 +1410,8 @@
    "ponteiro_fonte": "0x81F104",
    "no_mapa": false,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g00m16/objeto/0",
@@ -1498,8 +1498,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 45,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g00m17/objeto/4",
@@ -1543,8 +1543,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g00m18/warp/0",
@@ -2011,8 +2011,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1800,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g01m03/objeto/1",
@@ -3017,8 +3017,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 23,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g01m110/objeto/2",
@@ -4187,8 +4187,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 52,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g01m94/objeto/3",
@@ -4258,8 +4258,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g02m10/objeto/2",
@@ -6751,8 +6751,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 2980,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g03m09/objeto/11",
@@ -6781,8 +6781,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 2980,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g03m09/objeto/13",
@@ -7244,8 +7244,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g03m19/objeto/3",
@@ -7716,8 +7716,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 17,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g03m35/objeto/13",
@@ -7746,8 +7746,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 20,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g03m35/objeto/15",
@@ -7821,8 +7821,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g03m35/objeto/2",
@@ -7836,8 +7836,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g03m35/objeto/25",
@@ -7851,8 +7851,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g03m35/objeto/26",
@@ -7866,8 +7866,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g03m35/objeto/27",
@@ -7881,8 +7881,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g03m35/objeto/3",
@@ -7896,8 +7896,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g03m35/objeto/30",
@@ -7926,8 +7926,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 21,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g03m35/objeto/5",
@@ -7941,8 +7941,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 18,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g03m35/objeto/6",
@@ -7971,8 +7971,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 19,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g03m35/objeto/8",
@@ -8089,8 +8089,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g03m42/objeto/5",
@@ -8104,8 +8104,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g03m42/objeto/6",
@@ -8119,8 +8119,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g03m42/objeto/7",
@@ -8134,8 +8134,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g03m53/objeto/0",
@@ -8439,8 +8439,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 45,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g04m03/objeto/5",
@@ -8903,8 +8903,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 2983,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g04m12/objeto/2",
@@ -8974,8 +8974,8 @@
    "ponteiro_fonte": "0x16A05E",
    "no_mapa": false,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/placas_galar.py (placa do c)"
   },
   {
    "chave": "g05m01/bg/1",
@@ -8987,8 +8987,8 @@
    "ponteiro_fonte": "0x16A05E",
    "no_mapa": false,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/placas_galar.py (placa do c)"
   },
   {
    "chave": "g05m01/objeto/0",
@@ -9505,8 +9505,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g05m11/objeto/2",
@@ -10260,8 +10260,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g05m14/objeto/2",
@@ -10951,8 +10951,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g06m10/objeto/34",
@@ -11174,8 +11174,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 519,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g06m12/objeto/1",
@@ -11189,8 +11189,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 519,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g06m12/objeto/2",
@@ -11324,8 +11324,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g06m14/objeto/0",
@@ -12257,8 +12257,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1819,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g06m27/objeto/1",
@@ -12969,8 +12969,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g06m29/objeto/16",
@@ -13104,8 +13104,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1812,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g06m30/bg/0",
@@ -13321,8 +13321,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g06m30/objeto/26",
@@ -13787,8 +13787,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1820,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g06m31/objeto/5",
@@ -15898,8 +15898,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 537,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g08m07/objeto/12",
@@ -15928,8 +15928,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g08m07/objeto/14",
@@ -15943,8 +15943,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g08m07/objeto/15",
@@ -15988,8 +15988,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/treinadores_galar.py (balde d)"
   },
   {
    "chave": "g08m07/objeto/18",
@@ -16003,8 +16003,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g08m07/objeto/19",
@@ -16123,8 +16123,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g08m07/objeto/30",
@@ -16153,8 +16153,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g08m07/objeto/32",
@@ -16168,8 +16168,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g08m07/objeto/39",
@@ -16408,8 +16408,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g08m10/objeto/5",
@@ -16423,8 +16423,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g08m10/objeto/6",
@@ -16438,8 +16438,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g08m10/warp/0",
@@ -18457,8 +18457,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g08m22/objeto/4",
@@ -18472,8 +18472,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g08m22/objeto/5",
@@ -18487,8 +18487,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g08m22/objeto/8",
@@ -18755,8 +18755,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g08m23/objeto/5",
@@ -18815,8 +18815,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g08m23/warp/0",
@@ -18931,8 +18931,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g08m24/objeto/14",
@@ -19036,8 +19036,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g08m24/objeto/4",
@@ -19081,8 +19081,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g08m24/objeto/9",
@@ -19710,8 +19710,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 2808,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g09m10/objeto/18",
@@ -19933,8 +19933,8 @@
    "ponteiro_fonte": "0x07202E4",
    "no_mapa": true,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/cenas_galar.py (c3)"
   },
   {
    "chave": "g09m11/objeto/0",
@@ -19963,8 +19963,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 560,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g09m11/objeto/2",
@@ -20925,8 +20925,8 @@
    "ponteiro_fonte": "0x16C522",
    "no_mapa": false,
    "bloqueio": "",
-   "status": "feita",
-   "motivo_do_status": "escrita por dev_scripts/placas_galar.py (placa do c)"
+   "status": "pendente",
+   "motivo_do_status": ""
   },
   {
    "chave": "g10m11/bg/2",
@@ -23289,8 +23289,8 @@
    "ponteiro_fonte": "0x16DBCA",
    "no_mapa": false,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/placas_galar.py (placa do c)"
   },
   {
    "chave": "g12m00/bg/1",
@@ -23302,8 +23302,8 @@
    "ponteiro_fonte": "0x16DBCA",
    "no_mapa": false,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/placas_galar.py (placa do c)"
   },
   {
    "chave": "g12m00/bg/10",
@@ -24398,8 +24398,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1534,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g12m10/objeto/27",
@@ -25057,8 +25057,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 967,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g12m16/objeto/2",
@@ -25265,8 +25265,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 2813,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g13m02/objeto/0",
@@ -25618,8 +25618,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g13m10/objeto/2",
@@ -27498,8 +27498,8 @@
    "ponteiro_fonte": "0x91BFC0",
    "no_mapa": false,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g20m00/objeto/0",
@@ -28096,8 +28096,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 5106,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g30m00/objeto/1",
@@ -30008,8 +30008,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 4011,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m05/objeto/11",
@@ -30128,8 +30128,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1977,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m05/objeto/21",
@@ -30143,8 +30143,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1822,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m05/objeto/22",
@@ -30158,8 +30158,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1979,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m05/objeto/23",
@@ -30173,8 +30173,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1980,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m05/objeto/24",
@@ -30188,8 +30188,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g37m05/objeto/25",
@@ -32790,8 +32790,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1986,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m09/objeto/10",
@@ -32955,8 +32955,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1981,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m09/objeto/3",
@@ -32970,8 +32970,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1982,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m09/objeto/4",
@@ -32985,8 +32985,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1984,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m09/objeto/5",
@@ -33000,8 +33000,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1983,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m09/objeto/6",
@@ -33015,8 +33015,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1985,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m09/objeto/7",
@@ -33075,8 +33075,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1997,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m11/objeto/1",
@@ -33090,8 +33090,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1998,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m11/objeto/10",
@@ -33135,8 +33135,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m11/objeto/13",
@@ -33210,8 +33210,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m11/objeto/18",
@@ -33255,8 +33255,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1999,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m11/objeto/20",
@@ -33330,8 +33330,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m11/objeto/25",
@@ -33345,8 +33345,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m11/objeto/26",
@@ -33390,8 +33390,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m11/objeto/29",
@@ -33420,8 +33420,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 2000,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m11/objeto/30",
@@ -33525,8 +33525,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m11/objeto/37",
@@ -33570,8 +33570,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m11/objeto/4",
@@ -33585,8 +33585,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 2001,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m11/objeto/40",
@@ -33630,8 +33630,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m11/objeto/43",
@@ -33645,8 +33645,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m11/objeto/44",
@@ -33660,8 +33660,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m11/objeto/45",
@@ -33675,8 +33675,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m11/objeto/5",
@@ -33690,8 +33690,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 2002,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m11/objeto/6",
@@ -33705,8 +33705,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 2003,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m11/objeto/7",
@@ -33720,8 +33720,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 2004,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m11/objeto/8",
@@ -33735,8 +33735,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 2005,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m11/objeto/9",
@@ -33810,8 +33810,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m12/objeto/12",
@@ -34003,8 +34003,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 5877,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m14/objeto/1",
@@ -34018,8 +34018,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 5636,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m14/objeto/2",
@@ -34348,8 +34348,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m18/objeto/1",
@@ -34363,8 +34363,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m18/objeto/10",
@@ -34378,8 +34378,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1920,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m18/objeto/11",
@@ -34393,8 +34393,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1925,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m18/objeto/12",
@@ -34408,8 +34408,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1917,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m18/objeto/13",
@@ -34423,8 +34423,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1928,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m18/objeto/14",
@@ -34438,8 +34438,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1923,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m18/objeto/15",
@@ -34453,8 +34453,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1930,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m18/objeto/16",
@@ -34468,8 +34468,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1926,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m18/objeto/17",
@@ -34483,8 +34483,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1922,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m18/objeto/18",
@@ -34498,8 +34498,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1927,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m18/objeto/19",
@@ -34513,8 +34513,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1929,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m18/objeto/2",
@@ -34528,8 +34528,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m18/objeto/3",
@@ -34543,8 +34543,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m18/objeto/4",
@@ -34558,8 +34558,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m18/objeto/5",
@@ -34573,8 +34573,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1924,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m18/objeto/6",
@@ -34588,8 +34588,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1921,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m18/objeto/7",
@@ -34603,8 +34603,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1918,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m18/objeto/8",
@@ -34618,8 +34618,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1919,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m18/objeto/9",
@@ -34633,8 +34633,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1931,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m18/warp/0",
@@ -34661,8 +34661,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m19/objeto/1",
@@ -34676,8 +34676,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m19/objeto/10",
@@ -34691,8 +34691,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1936,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m19/objeto/11",
@@ -34706,8 +34706,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1937,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m19/objeto/12",
@@ -34721,8 +34721,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1947,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m19/objeto/13",
@@ -34736,8 +34736,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1946,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m19/objeto/14",
@@ -34751,8 +34751,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1944,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m19/objeto/15",
@@ -34766,8 +34766,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1943,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m19/objeto/16",
@@ -34781,8 +34781,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1935,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m19/objeto/17",
@@ -34796,8 +34796,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1940,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m19/objeto/18",
@@ -34811,8 +34811,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1939,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m19/objeto/19",
@@ -34826,8 +34826,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1945,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m19/objeto/2",
@@ -34841,8 +34841,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m19/objeto/3",
@@ -34856,8 +34856,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m19/objeto/4",
@@ -34871,8 +34871,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m19/objeto/5",
@@ -34886,8 +34886,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1932,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m19/objeto/6",
@@ -34901,8 +34901,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1942,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m19/objeto/7",
@@ -34916,8 +34916,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1938,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m19/objeto/8",
@@ -34931,8 +34931,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1934,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m19/objeto/9",
@@ -34946,8 +34946,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1941,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m19/warp/0",
@@ -34974,8 +34974,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m20/objeto/1",
@@ -34989,8 +34989,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m20/objeto/10",
@@ -35004,8 +35004,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1951,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m20/objeto/11",
@@ -35019,8 +35019,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1910,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m20/objeto/12",
@@ -35034,8 +35034,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1949,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m20/objeto/13",
@@ -35049,8 +35049,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1908,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m20/objeto/14",
@@ -35064,8 +35064,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1913,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m20/objeto/15",
@@ -35079,8 +35079,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1950,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m20/objeto/16",
@@ -35094,8 +35094,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1911,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m20/objeto/17",
@@ -35109,8 +35109,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1953,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m20/objeto/18",
@@ -35124,8 +35124,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1915,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m20/objeto/19",
@@ -35139,8 +35139,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1914,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m20/objeto/2",
@@ -35154,8 +35154,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m20/objeto/20",
@@ -35169,8 +35169,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m20/objeto/21",
@@ -35184,8 +35184,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m20/objeto/5",
@@ -35199,8 +35199,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1902,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m20/objeto/6",
@@ -35214,8 +35214,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1904,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m20/objeto/7",
@@ -35229,8 +35229,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1952,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m20/objeto/8",
@@ -35244,8 +35244,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1907,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m20/objeto/9",
@@ -35259,8 +35259,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1948,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m20/warp/0",
@@ -35692,8 +35692,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g37m22/objeto/32",
@@ -36575,8 +36575,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1901,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m02/objeto/41",
@@ -36590,8 +36590,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1873,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m02/objeto/42",
@@ -36605,8 +36605,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1874,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m02/objeto/43",
@@ -36620,8 +36620,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1872,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m02/objeto/44",
@@ -36635,8 +36635,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1875,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m02/objeto/5",
@@ -36768,8 +36768,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m03/objeto/13",
@@ -36963,8 +36963,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m03/objeto/5",
@@ -36993,8 +36993,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m03/objeto/7",
@@ -37396,8 +37396,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 14168,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m04/objeto/31",
@@ -37411,8 +37411,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 14169,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m04/objeto/32",
@@ -37426,8 +37426,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1883,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m04/objeto/33",
@@ -37441,8 +37441,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1882,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m04/objeto/34",
@@ -37456,8 +37456,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1884,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m04/objeto/35",
@@ -37471,8 +37471,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 14167,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m04/objeto/4",
@@ -37919,8 +37919,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1888,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m05/objeto/34",
@@ -37934,8 +37934,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1887,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m05/objeto/35",
@@ -37949,8 +37949,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1885,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m05/objeto/36",
@@ -37964,8 +37964,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1886,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m05/objeto/37",
@@ -37979,8 +37979,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1889,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m05/objeto/38",
@@ -37994,8 +37994,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1890,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m05/objeto/39",
@@ -38365,8 +38365,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1891,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m07/objeto/16",
@@ -38410,8 +38410,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m07/objeto/19",
@@ -38425,8 +38425,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m07/objeto/2",
@@ -38485,8 +38485,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m07/objeto/23",
@@ -38500,8 +38500,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m07/objeto/24",
@@ -39113,8 +39113,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1892,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m08/objeto/29",
@@ -39128,8 +39128,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1894,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m08/objeto/3",
@@ -39158,8 +39158,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1893,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m08/objeto/4",
@@ -39218,8 +39218,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m09/objeto/11",
@@ -39233,8 +39233,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m09/objeto/12",
@@ -39248,8 +39248,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m09/objeto/13",
@@ -39263,8 +39263,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m09/objeto/14",
@@ -39278,8 +39278,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m09/objeto/15",
@@ -39293,8 +39293,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m09/objeto/16",
@@ -39308,8 +39308,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m09/objeto/17",
@@ -39323,8 +39323,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m09/objeto/18",
@@ -40372,8 +40372,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1900,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g38m43/objeto/3",
@@ -40872,8 +40872,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/treinadores_galar.py (balde d)"
   },
   {
    "chave": "g39m07/map_script",
@@ -42291,8 +42291,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g40m01/objeto/0",
@@ -42306,8 +42306,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g40m01/objeto/1",
@@ -42336,8 +42336,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g40m02/objeto/1",
@@ -42366,8 +42366,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g40m03/objeto/1",
@@ -42396,8 +42396,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g40m05/objeto/1",
@@ -42426,8 +42426,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g40m06/objeto/1",
@@ -42456,8 +42456,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g40m07/objeto/1",
@@ -42486,8 +42486,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g40m08/objeto/1",
@@ -42516,8 +42516,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g40m09/objeto/1",
@@ -42546,8 +42546,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g40m10/objeto/1",
@@ -42576,8 +42576,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g40m11/objeto/1",
@@ -42606,8 +42606,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g40m12/objeto/1",
@@ -42636,8 +42636,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g40m13/objeto/1",
@@ -42666,8 +42666,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g40m14/objeto/1",
@@ -42696,8 +42696,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g40m15/objeto/1",
@@ -42784,8 +42784,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m02/objeto/1",
@@ -42859,8 +42859,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m02/objeto/14",
@@ -42874,8 +42874,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m02/objeto/16",
@@ -43174,8 +43174,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m04/objeto/11",
@@ -43534,8 +43534,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m05/map_script",
@@ -43757,8 +43757,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m05/objeto/6",
@@ -43772,8 +43772,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m05/objeto/7",
@@ -43965,8 +43965,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m06/objeto/8",
@@ -43995,8 +43995,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m07/map_script",
@@ -44083,8 +44083,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m07/objeto/13",
@@ -44098,8 +44098,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m07/objeto/14",
@@ -44113,8 +44113,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m07/objeto/2",
@@ -44426,8 +44426,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 42000,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m08/objeto/5",
@@ -44441,8 +44441,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m10/map_script",
@@ -44469,8 +44469,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m10/objeto/1",
@@ -44484,8 +44484,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 986,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m10/objeto/10",
@@ -44649,8 +44649,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m10/objeto/20",
@@ -44814,8 +44814,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m10/objeto/30",
@@ -44979,8 +44979,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m10/objeto/5",
@@ -44994,8 +44994,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1841,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m10/objeto/6",
@@ -45082,8 +45082,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m11/objeto/1",
@@ -45097,8 +45097,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m11/objeto/10",
@@ -45290,8 +45290,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m12/objeto/1",
@@ -45305,8 +45305,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m12/objeto/10",
@@ -45470,8 +45470,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m12/objeto/20",
@@ -45695,8 +45695,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m12/objeto/5",
@@ -45710,8 +45710,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m12/objeto/6",
@@ -45783,8 +45783,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m13/objeto/1",
@@ -45798,8 +45798,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m13/objeto/10",
@@ -45918,8 +45918,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m13/objeto/18",
@@ -45933,8 +45933,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m13/objeto/19",
@@ -45948,8 +45948,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m13/objeto/2",
@@ -45978,8 +45978,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m13/objeto/21",
@@ -45993,8 +45993,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m13/objeto/22",
@@ -46008,8 +46008,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m13/objeto/23",
@@ -46023,8 +46023,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e pokemon, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m13/objeto/3",
@@ -46053,8 +46053,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m13/objeto/5",
@@ -46068,8 +46068,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m13/objeto/6",
@@ -46083,8 +46083,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m13/objeto/7",
@@ -46098,8 +46098,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m13/objeto/8",
@@ -46351,8 +46351,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m14/objeto/6",
@@ -46381,8 +46381,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m14/objeto/8",
@@ -46589,8 +46589,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m15/objeto/2",
@@ -46604,8 +46604,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m15/objeto/24",
@@ -46694,8 +46694,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "o NPC nao esta no mapa: grafico e cenario, nao vira NPC",
-   "status": "pendente",
-   "motivo_do_status": ""
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/estaticos_galar.py (c5)"
   },
   {
    "chave": "g42m15/objeto/30",

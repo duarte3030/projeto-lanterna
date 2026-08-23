@@ -5779,3 +5779,47 @@ bool8 CheckAddCoins(void)
     else
         return TRUE;
 }
+
+// >>> Galar, conserto de motor: Quest Log e Help System do FireRed (rodada 9) >>>
+// Este motor nao tem Quest Log nem Help System, e o demake de Galar chama os
+// dois o tempo todo: sao 236 chamadas espalhadas por 178 linhas de script, e
+// enquanto o NOME nao existir aqui o tradutor de Galar recusa a cena INTEIRA
+// por um comando que nao muda nada que o jogador consiga observar.
+//
+// A semantica destes quatro e NULA de proposito, e isso e fiel, nao preguica:
+//   - `GetQuestLogState` devolve 0, que no FireRed quer dizer QL_STATE_OFF,
+//     ou seja "nao estou gravando nem reproduzindo". Nesta ROM isso e sempre
+//     verdade, entao 0 e a resposta CERTA, e nao um chute;
+//   - `QuestLog_CutRecording` corta uma gravacao que nunca comecou;
+//   - `HelpSystem_Enable`/`Disable` ligam e desligam um menu de ajuda que nao
+//     existe aqui;
+//   - `SetUsedPkmnCenterQuestLogEvent` anota no diario que nao existe;
+//   - `NullFieldSpecial` JA e no-op no proprio FireRed: e o enchimento das
+//     centenas de vagas de special de Hoenn que o FRLG apagou.
+// Nenhum deles escreve save, e nenhuma cena portada le o resultado de outro
+// jeito que nao seja `VAR_RESULT`, que o GetQuestLogState escreve.
+void GetQuestLogState(void)
+{
+    gSpecialVar_Result = 0;
+}
+
+void QuestLog_CutRecording(void)
+{
+}
+
+void HelpSystem_Enable(void)
+{
+}
+
+void HelpSystem_Disable(void)
+{
+}
+
+void SetUsedPkmnCenterQuestLogEvent(void)
+{
+}
+
+void NullFieldSpecial(void)
+{
+}
+// <<< Galar, conserto de motor: Quest Log e Help System do FireRed <<<

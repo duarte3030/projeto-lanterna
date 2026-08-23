@@ -11,14 +11,17 @@
  },
  {
   "id": "T108.2",
-  "nome": "PAR NEGATIVO do T108.1: o MESMO warp de entrada e o MESMO comeco de roteiro, sem o passo de volta para a porta. O jogador desce de (32,49) para (32,50) e fica andando pela rua de Circhester. Tem que continuar em MAP_GALAR_CIRCHESTER_06, e tem que ter ANDADO. Sem este caso o T108.1 provaria so 'terminou em CIRCHESTER_04', que um warp de debug mal digitado ou uma porta que dispara sozinha ao nascer em cima dela tambem provariam.",
+  "nome": "PAR NEGATIVO do T108.1: o MESMO warp de entrada e o MESMO comeco de roteiro, sem o passo de volta para a porta. O jogador desce de (32,49) para (32,50) e sai andando pela rua de Circhester. Tem que continuar em MAP_GALAR_CIRCHESTER_06, e tem que ter ANDADO. Sem este caso o T108.1 provaria so 'terminou em CIRCHESTER_04', que um warp de debug mal digitado ou uma porta que dispara sozinha ao nascer em cima dela tambem provariam. CONSERTO DE 22/08/2026 (rodada 9), e a causa foi MEDIDA e nao chutada: o tile (32,50) e um gargalo de UM vizinho andavel para cada lado (a linha 50 tem parede em 30, 31, 33 e 34), e o unico caminho para o sul passa colado no NPC de (33,52), que e MOVEMENT_TYPE_WANDER_AROUND. Com dois apertos de DOWN so, bastava o NPC estar em cima de (32,51) naquele instante para o jogador nao sair do lugar e a prova `andou` reprovar: 4 de 10 execucoes na ROM desta rodada. A perna virou DOWN SATURANTE de doze apertos ate (32,57), que atravessa o gargalo mesmo com o NPC atrapalhando um instante, e o fim foi para a direita porque a coluna 31 da linha 57 e parede. Junto entrou FLAG_SEM_ENCONTRO_SELVAGEM, que todos os outros casos de rua de Galar ja declaram: batalha selvagem no meio do roteiro tambem prende o jogador e tambem reprova `andou`.",
   "warp": "MAP_GALAR_CIRCHESTER_06",
   "warp_id": 2,
-  "roteiro": "60:NADA,16:DOWN,60:NADA,16:DOWN*2,60:NADA,16:LEFT*3,300:NADA",
+  "roteiro": "60:NADA,16:DOWN,60:NADA,16:DOWN*12,90:NADA,16:RIGHT*6,300:NADA",
   "prova": {
    "mapa": "MAP_GALAR_CIRCHESTER_06",
    "andou": true
-  }
+  },
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ]
  },
  {
   "id": "T108.3",

@@ -92,6 +92,22 @@
       "origem_chave": "g06m29/objeto/14"
     },
     {
+      "local_id": "LOCALID_GALAR_ESTATICO_G06M29_O15",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(PONYTA)",
+      "x": 24,
+      "y": 22,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalarEstatico_G06M29_O15",
+      "flag": "FLAG_GALAR_ESTATICO_G06M29_O15",
+      "origem": "estaticos_galar",
+      "origem_chave": "g06m29/objeto/15"
+    },
+    {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ROCKRUFF)",
       "x": 36,
       "y": 7,
@@ -210,6 +226,22 @@
       "flag": "0",
       "origem": "estaticos_galar",
       "origem_chave": "g06m29/objeto/22"
+    },
+    {
+      "local_id": "LOCALID_GALAR_ESTATICO_G06M29_O3",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ZIGZAGOON_GALAR)",
+      "x": 15,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalarEstatico_G06M29_O3",
+      "flag": "FLAG_GALAR_ESTATICO_G06M29_O3",
+      "origem": "estaticos_galar",
+      "origem_chave": "g06m29/objeto/3"
     }
   ],
   "warp_events": [

@@ -3,13 +3,28 @@
 @ Uma placa diz o que diz: MSGBOX_SIGN e mais nada. O estado que o
 @ script da fonte carrega ao lado do texto nao cabe numa placa.
 
+@ ---- Galar_Circhester03 ----
+GalarPlaca_G12M00_bg0::
+	msgbox GalarPlaca_G12M00_bg0_Text, MSGBOX_SIGN
+	end
+
+GalarPlaca_G12M00_bg0_Text:
+	.string "Cinnabar Pokémon Gym\nLeader: Blaine\pWinning Trainers:\n{RIVAL}$"
+
+GalarPlaca_G12M00_bg1::
+	msgbox GalarPlaca_G12M00_bg1_Text, MSGBOX_SIGN
+	end
+
+GalarPlaca_G12M00_bg1_Text:
+	.string "Cinnabar Pokémon Gym\nLeader: Blaine\pWinning Trainers:\n{RIVAL}$"
+
 @ ---- Galar_DynamaxAdventure04 ----
 GalarPlaca_G30M00_bg0::
 	msgbox GalarPlaca_G30M00_bg0_Text, MSGBOX_SIGN
 	end
 
 GalarPlaca_G30M00_bg0_Text:
-	.string "Bill’s favorite Pokémon list!$"
+	.string "{PLAYER} initiated the Teleporter’s\nCell Separator.$"
 
 @ ---- Galar_Hammerlocke14 ----
 GalarPlaca_G10M11_bg0::
@@ -17,13 +32,6 @@ GalarPlaca_G10M11_bg0::
 	end
 
 GalarPlaca_G10M11_bg0_Text:
-	.string "Pokémon Lecture\pPlaying with the Wireless Adapter$"
-
-GalarPlaca_G10M11_bg1::
-	msgbox GalarPlaca_G10M11_bg1_Text, MSGBOX_SIGN
-	end
-
-GalarPlaca_G10M11_bg1_Text:
 	.string "Pokémon Lecture\pPlaying with the Wireless Adapter$"
 
 @ ---- Galar_Hammerlocke16 ----
@@ -232,11 +240,26 @@ GalarPlaca_G38M16_bg0::
 GalarPlaca_G38M16_bg0_Text:
 	.string "Which floor do you want?$"
 
+@ ---- Galar_Postwick31 ----
+GalarPlaca_G05M01_bg0::
+	msgbox GalarPlaca_G05M01_bg0_Text, MSGBOX_SIGN
+	end
+
+GalarPlaca_G05M01_bg0_Text:
+	.string "Viridian Pokémon Gym\nLeader: ?\pWinning Trainers:\n{RIVAL}$"
+
+GalarPlaca_G05M01_bg1::
+	msgbox GalarPlaca_G05M01_bg1_Text, MSGBOX_SIGN
+	end
+
+GalarPlaca_G05M01_bg1_Text:
+	.string "Viridian Pokémon Gym\nLeader: ?\pWinning Trainers:\n{RIVAL}$"
+
 @ ---- Galar_Route0203 ----
 GalarPlaca_G05M13_bg2::
 	msgbox GalarPlaca_G05M13_bg2_Text, MSGBOX_SIGN
 	end
 
 GalarPlaca_G05M13_bg2_Text:
-	.string "Bill’s favorite Pokémon list!$"
+	.string "{PLAYER} initiated the Teleporter’s\nCell Separator.$"
 

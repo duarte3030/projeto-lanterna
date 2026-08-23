@@ -73,6 +73,37 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_GALAR_ESTATICO_G42M10_O0",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SIRFETCHD)",
+      "x": 26,
+      "y": 70,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalarEstatico_G42M10_O0",
+      "flag": "FLAG_GALAR_ESTATICO_G42M10_O0",
+      "origem": "estaticos_galar",
+      "origem_chave": "g42m10/objeto/0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(KYOGRE)",
+      "x": 42,
+      "y": 8,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalarSelvagem_KYOGRE_L60",
+      "flag": "0",
+      "origem": "estaticos_galar",
+      "origem_chave": "g42m10/objeto/1"
+    },
+    {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(MAMOSWINE)",
       "x": 10,
       "y": 29,
@@ -206,6 +237,22 @@
       "flag": "0",
       "origem": "estaticos_galar",
       "origem_chave": "g42m10/objeto/19"
+    },
+    {
+      "local_id": "LOCALID_GALAR_ESTATICO_G42M10_O2",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(PINCURCHIN)",
+      "x": 29,
+      "y": 23,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalarEstatico_G42M10_O2",
+      "flag": "FLAG_GALAR_ESTATICO_G42M10_O2",
+      "origem": "estaticos_galar",
+      "origem_chave": "g42m10/objeto/2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(SNOVER)",
@@ -343,6 +390,22 @@
       "origem_chave": "g42m10/objeto/29"
     },
     {
+      "local_id": "LOCALID_GALAR_ESTATICO_G42M10_O3",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(EISCUE)",
+      "x": 46,
+      "y": 60,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalarEstatico_G42M10_O3",
+      "flag": "FLAG_GALAR_ESTATICO_G42M10_O3",
+      "origem": "estaticos_galar",
+      "origem_chave": "g42m10/objeto/3"
+    },
+    {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(SNOM)",
       "x": 53,
       "y": 36,
@@ -476,6 +539,38 @@
       "flag": "0",
       "origem": "estaticos_galar",
       "origem_chave": "g42m10/objeto/38"
+    },
+    {
+      "local_id": "LOCALID_GALAR_ESTATICO_G42M10_O4",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DURALUDON)",
+      "x": 32,
+      "y": 50,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalarEstatico_G42M10_O4",
+      "flag": "FLAG_GALAR_ESTATICO_G42M10_O4",
+      "origem": "estaticos_galar",
+      "origem_chave": "g42m10/objeto/4"
+    },
+    {
+      "local_id": "LOCALID_GALAR_ESTATICO_G42M10_O5",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MR_MIME)",
+      "x": 55,
+      "y": 45,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalarEstatico_G42M10_O5",
+      "flag": "FLAG_GALAR_ESTATICO_G42M10_O5",
+      "origem": "estaticos_galar",
+      "origem_chave": "g42m10/objeto/5"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(DARUMAKA_GALAR)",

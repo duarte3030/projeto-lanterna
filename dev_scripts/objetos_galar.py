@@ -202,9 +202,15 @@ class TradutorObjeto(C3.Tradutor):
     def special_nome(self, idx):
         nome = (self.specials_fonte[idx] if idx < len(self.specials_fonte)
                 else None)
-        if nome is None or nome not in self.specials_nossos:
-            raise C3.Recusa("special %s do FireRed nao existe aqui"
-                            % (nome or "0x%03X" % idx))
+        if nome is None:
+            raise C3.Recusa("special 0x%03X fora da tabela do FireRed" % idx)
+        # DE-PARA de special: o FireRed e este motor dao NOMES diferentes para a
+        # MESMA funcao, e recusar por causa do nome era perder a cena por
+        # ortografia. Cada par abaixo foi conferido LENDO os dois corpos, nao
+        # pelo nome parecido; o que nao tem par continua saindo com motivo.
+        nome = DE_PARA_SPECIAL.get(nome, nome)
+        if nome not in self.specials_nossos:
+            raise C3.Recusa("special %s do FireRed nao existe aqui" % nome)
         return nome
 
     def mapa_de(self, grupo, num):
@@ -327,6 +333,23 @@ class TradutorObjeto(C3.Tradutor):
         return True
 
 
+# DE-PARA de `special`: nome do FireRed -> nome daqui, para a MESMA funcao.
+# Conferido corpo a corpo em 22/08/2026, e nao por semelhanca de nome:
+#   StartLegendaryBattle    -> BattleSetup_StartLegendaryBattle (src/battle_setup.c)
+#   GetPartyMonSpecies      -> ScriptGetPartyMonSpecies         (src/field_specials.c)
+#   GetPokedexCount         -> GetFrlgPokedexCount              (src/birch_pc.c, copia
+#                              linha a linha do prof_pc.c do FR)
+#   SelectMoveDeleterMove   -> MoveDeleterChooseMoveToForget    (src/party_menu.c)
+# Os no-ops de Quest Log e Help System NAO entram aqui: eles ganharam o MESMO
+# nome em data/specials.inc, com corpo nulo (ver o bloco marcado la).
+DE_PARA_SPECIAL = {
+    "StartLegendaryBattle": "BattleSetup_StartLegendaryBattle",
+    "GetPartyMonSpecies": "ScriptGetPartyMonSpecies",
+    "GetPokedexCount": "GetFrlgPokedexCount",
+    "SelectMoveDeleterMove": "MoveDeleterChooseMoveToForget",
+}
+
+
 def rotulo(chave, l):
     n = int(l["chave"].rsplit("/", 1)[1])
     return "GalarObj_%s_%s%d" % (chave.upper(),
@@ -440,8 +463,18 @@ def plano():
     _e, _m, quer_flag, quer_var = traduz(lambda f: "FLAG_GALAR_ENSAIO_%03X" % f,
                                          lambda c: "VAR_GALAR_ENSAIO")
 
+    # A faixa 0x1C80-0x1CFE e COMPARTILHADA com o bloco de cena do
+    # `cenas_galar.py`. Livre aqui e a flag que existe como FLAG_UNUSED e nao
+    # tem apelido de NINGUEM, tirando o nosso proprio bloco, que e reescrito
+    # inteiro a cada rodada. O teste antigo ("existe um #define FLAG_UNUSED com
+    # esse numero") dava a faixa INTEIRA como livre, inclusive as que o c3 ja
+    # tivesse pegado, e so nao mordeu porque o c3 nunca chegou a pedir uma.
+    _txt = open(FLAGS_H).read()
+    _com_dono = {int(e, 16) for n, e in re.findall(
+        r"#define\s+(?!FLAG_UNUSED)(\w+)\s+\(?\s*FLAG_UNUSED_0x([0-9A-Fa-f]{3,4})",
+        _txt) if not n.startswith("FLAG_GALAR_ESCONDE_")}
     pool_f = [f for f in range(PRIMEIRA_FLAG_ESCONDE, ULTIMA_FLAG_ESCONDE + 1)
-              if "FLAG_UNUSED_0x%04X" % f in open(FLAGS_H).read()]
+              if ("#define FLAG_UNUSED_0x%04X" % f) in _txt and f not in _com_dono]
     if len(quer_flag) > len(pool_f):
         raise SystemExit("PARE: %d flags de esconder pedidas e %d livres na "
                          "faixa de Galar" % (len(quer_flag), len(pool_f)))
