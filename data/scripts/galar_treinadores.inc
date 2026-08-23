@@ -1,16 +1,260 @@
 @ Treinadores de Galar, balde d da fase de conteudo.
 @ Gerado por dev_scripts/treinadores_galar.py; NAO editar a mao.
 @ Uma batalha por objeto: a PRIMEIRA de um percurso linear.
+@
+@ O RABO DE TODO BLOCO E `msgbox ..., MSGBOX_AUTOCLOSE` + `release` +
+@ `end`, e ele NAO e enfeite: e por ali que volta quem ganhou a batalha
+@ (`gotopostbattlescript` cai na linha seguinte ao `trainerbattle`) e
+@ tambem quem RE-FALA com um treinador ja vencido. Sem ele o objeto do
+@ JOGADOR fica congelado pelo `lock` que o proprio molde poe, porque so
+@ `ScrCmd_release` chama `UnfreezeObjectEvents`; o `end` sozinho apenas
+@ solta `sLockFieldControls`. Era esta a trava dos 127 blocos de 23/08.
+
+@ ---- fala padrao por classe (ver TEXTO_CLASSE no gerador) ----
+GalarTrn_Intro_AROMA_LADY_FRLG:
+	.string "Que tal uma batalha\nrápida?$"
+
+GalarTrn_Depois_AROMA_LADY_FRLG:
+	.string "Boa batalha. Obrigado!$"
+
+GalarTrn_Intro_BEAUTY_FRLG:
+	.string "Você tem estilo.\nMas eu tenho time.$"
+
+GalarTrn_Depois_BEAUTY_FRLG:
+	.string "Perdi com elegância.$"
+
+GalarTrn_Intro_BIKER_FRLG:
+	.string "Que tal uma batalha\nrápida?$"
+
+GalarTrn_Depois_BIKER_FRLG:
+	.string "Boa batalha. Obrigado!$"
+
+GalarTrn_Intro_BLACK_BELT_FRLG:
+	.string "Força e treino!\nEncare-me!$"
+
+GalarTrn_Depois_BLACK_BELT_FRLG:
+	.string "Você treinou mais.$"
+
+GalarTrn_Intro_BOSS_FRLG:
+	.string "Ninguém passa por mim.$"
+
+GalarTrn_Depois_BOSS_FRLG:
+	.string "Isso não vai ficar assim.$"
+
+GalarTrn_Intro_BUG_CATCHER_FRLG:
+	.string "Peguei muito inseto\nhoje. Quer ver?$"
+
+GalarTrn_Depois_BUG_CATCHER_FRLG:
+	.string "Meus insetos cansaram.$"
+
+GalarTrn_Intro_BUG_MANIAC:
+	.string "Que tal uma batalha\nrápida?$"
+
+GalarTrn_Depois_BUG_MANIAC:
+	.string "Boa batalha. Obrigado!$"
+
+GalarTrn_Intro_BURGLAR_FRLG:
+	.string "Que tal uma batalha\nrápida?$"
+
+GalarTrn_Depois_BURGLAR_FRLG:
+	.string "Boa batalha. Obrigado!$"
+
+GalarTrn_Intro_CAMPER_FRLG:
+	.string "Acampei aqui só pra\nachar um bom duelo.$"
+
+GalarTrn_Depois_CAMPER_FRLG:
+	.string "Valeu pela batalha!$"
+
+GalarTrn_Intro_CHAMPION_FRLG:
+	.string "O topo de Galar é aqui.\nVenha me buscar!$"
+
+GalarTrn_Depois_CHAMPION_FRLG:
+	.string "Você chegou ao topo.$"
+
+GalarTrn_Intro_CHANNELER_FRLG:
+	.string "Eu vi o seu futuro...\ne ele é uma batalha.$"
+
+GalarTrn_Depois_CHANNELER_FRLG:
+	.string "O futuro me enganou.$"
+
+GalarTrn_Intro_COLLECTOR:
+	.string "Que tal uma batalha\nrápida?$"
+
+GalarTrn_Depois_COLLECTOR:
+	.string "Boa batalha. Obrigado!$"
+
+GalarTrn_Intro_COOLTRAINER_FRLG:
+	.string "Um duelo de verdade,\nque tal?$"
+
+GalarTrn_Depois_COOLTRAINER_FRLG:
+	.string "Foi um bom duelo.$"
+
+GalarTrn_Intro_COOL_COUPLE_FRLG:
+	.string "Que tal uma batalha\nrápida?$"
+
+GalarTrn_Depois_COOL_COUPLE_FRLG:
+	.string "Boa batalha. Obrigado!$"
+
+GalarTrn_Intro_CRUSH_GIRL_FRLG:
+	.string "Que tal uma batalha\nrápida?$"
+
+GalarTrn_Depois_CRUSH_GIRL_FRLG:
+	.string "Boa batalha. Obrigado!$"
+
+GalarTrn_Intro_ELITE_FOUR_FRLG:
+	.string "Aqui a estrada aperta.\nMostre o seu time!$"
+
+GalarTrn_Depois_ELITE_FOUR_FRLG:
+	.string "Siga em frente,\ntreinador.$"
+
+GalarTrn_Intro_FISHERMAN_FRLG:
+	.string "Que tal uma batalha\nrápida?$"
+
+GalarTrn_Depois_FISHERMAN_FRLG:
+	.string "Boa batalha. Obrigado!$"
+
+GalarTrn_Intro_GENTLEMAN_FRLG:
+	.string "Com licença. Aceita\numa batalha?$"
+
+GalarTrn_Depois_GENTLEMAN_FRLG:
+	.string "Foi um prazer.$"
+
+GalarTrn_Intro_GUITARIST:
+	.string "Toca aí! Digo,\nbatalha aí!$"
+
+GalarTrn_Depois_GUITARIST:
+	.string "Você afinou melhor.$"
+
+GalarTrn_Intro_HIKER_FRLG:
+	.string "Subi essa trilha inteira!\nBora batalhar?$"
+
+GalarTrn_Depois_HIKER_FRLG:
+	.string "Que fôlego o seu!$"
+
+GalarTrn_Intro_INTERVIEWER:
+	.string "Que tal uma batalha\nrápida?$"
+
+GalarTrn_Depois_INTERVIEWER:
+	.string "Boa batalha. Obrigado!$"
+
+GalarTrn_Intro_JUGGLER_FRLG:
+	.string "Que tal uma batalha\nrápida?$"
+
+GalarTrn_Depois_JUGGLER_FRLG:
+	.string "Boa batalha. Obrigado!$"
+
+GalarTrn_Intro_KINDLER:
+	.string "Que tal uma batalha\nrápida?$"
+
+GalarTrn_Depois_KINDLER:
+	.string "Boa batalha. Obrigado!$"
+
+GalarTrn_Intro_LADY_FRLG:
+	.string "Que tal uma batalha\nrápida?$"
+
+GalarTrn_Depois_LADY_FRLG:
+	.string "Boa batalha. Obrigado!$"
+
+GalarTrn_Intro_LASS_FRLG:
+	.string "Oi! Quer batalhar\ncomigo?$"
+
+GalarTrn_Depois_LASS_FRLG:
+	.string "Você é forte mesmo!$"
+
+GalarTrn_Intro_LEADER_FRLG:
+	.string "Sou o líder daqui.\nMostre o seu valor!$"
+
+GalarTrn_Depois_LEADER_FRLG:
+	.string "Você lutou muito bem.$"
+
+GalarTrn_Intro_MAGMA_ADMIN:
+	.string "Área restrita.\nVolte por onde veio.$"
+
+GalarTrn_Depois_MAGMA_ADMIN:
+	.string "Meu turno acabou mal.$"
+
+GalarTrn_Intro_PICNICKER_FRLG:
+	.string "Que tal uma batalha\nrápida?$"
+
+GalarTrn_Depois_PICNICKER_FRLG:
+	.string "Boa batalha. Obrigado!$"
+
+GalarTrn_Intro_PKMN_RANGER_FRLG:
+	.string "Que tal uma batalha\nrápida?$"
+
+GalarTrn_Depois_PKMN_RANGER_FRLG:
+	.string "Boa batalha. Obrigado!$"
+
+GalarTrn_Intro_PSYCHIC_FRLG:
+	.string "Que tal uma batalha\nrápida?$"
+
+GalarTrn_Depois_PSYCHIC_FRLG:
+	.string "Boa batalha. Obrigado!$"
+
+GalarTrn_Intro_RIVAL:
+	.string "De novo você? Então\nvamos resolver isso!$"
+
+GalarTrn_Depois_RIVAL:
+	.string "Da próxima eu ganho!$"
+
+GalarTrn_Intro_SAILOR_FRLG:
+	.string "Marujo não recusa\nbriga boa!$"
+
+GalarTrn_Depois_SAILOR_FRLG:
+	.string "Ancorei de vez.$"
+
+GalarTrn_Intro_SCHOOL_KID:
+	.string "Que tal uma batalha\nrápida?$"
+
+GalarTrn_Depois_SCHOOL_KID:
+	.string "Boa batalha. Obrigado!$"
+
+GalarTrn_Intro_SCIENTIST_FRLG:
+	.string "Minha hipótese:\neu venço. Vamos ver.$"
+
+GalarTrn_Depois_SCIENTIST_FRLG:
+	.string "Hipótese refutada.$"
+
+GalarTrn_Intro_SUPER_NERD_FRLG:
+	.string "Que tal uma batalha\nrápida?$"
+
+GalarTrn_Depois_SUPER_NERD_FRLG:
+	.string "Boa batalha. Obrigado!$"
+
+GalarTrn_Intro_SWIMMER_M_FRLG:
+	.string "A água é minha casa.\nVamos nessa!$"
+
+GalarTrn_Depois_SWIMMER_M_FRLG:
+	.string "Boa, você nada bem.$"
+
+GalarTrn_Intro_TAMER_FRLG:
+	.string "Que tal uma batalha\nrápida?$"
+
+GalarTrn_Depois_TAMER_FRLG:
+	.string "Boa batalha. Obrigado!$"
+
+GalarTrn_Intro_TEAM_AQUA:
+	.string "Some daqui, moleque!$"
+
+GalarTrn_Depois_TEAM_AQUA:
+	.string "Tá, tá... eu já vou.$"
+
+GalarTrn_Intro_YOUNGSTER_FRLG:
+	.string "Meu time é novo, mas\né bom. Vem!$"
+
+GalarTrn_Depois_YOUNGSTER_FRLG:
+	.string "Preciso treinar mais.$"
+
+GalarTrn_Intro_YOUNG_COUPLE_FRLG:
+	.string "Que tal uma batalha\nrápida?$"
+
+GalarTrn_Depois_YOUNG_COUPLE_FRLG:
+	.string "Boa batalha. Obrigado!$"
 
 @ ---- Galar_Ballonlea06 ----
 GalarTrn_G11M11_o11::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_BEDE_312, GalarTrn_G11M11_o11_Fim
-	trainerbattle_no_intro TRAINER_GALAR_BEDE_312, GalarTrn_G11M11_o11_Derrota
-	end
-
-GalarTrn_G11M11_o11_Fim:
+	trainerbattle_single TRAINER_GALAR_BEDE_312, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G11M11_o11_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -19,6 +263,8 @@ GalarTrn_G11M11_o11_Derrota:
 
 GalarTrn_G11M11_o12::
 	trainerbattle_single TRAINER_GALAR_OPAL_418, GalarTrn_G11M11_o12_Intro, GalarTrn_G11M11_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G11M11_o12_Intro:
@@ -29,13 +275,8 @@ GalarTrn_G11M11_o12_Derrota:
 
 @ ---- Galar_Circhester03 ----
 GalarTrn_G12M00_bg10::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_KARLA_215, GalarTrn_G12M00_bg10_Fim
-	trainerbattle_no_intro TRAINER_GALAR_KARLA_215, GalarTrn_G12M00_bg10_Derrota
-	end
-
-GalarTrn_G12M00_bg10_Fim:
+	trainerbattle_single TRAINER_GALAR_KARLA_215, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg10_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -43,13 +284,8 @@ GalarTrn_G12M00_bg10_Derrota:
 	.string "Yowza!$"
 
 GalarTrn_G12M00_bg11::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_KARLA_215, GalarTrn_G12M00_bg11_Fim
-	trainerbattle_no_intro TRAINER_GALAR_KARLA_215, GalarTrn_G12M00_bg11_Derrota
-	end
-
-GalarTrn_G12M00_bg11_Fim:
+	trainerbattle_single TRAINER_GALAR_KARLA_215_2, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg11_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -57,13 +293,8 @@ GalarTrn_G12M00_bg11_Derrota:
 	.string "Yowza!$"
 
 GalarTrn_G12M00_bg12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_LANA_180, GalarTrn_G12M00_bg12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_LANA_180, GalarTrn_G12M00_bg12_Derrota
-	end
-
-GalarTrn_G12M00_bg12_Fim:
+	trainerbattle_single TRAINER_GALAR_LANA_180, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg12_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -71,13 +302,8 @@ GalarTrn_G12M00_bg12_Derrota:
 	.string "Oh!$"
 
 GalarTrn_G12M00_bg13::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_LANA_180, GalarTrn_G12M00_bg13_Fim
-	trainerbattle_no_intro TRAINER_GALAR_LANA_180, GalarTrn_G12M00_bg13_Derrota
-	end
-
-GalarTrn_G12M00_bg13_Fim:
+	trainerbattle_single TRAINER_GALAR_LANA_180_2, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg13_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -85,13 +311,8 @@ GalarTrn_G12M00_bg13_Derrota:
 	.string "Oh!$"
 
 GalarTrn_G12M00_bg2::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_TALIA_213, GalarTrn_G12M00_bg2_Fim
-	trainerbattle_no_intro TRAINER_GALAR_TALIA_213, GalarTrn_G12M00_bg2_Derrota
-	end
-
-GalarTrn_G12M00_bg2_Fim:
+	trainerbattle_single TRAINER_GALAR_TALIA_213, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg2_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -99,13 +320,8 @@ GalarTrn_G12M00_bg2_Derrota:
 	.string "Eu me rendo!$"
 
 GalarTrn_G12M00_bg3::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_TALIA_213, GalarTrn_G12M00_bg3_Fim
-	trainerbattle_no_intro TRAINER_GALAR_TALIA_213, GalarTrn_G12M00_bg3_Derrota
-	end
-
-GalarTrn_G12M00_bg3_Fim:
+	trainerbattle_single TRAINER_GALAR_TALIA_213_2, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg3_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -113,13 +329,8 @@ GalarTrn_G12M00_bg3_Derrota:
 	.string "Eu me rendo!$"
 
 GalarTrn_G12M00_bg4::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_AVA_178, GalarTrn_G12M00_bg4_Fim
-	trainerbattle_no_intro TRAINER_GALAR_AVA_178, GalarTrn_G12M00_bg4_Derrota
-	end
-
-GalarTrn_G12M00_bg4_Fim:
+	trainerbattle_single TRAINER_GALAR_AVA_178, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg4_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -127,13 +338,8 @@ GalarTrn_G12M00_bg4_Derrota:
 	.string "$"
 
 GalarTrn_G12M00_bg5::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_AVA_178, GalarTrn_G12M00_bg5_Fim
-	trainerbattle_no_intro TRAINER_GALAR_AVA_178, GalarTrn_G12M00_bg5_Derrota
-	end
-
-GalarTrn_G12M00_bg5_Fim:
+	trainerbattle_single TRAINER_GALAR_AVA_178_2, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg5_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -141,13 +347,8 @@ GalarTrn_G12M00_bg5_Derrota:
 	.string "$"
 
 GalarTrn_G12M00_bg6::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_CLOTILDE_214, GalarTrn_G12M00_bg6_Fim
-	trainerbattle_no_intro TRAINER_GALAR_CLOTILDE_214, GalarTrn_G12M00_bg6_Derrota
-	end
-
-GalarTrn_G12M00_bg6_Fim:
+	trainerbattle_single TRAINER_GALAR_CLOTILDE_214, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg6_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -155,13 +356,8 @@ GalarTrn_G12M00_bg6_Derrota:
 	.string "Quente demais!$"
 
 GalarTrn_G12M00_bg7::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_CLOTILDE_214, GalarTrn_G12M00_bg7_Fim
-	trainerbattle_no_intro TRAINER_GALAR_CLOTILDE_214, GalarTrn_G12M00_bg7_Derrota
-	end
-
-GalarTrn_G12M00_bg7_Fim:
+	trainerbattle_single TRAINER_GALAR_CLOTILDE_214_2, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg7_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -169,13 +365,8 @@ GalarTrn_G12M00_bg7_Derrota:
 	.string "Quente demais!$"
 
 GalarTrn_G12M00_bg8::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_DELIA_179, GalarTrn_G12M00_bg8_Fim
-	trainerbattle_no_intro TRAINER_GALAR_DELIA_179, GalarTrn_G12M00_bg8_Derrota
-	end
-
-GalarTrn_G12M00_bg8_Fim:
+	trainerbattle_single TRAINER_GALAR_DELIA_179, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg8_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -183,13 +374,8 @@ GalarTrn_G12M00_bg8_Derrota:
 	.string "Ow!$"
 
 GalarTrn_G12M00_bg9::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_DELIA_179, GalarTrn_G12M00_bg9_Fim
-	trainerbattle_no_intro TRAINER_GALAR_DELIA_179, GalarTrn_G12M00_bg9_Derrota
-	end
-
-GalarTrn_G12M00_bg9_Fim:
+	trainerbattle_single TRAINER_GALAR_DELIA_179_2, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg9_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -197,7 +383,9 @@ GalarTrn_G12M00_bg9_Derrota:
 	.string "Ow!$"
 
 GalarTrn_G12M00_o0::
-	trainerbattle_single TRAINER_GALAR_TALIA_213, GalarTrn_G12M00_o0_Intro, GalarTrn_G12M00_o0_Derrota
+	trainerbattle_single TRAINER_GALAR_TALIA_213_3, GalarTrn_G12M00_o0_Intro, GalarTrn_G12M00_o0_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G12M00_o0_Intro:
@@ -208,6 +396,8 @@ GalarTrn_G12M00_o0_Derrota:
 
 GalarTrn_G12M00_o1::
 	trainerbattle_single TRAINER_GALAR_ERIKA_177, GalarTrn_G12M00_o1_Intro, GalarTrn_G12M00_o1_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G12M00_o1_Intro:
@@ -217,7 +407,9 @@ GalarTrn_G12M00_o1_Derrota:
 	.string "Uau!\nQuente quente quente!$"
 
 GalarTrn_G12M00_o2::
-	trainerbattle_single TRAINER_GALAR_AVA_178, GalarTrn_G12M00_o2_Intro, GalarTrn_G12M00_o2_Derrota
+	trainerbattle_single TRAINER_GALAR_AVA_178_3, GalarTrn_G12M00_o2_Intro, GalarTrn_G12M00_o2_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G12M00_o2_Intro:
@@ -227,7 +419,9 @@ GalarTrn_G12M00_o2_Derrota:
 	.string "Uau!\nMeus estudos foram insuficientes!$"
 
 GalarTrn_G12M00_o3::
-	trainerbattle_single TRAINER_GALAR_CLOTILDE_214, GalarTrn_G12M00_o3_Intro, GalarTrn_G12M00_o3_Derrota
+	trainerbattle_single TRAINER_GALAR_CLOTILDE_214_3, GalarTrn_G12M00_o3_Intro, GalarTrn_G12M00_o3_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G12M00_o3_Intro:
@@ -237,7 +431,9 @@ GalarTrn_G12M00_o3_Derrota:
 	.string "Quente demais!$"
 
 GalarTrn_G12M00_o4::
-	trainerbattle_single TRAINER_GALAR_DELIA_179, GalarTrn_G12M00_o4_Intro, GalarTrn_G12M00_o4_Derrota
+	trainerbattle_single TRAINER_GALAR_DELIA_179_3, GalarTrn_G12M00_o4_Intro, GalarTrn_G12M00_o4_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G12M00_o4_Intro:
@@ -247,7 +443,9 @@ GalarTrn_G12M00_o4_Derrota:
 	.string "Ow!$"
 
 GalarTrn_G12M00_o5::
-	trainerbattle_single TRAINER_GALAR_KARLA_215, GalarTrn_G12M00_o5_Intro, GalarTrn_G12M00_o5_Derrota
+	trainerbattle_single TRAINER_GALAR_KARLA_215_3, GalarTrn_G12M00_o5_Intro, GalarTrn_G12M00_o5_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G12M00_o5_Intro:
@@ -257,7 +455,9 @@ GalarTrn_G12M00_o5_Derrota:
 	.string "Yowza!$"
 
 GalarTrn_G12M00_o6::
-	trainerbattle_single TRAINER_GALAR_LANA_180, GalarTrn_G12M00_o6_Intro, GalarTrn_G12M00_o6_Derrota
+	trainerbattle_single TRAINER_GALAR_LANA_180_3, GalarTrn_G12M00_o6_Intro, GalarTrn_G12M00_o6_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G12M00_o6_Intro:
@@ -272,6 +472,8 @@ GalarTrn_G12M10_o19::
 	faceplayer
 	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_HOP_435, GalarTrn_G12M10_o19_Fim
 	trainerbattle_earlyrival TRAINER_GALAR_HOP_435, 0, GalarTrn_G12M10_o19_Derrota, GalarTrn_G12M10_o19_Vitoria
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G12M10_o19_Fim:
@@ -287,6 +489,8 @@ GalarTrn_G12M10_o19_Vitoria:
 @ ---- Galar_Circhester08 ----
 GalarTrn_G12M12_o0::
 	trainerbattle_single TRAINER_GALAR_CARTER_313, GalarTrn_G12M12_o0_Intro, GalarTrn_G12M12_o0_Derrota
+	msgbox GalarTrn_Depois_SAILOR_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G12M12_o0_Intro:
@@ -297,6 +501,8 @@ GalarTrn_G12M12_o0_Derrota:
 
 GalarTrn_G12M12_o1::
 	trainerbattle_single TRAINER_GALAR_MITCH_314, GalarTrn_G12M12_o1_Intro, GalarTrn_G12M12_o1_Derrota
+	msgbox GalarTrn_Depois_SAILOR_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G12M12_o1_Intro:
@@ -307,6 +513,8 @@ GalarTrn_G12M12_o1_Derrota:
 
 GalarTrn_G12M12_o2::
 	trainerbattle_single TRAINER_GALAR_BECK_315, GalarTrn_G12M12_o2_Intro, GalarTrn_G12M12_o2_Derrota
+	msgbox GalarTrn_Depois_SAILOR_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G12M12_o2_Intro:
@@ -317,6 +525,8 @@ GalarTrn_G12M12_o2_Derrota:
 
 GalarTrn_G12M12_o3::
 	trainerbattle_single TRAINER_GALAR_MARLON_316, GalarTrn_G12M12_o3_Intro, GalarTrn_G12M12_o3_Derrota
+	msgbox GalarTrn_Depois_SAILOR_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G12M12_o3_Intro:
@@ -328,6 +538,8 @@ GalarTrn_G12M12_o3_Derrota:
 @ ---- Galar_Circhester09 ----
 GalarTrn_G12M13_o0::
 	trainerbattle_single TRAINER_GALAR_MOGAN_130, GalarTrn_G12M13_o0_Intro, GalarTrn_G12M13_o0_Derrota
+	msgbox GalarTrn_Depois_HIKER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G12M13_o0_Intro:
@@ -338,6 +550,8 @@ GalarTrn_G12M13_o0_Derrota:
 
 GalarTrn_G12M13_o1::
 	trainerbattle_single TRAINER_GALAR_LESLIE_173, GalarTrn_G12M13_o1_Intro, GalarTrn_G12M13_o1_Derrota
+	msgbox GalarTrn_Depois_HIKER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G12M13_o1_Intro:
@@ -348,6 +562,8 @@ GalarTrn_G12M13_o1_Derrota:
 
 GalarTrn_G12M13_o2::
 	trainerbattle_single TRAINER_GALAR_ANDRE_129, GalarTrn_G12M13_o2_Intro, GalarTrn_G12M13_o2_Derrota
+	msgbox GalarTrn_Depois_HIKER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G12M13_o2_Intro:
@@ -358,6 +574,8 @@ GalarTrn_G12M13_o2_Derrota:
 
 GalarTrn_G12M13_o3::
 	trainerbattle_single TRAINER_GALAR_ETHAN_128, GalarTrn_G12M13_o3_Intro, GalarTrn_G12M13_o3_Derrota
+	msgbox GalarTrn_Depois_HIKER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G12M13_o3_Intro:
@@ -368,13 +586,8 @@ GalarTrn_G12M13_o3_Derrota:
 
 @ ---- Galar_Circhester10 ----
 GalarTrn_G12M14_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_MELONY_336, GalarTrn_G12M14_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_MELONY_336, GalarTrn_G12M14_o12_Derrota
-	end
-
-GalarTrn_G12M14_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_MELONY_336, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G12M14_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -384,6 +597,8 @@ GalarTrn_G12M14_o12_Derrota:
 @ ---- Galar_Circhester11 ----
 GalarTrn_G12M15_o12::
 	trainerbattle_single TRAINER_GALAR_GORDIE_49, GalarTrn_G12M15_o12_Intro, GalarTrn_G12M15_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G12M15_o12_Intro:
@@ -394,7 +609,9 @@ GalarTrn_G12M15_o12_Derrota:
 
 @ ---- Galar_Circhester17 ----
 GalarTrn_G13M12_o0::
-	trainerbattle_single TRAINER_GALAR_MOGAN_130, GalarTrn_G13M12_o0_Intro, GalarTrn_G13M12_o0_Derrota
+	trainerbattle_single TRAINER_GALAR_MOGAN_130_2, GalarTrn_G13M12_o0_Intro, GalarTrn_G13M12_o0_Derrota
+	msgbox GalarTrn_Depois_HIKER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G13M12_o0_Intro:
@@ -404,7 +621,9 @@ GalarTrn_G13M12_o0_Derrota:
 	.string "...$"
 
 GalarTrn_G13M12_o1::
-	trainerbattle_single TRAINER_GALAR_LESLIE_173, GalarTrn_G13M12_o1_Intro, GalarTrn_G13M12_o1_Derrota
+	trainerbattle_single TRAINER_GALAR_LESLIE_173_2, GalarTrn_G13M12_o1_Intro, GalarTrn_G13M12_o1_Derrota
+	msgbox GalarTrn_Depois_HIKER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G13M12_o1_Intro:
@@ -414,7 +633,9 @@ GalarTrn_G13M12_o1_Derrota:
 	.string "...$"
 
 GalarTrn_G13M12_o2::
-	trainerbattle_single TRAINER_GALAR_ANDRE_129, GalarTrn_G13M12_o2_Intro, GalarTrn_G13M12_o2_Derrota
+	trainerbattle_single TRAINER_GALAR_ANDRE_129_2, GalarTrn_G13M12_o2_Intro, GalarTrn_G13M12_o2_Derrota
+	msgbox GalarTrn_Depois_HIKER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G13M12_o2_Intro:
@@ -424,7 +645,9 @@ GalarTrn_G13M12_o2_Derrota:
 	.string "...$"
 
 GalarTrn_G13M12_o3::
-	trainerbattle_single TRAINER_GALAR_ETHAN_128, GalarTrn_G13M12_o3_Intro, GalarTrn_G13M12_o3_Derrota
+	trainerbattle_single TRAINER_GALAR_ETHAN_128_2, GalarTrn_G13M12_o3_Intro, GalarTrn_G13M12_o3_Derrota
+	msgbox GalarTrn_Depois_HIKER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G13M12_o3_Intro:
@@ -435,13 +658,8 @@ GalarTrn_G13M12_o3_Derrota:
 
 @ ---- Galar_CrownTundra02 ----
 GalarTrn_G00M15_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_PEONY_343, GalarTrn_G00M15_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_PEONY_343, GalarTrn_G00M15_o0_Derrota
-	end
-
-GalarTrn_G00M15_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_PEONY_343, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G00M15_o0_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -449,13 +667,8 @@ GalarTrn_G00M15_o0_Derrota:
 	.string "WOW$"
 
 GalarTrn_G00M15_o2::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_MEGAN_648, GalarTrn_G00M15_o2_Fim
-	trainerbattle_no_intro TRAINER_GALAR_MEGAN_648, GalarTrn_G00M15_o2_Derrota
-	end
-
-GalarTrn_G00M15_o2_Fim:
+	trainerbattle_single TRAINER_GALAR_MEGAN_648, GalarTrn_Intro_LASS_FRLG, GalarTrn_G00M15_o2_Derrota
+	msgbox GalarTrn_Depois_LASS_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -464,7 +677,9 @@ GalarTrn_G00M15_o2_Derrota:
 
 @ ---- Galar_CrownTundra09 ----
 GalarTrn_G37M06_o31::
-	trainerbattle_single TRAINER_GALAR_TOMMY_300, GalarTrn_G37M06_o31_Intro, GalarTrn_G37M06_o31_Derrota
+	trainerbattle_single TRAINER_GALAR_TOMMY_300_2, GalarTrn_G37M06_o31_Intro, GalarTrn_G37M06_o31_Derrota
+	msgbox GalarTrn_Depois_HIKER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G37M06_o31_Intro:
@@ -474,7 +689,9 @@ GalarTrn_G37M06_o31_Derrota:
 	.string "Parabéns$"
 
 GalarTrn_G37M06_o42::
-	trainerbattle_single TRAINER_GALAR_JON_299, GalarTrn_G37M06_o42_Intro, GalarTrn_G37M06_o42_Derrota
+	trainerbattle_single TRAINER_GALAR_JON_299_2, GalarTrn_G37M06_o42_Intro, GalarTrn_G37M06_o42_Derrota
+	msgbox GalarTrn_Depois_TAMER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G37M06_o42_Intro:
@@ -485,13 +702,8 @@ GalarTrn_G37M06_o42_Derrota:
 
 @ ---- Galar_DynamaxAdventure01 ----
 GalarTrn_G34M04_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_MEGAN_648, GalarTrn_G34M04_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_MEGAN_648, GalarTrn_G34M04_o0_Derrota
-	end
-
-GalarTrn_G34M04_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_MEGAN_648_2, GalarTrn_Intro_LASS_FRLG, GalarTrn_G34M04_o0_Derrota
+	msgbox GalarTrn_Depois_LASS_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -501,6 +713,8 @@ GalarTrn_G34M04_o0_Derrota:
 @ ---- Galar_GalarMine02 ----
 GalarTrn_G06M28_o0::
 	trainerbattle_single TRAINER_GALAR_KENT_108, GalarTrn_G06M28_o0_Intro, GalarTrn_G06M28_o0_Derrota
+	msgbox GalarTrn_Depois_KINDLER, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G06M28_o0_Intro:
@@ -511,6 +725,8 @@ GalarTrn_G06M28_o0_Derrota:
 
 GalarTrn_G06M28_o1::
 	trainerbattle_single TRAINER_GALAR_JOVAN_169, GalarTrn_G06M28_o1_Intro, GalarTrn_G06M28_o1_Derrota
+	msgbox GalarTrn_Depois_HIKER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G06M28_o1_Intro:
@@ -521,6 +737,8 @@ GalarTrn_G06M28_o1_Derrota:
 
 GalarTrn_G06M28_o2::
 	trainerbattle_single TRAINER_GALAR_HANNAH_121, GalarTrn_G06M28_o2_Intro, GalarTrn_G06M28_o2_Derrota
+	msgbox GalarTrn_Depois_CAMPER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G06M28_o2_Intro:
@@ -532,6 +750,8 @@ GalarTrn_G06M28_o2_Derrota:
 @ ---- Galar_GalarMine03 ----
 GalarTrn_G08M20_o10::
 	trainerbattle_single TRAINER_GALAR_LEAH_476, GalarTrn_G08M20_o10_Intro, GalarTrn_G08M20_o10_Derrota
+	msgbox GalarTrn_Depois_HIKER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G08M20_o10_Intro:
@@ -541,13 +761,8 @@ GalarTrn_G08M20_o10_Derrota:
 	.string "Estava muito escuro.$"
 
 GalarTrn_G08M20_o2::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_GRUNT_12, GalarTrn_G08M20_o2_Fim
-	trainerbattle_no_intro TRAINER_GALAR_GRUNT_12, GalarTrn_G08M20_o2_Derrota
-	end
-
-GalarTrn_G08M20_o2_Fim:
+	trainerbattle_single TRAINER_GALAR_GRUNT_12, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G08M20_o2_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -555,13 +770,8 @@ GalarTrn_G08M20_o2_Derrota:
 	.string "realmente voce e forte$"
 
 GalarTrn_G08M20_o3::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_GRUNT_12, GalarTrn_G08M20_o3_Fim
-	trainerbattle_no_intro TRAINER_GALAR_GRUNT_12, GalarTrn_G08M20_o3_Derrota
-	end
-
-GalarTrn_G08M20_o3_Fim:
+	trainerbattle_single TRAINER_GALAR_GRUNT_12_2, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G08M20_o3_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -569,13 +779,8 @@ GalarTrn_G08M20_o3_Derrota:
 	.string "realmente voce e forte$"
 
 GalarTrn_G08M20_o4::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_BEDE_11, GalarTrn_G08M20_o4_Fim
-	trainerbattle_no_intro TRAINER_GALAR_BEDE_11, GalarTrn_G08M20_o4_Derrota
-	end
-
-GalarTrn_G08M20_o4_Fim:
+	trainerbattle_single TRAINER_GALAR_BEDE_11, GalarTrn_Intro_RIVAL, GalarTrn_G08M20_o4_Derrota
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -584,6 +789,8 @@ GalarTrn_G08M20_o4_Derrota:
 
 GalarTrn_G08M20_o8::
 	trainerbattle_single TRAINER_GALAR_DANA_474, GalarTrn_G08M20_o8_Intro, GalarTrn_G08M20_o8_Derrota
+	msgbox GalarTrn_Depois_HIKER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G08M20_o8_Intro:
@@ -594,6 +801,8 @@ GalarTrn_G08M20_o8_Derrota:
 
 GalarTrn_G08M20_o9::
 	trainerbattle_single TRAINER_GALAR_ARIANA_475, GalarTrn_G08M20_o9_Intro, GalarTrn_G08M20_o9_Derrota
+	msgbox GalarTrn_Depois_HIKER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G08M20_o9_Intro:
@@ -605,6 +814,8 @@ GalarTrn_G08M20_o9_Derrota:
 @ ---- Galar_GalarMine05 ----
 GalarTrn_G07M10_o1::
 	trainerbattle_single TRAINER_GALAR_MARCOS_181, GalarTrn_G07M10_o1_Intro, GalarTrn_G07M10_o1_Derrota
+	msgbox GalarTrn_Depois_HIKER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G07M10_o1_Intro:
@@ -615,6 +826,8 @@ GalarTrn_G07M10_o1_Derrota:
 
 GalarTrn_G07M10_o4::
 	trainerbattle_single TRAINER_GALAR_BRADLEY_174, GalarTrn_G07M10_o4_Intro, GalarTrn_G07M10_o4_Derrota
+	msgbox GalarTrn_Depois_SUPER_NERD_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G07M10_o4_Intro:
@@ -626,6 +839,8 @@ GalarTrn_G07M10_o4_Derrota:
 @ ---- Galar_GlimwoodTangle01 ----
 GalarTrn_G01M109_o0::
 	trainerbattle_single TRAINER_GALAR_ROBERT_157, GalarTrn_G01M109_o0_Intro, GalarTrn_G01M109_o0_Derrota
+	msgbox GalarTrn_Depois_GENTLEMAN_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G01M109_o0_Intro:
@@ -636,6 +851,8 @@ GalarTrn_G01M109_o0_Derrota:
 
 GalarTrn_G01M109_o14::
 	trainerbattle_single TRAINER_GALAR_JACQUELINE_188, GalarTrn_G01M109_o14_Intro, GalarTrn_G01M109_o14_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G01M109_o14_Intro:
@@ -646,6 +863,8 @@ GalarTrn_G01M109_o14_Derrota:
 
 GalarTrn_G01M109_o15::
 	trainerbattle_single TRAINER_GALAR_JUDY_163, GalarTrn_G01M109_o15_Intro, GalarTrn_G01M109_o15_Derrota
+	msgbox GalarTrn_Depois_LADY_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G01M109_o15_Intro:
@@ -656,6 +875,8 @@ GalarTrn_G01M109_o15_Derrota:
 
 GalarTrn_G01M109_o16::
 	trainerbattle_single TRAINER_GALAR_CLARK_187, GalarTrn_G01M109_o16_Intro, GalarTrn_G01M109_o16_Derrota
+	msgbox GalarTrn_Depois_KINDLER, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G01M109_o16_Intro:
@@ -667,6 +888,8 @@ GalarTrn_G01M109_o16_Derrota:
 @ ---- Galar_Hammerlocke02 ----
 GalarTrn_G04M08_o0::
 	trainerbattle_single TRAINER_GALAR_MARCIO_459, GalarTrn_G04M08_o0_Intro, GalarTrn_G04M08_o0_Derrota
+	msgbox GalarTrn_Depois_CHANNELER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G04M08_o0_Intro:
@@ -677,6 +900,8 @@ GalarTrn_G04M08_o0_Derrota:
 
 GalarTrn_G04M08_o1::
 	trainerbattle_single TRAINER_GALAR_GABRIEL_458, GalarTrn_G04M08_o1_Intro, GalarTrn_G04M08_o1_Derrota
+	msgbox GalarTrn_Depois_CHANNELER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G04M08_o1_Intro:
@@ -687,6 +912,8 @@ GalarTrn_G04M08_o1_Derrota:
 
 GalarTrn_G04M08_o2::
 	trainerbattle_single TRAINER_GALAR_CARLOS_457, GalarTrn_G04M08_o2_Intro, GalarTrn_G04M08_o2_Derrota
+	msgbox GalarTrn_Depois_CHANNELER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G04M08_o2_Intro:
@@ -697,13 +924,8 @@ GalarTrn_G04M08_o2_Derrota:
 
 @ ---- Galar_Hammerlocke10 ----
 GalarTrn_G09M17_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_ROSE_85, GalarTrn_G09M17_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_ROSE_85, GalarTrn_G09M17_o0_Derrota
-	end
-
-GalarTrn_G09M17_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_ROSE_85, GalarTrn_Intro_MAGMA_ADMIN, GalarTrn_G09M17_o0_Derrota
+	msgbox GalarTrn_Depois_MAGMA_ADMIN, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -712,13 +934,8 @@ GalarTrn_G09M17_o0_Derrota:
 
 @ ---- Galar_Hammerlocke23 ----
 GalarTrn_G03M06_o10::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_HOP_429, GalarTrn_G03M06_o10_Fim
-	trainerbattle_no_intro TRAINER_GALAR_HOP_429, GalarTrn_G03M06_o10_Derrota
-	end
-
-GalarTrn_G03M06_o10_Fim:
+	trainerbattle_single TRAINER_GALAR_HOP_429, GalarTrn_Intro_RIVAL, GalarTrn_G03M06_o10_Derrota
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -726,13 +943,8 @@ GalarTrn_G03M06_o10_Derrota:
 	.string "Minha estratégia vai direto ao buraco \nquando tenho todos esses pensamentos\lruins passando pela minha cabeça. $"
 
 GalarTrn_G03M06_o9::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_HOP_429, GalarTrn_G03M06_o9_Fim
-	trainerbattle_no_intro TRAINER_GALAR_HOP_429, GalarTrn_G03M06_o9_Derrota
-	end
-
-GalarTrn_G03M06_o9_Fim:
+	trainerbattle_single TRAINER_GALAR_HOP_429_2, GalarTrn_Intro_RIVAL, GalarTrn_G03M06_o9_Derrota
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -742,6 +954,8 @@ GalarTrn_G03M06_o9_Derrota:
 @ ---- Galar_Hulbury06 ----
 GalarTrn_G08M07_o17::
 	trainerbattle_single TRAINER_GALAR_WANDA_686, GalarTrn_G08M07_o17_Intro, GalarTrn_G08M07_o17_Derrota
+	msgbox GalarTrn_Depois_FISHERMAN_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G08M07_o17_Intro:
@@ -751,13 +965,8 @@ GalarTrn_G08M07_o17_Derrota:
 	.string "{COLOR LIGHT_RED}É hora de voltar ao trabalho.$"
 
 GalarTrn_G08M07_o39::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_ROBERT_656, GalarTrn_G08M07_o39_Fim
-	trainerbattle_no_intro TRAINER_GALAR_ROBERT_656, GalarTrn_G08M07_o39_Derrota
-	end
-
-GalarTrn_G08M07_o39_Fim:
+	trainerbattle_single TRAINER_GALAR_ROBERT_656, GalarTrn_Intro_COLLECTOR, GalarTrn_G08M07_o39_Derrota
+	msgbox GalarTrn_Depois_COLLECTOR, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -766,13 +975,8 @@ GalarTrn_G08M07_o39_Derrota:
 
 @ ---- Galar_Hulbury07 ----
 GalarTrn_G08M08_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_JONH_5, GalarTrn_G08M08_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_JONH_5, GalarTrn_G08M08_o0_Derrota
-	end
-
-GalarTrn_G08M08_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_JONH_5, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G08M08_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -780,13 +984,8 @@ GalarTrn_G08M08_o0_Derrota:
 	.string "Team Yell: Gah ... Voce esmagou\nminha tentativa de esmaga$"
 
 GalarTrn_G08M08_o3::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_HOP_332, GalarTrn_G08M08_o3_Fim
-	trainerbattle_no_intro TRAINER_GALAR_HOP_332, GalarTrn_G08M08_o3_Derrota
-	end
-
-GalarTrn_G08M08_o3_Fim:
+	trainerbattle_single TRAINER_GALAR_HOP_332, GalarTrn_Intro_RIVAL, GalarTrn_G08M08_o3_Derrota
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -796,6 +995,8 @@ GalarTrn_G08M08_o3_Derrota:
 @ ---- Galar_Hulbury08 ----
 GalarTrn_G08M14_o0::
 	trainerbattle_single TRAINER_GALAR_JULIA_234, GalarTrn_G08M14_o0_Intro, GalarTrn_G08M14_o0_Derrota
+	msgbox GalarTrn_Depois_SWIMMER_M_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G08M14_o0_Intro:
@@ -806,6 +1007,8 @@ GalarTrn_G08M14_o0_Derrota:
 
 GalarTrn_G08M14_o1::
 	trainerbattle_single TRAINER_GALAR_DIANA_150, GalarTrn_G08M14_o1_Intro, GalarTrn_G08M14_o1_Derrota
+	msgbox GalarTrn_Depois_SWIMMER_M_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G08M14_o1_Intro:
@@ -816,6 +1019,8 @@ GalarTrn_G08M14_o1_Derrota:
 
 GalarTrn_G08M14_o2::
 	trainerbattle_single TRAINER_GALAR_ANA_210, GalarTrn_G08M14_o2_Intro, GalarTrn_G08M14_o2_Derrota
+	msgbox GalarTrn_Depois_BURGLAR_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G08M14_o2_Intro:
@@ -826,13 +1031,8 @@ GalarTrn_G08M14_o2_Derrota:
 
 @ ---- Galar_Hulbury10 ----
 GalarTrn_G08M16_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_NESSA_307, GalarTrn_G08M16_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_NESSA_307, GalarTrn_G08M16_o12_Derrota
-	end
-
-GalarTrn_G08M16_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_NESSA_307, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G08M16_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -841,13 +1041,8 @@ GalarTrn_G08M16_o12_Derrota:
 
 @ ---- Galar_Hulbury12 ----
 GalarTrn_G08M26_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_JONH_5, GalarTrn_G08M26_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_JONH_5, GalarTrn_G08M26_o0_Derrota
-	end
-
-GalarTrn_G08M26_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_JONH_5_4, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G08M26_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -855,13 +1050,8 @@ GalarTrn_G08M26_o0_Derrota:
 	.string "Team Yell: Gah ... Voce esmagou\nminha tentativa de esmaga$"
 
 GalarTrn_G08M26_o3::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_HOP_332, GalarTrn_G08M26_o3_Fim
-	trainerbattle_no_intro TRAINER_GALAR_HOP_332, GalarTrn_G08M26_o3_Derrota
-	end
-
-GalarTrn_G08M26_o3_Fim:
+	trainerbattle_single TRAINER_GALAR_HOP_332_2, GalarTrn_Intro_RIVAL, GalarTrn_G08M26_o3_Derrota
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -870,13 +1060,8 @@ GalarTrn_G08M26_o3_Derrota:
 
 @ ---- Galar_IsleOfArmor05 ----
 GalarTrn_G38M01_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_KLARA_225, GalarTrn_G38M01_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_KLARA_225, GalarTrn_G38M01_o0_Derrota
-	end
-
-GalarTrn_G38M01_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_KLARA_225, GalarTrn_Intro_RIVAL, GalarTrn_G38M01_o0_Derrota
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -886,6 +1071,8 @@ GalarTrn_G38M01_o0_Derrota:
 @ ---- Galar_IsleOfArmor13 ----
 GalarTrn_G38M09_o30::
 	trainerbattle_single TRAINER_GALAR_CLAYTON_SA_373, GalarTrn_G38M09_o30_Intro, GalarTrn_G38M09_o30_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G38M09_o30_Intro:
@@ -896,13 +1083,8 @@ GalarTrn_G38M09_o30_Derrota:
 
 @ ---- Galar_IsleOfArmor19 ----
 GalarTrn_G38M15_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_MUSTARD_230, GalarTrn_G38M15_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_MUSTARD_230, GalarTrn_G38M15_o0_Derrota
-	end
-
-GalarTrn_G38M15_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_MUSTARD_230, GalarTrn_Intro_BLACK_BELT_FRLG, GalarTrn_G38M15_o0_Derrota
+	msgbox GalarTrn_Depois_BLACK_BELT_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -911,13 +1093,8 @@ GalarTrn_G38M15_o0_Derrota:
 
 @ ---- Galar_IsleOfArmor25 ----
 GalarTrn_G38M21_o5::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_MUSTARD_230, GalarTrn_G38M21_o5_Fim
-	trainerbattle_no_intro TRAINER_GALAR_MUSTARD_230, GalarTrn_G38M21_o5_Derrota
-	end
-
-GalarTrn_G38M21_o5_Fim:
+	trainerbattle_single TRAINER_GALAR_MUSTARD_230_2, GalarTrn_Intro_BLACK_BELT_FRLG, GalarTrn_G38M21_o5_Derrota
+	msgbox GalarTrn_Depois_BLACK_BELT_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -926,13 +1103,8 @@ GalarTrn_G38M21_o5_Derrota:
 
 @ ---- Galar_IsleOfArmor32 ----
 GalarTrn_G38M28_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_LUCAS_231, GalarTrn_G38M28_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_LUCAS_231, GalarTrn_G38M28_o12_Derrota
-	end
-
-GalarTrn_G38M28_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_LUCAS_231, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G38M28_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -941,13 +1113,8 @@ GalarTrn_G38M28_o12_Derrota:
 
 @ ---- Galar_IsleOfArmor33 ----
 GalarTrn_G38M29_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_VANESSA_233, GalarTrn_G38M29_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_VANESSA_233, GalarTrn_G38M29_o12_Derrota
-	end
-
-GalarTrn_G38M29_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_VANESSA_233, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G38M29_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -956,13 +1123,8 @@ GalarTrn_G38M29_o12_Derrota:
 
 @ ---- Galar_IsleOfArmor34 ----
 GalarTrn_G38M30_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_C_PHENE_232, GalarTrn_G38M30_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_C_PHENE_232, GalarTrn_G38M30_o12_Derrota
-	end
-
-GalarTrn_G38M30_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_C_PHENE_232, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G38M30_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -971,13 +1133,8 @@ GalarTrn_G38M30_o12_Derrota:
 
 @ ---- Galar_Motostoke06 ----
 GalarTrn_G06M12_o2::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_KEVIN_1, GalarTrn_G06M12_o2_Fim
-	trainerbattle_no_intro TRAINER_GALAR_KEVIN_1, GalarTrn_G06M12_o2_Derrota
-	end
-
-GalarTrn_G06M12_o2_Fim:
+	trainerbattle_single TRAINER_GALAR_KEVIN_1, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G06M12_o2_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -986,13 +1143,8 @@ GalarTrn_G06M12_o2_Derrota:
 
 @ ---- Galar_Motostoke16 ----
 GalarTrn_G06M26_o1::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_BIANCA_21, GalarTrn_G06M26_o1_Fim
-	trainerbattle_no_intro TRAINER_GALAR_BIANCA_21, GalarTrn_G06M26_o1_Derrota
-	end
-
-GalarTrn_G06M26_o1_Fim:
+	trainerbattle_single TRAINER_GALAR_BIANCA_21, GalarTrn_Intro_LASS_FRLG, GalarTrn_G06M26_o1_Derrota
+	msgbox GalarTrn_Depois_LASS_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -1002,6 +1154,8 @@ GalarTrn_G06M26_o1_Derrota:
 @ ---- Galar_Motostoke18 ----
 GalarTrn_G06M33_o1::
 	trainerbattle_single TRAINER_GALAR_TYLER_96, GalarTrn_G06M33_o1_Intro, GalarTrn_G06M33_o1_Derrota
+	msgbox GalarTrn_Depois_YOUNGSTER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G06M33_o1_Intro:
@@ -1012,6 +1166,8 @@ GalarTrn_G06M33_o1_Derrota:
 
 GalarTrn_G06M33_o2::
 	trainerbattle_single TRAINER_GALAR_ANDO_126, GalarTrn_G06M33_o2_Intro, GalarTrn_G06M33_o2_Derrota
+	msgbox GalarTrn_Depois_COOLTRAINER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G06M33_o2_Intro:
@@ -1022,6 +1178,8 @@ GalarTrn_G06M33_o2_Derrota:
 
 GalarTrn_G06M33_o3::
 	trainerbattle_single TRAINER_GALAR_BROOKS_482, GalarTrn_G06M33_o3_Intro, GalarTrn_G06M33_o3_Derrota
+	msgbox GalarTrn_Depois_GENTLEMAN_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G06M33_o3_Intro:
@@ -1032,13 +1190,8 @@ GalarTrn_G06M33_o3_Derrota:
 
 @ ---- Galar_Motostoke19 ----
 GalarTrn_G06M34_o9::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_KABU_308, GalarTrn_G06M34_o9_Fim
-	trainerbattle_no_intro TRAINER_GALAR_KABU_308, GalarTrn_G06M34_o9_Derrota
-	end
-
-GalarTrn_G06M34_o9_Fim:
+	trainerbattle_single TRAINER_GALAR_KABU_308, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G06M34_o9_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -1047,7 +1200,9 @@ GalarTrn_G06M34_o9_Derrota:
 
 @ ---- Galar_Postwick10 ----
 GalarTrn_G01M110_o10::
-	trainerbattle_single TRAINER_GALAR_JUDY_163, GalarTrn_G01M110_o10_Intro, GalarTrn_G01M110_o10_Derrota
+	trainerbattle_single TRAINER_GALAR_JUDY_163_2, GalarTrn_G01M110_o10_Intro, GalarTrn_G01M110_o10_Derrota
+	msgbox GalarTrn_Depois_LADY_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G01M110_o10_Intro:
@@ -1057,7 +1212,9 @@ GalarTrn_G01M110_o10_Derrota:
 	.string "Oh não!\nMeu Pokémon!$"
 
 GalarTrn_G01M110_o7::
-	trainerbattle_single TRAINER_GALAR_CLARK_187, GalarTrn_G01M110_o7_Intro, GalarTrn_G01M110_o7_Derrota
+	trainerbattle_single TRAINER_GALAR_CLARK_187_2, GalarTrn_G01M110_o7_Intro, GalarTrn_G01M110_o7_Derrota
+	msgbox GalarTrn_Depois_KINDLER, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G01M110_o7_Intro:
@@ -1067,7 +1224,9 @@ GalarTrn_G01M110_o7_Derrota:
 	.string "Ha-haha!\nHa-hay fever! Haha-ha-choo!$"
 
 GalarTrn_G01M110_o8::
-	trainerbattle_single TRAINER_GALAR_ROBERT_157, GalarTrn_G01M110_o8_Intro, GalarTrn_G01M110_o8_Derrota
+	trainerbattle_single TRAINER_GALAR_ROBERT_157_2, GalarTrn_G01M110_o8_Intro, GalarTrn_G01M110_o8_Derrota
+	msgbox GalarTrn_Depois_GENTLEMAN_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G01M110_o8_Intro:
@@ -1077,7 +1236,9 @@ GalarTrn_G01M110_o8_Derrota:
 	.string "Eu estou muito cansado.\nnão estava preparado para isso.$"
 
 GalarTrn_G01M110_o9::
-	trainerbattle_single TRAINER_GALAR_JACQUELINE_188, GalarTrn_G01M110_o9_Intro, GalarTrn_G01M110_o9_Derrota
+	trainerbattle_single TRAINER_GALAR_JACQUELINE_188_2, GalarTrn_G01M110_o9_Intro, GalarTrn_G01M110_o9_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G01M110_o9_Intro:
@@ -1088,13 +1249,8 @@ GalarTrn_G01M110_o9_Derrota:
 
 @ ---- Galar_Postwick166 ----
 GalarTrn_G39M41_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_MARTHA_SANT_381, GalarTrn_G39M41_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_MARTHA_SANT_381, GalarTrn_G39M41_o0_Derrota
-	end
-
-GalarTrn_G39M41_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_MARTHA_SANT_381, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G39M41_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -1103,7 +1259,9 @@ GalarTrn_G39M41_o0_Derrota:
 
 @ ---- Galar_Postwick40 ----
 GalarTrn_G07M07_o2::
-	trainerbattle_single TRAINER_GALAR_HANNAH_116, GalarTrn_G07M07_o2_Intro, GalarTrn_G07M07_o2_Derrota
+	trainerbattle_single TRAINER_GALAR_HANNAH_116_2, GalarTrn_G07M07_o2_Intro, GalarTrn_G07M07_o2_Derrota
+	msgbox GalarTrn_Depois_LASS_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G07M07_o2_Intro:
@@ -1113,7 +1271,9 @@ GalarTrn_G07M07_o2_Derrota:
 	.string "Você é mau!$"
 
 GalarTrn_G07M07_o3::
-	trainerbattle_single TRAINER_GALAR_ANA_211, GalarTrn_G07M07_o3_Intro, GalarTrn_G07M07_o3_Derrota
+	trainerbattle_single TRAINER_GALAR_ANA_211_2, GalarTrn_G07M07_o3_Intro, GalarTrn_G07M07_o3_Derrota
+	msgbox GalarTrn_Depois_LASS_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G07M07_o3_Intro:
@@ -1123,7 +1283,9 @@ GalarTrn_G07M07_o3_Derrota:
 	.string "Eu no acredito!$"
 
 GalarTrn_G07M07_o5::
-	trainerbattle_single TRAINER_GALAR_ROBIN_118, GalarTrn_G07M07_o5_Intro, GalarTrn_G07M07_o5_Derrota
+	trainerbattle_single TRAINER_GALAR_ROBIN_118_2, GalarTrn_G07M07_o5_Intro, GalarTrn_G07M07_o5_Derrota
+	msgbox GalarTrn_Depois_LASS_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G07M07_o5_Intro:
@@ -1133,7 +1295,9 @@ GalarTrn_G07M07_o5_Derrota:
 	.string "É isso?$"
 
 GalarTrn_G07M07_o6::
-	trainerbattle_single TRAINER_GALAR_JAMES_107, GalarTrn_G07M07_o6_Intro, GalarTrn_G07M07_o6_Derrota
+	trainerbattle_single TRAINER_GALAR_JAMES_107_2, GalarTrn_G07M07_o6_Intro, GalarTrn_G07M07_o6_Derrota
+	msgbox GalarTrn_Depois_CAMPER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G07M07_o6_Intro:
@@ -1144,13 +1308,8 @@ GalarTrn_G07M07_o6_Derrota:
 
 @ ---- Galar_Postwick53 ----
 GalarTrn_G08M21_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_JONH_5, GalarTrn_G08M21_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_JONH_5, GalarTrn_G08M21_o0_Derrota
-	end
-
-GalarTrn_G08M21_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_JONH_5_2, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G08M21_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -1158,13 +1317,8 @@ GalarTrn_G08M21_o0_Derrota:
 	.string "Team Yell: Gah ... Voce esmagou\nminha tentativa de esmaga$"
 
 GalarTrn_G08M21_o3::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_JONH_5, GalarTrn_G08M21_o3_Fim
-	trainerbattle_no_intro TRAINER_GALAR_JONH_5, GalarTrn_G08M21_o3_Derrota
-	end
-
-GalarTrn_G08M21_o3_Fim:
+	trainerbattle_single TRAINER_GALAR_JONH_5_3, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G08M21_o3_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -1174,6 +1328,8 @@ GalarTrn_G08M21_o3_Derrota:
 @ ---- Galar_RixyChamber01 ----
 GalarTrn_G03M53_o0::
 	trainerbattle_single TRAINER_GALAR_MIAH_588, GalarTrn_G03M53_o0_Intro, GalarTrn_G03M53_o0_Derrota
+	msgbox GalarTrn_Depois_AROMA_LADY_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G03M53_o0_Intro:
@@ -1184,6 +1340,8 @@ GalarTrn_G03M53_o0_Derrota:
 
 GalarTrn_G03M53_o1::
 	trainerbattle_single TRAINER_GALAR_MADELINE_522, GalarTrn_G03M53_o1_Intro, GalarTrn_G03M53_o1_Derrota
+	msgbox GalarTrn_Depois_PKMN_RANGER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G03M53_o1_Intro:
@@ -1194,6 +1352,8 @@ GalarTrn_G03M53_o1_Derrota:
 
 GalarTrn_G03M53_o2::
 	trainerbattle_double TRAINER_GALAR_EVE_JON_589, GalarTrn_G03M53_o2_Intro, GalarTrn_G03M53_o2_Derrota, GalarTrn_G03M53_o2_Poucos
+	msgbox GalarTrn_Depois_YOUNG_COUPLE_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G03M53_o2_Intro:
@@ -1206,7 +1366,9 @@ GalarTrn_G03M53_o2_Poucos:
 	.string "Eve: I want to team up with Jon\nwhen I battle you.\pCome back with two Pokémon, okay?$"
 
 GalarTrn_G03M53_o4::
-	trainerbattle_double TRAINER_GALAR_EVE_JON_589, GalarTrn_G03M53_o4_Intro, GalarTrn_G03M53_o4_Derrota, GalarTrn_G03M53_o4_Poucos
+	trainerbattle_double TRAINER_GALAR_EVE_JON_589_2, GalarTrn_G03M53_o4_Intro, GalarTrn_G03M53_o4_Derrota, GalarTrn_G03M53_o4_Poucos
+	msgbox GalarTrn_Depois_YOUNG_COUPLE_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G03M53_o4_Intro:
@@ -1220,6 +1382,8 @@ GalarTrn_G03M53_o4_Poucos:
 
 GalarTrn_G03M53_o5::
 	trainerbattle_single TRAINER_GALAR_NICOLAS_521, GalarTrn_G03M53_o5_Intro, GalarTrn_G03M53_o5_Derrota
+	msgbox GalarTrn_Depois_PKMN_RANGER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G03M53_o5_Intro:
@@ -1231,6 +1395,8 @@ GalarTrn_G03M53_o5_Derrota:
 @ ---- Galar_RoseTower01 ----
 GalarTrn_G01M90_o1::
 	trainerbattle_single TRAINER_GALAR_CARLOS_442, GalarTrn_G01M90_o1_Intro, GalarTrn_G01M90_o1_Derrota
+	msgbox GalarTrn_Depois_MAGMA_ADMIN, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G01M90_o1_Intro:
@@ -1242,6 +1408,8 @@ GalarTrn_G01M90_o1_Derrota:
 @ ---- Galar_RoseTower02 ----
 GalarTrn_G01M91_o0::
 	trainerbattle_single TRAINER_GALAR_LAURO_445, GalarTrn_G01M91_o0_Intro, GalarTrn_G01M91_o0_Derrota
+	msgbox GalarTrn_Depois_BLACK_BELT_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G01M91_o0_Intro:
@@ -1252,6 +1420,8 @@ GalarTrn_G01M91_o0_Derrota:
 
 GalarTrn_G01M91_o1::
 	trainerbattle_single TRAINER_GALAR_JODY_446, GalarTrn_G01M91_o1_Intro, GalarTrn_G01M91_o1_Derrota
+	msgbox GalarTrn_Depois_MAGMA_ADMIN, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G01M91_o1_Intro:
@@ -1263,6 +1433,8 @@ GalarTrn_G01M91_o1_Derrota:
 @ ---- Galar_RoseTower03 ----
 GalarTrn_G01M92_o1::
 	trainerbattle_single TRAINER_GALAR_TAMMY_447, GalarTrn_G01M92_o1_Intro, GalarTrn_G01M92_o1_Derrota
+	msgbox GalarTrn_Depois_CHANNELER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G01M92_o1_Intro:
@@ -1273,13 +1445,8 @@ GalarTrn_G01M92_o1_Derrota:
 
 @ ---- Galar_RoseTower04 ----
 GalarTrn_G01M94_o1::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_OLENA_80, GalarTrn_G01M94_o1_Fim
-	trainerbattle_no_intro TRAINER_GALAR_OLENA_80, GalarTrn_G01M94_o1_Derrota
-	end
-
-GalarTrn_G01M94_o1_Fim:
+	trainerbattle_single TRAINER_GALAR_OLENA_80, GalarTrn_Intro_MAGMA_ADMIN, GalarTrn_G01M94_o1_Derrota
+	msgbox GalarTrn_Depois_MAGMA_ADMIN, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -1289,6 +1456,8 @@ GalarTrn_G01M94_o1_Derrota:
 @ ---- Galar_Route0202 ----
 GalarTrn_G05M12_o3::
 	trainerbattle_single TRAINER_GALAR_LASS_102, GalarTrn_G05M12_o3_Intro, GalarTrn_G05M12_o3_Derrota
+	msgbox GalarTrn_Depois_LADY_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G05M12_o3_Intro:
@@ -1299,6 +1468,8 @@ GalarTrn_G05M12_o3_Derrota:
 
 GalarTrn_G05M12_o5::
 	trainerbattle_single TRAINER_GALAR_SAMMY_104, GalarTrn_G05M12_o5_Intro, GalarTrn_G05M12_o5_Derrota
+	msgbox GalarTrn_Depois_YOUNGSTER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G05M12_o5_Intro:
@@ -1309,6 +1480,8 @@ GalarTrn_G05M12_o5_Derrota:
 
 GalarTrn_G05M12_o6::
 	trainerbattle_single TRAINER_GALAR_ANTHONY_531, GalarTrn_G05M12_o6_Intro, GalarTrn_G05M12_o6_Derrota
+	msgbox GalarTrn_Depois_BUG_CATCHER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G05M12_o6_Intro:
@@ -1320,6 +1493,8 @@ GalarTrn_G05M12_o6_Derrota:
 @ ---- Galar_Route0301 ----
 GalarTrn_G06M17_o2::
 	trainerbattle_single TRAINER_GALAR_HANNAH_116, GalarTrn_G06M17_o2_Intro, GalarTrn_G06M17_o2_Derrota
+	msgbox GalarTrn_Depois_LASS_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G06M17_o2_Intro:
@@ -1330,6 +1505,8 @@ GalarTrn_G06M17_o2_Derrota:
 
 GalarTrn_G06M17_o3::
 	trainerbattle_single TRAINER_GALAR_ANA_211, GalarTrn_G06M17_o3_Intro, GalarTrn_G06M17_o3_Derrota
+	msgbox GalarTrn_Depois_LASS_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G06M17_o3_Intro:
@@ -1340,6 +1517,8 @@ GalarTrn_G06M17_o3_Derrota:
 
 GalarTrn_G06M17_o4::
 	trainerbattle_single TRAINER_GALAR_CALVIN_90, GalarTrn_G06M17_o4_Intro, GalarTrn_G06M17_o4_Derrota
+	msgbox GalarTrn_Depois_YOUNGSTER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G06M17_o4_Intro:
@@ -1350,6 +1529,8 @@ GalarTrn_G06M17_o4_Derrota:
 
 GalarTrn_G06M17_o5::
 	trainerbattle_single TRAINER_GALAR_ROBIN_118, GalarTrn_G06M17_o5_Intro, GalarTrn_G06M17_o5_Derrota
+	msgbox GalarTrn_Depois_LASS_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G06M17_o5_Intro:
@@ -1360,6 +1541,8 @@ GalarTrn_G06M17_o5_Derrota:
 
 GalarTrn_G06M17_o6::
 	trainerbattle_single TRAINER_GALAR_JAMES_107, GalarTrn_G06M17_o6_Intro, GalarTrn_G06M17_o6_Derrota
+	msgbox GalarTrn_Depois_CAMPER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G06M17_o6_Intro:
@@ -1370,7 +1553,9 @@ GalarTrn_G06M17_o6_Derrota:
 
 @ ---- Galar_Route0401 ----
 GalarTrn_G07M17_o2::
-	trainerbattle_single TRAINER_GALAR_BRADLEY_174, GalarTrn_G07M17_o2_Intro, GalarTrn_G07M17_o2_Derrota
+	trainerbattle_single TRAINER_GALAR_BRADLEY_174_2, GalarTrn_G07M17_o2_Intro, GalarTrn_G07M17_o2_Derrota
+	msgbox GalarTrn_Depois_SUPER_NERD_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G07M17_o2_Intro:
@@ -1382,6 +1567,8 @@ GalarTrn_G07M17_o2_Derrota:
 @ ---- Galar_Route0501 ----
 GalarTrn_G08M06_o4::
 	trainerbattle_single TRAINER_GALAR_JASPER_259, GalarTrn_G08M06_o4_Intro, GalarTrn_G08M06_o4_Derrota
+	msgbox GalarTrn_Depois_COLLECTOR, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G08M06_o4_Intro:
@@ -1392,13 +1579,8 @@ GalarTrn_G08M06_o4_Derrota:
 
 @ ---- Galar_Route0601 ----
 GalarTrn_G10M20_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_GRUNT_13, GalarTrn_G10M20_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_GRUNT_13, GalarTrn_G10M20_o0_Derrota
-	end
-
-GalarTrn_G10M20_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_GRUNT_13, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G10M20_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -1406,13 +1588,8 @@ GalarTrn_G10M20_o0_Derrota:
 	.string "Ah, cara! O ar sofisticado daqui\ncortou meu barato!$"
 
 GalarTrn_G10M20_o1::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_GRUNT_13, GalarTrn_G10M20_o1_Fim
-	trainerbattle_no_intro TRAINER_GALAR_GRUNT_13, GalarTrn_G10M20_o1_Derrota
-	end
-
-GalarTrn_G10M20_o1_Fim:
+	trainerbattle_single TRAINER_GALAR_GRUNT_13_2, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G10M20_o1_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -1421,6 +1598,8 @@ GalarTrn_G10M20_o1_Derrota:
 
 GalarTrn_G10M20_o10::
 	trainerbattle_single TRAINER_GALAR_DIANE_151, GalarTrn_G10M20_o10_Intro, GalarTrn_G10M20_o10_Derrota
+	msgbox GalarTrn_Depois_PICNICKER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G10M20_o10_Intro:
@@ -1431,6 +1610,8 @@ GalarTrn_G10M20_o10_Derrota:
 
 GalarTrn_G10M20_o26::
 	trainerbattle_single TRAINER_GALAR_ISABELLE_152, GalarTrn_G10M20_o26_Intro, GalarTrn_G10M20_o26_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G10M20_o26_Intro:
@@ -1441,6 +1622,8 @@ GalarTrn_G10M20_o26_Derrota:
 
 GalarTrn_G10M20_o6::
 	trainerbattle_single TRAINER_GALAR_HANNA_172, GalarTrn_G10M20_o6_Intro, GalarTrn_G10M20_o6_Derrota
+	msgbox GalarTrn_Depois_HIKER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G10M20_o6_Intro:
@@ -1451,6 +1634,8 @@ GalarTrn_G10M20_o6_Derrota:
 
 GalarTrn_G10M20_o7::
 	trainerbattle_single TRAINER_GALAR_RUTH_111, GalarTrn_G10M20_o7_Intro, GalarTrn_G10M20_o7_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G10M20_o7_Intro:
@@ -1461,6 +1646,8 @@ GalarTrn_G10M20_o7_Derrota:
 
 GalarTrn_G10M20_o9::
 	trainerbattle_single TRAINER_GALAR_IWAN_E_EVEL_145, GalarTrn_G10M20_o9_Intro, GalarTrn_G10M20_o9_Derrota
+	msgbox GalarTrn_Depois_BUG_MANIAC, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G10M20_o9_Intro:
@@ -1472,6 +1659,8 @@ GalarTrn_G10M20_o9_Derrota:
 @ ---- Galar_Route0701 ----
 GalarTrn_G09M13_o0::
 	trainerbattle_single TRAINER_GALAR_MILA_305, GalarTrn_G09M13_o0_Intro, GalarTrn_G09M13_o0_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G09M13_o0_Intro:
@@ -1482,6 +1671,8 @@ GalarTrn_G09M13_o0_Derrota:
 
 GalarTrn_G09M13_o1::
 	trainerbattle_single TRAINER_GALAR_YAZMIN_478, GalarTrn_G09M13_o1_Intro, GalarTrn_G09M13_o1_Derrota
+	msgbox GalarTrn_Depois_GENTLEMAN_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G09M13_o1_Intro:
@@ -1492,6 +1683,8 @@ GalarTrn_G09M13_o1_Derrota:
 
 GalarTrn_G09M13_o10::
 	trainerbattle_single TRAINER_GALAR_BRUCE_306, GalarTrn_G09M13_o10_Intro, GalarTrn_G09M13_o10_Derrota
+	msgbox GalarTrn_Depois_HIKER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G09M13_o10_Intro:
@@ -1505,6 +1698,8 @@ GalarTrn_G09M13_o9::
 	faceplayer
 	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_HOP_432, GalarTrn_G09M13_o9_Fim
 	trainerbattle_earlyrival TRAINER_GALAR_HOP_432, 0, GalarTrn_G09M13_o9_Derrota, GalarTrn_G09M13_o9_Vitoria
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G09M13_o9_Fim:
@@ -1520,6 +1715,8 @@ GalarTrn_G09M13_o9_Vitoria:
 @ ---- Galar_Route0801 ----
 GalarTrn_G12M08_o10::
 	trainerbattle_single TRAINER_GALAR_PERRY_301, GalarTrn_G12M08_o10_Intro, GalarTrn_G12M08_o10_Derrota
+	msgbox GalarTrn_Depois_HIKER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G12M08_o10_Intro:
@@ -1530,6 +1727,8 @@ GalarTrn_G12M08_o10_Derrota:
 
 GalarTrn_G12M08_o11::
 	trainerbattle_single TRAINER_GALAR_CHARLES_302, GalarTrn_G12M08_o11_Intro, GalarTrn_G12M08_o11_Derrota
+	msgbox GalarTrn_Depois_PSYCHIC_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G12M08_o11_Intro:
@@ -1540,6 +1739,8 @@ GalarTrn_G12M08_o11_Derrota:
 
 GalarTrn_G12M08_o7::
 	trainerbattle_single TRAINER_GALAR_JORDAN_469, GalarTrn_G12M08_o7_Intro, GalarTrn_G12M08_o7_Derrota
+	msgbox GalarTrn_Depois_GENTLEMAN_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G12M08_o7_Intro:
@@ -1550,6 +1751,8 @@ GalarTrn_G12M08_o7_Derrota:
 
 GalarTrn_G12M08_o9::
 	trainerbattle_single TRAINER_GALAR_JOANNA_195, GalarTrn_G12M08_o9_Intro, GalarTrn_G12M08_o9_Derrota
+	msgbox GalarTrn_Depois_SCIENTIST_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G12M08_o9_Intro:
@@ -1561,6 +1764,8 @@ GalarTrn_G12M08_o9_Derrota:
 @ ---- Galar_Route0802 ----
 GalarTrn_G12M09_o0::
 	trainerbattle_single TRAINER_GALAR_BOBBY_309, GalarTrn_G12M09_o0_Intro, GalarTrn_G12M09_o0_Derrota
+	msgbox GalarTrn_Depois_GENTLEMAN_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G12M09_o0_Intro:
@@ -1571,13 +1776,8 @@ GalarTrn_G12M09_o0_Derrota:
 
 @ ---- Galar_Route0901 ----
 GalarTrn_G14M11_o1::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_MARNIE_60, GalarTrn_G14M11_o1_Fim
-	trainerbattle_no_intro TRAINER_GALAR_MARNIE_60, GalarTrn_G14M11_o1_Derrota
-	end
-
-GalarTrn_G14M11_o1_Fim:
+	trainerbattle_single TRAINER_GALAR_MARNIE_60, GalarTrn_Intro_RIVAL, GalarTrn_G14M11_o1_Derrota
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -1586,6 +1786,8 @@ GalarTrn_G14M11_o1_Derrota:
 
 GalarTrn_G14M11_o10::
 	trainerbattle_single TRAINER_GALAR_OLIVIER_274, GalarTrn_G14M11_o10_Intro, GalarTrn_G14M11_o10_Derrota
+	msgbox GalarTrn_Depois_BLACK_BELT_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G14M11_o10_Intro:
@@ -1596,6 +1798,8 @@ GalarTrn_G14M11_o10_Derrota:
 
 GalarTrn_G14M11_o11::
 	trainerbattle_single TRAINER_GALAR_GRACE_273, GalarTrn_G14M11_o11_Intro, GalarTrn_G14M11_o11_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G14M11_o11_Intro:
@@ -1606,6 +1810,8 @@ GalarTrn_G14M11_o11_Derrota:
 
 GalarTrn_G14M11_o13::
 	trainerbattle_single TRAINER_GALAR_ERNEST_197, GalarTrn_G14M11_o13_Intro, GalarTrn_G14M11_o13_Derrota
+	msgbox GalarTrn_Depois_SWIMMER_M_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G14M11_o13_Intro:
@@ -1616,6 +1822,8 @@ GalarTrn_G14M11_o13_Derrota:
 
 GalarTrn_G14M11_o14::
 	trainerbattle_single TRAINER_GALAR_BECKY_480, GalarTrn_G14M11_o14_Intro, GalarTrn_G14M11_o14_Derrota
+	msgbox GalarTrn_Depois_SWIMMER_M_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G14M11_o14_Intro:
@@ -1626,6 +1834,8 @@ GalarTrn_G14M11_o14_Derrota:
 
 GalarTrn_G14M11_o16::
 	trainerbattle_single TRAINER_GALAR_ISAIAH_252, GalarTrn_G14M11_o16_Intro, GalarTrn_G14M11_o16_Derrota
+	msgbox GalarTrn_Depois_SWIMMER_M_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G14M11_o16_Intro:
@@ -1635,13 +1845,8 @@ GalarTrn_G14M11_o16_Derrota:
 	.string "Queima inferno!$"
 
 GalarTrn_G14M11_o4::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_ANA_59, GalarTrn_G14M11_o4_Fim
-	trainerbattle_no_intro TRAINER_GALAR_ANA_59, GalarTrn_G14M11_o4_Derrota
-	end
-
-GalarTrn_G14M11_o4_Fim:
+	trainerbattle_single TRAINER_GALAR_ANA_59, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G14M11_o4_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -1650,6 +1855,8 @@ GalarTrn_G14M11_o4_Derrota:
 
 GalarTrn_G14M11_o45::
 	trainerbattle_single TRAINER_GALAR_VIRGIL_470, GalarTrn_G14M11_o45_Intro, GalarTrn_G14M11_o45_Derrota
+	msgbox GalarTrn_Depois_BIKER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G14M11_o45_Intro:
@@ -1660,6 +1867,8 @@ GalarTrn_G14M11_o45_Derrota:
 
 GalarTrn_G14M11_o9::
 	trainerbattle_single TRAINER_GALAR_KINDRA_479, GalarTrn_G14M11_o9_Intro, GalarTrn_G14M11_o9_Derrota
+	msgbox GalarTrn_Depois_GUITARIST, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G14M11_o9_Intro:
@@ -1671,6 +1880,8 @@ GalarTrn_G14M11_o9_Derrota:
 @ ---- Galar_Route1001 ----
 GalarTrn_G03M28_o6::
 	trainerbattle_single TRAINER_GALAR_GLENN_277, GalarTrn_G03M28_o6_Intro, GalarTrn_G03M28_o6_Derrota
+	msgbox GalarTrn_Depois_GENTLEMAN_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G03M28_o6_Intro:
@@ -1681,6 +1892,8 @@ GalarTrn_G03M28_o6_Derrota:
 
 GalarTrn_G03M28_o7::
 	trainerbattle_single TRAINER_GALAR_GILLI_E_CAM_278, GalarTrn_G03M28_o7_Intro, GalarTrn_G03M28_o7_Derrota
+	msgbox GalarTrn_Depois_INTERVIEWER, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G03M28_o7_Intro:
@@ -1690,7 +1903,9 @@ GalarTrn_G03M28_o7_Derrota:
 	.string "isso deve bastar!$"
 
 GalarTrn_G03M28_o8::
-	trainerbattle_single TRAINER_GALAR_GILLI_E_CAM_278, GalarTrn_G03M28_o8_Intro, GalarTrn_G03M28_o8_Derrota
+	trainerbattle_single TRAINER_GALAR_GILLI_E_CAM_278_2, GalarTrn_G03M28_o8_Intro, GalarTrn_G03M28_o8_Derrota
+	msgbox GalarTrn_Depois_INTERVIEWER, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G03M28_o8_Intro:
@@ -1702,6 +1917,8 @@ GalarTrn_G03M28_o8_Derrota:
 @ ---- Galar_Route1601 ----
 GalarTrn_G10M23_o0::
 	trainerbattle_single TRAINER_GALAR_EMILIA_452, GalarTrn_G10M23_o0_Intro, GalarTrn_G10M23_o0_Derrota
+	msgbox GalarTrn_Depois_CHANNELER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G10M23_o0_Intro:
@@ -1712,6 +1929,8 @@ GalarTrn_G10M23_o0_Derrota:
 
 GalarTrn_G10M23_o1::
 	trainerbattle_single TRAINER_GALAR_JENNIFER_453, GalarTrn_G10M23_o1_Intro, GalarTrn_G10M23_o1_Derrota
+	msgbox GalarTrn_Depois_CHANNELER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G10M23_o1_Intro:
@@ -1722,6 +1941,8 @@ GalarTrn_G10M23_o1_Derrota:
 
 GalarTrn_G10M23_o2::
 	trainerbattle_single TRAINER_GALAR_ANGELICA_451, GalarTrn_G10M23_o2_Intro, GalarTrn_G10M23_o2_Derrota
+	msgbox GalarTrn_Depois_CHANNELER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G10M23_o2_Intro:
@@ -1733,6 +1954,8 @@ GalarTrn_G10M23_o2_Derrota:
 @ ---- Galar_Route1603 ----
 GalarTrn_G10M26_o0::
 	trainerbattle_single TRAINER_GALAR_AARON_320, GalarTrn_G10M26_o0_Intro, GalarTrn_G10M26_o0_Derrota
+	msgbox GalarTrn_Depois_BLACK_BELT_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G10M26_o0_Intro:
@@ -1743,6 +1966,8 @@ GalarTrn_G10M26_o0_Derrota:
 
 GalarTrn_G10M26_o1::
 	trainerbattle_single TRAINER_GALAR_HIDEKI_319, GalarTrn_G10M26_o1_Intro, GalarTrn_G10M26_o1_Derrota
+	msgbox GalarTrn_Depois_BLACK_BELT_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G10M26_o1_Intro:
@@ -1753,6 +1978,8 @@ GalarTrn_G10M26_o1_Derrota:
 
 GalarTrn_G10M26_o2::
 	trainerbattle_single TRAINER_GALAR_HITOSHI_321, GalarTrn_G10M26_o2_Intro, GalarTrn_G10M26_o2_Derrota
+	msgbox GalarTrn_Depois_BLACK_BELT_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G10M26_o2_Intro:
@@ -1763,7 +1990,9 @@ GalarTrn_G10M26_o2_Derrota:
 
 @ ---- Galar_Spikemuth07 ----
 GalarTrn_G14M10_o0::
-	trainerbattle_single TRAINER_GALAR_GRUNT_391, GalarTrn_G14M10_o0_Intro, GalarTrn_G14M10_o0_Derrota
+	trainerbattle_single TRAINER_GALAR_GRUNT_391_2, GalarTrn_G14M10_o0_Intro, GalarTrn_G14M10_o0_Derrota
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G14M10_o0_Intro:
@@ -1773,7 +2002,9 @@ GalarTrn_G14M10_o0_Derrota:
 	.string "Difícil!$"
 
 GalarTrn_G14M10_o1::
-	trainerbattle_single TRAINER_GALAR_GRUNT_390, GalarTrn_G14M10_o1_Intro, GalarTrn_G14M10_o1_Derrota
+	trainerbattle_single TRAINER_GALAR_GRUNT_390_2, GalarTrn_G14M10_o1_Intro, GalarTrn_G14M10_o1_Derrota
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G14M10_o1_Intro:
@@ -1783,13 +2014,8 @@ GalarTrn_G14M10_o1_Derrota:
 	.string "Eu errei!$"
 
 GalarTrn_G14M10_o10::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_PIERS_419, GalarTrn_G14M10_o10_Fim
-	trainerbattle_no_intro TRAINER_GALAR_PIERS_419, GalarTrn_G14M10_o10_Derrota
-	end
-
-GalarTrn_G14M10_o10_Fim:
+	trainerbattle_single TRAINER_GALAR_PIERS_419, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G14M10_o10_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -1797,13 +2023,8 @@ GalarTrn_G14M10_o10_Derrota:
 	.string "Eu e minha equipe fizemos o\npossivel.Vamos nos encontrar para\lbatalhar novamente em alguma\lhora...$"
 
 GalarTrn_G14M10_o14::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_MARNIE_165, GalarTrn_G14M10_o14_Fim
-	trainerbattle_no_intro TRAINER_GALAR_MARNIE_165, GalarTrn_G14M10_o14_Derrota
-	end
-
-GalarTrn_G14M10_o14_Fim:
+	trainerbattle_single TRAINER_GALAR_MARNIE_165, GalarTrn_Intro_RIVAL, GalarTrn_G14M10_o14_Derrota
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -1811,7 +2032,9 @@ GalarTrn_G14M10_o14_Derrota:
 	.string "Você ganhou!$"
 
 GalarTrn_G14M10_o2::
-	trainerbattle_single TRAINER_GALAR_GRUNT_375, GalarTrn_G14M10_o2_Intro, GalarTrn_G14M10_o2_Derrota
+	trainerbattle_single TRAINER_GALAR_GRUNT_375_2, GalarTrn_G14M10_o2_Intro, GalarTrn_G14M10_o2_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G14M10_o2_Intro:
@@ -1821,7 +2044,9 @@ GalarTrn_G14M10_o2_Derrota:
 	.string "Desisto!$"
 
 GalarTrn_G14M10_o3::
-	trainerbattle_single TRAINER_GALAR_GRUNT_379, GalarTrn_G14M10_o3_Intro, GalarTrn_G14M10_o3_Derrota
+	trainerbattle_single TRAINER_GALAR_GRUNT_379_2, GalarTrn_G14M10_o3_Intro, GalarTrn_G14M10_o3_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G14M10_o3_Intro:
@@ -1831,7 +2056,9 @@ GalarTrn_G14M10_o3_Derrota:
 	.string "Cough…\nCough…$"
 
 GalarTrn_G14M10_o4::
-	trainerbattle_single TRAINER_GALAR_GRUNT_378, GalarTrn_G14M10_o4_Intro, GalarTrn_G14M10_o4_Derrota
+	trainerbattle_single TRAINER_GALAR_GRUNT_378_2, GalarTrn_G14M10_o4_Intro, GalarTrn_G14M10_o4_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G14M10_o4_Intro:
@@ -1843,6 +2070,8 @@ GalarTrn_G14M10_o4_Derrota:
 @ ---- Galar_Spikemuth09 ----
 GalarTrn_G03M10_o0::
 	trainerbattle_single TRAINER_GALAR_GRUNT_391, GalarTrn_G03M10_o0_Intro, GalarTrn_G03M10_o0_Derrota
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G03M10_o0_Intro:
@@ -1853,6 +2082,8 @@ GalarTrn_G03M10_o0_Derrota:
 
 GalarTrn_G03M10_o1::
 	trainerbattle_single TRAINER_GALAR_GRUNT_390, GalarTrn_G03M10_o1_Intro, GalarTrn_G03M10_o1_Derrota
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G03M10_o1_Intro:
@@ -1863,6 +2094,8 @@ GalarTrn_G03M10_o1_Derrota:
 
 GalarTrn_G03M10_o2::
 	trainerbattle_single TRAINER_GALAR_GRUNT_375, GalarTrn_G03M10_o2_Intro, GalarTrn_G03M10_o2_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G03M10_o2_Intro:
@@ -1873,6 +2106,8 @@ GalarTrn_G03M10_o2_Derrota:
 
 GalarTrn_G03M10_o3::
 	trainerbattle_single TRAINER_GALAR_GRUNT_379, GalarTrn_G03M10_o3_Intro, GalarTrn_G03M10_o3_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G03M10_o3_Intro:
@@ -1883,6 +2118,8 @@ GalarTrn_G03M10_o3_Derrota:
 
 GalarTrn_G03M10_o4::
 	trainerbattle_single TRAINER_GALAR_GRUNT_378, GalarTrn_G03M10_o4_Intro, GalarTrn_G03M10_o4_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G03M10_o4_Intro:
@@ -1893,13 +2130,8 @@ GalarTrn_G03M10_o4_Derrota:
 
 @ ---- Galar_StowOnSide08 ----
 GalarTrn_G10M21_o10::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_HOP_429, GalarTrn_G10M21_o10_Fim
-	trainerbattle_no_intro TRAINER_GALAR_HOP_429, GalarTrn_G10M21_o10_Derrota
-	end
-
-GalarTrn_G10M21_o10_Fim:
+	trainerbattle_single TRAINER_GALAR_HOP_429_3, GalarTrn_Intro_RIVAL, GalarTrn_G10M21_o10_Derrota
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -1907,13 +2139,8 @@ GalarTrn_G10M21_o10_Derrota:
 	.string "Minha estratégia vai direto ao buraco \nquando tenho todos esses pensamentos\lruins passando pela minha cabeça. $"
 
 GalarTrn_G10M21_o9::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_HOP_429, GalarTrn_G10M21_o9_Fim
-	trainerbattle_no_intro TRAINER_GALAR_HOP_429, GalarTrn_G10M21_o9_Derrota
-	end
-
-GalarTrn_G10M21_o9_Fim:
+	trainerbattle_single TRAINER_GALAR_HOP_429_4, GalarTrn_Intro_RIVAL, GalarTrn_G10M21_o9_Derrota
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -1922,13 +2149,8 @@ GalarTrn_G10M21_o9_Derrota:
 
 @ ---- Galar_StowOnSide09 ----
 GalarTrn_G10M25_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_ALLISTER_310, GalarTrn_G10M25_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_ALLISTER_310, GalarTrn_G10M25_o12_Derrota
-	end
-
-GalarTrn_G10M25_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_ALLISTER_310, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G10M25_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -1938,6 +2160,8 @@ GalarTrn_G10M25_o12_Derrota:
 @ ---- Galar_StowOnSide10 ----
 GalarTrn_G10M27_o12::
 	trainerbattle_single TRAINER_GALAR_BEA_27, GalarTrn_G10M27_o12_Intro, GalarTrn_G10M27_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G10M27_o12_Intro:
@@ -1949,6 +2173,8 @@ GalarTrn_G10M27_o12_Derrota:
 @ ---- Galar_Turffield05 ----
 GalarTrn_G07M13_o2::
 	trainerbattle_single TRAINER_GALAR_LASSA_114, GalarTrn_G07M13_o2_Intro, GalarTrn_G07M13_o2_Derrota
+	msgbox GalarTrn_Depois_CAMPER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G07M13_o2_Intro:
@@ -1959,6 +2185,8 @@ GalarTrn_G07M13_o2_Derrota:
 
 GalarTrn_G07M13_o4::
 	trainerbattle_single TRAINER_GALAR_BRICE_186, GalarTrn_G07M13_o4_Intro, GalarTrn_G07M13_o4_Derrota
+	msgbox GalarTrn_Depois_CAMPER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G07M13_o4_Intro:
@@ -1969,6 +2197,8 @@ GalarTrn_G07M13_o4_Derrota:
 
 GalarTrn_G07M13_o5::
 	trainerbattle_single TRAINER_GALAR_ALICIA_154, GalarTrn_G07M13_o5_Intro, GalarTrn_G07M13_o5_Derrota
+	msgbox GalarTrn_Depois_PICNICKER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G07M13_o5_Intro:
@@ -1979,6 +2209,8 @@ GalarTrn_G07M13_o5_Derrota:
 
 GalarTrn_G07M13_o6::
 	trainerbattle_single TRAINER_GALAR_ALAN_185, GalarTrn_G07M13_o6_Intro, GalarTrn_G07M13_o6_Derrota
+	msgbox GalarTrn_Depois_CAMPER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G07M13_o6_Intro:
@@ -1989,6 +2221,8 @@ GalarTrn_G07M13_o6_Derrota:
 
 GalarTrn_G07M13_o7::
 	trainerbattle_single TRAINER_GALAR_JEREMY_465, GalarTrn_G07M13_o7_Intro, GalarTrn_G07M13_o7_Derrota
+	msgbox GalarTrn_Depois_HIKER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G07M13_o7_Intro:
@@ -1999,13 +2233,8 @@ GalarTrn_G07M13_o7_Derrota:
 
 @ ---- Galar_Turffield06 ----
 GalarTrn_G07M14_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_MILO_304, GalarTrn_G07M14_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_MILO_304, GalarTrn_G07M14_o12_Derrota
-	end
-
-GalarTrn_G07M14_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_MILO_304, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G07M14_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2015,6 +2244,8 @@ GalarTrn_G07M14_o12_Derrota:
 @ ---- Galar_TurffieldIndoor01 ----
 GalarTrn_G13M08_o12::
 	trainerbattle_single TRAINER_GALAR_MARNIE_76, GalarTrn_G13M08_o12_Intro, GalarTrn_G13M08_o12_Derrota
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G13M08_o12_Intro:
@@ -2029,6 +2260,8 @@ GalarTrn_G13M09_o12::
 	faceplayer
 	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_HOP_438, GalarTrn_G13M09_o12_Fim
 	trainerbattle_earlyrival TRAINER_GALAR_HOP_438, 0, GalarTrn_G13M09_o12_Derrota, GalarTrn_G13M09_o12_Vitoria
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G13M09_o12_Fim:
@@ -2044,6 +2277,8 @@ GalarTrn_G13M09_o12_Vitoria:
 @ ---- Galar_TurffieldIndoor04 ----
 GalarTrn_G13M14_o12::
 	trainerbattle_single TRAINER_GALAR_JON_299, GalarTrn_G13M14_o12_Intro, GalarTrn_G13M14_o12_Derrota
+	msgbox GalarTrn_Depois_TAMER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G13M14_o12_Intro:
@@ -2055,6 +2290,8 @@ GalarTrn_G13M14_o12_Derrota:
 @ ---- Galar_TurffieldIndoor05 ----
 GalarTrn_G13M15_o12::
 	trainerbattle_single TRAINER_GALAR_TOMMY_300, GalarTrn_G13M15_o12_Intro, GalarTrn_G13M15_o12_Derrota
+	msgbox GalarTrn_Depois_HIKER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G13M15_o12_Intro:
@@ -2065,7 +2302,9 @@ GalarTrn_G13M15_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor06 ----
 GalarTrn_G13M16_o12::
-	trainerbattle_single TRAINER_GALAR_ISADORA_22, GalarTrn_G13M16_o12_Intro, GalarTrn_G13M16_o12_Derrota
+	trainerbattle_single TRAINER_GALAR_ISADORA_22_2, GalarTrn_G13M16_o12_Intro, GalarTrn_G13M16_o12_Derrota
+	msgbox GalarTrn_Depois_LASS_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G13M16_o12_Intro:
@@ -2077,6 +2316,8 @@ GalarTrn_G13M16_o12_Derrota:
 @ ---- Galar_TurffieldIndoor08 ----
 GalarTrn_G13M19_o12::
 	trainerbattle_single TRAINER_GALAR_LEON_739, GalarTrn_G13M19_o12_Intro, GalarTrn_G13M19_o12_Derrota
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G13M19_o12_Intro:
@@ -2087,13 +2328,8 @@ GalarTrn_G13M19_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor09 ----
 GalarTrn_G35M08_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_ASH_402, GalarTrn_G35M08_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_ASH_402, GalarTrn_G35M08_o12_Derrota
-	end
-
-GalarTrn_G35M08_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_ASH_402, GalarTrn_Intro_CHAMPION_FRLG, GalarTrn_G35M08_o12_Derrota
+	msgbox GalarTrn_Depois_CHAMPION_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2102,13 +2338,8 @@ GalarTrn_G35M08_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor10 ----
 GalarTrn_G35M09_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_RED_403, GalarTrn_G35M09_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_RED_403, GalarTrn_G35M09_o12_Derrota
-	end
-
-GalarTrn_G35M09_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_RED_403, GalarTrn_Intro_CHAMPION_FRLG, GalarTrn_G35M09_o12_Derrota
+	msgbox GalarTrn_Depois_CHAMPION_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2117,13 +2348,8 @@ GalarTrn_G35M09_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor11 ----
 GalarTrn_G35M10_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_ETHAN_404, GalarTrn_G35M10_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_ETHAN_404, GalarTrn_G35M10_o12_Derrota
-	end
-
-GalarTrn_G35M10_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_ETHAN_404, GalarTrn_Intro_CHAMPION_FRLG, GalarTrn_G35M10_o12_Derrota
+	msgbox GalarTrn_Depois_CHAMPION_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2132,13 +2358,8 @@ GalarTrn_G35M10_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor13 ----
 GalarTrn_G35M12_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_MISTY_406, GalarTrn_G35M12_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_MISTY_406, GalarTrn_G35M12_o12_Derrota
-	end
-
-GalarTrn_G35M12_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_MISTY_406, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G35M12_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2147,13 +2368,8 @@ GalarTrn_G35M12_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor14 ----
 GalarTrn_G35M13_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_GREEN_407, GalarTrn_G35M13_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_GREEN_407, GalarTrn_G35M13_o12_Derrota
-	end
-
-GalarTrn_G35M13_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_GREEN_407, GalarTrn_Intro_COOLTRAINER_FRLG, GalarTrn_G35M13_o12_Derrota
+	msgbox GalarTrn_Depois_COOLTRAINER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2162,13 +2378,8 @@ GalarTrn_G35M13_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor16 ----
 GalarTrn_G35M15_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_HILDA_409, GalarTrn_G35M15_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_HILDA_409, GalarTrn_G35M15_o12_Derrota
-	end
-
-GalarTrn_G35M15_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_HILDA_409, GalarTrn_Intro_CHAMPION_FRLG, GalarTrn_G35M15_o12_Derrota
+	msgbox GalarTrn_Depois_CHAMPION_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2177,13 +2388,8 @@ GalarTrn_G35M15_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor17 ----
 GalarTrn_G35M16_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_SERENA_421, GalarTrn_G35M16_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_SERENA_421, GalarTrn_G35M16_o12_Derrota
-	end
-
-GalarTrn_G35M16_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_SERENA_421, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G35M16_o12_Derrota
+	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2192,13 +2398,8 @@ GalarTrn_G35M16_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor18 ----
 GalarTrn_G35M17_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_BROCK_422, GalarTrn_G35M17_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_BROCK_422, GalarTrn_G35M17_o12_Derrota
-	end
-
-GalarTrn_G35M17_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_BROCK_422, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G35M17_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2207,13 +2408,8 @@ GalarTrn_G35M17_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor19 ----
 GalarTrn_G35M18_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_CYNTHIA_423, GalarTrn_G35M18_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_CYNTHIA_423, GalarTrn_G35M18_o12_Derrota
-	end
-
-GalarTrn_G35M18_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_CYNTHIA_423, GalarTrn_Intro_CHAMPION_FRLG, GalarTrn_G35M18_o12_Derrota
+	msgbox GalarTrn_Depois_CHAMPION_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2222,13 +2418,8 @@ GalarTrn_G35M18_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor20 ----
 GalarTrn_G35M19_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_IRIS_424, GalarTrn_G35M19_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_IRIS_424, GalarTrn_G35M19_o12_Derrota
-	end
-
-GalarTrn_G35M19_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_IRIS_424, GalarTrn_Intro_CHAMPION_FRLG, GalarTrn_G35M19_o12_Derrota
+	msgbox GalarTrn_Depois_CHAMPION_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2237,13 +2428,8 @@ GalarTrn_G35M19_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor21 ----
 GalarTrn_G35M20_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_HILBERT_425, GalarTrn_G35M20_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_HILBERT_425, GalarTrn_G35M20_o12_Derrota
-	end
-
-GalarTrn_G35M20_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_HILBERT_425, GalarTrn_Intro_GENTLEMAN_FRLG, GalarTrn_G35M20_o12_Derrota
+	msgbox GalarTrn_Depois_GENTLEMAN_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2252,13 +2438,8 @@ GalarTrn_G35M20_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor22 ----
 GalarTrn_G35M21_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_ALAN_466, GalarTrn_G35M21_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_ALAN_466, GalarTrn_G35M21_o12_Derrota
-	end
-
-GalarTrn_G35M21_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_ALAN_466, GalarTrn_Intro_CHAMPION_FRLG, GalarTrn_G35M21_o12_Derrota
+	msgbox GalarTrn_Depois_CHAMPION_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2267,13 +2448,8 @@ GalarTrn_G35M21_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor23 ----
 GalarTrn_G35M22_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_FELIPEMX_467, GalarTrn_G35M22_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_FELIPEMX_467, GalarTrn_G35M22_o12_Derrota
-	end
-
-GalarTrn_G35M22_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_FELIPEMX_467, GalarTrn_Intro_CHAMPION_FRLG, GalarTrn_G35M22_o12_Derrota
+	msgbox GalarTrn_Depois_CHAMPION_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2282,13 +2458,8 @@ GalarTrn_G35M22_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor24 ----
 GalarTrn_G35M23_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_MAY_471, GalarTrn_G35M23_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_MAY_471, GalarTrn_G35M23_o12_Derrota
-	end
-
-GalarTrn_G35M23_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_MAY_471, GalarTrn_Intro_CHAMPION_FRLG, GalarTrn_G35M23_o12_Derrota
+	msgbox GalarTrn_Depois_CHAMPION_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2297,13 +2468,8 @@ GalarTrn_G35M23_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor25 ----
 GalarTrn_G35M24_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_BRENDAN_472, GalarTrn_G35M24_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_BRENDAN_472, GalarTrn_G35M24_o12_Derrota
-	end
-
-GalarTrn_G35M24_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_BRENDAN_472, GalarTrn_Intro_CHAMPION_FRLG, GalarTrn_G35M24_o12_Derrota
+	msgbox GalarTrn_Depois_CHAMPION_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2312,13 +2478,8 @@ GalarTrn_G35M24_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor26 ----
 GalarTrn_G35M25_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_DAWN_473, GalarTrn_G35M25_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_DAWN_473, GalarTrn_G35M25_o12_Derrota
-	end
-
-GalarTrn_G35M25_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_DAWN_473, GalarTrn_Intro_CHAMPION_FRLG, GalarTrn_G35M25_o12_Derrota
+	msgbox GalarTrn_Depois_CHAMPION_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2327,13 +2488,8 @@ GalarTrn_G35M25_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor27 ----
 GalarTrn_G35M26_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_STEVEN_485, GalarTrn_G35M26_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_STEVEN_485, GalarTrn_G35M26_o12_Derrota
-	end
-
-GalarTrn_G35M26_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_STEVEN_485, GalarTrn_Intro_CHAMPION_FRLG, GalarTrn_G35M26_o12_Derrota
+	msgbox GalarTrn_Depois_CHAMPION_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2342,13 +2498,8 @@ GalarTrn_G35M26_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor28 ----
 GalarTrn_G35M27_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_LANCE_486, GalarTrn_G35M27_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_LANCE_486, GalarTrn_G35M27_o12_Derrota
-	end
-
-GalarTrn_G35M27_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_LANCE_486, GalarTrn_Intro_CHAMPION_FRLG, GalarTrn_G35M27_o12_Derrota
+	msgbox GalarTrn_Depois_CHAMPION_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2357,13 +2508,8 @@ GalarTrn_G35M27_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor29 ----
 GalarTrn_G36M05_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_PEONY_343, GalarTrn_G36M05_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_PEONY_343, GalarTrn_G36M05_o12_Derrota
-	end
-
-GalarTrn_G36M05_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_PEONY_343_2, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G36M05_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2372,13 +2518,8 @@ GalarTrn_G36M05_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor30 ----
 GalarTrn_G36M06_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_RAIHAN_338, GalarTrn_G36M06_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_RAIHAN_338, GalarTrn_G36M06_o12_Derrota
-	end
-
-GalarTrn_G36M06_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_RAIHAN_338, GalarTrn_Intro_ELITE_FOUR_FRLG, GalarTrn_G36M06_o12_Derrota
+	msgbox GalarTrn_Depois_ELITE_FOUR_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2387,13 +2528,8 @@ GalarTrn_G36M06_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor31 ----
 GalarTrn_G36M07_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_AVERY_341, GalarTrn_G36M07_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_AVERY_341, GalarTrn_G36M07_o12_Derrota
-	end
-
-GalarTrn_G36M07_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_AVERY_341, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G36M07_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2402,13 +2538,8 @@ GalarTrn_G36M07_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor32 ----
 GalarTrn_G36M08_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_MELONY_336, GalarTrn_G36M08_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_MELONY_336, GalarTrn_G36M08_o12_Derrota
-	end
-
-GalarTrn_G36M08_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_MELONY_336_2, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G36M08_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2417,13 +2548,8 @@ GalarTrn_G36M08_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor33 ----
 GalarTrn_G36M09_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_GORDIE_339, GalarTrn_G36M09_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_GORDIE_339, GalarTrn_G36M09_o12_Derrota
-	end
-
-GalarTrn_G36M09_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_GORDIE_339, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G36M09_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2432,13 +2558,8 @@ GalarTrn_G36M09_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor34 ----
 GalarTrn_G36M10_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_LUCAS_347, GalarTrn_G36M10_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_LUCAS_347, GalarTrn_G36M10_o12_Derrota
-	end
-
-GalarTrn_G36M10_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_LUCAS_347, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G36M10_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2447,13 +2568,8 @@ GalarTrn_G36M10_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor35 ----
 GalarTrn_G36M11_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_NESSA_307, GalarTrn_G36M11_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_NESSA_307, GalarTrn_G36M11_o12_Derrota
-	end
-
-GalarTrn_G36M11_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_NESSA_307_2, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G36M11_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2462,13 +2578,8 @@ GalarTrn_G36M11_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor36 ----
 GalarTrn_G36M12_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_PIERS_337, GalarTrn_G36M12_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_PIERS_337, GalarTrn_G36M12_o12_Derrota
-	end
-
-GalarTrn_G36M12_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_PIERS_337, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G36M12_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2477,13 +2588,8 @@ GalarTrn_G36M12_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor37 ----
 GalarTrn_G36M13_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_MILO_304, GalarTrn_G36M13_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_MILO_304, GalarTrn_G36M13_o12_Derrota
-	end
-
-GalarTrn_G36M13_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_MILO_304_2, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G36M13_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2492,13 +2598,8 @@ GalarTrn_G36M13_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor38 ----
 GalarTrn_G36M14_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_VANESSA_348, GalarTrn_G36M14_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_VANESSA_348, GalarTrn_G36M14_o12_Derrota
-	end
-
-GalarTrn_G36M14_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_VANESSA_348, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G36M14_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2507,13 +2608,8 @@ GalarTrn_G36M14_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor39 ----
 GalarTrn_G36M15_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_KABU_308, GalarTrn_G36M15_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_KABU_308, GalarTrn_G36M15_o12_Derrota
-	end
-
-GalarTrn_G36M15_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_KABU_308_2, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G36M15_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2522,13 +2618,8 @@ GalarTrn_G36M15_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor40 ----
 GalarTrn_G36M16_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_ALLISTER_310, GalarTrn_G36M16_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_ALLISTER_310, GalarTrn_G36M16_o12_Derrota
-	end
-
-GalarTrn_G36M16_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_ALLISTER_310_2, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G36M16_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2537,13 +2628,8 @@ GalarTrn_G36M16_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor41 ----
 GalarTrn_G36M17_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_BEDE_312, GalarTrn_G36M17_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_BEDE_312, GalarTrn_G36M17_o12_Derrota
-	end
-
-GalarTrn_G36M17_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_BEDE_312_2, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G36M17_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2552,13 +2638,8 @@ GalarTrn_G36M17_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor42 ----
 GalarTrn_G36M18_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_C_PHENE_349, GalarTrn_G36M18_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_C_PHENE_349, GalarTrn_G36M18_o12_Derrota
-	end
-
-GalarTrn_G36M18_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_C_PHENE_349, GalarTrn_Intro_BOSS_FRLG, GalarTrn_G36M18_o12_Derrota
+	msgbox GalarTrn_Depois_BOSS_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2567,13 +2648,8 @@ GalarTrn_G36M18_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor43 ----
 GalarTrn_G36M19_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_ALLANA_345, GalarTrn_G36M19_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_ALLANA_345, GalarTrn_G36M19_o12_Derrota
-	end
-
-GalarTrn_G36M19_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_ALLANA_345, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G36M19_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2582,13 +2658,8 @@ GalarTrn_G36M19_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor44 ----
 GalarTrn_G36M20_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_BEA_311, GalarTrn_G36M20_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_BEA_311, GalarTrn_G36M20_o12_Derrota
-	end
-
-GalarTrn_G36M20_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_BEA_311, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G36M20_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2597,13 +2668,8 @@ GalarTrn_G36M20_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor45 ----
 GalarTrn_G36M21_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_MARNIE_344, GalarTrn_G36M21_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_MARNIE_344, GalarTrn_G36M21_o12_Derrota
-	end
-
-GalarTrn_G36M21_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_MARNIE_344, GalarTrn_Intro_RIVAL, GalarTrn_G36M21_o12_Derrota
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2612,13 +2678,8 @@ GalarTrn_G36M21_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor46 ----
 GalarTrn_G36M22_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_ALEXANDER_346, GalarTrn_G36M22_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_ALEXANDER_346, GalarTrn_G36M22_o12_Derrota
-	end
-
-GalarTrn_G36M22_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_ALEXANDER_346, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G36M22_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2627,13 +2688,8 @@ GalarTrn_G36M22_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor47 ----
 GalarTrn_G36M23_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_MUSTARD_342, GalarTrn_G36M23_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_MUSTARD_342, GalarTrn_G36M23_o12_Derrota
-	end
-
-GalarTrn_G36M23_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_MUSTARD_342, GalarTrn_Intro_CHAMPION_FRLG, GalarTrn_G36M23_o12_Derrota
+	msgbox GalarTrn_Depois_CHAMPION_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2642,13 +2698,8 @@ GalarTrn_G36M23_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor48 ----
 GalarTrn_G36M24_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_KLARA_340, GalarTrn_G36M24_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_KLARA_340, GalarTrn_G36M24_o12_Derrota
-	end
-
-GalarTrn_G36M24_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_KLARA_340, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G36M24_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2657,13 +2708,8 @@ GalarTrn_G36M24_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor49 ----
 GalarTrn_G39M01_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_GREG_106, GalarTrn_G39M01_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_GREG_106, GalarTrn_G39M01_o12_Derrota
-	end
-
-GalarTrn_G39M01_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_GREG_106, GalarTrn_Intro_YOUNGSTER_FRLG, GalarTrn_G39M01_o12_Derrota
+	msgbox GalarTrn_Depois_YOUNGSTER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2672,13 +2718,8 @@ GalarTrn_G39M01_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor50 ----
 GalarTrn_G39M02_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_CHAD_509, GalarTrn_G39M02_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_CHAD_509, GalarTrn_G39M02_o12_Derrota
-	end
-
-GalarTrn_G39M02_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_CHAD_509, GalarTrn_Intro_YOUNGSTER_FRLG, GalarTrn_G39M02_o12_Derrota
+	msgbox GalarTrn_Depois_YOUNGSTER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2691,6 +2732,8 @@ GalarTrn_G39M03_o12::
 	faceplayer
 	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_LEON_736, GalarTrn_G39M03_o12_Fim
 	trainerbattle_earlyrival TRAINER_GALAR_LEON_736, 0, GalarTrn_G39M03_o12_Derrota, GalarTrn_G39M03_o12_Vitoria
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G39M03_o12_Fim:
@@ -2705,13 +2748,8 @@ GalarTrn_G39M03_o12_Vitoria:
 
 @ ---- Galar_TurffieldIndoor52 ----
 GalarTrn_G39M04_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_KAYSER_113, GalarTrn_G39M04_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_KAYSER_113, GalarTrn_G39M04_o12_Derrota
-	end
-
-GalarTrn_G39M04_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_KAYSER_113, GalarTrn_Intro_SCHOOL_KID, GalarTrn_G39M04_o12_Derrota
+	msgbox GalarTrn_Depois_SCHOOL_KID, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2720,13 +2758,8 @@ GalarTrn_G39M04_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor53 ----
 GalarTrn_G39M05_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_CONNER_115, GalarTrn_G39M05_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_CONNER_115, GalarTrn_G39M05_o12_Derrota
-	end
-
-GalarTrn_G39M05_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_CONNER_115, GalarTrn_Intro_BUG_CATCHER_FRLG, GalarTrn_G39M05_o12_Derrota
+	msgbox GalarTrn_Depois_BUG_CATCHER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2739,6 +2772,8 @@ GalarTrn_G39M06_o12::
 	faceplayer
 	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_HOP_733, GalarTrn_G39M06_o12_Fim
 	trainerbattle_earlyrival TRAINER_GALAR_HOP_733, 0, GalarTrn_G39M06_o12_Derrota, GalarTrn_G39M06_o12_Vitoria
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G39M06_o12_Fim:
@@ -2753,13 +2788,8 @@ GalarTrn_G39M06_o12_Vitoria:
 
 @ ---- Galar_TurffieldIndoor55 ----
 GalarTrn_G39M07_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_ALEX_124, GalarTrn_G39M07_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_ALEX_124, GalarTrn_G39M07_o12_Derrota
-	end
-
-GalarTrn_G39M07_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_ALEX_124, GalarTrn_Intro_SCIENTIST_FRLG, GalarTrn_G39M07_o12_Derrota
+	msgbox GalarTrn_Depois_SCIENTIST_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2768,13 +2798,8 @@ GalarTrn_G39M07_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor56 ----
 GalarTrn_G39M08_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_LIAM_142, GalarTrn_G39M08_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_LIAM_142, GalarTrn_G39M08_o12_Derrota
-	end
-
-GalarTrn_G39M08_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_LIAM_142, GalarTrn_Intro_CAMPER_FRLG, GalarTrn_G39M08_o12_Derrota
+	msgbox GalarTrn_Depois_CAMPER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2783,13 +2808,8 @@ GalarTrn_G39M08_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor57 ----
 GalarTrn_G39M09_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_BEDE_147, GalarTrn_G39M09_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_BEDE_147, GalarTrn_G39M09_o12_Derrota
-	end
-
-GalarTrn_G39M09_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_BEDE_147, GalarTrn_Intro_RIVAL, GalarTrn_G39M09_o12_Derrota
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2798,13 +2818,8 @@ GalarTrn_G39M09_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor58 ----
 GalarTrn_G39M10_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_MARKA_162, GalarTrn_G39M10_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_MARKA_162, GalarTrn_G39M10_o12_Derrota
-	end
-
-GalarTrn_G39M10_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_MARKA_162, GalarTrn_Intro_GUITARIST, GalarTrn_G39M10_o12_Derrota
+	msgbox GalarTrn_Depois_GUITARIST, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2813,13 +2828,8 @@ GalarTrn_G39M10_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor60 ----
 GalarTrn_G39M12_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_MARNIE_165, GalarTrn_G39M12_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_MARNIE_165, GalarTrn_G39M12_o12_Derrota
-	end
-
-GalarTrn_G39M12_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_MARNIE_165_2, GalarTrn_Intro_RIVAL, GalarTrn_G39M12_o12_Derrota
+	msgbox GalarTrn_Depois_RIVAL, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2828,13 +2838,8 @@ GalarTrn_G39M12_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor61 ----
 GalarTrn_G39M13_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_WINSTON_166, GalarTrn_G39M13_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_WINSTON_166, GalarTrn_G39M13_o12_Derrota
-	end
-
-GalarTrn_G39M13_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_WINSTON_166, GalarTrn_Intro_GUITARIST, GalarTrn_G39M13_o12_Derrota
+	msgbox GalarTrn_Depois_GUITARIST, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2843,13 +2848,8 @@ GalarTrn_G39M13_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor62 ----
 GalarTrn_G39M14_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_DAWSON_167, GalarTrn_G39M14_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_DAWSON_167, GalarTrn_G39M14_o12_Derrota
-	end
-
-GalarTrn_G39M14_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_DAWSON_167, GalarTrn_Intro_GUITARIST, GalarTrn_G39M14_o12_Derrota
+	msgbox GalarTrn_Depois_GUITARIST, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2858,13 +2858,8 @@ GalarTrn_G39M14_o12_Derrota:
 
 @ ---- Galar_TurffieldIndoor63 ----
 GalarTrn_G39M15_o12::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_RAIHAN_168, GalarTrn_G39M15_o12_Fim
-	trainerbattle_no_intro TRAINER_GALAR_RAIHAN_168, GalarTrn_G39M15_o12_Derrota
-	end
-
-GalarTrn_G39M15_o12_Fim:
+	trainerbattle_single TRAINER_GALAR_RAIHAN_168, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G39M15_o12_Derrota
+	msgbox GalarTrn_Depois_LEADER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2873,13 +2868,8 @@ GalarTrn_G39M15_o12_Derrota:
 
 @ ---- Galar_Wedgehurst08 ----
 GalarTrn_G05M16_o7::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_ARTHUR_23, GalarTrn_G05M16_o7_Fim
-	trainerbattle_no_intro TRAINER_GALAR_ARTHUR_23, GalarTrn_G05M16_o7_Derrota
-	end
-
-GalarTrn_G05M16_o7_Fim:
+	trainerbattle_single TRAINER_GALAR_ARTHUR_23, GalarTrn_Intro_COOLTRAINER_FRLG, GalarTrn_G05M16_o7_Derrota
+	msgbox GalarTrn_Depois_COOLTRAINER_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -2889,6 +2879,8 @@ GalarTrn_G05M16_o7_Derrota:
 @ ---- Galar_WildArea11 ----
 GalarTrn_G42M04_o2::
 	trainerbattle_single TRAINER_GALAR_LEROY_599, GalarTrn_G42M04_o2_Intro, GalarTrn_G42M04_o2_Derrota
+	msgbox GalarTrn_Depois_COOLTRAINER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G42M04_o2_Intro:
@@ -2898,7 +2890,9 @@ GalarTrn_G42M04_o2_Derrota:
 	.string "I knew it!\nYou’re as tough as I thought!$"
 
 GalarTrn_G42M04_o3::
-	trainerbattle_single TRAINER_GALAR_NICOLAS_521, GalarTrn_G42M04_o3_Intro, GalarTrn_G42M04_o3_Derrota
+	trainerbattle_single TRAINER_GALAR_NICOLAS_521_2, GalarTrn_G42M04_o3_Intro, GalarTrn_G42M04_o3_Derrota
+	msgbox GalarTrn_Depois_PKMN_RANGER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G42M04_o3_Intro:
@@ -2910,6 +2904,8 @@ GalarTrn_G42M04_o3_Derrota:
 @ ---- Galar_WildArea13 ----
 GalarTrn_G42M06_o5::
 	trainerbattle_single TRAINER_GALAR_MASON_590, GalarTrn_G42M06_o5_Intro, GalarTrn_G42M06_o5_Derrota
+	msgbox GalarTrn_Depois_JUGGLER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G42M06_o5_Intro:
@@ -2921,6 +2917,8 @@ GalarTrn_G42M06_o5_Derrota:
 @ ---- Galar_WildArea14 ----
 GalarTrn_G42M07_o0::
 	trainerbattle_single TRAINER_GALAR_CYNDY_591, GalarTrn_G42M07_o0_Intro, GalarTrn_G42M07_o0_Derrota
+	msgbox GalarTrn_Depois_CRUSH_GIRL_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G42M07_o0_Intro:
@@ -2931,6 +2929,8 @@ GalarTrn_G42M07_o0_Derrota:
 
 GalarTrn_G42M07_o1::
 	trainerbattle_single TRAINER_GALAR_EVAN_593, GalarTrn_G42M07_o1_Intro, GalarTrn_G42M07_o1_Derrota
+	msgbox GalarTrn_Depois_TAMER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G42M07_o1_Intro:
@@ -2941,6 +2941,8 @@ GalarTrn_G42M07_o1_Derrota:
 
 GalarTrn_G42M07_o3::
 	trainerbattle_single TRAINER_GALAR_KATELYN_598, GalarTrn_G42M07_o3_Intro, GalarTrn_G42M07_o3_Derrota
+	msgbox GalarTrn_Depois_PKMN_RANGER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G42M07_o3_Intro:
@@ -2951,6 +2953,8 @@ GalarTrn_G42M07_o3_Derrota:
 
 GalarTrn_G42M07_o6::
 	trainerbattle_double TRAINER_GALAR_LEX_NYA_601, GalarTrn_G42M07_o6_Intro, GalarTrn_G42M07_o6_Derrota, GalarTrn_G42M07_o6_Poucos
+	msgbox GalarTrn_Depois_COOL_COUPLE_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G42M07_o6_Intro:
@@ -2963,7 +2967,9 @@ GalarTrn_G42M07_o6_Poucos:
 	.string "Lex: May I ask you to battle the\nboth of us at the same time?$"
 
 GalarTrn_G42M07_o7::
-	trainerbattle_double TRAINER_GALAR_LEX_NYA_601, GalarTrn_G42M07_o7_Intro, GalarTrn_G42M07_o7_Derrota, GalarTrn_G42M07_o7_Poucos
+	trainerbattle_double TRAINER_GALAR_LEX_NYA_601_2, GalarTrn_G42M07_o7_Intro, GalarTrn_G42M07_o7_Derrota, GalarTrn_G42M07_o7_Poucos
+	msgbox GalarTrn_Depois_COOL_COUPLE_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G42M07_o7_Intro:
@@ -2977,7 +2983,9 @@ GalarTrn_G42M07_o7_Poucos:
 
 @ ---- Galar_WildArea17 ----
 GalarTrn_G42M10_o17::
-	trainerbattle_single TRAINER_GALAR_MIAH_588, GalarTrn_G42M10_o17_Intro, GalarTrn_G42M10_o17_Derrota
+	trainerbattle_single TRAINER_GALAR_MIAH_588_2, GalarTrn_G42M10_o17_Intro, GalarTrn_G42M10_o17_Derrota
+	msgbox GalarTrn_Depois_AROMA_LADY_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G42M10_o17_Intro:
@@ -2987,7 +2995,9 @@ GalarTrn_G42M10_o17_Derrota:
 	.string "Tch!\nToo strong for me!$"
 
 GalarTrn_G42M10_o6::
-	trainerbattle_double TRAINER_GALAR_EVE_JON_589, GalarTrn_G42M10_o6_Intro, GalarTrn_G42M10_o6_Derrota, GalarTrn_G42M10_o6_Poucos
+	trainerbattle_double TRAINER_GALAR_EVE_JON_589_3, GalarTrn_G42M10_o6_Intro, GalarTrn_G42M10_o6_Derrota, GalarTrn_G42M10_o6_Poucos
+	msgbox GalarTrn_Depois_YOUNG_COUPLE_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G42M10_o6_Intro:
@@ -3001,7 +3011,9 @@ GalarTrn_G42M10_o6_Poucos:
 
 @ ---- Galar_WildArea21 ----
 GalarTrn_G42M14_o3::
-	trainerbattle_single TRAINER_GALAR_MADELINE_522, GalarTrn_G42M14_o3_Intro, GalarTrn_G42M14_o3_Derrota
+	trainerbattle_single TRAINER_GALAR_MADELINE_522_2, GalarTrn_G42M14_o3_Intro, GalarTrn_G42M14_o3_Derrota
+	msgbox GalarTrn_Depois_PKMN_RANGER_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G42M14_o3_Intro:
@@ -3012,13 +3024,8 @@ GalarTrn_G42M14_o3_Derrota:
 
 @ ---- Galar_WildAreaIndoor01 ----
 GalarTrn_G39M16_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_MARCELO_AF_351, GalarTrn_G39M16_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_MARCELO_AF_351, GalarTrn_G39M16_o0_Derrota
-	end
-
-GalarTrn_G39M16_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_MARCELO_AF_351, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G39M16_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -3028,6 +3035,8 @@ GalarTrn_G39M16_o0_Derrota:
 @ ---- Galar_Wyndon01 ----
 GalarTrn_G03M09_o22::
 	trainerbattle_single TRAINER_GALAR_ISADORA_22, GalarTrn_G03M09_o22_Intro, GalarTrn_G03M09_o22_Derrota
+	msgbox GalarTrn_Depois_LASS_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G03M09_o22_Intro:
@@ -3037,13 +3046,8 @@ GalarTrn_G03M09_o22_Derrota:
 	.string "Por sorte você conseguiu ganhar...$"
 
 GalarTrn_G03M09_o7::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_ERIC_77, GalarTrn_G03M09_o7_Fim
-	trainerbattle_no_intro TRAINER_GALAR_ERIC_77, GalarTrn_G03M09_o7_Derrota
-	end
-
-GalarTrn_G03M09_o7_Fim:
+	trainerbattle_single TRAINER_GALAR_ERIC_77, GalarTrn_Intro_MAGMA_ADMIN, GalarTrn_G03M09_o7_Derrota
+	msgbox GalarTrn_Depois_MAGMA_ADMIN, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -3051,13 +3055,8 @@ GalarTrn_G03M09_o7_Derrota:
 	.string "I will crush you!!!$"
 
 GalarTrn_G03M09_o8::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_FELIPE_78, GalarTrn_G03M09_o8_Fim
-	trainerbattle_no_intro TRAINER_GALAR_FELIPE_78, GalarTrn_G03M09_o8_Derrota
-	end
-
-GalarTrn_G03M09_o8_Fim:
+	trainerbattle_single TRAINER_GALAR_FELIPE_78, GalarTrn_Intro_MAGMA_ADMIN, GalarTrn_G03M09_o8_Derrota
+	msgbox GalarTrn_Depois_MAGMA_ADMIN, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -3065,13 +3064,8 @@ GalarTrn_G03M09_o8_Derrota:
 	.string "I will crush you!!!$"
 
 GalarTrn_G03M09_o9::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_VINICIUS_79, GalarTrn_G03M09_o9_Fim
-	trainerbattle_no_intro TRAINER_GALAR_VINICIUS_79, GalarTrn_G03M09_o9_Derrota
-	end
-
-GalarTrn_G03M09_o9_Fim:
+	trainerbattle_single TRAINER_GALAR_VINICIUS_79, GalarTrn_Intro_MAGMA_ADMIN, GalarTrn_G03M09_o9_Derrota
+	msgbox GalarTrn_Depois_MAGMA_ADMIN, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -3080,7 +3074,9 @@ GalarTrn_G03M09_o9_Derrota:
 
 @ ---- Galar_Wyndon06 ----
 GalarTrn_G33M02_o4::
-	trainerbattle_single TRAINER_GALAR_ISADORA_22, GalarTrn_G33M02_o4_Intro, GalarTrn_G33M02_o4_Derrota
+	trainerbattle_single TRAINER_GALAR_ISADORA_22_3, GalarTrn_G33M02_o4_Intro, GalarTrn_G33M02_o4_Derrota
+	msgbox GalarTrn_Depois_LASS_FRLG, MSGBOX_AUTOCLOSE
+	release
 	end
 
 GalarTrn_G33M02_o4_Intro:
@@ -3091,13 +3087,8 @@ GalarTrn_G33M02_o4_Derrota:
 
 @ ---- Galar_Wyndon10 ----
 GalarTrn_G39M27_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_KALEDK_360, GalarTrn_G39M27_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_KALEDK_360, GalarTrn_G39M27_o0_Derrota
-	end
-
-GalarTrn_G39M27_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_KALEDK_360, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G39M27_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -3106,13 +3097,8 @@ GalarTrn_G39M27_o0_Derrota:
 
 @ ---- Galar_WyndonIndoor01 ----
 GalarTrn_G39M17_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_GOLD_GAM2_0_352, GalarTrn_G39M17_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_GOLD_GAM2_0_352, GalarTrn_G39M17_o0_Derrota
-	end
-
-GalarTrn_G39M17_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_GOLD_GAM2_0_352, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G39M17_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -3121,13 +3107,8 @@ GalarTrn_G39M17_o0_Derrota:
 
 @ ---- Galar_WyndonIndoor02 ----
 GalarTrn_G39M18_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_PEDRO_GA_13_353, GalarTrn_G39M18_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_PEDRO_GA_13_353, GalarTrn_G39M18_o0_Derrota
-	end
-
-GalarTrn_G39M18_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_PEDRO_GA_13_353, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G39M18_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -3136,13 +3117,8 @@ GalarTrn_G39M18_o0_Derrota:
 
 @ ---- Galar_WyndonIndoor03 ----
 GalarTrn_G39M19_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_PERG_PIKACH_354, GalarTrn_G39M19_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_PERG_PIKACH_354, GalarTrn_G39M19_o0_Derrota
-	end
-
-GalarTrn_G39M19_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_PERG_PIKACH_354, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G39M19_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -3151,13 +3127,8 @@ GalarTrn_G39M19_o0_Derrota:
 
 @ ---- Galar_WyndonIndoor04 ----
 GalarTrn_G39M20_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_NEO_GIF_355, GalarTrn_G39M20_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_NEO_GIF_355, GalarTrn_G39M20_o0_Derrota
-	end
-
-GalarTrn_G39M20_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_NEO_GIF_355, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G39M20_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -3166,13 +3137,8 @@ GalarTrn_G39M20_o0_Derrota:
 
 @ ---- Galar_WyndonIndoor05 ----
 GalarTrn_G39M21_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_FABIO_RODR_356, GalarTrn_G39M21_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_FABIO_RODR_356, GalarTrn_G39M21_o0_Derrota
-	end
-
-GalarTrn_G39M21_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_FABIO_RODR_356, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G39M21_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -3181,13 +3147,8 @@ GalarTrn_G39M21_o0_Derrota:
 
 @ ---- Galar_WyndonIndoor06 ----
 GalarTrn_G39M22_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_EDUARDO_357, GalarTrn_G39M22_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_EDUARDO_357, GalarTrn_G39M22_o0_Derrota
-	end
-
-GalarTrn_G39M22_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_EDUARDO_357, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G39M22_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -3196,13 +3157,8 @@ GalarTrn_G39M22_o0_Derrota:
 
 @ ---- Galar_WyndonIndoor08 ----
 GalarTrn_G39M24_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_PCL_G_50, GalarTrn_G39M24_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_PCL_G_50, GalarTrn_G39M24_o0_Derrota
-	end
-
-GalarTrn_G39M24_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_PCL_G_50, GalarTrn_Intro_CHAMPION_FRLG, GalarTrn_G39M24_o0_Derrota
+	msgbox GalarTrn_Depois_CHAMPION_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -3211,13 +3167,8 @@ GalarTrn_G39M24_o0_Derrota:
 
 @ ---- Galar_WyndonIndoor09 ----
 GalarTrn_G39M26_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_BRENO_MENE_359, GalarTrn_G39M26_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_BRENO_MENE_359, GalarTrn_G39M26_o0_Derrota
-	end
-
-GalarTrn_G39M26_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_BRENO_MENE_359, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G39M26_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -3226,13 +3177,8 @@ GalarTrn_G39M26_o0_Derrota:
 
 @ ---- Galar_WyndonIndoor10 ----
 GalarTrn_G39M28_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_DEIDARA_YT_361, GalarTrn_G39M28_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_DEIDARA_YT_361, GalarTrn_G39M28_o0_Derrota
-	end
-
-GalarTrn_G39M28_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_DEIDARA_YT_361, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G39M28_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -3241,13 +3187,8 @@ GalarTrn_G39M28_o0_Derrota:
 
 @ ---- Galar_WyndonIndoor12 ----
 GalarTrn_G39M30_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_CATZU_D_NE_363, GalarTrn_G39M30_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_CATZU_D_NE_363, GalarTrn_G39M30_o0_Derrota
-	end
-
-GalarTrn_G39M30_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_CATZU_D_NE_363, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G39M30_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -3256,13 +3197,8 @@ GalarTrn_G39M30_o0_Derrota:
 
 @ ---- Galar_WyndonIndoor13 ----
 GalarTrn_G39M31_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_BISCOITOMOL_364, GalarTrn_G39M31_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_BISCOITOMOL_364, GalarTrn_G39M31_o0_Derrota
-	end
-
-GalarTrn_G39M31_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_BISCOITOMOL_364, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G39M31_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -3271,13 +3207,8 @@ GalarTrn_G39M31_o0_Derrota:
 
 @ ---- Galar_WyndonIndoor14 ----
 GalarTrn_G39M32_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_SASUKEZIN69_365, GalarTrn_G39M32_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_SASUKEZIN69_365, GalarTrn_G39M32_o0_Derrota
-	end
-
-GalarTrn_G39M32_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_SASUKEZIN69_365, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G39M32_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -3286,13 +3217,8 @@ GalarTrn_G39M32_o0_Derrota:
 
 @ ---- Galar_WyndonIndoor16 ----
 GalarTrn_G39M34_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_LORD_367, GalarTrn_G39M34_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_LORD_367, GalarTrn_G39M34_o0_Derrota
-	end
-
-GalarTrn_G39M34_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_LORD_367, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G39M34_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -3301,13 +3227,8 @@ GalarTrn_G39M34_o0_Derrota:
 
 @ ---- Galar_WyndonIndoor17 ----
 GalarTrn_G39M35_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_EURICO_368, GalarTrn_G39M35_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_EURICO_368, GalarTrn_G39M35_o0_Derrota
-	end
-
-GalarTrn_G39M35_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_EURICO_368, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G39M35_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -3316,13 +3237,8 @@ GalarTrn_G39M35_o0_Derrota:
 
 @ ---- Galar_WyndonIndoor18 ----
 GalarTrn_G39M36_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_CLOVES_369, GalarTrn_G39M36_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_CLOVES_369, GalarTrn_G39M36_o0_Derrota
-	end
-
-GalarTrn_G39M36_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_CLOVES_369, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G39M36_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -3331,13 +3247,8 @@ GalarTrn_G39M36_o0_Derrota:
 
 @ ---- Galar_WyndonIndoor19 ----
 GalarTrn_G39M37_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_JUAN_GRSON_370, GalarTrn_G39M37_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_JUAN_GRSON_370, GalarTrn_G39M37_o0_Derrota
-	end
-
-GalarTrn_G39M37_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_JUAN_GRSON_370, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G39M37_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -3346,13 +3257,8 @@ GalarTrn_G39M37_o0_Derrota:
 
 @ ---- Galar_WyndonIndoor20 ----
 GalarTrn_G39M38_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_CELINA_FER_371, GalarTrn_G39M38_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_CELINA_FER_371, GalarTrn_G39M38_o0_Derrota
-	end
-
-GalarTrn_G39M38_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_CELINA_FER_371, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G39M38_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -3361,13 +3267,8 @@ GalarTrn_G39M38_o0_Derrota:
 
 @ ---- Galar_WyndonIndoor21 ----
 GalarTrn_G39M39_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_RUAN_POKE_372, GalarTrn_G39M39_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_RUAN_POKE_372, GalarTrn_G39M39_o0_Derrota
-	end
-
-GalarTrn_G39M39_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_RUAN_POKE_372, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G39M39_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -3376,13 +3277,8 @@ GalarTrn_G39M39_o0_Derrota:
 
 @ ---- Galar_WyndonIndoor22 ----
 GalarTrn_G39M40_o0::
-	lock
-	faceplayer
-	goto_if_set TRAINER_FLAGS_START + TRAINER_GALAR_PLANETA_POK_374, GalarTrn_G39M40_o0_Fim
-	trainerbattle_no_intro TRAINER_GALAR_PLANETA_POK_374, GalarTrn_G39M40_o0_Derrota
-	end
-
-GalarTrn_G39M40_o0_Fim:
+	trainerbattle_single TRAINER_GALAR_PLANETA_POK_374, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G39M40_o0_Derrota
+	msgbox GalarTrn_Depois_TEAM_AQUA, MSGBOX_AUTOCLOSE
 	release
 	end
 

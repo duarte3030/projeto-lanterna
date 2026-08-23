@@ -330,9 +330,9 @@ GalarObj_G06M13_o0::
 	lock
 	faceplayer
 	msgbox GalarObj_G06M13_o0_Text0, MSGBOX_AUTOCLOSE
-	release
 	warp MAP_GALAR_MOTOSTOKE_07, 7, 4
 	waitstate
+	release
 	end
 
 GalarObj_G06M13_o0_Text0:
@@ -692,11 +692,11 @@ GalarObj_G06M33_o0_b1::
 GalarObj_G06M33_o0_b2::
 	lock
 	faceplayer
-	checkflag FLAG_GALAR_ESCONDE_20B
+	@ checkflag FLAG_GALAR_ESCONDE_20B sem goto_if/call_if depois: leitura morta, o ramo da fonte nao atravessou o filtro (cenas_galar.py)
 	msgbox GalarObj_G06M33_o0_Text2, MSGBOX_AUTOCLOSE
-	release
 	removeobject 2
 	fadescreen 0
+	release
 	end
 
 GalarObj_G06M33_o0_Text0:
@@ -1618,7 +1618,6 @@ GalarObj_G09M11_o4::
 	lock
 	faceplayer
 	msgbox GalarObj_G09M11_o4_Text0, MSGBOX_AUTOCLOSE
-	release
 	fadescreen 1
 	@ DECISAO cenas_galar.py: removeobject so vale a sessao de mapa; a flag e a que a FONTE pendurou neste objeto, o que se acrescenta e o momento de acende-la
 	setflag FLAG_GALAR_ESCONDE_BA7
@@ -1627,6 +1626,7 @@ GalarObj_G09M11_o4::
 	setflag FLAG_GALAR_ESCONDE_BA8
 	removeobject 5
 	fadescreen 0
+	release
 	end
 
 GalarObj_G09M11_o4_Text0:
@@ -1849,9 +1849,9 @@ GalarObj_G00M10_o3::
 	lock
 	faceplayer
 	msgbox GalarObj_G00M10_o3_Text0, MSGBOX_AUTOCLOSE
-	release
 	warp MAP_GALAR_ROUTE10_02, 5, 6
 	waitstate
+	release
 	end
 
 GalarObj_G00M10_o3_Text0:
@@ -1862,9 +1862,9 @@ GalarObj_G09M00_o3::
 	lock
 	faceplayer
 	msgbox GalarObj_G09M00_o3_Text0, MSGBOX_AUTOCLOSE
-	release
 	warp MAP_GALAR_ROUTE10_02, 5, 6
 	waitstate
+	release
 	end
 
 GalarObj_G09M00_o3_Text0:
@@ -2059,12 +2059,11 @@ GalarObj_G12M10_o18::
 	lock
 	faceplayer
 	msgbox GalarObj_G12M10_o18_Text0, MSGBOX_AUTOCLOSE
-	release
 	@ DECISAO cenas_galar.py: removeobject so vale a sessao de mapa; a flag e a que a FONTE pendurou neste objeto, o que se acrescenta e o momento de acende-la
 	setflag FLAG_GALAR_ESCONDE_5FE
 	removeobject 17
 	fadescreen 0
-	releaseall
+	release
 	goto GalarObj_G12M10_o18_b1
 
 GalarObj_G12M10_o18_b1::
@@ -2183,12 +2182,11 @@ GalarObj_G03M08_o19::
 	lock
 	faceplayer
 	msgbox GalarObj_G03M08_o19_Text0, MSGBOX_AUTOCLOSE
-	release
 	@ DECISAO cenas_galar.py: removeobject so vale a sessao de mapa; a flag e a que a FONTE pendurou neste objeto, o que se acrescenta e o momento de acende-la
 	setflag FLAG_GALAR_ESCONDE_5FD
 	removeobject 17
 	fadescreen 0
-	releaseall
+	release
 	goto GalarObj_G03M08_o19_b1
 
 GalarObj_G03M08_o19_b1::

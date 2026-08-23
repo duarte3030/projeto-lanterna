@@ -238,6 +238,104 @@ PIC_MAO = {
                                      "TRAINER_PIC_CHANNELER_FRLG"),
 }
 
+# ---------------------------------------------------------- fala que falta ---
+# FALA PADRAO POR CLASSE, e ela existe por dois buracos DA FONTE, nao por
+# escolha nossa:
+#
+#   - `trainerbattle` do tipo 3 guarda UM ponteiro so, o de derrota. Sem fala de
+#     abertura nao dava para usar `trainerbattle_single`, que e o unico molde
+#     que consulta a flag de vitoria por dentro E devolve o jogador pelo
+#     `EventScript_TryGetTrainerScript` (`releaseall`). Foi por isso que os 127
+#     saiam em `trainerbattle_no_intro`, que cai em
+#     `EventScript_DoNoIntroTrainerBattle` -> `gotopostbattlescript` e volta
+#     direto para o `end`, com o objeto do JOGADOR ainda congelado pelo `lock`
+#     (`ScrCmd_release` e o unico que chama `UnfreezeObjectEvents`; o `end` so
+#     destrava `sLockFieldControls`). Ganhar a batalha travava o jogo.
+#   - NENHUM tipo da fonte guarda fala de POS-BATALHA, e no idioma vanilla e ela
+#     que carrega a soltura (`msgbox ..., MSGBOX_AUTOCLOSE` chama
+#     `Std_MsgboxAutoclose`, que termina em `release`). Ela tambem e o caminho
+#     de quem RE-FALA com um treinador ja vencido: `trainerbattle_single`,
+#     `_double` e `_no_intro` vao todos para `gotopostbattlescript` nesse caso,
+#     ou seja para a linha seguinte ao comando.
+#
+# As cadeias sao COMPARTILHADAS por classe, uma por classe e nao uma por
+# treinador: 40 classes contra 268 objetos, e o texto e generico de qualquer
+# jeito. Linha curta de proposito (teto de 208 px da caixa, medido por
+# qa/checa_texto.py) e no maximo DUAS linhas por caixa.
+TEXTO_CLASSE = {
+    "TRAINER_CLASS_LEADER_FRLG": (
+        "Sou o líder daqui.\nMostre o seu valor!",
+        "Você lutou muito bem."),
+    "TRAINER_CLASS_CHAMPION_FRLG": (
+        "O topo de Galar é aqui.\nVenha me buscar!",
+        "Você chegou ao topo."),
+    "TRAINER_CLASS_ELITE_FOUR_FRLG": (
+        "Aqui a estrada aperta.\nMostre o seu time!",
+        "Siga em frente,\ntreinador."),
+    "TRAINER_CLASS_BOSS_FRLG": (
+        "Ninguém passa por mim.",
+        "Isso não vai ficar assim."),
+    "TRAINER_CLASS_RIVAL": (
+        "De novo você? Então\nvamos resolver isso!",
+        "Da próxima eu ganho!"),
+    "TRAINER_CLASS_TEAM_AQUA": (
+        "Some daqui, moleque!",
+        "Tá, tá... eu já vou."),
+    "TRAINER_CLASS_MAGMA_ADMIN": (
+        "Área restrita.\nVolte por onde veio.",
+        "Meu turno acabou mal."),
+    "TRAINER_CLASS_HIKER_FRLG": (
+        "Subi essa trilha inteira!\nBora batalhar?",
+        "Que fôlego o seu!"),
+    "TRAINER_CLASS_BEAUTY_FRLG": (
+        "Você tem estilo.\nMas eu tenho time.",
+        "Perdi com elegância."),
+    "TRAINER_CLASS_GENTLEMAN_FRLG": (
+        "Com licença. Aceita\numa batalha?",
+        "Foi um prazer."),
+    "TRAINER_CLASS_CHANNELER_FRLG": (
+        "Eu vi o seu futuro...\ne ele é uma batalha.",
+        "O futuro me enganou."),
+    "TRAINER_CLASS_LASS_FRLG": (
+        "Oi! Quer batalhar\ncomigo?",
+        "Você é forte mesmo!"),
+    "TRAINER_CLASS_YOUNGSTER_FRLG": (
+        "Meu time é novo, mas\né bom. Vem!",
+        "Preciso treinar mais."),
+    "TRAINER_CLASS_CAMPER_FRLG": (
+        "Acampei aqui só pra\nachar um bom duelo.",
+        "Valeu pela batalha!"),
+    "TRAINER_CLASS_BLACK_BELT_FRLG": (
+        "Força e treino!\nEncare-me!",
+        "Você treinou mais."),
+    "TRAINER_CLASS_SWIMMER_M_FRLG": (
+        "A água é minha casa.\nVamos nessa!",
+        "Boa, você nada bem."),
+    "TRAINER_CLASS_SAILOR_FRLG": (
+        "Marujo não recusa\nbriga boa!",
+        "Ancorei de vez."),
+    "TRAINER_CLASS_SCIENTIST_FRLG": (
+        "Minha hipótese:\neu venço. Vamos ver.",
+        "Hipótese refutada."),
+    "TRAINER_CLASS_GUITARIST": (
+        "Toca aí! Digo,\nbatalha aí!",
+        "Você afinou melhor."),
+    "TRAINER_CLASS_BUG_CATCHER_FRLG": (
+        "Peguei muito inseto\nhoje. Quer ver?",
+        "Meus insetos cansaram."),
+    "TRAINER_CLASS_COOLTRAINER_FRLG": (
+        "Um duelo de verdade,\nque tal?",
+        "Foi um bom duelo."),
+}
+# Classe sem linha propria: fala neutra, e ela e DECLARADA, nunca silenciosa.
+TEXTO_PADRAO = ("Que tal uma batalha\nrápida?", "Boa batalha. Obrigado!")
+
+
+def rotulos_classe(classe):
+    """(rotulo do texto de abertura, rotulo do texto de pos-batalha)."""
+    curto = classe.replace("TRAINER_CLASS_", "")
+    return "GalarTrn_Intro_%s" % curto, "GalarTrn_Depois_%s" % curto
+
 # Nomes que o demake DIGITOU ERRADO na propria tabela de nomes. Nao e forma nem
 # ambiguidade: e erro de digitacao da fonte, conferido letra a letra contra o
 # nosso species.h. Sem esta tabela, quatro times inteiros caem.
@@ -645,71 +743,115 @@ def plano():
 
 # ---------------------------------------------------------------- escrita ---
 def ids_gravados(texto=None):
-    """{fonte_id: id nosso} JA GRAVADO no bloco de opponents.h, ou {}.
+    """({chave de objeto: id}, {fonte_id: id}) JA GRAVADOS em opponents.h.
 
     Fonte da verdade do de-para. O header e o lado velho porque e ele que a
     ROM publicada e as saves conhecem; guardar a mesma tabela num JSON ao lado
     so criaria dois donos do mesmo numero.
+
+    Duas tabelas porque o comentario mudou de forma em 23/08/2026: ate entao
+    ele so dizia `// fonte N`, e o id era do TREINADOR DA FONTE; hoje ele diz
+    tambem `obj <chave>`, e o id e do OBJETO. A tabela velha continua sendo
+    lida para nenhum id ja publicado se mexer.
     """
     t = texto if texto is not None else open(OPPS, encoding="utf-8").read()
     i, j = t.find(MARCA_INI), t.find(MARCA_FIM)
     if i < 0 or j < 0:
-        return {}
-    fora = {}
-    for m in re.finditer(r"#define\s+\S+\s+(\d+)\s*//\s*fonte\s+(\d+)",
-                         t[i:j]):
-        fora[int(m.group(2))] = int(m.group(1))
-    return fora
+        return {}, {}
+    por_obj, por_fonte = {}, {}
+    for m in re.finditer(
+            # `[^\s,]+` e nao `\S+`: a chave termina em virgula no comentario
+            # (`// fonte 509, obj g39m02/objeto/12, Youngster Chad`), e `\S+`
+            # engolia a virgula. O de-para saia com chave que nunca casava,
+            # todo objeto virava novo e o `--aplicar` estourava a faixa na
+            # SEGUNDA rodada. Medido em 23/08/2026.
+            r"#define\s+\S+\s+(\d+)\s*//\s*fonte\s+(\d+)(?:,\s*obj\s+([^\s,]+))?",
+            t[i:j]):
+        nid, fid, chave = int(m.group(1)), int(m.group(2)), m.group(3)
+        if chave:
+            por_obj[chave] = nid
+        else:
+            por_fonte.setdefault(fid, nid)
+    return por_obj, por_fonte
 
 
-def numera(usados, ja=None):
-    """{fonte_id: (id nosso, constante)}. APPEND-ONLY, e isso e o ponto.
+def numera(aceitas, usados, ja=None):
+    """{chave do objeto: (id nosso, constante, fonte_id)}. UM ID POR OBJETO.
 
-    Ate 23/08/2026 esta funcao numerava `ID_BASE + n` sobre `sorted(usados)`,
-    e a rodada 9 mostrou o preco: dois treinadores novos (fonte 686 e 733)
-    entraram com id de fonte MENOR que o da dupla Leon (736/739) e empurraram
-    os dois de 3204/3205 para 3206/3207. A flag de "ja venci" e
-    `TRAINER_FLAGS_START + id`, entao um id que anda leva a vitoria do jogador
-    junto: quem tivesse derrotado o Leon voltaria com a vitoria de outro. Nao
-    mordeu porque Galar ainda nao tem treinador jogavel, e essa foi a ultima
-    hora em que sair de graca.
+    Duas regras moram aqui, e as duas nasceram de defeito medido:
 
-    A regra agora: id ja gravado NUNCA muda de numero, e id novo entra depois
-    do maior que existe. A ordem da fonte segue mandando SO no desempate entre
-    ids novos da mesma rodada, para a rodada ser reproduzivel.
+    1. APPEND-ONLY. Ate 23/08/2026 esta funcao numerava `ID_BASE + n` sobre
+       `sorted(usados)`, e a rodada 9 mostrou o preco: dois treinadores novos
+       (fonte 686 e 733) entraram com id de fonte MENOR que o da dupla Leon
+       (736/739) e empurraram os dois de 3204/3205 para 3206/3207. A flag de
+       "ja venci" e `TRAINER_FLAGS_START + id`, entao um id que anda leva a
+       vitoria do jogador junto.
+    2. UM ID POR OBJETO. Um mesmo treinador da fonte e citado por 2 ou 3
+       objetos de mapas diferentes (38 casos, 40 batalhas). Como a flag de
+       vitoria e uma por ID, vencer um deles apagava a batalha dos gemeos:
+       eles nasciam vencidos. Agora cada objeto tem id proprio e o TIME e
+       copiado. O primeiro objeto de cada treinador (em ordem de chave) herda
+       o id que ja estava publicado; os gemeos entram em APPEND.
     """
-    ja = ids_gravados() if ja is None else ja
-    fora, prox = {}, max(ja.values(), default=ID_BASE - 1) + 1
-    for fid in sorted(usados):
+    por_obj, por_fonte = ids_gravados() if ja is None else ja
+    pares = sorted({l["chave"]: l["fonte_id"] for l in aceitas}.items())
+    # Nome da constante: o PRIMEIRO objeto de cada treinador fica com o nome
+    # que ja esta publicado; os gemeos ganham sufixo _2, _3. A ordem e a de
+    # chave, que e a da fonte, para a rodada ser reproduzivel.
+    nomes, vistos = {}, collections.Counter()
+    for chave, fid in pares:
         u = usados[fid]
-        nid = ja.get(fid)
-        if nid is None:
-            nid, prox = prox, prox + 1
+        base = const_id(fid, u["nome"], u["classe_fonte"])
+        vistos[fid] += 1
+        nomes[chave] = base if vistos[fid] == 1 else "%s_%d" % (base, vistos[fid])
+    fora, tomados = {}, set()
+    prox = max(list(por_obj.values()) + list(por_fonte.values()),
+               default=ID_BASE - 1) + 1
+
+    def poe(chave, fid, nid):
         if not ID_BASE <= nid < ID_TETO:
-            raise SystemExit("faixa %d-%d estourou no treinador de fonte %d"
-                             % (ID_BASE, ID_TETO - 1, fid))
-        fora[fid] = (nid, const_id(fid, u["nome"], u["classe_fonte"]))
+            raise SystemExit("faixa %d-%d estourou no objeto %s"
+                             % (ID_BASE, ID_TETO - 1, chave))
+        fora[chave] = (nid, nomes[chave], fid)
+        tomados.add(nid)
+
+    for chave, fid in pares:                      # 1) id ja gravado por OBJETO
+        if chave in por_obj:
+            poe(chave, fid, por_obj[chave])
+    for chave, fid in pares:                      # 2) id legado do TREINADOR
+        if chave in fora:
+            continue
+        nid = por_fonte.get(fid)
+        if nid is not None and nid not in tomados:
+            poe(chave, fid, nid)
+    for chave, fid in pares:                      # 3) APPEND
+        if chave in fora:
+            continue
+        while prox in tomados:
+            prox += 1
+        poe(chave, fid, prox)
+        prox += 1
     return fora
 
 
 def bloco_opponents(usados, num):
     out = [MARCA_INI,
-           "// Um id por treinador de Galar CITADO por script de objeto ou placa.",
+           "// Um id por OBJETO de Galar que abre batalha (script de objeto ou placa).",
            "// Faixa exclusiva desta frente: %d a %d (o maior id fora dela era"
            % (ID_BASE, ID_TETO - 1),
            "// 2536, e o proximo livre e onde as outras frentes apendem).",
            "// Custo ZERO de save: a flag de 'ja venci' e TRAINER_FLAGS_START + id,",
            "// e a faixa inteira ja esta dimensionada por MAX_TRAINERS_COUNT (4000).",
            "// Gerado por dev_scripts/treinadores_galar.py; nao editar a mao."]
-    larg = max((len(c) for _, c in num.values()), default=10) + 2
+    larg = max((len(v[1]) for v in num.values()), default=10) + 2
     # Ordem de ESCRITA pelo id nosso, para o arquivo ler como o que ele e:
     # uma lista append-only. Ordenar pelo id da fonte esconderia a insercao no
     # meio, que foi o defeito de 23/08/2026.
-    for fid in sorted(num, key=lambda f: num[f][0]):
-        nid, const = num[fid]
+    for chave in sorted(num, key=lambda c: num[c][0]):
+        nid, const, fid = num[chave]
         u = usados[fid]
-        out.append("#define %-*s %d  // fonte %d, %s %s"
-                   % (larg, const, nid, fid, u["classe_fonte"], u["nome"]))
+        out.append("#define %-*s %d  // fonte %d, obj %s, %s %s"
+                   % (larg, const, nid, fid, chave, u["classe_fonte"], u["nome"]))
     out.append(MARCA_FIM)
     return "\n".join(out) + "\n"
 
@@ -766,6 +908,11 @@ def times_preservados(texto=None):
     return fora
 
 
+def nomes_base(const):
+    """`TRAINER_GALAR_ALLISTER_310_2` -> `TRAINER_GALAR_ALLISTER_310`."""
+    return re.sub(r"_\d+$", "", const) if re.search(r"_\d+_\d+$", const) else const
+
+
 def bloco_party(usados, num, preservar=None):
     preservar = times_preservados() if preservar is None else preservar
     out = [P_INI,
@@ -775,10 +922,13 @@ def bloco_party(usados, num, preservar=None):
            "   descartado de proposito. Golpe, item, IV, EV e natureza NAO vem da",
            "   fonte: ver o cabecalho de dev_scripts/treinadores_galar.py.",
            "   Os chefes que a Fase F cobre tem o time REESCRITO por",
-           "   dev_scripts/fase_f_chefes.py depois deste gerador. */",
+           "   dev_scripts/fase_f_chefes.py depois deste gerador.",
+           "   Um bloco por OBJETO: dois objetos do mesmo treinador da fonte tem",
+           "   ids diferentes e times IGUAIS, porque a flag de ja-venci e uma por",
+           "   id e antes disso o gemeo nascia vencido. */",
            ""]
-    for fid in sorted(num):
-        nid, const = num[fid]
+    for chave in sorted(num, key=lambda c: num[c][0]):
+        nid, const, fid = num[chave]
         u = usados[fid]
         out.append("=== %s ===" % const)
         out.append("Name: %s" % (u["nome"] or "Trainer")[:NOME_MAX])
@@ -786,7 +936,11 @@ def bloco_party(usados, num, preservar=None):
         out.append("Pic: %s" % pic_de(u["classe"], u["genero"]))
         out.append("Gender: %s" % ("Female" if u["genero"] else "Male"))
         out.append("Double Battle: %s" % ("Yes" if u["duplo"] else "No"))
-        rabo = preservar.get(const)
+        # O gemeo de um chefe da Fase F leva o MESMO time escrito a mao: sem
+        # isto, o Allister de Galar_Wyndon01 teria o time cru da fonte e o de
+        # Galar_StowOnSide09 o da Fase F, dois lideres com a mesma cara e
+        # times diferentes.
+        rabo = preservar.get(const, preservar.get(nomes_base(const)))
         if rabo is not None:
             out += rabo
             out.append("")
@@ -798,50 +952,76 @@ def bloco_party(usados, num, preservar=None):
     return "\n".join(out) + "\n"
 
 
-def corpo_inc(aceitas, num):
+def corpo_inc(aceitas, usados, num):
     out = ["@ Treinadores de Galar, balde d da fase de conteudo.",
            "@ Gerado por dev_scripts/treinadores_galar.py; NAO editar a mao.",
-           "@ Uma batalha por objeto: a PRIMEIRA de um percurso linear.", ""]
+           "@ Uma batalha por objeto: a PRIMEIRA de um percurso linear.",
+           "@",
+           "@ O RABO DE TODO BLOCO E `msgbox ..., MSGBOX_AUTOCLOSE` + `release` +",
+           "@ `end`, e ele NAO e enfeite: e por ali que volta quem ganhou a batalha",
+           "@ (`gotopostbattlescript` cai na linha seguinte ao `trainerbattle`) e",
+           "@ tambem quem RE-FALA com um treinador ja vencido. Sem ele o objeto do",
+           "@ JOGADOR fica congelado pelo `lock` que o proprio molde poe, porque so",
+           "@ `ScrCmd_release` chama `UnfreezeObjectEvents`; o `end` sozinho apenas",
+           "@ solta `sLockFieldControls`. Era esta a trava dos 127 blocos de 23/08.",
+           ""]
+    # Cadeias compartilhadas por classe, uma vez cada, no topo do arquivo.
+    usadas = sorted({usados[num[l["chave"]][2]]["classe"] for l in aceitas})
+    out.append("@ ---- fala padrao por classe (ver TEXTO_CLASSE no gerador) ----")
+    for classe in usadas:
+        r_in, r_dep = rotulos_classe(classe)
+        intro, depois = TEXTO_CLASSE.get(classe, TEXTO_PADRAO)
+        # A tabela guarda quebra de linha DE VERDADE; o `.string` quer a
+        # sequencia `\n` de dois caracteres, que e o comando de nova linha do
+        # charmap. Escapa aqui, e nao na tabela, para a tabela ficar legivel.
+        esc = lambda t: t.replace("\n", "\\n")
+        out += ["%s:" % r_in, '\t.string "%s$"' % esc(intro), "",
+                "%s:" % r_dep, '\t.string "%s$"' % esc(depois), ""]
     por_mapa = collections.defaultdict(list)
     for l in aceitas:
         por_mapa[l["mapa"]].append(l)
     for mapa in sorted(por_mapa):
         out.append("@ ---- %s ----" % mapa)
         for l in sorted(por_mapa[mapa], key=lambda z: z["chave"]):
-            r, const = l["rotulo"], num[l["fonte_id"]][1]
+            r = l["rotulo"]
+            nid, const, fid = num[l["chave"]]
+            r_in, r_dep = rotulos_classe(usados[fid]["classe"])
             out.append("%s::" % r)
-            # PORTAO DE "JA VENCI", E ELE E OBRIGATORIO NOS DOIS MOLDES SEM INTRO.
+            # PORTAO DE "JA VENCI" para o molde que NAO o tem por dentro.
             # Medido no emulador em 22/08/2026 pelo T147.8, que nasceu VERMELHO:
-            # `trainerbattle_no_intro` (TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT) e
-            # `trainerbattle_earlyrival` caem os dois em
+            # `trainerbattle_earlyrival` cai em
             # `EventScript_DoNoIntroTrainerBattle`, que vai DIRETO para o
             # `dotrainerbattle` sem passar pelo `specialvar GetTrainerFlag` que
             # o `EventScript_TryDoNormalTrainerBattle` tem na linha 16. Isso e
-            # do motor vanilla e esta certo LA: no FireRed esses dois moldes so
-            # sao alcancados depois de o treinador AVISTAR o jogador, e a flag
-            # ja foi conferida antes. Aqui o objeto e falado, nao avista, entao
-            # sem este portao o treinador rebriga para sempre.
-            # A flag e a mesma que o motor usaria, TRAINER_FLAGS_START + id, e
-            # por isso continua custando ZERO de save.
-            if l["molde"] in ("nointro", "rival"):
+            # do motor vanilla e esta certo LA: no FireRed esse molde so e
+            # alcancado depois de o treinador AVISTAR o jogador, e a flag ja
+            # foi conferida antes. Aqui o objeto e falado, nao avista.
+            # O molde `nointro` tinha o mesmo problema e saiu de cena em
+            # 23/08/2026: ele virou `trainerbattle_single` com fala de abertura
+            # padrao por classe, que e o idioma vanilla e resolve as duas
+            # coisas de uma vez (flag por dentro e soltura no fim).
+            if l["molde"] == "rival":
                 out.append("\tlock")
                 out.append("\tfaceplayer")
                 out.append("\tgoto_if_set TRAINER_FLAGS_START + %s, %s_Fim"
                            % (const, r))
-            if l["molde"] == "nointro":
-                out.append("\ttrainerbattle_no_intro %s, %s_Derrota" % (const, r))
-            elif l["molde"] == "double":
+            if l["molde"] == "double":
                 out.append("\ttrainerbattle_double %s, %s_Intro, %s_Derrota, "
                            "%s_Poucos" % (const, r, r, r))
             elif l["molde"] == "rival":
                 out.append("\ttrainerbattle_earlyrival %s, 0, %s_Derrota, "
                            "%s_Vitoria" % (const, r, r))
+            elif l["molde"] == "nointro":
+                out.append("\ttrainerbattle_single %s, %s, %s_Derrota"
+                           % (const, r_in, r))
             else:
                 out.append("\ttrainerbattle_single %s, %s_Intro, %s_Derrota"
                            % (const, r, r))
+            out.append("\tmsgbox %s, MSGBOX_AUTOCLOSE" % r_dep)
+            out.append("\trelease")
             out.append("\tend")
             out.append("")
-            if l["molde"] in ("nointro", "rival"):
+            if l["molde"] == "rival":
                 out.append("%s_Fim:" % r)
                 out.append("\trelease")
                 out.append("\tend")
@@ -914,7 +1094,7 @@ def aplica(aceitas, usados, num, gravar):
                     json.dump(doc, f, indent=2, ensure_ascii=False)
                     f.write("\n")
     if gravar:
-        open(INC, "w").write(corpo_inc(aceitas, num))
+        open(INC, "w").write(corpo_inc(aceitas, usados, num))
         s = open(EVENT_S).read()
         linha = '\t.include "data/scripts/galar_treinadores.inc"'
         if linha not in s:
@@ -1007,31 +1187,39 @@ def demo():
     caso("o plano aceita mais de 240 linhas", len(aceitas) > 240)
     caso("nenhum treinador aceito passa de 6 Pokemon",
          all(len(u["time"]) <= 6 for u in usados.values()))
-    num = numera(usados)
+    num = numera(aceitas, usados)
     caso("todo id fica na faixa 3000-3399",
-         all(ID_BASE <= n < ID_TETO for n, _ in num.values()))
+         all(ID_BASE <= v[0] < ID_TETO for v in num.values()))
     caso("as constantes de id nao repetem",
-         len({c for _, c in num.values()}) == len(num))
+         len({v[1] for v in num.values()}) == len(num))
+    # UM ID POR OBJETO, com o defeito de 23/08/2026 medido dos dois lados.
+    caso("todo objeto que abre batalha tem id proprio",
+         len({v[0] for v in num.values()}) == len(aceitas) == len(num))
+    caso("e ha treinador da fonte servindo a MAIS DE UM objeto (senao o caso "
+         "acima e vazio)",
+         max(collections.Counter(v[2] for v in num.values()).values()) > 1)
     # APPEND-ONLY, com mutacao plantada. O lado velho e o header de verdade;
-    # a mutacao TIRA dele o menor id da fonte, que e exatamente a forma do
-    # defeito de 23/08/2026 (um treinador novo com id de fonte pequeno).
-    ja = ids_gravados()
+    # a mutacao TIRA dele o menor id, que e exatamente a forma do defeito de
+    # 23/08/2026 (um treinador novo com id de fonte pequeno).
+    por_obj, por_fonte = ids_gravados()
+    velho = {c: num[c][0] for c in num}
     caso("o header ja tem de-para gravado (senao o caso abaixo e vazio)",
-         len(ja) > 100)
+         len(por_obj) + len(por_fonte) > 100)
+    n_id = numera(aceitas, usados, (por_obj, por_fonte))
     caso("com o header inteiro, NENHUM id se move",
-         all(num[f][0] == ja[f] for f in num if f in ja))
-    sem_um = dict(ja)
-    del sem_um[min(sem_um)]
-    n2 = numera(usados, sem_um)
+         all(n_id[c][0] == velho[c] for c in velho))
+    base = {c: v[0] for c, v in n_id.items()}
+    sem_um = ({c: i for c, i in base.items() if i != min(base.values())}, {})
+    n2 = numera(aceitas, usados, sem_um)
     caso("tirar o menor do lado velho NAO empurra os outros",
-         all(n2[f][0] == ja[f] for f in n2 if f in sem_um))
+         all(n2[c][0] == base[c] for c in sem_um[0]))
     caso("e o que voltou entra DEPOIS do maior que existia",
-         n2[min(ja)][0] > max(sem_um.values()))
+         max(n2[c][0] for c in n2 if c not in sem_um[0]) > max(sem_um[0].values()))
     # PAR NEGATIVO: a regra velha (ID_BASE + posicao na ordem da fonte)
     # move sim, e por isso o caso acima nao e vacuo.
-    velha = {f: ID_BASE + i for i, f in enumerate(sorted(usados))}
+    antiga = {f: ID_BASE + i for i, f in enumerate(sorted(usados))}
     caso("a regra velha MOVERIA ids (o caso acima nao e vacuo)",
-         any(velha[f] != ja[f] for f in velha if f in ja))
+         any(antiga[v[2]] != v[0] for v in num.values()))
     esp_h = open(f"{RAIZ}/include/constants/species.h").read()
     caso("toda especie escrita existe em species.h",
          all(("%s " % e) in esp_h or ("%s\n" % e) in esp_h
@@ -1055,12 +1243,20 @@ def demo():
     # o que faria o par negativo mentir.
     dentro = set(re.findall(r"(?m)^=== (\S+) ===[ \t]*$",
                             t_real[t_real.find(P_INI):t_real.find(P_FIM)]))
-    antes = {k: v for k, v in GP.blocos(t_real).items()
+    # `GP.blocos` cola o marcador de fim no ULTIMO bloco do arquivo, e o ultimo
+    # muda de dono quando um id novo entra em append. Sem tirar o marcador, o
+    # caso acusaria diferenca onde nao ha nenhuma.
+    def limpo(d):
+        return {k: "\n".join(ln for ln in v.split("\n") if P_FIM not in ln
+                             ).rstrip() for k, v in d.items()}
+
+    antes = {k: v for k, v in limpo(GP.blocos(t_real)).items()
              if k in chefes and k in dentro}
-    com = GP.blocos(substitui(t_real, P_INI, P_FIM,
-                              bloco_party(usados, num, times_preservados(t_real))))
-    sem = GP.blocos(substitui(t_real, P_INI, P_FIM,
-                              bloco_party(usados, num, {})))
+    com = limpo(GP.blocos(substitui(
+        t_real, P_INI, P_FIM,
+        bloco_party(usados, num, times_preservados(t_real)))))
+    sem = limpo(GP.blocos(substitui(t_real, P_INI, P_FIM,
+                                    bloco_party(usados, num, {}))))
     caso("ha chefe da Fase F dentro do bloco de Galar (senao o caso e vazio)",
          len(antes) > 30)
     caso("--aplicar nao muda um byte de nenhum chefe da Fase F",
@@ -1094,11 +1290,16 @@ def main():
     print("stride medido de gTrainers: %d B (%d de %d deltas)"
           % (st, quantos, total))
     aceitas, usados, recusa, novas, extra, gin = plano()
-    num = numera(usados)
-    ids = [n for n, _ in num.values()]
+    num = numera(aceitas, usados)
+    ids = [v[0] for v in num.values()]
     print("batalhas portadas: %d em %d mapas; treinadores novos: %d (ids %d-%d)"
           % (len(aceitas), len({l["mapa"] for l in aceitas}), len(num),
              min(ids), max(ids)))
+    gemeos = collections.Counter(v[2] for v in num.values())
+    print("objetos que dividiam id de treinador com outro objeto: %d em %d "
+          "treinadores da fonte (cada um ganhou id proprio e time copiado)"
+          % (sum(n for n in gemeos.values() if n > 1),
+             sum(1 for n in gemeos.values() if n > 1)))
     print("de fora: %d linhas" % sum(recusa.values()))
     for m, n in recusa.most_common():
         print("  %5d  %s" % (n, m))

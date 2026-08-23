@@ -185,14 +185,14 @@
  },
  {
   "id": "T143.9",
-  "nome": "A RYOKU1 EXISTE NA FONTE E AGORA EXISTE AQUI. O plano dizia que 'a RYOKU1 nunca foi importada' e nao sabia se a fonte a tinha; tem: bw3g maps/AccumulaTown.asm:43, `loadtrainer RYOKU, RYOKU1`, com ROSELIA 37 / TROPIUS 38 / AMOONGUSS 40. A rota foi MEDIDA e nao chutada: descer do warp 3 para em (25,15), ir para a esquerda para na parede de (17,15), descer para no canto (17,21), e so entao dois UP e uma caminhada para a direita param NO Ryoku de (19,19), em (18,19). O NPC dela JA estava no mapa desde o import de Unova, so falando (Unova_AccumulaTown_EventScript_Npc8), entao a cena nao precisou de objeto novo nem de flag nova: o `msgbox` virou `trainerbattle_single`. Cobrado: WO_CHIEN 1394 no slot 4 e DECIDUEYE 724 com ITEM_DECIDIUM_Z 379 no ace, o mesmo Z da RYOKU2, porque e a mesma pessoa e nenhuma das seis especies de grama dele tem Mega. A JANELA DE APERTOS FOI MEDIDA e nao chutada, e ela e estreita porque o texto de entrada do Ryoku e longo e o jogador de teste nao tem time: com 10 A e cauda de 300 quadros o dialogo ainda esta rolando e `oponente` fica em 0; com 12 A o jogador ja perdeu, foi para MAP_PALLET_TOWN_PLAYERS_HOUSE_1F e gParties voltou a zero. Onze A com cauda de 60 quadros para com a batalha ABERTA, que e o unico instante em que o time da para ser lido. MEDIDO DE NOVO EM 23/08/2026 (rodada 9), e o conserto que a 0.p propunha NAO E O CONSERTO: sozinho ele passa 2 de 3, e com o `antes_do_warp` do T144.5 dando um BULBASAUR nivel 1 ao jogador ele passa 1 de 3, ou seja PIORA. Duas medidas do mesmo remedio com o resultado errado querem dizer que o diagnostico esta errado, entao o `antes_do_warp` foi desfeito e o caso continua como estava. Ele passou VERDE nas duas varreduras completas desta rodada. Quem for mexer: meça primeiro por que a batalha se fecha, em vez de supor que e falta de time.",
+  "nome": "A RYOKU1 EXISTE NA FONTE E AGORA EXISTE AQUI. O plano dizia que 'a RYOKU1 nunca foi importada' e nao sabia se a fonte a tinha; tem: bw3g maps/AccumulaTown.asm:43, `loadtrainer RYOKU, RYOKU1`, com ROSELIA 37 / TROPIUS 38 / AMOONGUSS 40. A rota foi MEDIDA e nao chutada: descer do warp 3 para em (25,15), ir para a esquerda para na parede de (17,15), descer para no canto (17,21), e so entao dois UP e uma caminhada para a direita param NO Ryoku de (19,19), em (18,19). O NPC dela JA estava no mapa desde o import de Unova, so falando (Unova_AccumulaTown_EventScript_Npc8), entao a cena nao precisou de objeto novo nem de flag nova: o `msgbox` virou `trainerbattle_single`. Cobrado: WO_CHIEN 1394 no slot 4 e DECIDUEYE 724 com ITEM_DECIDIUM_Z 379 no ace, o mesmo Z da RYOKU2, porque e a mesma pessoa e nenhuma das seis especies de grama dele tem Mega. A JANELA DE APERTOS FOI MEDIDA e nao chutada, e ela e estreita porque o texto de entrada do Ryoku e longo e o jogador de teste nao tem time: com 10 A e cauda de 300 quadros o dialogo ainda esta rolando e `oponente` fica em 0; com 12 A o jogador ja perdeu, foi para MAP_PALLET_TOWN_PLAYERS_HOUSE_1F e gParties voltou a zero. Onze A com cauda de 60 quadros para com a batalha ABERTA, que e o unico instante em que o time da para ser lido. MEDIDO DE NOVO EM 23/08/2026 (rodada 9), e o conserto que a 0.p propunha NAO E O CONSERTO: sozinho ele passa 2 de 3, e com o `antes_do_warp` do T144.5 dando um BULBASAUR nivel 1 ao jogador ele passa 1 de 3, ou seja PIORA. Duas medidas do mesmo remedio com o resultado errado querem dizer que o diagnostico esta errado, entao o `antes_do_warp` foi desfeito e o caso continua como estava. Ele passou VERDE nas duas varreduras completas desta rodada. Quem for mexer: meça primeiro por que a batalha se fecha, em vez de supor que e falta de time. ROTA REESCRITA EM 23/08/2026, e o motivo e o proprio T143.10: a rota antiga atravessava a linha y=15 de x=24 a x=17, que e o quintal do NPC 3 (MOVEMENT_TYPE_WANDER_AROUND em (22,15), raio 2, ou seja x20..24 e y13..17), e quando ele estava parado ali o LEFT batia nele e a perna morria oito tiles antes. A rota nova nao encosta em quintal nenhum e foi MEDIDA perna a perna no emulador, nao deduzida: DOWN*20 satura em (25,15) (a coluna 25 fica FORA do raio do NPC 3, que para em x=24); RIGHT*20 satura em (27,15); UP*20 satura em (27,12), porque (27,11) e parede; LEFT*9 anda a linha 12 ate (19,12), e a linha 12 esta FORA dos quatro quintais (NPC 0 em x17..21/y7..11, NPC 2 em x12..16/y8..12 so encosta em x<=16, NPC 3 so a partir de y13); e o DOWN*20 final desce a coluna 19 e SATURA EM CIMA DO PROPRIO RYOKU, parando em (19,18) porque (19,19) e ele. Terminar colado nele por CIMA, e nao pela esquerda, tirou as tres pernas finais da rota antiga: e a saturacao contra o proprio alvo que prova que ele esta la, porque sem o Ryoku o jogador seguiria ate (19,20). MEDIDO SEIS VEZES, seis vezes (19,18). LICAO cara desta medicao, para quem for escrever rota: perna de UMA ou DUAS teclas NAO anda uma ou duas casas de forma confiavel. `17:UP*2` saindo de (17,21) andou DOIS tiles na rota antiga e UM na nova, com o mesmo aperto e o mesmo mapa, so porque a perna anterior era mais curta. Perna curta e contada e aposta; perna que satura contra parede ou contra objeto solido e prova.",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM"
   ],
   "opcoes": 36,
   "warp": "MAP_UNOVA_ACCUMULA_TOWN",
   "warp_id": 3,
-  "roteiro": "300:NADA,17:DOWN*20,17:LEFT*30,17:DOWN*20,17:UP*2,17:RIGHT*20,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,60:NADA",
+  "roteiro": "300:NADA,17:DOWN*20,17:RIGHT*20,17:UP*20,17:LEFT*9,17:DOWN*20,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,60:NADA",
   "prova": {
    "mapa": "MAP_UNOVA_ACCUMULA_TOWN",
    "oponente": "TRAINER_UNOVA_RYOKU1",
@@ -207,14 +207,14 @@
  },
  {
   "id": "T143.10",
-  "nome": "PAR NEGATIVO DO T143.9: a MESMA caminhada, e nenhum A. A batalha nao abre e o time fica zerado. Este par NAO cobra posicao final, e a razao esta medida: a Accumula Town tem quatro NPCs MOVEMENT_TYPE_WANDER_AROUND no caminho, e a mesma rota parou em (18,19), (21,20) e (27,13) em execucoes diferentes conforme onde eles estavam. Quem prova que a rota CHEGA e o T143.9, que so passa se a batalha abrir.",
+  "nome": "PAR NEGATIVO DO T143.9: a MESMA caminhada, e nenhum A. A batalha nao abre e o time fica zerado. Este par NAO cobra posicao final, e a razao esta medida: a Accumula Town tem quatro NPCs MOVEMENT_TYPE_WANDER_AROUND no caminho, e a mesma rota parou em (18,19), (21,20) e (27,13) em execucoes diferentes conforme onde eles estavam. Quem prova que a rota CHEGA e o T143.9, que so passa se a batalha abrir. ROTA REESCRITA EM 23/08/2026, e o motivo e o proprio T143.10: a rota antiga atravessava a linha y=15 de x=24 a x=17, que e o quintal do NPC 3 (MOVEMENT_TYPE_WANDER_AROUND em (22,15), raio 2, ou seja x20..24 e y13..17), e quando ele estava parado ali o LEFT batia nele e a perna morria oito tiles antes. A rota nova nao encosta em quintal nenhum e foi MEDIDA perna a perna no emulador, nao deduzida: DOWN*20 satura em (25,15) (a coluna 25 fica FORA do raio do NPC 3, que para em x=24); RIGHT*20 satura em (27,15); UP*20 satura em (27,12), porque (27,11) e parede; LEFT*9 anda a linha 12 ate (19,12), e a linha 12 esta FORA dos quatro quintais (NPC 0 em x17..21/y7..11, NPC 2 em x12..16/y8..12 so encosta em x<=16, NPC 3 so a partir de y13); e o DOWN*20 final desce a coluna 19 e SATURA EM CIMA DO PROPRIO RYOKU, parando em (19,18) porque (19,19) e ele. Terminar colado nele por CIMA, e nao pela esquerda, tirou as tres pernas finais da rota antiga: e a saturacao contra o proprio alvo que prova que ele esta la, porque sem o Ryoku o jogador seguiria ate (19,20). MEDIDO SEIS VEZES, seis vezes (19,18). LICAO cara desta medicao, para quem for escrever rota: perna de UMA ou DUAS teclas NAO anda uma ou duas casas de forma confiavel. `17:UP*2` saindo de (17,21) andou DOIS tiles na rota antiga e UM na nova, com o mesmo aperto e o mesmo mapa, so porque a perna anterior era mais curta. Perna curta e contada e aposta; perna que satura contra parede ou contra objeto solido e prova.",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM"
   ],
   "opcoes": 36,
   "warp": "MAP_UNOVA_ACCUMULA_TOWN",
   "warp_id": 3,
-  "roteiro": "300:NADA,17:DOWN*20,17:LEFT*30,17:DOWN*20,17:UP*2,17:RIGHT*20,300:NADA",
+  "roteiro": "300:NADA,17:DOWN*20,17:RIGHT*20,17:UP*20,17:LEFT*9,17:DOWN*20,300:NADA",
   "prova": {
    "mapa": "MAP_UNOVA_ACCUMULA_TOWN",
    "oponente": 0,
@@ -222,7 +222,11 @@
     "especie4": 0,
     "especie5": 0,
     "item5": 0
-   }
+   },
+   "pos": [
+    19,
+    18
+   ]
   }
  },
  {

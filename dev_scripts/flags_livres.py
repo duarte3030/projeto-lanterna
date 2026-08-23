@@ -222,6 +222,61 @@ def demo():
     print("demo ok")
 
 
+# ---------------------------------------------------- alocacao APPEND-ONLY --
+# Nasceu de defeito MEDIDO em 23/08/2026: entre a ROM `22f` e a de hoje, 16
+# enderecos de flag e de var de Galar trocaram de DONO. Nenhum guarda viu,
+# porque `guarda_save.py` mede TAMANHO e INDICE e nao ATRIBUICAO, e a save
+# guarda BIT, nao nome: quem tivesse a save antiga carregaria na ROM nova com o
+# estado de Galar trocado de lugar, calado.
+#
+# A causa era sempre a mesma linha, repetida em quatro geradores:
+#
+#     alocadas = {n: livres[i] for i, n in enumerate(sorted(nomes))}
+#
+# Um nome novo no meio de `sorted(nomes)` empurra todos os seguintes um
+# endereco para baixo. E a MESMA familia do id de treinador que a 0.r
+# consertou lendo o de-para do proprio `opponents.h`; aqui o de-para mora no
+# `flags.h`/`vars.h`, e e ele a fonte da verdade.
+
+
+def apelidos_gravados(caminho, prefixo, pool="UNUSED_0x"):
+    """{apelido: endereco} JA GRAVADOS no header. O de-para publicado."""
+    texto = open(caminho, encoding="utf-8").read()
+    return {m.group(1): int(m.group(2), 16) for m in re.finditer(
+        r"#define\s+(%s\w*)\s+\(?\s*\w*%s([0-9A-Fa-f]{3,4})\b"
+        % (prefixo, pool), texto)}
+
+
+def aloca_append_only(nomes, livres, gravados):
+    """{nome: endereco}. Nome ja gravado NUNCA muda; nome novo entra no FIM.
+
+    `nomes`   nomes que esta rodada quer, em qualquer ordem.
+    `livres`  enderecos que ninguem apelida (o bloco do proprio gerador conta
+              como livre, porque ele e reescrito inteiro a cada rodada).
+    `gravados` o de-para que ja esta no header, de `apelidos_gravados`.
+
+    Nome novo entra depois do MAIOR endereco ja atribuido, e nao no primeiro
+    buraco: buraco e endereco que alguma ROM publicada ja usou para outra
+    coisa, e reaproveita-lo faz a save velha ler estado alheio.
+    """
+    fora, tomados = {}, set()
+    for n in sorted(nomes):
+        e = gravados.get(n)
+        if e is not None and e not in tomados:
+            fora[n] = e
+            tomados.add(e)
+    teto = max(tomados, default=-1)
+    sobra = [e for e in sorted(livres) if e > teto and e not in tomados]
+    for n in sorted(nomes):
+        if n in fora:
+            continue
+        if not sobra:
+            raise SystemExit("PARE: acabou endereco livre acima de 0x%04X "
+                             "para %s" % (teto, n))
+        fora[n] = sobra.pop(0)
+    return fora
+
+
 if __name__ == "__main__":
     if "--demo" in sys.argv:
         demo()

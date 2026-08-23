@@ -93,6 +93,7 @@ sys.path.insert(0, os.path.join(RAIZ, "dev_scripts"))
 import fala_galar as FALA                      # noqa: E402
 import cenas_galar as C3                       # noqa: E402
 import guarda_colisao_vars as GUARDA           # noqa: E402
+import flags_livres as FL                       # noqa: E402
 
 INC = f"{RAIZ}/data/scripts/galar_objetos.inc"
 EVENT_S = f"{RAIZ}/data/event_scripts.s"
@@ -482,8 +483,16 @@ def plano():
     if len(quer_flag) > len(pool_f):
         raise SystemExit("PARE: %d flags de esconder pedidas e %d livres na "
                          "faixa de Galar" % (len(quer_flag), len(pool_f)))
-    flags = {f: ("FLAG_GALAR_ESCONDE_%03X" % f, pool_f[i])
-             for i, f in enumerate(sorted(quer_flag))}
+    # APPEND-ONLY (ver flags_livres.aloca_append_only): a flag ja gravada
+    # em flags.h NAO muda de endereco, e a nova entra depois do maior. Ate
+    # 23/08/2026 esta linha era `pool_f[i]` sobre `sorted(quer_flag)`, e uma
+    # flag nova no meio empurrava as seguintes; foi assim que 0x1C81 saiu de
+    # FLAG_GALAR_ESCONDE_23C para FLAG_GALAR_ESCONDE_230 entre duas ROMs.
+    nomes_f = {f: "FLAG_GALAR_ESCONDE_%03X" % f for f in quer_flag}
+    ende_f = FL.aloca_append_only(
+        nomes_f.values(), pool_f,
+        FL.apelidos_gravados(FLAGS_H, "FLAG_GALAR_ESCONDE_"))
+    flags = {f: (nomes_f[f], ende_f[nomes_f[f]]) for f in quer_flag}
 
     # Var: se o c3 ja deu casa para a MESMA var da fonte naquele mapa, reusa o
     # nome dele em vez de queimar um endereco novo para o mesmo estado.
@@ -493,8 +502,12 @@ def plano():
     if len(novas) > len(livres):
         raise SystemExit("PARE: %d vars de etapa pedidas e %d livres"
                          % (len(novas), len(livres)))
-    variaveis = {c: ("VAR_GALAR_%s_OBJ" % c.upper(), livres[i])
-                 for i, c in enumerate(novas)}
+    # APPEND-ONLY, mesma regra e mesmo motivo das flags acima.
+    nomes_v = {c: "VAR_GALAR_%s_OBJ" % c.upper() for c in novas}
+    ende_v = FL.aloca_append_only(
+        nomes_v.values(), livres,
+        FL.apelidos_gravados(VARS_H, "VAR_GALAR_", "UNUSED_0x"))
+    variaveis = {c: (nomes_v[c], ende_v[nomes_v[c]]) for c in novas}
 
     def nome_var(chave):
         if chave in do_c3:
@@ -730,10 +743,91 @@ def bloco_vars(variaveis):
     return "\n".join(out) + "\n"
 
 
-def relatorio(aceitas, recusa):
+def vars_sem_escritor(variaveis=None):
+    """[(nome nosso, var da fonte, quantos escritores a FONTE tem)] das vars de
+    Galar que a arvore LE e ninguem ESCREVE.
+
+    Existe porque a QA de 23/08/2026 achou 8 nessa situacao, e a resposta certa
+    depende de um dado que so a FONTE tem. Se a var da fonte tambem nao tem
+    `setvar` em lugar nenhum, o ramo esta morto LA e nao ha o que portar; se
+    tem, o que falta e a cena que escreve, e cena e obra, nao conserto. O
+    relatorio imprime os dois numeros para ninguem ter de remedir.
+
+    Retrato medido em 23/08/2026:
+      - fonte 0x4060 (quatro nomes nossos, um por mapa): ZERO escritores na
+        fonte. O ramo alternativo do dialogo esta morto na origem.
+      - fonte 0x406F (as tabelas de Galar_Wedgehurst04 e Galar_Wedgehurst10,
+        14 cenas): ZERO escritores na fonte.
+      - fonte 0x4055 (Galar_Postwick22 e Galar_DynamaxAdventure02): 18
+        escritores na fonte, TODOS dentro da cena de abertura do professor,
+        que o filtro deste bloco recusa (`copyvar`, `setorcopyvar`,
+        `setobjectxyperm`, `pokemartdecoration`, `closedoor`) e cujo objeto
+        nem esta nos nossos mapas em 4 dos 5 casos. Porta-la e obra propria.
+    """
+    del variaveis
+    import glob
+    rom, tab, cmap, fila = FALA.carrega()
+    escritores = collections.Counter()
+    citadas = collections.defaultdict(collections.Counter)
+    for l in fila:
+        p = l.get("ponteiro_fonte")
+        if not p:
+            continue
+        chave = l.get("mapa_fonte")
+        if l["tipo"] == "map_script":
+            for tipo, off in FALA.tabela_de_map_script(rom, int(p, 16)):
+                if tipo not in C3.TIPOS_TABELA:
+                    continue
+                for var, _valor, _ptr in C3.tabela_de_map_script_tipo2(rom, off):
+                    if 0x4010 <= var < 0x4200:
+                        citadas[chave][var] += 1
+            continue
+        try:
+            bs, falha = C3.blocos(rom, tab, int(p, 16))
+        except Exception:                                   # noqa: BLE001
+            continue
+        if falha:
+            continue
+        for b in bs:
+            for nome, args in b.ins:
+                if not args or not 0x4010 <= args[0] < 0x4200:
+                    continue
+                if nome in ("setvar", "addvar", "subvar"):
+                    escritores[args[0]] += 1
+                    citadas[chave][args[0]] += 1
+                elif nome == "compare_var_to_value":
+                    citadas[chave][args[0]] += 1
+    texto = ""
+    for c in [INC, f"{RAIZ}/data/scripts/galar_cenas.inc"] + sorted(
+            glob.glob(f"{RAIZ}/data/maps/Galar_*/scripts.inc")):
+        if os.path.exists(c):
+            texto += open(c, encoding="utf-8").read()
+    fora = []
+    for nome in sorted(set(re.findall(r"\bVAR_GALAR_G\d+M\d+_(?:CENA|OBJ)\b",
+                                      texto))):
+        if re.search(r"\b(?:setvar|addvar|subvar|copyvar)\s+%s\b" % nome, texto):
+            continue
+        chave = re.search(r"VAR_GALAR_(G\d+M\d+)_", nome).group(1).lower()
+        v = citadas.get(chave)
+        # MESMA regra do gerador: a var da fonte deste mapa e a mais citada
+        # nas cenas dele (empate pelo endereco menor).
+        f = max(v, key=lambda a: (v[a], -a)) if v else None
+        fora.append((nome, f, escritores.get(f, 0) if f is not None else None))
+    return fora
+
+
+def relatorio(aceitas, recusa, variaveis=None):
     print("cenas de objeto portadas: %d em %d mapas (%d placas)"
           % (len(aceitas), len({a["nome"] for a in aceitas}),
              sum(1 for a in aceitas if a["tipo"] == "placa")))
+    mortas = vars_sem_escritor(variaveis)
+    if mortas:
+        print("vars deste bloco LIDAS e nunca escritas: %d" % len(mortas))
+        for nome, fonte, n in mortas:
+            print("  %-26s fonte %s, escritores na FONTE: %s"
+                  % (nome, "0x%04X" % fonte if fonte else "?",
+                     "nenhum (o ramo esta morto na fonte tambem)" if n == 0
+                     else n if n is not None else "?"))
     quer_flag = sum(1 for m, c in recusa.items() if "flag" in m for _ in range(c))
     print("de fora: %d linhas; das quais %d parariam numa flag "
           "(include/constants/flags.h nao e desta frente nesta onda)"
@@ -887,7 +981,7 @@ def main():
     aceitas, recusa, docs, flags, variaveis, esconde = plano()
     mudou, rec, _c = aplica(aceitas, docs, a.aplicar, flags, variaveis,
                             esconde)
-    relatorio(aceitas, recusa)
+    relatorio(aceitas, recusa, variaveis)
     print("flags de esconder: %d | vars de etapa novas: %d"
           % (len(flags), len(variaveis)))
     print("\n%s: %r" % ("gravado" if a.aplicar else "mudaria", dict(mudou)))

@@ -198,7 +198,7 @@
   "warp": "MAP_GALAR_HAMMERLOCKE_05",
   "warp_id": 0,
   "roteiro": "300:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,300:NADA,WARP=MAP_GALAR_HAMMERLOCKE_05:0,300:NADA,17:UP*10,150:NADA",
-  "nome": "A CENA DO BLOCO c3 ACENDE A FLAG QUE O MAPA REALMENTE LE, E OS DOIS NPCs CONTINUAM SUMIDOS DEPOIS DE RECARREGAR O MAPA. Este caso existe por um defeito achado no fechamento desta rodada: o c3 (`dev_scripts/cenas_galar.py`) alocava a PROPRIA flag de esconder, `FLAG_GALAR_ESCONDE_G09M11_230` na vaga 0x1C89, enquanto os objetos 1 e 2 do `Galar_Hammerlocke05` escondem por `FLAG_GALAR_ESCONDE_230`, vaga 0x1C81, que e a que o bloco c4b (`objetos_galar.py`) batizou para a MESMA flag da fonte. A cena acendia uma flag que ninguem le: o `removeobject` valia so a sessao de mapa e os dois NPCs voltavam ao reentrar. O caso mede o conserto do jeito que ele quebra: o jogador entra pelo warp 0 em (11,16), joga a cena INTEIRA (ela e longa, sao tres caixas com muitas paginas, dai os quarenta e cinco A), SAI E VOLTA pelo mesmo warp com o `WARP=` do roteiro, e so entao anda. Com a flag certa acesa os dois NPCs de (10,15) e (11,15) nao renascem e o UP saturante sobe a coluna 11 ate (11,12). Recarregar o mapa e o ponto: `removeobject` sozinho passaria neste caso se ele medisse a mesma sessao.",
+  "nome": "A CENA DO BLOCO c3 ACENDE A FLAG QUE O MAPA REALMENTE LE, E OS DOIS NPCs CONTINUAM SUMIDOS DEPOIS DE RECARREGAR O MAPA. Este caso existe por um defeito achado no fechamento desta rodada: o c3 (`dev_scripts/cenas_galar.py`) alocava a PROPRIA flag de esconder, `FLAG_GALAR_ESCONDE_G09M11_230` na vaga 0x1C89, enquanto os objetos 1 e 2 do `Galar_Hammerlocke05` escondem por `FLAG_GALAR_ESCONDE_230`, vaga 0x1C81, que e a que o bloco c4b (`objetos_galar.py`) batizou para a MESMA flag da fonte. A cena acendia uma flag que ninguem le: o `removeobject` valia so a sessao de mapa e os dois NPCs voltavam ao reentrar. O caso mede o conserto do jeito que ele quebra: o jogador entra pelo warp 0 em (11,16), joga a cena INTEIRA (ela e longa, sao tres caixas com muitas paginas, dai os quarenta e cinco A), SAI E VOLTA pelo mesmo warp com o `WARP=` do roteiro, e so entao anda. Com a flag certa acesa os dois NPCs de (10,15) e (11,15) nao renascem e o UP saturante sobe a coluna 11 ate (11,12). Recarregar o mapa e o ponto: `removeobject` sozinho passaria neste caso se ele medisse a mesma sessao. ENDERECO ATUALIZADO EM 23/08/2026: VAR_GALAR_G09M11_CENA saiu de 0x410A para 0x4112. Ela tinha entrado no MEIO do bloco de vars de Galar e empurrado VAR_GALAR_G21M01_CENA, que a ROM 22f conhecia em 0x410A; o alocador virou append-only e a var nova foi para o fim.",
   "prova": {
    "mapa": "MAP_GALAR_HAMMERLOCKE_05",
    "pos": [
@@ -206,7 +206,7 @@
     12
    ],
    "vars": {
-    "0x410A": 1
+    "0x4112": 1
    },
    "flags_acesas": [
     "FLAG_GALAR_ESCONDE_230"
@@ -219,7 +219,7 @@
    "FLAG_SEM_ENCONTRO_SELVAGEM"
   ],
   "vars": {
-   "0x410A": 1
+   "0x4112": 1
   },
   "warp": "MAP_GALAR_HAMMERLOCKE_05",
   "warp_id": 0,

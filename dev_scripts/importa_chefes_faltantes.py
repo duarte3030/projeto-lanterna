@@ -492,6 +492,7 @@ TABELA = [
         'x': 0, 'y': 4, 'elev': 0, 'olhar': 'MOVEMENT_TYPE_FACE_DOWN',
         'localid': 'LOCALID_UNOVA_NS_ROOM_N',
         'flag': 'FLAG_HIDE_UNOVA_N', 'flag_crua': 'FLAG_UNUSED_0x1D06',
+        'flags_marco': ['FLAG_UNOVA_TWIST_MOUNTAIN_ABERTO'],
         'regiao': 'unova', 'papel': 'rival', 'identidade': 'n',
         'ace': 255, 'gimmick': 'z', 'slot': 5, 'lendario': 'SPECIES_KYUREM_WHITE',
         'time': time_n(255),
@@ -905,6 +906,16 @@ def fecho(e):
     if not e.get('flag'):
         return []
     saida = [T + 'closemessage', T + 'setflag %s' % e['flag']]
+    # `flags_marco`: as flags de MARCO DE ENREDO que a fonte acende NESTA MESMA
+    # cena, e que aqui ficariam sem dono. Entrou em 23/08/2026 com o N: bw3g
+    # maps/NsRoom.asm:36 faz `setevent EVENT_OPENED_TWIST_MOUNTAIN` entre a fala
+    # de despedida e o `disappear`, e sem portar essa linha nenhum script do repo
+    # acendia FLAG_UNOVA_TWIST_MOUNTAIN_ABERTO: a boca de caverna de Icirrus em
+    # (4,12) nunca abria e o `call_if_set` de Unova_IcirrusCitySouth:63 lia flag
+    # morta. Fica no GERADOR, e nao a mao no .inc, porque o bloco inteiro e
+    # reescrito a cada rodada e linha solta ali some calada.
+    for extra in e.get('flags_marco', ()):
+        saida.append(T + 'setflag %s' % extra)
     for lid in [e['localid']] + list(e.get('localid_extra', [])):
         saida.append(T + 'removeobject %s' % lid)
     return saida

@@ -108,7 +108,7 @@
  },
  {
   "id": "T141.5",
-  "nome": "GALAR c4b COM DOIS NPCs ESCONDIDOS NO MESMO MAPA: a flag certa apaga o objeto certo. O T139 prova a mecanica no CrownTundra08, que tem UM so objeto com flag nova; o `Galar_Hammerlocke05` tem DOIS (o policial de (16,10) com FLAG_GALAR_ESCONDE_BA7 e a moca de (2,3) com FLAG_GALAR_ESCONDE_BA8) e e nele que trocar as duas passaria calado. Ainda por cima a cena `GalarObj_G09M11_o4` faz `removeobject 4` e `removeobject 5`, que sao LOCAL IDs de base 1, ou seja os objetos de INDICE 3 e 4 do map.json: errar a base por um apagaria o vizinho. Aqui a BA7 e escrita direta na EWRAM antes do warp, o jogador entra pelo warp 2, desce tres tiles ate (16,12) e sobe: com o policial fora do caminho ele atravessa (16,10), pisa no proprio warp 2 em (16,9) e sai no Galar_Hammerlocke10. Par negativo: T141.6. AJUSTE DE 23/08/2026, rodada 9: a partir dela o Galar_Hammerlocke05 tem cena de ON_FRAME propria (GalarCena_G09M11_t2_v0, do bloco c3), e ela dispara ao entrar no mapa, come os apertos do roteiro em caixa de texto e move os dois NPCs do sul. Isso nao e defeito, e conteudo novo, mas invalidava a rota deste caso, que mede OUTRA coisa. VAR_GALAR_G09M11_CENA entra valendo 1, que e o estado de `cena ja vista`, e o caso volta a medir so o que ele foi escrito para medir: qual flag esconde qual objeto.",
+  "nome": "GALAR c4b COM DOIS NPCs ESCONDIDOS NO MESMO MAPA: a flag certa apaga o objeto certo. O T139 prova a mecanica no CrownTundra08, que tem UM so objeto com flag nova; o `Galar_Hammerlocke05` tem DOIS (o policial de (16,10) com FLAG_GALAR_ESCONDE_BA7 e a moca de (2,3) com FLAG_GALAR_ESCONDE_BA8) e e nele que trocar as duas passaria calado. Ainda por cima a cena `GalarObj_G09M11_o4` faz `removeobject 4` e `removeobject 5`, que sao LOCAL IDs de base 1, ou seja os objetos de INDICE 3 e 4 do map.json: errar a base por um apagaria o vizinho. Aqui a BA7 e escrita direta na EWRAM antes do warp, o jogador entra pelo warp 2, desce tres tiles ate (16,12) e sobe: com o policial fora do caminho ele atravessa (16,10), pisa no proprio warp 2 em (16,9) e sai no Galar_Hammerlocke10. Par negativo: T141.6. AJUSTE DE 23/08/2026, rodada 9: a partir dela o Galar_Hammerlocke05 tem cena de ON_FRAME propria (GalarCena_G09M11_t2_v0, do bloco c3), e ela dispara ao entrar no mapa, come os apertos do roteiro em caixa de texto e move os dois NPCs do sul. Isso nao e defeito, e conteudo novo, mas invalidava a rota deste caso, que mede OUTRA coisa. VAR_GALAR_G09M11_CENA entra valendo 1, que e o estado de `cena ja vista`, e o caso volta a medir so o que ele foi escrito para medir: qual flag esconde qual objeto. ENDERECO ATUALIZADO EM 23/08/2026: VAR_GALAR_G09M11_CENA saiu de 0x410A para 0x4112. Ela tinha entrado no MEIO do bloco de vars de Galar e empurrado VAR_GALAR_G21M01_CENA, que a ROM 22f conhecia em 0x410A; o alocador virou append-only e a var nova foi para o fim.",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM",
    "FLAG_GALAR_ESCONDE_BA7"
@@ -126,7 +126,7 @@
    ]
   },
   "vars": {
-   "0x410A": 1
+   "0x4112": 1
   }
  },
  {
@@ -150,7 +150,7 @@
    ]
   },
   "vars": {
-   "0x410A": 1
+   "0x4112": 1
   }
  },
  {

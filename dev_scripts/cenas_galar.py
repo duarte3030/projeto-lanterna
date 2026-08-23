@@ -95,6 +95,7 @@ sys.path.insert(0, os.path.join(RAIZ, "dev_scripts"))
 
 import fala_galar as FALA                     # noqa: E402
 import guarda_colisao_vars as GUARDA          # noqa: E402
+import flags_livres as FL                      # noqa: E402
 
 FONTES = os.path.dirname(RAIZ)
 PKFR = os.path.join(FONTES, "fontes-mapas/pokefirered")
@@ -430,6 +431,7 @@ class Tradutor:
 
         for b in bs:
             corpo.append("%s::" % rotulo[b.inicio])
+            ini_do_bloco = len(corpo)
             palavra = {}
             for nome, args in b.ins:
                 if nome == "loadword":
@@ -519,6 +521,7 @@ class Tradutor:
                     raise Recusa("comando de cena fora do filtro: " + nome)
                 if nome not in MOLDURA:
                     usadas["efeito"] += 1
+            corpo[ini_do_bloco:] = self._arruma_rabo(corpo[ini_do_bloco:])
             corpo.append("")
         if not usadas["efeito"]:
             # Cena que, depois de tirar o que a nossa ROM não observa, virou
@@ -526,6 +529,54 @@ class Tradutor:
             # não escrever: fica dívida com cara de trabalho feito.
             raise Recusa("cena vira no-op depois da traducao (so moldura)")
         return corpo + extras + self.extras_gancho, usadas
+
+    # Comandos que TRANSFEREM o controle: depois deles nada mais roda neste
+    # bloco, entao a soltura tem que ficar ANTES.
+    TRANSFERE = {"goto", "goto_if", "call_if", "return", "end",
+                 "gotopostbattlescript", "gotobeatenscript"}
+
+    @classmethod
+    def _arruma_rabo(cls, linhas):
+        """Duas correcoes de RABO, as duas medidas pela QA de 23/08/2026 no
+        `GalarObj_G06M33_o0_b2` (`data/scripts/galar_objetos.inc:692`).
+
+        1. `checkflag` sem `goto_if`/`call_if` depois nao decide NADA: e leitura
+           morta, e era o unico caso da arvore inteira (C27). Na fonte o ramo
+           existia; o filtro nao o trouxe, e o que sobrou foi uma linha que so
+           gasta ROM. Vira comentario COM o nome da flag, para quem for portar
+           o ramo saber onde ele entrava.
+        2. `release`/`releaseall` no MEIO do bloco solta o jogador antes de a
+           cena acabar: ele anda enquanto o `removeobject` apaga um NPC e o
+           `fadescreen` escurece a tela. A soltura desce ate a ultima linha
+           antes do primeiro comando que transfere o controle. Duas solturas no
+           mesmo bloco viram uma: `ScrCmd_release` e idempotente.
+        """
+        sem_morta = []
+        for i, ln in enumerate(linhas):
+            if ln.strip().split(" ")[0] == "checkflag":
+                prox = next((x.strip() for x in linhas[i + 1:]
+                             if x.strip() and not x.strip().startswith("@")), "")
+                if prox.split(" ")[0] not in ("goto_if", "call_if"):
+                    sem_morta.append(
+                        "\t@ %s sem goto_if/call_if depois: leitura morta, o "
+                        "ramo da fonte nao atravessou o filtro (cenas_galar.py)"
+                        % ln.strip())
+                    continue
+            sem_morta.append(ln)
+        fora, pendente = [], None
+        for ln in sem_morta:
+            c = ln.strip()
+            if c in ("release", "releaseall"):
+                if pendente is None:
+                    pendente = ln
+                continue
+            if pendente is not None and (not c or c.split(" ")[0] in cls.TRANSFERE):
+                fora.append(pendente)
+                pendente = None
+            fora.append(ln)
+        if pendente is not None:
+            fora.append(pendente)
+        return fora
 
     def extra(self, nome, args, corpo, base):
         """Gancho para quem herda: emite um comando a mais, ou devolve False.
@@ -818,8 +869,15 @@ def plano():
     if len(com_var) > min(ORCAMENTO_VARS, len(livres) - RESERVA_VARS):
         raise SystemExit("PARE: %d mapas pedem var, o orcamento e %d e ha %d "
                          "livres" % (len(com_var), ORCAMENTO_VARS, len(livres)))
-    vars_alocadas = {c: ("VAR_GALAR_%s_CENA" % c.upper(), livres[i])
-                     for i, c in enumerate(sorted(com_var))}
+    # APPEND-ONLY (ver flags_livres.aloca_append_only): a var ja gravada em
+    # vars.h NAO muda de endereco. Ate 23/08/2026 era `livres[i]` sobre
+    # `sorted(com_var)`, e VAR_GALAR_G09M11_CENA, entrando no meio, empurrou
+    # VAR_GALAR_G21M01_CENA de 0x410A para 0x410B entre duas ROMs.
+    nomes_c = {c: "VAR_GALAR_%s_CENA" % c.upper() for c in com_var}
+    ende_c = FL.aloca_append_only(
+        nomes_c.values(), livres,
+        FL.apelidos_gravados(VARS_H, "VAR_GALAR_", "UNUSED_0x"))
+    vars_alocadas = {c: (nomes_c[c], ende_c[nomes_c[c]]) for c in sorted(com_var)}
     pool = flags_livres_de_galar(None)
     # REUSAR ANTES DE ALOCAR, e isso nao e economia de flag: e correcao.
     #

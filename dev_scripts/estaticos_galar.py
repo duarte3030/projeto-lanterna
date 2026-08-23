@@ -124,6 +124,7 @@ import fala_galar as FALA                      # noqa: E402
 import cenas_galar as C3                       # noqa: E402
 import lendarios_sinnoh as LS                  # noqa: E402
 import guarda_colisao_vars as GUARDA           # noqa: E402
+import flags_livres as FL                       # noqa: E402
 
 INC = f"{RAIZ}/data/scripts/galar_estaticos.inc"
 CENSO = f"{RAIZ}/dev_scripts/galar_estaticos.json"
@@ -723,10 +724,18 @@ def plano():
         raise SystemExit("PARE: %d flags de estatico unico pedidas e %d livres "
                          "na faixa 0x%04X-0x%04X"
                          % (len(querem), len(livres), PRIMEIRA_FLAG, ULTIMA_FLAG))
+    # APPEND-ONLY (ver flags_livres.aloca_append_only). Ate 23/08/2026 era
+    # `livres[i]` sobre a ordem de chave, e um encontro novo no meio empurrava
+    # todas as flags seguintes: quatro enderecos de 0x1D0A em diante trocaram
+    # de dono entre a ROM 22f e a de hoje por causa disso.
+    nomes = {c["chave"]: nome_da_flag(c["chave"]) for c in querem}
+    ende = FL.aloca_append_only(
+        nomes.values(), livres,
+        FL.apelidos_gravados(FLAGS_H, "FLAG_GALAR_ESTATICO_"))
     flags = {}
-    for i, c in enumerate(querem):
-        c["flag"] = nome_da_flag(c["chave"])
-        flags[c["chave"]] = (c["flag"], livres[i])
+    for c in querem:
+        c["flag"] = nomes[c["chave"]]
+        flags[c["chave"]] = (c["flag"], ende[c["flag"]])
     return aceitas, recusa, flags
 
 

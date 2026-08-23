@@ -229,6 +229,42 @@ def treinadores_do_git(ref=REF_TREINADOR):
     return ids_de_treinador(r.stdout) if r.returncode == 0 else None
 
 
+def apelidos_de_estado(flags_h, vars_h):
+    """{apelido: 'FLAG 0x1C81'} de toda flag e var apelidada sobre o pool.
+
+    Apelido e ATRIBUICAO, e atribuicao e o que este guarda nao media: ele
+    conferia TAMANHO (FLAGS_COUNT, VARS_COUNT, sizeof) e INDICE (mapa, layout,
+    treinador). Uma flag que continua existindo, com o mesmo nome, no mesmo
+    total, mas apontando para OUTRO endereco, passava inteira. A save guarda o
+    bit; o nome so existe no header.
+
+    So entra `#define NOME FLAG_UNUSED_0x...` / `VAR_UNUSED_0x...`, que e a
+    forma como toda flag e var de conteudo nasce aqui. Numero cravado nao entra
+    porque nao ha de-para para conferir.
+    """
+    fora = {}
+    for texto, tipo, pool in ((flags_h, "FLAG", "FLAG_UNUSED_0x"),
+                              (vars_h, "VAR", "VAR_UNUSED_0x")):
+        for m in re.finditer(
+                r"#define\s+(?!%s_UNUSED)(\w+)\s+\(?\s*%s([0-9A-Fa-f]{3,4})\b"
+                % (tipo, pool), texto):
+            fora[m.group(1)] = "%s 0x%s" % (tipo, m.group(2).upper())
+    return fora
+
+
+def apelidos_do_git(ref=REF_TREINADOR):
+    """Os apelidos COMO ERAM no commit de referencia, ou None."""
+    import subprocess
+
+    def le(caminho):
+        r = subprocess.run(["git", "show", f"{ref}:{caminho}"],
+                           cwd=RAIZ, capture_output=True, text=True)
+        return r.stdout if r.returncode == 0 else None
+
+    f, v = le("include/constants/flags.h"), le("include/constants/vars.h")
+    return apelidos_de_estado(f, v) if f is not None and v is not None else None
+
+
 def revisao_de_layout():
     """SAVE_LAYOUT_REVISION de include/save.h, que decide se a save velha CARREGA.
 
@@ -453,6 +489,26 @@ def compara(velha, nova):
                                f"ja existia ({maior}). Id de treinador e "
                                f"APPEND-ONLY.")
 
+    # Apelido de FLAG e de VAR. Irmao exato do id de treinador, e o buraco que
+    # 23/08/2026 mediu: `FLAG_GALAR_ESCONDE_23C` era 0x1C81 na ROM 22f e virou
+    # `FLAG_GALAR_ESCONDE_230`, com este guarda dizendo SAVE COMPATIVEL o tempo
+    # todo. Ele estava certo pela regua dele (mede TAMANHO e INDICE) e mudo
+    # sobre ATRIBUICAO: a save guarda BIT, nao nome, entao endereco que troca
+    # de dono faz a save velha ler o estado de outra coisa, calada. Foram 16
+    # enderecos de Galar num par de ROMs, e nenhum guarda viu.
+    vap = velha.get("apelidos") or {}
+    nap = nova.get("apelidos") or {}
+    if vap and nap:
+        for nome, end in vap.items():
+            if nome not in nap:
+                quebras.append(f"APELIDO APAGADO: {nome} era {end}. O estado "
+                               f"gravado naquele bit passa a ser de outro dono, "
+                               f"ou de ninguem.")
+            elif nap[nome] != end:
+                quebras.append(f"APELIDO MOVIDO: {nome} era {end}, virou "
+                               f"{nap[nome]}. A save guarda o BIT, nao o nome: "
+                               f"quem carregar a save antiga le o estado errado.")
+
     for k, v in velha["structs"].items():
         if nova["structs"].get(k) != v:
             quebras.append(f"STRUCT MUDOU: {k} teve o corpo alterado. "
@@ -604,10 +660,22 @@ def main():
     if velha["treinadores"] is None:
         print(f"AVISO: sem `git show {REF_TREINADOR}:include/constants/"
               "opponents.h` neste clone, o id de treinador fica SEM lado velho.")
+    # Apelidos de flag e var: mesma politica dos ids de treinador, os DOIS lados
+    # lidos na hora (git + disco). Nao entram na impressao gravada, que
+    # envelheceria um de-para de dez mil linhas.
+    nova["apelidos"] = apelidos_de_estado(
+        open(f"{RAIZ}/include/constants/flags.h", encoding="utf-8").read(),
+        open(f"{RAIZ}/include/constants/vars.h", encoding="utf-8").read())
+    velha["apelidos"] = apelidos_do_git()
+    if velha["apelidos"] is None:
+        print(f"AVISO: sem `git show {REF_TREINADOR}:include/constants/flags.h` "
+              "neste clone, o apelido de flag e var fica SEM lado velho.")
     quebras = compara(velha, nova)
     print(f"mapLayoutId: {len(nova['layouts'])} layouts numerados, lado velho "
           f"lido de {de_onde}")
     print(f"ids de treinador: {len(nova['treinadores'])} conferidos contra "
+          f"git {REF_TREINADOR}")
+    print(f"apelidos de flag/var: {len(nova['apelidos'])} conferidos contra "
           f"git {REF_TREINADOR}")
     # O time do chefe NAO e assunto de save; entra aqui porque este e o portao
     # que toda rodada roda, e porque o acidente que ele pega mora ao lado do id

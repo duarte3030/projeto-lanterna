@@ -10421,14 +10421,14 @@
 // Apelidar FLAG_UNUSED nao mexe em FLAGS_COUNT: a save nao muda.
 // Gerado por dev_scripts/objetos_galar.py; nao editar a mao.
 #define FLAG_GALAR_ESCONDE_20B    FLAG_UNUSED_0x1C80  // flag 0x20B da fonte
-#define FLAG_GALAR_ESCONDE_230    FLAG_UNUSED_0x1C81  // flag 0x230 da fonte
-#define FLAG_GALAR_ESCONDE_23C    FLAG_UNUSED_0x1C82  // flag 0x23C da fonte
-#define FLAG_GALAR_ESCONDE_5FD    FLAG_UNUSED_0x1C83  // flag 0x5FD da fonte
-#define FLAG_GALAR_ESCONDE_5FE    FLAG_UNUSED_0x1C84  // flag 0x5FE da fonte
-#define FLAG_GALAR_ESCONDE_AC0    FLAG_UNUSED_0x1C85  // flag 0xAC0 da fonte
-#define FLAG_GALAR_ESCONDE_BA7    FLAG_UNUSED_0x1C86  // flag 0xBA7 da fonte
-#define FLAG_GALAR_ESCONDE_BA8    FLAG_UNUSED_0x1C87  // flag 0xBA8 da fonte
-#define FLAG_GALAR_ESCONDE_1800   FLAG_UNUSED_0x1C88  // flag 0x1800 da fonte
+#define FLAG_GALAR_ESCONDE_230    FLAG_UNUSED_0x1C87  // flag 0x230 da fonte
+#define FLAG_GALAR_ESCONDE_23C    FLAG_UNUSED_0x1C81  // flag 0x23C da fonte
+#define FLAG_GALAR_ESCONDE_5FD    FLAG_UNUSED_0x1C82  // flag 0x5FD da fonte
+#define FLAG_GALAR_ESCONDE_5FE    FLAG_UNUSED_0x1C83  // flag 0x5FE da fonte
+#define FLAG_GALAR_ESCONDE_AC0    FLAG_UNUSED_0x1C88  // flag 0xAC0 da fonte
+#define FLAG_GALAR_ESCONDE_BA7    FLAG_UNUSED_0x1C84  // flag 0xBA7 da fonte
+#define FLAG_GALAR_ESCONDE_BA8    FLAG_UNUSED_0x1C85  // flag 0xBA8 da fonte
+#define FLAG_GALAR_ESCONDE_1800   FLAG_UNUSED_0x1C86  // flag 0x1800 da fonte
 // <<< Fase de conteudo de Galar, bloco c4b <<<
 
 // >>> esconde o SILVER nos tres mapas novos (importa_chefes_faltantes.py) >>>
@@ -10448,10 +10448,10 @@
 // renascer nao custa endereco nenhum.
 // Apelidar FLAG_UNUSED nao mexe em FLAGS_COUNT: a save nao muda.
 // Gerado por dev_scripts/estaticos_galar.py; nao editar a mao.
-#define FLAG_GALAR_ESTATICO_G00M09_O0    FLAG_UNUSED_0x1D0A  // g00m09/objeto/0
-#define FLAG_GALAR_ESTATICO_G00M09_O1    FLAG_UNUSED_0x1D0B  // g00m09/objeto/1
-#define FLAG_GALAR_ESTATICO_G00M09_O2    FLAG_UNUSED_0x1D0C  // g00m09/objeto/2
-#define FLAG_GALAR_ESTATICO_G00M09_O3    FLAG_UNUSED_0x1D0D  // g00m09/objeto/3
+#define FLAG_GALAR_ESTATICO_G00M09_O0    FLAG_UNUSED_0x1DCE  // g00m09/objeto/0
+#define FLAG_GALAR_ESTATICO_G00M09_O1    FLAG_UNUSED_0x1DCF  // g00m09/objeto/1
+#define FLAG_GALAR_ESTATICO_G00M09_O2    FLAG_UNUSED_0x1DD0  // g00m09/objeto/2
+#define FLAG_GALAR_ESTATICO_G00M09_O3    FLAG_UNUSED_0x1DD1  // g00m09/objeto/3
 #define FLAG_GALAR_ESTATICO_G00M09_O4    FLAG_UNUSED_0x1D27  // g00m09/objeto/4
 #define FLAG_GALAR_ESTATICO_G00M09_O5    FLAG_UNUSED_0x1D28  // g00m09/objeto/5
 #define FLAG_GALAR_ESTATICO_G00M09_O6    FLAG_UNUSED_0x1D29  // g00m09/objeto/6
@@ -10477,7 +10477,7 @@
 #define FLAG_GALAR_ESTATICO_G08M23_O9    FLAG_UNUSED_0x1D3D  // g08m23/objeto/9
 #define FLAG_GALAR_ESTATICO_G08M24_O3    FLAG_UNUSED_0x1D3E  // g08m24/objeto/3
 #define FLAG_GALAR_ESTATICO_G08M24_O7    FLAG_UNUSED_0x1D3F  // g08m24/objeto/7
-#define FLAG_GALAR_ESTATICO_G11M10_O7    FLAG_UNUSED_0x1D40  // g11m10/objeto/7
+#define FLAG_GALAR_ESTATICO_G11M10_O7    FLAG_UNUSED_0x1D0A  // g11m10/objeto/7
 #define FLAG_GALAR_ESTATICO_G37M05_O10   FLAG_UNUSED_0x1D41  // g37m05/objeto/10
 #define FLAG_GALAR_ESTATICO_G37M05_O20   FLAG_UNUSED_0x1D42  // g37m05/objeto/20
 #define FLAG_GALAR_ESTATICO_G37M05_O21   FLAG_UNUSED_0x1D43  // g37m05/objeto/21
@@ -10563,15 +10563,15 @@
 #define FLAG_GALAR_ESTATICO_G38M02_O42   FLAG_UNUSED_0x1D93  // g38m02/objeto/42
 #define FLAG_GALAR_ESTATICO_G38M02_O43   FLAG_UNUSED_0x1D94  // g38m02/objeto/43
 #define FLAG_GALAR_ESTATICO_G38M02_O44   FLAG_UNUSED_0x1D95  // g38m02/objeto/44
-#define FLAG_GALAR_ESTATICO_G38M04_O2    FLAG_UNUSED_0x1D96  // g38m04/objeto/2
-#define FLAG_GALAR_ESTATICO_G38M04_O3    FLAG_UNUSED_0x1D97  // g38m04/objeto/3
+#define FLAG_GALAR_ESTATICO_G38M04_O2    FLAG_UNUSED_0x1D0B  // g38m04/objeto/2
+#define FLAG_GALAR_ESTATICO_G38M04_O3    FLAG_UNUSED_0x1D0C  // g38m04/objeto/3
 #define FLAG_GALAR_ESTATICO_G38M04_O30   FLAG_UNUSED_0x1D98  // g38m04/objeto/30
 #define FLAG_GALAR_ESTATICO_G38M04_O31   FLAG_UNUSED_0x1D99  // g38m04/objeto/31
 #define FLAG_GALAR_ESTATICO_G38M04_O32   FLAG_UNUSED_0x1D9A  // g38m04/objeto/32
 #define FLAG_GALAR_ESTATICO_G38M04_O33   FLAG_UNUSED_0x1D9B  // g38m04/objeto/33
 #define FLAG_GALAR_ESTATICO_G38M04_O34   FLAG_UNUSED_0x1D9C  // g38m04/objeto/34
 #define FLAG_GALAR_ESTATICO_G38M04_O35   FLAG_UNUSED_0x1D9D  // g38m04/objeto/35
-#define FLAG_GALAR_ESTATICO_G38M04_O4    FLAG_UNUSED_0x1D9E  // g38m04/objeto/4
+#define FLAG_GALAR_ESTATICO_G38M04_O4    FLAG_UNUSED_0x1D0D  // g38m04/objeto/4
 #define FLAG_GALAR_ESTATICO_G38M05_O33   FLAG_UNUSED_0x1D9F  // g38m05/objeto/33
 #define FLAG_GALAR_ESTATICO_G38M05_O34   FLAG_UNUSED_0x1DA0  // g38m05/objeto/34
 #define FLAG_GALAR_ESTATICO_G38M05_O35   FLAG_UNUSED_0x1DA1  // g38m05/objeto/35
@@ -10859,3 +10859,12 @@
 #define FLAG_ITEM_SINNOH_BOLA_ROUTE222_PP_UP_2         FLAG_UNUSED_0x217F  // ITEM_PP_UP
 // <<< Bolas de item visíveis de Sinnoh <<<
 
+// Uma flag de esconder por MAPA para Ho-Oh, Lugia e Deoxys (23/08/2026).
+// Antes as tres flags eram compartilhadas entre 2 ou 3 mapas de regioes
+// diferentes: derrotar sem capturar de um lado sumia com o bicho do outro.
+// O mapa canonico fica com a flag de sempre; estes ganham apelido proprio.
+#define FLAG_HIDE_HO_OH_NAVEL_ROCK                           FLAG_UNUSED_0x1BB4
+#define FLAG_HIDE_HO_OH_NAVEL_ROCK_FRLG                      FLAG_UNUSED_0x1BB5
+#define FLAG_HIDE_LUGIA_NAVEL_ROCK                           FLAG_UNUSED_0x1BB6
+#define FLAG_HIDE_LUGIA_NAVEL_ROCK_FRLG                      FLAG_UNUSED_0x1BB7
+#define FLAG_HIDE_DEOXYS_FRLG                                FLAG_UNUSED_0x1BB8
