@@ -2,108 +2,108 @@ mapa	x_fonte	z_fonte	x_nosso	y_nosso	flag	regra	motivo
 EternaCity	304	521	14	7		escala da caixa 64x64 da matriz sobre 60x55 + portao de conectividade (22/08/2026)	TRANCA: com esta pedra um warp ou item do mapa deixa de ser alcancavel sem Rock Smash
 EternaCity	305	521	15	7		escala da caixa 64x64 da matriz sobre 60x55 + portao de conectividade (22/08/2026)	TRANCA: com esta pedra um warp ou item do mapa deixa de ser alcancavel sem Rock Smash
 EternaCity	306	521	16	7		escala da caixa 64x64 da matriz sobre 60x55 + portao de conectividade (22/08/2026)	TRANCA: com esta pedra um warp ou item do mapa deixa de ser alcancavel sem Rock Smash
-EternaCity	313	515	23	2		escala da caixa 64x64 da matriz sobre 60x55 + portao de conectividade (22/08/2026)	saliência de parede do demake: 1 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
+EternaCity	313	515	22	3	FLAG_TEMP_1	escala da caixa 64x64 da matriz sobre 60x55 + portao de conectividade (22/08/2026)	empurrado 1 tile(s)
 EternaForest	74	33	69	25	FLAG_TEMP_1	escala da caixa 70x79 da matriz sobre 82x84 + portao de conectividade (22/08/2026)	
-EternaForest	75	33	70	25		escala da caixa 70x79 da matriz sobre 82x84 + portao de conectividade (22/08/2026)	saliência de parede do demake: 2 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
-EternaForest	77	33	72	25		escala da caixa 70x79 da matriz sobre 82x84 + portao de conectividade (22/08/2026)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+EternaForest	75	33	69	24		escala da caixa 70x79 da matriz sobre 82x84 + portao de conectividade (22/08/2026)	empurrada para o corredor de aproximacao de um coord_event: obstaculo empurrado nao tranca gatilho
+EternaForest	77	33	71	26		escala da caixa 70x79 da matriz sobre 82x84 + portao de conectividade (22/08/2026)	empurrada para 1 tile(s) de um warp: obstaculo empurrado nao nasce na boca do mapa
 EternaForest	36	64	24	58	FLAG_TEMP_2	escala da caixa 70x79 da matriz sobre 82x84 + portao de conectividade (22/08/2026)	
 EternaForest	36	65	24	59	FLAG_TEMP_3	escala da caixa 70x79 da matriz sobre 82x84 + portao de conectividade (22/08/2026)	
 EternaForestOutside	246	540	54	28	FLAG_TEMP_1	escala da caixa 64x64 da matriz sobre 64x64 + portao de conectividade (22/08/2026)	
-EternaForestOutside	247	540	55	28		escala da caixa 64x64 da matriz sobre 64x64 + portao de conectividade (22/08/2026)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
+EternaForestOutside	247	540	55	28		escala da caixa 64x64 da matriz sobre 64x64 + portao de conectividade (22/08/2026)	TRANCA: com esta pedra um warp ou item do mapa deixa de ser alcancavel sem Rock Smash
 EternaForestOutside	216	566	24	54	FLAG_TEMP_2	escala da caixa 64x64 da matriz sobre 64x64 + portao de conectividade (22/08/2026)	
 EternaForestOutside	216	567	24	55		escala da caixa 64x64 da matriz sobre 64x64 + portao de conectividade (22/08/2026)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-MtCoronet1FTunnelRoom	6	7	6	7		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet1FTunnelRoom	7	23	7	23		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet1FTunnelRoom	25	6	25	6		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet1FTunnelRoom	18	29	18	29		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet1FTunnelRoom	17	30	17	30		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet1FTunnelRoom	13	34	13	34		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet1FTunnelRoom	15	35	15	35		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet1FTunnelRoom	14	38	14	38		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet1FTunnelRoom	15	41	15	41		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet1FTunnelRoom	14	43	14	43		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet1FTunnelRoom	26	54	26	54		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet1FTunnelRoom	25	55	25	55		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet1FTunnelRoom	6	57	6	57		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet2F	14	45	14	45		translacao provada por 4 warps, d=(0,0)	tile ja ocupado por objeto ou warp
-MtCoronet4FRooms1And2	6	6	6	6		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet4FRooms1And2	8	8	8	8		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet4FRooms1And2	5	9	5	9		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet4FRooms1And2	26	19	26	19		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet4FRooms1And2	29	23	29	23		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet4FRooms1And2	30	24	30	24		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronetOutsideNorth	42	44	42	44		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronetOutsideNorth	43	42	43	42		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronetOutsideNorth	45	43	45	43		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronetOutsideNorth	45	39	45	39		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronetOutsideNorth	42	37	42	37		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronetOutsideNorth	39	20	39	20		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronetOutsideNorth	35	17	35	17		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
+MtCoronet1FTunnelRoom	6	7	6	7	FLAG_TEMP_1	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet1FTunnelRoom	7	23	7	23	FLAG_TEMP_2	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet1FTunnelRoom	25	6	25	6	FLAG_TEMP_3	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet1FTunnelRoom	18	29	18	29		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+MtCoronet1FTunnelRoom	17	30	17	30		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+MtCoronet1FTunnelRoom	13	34	13	34		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+MtCoronet1FTunnelRoom	15	35	15	35		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+MtCoronet1FTunnelRoom	14	38	14	38		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+MtCoronet1FTunnelRoom	15	41	15	41		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+MtCoronet1FTunnelRoom	14	43	14	43		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+MtCoronet1FTunnelRoom	26	54	26	54	FLAG_TEMP_4	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet1FTunnelRoom	25	55	25	55	FLAG_TEMP_5	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet1FTunnelRoom	6	57	6	57	FLAG_TEMP_6	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet2F	14	45	14	45		translacao provada por 4 warps, d=(0,0)	TRANCA: com esta pedra um warp ou item do mapa deixa de ser alcancavel sem Rock Smash
+MtCoronet4FRooms1And2	6	6	6	6		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+MtCoronet4FRooms1And2	8	8	8	8		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+MtCoronet4FRooms1And2	5	9	5	9		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+MtCoronet4FRooms1And2	26	19	26	19	FLAG_TEMP_1	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet4FRooms1And2	29	23	29	23	FLAG_TEMP_2	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet4FRooms1And2	30	24	30	24	FLAG_TEMP_3	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronetOutsideNorth	42	44	42	44		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+MtCoronetOutsideNorth	43	42	43	42		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+MtCoronetOutsideNorth	45	43	45	43		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+MtCoronetOutsideNorth	45	39	45	39		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+MtCoronetOutsideNorth	42	37	42	37		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+MtCoronetOutsideNorth	39	20	39	20	FLAG_TEMP_1	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronetOutsideNorth	35	17	35	17	FLAG_TEMP_2	identidade (coordenada da fonte ja local e dentro do layout)	
 MtCoronetOutsideSouth	13	31	13	31		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-MtCoronetOutsideSouth	42	7	42	7		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronetOutsideSouth	43	5	43	5		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronetOutsideSouth	45	6	45	6		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronetOutsideSouth	45	2	45	2		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronetOutsideSouth	42	0	42	0		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronetOutsideSouth	47	0	47	0		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronetOutsideSouth	25	29	25	29		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet_1F_North_Room1	24	9	28	0		escala da caixa 28x52 da matriz sobre 36x51 + portao de conectividade (22/08/2026)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+MtCoronetOutsideSouth	42	7	42	7		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+MtCoronetOutsideSouth	43	5	43	5		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+MtCoronetOutsideSouth	45	6	45	6		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+MtCoronetOutsideSouth	45	2	45	2		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+MtCoronetOutsideSouth	42	0	42	0		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+MtCoronetOutsideSouth	47	0	47	0		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+MtCoronetOutsideSouth	25	29	25	29	FLAG_TEMP_1	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet_1F_North_Room1	24	9	25	3	FLAG_TEMP_5	escala da caixa 28x52 da matriz sobre 36x51 + portao de conectividade (22/08/2026)	empurrado 3 tile(s)
 MtCoronet_1F_North_Room1	22	26	25	16		escala da caixa 28x52 da matriz sobre 36x51 + portao de conectividade (22/08/2026)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
-MtCoronet_1F_North_Room1	25	26	29	16		escala da caixa 28x52 da matriz sobre 36x51 + portao de conectividade (22/08/2026)	saliência de parede do demake: 1 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
-MtCoronet_1F_North_Room1	26	27	31	17		escala da caixa 28x52 da matriz sobre 36x51 + portao de conectividade (22/08/2026)	tile ja ocupado por objeto ou warp
-MtCoronet_1F_North_Room1	21	41	24	31	FLAG_TEMP_1	escala da caixa 28x52 da matriz sobre 36x51 + portao de conectividade (22/08/2026)	
-MtCoronet_1F_North_Room1	10	36	10	26		escala da caixa 28x52 da matriz sobre 36x51 + portao de conectividade (22/08/2026)	saliência de parede do demake: 1 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
-MtCoronet_1F_North_Room1	12	52	12	42	FLAG_TEMP_2	escala da caixa 28x52 da matriz sobre 36x51 + portao de conectividade (22/08/2026)	
-MtCoronet_1F_North_Room1	29	30	35	20		escala da caixa 28x52 da matriz sobre 36x51 + portao de conectividade (22/08/2026)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
-MtCoronet_1F_North_Room1	15	34	16	24		escala da caixa 28x52 da matriz sobre 36x51 + portao de conectividade (22/08/2026)	saliência de parede do demake: 1 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
-MtCoronet_1F_North_Room1	18	39	20	29	FLAG_TEMP_3	escala da caixa 28x52 da matriz sobre 36x51 + portao de conectividade (22/08/2026)	
-MtCoronet_1F_North_Room1	18	43	20	33	FLAG_TEMP_4	escala da caixa 28x52 da matriz sobre 36x51 + portao de conectividade (22/08/2026)	
+MtCoronet_1F_North_Room1	25	26	30	15	FLAG_TEMP_6	escala da caixa 28x52 da matriz sobre 36x51 + portao de conectividade (22/08/2026)	empurrado 1 tile(s)
+MtCoronet_1F_North_Room1	26	27	30	16		escala da caixa 28x52 da matriz sobre 36x51 + portao de conectividade (22/08/2026)	empurrada para o corredor de aproximacao de um coord_event: obstaculo empurrado nao tranca gatilho
+MtCoronet_1F_North_Room1	21	41	24	31	FLAG_TEMP_4	escala da caixa 28x52 da matriz sobre 36x51 + portao de conectividade (22/08/2026)	
+MtCoronet_1F_North_Room1	10	36	9	27	FLAG_TEMP_9	escala da caixa 28x52 da matriz sobre 36x51 + portao de conectividade (22/08/2026)	empurrado 1 tile(s)
+MtCoronet_1F_North_Room1	12	52	12	42	FLAG_TEMP_6	escala da caixa 28x52 da matriz sobre 36x51 + portao de conectividade (22/08/2026)	
+MtCoronet_1F_North_Room1	29	30	33	18	FLAG_TEMP_A	escala da caixa 28x52 da matriz sobre 36x51 + portao de conectividade (22/08/2026)	empurrado 2 tile(s)
+MtCoronet_1F_North_Room1	15	34	15	23		escala da caixa 28x52 da matriz sobre 36x51 + portao de conectividade (22/08/2026)	empurrada para corredor de 2 vizinho(s): obstaculo empurrado nao tampa passagem
+MtCoronet_1F_North_Room1	18	39	20	29	FLAG_TEMP_9	escala da caixa 28x52 da matriz sobre 36x51 + portao de conectividade (22/08/2026)	
+MtCoronet_1F_North_Room1	18	43	20	33	FLAG_TEMP_A	escala da caixa 28x52 da matriz sobre 36x51 + portao de conectividade (22/08/2026)	
 MtCoronet_1F_South	16	23	16	23		identidade (coordenada da fonte ja local e dentro do layout)	TRANCA: com esta pedra um warp ou item do mapa deixa de ser alcancavel sem Rock Smash
-MtCoronet_1F_South	20	23	20	23		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
+MtCoronet_1F_South	20	23	20	23	FLAG_TEMP_1	identidade (coordenada da fonte ja local e dentro do layout)	
 MtCoronet_1F_South	24	23	24	23		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-MtCoronet_1F_South	25	22	25	22		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet_B1F	2	4	2	4		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet_B1F	4	15	4	15		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet_B1F	13	17	13	17		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet_B1F	25	13	25	13		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet_B1F	28	14	28	14		identidade (coordenada da fonte ja local e dentro do layout)	saliência de parede do demake: 2 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
+MtCoronet_1F_South	25	22	24	23		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
+MtCoronet_B1F	2	4	2	4	FLAG_TEMP_1	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet_B1F	4	15	4	15	FLAG_TEMP_2	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet_B1F	13	17	13	17	FLAG_TEMP_3	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet_B1F	25	13	25	13	FLAG_TEMP_4	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet_B1F	28	14	27	13	FLAG_TEMP_10	identidade (coordenada da fonte ja local e dentro do layout)	empurrado 1 tile(s)
 MtCoronet_B1F	29	15	29	15		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-MtCoronet_B1F	6	23	6	23		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet_B1F	7	25	7	25		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet_B1F	7	28	7	28		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
+MtCoronet_B1F	6	23	6	23	FLAG_TEMP_6	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet_B1F	7	25	7	25	FLAG_TEMP_8	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet_B1F	7	28	7	28	FLAG_TEMP_9	identidade (coordenada da fonte ja local e dentro do layout)	
 MtCoronet_B1F	5	30	5	30		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-MtCoronet_B1F	7	34	7	34		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
+MtCoronet_B1F	7	34	7	34	FLAG_TEMP_A	identidade (coordenada da fonte ja local e dentro do layout)	
 MtCoronet_B1F	29	30	29	30		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-MtCoronet_B1F	4	43	4	43		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet_B1F	7	45	7	45		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet_B1F	4	57	4	57		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet_B1F	3	60	3	60		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-MtCoronet_B1F	17	12	17	12		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
+MtCoronet_B1F	4	43	4	43	FLAG_TEMP_B	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet_B1F	7	45	7	45	FLAG_TEMP_C	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet_B1F	4	57	4	57	FLAG_TEMP_D	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet_B1F	3	60	3	60	FLAG_TEMP_F	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronet_B1F	17	12	17	12	FLAG_TEMP_10	identidade (coordenada da fonte ja local e dentro do layout)	
 MtCoronet_B1F	5	26	5	26		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-OreburghGateB1F	9	12	9	12		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-OreburghGateB1F	8	12	8	12		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-OreburghGateB1F	8	19	8	19		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-OreburghGateB1F	38	19	38	19		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-OreburghGateB1F	28	18	28	18		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-OreburghGateB1F	39	13	39	13		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-OreburghGateB1F	43	13	43	13		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-OreburghGateB1F	47	13	47	13		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-OreburghGateB1F	53	10	53	10		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
+OreburghGateB1F	9	12	9	12		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+OreburghGateB1F	8	12	8	12		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+OreburghGateB1F	8	19	8	19		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+OreburghGateB1F	38	19	38	19	FLAG_TEMP_1	identidade (coordenada da fonte ja local e dentro do layout)	
+OreburghGateB1F	28	18	28	18		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+OreburghGateB1F	39	13	39	13		identidade (coordenada da fonte ja local e dentro do layout)	TRANCA: com esta pedra um warp ou item do mapa deixa de ser alcancavel sem Rock Smash
+OreburghGateB1F	43	13	43	13		identidade (coordenada da fonte ja local e dentro do layout)	TRANCA: com esta pedra um warp ou item do mapa deixa de ser alcancavel sem Rock Smash
+OreburghGateB1F	47	13	47	13		identidade (coordenada da fonte ja local e dentro do layout)	TRANCA: com esta pedra um warp ou item do mapa deixa de ser alcancavel sem Rock Smash
+OreburghGateB1F	53	10	53	10		identidade (coordenada da fonte ja local e dentro do layout)	TRANCA: com esta pedra um warp ou item do mapa deixa de ser alcancavel sem Rock Smash
 OreburghGateB1F	55	8	55	8		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-OreburghGate_1F	19	6	19	6		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-OreburghGate_1F	14	4	14	4		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-OreburghGate_1F	12	10	12	10		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-OreburghGate_1F	11	11	11	11		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-OreburghGate_1F	11	25	11	25		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+OreburghGate_1F	19	6	19	6	FLAG_TEMP_1	identidade (coordenada da fonte ja local e dentro do layout)	
+OreburghGate_1F	14	4	14	4	FLAG_TEMP_2	identidade (coordenada da fonte ja local e dentro do layout)	
+OreburghGate_1F	12	10	12	10	FLAG_TEMP_3	identidade (coordenada da fonte ja local e dentro do layout)	
+OreburghGate_1F	11	11	11	11	FLAG_TEMP_4	identidade (coordenada da fonte ja local e dentro do layout)	
+OreburghGate_1F	11	25	8	22		identidade (coordenada da fonte ja local e dentro do layout)	empurrada para o corredor de aproximacao de um coord_event: obstaculo empurrado nao tranca gatilho
 OreburghGate_1F	13	26	13	26		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
 OreburghGate_1F	15	26	15	26		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
 OreburghGate_1F	25	24	25	24		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
-OreburghMine_B2F	19	28	20	27		escala da caixa 24x14 da matriz sobre 32x28 + portao de conectividade (22/08/2026)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
-OreburghMine_B2F	17	28	17	27		escala da caixa 24x14 da matriz sobre 32x28 + portao de conectividade (22/08/2026)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+OreburghMine_B2F	19	28	18	25	FLAG_TEMP_1	escala da caixa 24x14 da matriz sobre 32x28 + portao de conectividade (22/08/2026)	empurrado 2 tile(s)
+OreburghMine_B2F	17	28	15	25	FLAG_TEMP_2	escala da caixa 24x14 da matriz sobre 32x28 + portao de conectividade (22/08/2026)	empurrado 2 tile(s)
 RavagedPath	23	44	23	44		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
-RavagedPath	22	43	22	43		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
-RavagedPath	22	42	22	42		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
-RavagedPath	17	40	17	40		identidade (coordenada da fonte ja local e dentro do layout)	saliência de parede do demake: 1 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
+RavagedPath	22	43	20	40		identidade (coordenada da fonte ja local e dentro do layout)	empurrada para 1 tile(s) de um warp: obstaculo empurrado nao nasce na boca do mapa
+RavagedPath	22	42	20	40		identidade (coordenada da fonte ja local e dentro do layout)	empurrada para 1 tile(s) de um warp: obstaculo empurrado nao nasce na boca do mapa
+RavagedPath	17	40	18	39		identidade (coordenada da fonte ja local e dentro do layout)	empurrada para o corredor de aproximacao de um coord_event: obstaculo empurrado nao tranca gatilho
 RavagedPath	12	41	12	41		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
 RavagedPath	13	39	13	39		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
 RavagedPath	9	40	9	40		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
@@ -113,112 +113,112 @@ RavagedPath	10	38	10	38		identidade (coordenada da fonte ja local e dentro do la
 RavagedPath	8	38	8	38		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
 RavagedPath	7	37	7	37		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
 RavagedPath	12	37	12	37		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
-RavagedPath	11	36	11	36		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
-RavagedPath	5	24	5	24		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-RavagedPath	3	22	3	22		identidade (coordenada da fonte ja local e dentro do layout)	saliência de parede do demake: 1 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
-RavagedPath	2	20	2	20		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
-RavagedPath	3	16	3	16		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-RavagedPath	4	13	4	13		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-RavagedPath	3	12	3	12		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-RavagedPath	5	8	5	8		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-RavagedPath	11	12	11	12		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-RavagedPath	12	12	12	12		identidade (coordenada da fonte ja local e dentro do layout)	saliência de parede do demake: 1 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
-RavagedPath	13	12	13	12		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
-RavagedPath	11	13	11	13		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-RavagedPath	12	13	12	13		identidade (coordenada da fonte ja local e dentro do layout)	saliência de parede do demake: 1 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
-RavagedPath	13	13	13	13		identidade (coordenada da fonte ja local e dentro do layout)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+RavagedPath	11	36	8	33	FLAG_TEMP_8	identidade (coordenada da fonte ja local e dentro do layout)	empurrado 3 tile(s)
+RavagedPath	5	24	5	24		identidade (coordenada da fonte ja local e dentro do layout)	TRANCA: com esta pedra um warp ou item do mapa deixa de ser alcancavel sem Rock Smash
+RavagedPath	3	22	4	22		identidade (coordenada da fonte ja local e dentro do layout)	empurrada para o corredor de aproximacao de um coord_event: obstaculo empurrado nao tranca gatilho
+RavagedPath	2	20	4	18		identidade (coordenada da fonte ja local e dentro do layout)	TRANCA: com esta pedra um warp ou item do mapa deixa de ser alcancavel sem Rock Smash
+RavagedPath	3	16	3	16	FLAG_TEMP_4	identidade (coordenada da fonte ja local e dentro do layout)	
+RavagedPath	4	13	4	13	FLAG_TEMP_5	identidade (coordenada da fonte ja local e dentro do layout)	
+RavagedPath	3	12	2	12		identidade (coordenada da fonte ja local e dentro do layout)	empurrada para o corredor de aproximacao de um coord_event: obstaculo empurrado nao tranca gatilho
+RavagedPath	5	8	5	8	FLAG_TEMP_6	identidade (coordenada da fonte ja local e dentro do layout)	
+RavagedPath	11	12	11	12	FLAG_TEMP_3	identidade (coordenada da fonte ja local e dentro do layout)	
+RavagedPath	12	12	11	11		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
+RavagedPath	13	12	11	10		identidade (coordenada da fonte ja local e dentro do layout)	empurrada para corredor de 2 vizinho(s): obstaculo empurrado nao tampa passagem
+RavagedPath	11	13	10	12		identidade (coordenada da fonte ja local e dentro do layout)	empurrada para o corredor de aproximacao de um coord_event: obstaculo empurrado nao tranca gatilho
+RavagedPath	12	13	10	11		identidade (coordenada da fonte ja local e dentro do layout)	empurrada para corredor de 2 vizinho(s): obstaculo empurrado nao tampa passagem
+RavagedPath	13	13	11	11		identidade (coordenada da fonte ja local e dentro do layout)	empurrada para o corredor de aproximacao de um coord_event: obstaculo empurrado nao tranca gatilho
 Route204North	181	678	21	6		escala da caixa 32x32 da matriz sobre 32x32 + portao de conectividade (22/08/2026)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
 Route206	310	690	19	106	FLAG_TEMP_1	escala da caixa 32x128 da matriz sobre 28x120 + portao de conectividade (22/08/2026)	
-Route206	311	690	20	106		escala da caixa 32x128 da matriz sobre 28x120 + portao de conectividade (22/08/2026)	saliência de parede do demake: 1 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
-Route206	312	679	20	96	FLAG_TEMP_2	escala da caixa 32x128 da matriz sobre 28x120 + portao de conectividade (22/08/2026)	
-Route208	419	713	37	10		escala da caixa 64x32 da matriz sobre 68x38 + portao de conectividade (22/08/2026)	saliência de parede do demake: 1 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
-Route208	420	714	38	11		escala da caixa 64x32 da matriz sobre 68x38 + portao de conectividade (22/08/2026)	saliência de parede do demake: 2 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
-Route208	420	715	38	13	FLAG_TEMP_1	escala da caixa 64x32 da matriz sobre 68x38 + portao de conectividade (22/08/2026)	
+Route206	311	690	19	105	FLAG_TEMP_2	escala da caixa 32x128 da matriz sobre 28x120 + portao de conectividade (22/08/2026)	empurrado 1 tile(s)
+Route206	312	679	20	96	FLAG_TEMP_3	escala da caixa 32x128 da matriz sobre 28x120 + portao de conectividade (22/08/2026)	
+Route208	419	713	36	11	FLAG_TEMP_1	escala da caixa 64x32 da matriz sobre 68x38 + portao de conectividade (22/08/2026)	empurrado 1 tile(s)
+Route208	420	714	38	12		escala da caixa 64x32 da matriz sobre 68x38 + portao de conectividade (22/08/2026)	empurrada para o corredor de aproximacao de um coord_event: obstaculo empurrado nao tranca gatilho
+Route208	420	715	37	13		escala da caixa 64x32 da matriz sobre 68x38 + portao de conectividade (22/08/2026)	empurrada para o corredor de aproximacao de um coord_event: obstaculo empurrado nao tranca gatilho
 Route208	390	717	6	15		escala da caixa 64x32 da matriz sobre 68x38 + portao de conectividade (22/08/2026)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
 Route208	391	718	7	16		escala da caixa 64x32 da matriz sobre 68x38 + portao de conectividade (22/08/2026)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
 Route209	573	690	64	20	FLAG_TEMP_1	escala da caixa 64x64 da matriz sobre 68x72 + portao de conectividade (22/08/2026)	
 Route210_North	497	540	17	25		escala da caixa 96x32 da matriz sobre 99x29 + portao de conectividade (22/08/2026)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
 Route210_North	559	531	81	17	FLAG_TEMP_1	escala da caixa 96x32 da matriz sobre 99x29 + portao de conectividade (22/08/2026)	
 Route210_North	498	541	18	26		escala da caixa 96x32 da matriz sobre 99x29 + portao de conectividade (22/08/2026)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
-Route211_East	423	533	7	21		escala da caixa 32x32 da matriz sobre 32x32 + portao de conectividade (22/08/2026)	saliência de parede do demake: 1 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
-Route211_East	438	522	22	10		escala da caixa 32x32 da matriz sobre 32x32 + portao de conectividade (22/08/2026)	saliência de parede do demake: 2 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
-Route211_East	431	519	15	7	FLAG_TEMP_1	escala da caixa 32x32 da matriz sobre 32x32 + portao de conectividade (22/08/2026)	
-Route211_East	429	519	13	7		escala da caixa 32x32 da matriz sobre 32x32 + portao de conectividade (22/08/2026)	saliência de parede do demake: 1 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
-Route211_East	435	522	19	10		escala da caixa 32x32 da matriz sobre 32x32 + portao de conectividade (22/08/2026)	saliência de parede do demake: 2 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
-Route211_East	430	520	14	8		escala da caixa 32x32 da matriz sobre 32x32 + portao de conectividade (22/08/2026)	saliência de parede do demake: 1 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
-Route211_East	427	526	11	14		escala da caixa 32x32 da matriz sobre 32x32 + portao de conectividade (22/08/2026)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
-Route211_East	438	520	22	8	FLAG_TEMP_2	escala da caixa 32x32 da matriz sobre 32x32 + portao de conectividade (22/08/2026)	
+Route211_East	423	533	8	20		escala da caixa 32x32 da matriz sobre 32x32 + portao de conectividade (22/08/2026)	empurrada para corredor de 2 vizinho(s): obstaculo empurrado nao tampa passagem
+Route211_East	438	522	21	9	FLAG_TEMP_1	escala da caixa 32x32 da matriz sobre 32x32 + portao de conectividade (22/08/2026)	empurrado 1 tile(s)
+Route211_East	431	519	15	7	FLAG_TEMP_2	escala da caixa 32x32 da matriz sobre 32x32 + portao de conectividade (22/08/2026)	
+Route211_East	429	519	12	6		escala da caixa 32x32 da matriz sobre 32x32 + portao de conectividade (22/08/2026)	empurrada para corredor de 2 vizinho(s): obstaculo empurrado nao tampa passagem
+Route211_East	435	522	18	9	FLAG_TEMP_3	escala da caixa 32x32 da matriz sobre 32x32 + portao de conectividade (22/08/2026)	empurrado 1 tile(s)
+Route211_East	430	520	15	8		escala da caixa 32x32 da matriz sobre 32x32 + portao de conectividade (22/08/2026)	empurrada para o corredor de aproximacao de um coord_event: obstaculo empurrado nao tranca gatilho
+Route211_East	427	526	10	13		escala da caixa 32x32 da matriz sobre 32x32 + portao de conectividade (22/08/2026)	empurrada para corredor de 1 vizinho(s): obstaculo empurrado nao tampa passagem
+Route211_East	438	520	21	8		escala da caixa 32x32 da matriz sobre 32x32 + portao de conectividade (22/08/2026)	empurrada para o corredor de aproximacao de um coord_event: obstaculo empurrado nao tranca gatilho
 Route211_West	379	527	30	13	FLAG_TEMP_1	escala da caixa 32x32 da matriz sobre 36x28 + portao de conectividade (22/08/2026)	
-Route212_North	454	807	8	74		translacao provada por 3 warps, d=(446,733)	tile ja ocupado por objeto ou warp
-Route212_South	463	848	15	17		escala da caixa 128x32 da matriz sobre 130x34 + portao de conectividade (22/08/2026)	saliência de parede do demake: 2 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
+Route212_North	454	807	8	74	FLAG_TEMP_1	translacao provada por 3 warps, d=(446,733)	
+Route212_South	463	848	14	16	FLAG_TEMP_4	escala da caixa 128x32 da matriz sobre 130x34 + portao de conectividade (22/08/2026)	empurrado 1 tile(s)
 Route212_South	496	840	48	8	FLAG_TEMP_1	escala da caixa 128x32 da matriz sobre 130x34 + portao de conectividade (22/08/2026)	
-Route212_South	496	841	48	9		escala da caixa 128x32 da matriz sobre 130x34 + portao de conectividade (22/08/2026)	saliência de parede do demake: 2 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
-Route212_South	525	836	78	4	FLAG_TEMP_2	escala da caixa 128x32 da matriz sobre 130x34 + portao de conectividade (22/08/2026)	
+Route212_South	496	841	47	8	FLAG_TEMP_5	escala da caixa 128x32 da matriz sobre 130x34 + portao de conectividade (22/08/2026)	empurrado 1 tile(s)
+Route212_South	525	836	78	4		escala da caixa 128x32 da matriz sobre 130x34 + portao de conectividade (22/08/2026)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
 Route212_South	533	837	86	5		escala da caixa 128x32 da matriz sobre 130x34 + portao de conectividade (22/08/2026)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
 Route212_South	536	838	89	6		escala da caixa 128x32 da matriz sobre 130x34 + portao de conectividade (22/08/2026)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
-Route212_South	549	839	102	7		escala da caixa 128x32 da matriz sobre 130x34 + portao de conectividade (22/08/2026)	saliência de parede do demake: 2 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
-Route212_South	560	859	113	28		escala da caixa 128x32 da matriz sobre 130x34 + portao de conectividade (22/08/2026)	saliência de parede do demake: 3 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
-Route212_South	561	859	114	28	FLAG_TEMP_3	escala da caixa 128x32 da matriz sobre 130x34 + portao de conectividade (22/08/2026)	
-Route213	655	828	15	26		escala da caixa 96x64 da matriz sobre 100x60 + portao de conectividade (22/08/2026)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+Route212_South	549	839	102	8		escala da caixa 128x32 da matriz sobre 130x34 + portao de conectividade (22/08/2026)	empurrada para corredor de 2 vizinho(s): obstaculo empurrado nao tampa passagem
+Route212_South	560	859	112	28		escala da caixa 128x32 da matriz sobre 130x34 + portao de conectividade (22/08/2026)	empurrada para corredor de 2 vizinho(s): obstaculo empurrado nao tampa passagem
+Route212_South	561	859	113	29	FLAG_TEMP_6	escala da caixa 128x32 da matriz sobre 130x34 + portao de conectividade (22/08/2026)	empurrado 1 tile(s)
+Route213	655	828	16	25		escala da caixa 96x64 da matriz sobre 100x60 + portao de conectividade (22/08/2026)	empurrada para corredor de 2 vizinho(s): obstaculo empurrado nao tampa passagem
 Route213	677	827	38	25	FLAG_TEMP_1	escala da caixa 96x64 da matriz sobre 100x60 + portao de conectividade (22/08/2026)	
 Route213	665	839	26	36	FLAG_TEMP_2	escala da caixa 96x64 da matriz sobre 100x60 + portao de conectividade (22/08/2026)	
 Route213	669	842	30	39	FLAG_TEMP_3	escala da caixa 96x64 da matriz sobre 100x60 + portao de conectividade (22/08/2026)	
 Route213	662	843	22	40	FLAG_TEMP_4	escala da caixa 96x64 da matriz sobre 100x60 + portao de conectividade (22/08/2026)	
 Route213	663	844	23	41	FLAG_TEMP_5	escala da caixa 96x64 da matriz sobre 100x60 + portao de conectividade (22/08/2026)	
-Route214	712	681	11	38		escala da caixa 32x96 da matriz sobre 44x91 + portao de conectividade (22/08/2026)	saliência de parede do demake: 2 vizinho(s) alcançável(is), e abrir o tile ganharia só 1 tile(s)
-Route214	711	682	9	39	FLAG_TEMP_1	escala da caixa 32x96 da matriz sobre 44x91 + portao de conectividade (22/08/2026)	
+Route214	712	681	10	37	FLAG_TEMP_1	escala da caixa 32x96 da matriz sobre 44x91 + portao de conectividade (22/08/2026)	empurrado 1 tile(s)
+Route214	711	682	9	38		escala da caixa 32x96 da matriz sobre 44x91 + portao de conectividade (22/08/2026)	empurrada para o corredor de aproximacao de um coord_event: obstaculo empurrado nao tranca gatilho
 Route215	611	578	36	2		escala da caixa 96x32 da matriz sobre 100x42 + portao de conectividade (22/08/2026)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
 Route215	621	594	46	23	FLAG_TEMP_1	escala da caixa 96x32 da matriz sobre 100x42 + portao de conectividade (22/08/2026)	
-Route215	634	578	60	2		escala da caixa 96x32 da matriz sobre 100x42 + portao de conectividade (22/08/2026)	parede maciça do demake: ZERO vizinho alcançável, a fonte 2D não desenhou nem a pedra nem a passagem atrás dela
+Route215	634	578	58	4		escala da caixa 96x32 da matriz sobre 100x42 + portao de conectividade (22/08/2026)	empurrada para corredor de 2 vizinho(s): obstaculo empurrado nao tampa passagem
 Route215	657	588	84	15	FLAG_TEMP_2	escala da caixa 96x32 da matriz sobre 100x42 + portao de conectividade (22/08/2026)	
 Route215	657	589	84	17	FLAG_TEMP_3	escala da caixa 96x32 da matriz sobre 100x42 + portao de conectividade (22/08/2026)	
 Route222	789	785	53	18		translacao provada por 3 warps, d=(736,767)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-Route222	804	792	68	25		translacao provada por 3 warps, d=(736,767)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-Route222	814	775	78	8		translacao provada por 3 warps, d=(736,767)	tile ja ocupado por objeto ou warp
-SinnohVictoryRoad2F	18	3	18	3		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-SinnohVictoryRoad2F	18	4	18	4		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-SinnohVictoryRoad2F	18	5	18	5		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-SinnohVictoryRoad2F	9	16	9	16		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
+Route222	804	792	68	25		translacao provada por 3 warps, d=(736,767)	TRANCA: com esta pedra um warp ou item do mapa deixa de ser alcancavel sem Rock Smash
+Route222	814	775	76	10		translacao provada por 3 warps, d=(736,767)	empurrada para corredor de 2 vizinho(s): obstaculo empurrado nao tampa passagem
+SinnohVictoryRoad2F	18	3	18	3		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+SinnohVictoryRoad2F	18	4	18	4		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+SinnohVictoryRoad2F	18	5	18	5		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+SinnohVictoryRoad2F	9	16	9	16	FLAG_TEMP_1	identidade (coordenada da fonte ja local e dentro do layout)	
 SinnohVictoryRoad2F	14	16	14	16		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
 SinnohVictoryRoad2F	9	36	9	36		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-SinnohVictoryRoad2F	16	28	16	28		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
+SinnohVictoryRoad2F	16	28	16	28	FLAG_TEMP_2	identidade (coordenada da fonte ja local e dentro do layout)	
 SinnohVictoryRoad2F	17	28	17	28		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
 SinnohVictoryRoad2F	16	29	16	29		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-SinnohVictoryRoad2F	6	32	6	32		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
+SinnohVictoryRoad2F	6	32	6	32	FLAG_TEMP_3	identidade (coordenada da fonte ja local e dentro do layout)	
 SinnohVictoryRoad2F	5	32	5	32		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-SinnohVictoryRoad2F	22	38	22	38		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
+SinnohVictoryRoad2F	22	38	22	38	FLAG_TEMP_4	identidade (coordenada da fonte ja local e dentro do layout)	
 SinnohVictoryRoad2F	23	37	23	37		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-SinnohVictoryRoad2F	24	38	24	38		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
+SinnohVictoryRoad2F	24	38	23	37		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
 SinnohVictoryRoad2F	41	34	41	34		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
 SinnohVictoryRoad2F	41	32	41	32		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
 SinnohVictoryRoad2F	42	30	42	30		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
 SinnohVictoryRoad2F	15	16	15	16		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
 SinnohVictoryRoad2F	16	19	16	19		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-SinnohVictoryRoad2F	17	19	17	19		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-SinnohVictoryRoad2F	5	34	5	34		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-SinnohVictoryRoad2F	41	31	41	31		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-SinnohVictoryRoad2F	9	10	9	10		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
-SnowpointTempleB2F	4	9	4	9		translacao provada por 2 warps, d=(0,0)	tile ja ocupado por objeto ou warp
-SnowpointTempleB2F	9	12	9	12		translacao provada por 2 warps, d=(0,0)	tile ja ocupado por objeto ou warp
-SnowpointTempleB4F	5	17	5	17		translacao provada por 2 warps, d=(0,0)	tile ja ocupado por objeto ou warp
-VictoryRoad1FRoom2	6	51	6	51		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-VictoryRoad1FRoom2	7	31	7	31		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp
+SinnohVictoryRoad2F	17	19	16	18		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
+SinnohVictoryRoad2F	5	34	5	34	FLAG_TEMP_9	identidade (coordenada da fonte ja local e dentro do layout)	
+SinnohVictoryRoad2F	41	31	41	31		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
+SinnohVictoryRoad2F	9	10	9	10		identidade (coordenada da fonte ja local e dentro do layout)	tile ja ocupado por objeto ou warp, e nao ha tile livre alcancavel a ate 3
+SnowpointTempleB2F	4	9	4	9	FLAG_TEMP_1	translacao provada por 2 warps, d=(0,0)	
+SnowpointTempleB2F	9	12	9	12	FLAG_TEMP_2	translacao provada por 2 warps, d=(0,0)	
+SnowpointTempleB4F	5	17	5	17	FLAG_TEMP_1	translacao provada por 2 warps, d=(0,0)	
+VictoryRoad1FRoom2	6	51	6	51		identidade (coordenada da fonte ja local e dentro do layout)	TRANCA: com esta pedra um warp ou item do mapa deixa de ser alcancavel sem Rock Smash
+VictoryRoad1FRoom2	7	31	7	31	FLAG_TEMP_1	identidade (coordenada da fonte ja local e dentro do layout)	
 VictoryRoad1FRoom2	7	28	7	28		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
 VictoryRoad1FRoom2	7	25	7	25		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-VictoryRoad1FRoom2	8	9	8	9		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-VictoryRoad1FRoom2	10	7	10	7		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-VictoryRoad1FRoom2	8	5	8	5		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-VictoryRoad1FRoom2	12	32	12	32		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-VictoryRoad1FRoom2	12	31	12	31		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-VictoryRoad1FRoom2	21	11	21	11		identidade (coordenada da fonte ja local e dentro do layout)	BOLSO: com esta pedra sobra tile pisavel de onde nao se chega a nenhum warp, sem Rock Smash
-WaywardCave1F	38	42	36	41		translacao provada por 2 warps, d=(2,1)	tile ja ocupado por objeto ou warp
-WaywardCave1F	35	29	33	28		translacao provada por 2 warps, d=(2,1)	tile ja ocupado por objeto ou warp
-WaywardCave1F	16	29	14	28		translacao provada por 2 warps, d=(2,1)	tile ja ocupado por objeto ou warp
-WaywardCave1F	4	44	2	43		translacao provada por 2 warps, d=(2,1)	tile ja ocupado por objeto ou warp
-WaywardCave1F	26	16	24	15		translacao provada por 2 warps, d=(2,1)	tile ja ocupado por objeto ou warp
-WaywardCave1F	9	3	7	2		translacao provada por 2 warps, d=(2,1)	tile ja ocupado por objeto ou warp
-WaywardCave1F	31	3	29	2		translacao provada por 2 warps, d=(2,1)	tile ja ocupado por objeto ou warp
-WaywardCave1F	54	29	52	28		translacao provada por 2 warps, d=(2,1)	tile ja ocupado por objeto ou warp
-WaywardCave1F	57	40	55	39		translacao provada por 2 warps, d=(2,1)	tile ja ocupado por objeto ou warp
-WaywardCave1F	66	52	64	51		translacao provada por 2 warps, d=(2,1)	tile ja ocupado por objeto ou warp
-WaywardCave1F	88	27	86	26		translacao provada por 2 warps, d=(2,1)	tile ja ocupado por objeto ou warp
+VictoryRoad1FRoom2	8	9	8	9		identidade (coordenada da fonte ja local e dentro do layout)	TRANCA: com esta pedra um warp ou item do mapa deixa de ser alcancavel sem Rock Smash
+VictoryRoad1FRoom2	10	7	10	7		identidade (coordenada da fonte ja local e dentro do layout)	TRANCA: com esta pedra um warp ou item do mapa deixa de ser alcancavel sem Rock Smash
+VictoryRoad1FRoom2	8	5	8	5		identidade (coordenada da fonte ja local e dentro do layout)	TRANCA: com esta pedra um warp ou item do mapa deixa de ser alcancavel sem Rock Smash
+VictoryRoad1FRoom2	12	32	12	32		identidade (coordenada da fonte ja local e dentro do layout)	TRANCA: com esta pedra um warp ou item do mapa deixa de ser alcancavel sem Rock Smash
+VictoryRoad1FRoom2	12	31	12	31		identidade (coordenada da fonte ja local e dentro do layout)	TRANCA: com esta pedra um warp ou item do mapa deixa de ser alcancavel sem Rock Smash
+VictoryRoad1FRoom2	21	11	21	11		identidade (coordenada da fonte ja local e dentro do layout)	TRANCA: com esta pedra um warp ou item do mapa deixa de ser alcancavel sem Rock Smash
+WaywardCave1F	38	42	36	41	FLAG_TEMP_1	translacao provada por 2 warps, d=(2,1)	
+WaywardCave1F	35	29	33	28	FLAG_TEMP_2	translacao provada por 2 warps, d=(2,1)	
+WaywardCave1F	16	29	14	28	FLAG_TEMP_3	translacao provada por 2 warps, d=(2,1)	
+WaywardCave1F	4	44	2	43	FLAG_TEMP_4	translacao provada por 2 warps, d=(2,1)	
+WaywardCave1F	26	16	24	15	FLAG_TEMP_5	translacao provada por 2 warps, d=(2,1)	
+WaywardCave1F	9	3	7	2	FLAG_TEMP_6	translacao provada por 2 warps, d=(2,1)	
+WaywardCave1F	31	3	29	2	FLAG_TEMP_8	translacao provada por 2 warps, d=(2,1)	
+WaywardCave1F	54	29	52	28	FLAG_TEMP_9	translacao provada por 2 warps, d=(2,1)	
+WaywardCave1F	57	40	55	39	FLAG_TEMP_A	translacao provada por 2 warps, d=(2,1)	
+WaywardCave1F	66	52	64	51	FLAG_TEMP_B	translacao provada por 2 warps, d=(2,1)	
+WaywardCave1F	88	27	86	26	FLAG_TEMP_C	translacao provada por 2 warps, d=(2,1)	

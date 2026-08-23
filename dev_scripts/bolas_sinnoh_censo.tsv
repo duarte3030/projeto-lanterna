@@ -2,76 +2,76 @@ mapa	x_fonte	z_fonte	x_nosso	y_nosso	item	qtd	flag	regra	motivo
 AcuityLakefront	340	230	52	39	ITEM_ULTRA_BALL	1		escala da caixa 64x64 da matriz sobre 64x66	teto de 64 templates ou teto da fonte
 AcuityLakefront	323	235	35	44	ITEM_REAPER_CLOTH	1		escala da caixa 64x64 da matriz sobre 64x66	teto de 64 templates ou teto da fonte
 CanalaveCity	34	762	2	58	ITEM_TM89	1		escala da caixa 32x64 da matriz sobre 38x64	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-CelesticTown	469	533	25	23	ITEM_DRAGON_FANG	1	FLAG_ITEM_SINNOH_BOLA_CELESTICTOWN_DRAGON_FANG	escala da caixa 32x32 da matriz sobre 38x35	
-EternaCity	327	516	34	5	ITEM_TM46	1	FLAG_ITEM_SINNOH_BOLA_ETERNACITY_TM46	escala da caixa 64x64 da matriz sobre 60x55	empurrada 2 tile(s)
-EternaCity	317	558	27	39	ITEM_SUPER_POTION	1	FLAG_ITEM_SINNOH_BOLA_ETERNACITY_SUPER_POTION	escala da caixa 64x64 da matriz sobre 60x55	
-EternaForest	15	81	2	74	ITEM_ANTIDOTE	1	FLAG_ITEM_SINNOH_BOLA_ETERNAFOREST_ANTIDOTE	escala da caixa 70x79 da matriz sobre 82x84	empurrada 2 tile(s)
-EternaForest	41	59	30	53	ITEM_PARLYZ_HEAL	1	FLAG_ITEM_SINNOH_BOLA_ETERNAFOREST_PARLYZ_HEAL	escala da caixa 70x79 da matriz sobre 82x84	
+CelesticTown	469	533	25	23	ITEM_DRAGON_FANG	1		escala da caixa 32x32 da matriz sobre 38x35	ja existe bola nossa nesta coordenada
+EternaCity	327	516	36	3	ITEM_TM46	1		escala da caixa 64x64 da matriz sobre 60x55	ja existe bola nossa nesta coordenada
+EternaCity	317	558	27	39	ITEM_SUPER_POTION	1		escala da caixa 64x64 da matriz sobre 60x55	ja existe bola nossa nesta coordenada
+EternaForest	15	81	0	76	ITEM_ANTIDOTE	1		escala da caixa 70x79 da matriz sobre 82x84	ja existe bola nossa nesta coordenada
+EternaForest	41	59	30	53	ITEM_PARLYZ_HEAL	1		escala da caixa 70x79 da matriz sobre 82x84	ja existe bola nossa nesta coordenada
 EternaForest	50	85	41	80	ITEM_NET_BALL	1		escala da caixa 70x79 da matriz sobre 82x84	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 EternaForest	66	42	59	35	ITEM_GREEN_SHARD	1		escala da caixa 70x79 da matriz sobre 82x84	teto de 64 templates ou teto da fonte
 EternaForest	81	12	77	3	ITEM_ETHER	1		escala da caixa 70x79 da matriz sobre 82x84	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 EternaForest	84	82	81	77	ITEM_POTION	1		escala da caixa 70x79 da matriz sobre 82x84	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-EternaForestOutside	243	569	51	57	ITEM_TM82	1	FLAG_ITEM_SINNOH_BOLA_ETERNAFORESTOUTSIDE_TM82	escala da caixa 64x64 da matriz sobre 64x64	
-EternaForestOutside	228	571	36	59	ITEM_SILVERPOWDER	1	FLAG_ITEM_SINNOH_BOLA_ETERNAFORESTOUTSIDE_SILVERPOWDER	escala da caixa 64x64 da matriz sobre 64x64	
-FloaromaMeadow	14	15	14	15	ITEM_MIRACLE_SEED	1	FLAG_ITEM_SINNOH_BOLA_FLOAROMAMEADOW_MIRACLE_SEED	identidade (coordenada da fonte ja local e dentro do layout)	
-FloaromaMeadow	46	28	46	28	ITEM_LEAF_STONE	1	FLAG_ITEM_SINNOH_BOLA_FLOAROMAMEADOW_LEAF_STONE	identidade (coordenada da fonte ja local e dentro do layout)	
-FloaromaMeadow	20	27	20	27	ITEM_ULTRA_BALL	1	FLAG_ITEM_SINNOH_BOLA_FLOAROMAMEADOW_ULTRA_BALL	identidade (coordenada da fonte ja local e dentro do layout)	
-FloaromaMeadow	11	35	11	35	ITEM_RARE_CANDY	1	FLAG_ITEM_SINNOH_BOLA_FLOAROMAMEADOW_RARE_CANDY	identidade (coordenada da fonte ja local e dentro do layout)	
-FuegoIronworksBuilding	21	21	21	21	ITEM_TM35	1	FLAG_ITEM_SINNOH_BOLA_FUEGOIRONWORKSBUILDING_TM35	identidade (coordenada da fonte ja local e dentro do layout)	
-FuegoIronworksBuilding	11	7	11	7	ITEM_CALCIUM	1	FLAG_ITEM_SINNOH_BOLA_FUEGOIRONWORKSBUILDING_CALCIUM	identidade (coordenada da fonte ja local e dentro do layout)	
-FuegoIronworksBuilding	46	20	46	20	ITEM_ROCK_INCENSE	1	FLAG_ITEM_SINNOH_BOLA_FUEGOIRONWORKSBUILDING_ROCK_INCENSE	identidade (coordenada da fonte ja local e dentro do layout)	
-FuegoIronworksBuilding	51	6	51	6	ITEM_FIRE_STONE	1	FLAG_ITEM_SINNOH_BOLA_FUEGOIRONWORKSBUILDING_FIRE_STONE	identidade (coordenada da fonte ja local e dentro do layout)	
-FuegoIronworksBuilding	40	18	40	18	ITEM_BLUE_SHARD	1	FLAG_ITEM_SINNOH_BOLA_FUEGOIRONWORKSBUILDING_BLUE_SHARD	identidade (coordenada da fonte ja local e dentro do layout)	
-FuegoIronworksBuilding	27	16	27	16	ITEM_RED_SHARD	1	FLAG_ITEM_SINNOH_BOLA_FUEGOIRONWORKSBUILDING_RED_SHARD	identidade (coordenada da fonte ja local e dentro do layout)	
-FuegoIronworksBuilding	44	6	44	6	ITEM_GREEN_SHARD	1	FLAG_ITEM_SINNOH_BOLA_FUEGOIRONWORKSBUILDING_GREEN_SHARD	identidade (coordenada da fonte ja local e dentro do layout)	
-FuegoIronworksBuilding	11	18	11	18	ITEM_YELLOW_SHARD	1	FLAG_ITEM_SINNOH_BOLA_FUEGOIRONWORKSBUILDING_YELLOW_SHARD	identidade (coordenada da fonte ja local e dentro do layout)	
+EternaForestOutside	243	569	51	57	ITEM_TM82	1		escala da caixa 64x64 da matriz sobre 64x64	ja existe bola nossa nesta coordenada
+EternaForestOutside	228	571	36	59	ITEM_SILVERPOWDER	1		escala da caixa 64x64 da matriz sobre 64x64	ja existe bola nossa nesta coordenada
+FloaromaMeadow	14	15	14	15	ITEM_MIRACLE_SEED	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+FloaromaMeadow	46	28	46	28	ITEM_LEAF_STONE	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+FloaromaMeadow	20	27	20	27	ITEM_ULTRA_BALL	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+FloaromaMeadow	11	35	11	35	ITEM_RARE_CANDY	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+FuegoIronworksBuilding	21	21	21	21	ITEM_TM35	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+FuegoIronworksBuilding	11	7	11	7	ITEM_CALCIUM	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+FuegoIronworksBuilding	46	20	46	20	ITEM_ROCK_INCENSE	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+FuegoIronworksBuilding	51	6	51	6	ITEM_FIRE_STONE	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+FuegoIronworksBuilding	40	18	40	18	ITEM_BLUE_SHARD	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+FuegoIronworksBuilding	27	16	27	16	ITEM_RED_SHARD	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+FuegoIronworksBuilding	44	6	44	6	ITEM_GREEN_SHARD	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+FuegoIronworksBuilding	11	18	11	18	ITEM_YELLOW_SHARD	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
 GalacticHQ_1F	52	14	30	5	ITEM_TM49	1		escala da caixa 51x16 da matriz sobre 31x12	teto de 64 templates ou teto da fonte
 GalacticHQ_1F	16	6	8	0	ITEM_DUBIOUS_DISC	1		escala da caixa 51x16 da matriz sobre 31x12	teto de 64 templates ou teto da fonte
-GalacticHQ_2F	48	21	15	9	ITEM_MAX_REVIVE	1	FLAG_ITEM_SINNOH_BOLA_GALACTICHQ2F_MAX_REVIVE	escala da caixa 48x20 da matriz sobre 16x10	
+GalacticHQ_2F	48	21	15	9	ITEM_MAX_REVIVE	1		escala da caixa 48x20 da matriz sobre 16x10	ja existe bola nossa nesta coordenada
 GalacticHQ_2F	3	11	0	4	ITEM_GREEN_SHARD	1		escala da caixa 48x20 da matriz sobre 16x10	teto de 64 templates ou teto da fonte
-GalacticHQ_3F	36	12	14	8	ITEM_TM21	1	FLAG_ITEM_SINNOH_BOLA_GALACTICHQ3F_TM21	escala da caixa 49x19 da matriz sobre 21x15	empurrada 1 tile(s)
-GalacticHQ_3F	50	21	20	14	ITEM_MAX_ELIXIR	1	FLAG_ITEM_SINNOH_BOLA_GALACTICHQ3F_MAX_ELIXIR	escala da caixa 49x19 da matriz sobre 21x15	
-GalacticHQ_3F	38	20	15	13	ITEM_PROTEIN	1	FLAG_ITEM_SINNOH_BOLA_GALACTICHQ3F_PROTEIN	escala da caixa 49x19 da matriz sobre 21x15	
-GalacticHQ_B2F	29	11	10	14	ITEM_TM36	1	FLAG_ITEM_SINNOH_BOLA_GALACTICHQB2F_TM36	escala da caixa 64x13 da matriz sobre 34x24	empurrada 1 tile(s)
-GalacticHQ_B2F	20	5	5	4	ITEM_GALACTIC_KEY	1	FLAG_ITEM_SINNOH_BOLA_GALACTICHQB2F_GALACTIC_KEY	escala da caixa 64x13 da matriz sobre 34x24	empurrada 1 tile(s)
-GalacticHQ_B2F	62	3	30	2	ITEM_ZINC	1	FLAG_ITEM_SINNOH_BOLA_GALACTICHQB2F_ZINC	escala da caixa 64x13 da matriz sobre 34x24	empurrada 2 tile(s)
-GalacticHQ_Laboratory	6	8	0	2	ITEM_FULL_RESTORE	1	FLAG_ITEM_SINNOH_BOLA_GALACTICHQLABORATORY_FULL_RESTORE	escala da caixa 31x6 da matriz sobre 20x9	empurrada 2 tile(s)
-IronIslandB1FLeftRoom	5	6	5	6	ITEM_PROTECTOR	1	FLAG_ITEM_SINNOH_BOLA_IRONISLANDB1FLEFTROOM_PROTECTOR	identidade (coordenada da fonte ja local e dentro do layout)	
-IronIslandB1FLeftRoom	7	8	7	8	ITEM_YELLOW_SHARD	1	FLAG_ITEM_SINNOH_BOLA_IRONISLANDB1FLEFTROOM_YELLOW_SHARD	identidade (coordenada da fonte ja local e dentro do layout)	
-IronIslandB1FRightRoom	21	15	21	15	ITEM_MAX_REPEL	1	FLAG_ITEM_SINNOH_BOLA_IRONISLANDB1FRIGHTROOM_MAX_REPEL	identidade (coordenada da fonte ja local e dentro do layout)	
-IronIslandB1FRightRoom	2	17	2	17	ITEM_ESCAPE_ROPE	1	FLAG_ITEM_SINNOH_BOLA_IRONISLANDB1FRIGHTROOM_ESCAPE_ROPE	identidade (coordenada da fonte ja local e dentro do layout)	
-IronIslandB1FRightRoom	7	21	7	20	ITEM_REVIVE	1	FLAG_ITEM_SINNOH_BOLA_IRONISLANDB1FRIGHTROOM_REVIVE	identidade (coordenada da fonte ja local e dentro do layout)	empurrada 1 tile(s)
-IronIslandB2FLeftRoom	38	15	38	15	ITEM_ULTRA_BALL	1	FLAG_ITEM_SINNOH_BOLA_IRONISLANDB2FLEFTROOM_ULTRA_BALL	identidade (coordenada da fonte ja local e dentro do layout)	
-IronIslandB2FLeftRoom	9	3	9	3	ITEM_DUSK_BALL	1	FLAG_ITEM_SINNOH_BOLA_IRONISLANDB2FLEFTROOM_DUSK_BALL	identidade (coordenada da fonte ja local e dentro do layout)	
-IronIslandB2FLeftRoom	5	16	5	16	ITEM_MAX_POTION	1	FLAG_ITEM_SINNOH_BOLA_IRONISLANDB2FLEFTROOM_MAX_POTION	identidade (coordenada da fonte ja local e dentro do layout)	
-IronIslandB2FLeftRoom	21	38	21	38	ITEM_HP_UP	1	FLAG_ITEM_SINNOH_BOLA_IRONISLANDB2FLEFTROOM_HP_UP	identidade (coordenada da fonte ja local e dentro do layout)	
-IronIslandB2FLeftRoom	17	19	17	19	ITEM_RED_SHARD	1	FLAG_ITEM_SINNOH_BOLA_IRONISLANDB2FLEFTROOM_RED_SHARD	identidade (coordenada da fonte ja local e dentro do layout)	
-IronIslandB2FLeftRoom	1	23	1	23	ITEM_MAGNET	1	FLAG_ITEM_SINNOH_BOLA_IRONISLANDB2FLEFTROOM_MAGNET	identidade (coordenada da fonte ja local e dentro do layout)	
-IronIslandB2FRightRoom	16	2	16	2	ITEM_ELIXIR	1	FLAG_ITEM_SINNOH_BOLA_IRONISLANDB2FRIGHTROOM_ELIXIR	identidade (coordenada da fonte ja local e dentro do layout)	
-IronIslandB2FRightRoom	7	17	7	17	ITEM_TM23	1	FLAG_ITEM_SINNOH_BOLA_IRONISLANDB2FRIGHTROOM_TM23	identidade (coordenada da fonte ja local e dentro do layout)	
-IronIslandB3F	14	7	14	7	ITEM_SHINY_STONE	1	FLAG_ITEM_SINNOH_BOLA_IRONISLANDB3F_SHINY_STONE	identidade (coordenada da fonte ja local e dentro do layout)	
-IronIslandIronRuins	7	7	7	7	ITEM_METAL_COAT	1	FLAG_ITEM_SINNOH_BOLA_IRONISLANDIRONRUINS_METAL_COAT	identidade (coordenada da fonte ja local e dentro do layout)	
-JubilifeCity	142	766	13	28	ITEM_POTION	1	FLAG_ITEM_SINNOH_BOLA_JUBILIFECITY_POTION	escala da caixa 64x64 da matriz sobre 70x64	empurrada 2 tile(s)
+GalacticHQ_3F	36	12	14	7	ITEM_TM21	1		escala da caixa 49x19 da matriz sobre 21x15	ja existe bola nossa nesta coordenada
+GalacticHQ_3F	50	21	20	14	ITEM_MAX_ELIXIR	1		escala da caixa 49x19 da matriz sobre 21x15	ja existe bola nossa nesta coordenada
+GalacticHQ_3F	38	20	15	13	ITEM_PROTEIN	1		escala da caixa 49x19 da matriz sobre 21x15	ja existe bola nossa nesta coordenada
+GalacticHQ_B2F	29	11	11	15	ITEM_TM36	1		escala da caixa 64x13 da matriz sobre 34x24	ja existe bola nossa nesta coordenada
+GalacticHQ_B2F	20	5	6	3	ITEM_GALACTIC_KEY	1		escala da caixa 64x13 da matriz sobre 34x24	ja existe bola nossa nesta coordenada
+GalacticHQ_B2F	62	3	28	0	ITEM_ZINC	1		escala da caixa 64x13 da matriz sobre 34x24	ja existe bola nossa nesta coordenada
+GalacticHQ_Laboratory	6	8	0	0	ITEM_FULL_RESTORE	1		escala da caixa 31x6 da matriz sobre 20x9	ja existe bola nossa nesta coordenada
+IronIslandB1FLeftRoom	5	6	5	6	ITEM_PROTECTOR	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+IronIslandB1FLeftRoom	7	8	7	8	ITEM_YELLOW_SHARD	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+IronIslandB1FRightRoom	21	15	21	15	ITEM_MAX_REPEL	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+IronIslandB1FRightRoom	2	17	2	17	ITEM_ESCAPE_ROPE	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+IronIslandB1FRightRoom	7	21	7	21	ITEM_REVIVE	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+IronIslandB2FLeftRoom	38	15	38	15	ITEM_ULTRA_BALL	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+IronIslandB2FLeftRoom	9	3	9	3	ITEM_DUSK_BALL	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+IronIslandB2FLeftRoom	5	16	5	16	ITEM_MAX_POTION	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+IronIslandB2FLeftRoom	21	38	21	38	ITEM_HP_UP	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+IronIslandB2FLeftRoom	17	19	17	19	ITEM_RED_SHARD	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+IronIslandB2FLeftRoom	1	23	1	23	ITEM_MAGNET	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+IronIslandB2FRightRoom	16	2	16	2	ITEM_ELIXIR	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+IronIslandB2FRightRoom	7	17	7	17	ITEM_TM23	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+IronIslandB3F	14	7	14	7	ITEM_SHINY_STONE	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+IronIslandIronRuins	7	7	7	7	ITEM_METAL_COAT	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+JubilifeCity	142	766	15	30	ITEM_POTION	1		escala da caixa 64x64 da matriz sobre 70x64	ja existe bola nossa nesta coordenada
 JubilifeCity_PokemonSchool	1	4	0	2	ITEM_X_ATTACK	1		escala da caixa 14x8 da matriz sobre 12x11	teto de 64 templates ou teto da fonte
 LakeAcuity	38	8	38	8	ITEM_TM14	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 LakeAcuityLowWater	38	8	38	8	ITEM_TM14	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 LakeValor	53	46	0	0	ITEM_TM25	1		escala da caixa 1x1 da matriz sobre 48x52	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-LakeValorDrained	53	46	52	45	ITEM_TM25	1	FLAG_ITEM_SINNOH_BOLA_LAKEVALORDRAINED_TM25	identidade (coordenada da fonte ja local e dentro do layout)	empurrada 1 tile(s)
+LakeValorDrained	53	46	53	46	ITEM_TM25	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
 LakeVerity	25	54	0	45	ITEM_TM38	1		escala da caixa 31x17 da matriz sobre 48x46	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 LakeVerityLowWater	25	54	25	54	ITEM_TM38	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-ManiacTunnel	90	3	90	3	ITEM_TM28	1	FLAG_ITEM_SINNOH_BOLA_MANIACTUNNEL_TM28	identidade (coordenada da fonte ja local e dentro do layout)	
-MtCoronet2F	3	31	3	31	ITEM_MAX_REVIVE	1	FLAG_ITEM_SINNOH_BOLA_MTCORONET2F_MAX_REVIVE	identidade (coordenada da fonte ja local e dentro do layout)	
-MtCoronet2F	23	37	23	37	ITEM_MAX_REPEL	1	FLAG_ITEM_SINNOH_BOLA_MTCORONET2F_MAX_REPEL	identidade (coordenada da fonte ja local e dentro do layout)	
-MtCoronet2F	3	55	3	55	ITEM_TM80	1	FLAG_ITEM_SINNOH_BOLA_MTCORONET2F_TM80	identidade (coordenada da fonte ja local e dentro do layout)	
-MtCoronet2F	13	60	13	60	ITEM_ESCAPE_ROPE	1	FLAG_ITEM_SINNOH_BOLA_MTCORONET2F_ESCAPE_ROPE	identidade (coordenada da fonte ja local e dentro do layout)	
+ManiacTunnel	90	3	90	3	ITEM_TM28	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+MtCoronet2F	3	31	3	31	ITEM_MAX_REVIVE	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+MtCoronet2F	23	37	23	37	ITEM_MAX_REPEL	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+MtCoronet2F	3	55	3	55	ITEM_TM80	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+MtCoronet2F	13	60	13	60	ITEM_ESCAPE_ROPE	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
 MtCoronet4FRooms1And2	57	2	57	2	ITEM_ADAMANT_ORB	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 MtCoronet4FRooms1And2	61	2	61	2	ITEM_LUSTROUS_ORB	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-MtCoronetIcebergRuins	7	7	7	7	ITEM_NEVERMELTICE	1	FLAG_ITEM_SINNOH_BOLA_MTCORONETICEBERGRUINS_NEVERMELTICE	identidade (coordenada da fonte ja local e dentro do layout)	
+MtCoronetIcebergRuins	7	7	7	7	ITEM_NEVERMELTICE	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
 MtCoronet_1F_North_Room1	14	26	15	16	ITEM_RARE_CANDY	1		escala da caixa 28x52 da matriz sobre 36x51	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-MtCoronet_1F_North_Room1	2	31	2	23	ITEM_TM69	1	FLAG_ITEM_SINNOH_BOLA_MTCORONET1FNORTHROOM1_TM69	escala da caixa 28x52 da matriz sobre 36x51	empurrada 2 tile(s)
-MtCoronet_1F_North_Room1	28	43	33	33	ITEM_ESCAPE_ROPE	1	FLAG_ITEM_SINNOH_BOLA_MTCORONET1FNORTHROOM1_ESCAPE_ROPE	escala da caixa 28x52 da matriz sobre 36x51	
-MtCoronet_1F_North_Room1	12	60	12	48	ITEM_TM02	1	FLAG_ITEM_SINNOH_BOLA_MTCORONET1FNORTHROOM1_TM02	escala da caixa 28x52 da matriz sobre 36x51	empurrada 2 tile(s)
-MtCoronet_1F_North_Room1	12	37	12	27	ITEM_ICE_HEAL	1	FLAG_ITEM_SINNOH_BOLA_MTCORONET1FNORTHROOM1_ICE_HEAL	escala da caixa 28x52 da matriz sobre 36x51	
+MtCoronet_1F_North_Room1	2	31	0	21	ITEM_TM69	1		escala da caixa 28x52 da matriz sobre 36x51	ja existe bola nossa nesta coordenada
+MtCoronet_1F_North_Room1	28	43	33	33	ITEM_ESCAPE_ROPE	1		escala da caixa 28x52 da matriz sobre 36x51	ja existe bola nossa nesta coordenada
+MtCoronet_1F_North_Room1	12	60	12	50	ITEM_TM02	1		escala da caixa 28x52 da matriz sobre 36x51	ja existe bola nossa nesta coordenada
+MtCoronet_1F_North_Room1	12	37	12	27	ITEM_ICE_HEAL	1		escala da caixa 28x52 da matriz sobre 36x51	ja existe bola nossa nesta coordenada
 MtCoronet_1F_South	13	9	13	9	ITEM_PROTEIN	1		identidade (coordenada da fonte ja local e dentro do layout)	teto de 64 templates ou teto da fonte
 MtCoronet_1F_South	28	28	28	28	ITEM_DAWN_STONE	1		identidade (coordenada da fonte ja local e dentro do layout)	teto de 64 templates ou teto da fonte
 MtCoronet_B1F	17	11	17	11	ITEM_REVIVE	1		identidade (coordenada da fonte ja local e dentro do layout)	teto de 64 templates ou teto da fonte
@@ -80,106 +80,106 @@ MtCoronet_B1F	22	36	22	36	ITEM_LIGHT_CLAY	1		identidade (coordenada da fonte ja 
 MtCoronet_B1F	26	17	26	17	ITEM_MAX_ELIXIR	1		identidade (coordenada da fonte ja local e dentro do layout)	teto de 64 templates ou teto da fonte
 MtCoronet_B1F	29	32	29	32	ITEM_FULL_RESTORE	1		identidade (coordenada da fonte ja local e dentro do layout)	teto de 64 templates ou teto da fonte
 MtCoronet_B1F	2	60	2	60	ITEM_ULTRA_BALL	1		identidade (coordenada da fonte ja local e dentro do layout)	teto de 64 templates ou teto da fonte
-OldChateauBackEastRoom	10	4	10	4	ITEM_TM90	1	FLAG_ITEM_SINNOH_BOLA_OLDCHATEAUBACKEASTROOM_TM90	identidade (coordenada da fonte ja local e dentro do layout)	
+OldChateauBackEastRoom	10	4	10	4	ITEM_TM90	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
 OldChateauBackMiddleEastRoom	20	4	20	4	ITEM_TM90	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 OldChateauBackMiddleWestRoom	3	4	3	4	ITEM_DREAD_PLATE	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 OldChateauBackWestRoom	3	4	3	4	ITEM_DREAD_PLATE	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-OldChateauDiningArea	5	3	5	3	ITEM_RARE_CANDY	1	FLAG_ITEM_SINNOH_BOLA_OLDCHATEAUDININGAREA_RARE_CANDY	identidade (coordenada da fonte ja local e dentro do layout)	
-OldChateauDiningArea	37	6	37	6	ITEM_BIG_PEARL	1	FLAG_ITEM_SINNOH_BOLA_OLDCHATEAUDININGAREA_BIG_PEARL	identidade (coordenada da fonte ja local e dentro do layout)	
-OldChateauSideRooms	4	6	4	6	ITEM_OLD_GATEAU	1	FLAG_ITEM_SINNOH_BOLA_OLDCHATEAUSIDEROOMS_OLD_GATEAU	identidade (coordenada da fonte ja local e dentro do layout)	
-OreburghCity	295	774	43	36	ITEM_DIRE_HIT	1	FLAG_ITEM_SINNOH_BOLA_OREBURGHCITY_DIRE_HIT	escala da caixa 64x64 da matriz sobre 70x59	empurrada 2 tile(s)
-OreburghCity	291	773	36	31	ITEM_YELLOW_SHARD	1	FLAG_ITEM_SINNOH_BOLA_OREBURGHCITY_YELLOW_SHARD	escala da caixa 64x64 da matriz sobre 70x59	empurrada 3 tile(s)
+OldChateauDiningArea	5	3	5	3	ITEM_RARE_CANDY	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+OldChateauDiningArea	37	6	37	6	ITEM_BIG_PEARL	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+OldChateauSideRooms	4	6	4	6	ITEM_OLD_GATEAU	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+OreburghCity	295	774	42	34	ITEM_DIRE_HIT	1		escala da caixa 64x64 da matriz sobre 70x59	ja existe bola nossa nesta coordenada
+OreburghCity	291	773	38	34	ITEM_YELLOW_SHARD	1		escala da caixa 64x64 da matriz sobre 70x59	ja existe bola nossa nesta coordenada
 OreburghGateB1F	8	9	8	9	ITEM_TM01	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 OreburghGateB1F	7	21	7	21	ITEM_EARTH_PLATE	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 OreburghGateB1F	23	10	23	10	ITEM_TM31	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-OreburghGateB1F	57	12	55	10	ITEM_TM70	1	FLAG_ITEM_SINNOH_BOLA_OREBURGHGATEB1F_TM70	identidade (coordenada da fonte ja local e dentro do layout)	empurrada 2 tile(s)
-OreburghGateB1F	41	11	41	11	ITEM_BIG_PEARL	1	FLAG_ITEM_SINNOH_BOLA_OREBURGHGATEB1F_BIG_PEARL	identidade (coordenada da fonte ja local e dentro do layout)	
+OreburghGateB1F	57	12	57	12	ITEM_TM70	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+OreburghGateB1F	41	11	41	11	ITEM_BIG_PEARL	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
 OreburghMine_B1F	19	4	19	4	ITEM_POKE_BALL	1		identidade (coordenada da fonte ja local e dentro do layout)	teto de 64 templates ou teto da fonte
 OreburghMine_B2F	4	28	0	27	ITEM_ESCAPE_ROPE	1		escala da caixa 24x14 da matriz sobre 32x28	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-OreburghMine_B2F	26	24	29	18	ITEM_POTION	1	FLAG_ITEM_SINNOH_BOLA_OREBURGHMINEB2F_POTION	escala da caixa 24x14 da matriz sobre 32x28	
+OreburghMine_B2F	26	24	29	18	ITEM_POTION	1		escala da caixa 24x14 da matriz sobre 32x28	ja existe bola nossa nesta coordenada
 PastoriaCity	625	829	52	27	ITEM_MYSTIC_WATER	1		escala da caixa 64x64 da matriz sobre 68x60	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 RavagedPath	7	38	7	38	ITEM_TM39	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-RavagedPath	17	11	14	8	ITEM_LUCK_INCENSE	1	FLAG_ITEM_SINNOH_BOLA_RAVAGEDPATH_LUCK_INCENSE	identidade (coordenada da fonte ja local e dentro do layout)	empurrada 3 tile(s)
-RavagedPath	28	5	29	4	ITEM_TM03	1	FLAG_ITEM_SINNOH_BOLA_RAVAGEDPATH_TM03	identidade (coordenada da fonte ja local e dentro do layout)	empurrada 1 tile(s)
+RavagedPath	17	11	17	11	ITEM_LUCK_INCENSE	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+RavagedPath	28	5	28	5	ITEM_TM03	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
 RavagedPath	22	44	22	44	ITEM_POTION	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-Route202	162	806	1	6	ITEM_POTION	1	FLAG_ITEM_SINNOH_BOLA_ROUTE202_POTION	escala da caixa 32x32 da matriz sobre 30x34 | alcance nao semeavel (sem warp), so andavel	
-Route203	222	745	30	8	ITEM_REPEL	1	FLAG_ITEM_SINNOH_BOLA_ROUTE203_REPEL	escala da caixa 64x32 da matriz sobre 64x30	
-Route203	211	750	19	13	ITEM_POKE_BALL	1	FLAG_ITEM_SINNOH_BOLA_ROUTE203_POKE_BALL	escala da caixa 64x32 da matriz sobre 64x30	
-Route203	231	754	39	16	ITEM_X_DEFENSE	1	FLAG_ITEM_SINNOH_BOLA_ROUTE203_X_DEFENSE	escala da caixa 64x32 da matriz sobre 64x30	
+Route202	162	806	1	6	ITEM_POTION	1		escala da caixa 32x32 da matriz sobre 30x34 | alcance nao semeavel (sem warp), so andavel	ja existe bola nossa nesta coordenada
+Route203	222	745	30	8	ITEM_REPEL	1		escala da caixa 64x32 da matriz sobre 64x30	ja existe bola nossa nesta coordenada
+Route203	211	750	19	13	ITEM_POKE_BALL	1		escala da caixa 64x32 da matriz sobre 64x30	ja existe bola nossa nesta coordenada
+Route203	231	754	39	16	ITEM_X_DEFENSE	1		escala da caixa 64x32 da matriz sobre 64x30	ja existe bola nossa nesta coordenada
 Route204	162	732	2	56	ITEM_SEA_INCENSE	1		escala da caixa 32x32 da matriz sobre 32x64	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 Route204	189	716	29	24	ITEM_HP_UP	1		escala da caixa 32x32 da matriz sobre 32x64	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-Route204	177	722	15	34	ITEM_PARLYZ_HEAL	1	FLAG_ITEM_SINNOH_BOLA_ROUTE204_PARLYZ_HEAL	escala da caixa 32x32 da matriz sobre 32x64	empurrada 2 tile(s)
-Route204North	162	682	2	10	ITEM_TM09	1	FLAG_ITEM_SINNOH_BOLA_ROUTE204NORTH_TM09	escala da caixa 32x32 da matriz sobre 32x32	
-Route204North	180	695	20	23	ITEM_AWAKENING	1	FLAG_ITEM_SINNOH_BOLA_ROUTE204NORTH_AWAKENING	escala da caixa 32x32 da matriz sobre 32x32	
+Route204	177	722	17	36	ITEM_PARLYZ_HEAL	1		escala da caixa 32x32 da matriz sobre 32x64	ja existe bola nossa nesta coordenada
+Route204North	162	682	2	10	ITEM_TM09	1		escala da caixa 32x32 da matriz sobre 32x32	ja existe bola nossa nesta coordenada
+Route204North	180	695	20	23	ITEM_AWAKENING	1		escala da caixa 32x32 da matriz sobre 32x32	ja existe bola nossa nesta coordenada
 Route205_North	274	541	45	55	ITEM_GUARD_SPEC	1		escala da caixa 32x32 da matriz sobre 80x60	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-Route205_South	204	618	12	42	ITEM_HEAL_BALL	1	FLAG_ITEM_SINNOH_BOLA_ROUTE205SOUTH_HEAL_BALL	escala da caixa 32x96 da matriz sobre 32x96	
-Route205_South	213	640	21	64	ITEM_X_SP_DEF	1	FLAG_ITEM_SINNOH_BOLA_ROUTE205SOUTH_X_SP_DEF	escala da caixa 32x96 da matriz sobre 32x96	
-Route205_South	219	608	27	32	ITEM_SUPER_POTION	1	FLAG_ITEM_SINNOH_BOLA_ROUTE205SOUTH_SUPER_POTION	escala da caixa 32x96 da matriz sobre 32x96	
-Route205_South	203	603	11	27	ITEM_REPEL	1	FLAG_ITEM_SINNOH_BOLA_ROUTE205SOUTH_REPEL	escala da caixa 32x96 da matriz sobre 32x96	
-Route206	292	623	3	44	ITEM_POISON_BARB	1	FLAG_ITEM_SINNOH_BOLA_ROUTE206_POISON_BARB	escala da caixa 32x128 da matriz sobre 28x120	
-Route206	313	679	21	96	ITEM_PP_UP	1	FLAG_ITEM_SINNOH_BOLA_ROUTE206_PP_UP	escala da caixa 32x128 da matriz sobre 28x120	
-Route206	302	652	12	71	ITEM_BURN_HEAL	1	FLAG_ITEM_SINNOH_BOLA_ROUTE206_BURN_HEAL	escala da caixa 32x128 da matriz sobre 28x120	
+Route205_South	204	618	12	42	ITEM_HEAL_BALL	1		escala da caixa 32x96 da matriz sobre 32x96	ja existe bola nossa nesta coordenada
+Route205_South	213	640	21	64	ITEM_X_SP_DEF	1		escala da caixa 32x96 da matriz sobre 32x96	ja existe bola nossa nesta coordenada
+Route205_South	219	608	27	32	ITEM_SUPER_POTION	1		escala da caixa 32x96 da matriz sobre 32x96	ja existe bola nossa nesta coordenada
+Route205_South	203	603	11	27	ITEM_REPEL	1		escala da caixa 32x96 da matriz sobre 32x96	ja existe bola nossa nesta coordenada
+Route206	292	623	3	44	ITEM_POISON_BARB	1		escala da caixa 32x128 da matriz sobre 28x120	ja existe bola nossa nesta coordenada
+Route206	313	679	21	96	ITEM_PP_UP	1		escala da caixa 32x128 da matriz sobre 28x120	ja existe bola nossa nesta coordenada
+Route206	302	652	12	71	ITEM_BURN_HEAL	1		escala da caixa 32x128 da matriz sobre 28x120	ja existe bola nossa nesta coordenada
 Route206	314	631	22	51	ITEM_SUPER_REPEL	1		escala da caixa 32x128 da matriz sobre 28x120	teto de 64 templates ou teto da fonte
-Route207	291	711	3	7	ITEM_POKE_BALL	1	FLAG_ITEM_SINNOH_BOLA_ROUTE207_POKE_BALL	escala da caixa 64x32 da matriz sobre 64x32	
-Route207	323	730	33	24	ITEM_REVIVE	1	FLAG_ITEM_SINNOH_BOLA_ROUTE207_REVIVE	escala da caixa 64x32 da matriz sobre 64x32	empurrada 2 tile(s)
-Route207	335	725	45	19	ITEM_IRON	1	FLAG_ITEM_SINNOH_BOLA_ROUTE207_IRON	escala da caixa 64x32 da matriz sobre 64x32	empurrada 2 tile(s)
-Route207	327	715	39	11	ITEM_SUPER_POTION	1	FLAG_ITEM_SINNOH_BOLA_ROUTE207_SUPER_POTION	escala da caixa 64x32 da matriz sobre 64x32	
+Route207	291	711	3	7	ITEM_POKE_BALL	1		escala da caixa 64x32 da matriz sobre 64x32	ja existe bola nossa nesta coordenada
+Route207	323	730	35	26	ITEM_REVIVE	1		escala da caixa 64x32 da matriz sobre 64x32	ja existe bola nossa nesta coordenada
+Route207	335	725	47	21	ITEM_IRON	1		escala da caixa 64x32 da matriz sobre 64x32	ja existe bola nossa nesta coordenada
+Route207	327	715	39	11	ITEM_SUPER_POTION	1		escala da caixa 64x32 da matriz sobre 64x32	ja existe bola nossa nesta coordenada
 Route207	348	727	60	23	ITEM_TIMER_BALL	1		escala da caixa 64x32 da matriz sobre 64x32	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-Route208	416	714	33	12	ITEM_ETHER	1	FLAG_ITEM_SINNOH_BOLA_ROUTE208_ETHER	escala da caixa 64x32 da matriz sobre 68x38	empurrada 1 tile(s)
+Route208	416	714	34	11	ITEM_ETHER	1		escala da caixa 64x32 da matriz sobre 68x38	ja existe bola nossa nesta coordenada
 Route208	401	705	18	1	ITEM_CARBOS	1		escala da caixa 64x32 da matriz sobre 68x38	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-Route208	399	720	15	19	ITEM_GREAT_BALL	1	FLAG_ITEM_SINNOH_BOLA_ROUTE208_GREAT_BALL	escala da caixa 64x32 da matriz sobre 68x38	
-Route209	527	708	13	42	ITEM_GREAT_BALL	1	FLAG_ITEM_SINNOH_BOLA_ROUTE209_GREAT_BALL	escala da caixa 64x64 da matriz sobre 68x72	empurrada 2 tile(s)
-Route209	557	720	47	55	ITEM_HYPER_POTION	1	FLAG_ITEM_SINNOH_BOLA_ROUTE209_HYPER_POTION	escala da caixa 64x64 da matriz sobre 68x72	empurrada 1 tile(s)
-Route209	572	692	63	22	ITEM_TM47	1	FLAG_ITEM_SINNOH_BOLA_ROUTE209_TM47	escala da caixa 64x64 da matriz sobre 68x72	
+Route208	399	720	15	19	ITEM_GREAT_BALL	1		escala da caixa 64x32 da matriz sobre 68x38	ja existe bola nossa nesta coordenada
+Route209	527	708	15	40	ITEM_GREAT_BALL	1		escala da caixa 64x64 da matriz sobre 68x72	ja existe bola nossa nesta coordenada
+Route209	557	720	47	54	ITEM_HYPER_POTION	1		escala da caixa 64x64 da matriz sobre 68x72	ja existe bola nossa nesta coordenada
+Route209	572	692	63	22	ITEM_TM47	1		escala da caixa 64x64 da matriz sobre 68x72	ja existe bola nossa nesta coordenada
 Route209	548	674	38	2	ITEM_CALCIUM	1		escala da caixa 64x64 da matriz sobre 68x72	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 Route209	568	726	59	60	ITEM_TM19	1		escala da caixa 64x64 da matriz sobre 68x72	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-Route209	556	703	47	36	ITEM_ETHER	1	FLAG_ITEM_SINNOH_BOLA_ROUTE209_ETHER	escala da caixa 64x64 da matriz sobre 68x72	empurrada 2 tile(s)
-Route209LostTower2F	8	7	8	7	ITEM_OVAL_STONE	1	FLAG_ITEM_SINNOH_BOLA_ROUTE209LOSTTOWER2F_OVAL_STONE	identidade (coordenada da fonte ja local e dentro do layout)	
-Route209LostTower3F	1	13	1	13	ITEM_REVIVE	1	FLAG_ITEM_SINNOH_BOLA_ROUTE209LOSTTOWER3F_REVIVE	identidade (coordenada da fonte ja local e dentro do layout)	
-Route209LostTower4F	6	12	6	12	ITEM_TM27	1	FLAG_ITEM_SINNOH_BOLA_ROUTE209LOSTTOWER4F_TM27	identidade (coordenada da fonte ja local e dentro do layout)	
-Route210_North	527	535	47	19	ITEM_SMOKE_BALL	1	FLAG_ITEM_SINNOH_BOLA_ROUTE210NORTH_SMOKE_BALL	escala da caixa 96x32 da matriz sobre 99x29	empurrada 1 tile(s)
+Route209	556	703	46	34	ITEM_ETHER	1		escala da caixa 64x64 da matriz sobre 68x72	ja existe bola nossa nesta coordenada
+Route209LostTower2F	8	7	8	7	ITEM_OVAL_STONE	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+Route209LostTower3F	1	13	1	13	ITEM_REVIVE	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+Route209LostTower4F	6	12	6	12	ITEM_TM27	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+Route210_North	527	535	48	20	ITEM_SMOKE_BALL	1		escala da caixa 96x32 da matriz sobre 99x29	ja existe bola nossa nesta coordenada
 Route210_North	497	533	17	18	ITEM_WAVE_INCENSE	1		escala da caixa 96x32 da matriz sobre 99x29	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 Route210_North	493	540	13	25	ITEM_TM30	1		escala da caixa 96x32 da matriz sobre 99x29	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-Route210_North	562	526	84	12	ITEM_ZINC	1	FLAG_ITEM_SINNOH_BOLA_ROUTE210NORTH_ZINC	escala da caixa 96x32 da matriz sobre 99x29	
-Route210_North	551	536	73	21	ITEM_RED_SHARD	1	FLAG_ITEM_SINNOH_BOLA_ROUTE210NORTH_RED_SHARD	escala da caixa 96x32 da matriz sobre 99x29	
+Route210_North	562	526	84	12	ITEM_ZINC	1		escala da caixa 96x32 da matriz sobre 99x29	ja existe bola nossa nesta coordenada
+Route210_North	551	536	73	21	ITEM_RED_SHARD	1		escala da caixa 96x32 da matriz sobre 99x29	ja existe bola nossa nesta coordenada
 Route210_South	546	578	2	33	ITEM_MAX_REPEL	1		escala da caixa 32x96 da matriz sobre 42x94	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 Route210_South	554	598	13	52	ITEM_SUPER_REPEL	1		escala da caixa 32x96 da matriz sobre 42x94	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-Route210_South	575	546	39	2	ITEM_NEST_BALL	1	FLAG_ITEM_SINNOH_BOLA_ROUTE210SOUTH_NEST_BALL	escala da caixa 32x96 da matriz sobre 42x94	empurrada 2 tile(s)
-Route210_South	562	565	22	19	ITEM_HYPER_POTION	1	FLAG_ITEM_SINNOH_BOLA_ROUTE210SOUTH_HYPER_POTION	escala da caixa 32x96 da matriz sobre 42x94	empurrada 1 tile(s)
-Route211_East	424	514	8	1	ITEM_TM29	1	FLAG_ITEM_SINNOH_BOLA_ROUTE211EAST_TM29	escala da caixa 32x32 da matriz sobre 32x32	empurrada 1 tile(s)
-Route211_East	433	535	17	23	ITEM_CARBOS	1	FLAG_ITEM_SINNOH_BOLA_ROUTE211EAST_CARBOS	escala da caixa 32x32 da matriz sobre 32x32	
-Route211_West	368	535	16	18	ITEM_TM12	1	FLAG_ITEM_SINNOH_BOLA_ROUTE211WEST_TM12	escala da caixa 32x32 da matriz sobre 36x28	empurrada 2 tile(s)
-Route212_North	456	791	8	60	ITEM_ROSE_INCENSE	1	FLAG_ITEM_SINNOH_BOLA_ROUTE212NORTH_ROSE_INCENSE	escala da caixa 32x96 da matriz sobre 34x100	empurrada 3 tile(s)
-Route212_North	450	777	2	43	ITEM_TM11	1	FLAG_ITEM_SINNOH_BOLA_ROUTE212NORTH_TM11	escala da caixa 32x96 da matriz sobre 34x100	empurrada 1 tile(s)
-Route212_North	459	821	12	88	ITEM_ELIXIR	1	FLAG_ITEM_SINNOH_BOLA_ROUTE212NORTH_ELIXIR	escala da caixa 32x96 da matriz sobre 34x100	empurrada 1 tile(s)
-Route212_North	476	768	30	35	ITEM_GREEN_SHARD	1	FLAG_ITEM_SINNOH_BOLA_ROUTE212NORTH_GREEN_SHARD	escala da caixa 32x96 da matriz sobre 34x100	empurrada 2 tile(s)
-Route212_North	461	766	11	29	ITEM_IRON	1	FLAG_ITEM_SINNOH_BOLA_ROUTE212NORTH_IRON	escala da caixa 32x96 da matriz sobre 34x100	empurrada 2 tile(s)
-Route212_South	455	860	8	28	ITEM_FULL_HEAL	1	FLAG_ITEM_SINNOH_BOLA_ROUTE212SOUTH_FULL_HEAL	escala da caixa 128x32 da matriz sobre 130x34	empurrada 1 tile(s)
-Route212_South	475	852	26	20	ITEM_TM84	1	FLAG_ITEM_SINNOH_BOLA_ROUTE212SOUTH_TM84	escala da caixa 128x32 da matriz sobre 130x34	empurrada 1 tile(s)
-Route212_South	507	846	60	12	ITEM_TM62	1	FLAG_ITEM_SINNOH_BOLA_ROUTE212SOUTH_TM62	escala da caixa 128x32 da matriz sobre 130x34	empurrada 2 tile(s)
-Route212_South	522	842	74	13	ITEM_ZINC	1	FLAG_ITEM_SINNOH_BOLA_ROUTE212SOUTH_ZINC	escala da caixa 128x32 da matriz sobre 130x34	empurrada 3 tile(s)
+Route210_South	575	546	41	1	ITEM_NEST_BALL	1		escala da caixa 32x96 da matriz sobre 42x94	ja existe bola nossa nesta coordenada
+Route210_South	562	565	23	20	ITEM_HYPER_POTION	1		escala da caixa 32x96 da matriz sobre 42x94	ja existe bola nossa nesta coordenada
+Route211_East	424	514	8	2	ITEM_TM29	1		escala da caixa 32x32 da matriz sobre 32x32	ja existe bola nossa nesta coordenada
+Route211_East	433	535	17	23	ITEM_CARBOS	1		escala da caixa 32x32 da matriz sobre 32x32	ja existe bola nossa nesta coordenada
+Route211_West	368	535	18	20	ITEM_TM12	1		escala da caixa 32x32 da matriz sobre 36x28	ja existe bola nossa nesta coordenada
+Route212_North	456	791	8	57	ITEM_ROSE_INCENSE	1		escala da caixa 32x96 da matriz sobre 34x100	ja existe bola nossa nesta coordenada
+Route212_North	450	777	2	42	ITEM_TM11	1		escala da caixa 32x96 da matriz sobre 34x100	ja existe bola nossa nesta coordenada
+Route212_North	459	821	11	88	ITEM_ELIXIR	1		escala da caixa 32x96 da matriz sobre 34x100	ja existe bola nossa nesta coordenada
+Route212_North	476	768	29	33	ITEM_GREEN_SHARD	1		escala da caixa 32x96 da matriz sobre 34x100	ja existe bola nossa nesta coordenada
+Route212_North	461	766	13	31	ITEM_IRON	1		escala da caixa 32x96 da matriz sobre 34x100	ja existe bola nossa nesta coordenada
+Route212_South	455	860	7	29	ITEM_FULL_HEAL	1		escala da caixa 128x32 da matriz sobre 130x34	ja existe bola nossa nesta coordenada
+Route212_South	475	852	27	21	ITEM_TM84	1		escala da caixa 128x32 da matriz sobre 130x34	ja existe bola nossa nesta coordenada
+Route212_South	507	846	59	14	ITEM_TM62	1		escala da caixa 128x32 da matriz sobre 130x34	ja existe bola nossa nesta coordenada
+Route212_South	522	842	75	10	ITEM_ZINC	1		escala da caixa 128x32 da matriz sobre 130x34	ja existe bola nossa nesta coordenada
 Route212_South	545	835	98	3	ITEM_HYPER_POTION	1		escala da caixa 128x32 da matriz sobre 130x34	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-Route212_South	547	862	100	31	ITEM_TM06	1	FLAG_ITEM_SINNOH_BOLA_ROUTE212SOUTH_TM06	escala da caixa 128x32 da matriz sobre 130x34	
-Route212_South	558	844	110	11	ITEM_REVIVE	1	FLAG_ITEM_SINNOH_BOLA_ROUTE212SOUTH_REVIVE	escala da caixa 128x32 da matriz sobre 130x34	empurrada 1 tile(s)
-Route212_South	531	849	84	18	ITEM_ELIXIR	1	FLAG_ITEM_SINNOH_BOLA_ROUTE212SOUTH_ELIXIR	escala da caixa 128x32 da matriz sobre 130x34	
-Route212_South	452	840	6	7	ITEM_BLUE_SHARD	1	FLAG_ITEM_SINNOH_BOLA_ROUTE212SOUTH_BLUE_SHARD	escala da caixa 128x32 da matriz sobre 130x34	empurrada 2 tile(s)
-Route213	677	831	39	28	ITEM_TM40	1	FLAG_ITEM_SINNOH_BOLA_ROUTE213_TM40	escala da caixa 96x64 da matriz sobre 100x60	empurrada 1 tile(s)
-Route213	700	818	62	16	ITEM_YELLOW_SHARD	1	FLAG_ITEM_SINNOH_BOLA_ROUTE213_YELLOW_SHARD	escala da caixa 96x64 da matriz sobre 100x60	
+Route212_South	547	862	100	31	ITEM_TM06	1		escala da caixa 128x32 da matriz sobre 130x34	ja existe bola nossa nesta coordenada
+Route212_South	558	844	111	12	ITEM_REVIVE	1		escala da caixa 128x32 da matriz sobre 130x34	ja existe bola nossa nesta coordenada
+Route212_South	531	849	84	18	ITEM_ELIXIR	1		escala da caixa 128x32 da matriz sobre 130x34	ja existe bola nossa nesta coordenada
+Route212_South	452	840	4	8	ITEM_BLUE_SHARD	1		escala da caixa 128x32 da matriz sobre 130x34	ja existe bola nossa nesta coordenada
+Route213	677	831	38	29	ITEM_TM40	1		escala da caixa 96x64 da matriz sobre 100x60	ja existe bola nossa nesta coordenada
+Route213	700	818	62	16	ITEM_YELLOW_SHARD	1		escala da caixa 96x64 da matriz sobre 100x60	ja existe bola nossa nesta coordenada
 Route213	686	851	47	47	ITEM_MAX_REVIVE	1		escala da caixa 96x64 da matriz sobre 100x60	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 Route213	726	837	89	34	ITEM_WATER_STONE	1		escala da caixa 96x64 da matriz sobre 100x60	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 Route213	689	826	51	24	ITEM_TM05	1		escala da caixa 96x64 da matriz sobre 100x60	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 Route213	690	811	52	10	ITEM_PP_UP	1		escala da caixa 96x64 da matriz sobre 100x60	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 Route213	717	813	80	12	ITEM_PROTEIN	1		escala da caixa 96x64 da matriz sobre 100x60	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 Route214	731	648	37	7	ITEM_RARE_CANDY	1		escala da caixa 32x96 da matriz sobre 44x91	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-Route214	725	678	29	36	ITEM_MAX_REPEL	1	FLAG_ITEM_SINNOH_BOLA_ROUTE214_MAX_REPEL	escala da caixa 32x96 da matriz sobre 44x91	
-Route214	722	727	23	83	ITEM_RED_SHARD	1	FLAG_ITEM_SINNOH_BOLA_ROUTE214_RED_SHARD	escala da caixa 32x96 da matriz sobre 44x91	empurrada 1 tile(s)
-Route214	724	701	26	56	ITEM_BIG_ROOT	1	FLAG_ITEM_SINNOH_BOLA_ROUTE214_BIG_ROOT	escala da caixa 32x96 da matriz sobre 44x91	empurrada 1 tile(s)
-Route214	711	687	9	44	ITEM_MAGMARIZER	1	FLAG_ITEM_SINNOH_BOLA_ROUTE214_MAGMARIZER	escala da caixa 32x96 da matriz sobre 44x91	
-Route215	626	599	51	29	ITEM_HYPER_POTION	1	FLAG_ITEM_SINNOH_BOLA_ROUTE215_HYPER_POTION	escala da caixa 96x32 da matriz sobre 100x42	empurrada 1 tile(s)
-Route215	637	596	63	26	ITEM_FULL_HEAL	1	FLAG_ITEM_SINNOH_BOLA_ROUTE215_FULL_HEAL	escala da caixa 96x32 da matriz sobre 100x42	
-Route215	600	591	25	19	ITEM_MAX_ETHER	1	FLAG_ITEM_SINNOH_BOLA_ROUTE215_MAX_ETHER	escala da caixa 96x32 da matriz sobre 100x42	
-Route215	661	587	86	12	ITEM_TM34	1	FLAG_ITEM_SINNOH_BOLA_ROUTE215_TM34	escala da caixa 96x32 da matriz sobre 100x42	empurrada 2 tile(s)
-Route215	620	580	44	6	ITEM_FIST_PLATE	1	FLAG_ITEM_SINNOH_BOLA_ROUTE215_FIST_PLATE	escala da caixa 96x32 da matriz sobre 100x42	empurrada 1 tile(s)
+Route214	725	678	29	36	ITEM_MAX_REPEL	1		escala da caixa 32x96 da matriz sobre 44x91	ja existe bola nossa nesta coordenada
+Route214	722	727	24	82	ITEM_RED_SHARD	1		escala da caixa 32x96 da matriz sobre 44x91	ja existe bola nossa nesta coordenada
+Route214	724	701	27	57	ITEM_BIG_ROOT	1		escala da caixa 32x96 da matriz sobre 44x91	ja existe bola nossa nesta coordenada
+Route214	711	687	9	44	ITEM_MAGMARIZER	1		escala da caixa 32x96 da matriz sobre 44x91	ja existe bola nossa nesta coordenada
+Route215	626	599	52	30	ITEM_HYPER_POTION	1		escala da caixa 96x32 da matriz sobre 100x42	ja existe bola nossa nesta coordenada
+Route215	637	596	63	26	ITEM_FULL_HEAL	1		escala da caixa 96x32 da matriz sobre 100x42	ja existe bola nossa nesta coordenada
+Route215	600	591	25	19	ITEM_MAX_ETHER	1		escala da caixa 96x32 da matriz sobre 100x42	ja existe bola nossa nesta coordenada
+Route215	661	587	88	14	ITEM_TM34	1		escala da caixa 96x32 da matriz sobre 100x42	ja existe bola nossa nesta coordenada
+Route215	620	580	45	5	ITEM_FIST_PLATE	1		escala da caixa 96x32 da matriz sobre 100x42	ja existe bola nossa nesta coordenada
 Route215	660	576	87	0	ITEM_HP_UP	1		escala da caixa 96x32 da matriz sobre 100x42	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 Route216	377	392	89	10	ITEM_TM13	1		escala da caixa 96x32 da matriz sobre 96x40	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 Route216	342	396	54	15	ITEM_FULL_HEAL	1		escala da caixa 96x32 da matriz sobre 96x40	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
@@ -194,38 +194,38 @@ Route217	297	358	10	93	ITEM_BLUE_SHARD	1		escala da caixa 32x128 da matriz sobre
 Route217	311	350	25	86	ITEM_ULTRA_BALL	1		escala da caixa 32x128 da matriz sobre 36x118	teto de 64 templates ou teto da fonte
 Route217	316	309	31	48	ITEM_RARE_CANDY	1		escala da caixa 32x128 da matriz sobre 36x118	teto de 64 templates ou teto da fonte
 Route218	117	744	53	8	ITEM_RARE_CANDY	1		escala da caixa 64x32 da matriz sobre 64x32	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-Route218	93	759	27	21	ITEM_HYPER_POTION	1	FLAG_ITEM_SINNOH_BOLA_ROUTE218_HYPER_POTION	escala da caixa 64x32 da matriz sobre 64x32	empurrada 2 tile(s)
-Route218	104	748	39	13	ITEM_X_ACCURACY	1	FLAG_ITEM_SINNOH_BOLA_ROUTE218_X_ACCURACY	escala da caixa 64x32 da matriz sobre 64x32	empurrada 1 tile(s)
+Route218	93	759	29	23	ITEM_HYPER_POTION	1		escala da caixa 64x32 da matriz sobre 64x32	ja existe bola nossa nesta coordenada
+Route218	104	748	40	12	ITEM_X_ACCURACY	1		escala da caixa 64x32 da matriz sobre 64x32	ja existe bola nossa nesta coordenada
 Route219	169	877	10	12	ITEM_ANTIDOTE	1		escala da caixa 32x32 da matriz sobre 36x30 | alcance nao semeavel (sem warp), so andavel	teto de 64 templates ou teto da fonte
 Route220	199	917	37	19	ITEM_CARBOS	1		escala da caixa 64x32 da matriz sobre 62x30 | alcance nao semeavel (sem warp), so andavel	teto de 64 templates ou teto da fonte
 Route220	171	918	10	20	ITEM_SPLASH_PLATE	1		escala da caixa 64x32 da matriz sobre 62x30 | alcance nao semeavel (sem warp), so andavel	teto de 64 templates ou teto da fonte
 Route220	180	910	19	13	ITEM_MAX_REPEL	1		escala da caixa 64x32 da matriz sobre 62x30 | alcance nao semeavel (sem warp), so andavel	teto de 64 templates ou teto da fonte
-Route221	239	908	18	18	ITEM_PROTEIN	1	FLAG_ITEM_SINNOH_BOLA_ROUTE221_PROTEIN	escala da caixa 96x32 da matriz sobre 96x40	empurrada 3 tile(s)
-Route221	295	922	70	31	ITEM_TM81	1	FLAG_ITEM_SINNOH_BOLA_ROUTE221_TM81	escala da caixa 96x32 da matriz sobre 96x40	empurrada 1 tile(s)
-Route221	256	916	30	23	ITEM_ULTRA_BALL	1	FLAG_ITEM_SINNOH_BOLA_ROUTE221_ULTRA_BALL	escala da caixa 96x32 da matriz sobre 96x40	empurrada 2 tile(s)
-Route221	250	902	26	8	ITEM_PURE_INCENSE	1	FLAG_ITEM_SINNOH_BOLA_ROUTE221_PURE_INCENSE	escala da caixa 96x32 da matriz sobre 96x40	empurrada 1 tile(s)
-Route222	785	781	49	14	ITEM_FULL_RESTORE	1		translacao provada por 3 warps, d=(736,767)	teto de 64 templates ou teto da fonte
-Route222	816	783	80	16	ITEM_CARBOS	1		translacao provada por 3 warps, d=(736,767)	teto de 64 templates ou teto da fonte
-Route222	809	790	73	23	ITEM_QUICK_BALL	1		translacao provada por 3 warps, d=(736,767)	teto de 64 templates ou teto da fonte
-Route222	798	782	62	15	ITEM_PP_UP	1		translacao provada por 3 warps, d=(736,767)	teto de 64 templates ou teto da fonte
+Route221	239	908	15	15	ITEM_PROTEIN	1		escala da caixa 96x32 da matriz sobre 96x40	ja existe bola nossa nesta coordenada
+Route221	295	922	71	32	ITEM_TM81	1		escala da caixa 96x32 da matriz sobre 96x40	ja existe bola nossa nesta coordenada
+Route221	256	916	32	25	ITEM_ULTRA_BALL	1		escala da caixa 96x32 da matriz sobre 96x40	ja existe bola nossa nesta coordenada
+Route221	250	902	26	7	ITEM_PURE_INCENSE	1		escala da caixa 96x32 da matriz sobre 96x40	ja existe bola nossa nesta coordenada
+Route222	785	781	49	14	ITEM_FULL_RESTORE	1		translacao provada por 3 warps, d=(736,767)	ja existe bola nossa nesta coordenada
+Route222	816	783	80	16	ITEM_CARBOS	1		translacao provada por 3 warps, d=(736,767)	ja existe bola nossa nesta coordenada
+Route222	809	790	73	23	ITEM_QUICK_BALL	1		translacao provada por 3 warps, d=(736,767)	ja existe bola nossa nesta coordenada
+Route222	798	782	62	15	ITEM_PP_UP	1		translacao provada por 3 warps, d=(736,767)	ja existe bola nossa nesta coordenada
 Route223	840	684	8	73	ITEM_TM18	1		escala da caixa 32x128 da matriz sobre 34x124 | alcance nao semeavel (sem warp), so andavel	teto de 64 templates ou teto da fonte
 Route223	850	649	19	39	ITEM_ULTRA_BALL	1		escala da caixa 32x128 da matriz sobre 34x124 | alcance nao semeavel (sem warp), so andavel	teto de 64 templates ou teto da fonte
 Route223	842	636	10	27	ITEM_DIVE_BALL	1		escala da caixa 32x128 da matriz sobre 34x124 | alcance nao semeavel (sem warp), so andavel	teto de 64 templates ou teto da fonte
 Route223	858	630	27	21	ITEM_RARE_CANDY	1		escala da caixa 32x128 da matriz sobre 34x124 | alcance nao semeavel (sem warp), so andavel	teto de 64 templates ou teto da fonte
 Route224	884	570	20	88	ITEM_RAZOR_CLAW	1		escala da caixa 64x96 da matriz sobre 64x94	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-Route224	869	530	5	49	ITEM_RARE_CANDY	1	FLAG_ITEM_SINNOH_BOLA_ROUTE224_RARE_CANDY	escala da caixa 64x96 da matriz sobre 64x94	empurrada 1 tile(s)
-Route224	907	509	43	28	ITEM_DESTINY_KNOT	1	FLAG_ITEM_SINNOH_BOLA_ROUTE224_DESTINY_KNOT	escala da caixa 64x96 da matriz sobre 64x94	
+Route224	869	530	5	48	ITEM_RARE_CANDY	1		escala da caixa 64x96 da matriz sobre 64x94	ja existe bola nossa nesta coordenada
+Route224	907	509	43	28	ITEM_DESTINY_KNOT	1		escala da caixa 64x96 da matriz sobre 64x94	ja existe bola nossa nesta coordenada
 Route224	923	503	59	22	ITEM_REPEAT_BALL	1		escala da caixa 64x96 da matriz sobre 64x94	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-Route224	904	524	39	44	ITEM_PP_MAX	1	FLAG_ITEM_SINNOH_BOLA_ROUTE224_PP_MAX	escala da caixa 64x96 da matriz sobre 64x94	empurrada 1 tile(s)
-Route224	914	509	49	29	ITEM_ULTRA_BALL	1	FLAG_ITEM_SINNOH_BOLA_ROUTE224_ULTRA_BALL	escala da caixa 64x96 da matriz sobre 64x94	empurrada 1 tile(s)
-Route224	877	541	11	57	ITEM_UPGRADE	1	FLAG_ITEM_SINNOH_BOLA_ROUTE224_UPGRADE	escala da caixa 64x96 da matriz sobre 64x94	empurrada 2 tile(s)
-RuinManiacCaveLong	58	3	58	3	ITEM_TM28	1	FLAG_ITEM_SINNOH_BOLA_RUINMANIACCAVELONG_TM28	identidade (coordenada da fonte ja local e dentro do layout)	
-RuinManiacCaveShort	4	3	4	3	ITEM_TM28	1	FLAG_ITEM_SINNOH_BOLA_RUINMANIACCAVESHORT_TM28	identidade (coordenada da fonte ja local e dentro do layout)	
+Route224	904	524	40	43	ITEM_PP_MAX	1		escala da caixa 64x96 da matriz sobre 64x94	ja existe bola nossa nesta coordenada
+Route224	914	509	50	28	ITEM_ULTRA_BALL	1		escala da caixa 64x96 da matriz sobre 64x94	ja existe bola nossa nesta coordenada
+Route224	877	541	13	59	ITEM_UPGRADE	1		escala da caixa 64x96 da matriz sobre 64x94	ja existe bola nossa nesta coordenada
+RuinManiacCaveLong	58	3	58	3	ITEM_TM28	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+RuinManiacCaveShort	4	3	4	3	ITEM_TM28	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
 SinnohVictoryRoad1F	42	48	42	48	ITEM_RARE_CANDY	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-SinnohVictoryRoad1F	28	46	28	46	ITEM_MAX_REPEL	1	FLAG_ITEM_SINNOH_BOLA_SINNOHVICTORYROAD1F_MAX_REPEL	identidade (coordenada da fonte ja local e dentro do layout)	
-SinnohVictoryRoad1F	7	61	7	61	ITEM_TM41	1	FLAG_ITEM_SINNOH_BOLA_SINNOHVICTORYROAD1F_TM41	identidade (coordenada da fonte ja local e dentro do layout)	
-SinnohVictoryRoad1F	13	38	13	38	ITEM_RAZOR_CLAW	1	FLAG_ITEM_SINNOH_BOLA_SINNOHVICTORYROAD1F_RAZOR_CLAW	identidade (coordenada da fonte ja local e dentro do layout)	
-SinnohVictoryRoad1F	44	36	44	36	ITEM_ZINC	1	FLAG_ITEM_SINNOH_BOLA_SINNOHVICTORYROAD1F_ZINC	identidade (coordenada da fonte ja local e dentro do layout)	
+SinnohVictoryRoad1F	28	46	28	46	ITEM_MAX_REPEL	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+SinnohVictoryRoad1F	7	61	7	61	ITEM_TM41	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+SinnohVictoryRoad1F	13	38	13	38	ITEM_RAZOR_CLAW	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+SinnohVictoryRoad1F	44	36	44	36	ITEM_ZINC	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
 SinnohVictoryRoad2F	16	4	16	4	ITEM_TM79	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 SinnohVictoryRoad2F	4	5	4	5	ITEM_MAX_ELIXIR	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 SinnohVictoryRoad2F	34	22	34	22	ITEM_FULL_RESTORE	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
@@ -233,40 +233,40 @@ SinnohVictoryRoad2F	43	12	43	12	ITEM_TM71	1		identidade (coordenada da fonte ja 
 SinnohVictoryRoadB1F	13	18	13	18	ITEM_TM59	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 SinnohVictoryRoadB1F	33	16	33	16	ITEM_ULTRA_BALL	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 SinnohVictoryRoadB1F	35	39	35	39	ITEM_CALCIUM	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-SnowpointCity	372	245	21	56	ITEM_ULTRA_BALL	1	FLAG_ITEM_SINNOH_BOLA_SNOWPOINTCITY_ULTRA_BALL	escala da caixa 32x64 da matriz sobre 34x68	
-SnowpointTempleB1F	12	13	12	13	ITEM_CALCIUM	1	FLAG_ITEM_SINNOH_BOLA_SNOWPOINTTEMPLEB1F_CALCIUM	translacao provada por 2 warps, d=(0,0)	
-SnowpointTempleB4F	11	18	11	18	ITEM_FULL_HEAL	1	FLAG_ITEM_SINNOH_BOLA_SNOWPOINTTEMPLEB4F_FULL_HEAL	identidade (coordenada da fonte ja local e dentro do layout)	
-SolaceonRuinsRoom7	4	9	4	9	ITEM_MIND_PLATE	1	FLAG_ITEM_SINNOH_BOLA_SOLACEONRUINSROOM7_MIND_PLATE	identidade (coordenada da fonte ja local e dentro do layout)	
-SolaceonRuinsRoom7	6	9	6	9	ITEM_ODD_INCENSE	1	FLAG_ITEM_SINNOH_BOLA_SOLACEONRUINSROOM7_ODD_INCENSE	identidade (coordenada da fonte ja local e dentro do layout)	
-SolaceonRuinsRoom7	4	7	4	7	ITEM_NUGGET	1	FLAG_ITEM_SINNOH_BOLA_SOLACEONRUINSROOM7_NUGGET	identidade (coordenada da fonte ja local e dentro do layout)	
-SolaceonRuinsRoom7	6	7	6	7	ITEM_HM05	1	FLAG_ITEM_SINNOH_BOLA_SOLACEONRUINSROOM7_HM05	identidade (coordenada da fonte ja local e dentro do layout)	
-SolaceonTown	584	662	39	28	ITEM_PP_UP	1	FLAG_ITEM_SINNOH_BOLA_SOLACEONTOWN_PP_UP	escala da caixa 64x32 da matriz sobre 66x44	empurrada 2 tile(s)
-SolaceonTown	594	653	52	20	ITEM_RARE_CANDY	1	FLAG_ITEM_SINNOH_BOLA_SOLACEONTOWN_RARE_CANDY	escala da caixa 64x32 da matriz sobre 66x44	empurrada 2 tile(s)
-SunyshoreCity	881	779	51	45	ITEM_THUNDERSTONE	1	FLAG_ITEM_SINNOH_BOLA_SUNYSHORECITY_THUNDERSTONE	escala da caixa 64x64 da matriz sobre 70x64	empurrada 2 tile(s)
+SnowpointCity	372	245	21	56	ITEM_ULTRA_BALL	1		escala da caixa 32x64 da matriz sobre 34x68	ja existe bola nossa nesta coordenada
+SnowpointTempleB1F	12	13	12	13	ITEM_CALCIUM	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+SnowpointTempleB4F	11	18	11	18	ITEM_FULL_HEAL	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+SolaceonRuinsRoom7	4	9	4	9	ITEM_MIND_PLATE	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+SolaceonRuinsRoom7	6	9	6	9	ITEM_ODD_INCENSE	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+SolaceonRuinsRoom7	4	7	4	7	ITEM_NUGGET	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+SolaceonRuinsRoom7	6	7	6	7	ITEM_HM05	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+SolaceonTown	584	662	41	30	ITEM_PP_UP	1		escala da caixa 64x32 da matriz sobre 66x44	ja existe bola nossa nesta coordenada
+SolaceonTown	594	653	51	18	ITEM_RARE_CANDY	1		escala da caixa 64x32 da matriz sobre 66x44	ja existe bola nossa nesta coordenada
+SunyshoreCity	881	779	53	43	ITEM_THUNDERSTONE	1		escala da caixa 64x64 da matriz sobre 70x64	ja existe bola nossa nesta coordenada
 TeamGalacticEternaBuilding_2F	3	12	0	12	ITEM_X_SPEED	1		escala da caixa 17x11 da matriz sobre 13x13	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 TeamGalacticEternaBuilding_3F	10	8	2	12	ITEM_X_SPECIAL	1		escala da caixa 11x7 da matriz sobre 13x13	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-TeamGalacticEternaBuilding_4F	9	6	1	2	ITEM_REVIVE	1	FLAG_ITEM_SINNOH_BOLA_TEAMGALACTICETERNABUILDING4F_REVIVE	escala da caixa 14x6 da matriz sobre 13x13	empurrada 1 tile(s)
-TeamGalacticEternaBuilding_4F	8	6	1	3	ITEM_BLUE_SHARD	1	FLAG_ITEM_SINNOH_BOLA_TEAMGALACTICETERNABUILDING4F_BLUE_SHARD	escala da caixa 14x6 da matriz sobre 13x13	empurrada 1 tile(s)
+TeamGalacticEternaBuilding_4F	9	6	0	2	ITEM_REVIVE	1		escala da caixa 14x6 da matriz sobre 13x13	ja existe bola nossa nesta coordenada
+TeamGalacticEternaBuilding_4F	8	6	0	2	ITEM_BLUE_SHARD	1		escala da caixa 14x6 da matriz sobre 13x13	ja existe bola nossa nesta coordenada
 TeamGalacticEternaBuilding_4F	21	5	12	0	ITEM_UPGRADE	1		escala da caixa 14x6 da matriz sobre 13x13	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 ValleyWindworks	242	644	18	12	ITEM_TM24	1		escala da caixa 32x32 da matriz sobre 32x99	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 ValleyWindworks	246	660	22	63	ITEM_POTION	1		escala da caixa 32x32 da matriz sobre 32x99	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 ValleyWindworks	232	649	8	28	ITEM_ELECTIRIZER	1		escala da caixa 32x32 da matriz sobre 32x99	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-ValorLakefront	712	783	37	46	ITEM_TM85	1	FLAG_ITEM_SINNOH_BOLA_VALORLAKEFRONT_TM85	escala da caixa 64x64 da matriz sobre 56x66	empurrada 3 tile(s)
-ValorLakefront	717	748	38	13	ITEM_ULTRA_BALL	1	FLAG_ITEM_SINNOH_BOLA_VALORLAKEFRONT_ULTRA_BALL	escala da caixa 64x64 da matriz sobre 56x66	empurrada 1 tile(s)
-ValorLakefront	712	780	37	47	ITEM_IRON	1	FLAG_ITEM_SINNOH_BOLA_VALORLAKEFRONT_IRON	escala da caixa 64x64 da matriz sobre 56x66	empurrada 3 tile(s)
-VeilstoneCity	690	613	19	38	ITEM_FULL_INCENSE	1	FLAG_ITEM_SINNOH_BOLA_VEILSTONECITY_FULL_INCENSE	escala da caixa 64x64 da matriz sobre 66x68	empurrada 1 tile(s)
+ValorLakefront	712	783	34	48	ITEM_TM85	1		escala da caixa 64x64 da matriz sobre 56x66	ja existe bola nossa nesta coordenada
+ValorLakefront	717	748	39	12	ITEM_ULTRA_BALL	1		escala da caixa 64x64 da matriz sobre 56x66	ja existe bola nossa nesta coordenada
+ValorLakefront	712	780	34	45	ITEM_IRON	1		escala da caixa 64x64 da matriz sobre 56x66	ja existe bola nossa nesta coordenada
+VeilstoneCity	690	613	18	39	ITEM_FULL_INCENSE	1		escala da caixa 64x64 da matriz sobre 66x68	ja existe bola nossa nesta coordenada
 VeilstoneCity	710	584	39	8	ITEM_RARE_CANDY	1		escala da caixa 64x64 da matriz sobre 66x68	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-VeilstoneCity	693	584	18	11	ITEM_STAR_PIECE	1	FLAG_ITEM_SINNOH_BOLA_VEILSTONECITY_STAR_PIECE	escala da caixa 64x64 da matriz sobre 66x68	empurrada 3 tile(s)
-VeilstoneCity_GalacticWarehouse	7	4	1	1	ITEM_DUSK_STONE	1	FLAG_ITEM_SINNOH_BOLA_VEILSTONECITYGALACTICWAREHOUSE_DUSK_STONE	escala da caixa 7x5 da matriz sobre 15x7	empurrada 1 tile(s)
-VeilstoneCity_GalacticWarehouse	13	8	14	6	ITEM_HM02	1	FLAG_ITEM_SINNOH_BOLA_VEILSTONECITYGALACTICWAREHOUSE_HM02	escala da caixa 7x5 da matriz sobre 15x7	
-VictoryRoad1FRoom2	44	9	44	9	ITEM_NUGGET	1	FLAG_ITEM_SINNOH_BOLA_VICTORYROAD1FROOM2_NUGGET	identidade (coordenada da fonte ja local e dentro do layout)	
-VictoryRoad1FRoom2	14	7	14	7	ITEM_FULL_RESTORE	1	FLAG_ITEM_SINNOH_BOLA_VICTORYROAD1FROOM2_FULL_RESTORE	identidade (coordenada da fonte ja local e dentro do layout)	
-VictoryRoad1FRoom2	14	4	14	4	ITEM_DUSK_STONE	1	FLAG_ITEM_SINNOH_BOLA_VICTORYROAD1FROOM2_DUSK_STONE	identidade (coordenada da fonte ja local e dentro do layout)	
+VeilstoneCity	693	584	21	8	ITEM_STAR_PIECE	1		escala da caixa 64x64 da matriz sobre 66x68	ja existe bola nossa nesta coordenada
+VeilstoneCity_GalacticWarehouse	7	4	0	0	ITEM_DUSK_STONE	1		escala da caixa 7x5 da matriz sobre 15x7	ja existe bola nossa nesta coordenada
+VeilstoneCity_GalacticWarehouse	13	8	14	6	ITEM_HM02	1		escala da caixa 7x5 da matriz sobre 15x7	ja existe bola nossa nesta coordenada
+VictoryRoad1FRoom2	44	9	44	9	ITEM_NUGGET	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+VictoryRoad1FRoom2	14	7	14	7	ITEM_FULL_RESTORE	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+VictoryRoad1FRoom2	14	4	14	4	ITEM_DUSK_STONE	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
 VictoryRoad1FRoom2	27	60	27	60	ITEM_LEFTOVERS	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 WaywardCave1F	56	55	56	55	ITEM_TM26	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
-WaywardCave1F	8	44	8	44	ITEM_TM32	1	FLAG_ITEM_SINNOH_BOLA_WAYWARDCAVE1F_TM32	identidade (coordenada da fonte ja local e dentro do layout)	
-WaywardCave1F	7	15	7	15	ITEM_REVIVE	1	FLAG_ITEM_SINNOH_BOLA_WAYWARDCAVE1F_REVIVE	identidade (coordenada da fonte ja local e dentro do layout)	
-WaywardCave1F	44	15	44	15	ITEM_ESCAPE_ROPE	1	FLAG_ITEM_SINNOH_BOLA_WAYWARDCAVE1F_ESCAPE_ROPE	identidade (coordenada da fonte ja local e dentro do layout)	
+WaywardCave1F	8	44	8	44	ITEM_TM32	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+WaywardCave1F	7	15	7	15	ITEM_REVIVE	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
+WaywardCave1F	44	15	44	15	ITEM_ESCAPE_ROPE	1		identidade (coordenada da fonte ja local e dentro do layout)	ja existe bola nossa nesta coordenada
 WaywardCaveB1F	22	9	22	9	ITEM_GRIP_CLAW	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 WaywardCaveB1F	31	16	31	16	ITEM_MAX_ETHER	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)
 WaywardCaveB1F	33	8	33	8	ITEM_RARE_CANDY	1		identidade (coordenada da fonte ja local e dentro do layout)	coordenada nao cai em tile alcancavel livre (nem 1 tile ao lado)

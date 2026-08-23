@@ -455,6 +455,15 @@ void ChapterJump_AplicaCapitulo(void)
         SetMonMoveSlot(&mon, MOVE_THUNDERBOLT, 0);
         SetMonMoveSlot(&mon, MOVE_SURF, 1);
         SetMonMoveSlot(&mon, MOVE_ROCK_SMASH, 2);
+        // STRENGTH entrou em 23/08/2026, pela mesma razão do Rock Smash e no
+        // mesmo dia em que as 19 bolas de neve do ginásio de Snowpoint viraram
+        // bloco empurrável: `EventScript_StrengthBoulder` faz `checkfieldmove
+        // FIELD_MOVE_STRENGTH, TRUE`, e sem Pokémon COM o golpe nenhum caso da
+        // suíte empurra bloco nenhum. A insígnia que
+        // `IsFieldMoveUnlocked_Strength` exige é FLAG_BADGE04_GET
+        // (src/field_move.c:37), e ela já vem de graça do próprio salto, como
+        // a BADGE03 do Rock Smash. Custo de save: ZERO, mesmo motivo.
+        SetMonMoveSlot(&mon, MOVE_STRENGTH, 3);
         // Sem isto o mon nasce com maxHP 0 e chega DESMAIADO (o CreateMon
         // deste fork deixa o cálculo de stats para o chamador, como o clamp
         // de nível do LV.5 já fazia; bug pego pelo fechador do D3 em 18/08).

@@ -259,8 +259,17 @@ def main():
                 continue
             item, qtd = tab[idx]
             x, y = conv(e)
+            # RAIO, e nao 1: a guarda de idempotencia tem que ser TAO LARGA
+            # quanto o empurrao, senao ela nao reconhece a bola que ela mesma
+            # empurrou. Medido em 23/08/2026: com o raio em 1 e o empurrao em 3,
+            # cada `--aplicar` novo achava a coordenada da fonte "livre" (a bola
+            # da rodada anterior estava 2 ou 3 tiles ao lado) e gravava uma
+            # SEGUNDA bola com flag nova; duas rodadas somaram 49 duplicatas e
+            # 49 apelidos de flag gastos a toa. Mesmo defeito e mesmo conserto
+            # da familia de `pedras_sinnoh.py` no mesmo dia.
             velha = next((o for o in antigas if id(o) not in reclamados
-                          and abs(o["x"] - x) <= 1 and abs(o["y"] - y) <= 1),
+                          and abs(o["x"] - x) <= RAIO
+                          and abs(o["y"] - y) <= RAIO),
                          None)
             if velha is not None:
                 reclamados.add(id(velha))

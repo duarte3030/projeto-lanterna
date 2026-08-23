@@ -69,12 +69,18 @@ import sys
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(REPO, "dev_scripts"))
 import importa_npcs_sinnoh as I     # noqa: E402  headers, chave, APELIDOS, grade
+import arte_ginasios_sinnoh as AG   # noqa: E402  tabela de comportamento do par de tileset
 import conserta_route222 as R222    # noqa: E402  a BFS com regra de elevacao
 
 APLICAR = "--aplicar" in sys.argv
 CENSO = os.path.join(REPO, "dev_scripts", "pedras_sinnoh_censo.tsv")
 MARCA = {"origem": "pokeplatinum-pedra"}
+PLAT_EV = os.path.join(I.PLAT, "res/field/events")
 SCRIPT = "EventScript_RockSmash"
+
+# Empurrao maximo, em tiles, de um obstaculo que caiu em parede ou em tile
+# ocupado. Mesmo numero de bolas_sinnoh.py e do importador de NPC.
+RAIO_EMPURRAO = 3
 GFX = "OBJ_EVENT_GFX_BREAKABLE_ROCK"
 
 # AS TRES FAMILIAS DE OBSTACULO DE HM, acrescentadas em 22/08/2026 pela decisao
@@ -101,7 +107,26 @@ FAMILIAS = (
     ("CUT_TREE", "OBJ_EVENT_GFX_CUTTABLE_TREE", "EventScript_CutTree"),
     ("STRENGTH_BOULDER", "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
      "EventScript_StrengthBoulder"),
+    # SNOWBALL NAO ESTA AQUI, e o motivo esta medido: no ginasio de Snowpoint
+    # o chao e MB_ICE, e em gelo o motor entra em movimento forcado antes de
+    # `TryPushBoulder`, entao bloco empurravel ali seria parede permanente. A
+    # bola de neve e BATENTE de puzzle, nao obstaculo de HM, e mora em
+    # `dev_scripts/bolas_neve_sinnoh.py` com a regua do escorregao.
 )
+
+# Familias que o jogador EMPURRA em vez de destruir.
+#
+# Elas passam pelos MESMOS portoes das outras, e isso e de proposito: tratar o
+# bloco como parede permanente e MAIS duro do que a realidade (empurrar so
+# abre caminho, nunca fecha), entao quem passa no portao estrito esta provado
+# com folga. O `resolve_puzzle` existe para a pergunta INVERSA, a do condutor:
+# "existe sequencia que leva ate a Candice?". Ele nao roda por mapa no
+# `--aplicar` (seria redundante e caro), roda no `--demo`, que e onde a
+# afirmacao vive.
+EMPURRAVEIS = ("STRENGTH_BOULDER", "SNOWBALL")
+
+# MB_ICE, lido de include/constants/metatile_behaviors.h em 23/08/2026.
+MB_ICE = 32
 
 # Temps que este script NAO pode usar, e o motivo de cada uma:
 # 0x0  nao e flag, e o "sem flag" de todo objeto (ver o cabecalho).
@@ -349,6 +374,10 @@ def main():
             regra += " + portao de conectividade (22/08/2026)"
 
         W, H, g = I.grade(layouts, d["layout"])
+        _beh = AG.comportamento(L["primary_tileset"], L["secondary_tileset"])
+        tem_gelo = any(_beh(g[yy][xx] & 0x3FF) == MB_ICE
+                       for yy in range(H) for xx in range(W)
+                       if andavel(g[yy][xx]))
         alvos, soltos = linha_de_base(W, H, g, d)
         if soltos:
             stats["alvos_ja_soltos"] += soltos
@@ -358,19 +387,150 @@ def main():
         ocupados |= {(w["x"], w["y"]) for w in (d.get("warp_events") or [])}
         aceitas, novas = list(ja_pedras), []
         teto = len(ja_pedras) + min(len(livres), 64 - len(objs))
+        # IDEMPOTENCIA COM EMPURRAO: a pedra que JA ESTA no mapa tem que ser
+        # reconhecida ANTES do empurrao, e nao depois.
+        #
+        # Ate o empurrao entrar (22/08/2026), a guarda era "tile ja ocupado":
+        # a pedra da rodada anterior ocupava o tile da fonte e a nova era
+        # recusada. Com empurrao isso VIRA DEFEITO, e ele foi medido no mesmo
+        # dia: o tile estava ocupado, o empurrao achava o vizinho livre e
+        # gravava uma SEGUNDA pedra ao lado; seis rodadas seguidas somaram 235
+        # copias e a coluna `objetos` de Sinnoh passou de 100% por duplicata.
+        # A guarda agora e a mesma do `reclama` do importador de NPC: pedra
+        # nossa da MESMA familia a <= RAIO_EMPURRAO da coordenada da fonte
+        # RECLAMA aquela pedra da fonte, uma vez so (`reclamadas`), e a fonte
+        # segue em frente.
+        marcadas = [o for o in objs if o.get("origem") == MARCA["origem"]]
+        reclamadas = set()
+
+        def ja_esta(x0, y0, gfx):
+            for o in marcadas:
+                if id(o) in reclamadas or o.get("graphics_id") != gfx:
+                    continue
+                if max(abs(o["x"] - x0), abs(o["y"] - y0)) <= RAIO_EMPURRAO:
+                    reclamadas.add(id(o))
+                    return True
+            return False
+
         for e in cruas:
-            x, y = conv(e)
-            if not andavel(g[y][x]):
-                stats["fora_tile"] += 1
-                censo.append((meu, e["x"], e["z"], x, y, "", regra,
-                              diagnostico_de_parede(W, H, g, base_andavel,
-                                                    x, y)))
+            x0, y0 = conv(e)
+            if ja_esta(x0, y0, familia_de(e)[0]):
+                stats["ja_importado"] += 1
+                for c in antigo.get(meu, []):
+                    if (str(c[1]), str(c[2])) == (str(e["x"]), str(e["z"])):
+                        censo.append(c)
+                        break
                 continue
-            if (x, y) in ocupados:
-                stats["fora_ocupado"] += 1
-                censo.append((meu, e["x"], e["z"], x, y, "", regra,
-                              "tile ja ocupado por objeto ou warp"))
+            # EMPURRAO DE ATE 3 TILES, 22/08/2026, a pedido do Gui ("reposicione
+            # a <= 3 tiles o resto"). Antes daqui o obstaculo cujo tile caia em
+            # parede ou em cima de outro objeto era simplesmente recusado, e
+            # medido no censo do dia isso sozinho custava 93 obstaculos em
+            # "tile ja ocupado" e 36 em "parede macica". O raio e o MESMO de
+            # `bolas_sinnoh.py` e do importador de NPC, no mesmo mapa e na mesma
+            # grade. O que continua mandando sao os portoes DEPOIS: o tile de
+            # destino tem que ser andavel, livre, ALCANCAVEL a pe (esta em
+            # `base_andavel`) e passar por `conectado` e `sem_bolso`. Empurrar
+            # nunca afrouxa a prova de que ninguem fica preso.
+            pos = next(((x0 + dx, y0 + dy) for r in range(RAIO_EMPURRAO + 1)
+                        for dx in range(-r, r + 1) for dy in range(-r, r + 1)
+                        if max(abs(dx), abs(dy)) == r
+                        and 0 <= x0 + dx < W and 0 <= y0 + dy < H
+                        and andavel(g[y0 + dy][x0 + dx])
+                        and (x0 + dx, y0 + dy) not in ocupados
+                        and (x0 + dx, y0 + dy) in base_andavel), None)
+            if pos is None:
+                if not (0 <= x0 < W and 0 <= y0 < H) or not andavel(g[y0][x0]):
+                    stats["fora_tile"] += 1
+                    censo.append((meu, e["x"], e["z"], x0, y0, "", regra,
+                                  diagnostico_de_parede(W, H, g, base_andavel,
+                                                        x0, y0)))
+                else:
+                    stats["fora_ocupado"] += 1
+                    censo.append((meu, e["x"], e["z"], x0, y0, "", regra,
+                                  "tile ja ocupado por objeto ou warp, e nao ha "
+                                  f"tile livre alcancavel a ate {RAIO_EMPURRAO}"))
                 continue
+            x, y = pos
+            passos = max(abs(x - x0), abs(y - y0))
+            # BLOCO EMPURRAVEL NAO ENTRA EM PISO DE GELO. Medido em
+            # 23/08/2026, e a medida derruba a hipotese com que este bloco foi
+            # pedido: no ginasio de Snowpoint o chao e MB_ICE (comportamento
+            # 32), e em tile de gelo o motor entra em MOVIMENTO FORCADO
+            # (`sForcedMovementFuncs` / `MetatileBehavior_IsIce_2`,
+            # src/field_player_avatar.c:164) ANTES de chegar em
+            # `TryPushBoulder` (:1031). Ou seja: com FLAG_SYS_USE_STRENGTH
+            # acesa a mao e o jogador encostado no bloco, o empurrao NAO
+            # acontece; o bloco vira parede permanente no meio do escorregao.
+            # Isso e fiel ao gen 4 (la a bola de neve e o BATENTE do puzzle de
+            # gelo, nao um bloco de Strength), so que aqui ele custaria caro: as
+            # 19 bolas caem na coluna 11, que e o corredor de gelo pelo qual as
+            # provas do T115 e do T125 chegam na Candice e na Alicia. Enquanto
+            # nao houver batente de gelo de verdade neste motor, o obstaculo
+            # empurravel fica de fora do gelo, e o balde continua medido.
+            # A regra e POR MAPA e nao por tile, e o motivo esta na medida: o
+            # que derrota o empurrao e o ESCORREGAO, e quem escorrega e o
+            # jogador, em qualquer lugar da sala de gelo. Pela regra por tile,
+            # a bola de (11,16) sobrevivia (aquele tile e
+            # MB_IMPASSABLE_WEST_AND_EAST, marcador do labirinto) e tapava
+            # justamente a coluna 11, o corredor das provas do T115 e do T125.
+            if any(k in (e.get("graphics_id", "") or "") for k in EMPURRAVEIS) \
+                    and tem_gelo:
+                stats["fora_gelo"] = stats.get("fora_gelo", 0) + 1
+                censo.append((meu, e["x"], e["z"], x, y, "", regra,
+                              "piso de GELO: o motor entra em movimento forcado "
+                              "antes de TryPushBoulder, entao bloco empurravel "
+                              "aqui e parede permanente"))
+                continue
+            # OBSTACULO EMPURRADO NAO ENTRA EM CORREDOR, 23/08/2026.
+            #
+            # `conectado` e `sem_bolso` provam que ninguem fica PRESO, e isso
+            # continua valendo; nenhum dos dois, porem, impede que a pedra
+            # empurrada TAMPE um corredor de um tile de largura e mande o
+            # jogador dar a volta. Medido no dia: uma pedra do RavagedPath
+            # andou 1 tile e caiu em (18,39), que e a boca do tunel que o
+            # `corredores_sinnoh.py` abriu de proposito na rodada 7 para
+            # desilhar 133 tiles; o mapa continuava conexo (o gerador de
+            # corredor segue dizendo "0 ilhados"), mas as rotas do T148.5, .6 e
+            # .7 passavam a dar a volta e os tres reprovavam. Tile de corredor
+            # tem no maximo DOIS vizinhos andaveis; tile de salao tem tres ou
+            # quatro. O empurrao passa a exigir tres, ou seja: a pedra
+            # empurrada cai onde ha espaco, e onde a fonte MANDOU (passos == 0)
+            # ela entra do mesmo jeito, porque ali o estreito e intencao do
+            # jogo original e nao arredondamento nosso.
+            #
+            # A BOCA DO MAPA tem a mesma regra e o mesmo motivo: todo roteiro de
+            # teste comeca no pouso de um warp, entao obstaculo empurrado a tres
+            # tiles ou menos de um warp e o que mais quebra rota ja provada. No
+            # RavagedPath uma pedra andou 1 tile e caiu em (18,39), a dois tiles
+            # do warp 0: o mapa continuava conexo e mesmo assim os T148.5, .6 e
+            # .7 reprovavam, porque as pernas saturantes deles passavam a bater
+            # nela. Onde a FONTE manda (passos == 0) a pedra entra na boca sem
+            # discussao, que e o jogo original.
+            if passos:
+                viz = sum(1 for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))
+                          if 0 <= x + dx < W and 0 <= y + dy < H
+                          and andavel(g[y + dy][x + dx]))
+                if (x, y) in I.corredor_de_gatilho(d, layouts):
+                    stats["fora_gatilho"] = stats.get("fora_gatilho", 0) + 1
+                    censo.append((meu, e["x"], e["z"], x, y, "", regra,
+                                  "empurrada para o corredor de aproximacao de "
+                                  "um coord_event: obstaculo empurrado nao "
+                                  "tranca gatilho"))
+                    continue
+                perto = min((max(abs(x - w["x"]), abs(y - w["y"]))
+                             for w in (d.get("warp_events") or [])), default=99)
+                if perto <= 3:
+                    stats["fora_boca"] = stats.get("fora_boca", 0) + 1
+                    censo.append((meu, e["x"], e["z"], x, y, "", regra,
+                                  f"empurrada para {perto} tile(s) de um warp: "
+                                  "obstaculo empurrado nao nasce na boca do mapa"))
+                    continue
+                if viz < 3:
+                    stats["fora_corredor"] = stats.get("fora_corredor", 0) + 1
+                    censo.append((meu, e["x"], e["z"], x, y, "", regra,
+                                  f"empurrada para corredor de {viz} vizinho(s): "
+                                  "obstaculo empurrado nao tampa passagem"))
+                    continue
             if len(aceitas) >= teto:
                 stats["fora_teto_temp" if len(livres) <= 64 - len(objs)
                       else "fora_teto_64"] += 1
@@ -394,7 +554,8 @@ def main():
             ocupados.add((x, y))
             flag = livres[len(novas)]
             aceitas.append((x, y))
-            censo.append((meu, e["x"], e["z"], x, y, flag, regra, ""))
+            censo.append((meu, e["x"], e["z"], x, y, flag, regra,
+                          "" if not passos else f"empurrado {passos} tile(s)"))
             elev = (g[y][x] >> 12) & 0xF
             novas.append({
                 "graphics_id": familia_de(e)[0], "x": x, "y": y,

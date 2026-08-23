@@ -121,8 +121,19 @@ EXCLUIDOS = {
 ALVOS = [
     "AcuityCavern", "IcebergRuins", "IronIsland1F", "IronIslandB1FLeftRoom",
     "IronIslandB1FRightRoom", "IronIslandB2FLeftRoom", "IronIslandB2FRightRoom",
-    "IronIslandB3F", "IronIslandIronRuins", "IronRuins", "LakeAcuityLowWater",
-    "LakeVerityLowWater", "ManiacTunnel", "MtCoronet1FTunnelRoom", "MtCoronet2F",
+    "IronIslandB3F", "IronIslandIronRuins", "IronRuins",
+    # OS TRES LAGOS SAIRAM DAQUI EM 22/08/2026, e o motivo e de ORDEM, nao de
+    # gosto: `dev_scripts/lagos_sinnoh.py` REFEZ a geometria de
+    # LakeVerityLowWater, LakeAcuityLowWater e LakeValorDrained a partir da
+    # grade do Platinum, e este gerador le a linha de base do `git show HEAD:`
+    # (ver o cabecalho: e o que faz o autoteste dele valer). Enquanto a
+    # conversao nao estiver commitada, decorar aqui REESCREVE o map.bin com o
+    # mapa velho e desfaz a conversao: medido no dia, 867 tiles voltavam a ter a
+    # colisao antiga e o jogador voltava a ficar presente na boca (alcance a pe
+    # caiu de 662 para 2 no LakeValorDrained). Os tres voltam para esta lista na
+    # rodada seguinte ao commit da geometria nova, e ate la eles contam como
+    # mapa pobre na coluna `arte`, o que e verdade e nao maquiagem.
+    "ManiacTunnel", "MtCoronet1FTunnelRoom", "MtCoronet2F",
     "MtCoronet3F", "MtCoronet4FRoom3", "MtCoronet5F", "MtCoronet6F",
     "MtCoronetIcebergRuins", "OldChateau", "OldChateauBackEastRoom",
     "OldChateauBackMiddleEastRoom", "OldChateauBackMiddleRoom",

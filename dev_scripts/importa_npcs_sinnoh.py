@@ -61,6 +61,11 @@ import sys
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(REPO, "dev_scripts"))
 import valida_mapas_sinnoh as V  # noqa: E402  reaproveita sprites_utilizaveis e TROCA_SPRITE
+import sprites_sinnoh as SPR  # noqa: E402  de-para dos 26 sprites de Sinnoh
+# 22/08/2026: os 26 nomes proprios de Sinnoh DEIXARAM de ser "sem sprite aqui".
+# `dev_scripts/sprites_sinnoh.py` desenhou os 26, e a tabela mora la porque quem
+# desenha e quem sabe o que existe. Aplicada ANTES do filtro NOMES_PROPRIOS.
+DE_PARA_SINNOH = SPR.de_para()
 import conserta_route222 as R222  # noqa: E402  reaproveita a BFS com regra de elevacao
 
 PLAT = os.path.join(os.path.dirname(REPO), "fontes-mapas/pokeplatinum")
@@ -95,6 +100,201 @@ GRAFICOS_PROIBIDOS = (
 # Placa do Platinum é objeto, não bg_event. Vira placa nossa em vez de gente.
 GRAFICOS_PLACA = ("SIGNBOARD", "ARROW_SIGNPOST", "MAP_SIGNPOST",
                   "TRAINER_TIPS_SIGNPOST", "GYM_SIGNPOST")
+
+# EMENDA DE 22/08/2026: a metade POKÉMON de NOMES_PROPRIOS não é mais pendência.
+#
+# A lista abaixo nasceu em 05/08/2026, quando esta ROM não tinha sprite de
+# overworld de espécie nenhuma, e ela junta duas coisas diferentes: gente de nome
+# próprio (Cynthia, Byron, os oito líderes), que continua sem sprite e continua
+# de fora, e ESPÉCIE DE POKÉMON, que desde a entrada de Galar (bloco 0.n,
+# 22/08/2026) tem sprite de verdade: `OBJ_EVENT_GFX_SPECIES(NOME)` já é usado
+# 1.811 vezes nos nossos map.json e `valida_mapas_sinnoh.desenhavel` já o
+# reconhece pela forma. Ou seja: pôr o Magikarp do leito do Lago Valor como
+# MAGIKARP não é "trocar por genérico", é o sprite CERTO, e a decisão do Gui de
+# 05/08 (o mapa não pode mentir) manda pôr, não deixar de fora.
+#
+# A régua é o nome: gfx da fonte cujo miolo é uma `SPECIES_*` deste fork vira
+# espécie; o resto segue a regra velha. Nada é digitado à mão, a lista sai de
+# `include/constants/species.h`.
+_ESPECIES = None
+
+
+def especies():
+    """Nomes de espécie deste fork, lidos de include/constants/species.h."""
+    global _ESPECIES
+    if _ESPECIES is None:
+        txt = open(os.path.join(REPO, "include/constants/species.h")).read()
+        _ESPECIES = set(re.findall(r"\bSPECIES_([A-Z0-9_]+)\b", txt))
+        _ESPECIES -= {"NONE", "EGG", "COUNT", "TABLES_TERMIN", "OLD_UNOWN_B"}
+    return _ESPECIES
+
+
+# GRUPO DE `hidden_flag` CUJA CENA JÁ EXISTE NESTA ROM (balde b1).
+#
+# A decisão 2 do topo continua valendo palavra por palavra: objeto com flag SEM
+# a cena que a apaga planta bloqueio permanente. O que muda aqui é que para
+# estes grupos a cena EXISTE, com `setflag` escrito em mapa nosso e provado em
+# suíte, então o objeto pode entrar carregando a NOSSA flag e some no mesmo
+# instante em que o resto do grupo já some hoje. Cada linha foi conferida com
+# `grep setflag` em data/maps antes de entrar; quem não tiver cena não entra.
+GRUPOS_COM_CENA = {
+    # os 20 grunts do Hall do QG já estão no mapa com esta flag (map.json feito
+    # à mão); o resto do grupo é o MESMO momento de enredo, a queda do Saturn.
+    "FLAG_HIDE_GALACTIC_HQ_HALL_GRUNTS": "FLAG_GALACTICA_QG_TOMADO",
+    # decisão da condutora, 17/08/2026 (PLANO-OBRAS-SINNOH.md): semântica
+    # idêntica à do Hall. setflag em GalacticHQ_1F:203 e GalacticHQ_2F:191.
+    "FLAG_HIDE_GALACTIC_HQ_TEAM_GALACTIC": "FLAG_GALACTICA_QG_TOMADO",
+    # cena da espinha: setflag em SpearPillar, MtCoronet3F/4F/5F/6F,
+    # MtCoronet_1F_North_Room1 e MtCoronet1FTunnelRoom.
+    "FLAG_HIDE_MT_CORONET_GALACTIC_GRUNTS": "FLAG_GALACTICA_MT_CORONET",
+    "FLAG_HIDE_SPEAR_PILLAR_GRUNTS": "FLAG_GALACTICA_MT_CORONET",
+    # setflag em EternaCity:19, TeamGalacticEternaBuilding_3F:76 e _4F:31.
+    "FLAG_HIDE_ETERNA_CITY_GALACTIC_GRUNTS": "FLAG_GALACTICA_ETERNA",
+    # setflag em LakeVerity/scripts.inc (a Mars cai e somem ela e os grunts).
+    "FLAG_HIDE_LAKE_VERITY_TEAM_GALACTIC": "FLAG_GALACTICA_LAGO_VERITY",
+    # setflag em ValleyWindworks, FloaromaTown e Route205_South.
+    "FLAG_HIDE_VALLEY_WINDWORKS_BUILDING_TEAM_GALACTIC": "FLAG_GALACTICA_WINDWORKS",
+    "FLAG_HIDE_VALLEY_WINDWORKS_BUILDING_GALACTIC_GRUNT_1": "FLAG_GALACTICA_WINDWORKS",
+    "FLAG_HIDE_VALLEY_WINDWORKS_OUTSIDE_GRUNT_M": "FLAG_GALACTICA_WINDWORKS",
+    # setflag em JubilifeCity/scripts.inc.
+    "FLAG_HIDE_JUBILIFE_GALACTIC_GRUNTS": "FLAG_GALACTICA_JUBILIFE",
+    # setflag em CelesticTown/scripts.inc.
+    "FLAG_HIDE_CELESTIC_TOWN_GRUNT_M": "FLAG_GALACTICA_CELESTIC",
+    # os dois guardas da porta do QG em Veilstone ja usam esta flag no nosso
+    # map.json (VeilstoneCity/scripts.inc:15 e :32).
+    "FLAG_HIDE_VEILSTONE_GALACTIC_GRUNTS": "FLAG_GALACTICA_QG_TOMADO",
+}
+
+
+# FLAG MORTA DA FONTE: ninguem acende, ninguem apaga, logo o objeto e VISIVEL.
+#
+# Terceiro caminho do balde (b), e o mais barato dos tres, porque nao pede cena
+# nenhuma: o campo `hidden_flag` do evento cita uma flag que NENHUM script e
+# NENHUM .c do pokeplatinum toca. Flag que ninguem acende nasce apagada, e no
+# motor da fonte objeto de flag apagada aparece: ou seja, no jogo ORIGINAL essa
+# gente esta sempre la. Recusa-los "por seguranca" nao era seguranca, era mapa
+# vazio de graca.
+#
+# A lista NAO se escreve a mao: `flags_mortas_da_fonte()` varre
+# `res/field/scripts`, `src` e `include` do pokeplatinum e considera morta a
+# flag que so aparece dentro dos proprios `res/field/events/*.json` (e no
+# `generated/vars_flags.txt`, que e so o enum). Medido em 22/08/2026: 372 flags
+# distintas, 486 objetos.
+#
+# DUAS EXCLUSOES, e as duas sao medida e nao gosto:
+#   - `FLAG_MAP_LOCAL_HIDE_OBSTACLE_*` fica de fora: e a familia de obstaculo
+#     que o motor da fonte administra em C por mapa, e todo objeto dela e pedra
+#     ou bloco, que `pedras_sinnoh.py` ja traz como obstaculo de verdade;
+#   - quem esta em GRUPOS_COM_CENA tem precedencia, porque ali a NOSSA ROM tem
+#     cena e a flag nossa e melhor que flag nenhuma.
+_VIVAS = None
+
+
+_CENA_NOSSA = None
+
+
+def cena_nossa(hf):
+    """Nome da NOSSA flag quando a cena deste grupo ja existe em data/maps.
+
+    O bloco `B6 Sinnoh, flags dos grupos de hidden_flag` de
+    `include/constants/flags.h` guarda, em comentario, o `FLAG_HIDE_*` da fonte
+    que cada `FLAG_SINNOH_ESCONDE_*` apelida. Quando esse apelido JA APARECE num
+    scripts.inc nosso, o grupo tem dono: a cena faz `clearflag` + `addobject` num
+    LOCALID especifico, e plantar um segundo corpo com a mesma flag faria a cena
+    revelar DOIS. Nesse caso o objeto continua fora, e o motivo do censo passa a
+    dizer de quem e a cena, em vez de repetir "decisao 2".
+    """
+    global _CENA_NOSSA
+    if _CENA_NOSSA is None:
+        import glob as _glob
+        alias = {}
+        for ln in open(os.path.join(REPO, "include/constants/flags.h"),
+                       encoding="utf-8"):
+            m = re.match(r"#define (FLAG_SINNOH_[A-Z0-9_]+)\s+FLAG_UNUSED_"
+                         r"0x[0-9A-Fa-f]+\s*//\s*(FLAG_[A-Z0-9_]+)", ln)
+            if m:
+                alias[m.group(2)] = m.group(1)
+        txt = "".join(open(a, encoding="utf-8", errors="ignore").read()
+                      for a in _glob.glob(os.path.join(REPO,
+                                                       "data/maps/*/scripts.inc")))
+        usadas = set(re.findall(r"\bFLAG_SINNOH_[A-Z0-9_]+", txt))
+        _CENA_NOSSA = {k: v for k, v in alias.items() if v in usadas}
+    return _CENA_NOSSA.get(hf)
+
+
+def flag_morta(hf):
+    """True quando NENHUM script e NENHUM .c/.h do pokeplatinum toca esta flag."""
+    if hf.startswith("FLAG_MAP_LOCAL"):
+        return False
+    return hf not in _flags_vivas_da_fonte()
+
+
+def _flags_vivas_da_fonte():
+    global _VIVAS
+    if _VIVAS is None:
+        import glob as _glob
+        vivas = set()
+        for raiz in ("res/field/scripts", "src", "include"):
+            for arq in _glob.glob(os.path.join(PLAT, raiz, "**", "*"),
+                                  recursive=True):
+                if not os.path.isfile(arq):
+                    continue
+                try:
+                    txt = open(arq, encoding="utf-8", errors="ignore").read()
+                except OSError:
+                    continue
+                vivas.update(re.findall(r"\bFLAG_[A-Z0-9_]+", txt))
+        _VIVAS = vivas
+    return _VIVAS
+
+# GRUPO DE `hidden_flag` QUE NÃO É ENREDO: é RODÍZIO (balde b2).
+#
+# Aqui a `hidden_flag` da fonte não guarda marco de história nenhum: ela sorteia
+# quem aparece HOJE, e o dia seguinte sorteia outro. Lido no script da fonte,
+# não deduzido:
+#
+#   `res/field/scripts/scripts_restaurant.s` acende as NOVE flags de casal em
+#   `Restaurant_ResetTrainers` e depois `ClearFlag` num subconjunto sorteado por
+#   `GetRandom`, e acende TODAS de novo entre 23h e 9h (`Restaurant_SetClosed`);
+#   `res/field/scripts/scripts_pokemon_center_daily_trainers.s` faz o mesmo com
+#   o treinador do dia dos Pokécenters.
+#
+# Ou seja: NÃO existe cena que "apaga a flag para sempre", e esperar por ela é
+# esperar por nada. O medo da decisão 2 (objeto escondido para sempre virando
+# bloqueio) também não se aplica: aqui o objeto entra VISÍVEL e mudo, e o
+# restaurante fica sempre cheio em vez de sempre vazio. O que segura o risco de
+# corpo em corredor é o portão 5 (`sem_tranca`), não a flag.
+GRUPOS_SEM_ENREDO = frozenset({
+    "FLAG_HIDE_RESTAURANT_ISMAEL_HARLEY", "FLAG_HIDE_RESTAURANT_ROMAN_KYLIE",
+    "FLAG_HIDE_RESTAURANT_LEONARDO_REBECCA", "FLAG_HIDE_RESTAURANT_EUGENE_ALISON",
+    "FLAG_HIDE_RESTAURANT_ESTEBAN_MEREDITH", "FLAG_HIDE_RESTAURANT_EMANUEL_BLYTHE",
+    "FLAG_HIDE_RESTAURANT_DARRYL_VALERIE", "FLAG_HIDE_RESTAURANT_KENDRICK_GABRIELLA",
+    "FLAG_HIDE_RESTAURANT_EMILIO_KAYLEE",
+    "FLAG_HIDE_POKECENTER_DAILY_TRAINER_1", "FLAG_HIDE_POKECENTER_DAILY_TRAINER_2",
+})
+
+
+# BALDE (a) LIBERADO EM 23/08/2026: quem tem sprite PROPRIO agora entra.
+#
+# A lista `NOMES_PROPRIOS` abaixo continua sendo a de 05/08/2026 e continua
+# querendo dizer a mesma coisa: gente de nome proprio nao vira boneco generico,
+# porque lider de ginasio com cara de nadador e o mapa mentindo. O que mudou nao
+# foi a decisao, foi o ESTOQUE: os 26 sprites `OBJ_EVENT_GFX_SINNOH_*` (Candice,
+# Cynthia, Cyrus, Byron, Roark, os oito lideres, os comandantes, o Looker...)
+# passaram a existir nesta ROM. A regua agora e de-para pelo NOME, e ela NAO se
+# escreve a mao: procura-se `OBJ_EVENT_GFX_SINNOH_<NOME>` na tabela de graficos
+# que a build realmente desenha (`valida_mapas_sinnoh.sprites_utilizaveis`), e
+# quem nao estiver la continua de fora com o motivo antigo. Hoje o unico que
+# sobra e o GAME_DIRECTOR. Personagem com `hidden_flag` segue a regra do balde
+# (b) como qualquer outro objeto: sprite nao e passe livre para entrar em cena
+# que nao existe.
+def sprite_proprio(sprites, _c={}):
+    """{NOME da fonte: OBJ_EVENT_GFX_SINNOH_NOME} que esta build desenha."""
+    if not _c:
+        _c.update({n: f"OBJ_EVENT_GFX_SINNOH_{n}" for n in NOMES_PROPRIOS
+                   if f"OBJ_EVENT_GFX_SINNOH_{n}" in sprites})
+    return _c
+
 
 # Personagem com nome próprio e Pokémon: sem sprite aqui, e trocar por genérico
 # faz o mapa mentir (líder de ginásio com cara de nadador). Fica de fora e é
@@ -536,6 +736,7 @@ def main():
     for h, (ev, mx) in heads.items():
         por_chave.setdefault(chave(h), (h, ev, mx))
 
+    tocado = set()   # map.json que mudou só por conserto de sprite de espécie
     nossos = mapas_editaveis_sinnoh()
     casados, sem_par = [], []
     for m in nossos:
@@ -643,12 +844,27 @@ def main():
                 if e.get("origem") == "pokeplatinum" or (
                         gfx is not None and e.get("graphics_id") == gfx):
                     reclamados.add(id(e))
+                    reclama.ultimo = e
                     return True
+            reclama.ultimo = None
             return False
 
+        # TETO DA FONTE, medido COMO A REGUA MEDE (corrigido em 22/08/2026).
+        #
+        # Ate aqui o teto contava `len(fonte["object_events"])` cru, e a fonte
+        # guarda PLACA como object_event (SIGNBOARD, ARROW_SIGNPOST, ...).
+        # `completude.le_plat` tira essas placas do denominador de `objetos` e as
+        # soma em `placas`, entao o teto era mais FROUXO que a regua: em
+        # JubilifeCity a fonte tem 22 objetos para a regua e 27 registros crus, e
+        # os cinco de diferenca eram cinco NPC a mais do que o Platinum tem. O
+        # teto agora desconta a placa, e o portao volta a dizer a verdade que o
+        # cabecalho dele promete: nenhum mapa termina com mais objeto do que o
+        # Platinum tem.
+        objs_fonte = [o for o in (fonte.get("object_events") or [])
+                      if not any(t in o.get("graphics_id", "")
+                                 for t in GRAFICOS_PLACA)]
         teto_fonte = (0 if "object_events" in cortado else
-                      len(fonte.get("object_events") or [])
-                      - len(d.get("object_events") or []))
+                      len(objs_fonte) - len(d.get("object_events") or []))
         teto_bg = (0 if "bg_events" in cortado else
                    len(fonte.get("bg_events") or [])
                    - len(d.get("bg_events") or []))
@@ -709,6 +925,18 @@ def main():
         teto = 64 - len(d.get("object_events") or [])
         ja = {(o.get("x"), o.get("y")) for o in (d.get("object_events") or [])}
         ja |= {(o.get("x"), o.get("y")) for o in (d.get("bg_events") or [])}
+        # CORPO NAO NASCE EM CIMA DE WARP NEM COLADO EM GATILHO, 23/08/2026.
+        #
+        # A regra de placa sobre warp (logo abaixo) e legitima e foi medida: o
+        # jogo original faz isso. OBJETO sobre warp e outra coisa, e custou dois
+        # casos: no ValleyWindworksBuilding um grunt novo nasceu em (4,8), que e
+        # o warp 1 do mapa, e no OreburghGate_1F uma pedra empurrada caiu em
+        # (8,22), o unico tile por onde se chega ao `coord_event` de (7,22) que
+        # entrega o HM de Rock Smash. O T101.6 e o T100.10 reprovaram sem que o
+        # mapa tivesse ficado desconexo: o que quebrou foi a CENA. Gatilho e
+        # tile de roteiro, entao corpo novo fica a pelo menos um tile dele.
+        ja |= {(w.get("x"), w.get("y")) for w in (d.get("warp_events") or [])}
+        ja |= corredor_de_gatilho(d, layouts)
         # ponytail: NÃO tratar tile de warp como ocupado. Parecia defeito ter
         # placa em cima de porta, e 4 chegaram a ser removidas em 05/08/2026.
         # Medido depois, contra o jogo original: nós temos 30 de 2376 placas
@@ -723,24 +951,55 @@ def main():
             # "OBJ_EVENT_GFX_ACE_TRAINER_F" (e-VENT-o) e jogar 806 NPC fora em
             # silêncio. Substring só vale depois de tirar o prefixo comum.
             classe = g.replace("OBJ_EVENT_GFX_", "")
+            # Espécie ANTES de tudo: o nome dela cai dentro de NOMES_PROPRIOS
+            # (Magikarp, Starly, Buneary) e dentro de GRAFICOS_PROIBIDOS se
+            # alguma família nova de sprite repetir uma palavra da lista. Ver a
+            # emenda de 22/08/2026 no topo.
+            especie = classe if classe in especies() else None
+            proprio = None if especie else sprite_proprio(sprites).get(classe)
+            # Tem sprite proprio agora: sai do balde (a) e segue o fluxo normal
+            # (hidden_flag, teto, alcancabilidade) como qualquer NPC. O filtro
+            # NOMES_PROPRIOS e por SUBSTRING, entao renomear nao bastava:
+            # "SINNOH_CYNTHIA" continua contendo "CYNTHIA". Por isso a chave.
+            tem_sprite = not especie and g in DE_PARA_SINNOH
+            if tem_sprite:
+                g = DE_PARA_SINNOH[g]
+                classe = g.replace("OBJ_EVENT_GFX_", "")
             # Ordem importa para o relatório: mobiliário sai como mobiliário, e
             # só depois o que sobrou é medido pela hidden_flag.
-            if any(t in classe for t in GRAFICOS_PROIBIDOS):
+            if not especie and any(t in classe for t in GRAFICOS_PROIBIDOS):
                 stats["fora_mobilia"] += 1
                 linha(meu, "objeto", e, None, g, regra,
                       "mobiliario/item, decisao 4: nunca vira NPC")
                 continue
-            if any(t in classe for t in NOMES_PROPRIOS):
+            if not especie and not tem_sprite and any(
+                    t in classe for t in NOMES_PROPRIOS):
                 stats["fora_nome_proprio"] += 1
                 deixados[g] = deixados.get(g, 0) + 1
                 linha(meu, "objeto", e, None, g, regra,
                       "nome proprio sem sprite aqui")
                 continue
-            if str(e.get("hidden_flag", "0")) not in ("0", "0x0"):
-                stats["fora_hidden"] += 1
-                linha(meu, "objeto", e, None, g, regra,
-                      f"hidden_flag {e.get('hidden_flag')}, decisao 2")
-                continue
+            nossa_flag = "0"
+            hf = str(e.get("hidden_flag", "0"))
+            if hf not in ("0", "0x0"):
+                if cena_nossa(hf) and hf not in GRUPOS_COM_CENA:
+                    stats["fora_cena_nossa"] = stats.get("fora_cena_nossa", 0) + 1
+                    linha(meu, "objeto", e, None, g, regra,
+                          f"grupo com dono: {cena_nossa(hf)} ja tem cena nossa "
+                          "que revela este elenco, e segundo corpo duplicaria")
+                    continue
+                if hf in GRUPOS_COM_CENA:
+                    nossa_flag = GRUPOS_COM_CENA[hf]
+                    stats["grupo_com_cena"] = stats.get("grupo_com_cena", 0) + 1
+                elif hf in GRUPOS_SEM_ENREDO:
+                    stats["grupo_rodizio"] = stats.get("grupo_rodizio", 0) + 1
+                elif flag_morta(hf):
+                    stats["flag_morta"] = stats.get("flag_morta", 0) + 1
+                else:
+                    stats["fora_hidden"] += 1
+                    linha(meu, "objeto", e, None, g, regra,
+                          f"hidden_flag {e.get('hidden_flag')}, decisao 2")
+                    continue
             if any(t in classe for t in GRAFICOS_PLACA):
                 x, y = conv(e)
                 if reclama(x, y, d.get("bg_events") or []):
@@ -769,7 +1028,44 @@ def main():
                     novas_placas.append(placa(x, y))
                     linha(meu, "placa", e, (x, y), g, regra, so_com_hm(pisa, x, y))
                 continue
+            # NOME PROPRIO NAO GANHA GEMEO, 23/08/2026. Quando a fonte traz um
+            # personagem de nome proprio e a NOSSA rodada de historia ja escreveu
+            # ele a mao com script (a Candice do ginasio de Snowpoint e o caso:
+            # `SnowpointCity_Gym_EventScript_Leader` em (11,2), com sprite
+            # generico WOMAN_5), o `reclama` nao o reconhecia, porque compara
+            # graphics_id, e plantava uma SEGUNDA Candice muda ao lado. O certo
+            # e o contrario: quem manda e o objeto com SCRIPT, e o que ele ganha
+            # do sprite novo e a CARA.
+            if proprio:
+                gemeo = next((o for o in (d.get("object_events") or [])
+                              if id(o) not in reclamados
+                              and str(o.get("script", "0")) not in ("0", "")
+                              and max(abs(o.get("x", -99) - conv(e)[0]),
+                                      abs(o.get("y", -99) - conv(e)[1])) <= 1),
+                             None)
+                if gemeo is not None:
+                    reclamados.add(id(gemeo))
+                    if gemeo.get("graphics_id") != proprio:
+                        gemeo["graphics_id"] = proprio
+                        stats["sprite_corrigido"] = stats.get("sprite_corrigido", 0) + 1
+                        tocado.add(pm)
+                    linha(meu, "objeto", e, conv(e), g, regra,
+                          f"ja existe a mao com script: so o sprite virou {proprio}")
+                    continue
             if reclama(*conv(e), d.get("object_events") or [], g):
+                # CONSERTO DE SPRITE, 22/08/2026: quem entrou em rodada anterior
+                # como espécie caiu em OBJ_EVENT_GFX_MAN_1, porque naquela data
+                # não havia sprite de overworld de Pokémon nesta ROM. Agora há, e
+                # deixar o Pikachu com cara de homem é o mapa mentindo, que é
+                # exatamente o que a decisão do Gui de 05/08 proíbe. Só o
+                # graphics_id muda; posição, flag e script ficam como estão.
+                velho = getattr(reclama, "ultimo", None)
+                novo_g = (f"OBJ_EVENT_GFX_SPECIES({especie})" if especie
+                          else proprio)
+                if velho is not None and novo_g and velho.get("graphics_id") != novo_g:
+                    velho["graphics_id"] = novo_g
+                    stats["sprite_corrigido"] = stats.get("sprite_corrigido", 0) + 1
+                    tocado.add(pm)
                 linha(meu, "objeto", e, conv(e), g, regra,
                       "ja importado em rodada anterior (objeto nosso com a "
                       "marca nesta coordenada)")
@@ -786,7 +1082,11 @@ def main():
                       "teto de 64 templates por mapa, cortado por ordem da fonte")
                 continue
             gfx_fonte = g
-            if g not in sprites:
+            if especie:
+                g = f"OBJ_EVENT_GFX_SPECIES({especie})"
+            elif proprio:
+                g = proprio
+            elif g not in sprites:
                 novo = V.TROCA_SPRITE.get(g)
                 if not novo:
                     trocados[g] = trocados.get(g, 0) + 1
@@ -800,7 +1100,19 @@ def main():
             # Portao 2: tem que cair em tile ALCANCAVEL. Empurrao de 1 tile e
             # correcao de arredondamento; empurrao de 8 (o `livre` antigo) e
             # invencao de posicao, e nao entra em mapa que nasce agora.
-            pos = next(((x + dx, y + dy) for r in (0, 1)
+            # Portao 2: tem que cair em tile ALCANCAVEL, com empurrao de no
+            # maximo RAIO tiles.
+            #
+            # RAIO subiu de 1 para 3 em 22/08/2026, a pedido do Gui ("reposicione
+            # a <= 3 tiles o resto"), e o numero nao e novo: e o MESMO empurrao
+            # que `bolas_sinnoh.py` usa desde 22/08 para as bolas de item, no
+            # mesmo mapa e com a mesma grade. Com 1 tile, 55 objetos da fonte em
+            # mapa de escopo caiam fora so por arredondamento da escala. O que
+            # segura a honestidade nao e o raio, e a PROVA: o tile de destino
+            # tem que estar em `pisa` (alcancavel a pe pelos warps) e livre, e o
+            # censo escreve quantas casas cada um andou.
+            RAIO = 3
+            pos = next(((x + dx, y + dy) for r in range(RAIO + 1)
                         for dx in range(-r, r + 1) for dy in range(-r, r + 1)
                         if max(abs(dx), abs(dy)) == r
                         and (x + dx, y + dy) in pisa
@@ -808,13 +1120,15 @@ def main():
             if pos is None:
                 stats["fora_inalcancavel"] += 1
                 linha(meu, "objeto", e, (x, y), gfx_fonte, regra,
-                      "coordenada nao cai em tile alcancavel (nem 1 tile ao lado)")
+                      f"coordenada nao cai em tile alcancavel "
+                      f"(nem {RAIO} tiles ao lado)")
                 continue
-            if pos != (x, y):
+            passos = max(abs(pos[0] - x), abs(pos[1] - y))
+            if passos:
                 stats["empurrados"] += 1
             linha(meu, "objeto", e, pos, gfx_fonte, regra,
-                  "" if pos == (x, y) else f"empurrado 1 tile, gfx {g}"
-                  if g != gfx_fonte else "empurrado 1 tile")
+                  "" if not passos else f"empurrado {passos} tile(s), gfx {g}"
+                  if g != gfx_fonte else f"empurrado {passos} tile(s)")
             ja.add(pos)
             novos_obj.append({
                 "graphics_id": g, "x": pos[0], "y": pos[1], "elevation": 3,
@@ -823,7 +1137,7 @@ def main():
                 "movement_range_y": e.get("movement_range_z", 0),
                 "trainer_type": "TRAINER_TYPE_NONE",
                 "trainer_sight_or_berry_tree_id": "0",
-                "script": "0", "flag": "0", **MARCA,
+                "script": "0", "flag": nossa_flag, **MARCA,
             })
 
         for e in fonte.get("bg_events", []):
@@ -851,8 +1165,23 @@ def main():
             novas_placas.append(placa(x, y))
             linha(meu, "placa", e, (x, y), "-", regra, so_com_hm(pisa, x, y))
 
+        # PORTÃO 5, novo em 22/08/2026: corpo novo não pode TRANCAR o mapa.
+        #
+        # Os portões 1 a 4 provam que o tile é alcançável; nenhum deles provava
+        # que o mapa CONTINUA alcançável depois de o corpo ocupar o tile. Num
+        # corredor de uma casa só isso tranca o jogador, e é o mesmo medo que
+        # `pedras_sinnoh.py` já cobra por busca em largura desde 18/08. A régua
+        # é a mesma daquele: tratando todo objeto novo como bloqueio, todo pouso
+        # de warp do mapa continua alcançável a partir do primeiro. Quem
+        # desconectar sai, um por vez e na ordem inversa da fonte, para nunca
+        # jogar fora os bons por causa de um mau.
+        #
+        # ARMADILHA: `g` foi RECICLADO como graphics_id dentro do laço acima e
+        # não é mais a grade. A grade se relê, nunca se supõe.
+        if novos_obj:
+            novos_obj = sem_tranca(layouts, d, novos_obj, stats, linha, meu)
         stats["fora_coord"] += len(fonte.get("coord_events", []))
-        if not (novos_obj or novas_placas):
+        if not (novos_obj or novas_placas or pm in tocado):
             continue
         stats["objetos"] += len(novos_obj)
         stats["placas"] += len(novas_placas)
@@ -878,6 +1207,102 @@ def main():
             print(f"  {n:5}  {g}")
     print("\naplicado" if APLICAR else "\nnada escrito (use --aplicar)")
     return 0
+
+
+def corredor_de_gatilho(d, layouts, alcance=8):
+    """Tiles de APROXIMACAO do que o jogador PRECISA alcancar, livres de corpo
+    novo: os `coord_event` e o tile de conversa de todo objeto COM SCRIPT.
+
+    Gatilho de coordenada e o unico evento do jogo que o jogador dispara ANDANDO,
+    e todo roteiro de teste chega nele por perna reta e saturante. Corpo novo em
+    qualquer tile daquela reta nao desconecta nada (os portoes de conectividade
+    passam limpos) e mesmo assim mata a cena, porque o jogador para antes. Foi o
+    que reprovou o T100.10 (pedra em (8,22), unico tile de aproximacao do
+    gatilho de (7,22) do OreburghGate_1F) e o T101.6 (grunt em (5,2) na linha do
+    gatilho de (7,2) do ValleyWindworksBuilding), os dois com o mapa conexo.
+
+    A reserva e o proprio tile, os oito vizinhos e a RETA andavel nas quatro
+    direcoes ate `alcance` tiles ou ate a primeira parede. Nao e o mapa inteiro:
+    e o corredor por onde se chega, que e o que roteiro usa.
+    """
+    gat = d.get("coord_events") or []
+    # TILE DE CONVERSA, acrescentado em 23/08/2026 depois do segundo caso da
+    # mesma familia: NPC com script existe para ser falado, e corpo novo
+    # encostado nele rouba o unico tile de onde se fala. Custou o T115.3, o
+    # T125.11 e o T125.12: um NPC importado nasceu em (11,3) do ginasio de
+    # Snowpoint, colado na lider, e as tres provas que sobem a coluna 11 para
+    # falar com a Candice pararam um tile antes. O `coord_event` ja estava
+    # protegido; faltava o objeto.
+    fala = [o for o in (d.get("object_events") or [])
+            if str(o.get("script", "0")) not in ("0", "")]
+    if not (gat or fala):
+        return set()
+    W, H, g = grade(layouts, d["layout"])
+    fora = {(o["x"] + dx, o["y"] + dy) for o in fala
+            for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))}
+    for c in gat:
+        cx, cy = c.get("x", -99), c.get("y", -99)
+        if not (0 <= cx < W and 0 <= cy < H):
+            continue
+        for dx in (-1, 0, 1):
+            for dy in (-1, 0, 1):
+                fora.add((cx + dx, cy + dy))
+        for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            x, y = cx, cy
+            for _ in range(alcance):
+                x, y = x + dx, y + dy
+                if not (0 <= x < W and 0 <= y < H) or ((g[y][x] >> 10) & 3):
+                    break
+                fora.add((x, y))
+    return fora
+
+
+def sem_tranca(layouts, d, novos, stats, linha, meu):
+    """Tira do lote o objeto novo que desconecta o mapa.
+
+    Régua igual à de `pedras_sinnoh.py`: com TODO objeto (os que já estavam e os
+    novos) tratado como bloqueio, todo pouso de warp continua alcançável a
+    partir do primeiro. Quem quebrar isso sai, um por vez e de trás para a
+    frente, e vira linha de censo com o motivo em vez de sumir calado.
+    """
+    W, H, gr = grade(layouts, d["layout"])
+    warps = d.get("warp_events") or []
+    alvos = sorted({(w.get("x"), w.get("y")) for w in warps
+                    if isinstance(w.get("x"), int) and isinstance(w.get("y"), int)
+                    and 0 <= w["x"] < W and 0 <= w["y"] < H})
+    if len(alvos) < 2:
+        return novos                      # sem dois warps não há o que desconectar
+    fixos = {(o.get("x"), o.get("y")) for o in (d.get("object_events") or [])}
+
+    def passa(lote):
+        bloq = fixos | {(o["x"], o["y"]) for o in lote}
+        g2 = [[(v | (1 << 10)) if (x, y) in bloq else v
+               for x, v in enumerate(linhaG)] for y, linhaG in enumerate(gr)]
+        # SEMENTE NO PRIMEIRO WARP, e nao em todos. `alcancaveis` semeia cada
+        # warp que recebe, entao semear a lista inteira punha TODO pouso dentro
+        # de `viz` por construcao e este portao passava sempre: era um portao
+        # decorativo. Medido em 23/08/2026 pelo T124.2, que reprovou porque um
+        # corpo novo em (21,10) do IronIsland selou o warp de (21,9), o unico
+        # caminho de volta ao 1F, e este `passa` deixou entrar. Semeando so o
+        # primeiro warp, o teste vira o que o docstring sempre prometeu:
+        # "todo pouso de warp continua alcancavel A PARTIR DO PRIMEIRO".
+        viz = alcancaveis(W, H, g2, warps[:1])
+        return all(any((x + dx, y + dy) in viz or (x, y) in viz
+                       for dx, dy in ((0, 0), (0, 1), (0, -1), (1, 0), (-1, 0)))
+                   for x, y in alvos)
+
+    if passa(novos):
+        return novos
+    lote = list(novos)
+    for o in reversed(list(novos)):
+        lote.remove(o)
+        stats["fora_tranca"] = stats.get("fora_tranca", 0) + 1
+        linha(meu, "objeto", {"x": o["x"], "z": o["y"]}, (o["x"], o["y"]),
+              o["graphics_id"], "-",
+              "TRANCA: com este corpo um warp do mapa deixa de ser alcancavel")
+        if passa(lote):
+            break
+    return lote
 
 
 def so_com_hm(pisa, x, y):
