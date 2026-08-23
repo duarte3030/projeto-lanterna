@@ -42413,7 +42413,7 @@
               {
                 "min_level": 43,
                 "max_level": 45,
-                "species": "SPECIES_GEODUDE"
+                "species": "SPECIES_YAMASK_GALAR"
               },
               {
                 "min_level": 43,
@@ -43804,7 +43804,7 @@
               {
                 "min_level": 80,
                 "max_level": 80,
-                "species": "SPECIES_MACHOKE"
+                "species": "SPECIES_URSALUNA_BLOODMOON"
               },
               {
                 "min_level": 79,
@@ -49492,7 +49492,7 @@
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_SANDSHREW"
+                "species": "SPECIES_WOOPER_PALDEA"
               },
               {
                 "min_level": 50,
@@ -65949,17 +65949,17 @@
               {
                 "min_level": 42,
                 "max_level": 60,
-                "species": "SPECIES_WOOPER_PALDEA"
+                "species": "SPECIES_DIGLETT"
               },
               {
                 "min_level": 42,
                 "max_level": 60,
-                "species": "SPECIES_YAMASK_GALAR"
+                "species": "SPECIES_DIGLETT"
               },
               {
                 "min_level": 42,
                 "max_level": 60,
-                "species": "SPECIES_URSALUNA_BLOODMOON"
+                "species": "SPECIES_DIGLETT"
               },
               {
                 "min_level": 42,
@@ -66000,91 +66000,6 @@
                 "min_level": 60,
                 "max_level": 60,
                 "species": "SPECIES_DUGTRIO"
-              }
-            ]
-          },
-          "water_mons": {
-            "encounter_rate": 0,
-            "mons": [
-              {
-                "min_level": 46,
-                "max_level": 46,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 46,
-                "max_level": 46,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 46,
-                "max_level": 46,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 46,
-                "max_level": 46,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 46,
-                "max_level": 46,
-                "species": "SPECIES_NONE"
-              }
-            ]
-          },
-          "fishing_mons": {
-            "encounter_rate": 0,
-            "mons": [
-              {
-                "min_level": 46,
-                "max_level": 46,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 46,
-                "max_level": 46,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 46,
-                "max_level": 46,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 46,
-                "max_level": 46,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 46,
-                "max_level": 46,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 46,
-                "max_level": 46,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 46,
-                "max_level": 46,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 46,
-                "max_level": 46,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 46,
-                "max_level": 46,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 46,
-                "max_level": 46,
-                "species": "SPECIES_NONE"
               }
             ]
           }

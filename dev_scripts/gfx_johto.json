@@ -1,125 +1,143 @@
 {
  "dentro": [
   {
-   "mapa": "AzaleaTown",
-   "x": 34,
-   "y": 14,
+   "mapa": "RuinsOfAlph_B1F",
+   "x": 28,
+   "y": 12,
    "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_SLOWPOKE_NO_TAIL",
-   "gfx_novo": "OBJ_EVENT_GFX_SPECIES(SLOWPOKE)"
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
+   "gfx_novo": "OBJ_EVENT_GFX_ITEM_BALL",
+   "escondido": true,
+   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN); escondido no lugar (tile sólido)"
   },
   {
-   "mapa": "AzaleaTown",
-   "x": 23,
-   "y": 14,
+   "mapa": "RuinsOfAlph_B1F",
+   "x": 1,
+   "y": 6,
    "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_SLOWPOKE_NO_TAIL",
-   "gfx_novo": "OBJ_EVENT_GFX_SPECIES(SLOWPOKE)"
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
+   "gfx_novo": "OBJ_EVENT_GFX_ITEM_BALL",
+   "escondido": true,
+   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN); escondido no lugar (tile sólido)"
   },
   {
-   "mapa": "AzaleaTown",
+   "mapa": "RuinsOfAlph_B1F",
+   "x": 1,
+   "y": 18,
+   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
+   "gfx_novo": "OBJ_EVENT_GFX_ITEM_BALL",
+   "escondido": true,
+   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN); escondido no lugar (tile sólido)"
+  },
+  {
+   "mapa": "RuinsOfAlph_B1F",
+   "x": 1,
+   "y": 12,
+   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
+   "gfx_novo": "OBJ_EVENT_GFX_ITEM_BALL",
+   "escondido": true,
+   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN); escondido no lugar (tile sólido)"
+  },
+  {
+   "mapa": "RuinsOfAlph_B1F",
+   "x": 28,
+   "y": 18,
+   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
+   "gfx_novo": "OBJ_EVENT_GFX_ITEM_BALL",
+   "escondido": true,
+   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN); escondido no lugar (tile sólido)"
+  },
+  {
+   "mapa": "RuinsOfAlph_B1F",
    "x": 28,
    "y": 24,
    "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_SLOWPOKE_NO_TAIL",
-   "gfx_novo": "OBJ_EVENT_GFX_SPECIES(SLOWPOKE)"
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
+   "gfx_novo": "OBJ_EVENT_GFX_ITEM_BALL",
+   "escondido": true,
+   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN); escondido no lugar (tile sólido)"
   },
   {
-   "mapa": "AzaleaTown",
-   "x": 48,
-   "y": 5,
+   "mapa": "RuinsOfAlph_B1F",
+   "x": 1,
+   "y": 24,
    "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_SLOWPOKE_NO_TAIL",
-   "gfx_novo": "OBJ_EVENT_GFX_SPECIES(SLOWPOKE)"
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
+   "gfx_novo": "OBJ_EVENT_GFX_ITEM_BALL",
+   "escondido": true,
+   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN); escondido no lugar (tile sólido)"
   },
   {
-   "mapa": "AzaleaTown",
-   "x": 45,
-   "y": 14,
+   "mapa": "RuinsOfAlph_B1F",
+   "x": 28,
+   "y": 6,
    "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_SLOWPOKE_NO_TAIL",
-   "gfx_novo": "OBJ_EVENT_GFX_SPECIES(SLOWPOKE)"
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
+   "gfx_novo": "OBJ_EVENT_GFX_ITEM_BALL",
+   "escondido": true,
+   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN); escondido no lugar (tile sólido)"
   },
   {
-   "mapa": "SlowpokeWell_B1F",
-   "x": 7,
-   "y": 12,
+   "mapa": "RuinsOfAlph_Outside",
+   "x": 19,
+   "y": 17,
    "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_SLOWPOKE_NO_TAIL",
-   "gfx_novo": "OBJ_EVENT_GFX_SPECIES(SLOWPOKE)"
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
+   "gfx_novo": "OBJ_EVENT_GFX_ITEM_BALL",
+   "escondido": true,
+   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN); escondido no lugar (tile sólido)"
   },
   {
-   "mapa": "SlowpokeWell_B1F",
-   "x": 6,
-   "y": 11,
+   "mapa": "RuinsOfAlph_Outside",
+   "x": 25,
+   "y": 8,
    "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_SLOWPOKE_NO_TAIL",
-   "gfx_novo": "OBJ_EVENT_GFX_SPECIES(SLOWPOKE)"
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
+   "gfx_novo": "OBJ_EVENT_GFX_ITEM_BALL",
+   "escondido": true,
+   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN); escondido no lugar (tile sólido)"
   },
   {
-   "mapa": "SlowpokeWell_B1F",
-   "x": 23,
-   "y": 4,
+   "mapa": "RuinsOfAlph_Outside",
+   "x": 21,
+   "y": 32,
    "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_SLOWPOKE_NO_TAIL",
-   "gfx_novo": "OBJ_EVENT_GFX_SPECIES(SLOWPOKE)"
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
+   "gfx_novo": "OBJ_EVENT_GFX_ITEM_BALL",
+   "escondido": true,
+   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN); escondido no lugar (tile sólido)"
   },
   {
-   "mapa": "SlowpokeWell_B1F",
-   "x": 23,
-   "y": 16,
+   "mapa": "RuinsOfAlph_Outside",
+   "x": 35,
+   "y": 21,
    "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_SLOWPOKE_NO_TAIL",
-   "gfx_novo": "OBJ_EVENT_GFX_SPECIES(SLOWPOKE)"
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
+   "gfx_novo": "OBJ_EVENT_GFX_ITEM_BALL",
+   "escondido": true,
+   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN); escondido no lugar (tile sólido)"
   },
   {
-   "mapa": "SlowpokeWell_B1F",
-   "x": 18,
-   "y": 13,
+   "mapa": "RuinsOfAlph_Outside",
+   "x": 13,
+   "y": 33,
    "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_SLOWPOKE_NO_TAIL",
-   "gfx_novo": "OBJ_EVENT_GFX_SPECIES(SLOWPOKE)"
+   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
+   "gfx_novo": "OBJ_EVENT_GFX_ITEM_BALL",
+   "escondido": true,
+   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN); escondido no lugar (tile sólido)"
   }
  ],
  "fora": [
-  {
-   "mapa": "AzaleaTown",
-   "x": 19,
-   "y": 16,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_SILVER",
-   "motivo": "é GENTE na fonte; sprite de NPC é do restaura_npcs_johto.py, que precisa da flag junto"
-  },
   {
    "mapa": "BellchimeTrail",
    "x": 54,
    "y": 59,
    "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
    "gfx_fonte": "OBJ_EVENT_GFX_MORTY",
-   "motivo": "é GENTE na fonte; sprite de NPC é do restaura_npcs_johto.py, que precisa da flag junto"
-  },
-  {
-   "mapa": "BurnedTower_1F",
-   "x": 9,
-   "y": 20,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_MORTY",
-   "motivo": "é GENTE na fonte; sprite de NPC é do restaura_npcs_johto.py, que precisa da flag junto"
-  },
-  {
-   "mapa": "BurnedTower_1F",
-   "x": 18,
-   "y": 12,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_SILVER",
-   "motivo": "é GENTE na fonte; sprite de NPC é do restaura_npcs_johto.py, que precisa da flag junto"
-  },
-  {
-   "mapa": "BurnedTower_B1F",
-   "x": 25,
-   "y": 9,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_EUSINE",
    "motivo": "é GENTE na fonte; sprite de NPC é do restaura_npcs_johto.py, que precisa da flag junto"
   },
   {
@@ -187,30 +205,6 @@
    "motivo": "é GENTE na fonte; sprite de NPC é do restaura_npcs_johto.py, que precisa da flag junto"
   },
   {
-   "mapa": "GoldenrodCity_RadioTower_5F",
-   "x": 11,
-   "y": 9,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_PETREL",
-   "motivo": "é GENTE na fonte; sprite de NPC é do restaura_npcs_johto.py, que precisa da flag junto"
-  },
-  {
-   "mapa": "GoldenrodCity_RadioTower_5F",
-   "x": 29,
-   "y": 5,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_GENTLEMAN",
-   "motivo": "é GENTE na fonte; sprite de NPC é do restaura_npcs_johto.py, que precisa da flag junto"
-  },
-  {
-   "mapa": "GoldenrodCity_UndergroundSwitches",
-   "x": 35,
-   "y": 2,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_SILVER",
-   "motivo": "é GENTE na fonte; sprite de NPC é do restaura_npcs_johto.py, que precisa da flag junto"
-  },
-  {
    "mapa": "IlexForest",
    "x": 29,
    "y": 43,
@@ -224,22 +218,6 @@
    "y": 38,
    "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
    "gfx_fonte": "OBJ_EVENT_GFX_PRYCE",
-   "motivo": "é GENTE na fonte; sprite de NPC é do restaura_npcs_johto.py, que precisa da flag junto"
-  },
-  {
-   "mapa": "MahoganyTown_Shop",
-   "x": 6,
-   "y": 8,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_ROCKET_M",
-   "motivo": "é GENTE na fonte; sprite de NPC é do restaura_npcs_johto.py, que precisa da flag junto"
-  },
-  {
-   "mapa": "MahoganyTown_Shop",
-   "x": 3,
-   "y": 8,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_LANCE",
    "motivo": "é GENTE na fonte; sprite de NPC é do restaura_npcs_johto.py, que precisa da flag junto"
   },
   {
@@ -267,43 +245,11 @@
    "motivo": "é GENTE na fonte; sprite de NPC é do restaura_npcs_johto.py, que precisa da flag junto"
   },
   {
-   "mapa": "OlivineCity",
-   "x": 53,
-   "y": 47,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_ITEM_BALL",
-   "motivo": "a fonte diz BOLA aqui, já está certo"
-  },
-  {
    "mapa": "OlivineCity_Cafe",
    "x": 5,
    "y": 4,
    "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
    "gfx_fonte": "OBJ_EVENT_GFX_JASMINE",
-   "motivo": "é GENTE na fonte; sprite de NPC é do restaura_npcs_johto.py, que precisa da flag junto"
-  },
-  {
-   "mapa": "OlivineCity_Lighthouse",
-   "x": 156,
-   "y": 9,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_JASMINE",
-   "motivo": "é GENTE na fonte; sprite de NPC é do restaura_npcs_johto.py, que precisa da flag junto"
-  },
-  {
-   "mapa": "OlivineCity_PortInside",
-   "x": 8,
-   "y": 16,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_PROF_OAK",
-   "motivo": "é GENTE na fonte; sprite de NPC é do restaura_npcs_johto.py, que precisa da flag junto"
-  },
-  {
-   "mapa": "OlivineCity_PortOutside",
-   "x": 24,
-   "y": 5,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_SABRINA",
    "motivo": "é GENTE na fonte; sprite de NPC é do restaura_npcs_johto.py, que precisa da flag junto"
   },
   {
@@ -385,158 +331,6 @@
    "y": 11,
    "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
    "gfx_fonte": "OBJ_EVENT_GFX_EUSINE",
-   "motivo": "é GENTE na fonte; sprite de NPC é do restaura_npcs_johto.py, que precisa da flag junto"
-  },
-  {
-   "mapa": "RuinsOfAlph_B1F",
-   "x": 28,
-   "y": 12,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
-   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN)"
-  },
-  {
-   "mapa": "RuinsOfAlph_B1F",
-   "x": 1,
-   "y": 6,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
-   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN)"
-  },
-  {
-   "mapa": "RuinsOfAlph_B1F",
-   "x": 1,
-   "y": 18,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
-   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN)"
-  },
-  {
-   "mapa": "RuinsOfAlph_B1F",
-   "x": 1,
-   "y": 12,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
-   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN)"
-  },
-  {
-   "mapa": "RuinsOfAlph_B1F",
-   "x": 28,
-   "y": 18,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
-   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN)"
-  },
-  {
-   "mapa": "RuinsOfAlph_B1F",
-   "x": 28,
-   "y": 24,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
-   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN)"
-  },
-  {
-   "mapa": "RuinsOfAlph_B1F",
-   "x": 1,
-   "y": 24,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
-   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN)"
-  },
-  {
-   "mapa": "RuinsOfAlph_B1F",
-   "x": 28,
-   "y": 6,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
-   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN)"
-  },
-  {
-   "mapa": "RuinsOfAlph_B1F",
-   "x": 5,
-   "y": 4,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_ITEM_BALL",
-   "motivo": "a fonte diz BOLA aqui, já está certo"
-  },
-  {
-   "mapa": "RuinsOfAlph_Outside",
-   "x": 19,
-   "y": 17,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
-   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN)"
-  },
-  {
-   "mapa": "RuinsOfAlph_Outside",
-   "x": 25,
-   "y": 8,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
-   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN)"
-  },
-  {
-   "mapa": "RuinsOfAlph_Outside",
-   "x": 21,
-   "y": 32,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
-   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN)"
-  },
-  {
-   "mapa": "RuinsOfAlph_Outside",
-   "x": 35,
-   "y": 21,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
-   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN)"
-  },
-  {
-   "mapa": "RuinsOfAlph_Outside",
-   "x": 13,
-   "y": 33,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_MON_BASE+SPECIES_UNOWN",
-   "motivo": "espécie sem sprite de overworld nesta build (SPECIES_UNOWN)"
-  },
-  {
-   "mapa": "SlowpokeWell_B1F",
-   "x": 22,
-   "y": 6,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_POKE_BALL",
-   "motivo": "a fonte diz BOLA aqui, já está certo"
-  },
-  {
-   "mapa": "SlowpokeWell_B1F",
-   "x": 12,
-   "y": 15,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_POKE_BALL",
-   "motivo": "a fonte diz BOLA aqui, já está certo"
-  },
-  {
-   "mapa": "SlowpokeWell_B1F",
-   "x": 21,
-   "y": 15,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_POKE_BALL",
-   "motivo": "a fonte diz BOLA aqui, já está certo"
-  },
-  {
-   "mapa": "SlowpokeWell_B1F",
-   "x": 23,
-   "y": 21,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_POKE_BALL",
-   "motivo": "a fonte diz BOLA aqui, já está certo"
-  },
-  {
-   "mapa": "SproutTower_3F",
-   "x": 11,
-   "y": 6,
-   "gfx_velho": "OBJ_EVENT_GFX_ITEM_BALL",
-   "gfx_fonte": "OBJ_EVENT_GFX_SILVER",
    "motivo": "é GENTE na fonte; sprite de NPC é do restaura_npcs_johto.py, que precisa da flag junto"
   }
  ]

@@ -26,6 +26,7 @@ SSAqua_RoomNW_EventScript_Stanly::
     removeobject LOCALID_SSAQUA_SLEEPYSAILOR
     fadescreenswapbuffers FADE_FROM_BLACK
     setvar VAR_SSAQUA_STATE, 3
+	release
 	end
 
 SSAqua_RoomNW_EventScript_Edward::

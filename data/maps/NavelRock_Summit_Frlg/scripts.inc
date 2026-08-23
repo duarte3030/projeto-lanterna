@@ -10,14 +10,14 @@ NavelRock_Summit_OnTransition::
 
 NavelRock_Summit_EventScript_HideHoOh::
 	setvar VAR_TEMP_1, 1
-	setflag FLAG_HIDE_HO_OH
+	setflag FLAG_HIDE_HO_OH_NAVEL_ROCK_FRLG
 	return
 
 NavelRock_Summit_EventScript_TryShowHoOh::
 	setvar VAR_TEMP_1, 1
 	goto_if_set FLAG_HO_OH_FLEW_AWAY, Common_EventScript_NopReturn
 	setvar VAR_TEMP_1, 0
-	clearflag FLAG_HIDE_HO_OH
+	clearflag FLAG_HIDE_HO_OH_NAVEL_ROCK_FRLG
 	return
 
 NavelRock_Summit_OnResume::

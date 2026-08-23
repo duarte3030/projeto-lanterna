@@ -9,12 +9,12 @@ NavelRock_Bottom_OnTransition:
 	end
 
 NavelRock_Bottom_EventScript_HideLugia::
-	setflag FLAG_HIDE_LUGIA
+	setflag FLAG_HIDE_LUGIA_NAVEL_ROCK
 	return
 
 NavelRock_Bottom_EventScript_TryShowLugia::
 	goto_if_set FLAG_DEFEATED_LUGIA, Common_EventScript_NopReturn
-	clearflag FLAG_HIDE_LUGIA
+	clearflag FLAG_HIDE_LUGIA_NAVEL_ROCK
 	return
 
 NavelRock_Bottom_OnResume:

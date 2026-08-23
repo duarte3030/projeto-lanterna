@@ -31,7 +31,7 @@ SSAqua_CaptainsRoom_EventScript_Granddaughter::
 	setvar VAR_SSAQUA_STATE, 4
 	clearflag FLAG_HIDE_SSAQUA_ROOM_SSE_GRANDDAUGHTER
 	warp MAP_SSAQUA_ROOM_SSE, 0
-	release
+	waitstate
 	end
 
 SSAqua_CaptainsRoom_Movement_Jump:

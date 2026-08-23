@@ -18,7 +18,7 @@ BirthIsland_Exterior_Frlg_OnTransition::
 	end
 
 BirthIsland_Exterior_Frlg_EventScript_HideDeoxysAndPuzzle::
-	setflag FLAG_HIDE_DEOXYS
+	setflag FLAG_HIDE_DEOXYS_FRLG
 	setflag FLAG_HIDE_BIRTH_ISLAND_METEORITE
 	return
 

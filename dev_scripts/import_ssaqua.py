@@ -203,6 +203,39 @@ MOVIMENTO = {
 }
 
 
+# O hns fecha DUAS familias de bloco de um jeito que prende o jogador nesta
+# build, e as duas moram no navio (medido em 23/08/2026, auditoria de scripts):
+#
+# 1. `warp`/`warphole`/`warpsilent` seguido de `release`. O `DoWarp` acabou de
+#    chamar `LockPlayerFieldControls` (src/field_screen_effect.c:556) e o
+#    `release` o desfaz no meio do fade: o jogador anda e abre menu com o mapa
+#    trocando. A ordem do motor e `warp` / `waitstate` (data/scripts/cave_hole.inc:20).
+# 2. bloco com `lock` + `trainerbattle_no_intro` que termina em `end` sem
+#    `release`. `EventScript_DoNoIntroTrainerBattle` volta pelo
+#    `gotopostbattlescript` para o byte seguinte ao comando, e
+#    `FieldCB_ContinueScriptHandleMusic` (src/field_screen_effect.c:162) tranca
+#    o jogador de novo: ganhou a batalha e so sai no reset.
+#
+# Os dois consertos moram AQUI e nao no arquivo gerado, senao a proxima rodada
+# do importador traz o defeito de volta.
+
+def solta_travas(texto):
+    # o hns mistura tabulacao e espaco no mesmo bloco; o recuo vem do proprio texto
+    texto = re.sub(
+        r"(\n([ \t]+)(?:warp|warpsilent|warphole|warpdoor)[^\n]*\n)[ \t]+release\n",
+        lambda m: m.group(1) + m.group(2) + "waitstate\n", texto)
+    saida = []
+    for bloco in re.split(r"(?m)(?=^\w+:{1,2}[^\n]*\n)", texto):
+        if ("trainerbattle_no_intro" in bloco
+                and re.search(r"(?m)^[ \t]+lock$", bloco)
+                and not re.search(r"(?m)^[ \t]+(?:release|releaseall)$", bloco)):
+            bloco = re.sub(r"(?m)^([ \t]+)end$",
+                           lambda m: m.group(1) + "release\n" + m.group(1) + "end",
+                           bloco, count=1)
+        saida.append(bloco)
+    return "".join(saida)
+
+
 def limpa_scripts(mapa, texto, mapa_nomes):
     texto = renomeia_treinadores(texto, mapa_nomes)
     for velho, novo in MOVIMENTO.items():
@@ -235,7 +268,7 @@ def limpa_scripts(mapa, texto, mapa_nomes):
         texto = re.sub(
             r"SSAquaRooms_Text_TakeRestOnBed_PokecenterChallenge:\n(?:\t\.string[^\n]*\n)+",
             "", texto)
-    return texto
+    return solta_travas(texto)
 
 
 # --------------------------------------------------------------------------
@@ -518,6 +551,29 @@ def demo():
     assert "IsPokecenterChallengeActivated" not in quarto
     assert "SSAquaRooms_EventScript_Bed::" in quarto
     assert "SSAquaRooms_Text_TakeRestOnBed:" in quarto
+
+    # 6. as duas travas do hns saem, e o resto do bloco fica de pe.
+    r = solta_travas("A::\n\tlock\n\twarp MAP_X, 0\n\trelease\n\tend\n")
+    assert r == "A::\n\tlock\n\twarp MAP_X, 0\n\twaitstate\n\tend\n", repr(r)
+    r = solta_travas("A::\n\tlock\n\ttrainerbattle_no_intro T, X\n\tmsgbox Y\n\tend\n")
+    assert r == ("A::\n\tlock\n\ttrainerbattle_no_intro T, X\n\tmsgbox Y\n"
+                 "\trelease\n\tend\n"), repr(r)
+    # quem ja solta nao ganha release em dobro, e quem nao tem lock fica quieto
+    ok = "A::\n\tlock\n\ttrainerbattle_no_intro T, X\n\trelease\n\tend\n"
+    assert solta_travas(ok) == ok
+    livre = "A::\n\ttrainerbattle_single T, X, Y\n\tend\n"
+    assert solta_travas(livre) == livre
+    # e o navio de verdade sai limpo dos dois defeitos
+    for m in MAPAS:
+        s = limpa_scripts(m, le(f"{HNS}/data/maps/{m}/scripts.inc"), {})
+        assert not re.search(r"(?m)^[ \t]+(?:warp|warpsilent|warphole|warpdoor)[^\n]*\n"
+                             r"[ \t]+release$", s), m
+    nw = limpa_scripts("SSAqua_RoomNW",
+                       le(f"{HNS}/data/maps/SSAqua_RoomNW/scripts.inc"), {})
+    assert re.search(r"(?m)^[ \t]+release\n[ \t]+end$", nw), "Stanly continua preso"
+    cr = limpa_scripts("SSAqua_CaptainsRoom",
+                       le(f"{HNS}/data/maps/SSAqua_CaptainsRoom/scripts.inc"), {})
+    assert re.search(r"(?m)^[ \t]+warp [^\n]*\n[ \t]+waitstate$", cr), "neta sem waitstate"
     print("demo ok")
 
 

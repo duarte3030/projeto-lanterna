@@ -1,0 +1,67 @@
+[
+ {
+  "id": "T164.1",
+  "nome": "O GINASIO DE AZALEA NAO ESTA TRANCADO, e a prova e a posicao final. A auditoria de mapas de 23/08/2026 marcou AzaleaTown_Gym como TRAVA: 62 tiles alcancaveis de 1.152, com a linha y=38 de parede macica de x=4 a x=18 separando o vestibulo do corpo do ginasio, e o Bugsy (11,6) e os cinco treinadores do lado de fora. A regua estava certa e a conclusao nao: aquele BFS so anda tile a tile e nao enxerga coord_event que CARREGA o jogador. O ginasio do hns e o do HGSS, e a travessia e a teia dos ARIADOS: pisar em (11,39) dispara AzaleaTown_Gym_EventScript_Trigger_2, que faz jump_up, cinco walk_fast_up, cinco walk_fast_right, cinco walk_fast_up e outro jump_up, tudo em applymovement, que no motor IGNORA colisao (InitNpcForMovement desloca sem consultar a grade). O jogador entra pela porta (11,44), sobe cinco tiles ate a teia e reaparece do outro lado da parede, em (16,27). Medido com o simulador de gatilho: 62 tiles sem as arestas de coord_event, 173 com elas, e Bugsy e os cinco treinadores todos dentro. Este caso mede a ponta que importa: se alguem apagar o gatilho ou mexer nos movimentos, a posicao final volta a ser (11,39) e o caso fica vermelho.",
+  "warp": "MAP_AZALEA_TOWN_GYM",
+  "roteiro": "180:NADA,16:UP*5,420:NADA",
+  "prova": {
+   "mapa": "MAP_AZALEA_TOWN_GYM",
+   "pos": [
+    16,
+    27
+   ]
+  }
+ },
+ {
+  "id": "T164.2",
+  "nome": "O GINASIO DA CLAIR ABRE A PRIMEIRA PONTE, e o jogador atravessa a lava por cima dela. Mesma familia do T164.1: a auditoria mediu 31 tiles alcancaveis de 721 em BlackthornCity_Gym e chamou de trava provavel, porque o BFS estatico nao executa os 76 setmetatile do quebra-cabeca. Aqui o desenho e em cascata e ele foi simulado inteiro: pisar em (19..21,55) com VAR_BLACKTHORN_GYM_STATE=0 chama AcendePonte1, que vira 24 tiles de (19..21,47..54) em metatile 889 com colisao 0 e grava estado 1; o estado 1 destranca o gatilho da ponte 2, e assim por diante ate a ponte 4, quando a Clair (20,5) e os cinco treinadores entram no alcance (31 -> 93 -> 202 -> 300 -> 338 tiles). Este caso prova o PRIMEIRO degrau no motor, que e o que sustenta os outros tres: o jogador entra em (20,58), sobe tres tiles ate o gatilho e segue subindo dez tiles por onde ANTES era lava solida, parando em (20,45). Sem a ponte ele empacaria em (20,54); com ela, chega. A var na prova separa 'andou' de 'a ponte acendeu': 0x404E tem de valer 1.",
+  "warp": "MAP_BLACKTHORN_CITY_GYM",
+  "roteiro": "180:NADA,16:UP*3,150:NADA,16:UP*10,150:NADA",
+  "prova": {
+   "mapa": "MAP_BLACKTHORN_CITY_GYM",
+   "pos": [
+    20,
+    45
+   ],
+   "vars": {
+    "0x404E": 1
+   }
+  }
+ },
+ {
+  "id": "T164.3",
+  "nome": "O BOTAO DO ICE PATH WARPA E DEVOLVE O CONTROLE. O IcePath_B1F_EventScript_PuzzleSkipButton fazia `warp MAP_ICE_PATH_B1F, 15, 12` seguido de `release` e `end`. O `release` desfaz o LockPlayerFieldControls que o proprio DoWarp acabou de por (src/field_screen_effect.c:556): o jogador recupera o controle NO MEIO do fade e pode andar e abrir o menu com o mapa trocando. A ordem do motor e `warp` / `waitstate`, que e a de data/scripts/cave_hole.inc:20 e a das seis quedas irmas. O conserto trocou o `release` pelo `waitstate`, e o risco do conserto e o oposto do defeito: sem `release` nenhum, o jogador podia ficar TRANCADO depois do warp. Nao fica, e e isso que este caso mede: quem solta e a tarefa de saida do warp (Task_ExitNonDoor chama UnlockPlayerFieldControls, src/field_screen_effect.c:488). O roteiro pisa em (9,21), vira para o botao (10,21), le, responde SIM, cai em (15,12) e ANDA para a esquerda ate a parede de (13,12). Parar em (14,12) prova as duas coisas: o warp aconteceu e o controle voltou. A perna e SATURANTE (seis setas para UM tile de caminho), pelo mesmo motivo do T85: o jogador so anda um tile porque (13,12) e parede, e as primeiras setas ainda sao comidas pelo fade e pela virada de cara, ou seja o controle esta mesmo trancado durante o warp e volta depois dele, que e o comportamento que o `release` velho estragava.",
+  "warp": "MAP_ICE_PATH_B1F",
+  "roteiro": "180:NADA,16:DOWN,16:RIGHT,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,300:NADA,16:LEFT*6,150:NADA",
+  "prova": {
+   "mapa": "MAP_ICE_PATH_B1F",
+   "pos": [
+    14,
+    12
+   ]
+  }
+ },
+ {
+  "id": "T164.4",
+  "nome": "O HO-OH DE JOHTO NAO APAGA MAIS O HO-OH DA NAVEL ROCK. Ate 23/08/2026 uma unica FLAG_HIDE_HO_OH (0x321) pendurava TRES objetos em tres regioes: TinTower_RoofDay (Johto), NavelRock_Top (Hoenn) e NavelRock_Summit_Frlg (Kanto); FLAG_HIDE_LUGIA e FLAG_HIDE_DEOXYS tinham o mesmo desenho com dois e tres mapas. Como os dois lados reescrevem a flag no ON_TRANSITION, nao travava: sumia ou duplicava o lendario do outro mapa conforme a ordem de visita. Agora cada mapa tem apelido proprio (faixa 0x1BB4..0x1BB8, custo zero de var e save compativel). O caso planta a flag da NAVEL ROCK ACESA (Ho-Oh escondido em Hoenn), poe VAR_COMPLETED_HO_OH em 2, que e o ramo TinTower_RoofDay_MapScript_HoohStory, e entra no telhado da TIN TOWER. O ON_TRANSITION de la APAGA FLAG_HIDE_HO_OH para o Ho-Oh de Johto aparecer. A prova e o par: a flag de Johto APAGADA e a da Navel Rock ainda ACESA. Na ROM anterior as duas eram o mesmo bit, entao este caso era impossivel de passar.",
+  "flags": [
+   "FLAG_HIDE_HO_OH_NAVEL_ROCK",
+   "FLAG_HIDE_HO_OH_NAVEL_ROCK_FRLG"
+  ],
+  "vars": {
+   "0x4106": 2
+  },
+  "warp": "MAP_TIN_TOWER_ROOF_DAY",
+  "roteiro": "240:NADA",
+  "prova": {
+   "mapa": "MAP_TIN_TOWER_ROOF_DAY",
+   "flags_apagadas": [
+    "FLAG_HIDE_HO_OH"
+   ],
+   "flags_acesas": [
+    "FLAG_HIDE_HO_OH_NAVEL_ROCK",
+    "FLAG_HIDE_HO_OH_NAVEL_ROCK_FRLG"
+   ]
+  }
+ }
+]

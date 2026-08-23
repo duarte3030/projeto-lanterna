@@ -83,7 +83,7 @@ RuinsOfAlph_PuzzleAndRewardChambers_MapScript_KabutoSuccess::
 	playse SE_FALL
 	delay 60
 	warphole MAP_RUINS_OF_ALPH_B1F
-	release
+	waitstate
 	end
 RuinsOfAlph_PuzzleAndRewardChambers_Movement_Fall:
 	walk_in_place_fast_up
@@ -125,7 +125,7 @@ RuinsOfAlph_PuzzleAndRewardChambers_MapScript_OmanyteSuccess::
 	playse SE_FALL
 	delay 60
 	warphole MAP_RUINS_OF_ALPH_B1F
-	release
+	waitstate
 	end
 RuinsOfAlph_PuzzleAndRewardChambers_EventScript_AerodactylPuzzle::
 	fadescreen FADE_TO_BLACK
@@ -162,7 +162,7 @@ RuinsOfAlph_PuzzleAndRewardChambers_MapScript_AerodactylSuccess::
 	playse SE_FALL
 	delay 60
 	warphole MAP_RUINS_OF_ALPH_B1F
-	release
+	waitstate
 	end
 RuinsOfAlph_PuzzleAndRewardChambers_EventScript_HooHPuzzle::
 	fadescreen FADE_TO_BLACK
@@ -199,7 +199,7 @@ RuinsOfAlph_PuzzleAndRewardChambers_MapScript_HoohSuccess::
 	playse SE_FALL
 	delay 60
 	warphole MAP_RUINS_OF_ALPH_B1F
-	release
+	waitstate
 	end
 RuinsOfAlph_PuzzleAndRewardChambers_EventScript_CheckHooh::
 	lock

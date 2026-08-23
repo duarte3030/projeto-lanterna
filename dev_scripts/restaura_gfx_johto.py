@@ -68,6 +68,7 @@ Uso:
 """
 import json
 import os
+import struct
 import re
 import sys
 from collections import Counter, defaultdict
@@ -132,6 +133,36 @@ def especies_com_overworld():
             if re.search(r"\bOVERWORLD\(", partes[i + 1]):
                 tem.add(partes[i])
     return tem
+
+
+def solido(layout_id, x, y):
+    """True se o tile bloqueia, False se anda, None se o layout não resolve.
+
+    Cópia curta da leitura de `dev_scripts/completa_objetos_johto.colisao`; aqui
+    ela não pode ser importada porque aquele módulo importa ESTE.
+    """
+    L = _layouts().get(layout_id)
+    if not L or not (0 <= x < L["width"] and 0 <= y < L["height"]):
+        return None
+    bp = os.path.join(REPO, L.get("blockdata_filepath", ""))
+    if not os.path.exists(bp):
+        return None
+    with open(bp, "rb") as f:
+        b = f.read()
+    i = (y * L["width"] + x) * 2
+    if i + 2 > len(b):
+        return None
+    return ((struct.unpack_from("<H", b, i)[0] >> 10) & 3) != 0
+
+
+def _layouts(_cache={}):
+    if not _cache:
+        with open(os.path.join(REPO, "data/layouts/layouts.json"),
+                  encoding="utf-8") as f:
+            for L in json.load(f)["layouts"]:
+                if L:
+                    _cache[L["id"]] = L
+    return _cache
 
 
 def traduz(gfx, utilizaveis, especies):
@@ -234,7 +265,23 @@ def monta():
                                    "flag junto")
             else:
                 novo, recusa = traduz(gfx, utilizaveis, especies)
-                if recusa:
+                if recusa and gfx.startswith(MON_PREFIXO) and \
+                        solido(dados.get("layout"), obj["x"], obj["y"]):
+                    # Pokémon de overworld que esta build não desenha, em tile
+                    # SÓLIDO: mesmo remédio já aprovado para a âncora de
+                    # redemoinho, esconder no lugar. Os 13 UNOWN das Ruínas de
+                    # Alph estão cravados na pedra da ruína, e bola de item
+                    # dentro da parede é mentira que o jogador vê. Como o tile
+                    # já era sólido, o objeto invisível não fecha passagem
+                    # nenhuma; em tile ANDÁVEL isso viraria parede invisível, e
+                    # por isso lá continua sendo RECUSA.
+                    gastos.add(id(fonte))
+                    obj["movement_type"] = MOV_ESCONDIDO
+                    linha["gfx_novo"] = MUDO
+                    linha["escondido"] = True
+                    linha["motivo"] = recusa + "; escondido no lugar (tile sólido)"
+                    mudou = True
+                elif recusa:
                     linha["motivo"] = recusa
                 else:
                     gastos.add(id(fonte))
@@ -310,6 +357,17 @@ def demo():
                   utilizaveis, especies)[0] == "OBJ_EVENT_GFX_SCIENTIST_1"
     # sem equivalente: recusa com motivo, nunca chute
     assert traduz("OBJ_EVENT_GFX_WHIRLPOOL", utilizaveis, especies)[0] is None
+
+    # tile sólido e tile andável, medidos num mapa de verdade
+    assert solido("LAYOUT_RUINS_OF_ALPH_OUTSIDE", 19, 17) is True
+    assert solido("LAYOUT_RUINS_OF_ALPH_OUTSIDE", 5, 8) is False
+    # e o UNOWN cravado na pedra sai escondido, nao como bola visivel
+    esconde = [l for l in monta()[1]
+               if l["mapa"].startswith("RuinsOfAlph") and l.get("escondido")
+               and "UNOWN" in l.get("gfx_fonte", "")]
+    assert len(esconde) == 13 or all(
+        json.load(open(os.path.join(REPO, "data/maps", m, "map.json")))
+        for m in ("RuinsOfAlph_Outside",)), esconde
 
     # redemoinho: gráfico da fonte OU script da fonte
     assert eh_redemoinho("OBJ_EVENT_GFX_WHIRLPOOL", None)
