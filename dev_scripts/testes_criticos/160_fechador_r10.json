@@ -1,0 +1,143 @@
+[
+ {
+  "id": "T160.1",
+  "opcoes": 32,
+  "warp": "MAP_GALAR_TURFFIELD_INDOOR_51",
+  "warp_id": 1,
+  "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,300:NADA",
+  "nome": "ID DE TREINADOR É ÍNDICE DE SAVE: O LEON DE VOLTA AO 3204 ABRE A BATALHA DELE, E O TIME É O DA TABELA. Na rodada 9 o balde d de Galar entrou em ordem alfabética e empurrou TRAINER_GALAR_LEON_736 e _739 de 3204/3205 para 3206/3207, com o guarda_save dizendo SAVE COMPATIVEL, porque ele media TAMANHO (MAX_TRAINERS_COUNT) e não ATRIBUIÇÃO. Os dois voltaram para a vaga que a ROM publicada conhece. Entrada pelo warp 1 em (8,12); UP 10 sobe a sala e para embaixo do objeto 0, que é sólido em (8,5); o A abre a briga. A prova lê gTrainerBattleParameter pelo NOME da constante, que hoje vale 3204, e mais três slots do time decifrado em gParties (AEGISLASH 681, CHARIZARD 6 e ETERNATUS 890), porque 'abriu alguma batalha' não diz COM QUEM.",
+  "prova": {
+   "mapa": "MAP_GALAR_TURFFIELD_INDOOR_51",
+   "oponente": "TRAINER_GALAR_LEON_736",
+   "campos": {
+    "opcoes": 32,
+    "nivelinimigo": 255,
+    "especie0": 681,
+    "especie4": 6,
+    "especie5": 890
+   }
+  }
+ },
+ {
+  "id": "T160.2",
+  "opcoes": 32,
+  "flags": [
+   "0x1184"
+  ],
+  "warp": "MAP_GALAR_TURFFIELD_INDOOR_51",
+  "warp_id": 1,
+  "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,300:NADA",
+  "nome": "O PAR DO T160.1 PELO LADO DA SAVE: a flag 0x1184, que é TRAINER_FLAGS_START (0x500) mais o id NOVO 3204, plantada antes de entrar, faz o goto_if_set do script do Leon disparar e a batalha NÃO começa (oponente na faixa [0,0]). Mesmo mapa, mesmo roteiro, mesma tecla do T160.1: o único que muda é a flag. É ela que uma save escrita nesta ROM vai guardar quando o jogador vencer.",
+  "prova": {
+   "mapa": "MAP_GALAR_TURFFIELD_INDOOR_51",
+   "oponente_faixa": [
+    0,
+    0
+   ],
+   "flags_acesas": [
+    "0x1184"
+   ]
+  }
+ },
+ {
+  "id": "T160.3",
+  "opcoes": 32,
+  "flags": [
+   "0x1186"
+  ],
+  "warp": "MAP_GALAR_TURFFIELD_INDOOR_51",
+  "warp_id": 1,
+  "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,300:NADA",
+  "nome": "PAR NEGATIVO, E É ELE QUE MEDE O ESTRAGO QUE A RENUMERAÇÃO FARIA. A flag 0x1186 é TRAINER_FLAGS_START mais 3206, que era o id do Leon ENQUANTO ele estava fora do lugar e que hoje é do TRAINER_GALAR_WANDA_686. Plantada, ela NÃO segura o Leon: a batalha abre igual. Ou seja, uma save feita na ROM de ontem, com o Leon vencido, chegaria aqui acendendo a vitória da Wanda e mandando o jogador brigar de novo com o Leon. Sem este caso o T160.2 provaria só que 'alguma flag bloqueia', não que é a do id certo.",
+  "prova": {
+   "mapa": "MAP_GALAR_TURFFIELD_INDOOR_51",
+   "oponente": "TRAINER_GALAR_LEON_736",
+   "flags_acesas": [
+    "0x1186"
+   ]
+  }
+ },
+ {
+  "id": "T160.4",
+  "opcoes": 36,
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "antes_do_warp": "40:R+START!,60:NADA,20:DOWN*3,20:A,60:NADA,20:DOWN,20:A,90:NADA,20:A,120:NADA,20:A,240:NADA,20:B*3,120:NADA",
+  "warp": "MAP_GALAR_ROSE_TOWER_03",
+  "warp_id": 1,
+  "roteiro": "300:NADA,16:UP*2,90:NADA,20:A,150:NADA,20:A,10:NADA,10:NADA,10:NADA,10:NADA,10:NADA,10:NADA,10:NADA,10:NADA,10:NADA,10:NADA,10:NADA,10:NADA,10:NADA,10:NADA,10:HP=0=1,10:NADA,10:NADA,10:NADA,10:NADA,10:NADA,10:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,600:NADA,20:B,300:NADA",
+  "nome": "A VITÓRIA GRAVADA: um treinador COMUM de Galar é derrotado de verdade e a flag que acende é a do id dele, e não a do vizinho. TRAINER_GALAR_TAMMY_447 é o id 3166 e mora sozinho em Galar_RoseTower03, colado no warp 1 (o objeto está em (18,9) e a porta em (18,10)). O antes_do_warp é o do T144.5, que dá um Pokémon ao jogador pelo seletor de capítulo; com opcoes 36 (LV.5 TRAINERS) o MAGNETON do Tammy nasce nível 5 com 21 de HP, e o Bulbasaur nível 1 do jogador não ganharia nunca. O passo 10:HP=0=1 entra na JANELA MEDIDA entre a criação do time do treinador em gParties e a cópia dele para gBattleMons, que aqui dura seis passos de dez quadros: antes dela a escrita é desfeita pela criação do time, depois dela a cópia já saiu e o HP volta a 21 no primeiro golpe. Com o HP em 1, um Tackle encerra. A prova é a flag 0x115E (0x500 + 3166) ACESA e as duas VIZINHAS, 0x115D e 0x115F, APAGADAS: é isso que separa 'a vitória foi gravada' de 'a vitória foi gravada no dono certo'. O jogador termina de volta no overworld, em (18,10).",
+  "prova": {
+   "mapa": "MAP_GALAR_ROSE_TOWER_03",
+   "pos": [
+    18,
+    10
+   ],
+   "flags_acesas": [
+    "0x115E"
+   ],
+   "flags_apagadas": [
+    "0x115D",
+    "0x115F"
+   ]
+  }
+ },
+ {
+  "id": "T160.5",
+  "warp": "MAP_ETERNA_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "60:NADA,16:UP*40,120:NADA,20:A,150:NADA,20:A,300:NADA",
+  "nome": "A GARDENIA COM SPRITE PRÓPRIO FALA, E NÃO SÓ OCUPA TILE. O T158.7 já provava que o objeto 0 do ginásio de Eterna é SÓLIDO em (11,2), o que qualquer graphics_id daria; graphics_id que não resolve não quebra o build, ele só deixa o objeto sem carregar, e objeto que não carrega também não roda script. Aqui o jogador sobe até (11,3), aperta A e a fala dela ROLA até o trainerbattle_no_intro, e a batalha que abre é a de TRAINER_SINNOH_LEADER_GARDENIA (1266). OBJ_EVENT_GFX_SINNOH_GARDENIA é um dos 26 desenhos novos, e este é o caso que prova que o desenho novo não custou a fala.",
+  "prova": {
+   "mapa": "MAP_ETERNA_CITY_GYM",
+   "oponente": "TRAINER_SINNOH_LEADER_GARDENIA"
+  }
+ },
+ {
+  "id": "T160.6",
+  "warp": "MAP_ETERNA_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "60:NADA,16:UP*40,120:NADA,20:NADA,150:NADA,20:NADA,300:NADA",
+  "nome": "PAR NEGATIVO DO T160.5: o MESMO caminho e o MESMO número de quadros, com os dois A trocados por espera. Nenhuma batalha começa (oponente na faixa [0,0]) e o jogador fica parado em (11,3), encostado nela. Sem ele, o T160.5 não separaria 'a fala dela rodou' de 'alguma coisa neste mapa abre batalha sozinha'.",
+  "prova": {
+   "mapa": "MAP_ETERNA_CITY_GYM",
+   "oponente_faixa": [
+    0,
+    0
+   ],
+   "pos": [
+    11,
+    3
+   ]
+  }
+ },
+ {
+  "id": "T160.7",
+  "warp": "MAP_GALAR_ROUTE08_03",
+  "warp_id": 0,
+  "roteiro": "150:NADA,4:UP,20:NADA,20:A,150:NADA,20:A,240:NADA,16:UP*3,120:NADA",
+  "nome": "O TIL LIDO NA TELA, NO ÚNICO LETREIRO DE GALAR QUE TEM UM. GalarObj_G20M00_bg0 é o diário de Galar_Route0803, e a segunda página dele começa com 'Querido Diário, eu não aguento mais...', com o byte F4 no 'a' de 'não'. O jogador nasce em (6,8) virado para baixo e o tile do letreiro, (6,7), é ANDÁVEL: por isso o toque de quatro quadros para cima, que VIRA sem andar (16 quadros andariam, e foi o que a primeira versão deste caso fez, atravessando o letreiro sem lê-lo). O primeiro A abre a caixa na página da data, o segundo vira para a página do texto, e os três UP do fim não movem ninguém porque a caixa segura o jogador. MEDIDA DE TELA, fora do que este arquivo sabe cobrar, feita com o MESMO roteiro nas DUAS ROMs (a de 2026-08-23, com o glifo velho, e a de hoje): os framebuffers finais diferem em NOVE pixels, todos dentro do retângulo (116,124) a (121,125), que é o acento do único 'a' com til da tela; na ROM velha são dois pontos de trema e na de hoje é um til. Nenhum outro pixel da tela mudou, e é isso que separa 'redesenhei a fonte' de 'redesenhei a fonte e quebrei o resto'.",
+  "prova": {
+   "mapa": "MAP_GALAR_ROUTE08_03",
+   "pos": [
+    6,
+    8
+   ]
+  }
+ },
+ {
+  "id": "T160.8",
+  "warp": "MAP_GALAR_ROUTE08_03",
+  "warp_id": 0,
+  "roteiro": "150:NADA,4:UP,20:NADA,20:NADA,150:NADA,20:NADA,240:NADA,16:UP*3,120:NADA",
+  "nome": "PAR NEGATIVO DO T160.7: o MESMO toque de virada e o MESMO número de quadros, com os dois A trocados por espera. Sem caixa aberta os três UP andam, e o jogador sobe de (6,8) para (6,5). É este caso que prova que o (6,8) do T160.7 é a caixa segurando, e não parede.",
+  "prova": {
+   "mapa": "MAP_GALAR_ROUTE08_03",
+   "pos": [
+    6,
+    5
+   ]
+  }
+ }
+]

@@ -4,7 +4,111 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 23/08/2026, na build de fechamento da rodada 9. A seção 0.q abaixo é a passagem de bastão dela.
+Última medição: 23/08/2026, na build de fechamento da rodada 10. A seção 0.r abaixo é a passagem de bastão dela.
+
+---
+
+## 0.r TRÊS CONSERTOS DE IDENTIDADE: O TIL DE GALAR, O ID DE TREINADOR E O SPRITE QUE FALAVA POR OUTRA PESSOA, 23/08/2026 (rodada 10; condutor Opus, um executor Opus, fechador Opus)
+
+Build verde, uma build só, e uma rodada que **não custou um byte**: **ROM 96,37% de 32 MB**
+(32.336.544 B, **1.217.888 B livres**), **EWRAM 86,16% e IWRAM 86,68%**, os três idênticos aos da
+0.q, e a **régua de completude da 0.q intocada linha por linha**, Dex obtenível em 1.571 de 1.571.
+Os três consertos são de NOME e de ÍNDICE, não de conteúdo. **Suíte 949 de 950**, ZERO reprovados,
+com o T11.3 pulado na varredura porque ele só prova algo com duas ROMs, e o bloco novo **T160 em
+8/8**; **T11 3/3** contra a build `cf6786b2ae` (worktree em `/private/tmp/claude-501/t11-antiga`).
+**SAVE COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B, **2.054 layouts e 2.400 mapas**, os 2.400
+declarados dentro da ROM, e agora também **2.192 ids de treinador conferidos** contra o `e5224a3d67`;
+`guarda_colisao_vars.py` com 23 colisões herdadas em vars e 5 em flags, **0 novas nos dois perfis** e
+0 stub; `valida_conectividade` com **0 warps quebrados**; `valida_warp_tile --piso 60` em **5.915 de
+6.875 (86,0%)**, nenhuma região abaixo do piso; `valida_mapas_sinnoh --so-sinnoh` com `'sprite': 0` e
+0 mapas com problema; os seis `--demo` tocados (`fala_galar`, `glifo_til`, `treinadores_galar`,
+`guarda_save`, `importa_npcs_sinnoh`, `sprites_sinnoh`) verdes. ROM oficial
+`roms/pokemon-claude-2026-08-23b.gba` (md5 `ec560cb869964788a5a4f1880179c325`), com o `.map` ao lado,
+e o MESMO binário em `roms/pokemon-claude-teste-2026-08-16.gba`.
+
+### O til: byte certo com glifo errado engana a ida e volta
+
+A 0.q fechou dizendo que os `ä` de Galar eram "obra de fonte, não de script, porque o gerador tem ida
+e volta byte a byte pelo charmap, então os BYTES estão certos". Estava certa pela metade. A fonte (o
+demake `ultimate-plus-v1.2.1.2`, base FireRed) escreve "não" como `E2 F4 E3`, medido byte a byte em
+`0x818376`, e REDESENHOU como til o glifo do `F4`, que no FireRed é o trema alemão `ä`. O nosso
+`charmap.txt` ainda chamava `F4` de `ä`, então o tradutor decodificava `ä` e o assembler reencodava
+`ä` no mesmo `F4`: **a ida e volta fechava, e o defeito nunca virou erro de build**, com o jogador
+lendo "N-trema-o" em 315 lugares. A verificação media o BYTE; o errado era a LETRA.
+
+O `charmap.txt` passou a chamar `F1 F2 F4 F5` de `Ã Õ ã õ`, e `dev_scripts/glifo_til.py` redesenhou
+os quatro glifos nos **nove** `graphics/fonts/latin_*.png` sem inventar pixel: o til vem do `Ñ` e do
+`ñ` do MESMO arquivo, sobreposto ao `A O a o` do MESMO arquivo, e tinta da letra nunca é apagada.
+**`Ü` (`F3`) e `ü` (`F6`) continuam trema**, os únicos tremas vivos do repo, por causa do "JÜRGEN" de
+`src/data/battle_frontier/apprentice.h`: conferido no fechamento, célula por célula nos nove PNG, que
+**só `F1 F2 F4 F5` mudaram de desenho**. Varridos `data/`, `src/`, `include/` e `tools/` em UTF-8 e
+em latin-1 atrás de trema fora de Galar, **nenhuma ocorrência**: nenhum texto de Kanto, Johto, Hoenn,
+Sinnoh ou Unova usava `F4` como `ä` de verdade. Os quatro `.inc` regerados dão **0 trema, 317 til**,
+e o `fala_galar --demo` ganhou quatro casos que medem a letra, com mutação plantada.
+
+### O id de treinador é APPEND-ONLY, como o de mapa e o de layout
+
+A 0.q registrou que `TRAINER_GALAR_LEON_736` e `_739` tinham ido de 3204/3205 para 3206/3207 com o
+`guarda_save.py` dizendo SAVE COMPATIVEL, "certo pela régua dele e mudo sobre a vitória que mudava de
+dono". A flag de "já venci este treinador" é `TRAINER_FLAGS_START + id` e mora na save: **id de
+treinador é índice de save**, e vale a regra dos mapas e dos layouts, quem existe não se move e quem
+entra entra no fim. O `numera()` de `treinadores_galar.py` passou a ler o de-para do próprio
+`opponents.h` e só dá vaga nova a quem ainda não tem, os dois Leon voltaram a 3204/3205, e o
+`guarda_save.py` ganhou `ids_de_treinador`, que compara o header de hoje com o do `e5224a3d67` (o da
+ROM publicada) e reprova quem moveu, quem sumiu e quem entrou no meio, com a mutação real plantada no
+`--demo`.
+
+### O de-para por nome precisa olhar o SCRIPT
+
+O de-para de sprite próprio casa pelo nome do objeto da fonte, e a fonte rotula como MARS o objeto de
+CENA da comandante em `ValleyWindworksBuilding`: ela aparece, fala e some, e quem fica no mapa é o
+pai da família, cujo script começa com "Papa:". O casamento com o objeto NOSSO era por vizinhança
+pura, então a cara da Mars foi parar em quem fala como o pai, que é o mapa mentindo. `pode_vestir()`
+virou o portão único dos DOIS pontos de `importa_npcs_sinnoh.py` que repintam objeto nosso: sprite
+próprio só entra em objeto MUDO ou em objeto cujo script fala como a pessoa, seguindo os saltos de
+rótulo, que é como a Candice de Snowpoint continua passando (o rótulo dela não diz o nome, o corpo
+tem `TRAINER_SINNOH_LEADER_CANDICE`). A Mars saiu, o objeto voltou ao `OBJ_EVENT_GFX_SCIENTIST_1` que
+já tinha, e ficam **20 colocações em 20 mapas, com 16 constantes**.
+
+### Os casos adversariais desta rodada
+
+`dev_scripts/testes_criticos/160_fechador_r10.json`, **8 casos, 8 verdes**, seis em PAR; o texto
+inteiro de cada um está no JSON.
+
+- **T160.1, T160.2 e T160.3, o id do Leon pelos dois lados.** O 3204 abre a batalha dele com o time
+  da tabela; a flag `0x1184` (`0x500 + 3204`) plantada faz o `goto_if_set` disparar e a batalha não
+  começa; e a `0x1186`, o id que ele TINHA fora do lugar e que hoje é da Wanda, **não** o segura. O
+  terceiro mede o estrago: uma save de ontem acenderia a vitória da Wanda e mandaria brigar de novo
+  com o Leon.
+- **T160.4, a vitória gravada de verdade.** O Tammy de `Galar_RoseTower03` (id 3166) é DERROTADO e a
+  flag `0x115E` acende com as duas VIZINHAS apagadas. O truque é o `10:HP=0=1` na janela medida entre
+  a criação do time em `gParties` e a cópia dele para `gBattleMons`, seis passos de dez quadros:
+  antes dela a escrita é desfeita, depois dela o HP volta a 21 no primeiro golpe.
+- **T160.5 e T160.6, a Gardenia trava POR FALA.** O T158.7 já provava que ela é sólida, o que
+  qualquer `graphics_id` daria; aqui o A roda a fala dela até o `trainerbattle_no_intro` e quem abre
+  é `TRAINER_SINNOH_LEADER_GARDENIA`. O par sem o A não abre batalha nenhuma.
+- **T160.7 e T160.8, o til lido na TELA.** O diário de `Galar_Route0803` é o único letreiro de Galar
+  com til, e o tile dele é ANDÁVEL: o caso usa um toque de quatro quadros, que vira sem andar, porque
+  a primeira versão usou dezesseis e atravessou o letreiro sem lê-lo. A medida de tela saiu do MESMO
+  roteiro nas DUAS ROMs: os framebuffers finais diferem em **NOVE pixels**, todos no retângulo
+  (116,124) a (121,125), o acento do único "a" com til da tela, dois pontos na velha e til na de
+  hoje. **Nenhum outro pixel mudou.**
+
+### O que fica aberto
+
+- **13 bolas de neve** de Snowpoint, até o simulador de gelo ser calibrado contra o motor ao sul da
+  linha 8 do ginásio; **Sinnoh em 93,3% de objetos**, que são 166 objetos de enredo do Platinum mais
+  48 canteiros de berry cujo id mora na SAVE; e **Galar** com 70 estáticos dos 1.088, 25 placas, 514
+  NPCs mudos por motivo e `fila_galar.json` em 1.198 de 3.195.
+- **10 constantes `OBJ_EVENT_GFX_SINNOH_*` sem uso em mapa nenhum** (BUCK, BYRON, CHARON, CHERYL,
+  CRASHER_WAKE, LOOKER, MARS, MAYLENE, PALMER, RILEY). Custam ROM e não aparecem; quem for usá-las
+  passa pelo `pode_vestir()`.
+- **`treinadores_galar.py --aplicar` APAGA a Fase F se rodado sozinho**, porque reescreve o
+  `galar_treinadores.inc` inteiro e os chefes só voltam com `fase_f_chefes.py --aplicar` depois. Hoje
+  é disciplina de quem roda, e não guarda: **vale um guarda**.
+- **T143.9 continua instável** pelo motivo escrito na 0.q, o conserto da 0.p segue medido e refutado,
+  a **pergunta 18** (sprites dos 26) segue sem resposta com a arte crua, e **gens 6, 7 e 9** seguem
+  paradas por escopo, com o julgamento em `fontes-mapas/PLANO-GENS-6-9.md`.
 
 ---
 
