@@ -821,17 +821,48 @@ def plano():
     vars_alocadas = {c: ("VAR_GALAR_%s_CENA" % c.upper(), livres[i])
                      for i, c in enumerate(sorted(com_var))}
     pool = flags_livres_de_galar(None)
-    if len(acesas) > len(pool):
+    # REUSAR ANTES DE ALOCAR, e isso nao e economia de flag: e correcao.
+    #
+    # O bloco c4b (`objetos_galar.py`) ja batiza UMA flag por FLAG DE ESCONDER DA
+    # FONTE, com o nome `FLAG_GALAR_ESCONDE_<hex da flag da fonte>`, e e ESSA que
+    # vai parar no campo `flag` do object_event no map.json. Enquanto o c3
+    # alocava outra para o MESMO numero, a cena acendia uma flag que NINGUEM le:
+    # o `removeobject` so valia a sessao de mapa e os dois NPCs voltavam ao
+    # reentrar. Medido em 23/08/2026 no `Galar_Hammerlocke05`, a primeira cena
+    # desta casa que pediu flag de esconder: ela acendia
+    # FLAG_GALAR_ESCONDE_G09M11_230 e os objetos 1 e 2 do map.json escondiam por
+    # FLAG_GALAR_ESCONDE_230, duas vagas diferentes (0x1C89 e 0x1C81).
+    #
+    # ORDEM: isto depende de o c4b ter rodado antes, que ja e a ordem escrita no
+    # cabecalho (fala, objetos, estaticos). Se o nome do c4b ainda nao existir no
+    # header, o c3 aloca o proprio, como fazia antes, e a cena continua correta
+    # dentro da sessao de mapa; o que se perde e a permanencia.
+    _fh = open(FLAGS_H).read()
+
+    def _do_c4b(f):
+        """O nome que o bloco c4b deu a esta flag da fonte, ou None."""
+        n = "FLAG_GALAR_ESCONDE_%03X" % f
+        return n if ("#define %s " % n) in _fh else None
+
+    reusadas = {(c, f): _do_c4b(f) for c, f in acesas if _do_c4b(f)}
+    novas = sorted(x for x in acesas if x not in reusadas)
+    if len(novas) > len(pool):
         raise SystemExit("PARE: %d flags de esconder pedidas e %d livres na "
-                         "faixa de Galar" % (len(acesas), len(pool)))
-    nomes = {(c, f): ("FLAG_GALAR_ESCONDE_%s_%03X" % (c.upper(), f), pool[i])
-             for i, (c, f) in enumerate(sorted(acesas))}
+                         "faixa de Galar" % (len(novas), len(pool)))
+    nomes = {k: (v, None) for k, v in reusadas.items()}
+    nomes.update({(c, f): ("FLAG_GALAR_ESCONDE_%s_%03X" % (c.upper(), f), pool[i])
+                  for i, (c, f) in enumerate(novas)})
+
 
     aceitas, motivos, _cv, _ac = traduz(
         lambda c: vars_alocadas[c][0] if c in vars_alocadas else None,
         lambda c, f: nomes[(c, f)][0] if (c, f) in nomes else None)
     recusa.update(motivos)
-    return (aceitas, recusa, vars_alocadas, sorted(nomes.values()), censo, docs)
+    # So o que o c3 alocou entra no bloco do header: a flag reusada do c4b
+    # ja esta declarada la, e declarar duas vezes e colisao de verdade.
+    return (aceitas, recusa, vars_alocadas,
+            sorted(v for v in nomes.values() if v[1] is not None),
+            censo, docs)
 
 
 # ------------------------------------------------------------------ saída ----

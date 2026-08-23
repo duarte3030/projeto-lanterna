@@ -10845,11 +10845,3 @@
 #define FLAG_ITEM_SINNOH_BOLA_ROUTE222_PP_UP_2         FLAG_UNUSED_0x217F  // ITEM_PP_UP
 // <<< Bolas de item visíveis de Sinnoh <<<
 
-// >>> Fase de conteudo de Galar, bloco c3: flags de esconder (dev_scripts/cenas_galar.py) >>>
-// Flag de esconder que a FONTE pendurou no objeto (flag_fonte do
-// censo do G4), traduzida para a faixa de Galar. Ver a DECISAO no
-// cabecalho de dev_scripts/cenas_galar.py.
-// Apelidar FLAG_UNUSED nao mexe em FLAGS_COUNT: a save nao muda.
-// Gerado por dev_scripts/cenas_galar.py; nao editar a mao.
-#define FLAG_GALAR_ESCONDE_G09M11_230   FLAG_UNUSED_0x1C89
-// <<< Fase de conteudo de Galar, bloco c3 <<<

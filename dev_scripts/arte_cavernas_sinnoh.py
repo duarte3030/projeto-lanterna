@@ -121,18 +121,18 @@ EXCLUIDOS = {
 ALVOS = [
     "AcuityCavern", "IcebergRuins", "IronIsland1F", "IronIslandB1FLeftRoom",
     "IronIslandB1FRightRoom", "IronIslandB2FLeftRoom", "IronIslandB2FRightRoom",
-    "IronIslandB3F", "IronIslandIronRuins", "IronRuins",
-    # OS TRES LAGOS SAIRAM DAQUI EM 22/08/2026, e o motivo e de ORDEM, nao de
-    # gosto: `dev_scripts/lagos_sinnoh.py` REFEZ a geometria de
-    # LakeVerityLowWater, LakeAcuityLowWater e LakeValorDrained a partir da
-    # grade do Platinum, e este gerador le a linha de base do `git show HEAD:`
-    # (ver o cabecalho: e o que faz o autoteste dele valer). Enquanto a
-    # conversao nao estiver commitada, decorar aqui REESCREVE o map.bin com o
-    # mapa velho e desfaz a conversao: medido no dia, 867 tiles voltavam a ter a
-    # colisao antiga e o jogador voltava a ficar presente na boca (alcance a pe
-    # caiu de 662 para 2 no LakeValorDrained). Os tres voltam para esta lista na
-    # rodada seguinte ao commit da geometria nova, e ate la eles contam como
-    # mapa pobre na coluna `arte`, o que e verdade e nao maquiagem.
+    "IronIslandB3F", "IronIslandIronRuins", "IronRuins", "LakeAcuityLowWater",
+    # OS TRES LAGOS VOLTARAM PARA ESTA LISTA em 23/08/2026, no commit de
+    # fechamento da rodada 9, e a ordem importa: `dev_scripts/lagos_sinnoh.py`
+    # refez a geometria dos tres a partir da grade do Platinum e ela JA ESTA
+    # commitada, entao a linha de base que este gerador le do `git show HEAD:`
+    # e o leito novo, e nao o mapa velho. Enquanto ela nao estava commitada,
+    # decorar aqui desfazia a conversao: medido em 22/08/2026, 867 tiles
+    # voltavam a colisao antiga e o alcance a pe do LakeValorDrained caia de
+    # 662 para 2. O LakeValorDrained nunca tinha estado nesta lista, e entra
+    # agora porque a conversao o deixou com 8 metatiles distintos, abaixo do
+    # piso de 10 da coluna `arte`.
+    "LakeValorDrained", "LakeVerityLowWater",
     "ManiacTunnel", "MtCoronet1FTunnelRoom", "MtCoronet2F",
     "MtCoronet3F", "MtCoronet4FRoom3", "MtCoronet5F", "MtCoronet6F",
     "MtCoronetIcebergRuins", "OldChateau", "OldChateauBackEastRoom",

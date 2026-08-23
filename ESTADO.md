@@ -4,7 +4,199 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 22/08/2026, na build de fechamento da rodada 8. A seção 0.p abaixo é a passagem de bastão dela.
+Última medição: 23/08/2026, na build de fechamento da rodada 9. A seção 0.q abaixo é a passagem de bastão dela.
+
+---
+
+## 0.q GALAR VOLTA A FALAR E OS ANTROS DE RAIDE VIRAM ENCONTRO, SINNOH ABRE OS TRÊS LAGOS E GANHA 26 SPRITES PRÓPRIOS, 23/08/2026 (rodada 9; condutor Opus, três executores Opus, fechador Opus)
+
+Build verde, uma build só. **ROM 96,37% de 32 MB** (32.336.544 B, **1.217.888 B livres**, 1,16 MB;
+era 96,06% e 1.320.436 B livres na 0.p, então a rodada gastou 102.548 B), **EWRAM 86,16% e IWRAM
+86,68%, idênticos aos da 0.p e aos da 0.o**: nada desta rodada encostou em RAM. **Suíte 939 de 940**, ZERO reprovados,
+com o T11.3 pulado na varredura porque ele só prova algo com duas ROMs, e os quatro blocos novos **T156 em 10/10, T157 em 8/8, T158 em 6/6 e T159 em
+14/14**; **T11 3/3** contra a build `cf6786b2ae` (worktree em `/private/tmp/claude-501/t11-antiga`).
+**SAVE COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B, **2.054 layouts e 2.400 mapas**, os 2.400
+declarados dentro da ROM, **nenhum grupo novo** (128 de 255, nenhum acima de 128 mapas);
+`guarda_colisao_vars.py` com 23 colisões herdadas em vars e 5 em flags e **0 novas nos dois perfis**,
+0 stub nos dois; `valida_conectividade` com **0 warps quebrados**; `valida_warp_tile --piso 60` em
+**5.915 de 6.875 (86,0%)**, nenhuma região abaixo do piso; `valida_mapas_sinnoh --so-sinnoh` com
+`'sprite': 0` e 0 mapas com problema. ROM oficial `roms/pokemon-claude-2026-08-23.gba` (md5 6e3c177cbe61c5eabdd7759b3de3cfee),
+com o `.map` ao lado, e o MESMO binário em `roms/pokemon-claude-teste-2026-08-16.gba`.
+
+| região | mapas | objetos | warps | placas | script | arte | Dex |
+|---|---|---|---|---|---|---|---|
+| Kanto | 100% | 101,2% | 100% | 100% | -- | 52 (0) | 290 |
+| Johto | 100% | 100,8% | 100,1% | 100,4% | -- | 55 (0) | 305 |
+| Hoenn | 100% | 100,7% | 100,1% | 100% | -- | 39 (21) | 297 |
+| Sinnoh | 100% | **93,3%** | 103,7% | 98,1% | -- | **39 (18)** | 267 |
+| Unova | 100% | 102,3% | 100% | 100,2% | -- | 30,5 (1) | 315 |
+| Galar | 100% | **103,6%** | 100% | **70,3%** | **59,2%** | 48 (32) | 0 |
+
+**Dex obtenível: 1.571 de 1.571, 100%**, intocada.
+
+### Galar: seis specials nulos destravam 274 linhas, e as mesas de raide saem da recusa
+
+O demake chama Quest Log e Help System do FireRed o tempo todo, 236 vezes em 178 linhas de script, e
+enquanto o NOME não existisse aqui o tradutor recusava a CENA INTEIRA por um comando que não muda
+nada observável. `src/field_specials.c` e `data/specials.inc` ganharam os seis com corpo NULO, e a
+semântica nula é FIEL: `GetQuestLogState` devolve 0, que no FireRed quer dizer "não estou gravando
+nem reproduzindo", e nesta ROM isso é sempre verdade. Resultado: **274 linhas destravadas e 168
+frases novas**.
+
+As **mesas de raide** eram, na 0.p, 200 linhas fora por "sorteio de N espécies no script".
+`estaticos_galar.resolve_mesas` passou a escolher UM encontro por antro com regra determinística:
+lendário pela regra 1, com **um lendário por antro e sem repetição**, e o resto por rotação no índice
+do antro na fila, vetando espécie que já saiu em antro a até três mapas de distância. Medido na
+árvore de hoje: **196 antros, 111 espécies distintas, 20 lendários em 20 antros, zero lendário
+repetido em qualquer outro antro**. Em **três pares** de mapas vizinhos a espécie de raide ainda
+repete (CrownTundra08/12, CrownTundra11/13, IsleOfArmor08/12), e isso é o SEGUNDO degrau da regra
+funcionando como escrito: quando não há candidato que respeite vizinhança e lendário ao mesmo tempo,
+a vizinhança cede, porque ela é a restrição mole.
+
+Com o reposicionamento de 42 encontros a menos de três tiles, os estáticos vão de **795 para 1.018
+dos 1.088** que a fonte oferece. Objetos 93,5 → **103,6%**, placas 65,8 → **70,3%**, script 55,6 →
+**59,2%**, fila de 1.476 para **1.198**. Quatro defeitos de gerador consertados na raiz, e um deles ia
+longe: o pool de flag escolhia por apelido e teria escrito por cima da Jasmine de Johto.
+
+**A régua de Galar é HONESTA, e foi conferida aqui e não aceita de palavra.** O denominador de
+`objetos` soma os 1.111 registros que o filtro G4 aprovou MAIS os **1.088 encontros estáticos que a
+FONTE oferece** (`dev_scripts/galar_estaticos.json`); o numerador conta os `object_events` do
+`map.json` de hoje, estáticos inclusive. O `da_fonte` NÃO se mexeu nesta rodada, só o `aceitos`
+(795 → 1.018), e as recusas fecham a conta exata: 1.018 + 1 + 1 + 2 + 4 + 37 + 25 = 1.088. Os dois
+lados contam os estáticos, e passar de 100% é o mesmo de Kanto (101,2%) e Unova (102,3%).
+
+### Sinnoh: os três lagos abrem a pé, as bolas de neve são batente, e os objetos vão a 93,3%
+
+Os três lagos drenados eram prisão: `LakeVerityLowWater`, `LakeAcuityLowWater` e `LakeValorDrained`
+tinham a boca na elevação 3 e os ~800 tiles em volta na elevação 1, e `IsElevationMismatchAt`
+recusava cada passo. A causa não era o mapa da fonte, era a REGRA de conversão, escrita para caverna
+de pedra: `0x00` sem colisão virava rocha e `PUDDLE`/`SHALLOW_WATER` viravam água.
+`dev_scripts/lagos_sinnoh.py` converte os três com a regra do lago, e `WATER_SEA` continua água de
+propósito, porque no Platinum também é Surf que atravessa.
+
+As **19 bolas de neve** do ginásio de Snowpoint entraram como OBJETO SÓLIDO, e não como bloco de
+Strength, e isso foi MEDIDO e não escolhido: o chão do ginásio é `MB_ICE` inteiro, e em gelo o motor
+entra em movimento forçado (`sForcedMovementFuncs`, `src/field_player_avatar.c:164`) ANTES de chegar
+em `TryPushBoulder`, então o empurrão nunca acontece. **6 das 19 passaram** no portão, que exige que
+todo NPC com script do ginásio continue alcançável pelo simulador de escorregão; as outras 13 ficam
+ao sul da linha 8, onde o modelo ainda não bate com o motor.
+
+Também entraram: os sub-baldes b1/b2/b3 do importador de NPC (b1 tem cena equivalente aqui e entra com
+a NOSSA flag; b2 é sorteio diário da fonte e entra visível; b3 é flag MORTA na fonte), o corredor de
+conversa reservado, as pedras com empurrão de até três tiles, a `RotomsRoom` com as sete formas como
+cenário, e o `MOVE_STRENGTH` no `src/chapter_jump.c`. Objetos **87,0 → 93,3%**, **81 Pokémon no
+overworld**, **19 NPCs com sprite próprio**. Três defeitos de idempotência consertados, que juntos
+tinham deixado **284 cópias** de objeto no mapa.
+
+### Sprites: 26 personagens de Sinnoh com desenho próprio, e nenhuma paleta nova
+
+`dev_scripts/sprites_sinnoh.py` desenha 26 PNG de **144 por 32**, que são os nove quadros de 16 por 32
+da tabela de animação padrão, lidos por `overworld_ascending_frames` (uma entrada só na pic table, com
+`relativeFrames`). **Zero paleta nova**: os 26 reaproveitam `OBJ_EVENT_PAL_TAG_NPC_1` a `NPC_4`, porque
+paleta de overworld é VRAM e estourar a janela de sprite de um mapa faz NPC sumir sem erro nenhum
+aparecer. O preço é arte crua, e foi escolha. As constantes entram no FIM do enum de
+`include/constants/event_objects.h`, única posição que não desloca id de sprite já gravado.
+
+**Correção de número em relação ao que foi relatado:** as colocações são **21 objetos em 21 mapas,
+com 17 constantes distintas**, e não 16; nove constantes (LOOKER, BUCK, MAYLENE, CRASHER_WAKE, CHARON,
+BYRON, RILEY, PALMER, CHERYL) ainda não foram usadas em mapa nenhum.
+
+### Os casos adversariais desta rodada
+
+`dev_scripts/testes_criticos/159_fechador_r9.json`, **14 casos, 14 verdes**, sete deles em PAR, autor
+de caso diferente do autor de cena em todos. O texto inteiro de cada um está no JSON; aqui vai o que
+cada par mede.
+
+- **T159.1 e T159.2, dois antros de raide VIZINHOS.** `Galar_WildArea05` dá `SPECIES_MIME_JR` (439) e
+  `Galar_WildArea06`, vizinho direto no grafo de warps, dá `SPECIES_DARUMAKA_GALAR` (989), lidos de
+  `gParties`. O par é a prova: um caso sozinho só diria que ALGUM bicho apareceu.
+- **T159.3, T159.4 e T159.5, o Quest Log depois de SAVE E RECARGA.** O T159.3 salva dentro de
+  `Galar_Hulbury06`; o T159.4 CONTINUA daquela save, fala com o mercador que chama
+  `special GetQuestLogState` e fica TRAVADO pela caixa em (25,45); o T159.5, com um aperto a menos,
+  anda até (20,45). Special que a tabela não registrasse derrubaria o script.
+- **T159.6, o lago esvaziado atravessado de ponta a ponta E DE VOLTA.** 181 passos em 52 pernas dentro
+  do leito do `LakeValorDrained`, parando no VIZINHO da boca, porque pisar nela provaria warp e não
+  leito.
+- **T159.7 e T159.8, a bola de neve contra o escorregão.** Do MESMO tile (12,3): para baixo o
+  escorregão para em (12,7), quatro tiles, porque a bola de (12,8) segura; para a esquerda, na linha
+  sem bola, ele corre ONZE tiles até (1,7).
+- **T159.9 e T159.10, o sprite próprio lido no motor.** `graphics_id` que não resolve NÃO dá erro de
+  build: dá objeto que não carrega, e objeto que não carrega deixa de ser sólido e de rodar script. A
+  Mars trava o jogador em (9,4) com o A; sem o A ele desce até (9,7).
+- **T159.11 e T159.12, o objeto b1 some depois da cena nossa.** Com `FLAG_GALACTICA_WINDWORKS` acesa o
+  objeto de (3,7) some e o jogador anda até (3,6); com ela apagada ele não sai de (3,8).
+- **T159.13 e T159.14, a cena do c3 acende a flag que o mapa REALMENTE lê.** É o caso do defeito
+  achado no fechamento: o jogador joga a cena inteira, SAI E VOLTA pelo mesmo warp, e só então anda.
+  Recarregar o mapa é o ponto, porque `removeobject` sozinho passaria num caso da mesma sessão.
+- **O rodízio do Restaurante NÃO EXISTE, e a sonda é a resposta.** `data/maps/Restaurant/map.json` tem
+  19 objetos, todos com `flag: "0"`, `Restaurant_MapScripts:: .byte 0`, e `GetDayOfWeek` não tem
+  chamador nenhum no repo. A decisão está em `importa_npcs_sinnoh.py:250-278`: na fonte o critério é
+  `GetRandom`, não dia da semana, e o balde b2 põe os NPCs visíveis de propósito. Não há caso a
+  escrever.
+
+### O que o fechador consertou
+
+- **A cena nova do c3 acendia uma flag que NINGUÉM lê, e foi por pouco que ninguém viu.** O bloco c3
+  (`cenas_galar.py`) alocava a PRÓPRIA flag de esconder por (mapa, flag da fonte),
+  `FLAG_GALAR_ESCONDE_G09M11_230` na vaga 0x1C89, enquanto os objetos 1 e 2 do `Galar_Hammerlocke05`
+  escondem por `FLAG_GALAR_ESCONDE_230`, vaga 0x1C81, que é a que o bloco c4b (`objetos_galar.py`)
+  batizou para a MESMA flag da fonte e escreveu no `map.json`. A cena chamava `setflag` numa e
+  `removeobject` nos objetos da outra: o sumiço valia só a sessão de mapa e os dois NPCs voltavam ao
+  reentrar. O c3 passou a REUSAR o nome do c4b quando ele já existe no header, e o T159.13/T159.14 é a
+  prova. Efeito colateral MEDIDO e querido: a flag do c4b é por FLAG DA FONTE e não por mapa, e a
+  0x230 pendura seis objetos em três mapas de Hammerlocke, então a cena passa a sumir com os seis, que
+  é o que a fonte faz.
+- **`objetos_galar.py --demo` ficou VERMELHO nesta árvore, e a causa é a mesma família.** Ele planta
+  duas flags na mesma vaga e cobra que o portão reprove; a vaga escolhida já tinha dono, o grupo
+  acusado vinha com TRÊS nomes e a mutação reprovava por si mesma. Raiz: o filtro por PREFIXO. O c4b
+  tirava da conta tudo que começasse com `FLAG_GALAR_ESCONDE_`, e o c3 usa o MESMO prefixo mais o nome
+  do mapa. Não chegou a colidir por sorte de ordem, e teria colidido na próxima flag pedida. O
+  reconhecimento passou a ser por FORMATO EXATO do nome, numa função só (`flags_com_dono`).
+- **T141.5 e T141.6 ficaram VERMELHOS, e a culpa não era do jogo.** A partir desta rodada o
+  `Galar_Hammerlocke05` tem cena de `ON_FRAME` própria, longa, que dispara ao entrar e come os apertos
+  do roteiro em caixa de texto. Com `VAR_GALAR_G09M11_CENA` valendo 1 o mapa se comporta tile a tile
+  como na ROM da 0.p, medido nos dois binários, então não há travamento: há cena nova. Os dois casos
+  ganharam a var e voltaram a medir o que foram escritos para medir. **Custou meia hora acreditar que
+  era trava**, e o que desfez a suspeita foi rodar a MESMA sonda contra a ROM `2026-08-22f`.
+- **Semântica de aperto, medida e não suposta:** pressão de 16 quadros contígua anda um tile, mas a
+  PRIMEIRA pressão do roteiro é engolida, e um `NADA` no meio faz a pressão seguinte virar só a
+  virada. Quatro rotas do T159 nasceram erradas por isso, e foram medidas até baterem tile a tile.
+
+### O que fica aberto
+
+- **A cena longa nova de `Galar_Hammerlocke05`** tem três caixas com muitas páginas e roda ao ENTRAR
+  no mapa. Ela é fiel à fonte, mas é a primeira cena de Galar que um jogador encontra sem pedir, e o
+  Gui pode querer olhar o texto dela (ver o item do "ä" abaixo).
+- **T143.9 continua INSTÁVEL, e o conserto que a 0.p propunha foi MEDIDO e REFUTADO.** Ele passou
+  verde nas duas varreduras completas desta rodada, e rodado sozinho deu 2 de 3 numa vez e 1 de 3 na
+  outra, na mesma ROM. A 0.p dizia que o conserto era dar um Pokémon ao jogador pelo `antes_do_warp`,
+  como o T144.5 faz; isso foi feito e medido, e o caso passou a 1 de 3, ou seja PIOROU. Duas medidas
+  do mesmo remédio com o resultado errado querem dizer que o diagnóstico está errado, então o
+  `antes_do_warp` foi desfeito e o caso ficou como estava, com a medida nova escrita no próprio texto
+  dele. Quem for mexer: meça POR QUE a batalha se fecha, em vez de supor que é falta de time.
+- **13 bolas de neve** de Snowpoint até o simulador de gelo ser calibrado contra o motor ao sul da
+  linha 8 do ginásio.
+- **Sinnoh, objetos em 93,3%**: 166 objetos de enredo do Platinum e 48 canteiros de berry cujo id mora
+  na SAVE.
+- **Galar, 70 estáticos** dos 1.088 (mesa sem espécie com nome aqui e geometria recusada), **25
+  placas**, **514 NPCs mudos** por motivo, `fila_galar.json` com 1.198 de 3.195.
+- **Texto de Galar sem "ã".** Os arquivos de fala trazem **191 ocorrências de "ä" e ZERO de "ã"**
+  ("Näo", "irmä"). Não é regressão desta rodada, veio com a onda de 20/08, e o gerador tem ida e volta
+  byte a byte pelo charmap, então os BYTES estão certos: o que falta é o glifo. Conserto é obra de
+  fonte, não de script.
+- **`opponents.h` deslocou dois ids** (`TRAINER_GALAR_LEON_736` e `_739` foram de 3204/3205 para
+  3206/3207) e `vars.h` remanejou seis apelidos de var de Galar. O `guarda_save.py` diz SAVE
+  COMPATIVEL e está certo, porque ele mede TAMANHO (`FLAGS_COUNT`, `MAX_TRAINERS_COUNT`) e não
+  atribuição; mas a flag de "já derrotei" de um treinador é indexada pelo id, então esses dois trocaram
+  de vaga. Não morde hoje, porque Galar não tem treinador jogável, e é a última hora em que isso é de
+  graça.
+- **A Mars de `ValleyWindworksBuilding` fala como o pai da família.** O objeto 0 trocou de
+  `OBJ_EVENT_GFX_SCIENTIST_1` para `OBJ_EVENT_GFX_SINNOH_MARS`, e o script dele
+  (`ValleyWindworksBuilding_EventScript_Npc1`) é a fala portada que começa com "Papa:". Ou o sprite
+  está errado, ou o script; não foi mexido de propósito, porque os sprites estão na pergunta 18, sem
+  resposta do Gui.
+- **Pergunta 18 (sprites dos 26 personagens) segue sem resposta.**
+- **Gens 6, 7 e 9** seguem paradas por escopo, com o julgamento em `fontes-mapas/PLANO-GENS-6-9.md`.
 
 ---
 

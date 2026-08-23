@@ -104,6 +104,12 @@ SEM_COORD = 0xFFFF
 # itens escondidos do G4, 0x1C21-0x1C58 as bolas do fala_galar.py, 0x1C59 a
 # FLAG_HIDE_GIRATINA e 0x1CFF a FLAG_GALAR_QA_ANDAR. Comeca em 0x1C80 com folga
 # de proposito, para uma leva nova de bolas nao encostar aqui.
+# `#define NOME FLAG_UNUSED_0xNNN`, o jeito como toda flag apelidada aparece
+# em include/constants/flags.h. Mora aqui porque duas leituras diferentes do
+# mesmo header foi exatamente o que deixou a vaga 0x1C89 passar por livre.
+PADRAO_APELIDO_FLAG = (r"#define\s+(?!FLAG_UNUSED)(\w+)\s+"
+                       r"\(?\s*FLAG_UNUSED_0x([0-9A-Fa-f]{3,4})")
+
 PRIMEIRA_FLAG_ESCONDE = 0x1C80
 ULTIMA_FLAG_ESCONDE = 0x1CFE
 
@@ -470,11 +476,9 @@ def plano():
     # esse numero") dava a faixa INTEIRA como livre, inclusive as que o c3 ja
     # tivesse pegado, e so nao mordeu porque o c3 nunca chegou a pedir uma.
     _txt = open(FLAGS_H).read()
-    _com_dono = {int(e, 16) for n, e in re.findall(
-        r"#define\s+(?!FLAG_UNUSED)(\w+)\s+\(?\s*FLAG_UNUSED_0x([0-9A-Fa-f]{3,4})",
-        _txt) if not n.startswith("FLAG_GALAR_ESCONDE_")}
     pool_f = [f for f in range(PRIMEIRA_FLAG_ESCONDE, ULTIMA_FLAG_ESCONDE + 1)
-              if ("#define FLAG_UNUSED_0x%04X" % f) in _txt and f not in _com_dono]
+              if ("#define FLAG_UNUSED_0x%04X" % f) in _txt
+              and f not in flags_com_dono(_txt)]
     if len(quer_flag) > len(pool_f):
         raise SystemExit("PARE: %d flags de esconder pedidas e %d livres na "
                          "faixa de Galar" % (len(quer_flag), len(pool_f)))
@@ -642,9 +646,34 @@ def aplica(aceitas, docs, gravar, flags=None, variaveis=None,
     return mudou, recusa, corpo
 
 
+def flags_com_dono(texto=None):
+    """Vagas de FLAG_UNUSED que JA tem apelido de alguem, menos as deste bloco.
+
+    O filtro por PREFIXO custou o `--demo` desta ferramenta em 23/08/2026: ele
+    tirava da conta tudo que comecasse com FLAG_GALAR_ESCONDE_, e o
+    `cenas_galar.py` batiza as dele com o MESMO prefixo mais o nome do mapa
+    (FLAG_GALAR_ESCONDE_G09M11_230). Resultado: a vaga 0x1C89, que o c3 tinha
+    acabado de tomar, aparecia como livre aqui. Nao chegou a colidir por sorte
+    de ordem, e teria colidido na proxima flag que este bloco pedisse. O nome
+    deste bloco e FLAG_GALAR_ESCONDE_ mais tres ou quatro digitos hexadecimais e
+    mais nada, entao e assim que ele se reconhece.
+    """
+    texto = texto if texto is not None else open(FLAGS_H).read()
+    meu = re.compile(r"FLAG_GALAR_ESCONDE_[0-9A-F]{3,4}$")
+    return {int(e, 16) for n, e in re.findall(
+        PADRAO_APELIDO_FLAG, texto) if not meu.match(n)}
+
+
+
 def proxima_flag_livre(flags):
-    """Vaga da faixa de Galar que este bloco AINDA nao usou (para o plante)."""
-    usadas = {e for _n, e in flags.values()}
+    """Vaga da faixa de Galar que NINGUEM usa, para o plante do `--demo`.
+
+    Livre aqui tem que ser livre de verdade, e nao so livre para este bloco:
+    vaga plantada que ja tem dono faz o portao acusar um grupo de TRES nomes,
+    e a mutacao reprova por si mesma sem provar nada. E o mesmo cuidado que a
+    `proxima_var_livre` ja tinha do lado das vars.
+    """
+    usadas = {e for _n, e in flags.values()} | flags_com_dono()
     texto = open(FLAGS_H).read()
     for f in range(PRIMEIRA_FLAG_ESCONDE, ULTIMA_FLAG_ESCONDE + 1):
         if f not in usadas and "FLAG_UNUSED_0x%04X" % f in texto:

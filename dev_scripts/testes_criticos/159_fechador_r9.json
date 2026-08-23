@@ -1,0 +1,239 @@
+[
+ {
+  "id": "T159.1",
+  "opcoes": 32,
+  "warp": "MAP_GALAR_WILD_AREA_05",
+  "warp_id": 1,
+  "roteiro": "150:NADA,16:RIGHT*25,90:NADA,16:UP*3,90:NADA,20:RIGHT,90:NADA,20:A,600:NADA",
+  "nome": "ANTRO DE RAIDE DE GALAR: A MESA QUE SORTEAVA DEZENAS DE ESPECIES VIRA UM ENCONTRO SO, E ELE E O QUE A REGRA MANDA. Na 0.p as mesas de raide eram 200 linhas RECUSADAS por 'sorteio de N especies no script'. Esta rodada as resolveu por regra deterministica em dev_scripts/estaticos_galar.resolve_mesas: lendario pela regra 1, senao rotacao pelo indice do antro na fila da chave, vetando o que ja saiu em antro a ate 3 mapas de distancia no grafo de warps. O antro de Galar_WildArea05 e a chave g06m30/objeto/25 e a regra deu SPECIES_MIME_JR. Entrada pelo warp 1 em (6,13); RIGHT 25 corre a linha 13 ate (31,13); UP 3 sobe dois tiles e para em (31,11), porque (31,10) e parede; um RIGHT solto so VIRA o jogador para o antro de (32,11), que e solido; e o A abre a batalha. A prova sai de gParties pelo --timeinimigo: especie0 = 439 (SPECIES_MIME_JR) e nivelinimigo = 5, o nivel que o seteventmon de GalarEstatico_G06M30_O25 grava. A posicao entra junto porque este mapa tem 12 encontros estaticos e 'abriu batalha' sem posicao nao diz COM QUEM se falou.",
+  "prova": {
+   "mapa": "MAP_GALAR_WILD_AREA_05",
+   "pos": [
+    31,
+    11
+   ],
+   "campos": {
+    "especie0": 439,
+    "nivelinimigo": 5
+   }
+  }
+ },
+ {
+  "id": "T159.2",
+  "opcoes": 32,
+  "warp": "MAP_GALAR_WILD_AREA_06",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:LEFT*6,90:NADA,16:DOWN*3,90:NADA,20:LEFT,90:NADA,20:A,600:NADA",
+  "nome": "O ANTRO VIZINHO TEM OUTRA ESPECIE, QUE E O QUE A REGRA DE 3 MAPAS PROMETE. Galar_WildArea06 e vizinho direto de Galar_WildArea05 no grafo de warps, dentro do raio 3 de estaticos_galar.RAIO_VIZINHANCA, e tem um antro so, a chave g06m31/objeto/4. Sem o veto de vizinhanca a rotacao poderia dar o MESMO bicho nos dois, e o Wild Area inteiro leria como uma especie repetida de bolsao em bolsao. Entrada pelo warp 0 em (48,21); LEFT 6 e DOWN 3 param em (42,23); um LEFT solto vira o jogador para o antro de (41,23); o A abre a batalha e especie0 = 989 (SPECIES_DARUMAKA_GALAR), diferente do 439 do T159.1, no mesmo nivel 5 e pelo mesmo caminho de codigo. O PAR e a prova: um caso sozinho so diria que ALGUM bicho apareceu.",
+  "prova": {
+   "mapa": "MAP_GALAR_WILD_AREA_06",
+   "pos": [
+    42,
+    23
+   ],
+   "campos": {
+    "especie0": 989,
+    "nivelinimigo": 5
+   }
+  }
+ },
+ {
+  "id": "T159.3",
+  "apaga_sav": true,
+  "sav": "/tmp/claude-501/fechador-r9/t159.sav",
+  "flags": [
+   "0x2B8",
+   "0x2BA"
+  ],
+  "warp": "MAP_GALAR_HULBURY_06",
+  "warp_id": 6,
+  "roteiro": "40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
+  "nome": "PREPARO DO PAR DO QUEST LOG: SALVA O JOGO DENTRO DE Galar_Hulbury06. O roteiro de menu e o do T11.1, contado de BAIXO PARA CIMA, e as flags 0x2B8 e 0x2BA existem para o topo do menu ter a mesma altura que ele tinha la, porque BuildNormalStartMenu monta o topo conforme o estado do jogo. Este caso nao prova nada sobre o Quest Log: ele so deixa a save no disco para o T159.4 e o T159.5 lerem, e cobra do .sav que ela existe de verdade.",
+  "prova": {
+   "sav_gravada": true,
+   "mapa": "MAP_GALAR_HULBURY_06"
+  }
+ },
+ {
+  "id": "T159.4",
+  "abertura": "continuar",
+  "sav": "/tmp/claude-501/fechador-r9/t159.sav",
+  "roteiro": "16:UP*21,90:NADA,20:RIGHT,90:NADA,20:A,300:NADA,16:LEFT*10,150:NADA",
+  "nome": "O SCRIPT DESTRAVADO PELO QUEST LOG RODA DEPOIS DE SAVE E RECARGA. Os seis specials novos de src/field_specials.c mais data/specials.inc (GetQuestLogState e companhia) tem semantica NULA de proposito, e a duvida honesta nao e se eles fazem algo: e se a cena que dependia deles anda depois de o jogo passar por save e boot. Special que a tabela nao registra derruba o script, e cena que so anda em jogo recem-nascido nao serve para nada. Este caso CONTINUA da save do T159.3, sobe a coluna 25 ate (25,45), que e o tile de conversa do mercador de Galar_Hulbury06 (objeto 16, GalarObj_G08M07_o32), vira para ele com um RIGHT solto e aperta A. A cena roda `special GetQuestLogState`, compara VAR_RESULT com 2, cai no ramo de venda e abre msgbox mais pokemart. A PROVA E A POSICAO: com a caixa aberta o jogador esta TRAVADO, entao o LEFT saturante de dez apertos e ENGOLIDO e ele continua em (25,45). Se o special nao existisse, VAR_RESULT viria de outra coisa, o ramo _b1 daria release na hora e ninguem travaria, que e o que o par T159.5 mede andando ate (20,45).",
+  "prova": {
+   "mapa": "MAP_GALAR_HULBURY_06",
+   "pos": [
+    25,
+    45
+   ]
+  }
+ },
+ {
+  "id": "T159.5",
+  "abertura": "continuar",
+  "sav": "/tmp/claude-501/fechador-r9/t159.sav",
+  "roteiro": "16:UP*21,90:NADA,20:RIGHT,90:NADA,16:LEFT*10,150:NADA",
+  "nome": "PAR NEGATIVO DO T159.4: a MESMA save, o MESMO caminho, o MESMO numero de pernas, e um unico aperto a menos, o A que abre a cena do mercador. Sem a caixa o jogador nao trava, e o LEFT saturante corre os cinco tiles da linha 45 ate (20,45), onde a parede para. Ele prova duas coisas: que o (25,45) do T159.4 vem de o jogador ter ficado PARADO, e nao de o harness parar sempre ali, e que a save do T159.3 realmente carrega o jogador dentro de Galar_Hulbury06, a 21 tiles do mercador.",
+  "prova": {
+   "mapa": "MAP_GALAR_HULBURY_06",
+   "pos": [
+    20,
+    45
+   ]
+  }
+ },
+ {
+  "id": "T159.6",
+  "warp": "MAP_LAKE_VALOR_DRAINED",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:LEFT*11,16:DOWN*1,16:LEFT*3,16:DOWN*1,16:LEFT*2,16:DOWN*2,16:LEFT*3,16:DOWN*3,16:LEFT*2,16:DOWN*2,16:LEFT*7,16:DOWN*1,16:LEFT*3,16:DOWN*3,16:LEFT*1,16:DOWN*2,16:LEFT*2,16:DOWN*3,16:LEFT*1,16:DOWN*3,16:RIGHT*3,16:DOWN*1,16:RIGHT*7,16:DOWN*1,16:RIGHT*14,16:UP*10,16:DOWN*10,16:LEFT*14,16:UP*1,16:LEFT*7,16:UP*1,16:LEFT*3,16:UP*3,16:RIGHT*1,16:UP*3,16:RIGHT*2,16:UP*2,16:RIGHT*1,16:UP*3,16:RIGHT*3,16:UP*1,16:RIGHT*7,16:UP*2,16:RIGHT*2,16:UP*3,16:RIGHT*3,16:UP*2,16:RIGHT*2,16:UP*1,16:RIGHT*3,16:UP*1,16:RIGHT*9,150:NADA",
+  "nome": "O LAGO ESVAZIADO ATRAVESSADO DE PONTA A PONTA E DE VOLTA. LakeValorDrained era um dos tres mapas em que o jogador entrava e ficava PRESO: a boca esta na elevacao 3 e a regra velha de conversao de caverna punha o leito drenado inteiro em agua de elevacao 1, entao IsElevationMismatchAt recusava cada passo a pe. dev_scripts/lagos_sinnoh.py trocou a regra pela do lago (NONE, PUDDLE, SHALLOW_WATER e SNOW viram chao de elevacao 3; WATER_SEA continua agua, como no Platinum) e o leito abriu. Um passo so nao prova isso, prova que UM tile abriu. Aqui o jogador entra pelo warp 0 em (52,10), atravessa 91 tiles em 26 pernas ate (42,23), que e o tile mais distante do BFS de elevacao, e REFAZ o caminho ao contrario, mais 90 tiles, parando em (51,10). Sao 181 passos e 52 pernas dentro do leito: um unico tile que ainda estivesse na elevacao 1 pararia a perna dele e a posicao final sairia errada. Ele para no VIZINHO da boca, e nao nela: pisar de volta em (52,10) mandaria o jogador para MAP_VALOR_LAKEFRONT e o caso terminaria no mapa errado, provando warp em vez de leito.",
+  "prova": {
+   "mapa": "MAP_LAKE_VALOR_DRAINED",
+   "pos": [
+    51,
+    10
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T159.7",
+  "warp": "MAP_SNOWPOINT_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "150:NADA,24:UP*24,90:NADA,20:RIGHT*2,120:NADA,20:DOWN*2,500:NADA",
+  "nome": "A BOLA DE NEVE E O BATENTE DO ESCORREGAO. O chao do ginasio de Snowpoint e MB_ICE inteiro, e por isso as bolas NAO entraram como bloco de Strength: em tile de gelo o motor entra em movimento forcado (sForcedMovementFuncs, src/field_player_avatar.c:164) ANTES de chegar em TryPushBoulder, e o empurrao nunca acontece. Elas entraram como OBJETO SOLIDO de cenario, que e o que sao no Platinum. Entrada pelo warp 0 em (11,27); UP saturante sobe a coluna 11 inteira e cola na Candice, parando em (11,3); RIGHT anda um tile para (12,3), que nao e gelo; e DOWN dispara o escorregao pela coluna 12, que PARA em (12,7), um tile acima da bola de (12,8). Quatro tiles. Sem a bola o mesmo escorregao iria ate (12,24), dezessete tiles adiante, que e o que bolas_neve_sinnoh.desliza devolve com a bola fora do conjunto de solidos.",
+  "prova": {
+   "mapa": "MAP_SNOWPOINT_CITY_GYM",
+   "pos": [
+    12,
+    7
+   ]
+  }
+ },
+ {
+  "id": "T159.8",
+  "warp": "MAP_SNOWPOINT_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "150:NADA,24:UP*24,90:NADA,20:RIGHT*2,120:NADA,20:DOWN*2,500:NADA,20:LEFT*2,600:NADA",
+  "nome": "PAR DO T159.7, DO MESMO TILE E NA DIRECAO QUE NAO TEM BOLA. O jogador do T159.7 esta parado em (12,7) porque a bola de (12,8) segurou o escorregao em quatro tiles. Deste MESMO tile, um LEFT dispara o escorregao pela linha 7, que e gelo de ponta a ponta e nao tem bola nenhuma: ele corre ONZE tiles e so para em (1,7), quando o chao deixa de ser gelo na beirada oeste. Mesmo mapa, mesma build, mesmo tile de partida, mesmo numero de apertos: a unica variavel e se ha bola na frente, e a distancia sai 4 contra 11. Este par tambem toca a duvida que sobra do relatorio do gerador, que deixou 13 bolas de fora ao sul da linha 8 por o modelo de escorregao ainda nao bater com o motor la: as duas medidas aqui atravessam justamente essa faixa e batem tile a tile.",
+  "prova": {
+   "mapa": "MAP_SNOWPOINT_CITY_GYM",
+   "pos": [
+    1,
+    7
+   ]
+  }
+ },
+ {
+  "id": "T159.9",
+  "warp": "MAP_VALLEY_WINDWORKS_BUILDING",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:UP*20,120:NADA,16:RIGHT*20,120:NADA,16:UP*20,120:NADA,16:RIGHT*2,120:NADA,16:UP*20,120:NADA,20:A,240:NADA,16:DOWN*20,150:NADA",
+  "nome": "SPRITE PROPRIO DE SINNOH LIDO NO MOTOR: A MARS DE ValleyWindworksBuilding TRAVA O JOGADOR PELA FALA. O objeto 0 deste mapa passou nesta rodada a OBJ_EVENT_GFX_SINNOH_MARS, constante nova no FIM do enum de include/constants/event_objects.h (449), com gObjectEventGraphicsInfo_SinnohMars apontando para sPicTable_SinnohMars e o PNG de 144 por 32 (nove quadros de 16 por 32). Graphics_id que nao resolve no motor NAO da erro de build: da objeto que nao carrega, e objeto que nao carrega deixa de ser solido e deixa de rodar script. Entrada pelo warp 0 em (3,8); UP saturante nao sai do lugar, porque o objeto b1 de (3,7) esta no caminho (e o que o T159.12 mede); RIGHT saturante corre ate (8,8); UP saturante sobe ate (8,5), onde o grunt de (8,4) para; RIGHT anda para (9,5); e UP saturante para em (9,4), colado na Mars de (9,3). O A roda ValleyWindworksBuilding_EventScript_Npc1, um msgbox MSGBOX_NPC, e a PROVA E A POSICAO: com a caixa aberta o DOWN saturante seguinte e engolido e o jogador continua em (9,4).",
+  "prova": {
+   "mapa": "MAP_VALLEY_WINDWORKS_BUILDING",
+   "pos": [
+    9,
+    4
+   ]
+  }
+ },
+ {
+  "id": "T159.10",
+  "warp": "MAP_VALLEY_WINDWORKS_BUILDING",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:UP*20,120:NADA,16:RIGHT*20,120:NADA,16:UP*20,120:NADA,16:RIGHT*2,120:NADA,16:UP*20,120:NADA,16:DOWN*20,150:NADA",
+  "nome": "PAR NEGATIVO DO T159.9: mesmo caminho, mesmas pernas, sem o A. O jogador nao trava e o DOWN saturante desce de (9,4) ate (9,7). Sem este caso, o (9,4) do T159.9 seria compativel com um roteiro que simplesmente nao andou, e a fala da Mars nao estaria provada.",
+  "prova": {
+   "mapa": "MAP_VALLEY_WINDWORKS_BUILDING",
+   "pos": [
+    9,
+    7
+   ]
+  }
+ },
+ {
+  "id": "T159.11",
+  "flags": [
+   "FLAG_GALACTICA_WINDWORKS"
+  ],
+  "warp": "MAP_VALLEY_WINDWORKS_BUILDING",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:UP*2,150:NADA",
+  "nome": "OBJETO DO SUB-BALDE b1 SOME DEPOIS DA CENA NOSSA. O b1 de dev_scripts/importa_npcs_sinnoh.py e o balde do objeto cuja FLAG_HIDE_* da fonte JA tem cena equivalente escrita aqui: ele entra com a NOSSA flag, e nao com a da fonte, senao ele ficaria visivel para sempre. O objeto 3 de ValleyWindworksBuilding, em (3,7), nasceu assim, com flag FLAG_GALACTICA_WINDWORKS, a mesma que ValleyWindworks_EventScript_MarsDefeated acende quando a Mars cai la fora. Este caso acende a flag pelo harness, que e exatamente o estado em que a cena deixa o jogo, e mede o que muda no mapa: o objeto some e o tile (3,7) abre, entao os dois UP saem do warp e param em (3,6), porque (3,5) e parede.",
+  "prova": {
+   "mapa": "MAP_VALLEY_WINDWORKS_BUILDING",
+   "pos": [
+    3,
+    6
+   ],
+   "flags_acesas": [
+    "FLAG_GALACTICA_WINDWORKS"
+   ]
+  }
+ },
+ {
+  "id": "T159.12",
+  "warp": "MAP_VALLEY_WINDWORKS_BUILDING",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:UP*2,150:NADA",
+  "nome": "PAR NEGATIVO DO T159.11: a flag APAGADA, o mesmo roteiro, o mesmo mapa. O objeto b1 esta la e e solido, entao os dois UP batem nele e o jogador nao sai de (3,8), em cima do proprio warp de entrada. E o par que transforma o (3,6) do T159.11 em prova: sem ele, 'o jogador andou dois tiles' seria compativel com o objeto nunca ter sido colocado.",
+  "prova": {
+   "mapa": "MAP_VALLEY_WINDWORKS_BUILDING",
+   "pos": [
+    3,
+    8
+   ],
+   "flags_apagadas": [
+    "FLAG_GALACTICA_WINDWORKS"
+   ]
+  }
+ },
+ {
+  "id": "T159.13",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GALAR_HAMMERLOCKE_05",
+  "warp_id": 0,
+  "roteiro": "300:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,20:A,40:NADA,300:NADA,WARP=MAP_GALAR_HAMMERLOCKE_05:0,300:NADA,17:UP*10,150:NADA",
+  "nome": "A CENA DO BLOCO c3 ACENDE A FLAG QUE O MAPA REALMENTE LE, E OS DOIS NPCs CONTINUAM SUMIDOS DEPOIS DE RECARREGAR O MAPA. Este caso existe por um defeito achado no fechamento desta rodada: o c3 (`dev_scripts/cenas_galar.py`) alocava a PROPRIA flag de esconder, `FLAG_GALAR_ESCONDE_G09M11_230` na vaga 0x1C89, enquanto os objetos 1 e 2 do `Galar_Hammerlocke05` escondem por `FLAG_GALAR_ESCONDE_230`, vaga 0x1C81, que e a que o bloco c4b (`objetos_galar.py`) batizou para a MESMA flag da fonte. A cena acendia uma flag que ninguem le: o `removeobject` valia so a sessao de mapa e os dois NPCs voltavam ao reentrar. O caso mede o conserto do jeito que ele quebra: o jogador entra pelo warp 0 em (11,16), joga a cena INTEIRA (ela e longa, sao tres caixas com muitas paginas, dai os quarenta e cinco A), SAI E VOLTA pelo mesmo warp com o `WARP=` do roteiro, e so entao anda. Com a flag certa acesa os dois NPCs de (10,15) e (11,15) nao renascem e o UP saturante sobe a coluna 11 ate (11,12). Recarregar o mapa e o ponto: `removeobject` sozinho passaria neste caso se ele medisse a mesma sessao.",
+  "prova": {
+   "mapa": "MAP_GALAR_HAMMERLOCKE_05",
+   "pos": [
+    11,
+    12
+   ],
+   "vars": {
+    "0x410A": 1
+   },
+   "flags_acesas": [
+    "FLAG_GALAR_ESCONDE_230"
+   ]
+  }
+ },
+ {
+  "id": "T159.14",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "vars": {
+   "0x410A": 1
+  },
+  "warp": "MAP_GALAR_HAMMERLOCKE_05",
+  "warp_id": 0,
+  "roteiro": "300:NADA,WARP=MAP_GALAR_HAMMERLOCKE_05:0,300:NADA,17:UP*10,150:NADA",
+  "nome": "PAR NEGATIVO DO T159.13: a MESMA entrada, a MESMA saida e volta, o MESMO UP saturante, e a cena NAO roda, porque VAR_GALAR_G09M11_CENA ja entra valendo 1. Sem a cena a flag fica apagada, os dois NPCs estao no mapa e sao solidos, e o jogador nao sai de (11,16), em cima do proprio warp. Sem este caso o (11,12) do T159.13 seria compativel com um mapa em que aqueles dois objetos nunca tivessem sido colocados.",
+  "prova": {
+   "mapa": "MAP_GALAR_HAMMERLOCKE_05",
+   "pos": [
+    11,
+    16
+   ],
+   "flags_apagadas": [
+    "FLAG_GALAR_ESCONDE_230"
+   ]
+  }
+ }
+]

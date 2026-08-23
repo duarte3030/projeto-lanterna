@@ -188,10 +188,10 @@ GalarCena_G09M11_t2_v0::
 	waitmovement 0
 	msgbox GalarCena_G09M11_t2_v0_Text2, MSGBOX_AUTOCLOSE
 	@ DECISAO cenas_galar.py: removeobject so vale a sessao de mapa; a flag e a que a FONTE pendurou neste objeto, o que se acrescenta e o momento de acende-la
-	setflag FLAG_GALAR_ESCONDE_G09M11_230
+	setflag FLAG_GALAR_ESCONDE_230
 	removeobject 3
 	@ DECISAO cenas_galar.py: removeobject so vale a sessao de mapa; a flag e a que a FONTE pendurou neste objeto, o que se acrescenta e o momento de acende-la
-	setflag FLAG_GALAR_ESCONDE_G09M11_230
+	setflag FLAG_GALAR_ESCONDE_230
 	removeobject 2
 	fadescreen 0
 	end
