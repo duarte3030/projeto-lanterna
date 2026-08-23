@@ -714,7 +714,60 @@ def bloco_opponents(usados, num):
     return "\n".join(out) + "\n"
 
 
-def bloco_party(usados, num):
+def chefes_da_fase_f():
+    """Constantes cujo TIME pertence a dev_scripts/fase_f_chefes.json.
+
+    38 dos 236 chefes da Fase F sao de Galar e portanto moram DENTRO do bloco
+    que `bloco_party` regera do zero. Ate 23/08/2026 um `--aplicar` sozinho
+    apagava os 38 times de chefe e so a memoria de quem rodava mandava chamar
+    `fase_f_chefes.py --aplicar` em seguida. Agora nao regera o que nao e dele.
+    """
+    caminho = f"{RAIZ}/dev_scripts/fase_f_chefes.json"
+    if not os.path.exists(caminho):
+        return set()
+    return {c["id"] for c in json.load(open(caminho, encoding="utf-8"))["chefes"]}
+
+
+def times_preservados(texto=None):
+    """{constante: linhas do bloco a partir do 'AI:'} para os chefes da Fase F
+    que JA estao no .party.
+
+    O cabecalho (Name/Class/Pic/Gender/Double Battle) continua vindo deste
+    gerador, que e o dono dele; o AI e os Pokemon continuam vindo da Fase F,
+    que e a dona deles. E a mesma divisao que `fase_f_chefes.escreve` faz do
+    outro lado, so que vista daqui.
+    """
+    chefes = chefes_da_fase_f()
+    if not chefes:
+        return {}
+    t = texto if texto is not None else open(PARTY, encoding="utf-8").read()
+    ms = list(re.finditer(r"(?m)^=== (\S+) ===[ \t]*$", t))
+    fora = {}
+    for k, m in enumerate(ms):
+        if m.group(1) not in chefes:
+            continue
+        fim = ms[k + 1].start() if k + 1 < len(ms) else len(t)
+        linhas = t[m.end() + 1:fim].split("\n")
+        for i, ln in enumerate(linhas):
+            if ln.startswith("AI:") or not ln.strip():
+                rabo = linhas[i:]
+                # O ULTIMO bloco do arquivo vai ate o fim dele, e o fim dele e
+                # o P_FIM: sem este corte o marcador entrava no time e saia
+                # duplicado, medido em 23/08/2026. (O `fatia_bloco` da Fase F
+                # chama isso de "rabeira" e preserva pelo mesmo motivo.)
+                for j, x in enumerate(rabo):
+                    if P_FIM in x:
+                        rabo = rabo[:j]
+                        break
+                while rabo and not rabo[-1].strip():
+                    rabo.pop()
+                fora[m.group(1)] = rabo
+                break
+    return fora
+
+
+def bloco_party(usados, num, preservar=None):
+    preservar = times_preservados() if preservar is None else preservar
     out = [P_INI,
            "/* Treinadores de Galar, importados do demake Ultimate Plus v1.2.1.2.",
            "   Nivel 255 em TODOS por decisao do Gui (22/08/2026): Galar e regiao",
@@ -733,6 +786,11 @@ def bloco_party(usados, num):
         out.append("Pic: %s" % pic_de(u["classe"], u["genero"]))
         out.append("Gender: %s" % ("Female" if u["genero"] else "Male"))
         out.append("Double Battle: %s" % ("Yes" if u["duplo"] else "No"))
+        rabo = preservar.get(const)
+        if rabo is not None:
+            out += rabo
+            out.append("")
+            continue
         for e in u["time"]:
             out += ["", e, "Level: %d" % NIVEL]
         out.append("")
@@ -867,7 +925,8 @@ def aplica(aceitas, usados, num, gravar):
         if novo != t:
             open(OPPS, "w").write(novo)
         t = open(PARTY).read()
-        novo = substitui(t, P_INI, P_FIM, bloco_party(usados, num))
+        novo = substitui(t, P_INI, P_FIM,
+                         bloco_party(usados, num, times_preservados(t)))
         if novo != t:
             open(PARTY, "w").write(novo)
     return mudou, recusa
@@ -984,6 +1043,38 @@ def demo():
              if ln.startswith("Name: ")))
     caso("todo nivel escrito e 255", "Level: 255" in bloco_party(usados, num)
          and "Level: %d" % (NIVEL - 1) not in bloco_party(usados, num))
+    # A ORDEM VIRA GUARDA. `--aplicar` sozinho nao pode mais encostar no time
+    # de nenhum chefe da Fase F; o PAR NEGATIVO abaixo roda o mesmo gerador com
+    # a preservacao desligada (que e o comportamento de ate 23/08/2026) e exige
+    # que ele estrague, senao o caso de cima seria vacuo.
+    import guarda_party as GP  # noqa: E402  (mesma pasta, sem custo no import)
+    t_real = open(PARTY, encoding="utf-8").read()
+    chefes = chefes_da_fase_f()
+    # so os chefes que moram DENTRO do bloco de Galar; os outros 198 estao fora
+    # do alcance deste gerador e ficariam iguais mesmo com o defeito ligado,
+    # o que faria o par negativo mentir.
+    dentro = set(re.findall(r"(?m)^=== (\S+) ===[ \t]*$",
+                            t_real[t_real.find(P_INI):t_real.find(P_FIM)]))
+    antes = {k: v for k, v in GP.blocos(t_real).items()
+             if k in chefes and k in dentro}
+    com = GP.blocos(substitui(t_real, P_INI, P_FIM,
+                              bloco_party(usados, num, times_preservados(t_real))))
+    sem = GP.blocos(substitui(t_real, P_INI, P_FIM,
+                              bloco_party(usados, num, {})))
+    caso("ha chefe da Fase F dentro do bloco de Galar (senao o caso e vazio)",
+         len(antes) > 30)
+    caso("--aplicar nao muda um byte de nenhum chefe da Fase F",
+         all(com.get(k) == v for k, v in antes.items()))
+    caso("sem a preservacao ele estragaria (par negativo)",
+         sum(1 for k, v in antes.items() if sem.get(k) != v) == len(antes))
+    caso("e rodar duas vezes da a mesma coisa (idempotente)",
+         substitui(t_real, P_INI, P_FIM,
+                   bloco_party(usados, num, times_preservados(
+                       substitui(t_real, P_INI, P_FIM,
+                                 bloco_party(usados, num,
+                                             times_preservados(t_real))))))
+         == substitui(t_real, P_INI, P_FIM,
+                      bloco_party(usados, num, times_preservados(t_real))))
     mudou, rec = aplica(aceitas, usados, num, gravar=False)
     caso("a aplicacao seca nao recusa mais de 5%% dos objetos",
          len(rec) <= 0.05 * len(aceitas))

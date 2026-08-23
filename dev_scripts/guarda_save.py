@@ -609,6 +609,13 @@ def main():
           f"lido de {de_onde}")
     print(f"ids de treinador: {len(nova['treinadores'])} conferidos contra "
           f"git {REF_TREINADOR}")
+    # O time do chefe NAO e assunto de save; entra aqui porque este e o portao
+    # que toda rodada roda, e porque o acidente que ele pega mora ao lado do id
+    # de treinador: `treinadores_galar.py --aplicar` regera o bloco de Galar do
+    # .party inteiro, e 38 chefes da Fase F moram dentro dele. Fica em bloco
+    # proprio, com veredito proprio, para nao contaminar o "SAVE COMPATIVEL".
+    import guarda_party  # noqa: E402  (mesma pasta)
+    fora_da_tabela = guarda_party.verifica()
     # I/O fica fora do compara(), que e funcao pura e tem demo em cima dela.
     if nova.get("sizeof_saveblock1") and elf_esta_velho():
         quebras.insert(0, "AVISO: o ELF e mais velho que os headers. O tamanho "
@@ -619,9 +626,17 @@ def main():
     print(f"mapas: {len(velha['mapas'])} -> {len(nova['mapas'])} ({novos} novos)")
     print(f"SaveBlock1: {n if n else '?'} B de {TETO_SAVEBLOCK1} "
           f"({100*n/TETO_SAVEBLOCK1:.1f}%)" if n else "SaveBlock1: nao buildado")
+    if fora_da_tabela:
+        print(f"\n{len(fora_da_tabela)} CHEFE(S) DA FASE F FORA DA TABELA "
+              "(dev_scripts/guarda_party.py):")
+        for e in fora_da_tabela[:10]:
+            print(f"  {e}")
+        print("Conserto: python3 dev_scripts/fase_f_chefes.py --aplicar")
+    else:
+        print("chefes da Fase F: todos como dev_scripts/fase_f_chefes.json manda")
     if not quebras:
         print("\nSAVE COMPATIVEL: nenhuma mudanca invalida save existente.")
-        return 0
+        return 1 if fora_da_tabela else 0
     print(f"\n{len(quebras)} QUEBRA(S) DE SAVE:")
     for q in quebras:
         print(f"  {q}")
