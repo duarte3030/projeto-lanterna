@@ -3,7 +3,7 @@
   "name": "Galar_WyndonIndoor11",
   "layout": "LAYOUT_GALAR_WYNDON_INDOOR_11",
   "music": "MUS_RG_VICTORY_ROAD",
-  "region_map_section": "MAPSEC_GALAR_POSTWICK",
+  "region_map_section": "MAPSEC_GALAR_WYNDON",
   "map_name_popup": "WYNDON",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

@@ -3,7 +3,7 @@
   "name": "Galar_SlumberingWeald02",
   "layout": "LAYOUT_GALAR_SLUMBERING_WEALD_02",
   "music": "MUS_RG_VIRIDIAN_FOREST",
-  "region_map_section": "MAPSEC_GALAR_POSTWICK",
+  "region_map_section": "MAPSEC_GALAR_SLUMBERING_WEALD",
   "map_name_popup": "SLUMBERING WEALD",
   "requires_flash": false,
   "weather": "WEATHER_FOG_HORIZONTAL",

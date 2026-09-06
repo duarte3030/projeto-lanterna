@@ -3,7 +3,7 @@
   "name": "Galar_TurffieldIndoor03",
   "layout": "LAYOUT_GALAR_TURFFIELD_INDOOR_03",
   "music": "MUS_RG_VICTORY_ROAD",
-  "region_map_section": "MAPSEC_GALAR_POSTWICK",
+  "region_map_section": "MAPSEC_GALAR_TURFFIELD",
   "map_name_popup": "TURFFIELD",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

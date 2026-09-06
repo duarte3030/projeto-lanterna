@@ -3,7 +3,7 @@
   "name": "Galar_CrownTundra20",
   "layout": "LAYOUT_GALAR_CROWN_TUNDRA_20",
   "music": "MUS_NONE",
-  "region_map_section": "MAPSEC_GALAR_POSTWICK",
+  "region_map_section": "MAPSEC_GALAR_CROWN_TUNDRA",
   "map_name_popup": "CROWN TUNDRA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

@@ -3,7 +3,7 @@
   "name": "Galar_Ballonlea10",
   "layout": "LAYOUT_GALAR_BALLONLEA_10",
   "music": "MUS_RG_FOLLOW_ME",
-  "region_map_section": "MAPSEC_GALAR_POSTWICK",
+  "region_map_section": "MAPSEC_GALAR_BALLONLEA",
   "map_name_popup": "BALLONLEA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

@@ -3,7 +3,7 @@
   "name": "Galar_Wedgehurst17",
   "layout": "LAYOUT_GALAR_WEDGEHURST_17",
   "music": "MUS_RG_POKE_CENTER",
-  "region_map_section": "MAPSEC_GALAR_POSTWICK",
+  "region_map_section": "MAPSEC_GALAR_WEDGEHURST",
   "map_name_popup": "WEDGEHURST",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

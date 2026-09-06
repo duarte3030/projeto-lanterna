@@ -3,7 +3,7 @@
   "name": "Galar_DynamaxAdventure04",
   "layout": "LAYOUT_GALAR_DYNAMAX_ADVENTURE_04",
   "music": "MUS_RG_POKE_MANSION",
-  "region_map_section": "MAPSEC_GALAR_POSTWICK",
+  "region_map_section": "MAPSEC_GALAR_DYNAMAX_ADVENTURE",
   "map_name_popup": "MAX LAIR",
   "requires_flash": false,
   "weather": "WEATHER_SHADE",

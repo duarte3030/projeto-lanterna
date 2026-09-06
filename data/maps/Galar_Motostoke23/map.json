@@ -3,7 +3,7 @@
   "name": "Galar_Motostoke23",
   "layout": "LAYOUT_GALAR_MOTOSTOKE_23",
   "music": "MUS_NONE",
-  "region_map_section": "MAPSEC_GALAR_POSTWICK",
+  "region_map_section": "MAPSEC_GALAR_MOTOSTOKE",
   "map_name_popup": "MOTOSTOKE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

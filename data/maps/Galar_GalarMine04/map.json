@@ -3,7 +3,7 @@
   "name": "Galar_GalarMine04",
   "layout": "LAYOUT_GALAR_GALAR_MINE_04",
   "music": "MUS_NONE",
-  "region_map_section": "MAPSEC_GALAR_POSTWICK",
+  "region_map_section": "MAPSEC_GALAR_GALAR_MINE",
   "map_name_popup": "GALAR MINE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
