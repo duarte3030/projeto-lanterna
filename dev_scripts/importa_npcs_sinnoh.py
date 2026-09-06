@@ -810,6 +810,51 @@ def conversor_de_coordenada(fonte, larg, alt, header, matriz, nosso=None,
     return marca(conv, f"escala da caixa {cw}x{ch} da matriz sobre {larg}x{alt}")
 
 
+# PAPEL UNICO: pessoa de que o predio so tem UMA, por construcao.
+#
+# A enfermeira do balcao e a unica do Pokecenter: contado nas 18 fontes de
+# `events_*_pokecenter_1f.json` do Platinum, cada uma tem exatamente uma
+# `OBJ_EVENT_GFX_POKECENTER_NURSE`, e do lado de ca ela e o objeto que
+# `heal_locations_sinnoh_ginasios.py` cobra no indice 0, com o script de cura.
+# Para essa pessoa a coordenada nunca e testemunha: se o mapa ja tem o corpo
+# dela, ela esta representada, esteja onde estiver. Sem esta regra, os quatro
+# Pokecenters de planta PROPRIA (Floaroma, Jubilife, Oreburgh, Sandgem)
+# continuariam ganhando uma enfermeira muda por rodada, porque o balcao deles
+# fica a mais de um tile da coordenada convertida.
+PAPEIS_UNICOS = frozenset({"OBJ_EVENT_GFX_POKECENTER_NURSE"})
+
+
+def traduz_grafico(g, especie, proprio, sprites, pokecenter=True):
+    """(graphics_id NOSSO, caiu_no_padrao) para um objeto da fonte.
+
+    A mesma escada que o importador ja usava mais abaixo, tirada para funcao
+    porque agora ela precisa rodar ANTES do `reclama`: comparar o grafico da
+    FONTE com o grafico NOSSO nunca casa, e era por isso que a enfermeira do
+    Platinum entrava de novo a cada rodada ao lado da que ja estava la.
+
+    `pokecenter` diz se o BALCAO deste mapa e o de um Pokecenter, e existe
+    porque parte do de-para depende do mapa e nao so do nome do sprite:
+    `OBJ_EVENT_GFX_POKECENTER_NURSE` e a enfermeira no Pokecenter e a
+    RECEPCIONISTA no lobby do Contest Hall (06/09/2026, defeito de playtest do
+    Gui, "que tanto de enfermeira e essa?"). Ver
+    `valida_mapas_sinnoh.TROCA_SPRITE_POR_BALCAO`. Quem chama sem contexto
+    recebe o destino de MAIORIA, que e o de Pokecenter.
+
+    `caiu_no_padrao` diz que nao houve de-para nenhum e o objeto viraria
+    `SPRITE_PADRAO` (MAN_1). Nesse caso a igualdade de grafico NAO e prova de
+    identidade, porque MAN_1 e o balde de todo mundo que nao tem tradutor, e a
+    reclamacao por identidade fica desligada.
+    """
+    if especie:
+        return f"OBJ_EVENT_GFX_SPECIES({especie})", False
+    if proprio:
+        return proprio, False
+    if g in sprites:
+        return g, False
+    novo = V.troca_de_sprite(g, pokecenter)
+    return (novo, False) if novo else (V.SPRITE_PADRAO, True)
+
+
 def main():
     sprites = V.sprites_utilizaveis()
     V.confere_tabela_de_trocas(sprites)
@@ -907,8 +952,28 @@ def main():
         if ja_import:
             stats["ja_importado"] += 1
         reclamados = set()
+        # PLANTA EMPRESTADA: aqui a coordenada da fonte NAO e testemunha.
+        #
+        # `fecha_portas_sinnoh.py` cria interior de cidade com a planta
+        # REAPROVEITADA de um mapa do repo, e grava isso no proprio `map.json`
+        # (`"origem": "... planta reaproveitada de ..."`). Nesses mapas o
+        # desenho e outro, a regua de escala ja mudou entre rodadas, e a mesma
+        # pessoa da fonte cai em (8,4) numa passada e em (10,2) na seguinte.
+        # A guarda por VIZINHANCA de <= 1 tile nao reconhece as duas como a
+        # mesma, e o resultado esta medido: os Pokecenters de Sinnoh ganharam
+        # uma segunda enfermeira, uma segunda LASS, um segundo menino, todos
+        # mudos, e foi isso que o Gui viu no playtest de 06/09/2026.
+        # Onde a planta e emprestada, quem reclama e a IDENTIDADE: se o mapa ja
+        # tem um corpo com aquele mesmo `graphics_id`, a pessoa ja esta la, em
+        # qualquer lugar do mapa.
+        planta_emprestada = "planta reaproveitada" in str(d.get("origem", ""))
+        # BALCAO DE POKECENTER, 06/09/2026. Parte do de-para depende do MAPA,
+        # e quem responde e o arquivo de eventos da FONTE, nunca o nome da
+        # nossa pasta, que envelhece calado. Ver TROCA_SPRITE_POR_BALCAO em
+        # valida_mapas_sinnoh.py e o defeito do Contest Hall de Hearthome.
+        balcao_de_pokecenter = "pokecenter" in arq_ev
 
-        def reclama(x, y, lista, gfx=None):
+        def reclama(x, y, lista, gfx=None, identidade=False):
             """True se ja existe evento NOSSO em (x,y) ou ao lado que E este.
 
             A primeira versao so olhava objeto com a MARCA `pokeplatinum`, e isso
@@ -925,10 +990,30 @@ def main():
             for e in lista:
                 if id(e) in reclamados:
                     continue
-                if abs(e.get("x", -99) - x) > 1 or abs(e.get("y", -99) - y) > 1:
+                mesma_pessoa = (gfx is not None
+                                and e.get("graphics_id") == gfx)
+                if identidade:
+                    # ONDE A COORDENADA NÃO É TESTEMUNHA, A VIZINHANÇA TAMBÉM
+                    # NÃO É, 06/09/2026. Enquanto o `perto` valia junto com a
+                    # identidade, a PRIMEIRA pessoa da fonte reclamava para si
+                    # qualquer corpo importado a um tile do lugar onde ela caiu,
+                    # fosse ela ou não: em
+                    # `HearthomeCityNortheastHouse1F` a POKEFAN_F da fonte tomou
+                    # o corpo da TWIN, a TWIN não achou mais o dela e entrou de
+                    # novo, e o mapa ficou com duas TWIN e nenhuma POKEFAN_F.
+                    # Contagem certa, elenco errado, e um pingue-pongue eterno
+                    # com o corte de `de_para_sprites_sinnoh.py`, que via a TWIN
+                    # sobrando e a apagava toda rodada.
+                    if not mesma_pessoa:
+                        continue
+                    reclamados.add(id(e))
+                    reclama.ultimo = e
+                    return True
+                perto = (abs(e.get("x", -99) - x) <= 1
+                         and abs(e.get("y", -99) - y) <= 1)
+                if not perto:
                     continue
-                if e.get("origem") == "pokeplatinum" or (
-                        gfx is not None and e.get("graphics_id") == gfx):
+                if e.get("origem") == "pokeplatinum" or mesma_pessoa:
                     reclamados.add(id(e))
                     reclama.ultimo = e
                     return True
@@ -1157,7 +1242,18 @@ def main():
                     linha(meu, "objeto", e, conv(e), g, regra,
                           f"ja existe a mao com script: so o sprite virou {proprio}")
                     continue
-            if reclama(*conv(e), d.get("object_events") or [], g):
+            # O `graphics_id` que chega no `reclama` tem que ser o NOSSO,
+            # e nao o da FONTE (06/09/2026). Ate aqui ele recebia `g` cru, e o
+            # de-para (`V.TROCA_SPRITE`) so era aplicado LA EMBAIXO, depois dos
+            # tetos: `OBJ_EVENT_GFX_POKECENTER_NURSE` nunca casava com o
+            # `OBJ_EVENT_GFX_NURSE` que o mapa ja tinha, e a mesma pessoa
+            # entrava de novo a cada rodada. Foi assim que os Pokecenters de
+            # Sinnoh chegaram a tres enfermeiras.
+            g_nosso, so_padrao = traduz_grafico(g, especie, proprio, sprites,
+                                                balcao_de_pokecenter)
+            if reclama(*conv(e), d.get("object_events") or [], g_nosso,
+                       identidade=(g in PAPEIS_UNICOS
+                                   or (planta_emprestada and not so_padrao))):
                 # CONSERTO DE SPRITE, 22/08/2026: quem entrou em rodada anterior
                 # como espécie caiu em OBJ_EVENT_GFX_MAN_1, porque naquela data
                 # não havia sprite de overworld de Pokémon nesta ROM. Agora há, e
@@ -1197,18 +1293,17 @@ def main():
                 linha(meu, "objeto", e, None, g, regra,
                       "teto de 64 templates por mapa, cortado por ordem da fonte")
                 continue
+            # MESMA escada do `traduz_grafico` la de cima, e ela e uma funcao
+            # SO por isso: enquanto o de-para morava aqui e o `reclama` olhava o
+            # grafico cru, os dois discordavam e a mesma pessoa entrava duas
+            # vezes. Duplicar a regra foi o defeito; a funcao e o conserto.
             gfx_fonte = g
-            if especie:
-                g = f"OBJ_EVENT_GFX_SPECIES({especie})"
-            elif proprio:
-                g = proprio
-            elif g not in sprites:
-                novo = V.TROCA_SPRITE.get(g)
-                if not novo:
-                    trocados[g] = trocados.get(g, 0) + 1
-                    novo = V.SPRITE_PADRAO
+            g, so_padrao = traduz_grafico(g, especie, proprio, sprites,
+                                          balcao_de_pokecenter)
+            if g != gfx_fonte:
+                if so_padrao:
+                    trocados[gfx_fonte] = trocados.get(gfx_fonte, 0) + 1
                 stats["trocas"] += 1
-                g = novo
             mov = e.get("movement_type", V.MOVIMENTO_PADRAO)
             if mov not in movimentos:
                 mov = V.MOVIMENTO_PADRAO
@@ -1295,6 +1390,8 @@ def main():
         # ARMADILHA: `g` foi RECICLADO como graphics_id dentro do laço acima e
         # não é mais a grade. A grade se relê, nunca se supõe.
         if novos_obj:
+            novos_obj = fora_do_corredor(d, novos_obj, stats, linha, meu)
+        if novos_obj:
             novos_obj = sem_tranca(layouts, d, novos_obj, stats, linha, meu)
         stats["fora_coord"] += len(fonte.get("coord_events", []))
         if not (novos_obj or novas_placas or pm in tocado):
@@ -1371,6 +1468,115 @@ def corredor_de_gatilho(d, layouts, alcance=8):
                     break
                 fora.add((x, y))
     return fora
+
+
+_CORREDORES = None
+
+
+def corredores_de_teste():
+    """{id de mapa: células que algum caso da suíte PISA}, lida dos roteiros.
+
+    CORPO NOVO EM CIMA DE ROTEIRO DE SUÍTE É CASO VERMELHO, 06/09/2026, e a
+    lição é emprestada de `enfeita_cidades.corredores_de_teste()` desta mesma
+    rodada, que perdeu sete casos de balsa para um poste de luz. Objeto é
+    SÓLIDO: o `sem_tranca` prova que nada fica inalcançável, e isso não basta,
+    porque a perna de um roteiro não para onde o autor escreveu, e sim no
+    primeiro obstáculo. Medido aqui: a MOM que a fonte quer no
+    `ContestHallLobby` cai em (4,5), que é a quarta célula da subida do T140.1
+    e do T140.3.
+
+    A varredura é aproximação POR EXCESSO, de propósito: ela anda as pernas de
+    DIREÇÃO do roteiro a partir do pouso do warp de entrada, SEM olhar parede,
+    e ignora o caso que entra no meio por `WARP=`. Excesso custa NPC a menos;
+    falta custa caso vermelho.
+    """
+    global _CORREDORES
+    if _CORREDORES is not None:
+        return _CORREDORES
+    passos = {"UP": (0, -1), "DOWN": (0, 1), "LEFT": (-1, 0), "RIGHT": (1, 0)}
+    _CORREDORES = {}
+    pasta = os.path.join(REPO, "dev_scripts", "testes_criticos")
+    for arq in sorted(os.listdir(pasta)) if os.path.isdir(pasta) else []:
+        if not arq.endswith(".json"):
+            continue
+        try:
+            bloco = json.load(open(os.path.join(pasta, arq), encoding="utf-8"))
+        except ValueError:
+            continue
+        casos = bloco.get("casos", bloco) if isinstance(bloco, dict) else bloco
+        if not isinstance(casos, list):
+            continue
+        for c in casos:
+            if not isinstance(c, dict):
+                continue
+            mapa = c.get("warp")
+            roteiro = c.get("roteiro") or ""
+            if not mapa or "WARP=" in roteiro.upper():
+                continue
+            d = mapas_por_id().get(mapa)
+            if d is None:
+                continue
+            warps = d.get("warp_events") or []
+            i = c.get("warp_id", 0)
+            if not isinstance(i, int) or not 0 <= i < len(warps):
+                continue
+            x, y = warps[i].get("x"), warps[i].get("y")
+            if not isinstance(x, int) or not isinstance(y, int):
+                continue
+            pisa = _CORREDORES.setdefault(mapa, set())
+            pisa.add((x, y))
+            for tok in roteiro.split(","):
+                corpo = tok.split(":")[-1]
+                vezes = 1
+                if "*" in corpo:
+                    corpo, _, n = corpo.partition("*")
+                    vezes = int(n) if n.isdigit() else 1
+                d2 = passos.get(corpo.strip().upper())
+                if not d2:
+                    continue
+                for _ in range(vezes):
+                    x, y = x + d2[0], y + d2[1]
+                    pisa.add((x, y))
+            alvo = (c.get("prova") or {}).get("pos")
+            if isinstance(alvo, list) and len(alvo) == 2:
+                pisa.add((alvo[0], alvo[1]))
+    return _CORREDORES
+
+
+_POR_ID = None
+
+
+def mapas_por_id():
+    """{id de mapa (MAP_*): map.json lido}, para os mapas de Sinnoh nossos."""
+    global _POR_ID
+    if _POR_ID is None:
+        _POR_ID = {}
+        for m in nossos_mapas_sinnoh():
+            try:
+                d = json.load(open(os.path.join(REPO, "data/maps", m,
+                                                "map.json"), encoding="utf-8"))
+            except (OSError, ValueError):
+                continue
+            if d.get("id"):
+                _POR_ID[d["id"]] = d
+    return _POR_ID
+
+
+def fora_do_corredor(d, novos, stats, linha, meu):
+    """Tira do lote o corpo que ficaria em cima de roteiro da suíte."""
+    pisa = corredores_de_teste().get(d.get("id"))
+    if not pisa:
+        return novos
+    lote = []
+    for o in novos:
+        if (o["x"], o["y"]) in pisa:
+            stats["fora_corredor"] = stats.get("fora_corredor", 0) + 1
+            linha(meu, "objeto", {"x": o["x"], "z": o["y"]}, (o["x"], o["y"]),
+                  o["graphics_id"], "-",
+                  "corredor de teste: um caso da suite PISA nesta celula")
+            continue
+        lote.append(o)
+    return lote
 
 
 def sem_tranca(layouts, d, novos, stats, linha, meu):

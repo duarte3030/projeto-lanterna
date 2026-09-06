@@ -1,0 +1,33 @@
+[
+  {
+    "id": "T180.1",
+    "nome": "O SALAO DO CONTEST HALL PARA DE SER UM POSTO DE ENFERMAGEM. Defeito de playtest do Gui na ROM 2026-08-23d: 'que tanto de enfermeira e essa?'. O lobby tinha 7 OBJ_EVENT_GFX_NURSE porque o de-para de sprite lia OBJ_EVENT_GFX_POKECENTER_NURSE do Platinum como enfermeira em QUALQUER mapa, e la aquele grafico e a RECEPCIONISTA do concurso. A prova nao e de olho: NURSE usa OBJ_EVENT_PAL_TAG_NPC_1 e CABLE_CLUB_RECEPTIONIST usa OBJ_EVENT_PAL_TAG_NPC_WHITE, e 0x32B9 = (205,172,98) e a cor de npc_white.pal que o T96.1 ja usa. Medido: 0 na ROM 2026-08-23d, 1 nesta build.",
+    "warp": "MAP_CONTEST_HALL_LOBBY",
+    "roteiro": "120:NADA",
+    "prova": {
+      "mapa": "MAP_CONTEST_HALL_LOBBY",
+      "palobj_presentes": ["0x32B9"]
+    }
+  },
+  {
+    "id": "T180.2",
+    "nome": "CONTROLE do T180.1, e sem ele aquele caso nao prova nada: a MESMA cor de npc_white lida num interior de Sinnoh que esta frente NAO repintou. A VeilstoneStore2F ja tinha uma CABLE_CLUB_RECEPTIONIST antes, e le 1 nas DUAS ROMs (2026-08-23d e esta). Se este caso e o T180.1 andassem juntos, a cor estaria medindo 'build nova', e nao 'recepcionista no lugar da enfermeira'.",
+    "warp": "MAP_VEILSTONE_STORE_2F",
+    "roteiro": "120:NADA",
+    "prova": {
+      "mapa": "MAP_VEILSTONE_STORE_2F",
+      "palobj_presentes": ["0x32B9"]
+    }
+  },
+  {
+    "id": "T180.3",
+    "nome": "O CORREDOR DO LOBBY CONTINUA ANDAVEL DEPOIS DE O ELENCO CERTO ENTRAR. Tirar as enfermeiras a mais abriu vaga sob o teto da fonte, e o importador de NPC preencheu com quem o Platinum tem de verdade (FANTINA, uma beauty, uma picnicker). Objeto e SOLIDO: a MOM da fonte cai em (4,5), que e a quarta celula da subida da porta ate a porta fechada do palco, e `importa_npcs_sinnoh.corredores_de_teste()` a barrou por isso. Este caso e o par dessa guarda: mesma subida do T140.1, e o jogador tem que chegar em (6,1).",
+    "warp": "MAP_CONTEST_HALL_LOBBY",
+    "roteiro": "120:NADA,16:UP*2,16:RIGHT,16:UP*4,16:RIGHT*2,16:UP*2,180:NADA",
+    "prova": {
+      "mapa": "MAP_CONTEST_HALL_LOBBY",
+      "pos": [6, 1],
+      "andou": true
+    }
+  }
+]

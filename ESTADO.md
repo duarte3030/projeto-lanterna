@@ -953,6 +953,191 @@ mapas** (`VeilstoneStore2F` a `5F`, os seis Marts, `CanalaveLibrary1F/2F/3F`, `M
 porque o `PARES` desta ferramenta é de Pokécenter, escrito à mão; estendê-lo pede o mesmo casamento
 mapa-a-fonte que `importa_npcs_sinnoh.headers_do_platinum()` já faz, e é rodada própria.
 
+### O Contest Hall tinha sete enfermeiras, e a fonte tem três recepcionistas, 06/09/2026
+
+Defeito do playtest, dito assim: **"que tanto de enfermeira é essa?"**, na casona do Contest Hall de
+Hearthome, na ROM `2026-08-23d`. Medido no `map.json` antes de tocar em nada: `ContestHallLobby`
+tinha **7 objetos `OBJ_EVENT_GFX_NURSE` num salão de 11**, e a fonte
+(`fontes-mapas/pokeplatinum/res/field/events/events_contest_hall_lobby.json`) tem **3** atendentes de
+balcão, que lá são as recepcionistas do concurso.
+
+São **duas causas somadas**, e nenhuma delas é o Contest Hall.
+
+#### Causa 1: o de-para de sprite não olhava o MAPA
+
+`OBJ_EVENT_GFX_POKECENTER_NURSE` não quer dizer "enfermeira" no Platinum: quer dizer **atendente de
+balcão com aquele uniforme**. Em Pokécenter ela é a enfermeira mesmo; no lobby do Contest Hall ela é
+a recepcionista. A linha fixa da `TROCA_SPRITE` mandava as duas para `OBJ_EVENT_GFX_NURSE`.
+
+Medido nos 497 mapas de Sinnoh casados com a fonte, antes do conserto: dos **21 objetos** com esse
+gráfico, **18 estão num `events_*_pokecenter_1f`** e **3 estão em `events_contest_hall_lobby`**. Por
+isso o conserto é um PAR, e não uma troca de linha: `valida_mapas_sinnoh.TROCA_SPRITE_POR_BALCAO`
+guarda `("OBJ_EVENT_GFX_NURSE", "OBJ_EVENT_GFX_CABLE_CLUB_RECEPTIONIST")`, e
+`V.troca_de_sprite(gfx, pokecenter)` escolhe pelo contexto do mapa. A chave continua na
+`TROCA_SPRITE` com o destino de MAIORIA de propósito, porque quem consulta a tabela sem contexto
+(e `corpos_repetidos_pokecenter.py` consulta) tem que continuar recebendo a resposta certa para 18
+dos 21.
+
+**Quem responde "este balcão é de Pokécenter?" são três testemunhas, nesta ordem, e nenhuma delas é o
+nome da nossa pasta**, que é justamente o que envelhece calado: (1) o arquivo de eventos DA FONTE;
+(2) o motor, porque mapa que é `respawn_map` de uma heal location tem enfermeira por definição, senão
+ninguém cura o jogador; (3) o script, porque objeto cujo rótulo se apresenta como enfermeira é
+enfermeira (a régua da rodada 10, "o de-para por nome olha o script").
+
+**O inverso do de-para NÃO é função, e reaplicá-lo nos dois sentidos plantaria defeito novo.** Isto
+quase custou caro: `OBJ_EVENT_GFX_CABLE_CLUB_RECEPTIONIST` é destino de **cinco** gráficos da fonte
+(`RECEPTIONIST`, `WIFI_PLAZA_ATTENDANT_F` e os três `FRONTIER_*_ATTENDANT`), então ler "recepcionista
+num Pokécenter" como "enfermeira fora do lugar" poria **quinze enfermeiras** nos porões de Union Room
+dos Pokécenters de Sinnoh, onde a fonte tem a atendente de Wi-Fi. `OBJ_EVENT_GFX_NURSE`, ao
+contrário, tem UMA origem só em todo o de-para, e é por isso que só ele volta atrás. O `--demo` de
+`de_para_sprites_sinnoh.py` cobra as duas metades desta frase CONTRA a tabela, e não como texto.
+
+#### Causa 2: em planta emprestada, a coordenada não é testemunha, e a vizinhança também não
+
+197 mapas de Sinnoh nasceram com a planta REAPROVEITADA de outro mapa do repo
+(`fecha_portas_sinnoh.py` grava isso no próprio `map.json`). Neles a régua de escala mudou entre
+rodadas, a mesma pessoa caiu em (8,4) numa passada e em (10,2) na seguinte, e a guarda de
+idempotência do importador, que reconhecia "já importado" por VIZINHANÇA de um tile, não reconhecia
+as duas como a mesma. Foi assim que os Pokécenters chegaram a três enfermeiras (subseção acima) e o
+Contest Hall a sete.
+
+O conserto tem **duas metades, e a segunda só apareceu depois de a primeira entrar**:
+
+1. Onde a planta é emprestada, quem reclama é a **IDENTIDADE**: se o mapa já tem um corpo com aquele
+   mesmo `graphics_id`, a pessoa já está lá, em qualquer lugar do mapa. Junto veio um conserto que
+   parece de detalhe e é a raiz: o `graphics_id` que chega no `reclama` passou a ser o **NOSSO**, e
+   não o da FONTE. Até aqui o de-para só era aplicado depois dos tetos, então
+   `OBJ_EVENT_GFX_POKECENTER_NURSE` nunca casava com o `OBJ_EVENT_GFX_NURSE` que o mapa já tinha, e a
+   mesma mulher entrava de novo a cada rodada.
+2. **A vizinhança precisou SAIR junto.** Enquanto o `perto` valia em OU com a identidade, a PRIMEIRA
+   pessoa da fonte reclamava para si qualquer corpo importado a um tile de onde ela caiu, fosse ela
+   ou não. Medido em `HearthomeCityNortheastHouse1F`: a `POKEFAN_F` da fonte tomou o corpo da `TWIN`,
+   a `TWIN` não achou mais o dela e entrou de novo, e o mapa ficou com **duas TWIN e nenhuma
+   POKEFAN_F**. Contagem certa, elenco errado, e um **pingue-pongue eterno** com o corte de
+   `de_para_sprites_sinnoh.py`, que via a TWIN sobrando e a apagava toda rodada. Com a vizinhança
+   fora, os dois passam a concordar por construção, e a idempotência é MEDIDA: importador aplicado,
+   depois o de-para, e o de-para diz `mapas tocados: 0`.
+
+#### A ferramenta: `dev_scripts/de_para_sprites_sinnoh.py`
+
+Conserto de raiz é no gerador; o que já está escrito sai por esta ferramenta, idempotente e com
+`--demo` de nove provas. Ela **repinta** (o gráfico que o contexto do mapa desmente) e **corta** (o
+corpo repetido que a fonte não tem), e o corte passa por quatro portões: marca `pokeplatinum`, objeto
+MUDO (`script: "0"`), sem flag e sem `local_id`. **O corte sai sempre dos ÚLTIMOS corpos daquele
+gráfico**, e nunca de quem fala: em todos os 27 mapas a pessoa continua no mapa e continua com a fala
+dela.
+
+Ela **não escreve `map.json` de Pokécenter** de propósito (trava de escrita; aqueles são da frente
+dos Pokécenters, na subseção acima) e **não devolve fala a NPC mudo**, que é a outra metade do
+estrago e precisa do índice de script da fonte.
+
+#### A conta, mapa a mapa
+
+**27 interiores de Sinnoh, 144 objetos antes e 126 depois: 7 repinturas, 38 corpos mudos cortados e
+20 pessoas de verdade que entraram no lugar.** As 20 entraram porque o corte abriu vaga sob o teto da
+fonte, e são gente que o Platinum tem e nós não tínhamos: no Contest Hall, **FANTINA**, uma beauty e
+uma picnicker no lugar de quatro enfermeiras a mais.
+
+| mapa | antes | depois | o que mudou |
+|---|---|---|---|
+| `ContestHallLobby` | 11 | 9 | as 7 NURSE viram recepcionistas, 5 corpos saem (4 recepcionistas a mais que a fonte e um rich boy), FANTINA + beauty + picnicker entram |
+| `VeilstoneStore2F/3F` | 7 / 6 | 7 / 6 | 2 cortes e 2 entradas em cada |
+| `MiningMuseum`, `ForeignBuilding`, `HearthomeCityPokemonFanClub` | 8 / 9 / 6 | 8 / 9 / 6 | 2 cortes e 2 entradas em cada |
+| `CanalaveLibrary1F/2F/3F` | 3 / 2 / 5 | 2 / 1 / 3 | 4 corpos repetidos, sem vaga a repor |
+| 6 Marts de Sinnoh | 5 cada | 4 cada | o `MART_EMPLOYEE` mudo de (3,2), que era cópia do caixa |
+| `PoffinHouse`, `VeilstoneStore4F/5F/B1F`, `CycleShop`, `PokemonDayCare`, `EternaCityCondominiums1F`, `EternaCityMart`, `JubilifeTv2FGallery`, `JubilifeTv3FGroupRankingRoom`, `HearthomeCityNortheastHouse1F`, `SunyshoreCityGymRoom2` | | | 1 ou 2 cortes, 0 ou 1 entrada |
+
+**Índice de objeto ANDOU em 12 desses mapas, e isso foi medido antes de gravar, não depois:** nenhum
+`scripts.inc` dos 27 usa `addobject`, `removeobject`, `applymovement` com número cru nem `LOCALID_`,
+então não há script mirando outra pessoa. O que a save guarda de mapa é `(mapGroup, mapNum)`, e
+`guarda_save.py` diz **SAVE COMPATIVEL**.
+
+#### O corredor de teste entrou no importador, e ele pegou dois casos
+
+**Corpo novo em cima de roteiro de suíte é caso vermelho.** O `sem_tranca` prova que nada fica
+inalcançável, e isso NÃO basta: objeto é sólido, e a perna de um roteiro não para onde o autor
+escreveu, e sim no primeiro obstáculo. A lição é emprestada de `enfeita_cidades.corredores_de_teste()`
+desta mesma rodada, que perdeu sete casos de balsa para um poste de luz.
+
+`importa_npcs_sinnoh.corredores_de_teste()` varre `dev_scripts/testes_criticos/*.json`, simula as
+pernas de DIREÇÃO de cada caso que entra no mapa por `warp` a partir do pouso, SEM olhar parede, e
+congela toda célula pisada. É aproximação POR EXCESSO: caso que entra no meio por `WARP=` não é
+simulado. Ela barrou **dois** corpos: a `MOM` que a fonte quer em (4,5) do `ContestHallLobby`, que é
+a quarta célula da subida do T140.1 e do T140.3, e o `SINNOH_RILEY` de (21,10) do `IronIsland`, que o
+`sem_tranca` já vinha barrando pelo T124.2.
+
+#### A prova é do emulador, e o par é de PALETA, não de olho
+
+`OBJ_EVENT_GFX_NURSE` usa `OBJ_EVENT_PAL_TAG_NPC_1` e `OBJ_EVENT_GFX_CABLE_CLUB_RECEPTIONIST` usa
+`OBJ_EVENT_PAL_TAG_NPC_WHITE`: **são palettes diferentes**, então dá para provar a troca lendo a PLTT
+OBJ, e não descrevendo o que se vê. A cor é `0x32B9` = (205,172,98) de `npc_white.pal`, a mesma que o
+T96.1 já usa. Três casos novos em `dev_scripts/testes_criticos/180_elenco_sinnoh.json`:
+
+| caso | mapa | ROM `2026-08-23d` | esta build |
+|---|---|---|---|
+| T180.1 | `ContestHallLobby` | `npc_white` **ausente** | `npc_white` **presente** |
+| T180.2 | `VeilstoneStore2F` (controle) | presente | presente |
+| T180.3 | `ContestHallLobby`, sobe da porta até a porta fechada do palco | (caso novo) | para em (6,1) |
+
+**O T180.2 é o que impede o T180.1 de ser um relógio parado**: ele lê a MESMA cor num interior de
+Sinnoh que esta frente não repintou, e ela já estava lá na ROM que o Gui jogou. Sem ele, `0x32B9`
+estaria medindo "build nova", e não "recepcionista no lugar da enfermeira".
+
+Os PNGs foram abertos e olhados, nas duas ROMs: no `ContestHallLobby` da `23d` o salão é uma fileira
+de mulheres de cabelo rosa e touca branca; nesta build não há nenhuma, e no lugar delas estão as
+recepcionistas de uniforme verde e a FANTINA de cabelo lilás. No `VeilstoneStore2F` da `23d` havia
+DUAS mulheres idênticas no canto de baixo; nesta build há uma.
+
+#### Os portões desta frente
+
+Build verde numa worktree ISOLADA (`/private/tmp/claude-501/sprites-r13`, HEAD `7b9a11ce64` mais só
+esta frente), porque a árvore compartilhada tem outras cinco frentes no meio da obra. **A ROM
+entregue é desse HEAD**: enquanto esta frente estava no emulador, outras três commitaram e o HEAD
+compartilhado andou para `8c82badf58`, que a `06s` não contém. **ROM
+32.369.672 B, 96,47% de 32 MB; EWRAM 86,16% e IWRAM 86,68%**, os mesmos das outras frentes desta
+rodada. `guarda_save.py` **SAVE COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B (94,3%), 2.400 mapas:
+nenhuma flag, var, item ou mapa novo, e apagar ou acrescentar objeto no fim da lista não é índice de
+save. `valida_rom.py` com os 2.400 mapas declarados dentro da ROM. `valida_conectividade.py` com
+**0 warps quebrados** e os mesmos **1.966 de 2.289** do HEAD. `valida_mapas_sinnoh.py` com
+`'sprite': 0` e **0 mapas com problema**. `valida_warp_tile.py --piso 60` em **5.915 de 6.875
+(86,0%)**, com Sinnoh em 97,7%, idêntico ao HEAD. `de_para_sprites_sinnoh.py --demo` com os nove
+casos verdes, e o relatório dele na árvore final em **`mapas tocados: 0`**, que é a idempotência
+medida. `dev_scripts/qa/roda_qa.py --demo` verde nas SEIS varreduras, rodado na árvore compartilhada.
+Suíte **1.024 de 1.024, nenhum pulado e nenhum reprovado**, com os três casos novos dentro, e
+**T11 3 de 3** na mesma passada (`--rom2 roms/pokemon-claude-2026-08-18.gba`, `--src2` na worktree
+de `cf6786b2ae`): a save da build de 18/08 continua se comportando como a régua manda.
+
+**Duas armadilhas de convivência custaram duas passadas inteiras da suíte, e ficam escritas.**
+(1) Os caminhos de `.sav` dos casos são CRAVADOS no JSON e COMPARTILHADOS entre frentes
+(`/tmp/claude-501/frenteA/...`), então quatro suítes rodando ao mesmo tempo escrevem no mesmo
+arquivo e o veredito vira sorteio. A suíta desta frente rodou com a pasta própria
+(`SAV_BASE=/tmp/claude-501/sprites-sav`, e a mesma ideia para os PNG com `SAIDA_TESTES`), num
+ajuste LOCAL da worktree que NÃO foi commitado; transformar isso em opção de verdade do
+`testa_critico.py` é dívida aberta. (2) Sob contenção pesada de CPU o T94.1 abriu VERMELHO uma
+vez e passou sozinho na sequência: roteiro de dezoito apertos com menu de sim/não não sobrevive a
+quatro emuladores disputando a máquina.
+
+**A completude de objetos de Sinnoh CAIU, de 100,3% para 99,4%, e isso é o conserto aparecendo na
+régua, não uma perda.** A régua divide pelo que a fonte tem: os 38 corpos que saíram eram cópias que
+a fonte NÃO tem, e estavam inflando o número acima de 100%. Entraram 20 pessoas de verdade no lugar,
+e o que falta para fechar são **21 objetos em 11 mapas, nenhum deles desta frente**: dez em
+Pokécenters (frente vizinha), três na rua de Eterna, dois no `Restaurant`, e um em cada de
+`IronIsland`, `PastoriaCity`, `VeilstoneStore1F`, `OreburghCity_PokemonCenter_1F` e no próprio
+`ContestHallLobby`. No HEAD desta rodada o mesmo importador já queria **25 objetos em 14 mapas**, ou
+seja a fila encolheu; ela é de rodada de completude, e não desta.
+
+#### O que fica aberto
+
+1. **Os 21 objetos acima.** `importa_npcs_sinnoh.py --aplicar` escreve `map.json` de Pokécenter, e
+   isso PRECISA ser combinado com a frente dos Pokécenters antes de rodar: parte do que ele quer pôr
+   lá são `OBJ_EVENT_GFX_VAR_A` e `VAR_B`, que são sprite de espaço reservado.
+2. **A fala.** Os corpos que entraram são MUDOS, e o `ContestHallLobby` tem três
+   `ContestHallLobby_EventScript_Npc1/2/3` órfãos, sem objeto que aponte para eles. São parte das 94
+   falas órfãs de Sinnoh em 45 mapas, e casá-las pede o índice de script da fonte.
+3. **A trava de escrita de Pokécenter em `de_para_sprites_sinnoh.py` é temporária**, e existe só
+   porque duas frentes escreviam nos mesmos arquivos nesta rodada. Quem retomar pode tirá-la e rodar
+   a ferramenta em Sinnoh inteira de uma vez.
+
 ### O defeito dos prédios que Hoenn e Johto dividem: entrar por Johto e sair na Rota 111, 06/09/2026
 
 Relato do Gui: "entrei em Trainer Hill por Olivine City (Johto) e quando fui sair, saí na Rota 111, em
@@ -5660,6 +5845,7 @@ existir escrito no topo.
 | `enfeita_cidades.py` | Enfeita com tema, aprendendo o carimbo de mapa doador do mesmo par de tilesets; idempotente pelo plano em JSON |
 | `porto_canalave.py` | Importa bote, poste e tambor do `gTileset_Slateport` para o secundário de Canalave, sem desenhar um pixel |
 | `fecha_portas_sinnoh.py` | Interior de cidade de Sinnoh com planta reaproveitada do repo |
+| `de_para_sprites_sinnoh.py` | Reaplica o de-para de sprite nos `map.json` de Sinnoh que já foram escritos: repinta o gráfico que o contexto do mapa desmente (a enfermeira do Contest Hall é recepcionista) e corta o corpo mudo repetido que a fonte não tem |
 | `abre_portas_extras_sinnoh.py` | Desenha a porta que falta, copiando um warp do proprio mapa |
 | `converte_cavernas_sinnoh.py` | Caverna de Sinnoh com a planta CONVERTIDA da grade 2D do DS |
 | `importa_placas_johto.py` | Traz placa do `hns` com script e texto, e recusa a que não funciona aqui |
