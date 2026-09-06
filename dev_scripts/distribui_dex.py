@@ -2722,8 +2722,21 @@ def diff_do_mato(ref=None):
                if k[1] not in fora_do_escopo and not vazia(a[k])}
     assert not sumiram, ("T129.13: tabela de mapa VIVO sumiu: "
                          f"{sorted(sumiram)[:4]}")
-    assert not set(b) - set(a), ("T129.13: tabela de encontro apareceu: "
-                                 f"{sorted(set(b) - set(a))[:4]}")
+    # NASCER SO E ERRO EM MAPA QUE A REFERENCIA JA TINHA. `BASE_MATO` e
+    # anterior a Galar existir no repo, e a regiao inteira entrou depois: das
+    # 166 tabelas que nasceram, TODAS as 166 estao em mapa `MAP_GALAR_*` que a
+    # referencia nao conhece (medido em 06/09/2026, onda 4, lote P), e nenhuma
+    # em mapa que ela tinha. Cobrar as duas coisas com o mesmo assert obrigava
+    # a escolher entre deixar o caso vermelho para sempre e mover a referencia,
+    # que apagaria a unica testemunha independente do mato de antes da onda A.
+    # O que este caso protege continua inteiro: mapa que a referencia tinha nao
+    # pode ganhar tabela nova, perder tabela, mudar de tamanho, perder especie
+    # nem mudar nivel de slot trocado.
+    mapas_da_ref = {k[1] for k in a}
+    nasceram = sorted(k for k in set(b) - set(a) if k[1] in mapas_da_ref)
+    assert not nasceram, ("T129.13: tabela de encontro apareceu em mapa que a "
+                          f"referencia ja tinha: {nasceram[:4]}")
+    de_mapa_novo = len(set(b) - set(a))
     cortadas = len(set(a) - set(b))
     a = {k: v for k, v in a.items() if k in b}
     perdidas, trocas, niveis = set(), 0, []
@@ -2738,10 +2751,25 @@ def diff_do_mato(ref=None):
                 niveis.append((k, x["species"], y["species"]))
     assert not perdidas, f"T129.13: a fonte tinha e sumiu: {sorted(perdidas)[:8]}"
     assert not niveis, f"T129.13: slot trocado mudou de nivel: {niveis[:4]}"
+    # CONTRAPROVA DE APAGAMENTO (onda 4, lote P). Os dois lados desta funcao
+    # saem do GIT e da arvore, e nenhum deles da tabela: o numero de slots
+    # trocados e, por isso, uma medida INDEPENDENTE de quantas colocacoes de
+    # mato existem. Ela entra aqui porque `plano_congelado` deixou de comparar
+    # tamanho de balde (ver o comentario la), e sem ela apagar uma linha de
+    # `selvagens` passaria calado: o censo do baseline desfaz o mato PELA
+    # PROPRIA linha, entao a linha apagada some dos dois lados de uma vez.
+    # Aqui nao some: o slot continua trocado na arvore e ninguem mais o explica.
+    no_alcance = sum(1 for l in tabela()["selvagens"] if l["mapa"] in mapas_da_ref)
+    assert trocas == no_alcance, (
+        "T129.13: %d slots trocados na arvore contra %d linhas de mato na "
+        "tabela dentro do alcance da referencia: alguma colocacao foi apagada "
+        "da tabela ou escrita fora dela" % (trocas, no_alcance))
     return (f"T129.13 OK: contra {ref}, {len(a)} tabelas intactas em numero e "
             f"tamanho, {trocas} slots trocados, ZERO especies perdidas e ZERO "
             f"niveis alterados; {cortadas} tabelas de mapa CORTADO fora, e "
-            "quem morava so nelas e cobrado pelo censo, nao aqui")
+            "quem morava so nelas e cobrado pelo censo, nao aqui; "
+            f"{de_mapa_novo} tabelas nasceram em mapa que a referencia nao "
+            "tinha (Galar inteira entrou depois dela)")
 
 
 def plano_congelado():
@@ -2764,11 +2792,56 @@ def plano_congelado():
     """
     t = tabela()
     p = plano()
-    for k in BUCKETS + EXTRAS:
-        assert len(p[k]) == len(t.get(k, [])), (k, len(p[k]), len(t.get(k, [])))
+    ino = {l.nome for l in censo_base() if l.categoria == "inobtenivel"}
+
+    def uniao(d):
+        fora = set()
+        for k in BUCKETS + EXTRAS:
+            ch = "item" if k == "chaves" else "especie"
+            fora |= {l[ch] for l in d.get(k, [])}
+        return fora
+
+    # O QUE MUDOU EM 06/09/2026 (onda 4, lote P), e por que. Ate aqui a
+    # comparacao era LINHA A LINHA e por BALDE: `len(p[k]) == len(t[k])` mais
+    # igualdade de conjunto. Isso so fica de pe enquanto NADA fora desta
+    # ferramenta muda a obtenibilidade de uma especie, e a onda 3 mudou: o
+    # `importa_encontros_galar.py --aplicar` sobrepos as tabelas de mato de
+    # Galar com o datamine de Sword/Shield e deu fonte selvagem em Galar a 36
+    # especies que a tabela ja tinha colocado a mao noutra regiao (medido:
+    # Archen, Bonsly, Cranidos, Druddigon, os 8 regionais de Alola, os 8 de
+    # Galar, ...). Com isso o plano refeito caiu de 234 para 190 selvagens e a
+    # linha `assert len(...)` reprovava com ('selvagens', 190, 234).
+    #
+    # A COLOCACAO ESCRITA NAO PODE SUMIR POR CAUSA DISSO. As 234 estao NA
+    # ARVORE (conferido slot a slot em `wild_encounters.json`), e a coluna
+    # `substituido` de cada uma e a unica testemunha de qual especie morava
+    # naquele slot antes: e por ela que `encontros_base()` desfaz a obra desta
+    # ferramenta para medir o censo do BASELINE. Apagar a linha deixaria o
+    # Pokemon no mato sem registro e o baseline perdido para sempre.
+    #
+    # A regua passa a ser a que cabe: o plano de hoje NAO PODE PEDIR o que a
+    # tabela nao tem (isso e falha de cobertura de verdade), e a tabela so pode
+    # ter a MAIS o que ja nao e inobtenivel no censo do baseline, isto e, o que
+    # ganhou fonte depois. Linha sobrando que continue inobtenivel seria linha
+    # editada a mao ou regua trocada sem regeracao, e continua reprovando.
+    na_tabela, no_plano = uniao(t), uniao(p)
+    faltando = sorted(no_plano - na_tabela)
+    assert not faltando, ("o plano pede %d entrada(s) que a tabela nao tem: %s"
+                          % (len(faltando), faltando[:8]))
+    sobrando = na_tabela - no_plano
+    ainda_ino = sorted(s for s in sobrando if s in ino)
+    assert not ainda_ino, (
+        "%d entrada(s) da tabela que o plano nao pede e que CONTINUAM "
+        "inobteniveis: %s" % (len(ainda_ino), ainda_ino[:8]))
+    globals()["REDUNDANTES"] = sorted(sobrando)
+
+    # Os dois baldes que nao sao colocacao de especie (item de chave e forma)
+    # continuam batendo linha a linha: nada fora desta ferramenta os move.
+    for k in EXTRAS:
         chave = "item" if k == "chaves" else "especie"
         a = {l[chave] for l in t.get(k, [])}
         b = {l[chave] for l in p[k]}
+        assert len(p[k]) == len(t.get(k, [])), (k, len(p[k]), len(t.get(k, [])))
         assert a == b, (k, sorted(a - b)[:5], sorted(b - a)[:5])
     return t
 
@@ -2785,12 +2858,31 @@ def demo():
     t = plano_congelado()
     falhas = []
 
-    # 1. Cobertura: uma linha por entrada que o censo diz inobtenivel, e so.
+    # 1. Cobertura: NENHUMA entrada que o censo do baseline diz inobtenivel
+    #    fica sem linha. O sentido contrario (linha da tabela para especie que
+    #    hoje ja tem fonte) deixou de ser erro em 06/09/2026 pelo mesmo motivo
+    #    escrito em `plano_congelado`: a onda 3 deu fonte selvagem em Galar a
+    #    especies que esta tabela ja tinha colocado, e a colocacao escrita fica
+    #    (a coluna `substituido` dela e a testemunha do baseline). O que se
+    #    cobra da linha redundante e que ela tenha um MOTIVO medido: a especie
+    #    precisa estar obtenivel de verdade no censo, e nao so ausente da lista.
     linhas = censo_base()
+    por_categoria = {l.nome: l.categoria for l in linhas}
     ino = {l.nome for l in linhas if l.categoria == "inobtenivel"}
     da_tabela = {l["especie"] for k in BUCKETS for l in t[k]}
-    assert da_tabela == ino, (len(da_tabela), len(ino),
-                              sorted(da_tabela ^ ino)[:10])
+    sem_linha = sorted(ino - da_tabela)
+    assert not sem_linha, ("%d inobtenivel sem linha na tabela: %s"
+                           % (len(sem_linha), sem_linha[:10]))
+    redundantes = sorted(da_tabela - ino)
+    sem_motivo = [e for e in redundantes if e not in por_categoria]
+    assert not sem_motivo, ("linha para especie que nem existe no censo: %s"
+                            % sem_motivo[:8])
+    print("cobertura: %d inobteniveis, todos com linha; %d linhas ficaram "
+          "redundantes (a especie ganhou fonte depois da colocacao): %s"
+          % (len(ino), len(redundantes),
+             ", ".join("%s=%d" % (c, sum(1 for e in redundantes
+                                         if por_categoria[e] == c))
+                       for c in sorted({por_categoria[e] for e in redundantes}))))
 
     # 2. As regras duras.
     erros = confere(t, cat)

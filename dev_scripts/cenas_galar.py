@@ -993,6 +993,76 @@ def sem_bloco(texto, ini, fim):
     return texto[:i] + texto[j:]
 
 
+# Bloco de OUTRO DONO dentro de um `scripts.inc` de Galar: quem escreve nesses
+# arquivos marca a própria obra com um par `@ >>> dono >>>` / `@ <<< ... <<<`.
+# Este gerador NÃO escreve bloco marcado (a tabela `MapScripts` dele é o corpo
+# solto do arquivo), então TODO bloco marcado que já esteja lá é de outra casa e
+# tem de sobreviver a `--aplicar`. O caso real é a Dex de Galar
+# (`distribui_dex.py --galar-objetos`), que mora em 7 mapas, um deles com cena.
+RE_BLOCO_ALHEIO = re.compile(r"^@ >>> .*? >>>\n.*?^@ <<< .*? <<<[ \t]*$",
+                             re.S | re.M)
+
+
+def blocos_de_outro_dono(caminho):
+    """Os blocos marcados que já estão no arquivo, na ordem em que aparecem."""
+    if not os.path.exists(caminho):
+        return []
+    return [m.group(0) for m in RE_BLOCO_ALHEIO.finditer(open(caminho).read())]
+
+
+def caudas_manuais(arq, ini, fim, corpo_gerado):
+    """Comentário de fim de linha que ALGUÉM ESCREVEU À MÃO no bloco marcado.
+
+    A conta é por LINHA INTEIRA de `#define`: só sobrevive a cauda cuja parte
+    gerada (`#define NOME VALOR`) é idêntica à que este gerador acabou de
+    escrever. Se o endereço mudar, a anotação à mão fala de outro endereço e
+    morre junto, que é o certo. Vale para qualquer bloco deste arquivo.
+    """
+    if not os.path.exists(arq):
+        return {}
+    texto = open(arq).read()
+    i = texto.find(ini)
+    if i < 0:
+        return {}
+    j = texto.find(fim, i)
+    velho = texto[i:len(texto) if j < 0 else j]
+    gerado = {}
+    for linha in corpo_gerado.splitlines():
+        m = re.match(r"(#define\s+\S+\s+\S+)\s*(?://\s?(.*))?$", linha)
+        if m:
+            gerado[re.sub(r"\s+", " ", m.group(1))] = m.group(2) or ""
+    caudas = {}
+    for linha in velho.splitlines():
+        m = re.match(r"(#define\s+\S+\s+\S+)\s*//\s?(.*)$", linha)
+        if not m:
+            continue
+        chave = re.sub(r"\s+", " ", m.group(1))
+        if chave not in gerado:
+            continue                      # define que saiu: a cauda vai junto
+        antiga, agora = m.group(2).rstrip(), gerado[chave]
+        if antiga != agora and antiga.startswith(agora):
+            caudas[chave] = antiga        # a mão só ACRESCENTOU: preserva
+        elif antiga != agora and not agora:
+            caudas[chave] = antiga        # linha que nasce sem comentário
+    return caudas
+
+
+def com_caudas_manuais(corpo, arq, ini, fim):
+    """Recoloca no corpo recém-gerado as caudas escritas à mão que sobrevivem."""
+    caudas = caudas_manuais(arq, ini, fim, corpo)
+    if not caudas:
+        return corpo
+    saida = []
+    for linha in corpo.splitlines():
+        m = re.match(r"(#define\s+\S+\s+\S+)(\s*)(?://\s?(.*))?$", linha)
+        chave = re.sub(r"\s+", " ", m.group(1)) if m else None
+        if chave in caudas:
+            espaco = m.group(2) or "  "
+            linha = "%s%s// %s" % (m.group(1), espaco, caudas[chave])
+        saida.append(linha)
+    return "\n".join(saida) + ("\n" if corpo.endswith("\n") else "")
+
+
 def poe_bloco(texto, ini, fim, corpo):
     """Idempotente: troca o bloco marcado NO LUGAR, ou acrescenta no fim.
 
@@ -1314,6 +1384,16 @@ def corpo_scripts_inc(nome, aceitas_do_mapa):
     return "\n".join(out) + "\n"
 
 
+def texto_do_scripts_inc(caminho, nome, aceitas_do_mapa):
+    """O `scripts.inc` inteiro: a tabela DESTE gerador mais os blocos marcados
+    de outro dono que já estavam no arquivo, colados de volta no fim, na mesma
+    forma que o dono deles usa (`rstrip` mais linha em branco)."""
+    texto = corpo_scripts_inc(nome, aceitas_do_mapa)
+    for bloco in blocos_de_outro_dono(caminho):
+        texto = texto.rstrip("\n") + "\n\n" + bloco + "\n"
+    return texto
+
+
 def bloco_vars(vars_alocadas):
     if not vars_alocadas:
         return ""
@@ -1330,7 +1410,8 @@ def bloco_vars(vars_alocadas):
         out.append("#define %-*s VAR_UNUSED_0x%04X  // mapa %s da fonte"
                    % (larg, nome, end, chave))
     out.append(MARCA_VAR_FIM)
-    return "\n".join(out) + "\n"
+    return com_caudas_manuais("\n".join(out) + "\n", VARS_H,
+                              MARCA_VAR_INI, MARCA_VAR_FIM)
 
 
 def bloco_flags(usadas_flag):
@@ -1346,7 +1427,8 @@ def bloco_flags(usadas_flag):
     for nome, end in sorted(usadas_flag):
         out.append("#define %-*s FLAG_UNUSED_0x%04X" % (larg, nome, end))
     out.append(MARCA_FLAG_FIM)
-    return "\n".join(out) + "\n"
+    return com_caudas_manuais("\n".join(out) + "\n", FLAGS_H,
+                              MARCA_FLAG_INI, MARCA_FLAG_FIM)
 
 
 def aplica(aceitas, vars_alocadas, usadas_flag, docs, gravar):
@@ -1365,8 +1447,8 @@ def aplica(aceitas, vars_alocadas, usadas_flag, docs, gravar):
     for a in aceitas:
         por_mapa[a["nome"]].append(a)
     for nome, lista in sorted(por_mapa.items()):
-        texto = corpo_scripts_inc(nome, lista)
         caminho = "%s/data/maps/%s/scripts.inc" % (RAIZ, nome)
+        texto = texto_do_scripts_inc(caminho, nome, lista)
         if not os.path.exists(caminho) or open(caminho).read() != texto:
             mudou["scripts.inc"] += 1
             if gravar:
@@ -1520,6 +1602,59 @@ def demo():
     finally:
         FALA.texto = de_texto
         FALA.reinicia_traducao(velha)
+
+    # 9. ONDA 4, LOTE P, MUTAÇÃO PLANTADA: bloco de OUTRO DONO sobrevive.
+    #    O `--aplicar` reescreve `scripts.inc` dos mapas com cena, e um desses
+    #    mapas (Galar_Wedgehurst03) guarda o bloco da Dex de Galar, escrito
+    #    pelo `distribui_dex.py`. Até 06/09/2026 ele era apagado calado. O
+    #    plante é um bloco de dono inventado num arquivo de mentira: ele tem de
+    #    sair do outro lado BYTE A BYTE, e a segunda passada não pode mexer.
+    algum = collections.defaultdict(list)
+    for a_ in aceitas:
+        algum[a_["nome"]].append(a_)
+    nome_qa, lista_qa = sorted(algum.items())[0]
+    alheio = ("@ >>> Bloco de outro dono (dev_scripts/qa_plantado.py) >>>\n"
+              "QaPlantado_EventScript_Nada::\n\tend\n"
+              "@ <<< Bloco de outro dono <<<")
+    with tempfile.TemporaryDirectory() as tmp:
+        caminho = os.path.join(tmp, "scripts.inc")
+        open(caminho, "w").write(
+            "Galar_Velho_MapScripts::\n\t.byte 0\n\n" + alheio + "\n")
+        saiu = texto_do_scripts_inc(caminho, nome_qa, lista_qa)
+        if alheio not in saiu:
+            falhas.append("bloco de outro dono NAO sobreviveu ao --aplicar")
+        if corpo_scripts_inc(nome_qa, lista_qa).rstrip("\n") not in saiu:
+            falhas.append("a tabela deste gerador sumiu ao preservar o alheio")
+        open(caminho, "w").write(saiu)
+        if texto_do_scripts_inc(caminho, nome_qa, lista_qa) != saiu:
+            falhas.append("preservar bloco alheio quebrou a idempotencia")
+        # e o par negativo: arquivo sem bloco marcado sai igual ao de sempre.
+        open(caminho, "w").write("Galar_Velho_MapScripts::\n\t.byte 0\n")
+        if texto_do_scripts_inc(caminho, nome_qa, lista_qa) != \
+                corpo_scripts_inc(nome_qa, lista_qa):
+            falhas.append("arquivo sem bloco alheio mudou de forma")
+
+    # 10. ONDA 4, LOTE P: comentário escrito À MÃO no bloco de vars sobrevive.
+    #     A linha real é a do VAR_GALAR_G10M23_CENA, que carrega desde 07/09 a
+    #     nota de por que o endereço mudou. O gerador escrevia só "mapa X da
+    #     fonte" e comia a nota a cada `--aplicar`.
+    with tempfile.TemporaryDirectory() as tmp:
+        h = os.path.join(tmp, "vars.h")
+        corpo_qa = ("%s\n#define VAR_QA_UM   VAR_UNUSED_0x4100  // mapa qa1 da fonte\n"
+                    "#define VAR_QA_DOIS VAR_UNUSED_0x4101  // mapa qa2 da fonte\n%s\n"
+                    % (MARCA_VAR_INI, MARCA_VAR_FIM))
+        mao = corpo_qa.replace("// mapa qa1 da fonte",
+                               "// mapa qa1 da fonte (movida a mao em 07/09/2026)")
+        open(h, "w").write(mao)
+        saiu = com_caudas_manuais(corpo_qa, h, MARCA_VAR_INI, MARCA_VAR_FIM)
+        if saiu != mao:
+            falhas.append("comentario a mao no vars.h nao sobreviveu: %r" % saiu)
+        if com_caudas_manuais(saiu, h, MARCA_VAR_INI, MARCA_VAR_FIM) != saiu:
+            falhas.append("preservar comentario a mao quebrou a idempotencia")
+        # par negativo: se o ENDEREÇO mudar, a nota fala de outro endereço e cai.
+        outro = corpo_qa.replace("VAR_UNUSED_0x4100", "VAR_UNUSED_0x4102")
+        if com_caudas_manuais(outro, h, MARCA_VAR_INI, MARCA_VAR_FIM) != outro:
+            falhas.append("nota a mao sobreviveu a troca de endereco")
 
     print("demo: %s" % ("OK" if not falhas else "REPROVADO"))
     for f in falhas:

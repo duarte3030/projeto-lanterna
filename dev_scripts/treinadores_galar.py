@@ -337,6 +337,28 @@ def rotulos_classe(classe):
     curto = classe.replace("TRAINER_CLASS_", "")
     return "GalarTrn_Intro_%s" % curto, "GalarTrn_Depois_%s" % curto
 
+
+def texto_de_classe(classe, chave):
+    """As duas falas padrao da classe, JA EM INGLES, ou `None` se faltar.
+
+    ONDA 4, LOTE P. `TEXTO_CLASSE` e `TEXTO_PADRAO` sao escritos aqui em
+    portugues (sao fala NOSSA, nao da fonte), e ate 06/09/2026 saiam assim para
+    o `.inc`: rodar `--aplicar` devolvia ao portugues os dois blocos de CADA
+    classe usada. Agora eles passam pela mesma camada dos outros tres
+    geradores, `fala_galar.Traducao.resolve`, que resolve por ROTULO
+    (`GalarTrn_Intro_<CLASSE>`), depois por TEXTO, e so deixa passar sem
+    de-para o que a regua T07 do portao NAO chama de portugues.
+    """
+    r_in, r_dep = rotulos_classe(classe)
+    intro, depois = TEXTO_CLASSE.get(classe, TEXTO_PADRAO)
+    saida = []
+    for rotulo_txt, pt in ((r_in, intro), (r_dep, depois)):
+        en, origem = FALA.traducao().resolve(rotulo_txt, pt, chave)
+        if en is None:
+            return None
+        saida.append((en, origem in ("rotulo", "texto")))
+    return tuple(saida)
+
 # Nomes que o demake DIGITOU ERRADO na propria tabela de nomes. Nao e forma nem
 # ambiguidade: e erro de digitacao da fonte, conferido letra a letra contra o
 # nosso species.h. Sem esta tabela, quatro times inteiros caem.
@@ -362,6 +384,16 @@ TIPOS = {0: (2, "single", 2), 1: (3, "single", 2), 2: (3, "single", 2),
          3: (1, "nointro", 1), 4: (3, "double", 3), 5: (2, "single", 2),
          6: (4, "double", 3), 7: (3, "double", 3), 8: (4, "double", 3),
          9: (2, "rival", 2)}
+
+# Sufixo do rotulo de cada texto que o molde emite, na ORDEM em que `corpo_inc`
+# os escreve. Subiu para o modulo em 06/09/2026 (onda 4, lote P) porque agora
+# `plano()` precisa do rotulo ANTES de decidir se o bloco pode ser escrito: a
+# traducao e por ROTULO, e uma copia da lista dentro de `corpo_inc` deixaria a
+# consulta e a escrita se afastarem calado.
+SUFIXOS = {"nointro": ["Derrota"],
+           "double": ["Intro", "Derrota", "Poucos"],
+           "rival": ["Derrota", "Vitoria"],
+           "single": ["Intro", "Derrota"]}
 
 
 # ------------------------------------------------------------------ leitura --
@@ -684,6 +716,10 @@ def plano():
     motivos_de_linha = {}
     extra = collections.Counter()
     por_ginasio = collections.defaultdict(list)
+    # As duas falas padrao de cada CLASSE, ja resolvidas, uma vez por classe:
+    # resolver por treinador inflaria o contador do de-para em 282 consultas
+    # para 78 blocos escritos.
+    cache_classe = {}
 
     for l in sorted(d, key=lambda z: z["chave"]):
         if l["tipo"] == "script_objeto" and not l["no_mapa"]:
@@ -739,6 +775,34 @@ def plano():
             motivos_de_linha[l["chave"]] = "batalha dupla sem os tres textos"
             continue
         classe, mot_cls = cls_map[tr["classe"]]
+        # ONDA 4, LOTE P: A TRADUCAO ENTRA AQUI, e nao numa segunda passada de
+        # `aplica_traducao_galar.py`. Ate 06/09/2026 este era o UNICO dos quatro
+        # geradores de Galar que ainda escrevia o portugues da fonte no `.inc`,
+        # e por isso `--aplicar` repunha bloco em portugues em cima do ingles ja
+        # aplicado. A regra e a mesma dos outros tres (ver o cabecalho do de-para
+        # de saida em `dev_scripts/fala_galar.py`): rotulo, depois texto, depois
+        # a REGUA DO PORTAO; o que nenhum dos tres cobre nao e escrito, e a
+        # linha da fila fica devendo no caderno `onda3_falta_traduzir.json`.
+        # Recusa-se a BATALHA INTEIRA, e nao um texto: bloco com metade das
+        # falas em ingles e metade em portugues seria pior que bloco nenhum.
+        r = rotulo(l["chave"])
+        pares, ruim = [], None
+        for suf, pt in zip(SUFIXOS[molde], textos):
+            en, origem = FALA.traducao().resolve("%s_%s" % (r, suf), pt,
+                                                 l["chave"])
+            if en is None:
+                ruim = suf
+                break
+            pares.append((suf, en, origem in ("rotulo", "texto")))
+        if ruim is None:
+            if classe not in cache_classe:
+                cache_classe[classe] = texto_de_classe(classe, l["chave"])
+            if cache_classe[classe] is None:
+                ruim = "fala padrao da classe %s" % classe
+        if ruim:
+            recusa[FALA.MOTIVO_SEM_TRADUCAO] += 1
+            motivos_de_linha[l["chave"]] = FALA.MOTIVO_SEM_TRADUCAO
+            continue
         if fid not in usados:
             usados[fid] = dict(
                 fonte_id=fid, nome=tr["nome"] or "Trainer",
@@ -747,8 +811,9 @@ def plano():
                 genero=tr["genero"], duplo=tr["duplo"], time=time)
         todas = conta_batalhas(rom, tab, int(l["ponteiro_fonte"], 16))
         extra["batalhas alem da primeira"] += max(0, len(todas) - 1)
-        aceitas.append(dict(l, rotulo=rotulo(l["chave"]), fonte_id=fid,
-                            tipo_tb=tipo, molde=molde, textos=textos,
+        aceitas.append(dict(l, rotulo=r, fonte_id=fid,
+                            tipo_tb=tipo, molde=molde, textos=pares,
+                            classe_en=cache_classe[classe],
                             n_batalhas=len(todas)))
         if "Gym" in l["mapa"] or nomes_cls[tr["classe"]] == "Leader":
             por_ginasio[l["mapa"]].append((tr["nome"], len(todas)))
@@ -987,17 +1052,21 @@ def corpo_inc(aceitas, usados, num):
            "@ + `trainerbattle_no_intro`, que não chama `SetTrainerFacingDirection`.",
            ""]
     # Cadeias compartilhadas por classe, uma vez cada, no topo do arquivo.
-    usadas = sorted({usados[num[l["chave"]][2]]["classe"] for l in aceitas})
+    # O texto de cada classe ja veio RESOLVIDO de `plano()` (onda 4, lote P):
+    # aqui nao se decide idioma, so se escreve. Duas linhas de aceitas da mesma
+    # classe trazem a mesma dupla, por construcao (`cache_classe`).
+    usadas = {usados[num[l["chave"]][2]]["classe"]: l["classe_en"]
+              for l in aceitas}
     out.append("@ ---- fala padrao por classe (ver TEXTO_CLASSE no gerador) ----")
-    for classe in usadas:
+    for classe in sorted(usadas):
         r_in, r_dep = rotulos_classe(classe)
-        intro, depois = TEXTO_CLASSE.get(classe, TEXTO_PADRAO)
+        (intro, i_dp), (depois, d_dp) = usadas[classe]
         # A tabela guarda quebra de linha DE VERDADE; o `.string` quer a
         # sequencia `\n` de dois caracteres, que e o comando de nova linha do
         # charmap. Escapa aqui, e nao na tabela, para a tabela ficar legivel.
         esc = lambda t: t.replace("\n", "\\n")
-        out += ["%s:" % r_in, '\t.string "%s$"' % esc(intro), "",
-                "%s:" % r_dep, '\t.string "%s$"' % esc(depois), ""]
+        out += FALA.linhas_de_texto(r_in, esc(intro), quebra=i_dp) + [""]
+        out += FALA.linhas_de_texto(r_dep, esc(depois), quebra=d_dp) + [""]
     por_mapa = collections.defaultdict(list)
     for l in aceitas:
         por_mapa[l["mapa"]].append(l)
@@ -1088,13 +1157,11 @@ def corpo_inc(aceitas, usados, num):
                 out.append("\trelease")
                 out.append("\tend")
                 out.append("")
-            sufixos = {"nointro": ["Derrota"], "double": ["Intro", "Derrota", "Poucos"],
-                       "rival": ["Derrota", "Vitoria"],
-                       "single": ["Intro", "Derrota"]}[l["molde"]]
-            for suf, txt in zip(sufixos, l["textos"]):
-                out.append("%s_%s:" % (r, suf))
-                out.append('\t.string "%s$"' % txt)
-                out.append("")
+            sufixos = SUFIXOS[l["molde"]]
+            for suf, txt, do_de_para in l["textos"]:
+                assert suf in sufixos, (r, suf)
+                out += FALA.linhas_de_texto("%s_%s" % (r, suf), txt,
+                                            quebra=do_de_para) + [""]
     return "\n".join(out) + "\n"
 
 
@@ -1382,6 +1449,59 @@ def demo():
                                              times_preservados(t_real))))))
          == substitui(t_real, P_INI, P_FIM,
                       bloco_party(usados, num, times_preservados(t_real))))
+    # ONDA 4, LOTE P: O GERADOR NASCE EM INGLES, como os outros tres.
+    # O caso comum e o mesmo dos quatro (`fala_galar.demo_pipeline_ingles`);
+    # os de baixo sao os desta casa.
+    for f in FALA.demo_pipeline_ingles():
+        caso("pipeline comum de ingles: %s" % f, False)
+    caso("o pipeline comum de ingles passa", not FALA.demo_pipeline_ingles())
+
+    # A PROVA que faltava ate 06/09/2026: nenhum bloco sai daqui precisando de
+    # uma segunda passada do `aplica_traducao_galar.py`. Enquanto os textos
+    # saiam da fonte em portugues, 385 blocos do de-para eram reescritos por
+    # `--aplicar`, 142 deles em portugues pela regua T07 do portao.
+    RE_BLOCO_QA = re.compile(r'^([A-Za-z0-9_]+)(::?)[ \t]*\n'
+                             r'((?:[ \t]*\.string ".*"[ \t]*\n)+)', re.M)
+    corpo_qa = corpo_inc(aceitas, usados, num)
+    escritos = {m.group(1): "".join(re.findall(r'\.string "(.*)"', m.group(3)))[:-1]
+                for m in RE_BLOCO_QA.finditer(corpo_qa)}
+    de_para = {e["rotulo"]: e["en"]
+               for e in json.load(open(FALA.TRADUCAO_JSON, encoding="utf-8"))["entradas"]
+               if e["arquivo"].endswith("galar_treinadores.inc")}
+    fora = sorted(r for r, en in de_para.items()
+                  if r in escritos and escritos[r] != en)
+    caso("os %d blocos do de-para saem JA em ingles (%d fora: %s)"
+         % (len(de_para), len(fora), ", ".join(fora[:3])), not fora)
+
+    # PLANTE: sem de-para nenhum, a fala padrao da CLASSE (que e nossa, e nasce
+    # em portugues na tabela TEXTO_CLASSE) nao pode ser escrita, e a linha tem
+    # de ficar devendo no caderno de falta.
+    velha = FALA.traducao()
+    try:
+        qa = FALA.Traducao(traducao="/nao/existe.json", resgate="/nao/existe.json")
+        FALA.reinicia_traducao(qa)
+        # A classe do plante e INVENTADA e a fala dela e feita de MARCADORES
+        # da regua T07, e nao copiada do demake: o caso tem de reprovar quando
+        # alguem quebrar a regra, e nao quando alguem traduzir mais um texto.
+        # (As falas de verdade de TEXTO_CLASSE sao curtas demais para a regua,
+        # que pede DOIS marcadores, e caem na regra 3 como qualquer outra.)
+        TEXTO_CLASSE["TRAINER_CLASS_QA_PLANTADA"] = ("qa aqui uma seu sua",
+                                                     "qa aqui uma seu sua")
+        caso("fala padrao de classe sem traducao NAO e escrita",
+             texto_de_classe("TRAINER_CLASS_QA_PLANTADA", "qa/objeto/0") is None)
+        caso("e a linha dela fica devendo no caderno de falta",
+             "qa/objeto/0" in qa.chaves_faltando())
+        r_in, r_dep = rotulos_classe("TRAINER_CLASS_QA_PLANTADA")
+        qa.por_rotulo[r_in] = "Hi! Do you want to battle me?"
+        qa.por_rotulo[r_dep] = "You really are strong!"
+        caso("com de-para por rotulo ela sai em ingles, e requebrada",
+             texto_de_classe("TRAINER_CLASS_QA_PLANTADA", "qa/objeto/1")
+             == (("Hi! Do you want to battle me?", True),
+                 ("You really are strong!", True)))
+    finally:
+        TEXTO_CLASSE.pop("TRAINER_CLASS_QA_PLANTADA", None)
+        FALA.reinicia_traducao(velha)
+
     mudou, rec = aplica(aceitas, usados, num, gravar=False)
     caso("a aplicacao seca nao recusa mais de 5%% dos objetos",
          len(rec) <= 0.05 * len(aceitas))
@@ -1473,6 +1593,19 @@ def main():
         for st, c in sorted(quadro.items()):
             print("   %-12s %d" % (st, c))
         return 0
+    # ONDA 4, LOTE P: o caderno do que falta traduzir e UM SO para os quatro
+    # geradores, e a gravacao dele e por UNIAO (ver `Traducao.corpo_falta`):
+    # este arquivo so enxerga os textos de treinador, e trocar o arquivo inteiro
+    # apagaria os dos outros tres.
+    print("\ntraducao na geracao: %s" % dict(FALA.traducao().conta))
+    print("textos sem traducao (distintos): %d, em %d linhas da fila"
+          % (len(FALA.traducao().faltam),
+             len(FALA.traducao().chaves_faltando())))
+    if a.aplicar:
+        if FALA.traducao().grava_falta(True):
+            print("gravado %s" % FALA.FALTA_JSON)
+        print("fila: %d linhas ficaram adiadas por texto sem traducao"
+              % FALA.marca_fila_sem_traducao(True))
     mudou, rec = aplica(aceitas, usados, num, gravar=a.aplicar)
     escreve_classes_md(novas, usados, gravar=a.aplicar)
     print("\nmudaria: %s | recusas de colocacao: %d" % (dict(mudou), len(rec)))

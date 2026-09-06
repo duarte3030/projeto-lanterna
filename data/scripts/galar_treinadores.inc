@@ -1276,6 +1276,16 @@ GalarTrn_G38M30_o12_Derrota:
 	.string "That battling spirit...\p"
 	.string "It reminds me a lot of the red cap, but...$"
 
+@ ---- Galar_Motostoke05 ----
+GalarTrn_G06M10_o41::
+	trainerbattle_single TRAINER_GALAR_JEAN_STARS_15_2, GalarTrn_Intro_COOLTRAINER_FRLG, GalarTrn_G06M10_o41_Derrota
+	msgbox GalarTrn_Depois_COOLTRAINER_FRLG, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarTrn_G06M10_o41_Derrota:
+	.string "Essa batalha foi tão intensa que\nfiquei em choque!$"
+
 @ ---- Galar_Motostoke06 ----
 GalarTrn_G06M12_o2::
 	trainerbattle_single TRAINER_GALAR_KEVIN_1, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G06M12_o2_Derrota
@@ -1411,6 +1421,18 @@ GalarTrn_G39M41_o0_Derrota:
 	.string "I did my best...$"
 
 @ ---- Galar_Postwick40 ----
+GalarTrn_G07M07_o1::
+	trainerbattle_single TRAINER_GALAR_LASS_REI_105_2, GalarTrn_G07M07_o1_Intro, GalarTrn_G07M07_o1_Derrota
+	msgbox GalarTrn_Depois_LADY_FRLG, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarTrn_G07M07_o1_Intro:
+	.string "Ei!\nEu vi você na Wild area!$"
+
+GalarTrn_G07M07_o1_Derrota:
+	.string "Você me derrotou!$"
+
 GalarTrn_G07M07_o2::
 	trainerbattle_single TRAINER_GALAR_HANNAH_116_2, GalarTrn_G07M07_o2_Intro, GalarTrn_G07M07_o2_Derrota
 	msgbox GalarTrn_Depois_LASS_FRLG, MSGBOX_AUTOCLOSE
@@ -1660,6 +1682,18 @@ GalarTrn_G05M12_o6_Derrota:
 	.string "It went wrong.$"
 
 @ ---- Galar_Route0301 ----
+GalarTrn_G06M17_o1::
+	trainerbattle_single TRAINER_GALAR_LASS_REI_105, GalarTrn_G06M17_o1_Intro, GalarTrn_G06M17_o1_Derrota
+	msgbox GalarTrn_Depois_LADY_FRLG, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarTrn_G06M17_o1_Intro:
+	.string "Ei!\nEu vi você na Wild area!$"
+
+GalarTrn_G06M17_o1_Derrota:
+	.string "Você me derrotou!$"
+
 GalarTrn_G06M17_o2::
 	trainerbattle_single TRAINER_GALAR_HANNAH_116, GalarTrn_G06M17_o2_Intro, GalarTrn_G06M17_o2_Derrota
 	msgbox GalarTrn_Depois_LASS_FRLG, MSGBOX_AUTOCLOSE
@@ -2409,6 +2443,18 @@ GalarTrn_G07M13_o2_Intro:
 GalarTrn_G07M13_o2_Derrota:
 	.string "What?\pWhat a total waste of time!$"
 
+GalarTrn_G07M13_o3::
+	trainerbattle_single TRAINER_GALAR_CHRIS_148, GalarTrn_G07M13_o3_Intro, GalarTrn_G07M13_o3_Derrota
+	msgbox GalarTrn_Depois_CAMPER_FRLG, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarTrn_G07M13_o3_Intro:
+	.string "Who’s that walking there with those\ngood-looking Pokémon?$"
+
+GalarTrn_G07M13_o3_Derrota:
+	.string "Out like a light!$"
+
 GalarTrn_G07M13_o4::
 	trainerbattle_single TRAINER_GALAR_BRICE_186, GalarTrn_G07M13_o4_Intro, GalarTrn_G07M13_o4_Derrota
 	msgbox GalarTrn_Depois_CAMPER_FRLG, MSGBOX_AUTOCLOSE
@@ -2613,6 +2659,16 @@ GalarTrn_G35M10_o12_Derrota:
 	.string "never know when someone as strong as\l"
 	.string "you will be standing in front of me\l"
 	.string "again.$"
+
+@ ---- Galar_TurffieldIndoor12 ----
+GalarTrn_G35M11_o12::
+	trainerbattle_single TRAINER_GALAR_GOH_405, GalarTrn_Intro_COOLTRAINER_FRLG, GalarTrn_G35M11_o12_Derrota
+	msgbox GalarTrn_Depois_COOLTRAINER_FRLG, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarTrn_G35M11_o12_Derrota:
+	.string "$"
 
 @ ---- Galar_TurffieldIndoor13 ----
 GalarTrn_G35M12_o12::
@@ -3145,6 +3201,16 @@ GalarTrn_G39M10_o12::
 GalarTrn_G39M10_o12_Derrota:
 	.string "You won!$"
 
+@ ---- Galar_TurffieldIndoor59 ----
+GalarTrn_G39M11_o12::
+	trainerbattle_single TRAINER_GALAR_COOPER_164, GalarTrn_Intro_GUITARIST, GalarTrn_G39M11_o12_Derrota
+	msgbox GalarTrn_Depois_GUITARIST, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarTrn_G39M11_o12_Derrota:
+	.string "Você ganhou!$"
+
 @ ---- Galar_TurffieldIndoor60 ----
 GalarTrn_G39M12_o12::
 	trainerbattle_single TRAINER_GALAR_MARNIE_165_2, GalarTrn_Intro_RIVAL, GalarTrn_G39M12_o12_Derrota
@@ -3186,6 +3252,15 @@ GalarTrn_G39M15_o12_Derrota:
 	.string "You won!$"
 
 @ ---- Galar_Wedgehurst08 ----
+GalarTrn_G05M16_o3::
+	trainerbattle_single TRAINER_GALAR_JEAN_STARS_15, GalarTrn_Intro_COOLTRAINER_FRLG, GalarTrn_G05M16_o3_Derrota
+	msgbox GalarTrn_Depois_COOLTRAINER_FRLG, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarTrn_G05M16_o3_Derrota:
+	.string "Essa batalha foi tão intensa que\nfiquei em choque!$"
+
 GalarTrn_G05M16_o7::
 	trainerbattle_single TRAINER_GALAR_ARTHUR_23, GalarTrn_Intro_COOLTRAINER_FRLG, GalarTrn_G05M16_o7_Derrota
 	msgbox GalarTrn_Depois_COOLTRAINER_FRLG, MSGBOX_AUTOCLOSE
@@ -3196,6 +3271,18 @@ GalarTrn_G05M16_o7_Derrota:
 	.string "Wow!$"
 
 @ ---- Galar_WildArea11 ----
+GalarTrn_G42M04_o1::
+	trainerbattle_single TRAINER_GALAR_MICHELLE_600, GalarTrn_G42M04_o1_Intro, GalarTrn_G42M04_o1_Derrota
+	msgbox GalarTrn_Depois_COOLTRAINER_FRLG, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarTrn_G42M04_o1_Intro:
+	.string "I was given the best possible\neducation to become this strong.\pI don’t want to lose to anyone!$"
+
+GalarTrn_G42M04_o1_Derrota:
+	.string "Thank you. I feel like I’ve been\nset free by losing to you.$"
+
 GalarTrn_G42M04_o2::
 	trainerbattle_single TRAINER_GALAR_LEROY_599, GalarTrn_G42M04_o2_Intro, GalarTrn_G42M04_o2_Derrota
 	msgbox GalarTrn_Depois_COOLTRAINER_FRLG, MSGBOX_AUTOCLOSE
@@ -3257,6 +3344,18 @@ GalarTrn_G42M07_o1_Intro:
 
 GalarTrn_G42M07_o1_Derrota:
 	.string "You’re a master at this.$"
+
+GalarTrn_G42M07_o2::
+	trainerbattle_single TRAINER_GALAR_JACKSON_596, GalarTrn_G42M07_o2_Intro, GalarTrn_G42M07_o2_Derrota
+	msgbox GalarTrn_Depois_PKMN_RANGER_FRLG, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarTrn_G42M07_o2_Intro:
+	.string "I work to protect the environment.\nIn turn, nature protects me!$"
+
+GalarTrn_G42M07_o2_Derrota:
+	.string "Whoa! You’re tough!\nHow about protecting me?$"
 
 GalarTrn_G42M07_o3::
 	trainerbattle_single TRAINER_GALAR_KATELYN_598, GalarTrn_G42M07_o3_Intro, GalarTrn_G42M07_o3_Derrota

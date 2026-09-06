@@ -2503,6 +2503,15 @@
 #define TRAINER_GALAR_MIAH_588_2          3265  // fonte 588, obj g42m10/objeto/17, Aroma Lady Miah
 #define TRAINER_GALAR_EVE_JON_589_3       3266  // fonte 589, obj g42m10/objeto/6, Young Couple Eve & Jon
 #define TRAINER_GALAR_MADELINE_522_2      3267  // fonte 522, obj g42m14/objeto/3, ウエ Ranger Madeline
+#define TRAINER_GALAR_JEAN_STARS_15       3268  // fonte 15, obj g05m16/objeto/3, Trainer Star JEAN STARS
+#define TRAINER_GALAR_JEAN_STARS_15_2     3269  // fonte 15, obj g06m10/objeto/41, Trainer Star JEAN STARS
+#define TRAINER_GALAR_LASS_REI_105        3270  // fonte 105, obj g06m17/objeto/1, Lady Lass Rei
+#define TRAINER_GALAR_LASS_REI_105_2      3271  // fonte 105, obj g07m07/objeto/1, Lady Lass Rei
+#define TRAINER_GALAR_CHRIS_148           3272  // fonte 148, obj g07m13/objeto/3, Camper Chris
+#define TRAINER_GALAR_GOH_405             3273  // fonte 405, obj g35m11/objeto/12, ウエ Trainter Goh
+#define TRAINER_GALAR_COOPER_164          3274  // fonte 164, obj g39m11/objeto/12, Dancer Cooper
+#define TRAINER_GALAR_MICHELLE_600        3275  // fonte 600, obj g42m04/objeto/1, Ace Trainer Michelle
+#define TRAINER_GALAR_JACKSON_596         3276  // fonte 596, obj g42m07/objeto/2, ウエ Ranger Jackson
 // <<< Fase de conteudo de Galar, balde d <<<
 
 #define MAX_TRAINERS_COUNT_EMERALD 4000

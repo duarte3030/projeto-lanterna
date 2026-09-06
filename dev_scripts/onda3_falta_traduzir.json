@@ -2,9 +2,34 @@
  "_leia": "textos da fonte sem traducao escrita em dev_scripts/traducao_galar.json (por rotulo) nem em dev_scripts/resgate_galar_texto.json (por texto). Enquanto estiverem aqui o bloco NAO e escrito, e a linha da fila fica adiada. Escrito pelos tres geradores de Galar (onda 3, lote L1).",
  "distintos": [
   {
+   "pt": "Desembolse todo o seu dinheiro\\nquando você perder para mim.",
+   "chaves": [
+    "g14m11/objeto/12"
+   ]
+  },
+  {
+   "pt": "Nunca te vi por aí.\\nVocê está bem?",
+   "chaves": [
+    "g10m20/objeto/8"
+   ]
+  },
+  {
+   "pt": "Não pense que será nosso ultimo\\nencontro, A equipe Rocket está\\ldecolando de novo!!!",
+   "chaves": [
+    "g35m14/objeto/11",
+    "g35m14/objeto/12"
+   ]
+  },
+  {
    "pt": "Você ja viu o ginasio de\\nhammelock?ゅ Você ja viu o ginasio de\\nhammelock?",
    "chaves": [
     "g09m10/objeto/14"
+   ]
+  },
+  {
+   "pt": "Você precisa passar por esta\\ncaverna para chegar à cidade de\\lTurfield.",
+   "chaves": [
+    "g06m28/objeto/3"
    ]
   }
  ]

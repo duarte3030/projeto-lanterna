@@ -217,7 +217,14 @@ TABELA = {
     142: ("pokemon", None, "bicho de bracos abertos"),
     143: ("pokemon", None, "bicho vermelho e azul"),
     144: ("pokemon", None, "bicho de cabeca verde"),
-    145: ("pokemon", None, "morcego rosa 64x64; 32 usos"),
+    # CORRIGIDO em 06/09/2026 (onda 4, lote P). Dizia "morcego rosa 64x64", e
+    # essa linha era a unica duvida do pedido de taxi da onda 3. Medido na ROM:
+    # 64x64, `oam` 0x83A3720 e tabela de subsprite 0x83A38D0 IGUAIS as do 232
+    # (o Corviknight preto), 690 pixels opacos em cada um e 97,1% da mascara de
+    # transparencia coincidindo pixel a pixel. Os dados de tile sao outros
+    # (0x9017A1C contra 0x8F71360), entao sao DUAS ARTES do mesmo passaro e nao
+    # um alias: o 145 e a versao PRATA.
+    145: ("pokemon", None, "Corviknight prata 64x64; 32 usos; par do 232"),
     146: ("pokemon", None, "aranha azul e rosa 64x64"),
     147: ("pokemon", None, "morcego bege; 83 usos"),
     153: ("pokemon", None, "bicho verde de folha"),
@@ -251,7 +258,8 @@ TABELA = {
     228: ("pokemon", None, "inseto amarelo"),
     230: ("pokemon", None, "cacto verde"),
     231: ("pokemon", None, "bicho enorme dormindo, 64x64"),
-    232: ("pokemon", None, "corvo de armadura 64x64; 30 usos"),
+    # "corvo de armadura" ate 06/09/2026: e o Corviknight, e o par PRETO do 145.
+    232: ("pokemon", None, "Corviknight preto 64x64; 30 usos; par do 145"),
     233: ("pokemon", None, "passaro lendario vermelho e dourado 64x64"),
     234: ("pokemon", None, "lendario branco e azul 64x64"),
     235: ("pokemon", None, "serpente de metal 64x64; 38 usos"),
