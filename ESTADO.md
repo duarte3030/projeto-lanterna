@@ -12,6 +12,60 @@ abaixo é a passagem de bastão dela, e começa pelo placar; a 0.t é a da rodad
 
 ---
 
+## 0.v O SELETOR DE CAPÍTULO DEIXA DE ENTREGAR UM PIKACHU E PASSA A ENTREGAR UM TIME DE CINCO, 07/09/2026 (pedido direto do Gui; executor Opus)
+
+### Time de teste do seletor
+
+Quem salta de capítulo com a party VAZIA deixou de ganhar um Pikachu nível 20 sozinho e passou a ganhar
+**cinco Pokémon nível 50, um por mecânica moderna**, e o mesmo salto põe na mochila os quatro aparelhos
+(Mega Ring, Z-Power Ring, Dynamax Band, Tera Orb) e acende `FLAG_B8_DYNAMAX_LIBERADO` e
+`FLAG_B8_TERA_ORB_CARREGADO`. **O achado que não estava na fila e vale mais que o pedido:** `src/new_game.c`
+só dava a Dynamax Band e o Mega Ring, então **o Z-Power Ring e a Tera Orb nunca existiram em save nenhuma
+desta ROM**, e por isso `CanUseZMove` (`src/battle_z_move.c:121`) e `CanTerastallize`
+(`src/battle_terastal.c:77`) recusavam SEMPRE, para qualquer jogador, em qualquer batalha: duas mecânicas
+inteiras estavam mortas e nenhum teste pegava, porque nenhum teste abria o menu de golpes. O nível subiu de
+20 para 50 porque 20 não sobrevive a chefe de capítulo tardio, que é justamente onde o seletor mais serve, e
+o modo de teste LV.5 TRAINERS não rebaixa isto: ele mexe SÓ na party do TREINADOR (`src/battle_main.c:2003`).
+Custo de save ZERO em tudo: itens numa mochila que já existe, flags que já existem e um time que nasce na
+hora e nunca foi gravado em disco.
+
+| slot | Pokémon (nível 50) | segura | golpes | mecânica | prova lida da EWRAM |
+|---|---|---|---|---|---|
+| 0 | Raichu | Raichunite Y (859) | Thunderbolt, Surf, Rock Smash, Strength | Mega Raichu Y | `especie0` = 1554 |
+| 1 | Charizard, fator Gigantamax | nada | Flamethrower, Fly, Sunny Day | Gigantamax | `especie1` = 1491 e `gCurrentMove` = 903 (G-Max Wildfire) |
+| 2 | Mew | Mewnium Z (378) | Psychic, Cut, Flash | Z-move | `gCurrentMove` = 871 (Genesis Supernova) |
+| 3 | Incineroar, tera Dark | nada | Darkest Lariat, Flare Blitz, Bulk Up | Terastal | `FLAG_B8_TERA_ORB_CARREGADO` de 1 para 0 |
+| 4 | Lucario | Lucarionite Z (864) | Aura Sphere, Close Combat | Mega Lucario Z | `especie4` = 1559 |
+
+O Raichu é o slot 0 de propósito e carrega a suíte de HM inteira: `ScrCmd_checkfieldmove`
+(`src/scrcmd.c:2307`) varre a party do índice 0 para cima e PARA no primeiro que conhece o golpe, então toda
+rota de teste de Surf, Rock Smash e Strength continua valendo letra por letra.
+
+**O que o motor impõe e o time não conserta.** `AssignUsableGimmicks` (`src/battle_gimmick.c:20`) dá UMA
+mecânica por lutador, a PRIMEIRA da fila MEGA, ULTRA BURST, Z-MOVE, DYNAMAX, TERA, então Pokémon do jogador
+de mãos vazias SEMPRE cai no Dynamax, e **o Terastal do jogador só fica alcançável depois de o Dynamax ter
+sido gasto na mesma batalha**. Segurar Mega Stone ou Z-Crystal derruba o Dynamax, mas derruba o Terastal
+junto pela MESMA linha (`src/battle_terastal.c:102`), e isso foi TENTADO com uma Darkranite inerte na mão do
+Incineroar: ele ficou sem mecânica nenhuma. Não há item que resolva; é ordem de enum, e mexer nela é rodada
+própria. Mega também é uma vez por batalha por treinador, então o Mega Raichu Y e o Mega Lucario Z não cabem
+na mesma luta.
+
+**Portões.** Build verde (`make -j8`, RC 0) na worktree isolada `/private/tmp/claude-501/time-teste`, HEAD
+`7053780f27` mais só estes arquivos: **EWRAM 86,16%, IWRAM 86,68%, ROM 96,45% (32.364.776 B), idênticos aos
+do HEAD limpo**. `guarda_save.py` **SAVE COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B (94,3%).
+**T183 6 de 6** (bloco novo, `dev_scripts/testes_criticos/183_time_do_seletor.json`), **T11 3 de 3** contra
+`roms/pokemon-claude-2026-08-18.gba` com a fonte na worktree de `cf6786b2ae`, e **25 blocos verdes**, entre
+eles os treze que dependem de HM de campo ou liam o Pikachu (T90, T97, T98, T100, T101, T107, T112, T121,
+T124, T129, T136, T137, T148, T152, T157, T166, T169, T170) mais a amostra T2, T4, T20, T40, T82, T92, T95,
+T99, T116, T128, T143, T144, T153, T159, T176.
+
+**Dois casos foram RECALIBRADOS, e o time não.** T101.13 cobrava `time` 1 e passou a cobrar 5. T170.8
+travava em "Raichu is already in battle!", e o diagnóstico saiu do PNG final: com time de mais de um Pokémon
+o estilo de batalha SHIFT (o padrão) pergunta "quer trocar de POKEMON?" toda vez que o adversário manda um
+bicho novo, e o tapete de A do caso respondia SIM e caía na lista do time. O conserto é o `antes_do_warp`
+passar pelo menu de OPTION e pôr BATTLE STYLE em SET antes do warp. Vale de aviso para o playtest: quem
+jogava com um Pokémon só nunca via essa pergunta, e agora ela aparece em toda batalha de treinador.
+
 ## 0.u O LETREIRO DE MAPA PARA DE DIZER "SINNOH WEST" E JOHTO PARA DE TOCAR CAVERNA: O NOME DO POPUP SAI DO MAPSEC, E O DE-PARA DE MÚSICA SAI DE PETALBURG WOODS, 05-07/09/2026 (rodada 13; o playtest do Gui, um executor Opus por frente, fechador Opus)
 
 ### PLACAR DA RODADA 13, fechado em 07/09/2026

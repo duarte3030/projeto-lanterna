@@ -213,12 +213,12 @@
   },
   {
     "id": "T101.13",
-    "nome": "Sinnoh onda3, chapter_jump: NINGUEM TELEPORTA SEM POKEMON. ChapterJump_AplicaCapitulo (src/chapter_jump.c) ganhou um galho que, quando CalculatePlayerPartyCount() e 0, cria um Pikachu nivel 20 com Thunderbolt e Surf ANTES do warp. A prova e o partycount lido da EWRAM pelo simbolo gPartiesCount (campo `timevivo` do dump), depois do salto ja ter acontecido: `time` e 1 e nao `time_min`, de proposito, porque igualdade tambem reprova o mundo em que o galho roda duas vezes ou em que ele cria por cima de um time que ja existia. FLAG_SYS_POKEMON_GET acesa entra junto porque o codigo a acende na mesma linha: sem ela, o menu do time nem abre e o 'ganhou um Pokemon' seria so um numero. O roteiro e o MESMO ja medido do T99.1 (KANTO / Before Pokemon League), reaproveitado de proposito para nao inventar navegacao de menu nova: o mapa de chegada MAP_INDIGO_PLATEAU_EXTERIOR entra na prova como controle de que o salto de fato aconteceu, porque um Pikachu que aparecesse sem o pulo nao provaria o galho.",
+    "nome": "Sinnoh onda3, chapter_jump: NINGUEM TELEPORTA SEM POKEMON. ChapterJump_AplicaCapitulo (src/chapter_jump.c) ganhou um galho que, quando CalculatePlayerPartyCount() e 0, cria um TIME ANTES do warp. RECALIBRADO em 07/09/2026, por pedido do Gui: o time deixou de ser UM Pikachu nivel 20 e passou a ser CINCO Pokemon nivel 50, um por mecanica moderna (Mega, Gigantamax, Z-move e Terastal), entao o numero cobrado aqui virou 5. Quem prova QUEM sao esses cinco e o bloco T183; este continua provando so o que sempre provou, que e o galho disparar UMA vez e o jogador nao teleportar sem Pokemon. A prova e o partycount lido da EWRAM pelo simbolo gPartiesCount (campo `timevivo` do dump), depois do salto ja ter acontecido: `time` e 5 cravado e nao `time_min`, de proposito, porque igualdade tambem reprova o mundo em que o galho roda duas vezes ou em que ele cria por cima de um time que ja existia. FLAG_SYS_POKEMON_GET acesa entra junto porque o codigo a acende na mesma linha: sem ela, o menu do time nem abre e o 'ganhou um Pokemon' seria so um numero. O roteiro e o MESMO ja medido do T99.1 (KANTO / Before Pokemon League), reaproveitado de proposito para nao inventar navegacao de menu nova: o mapa de chegada MAP_INDIGO_PLATEAU_EXTERIOR entra na prova como controle de que o salto de fato aconteceu, porque um time que aparecesse sem o pulo nao provaria o galho.",
     "abertura": "seletor",
     "roteiro": "20:DOWN,60:NADA,20:A,120:NADA,20:DOWN*12,60:NADA,20:A,300:NADA,120:NADA",
     "prova": {
       "mapa": "MAP_INDIGO_PLATEAU_EXTERIOR",
-      "time": 1,
+      "time": 5,
       "flags_acesas": [
         "FLAG_SYS_POKEMON_GET"
       ]

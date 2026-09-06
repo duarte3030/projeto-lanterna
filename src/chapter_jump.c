@@ -16,6 +16,15 @@
 #include "constants/heal_locations.h"
 #include "constants/opponents.h"
 #include "constants/opponents_frlg.h"
+#include "constants/items.h"
+#include "constants/pokemon.h"
+#include "config/battle.h"
+#include "item.h"
+
+// Nível do time que o seletor entrega a quem salta com a party vazia.
+// Era 20 até 07/09/2026, quando o time virou cinco: nível 50 é o que
+// aguenta chefe de qualquer capítulo, inclusive a Liga.
+#define NIVEL_DO_TIME_DE_TESTE 50
 
 // ============================================================================
 // CHAPTER JUMP, o seletor de capítulo (ITEM_CHAPTER_JUMP, id 879)
@@ -477,46 +486,212 @@ void ChapterJump_AplicaCapitulo(void)
             FlagClear(regiao->ginasios[i].flagEnredo);
     }
 
-    // (c) Ninguém teleporta sem Pokémon (pedido do Gui, 18/08/2026): quem
-    // salta com a party VAZIA (jogo novo que pulou a escolha do inicial)
-    // ganha um Pikachu nível 20 com Thunderbolt, Surf e Rock Smash.
-    // Personality fixa de propósito (ferramenta de teste, determinismo vale
-    // mais que variedade).
+    // (c) O ARSENAL DAS MECÂNICAS MODERNAS, e ele é da MOCHILA, não do time.
+    // Quem salta ganha os quatro aparelhos, porque sem eles as mecânicas nem
+    // aparecem no menu de batalha, e isso foi MEDIDO, não suposto:
+    // `CanMegaEvolve` recusa sem ITEM_MEGA_RING (src/battle_util.c:8426),
+    // `CanUseZMove` sem ITEM_Z_POWER_RING (src/battle_z_move.c:121),
+    // `CanDynamax` sem ITEM_DYNAMAX_BAND E sem B_FLAG_DYNAMAX_BATTLE acesa
+    // (src/battle_dynamax.c:86 e :88) e `CanTerastallize` sem ITEM_TERA_ORB e
+    // sem B_FLAG_TERA_ORB_CHARGED (src/battle_terastal.c:77 e :86).
     //
-    // ROCK SMASH entrou em 21/08/2026, na onda das pedras de Sinnoh, e é
-    // golpe de MOVIMENTAÇÃO igual ao Surf, não conteúdo: sem ele nenhum caso
-    // da suíte conseguia quebrar nenhuma das 478 pedras de Rock Smash de
-    // Sinnoh, porque `EventScript_RockSmash` faz `checkfieldmove
-    // FIELD_MOVE_ROCK_SMASH, TRUE` e isso pede Pokémon COM o golpe MAIS
-    // insígnia. A insígnia já vem de graça deste mesmo salto: o item (b)
-    // acima acende os ginásios anteriores, e o capítulo "Before Pokémon
-    // League" de Kanto acende as oito, entre elas FLAG_BADGE03_GET, que é a
-    // que `IsFieldMoveUnlocked_RockSmash` exige fora de FRLG
-    // (src/field_move.c:27). Custo de save: ZERO, o time do seletor é criado
-    // na hora e nunca foi gravado em disco.
-    // Quem já tem time não ganha nada, e o fluxo "START FROM BEGINNING"
-    // continua escolhendo o inicial de verdade na história.
+    // O jogo novo (src/new_game.c) já dava a Dynamax Band e o Mega Ring, mas
+    // NUNCA deu o Z-Power Ring nem a Tera Orb: até 07/09/2026 o Z-move e o
+    // Terastal eram inalcançáveis para o jogador em qualquer save desta ROM,
+    // e nenhum teste pegava porque nenhum teste chegava a abrir o menu.
+    // Aqui os quatro entram no salto, que é a ferramenta de teste, e por isso
+    // vale para save velha também. Custo de save ZERO: são itens na mochila,
+    // que já existe, e duas flags que já existem; nenhum índice de save muda.
+    //
+    // Condicional para não empilhar cópias a cada salto (item-chave repetido
+    // não dá poder nenhum e só suja a mochila do jogador).
+    if (!CheckBagHasItem(ITEM_MEGA_RING, 1))
+        AddBagItem(ITEM_MEGA_RING, 1);
+    if (!CheckBagHasItem(ITEM_Z_POWER_RING, 1))
+        AddBagItem(ITEM_Z_POWER_RING, 1);
+    if (!CheckBagHasItem(ITEM_DYNAMAX_BAND, 1))
+        AddBagItem(ITEM_DYNAMAX_BAND, 1);
+    if (!CheckBagHasItem(ITEM_TERA_ORB, 1))
+        AddBagItem(ITEM_TERA_ORB, 1);
+#if B_FLAG_DYNAMAX_BATTLE != 0
+    FlagSet(B_FLAG_DYNAMAX_BATTLE);
+#endif
+#if B_FLAG_TERA_ORB_CHARGED != 0
+    // A Terastalização GASTA a carga (B_FLAG_TERA_ORB_NO_COST é 0 aqui), e
+    // quem devolve é `HealPlayerParty`, o item (d) logo abaixo, que só recarrega
+    // se a Tera Orb estiver na mochila. Por isso a orbe entra ANTES dele.
+    FlagSet(B_FLAG_TERA_ORB_CHARGED);
+#endif
+
+    // (c2) Ninguém teleporta sem Pokémon (pedido do Gui, 18/08/2026): quem
+    // salta com a party VAZIA (jogo novo que pulou a escolha do inicial)
+    // ganha um TIME DE CINCO, nível 50, montado para exercitar as quatro
+    // mecânicas modernas de uma vez (pedido do Gui, 07/09/2026; antes disto
+    // era um Pikachu nível 20 sozinho).
+    //
+    // POR QUE NÍVEL 50 E NÃO 20. O time de teste tem que aguentar qualquer
+    // chefe de qualquer capítulo, inclusive a Liga, senão a batalha acaba
+    // antes de dar tempo de abrir o menu da mecânica. O modo de teste LV.5
+    // TRAINERS não rebaixa isto: ele mexe SÓ na party do TREINADOR
+    // (src/battle_main.c:2003, dentro do laço que monta `party` a partir de
+    // `partyData` do oponente), e o time do jogador não passa por ali.
+    //
+    // POR QUE O RAICHU CARREGA A SUÍTE DE HM INTEIRA. Surf, Rock Smash e
+    // Strength são golpes de MOVIMENTAÇÃO, e a suíte de testes críticos
+    // inteira depende deles (T112.4, T166.2, T166.3, T166.4 e os blocos de
+    // pedra de Sinnoh). `ScrCmd_checkfieldmove` (src/scrcmd.c:2307) varre a
+    // party do índice 0 para cima e PARA no primeiro que conhece o golpe:
+    // pondo os três no slot 0, a rota de cada caso continua valendo letra por
+    // letra, porque quem responde ao `checkfieldmove` continua sendo o
+    // primeiro Pokémon do time. A insígnia que o motor exige junto
+    // (FLAG_BADGE03_GET para Rock Smash, 04 para Strength, 05 para Surf,
+    // src/field_move.c:11-64) vem do item (b) acima, por índice.
+    //
+    // O QUE CADA UM PROVA:
+    //   Raichu   + Raichunite Y  -> Mega Raichu Y  (SPECIES_RAICHU_MEGA_Y,
+    //                               form_change_tables.h:97) + a suíte de HM.
+    //   Charizard, fator Gmax    -> Gigantamax (FORM_CHANGE_BATTLE_GIGANTAMAX
+    //                               só dispara com `gmaxFactor`,
+    //                               src/pokemon.c:6277) + Fly de campo.
+    //   Mew      + Mewnium Z     -> Genesis Supernova, que é Z-move de
+    //                               ASSINATURA e exige MOVE_PSYCHIC no time
+    //                               (src/battle_z_move.c:91): por isso o
+    //                               Psychic é o slot 0 dele e não decoração.
+    //   Incineroar, tera Dark    -> Terastal (MON_DATA_TERA_TYPE gravado; sem
+    //                               gravar, o tipo tera sairia da PERSONALITY,
+    //                               src/pokemon.c:2445).
+    //   Lucario  + Lucarionite Z -> Mega Lucario Z (SPECIES_LUCARIO_MEGA_Z,
+    //                               form_change_tables.h:880).
+    //
+    // UMA MECÂNICA DE CADA TIPO POR BATALHA, e isso é do motor, não do time:
+    // `HasTrainerUsedGimmick` marca por TREINADOR, então o Mega Raichu Y e o
+    // Mega Lucario Z NÃO cabem na mesma batalha (os dois são Mega). Dynamax,
+    // Z-move e Terastal, sendo de tipos diferentes, cabem os três junto com UM
+    // dos dois Megas.
+    //
+    // Personality fixa e DIFERENTE por bicho, de propósito: ferramenta de
+    // teste, determinismo vale mais que variedade, e personality repetida
+    // deixaria os cinco com a mesma natureza e a mesma metade de IV.
+    //
+    // MOVE_NONE na tabela quer dizer SLOT VAZIO, e isso foi medido no menu de
+    // golpes do emulador, não suposto: o `CreateMon` deste fork
+    // (src/pokemon.c) NÃO chama `GiveMonInitialMoveset`, então o que o bicho
+    // sabe é exatamente o que esta tabela escreve, e mais nada.
     if (CalculatePlayerPartyCount() == 0)
     {
-        struct Pokemon mon;
-        CreateMon(&mon, SPECIES_PIKACHU, 20, 0, OTID_STRUCT_PLAYER_ID);
-        SetMonMoveSlot(&mon, MOVE_THUNDERBOLT, 0);
-        SetMonMoveSlot(&mon, MOVE_SURF, 1);
-        SetMonMoveSlot(&mon, MOVE_ROCK_SMASH, 2);
-        // STRENGTH entrou em 23/08/2026, pela mesma razão do Rock Smash e no
-        // mesmo dia em que as 19 bolas de neve do ginásio de Snowpoint viraram
-        // bloco empurrável: `EventScript_StrengthBoulder` faz `checkfieldmove
-        // FIELD_MOVE_STRENGTH, TRUE`, e sem Pokémon COM o golpe nenhum caso da
-        // suíte empurra bloco nenhum. A insígnia que
-        // `IsFieldMoveUnlocked_Strength` exige é FLAG_BADGE04_GET
-        // (src/field_move.c:37), e ela já vem de graça do próprio salto, como
-        // a BADGE03 do Rock Smash. Custo de save: ZERO, mesmo motivo.
-        SetMonMoveSlot(&mon, MOVE_STRENGTH, 3);
-        // Sem isto o mon nasce com maxHP 0 e chega DESMAIADO (o CreateMon
-        // deste fork deixa o cálculo de stats para o chamador, como o clamp
-        // de nível do LV.5 já fazia; bug pego pelo fechador do D3 em 18/08).
-        CalculateMonStats(&mon);
-        CopyMon(&gPlayerParty[0], &mon, sizeof(mon));
+        static const struct
+        {
+            u16 especie;
+            u16 item;
+            u16 golpes[MAX_MON_MOVES];
+            u32 personality;
+            u8 tipoTera;
+            bool8 fatorGmax;
+        } sTimeDeTeste[] =
+        {
+            {
+                SPECIES_RAICHU, ITEM_RAICHUNITE_Y,
+                {MOVE_THUNDERBOLT, MOVE_SURF, MOVE_ROCK_SMASH, MOVE_STRENGTH},
+                0x00C0FFEE, TYPE_NONE, FALSE,
+            },
+            {
+                SPECIES_CHARIZARD, ITEM_NONE,
+                // Flamethrower junto com o Fly porque o golpe G-Max do
+                // Charizard é o G-Max Wildfire, de tipo FOGO
+                // (sGMaxMoveTable, src/battle_dynamax.c): sem golpe de fogo o
+                // Gigantamax dispararia e mostraria só Max Airstream, e a
+                // prova ficaria muda sobre a forma.
+                // Sunny Day é de STATUS de propósito, pela mesma razão do
+                // Bulk Up do Incineroar: sob Dynamax golpe de status vira
+                // MAX GUARD, que não machuca, e é o único jeito de gastar o
+                // Dynamax sem encerrar a batalha (ver o comentário do
+                // Incineroar sobre a fila das mecânicas).
+                {MOVE_FLAMETHROWER, MOVE_FLY, MOVE_SUNNY_DAY, MOVE_NONE},
+                0x0BADF00D, TYPE_NONE, TRUE,
+            },
+            {
+                SPECIES_MEW, ITEM_MEWNIUM_Z,
+                {MOVE_PSYCHIC, MOVE_CUT, MOVE_FLASH, MOVE_NONE},
+                0x0DEFACED, TYPE_NONE, FALSE,
+            },
+            {
+                // MÃOS VAZIAS, E ISSO CUSTA UMA ORDEM NA DEMONSTRAÇÃO.
+                // MEDIDO em 07/09/2026, com a mecânica lida da EWRAM em duas
+                // execuções do gba_runner, e não deduzido: `AssignUsableGimmicks`
+                // (src/battle_gimmick.c:20) dá a cada lutador UMA mecânica só, a
+                // PRIMEIRA da fila MEGA, ULTRA BURST, Z-MOVE, DYNAMAX, TERA
+                // (a ordem do enum em include/battle_gimmick.h). Um Pokémon do
+                // jogador de mãos vazias sempre cai no DYNAMAX, que vem ANTES do
+                // TERA, então o START do menu de golpes oferece Dynamax.
+                //
+                // Segurar uma Mega Stone inerte foi TENTADO e NÃO resolve: ela
+                // derruba o Dynamax (src/battle_dynamax.c:111), mas `CanTerastallize`
+                // recusa Mega Stone e Z-Crystal pela MESMA linha
+                // (src/battle_terastal.c:102), e o Incineroar ficava sem mecânica
+                // NENHUMA. Medido com ITEM_DARKRANITE na mão: nenhum gatilho no
+                // menu, `FLAG_B8_TERA_ORB_CARREGADO` intacta no fim da luta.
+                //
+                // Sobra a ordem, e ela é do MOTOR, não deste time: cada mecânica
+                // é uma vez por batalha, então DEPOIS de o Charizard Dynamaxar,
+                // `CanDynamax` recusa o time inteiro e o Incineroar cai no TERA.
+                // Dynamaxar primeiro, Terastalizar depois, na MESMA batalha.
+                //
+                // O BULK UP NO SLOT 3 É DE STATUS, e é ele que dá o caminho
+                // curto: golpe de status vira MAX GUARD sob Dynamax, que não
+                // machuca ninguém. Com ele, o próprio Incineroar gasta o
+                // Dynamax num turno sem derrubar o adversário e Terastaliza no
+                // turno seguinte, na mesma batalha e sem depender do Charizard.
+                SPECIES_INCINEROAR, ITEM_NONE,
+                {MOVE_DARKEST_LARIAT, MOVE_FLARE_BLITZ, MOVE_BULK_UP, MOVE_NONE},
+                0x0FEEDBEE, TYPE_DARK, FALSE,
+            },
+            {
+                SPECIES_LUCARIO, ITEM_LUCARIONITE_Z,
+                {MOVE_AURA_SPHERE, MOVE_CLOSE_COMBAT, MOVE_NONE, MOVE_NONE},
+                0x0C0DEBED, TYPE_NONE, FALSE,
+            },
+        };
+        u32 mao, golpe;
+
+        for (mao = 0; mao < ARRAY_COUNT(sTimeDeTeste); mao++)
+        {
+            struct Pokemon mon;
+            u32 dado;
+
+            CreateMon(&mon, sTimeDeTeste[mao].especie, NIVEL_DO_TIME_DE_TESTE,
+                      sTimeDeTeste[mao].personality, OTID_STRUCT_PLAYER_ID);
+
+            for (golpe = 0; golpe < MAX_MON_MOVES; golpe++)
+            {
+                if (sTimeDeTeste[mao].golpes[golpe] != MOVE_NONE)
+                    SetMonMoveSlot(&mon, sTimeDeTeste[mao].golpes[golpe], golpe);
+            }
+
+            if (sTimeDeTeste[mao].item != ITEM_NONE)
+            {
+                dado = sTimeDeTeste[mao].item;
+                SetMonData(&mon, MON_DATA_HELD_ITEM, &dado);
+            }
+
+            if (sTimeDeTeste[mao].tipoTera != TYPE_NONE)
+            {
+                dado = sTimeDeTeste[mao].tipoTera;
+                SetMonData(&mon, MON_DATA_TERA_TYPE, &dado);
+            }
+
+            if (sTimeDeTeste[mao].fatorGmax)
+            {
+                dado = TRUE;
+                SetMonData(&mon, MON_DATA_GIGANTAMAX_FACTOR, &dado);
+            }
+
+            // Sem isto o mon nasce com maxHP 0 e chega DESMAIADO (o CreateMon
+            // deste fork deixa o cálculo de stats para o chamador, como o clamp
+            // de nível do LV.5 já fazia; bug pego pelo fechador do D3 em 18/08).
+            CalculateMonStats(&mon);
+            CopyMon(&gPlayerParty[mao], &mon, sizeof(mon));
+        }
+
         CalculatePlayerPartyCount();
         FlagSet(FLAG_SYS_POKEMON_GET);
     }
