@@ -1,0 +1,1676 @@
+{
+ "gerado_por": "dev_scripts/anda_scripts_galar.py",
+ "fonte": "fontes-mapas/galar-swsh/ultimate-plus-v1.2.1.2.gba",
+ "scripts_andados": 3455,
+ "scripts_limpos": 3355,
+ "scripts_descarrilados": 100,
+ "motivos_de_descarrilamento": {
+  "goto/call fora da ROM": 32,
+  "opcode 0xF0 fora da tabela": 20,
+  "opcode 0xE7 fora da tabela": 9,
+  "opcode 0xEE fora da tabela": 7,
+  "opcode 0xFC fora da tabela": 4,
+  "trainerbattle tipo 85": 3,
+  "opcode 0xEF fora da tabela": 3,
+  "opcode 0xDD fora da tabela": 3,
+  "opcode 0xF6 fora da tabela": 2,
+  "opcode 0xDC fora da tabela": 2,
+  "opcode 0xD9 fora da tabela": 2,
+  "opcode 0xE4 fora da tabela": 2,
+  "opcode 0xE3 fora da tabela": 2,
+  "opcode 0xFA fora da tabela": 1,
+  "opcode 0xFB fora da tabela": 1,
+  "opcode 0xE0 fora da tabela": 1,
+  "opcode 0xE8 fora da tabela": 1,
+  "opcode 0xF4 fora da tabela": 1,
+  "opcode 0xEC fora da tabela": 1,
+  "opcode 0xFE fora da tabela": 1,
+  "opcode 0xE1 fora da tabela": 1,
+  "opcode 0xDF fora da tabela": 1
+ },
+ "orfaos_hoje": 141,
+ "orfaos_alcancados_por_script": 95,
+ "orfaos_alcancados_de_mapa_vivo": 40,
+ "orfaos_sem_entrada_nenhuma": [
+  "MAP_GALAR_CIRCHESTER_13",
+  "MAP_GALAR_GALAR_MINE_04",
+  "MAP_GALAR_GALAR_MINE_05",
+  "MAP_GALAR_HAMMERLOCKE_24",
+  "MAP_GALAR_ISLE_OF_ARMOR_15",
+  "MAP_GALAR_MOTOSTOKE_21",
+  "MAP_GALAR_POSTWICK_06",
+  "MAP_GALAR_POSTWICK_07",
+  "MAP_GALAR_POSTWICK_11",
+  "MAP_GALAR_POSTWICK_111",
+  "MAP_GALAR_POSTWICK_112",
+  "MAP_GALAR_POSTWICK_113",
+  "MAP_GALAR_POSTWICK_172",
+  "MAP_GALAR_POSTWICK_23",
+  "MAP_GALAR_POSTWICK_24",
+  "MAP_GALAR_POSTWICK_26",
+  "MAP_GALAR_POSTWICK_31",
+  "MAP_GALAR_POSTWICK_34",
+  "MAP_GALAR_POSTWICK_37",
+  "MAP_GALAR_POSTWICK_38",
+  "MAP_GALAR_POSTWICK_40",
+  "MAP_GALAR_POSTWICK_45",
+  "MAP_GALAR_POSTWICK_46",
+  "MAP_GALAR_POSTWICK_47",
+  "MAP_GALAR_POSTWICK_49",
+  "MAP_GALAR_POSTWICK_50",
+  "MAP_GALAR_POSTWICK_53",
+  "MAP_GALAR_POSTWICK_58",
+  "MAP_GALAR_ROUTE02_04",
+  "MAP_GALAR_STOW_ON_SIDE_03",
+  "MAP_GALAR_WEDGEHURST_13",
+  "MAP_GALAR_WEDGEHURST_14",
+  "MAP_GALAR_WEDGEHURST_15",
+  "MAP_GALAR_WILD_AREA_01",
+  "MAP_GALAR_WILD_AREA_02",
+  "MAP_GALAR_WILD_AREA_12",
+  "MAP_GALAR_WILD_AREA_16",
+  "MAP_GALAR_WILD_AREA_18",
+  "MAP_GALAR_WILD_AREA_23",
+  "MAP_GALAR_WILD_AREA_24",
+  "MAP_GALAR_WILD_AREA_25",
+  "MAP_GALAR_WILD_AREA_26",
+  "MAP_GALAR_WILD_AREA_27",
+  "MAP_GALAR_WILD_AREA_28",
+  "MAP_GALAR_WILD_AREA_29",
+  "MAP_GALAR_WILD_AREA_CAVE_01"
+ ],
+ "alvos_no_arquivo": [
+  "MAP_GALAR_HAMMERLOCKE_06",
+  "MAP_GALAR_HAMMERLOCKE_20",
+  "MAP_GALAR_HULBURY_01",
+  "MAP_GALAR_ISLE_OF_ARMOR_01",
+  "MAP_GALAR_ISLE_OF_ARMOR_28",
+  "MAP_GALAR_ISLE_OF_ARMOR_33",
+  "MAP_GALAR_MOTOSTOKE_07",
+  "MAP_GALAR_POSTWICK_02",
+  "MAP_GALAR_POSTWICK_03",
+  "MAP_GALAR_POSTWICK_22",
+  "MAP_GALAR_POSTWICK_27",
+  "MAP_GALAR_ROUTE02_03",
+  "MAP_GALAR_STOW_ON_SIDE_01",
+  "MAP_GALAR_STOW_ON_SIDE_02",
+  "MAP_GALAR_TURFFIELD_INDOOR_01",
+  "MAP_GALAR_TURFFIELD_INDOOR_02",
+  "MAP_GALAR_TURFFIELD_INDOOR_03",
+  "MAP_GALAR_TURFFIELD_INDOOR_04",
+  "MAP_GALAR_TURFFIELD_INDOOR_05",
+  "MAP_GALAR_TURFFIELD_INDOOR_06",
+  "MAP_GALAR_TURFFIELD_INDOOR_07",
+  "MAP_GALAR_TURFFIELD_INDOOR_08",
+  "MAP_GALAR_TURFFIELD_INDOOR_10",
+  "MAP_GALAR_TURFFIELD_INDOOR_11",
+  "MAP_GALAR_TURFFIELD_INDOOR_12",
+  "MAP_GALAR_TURFFIELD_INDOOR_14",
+  "MAP_GALAR_TURFFIELD_INDOOR_15",
+  "MAP_GALAR_TURFFIELD_INDOOR_16",
+  "MAP_GALAR_TURFFIELD_INDOOR_18",
+  "MAP_GALAR_TURFFIELD_INDOOR_19",
+  "MAP_GALAR_TURFFIELD_INDOOR_20",
+  "MAP_GALAR_TURFFIELD_INDOOR_22",
+  "MAP_GALAR_TURFFIELD_INDOOR_23",
+  "MAP_GALAR_TURFFIELD_INDOOR_24",
+  "MAP_GALAR_TURFFIELD_INDOOR_26",
+  "MAP_GALAR_TURFFIELD_INDOOR_27",
+  "MAP_GALAR_TURFFIELD_INDOOR_28",
+  "MAP_GALAR_TURFFIELD_INDOOR_29",
+  "MAP_GALAR_TURFFIELD_INDOOR_30",
+  "MAP_GALAR_TURFFIELD_INDOOR_31",
+  "MAP_GALAR_TURFFIELD_INDOOR_32",
+  "MAP_GALAR_TURFFIELD_INDOOR_33",
+  "MAP_GALAR_TURFFIELD_INDOOR_34",
+  "MAP_GALAR_TURFFIELD_INDOOR_35",
+  "MAP_GALAR_TURFFIELD_INDOOR_36",
+  "MAP_GALAR_TURFFIELD_INDOOR_37",
+  "MAP_GALAR_TURFFIELD_INDOOR_38",
+  "MAP_GALAR_TURFFIELD_INDOOR_39",
+  "MAP_GALAR_TURFFIELD_INDOOR_40",
+  "MAP_GALAR_TURFFIELD_INDOOR_41",
+  "MAP_GALAR_TURFFIELD_INDOOR_42",
+  "MAP_GALAR_TURFFIELD_INDOOR_43",
+  "MAP_GALAR_TURFFIELD_INDOOR_44",
+  "MAP_GALAR_TURFFIELD_INDOOR_45",
+  "MAP_GALAR_TURFFIELD_INDOOR_46",
+  "MAP_GALAR_TURFFIELD_INDOOR_47",
+  "MAP_GALAR_TURFFIELD_INDOOR_48",
+  "MAP_GALAR_TURFFIELD_INDOOR_49",
+  "MAP_GALAR_TURFFIELD_INDOOR_50",
+  "MAP_GALAR_TURFFIELD_INDOOR_51",
+  "MAP_GALAR_TURFFIELD_INDOOR_52",
+  "MAP_GALAR_TURFFIELD_INDOOR_53",
+  "MAP_GALAR_TURFFIELD_INDOOR_54",
+  "MAP_GALAR_TURFFIELD_INDOOR_55",
+  "MAP_GALAR_TURFFIELD_INDOOR_56",
+  "MAP_GALAR_TURFFIELD_INDOOR_57",
+  "MAP_GALAR_TURFFIELD_INDOOR_58",
+  "MAP_GALAR_TURFFIELD_INDOOR_59",
+  "MAP_GALAR_TURFFIELD_INDOOR_60",
+  "MAP_GALAR_TURFFIELD_INDOOR_61",
+  "MAP_GALAR_TURFFIELD_INDOOR_62",
+  "MAP_GALAR_TURFFIELD_INDOOR_63",
+  "MAP_GALAR_UNDERWATER_01",
+  "MAP_GALAR_UNDERWATER_02",
+  "MAP_GALAR_WEDGEHURST_09",
+  "MAP_GALAR_WILD_AREA_17",
+  "MAP_GALAR_WYNDON_10",
+  "MAP_GALAR_WYNDON_INDOOR_01",
+  "MAP_GALAR_WYNDON_INDOOR_02",
+  "MAP_GALAR_WYNDON_INDOOR_03",
+  "MAP_GALAR_WYNDON_INDOOR_04",
+  "MAP_GALAR_WYNDON_INDOOR_06",
+  "MAP_GALAR_WYNDON_INDOOR_07",
+  "MAP_GALAR_WYNDON_INDOOR_08",
+  "MAP_GALAR_WYNDON_INDOOR_09",
+  "MAP_GALAR_WYNDON_INDOOR_11",
+  "MAP_GALAR_WYNDON_INDOOR_12",
+  "MAP_GALAR_WYNDON_INDOOR_13",
+  "MAP_GALAR_WYNDON_INDOOR_14",
+  "MAP_GALAR_WYNDON_INDOOR_16",
+  "MAP_GALAR_WYNDON_INDOOR_17",
+  "MAP_GALAR_WYNDON_INDOOR_18",
+  "MAP_GALAR_WYNDON_INDOOR_19",
+  "MAP_GALAR_WYNDON_INDOOR_21",
+  "MAP_GALAR_WYNDON_INDOOR_22"
+ ],
+ "orfaos": {
+  "MAP_GALAR_HAMMERLOCKE_06": [
+   {
+    "origem": "MAP_GALAR_BALLONLEA_10",
+    "origem_dir": "Galar_Ballonlea10",
+    "origem_orfa": false,
+    "script": "gatilho (27,20)",
+    "classe": "gatilho de coordenada",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_BALLONLEA_10",
+    "origem_dir": "Galar_Ballonlea10",
+    "origem_orfa": false,
+    "script": "gatilho (26,20)",
+    "classe": "gatilho de coordenada",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_BALLONLEA_10",
+    "origem_dir": "Galar_Ballonlea10",
+    "origem_orfa": false,
+    "script": "gatilho (28,20)",
+    "classe": "gatilho de coordenada",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_BALLONLEA_05",
+    "origem_dir": "Galar_Ballonlea05",
+    "origem_orfa": false,
+    "script": "gatilho (27,20)",
+    "classe": "gatilho de coordenada",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_BALLONLEA_05",
+    "origem_dir": "Galar_Ballonlea05",
+    "origem_orfa": false,
+    "script": "gatilho (26,20)",
+    "classe": "gatilho de coordenada",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_BALLONLEA_05",
+    "origem_dir": "Galar_Ballonlea05",
+    "origem_orfa": false,
+    "script": "gatilho (28,20)",
+    "classe": "gatilho de coordenada",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_HAMMERLOCKE_20": [
+   {
+    "origem": "MAP_GALAR_POSTWICK_02",
+    "origem_dir": "Galar_Postwick02",
+    "origem_orfa": true,
+    "script": "cena (map script 2)",
+    "classe": "cena (map script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_HULBURY_01": [
+   {
+    "origem": "MAP_GALAR_CIRCHESTER_16",
+    "origem_dir": "Galar_Circhester16",
+    "origem_orfa": false,
+    "script": "objeto 20",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_CIRCHESTER_16",
+    "origem_dir": "Galar_Circhester16",
+    "origem_orfa": false,
+    "script": "gatilho (27,11)",
+    "classe": "gatilho de coordenada",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_CIRCHESTER_06",
+    "origem_dir": "Galar_Circhester06",
+    "origem_orfa": false,
+    "script": "objeto 20",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_CIRCHESTER_06",
+    "origem_dir": "Galar_Circhester06",
+    "origem_orfa": false,
+    "script": "gatilho (27,11)",
+    "classe": "gatilho de coordenada",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_CIRCHESTER_06",
+    "origem_dir": "Galar_Circhester06",
+    "origem_orfa": false,
+    "script": "gatilho (29,11)",
+    "classe": "gatilho de coordenada",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_ISLE_OF_ARMOR_01": [
+   {
+    "origem": "MAP_GALAR_ISLE_OF_ARMOR_05",
+    "origem_dir": "Galar_IsleOfArmor05",
+    "origem_orfa": false,
+    "script": "objeto 5",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_ISLE_OF_ARMOR_08",
+    "origem_dir": "Galar_IsleOfArmor08",
+    "origem_orfa": false,
+    "script": "objeto 14",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_ISLE_OF_ARMOR_09",
+    "origem_dir": "Galar_IsleOfArmor09",
+    "origem_orfa": false,
+    "script": "objeto 5",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_ISLE_OF_ARMOR_12",
+    "origem_dir": "Galar_IsleOfArmor12",
+    "origem_orfa": false,
+    "script": "objeto 4",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_ISLE_OF_ARMOR_12",
+    "origem_dir": "Galar_IsleOfArmor12",
+    "origem_orfa": false,
+    "script": "objeto 5",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_ISLE_OF_ARMOR_28": [
+   {
+    "origem": "MAP_GALAR_ISLE_OF_ARMOR_28",
+    "origem_dir": "Galar_IsleOfArmor28",
+    "origem_orfa": true,
+    "script": "objeto 3",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_ISLE_OF_ARMOR_28",
+    "origem_dir": "Galar_IsleOfArmor28",
+    "origem_orfa": true,
+    "script": "objeto 7",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_ISLE_OF_ARMOR_33": [
+   {
+    "origem": "MAP_GALAR_ISLE_OF_ARMOR_28",
+    "origem_dir": "Galar_IsleOfArmor28",
+    "origem_orfa": true,
+    "script": "objeto 6",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_MOTOSTOKE_07": [
+   {
+    "origem": "MAP_GALAR_WEDGEHURST_09",
+    "origem_dir": "Galar_Wedgehurst09",
+    "origem_orfa": true,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_POSTWICK_02": [
+   {
+    "origem": "MAP_GALAR_HAMMERLOCKE_12",
+    "origem_dir": "Galar_Hammerlocke12",
+    "origem_orfa": false,
+    "script": "gatilho (8,17)",
+    "classe": "gatilho de coordenada",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_HAMMERLOCKE_12",
+    "origem_dir": "Galar_Hammerlocke12",
+    "origem_orfa": false,
+    "script": "gatilho (9,17)",
+    "classe": "gatilho de coordenada",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_HAMMERLOCKE_12",
+    "origem_dir": "Galar_Hammerlocke12",
+    "origem_orfa": false,
+    "script": "gatilho (10,17)",
+    "classe": "gatilho de coordenada",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_POSTWICK_03": [
+   {
+    "origem": "MAP_GALAR_CROWN_TUNDRA_01",
+    "origem_dir": "Galar_CrownTundra01",
+    "origem_orfa": false,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_CROWN_TUNDRA_01",
+    "origem_dir": "Galar_CrownTundra01",
+    "origem_orfa": false,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_POSTWICK_22": [
+   {
+    "origem": "MAP_GALAR_DYNAMAX_ADVENTURE_02",
+    "origem_dir": "Galar_DynamaxAdventure02",
+    "origem_orfa": false,
+    "script": "gatilho (59,22)",
+    "classe": "gatilho de coordenada",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_DYNAMAX_ADVENTURE_02",
+    "origem_dir": "Galar_DynamaxAdventure02",
+    "origem_orfa": false,
+    "script": "gatilho (60,22)",
+    "classe": "gatilho de coordenada",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_DYNAMAX_ADVENTURE_02",
+    "origem_dir": "Galar_DynamaxAdventure02",
+    "origem_orfa": false,
+    "script": "gatilho (61,22)",
+    "classe": "gatilho de coordenada",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_POSTWICK_22",
+    "origem_dir": "Galar_Postwick22",
+    "origem_orfa": true,
+    "script": "gatilho (59,22)",
+    "classe": "gatilho de coordenada",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_POSTWICK_22",
+    "origem_dir": "Galar_Postwick22",
+    "origem_orfa": true,
+    "script": "gatilho (60,22)",
+    "classe": "gatilho de coordenada",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_POSTWICK_22",
+    "origem_dir": "Galar_Postwick22",
+    "origem_orfa": true,
+    "script": "gatilho (61,22)",
+    "classe": "gatilho de coordenada",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_POSTWICK_27": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_07",
+    "origem_dir": "Galar_TurffieldIndoor07",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_ROUTE02_03": [
+   {
+    "origem": "MAP_GALAR_ROUTE02_02",
+    "origem_dir": "Galar_Route0202",
+    "origem_orfa": false,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_ROUTE02_02",
+    "origem_dir": "Galar_Route0202",
+    "origem_orfa": false,
+    "script": "gatilho (41,24)",
+    "classe": "gatilho de coordenada",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_ROUTE02_02",
+    "origem_dir": "Galar_Route0202",
+    "origem_orfa": false,
+    "script": "gatilho (42,24)",
+    "classe": "gatilho de coordenada",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_STOW_ON_SIDE_01": [
+   {
+    "origem": "MAP_GALAR_WEDGEHURST_12",
+    "origem_dir": "Galar_Wedgehurst12",
+    "origem_orfa": false,
+    "script": "objeto 6",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_MOTOSTOKE_23",
+    "origem_dir": "Galar_Motostoke23",
+    "origem_orfa": false,
+    "script": "objeto 9",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_TURFFIELD_12",
+    "origem_dir": "Galar_Turffield12",
+    "origem_orfa": false,
+    "script": "objeto 11",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_HULBURY_16",
+    "origem_dir": "Galar_Hulbury16",
+    "origem_orfa": false,
+    "script": "objeto 16",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_HAMMERLOCKE_01",
+    "origem_dir": "Galar_Hammerlocke01",
+    "origem_orfa": false,
+    "script": "objeto 25",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_HAMMERLOCKE_01",
+    "origem_dir": "Galar_Hammerlocke01",
+    "origem_orfa": false,
+    "script": "objeto 26",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_HAMMERLOCKE_23",
+    "origem_dir": "Galar_Hammerlocke23",
+    "origem_orfa": false,
+    "script": "objeto 12",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_BALLONLEA_10",
+    "origem_dir": "Galar_Ballonlea10",
+    "origem_orfa": false,
+    "script": "objeto 3",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_CIRCHESTER_16",
+    "origem_dir": "Galar_Circhester16",
+    "origem_orfa": false,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_SPIKEMUTH_09",
+    "origem_dir": "Galar_Spikemuth09",
+    "origem_orfa": false,
+    "script": "objeto 12",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_HAMMERLOCKE_04",
+    "origem_dir": "Galar_Hammerlocke04",
+    "origem_orfa": false,
+    "script": "objeto 25",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_HAMMERLOCKE_04",
+    "origem_dir": "Galar_Hammerlocke04",
+    "origem_orfa": false,
+    "script": "objeto 26",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_STOW_ON_SIDE_02": [
+   {
+    "origem": "MAP_GALAR_HAMMERLOCKE_03",
+    "origem_dir": "Galar_Hammerlocke03",
+    "origem_orfa": false,
+    "script": "objeto 2",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_01": [
+   {
+    "origem": "MAP_GALAR_WYNDON_03",
+    "origem_dir": "Galar_Wyndon03",
+    "origem_orfa": false,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_02": [
+   {
+    "origem": "MAP_GALAR_WYNDON_03",
+    "origem_dir": "Galar_Wyndon03",
+    "origem_orfa": false,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_03": [
+   {
+    "origem": "MAP_GALAR_WYNDON_03",
+    "origem_dir": "Galar_Wyndon03",
+    "origem_orfa": false,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_04": [
+   {
+    "origem": "MAP_GALAR_WYNDON_03",
+    "origem_dir": "Galar_Wyndon03",
+    "origem_orfa": false,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_05": [
+   {
+    "origem": "MAP_GALAR_WYNDON_03",
+    "origem_dir": "Galar_Wyndon03",
+    "origem_orfa": false,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_06": [
+   {
+    "origem": "MAP_GALAR_WYNDON_03",
+    "origem_dir": "Galar_Wyndon03",
+    "origem_orfa": false,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_07": [
+   {
+    "origem": "MAP_GALAR_WYNDON_03",
+    "origem_dir": "Galar_Wyndon03",
+    "origem_orfa": false,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_08": [
+   {
+    "origem": "MAP_GALAR_WYNDON_03",
+    "origem_dir": "Galar_Wyndon03",
+    "origem_orfa": false,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_10": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_09",
+    "origem_dir": "Galar_TurffieldIndoor09",
+    "origem_orfa": false,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_11": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_10",
+    "origem_dir": "Galar_TurffieldIndoor10",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_12": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_11",
+    "origem_dir": "Galar_TurffieldIndoor11",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_14": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_13",
+    "origem_dir": "Galar_TurffieldIndoor13",
+    "origem_orfa": false,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_15": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_14",
+    "origem_dir": "Galar_TurffieldIndoor14",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_16": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_15",
+    "origem_dir": "Galar_TurffieldIndoor15",
+    "origem_orfa": true,
+    "script": "objeto 8",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_15",
+    "origem_dir": "Galar_TurffieldIndoor15",
+    "origem_orfa": true,
+    "script": "objeto 14",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_15",
+    "origem_dir": "Galar_TurffieldIndoor15",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_18": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_17",
+    "origem_dir": "Galar_TurffieldIndoor17",
+    "origem_orfa": false,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_19": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_18",
+    "origem_dir": "Galar_TurffieldIndoor18",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_20": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_19",
+    "origem_dir": "Galar_TurffieldIndoor19",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_22": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_21",
+    "origem_dir": "Galar_TurffieldIndoor21",
+    "origem_orfa": false,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_23": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_22",
+    "origem_dir": "Galar_TurffieldIndoor22",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_24": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_23",
+    "origem_dir": "Galar_TurffieldIndoor23",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_26": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_25",
+    "origem_dir": "Galar_TurffieldIndoor25",
+    "origem_orfa": false,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_27": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_26",
+    "origem_dir": "Galar_TurffieldIndoor26",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_28": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_27",
+    "origem_dir": "Galar_TurffieldIndoor27",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_29": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_36",
+    "origem_dir": "Galar_TurffieldIndoor36",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_30": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_39",
+    "origem_dir": "Galar_TurffieldIndoor39",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_31": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_42",
+    "origem_dir": "Galar_TurffieldIndoor42",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_32": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_45",
+    "origem_dir": "Galar_TurffieldIndoor45",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_33": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_48",
+    "origem_dir": "Galar_TurffieldIndoor48",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_34": [
+   {
+    "origem": "MAP_GALAR_WYNDON_02",
+    "origem_dir": "Galar_Wyndon02",
+    "origem_orfa": false,
+    "script": "objeto 2",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_35": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_34",
+    "origem_dir": "Galar_TurffieldIndoor34",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_36": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_35",
+    "origem_dir": "Galar_TurffieldIndoor35",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_37": [
+   {
+    "origem": "MAP_GALAR_WYNDON_02",
+    "origem_dir": "Galar_Wyndon02",
+    "origem_orfa": false,
+    "script": "objeto 2",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_38": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_37",
+    "origem_dir": "Galar_TurffieldIndoor37",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_39": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_38",
+    "origem_dir": "Galar_TurffieldIndoor38",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_40": [
+   {
+    "origem": "MAP_GALAR_WYNDON_02",
+    "origem_dir": "Galar_Wyndon02",
+    "origem_orfa": false,
+    "script": "objeto 2",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_41": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_40",
+    "origem_dir": "Galar_TurffieldIndoor40",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_42": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_41",
+    "origem_dir": "Galar_TurffieldIndoor41",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_43": [
+   {
+    "origem": "MAP_GALAR_WYNDON_02",
+    "origem_dir": "Galar_Wyndon02",
+    "origem_orfa": false,
+    "script": "objeto 2",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_44": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_43",
+    "origem_dir": "Galar_TurffieldIndoor43",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_45": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_44",
+    "origem_dir": "Galar_TurffieldIndoor44",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_46": [
+   {
+    "origem": "MAP_GALAR_WYNDON_02",
+    "origem_dir": "Galar_Wyndon02",
+    "origem_orfa": false,
+    "script": "objeto 2",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_47": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_46",
+    "origem_dir": "Galar_TurffieldIndoor46",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_48": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_47",
+    "origem_dir": "Galar_TurffieldIndoor47",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_49": [
+   {
+    "origem": "MAP_GALAR_WYNDON_02",
+    "origem_dir": "Galar_Wyndon02",
+    "origem_orfa": false,
+    "script": "objeto 2",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_50": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_49",
+    "origem_dir": "Galar_TurffieldIndoor49",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_51": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_50",
+    "origem_dir": "Galar_TurffieldIndoor50",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_52": [
+   {
+    "origem": "MAP_GALAR_WYNDON_02",
+    "origem_dir": "Galar_Wyndon02",
+    "origem_orfa": false,
+    "script": "objeto 2",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_53": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_52",
+    "origem_dir": "Galar_TurffieldIndoor52",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_54": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_53",
+    "origem_dir": "Galar_TurffieldIndoor53",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_55": [
+   {
+    "origem": "MAP_GALAR_WYNDON_02",
+    "origem_dir": "Galar_Wyndon02",
+    "origem_orfa": false,
+    "script": "objeto 2",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_56": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_55",
+    "origem_dir": "Galar_TurffieldIndoor55",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_57": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_56",
+    "origem_dir": "Galar_TurffieldIndoor56",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_58": [
+   {
+    "origem": "MAP_GALAR_WYNDON_02",
+    "origem_dir": "Galar_Wyndon02",
+    "origem_orfa": false,
+    "script": "objeto 2",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_59": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_58",
+    "origem_dir": "Galar_TurffieldIndoor58",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_60": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_59",
+    "origem_dir": "Galar_TurffieldIndoor59",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_61": [
+   {
+    "origem": "MAP_GALAR_WYNDON_02",
+    "origem_dir": "Galar_Wyndon02",
+    "origem_orfa": false,
+    "script": "objeto 2",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_62": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_61",
+    "origem_dir": "Galar_TurffieldIndoor61",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_TURFFIELD_INDOOR_63": [
+   {
+    "origem": "MAP_GALAR_TURFFIELD_INDOOR_62",
+    "origem_dir": "Galar_TurffieldIndoor62",
+    "origem_orfa": true,
+    "script": "objeto 15",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_UNDERWATER_01": [
+   {
+    "origem": "MAP_GALAR_ROUTE02_02",
+    "origem_dir": "Galar_Route0202",
+    "origem_orfa": false,
+    "script": "objeto 19",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_MOTOSTOKE_05",
+    "origem_dir": "Galar_Motostoke05",
+    "origem_orfa": false,
+    "script": "objeto 17",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_WILD_AREA_03",
+    "origem_dir": "Galar_WildArea03",
+    "origem_orfa": false,
+    "script": "objeto 22",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_WILD_AREA_27",
+    "origem_dir": "Galar_WildArea27",
+    "origem_orfa": true,
+    "script": "objeto 2",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_WILD_AREA_09",
+    "origem_dir": "Galar_WildArea09",
+    "origem_orfa": false,
+    "script": "objeto 10",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_ROUTE09_01",
+    "origem_dir": "Galar_Route0901",
+    "origem_orfa": false,
+    "script": "objeto 31",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_WILD_AREA_17",
+    "origem_dir": "Galar_WildArea17",
+    "origem_orfa": true,
+    "script": "objeto 25",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_WILD_AREA_20",
+    "origem_dir": "Galar_WildArea20",
+    "origem_orfa": false,
+    "script": "objeto 10",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_UNDERWATER_02": [
+   {
+    "origem": "MAP_GALAR_UNDERWATER_01",
+    "origem_dir": "Galar_Underwater01",
+    "origem_orfa": true,
+    "script": "objeto 10",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_WEDGEHURST_09": [
+   {
+    "origem": "MAP_GALAR_MOTOSTOKE_06",
+    "origem_dir": "Galar_Motostoke06",
+    "origem_orfa": false,
+    "script": "objeto 3",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_MOTOSTOKE_06",
+    "origem_dir": "Galar_Motostoke06",
+    "origem_orfa": false,
+    "script": "objeto 8",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_WILD_AREA_17": [
+   {
+    "origem": "MAP_GALAR_UNDERWATER_01",
+    "origem_dir": "Galar_Underwater01",
+    "origem_orfa": true,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_WILD_AREA_01",
+    "origem_dir": "Galar_WildArea01",
+    "origem_orfa": true,
+    "script": "objeto 18",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_WILD_AREA_22",
+    "origem_dir": "Galar_WildArea22",
+    "origem_orfa": false,
+    "script": "objeto 18",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_WYNDON_10": [
+   {
+    "origem": "MAP_GALAR_WYNDON_INDOOR_09",
+    "origem_dir": "Galar_WyndonIndoor09",
+    "origem_orfa": true,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_WYNDON_INDOOR_01": [
+   {
+    "origem": "MAP_GALAR_WILD_AREA_INDOOR_01",
+    "origem_dir": "Galar_WildAreaIndoor01",
+    "origem_orfa": false,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_WYNDON_INDOOR_02": [
+   {
+    "origem": "MAP_GALAR_WYNDON_INDOOR_01",
+    "origem_dir": "Galar_WyndonIndoor01",
+    "origem_orfa": true,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_WYNDON_INDOOR_03": [
+   {
+    "origem": "MAP_GALAR_WYNDON_INDOOR_02",
+    "origem_dir": "Galar_WyndonIndoor02",
+    "origem_orfa": true,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_WYNDON_INDOOR_04": [
+   {
+    "origem": "MAP_GALAR_WYNDON_INDOOR_03",
+    "origem_dir": "Galar_WyndonIndoor03",
+    "origem_orfa": true,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_WYNDON_INDOOR_06": [
+   {
+    "origem": "MAP_GALAR_WYNDON_INDOOR_05",
+    "origem_dir": "Galar_WyndonIndoor05",
+    "origem_orfa": false,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_WYNDON_INDOOR_07": [
+   {
+    "origem": "MAP_GALAR_WYNDON_INDOOR_06",
+    "origem_dir": "Galar_WyndonIndoor06",
+    "origem_orfa": true,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_WYNDON_INDOOR_08": [
+   {
+    "origem": "MAP_GALAR_WYNDON_INDOOR_04",
+    "origem_dir": "Galar_WyndonIndoor04",
+    "origem_orfa": true,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_WYNDON_10",
+    "origem_dir": "Galar_Wyndon10",
+    "origem_orfa": true,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_WYNDON_INDOOR_14",
+    "origem_dir": "Galar_WyndonIndoor14",
+    "origem_orfa": true,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   },
+   {
+    "origem": "MAP_GALAR_WYNDON_INDOOR_19",
+    "origem_dir": "Galar_WyndonIndoor19",
+    "origem_orfa": true,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_WYNDON_INDOOR_09": [
+   {
+    "origem": "MAP_GALAR_WYNDON_INDOOR_07",
+    "origem_dir": "Galar_WyndonIndoor07",
+    "origem_orfa": true,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_WYNDON_INDOOR_11": [
+   {
+    "origem": "MAP_GALAR_WYNDON_INDOOR_10",
+    "origem_dir": "Galar_WyndonIndoor10",
+    "origem_orfa": false,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_WYNDON_INDOOR_12": [
+   {
+    "origem": "MAP_GALAR_WYNDON_INDOOR_11",
+    "origem_dir": "Galar_WyndonIndoor11",
+    "origem_orfa": true,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_WYNDON_INDOOR_13": [
+   {
+    "origem": "MAP_GALAR_WYNDON_INDOOR_12",
+    "origem_dir": "Galar_WyndonIndoor12",
+    "origem_orfa": true,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_WYNDON_INDOOR_14": [
+   {
+    "origem": "MAP_GALAR_WYNDON_INDOOR_13",
+    "origem_dir": "Galar_WyndonIndoor13",
+    "origem_orfa": true,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_WYNDON_INDOOR_16": [
+   {
+    "origem": "MAP_GALAR_WYNDON_INDOOR_15",
+    "origem_dir": "Galar_WyndonIndoor15",
+    "origem_orfa": false,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_WYNDON_INDOOR_17": [
+   {
+    "origem": "MAP_GALAR_WYNDON_INDOOR_16",
+    "origem_dir": "Galar_WyndonIndoor16",
+    "origem_orfa": true,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_WYNDON_INDOOR_18": [
+   {
+    "origem": "MAP_GALAR_WYNDON_INDOOR_17",
+    "origem_dir": "Galar_WyndonIndoor17",
+    "origem_orfa": true,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_WYNDON_INDOOR_19": [
+   {
+    "origem": "MAP_GALAR_WYNDON_INDOOR_18",
+    "origem_dir": "Galar_WyndonIndoor18",
+    "origem_orfa": true,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_WYNDON_INDOOR_21": [
+   {
+    "origem": "MAP_GALAR_WYNDON_INDOOR_20",
+    "origem_dir": "Galar_WyndonIndoor20",
+    "origem_orfa": false,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ],
+  "MAP_GALAR_WYNDON_INDOOR_22": [
+   {
+    "origem": "MAP_GALAR_WYNDON_INDOOR_21",
+    "origem_dir": "Galar_WyndonIndoor21",
+    "origem_orfa": true,
+    "script": "objeto 1",
+    "classe": "objeto (NPC, porta de script)",
+    "comando": "warp",
+    "warp_de_chegada": 255
+   }
+  ]
+ }
+}

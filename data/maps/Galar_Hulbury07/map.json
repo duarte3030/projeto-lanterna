@@ -71,5 +71,6 @@
   "warp_events": [],
   "coord_events": [],
   "bg_events": [],
-  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g08m08. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo."
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g08m08. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo.",
+  "cortado_por": "reserva_duplicada_do_demake: o blockdata deste mapa é cópia BYTE A BYTE do de um mapa vivo, ninguém aponta warp para ele a partir de mapa que não seja órfão, nenhum script do demake o abre e ele não é ponto de cura. É uma das salas de reserva que o autor do demake deixou na ROM sem ligar (a mesma casa genérica repetida dezenas de vezes). Medido pelo lote AB2 da onda 1 da Frente A, 06/09/2026, com dev_scripts/anda_scripts_galar.py. O carimbo NÃO esvazia o mapa: id, warps e objetos ficam; só a régua de conectividade para de cobrá-los. Para reverter, apagar este campo do map.json."
 }

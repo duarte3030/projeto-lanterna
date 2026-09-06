@@ -47,5 +47,6 @@
   ],
   "coord_events": [],
   "bg_events": [],
-  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g02m18. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo."
+  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g02m18. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo.",
+  "cortado_por": "sobra_firered_no_grupo_galar: Lost Cave, Tanoby Key e as camaras Liptoo e Scufib sao as Sevii Islands do FireRed base, que o demake deixou dentro dos grupos de Galar. Nao sao mapa de Galar; liga-las inventaria mundo que a fonte nao tem e apaga-las mexeria em indice de save. Decisao da condutora da Frente A, 06/09/2026, lote AB da onda 1."
 }

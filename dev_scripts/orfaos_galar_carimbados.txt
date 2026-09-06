@@ -1,0 +1,42 @@
+# Mapas de Galar com `cortado_por` no map.json, lidos do disco.
+# Gerado por dev_scripts/liga_orfaos_galar.py. O carimbo tira o
+# mapa da régua de conectividade e NÃO esvazia nada: id, warps e
+# objetos continuam onde estão.
+
+reserva_duplicada_do_demake  (18)
+  Galar_Circhester18                 MAP_GALAR_CIRCHESTER_18
+  Galar_CrownTundra07                MAP_GALAR_CROWN_TUNDRA_07
+  Galar_CrownTundra20                MAP_GALAR_CROWN_TUNDRA_20
+  Galar_Hulbury07                    MAP_GALAR_HULBURY_07
+  Galar_Hulbury14                    MAP_GALAR_HULBURY_14
+  Galar_IsleOfArmor48                MAP_GALAR_ISLE_OF_ARMOR_48
+  Galar_IsleOfArmor49                MAP_GALAR_ISLE_OF_ARMOR_49
+  Galar_Motostoke11                  MAP_GALAR_MOTOSTOKE_11
+  Galar_Postwick169                  MAP_GALAR_POSTWICK_169
+  Galar_StowOnSide05                 MAP_GALAR_STOW_ON_SIDE_05
+  Galar_StowOnSide11                 MAP_GALAR_STOW_ON_SIDE_11
+  Galar_Wedgehurst10                 MAP_GALAR_WEDGEHURST_10
+  Galar_Wedgehurst16                 MAP_GALAR_WEDGEHURST_16
+  Galar_Wedgehurst17                 MAP_GALAR_WEDGEHURST_17
+  Galar_WyndonIndoor05               MAP_GALAR_WYNDON_INDOOR_05
+  Galar_WyndonIndoor10               MAP_GALAR_WYNDON_INDOOR_10
+  Galar_WyndonIndoor15               MAP_GALAR_WYNDON_INDOOR_15
+  Galar_WyndonIndoor20               MAP_GALAR_WYNDON_INDOOR_20
+
+sobra_firered_no_grupo_galar  (16)
+  Galar_LiptooChamber01              MAP_GALAR_LIPTOO_CHAMBER_01
+  Galar_LostCave01                   MAP_GALAR_LOST_CAVE_01
+  Galar_LostCave02                   MAP_GALAR_LOST_CAVE_02
+  Galar_LostCave03                   MAP_GALAR_LOST_CAVE_03
+  Galar_LostCave04                   MAP_GALAR_LOST_CAVE_04
+  Galar_LostCave05                   MAP_GALAR_LOST_CAVE_05
+  Galar_LostCave06                   MAP_GALAR_LOST_CAVE_06
+  Galar_LostCave07                   MAP_GALAR_LOST_CAVE_07
+  Galar_LostCave08                   MAP_GALAR_LOST_CAVE_08
+  Galar_LostCave09                   MAP_GALAR_LOST_CAVE_09
+  Galar_LostCave10                   MAP_GALAR_LOST_CAVE_10
+  Galar_LostCave11                   MAP_GALAR_LOST_CAVE_11
+  Galar_LostCave12                   MAP_GALAR_LOST_CAVE_12
+  Galar_LostCave13                   MAP_GALAR_LOST_CAVE_13
+  Galar_ScufibChamber01              MAP_GALAR_SCUFIB_CHAMBER_01
+  Galar_TanobyKey01                  MAP_GALAR_TANOBY_KEY_01

@@ -1,0 +1,51 @@
+# Órfãos de Galar que sobram DE VERDADE, gerado por
+# dev_scripts/liga_orfaos_galar.py. Critério: nenhum mapa NÃO
+# ÓRFÃO aponta warp para eles na fonte, nenhum script do demake os
+# abre (dev_scripts/anda_scripts_galar.py) e o blockdata deles não
+# é cópia byte a byte de mapa vivo. Ligar estes é DESENHO DE
+# CONTEÚDO, não extração: a fonte não tem porta para dar.
+#
+# 42 mapas.
+
+Galar_GalarMine04                  MAP_GALAR_GALAR_MINE_04
+Galar_GalarMine05                  MAP_GALAR_GALAR_MINE_05
+Galar_IsleOfArmor15                MAP_GALAR_ISLE_OF_ARMOR_15
+Galar_Motostoke21                  MAP_GALAR_MOTOSTOKE_21
+Galar_Postwick06                   MAP_GALAR_POSTWICK_06
+Galar_Postwick07                   MAP_GALAR_POSTWICK_07
+Galar_Postwick11                   MAP_GALAR_POSTWICK_11
+Galar_Postwick111                  MAP_GALAR_POSTWICK_111
+Galar_Postwick112                  MAP_GALAR_POSTWICK_112
+Galar_Postwick113                  MAP_GALAR_POSTWICK_113
+Galar_Postwick172                  MAP_GALAR_POSTWICK_172
+Galar_Postwick23                   MAP_GALAR_POSTWICK_23
+Galar_Postwick24                   MAP_GALAR_POSTWICK_24
+Galar_Postwick26                   MAP_GALAR_POSTWICK_26
+Galar_Postwick31                   MAP_GALAR_POSTWICK_31
+Galar_Postwick34                   MAP_GALAR_POSTWICK_34
+Galar_Postwick37                   MAP_GALAR_POSTWICK_37
+Galar_Postwick38                   MAP_GALAR_POSTWICK_38
+Galar_Postwick40                   MAP_GALAR_POSTWICK_40
+Galar_Postwick45                   MAP_GALAR_POSTWICK_45
+Galar_Postwick46                   MAP_GALAR_POSTWICK_46
+Galar_Postwick47                   MAP_GALAR_POSTWICK_47
+Galar_Postwick49                   MAP_GALAR_POSTWICK_49
+Galar_Postwick50                   MAP_GALAR_POSTWICK_50
+Galar_Postwick53                   MAP_GALAR_POSTWICK_53
+Galar_Postwick58                   MAP_GALAR_POSTWICK_58
+Galar_Route0204                    MAP_GALAR_ROUTE02_04
+Galar_StowOnSide03                 MAP_GALAR_STOW_ON_SIDE_03
+Galar_Wedgehurst13                 MAP_GALAR_WEDGEHURST_13
+Galar_Wedgehurst14                 MAP_GALAR_WEDGEHURST_14
+Galar_Wedgehurst15                 MAP_GALAR_WEDGEHURST_15
+Galar_WildArea01                   MAP_GALAR_WILD_AREA_01
+Galar_WildArea02                   MAP_GALAR_WILD_AREA_02
+Galar_WildArea12                   MAP_GALAR_WILD_AREA_12
+Galar_WildArea18                   MAP_GALAR_WILD_AREA_18
+Galar_WildArea23                   MAP_GALAR_WILD_AREA_23
+Galar_WildArea25                   MAP_GALAR_WILD_AREA_25
+Galar_WildArea26                   MAP_GALAR_WILD_AREA_26
+Galar_WildArea27                   MAP_GALAR_WILD_AREA_27
+Galar_WildArea28                   MAP_GALAR_WILD_AREA_28
+Galar_WildArea29                   MAP_GALAR_WILD_AREA_29
+Galar_WildAreaCave01               MAP_GALAR_WILD_AREA_CAVE_01

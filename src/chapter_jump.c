@@ -83,6 +83,19 @@ struct GinasioDoHack
     u16 treinador;
 };
 
+// Uma PARADA é destino que não é ginásio: entra na lista com o nome tal como
+// está escrito (sem o "Before " dos ginásios) e não acende flag nenhuma. Existe
+// para região que nesta ROM ainda não tem ginásio, mas já tem geometria inteira
+// e um ponto de cura por cidade: é o caso de Galar. Sem isto, o único jeito de
+// entrar em Galar era a cidade inicial, e o resto da região só se alcançava a
+// pé, o que na prática deixava a Isle of Armor e a Crown Tundra sem porta.
+struct ParadaDoHack
+{
+    // O nome que aparece na lista, em inglês oficial da região.
+    const u8 *nome;
+    struct DestinoDeCapitulo onde;
+};
+
 struct RegiaoDoHack
 {
     const u8 *nome;
@@ -91,10 +104,15 @@ struct RegiaoDoHack
     // A Liga daquela região, ou healLocation 0 quando a região ainda NÃO TEM
     // Liga nesta ROM. É o caso de Galar, que entrou só com a geometria (a fase
     // de conteúdo é que traz ginásios e Liga): oferecer "Before Pokémon League"
-    // ali seria capítulo mentiroso, então o menu dela tem uma linha só.
+    // ali seria capítulo mentiroso, então o menu dela não tem essa linha. O que
+    // ela tem são PARADAS, uma por cidade, logo abaixo.
     struct DestinoDeCapitulo liga;
     const struct GinasioDoHack *ginasios;
     u8 numGinasios;
+    // Paradas extras, DEPOIS dos ginásios e da Liga na lista. NULL/0 em quase
+    // toda região: só Galar usa, e enquanto ela não tiver ginásio.
+    const struct ParadaDoHack *paradas;
+    u8 numParadas;
 };
 
 // Atalho de leitura: todo destino é um ponto de cura.
@@ -201,6 +219,43 @@ static const struct GinasioDoHack sGinasiosUnova[] =
 };
 
 // ----------------------------------------------------------------------------
+// GALAR: as paradas
+// ----------------------------------------------------------------------------
+// As DOZE heal locations de Galar existem desde o G3 (include/constants/
+// heal_locations.h:92-103, uma por cidade mais as duas ilhas de DLC), mas só a
+// de Wedgehurst estava neste arquivo, e este arquivo é a ÚNICA porta de Galar:
+// não há warp nem conexão ligando Galar às outras regiões (decisão 11 do
+// PLANO-OBRAS-GALAR.md), e dev_scripts/valida_conectividade.py mede o alcance
+// da região a partir dos HEAL_LOCATION_* citados aqui
+// (`sementes_do_seletor`). Com uma semente só, tudo que não se alcançava a pé
+// desde Wedgehurst contava como inalcançável, e a Isle of Armor e a Crown
+// Tundra inteiras entravam nessa conta sem terem defeito nenhum. Medido em
+// 06/09/2026: os órfãos de Galar caem de 229 para 159 só com estas onze linhas,
+// e a Crown Tundra sai de 21 para 2 e a Isle of Armor de 49 para 6.
+//
+// Wedgehurst NÃO se repete aqui: ela é o "Start of region" logo abaixo, então
+// as onze paradas mais o início dão as doze. A ordem é a da campanha de Sword
+// e Shield, e as duas ilhas de DLC vão no fim.
+//
+// Nenhuma parada acende flag: Galar nesta ROM não tem ginásio, insígnia nem
+// Liga, e inventar flag aqui seria capítulo mentiroso, exatamente o que o
+// comentário da região já recusava.
+static const struct ParadaDoHack sParadasGalar[] =
+{
+    { COMPOUND_STRING("MOTOSTOKE"),     CURA(HEAL_LOCATION_GALAR_MOTOSTOKE) },
+    { COMPOUND_STRING("TURFFIELD"),     CURA(HEAL_LOCATION_GALAR_TURFFIELD) },
+    { COMPOUND_STRING("HULBURY"),       CURA(HEAL_LOCATION_GALAR_HULBURY) },
+    { COMPOUND_STRING("STOW-ON-SIDE"),  CURA(HEAL_LOCATION_GALAR_STOW_ON_SIDE) },
+    { COMPOUND_STRING("BALLONLEA"),     CURA(HEAL_LOCATION_GALAR_BALLONLEA) },
+    { COMPOUND_STRING("CIRCHESTER"),    CURA(HEAL_LOCATION_GALAR_CIRCHESTER) },
+    { COMPOUND_STRING("SPIKEMUTH"),     CURA(HEAL_LOCATION_GALAR_SPIKEMUTH) },
+    { COMPOUND_STRING("HAMMERLOCKE"),   CURA(HEAL_LOCATION_GALAR_HAMMERLOCKE) },
+    { COMPOUND_STRING("WYNDON"),        CURA(HEAL_LOCATION_GALAR_WYNDON) },
+    { COMPOUND_STRING("ISLE OF ARMOR"), CURA(HEAL_LOCATION_GALAR_ISLE_OF_ARMOR) },
+    { COMPOUND_STRING("CROWN TUNDRA"),  CURA(HEAL_LOCATION_GALAR_CROWN_TUNDRA) },
+};
+
+// ----------------------------------------------------------------------------
 // As cinco regiões, na ordem em que aparecem no menu
 // ----------------------------------------------------------------------------
 //
@@ -220,43 +275,52 @@ static const struct RegiaoDoHack sRegioes[] =
         CURA(HEAL_LOCATION_SLATEPORT_CITY),
         CURA(HEAL_LOCATION_EVER_GRANDE_CITY_POKEMON_LEAGUE),
         sGinasiosHoenn, ARRAY_COUNT(sGinasiosHoenn),
+        NULL, 0,
     },
     {
         COMPOUND_STRING("KANTO"),
         CURA(HEAL_LOCATION_PALLET_TOWN),
         CURA(HEAL_LOCATION_INDIGO_PLATEAU),
         sGinasiosKanto, ARRAY_COUNT(sGinasiosKanto),
+        NULL, 0,
     },
     {
         COMPOUND_STRING("JOHTO"),
         CURA(HEAL_LOCATION_OLIVINE_CITY),
         CURA(HEAL_LOCATION_INDIGO_PLATEAU),
         sGinasiosJohto, ARRAY_COUNT(sGinasiosJohto),
+        NULL, 0,
     },
     {
         COMPOUND_STRING("SINNOH"),
         CURA(HEAL_LOCATION_CANALAVE_CITY),
         CURA(HEAL_LOCATION_POKEMON_LEAGUE_SOUTH),
         sGinasiosSinnoh, ARRAY_COUNT(sGinasiosSinnoh),
+        NULL, 0,
     },
     {
         COMPOUND_STRING("UNOVA"),
         CURA(HEAL_LOCATION_UNOVA_VIRBANK),
         CURA(HEAL_LOCATION_UNOVA_PKMN_LEAGUE),
         sGinasiosUnova, ARRAY_COUNT(sGinasiosUnova),
+        NULL, 0,
     },
     // GALAR, 18/08/2026 (G5, decisão 11 do PLANO-OBRAS-GALAR.md). Nesta obra
-    // entrou só a GEOMETRIA da região: zero ginásio com flag e zero Liga, então
-    // o menu dela tem uma linha só, "Start of region". O destino é o Centro
-    // Pokémon de Wedgehurst, que o G3 achou por impressão de layout
-    // (HEAL_LOCATION_GALAR_WEDGEHURST, MAP_GALAR_WEDGEHURST_03): sair pela
-    // porta dele cai na praça de WEDGEHURST_05, que é onde mora o marinheiro da
-    // travessia e de onde se alcança a pé o resto da região.
+    // entrou só a GEOMETRIA da região: zero ginásio com flag e zero Liga. O
+    // "Start of region" é o Centro Pokémon de Wedgehurst, que o G3 achou por
+    // impressão de layout (HEAL_LOCATION_GALAR_WEDGEHURST,
+    // MAP_GALAR_WEDGEHURST_03): sair pela porta dele cai na praça de
+    // WEDGEHURST_05, que é onde mora o marinheiro da travessia.
+    //
+    // As outras ONZE linhas entraram em 06/09/2026 (lote AB2 da onda 1 da
+    // Frente A) e são PARADAS, não capítulos de ginásio: elas não acendem flag
+    // nenhuma, só levam o jogador à cidade. Ver o comentário de sParadasGalar.
     {
         COMPOUND_STRING("GALAR"),
         CURA(HEAL_LOCATION_GALAR_WEDGEHURST),
         CURA(0),
         NULL, 0,
+        sParadasGalar, ARRAY_COUNT(sParadasGalar),
     },
 };
 
@@ -266,7 +330,12 @@ static const struct RegiaoDoHack sRegioes[] =
 // Região sem Liga nesta ROM (Galar, por enquanto) tem um capítulo a menos, em
 // vez de uma linha que levaria a lugar nenhum.
 #define TEM_LIGA(r) ((r)->liga.healLocation != 0)
-#define NUM_CAPITULOS(r) ((r)->numGinasios + 1 + (TEM_LIGA(r) ? 1 : 0))
+// A primeira linha de parada, quando a região tem paradas: elas vêm DEPOIS do
+// início, dos ginásios e da Liga, então acrescentar parada nunca renumera
+// capítulo que já existia (a save não guarda número de capítulo, mas o
+// playtest guarda "escolhi a linha 3").
+#define PRIMEIRA_PARADA(r) ((r)->numGinasios + 1 + (TEM_LIGA(r) ? 1 : 0))
+#define NUM_CAPITULOS(r) (PRIMEIRA_PARADA(r) + (r)->numParadas)
 
 static const u8 sTexto_Inicio[]  = _("Start of region");
 static const u8 sTexto_Antes[]   = _("Before ");
@@ -322,6 +391,8 @@ static void EmpilhaCapitulo(const struct RegiaoDoHack *regiao, u32 capitulo)
 
     if (capitulo == 0)
         StringCopy(nome, sTexto_Inicio);
+    else if (capitulo >= PRIMEIRA_PARADA(regiao))
+        StringCopy(nome, regiao->paradas[capitulo - PRIMEIRA_PARADA(regiao)].nome);
     else if (capitulo > regiao->numGinasios && TEM_LIGA(regiao))
         StringCopy(nome, sTexto_Liga);
     else
@@ -504,6 +575,8 @@ void ChapterJump_AplicaCapitulo(void)
     // grampo acima garante que região sem Liga nunca chega aqui com capítulo
     // fora do início.
     VaiPara(capitulo == 0 ? &regiao->inicio
+          : capitulo >= PRIMEIRA_PARADA(regiao)
+                ? &regiao->paradas[capitulo - PRIMEIRA_PARADA(regiao)].onde
           : (capitulo > regiao->numGinasios && TEM_LIGA(regiao)) ? &regiao->liga
           : &regiao->ginasios[capitulo - 1].onde);
 }
