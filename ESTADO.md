@@ -1212,91 +1212,6 @@ neles: o conserto daqui é a loja de departamento de Goldenrod, mais um apelido 
 fim de `vars.h` e uma entrada no FIM do enum de `script_menu.h`, que não desloca
 id de ninguém.
 
-### As casas pretas de Goldenrod: a POSIÇÃO no array de paleta É o slot, 06/09/2026
-
-O Gui mandou a foto de uma cena noturna em Goldenrod City com um prédio de topo branco e corpo
-inteiro PRETO, só as janelas aparecendo, com os vizinhos normais. Não era arte, não era o DNS e não
-era o `metatiles.bin`: era a **ORDEM do array de paleta**. `LoadTilesetPalette`
-(`src/fieldmap.c:1035`) copia `tileset->palettes[numPalsInPrimary]` **em bloco**, então a POSIÇÃO da
-linha dentro de `gTilesetPalettes_X` É o slot de paleta que o jogo carrega. E
-`dev_scripts/importa_tilesets_johto.py` montava esse array com `sorted(os.listdir(...))`, emitindo
-também os `.pal` que NÃO são slot: a camada de luz noturna do hns (`08_over.pal`, `09_over.pal`,
-`10_over.pal`, `12_over.pal`) e o `bellchime_12.pal`.
-
-Em `gTileset_Goldenrod` o array tinha **20 linhas em vez de 16**, e `08_over.pal` caía na posição 9.
-Johto é `layout_version: "johto"`, ou seja `bigPrimary`, com 7 paletas no primário, então o
-secundário ocupa os slots 7 a 12. O que o motor carregava, medido linha a linha:
-
-| slot do jogo | arquivo que entrava | arquivo certo |
-|---|---|---|
-| 7 | `07.pal` | `07.pal` |
-| 8 | `08.pal` | `08.pal` |
-| **9** | **`08_over.pal`** (12 das 16 cores são `0 0 0`) | `09.pal` |
-| 10 | `09.pal` | `10.pal` |
-| **11** | **`09_over.pal`** (13 das 16 cores são `0 0 0`) | `11.pal` |
-| 12 | `10.pal` | `12.pal` |
-
-Preto é preto com qualquer tingimento, então o defeito **não depende da hora**: a foto do Gui é de
-noite porque ele jogou de noite. Medido no `LAYOUT_GOLDENROD_CITY` (58x46): **151 blocos de 2.668, em
-84 metatiles distintos, usam os slots 9 ou 11** e saíam pretos, e outros **1.061 blocos usam o slot
-12**, que saía com a cor do `10.pal`, errada mas não preta (é o toldo que estava branco em vez de
-amarelo). `Route34` e `Route35` compartilham o tileset e não colocam nenhum metatile dos slots
-pretos, e por isso ninguém tinha reclamado deles.
-
-**A varredura do repo inteiro achou quatro arrays desalinhados, e só um era defeito visível.**
-`Goldenrod` e `RuinsOfAlphOutside` divergem a partir da posição 9; `Route32` e `VioletCity` têm
-`bellchime_12.pal` na posição 13, que é além do `NUM_PALS_TOTAL` de 13 e por isso o motor nunca lê.
-`RuinsOfAlphOutside` estava desalinhado e mesmo assim correto na tela: **0 de 2.208 blocos** do mapa
-dele usam os slots pretos, e é por isso que ele virou o CONTROLE da prova, e não um segundo conserto.
-Os outros dois geradores de tileset (`tileset_gen2.py` e `tileset_galar.py`) emitem
-`palettes/{i:02d}.pal` com `range(16)` e nunca podiam cair nisso.
-
-**O conserto é na raiz, no gerador.** `importa_tilesets_johto.py` passou a aceitar só `NN.pal`,
-ordenar por NÚMERO e cobrar que a sequência comece em 00 e não tenha buraco, tanto na hora de copiar
-do hns quanto na hora de emitir o `INCGFX`. O `--demo` dele ganhou a invariante que faltava, e ela é
-sobre o `graphics.h` INTEIRO e não só sobre o bloco que o script escreve: posição tem que ser igual
-ao número do arquivo, nenhum array pode ter menos de 13 slots, e ela recusa rodar se examinar menos
-de 280 arrays. Calibrada dos dois lados: no `graphics.h` de `b7ef40f330` ela para no primeiro,
-`gTilesetPalettes_Goldenrod: a posicao nao e o slot; posicao 9 carrega '08_over.pal'`, e na árvore
-desta rodada passa. As 8
-linhas de `.pal` que não são slot saíram do `graphics.h` e os 8 arquivos saíram do disco (todos
-reprodutíveis a partir do hns em `fontes-mapas/hns`), para que o disco e a tabela digam a mesma coisa
-e nenhuma outra ferramenta tropece neles de novo. Custo de ROM medido no `.map`, e não deduzido:
-`gTilesetPalettes_Goldenrod` cai de `0x280` para `0x200` bytes (20 paletas para 16), e as 8 linhas
-das quatro tabelas somam **256 B a menos**.
-
-**A lente que parecia óbvia foi tentada, medida e RECUSADA**, e a medida está escrita dentro do
-`prova_paletas_goldenrod.py` para ninguém refazer o caminho: "procurar metatile colocado num mapa cujo
-slot de paleta sai TODO preto" **não pega este defeito**. Rodada com o `graphics.h` de `b7ef40f330`
-nos **2.053 layouts** que têm blockdata em disco, ela não acusa Goldenrod, porque `08_over.pal` tem
-12 cores pretas e **4 amarelas**, que são as janelas acesas, e portanto não é "toda preta". De quebra
-ela acusa **56 layouts de Kanto, Hoenn e Galar com tileset VANILLA**, que precisariam de calibração
-contra o `pret/pokeemerald` intocado antes de virarem cobrança. Duas razões para não existir: não
-acha o que esta rodada consertou, e acenderia vermelho permanente. Quem pega o defeito é a invariante
-de ORDEM, e ela examina os **286 arrays** de `graphics.h` mais `graphics.c`, nas três formas em uso
-(com e sem `ALIGNED(4)`, com o arquivo em `.pal` ou já em `.gbapal`); uma regex mais estreita
-examinaria 70 dos 286 e daria verde por não ter olhado.
-
-**A prova é do emulador, com par antes/depois e um controle**
-(`dev_scripts/prova_paletas_goldenrod.py`). Cor não mora em EWRAM que se leia por símbolo, então a
-prova é o PNG, medido e não olhado: o roteiro warpa por debug e a ferramenta conta quanto da metade
-de cima da tela é PRETO PURO. Na ROM `2026-09-05`, que é a que o Gui jogou, a porta da Radio Tower
-(warp 7) dá **38,4% de preto** e o Game Corner (warp 10) dá **13,1%**; nesta build dão **0,9%** e
-**0,3%**, com a MESMA hora de relógio e o mesmo tingimento noturno (o poste aceso está nos quatro
-PNGs). `RuinsOfAlph_Outside` mede **0,2% nas duas**, que é o controle.
-
-**E tem uma terceira camada, lida do BINÁRIO e não da tela.** `gTilesetPalettes_Goldenrod` está em
-`0x08f18a98` na ROM `2026-09-05` e em `0x08f1b598` nesta, os dois endereços tirados do `.map`. Lendo
-32 bytes por slot: na ROM velha o **slot 9 tem 12 das 16 cores em `0x0000`** e o **slot 11 tem 13**;
-nesta, os slots 9, 11 e 12 têm **zero** cor preta. É a mesma afirmação medida em três lugares
-diferentes, arquivo de dados, binário e framebuffer.
-
-**Efeito colateral, achado no caminho: `render_maps.py` nunca tinha conseguido desenhar Goldenrod.**
-Ele lia o nome do `.pal` com `int()` cru e morria com `invalid literal for int() with base 10:
-'12_over'`. Agora ele filtra por `^\d{2}\.pal$`, que é a mesma regra do gerador. Com ela, os dois
-tilesets voltaram a renderizar, e o render da árvore bate byte a byte com um render feito pela ordem
-do `graphics.h`, que é a prova de que as duas camadas passaram a concordar.
-
 ### A auditoria de ida e volta dos warps: quem entra por uma porta tem que sair por ela, 06/09/2026
 
 Quarto defeito do playtest, e o pedido que veio junto: *"em Sinnoh fui para Veilstone, entrei no
@@ -1600,37 +1515,6 @@ toque a mais que a distância, e as pernas de 20 são saturantes para não depen
 disso. E os portões de cidade são `MB_WEST/EAST/SOUTH_ARROW_WARP`: seta só
 dispara quando o jogador ANDA NA DIREÇÃO DELA (`TryArrowWarp`), então nascer em
 cima dela pelo menu de debug não warpa nada.
-
-#### O que foi rodado, e o que ficou pela metade
-
-- **Build verde** na worktree `/private/tmp/claude-501/colisao-r13b`, ROM em
-  `roms/pokemon-claude-2026-09-06r.gba` com `.map` ao lado, md5
-  `87f59f2912844fd05ff906ef605e6927`, 33.554.432 B.
-- `valida_rom.py`: **2.400 mapas e 2.054 layouts, tudo que foi declarado entrou**.
-- `guarda_save.py`: **SAVE COMPATIVEL**, `SaveBlock1` em 14.964 B de 15.872
-  (94,3%), inalterado (esta frente não encostou em nenhum `.c` nem `.h`).
-- `qa/roda_qa.py --demo`: **verde nas cinco varreduras** desta árvore.
-- `completude.py --detalhe sinnoh`: **100,0% mapas / 100,3% objetos / 103,7%
-  warps / 103,4% placas**, igual a antes do conserto.
-- **T11 completo 3/3**, contra a baseline certa: `--rom
-  roms/pokemon-claude-2026-08-15c.gba --src` uma worktree em `d6b8c9e898` com
-  `make generated` rodado e os binários de `tools/` copiados, mais `--abertura
-  intro_carvalho`. **Armadilha medida hoje**: o `.sav` do caso mora no `TMPDIR`, e
-  rodar o T11 duas vezes com `TMPDIR` sujo faz o T11.3 ler a save da execução
-  ANTERIOR e reprovar com a mensagem errada (aqui deu "obtido MAP_SANDGEM_TOWN"
-  com a flag acesa, que é o retrato de uma save que carregou). Apagar o `TMPDIR`
-  antes é parte do procedimento, não zelo.
-- **`dev_scripts/testes_criticos/176_colisao_sinnoh.json`, 12 de 12**.
-- **A suíte inteira NÃO fechou nesta sessão, e isso fica dito.** A máquina estava
-  com SEIS frentes rodando emulador ao mesmo tempo e o ritmo caiu de 5,4 para 1,6
-  casos por minuto; três execuções do `testa_critico.py` inteiro foram mortas por
-  fora (código 144) antes do fim, a mais longa em **135 casos, 0 reprovados**.
-  Ficou montado um jeito de retomar sem perder o andado, e ele é o que a próxima
-  sessão deve usar: `python3 -u /tmp/claude-501/suite_resumivel.py >>
-  /tmp/claude-501/suite-colisao.log`, que lê o log, pula todo caso que já tem
-  linha `[OK   ]` ou `[FALHA]` e roda só o resto; num laço, ele fecha a suíte em
-  quantas retomadas forem precisas. Até o ponto em que esta linha foi escrita:
-  **0 reprovados**.
 
 #### O que fica aberto
 
