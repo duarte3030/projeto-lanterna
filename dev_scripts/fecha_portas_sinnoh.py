@@ -644,6 +644,28 @@ def main():
             npc.pop("local_id", None)
             npc["script"] = f"{pasta}_{ROTULO_FUNCIONAL[funcional]}"
             npc.update(MARCA_PLANTA)
+            # O ARQUETIPO E A FONTE FALAM DA MESMA PESSOA, 06/09/2026.
+            #
+            # O NPC funcional que entra aqui e a enfermeira do balcao (ou o
+            # caixa). A fonte tem essa mesma pessoa no `object_events` dela, e
+            # `conteudo_do_mapa` acabou de importa-la como um objeto qualquer,
+            # mudo, na coordenada convertida: numa planta REAPROVEITADA isso cai
+            # longe do balcao, e o mapa fica com duas enfermeiras, uma curando e
+            # outra parada no meio da sala. E o defeito que o Gui trouxe do
+            # playtest de 06/09/2026, na foto do `SunyshoreCityPokecenter1F`.
+            # Medido nas 18 fontes de Pokecenter 1F do Platinum: cada uma tem
+            # UMA `OBJ_EVENT_GFX_POKECENTER_NURSE`, nunca duas.
+            # Quem manda e o arquetipo, porque e ele que tem o script que cura;
+            # a copia importada sai antes de o mapa nascer.
+            # So sai quem esta MUDO: corpo com fala portada pode ser a unica
+            # boca de outra pessoa que por acaso caiu no mesmo grafico depois do
+            # de-para, e apagar aquilo seria apagar conteudo da fonte.
+            antes = len(objs)
+            objs = [o for o in objs
+                    if o.get("graphics_id") != npc.get("graphics_id")
+                    or str(o.get("script", "0")) != "0"]
+            if antes != len(objs):
+                conta["repetidos"] = conta.get("repetidos", 0) + antes - len(objs)
             objs.insert(0, npc)          # posicao 0: LOCALID_PRIMEIRO
             trecho = FUNCIONAL[funcional](pasta) + trecho
         d["id"] = const_do_header(header)

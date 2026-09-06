@@ -599,6 +599,110 @@ então Deoxys continua pós-Liga. **T168.4 e T168.5.**
 ### O que a caça achou DENTRO do próprio ferramental
 
 Cinco vermelhos que ninguém via porque um `assert` anterior sempre caía primeiro. (a) **Três espécies
+### O Pokécenter de Sinnoh tinha três enfermeiras, e a fonte tem uma, 06/09/2026
+
+Defeito do playtest na foto do `SunyshoreCityPokecenter1F` ("before Volkner"). O Gui
+apontou duas coisas na mesma tela, e **só uma era defeito**.
+
+**O piso NÃO é defeito, e a prova é o controle de Hoenn.** O "triângulo de bolinhas laranja e
+brancas" entre o balcão e o tapete é a **Poké Ball desenhada no chão do Pokécenter**, arte do
+Emerald original: um bloco de 4x4 metatiles (620-623, 560-563, 568-571, 576-579) em (5,4)-(8,7),
+metade de cima laranja e metade de baixo branca, com a faixa do meio deixada no piso xadrez. Ela
+aparece igual no `PetalburgCity_PokemonCenter_1F`, que foi o controle fotografado. Medido, e não
+deduzido: `data/layouts/OreburghCity_PokemonCenter_1F/map.bin` difere do
+`data/layouts/PokemonCenter_1F/map.bin` em **um único bloco**, o (13,6), que é a escada do B1F; e
+`data/tilesets/primary/building/` e `data/tilesets/secondary/pokemon_center/` são **byte a byte
+idênticos** ao `fontes-mapas/pokeemerald` (21 e 18 arquivos, md5 a md5). Layout igual mais tileset
+igual quer dizer que o que a ROM desenha ali é o que o Emerald desenha. Nada mudou no piso.
+
+**A gente é que estava repetida.** Contado nas 18 fontes de Pokécenter 1F do Platinum
+(`fontes-mapas/pokeplatinum/res/field/events/events_*_pokecenter_1f.json`): **cada uma tem
+exatamente UMA** `OBJ_EVENT_GFX_POKECENTER_NURSE`, sempre em (8,4) da grade de lá, sempre com
+script. Não existem as atendentes de Wi-Fi/Union/GTS que a suspeita inicial levantava, e não havia
+sprite errado: `OBJ_EVENT_GFX_NINJA_BOY` é byte a byte o `ninja_boy.png` do Emerald, e o menino do
+Emerald **tem cabelo rosa mesmo**. O que havia eram **corpos repetidos da mesma pessoa**, por duas
+portas distintas:
+
+1. **`fecha_portas_sinnoh.py`, na criação do mapa.** O arquétipo `pc1` copia o NPC funcional do
+   índice 0 de `OreburghCity_PokemonCenter_1F` (a enfermeira com o `Common_EventScript_PkmnCenterNurse`)
+   e o insere na posição 0, enquanto `conteudo_do_mapa` já tinha importado a enfermeira DA FONTE
+   como um objeto qualquer. Duas mulheres, a mesma pessoa: a importada ficou muda, de pé na frente
+   do balcão. É a enfermeira de (8,4) de onze mapas.
+2. **`importa_npcs_sinnoh.py`, nas rodadas de completude de 22 e 23/08.** A guarda de idempotência
+   dele reconhece "já importado" por VIZINHANÇA de até um tile. Nesses mapas a planta é
+   REAPROVEITADA do repo, então a coordenada da fonte não diz nada: a régua de escala mudou entre
+   rodadas, a mesma pessoa caiu em (8,4) numa passada e em (10,2) na seguinte, e nenhuma reclamou a
+   outra. Foi assim que nasceram a terceira enfermeira de Sunyshore e de Hearthome, o segundo
+   menino de cabelo rosa de Sunyshore, a segunda LASS de Canalave e de Snowpoint, a segunda WOMAN_3
+   de Eterna e as demais.
+
+As duas portas foram fechadas nos geradores: `fecha_portas_sinnoh.py` não importa mais o corpo mudo
+que tem o mesmo gráfico do NPC funcional, e `importa_npcs_sinnoh.reclama` passa a reclamar por
+IDENTIDADE (mesmo `graphics_id`, em qualquer lugar do mapa) quando o `map.json` diz
+`planta reaproveitada`. O que já estava escrito saiu por
+**`dev_scripts/corpos_repetidos_pokecenter.py`**, idempotente e com `--demo` de nove provas:
+**25 corpos em 15 mapas**, e cada um passou por cinco portões: mapa com fonte no Platinum; objeto
+MUDO e anônimo (script "0", flag "0", sem `local_id`, sem treinador); marca `pokeplatinum`; a
+pessoa continua no mapa e COM a fala dela (existe outro objeto do mesmo gráfico que tem script); e
+a fonte tem menos corpos daquele gráfico do que nós.
+
+| mapa | corpos apagados |
+|---|---|
+| SunyshoreCityPokecenter1F | 3 (NURSE 8,4; NINJA_BOY 13,4; NURSE 10,2) |
+| EternaCityPokecenter1F | 3 (NURSE 8,4; SCHOOL_KID_M 1,6; WOMAN_3 13,3) |
+| CanalaveCityPokecenter1F | 2 (NURSE 8,4; LASS 9,8) |
+| CelesticTownPokecenter1F | 2 (NURSE 8,4; EXPERT_F 13,4) |
+| HearthomeCityPokecenter1F | 2 (NURSE 8,4; NURSE 10,2) |
+| PokemonLeagueNorthPokecenter1F | 2 (NURSE 3,2; NURSE 0,2) |
+| SnowpointCityPokecenter1F | 2 (NURSE 8,4; LASS 0,2) |
+| SolaceonTownPokecenter1F | 2 (NURSE 8,4; OLD_MAN 13,3) |
+| Floaroma, Jubilife, Oreburgh, Pastoria, LeagueSouth, Sandgem, Veilstone | 1 cada (a enfermeira muda) |
+
+**A armadilha do apagar, desarmada antes e não depois.** Apagar objeto desloca o id de todos os
+seguintes do mesmo mapa (`tools/mapjson` gera `#define <local_id> <posição + 1>`). Os
+`LOCALID_*_PC_NURSE` destes 15 mapas apontam todos para a posição 0, que nunca sai, e os `#define`
+escritos à mão em `include/constants/sinnoh/*.h` para eles valem todos 1. O caso perigoso era um só
+e estava medido: `PokemonLeagueNorthPokecenter1F` chamava o rival por **`addobject 7`** cru, e as
+duas enfermeiras a apagar estavam ANTES dele. A ferramenta batiza o objeto antes de apagar qualquer
+coisa (`LOCALID_LEAGUE_NORTH_PC_RIVAL` no `map.json`, a constante no lugar do número no
+`scripts.inc`) e RECUSA o mapa inteiro se sobrar id cru sem batismo.
+
+**Três enfermeiras mudas continuam no repo, e é de propósito**: as de `FloaromaTown`,
+`JubilifeCity` e `OreburghCity` em (3,2) já estão atrás de `FLAG_SINNOH_NPC_DUPLICADO`, ou seja
+invisíveis em jogo novo desde a leva de 12/08. Corpo com flag não passa no portão 2 desta
+ferramenta, e mexer nelas seria refazer uma decisão já tomada.
+
+**Duas lições desta frente.**
+
+1. **Defeito relatado por foto pede CONTROLE antes de conserto.** O piso "errado" era arte do
+   Emerald, e bastou fotografar um Pokécenter de Hoenn no mesmo emulador para ver a mesma Poké Ball.
+   Sem esse par, o conserto teria sido reescrever um `map.bin` que está certo desde 2004.
+2. **Sprite estranho não é sprite errado.** As "figuras de cabelo rosa que parecem enfermeira" eram
+   o `OBJ_EVENT_GFX_NINJA_BOY` do Emerald, cujo `ninja_boy.png` é idêntico ao do upstream. O defeito
+   não estava no de-para, estava na CONTAGEM: eram dois meninos onde a fonte tem um.
+
+**Os portões desta frente.** Build verde com o lock (ROM 96,47% de 32 MB, 32.369.368 B; EWRAM
+86,16%, IWRAM 86,68%). `guarda_save.py` **SAVE COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B,
+2.400 mapas: apagar objeto NÃO é índice de save, o que a save guarda de mapa é `(mapGroup, mapNum)`,
+e nenhum deles andou. `valida_rom.py` com os 2.400 mapas declarados dentro da ROM.
+`valida_conectividade.py` com 0 warps quebrados, `valida_mapas_sinnoh.py` com `'sprite': 0` e 0 mapas
+com problema, `valida_warp_tile.py --piso 60` sem região abaixo do piso, `completude.py` com Sinnoh
+em 100,3% de objetos. **T11 3/3** contra `roms/pokemon-claude-2026-08-18.gba` (fonte na worktree de
+`cf6786b2ae`). Suíte **1.008 de 1.015** com o T11.3 à parte; os seis vermelhos são de obra ALHEIA em
+curso na mesma árvore, e isso foi medido, não suposto: T140.1/3/4 andam pelo `ContestHallLobby`, cujo
+`map.json` e `scripts.inc` outra frente está reescrevendo neste momento; T151.3/4 andam pela sala de
+treinador do ginásio D/P de Hearthome, cujo `map.bin` outra frente está redecorando; T170.4 é da
+frente de Johto. Contra a ROM entregue `2026-09-05`, com o `--src` casado numa worktree de
+`b7ef40f330`, esses cinco passavam e outros três (T140.7, T140.8, T140.11) falhavam, ou seja a linha
+de base da árvore compartilhada se move sozinha enquanto várias frentes escrevem nela.
+
+**O mesmo defeito tem 31 irmãos fora do Pokécenter, e eles ficam abertos.** Passando as MESMAS cinco
+provas em todo interior de Sinnoh de planta reaproveitada, sobram **31 corpos mudos repetidos em 25
+mapas** (`VeilstoneStore2F` a `5F`, os seis Marts, `CanalaveLibrary1F/2F/3F`, `MiningMuseum`,
+`PoffinHouse`, `Route222WestHouse`, `SunyshoreCityWestHouse`, `CycleShop`, e mais). Não entraram
+porque o `PARES` desta ferramenta é de Pokécenter, escrito à mão; estendê-lo pede o mesmo casamento
+mapa-a-fonte que `importa_npcs_sinnoh.headers_do_platinum()` já faz, e é rodada própria.
+
 da Dex moradas em DOIS lugares**: a realocação de Johto pôs cópia nos mapas novos e deixou as
 originais na órfã Diglett's Cave, e como `encontros_base()` desfaz a escrita pela coluna
 `substituido`, o censo-base voltava a vê-las e o plano as dava por obtidas; os três slots voltaram a

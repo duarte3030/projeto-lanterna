@@ -13,29 +13,33 @@ PokemonLeagueNorthPokecenter1F_MapScripts::
 @ Aproximacao colapsada numa so (sem colisao no NPC), mesma tecnica de toda
 @ emboscada de rival ja portada aqui; a fonte ramifica por porta de entrada
 @ (oeste/norte/leste) so pra escolher o passo de caminhada.
-@ Objeto sem local_id (id 7 por posicao no map.json, sem tocar
-@ map_event_ids.h). A fonte so faz AddObject dentro desta cena: o objeto
+@ O rival e citado pela constante LOCALID_LEAGUE_NORTH_PC_RIVAL, que o
+@ mapjson gera a partir do local_id do map.json. Ate 06/09/2026 ele era
+@ o id 7 CRU, e id cru anda sozinho quando um objeto anterior sai da
+@ lista: foi o que aconteceria ao apagar as duas enfermeiras repetidas
+@ deste mapa (dev_scripts/corpos_repetidos_pokecenter.py).
+@ A fonte so faz AddObject dentro desta cena: o objeto
 @ nasce escondido pela flag do grupo, que a fonte tambem liga no jogo novo
 @ (scripts_init_new_game.s:79) mas data/scripts/new_game.inc esta fora do
 @ escopo desta leva; ver nota no map.json.
 PokemonLeagueNorthPokecenter1F_EventScript_CoordEvent_Rival::
 	lockall
 	clearflag FLAG_SINNOH_ESCONDE_POKEMON_LEAGUE_NORTH_POKECENTER_1F_RIVAL
-	addobject 7
-	applymovement 7, PokemonLeagueNorthPokecenter1F_Movement_RivalNoticePlayer
+	addobject LOCALID_LEAGUE_NORTH_PC_RIVAL
+	applymovement LOCALID_LEAGUE_NORTH_PC_RIVAL, PokemonLeagueNorthPokecenter1F_Movement_RivalNoticePlayer
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, PokemonLeagueNorthPokecenter1F_Movement_PlayerFaceRival
 	waitmovement 0
 	msgbox PokemonLeagueNorthPokecenter1F_Text_RivalIntro, MSGBOX_DEFAULT
-	setvar VAR_LAST_TALKED, 7
+	setvar VAR_LAST_TALKED, LOCALID_LEAGUE_NORTH_PC_RIVAL
 	call_if_eq VAR_STARTER_MON, 0, PokemonLeagueNorthPokecenter1F_EventScript_RivalBattleTurtwig
 	call_if_eq VAR_STARTER_MON, 1, PokemonLeagueNorthPokecenter1F_EventScript_RivalBattleChimchar
 	call_if_eq VAR_STARTER_MON, 2, PokemonLeagueNorthPokecenter1F_EventScript_RivalBattlePiplup
 	msgbox PokemonLeagueNorthPokecenter1F_Text_RivalDefeat, MSGBOX_DEFAULT
-	applymovement 7, PokemonLeagueNorthPokecenter1F_Movement_RivalLeave
+	applymovement LOCALID_LEAGUE_NORTH_PC_RIVAL, PokemonLeagueNorthPokecenter1F_Movement_RivalLeave
 	waitmovement 0
 	setflag FLAG_SINNOH_ESCONDE_POKEMON_LEAGUE_NORTH_POKECENTER_1F_RIVAL
-	removeobject 7
+	removeobject LOCALID_LEAGUE_NORTH_PC_RIVAL
 	setvar VAR_SINNOH_RIVAL_VENCEU_SUNYSHORE, 1
 	releaseall
 	end
