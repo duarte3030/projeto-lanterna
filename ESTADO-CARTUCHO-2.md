@@ -240,11 +240,12 @@ Em ordem de tamanho, e cada item já tem a lista no disco.
 2. **Os 42 mapas sem saída nenhuma.** A fonte não tem porta para eles. Ligar é inventar
    caminho. **Recomendação: carimbar `cortado_por`** e tirá-los da régua, como as 16 sobras
    de FireRed, deixando id e conteúdo onde estão.
-3. **Os dois casos de suíte que ficaram vermelhos por medirem o desenho velho** (T108.8 e
-   T159.13, detalhados no portão acima). Os dois têm conserto de uma linha e os dois foram
-   provados no emulador com o conserto aplicado. **Recomendação: aprovar os dois consertos**,
-   porque hoje eles são falso positivo, e falso positivo é pior do que não ter régua: ensina
-   a ignorar a saída. Enquanto não forem aprovados, a branch não sai do local.
+3. ~~**Os dois casos de suíte que ficaram vermelhos por medirem o desenho velho** (T108.8 e
+   T159.13)~~ **RESOLVIDO em 06/09/2026**: a condutora aprovou os dois consertos, eles foram
+   aplicados no commit `2b7f2c0903` e os dois blocos voltaram a ficar verdes. O detalhe está
+   no portão abaixo. Este item fica escrito porque a recomendação original explica por que
+   mexer em caso de teste foi legítimo aqui: eles eram falso positivo, e falso positivo é
+   pior do que não ter régua, porque ensina a ignorar a saída.
 
 ### O portão desta onda
 
@@ -272,10 +273,21 @@ mudança de índice).
 O lock de build foi tomado com `mkdir`, devolvido com `rmdir` logo depois do `make`, e o T11
 e a suíte rodaram fora dele.
 
-`[V] python3 dev_scripts/testa_critico.py --rom <cópia da ROM>` -> **1.000 de 1.003**, contra
-os **1.002 de 1.003** de referência. T11.3 pulado, como sempre. **Dois casos caíram, e os
-dois medem desenho que ESTA ONDA trocou de propósito.** Nenhum dos dois é defeito no jogo, e
-os dois foram PROVADOS no emulador, não deduzidos.
+`python3 dev_scripts/testa_critico.py --rom <cópia da ROM>` -> **1.002 de 1.003**, com o
+T11.3 pulado como sempre (ele só prova algo com duas ROMs). A varredura inteira mediu
+**1.000 de 1.003** antes do commit `2b7f2c0903`, e os dois vermelhos eram FALSO POSITIVO:
+T108.8 e T159.13 mediam desenho que ESTA ONDA trocou de propósito. Os dois foram
+recalibrados nesse commit, e os blocos inteiros foram REFEITOS depois dele, sobre cópia da
+mesma ROM `ea0c2858daf02807ad379a9be20502c5`: `[V] T108 10 de 10` e `[V] T159 14 de 14`.
+O 1.002 é, portanto, os 1.000 medidos na varredura completa mais estes dois casos medidos
+verdes à parte, e não uma segunda varredura de mil casos.
+
+**Armadilha medida de passagem, para a próxima rodada não caçar defeito onde não há:** o
+**T108.2 é intermitente**. Na primeira passada do bloco ele reprovou com "jogador NÃO andou:
+posição ficou em (32,50)", e em seguida passou **5 de 5** rodado sozinho e o bloco inteiro
+deu 10 de 10 `[V]`. É a mesma causa que o próprio nome do caso registra desde 22/08: o NPC
+`MOVEMENT_TYPE_WANDER_AROUND` de (33,52) fica no gargalo, e o emulador não é determinístico
+entre execuções. Vermelho isolado nesse caso pede repetição antes de virar diagnóstico.
 
 **T108.8** (`dev_scripts/testes_criticos/108_galar_qa.json`). Ele afirma, no nome, que "a
 lista de capítulos de Galar tem UMA linha só" e que doze DOWN saturam em "Start of region".
@@ -284,8 +296,10 @@ na décima segunda linha, CROWN TUNDRA. Esperado `MAP_GALAR_WEDGEHURST_03`, obti
 `MAP_GALAR_CROWN_TUNDRA_06`. `[V] caso de diagnóstico com a MESMA rota e a prova trocada
 para MAP_GALAR_CROWN_TUNDRA_06: passou`. O par T108.7 (cinco DOWN, um A, primeira linha) e o
 par T108.9 (os mesmos doze DOWN em Unova) continuam verdes, ou seja o menu não quebrou: ele
-ficou maior. **Conserto proposto: trocar a prova do T108.8 para `MAP_GALAR_CROWN_TUNDRA_06`
-e reescrever o nome, que hoje afirma o contrário do desenho de hoje.**
+ficou maior. **Conserto APLICADO em `2b7f2c0903`:** a prova passou a cobrar
+`MAP_GALAR_CROWN_TUNDRA_06` e o nome do caso passou a dizer o que ele prova hoje, que é o
+seletor de Galar oferecer as paradas de cura e chegar à Crown Tundra. A rota não mudou, e
+T108.7 e T108.9 ficaram como estavam.
 
 **T159.13** (`dev_scripts/testes_criticos/159_fechador_r9.json`). Ele joga a cena de
 `Galar_Hammerlocke05` inteira com **45 toques de A** calibrados no texto em PORTUGUÊS, sai,
@@ -294,13 +308,17 @@ acrescentou **dois `\l`** nos blocos `GalarCena_G09M11_t2_v0_Text1` e `_Text2`, 
 também custa um toque. Com 45 A a cena não fecha, `VAR_GALAR_G09M11_CENA` não vai a 1, a cena
 roda de novo na reentrada e come os dez UP: esperado `(11,12)`, obtido `(10,10)`. `[V] caso
 de diagnóstico com a MESMA rota mais dez A: passou, com mapa, posição, var e flag exatamente
-como o caso original pede`. **Conserto proposto: dez A a mais na rota do T159.13** (dois é o
-mínimo teórico e não foi medido; dez foi).
+como o caso original pede`. **Conserto APLICADO em `2b7f2c0903`: dez A a mais na rota**, que
+subiu de quarenta e cinco para cinquenta e cinco (dois é o mínimo teórico e não foi medido;
+dez foi). A suíte não tem como calibrar toque pelo texto: o `roteiro` é string cravada e o
+`testa_critico.py` só a repassa ao `gba_runner`, então calibrar por texto seria motor novo, e
+não o conserto pequeno que esta decisão autorizava `[V]`. A folga é inerte, porque A que
+sobra depois do fim da cena cai no vazio: o jogador termina parado longe de qualquer NPC.
 
 **Os dois consertos são de RÉGUA, e o fechador não os aplicou de propósito**: editar caso de
 teste para deixar a suíte verde é o movimento que mais merece desconfiança, e ele não se faz
-sozinho na mesma sessão que criou a mudança. Estão nas perguntas ao Gui, e voltam a 1.002 no
-mesmo instante em que forem aprovados.
+sozinho na mesma sessão que criou a mudança. Foram aprovados pela condutora e aplicados por
+uma sessão de portão à parte, que rodou os dois blocos INTEIROS, e não só os dois subcasos.
 
 `[V] bash dev_scripts/antes_de_empurrar.sh` sobre o HEAD, em worktree isolada: **oito passos
 verdes de nove**. Build do HEAD limpo ok, guarda de save ok, o declarado entrou na ROM ok,
@@ -317,9 +335,12 @@ região onde ele roda (ele começa em jogo novo, e a onda inteira é Galar). Fic
 aqui porque uma frase de portão sem essa medição faria a próxima rodada caçar o defeito
 dentro do diff errado.
 
-**PUSH NÃO FEITO**, pela regra do portão: a suíte caiu de 1.002 para 1.000, pelos dois casos
-de régua velha acima. Os seis commits estão na branch local, `origin/cartucho-2` continua em
-`8a9ebcb692`.
+**PUSH LIBERADO em 06/09/2026**, depois de a suíte voltar aos 1.002 de 1.003 com a
+recalibração dos dois casos. O que barrava o push era o vermelho de régua velha, e ele saiu.
+A varredura de blob antes de empurrar não achou nada: nenhum objeto de `.gba` e nenhum acima
+de 5 MB entre `origin/cartucho-2..HEAD` `[V]`. Quem retomar confirma onde o `origin` está
+com o `git ls-remote --heads origin cartucho-2` da seção 0, que é o primeiro comando de toda
+rodada, e não com o `HEAD` local.
 
 ### Os commits desta onda
 
@@ -330,6 +351,8 @@ de régua velha acima. Os seis commits estão na branch local, `origin/cartucho-
 | 3 | `bc61b44577` | fila de Galar: placas, cenas, C28, vars, geradores e os 4 `bg_event` |
 | 4 | `2f16420f7c` | tradução: régua, glossário, de-para, aplicador e os `.inc` |
 | 5 | `af605f13a9` | Dex e encontros |
+| 6 | `e11895dd63` | o diário desta onda |
+| 7 | `2b7f2c0903` | recalibração de T108.8 e T159.13, no portão |
 
 Os `map.json` e os `.inc` que dois lotes tocaram foram PARTIDOS entre os commits, e não
 empilhados no último: os 140 do MAPSEC entram no commit 1 com o campo trocado sobre o
@@ -347,9 +370,9 @@ rodar o aplicador em cima dela devolve a árvore de hoje byte a byte, nos cinco 
 - **A ROM desta onda foi copiada para o Gui** em
   `Claude Workspace - Pokemon Rom Hacks/roms/pokemon-claude-cartucho-2-2026-09-06.gba`, com o
   `.md5` ao lado, fora do repo. Ela é a ROM que os portões desta seção mediram.
-- **O push não saiu**, e o motivo está no portão: os dois casos de régua velha. Quem retomar
-  começa pelo `git ls-remote --heads origin cartucho-2` da seção 0, confere que o `origin`
-  ainda está em `8a9ebcb692` e que o local está em `af605f13a9` mais o commit do diário.
+- **O push saiu em 06/09/2026**, depois da recalibração dos dois casos de régua velha. Quem
+  retomar começa pelo `git ls-remote --heads origin cartucho-2` da seção 0, que é a única
+  coisa que diz onde o `origin` está de verdade.
 
 ---
 
