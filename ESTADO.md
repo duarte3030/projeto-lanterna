@@ -379,7 +379,8 @@ metatile e a paleta errados, sem uma linha de erro. Agora o corte sai do `layout
 
 O Gui, no playtest: "a cidade está muito feia, é assim mesmo?" sobre `CanalaveCity`, e "as cidades sem
 graça do ROM hack você podia dar uma enfeitada temática". Onze cidades e vilas foram enfeitadas,
-**414 células no total**, e Canalave ganhou um porto que não existia em tileset nenhum de Sinnoh.
+**388 células no total** (386 delas mudam byte de verdade; duas repintam o mesmo
+metatile), e Canalave ganhou um porto que não existia em tileset nenhum de Sinnoh.
 
 #### A régua: `dev_scripts/regua_cidades.py`
 
@@ -427,7 +428,7 @@ sem chutar. Com ela, quatro mapas vanilla de Hoenn entravam na lista de interven
 Mais quatro entraram por decisão: **`CanalaveCity`** (27,3% de `liso`, `liso3` 51,6%; é a reclamação
 do Gui, e ela cai fora do top 10 justamente porque metade da área dela é canal), **`SandgemTown`**
 (37,5%), **`EternaCity`** (29,8%) e **`FloaromaTown`** (31,8%), que vêm logo depois e as duas últimas
-têm tema nomeado pelo Gui. Total: **11 cidades enfeitadas, 414 células escritas**.
+têm tema nomeado pelo Gui. Total: **11 cidades enfeitadas, 388 células escritas**.
 
 #### O gerador: `dev_scripts/enfeita_cidades.py`
 
@@ -475,8 +476,44 @@ iguais, porque o catálogo de neve tem poucos objetos e o rodízio voltava sempr
 dependem só de colisão e comportamento, que o gerador não muda; aqui elas dependem do METATILE, que é
 justamente o que muda. Por isso o plano guarda o valor ANTIGO de cada célula em
 `dev_scripts/enfeita_cidades.json`: na rodada seguinte o script desfaz o próprio desenho em memória,
-replaneja sobre a base e escreve de novo. Rodar duas vezes dá byte idêntico, o `--demo` prova, e o
-mesmo arquivo é o **desfazer manual** (`--desfazer`) se o Gui não gostar de alguma.
+replaneja sobre a base e escreve de novo. O mesmo arquivo é o **desfazer manual** (`--desfazer`) se o
+Gui não gostar de alguma.
+
+**E desfazer só no mapa ALVO não bastava, porque o DOADOR também é cidade enfeitada.** A primeira
+versão desta seção afirmava que rodar duas vezes dava byte idêntico, e a prova de dentro concordava,
+porque o caso 5 do `--demo` só olha o mapa alvo. Medido em 06/09/2026, sobre a MESMA base: três
+rodadas seguidas deram Oreburgh com **45, depois 51, depois 57 células**, e Eterna com 45 e depois 54,
+sempre crescendo. A causa é o catálogo: `EternaCity` aprende com `OreburghCity` pelo caminho de mesmo
+PRIMÁRIO, e `CanalaveCity` é doadora das outras sete de Sinnoh. Lido do disco já desenhado, o doador
+devolve o enfeite da rodada anterior como se fosse arte original, e o vocabulário engorda sozinho.
+Duas peças consertaram, e as duas são necessárias:
+
+- **`grade_base()`**, por onde passa TODA leitura de doador, desfaz pelos DOIS planos em disco (o do
+  gerador e o do porto). Ela vale só para DOADOR: usá-la também no mapa alvo apagava o porto de
+  Canalave, porque o `roda` grava a grade inteira e o porto teria sido desfeito junto. Isso custou um
+  render, com a cidade saindo sem um barco.
+- **`registra_desenho()`**, que faz o plano crescer EM MEMÓRIA durante a rodada. Sem ela a segunda
+  cidade da mesma rodada aprende com a primeira, que o `roda` acabou de gravar em disco.
+
+O `porto_canalave.py` pagou o mesmo preço do outro lado: ele planejava sobre um mapa que já tinha os
+enfeites do gerador, e na segunda rodada um poste de luz saía de (9,18) para (9,20). Hoje ele
+**planeja sobre a base limpa** (sem enfeite nenhum, nem o dele) e **escreve por cima do disco**,
+preservando o desenho do outro script; se algum dia uma peça do porto cair em cima de um enfeite, ele
+avisa em voz alta em vez de calar.
+
+Hoje **três rodadas seguidas dão `map.bin`, tileset e os dois planos byte idênticos**, e quem cobra
+isso para sempre é o **caso 9 do `--demo`**: nenhuma célula de enfeite de doador nenhum pode chegar ao
+catálogo. Ele foi atacado de propósito, quebrando o `grade_base`, e abriu VERMELHO com quatro achados
+(Celestic aprendendo de Solaceon e de Jubilife, Solaceon aprendendo de Celestic e de Jubilife).
+
+**A base é o HEAD, e é dela que sai a conta de 388.** O plano da primeira tentativa foi feito numa
+árvore compartilhada que tinha, SEM COMMIT, o trabalho de colisão de Sinnoh de outra frente: 136
+células só em Oreburgh, 70 em Jubilife e 45 em Solaceon. Isso deu 413, um número que não dava para
+commitar sem levar junto o trabalho alheio. O desenho foi refeito sobre o HEAD `7b9a11ce64` e, quando
+aquela frente commitou (`bce66c4718`, 401 células só de colisão), **refeito de novo sobre
+`884c3f9516`**. As duas vezes o custo foi um comando: `porto_canalave.py` e depois
+`enfeita_cidades.py`, que replanejam sobre a base nova sem escrever uma célula fora do plano. É para
+isso que a idempotência serve, e é a prova de que ela é real.
 
 #### O porto de Canalave: `dev_scripts/porto_canalave.py`
 
@@ -509,6 +546,117 @@ surfa, e isso não é olhômetro: além do portão de alcance A PÉ, roda um por
 
 **Ordem de rodar:** `porto_canalave.py` ANTES de `enfeita_cidades.py`. O porto cria metatiles que não
 entram no "chão liso", então o outro nunca os escolhe; o inverso não vale.
+
+#### O que muda em cada célula, lido bit a bit
+
+O plano tem 388 células, e elas se dividem em duas contas, medidas e não afirmadas:
+
+| o que | quantas | o que muda |
+|---|---|---|
+| canteiro | **145** | só os 10 bits de baixo. Colisão e elevação saem IDÊNTICAS |
+| objeto sólido | **241** | colisão 0 -> 1 em todas as 241, e elevação para 0 (172 vinham de 3, 36 de 1, que é a água do canal, e 33 de 4) |
+| repinta o mesmo valor | 2 | nada |
+
+Elevação 0 em célula sólida é a convenção do Emerald para obstáculo, e ela é inofensiva porque a
+célula deixou de ser pisável; quem prova isso não é a convenção, é o portão de `alcance()`, que roda a
+cada carimbo. **Fora dessas 388 células, nenhum bit de nenhum dos onze `map.bin` mudou**: conferido
+comparando com o `git show HEAD:` de cada arquivo, 386 células diferentes e ZERO fora do plano. Nenhum
+`map.json` foi aberto para escrita, então warp, `bg_event`, `coord_event`, NPC e item estão onde
+estavam.
+
+#### Os portões desta frente
+
+Build verde numa worktree ISOLADA (`/private/tmp/claude-501/arte-r13b`, HEAD `884c3f9516` mais só esta
+frente), porque a árvore compartilhada tem outras frentes no meio da obra. **ROM 32.371.336 B, 96,47%
+de 32 MB**, contra **32.370.248 B** do MESMO HEAD sem esta frente, buildado ao lado em
+`/private/tmp/claude-501/arte-baseb`: **+1.088 B**, e esse é o custo inteiro do kit do porto (33
+tiles, 15 metatiles e 3 paletas), porque `map.bin` tem tamanho fixo e decoração não ocupa um byte a
+mais. **EWRAM 86,16% e IWRAM 86,68%**, idênticos ao HEAD limpo.
+
+**SAVE COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B (94,3%), 2.400 mapas, 2.252 ids de treinador e
+1.717 apelidos: nenhuma flag, var, item, mapa ou índice novo, porque a frente inteira é dado de mapa e
+de tileset. **T11 3 de 3** contra `roms/pokemon-claude-2026-08-18.gba`, com a fonte velha em
+`/private/tmp/claude-501/t11-r13` (`cf6786b2ae`). `valida_rom.py` com os 2.400 mapas declarados dentro
+da ROM. `valida_warp_tile.py --piso 60` em **5.918 de 6.875 (86,1%)**, com Hoenn 93,2%, Kanto 79,4%,
+Sinnoh **98,1%**, Johto 90,7% e Unova 100%: os três warps a mais em Sinnoh são das portas que a frente
+de colisão consertou no `bce66c4718`, e não desta; era o que tinha que acontecer, já que nenhum tile de
+warp foi tocado aqui. `dev_scripts/qa/roda_qa.py --demo` verde.
+
+**A suíte completa deu 1.034 de 1.040**, com **5 vermelhos e 1 pulado**, e nenhum dos cinco era de
+dado: todos eram de ROTA desatualizada. Quatro (T101.7, T101.8, T134.25 e T134.26) foram medidos
+TAMBÉM na build do HEAD limpo, com a MESMA posição errada e a MESMA var: vieram do `bce66c4718`, a
+frente de colisão de Sinnoh, e não desta. Com as rotas que ela recalibrou em `5f3a4cb403` os quatro
+voltam ao verde COM a decoração aplicada (**T101 14 de 14, T125 12 de 12 e T134 26 de 26**, rodados
+aqui). O quinto era desta frente, o T175.5, que media uma árvore que a base nova mudou de lugar; a
+rota foi refeita pela busca e o bloco fecha em **7 de 7**. O pulado é o T11.3, que exige `--rom2` e
+foi rodado à parte, 3 de 3.
+**A lente E3 do `mapas_qa.py` deu ZERO novos**, e isso foi medido dos dois lados: a varredura completa
+roda na worktree do HEAD limpo e na desta frente, e os dois lados dão os **mesmos 5.307 achados**, sem
+um a mais nem um a menos. É a prova de que nenhum enfeite tapa o jogador, que é o risco de trocar
+metatile sem olhar o tipo de camada.
+
+#### O caso que a suíte pegou, e o portão novo que nasceu dele
+
+O `corredores_de_teste()` simulava as pernas saturantes **a partir do tile do warp**, e só dele. Isso
+está errado para metade dos casos, porque o warp de depuração não promete em que tile o jogador pousa:
+o warp 2 de `CelesticTown` é a PORTA de uma casa, em (2,15), e dali não se dá um passo. Simulando só
+daquele tile, o corredor da cidade tinha **23 células** e o resto da praça ficava livre para enfeitar.
+Na ROM o jogador pousa em **(2,16)** e atravessa a cidade até (16,10), que é o tile de onde ele fala
+com o grunt da Galáctica; um carimbo novo o parou em **(6,15)**, e o **T94.1 abriu VERMELHO** com
+"a batalha começou contra o id 0". Nada tinha ficado inalcançável, de novo: o caminho só encurtou.
+
+Duas coisas mudaram. A varredura passou a simular **as DUAS hipóteses de pouso** (o tile do warp e o
+de baixo dele) vezes as quatro direções iniciais, e o corredor de Celestic saltou de 23 para **46
+células**. E entrou o **caso 10 do `--demo`**, que é o cobrador de SAÍDA e não de entrada: para as ONZE
+cidades, todo caso da suíte que entra pelo warp tem que TERMINAR NO MESMO TILE antes e depois do
+desenho. Ele é conta de grade, não custa emulador, e foi atacado desfazendo o conserto: acusa
+`CelesticTown: o caso T94.1 parava em (16, 10) e passou a parar em (6, 15) (pouso (2, 16))`, que é
+exatamente a frase que o emulador levou meia hora para dizer.
+
+**O bloco novo é o `dev_scripts/testes_criticos/175_cidades_enfeitadas.json`, 7 de 7 no emulador**, e
+ele anda de verdade em TRÊS cidades, com porta atravessada em cada uma:
+
+| caso | o que mede |
+|---|---|
+| T175.1 | Canalave: o porto PARA o jogador em (17,43); sem ele iria a (16,43) |
+| T175.2 | Canalave, a outra margem: para em (27,46) contra (27,44) sem o porto |
+| T175.3 | Canalave: a porta do Pokécenter continua abrindo, pisada de verdade |
+| T175.4 | Oreburgh: a pedra de (31,28) para o jogador em (30,28); sem ela ele iria a (32,28) |
+| T175.5 | Eterna: a árvore de (24,39) para o jogador em (25,39); sem ela ele iria a (23,39) |
+| T175.6 | Oreburgh: a porta do ginásio continua abrindo |
+| T175.7 | Eterna: a porta do condomínio continua abrindo |
+
+Os cinco primeiros nasceram contra o desenho de 413 células e **abriram VERMELHO em Oreburgh e em
+Eterna** a cada troca de base, porque as peças que eles mediam mudaram de lugar. As rotas novas não
+foram chutadas: saíram de uma busca que simula as pernas saturantes sobre a grade de ANTES e a de
+DEPOIS, para as DUAS hipóteses de pouso do warp de depuração e as QUATRO direções iniciais de olhar, e
+só entra a rota que dá uma posição única em todas elas e diferente entre as duas grades. **A lição é
+que caso de decoração é caso FRÁGIL por natureza**: ele mede uma peça, e a peça se move quando a base
+se move. Quem mexer na base tem que rodar este bloco de novo, e a busca está no repositório para isso
+não custar meia hora de emulador.
+
+Os onze pares antes/depois estão em
+`Pokemon Claude/amostras-tileset/cidades-enfeitadas/<Cidade>-antes-depois.png`, renderizados dos DOIS
+lados (o "antes" sai da worktree do HEAD limpo). Eles foram abertos e olhados: em Canalave os barcos
+estão atracados no muro do canal e os postes ficam na calçada, e o par de ANTES não tinha peça de
+porto nenhuma, o que denuncia que o render da primeira tentativa mentia.
+
+#### O portão que nenhum portão pega: `RECUSADOS`
+
+Uma peça pode passar em TODOS os portões (colisão, alcance, rota, cor, pureza do anel) e ainda assim
+estar errada no olho, porque ela não é enfeite: é peça de LIGAÇÃO, e só faz sentido presa ao que liga.
+Os metatiles **175 e 207** são o DEGRAU branco de três células do `gTileset_GeneralSinnoh`. Eles
+passam na pureza do anel justamente porque o anel deles é grama pura, e o resultado, visto no render e
+não deduzido, era uma **escada flutuando no meio do gramado**: 3 peças em OreburghCity, 3 em
+EternaCity e 2 em FloaromaTown, 24 células ao todo. A lista `RECUSADOS` é curta, escrita à mão e com o motivo ao
+lado, porque isto é julgamento de desenho e não regra que dê para medir; quem crescer a lista tem que
+abrir o PNG antes.
+
+**Risco aberto, e ele é de gosto, não de defeito:** o teto de 6 cópias por carimbo ainda deixa a mesma
+placa aparecer seis vezes em Snowpoint e em Celestic, e as vagas que os degraus deixaram foram
+preenchidas por retalhos de chão de outra cor (areia sobre a calçada de Eterna, terra sobre o gramado
+de Solaceon) que leem como canteiro para uns e como mancha para outros. Nada disso quebra jogo; é
+candidato a poda na próxima rodada, com a mão do Gui dizendo quais peças ficam.
 
 #### Cianwood ficou de fora, e o motivo está medido
 
@@ -5508,6 +5656,9 @@ existir escrito no topo.
 | `gba_runner.c` | Emulador headless que lê memória do jogo (`--mem16`/`--mem32` leem endereço cru) |
 | `prova_musica_johto.py` | Qual faixa cada mapa TOCA, lida do header e do driver de som |
 | `demake_gen2.py` / `demake_ds.py` | Converte mapa de gen 2 e gen 4 |
+| `regua_cidades.py` | Mede quanto CHÃO LISO cada cidade tem, e escolhe as mais sem graça |
+| `enfeita_cidades.py` | Enfeita com tema, aprendendo o carimbo de mapa doador do mesmo par de tilesets; idempotente pelo plano em JSON |
+| `porto_canalave.py` | Importa bote, poste e tambor do `gTileset_Slateport` para o secundário de Canalave, sem desenhar um pixel |
 | `fecha_portas_sinnoh.py` | Interior de cidade de Sinnoh com planta reaproveitada do repo |
 | `abre_portas_extras_sinnoh.py` | Desenha a porta que falta, copiando um warp do proprio mapa |
 | `converte_cavernas_sinnoh.py` | Caverna de Sinnoh com a planta CONVERTIDA da grade 2D do DS |
