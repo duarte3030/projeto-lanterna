@@ -1,5 +1,5 @@
 {
- "_leia": "de-para escrito a mao para o lote I da onda 2 da Frente A, com o GLOSSARIO-GALAR.md; o ingles ja sai requebrado a 208 px",
+ "_leia": "de-para escrito a mao para os lotes I (onda 2) e a onda 3 da Frente A, com o GLOSSARIO-GALAR.md; o ingles ja sai requebrado a 208 px",
  "entradas": [
   {
    "pt": " elcome to the Pokémon Wireless\\nClub Union Room.\\pYou may interact directly with\\nother Trainers here, some of\\lwhom you may not even know.\\pWould you like to enter the Room?",
@@ -428,6 +428,330 @@
   {
    "pt": "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY}Mas o quê?...\\nesse homem está morto!\\pAqueles Pokémons...\\naqueles {COLOR RED}Trubbish{COLOR DARK_GRAY} e aquele {COLOR RED}Garbodor\\l{COLOR DARK_GRAY}estavam comendo ele?\\pArceus...\\pSe bem que ele me parece está\\nmorto há muito tempo, mas o que\\lexatamente aconteceu?\\pPera, o que é isso?",
    "en": "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY}What the?... this man is dead!\\pThose Pokémon... those {COLOR RED}Trubbish{COLOR DARK_GRAY} and\\nthat {COLOR RED}Garbodor{COLOR DARK_GRAY} were eating him?\\pArceus...\\pThen again, he looks like he has been\\ndead for a long time, but what exactly\\lhappened?\\pWait, what is this?"
+  },
+  {
+   "pt": " Hop:Lee!!\\n Leon: Hop Então,meu\\lfã numero um em todo o\\lmundo,comecou sua jornada! Olha\\lvocê,Hop! Eu acho que você\\lcresceu ... uma polegada e um\\lquarto desde a ultima vez que te\\lvi!\\lHop:Lee Bingo!Esse é o tipo\\lde olho afiado que mantém\\lvocê invicto há tanto\\ltempo,hein{COLOR BLUE}Sim! Eu sou o Frank!\\pO que é isso?\\pUma carta?\\p{COLOR RED}Paula{COLOR BLUE}... esse é o nome da minha\\namiga de infância...\\pIsso já faz 50 anos...\\pMeus pais se mudaram de\\nHammerlock logo após a gente\\lbrigar...\\pQueria tanto poder voltar no\\ntempo...\\pNunca me perdoei por ter brigado\\ncom ela...\\pEu não sei onde você arranjou\\nisso, jovem, mas não posso deixar\\lvocê sair de mãos vazias.\\pVamos, tome isso, é tudo o que\\nposso lhe dar.\\pDe qualquer forma, você aliviou\\nminha consciência de 50 anos...",
+   "en": "Hop:Lee!! Leon: Hop So, my number one\\nfan in the whole world has started his\\ljourney! Look at you, Hop! I think\\lyou've grown... an inch and a quarter\\lsince the last time I saw you! Hop:Lee\\lBingo! That's the kind of sharp eye\\lthat keeps you undefeated for so long,\\lhuh{COLOR BLUE}Yes! I'm Frank!\\pWhat is this?\\pA letter?\\p{COLOR RED}Paula{COLOR BLUE}... that's the name of my\\nchildhood friend...\\pThat was 50 years ago...\\pMy parents moved away from Hammerlocke\\nright after we had our fight...\\pI wish so much that I could go back in\\ntime...\\pI never forgave myself for fighting\\nwith her...\\pI don't know where you got this, young\\none, but I can't let you leave\\lempty-handed.\\pCome on, take this, it's all I can give\\nyou.\\pIn any case, you've eased 50 years of\\nguilt off my conscience..."
+  },
+  {
+   "pt": " Marnie chan?!?!?\\pTeam Yell: N- n- nada... Só\\nestávamos...\\pMarnie: Eu sei que todos estão\\ncuriosos para saber sobre os outros \\pparticipantes dos desafios,\\nmas vocês devem mostrar\\pum pouco mais de controle e\\nrespeito!\\p Marnie: Peço desculpas por eles!\\n Eles são alguns dos meus fãs.\\p Se denominam Team Yell\\pe me seguem por ai, torcendo por mim!\\nAcho que eles deixam isso subir\\p a cabeça, às vezes...\\pMarnie: Voltem para casa agora, Yell!",
+   "en": " Marnie chan?!?!?\\pTeam Yell: N- n- nothing... We were just...\\pMarnie: I know everyone is curious to\\nhear about the other \\pGym Challenge participants, but you all\\nshould show\\pa little more control and respect!\\pMarnie: I apologize for them! They're\\nsome of my fans.\\p They call themselves Team Yell\\pand they follow me around, cheering for\\nme! I think it goes to their\\p heads sometimes...\\pMarnie: Go home now, Yell!"
+  },
+  {
+   "pt": " ocês sao desafiantes de ginasio\\ncerto?\\ppor hoje podem descansar\\n amanha sera a cerimonia de abertura",
+   "en": " You're Gym Challengers, right?\\pYou can rest for today. Tomorrow will be\\nthe opening ceremony"
+  },
+  {
+   "pt": "...",
+   "en": "..."
+  },
+  {
+   "pt": "???: Oh Deus, não. Ainda há\\nmuitos mistérios que eu não\\lresolvi. Eu esperava que minha\\lneta assumisse minha pesquisa,\\lmas...",
+   "en": "???: Oh God, no. There are still many\\nmysteries that I haven't solved. I was\\lhoping my granddaughter would take\\lover my research, but..."
+  },
+  {
+   "pt": "???: Oh queridos, me desculpe. Eu\\nnem percebi meus convidados! Meu\\lnome é Magnolia. Bem-vindos\\ljovens treinadores!",
+   "en": "???: Oh dears, I'm sorry. I didn't even\\nnotice my guests! My name is Magnolia.\\lWelcome, young Trainers!"
+  },
+  {
+   "pt": "Agora é hora, a hora de mostrar\\nminha capacidade como treinador\\lpara toda a Galar, VAMOS!!",
+   "en": "Now it's time, time to show my skill as a\\nTrainer to all of Galar, LET'S GO!!"
+  },
+  {
+   "pt": "Claro que lhe vingo parceiro!",
+   "en": "Of course I'll avenge you, partner!"
+  },
+  {
+   "pt": "Espera...                \\n     \\pHop: Não esperava que o check-in\\nfosse tão cheio!\\l{PLAYER}\\p O que tá rolando?\\pSe metendo em batalhas sem mim?\\nNão pense que vai passar\\p na minha frente assim tao facilmente!\\pEu preciso treinar também!\\nVamos, {PLAYER}.\\pRecupere seus pokémon!",
+   "en": "Wait...\\pHop: I didn't expect the check-in to be\\nso crowded! {PLAYER}\\p What's going on?\\pGetting into battles without me? Don't\\nthink you're going to get\\p ahead of me that easily!\\pI need to train too! Come on, {PLAYER}.\\pHeal your Pokémon!"
+  },
+  {
+   "pt": "Esse Trem S.S. ANNE está em\\nWedgehurst.\\pEle leva até a Wild Area\\pPor que não vai no meu lugar?\\nVá em frente, boa sorte.           ",
+   "en": "That S.S. ANNE train is in Wedgehurst.\\pIt goes to the Wild Area\\pWhy don't you go in my place? Go ahead,\\ngood luck."
+  },
+  {
+   "pt": "Esta muito tarde para lutar\\ndescanse no Hotel Budew!",
+   "en": "It's too late to battle, rest at the\\nBudew Hotel!"
+  },
+  {
+   "pt": "Está na hora de mostrar a\\ncapacidade máxima de um\\ltreinador, vou mostrar a você\\luma força nunca antes vista.",
+   "en": "It's time to show the full power of a\\nTrainer, I'm going to show you a\\lstrength never seen before."
+  },
+  {
+   "pt": "Eu sou o Marcelo AF. sousa o\\nprimeiro membro do canal pcl.g e\\lmostre o que você tem,Vamos ver se\\lvocê e capaz mem derrotar!!!",
+   "en": "I'm Marcelo AF. sousa, the first member\\nof the pcl.g channel. Show me what\\lyou've got, let's see if you're able to\\lbeat me!!!"
+  },
+  {
+   "pt": "Gahyou!!",
+   "en": "Gahyou!!"
+  },
+  {
+   "pt": "Groooooooow!!!!",
+   "en": "Groooooooow!!!!"
+  },
+  {
+   "pt": "Honey: Olá {PLAYER} estou\\nsimplismente sem palavras com\\lvocê, quando você chegou parecia\\lapenas uma criança animada\\lmas...\\pagora vejo que você é uma\\ngrande treinador!!!\\pe penasr que um dos meus pequenos\\ndocinhos é seu companheiro...\\p{PLAYER} eu sei que é um pedido\\nestranho mas que tal uma batalha\\leu sou uma treinadora tambem\\lapesar de não aparentar.\\pJá sei se você me ganhar eu te\\ndou um premio!!!\\pMas não vou dizer oque é se\\nquiser descobrir me encontre na\\larena do Master Dojo!\\pNos vemos la!",
+   "en": "Honey: Hello {PLAYER}, I'm simply\\nspeechless about you. When you arrived\\lyou looked like just an excited kid,\\lbut...\\pnow I see that you're a great Trainer!!!\\pand to think that one of my little\\nsweeties is your partner...\\p{PLAYER}, I know it's a strange request,\\nbut how about a battle? I'm a Trainer\\ltoo, even if I don't look like it.\\pI know, if you beat me I'll give you a\\nprize!!!\\pBut I won't say what it is. If you want\\nto find out, meet me at the Master Dojo\\larena!\\pSee you there!"
+  },
+  {
+   "pt": "Hop: Ah, certo. Você fez muita\\npesquisa sobre o fenômeno\\lDynamax, certo professor? Então\\lpor favor!\\lDê ao {PLAYER} e a mim o poder\\ldo Dynamax para nossos Pokémon!\\lPrimeiro chegamos à batalha\\lcontra aquele Pokémon forte no\\lSlumbering Weald, e agora isso...\\lParece que estamos destinados a\\luma aventura pokemon!",
+   "en": "Hop: Ah, right. You've done a lot of\\nresearch on the Dynamax phenomenon,\\lhaven't you, Professor? So please! Give\\l{PLAYER} and me the power of Dynamax\\lfor our Pokémon! First we came to the\\lbattle against that strong Pokémon in\\lthe Slumbering Weald, and now this... It\\llooks like we're destined for a Pokémon\\ladventure!"
+  },
+  {
+   "pt": "Hop: Apresse-se, {PLAYER}!\\nVocê tem que lutar comigo para\\lque eu consiga o apoio de Leon!",
+   "en": "Hop: Hurry up, {PLAYER}! You have to\\nbattle me so that I can get Leon's\\lendorsement!"
+  },
+  {
+   "pt": "Hop: Com um desses, meus pokemons\\npodem usar Dynamax! Eles vão\\lficar enormes! EBA!",
+   "en": "Hop: With one of these, my Pokémon can\\nuse Dynamax! They're going to get huge!\\lYAY!"
+  },
+  {
+   "pt": "Hop: Ei professor, faça-nos um\\nfavor, sim? Ajude-me a convencer\\lLee de que ele deveria nos apoiar\\lnos Desafios de ginásios!",
+   "en": "Hop: Hey Professor, do us a favor, will\\nyou? Help me convince Lee that he\\lshould endorse us for the Gym\\lChallenge!"
+  },
+  {
+   "pt": "Hop: Eu esqueci! Encontramos a\\nespada e o escudo no Weald\\lAdormecido!",
+   "en": "Hop: I forgot! We found the sword and\\nthe shield in the Slumbering Weald!"
+  },
+  {
+   "pt": "Hop: Eu sou o Hop, um dos desafiantes\\ndo ginasio desse ano e aquele\\pque será o proximo campeão também!\\nVocê irá ouvir o meu nome pelas\\ltorcidas!\\pTeam Yell: A única coisa que vou ouvir \\né a minha vitória chegando\\le o do choro da derrota de vocês!",
+   "en": "Hop: I'm Hop, one of this year's Gym\\nChallengers and the one\\pwho will be the next Champion too! You'll\\nhear my name from the crowds!\\pTeam Yell: The only thing I'm going to\\nhear is my victory coming and the sound\\lof you lot crying over your defeat!"
+  },
+  {
+   "pt": "Hop: Eu vou me tornar o melhor\\ntreinador de Pokémon que existe!\\lE para isso, preciso do aval do\\lLeon para participar do Desafio\\ldo ginásio! Batalhe comigo com\\ltudo o que você tem para que\\lpossamos provar a Lee que temos o\\lque é preciso!\\p{PLAYER}: Claro",
+   "en": "Hop: I'm going to become the best\\nPokémon Trainer there is! And for that,\\lI need Leon's endorsement to take part\\lin the Gym Challenge! Battle me with\\leverything you've got so we can prove\\lto Lee that we have what it takes!\\p{PLAYER}: Sure"
+  },
+  {
+   "pt": "Hop: Hã?O que é isso?!",
+   "en": "Hop: Huh? What is this?!"
+  },
+  {
+   "pt": "Hop: O quê? Não consigo usar\\nnenhum golpe!",
+   "en": "Hop: What? I can't use any moves!"
+  },
+  {
+   "pt": "Hop: Pelo menos consegui jogar\\nminha Pokébola perfeitamente!",
+   "en": "Hop: At least I threw my Poké Ball\\nperfectly!"
+  },
+  {
+   "pt": "Hop: Serei o melhor treinador de\\ntodos os tempos! Serei o melhor\\ltreinador de todos os tempos!\\lSerei o melhor treinador de todos\\los tempos! Certo! Eu já disse\\lisso três vezes, então meu desejo\\lcertamente se tornará realidade\\lagora, certo?",
+   "en": "Hop: I'll be the best Trainer of all time!\\nI'll be the best Trainer of all time! I'll\\lbe the best Trainer of all time! Right!\\lI've said it three times now, so my wish\\lis definitely going to come true, right?"
+  },
+  {
+   "pt": "Hop: Sim!Obrigado Lee! Juro que\\nvou ganhar o Desafios de ginásios para\\lchegar até você!",
+   "en": "Hop: Yes! Thanks, Lee! I swear I'm going\\nto win the Gym Challenge to reach you!"
+  },
+  {
+   "pt": "Hop: Tudo bem! Estarei esperando\\npor você, {PLAYER}!",
+   "en": "Hop: All right! I'll be waiting for you,\\n{PLAYER}!"
+  },
+  {
+   "pt": "Hop: Tudo bem, {PLAYER}!\\nVocê e eu vamos treinar um contra\\lo outro para alcançar o título de\\lcampeão! Quanto mais continuarmos\\llutando uns contra os outros,\\lmais nosso Pokémon evoluirá.",
+   "en": "Hop: All right, {PLAYER}! You and I are\\ngoing to train against each other to\\lreach the title of Champion! The more\\lwe keep battling each other, the more\\lour Pokémon will grow."
+  },
+  {
+   "pt": "Hop: Uau... é enorme! Vamos\\nenfrentar isso juntos, {PLAYER}!",
+   "en": "Hop: Wow... it's huge! Let's face this\\ntogether, {PLAYER}!"
+  },
+  {
+   "pt": "Hop: {PLAYER}!\\nVocê está vendo isso? São Wishing\\lStars! São duas delas,pegue uma\\lpra você!",
+   "en": "Hop: {PLAYER}! Are you seeing this?\\nThey're Wishing Stars! There are two of\\lthem, take one for yourself!"
+  },
+  {
+   "pt": "Leon: Agora, se eu conseguir\\npegá-lo em uma Pokébola, devemos\\lconseguir controlar essa loucura.\\lEntão tudo voltará ao normal.\\lEntão observe! Vai ser uma\\lverdadeira captura de campeão!",
+   "en": "Leon: Now, if I can catch it in a Poké\\nBall, we should be able to get this\\lmadness under control. Then everything\\lwill go back to normal. So watch! This is\\lgoing to be a true Champion's catch!"
+  },
+  {
+   "pt": "Leon: Bem, sim... você não está\\nerrada. É por isso que eu dei os\\ldois pokemons. Está bem então.\\lNesse caso... e quanto a isso?\\lVamos ver se vocês dois podem me\\lmostrar uma batalha tão brilhante\\lque eu não tenho escolha a não\\lser endossar vocês. E não se\\lpreocupe. Vou garantir que ambas\\las equipes estejam em boa forma\\lantes que a batalha comece.",
+   "en": "Leon: Well, yes... you're not wrong.\\nThat's why I gave them the two Pokémon.\\lAll right then. In that case... how about\\lthis? Let's see if you two can show me a\\lbattle so brilliant that I have no\\lchoice but to endorse you. And don't\\lworry. I'll make sure both teams are in\\lgood shape before the battle starts."
+  },
+  {
+   "pt": "Leon: Então, você desvendou todos\\nos segredos do fenômeno Dynamax?",
+   "en": "Leon: So, have you unraveled all the\\nsecrets of the Dynamax phenomenon?"
+  },
+  {
+   "pt": "Leon: Escutem, vocês dois, a\\nrazão pela qual sou imparável é\\lporque aprendo com cada batalha\\lque vejo ou participo. Foi assim\\lque cheguei onde estou hoje.\\lEntão me mostre algo bom nesta\\lbatalha!",
+   "en": "Leon: Listen, you two, the reason I'm\\nunbeatable is because I learn from\\levery battle I watch or take part in.\\lThat's how I got where I am today. So\\lshow me something good in this battle!"
+  },
+  {
+   "pt": "Leon: Eu confio em você para usar\\nalgo assim! Dizem que as Wishing\\lStars realizam os sonhos daqueles\\lque têm um desejo verdadeiro em\\lseus corações.",
+   "en": "Leon: I trust you to use something like\\nthis! They say that Wishing Stars grant\\lthe dreams of those who have a true\\lwish in their hearts."
+  },
+  {
+   "pt": "Leon: Eu quero que você seja o\\nverdadeiro rival de Hop. E isso é\\lum pedido direto do seu campeão\\lLeon!",
+   "en": "Leon: I want you to be Hop's true rival.\\nAnd that's a direct request from your\\lChampion, Leon!"
+  },
+  {
+   "pt": "Leon: Hop e {PLAYER} começaram\\ncomo treinadores de Pokémon...\\lAinda há muita coisa que eles não\\lsabem!",
+   "en": "Leon: Hop and {PLAYER} have just\\nstarted out as Pokémon Trainers...\\lThere's still a lot they don't know!"
+  },
+  {
+   "pt": "Leon: Olá Postiwick! Seu campeão\\nLeon está de volta! Prometo que\\lcontinuarei dando o meu melhor\\lpara proporcionar as maiores\\lbatalhas para todos vocês\\lassistirem!\\pAudiência: É o nosso campeão\\nimbatível! Leon, você e Charizard\\lsão os melhores!\\pLeon: Bem, obrigado por isso!\\nEspero que todos continuem\\ltreinando seus Pokémon e nunca\\lfujam da batalha. Então venha me\\ldesafiar para o público do título\\pAudiência: Estamos todos\\ntrabalhando em nossas habilidades\\lde batalha, como você nos\\lensinou, Leon! Mas esse seu\\lCharizard é forte demais para\\lgente como nós.\\pLeon: É verdade que meu\\nCharizard é incrivelmente forte.\\lMas outros Pokémon também podem\\lser fortes! É por isso que eu\\lquero que o mais forte dos\\ltreinadores complete o Gym\\lChallenge e venha lutar comigo!\\lMeu desejo é que os treinadores\\lde Galar trabalhem juntos para se\\ltornarem campeões! o mais forte\\ldo mundo!",
+   "en": "Leon: Hello Postwick! Your Champion\\nLeon is back! I promise I'll keep giving\\lmy best to bring the greatest battles\\lfor all of you to watch!\\pAudience: It's our unbeatable Champion!\\nLeon, you and Charizard are the best!\\pLeon: Well, thank you for that! I hope\\nyou all keep training your Pokémon and\\lnever run from a battle. So come and\\lchallenge me for the title\\pAudience: We're all working on our\\nbattle skills, just like you taught us,\\lLeon! But that Charizard of yours is\\ltoo strong for people like us.\\pLeon: It's true that my Charizard is\\nincredibly strong. But other Pokémon\\lcan be strong too! That's why I want\\lthe strongest of Trainers to complete\\lthe Gym Challenge and come battle me!\\lMy wish is for the Trainers of Galar to\\lwork together to become Champions! the\\lstrongest in the world!"
+  },
+  {
+   "pt": "Leon: Você já deve conhecer o\\nDynamax, certo, {PLAYER}?\\lA professora Magnolia pesquisa o\\lfenômeno Dynamax há anos e anos.\\lE você precisa saber sobre ela se\\lplaneja usar o Dynamax ao máximo!",
+   "en": "Leon: You must already know about\\nDynamax, right, {PLAYER}? Professor\\lMagnolia has been researching the\\lDynamax phenomenon for years and\\lyears. And you need to know about her\\lif you plan to use Dynamax to the\\lfullest!"
+  },
+  {
+   "pt": "Leon: Vocês veio me ajudar apesar\\ndo perigo? Obrigado, Hop.\\lE você, {PLAYER}. Vocês dois\\lcresceram tremendamente! Mas não\\lhá necessidade de vocês se\\lpreocuparem. Parece que algum\\lpoder de Eternatus estava\\lsegurando minha equipe\\lDynamaxing, mas...\\lnós tivemos um tempo de campeão\\lde qualquer maneira! Charizard e\\lo resto dos membros da minha\\lequipe campeã realmente\\ldesgastaram Eternatus.",
+   "en": "Leon: You came to help me despite the\\ndanger? Thank you, Hop. And you,\\l{PLAYER}. You two have grown\\ltremendously! But there's no need for\\lyou to worry. It seems that some power\\lof Eternatus was keeping my team from\\lDynamaxing, but... we had a Champion\\ltime anyway! Charizard and the rest of\\lmy Champion team members really wore\\lEternatus down."
+  },
+  {
+   "pt": "Leon: {PLAYER}!Hop!\\nBem,depois de ver uma\\lpartida como essa..\\lAcho que não tenho escolha a não\\lser apoiar vocês como Campeão!",
+   "en": "Leon: {PLAYER}! Hop! Well, after seeing a\\nmatch like that.. I don't think I have\\lany choice but to endorse you both as\\lChampion!"
+  },
+  {
+   "pt": "Leon: {PLAYER}!Isso foi incrivel.\\nBrilhante.Honestamente ... havia\\laté lágrimas rolando pelo meu\\lrosto antes que eu percebesse.\\pE pensar que vocês dois sairam da\\nmesma cidade juntos, formaram os\\lmelhores times e chegaram aqui\\lneste ponto para jogar tudo o que\\lvocê tinha um no outro ... Aquele\\ldesejo ardente de vencer ...\\pAqueles movimentos cheios de uma\\npaixão invencivel!\\lEstava lutando no seu estado mais\\lpuro,de todas as formas possiveis!\\pMesmo que houvessealguns\\nTreinadores que não eram certeza\\lse você estava apto para ser\\laprovado para o Gym Challenge no\\linicio ...",
+   "en": "Leon: {PLAYER}! That was incredible.\\nBrilliant. Honestly ... there were even\\ltears running down my face before I\\lrealized it.\\pAnd to think that you two left the same\\ntown together, built the best teams and\\lmade it here, to this point, to throw\\leverything you had at each other ...\\lThat burning desire to win ...\\pThose moves full of an unbeatable\\npassion! That was battling in its\\lpurest state, in every way possible!\\pEven though there were some Trainers\\nwho weren't sure whether you were fit\\lto be approved for the Gym Challenge at\\lthe start ..."
+  },
+  {
+   "pt": "Leon:O ar tenso e parado no campo\\n... E exatamente o oposto da\\lplateia, gritando e torcendo ...\\lAmbos são fantásticos, não acha?\\pMas lembre-se, o publico também é\\num pouco cruel ... Eles não\\lquerem nada mais do que ver um de\\lnos perder, afinal!\\pIsso pode encher você de medo\\nsabendo disso,mas eu absolutamente\\lamo superar o medo.\\pAdoro dar tudo o que tenho como\\ntreinador e ver a minha equipa dar\\ltudo o que tem para alcançar mais\\luma vitoria!\\pé a melhor sensação do mundo, e\\nnunca me canso disso!\\pPosso sentir meus parceiros\\ncoçando de ansiedade dentro de\\lsuas Pokébolas ... Teremos um\\lverdadeiro momento de campeão!\\pSou o campeão da região de Galar,\\nLeon! Eu e Charizard, e todo o\\lresto da nossa equipe, usaremos\\ltodo nosso conhecimento e\\lexperiência para esmagá-lo\\lcompletamente!\\pAudiencia:esperem!!!\\pOlhem o telão!!!",
+   "en": "Leon: The air is tense and still out on\\nthe field ... And it's exactly the\\lopposite of the crowd, shouting and\\lcheering ... Both are fantastic, don't\\lyou think?\\pBut remember, the crowd is also a bit\\ncruel ... They want nothing more than to\\lsee one of us lose, after all!\\pKnowing that can fill you with fear, but\\nI absolutely love overcoming fear.\\pI love giving everything I have as a\\nTrainer and watching my team give\\leverything they have to reach one more\\lvictory!\\pit's the best feeling in the world, and I\\nnever get tired of it!\\pI can feel my partners itching with\\nexcitement inside their Poké Balls ...\\lWe're going to have a true Champion\\lmoment!\\pI'm the Champion of the Galar region,\\nLeon! Charizard and I, and all the rest\\lof our team, will use all our knowledge\\land experience to crush you\\lcompletely!\\pAudience: wait!!!\\pLook at the big screen!!!"
+  },
+  {
+   "pt": "Leon:Ola,Postiwick! Seu campeão,Leon,esta de volta! Prometo que continuarei fazendo o meu melhor para proporcionar as maiores batalhas para todos vocês assistirem! plateia: é o nosso campeão imbativel! Leon,você e Charizard são os melhores! Leon:Bem,obrigado por isso!Espero que todos continuem treinando seus pokémons,e nunca fujam da batalha. Então venham me desafiar pelo titulo plateia:Todos nós estamos trabalhamos em nossas habilidades de batalha, como você nos ensinou, Lee! Mas esse seu Charizard é forte demais para gente como nós! Leon:de campeão!é verdade que meu Charizard é incrivelmente forte. Mas outros Pokémon também podem ser fortes! é por isso que quero que o mais forte dos treinadores completem o Desafio do Ginásio e venha lutar comigo! Meu desejo é que os treinadores de Galar trabalhem juntos para se tornarem os mais fortes do mundo!",
+   "en": "Leon: Hello, Postwick! Your Champion,\\nLeon, is back! I promise I'll keep doing\\lmy best to bring the greatest battles\\lfor all of you to watch! audience: it's\\lour unbeatable Champion! Leon, you and\\lCharizard are the best! Leon: Well,\\lthank you for that! I hope you all keep\\ltraining your Pokémon, and never run\\lfrom a battle. So come and challenge me\\lfor the title audience: We're all working\\lon our battle skills, just like you\\ltaught us, Lee! But that Charizard of\\lyours is too strong for people like us!\\lLeon: of a Champion! it's true that my\\lCharizard is incredibly strong. But\\lother Pokémon can be strong too!\\lthat's why I want the strongest of\\lTrainers to complete the Gym Challenge\\land come battle me! My wish is for the\\lTrainers of Galar to work together to\\lbecome the strongest in the world!"
+  },
+  {
+   "pt": "Magnolia: Estou muito interessada\\nem ver como vocês dois jovens\\ltreinadores lutam.",
+   "en": "Magnolia: I'm very interested in seeing\\nhow you two young Trainers battle."
+  },
+  {
+   "pt": "Magnolia: Hop, querida. Vejo que\\nseu Wooloo fez novos amigos. E\\lvocê deve ser {PLAYER}.\\lSuponho que você tenha a Pokédex\\lda Sonia. Tenho certeza que você\\lvai completá-lo em algum momento!",
+   "en": "Magnolia: Hop, dear. I see your Wooloo\\nhas made new friends. And you must be\\l{PLAYER}. I suppose you have Sonia's\\lPokédex. I'm sure you'll complete it at\\lsome point!"
+  },
+  {
+   "pt": "Magnolia: Leon, pensei que seu\\nsonho fosse fortalecer todos na\\lregião de Galar. Não é mesmo?",
+   "en": "Magnolia: Leon, I thought your dream\\nwas to make everyone in the Galar\\lregion stronger. Isn't that right?"
+  },
+  {
+   "pt": "Magnolia: Lá vai você de novo\\nLeon, sempre falando sobre\\lPokémon. Há também outras coisas\\lque vale a pena conhecer. Como\\lquantos tipos diferentes de chá\\lexistem!",
+   "en": "Magnolia: There you go again, Leon,\\nalways talking about Pokémon. There are\\lother things worth knowing about too.\\lLike how many different kinds of tea\\lthere are!"
+  },
+  {
+   "pt": "Magnolia: Não seja bobo, Hop.\\nEssas Wishing Stars são uma\\lespécie de rocha que contém um\\lpoder desconhecido... composto\\lpor um poder misterioso. São um\\ldos recursos mais preciosos que\\ltemos aqui na região de Galar.\\lnada para você neste estado.\\lDê-me agora, e eu resolvo isso\\lpara você.",
+   "en": "Magnolia: Don't be silly, Hop. These\\nWishing Stars are a kind of rock that\\lholds an unknown power... made up of a\\lmysterious power. They're one of the\\lmost precious resources we have here in\\lthe Galar region. nothing to you in this\\lstate. Give them to me now, and I'll take\\lcare of that for you."
+  },
+  {
+   "pt": "Magnolia: Oh Leon, por que você\\nnão os endossa?",
+   "en": "Magnolia: Oh Leon, why don't you endorse\\nthem?"
+  },
+  {
+   "pt": "Magnolia: Ok, mas não se\\nempolgue. Você tem que economizar\\lsua energia para a aventura de\\lamanhã",
+   "en": "Magnolia: Okay, but don't get too\\nexcited. You have to save your energy\\lfor tomorrow's adventure"
+  },
+  {
+   "pt": "Marnie: O que todos estão\\nfazendo aqui?",
+   "en": "Marnie: What is everyone doing here?"
+  },
+  {
+   "pt": "Mustard:Bem-vindo de volta...\\pOh, e o que é esse clima tenso que\\neu detectei ao seu redor?\\p{PLAYER}:eu derrotei todos os\\nlideres!\\pMustard:Você fez isso agora? Já ?!\\pMustard:Hufufu! Você fez um otimo\\ntrabalho! Muito bem, {PLAYER}!\\pMustard:Bem, {PLAYER} , acho que\\nvocê aprendeu quase tudo que o\\lMaster Dojo tem para lhe ensinar.\\pO que significa que você e eu\\npodemos finalmente ter uma\\lbatalha adequada,sem\\labsolutamente nenhuma restrição!\\pEu não vou puxar nenhum saco dessa\\nvez, garoto.\\pSe você acha que está realmente\\npronto para mim quando eu estiver\\lsério, então venha para a arena\\ldo Master Dojo!",
+   "en": "Mustard: Welcome back...\\pOh, and what is this tense mood I sense\\naround you?\\p{PLAYER}: I defeated all the Leaders!\\pMustard: You did that now? Already?!\\pMustard: Hufufu! You did a great job!\\nWell done, {PLAYER}!\\pMustard: Well, {PLAYER}, I think you've\\nlearned just about everything the\\lMaster Dojo has to teach you.\\pWhich means you and I can finally have a\\nproper battle, with absolutely no\\lrestrictions!\\pI won't hold back at all this time, kid.\\pIf you think you're really ready for me\\nwhen I'm serious, then come to the\\lMaster Dojo arena!"
+  },
+  {
+   "pt": "Mãe: Oi filho, fez uma pausa pra\\nver sua mãe?\\pPor que não descansa\\num pouco?",
+   "en": "Mom: Hi, son, did you take a break to\\ncome see your mother?\\pWhy don't you rest a little?"
+  },
+  {
+   "pt": "NO DIA SEGUINTE...",
+   "en": "THE NEXT DAY..."
+  },
+  {
+   "pt": "O campeão dessa fase do\\nWorld Tornament é, {PLAYER}.",
+   "en": "The Champion of this stage of the World\\nTournament is, {PLAYER}."
+  },
+  {
+   "pt": "O que é melhor que uma batalha\\nem um lobby de hotel chique?",
+   "en": "What's better than a battle in a fancy\\nhotel lobby?"
+  },
+  {
+   "pt": "Oh, você não pode pagar por um.",
+   "en": "Oh, you can't afford one."
+  },
+  {
+   "pt": "Ola essa é a Wild area 1 ou tambem\\nPlanice delta ele é dividida em 4\\lpartes nessa partes você encontra\\lesses pokemons.",
+   "en": "Hello, this is Wild Area 1, also called\\nDelta Plain. It's divided into 4 parts,\\land in those parts you'll find these\\lPokémon."
+  },
+  {
+   "pt": "Opal:Espere agora.Se você estiver\\nindo para o proximo ginásio,\\lprecisar  ir a Hammerlocke.\\lEu tambem tenho algumas coisas\\lpara resolver lá.\\lQuer se juntar a mim para a\\lcaminhada?\\p{PLAYER}:Com prazer!\\pOpal:Então somos um dueto,afinal.",
+   "en": "Opal: Hold on now. If you're heading to\\nthe next Gym, you'll need to go to\\lHammerlocke. I also have a few things\\lto sort out there. Would you like to join\\lme for the walk?\\p{PLAYER}: Gladly!\\pOpal: So we're a duet, after all."
+  },
+  {
+   "pt": "Para me tornar um Mestre Pokémon,\\neu preciso aceitar cada desafio\\lque me vier e esse não diferente,\\lvamos mostrar do que somos\\lcapazes Pikachu!!!",
+   "en": "To become a Pokémon Master, I have to\\naccept every challenge that comes my\\lway, and this one is no different. Let's\\lshow them what we're capable of,\\lPikachu!!!"
+  },
+  {
+   "pt": "Para onde você quer ir?",
+   "en": "Where do you want to go?"
+  },
+  {
+   "pt": "Prepare-se para sentir a força da\\ntreinadora mais forte dos Pokémons\\lde tipo água.",
+   "en": "Get ready to feel the strength of the\\nstrongest Trainer of Water-type\\lPokémon."
+  },
+  {
+   "pt": "Pronto para sua Primeira Batalha?",
+   "en": "Ready for your First Battle?"
+  },
+  {
+   "pt": "Raihan: Oh!Se não é o treinador\\nendossado pelo campeão!Vamos\\lver...Como é mesmo o seu\\lnome?Ah,certo!é {PLAYER}!\\lBem se o próprio Leon\\lreconheceu seu potencial.\\lentão eu acho que você vai se\\ltornar um treinador muito forte.\\lMesmo assim,quem quiser desafiar\\lo poderoso Raihan precisa ganhar\\lprimeiro as setes insignias\\p{PLAYER}:Estou aqui para visitar\\no cofre\\pRaihan:Ah,então você está aqui\\npara ver nossos tesouros,né?Obter\\luma melhor compreensão sobre os\\lPokémons estudando a história\\ldeles certamente não é uma má\\lidéia.          \\lEu gosto do seu espirito,\\lgaroto!Siga-me  ",
+   "en": "Raihan: Oh! If it isn't the Trainer\\nendorsed by the Champion! Let's see...\\lWhat was your name again? Ah, right!\\lIt's {PLAYER}! Well, if Leon himself\\lrecognized your potential. then I guess\\lyou're going to become a very strong\\lTrainer. Even so, anyone who wants to\\lchallenge the mighty Raihan has to win\\lthe seven Badges first\\p{PLAYER}: I'm here to visit the Vault\\pRaihan: Ah, so you're here to see our\\ntreasures, then? Getting a better\\lunderstanding of Pokémon by studying\\ltheir history certainly isn't a bad idea.\\lI like your spirit, kid! Follow me"
+  },
+  {
+   "pt": "Raihan:Oh!Se não é o treinador\\nendossado pelo campeão!Vamos\\lver...Como é mesmo o seu\\lnome?Ah,certo!é {PLAYER}!\\lBem se o próprio Leon\\lreconheceu seu potencial.\\lentão eu acho que você vai se\\ltornar um treinador muito forte.\\lMesmo assim,quem quiser desafiar\\lo poderoso Raihan precisa ganhar\\lprimeiro as setes insignias\\p{PLAYER}:Estou aqui para visitar\\no cofre\\pRaihan:Ah,então você está aqui\\npara ver nossos tesouros,né?Obter\\luma melhor compreensão sobre os\\lPokémons estudando a história\\ldeles certamente não é uma má\\lidéia.          \\lEu gosto do seu espirito,\\lgaroto!Siga-me  ",
+   "en": "Raihan: Oh! If it isn't the Trainer\\nendorsed by the Champion! Let's see...\\lWhat was your name again? Ah, right!\\lIt's {PLAYER}! Well, if Leon himself\\lrecognized your potential. then I guess\\lyou're going to become a very strong\\lTrainer. Even so, anyone who wants to\\lchallenge the mighty Raihan has to win\\lthe seven Badges first\\p{PLAYER}: I'm here to visit the Vault\\pRaihan: Ah, so you're here to see our\\ntreasures, then? Getting a better\\lunderstanding of Pokémon by studying\\ltheir history certainly isn't a bad idea.\\lI like your spirit, kid! Follow me"
+  },
+  {
+   "pt": "Rose: Bem vindos ao maravilhoso\\nmundo dos Pokémon!\\pRose: Nossa amada região de Galar\\né um lugar maravilhoso, com uma\\lpróspera natureza.\\lbelas cidades e muitos Pokémon\\lcom os quais compartilhamos\\lnossas vidas!",
+   "en": "Rose: Welcome to the wonderful world of\\nPokémon!\\pRose: Our beloved Galar region is a\\nwonderful place, with thriving nature.\\lbeautiful cities and many Pokémon with\\lwhom we share our lives!"
+  },
+  {
+   "pt": "Sonia: Ah, ei! Aí está você.",
+   "en": "Sonia: Ah, hey! There you are."
+  },
+  {
+   "pt": "Sonia: Parece que cheguei em casa\\nbem na hora da emoção! Ei\\lpessoal, por que vocês não ficam\\le jantam? Você deve estar com\\lfome, certo? Esses dias, fiquei\\ltotalmente obcecada em fazer os\\lcurry mais recentes da moda.",
+   "en": "Sonia: Looks like I got home right in\\ntime for the excitement! Hey you two,\\lwhy don't you stay for dinner? You must\\lbe hungry, right? These days, I've\\lbecome completely obsessed with making\\lthe latest trendy curry."
+  },
+  {
+   "pt": "Sonia:Sua batalha foi brilhante!\\nO lider do ginásio era realmente\\lforte,mas você não teve problemas\\lem derrota-lo.\\pCirchester tem otimos restaurantes\\nTenho algumas coisas sobre que\\lquero falar,então vamos a um\\lrestaurante para comemorar sua\\lvitoria!\\lO nome do restaurante é\\lBob’s Your Uncle!",
+   "en": "Sonia: Your battle was brilliant! The\\nGym Leader was really strong, but you\\lhad no trouble beating him.\\pCirchester has great restaurants.\\nThere are a few things I want to talk\\labout, so let's go to a restaurant to\\lcelebrate your victory! The\\lrestaurant's name is Bob's Your Uncle!"
+  },
+  {
+   "pt": "Team Yell: O Team Yell está aqui\\npara ajudar na final!\\pTerá que batalhar contra a gente \\nse quiser nos parar!\\pViemos até a cidade grande para\\npodermos torcer \\p por um desafiante de ginásio!\\p{PLAYER}: Estou pronto para isso! \\pTeam Yell: Não dissemos a você,\\ncara?\\pSe entrar no nosso caminho,\\penfrentará as consequências !\\pTeam Yell: O Team Yell é sobre ajudar ...\\najudar um treinador especial \\pa vencer os desafios do ginásio,\\nQueremos garantir que ela \\pse dê bem ...\\pE agora com a nossa ajuda,\\nvamos fazer barulho.",
+   "en": "Team Yell: Team Yell is here to help in\\nthe final!\\pYou'll have to battle us if you want to\\nstop us!\\pWe came to the big city so we could\\ncheer \\p for a Gym Challenger!\\p{PLAYER}: I'm ready for that! \\pTeam Yell: Didn't we tell you, mate?\\pIf you get in our way,\\pyou'll face the consequences!\\pTeam Yell: Team Yell is about helping ...\\nhelping one special Trainer \\pwin the Gym Challenge, We want to make\\nsure she \\pdoes well ...\\pAnd now with our help, we're going to\\nmake some noise."
+  },
+  {
+   "pt": "Tudo bem sem resentimentos agora\\nvocê pode seguir em frente",
+   "en": "All right, no hard feelings. Now you can\\nmove on"
+  },
+  {
+   "pt": "Um torneio tão incrivel como\\nesse, eu não podia perder a\\lchance de participar, pode\\lesperar uma otima batalha!",
+   "en": "A tournament as incredible as this one,\\nI couldn't miss the chance to take part.\\lYou can expect a great battle!"
+  },
+  {
+   "pt": "Você trouxe meu Mudsdale de\\nvolta! muito obrigado! Agora\\lposso ir para casa. Tome isso\\lcomo um agaradecimento.",
+   "en": "You brought my Mudsdale back! Thank\\nyou so much! Now I can go home. Take\\lthis as a thank-you."
+  },
+  {
+   "pt": "aqui esta.",
+   "en": "here it is."
+  },
+  {
+   "pt": "entao é isso {PLAYER}\\n vamos descansar e amanha\\p vai ser o grande dia",
+   "en": "so this is it, {PLAYER} let's rest, and\\ntomorrow\\p will be the big day"
+  },
+  {
+   "pt": "esse fly taxi pode te levar para\\numa area especial da wild area\\lmas agora ele esta descançando.",
+   "en": "this Flying Taxi can take you to a\\nspecial area of the Wild Area, but right\\lnow it's resting."
+  },
+  {
+   "pt": "{COLOR BLUE}Não está interessado?",
+   "en": "{COLOR BLUE}Not interested?"
+  },
+  {
+   "pt": "{COLOR DARK_GRAY}Ah, você não pode pagar...",
+   "en": "{COLOR DARK_GRAY}Ah, you can't afford it..."
   }
  ]
 }

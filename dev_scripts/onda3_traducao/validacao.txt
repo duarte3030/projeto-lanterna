@@ -1,0 +1,14 @@
+onda 3, Frente A (Galar): validacao
+total       82
+com_en      81
+sem_en      1
+ok          81
+token       0
+paragrafo   0
+charmap     0
+largura     0
+cifrao      0
+entradas em resgate_galar_texto.json: 107 -> 188
+
+indices com problema (indice, chaves, o que falhou)
+(nenhum)

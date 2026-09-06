@@ -76,7 +76,7 @@
       "y": 20,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "GalarPlaca_G05M01_bg0"
+      "script": "GalarObj_G05M01_bg0"
     },
     {
       "type": "sign",
@@ -84,7 +84,7 @@
       "y": 20,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "GalarPlaca_G05M01_bg1"
+      "script": "GalarObj_G05M01_bg1"
     },
     {
       "type": "sign",

@@ -93,7 +93,7 @@
       "y": 44,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "GalarPlaca_G08M14_bg0"
+      "script": "GalarObj_G08M14_bg0"
     },
     {
       "type": "sign",
@@ -101,7 +101,7 @@
       "y": 37,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "GalarPlaca_G08M14_bg1"
+      "script": "GalarObj_G08M14_bg1"
     },
     {
       "type": "sign",
@@ -109,7 +109,7 @@
       "y": 34,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "GalarPlaca_G08M14_bg2"
+      "script": "GalarObj_G08M14_bg2"
     },
     {
       "type": "sign",
@@ -117,7 +117,7 @@
       "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "GalarPlaca_G08M14_bg3"
+      "script": "GalarObj_G08M14_bg3"
     },
     {
       "type": "sign",
@@ -125,7 +125,7 @@
       "y": 20,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "GalarPlaca_G08M14_bg4"
+      "script": "GalarObj_G08M14_bg4"
     },
     {
       "type": "sign",
@@ -133,7 +133,7 @@
       "y": 28,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "GalarPlaca_G08M14_bg5"
+      "script": "GalarObj_G08M14_bg5"
     },
     {
       "type": "sign",
@@ -141,7 +141,7 @@
       "y": 21,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "GalarPlaca_G08M14_bg6"
+      "script": "GalarObj_G08M14_bg6"
     }
   ],
   "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g08m14. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo."

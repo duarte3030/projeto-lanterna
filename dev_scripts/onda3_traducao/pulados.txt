@@ -1,0 +1,1 @@
+075	g09m10/objeto/14	mojibake ja documentado na secao 6 do GLOSSARIO-GALAR.md, deixado sem traducao de proposito (o caractere fora do charmap tambem reprovaria na validacao)

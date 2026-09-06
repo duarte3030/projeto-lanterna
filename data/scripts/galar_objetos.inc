@@ -163,19 +163,42 @@ GalarObj_G04M03_o4_Text2:
 	.string "Hop: Come on, {PLAYER}!!!\n"
 	.string "Pick your Pokémon!!!$"
 
-@ ---- Galar_SlumberingWeald03 (g04m11) ----
-GalarObj_G04M11_o6::
-	lock
-	faceplayer
-	msgbox GalarObj_G04M11_o6_Text0, MSGBOX_AUTOCLOSE
-	release
+@ ---- Galar_Postwick31 (g05m01) ----
+GalarObj_G05M01_bg0::
+	lockall
+	checkflag FLAG_GALAR_MOTOR_827
+	goto_if 1, GalarObj_G05M01_bg0_b1
+	msgbox GalarObj_G05M01_bg0_Text0, MSGBOX_DEFAULT
+	releaseall
 	end
 
-GalarObj_G04M11_o6_Text0:
-	.string "Hop: Take a look at this, {PLAYER}! This\n"
-	.string "is something you don't see every day ...\p"
-	.string "This place definitely looks like it came\n"
-	.string "straight out of a legend.$"
+GalarObj_G05M01_bg0_b1::
+	msgbox GalarObj_G05M01_bg0_Text1, MSGBOX_DEFAULT
+	releaseall
+	end
+
+GalarObj_G05M01_bg0_Text0:
+	.string "Viridian Pokémon Gym\nLeader: ?\pWinning Trainers:\n{RIVAL}$"
+GalarObj_G05M01_bg0_Text1:
+	.string "Viridian Pokémon Gym\nLeader: Giovanni\pWinning Trainers:\n{RIVAL}, {PLAYER}$"
+
+GalarObj_G05M01_bg1::
+	lockall
+	checkflag FLAG_GALAR_MOTOR_827
+	goto_if 1, GalarObj_G05M01_bg1_b1
+	msgbox GalarObj_G05M01_bg1_Text0, MSGBOX_DEFAULT
+	releaseall
+	end
+
+GalarObj_G05M01_bg1_b1::
+	msgbox GalarObj_G05M01_bg1_Text1, MSGBOX_DEFAULT
+	releaseall
+	end
+
+GalarObj_G05M01_bg1_Text0:
+	.string "Viridian Pokémon Gym\nLeader: ?\pWinning Trainers:\n{RIVAL}$"
+GalarObj_G05M01_bg1_Text1:
+	.string "Viridian Pokémon Gym\nLeader: Giovanni\pWinning Trainers:\n{RIVAL}, {PLAYER}$"
 
 @ ---- Galar_Wedgehurst02 (g05m02) ----
 GalarObj_G05M02_o0::
@@ -242,6 +265,42 @@ GalarObj_G05M04_o2_Text1:
 	.string "Don’t give up!$"
 GalarObj_G05M04_o2_Text2:
 	.string "Thank you so much.$"
+
+@ ---- Galar_Wedgehurst04 (g05m05) ----
+GalarObj_G05M05_o1::
+	call GalarObj_G05M05_o1_b1
+	end
+
+GalarObj_G05M05_o1_b1::
+	lock
+	faceplayer
+	checkflag FLAG_GALAR_MOTOR_829
+	goto_if 0, GalarObj_G05M05_o1_b2
+	msgbox GalarObj_G05M05_o1_Text0, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if 1, GalarObj_G05M05_o1_b3
+	msgbox GalarObj_G05M05_o1_Text1, MSGBOX_DEFAULT
+	release
+	return
+
+GalarObj_G05M05_o1_b2::
+	msgbox GalarObj_G05M05_o1_Text2, MSGBOX_DEFAULT
+	release
+	end
+
+GalarObj_G05M05_o1_b3::
+	msgbox GalarObj_G05M05_o1_Text3, MSGBOX_DEFAULT
+	release
+	return
+
+GalarObj_G05M05_o1_Text0:
+	.string "Hello, {PLAYER}!\pIt’s me, Teala, the Pokémon\nCenter 2F attendant.\pIs there something you needed to\nask me about linking?$"
+GalarObj_G05M05_o1_Text1:
+	.string "Let me explain how the Pokémon\nWireless Club works.\pOn this, the top floor, there are\ntwo rooms.\pFirst, the room on the left.\nIt’s the Union Room.\pYou may link up with Trainers\naround you who have also entered\lthe Union Room.\pWith them, you may do things like\nchat, battle, and trade.\pSecond, the room on the right is\nthe Direct Corner.\pYou may trade or battle Pokémon\nwith your friends in this room.\pSometimes, you may not be able to\nfind your friends in the Union Room\lor the Direct Corner.\pIn that case, please move closer\nto your friends.\pIf the Wireless Adapter isn’t\nconnected, you may still link up\lusing a GBA Game Link cable.\pIf that is the case, you must go\nto the Direct Corner.\pI hope you enjoy the Wireless \nCommunication System.$"
+GalarObj_G05M05_o1_Text2:
+	.string "I’m terribly sorry.\nThe Pokémon Wireless Club is\lundergoing adjustments now.$"
+GalarObj_G05M05_o1_Text3:
+	.string "I hope you enjoy the Wireless\nCommunication System.$"
 
 @ ---- Galar_Wedgehurst07 (g05m11) ----
 GalarObj_G05M11_o1::
@@ -347,16 +406,41 @@ GalarObj_G06M13_o0_Text0:
 	.string "Let me take you to the opening\n"
 	.string "ceremony!$"
 
-GalarObj_G06M13_o1::
+@ ---- Galar_Wedgehurst10 (g21m01) ----
+GalarObj_G21M01_o1::
+	call GalarObj_G21M01_o1_b1
+	end
+
+GalarObj_G21M01_o1_b1::
 	lock
 	faceplayer
-	msgbox GalarObj_G06M13_o1_Text0, MSGBOX_AUTOCLOSE
+	checkflag FLAG_GALAR_MOTOR_829
+	goto_if 0, GalarObj_G21M01_o1_b2
+	msgbox GalarObj_G21M01_o1_Text0, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if 1, GalarObj_G21M01_o1_b3
+	msgbox GalarObj_G21M01_o1_Text1, MSGBOX_DEFAULT
+	release
+	return
+
+GalarObj_G21M01_o1_b2::
+	msgbox GalarObj_G21M01_o1_Text2, MSGBOX_DEFAULT
 	release
 	end
 
-GalarObj_G06M13_o1_Text0:
-	.string "Hop: Come on, {PLAYER}! The ceremony is\n"
-	.string "starting now!$"
+GalarObj_G21M01_o1_b3::
+	msgbox GalarObj_G21M01_o1_Text3, MSGBOX_DEFAULT
+	release
+	return
+
+GalarObj_G21M01_o1_Text0:
+	.string "Hello, {PLAYER}!\pIt’s me, Teala, the Pokémon\nCenter 2F attendant.\pIs there something you needed to\nask me about linking?$"
+GalarObj_G21M01_o1_Text1:
+	.string "Let me explain how the Pokémon\nWireless Club works.\pOn this, the top floor, there are\ntwo rooms.\pFirst, the room on the left.\nIt’s the Union Room.\pYou may link up with Trainers\naround you who have also entered\lthe Union Room.\pWith them, you may do things like\nchat, battle, and trade.\pSecond, the room on the right is\nthe Direct Corner.\pYou may trade or battle Pokémon\nwith your friends in this room.\pSometimes, you may not be able to\nfind your friends in the Union Room\lor the Direct Corner.\pIn that case, please move closer\nto your friends.\pIf the Wireless Adapter isn’t\nconnected, you may still link up\lusing a GBA Game Link cable.\pIf that is the case, you must go\nto the Direct Corner.\pI hope you enjoy the Wireless \nCommunication System.$"
+GalarObj_G21M01_o1_Text2:
+	.string "I’m terribly sorry.\nThe Pokémon Wireless Club is\lundergoing adjustments now.$"
+GalarObj_G21M01_o1_Text3:
+	.string "I hope you enjoy the Wireless\nCommunication System.$"
 
 @ ---- Galar_Wedgehurst11 (g40m07) ----
 GalarObj_G40M07_o0::
@@ -453,6 +537,39 @@ GalarObj_G40M07_o0_Mart23:
 	.2byte ITEM_POKE_DOLL
 	.2byte ITEM_RED_SCARF
 	.2byte ITEM_NONE
+
+@ ---- Galar_Wedgehurst13 (g05m03) ----
+GalarObj_G05M03_o1::
+	lock
+	faceplayer
+	compare VAR_GALAR_MOTOR_4060, 1
+	goto_if 4, GalarObj_G05M03_o1_b1
+	msgbox GalarObj_G05M03_o1_Text0, MSGBOX_DEFAULT
+	closemessage
+	call GalarObj_G05M03_o1_b2
+	msgbox GalarObj_G05M03_o1_Text1, MSGBOX_DEFAULT
+	release
+	end
+
+GalarObj_G05M03_o1_b1::
+	msgbox GalarObj_G05M03_o1_Text2, MSGBOX_DEFAULT
+	release
+	end
+
+GalarObj_G05M03_o1_b2::
+	fadescreen 1
+	playfanfare 256
+	waitfanfare
+	special HealPlayerParty
+	fadescreen 0
+	return
+
+GalarObj_G05M03_o1_Text0:
+	.string "You look tired.\nYou should take a quick nap.$"
+GalarObj_G05M03_o1_Text1:
+	.string "Don’t give up!$"
+GalarObj_G05M03_o1_Text2:
+	.string "Thank you so much.$"
 
 @ ---- Galar_Wedgehurst17 (g40m08) ----
 GalarObj_G40M08_o0::
@@ -667,28 +784,6 @@ GalarObj_G06M10_o15_Text0:
 GalarObj_G06M10_o15_Text1:
 	.string "Dive?$"
 
-@ ---- Galar_Motostoke06 (g06m12) ----
-GalarObj_G06M12_o0::
-	lock
-	faceplayer
-	msgbox GalarObj_G06M12_o0_Text0, MSGBOX_AUTOCLOSE
-	release
-	end
-
-GalarObj_G06M12_o0_Text0:
-	.string "You had better go and register,\n"
-	.string " {PLAYER}$"
-
-GalarObj_G06M12_o1::
-	lock
-	faceplayer
-	msgbox GalarObj_G06M12_o1_Text0, MSGBOX_AUTOCLOSE
-	release
-	end
-
-GalarObj_G06M12_o1_Text0:
-	.string "faCa o nosso chek-in {PLAYER}$"
-
 @ ---- Galar_Motostoke18 (g06m33) ----
 GalarObj_G06M33_o0::
 	checkitem ITEM_CARD_KEY, 1
@@ -736,6 +831,39 @@ GalarObj_G06M33_o0_Text2:
 	.string "may pass now!$"
 
 @ ---- Galar_Motostoke20 (g06m35) ----
+GalarObj_G06M35_o3::
+	compare VAR_GALAR_G06M35_OBJ, 1
+	call_if 1, GalarObj_G06M35_o3_b1
+	checkflag FLAG_GALAR_MOTOR_821
+	call_if 1, GalarObj_G06M35_o3_b2
+	lock
+	faceplayer
+	msgbox GalarObj_G06M35_o3_Text0, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarObj_G06M35_o3_b1::
+	lock
+	faceplayer
+	msgbox GalarObj_G06M35_o3_Text1, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarObj_G06M35_o3_b2::
+	lock
+	faceplayer
+	msgbox GalarObj_G06M35_o3_Text2, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarObj_G06M35_o3_Text0:
+	.string "You need two Badges to get through!$"
+GalarObj_G06M35_o3_Text1:
+	.string "It's too late to battle, rest at the\n"
+	.string "Budew Hotel!$"
+GalarObj_G06M35_o3_Text2:
+	.string "O lider de ginasio Kabu esta\ntreinando na galar mine 2$"
+
 GalarObj_G06M35_o4::
 	removeobject VAR_LAST_TALKED
 	end
@@ -837,17 +965,29 @@ GalarObj_G40M02_o0_Mart23:
 	.2byte ITEM_RED_SCARF
 	.2byte ITEM_NONE
 
-@ ---- Galar_WildArea02 (g03m42) ----
-GalarObj_G03M42_o4::
+@ ---- Galar_WildArea01 (g03m35) ----
+GalarObj_G03M35_o18::
+	checkflag FLAG_GALAR_MOTOR_825
+	call_if 0, GalarObj_G03M35_o18_b1
 	lock
 	faceplayer
-	msgbox GalarObj_G03M42_o4_Text0, MSGBOX_AUTOCLOSE
+	msgbox GalarObj_G03M35_o18_Text0, MSGBOX_AUTOCLOSE
 	release
 	end
 
-GalarObj_G03M42_o4_Text0:
-	.string "Are you {PLAYER}, by any chance? I heard\n"
-	.string "you were endorsed by the Champion.$"
+GalarObj_G03M35_o18_b1::
+	lock
+	faceplayer
+	msgbox GalarObj_G03M35_o18_Text1, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarObj_G03M35_o18_Text0:
+	.string "The Flying Taxi is available now.$"
+GalarObj_G03M35_o18_Text1:
+	.string "this Flying Taxi can take you to a\n"
+	.string "special area of the Wild Area, but right\l"
+	.string "now it's resting.$"
 
 @ ---- Galar_WildArea03 (g06m27) ----
 GalarObj_G06M27_o20::
@@ -1084,6 +1224,42 @@ GalarObj_G08M11_o1_Text0:
 GalarObj_G08M11_o1_Text1:
 	.string "Dive?$"
 
+@ ---- Galar_WildAreaIndoor02 (g39m25) ----
+GalarObj_G39M25_o1::
+	call GalarObj_G39M25_o1_b1
+	end
+
+GalarObj_G39M25_o1_b1::
+	lock
+	faceplayer
+	checkflag FLAG_GALAR_MOTOR_829
+	goto_if 0, GalarObj_G39M25_o1_b2
+	msgbox GalarObj_G39M25_o1_Text0, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if 1, GalarObj_G39M25_o1_b3
+	msgbox GalarObj_G39M25_o1_Text1, MSGBOX_DEFAULT
+	release
+	return
+
+GalarObj_G39M25_o1_b2::
+	msgbox GalarObj_G39M25_o1_Text2, MSGBOX_DEFAULT
+	release
+	end
+
+GalarObj_G39M25_o1_b3::
+	msgbox GalarObj_G39M25_o1_Text3, MSGBOX_DEFAULT
+	release
+	return
+
+GalarObj_G39M25_o1_Text0:
+	.string "Hello, {PLAYER}!\pIt’s me, Teala, the Pokémon\nCenter 2F attendant.\pIs there something you needed to\nask me about linking?$"
+GalarObj_G39M25_o1_Text1:
+	.string "Let me explain how the Pokémon\nWireless Club works.\pOn this, the top floor, there are\ntwo rooms.\pFirst, the room on the left.\nIt’s the Union Room.\pYou may link up with Trainers\naround you who have also entered\lthe Union Room.\pWith them, you may do things like\nchat, battle, and trade.\pSecond, the room on the right is\nthe Direct Corner.\pYou may trade or battle Pokémon\nwith your friends in this room.\pSometimes, you may not be able to\nfind your friends in the Union Room\lor the Direct Corner.\pIn that case, please move closer\nto your friends.\pIf the Wireless Adapter isn’t\nconnected, you may still link up\lusing a GBA Game Link cable.\pIf that is the case, you must go\nto the Direct Corner.\pI hope you enjoy the Wireless \nCommunication System.$"
+GalarObj_G39M25_o1_Text2:
+	.string "I’m terribly sorry.\nThe Pokémon Wireless Club is\lundergoing adjustments now.$"
+GalarObj_G39M25_o1_Text3:
+	.string "I hope you enjoy the Wireless\nCommunication System.$"
+
 @ ---- Galar_Turffield03 (g07m11) ----
 GalarObj_G07M11_o0::
 	removeobject VAR_LAST_TALKED
@@ -1191,18 +1367,6 @@ GalarObj_G40M15_o0_Mart23:
 	.2byte ITEM_RED_SCARF
 	.2byte ITEM_NONE
 
-@ ---- Galar_Hulbury01 (g00m08) ----
-GalarObj_G00M08_o0::
-	lock
-	faceplayer
-	msgbox GalarObj_G00M08_o0_Text0, MSGBOX_AUTOCLOSE
-	release
-	end
-
-GalarObj_G00M08_o0_Text0:
-	.string "Hi {PLAYER}, you came too?!\p"
-	.string "How about we battle after we eat?$"
-
 @ ---- Galar_Hulbury03 (g08m02) ----
 GalarObj_G08M02_bg0::
 	lockall
@@ -1249,68 +1413,6 @@ GalarObj_G08M02_o5_Text0:
 	.string "This is really Mr. Fuji’s house.\pHe’s really kind.\pHe looks after abandoned and\norphaned Pokémon.$"
 
 @ ---- Galar_Hulbury06 (g08m07) ----
-GalarObj_G08M07_o11::
-	lock
-	faceplayer
-	msgbox GalarObj_G08M07_o11_Text0, MSGBOX_AUTOCLOSE
-	release
-	end
-
-GalarObj_G08M07_o11_Text0:
-	.string "{COLOR DARK_GRAY}Excuse me, Chairman Rose is in this\n"
-	.string "restaurant.\p"
-	.string "I'm trying to put together a story\n"
-	.string "about it.$"
-
-GalarObj_G08M07_o13::
-	lock
-	faceplayer
-	msgbox GalarObj_G08M07_o13_Text0, MSGBOX_AUTOCLOSE
-	release
-	end
-
-GalarObj_G08M07_o13_Text0:
-	.string "{COLOR DARK_GRAY}It's always good to walk around with\n"
-	.string "your Pokémon.\p"
-	.string "Every {COLOR RED}128 steps{COLOR DARK_GRAY}, they get happier\n"
-	.string "and happier.$"
-
-GalarObj_G08M07_o14::
-	lock
-	faceplayer
-	msgbox GalarObj_G08M07_o14_Text0, MSGBOX_AUTOCLOSE
-	release
-	end
-
-GalarObj_G08M07_o14_Text0:
-	.string "{COLOR LIGHT_RED}Do you really use your Pokémon in\n"
-	.string "battle?\p"
-	.string "I'd never do that to my Zigzagoon, he's\n"
-	.string "a baby.$"
-
-GalarObj_G08M07_o18::
-	lock
-	faceplayer
-	msgbox GalarObj_G08M07_o18_Text0, MSGBOX_AUTOCLOSE
-	release
-	end
-
-GalarObj_G08M07_o18_Text0:
-	.string "{COLOR DARK_GRAY}I swear by the light that guides me\n"
-	.string "that I saw an {COLOR BLUE}Eevee{COLOR DARK_GRAY} swimming toward\l"
-	.string "the horizon.\p"
-	.string "Bolt tried to jump in after it, but I\n"
-	.string "held him back.$"
-
-GalarObj_G08M07_o3::
-	msgbox GalarObj_G08M07_o3_Text0, MSGBOX_AUTOCLOSE
-	release
-	end
-
-GalarObj_G08M07_o3_Text0:
-	.string "{COLOR DARK_GRAY}Looks like the sea isn't giving up any\n"
-	.string "fish today...$"
-
 GalarObj_G08M07_o31::
 	faceplayer
 	lock
@@ -1382,6 +1484,826 @@ GalarObj_G08M07_o32_Mart0:
 	.2byte ITEM_GREEN_SCARF
 	.2byte ITEM_YELLOW_SCARF
 	.2byte ITEM_NONE
+
+@ ---- Galar_Hulbury08 (g08m14) ----
+GalarObj_G08M14_bg0::
+	lockall
+	setvar VAR_0x8005, 1
+	call GalarObj_G08M14_bg0_b1
+	playse 38
+	special DrawWholeMapView
+	waitse
+	releaseall
+	end
+
+GalarObj_G08M14_bg0_b1::
+	msgbox GalarObj_G08M14_bg0_Text0, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if 1, GalarObj_G08M14_bg0_b2
+	msgbox GalarObj_G08M14_bg0_Text1, MSGBOX_DEFAULT
+	checkflag FLAG_GALAR_MOTOR_26D
+	releaseall
+	goto_if 1, GalarObj_G08M14_bg0_b3
+	setflag FLAG_GALAR_MOTOR_26D
+	setmetatile 31, 40, 738, 0
+	setmetatile 32, 40, 739, 0
+	setmetatile 31, 39, 730, 0
+	setmetatile 32, 39, 731, 0
+	setmetatile 31, 38, 790, 0
+	setmetatile 32, 38, 789, 0
+	setmetatile 37, 18, 738, 0
+	setmetatile 38, 18, 739, 0
+	setmetatile 37, 17, 730, 0
+	setmetatile 38, 17, 731, 0
+	setmetatile 37, 16, 299, 1
+	setmetatile 38, 16, 299, 1
+	setmetatile 15, 33, 738, 0
+	setmetatile 16, 33, 739, 0
+	setmetatile 15, 32, 730, 0
+	setmetatile 16, 32, 731, 0
+	setmetatile 15, 31, 779, 0
+	setmetatile 16, 31, 790, 0
+	setmetatile 37, 42, 311, 1
+	setmetatile 38, 42, 311, 1
+	setmetatile 37, 41, 303, 1
+	setmetatile 38, 41, 303, 1
+	setmetatile 37, 40, 717, 1
+	setmetatile 38, 40, 717, 1
+	setmetatile 37, 23, 311, 1
+	setmetatile 38, 23, 311, 1
+	setmetatile 37, 22, 303, 1
+	setmetatile 38, 22, 303, 1
+	setmetatile 37, 21, 717, 0
+	setmetatile 38, 21, 717, 0
+	setmetatile 19, 22, 311, 1
+	setmetatile 20, 22, 311, 1
+	setmetatile 19, 21, 303, 1
+	setmetatile 20, 21, 303, 1
+	setmetatile 19, 20, 717, 1
+	setmetatile 20, 20, 717, 1
+	special DrawWholeMapView
+	end
+
+GalarObj_G08M14_bg0_b2::
+	msgbox GalarObj_G08M14_bg0_Text2, MSGBOX_DEFAULT
+	releaseall
+	end
+
+GalarObj_G08M14_bg0_b3::
+	clearflag FLAG_GALAR_MOTOR_26D
+	setmetatile 31, 40, 311, 1
+	setmetatile 32, 40, 311, 1
+	setmetatile 31, 39, 303, 1
+	setmetatile 32, 39, 303, 1
+	setmetatile 31, 38, 717, 0
+	setmetatile 32, 38, 717, 0
+	setmetatile 37, 18, 311, 1
+	setmetatile 38, 18, 311, 1
+	setmetatile 37, 17, 303, 1
+	setmetatile 38, 17, 303, 1
+	setmetatile 37, 16, 717, 1
+	setmetatile 38, 16, 717, 1
+	setmetatile 15, 33, 311, 1
+	setmetatile 16, 33, 311, 1
+	setmetatile 15, 32, 303, 1
+	setmetatile 16, 32, 303, 1
+	setmetatile 15, 31, 717, 0
+	setmetatile 16, 31, 717, 0
+	setmetatile 37, 42, 738, 0
+	setmetatile 38, 42, 739, 0
+	setmetatile 37, 41, 730, 0
+	setmetatile 38, 41, 731, 0
+	setmetatile 37, 40, 299, 1
+	setmetatile 38, 40, 299, 1
+	setmetatile 37, 23, 738, 0
+	setmetatile 38, 23, 739, 0
+	setmetatile 37, 22, 730, 0
+	setmetatile 38, 22, 731, 0
+	setmetatile 37, 21, 756, 0
+	setmetatile 38, 21, 759, 0
+	setmetatile 19, 22, 738, 0
+	setmetatile 20, 22, 739, 0
+	setmetatile 19, 21, 730, 0
+	setmetatile 20, 21, 731, 0
+	setmetatile 19, 20, 656, 1
+	setmetatile 20, 20, 299, 1
+	special DrawWholeMapView
+	end
+
+GalarObj_G08M14_bg0_Text0:
+	.string "um botao\p pressionar?$"
+GalarObj_G08M14_bg0_Text1:
+	.string "oque houve?$"
+GalarObj_G08M14_bg0_Text2:
+	.string "nada aconteceu!$"
+
+GalarObj_G08M14_bg1::
+	lockall
+	setvar VAR_0x8004, 1
+	call GalarObj_G08M14_bg1_b1
+	playse 38
+	special DrawWholeMapView
+	waitse
+	releaseall
+	end
+
+GalarObj_G08M14_bg1_b1::
+	msgbox GalarObj_G08M14_bg1_Text0, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if 1, GalarObj_G08M14_bg1_b2
+	msgbox GalarObj_G08M14_bg1_Text1, MSGBOX_DEFAULT
+	checkflag FLAG_GALAR_MOTOR_26C
+	releaseall
+	goto_if 1, GalarObj_G08M14_bg1_b3
+	setflag FLAG_GALAR_MOTOR_26C
+	setmetatile 26, 20, 736, 0
+	setmetatile 27, 20, 737, 0
+	setmetatile 26, 19, 728, 0
+	setmetatile 27, 19, 729, 0
+	setmetatile 26, 18, 789, 0
+	setmetatile 27, 18, 790, 0
+	setmetatile 39, 23, 311, 1
+	setmetatile 40, 23, 311, 1
+	setmetatile 39, 22, 303, 1
+	setmetatile 40, 22, 303, 1
+	setmetatile 39, 21, 717, 1
+	setmetatile 40, 21, 717, 1
+	setmetatile 39, 38, 736, 0
+	setmetatile 40, 38, 737, 0
+	setmetatile 39, 37, 728, 0
+	setmetatile 40, 37, 729, 0
+	setmetatile 39, 36, 779, 0
+	setmetatile 40, 36, 780, 0
+	setmetatile 21, 18, 311, 1
+	setmetatile 22, 18, 311, 1
+	setmetatile 21, 17, 303, 1
+	setmetatile 22, 17, 303, 1
+	setmetatile 21, 16, 717, 1
+	setmetatile 22, 16, 717, 1
+	setmetatile 32, 18, 311, 1
+	setmetatile 33, 18, 311, 1
+	setmetatile 32, 17, 303, 1
+	setmetatile 33, 17, 303, 1
+	setmetatile 32, 16, 717, 1
+	setmetatile 33, 16, 717, 1
+	setmetatile 32, 29, 736, 0
+	setmetatile 33, 29, 737, 0
+	setmetatile 32, 28, 728, 0
+	setmetatile 33, 28, 729, 0
+	setmetatile 32, 27, 779, 0
+	setmetatile 33, 27, 780, 0
+	setmetatile 19, 33, 311, 1
+	setmetatile 20, 33, 311, 1
+	setmetatile 19, 32, 311, 1
+	setmetatile 20, 32, 311, 1
+	setmetatile 19, 31, 717, 0
+	setmetatile 20, 31, 717, 0
+	special DrawWholeMapView
+	end
+
+GalarObj_G08M14_bg1_b2::
+	msgbox GalarObj_G08M14_bg1_Text2, MSGBOX_DEFAULT
+	releaseall
+	end
+
+GalarObj_G08M14_bg1_b3::
+	clearflag FLAG_GALAR_MOTOR_26C
+	setmetatile 26, 20, 311, 1
+	setmetatile 27, 20, 311, 1
+	setmetatile 26, 19, 303, 1
+	setmetatile 27, 19, 303, 1
+	setmetatile 26, 18, 717, 0
+	setmetatile 27, 18, 717, 0
+	setmetatile 39, 23, 736, 0
+	setmetatile 40, 23, 737, 0
+	setmetatile 39, 22, 728, 0
+	setmetatile 40, 22, 729, 0
+	setmetatile 39, 21, 299, 1
+	setmetatile 40, 21, 299, 1
+	setmetatile 39, 38, 736, 0
+	setmetatile 40, 38, 737, 0
+	setmetatile 39, 37, 728, 0
+	setmetatile 40, 37, 729, 0
+	setmetatile 39, 36, 779, 0
+	setmetatile 40, 36, 780, 0
+	setmetatile 21, 18, 736, 0
+	setmetatile 22, 18, 737, 0
+	setmetatile 21, 17, 728, 0
+	setmetatile 22, 17, 729, 0
+	setmetatile 21, 16, 299, 1
+	setmetatile 22, 16, 299, 1
+	setmetatile 32, 18, 736, 0
+	setmetatile 33, 18, 737, 0
+	setmetatile 32, 17, 728, 0
+	setmetatile 33, 17, 729, 0
+	setmetatile 32, 16, 627, 1
+	setmetatile 33, 16, 627, 1
+	setmetatile 32, 29, 311, 1
+	setmetatile 33, 29, 311, 1
+	setmetatile 32, 28, 311, 1
+	setmetatile 33, 28, 311, 1
+	setmetatile 32, 27, 717, 0
+	setmetatile 33, 27, 717, 0
+	setmetatile 19, 33, 736, 0
+	setmetatile 20, 33, 737, 0
+	setmetatile 19, 32, 728, 0
+	setmetatile 20, 32, 729, 0
+	setmetatile 19, 31, 789, 0
+	setmetatile 20, 31, 780, 0
+	setmetatile 37, 16, 299, 1
+	setmetatile 38, 16, 299, 1
+	special DrawWholeMapView
+	end
+
+GalarObj_G08M14_bg1_Text0:
+	.string "um botao\p pressionar?$"
+GalarObj_G08M14_bg1_Text1:
+	.string "oque houve?$"
+GalarObj_G08M14_bg1_Text2:
+	.string "nada aconteceu!$"
+
+GalarObj_G08M14_bg2::
+	lockall
+	setvar VAR_0x8004, 1
+	call GalarObj_G08M14_bg2_b1
+	playse 38
+	special DrawWholeMapView
+	waitse
+	releaseall
+	end
+
+GalarObj_G08M14_bg2_b1::
+	msgbox GalarObj_G08M14_bg2_Text0, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if 1, GalarObj_G08M14_bg2_b2
+	msgbox GalarObj_G08M14_bg2_Text1, MSGBOX_DEFAULT
+	checkflag FLAG_GALAR_MOTOR_26C
+	releaseall
+	goto_if 1, GalarObj_G08M14_bg2_b3
+	setflag FLAG_GALAR_MOTOR_26C
+	setmetatile 26, 20, 736, 0
+	setmetatile 27, 20, 737, 0
+	setmetatile 26, 19, 728, 0
+	setmetatile 27, 19, 729, 0
+	setmetatile 26, 18, 789, 0
+	setmetatile 27, 18, 790, 0
+	setmetatile 39, 23, 311, 1
+	setmetatile 40, 23, 311, 1
+	setmetatile 39, 22, 303, 1
+	setmetatile 40, 22, 303, 1
+	setmetatile 39, 21, 717, 1
+	setmetatile 40, 21, 717, 1
+	setmetatile 39, 38, 736, 0
+	setmetatile 40, 38, 737, 0
+	setmetatile 39, 37, 728, 0
+	setmetatile 40, 37, 729, 0
+	setmetatile 39, 36, 779, 0
+	setmetatile 40, 36, 780, 0
+	setmetatile 21, 18, 311, 1
+	setmetatile 22, 18, 311, 1
+	setmetatile 21, 17, 303, 1
+	setmetatile 22, 17, 303, 1
+	setmetatile 21, 16, 717, 1
+	setmetatile 22, 16, 717, 1
+	setmetatile 32, 18, 311, 1
+	setmetatile 33, 18, 311, 1
+	setmetatile 32, 17, 303, 1
+	setmetatile 33, 17, 303, 1
+	setmetatile 32, 16, 717, 1
+	setmetatile 33, 16, 717, 1
+	setmetatile 32, 29, 736, 0
+	setmetatile 33, 29, 737, 0
+	setmetatile 32, 28, 728, 0
+	setmetatile 33, 28, 729, 0
+	setmetatile 32, 27, 779, 0
+	setmetatile 33, 27, 780, 0
+	setmetatile 19, 33, 311, 1
+	setmetatile 20, 33, 311, 1
+	setmetatile 19, 32, 311, 1
+	setmetatile 20, 32, 311, 1
+	setmetatile 19, 31, 717, 0
+	setmetatile 20, 31, 717, 0
+	special DrawWholeMapView
+	end
+
+GalarObj_G08M14_bg2_b2::
+	msgbox GalarObj_G08M14_bg2_Text2, MSGBOX_DEFAULT
+	releaseall
+	end
+
+GalarObj_G08M14_bg2_b3::
+	clearflag FLAG_GALAR_MOTOR_26C
+	setmetatile 26, 20, 311, 1
+	setmetatile 27, 20, 311, 1
+	setmetatile 26, 19, 303, 1
+	setmetatile 27, 19, 303, 1
+	setmetatile 26, 18, 717, 0
+	setmetatile 27, 18, 717, 0
+	setmetatile 39, 23, 736, 0
+	setmetatile 40, 23, 737, 0
+	setmetatile 39, 22, 728, 0
+	setmetatile 40, 22, 729, 0
+	setmetatile 39, 21, 299, 1
+	setmetatile 40, 21, 299, 1
+	setmetatile 39, 38, 736, 0
+	setmetatile 40, 38, 737, 0
+	setmetatile 39, 37, 728, 0
+	setmetatile 40, 37, 729, 0
+	setmetatile 39, 36, 779, 0
+	setmetatile 40, 36, 780, 0
+	setmetatile 21, 18, 736, 0
+	setmetatile 22, 18, 737, 0
+	setmetatile 21, 17, 728, 0
+	setmetatile 22, 17, 729, 0
+	setmetatile 21, 16, 299, 1
+	setmetatile 22, 16, 299, 1
+	setmetatile 32, 18, 736, 0
+	setmetatile 33, 18, 737, 0
+	setmetatile 32, 17, 728, 0
+	setmetatile 33, 17, 729, 0
+	setmetatile 32, 16, 627, 1
+	setmetatile 33, 16, 627, 1
+	setmetatile 32, 29, 311, 1
+	setmetatile 33, 29, 311, 1
+	setmetatile 32, 28, 311, 1
+	setmetatile 33, 28, 311, 1
+	setmetatile 32, 27, 717, 0
+	setmetatile 33, 27, 717, 0
+	setmetatile 19, 33, 736, 0
+	setmetatile 20, 33, 737, 0
+	setmetatile 19, 32, 728, 0
+	setmetatile 20, 32, 729, 0
+	setmetatile 19, 31, 789, 0
+	setmetatile 20, 31, 780, 0
+	setmetatile 37, 16, 299, 1
+	setmetatile 38, 16, 299, 1
+	special DrawWholeMapView
+	end
+
+GalarObj_G08M14_bg2_Text0:
+	.string "um botao\p pressionar?$"
+GalarObj_G08M14_bg2_Text1:
+	.string "oque houve?$"
+GalarObj_G08M14_bg2_Text2:
+	.string "nada aconteceu!$"
+
+GalarObj_G08M14_bg3::
+	lockall
+	setvar VAR_0x8004, 1
+	call GalarObj_G08M14_bg3_b1
+	playse 38
+	special DrawWholeMapView
+	waitse
+	releaseall
+	end
+
+GalarObj_G08M14_bg3_b1::
+	msgbox GalarObj_G08M14_bg3_Text0, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if 1, GalarObj_G08M14_bg3_b2
+	msgbox GalarObj_G08M14_bg3_Text1, MSGBOX_DEFAULT
+	checkflag FLAG_GALAR_MOTOR_26C
+	releaseall
+	goto_if 1, GalarObj_G08M14_bg3_b3
+	setflag FLAG_GALAR_MOTOR_26C
+	setmetatile 26, 20, 736, 0
+	setmetatile 27, 20, 737, 0
+	setmetatile 26, 19, 728, 0
+	setmetatile 27, 19, 729, 0
+	setmetatile 26, 18, 789, 0
+	setmetatile 27, 18, 790, 0
+	setmetatile 39, 23, 311, 1
+	setmetatile 40, 23, 311, 1
+	setmetatile 39, 22, 303, 1
+	setmetatile 40, 22, 303, 1
+	setmetatile 39, 21, 717, 1
+	setmetatile 40, 21, 717, 1
+	setmetatile 39, 38, 736, 0
+	setmetatile 40, 38, 737, 0
+	setmetatile 39, 37, 728, 0
+	setmetatile 40, 37, 729, 0
+	setmetatile 39, 36, 779, 0
+	setmetatile 40, 36, 780, 0
+	setmetatile 21, 18, 311, 1
+	setmetatile 22, 18, 311, 1
+	setmetatile 21, 17, 303, 1
+	setmetatile 22, 17, 303, 1
+	setmetatile 21, 16, 717, 1
+	setmetatile 22, 16, 717, 1
+	setmetatile 32, 18, 311, 1
+	setmetatile 33, 18, 311, 1
+	setmetatile 32, 17, 303, 1
+	setmetatile 33, 17, 303, 1
+	setmetatile 32, 16, 717, 1
+	setmetatile 33, 16, 717, 1
+	setmetatile 32, 29, 736, 0
+	setmetatile 33, 29, 737, 0
+	setmetatile 32, 28, 728, 0
+	setmetatile 33, 28, 729, 0
+	setmetatile 32, 27, 779, 0
+	setmetatile 33, 27, 780, 0
+	setmetatile 19, 33, 311, 1
+	setmetatile 20, 33, 311, 1
+	setmetatile 19, 32, 311, 1
+	setmetatile 20, 32, 311, 1
+	setmetatile 19, 31, 717, 0
+	setmetatile 20, 31, 717, 0
+	special DrawWholeMapView
+	end
+
+GalarObj_G08M14_bg3_b2::
+	msgbox GalarObj_G08M14_bg3_Text2, MSGBOX_DEFAULT
+	releaseall
+	end
+
+GalarObj_G08M14_bg3_b3::
+	clearflag FLAG_GALAR_MOTOR_26C
+	setmetatile 26, 20, 311, 1
+	setmetatile 27, 20, 311, 1
+	setmetatile 26, 19, 303, 1
+	setmetatile 27, 19, 303, 1
+	setmetatile 26, 18, 717, 0
+	setmetatile 27, 18, 717, 0
+	setmetatile 39, 23, 736, 0
+	setmetatile 40, 23, 737, 0
+	setmetatile 39, 22, 728, 0
+	setmetatile 40, 22, 729, 0
+	setmetatile 39, 21, 299, 1
+	setmetatile 40, 21, 299, 1
+	setmetatile 39, 38, 736, 0
+	setmetatile 40, 38, 737, 0
+	setmetatile 39, 37, 728, 0
+	setmetatile 40, 37, 729, 0
+	setmetatile 39, 36, 779, 0
+	setmetatile 40, 36, 780, 0
+	setmetatile 21, 18, 736, 0
+	setmetatile 22, 18, 737, 0
+	setmetatile 21, 17, 728, 0
+	setmetatile 22, 17, 729, 0
+	setmetatile 21, 16, 299, 1
+	setmetatile 22, 16, 299, 1
+	setmetatile 32, 18, 736, 0
+	setmetatile 33, 18, 737, 0
+	setmetatile 32, 17, 728, 0
+	setmetatile 33, 17, 729, 0
+	setmetatile 32, 16, 627, 1
+	setmetatile 33, 16, 627, 1
+	setmetatile 32, 29, 311, 1
+	setmetatile 33, 29, 311, 1
+	setmetatile 32, 28, 311, 1
+	setmetatile 33, 28, 311, 1
+	setmetatile 32, 27, 717, 0
+	setmetatile 33, 27, 717, 0
+	setmetatile 19, 33, 736, 0
+	setmetatile 20, 33, 737, 0
+	setmetatile 19, 32, 728, 0
+	setmetatile 20, 32, 729, 0
+	setmetatile 19, 31, 789, 0
+	setmetatile 20, 31, 780, 0
+	setmetatile 37, 16, 299, 1
+	setmetatile 38, 16, 299, 1
+	special DrawWholeMapView
+	end
+
+GalarObj_G08M14_bg3_Text0:
+	.string "um botao\p pressionar?$"
+GalarObj_G08M14_bg3_Text1:
+	.string "oque houve?$"
+GalarObj_G08M14_bg3_Text2:
+	.string "nada aconteceu!$"
+
+GalarObj_G08M14_bg4::
+	lockall
+	setvar VAR_0x8005, 1
+	call GalarObj_G08M14_bg4_b1
+	playse 38
+	special DrawWholeMapView
+	waitse
+	releaseall
+	end
+
+GalarObj_G08M14_bg4_b1::
+	msgbox GalarObj_G08M14_bg4_Text0, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if 1, GalarObj_G08M14_bg4_b2
+	msgbox GalarObj_G08M14_bg4_Text1, MSGBOX_DEFAULT
+	checkflag FLAG_GALAR_MOTOR_26D
+	releaseall
+	goto_if 1, GalarObj_G08M14_bg4_b3
+	setflag FLAG_GALAR_MOTOR_26D
+	setmetatile 31, 40, 738, 0
+	setmetatile 32, 40, 739, 0
+	setmetatile 31, 39, 730, 0
+	setmetatile 32, 39, 731, 0
+	setmetatile 31, 38, 790, 0
+	setmetatile 32, 38, 789, 0
+	setmetatile 37, 18, 738, 0
+	setmetatile 38, 18, 739, 0
+	setmetatile 37, 17, 730, 0
+	setmetatile 38, 17, 731, 0
+	setmetatile 37, 16, 299, 1
+	setmetatile 38, 16, 299, 1
+	setmetatile 15, 33, 738, 0
+	setmetatile 16, 33, 739, 0
+	setmetatile 15, 32, 730, 0
+	setmetatile 16, 32, 731, 0
+	setmetatile 15, 31, 779, 0
+	setmetatile 16, 31, 790, 0
+	setmetatile 37, 42, 311, 1
+	setmetatile 38, 42, 311, 1
+	setmetatile 37, 41, 303, 1
+	setmetatile 38, 41, 303, 1
+	setmetatile 37, 40, 717, 1
+	setmetatile 38, 40, 717, 1
+	setmetatile 37, 23, 311, 1
+	setmetatile 38, 23, 311, 1
+	setmetatile 37, 22, 303, 1
+	setmetatile 38, 22, 303, 1
+	setmetatile 37, 21, 717, 0
+	setmetatile 38, 21, 717, 0
+	setmetatile 19, 22, 311, 1
+	setmetatile 20, 22, 311, 1
+	setmetatile 19, 21, 303, 1
+	setmetatile 20, 21, 303, 1
+	setmetatile 19, 20, 717, 1
+	setmetatile 20, 20, 717, 1
+	special DrawWholeMapView
+	end
+
+GalarObj_G08M14_bg4_b2::
+	msgbox GalarObj_G08M14_bg4_Text2, MSGBOX_DEFAULT
+	releaseall
+	end
+
+GalarObj_G08M14_bg4_b3::
+	clearflag FLAG_GALAR_MOTOR_26D
+	setmetatile 31, 40, 311, 1
+	setmetatile 32, 40, 311, 1
+	setmetatile 31, 39, 303, 1
+	setmetatile 32, 39, 303, 1
+	setmetatile 31, 38, 717, 0
+	setmetatile 32, 38, 717, 0
+	setmetatile 37, 18, 311, 1
+	setmetatile 38, 18, 311, 1
+	setmetatile 37, 17, 303, 1
+	setmetatile 38, 17, 303, 1
+	setmetatile 37, 16, 717, 1
+	setmetatile 38, 16, 717, 1
+	setmetatile 15, 33, 311, 1
+	setmetatile 16, 33, 311, 1
+	setmetatile 15, 32, 303, 1
+	setmetatile 16, 32, 303, 1
+	setmetatile 15, 31, 717, 0
+	setmetatile 16, 31, 717, 0
+	setmetatile 37, 42, 738, 0
+	setmetatile 38, 42, 739, 0
+	setmetatile 37, 41, 730, 0
+	setmetatile 38, 41, 731, 0
+	setmetatile 37, 40, 299, 1
+	setmetatile 38, 40, 299, 1
+	setmetatile 37, 23, 738, 0
+	setmetatile 38, 23, 739, 0
+	setmetatile 37, 22, 730, 0
+	setmetatile 38, 22, 731, 0
+	setmetatile 37, 21, 756, 0
+	setmetatile 38, 21, 759, 0
+	setmetatile 19, 22, 738, 0
+	setmetatile 20, 22, 739, 0
+	setmetatile 19, 21, 730, 0
+	setmetatile 20, 21, 731, 0
+	setmetatile 19, 20, 656, 1
+	setmetatile 20, 20, 299, 1
+	special DrawWholeMapView
+	end
+
+GalarObj_G08M14_bg4_Text0:
+	.string "um botao\p pressionar?$"
+GalarObj_G08M14_bg4_Text1:
+	.string "oque houve?$"
+GalarObj_G08M14_bg4_Text2:
+	.string "nada aconteceu!$"
+
+GalarObj_G08M14_bg5::
+	lockall
+	setvar VAR_0x8005, 1
+	call GalarObj_G08M14_bg5_b1
+	playse 38
+	special DrawWholeMapView
+	waitse
+	releaseall
+	end
+
+GalarObj_G08M14_bg5_b1::
+	msgbox GalarObj_G08M14_bg5_Text0, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if 1, GalarObj_G08M14_bg5_b2
+	msgbox GalarObj_G08M14_bg5_Text1, MSGBOX_DEFAULT
+	checkflag FLAG_GALAR_MOTOR_26D
+	releaseall
+	goto_if 1, GalarObj_G08M14_bg5_b3
+	setflag FLAG_GALAR_MOTOR_26D
+	setmetatile 31, 40, 738, 0
+	setmetatile 32, 40, 739, 0
+	setmetatile 31, 39, 730, 0
+	setmetatile 32, 39, 731, 0
+	setmetatile 31, 38, 790, 0
+	setmetatile 32, 38, 789, 0
+	setmetatile 37, 18, 738, 0
+	setmetatile 38, 18, 739, 0
+	setmetatile 37, 17, 730, 0
+	setmetatile 38, 17, 731, 0
+	setmetatile 37, 16, 299, 1
+	setmetatile 38, 16, 299, 1
+	setmetatile 15, 33, 738, 0
+	setmetatile 16, 33, 739, 0
+	setmetatile 15, 32, 730, 0
+	setmetatile 16, 32, 731, 0
+	setmetatile 15, 31, 779, 0
+	setmetatile 16, 31, 790, 0
+	setmetatile 37, 42, 311, 1
+	setmetatile 38, 42, 311, 1
+	setmetatile 37, 41, 303, 1
+	setmetatile 38, 41, 303, 1
+	setmetatile 37, 40, 717, 1
+	setmetatile 38, 40, 717, 1
+	setmetatile 37, 23, 311, 1
+	setmetatile 38, 23, 311, 1
+	setmetatile 37, 22, 303, 1
+	setmetatile 38, 22, 303, 1
+	setmetatile 37, 21, 717, 0
+	setmetatile 38, 21, 717, 0
+	setmetatile 19, 22, 311, 1
+	setmetatile 20, 22, 311, 1
+	setmetatile 19, 21, 303, 1
+	setmetatile 20, 21, 303, 1
+	setmetatile 19, 20, 717, 1
+	setmetatile 20, 20, 717, 1
+	special DrawWholeMapView
+	end
+
+GalarObj_G08M14_bg5_b2::
+	msgbox GalarObj_G08M14_bg5_Text2, MSGBOX_DEFAULT
+	releaseall
+	end
+
+GalarObj_G08M14_bg5_b3::
+	clearflag FLAG_GALAR_MOTOR_26D
+	setmetatile 31, 40, 311, 1
+	setmetatile 32, 40, 311, 1
+	setmetatile 31, 39, 303, 1
+	setmetatile 32, 39, 303, 1
+	setmetatile 31, 38, 717, 0
+	setmetatile 32, 38, 717, 0
+	setmetatile 37, 18, 311, 1
+	setmetatile 38, 18, 311, 1
+	setmetatile 37, 17, 303, 1
+	setmetatile 38, 17, 303, 1
+	setmetatile 37, 16, 717, 1
+	setmetatile 38, 16, 717, 1
+	setmetatile 15, 33, 311, 1
+	setmetatile 16, 33, 311, 1
+	setmetatile 15, 32, 303, 1
+	setmetatile 16, 32, 303, 1
+	setmetatile 15, 31, 717, 0
+	setmetatile 16, 31, 717, 0
+	setmetatile 37, 42, 738, 0
+	setmetatile 38, 42, 739, 0
+	setmetatile 37, 41, 730, 0
+	setmetatile 38, 41, 731, 0
+	setmetatile 37, 40, 299, 1
+	setmetatile 38, 40, 299, 1
+	setmetatile 37, 23, 738, 0
+	setmetatile 38, 23, 739, 0
+	setmetatile 37, 22, 730, 0
+	setmetatile 38, 22, 731, 0
+	setmetatile 37, 21, 756, 0
+	setmetatile 38, 21, 759, 0
+	setmetatile 19, 22, 738, 0
+	setmetatile 20, 22, 739, 0
+	setmetatile 19, 21, 730, 0
+	setmetatile 20, 21, 731, 0
+	setmetatile 19, 20, 656, 1
+	setmetatile 20, 20, 299, 1
+	special DrawWholeMapView
+	end
+
+GalarObj_G08M14_bg5_Text0:
+	.string "um botao\p pressionar?$"
+GalarObj_G08M14_bg5_Text1:
+	.string "oque houve?$"
+GalarObj_G08M14_bg5_Text2:
+	.string "nada aconteceu!$"
+
+GalarObj_G08M14_bg6::
+	lockall
+	setvar VAR_0x8004, 1
+	call GalarObj_G08M14_bg6_b1
+	playse 38
+	special DrawWholeMapView
+	waitse
+	releaseall
+	end
+
+GalarObj_G08M14_bg6_b1::
+	msgbox GalarObj_G08M14_bg6_Text0, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if 1, GalarObj_G08M14_bg6_b2
+	msgbox GalarObj_G08M14_bg6_Text1, MSGBOX_DEFAULT
+	checkflag FLAG_GALAR_MOTOR_26F
+	releaseall
+	goto_if 1, GalarObj_G08M14_bg6_b3
+	setflag FLAG_GALAR_MOTOR_26F
+	setmetatile 26, 40, 740, 0
+	setmetatile 27, 40, 741, 0
+	setmetatile 26, 39, 732, 0
+	setmetatile 27, 39, 733, 0
+	setmetatile 26, 38, 779, 0
+	setmetatile 27, 38, 780, 0
+	setmetatile 25, 14, 740, 0
+	setmetatile 26, 14, 741, 0
+	setmetatile 25, 13, 732, 0
+	setmetatile 26, 13, 733, 0
+	setmetatile 25, 12, 299, 1
+	setmetatile 26, 12, 137, 0
+	setmetatile 27, 14, 740, 0
+	setmetatile 28, 14, 741, 0
+	setmetatile 27, 13, 732, 0
+	setmetatile 28, 13, 733, 0
+	setmetatile 27, 12, 137, 0
+	setmetatile 28, 12, 299, 1
+	setmetatile 29, 45, 311, 1
+	setmetatile 30, 45, 311, 1
+	setmetatile 29, 44, 303, 1
+	setmetatile 30, 44, 303, 1
+	setmetatile 29, 43, 717, 1
+	setmetatile 31, 43, 717, 1
+	setmetatile 17, 18, 311, 1
+	setmetatile 18, 18, 311, 1
+	setmetatile 17, 17, 303, 1
+	setmetatile 18, 17, 303, 1
+	setmetatile 17, 16, 717, 1
+	setmetatile 18, 16, 717, 1
+	setmetatile 7, 24, 311, 1
+	setmetatile 8, 24, 311, 1
+	setmetatile 7, 23, 303, 1
+	setmetatile 8, 23, 303, 1
+	setmetatile 7, 22, 717, 1
+	setmetatile 8, 22, 717, 1
+	special DrawWholeMapView
+	end
+
+GalarObj_G08M14_bg6_b2::
+	msgbox GalarObj_G08M14_bg6_Text2, MSGBOX_DEFAULT
+	releaseall
+	end
+
+GalarObj_G08M14_bg6_b3::
+	clearflag FLAG_GALAR_MOTOR_26F
+	setmetatile 26, 40, 311, 1
+	setmetatile 27, 40, 311, 1
+	setmetatile 26, 39, 303, 1
+	setmetatile 27, 39, 303, 1
+	setmetatile 26, 38, 717, 0
+	setmetatile 27, 38, 717, 0
+	setmetatile 25, 14, 311, 1
+	setmetatile 26, 14, 311, 1
+	setmetatile 25, 13, 303, 1
+	setmetatile 26, 13, 303, 1
+	setmetatile 25, 12, 717, 1
+	setmetatile 26, 12, 717, 0
+	setmetatile 27, 14, 311, 1
+	setmetatile 28, 14, 311, 1
+	setmetatile 27, 13, 303, 1
+	setmetatile 28, 13, 303, 1
+	setmetatile 27, 12, 717, 0
+	setmetatile 28, 12, 717, 1
+	setmetatile 29, 45, 740, 1
+	setmetatile 30, 45, 741, 1
+	setmetatile 29, 44, 732, 1
+	setmetatile 30, 44, 733, 1
+	setmetatile 29, 43, 627, 1
+	setmetatile 31, 43, 627, 1
+	setmetatile 17, 18, 740, 0
+	setmetatile 18, 18, 741, 0
+	setmetatile 17, 17, 732, 0
+	setmetatile 18, 17, 733, 0
+	setmetatile 17, 16, 627, 1
+	setmetatile 18, 16, 627, 1
+	setmetatile 7, 24, 740, 0
+	setmetatile 8, 24, 741, 0
+	setmetatile 7, 23, 732, 0
+	setmetatile 8, 23, 733, 0
+	setmetatile 7, 22, 771, 0
+	setmetatile 8, 22, 774, 0
+	special DrawWholeMapView
+	end
+
+GalarObj_G08M14_bg6_Text0:
+	.string "um botao\p pressionar?$"
+GalarObj_G08M14_bg6_Text1:
+	.string " que houve?$"
+GalarObj_G08M14_bg6_Text2:
+	.string "nada aconteceu!$"
 
 @ ---- Galar_Hulbury11 (g08m19) ----
 GalarObj_G08M19_o0::
@@ -1591,17 +2513,36 @@ GalarObj_G40M10_o0_Mart23:
 	.2byte ITEM_RED_SCARF
 	.2byte ITEM_NONE
 
-@ ---- Galar_Hammerlocke04 (g09m10) ----
-GalarObj_G09M10_o17::
-	lock
-	faceplayer
-	msgbox GalarObj_G09M10_o17_Text0, MSGBOX_AUTOCLOSE
-	release
+@ ---- Galar_Hammerlocke01 (g03m05) ----
+GalarObj_G03M05_o8::
+	msgbox GalarObj_G03M05_o8_Text0, MSGBOX_AUTOCLOSE
+	setvar VAR_GALAR_MOTOR_40F2, 1
+	@ DECISAO cenas_galar.py: removeobject so vale a sessao de mapa; a flag e a que a FONTE pendurou neste objeto, o que se acrescenta e o momento de acende-la
+	setflag FLAG_GALAR_ESCONDE_22B
+	removeobject 7
+	fadescreen 0
+	warp MAP_GALAR_HAMMERLOCKE_08, 4, 6
+	waitstate
 	end
 
-GalarObj_G09M10_o17_Text0:
-	.string "Ol {PLAYER},Viu a Sonia?$"
+GalarObj_G03M05_o8_Text0:
+	.string "Raihan: Oh! If it isn't the Trainer\n"
+	.string "endorsed by the Champion! Let's see...\l"
+	.string "What was your name again? Ah, right!\l"
+	.string "It's {PLAYER}! Well, if Leon himself\l"
+	.string "recognized your potential. then I guess\l"
+	.string "you're going to become a very strong\l"
+	.string "Trainer. Even so, anyone who wants to\l"
+	.string "challenge the mighty Raihan has to win\l"
+	.string "the seven Badges first\p"
+	.string "{PLAYER}: I'm here to visit the Vault\p"
+	.string "Raihan: Ah, so you're here to see our\n"
+	.string "treasures, then? Getting a better\l"
+	.string "understanding of Pokémon by studying\l"
+	.string "their history certainly isn't a bad idea.\l"
+	.string "I like your spirit, kid! Follow me$"
 
+@ ---- Galar_Hammerlocke04 (g09m10) ----
 GalarObj_G09M10_o18::
 	removeobject VAR_LAST_TALKED
 	end
@@ -1785,6 +2726,28 @@ GalarObj_G09M15_bg0_Text2:
 	.string "There’s a movie on TV.\nA girl with her hair in pigtails is\lwalking up a brick road.\p…I better go, too.$"
 
 @ ---- Galar_Hammerlocke16 (g10m14) ----
+GalarObj_G10M14_bg34::
+	lockall
+	msgbox GalarObj_G10M14_bg34_Text0, MSGBOX_DEFAULT
+	checkflag FLAG_GALAR_MOTOR_26D
+	call_if 0, GalarObj_G10M14_bg34_b1
+	releaseall
+	end
+
+GalarObj_G10M14_bg34_b1::
+	playse 38
+	setmetatile 15, 2, 669, 0
+	setmetatile 16, 2, 670, 1
+	setmetatile 17, 2, 671, 1
+	setmetatile 16, 3, 678, 1
+	setmetatile 17, 3, 679, 1
+	special DrawWholeMapView
+	setflag FLAG_GALAR_MOTOR_26D
+	return
+
+GalarObj_G10M14_bg34_Text0:
+	.string "Hey!\pA switch behind the poster!?\nLet’s push it!$"
+
 GalarObj_G10M14_o1::
 	lock
 	faceplayer
@@ -1820,6 +2783,33 @@ GalarObj_G10M14_o2_b1::
 GalarObj_G10M14_o2_Text0:
 	.string "I think these machines have\ndifferent odds.$"
 GalarObj_G10M14_o2_Mov0:
+	.byte MOVEMENT_ACTION_FACE_ORIGINAL_DIRECTION
+	.byte MOVEMENT_ACTION_STEP_END
+
+GalarObj_G10M14_o4::
+	lock
+	faceplayer
+	checkflag FLAG_GALAR_MOTOR_4B3
+	goto_if 1, GalarObj_G10M14_o4_b1
+	msgbox GalarObj_G10M14_o4_Text0, MSGBOX_DEFAULT
+	goto GalarObj_G10M14_o4_b2
+
+GalarObj_G10M14_o4_b1::
+	msgbox GalarObj_G10M14_o4_Text1, MSGBOX_DEFAULT
+	goto GalarObj_G10M14_o4_b2
+
+GalarObj_G10M14_o4_b2::
+	closemessage
+	applymovement VAR_LAST_TALKED, GalarObj_G10M14_o4_Mov0
+	waitmovement 0
+	release
+	end
+
+GalarObj_G10M14_o4_Text0:
+	.string "Hey!\pYou have better things to do,\nchamp in the making!\pCeladon Gym’s Leader is Erika.\pShe is a user of Grass-type\nPokémon, and at one with nature.\pShe might appear docile because of\nher flower arranging…\pBut she’s not one to be taken\nlightly!$"
+GalarObj_G10M14_o4_Text1:
+	.string "They offer rare Pokémon that can\nbe exchanged for your Coins.\pBut, I just can’t seem to win!$"
+GalarObj_G10M14_o4_Mov0:
 	.byte MOVEMENT_ACTION_FACE_ORIGINAL_DIRECTION
 	.byte MOVEMENT_ACTION_STEP_END
 
@@ -1956,33 +2946,6 @@ GalarObj_G40M03_o0_Mart23:
 	.2byte ITEM_POKE_DOLL
 	.2byte ITEM_RED_SCARF
 	.2byte ITEM_NONE
-
-@ ---- Galar_Route0803 (g20m00) ----
-GalarObj_G20M00_bg0::
-	lockall
-	msgbox GalarObj_G20M00_bg0_Text0, MSGBOX_DEFAULT
-	releaseall
-	end
-
-GalarObj_G20M00_bg0_Text0:
-	.string "{COLOR RED}XX.YY.ZZZZ\n"
-	.string "{COLOR GREEN}HH.DD\p"
-	.string "{COLOR BLUE}Dear Diary, I can't take it anymore...\p"
-	.string "I don't know how long this has been\n"
-	.string "going on, days? Months? Years?\p"
-	.string "My life has had no peace for a long time.\n"
-	.string "I spend days on end awake, having\l"
-	.string "visions, living in fear...\p"
-	.string "I haven't eaten in a while...\p"
-	.string "I can't remember the last time I drank\n"
-	.string "water...\p"
-	.string "And every time I sleep, I have the same\n"
-	.string "nightmares, worse each time, longer\l"
-	.string "each time...\p"
-	.string "I don't know what to do anymore...\p"
-	.string "I don't know how long I can hold out, or\n"
-	.string "whether I'll get through this...\p"
-	.string "Oh, Arceus, help me...$"
 
 @ ---- Galar_StowOnSide02 (g00m10) ----
 GalarObj_G00M10_o3::
@@ -2217,6 +3180,66 @@ GalarObj_G40M05_o0_Mart23:
 	.2byte ITEM_RED_SCARF
 	.2byte ITEM_NONE
 
+@ ---- Galar_Circhester03 (g12m00) ----
+GalarObj_G12M00_bg0::
+	lockall
+	checkflag FLAG_GALAR_MOTOR_826
+	goto_if 1, GalarObj_G12M00_bg0_b1
+	msgbox GalarObj_G12M00_bg0_Text0, MSGBOX_DEFAULT
+	releaseall
+	end
+
+GalarObj_G12M00_bg0_b1::
+	msgbox GalarObj_G12M00_bg0_Text1, MSGBOX_DEFAULT
+	releaseall
+	end
+
+GalarObj_G12M00_bg0_Text0:
+	.string "Cinnabar Pokémon Gym\nLeader: Blaine\pWinning Trainers:\n{RIVAL}$"
+GalarObj_G12M00_bg0_Text1:
+	.string "Cinnabar Pokémon Gym\nLeader: Blaine\pWinning Trainers:\n{RIVAL}, {PLAYER}$"
+
+GalarObj_G12M00_bg1::
+	lockall
+	checkflag FLAG_GALAR_MOTOR_826
+	goto_if 1, GalarObj_G12M00_bg1_b1
+	msgbox GalarObj_G12M00_bg1_Text0, MSGBOX_DEFAULT
+	releaseall
+	end
+
+GalarObj_G12M00_bg1_b1::
+	msgbox GalarObj_G12M00_bg1_Text1, MSGBOX_DEFAULT
+	releaseall
+	end
+
+GalarObj_G12M00_bg1_Text0:
+	.string "Cinnabar Pokémon Gym\nLeader: Blaine\pWinning Trainers:\n{RIVAL}$"
+GalarObj_G12M00_bg1_Text1:
+	.string "Cinnabar Pokémon Gym\nLeader: Blaine\pWinning Trainers:\n{RIVAL}, {PLAYER}$"
+
+GalarObj_G12M00_o7::
+	lock
+	faceplayer
+	checkflag FLAG_GALAR_MOTOR_4B6
+	goto_if 1, GalarObj_G12M00_o7_b1
+	msgbox GalarObj_G12M00_o7_Text0, MSGBOX_DEFAULT
+	release
+	end
+
+GalarObj_G12M00_o7_b1::
+	msgbox GalarObj_G12M00_o7_Text1, MSGBOX_DEFAULT
+	release
+	end
+
+GalarObj_G12M00_o7_Text0:
+	.string "Yo! Champ in the making!\p"
+	.string "The hotheaded Blaine is a Fire Pokémon\n"
+	.string "pro.\p"
+	.string "Douse his spirits with water!\p"
+	.string "You'd better take some Burn Heals, too.$"
+GalarObj_G12M00_o7_Text1:
+	.string "{PLAYER}!\nYou beat that firebrand!$"
+
 @ ---- Galar_Circhester06 (g12m10) ----
 GalarObj_G12M10_o18::
 	lock
@@ -2244,17 +3267,6 @@ GalarObj_G12M10_o18_Text0:
 	.string "about, so let's go to a restaurant to\l"
 	.string "celebrate your victory! The restaurant\l"
 	.string "is called Bob’s Your Uncle!$"
-
-GalarObj_G12M10_o20::
-	lock
-	faceplayer
-	msgbox GalarObj_G12M10_o20_Text0, MSGBOX_AUTOCLOSE
-	release
-	end
-
-GalarObj_G12M10_o20_Text0:
-	.string "Hop: Look, {PLAYER}, this is the bath of\n"
-	.string "heroes!$"
 
 @ ---- Galar_Circhester15 (g40m06) ----
 GalarObj_G40M06_o0::
@@ -2476,38 +3488,6 @@ GalarObj_G40M09_o0_Mart23:
 	.2byte ITEM_RED_SCARF
 	.2byte ITEM_NONE
 
-@ ---- Galar_Wyndon01 (g03m09) ----
-GalarObj_G03M09_o10::
-	lock
-	faceplayer
-	msgbox GalarObj_G03M09_o10_Text0, MSGBOX_AUTOCLOSE
-	release
-	end
-
-GalarObj_G03M09_o10_Text0:
-	.string "Get going, {PLAYER}!!!$"
-
-GalarObj_G03M09_o12::
-	lock
-	faceplayer
-	msgbox GalarObj_G03M09_o12_Text0, MSGBOX_AUTOCLOSE
-	release
-	end
-
-GalarObj_G03M09_o12_Text0:
-	.string "Get going, {PLAYER}!!!$"
-
-@ ---- Galar_Wyndon02 (g13m00) ----
-GalarObj_G13M00_o7::
-	lock
-	faceplayer
-	msgbox GalarObj_G13M00_o7_Text0, MSGBOX_AUTOCLOSE
-	release
-	end
-
-GalarObj_G13M00_o7_Text0:
-	.string "Hop: Look, {PLAYER}, who's here!$"
-
 @ ---- Galar_Wyndon07 (g40m11) ----
 GalarObj_G40M11_o0::
 	faceplayer
@@ -2604,29 +3584,52 @@ GalarObj_G40M11_o0_Mart23:
 	.2byte ITEM_RED_SCARF
 	.2byte ITEM_NONE
 
-@ ---- Galar_Wyndon08 (g13m10) ----
-GalarObj_G13M10_o12::
-	lock
-	faceplayer
-	msgbox GalarObj_G13M10_o12_Text0, MSGBOX_AUTOCLOSE
-	release
-	end
-
-GalarObj_G13M10_o12_Text0:
-	.string "{COLOR DARK_GRAY}Seja Bem-vindo ao {COLOR RED}Rose of the\n Rondelands.$"
-
-@ ---- Galar_RoseTower04 (g01m94) ----
-GalarObj_G01M94_o2::
-	lock
-	faceplayer
-	msgbox GalarObj_G01M94_o2_Text0, MSGBOX_AUTOCLOSE
-	release
-	end
-
-GalarObj_G01M94_o2_Text0:
-	.string "Hop: Hey {PLAYER}, look who I found here!$"
-
 @ ---- Galar_IsleOfArmor02 (g01m34) ----
+GalarObj_G01M34_o0::
+	checkflag FLAG_GALAR_MOTOR_421
+	call_if 0, GalarObj_G01M34_o0_b1
+	lock
+	faceplayer
+	msgbox GalarObj_G01M34_o0_Text0, MSGBOX_AUTOCLOSE
+	fadescreen 0
+	@ DECISAO cenas_galar.py: removeobject so vale a sessao de mapa; a flag e a que a FONTE pendurou neste objeto, o que se acrescenta e o momento de acende-la
+	setflag FLAG_GALAR_ESCONDE_AD3
+	removeobject 1
+	fadescreen 0
+	@ setflag 0x4AF da fonte: flag de motor do demake, sem leitor aqui (cenas_galar.py)
+	@ setflag 0x406 da fonte: flag de motor do demake, sem leitor aqui (cenas_galar.py)
+	warp MAP_GALAR_ISLE_OF_ARMOR_02, 18, 11
+	waitstate
+	release
+	end
+
+GalarObj_G01M34_o0_b1::
+	lock
+	faceplayer
+	msgbox GalarObj_G01M34_o0_Text1, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarObj_G01M34_o0_Text0:
+	.string "Honey: Hello {PLAYER}, I'm simply\n"
+	.string "speechless about you. When you arrived\l"
+	.string "you looked like just an excited kid,\l"
+	.string "but...\p"
+	.string "now I see that you're a great Trainer!!!\p"
+	.string "and to think that one of my little\n"
+	.string "sweeties is your partner...\p"
+	.string "{PLAYER}, I know it's a strange request,\n"
+	.string "but how about a battle? I'm a Trainer\l"
+	.string "too, even if I don't look like it.\p"
+	.string "I know, if you beat me I'll give you a\n"
+	.string "prize!!!\p"
+	.string "But I won't say what it is. If you want\n"
+	.string "to find out, meet me at the Master Dojo\l"
+	.string "arena!\p"
+	.string "See you there!$"
+GalarObj_G01M34_o0_Text1:
+	.string "Honey: Esta precisando de algo,\ndocinho?$"
+
 GalarObj_G01M34_o5::
 	lock
 	faceplayer
@@ -2917,6 +3920,23 @@ GalarObj_G37M05_o24_Mart21:
 	.2byte ITEM_TM46
 	.2byte ITEM_NONE
 
+GalarObj_G37M05_o4::
+	checkflag FLAG_GALAR_MOTOR_467
+	goto_if 1, GalarObj_G37M05_o4_b1
+	fadescreen 1
+	removeobject VAR_LAST_TALKED
+	fadescreen 0
+	end
+
+GalarObj_G37M05_o4_b1::
+	msgbox GalarObj_G37M05_o4_Text0, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarObj_G37M05_o4_Text0:
+	.string "Do not get in my way, I am in the\n"
+	.string "middle of a battle!$"
+
 @ ---- Galar_CrownTundra19 (g40m14) ----
 GalarObj_G40M14_o0::
 	faceplayer
@@ -3013,71 +4033,6 @@ GalarObj_G40M14_o0_Mart23:
 	.2byte ITEM_RED_SCARF
 	.2byte ITEM_NONE
 
-@ ---- Galar_CrownTundraIndoor01 (g00m16) ----
-GalarObj_G00M16_bg0::
-	lock
-	faceplayer
-	msgbox GalarObj_G00M16_bg0_Text0, MSGBOX_AUTOCLOSE
-	release
-	end
-
-GalarObj_G00M16_bg0_Text0:
-	.string "{PLAYER}: Nothing interesting here!$"
-
-GalarObj_G00M16_bg1::
-	lock
-	faceplayer
-	msgbox GalarObj_G00M16_bg1_Text0, MSGBOX_AUTOCLOSE
-	release
-	end
-
-GalarObj_G00M16_bg1_Text0:
-	.string "{PLAYER}: What is this? THE HONOR, THE\n"
-	.string "KING'S STEED: the horse Pokémon that\l"
-	.string "became one with the king, and in a\l"
-	.string "single night they created a forest.\l"
-	.string "This Pokémon was once wild and stole\l"
-	.string "people's harvests, but the king tamed\l"
-	.string "it. As for its appearance, some say it\l"
-	.string "was white as snow, and others say it was\l"
-	.string "dark as night; nobody knows for sure\l"
-	.string "who is right.$"
-
-GalarObj_G00M16_bg2::
-	lock
-	faceplayer
-	msgbox GalarObj_G00M16_bg2_Text0, MSGBOX_AUTOCLOSE
-	release
-	end
-
-GalarObj_G00M16_bg2_Text0:
-	.string "{PLAYER}: What is this? SEED GUIDE:\n"
-	.string "there are some very curious seeds in\l"
-	.string "the Crown Tundra. If the carrots grow\l"
-	.string "under the snow they become Iceroot\l"
-	.string "Carrots, and if they grow near the\l"
-	.string "cemeteries they become Shaderoot\l"
-	.string "Carrots. Ice-type Pokémon love Iceroot\l"
-	.string "Carrots and Ghost-types love\l"
-	.string "Shaderoot Carrots. According to the old\l"
-	.string "legends the king's steed loves both\l"
-	.string "carrots, or one of them, or the other;\l"
-	.string "the stories contradict each other.\l"
-	.string "There are many accounts of a white\l"
-	.string "steed that liked Iceroot Carrots and\l"
-	.string "other stories of a black steed that\l"
-	.string "liked Shaderoot Carrots.$"
-
-GalarObj_G00M16_bg3::
-	lock
-	faceplayer
-	msgbox GalarObj_G00M16_bg3_Text0, MSGBOX_AUTOCLOSE
-	release
-	end
-
-GalarObj_G00M16_bg3_Text0:
-	.string "{PLAYER}: Nothing interesting here!$"
-
 @ ---- Galar_DynamaxAdventure02 (g00m17) ----
 GalarObj_G00M17_o3::
 	lock
@@ -3107,19 +4062,6 @@ GalarObj_G00M17_o3_Text1:
 GalarObj_G00M17_o3_Text2:
 	.string "Hop: Come on, {PLAYER}!!!\n"
 	.string "Pick your Pokémon!!!$"
-
-GalarObj_G00M17_o6::
-	lock
-	faceplayer
-	msgbox GalarObj_G00M17_o6_Text0, MSGBOX_AUTOCLOSE
-	release
-	end
-
-GalarObj_G00M17_o6_Text0:
-	.string "Hop: {PLAYER}, that Wooloo is gone. I\n"
-	.string "think it broke through the fence!!\p"
-	.string "I think…\n"
-	.string "we should go after it …$"
 
 @ ---- Galar_TrainerTower01 (g02m10) ----
 GalarObj_G02M10_o1::

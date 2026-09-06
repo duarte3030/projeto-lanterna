@@ -1,5 +1,5 @@
 {
- "_leia": "De-para do texto de Galar, portugues do demake -> ingles, decisao 32 do Gui (PRD-CARTUCHO-2.md). Glossario: GLOSSARIO-GALAR.md na raiz. Aplicador: dev_scripts/aplica_traducao_galar.py. Cada `en` ja passou pelo charmap deste repo e pela requebra por PIXEL contra 208 px (dev_scripts/texto_placas_sinnoh.py:requebra), a mesma regua da rodada 12 e do dev_scripts/qa/checa_texto.py. O `$` final NAO esta aqui: quem escreve o .string e o aplicador.",
+ "_leia": "De-para do texto de Galar, portugues do demake -> ingles, decisao 32 do Gui (PRD-CARTUCHO-2.md). Glossario: GLOSSARIO-GALAR.md na raiz. Aplicador: dev_scripts/aplica_traducao_galar.py. Cada `en` ja passou pelo charmap deste repo e pela requebra por PIXEL contra 208 px (dev_scripts/texto_placas_sinnoh.py:requebra), a mesma regua da rodada 12 e do dev_scripts/qa/checa_texto.py. O `$` final NAO esta aqui: quem escreve o .string e o aplicador. ONDA 3 (lote L1, 08/09/2026): a traducao passou a entrar NA GERACAO dos tres geradores (ver o cabecalho de dev_scripts/fala_galar.py); este arquivo continua sendo o julgamento por rotulo, e o aplicador so serve agora como conferencia. Sairam 21 entradas de GalarObj_*_Text0 cujo bloco deixou de existir: o objeto delas mudou de balde na fonte (de c_var_cena para a_fala) e o texto passou a morar em GalarFala_*_Text, entrada que ja estava aqui com o MESMO pt. Nenhuma traducao foi perdida, e isso foi conferido gemeo a gemeo antes de apagar.",
  "gerado_em": "2026-09-06",
  "entradas": [
   {
@@ -3935,20 +3935,6 @@
   },
   {
    "arquivo": "data/scripts/galar_objetos.inc",
-   "mapa": "G04M11",
-   "rotulo": "GalarObj_G04M11_o6_Text0",
-   "linha": 170,
-   "pt": "Hop:Dê uma olhada nisso, {PLAYER}!\\nIsso é algo que você não vê todos\\los dias ...\\pEste lugar definitivamente parece\\nsair de uma lenda.",
-   "en": "Hop: Take a look at this, {PLAYER}! This\\nis something you don't see every day ...\\pThis place definitely looks like it came\\nstraight out of a legend.",
-   "en_antes_da_requebra": "Hop: Take a look at this, {PLAYER}! This is something you don't see every day ...\\pThis place definitely looks like it came straight out of a legend.",
-   "requebrado_por_pixel": true,
-   "tokens": [
-    "{PLAYER}",
-    "\\p"
-   ]
-  },
-  {
-   "arquivo": "data/scripts/galar_objetos.inc",
    "mapa": "G05M11",
    "rotulo": "GalarObj_G05M11_o1_Text0",
    "linha": 276,
@@ -4001,19 +3987,6 @@
    "en_antes_da_requebra": "Let me take you to the opening ceremony!",
    "requebrado_por_pixel": true,
    "tokens": []
-  },
-  {
-   "arquivo": "data/scripts/galar_objetos.inc",
-   "mapa": "G06M13",
-   "rotulo": "GalarObj_G06M13_o1_Text0",
-   "linha": 349,
-   "pt": "Hop: Vamos, {PLAYER}! A cerimônia é \\nagora!",
-   "en": "Hop: Come on, {PLAYER}! The ceremony is\\nstarting now!",
-   "en_antes_da_requebra": "Hop: Come on, {PLAYER}! The ceremony is starting now!",
-   "requebrado_por_pixel": true,
-   "tokens": [
-    "{PLAYER}"
-   ]
   },
   {
    "arquivo": "data/scripts/galar_objetos.inc",
@@ -4158,20 +4131,6 @@
   },
   {
    "arquivo": "data/scripts/galar_objetos.inc",
-   "mapa": "G06M12",
-   "rotulo": "GalarObj_G06M12_o0_Text0",
-   "linha": 660,
-   "pt": "Melhor você ir se resgistrar\\n {PLAYER}",
-   "en": "You had better go and register,\\n {PLAYER}",
-   "en_antes_da_requebra": null,
-   "requebrado_por_pixel": false,
-   "tokens": [
-    "{PLAYER}",
-    "\\n"
-   ]
-  },
-  {
-   "arquivo": "data/scripts/galar_objetos.inc",
    "mapa": "G06M33",
    "rotulo": "GalarObj_G06M33_o0_Text0",
    "linha": 703,
@@ -4259,19 +4218,6 @@
    "requebrado_por_pixel": true,
    "tokens": [
     "{COLOR BLUE}"
-   ]
-  },
-  {
-   "arquivo": "data/scripts/galar_objetos.inc",
-   "mapa": "G03M42",
-   "rotulo": "GalarObj_G03M42_o4_Text0",
-   "linha": 816,
-   "pt": "Você por acaso é o {PLAYER}?Ouvir\\ndizer que você foi endoçado pelo\\lcampeao",
-   "en": "Are you {PLAYER}, by any chance? I heard\\nyou were endorsed by the Champion.",
-   "en_antes_da_requebra": "Are you {PLAYER}, by any chance? I heard you were endorsed by the Champion.",
-   "requebrado_por_pixel": true,
-   "tokens": [
-    "{PLAYER}"
    ]
   },
   {
@@ -4436,91 +4382,6 @@
    "requebrado_por_pixel": true,
    "tokens": [
     "{COLOR BLUE}"
-   ]
-  },
-  {
-   "arquivo": "data/scripts/galar_objetos.inc",
-   "mapa": "G00M08",
-   "rotulo": "GalarObj_G00M08_o0_Text0",
-   "linha": 1160,
-   "pt": "Oi {PLAYER}, você veio tambem?!\\pque tal batalhamos depois de comer",
-   "en": "Hi {PLAYER}, you came too?!\\pHow about we battle after we eat?",
-   "en_antes_da_requebra": null,
-   "requebrado_por_pixel": false,
-   "tokens": [
-    "{PLAYER}",
-    "\\p"
-   ]
-  },
-  {
-   "arquivo": "data/scripts/galar_objetos.inc",
-   "mapa": "G08M07",
-   "rotulo": "GalarObj_G08M07_o11_Text0",
-   "linha": 1216,
-   "pt": " {COLOR DARK_GRAY}Me dê licença, o presidente Rose\\nestá neste restaurante\\pEu estou tentando fazer uma\\nmatéria sobre isso.",
-   "en": "{COLOR DARK_GRAY}Excuse me, Chairman Rose is in this\\nrestaurant.\\pI'm trying to put together a story\\nabout it.",
-   "en_antes_da_requebra": " {COLOR DARK_GRAY}Excuse me, Chairman Rose is in this restaurant.\\pI'm trying to put together a story about it.",
-   "requebrado_por_pixel": true,
-   "tokens": [
-    "{COLOR DARK_GRAY}",
-    "\\p"
-   ]
-  },
-  {
-   "arquivo": "data/scripts/galar_objetos.inc",
-   "mapa": "G08M07",
-   "rotulo": "GalarObj_G08M07_o13_Text0",
-   "linha": 1226,
-   "pt": " {COLOR DARK_GRAY}É sempre bom passear com seus\\nPokémons.\\pA cada {COLOR RED}128 passos{COLOR DARK_GRAY}, eles\\nficam cada vez mais felizes.",
-   "en": "{COLOR DARK_GRAY}It's always good to walk around with\\nyour Pokémon.\\pEvery {COLOR RED}128 steps{COLOR DARK_GRAY}, they get happier\\nand happier.",
-   "en_antes_da_requebra": " {COLOR DARK_GRAY}It's always good to walk around with your Pokémon.\\pEvery {COLOR RED}128 steps{COLOR DARK_GRAY}, they get happier and happier.",
-   "requebrado_por_pixel": true,
-   "tokens": [
-    "{COLOR DARK_GRAY}",
-    "{COLOR RED}",
-    "\\p"
-   ]
-  },
-  {
-   "arquivo": "data/scripts/galar_objetos.inc",
-   "mapa": "G08M07",
-   "rotulo": "GalarObj_G08M07_o14_Text0",
-   "linha": 1236,
-   "pt": " {COLOR LIGHT_RED}Sério que você usa seus Pokémon\\nem combate?\\pEu nunca faria isso com meu\\nZigzagoon, ele é um bebê.",
-   "en": "{COLOR LIGHT_RED}Do you really use your Pokémon in\\nbattle?\\pI'd never do that to my Zigzagoon, he's\\na baby.",
-   "en_antes_da_requebra": " {COLOR LIGHT_RED}Do you really use your Pokémon in battle?\\pI'd never do that to my Zigzagoon, he's a baby.",
-   "requebrado_por_pixel": true,
-   "tokens": [
-    "{COLOR LIGHT_RED}",
-    "\\p"
-   ]
-  },
-  {
-   "arquivo": "data/scripts/galar_objetos.inc",
-   "mapa": "G08M07",
-   "rotulo": "GalarObj_G08M07_o18_Text0",
-   "linha": 1246,
-   "pt": " {COLOR DARK_GRAY}Juro pela luz que me ilumina que\\nvi um {COLOR BLUE}eevee{COLOR DARK_GRAY}, nadando até o\\lhorizonte.\\po Bolt tentou pular atrás dele mas\\neu segurei.",
-   "en": "{COLOR DARK_GRAY}I swear by the light that guides me\\nthat I saw an {COLOR BLUE}Eevee{COLOR DARK_GRAY} swimming toward\\lthe horizon.\\pBolt tried to jump in after it, but I\\nheld him back.",
-   "en_antes_da_requebra": " {COLOR DARK_GRAY}I swear by the light that guides me that I saw an {COLOR BLUE}Eevee{COLOR DARK_GRAY} swimming toward the horizon.\\pBolt tried to jump in after it, but I held him back.",
-   "requebrado_por_pixel": true,
-   "tokens": [
-    "{COLOR BLUE}",
-    "{COLOR DARK_GRAY}",
-    "\\p"
-   ]
-  },
-  {
-   "arquivo": "data/scripts/galar_objetos.inc",
-   "mapa": "G08M07",
-   "rotulo": "GalarObj_G08M07_o3_Text0",
-   "linha": 1254,
-   "pt": "{COLOR DARK_GRAY}Parece que hoje o mar não está\\npara peixe...",
-   "en": "{COLOR DARK_GRAY}Looks like the sea isn't giving up any\\nfish today...",
-   "en_antes_da_requebra": "{COLOR DARK_GRAY}Looks like the sea isn't giving up any fish today...",
-   "requebrado_por_pixel": true,
-   "tokens": [
-    "{COLOR DARK_GRAY}"
    ]
   },
   {
@@ -4817,23 +4678,6 @@
   },
   {
    "arquivo": "data/scripts/galar_objetos.inc",
-   "mapa": "G20M00",
-   "rotulo": "GalarObj_G20M00_bg0_Text0",
-   "linha": 1845,
-   "pt": "{COLOR RED}XX.YY.ZZZZ\\n{COLOR GREEN}HH.DD\\p{COLOR BLUE}Querido Diário, eu não aguento\\nmais...\\pNão sei há quanto tempo isso\\nacontece, dias? Meses? Anos?\\pMinha vida não tem paz há muito\\ntempo. Passo dias e dias em claro\\ltendo visoes, vivendo com medo...\\pNão como há um tempo...\\pNão me lembro da última vez que\\nbebi água...\\pE toda vez que durmo, tenho os\\nmesmos pesadelos, e cada vez\\lpiores, cada vez mais longos...\\pNão sei mais o que fazer...\\pNão sei quanto tempo vou aguentar\\nou se vou superar isso...\\pOh, Arceus, me ajude...",
-   "en": "{COLOR RED}XX.YY.ZZZZ\\n{COLOR GREEN}HH.DD\\p{COLOR BLUE}Dear Diary, I can't take it anymore...\\pI don't know how long this has been\\ngoing on, days? Months? Years?\\pMy life has had no peace for a long time.\\nI spend days on end awake, having\\lvisions, living in fear...\\pI haven't eaten in a while...\\pI can't remember the last time I drank\\nwater...\\pAnd every time I sleep, I have the same\\nnightmares, worse each time, longer\\leach time...\\pI don't know what to do anymore...\\pI don't know how long I can hold out, or\\nwhether I'll get through this...\\pOh, Arceus, help me...",
-   "en_antes_da_requebra": "{COLOR RED}XX.YY.ZZZZ\\n{COLOR GREEN}HH.DD\\p{COLOR BLUE}Dear Diary, I can't take it anymore...\\pI don't know how long this has been going on, days? Months? Years?\\pMy life has had no peace for a long time. I spend days on end awake, having visions, living in fear...\\pI haven't eaten in a while...\\pI can't remember the last time I drank water...\\pAnd every time I sleep, I have the same nightmares, worse each time, longer each time...\\pI don't know what to do anymore...\\pI don't know how long I can hold out, or whether I'll get through this...\\pOh, Arceus, help me...",
-   "requebrado_por_pixel": true,
-   "tokens": [
-    "{COLOR BLUE}",
-    "{COLOR GREEN}",
-    "{COLOR RED}",
-    "\\n",
-    "\\p"
-   ]
-  },
-  {
-   "arquivo": "data/scripts/galar_objetos.inc",
    "mapa": "G00M10",
    "rotulo": "GalarObj_G00M10_o3_Text0",
    "linha": 1858,
@@ -4981,19 +4825,6 @@
   },
   {
    "arquivo": "data/scripts/galar_objetos.inc",
-   "mapa": "G12M10",
-   "rotulo": "GalarObj_G12M10_o20_Text0",
-   "linha": 2086,
-   "pt": "Hop: Olha {PLAYER}, esse é o\\nbanho dos herois!",
-   "en": "Hop: Look, {PLAYER}, this is the bath of\\nheroes!",
-   "en_antes_da_requebra": "Hop: Look, {PLAYER}, this is the bath of heroes!",
-   "requebrado_por_pixel": true,
-   "tokens": [
-    "{PLAYER}"
-   ]
-  },
-  {
-   "arquivo": "data/scripts/galar_objetos.inc",
    "mapa": "G40M06",
    "rotulo": "GalarObj_G40M06_o0_Text0",
    "linha": 2126,
@@ -5117,45 +4948,6 @@
   },
   {
    "arquivo": "data/scripts/galar_objetos.inc",
-   "mapa": "G03M09",
-   "rotulo": "GalarObj_G03M09_o10_Text0",
-   "linha": 2302,
-   "pt": "Va logo {PLAYER}!!!",
-   "en": "Get going, {PLAYER}!!!",
-   "en_antes_da_requebra": null,
-   "requebrado_por_pixel": false,
-   "tokens": [
-    "{PLAYER}"
-   ]
-  },
-  {
-   "arquivo": "data/scripts/galar_objetos.inc",
-   "mapa": "G03M09",
-   "rotulo": "GalarObj_G03M09_o12_Text0",
-   "linha": 2312,
-   "pt": "Va logo {PLAYER}!!!",
-   "en": "Get going, {PLAYER}!!!",
-   "en_antes_da_requebra": null,
-   "requebrado_por_pixel": false,
-   "tokens": [
-    "{PLAYER}"
-   ]
-  },
-  {
-   "arquivo": "data/scripts/galar_objetos.inc",
-   "mapa": "G13M00",
-   "rotulo": "GalarObj_G13M00_o7_Text0",
-   "linha": 2323,
-   "pt": "Hop: olha ,{PLAYER}, quem esta aqui!",
-   "en": "Hop: Look, {PLAYER}, who's here!",
-   "en_antes_da_requebra": null,
-   "requebrado_por_pixel": false,
-   "tokens": [
-    "{PLAYER}"
-   ]
-  },
-  {
-   "arquivo": "data/scripts/galar_objetos.inc",
    "mapa": "G40M11",
    "rotulo": "GalarObj_G40M11_o0_Text0",
    "linha": 2363,
@@ -5206,19 +4998,6 @@
    "requebrado_por_pixel": true,
    "tokens": [
     "{COLOR BLUE}"
-   ]
-  },
-  {
-   "arquivo": "data/scripts/galar_objetos.inc",
-   "mapa": "G01M94",
-   "rotulo": "GalarObj_G01M94_o2_Text0",
-   "linha": 2437,
-   "pt": "Hop: Ei {PLAYER}, olha quem eu achei\\naqui!",
-   "en": "Hop: Hey {PLAYER}, look who I found here!",
-   "en_antes_da_requebra": null,
-   "requebrado_por_pixel": false,
-   "tokens": [
-    "{PLAYER}"
    ]
   },
   {
@@ -5375,58 +5154,6 @@
   },
   {
    "arquivo": "data/scripts/galar_objetos.inc",
-   "mapa": "G00M16",
-   "rotulo": "GalarObj_G00M16_bg0_Text0",
-   "linha": 2827,
-   "pt": "{PLAYER}:Nada de interessante aqui!",
-   "en": "{PLAYER}: Nothing interesting here!",
-   "en_antes_da_requebra": null,
-   "requebrado_por_pixel": false,
-   "tokens": [
-    "{PLAYER}"
-   ]
-  },
-  {
-   "arquivo": "data/scripts/galar_objetos.inc",
-   "mapa": "G00M16",
-   "rotulo": "GalarObj_G00M16_bg1_Text0",
-   "linha": 2837,
-   "pt": "{PLAYER}: O que é isso? A HONRA\\nMONTANHA DO REI: o pokémon cavalo\\lque se uniu ao rei como um só e\\lem uma única noite eles criaram\\luma floresta, esse pokémon já foi\\lselvagem, roubava as colheitas\\ldas pessoas, mas o rei domou,\\lsobre sua aparência alguns dizem\\lque ele era branco como a neve, e\\loutros dizem que ele era escuro\\lcomo a noite, ninguém sabe ao\\lcerto quem está certo.",
-   "en": "{PLAYER}: What is this? THE HONOR, THE\\nKING'S STEED: the horse Pokémon that\\lbecame one with the king, and in a\\lsingle night they created a forest.\\lThis Pokémon was once wild and stole\\lpeople's harvests, but the king tamed\\lit. As for its appearance, some say it\\lwas white as snow, and others say it was\\ldark as night; nobody knows for sure\\lwho is right.",
-   "en_antes_da_requebra": "{PLAYER}: What is this? THE HONOR, THE KING'S STEED: the horse Pokémon that became one with the king, and in a single night they created a forest. This Pokémon was once wild and stole people's harvests, but the king tamed it. As for its appearance, some say it was white as snow, and others say it was dark as night; nobody knows for sure who is right.",
-   "requebrado_por_pixel": true,
-   "tokens": [
-    "{PLAYER}"
-   ]
-  },
-  {
-   "arquivo": "data/scripts/galar_objetos.inc",
-   "mapa": "G00M16",
-   "rotulo": "GalarObj_G00M16_bg2_Text0",
-   "linha": 2847,
-   "pt": "{PLAYER}: O que é isso? GUIA DE\\nSEMENTES: tem algumas sementes\\lbem curiosas na coroa tundra, se\\las cenouras crescerem debaixo da\\lneve elas viram Cenouras da Neve\\le se crescerem perto dos\\lcemitérios Viram Cenouras\\lNegras,pokemon Tipo gelo adoram\\lCenouras da Neve e os tipo\\lfantasmas adoram as Cenouras\\lNegras , de acordo com as lendas\\lantigas a montaria do rei adora\\las duas cenouras ou uma delas ou\\la outra, as historias se\\lcontradizem muitos relatos de uma\\lmontaria branca que gostava de\\lCenouras da Neve e outras\\lhistorias de uma montaria preta\\lque gostava de Cenouras Negras.",
-   "en": "{PLAYER}: What is this? SEED GUIDE:\\nthere are some very curious seeds in\\lthe Crown Tundra. If the carrots grow\\lunder the snow they become Iceroot\\lCarrots, and if they grow near the\\lcemeteries they become Shaderoot\\lCarrots. Ice-type Pokémon love Iceroot\\lCarrots and Ghost-types love\\lShaderoot Carrots. According to the old\\llegends the king's steed loves both\\lcarrots, or one of them, or the other;\\lthe stories contradict each other.\\lThere are many accounts of a white\\lsteed that liked Iceroot Carrots and\\lother stories of a black steed that\\lliked Shaderoot Carrots.",
-   "en_antes_da_requebra": "{PLAYER}: What is this? SEED GUIDE: there are some very curious seeds in the Crown Tundra. If the carrots grow under the snow they become Iceroot Carrots, and if they grow near the cemeteries they become Shaderoot Carrots. Ice-type Pokémon love Iceroot Carrots and Ghost-types love Shaderoot Carrots. According to the old legends the king's steed loves both carrots, or one of them, or the other; the stories contradict each other. There are many accounts of a white steed that liked Iceroot Carrots and other stories of a black steed that liked Shaderoot Carrots.",
-   "requebrado_por_pixel": true,
-   "tokens": [
-    "{PLAYER}"
-   ]
-  },
-  {
-   "arquivo": "data/scripts/galar_objetos.inc",
-   "mapa": "G00M16",
-   "rotulo": "GalarObj_G00M16_bg3_Text0",
-   "linha": 2857,
-   "pt": "{PLAYER}:Nada de interessante aqui!",
-   "en": "{PLAYER}: Nothing interesting here!",
-   "en_antes_da_requebra": null,
-   "requebrado_por_pixel": false,
-   "tokens": [
-    "{PLAYER}"
-   ]
-  },
-  {
-   "arquivo": "data/scripts/galar_objetos.inc",
    "mapa": "G00M17",
    "rotulo": "GalarObj_G00M17_o3_Text1",
    "linha": 2884,
@@ -5448,21 +5175,6 @@
    "tokens": [
     "{PLAYER}",
     "\\n"
-   ]
-  },
-  {
-   "arquivo": "data/scripts/galar_objetos.inc",
-   "mapa": "G00M17",
-   "rotulo": "GalarObj_G00M17_o6_Text0",
-   "linha": 2896,
-   "pt": "Hop: {PLAYER}, aquela Wooloo sumiu.\\nAcho que ela quebrou a cerca!!\\pAcho…\\nque devemos ir atrás dela …",
-   "en": "Hop: {PLAYER}, that Wooloo is gone. I\\nthink it broke through the fence!!\\pI think…\\nwe should go after it …",
-   "en_antes_da_requebra": "Hop: {PLAYER}, that Wooloo is gone. I think it broke through the fence!!\\pI think…\\nwe should go after it …",
-   "requebrado_por_pixel": true,
-   "tokens": [
-    "{PLAYER}",
-    "\\n",
-    "\\p"
    ]
   },
   {

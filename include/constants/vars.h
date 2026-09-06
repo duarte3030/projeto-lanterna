@@ -991,6 +991,7 @@
 #define VAR_GALAR_G01M34_OBJ   VAR_UNUSED_0x410B  // mapa g01m34 da fonte
 #define VAR_GALAR_G05M04_OBJ   VAR_UNUSED_0x410C  // mapa g05m04 da fonte
 #define VAR_GALAR_G06M31_OBJ   VAR_UNUSED_0x410D  // mapa g06m31 da fonte
+#define VAR_GALAR_G06M35_OBJ   VAR_UNUSED_0x4117  // mapa g06m35 da fonte
 #define VAR_GALAR_G12M10_OBJ   VAR_UNUSED_0x410E  // mapa g12m10 da fonte
 #define VAR_GALAR_G42M06_OBJ   VAR_UNUSED_0x410F  // mapa g42m06 da fonte
 // <<< Fase de conteudo de Galar, bloco c4d <<<
@@ -1016,3 +1017,13 @@
 // destino, que e a unica coisa que o `map_script_2` sabe comparar. Apelido de
 // VAR_UNUSED que ja existe: VARS_COUNT nao muda, save intacta.
 #define VAR_ELEVADOR_GOLDENROD                 VAR_UNUSED_0x4114  // 1 enquanto a cena de saida do elevador nao rodou
+
+// >>> Fase de conteudo de Galar, onda 3 lote L1: vars da fonte sem dono (dev_scripts/objetos_galar.py) >>>
+// Uma var por ENDERECO da fonte (0x4010-0x40FF, a faixa de save do
+// FireRed), para a cena que le ou escreve estado que nao e a etapa
+// do mapa. Ate a onda 2 isso recusava a cena inteira.
+// Apelidar VAR_UNUSED nao mexe em VARS_COUNT: a save nao muda.
+// Gerado por dev_scripts/objetos_galar.py; nao editar a mao.
+#define VAR_GALAR_MOTOR_4060   VAR_UNUSED_0x4118  // var 0x4060 da fonte
+#define VAR_GALAR_MOTOR_40F2   VAR_UNUSED_0x4119  // var 0x40F2 da fonte
+// <<< Fase de conteudo de Galar, onda 3 lote L1 (vars) <<<

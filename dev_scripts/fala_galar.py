@@ -93,6 +93,384 @@ MARCA_FIM = "// <<< Fase de conteudo de Galar, baldes a e b <<<"
 # livre para a maquina de vars/cena que ainda nao foi desenhada.
 RESERVA_DE_CENA = 150
 
+# =========================================================================== #
+# O PIPELINE NASCE EM INGLES (onda 3, lote L1, 08/09/2026)
+#
+# ARMADILHA QUE ISTO FECHA, e ela foi MEDIDA pelo lote I da onda 2: ate aqui os
+# tres geradores de Galar (`fala_galar.py`, `cenas_galar.py`,
+# `objetos_galar.py`) escreviam o texto da fonte em PORTUGUES, e o ingles so
+# entrava depois, numa segunda passada de `dev_scripts/aplica_traducao_galar.py`
+# por ROTULO. Quem rodasse o modo padrao e parasse ali devolvia Galar inteira ao
+# portugues, e a regua T07 de `dev_scripts/qa/checa_texto.py` reprovava. Pior:
+# todo bloco NOVO nascia em portugues e sem entrada no de-para, de modo que
+# nenhuma cena nova podia entrar sem quebrar o portao. Foi por isso que o lote I
+# nao reabriu nenhuma das recusas do c4a.
+#
+# A REGRA AGORA, e ela vale para os tres geradores:
+#
+#   1. bloco cujo ROTULO esta em `dev_scripts/traducao_galar.json` sai com o
+#      `en` de la (e o de-para por rotulo continua sendo a fonte de verdade do
+#      julgamento de traducao);
+#   2. rotulo NOVO cujo TEXTO da fonte esta em
+#      `dev_scripts/resgate_galar_texto.json` (chave `pt`) sai com o `en` de la;
+#   3. texto que nenhum dos dois cobre e que a REGUA DO PORTAO nao chama de
+#      portugues sai como esta (e o caso de "...", de nome proprio e dos blocos
+#      que a fonte ja tem em ingles);
+#   4. texto que nenhum dos dois cobre e que a REGUA DO PORTAO chama de
+#      portugues NAO E ESCRITO. Ele entra em `dev_scripts/onda3_falta_traduzir.
+#      json`, a linha da fila fica `adiada` com motivo "texto sem traducao", e o
+#      bloco (na fala) ou a cena inteira (na cena) fica de fora.
+#
+# POR QUE A REGUA DO PORTAO, E NAO UMA MAIS DURA. O gate tem de ser o MESMO
+# criterio do `checa_texto.T07`. Uma regua propria e mais dura aqui deixaria o
+# gerador recusar bloco que o portao aceita (e o portao e quem decide se a
+# rodada passa); uma mais frouxa deixaria passar o que o portao reprova. Duas
+# reguas para o mesmo fato e o defeito que a licao 4.11 do ESTADO nomeia.
+# Consequencia MEDIDA e escrita aqui para ninguem a descobrir de novo: 83 blocos
+# de `galar_fala.inc`, 35 de `galar_objetos.inc` e 1 de `galar_cenas.inc` caem
+# na regra 3 sem estar em de-para nenhum, e alguns deles sao portugues curto que
+# a regua do portao nao acusa (ela pede DOIS marcadores). Eles continuam na
+# arvore exatamente como estavam; o relatorio de cada gerador os conta na linha
+# `neutro sem de-para`.
+#
+# O UNICO HERDADO. `GalarFala_G09M10_o14_Text` e o bloco em portugues que o T07
+# de Galar acusa (o defeito de charmap deixado a vista de proposito pela onda
+# 2). Ele cai na regra 4 e seria apagado da arvore por este pipeline, o que
+# mudaria a arvore sem ninguem ter pedido e faria o T07 de Galar cair de 1 para
+# 0, escondendo um defeito conhecido. Ele fica, pela lista abaixo, e aparece na
+# lista de falta traduzir como qualquer outro.
+# =========================================================================== #
+TRADUCAO_JSON = f"{RAIZ}/dev_scripts/traducao_galar.json"
+RESGATE_JSON = f"{RAIZ}/dev_scripts/resgate_galar_texto.json"
+FALTA_JSON = f"{RAIZ}/dev_scripts/onda3_falta_traduzir.json"
+
+HERDADOS_SEM_TRADUCAO = frozenset(("GalarFala_G09M10_o14_Text",))
+
+# Motivo que a fila recebe quando o bloco fica de fora por falta de traducao.
+# E CONSTANTE porque os tres geradores o escrevem e a fila tem de saber
+# reconhecer o que ela mesma ja escreveu; sem isso a fila muda a cada passada.
+MOTIVO_SEM_TRADUCAO = (
+    "texto sem traducao: a fonte tem fala e nem "
+    "dev_scripts/traducao_galar.json (por rotulo) nem "
+    "dev_scripts/resgate_galar_texto.json (por texto) tem o ingles dela. "
+    "O texto pendente esta em dev_scripts/onda3_falta_traduzir.json.")
+
+
+def _regua_do_portao():
+    """O modulo `dev_scripts/qa/checa_texto.py`, importado, nunca copiado."""
+    import importlib
+    import sys as _sys
+    qa = os.path.join(RAIZ, "dev_scripts", "qa")
+    if qa not in _sys.path:
+        _sys.path.insert(0, qa)
+    return importlib.import_module("checa_texto")
+
+
+def idioma_do_texto(texto):
+    """"pt", "en" ou "neutro" pelo MESMO criterio do T07 do portao."""
+    ct = _regua_do_portao()
+    limpo = re.sub(r"\{[^}]*\}", " ", texto or "")
+    for c in ("\\n", "\\l", "\\p"):
+        limpo = limpo.replace(c, " ")
+    en = len(ct.EN_MARCADORES.findall(limpo))
+    pt = len(ct.PT_MARCADORES.findall(limpo))
+    if en >= 2 and en > pt:
+        return "en"
+    if pt >= 2 and pt > en:
+        return "pt"
+    return "neutro"
+
+
+def so_requebrou(pt, en):
+    """O de-para nao traduziu nada: as MESMAS palavras, so com outra quebra.
+
+    Acontece porque o demake deixou pedaco de texto do FireRed em ingles, e o
+    de-para guardou esse pedaco como se fosse traducao (12 entradas do de-para
+    por texto tem `pt` igual a `en`, e mais quatro so mudam onde cai o `\\n`).
+    Nesses casos o texto que ja esta na arvore fica como esta: requebrar bloco
+    que ninguem traduziu mudaria arquivo sem mudar jogo, e a requebra por PIXEL
+    e obra propria, com medicao propria. O bloco original ja passou pelo teto de
+    208 px do portao na rodada em que entrou.
+    """
+    def limpo(t):
+        for c in ("\\n", "\\l", "\\p"):
+            t = t.replace(c, " ")
+        return " ".join(t.split())
+    return limpo(pt) == limpo(en)
+
+
+def linhas_de_texto(rotulo, corpo, dois_pontos=":", indent="\t", quebra=True):
+    """Bloco `.string` de um texto, do jeito EXATO do aplicador.
+
+    A quebra em varias `.string` e a mesma de
+    `aplica_traducao_galar.escreve_bloco`, e nao uma segunda implementacao dela:
+    o `en` do de-para ja vem requebrado por PIXEL, com `\\n`, `\\l` e `\\p`
+    dentro, e cada pedaco tem de virar uma linha. Emitir tudo numa `.string` so
+    compila igual, mas daria arquivo diferente do que o aplicador escreveu, e a
+    prova de "arvore identica" desta rodada morreria por formatacao.
+    """
+    if not quebra:
+        # Texto que NAO veio do de-para (regra 3 e o herdado da regra 4) nunca
+        # passou pelo aplicador: ele esta na arvore numa `.string` so, do jeito
+        # que o proprio gerador o escreveu. Requebra-lo aqui mudaria 89 blocos
+        # de `galar_fala.inc` que ninguem pediu para mudar. Quebra so o que o
+        # de-para ja entregou requebrado por pixel.
+        return ["%s%s" % (rotulo, dois_pontos),
+                '%s.string "%s$"' % (indent, corpo)]
+    partes = re.split(r"(\\[nlp])", corpo)
+    linhas, i = [], 0
+    while i < len(partes):
+        pedaco = partes[i] + (partes[i + 1] if i + 1 < len(partes) else "")
+        linhas.append(pedaco)
+        i += 2
+    if not linhas:
+        linhas = [""]
+    linhas[-1] += "$"
+    return ["%s%s" % (rotulo, dois_pontos)] + [
+        '%s.string "%s"' % (indent, l) for l in linhas]
+
+
+class Traducao:
+    """De-para de saida dos tres geradores, e o caderno do que falta.
+
+    Estado de PROCESSO, e por isso e um objeto e nao um dicionario solto: quem
+    pergunta tambem registra, e o registro tem de sobreviver a cena inteira ser
+    recusada depois (a cena morre, o texto continua faltando).
+    """
+
+    def __init__(self, traducao=None, resgate=None):
+        self.por_rotulo, self.por_texto = {}, {}
+        caminho = traducao if traducao is not None else TRADUCAO_JSON
+        if os.path.exists(caminho):
+            for e in json.load(open(caminho, encoding="utf-8"))["entradas"]:
+                self.por_rotulo[e["rotulo"]] = e["en"]
+        caminho = resgate if resgate is not None else RESGATE_JSON
+        if os.path.exists(caminho):
+            for e in json.load(open(caminho, encoding="utf-8"))["entradas"]:
+                self.por_texto.setdefault(e["pt"], e["en"])
+        self.faltam = collections.OrderedDict()   # pt -> [chaves]
+        # Linha da fila que ESTA rodada conseguiu escrever. Serve so ao caderno
+        # de falta: sem ela o arquivo so cresceria, e um texto traduzido depois
+        # continuaria cobrado para sempre.
+        self.resolvidas = set()
+        self.conta = collections.Counter()
+
+    def resolve(self, rotulo, pt, chave=None):
+        """(texto a escrever, origem) ou (None, motivo) quando falta traducao.
+
+        `chave` e a linha da fila a que o bloco pertence, e so serve para o
+        caderno saber a quem cobrar.
+        """
+        # `identico` E UM VEREDITO, e nao um detalhe: 12 das 107 entradas do
+        # de-para por texto guardam texto que a FONTE ja tem em ingles (sobra do
+        # FireRed dentro do demake), com `en` igual ao `pt`. Nesses o de-para nao
+        # traduziu nada, e requebrar o bloco mudaria a arvore sem mudar uma
+        # letra do jogo. Pior, mudaria de tabela: o rotulo da lista de loja em
+        # `objetos_galar.lista_de_loja` e numerado por LINHA ja emitida
+        # (`len(self.extras_gancho)`), entao uma `.string` a mais renomeia o
+        # `_MartN` seguinte. Medido em 08/09/2026 no `GalarObj_G00M06_o3`:
+        # `_Mart2` virava `_Mart3`.
+        en = self.por_rotulo.get(rotulo)
+        if en is not None:
+            self.conta["por rotulo"] += 1
+            self.resolvidas.add(chave or rotulo)
+            if so_requebrou(pt, en):
+                return pt, "identico"
+            return en, "rotulo"
+        en = self.por_texto.get(pt)
+        if en is not None:
+            self.conta["por texto"] += 1
+            self.resolvidas.add(chave or rotulo)
+            if so_requebrou(pt, en):
+                return pt, "identico"
+            return en, "texto"
+        if rotulo in HERDADOS_SEM_TRADUCAO:
+            self.conta["herdado"] += 1
+            self.anota(pt, chave or rotulo)
+            return pt, "herdado"
+        if idioma_do_texto(pt) != "pt":
+            self.conta["neutro sem de-para"] += 1
+            self.resolvidas.add(chave or rotulo)
+            return pt, "neutro"
+        self.conta["sem traducao"] += 1
+        self.anota(pt, chave or rotulo)
+        return None, "sem traducao"
+
+    def anota(self, pt, chave):
+        self.faltam.setdefault(pt, [])
+        if chave not in self.faltam[pt]:
+            self.faltam[pt].append(chave)
+
+    def chaves_faltando(self):
+        """As linhas da fila que ficaram devendo texto, sem repetir."""
+        fora = set()
+        for chaves in self.faltam.values():
+            fora |= set(chaves)
+        return fora
+
+    def corpo_falta(self, de_disco=None):
+        """O caderno inteiro: o que ESTA rodada achou, mais o que ja estava.
+
+        UNIAO, e nao substituicao, porque os TRES geradores escrevem no mesmo
+        arquivo e cada um so enxerga a sua parte: `fala_galar.py --aplicar`
+        rodando depois de `objetos_galar.py --aplicar` apagaria os textos do
+        outro se aqui fosse simples troca. Medido em 08/09/2026, e por isso esta
+        escrito: o arquivo caiu de 22 textos para 1 na primeira vez.
+
+        Nao vira lixeira: a chave que ESTA rodada conseguiu escrever
+        (`resolvidas`) sai do que veio do disco, entao um texto traduzido depois
+        deixa de ser cobrado sozinho.
+        """
+        faltam = collections.OrderedDict()
+        if de_disco:
+            resolvidas = self.resolvidas - self.chaves_faltando()
+            for e in de_disco.get("distintos", []):
+                sobra = [c for c in e["chaves"] if c not in resolvidas]
+                if sobra:
+                    faltam[e["pt"]] = sobra
+        for pt, chaves in self.faltam.items():
+            juntas = faltam.get(pt, [])
+            faltam[pt] = juntas + [c for c in chaves if c not in juntas]
+        return json.dumps(
+            {"_leia": "textos da fonte sem traducao escrita em "
+                      "dev_scripts/traducao_galar.json (por rotulo) nem em "
+                      "dev_scripts/resgate_galar_texto.json (por texto). "
+                      "Enquanto estiverem aqui o bloco NAO e escrito, e a "
+                      "linha da fila fica adiada. Escrito pelos tres geradores "
+                      "de Galar (onda 3, lote L1).",
+             "distintos": [{"pt": pt, "chaves": sorted(ch)}
+                           for pt, ch in sorted(faltam.items())]},
+            indent=1, ensure_ascii=False) + "\n"
+
+    def grava_falta(self, gravar, caminho=None):
+        """Escreve o caderno. Devolve 1 se o arquivo mudaria, 0 se nao."""
+        caminho = caminho or FALTA_JSON
+        de_disco = None
+        if os.path.exists(caminho):
+            de_disco = json.load(open(caminho, encoding="utf-8"))
+        corpo = self.corpo_falta(de_disco)
+        if os.path.exists(caminho) and open(caminho, encoding="utf-8").read() == corpo:
+            return 0
+        if gravar:
+            open(caminho, "w", encoding="utf-8").write(corpo)
+        return 1
+
+
+def marca_fila_sem_traducao(gravar, chaves=None, fila=None):
+    """Deixa `adiada` toda linha cujo bloco ficou de fora por falta de ingles.
+
+    NAO reabre linha `feita` nem `descartada`: `feita` e calculada pela arvore
+    (`fila_galar.feitas()`) e `descartada` guarda decisao ja tomada, com motivo
+    proprio. O que esta funcao cobre e o caso novo do pipeline em ingles: a
+    linha TEM script portavel e o unico impedimento e o texto sem traducao, que
+    e decisao de conteudo e nao medicao.
+
+    Idempotente pelo motivo: escrever duas vezes o mesmo texto nao conta
+    mudanca, e por isso `MOTIVO_SEM_TRADUCAO` e constante.
+    """
+    chaves = chaves if chaves is not None else traducao().chaves_faltando()
+    caminho = fila or FILA
+    doc = json.load(open(caminho, encoding="utf-8"))
+    n = 0
+    for l in doc["linhas"]:
+        if l["chave"] not in chaves:
+            continue
+        if l.get("status") in ("feita", "descartada"):
+            continue
+        novo = "adiada", "onda 3, lote L1, 08/09/2026: " + MOTIVO_SEM_TRADUCAO
+        if (l.get("status"), l.get("motivo_do_status")) != novo:
+            l["status"], l["motivo_do_status"] = novo
+            n += 1
+    if gravar and n:
+        with open(caminho, "w", encoding="utf-8") as f:
+            json.dump(doc, f, indent=1, ensure_ascii=False)
+            f.write("\n")
+    return n
+
+
+def demo_pipeline_ingles():
+    """Autoteste comum aos tres geradores: bloco novo sem traducao NAO e escrito.
+
+    Roda contra de-paras de mentira, nunca contra os do repo: o caso tem de
+    reprovar quando alguem quebrar a regra, e nao quando alguem traduzir mais um
+    texto. As frases de prova sao feitas de MARCADORES da regua T07, e nao de
+    fala do demake.
+    """
+    falhas = []
+    t = Traducao(traducao="/nao/existe.json", resgate="/nao/existe.json")
+    t.por_rotulo["QA_ComRotulo_Text"] = "Answer by the label."
+    t.por_texto["qa aqui uma sua"] = "Answer by the text."
+
+    en, origem = t.resolve("QA_ComRotulo_Text", "qa aqui uma sua", "qa/objeto/0")
+    if (en, origem) != ("Answer by the label.", "rotulo"):
+        falhas.append("o rotulo tem de vencer o texto: %r" % ((en, origem),))
+    en, origem = t.resolve("QA_Novo_Text", "qa aqui uma sua", "qa/objeto/1")
+    if (en, origem) != ("Answer by the text.", "texto"):
+        falhas.append("rotulo novo tinha de casar pelo texto: %r" % ((en, origem),))
+    en, origem = t.resolve("QA_Orfao_Text", "qa aqui uma seu sua", "qa/objeto/2")
+    if en is not None or origem != "sem traducao":
+        falhas.append("texto em portugues sem de-para NAO podia ser escrito: %r"
+                      % ((en, origem),))
+    if "qa/objeto/2" not in t.chaves_faltando():
+        falhas.append("o bloco sem traducao nao entrou no caderno de falta")
+    if t.chaves_faltando() & {"qa/objeto/0", "qa/objeto/1"}:
+        falhas.append("bloco COM traducao foi parar no caderno de falta")
+    en, origem = t.resolve("QA_Ingles_Text", "Sailor: the ship is here.",
+                           "qa/objeto/3")
+    if en != "Sailor: the ship is here." or origem != "neutro":
+        falhas.append("texto que a regua nao chama de portugues tinha de passar "
+                      "como esta: %r" % ((en, origem),))
+    en, origem = t.resolve("QA_Rewrap_Text", "One two\\nthree.", "qa/objeto/4")
+    t.por_texto["One two\\nthree."] = "One two three."
+    en, origem = t.resolve("QA_Rewrap_Text", "One two\\nthree.", "qa/objeto/4")
+    if (en, origem) != ("One two\\nthree.", "identico"):
+        falhas.append("de-para que so requebra tinha de deixar o texto como "
+                      "esta: %r" % ((en, origem),))
+
+    # o caderno so cresce, e a fila recebe o motivo constante
+    import tempfile
+    tmp = tempfile.NamedTemporaryFile("w", suffix=".json", delete=False,
+                                      encoding="utf-8")
+    json.dump({"linhas": [
+        {"chave": "qa/objeto/2", "status": "pendente", "motivo_do_status": ""},
+        {"chave": "qa/objeto/9", "status": "descartada",
+         "motivo_do_status": "decisao antiga"}]}, tmp, ensure_ascii=False)
+    tmp.close()
+    n = marca_fila_sem_traducao(True, t.chaves_faltando(), tmp.name)
+    doc = json.load(open(tmp.name, encoding="utf-8"))
+    if n != 1 or doc["linhas"][0]["status"] != "adiada":
+        falhas.append("a linha sem traducao nao ficou adiada (%d)" % n)
+    if doc["linhas"][1]["status"] != "descartada":
+        falhas.append("linha descartada foi reaberta pela falta de traducao")
+    if marca_fila_sem_traducao(True, t.chaves_faltando(), tmp.name) != 0:
+        falhas.append("marca_fila_sem_traducao nao e idempotente")
+    os.unlink(tmp.name)
+    return falhas
+
+
+_TRAD = None
+
+
+def traducao():
+    """A instancia unica do de-para de saida, compartilhada pelos geradores.
+
+    UMA so, e de proposito: `objetos_galar.py` importa `cenas_galar.py` e este
+    arquivo, e os tres escrevem no MESMO caderno de falta. Duas instancias
+    dariam dois cadernos e o segundo apagaria o primeiro.
+    """
+    global _TRAD
+    if _TRAD is None:
+        _TRAD = Traducao()
+    return _TRAD
+
+
+def reinicia_traducao(t=None):
+    """Troca a instancia unica. So os autotestes chamam."""
+    global _TRAD
+    _TRAD = t
+    return _TRAD
+
+
 # ---------------------------------------------------------------- opcodes ---
 TAM = {".byte": 1, ".2byte": 2, ".4byte": 4}
 # Macros auxiliares do FireRed e o tamanho em bytes que cada uma emite.
@@ -582,13 +960,32 @@ def plano(linhas):
             nega(l, "mapa da fonte nao esta no de-para do G3")
             continue
         if l["balde"] == "a_fala":
+            # A TRADUCAO ENTRA AQUI, e nao depois (onda 3, lote L1). O bloco de
+            # texto so existe se houver ingles para ele: sem isso o `.inc`
+            # nasceria em portugues e o `script` do map.json apontaria para um
+            # rotulo que o portao T07 reprova. Ver o cabecalho do de-para de
+            # saida no alto deste arquivo.
             if l["tipo"] == "script_objeto":
                 if not l["no_mapa"]:
                     nega(l, "NPC nao entrou no mapa no G4")
                     continue
-                falas.append(dict(l, nome=dp["nome"], rotulo=rotulo(chave, l)))
+                r = rotulo(chave, l)
+                en, _origem = traducao().resolve("%s_Text" % r, l["texto"],
+                                                 l["chave"])
+                if en is None:
+                    nega(l, MOTIVO_SEM_TRADUCAO)
+                    continue
+                falas.append(dict(l, nome=dp["nome"], rotulo=r, texto_en=en,
+                                  do_de_para=_origem in ("rotulo", "texto")))
             elif l["tipo"] == "placa":
-                placas.append(dict(l, nome=dp["nome"], rotulo=rotulo(chave, l)))
+                r = rotulo(chave, l)
+                en, _origem = traducao().resolve("%s_Text" % r, l["texto"],
+                                                 l["chave"])
+                if en is None:
+                    nega(l, MOTIVO_SEM_TRADUCAO)
+                    continue
+                placas.append(dict(l, nome=dp["nome"], rotulo=r, texto_en=en,
+                                   do_de_para=_origem in ("rotulo", "texto")))
         elif l["balde"] == "b_flag":
             if not l["item"]:
                 nega(l, "balde b sem item literal: e fala atras de flag, fica")
@@ -658,8 +1055,8 @@ def corpo_inc(falas, placas, bolas):
                 out.append("\tmsgbox %s_Text, MSGBOX_SIGN" % r)
                 out.append("\tend")
                 out.append("")
-                out.append("%s_Text:" % r)
-                out.append('\t.string "%s$"' % l["texto"])
+                out.extend(linhas_de_texto("%s_Text" % r, l["texto_en"],
+                                           quebra=l["do_de_para"]))
                 out.append("")
                 continue
             mold = set(l.get("moldura") or [])
@@ -677,8 +1074,8 @@ def corpo_inc(falas, placas, bolas):
                 out.append("\trelease")
             out.append("\tend")
             out.append("")
-            out.append("%s_Text:" % r)
-            out.append('\t.string "%s$"' % l["texto"])
+            out.extend(linhas_de_texto("%s_Text" % r, l["texto_en"],
+                                       quebra=l["do_de_para"]))
             out.append("")
     return "\n".join(out) + "\n"
 
@@ -1019,35 +1416,43 @@ def demo():
     if corpo1 != corpo2:
         falhas.append("o .inc nao e estavel entre duas geracoes")
     mudou, _r = aplica(falas, placas, bolas, gravar=False)
-    # O .inc no disco NAO e a saida crua deste gerador, e nao e desde a decisao
-    # 32 (commit 2f16420f7c, 06/09/2026): entre os dois existe
-    # `dev_scripts/aplica_traducao_galar.py`, que troca o portugues de cada
-    # bloco pelo ingles de `dev_scripts/traducao_galar.json`, casando por
-    # ROTULO. Esta comparacao ignorava esse passo e por isso vinha REPROVANDO
-    # desde aquele commit: media a saida crua contra um arquivo ja traduzido.
-    # Medido em 07/09/2026, antes do conserto: os rotulos e todas as linhas que
-    # nao sao `.string` batiam exatamente; so o texto diferia, com 542 acentos
-    # do lado do gerador e 132 do lado do disco.
+    # O .inc no disco E A SAIDA CRUA DESTE GERADOR OUTRA VEZ, desde a onda 3
+    # (lote L1, 08/09/2026): o ingles passou a entrar NA GERACAO, e nao mais
+    # numa segunda passada de `aplica_traducao_galar.py`.
     #
-    # A comparacao certa e do PIPELINE INTEIRO: gera, traduz em memoria,
-    # compara. Assim ela volta a medir o que interessa (o gerador saiu do
-    # lugar) sem cobrar do gerador um trabalho que nao e dele, e um bloco novo
-    # que a traducao ainda nao cobre aparece como diferenca, que e exatamente o
-    # aviso que se quer.
-    esperado = _traduzido(corpo1)
-    aplicado = os.path.exists(INC) and open(INC).read() == esperado
+    # HISTORIA, para ninguem refazer o caminho: entre 06/09 (decisao 32, commit
+    # 2f16420f7c) e 07/09 este caso comparava a saida crua, em portugues, com um
+    # arquivo ja traduzido, e reprovava sempre; em 07/09 ele passou a traduzir o
+    # corpo em memoria antes de comparar (`_traduzido`). Com o pipeline em
+    # ingles esse passo virou identidade -- o corpo ja sai traduzido -- e a
+    # mutacao plantada de entao ("a traducao tem de mudar alguma coisa")
+    # reprovava por medir a si mesma. A comparacao voltou a ser direta, e a
+    # mutacao plantada mudou de lugar: ela agora prova que o GERADOR traduz.
+    aplicado = os.path.exists(INC) and open(INC).read() == corpo1
     if os.path.exists(INC) and not aplicado:
         falhas.append("data/scripts/galar_fala.inc gravado NAO e o que este "
-                      "gerador produz hoje MAIS a traducao de "
-                      "dev_scripts/traducao_galar.json (mutacao a mao, fonte "
-                      "mudou, ou bloco novo sem traducao): rode --aplicar e "
-                      "depois aplica_traducao_galar.py --aplica")
-    # MUTACAO PLANTADA: sem a traducao, a comparacao TEM de reprovar. Sem esta
-    # linha, um `_traduzido` que devolvesse o arquivo do disco fecharia verde
-    # medindo a si mesmo.
-    if os.path.exists(INC) and esperado == corpo1:
-        falhas.append("a traducao nao mudou nada no corpo gerado: a comparacao "
-                      "do .inc esta medindo a si mesma")
+                      "gerador produz hoje (mutacao a mao, fonte mudou, ou "
+                      "bloco novo sem traducao): rode --aplicar")
+    # MUTACAO PLANTADA: com os dois de-paras VAZIOS, o corpo tem de sair
+    # diferente. Sem esta linha, um `resolve` que devolvesse sempre o portugues
+    # da fonte fecharia verde: a comparacao acima so diz que o arquivo bate com
+    # o gerador, nao que o gerador traduz.
+    velha = traducao()
+    try:
+        reinicia_traducao(Traducao(traducao="/nao/existe.json",
+                                   resgate="/nao/existe.json"))
+        _f, _p, _b, _r = plano(linhas)
+        sem_de_para = corpo_inc(_f, _p, _b)
+    finally:
+        reinicia_traducao(velha)
+    if sem_de_para == corpo1:
+        falhas.append("o corpo sai igual com e sem os de-paras: o gerador nao "
+                      "esta traduzindo, e esta comparacao mede a si mesma")
+    # e o outro lado da mesma prova: sem de-para, o que ficaria de fora e
+    # exatamente o que a regua do portao chama de portugues.
+    if len(_f) + len(_p) >= len(falas) + len(placas):
+        falhas.append("sem de-para nenhum, o gerador escreveu tanto quanto com "
+                      "de-para: o degrau 4 da regra nao esta mordendo")
     if aplicado and mudou["mapa"]:
         falhas.append("segunda passada ainda mexeria em %d mapas: nao e idempotente"
                       % mudou["mapa"])
@@ -1073,6 +1478,10 @@ def demo():
     sujo_h = substitui_bloco(atual, bloco.replace("0x1C21", "0x0001", 1))
     if substitui_bloco(sujo_h, bloco) != substitui_bloco(atual, bloco):
         falhas.append("substituicao do bloco de flags nao repoe o bloco certo")
+
+    # ONDA 3, LOTE L1: o pipeline nasce em ingles. O caso e comum aos tres
+    # geradores e mora em `demo_pipeline_ingles` para nao virar tres copias.
+    falhas.extend(demo_pipeline_ingles())
 
     print("demo: %s" % ("OK" if not falhas else "REPROVADO"))
     for f in falhas:
@@ -1176,7 +1585,14 @@ def main():
         print("\nfila: %d linhas dos baldes a e b ganharam motivo medido" % n)
         for st, c in sorted(quadro.items()):
             print("   %-12s %d" % (st, c))
+    print("\ntraducao na geracao: %s" % dict(traducao().conta))
+    print("textos sem traducao (distintos): %d, em %d linhas da fila"
+          % (len(traducao().faltam), len(traducao().chaves_faltando())))
     if a.aplicar:
+        if traducao().grava_falta(True):
+            print("gravado %s" % FALTA_JSON)
+        n_ft = marca_fila_sem_traducao(True)
+        print("fila: %d linhas ficaram adiadas por texto sem traducao" % n_ft)
         escreve_inc(falas, placas, bolas, True)
         escreve_flags(bolas, True)
         mudou, rec = aplica(falas, placas, bolas, True)

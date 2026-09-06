@@ -157,6 +157,50 @@ MARCA_FLAG_FIM = "// <<< Fase de conteudo de Galar, bloco c4b <<<"
 MARCA_VAR_INI = ("// >>> Fase de conteudo de Galar, bloco c4d: vars de etapa de "
                  "objeto (dev_scripts/objetos_galar.py) >>>")
 MARCA_VAR_FIM = "// <<< Fase de conteudo de Galar, bloco c4d <<<"
+
+# ONDA 3, LOTE L1: a reabertura das recusas. A regra esta escrita em
+# `cenas_galar.py` (bloco REABERTURA DAS RECUSAS); aqui ficam a FAIXA e os
+# marcadores dos dois blocos novos de header.
+#
+# A faixa 0x2300-0x237F e desta frente nesta onda, e sao 128 vagas de
+# FLAG_UNUSED conferidas no header. Apelidar FLAG_UNUSED nao mexe em
+# FLAGS_COUNT: a save nao muda de tamanho nem de indice.
+PRIMEIRA_FLAG_MOTOR = 0x2300
+ULTIMA_FLAG_MOTOR = 0x237F
+
+MARCA_FLAG_MOTOR_INI = ("// >>> Fase de conteudo de Galar, onda 3 lote L1: flags "
+                        "de motor do demake (dev_scripts/objetos_galar.py) >>>")
+MARCA_FLAG_MOTOR_FIM = "// <<< Fase de conteudo de Galar, onda 3 lote L1 (flags) <<<"
+MARCA_VAR_MOTOR_INI = ("// >>> Fase de conteudo de Galar, onda 3 lote L1: vars da "
+                       "fonte sem dono (dev_scripts/objetos_galar.py) >>>")
+MARCA_VAR_MOTOR_FIM = "// <<< Fase de conteudo de Galar, onda 3 lote L1 (vars) <<<"
+
+
+class _EnsaioFlagsMotor(dict):
+    """De-para de ENSAIO: responde por toda flag que mereceria endereco.
+
+    A primeira passada de `plano()` so quer saber QUAIS flags a cena cita; se
+    ela ja gastasse vaga, cena recusada depois levaria a vaga consigo. Por isso
+    o nome de ensaio, e por isso ele e um dicionario que responde por calculo em
+    vez de uma tabela: nao da para listar de antemao o que a cena vai ler.
+    """
+
+    def __contains__(self, f):
+        return C3.TEMP_FLAGS_FIM <= f < C3.FLAGS_COUNT_FONTE
+
+    def get(self, f, default=None):
+        return ("FLAG_GALAR_MOTOR_ENSAIO_%03X" % f
+                if f in self else default)
+
+
+class _EnsaioVarsLivres(dict):
+    """O mesmo do lado das vars de save da fonte."""
+
+    def __contains__(self, e):
+        return C3.PRIMEIRA_VAR_SAVE_FONTE <= e <= C3.ULTIMA_VAR_SAVE_FONTE
+
+    def get(self, e, default=None):
+        return "VAR_GALAR_MOTOR_ENSAIO_%04X" % e if e in self else default
 FLAGS_H = f"{RAIZ}/include/constants/flags.h"
 VARS_H = f"{RAIZ}/include/constants/vars.h"
 
@@ -481,10 +525,14 @@ def plano():
     var_escolhida = {c: max(v, key=lambda a: (v[a], -a))
                      for c, v in quantas.items()}
 
-    def traduz(nome_flag_de, nome_var_de):
+    def traduz(nome_flag_de, nome_var_de, motor_flags=None, livres_vars=None):
         fora, motivos = [], collections.Counter()
         motivos_de_linha = {}
         usou_flag, usou_var = set(), set()
+        # ONDA 3: o que a cena citou das faixas NOVAS. Colhido do corpo emitido,
+        # e nao do que o tradutor consultou: cena recusada depois de consultar
+        # nao pode levar vaga consigo, que e a mesma lei das duas passadas.
+        usou_motor, usou_livre = set(), set()
         for l, dp, caminho in cobrar:
             chave = l["mapa_fonte"]
             esconde = {f: ids for f, ids in
@@ -498,6 +546,13 @@ def plano():
                 C3.de_para_de_objetos(chave, docs[caminho], por_mapa),
                 esconde, nomes_var, nomes_flag, musica, rev_mapa=rev)
             t.de_para_mapa = de_para
+            # A linha da fila que este objeto responde, para o caderno de
+            # `dev_scripts/onda3_falta_traduzir.json` saber a quem cobrar.
+            t.chave_da_fila = l["chave"]
+            t.nome_flag_motor = (motor_flags if motor_flags is not None
+                                 else _EnsaioFlagsMotor())
+            t.nome_var_livre = (livres_vars if livres_vars is not None
+                                else _EnsaioVarsLivres())
             base = rotulo(chave, l)
             try:
                 corpo, usadas = t.cena(int(l["ponteiro_fonte"], 16), base)
@@ -505,18 +560,31 @@ def plano():
                 motivos[str(e)] += 1
                 motivos_de_linha[l["chave"]] = str(e)
                 continue
+            texto_corpo = "\n".join(corpo)
             citadas = {f for f in esconde_glob
-                       if nomes_flag[f] and nomes_flag[f] in "\n".join(corpo)}
+                       if nomes_flag[f] and nomes_flag[f] in texto_corpo}
             usou_flag |= citadas
+            usou_motor |= {int(h, 16) for h in re.findall(
+                r"FLAG_GALAR_MOTOR_(?:ENSAIO_)?([0-9A-F]{3,4})\b", texto_corpo)}
+            usou_livre |= {int(h, 16) for h in re.findall(
+                r"VAR_GALAR_MOTOR_(?:ENSAIO_)?([0-9A-F]{4})\b", texto_corpo)}
             if var and nomes_var[var] and nomes_var[var] in "\n".join(corpo):
                 usou_var.add(chave)
             fora.append(dict(chave=chave, nome=dp["nome"], caminho=caminho,
                              tipo=l["tipo"], x=l["x"], y=l["y"], base=base,
                              linhas=corpo, usadas=usadas, flags=citadas,
                              ordem=ordem_da_rota(dp["nome"])))
-        return fora, motivos, usou_flag, usou_var, motivos_de_linha
+        return (fora, motivos, usou_flag, usou_var, motivos_de_linha,
+                usou_motor, usou_livre)
 
-    _e, _m, quer_flag, quer_var, _ml = traduz(
+    # A PASSADA DE ENSAIO E A QUE DIZ O MOTIVO DE VERDADE (onda 3). Nela toda
+    # flag e toda var estao disponiveis, entao o que ela recusa foi recusado por
+    # um impedimento REAL. Na segunda passada so existem os enderecos que o
+    # ensaio provou necessarios, e uma cena que ja tinha caido por outro motivo
+    # volta a cair no primeiro `checkflag` sem nome -- relatando "flag de motor
+    # do demake" para uma linha cujo problema e outro. Antes da onda 3 as duas
+    # passadas so trocavam o NOME e essa diferenca nao existia.
+    (_e, _m, quer_flag, quer_var, _ml, quer_motor, quer_livre) = traduz(
         lambda f: "FLAG_GALAR_ENSAIO_%03X" % f, lambda c: "VAR_GALAR_ENSAIO")
 
     # A faixa 0x1C80-0x1CFE e COMPARTILHADA com o bloco de cena do
@@ -546,13 +614,30 @@ def plano():
     # Var: se o c3 ja deu casa para a MESMA var da fonte naquele mapa, reusa o
     # nome dele em vez de queimar um endereco novo para o mesmo estado.
     do_c3 = vars_do_c3()
-    livres = [v for v in C3.vars_livres() if v not in do_c3.values()]
+    # ONDA 3, FECHAMENTO: `C3.vars_livres()` retira TODOS os blocos "Fase de
+    # conteudo de Galar" do header antes de medir (e tem de retirar, senao o
+    # gerador foge das proprias vagas a cada rodada), e por isso devolve como
+    # LIVRE o endereco que o bloco de motor DESTE MESMO arquivo e o gerador de
+    # PORTA de outro dono ja apelidaram. Medido em 06/09/2026: a mesma passada
+    # deu 0x4117 a VAR_GALAR_G06M35_OBJ (c4d) e a VAR_GALAR_MOTOR_4060 (L1), e
+    # o `guarda_colisao_vars` reprovou. A conta certa e a mesma do
+    # `proxima_var_livre`: todo apelido gravado no header, menos os nomes que
+    # ESTA chamada realoca (o proprio bloco e reescrito inteiro a cada rodada).
+    _gravados_v = FL.apelidos_gravados(VARS_H, "VAR_", "UNUSED_0x")
+
+    def pool_de_vars(meus_nomes, fora=()):
+        de_outro = {e for n, e in _gravados_v.items() if n not in meus_nomes}
+        return [v for v in C3.vars_livres()
+                if v not in do_c3.values() and v not in de_outro
+                and v not in fora]
+
     novas = [c for c in sorted(quer_var) if c not in do_c3]
+    # APPEND-ONLY, mesma regra e mesmo motivo das flags acima.
+    nomes_v = {c: "VAR_GALAR_%s_OBJ" % c.upper() for c in novas}
+    livres = pool_de_vars(set(nomes_v.values()))
     if len(novas) > len(livres):
         raise SystemExit("PARE: %d vars de etapa pedidas e %d livres"
                          % (len(novas), len(livres)))
-    # APPEND-ONLY, mesma regra e mesmo motivo das flags acima.
-    nomes_v = {c: "VAR_GALAR_%s_OBJ" % c.upper() for c in novas}
     ende_v = FL.aloca_append_only(
         nomes_v.values(), livres,
         FL.apelidos_gravados(VARS_H, "VAR_GALAR_", "UNUSED_0x"))
@@ -563,14 +648,56 @@ def plano():
             return "VAR_GALAR_%s_CENA" % chave.upper()
         return variaveis[chave][0] if chave in variaveis else None
 
-    aceitas, motivos, _f, _v, motivos_de_linha = traduz(
-        lambda f: flags[f][0] if f in flags else None, nome_var)
-    recusa.update(motivos)
+    # ONDA 3, LOTE L1: as duas faixas novas, alocadas APPEND-ONLY como as
+    # outras. `flags_com_dono` tira desta conta quem ja tem apelido, e o nosso
+    # proprio bloco e reescrito inteiro a cada rodada, entao ele conta como
+    # livre: sem essa parte, a segunda passada veria as vagas que ela mesma
+    # gravou como ocupadas e escolheria outras, e o header viraria diff eterno
+    # (e a mesma licao que custou o `--demo` de 23/08/2026).
+    _txt2 = open(FLAGS_H).read()
+    meus = set(FL.apelidos_gravados(FLAGS_H, "FLAG_GALAR_MOTOR_").values())
+    pool_m = [f for f in range(PRIMEIRA_FLAG_MOTOR, ULTIMA_FLAG_MOTOR + 1)
+              if ("#define FLAG_UNUSED_0x%04X" % f) in _txt2
+              and (f not in flags_com_dono(_txt2) or f in meus)]
+    if len(quer_motor) > len(pool_m):
+        raise SystemExit("PARE: %d flags de motor pedidas e %d livres na faixa "
+                         "0x%04X-0x%04X" % (len(quer_motor), len(pool_m),
+                                            PRIMEIRA_FLAG_MOTOR,
+                                            ULTIMA_FLAG_MOTOR))
+    nomes_m = {f: "FLAG_GALAR_MOTOR_%03X" % f for f in quer_motor}
+    ende_m = FL.aloca_append_only(
+        nomes_m.values(), pool_m,
+        FL.apelidos_gravados(FLAGS_H, "FLAG_GALAR_MOTOR_"))
+    flags_motor = {f: (nomes_m[f], ende_m[nomes_m[f]]) for f in quer_motor}
+
+    nomes_l = {e: "VAR_GALAR_MOTOR_%04X" % e for e in quer_livre}
+    # Mesma conta do bloco c4d acima, mais as vagas que ESTA rodada acabou de
+    # dar a ele: elas ainda nao estao no header lido em `_gravados_v`.
+    livres2 = pool_de_vars(set(nomes_l.values()),
+                           fora={e for _n, e in variaveis.values()})
+    if len(quer_livre) > len(livres2):
+        raise SystemExit("PARE: %d vars da fonte sem dono pedidas e %d livres"
+                         % (len(quer_livre), len(livres2)))
+    ende_l = FL.aloca_append_only(
+        nomes_l.values(), livres2,
+        FL.apelidos_gravados(VARS_H, "VAR_GALAR_MOTOR_", "UNUSED_0x"))
+    vars_motor = {e: (nomes_l[e], ende_l[nomes_l[e]]) for e in quer_livre}
+
+    (aceitas, motivos, _f, _v, motivos_de_linha,
+     _qm, _ql) = traduz(
+        lambda f: flags[f][0] if f in flags else None, nome_var,
+        motor_flags={f: n for f, (n, _e) in flags_motor.items()},
+        livres_vars={e: n for e, (n, _v) in vars_motor.items()})
+    # motivo do ENSAIO em primeiro lugar; o da segunda passada so preenche o
+    # que o ensaio nao viu.
+    motivos_de_linha = dict(motivos_de_linha)
+    motivos_de_linha.update(_ml)
+    recusa.update(_m)
     for m, chaves in por_linha.items():
         for k in chaves:
             motivos_de_linha.setdefault(k, m)
     return (aceitas, recusa, docs, flags, variaveis, esconde_glob,
-            motivos_de_linha)
+            motivos_de_linha, flags_motor, vars_motor)
 
 
 def vars_do_c3():
@@ -603,7 +730,7 @@ def corpo_inc(aceitas):
 
 
 def aplica(aceitas, docs, gravar, flags=None, variaveis=None,
-           esconde_glob=None):
+           esconde_glob=None, flags_motor=None, vars_motor=None):
     mudou, recusa = collections.Counter(), []
     corpo = corpo_inc(aceitas)
     if gravar:
@@ -703,7 +830,11 @@ def aplica(aceitas, docs, gravar, flags=None, variaveis=None,
 
     for arq, mi, mf, bloco in (
             (FLAGS_H, MARCA_FLAG_INI, MARCA_FLAG_FIM, bloco_flags(flags or {})),
-            (VARS_H, MARCA_VAR_INI, MARCA_VAR_FIM, bloco_vars(variaveis or {}))):
+            (VARS_H, MARCA_VAR_INI, MARCA_VAR_FIM, bloco_vars(variaveis or {})),
+            (FLAGS_H, MARCA_FLAG_MOTOR_INI, MARCA_FLAG_MOTOR_FIM,
+             bloco_flags_motor(flags_motor or {})),
+            (VARS_H, MARCA_VAR_MOTOR_INI, MARCA_VAR_MOTOR_FIM,
+             bloco_vars_motor(vars_motor or {}))):
         atual = open(arq).read()
         novo_txt = C3.poe_bloco(atual, mi, mf, bloco)
         if novo_txt != atual:
@@ -740,7 +871,7 @@ def flags_com_dono(texto=None):
 
 
 
-def proxima_flag_livre(flags):
+def proxima_flag_livre(flags, flags_motor=None):
     """Vaga da faixa de Galar que NINGUEM usa, para o plante do `--demo`.
 
     Livre aqui tem que ser livre de verdade, e nao so livre para este bloco:
@@ -748,7 +879,13 @@ def proxima_flag_livre(flags):
     e a mutacao reprova por si mesma sem provar nada. E o mesmo cuidado que a
     `proxima_var_livre` ja tinha do lado das vars.
     """
-    usadas = {e for _n, e in flags.values()} | flags_com_dono()
+    # ONDA 3: as flags de motor moram na faixa 0x2300, fora da de esconder, mas
+    # `flags_com_dono` as ve como donas e o plante nunca cairia numa delas.
+    # A linha esta aqui por simetria com `proxima_var_livre` e para o dia em que
+    # as duas faixas encostarem.
+    usadas = ({e for _n, e in flags.values()} | flags_com_dono()
+              | {e for _n, e in (flags_motor or {}).values()}
+              | set(FL.apelidos_gravados(FLAGS_H, "FLAG_", "UNUSED_0x").values()))
     texto = open(FLAGS_H).read()
     for f in range(PRIMEIRA_FLAG_ESCONDE, ULTIMA_FLAG_ESCONDE + 1):
         if f not in usadas and "FLAG_UNUSED_0x%04X" % f in texto:
@@ -756,12 +893,23 @@ def proxima_flag_livre(flags):
     raise SystemExit("faixa de flags de Galar esgotada")
 
 
-def proxima_var_livre(variaveis):
+def proxima_var_livre(variaveis, vars_motor=None):
     # `C3.vars_livres()` tira os blocos de Galar do header antes de medir, entao
     # ele devolve como LIVRE tambem o que o c3 e o c4d ja apelidaram. Para o
     # plante da mutacao a vaga tem que ser uma que NINGUEM usa, senao o grupo
     # acusado vem com tres nomes e o caso reprova por si mesmo.
-    usadas = {e for _n, e in variaveis.values()} | set(vars_do_c3().values())
+    # ONDA 3: a conta passou a ser TODO apelido gravado no header, e nao a
+    # lista dos blocos que este arquivo conhece. `vars_livres()` retira TODOS os
+    # blocos "Fase de conteudo de Galar" antes de medir (e tem de retirar, senao
+    # o gerador foge das proprias vagas a cada rodada), e por isso ele devolve
+    # como livre o que o c3, o c4d, o bloco de motor do L1 e o gerador de PORTA
+    # de outro dono ja apelidaram. Enumerar bloco a bloco aqui deu defeito duas
+    # vezes na mesma tarde: primeiro em 0x4117 (VAR_GALAR_MOTOR_) e logo depois
+    # em 0x4118 (VAR_GALAR_PORTA_, de outro executor da mesma onda). Ler o
+    # header inteiro nao envelhece.
+    usadas = ({e for _n, e in variaveis.values()} | set(vars_do_c3().values())
+              | {e for _n, e in (vars_motor or {}).values()}
+              | set(FL.apelidos_gravados(VARS_H, "VAR_", "UNUSED_0x").values()))
     for v in C3.vars_livres():
         if v not in usadas:
             return v
@@ -802,6 +950,50 @@ def bloco_vars(variaveis):
         out.append("#define %-*s VAR_UNUSED_0x%04X  // mapa %s da fonte"
                    % (larg, nome, end, c))
     out.append(MARCA_VAR_FIM)
+    return "\n".join(out) + "\n"
+
+
+def bloco_flags_motor(flags_motor):
+    """As flags de MOTOR do demake que ganharam endereco nosso (onda 3, L1).
+
+    Uma por FLAG DA FONTE, e nao uma por mapa: no demake ela e uma so, global, e
+    dividi-la por mapa faria a cena de um mapa nao ver o que a do outro acendeu.
+    """
+    if not flags_motor:
+        return ""
+    out = [MARCA_FLAG_MOTOR_INI,
+           "// Flag que a cena da fonte LE com `checkflag` e que nao esconde",
+           "// objeto importado nenhum: ate a onda 2 ela derrubava a cena",
+           "// inteira por nao ter nome nosso. Aqui ela ganha endereco na faixa",
+           "// 0x2300-0x237F, e o `setflag`/`clearflag` da mesma flag passa a",
+           "// escrever nele. Flag que a cena so escreve continua sem endereco.",
+           "// Apelidar FLAG_UNUSED nao mexe em FLAGS_COUNT: a save nao muda.",
+           "// Gerado por dev_scripts/objetos_galar.py; nao editar a mao."]
+    larg = max(len(n) for n, _e in flags_motor.values()) + 2
+    for f in sorted(flags_motor):
+        nome, end = flags_motor[f]
+        out.append("#define %-*s FLAG_UNUSED_0x%04X  // flag 0x%03X da fonte"
+                   % (larg, nome, end, f))
+    out.append(MARCA_FLAG_MOTOR_FIM)
+    return "\n".join(out) + "\n"
+
+
+def bloco_vars_motor(vars_motor):
+    """As vars de save da fonte que nao tinham dono nosso (onda 3, L1)."""
+    if not vars_motor:
+        return ""
+    out = [MARCA_VAR_MOTOR_INI,
+           "// Uma var por ENDERECO da fonte (0x4010-0x40FF, a faixa de save do",
+           "// FireRed), para a cena que le ou escreve estado que nao e a etapa",
+           "// do mapa. Ate a onda 2 isso recusava a cena inteira.",
+           "// Apelidar VAR_UNUSED nao mexe em VARS_COUNT: a save nao muda.",
+           "// Gerado por dev_scripts/objetos_galar.py; nao editar a mao."]
+    larg = max(len(n) for n, _e in vars_motor.values()) + 2
+    for e in sorted(vars_motor):
+        nome, end = vars_motor[e]
+        out.append("#define %-*s VAR_UNUSED_0x%04X  // var 0x%04X da fonte"
+                   % (larg, nome, end, e))
+    out.append(MARCA_VAR_MOTOR_FIM)
     return "\n".join(out) + "\n"
 
 
@@ -900,14 +1092,19 @@ def relatorio(aceitas, recusa, variaveis=None):
 
 def demo():
     falhas = []
-    aceitas, recusa, docs, flags, variaveis, esconde, motivos_linha = plano()
+    # ONDA 3, LOTE L1: o caso comum do pipeline em ingles roda ANTES de `plano`,
+    # porque ele troca a instancia unica do de-para por uma de mentira e tem de
+    # devolve-la antes de qualquer geracao de verdade.
+    falhas.extend(FALA.demo_pipeline_ingles())
+    (aceitas, recusa, docs, flags, variaveis, esconde, motivos_linha,
+     flags_motor, vars_motor) = plano()
 
     # 1. PRECEDENCIA: nenhum objeto pode ficar com os dois scripts, e o rotulo
     #    daqui tem que ser o que sobrou no map.json.
     if any(not a["base"].startswith("GalarObj_") for a in aceitas):
         falhas.append("rotulo do c4a fora do prefixo GalarObj_")
     _mudou, rec, corpo1 = aplica(aceitas, docs, False, flags, variaveis,
-                                 esconde)
+                                 esconde, flags_motor, vars_motor)
     for base, motivo in rec:
         falhas.append("nao aplicado: %s %s" % (base, motivo))
 
@@ -921,8 +1118,9 @@ def demo():
     if corpo1 != corpo_inc(aceitas):
         falhas.append("o .inc nao e estavel entre duas geracoes")
     if os.path.exists(INC) and open(INC).read() == corpo1:
-        aceitas2, _r2, docs2, f2, v2, e2, _ml2 = plano()
-        mudou2, _rec2, _c2 = aplica(aceitas2, docs2, False, f2, v2, e2)
+        aceitas2, _r2, docs2, f2, v2, e2, _ml2, fm2, vm2 = plano()
+        mudou2, _rec2, _c2 = aplica(aceitas2, docs2, False, f2, v2, e2,
+                                    fm2, vm2)
         if mudou2["mapa"]:
             falhas.append("segunda passada mexeria em %d mapas: nao e idempotente"
                           % mudou2["mapa"])
@@ -977,9 +1175,9 @@ def demo():
     import shutil, tempfile
     for perfil, header, rotulo_pool, vaga in (
             ("flags", "include/constants/flags.h", "FLAG_UNUSED_0x%04X",
-             proxima_flag_livre(flags)),
+             proxima_flag_livre(flags, flags_motor)),
             ("vars", "include/constants/vars.h", "VAR_UNUSED_0x%04X",
-             proxima_var_livre(variaveis))):
+             proxima_var_livre(variaveis, vars_motor))):
         GUARDA.usa(perfil)
         P = GUARDA.PREFIXO
         with tempfile.TemporaryDirectory() as tmp:
@@ -1039,6 +1237,16 @@ def demo():
 # uma flag nossa, um special novo) destrava. Mesma lei do bloco c6 em
 # cenas_galar.py.
 MOTIVO_TERMINAL_OBJ = (
+    # ONDA 3, LOTE L1: os tres primeiros sao NOVOS e fecham a linha em vez de a
+    # deixar voltando a cada varredura. Comando de `cenas_galar.NAO_PORTAVEL`
+    # nao vira molde por trabalho: o dado de que ele depende (a tabela de
+    # multichoice, um endereco de RAM, uma funcao da ROM da fonte) nao existe
+    # aqui. Numero acima da FLAGS_COUNT do FireRed, ou fora da faixa de var de
+    # save, nao e flag nem var: o ponteiro caiu em dado.
+    ) + tuple("comando de cena fora do filtro: " + c
+              for c in sorted(C3.NAO_PORTAVEL)) + (
+    "esta acima da FLAGS_COUNT do FireRed",
+    "nao e var de save da fonte",
     "objeto nao esta no mapa (descarte da condutora",
     "porta morta, e pendencia de mapa",
     "decodificacao incompleta",
@@ -1069,17 +1277,34 @@ def devolve_para_fila(aceitas, motivos_linha, gravar):
     # fila calcula lendo o rotulo na arvore.
     del aceitas
     n, quadro = 0, collections.Counter()
+    # ONDA 3, LOTE L1: a linha que ESTE bloco ja tinha adiado com o motivo dele
+    # volta a ser medida. A reabertura mudou o que trava cada cena (flag de
+    # motor e var sem dono deixaram de travar; o texto sem traducao passou a
+    # travar), e deixar o motivo de 06/09 de pe faria a proxima rodada cacar um
+    # impedimento que nao existe mais.
+    #
+    # SO O MOTIVO DESTE BLOCO. Linha adiada pelo lote I guarda trabalho FEITO
+    # (a fala de resgate que o NPC ganhou) e nao pode virar recusa de novo;
+    # linha com decisao da condutora nunca se toca. As duas ficam como estao.
+    MARCA_C4A = "bloco c4a, lote C da onda 1"
+    MARCA_L1 = "bloco c4a, onda 3 lote L1, 08/09/2026: "
     for l in doc["linhas"]:
         if l["tipo"] not in ("script_objeto", "placa"):
             continue
-        if l["status"] in ("feita", "descartada", "adiada"):
+        velho = l.get("motivo_do_status") or ""
+        remede = (l["status"] == "adiada"
+                  and (MARCA_C4A in velho or velho.startswith(MARCA_L1))
+                  and DECISAO_FECHADA not in velho)
+        if l["status"] in ("feita", "descartada") or (
+                l["status"] == "adiada" and not remede):
             continue
         m = motivos_linha.get(l["chave"])
         if not m:
             continue
         st = ("descartada" if any(t in m for t in MOTIVO_TERMINAL_OBJ)
               else "adiada")
-        novo = st, ("bloco c4a, lote C da onda 1, 06/09/2026: " + m)
+        novo = st, (MARCA_L1 if remede else
+                    "bloco c4a, lote C da onda 1, 06/09/2026: ") + m
         if (l.get("status"), l.get("motivo_do_status")) != novo:
             l["status"], l["motivo_do_status"] = novo
             n += 1
@@ -1825,9 +2050,10 @@ def main():
         raise SystemExit(0)
     if a.demo:
         raise SystemExit(demo())
-    aceitas, recusa, docs, flags, variaveis, esconde, motivos_linha = plano()
+    (aceitas, recusa, docs, flags, variaveis, esconde, motivos_linha,
+     flags_motor, vars_motor) = plano()
     mudou, rec, _c = aplica(aceitas, docs, a.aplicar, flags, variaveis,
-                            esconde)
+                            esconde, flags_motor, vars_motor)
     if a.fila:
         n, quadro = devolve_para_fila(aceitas, motivos_linha, a.aplicar)
         print("fila: %d linhas de objeto/placa ganharam motivo medido" % n)
@@ -1836,6 +2062,17 @@ def main():
     relatorio(aceitas, recusa, variaveis)
     print("flags de esconder: %d | vars de etapa novas: %d"
           % (len(flags), len(variaveis)))
+    print("onda 3: flags de motor do demake: %d | vars da fonte sem dono: %d"
+          % (len(flags_motor), len(vars_motor)))
+    print("traducao na geracao: %s" % dict(FALA.traducao().conta))
+    print("textos sem traducao (distintos): %d, em %d linhas da fila"
+          % (len(FALA.traducao().faltam),
+             len(FALA.traducao().chaves_faltando())))
+    if a.aplicar:
+        if FALA.traducao().grava_falta(True):
+            print("gravado %s" % FALA.FALTA_JSON)
+        print("fila: %d linhas adiadas por texto sem traducao"
+              % FALA.marca_fila_sem_traducao(True))
     print("\n%s: %r" % ("gravado" if a.aplicar else "mudaria", dict(mudou)))
     for base, motivo in rec[:10]:
         print("  nao aplicado: %s %s" % (base, motivo))

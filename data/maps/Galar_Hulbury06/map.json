@@ -31,7 +31,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarObj_G08M07_o3",
+      "script": "GalarFala_G08M07_o3",
       "flag": "0"
     },
     {
@@ -135,7 +135,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarObj_G08M07_o11",
+      "script": "GalarFala_G08M07_o11",
       "flag": "0"
     },
     {
@@ -148,7 +148,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarObj_G08M07_o13",
+      "script": "GalarFala_G08M07_o13",
       "flag": "0"
     },
     {
@@ -161,7 +161,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarObj_G08M07_o14",
+      "script": "GalarFala_G08M07_o14",
       "flag": "0"
     },
     {
@@ -187,7 +187,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarObj_G08M07_o18",
+      "script": "GalarFala_G08M07_o18",
       "flag": "0"
     },
     {

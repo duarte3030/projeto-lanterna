@@ -1,0 +1,594 @@
+{
+ "_leia": "lista unificada onda 3 Galar; indice global = posicao (0-based)",
+ "itens": [
+  {
+   "pt": " Hop:Lee!!\\n Leon: Hop Então,meu\\lfã numero um em todo o\\lmundo,comecou sua jornada! Olha\\lvocê,Hop! Eu acho que você\\lcresceu ... uma polegada e um\\lquarto desde a ultima vez que te\\lvi!\\lHop:Lee Bingo!Esse é o tipo\\lde olho afiado que mantém\\lvocê invicto há tanto\\ltempo,hein{COLOR BLUE}Sim! Eu sou o Frank!\\pO que é isso?\\pUma carta?\\p{COLOR RED}Paula{COLOR BLUE}... esse é o nome da minha\\namiga de infância...\\pIsso já faz 50 anos...\\pMeus pais se mudaram de\\nHammerlock logo após a gente\\lbrigar...\\pQueria tanto poder voltar no\\ntempo...\\pNunca me perdoei por ter brigado\\ncom ela...\\pEu não sei onde você arranjou\\nisso, jovem, mas não posso deixar\\lvocê sair de mãos vazias.\\pVamos, tome isso, é tudo o que\\nposso lhe dar.\\pDe qualquer forma, você aliviou\\nminha consciência de 50 anos...",
+   "chaves": [
+    "g03m00/objeto/1"
+   ]
+  },
+  {
+   "pt": " Marnie chan?!?!?\\pTeam Yell: N- n- nada... Só\\nestávamos...\\pMarnie: Eu sei que todos estão\\ncuriosos para saber sobre os outros \\pparticipantes dos desafios,\\nmas vocês devem mostrar\\pum pouco mais de controle e\\nrespeito!\\p Marnie: Peço desculpas por eles!\\n Eles são alguns dos meus fãs.\\p Se denominam Team Yell\\pe me seguem por ai, torcendo por mim!\\nAcho que eles deixam isso subir\\p a cabeça, às vezes...\\pMarnie: Voltem para casa agora, Yell!",
+   "chaves": [
+    "GalarPorta_G06M12_o2 (Galar_Motostoke06, 0x88E4176)"
+   ]
+  },
+  {
+   "pt": " ocês sao desafiantes de ginasio\\ncerto?\\ppor hoje podem descansar\\n amanha sera a cerimonia de abertura",
+   "chaves": [
+    "GalarPorta_G06M12_o2 (Galar_Motostoke06, 0x88E4176)"
+   ]
+  },
+  {
+   "pt": "...",
+   "chaves": [
+    "GalarPorta_G10M05_c0 (Galar_Hammerlocke12, 0x885E8C4)",
+    "GalarPorta_G10M05_c1 (Galar_Hammerlocke12, 0x885E434)",
+    "GalarPorta_G10M05_c2 (Galar_Hammerlocke12, 0x885ED64)"
+   ]
+  },
+  {
+   "pt": "???: Oh Deus, não. Ainda há\\nmuitos mistérios que eu não\\lresolvi. Eu esperava que minha\\lneta assumisse minha pesquisa,\\lmas...",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "???: Oh queridos, me desculpe. Eu\\nnem percebi meus convidados! Meu\\lnome é Magnolia. Bem-vindos\\ljovens treinadores!",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Agora é hora, a hora de mostrar\\nminha capacidade como treinador\\lpara toda a Galar, VAMOS!!",
+   "chaves": [
+    "GalarPorta_G35M24_o12 (Galar_TurffieldIndoor25, 0x88A4810)"
+   ]
+  },
+  {
+   "pt": "Claro que lhe vingo parceiro!",
+   "chaves": [
+    "GalarPorta_G06M12_o2 (Galar_Motostoke06, 0x88E4176)"
+   ]
+  },
+  {
+   "pt": "Espera...                \\n     \\pHop: Não esperava que o check-in\\nfosse tão cheio!\\l{PLAYER}\\p O que tá rolando?\\pSe metendo em batalhas sem mim?\\nNão pense que vai passar\\p na minha frente assim tao facilmente!\\pEu preciso treinar também!\\nVamos, {PLAYER}.\\pRecupere seus pokémon!",
+   "chaves": [
+    "GalarPorta_G06M12_o2 (Galar_Motostoke06, 0x88E4176)"
+   ]
+  },
+  {
+   "pt": "Esse Trem S.S. ANNE está em\\nWedgehurst.\\pEle leva até a Wild Area\\pPor que não vai no meu lugar?\\nVá em frente, boa sorte.           ",
+   "chaves": [
+    "g05m13/objeto/0"
+   ]
+  },
+  {
+   "pt": "Esta muito tarde para lutar\\ndescanse no Hotel Budew!",
+   "chaves": [
+    "g06m35/objeto/3"
+   ]
+  },
+  {
+   "pt": "Está na hora de mostrar a\\ncapacidade máxima de um\\ltreinador, vou mostrar a você\\luma força nunca antes vista.",
+   "chaves": [
+    "GalarPorta_G35M20_o12 (Galar_TurffieldIndoor21, 0x889DED0)"
+   ]
+  },
+  {
+   "pt": "Eu sou o Marcelo AF. sousa o\\nprimeiro membro do canal pcl.g e\\lmostre o que você tem,Vamos ver se\\lvocê e capaz mem derrotar!!!",
+   "chaves": [
+    "GalarPorta_G39M16_o0 (Galar_WildAreaIndoor01, 0x88D10A8)"
+   ]
+  },
+  {
+   "pt": "Gahyou!!",
+   "chaves": [
+    "GalarPorta_G03M01_o5 (Galar_Wedgehurst12, 0x891C50A)",
+    "GalarPorta_G03M02_o8 (Galar_Motostoke23, 0x882CC28)",
+    "GalarPorta_G03M03_o10 (Galar_Turffield12, 0x891C50A)",
+    "GalarPorta_G03M04_o13 (Galar_Hulbury16, 0x891C50A)",
+    "GalarPorta_G03M05_o24 (Galar_Hammerlocke01, 0x891C50A)",
+    "GalarPorta_G03M06_o11 (Galar_Hammerlocke23, 0x891C50A)",
+    "GalarPorta_G03M07_o2 (Galar_Ballonlea10, 0x891C50A)",
+    "GalarPorta_G03M10_o11 (Galar_Spikemuth09, 0x891C50A)",
+    "GalarPorta_G09M10_o23 (Galar_Hammerlocke04, 0x891C50A)"
+   ]
+  },
+  {
+   "pt": "Groooooooow!!!!",
+   "chaves": [
+    "GalarPorta_G10M05_c0 (Galar_Hammerlocke12, 0x885E8C4)",
+    "GalarPorta_G10M05_c1 (Galar_Hammerlocke12, 0x885E434)",
+    "GalarPorta_G10M05_c2 (Galar_Hammerlocke12, 0x885ED64)"
+   ]
+  },
+  {
+   "pt": "Honey: Olá {PLAYER} estou\\nsimplismente sem palavras com\\lvocê, quando você chegou parecia\\lapenas uma criança animada\\lmas...\\pagora vejo que você é uma\\ngrande treinador!!!\\pe penasr que um dos meus pequenos\\ndocinhos é seu companheiro...\\p{PLAYER} eu sei que é um pedido\\nestranho mas que tal uma batalha\\leu sou uma treinadora tambem\\lapesar de não aparentar.\\pJá sei se você me ganhar eu te\\ndou um premio!!!\\pMas não vou dizer oque é se\\nquiser descobrir me encontre na\\larena do Master Dojo!\\pNos vemos la!",
+   "chaves": [
+    "g01m34/objeto/0"
+   ]
+  },
+  {
+   "pt": "Hop: Ah, certo. Você fez muita\\npesquisa sobre o fenômeno\\lDynamax, certo professor? Então\\lpor favor!\\lDê ao {PLAYER} e a mim o poder\\ldo Dynamax para nossos Pokémon!\\lPrimeiro chegamos à batalha\\lcontra aquele Pokémon forte no\\lSlumbering Weald, e agora isso...\\lParece que estamos destinados a\\luma aventura pokemon!",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Hop: Apresse-se, {PLAYER}!\\nVocê tem que lutar comigo para\\lque eu consiga o apoio de Leon!",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Hop: Com um desses, meus pokemons\\npodem usar Dynamax! Eles vão\\lficar enormes! EBA!",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Hop: Ei professor, faça-nos um\\nfavor, sim? Ajude-me a convencer\\lLee de que ele deveria nos apoiar\\lnos Desafios de ginásios!",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Hop: Eu esqueci! Encontramos a\\nespada e o escudo no Weald\\lAdormecido!",
+   "chaves": [
+    "GalarPorta_G10M05_c0 (Galar_Hammerlocke12, 0x885E8C4)",
+    "GalarPorta_G10M05_c1 (Galar_Hammerlocke12, 0x885E434)",
+    "GalarPorta_G10M05_c2 (Galar_Hammerlocke12, 0x885ED64)"
+   ]
+  },
+  {
+   "pt": "Hop: Eu sou o Hop, um dos desafiantes\\ndo ginasio desse ano e aquele\\pque será o proximo campeão também!\\nVocê irá ouvir o meu nome pelas\\ltorcidas!\\pTeam Yell: A única coisa que vou ouvir \\né a minha vitória chegando\\le o do choro da derrota de vocês!",
+   "chaves": [
+    "GalarPorta_G06M12_o2 (Galar_Motostoke06, 0x88E4176)"
+   ]
+  },
+  {
+   "pt": "Hop: Eu vou me tornar o melhor\\ntreinador de Pokémon que existe!\\lE para isso, preciso do aval do\\lLeon para participar do Desafio\\ldo ginásio! Batalhe comigo com\\ltudo o que você tem para que\\lpossamos provar a Lee que temos o\\lque é preciso!\\p{PLAYER}: Claro",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Hop: Hã?O que é isso?!",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Hop: O quê? Não consigo usar\\nnenhum golpe!",
+   "chaves": [
+    "GalarPorta_G10M05_c0 (Galar_Hammerlocke12, 0x885E8C4)",
+    "GalarPorta_G10M05_c1 (Galar_Hammerlocke12, 0x885E434)",
+    "GalarPorta_G10M05_c2 (Galar_Hammerlocke12, 0x885ED64)"
+   ]
+  },
+  {
+   "pt": "Hop: Pelo menos consegui jogar\\nminha Pokébola perfeitamente!",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Hop: Serei o melhor treinador de\\ntodos os tempos! Serei o melhor\\ltreinador de todos os tempos!\\lSerei o melhor treinador de todos\\los tempos! Certo! Eu já disse\\lisso três vezes, então meu desejo\\lcertamente se tornará realidade\\lagora, certo?",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Hop: Sim!Obrigado Lee! Juro que\\nvou ganhar o Desafios de ginásios para\\lchegar até você!",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Hop: Tudo bem! Estarei esperando\\npor você, {PLAYER}!",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Hop: Tudo bem, {PLAYER}!\\nVocê e eu vamos treinar um contra\\lo outro para alcançar o título de\\lcampeão! Quanto mais continuarmos\\llutando uns contra os outros,\\lmais nosso Pokémon evoluirá.",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Hop: Uau... é enorme! Vamos\\nenfrentar isso juntos, {PLAYER}!",
+   "chaves": [
+    "GalarPorta_G10M05_c0 (Galar_Hammerlocke12, 0x885E8C4)",
+    "GalarPorta_G10M05_c1 (Galar_Hammerlocke12, 0x885E434)",
+    "GalarPorta_G10M05_c2 (Galar_Hammerlocke12, 0x885ED64)"
+   ]
+  },
+  {
+   "pt": "Hop: {PLAYER}!\\nVocê está vendo isso? São Wishing\\lStars! São duas delas,pegue uma\\lpra você!",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Leon: Agora, se eu conseguir\\npegá-lo em uma Pokébola, devemos\\lconseguir controlar essa loucura.\\lEntão tudo voltará ao normal.\\lEntão observe! Vai ser uma\\lverdadeira captura de campeão!",
+   "chaves": [
+    "GalarPorta_G10M05_c0 (Galar_Hammerlocke12, 0x885E8C4)",
+    "GalarPorta_G10M05_c1 (Galar_Hammerlocke12, 0x885E434)",
+    "GalarPorta_G10M05_c2 (Galar_Hammerlocke12, 0x885ED64)"
+   ]
+  },
+  {
+   "pt": "Leon: Bem, sim... você não está\\nerrada. É por isso que eu dei os\\ldois pokemons. Está bem então.\\lNesse caso... e quanto a isso?\\lVamos ver se vocês dois podem me\\lmostrar uma batalha tão brilhante\\lque eu não tenho escolha a não\\lser endossar vocês. E não se\\lpreocupe. Vou garantir que ambas\\las equipes estejam em boa forma\\lantes que a batalha comece.",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Leon: Então, você desvendou todos\\nos segredos do fenômeno Dynamax?",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Leon: Escutem, vocês dois, a\\nrazão pela qual sou imparável é\\lporque aprendo com cada batalha\\lque vejo ou participo. Foi assim\\lque cheguei onde estou hoje.\\lEntão me mostre algo bom nesta\\lbatalha!",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Leon: Eu confio em você para usar\\nalgo assim! Dizem que as Wishing\\lStars realizam os sonhos daqueles\\lque têm um desejo verdadeiro em\\lseus corações.",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Leon: Eu quero que você seja o\\nverdadeiro rival de Hop. E isso é\\lum pedido direto do seu campeão\\lLeon!",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Leon: Hop e {PLAYER} começaram\\ncomo treinadores de Pokémon...\\lAinda há muita coisa que eles não\\lsabem!",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Leon: Olá Postiwick! Seu campeão\\nLeon está de volta! Prometo que\\lcontinuarei dando o meu melhor\\lpara proporcionar as maiores\\lbatalhas para todos vocês\\lassistirem!\\pAudiência: É o nosso campeão\\nimbatível! Leon, você e Charizard\\lsão os melhores!\\pLeon: Bem, obrigado por isso!\\nEspero que todos continuem\\ltreinando seus Pokémon e nunca\\lfujam da batalha. Então venha me\\ldesafiar para o público do título\\pAudiência: Estamos todos\\ntrabalhando em nossas habilidades\\lde batalha, como você nos\\lensinou, Leon! Mas esse seu\\lCharizard é forte demais para\\lgente como nós.\\pLeon: É verdade que meu\\nCharizard é incrivelmente forte.\\lMas outros Pokémon também podem\\lser fortes! É por isso que eu\\lquero que o mais forte dos\\ltreinadores complete o Gym\\lChallenge e venha lutar comigo!\\lMeu desejo é que os treinadores\\lde Galar trabalhem juntos para se\\ltornarem campeões! o mais forte\\ldo mundo!",
+   "chaves": [
+    "g04m06/objeto/1"
+   ]
+  },
+  {
+   "pt": "Leon: Você já deve conhecer o\\nDynamax, certo, {PLAYER}?\\lA professora Magnolia pesquisa o\\lfenômeno Dynamax há anos e anos.\\lE você precisa saber sobre ela se\\lplaneja usar o Dynamax ao máximo!",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Leon: Vocês veio me ajudar apesar\\ndo perigo? Obrigado, Hop.\\lE você, {PLAYER}. Vocês dois\\lcresceram tremendamente! Mas não\\lhá necessidade de vocês se\\lpreocuparem. Parece que algum\\lpoder de Eternatus estava\\lsegurando minha equipe\\lDynamaxing, mas...\\lnós tivemos um tempo de campeão\\lde qualquer maneira! Charizard e\\lo resto dos membros da minha\\lequipe campeã realmente\\ldesgastaram Eternatus.",
+   "chaves": [
+    "GalarPorta_G10M05_c0 (Galar_Hammerlocke12, 0x885E8C4)",
+    "GalarPorta_G10M05_c1 (Galar_Hammerlocke12, 0x885E434)",
+    "GalarPorta_G10M05_c2 (Galar_Hammerlocke12, 0x885ED64)"
+   ]
+  },
+  {
+   "pt": "Leon: {PLAYER}!Hop!\\nBem,depois de ver uma\\lpartida como essa..\\lAcho que não tenho escolha a não\\lser apoiar vocês como Campeão!",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Leon: {PLAYER}!Isso foi incrivel.\\nBrilhante.Honestamente ... havia\\laté lágrimas rolando pelo meu\\lrosto antes que eu percebesse.\\pE pensar que vocês dois sairam da\\nmesma cidade juntos, formaram os\\lmelhores times e chegaram aqui\\lneste ponto para jogar tudo o que\\lvocê tinha um no outro ... Aquele\\ldesejo ardente de vencer ...\\pAqueles movimentos cheios de uma\\npaixão invencivel!\\lEstava lutando no seu estado mais\\lpuro,de todas as formas possiveis!\\pMesmo que houvessealguns\\nTreinadores que não eram certeza\\lse você estava apto para ser\\laprovado para o Gym Challenge no\\linicio ...",
+   "chaves": [
+    "g13m00/objeto/0"
+   ]
+  },
+  {
+   "pt": "Leon:O ar tenso e parado no campo\\n... E exatamente o oposto da\\lplateia, gritando e torcendo ...\\lAmbos são fantásticos, não acha?\\pMas lembre-se, o publico também é\\num pouco cruel ... Eles não\\lquerem nada mais do que ver um de\\lnos perder, afinal!\\pIsso pode encher você de medo\\nsabendo disso,mas eu absolutamente\\lamo superar o medo.\\pAdoro dar tudo o que tenho como\\ntreinador e ver a minha equipa dar\\ltudo o que tem para alcançar mais\\luma vitoria!\\pé a melhor sensação do mundo, e\\nnunca me canso disso!\\pPosso sentir meus parceiros\\ncoçando de ansiedade dentro de\\lsuas Pokébolas ... Teremos um\\lverdadeiro momento de campeão!\\pSou o campeão da região de Galar,\\nLeon! Eu e Charizard, e todo o\\lresto da nossa equipe, usaremos\\ltodo nosso conhecimento e\\lexperiência para esmagá-lo\\lcompletamente!\\pAudiencia:esperem!!!\\pOlhem o telão!!!",
+   "chaves": [
+    "g13m17/objeto/12"
+   ]
+  },
+  {
+   "pt": "Leon:Ola,Postiwick! Seu campeão,Leon,esta de volta! Prometo que continuarei fazendo o meu melhor para proporcionar as maiores batalhas para todos vocês assistirem! plateia: é o nosso campeão imbativel! Leon,você e Charizard são os melhores! Leon:Bem,obrigado por isso!Espero que todos continuem treinando seus pokémons,e nunca fujam da batalha. Então venham me desafiar pelo titulo plateia:Todos nós estamos trabalhamos em nossas habilidades de batalha, como você nos ensinou, Lee! Mas esse seu Charizard é forte demais para gente como nós! Leon:de campeão!é verdade que meu Charizard é incrivelmente forte. Mas outros Pokémon também podem ser fortes! é por isso que quero que o mais forte dos treinadores completem o Desafio do Ginásio e venha lutar comigo! Meu desejo é que os treinadores de Galar trabalhem juntos para se tornarem os mais fortes do mundo!",
+   "chaves": [
+    "g04m09/objeto/0"
+   ]
+  },
+  {
+   "pt": "Magnolia: Estou muito interessada\\nem ver como vocês dois jovens\\ltreinadores lutam.",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Magnolia: Hop, querida. Vejo que\\nseu Wooloo fez novos amigos. E\\lvocê deve ser {PLAYER}.\\lSuponho que você tenha a Pokédex\\lda Sonia. Tenho certeza que você\\lvai completá-lo em algum momento!",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Magnolia: Leon, pensei que seu\\nsonho fosse fortalecer todos na\\lregião de Galar. Não é mesmo?",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Magnolia: Lá vai você de novo\\nLeon, sempre falando sobre\\lPokémon. Há também outras coisas\\lque vale a pena conhecer. Como\\lquantos tipos diferentes de chá\\lexistem!",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Magnolia: Não seja bobo, Hop.\\nEssas Wishing Stars são uma\\lespécie de rocha que contém um\\lpoder desconhecido... composto\\lpor um poder misterioso. São um\\ldos recursos mais preciosos que\\ltemos aqui na região de Galar.\\lnada para você neste estado.\\lDê-me agora, e eu resolvo isso\\lpara você.",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Magnolia: Oh Leon, por que você\\nnão os endossa?",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Magnolia: Ok, mas não se\\nempolgue. Você tem que economizar\\lsua energia para a aventura de\\lamanhã",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Marnie: O que todos estão\\nfazendo aqui?",
+   "chaves": [
+    "GalarPorta_G06M12_o2 (Galar_Motostoke06, 0x88E4176)"
+   ]
+  },
+  {
+   "pt": "Mustard:Bem-vindo de volta...\\pOh, e o que é esse clima tenso que\\neu detectei ao seu redor?\\p{PLAYER}:eu derrotei todos os\\nlideres!\\pMustard:Você fez isso agora? Já ?!\\pMustard:Hufufu! Você fez um otimo\\ntrabalho! Muito bem, {PLAYER}!\\pMustard:Bem, {PLAYER} , acho que\\nvocê aprendeu quase tudo que o\\lMaster Dojo tem para lhe ensinar.\\pO que significa que você e eu\\npodemos finalmente ter uma\\lbatalha adequada,sem\\labsolutamente nenhuma restrição!\\pEu não vou puxar nenhum saco dessa\\nvez, garoto.\\pSe você acha que está realmente\\npronto para mim quando eu estiver\\lsério, então venha para a arena\\ldo Master Dojo!",
+   "chaves": [
+    "g01m34/objeto/2"
+   ]
+  },
+  {
+   "pt": "Mãe: Oi filho, fez uma pausa pra\\nver sua mãe?\\pPor que não descansa\\num pouco?",
+   "chaves": [
+    "g04m00/objeto/0"
+   ]
+  },
+  {
+   "pt": "NO DIA SEGUINTE...",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "O campeão dessa fase do\\nWorld Tornament é, {PLAYER}.",
+   "chaves": [
+    "GalarPorta_G35M08_o12 (Galar_TurffieldIndoor09, 0x889D154)",
+    "GalarPorta_G35M12_o12 (Galar_TurffieldIndoor13, 0x889D4D4)",
+    "GalarPorta_G35M16_o12 (Galar_TurffieldIndoor17, 0x889DA44)",
+    "GalarPorta_G35M20_o12 (Galar_TurffieldIndoor21, 0x889DED0)",
+    "GalarPorta_G35M24_o12 (Galar_TurffieldIndoor25, 0x88A4810)"
+   ]
+  },
+  {
+   "pt": "O que é melhor que uma batalha\\nem um lobby de hotel chique?",
+   "chaves": [
+    "GalarPorta_G06M12_o2 (Galar_Motostoke06, 0x88E4176)"
+   ]
+  },
+  {
+   "pt": "Oh, você não pode pagar por um.",
+   "chaves": [
+    "g38m03/objeto/21"
+   ]
+  },
+  {
+   "pt": "Ola essa é a Wild area 1 ou tambem\\nPlanice delta ele é dividida em 4\\lpartes nessa partes você encontra\\lesses pokemons.",
+   "chaves": [
+    "g06m27/objeto/26"
+   ]
+  },
+  {
+   "pt": "Opal:Espere agora.Se você estiver\\nindo para o proximo ginásio,\\lprecisar  ir a Hammerlocke.\\lEu tambem tenho algumas coisas\\lpara resolver lá.\\lQuer se juntar a mim para a\\lcaminhada?\\p{PLAYER}:Com prazer!\\pOpal:Então somos um dueto,afinal.",
+   "chaves": [
+    "GalarPorta_G03M07_c0 (Galar_Ballonlea10, 0x8A41B41)",
+    "GalarPorta_G03M07_c1 (Galar_Ballonlea10, 0x8A48779)",
+    "GalarPorta_G03M07_c2 (Galar_Ballonlea10, 0x8A4A1C5)",
+    "GalarPorta_G11M10_c0 (Galar_Ballonlea05, 0x89EE1CD)",
+    "GalarPorta_G11M10_c1 (Galar_Ballonlea05, 0x89EE9BF)",
+    "GalarPorta_G11M10_c2 (Galar_Ballonlea05, 0x89EE9CC)"
+   ]
+  },
+  {
+   "pt": "Para me tornar um Mestre Pokémon,\\neu preciso aceitar cada desafio\\lque me vier e esse não diferente,\\lvamos mostrar do que somos\\lcapazes Pikachu!!!",
+   "chaves": [
+    "GalarPorta_G35M08_o12 (Galar_TurffieldIndoor09, 0x889D154)"
+   ]
+  },
+  {
+   "pt": "Para onde você quer ir?",
+   "chaves": [
+    "g03m66/objeto/0",
+    "g09m09/objeto/0",
+    "g13m06/objeto/0"
+   ]
+  },
+  {
+   "pt": "Prepare-se para sentir a força da\\ntreinadora mais forte dos Pokémons\\lde tipo água.",
+   "chaves": [
+    "GalarPorta_G35M12_o12 (Galar_TurffieldIndoor13, 0x889D4D4)"
+   ]
+  },
+  {
+   "pt": "Pronto para sua Primeira Batalha?",
+   "chaves": [
+    "g13m07/objeto/0"
+   ]
+  },
+  {
+   "pt": "Raihan: Oh!Se não é o treinador\\nendossado pelo campeão!Vamos\\lver...Como é mesmo o seu\\lnome?Ah,certo!é {PLAYER}!\\lBem se o próprio Leon\\lreconheceu seu potencial.\\lentão eu acho que você vai se\\ltornar um treinador muito forte.\\lMesmo assim,quem quiser desafiar\\lo poderoso Raihan precisa ganhar\\lprimeiro as setes insignias\\p{PLAYER}:Estou aqui para visitar\\no cofre\\pRaihan:Ah,então você está aqui\\npara ver nossos tesouros,né?Obter\\luma melhor compreensão sobre os\\lPokémons estudando a história\\ldeles certamente não é uma má\\lidéia.          \\lEu gosto do seu espirito,\\lgaroto!Siga-me  ",
+   "chaves": [
+    "g03m05/objeto/8"
+   ]
+  },
+  {
+   "pt": "Raihan:Oh!Se não é o treinador\\nendossado pelo campeão!Vamos\\lver...Como é mesmo o seu\\lnome?Ah,certo!é {PLAYER}!\\lBem se o próprio Leon\\lreconheceu seu potencial.\\lentão eu acho que você vai se\\ltornar um treinador muito forte.\\lMesmo assim,quem quiser desafiar\\lo poderoso Raihan precisa ganhar\\lprimeiro as setes insignias\\p{PLAYER}:Estou aqui para visitar\\no cofre\\pRaihan:Ah,então você está aqui\\npara ver nossos tesouros,né?Obter\\luma melhor compreensão sobre os\\lPokémons estudando a história\\ldeles certamente não é uma má\\lidéia.          \\lEu gosto do seu espirito,\\lgaroto!Siga-me  ",
+   "chaves": [
+    "g09m10/objeto/8"
+   ]
+  },
+  {
+   "pt": "Rose: Bem vindos ao maravilhoso\\nmundo dos Pokémon!\\pRose: Nossa amada região de Galar\\né um lugar maravilhoso, com uma\\lpróspera natureza.\\lbelas cidades e muitos Pokémon\\lcom os quais compartilhamos\\lnossas vidas!",
+   "chaves": [
+    "g43m00/map_script"
+   ]
+  },
+  {
+   "pt": "Sonia: Ah, ei! Aí está você.",
+   "chaves": [
+    "g00m08/objeto/1"
+   ]
+  },
+  {
+   "pt": "Sonia: Parece que cheguei em casa\\nbem na hora da emoção! Ei\\lpessoal, por que vocês não ficam\\le jantam? Você deve estar com\\lfome, certo? Esses dias, fiquei\\ltotalmente obcecada em fazer os\\lcurry mais recentes da moda.",
+   "chaves": [
+    "GalarPorta_G05M12_c0 (Galar_Route0202, 0x882ADEC)",
+    "GalarPorta_G05M12_c1 (Galar_Route0202, 0x88299A0)",
+    "GalarPorta_G05M12_o0 (Galar_Route0202, 0x8828554)"
+   ]
+  },
+  {
+   "pt": "Sonia:Sua batalha foi brilhante!\\nO lider do ginásio era realmente\\lforte,mas você não teve problemas\\lem derrota-lo.\\pCirchester tem otimos restaurantes\\nTenho algumas coisas sobre que\\lquero falar,então vamos a um\\lrestaurante para comemorar sua\\lvitoria!\\lO nome do restaurante é\\lBob’s Your Uncle!",
+   "chaves": [
+    "GalarPorta_G03M08_c0 (Galar_Circhester16, 0x8AB913C)",
+    "GalarPorta_G12M10_c0 (Galar_Circhester06, 0x8AB913C)",
+    "GalarPorta_G12M10_c1 (Galar_Circhester06, 0x886CF40)"
+   ]
+  },
+  {
+   "pt": "Team Yell: O Team Yell está aqui\\npara ajudar na final!\\pTerá que batalhar contra a gente \\nse quiser nos parar!\\pViemos até a cidade grande para\\npodermos torcer \\p por um desafiante de ginásio!\\p{PLAYER}: Estou pronto para isso! \\pTeam Yell: Não dissemos a você,\\ncara?\\pSe entrar no nosso caminho,\\penfrentará as consequências !\\pTeam Yell: O Team Yell é sobre ajudar ...\\najudar um treinador especial \\pa vencer os desafios do ginásio,\\nQueremos garantir que ela \\pse dê bem ...\\pE agora com a nossa ajuda,\\nvamos fazer barulho.",
+   "chaves": [
+    "GalarPorta_G06M12_o2 (Galar_Motostoke06, 0x88E4176)"
+   ]
+  },
+  {
+   "pt": "Tudo bem sem resentimentos agora\\nvocê pode seguir em frente",
+   "chaves": [
+    "GalarPorta_G39M16_o0 (Galar_WildAreaIndoor01, 0x88D10A8)"
+   ]
+  },
+  {
+   "pt": "Um torneio tão incrivel como\\nesse, eu não podia perder a\\lchance de participar, pode\\lesperar uma otima batalha!",
+   "chaves": [
+    "GalarPorta_G35M16_o12 (Galar_TurffieldIndoor17, 0x889DA44)"
+   ]
+  },
+  {
+   "pt": "Você ja viu o ginasio de\\nhammelock?ゅ Você ja viu o ginasio de\\nhammelock?",
+   "chaves": [
+    "g09m10/objeto/14"
+   ]
+  },
+  {
+   "pt": "Você trouxe meu Mudsdale de\\nvolta! muito obrigado! Agora\\lposso ir para casa. Tome isso\\lcomo um agaradecimento.",
+   "chaves": [
+    "g06m27/objeto/29"
+   ]
+  },
+  {
+   "pt": "aqui esta.",
+   "chaves": [
+    "g06m19/objeto/0"
+   ]
+  },
+  {
+   "pt": "entao é isso {PLAYER}\\n vamos descansar e amanha\\p vai ser o grande dia",
+   "chaves": [
+    "GalarPorta_G06M12_o2 (Galar_Motostoke06, 0x88E4176)"
+   ]
+  },
+  {
+   "pt": "esse fly taxi pode te levar para\\numa area especial da wild area\\lmas agora ele esta descançando.",
+   "chaves": [
+    "g03m35/objeto/18"
+   ]
+  },
+  {
+   "pt": "{COLOR BLUE}Não está interessado?",
+   "chaves": [
+    "g10m12/objeto/3"
+   ]
+  },
+  {
+   "pt": "{COLOR DARK_GRAY}Ah, você não pode pagar...",
+   "chaves": [
+    "g03m09/objeto/21"
+   ]
+  }
+ ]
+}

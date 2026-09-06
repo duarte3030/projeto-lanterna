@@ -359,6 +359,58 @@ MOLDURA = {"lock", "lockall", "release", "releaseall", "faceplayer", "end",
 STD_MSGBOX = {2: "MSGBOX_NPC", 3: "MSGBOX_SIGN", 4: "MSGBOX_DEFAULT",
               5: "MSGBOX_YESNO", 6: "MSGBOX_AUTOCLOSE"}
 
+# =========================================================================== #
+# REABERTURA DAS RECUSAS (onda 3, lote L1, 08/09/2026)
+#
+# Tres motivos de recusa do bloco c4a foram medidos como CUSTO DE ENDERECO e
+# nao como impossibilidade, e sao os que abrem aqui.
+#
+# 1. "flag de motor do demake": a fonte le com `checkflag` uma flag que nao
+#    esconde nenhum objeto importado, entao ela nao tinha nome nosso e a cena
+#    inteira caia. Agora ela GANHA nome, da faixa de Galar 0x2300-0x237F, e o
+#    `setflag`/`clearflag` da mesma flag passa a escrever nesse endereco em vez
+#    de virar comentario inerte: a cena volta a ler e escrever o proprio estado.
+#    Flag que a cena SO escreve e nunca le continua comentario -- dar endereco a
+#    ela seria gastar vaga para acender lampada sem fio.
+#
+#    O LIMITE E MEDIDO, nao chutado: `FLAGS_COUNT` do FireRed e 0x900
+#    (`include/constants/flags.h` da fonte). Numero acima disso num `checkflag`
+#    NAO e flag: o ponteiro caiu em dado, e dar endereco a ele seria inventar
+#    estado. Abaixo de TEMP_FLAGS_FIM sao as flags de rascunho da fonte, que o
+#    motor limpa a cada mapa; traduzi-las para uma flag PERSISTENTE mudaria o
+#    que a cena faz. As duas pontas saem com o valor no motivo.
+#
+# 2. "var salva da fonte sem dono": mesma historia do lado das vars. A faixa de
+#    save do FireRed e 0x4000-0x40FF (`VARS_START`/`VARS_END` da fonte), e as
+#    dezesseis primeiras sao TEMP. Endereco fora disso nao e var.
+#
+# 3. "comando de cena fora do filtro": os que tem MACRO no nosso motor e
+#    semantica identica passam a ser emitidos (`copyvar`, `setorcopyvar`,
+#    `setfieldeffectargument`, `checkcoins`, `checkmoney`). Os de NAO_PORTAVEL
+#    continuam fora, com o nome do comando no motivo, e agora a fila os fecha
+#    como `descartada` em vez de os deixar voltando a cada varredura.
+# =========================================================================== #
+FLAGS_COUNT_FONTE = 0x900       # include/constants/flags.h do pokefirered
+TEMP_FLAGS_FIM = 0x20           # abaixo disso e flag de rascunho da fonte
+PRIMEIRA_VAR_SAVE_FONTE = 0x4010    # 0x4000-0x400F sao as TEMP do FireRed
+ULTIMA_VAR_SAVE_FONTE = 0x40FF      # VARS_END do FireRed
+
+# Comando que tem macro aqui e NAO tem como atravessar, com o porque medido.
+# Fica em UM lugar so porque a fila le esta lista para decidir entre `adiada`
+# (falta trabalho) e `descartada` (nao ha o que fazer).
+NAO_PORTAVEL = {
+    "multichoice": "a lista de opcoes e um indice em gMultichoiceLists, e a "
+                   "tabela deste motor tem outro conteudo: portar o indice "
+                   "poria outro menu na tela",
+    "multichoicedefault": "mesma tabela do multichoice",
+    "multichoicegrid": "mesma tabela do multichoice",
+    "copybyte": "os dois argumentos sao ENDERECOS de RAM da fonte, e a RAM "
+                "deste motor tem outro mapa",
+    "callnative": "o argumento e o endereco de uma funcao da ROM da fonte",
+    "trywondercardscript": "o Wonder Card do FRLG nao existe neste motor",
+    "setworldmapflag": "comando so do FRLG, sem equivalente aqui",
+}
+
 
 class Tradutor:
     """Escreve a cena da fonte no dialeto do nosso motor, ou recusa por inteiro."""
@@ -379,6 +431,13 @@ class Tradutor:
         self.clima_de_para, self.clima_nomes = tradutor_por_nome(
             f"{PKFR}/include/constants/weather.h",
             f"{RAIZ}/include/constants/weather.h", "WEATHER")
+        # ONDA 3: efeito de campo POR NOME, nunca por numero. O `FLDEFF_*` do
+        # FireRed e do nosso motor comeca igual e diverge no meio da lista (66
+        # dos 75 nomes da fonte existem aqui, medido em 08/09/2026), entao
+        # copiar o indice poria outro efeito na tela em silencio.
+        self.fldeff_de_para, self.fldeff_nomes = tradutor_por_nome(
+            f"{PKFR}/include/constants/field_effects.h",
+            f"{RAIZ}/include/constants/field_effects.h", "FLDEFF")
         self.usou_flag = set()
         # Bloco solto que o gancho `extra` precisa emitir fora do corpo (lista
         # de loja, por exemplo). Fica aqui e nao no gancho porque quem monta o
@@ -408,6 +467,19 @@ class Tradutor:
         # chama põe antes de `cena()`; sem ele o portão não morde, que é o
         # comportamento de todo chamador que não é map script (o c4a).
         self.tipo_map_script = None
+        # Linha da fila a que esta cena pertence. Só serve para o caderno de
+        # `dev_scripts/onda3_falta_traduzir.json` saber a quem cobrar o texto
+        # que falta; quem chama põe antes de `cena()`.
+        self.chave_da_fila = None
+        # Nome nosso para a flag de MOTOR e para a var SEM DONO da fonte, os
+        # dois preenchidos por quem chama (o alocador de `objetos_galar.plano`
+        # e o de `cenas_galar.plano`). Vazio quer dizer "esta rodada nao alocou
+        # nenhuma", e a recusa volta a ser a de antes.
+        self.nome_flag_motor = {}
+        self.nome_var_livre = {}
+        # Preenchido por `cena()` a cada chamada; aqui so para o objeto nunca
+        # ficar sem o atributo.
+        self.flags_lidas = set()
 
     def special_nome(self, idx):
         """Nome do special do FireRed, se ele existir NESTE motor também."""
@@ -460,15 +532,38 @@ class Tradutor:
             return nome
         nome = self.nome_da_var.get(endereco)
         if nome is None:
+            nome = self.nome_var_livre.get(endereco)
+        if nome is None:
+            if not (PRIMEIRA_VAR_SAVE_FONTE <= endereco
+                    <= ULTIMA_VAR_SAVE_FONTE):
+                raise Recusa("0x%04X nao e var de save da fonte (a faixa e "
+                             "0x%04X-0x%04X): o ponteiro caiu em dado"
+                             % (endereco, PRIMEIRA_VAR_SAVE_FONTE,
+                                ULTIMA_VAR_SAVE_FONTE))
             raise Recusa("var salva 0x%04X da fonte sem dono nosso" % endereco)
         return nome
 
     def flag(self, f):
         nome = self.nome_da_flag.get(f)
         if nome is None:
+            nome = self.nome_flag_motor.get(f)
+        if nome is None:
+            if f >= FLAGS_COUNT_FONTE:
+                raise Recusa("0x%04X esta acima da FLAGS_COUNT do FireRed "
+                             "(0x%03X): nao e flag, o ponteiro caiu em dado"
+                             % (f, FLAGS_COUNT_FONTE))
+            if f < TEMP_FLAGS_FIM:
+                raise Recusa("flag 0x%03X e de RASCUNHO na fonte (abaixo de "
+                             "0x%03X): dar-lhe endereco persistente mudaria o "
+                             "que a cena faz" % (f, TEMP_FLAGS_FIM))
             raise Recusa("flag 0x%03X da fonte nao esconde objeto importado "
                          "(e flag de motor do demake)" % f)
         return nome
+
+    def quer_flag_de_motor(self, f):
+        """A flag da fonte merece endereco nosso? So a que a cena LE."""
+        return (f not in self.nome_da_flag
+                and TEMP_FLAGS_FIM <= f < FLAGS_COUNT_FONTE)
 
     def movimento(self, ptr, rotulo):
         """(linhas do bloco de movimento, rótulo) traduzido passo a passo."""
@@ -495,12 +590,30 @@ class Tradutor:
         return ["%s:" % rotulo] + ["\t.byte %s" % p for p in passos]
 
     def texto(self, ptr, rotulo):
+        """O bloco `.string` da fala, JA EM INGLES, ou recusa a cena inteira.
+
+        ONDA 3, LOTE L1: a tradução entra aqui, na geração, e não mais numa
+        segunda passada de `aplica_traducao_galar.py`. A regra dos três degraus
+        (rótulo, texto, régua do portão) está escrita no alto de
+        `dev_scripts/fala_galar.py`.
+
+        POR QUE A CENA INTEIRA CAI quando falta tradução, e não só este bloco: o
+        texto de uma cena é chamado por `msgbox RÓTULO, CAIXA` de dentro do
+        corpo. Emitir o corpo sem o bloco deixaria um rótulo sem símbolo, e a
+        build só acusaria no LINK, longe daqui. Cena é tudo ou nada, que é a
+        mesma lei de toda `Recusa` deste arquivo. Na fala solta
+        (`fala_galar.py`) o texto É o script, e lá o que fica de fora é a linha.
+        """
         if not (BASE <= ptr < BASE + len(self.rom)):
             raise Recusa("ponteiro de texto fora da rom")
         t, motivo = FALA.texto(self.rom, self.cmap, ptr - BASE)
         if motivo:
             raise Recusa("texto recusado: " + motivo)
-        return ["%s:" % rotulo, '\t.string "%s$"' % t]
+        en, origem = FALA.traducao().resolve(rotulo, t, self.chave_da_fila)
+        if en is None:
+            raise Recusa(FALA.MOTIVO_SEM_TRADUCAO)
+        return FALA.linhas_de_texto(rotulo, en,
+                                    quebra=origem in ("rotulo", "texto"))
 
     # -- a cena inteira -----------------------------------------------------
     def cena(self, inicio, base):
@@ -526,6 +639,15 @@ class Tradutor:
                             "campo rodando" % (self.tipo_map_script,
                                                MACRO_DIRETO[self.tipo_map_script],
                                                nome))
+        # ONDA 3: QUAIS FLAGS ESTA CENA LE. So a flag lida merece endereco
+        # nosso; a que a cena so escreve continua comentario inerte, porque
+        # gastar vaga da faixa de Galar para acender lampada que ninguem le e
+        # dividir um recurso escasso por nada. A varredura e da cena INTEIRA e
+        # feita antes de emitir uma linha: o `checkflag` costuma vir num bloco
+        # depois do `setflag`, e decidir bloco a bloco daria resposta diferente
+        # conforme a ordem.
+        self.flags_lidas = {a[0] for b in bs for n_i, a in b.ins
+                            if n_i == "checkflag" and a}
         rotulo = {b.inicio: ("%s" % base if i == 0 else "%s_b%d" % (base, i))
                   for i, b in enumerate(bs)}
         corpo, extras, usadas = [], [], collections.Counter()
@@ -569,7 +691,14 @@ class Tradutor:
                     # RECUSA a cena inteira logo abaixo. Escrever nela seria
                     # gastar endereco para acender lampada sem fio; nao escrever
                     # nao muda nada que o jogo consiga observar. Fica a marca.
-                    if args[0] not in self.nome_da_flag:
+                    # A flag que a cena tambem LE ganhou endereco nosso na
+                    # onda 3 (`nome_flag_motor`), e entao o `setflag` dela tem
+                    # de ESCREVER de verdade: escrever no lugar certo e ler no
+                    # lugar certo e a mesma decisao. O comentario inerte fica
+                    # so para a flag que ninguem le.
+                    if (args[0] not in self.nome_da_flag
+                            and not (args[0] in self.flags_lidas
+                                     and args[0] in self.nome_flag_motor)):
                         corpo.append("\t@ %s 0x%03X da fonte: flag de motor do "
                                      "demake, sem leitor aqui (cenas_galar.py)"
                                      % (nome, args[0]))
@@ -662,6 +791,31 @@ class Tradutor:
                 elif nome in ("goto_if", "call_if"):
                     corpo.append("\t%s %d, %s" % (self.macro(nome), args[0],
                                                   alvo(args[1])))
+                elif nome in ("copyvar", "setorcopyvar"):
+                    # `copyvar` copia var para var; `setorcopyvar` aceita valor
+                    # OU var na origem, e o motor decide pelo numero (`VarGet`
+                    # so resolve o que esta na faixa de var). Por isso a origem
+                    # so passa pelo tradutor quando ela E um endereco de var:
+                    # traduzir um literal daria outro numero.
+                    origem = (self.var(args[1]) if args[1] >= 0x4000
+                              else str(args[1]))
+                    corpo.append("\t%s %s, %s" % (self.macro(nome),
+                                                  self.var(args[0]), origem))
+                elif nome in ("dofieldeffect", "waitfieldeffect"):
+                    n_fld = self.fldeff_nomes.get(args[0])
+                    if n_fld is None or self.fldeff_de_para.get(args[0]) is None:
+                        raise Recusa("efeito de campo %d da fonte sem FLDEFF_* "
+                                     "nosso" % args[0])
+                    corpo.append("\t%s %s" % (self.macro(nome), n_fld))
+                elif nome == "checkcoins":
+                    corpo.append("\t%s %s" % (self.macro(nome),
+                                              self.var(args[0])))
+                elif nome in ("setfieldeffectargument", "checkmoney"):
+                    corpo.append("\t%s %s" % (self.macro(nome),
+                                              ", ".join(str(a) for a in args)))
+                elif nome in NAO_PORTAVEL:
+                    raise Recusa("comando de cena fora do filtro: %s (%s)"
+                                 % (nome, NAO_PORTAVEL[nome]))
                 elif not self.extra(nome, args, corpo, base):
                     raise Recusa("comando de cena fora do filtro: " + nome)
                 if nome not in MOLDURA:
@@ -1004,6 +1158,9 @@ def plano():
             base = rotulo_de(chave, "t%d_%s" % (tipo, "x" if valor is None
                                                 else "v%d" % valor))
             t.tipo_map_script = tipo
+            # A quem o caderno de falta de traducao cobra este texto: a linha de
+            # map_script daquele mapa da fonte, que e como a fila o chama.
+            t.chave_da_fila = "%s/map_script" % chave
             try:
                 linhas_inc, usadas = t.cena(alvo, base)
             except Recusa as e:
@@ -1334,6 +1491,36 @@ def demo():
     if GUARDA.portao(verboso=False):
         falhas.append("o portao de colisao de vars esta vermelho na arvore")
 
+    # 8. ONDA 3, LOTE L1: o pipeline nasce em ingles, e cena com texto sem
+    #    traducao NAO e escrita. O caso comum vale para os tres geradores; o
+    #    de baixo e o desta casa: `Tradutor.texto` tem de RECUSAR a cena
+    #    inteira, e nao devolver um bloco meio traduzido.
+    falhas.extend(FALA.demo_pipeline_ingles())
+    velha = FALA.traducao()
+    try:
+        qa = FALA.Traducao(traducao="/nao/existe.json", resgate="/nao/existe.json")
+        FALA.reinicia_traducao(qa)
+        de_texto = FALA.texto
+        FALA.texto = lambda *_a, **_k: ("qa aqui uma seu sua", None)
+        falso = Tradutor.__new__(Tradutor)
+        falso.rom, falso.cmap = b"\0" * 16, {}
+        falso.chave_da_fila = "qa/objeto/0"
+        try:
+            Tradutor.texto(falso, BASE, "QA_Cena_Text")
+            falhas.append("cena com texto sem traducao NAO foi recusada")
+        except Recusa as e:
+            if "sem traducao" not in str(e):
+                falhas.append("recusa de texto sem traducao com outro motivo: %s" % e)
+        if "qa/objeto/0" not in qa.chaves_faltando():
+            falhas.append("a cena recusada nao deixou o texto no caderno de falta")
+        qa.por_rotulo["QA_Cena_Text"] = "Answer by the label."
+        if Tradutor.texto(falso, BASE, "QA_Cena_Text") != [
+                "QA_Cena_Text:", '\t.string "Answer by the label.$"']:
+            falhas.append("cena COM traducao nao saiu em ingles")
+    finally:
+        FALA.texto = de_texto
+        FALA.reinicia_traducao(velha)
+
     print("demo: %s" % ("OK" if not falhas else "REPROVADO"))
     for f in falhas:
         print("  FALHA", f)
@@ -1435,10 +1622,25 @@ def main():
                     help="devolve o motivo medido de cada mapa recusado para "
                          "dev_scripts/fila_galar.json (use junto com --aplicar "
                          "para gravar)")
+    ap.add_argument("--falta", action="store_true",
+                    help="grava SO dev_scripts/onda3_falta_traduzir.json e o "
+                         "motivo na fila; nao toca .inc, map.json nem header. "
+                         "Existe porque `--aplicar` deste arquivo reescreve os "
+                         "438 data/maps/Galar_*/scripts.inc, e o bloco da Dex "
+                         "de Galar mora la (ver ESTADO-CARTUCHO-2.md, onda 2).")
     a = ap.parse_args()
     if a.demo:
         raise SystemExit(demo())
     aceitas, recusa, vars_alocadas, usadas_flag, censo, docs, motivos_mapa = plano()
+    if a.falta:
+        print("textos sem traducao (distintos): %d, em %d linhas da fila"
+              % (len(FALA.traducao().faltam),
+                 len(FALA.traducao().chaves_faltando())))
+        if FALA.traducao().grava_falta(True):
+            print("gravado %s" % FALA.FALTA_JSON)
+        print("fila: %d linhas adiadas por texto sem traducao"
+              % FALA.marca_fila_sem_traducao(True))
+        raise SystemExit(0)
     mudou, _corpo = aplica(aceitas, vars_alocadas, usadas_flag, docs, a.aplicar)
     if a.fila:
         n, quadro = devolve_para_fila(aceitas, motivos_mapa, a.aplicar)
@@ -1446,6 +1648,15 @@ def main():
         for st, c in sorted(quadro.items()):
             print("   %-12s %d" % (st, c))
     relatorio(aceitas, recusa, vars_alocadas, usadas_flag, censo)
+    print("traducao na geracao: %s" % dict(FALA.traducao().conta))
+    print("textos sem traducao (distintos): %d, em %d linhas da fila"
+          % (len(FALA.traducao().faltam),
+             len(FALA.traducao().chaves_faltando())))
+    if a.aplicar:
+        if FALA.traducao().grava_falta(True):
+            print("gravado %s" % FALA.FALTA_JSON)
+        print("fila: %d linhas adiadas por texto sem traducao"
+              % FALA.marca_fila_sem_traducao(True))
     if a.aplicar:
         print("\ngravado: %r" % dict(mudou))
     else:

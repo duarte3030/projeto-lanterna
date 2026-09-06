@@ -10430,11 +10430,13 @@
 // Apelidar FLAG_UNUSED nao mexe em FLAGS_COUNT: a save nao muda.
 // Gerado por dev_scripts/objetos_galar.py; nao editar a mao.
 #define FLAG_GALAR_ESCONDE_20B    FLAG_UNUSED_0x1C80  // flag 0x20B da fonte
+#define FLAG_GALAR_ESCONDE_22B    FLAG_UNUSED_0x1C89  // flag 0x22B da fonte
 #define FLAG_GALAR_ESCONDE_230    FLAG_UNUSED_0x1C87  // flag 0x230 da fonte
 #define FLAG_GALAR_ESCONDE_23C    FLAG_UNUSED_0x1C81  // flag 0x23C da fonte
 #define FLAG_GALAR_ESCONDE_5FD    FLAG_UNUSED_0x1C82  // flag 0x5FD da fonte
 #define FLAG_GALAR_ESCONDE_5FE    FLAG_UNUSED_0x1C83  // flag 0x5FE da fonte
 #define FLAG_GALAR_ESCONDE_AC0    FLAG_UNUSED_0x1C88  // flag 0xAC0 da fonte
+#define FLAG_GALAR_ESCONDE_AD3    FLAG_UNUSED_0x1C8A  // flag 0xAD3 da fonte
 #define FLAG_GALAR_ESCONDE_BA7    FLAG_UNUSED_0x1C84  // flag 0xBA7 da fonte
 #define FLAG_GALAR_ESCONDE_BA8    FLAG_UNUSED_0x1C85  // flag 0xBA8 da fonte
 #define FLAG_GALAR_ESCONDE_1800   FLAG_UNUSED_0x1C86  // flag 0x1800 da fonte
@@ -10903,3 +10905,25 @@
 #define FLAG_INICIAL_GALAR                     FLAG_UNUSED_0x228A  // o inicial de Galar ja foi escolhido
 #define FLAG_DEX_PRESENTE_EVENTO_GALAR         FLAG_UNUSED_0x228B  // os event-only de Galar ja foram dados
 // <<< Dex de Galar <<<
+
+// >>> Fase de conteudo de Galar, onda 3 lote L1: flags de motor do demake (dev_scripts/objetos_galar.py) >>>
+// Flag que a cena da fonte LE com `checkflag` e que nao esconde
+// objeto importado nenhum: ate a onda 2 ela derrubava a cena
+// inteira por nao ter nome nosso. Aqui ela ganha endereco na faixa
+// 0x2300-0x237F, e o `setflag`/`clearflag` da mesma flag passa a
+// escrever nele. Flag que a cena so escreve continua sem endereco.
+// Apelidar FLAG_UNUSED nao mexe em FLAGS_COUNT: a save nao muda.
+// Gerado por dev_scripts/objetos_galar.py; nao editar a mao.
+#define FLAG_GALAR_MOTOR_26C   FLAG_UNUSED_0x2300  // flag 0x26C da fonte
+#define FLAG_GALAR_MOTOR_26D   FLAG_UNUSED_0x2301  // flag 0x26D da fonte
+#define FLAG_GALAR_MOTOR_26F   FLAG_UNUSED_0x2302  // flag 0x26F da fonte
+#define FLAG_GALAR_MOTOR_421   FLAG_UNUSED_0x2309  // flag 0x421 da fonte
+#define FLAG_GALAR_MOTOR_467   FLAG_UNUSED_0x2303  // flag 0x467 da fonte
+#define FLAG_GALAR_MOTOR_4B3   FLAG_UNUSED_0x2304  // flag 0x4B3 da fonte
+#define FLAG_GALAR_MOTOR_4B6   FLAG_UNUSED_0x2305  // flag 0x4B6 da fonte
+#define FLAG_GALAR_MOTOR_821   FLAG_UNUSED_0x230A  // flag 0x821 da fonte
+#define FLAG_GALAR_MOTOR_825   FLAG_UNUSED_0x230B  // flag 0x825 da fonte
+#define FLAG_GALAR_MOTOR_826   FLAG_UNUSED_0x2306  // flag 0x826 da fonte
+#define FLAG_GALAR_MOTOR_827   FLAG_UNUSED_0x2307  // flag 0x827 da fonte
+#define FLAG_GALAR_MOTOR_829   FLAG_UNUSED_0x2308  // flag 0x829 da fonte
+// <<< Fase de conteudo de Galar, onda 3 lote L1 (flags) <<<
