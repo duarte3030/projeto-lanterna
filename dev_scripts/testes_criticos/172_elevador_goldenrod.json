@@ -1,0 +1,49 @@
+[
+ {
+  "id": "T172.1",
+  "nome": "A PORTA DO ELEVADOR DA LOJA DE DEPARTAMENTO DE GOLDENROD ABRE, E LEVA A OUTRO ANDAR. Achado da lente dev_scripts/qa/lente_portas.py pela regra P3: os seis andares tinham a porta desenhada (MB_ANIMATED_DOOR em (9,4)) e o warp para o mapa do elevador uma célula ACIMA dela, em (9,3), que é parede com colisão 1. Warp em tile sólido nunca dispara e porta sem warp nunca abre: a porta não fazia nada em nenhum andar. O mecanismo certo estava no hns e não tinha sido importado, e não usa o mapa do elevador: um coord_event na frente da porta chama a cena, a cena abre a porta com opendoor, entra com applymovement, mostra o menu de andares e usa warp de script. ROTA, medida na grade do LAYOUT_GOLDENROD_CITY_DEPARTMENT_STORE_1F (32x16): o warp 0 e a porta da rua e põe o jogador em (15,11); LEFT anda a linha 11 até (8,11), porque x7 e parede; UP sobe a coluna 8 até (8,5), porque (8,4) e parede; um RIGHT pisa em (9,5), que é o gatilho. O menu abre com o cursor no item 0, que é 6F, então um A basta. A prova é o par mapa+posição: o jogador termina no SEXTO ANDAR em (9,6), que é onde a cena de saída o deixa depois de descer três tiles, e a var de cena volta a 0.",
+  "warp": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_1F",
+  "warp_id": 0,
+  "roteiro": "240:NADA,16:LEFT*10,16:UP*8,16:RIGHT,420:NADA,20:A,600:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_6F",
+   "pos": [
+    9,
+    6
+   ],
+   "vars": {
+    "0x4114": 0
+   }
+  }
+ },
+ {
+  "id": "T172.2",
+  "nome": "E A MESMA PORTA DESCE ATE O SUBSOLO, que é o andar cuja porta fica em (10,6) e não em (9,4). Segunda porta consertada, e ela prova o outro ramo do menu: no subsolo a cena de saída abre a porta do subsolo, e o mesmo roteiro serve os dois porque opendoor em tile que não é porta devolve -1 sem efeito (FieldAnimateDoorOpen, src/field_door.c:722). ROTA, medida na grade do LAYOUT_GOLDENROD_CITY_DEPARTMENT_STORE_6F (32x19): o warp 0 e a escada do 5F e põe o jogador em (24,5); DOWN desce a coluna 24 até (24,11), que é a única linha sem NPC nem parede entre x8 e x25; LEFT anda até (8,11), porque x7 e parede; UP sobe a coluna 8 até (8,5); um RIGHT pisa no gatilho de (9,5). No menu, seis DOWN levam do item 0 (6F) ao item 6 (B1F). O jogador termina no SUBSOLO em (10,8).",
+  "warp": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_6F",
+  "warp_id": 0,
+  "roteiro": "240:NADA,16:DOWN*8,16:LEFT*20,16:UP*8,16:RIGHT,420:NADA,16:DOWN*6,60:NADA,20:A,600:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_BASEMENT",
+   "pos": [
+    10,
+    8
+   ],
+   "vars": {
+    "0x4114": 0
+   }
+  }
+ },
+ {
+  "id": "T172.3",
+  "nome": "PAR NEGATIVO: sem pisar no gatilho, nada acontece. Sem ele o T172.1 passaria numa build em que o simples fato de carregar o andar já teleportasse o jogador. O roteiro entra pela mesma porta da rua e fica parado; a prova é que o mapa continua sendo o PRIMEIRO ANDAR e que a var de cena do elevador está em 0.",
+  "warp": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_1F",
+  "warp_id": 0,
+  "roteiro": "600:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_1F",
+   "vars": {
+    "0x4114": 0
+   }
+  }
+ }
+]

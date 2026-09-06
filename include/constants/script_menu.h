@@ -175,6 +175,10 @@ enum
     // MULTI_GOLDSILVER do hns, com os dois textos que este repo ja tem
     // (gText_Gold e gText_Silver, src/strings.c:433). Entra no FIM do enum.
     MULTI_JOHTO_GOLD_SILVER,
+    // Johto, elevador da loja de departamento de Goldenrod: sete andares mais
+    // "Sair", que e a MULTI_7FLOORS do hns escrita com os textos que este repo
+    // ja tem (gText_6F ate gText_B1F, src/strings.c). Entra no FIM do enum.
+    MULTI_JOHTO_ELEVADOR_GOLDENROD,
 };
 
 #define MULTI_NONE 255

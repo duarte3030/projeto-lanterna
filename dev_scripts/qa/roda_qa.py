@@ -100,7 +100,8 @@ VEREDITOS_DE_CASO = {
         "applymovement de script NAO consulta colisao.",
 }
 
-FERRAMENTAS = ("checa_scripts", "checa_texto", "mapas_qa", "estado_jogo")
+FERRAMENTAS = ("checa_scripts", "checa_texto", "mapas_qa", "estado_jogo",
+               "lente_portas")
 
 
 def roda_demos():
@@ -164,8 +165,16 @@ def nome_de_regiao(r):
     return r.capitalize() if r.islower() else r
 
 
+def achados_de_portas():
+    import lente_portas
+    ach, _censo = lente_portas.varre()
+    return [dict(ferramenta="portas", regra=a["regra"], classe=a["classe"],
+                 regiao=nome_de_regiao(a["regiao"])) for a in ach]
+
+
 COLETORES = (("scripts", achados_de_scripts), ("texto", achados_de_texto),
-             ("mapas", achados_de_mapas), ("estado", achados_de_estado))
+             ("mapas", achados_de_mapas), ("estado", achados_de_estado),
+             ("portas", achados_de_portas))
 
 REGIOES = ("Kanto", "Johto", "Hoenn", "Sinnoh", "Unova", "Galar", "comum")
 
@@ -197,7 +206,11 @@ def main():
         print(f"{nome}: {len(itens)} achados")
 
     por = collections.Counter((x["classe"], x["regiao"]) for x in todos)
-    classes = [c for c in ("trava", "provável", "cosmético", "falso positivo")
+    # "sem interior" é classe da `lente_portas`: porta que o jogador vê, não
+    # abre, e cujo interior NÃO EXISTE na árvore. Não é trava porque consertar
+    # exigiria inventar mapa, e não é falso positivo porque o defeito é real.
+    classes = [c for c in ("trava", "provável", "sem interior", "cosmético",
+                           "falso positivo")
                if any(k[0] == c for k in por)]
     regioes = [r for r in REGIOES if any(k[1] == r for k in por)]
     extras = sorted({k[1] for k in por} - set(regioes))

@@ -310,6 +310,164 @@ conserto (medido numa worktree de `b7ef40f330`, o HEAD de antes da rodada): o ca
 --demo` verde nas quatro varreduras.
 
 
+### A meia porta da igreja de Hearthome, e o retrato das 44 portas fechadas do corte, 06/09/2026
+
+O Gui trouxe do capítulo "before Fantina": **"não está entrando no castelo bonito na esquerda, um
+building"**. É a igreja de Hearthome, o `ForeignBuilding`, e o mapa dela **nunca foi cortado**: tem 9
+objetos, as 9 falas do Platinum já em inglês e dois warps de volta. O que estava quebrado era
+**metade da porta**.
+
+`LAYOUT_HEARTHOME_CITY` desenha a porta da igreja em DUAS células, (8,6) e (9,6), as duas com o mesmo
+metatile 484 e `MB_NORTH_ARROW_WARP`, e na fonte cada metade levava a um lugar DIFERENTE: (9,6) ao
+`ForeignBuilding`, vivo, e (8,6) ao portão oeste da Amity Square, que o Gui cortou. O corte de
+22/08/2026 (`721c77fb63`) fechou só a metade cortada, e sobrou meia porta: quem encostasse pela
+coluna da esquerda apertava para cima e **nada acontecia**, e ainda lia uma placa de obras **em
+português** pregada na porta da igreja. A porta da NORTHEAST HOUSE, em (50,6)/(51,6) do outro lado da
+mesma cidade, tinha exatamente o mesmo defeito. **São as duas únicas do jogo**, e a varredura abaixo
+é o que prova isso.
+
+### O retrato das 44: são 22 mapas, 26 portas e 24 túmulos
+
+`grep -rl EventScript_PortaFechada data/maps/` dá **44 ARQUIVOS**, que são **22 mapas** (`map.json` e
+`scripts.inc` de cada um) e **22 placas**. As portas fechadas são **26**: 24 lápides (a entrada de
+warp fica no índice, repete a coordenada do doador e guarda a porta velha em `porta_original`) e 2
+warps apagados nas duas salas de link de Unova, que não têm doador. Destino por destino, com o
+`region_map_section`, a contagem de eventos e a lista `CORTES_DO_GUI` na mão:
+
+| mapa vivo | warp | célula da porta | destino | veredito |
+|---|---|---|---|---|
+| HearthomeCity | 7 | (8,6) | FOREIGN_BUILDING (era WEST_GATE_TO_AMITY_SQUARE) | **REABERTA, gêmea viva** |
+| HearthomeCity | 8 | (51,6) | HEARTHOME_CITY_NORTHEAST_HOUSE_1F (era EAST_GATE_TO_AMITY_SQUARE) | **REABERTA, gêmea viva** |
+| CanalaveCityPokecenter1F | 2 | (1,6) | CANALAVE_CITY_POKECENTER_2F | túmulo, fica fechada |
+| CelesticTownPokecenter1F | 2 | (1,6) | CELESTIC_TOWN_POKECENTER_2F | túmulo, fica fechada |
+| EternaCityPokecenter1F | 2 | (1,6) | ETERNA_CITY_POKECENTER_2F | túmulo, fica fechada |
+| HearthomeCityPokecenter1F | 2 | (1,6) | HEARTHOME_CITY_POKECENTER_2F | túmulo, fica fechada |
+| PastoriaCityPokecenter1F | 2 | (1,6) | PASTORIA_CITY_POKECENTER_2F | túmulo, fica fechada |
+| PokemonLeagueNorthPokecenter1F | 2 | (1,6) | POKEMON_LEAGUE_NORTH_POKECENTER_2F | túmulo, fica fechada |
+| PokemonLeagueSouthPokecenter1F | 2 | (1,6) | POKEMON_LEAGUE_SOUTH_POKECENTER_2F | túmulo, fica fechada |
+| SnowpointCityPokecenter1F | 2 | (1,6) | SNOWPOINT_CITY_POKECENTER_2F | túmulo, fica fechada |
+| SolaceonTownPokecenter1F | 2 | (1,6) | SOLACEON_TOWN_POKECENTER_2F | túmulo, fica fechada |
+| SunyshoreCityPokecenter1F | 2 | (1,6) | SUNYSHORE_CITY_POKECENTER_2F | túmulo, fica fechada |
+| VeilstoneCityPokecenter1F | 2 | (1,6) | VEILSTONE_CITY_POKECENTER_2F | túmulo, fica fechada |
+| PokemonLeagueNorthPokecenter1F | 4 | (12,1) | POKEMON_LEAGUE_ELEVATOR_TO_AARON_ROOM | túmulo, fica fechada |
+| ContestHallLobby | 2 | (6,1) | CONTEST_HALL_STAGE_NO_CONTEST | túmulo, fica fechada |
+| JubilifeCity | 6 | (20,13) | JUBILIFE_CITY_POKETCH_COMPANY_F1 | túmulo, fica fechada |
+| JubilifeCity | 7 | (17,13) | JUBILIFE_CITY_POKETCH_COMPANY_F1 | túmulo, fica fechada |
+| JubilifeCity | 10 | (42,25) | GLOBAL_TERMINAL_1F | túmulo, fica fechada |
+| PastoriaCityObservatoryGate1F | 2 | (2,1) | GREAT_MARSH_6 | túmulo, fica fechada |
+| Route212_North | 2 | (6,50) | POKEMON_MANSION | túmulo, fica fechada |
+| Route214 | 5 | (16,2) | SENDOFF_SPRING | túmulo, fica fechada |
+| Route221 | 1 | (82,15) | PAL_PARK_LOBBY | túmulo, fica fechada |
+| VeilstoneCity | 10 | (31,47) | GAME_CORNER | túmulo, fica fechada |
+| Unova_CasteliaCitySouth | 9 | (12,7) | UNOVA_CASTELIA_PLAZA_LOBBY | túmulo, fica fechada |
+| Unova_MobileTradeRoom | apagado | (4,7) | sala de link, sem lugar no mundo | túmulo, fica fechada |
+| Unova_MobileBattleRoom | apagado | (4,7) | sala de link, sem lugar no mundo | túmulo, fica fechada |
+
+**Os 24 destinos de lápide são túmulo de verdade**, os 24: `MAPSEC_NONE`, 0 objetos, 0 warps, 0
+`bg_events`, 0 `.string` no `scripts.inc`, e os 24 estão em `CORTES_DO_GUI` no modo `deficit`.
+**Nenhum aponta para mapa vivo**, e o `ForeignBuilding` nunca esteve entre eles: a placa que o Gui leu
+na porta dele era a do portão da Amity Square, plantada na célula (8,5) porque o gerador procura a
+parede vizinha da porta que fechou e a parede vizinha, ali, é o desenho da porta da igreja.
+
+### O conserto é regra no gerador, e não remendo nos dois mapas
+
+`dev_scripts/remove_mapas_cortados.py` ganhou `gemea_viva()`: antes de virar lápide, o warp pergunta
+se a célula VIZINHA (quatro direções) tem o MESMO metatile e um warp VIVO em cima. Se tem, as duas
+são metades da mesma porta, e a metade cortada **adota o destino da gêmea** em vez de fechar. Mapa em
+que todas as portas foram adotadas não recebe placa nenhuma. Rodar o gerador de novo dá **0 portas a
+fechar**, e o `--demo` ganhou o caso 7, que replanta em HearthomeCity o warp cortado de (8,6) e cobra
+que `gemea_viva` ache o vizinho, mais a contraprova de que porta solta não casa com ninguém.
+
+**A placa passou a falar inglês, e é UMA SÓ.** As 22 cópias de `"Fechado. Área em obras."` (a única
+fala em português que sobrava no jogo, e o Gui a encontrou justamente na porta da igreja) viraram
+`Common_Text_PortaFechada` em `data/scripts/portas_fechadas.inc`, incluído no `data/event_scripts.s`
+logo depois do `sinnoh_placas.inc`: **"Closed for renovations."**, 123 px dos 208 da caixa, medidos com
+`gFontNormalLatinGlyphWidths`. O rótulo de cada mapa continua onde estava, só apontando para lá, e por
+isso nenhum `map.json` de Pokécenter precisou ser tocado. O `--demo` do gerador cobra as três coisas:
+que o arquivo compartilhado tem exatamente o texto da constante, que o texto é ASCII, e que nenhum
+mapa guardou cópia própria. A ROM ENCOLHEU 524 B com isso.
+
+### A prova está no framebuffer, e tem contraprova de ROM
+
+Cinco casos novos no bloco que já era o dono do assunto, `140_portas_fechadas.json` (T140.7 a
+T140.11), todos com PNG aberto e olhado: o jogador nasce EM CIMA de (8,6), a metade esquerda, sobe e
+**entra na igreja**; o par negativo desce em vez de subir e continua em Hearthome, em (8,9), porque
+`MB_NORTH_ARROW_WARP` só dispara olhando para o norte; a metade direita (warp 12) continua abrindo o
+mesmo prédio; dentro da igreja o NINJA BOY de (2,8) fala ("When people and Pokémon join hands,
+everyone's happy.") e a saída devolve o jogador em (9,6), **na frente da porta**; e o warp 8 abre a
+NORTHEAST HOUSE. A placa em inglês é lida no T140.3, e o PNG mostra a caixa escrita
+`Closed for renovations.`.
+
+**A contraprova é de graça e é exata:** os MESMOS 11 casos rodados contra
+`roms/pokemon-claude-2026-09-06.gba` dão **8 de 11**, e os três que caem são exatamente os três que
+tocam os warps 7 e 8 (T140.7, T140.8 e T140.11). O T140.7 lá para em `MAP_HEARTHOME_CITY`, que é o
+defeito do Gui reproduzido em laboratório.
+
+### Os portões, e o que a régua fez
+
+Build verde, **ROM 32.359.704 B (96,44% de 32 MB), 524 B a MENOS que a `0.u`**, EWRAM 86,16% e IWRAM
+86,68%, idênticos. **SAVE COMPATIVEL** (nada aqui é índice: as duas entradas de warp ficaram no mesmo
+lugar da lista e só trocaram de destino), `valida_rom.py` com os 2.400 mapas declarados dentro da ROM,
+`valida_conectividade` com **0 warps quebrados**, `valida_warp_tile --piso 60` em 5.915 de 6.875
+(86,0%), `roda_qa.py --demo` verde nas quatro varreduras e `remove_mapas_cortados.py --demo` verde.
+
+Na régua, **uma coluna anda e é para baixo**: Sinnoh em placas vai de 103,5% para **103,4%**, porque a
+placa de obras de HearthomeCity saiu e ela nunca existiu na fonte. As outras cinco colunas de Sinnoh e
+as cinco regiões restantes ficam idênticas.
+
+**Esta build foi feita em worktree isolada** (`/private/tmp/claude-501/portas-q`, HEAD `fccccc0265`
+mais só os arquivos desta frente), e não na árvore principal, porque às 02:37 a árvore principal
+**não linkava**: `data/maps/GoldenrodCity_DepartmentStoreElevator/scripts.inc`, trabalho não commitado
+de outra frente, cita `Common_Movement_WalkUp1` e `Common_Movement_WalkDown1`, que não existem. O lock
+de build foi tomado, o defeito foi medido e o lock foi devolvido em seguida, para não prender a frente
+que precisa consertá-lo.
+
+### O que fica aberto
+
+- **Cinco meias portas do MESMO tipo, fora do corte**, achadas pela varredura de célula gêmea com
+  comportamento de porta e sem warp: `FloaromaTown` (4,2)/(5,2), `MtSilver_2F` (25,36)/(26,36),
+  `Galar_WarmUpTunnel01` (40,37)/(39,37) e `Galar_SlumberingWeald02` em (17,13) e (17,14). Não são
+  obra do corte, são da importação de cada fonte, e ficam para uma frente própria. As outras 8 que a
+  varredura levanta são falso positivo conhecido (o chão furado do ginásio de Ecruteak, `MB_MT_PYRE_HOLE`,
+  e duas pontes `MB_BRIDGE_OVER_OCEAN`).
+- **Galar ainda fala português em 310 textos de jogo** (mais 58 sem acento), medido por
+  `dev_scripts/qa/checa_texto.py`. Nada disso é placa de porta fechada, e nada disso entrou nesta
+  frente: é dado de Galar, e o censo de idioma da ferramenta ainda diz o contrário do que o projeto
+  decidiu (ela classifica texto em inglês em Sinnoh, Unova e Galar como achado).
+
+#### Os portões desta frente
+
+Build verde com o lock, **ROM 96,47% de 32 MB** (32.371.048 B), **EWRAM 86,16% e
+IWRAM 86,68%**. `valida_rom.py` com os **2.400 mapas** declarados dentro da ROM.
+**SAVE COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B (94,3%), sem mudança de
+struct, de índice de mapa, de índice de warp nem de objeto; a var nova é apelido
+de `VAR_UNUSED_0x4114` e `guarda_colisao_vars.py` diz 0 colisões novas.
+`valida_warp_tile --piso 60` com Hoenn 93,2%, Kanto 79,4%, Sinnoh 98,1%, Johto
+90,7% e Unova 100,0%, nenhuma região abaixo do piso. `roda_qa.py --demo` verde
+nas SEIS varreduras, com a `lente_portas` entre elas, e a lente nova dá **0
+travas em Kanto, Johto e Hoenn**.
+
+A prova do conserto é o **T172, 3 de 3 no emulador**, e ela é o par entrar e
+sair, duas portas: o T172.1 entra pela porta da rua do primeiro andar, anda até
+o gatilho de (9,5), pega o menu com o cursor em 6F e termina **no sexto andar em
+(9,6)**; o T172.2 faz o mesmo no sexto andar e desce até o **subsolo, em
+(10,8)**, que é o andar cuja porta fica em (10,6). O T172.3 é o par negativo: sem
+pisar no gatilho o jogador continua no primeiro andar. No framebuffer do T172.1
+aparece a cabine ABERTA com o painel marcando "1F" e o menu de sete andares mais
+"EXIT"; no do T172.2 o mesmo painel marca "6F" com o cursor em "B1F"; e os dois
+quadros finais mostram o jogador embaixo da porta FECHADA do andar em que
+desembarcou.
+
+**A suíte fechou em 1.008 de 1.015**, com o T11.3 contado à parte, e os **seis
+reprovados NÃO são desta frente**: T140.1, T140.3 e T140.4 caem no
+`ContestHallLobby`, T151.3 e T151.4 na sala de treinador do ginásio de Hearthome,
+e o T170.4 na cena dos três cães do Burned Tower. Os três mapas estão com edição
+NÃO commitada de outras frentes desta mesma rodada (as 44 portas fechadas, o
+gerador de Sinnoh e o arco de Ecruteak), e nenhum arquivo desta frente encosta
+neles: o conserto daqui é a loja de departamento de Goldenrod, mais um apelido no
+fim de `vars.h` e uma entrada no FIM do enum de `script_menu.h`, que não desloca
+id de ninguém.
+
 ---
 
 ## 0.t A CAÇA A BUGS ANTES DO PLAYTEST: A RÉGUA PARA DE MEDIR PORCENTAGEM E PASSA A MEDIR DEFEITO, 23/08/2026 (rodada 12; condutor Opus, quatro executores Opus, fechador Opus)

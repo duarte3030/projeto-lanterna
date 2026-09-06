@@ -1,2 +1,3 @@
 GoldenrodCity_DepartmentStoreBasement_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, GoldenrodDeptElevator_OnFrame
 	.byte 0

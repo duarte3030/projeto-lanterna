@@ -1008,3 +1008,9 @@
 // PWT de Unova (dev_scripts/cenas_pwt_unova.py), autorizado em 22/08/2026.
 // Apelido de VAR_UNUSED que ja existe: VARS_COUNT nao muda, save intacta.
 #define VAR_UNOVA_PWT_DENTRO_CENA              VAR_UNUSED_0x417F  // cena de entrada do saguao do PWT, mesma regra
+
+// ELEVADOR DA LOJA DE DEPARTAMENTO DE GOLDENROD (dev_scripts/elevador_goldenrod.py)
+// Guarda "acabei de sair do elevador" entre o `warp` e o ON_FRAME do andar de
+// destino, que e a unica coisa que o `map_script_2` sabe comparar. Apelido de
+// VAR_UNUSED que ja existe: VARS_COUNT nao muda, save intacta.
+#define VAR_ELEVADOR_GOLDENROD                 VAR_UNUSED_0x4114  // 1 enquanto a cena de saida do elevador nao rodou
