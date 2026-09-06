@@ -398,6 +398,119 @@ passada, contra a ROM congelada mas com os headers já regerados, caiu em outro 
 agente está escrevendo não é portão.** A saída foi `git worktree add --detach`, copiar para dentro
 dela SÓ os nove arquivos desta correção, e buildar e medir lá: a ROM entregue é exatamente o HEAD
 mais este commit, e o `.map` ao lado é o dela.
+### O ginásio de Blackthorn para de travar: a ponte era pintada de LAVA, 06/09/2026
+
+O Gui trouxe "está até bonito, mas está travando para andar, do nada trava na lava". A ponte existia,
+andava e levava até a Clair; o que não existia era o DESENHO dela. As quatro pontes eram pintadas com
+o metatile **889, que é lava vermelha lisa**, o mesmo desenho que a célula já tinha antes de acender:
+**46 dos 76 `setmetatile` repintavam o metatile idêntico**, então acender uma ponte não mudava um
+pixel. O jogador via o lago de lava inteiro, sem faixa nenhuma, e tinha que adivinhar por onde passar.
+
+A culpa é de uma linha do gerador: `piso_mais_comum()` de `dev_scripts/porta_ginasios_johto.py`
+escolhia o metatile mais frequente entre as células de COLISÃO ZERO. Neste mapa isso não é o chão. A
+lava de Blackthorn tem colisão zero no `map.bin` (**429 células**) e só não é pisada porque está em
+**elevação 2** enquanto o chão está em **3**, e `IsElevationMismatchAt`
+(`src/event_object_movement.c:10014`) recusa o passo entre elevações diferentes. Com a lava contando
+como piso, a votação deu **889 com 194 ocorrências contra 809, o chão de verdade, com 168**.
+
+**A suspeita de origem era outra, e foi refutada com número.** A hipótese que abriu a rodada era
+metatile fora do teto do tileset: `blackthorn_gym` tem 330 metatiles e 889 - 512 = 377 estouraria a
+tabela de atributos. Só que `LAYOUT_BLACKTHORN_CITY_GYM` é `layout_version: johto`, ou seja
+`bigPrimary` (`include/global.fieldmap.h:128`), e aí `GetNumMetatilesInPrimary` devolve **640**. O
+primário `johto_building` define 640 metatiles (10.240 B / 16) com 640 atributos (1.280 B / 2) e o
+secundário define 330 (5.280 B / 16) com 330 atributos (660 B / 2): a faixa válida é **640 a 969**. O
+maior id do `map.bin` é **948** e o do script é **889**. Nada fora do teto. A elevação 0 das pontes
+contra 3 do piso também não é defeito: 0 é `ELEVATION_TRANSITION` e é justamente o que junta dois
+pisos, e `setmetatile` nem poderia mudá-la, porque `MapGridSetMetatileIdAt` (`src/fieldmap.c:474`)
+preserva os bits de elevação de propósito.
+
+#### O conserto, no gerador
+
+`piso_mais_comum` virou **`piso_da_ponte`**, e a conta certa não é "andável", é "andável NA ELEVAÇÃO
+EM QUE O JOGADOR ANDA". A elevação sai do tile de chegada do warp, que é onde ele nasce; a lava está
+noutra elevação e some da contagem sozinha. Resultado: **809**, o piso azul de ladrilho.
+
+Cada linha passou a ser conferida contra o `map.bin` antes de virar `setmetatile`:
+
+- célula que o script ABRE e que já está andável **não vira linha nenhuma** (são as 9 pedras azuis
+  das pontas das pontes, metatile 857, que o desenho de lava vinha cobrindo);
+- célula que o script FECHA e já está bloqueada **sai fora**, era `setmetatile` sem efeito;
+- célula que ele fecha e está aberta mantém o próprio desenho e muda só a colisão;
+- e ABRIR pintando o metatile que a célula já tem passou a **abortar o gerador com erro**, porque
+  essa é a ponte invisível e ela não pode voltar calada.
+
+De **76 linhas** sobraram **64**, todas com o metatile 809. O `map.json` não mudou um byte.
+
+#### Duas lentes novas em `dev_scripts/qa/mapas_qa.py`
+
+| regra | classe | o que mede | achados |
+|---|---|---|---|
+| `E1` | trava | metatile fora do teto do tileset (o motor lê atributo fora do buffer) | **0** nos 2.400 mapas |
+| `E2` | provável | `setmetatile` que ABRE a célula pintando o metatile que ela já tem | **46**, todos em `BlackthornCity_Gym`, e **0** depois do conserto |
+
+O teto do `E1` sai do TAMANHO dos dois `.bin` e o corte sai da versão do layout, nunca de 512
+cravado, senão a lente acusaria Johto e Kanto inteiros. O `E2` só conta quando o script ABRE: fechar
+repintando o mesmo desenho é idioma legítimo. As duas têm mutação plantada no `mapas_qa.py --demo`.
+
+#### A prova é do emulador, e tem par antes/depois
+
+`gba_runner` com `--mem16` lendo `sBackupMapData`, que é a grade que o motor está usando no quadro,
+mais a posição do jogador e `VAR_BLACKTHORN_GYM_STATE`. O mesmo roteiro nas duas ROMs: entrar pelo
+warp em (20,58), acender as quatro pontes nos gatilhos de (19..21,55), (17..19,41), (25,26..28) e
+(19..21,16) e parar em (19,5), ao lado da Clair, com a var em **4**. Nas duas ROMs a travessia
+completa, e é por isso que o defeito não era de colisão. O que muda é o DESENHO: na ROM
+`2026-09-05`, que é a que o Gui jogou, as células (20,50), (20,26) e (20,13) leem **metatile 889 com
+colisão 0**, ou seja lava andável; nesta build leem **809**. O PNG do mesmo passo, com o jogador
+parado em (20,48) no meio da ponte 1, mostra a diferença sem precisar de número: antes, lava por
+baixo e por todos os lados; depois, uma passarela azul.
+
+A Clair responde e a batalha começa ("You are challenged by LEADER Clair!"), e a **persistência foi
+medida**: com a var em 4, sair para `MAP_BLACKTHORN_CITY`, voltar pelo warp e andar oito tiles ao
+norte deixa o jogador de novo em (20,50), com as quatro pontes redesenhadas pelo ON_LOAD (metatile
+809, colisão 0, nas linhas 50, 37, 26 e 13).
+
+#### Os portões desta frente, e as três armadilhas que ela pagou
+
+Build verde (`MAKE RC=0`) em **worktree isolada** sobre o HEAD `40ebe8eedd` mais estes três arquivos.
+**ROM 96,44% de 32 MB** (32.360.196 B), **EWRAM 86,16%**, **IWRAM 86,68%**. **Suíte 1.012 de 1.013**,
+com o T11.3 pulado. `guarda_save.py` = **SAVE COMPATIVEL** (SaveBlock1 em 14.964 de 15.872 B, 2.400
+mapas, 1.716 apelidos conferidos; esta rodada não mexe em struct, índice nem flag).
+`valida_rom.py` com os 2.400 mapas declarados dentro da ROM. `valida_warp_tile.py` sem nenhuma linha
+de `BlackthornCity_Gym`. `roda_qa.py --demo` verde nas quatro varreduras.
+
+1. **`.gba` e `.map` da árvore compartilhada podem ser de links DIFERENTES.** Às 02:53 o
+   `pokeemerald.gba` era de 02:30 e o `pokeemerald.map` de 02:44. Ler endereço de símbolo num `.map`
+   que não é do binário é prova falsa, e por isso este bloco buildou em worktree própria.
+2. **Zero de 1013 é sempre verificação quebrada, nunca notícia.** A primeira passada da suíte na
+   worktree deu 0/1013: o `dev_scripts/gba_runner` é binário compilado e NÃO é versionado, então
+   `git archive HEAD` não o levou e o `testa_critico` caiu no caminho antigo. Com o runner copiado
+   para dentro, a suíte voltou ao normal.
+3. **Os 17 reprovados da primeira contagem eram CONTENÇÃO, e a prova é a repetição isolada.** Todos
+   os 17 (T11.1, T11.2, T120.9, T120.10, T123.21, T123.22, T127.3, T127.4, T127.9, T127.10, T136.1,
+   T136.2, T136.5, T136.6, T139.3, T139.4, T160.4) são pares de save, e o caminho do `.sav` é
+   ABSOLUTO e igual para todo mundo (`/tmp/claude-501/frenteA/`). Com sete suítes de agentes
+   diferentes gravando no mesmo arquivo, um par sempre perde. Repetidos com `.sav` em pasta própria:
+   T11 2/3 (o terceiro é o PULA), T120 10/10, T123 25/25, T127 10/10, T136 10/10, T139 6/6,
+   T160 8/8, **zero falha**.
+
+#### O que fica aberto
+
+- **A lava continua andável no `map.bin`: 429 células de colisão 0 em elevação 2.** Hoje ninguém
+  chega nelas (a BFS com a regra do motor alcança 335 de 785 células andáveis a partir do warp, e
+  nenhuma em elevação 2), e nenhuma célula de ponte encosta nelas, então não há armadilha. Mas é
+  mina: ponte nova ao lado da lava deixaria o jogador entrar por uma célula de elevação 0 e nunca
+  mais sair, porque de elevação 2 não se volta para 3. Consertar é pôr colisão 1 nessas células, e
+  isso é obra de layout, não deste gerador.
+- **`porta_ginasios_johto.py` reescreve o `scripts.inc` do zero e apaga o que outros geradores
+  escreveram depois dele.** Nesta rodada uma regeneração levou junto a Jasmine escondida de Olivine,
+  as cinco pedras de Cianwood e os 16 Pokémon de enfeite, com build verde. O gerador agora **nomeia
+  o bloco que apagou** ("AVISO: <mapa>: bloco de OUTRO gerador apagado, rode-o de novo"), e o
+  `setflag FLAG_REGIAO_HOENN_LIBERADA` da Clair, que estava escrito à mão dentro do arquivo gerado
+  contra o aviso do cabeçalho, mudou de casa para `DEPOIS_DA_INSIGNIA`, dentro do gerador.
+- **Caminho de `.sav` de teste é absoluto e compartilhado.** Enquanto vários agentes rodarem a suíte
+  ao mesmo tempo, todo par de save vai piscar vermelho sem defeito nenhum. Consertar é derivar a
+  pasta do `.sav` do processo, e é conserto do `testa_critico`, não desta frente.
+
 ### Os portões
 
 **Suíte 1.002 de 1.003**, com o T11.3 contado à parte, e **T11 3/3** contra a ROM

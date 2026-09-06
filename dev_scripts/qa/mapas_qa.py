@@ -196,6 +196,25 @@ class Arvore:
         self._pastas = fora
         return fora
 
+    def tamanhos(self, ts):
+        """(quantos metatiles o tileset DEFINE, quantos atributos ele traz).
+
+        Sai do TAMANHO dos dois `.bin`: `metatiles.bin` tem 16 bytes por
+        metatile (8 tiles de u16) e `metatile_attributes.bin` tem 2 bytes por
+        metatile no formato Emerald e 4 no de FRLG. Devolve (None, None) quando
+        o tileset não resolve para uma pasta, que é o caso de `.secondary = 0`.
+        """
+        d = self.pastas().get(ts) if ts and ts != "0" else None
+        if not d:
+            return (None, None)
+        pm = os.path.join(d, "metatiles.bin")
+        pa = os.path.join(d, "metatile_attributes.bin")
+        if not os.path.exists(pm) or not os.path.exists(pa):
+            return (None, None)
+        n = os.path.getsize(pm) // 16
+        larg = (os.path.getsize(pa) // n) if n else 2
+        return (n, os.path.getsize(pa) // (4 if larg == 4 else 2))
+
     def atributos(self, ts):
         """[comportamento por metatile] do tileset, ou None se ilegível."""
         if ts in self._attr:
@@ -338,6 +357,7 @@ CLASSE = {
     "B7": "provavel",   "B8": "provavel",  "B9": "provavel",
     "C1": "trava",      "C2": "provavel",  "C3": "cosmetico",
     "D1": "cosmetico",  "D2": "cosmetico",
+    "E1": "trava",      "E2": "provavel",
 }
 TITULO = {
     "A2": "warp cuja CHEGADA cai em tile sólido (o jogador nasce dentro da parede)",
@@ -359,6 +379,8 @@ TITULO = {
     "C3": "bg_event (placa) sem tile de leitura andável ao sul",
     "D1": "MB_TALL_GRASS em mapa sem tabela de encontro",
     "D2": "tabela de encontro terrestre em mapa sem grama",
+    "E1": "metatile fora do teto do tileset (o motor lê atributo fora do buffer)",
+    "E2": "setmetatile que ABRE a célula pintando o metatile que ela já tem (mudança invisível)",
 }
 
 
@@ -872,6 +894,78 @@ def varre(raiz, so_regra=None):
                 ach.add("D2", CLASSE["D2"], reg, nome, None,
                         "tem tabela terrestre e nenhum tile de grama")
 
+        # ---- E. metatile contra o TETO do tileset, e setmetatile invisível --
+        #
+        # E1 nasceu em 06/09/2026 na caça ao travamento do ginásio de
+        # Blackthorn. A suspeita da rodada era esta: o `map.bin` e o
+        # `setmetatile` do script usavam o id 889 e o `metatile_attributes.bin`
+        # do `blackthorn_gym` tem 330 metatiles, ou seja 889 - 512 = 377 estaria
+        # FORA do buffer, e `GetAttributeByMetatileIdAndMapLayout` leria
+        # comportamento de outro tileset. A suspeita ESTAVA ERRADA (o layout é
+        # `johto`, o corte é 640 e 889 - 640 = 249 cabe), mas a lente vale por si:
+        # id acima do teto não dá erro de build nenhum, o motor só lê memória de
+        # quem estiver ao lado e o mapa ganha gelo, esteira ou colisão fantasma.
+        # O teto sai do TAMANHO dos dois `.bin`, nunca de 512 cravado, porque o
+        # primário de Johto e o de Kanto têm 640 (armadilha 1 do topo).
+        #
+        # E2 é a lente que MORDE o defeito real daquele dia: `setmetatile x, y,
+        # 889, FALSE` pintando exatamente o metatile que a célula já tinha. A
+        # célula abre de verdade (a colisão vai a zero), mas NADA muda na tela,
+        # então a ponte acende invisível e o jogador continua vendo lava
+        # contínua. Só conta quando o script ABRE (`FALSE`): fechar repintando
+        # o mesmo desenho é idioma legítimo (porta que vira parede sem trocar de
+        # arte).
+        if liga("E1") or liga("E2"):
+            L = A.layouts.get(lid) or {}
+            corte = 640 if L.get("layout_version") in ("frlg", "johto") else 512
+            n_pri, a_pri = A.tamanhos(L.get("primary_tileset"))
+            n_sec, a_sec = A.tamanhos(L.get("secondary_tileset"))
+
+            def fora_do_teto(mt):
+                """(True, explicação) quando o id não existe no tileset do mapa."""
+                if mt < corte:
+                    n, a = n_pri, a_pri
+                    idx, onde = mt, "primário"
+                else:
+                    n, a = n_sec, a_sec
+                    idx, onde = mt - corte, "secundário"
+                if n is None:
+                    return (False, "")
+                if idx >= n:
+                    return (True, f"{onde} define {n} metatiles e o id pede o {idx}")
+                if a is not None and idx >= a:
+                    return (True, f"{onde} tem {a} atributos e o id pede o {idx}")
+                return (False, "")
+
+            if liga("E1"):
+                vistos_e1 = {}
+                for y in range(H):
+                    for x in range(W):
+                        mt = linhas[y][x] & 0x3FF
+                        ruim, por_que = fora_do_teto(mt)
+                        if ruim and mt not in vistos_e1:
+                            vistos_e1[mt] = ((x, y), por_que)
+                for mt, (p, por_que) in sorted(vistos_e1.items()):
+                    ach.add("E1", CLASSE["E1"], reg, nome, p,
+                            f"map.bin usa o metatile {mt}: {por_que}")
+
+            texto = rotulos_citados(raiz, nome)
+            for sx, sy, sid, sflag in re.findall(
+                    r"^\s*setmetatile\s+(\d+),\s*(\d+),\s*(\d+),\s*(\w+)\s*$",
+                    texto, re.M):
+                sx, sy, sid = int(sx), int(sy), int(sid)
+                if liga("E1"):
+                    ruim, por_que = fora_do_teto(sid)
+                    if ruim:
+                        ach.add("E1", CLASSE["E1"], reg, nome, (sx, sy),
+                                f"setmetatile pede o metatile {sid}: {por_que}")
+                if (liga("E2") and sflag == "FALSE"
+                        and 0 <= sx < W and 0 <= sy < H
+                        and (linhas[sy][sx] & 0x3FF) == sid):
+                    ach.add("E2", CLASSE["E2"], reg, nome, (sx, sy),
+                            f"setmetatile abre a célula com o metatile {sid}, "
+                            "que já é o desenho dela: a tela não muda")
+
     return ach, nao_medido, censo, mapas
 
 
@@ -1064,6 +1158,25 @@ def demo():
     # (7) o mapa de referência do motor: a porta empurra ao SUL, e é por isso
     #     que a chegada da porta é (x, y+1) e não (x, y)
     assert "MB_ANIMATED_DOOR" in PORTAS and "MB_LADDER" not in PORTAS
+
+    # (8) E1: o teto do tileset sai do TAMANHO do .bin, e o corte da versão do
+    #     layout. O ginásio de Blackthorn é o caso que pagou a lente: com o
+    #     corte de Emerald (512) o metatile 889 pareceria fora do teto, e com o
+    #     corte certo de Johto (640) ele cabe nos 330 do `blackthorn_gym`.
+    n_sec, a_sec = A.tamanhos("gTileset_BlackthornGym")
+    assert (n_sec, a_sec) == (330, 330), f"tamanho do blackthorn_gym: {n_sec}/{a_sec}"
+    assert A.grade("LAYOUT_BLACKTHORN_CITY_GYM")[3] == 640
+    assert 889 - 640 < n_sec, "889 cabe no secundário de Johto e a lente diz que não"
+    assert 889 - 512 >= n_sec, "a mutação de referência sumiu: 889-512 tem que estourar"
+
+    # (9) E2: setmetatile que ABRE pintando o desenho que a célula já tem é
+    #     ponte invisível; fechar repintando o mesmo desenho é idioma legítimo.
+    #     Foi este par que separou os 46 achados reais de Blackthorn do resto
+    #     do repo, que dá zero.
+    def e2(mt_no_bin, mt_pintado, flag):
+        return flag == "FALSE" and mt_no_bin == mt_pintado
+    assert e2(889, 889, "FALSE") and not e2(889, 809, "FALSE")
+    assert not e2(889, 889, "TRUE")
 
     print("demo ok")
 
