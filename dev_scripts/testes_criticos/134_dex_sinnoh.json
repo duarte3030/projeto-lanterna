@@ -433,13 +433,13 @@
   },
   {
     "id": "T134.25",
-    "nome": "GLASTRIER EXISTE EM MAP_SNOWPOINT_CITY (Sinnoh) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, regiao Sinnoh: sao 14 estaticos novos na regiao e o T129.13 so cobriu um deles (NIHILEGO, o mais longe do warp). Este arquivo cobre os outros 13, um par por especie, na mesma forma. O tile (17, 56) saiu da busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o Pokemon sem dizer nada. ROTA: UP(zera) DOWN*23, a partir do warp 0 (17,34), pousando em (17, 34). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar; as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1), e a que satura leva DOIS, porque toque a mais contra parede nao custa nada. Cada toque dura 17 quadros e nao 16: 16 empata com o passo do jogador e come um toque por perna exata (medido no MtCoronet_B1F, 21/08/2026). A ultima perna satura CONTRA o Pokemon e para em (17, 55). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T134.26.",
+    "nome": "GLASTRIER EXISTE EM MAP_SNOWPOINT_CITY (Sinnoh) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, regiao Sinnoh: sao 14 estaticos novos na regiao e o T129.13 so cobriu um deles (NIHILEGO, o mais longe do warp). Este arquivo cobre os outros 13, um par por especie, na mesma forma. O tile (17, 56) saiu da busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o Pokemon sem dizer nada. ROTA: UP(zera) DOWN*23, a partir do warp 0 (17,34), pousando em (17, 34). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar; as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1), e a que satura leva DOIS, porque toque a mais contra parede nao custa nada. Cada toque dura 17 quadros e nao 16: 16 empata com o passo do jogador e come um toque por perna exata (medido no MtCoronet_B1F, 21/08/2026). A ultima perna satura CONTRA o Pokemon e para em (17, 55). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T134.26. ROTA CORRIGIDA NO CASO, NAO NO MAPA (06/09/2026): `dev_scripts/conserta_portas_sinnoh.py` moveu o warp 0 de SNOWPOINT CITY de (17,34) para (17,33), que e a porta ANIMADA do ginasio (o warp estava um tile ABAIXO dela e por isso nunca disparava; ginasio inalcancavel). Porta animada dispara pelo tile da FRENTE quando o jogador anda para o NORTE (TryDoorWarp), entao a perna que ZERA, que era UP*2, passou a ENTRAR no ginasio. Ela virou LEFT*1, que vira o boneco sem andar exatamente como o UP*2 fazia, e o DOWN*25 segue valendo 24 passos. A pousada continua (17,34), conferida no emulador.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
     "warp": "MAP_SNOWPOINT_CITY",
     "warp_id": 0,
-    "roteiro": "60:NADA,17:UP*2,40:NADA,17:DOWN*25,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "roteiro": "60:NADA,17:LEFT*1,40:NADA,17:DOWN*25,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
     "prova": {
       "mapa": "MAP_SNOWPOINT_CITY",
       "pos": [
@@ -450,14 +450,14 @@
   },
   {
     "id": "T134.26",
-    "nome": "PAR NEGATIVO DO T134.25: com FLAG_HIDE_DEX_GLASTRIER ACESA o tile (17, 56) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (17, 57) em vez de parar em (17, 55). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "nome": "PAR NEGATIVO DO T134.25: com FLAG_HIDE_DEX_GLASTRIER ACESA o tile (17, 56) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (17, 57) em vez de parar em (17, 55). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo. ROTA CORRIGIDA NO CASO, NAO NO MAPA (06/09/2026): `dev_scripts/conserta_portas_sinnoh.py` moveu o warp 0 de SNOWPOINT CITY de (17,34) para (17,33), que e a porta ANIMADA do ginasio (o warp estava um tile ABAIXO dela e por isso nunca disparava; ginasio inalcancavel). Porta animada dispara pelo tile da FRENTE quando o jogador anda para o NORTE (TryDoorWarp), entao a perna que ZERA, que era UP*2, passou a ENTRAR no ginasio. Ela virou LEFT*1, que vira o boneco sem andar exatamente como o UP*2 fazia, e o DOWN*25 segue valendo 24 passos. A pousada continua (17,34), conferida no emulador.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
       "FLAG_HIDE_DEX_GLASTRIER"
     ],
     "warp": "MAP_SNOWPOINT_CITY",
     "warp_id": 0,
-    "roteiro": "60:NADA,17:UP*2,40:NADA,17:DOWN*25,90:NADA",
+    "roteiro": "60:NADA,17:LEFT*1,40:NADA,17:DOWN*25,90:NADA",
     "prova": {
       "mapa": "MAP_SNOWPOINT_CITY",
       "pos": [
