@@ -40,9 +40,6 @@ SunyshoreCityPokecenter1F_Text_Npc2:
 
 @ >>> porta fechada (remove_mapas_cortados.py) >>>
 SunyshoreCityPokecenter1F_EventScript_PortaFechada::
-	msgbox SunyshoreCityPokecenter1F_Text_PortaFechada, MSGBOX_SIGN
+	msgbox Common_Text_PortaFechada, MSGBOX_SIGN
 	end
-
-SunyshoreCityPokecenter1F_Text_PortaFechada:
-	.string "Fechado. Área em obras.$"
 @ <<< porta fechada <<<

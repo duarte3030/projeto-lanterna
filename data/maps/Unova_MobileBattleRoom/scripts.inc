@@ -15,9 +15,6 @@ Unova_MobileBattleRoom_Text_MobileBattleRoom_HealText::
 
 @ >>> porta fechada (remove_mapas_cortados.py) >>>
 Unova_MobileBattleRoom_EventScript_PortaFechada::
-	msgbox Unova_MobileBattleRoom_Text_PortaFechada, MSGBOX_SIGN
+	msgbox Common_Text_PortaFechada, MSGBOX_SIGN
 	end
-
-Unova_MobileBattleRoom_Text_PortaFechada:
-	.string "Fechado. Área em obras.$"
 @ <<< porta fechada <<<

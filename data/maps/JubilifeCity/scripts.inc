@@ -462,9 +462,6 @@ JubilifeCity_Text_Placa14:
 
 @ >>> porta fechada (remove_mapas_cortados.py) >>>
 JubilifeCity_EventScript_PortaFechada::
-	msgbox JubilifeCity_Text_PortaFechada, MSGBOX_SIGN
+	msgbox Common_Text_PortaFechada, MSGBOX_SIGN
 	end
-
-JubilifeCity_Text_PortaFechada:
-	.string "Fechado. Área em obras.$"
 @ <<< porta fechada <<<

@@ -33,9 +33,6 @@ PastoriaCityPokecenter1F_Text_Npc2:
 
 @ >>> porta fechada (remove_mapas_cortados.py) >>>
 PastoriaCityPokecenter1F_EventScript_PortaFechada::
-	msgbox PastoriaCityPokecenter1F_Text_PortaFechada, MSGBOX_SIGN
+	msgbox Common_Text_PortaFechada, MSGBOX_SIGN
 	end
-
-PastoriaCityPokecenter1F_Text_PortaFechada:
-	.string "Fechado. Área em obras.$"
 @ <<< porta fechada <<<

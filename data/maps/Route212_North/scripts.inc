@@ -181,11 +181,8 @@ Route212_North_Text_Npc2:
 
 @ >>> porta fechada (remove_mapas_cortados.py) >>>
 Route212_North_EventScript_PortaFechada::
-	msgbox Route212_North_Text_PortaFechada, MSGBOX_SIGN
+	msgbox Common_Text_PortaFechada, MSGBOX_SIGN
 	end
-
-Route212_North_Text_PortaFechada:
-	.string "Fechado. Área em obras.$"
 @ <<< porta fechada <<<
 
 Route212_North_EventScript_PolicemanBobbyNoBattle::
