@@ -22,8 +22,10 @@ de 32 MB)**, com o `.map` do linker ao lado. Ela é o HEAD `ed8698166c` **mais o
 pequenos da fila do fechador** (a lava de Blackthorn, a conexão duplicada da Route 43 e as duas lojas
 do Pokécenter da Liga), buildada LIMPA (`make clean && make -j8`) na árvore principal com o lock.
 
-Dezoito commits de código entraram, todos com push, mais cinco commits só de ESTADO. `5f3a4cb403` é
-a recalibração dos roteiros que a colisão de `bce66c4718` moveu, então os dois são a MESMA frente.
+Dezoito commits de código entraram, todos com push, mais cinco commits só de ESTADO, mais os dois do
+fechador (`14646ff35b`, os três consertos pequenos e este placar; `229800c388`, o percurso de prova
+de vida). `5f3a4cb403` é a recalibração dos roteiros que a colisão de `bce66c4718` moveu, então os
+dois são a MESMA frente.
 
 | # | conserto | hash |
 |---|---|---|
@@ -188,6 +190,23 @@ DOIS, com a saudação "Welcome! Take a look around, we've got everything a TRAI
 foram abertos e olhados. A rota usa pernas saturantes de 20 apertos e desarma antes os três
 `coord_event` do rival gravando `VAR_SINNOH_RIVAL_VENCEU_SUNYSHORE`; o `T104`, que é o caso do rival
 deste mesmo mapa, continua **9 de 9**.
+
+### O quarto conserto, que não estava na fila: o portão de push estava vermelho para todo mundo
+
+`bash dev_scripts/antes_de_empurrar.sh` no HEAD commitado reprovava no passo **"percurso no
+emulador"**, e o jogo estava certo. O percurso `fala com tudo em volta` de
+`dev_scripts/testa_percurso.py` aperta A oito vezes em cada direção dentro do quarto inicial, e uma
+dessas falas é a do NES: ele terminava com a caixa **"RED played with the NES."** ABERTA, e o `START`
+que serve de prova de vida não faz nada com caixa aberta. O teste lia "NAO RESPONDE" com o jogo
+respondendo.
+
+**Medido, e não deduzido:** a MESMA falha aparece rodando o percurso contra
+`roms/pokemon-claude-2026-08-23d.gba` (a ROM da rodada 12, que o Gui jogou) e contra
+`roms/pokemon-claude-2026-09-05.gba`, ou seja é antiga e não é regressão desta rodada. O conserto são
+**seis `B` antes do `START`**: com eles, a ROM velha e a nova passam, e três execuções seguidas dão
+"nenhum problema em 6 percursos". Depois disso o portão fecha **VERDE nos nove passos**. É a lição
+4.3 outra vez: portão que não pode ficar verde ensina todo mundo a ignorar a saída, e este estava
+assim havia pelo menos duas rodadas.
 
 ### A fumaça da ROM consolidada, catorze itens, PNG por item aberto e olhado
 
