@@ -116,8 +116,9 @@ da frente de ARTE, que rodou em paralelo).
 
 Os 19.475 B são a SOMA das cidades, lida do `pokeemerald.map` (cada `_EventScript_Povoa*` até o
 símbolo seguinte, que é o texto dele) mais 24 B por `ObjectEventTemplate`. A ROM cresceu de
-**32.364.776 B para 32.384.248 B**, ou seja **+19.472 B**, medidos build contra build no mesmo HEAD
-`348e4dbd22`: os 3 B de diferença são alinhamento. **EWRAM e IWRAM não mudaram um byte** (225.856 e
+**32.364.808 B para 32.384.280 B**, ou seja **+19.472 B**, medidos build contra build no mesmo HEAD
+`ac1b026f53`: os 3 B de diferença são alinhamento. O mesmo +19.472 saiu de duas medições anteriores,
+sobre `7053780f27` e sobre `348e4dbd22`, o que é o esperado de dado que só cresce por conta própria. **EWRAM e IWRAM não mudaram um byte** (225.856 e
 28.404), e não podiam mudar: objeto e texto moram na ROM.
 
 ### A tabela antes e depois, cidade a cidade
@@ -241,9 +242,9 @@ acusava era a lente C2 e, depois dela, a suíte.
   as sete regras nos 210, rótulo único por cidade, nenhuma linha de fala acima de 34 caracteres e
   nenhum caractere fora do charmap nas 212 falas.
 - `povoa_cidades.py --censo`: **faltam 0 NPCs**, nas 58 cidades que a lei alcança.
-- **Build limpo verde** sobre o HEAD `348e4dbd22`, ROM 32.384.248 B (96,51% de 32 MB), EWRAM e IWRAM iguais
+- **Build limpo verde** sobre o HEAD `ac1b026f53`, ROM 32.384.280 B (96,51% de 32 MB), EWRAM e IWRAM iguais
   aos da build sem o povoamento. A ROM desta frente é
-  `roms/pokemon-claude-2026-09-07-povoamento.gba`, md5 `6d489511f0738eaa154691abffb55ef8`, com o
+  `roms/pokemon-claude-2026-09-07-povoamento.gba`, md5 `ecfab6695463b6a8144fef13b6ee61a2`, com o
   `.map` do linker ao lado.
 - `guarda_save.py`: **SAVE COMPATIVEL**. Objeto novo entra no FIM da lista de cada mapa, que é o que
   a save exige (ela guarda ÍNDICE de objeto), e nenhuma flag nova foi gasta.
@@ -262,7 +263,10 @@ acusava era a lente C2 e, depois dela, a suíte.
   objeto e de alcance, `B7` (janela de sprite) e `C2` (objeto inalcançável) incluídas.
 - **Suíte 1.084 de 1.084**, rodada bloco a bloco (116 blocos, o placar de cada um gravado em disco),
   ZERO reprovado, o T11 à parte. Nem o T176.3, nem o T94.1, nem o T143.9, os três instáveis da rodada
-  13, abriram vermelho nesta passada.
+  13, abriram vermelho nesta passada. Ela rodou sobre a build de `348e4dbd22` mais esta frente; sobre
+  a build final (`ac1b026f53` mais esta frente) foram refeitos o **T149 (14 de 14)**, o **T11
+  (3 de 3)** e a prova no emulador (**5 de 5**), porque o que entrou entre os dois HEADs foi
+  `src/new_game.c` e um bloco de teste novo, e nada de dado de mapa.
 - **T11 3 de 3**, contra `roms/pokemon-claude-2026-08-18.gba` com a fonte velha na worktree de
   `cf6786b2ae`.
 - A suíte foi rodada DUAS vezes inteiras: a primeira, ainda sem a regra da faixa da porta, deu
