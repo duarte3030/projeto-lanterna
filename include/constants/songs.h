@@ -559,10 +559,10 @@
 #define MUS_HG_BELL_TOWER MUS_MT_PYRE
 #endif
 #ifndef MUS_HG_UNION_CAVE
-#define MUS_HG_UNION_CAVE MUS_CAVE
+#define MUS_HG_UNION_CAVE MUS_RG_SEVII_CAVE
 #endif
 #ifndef MUS_HG_ROCK_TUNNEL
-#define MUS_HG_ROCK_TUNNEL MUS_ROCK_TUNNEL
+#define MUS_HG_ROCK_TUNNEL MUS_RG_SEVII_DUNGEON
 #endif
 #ifndef MUS_HG_LIGHTHOUSE
 #define MUS_HG_LIGHTHOUSE MUS_SLATEPORT
@@ -575,13 +575,13 @@
 #endif
 
 #ifndef MUS_CAVE
-#define MUS_CAVE MUS_PETALBURG_WOODS
+#define MUS_CAVE MUS_RG_SEVII_CAVE
 #endif
 #ifndef MUS_ROCK_TUNNEL
-#define MUS_ROCK_TUNNEL MUS_PETALBURG_WOODS
+#define MUS_ROCK_TUNNEL MUS_RG_MT_MOON
 #endif
 #ifndef MUS_SHOAL_CAVE
-#define MUS_SHOAL_CAVE MUS_PETALBURG_WOODS
+#define MUS_SHOAL_CAVE MUS_ABANDONED_SHIP
 #endif
 #ifndef MUS_HG_ROUTE38
 #define MUS_HG_ROUTE38 MUS_GSC_ROUTE38
@@ -602,6 +602,13 @@
 // Arco dos sinos de Johto (15/08/2026), mesmo padrao de apelido das linhas de
 // cima: faixa do hns que esta build nao tem vira a faixa mais proxima que ela
 // tem. Nenhuma arte de som foi criada.
+//
+// DE-PARA REFEITO EM 06/09/2026 (rodada 13). Ate aqui, 23 apelidos apontavam
+// para MUS_PETALBURG_WOODS, que nesta build tambem era o destino de MUS_CAVE,
+// MUS_ROCK_TUNNEL e MUS_SHOAL_CAVE: 159 mapas de Johto, cidades inclusive,
+// tocavam a mesma faixa de caverna. Agora cada apelido aponta para uma faixa
+// REAL de Hoenn ou de Kanto (numero proprio em songs.h e .s em sound/songs),
+// uma por cidade, variadas nas rotas e de caverna so nas cavernas.
 #ifndef MUS_HG_VS_HO_OH
 #define MUS_HG_VS_HO_OH MUS_VS_KYOGRE_GROUDON
 #endif
@@ -622,87 +629,103 @@
 #endif
 
 #ifndef MUS_HG_AZALEA
-#define MUS_HG_AZALEA MUS_PETALBURG_WOODS
+#define MUS_HG_AZALEA MUS_VERDANTURF
 #endif
 
 #ifndef MUS_HG_CHERRYGROVE
-#define MUS_HG_CHERRYGROVE MUS_PETALBURG_WOODS
+#define MUS_HG_CHERRYGROVE MUS_OLDALE
 #endif
 
 #ifndef MUS_HG_CIANWOOD
-#define MUS_HG_CIANWOOD MUS_PETALBURG_WOODS
+#define MUS_HG_CIANWOOD MUS_DEWFORD
 #endif
 
 #ifndef MUS_HG_DANCE_THEATER
-#define MUS_HG_DANCE_THEATER MUS_PETALBURG_WOODS
+#define MUS_HG_DANCE_THEATER MUS_CONTEST_LOBBY
 #endif
 
 #ifndef MUS_HG_DRAGONS_DEN
-#define MUS_HG_DRAGONS_DEN MUS_PETALBURG_WOODS
+#define MUS_HG_DRAGONS_DEN MUS_CAVE_OF_ORIGIN
 #endif
 
 #ifndef MUS_HG_ECRUTEAK
-#define MUS_HG_ECRUTEAK MUS_PETALBURG_WOODS
+#define MUS_HG_ECRUTEAK MUS_SOOTOPOLIS
 #endif
 
 #ifndef MUS_HG_ELM_LAB
-#define MUS_HG_ELM_LAB MUS_PETALBURG_WOODS
+#define MUS_HG_ELM_LAB MUS_RG_OAK_LAB
 #endif
 
 #ifndef MUS_HG_GAME_CORNER
-#define MUS_HG_GAME_CORNER MUS_PETALBURG_WOODS
+#define MUS_HG_GAME_CORNER MUS_GAME_CORNER
 #endif
 
 #ifndef MUS_HG_GOLDENROD
-#define MUS_HG_GOLDENROD MUS_PETALBURG_WOODS
+#define MUS_HG_GOLDENROD MUS_RG_CELADON
 #endif
 
 #ifndef MUS_HG_GYM
-#define MUS_HG_GYM MUS_PETALBURG_WOODS
+#define MUS_HG_GYM MUS_GYM
 #endif
 
 #ifndef MUS_HG_ICE_PATH
-#define MUS_HG_ICE_PATH MUS_PETALBURG_WOODS
+#define MUS_HG_ICE_PATH MUS_RG_MT_MOON
 #endif
 
 #ifndef MUS_HG_NATIONAL_PARK
-#define MUS_HG_NATIONAL_PARK MUS_PETALBURG_WOODS
+#define MUS_HG_NATIONAL_PARK MUS_SAFARI_ZONE
 #endif
 
 #ifndef MUS_HG_NEW_BARK
-#define MUS_HG_NEW_BARK MUS_PETALBURG_WOODS
+#define MUS_HG_NEW_BARK MUS_LITTLEROOT
 #endif
 
 #ifndef MUS_HG_POKE_MART
-#define MUS_HG_POKE_MART MUS_PETALBURG_WOODS
+#define MUS_HG_POKE_MART MUS_POKE_MART
 #endif
 
 #ifndef MUS_HG_ROCKET_TAKEOVER
-#define MUS_HG_ROCKET_TAKEOVER MUS_PETALBURG_WOODS
+#define MUS_HG_ROCKET_TAKEOVER MUS_RG_ROCKET_HIDEOUT
 #endif
 
 #ifndef MUS_HG_ROUTE26
-#define MUS_HG_ROUTE26 MUS_PETALBURG_WOODS
+#define MUS_HG_ROUTE26 MUS_ROUTE120
 #endif
 
 #ifndef MUS_HG_ROUTE29
-#define MUS_HG_ROUTE29 MUS_PETALBURG_WOODS
+#define MUS_HG_ROUTE29 MUS_ROUTE101
 #endif
 
 #ifndef MUS_HG_ROUTE30
-#define MUS_HG_ROUTE30 MUS_PETALBURG_WOODS
+#define MUS_HG_ROUTE30 MUS_RG_ROUTE1
 #endif
 
 #ifndef MUS_HG_ROUTE34
-#define MUS_HG_ROUTE34 MUS_PETALBURG_WOODS
+#define MUS_HG_ROUTE34 MUS_ROUTE104
 #endif
 
 #ifndef MUS_HG_ROUTE42
-#define MUS_HG_ROUTE42 MUS_PETALBURG_WOODS
+#define MUS_HG_ROUTE42 MUS_ROUTE113
 #endif
 
 #ifndef MUS_HG_VIOLET
-#define MUS_HG_VIOLET MUS_PETALBURG_WOODS
+#define MUS_HG_VIOLET MUS_RG_FUCHSIA
+#endif
+
+// Tres apelidos NOVOS (06/09/2026): Olivine, Mahogany e Blackthorn nao tinham
+// apelido proprio e herdavam o de outra cidade no map.json (Olivine em
+// MUS_HG_VIOLET e MUS_HG_CHERRYGROVE, Mahogany em MUS_HG_CHERRYGROVE,
+// Blackthorn em MUS_HG_AZALEA). Cada cidade de Johto passa a ter faixa propria.
+#ifndef MUS_HG_OLIVINE
+#define MUS_HG_OLIVINE MUS_RG_VERMILLION
+#endif
+
+#ifndef MUS_HG_MAHOGANY
+#define MUS_HG_MAHOGANY MUS_FALLARBOR
+#endif
+
+#ifndef MUS_HG_BLACKTHORN
+#define MUS_HG_BLACKTHORN MUS_EVER_GRANDE
 #endif
 
 #endif  // GUARD_CONSTANTS_SONGS_H

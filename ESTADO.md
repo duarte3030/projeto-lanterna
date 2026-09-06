@@ -4,12 +4,13 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 05/09/2026, na build da rodada 13, o primeiro conserto do playtest do Gui. A seção 0.u
-abaixo é a passagem de bastão dela, e a 0.t é a da rodada 12.
+Última medição: 06/09/2026, na build da rodada 13, os dois primeiros consertos do playtest do Gui (o
+letreiro de mapa e a música de Johto). A seção 0.u abaixo é a passagem de bastão dela, e a 0.t é a da
+rodada 12.
 
 ---
 
-## 0.u O LETREIRO DE MAPA PARA DE DIZER "SINNOH WEST": O NOME DO POPUP SAI DO MAPSEC E VIRA CAMPO DO MAP.JSON, 05/09/2026 (rodada 13; primeiro defeito achado pelo Gui no playtest, um executor Opus)
+## 0.u O LETREIRO DE MAPA PARA DE DIZER "SINNOH WEST" E JOHTO PARA DE TOCAR CAVERNA: O NOME DO POPUP SAI DO MAPSEC, E O DE-PARA DE MÚSICA SAI DE PETALBURG WOODS, 05-06/09/2026 (rodada 13; os dois primeiros defeitos achados pelo Gui no playtest, um executor Opus cada)
 
 O Gui jogou a ROM `23d` e trouxe o primeiro defeito do playtest: o letreiro que aparece ao entrar num
 mapa dizia **"SINNOH WEST", "SINNOH EAST", "SINNOH NORTH", "UNOVA EAST", "GALAR NORTH"** em centenas de
@@ -102,6 +103,69 @@ MESMA rota: `SunyshoreCity` (grupo 75, mapa 13) escrevia **"SINNOH EAST"** e `Ga
   (`Cafe`, `Restaurant`, `ForeignBuilding`, `UnusedGateBetweenEternaCityRoute206`) e as duas salas de
   link de Unova. Precisam de decisão de conteúdo, não de código.
 
+### O segundo defeito do playtest: a música de Johto, 06/09/2026
+
+O Gui trouxe "toda cidade de Johto toca música de caverna". Não era mapa e não era arte de som: era
+**de-para de apelido**. Em `include/constants/songs.h`, **23 apelidos `MUS_HG_*`** apontavam para
+`MUS_PETALBURG_WOODS`, que nesta build também era o destino de `MUS_CAVE`, `MUS_ROCK_TUNNEL` e
+`MUS_SHOAL_CAVE`. Medido antes de tocar: **159 dos 236 mapas dos grupos `*_Johto`** resolviam na mesma
+faixa 366, cidade, rota, ginásio, loja e caverna no mesmo som. Nenhuma outra região tinha o problema.
+
+O conserto é troca de constante, **zero arte de som e zero byte de ROM** (32.360.228 B antes e
+depois): as faixas de destino já estavam todas na ROM. Cada apelido passou a apontar para uma faixa
+com **número próprio** em `songs.h` e `.s` em `sound/songs/midi/`, conferido um a um, porque
+`MUS_RG_*` nem sempre entra em build baseada em Emerald.
+
+| apelido | faixa | por quê |
+|---|---|---|
+| `MUS_HG_NEW_BARK` | `MUS_LITTLEROOT` | vila natal pequena |
+| `MUS_HG_CHERRYGROVE` | `MUS_OLDALE` | vilarejo vizinho calmo |
+| `MUS_HG_VIOLET` | `MUS_RG_FUCHSIA` | cidade tradicional serena |
+| `MUS_HG_AZALEA` | `MUS_VERDANTURF` | vila tranquila |
+| `MUS_HG_GOLDENROD` | `MUS_RG_CELADON` | metrópole com loja |
+| `MUS_HG_ECRUTEAK` | `MUS_SOOTOPOLIS` | cidade mística tradicional |
+| `MUS_HG_OLIVINE` (novo) | `MUS_RG_VERMILLION` | cidade portuária |
+| `MUS_HG_CIANWOOD` | `MUS_DEWFORD` | ilha litorânea isolada |
+| `MUS_HG_MAHOGANY` (novo) | `MUS_FALLARBOR` | vila serrana pequena |
+| `MUS_HG_BLACKTHORN` (novo) | `MUS_EVER_GRANDE` | cidade de montanha |
+| `MUS_HG_ROUTE29` | `MUS_ROUTE101` | primeira rota campestre |
+| `MUS_HG_ROUTE30` | `MUS_RG_ROUTE1` | rota inicial arborizada |
+| `MUS_HG_ROUTE34` | `MUS_ROUTE104` | rota larga litorânea |
+| `MUS_HG_ROUTE26` | `MUS_ROUTE120` | rota final úmida |
+| `MUS_HG_ROUTE42` | `MUS_ROUTE113` | rota de montanha |
+| `MUS_HG_GYM` | `MUS_GYM` | ginásio, direto |
+| `MUS_HG_POKE_MART` | `MUS_POKE_MART` | loja, direto |
+| `MUS_HG_GAME_CORNER` | `MUS_GAME_CORNER` | cassino, direto |
+| `MUS_HG_ELM_LAB` | `MUS_RG_OAK_LAB` | laboratório de professor |
+| `MUS_HG_ROCKET_TAKEOVER` | `MUS_RG_ROCKET_HIDEOUT` | ocupação da Rocket |
+| `MUS_HG_DANCE_THEATER` | `MUS_CONTEST_LOBBY` | casa de espetáculo |
+| `MUS_HG_NATIONAL_PARK` | `MUS_SAFARI_ZONE` | parque natural |
+| `MUS_HG_ICE_PATH` | `MUS_RG_MT_MOON` | caverna fria |
+| `MUS_HG_DRAGONS_DEN` | `MUS_CAVE_OF_ORIGIN` | caverna mística |
+| `MUS_HG_UNION_CAVE` | `MUS_RG_SEVII_CAVE` | caverna comum |
+| `MUS_HG_ROCK_TUNNEL` | `MUS_RG_SEVII_DUNGEON` | túnel subterrâneo |
+
+**As dez cidades de Johto têm dez faixas distintas**, conferido por contagem, e caverna só nas quatro
+masmorras, cada uma com a sua. Os três apelidos mortos que criavam a armadilha (`MUS_CAVE`,
+`MUS_ROCK_TUNNEL`, `MUS_SHOAL_CAVE`, **zero uso** em `map.json` e em código) saíram de Petalburg
+Woods também, para que o próximo que os usar não recrie o defeito.
+
+**Catorze `map.json` corrigidos**, que é a herança tosca do import: `OlivineCity` tocava a faixa de
+Violet e as seis dependências dela a de Cherrygrove; `Mahoganytown` e `MahoganyTown_House1` tocavam a
+de Cherrygrove; as quatro de `BlackthornCity` tocavam a de Azalea; e `MahoganyTown_Shop`, que é loja,
+tocava a de Azalea e virou `MUS_HG_POKE_MART`.
+
+**A prova é do emulador, e tem par antes/depois.** `dev_scripts/prova_musica_johto.py` warpa por
+debug e lê DUAS camadas: `gMapHeader.music` (o header que o motor carregou) e
+`gMPlayInfo_BGM.songHeader` (o ponteiro que o driver de som está tocando naquele quadro), este último
+traduzido de volta para o número da faixa procurando o ponteiro em `gSongTable` dentro do binário. Os
+dois endereços saem do `pokeemerald.map`. Na ROM `2026-09-05`, que é a que o Gui jogou, Goldenrod, New
+Bark, Olivine, Blackthorn, a Rota 29, o ginásio de Violet, a loja de Cherrygrove e o Ice Path leem
+**366 nos dois**, ou seja Petalburg Woods; nesta build leem **521, 405, 525, 422, 359, 364, 404 e
+500**, cada um a sua. `PetalburgCity` é o controle de Hoenn e lê **362 nas duas ROMs**. O `gba_runner`
+ganhou `--mem16` e `--mem32`, leitura crua de endereço, porque nenhuma das duas provas passa por
+SaveBlock1.
+
 ### Os portões
 
 **Suíte 1.002 de 1.003**, com o T11.3 contado à parte, e **T11 3/3** contra a ROM
@@ -114,6 +178,14 @@ treinador e 1.716 apelidos conferidos: não há mudança de struct, de índice n
 o campo novo mora no `map.json`, que não entra na save. `valida_rom.py` com os 2.400 mapas declarados
 dentro da ROM. `dev_scripts/qa/roda_qa.py --demo` verde nas quatro varreduras, e
 `dev_scripts/nomes_popup.py --demo` com 25 casos.
+
+**Os portões foram REFEITOS INTEIROS depois do conserto da música de Johto (06/09/2026), e deram os
+MESMOS números**, o que é a prova de que a troca de constante não custou nada: build verde com o lock,
+**ROM 32.360.228 B, byte a byte o mesmo tamanho**, EWRAM 86,16% e IWRAM 86,68% iguais, **suíte 1.002 de
+1.003** com o T11.3 à parte, **T11 3/3** contra a mesma `roms/pokemon-claude-2026-08-18.gba`,
+**SAVE COMPATIVEL** (música não mora na save), `valida_rom.py` com os 2.400 mapas dentro da ROM,
+`roda_qa.py --demo` verde nas quatro varreduras e `prova_musica_johto.py` com **9 de 9** mapas certos
+no header e no driver de som, contra **1 de 9** na ROM `2026-09-05`.
 
 ### Duas lições
 
@@ -3855,7 +3927,8 @@ existir escrito no topo.
 | `gens69_treinadores.py` | Gen 6-9 nos times, lenda em líder e E4, Dynamax no ace |
 | `catalogo_especies.py` | Tipo, stat, geração e lenda de cada espécie, lidos do `species_info` (o enum de `species.h` mistura base e forma, e classificar por faixa de id põe mega de gen 1 na gen 9) |
 | `testa_critico.py` | Casos T1 a T30, prova lida da **EWRAM** |
-| `gba_runner.c` | Emulador headless que lê memória do jogo |
+| `gba_runner.c` | Emulador headless que lê memória do jogo (`--mem16`/`--mem32` leem endereço cru) |
+| `prova_musica_johto.py` | Qual faixa cada mapa TOCA, lida do header e do driver de som |
 | `demake_gen2.py` / `demake_ds.py` | Converte mapa de gen 2 e gen 4 |
 | `fecha_portas_sinnoh.py` | Interior de cidade de Sinnoh com planta reaproveitada do repo |
 | `abre_portas_extras_sinnoh.py` | Desenha a porta que falta, copiando um warp do proprio mapa |

@@ -2,7 +2,7 @@
   "id": "MAP_OLIVINE_CITY",
   "name": "OlivineCity",
   "layout": "LAYOUT_OLIVINE_CITY",
-  "music": "MUS_HG_VIOLET",
+  "music": "MUS_HG_OLIVINE",
   "region_map_section": "MAPSEC_OLIVINE_CITY",
   "map_name_popup": "OLIVINE CITY",
   "requires_flash": false,

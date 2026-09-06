@@ -47,6 +47,12 @@
  *                         passou --bolsa (nunca 0, que se confundiria com
  *                         "nao tem")
  *   --item N              inclui o item N (decimal ou 0x..) no dump da bolsa
+ *   --mem16 0xADDR        le um u16 CRU nesse endereco e imprime
+ *                         mem16_0xADDR=<valor>; repetivel. Para fato que nao
+ *                         mora em SaveBlock1 (ex.: gMapHeader.music)
+ *   --mem32 0xADDR        idem, u32, imprime mem32_0xADDR=0x........ (ex.:
+ *                         gMPlayInfo_BGM.songHeader). Endereco vem do
+ *                         pokeemerald.map, nunca cravado no roteiro
  *   --hp HP,MAXHP         offsets de hp e maxHP dentro de struct Pokemon
  *                         (medidos pelo probe do testa_critico.py): imprime
  *                         hp0..hp5 e hpmax0..hpmax5 do time decifrado, e
@@ -217,6 +223,14 @@ static int g_palobj_pedidas[MAX_PEDIDOS], g_n_palobj = 0;
    "esta na bolsa?", e responder isso nao devia exigir saber de bolso. */
 static uint32_t g_bolsa_off = 0, g_bolsa_n = 0, g_chave_off = 0;
 static int g_itens_pedidos[MAX_PEDIDOS], g_n_itens = 0;
+/* --mem16/--mem32 0xENDERECO: leitura CRUA de um endereco qualquer, para o caso
+   em que o fato a provar mora fora das structs que este runner ja conhece. Nasceu
+   em 06/09/2026 do conserto da musica de Johto: a prova era "gMapHeader.music
+   vale a faixa nova" e "gMPlayInfo_BGM.songHeader aponta para a entrada certa de
+   gSongTable", e nenhum dos dois passa por SaveBlock1. O endereco vem SEMPRE do
+   pokeemerald.map ao lado da ROM; endereco cravado no roteiro envelhece calado. */
+static uint32_t g_mem16[MAX_PEDIDOS]; static int g_n_mem16 = 0;
+static uint32_t g_mem32[MAX_PEDIDOS]; static int g_n_mem32 = 0;
 static int g_dump_estado = 0;
 static int g_sem_png = 0;
 
@@ -394,6 +408,12 @@ static void dump_estado(struct mCore *core, const char *rotulo) {
             if (core->busRead16(core, a) == (uint16_t)g_palobj_pedidas[i]) achou = 1;
         printf(" palobj_0x%04X=%d", g_palobj_pedidas[i], achou);
     }
+    for (int i = 0; i < g_n_mem16; i++)
+        printf(" mem16_0x%08X=%d", g_mem16[i],
+               (int)core->busRead16(core, g_mem16[i]));
+    for (int i = 0; i < g_n_mem32; i++)
+        printf(" mem32_0x%08X=0x%08X", g_mem32[i],
+               (unsigned)core->busRead32(core, g_mem32[i]));
     printf("\n");
     fflush(stdout);
 }
@@ -632,6 +652,14 @@ int main(int argc, char **argv) {
                 return 1;
             }
             g_bolsa_off = v[0]; g_bolsa_n = v[1]; g_chave_off = v[2];
+        } else if (!strcmp(argv[i], "--mem16") && i + 1 < argc) {
+            if (g_n_mem16 < MAX_PEDIDOS)
+                g_mem16[g_n_mem16++] = (uint32_t)strtoul(argv[++i], NULL, 0);
+            else i++;
+        } else if (!strcmp(argv[i], "--mem32") && i + 1 < argc) {
+            if (g_n_mem32 < MAX_PEDIDOS)
+                g_mem32[g_n_mem32++] = (uint32_t)strtoul(argv[++i], NULL, 0);
+            else i++;
         } else if (!strcmp(argv[i], "--palobj") && i + 1 < argc) {
             if (g_n_palobj < MAX_PEDIDOS) g_palobj_pedidas[g_n_palobj++] = (int)strtol(argv[++i], NULL, 0);
         } else if (!strcmp(argv[i], "--sav") && i + 1 < argc) {
