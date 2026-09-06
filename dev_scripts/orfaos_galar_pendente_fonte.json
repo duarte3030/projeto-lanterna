@@ -1,0 +1,2072 @@
+{
+  "gerado_por": "dev_scripts/liga_orfaos_galar.py --pendentes",
+  "data": "2026-09-06",
+  "decisao": "Gui, 06/09/2026, resposta 40: os mapas de Galar que a fonte deixou sem entrada nenhuma NAO sao cortados e NAO ganham porta inventada. Ficam marcados como pendentes de fonte, para serem desenvolvidos depois, e a busca por fonte continua.",
+  "o_que_esta_marcacao_nao_faz": "nao escreve cortado_por, nao mexe em map.json e nao tira ninguem do denominador. A regua de orfaos de Galar de valida_conectividade.py continua contando os mesmos mapas; esta lista so EXPLICA parte deles.",
+  "motivo": "sem_entrada_na_fonte",
+  "fonte_da_lista": "dev_scripts/orfaos_galar_sem_saida.txt",
+  "busca_de_fonte": "fontes-mapas/galar-swsh/FONTES-ORFAOS.md",
+  "classes": {
+    "porta_no_exterior": "o mapa SAI para um mapa vivo, com indice de chegada valido: sabemos exatamente em que exterior a porta entra. O que falta e o tile de warp no exterior, porque o indice que a fonte usou ja e de outro mapa vivo (as portas do demake sao compartilhadas).",
+    "conexao_de_borda_de_mao_unica": "a conexao de borda da fonte esta escrita neste mapa, mas o vizinho nao conecta de volta. Falta a conexao reciproca no vizinho.",
+    "warp_morto_aponta_para_si": "o mapa tem tile de warp, e o warp aponta para o proprio mapa. A fonte nunca escreveu o par: falta a escada ou a porta dos DOIS lados, e nada diz onde ela entra.",
+    "sobra_vazia": "casca de 1x1 ou 2x2, zero warp, zero objeto: slot que o autor reservou na ROM e nunca desenhou. Sem correspondente em SwSh.",
+    "sobra_sem_porta": "o mapa tem blockdata e as vezes NPC, mas zero warp e zero conexao em qualquer direcao. A fonte nao tem porta para dar.",
+    "ja_alcancado": "estava nesta lista quando ela foi gerada, mas HOJE a regua de `valida_conectividade.py` ja o alcanca. Fica marcado para nao sumir calado, e nao conta como pendencia de desenho."
+  },
+  "total": 42,
+  "ainda_orfaos": 40,
+  "resumo_por_classe": {
+    "conexao_de_borda_de_mao_unica": 2,
+    "ja_alcancado": 2,
+    "porta_no_exterior": 10,
+    "sobra_sem_porta": 7,
+    "sobra_vazia": 7,
+    "warp_morto_aponta_para_si": 14
+  },
+  "mapas": [
+    {
+      "pasta": "Galar_GalarMine04",
+      "mapa": "MAP_GALAR_GALAR_MINE_04",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g06m16",
+      "nome_antes_do_g3": "Galar_Postwick39",
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 48,
+      "altura": 12,
+      "area_em_tiles": 576,
+      "warps": 1,
+      "warps_mortos": [],
+      "saidas": [
+        {
+          "warp": 0,
+          "x": 11,
+          "y": 7,
+          "sai_em": "Galar_GalarMine02",
+          "sai_em_id": "MAP_GALAR_GALAR_MINE_02",
+          "warp_de_chegada": "0",
+          "estado_do_destino": "vivo"
+        }
+      ],
+      "conexoes": [],
+      "objetos": 0,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar01",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "porta_no_exterior",
+      "custo_estimado": "porta de 1 warp no exterior Galar_GalarMine02",
+      "o_que_e_palpite": "galeria curta e reta da Galar Mine; sai na Galar Mine 02, que e viva",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_GalarMine05",
+      "mapa": "MAP_GALAR_GALAR_MINE_05",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g07m10",
+      "nome_antes_do_g3": "Galar_Postwick41",
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 36,
+      "altura": 42,
+      "area_em_tiles": 1512,
+      "warps": 2,
+      "warps_mortos": [],
+      "saidas": [
+        {
+          "warp": 0,
+          "x": 10,
+          "y": 27,
+          "sai_em": "Galar_GalarMine02",
+          "sai_em_id": "MAP_GALAR_GALAR_MINE_02",
+          "warp_de_chegada": "1",
+          "estado_do_destino": "vivo"
+        },
+        {
+          "warp": 1,
+          "x": 14,
+          "y": 27,
+          "sai_em": "Galar_GalarMine02",
+          "sai_em_id": "MAP_GALAR_GALAR_MINE_02",
+          "warp_de_chegada": "2",
+          "estado_do_destino": "vivo"
+        }
+      ],
+      "conexoes": [],
+      "objetos": 3,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar04",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "porta_no_exterior",
+      "custo_estimado": "porta de 2 warps no exterior Galar_GalarMine02",
+      "o_que_e_palpite": "camara larga da Galar Mine com tres NPCs; sai duas vezes na Galar Mine 02, que e viva",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_IsleOfArmor15",
+      "mapa": "MAP_GALAR_ISLE_OF_ARMOR_15",
+      "mapsec": "MAPSEC_GALAR_ISLE_OF_ARMOR",
+      "mapsec_real": "MAPSEC_GALAR_ISLE_OF_ARMOR",
+      "lugar_na_fonte": "IsleOfArmor",
+      "fonte": "g38m11",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_ROUTE",
+      "largura": 1,
+      "altura": 1,
+      "area_em_tiles": 1,
+      "warps": 0,
+      "warps_mortos": [],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 0,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar32",
+      "musica": "MUS_RG_SEVII_123",
+      "copia_exata_de": [],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "sobra_vazia",
+      "custo_estimado": "sem correspondente em SwSh: casca vazia, sobra do autor",
+      "o_que_e_palpite": "casca de 1x1 sem tile, sem warp e sem objeto: slot vazio que o autor reservou na Isle of Armor",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Motostoke21",
+      "mapa": "MAP_GALAR_MOTOSTOKE_21",
+      "mapsec": "MAPSEC_GALAR_MOTOSTOKE",
+      "mapsec_real": "MAPSEC_GALAR_CENTRAL",
+      "lugar_na_fonte": "Motostoke",
+      "fonte": "g07m23",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 15,
+      "altura": 13,
+      "area_em_tiles": 195,
+      "warps": 1,
+      "warps_mortos": [],
+      "saidas": [
+        {
+          "warp": 0,
+          "x": 7,
+          "y": 3,
+          "sai_em": "Galar_Wedgehurst04",
+          "sai_em_id": "MAP_GALAR_WEDGEHURST_04",
+          "warp_de_chegada": "0",
+          "estado_do_destino": "vivo"
+        }
+      ],
+      "conexoes": [
+        {
+          "direcao": "down",
+          "vizinho": "Galar_Turffield02",
+          "estado_do_vizinho": "vivo"
+        }
+      ],
+      "objetos": 0,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar11",
+      "tileset_secundario": "gTileset_Galar12",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [
+        "Galar_Wedgehurst14",
+        "Galar_Wedgehurst15"
+      ],
+      "copia_parcial_de": [
+        {
+          "mapa": "Galar_Ballonlea09",
+          "metatiles_iguais_pct": 75
+        },
+        {
+          "mapa": "Galar_Circhester15",
+          "metatiles_iguais_pct": 75
+        },
+        {
+          "mapa": "Galar_CrownTundra19",
+          "metatiles_iguais_pct": 75
+        }
+      ],
+      "orfao_hoje": true,
+      "classe": "porta_no_exterior",
+      "custo_estimado": "porta de 1 warp no exterior Galar_Wedgehurst04",
+      "o_que_e_palpite": "interior generico de casa de cidade, copia byte a byte de Wedgehurst14 e Wedgehurst15; sai na porta compartilhada de Wedgehurst04",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Postwick06",
+      "mapa": "MAP_GALAR_POSTWICK_06",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g00m18",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_INDOOR",
+      "largura": 16,
+      "altura": 20,
+      "area_em_tiles": 320,
+      "warps": 1,
+      "warps_mortos": [
+        {
+          "warp": 0,
+          "x": 7,
+          "y": 18
+        }
+      ],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 17,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar11",
+      "tileset_secundario": "gTileset_Galar31",
+      "musica": "MUS_RG_GYM",
+      "copia_exata_de": [
+        "Galar_Postwick07"
+      ],
+      "copia_parcial_de": [
+        {
+          "mapa": "Galar_Postwick172",
+          "metatiles_iguais_pct": 68
+        }
+      ],
+      "orfao_hoje": true,
+      "classe": "warp_morto_aponta_para_si",
+      "custo_estimado": "escada ou porta dos dois lados: 1 warp morto aqui, e o par que a fonte nunca escreveu",
+      "o_que_e_palpite": "sala grande de predio com 17 NPCs, tileset dos interiores de Turffield; o unico warp aponta para si mesmo",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Postwick07",
+      "mapa": "MAP_GALAR_POSTWICK_07",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g00m19",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 16,
+      "altura": 20,
+      "area_em_tiles": 320,
+      "warps": 1,
+      "warps_mortos": [
+        {
+          "warp": 0,
+          "x": 7,
+          "y": 18
+        }
+      ],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 17,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar11",
+      "tileset_secundario": "gTileset_Galar31",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [
+        "Galar_Postwick06"
+      ],
+      "copia_parcial_de": [
+        {
+          "mapa": "Galar_Postwick172",
+          "metatiles_iguais_pct": 68
+        }
+      ],
+      "orfao_hoje": true,
+      "classe": "warp_morto_aponta_para_si",
+      "custo_estimado": "escada ou porta dos dois lados: 1 warp morto aqui, e o par que a fonte nunca escreveu",
+      "o_que_e_palpite": "copia byte a byte de Postwick06, mesmo warp morto",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Postwick11",
+      "mapa": "MAP_GALAR_POSTWICK_11",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g01m120",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 16,
+      "altura": 15,
+      "area_em_tiles": 240,
+      "warps": 2,
+      "warps_mortos": [
+        {
+          "warp": 0,
+          "x": 5,
+          "y": 9
+        },
+        {
+          "warp": 1,
+          "x": 5,
+          "y": 9
+        }
+      ],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 1,
+      "bg_events": 2,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar13",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "warp_morto_aponta_para_si",
+      "custo_estimado": "escada ou porta dos dois lados: 2 warps mortos aqui, e o par que a fonte nunca escreveu",
+      "o_que_e_palpite": "sala pequena de caverna com dois warps mortos e dois itens escondidos",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Postwick111",
+      "mapa": "MAP_GALAR_POSTWICK_111",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g37m18",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_UNDERGROUND",
+      "largura": 41,
+      "altura": 24,
+      "area_em_tiles": 984,
+      "warps": 1,
+      "warps_mortos": [
+        {
+          "warp": 0,
+          "x": 14,
+          "y": 23
+        }
+      ],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 20,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar13",
+      "musica": "MUS_RG_VS_GYM_LEADER",
+      "copia_exata_de": [
+        "Galar_Postwick03",
+        "Galar_Postwick112",
+        "Galar_Postwick113"
+      ],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "warp_morto_aponta_para_si",
+      "custo_estimado": "escada ou porta dos dois lados: 1 warp morto aqui, e o par que a fonte nunca escreveu",
+      "o_que_e_palpite": "andar de caverna com 20 NPCs, copia byte a byte de Postwick03, Postwick112 e Postwick113; warp morto",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Postwick112",
+      "mapa": "MAP_GALAR_POSTWICK_112",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g37m19",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_UNDERGROUND",
+      "largura": 41,
+      "altura": 24,
+      "area_em_tiles": 984,
+      "warps": 1,
+      "warps_mortos": [
+        {
+          "warp": 0,
+          "x": 14,
+          "y": 23
+        }
+      ],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 20,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar13",
+      "musica": "MUS_RG_VS_GYM_LEADER",
+      "copia_exata_de": [
+        "Galar_Postwick03",
+        "Galar_Postwick111",
+        "Galar_Postwick113"
+      ],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "warp_morto_aponta_para_si",
+      "custo_estimado": "escada ou porta dos dois lados: 1 warp morto aqui, e o par que a fonte nunca escreveu",
+      "o_que_e_palpite": "copia byte a byte de Postwick111",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Postwick113",
+      "mapa": "MAP_GALAR_POSTWICK_113",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g37m20",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_UNDERGROUND",
+      "largura": 41,
+      "altura": 24,
+      "area_em_tiles": 984,
+      "warps": 1,
+      "warps_mortos": [
+        {
+          "warp": 0,
+          "x": 14,
+          "y": 23
+        }
+      ],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 20,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar13",
+      "musica": "MUS_RG_VS_GYM_LEADER",
+      "copia_exata_de": [
+        "Galar_Postwick03",
+        "Galar_Postwick111",
+        "Galar_Postwick112"
+      ],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "warp_morto_aponta_para_si",
+      "custo_estimado": "escada ou porta dos dois lados: 1 warp morto aqui, e o par que a fonte nunca escreveu",
+      "o_que_e_palpite": "copia byte a byte de Postwick111",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Postwick172",
+      "mapa": "MAP_GALAR_POSTWICK_172",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g43m00",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_INDOOR",
+      "largura": 16,
+      "altura": 20,
+      "area_em_tiles": 320,
+      "warps": 1,
+      "warps_mortos": [
+        {
+          "warp": 0,
+          "x": 7,
+          "y": 18
+        }
+      ],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 17,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar11",
+      "tileset_secundario": "gTileset_Galar31",
+      "musica": "MUS_RG_GYM",
+      "copia_exata_de": [],
+      "copia_parcial_de": [
+        {
+          "mapa": "Galar_Postwick06",
+          "metatiles_iguais_pct": 68
+        },
+        {
+          "mapa": "Galar_Postwick07",
+          "metatiles_iguais_pct": 68
+        }
+      ],
+      "orfao_hoje": true,
+      "classe": "warp_morto_aponta_para_si",
+      "custo_estimado": "escada ou porta dos dois lados: 1 warp morto aqui, e o par que a fonte nunca escreveu",
+      "o_que_e_palpite": "variante 68% igual a Postwick06 e Postwick07, mesmo warp morto",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Postwick23",
+      "mapa": "MAP_GALAR_POSTWICK_23",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g04m04",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 1,
+      "altura": 1,
+      "area_em_tiles": 1,
+      "warps": 0,
+      "warps_mortos": [],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 0,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar01",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [
+        "Galar_Postwick38",
+        "Galar_WildArea16",
+        "Galar_WildArea24"
+      ],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "sobra_vazia",
+      "custo_estimado": "sem correspondente em SwSh: casca vazia, sobra do autor",
+      "o_que_e_palpite": "casca de 1x1, blockdata igual ao de outras cascas vazias",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Postwick24",
+      "mapa": "MAP_GALAR_POSTWICK_24",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g04m05",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 1,
+      "altura": 1,
+      "area_em_tiles": 1,
+      "warps": 0,
+      "warps_mortos": [],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 0,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar43",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "sobra_vazia",
+      "custo_estimado": "sem correspondente em SwSh: casca vazia, sobra do autor",
+      "o_que_e_palpite": "casca de 1x1 unica, sem gemeo",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Postwick26",
+      "mapa": "MAP_GALAR_POSTWICK_26",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g04m07",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 70,
+      "altura": 30,
+      "area_em_tiles": 2100,
+      "warps": 0,
+      "warps_mortos": [],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 0,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar01",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [],
+      "copia_parcial_de": [
+        {
+          "mapa": "Galar_SlumberingWeald02",
+          "metatiles_iguais_pct": 98
+        }
+      ],
+      "orfao_hoje": true,
+      "classe": "sobra_sem_porta",
+      "custo_estimado": "sem correspondente em SwSh: sobra do autor, sem porta na fonte",
+      "o_que_e_palpite": "lasca de rota 70x30, 98% igual ao Slumbering Weald 02, sem warp e sem objeto",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Postwick31",
+      "mapa": "MAP_GALAR_POSTWICK_31",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g05m01",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 20,
+      "altura": 100,
+      "area_em_tiles": 2000,
+      "warps": 3,
+      "warps_mortos": [],
+      "saidas": [
+        {
+          "warp": 0,
+          "x": 16,
+          "y": 22,
+          "sai_em": "Galar_Wedgehurst12",
+          "sai_em_id": "MAP_GALAR_WEDGEHURST_12",
+          "warp_de_chegada": "2",
+          "estado_do_destino": "vivo"
+        },
+        {
+          "warp": 1,
+          "x": 16,
+          "y": 22,
+          "sai_em": "Galar_Wedgehurst12",
+          "sai_em_id": "MAP_GALAR_WEDGEHURST_12",
+          "warp_de_chegada": "2",
+          "estado_do_destino": "vivo"
+        },
+        {
+          "warp": 2,
+          "x": 18,
+          "y": 22,
+          "sai_em": "Galar_Wedgehurst12",
+          "sai_em_id": "MAP_GALAR_WEDGEHURST_12",
+          "warp_de_chegada": "2",
+          "estado_do_destino": "vivo"
+        }
+      ],
+      "conexoes": [],
+      "objetos": 1,
+      "bg_events": 4,
+      "tileset_primario": "gTileset_Galar11",
+      "tileset_secundario": "gTileset_Galar17",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "porta_no_exterior",
+      "custo_estimado": "porta de 3 warps no exterior Galar_Wedgehurst12",
+      "o_que_e_palpite": "predio alto e estreito, 20x100, com tres warps que saem todos no mesmo warp 2 de Wedgehurst12",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Postwick34",
+      "mapa": "MAP_GALAR_POSTWICK_34",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g05m10",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 1,
+      "altura": 1,
+      "area_em_tiles": 1,
+      "warps": 0,
+      "warps_mortos": [],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 0,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar11",
+      "tileset_secundario": "gTileset_Galar29",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "sobra_vazia",
+      "custo_estimado": "sem correspondente em SwSh: casca vazia, sobra do autor",
+      "o_que_e_palpite": "casca de 1x1",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Postwick37",
+      "mapa": "MAP_GALAR_POSTWICK_37",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g06m11",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 2,
+      "altura": 2,
+      "area_em_tiles": 4,
+      "warps": 0,
+      "warps_mortos": [],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 0,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar02",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [
+        "Galar_Hammerlocke24"
+      ],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "sobra_vazia",
+      "custo_estimado": "sem correspondente em SwSh: casca vazia, sobra do autor",
+      "o_que_e_palpite": "casca de 2x2, igual a Hammerlocke24",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Postwick38",
+      "mapa": "MAP_GALAR_POSTWICK_38",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g06m15",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 1,
+      "altura": 1,
+      "area_em_tiles": 1,
+      "warps": 0,
+      "warps_mortos": [],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 0,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar01",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [
+        "Galar_Postwick23",
+        "Galar_WildArea16",
+        "Galar_WildArea24"
+      ],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "sobra_vazia",
+      "custo_estimado": "sem correspondente em SwSh: casca vazia, sobra do autor",
+      "o_que_e_palpite": "casca de 1x1, do mesmo molde de Postwick23",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Postwick40",
+      "mapa": "MAP_GALAR_POSTWICK_40",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g07m07",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 48,
+      "altura": 48,
+      "area_em_tiles": 2304,
+      "warps": 0,
+      "warps_mortos": [],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 6,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar03",
+      "musica": "MUS_RG_ROUTE1",
+      "copia_exata_de": [],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "sobra_sem_porta",
+      "custo_estimado": "sem correspondente em SwSh: sobra do autor, sem porta na fonte",
+      "o_que_e_palpite": "lasca de exterior 48x48 com seis NPCs e zero warp",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Postwick45",
+      "mapa": "MAP_GALAR_POSTWICK_45",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g08m05",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 1,
+      "altura": 1,
+      "area_em_tiles": 1,
+      "warps": 0,
+      "warps_mortos": [],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 0,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar11",
+      "tileset_secundario": "gTileset_Galar15",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "sobra_vazia",
+      "custo_estimado": "sem correspondente em SwSh: casca vazia, sobra do autor",
+      "o_que_e_palpite": "casca de 1x1",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Postwick46",
+      "mapa": "MAP_GALAR_POSTWICK_46",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g08m09",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_INDOOR",
+      "largura": 55,
+      "altura": 63,
+      "area_em_tiles": 3465,
+      "warps": 2,
+      "warps_mortos": [],
+      "saidas": [
+        {
+          "warp": 0,
+          "x": 8,
+          "y": 8,
+          "sai_em": "Galar_Hulbury01",
+          "sai_em_id": "MAP_GALAR_HULBURY_01",
+          "warp_de_chegada": "0",
+          "estado_do_destino": "vivo"
+        },
+        {
+          "warp": 1,
+          "x": 7,
+          "y": 3,
+          "sai_em": "Galar_Wedgehurst04",
+          "sai_em_id": "MAP_GALAR_WEDGEHURST_04",
+          "warp_de_chegada": "0",
+          "estado_do_destino": "vivo"
+        }
+      ],
+      "conexoes": [],
+      "objetos": 0,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar20",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "porta_no_exterior",
+      "custo_estimado": "porta de 2 warps no exterior Galar_Hulbury01, Galar_Wedgehurst04",
+      "o_que_e_palpite": "interior enorme, 55x63, tileset que so Hulbury01 usa; sai em Hulbury01 e na porta compartilhada de Wedgehurst04",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Postwick47",
+      "mapa": "MAP_GALAR_POSTWICK_47",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g08m10",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 48,
+      "altura": 47,
+      "area_em_tiles": 2256,
+      "warps": 2,
+      "warps_mortos": [
+        {
+          "warp": 0,
+          "x": 25,
+          "y": 6
+        },
+        {
+          "warp": 1,
+          "x": 26,
+          "y": 6
+        }
+      ],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 7,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar22",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "warp_morto_aponta_para_si",
+      "custo_estimado": "escada ou porta dos dois lados: 2 warps mortos aqui, e o par que a fonte nunca escreveu",
+      "o_que_e_palpite": "lasca da Wild Area 48x47 com sete NPCs e dois warps mortos; na fonte, e ela que aponta para Postwick50",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Postwick49",
+      "mapa": "MAP_GALAR_POSTWICK_49",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g08m12",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 48,
+      "altura": 48,
+      "area_em_tiles": 2304,
+      "warps": 1,
+      "warps_mortos": [
+        {
+          "warp": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 1,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar22",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "warp_morto_aponta_para_si",
+      "custo_estimado": "escada ou porta dos dois lados: 1 warp morto aqui, e o par que a fonte nunca escreveu",
+      "o_que_e_palpite": "lasca da Wild Area 48x48 com um warp morto",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Postwick50",
+      "mapa": "MAP_GALAR_POSTWICK_50",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g08m13",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 48,
+      "altura": 48,
+      "area_em_tiles": 2304,
+      "warps": 63,
+      "warps_mortos": [
+        {
+          "warp": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 1,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 2,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 3,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 4,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 5,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 6,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 7,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 8,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 9,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 10,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 11,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 12,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 13,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 14,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 15,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 16,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 17,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 18,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 19,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 20,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 21,
+          "x": 15,
+          "y": 0
+        },
+        {
+          "warp": 22,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 23,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 24,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 25,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 26,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 27,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 28,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 29,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 30,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 31,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 32,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 33,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 34,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 35,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 36,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 37,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 38,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 39,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 40,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 41,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 42,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 43,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 44,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 45,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 46,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 47,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 48,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 49,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 50,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 51,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 52,
+          "x": 15,
+          "y": 0
+        },
+        {
+          "warp": 53,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 54,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 55,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 56,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 57,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 58,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 59,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 60,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 61,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "warp": 62,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 0,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar22",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "warp_morto_aponta_para_si",
+      "custo_estimado": "escada ou porta dos dois lados: 63 warps mortos aqui, e o par que a fonte nunca escreveu",
+      "o_que_e_palpite": "lasca da Wild Area 48x48 com 63 warps, TODOS apontando para si mesmos: a laje de covis que o autor nunca ligou",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Postwick53",
+      "mapa": "MAP_GALAR_POSTWICK_53",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g08m21",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 58,
+      "altura": 19,
+      "area_em_tiles": 1102,
+      "warps": 0,
+      "warps_mortos": [],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 4,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar01",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "sobra_sem_porta",
+      "custo_estimado": "sem correspondente em SwSh: sobra do autor, sem porta na fonte",
+      "o_que_e_palpite": "lasca de rota 58x19 com quatro NPCs e zero warp",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Postwick58",
+      "mapa": "MAP_GALAR_POSTWICK_58",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g13m11",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 25,
+      "altura": 17,
+      "area_em_tiles": 425,
+      "warps": 0,
+      "warps_mortos": [],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 12,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar11",
+      "tileset_secundario": "gTileset_Galar14",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "sobra_sem_porta",
+      "custo_estimado": "sem correspondente em SwSh: sobra do autor, sem porta na fonte",
+      "o_que_e_palpite": "interior 25x17 com doze NPCs e zero warp",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Route0204",
+      "mapa": "MAP_GALAR_ROUTE02_04",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g05m07",
+      "nome_antes_do_g3": "Galar_Postwick33",
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 90,
+      "altura": 60,
+      "area_em_tiles": 5400,
+      "warps": 0,
+      "warps_mortos": [],
+      "saidas": [],
+      "conexoes": [
+        {
+          "direcao": "right",
+          "vizinho": "Galar_Route0202",
+          "estado_do_vizinho": "vivo"
+        },
+        {
+          "direcao": "down",
+          "vizinho": "Galar_Route0101",
+          "estado_do_vizinho": "vivo"
+        }
+      ],
+      "objetos": 0,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar01",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "conexao_de_borda_de_mao_unica",
+      "custo_estimado": "conexao de borda reciproca em Galar_Route0202, Galar_Route0101",
+      "o_que_e_palpite": "trecho grande da Rota 2, 90x60, com as duas conexoes da fonte escritas (Rota 2 02 a direita, Rota 1 01 embaixo); os vizinhos e que nao conectam de volta",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_StowOnSide03",
+      "mapa": "MAP_GALAR_STOW_ON_SIDE_03",
+      "mapsec": "MAPSEC_GALAR_STOW_ON_SIDE",
+      "mapsec_real": "MAPSEC_GALAR_CENTRAL",
+      "lugar_na_fonte": "StowOnSide",
+      "fonte": "g09m00",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_INDOOR",
+      "largura": 11,
+      "altura": 29,
+      "area_em_tiles": 319,
+      "warps": 0,
+      "warps_mortos": [],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 6,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar11",
+      "tileset_secundario": "gTileset_Galar12",
+      "musica": "MUS_RG_FUCHSIA",
+      "copia_exata_de": [
+        "Galar_StowOnSide02"
+      ],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "sobra_sem_porta",
+      "custo_estimado": "sem correspondente em SwSh: sobra do autor, sem porta na fonte",
+      "o_que_e_palpite": "interior 11x29 com seis NPCs, copia byte a byte de StowOnSide02, e zero warp",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Wedgehurst13",
+      "mapa": "MAP_GALAR_WEDGEHURST_13",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g05m03",
+      "nome_antes_do_g3": "Galar_Postwick32",
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 15,
+      "altura": 10,
+      "area_em_tiles": 150,
+      "warps": 3,
+      "warps_mortos": [],
+      "saidas": [
+        {
+          "warp": 0,
+          "x": 11,
+          "y": 6,
+          "sai_em": "Galar_Wedgehurst03",
+          "sai_em_id": "MAP_GALAR_WEDGEHURST_03",
+          "warp_de_chegada": "0",
+          "estado_do_destino": "vivo"
+        },
+        {
+          "warp": 1,
+          "x": 7,
+          "y": 8,
+          "sai_em": "Galar_Wedgehurst05",
+          "sai_em_id": "MAP_GALAR_WEDGEHURST_05",
+          "warp_de_chegada": "4",
+          "estado_do_destino": "vivo"
+        },
+        {
+          "warp": 2,
+          "x": 1,
+          "y": 6,
+          "sai_em": "Galar_Wedgehurst04",
+          "sai_em_id": "MAP_GALAR_WEDGEHURST_04",
+          "warp_de_chegada": "0",
+          "estado_do_destino": "vivo"
+        }
+      ],
+      "conexoes": [],
+      "objetos": 2,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar11",
+      "tileset_secundario": "gTileset_Galar12",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [],
+      "copia_parcial_de": [
+        {
+          "mapa": "Galar_Motostoke01",
+          "metatiles_iguais_pct": 95
+        }
+      ],
+      "orfao_hoje": true,
+      "classe": "porta_no_exterior",
+      "custo_estimado": "porta de 3 warps no exterior Galar_Wedgehurst03, Galar_Wedgehurst04, Galar_Wedgehurst05",
+      "o_que_e_palpite": "interior 95% igual ao de Motostoke01, que e Centro Pokemon; sai em Wedgehurst03, Wedgehurst05 e Wedgehurst04",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Wedgehurst14",
+      "mapa": "MAP_GALAR_WEDGEHURST_14",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g07m22",
+      "nome_antes_do_g3": "Galar_Postwick44",
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 15,
+      "altura": 13,
+      "area_em_tiles": 195,
+      "warps": 1,
+      "warps_mortos": [],
+      "saidas": [
+        {
+          "warp": 0,
+          "x": 7,
+          "y": 3,
+          "sai_em": "Galar_Wedgehurst04",
+          "sai_em_id": "MAP_GALAR_WEDGEHURST_04",
+          "warp_de_chegada": "0",
+          "estado_do_destino": "vivo"
+        }
+      ],
+      "conexoes": [],
+      "objetos": 0,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar11",
+      "tileset_secundario": "gTileset_Galar12",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [
+        "Galar_Motostoke21",
+        "Galar_Wedgehurst15"
+      ],
+      "copia_parcial_de": [
+        {
+          "mapa": "Galar_Ballonlea09",
+          "metatiles_iguais_pct": 75
+        },
+        {
+          "mapa": "Galar_Circhester15",
+          "metatiles_iguais_pct": 75
+        },
+        {
+          "mapa": "Galar_CrownTundra19",
+          "metatiles_iguais_pct": 75
+        }
+      ],
+      "orfao_hoje": true,
+      "classe": "porta_no_exterior",
+      "custo_estimado": "porta de 1 warp no exterior Galar_Wedgehurst04",
+      "o_que_e_palpite": "copia byte a byte de Motostoke21 e Wedgehurst15; sai na porta compartilhada de Wedgehurst04",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_Wedgehurst15",
+      "mapa": "MAP_GALAR_WEDGEHURST_15",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g08m25",
+      "nome_antes_do_g3": "Galar_Postwick54",
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 15,
+      "altura": 13,
+      "area_em_tiles": 195,
+      "warps": 1,
+      "warps_mortos": [],
+      "saidas": [
+        {
+          "warp": 0,
+          "x": 7,
+          "y": 3,
+          "sai_em": "Galar_Wedgehurst04",
+          "sai_em_id": "MAP_GALAR_WEDGEHURST_04",
+          "warp_de_chegada": "0",
+          "estado_do_destino": "vivo"
+        }
+      ],
+      "conexoes": [],
+      "objetos": 0,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar11",
+      "tileset_secundario": "gTileset_Galar12",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [
+        "Galar_Motostoke21",
+        "Galar_Wedgehurst14"
+      ],
+      "copia_parcial_de": [
+        {
+          "mapa": "Galar_Ballonlea09",
+          "metatiles_iguais_pct": 75
+        },
+        {
+          "mapa": "Galar_Circhester15",
+          "metatiles_iguais_pct": 75
+        },
+        {
+          "mapa": "Galar_CrownTundra19",
+          "metatiles_iguais_pct": 75
+        }
+      ],
+      "orfao_hoje": true,
+      "classe": "porta_no_exterior",
+      "custo_estimado": "porta de 1 warp no exterior Galar_Wedgehurst04",
+      "o_que_e_palpite": "copia byte a byte de Motostoke21 e Wedgehurst14; sai na porta compartilhada de Wedgehurst04",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_WildArea01",
+      "mapa": "MAP_GALAR_WILD_AREA_01",
+      "mapsec": "MAPSEC_GALAR_WILD_AREA",
+      "mapsec_real": "MAPSEC_GALAR_CENTRAL",
+      "lugar_na_fonte": "WildArea",
+      "fonte": "g03m35",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_ROUTE",
+      "largura": 60,
+      "altura": 70,
+      "area_em_tiles": 4200,
+      "warps": 1,
+      "warps_mortos": [],
+      "saidas": [
+        {
+          "warp": 0,
+          "x": 39,
+          "y": 7,
+          "sai_em": "Galar_Hammerlocke04",
+          "sai_em_id": "MAP_GALAR_HAMMERLOCKE_04",
+          "warp_de_chegada": "2",
+          "estado_do_destino": "vivo"
+        }
+      ],
+      "conexoes": [],
+      "objetos": 22,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar01",
+      "musica": "MUS_RG_ROUTE1",
+      "copia_exata_de": [],
+      "copia_parcial_de": [
+        {
+          "mapa": "Galar_WildArea22",
+          "metatiles_iguais_pct": 96
+        }
+      ],
+      "orfao_hoje": true,
+      "classe": "porta_no_exterior",
+      "custo_estimado": "porta de 1 warp no exterior Galar_Hammerlocke04",
+      "o_que_e_palpite": "laje da Wild Area 60x70 com 22 NPCs, 96% igual a WildArea22; sai no warp 2 de Hammerlocke04, que e vivo",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_WildArea02",
+      "mapa": "MAP_GALAR_WILD_AREA_02",
+      "mapsec": "MAPSEC_GALAR_WILD_AREA",
+      "mapsec_real": "MAPSEC_GALAR_CENTRAL",
+      "lugar_na_fonte": "WildArea",
+      "fonte": "g03m42",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_ROUTE",
+      "largura": 26,
+      "altura": 126,
+      "area_em_tiles": 3276,
+      "warps": 0,
+      "warps_mortos": [],
+      "saidas": [],
+      "conexoes": [
+        {
+          "direcao": "up",
+          "vizinho": "Galar_Wyndon01",
+          "estado_do_vizinho": "vivo"
+        }
+      ],
+      "objetos": 8,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar44",
+      "musica": "MUS_RG_ROUTE1",
+      "copia_exata_de": [],
+      "copia_parcial_de": [
+        {
+          "mapa": "Galar_WildArea12",
+          "metatiles_iguais_pct": 99
+        },
+        {
+          "mapa": "Galar_WildArea21",
+          "metatiles_iguais_pct": 99
+        }
+      ],
+      "orfao_hoje": true,
+      "classe": "conexao_de_borda_de_mao_unica",
+      "custo_estimado": "conexao de borda reciproca em Galar_Wyndon01",
+      "o_que_e_palpite": "laje da Wild Area 26x126, 99% igual a WildArea21 e a WildArea12; a conexao para Wyndon01 esta escrita, Wyndon01 e que nao conecta de volta",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_WildArea12",
+      "mapa": "MAP_GALAR_WILD_AREA_12",
+      "mapsec": "MAPSEC_GALAR_WILD_AREA",
+      "mapsec_real": "MAPSEC_GALAR_CENTRAL",
+      "lugar_na_fonte": "WildArea",
+      "fonte": "g42m05",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_ROUTE",
+      "largura": 26,
+      "altura": 126,
+      "area_em_tiles": 3276,
+      "warps": 0,
+      "warps_mortos": [],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 8,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar44",
+      "musica": "MUS_RG_ROUTE1",
+      "copia_exata_de": [],
+      "copia_parcial_de": [
+        {
+          "mapa": "Galar_WildArea21",
+          "metatiles_iguais_pct": 100
+        },
+        {
+          "mapa": "Galar_WildArea02",
+          "metatiles_iguais_pct": 99
+        }
+      ],
+      "orfao_hoje": true,
+      "classe": "sobra_sem_porta",
+      "custo_estimado": "sem correspondente em SwSh: sobra do autor, sem porta na fonte",
+      "o_que_e_palpite": "laje da Wild Area 26x126, blockdata praticamente igual ao de WildArea21, sem warp e sem conexao",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_WildArea18",
+      "mapa": "MAP_GALAR_WILD_AREA_18",
+      "mapsec": "MAPSEC_GALAR_WILD_AREA",
+      "mapsec_real": "MAPSEC_GALAR_CENTRAL",
+      "lugar_na_fonte": "WildArea",
+      "fonte": "g42m11",
+      "nome_antes_do_g3": null,
+      "map_type": "MAP_TYPE_ROUTE",
+      "largura": 29,
+      "altura": 83,
+      "area_em_tiles": 2407,
+      "warps": 1,
+      "warps_mortos": [],
+      "saidas": [
+        {
+          "warp": 0,
+          "x": 22,
+          "y": 69,
+          "sai_em": "Galar_WildAreaCave01",
+          "sai_em_id": "MAP_GALAR_WILD_AREA_CAVE_01",
+          "warp_de_chegada": "0",
+          "estado_do_destino": "vivo"
+        }
+      ],
+      "conexoes": [
+        {
+          "direcao": "right",
+          "vizinho": "Galar_WildArea17",
+          "estado_do_vizinho": "vivo"
+        }
+      ],
+      "objetos": 11,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar41",
+      "musica": "MUS_RG_ROUTE11",
+      "copia_exata_de": [],
+      "copia_parcial_de": [],
+      "orfao_hoje": false,
+      "classe": "ja_alcancado",
+      "custo_estimado": "nenhum: a regua de hoje ja alcanca este mapa",
+      "o_que_e_palpite": "laje da Wild Area 29x83 que faz par com WildAreaCave01; HOJE ja e alcancada por script, ver o campo alcancado_hoje",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_WildArea23",
+      "mapa": "MAP_GALAR_WILD_AREA_23",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g00m09",
+      "nome_antes_do_g3": "Galar_Postwick01",
+      "map_type": "MAP_TYPE_ROUTE",
+      "largura": 49,
+      "altura": 65,
+      "area_em_tiles": 3185,
+      "warps": 1,
+      "warps_mortos": [],
+      "saidas": [
+        {
+          "warp": 0,
+          "x": 11,
+          "y": 27,
+          "sai_em": "Galar_WildArea10",
+          "sai_em_id": "MAP_GALAR_WILD_AREA_10",
+          "warp_de_chegada": "0",
+          "estado_do_destino": "vivo"
+        }
+      ],
+      "conexoes": [],
+      "objetos": 7,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar22",
+      "musica": "MUS_RG_POKE_TOWER",
+      "copia_exata_de": [],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "porta_no_exterior",
+      "custo_estimado": "porta de 1 warp no exterior Galar_WildArea10",
+      "o_que_e_palpite": "laje da Wild Area 49x65 com sete NPCs; sai no warp 0 de WildArea10, que e vivo",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_WildArea25",
+      "mapa": "MAP_GALAR_WILD_AREA_25",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g07m15",
+      "nome_antes_do_g3": "Galar_Postwick42",
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 25,
+      "altura": 25,
+      "area_em_tiles": 625,
+      "warps": 1,
+      "warps_mortos": [
+        {
+          "warp": 0,
+          "x": 20,
+          "y": 21
+        }
+      ],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 0,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar08",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [],
+      "copia_parcial_de": [
+        {
+          "mapa": "Galar_WildArea28",
+          "metatiles_iguais_pct": 97
+        },
+        {
+          "mapa": "Galar_WildArea29",
+          "metatiles_iguais_pct": 97
+        },
+        {
+          "mapa": "Galar_WildArea26",
+          "metatiles_iguais_pct": 94
+        }
+      ],
+      "orfao_hoje": true,
+      "classe": "warp_morto_aponta_para_si",
+      "custo_estimado": "escada ou porta dos dois lados: 1 warp morto aqui, e o par que a fonte nunca escreveu",
+      "o_que_e_palpite": "clareira 25x25 do tileset de Ballonlea, warp morto",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_WildArea26",
+      "mapa": "MAP_GALAR_WILD_AREA_26",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g07m16",
+      "nome_antes_do_g3": "Galar_Postwick43",
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 25,
+      "altura": 25,
+      "area_em_tiles": 625,
+      "warps": 1,
+      "warps_mortos": [
+        {
+          "warp": 0,
+          "x": 20,
+          "y": 21
+        }
+      ],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 0,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar08",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [],
+      "copia_parcial_de": [
+        {
+          "mapa": "Galar_WildArea25",
+          "metatiles_iguais_pct": 94
+        },
+        {
+          "mapa": "Galar_WildArea28",
+          "metatiles_iguais_pct": 93
+        },
+        {
+          "mapa": "Galar_WildArea29",
+          "metatiles_iguais_pct": 93
+        }
+      ],
+      "orfao_hoje": true,
+      "classe": "warp_morto_aponta_para_si",
+      "custo_estimado": "escada ou porta dos dois lados: 1 warp morto aqui, e o par que a fonte nunca escreveu",
+      "o_que_e_palpite": "clareira 25x25 do mesmo molde, 94% igual a WildArea25, warp morto",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_WildArea27",
+      "mapa": "MAP_GALAR_WILD_AREA_27",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g08m11",
+      "nome_antes_do_g3": "Galar_Postwick48",
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 48,
+      "altura": 47,
+      "area_em_tiles": 2256,
+      "warps": 0,
+      "warps_mortos": [],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 9,
+      "bg_events": 1,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar22",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [],
+      "copia_parcial_de": [],
+      "orfao_hoje": true,
+      "classe": "sobra_sem_porta",
+      "custo_estimado": "sem correspondente em SwSh: sobra do autor, sem porta na fonte",
+      "o_que_e_palpite": "laje da Wild Area 48x47 com nove NPCs, zero warp e um item escondido",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_WildArea28",
+      "mapa": "MAP_GALAR_WILD_AREA_28",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g08m17",
+      "nome_antes_do_g3": "Galar_Postwick51",
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 25,
+      "altura": 25,
+      "area_em_tiles": 625,
+      "warps": 1,
+      "warps_mortos": [
+        {
+          "warp": 0,
+          "x": 20,
+          "y": 21
+        }
+      ],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 0,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar08",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [
+        "Galar_WildArea29"
+      ],
+      "copia_parcial_de": [
+        {
+          "mapa": "Galar_WildArea25",
+          "metatiles_iguais_pct": 97
+        },
+        {
+          "mapa": "Galar_WildArea26",
+          "metatiles_iguais_pct": 93
+        }
+      ],
+      "orfao_hoje": true,
+      "classe": "warp_morto_aponta_para_si",
+      "custo_estimado": "escada ou porta dos dois lados: 1 warp morto aqui, e o par que a fonte nunca escreveu",
+      "o_que_e_palpite": "clareira 25x25, copia byte a byte de WildArea29, warp morto",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_WildArea29",
+      "mapa": "MAP_GALAR_WILD_AREA_29",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g08m18",
+      "nome_antes_do_g3": "Galar_Postwick52",
+      "map_type": "MAP_TYPE_NONE",
+      "largura": 25,
+      "altura": 25,
+      "area_em_tiles": 625,
+      "warps": 1,
+      "warps_mortos": [
+        {
+          "warp": 0,
+          "x": 20,
+          "y": 21
+        }
+      ],
+      "saidas": [],
+      "conexoes": [],
+      "objetos": 0,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar08",
+      "musica": "MUS_NONE",
+      "copia_exata_de": [
+        "Galar_WildArea28"
+      ],
+      "copia_parcial_de": [
+        {
+          "mapa": "Galar_WildArea25",
+          "metatiles_iguais_pct": 97
+        },
+        {
+          "mapa": "Galar_WildArea26",
+          "metatiles_iguais_pct": 93
+        }
+      ],
+      "orfao_hoje": true,
+      "classe": "warp_morto_aponta_para_si",
+      "custo_estimado": "escada ou porta dos dois lados: 1 warp morto aqui, e o par que a fonte nunca escreveu",
+      "o_que_e_palpite": "clareira 25x25, copia byte a byte de WildArea28, warp morto",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    },
+    {
+      "pasta": "Galar_WildAreaCave01",
+      "mapa": "MAP_GALAR_WILD_AREA_CAVE_01",
+      "mapsec": "MAPSEC_GALAR_POSTWICK",
+      "mapsec_real": "MAPSEC_GALAR_SOUTH",
+      "lugar_na_fonte": "Postwick",
+      "fonte": "g42m01",
+      "nome_antes_do_g3": "Galar_Postwick170",
+      "map_type": "MAP_TYPE_UNDERGROUND",
+      "largura": 58,
+      "altura": 50,
+      "area_em_tiles": 2900,
+      "warps": 1,
+      "warps_mortos": [],
+      "saidas": [
+        {
+          "warp": 0,
+          "x": 23,
+          "y": 3,
+          "sai_em": "Galar_WildArea18",
+          "sai_em_id": "MAP_GALAR_WILD_AREA_18",
+          "warp_de_chegada": "0",
+          "estado_do_destino": "vivo"
+        }
+      ],
+      "conexoes": [],
+      "objetos": 3,
+      "bg_events": 0,
+      "tileset_primario": "gTileset_Galar00",
+      "tileset_secundario": "gTileset_Galar13",
+      "musica": "MUS_RG_SEVII_CAVE",
+      "copia_exata_de": [],
+      "copia_parcial_de": [],
+      "orfao_hoje": false,
+      "classe": "ja_alcancado",
+      "custo_estimado": "nenhum: a regua de hoje ja alcanca este mapa",
+      "o_que_e_palpite": "caverna 58x50 que faz par com WildArea18; HOJE ja e alcancada, ver o campo alcancado_hoje",
+      "motivo": "sem_entrada_na_fonte",
+      "data": "2026-09-06"
+    }
+  ]
+}

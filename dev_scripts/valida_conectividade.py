@@ -228,6 +228,24 @@ GRUPO_DE_REGIAO = (("Frlg", "Kanto"), ("Johto", "Johto"), ("Unova", "Unova"),
                    ("Galar", "Galar"), ("Sinnoh", "Sinnoh"), ("Galactic", "Sinnoh"))
 
 
+def pendentes_de_fonte():
+    """Os MAP_* que liga_orfaos_galar.py marcou como pendentes de fonte.
+
+    So LEITURA: esta ferramenta nunca decide quem e pendente, nem tira ninguem
+    da conta de orfaos por causa disso. Quem gera a lista e
+    `dev_scripts/liga_orfaos_galar.py --pendentes`, e o formato dela mora la.
+    Se o arquivo nao existir ou estiver quebrado, devolve conjunto vazio e a
+    regua segue igual: marcacao que falta nao pode fazer validador mentir.
+    """
+    if os.path.join(REPO, "dev_scripts") not in sys.path:
+        sys.path.insert(0, os.path.join(REPO, "dev_scripts"))
+    try:
+        import liga_orfaos_galar as LOG
+        return LOG.le_pendentes()[2]
+    except Exception:
+        return set()
+
+
 def demo():
     """MUTACAO PLANTADA: sem ler `data/scripts/galar_*.inc`, a conta de orfaos
     de Galar tem que PIORAR. Se ela nao mudar, a varredura nova nao esta
@@ -267,11 +285,22 @@ def demo():
         for d in destinos:
             if d not in mapas:
                 falhas.append(f"{mapa}: destino que nao existe, {d}")
+    # A trava da linha nova: os pendentes de fonte sao SO leitura. Todo
+    # pendente tem que ser um MAP_* que existe nesta arvore e de Galar; e a
+    # conta de orfaos nao pode depender dele (por isso ela e feita antes, em
+    # main(), sem consultar esta lista).
+    pend = pendentes_de_fonte()
+    for m in sorted(pend):
+        if m not in mapas:
+            falhas.append("pendente de fonte que nao existe nesta arvore: " + m)
+        elif not mapas[m]["dir"].startswith("Galar_"):
+            falhas.append("pendente de fonte que nao e de Galar: " + m)
+
     print("demo conectividade: %s (%d mapas de Galar com warp de script, "
           "%d pares mapa->destino; o filtro de rotulo chamado tira %d par(es) "
-          "de %d)"
+          "de %d; %d pendentes de fonte lidos, todos so para exibicao)"
           % ("OK" if not falhas else "REPROVADO", len(com), pares,
-             pares_solto - pares, pares_solto))
+             pares_solto - pares, pares_solto, len(pend)))
     for f in falhas:
         print("  FALHA", f)
     return 1 if falhas else 0
@@ -475,8 +504,19 @@ def main():
             orfaos.setdefault(regiao(m), []).append(m)
     print(f"\n=== 4. mapas que NENHUM caminho alcanca, por regiao "
           f"({cortados} cortados registrados fora da conta) ===")
+    # `pendentes de fonte` NAO e corte e NAO sai do denominador: e a lista de
+    # Galar que `dev_scripts/liga_orfaos_galar.py` marcou como "a fonte nao tem
+    # porta para dar" (decisao do Gui, 06/09/2026). A linha abaixo so EXPLICA
+    # parte dos orfaos de Galar; a contagem deles fica exatamente igual, com ou
+    # sem o arquivo. Se um dia ela passar a mexer no numero, o `--demo` cai.
+    pendentes = pendentes_de_fonte()
     for r, lst in sorted(orfaos.items()):
         print(f"  {r}: {len(lst)}")
+        if r == "Galar" and pendentes:
+            dentro = len(set(lst) & pendentes)
+            print(f"    pendentes de fonte: {len(pendentes)}"
+                  f"  ({dentro} destes {len(lst)}; marcados em "
+                  f"dev_scripts/orfaos_galar_pendente_fonte.json, nao cortados)")
         for m in sorted(lst)[:12]:
             print("     ", m)
         if len(lst) > 12:

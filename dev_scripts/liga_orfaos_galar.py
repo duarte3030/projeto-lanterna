@@ -6,6 +6,7 @@ Uso:
     python3 dev_scripts/liga_orfaos_galar.py --seco     # só relata
     python3 dev_scripts/liga_orfaos_galar.py --censo    # a medição do diagnóstico
     python3 dev_scripts/liga_orfaos_galar.py --demo     # autoteste, sai 1 se cair
+    python3 dev_scripts/liga_orfaos_galar.py --pendentes  # so a marcacao dos sem fonte
 
 O QUE FOI MEDIDO, 06/09/2026 (lote AB da onda 1 da Frente A)
 ============================================================
@@ -83,6 +84,19 @@ R3. Liga a única porta inerte de exterior VIVO que exatamente um órfão reclam
     índices que a própria fonte casou. É a ÚNICA porta em Galar que passa nos
     quatro filtros: exterior vivo, warp inerte hoje, reclamado por um só
     órfão, e nenhum mapa vivo disputando aquele índice de chegada.
+
+P1. Marca os mapas que a fonte deixou SEM ENTRADA NENHUMA como pendentes de
+    fonte, em `dev_scripts/orfaos_galar_pendente_fonte.json`. Decisão do Gui,
+    06/09/2026 (resposta 40): eles NÃO são cortados e NÃO ganham porta
+    inventada; ficam marcados para serem desenvolvidos depois, e a busca por
+    fonte continua (`fontes-mapas/galar-swsh/FONTES-ORFAOS.md`).
+
+    A marcação é DOCUMENTO, não corte: ela não escreve `cortado_por`, não
+    toca em `map.json` nenhum e não tira ninguém do denominador. A régua de
+    órfãos de Galar de `valida_conectividade.py` continua contando os mesmos
+    mapas de antes; a linha nova ("pendentes de fonte") só EXPLICA parte
+    deles. Quem quiser conferir: rode o validador antes e depois, a contagem
+    de Galar não muda.
 
 O QUE ESTE SCRIPT NÃO FAZ, E POR QUÊ
 ====================================
@@ -387,6 +401,308 @@ def escreve_sem_saida(sobra):
     return len(sobra)
 
 
+# ------------------------------------------------- os pendentes de fonte --
+
+# Decisao do Gui, 06/09/2026 (resposta 40): os mapas de Galar que a fonte
+# deixou sem entrada nenhuma NAO sao cortados e NAO ganham porta inventada.
+# Eles ficam MARCADOS como pendentes de fonte, para serem desenvolvidos
+# depois, e a busca por fonte continua. Este bloco escreve a marcacao.
+#
+# O que a marcacao NAO faz, de proposito: ela nao escreve `cortado_por` em
+# mapa nenhum, nao mexe em `map.json` e nao tira ninguem do denominador. A
+# regua de orfaos de Galar continua contando os mesmos 132 de
+# `valida_conectividade.py`; a linha nova so EXPLICA 42 deles.
+MOTIVO_PENDENTE = "sem_entrada_na_fonte"
+DATA_PENDENTE = "2026-09-06"
+PENDENTE_FONTE = os.path.join(RAIZ, "dev_scripts/orfaos_galar_pendente_fonte.json")
+
+# O palpite do que cada mapa e em Sword/Shield. E INFERENCIA, marcada [P] no
+# documento de fontes (fontes-mapas/galar-swsh/FONTES-ORFAOS.md), e sai daqui:
+# do tileset, do tamanho, da secao da fonte, dos objetos e de para onde o mapa
+# SAI. Nao e leitura de documento do autor do demake, e por isso nao decide
+# nada sozinho: quem for desenhar a porta confere antes.
+PALPITE = {
+    "Galar_GalarMine04": "galeria curta e reta da Galar Mine; sai na Galar Mine 02, que e viva",
+    "Galar_GalarMine05": "camara larga da Galar Mine com tres NPCs; sai duas vezes na Galar Mine 02, que e viva",
+    "Galar_IsleOfArmor15": "casca de 1x1 sem tile, sem warp e sem objeto: slot vazio que o autor reservou na Isle of Armor",
+    "Galar_Motostoke21": "interior generico de casa de cidade, copia byte a byte de Wedgehurst14 e Wedgehurst15; sai na porta compartilhada de Wedgehurst04",
+    "Galar_Postwick06": "sala grande de predio com 17 NPCs, tileset dos interiores de Turffield; o unico warp aponta para si mesmo",
+    "Galar_Postwick07": "copia byte a byte de Postwick06, mesmo warp morto",
+    "Galar_Postwick11": "sala pequena de caverna com dois warps mortos e dois itens escondidos",
+    "Galar_Postwick111": "andar de caverna com 20 NPCs, copia byte a byte de Postwick03, Postwick112 e Postwick113; warp morto",
+    "Galar_Postwick112": "copia byte a byte de Postwick111",
+    "Galar_Postwick113": "copia byte a byte de Postwick111",
+    "Galar_Postwick172": "variante 68% igual a Postwick06 e Postwick07, mesmo warp morto",
+    "Galar_Postwick23": "casca de 1x1, blockdata igual ao de outras cascas vazias",
+    "Galar_Postwick24": "casca de 1x1 unica, sem gemeo",
+    "Galar_Postwick26": "lasca de rota 70x30, 98% igual ao Slumbering Weald 02, sem warp e sem objeto",
+    "Galar_Postwick31": "predio alto e estreito, 20x100, com tres warps que saem todos no mesmo warp 2 de Wedgehurst12",
+    "Galar_Postwick34": "casca de 1x1",
+    "Galar_Postwick37": "casca de 2x2, igual a Hammerlocke24",
+    "Galar_Postwick38": "casca de 1x1, do mesmo molde de Postwick23",
+    "Galar_Postwick40": "lasca de exterior 48x48 com seis NPCs e zero warp",
+    "Galar_Postwick45": "casca de 1x1",
+    "Galar_Postwick46": "interior enorme, 55x63, tileset que so Hulbury01 usa; sai em Hulbury01 e na porta compartilhada de Wedgehurst04",
+    "Galar_Postwick47": "lasca da Wild Area 48x47 com sete NPCs e dois warps mortos; na fonte, e ela que aponta para Postwick50",
+    "Galar_Postwick49": "lasca da Wild Area 48x48 com um warp morto",
+    "Galar_Postwick50": "lasca da Wild Area 48x48 com 63 warps, TODOS apontando para si mesmos: a laje de covis que o autor nunca ligou",
+    "Galar_Postwick53": "lasca de rota 58x19 com quatro NPCs e zero warp",
+    "Galar_Postwick58": "interior 25x17 com doze NPCs e zero warp",
+    "Galar_Route0204": "trecho grande da Rota 2, 90x60, com as duas conexoes da fonte escritas (Rota 2 02 a direita, Rota 1 01 embaixo); os vizinhos e que nao conectam de volta",
+    "Galar_StowOnSide03": "interior 11x29 com seis NPCs, copia byte a byte de StowOnSide02, e zero warp",
+    "Galar_Wedgehurst13": "interior 95% igual ao de Motostoke01, que e Centro Pokemon; sai em Wedgehurst03, Wedgehurst05 e Wedgehurst04",
+    "Galar_Wedgehurst14": "copia byte a byte de Motostoke21 e Wedgehurst15; sai na porta compartilhada de Wedgehurst04",
+    "Galar_Wedgehurst15": "copia byte a byte de Motostoke21 e Wedgehurst14; sai na porta compartilhada de Wedgehurst04",
+    "Galar_WildArea01": "laje da Wild Area 60x70 com 22 NPCs, 96% igual a WildArea22; sai no warp 2 de Hammerlocke04, que e vivo",
+    "Galar_WildArea02": "laje da Wild Area 26x126, 99% igual a WildArea21 e a WildArea12; a conexao para Wyndon01 esta escrita, Wyndon01 e que nao conecta de volta",
+    "Galar_WildArea12": "laje da Wild Area 26x126, blockdata praticamente igual ao de WildArea21, sem warp e sem conexao",
+    "Galar_WildArea18": "laje da Wild Area 29x83 que faz par com WildAreaCave01; HOJE ja e alcancada por script, ver o campo alcancado_hoje",
+    "Galar_WildArea23": "laje da Wild Area 49x65 com sete NPCs; sai no warp 0 de WildArea10, que e vivo",
+    "Galar_WildArea25": "clareira 25x25 do tileset de Ballonlea, warp morto",
+    "Galar_WildArea26": "clareira 25x25 do mesmo molde, 94% igual a WildArea25, warp morto",
+    "Galar_WildArea27": "laje da Wild Area 48x47 com nove NPCs, zero warp e um item escondido",
+    "Galar_WildArea28": "clareira 25x25, copia byte a byte de WildArea29, warp morto",
+    "Galar_WildArea29": "clareira 25x25, copia byte a byte de WildArea28, warp morto",
+    "Galar_WildAreaCave01": "caverna 58x50 que faz par com WildArea18; HOJE ja e alcancada, ver o campo alcancado_hoje",
+}
+
+CLASSES = {
+    "porta_no_exterior": (
+        "o mapa SAI para um mapa vivo, com indice de chegada valido: sabemos "
+        "exatamente em que exterior a porta entra. O que falta e o tile de "
+        "warp no exterior, porque o indice que a fonte usou ja e de outro "
+        "mapa vivo (as portas do demake sao compartilhadas)."),
+    "conexao_de_borda_de_mao_unica": (
+        "a conexao de borda da fonte esta escrita neste mapa, mas o vizinho "
+        "nao conecta de volta. Falta a conexao reciproca no vizinho."),
+    "warp_morto_aponta_para_si": (
+        "o mapa tem tile de warp, e o warp aponta para o proprio mapa. A "
+        "fonte nunca escreveu o par: falta a escada ou a porta dos DOIS "
+        "lados, e nada diz onde ela entra."),
+    "sobra_vazia": (
+        "casca de 1x1 ou 2x2, zero warp, zero objeto: slot que o autor "
+        "reservou na ROM e nunca desenhou. Sem correspondente em SwSh."),
+    "sobra_sem_porta": (
+        "o mapa tem blockdata e as vezes NPC, mas zero warp e zero conexao "
+        "em qualquer direcao. A fonte nao tem porta para dar."),
+    "ja_alcancado": (
+        "estava nesta lista quando ela foi gerada, mas HOJE a regua de "
+        "`valida_conectividade.py` ja o alcanca. Fica marcado para nao sumir "
+        "calado, e nao conta como pendencia de desenho."),
+}
+
+
+def _dados_do_mapa(nome, cen):
+    """Tudo que da para MEDIR de um mapa de Galar, sem inferir nada."""
+    v = next(x for x in cen["de_para"].values() if x["nome"] == nome)
+    doc = le(nome)
+    return v, doc
+
+
+def pendentes_de_fonte(gravar):
+    """Monta a marcacao dos mapas sem entrada na fonte. Devolve o documento.
+
+    Le a lista de `orfaos_galar_sem_saida.txt` (que este mesmo script gera) e,
+    para cada mapa, mede: o que ele e pelo blockdata e pelo tamanho, quantos
+    objetos tem, para onde ele SAI, que conexoes de borda tem escritas, e de
+    que outros mapas ele e copia (exata pelo md5, parcial pela fracao de
+    metatiles iguais entre mapas do MESMO tamanho).
+    """
+    import hashlib
+    cen = json.load(open(CENSO, encoding="utf-8"))
+    dp = cen["de_para"]
+    pasta = {v["mapa"]: v["nome"] for v in dp.values()}
+    # `orfaos_hoje()` fala em MAP_*, e o resto deste bloco fala em nome de
+    # pasta. Sem esta tabela a comparação sai sempre falsa e TODO mapa
+    # apareceria como já alcançado, que foi o primeiro jeito errado disto.
+    id_de = {v["nome"]: v["mapa"] for v in dp.values()}
+    secao = {int(k): v for k, v in cen["secoes"].items()}
+
+    lista = []
+    for linha in open(SEM_SAIDA, encoding="utf-8"):
+        linha = linha.strip()
+        if linha and not linha.startswith("#"):
+            lista.append(linha.split()[0])
+
+    # Estado de cada mapa HOJE, pela mesma regra da regua.
+    # Aqui vale a regua PUBLICA, a mesma que `valida_conectividade.py` mostra:
+    # a marcacao existe para explicar o numero que o Gui ve, e explicar um
+    # numero com outra regua seria mentir de boa fe. Ver orfaos_hoje().
+    orfaos_agora = set(orfaos_hoje(com_scripts_de_galar=True))
+    cortados = set()
+    for m, n in pasta.items():
+        arq = os.path.join(MAPAS, n, "map.json")
+        if os.path.exists(arq) and le(n).get("cortado_por"):
+            cortados.add(n)
+
+    def estado(n):
+        if n in cortados:
+            return "cortado"
+        return "orfao" if id_de.get(n) in orfaos_agora else "vivo"
+
+    # Blockdata de todo mundo, uma vez so.
+    corpo, digest = {}, {}
+    for v in dp.values():
+        b = os.path.join(RAIZ, "data/layouts", v["nome"], "map.bin")
+        if os.path.exists(b):
+            corpo[v["nome"]] = open(b, "rb").read()
+            digest[v["nome"]] = hashlib.md5(corpo[v["nome"]]).hexdigest()
+    por_digest = collections.defaultdict(list)
+    for n, h in digest.items():
+        por_digest[h].append(n)
+
+    def copias(nome):
+        b = corpo.get(nome)
+        if b is None:
+            return [], []
+        exatas = sorted(x for x in por_digest[digest[nome]] if x != nome)
+        parciais = []
+        if len(b) >= 32:
+            for outro, b2 in corpo.items():
+                if outro == nome or outro in exatas or len(b2) != len(b):
+                    continue
+                iguais = sum(1 for i in range(0, len(b), 2)
+                             if b[i:i + 2] == b2[i:i + 2])
+                pct = round(100.0 * iguais / (len(b) // 2))
+                if pct >= 60:
+                    parciais.append({"mapa": outro, "metatiles_iguais_pct": pct})
+            parciais.sort(key=lambda x: (-x["metatiles_iguais_pct"], x["mapa"]))
+        return exatas, parciais[:3]
+
+    itens = []
+    for nome in lista:
+        v, doc = _dados_do_mapa(nome, cen)
+        warps = doc.get("warp_events") or []
+        mortos, saidas = [], []
+        for i, w in enumerate(warps):
+            alvo = w.get("dest_map", "")
+            if alvo == doc["id"]:
+                mortos.append({"warp": i, "x": w.get("x"), "y": w.get("y")})
+                continue
+            if alvo in pasta:
+                saidas.append({"warp": i, "x": w.get("x"), "y": w.get("y"),
+                               "sai_em": pasta[alvo], "sai_em_id": alvo,
+                               "warp_de_chegada": str(w.get("dest_warp_id")),
+                               "estado_do_destino": estado(pasta[alvo])})
+        conexoes = [{"direcao": c.get("direction"),
+                     "vizinho": pasta.get(c.get("map"), c.get("map")),
+                     "estado_do_vizinho": estado(pasta.get(c.get("map"), ""))
+                     if c.get("map") in pasta else "?"}
+                    for c in (doc.get("connections") or [])]
+        exatas, parciais = copias(nome)
+        vivas = [s for s in saidas if s["estado_do_destino"] == "vivo"]
+
+        eh_orfao = id_de[nome] in orfaos_agora
+        if not eh_orfao:
+            classe = "ja_alcancado"
+        elif vivas:
+            classe = "porta_no_exterior"
+        elif any(c["estado_do_vizinho"] == "vivo" for c in conexoes):
+            classe = "conexao_de_borda_de_mao_unica"
+        elif mortos:
+            classe = "warp_morto_aponta_para_si"
+        elif v["w"] * v["h"] <= 4 and not warps and not (doc.get("object_events") or []):
+            classe = "sobra_vazia"
+        else:
+            classe = "sobra_sem_porta"
+
+        if classe == "porta_no_exterior":
+            n_w = len(vivas)
+            custo = ("%s no exterior %s"
+                     % ("porta de 1 warp" if n_w == 1 else "porta de %d warps" % n_w,
+                        ", ".join(sorted({s["sai_em"] for s in vivas}))))
+        elif classe == "conexao_de_borda_de_mao_unica":
+            custo = ("conexao de borda reciproca em %s"
+                     % ", ".join(c["vizinho"] for c in conexoes
+                                 if c["estado_do_vizinho"] == "vivo"))
+        elif classe == "warp_morto_aponta_para_si":
+            custo = ("escada ou porta dos dois lados: %s aqui, e o par que a "
+                     "fonte nunca escreveu"
+                     % ("1 warp morto" if len(mortos) == 1
+                        else "%d warps mortos" % len(mortos)))
+        elif classe == "sobra_vazia":
+            custo = "sem correspondente em SwSh: casca vazia, sobra do autor"
+        elif classe == "ja_alcancado":
+            custo = "nenhum: a regua de hoje ja alcanca este mapa"
+        else:
+            custo = "sem correspondente em SwSh: sobra do autor, sem porta na fonte"
+
+        sec = secao.get(v["secao_fonte"]) or {}
+        itens.append({
+            "pasta": nome,
+            "mapa": v["mapa"],
+            "mapsec": v["region_map_section"],
+            "mapsec_real": sec.get("mapsec_real"),
+            "lugar_na_fonte": sec.get("slug"),
+            "fonte": "g%02dm%02d" % (v["fonte_grupo"], v["fonte_indice"]),
+            "nome_antes_do_g3": v["nome_no_g2"],
+            "map_type": doc.get("map_type"),
+            "largura": v["w"], "altura": v["h"], "area_em_tiles": v["w"] * v["h"],
+            "warps": len(warps),
+            "warps_mortos": mortos,
+            "saidas": saidas,
+            "conexoes": conexoes,
+            "objetos": len(doc.get("object_events") or []),
+            "bg_events": len(doc.get("bg_events") or []),
+            "tileset_primario": v["primary_tileset"],
+            "tileset_secundario": v["secondary_tileset"],
+            "musica": v["music"],
+            "copia_exata_de": exatas,
+            "copia_parcial_de": parciais,
+            "orfao_hoje": eh_orfao,
+            "classe": classe,
+            "custo_estimado": custo,
+            "o_que_e_palpite": PALPITE.get(nome, ""),
+            "motivo": MOTIVO_PENDENTE,
+            "data": DATA_PENDENTE,
+        })
+
+    resumo = collections.Counter(i["classe"] for i in itens)
+    doc = {
+        "gerado_por": "dev_scripts/liga_orfaos_galar.py --pendentes",
+        "data": DATA_PENDENTE,
+        "decisao": (
+            "Gui, 06/09/2026, resposta 40: os mapas de Galar que a fonte deixou "
+            "sem entrada nenhuma NAO sao cortados e NAO ganham porta inventada. "
+            "Ficam marcados como pendentes de fonte, para serem desenvolvidos "
+            "depois, e a busca por fonte continua."),
+        "o_que_esta_marcacao_nao_faz": (
+            "nao escreve cortado_por, nao mexe em map.json e nao tira ninguem do "
+            "denominador. A regua de orfaos de Galar de valida_conectividade.py "
+            "continua contando os mesmos mapas; esta lista so EXPLICA parte deles."),
+        "motivo": MOTIVO_PENDENTE,
+        "fonte_da_lista": os.path.relpath(SEM_SAIDA, RAIZ),
+        "busca_de_fonte": "fontes-mapas/galar-swsh/FONTES-ORFAOS.md",
+        "classes": CLASSES,
+        "total": len(itens),
+        "ainda_orfaos": sum(1 for i in itens if i["orfao_hoje"]),
+        "resumo_por_classe": dict(sorted(resumo.items())),
+        "mapas": itens,
+    }
+    if gravar:
+        with open(PENDENTE_FONTE, "w", encoding="utf-8") as f:
+            json.dump(doc, f, indent=2, ensure_ascii=False)
+            f.write("\n")
+    return doc
+
+
+def le_pendentes():
+    """(total, ainda orfaos, {MAP_*}) da marcacao. ({}, se ela nao existe.)
+
+    E por aqui que `valida_conectividade.py` le a lista: ele nunca recalcula
+    nada daqui, so mostra numa linha propria quantos dos orfaos de Galar ja
+    tem motivo conhecido. Se o arquivo nao existir, devolve zeros e a regua
+    segue igual, sem quebrar.
+    """
+    if not os.path.exists(PENDENTE_FONTE):
+        return 0, 0, set()
+    try:
+        d = json.load(open(PENDENTE_FONTE, encoding="utf-8"))
+    except (ValueError, OSError):
+        return 0, 0, set()
+    ids = {m.get("mapa") for m in d.get("mapas") or [] if m.get("mapa")}
+    return d.get("total", len(ids)), d.get("ainda_orfaos", 0), ids
+
 # ------------------------------------------------------------------ o censo --
 
 def censo():
@@ -485,14 +801,30 @@ def censo():
     return 0
 
 
-def orfaos_hoje():
-    """Os orfaos de Galar, pela MESMA regra de valida_conectividade.py."""
+def orfaos_hoje(com_scripts_de_galar=False):
+    """Os orfaos de Galar. Duas reguas, e a diferenca entre elas importa.
+
+    `com_scripts_de_galar=False` (o padrao, e o que o B5 usa desde o lote AB2)
+    NAO le `data/scripts/galar_*.inc`. E a regra ESTRITA: um mapa so conta
+    como alcancado por caminho que o proprio `map.json` ou o `scripts.inc` da
+    pasta dele declara. Ela e de proposito mais dura que a regua publica,
+    porque carimbar mapa como reserva do autor com base em cena de script e
+    justamente o erro que aquele lote nao quis cometer.
+
+    `com_scripts_de_galar=True` e a regra PUBLICA, identica a de
+    `valida_conectividade.py`: soma os warps que os `data/scripts/galar_*.inc`
+    abrem. E a que o Gui ve no numero de orfaos de Galar, e por isso e a que
+    a marcacao de pendentes de fonte usa para dizer quem ainda esta na conta.
+    Medido em 06/09/2026: a estrita acha 141 e a publica acha 132; os 9 de
+    diferenca sao alcancados por cena.
+    """
     if os.path.join(RAIZ, "dev_scripts") not in sys.path:
         sys.path.insert(0, os.path.join(RAIZ, "dev_scripts"))
     import re
     from collections import deque
     import valida_conectividade as VC
     mapas = VC.carrega()
+    de_galar = VC.warps_de_script_de_galar(mapas) if com_scripts_de_galar else {}
     saidas = {}
     for origem, info in mapas.items():
         viz = set()
@@ -517,6 +849,10 @@ def orfaos_hoje():
         if os.path.exists(inc):
             t = open(inc, encoding="utf-8", errors="replace").read()
             for d in VC.RE_WARP_DE_SCRIPT.findall(t):
+                if d in mapas:
+                    viz.add(d)
+        if com_scripts_de_galar:
+            for d in de_galar.get(info["dir"], ()):
                 if d in mapas:
                     viz.add(d)
         saidas[origem] = viz
@@ -590,6 +926,53 @@ def autoteste():
         curas = {h.get("map") for h in json.load(open(hl, encoding="utf-8"))["heal_locations"]}
         confere("nenhuma candidata do B5 é ponto de cura",
                 sorted(m for _, m, _ in du if m in curas), [])
+    # P1, a marcação dos pendentes de fonte. O que precisa estar de pé:
+    # ela cobre a lista inteira, classifica TODO mundo, não inventa mapa que
+    # não existe, e sobretudo NÃO carimba nada (marcação é documento, não
+    # corte: se um `cortado_por` vazasse daqui, a régua de órfãos encolheria
+    # sozinha e o Gui perderia de vista o trabalho que sobrou).
+    lista_txt = [l.split()[0] for l in open(SEM_SAIDA, encoding="utf-8")
+                 if l.strip() and not l.startswith("#")]
+    pend = pendentes_de_fonte(False)
+    confere("P1 cobre a lista de sem-saída inteira",
+            pend["total"], len(lista_txt))
+    confere("P1 tem a mesma ordem e os mesmos mapas",
+            [m["pasta"] for m in pend["mapas"]] == lista_txt, True)
+    # As duas reguas de orfaos_hoje() nao podem colapsar numa so: a publica
+    # tem que enxergar MENOS orfao que a estrita, senao ler os
+    # `data/scripts/galar_*.inc` deixou de valer alguma coisa.
+    estrita, publica = len(orfaos_hoje()), len(orfaos_hoje(True))
+    confere("a regua publica de orfaos e mais frouxa que a estrita",
+            estrita > publica, True)
+    confere("P1 classifica todo mundo",
+            sorted({m["classe"] for m in pend["mapas"]} - set(CLASSES)), [])
+    confere("P1 dá custo estimado a todo mundo",
+            [m["pasta"] for m in pend["mapas"] if not m["custo_estimado"]], [])
+    confere("P1 dá motivo único a todo mundo",
+            sorted({m["motivo"] for m in pend["mapas"]}), [MOTIVO_PENDENTE])
+    confere("P1 não carimba cortado_por em ninguém",
+            [m["pasta"] for m in pend["mapas"]
+             if le(m["pasta"]).get("cortado_por")], [])
+    # A trava que importa para a régua: todo pendente que ainda é órfão tem
+    # que ESTAR na lista de órfãos de valida_conectividade.py, senão a linha
+    # nova estaria explicando mapa que a régua nem cobra.
+    confere("P1 soma bate com o resumo por classe",
+            sum(pend["resumo_por_classe"].values()), pend["total"])
+    confere("P1 conta certo quem ainda é órfão",
+            sum(1 for m in pend["mapas"] if m["orfao_hoje"]),
+            pend["ainda_orfaos"])
+    # E o que le_pendentes() devolve tem que ser o que o arquivo em disco diz;
+    # é essa função que valida_conectividade.py chama.
+    if os.path.exists(PENDENTE_FONTE):
+        tot, orf, ids = le_pendentes()
+        disco = json.load(open(PENDENTE_FONTE, encoding="utf-8"))
+        confere("le_pendentes bate com o arquivo em disco",
+                (tot, orf, len(ids)),
+                (disco["total"], disco["ainda_orfaos"], len(disco["mapas"])))
+    else:
+        print("  %-56s %s" % ("le_pendentes: arquivo ainda não gerado",
+                              "rode --pendentes"))
+
     print("\n%s" % ("autoteste: tudo de pé" if not falhou
                     else "autoteste: %d caiu" % len(falhou)))
     return 1 if falhou else 0
@@ -601,12 +984,22 @@ def main():
     ap.add_argument("--seco", action="store_true", help="nao escreve nada")
     ap.add_argument("--censo", action="store_true", help="so a medicao do diagnostico")
     ap.add_argument("--demo", action="store_true", help="autoteste")
+    ap.add_argument("--pendentes", action="store_true",
+                    help="so a marcacao dos mapas sem entrada na fonte")
     ap.add_argument("--autoteste", action="store_true", help="autoteste")
     args = ap.parse_args()
     if args.demo or args.autoteste:
         return autoteste()
     if args.censo:
         return censo()
+    if args.pendentes:
+        d = pendentes_de_fonte(True)
+        print("pendentes de fonte: %d (%d ainda órfãos hoje)"
+              % (d["total"], d["ainda_orfaos"]))
+        for classe, n in sorted(d["resumo_por_classe"].items()):
+            print("  %4d  %s" % (n, classe))
+        print("  lista em %s" % os.path.relpath(PENDENTE_FONTE, RAIZ))
+        return 0
 
     gravar = not args.seco
     m, p, s = carimba(gravar)
@@ -638,6 +1031,16 @@ def main():
             escreve_sem_saida(sobra)
         print("órfãos que sobram DE VERDADE (sem warp, sem script, sem "
               "duplicata): %d" % len(sobra))
+
+    # P1. A marcação dos que a fonte deixou sem entrada. Vem DEPOIS do B5 de
+    # propósito: ela lê `orfaos_galar_sem_saida.txt`, que o B5 acabou de
+    # reescrever, e assim a marcação nunca fica falando de uma lista velha.
+    d = pendentes_de_fonte(gravar)
+    print("P1 pendentes de fonte: %d (%d ainda órfãos hoje), %s"
+          % (d["total"], d["ainda_orfaos"],
+             os.path.relpath(PENDENTE_FONTE, RAIZ)))
+    for classe, n in sorted(d["resumo_por_classe"].items()):
+        print("   %4d  %s" % (n, classe))
     return 0
 
 
