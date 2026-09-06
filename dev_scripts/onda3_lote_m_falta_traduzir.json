@@ -1,0 +1,4 @@
+{
+ "_leia": "textos da fonte sem traducao escrita em dev_scripts/traducao_galar.json (por rotulo) nem em dev_scripts/resgate_galar_texto.json (por texto), achados pelas PORTAS de script de Galar (onda 3, lote M). Preencher `en` pelo GLOSSARIO-GALAR.md, no maximo 208 px por linha (dev_scripts/texto_placas_sinnoh.py), com os tokens de controle na mesma ordem e quantidade do `pt`; depois mover o par para dev_scripts/resgate_galar_texto.json e rodar dev_scripts/portas_script_galar.py --aplicar de novo. `porta_saiu_sem_a_fala` true quer dizer que a porta ESTA no jogo e so a caixa de texto ficou de fora; false quer dizer que a porta inteira esta esperando este texto.",
+ "distintos": []
+}

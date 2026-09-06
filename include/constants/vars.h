@@ -1027,3 +1027,12 @@
 #define VAR_GALAR_MOTOR_4060   VAR_UNUSED_0x4118  // var 0x4060 da fonte
 #define VAR_GALAR_MOTOR_40F2   VAR_UNUSED_0x4119  // var 0x40F2 da fonte
 // <<< Fase de conteudo de Galar, onda 3 lote L1 (vars) <<<
+
+// >>> Fase de conteudo de Galar, onda 2 lote F: vars de porta de script (dev_scripts/portas_script_galar.py) >>>
+// Uma var por MAPA de origem, como no c3. Apelido de
+// VAR_UNUSED_* livre, medido por cenas_galar.vars_livres().
+#define VAR_GALAR_PORTA_G03M07 VAR_UNUSED_0x411A
+#define VAR_GALAR_PORTA_G03M08 VAR_UNUSED_0x411B
+#define VAR_GALAR_PORTA_G11M10 VAR_UNUSED_0x411C
+#define VAR_GALAR_PORTA_G12M10 VAR_UNUSED_0x411D
+// <<< Fase de conteudo de Galar, onda 2 lote F <<<

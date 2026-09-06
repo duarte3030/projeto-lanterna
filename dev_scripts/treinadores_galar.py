@@ -89,6 +89,7 @@ sys.path.insert(0, os.path.join(RAIZ, "dev_scripts"))
 
 import fala_galar as FALA           # noqa: E402
 import estaticos_galar as EST       # noqa: E402
+import objetos_galar as OBJ         # noqa: E402
 
 BASE = 0x08000000
 TRAINERS_OFF = 0x23EAC8             # gTrainers, medido
@@ -1116,6 +1117,17 @@ def substitui(texto, ini, fim, bloco, antes_de=None):
     return texto[:i] + bloco + texto[j:]
 
 
+def quem_manda_mais(doc, i):
+    """O prefixo com precedencia sobre este gerador neste objeto, ou None.
+
+    Existe como funcao propria, e nao como duas linhas dentro de `aplica`, para
+    o `--demo` poder rodar A MESMA decisao sobre um caso plantado: regra que so
+    existe dentro de um laco que le 438 arquivos nao da para provar sem escrever
+    em disco.
+    """
+    return OBJ.manda_mais((doc.get("object_events") or [])[i].get("script"))
+
+
 def aplica(aceitas, usados, num, gravar):
     mudou, recusa = collections.Counter(), []
     por_mapa = collections.defaultdict(list)
@@ -1146,6 +1158,28 @@ def aplica(aceitas, usados, num, gravar):
             # PRECEDENCIA: batalha vence fala e vence cena. Um objeto de
             # treinador que so falasse seria o unico NPC de Galar que promete
             # briga e nao entrega.
+            #
+            # A UNICA EXCECAO e `GalarPorta_*`, e ela entrou na onda 3, lote M.
+            # A lista de quem manda mais e UMA SO, `objetos_galar.MANDAM_MAIS`,
+            # e ela ja era consultada por `objetos_galar.py` (linha 129) e por
+            # `fala_galar.py` (linha 745): este gerador era o ultimo dos quatro
+            # que escrevia este campo sem perguntar. Escrever aqui por cima de
+            # uma porta apagaria a porta CALADO, e a unica pista seria o jogador
+            # batendo numa porta que nao abre mais: o `.inc` de portas continua
+            # inteiro, e o que se perde e o unico ponteiro que o mapa tinha para
+            # ele.
+            #
+            # O bloco `GalarTrn_<chave>::` deste gerador NAO some por causa
+            # disto: ele continua sendo escrito no `.inc`, e a porta que tomou o
+            # objeto chama o `GalarTrn_<chave>_Derrota` dele. O que fica sem
+            # dono e a ENTRADA (o rotulo deixa de ser chamado por objeto), e a
+            # batalha volta transcrita dentro da porta.
+            dono = quem_manda_mais(doc, i)
+            if dono:
+                recusa.append({"chave": l["chave"],
+                               "motivo": "%s tem precedencia neste objeto "
+                                         "(objetos_galar.MANDAM_MAIS)" % dono})
+                continue
             doc["object_events"][i]["script"] = l["rotulo"]
             mudou["objeto"] += 1
         if json.dumps(doc, sort_keys=True) != antes:
@@ -1235,6 +1269,22 @@ def demo():
         caso("base de classe deslocada REPROVA", False)
     except SystemExit:
         caso("base de classe deslocada REPROVA", True)
+
+    # PRECEDENCIA DE `script` (onda 3, lote M). O campo `script` de um objeto
+    # e unico, e ate esta onda este gerador o escrevia sem perguntar: uma porta
+    # de `data/scripts/galar_portas_script.inc` pendurada no mesmo objeto seria
+    # apagada na geracao seguinte, calada, e o `.inc` continuaria inteiro (o que
+    # some e o unico ponteiro que o mapa tinha para ele).
+    plantado = {"object_events": [{"script": "GalarPorta_G35M08_o12"},
+                                  {"script": "GalarFalaI_G35M08_o12"},
+                                  {"script": "0"}]}
+    caso("nao sobrescreve rotulo de outro dono (GalarPorta_)",
+         quem_manda_mais(plantado, 0) == "GalarPorta_")
+    caso("e escreve por cima de fala e de objeto mudo, como sempre",
+         quem_manda_mais(plantado, 1) is None
+         and quem_manda_mais(plantado, 2) is None)
+    caso("a lista de precedencia e a UNICA (objetos_galar.MANDAM_MAIS)",
+         "GalarPorta_" in OBJ.MANDAM_MAIS)
 
     mapa, novas = de_para_classe(cls)
     caso("'Youngster' casa por nome", mapa[57][1] == "casou por nome")

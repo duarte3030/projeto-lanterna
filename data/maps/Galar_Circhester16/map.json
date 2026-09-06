@@ -399,7 +399,18 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_GALAR_PORTA_G03M08",
+      "var_value": 0,
+      "script": "GalarPorta_G03M08_c0",
+      "origem": "porta de script (portas_script_galar.py)"
+    }
+  ],
   "bg_events": [],
   "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g03m08. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo. renomeado no G3: o grafo liga este mapa a Circhester (votos {'Circhester': 11, 'Turffield': 1}); papel MAP_TYPE_CITY pelo map_type"
 }

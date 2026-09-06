@@ -1,0 +1,694 @@
+{
+ "gerado_por": "dev_scripts/portas_script_galar.py",
+ "para": "o fechador da onda 3 (dono dos map.json)",
+ "leia_antes": "Este lote NAO edita map.json. Cada item abaixo esta no formato exato do repo. `script_de_objeto` reponta o campo `script`: quando `era` vale \"0\" o objeto estava mudo, e quando `era` traz um rotulo o dono dele RESPEITA `GalarPorta_` (objetos_galar.MANDAM_MAIS, a lista unica que objetos_galar.py, fala_galar.py e, desde esta onda, treinadores_galar.py consultam antes de escrever). `object_events` e `coord_events` sao eventos NOVOS, e entram no FIM da lista (a save guarda indice de object_event; ver ESTADO, 'Compatibilidade de save').",
+ "object_events": [],
+ "coord_events": [],
+ "script_de_objeto": [],
+ "rotulos_escritos": [
+  {
+   "rotulo": "GalarPorta_G03M01_o5",
+   "origem": "Galar_Wedgehurst12",
+   "ptr": "0x891C50A",
+   "destinos": [
+    "MAP_GALAR_STOW_ON_SIDE_01"
+   ],
+   "tomado_de": "GalarPorta_G03M01_o5",
+   "guardas_de_motor_soltas": [
+    "compare_var_to_value 0x5467 (fecha)",
+    "compare_var_to_value 0x5467 (abre)"
+   ],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G03M02_o8",
+   "origem": "Galar_Motostoke23",
+   "ptr": "0x882CC28",
+   "destinos": [
+    "MAP_GALAR_STOW_ON_SIDE_01"
+   ],
+   "tomado_de": "GalarPorta_G03M02_o8",
+   "guardas_de_motor_soltas": [
+    "compare_var_to_value 0x5467 (fecha)",
+    "compare_var_to_value 0x5467 (abre)"
+   ],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G03M03_o10",
+   "origem": "Galar_Turffield12",
+   "ptr": "0x891C50A",
+   "destinos": [
+    "MAP_GALAR_STOW_ON_SIDE_01"
+   ],
+   "tomado_de": "GalarPorta_G03M03_o10",
+   "guardas_de_motor_soltas": [
+    "compare_var_to_value 0x5467 (fecha)",
+    "compare_var_to_value 0x5467 (abre)"
+   ],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G03M04_o13",
+   "origem": "Galar_Hulbury16",
+   "ptr": "0x891C50A",
+   "destinos": [
+    "MAP_GALAR_STOW_ON_SIDE_01"
+   ],
+   "tomado_de": "GalarPorta_G03M04_o13",
+   "guardas_de_motor_soltas": [
+    "compare_var_to_value 0x5467 (fecha)",
+    "compare_var_to_value 0x5467 (abre)"
+   ],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G03M05_o24",
+   "origem": "Galar_Hammerlocke01",
+   "ptr": "0x891C50A",
+   "destinos": [
+    "MAP_GALAR_STOW_ON_SIDE_01"
+   ],
+   "tomado_de": "GalarPorta_G03M05_o24",
+   "guardas_de_motor_soltas": [
+    "compare_var_to_value 0x5467 (fecha)",
+    "compare_var_to_value 0x5467 (abre)"
+   ],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G03M06_o11",
+   "origem": "Galar_Hammerlocke23",
+   "ptr": "0x891C50A",
+   "destinos": [
+    "MAP_GALAR_STOW_ON_SIDE_01"
+   ],
+   "tomado_de": "GalarPorta_G03M06_o11",
+   "guardas_de_motor_soltas": [
+    "compare_var_to_value 0x5467 (fecha)",
+    "compare_var_to_value 0x5467 (abre)"
+   ],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G03M07_c0",
+   "origem": "Galar_Ballonlea10",
+   "ptr": "0x8A41B41",
+   "destinos": [
+    "MAP_GALAR_HAMMERLOCKE_06"
+   ],
+   "tomado_de": null,
+   "guardas_de_motor_soltas": [
+    "checkflag 0x824 (abre)"
+   ],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G03M07_c1",
+   "origem": "Galar_Ballonlea10",
+   "ptr": "0x8A48779",
+   "destinos": [
+    "MAP_GALAR_HAMMERLOCKE_06"
+   ],
+   "tomado_de": null,
+   "guardas_de_motor_soltas": [
+    "checkflag 0x824 (abre)"
+   ],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G03M07_c2",
+   "origem": "Galar_Ballonlea10",
+   "ptr": "0x8A4A1C5",
+   "destinos": [
+    "MAP_GALAR_HAMMERLOCKE_06"
+   ],
+   "tomado_de": null,
+   "guardas_de_motor_soltas": [
+    "checkflag 0x824 (abre)"
+   ],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G03M07_o2",
+   "origem": "Galar_Ballonlea10",
+   "ptr": "0x891C50A",
+   "destinos": [
+    "MAP_GALAR_STOW_ON_SIDE_01"
+   ],
+   "tomado_de": "GalarPorta_G03M07_o2",
+   "guardas_de_motor_soltas": [
+    "compare_var_to_value 0x5467 (fecha)",
+    "compare_var_to_value 0x5467 (abre)"
+   ],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G03M08_c0",
+   "origem": "Galar_Circhester16",
+   "ptr": "0x8AB913C",
+   "destinos": [
+    "MAP_GALAR_HULBURY_01"
+   ],
+   "tomado_de": null,
+   "guardas_de_motor_soltas": [
+    "checkflag 0x825 (fecha)"
+   ],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G03M10_o11",
+   "origem": "Galar_Spikemuth09",
+   "ptr": "0x891C50A",
+   "destinos": [
+    "MAP_GALAR_STOW_ON_SIDE_01"
+   ],
+   "tomado_de": "GalarPorta_G03M10_o11",
+   "guardas_de_motor_soltas": [
+    "compare_var_to_value 0x5467 (fecha)",
+    "compare_var_to_value 0x5467 (abre)"
+   ],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G06M12_o7",
+   "origem": "Galar_Motostoke06",
+   "ptr": "0x88A42E4",
+   "destinos": [
+    "MAP_GALAR_WEDGEHURST_09"
+   ],
+   "tomado_de": "GalarPorta_G06M12_o7",
+   "guardas_de_motor_soltas": [],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G09M10_o23",
+   "origem": "Galar_Hammerlocke04",
+   "ptr": "0x891C50A",
+   "destinos": [
+    "MAP_GALAR_STOW_ON_SIDE_01"
+   ],
+   "tomado_de": "GalarPorta_G09M10_o23",
+   "guardas_de_motor_soltas": [
+    "compare_var_to_value 0x5467 (fecha)",
+    "compare_var_to_value 0x5467 (abre)"
+   ],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G09M10_o24",
+   "origem": "Galar_Hammerlocke04",
+   "ptr": "0x8877934",
+   "destinos": [
+    "MAP_GALAR_STOW_ON_SIDE_01"
+   ],
+   "tomado_de": "GalarPorta_G09M10_o24",
+   "guardas_de_motor_soltas": [],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G11M10_c0",
+   "origem": "Galar_Ballonlea05",
+   "ptr": "0x89EE1CD",
+   "destinos": [
+    "MAP_GALAR_HAMMERLOCKE_06"
+   ],
+   "tomado_de": null,
+   "guardas_de_motor_soltas": [
+    "checkflag 0x825 (abre)",
+    "checkflag 0x824 (abre)"
+   ],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G11M10_c1",
+   "origem": "Galar_Ballonlea05",
+   "ptr": "0x89EE9BF",
+   "destinos": [
+    "MAP_GALAR_HAMMERLOCKE_06"
+   ],
+   "tomado_de": null,
+   "guardas_de_motor_soltas": [
+    "checkflag 0x825 (abre)",
+    "checkflag 0x824 (abre)"
+   ],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G11M10_c2",
+   "origem": "Galar_Ballonlea05",
+   "ptr": "0x89EE9CC",
+   "destinos": [
+    "MAP_GALAR_HAMMERLOCKE_06"
+   ],
+   "tomado_de": null,
+   "guardas_de_motor_soltas": [
+    "checkflag 0x825 (abre)",
+    "checkflag 0x824 (abre)"
+   ],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G12M10_c0",
+   "origem": "Galar_Circhester06",
+   "ptr": "0x8AB913C",
+   "destinos": [
+    "MAP_GALAR_HULBURY_01"
+   ],
+   "tomado_de": null,
+   "guardas_de_motor_soltas": [
+    "checkflag 0x825 (fecha)"
+   ],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G12M10_c1",
+   "origem": "Galar_Circhester06",
+   "ptr": "0x886CF40",
+   "destinos": [
+    "MAP_GALAR_HULBURY_01"
+   ],
+   "tomado_de": null,
+   "guardas_de_motor_soltas": [
+    "checkflag 0x825 (fecha)"
+   ],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G35M08_o12",
+   "origem": "Galar_TurffieldIndoor09",
+   "ptr": "0x889D154",
+   "destinos": [
+    "MAP_GALAR_TURFFIELD_INDOOR_10"
+   ],
+   "tomado_de": "GalarPorta_G35M08_o12",
+   "guardas_de_motor_soltas": [],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": [
+    "treinador 402 da fonte, tipo 3"
+   ]
+  },
+  {
+   "rotulo": "GalarPorta_G35M12_o12",
+   "origem": "Galar_TurffieldIndoor13",
+   "ptr": "0x889D4D4",
+   "destinos": [
+    "MAP_GALAR_TURFFIELD_INDOOR_14"
+   ],
+   "tomado_de": "GalarPorta_G35M12_o12",
+   "guardas_de_motor_soltas": [],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": [
+    "treinador 406 da fonte, tipo 3"
+   ]
+  },
+  {
+   "rotulo": "GalarPorta_G35M16_o12",
+   "origem": "Galar_TurffieldIndoor17",
+   "ptr": "0x889DA44",
+   "destinos": [
+    "MAP_GALAR_TURFFIELD_INDOOR_18"
+   ],
+   "tomado_de": "GalarPorta_G35M16_o12",
+   "guardas_de_motor_soltas": [],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": [
+    "treinador 421 da fonte, tipo 3"
+   ]
+  },
+  {
+   "rotulo": "GalarPorta_G35M20_o12",
+   "origem": "Galar_TurffieldIndoor21",
+   "ptr": "0x889DED0",
+   "destinos": [
+    "MAP_GALAR_TURFFIELD_INDOOR_22"
+   ],
+   "tomado_de": "GalarPorta_G35M20_o12",
+   "guardas_de_motor_soltas": [],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": [
+    "treinador 425 da fonte, tipo 3"
+   ]
+  },
+  {
+   "rotulo": "GalarPorta_G35M24_o12",
+   "origem": "Galar_TurffieldIndoor25",
+   "ptr": "0x88A4810",
+   "destinos": [
+    "MAP_GALAR_TURFFIELD_INDOOR_26"
+   ],
+   "tomado_de": "GalarPorta_G35M24_o12",
+   "guardas_de_motor_soltas": [],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": [
+    "treinador 472 da fonte, tipo 3"
+   ]
+  },
+  {
+   "rotulo": "GalarPorta_G38M01_o4",
+   "origem": "Galar_IsleOfArmor05",
+   "ptr": "0x88D1CE4",
+   "destinos": [
+    "MAP_GALAR_ISLE_OF_ARMOR_01"
+   ],
+   "tomado_de": "GalarPorta_G38M01_o4",
+   "guardas_de_motor_soltas": [],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G38M04_o13",
+   "origem": "Galar_IsleOfArmor08",
+   "ptr": "0x88D240C",
+   "destinos": [
+    "MAP_GALAR_ISLE_OF_ARMOR_01"
+   ],
+   "tomado_de": "GalarPorta_G38M04_o13",
+   "guardas_de_motor_soltas": [],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G38M05_o4",
+   "origem": "Galar_IsleOfArmor09",
+   "ptr": "0x88D2740",
+   "destinos": [
+    "MAP_GALAR_ISLE_OF_ARMOR_01"
+   ],
+   "tomado_de": "GalarPorta_G38M05_o4",
+   "guardas_de_motor_soltas": [],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G38M08_o3",
+   "origem": "Galar_IsleOfArmor12",
+   "ptr": "0x88D27DC",
+   "destinos": [
+    "MAP_GALAR_ISLE_OF_ARMOR_01"
+   ],
+   "tomado_de": "GalarPorta_G38M08_o3",
+   "guardas_de_motor_soltas": [],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  },
+  {
+   "rotulo": "GalarPorta_G39M16_o0",
+   "origem": "Galar_WildAreaIndoor01",
+   "ptr": "0x88D10A8",
+   "destinos": [
+    "MAP_GALAR_WYNDON_INDOOR_01"
+   ],
+   "tomado_de": "GalarPorta_G39M16_o0",
+   "guardas_de_motor_soltas": [],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": [
+    "treinador 351 da fonte, tipo 3"
+   ]
+  },
+  {
+   "rotulo": "GalarPorta_G42M15_o16",
+   "origem": "Galar_WildArea22",
+   "ptr": "0x88D2148",
+   "destinos": [
+    "MAP_GALAR_WILD_AREA_17"
+   ],
+   "tomado_de": "GalarPorta_G42M15_o16",
+   "guardas_de_motor_soltas": [],
+   "batalhas_escritas": [],
+   "batalhas_sem_treinador": []
+  }
+ ],
+ "ja_escritas_por_outro_gerador": [
+  {
+   "rotulo": "GalarObj_G03M08_o19",
+   "origem": "Galar_Circhester16",
+   "destinos": [
+    "MAP_GALAR_HULBURY_01"
+   ]
+  },
+  {
+   "rotulo": "GalarObj_G06M10_o15",
+   "origem": "Galar_Motostoke05",
+   "destinos": [
+    "MAP_GALAR_UNDERWATER_01"
+   ]
+  },
+  {
+   "rotulo": "GalarObj_G06M27_o20",
+   "origem": "Galar_WildArea03",
+   "destinos": [
+    "MAP_GALAR_UNDERWATER_01"
+   ]
+  },
+  {
+   "rotulo": "GalarObj_G08M24_o9",
+   "origem": "Galar_WildArea09",
+   "destinos": [
+    "MAP_GALAR_UNDERWATER_01"
+   ]
+  },
+  {
+   "rotulo": "GalarObj_G12M10_o18",
+   "origem": "Galar_Circhester06",
+   "destinos": [
+    "MAP_GALAR_HULBURY_01"
+   ]
+  },
+  {
+   "rotulo": "GalarObj_G42M13_o9",
+   "origem": "Galar_WildArea20",
+   "destinos": [
+    "MAP_GALAR_UNDERWATER_01"
+   ]
+  }
+ ],
+ "nao_feitas": [
+  {
+   "motivo": "0x5010 nao e var de save da fonte (a faixa e 0x4010-0x40FF): o ponteiro caiu em dado",
+   "balde": "C",
+   "origem": "Galar_Motostoke06",
+   "ptr": "0x88E4176",
+   "destinos": [
+    "MAP_GALAR_WEDGEHURST_09 (7,4)"
+   ]
+  },
+  {
+   "motivo": "decodificacao incompleta: opcode 0xFF",
+   "balde": "B",
+   "origem": "Galar_Route0202",
+   "ptr": "0x891C1C0",
+   "destinos": [
+    "MAP_GALAR_UNDERWATER_01 (48,53)"
+   ]
+  },
+  {
+   "motivo": "decodificacao incompleta: opcode 0xFF",
+   "balde": "B",
+   "origem": "Galar_Route0901",
+   "ptr": "0x8A40B40",
+   "destinos": [
+    "MAP_GALAR_UNDERWATER_01 (43,28)"
+   ]
+  },
+  {
+   "motivo": "gatilho da fonte so dispara com a var valendo 3, e nenhum script nosso escreve nessa var: o coord_event nasceria morto",
+   "balde": "D",
+   "origem": "Galar_DynamaxAdventure02",
+   "ptr": "0x81692E7",
+   "destinos": [
+    "MAP_GALAR_POSTWICK_22 (14,31)"
+   ]
+  },
+  {
+   "motivo": "gatilho da fonte so dispara com a var valendo 3, e nenhum script nosso escreve nessa var: o coord_event nasceria morto",
+   "balde": "D",
+   "origem": "Galar_DynamaxAdventure02",
+   "ptr": "0x81692F3",
+   "destinos": [
+    "MAP_GALAR_POSTWICK_22 (14,31)"
+   ]
+  },
+  {
+   "motivo": "gatilho da fonte so dispara com a var valendo 3, e nenhum script nosso escreve nessa var: o coord_event nasceria morto",
+   "balde": "D",
+   "origem": "Galar_DynamaxAdventure02",
+   "ptr": "0x81692FF",
+   "destinos": [
+    "MAP_GALAR_POSTWICK_22 (14,31)"
+   ]
+  },
+  {
+   "motivo": "guarda de motor do demake que ESCOLHE entre portas, e nao esconde uma: checkflag 0x302, checkflag 0x310, checkflag 0x312, checkflag 0x313, checkflag 0x314, checkflag 0x315, checkflag 0x733. Os dois lados dela levam a warp, entao tirar a condicao seria escolher o destino por conta propria",
+   "balde": "C",
+   "origem": "Galar_Wyndon03",
+   "ptr": "0x88C5B68",
+   "destinos": [
+    "MAP_GALAR_TURFFIELD_INDOOR_01 (7,11)",
+    "MAP_GALAR_TURFFIELD_INDOOR_02 (7,11)",
+    "MAP_GALAR_TURFFIELD_INDOOR_03 (7,10)",
+    "MAP_GALAR_TURFFIELD_INDOOR_04 (7,11)",
+    "MAP_GALAR_TURFFIELD_INDOOR_05 (7,11)",
+    "MAP_GALAR_TURFFIELD_INDOOR_06 (7,11)",
+    "MAP_GALAR_TURFFIELD_INDOOR_07 (7,11)",
+    "MAP_GALAR_TURFFIELD_INDOOR_08 (7,11)"
+   ]
+  },
+  {
+   "motivo": "guarda de motor do demake que ESCOLHE entre portas, e nao esconde uma: checkflag 0x320, checkflag 0x320, checkflag 0x700, checkflag 0x700, checkflag 0x703, checkflag 0x703, checkflag 0x715, checkflag 0x715, checkflag 0x716, checkflag 0x716. Os dois lados dela levam a warp, entao tirar a condicao seria escolher o destino por conta propria",
+   "balde": "C",
+   "origem": "Galar_Wyndon02",
+   "ptr": "0x82AB2C0",
+   "destinos": [
+    "MAP_GALAR_TURFFIELD_INDOOR_61 (7,11)",
+    "MAP_GALAR_TURFFIELD_INDOOR_58 (7,11)",
+    "MAP_GALAR_TURFFIELD_INDOOR_55 (7,11)",
+    "MAP_GALAR_TURFFIELD_INDOOR_52 (7,11)",
+    "MAP_GALAR_TURFFIELD_INDOOR_49 (7,11)",
+    "MAP_GALAR_TURFFIELD_INDOOR_43 (7,5)",
+    "MAP_GALAR_TURFFIELD_INDOOR_40 (7,5)",
+    "MAP_GALAR_TURFFIELD_INDOOR_37 (7,5)",
+    "MAP_GALAR_TURFFIELD_INDOOR_34 (7,5)",
+    "MAP_GALAR_TURFFIELD_INDOOR_46 (7,5)"
+   ]
+  },
+  {
+   "motivo": "mapa com corte registrado (`cortado_por`): origem Galar_WyndonIndoor05",
+   "balde": "C",
+   "origem": "Galar_WyndonIndoor05",
+   "ptr": "0x88D1680",
+   "destinos": [
+    "MAP_GALAR_WYNDON_INDOOR_06 (6,11)"
+   ]
+  },
+  {
+   "motivo": "mapa com corte registrado (`cortado_por`): origem Galar_WyndonIndoor10",
+   "balde": "C",
+   "origem": "Galar_WyndonIndoor10",
+   "ptr": "0x88D0140",
+   "destinos": [
+    "MAP_GALAR_WYNDON_INDOOR_11 (6,11)"
+   ]
+  },
+  {
+   "motivo": "mapa com corte registrado (`cortado_por`): origem Galar_WyndonIndoor15",
+   "balde": "A",
+   "origem": "Galar_WyndonIndoor15",
+   "ptr": "0x88D0690",
+   "destinos": [
+    "MAP_GALAR_WYNDON_INDOOR_16 (6,11)"
+   ]
+  },
+  {
+   "motivo": "mapa com corte registrado (`cortado_por`): origem Galar_WyndonIndoor20",
+   "balde": "C",
+   "origem": "Galar_WyndonIndoor20",
+   "ptr": "0x88D0C24",
+   "destinos": [
+    "MAP_GALAR_WYNDON_INDOOR_21 (6,11)"
+   ]
+  },
+  {
+   "motivo": "objeto local 5 nao entrou no mapa no G4",
+   "balde": "C",
+   "origem": "Galar_Route0202",
+   "ptr": "0x8828554",
+   "destinos": [
+    "MAP_GALAR_ROUTE02_03 (10,18)"
+   ]
+  },
+  {
+   "motivo": "objeto local 5 nao entrou no mapa no G4",
+   "balde": "D",
+   "origem": "Galar_Route0202",
+   "ptr": "0x88299A0",
+   "destinos": [
+    "MAP_GALAR_ROUTE02_03 (10,18)"
+   ]
+  },
+  {
+   "motivo": "objeto local 5 nao entrou no mapa no G4",
+   "balde": "D",
+   "origem": "Galar_Route0202",
+   "ptr": "0x882ADEC",
+   "destinos": [
+    "MAP_GALAR_ROUTE02_03 (10,18)"
+   ]
+  },
+  {
+   "motivo": "objeto local 6 nao entrou no mapa no G4",
+   "balde": "D",
+   "origem": "Galar_Hammerlocke12",
+   "ptr": "0x885E434",
+   "destinos": [
+    "MAP_GALAR_POSTWICK_02 (16,26)"
+   ]
+  },
+  {
+   "motivo": "objeto local 6 nao entrou no mapa no G4",
+   "balde": "D",
+   "origem": "Galar_Hammerlocke12",
+   "ptr": "0x885E8C4",
+   "destinos": [
+    "MAP_GALAR_POSTWICK_02 (16,26)"
+   ]
+  },
+  {
+   "motivo": "objeto local 6 nao entrou no mapa no G4",
+   "balde": "D",
+   "origem": "Galar_Hammerlocke12",
+   "ptr": "0x885ED64",
+   "destinos": [
+    "MAP_GALAR_POSTWICK_02 (16,26)"
+   ]
+  },
+  {
+   "motivo": "objeto novo em lugar onde o jogador nao fala com ele: (26,15): tile nao andavel",
+   "balde": "A",
+   "origem": "Galar_Hammerlocke03",
+   "ptr": "0x88C11F4",
+   "destinos": [
+    "MAP_GALAR_STOW_ON_SIDE_02 (5,20)"
+   ]
+  },
+  {
+   "motivo": "objeto novo em lugar onde o jogador nao fala com ele: (28,59): tile nao andavel",
+   "balde": "A",
+   "origem": "Galar_Circhester16",
+   "ptr": "0x8A7E2AE",
+   "destinos": [
+    "MAP_GALAR_STOW_ON_SIDE_01 (2,2)"
+   ]
+  },
+  {
+   "motivo": "objeto novo em lugar onde o jogador nao fala com ele: (6,1): tile nao andavel",
+   "balde": "A",
+   "origem": "Galar_CrownTundra01",
+   "ptr": "0x88EC61C",
+   "destinos": [
+    "MAP_GALAR_POSTWICK_03 (4,22)",
+    "MAP_GALAR_POSTWICK_03 (12,22)"
+   ]
+  }
+ ]
+}
