@@ -154,3 +154,49 @@ FortreeCity_Text_GymSign:
 	.string "“The bird user taking flight into\n"
 	.string "the world.”$"
 
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+FortreeCity_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox FortreeCity_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+FortreeCity_Text_Povoa1:
+	.string "Every house here sits in a tree.\nThe ladders take getting used to.$"
+
+FortreeCity_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox FortreeCity_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+FortreeCity_Text_Povoa2:
+	.string "The GYM LEADER flies.\nElectric, Ice and Rock ground her.$"
+
+FortreeCity_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox FortreeCity_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+FortreeCity_Text_Povoa3:
+	.string "ROUTE 119 west is a jungle.\nROUTE 120 east has a bridge.$"
+
+FortreeCity_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox FortreeCity_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+FortreeCity_Text_Povoa4:
+	.string "Something invisible sits on the\nbridge east of town. I swear it.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

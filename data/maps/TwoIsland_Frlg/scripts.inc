@@ -301,3 +301,39 @@ TwoIsland_Text_HaveYouTriedJumpingGame::
 	.string "Did you know that?\n"
 	.string "Boing!$"
 
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+TwoIsland_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox TwoIsland_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+TwoIsland_Text_Povoa1:
+	.string "CAPE BRINK is north. Old moves\nare remembered up there.$"
+
+TwoIsland_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox TwoIsland_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+TwoIsland_Text_Povoa2:
+	.string "The GAME CORNER here is small,\nbut the prizes are honest.$"
+
+TwoIsland_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox TwoIsland_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+TwoIsland_Text_Povoa3:
+	.string "The water between the islands\nis deeper than it looks.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

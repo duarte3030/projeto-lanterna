@@ -789,3 +789,70 @@ DewfordTown_Text_YeahDefinitionOfInRightNow:
 	.string "Yeah, absolutely right!\p"
 	.string "“{STR_VAR_1}” is the\n"
 	.string "definition of “in” right now.$"
+
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+DewfordTown_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox DewfordTown_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+DewfordTown_Text_Povoa1:
+	.string "No road reaches DEWFORD.\nMR. BRINEY brings everyone in.$"
+
+DewfordTown_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox DewfordTown_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+DewfordTown_Text_Povoa2:
+	.string "GRANITE CAVE is on ROUTE 106,\njust north of the beach.$"
+
+DewfordTown_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox DewfordTown_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+DewfordTown_Text_Povoa3:
+	.string "The tide here is strong.\nWatch where you stand.$"
+
+DewfordTown_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox DewfordTown_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+DewfordTown_Text_Povoa4:
+	.string "The GYM fights in the dark.\nFlying and Psychic end it fast.$"
+
+DewfordTown_EventScript_Povoa5::
+	lock
+	faceplayer
+	msgbox DewfordTown_Text_Povoa5, MSGBOX_DEFAULT
+	release
+	end
+
+DewfordTown_Text_Povoa5:
+	.string "I make sand castles all day.\nThe sea takes them all night.$"
+
+DewfordTown_EventScript_Povoa6::
+	lock
+	faceplayer
+	msgbox DewfordTown_Text_Povoa6, MSGBOX_DEFAULT
+	release
+	end
+
+DewfordTown_Text_Povoa6:
+	.string "The TOWN HALL keeps the island\ngossip. All of it.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

@@ -404,3 +404,19 @@ LavaridgeTown_Text_HerbShopSign:
 	.string "POKéMON HERB SHOP\n"
 	.string "“Bitter taste--better cure!”$"
 
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+LavaridgeTown_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox LavaridgeTown_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+LavaridgeTown_Text_Povoa1:
+	.string "The hot spring cures anything a\nlong walk causes.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

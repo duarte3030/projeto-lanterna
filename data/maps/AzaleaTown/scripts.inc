@@ -215,3 +215,50 @@ AzaleaTown_Text_SilverAfter:
 	.string "I hate them all.\p"
 	.string "You stay out of my way. A weakling\n"
 	.string "like you is only a distraction.$"
+
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+AzaleaTown_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox AzaleaTown_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+AzaleaTown_Text_Povoa1:
+	.string "KURT makes BALLS out of\nAPRICORNS. By hand, one at a time.$"
+
+AzaleaTown_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox AzaleaTown_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+AzaleaTown_Text_Povoa2:
+	.string "SLOWPOKE WELL is under the town.\nThe SLOWPOKE are back, thankfully.$"
+
+AzaleaTown_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox AzaleaTown_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+AzaleaTown_Text_Povoa3:
+	.string "ILEX FOREST is west through the\ngate. It is easy to get lost.$"
+
+AzaleaTown_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox AzaleaTown_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+AzaleaTown_Text_Povoa4:
+	.string "The GYM here is bugs.\nFire and Flying moves end it fast.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

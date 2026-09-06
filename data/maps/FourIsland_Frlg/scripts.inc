@@ -216,3 +216,59 @@ FourIsland_Text_MadeSlushieUsingIcefallCaveIce::
 FourIsland_Text_LoreleisHouse::
 	.string "LORELEI'S HOUSE$"
 
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+FourIsland_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox FourIsland_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+FourIsland_Text_Povoa1:
+	.string "ICEFALL CAVE is cold enough to\nhurt. Do not go in tired.$"
+
+FourIsland_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox FourIsland_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+FourIsland_Text_Povoa2:
+	.string "The DAY CARE takes Pokémon and\ngives them back stronger.$"
+
+FourIsland_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox FourIsland_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+FourIsland_Text_Povoa3:
+	.string "Ice types fold to Fire, Rock,\nSteel and Fighting moves.$"
+
+FourIsland_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox FourIsland_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+FourIsland_Text_Povoa4:
+	.string "LORELEI lives here. A real ELITE\nFOUR member, on our island.$"
+
+FourIsland_EventScript_Povoa5::
+	lock
+	faceplayer
+	msgbox FourIsland_Text_Povoa5, MSGBOX_DEFAULT
+	release
+	end
+
+FourIsland_Text_Povoa5:
+	.string "Four ships a day, all of them\nlate. Island time.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

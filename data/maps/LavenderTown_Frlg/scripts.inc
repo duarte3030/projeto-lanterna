@@ -86,3 +86,79 @@ LavenderTown_Text_PokemonTowerSign::
 	.string "POKéMON TOWER\n"
 	.string "Becalm the Spirits of POKéMON$"
 
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+LavenderTown_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox LavenderTown_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+LavenderTown_Text_Povoa1:
+	.string "The TOWER is a grave, not a\nlandmark. Walk quietly in there.$"
+
+LavenderTown_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox LavenderTown_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+LavenderTown_Text_Povoa2:
+	.string "MR. FUJI takes in Pokémon that\nlost their trainers.$"
+
+LavenderTown_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox LavenderTown_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+LavenderTown_Text_Povoa3:
+	.string "My friend says the tower is\nhaunted. I say he is scared.$"
+
+LavenderTown_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox LavenderTown_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+LavenderTown_Text_Povoa4:
+	.string "Ghost types ignore Normal moves.\nBring something else.$"
+
+LavenderTown_EventScript_Povoa5::
+	lock
+	faceplayer
+	msgbox LavenderTown_Text_Povoa5, MSGBOX_DEFAULT
+	release
+	end
+
+LavenderTown_Text_Povoa5:
+	.string "Three roads meet here: ROUTE 8,\nROUTE 10 and ROUTE 12.$"
+
+LavenderTown_EventScript_Povoa6::
+	lock
+	faceplayer
+	msgbox LavenderTown_Text_Povoa6, MSGBOX_DEFAULT
+	release
+	end
+
+LavenderTown_Text_Povoa6:
+	.string "This town is small and sad,\nand it does not pretend otherwise.$"
+
+LavenderTown_EventScript_Povoa7::
+	lock
+	faceplayer
+	msgbox LavenderTown_Text_Povoa7, MSGBOX_DEFAULT
+	release
+	end
+
+LavenderTown_Text_Povoa7:
+	.string "I leave flowers at the tower\nevery week. It helps.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

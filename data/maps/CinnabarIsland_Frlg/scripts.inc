@@ -426,3 +426,79 @@ CinnabarIsland_Text_IfYouHaveTriPassYouCanGoAgain::
 	.string "VERMILION PORT.\p"
 	.string "All right, thanks for your company!$"
 
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+CinnabarIsland_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox CinnabarIsland_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+CinnabarIsland_Text_Povoa1:
+	.string "The LAB revives Pokémon from\nfossils. I still find that mad.$"
+
+CinnabarIsland_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox CinnabarIsland_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+CinnabarIsland_Text_Povoa2:
+	.string "The whole island sits on a\nvolcano. You get used to the heat.$"
+
+CinnabarIsland_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox CinnabarIsland_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+CinnabarIsland_Text_Povoa3:
+	.string "The MANSION has been empty for\nyears. Somebody left notes inside.$"
+
+CinnabarIsland_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox CinnabarIsland_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+CinnabarIsland_Text_Povoa4:
+	.string "A Fire GYM on a volcano.\nOf course it is.$"
+
+CinnabarIsland_EventScript_Povoa5::
+	lock
+	faceplayer
+	msgbox CinnabarIsland_Text_Povoa5, MSGBOX_DEFAULT
+	release
+	end
+
+CinnabarIsland_Text_Povoa5:
+	.string "Water and Rock moves put out\nfire fast. Free advice.$"
+
+CinnabarIsland_EventScript_Povoa6::
+	lock
+	faceplayer
+	msgbox CinnabarIsland_Text_Povoa6, MSGBOX_DEFAULT
+	release
+	end
+
+CinnabarIsland_Text_Povoa6:
+	.string "ROUTE 20 runs east from here,\nall of it open sea.$"
+
+CinnabarIsland_EventScript_Povoa7::
+	lock
+	faceplayer
+	msgbox CinnabarIsland_Text_Povoa7, MSGBOX_DEFAULT
+	release
+	end
+
+CinnabarIsland_Text_Povoa7:
+	.string "The sand is warm even at night.\nI sleep out here sometimes.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

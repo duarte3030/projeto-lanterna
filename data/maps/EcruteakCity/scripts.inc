@@ -259,3 +259,40 @@ EcruteakCity_Text_Silver3::
 	.string "want to see you win.$"
 
 @ <<< B6 Johto: cena portada do hns <<<
+
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+EcruteakCity_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox EcruteakCity_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+EcruteakCity_Text_Povoa1:
+	.string "The BURNED TOWER still smells of\nsmoke, after all these years.$"
+
+EcruteakCity_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox EcruteakCity_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+EcruteakCity_Text_Povoa2:
+	.string "TIN TOWER stands north.\nThe sages keep its stairs.$"
+
+EcruteakCity_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox EcruteakCity_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+EcruteakCity_Text_Povoa3:
+	.string "The THEATRE puts on shows for\nthe whole city.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

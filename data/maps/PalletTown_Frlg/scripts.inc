@@ -545,4 +545,79 @@ PalletTown_Text_PressStartToOpenMenuCopy::
 	.string "TRAINER TIPS!\p"
 	.string "Press START to open the MENU!$"
 
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
 
+PalletTown_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox PalletTown_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+PalletTown_Text_Povoa1:
+	.string "PROF. OAK's lab is right there.\pHe knows everything about\nPokémon. Everything!$"
+
+PalletTown_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox PalletTown_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+PalletTown_Text_Povoa2:
+	.string "PALLET TOWN is tiny, but every\ngreat trainer starts small.$"
+
+PalletTown_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox PalletTown_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+PalletTown_Text_Povoa3:
+	.string "The sea opens up south of town.\nWithout SURF you stop at the sand.$"
+
+PalletTown_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox PalletTown_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+PalletTown_Text_Povoa4:
+	.string "I have lived here all my life.\nQuiet town, loud Pokémon.$"
+
+PalletTown_EventScript_Povoa5::
+	lock
+	faceplayer
+	msgbox PalletTown_Text_Povoa5, MSGBOX_DEFAULT
+	release
+	end
+
+PalletTown_Text_Povoa5:
+	.string "ROUTE 1 is north, full of grass.\pA fresh team learns fast there.$"
+
+PalletTown_EventScript_Povoa6::
+	lock
+	faceplayer
+	msgbox PalletTown_Text_Povoa6, MSGBOX_DEFAULT
+	release
+	end
+
+PalletTown_Text_Povoa6:
+	.string "Everyone who leaves this town\ncomes back with a story.$"
+
+PalletTown_EventScript_Povoa7::
+	lock
+	faceplayer
+	msgbox PalletTown_Text_Povoa7, MSGBOX_DEFAULT
+	release
+	end
+
+PalletTown_Text_Povoa7:
+	.string "Walking into tall grass with no\nPokémon is asking for trouble.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

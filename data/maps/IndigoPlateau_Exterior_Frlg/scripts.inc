@@ -184,3 +184,90 @@ IndigoPlateau_Exterior_Movement_OakLeave::
 IndigoPlateau_Exterior_Movement_OakExitBuilding::
 	walk_down
 	step_end
+
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+IndigoPlateau_Exterior_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox IndigoPlateau_Exterior_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+IndigoPlateau_Exterior_Text_Povoa1:
+	.string "Past this door the ELITE FOUR\nare waiting. No second tries.$"
+
+IndigoPlateau_Exterior_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox IndigoPlateau_Exterior_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+IndigoPlateau_Exterior_Text_Povoa2:
+	.string "I climbed VICTORY ROAD twice.\nI turned back twice.$"
+
+IndigoPlateau_Exterior_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox IndigoPlateau_Exterior_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+IndigoPlateau_Exterior_Text_Povoa3:
+	.string "Heal here. There is nowhere to\nrest once you go in.$"
+
+IndigoPlateau_Exterior_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox IndigoPlateau_Exterior_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+IndigoPlateau_Exterior_Text_Povoa4:
+	.string "Four champions in a row, then\nthe CHAMPION. Think about that.$"
+
+IndigoPlateau_Exterior_EventScript_Povoa5::
+	lock
+	faceplayer
+	msgbox IndigoPlateau_Exterior_Text_Povoa5, MSGBOX_DEFAULT
+	release
+	end
+
+IndigoPlateau_Exterior_Text_Povoa5:
+	.string "The wind up here never stops.\nIt clears the head.$"
+
+IndigoPlateau_Exterior_EventScript_Povoa6::
+	lock
+	faceplayer
+	msgbox IndigoPlateau_Exterior_Text_Povoa6, MSGBOX_DEFAULT
+	release
+	end
+
+IndigoPlateau_Exterior_Text_Povoa6:
+	.string "I cover every challenger who\nwalks through that gate.$"
+
+IndigoPlateau_Exterior_EventScript_Povoa7::
+	lock
+	faceplayer
+	msgbox IndigoPlateau_Exterior_Text_Povoa7, MSGBOX_DEFAULT
+	release
+	end
+
+IndigoPlateau_Exterior_Text_Povoa7:
+	.string "Bring full restores. Bring more\nthan you think you need.$"
+
+IndigoPlateau_Exterior_EventScript_Povoa8::
+	lock
+	faceplayer
+	msgbox IndigoPlateau_Exterior_Text_Povoa8, MSGBOX_DEFAULT
+	release
+	end
+
+IndigoPlateau_Exterior_Text_Povoa8:
+	.string "My brother went in this morning.\nI am still standing here.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

@@ -1014,3 +1014,49 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
 
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+LittlerootTown_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox LittlerootTown_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_Text_Povoa1:
+	.string "PROF. BIRCH studies Pokémon in\nthe field, not at a desk.$"
+
+LittlerootTown_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox LittlerootTown_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_Text_Povoa2:
+	.string "Two houses and a lab. That is\nthe whole town, and it is enough.$"
+
+LittlerootTown_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox LittlerootTown_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_Text_Povoa3:
+	.string "ROUTE 101 is north. Every\ntrainer from here starts on it.$"
+
+LittlerootTown_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox LittlerootTown_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_Text_Povoa4:
+	.string "The moving van came here once.\nI still remember the noise.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

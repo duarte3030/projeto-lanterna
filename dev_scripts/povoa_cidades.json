@@ -1,0 +1,3128 @@
+{
+  "_comentario": [
+    "Tabela do povoamento: cada cidade exterior do cartucho 1 com o",
+    "elenco que a leva ao piso de NPCs da lei do Gui de 07/09/2026.",
+    "Gerado e conferido por dev_scripts/povoa_cidades.py."
+  ],
+  "cidades": {
+    "AzaleaTown": {
+      "regiao": "Johto",
+      "prefixo": "AzaleaTown",
+      "antes": 6,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_BOY_3",
+          "x": 19,
+          "y": 17,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "KURT makes BALLS out of\\nAPRICORNS. By hand, one at a time."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_WOMAN_1",
+          "x": 38,
+          "y": 17,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "SLOWPOKE WELL is under the town.\\nThe SLOWPOKE are back, thankfully."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_BUG_CATCHER",
+          "x": 30,
+          "y": 24,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "ILEX FOREST is west through the\\ngate. It is easy to get lost."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_OLD_MAN_1",
+          "x": 31,
+          "y": 19,
+          "elevation": 3,
+          "mov": "WALK_UP_AND_DOWN",
+          "rx": 0,
+          "ry": 1,
+          "falas": [
+            "The GYM here is bugs.\\nFire and Flying moves end it fast."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "BlackthornCity": {
+      "regiao": "Johto",
+      "prefixo": "BlackthornCity",
+      "antes": 7,
+      "alvo": 11,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_BLACK_BELT",
+          "x": 21,
+          "y": 48,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "DRAGON'S DEN is behind the GYM.\\nOnly the clan goes down there."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_OLD_MAN_1",
+          "x": 19,
+          "y": 36,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "The ICE PATH is the only way\\nnorth, and it is slippery."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_WOMAN_4",
+          "x": 17,
+          "y": 42,
+          "elevation": 3,
+          "mov": "FACE_LEFT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Dragon moves are answered by\\nIce, and by other dragons."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_HIKER",
+          "x": 21,
+          "y": 44,
+          "elevation": 3,
+          "mov": "WALK_UP_AND_DOWN",
+          "rx": 0,
+          "ry": 1,
+          "falas": [
+            "This city sits in a crater.\\nThe lava never comes up here."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "CanalaveCity": {
+      "regiao": "Sinnoh",
+      "prefixo": "CanalaveCity",
+      "antes": 7,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_SAILOR",
+          "x": 24,
+          "y": 25,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "The ferry from the dock reaches\\nIRON ISLAND. Ask the sailor."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_SCIENTIST_2",
+          "x": 5,
+          "y": 48,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "The LIBRARY holds every myth\\nSINNOH ever wrote down."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_WORKER_M",
+          "x": 5,
+          "y": 39,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "This city was built for cargo.\\nThe bridges lift for the ships."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "CeladonCity_Frlg": {
+      "regiao": "Kanto",
+      "prefixo": "CeladonCity",
+      "antes": 10,
+      "alvo": 12,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_BEAUTY_FRLG",
+          "x": 28,
+          "y": 30,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "The DEPARTMENT STORE has a floor\\nfor almost everything."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_RICH_BOY",
+          "x": 7,
+          "y": 18,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "The GAME CORNER eats coins.\\nI would know. Ask my wallet."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "CelesticTown": {
+      "regiao": "Sinnoh",
+      "prefixo": "CelesticTown",
+      "antes": 8,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_OLD_WOMAN",
+          "x": 22,
+          "y": 19,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "The shrine in the cave is older\\nthan any record we keep."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_HIKER",
+          "x": 14,
+          "y": 19,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "ROUTE 210 east, ROUTE 211 west.\\nMountains both ways."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "CeruleanCity_Frlg": {
+      "regiao": "Kanto",
+      "prefixo": "CeruleanCity",
+      "antes": 9,
+      "alvo": 12,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_BEAUTY_FRLG",
+          "x": 24,
+          "y": 12,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "The GYM here is all water.\\nElectric moves cut it short."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_BIKER",
+          "x": 38,
+          "y": 16,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "The BIKE SHOP is famous.\\nThe prices are famous too."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_SWIMMER_M_LAND",
+          "x": 11,
+          "y": 15,
+          "elevation": 3,
+          "mov": "FACE_LEFT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "ROUTE 24 goes north, ROUTE 9 east.\\nBoth are crawling with trainers."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "CherrygroveCity": {
+      "regiao": "Johto",
+      "prefixo": "CherrygroveCity",
+      "antes": 6,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_OLD_MAN_1",
+          "x": 29,
+          "y": 13,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "CHERRYGROVE is the first city\\nmost trainers ever see."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_FISHERMAN",
+          "x": 36,
+          "y": 16,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The sea is right there. I have\\nfished this shore for forty years."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_LASS",
+          "x": 46,
+          "y": 18,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The MART here has the basics.\\nPOTIONS and BALLS, mostly."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_BOY_2",
+          "x": 29,
+          "y": 10,
+          "elevation": 3,
+          "mov": "WALK_UP_AND_DOWN",
+          "rx": 0,
+          "ry": 1,
+          "falas": [
+            "ROUTE 30 goes north to VIOLET.\\nROUTE 29 goes back east."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "CianwoodCity": {
+      "regiao": "Johto",
+      "prefixo": "CianwoodCity",
+      "antes": 6,
+      "alvo": 11,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_BLACK_BELT",
+          "x": 15,
+          "y": 28,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "The GYM here fights bare handed.\\nFlying and Psychic answer that."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_FISHERMAN",
+          "x": 29,
+          "y": 48,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "No road reaches CIANWOOD.\\nYou come by water or not at all."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_OLD_WOMAN",
+          "x": 18,
+          "y": 50,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "The PHARMACY has medicine you\\nwill not find anywhere else."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_HIKER",
+          "x": 19,
+          "y": 40,
+          "elevation": 3,
+          "mov": "FACE_RIGHT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "CLIFF EDGE GATE is north.\\nThe rocks past it are worse."
+          ]
+        },
+        {
+          "rotulo": "Povoa5",
+          "gfx": "OBJ_EVENT_GFX_BOY_2",
+          "x": 22,
+          "y": 44,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "ROUTE 41 east is open sea,\\nwhirlpools and all."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "CinnabarIsland_Frlg": {
+      "regiao": "Kanto",
+      "prefixo": "CinnabarIsland",
+      "antes": 3,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_SCIENTIST_2",
+          "x": 6,
+          "y": 13,
+          "elevation": 1,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The LAB revives Pokémon from\\nfossils. I still find that mad."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_FISHERMAN",
+          "x": 19,
+          "y": 14,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "The whole island sits on a\\nvolcano. You get used to the heat."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_SWIMMER_F_LAND",
+          "x": 9,
+          "y": 14,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The MANSION has been empty for\\nyears. Somebody left notes inside."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_BLACK_BELT_FRLG",
+          "x": 12,
+          "y": 14,
+          "elevation": 3,
+          "mov": "WALK_UP_AND_DOWN",
+          "rx": 0,
+          "ry": 1,
+          "falas": [
+            "A Fire GYM on a volcano.\\nOf course it is."
+          ]
+        },
+        {
+          "rotulo": "Povoa5",
+          "gfx": "OBJ_EVENT_GFX_OLD_WOMAN_FRLG",
+          "x": 15,
+          "y": 15,
+          "elevation": 1,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "Water and Rock moves put out\\nfire fast. Free advice."
+          ]
+        },
+        {
+          "rotulo": "Povoa6",
+          "gfx": "OBJ_EVENT_GFX_SAILOR_FRLG",
+          "x": 17,
+          "y": 5,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "ROUTE 20 runs east from here,\\nall of it open sea."
+          ]
+        },
+        {
+          "rotulo": "Povoa7",
+          "gfx": "OBJ_EVENT_GFX_LITTLE_GIRL_FRLG",
+          "x": 14,
+          "y": 3,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The sand is warm even at night.\\nI sleep out here sometimes."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "DewfordTown": {
+      "regiao": "Hoenn",
+      "prefixo": "DewfordTown",
+      "antes": 4,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_SAILOR",
+          "x": 3,
+          "y": 15,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "No road reaches DEWFORD.\\nMR. BRINEY brings everyone in."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_SWIMMER_M_LAND",
+          "x": 7,
+          "y": 4,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "GRANITE CAVE is on ROUTE 106,\\njust north of the beach."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_FISHERMAN",
+          "x": 15,
+          "y": 14,
+          "elevation": 3,
+          "mov": "FACE_LEFT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The tide here is strong.\\nWatch where you stand."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_BLACK_BELT",
+          "x": 6,
+          "y": 8,
+          "elevation": 3,
+          "mov": "FACE_RIGHT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The GYM fights in the dark.\\nFlying and Psychic end it fast."
+          ]
+        },
+        {
+          "rotulo": "Povoa5",
+          "gfx": "OBJ_EVENT_GFX_TUBER_F",
+          "x": 4,
+          "y": 12,
+          "elevation": 3,
+          "mov": "FACE_UP",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "I make sand castles all day.\\nThe sea takes them all night."
+          ]
+        },
+        {
+          "rotulo": "Povoa6",
+          "gfx": "OBJ_EVENT_GFX_OLD_WOMAN",
+          "x": 4,
+          "y": 4,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The TOWN HALL keeps the island\\ngossip. All of it."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "EcruteakCity": {
+      "regiao": "Johto",
+      "prefixo": "EcruteakCity",
+      "antes": 9,
+      "alvo": 12,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_HEX_MANIAC",
+          "x": 42,
+          "y": 32,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The BURNED TOWER still smells of\\nsmoke, after all these years."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_GENTLEMAN",
+          "x": 32,
+          "y": 38,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "TIN TOWER stands north.\\nThe sages keep its stairs."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_BEAUTY",
+          "x": 37,
+          "y": 26,
+          "elevation": 3,
+          "mov": "FACE_LEFT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The THEATRE puts on shows for\\nthe whole city."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "EverGrandeCity": {
+      "regiao": "Hoenn",
+      "prefixo": "EverGrandeCity",
+      "antes": 0,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_COOLTRAINER_M",
+          "x": 20,
+          "y": 47,
+          "elevation": 5,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "VICTORY ROAD is the only way up.\\nThere is no shortcut."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "x": 26,
+          "y": 18,
+          "elevation": 7,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "I have healed here four times\\ntoday. I am not going in yet."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_BLACK_BELT",
+          "x": 19,
+          "y": 15,
+          "elevation": 7,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "A city with no houses, only a\\ngate and a mountain."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_EXPERT_M",
+          "x": 16,
+          "y": 47,
+          "elevation": 5,
+          "mov": "WALK_UP_AND_DOWN",
+          "rx": 0,
+          "ry": 1,
+          "falas": [
+            "The POKéMON LEAGUE takes eight\\nbadges and nothing less."
+          ]
+        },
+        {
+          "rotulo": "Povoa5",
+          "gfx": "OBJ_EVENT_GFX_SWIMMER_F_LAND",
+          "x": 24,
+          "y": 28,
+          "elevation": 7,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "ROUTE 128 west is deep water.\\nYou surfed it to get here."
+          ]
+        },
+        {
+          "rotulo": "Povoa6",
+          "gfx": "OBJ_EVENT_GFX_HIKER",
+          "x": 20,
+          "y": 10,
+          "elevation": 7,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The cliffs here are the tallest\\nin HOENN. Look up."
+          ]
+        },
+        {
+          "rotulo": "Povoa7",
+          "gfx": "OBJ_EVENT_GFX_BEAUTY",
+          "x": 16,
+          "y": 10,
+          "elevation": 7,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Everyone who reaches this beach\\nhas a story worth hearing."
+          ]
+        },
+        {
+          "rotulo": "Povoa8",
+          "gfx": "OBJ_EVENT_GFX_PSYCHIC_M",
+          "x": 26,
+          "y": 21,
+          "elevation": 7,
+          "mov": "WALK_UP_AND_DOWN",
+          "rx": 0,
+          "ry": 1,
+          "falas": [
+            "Rest before the road.\\nInside, there is nowhere to sit."
+          ]
+        },
+        {
+          "rotulo": "Povoa9",
+          "gfx": "OBJ_EVENT_GFX_LASS",
+          "x": 17,
+          "y": 50,
+          "elevation": 5,
+          "mov": "FACE_RIGHT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "My sister went up this morning.\\nI am waiting right here."
+          ]
+        },
+        {
+          "rotulo": "Povoa10",
+          "gfx": "OBJ_EVENT_GFX_FISHERMAN",
+          "x": 20,
+          "y": 50,
+          "elevation": 5,
+          "mov": "FACE_UP",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "I fish this shore and watch\\nchampions walk past. Good life."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "FallarborTown": {
+      "regiao": "Hoenn",
+      "prefixo": "FallarborTown",
+      "antes": 3,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_SCIENTIST_1",
+          "x": 4,
+          "y": 11,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "PROF. COZMO studies the sky\\nfrom this dusty little town."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_OLD_MAN_2",
+          "x": 15,
+          "y": 11,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "Ash falls here when the volcano\\nstirs. We sweep, and go on."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_EXPERT_F",
+          "x": 12,
+          "y": 12,
+          "elevation": 3,
+          "mov": "FACE_LEFT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The MOVE RELEARNER lives here.\\nForgotten moves come back."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_HIKER",
+          "x": 4,
+          "y": 15,
+          "elevation": 3,
+          "mov": "FACE_RIGHT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "ROUTE 114 west, ROUTE 113 east.\\nThe ash road is east."
+          ]
+        },
+        {
+          "rotulo": "Povoa5",
+          "gfx": "OBJ_EVENT_GFX_LASS",
+          "x": 7,
+          "y": 14,
+          "elevation": 3,
+          "mov": "FACE_UP",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The BATTLE TENT takes anyone.\\nWinning is another matter."
+          ]
+        },
+        {
+          "rotulo": "Povoa6",
+          "gfx": "OBJ_EVENT_GFX_MAN_3",
+          "x": 1,
+          "y": 11,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Soot from the ash road can be\\ncollected. Glass is made from it."
+          ]
+        },
+        {
+          "rotulo": "Povoa7",
+          "gfx": "OBJ_EVENT_GFX_LITTLE_BOY",
+          "x": 14,
+          "y": 16,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "I wrote my name in the ash and\\nthe wind took it."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "FiveIsland_Frlg": {
+      "regiao": "Kanto",
+      "prefixo": "FiveIsland",
+      "antes": 2,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_PICNICKER_FRLG",
+          "x": 11,
+          "y": 10,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "FIVE ISLE MEADOW is east.\\nBerries grow wild out there."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_SCIENTIST_2",
+          "x": 6,
+          "y": 10,
+          "elevation": 1,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The WATER LABYRINTH is north.\\nPeople trade odd Pokémon there."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_SAILOR_FRLG",
+          "x": 4,
+          "y": 15,
+          "elevation": 1,
+          "mov": "FACE_LEFT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The harbour is the only way in\\nand the only way out."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_OLD_MAN_1",
+          "x": 7,
+          "y": 13,
+          "elevation": 1,
+          "mov": "FACE_RIGHT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Five islands down, two to go.\\nThat is how I count my life."
+          ]
+        },
+        {
+          "rotulo": "Povoa5",
+          "gfx": "OBJ_EVENT_GFX_LASS_FRLG",
+          "x": 4,
+          "y": 4,
+          "elevation": 1,
+          "mov": "FACE_UP",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "It rains here more than on the\\nother islands. I like it."
+          ]
+        },
+        {
+          "rotulo": "Povoa6",
+          "gfx": "OBJ_EVENT_GFX_FAT_MAN_FRLG",
+          "x": 11,
+          "y": 13,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Berries a Pokémon holds get\\neaten in battle, on their own."
+          ]
+        },
+        {
+          "rotulo": "Povoa7",
+          "gfx": "OBJ_EVENT_GFX_LITTLE_BOY_FRLG",
+          "x": 5,
+          "y": 7,
+          "elevation": 1,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "I found a shell on the beach\\nshaped like a POKé BALL."
+          ]
+        },
+        {
+          "rotulo": "Povoa8",
+          "gfx": "OBJ_EVENT_GFX_WOMAN_2_FRLG",
+          "x": 18,
+          "y": 16,
+          "elevation": 1,
+          "mov": "FACE_LEFT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Nothing hurries here. Not even\\nthe ferry."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "FloaromaTown": {
+      "regiao": "Sinnoh",
+      "prefixo": "FloaromaTown",
+      "antes": 8,
+      "alvo": 11,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_PICNICKER",
+          "x": 23,
+          "y": 5,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "The MEADOW north is one long\\nfield of flowers."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_OLD_WOMAN",
+          "x": 12,
+          "y": 7,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "The FLOWER SHOP sells more than\\nflowers. Ask about accessories."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_LITTLE_GIRL",
+          "x": 5,
+          "y": 12,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Bees come with the flowers.\\nSo do the Pokémon that eat bees."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "FortreeCity": {
+      "regiao": "Hoenn",
+      "prefixo": "FortreeCity",
+      "antes": 6,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_POKEFAN_M",
+          "x": 4,
+          "y": 10,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Every house here sits in a tree.\\nThe ladders take getting used to."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_WOMAN_3",
+          "x": 35,
+          "y": 10,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The GYM LEADER flies.\\nElectric, Ice and Rock ground her."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_BOY_2",
+          "x": 7,
+          "y": 13,
+          "elevation": 3,
+          "mov": "FACE_LEFT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "ROUTE 119 west is a jungle.\\nROUTE 120 east has a bridge."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_OLD_MAN_2",
+          "x": 33,
+          "y": 13,
+          "elevation": 3,
+          "mov": "FACE_RIGHT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Something invisible sits on the\\nbridge east of town. I swear it."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "FourIsland_Frlg": {
+      "regiao": "Kanto",
+      "prefixo": "FourIsland",
+      "antes": 5,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_SWIMMER_F_LAND",
+          "x": 9,
+          "y": 17,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "ICEFALL CAVE is cold enough to\\nhurt. Do not go in tired."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_OLD_WOMAN_FRLG",
+          "x": 14,
+          "y": 24,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The DAY CARE takes Pokémon and\\ngives them back stronger."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_BLACK_BELT_FRLG",
+          "x": 33,
+          "y": 27,
+          "elevation": 3,
+          "mov": "FACE_LEFT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Ice types fold to Fire, Rock,\\nSteel and Fighting moves."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_LITTLE_GIRL_FRLG",
+          "x": 11,
+          "y": 23,
+          "elevation": 3,
+          "mov": "FACE_RIGHT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "LORELEI lives here. A real ELITE\\nFOUR member, on our island."
+          ]
+        },
+        {
+          "rotulo": "Povoa5",
+          "gfx": "OBJ_EVENT_GFX_SAILOR_FRLG",
+          "x": 12,
+          "y": 18,
+          "elevation": 3,
+          "mov": "FACE_UP",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Four ships a day, all of them\\nlate. Island time."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "FuchsiaCity_Frlg": {
+      "regiao": "Kanto",
+      "prefixo": "FuchsiaCity",
+      "antes": 7,
+      "alvo": 11,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_WOMAN_2_FRLG",
+          "x": 21,
+          "y": 17,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "The SAFARI ZONE is behind that\\ngate. No battling in there."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_BLACK_BELT_FRLG",
+          "x": 27,
+          "y": 22,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "The GYM LEADER uses poison.\\nBring antidotes, not excuses."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_OLD_MAN_1",
+          "x": 5,
+          "y": 22,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The WARDEN lives over there.\\nHe cares for the park by himself."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_HIKER_FRLG",
+          "x": 21,
+          "y": 35,
+          "elevation": 3,
+          "mov": "FACE_RIGHT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "ROUTE 19 is south, and it is\\nall water. You will need SURF."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "IndigoPlateau_Exterior_Frlg": {
+      "regiao": "Kanto",
+      "prefixo": "IndigoPlateau_Exterior",
+      "antes": 2,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_COOLTRAINER_M",
+          "x": 12,
+          "y": 11,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Past this door the ELITE FOUR\\nare waiting. No second tries."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "x": 10,
+          "y": 10,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "I climbed VICTORY ROAD twice.\\nI turned back twice."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_BLACK_BELT_FRLG",
+          "x": 12,
+          "y": 9,
+          "elevation": 3,
+          "mov": "FACE_LEFT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Heal here. There is nowhere to\\nrest once you go in."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_EXPERT_M",
+          "x": 10,
+          "y": 12,
+          "elevation": 3,
+          "mov": "FACE_RIGHT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Four champions in a row, then\\nthe CHAMPION. Think about that."
+          ]
+        },
+        {
+          "rotulo": "Povoa5",
+          "gfx": "OBJ_EVENT_GFX_HIKER_FRLG",
+          "x": 10,
+          "y": 8,
+          "elevation": 3,
+          "mov": "FACE_UP",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The wind up here never stops.\\nIt clears the head."
+          ]
+        },
+        {
+          "rotulo": "Povoa6",
+          "gfx": "OBJ_EVENT_GFX_REPORTER_F",
+          "x": 12,
+          "y": 13,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "I cover every challenger who\\nwalks through that gate."
+          ]
+        },
+        {
+          "rotulo": "Povoa7",
+          "gfx": "OBJ_EVENT_GFX_GENTLEMAN_FRLG",
+          "x": 10,
+          "y": 14,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Bring full restores. Bring more\\nthan you think you need."
+          ]
+        },
+        {
+          "rotulo": "Povoa8",
+          "gfx": "OBJ_EVENT_GFX_LASS_FRLG",
+          "x": 7,
+          "y": 10,
+          "elevation": 3,
+          "mov": "FACE_LEFT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "My brother went in this morning.\\nI am still standing here."
+          ]
+        }
+      ],
+      "dmin": 2
+    },
+    "LavaridgeTown": {
+      "regiao": "Hoenn",
+      "prefixo": "LavaridgeTown",
+      "antes": 9,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_MAN_5",
+          "x": 15,
+          "y": 9,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The hot spring cures anything a\\nlong walk causes."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "LavenderTown_Frlg": {
+      "regiao": "Kanto",
+      "prefixo": "LavenderTown",
+      "antes": 3,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_CHANNELER",
+          "x": 4,
+          "y": 10,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "The TOWER is a grave, not a\\nlandmark. Walk quietly in there."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_OLD_MAN_2",
+          "x": 16,
+          "y": 15,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "MR. FUJI takes in Pokémon that\\nlost their trainers."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_LITTLE_BOY_FRLG",
+          "x": 16,
+          "y": 10,
+          "elevation": 3,
+          "mov": "FACE_LEFT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "My friend says the tower is\\nhaunted. I say he is scared."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_WOMAN_1_FRLG",
+          "x": 4,
+          "y": 7,
+          "elevation": 3,
+          "mov": "FACE_RIGHT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Ghost types ignore Normal moves.\\nBring something else."
+          ]
+        },
+        {
+          "rotulo": "Povoa5",
+          "gfx": "OBJ_EVENT_GFX_POKE_MANIAC_FRLG",
+          "x": 13,
+          "y": 15,
+          "elevation": 3,
+          "mov": "FACE_UP",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Three roads meet here: ROUTE 8,\\nROUTE 10 and ROUTE 12."
+          ]
+        },
+        {
+          "rotulo": "Povoa6",
+          "gfx": "OBJ_EVENT_GFX_GENTLEMAN_FRLG",
+          "x": 4,
+          "y": 13,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "This town is small and sad,\\nand it does not pretend otherwise."
+          ]
+        },
+        {
+          "rotulo": "Povoa7",
+          "gfx": "OBJ_EVENT_GFX_LASS_FRLG",
+          "x": 7,
+          "y": 9,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "I leave flowers at the tower\\nevery week. It helps."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "LittlerootTown": {
+      "regiao": "Hoenn",
+      "prefixo": "LittlerootTown",
+      "antes": 6,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_BOY_1",
+          "x": 11,
+          "y": 4,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "PROF. BIRCH studies Pokémon in\\nthe field, not at a desk."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_WOMAN_5",
+          "x": 16,
+          "y": 14,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Two houses and a lab. That is\\nthe whole town, and it is enough."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_OLD_MAN_1",
+          "x": 4,
+          "y": 12,
+          "elevation": 3,
+          "mov": "FACE_LEFT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "ROUTE 101 is north. Every\\ntrainer from here starts on it."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_LITTLE_GIRL",
+          "x": 7,
+          "y": 4,
+          "elevation": 3,
+          "mov": "FACE_RIGHT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The moving van came here once.\\nI still remember the noise."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "Mahoganytown": {
+      "regiao": "Johto",
+      "prefixo": "MahoganyTown",
+      "antes": 4,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_HIKER",
+          "x": 17,
+          "y": 14,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "The mountain air keeps this town\\ncold most of the year."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_OLD_WOMAN",
+          "x": 22,
+          "y": 12,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "The shop here sells souvenirs.\\nRead the labels twice."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_BOY_2",
+          "x": 11,
+          "y": 12,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The GYM freezes. Fire and Rock\\nwork. So do Steel and Fighting."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_WOMAN_2",
+          "x": 16,
+          "y": 19,
+          "elevation": 3,
+          "mov": "WALK_UP_AND_DOWN",
+          "rx": 0,
+          "ry": 1,
+          "falas": [
+            "ROUTE 43 north leads to the\\nLAKE OF RAGE."
+          ]
+        },
+        {
+          "rotulo": "Povoa5",
+          "gfx": "OBJ_EVENT_GFX_BLACK_BELT",
+          "x": 19,
+          "y": 11,
+          "elevation": 3,
+          "mov": "FACE_UP",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Snow makes every fight slower.\\nPatience wins here."
+          ]
+        },
+        {
+          "rotulo": "Povoa6",
+          "gfx": "OBJ_EVENT_GFX_LASS",
+          "x": 14,
+          "y": 14,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "I like the quiet. Most people\\nleave for GOLDENROD."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "NewBarkTown": {
+      "regiao": "Johto",
+      "prefixo": "NewBarkTown",
+      "antes": 3,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_LITTLE_BOY",
+          "x": 15,
+          "y": 14,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "PROF. ELM's lab is the reason\\nanyone knows this town."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_WOMAN_2",
+          "x": 21,
+          "y": 15,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "They call it the town where the\\nwinds of a new beginning blow."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_FISHERMAN",
+          "x": 5,
+          "y": 14,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "ROUTE 27 is east, and it is wet.\\nROUTE 29 west is dry."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_OLD_MAN_2",
+          "x": 9,
+          "y": 21,
+          "elevation": 3,
+          "mov": "WALK_UP_AND_DOWN",
+          "rx": 0,
+          "ry": 1,
+          "falas": [
+            "I watched three trainers leave\\nfrom here. All came back changed."
+          ]
+        },
+        {
+          "rotulo": "Povoa5",
+          "gfx": "OBJ_EVENT_GFX_LASS",
+          "x": 12,
+          "y": 14,
+          "elevation": 3,
+          "mov": "FACE_UP",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Every house here knows every\\nother house. Keep no secrets."
+          ]
+        },
+        {
+          "rotulo": "Povoa6",
+          "gfx": "OBJ_EVENT_GFX_BUG_CATCHER",
+          "x": 18,
+          "y": 15,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "ROUTE 29 has soft grass and soft\\nPokémon. Start there."
+          ]
+        },
+        {
+          "rotulo": "Povoa7",
+          "gfx": "OBJ_EVENT_GFX_BALDING_MAN",
+          "x": 20,
+          "y": 21,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Heal at the lab, stock up west.\\nThen the road is yours."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "OldaleTown": {
+      "regiao": "Hoenn",
+      "prefixo": "OldaleTown",
+      "antes": 4,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_WOMAN_1",
+          "x": 11,
+          "y": 14,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "OLDALE is the first stop out of\\nLITTLEROOT. Rest while you can."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_BOY_2",
+          "x": 9,
+          "y": 5,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "Three roads: 101 south,\\n102 west, 103 north."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_LASS",
+          "x": 5,
+          "y": 10,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The MART clerk explains POTIONS\\nto everyone. Every single time."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_OLD_MAN_2",
+          "x": 12,
+          "y": 11,
+          "elevation": 3,
+          "mov": "FACE_RIGHT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Nothing happens here. That is\\nwhy I stayed."
+          ]
+        },
+        {
+          "rotulo": "Povoa5",
+          "gfx": "OBJ_EVENT_GFX_BUG_CATCHER",
+          "x": 8,
+          "y": 12,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "ROUTE 103 has a beach and a\\npond. Good for a first team."
+          ]
+        },
+        {
+          "rotulo": "Povoa6",
+          "gfx": "OBJ_EVENT_GFX_MAN_1",
+          "x": 5,
+          "y": 13,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "A Pokémon that faints still\\nearns nothing. Keep them standing."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "OlivineCity": {
+      "regiao": "Johto",
+      "prefixo": "OlivineCity",
+      "antes": 6,
+      "alvo": 11,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_SAILOR",
+          "x": 18,
+          "y": 48,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "The PORT is south. Ships leave\\nfor far coasts from there."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_FISHERMAN",
+          "x": 12,
+          "y": 50,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "The LIGHTHOUSE keeps this whole\\nharbour alive at night."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_OLD_MAN_2",
+          "x": 23,
+          "y": 46,
+          "elevation": 3,
+          "mov": "FACE_LEFT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The GYM here is steel.\\nFire, Fighting and Ground bite it."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_WOMAN_3",
+          "x": 10,
+          "y": 35,
+          "elevation": 3,
+          "mov": "FACE_RIGHT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The CAFE by the water is the\\nbest thing in this city."
+          ]
+        },
+        {
+          "rotulo": "Povoa5",
+          "gfx": "OBJ_EVENT_GFX_BOY_1",
+          "x": 30,
+          "y": 50,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "ROUTE 40 west is all sea.\\nROUTE 39 north is all farmland."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "OneIsland_Frlg": {
+      "regiao": "Kanto",
+      "prefixo": "OneIsland",
+      "antes": 3,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_SAILOR_FRLG",
+          "x": 12,
+          "y": 13,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The ferry from here reaches all\\nthe islands. Ask at the harbour."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_SCIENTIST_1",
+          "x": 16,
+          "y": 9,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The machine in that house links\\nour network to KANTO."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_HIKER_FRLG",
+          "x": 9,
+          "y": 14,
+          "elevation": 3,
+          "mov": "FACE_LEFT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "KINDLE ROAD is east, and it\\nclimbs. Bring water."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_PICNICKER_FRLG",
+          "x": 19,
+          "y": 11,
+          "elevation": 3,
+          "mov": "FACE_RIGHT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "TREASURE BEACH is south.\\nThe tide leaves things behind."
+          ]
+        },
+        {
+          "rotulo": "Povoa5",
+          "gfx": "OBJ_EVENT_GFX_OLD_MAN_2",
+          "x": 8,
+          "y": 17,
+          "elevation": 1,
+          "mov": "FACE_UP",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "ONE ISLAND is the first of the\\nseven. The quietest, too."
+          ]
+        },
+        {
+          "rotulo": "Povoa6",
+          "gfx": "OBJ_EVENT_GFX_WOMAN_1_FRLG",
+          "x": 5,
+          "y": 16,
+          "elevation": 1,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The hot spring up the road is\\nworth the walk."
+          ]
+        },
+        {
+          "rotulo": "Povoa7",
+          "gfx": "OBJ_EVENT_GFX_LITTLE_BOY_FRLG",
+          "x": 22,
+          "y": 12,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "I want to see all seven islands\\nbefore I grow up."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "PacifidlogTown": {
+      "regiao": "Hoenn",
+      "prefixo": "PacifidlogTown",
+      "antes": 3,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_FISHERMAN",
+          "x": 3,
+          "y": 14,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The whole town floats on logs.\\nMind your step at night."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_SWIMMER_F_LAND",
+          "x": 3,
+          "y": 24,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The currents past town push you\\nwhere they please. Mind them."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_OLD_MAN_1",
+          "x": 17,
+          "y": 23,
+          "elevation": 3,
+          "mov": "FACE_LEFT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "No grass, no trees, no roads.\\nJust water and neighbours."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_SAILOR",
+          "x": 16,
+          "y": 15,
+          "elevation": 3,
+          "mov": "FACE_RIGHT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "ROUTE 131 east, ROUTE 132 west.\\nBoth need SURF."
+          ]
+        },
+        {
+          "rotulo": "Povoa5",
+          "gfx": "OBJ_EVENT_GFX_LITTLE_BOY",
+          "x": 6,
+          "y": 14,
+          "elevation": 3,
+          "mov": "FACE_UP",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "I learned to swim before I\\nlearned to walk here."
+          ]
+        },
+        {
+          "rotulo": "Povoa6",
+          "gfx": "OBJ_EVENT_GFX_WOMAN_1",
+          "x": 14,
+          "y": 23,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Storms shake the logs, and the\\nhouses hold. Every time."
+          ]
+        },
+        {
+          "rotulo": "Povoa7",
+          "gfx": "OBJ_EVENT_GFX_TUBER_F",
+          "x": 4,
+          "y": 11,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The fish here come right up to\\nthe boards. They are not shy."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "PalletTown_Frlg": {
+      "regiao": "Kanto",
+      "prefixo": "PalletTown",
+      "antes": 3,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_LITTLE_BOY_FRLG",
+          "x": 9,
+          "y": 15,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "PROF. OAK's lab is right there.",
+            "He knows everything about\\nPokémon. Everything!"
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_WOMAN_1_FRLG",
+          "x": 19,
+          "y": 5,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "PALLET TOWN is tiny, but every\\ngreat trainer starts small."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_FISHERMAN",
+          "x": 18,
+          "y": 15,
+          "elevation": 3,
+          "mov": "FACE_LEFT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The sea opens up south of town.\\nWithout SURF you stop at the sand."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_OLD_MAN_2",
+          "x": 5,
+          "y": 16,
+          "elevation": 3,
+          "mov": "FACE_RIGHT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "I have lived here all my life.\\nQuiet town, loud Pokémon."
+          ]
+        },
+        {
+          "rotulo": "Povoa5",
+          "gfx": "OBJ_EVENT_GFX_BUG_CATCHER_FRLG",
+          "x": 10,
+          "y": 12,
+          "elevation": 3,
+          "mov": "FACE_UP",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "ROUTE 1 is north, full of grass.",
+            "A fresh team learns fast there."
+          ]
+        },
+        {
+          "rotulo": "Povoa6",
+          "gfx": "OBJ_EVENT_GFX_LASS_FRLG",
+          "x": 10,
+          "y": 5,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Everyone who leaves this town\\ncomes back with a story."
+          ]
+        },
+        {
+          "rotulo": "Povoa7",
+          "gfx": "OBJ_EVENT_GFX_FAT_MAN_FRLG",
+          "x": 4,
+          "y": 5,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Walking into tall grass with no\\nPokémon is asking for trouble."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "PetalburgCity": {
+      "regiao": "Hoenn",
+      "prefixo": "PetalburgCity",
+      "antes": 7,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_WOMAN_2",
+          "x": 25,
+          "y": 17,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "The GYM LEADER here trains\\nNormal types, and trains hard."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_BOY_3",
+          "x": 16,
+          "y": 24,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "PETALBURG WOODS are west,\\nthrough ROUTE 104."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_OLD_MAN_1",
+          "x": 15,
+          "y": 21,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The river runs right through\\ntown. Good water, good fish."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "PewterCity_Frlg": {
+      "regiao": "Kanto",
+      "prefixo": "PewterCity",
+      "antes": 6,
+      "alvo": 11,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_SCIENTIST_1",
+          "x": 26,
+          "y": 12,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "The MUSEUM keeps fossils older\\nthan any of us."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_HIKER_FRLG",
+          "x": 27,
+          "y": 32,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "MT. MOON is east, past ROUTE 3.\\nTake something that lights caves."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_LITTLE_GIRL_FRLG",
+          "x": 15,
+          "y": 32,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Rock Pokémon are so heavy.\\nI can not even lift a GEODUDE."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_CAMPER_FRLG",
+          "x": 36,
+          "y": 32,
+          "elevation": 3,
+          "mov": "WALK_UP_AND_DOWN",
+          "rx": 0,
+          "ry": 1,
+          "falas": [
+            "Rock types hate Water and Grass.\\nRemember that at the GYM."
+          ]
+        },
+        {
+          "rotulo": "Povoa5",
+          "gfx": "OBJ_EVENT_GFX_OLD_WOMAN_FRLG",
+          "x": 21,
+          "y": 34,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "PEWTER CITY is grey as stone,\\nbut the people here are warm."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "SandgemTown": {
+      "regiao": "Sinnoh",
+      "prefixo": "SandgemTown",
+      "antes": 6,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_SCIENTIST_1",
+          "x": 25,
+          "y": 14,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "PROF. ROWAN's lab studies how\\nPokémon change as they grow."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_FISHERMAN",
+          "x": 22,
+          "y": 26,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "The beach south is ROUTE 219.\\nAll sand and sea from there."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_WOMAN_4",
+          "x": 12,
+          "y": 13,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The MART here is small but it\\nnever runs out of POTIONS."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_BOY_2",
+          "x": 25,
+          "y": 17,
+          "elevation": 3,
+          "mov": "WALK_UP_AND_DOWN",
+          "rx": 0,
+          "ry": 1,
+          "falas": [
+            "ROUTE 202 north leads to\\nJUBILIFE. Big city, loud city."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "SevenIsland_Frlg": {
+      "regiao": "Kanto",
+      "prefixo": "SevenIsland",
+      "antes": 3,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_BLACK_BELT_FRLG",
+          "x": 9,
+          "y": 13,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "TRAINER TOWER is north. Floor\\nafter floor, no rest between."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_SCIENTIST_2",
+          "x": 10,
+          "y": 4,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The TANOBY RUINS hold writing\\nnobody has finished reading."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_HIKER_FRLG",
+          "x": 6,
+          "y": 11,
+          "elevation": 3,
+          "mov": "FACE_LEFT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "SEVAULT CANYON is south, and the\\nrock down there bites."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_OLD_MAN_2",
+          "x": 10,
+          "y": 10,
+          "elevation": 3,
+          "mov": "FACE_RIGHT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Last island of the seven.\\nThe road ends at the water."
+          ]
+        },
+        {
+          "rotulo": "Povoa5",
+          "gfx": "OBJ_EVENT_GFX_PICNICKER_FRLG",
+          "x": 15,
+          "y": 9,
+          "elevation": 3,
+          "mov": "FACE_UP",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "I came for a week. That was\\nfour years ago."
+          ]
+        },
+        {
+          "rotulo": "Povoa6",
+          "gfx": "OBJ_EVENT_GFX_LASS_FRLG",
+          "x": 7,
+          "y": 4,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The tower keeps a record of\\nevery run. Mine is bad."
+          ]
+        },
+        {
+          "rotulo": "Povoa7",
+          "gfx": "OBJ_EVENT_GFX_SAILOR_FRLG",
+          "x": 15,
+          "y": 12,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "From here you can see nothing\\nbut sea. I find that restful."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "SixIsland_Frlg": {
+      "regiao": "Kanto",
+      "prefixo": "SixIsland",
+      "antes": 2,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_HIKER_FRLG",
+          "x": 20,
+          "y": 16,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The WATER PATH east splits in\\nthree. Choose wrong and you swim."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_POKE_MANIAC_FRLG",
+          "x": 10,
+          "y": 19,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "PATTERN BUSH is a maze of hedges\\nand bug catchers."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_SCIENTIST_1",
+          "x": 13,
+          "y": 18,
+          "elevation": 3,
+          "mov": "FACE_LEFT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "ALTERING CAVE changes what lives\\ninside it. Nobody agrees why."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_OLD_WOMAN_FRLG",
+          "x": 19,
+          "y": 13,
+          "elevation": 3,
+          "mov": "FACE_RIGHT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The DOTTED HOLE is sealed.\\nOnly the right key opens it."
+          ]
+        },
+        {
+          "rotulo": "Povoa5",
+          "gfx": "OBJ_EVENT_GFX_SWIMMER_M_LAND",
+          "x": 19,
+          "y": 19,
+          "elevation": 3,
+          "mov": "FACE_UP",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "I swim the channel every morning.\\nThe current is honest work."
+          ]
+        },
+        {
+          "rotulo": "Povoa6",
+          "gfx": "OBJ_EVENT_GFX_LITTLE_GIRL_FRLG",
+          "x": 12,
+          "y": 12,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Six is my favourite number now\\nthat I live here."
+          ]
+        },
+        {
+          "rotulo": "Povoa7",
+          "gfx": "OBJ_EVENT_GFX_CAMPER_FRLG",
+          "x": 15,
+          "y": 21,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "Sleep in the PokéCENTER, not on\\nthe beach. Trust me."
+          ]
+        },
+        {
+          "rotulo": "Povoa8",
+          "gfx": "OBJ_EVENT_GFX_BEAUTY_FRLG",
+          "x": 12,
+          "y": 22,
+          "elevation": 3,
+          "mov": "FACE_LEFT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The sunsets here are the reason\\nI never left."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "SnowpointCity": {
+      "regiao": "Sinnoh",
+      "prefixo": "SnowpointCity",
+      "antes": 8,
+      "alvo": 11,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_HIKER",
+          "x": 13,
+          "y": 37,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "The TEMPLE is north, and it is\\ncolder inside than out."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_OLD_MAN_1",
+          "x": 6,
+          "y": 54,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "No road comes here. Only the\\nlakefront path west."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_LITTLE_GIRL",
+          "x": 9,
+          "y": 54,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The snow never melts. I have\\nnever seen the ground."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "SolaceonTown": {
+      "regiao": "Sinnoh",
+      "prefixo": "SolaceonTown",
+      "antes": 9,
+      "alvo": 12,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_OLD_MAN_2",
+          "x": 18,
+          "y": 6,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "The RUINS under this town go\\ndeeper than the town is wide."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_WOMAN_1",
+          "x": 23,
+          "y": 32,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "The DAY CARE takes two Pokémon\\nand looks after both."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_BOY_3",
+          "x": 18,
+          "y": 31,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The NEWS PRESS prints stories\\nabout trainers. Maybe yours."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "SunyshoreCity": {
+      "regiao": "Sinnoh",
+      "prefixo": "SunyshoreCity",
+      "antes": 9,
+      "alvo": 11,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_SAILOR",
+          "x": 24,
+          "y": 36,
+          "elevation": 4,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The walkways above the street\\nkeep the sand off our feet."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_SCIENTIST_1",
+          "x": 47,
+          "y": 12,
+          "elevation": 4,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The LIGHTHOUSE lens is solar.\\nThe whole city runs on sun."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "TwinleafTown": {
+      "regiao": "Sinnoh",
+      "prefixo": "TwinleafTown",
+      "antes": 6,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_WOMAN_2",
+          "x": 10,
+          "y": 17,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "TWINLEAF is two houses and a\\nlot of grass. It suits us."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_OLD_MAN_1",
+          "x": 12,
+          "y": 20,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "ROUTE 201 north, ROUTE 220 south.\\nOne is dry, one is not."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_LITTLE_BOY",
+          "x": 13,
+          "y": 7,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "When I grow up I will leave,\\nand then I will come back."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_BOY_1",
+          "x": 5,
+          "y": 16,
+          "elevation": 3,
+          "mov": "FACE_RIGHT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "LAKE VERITY is not far.\\nPeople say things live in it."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "TwoIsland_Frlg": {
+      "regiao": "Kanto",
+      "prefixo": "TwoIsland",
+      "antes": 7,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_BEAUTY_FRLG",
+          "x": 18,
+          "y": 11,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "CAPE BRINK is north. Old moves\\nare remembered up there."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_GAMEBOY_KID",
+          "x": 14,
+          "y": 6,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The GAME CORNER here is small,\\nbut the prizes are honest."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_FISHERMAN",
+          "x": 23,
+          "y": 9,
+          "elevation": 3,
+          "mov": "FACE_LEFT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The water between the islands\\nis deeper than it looks."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "VerdanturfTown": {
+      "regiao": "Hoenn",
+      "prefixo": "VerdanturfTown",
+      "antes": 4,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_WOMAN_4",
+          "x": 14,
+          "y": 8,
+          "elevation": 3,
+          "mov": "FACE_DOWN",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The air here is the cleanest in\\nall of HOENN. Breathe it in."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_BOY_1",
+          "x": 10,
+          "y": 8,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "RUSTURF TUNNEL runs west from\\nthe edge of town."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_OLD_MAN_1",
+          "x": 14,
+          "y": 14,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The FRIENDSHIP RATER tells you\\nhow much your Pokémon like you."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_PICNICKER",
+          "x": 15,
+          "y": 11,
+          "elevation": 3,
+          "mov": "WALK_UP_AND_DOWN",
+          "rx": 0,
+          "ry": 1,
+          "falas": [
+            "The BATTLE TENT is here.\\nThree battles, no healing between."
+          ]
+        },
+        {
+          "rotulo": "Povoa5",
+          "gfx": "OBJ_EVENT_GFX_HIKER",
+          "x": 12,
+          "y": 11,
+          "elevation": 3,
+          "mov": "FACE_UP",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "ROUTE 116 north, ROUTE 117 east.\\nBoth are gentle walks."
+          ]
+        },
+        {
+          "rotulo": "Povoa6",
+          "gfx": "OBJ_EVENT_GFX_LITTLE_GIRL",
+          "x": 17,
+          "y": 8,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "My grandmother says the wind\\nhere carries flower dust."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "VermilionCity_Frlg": {
+      "regiao": "Kanto",
+      "prefixo": "VermilionCity",
+      "antes": 8,
+      "alvo": 12,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_SAILOR_FRLG",
+          "x": 30,
+          "y": 11,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "The harbour never sleeps.\\nShips come in at every hour."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_POKEFAN_M",
+          "x": 37,
+          "y": 30,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "The POKéMON FAN CLUB is here.\\nMembers talk for hours."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_BLACK_BELT_FRLG",
+          "x": 26,
+          "y": 11,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The GYM LEADER fights with\\nelectricity. Ground shrugs it off."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_WOMAN_3_FRLG",
+          "x": 23,
+          "y": 19,
+          "elevation": 3,
+          "mov": "WALK_UP_AND_DOWN",
+          "rx": 0,
+          "ry": 1,
+          "falas": [
+            "ROUTE 11 runs east from the gate.\\nDIGLETT are said to live under it."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "VioletCity": {
+      "regiao": "Johto",
+      "prefixo": "VioletCity",
+      "antes": 6,
+      "alvo": 10,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_BUG_CATCHER",
+          "x": 32,
+          "y": 36,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "SPROUT TOWER sways all night.\\nThe pillar inside moves it."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+          "x": 10,
+          "y": 35,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "The TRAINER SCHOOL is right\\nthere. The tests are hard."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_WOMAN_4",
+          "x": 35,
+          "y": 41,
+          "elevation": 3,
+          "mov": "LOOK_AROUND",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "The GYM here flies.\\nElectric and Rock moves answer it."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_OLD_MAN_2",
+          "x": 10,
+          "y": 19,
+          "elevation": 3,
+          "mov": "WALK_UP_AND_DOWN",
+          "rx": 0,
+          "ry": 1,
+          "falas": [
+            "Three roads leave VIOLET:\\n31 east, 32 south, 36 west."
+          ]
+        }
+      ],
+      "dmin": 3
+    },
+    "ViridianCity_Frlg": {
+      "regiao": "Kanto",
+      "prefixo": "ViridianCity",
+      "antes": 6,
+      "alvo": 11,
+      "npcs": [
+        {
+          "rotulo": "Povoa1",
+          "gfx": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+          "x": 10,
+          "y": 20,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "The TRAINER SCHOOL teaches the\\nbasics. I still go there."
+          ]
+        },
+        {
+          "rotulo": "Povoa2",
+          "gfx": "OBJ_EVENT_GFX_WOMAN_2_FRLG",
+          "x": 20,
+          "y": 25,
+          "elevation": 3,
+          "mov": "WALK_LEFT_AND_RIGHT",
+          "rx": 1,
+          "ry": 0,
+          "falas": [
+            "The GYM here has been shut for\\nyears. Nobody knows the LEADER."
+          ]
+        },
+        {
+          "rotulo": "Povoa3",
+          "gfx": "OBJ_EVENT_GFX_GENTLEMAN_FRLG",
+          "x": 24,
+          "y": 31,
+          "elevation": 3,
+          "mov": "FACE_LEFT",
+          "rx": 0,
+          "ry": 0,
+          "falas": [
+            "ROUTE 22 runs west, toward the\\nPOKéMON LEAGUE road."
+          ]
+        },
+        {
+          "rotulo": "Povoa4",
+          "gfx": "OBJ_EVENT_GFX_BUG_CATCHER_FRLG",
+          "x": 20,
+          "y": 21,
+          "elevation": 3,
+          "mov": "WALK_UP_AND_DOWN",
+          "rx": 0,
+          "ry": 1,
+          "falas": [
+            "North of here the trees close in.\\nThat is VIRIDIAN FOREST."
+          ]
+        },
+        {
+          "rotulo": "Povoa5",
+          "gfx": "OBJ_EVENT_GFX_OLD_MAN_1",
+          "x": 30,
+          "y": 20,
+          "elevation": 3,
+          "mov": "WANDER_AROUND",
+          "rx": 1,
+          "ry": 1,
+          "falas": [
+            "My back hurts. Yours will too,\\nif you never sit down."
+          ]
+        }
+      ],
+      "dmin": 3
+    }
+  }
+}

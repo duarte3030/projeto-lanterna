@@ -167,3 +167,79 @@ OneIsland_Text_IsntWarmClimateHereGreat::
 	.string "Hi, sight-seeing, are you?\n"
 	.string "Isn't the warm climate here great?$"
 
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+OneIsland_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox OneIsland_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+OneIsland_Text_Povoa1:
+	.string "The ferry from here reaches all\nthe islands. Ask at the harbour.$"
+
+OneIsland_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox OneIsland_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+OneIsland_Text_Povoa2:
+	.string "The machine in that house links\nour network to KANTO.$"
+
+OneIsland_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox OneIsland_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+OneIsland_Text_Povoa3:
+	.string "KINDLE ROAD is east, and it\nclimbs. Bring water.$"
+
+OneIsland_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox OneIsland_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+OneIsland_Text_Povoa4:
+	.string "TREASURE BEACH is south.\nThe tide leaves things behind.$"
+
+OneIsland_EventScript_Povoa5::
+	lock
+	faceplayer
+	msgbox OneIsland_Text_Povoa5, MSGBOX_DEFAULT
+	release
+	end
+
+OneIsland_Text_Povoa5:
+	.string "ONE ISLAND is the first of the\nseven. The quietest, too.$"
+
+OneIsland_EventScript_Povoa6::
+	lock
+	faceplayer
+	msgbox OneIsland_Text_Povoa6, MSGBOX_DEFAULT
+	release
+	end
+
+OneIsland_Text_Povoa6:
+	.string "The hot spring up the road is\nworth the walk.$"
+
+OneIsland_EventScript_Povoa7::
+	lock
+	faceplayer
+	msgbox OneIsland_Text_Povoa7, MSGBOX_DEFAULT
+	release
+	end
+
+OneIsland_Text_Povoa7:
+	.string "I want to see all seven islands\nbefore I grow up.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

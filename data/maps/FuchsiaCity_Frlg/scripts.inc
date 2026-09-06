@@ -250,3 +250,49 @@ FuchsiaCity_Text_MyFatherIsGymLeader::
 	.string "I'm training to use POISON POKéMON\n"
 	.string "as well as my father.$"
 
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+FuchsiaCity_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox FuchsiaCity_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+FuchsiaCity_Text_Povoa1:
+	.string "The SAFARI ZONE is behind that\ngate. No battling in there.$"
+
+FuchsiaCity_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox FuchsiaCity_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+FuchsiaCity_Text_Povoa2:
+	.string "The GYM LEADER uses poison.\nBring antidotes, not excuses.$"
+
+FuchsiaCity_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox FuchsiaCity_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+FuchsiaCity_Text_Povoa3:
+	.string "The WARDEN lives over there.\nHe cares for the park by himself.$"
+
+FuchsiaCity_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox FuchsiaCity_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+FuchsiaCity_Text_Povoa4:
+	.string "ROUTE 19 is south, and it is\nall water. You will need SURF.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

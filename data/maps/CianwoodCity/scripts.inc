@@ -308,3 +308,60 @@ CianwoodCity_Text_DexSuicuneIntro:
 	.string "SUICUNE appeared!$"
 
 @ <<< Dex completa <<<
+
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+CianwoodCity_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox CianwoodCity_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodCity_Text_Povoa1:
+	.string "The GYM here fights bare handed.\nFlying and Psychic answer that.$"
+
+CianwoodCity_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox CianwoodCity_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodCity_Text_Povoa2:
+	.string "No road reaches CIANWOOD.\nYou come by water or not at all.$"
+
+CianwoodCity_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox CianwoodCity_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodCity_Text_Povoa3:
+	.string "The PHARMACY has medicine you\nwill not find anywhere else.$"
+
+CianwoodCity_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox CianwoodCity_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodCity_Text_Povoa4:
+	.string "CLIFF EDGE GATE is north.\nThe rocks past it are worse.$"
+
+CianwoodCity_EventScript_Povoa5::
+	lock
+	faceplayer
+	msgbox CianwoodCity_Text_Povoa5, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodCity_Text_Povoa5:
+	.string "ROUTE 41 east is open sea,\nwhirlpools and all.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

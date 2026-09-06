@@ -34,3 +34,89 @@ FiveIsland_Text_BeenGettingBusierAroundHere::
 	.string "I haven't been catching many good\n"
 	.string "fish lately, either.$"
 
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+FiveIsland_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox FiveIsland_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+FiveIsland_Text_Povoa1:
+	.string "FIVE ISLE MEADOW is east.\nBerries grow wild out there.$"
+
+FiveIsland_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox FiveIsland_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+FiveIsland_Text_Povoa2:
+	.string "The WATER LABYRINTH is north.\nPeople trade odd Pokémon there.$"
+
+FiveIsland_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox FiveIsland_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+FiveIsland_Text_Povoa3:
+	.string "The harbour is the only way in\nand the only way out.$"
+
+FiveIsland_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox FiveIsland_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+FiveIsland_Text_Povoa4:
+	.string "Five islands down, two to go.\nThat is how I count my life.$"
+
+FiveIsland_EventScript_Povoa5::
+	lock
+	faceplayer
+	msgbox FiveIsland_Text_Povoa5, MSGBOX_DEFAULT
+	release
+	end
+
+FiveIsland_Text_Povoa5:
+	.string "It rains here more than on the\nother islands. I like it.$"
+
+FiveIsland_EventScript_Povoa6::
+	lock
+	faceplayer
+	msgbox FiveIsland_Text_Povoa6, MSGBOX_DEFAULT
+	release
+	end
+
+FiveIsland_Text_Povoa6:
+	.string "Berries a Pokémon holds get\neaten in battle, on their own.$"
+
+FiveIsland_EventScript_Povoa7::
+	lock
+	faceplayer
+	msgbox FiveIsland_Text_Povoa7, MSGBOX_DEFAULT
+	release
+	end
+
+FiveIsland_Text_Povoa7:
+	.string "I found a shell on the beach\nshaped like a POKé BALL.$"
+
+FiveIsland_EventScript_Povoa8::
+	lock
+	faceplayer
+	msgbox FiveIsland_Text_Povoa8, MSGBOX_DEFAULT
+	release
+	end
+
+FiveIsland_Text_Povoa8:
+	.string "Nothing hurries here. Not even\nthe ferry.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

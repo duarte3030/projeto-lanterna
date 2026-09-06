@@ -52,3 +52,79 @@ PacifidlogTown_Text_TownSign:
 	.string "“Where the morning sun smiles upon\n"
 	.string "the waters.”$"
 
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+PacifidlogTown_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox PacifidlogTown_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+PacifidlogTown_Text_Povoa1:
+	.string "The whole town floats on logs.\nMind your step at night.$"
+
+PacifidlogTown_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox PacifidlogTown_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+PacifidlogTown_Text_Povoa2:
+	.string "The currents past town push you\nwhere they please. Mind them.$"
+
+PacifidlogTown_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox PacifidlogTown_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+PacifidlogTown_Text_Povoa3:
+	.string "No grass, no trees, no roads.\nJust water and neighbours.$"
+
+PacifidlogTown_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox PacifidlogTown_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+PacifidlogTown_Text_Povoa4:
+	.string "ROUTE 131 east, ROUTE 132 west.\nBoth need SURF.$"
+
+PacifidlogTown_EventScript_Povoa5::
+	lock
+	faceplayer
+	msgbox PacifidlogTown_Text_Povoa5, MSGBOX_DEFAULT
+	release
+	end
+
+PacifidlogTown_Text_Povoa5:
+	.string "I learned to swim before I\nlearned to walk here.$"
+
+PacifidlogTown_EventScript_Povoa6::
+	lock
+	faceplayer
+	msgbox PacifidlogTown_Text_Povoa6, MSGBOX_DEFAULT
+	release
+	end
+
+PacifidlogTown_Text_Povoa6:
+	.string "Storms shake the logs, and the\nhouses hold. Every time.$"
+
+PacifidlogTown_EventScript_Povoa7::
+	lock
+	faceplayer
+	msgbox PacifidlogTown_Text_Povoa7, MSGBOX_DEFAULT
+	release
+	end
+
+PacifidlogTown_Text_Povoa7:
+	.string "The fish here come right up to\nthe boards. They are not shy.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

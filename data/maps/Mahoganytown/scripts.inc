@@ -66,3 +66,70 @@ MahoganyTown_Text_Fisher::
     .string "time to do some sightseeing.\p"
     .string "You should head north and check\n"
     .string "out LAKE OF RAGE right now.$"
+
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+MahoganyTown_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox MahoganyTown_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+MahoganyTown_Text_Povoa1:
+	.string "The mountain air keeps this town\ncold most of the year.$"
+
+MahoganyTown_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox MahoganyTown_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+MahoganyTown_Text_Povoa2:
+	.string "The shop here sells souvenirs.\nRead the labels twice.$"
+
+MahoganyTown_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox MahoganyTown_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+MahoganyTown_Text_Povoa3:
+	.string "The GYM freezes. Fire and Rock\nwork. So do Steel and Fighting.$"
+
+MahoganyTown_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox MahoganyTown_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+MahoganyTown_Text_Povoa4:
+	.string "ROUTE 43 north leads to the\nLAKE OF RAGE.$"
+
+MahoganyTown_EventScript_Povoa5::
+	lock
+	faceplayer
+	msgbox MahoganyTown_Text_Povoa5, MSGBOX_DEFAULT
+	release
+	end
+
+MahoganyTown_Text_Povoa5:
+	.string "Snow makes every fight slower.\nPatience wins here.$"
+
+MahoganyTown_EventScript_Povoa6::
+	lock
+	faceplayer
+	msgbox MahoganyTown_Text_Povoa6, MSGBOX_DEFAULT
+	release
+	end
+
+MahoganyTown_Text_Povoa6:
+	.string "I like the quiet. Most people\nleave for GOLDENROD.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

@@ -67,3 +67,50 @@ BlackBeltText_VoicesInMyHead::
 BlackthornCity_EventScript_BlackBelt::
 	msgbox BlackBeltText_VoicesInMyHead, MSGBOX_NPC
 	end
+
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+BlackthornCity_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox BlackthornCity_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+BlackthornCity_Text_Povoa1:
+	.string "DRAGON'S DEN is behind the GYM.\nOnly the clan goes down there.$"
+
+BlackthornCity_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox BlackthornCity_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+BlackthornCity_Text_Povoa2:
+	.string "The ICE PATH is the only way\nnorth, and it is slippery.$"
+
+BlackthornCity_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox BlackthornCity_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+BlackthornCity_Text_Povoa3:
+	.string "Dragon moves are answered by\nIce, and by other dragons.$"
+
+BlackthornCity_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox BlackthornCity_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+BlackthornCity_Text_Povoa4:
+	.string "This city sits in a crater.\nThe lava never comes up here.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

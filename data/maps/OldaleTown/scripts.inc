@@ -395,3 +395,69 @@ OldaleTown_Text_TownSign:
 	.string "OLDALE TOWN\n"
 	.string "“Where things start off scarce.”$"
 
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+OldaleTown_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox OldaleTown_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+OldaleTown_Text_Povoa1:
+	.string "OLDALE is the first stop out of\nLITTLEROOT. Rest while you can.$"
+
+OldaleTown_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox OldaleTown_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+OldaleTown_Text_Povoa2:
+	.string "Three roads: 101 south,\n102 west, 103 north.$"
+
+OldaleTown_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox OldaleTown_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+OldaleTown_Text_Povoa3:
+	.string "The MART clerk explains POTIONS\nto everyone. Every single time.$"
+
+OldaleTown_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox OldaleTown_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+OldaleTown_Text_Povoa4:
+	.string "Nothing happens here. That is\nwhy I stayed.$"
+
+OldaleTown_EventScript_Povoa5::
+	lock
+	faceplayer
+	msgbox OldaleTown_Text_Povoa5, MSGBOX_DEFAULT
+	release
+	end
+
+OldaleTown_Text_Povoa5:
+	.string "ROUTE 103 has a beach and a\npond. Good for a first team.$"
+
+OldaleTown_EventScript_Povoa6::
+	lock
+	faceplayer
+	msgbox OldaleTown_Text_Povoa6, MSGBOX_DEFAULT
+	release
+	end
+
+OldaleTown_Text_Povoa6:
+	.string "A Pokémon that faints still\nearns nothing. Keep them standing.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<
