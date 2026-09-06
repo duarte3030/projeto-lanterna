@@ -963,8 +963,8 @@ warps apagados nas duas salas de link de Unova, que não têm doador. Destino po
 | Route221 | 1 | (82,15) | PAL_PARK_LOBBY | túmulo, fica fechada |
 | VeilstoneCity | 10 | (31,47) | GAME_CORNER | túmulo, fica fechada |
 | Unova_CasteliaCitySouth | 9 | (12,7) | UNOVA_CASTELIA_PLAZA_LOBBY | túmulo, fica fechada |
-| Unova_MobileTradeRoom | apagado | (4,7) | sala de link, sem lugar no mundo | túmulo, fica fechada |
-| Unova_MobileBattleRoom | apagado | (4,7) | sala de link, sem lugar no mundo | túmulo, fica fechada |
+| Unova_MobileTradeRoom | apagado | (4,7) | UNOVA_POKECENTER_2F | túmulo, fica fechada |
+| Unova_MobileBattleRoom | apagado | (4,7) | UNOVA_POKECENTER_2F | túmulo, fica fechada |
 
 **Os 24 destinos de lápide são túmulo de verdade**, os 24: `MAPSEC_NONE`, 0 objetos, 0 warps, 0
 `bg_events`, 0 `.string` no `scripts.inc`, e os 24 estão em `CORTES_DO_GUI` no modo `deficit`.
@@ -1024,6 +1024,97 @@ mais só os arquivos desta frente), e não na árvore principal, porque às 02:3
 de outra frente, cita `Common_Movement_WalkUp1` e `Common_Movement_WalkDown1`, que não existem. O lock
 de build foi tomado, o defeito foi medido e o lock foi devolvido em seguida, para não prender a frente
 que precisa consertá-lo.
+
+### O fechamento da frente, reconferido no HEAD de encerramento, 06/09/2026
+
+Continuação depois de o executor anterior morrer por cota às 06h40, com a bateria de provas pela
+metade. **Zero linha de código nova aqui:** o conserto já estava commitado em `95759c9b4f`, e o texto
+acima entrou no repositório de carona no `bfe2b35a71`, de OUTRA frente, que passou um `git add` por
+cima da árvore compartilhada. O que faltava era reconferir o veredito sem acreditar na mensagem de
+commit, rodar a bateria no HEAD de encerramento e gravar a ROM.
+
+O veredito das 26 portas foi refeito do zero, e fecha, por três varreduras que não dependem uma da
+outra:
+
+1. **Nenhum warp de mapa vivo leva a túmulo, no jogo inteiro.** Varredura dos 2.404 `map.json`:
+   **111 túmulos** (0 objeto, 0 warp, 0 placa e `MAPSEC_NONE`) e **0 warps** apontando para eles a
+   partir dos mapas vivos. É a prova de completude que a tabela sozinha não dá: porta fechada que
+   sobrou no lugar errado, ou porta aberta para o vazio, apareceria aqui, e não aparece.
+2. **Os 24 warps que o corte alterou são exatamente as 24 lápides da tabela.** Cada `map.json` foi
+   comparado entrada por entrada com a versão de `721c77fb63^`, e cada destino ORIGINAL foi relido:
+   os 21 destinos distintos têm 0 evento e `MAPSEC_NONE`, e os 21 estão em `CORTES_DO_GUI` no modo
+   `deficit`. Nenhum interior vivo ficou atrás de placa.
+3. **O caso que PARECIA contraexemplo, e não é.** O warp 4 de `PokemonLeagueNorthPokecenter1F` fechou
+   a porta do `POKEMON_LEAGUE_ELEVATOR_TO_AARON_ROOM`, e a Elite dos Quatro de Sinnoh está VIVA:
+   `SinnohLeague_AaronsRoom` e as cinco irmãs, com 10 objetos e os warps entre elas. Interior vivo
+   atrás de porta fechada é exatamente o critério de REABRIR, então ele foi aberto e medido. Não é o
+   caso, por dois motivos: o mapa do elevador tinha UM warp só ANTES do corte, e ele voltava para o
+   próprio Pokécenter, ou seja o elevador nunca levou a lugar nenhum; e a entrada da Elite não é
+   `warp_event` nenhum, é `warp MAP_SINNOH_LEAGUE_AARONS_ROOM, 0` de SCRIPT
+   (`data/maps/SinnohLeague_Entrance/scripts.inc:61`), que varredura de warp não enxerga. Reabrir
+   teria criado um atalho que a fonte não tem. Ela fica fechada, e a lição vira regra: **mapa sem
+   `warp_event` de entrada não é mapa órfão até o `grep` no `scripts.inc` dizer que é.**
+
+Bateria buildada na worktree isolada `/private/tmp/claude-501/portas-q`, no HEAD `7b9a11ce64`, e não
+na árvore principal, que tem seis frentes escrevendo ao mesmo tempo. **ROM 32.370.104 B, 96,47% de
+32 MB**, EWRAM 86,16% e IWRAM 86,68%. Os 10.400 B a mais sobre os 32.359.704 B medidos por esta
+frente vêm das outras cinco que entraram no HEAD depois dela, e não daqui: esta continuação não tocou
+uma linha de código. Os três commits que entraram DEPOIS de `7b9a11ce64` enquanto a bateria rodava
+(`7a6e430d8a`, `b58dcbad7f` e `5f3a4cb403`) mexem só no `ESTADO.md` e em três `.json` de caso de
+teste, nada que o compilador leia, então a ROM gravada continua sendo a do topo.
+
+**Suíte 1.021 de 1.021**, rodada BLOCO A BLOCO, com o placar em disco, porque o processo único de uma
+hora foi MORTO duas vezes por volta dos 40 minutos, com sinal 15, enquanto seis frentes rodavam suíte
+na mesma máquina; retomar de onde parou custou nada, e o driver é descartável, fora do repositório. O
+único caso que não fica verde na varredura por bloco é o **T11.3**, que sem `--rom2` é PULADO por
+desenho e nunca contado como passou; rodado à parte com as duas ROMs, **T11 fecha 3 de 3** contra
+`roms/pokemon-claude-2026-08-18.gba`, com a fonte velha em `/private/tmp/claude-501/t11-r13`, e a save
+de layout velho continua sendo RECUSADA de propósito pela ROM nova, que é o que a janela de save
+fechada manda.
+
+**O bloco desta frente é o `140_portas_fechadas.json`, e ele fecha 11 de 11 nesta build.** A porta
+fechada não warpa (T140.1) e o vizinho vivo do MESMO mapa continua warpando índice por índice (T140.2,
+T140.5 e T140.6); a placa se lê, e a caixa que aparece no framebuffer diz `Closed for renovations.`
+(T140.3), com o par negativo que percorre a mesma rota sem apertar o A (T140.4); e as portas reabertas
+ENTRAM, com TRÊS travessias de verdade: T140.7 na metade esquerda da igreja, T140.9 na metade direita
+que sempre funcionou, e T140.11 na porta da NORTHEAST HOUSE. O par negativo de direção é o T140.8
+(`MB_NORTH_ARROW_WARP` só dispara olhando para o norte) e a volta inteira é o T140.10, em que o NINJA
+BOY fala dentro da igreja e a saída devolve o jogador em (9,6), na frente da porta. Vale dizer com
+todas as letras: **portas REABERTAS por esta frente existem DUAS no jogo inteiro, e não três**, porque
+só duas tinham interior vivo. A terceira travessia é a gêmea que já funcionava, e ela está no roteiro
+justamente para provar que a reabertura não roubou a porta boa.
+
+`guarda_save.py`: **SAVE COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B (94,3%), 2.400 mapas, 2.252
+ids de treinador e 1.717 apelidos. `valida_rom.py`: os 2.400 mapas declarados entraram na ROM.
+`valida_conectividade.py`: **0 warps quebrados**, 1.966 de 2.289 mapas vivos alcançados, com os 111
+túmulos fora da conta. `valida_warp_tile.py`: **5.915 de 6.875 (86,0%)**, idêntico. `roda_qa.py
+--demo` verde nas cinco varreduras do HEAD, e `remove_mapas_cortados.py --demo` verde.
+`completude.py`: as seis regiões com **100,0% de mapas e de warps**, Sinnoh em 103,4% de placas,
+nenhuma coluna caiu.
+
+ROM em `roms/pokemon-claude-2026-09-06q.gba`, com o `.map` ao lado, md5
+`6db3c8c539941362030ed4d2b9fa5966`.
+
+#### Uma correção na tabela acima, e um resto que fica
+
+As duas linhas de Unova estavam imprecisas, e foram corrigidas. `Unova_MobileTradeRoom` e
+`Unova_MobileBattleRoom` não são o túmulo: o túmulo é o destino delas, `UNOVA_POKECENTER_2F`, e por
+não haver doador de coordenada o gerador APAGOU os dois warps de cada uma em vez de virá-los lápide.
+Elas próprias são mapas cortados que **nenhum caminho alcança** (o `valida_conectividade.py` as lista
+entre os inalcançáveis), e são os ÚNICOS dois dos 113 cortados que não viraram túmulo: o
+`esvazia_mapa()` limpou as duas, e a passada de fechar portas, que roda depois, replantou uma placa
+dentro delas. É placa que ninguém pode ler, dentro de mapa em que ninguém pode entrar, a 0,3 KB cada.
+Não foi mexido porque mexer é escrever em mapa cortado por ganho zero de jogo; a regra para o gerador,
+se alguém voltar aqui, é **não plantar placa em mapa que está na lista de cortados**.
+
+#### Uma lição de convivência, e ela custou um susto
+
+Script auxiliar de sessão NÃO vai para `/private/tmp/claude-501/` com nome genérico. Esta frente
+escreveu `patch_estado.py` ali, e meia hora depois OUTRA frente escreveu um `patch_estado.py` dela por
+cima, com assinatura de argumentos diferente. A chamada morreu com `File name too long` em vez de
+aplicar a edição errada no `ESTADO.md`, e foi sorte, não desenho: o mesmo acidente com scripts de
+assinatura parecida edita o arquivo de outra frente sem avisar. Ferramenta descartável mora na pasta
+de scratchpad da sessão, que já é única por definição.
 
 ### O que fica aberto
 
