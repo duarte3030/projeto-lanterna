@@ -5383,7 +5383,7 @@ cache, com 255 sendo exatamente o máximo do tipo.
 neste repo são **apelido de `FLAG_HIDE_ARTICUNO` e `FLAG_HIDE_BILL_CLEFAIRY`**.
 Começar o jogo escondia os dois NPCs de Kanto, e entrar nos mapas deles
 desligava as duas mecânicas para sempre. Lição: **antes de usar qualquer
-`FLAG_UNUSED_*` que o upstream sugere, rode `dev_scripts/flags_livres.py`** —
+`FLAG_UNUSED_*` que o upstream sugere, rode `dev_scripts/flags_livres.py`**:
 ele já separava "definidas" de "realmente livres" e as duas estavam na coluna
 das 359 OCUPADAS.
 
