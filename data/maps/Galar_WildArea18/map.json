@@ -23,7 +23,7 @@
   "object_events": [
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G42M11_O0",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DARMANITAN_GALAR)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(PINCURCHIN)",
       "x": 22,
       "y": 38,
       "elevation": 0,
@@ -39,7 +39,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G42M11_O1",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(RAICHU)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(EISCUE)",
       "x": 17,
       "y": 52,
       "elevation": 0,

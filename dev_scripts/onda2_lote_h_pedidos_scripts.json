@@ -1,0 +1,723 @@
+{
+  "gerado_por": "dev_scripts/distribui_dex.py --galar",
+  "leia_antes": "Onda 2, lote H (Dex de geracao 8 em Galar). Cada linha e um objeto de overworld a criar em data/maps/<mapa>/map.json mais a cena em data/scripts/, no mesmo idioma que o distribui_dex ja usa nas cinco regioes: estatico = OBJ_EVENT_GFX_SPECIES + setwildbattle/seteventmon com a flag de HIDE; presente = NPC com givemon. As flags da faixa 0x2280-0x22FF sao exclusivas deste lote.",
+  "faixa_de_flags": "0x2280-0x22FF",
+  "ordem_de_rodagem": [
+    "1. python3 dev_scripts/importa_encontros_galar.py --aplicar   (reescreve TODAS as entradas de Galar do wild_encounters.json a partir da ROM do demake; roda SEMPRE antes do passo 2, senao apaga as linhas de mato da Dex em silencio)",
+    "2. python3 dev_scripts/distribui_dex.py --galar --aplica       (regrava as linhas de mato da Dex e este arquivo de pedidos)",
+    "3. python3 dev_scripts/estaticos_galar.py --aplicar            (o gerador de estatico mudou nesta rodada: a traducao de especie ganhou o `.` das formas regionais e o bloco de Alola. O diff medido em --seco e +204/-204 linhas no galar_estaticos.inc e 51 linhas em 21 map.json, TODAS de antro de raide que trocou de especie pela rotacao; nenhum estatico entra nem sai)",
+    "4. os objetos e cenas deste arquivo (estaticos e presentes), que sao de map.json e .inc e por isso ficaram como pedido"
+  ],
+  "totais": {
+    "galar_selvagens": 12,
+    "galar_estaticos": 10,
+    "galar_presentes": 5,
+    "galar_evolucoes": 19
+  },
+  "npcs_presente": [
+    {
+      "papel": "presente1",
+      "mapa": "Galar_Wedgehurst01",
+      "tile": [
+        3,
+        5
+      ],
+      "warp": 0,
+      "para": [
+        3,
+        6
+      ],
+      "vazio": [
+        3,
+        6
+      ],
+      "dir": "UP",
+      "rota": [
+        [
+          "UP",
+          1,
+          true
+        ]
+      ]
+    },
+    {
+      "papel": "presente2",
+      "mapa": "Galar_Wedgehurst01",
+      "tile": [
+        4,
+        5
+      ],
+      "warp": 1,
+      "para": [
+        4,
+        6
+      ],
+      "vazio": [
+        4,
+        6
+      ],
+      "dir": "UP",
+      "rota": [
+        [
+          "UP",
+          1,
+          true
+        ]
+      ]
+    }
+  ],
+  "estaticos": [
+    {
+      "especie": "SPECIES_ZACIAN_HERO",
+      "como": "estatico",
+      "regiao": "Galar",
+      "mapa": "Galar_SlumberingWeald03",
+      "elevacao": 3,
+      "local_id": "LOCALID_DEX_GALAR_ZACIAN_HERO",
+      "script": "Galar_SlumberingWeald03_EventScript_DexGalarZacianHero",
+      "metodo": "objeto+script",
+      "slot": null,
+      "nivel": 70,
+      "flag": "FLAG_HIDE_DEX_GALAR_ZACIAN_HERO",
+      "origem": "lar canonico",
+      "tile": [
+        16,
+        9
+      ],
+      "nota": "gen 8; tipos FAIRY",
+      "warp": 0,
+      "dir": "RIGHT",
+      "para": [
+        15,
+        9
+      ],
+      "vazio": [
+        18,
+        9
+      ],
+      "porta": [
+        16,
+        27
+      ],
+      "pouso": [
+        16,
+        27
+      ],
+      "rota": [
+        [
+          "DOWN",
+          0,
+          false
+        ],
+        [
+          "UP",
+          1,
+          false
+        ],
+        [
+          "LEFT",
+          2,
+          true
+        ],
+        [
+          "UP",
+          17,
+          false
+        ],
+        [
+          "RIGHT",
+          4,
+          true
+        ]
+      ],
+      "rota_irmas": true,
+      "endereco_da_flag": "0x2280"
+    },
+    {
+      "especie": "SPECIES_ZAMAZENTA_HERO",
+      "como": "estatico",
+      "regiao": "Galar",
+      "mapa": "Galar_SlumberingWeald03",
+      "elevacao": 3,
+      "local_id": "LOCALID_DEX_GALAR_ZAMAZENTA_HERO",
+      "script": "Galar_SlumberingWeald03_EventScript_DexGalarZamazentaHero",
+      "metodo": "objeto+script",
+      "slot": null,
+      "nivel": 70,
+      "flag": "FLAG_HIDE_DEX_GALAR_ZAMAZENTA_HERO",
+      "origem": "lar canonico",
+      "tile": [
+        16,
+        14
+      ],
+      "nota": "gen 8; tipos FIGHTING",
+      "warp": 0,
+      "dir": "UP",
+      "para": [
+        16,
+        15
+      ],
+      "vazio": [
+        16,
+        10
+      ],
+      "porta": [
+        16,
+        27
+      ],
+      "pouso": [
+        16,
+        27
+      ],
+      "rota": [
+        [
+          "DOWN",
+          0,
+          false
+        ],
+        [
+          "UP",
+          17,
+          true
+        ]
+      ],
+      "rota_irmas": true,
+      "endereco_da_flag": "0x2281"
+    },
+    {
+      "especie": "SPECIES_ETERNATUS",
+      "como": "estatico",
+      "regiao": "Galar",
+      "mapa": "Galar_RoseTower01",
+      "elevacao": 3,
+      "local_id": "LOCALID_DEX_GALAR_ETERNATUS",
+      "script": "Galar_RoseTower01_EventScript_DexGalarEternatus",
+      "metodo": "objeto+script",
+      "slot": null,
+      "nivel": 70,
+      "flag": "FLAG_HIDE_DEX_GALAR_ETERNATUS",
+      "origem": "lar canonico",
+      "tile": [
+        11,
+        15
+      ],
+      "nota": "gen 8; tipos POISON/DRAGON",
+      "warp": 0,
+      "dir": "UP",
+      "para": [
+        11,
+        16
+      ],
+      "vazio": [
+        11,
+        14
+      ],
+      "porta": [
+        11,
+        17
+      ],
+      "pouso": [
+        11,
+        17
+      ],
+      "rota": [
+        [
+          "UP",
+          3,
+          true
+        ]
+      ],
+      "rota_irmas": true,
+      "endereco_da_flag": "0x2282"
+    },
+    {
+      "especie": "SPECIES_KUBFU",
+      "como": "estatico",
+      "regiao": "Galar",
+      "mapa": "Galar_IsleOfArmor05",
+      "elevacao": 3,
+      "local_id": "LOCALID_DEX_GALAR_KUBFU",
+      "script": "Galar_IsleOfArmor05_EventScript_DexGalarKubfu",
+      "metodo": "objeto+script",
+      "slot": null,
+      "nivel": 50,
+      "flag": "FLAG_HIDE_DEX_GALAR_KUBFU",
+      "origem": "lar canonico",
+      "tile": [
+        88,
+        21
+      ],
+      "nota": "gen 8; tipos FIGHTING",
+      "warp": 1,
+      "dir": "LEFT",
+      "para": [
+        89,
+        21
+      ],
+      "vazio": [
+        87,
+        21
+      ],
+      "porta": [
+        91,
+        21
+      ],
+      "pouso": [
+        91,
+        21
+      ],
+      "rota": [
+        [
+          "DOWN",
+          0,
+          false
+        ],
+        [
+          "LEFT",
+          4,
+          true
+        ]
+      ],
+      "rota_irmas": true,
+      "endereco_da_flag": "0x2283"
+    },
+    {
+      "especie": "SPECIES_ZARUDE",
+      "como": "estatico",
+      "regiao": "Galar",
+      "mapa": "Galar_IsleOfArmor07",
+      "elevacao": 3,
+      "local_id": "LOCALID_DEX_GALAR_ZARUDE",
+      "script": "Galar_IsleOfArmor07_EventScript_DexGalarZarude",
+      "metodo": "objeto+script",
+      "slot": null,
+      "nivel": 30,
+      "flag": "FLAG_HIDE_DEX_GALAR_ZARUDE",
+      "origem": "lar canonico",
+      "tile": [
+        98,
+        55
+      ],
+      "nota": "gen 8; tipos DARK/GRASS",
+      "warp": 1,
+      "dir": "RIGHT",
+      "para": [
+        97,
+        55
+      ],
+      "vazio": [
+        99,
+        55
+      ],
+      "porta": [
+        87,
+        55
+      ],
+      "pouso": [
+        87,
+        55
+      ],
+      "rota": [
+        [
+          "LEFT",
+          0,
+          false
+        ],
+        [
+          "RIGHT",
+          12,
+          true
+        ]
+      ],
+      "rota_irmas": true,
+      "endereco_da_flag": "0x2284"
+    },
+    {
+      "especie": "SPECIES_REGIELEKI",
+      "como": "estatico",
+      "regiao": "Galar",
+      "mapa": "Galar_CrownTundra10",
+      "elevacao": 3,
+      "local_id": "LOCALID_DEX_GALAR_REGIELEKI",
+      "script": "Galar_CrownTundra10_EventScript_DexGalarRegieleki",
+      "metodo": "objeto+script",
+      "slot": null,
+      "nivel": 50,
+      "flag": "FLAG_HIDE_DEX_GALAR_REGIELEKI",
+      "origem": "lar canonico",
+      "tile": [
+        30,
+        41
+      ],
+      "nota": "gen 8; tipos ELECTRIC",
+      "warp": 2,
+      "dir": "RIGHT",
+      "para": [
+        29,
+        41
+      ],
+      "vazio": [
+        32,
+        41
+      ],
+      "porta": [
+        30,
+        51
+      ],
+      "pouso": [
+        30,
+        51
+      ],
+      "rota": [
+        [
+          "RIGHT",
+          0,
+          false
+        ],
+        [
+          "UP",
+          2,
+          false
+        ],
+        [
+          "LEFT",
+          20,
+          false
+        ],
+        [
+          "UP",
+          8,
+          true
+        ],
+        [
+          "RIGHT",
+          22,
+          true
+        ]
+      ],
+      "rota_irmas": true,
+      "endereco_da_flag": "0x2285"
+    },
+    {
+      "especie": "SPECIES_REGIDRAGO",
+      "como": "estatico",
+      "regiao": "Galar",
+      "mapa": "Galar_CrownTundra10",
+      "elevacao": 3,
+      "local_id": "LOCALID_DEX_GALAR_REGIDRAGO",
+      "script": "Galar_CrownTundra10_EventScript_DexGalarRegidrago",
+      "metodo": "objeto+script",
+      "slot": null,
+      "nivel": 50,
+      "flag": "FLAG_HIDE_DEX_GALAR_REGIDRAGO",
+      "origem": "lar canonico",
+      "tile": [
+        30,
+        46
+      ],
+      "nota": "gen 8; tipos DRAGON",
+      "warp": 2,
+      "dir": "UP",
+      "para": [
+        30,
+        47
+      ],
+      "vazio": [
+        30,
+        42
+      ],
+      "porta": [
+        30,
+        51
+      ],
+      "pouso": [
+        30,
+        51
+      ],
+      "rota": [
+        [
+          "RIGHT",
+          0,
+          false
+        ],
+        [
+          "UP",
+          9,
+          true
+        ]
+      ],
+      "rota_irmas": true,
+      "endereco_da_flag": "0x2286"
+    },
+    {
+      "especie": "SPECIES_CALYREX_ICE",
+      "como": "estatico",
+      "regiao": "Galar",
+      "mapa": "Galar_CrownTundra10",
+      "elevacao": 3,
+      "local_id": "LOCALID_DEX_GALAR_CALYREX_ICE",
+      "script": "Galar_CrownTundra10_EventScript_DexGalarCalyrexIce",
+      "metodo": "objeto+script",
+      "slot": null,
+      "nivel": 70,
+      "flag": "FLAG_HIDE_DEX_GALAR_CALYREX_ICE",
+      "origem": "lar canonico",
+      "tile": [
+        1,
+        49
+      ],
+      "nota": "gen 8; tipos PSYCHIC/ICE",
+      "warp": 2,
+      "dir": "UP",
+      "para": [
+        1,
+        50
+      ],
+      "vazio": [
+        1,
+        48
+      ],
+      "porta": [
+        30,
+        51
+      ],
+      "pouso": [
+        30,
+        51
+      ],
+      "rota": [
+        [
+          "RIGHT",
+          0,
+          false
+        ],
+        [
+          "UP",
+          2,
+          false
+        ],
+        [
+          "LEFT",
+          5,
+          false
+        ],
+        [
+          "DOWN",
+          3,
+          true
+        ],
+        [
+          "LEFT",
+          24,
+          false
+        ],
+        [
+          "UP",
+          4,
+          true
+        ]
+      ],
+      "rota_irmas": true,
+      "endereco_da_flag": "0x2287"
+    },
+    {
+      "especie": "SPECIES_CALYREX_SHADOW",
+      "como": "estatico",
+      "regiao": "Galar",
+      "mapa": "Galar_CrownTundra10",
+      "elevacao": 3,
+      "local_id": "LOCALID_DEX_GALAR_CALYREX_SHADOW",
+      "script": "Galar_CrownTundra10_EventScript_DexGalarCalyrexShadow",
+      "metodo": "objeto+script",
+      "slot": null,
+      "nivel": 70,
+      "flag": "FLAG_HIDE_DEX_GALAR_CALYREX_SHADOW",
+      "origem": "lar canonico",
+      "tile": [
+        6,
+        49
+      ],
+      "nota": "gen 8; tipos PSYCHIC/GHOST",
+      "warp": 2,
+      "dir": "LEFT",
+      "para": [
+        7,
+        49
+      ],
+      "vazio": [
+        2,
+        49
+      ],
+      "porta": [
+        30,
+        51
+      ],
+      "pouso": [
+        30,
+        51
+      ],
+      "rota": [
+        [
+          "RIGHT",
+          0,
+          false
+        ],
+        [
+          "UP",
+          2,
+          false
+        ],
+        [
+          "LEFT",
+          28,
+          true
+        ]
+      ],
+      "rota_irmas": true,
+      "endereco_da_flag": "0x2288"
+    },
+    {
+      "especie": "SPECIES_ENAMORUS_INCARNATE",
+      "como": "estatico",
+      "regiao": "Galar",
+      "mapa": "Galar_CrownTundra10",
+      "elevacao": 3,
+      "local_id": "LOCALID_DEX_GALAR_ENAMORUS_INCARNATE",
+      "script": "Galar_CrownTundra10_EventScript_DexGalarEnamorusIncarnate",
+      "metodo": "objeto+script",
+      "slot": null,
+      "nivel": 50,
+      "flag": "FLAG_HIDE_DEX_GALAR_ENAMORUS_INCARNATE",
+      "origem": "lar canonico",
+      "tile": [
+        51,
+        47
+      ],
+      "nota": "gen 8; tipos FAIRY/FLYING",
+      "warp": 2,
+      "dir": "RIGHT",
+      "para": [
+        50,
+        47
+      ],
+      "vazio": [
+        52,
+        47
+      ],
+      "porta": [
+        30,
+        51
+      ],
+      "pouso": [
+        30,
+        51
+      ],
+      "rota": [
+        [
+          "RIGHT",
+          0,
+          false
+        ],
+        [
+          "UP",
+          4,
+          true
+        ],
+        [
+          "RIGHT",
+          22,
+          true
+        ]
+      ],
+      "rota_irmas": true,
+      "endereco_da_flag": "0x2289"
+    }
+  ],
+  "presentes": [
+    {
+      "especie": "SPECIES_GROOKEY",
+      "como": "presente",
+      "regiao": "Galar",
+      "mapa": "Galar_Wedgehurst03",
+      "metodo": "multichoice",
+      "slot": null,
+      "nivel": 5,
+      "flag": "FLAG_INICIAL_GALAR",
+      "origem": "decisao",
+      "tile": [
+        2,
+        5
+      ],
+      "npc": "bola de inicial",
+      "nota": "inicial de Galar: bola no chao do Centro Pokemon de Wedgehurst, escolha de um dos tres, molde do Unova_NuvemaLab"
+    },
+    {
+      "especie": "SPECIES_SCORBUNNY",
+      "como": "presente",
+      "regiao": "Galar",
+      "mapa": "Galar_Wedgehurst03",
+      "metodo": "multichoice",
+      "slot": null,
+      "nivel": 5,
+      "flag": "FLAG_INICIAL_GALAR",
+      "origem": "decisao",
+      "tile": [
+        3,
+        5
+      ],
+      "npc": "bola de inicial",
+      "nota": "inicial de Galar: bola no chao do Centro Pokemon de Wedgehurst, escolha de um dos tres, molde do Unova_NuvemaLab"
+    },
+    {
+      "especie": "SPECIES_SOBBLE",
+      "como": "presente",
+      "regiao": "Galar",
+      "mapa": "Galar_Wedgehurst03",
+      "metodo": "multichoice",
+      "slot": null,
+      "nivel": 5,
+      "flag": "FLAG_INICIAL_GALAR",
+      "origem": "decisao",
+      "tile": [
+        4,
+        5
+      ],
+      "npc": "bola de inicial",
+      "nota": "inicial de Galar: bola no chao do Centro Pokemon de Wedgehurst, escolha de um dos tres, molde do Unova_NuvemaLab"
+    },
+    {
+      "especie": "SPECIES_ETERNATUS_ETERNAMAX",
+      "como": "presente",
+      "regiao": "Galar",
+      "mapa": "Galar_Wedgehurst01",
+      "metodo": "givemon",
+      "slot": null,
+      "nivel": 5,
+      "flag": "",
+      "origem": "censo",
+      "tile": [
+        3,
+        5
+      ],
+      "npc": "presente1",
+      "nota": "sem gfx de overworld (nao pode ser estatico): givemon por NPC"
+    },
+    {
+      "especie": "SPECIES_ZARUDE_DADA",
+      "como": "presente",
+      "regiao": "Galar",
+      "mapa": "Galar_Wedgehurst01",
+      "metodo": "givemon",
+      "slot": null,
+      "nivel": 5,
+      "flag": "",
+      "origem": "censo",
+      "tile": [
+        4,
+        5
+      ],
+      "npc": "presente2",
+      "nota": "sem gfx de overworld (nao pode ser estatico): givemon por NPC"
+    }
+  ]
+}

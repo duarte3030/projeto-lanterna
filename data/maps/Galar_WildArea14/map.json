@@ -114,7 +114,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G42M07_O12",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DEINO)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(JANGMO_O)",
       "x": 16,
       "y": 44,
       "elevation": 0,
@@ -130,7 +130,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G42M07_O13",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ROCKRUFF)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DOTTLER)",
       "x": 9,
       "y": 22,
       "elevation": 0,
@@ -146,7 +146,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G42M07_O14",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(FOMANTIS)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(NICKIT)",
       "x": 11,
       "y": 37,
       "elevation": 0,

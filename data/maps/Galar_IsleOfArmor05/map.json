@@ -45,6 +45,35 @@
       "flag": "0"
     },
     {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(CORVIKNIGHT)",
+      "x": 88,
+      "y": 27,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalarPorta_G38M01_o4",
+      "flag": "0",
+      "origem": "porta de script (portas_script_galar.py)"
+    },
+    {
+      "local_id": "LOCALID_DEX_GALAR_KUBFU",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(KUBFU)",
+      "x": 88,
+      "y": 21,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Galar_IsleOfArmor05_EventScript_DexGalarKubfu",
+      "flag": "FLAG_HIDE_DEX_GALAR_KUBFU",
+      "origem": "distribui_dex galar"
+    },
+    {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(SHARPEDO)",
       "x": 79,
       "y": 63,

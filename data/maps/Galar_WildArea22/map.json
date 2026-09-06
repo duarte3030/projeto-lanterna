@@ -31,7 +31,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "GalarFalaI_G42M15_o0",
       "flag": "0"
     },
     {
@@ -85,6 +85,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(CORVIKNIGHT)",
+      "x": 39,
+      "y": 28,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GalarPorta_G42M15_o16",
+      "flag": "0",
+      "origem": "porta de script (portas_script_galar.py)"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(TAILLOW)",
@@ -163,7 +177,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G42M15_O18",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MEOWTH_GALAR)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(GLOOM)",
       "x": 15,
       "y": 8,
       "elevation": 0,
@@ -179,7 +193,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G42M15_O2",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(KOFFING)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MACHOP)",
       "x": 11,
       "y": 34,
       "elevation": 0,
@@ -240,7 +254,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G42M15_O3",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(CORSOLA)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MACHOKE)",
       "x": 49,
       "y": 13,
       "elevation": 0,

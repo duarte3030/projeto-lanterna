@@ -95,7 +95,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G42M05_O5",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ROSELIA)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(BELDUM)",
       "x": 3,
       "y": 23,
       "elevation": 0,
@@ -111,7 +111,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G42M05_O6",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(LAIRON)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(COMBEE)",
       "x": 11,
       "y": 54,
       "elevation": 0,

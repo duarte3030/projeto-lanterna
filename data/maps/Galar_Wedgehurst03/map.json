@@ -46,6 +46,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "GalarObj_G05M04_o2",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_GALAR_DEX_INICIAIS",
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_2",
+      "x": 3,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Galar_Wedgehurst03_EventScript_DexIniciaisGalar",
+      "flag": "0",
+      "origem": "distribui_dex galar"
     }
   ],
   "warp_events": [
@@ -72,6 +87,16 @@
     }
   ],
   "coord_events": [],
-  "bg_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GalarPlacaC_G05M04_bg0",
+      "origem": "placa do lote I (placas_galar_c.py)"
+    }
+  ],
   "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g05m04. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo."
 }

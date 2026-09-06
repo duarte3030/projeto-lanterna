@@ -178,21 +178,96 @@ GRAFIA = {
     "Flabébé": "SPECIES_FLABEBE",
     "Farfetch’d": "SPECIES_FARFETCHD",     # apostrofo tipografico
     "Sirfetch’d": "SPECIES_SIRFETCHD",
+    # --- Trazidas do `importa_encontros_galar.py` em 07/09/2026 (onda 2, lote
+    # H). Elas nasceram lá porque mexer aqui mudava estático já gravado; agora
+    # a decisão é a mesma nos dois lados, e a tradução de espécie da fonte
+    # deixa de depender de qual dos dois geradores está rodando.
+    "Baraskewda": "SPECIES_BARRASKEWDA",   # a fonte come um `r`
+    "Stonjorner": "SPECIES_STONJOURNER",   # a fonte troca `our` por `or`
+    "Fletchindr": "SPECIES_FLETCHINDER",   # a fonte come o `e`
+    "Centskorch": "SPECIES_CENTISKORCH",   # a fonte come o `i`
+    "Crabminble": "SPECIES_CRABOMINABLE",  # a fonte encurta o nome inteiro
+    "Nidoran♀": "SPECIES_NIDORAN_F",       # sem isto vira SPECIES_NIDORAN
+    "Nidoran♂": "SPECIES_NIDORAN_M",
+    # As duas de baixo NÃO passam pelo filtro de nome limpo, e por isso só
+    # entram por serem chave daqui (ver `nomes_da_fonte`).
+    "Unown ?": "SPECIES_UNOWN_QUESTION",   # a forma `?` tem constante própria
+    # O campo de nome da fonte tem 11 bytes, e o `.` da forma regional gasta
+    # um: `.Farfetch’d` chega truncado em `.Farfetch’`. Medido na própria ROM,
+    # id 83, e não deduzido.
+    "Farfetch’": "SPECIES_FARFETCHD",
 }
 
 # NOME REPETIDO NA TABELA DA FONTE: decisao uma a uma, e id que nao esta aqui e
 # recusado. Medido em 22/08/2026 lendo a propria tabela do demake: o bloco 1102+
 # e a dex de Galar, e dentro dele 1212 a 1233 sao as formas regionais e 1234 a
 # 1247 sao os catorze Gigantamax (Venusaur..Melmetal, na ordem exata da lista).
+#
+# CINCO LINHAS NOVAS EM 07/09/2026 (1213, 1214, 1219, 1220 e 1225), e elas
+# consertam MENTIRA e não só recusa. Enquanto o `.` da frente derrubava a
+# entrada BASE (`.Ponyta` no id 77), a primeira ocorrência do nome `Ponyta`
+# passava a ser o id 1213, que é o Ponyta DE GALAR: a tradução devolvia
+# `SPECIES_PONYTA` e o mapa mostrava o cavalo errado, calado. Com o resgate do
+# ponto (ver `nomes_da_fonte`) o id 77 volta a ser a primeira ocorrência, e
+# 1213 passaria a ser recusado como "nome repetido" se a decisão não estivesse
+# escrita aqui. Os ids 1218 (`Koffing`) e 1228 (`Mime Jr.`) ficam de FORA de
+# propósito: não existe `SPECIES_KOFFING_GALAR` nem `SPECIES_MIME_JR_GALAR`
+# neste motor, então eles seguem recusados com motivo.
+#
+# O BLOCO DE ALOLA (1020 a 1039) e as formas cosméticas de gen 4 (707 a 712)
+# entraram na mesma rodada, e pela mesma razão: enquanto o `.` derrubava a
+# entrada base, quem ficava sendo a PRIMEIRA ocorrência de `Rattata` era o id
+# 1020, que é o de Alola, e a tradução devolvia `SPECIES_RATTATA`. Com o ponto
+# resgatado, esses ids passariam a ser recusados como "nome repetido" e 38
+# slots de encontro cairiam na costura; com a decisão escrita aqui eles viram
+# a forma CERTA. A ordem do bloco é a da dex nacional, exatamente como a do
+# bloco 1212+ que já estava provado.
+#
+# Ficam DE FORA, e continuam recusados com motivo, os ids cuja forma não existe
+# neste motor (1036 `Exeggcute`, 1038 `Cubone`, 1218 `Koffing`, 1228
+# `Mime Jr.`: o demake marca o pré-evoluído junto, e não há
+# `SPECIES_EXEGGCUTE_ALOLA` nem parentes) e o 1046 `Lycanroc`, que tem UMA
+# entrada na fonte para DUAS formas possíveis (Meio-Dia e Crepúsculo): escolher
+# uma seria inventar qual, e o slot dele já cai na costura sem mentir.
 AJUSTE = {
+    707: "SPECIES_BURMY_SANDY",
+    708: "SPECIES_BURMY_TRASH",
+    709: "SPECIES_WORMADAM_SANDY",
+    710: "SPECIES_WORMADAM_TRASH",
+    711: "SPECIES_SHELLOS_EAST",
+    712: "SPECIES_GASTRODON_EAST",
+    1020: "SPECIES_RATTATA_ALOLA",
+    1021: "SPECIES_RATICATE_ALOLA",
+    1022: "SPECIES_RAICHU_ALOLA",
+    1023: "SPECIES_SANDSHREW_ALOLA",
+    1024: "SPECIES_SANDSLASH_ALOLA",
+    1025: "SPECIES_VULPIX_ALOLA",
+    1026: "SPECIES_NINETALES_ALOLA",
+    1027: "SPECIES_DIGLETT_ALOLA",
+    1028: "SPECIES_DUGTRIO_ALOLA",
+    1029: "SPECIES_MEOWTH_ALOLA",
+    1030: "SPECIES_PERSIAN_ALOLA",
+    1031: "SPECIES_GEODUDE_ALOLA",
+    1032: "SPECIES_GRAVELER_ALOLA",
+    1033: "SPECIES_GOLEM_ALOLA",
+    1034: "SPECIES_GRIMER_ALOLA",
+    1035: "SPECIES_MUK_ALOLA",
+    1037: "SPECIES_EXEGGUTOR_ALOLA",
+    1039: "SPECIES_MAROWAK_ALOLA",
+    1203: "SPECIES_INDEEDEE_F",
     1212: "SPECIES_MEOWTH_GALAR",
+    1213: "SPECIES_PONYTA_GALAR",
+    1214: "SPECIES_RAPIDASH_GALAR",
     1215: "SPECIES_SLOWPOKE_GALAR",
     1216: "SPECIES_SLOWBRO_GALAR",
     1217: "SPECIES_FARFETCHD_GALAR",
+    1219: "SPECIES_WEEZING_GALAR",
+    1220: "SPECIES_MR_MIME_GALAR",
     1221: "SPECIES_ARTICUNO_GALAR",
     1222: "SPECIES_ZAPDOS_GALAR",
     1223: "SPECIES_MOLTRES_GALAR",
     1224: "SPECIES_SLOWKING_GALAR",
+    1225: "SPECIES_CORSOLA_GALAR",
     1226: "SPECIES_ZIGZAGOON_GALAR",
     1227: "SPECIES_LINOONE_GALAR",
     1229: "SPECIES_DARUMAKA_GALAR",
@@ -249,12 +324,34 @@ def nomes_da_fonte(rom=None):
             # Entao a varredura vai ate 1300 (o ultimo nome de verdade e o 1267,
             # `Urshifu`) e guarda so o que decodifica como nome. Id que nao
             # entrou aqui e recusado la na frente, com motivo, nunca adivinhado.
+            #
+            # O `.` DA FRENTE (byte 0xAD), resgatado em 07/09/2026. Ele é a
+            # MARCA que o demake põe na espécie que TEM forma regional, e não
+            # sujeira: são 27 entradas, todas no id BASE (`.Rattata` no 19,
+            # `.Ponyta` no 77, `.Corsola` no 222). O filtro antigo exigia letra
+            # no primeiro caractere e derrubava as 27, com dois estragos, e o
+            # segundo era o pior:
+            #   1. 27 espécies base ficavam sem tradução e todo encontro delas
+            #      era recusado com "id fora da tabela de nomes da fonte";
+            #   2. a regra da PRIMEIRA OCORRÊNCIA passava a apontar para a
+            #      forma REGIONAL (o `Ponyta` mais baixo virava o id 1213, que
+            #      é o de Galar), e a tradução devolvia a espécie errada sem
+            #      dizer nada. Ver o bloco de comentário do `AJUSTE`.
+            # O ponto sai, o nome vale, e o id baixo volta a ser a forma base.
+            #
+            # A segunda porta é a `GRAFIA`: nome que a fonte escreve torto e
+            # que o filtro derrubaria (hoje só o `Unown ?`, cujo `?` não está
+            # na classe de caracteres) entra por estar escrito lá, uma decisão
+            # por linha, nunca por adivinhação.
             limpo = re.compile(r"[A-Za-z][A-Za-z0-9 .:’\-éö♂♀]*")
             fora = {}
             for i in range(1, 1300):
                 n = nome(base, i)
-                if limpo.fullmatch(n or ""):
-                    fora[i] = n
+                if not n:
+                    continue
+                sem = n[1:] if n.startswith(".") else n
+                if sem in GRAFIA or limpo.fullmatch(sem):
+                    fora[i] = sem
             return fora
     raise SystemExit("PARE: a tabela de nomes de especie do demake nao foi "
                      "achada pela ancora. A ROM da fonte mudou?")
@@ -517,6 +614,12 @@ def resolve_mesas(mesas, especies, lendarias, grafo):
     return escolhido
 
 
+# Chaves que sairam de MESA DE RAIDE na ultima chamada de `_encontros`. Serve
+# so ao `--seco`, que precisa separar "a traducao consertou a especie" de "a
+# rotacao do antro andou uma casa porque a mesa ganhou candidato".
+MESAS_DA_RODADA = set()
+
+
 def _encontros(rom, tab, linhas, especies, lendarias, grafo=None):
     """[(linha, especie_id, nivel, item_id, mesa)] das linhas com `setwildbattle`.
 
@@ -548,6 +651,8 @@ def _encontros(rom, tab, linhas, especies, lendarias, grafo=None):
             mesas.append((l, [(a[0], a[1], a[2]) for a in swb]))
         else:
             simples.append((l, swb[0][0], swb[0][1], swb[0][2], False))
+    MESAS_DA_RODADA.clear()
+    MESAS_DA_RODADA.update(l["chave"] for l, _t in mesas)
     escolhido = resolve_mesas(mesas, especies, lendarias,
                               grafo if grafo is not None else grafo_de_mapas())
     for l, _tabela in mesas:
@@ -992,6 +1097,85 @@ def relatorio(aceitas, recusa, flags):
               % (lot, objs, novos, nome))
 
 
+def seco(aceitas, flags):
+    """DIFF CONTADO do que `--aplicar` faria, sem escrever byte nenhum.
+
+    Existe porque na onda 2 este gerador tem TRÊS donos ao redor: os `map.json`
+    de Galar e os `galar_*.inc` estão nas mãos de outros executores, e o lote
+    que conserta a tradução de espécie não pode escrever neles. O `--dry-run`
+    de um mapa só responde "o que entraria ali"; aqui a pergunta é outra, e é a
+    do fechador: quantas linhas mudam, em quantos arquivos, e qual encontro
+    troca de espécie.
+    """
+    import glob
+    import difflib
+
+    def conta(velho, novo):
+        mais = menos = 0
+        for l in difflib.unified_diff(velho.splitlines(), novo.splitlines(),
+                                      n=0, lineterm=""):
+            if l.startswith("+") and not l.startswith("+++"):
+                mais += 1
+            elif l.startswith("-") and not l.startswith("---"):
+                menos += 1
+        return mais, menos
+
+    corpo = corpo_inc(aceitas)
+    velho_inc = open(INC).read() if os.path.exists(INC) else ""
+    mais, menos = conta(velho_inc, corpo)
+    print("data/scripts/galar_estaticos.inc: +%d -%d linhas" % (mais, menos))
+
+    por_mapa = collections.defaultdict(list)
+    for c in sorted(aceitas, key=lambda z: z["chave"]):
+        por_mapa[c["mapa"]].append(c)
+    tot_mais = tot_menos = mapas_mudados = 0
+    antes_por_chave, depois_por_chave = {}, {}
+    for caminho in sorted(glob.glob(f"{RAIZ}/data/maps/Galar_*/map.json")):
+        nome = os.path.basename(os.path.dirname(caminho))
+        velho = open(caminho).read()
+        d = json.loads(velho)
+        for o in d.get("object_events", []):
+            if o.get("origem") == MARCA:
+                antes_por_chave[o.get("origem_chave")] = o.get("graphics_id")
+        d["object_events"] = [o for o in d.get("object_events", [])
+                              if o.get("origem") != MARCA]
+        novos = [objeto_json(c) for c in por_mapa.get(nome, [])]
+        for o in novos:
+            depois_por_chave[o["origem_chave"]] = o["graphics_id"]
+        d["object_events"] += novos
+        texto = json.dumps(d, indent=2, ensure_ascii=False) + "\n"
+        if texto == velho:
+            continue
+        m, n = conta(velho, texto)
+        tot_mais += m
+        tot_menos += n
+        mapas_mudados += 1
+    print("map.json de Galar: +%d -%d linhas em %d mapas"
+          % (tot_mais, tot_menos, mapas_mudados))
+
+    atual = open(FLAGS_H).read()
+    novo = C3.poe_bloco(atual, MARCA_FLAG_INI, MARCA_FLAG_FIM, bloco_flags(flags))
+    m, n = conta(atual, novo)
+    print("include/constants/flags.h: +%d -%d linhas" % (m, n))
+
+    trocaram = collections.Counter()
+    entram = [k for k in depois_por_chave if k not in antes_por_chave]
+    saem = [k for k in antes_por_chave if k not in depois_por_chave]
+    for k, g in depois_por_chave.items():
+        if k in antes_por_chave and antes_por_chave[k] != g:
+            trocaram[(antes_por_chave[k], g)] += 1
+    de_mesa = sum(1 for k, g in depois_por_chave.items()
+                  if k in antes_por_chave and antes_por_chave[k] != g
+                  and k in MESAS_DA_RODADA)
+    print("\nencontros que ENTRAM (hoje recusados): %d" % len(entram))
+    print("encontros que SAEM: %d" % len(saem))
+    print("encontros que trocam de espécie: %d (%d são antro de raide, onde a "
+          "rotação andou; %d são encontro simples)"
+          % (sum(trocaram.values()), de_mesa, sum(trocaram.values()) - de_mesa))
+    for (a, b), n in trocaram.most_common():
+        print("  %4d  %s -> %s" % (n, a, b))
+
+
 def dry_run(aceitas, recusa, mapa):
     meus = [c for c in aceitas if c["mapa"] == mapa]
     print("%s: %d encontros" % (mapa, len(meus)))
@@ -1278,12 +1462,19 @@ def main():
     ap.add_argument("--aplicar", action="store_true")
     ap.add_argument("--demo", action="store_true")
     ap.add_argument("--dry-run", metavar="MAPA")
+    ap.add_argument("--seco", action="store_true",
+                    help="diff contado do que --aplicar faria, sem escrever")
     a = ap.parse_args()
     if a.demo:
         raise SystemExit(demo())
     aceitas, recusa, flags = plano()
     if a.dry_run:
         dry_run(aceitas, recusa, a.dry_run)
+        return
+    if a.seco:
+        relatorio(aceitas, recusa, flags)
+        print()
+        seco(aceitas, flags)
         return
     mudou, _c = aplica(aceitas, flags, a.aplicar, recusa)
     relatorio(aceitas, recusa, flags)

@@ -126,7 +126,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G08M24_O3",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MAGNEZONE)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DRAGAPULT)",
       "x": 44,
       "y": 37,
       "elevation": 0,
@@ -172,7 +172,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G08M24_O7",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MAGMORTAR)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(PARASECT)",
       "x": 39,
       "y": 43,
       "elevation": 0,
@@ -193,7 +193,13 @@
       "y": 36,
       "elevation": 0,
       "dest_map": "MAP_GALAR_WILD_AREA_09",
-      "dest_warp_id": "0"
+      "dest_warp_id": "0",
+      "porta_original": [
+        14,
+        36,
+        "fonte g08m23 warp 1"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     }
   ],
   "coord_events": [],

@@ -201,7 +201,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G08M22_O3",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DRACOVISH)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(HATTERENE)",
       "x": 3,
       "y": 17,
       "elevation": 0,
@@ -217,7 +217,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G08M22_O4",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DRAGAPULT)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(PINCURCHIN)",
       "x": 23,
       "y": 32,
       "elevation": 0,
@@ -233,7 +233,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G08M22_O5",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(PARASECT)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(STONJOURNER)",
       "x": 11,
       "y": 19,
       "elevation": 0,

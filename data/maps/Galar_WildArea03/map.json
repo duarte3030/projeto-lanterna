@@ -166,7 +166,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "GalarFalaI_G06M27_o29",
       "flag": "0"
     },
     {
@@ -184,7 +184,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G06M27_O0",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(HATENNA)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(APPLIN)",
       "x": 4,
       "y": 1,
       "elevation": 0,

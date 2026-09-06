@@ -83,7 +83,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "GalarFalaI_G06M30_o27",
       "flag": "0"
     },
     {
@@ -215,7 +215,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G06M30_O25",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MIME_JR)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(PONYTA_GALAR)",
       "x": 32,
       "y": 11,
       "elevation": 0,
@@ -347,21 +347,39 @@
       "y": 24,
       "elevation": 0,
       "dest_map": "MAP_GALAR_WILD_AREA_05",
-      "dest_warp_id": "3"
+      "dest_warp_id": "3",
+      "porta_original": [
+        6,
+        24,
+        "fonte g06m31 warp 9"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 6,
       "y": 22,
       "elevation": 0,
       "dest_map": "MAP_GALAR_WILD_AREA_05",
-      "dest_warp_id": "4"
+      "dest_warp_id": "4",
+      "porta_original": [
+        6,
+        22,
+        "fonte g06m31 warp 10"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 6,
       "y": 23,
       "elevation": 0,
       "dest_map": "MAP_GALAR_WILD_AREA_05",
-      "dest_warp_id": "5"
+      "dest_warp_id": "5",
+      "porta_original": [
+        6,
+        23,
+        "fonte g06m09 warp 11"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 36,

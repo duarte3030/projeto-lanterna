@@ -236,7 +236,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G08M23_O4",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DRAGONITE)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(COPPERAJAH)",
       "x": 3,
       "y": 38,
       "elevation": 0,
@@ -267,7 +267,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G08M23_O9",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MASQUERAIN)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DRACOVISH)",
       "x": 11,
       "y": 68,
       "elevation": 0,
@@ -288,7 +288,13 @@
       "y": 77,
       "elevation": 0,
       "dest_map": "MAP_GALAR_WILD_AREA_08",
-      "dest_warp_id": "0"
+      "dest_warp_id": "0",
+      "porta_original": [
+        17,
+        77,
+        "fonte g08m22 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     }
   ],
   "coord_events": [],

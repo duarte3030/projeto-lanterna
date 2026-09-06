@@ -400,10 +400,10 @@ GalarEstatico_G06M27_O0::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_HATENNA, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_APPLIN, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_HATENNA, 5
+	seteventmon SPECIES_APPLIN, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -423,10 +423,10 @@ GalarEstatico_G06M29_O15::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_PONYTA, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_TOXEL, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_PONYTA, 5
+	seteventmon SPECIES_TOXEL, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -446,10 +446,10 @@ GalarEstatico_G06M29_O3::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_ZIGZAGOON_GALAR, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_HATENNA, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_ZIGZAGOON_GALAR, 5
+	seteventmon SPECIES_HATENNA, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -469,10 +469,10 @@ GalarEstatico_G06M30_O25::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_MIME_JR, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_PONYTA_GALAR, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_MIME_JR, 5
+	seteventmon SPECIES_PONYTA_GALAR, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -492,10 +492,10 @@ GalarEstatico_G06M31_O4::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_DARUMAKA_GALAR, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_ZIGZAGOON_GALAR, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_DARUMAKA_GALAR, 5
+	seteventmon SPECIES_ZIGZAGOON_GALAR, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -515,10 +515,10 @@ GalarEstatico_G08M22_O3::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_DRACOVISH, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_HATTERENE, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_DRACOVISH, 5
+	seteventmon SPECIES_HATTERENE, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -538,10 +538,10 @@ GalarEstatico_G08M22_O4::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_DRAGAPULT, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_PINCURCHIN, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_DRAGAPULT, 5
+	seteventmon SPECIES_PINCURCHIN, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -561,10 +561,10 @@ GalarEstatico_G08M22_O5::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_PARASECT, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_STONJOURNER, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_PARASECT, 5
+	seteventmon SPECIES_STONJOURNER, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -584,10 +584,10 @@ GalarEstatico_G08M23_O4::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_DRAGONITE, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_COPPERAJAH, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_DRAGONITE, 5
+	seteventmon SPECIES_COPPERAJAH, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -607,10 +607,10 @@ GalarEstatico_G08M23_O9::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_MASQUERAIN, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_DRACOVISH, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_MASQUERAIN, 5
+	seteventmon SPECIES_DRACOVISH, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -630,10 +630,10 @@ GalarEstatico_G08M24_O3::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_MAGNEZONE, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_DRAGAPULT, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_MAGNEZONE, 5
+	seteventmon SPECIES_DRAGAPULT, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -653,10 +653,10 @@ GalarEstatico_G08M24_O7::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_MAGMORTAR, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_PARASECT, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_MAGMORTAR, 5
+	seteventmon SPECIES_PARASECT, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -2723,10 +2723,10 @@ GalarEstatico_G38M04_O31::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_RAPIDASH, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_RAPIDASH_GALAR, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_RAPIDASH, 5
+	seteventmon SPECIES_RAPIDASH_GALAR, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -2769,10 +2769,10 @@ GalarEstatico_G38M04_O33::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_WEEZING, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_WEEZING_GALAR, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_WEEZING, 5
+	seteventmon SPECIES_WEEZING_GALAR, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3091,10 +3091,10 @@ GalarEstatico_G38M43_O2::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_RAPIDASH, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_RAPIDASH_GALAR, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_RAPIDASH, 5
+	seteventmon SPECIES_RAPIDASH_GALAR, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3114,10 +3114,10 @@ GalarEstatico_G42M02_O0::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_DRATINI, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_PORYGON2, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_DRATINI, 5
+	seteventmon SPECIES_PORYGON2, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3137,10 +3137,10 @@ GalarEstatico_G42M02_O13::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_FLAAFFY, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_ELECTRIKE, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_FLAAFFY, 5
+	seteventmon SPECIES_ELECTRIKE, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3160,10 +3160,10 @@ GalarEstatico_G42M02_O14::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_MARILL, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_ROSELIA, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_MARILL, 5
+	seteventmon SPECIES_ROSELIA, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3183,10 +3183,10 @@ GalarEstatico_G42M04_O10::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_PORYGON2, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_LAIRON, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_PORYGON2, 5
+	seteventmon SPECIES_LAIRON, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3206,10 +3206,10 @@ GalarEstatico_G42M04_O9::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_ELECTRIKE, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_CASTFORM, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_ELECTRIKE, 5
+	seteventmon SPECIES_CASTFORM, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3229,10 +3229,10 @@ GalarEstatico_G42M05_O5::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_ROSELIA, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_BELDUM, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_ROSELIA, 5
+	seteventmon SPECIES_BELDUM, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3252,10 +3252,10 @@ GalarEstatico_G42M05_O6::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_LAIRON, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_COMBEE, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_LAIRON, 5
+	seteventmon SPECIES_COMBEE, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3275,10 +3275,10 @@ GalarEstatico_G42M06_O7::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_KLINK, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_ROCKRUFF, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_KLINK, 5
+	seteventmon SPECIES_ROCKRUFF, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3298,10 +3298,10 @@ GalarEstatico_G42M06_O9::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_KLANG, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_FOMANTIS, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_KLANG, 5
+	seteventmon SPECIES_FOMANTIS, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3321,10 +3321,10 @@ GalarEstatico_G42M07_O12::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_DEINO, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_JANGMO_O, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_DEINO, 5
+	seteventmon SPECIES_JANGMO_O, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3344,10 +3344,10 @@ GalarEstatico_G42M07_O13::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_ROCKRUFF, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_DOTTLER, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_ROCKRUFF, 5
+	seteventmon SPECIES_DOTTLER, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3367,10 +3367,10 @@ GalarEstatico_G42M07_O14::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_FOMANTIS, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_NICKIT, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_FOMANTIS, 5
+	seteventmon SPECIES_NICKIT, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3390,10 +3390,10 @@ GalarEstatico_G42M08_O5::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_KLANG, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_FOMANTIS, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_KLANG, 5
+	seteventmon SPECIES_FOMANTIS, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3413,10 +3413,10 @@ GalarEstatico_G42M10_O0::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_SIRFETCHD, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_CORVIKNIGHT, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_SIRFETCHD, 5
+	seteventmon SPECIES_CORVIKNIGHT, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3436,10 +3436,10 @@ GalarEstatico_G42M10_O2::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_PINCURCHIN, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_DREDNAW, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_PINCURCHIN, 5
+	seteventmon SPECIES_DREDNAW, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3459,10 +3459,10 @@ GalarEstatico_G42M10_O3::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_EISCUE, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_CRAMORANT, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_EISCUE, 5
+	seteventmon SPECIES_CRAMORANT, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3482,10 +3482,10 @@ GalarEstatico_G42M10_O4::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_DURALUDON, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_OBSTAGOON, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_DURALUDON, 5
+	seteventmon SPECIES_OBSTAGOON, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3505,10 +3505,10 @@ GalarEstatico_G42M10_O5::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_MR_MIME, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_SIRFETCHD, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_MR_MIME, 5
+	seteventmon SPECIES_SIRFETCHD, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3528,10 +3528,10 @@ GalarEstatico_G42M11_O0::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_DARMANITAN_GALAR, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_PINCURCHIN, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_DARMANITAN_GALAR, 5
+	seteventmon SPECIES_PINCURCHIN, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3551,10 +3551,10 @@ GalarEstatico_G42M11_O1::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_RAICHU, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_EISCUE, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_RAICHU, 5
+	seteventmon SPECIES_EISCUE, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3574,10 +3574,10 @@ GalarEstatico_G42M12_O0::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_NINETALES, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_DURALUDON, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_NINETALES, 5
+	seteventmon SPECIES_DURALUDON, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3597,10 +3597,10 @@ GalarEstatico_G42M12_O1::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_ELECTRODE, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_INDEEDEE_F, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_ELECTRODE, 5
+	seteventmon SPECIES_INDEEDEE_F, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3620,10 +3620,10 @@ GalarEstatico_G42M12_O2::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_GYARADOS, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_MR_MIME_GALAR, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_GYARADOS, 5
+	seteventmon SPECIES_MR_MIME_GALAR, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3643,10 +3643,10 @@ GalarEstatico_G42M12_O4::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_CROBAT, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_RAICHU, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_CROBAT, 5
+	seteventmon SPECIES_RAICHU, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3666,10 +3666,10 @@ GalarEstatico_G42M12_O5::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_SCIZOR, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_NINETALES, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_SCIZOR, 5
+	seteventmon SPECIES_NINETALES, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3689,10 +3689,10 @@ GalarEstatico_G42M13_O0::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_MAWILE, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_ELECTRODE, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_MAWILE, 5
+	seteventmon SPECIES_ELECTRODE, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3712,10 +3712,10 @@ GalarEstatico_G42M13_O1::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_ALTARIA, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_GYARADOS, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_ALTARIA, 5
+	seteventmon SPECIES_GYARADOS, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3735,10 +3735,10 @@ GalarEstatico_G42M13_O4::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_GARDEVOIR, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_SCIZOR, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_GARDEVOIR, 5
+	seteventmon SPECIES_SCIZOR, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3758,10 +3758,10 @@ GalarEstatico_G42M13_O5::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_LUCARIO, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_TYRANITAR, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_LUCARIO, 5
+	seteventmon SPECIES_TYRANITAR, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3781,10 +3781,10 @@ GalarEstatico_G42M13_O6::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_TOGEKISS, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_MAWILE, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_TOGEKISS, 5
+	seteventmon SPECIES_MAWILE, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3804,10 +3804,10 @@ GalarEstatico_G42M13_O7::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_PORYGON_Z, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_ALTARIA, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_PORYGON_Z, 5
+	seteventmon SPECIES_ALTARIA, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3827,10 +3827,10 @@ GalarEstatico_G42M14_O5::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_DURALUDON, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_CORSOLA_GALAR, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_DURALUDON, 5
+	seteventmon SPECIES_CORSOLA_GALAR, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3850,10 +3850,10 @@ GalarEstatico_G42M14_O7::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_ODDISH, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_RHYDON, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_ODDISH, 5
+	seteventmon SPECIES_RHYDON, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3873,10 +3873,10 @@ GalarEstatico_G42M15_O18::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_MEOWTH_GALAR, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_GLOOM, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_MEOWTH_GALAR, 5
+	seteventmon SPECIES_GLOOM, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3896,10 +3896,10 @@ GalarEstatico_G42M15_O2::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_KOFFING, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_MACHOP, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_KOFFING, 5
+	seteventmon SPECIES_MACHOP, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -3919,10 +3919,10 @@ GalarEstatico_G42M15_O3::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_CORSOLA, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_MACHOKE, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	seteventmon SPECIES_CORSOLA, 5
+	seteventmon SPECIES_MACHOKE, 5
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE

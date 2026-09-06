@@ -167,7 +167,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G42M14_O5",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DURALUDON)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(CORSOLA_GALAR)",
       "x": 3,
       "y": 23,
       "elevation": 0,
@@ -198,7 +198,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G42M14_O7",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ODDISH)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(RHYDON)",
       "x": 19,
       "y": 9,
       "elevation": 0,

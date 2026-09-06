@@ -342,10 +342,15 @@ def encontros_base():
     antigo = tabela_gravada()
     if antigo:
         idx = _indice(d)
-        for l in antigo.get("selvagens", []):
-            mons = idx.get((l["mapa"], l["metodo"]))
-            if mons and l.get("substituido"):
-                mons[l["slot"]]["species"] = l["substituido"]
+        # `galar_selvagens` entra na MESMA desmontagem desde 07/09/2026: sem
+        # ela, a segunda rodada de `--tabela` veria o slot ja escrito como se
+        # nao fosse mais duplicado, escolheria outro, e a linha antiga ficaria
+        # orfa com a especie nova gravada para sempre.
+        for chave in ("selvagens", "galar_selvagens"):
+            for l in antigo.get(chave, []):
+                mons = idx.get((l["mapa"], l["metodo"]))
+                if mons and l.get("substituido"):
+                    mons[l["slot"]]["species"] = l["substituido"]
     return d
 
 
@@ -362,12 +367,16 @@ def _indice(d):
     return fora
 
 
-def tabelas_de_encontro(mapa_regiao):
+def tabelas_de_encontro(mapa_regiao, regioes=CINCO):
     """[(mapa, tipo, regiao, perfil_de_tipos, [indices de slot duplicado])].
 
     Slot duplicado = a especie daquele indice ja apareceu ANTES na mesma tabela
     e no mesmo tipo. Trocar o segundo nao tira nada do jogo: a especie da fonte
     continua na primeira ocorrencia. Foi assim que o censo mediu 5.622 deles.
+
+    `regioes` existe desde 07/09/2026 (cartucho 2): a obra de Galar chama esta
+    mesma funcao com `("Galar",)`, e o padrao continua sendo as CINCO, para que
+    nenhuma linha das cinco regioes mude de slot por causa dela.
     """
     d = encontros_base()
     cat = catalogo_completo()
@@ -378,7 +387,7 @@ def tabelas_de_encontro(mapa_regiao):
         for enc in grupo["encounters"]:
             mid = enc.get("map", enc.get("base_label", grupo["label"]))
             regiao = mapa_regiao.get(mid, (None, "?"))[1]
-            if regiao not in CINCO:
+            if regiao not in regioes:
                 continue
             for tipo in censo_dex.TIPOS_SELVAGEM:
                 if tipo not in enc:
@@ -484,7 +493,8 @@ def censo_base():
         return fora
 
     gravada = tabela_gravada()
-    nossas = {l["especie"] for k in BUCKETS for l in gravada.get(k, [])}
+    nossas = {l["especie"] for k in BUCKETS + BUCKETS_GALAR
+              for l in gravada.get(k, [])}
 
     def varre_base():
         return [x for x in varre() if x[3] not in nossas]
@@ -910,7 +920,15 @@ def _planeja_com_teto(mapa, usados):
     fixos = _objetos_do_mapa(d)
     if len(fixos) + len(usados) + 1 > TETO_OBJETOS:
         return None
-    warps = max(1, len(d.get("warp_events", [])))
+    # MAPA SEM WARP NENHUM: `LS.planeja` indexa `warp_events[warp_id]` sem
+    # perguntar, e o `max(1, ...)` de antes mandava ele ler o warp 0 de uma
+    # lista vazia. Nas cinco regioes isso nunca aconteceu porque todo mapa tem
+    # porta; metade da Wild Area de Galar so tem CONEXAO, e ali o `--estaticos`
+    # morria com IndexError em vez de dizer "este mapa nao serve". Sem warp nao
+    # ha rota de caso critico, entao o mapa realmente nao serve.
+    warps = len(d.get("warp_events", []))
+    if not warps:
+        return None
     olhos = (visao_de_treinador(d) | rota_dos_lendarios_sinnoh(mapa)
              | corredor_de_casos(mapa))
     vetados = set()
@@ -1323,7 +1341,7 @@ def escreve_tabela(gravar):
                       "de onde a decisao saiu: censo (regra mecanica), pesquisa "
                       "(lendarios_referencia.csv) ou bioma (perfil de tipos).",
         "flag_base": f"0x{FLAG_BASE:04X}",
-        "totais": {k: len(p[k]) for k in BUCKETS + EXTRAS},
+        "totais": {k: len(p[k]) for k in BUCKETS + EXTRAS + BUCKETS_GALAR},
         **p,
     }
     novo = json.dumps(d, indent=2, ensure_ascii=False) + "\n"
@@ -1332,8 +1350,9 @@ def escreve_tabela(gravar):
         return []
     if gravar:
         open(TABELA, "w", encoding="utf-8").write(novo)
-    return [f"dex_distribuicao.json: {sum(len(p[k]) for k in BUCKETS + EXTRAS)} "
-            f"linhas ({', '.join(f'{k} {len(p[k])}' for k in BUCKETS + EXTRAS)})"]
+    todos = BUCKETS + EXTRAS + BUCKETS_GALAR
+    return [f"dex_distribuicao.json: {sum(len(p[k]) for k in todos)} "
+            f"linhas ({', '.join(f'{k} {len(p[k])}' for k in todos)})"]
 
 
 def aplica_selvagem(gravar):
@@ -1852,6 +1871,719 @@ def aplica_estaticos(regiao, gravar):
                 open(cam, "w", encoding="utf-8").write(novo)
             mudou.append(f"{mapa}/scripts.inc: {len(itens)} encontro(s)")
     return mudou
+
+
+# ----------------------------------------------- Galar (cartucho 2, onda 2)
+#
+# Por que existe um bloco separado para UMA regiao
+# ------------------------------------------------
+# O resto deste arquivo distribui quem estava INOBTENIVEL no censo. A obra de
+# Galar e outra pergunta, e ela nasce do cartucho 2: as quatro regioes do
+# cartucho 1 (Kanto, Johto, Hoenn e Sinnoh) SAEM, e toda especie cuja unica
+# fonte esteja la deixa de existir para quem jogar o cartucho 2. Medido em
+# 07/09/2026: 46 entradas de geracao 8 tem fonte direta e NENHUMA em Galar, e
+# 31 delas so tem fonte nas quatro regioes que saem. A geracao de Galar
+# precisando de Kanto para existir e o defeito que este bloco fecha.
+#
+# A regua e a MESMA das cinco regioes, e por isso o bloco reusa `_melhor_tabela`
+# (slot duplicado, bioma por perfil de tipos, agua separada de terra), `cabe` /
+# `_encaixa` (a geometria do `lendarios_sinnoh`, ja provada pelo T123) e
+# `nivel_de`. O que muda e so o conjunto de mapas e a lista de entrada.
+#
+# QUEM ENTRA, e por que nao sao as 140
+# ------------------------------------
+# O apendice do `onda1_lote_e_pedidos_scripts.txt` lista 140 entradas de gen 8
+# sem fonte em Galar. 94 delas sao `evolucao`, `forma_batalha` ou
+# `forma_permanente`: elas nao tem fonte em regiao NENHUMA, nem aqui nem nas
+# cinco, porque saem de outra coisa. Dar objeto a um Alcremie-Morango-Creme de
+# Rubi seria inventar fonte que a regra 10 nao pede. Sobram as 46 com fonte
+# direta, e dessas entram so as RAIZES: quem ja sai de graca de uma especie que
+# Galar tem (Thwackey sai do Grookey) nao ganha linha, exatamente como o
+# `plano()` faz com o efeito cascata. O fecho e o `_fecha`, com a semente
+# restrita a quem tem fonte em Galar.
+#
+# ONDE ESTE BLOCO PODE ESCREVER
+# -----------------------------
+# So no `wild_encounters.json` e na propria tabela de decisao. Estatico e
+# presente viram PEDIDO em `dev_scripts/onda2_lote_h_pedidos_scripts.json`,
+# porque `data/maps/Galar_*/map.json` e `data/scripts/galar_*.inc` sao de
+# outros executores nesta onda. A flag de cada estatico ja vem escolhida, na
+# faixa 0x2280-0x22FF, que e exclusiva deste lote.
+PEDIDOS_GALAR = f"{RAIZ}/dev_scripts/onda2_lote_h_pedidos_scripts.json"
+FLAG_GALAR_BASE = 0x2280
+FLAG_GALAR_TETO = 0x22FF
+
+# Area canonica -> mapas dela no repo, na ordem em que o encaixe tenta. A ordem
+# saiu da CAPACIDADE medida (`cabe`) em 07/09/2026, e nao do tamanho do mapa:
+# `Galar_RoseTower04` e o topo da torre e cabe ZERO, `Galar_CrownTundra13` ja
+# tem 38 objetos e estoura a janela de sprite.
+AREA_GALAR = {
+    "weald": ("Galar_SlumberingWeald03", "Galar_SlumberingWeald04",
+              "Galar_SlumberingWeald01", "Galar_SlumberingWeald02"),
+    "torre": ("Galar_RoseTower01", "Galar_RoseTower02", "Galar_RoseTower03"),
+    "armadura": ("Galar_IsleOfArmor05", "Galar_IsleOfArmor07",
+                 "Galar_IsleOfArmor08", "Galar_IsleOfArmor12",
+                 "Galar_IsleOfArmor06", "Galar_IsleOfArmor10",
+                 "Galar_IsleOfArmor03", "Galar_IsleOfArmor04"),
+    "tundra": ("Galar_CrownTundra10", "Galar_CrownTundra11",
+               "Galar_CrownTundra12", "Galar_CrownTundra14",
+               "Galar_CrownTundra15", "Galar_CrownTundra16",
+               "Galar_CrownTundra18", "Galar_CrownTundra01",
+               "Galar_CrownTundra02", "Galar_CrownTundra03"),
+}
+
+# LAR CANONICO (regra 8), aqui lido do jogo de origem e escrito uma linha por
+# lenda, no lugar do `lendarios_referencia.csv`, que nao tem coluna de Galar.
+LAR_GALAR = {
+    "SPECIES_ZACIAN_HERO": "weald",       # onde o jogo os apresenta
+    "SPECIES_ZAMAZENTA_HERO": "weald",
+    "SPECIES_ETERNATUS": "torre",         # Torre Rose / usina de energia
+    "SPECIES_KUBFU": "armadura",          # dojo da Ilha da Armadura
+    "SPECIES_ZARUDE": "armadura",         # floresta da mesma ilha
+    "SPECIES_REGIELEKI": "tundra",        # os quatro da Tundra da Coroa
+    "SPECIES_REGIDRAGO": "tundra",
+    "SPECIES_CALYREX_ICE": "tundra",
+    "SPECIES_CALYREX_SHADOW": "tundra",
+    "SPECIES_ENAMORUS_INCARNATE": "tundra",
+}
+
+# Cauda da preferencia, para quem nao tem lar canonico. Mesma ideia do `BIOMA`
+# das cinco regioes, em tabela PROPRIA: por Galar dentro daquele dicionario
+# mudaria a escolha dos 106 estaticos ja gravados, porque a cota de Galar
+# comeca em zero e ganharia todo desempate.
+BIOMA_GALAR = {
+    "floresta": "Galar_GlimwoodTangle01",
+    "caverna": "Galar_GalarMine01",
+    "ruina": "Galar_CrownTundra18",
+    "agua": "Galar_IsleOfArmor07",
+    "neve": "Galar_CrownTundra11",
+    "vulcao": "Galar_GalarMine05",
+    "ceu": "Galar_RoseTower01",
+    "cidade": "Galar_IsleOfArmor05",
+}
+POOL_GALAR = tuple(m for a in ("tundra", "armadura", "weald", "torre")
+                   for m in AREA_GALAR[a])
+
+# Mapa do NPC de presente. Wedgehurst e onde mora o laboratorio no jogo de
+# origem, e o `Galar_Wedgehurst01` e o primeiro da familia que tem DUAS colunas
+# de warp livres para a regra do NPC (medido, ver `decide_npcs_presente`).
+MAPAS_PRESENTE_GALAR = ("Galar_Wedgehurst01", "Galar_Wedgehurst02",
+                        "Galar_Wedgehurst03", "Galar_Wedgehurst05")
+
+BUCKETS_GALAR = ("galar_selvagens", "galar_estaticos", "galar_presentes",
+                 "galar_evolucoes")
+
+# OS TRÊS INICIAIS DE GALAR SAEM DO MATO E VIRAM PRESENTE (decisão da condutora
+# da onda 2, 07/09/2026). Sem esta lista, `plano_galar` os classifica como
+# `selvagem` (não são lenda) e o rodízio de bioma os espalha por slot duplicado:
+# na tabela de 07/09 o Grookey caiu em `MAP_GALAR_UNDERWATER_02`, o Scorbunny em
+# `MAP_GALAR_MOTOSTOKE_18` e o Sobble num slot de pesca. Inicial não nasce no
+# mato em jogo nenhum da série, e o molde de presente já existe nesta árvore
+# (`data/maps/Unova_NuvemaLab`, três bolas com a MESMA flag de esconder).
+INICIAIS_GALAR = ("SPECIES_GROOKEY", "SPECIES_SCORBUNNY", "SPECIES_SOBBLE")
+
+# WEDGEHURST NÃO TEM LABORATÓRIO, e isso foi MEDIDO em 07/09/2026, não presumido:
+# nenhum dos 17 mapas `Galar_Wedgehurst*` tem NPC de cientista (`OBJ_EVENT_GFX_
+# SCIENTIST_*`), e as únicas citações da Sonia em Galar estão em NPC de rua
+# (`Galar_Route0202`) e da praça (`Galar_Wedgehurst05`). O prédio escolhido é o
+# CENTRO POKÉMON, `Galar_Wedgehurst03`, reconhecido por três marcas do próprio
+# mapa: `MUS_RG_POKE_CENTER`, `OBJ_EVENT_GFX_NURSE_FRLG` no balcão e
+# `MAP_TYPE_INDOOR`. Os três tiles são de (2,5) a (4,5), linha livre encostada na
+# parede de baixo, e nenhum deles ilha tile nenhum do mapa (conferido por busca
+# em largura contra o blockdata).
+MAPA_INICIAL_GALAR = "Galar_Wedgehurst03"
+TILE_INICIAL_GALAR = (3, 5)
+FLAG_INICIAL_GALAR = "FLAG_INICIAL_GALAR"
+FLAG_EVENTO_GALAR = "FLAG_DEX_PRESENTE_EVENTO_GALAR"
+
+# SOBRA DE FIRERED DENTRO DOS GRUPOS DE GALAR. Sao mapas importados junto, e a
+# decisao de escopo sobre eles esta ABERTA desde 06/09/2026 (secao 5 do
+# `ESTADO-CARTUCHO-2.md`). Mapa que pode ser cortado nao pode receber a UNICA
+# fonte de uma especie: se o corte vier, a especie volta a nao existir no
+# cartucho 2 e ninguem percebe. Eles continuam com as tabelas que a importacao
+# trouxe; o que nao entra ali e colocacao NOVA.
+SOBRAS_DE_ESCOPO_GALAR = ("AlteringCave", "LostCave", "LiptooChamber",
+                          "RixyChamber", "ScufibChamber", "TanobyKey",
+                          "NewmoonIsland")
+
+
+def flag_galar_de(nome):
+    """Nome de flag do estatico de Galar.
+
+    NAO e o `flag_de`: `FLAG_HIDE_DEX_ZACIAN_HERO` ja existe no `flags.h`, do
+    Zacian que a onda A pos em Viridian Forest. Duas flags com o mesmo nome
+    seriam duas macros com o mesmo nome, e o Zacian de Galar apagaria o de
+    Kanto (ou o contrario) sem ninguem ver.
+    """
+    return "FLAG_HIDE_DEX_GALAR_" + nome.replace("SPECIES_", "")
+
+
+def raizes_de_galar(linhas, evo, fmc, cat):
+    """(raizes, faltavam, alcancaveis_hoje) da geracao 8 dentro de Galar.
+
+    `raizes` sao as entradas que precisam de fonte PROPRIA em Galar: as que
+    ficam faltando depois de fechar evolucao e troca de forma a partir de quem
+    Galar ja tem. `faltavam` e a lista inteira antes do fecho, para o relatorio
+    poder dizer quantas sairam de graca.
+
+    LE O CENSO DE VERDADE, e nao o `censo_base` que o resto do arquivo usa, por
+    uma razao medida: o `censo_base` apaga TODO script de especie que esta na
+    tabela desta ferramenta, e com ele apaga tambem o estatico de Galar que o
+    `estaticos_galar.py` gravou da ROM do demake. Lendo o censo desmontado, 16
+    das 45 entradas somem da conta com cara de ja resolvidas.
+
+    A idempotencia vem de outro lugar: as especies que ESTA ferramenta ja
+    colocou em Galar saem da semente e voltam para a lista de faltantes, entao
+    rodar de novo depois de aplicar da exatamente o mesmo plano.
+    """
+    minhas = {l["especie"] for k in BUCKETS_GALAR
+              for l in tabela_gravada().get(k, [])}
+    semente = {l.nome for l in linhas
+               if "Galar" in l.regioes.split(",")} - minhas
+    direta = ("selvagem", "estatico", "presente", "troca")
+    g8 = [l for l in linhas if l.gen == 8]
+    faltavam = sorted((l.nome for l in g8
+                       if l.categoria in direta
+                       and ("Galar" not in l.regioes.split(",")
+                            or l.nome in minhas)),
+                      key=lambda n: (cat[n].dex, n))
+    raizes, diretos = [], set()
+    restante = set(faltavam)
+    while restante:
+        alc = _fecha(semente | diretos, evo, fmc)
+        restante = {n for n in faltavam if n not in alc}
+        if not restante:
+            break
+        novas = {n for n in restante if not (_origens(n, evo, fmc) & restante)}
+        if not novas:
+            novas = restante        # ciclo puro: todos viram raiz
+        raizes += sorted(novas, key=lambda n: (cat[n].dex, n))
+        diretos |= novas
+
+    # SEGUNDA VOLTA: a entrada de gen 8 que nao tem fonte direta em regiao
+    # NENHUMA (ela e `evolucao` ou forma) e cuja UNICA origem e uma especie de
+    # outra geracao que Galar tambem nao tem. Aqui nao se coloca a forma, e sim
+    # a ORIGEM dela, que e o que o `plano()` das cinco regioes tambem faz com as
+    # raizes. Medido em 07/09/2026: existe UMA, e ela fecha a geracao 8 inteira
+    # dentro de Galar. `SPECIES_BASCULEGION_F` so sai de
+    # `SPECIES_BASCULIN_WHITE_STRIPED`, que hoje so mora em Hoenn e portanto
+    # tambem sairia do cartucho 2.
+    alc = _fecha(semente | set(raizes), evo, fmc)
+    g8 = {l.nome for l in linhas if l.gen == 8}
+    for n in sorted(g8 - alc, key=lambda z: (cat[z].dex, z)):
+        for o in sorted(_origens(n, evo, fmc)):
+            if o in alc or o in raizes or o not in cat:
+                continue
+            raizes.append(o)
+            faltavam.append(o)
+            alc = _fecha(semente | set(raizes), evo, fmc)
+    return raizes, faltavam, _fecha(semente, evo, fmc)
+
+
+def decide_selvagem_galar(nomes, cat):
+    """Mato de Galar: slot duplicado, bioma por perfil de tipos, agua separada.
+
+    E `decide_selvagem` com a lista de tabelas trocada. A trava de estabilidade
+    e a mesma: quem ja tem escolha gravada e ainda valida fica onde esta.
+    """
+    mapa_regiao = censo_dex.mapas()
+    tabelas = [t for t in tabelas_de_encontro(mapa_regiao, regioes=("Galar",))
+               if not any(x in mapa_regiao[t["mapa"]][0]
+                          for x in SOBRAS_DE_ESCOPO_GALAR)]
+    livres = {(t["mapa"], t["tipo"]): list(t["dup"]) for t in tabelas}
+    por_chave = {(t["mapa"], t["tipo"]): t for t in tabelas}
+    usos = collections.Counter()
+    cota = collections.Counter()
+
+    reserva = {}
+    for l in tabela_gravada().get("galar_selvagens", []):
+        chave = (l["mapa"], l["metodo"])
+        if l["especie"] not in nomes or chave not in livres:
+            continue
+        if l["slot"] not in livres[chave]:
+            continue
+        if _nivel_do_slot(l["mapa"], l["metodo"], l["slot"])[1] != l["substituido"]:
+            continue
+        livres[chave].remove(l["slot"])
+        usos[chave] += 1
+        reserva[l["especie"]] = (por_chave[chave], l["slot"], l["origem"])
+
+    fora = []
+    for n in nomes:
+        e = cat[n]
+        tipos = set(e.tipos)
+        grupo = AGUA if "TYPE_WATER" in tipos else TERRA
+        if n in reserva:
+            t, slot, origem = reserva[n]
+        else:
+            alvo = _melhor_tabela(tabelas, livres, usos, cota, ["Galar"],
+                                  grupo, tipos)
+            if alvo is None:
+                raise SystemExit(f"{n}: acabaram os slots duplicados de "
+                                 f"{'/'.join(grupo)} em Galar. Pare e meca.")
+            t, slot, _n = alvo
+            origem = "bioma"
+            usos[(t["mapa"], t["tipo"])] += 1
+        cota["Galar"] += 1
+        nivel, antes = _nivel_do_slot(t["mapa"], t["tipo"], slot)
+        fora.append(dict(especie=n, como="selvagem", regiao="Galar",
+                         mapa=t["mapa"], metodo=t["tipo"], slot=slot,
+                         nivel=nivel, flag="", origem=origem,
+                         substituido=antes,
+                         nota=f"gen {e.gen}; tipos "
+                              f"{'/'.join(x.replace('TYPE_', '') for x in e.tipos)}; "
+                              f"slot duplicado {slot} de {t['n']}"))
+    return fora
+
+
+def decide_estaticos_galar(nomes, cat):
+    """Lenda de Galar: lar canonico primeiro, bioma depois, reserva por ultimo.
+
+    A geometria e a mesma do `decide_estaticos` (busca em largura com colisao e
+    elevacao, portao de nao-ilhar, teto de 64 objetos e janela de 15 sprites), e
+    a segunda passada (rota com os irmaos como parede) tambem roda. A TERCEIRA
+    passada do outro, a do `escorrega`, nao roda aqui: ela existe para o par
+    negativo dos casos do T129, e este lote nao gera caso de emulador.
+    """
+    existem = mapas_existentes()
+    usados = collections.defaultdict(set)
+    fora = []
+    for i, n in enumerate(nomes):
+        area = LAR_GALAR.get(n)
+        pref = list(AREA_GALAR[area]) if area else []
+        origem = "lar canonico" if area else "bioma"
+        pref.append(BIOMA_GALAR[bioma_de(cat[n].tipos)])
+        pref += [m for m in POOL_GALAR if m not in pref]
+        mapa, e = _encaixa(pref, usados, existem)
+        if mapa is None:
+            raise SystemExit(f"{n}: nenhum mapa de Galar da preferencia nem da "
+                             "reserva tem tile livre. Pare e meca.")
+        if area and mapa not in AREA_GALAR[area]:
+            origem = "bioma"
+        usados[mapa].add(e["T"])
+        # ELEVACAO DO PROPRIO TILE, e nao o 0 que o aplicador das cinco regioes
+        # crava. Em Galar ha mapa com ponte e com nivel de altura de verdade
+        # (as pontes da Wild Area), e objeto com elevacao errada some ou fica
+        # atravessavel. O fechador aplica o que estiver aqui.
+        _d, _W, _H, _g, _o, _m, _w = LS.contexto(mapa)
+        elev = LS.elev(_g[e["T"][1]][e["T"][0]])
+        curto = n.replace("SPECIES_", "")
+        fora.append(dict(especie=n, como="estatico", regiao="Galar", mapa=mapa,
+                         elevacao=elev,
+                         local_id="LOCALID_DEX_GALAR_%s" % curto,
+                         script="%s_EventScript_DexGalar%s"
+                                % (mapa, curto.title().replace("_", "")),
+                         metodo="objeto+script", slot=None, nivel=nivel_de(n),
+                         flag=flag_galar_de(n), origem=origem,
+                         tile=list(e["T"]),
+                         nota=f"gen {cat[n].gen}; tipos "
+                              f"{'/'.join(t.replace('TYPE_', '') for t in cat[n].tipos)}",
+                         **_geometria(e)))
+    por_mapa = collections.defaultdict(list)
+    for l in fora:
+        por_mapa[l["mapa"]].append(l)
+    for mapa, irmaos in por_mapa.items():
+        if len(irmaos) < 2:
+            irmaos[0]["rota_irmas"] = True
+            continue
+        tiles = [tuple(l["tile"]) for l in irmaos]
+        for l in irmaos:
+            meu = tuple(l["tile"])
+            e = rota_entre_vizinhos(mapa, meu, [t for t in tiles if t != meu])
+            if e is None:
+                l["rota_irmas"] = False
+                continue
+            l.update(_geometria(e))
+            l["rota_irmas"] = True
+    fim = FLAG_GALAR_BASE + len(fora) - 1
+    if fim > FLAG_GALAR_TETO:
+        raise SystemExit(f"{len(fora)} estaticos de Galar nao cabem em "
+                         f"0x{FLAG_GALAR_BASE:04X}-0x{FLAG_GALAR_TETO:04X}")
+    for i, l in enumerate(fora):
+        l["endereco_da_flag"] = "0x%04X" % (FLAG_GALAR_BASE + i)
+    return fora
+
+
+def npcs_presente_galar():
+    """Os dois NPCs de presente de Galar, pela MESMA regra do `decide_npcs_presente`
+    (mesma coluna de um warp, dois tiles acima dele), agora varrendo uma lista
+    de mapas ate um deles ter as duas colunas livres."""
+    antigo = tabela_gravada().get("galar_npcs_presente")
+    if antigo:
+        return antigo
+    for mapa in MAPAS_PRESENTE_GALAR:
+        d, W, H, g, objs, _m, _w = LS.contexto(mapa)
+        sementes = LS.sementes_dos_warps(d, W, H, g)
+        base = LS.alcance(W, H, g, sementes, objs)
+        fora, tomados = [], set()
+        for wid, w in enumerate(d.get("warp_events", [])):
+            wx, wy = w["x"], w["y"]
+            parada, tile = (wx, wy - 1), (wx, wy - 2)
+            if wy < 2 or tile in tomados or parada in tomados:
+                continue
+            if not (LS.anda(g[parada[1]][parada[0]])
+                    and LS.anda(g[tile[1]][tile[0]])):
+                continue
+            if tile in objs or parada in objs or tile not in base:
+                continue
+            if LS.alcance(W, H, g, sementes, objs | tomados | {tile}) != \
+                    base - tomados - {tile}:
+                continue
+            fora.append(dict(papel="presente%d" % (len(fora) + 1), mapa=mapa,
+                             tile=list(tile), warp=wid, para=list(parada),
+                             vazio=list(parada), dir="UP",
+                             rota=[["UP", 1, True]]))
+            tomados |= {tile, parada}
+            if len(fora) == 2:
+                return fora
+    raise SystemExit("nenhum mapa de MAPAS_PRESENTE_GALAR tem duas colunas de "
+                     "warp livres para os NPCs de presente. Pare e meca.")
+
+
+def decide_presentes_galar(nomes, cat):
+    """Quem NAO tem gfx de overworld nao pode ser objeto: vira `givemon` de NPC.
+
+    Mesma decisao que `decide_presentes` toma nas cinco regioes; o que muda e o
+    mapa, que aqui e de Galar.
+    """
+    npcs = npcs_presente_galar()
+    fora, i = [], 0
+    for n in nomes:
+        if n in INICIAIS_GALAR:
+            fora.append(dict(
+                especie=n, como="presente", regiao="Galar",
+                mapa=MAPA_INICIAL_GALAR, metodo="multichoice", slot=None,
+                nivel=5, flag=FLAG_INICIAL_GALAR, origem="decisao",
+                tile=list(TILE_INICIAL_GALAR), npc="iniciais",
+                nota="inicial de Galar: um NPC do Centro Pokemon de "
+                     "Wedgehurst entrega um dos tres a escolha, molde do "
+                     "laboratorio do Birch"))
+            continue
+        npc = npcs[i % len(npcs)]
+        i += 1
+        fora.append(dict(
+            especie=n, como="presente", regiao="Galar", mapa=npc["mapa"],
+            metodo="givemon", slot=None, nivel=5, flag="", origem="censo",
+            tile=list(npc["tile"]), npc=npc["papel"],
+            nota="sem gfx de overworld (nao pode ser estatico): givemon por NPC"))
+    return fora
+
+
+_PLANO_GALAR = {}
+
+
+def plano_galar():
+    """As colocacoes de Galar, nos mesmos quatro baldes do plano das cinco."""
+    if _PLANO_GALAR:
+        return _PLANO_GALAR
+    linhas = censo_dex.censo()
+    cat = catalogo_completo()
+    evo, fmc = censo_dex.evolucoes(), censo_dex.formas()
+    por_nome = {l.nome: l for l in linhas}
+    raizes, faltavam, _alc = raizes_de_galar(linhas, evo, fmc, cat)
+    # MESMA classificacao do `plano()` das cinco regioes, e nao uma parecida:
+    # quem NAO e lenda vai para o mato mesmo sem gfx de overworld (linha de
+    # tabela nao precisa de sprite); lenda com gfx vira estatico; lenda sem gfx
+    # vira presente. Foi assim que o Toxtricity-Gmax ganhou linha de mato em
+    # Kanto, e e assim que ele ganha uma em Galar.
+    estaticos = [n for n in raizes if por_nome[n].lenda and por_nome[n].ow]
+    presentes = [n for n in raizes if por_nome[n].lenda and not por_nome[n].ow]
+    selvagens = [n for n in raizes if not por_nome[n].lenda]
+    # Os iniciais trocam de balde ANTES do rodízio de bioma, senão eles ocupam
+    # slot duplicado de mato e o `substituido` daquele slot vira baseline.
+    iniciais = [n for n in selvagens if n in INICIAIS_GALAR]
+    selvagens = [n for n in selvagens if n not in INICIAIS_GALAR]
+    presentes = iniciais + presentes
+    fora = {
+        "galar_selvagens": decide_selvagem_galar(selvagens, cat),
+        "galar_estaticos": decide_estaticos_galar(estaticos, cat),
+        "galar_presentes": decide_presentes_galar(presentes, cat),
+    }
+    resolvidos = {l["especie"] for k in fora for l in fora[k]}
+    fora["galar_evolucoes"] = [
+        dict(especie=n, como="evolucao", regiao="Galar", mapa="", metodo="",
+             slot=None, nivel=0, flag="", origem="censo",
+             nota="sai de graca em Galar depois das colocacoes acima: "
+                  + "; ".join(sorted(x.replace("SPECIES_", "")
+                                     for x in _origens(n, evo, fmc))
+                              or ["troca de forma"]))
+        for n in faltavam if n not in resolvidos]
+    fora["galar_npcs_presente"] = npcs_presente_galar()
+    minhas = {l["especie"] for k in BUCKETS_GALAR
+              for l in tabela_gravada().get(k, [])}
+    g8 = [l for l in linhas if l.gen == 8]
+    fora["_resumo"] = {
+        "gen8_com_fonte_em_galar_antes": len(
+            {l.nome for l in g8 if "Galar" in l.regioes.split(",")} - minhas),
+        "gen8_sem_fonte_em_galar": len(faltavam),
+        "colocacoes": len(raizes),
+        "gen8_colocadas": sum(1 for n in raizes if cat[n].gen == 8),
+        "de_graca_por_evolucao_ou_forma": len(fora["galar_evolucoes"]),
+    }
+    _PLANO_GALAR.update(fora)
+    return _PLANO_GALAR
+
+
+def escreve_tabela_galar(gravar):
+    """Grava SO os baldes de Galar dentro do `dex_distribuicao.json`.
+
+    NAO chama `escreve_tabela`, e isso e deliberado: aquele reescreve o arquivo
+    inteiro a partir do censo de HOJE, e o censo de hoje ja e outro (a onda 1
+    importou 104 tabelas de encontro de Galar e com elas 592 especies ganharam
+    fonte). Regravar o arquivo inteiro apagaria 44 linhas de mato das CINCO
+    regioes que ja estao ESCRITAS no `wild_encounters.json`, e o `substituido`
+    delas e a unica testemunha de qual especie estava no slot: some a linha,
+    some o baseline, e o slot fica com a especie nova para sempre. Quem quiser
+    reconciliar a tabela inteira com o censo novo que faca isso de propria
+    conta, medindo; nao e obra deste lote e nao pode ser efeito colateral dele.
+    """
+    p = plano_galar()
+    d = json.load(open(TABELA, encoding="utf-8"))
+    novo_d = dict(d)
+    for k in BUCKETS_GALAR + ("galar_npcs_presente",):
+        novo_d[k] = p[k]
+    novo_d["totais"] = dict(d.get("totais", {}))
+    novo_d["totais"].update({k: len(p[k]) for k in BUCKETS_GALAR})
+    novo = json.dumps(novo_d, indent=2, ensure_ascii=False) + "\n"
+    if novo == open(TABELA, encoding="utf-8").read():
+        return []
+    if gravar:
+        open(TABELA, "w", encoding="utf-8").write(novo)
+    return ["dex_distribuicao.json: baldes de Galar ("
+            + ", ".join(f"{k} {len(p[k])}" for k in BUCKETS_GALAR) + ")"]
+
+
+def escreve_pedidos_galar(gravar):
+    """O arquivo de pedidos do lote H: estatico e presente, prontos para aplicar.
+
+    Nao escreve `.inc` nem `map.json` de proposito: nesta onda eles tem outros
+    donos. O que sai daqui e a decisao inteira (mapa, tile, elevacao implicita
+    do tile, nivel, flag com endereco) para o fechador aplicar sem refazer
+    conta nenhuma.
+    """
+    t = plano_galar()
+    d = {
+        "gerado_por": "dev_scripts/distribui_dex.py --galar",
+        "leia_antes": "Onda 2, lote H (Dex de geracao 8 em Galar). Cada linha e "
+                      "um objeto de overworld a criar em data/maps/<mapa>/map.json "
+                      "mais a cena em data/scripts/, no mesmo idioma que o "
+                      "distribui_dex ja usa nas cinco regioes: estatico = "
+                      "OBJ_EVENT_GFX_SPECIES + setwildbattle/seteventmon com a "
+                      "flag de HIDE; presente = NPC com givemon. As flags da "
+                      "faixa 0x2280-0x22FF sao exclusivas deste lote.",
+        "faixa_de_flags": "0x%04X-0x%04X" % (FLAG_GALAR_BASE, FLAG_GALAR_TETO),
+        "ordem_de_rodagem": [
+            "1. python3 dev_scripts/importa_encontros_galar.py --aplicar   "
+            "(reescreve TODAS as entradas de Galar do wild_encounters.json a "
+            "partir da ROM do demake; roda SEMPRE antes do passo 2, senao "
+            "apaga as linhas de mato da Dex em silencio)",
+            "2. python3 dev_scripts/distribui_dex.py --galar --aplica       "
+            "(regrava as linhas de mato da Dex e este arquivo de pedidos)",
+            "3. python3 dev_scripts/estaticos_galar.py --aplicar            "
+            "(o gerador de estatico mudou nesta rodada: a traducao de especie "
+            "ganhou o `.` das formas regionais e o bloco de Alola. O diff "
+            "medido em --seco e +204/-204 linhas no galar_estaticos.inc e "
+            "51 linhas em 21 map.json, TODAS de antro de raide que trocou de "
+            "especie pela rotacao; nenhum estatico entra nem sai)",
+            "4. os objetos e cenas deste arquivo (estaticos e presentes), que "
+            "sao de map.json e .inc e por isso ficaram como pedido",
+        ],
+        "totais": {k: len(t.get(k, [])) for k in BUCKETS_GALAR},
+        "npcs_presente": t.get("galar_npcs_presente", []),
+        "estaticos": t.get("galar_estaticos", []),
+        "presentes": t.get("galar_presentes", []),
+    }
+    novo = json.dumps(d, indent=2, ensure_ascii=False) + "\n"
+    velho = (open(PEDIDOS_GALAR, encoding="utf-8").read()
+             if os.path.exists(PEDIDOS_GALAR) else "")
+    if novo == velho:
+        return []
+    if gravar:
+        open(PEDIDOS_GALAR, "w", encoding="utf-8").write(novo)
+    return [f"onda2_lote_h_pedidos_scripts.json: "
+            f"{len(d['estaticos'])} estatico(s) e {len(d['presentes'])} "
+            f"presente(s) para o fechador aplicar"]
+
+
+def aplica_selvagem_galar(gravar):
+    """As linhas de mato de Galar, em slot DUPLICADO. Idempotente por baseline.
+
+    ORDEM QUE IMPORTA: `importa_encontros_galar.py --aplicar` REESCREVE todas as
+    entradas de Galar do `wild_encounters.json` a partir da ROM do demake, entao
+    ele roda ANTES e este depois. Rodar na ordem trocada apaga estas linhas em
+    silencio; o `--valida` do outro nao acusa, porque a tabela continua valida.
+    """
+    d = encontros_base()
+    idx = _indice(d)
+    conta = collections.Counter()
+    # AS LINHAS DAS CINCO REGIOES ENTRAM JUNTO, e nao por gentileza: o
+    # `encontros_base()` devolve o JSON DESMONTADO (com o `substituido` de volta
+    # em cada slot), entao escrever so as de Galar por cima dele apagaria as 234
+    # linhas de mato que a onda A ja aplicou. Medido aqui antes de gravar.
+    for l in tabela().get("selvagens", []):
+        mons = idx[(l["mapa"], l["metodo"])]
+        alvo = mons[l["slot"]]
+        if alvo["species"] != l["substituido"]:
+            raise SystemExit(
+                f"{l['especie']}: o slot {l['slot']} de {l['mapa']}/{l['metodo']} "
+                f"nao tem mais {l['substituido']}. Refaca a tabela antes.")
+        alvo["species"] = l["especie"]
+    for l in plano_galar()["galar_selvagens"]:
+        mons = idx[(l["mapa"], l["metodo"])]
+        alvo = mons[l["slot"]]
+        if alvo["species"] != l["substituido"]:
+            raise SystemExit(
+                f"{l['especie']}: o slot {l['slot']} de {l['mapa']}/{l['metodo']} "
+                f"tem {alvo['species']} e a tabela diz que tinha "
+                f"{l['substituido']}. Rode --tabela de novo antes de aplicar.")
+        alvo["species"] = l["especie"]
+        conta[l["metodo"]] += 1
+    novo = json.dumps(d, indent=2, ensure_ascii=False) + "\n"
+    if novo == open(ENCONTROS, encoding="utf-8").read():
+        return []
+    if gravar:
+        open(ENCONTROS, "w", encoding="utf-8").write(novo)
+    return [f"wild_encounters.json: {sum(conta.values())} linhas de Galar ("
+            + ", ".join(f"{t.replace('_mons', '')} {n}"
+                        for t, n in sorted(conta.items())) + ")"]
+
+
+def demo_galar():
+    """Autoteste do bloco de Galar, com mutacao plantada.
+
+    Nao entra no `--demo` geral de proposito: aquele comeca pelo
+    `plano_congelado`, que compara a tabela gravada com um plano refeito do
+    zero, e ele JA estava vermelho antes desta rodada (a importacao de Galar da
+    onda 1 deu fonte a especies que a tabela ainda lista como inobteniveis:
+    medido em 07/09/2026, 213 selvagens no plano contra 234 na tabela, com esta
+    rodada e sem ela). Reconciliar aquela tabela e obra propria, e nao efeito
+    colateral desta.
+    """
+    global SOBRAS_DE_ESCOPO_GALAR
+    falhas = []
+    p = plano_galar()
+    mapa_regiao = censo_dex.mapas()
+    pasta_de = {m: v[0] for m, v in mapa_regiao.items()}
+
+    # 1. todo mapa de destino existe, e e de Galar.
+    existem = mapas_existentes()
+    for l in p["galar_estaticos"] + p["galar_presentes"]:
+        if l["mapa"] not in existem:
+            falhas.append("mapa que nao existe: " + l["mapa"])
+        if regiao_do_mapa(l["mapa"]) != "Galar":
+            falhas.append("estatico fora de Galar: " + l["mapa"])
+    for l in p["galar_selvagens"]:
+        if mapa_regiao.get(l["mapa"], (None, "?"))[1] != "Galar":
+            falhas.append("mato fora de Galar: " + l["mapa"])
+
+    # 2. tile e flag: um por objeto, e dentro da faixa deste lote.
+    tiles = collections.Counter((l["mapa"], tuple(l["tile"]))
+                                for l in p["galar_estaticos"])
+    for chave, n in tiles.items():
+        if n > 1:
+            falhas.append("dois estaticos no mesmo tile: %s" % (chave,))
+    ends = [int(l["endereco_da_flag"], 16) for l in p["galar_estaticos"]]
+    if len(set(ends)) != len(ends):
+        falhas.append("flag repetida entre os estaticos de Galar")
+    if ends and not (FLAG_GALAR_BASE <= min(ends) and max(ends) <= FLAG_GALAR_TETO):
+        falhas.append("flag fora da faixa 0x%04X-0x%04X" % (FLAG_GALAR_BASE,
+                                                           FLAG_GALAR_TETO))
+    nomes = {l["flag"] for l in p["galar_estaticos"]}
+    # O bloco que ESTE arquivo gera sai da busca. Sem isso a checagem inverte de
+    # sentido assim que `--galar-objetos --aplica` roda pela primeira vez: ela
+    # existe para pegar nome pedido por OUTRO dono, e passaria a acusar o
+    # proprio escritor. Medido em 07/09/2026, com as 10 flags acusadas.
+    texto = LS.substitui(open(FLAGS_H, encoding="utf-8").read(),
+                         MARCA_FLAG_GALAR_INI, MARCA_FLAG_GALAR_FIM, "")
+    for n in sorted(nomes):
+        if re.search(r"#define\s+%s\b" % re.escape(n), texto):
+            falhas.append("nome de flag ja existe no flags.h, e o dono nao e "
+                          "este arquivo: " + n)
+
+    # 2b. os tres iniciais sao PRESENTE, e nenhum deles ficou no mato.
+    ini = [l for l in p["galar_presentes"] if l["especie"] in INICIAIS_GALAR]
+    if len(ini) != len(INICIAIS_GALAR):
+        falhas.append("inicial de Galar fora do balde de presente: %d de %d"
+                      % (len(ini), len(INICIAIS_GALAR)))
+    for l in ini:
+        if l["metodo"] != "multichoice" or l["mapa"] != MAPA_INICIAL_GALAR:
+            falhas.append("inicial de Galar com molde errado: " + l["especie"])
+    if len({tuple(l["tile"]) for l in ini}) != 1:
+        falhas.append("os tres iniciais de Galar tem que sair do MESMO NPC")
+    for l in p["galar_selvagens"]:
+        if l["especie"] in INICIAIS_GALAR:
+            falhas.append("inicial de Galar no mato: " + l["especie"])
+
+    # 3. o mato so ocupa slot DUPLICADO, e o `substituido` bate com o baseline.
+    idx = _indice(encontros_base())
+    for l in p["galar_selvagens"]:
+        mons = idx[(l["mapa"], l["metodo"])]
+        if mons[l["slot"]]["species"] != l["substituido"]:
+            falhas.append("substituido nao bate: " + l["especie"])
+        antes = [m["species"] for m in mons[:l["slot"]]]
+        if l["substituido"] not in antes:
+            falhas.append("slot nao era duplicado: " + l["especie"])
+
+    # 4. nenhuma colocacao em mapa de escopo aberto.
+    for l in p["galar_selvagens"]:
+        if any(x in pasta_de[l["mapa"]] for x in SOBRAS_DE_ESCOPO_GALAR):
+            falhas.append("colocacao em sobra de FireRed: " + l["mapa"])
+
+    # 5. MUTACAO PLANTADA: sem o filtro de sobra de escopo, alguma colocacao cai
+    # numa delas. Se este bloco NAO reprovar, o filtro nao esta pesando e o item
+    # 4 acima passa por acaso.
+    guarda = SOBRAS_DE_ESCOPO_GALAR
+    # A RESERVA sai junto: `decide_selvagem_galar` respeita a escolha ja gravada
+    # (e por isso o mato nao anda de slot a cada rodada), e com ela no lugar
+    # nenhuma mutacao pode mover nada. Tirar o filtro sem tirar a reserva era um
+    # teste que passava sozinho.
+    guarda_res = _TABELA.pop("galar_selvagens", None)
+    try:
+        SOBRAS_DE_ESCOPO_GALAR = ()
+        nomes_mato = [l["especie"] for l in p["galar_selvagens"]]
+        mutante = decide_selvagem_galar(nomes_mato, catalogo_completo())
+        caiu = [l["mapa"] for l in mutante
+                if any(x in pasta_de[l["mapa"]] for x in guarda)]
+        if not caiu:
+            falhas.append("mutacao plantada NAO reprovou: tirar o filtro de "
+                          "sobra de escopo nao muda colocacao nenhuma")
+    finally:
+        SOBRAS_DE_ESCOPO_GALAR = guarda
+        if guarda_res is not None:
+            _TABELA["galar_selvagens"] = guarda_res
+
+    print("demo galar: %s (%d colocacoes: %d mato, %d estatico, %d presente)"
+          % ("OK" if not falhas else "REPROVADO",
+             len(p["galar_selvagens"]) + len(p["galar_estaticos"])
+             + len(p["galar_presentes"]), len(p["galar_selvagens"]),
+             len(p["galar_estaticos"]), len(p["galar_presentes"])))
+    for f in falhas:
+        print("  FALHA", f)
+    return 1 if falhas else 0
+
+
+def relata_galar():
+    """O que a obra de Galar entregou, em numero, para o diario da onda.
+
+    Le o RESUMO do proprio plano, e nao um censo novo: depois de `--aplica` o
+    censo ja enxerga as linhas de mato recem-escritas, e recontar ali faria o
+    relatorio encolher a cada rodada como se metade da obra nao existisse.
+    """
+    t = plano_galar()
+    r = t["_resumo"]
+    fora = [f"gen 8 com fonte DIRETA em Galar: "
+            f"{r['gen8_com_fonte_em_galar_antes']} antes, "
+            f"{r['gen8_com_fonte_em_galar_antes'] + r['gen8_colocadas']} depois "
+            f"({r['gen8_colocadas']} colocacoes de gen 8, "
+            f"{r['colocacoes'] - r['gen8_colocadas']} de outra geracao que "
+            f"destrava forma de gen 8)",
+            f"gen 8 sem fonte em Galar: {r['gen8_sem_fonte_em_galar']} tinham "
+            f"fonte direta so em outra regiao; "
+            f"{r['de_graca_por_evolucao_ou_forma']} delas saem de graca por "
+            f"evolucao ou troca de forma depois das colocacoes"]
+    for k in BUCKETS_GALAR:
+        fora.append(f"  {k}: {len(t[k])}")
+    return fora
 
 
 # ------------------------------------------------------------------ autoteste
@@ -2402,6 +3134,349 @@ def sonda_de_regiao():
             "REGION_JOHTO != REGION_SINNOH; mutacao plantada reprovada")
 
 
+# ------------------------------ Galar: os objetos e as cenas (onda 2, lote H)
+#
+# ONDE ESTE PEDACO ESCREVE, e por que ele nao usa a MARCA das cinco regioes.
+# `limpa_mapas_orfaos` varre `data/maps/*/map.json` inteiro e apaga todo objeto
+# com `origem == MARCA` que nao esteja na tabela das CINCO. Marcar o estatico de
+# Galar com a mesma string faria a proxima chamada de `--estaticos --aplica`
+# apagar Galar inteiro em silencio, porque a tabela dos cinco nao cita mapa
+# nenhum de Galar. Por isso a marca daqui e outra, e o filtro daquela varredura
+# (`!= MARCA`) preserva estes objetos sozinho.
+#
+# ORDEM QUE IMPORTA: rodar DEPOIS de `estaticos_galar.py --aplicar`. Aquele
+# gerador tira os objetos dele de todos os `map.json` de Galar e os repoe no
+# FIM da lista; rodar este antes deixaria os objetos da Dex no meio, e a cada
+# passada de `estaticos_galar` eles andariam de indice.
+MARCA_GALAR = "distribui_dex galar"
+MARCA_FLAG_GALAR_INI = ("// >>> Dex de Galar: HIDE dos estaticos e presentes "
+                        "(dev_scripts/distribui_dex.py --galar-objetos) >>>")
+MARCA_FLAG_GALAR_FIM = "// <<< Dex de Galar <<<"
+
+
+def _trecho_estatico_galar(l):
+    """O mesmo `_trecho_estatico` das cinco regioes, com o prefixo `Galar` nos
+    nomes. O prefixo NAO e enfeite: `FLAG_HIDE_DEX_ZACIAN_HERO` e
+    `LOCALID_DEX_ZACIAN_HERO` ja existem, do Zacian que a onda A pos em Kanto, e
+    dois simbolos com o mesmo nome fariam um apagar o outro sem aviso."""
+    m = l["mapa"]
+    nome = "Galar" + l["especie"].replace("SPECIES_", "").title().replace("_", "")
+    lid = "LOCALID_DEX_GALAR_" + l["especie"].replace("SPECIES_", "")
+    return "\n".join([
+        f"{m}_EventScript_Dex{nome}::",
+        "\tlockall",
+        f"\tmsgbox {m}_Text_Dex{nome}Intro, MSGBOX_DEFAULT",
+        "\twaitse",
+        f"\tplaymoncry {l['especie']}, CRY_MODE_ENCOUNTER",
+        "\tdelay 30",
+        "\twaitmoncry",
+        f"\tseteventmon {l['especie']}, {l['nivel']}",
+        "\tsetflag FLAG_SYS_CTRL_OBJ_DELETE",
+        "\tspecial BattleSetup_StartLegendaryBattle",
+        "\tclearflag FLAG_SYS_CTRL_OBJ_DELETE",
+        f"\tsetvar VAR_LAST_TALKED, {lid}",
+        "\tspecialvar VAR_RESULT, GetBattleOutcome",
+        f"\tcall_if_eq VAR_RESULT, B_OUTCOME_WON, {m}_EventScript_Dex{nome}Some",
+        f"\tcall_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, {m}_EventScript_Dex{nome}Some",
+        "\treleaseall",
+        "\tend",
+        "",
+        f"{m}_EventScript_Dex{nome}Some::",
+        "\tfadescreenswapbuffers FADE_TO_BLACK",
+        f"\tremoveobject {lid}",
+        f"\tsetflag {l['flag']}",
+        "\tfadescreenswapbuffers FADE_FROM_BLACK",
+        "\treturn",
+        "",
+        f"{m}_Text_Dex{nome}Intro:",
+        '\t.string "%s appeared!$"' % l["especie"].replace("SPECIES_", ""),
+        ""])
+
+
+def _script_iniciais_galar():
+    """O NPC que entrega UM dos tres iniciais de Galar, a escolha.
+
+    Molde do `_script_presentes` do laboratorio do Birch, linha por linha, com
+    a mesma armadilha ja paga la: NADA de `waitstate` depois do
+    `dynmultistack`, porque `ScrCmd_dynmultichoice` ja para o contexto sozinho
+    e o segundo o travaria para sempre.
+
+    O texto sai em INGLES de proposito. A T07 do `checa_texto.py` reprova
+    PORTUGUES em Galar desde a onda 1 (decisao 3 daquela onda), e frase nova em
+    portugues aqui entregaria vermelho por acertar.
+    """
+    m = MAPA_INICIAL_GALAR
+    ini = [l for l in tabela_gravada().get("galar_presentes", [])
+           if l["metodo"] == "multichoice"]
+    p = ["@ Gerado por dev_scripts/distribui_dex.py --galar-objetos. Nao editar a mao.",
+         "",
+         "@ Wedgehurst NAO tem laboratorio nesta arvore (medido em 07/09/2026:",
+         "@ nenhum dos 17 mapas Galar_Wedgehurst* tem NPC de cientista). O predio",
+         "@ e o CENTRO POKEMON, reconhecido por MUS_RG_POKE_CENTER e pela",
+         "@ enfermeira do balcao. Os tres iniciais sairam do MATO por decisao da",
+         "@ condutora da onda 2: eles caiam em slot duplicado de tabela selvagem,",
+         "@ e um deles em mapa submerso.",
+         f"{m}_EventScript_DexIniciaisGalar::",
+         "\tlock",
+         "\tfaceplayer",
+         f"\tgoto_if_set {FLAG_INICIAL_GALAR}, {m}_EventScript_DexIniciaisGalarJaDeu",
+         f"\tmsgbox {m}_Text_DexIniciaisGalarPergunta, MSGBOX_DEFAULT"]
+    for i, l in enumerate(ini):
+        nome = l["especie"].replace("SPECIES_", "").title()
+        p.append(f"\tdynmultipush {m}_Text_DexInicialGalar{nome}, {i}")
+    p += ["\tdynmultistack 0, 0, FALSE, 4, FALSE, 0, DYN_MULTICHOICE_CB_NONE",
+          "\tcompare VAR_RESULT, MULTI_B_PRESSED",
+          f"\tgoto_if_eq {m}_EventScript_DexIniciaisGalarSai"]
+    for i, l in enumerate(ini):
+        nome = l["especie"].replace("SPECIES_", "").title()
+        p.append(f"\tgoto_if_eq VAR_RESULT, {i}, "
+                 f"{m}_EventScript_DexInicialGalar{nome}")
+    p += [f"\tgoto {m}_EventScript_DexIniciaisGalarSai", ""]
+    for l in ini:
+        nome = l["especie"].replace("SPECIES_", "").title()
+        p += [f"{m}_EventScript_DexInicialGalar{nome}::",
+              f"\tgivemon {l['especie']}, {l['nivel']}",
+              f"\tsetflag {FLAG_INICIAL_GALAR}",
+              f"\tmsgbox {m}_Text_DexIniciaisGalarEntregue, MSGBOX_DEFAULT",
+              "\trelease",
+              "\tend",
+              ""]
+    p += [f"{m}_EventScript_DexIniciaisGalarJaDeu::",
+          f"\tmsgbox {m}_Text_DexIniciaisGalarJaDeu, MSGBOX_DEFAULT",
+          "\trelease",
+          "\tend",
+          "",
+          f"{m}_EventScript_DexIniciaisGalarSai::",
+          "\trelease",
+          "\tend",
+          "",
+          f"{m}_Text_DexIniciaisGalarPergunta:",
+          '\t.string "The LEAGUE sends us three POKéMON\\n"',
+          '\t.string "for new TRAINERS every year.\\p"',
+          '\t.string "Nobody came for these. Pick one!$"',
+          ""]
+    for l in ini:
+        nome = l["especie"].replace("SPECIES_", "").title()
+        p += [f"{m}_Text_DexInicialGalar{nome}:",
+              '\t.string "%s$"' % nome.upper(), ""]
+    p += [f"{m}_Text_DexIniciaisGalarEntregue:",
+          '\t.string "Take good care of it!$"', "",
+          f"{m}_Text_DexIniciaisGalarJaDeu:",
+          '\t.string "I hope the one you chose is\\ndoing well.$"', ""]
+    return p
+
+
+def _script_evento_galar():
+    """O NPC dos event-only de Galar: `givemon` sem escolha, mesma regra do
+    `DexDistribuicao` do Birch. Sao as entradas SEM gfx de overworld, que por
+    isso nao podem virar encontro estatico."""
+    m = MAPAS_PRESENTE_GALAR[0]
+    ev = [l for l in tabela_gravada().get("galar_presentes", [])
+          if l["metodo"] == "givemon"]
+    p = [f"{m}_EventScript_DexDistribuicaoGalar::",
+         "\tlock",
+         "\tfaceplayer",
+         f"\tgoto_if_set {FLAG_EVENTO_GALAR}, "
+         f"{m}_EventScript_DexDistribuicaoGalarJaDeu",
+         f"\tmsgbox {m}_Text_DexDistribuicaoGalar, MSGBOX_DEFAULT"]
+    for l in ev:
+        p.append(f"\tgivemon {l['especie']}, {l['nivel']}")
+    p += [f"\tsetflag {FLAG_EVENTO_GALAR}",
+          f"\tmsgbox {m}_Text_DexDistribuicaoGalarFim, MSGBOX_DEFAULT",
+          "\trelease",
+          "\tend",
+          "",
+          f"{m}_EventScript_DexDistribuicaoGalarJaDeu::",
+          f"\tmsgbox {m}_Text_DexDistribuicaoGalarFim, MSGBOX_DEFAULT",
+          "\trelease",
+          "\tend",
+          "",
+          f"{m}_Text_DexDistribuicaoGalar:",
+          '\t.string "I keep the POKéMON from every\\n"',
+          '\t.string "event that never came to GALAR.\\p"',
+          '\t.string "You should have them.$"', "",
+          f"{m}_Text_DexDistribuicaoGalarFim:",
+          '\t.string "Whatever does not fit in your\\n"',
+          '\t.string "party goes to your PC.$"', ""]
+    return p
+
+
+def bloco_flags_galar():
+    """Os apelidos de flag desta obra, todos dentro da faixa 0x2280-0x22FF que o
+    lote H reservou. Apelidar FLAG_UNUSED nao mexe em FLAGS_COUNT: a save nao
+    muda."""
+    est = tabela_gravada().get("galar_estaticos", [])
+    larg = 38
+    out = [MARCA_FLAG_GALAR_INI,
+           "// Uma flag de HIDE por estatico da Dex de Galar, mais as duas dos",
+           "// NPCs de presente. O nome leva GALAR porque os apelidos sem ele ja",
+           "// existem, dos mesmos lendarios que a Dex das cinco regioes colocou",
+           "// em Kanto, Johto e Hoenn. Gerado; nao editar a mao."]
+    usados = 0
+    for l in est:
+        out.append("#define %-*s FLAG_UNUSED_%s  // Galar, %s"
+                   % (larg, l["flag"], l["endereco_da_flag"].replace("0x", "0x"),
+                      l["mapa"]))
+        usados = max(usados, int(l["endereco_da_flag"], 16))
+    for nome, comentario in ((FLAG_INICIAL_GALAR,
+                              "o inicial de Galar ja foi escolhido"),
+                             (FLAG_EVENTO_GALAR,
+                              "os event-only de Galar ja foram dados")):
+        usados += 1
+        if usados > FLAG_GALAR_TETO:
+            raise SystemExit("a faixa 0x%04X-0x%04X acabou" % (FLAG_GALAR_BASE,
+                                                               FLAG_GALAR_TETO))
+        out.append("#define %-*s FLAG_UNUSED_0x%04X  // %s"
+                   % (larg, nome, usados, comentario))
+    out.append(MARCA_FLAG_GALAR_FIM)
+    return "\n".join(out) + "\n"
+
+
+def _objeto_galar(local, gfx, script, flag, tile, elevacao=3):
+    return {
+        "local_id": local, "graphics_id": gfx,
+        "x": tile[0], "y": tile[1], "elevation": elevacao,
+        "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+        "movement_range_x": 0, "movement_range_y": 0,
+        "trainer_type": "TRAINER_TYPE_NONE",
+        "trainer_sight_or_berry_tree_id": "0",
+        "script": script, "flag": flag, "origem": MARCA_GALAR,
+    }
+
+
+def _escreve_inc(cam, corpo, gravar):
+    inc = open(cam, encoding="utf-8").read()
+    novo = LS.substitui(inc, INC_INI, INC_FIM,
+                        "\n".join([INC_INI] + corpo + [INC_FIM]) + "\n")
+    if novo == inc:
+        return False
+    if gravar:
+        open(cam, "w", encoding="utf-8").write(novo)
+    return True
+
+
+def aplica_galar_objetos(gravar):
+    """Os 10 estaticos e os dois NPCs de presente de Galar, em map.json e .inc."""
+    t = tabela_gravada()
+    est = t.get("galar_estaticos", [])
+    pres = t.get("galar_presentes", [])
+    npcs = t.get("galar_npcs_presente", [])
+    mudou = []
+
+    # --- objetos, um map.json por vez -------------------------------------
+    por_mapa = collections.defaultdict(list)
+    for l in est:
+        nome = "Galar" + l["especie"].replace("SPECIES_", "").title().replace("_", "")
+        por_mapa[l["mapa"]].append(_objeto_galar(
+            "LOCALID_DEX_GALAR_" + l["especie"].replace("SPECIES_", ""),
+            "OBJ_EVENT_GFX_SPECIES(%s)" % l["especie"].replace("SPECIES_", ""),
+            f"{l['mapa']}_EventScript_Dex{nome}", l["flag"],
+            (l["tile"][0], l["tile"][1]), elevacao=0))
+    if any(l["metodo"] == "multichoice" for l in pres):
+        por_mapa[MAPA_INICIAL_GALAR].append(_objeto_galar(
+            "LOCALID_GALAR_DEX_INICIAIS", "OBJ_EVENT_GFX_SCIENTIST_2",
+            f"{MAPA_INICIAL_GALAR}_EventScript_DexIniciaisGalar", "0",
+            TILE_INICIAL_GALAR))
+    if any(l["metodo"] == "givemon" for l in pres):
+        m = MAPAS_PRESENTE_GALAR[0]
+        tile = tuple(npcs[0]["tile"]) if npcs else None
+        if tile is None:
+            raise SystemExit("galar_npcs_presente vazio: rode --galar --aplica antes")
+        por_mapa[m].append(_objeto_galar(
+            "LOCALID_GALAR_DEX_EVENTO", "OBJ_EVENT_GFX_MANIAC",
+            f"{m}_EventScript_DexDistribuicaoGalar", "0", tile))
+
+    for mapa, itens in sorted(por_mapa.items()):
+        cam = f"{RAIZ}/data/maps/{mapa}/map.json"
+        d = json.load(open(cam, encoding="utf-8"))
+        antes = d.get("object_events", [])
+        # OS OBJETOS DESTE ESCRITOR ENTRAM ANTES DO BLOCO DE `estaticos_galar`, e
+        # nao no fim da lista. Motivo medido em 07/09/2026: aquele gerador tira
+        # os objetos DELE de todo map.json de Galar e os repoe no FIM, entao com
+        # os da Dex depois deles a segunda passada de `estaticos_galar --aplicar`
+        # mexeria em 3 mapas sem nada ter mudado, e o `--demo` dele reprova por
+        # nao ser idempotente. Cada objeto novo continua entrando DEPOIS de todo
+        # objeto que ja existia e nao e de gerador, que e o que a save cobra.
+        limpo = [o for o in antes if o.get("origem") != MARCA_GALAR]
+        corte = next((i for i, o in enumerate(limpo)
+                      if o.get("origem") == "estaticos_galar"), len(limpo))
+        novos = limpo[:corte] + itens + limpo[corte:]
+        if len(novos) > TETO_OBJETOS:
+            raise SystemExit(f"{mapa} chegaria a {len(novos)} objetos, acima "
+                             f"do teto {TETO_OBJETOS}.")
+        tiles = collections.Counter((o["x"], o["y"]) for o in novos)
+        repetido = [k for k, n in tiles.items() if n > 1]
+        if repetido:
+            raise SystemExit(f"{mapa}: dois objetos no mesmo tile {repetido}")
+        if novos != antes:
+            d["object_events"] = novos
+            if gravar:
+                open(cam, "w", encoding="utf-8").write(
+                    json.dumps(d, indent=2, ensure_ascii=False) + "\n")
+            mudou.append(f"{mapa}/map.json: {len(itens)} objeto(s) da Dex de Galar")
+
+    # --- cenas -------------------------------------------------------------
+    cenas = collections.defaultdict(list)
+    for l in est:
+        cenas[l["mapa"]].append(_trecho_estatico_galar(l))
+    if any(l["metodo"] == "multichoice" for l in pres):
+        cenas[MAPA_INICIAL_GALAR] += _script_iniciais_galar()
+    if any(l["metodo"] == "givemon" for l in pres):
+        cenas[MAPAS_PRESENTE_GALAR[0]] += _script_evento_galar()
+    for mapa, corpo in sorted(cenas.items()):
+        if _escreve_inc(f"{RAIZ}/data/maps/{mapa}/scripts.inc", corpo, gravar):
+            mudou.append(f"{mapa}/scripts.inc: cena da Dex de Galar")
+
+    # --- flags -------------------------------------------------------------
+    atual = open(FLAGS_H, encoding="utf-8").read()
+    novo = LS.substitui(atual, MARCA_FLAG_GALAR_INI, MARCA_FLAG_GALAR_FIM,
+                        bloco_flags_galar())
+    if novo != atual:
+        if gravar:
+            open(FLAGS_H, "w", encoding="utf-8").write(novo)
+        mudou.append(f"flags.h: {len(est) + 2} apelidos da Dex de Galar")
+    return mudou
+
+
+def demo_galar_objetos():
+    """Autoteste do escritor: nomes unicos, faixa de flag e tile livre."""
+    falhas = []
+    t = tabela_gravada()
+    est = t.get("galar_estaticos", [])
+    pres = t.get("galar_presentes", [])
+    # 1. nenhum simbolo desta obra colide com os das cinco regioes.
+    texto = open(FLAGS_H, encoding="utf-8").read()
+    corpo = LS.substitui(texto, MARCA_FLAG_GALAR_INI, MARCA_FLAG_GALAR_FIM, "")
+    for l in est:
+        if re.search(r"#define\s+%s\b" % re.escape(l["flag"]), corpo):
+            falhas.append("flag ja existe fora do bloco de Galar: " + l["flag"])
+    # 2. faixa.
+    ends = [int(l["endereco_da_flag"], 16) for l in est]
+    if ends and not (FLAG_GALAR_BASE <= min(ends) and max(ends) + 2 <= FLAG_GALAR_TETO):
+        falhas.append("faixa de flag estourada")
+    # 3. o NPC de inicial nao pode nascer em cima de outro objeto.
+    d = json.load(open(f"{RAIZ}/data/maps/{MAPA_INICIAL_GALAR}/map.json",
+                       encoding="utf-8"))
+    outros = {(o["x"], o["y"]) for o in d.get("object_events", [])
+              if o.get("origem") != MARCA_GALAR}
+    if TILE_INICIAL_GALAR in outros:
+        falhas.append("o tile do NPC de inicial ja tem objeto")
+    # 4. MUTACAO PLANTADA: sem o prefixo Galar, o nome de flag do Zacian bate com
+    # o que a Dex das cinco ja escreveu. Se este bloco NAO acusar, o prefixo
+    # deixou de proteger.
+    sem_prefixo = [l["flag"].replace("FLAG_HIDE_DEX_GALAR_", "FLAG_HIDE_DEX_")
+                   for l in est]
+    if not any(re.search(r"#define\s+%s\b" % re.escape(n), corpo)
+               for n in sem_prefixo):
+        falhas.append("mutacao plantada NAO reprovou: tirar o prefixo GALAR do "
+                      "nome de flag nao colide com nada")
+    print("demo galar-objetos: %s (%d estatico, %d presente)"
+          % ("OK" if not falhas else "REPROVADO", len(est), len(pres)))
+    for f in falhas:
+        print("  FALHA", f)
+    return 1 if falhas else 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--tabela", action="store_true")
@@ -2412,8 +3487,21 @@ def main():
     ap.add_argument("--regiao")
     ap.add_argument("--dry-run", action="store_true", dest="dry")
     ap.add_argument("--aplica", action="store_true")
+    ap.add_argument("--galar", action="store_true",
+                    help="Dex de geracao 8 em Galar: mato no wild_encounters e "
+                         "pedidos de estatico/presente para o fechador")
     ap.add_argument("--demo", action="store_true")
+    ap.add_argument("--galar-objetos", action="store_true", dest="galar_objetos",
+                    help="os 10 estaticos e os 2 NPCs de presente de Galar, em "
+                         "map.json, scripts.inc e flags.h")
+    ap.add_argument("--demo-galar", action="store_true", dest="demo_galar")
+    ap.add_argument("--demo-galar-objetos", action="store_true",
+                    dest="demo_galar_objetos")
     a = ap.parse_args()
+    if a.demo_galar_objetos:
+        raise SystemExit(demo_galar_objetos())
+    if a.demo_galar:
+        raise SystemExit(demo_galar())
     if a.demo:
         raise SystemExit(demo())
     saida = []
@@ -2446,6 +3534,13 @@ def main():
         if not a.dry and a.aplica:
             saida += limpa_mapas_orfaos(True)
             saida += aplica_casos(True)
+    if a.galar:
+        saida += escreve_tabela_galar(a.aplica and not a.dry)
+        saida += aplica_selvagem_galar(a.aplica and not a.dry)
+        saida += escreve_pedidos_galar(a.aplica and not a.dry)
+        saida += relata_galar()
+    if a.galar_objetos:
+        saida += aplica_galar_objetos(a.aplica and not a.dry)
     if not saida:
         saida = ["nada a fazer (ja esta escrito, ou nenhum subcomando pedido)"]
     for linha in saida:

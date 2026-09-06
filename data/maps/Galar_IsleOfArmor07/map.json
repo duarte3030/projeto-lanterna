@@ -46,8 +46,23 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "GalarFalaI_G38M03_o21",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_DEX_GALAR_ZARUDE",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ZARUDE)",
+      "x": 98,
+      "y": 55,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Galar_IsleOfArmor07_EventScript_DexGalarZarude",
+      "flag": "FLAG_HIDE_DEX_GALAR_ZARUDE",
+      "origem": "distribui_dex galar"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(APPLIN)",

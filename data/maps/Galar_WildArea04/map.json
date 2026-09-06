@@ -94,7 +94,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G06M29_O15",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(PONYTA)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(TOXEL)",
       "x": 24,
       "y": 22,
       "elevation": 0,
@@ -230,7 +230,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G06M29_O3",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ZIGZAGOON_GALAR)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(HATENNA)",
       "x": 15,
       "y": 5,
       "elevation": 0,

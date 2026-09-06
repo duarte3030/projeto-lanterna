@@ -70,12 +70,12 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "GalarFalaI_G42M10_o39",
       "flag": "0"
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G42M10_O0",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SIRFETCHD)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(CORVIKNIGHT)",
       "x": 26,
       "y": 70,
       "elevation": 0,
@@ -241,7 +241,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G42M10_O2",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(PINCURCHIN)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DREDNAW)",
       "x": 29,
       "y": 23,
       "elevation": 0,
@@ -392,7 +392,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G42M10_O3",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(EISCUE)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(CRAMORANT)",
       "x": 46,
       "y": 60,
       "elevation": 0,
@@ -543,7 +543,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G42M10_O4",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DURALUDON)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(OBSTAGOON)",
       "x": 32,
       "y": 50,
       "elevation": 0,
@@ -559,7 +559,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G42M10_O5",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MR_MIME)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SIRFETCHD)",
       "x": 55,
       "y": 45,
       "elevation": 0,

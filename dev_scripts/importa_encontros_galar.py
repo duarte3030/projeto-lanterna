@@ -37,30 +37,23 @@ se o `fields` mudar, porque slot a menos faz o motor sortear fora do vetor.
 ## Especie: por NOME, nunca por id
 
 Mesmo motivo escrito em `estaticos_galar.py`: o id do demake nao e o nosso nem
-o nacional. A traducao reusa `estaticos_galar.de_para_especie`, que le
-`gSpeciesNames` da ROM por ancora, e acrescenta duas coisas medidas AQUI:
+o nacional. A traducao INTEIRA mora la (`de_para_especie`, que le
+`gSpeciesNames` da ROM por ancora), e desde 07/09/2026 ela inclui o que ate a
+onda 1 vivia duplicado aqui:
 
-1. **O ponto da frente.** 12 nomes da tabela do demake comecam com o caractere
-   `.` (byte 0xAD): `.Rattata`, `.Vulpix`, `.Diglett`, `.Geodude`, `.Graveler`,
-   `.Grimer`, `.Exeggcute`, `.Cubone`, `.Marowak`, `.Koffing`, `.Yamask`,
-   `.Stunfisk` (e mais `.Meowth`, `.Slowpoke`, `.Farfetch'd`, `.Weezing`,
-   `.Mr. Mime`). O ponto e a marca que o demake poe na especie que TEM forma
-   regional; a forma regional em si mora nos ids 1200 e acima. O filtro de nome
-   do `estaticos_galar.py` joga essas entradas fora, e com elas 30 slots de
-   encontro. Aqui o ponto da frente e retirado e o nome vale, o que mantem a
-   regra da PRIMEIRA ocorrencia: o id baixo continua sendo a forma base.
-2. **Cinco grafias tortas da fonte**, no mesmo espirito do `GRAFIA` de
-   `estaticos_galar.py`: `Baraskewda` (nosso `BARRASKEWDA`), `Stonjorner`
-   (`STONJOURNER`), `Fletchindr` (`FLETCHINDER`), `Centskorch`
-   (`CENTISKORCH`) e `Crabminble` (`CRABOMINABLE`). Mais `Nidoran♀` /
-   `Nidoran♂`, que sem tratamento viram `SPECIES_NIDORAN` e nao existe, e
-   `Unown ?`, que tem constante propria (`SPECIES_UNOWN_QUESTION`) e cujo `?`
-   o filtro de nome derruba.
+1. **O ponto da frente.** 27 nomes da tabela do demake comecam com o caractere
+   `.` (byte 0xAD): `.Rattata`, `.Ponyta`, `.Corsola`, `.Mr. Mime` e companhia.
+   O ponto e a marca que o demake poe na especie que TEM forma regional, e ele
+   fica na entrada BASE. Retirado o ponto, o id baixo volta a ser a forma base,
+   e a regra da PRIMEIRA ocorrencia para de apontar para a forma regional.
+2. **As grafias tortas** (`Baraskewda`, `Stonjorner`, `Fletchindr`,
+   `Centskorch`, `Crabminble`, `Nidoran♀/♂`, `Unown ?` e o `Farfetch’`
+   truncado pelo campo de 11 bytes).
+3. **O bloco de Alola** (ids 1020 a 1039) e as formas cosmeticas de gen 4 no
+   `AJUSTE`, que e o que impede o Rattata de Alola de ser gravado como Rattata
+   comum.
 
-Estas correcoes ficam SO aqui de proposito. Mexer no `GRAFIA` do
-`estaticos_galar.py` mudaria os estaticos ja gravados em
-`data/scripts/galar_estaticos.inc` e nos `map.json` de Galar, que sao arquivos
-de outro dono nesta onda.
+Aqui nao ha mais tabela de traducao nenhuma: um id, uma decisao, um arquivo.
 
 ## O slot que nao traduz, e por que ele nao vira buraco
 
@@ -76,12 +69,19 @@ fora para o mapa: a especie ja estava naquela mesma tabela.
 
 14 tabelas da fonte tem ESPECIE em todos os slots e NIVEL 0 em todos eles (o
 demake nao preencheu; a de pesca do mesmo mapa costuma estar preenchida). Nivel
-0 nao pode ser gravado, e nivel inventado nao e dado lido. A regra e: a tabela
-sem nivel herda a faixa (menor minimo, maior maximo) das OUTRAS tabelas do
-MESMO mapa na MESMA fonte; se o mapa nao tiver nenhuma tabela com nivel, ela e
-descartada. Medido: 11 herdam, 3 caem (Galar_WildArea12, Galar_IsleOfArmor35 e
-Galar_IsleOfArmor36, que so tinham essa tabela), e por isso a conta sai de 107
-mapas para 104.
+0 nao pode ser gravado, e nivel inventado nao e dado lido. A regra e herdar a
+faixa (menor minimo, maior maximo) de uma tabela IRMA, e "irma" tem tres
+degraus, nesta ordem (ver `_faixa_de_vizinho`):
+
+  1. outra tabela do MESMO mapa (11 casos);
+  2. o mapa mais perto no grafo de warps e conexoes de Galar
+     (`Galar_IsleOfArmor35` e `36`);
+  3. o mapa da mesma familia de nome com o numero mais perto
+     (`Galar_WildArea12`, que nao tem warp nem conexao nenhuma no repo).
+
+O terceiro degrau entrou em 07/09/2026, por decisao da condutora da onda 2, e
+com ele os 14 herdam e NENHUMA cai: a conta vai de 104 para 107 mapas. Antes
+disso as tres de degrau 2 e 3 eram descartadas.
 
 ## Idempotencia
 
@@ -112,17 +112,13 @@ TIPOS = (("land_mons", 12), ("water_mons", 5),
          ("rock_smash_mons", 5), ("fishing_mons", 10))
 SLOTS = dict(TIPOS)
 
-# Grafia torta da fonte -> constante nossa. Medido nesta sessao, nome a nome.
-GRAFIA_EXTRA = {
-    "Baraskewda": "SPECIES_BARRASKEWDA",   # a fonte come um `r`
-    "Stonjorner": "SPECIES_STONJOURNER",   # a fonte troca `our` por `or`
-    "Fletchindr": "SPECIES_FLETCHINDER",   # a fonte come o `e`
-    "Centskorch": "SPECIES_CENTISKORCH",   # a fonte come o `i`
-    "Crabminble": "SPECIES_CRABOMINABLE",  # a fonte encurta o nome inteiro
-    "Nidoran♀": "SPECIES_NIDORAN_F",
-    "Nidoran♂": "SPECIES_NIDORAN_M",
-    "Unown ?": "SPECIES_UNOWN_QUESTION",   # a forma `?` tem constante propria
-}
+# GRAFIA TORTA E FORMA DA FONTE: a decisão mora toda em `estaticos_galar.py`
+# desde 07/09/2026 (onda 2, lote H). Até a onda 1 ela morava aqui, duplicada,
+# porque mexer no `GRAFIA`/`AJUSTE` de lá mudava estático já gravado em arquivo
+# de outro dono; a duplicata custou o que duplicata sempre custa (o mesmo id
+# traduzido de dois jeitos, dependendo de qual gerador rodasse) e saiu. Este
+# apelido fica só para quem lia o nome antigo.
+GRAFIA_EXTRA = EG.GRAFIA
 
 # O teto vem do `MAX_LEVEL` do repo, nunca de 100 decorado: `curva_selvagem.py`
 # ja remapeou as cinco regioes e ha slot de nivel 146 em Hoenn hoje. Cravar 100
@@ -199,44 +195,11 @@ def _tabela_de_slots(rom, p, quantos):
 def de_para_especie(rom):
     """{id do demake: (SPECIES_* nosso, None)} ou {id: (None, motivo)}.
 
-    Base: `estaticos_galar.de_para_especie`. Acrescenta o resgate do ponto da
-    frente e as grafias tortas descritas no docstring do modulo.
+    É `estaticos_galar.de_para_especie` e nada mais. O resgate do `.` da frente
+    e as grafias tortas passaram para lá na onda 2, junto com o bloco de Alola
+    do `AJUSTE`; conferido nesta rodada que os dois mapas são iguais id a id.
     """
-    fora = dict(EG.de_para_especie(rom))
-    nossos = set(re.findall(r"\bSPECIES_[A-Z0-9_]+\b", open(SPECIES_H).read()))
-    nomes = EG.nomes_da_fonte(rom)
-
-    # `nomes_da_fonte` ja jogou fora tudo que comeca com `.` e tudo que tem
-    # `?`, entao o resgate tem que reler a tabela crua. A ancora e a mesma.
-    crus = _nomes_crus(rom)
-    limpo = re.compile(r"[A-Za-z][A-Za-z0-9 .:’\-éö♂♀]*")
-    # A regra da PRIMEIRA ocorrencia continua valendo, agora sobre a uniao dos
-    # nomes limpos e dos resgatados.
-    todos = dict(nomes)
-    resgatados = {}
-    for i, n in crus.items():
-        if i in todos:
-            continue
-        sem = n[1:] if n.startswith(".") else n
-        if n in GRAFIA_EXTRA or (n.startswith(".") and limpo.fullmatch(sem)):
-            todos[i] = sem if n.startswith(".") else n
-            resgatados[i] = todos[i]
-    primeiro = {}
-    for i in sorted(todos):
-        primeiro.setdefault(todos[i], i)
-
-    for i, n in todos.items():
-        if primeiro[n] != i:
-            continue
-        alvo = GRAFIA_EXTRA.get(n)
-        if alvo is None and i in resgatados:
-            alvo = EG.GRAFIA.get(n) or (
-                "SPECIES_" + re.sub(r"[^A-Z0-9]+", "_", n.upper()).strip("_"))
-        if alvo is None:
-            continue
-        fora[i] = (alvo, None) if alvo in nossos else (
-            None, "%s nao existe no nosso species.h" % alvo)
-    return fora
+    return EG.de_para_especie(rom)
 
 
 def _nomes_crus(rom):
@@ -304,8 +267,9 @@ def plano():
     resumo = {"offset": hex(inicio), "registros": quantos,
               "registros_galar": casam, "tabelas_sem_nivel_herdadas": 0,
               "tabelas_sem_nivel_descartadas": 0,
-              "slots_costurados": 0, "mapas_fora_do_repo": 0}
-    bruto = []
+              "slots_costurados": 0, "mapas_fora_do_repo": 0,
+              "faixa_herdada_de_vizinho": []}
+    bruto, orfas, faixa_por_pasta = [], [], {}
     for i in range(quantos):
         o = inicio + 20 * i
         alvo = por_fonte.get((rom[o], rom[o + 1]))
@@ -332,16 +296,35 @@ def plano():
         if sem_nivel:
             faixa = [(a, b) for _t, (_r, ms) in tabelas.items()
                      for a, b, _s in ms]
-            for tipo, (taxa, mons) in sem_nivel.items():
-                if not faixa:
-                    resumo["tabelas_sem_nivel_descartadas"] += 1
-                    recusa["tabela sem nivel na fonte e sem irma para herdar"] += 1
-                    continue
+            if faixa:
                 lo, hi = min(x for x, _ in faixa), max(y for _, y in faixa)
-                resumo["tabelas_sem_nivel_herdadas"] += 1
-                tabelas[tipo] = (taxa, [(lo, hi, s) for _a, _b, s in mons])
+                for tipo, (taxa, mons) in sem_nivel.items():
+                    resumo["tabelas_sem_nivel_herdadas"] += 1
+                    tabelas[tipo] = (taxa, [(lo, hi, s) for _a, _b, s in mons])
+            else:
+                # Mapa em que TODA tabela veio sem nivel: a irma tem de vir de
+                # fora, e isso so da para resolver quando as faixas de todos os
+                # mapas ja estiverem medidas. Fica para a segunda passada.
+                orfas.append((alvo, sem_nivel))
         if tabelas:
             bruto.append((alvo, tabelas))
+            faixa_por_pasta[alvo["nome"]] = (
+                min(a for _t, (_r, ms) in tabelas.items() for a, _b, _s in ms),
+                max(b for _t, (_r, ms) in tabelas.items() for _a, b, _s in ms))
+
+    # SEGUNDA PASSADA: as tabelas cujo mapa inteiro veio sem nivel.
+    for alvo, sem_nivel in orfas:
+        vizinho = _faixa_de_vizinho(alvo["nome"], faixa_por_pasta)
+        if vizinho is None:
+            resumo["tabelas_sem_nivel_descartadas"] += len(sem_nivel)
+            recusa["tabela sem nivel na fonte e sem irma para herdar"] += len(sem_nivel)
+            continue
+        (lo, hi), de_onde, como = vizinho
+        resumo["tabelas_sem_nivel_herdadas"] += len(sem_nivel)
+        resumo["faixa_herdada_de_vizinho"].append(
+            "%s %d-%d de %s (%s)" % (alvo["nome"], lo, hi, de_onde, como))
+        bruto.append((alvo, {tipo: (taxa, [(lo, hi, s) for _a, _b, s in mons])
+                             for tipo, (taxa, mons) in sem_nivel.items()}))
 
     bruto.sort(key=lambda z: z[0]["mapa"])
     usados = set()
@@ -374,6 +357,55 @@ def plano():
         if any(t in e for t, _q in TIPOS):
             entradas.append(e)
     return entradas, recusa, resumo
+
+
+def _faixa_de_vizinho(pasta, faixa_por_pasta):
+    """((menor, maior), de_qual_mapa, por_qual_regra) para um mapa sem nível.
+
+    DECISÃO DA CONDUTORA, 07/09/2026: a tabela cujo mapa inteiro veio com nível
+    0 na fonte herda a faixa da tabela IRMÃ MAIS PRÓXIMA, e "mais próxima" tem
+    duas medidas, nesta ordem, porque nenhuma das duas sozinha cobre os três
+    mapas que sobraram:
+
+      1. VIZINHANÇA DE VERDADE: busca em largura no grafo de warps e conexões
+         de Galar (o mesmo `estaticos_galar.grafo_de_mapas`). Empate na mesma
+         distância resolve pelo nome, para a segunda rodada dar o mesmo
+         resultado. É o que resolve `Galar_IsleOfArmor35` e `36`.
+      2. VIZINHANÇA DE NOME: o mapa da mesma família com o número mais perto
+         (`Galar_WildArea12` -> `Galar_WildArea11`), empate pelo menor número.
+         Existe porque `Galar_WildArea12` não tem UM warp nem UMA conexão no
+         repo: pela regra 1 ele ficaria órfão para sempre, e ele é justamente
+         um dos três que a rodada foi consertar.
+
+    Nível continua sendo dado LIDO: o que se herda é a faixa de um mapa que a
+    fonte preencheu, e nunca um número escolhido a dedo.
+    """
+    grafo = EG.grafo_de_mapas()
+    vistos, borda = {pasta}, {pasta}
+    for _passo in range(8):
+        nova = set()
+        for m in borda:
+            nova |= grafo.get(m, set()) - vistos
+        if not nova:
+            break
+        achados = sorted(m for m in nova if m in faixa_por_pasta)
+        if achados:
+            return faixa_por_pasta[achados[0]], achados[0], "warp/conexão"
+        vistos |= nova
+        borda = nova
+
+    m = re.match(r"^(.*?)(\d+)$", pasta)
+    if m:
+        familia, n = m.group(1), int(m.group(2))
+        cand = []
+        for outra, faixa in faixa_por_pasta.items():
+            o = re.match(r"^(.*?)(\d+)$", outra)
+            if o and o.group(1) == familia:
+                cand.append((abs(int(o.group(2)) - n), int(o.group(2)), outra))
+        if cand:
+            _d, _n, outra = min(cand)
+            return faixa_por_pasta[outra], outra, "família de nome"
+    return None
 
 
 def _costura(traduzidos, resumo):
@@ -484,8 +516,10 @@ def relata(entradas, recusa, resumo):
     print(f"tabelas por tipo: {dict(por_tipo)}")
     print(f"slots: {slots}   especies distintas: {len(especies)}")
     print(f"tabelas sem nivel na fonte: {resumo['tabelas_sem_nivel_herdadas']} "
-          f"herdaram a faixa do proprio mapa, "
+          f"herdaram a faixa, "
           f"{resumo['tabelas_sem_nivel_descartadas']} descartadas")
+    for linha in resumo["faixa_herdada_de_vizinho"]:
+        print(f"  faixa herdada de fora do mapa: {linha}")
     print(f"slots costurados (sem traducao, herdaram o vizinho): "
           f"{resumo['slots_costurados']}")
     if recusa:
@@ -507,14 +541,41 @@ def demo():
                                ("SPECIES_MR_MIME", 122),
                                ("SPECIES_YAMASK", 615)):
         assert esp.get(idf, (None,))[0] == nome_esperado, (idf, esp.get(idf))
-    # As grafias tortas.
+    # As grafias tortas. O id que o `AJUSTE` decide sai da conta: ele tem
+    # decisao escrita e ela GANHA da grafia (o `Farfetch’d` de menor id e o
+    # 1217, que e o de Galar, e nao o comum).
     nomes = _nomes_crus(rom)
-    for grafia, alvo in GRAFIA_EXTRA.items():
-        ids = [i for i, n in nomes.items() if n == grafia]
-        assert ids, grafia
+    for grafia, alvo in EG.GRAFIA.items():
+        todos = [i for i, n in nomes.items()
+                 if (n[1:] if n.startswith(".") else n) == grafia]
+        assert todos, "grafia que nao existe na fonte: " + grafia
+        ids = [i for i in todos if i not in EG.AJUSTE]
+        # `Farfetch’d` so aparece no 1217, que e o de Galar e tem AJUSTE: nao
+        # ha id livre para cobrar, e cobrar o do AJUSTE seria cobrar a decisao
+        # errada. O `assert todos` acima ja garante que a chave nao envelheceu.
+        if not ids:
+            continue
         assert esp.get(min(ids), (None,))[0] == alvo, (grafia, esp.get(min(ids)))
+    # O bloco de Alola do `AJUSTE`: o id 1020 e o Rattata DE ALOLA, e o 19,
+    # que a fonte escreve `.Rattata`, continua sendo o comum.
+    for idf, alvo in ((1020, "SPECIES_RATTATA_ALOLA"),
+                      (1039, "SPECIES_MAROWAK_ALOLA"),
+                      (712, "SPECIES_GASTRODON_EAST"),
+                      (1203, "SPECIES_INDEEDEE_F")):
+        assert esp.get(idf, (None,))[0] == alvo, (idf, esp.get(idf))
     entradas, _recusa, resumo = plano()
     assert len(entradas) > 90, len(entradas)
+    # Os tres mapas cuja faixa vem de FORA do proprio mapa (decisao da
+    # condutora, 07/09/2026). Se algum voltar a cair, a regra dos tres degraus
+    # quebrou e o `--aplicar` levaria 3 mapas a menos sem avisar.
+    de_para_pasta = {v["mapa"]: v["nome"]
+                     for v in json.load(open(MUNDO))["de_para"].values()}
+    tem = {de_para_pasta.get(e["map"]) for e in entradas}
+    for pasta in ("Galar_WildArea12", "Galar_IsleOfArmor35",
+                  "Galar_IsleOfArmor36"):
+        assert pasta in tem, "tabela sem nivel voltou a ser descartada: " + pasta
+    assert resumo["tabelas_sem_nivel_descartadas"] == 0, resumo
+    assert len(resumo["faixa_herdada_de_vizinho"]) == 3, resumo
     validas = especies_validas()
     no_repo = mapas_do_repo()
     for e in entradas:

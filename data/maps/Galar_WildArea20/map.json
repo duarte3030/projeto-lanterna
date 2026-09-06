@@ -43,7 +43,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G42M13_O0",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MAWILE)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ELECTRODE)",
       "x": 47,
       "y": 23,
       "elevation": 0,
@@ -59,7 +59,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G42M13_O1",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ALTARIA)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(GYARADOS)",
       "x": 21,
       "y": 27,
       "elevation": 0,
@@ -255,7 +255,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G42M13_O4",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(GARDEVOIR)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SCIZOR)",
       "x": 42,
       "y": 36,
       "elevation": 0,
@@ -271,7 +271,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G42M13_O5",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(LUCARIO)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(TYRANITAR)",
       "x": 25,
       "y": 17,
       "elevation": 0,
@@ -287,7 +287,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G42M13_O6",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(TOGEKISS)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MAWILE)",
       "x": 12,
       "y": 15,
       "elevation": 0,
@@ -303,7 +303,7 @@
     },
     {
       "local_id": "LOCALID_GALAR_ESTATICO_G42M13_O7",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(PORYGON_Z)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ALTARIA)",
       "x": 37,
       "y": 14,
       "elevation": 0,

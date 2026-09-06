@@ -10885,3 +10885,21 @@
 #define FLAG_GALAR_PORTA_G06M12_72C                FLAG_UNUSED_0x2200
 // <<< Fase de conteudo de Galar, onda 2 lote F, flags <<<
 
+// >>> Dex de Galar: HIDE dos estaticos e presentes (dev_scripts/distribui_dex.py --galar-objetos) >>>
+// Uma flag de HIDE por estatico da Dex de Galar, mais as duas dos
+// NPCs de presente. O nome leva GALAR porque os apelidos sem ele ja
+// existem, dos mesmos lendarios que a Dex das cinco regioes colocou
+// em Kanto, Johto e Hoenn. Gerado; nao editar a mao.
+#define FLAG_HIDE_DEX_GALAR_ZACIAN_HERO        FLAG_UNUSED_0x2280  // Galar, Galar_SlumberingWeald03
+#define FLAG_HIDE_DEX_GALAR_ZAMAZENTA_HERO     FLAG_UNUSED_0x2281  // Galar, Galar_SlumberingWeald03
+#define FLAG_HIDE_DEX_GALAR_ETERNATUS          FLAG_UNUSED_0x2282  // Galar, Galar_RoseTower01
+#define FLAG_HIDE_DEX_GALAR_KUBFU              FLAG_UNUSED_0x2283  // Galar, Galar_IsleOfArmor05
+#define FLAG_HIDE_DEX_GALAR_ZARUDE             FLAG_UNUSED_0x2284  // Galar, Galar_IsleOfArmor07
+#define FLAG_HIDE_DEX_GALAR_REGIELEKI          FLAG_UNUSED_0x2285  // Galar, Galar_CrownTundra10
+#define FLAG_HIDE_DEX_GALAR_REGIDRAGO          FLAG_UNUSED_0x2286  // Galar, Galar_CrownTundra10
+#define FLAG_HIDE_DEX_GALAR_CALYREX_ICE        FLAG_UNUSED_0x2287  // Galar, Galar_CrownTundra10
+#define FLAG_HIDE_DEX_GALAR_CALYREX_SHADOW     FLAG_UNUSED_0x2288  // Galar, Galar_CrownTundra10
+#define FLAG_HIDE_DEX_GALAR_ENAMORUS_INCARNATE FLAG_UNUSED_0x2289  // Galar, Galar_CrownTundra10
+#define FLAG_INICIAL_GALAR                     FLAG_UNUSED_0x228A  // o inicial de Galar ja foi escolhido
+#define FLAG_DEX_PRESENTE_EVENTO_GALAR         FLAG_UNUSED_0x228B  // os event-only de Galar ja foram dados
+// <<< Dex de Galar <<<

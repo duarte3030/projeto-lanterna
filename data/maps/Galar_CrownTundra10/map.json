@@ -32,6 +32,81 @@
   ],
   "object_events": [
     {
+      "local_id": "LOCALID_DEX_GALAR_REGIELEKI",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(REGIELEKI)",
+      "x": 30,
+      "y": 41,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Galar_CrownTundra10_EventScript_DexGalarRegieleki",
+      "flag": "FLAG_HIDE_DEX_GALAR_REGIELEKI",
+      "origem": "distribui_dex galar"
+    },
+    {
+      "local_id": "LOCALID_DEX_GALAR_REGIDRAGO",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(REGIDRAGO)",
+      "x": 30,
+      "y": 46,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Galar_CrownTundra10_EventScript_DexGalarRegidrago",
+      "flag": "FLAG_HIDE_DEX_GALAR_REGIDRAGO",
+      "origem": "distribui_dex galar"
+    },
+    {
+      "local_id": "LOCALID_DEX_GALAR_CALYREX_ICE",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(CALYREX_ICE)",
+      "x": 1,
+      "y": 49,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Galar_CrownTundra10_EventScript_DexGalarCalyrexIce",
+      "flag": "FLAG_HIDE_DEX_GALAR_CALYREX_ICE",
+      "origem": "distribui_dex galar"
+    },
+    {
+      "local_id": "LOCALID_DEX_GALAR_CALYREX_SHADOW",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(CALYREX_SHADOW)",
+      "x": 6,
+      "y": 49,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Galar_CrownTundra10_EventScript_DexGalarCalyrexShadow",
+      "flag": "FLAG_HIDE_DEX_GALAR_CALYREX_SHADOW",
+      "origem": "distribui_dex galar"
+    },
+    {
+      "local_id": "LOCALID_DEX_GALAR_ENAMORUS_INCARNATE",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ENAMORUS_INCARNATE)",
+      "x": 51,
+      "y": 47,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Galar_CrownTundra10_EventScript_DexGalarEnamorusIncarnate",
+      "flag": "FLAG_HIDE_DEX_GALAR_ENAMORUS_INCARNATE",
+      "origem": "distribui_dex galar"
+    },
+    {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(BLACEPHALON)",
       "x": 39,
       "y": 9,
@@ -551,11 +626,17 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 39,
-      "y": 41,
+      "x": 36,
+      "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_GALAR_CROWN_TUNDRA_10",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_GALAR_TANOBY_KEY_01",
+      "dest_warp_id": "1",
+      "porta_original": [
+        39,
+        41,
+        "fonte g01m115 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 30,
@@ -566,6 +647,16 @@
     }
   ],
   "coord_events": [],
-  "bg_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 39,
+      "y": 40,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GalarPortaFechada",
+      "origem": "porta fechada (portas_mortas_galar.py)"
+    }
+  ],
   "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g37m07. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo."
 }
