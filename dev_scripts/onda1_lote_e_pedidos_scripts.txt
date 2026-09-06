@@ -1,0 +1,267 @@
+PEDIDOS DE SCRIPT DO LOTE E (Dex de Galar), onda 1 da Frente A
+==============================================================
+Aberto em 06/09/2026 pelo executor do lote E. O lote E é dono das tabelas de
+encontro selvagem, do `censo_dex.py`, do `distribui_dex.py` e do
+`dex_distribuicao.json`. Ele NÃO é dono de `data/maps/Galar_*/scripts.inc`
+nem dos `map.json`, então tudo que precisa de objeto ou de script no mapa fica
+registrado aqui para a onda seguinte.
+
+Nada aqui é obrigação de fazer como está escrito: é a fila medida, com o
+número que a justifica.
+
+
+1. O QUE O LOTE E JÁ RESOLVEU SEM PEDIR NADA A NINGUÉM
+------------------------------------------------------
+Galar saiu de 0 para 592 espécies com fonte na tabela por região do
+`censo_dex.py`, por dois caminhos, nenhum deles mexendo em mapa:
+
+  a) 104 tabelas de encontro selvagem importadas da ROM do demake para
+     `src/data/wild_encounters.json`
+     (`dev_scripts/importa_encontros_galar.py --aplicar`).
+  b) Conserto da atribuição de região do próprio censo: os 320 encontros
+     estáticos que já existiam em `data/scripts/galar_estaticos.inc` estavam
+     caindo em região "?" porque o arquivo não mora em `data/maps/<pasta>/`.
+
+Ou seja: NENHUM dos pedidos abaixo é necessário para Galar deixar de ser zero.
+Eles são o passo seguinte, que é fechar a geração 8 dentro de Galar.
+
+
+2. PEDIDO 1: os 31 pokémon de geração 8 que hoje só existem fora do cartucho 2
+------------------------------------------------------------------------------
+Medido em 06/09/2026 sobre `python3 dev_scripts/censo_dex.py --csv`:
+1.199 entradas da dex têm fonte direta (selvagem, estático ou presente).
+Dessas, 447 têm fonte SOMENTE em Kanto, Johto, Hoenn ou Sinnoh, que são as
+quatro regiões que saem do cartucho 2. Entre elas há 31 de geração 8, e é
+constrangedor que a geração de Galar precise de Kanto para existir:
+
+  GROOKEY, THWACKEY, SCORBUNNY, RABOOT, SOBBLE, DRIZZILE, CORVISQUIRE,
+  ORBEETLE, ELDEGOSS, BOLTUND, FLAPPLE, APPLETUN, TOXTRICITY_AMPED,
+  TOXTRICITY_LOW_KEY_GMAX, SINISTEA_PHONY, EISCUE_ICE, INDEEDEE_F,
+  INDEEDEE_M, MORPEKO_FULL_BELLY, DRAKLOAK, ZACIAN_HERO, ETERNATUS_ETERNAMAX,
+  ZARUDE, ZARUDE_DADA, REGIELEKI, REGIDRAGO, CALYREX_ICE, CALYREX_SHADOW,
+  KLEAVOR, URSALUNA_BLOODMOON, ENAMORUS_INCARNATE
+
+A causa está medida: `dev_scripts/dex_distribuicao.json` tem 362 colocações
+(106 estáticos, 234 selvagens, 22 presentes) e ZERO com `"regiao": "Galar"`,
+porque a distribuição foi fechada em 21/08/2026 quando Galar estava fora de
+escopo. Enquanto o `dex_distribuicao.json` não ganhar Galar como destino
+possível, toda espécie nova continua indo parar nas cinco regiões antigas.
+
+O que a onda seguinte precisa entregar para isso virar obra:
+
+  - Parte do lote E (não precisa de ninguém): abrir Galar como região de
+    destino no `distribui_dex.py` e regravar as colocações de geração 8 no
+    `dex_distribuicao.json`, com mapa de Galar.
+  - Parte que precisa do dono de `scripts.inc` e de `map.json`: para cada
+    colocação do tipo `estatico` ou `presente`, o objeto no mapa e o script.
+    A coordenada NÃO está escrita aqui de propósito: quem escolhe tile é o
+    gerador (`estaticos_galar.py` já tem a geometria pronta, com BFS de
+    colisão e elevação e recusa de tile de warp). Pedir coordenada na mão
+    seria refazer pior o que já existe.
+
+Sugestão de destino, por coerência com a fonte (não é decisão tomada):
+  - iniciais (GROOKEY, SCORBUNNY, SOBBLE): presente de laboratório em
+    Galar_Postwick* ou Galar_Wedgehurst*, no idioma `givemon`.
+  - ZACIAN_HERO, ZAMAZENTA_HERO, ETERNATUS: Galar_SlumberingWeald* e a torre,
+    em `seteventmon` + `BattleSetup_StartLegendaryBattle`.
+  - REGIELEKI, REGIDRAGO, CALYREX_*: Galar_CrownTundra*.
+  - ZARUDE, KUBFU, URSHIFU: Galar_IsleOfArmor*.
+
+
+3. PEDIDO 2: 3 mapas de Galar perderam a tabela de encontro por falta de nível
+-------------------------------------------------------------------------------
+`Galar_WildArea12`, `Galar_IsleOfArmor35` e `Galar_IsleOfArmor36` têm tabela de
+grama na ROM do demake com espécie em todos os 12 slots e NÍVEL 0 em todos
+eles, e são os únicos três em que o mapa não tem nenhuma outra tabela com
+nível para herdar. Nível 0 não pode ser gravado e nível inventado não é dado
+lido, então as três tabelas caíram fora.
+
+Não é pedido de script: é decisão de desenho de UMA linha (que faixa de nível
+esses três mapas usam). Assim que ela existir, o
+`importa_encontros_galar.py` a aplica sem obra nenhuma de mapa.
+
+
+4. PEDIDO 3: 7 slots de encontro ficaram costurados por forma sem decisão
+--------------------------------------------------------------------------
+Sete slots das 104 tabelas apontavam, na fonte, para uma FORMA cujo nome se
+repete na tabela de nomes do demake, e por isso não têm tradução medida:
+Indeedee (id 1203, duas vezes), Sandslash (1024), Burmy (707),
+Gastrodon (712), Raichu (1022) e Lycanroc (1046). Eles não viraram buraco:
+cada um recebeu a espécie do slot válido anterior da mesma tabela.
+
+O conserto é uma linha por id no `AJUSTE` de `dev_scripts/estaticos_galar.py`,
+igual ao que já existe para as formas galarianas. Ele NÃO foi feito nesta onda
+porque mexer no `AJUSTE` muda também os estáticos já gravados em
+`data/scripts/galar_estaticos.inc` e nos `map.json` de Galar, que são de outro
+dono. Quem for fazer, faça junto com um `estaticos_galar.py --aplicar`.
+
+Na mesma família, e com o mesmo bloqueio de dono: cinco grafias tortas da
+fonte (`Baraskewda`, `Stonjorner`, `Fletchindr`, `Centskorch`, `Crabminble`) e
+o `.` que o demake põe na frente da espécie com forma regional (`.Rattata`,
+`.Meowth`, `.Slowpoke`, `.Weezing`, `.Mr. Mime` e mais oito) hoje estão
+corrigidos SÓ em `dev_scripts/importa_encontros_galar.py`. Levar as mesmas
+correções para `estaticos_galar.py` recupera estático que hoje é recusado com
+motivo "id fora da tabela de nomes da fonte".
+
+
+5. O QUE NÃO É PEDIDO, E POR QUÊ
+---------------------------------
+- Os 27 mapas importados que são SOBRA DE FIRERED dentro dos
+  grupos de Galar (`Galar_AlteringCave*` 9, `Galar_LostCave*` 13, as câmaras
+  Liptoo, Rixy e Scufib, `Galar_TanobyKey01` e `Galar_NewmoonIsland01`) foram
+  importadas como estão. Elas são mapa que existe no repo e a decisão de
+  escopo sobre essas sobras está aberta desde 06/09/2026 (seção 5 do
+  `ESTADO-CARTUCHO-2.md`). Tirá-las é a mesma decisão, e ela não é do lote E.
+- O nível dos encontros de Galar é o NÍVEL DA FONTE, registrado e não julgado,
+  igual ao que `estaticos_galar.py` faz. As cinco regiões antigas já passaram
+  pelo remapeamento de `curva_selvagem.py` e Galar não passou. Rodar a curva
+  sobre Galar é decisão de progressão do cartucho 2, que ainda não existe.
+
+APÊNDICE: as 140 entradas de geração 8 que NÃO têm fonte em Galar hoje
+=====================================================================
+Gerado em 06/09/2026 por `python3 dev_scripts/censo_dex.py --csv`, depois da
+importação dos encontros e do conserto do censo. O catálogo tem 197 entradas de
+geração 8 (95 bases e 102 formas); 57 já têm fonte em Galar.
+
+Colunas: espécie | categoria hoje | regiões que já dão a fonte hoje
+
+GROOKEY                          selvagem          Johto
+THWACKEY                         selvagem          Hoenn
+RILLABOOM                        selvagem          Unova
+RILLABOOM_GMAX                   forma_batalha     (nenhuma: só evolução ou forma)
+SCORBUNNY                        selvagem          Johto
+RABOOT                           selvagem          Hoenn
+CINDERACE                        selvagem          Unova
+CINDERACE_GMAX                   forma_batalha     (nenhuma: só evolução ou forma)
+SOBBLE                           selvagem          Johto
+DRIZZILE                         selvagem          Hoenn
+INTELEON                         selvagem          Unova
+INTELEON_GMAX                    forma_batalha     (nenhuma: só evolução ou forma)
+CORVISQUIRE                      selvagem          Johto
+CORVIKNIGHT_GMAX                 forma_batalha     (nenhuma: só evolução ou forma)
+ORBEETLE                         selvagem          Sinnoh
+ORBEETLE_GMAX                    forma_batalha     (nenhuma: só evolução ou forma)
+ELDEGOSS                         selvagem          Hoenn
+DREDNAW_GMAX                     forma_batalha     (nenhuma: só evolução ou forma)
+BOLTUND                          selvagem          Sinnoh
+COALOSSAL_GMAX                   forma_batalha     (nenhuma: só evolução ou forma)
+FLAPPLE                          selvagem          Sinnoh
+FLAPPLE_GMAX                     forma_batalha     (nenhuma: só evolução ou forma)
+APPLETUN                         selvagem          Sinnoh
+APPLETUN_GMAX                    forma_batalha     (nenhuma: só evolução ou forma)
+SANDACONDA_GMAX                  forma_batalha     (nenhuma: só evolução ou forma)
+CRAMORANT_GORGING                forma_batalha     (nenhuma: só evolução ou forma)
+CRAMORANT_GULPING                forma_batalha     (nenhuma: só evolução ou forma)
+TOXTRICITY_AMPED                 selvagem          Sinnoh
+TOXTRICITY_AMPED_GMAX            forma_batalha     (nenhuma: só evolução ou forma)
+TOXTRICITY_LOW_KEY               evolucao          (nenhuma: só evolução ou forma)
+TOXTRICITY_LOW_KEY_GMAX          selvagem          Kanto
+CENTISKORCH_GMAX                 forma_batalha     (nenhuma: só evolução ou forma)
+SINISTEA_ANTIQUE                 selvagem          Unova
+SINISTEA_PHONY                   selvagem          Johto
+POLTEAGEIST_ANTIQUE              evolucao          (nenhuma: só evolução ou forma)
+POLTEAGEIST_PHONY                selvagem          Unova
+HATTERENE_GMAX                   forma_batalha     (nenhuma: só evolução ou forma)
+GRIMMSNARL_GMAX                  forma_batalha     (nenhuma: só evolução ou forma)
+CURSOLA                          selvagem          Unova
+ALCREMIE_BERRY_CARAMEL_SWIRL     evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_BERRY_LEMON_CREAM       evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_BERRY_MATCHA_CREAM      evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_BERRY_MINT_CREAM        evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_BERRY_RAINBOW_SWIRL     evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_BERRY_RUBY_CREAM        evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_BERRY_RUBY_SWIRL        evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_BERRY_SALTED_CREAM      evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_BERRY_VANILLA_CREAM     evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_CLOVER_CARAMEL_SWIRL    evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_CLOVER_LEMON_CREAM      evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_CLOVER_MATCHA_CREAM     evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_CLOVER_MINT_CREAM       evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_CLOVER_RAINBOW_SWIRL    evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_CLOVER_RUBY_CREAM       evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_CLOVER_RUBY_SWIRL       evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_CLOVER_SALTED_CREAM     evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_CLOVER_VANILLA_CREAM    evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_FLOWER_CARAMEL_SWIRL    evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_FLOWER_LEMON_CREAM      evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_FLOWER_MATCHA_CREAM     evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_FLOWER_MINT_CREAM       evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_FLOWER_RAINBOW_SWIRL    evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_FLOWER_RUBY_CREAM       evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_FLOWER_RUBY_SWIRL       evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_FLOWER_SALTED_CREAM     evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_FLOWER_VANILLA_CREAM    evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_GMAX                    forma_batalha     (nenhuma: só evolução ou forma)
+ALCREMIE_LOVE_CARAMEL_SWIRL      evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_LOVE_LEMON_CREAM        evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_LOVE_MATCHA_CREAM       evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_LOVE_MINT_CREAM         evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_LOVE_RAINBOW_SWIRL      evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_LOVE_RUBY_CREAM         evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_LOVE_RUBY_SWIRL         evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_LOVE_SALTED_CREAM       evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_LOVE_VANILLA_CREAM      evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_RIBBON_CARAMEL_SWIRL    evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_RIBBON_LEMON_CREAM      evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_RIBBON_MATCHA_CREAM     evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_RIBBON_MINT_CREAM       evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_RIBBON_RAINBOW_SWIRL    evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_RIBBON_RUBY_CREAM       evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_RIBBON_RUBY_SWIRL       evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_RIBBON_SALTED_CREAM     evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_RIBBON_VANILLA_CREAM    evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_STAR_CARAMEL_SWIRL      evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_STAR_LEMON_CREAM        evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_STAR_MATCHA_CREAM       evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_STAR_MINT_CREAM         evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_STAR_RAINBOW_SWIRL      evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_STAR_RUBY_CREAM         evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_STAR_RUBY_SWIRL         evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_STAR_SALTED_CREAM       evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_STAR_VANILLA_CREAM      evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_STRAWBERRY_CARAMEL_SWIRL evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_STRAWBERRY_LEMON_CREAM  evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_STRAWBERRY_MATCHA_CREAM evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_STRAWBERRY_MINT_CREAM   evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_STRAWBERRY_RAINBOW_SWIRL evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_STRAWBERRY_RUBY_CREAM   evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_STRAWBERRY_RUBY_SWIRL   evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_STRAWBERRY_SALTED_CREAM evolucao          (nenhuma: só evolução ou forma)
+ALCREMIE_STRAWBERRY_VANILLA_CREAM evolucao          (nenhuma: só evolução ou forma)
+FALINKS_MEGA                     forma_batalha     (nenhuma: só evolução ou forma)
+EISCUE_ICE                       selvagem          Hoenn
+EISCUE_NOICE                     forma_batalha     (nenhuma: só evolução ou forma)
+INDEEDEE_F                       selvagem          Johto
+INDEEDEE_M                       selvagem          Hoenn
+MORPEKO_FULL_BELLY               selvagem          Hoenn
+MORPEKO_HANGRY                   forma_batalha     (nenhuma: só evolução ou forma)
+COPPERAJAH_GMAX                  forma_batalha     (nenhuma: só evolução ou forma)
+DURALUDON_GMAX                   forma_batalha     (nenhuma: só evolução ou forma)
+DRAKLOAK                         selvagem          Hoenn
+ZACIAN_CROWNED                   forma_batalha     (nenhuma: só evolução ou forma)
+ZACIAN_HERO                      estatico          Kanto
+ZAMAZENTA_CROWNED                forma_batalha     (nenhuma: só evolução ou forma)
+ZAMAZENTA_HERO                   estatico          Unova
+ETERNATUS                        estatico          Unova
+ETERNATUS_ETERNAMAX              presente          Hoenn
+KUBFU                            estatico          Unova
+URSHIFU_RAPID_STRIKE             evolucao          (nenhuma: só evolução ou forma)
+URSHIFU_RAPID_STRIKE_GMAX        forma_batalha     (nenhuma: só evolução ou forma)
+URSHIFU_SINGLE_STRIKE            estatico          Unova
+URSHIFU_SINGLE_STRIKE_GMAX       forma_batalha     (nenhuma: só evolução ou forma)
+ZARUDE                           estatico          Johto
+ZARUDE_DADA                      presente          Hoenn
+REGIELEKI                        estatico          Hoenn
+REGIDRAGO                        estatico          Kanto
+CALYREX_ICE                      estatico          Johto
+CALYREX_SHADOW                   estatico          Hoenn
+WYRDEER                          selvagem          Unova
+KLEAVOR                          selvagem          Sinnoh
+URSALUNA                         selvagem          Unova
+URSALUNA_BLOODMOON               selvagem          Johto
+BASCULEGION_F                    evolucao          (nenhuma: só evolução ou forma)
+BASCULEGION_M                    selvagem          Unova
+SNEASLER                         selvagem          Unova
+OVERQWIL                         selvagem          Unova
+ENAMORUS_INCARNATE               estatico          Kanto
+ENAMORUS_THERIAN                 forma_permanente  (nenhuma: só evolução ou forma)

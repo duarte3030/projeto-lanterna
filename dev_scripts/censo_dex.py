@@ -183,13 +183,32 @@ def _varre_scripts():
     return achados
 
 
+def _regiao_do_arquivo(caminho):
+    """Região de um `.inc` que NÃO mora em `data/maps/<pasta>/`.
+
+    ARMADILHA MEDIDA em 06/09/2026: os 320 encontros estáticos de Galar moram
+    em `data/scripts/galar_estaticos.inc`, fora de `data/maps/`. Como a região
+    só saía da PASTA do mapa, os 320 caíam em `"?"` e Galar imprimia 0 na
+    tabela por região, mesmo com o conteúdo gravado e jogável. A mesma régua de
+    sufixo do `_regiao_de` vale aqui, agora sobre o NOME DO ARQUIVO, e só sobre
+    ele: arquivo sem marca de região (`kecleon.inc`, por exemplo) continua em
+    `"?"`, porque adivinhar Hoenn ali seria inventar fonte.
+    """
+    alvo = os.path.basename(caminho).lower()
+    for marca, regiao in MARCA_REGIAO:
+        if marca in alvo:
+            return regiao
+    return "?"
+
+
 def estatico_e_presente(mapa_regiao):
     """({especie: [ocorrencia]}, {especie: [ocorrencia]}) para estático e presente."""
     pasta_regiao = {p: r for _mid, (p, r) in mapa_regiao.items()}
     est = collections.defaultdict(list)
     pre = collections.defaultdict(list)
     for pasta, caminho, cmd, esp, nivel in _varre_scripts():
-        regiao = pasta_regiao.get(pasta, "?")
+        regiao = (pasta_regiao.get(pasta, "?") if pasta
+                  else _regiao_do_arquivo(caminho))
         oco = (pasta or os.path.basename(caminho), regiao, cmd, nivel)
         (est if cmd in ("setwildbattle", "seteventmon") else pre)[esp].append(oco)
     return est, pre
@@ -431,12 +450,24 @@ def censo():
     # e `pokemon.c` sorteia a letra na personalidade. Uma única linha de Unown
     # em tabela selvagem entrega as 28 formas; tratá-las como 28 espécies a
     # distribuir seria inventar trabalho que o motor já faz.
-    if any(n.startswith("SPECIES_UNOWN") for n in sel_mundo):
+    # A regra é de UNIÃO, e não "copia para quem não tem". Medido em
+    # 06/09/2026: a tabela de Galar traz uma linha de `SPECIES_UNOWN_QUESTION`,
+    # e como a forma passou a ter linha própria ela deixou de receber as 383
+    # linhas das outras Unown e perdeu Kanto, Johto e Sinnoh de uma vez. Uma
+    # linha nova NUNCA pode tirar região de ninguém.
+    _unown = [n for n in sel_mundo if n.startswith("SPECIES_UNOWN")]
+    if _unown:
+        _todas = []
+        for n in sorted(_unown):
+            for o in sel_mundo[n]:
+                if o not in _todas:
+                    _todas.append(o)
         for n in list(cat):
-            if n.startswith("SPECIES_UNOWN") and n not in sel_mundo:
-                sel_mundo[n] = sel_mundo[next(
-                    k for k in sel if k.startswith("SPECIES_UNOWN"))]
-                sel[n] = sel_mundo[n]
+            if not n.startswith("SPECIES_UNOWN"):
+                continue
+            sel[n] = sel.get(n, []) + [o for o in _todas
+                                       if o not in sel.get(n, [])]
+            sel_mundo[n] = [o for o in sel[n] if o[1] != "Frontier"]
 
     direto = set(sel_mundo) | set(est) | set(pre) | set(tro)
     direto &= set(cat)
@@ -484,12 +515,36 @@ def censo():
                     mudou = True
                     break
 
+    # REGIÃO É UNIÃO, e não a da categoria que ganhou. Medido em 06/09/2026:
+    # a categoria é uma só (selvagem ganha de estático, que ganha de presente),
+    # e enquanto `regioes` saía só da vencedora, dar um encontro selvagem novo
+    # a uma espécie APAGAVA a região onde ela já era estática. Ao importar os
+    # encontros de Galar, Kanto caiu de 290 para 284 e Hoenn de 297 para 295
+    # sem que ninguém tivesse tirado nada de Kanto ou de Hoenn. Com a união a
+    # linha por região só pode subir quando fonte nova entra, que é o que a
+    # tabela promete ler.
+    # `com_frontier` existe porque Battle Pyramid/Pike NAO e fonte: a especie e
+    # emprestada e devolvida. A categoria "selvagem" sempre listou o Frontier
+    # junto (comportamento antigo, preservado); "estatico" e "presente" NAO
+    # podem ganha-lo, senao Squirtle passa a contar como obtenivel no Frontier,
+    # que e exatamente o que o `demo()` proibe.
+    def _regioes_de(nome, com_frontier):
+        base = sel if com_frontier else sel_mundo
+        fora = {r for _m, r, _t, _a, _b in base.get(nome, [])}
+        fora |= {r for _p, r, _c, _n in est.get(nome, [])}
+        fora |= {r for _p, r, _c, _n in pre.get(nome, [])}
+        # `"?"` nao e regiao, e sim "arquivo sem marca de regiao no nome"
+        # (`data/scripts/kecleon.inc` e o unico caso hoje). Ele nunca entra na
+        # lista: a tabela por regiao so soma regiao de verdade, e deixar o `?`
+        # passar reprovaria o proprio `demo()`.
+        return fora - {"?"}
+
     linhas = []
     for nome, e in sorted(cat.items(), key=lambda kv: (kv[1].dex, kv[0])):
         regioes, detalhe = set(), ""
         if nome in sel_mundo:
             categoria = "selvagem"
-            regioes = {r for _m, r, _t, _a, _b in sel[nome]}
+            regioes = _regioes_de(nome, True)
             tipos = collections.Counter(t for _m, _r, t, _a, _b in sel[nome])
             niv = [a for _m, _r, _t, a, _b in sel[nome]]
             detalhe = (f"{len(sel[nome])} slots em "
@@ -498,11 +553,11 @@ def censo():
                        f"nivel fonte {min(niv)}-{max(b for *_x, b in sel[nome])}")
         elif nome in est:
             categoria = "estatico"
-            regioes = {r for _p, r, _c, _n in est[nome]}
+            regioes = _regioes_de(nome, False)
             detalhe = "; ".join(f"{p} ({c} lv {n})" for p, _r, c, n in est[nome])
         elif nome in pre:
             categoria = "presente"
-            regioes = {r for _p, r, _c, _n in pre[nome]}
+            regioes = _regioes_de(nome, False)
             detalhe = "; ".join(f"{p} ({c} lv {n})" for p, _r, c, n in pre[nome])
         elif nome in tro:
             categoria = "troca"
