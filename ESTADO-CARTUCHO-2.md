@@ -19,6 +19,293 @@ verdade, e é a única coisa que separa "continuar a onda anterior" de "reescrev
 dela". Esta branch tem worktree persistente e mais de uma sessão escrevendo perto, então
 `HEAD` local não é prova de nada até o `ls-remote` bater com ele.
 
+## Onda 4 (06/09/2026), FECHAMENTO: A RÉGUA DA COLUNA SCRIPT DE GALAR FICA HONESTA, OS DOIS GERADORES PROIBIDOS VOLTAM A RODAR SEM ESTRAGO E A PREMISSA DAS ESCADAS CAI MEDIDA (condutora Opus, quatro executores, fechador Opus)
+
+Fechamento da onda 4 da Frente A. Os lotes N, O, P e Q deixaram o trabalho no disco, sem
+commit; este fechador rodou o que a condutora autorizou (`cenas_galar.py --aplicar`,
+`treinadores_galar.py --aplicar` e, obrigatoriamente atrás dele, `fase_f_chefes.py
+--aplicar`), provou e commitou lote a lote. Tudo abaixo foi medido NESTA worktree, e `[V]`
+marca o que foi conferido nesta rodada.
+
+### Placar de Galar, antes e depois
+
+**A coluna `script` mudou de RÉGUA nesta onda (lote Q), então as duas leituras estão na
+tabela.** Comparar 73,3% com 76,3% é comparar réguas diferentes; o ganho real de conteúdo é
+73,3% -> 73,7% na régua velha, e o resto do salto é a régua nova.
+
+| medida | antes (fim da onda 3) | depois |
+|---|---|---|
+| completude, `script`, RÉGUA NOVA | não existia | **76,3%**, 919 de 1.204 `[V]` |
+| completude, `script`, régua velha | 73,3%, 945 de 1.289 | **73,7%**, 950 de 1.289 `[V]` |
+| completude, `objetos` | 104,9% | **104,9%** `[V]` |
+| completude, `placas` | 104,5% | **103,5%** (denominador 200, régua nova) `[V]` |
+| completude, `mapas` e `warps` | 100,0% | **100,0%** `[V]` |
+| completude, `arte` | 48 (32 abaixo de 10) | **48 (22)**, os 34 cortados saíram `[V]` |
+| fila `script_objeto` feita | 1.776 | **1.786** (adiadas 213 -> **203**) `[V]` |
+| fila `map_script` feita | 38 | **38** `[V]` |
+| fila pendente, todos os tipos | 0 de 3.195 | **0 de 3.195** `[V]` |
+| órfãos de Galar | 125 | **117** `[V]` |
+| pendentes de fonte, à vista na régua | 42 (40 dentro dos órfãos) | **40** (os 40 dentro dos 117) `[V]` |
+| alcance geral | 2.068 de 2.289 | **2.076 de 2.289** `[V]` |
+| warps quebrados | 0 | **0** `[V]` |
+| becos sem saída | 14 | **14** `[V]` |
+| portas de script escritas | 39 de 77 | **39 de 77**, não mexidas nesta onda; os baldes do `--demo` seguem A 5, B 2, C 53, D 17 e o autoteste inteiro de pé `[V]` |
+| censo da Dex, Galar | 631 | **631** `[V]` |
+| `resgate_galar_texto.json` | 188 entradas | **195** `[V]` |
+| caderno `onda3_falta_traduzir.json` | 12 distintos | **5** (1 mojibake + 4 de treinador) `[V]` |
+| treinadores de Galar em `trainers.party` | 268 | **277** (+9) `[V]` |
+| ids de treinador (guarda_save) | 2.252 | **2.261** `[V]` |
+| apelidos de flag/var (guarda_save) | 1.754 | **1.764** `[V]` |
+| chefes da Fase F conferidos | 236 | **236** `[V]` |
+| blocos de Galar em português (`checa_texto` T07) | 1 | **1** `[V]` |
+| `checa_texto`, total de achados | 2.124 | **2.125** (T06 de Galar 2 -> 3) `[V]` |
+| travas do `checa_scripts` | 13, nenhuma em Galar; C28 em 0 | **13**, nenhuma em Galar; **C28 em 0** `[V]` |
+| placas de porta fechada no `map.json` | 45, em 23 mapas | **45, em 23 mapas** `[V]` |
+| `lente_warps` de Galar | 128 (P2 48, P4 80) | **128** (P2 48, P4 80) `[V]` |
+| `lente_portas`, travas de Galar | 273 | **273**; cartucho 1 em **8** `[V]` |
+| `guarda_colisao_vars`, colisões novas | 0 | **0** (23 herdadas, 0 stub) `[V]` |
+
+`[V] python3 dev_scripts/completude.py --detalhe Galar`, `[V] python3 dev_scripts/fila_galar.py`,
+`[V] python3 dev_scripts/valida_conectividade.py`, `[V] python3 dev_scripts/censo_dex.py`,
+`[V] python3 dev_scripts/guarda_save.py`, `[V] python3 dev_scripts/guarda_party.py`,
+`[V] python3 dev_scripts/qa/checa_texto.py`, `[V] python3 dev_scripts/qa/checa_scripts.py`,
+`[V] python3 dev_scripts/qa/lente_warps.py`, `[V] python3 dev_scripts/qa/lente_portas.py`,
+`[V] python3 dev_scripts/guarda_colisao_vars.py`, `[V] python3 dev_scripts/qa/roda_qa.py --demo`,
+`[V] grep -o 'porta fechada (portas_mortas_galar.py)' data/maps/*/map.json | wc -l`,
+`[V]` os 438 `map.json` de Galar carregam, 0 falhas.
+
+### As decisões da condutora, e como cada uma foi executada
+
+1. **`cenas_galar.py --aplicar` voltou a rodar, e não escreveu UM BYTE.** A saída foi
+   `gravado: {}` e os md5 de `data/scripts/galar_cenas.inc`, `include/constants/vars.h` e
+   `data/maps/Galar_Wedgehurst03/scripts.inc` são os mesmos de antes e de depois `[V]`. O
+   bloco da Dex continua na Wedgehurst03, com a âncora `distribui_dex.py` no lugar `[V]`. É
+   a melhor prova possível da correção do lote P: o gerador que a onda 3 declarou perigoso
+   agora é idempotente de verdade, e preserva bloco de outro dono e comentário à mão.
+2. **`treinadores_galar.py --aplicar` rodou, e em seguida `fase_f_chefes.py --aplicar`.** O
+   segundo respondeu `nada a fazer: 236 chefes ja estao como a tabela manda`, e os md5 de
+   `src/data/trainers.party` e `include/constants/opponents.h` não mudaram entre um e outro
+   `[V]`. A guarda da rodada 12 (ESTADO 0.t) segurou: `bloco_party` preservou os 38 chefes de
+   Galar, e a Fase F NÃO foi apagada. `guarda_party.py` verde antes e depois, com os 236
+   conferidos; `guarda_save.py` **SAVE COMPATIVEL**, com os 9 ids de treinador entrando por
+   ACRÉSCIMO `[V]`.
+3. **Os 8 campos `script` e os 9 treinadores entraram.** Os 8 `map.json` que mudaram são
+   `Galar_Motostoke05`, `Galar_Postwick40`, `Galar_Route0301`, `Galar_TurffieldIndoor12`,
+   `Galar_TurffieldIndoor59`, `Galar_Wedgehurst08`, `Galar_WildArea11` e `Galar_WildArea14`
+   `[V]`. As 9 recusas de colocação vieram medidas: 6 por precedência declarada de
+   `GalarPorta_` (`objetos_galar.MANDAM_MAIS`) e 3 por dois objetos no mesmo tile.
+4. **A régua da coluna `script` (lote Q) entrou como a condutora desenhou**, e o
+   `cortado_por` saiu de TODAS as seis colunas, não só da `script`. Conferido que as outras
+   cinco regiões saem IDÊNTICAS: rodando a `completude.py` do `HEAD` e a de hoje sobre a
+   MESMA árvore, o `diff` só toca a linha de Galar e o texto de Galar `[V]`.
+
+### As decisões que ESTE fechador teve que tomar, com a medição de cada uma
+
+**(a) `treinadores_galar.py --aplicar` mexeu em bloco EXISTENTE, ao contrário do que o lote
+P mediu, e a mudança foi ACEITA depois de medida.** O pedido dizia "0 blocos existentes
+alterados". O `git diff` mostrou **19 trocas de espécie dentro de times que já estavam
+escritos** `[V]`: `PONYTA -> PONYTA_GALAR` (6), `WEEZING -> WEEZING_GALAR` (2),
+`RAPIDASH -> RAPIDASH_GALAR` (2), `MAROWAK -> MAROWAK_ALOLA` (2), `INDEEDEE -> INDEEDEE_F`
+(2), e uma cada de `MR_MIME_GALAR`, `GOLEM_ALOLA`, `NINETALES_ALOLA`, `RATICATE_ALOLA` e
+`EXEGGUTOR_ALOLA`. Não é regressão e não é invenção: a tabela de
+nomes do demake escreve "Galarian Ponyta" e "Alolan Marowak" com todas as letras (é a mesma
+tabela cuja falha em Darumaka e Mr. Mime a onda 3 documentou), e o `de_para_especie` já
+sabia resolvê-las; o que estava velho era o `trainers.party` da árvore, escrito antes de o
+de-para aprender as formas. Todas as 10 constantes existem em `include/constants/species.h`
+`[V]`, NENHUMA das 19 cai dentro dos 236 chefes da Fase F (`guarda_party` verde depois da
+troca) `[V]`, e o build fechou em 0. O efeito é fidelidade: o Ponyta do treinador de Galar
+passa a ser o de Galar.
+
+**(b) Os 2 textos de `g43m00/map_script` foram traduzidos e MESMO ASSIM o bloco não entrou,
+e o motivo não é tradução.** A condutora esperava que a tradução do resgate destravasse essa
+linha. Medido dentro do gerador: `cenas_galar.plano()` devolve para `g43m00` o motivo
+**`objeto local 7 nao entrou no mapa no G4`** `[V]`, e `cenas_galar --falta` imprime "textos
+sem traducao (distintos): 0". Ou seja: a tradução era necessária e não era suficiente. A
+linha continua `adiada` na fila, mas com o motivo da onda 3 (texto sem tradução), que agora
+está VELHO: `devolve_para_fila` não toca linha que já tem `status` escrito, pela lei do
+cabeçalho de `fila_galar.py` ("status que alguém escreveu não pode ser apagado por uma
+regeneração"). Fica registrado aqui em vez de ser corrigido à mão dentro do portão.
+
+**(c) O caderno `onda3_falta_traduzir.json` SUBIU de 1 para 5, e isso é o esperado.** O lote
+O o levou de 12 para 1, e o `treinadores_galar --aplicar` desta rodada acrescentou 4 textos
+distintos, em 5 linhas da fila, que são as falas de treinador sem inglês `[V]`. O caderno é
+grudento por desenho: ele só perde chave quando o gerador DONO dela roda, e nesta onda um
+gerador que nunca tinha rodado no pipeline em inglês passou a cobrar o que lhe falta.
+
+**(d) O `fila_galar.json` e o `onda3_falta_traduzir.json` foram PARTIDOS entre os commits O e
+P, porque os dois lotes escreveram neles.** Do `fila_galar.json`, 6 pedaços são do O (5
+linhas que viraram `feita` por `objetos_galar.py` mais a quebra de linha final) e 5 são do P
+(as 5 linhas de treinador que ganharam o motivo de texto sem tradução); a versão do commit O
+foi montada revertendo SÓ esses 5 pedaços e entrou por `git hash-object` mais `git
+update-index --cacheinfo`. O caderno foi remontado com a MESMA rotina do escritor
+(`fala_galar.Traducao.corpo_falta`, `indent=1`, `ensure_ascii=False`, entradas ordenadas pelo
+português), e a rotina foi provada antes de usada: remontar o arquivo ATUAL com ela devolve
+byte a byte o arquivo do disco `[V]`. `include/constants/flags.h` NÃO precisou ser partido
+(as 10 linhas novas, 0x230C a 0x2315, são todas do O) e `include/constants/vars.h` não foi
+tocado por ninguém.
+
+**(e) Um achado NOVO do `checa_texto` entrou, e é da mesma família dos que já estavam lá.**
+O T06 de Galar foi de 2 para 3: o texto de derrota de `GalarTrn_G35M11_o12` é vazio na fonte,
+como já eram os de `GalarTrn_G12M00_bg4` e `bg5` `[V]`. Classe "provável", não trava, e não
+foi mexido: é conteúdo da fonte, e inventar uma fala de derrota seria escrever texto nosso
+sem mandato.
+
+### As premissas que esta rodada DERRUBOU
+
+1. **"As 14 escadas internas de Galar se ligam pelo nome do mapa."** Não se ligam.
+   `liga_orfaos_galar.py --escadas` mediu **78 warps mortos em 14 mapas, 0 pares ligados, 0
+   ambíguos, 0 sem irmão, 78 recusados pelo TILE** `[V]`: o destino cai em chão comum
+   (`MB_NORMAL`), em chão sólido ou em caverna, nunca em escada. Sozinho, o
+   `Galar_Postwick50` responde por 63 dos 78. A conclusão é que esses warps são sobra do
+   FireRed, destino inexistente ou lixo de decodificação, e não escada esperando regra.
+2. **"`treinadores_galar.py --aplicar` só acrescenta."** Ver a decisão (a): ele também
+   corrige forma de espécie em time já escrito.
+3. **"Traduzir o texto de `g43m00` destrava a cena dele."** Ver a decisão (b).
+4. **"`cenas_galar.py --aplicar` acrescentaria as 2 linhas de `g43m00`."** Ele não escreveu
+   nada, e isso é o resultado certo.
+5. **"A coluna `script` de Galar media o que falta falar."** Ela media NPC nosso contra NPC
+   nosso, e por isso cobrava fala de 48 NPCs que são MUDOS na própria fonte. A régua nova
+   (lote Q) tira os 48 dos dois lados e passa a comparar com os **1.007 NPCs que TÊM script
+   na fonte**, casados por coordenada, mais os **197 sem registro casável** (31 deles empate
+   de tile), que ficam no denominador com a nota escrita `[V]`.
+
+### O portão desta rodada
+
+`[V] export DEVKITARM=...; make -j8 > /tmp/build-cartucho2.log 2>&1; echo $?`
+
+| medida | antes (fim da onda 3) | depois |
+|---|---|---|
+| exit code do `make` | 0 | **0** |
+| ROM ocupada | 32.422.972 B, 96,63% | **32.426.748 B, 96,64%** (+3.776 B) |
+| EWRAM | 225.856 B, 86,16% | **225.856 B, 86,16%** |
+| IWRAM | 28.404 B, 86,68% | **28.404 B, 86,68%** |
+| md5 da ROM | `697bfda7899e036956649de13c9339bf` | **`41dbdb0c738a76adc7226d048cbeae20`** |
+
+O lock (`mkdir /tmp/pokemon-claude-build.lock`) envolveu **só o `make`** e foi devolvido com
+`rm -rf` logo depois. T11 e suíte rodaram FORA do lock, sobre a cópia
+`/private/tmp/claude-501/c2-onda4rom/c2-onda4.gba` com o `pokeemerald.map` copiado ao lado E
+RENOMEADO para `c2-onda4.map`, que é o nome que o `testa_critico.py` procura.
+
+`[V] python3 dev_scripts/guarda_save.py` -> **SAVE COMPATIVEL**. SaveBlock1 em 14.964 B de
+15.872 (94,3%), 2.400 mapas, **2.261** ids de treinador (eram 2.252; os 9 novos são
+`TRAINER_GALAR_*` no fim da lista, ACRÉSCIMO e não troca de índice) e **1.764** apelidos de
+flag/var (eram 1.754; os 10 novos são os `FLAG_GALAR_MOTOR_*` de 0x230C a 0x2315, e apelidar
+`FLAG_UNUSED` é acréscimo). Rodado DEPOIS do build: antes dele o guarda acusa uma quebra que
+é só o aviso de ELF velho.
+
+`[V] T11 3 de 3`, contra `/private/tmp/claude-501/c2-t11-antiga` (md5
+`ac8ed5419ab69cacece45ad6479e6063`, intacta no disco).
+
+`[V]` **Suíte inteira: 1.061 de 1.063**, com o T11.3 PULADO (ele só prova algo com duas ROMs,
+e o bloco da suíte roda com uma) e **1 reprovado, o T176.3**. Rodada **bloco a bloco**, 115
+blocos, com o placar gravado em disco a cada bloco em
+`/private/tmp/claude-501/c2-onda4-suite/placar.txt` e o log de cada bloco ao lado, sobre a
+cópia da ROM e FORA do lock. O total foi conferido de dois jeitos independentes, somando os
+`[OK]` de cada log (1.061) e somando as linhas `N/M passaram` (1.061 de 1.063). Nada foi
+escrito em `dev_scripts/testes_criticos/` enquanto a suíte rodava.
+
+**O T176.3 é UM ABAIXO do piso de 1.062, e o diagnóstico foi feito no emulador antes de
+qualquer conclusão.** Ele é o intermitente conhecido, e a prova de que não é regressão desta
+onda é um CONTROLE: rodado contra a ROM DA ONDA 3 (`c2-onda3.gba`, md5
+`697bfda7899e036956649de13c9339bf`, a mesma em que o portão da onda 3 imprimiu `[OK]`), ele
+**também reprova**. Medido, e não deduzido: **6 de 11 passadas na ROM de hoje** e **3 de 4 na
+ROM da onda 3** `[V]`. O conteúdo da ROM não regrediu; o caso é que é instável.
+
+A causa provável está no próprio caso, e fica registrada para quem for consertar: o T176.3
+anda **60 pernas de botão** por Hearthome, uma cidade com NPC que caminha sozinho, e quando um
+deles fecha um passo a rota inteira sai de fase e o jogador para na rua em vez de pisar no
+arco do ginásio (a falha é sempre a mesma, `obtido MAP_HEARTHOME_CITY`). **Nada foi
+recalibrado**: reescrever a rota é desenho de caso, não obra de portão, e recalibrar sem
+conserto provado seria maquiar a régua.
+
+`[V]` Os `--demo` dos geradores: **`cenas_galar --demo` agora fecha VERDE** (`demo: OK`), e
+era vermelho desde a onda 2; **`distribui_dex --demo` GERAL também**, pelo `plano_congelado`
+que o lote P reconciliou sem apagar linha. Junto com eles, `liga_orfaos_galar --escadas`
+(seco, não escreveu nada), `fase_f_chefes` (10 de 10 mutações reprovadas),
+`portas_script_galar --demo` (autoteste inteiro de pé) e `qa/roda_qa.py --demo` nas seis
+varreduras.
+
+### Os commits desta rodada
+
+| # | hash | lote |
+|---|---|---|
+| 1 | `b9c62cab70` | N: a premissa das escadas medida e derrubada, e a régua de pendentes de fonte |
+| 2 | `aded9292eb` | O: 12 textos em inglês, o objeto da Wyndon03 e as 10 flags de motor |
+| 3 | `309675e2eb` | P: os geradores de cena e treinador de volta ao pipeline em inglês |
+| 4 | `06f2e2dd99` | Q: a régua honesta da coluna `script` |
+| 5 | este commit | o diário |
+
+Cada commit usou lista fechada de arquivos, nunca `add -A`, e no fim a árvore de trabalho é
+IDÊNTICA ao `HEAD` `[V] git status --short` vazio. A partição foi por ÚLTIMO DONO, menos os
+dois arquivos da decisão (d).
+
+De `dev_scripts/onda4_traducao/` ficaram versionados só `lista.json`, `validacao.txt` e
+`pulados.txt`; o `en/` foi apagado depois de conferido que o `resgate_galar_texto.json` tem
+as 195 entradas, e os três scripts do tradutor foram para
+`fontes-mapas/galar-swsh/onda4-traducao-scripts/`, no datamine, com um `LEIA.md` ao lado.
+Varredura de blob: nada acima de 5 MB, nenhum `.gba` e nenhum `.sav` no intervalo
+`origin/cartucho-2..HEAD` `[V]`.
+
+### O que ficou de fora, e por quê
+
+- **12 warps de mapas VIVOS (`Route1601`, `Route1603`, `Hammerlocke21`) apontam para si
+  mesmos em cima de escada de verdade.** São parte dos 80 P4 da `lente_warps` e são os
+  candidatos honestos a uma regra de escada, ao contrário dos 78 do lote N. Obra de outra
+  rodada.
+- **38 das 77 portas de script** continuam fechadas, com o motivo por linha que a onda 3 já
+  mediu.
+- **203 linhas `script_objeto` adiadas** (eram 213; o lote P baixou 10 delas) `[V]`, com as
+  **4 recusas medidas de motor** entre elas, mais as 43 `multichoice` e 19 `playslotmachine`
+  que continuam fora pelo motivo da onda 3.
+- **57 gráficos recusados por descrição vaga na `tabela_gfx_galar.py`.** Os 4 de maior uso
+  são o **124**, o **136**, o **176** e o **202**. Nesta onda só o par 145/232 saiu do escuro
+  (é Corviknight prata e Corviknight preto, medido na onda 3 e escrito na tabela pelo lote P).
+- **23 empates de tile do casador** e **30 objetos sem fonte** continuam sem julgamento.
+- **5 falas de treinador sem inglês** (4 textos distintos), no caderno.
+- **Os dois motivos herdados da onda 2 continuam recusando cena** (var salva da fonte sem
+  dono nosso, objeto local que não entrou no mapa no G4), mas deixaram de derrubar o
+  `--demo`: hoje eles aparecem como motivo classificado, e não como falha do autoteste.
+- **A curva de nível de Galar continua fora do lugar**: encontros de 2 a 60, treinadores em
+  255. Ninguém mediu ainda qual dos dois está errado.
+- **As 2 linhas velhas de `dev_scripts/orfaos_galar_sem_saida.txt` SAÍRAM nesta onda**, e a
+  pendência que a onda 3 anotou está fechada: o lote N trocou a régua do arquivo pela
+  PÚBLICA, a mesma da `valida_conectividade.py`, e a lista caiu de 42 para 40 mapas,
+  perdendo `Galar_WildArea18` e `Galar_WildAreaCave01`, que a régua do dia já alcança `[V]`.
+  O carimbo de reserva do B5 fica na régua estrita de propósito: são perguntas diferentes.
+- **O T176.3 continua instável e agora tem taxa medida** (6 de 11 na ROM de hoje, 3 de 4 na da
+  onda 3). Endurecer a rota dele, que hoje depende de 60 pernas de botão numa cidade com NPC
+  andando, é obra de uma rodada de teste, não deste portão.
+- **A tela de créditos dentro do jogo** continua sendo pendência da fase de montagem.
+
+### Perguntas ao Gui
+
+As três da onda 1 e a 5 da onda 2 continuam abertas. A 42 fica assim:
+
+42. **Textos de Galar que ninguém pode traduzir sem decisão sua.** São **2** hoje: o
+    `g04m00/objeto/0` (o texto curto, um dos dois de `dev_scripts/onda2_lote_i_pulados.txt`,
+    decisão de conteúdo sua) e o mojibake de `g09m10/objeto/14`, ilegível na fonte e já
+    documentado na seção 6 do `GLOSSARIO-GALAR.md`. Os outros 4 do caderno são fala de
+    treinador e saem sozinhos na próxima rodada de tradução, sem você.
+
+    Junto vai uma **recomendação**, para você só dizer sim ou não: os **48 NPCs que são MUDOS
+    na própria fonte** ficarem mudos aqui também, e por isso saírem dos dois lados da coluna
+    `script` (é o que a régua nova já faz). A alternativa seria escrever fala nossa para eles,
+    o que é conteúdo inventado.
+
+### Como retomar
+
+O primeiro comando continua sendo o da seção 0:
+
+```
+git ls-remote --heads origin cartucho-2
+```
+
+Antes desta rodada o `origin` estava em `2d1afa1097`, que era o `HEAD` local `[V]`. Depois do
+push desta onda ele devolve o hash DESTE commit de diário, o último dos cinco. Se ele
+devolver `2d1afa1097`, o push não subiu e a onda 4 está só no disco.
+
+---
+
 ## Onda 3 (06/09/2026), FECHAMENTO: GALAR PASSA A NASCER EM INGLÊS, ABRE 33 PORTAS PRESAS NO BYTECODE E TROCA O MATO DO DEMAKE PELO DE SWORD E SHIELD (condutora Opus, cinco executores mais tradutor, fechador Opus)
 
 Fechamento da onda 3 da Frente A. Os lotes J, K, K2, L1, M e o tradutor deixaram o
