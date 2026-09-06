@@ -1429,6 +1429,202 @@ desembocar na escada e em cima de outra porta.
 
 ---
 
+### O quarto defeito do playtest: o jogador andava por dentro do cenário, e três ginásios de Sinnoh não tinham porta, 06/09/2026
+
+O Gui, jogando Hearthome: "está zoado o limite dos tiles, estou entrando debaixo
+das árvores", "o sprite aparece cortado pela metade em frente à casa", "nem
+nessa casa entra". E em Snowpoint: "estou entrando 50% dentro dos lugares".
+
+São DOIS defeitos diferentes com a mesma cara, e por isso duas ferramentas.
+
+#### 1. A célula que apaga o jogador: `dev_scripts/conserta_colisao_sinnoh.py`
+
+O mecanismo é de duas camadas, e está no motor, não no mapa. `DrawMetatile`
+(`src/field_camera.c`) manda as entradas 4..7 do metatile para o **Bg1**, e o
+comentário do próprio motor diz que essa camada "covers object event sprites".
+Só o layer type `METATILE_LAYER_TYPE_COVERED` desvia essa metade para o Bg2. A
+colisão, por outro lado, são os 2 bits do `map.bin` e não têm nada a ver com o
+tileset. Metatile que desenha coisa sólida por cima do sprite E vem com colisão
+0 é o pior dos dois mundos, e é exatamente o que ele viu.
+
+**A régua NÃO é "desenha por cima"**, e isso foi medido antes de escrever
+qualquer byte: em `LittlerootTown`, `PetalburgCity` e `RustboroCity` de fábrica
+existem dezenas de células andáveis com pixel opaco no Bg1, e todas são
+legítimas (beiral de telhado e copa de árvore existem para o jogador passar
+ATRÁS, e é isso que dá profundidade ao mapa). Ferramenta que discorda do vanilla
+está errada.
+
+A régua que sobrou tem NOVE portões, e o mais caro deles nasceu de um erro:
+
+1. não é célula de EVENTO (warp, placa, item escondido, gatilho, objeto). O item
+   escondido de `VeilstoneCity` em (26,24) mora num tile de `MB_NORMAL` que cobre
+   o sprite, e a primeira versão fechou o tile DELE e três vizinhos, deixando o
+   item impossível de pegar;
+2. colisão 0 e 3. comportamento `MB_NORMAL` (isso congela sozinho grama, água,
+   porta, seta, escada, gelo, ponte e areia: nada que o motor leia por
+   comportamento é tocado);
+4. elevação 3, o chão comum. Elevação 15 é o IDIOMA DE PONTE do Emerald, onde a
+   passarela cobre o sprite de propósito: sem esta trava a régua queria fechar
+   as três pontes da Route 216;
+5. é PEÇA e não TERRENO (no máximo 12 células abertas do mesmo metatile no
+   layout). A lama do brejo da Route 212 South cobre as duas camadas inteiras e
+   aparece em 191 células em fila: fechá-la emparedaria o brejo;
+6. a célula é ALCANÇÁVEL, e 7. o layout é EXCLUSIVO da região (sem isso a
+   ferramenta vazava para o Hoenn de fábrica: os cinco quartos da Elite dos
+   Quatro de Sinnoh vestem os layouts `LAYOUT_EVER_GRANDE_CITY_*_ROOM`);
+8. **as DUAS FAIXAS de cobertura**, e 9. o **VETO DO VANILLA**. Os dois abaixo.
+
+**As duas faixas.** Um corte só de pixels NÃO ordena os casos, e isto é o número
+que decidiu a ferramenta: o vaso de planta dos portões de Sinnoh
+(`gTileset_Pasos` 520 e 538) cobre **138** px de 256 e é decoração legítima, por
+onde se passa atrás; a base do muro do templo de Snowpoint (`gTileset_Snowpoint`
+568, 569 e 573) cobre **128, 128 e 132** e é defeito de verdade. O legítimo cobre
+MAIS que o defeito. Então:
+
+- de **140** px para cima a peça entra sozinha (o arbusto de Hearthome cobre 152,
+  o balcão da banca 248, o tronco da Route 209 232): esse tanto apaga o jogador
+  esteja ele onde estiver;
+- entre **128** e 140 ela só entra se for **BASE DE PAREDE**, isto é, se a célula
+  logo ACIMA já for bloqueada. É o que separa a neve encostada no muro (acima
+  está o muro) do vaso de planta (acima está o chão da sala).
+
+O 128 não é número redondo escolhido a dedo: o Bg1 é 16x16 px e o sprite é 16x32
+com os pés no tile, então 128 de 256 é **exatamente a metade do sprite**, que é a
+frase que o Gui usou. E o contra-exemplo continua de fora: o alto do muro da
+banca de Hearthome (640) cobre 118.
+
+**O veto do vanilla.** Quando existe prova EXTERNA de que a peça é chão, ela ganha
+do corte, e a prova externa mais forte que este repo tem é o Hoenn de fábrica.
+Medido em 06/09/2026: os ginásios de Veilstone e de Sunyshore vestem
+`gTileset_DewfordGym` e `gTileset_MauvilleGym`, e a faixa de baixo queria fechar
+**39 células** deles; os mesmos metatiles (530, 531, 533, 534, 536, 546, 547...)
+aparecem ANDÁVEIS no ginásio de Dewford e no de Mauville de fábrica, dezenas de
+vezes. O veto derrubou os 39, e com eles as 23 células de interior que a régua
+anterior (corte único de 140, sem veto) tinha escrito em salas de ginásio e de
+condomínio. Tileset que só Sinnoh usa (Snowpoint, Hearthome, Jubilife, Canalave)
+não tem prova externa nenhuma, e aí quem decide é a cobertura.
+
+**A guarda.** Depois de cada bloqueio o conjunto alcançável tem que perder
+EXATAMENTE as células corrigidas, nem uma a mais; a que cortar corredor é
+devolvida. Medido depois de aplicar, nos 26 mapas mudados: **0 células perdidas
+por tabela e 0 eventos (warp, objeto, placa, gatilho) que tenham ficado
+inalcançáveis**. `completude.py --detalhe sinnoh` fecha em 100,0% mapas / 100,3%
+objetos / 103,7% warps / 103,4% placas, igual a antes.
+
+A ferramenta escreve SÓ os 2 bits de colisão, `(antigo & ~0x0C00) | 0x0400`.
+Metatile e elevação saem byte a byte idênticos, o que o `--demo` confere célula a
+célula, e ela é idempotente (a segunda execução dá 0).
+
+**401 células em 26 `map.bin`**, todas de Sinnoh:
+
+| mapa | células |
+|---|---|
+| `OreburghCity` | 93 |
+| `HearthomeCity` | 40 |
+| `OreburghMine_B1F` | 38 |
+| `VeilstoneCity` | 36 |
+| `Route212_South` | 30 |
+| `SunyshoreCity` | 28 |
+| `Route209` | 26 |
+| `EternaCity` | 24 |
+| `Route206` | 18 |
+| `HotelGrandLake` | 12 |
+| `FloaromaTown` | 9 |
+| `SnowpointCity` | 7 |
+| `SolaceonTown` | 4 |
+| `CelesticTown` | 4 |
+| `PastoriaCity` | 4 |
+| `CanalaveCity` | 4 |
+| `MtCoronet_1F_South` | 4 |
+| `Route210_South` | 3 |
+| `Route212_North` | 3 |
+| `ValleyWindworks` | 3 |
+| `JubilifeCity` | 2 |
+| `Route210_North` | 2 |
+| `Route214` | 2 |
+| `Route218` | 2 |
+| `Route206_North` | 2 |
+| `Route206_South` | 1 |
+
+#### 2. O warp que não estava em cima da porta: `dev_scripts/conserta_portas_sinnoh.py`
+
+`valida_warp_tile.py` já listava 18 warps mortos em Sinnoh, e ninguém tinha lido a
+lista pelo nome do DESTINO: **cinco eram a porta de um GINÁSIO** (Hearthome,
+Pastoria, Canalave, Snowpoint e Sunyshore). Ginásio com warp morto é ginásio
+inalcançável, e o capítulo que o Gui está jogando é o "before Fantina", cujo
+ginásio é o de Hearthome.
+
+A regra é "mover o warp, não a porta", e o ÍNDICE do warp nunca muda (outro mapa
+aponta para ele por `dest_warp_id`), só o par x,y. Um warp morto só é consertado
+quando o próprio mapa responde onde a porta está, por um de dois caminhos:
+
+| mapa | warp | de | para | como |
+|---|---|---|---|---|
+| `HearthomeCity` | 4 | (29,26), chão de praça | (10,31) | boca única: o metatile 636 de `gTileset_Hearthome` aparece UMA vez no repo inteiro, é o arco de pedra da fachada que escreve GYM, e o atributo dele virou `MB_NON_ANIMATED_DOOR` |
+| `PastoriaCity` | 1 | (34,30), grama | (27,34) | porta livre a 7 de distância, a do prédio da esquerda (o da direita já era do warp 7) |
+| `SnowpointCity` | 0 | (17,34), `MB_SAND` | (17,33) | porta livre a 1 de distância, o clássico erro de um tile |
+
+A boca de Hearthome **não é automática**, e está escrito no código por quê: a
+régua de "boca única" sozinha achou TRÊS candidatos em Sinnoh
+(`gTileset_Hearthome` 636, `gTileset_Sunnyshore` 657 e `gTileset_CaveSinnoh` 931),
+todos com metatile de uso único no mundo, e os PNG foram abertos e olhados: só o
+primeiro é porta, os outros dois são fenda de rocha e parede de caverna. A tabela
+`BOCAS_MEDIDAS` guarda o julgamento e o código só CONFERE que ele continua
+valendo; se o mapa mudar, a conferência falha em vez de escrever no lugar errado.
+
+Os outros **15 warps mortos de Sinnoh ficaram de fora de propósito** e estão
+listados pelo relatório: Canalave 1 e Sunyshore 1 (warp sobre `MB_OCEAN_WATER`,
+sem porta livre; qual porta é do ginásio ali é decisão de conteúdo, não medida),
+os dez da Elite dos Quatro (warp em tile sólido é o IDIOMA da Elite, ESTADO 0.t) e
+os de caverna e floresta, onde não existe porta desenhada para achar.
+
+#### A prova, e ela é no emulador
+
+`dev_scripts/testes_criticos/176_colisao_sinnoh.json`, **12 casos, 12 verdes**,
+todos com `gba_runner` e leitura da EWRAM, nunca de pixel:
+
+| caso | o que prova |
+|---|---|
+| T176.1 | Hearthome: RIGHT saturante na linha 20 para em (19,20), ao lado do balcão da banca. Antes parava em (20,20), DENTRO dele |
+| T176.2 | Hearthome: LEFT saturante na linha 16 encosta em (18,16). Antes terminava em (17,16), dentro do arbusto |
+| T176.3 | Hearthome: pisar no arco de (10,31) leva ao ginásio da Fantina |
+| T176.4 a .6 | três casas de Hearthome (Poffin, noroeste e sudeste) entram E saem, voltando no mesmo tile |
+| T176.7 a .9 | os três portões (Route 208, 209 e 212) levam |
+| T176.10 | Snowpoint: o UP em (13,8) não sobe mais para dentro do muro do templo |
+| T176.11 | Snowpoint: a fachada do ginásio fecha, e o jogador para em (14,33) |
+| T176.12 | Snowpoint: (17,33) leva ao ginásio |
+
+Fato do motor que custou seis casos e fica registrado: **o primeiro toque numa
+direção NOVA só VIRA o jogador, não anda**. Por isso toda perna contada tem um
+toque a mais que a distância, e as pernas de 20 são saturantes para não depender
+disso. E os portões de cidade são `MB_WEST/EAST/SOUTH_ARROW_WARP`: seta só
+dispara quando o jogador ANDA NA DIREÇÃO DELA (`TryArrowWarp`), então nascer em
+cima dela pelo menu de debug não warpa nada.
+
+#### O que fica aberto
+
+- **A comparação com a fonte DPPt foi feita e não achou quase nada.** Os 62
+  layouts de Sinnoh que existem em `fontes-mapas/sinnoh/` com o mesmo tamanho e o
+  mesmo metatile têm **11 células** em que a fonte bloqueia e nós não (6 em
+  `RavagedPath`, 2 em `SnowpointCity`, 1 em `FloaromaTown`, 1 em
+  `MtCoronet_1F_North_Room1`, 1 em `Route204`), e **nenhuma** no sentido
+  contrário. Ou seja: a colisão do demake está fiel à fonte, e o defeito que o
+  Gui viu **também está na fonte**. Comparar com o demake não teria achado nada;
+  quem achou foi a régua de cobertura. As 11 não foram tocadas nesta rodada
+  (`SnowpointCity` (16,7) e (17,7) são as portas animadas das duas casas do
+  norte, que em Hoenn seriam sólidas de propósito).
+- **`fontes-mapas/pokeplatinum` não foi usada.** Lá o mapa é 3D (NSBMD mais bytes
+  de permissão), a grade não é 1:1 com a do demake 2D, e decodificar isso é obra
+  própria.
+- **Nove `map.bin` são compartilhados com a frente de ARTE das cidades.** O commit
+  desta frente leva a versão SÓ de colisão (regerada do HEAD), e a árvore de
+  trabalho ficou com a mescla (decoração da arte + os bits de colisão daqui), para
+  que a frente de arte não perca o que ainda não commitou. Conferido: nas 8 que a
+  arte mexeu, nenhuma célula minha caiu em metatile que ela trocou.
+- **`Route206_North` (0,5)**: é o mesmo vaso de planta de (0,2), e fica ANDÁVEL
+  porque acima dele há chão. A régua recusa onde não consegue provar, e isso é de
+  propósito.
+
 ## 0.t A CAÇA A BUGS ANTES DO PLAYTEST: A RÉGUA PARA DE MEDIR PORCENTAGEM E PASSA A MEDIR DEFEITO, 23/08/2026 (rodada 12; condutor Opus, quatro executores Opus, fechador Opus)
 
 Build verde, uma build só, e a primeira rodada em que **nenhuma coluna de completude era o alvo**: o

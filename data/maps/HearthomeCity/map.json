@@ -441,11 +441,12 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 29,
-      "y": 26,
+      "x": 10,
+      "y": 31,
       "elevation": 0,
       "dest_map": "MAP_HEARTHOME_CITY_GYM",
-      "dest_warp_id": "0"
+      "dest_warp_id": "0",
+      "porta_movida": "warp posto em cima da porta desenhada, dev_scripts/conserta_portas_sinnoh.py"
     },
     {
       "x": 14,
