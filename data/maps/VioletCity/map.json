@@ -4,6 +4,7 @@
   "layout": "LAYOUT_VIOLET_CITY",
   "music": "MUS_HG_VIOLET",
   "region_map_section": "MAPSEC_VIOLET_CITY",
+  "map_name_popup": "VIOLET CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_CITY",

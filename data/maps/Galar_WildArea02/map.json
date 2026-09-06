@@ -4,6 +4,7 @@
   "layout": "LAYOUT_GALAR_WILD_AREA_02",
   "music": "MUS_RG_ROUTE1",
   "region_map_section": "MAPSEC_GALAR_WILD_AREA",
+  "map_name_popup": "WILD AREA",
   "requires_flash": false,
   "weather": "WEATHER_SANDSTORM",
   "map_type": "MAP_TYPE_ROUTE",

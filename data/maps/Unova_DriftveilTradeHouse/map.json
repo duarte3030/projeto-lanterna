@@ -4,6 +4,7 @@
   "layout": "LAYOUT_UNOVA_DRIFTVEIL_TRADE_HOUSE",
   "music": "MUS_SLATEPORT",
   "region_map_section": "MAPSEC_UNOVA_DRIFTVEIL_CITY",
+  "map_name_popup": "DRIFTVEIL CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

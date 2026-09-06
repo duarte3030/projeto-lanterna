@@ -4,6 +4,7 @@
   "layout": "LAYOUT_GOLDENROD_CITY",
   "music": "MUS_HG_GOLDENROD",
   "region_map_section": "MAPSEC_GOLDENROD_CITY",
+  "map_name_popup": "GOLDENROD CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_CITY",

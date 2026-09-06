@@ -4,6 +4,7 @@
   "layout": "LAYOUT_GALAR_LIPTOO_CHAMBER_01",
   "music": "MUS_RG_MT_MOON",
   "region_map_section": "MAPSEC_GALAR_LIPTOO_CHAMBER",
+  "map_name_popup": "LIPTOO CHAMBER",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",

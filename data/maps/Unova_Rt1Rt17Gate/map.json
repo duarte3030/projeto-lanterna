@@ -4,6 +4,7 @@
   "layout": "LAYOUT_UNOVA_R_1_R_17_GATE",
   "music": "MUS_ROUTE122",
   "region_map_section": "MAPSEC_UNOVA_R_17",
+  "map_name_popup": "ROUTE 17",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

@@ -4,7 +4,132 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 23/08/2026, na build de fechamento da rodada 12, a caça a bugs. A seção 0.t abaixo é a passagem de bastão dela.
+Última medição: 05/09/2026, na build da rodada 13, o primeiro conserto do playtest do Gui. A seção 0.u
+abaixo é a passagem de bastão dela, e a 0.t é a da rodada 12.
+
+---
+
+## 0.u O LETREIRO DE MAPA PARA DE DIZER "SINNOH WEST": O NOME DO POPUP SAI DO MAPSEC E VIRA CAMPO DO MAP.JSON, 05/09/2026 (rodada 13; primeiro defeito achado pelo Gui no playtest, um executor Opus)
+
+O Gui jogou a ROM `23d` e trouxe o primeiro defeito do playtest: o letreiro que aparece ao entrar num
+mapa dizia **"SINNOH WEST", "SINNOH EAST", "SINNOH NORTH", "UNOVA EAST", "GALAR NORTH"** em centenas de
+mapas de quatro regiões. Não era dado errado, era o desenho: `MAPSEC` é `u8` e divide o espaço de
+valores com `METLOC_SPECIAL_EGG` (0xFD), então Johto, Sinnoh, Unova e Galar **não têm uma seção por
+cidade**, e cada lugar é APELIDO de um MAPSEC de GRUPO
+(`src/data/region_map/region_map_sections.constants.json.txt`). Como `GetPopUpMapName` copiava
+`gRegionMapEntries[mapsec].name`, o letreiro só sabia dizer o nome do grupo. Medido antes de tocar:
+**398 mapas de Sinnoh carregavam o MAPSEC de grupo cru** no `region_map_section` e **172 mapas de Galar
+estavam em `MAPSEC_GALAR_POSTWICK`**, que era o valor padrão errado de interiores de outras cidades
+(Turffield, Wyndon, Wild Area, Isle of Armor).
+
+### O mecanismo novo: o nome do letreiro deixa de ser o MAPSEC
+
+MAPSEC continua `u8` e os apelidos continuam onde estavam. O "met location" do sumário do Pokémon
+segue por GRUPO, e isso é aceito. O que mudou é só o letreiro, em quatro peças:
+
+1. **Campo opcional `"map_name_popup"` no `map.json`**, com a string já no formato exibido
+   ("SUNYSHORE CITY"). `tools/mapjson` lê o `map.json` por CHAVE (`generate_map_header_text`) e
+   **ignora campo que não conhece**: conferido antes de escrever, e por isso o header do mapa não
+   mudou um byte.
+2. **`dev_scripts/nomes_popup.py`**, o gerador. Deriva o nome nesta ordem: (a) NOME DA PASTA por
+   dicionário de radicais, que é a única fonte que sobrou em Sinnoh e em Galar; (b) o APELIDO do
+   `region_map_section` transformado (`MAPSEC_UNOVA_R_11` -> "ROUTE 11", `MAPSEC_GALAR_ROUTE01` ->
+   "ROUTE 1"), que é a fonte boa em Johto e Unova, onde o demake carregou o apelido certo em cada
+   mapa; (c) o que sobra vai para `dev_scripts/qa/nomes_popup_revisao.csv` e **não recebe campo**,
+   caindo no comportamento antigo. Interior herda o lugar da cidade, mapa TÚMULO (`MAPSEC_NONE`) fica
+   fora, e Kanto e Hoenn ficam fora porque têm MAPSEC próprio. Ele é **idempotente** (rodar duas vezes
+   dá 0 arquivos alterados na segunda) e tem `--demo` com 25 casos.
+3. **`src/data/map_popup_names.h`, GERADO no build**, não versionado, como
+   `region_map_entries.h` já é: um passo em `map_data_rules.mk` com todos os `map.json` como
+   pré-requisito o refaz sozinho, e `$(C_BUILDDIR)/map_name_popup.o` depende dele. Um literal por nome
+   distinto (**224** no total, compartilhados entre regiões: "ROUTE 5" e "VICTORY ROAD" servem Unova e
+   Galar ao mesmo tempo), um array de ponteiros por grupo de mapa que tem nome (**55** grupos) e a tabela de grupos com o tamanho de cada um.
+4. **`GetPopUpMapName` ganhou `mapGroup`/`mapNum`** e consulta a tabela antes de cair no MAPSEC. O
+   par vem de `gSaveBlock1Ptr->location`, que é exatamente de onde `gMapHeader` é carregado
+   (`src/overworld.c:674`), porque `struct MapHeader` não guarda grupo nem número. Celadon Dept.,
+   andar e Battle Pyramid continuam como estavam, e o teste "Map names fit in popup" de `test/text.c`
+   passou a medir também os nomes novos, agora que recebe o par.
+
+### O que entrou, e o que ficou de fora
+
+| região | mapas com nome | sem nome | nomes distintos |
+|---|---|---|---|
+| Johto | 220 | 0 | 54 |
+| Sinnoh | 394 | 4 | 70 |
+| Unova | 280 | 2 | 68 |
+| Galar | 438 | 0 | 44 |
+
+Dos 1.332, **317 mostram o letreiro hoje** (`show_map_name` verdadeiro): 66 em Johto, 56 em Sinnoh, 70
+em Unova e 125 em Galar. Os outros 1.015 são interiores que hoje não mostram nada, e ganharam o campo
+assim mesmo, para que ligar o letreiro num deles amanhã não precise passar por aqui de novo.
+
+**1.332 mapas ganharam o campo** e o CSV de revisão tem **147 linhas**: 6 são "não resolveu" de
+verdade (`Cafe`, `Restaurant`, `ForeignBuilding` e `UnusedGateBetweenEternaCityRoute206` em Sinnoh,
+`Unova_MobileBattleRoom` e `Unova_MobileTradeRoom`, que são salas de link sem lugar no mundo) e as
+outras 141 são **aviso de divergência**, onde a PASTA mandou e o apelido dizia outra coisa: são os
+interiores de Galar presos no `MAPSEC_GALAR_POSTWICK`. O aviso fica no CSV de propósito, porque a
+divergência é o retrato do defeito do `region_map_section` de Galar, que continua aberto.
+
+### A régua de largura entrou no gerador
+
+O teste `Map names fit in popup` cobra 80 px na `FONT_NARROWER`, e o buffer do letreiro tem 20
+caracteres. O gerador mede o nome **mais o sufixo de andar** com a tabela real
+(`gFontNarrowerLatinGlyphWidths` de `src/fonts.c` e o `charmap.txt`), e nome que não couber vai para o
+CSV em vez de entrar. Medido: o mais largo é **"OLIVINE LIGHTHOUSE", 71 px de 80**, e nenhum dos mapas
+nomeados tem andar. Foi essa régua que encurtou "POKEMON WORLD TOURNAMENT" (94 px) para
+"WORLD TOURNAMENT".
+
+### A prova está no framebuffer, e é um par antes/depois
+
+Cinco warps pelo menu de debug, PNG por passo, abertos e olhados. Na ROM `23d`, o MESMO warp e a
+MESMA rota: `SunyshoreCity` (grupo 75, mapa 13) escrevia **"SINNOH EAST"** e `Galar_Wyndon01`
+(grupo 127, mapa 11) escrevia **"GALAR NORTH"**. Na build desta rodada os mesmos dois escrevem
+**"SUNYSHORE CITY"** e **"WYNDON"**, e mais: `AzaleaTown` (84, 3) escreve "AZALEA TOWN" no lugar de
+"SINNOH WEST", `Unova_NimbasaCity` (107, 0) escreve "NIMBASA CITY" no lugar de "UNOVA EAST", e
+`PetalburgCity` (0, 0), que é o controle de Hoenn e não tem campo nenhum, continua escrevendo
+"PETALBURG CITY".
+
+### O que fica aberto
+
+- **Porymap não conhece o campo.** `tools/mapjson` ignora chave desconhecida, mas um editor gráfico que
+  reserialize o `map.json` inteiro pode deixar `map_name_popup` para trás. Se algum mapa perder o
+  campo, `python3 dev_scripts/nomes_popup.py` o repõe sozinho, e o `make` refaz a tabela.
+- **Os 172 mapas de Galar em `MAPSEC_GALAR_POSTWICK` continuam lá.** O letreiro deles já está certo,
+  mas o `region_map_section` não, e é ele que o sumário do Pokémon e o mapa da região leem. As 141
+  linhas de aviso do CSV são a lista exata do conserto, e ele é obra de dados de Galar, não deste
+  mecanismo.
+- **Seis mapas seguem sem nome próprio** e caem no comportamento antigo: quatro de Sinnoh
+  (`Cafe`, `Restaurant`, `ForeignBuilding`, `UnusedGateBetweenEternaCityRoute206`) e as duas salas de
+  link de Unova. Precisam de decisão de conteúdo, não de código.
+
+### Os portões
+
+**Suíte 1.002 de 1.003**, com o T11.3 contado à parte, e **T11 3/3** contra a ROM
+`roms/pokemon-claude-2026-08-18.gba`, que é a última ANTES do `SAVE_LAYOUT_REVISION` de 19/08 (a fonte
+dela é a worktree de `cf6786b2ae` em `/private/tmp/claude-501/t11-r13`). Build verde com o lock,
+**ROM 96,44% de 32 MB** (32.360.228 B, **1.194.204 B livres**, 9.632 B a mais
+que a 0.t, que é o custo inteiro da tabela e das strings), **EWRAM 86,16% e IWRAM 86,68%**, idênticos
+aos da 0.t. **SAVE COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B (94,3%), 2.400 mapas, 2.252 ids de
+treinador e 1.716 apelidos conferidos: não há mudança de struct, de índice nem de flag nesta rodada, e
+o campo novo mora no `map.json`, que não entra na save. `valida_rom.py` com os 2.400 mapas declarados
+dentro da ROM. `dev_scripts/qa/roda_qa.py --demo` verde nas quatro varreduras, e
+`dev_scripts/nomes_popup.py --demo` com 25 casos.
+
+### Duas lições
+
+1. **Pasta de `.sav` em `/tmp` é veredito falso esperando acontecer.** Seis casos de prova de save
+   (T123.21, T123.22, T127.3, T127.4, T127.9, T127.10) abriram VERMELHOS na primeira passada, e o
+   motivo não era o jogo: `/tmp/claude-501/fechador` e `/tmp/claude-501/frenteGalar` tinham sido
+   limpos pelo sistema desde a rodada 12, e o `gba_runner` respondia "nao consegui abrir sav". O
+   conserto ficou em `dev_scripts/testa_critico.py`, na função `roda`, que agora cria a pasta do
+   `.sav` antes de chamar o runner; com ela, os dois blocos voltaram 25/25 e 10/10 sem tocar em mais
+   nada.
+2. **Campo de `map.json` que o `mapjson` não conhece é grátis, e a tabela tem que sair DELE, não da
+   derivação.** A primeira versão do gerador montava o `.h` a partir do dicionário de radicais, e não do
+   campo que ele mesmo tinha acabado de escrever: quem editasse `map_name_popup` à mão veria o
+   `map.json` mudar e o letreiro continuar igual, sem uma linha de erro. Hoje `--tabela` lê SÓ o
+   campo, e é esse passo que o `make` chama. Provado trocando o campo de `SunyshoreCity` por
+   "PROVA DO CAMPO" e vendo o `.h` mudar sozinho.
 
 ---
 

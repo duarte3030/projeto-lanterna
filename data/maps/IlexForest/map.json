@@ -4,6 +4,7 @@
   "layout": "LAYOUT_ILEX_FOREST",
   "music": "MUS_HG_UNION_CAVE",
   "region_map_section": "MAPSEC_ILEX_FOREST",
+  "map_name_popup": "ILEX FOREST",
   "requires_flash": false,
   "weather": "WEATHER_SHADE",
   "map_type": "MAP_TYPE_ROUTE",

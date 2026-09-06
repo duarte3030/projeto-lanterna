@@ -4,6 +4,7 @@
   "layout": "LAYOUT_DRAGONS_DEN_ENTRANCE",
   "music": "MUS_HG_DRAGONS_DEN",
   "region_map_section": "MAPSEC_DRAGONS_DEN",
+  "map_name_popup": "DRAGONS DEN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",

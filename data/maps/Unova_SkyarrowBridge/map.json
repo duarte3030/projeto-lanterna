@@ -4,6 +4,7 @@
   "layout": "LAYOUT_UNOVA_SKYARROW_BRIDGE",
   "music": "MUS_ROUTE110",
   "region_map_section": "MAPSEC_UNOVA_SKYARROW_BRIDGE",
+  "map_name_popup": "SKYARROW BRIDGE",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",

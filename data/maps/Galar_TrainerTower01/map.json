@@ -4,6 +4,7 @@
   "layout": "LAYOUT_GALAR_TRAINER_TOWER_01",
   "music": "MUS_RG_TRAINER_TOWER",
   "region_map_section": "MAPSEC_GALAR_TRAINER_TOWER",
+  "map_name_popup": "TRAINER TOWER",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",

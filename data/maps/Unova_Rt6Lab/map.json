@@ -4,6 +4,7 @@
   "layout": "LAYOUT_UNOVA_R_6_LAB",
   "music": "MUS_ROUTE104",
   "region_map_section": "MAPSEC_UNOVA_R_6",
+  "map_name_popup": "ROUTE 6",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

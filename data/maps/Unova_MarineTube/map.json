@@ -4,6 +4,7 @@
   "layout": "LAYOUT_UNOVA_MARINE_TUBE",
   "music": "MUS_DEWFORD",
   "region_map_section": "MAPSEC_UNOVA_MARINE_TUBE",
+  "map_name_popup": "MARINE TUBE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

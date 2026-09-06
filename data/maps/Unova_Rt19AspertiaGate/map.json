@@ -4,6 +4,7 @@
   "layout": "LAYOUT_UNOVA_R_19_ASPERTIA_GATE",
   "music": "MUS_LITTLEROOT",
   "region_map_section": "MAPSEC_UNOVA_ASPERTIA_CITY",
+  "map_name_popup": "ASPERTIA CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

@@ -4,6 +4,7 @@
   "layout": "LAYOUT_MT_MORTAR_1F_NORTH",
   "music": "MUS_HG_UNION_CAVE",
   "region_map_section": "MAPSEC_MT_MORTAR",
+  "map_name_popup": "MT. MORTAR",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",

@@ -4,6 +4,7 @@
   "layout": "LAYOUT_GALAR_LOST_CAVE_05",
   "music": "MUS_RG_SEVII_CAVE",
   "region_map_section": "MAPSEC_GALAR_LOST_CAVE",
+  "map_name_popup": "LOST CAVE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",

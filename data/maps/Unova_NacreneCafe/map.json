@@ -4,6 +4,7 @@
   "layout": "LAYOUT_UNOVA_NACRENE_CAFE",
   "music": "MUS_RG_PEWTER",
   "region_map_section": "MAPSEC_UNOVA_NACRENE_CITY",
+  "map_name_popup": "NACRENE CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

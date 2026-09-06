@@ -4,6 +4,7 @@
   "layout": "LAYOUT_UNOVA_GIANT_CHASM_B1F",
   "music": "MUS_RG_MT_MOON",
   "region_map_section": "MAPSEC_UNOVA_GIANT_CHASM",
+  "map_name_popup": "GIANT CHASM",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",

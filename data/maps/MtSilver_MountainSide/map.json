@@ -4,6 +4,7 @@
   "layout": "LAYOUT_MT_SILVER_MOUNTAIN_SIDE",
   "music": "MUS_HG_LIGHTHOUSE",
   "region_map_section": "MAPSEC_MT_SILVER",
+  "map_name_popup": "MT. SILVER",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",

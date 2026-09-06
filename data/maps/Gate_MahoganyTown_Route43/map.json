@@ -4,6 +4,7 @@
   "layout": "LAYOUT_GATE_MAHOGANY_TOWN_ROUTE43",
   "music": "MUS_HG_ROUTE42",
   "region_map_section": "MAPSEC_ROUTE_43",
+  "map_name_popup": "ROUTE 43",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

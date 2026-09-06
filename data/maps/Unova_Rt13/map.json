@@ -4,6 +4,7 @@
   "layout": "LAYOUT_UNOVA_R_13",
   "music": "MUS_ROUTE119",
   "region_map_section": "MAPSEC_UNOVA_R_13",
+  "map_name_popup": "ROUTE 13",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",

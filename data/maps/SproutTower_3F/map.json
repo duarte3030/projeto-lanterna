@@ -4,6 +4,7 @@
   "layout": "LAYOUT_SPROUT_TOWER_3F",
   "music": "MUS_HG_SPROUT_TOWER",
   "region_map_section": "MAPSEC_SPROUT_TOWER",
+  "map_name_popup": "SPROUT TOWER",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

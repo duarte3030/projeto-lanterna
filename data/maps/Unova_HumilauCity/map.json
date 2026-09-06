@@ -4,6 +4,7 @@
   "layout": "LAYOUT_UNOVA_HUMILAU_CITY",
   "music": "MUS_DEWFORD",
   "region_map_section": "MAPSEC_UNOVA_HUMILAU_CITY",
+  "map_name_popup": "HUMILAU CITY",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_TOWN",

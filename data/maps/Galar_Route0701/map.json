@@ -4,6 +4,7 @@
   "layout": "LAYOUT_GALAR_ROUTE07_01",
   "music": "MUS_RG_ROUTE24",
   "region_map_section": "MAPSEC_GALAR_ROUTE07",
+  "map_name_popup": "ROUTE 7",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",

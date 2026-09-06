@@ -4,6 +4,7 @@
   "layout": "LAYOUT_GALAR_WYNDON_02",
   "music": "MUS_RG_GYM",
   "region_map_section": "MAPSEC_GALAR_WYNDON",
+  "map_name_popup": "WYNDON",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

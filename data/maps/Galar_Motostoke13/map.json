@@ -4,6 +4,7 @@
   "layout": "LAYOUT_GALAR_MOTOSTOKE_13",
   "music": "MUS_RG_PEWTER",
   "region_map_section": "MAPSEC_GALAR_MOTOSTOKE",
+  "map_name_popup": "MOTOSTOKE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

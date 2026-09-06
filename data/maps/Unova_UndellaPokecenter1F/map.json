@@ -4,6 +4,7 @@
   "layout": "LAYOUT_UNOVA_UNDELLA_POKECENTER_1F",
   "music": "MUS_POKE_CENTER",
   "region_map_section": "MAPSEC_UNOVA_UNDELLA_TOWN",
+  "map_name_popup": "UNDELLA TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

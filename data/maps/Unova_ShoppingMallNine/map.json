@@ -4,6 +4,7 @@
   "layout": "LAYOUT_UNOVA_SHOPPING_MALL_NINE",
   "music": "MUS_POKE_MART",
   "region_map_section": "MAPSEC_UNOVA_R_9",
+  "map_name_popup": "ROUTE 9",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

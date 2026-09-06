@@ -4,6 +4,7 @@
   "layout": "LAYOUT_GALAR_DYNAMAX_ADVENTURE_01",
   "music": "MUS_RG_MT_MOON",
   "region_map_section": "MAPSEC_GALAR_DYNAMAX_ADVENTURE",
+  "map_name_popup": "MAX LAIR",
   "requires_flash": false,
   "weather": "WEATHER_UNDERWATER",
   "map_type": "MAP_TYPE_NONE",

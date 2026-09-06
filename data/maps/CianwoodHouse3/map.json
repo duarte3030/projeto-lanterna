@@ -4,6 +4,7 @@
   "layout": "LAYOUT_CIANWOOD_HOUSE3",
   "music": "MUS_HG_CIANWOOD",
   "region_map_section": "MAPSEC_CIANWOOD_CITY",
+  "map_name_popup": "CIANWOOD CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

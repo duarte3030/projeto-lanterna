@@ -4,6 +4,7 @@
   "layout": "LAYOUT_TIN_TOWER_5F",
   "music": "MUS_HG_BELL_TOWER",
   "region_map_section": "MAPSEC_TIN_TOWER",
+  "map_name_popup": "TIN TOWER",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",

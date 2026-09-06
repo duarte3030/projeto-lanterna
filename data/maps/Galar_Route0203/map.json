@@ -4,6 +4,7 @@
   "layout": "LAYOUT_GALAR_ROUTE02_03",
   "music": "MUS_RG_OAK_LAB",
   "region_map_section": "MAPSEC_GALAR_ROUTE02",
+  "map_name_popup": "ROUTE 2",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

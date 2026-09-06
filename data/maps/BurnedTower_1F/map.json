@@ -4,6 +4,7 @@
   "layout": "LAYOUT_BURNED_TOWER_1F",
   "music": "MUS_HG_BURNED_TOWER",
   "region_map_section": "MAPSEC_BURNED_TOWER",
+  "map_name_popup": "BURNED TOWER",
   "requires_flash": false,
   "weather": "WEATHER_SHADE",
   "map_type": "MAP_TYPE_UNDERGROUND",

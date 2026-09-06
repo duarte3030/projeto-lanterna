@@ -4,6 +4,7 @@
   "layout": "LAYOUT_UNOVA_R_11_OPELUCID_GATE",
   "music": "MUS_ROUTE101",
   "region_map_section": "MAPSEC_UNOVA_R_11",
+  "map_name_popup": "ROUTE 11",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

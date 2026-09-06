@@ -4,6 +4,7 @@
   "layout": "LAYOUT_GALAR_BALLONLEA_09",
   "music": "MUS_RG_POKE_CENTER",
   "region_map_section": "MAPSEC_GALAR_BALLONLEA",
+  "map_name_popup": "BALLONLEA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",

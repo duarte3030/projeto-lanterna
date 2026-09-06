@@ -4,6 +4,7 @@
   "layout": "LAYOUT_UNOVA_DRIFTVEIL_DRAWBRIDGE",
   "music": "MUS_ROUTE110",
   "region_map_section": "MAPSEC_UNOVA_DRIFTVEIL_DRAWBRIDGE",
+  "map_name_popup": "DRIFTVEIL BRIDGE",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",

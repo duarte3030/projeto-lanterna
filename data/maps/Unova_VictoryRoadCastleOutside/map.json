@@ -4,6 +4,7 @@
   "layout": "LAYOUT_UNOVA_VICTORY_ROAD_CASTLE_OUTSIDE",
   "music": "MUS_VICTORY_ROAD",
   "region_map_section": "MAPSEC_UNOVA_VICTORY_ROAD",
+  "map_name_popup": "VICTORY ROAD",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",

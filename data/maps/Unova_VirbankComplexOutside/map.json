@@ -4,6 +4,7 @@
   "layout": "LAYOUT_UNOVA_VIRBANK_COMPLEX_OUTSIDE",
   "music": "MUS_RG_ROCKET_HIDEOUT",
   "region_map_section": "MAPSEC_UNOVA_VIRBANK_COMPLEX",
+  "map_name_popup": "VIRBANK COMPLEX",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",

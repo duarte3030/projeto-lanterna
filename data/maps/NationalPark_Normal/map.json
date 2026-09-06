@@ -4,6 +4,7 @@
   "layout": "LAYOUT_NATIONAL_PARK_NORMAL",
   "music": "MUS_HG_NATIONAL_PARK",
   "region_map_section": "MAPSEC_NATIONAL_PARK",
+  "map_name_popup": "NATIONAL PARK",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",

@@ -4,6 +4,7 @@
   "layout": "LAYOUT_GALAR_SPIKEMUTH_02",
   "music": "MUS_RG_PEWTER",
   "region_map_section": "MAPSEC_GALAR_SPIKEMUTH",
+  "map_name_popup": "SPIKEMUTH",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

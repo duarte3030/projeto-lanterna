@@ -4,6 +4,7 @@
   "layout": "LAYOUT_ROUTE28",
   "music": "MUS_HG_ROUTE26",
   "region_map_section": "MAPSEC_ROUTE_28",
+  "map_name_popup": "ROUTE 28",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",

@@ -24,6 +24,7 @@
 #include "constants/weather.h"
 #include "config/general.h"
 #include "config/overworld.h"
+#include "data/map_popup_names.h"
 
 // enums
 enum MapPopUp_Themes
@@ -560,10 +561,34 @@ static bool32 IsCeladonDeptStore(const struct MapHeader *mapHeader)
     return TRUE;
 }
 
-u8 *GetPopUpMapName(u8 *dest, const struct MapHeader *mapHeader)
+// O nome do letreiro de (grupo, mapa), ou NULL quando o mapa nao tem um proprio.
+//
+// MAPSEC e u8 e nao cabe uma secao por cidade, entao Johto, Sinnoh, Unova e
+// Galar tem UM MAPSEC por grupo de regiao e o nome dele e "SINNOH WEST",
+// "UNOVA EAST", "GALAR SOUTH". Esta tabela desacopla o nome do letreiro do
+// MAPSEC; o "met location" do sumario do Pokemon segue por grupo, de proposito.
+// Ela e gerada de data/maps/*/map.json por dev_scripts/nomes_popup.py.
+static const u8 *GetPopUpMapNameOverride(s32 mapGroup, s32 mapNum)
 {
+    if (mapGroup < 0 || mapNum < 0)
+        return NULL;
+    if (mapGroup >= (s32)ARRAY_COUNT(sPopupNomesPorGrupo))
+        return NULL;
+    if (sPopupNomesPorGrupo[mapGroup] == NULL)
+        return NULL;
+    if (mapNum >= (s32)sPopupNomesPorGrupoTamanho[mapGroup])
+        return NULL;
+    return sPopupNomesPorGrupo[mapGroup][mapNum];
+}
+
+u8 *GetPopUpMapName(u8 *dest, const struct MapHeader *mapHeader, s32 mapGroup, s32 mapNum)
+{
+    const u8 *proprio = GetPopUpMapNameOverride(mapGroup, mapNum);
+
     if (IsCeladonDeptStore(mapHeader))
         StringCopy(dest, COMPOUND_STRING("CELADON DEPT."));
+    else if (proprio != NULL)
+        StringCopy(dest, proprio);
     else
         GetMapName(dest, mapHeader->regionMapSectionId, 0);
     if (mapHeader->floorNumber == 0)
@@ -597,7 +622,8 @@ static void ShowMapNamePopUpWindow(void)
     else
     {
         withoutPrefixPtr = &(mapDisplayHeader[MAP_POPUP_PREFIX_BUFFER_LENGTH]);
-        GetPopUpMapName(withoutPrefixPtr, &gMapHeader);
+        GetPopUpMapName(withoutPrefixPtr, &gMapHeader,
+                        gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);
     }
 
     if (OW_POPUP_GENERATION == GEN_5)

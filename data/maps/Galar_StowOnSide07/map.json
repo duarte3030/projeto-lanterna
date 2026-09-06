@@ -4,6 +4,7 @@
   "layout": "LAYOUT_GALAR_STOW_ON_SIDE_07",
   "music": "MUS_RG_CELADON",
   "region_map_section": "MAPSEC_GALAR_STOW_ON_SIDE",
+  "map_name_popup": "STOW-ON-SIDE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

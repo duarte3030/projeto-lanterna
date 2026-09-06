@@ -4,6 +4,7 @@
   "layout": "LAYOUT_UNOVA_PLANE_RIGHT",
   "music": "MUS_CABLE_CAR",
   "region_map_section": "MAPSEC_UNOVA_MISTRALTON_CITY",
+  "map_name_popup": "MISTRALTON CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

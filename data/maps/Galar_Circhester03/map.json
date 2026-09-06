@@ -4,6 +4,7 @@
   "layout": "LAYOUT_GALAR_CIRCHESTER_03",
   "music": "MUS_RG_GYM",
   "region_map_section": "MAPSEC_GALAR_CIRCHESTER",
+  "map_name_popup": "CIRCHESTER",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

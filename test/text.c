@@ -575,10 +575,10 @@ TEST("Map names fit in popup")
         {
             const struct MapHeader *mapHeader = Overworld_GetMapHeaderByGroupAndId(i, j);
             if (mapHeader->showMapName)
-                PARAMETRIZE_LABEL("%S", GetPopUpMapName(mapName, mapHeader)) { mapGroup = i; mapNum = j;}
+                PARAMETRIZE_LABEL("%S", GetPopUpMapName(mapName, mapHeader, i, j)) { mapGroup = i; mapNum = j;}
         }
     }
-    EXPECT_LE(GetStringWidth(fontId, GetPopUpMapName(mapName, Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum)), 0), widthPx);
+    EXPECT_LE(GetStringWidth(fontId, GetPopUpMapName(mapName, Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum), mapGroup, mapNum), 0), widthPx);
 }
 
 extern u16 sBattlerAbilities[MAX_BATTLERS_COUNT];

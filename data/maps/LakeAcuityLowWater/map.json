@@ -4,6 +4,7 @@
   "layout": "LAYOUT_LAKE_ACUITY_LOW_WATER",
   "music": "MUS_RG_MT_MOON",
   "region_map_section": "MAPSEC_SINNOH_NORTH",
+  "map_name_popup": "LAKE ACUITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",

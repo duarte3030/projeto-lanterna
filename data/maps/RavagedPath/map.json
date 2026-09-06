@@ -4,6 +4,7 @@
   "layout": "LAYOUT_RAVAGED_PATH",
   "music": "MUS_RG_MT_MOON",
   "region_map_section": "MAPSEC_SINNOH_WEST",
+  "map_name_popup": "RAVAGED PATH",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",

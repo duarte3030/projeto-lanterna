@@ -613,6 +613,11 @@ def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=Non
         for it in itens_lidos:
             cmd += ["--item", hex(it)]
     if sav:
+        # A pasta do .sav mora em /tmp, e o sistema limpa /tmp: em 05/09/2026 seis
+        # casos de prova de save deram VERMELHO com "nao consegui abrir sav" e
+        # nenhum defeito de jogo, porque /tmp/claude-501/fechador tinha sumido.
+        # Criar o caminho aqui e o conserto, e nao lembrar de criar a mao.
+        os.makedirs(os.path.dirname(sav) or ".", exist_ok=True)
         cmd += ["--sav", sav]
     p = subprocess.run(cmd, capture_output=True, text=True, timeout=900)
     estados = []

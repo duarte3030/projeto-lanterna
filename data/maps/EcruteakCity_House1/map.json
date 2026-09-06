@@ -4,6 +4,7 @@
   "layout": "LAYOUT_ECRUTEAK_CITY_HOUSE1",
   "music": "MUS_HG_ECRUTEAK",
   "region_map_section": "MAPSEC_ECRUTEAK_CITY",
+  "map_name_popup": "ECRUTEAK CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

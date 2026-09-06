@@ -4,6 +4,7 @@
   "layout": "LAYOUT_GALAR_TANOBY_KEY_01",
   "music": "MUS_RG_MT_MOON",
   "region_map_section": "MAPSEC_GALAR_TANOBY_KEY",
+  "map_name_popup": "TANOBY KEY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",

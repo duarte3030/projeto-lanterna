@@ -4,6 +4,7 @@
   "layout": "LAYOUT_ROUTE44",
   "music": "MUS_HG_ROUTE42",
   "region_map_section": "MAPSEC_ROUTE_44",
+  "map_name_popup": "ROUTE 44",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",

@@ -4,6 +4,7 @@
   "layout": "LAYOUT_GALAR_COURAGEOUS_CAVERN_01",
   "music": "MUS_RG_MT_MOON",
   "region_map_section": "MAPSEC_GALAR_COURAGEOUS_CAVERN",
+  "map_name_popup": "COURAGEOUS CAVERN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",

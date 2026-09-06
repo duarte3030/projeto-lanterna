@@ -4,6 +4,7 @@
   "layout": "LAYOUT_UNOVA_VILLAGE_BRIDGE",
   "music": "MUS_SOOTOPOLIS",
   "region_map_section": "MAPSEC_UNOVA_VILLAGE_BRIDGE",
+  "map_name_popup": "VILLAGE BRIDGE",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",

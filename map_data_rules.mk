@@ -13,6 +13,7 @@ AUTO_GEN_TARGETS += $(INCLUDECONSTS_OUTDIR)/map_groups.h
 AUTO_GEN_TARGETS += $(INCLUDECONSTS_OUTDIR)/layouts.h
 AUTO_GEN_TARGETS += $(INCLUDECONSTS_OUTDIR)/map_event_ids.h
 AUTO_GEN_TARGETS += $(DATA_SRC_SUBDIR)/map_group_count.h
+AUTO_GEN_TARGETS += $(DATA_SRC_SUBDIR)/map_popup_names.h
 
 MAP_DIRS := $(dir $(wildcard $(MAPS_DIR)/*/map.json))
 MAP_CONNECTIONS := $(patsubst $(MAPS_DIR)/%/,$(MAPS_DIR)/%/connections.inc,$(MAP_DIRS))
@@ -38,6 +39,16 @@ $(LAYOUTS_OUTDIR)/layouts.inc $(LAYOUTS_OUTDIR)/layouts_table.inc $(INCLUDECONST
 # Layout cujo map.bin/border.bin e copia exata de outro passa a apontar para o
 # mesmo .incbin. Ver dev_scripts/dedupe_blockdata.py.
 	@python3 dev_scripts/dedupe_blockdata.py $(LAYOUTS_OUTDIR)/layouts.inc
+
+# Nome do letreiro de mapa, destilado do campo `map_name_popup` dos map.json.
+# Existe porque MAPSEC e u8 e nao cabe uma secao por cidade: Johto, Sinnoh,
+# Unova e Galar tem um MAPSEC por GRUPO, e sem esta tabela o letreiro diz
+# "SINNOH WEST" em centenas de mapas. Ver dev_scripts/nomes_popup.py.
+$(DATA_SRC_SUBDIR)/map_popup_names.h: $(MAP_JSONS)
+	@python3 dev_scripts/nomes_popup.py --tabela
+	@echo "python3 dev_scripts/nomes_popup.py --tabela"
+
+$(C_BUILDDIR)/map_name_popup.o: c_dep += $(DATA_SRC_SUBDIR)/map_popup_names.h
 
 # Generate constants for map events, which depend on data that's distributed across the map.json files.
 # There's a lot of map.json files, so we print an abbreviated output with echo.

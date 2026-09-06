@@ -4,6 +4,7 @@
   "layout": "LAYOUT_UNOVA_FLOCCESY_TOWN",
   "music": "MUS_VERDANTURF",
   "region_map_section": "MAPSEC_UNOVA_FLOCCESY_TOWN",
+  "map_name_popup": "FLOCCESY TOWN",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_TOWN",

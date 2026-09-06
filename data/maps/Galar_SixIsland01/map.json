@@ -4,6 +4,7 @@
   "layout": "LAYOUT_GALAR_SIX_ISLAND_01",
   "music": "MUS_RG_VICTORY_ROAD",
   "region_map_section": "MAPSEC_GALAR_SIX_ISLAND",
+  "map_name_popup": "SIX ISLAND",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",
