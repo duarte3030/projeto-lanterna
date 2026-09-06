@@ -478,7 +478,13 @@
       "y": 28,
       "elevation": 0,
       "dest_map": "MAP_GALAR_ISLE_OF_ARMOR_06",
-      "dest_warp_id": "0"
+      "dest_warp_id": "0",
+      "porta_original": [
+        20,
+        28,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     }
   ],
   "coord_events": [],

@@ -21,441 +21,819 @@
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "0"
+      "dest_warp_id": "0",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "1"
+      "dest_warp_id": "1",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "2"
+      "dest_warp_id": "2",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "3"
+      "dest_warp_id": "3",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "4"
+      "dest_warp_id": "4",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "5"
+      "dest_warp_id": "5",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "6"
+      "dest_warp_id": "6",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "7"
+      "dest_warp_id": "7",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "8"
+      "dest_warp_id": "8",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "9"
+      "dest_warp_id": "9",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "10"
+      "dest_warp_id": "10",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "11"
+      "dest_warp_id": "11",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "12"
+      "dest_warp_id": "12",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "13"
+      "dest_warp_id": "13",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "14"
+      "dest_warp_id": "14",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "15"
+      "dest_warp_id": "15",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "16"
+      "dest_warp_id": "16",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "17"
+      "dest_warp_id": "17",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "18"
+      "dest_warp_id": "18",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "19"
+      "dest_warp_id": "19",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "20"
+      "dest_warp_id": "20",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 15,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "21"
+      "dest_warp_id": "21",
+      "porta_original": [
+        15,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "22"
+      "dest_warp_id": "22",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "23"
+      "dest_warp_id": "23",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "24"
+      "dest_warp_id": "24",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "25"
+      "dest_warp_id": "25",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "26"
+      "dest_warp_id": "26",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "27"
+      "dest_warp_id": "27",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "28"
+      "dest_warp_id": "28",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "29"
+      "dest_warp_id": "29",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "30"
+      "dest_warp_id": "30",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "31"
+      "dest_warp_id": "31",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "32"
+      "dest_warp_id": "32",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "33"
+      "dest_warp_id": "33",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "34"
+      "dest_warp_id": "34",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "35"
+      "dest_warp_id": "35",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "36"
+      "dest_warp_id": "36",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "37"
+      "dest_warp_id": "37",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "38"
+      "dest_warp_id": "38",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "39"
+      "dest_warp_id": "39",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "40"
+      "dest_warp_id": "40",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "41"
+      "dest_warp_id": "41",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "42"
+      "dest_warp_id": "42",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "43"
+      "dest_warp_id": "43",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "44"
+      "dest_warp_id": "44",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "45"
+      "dest_warp_id": "45",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "46"
+      "dest_warp_id": "46",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "47"
+      "dest_warp_id": "47",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "48"
+      "dest_warp_id": "48",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "49"
+      "dest_warp_id": "49",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "50"
+      "dest_warp_id": "50",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "51"
+      "dest_warp_id": "51",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 15,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "52"
+      "dest_warp_id": "52",
+      "porta_original": [
+        15,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "53"
+      "dest_warp_id": "53",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "54"
+      "dest_warp_id": "54",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "55"
+      "dest_warp_id": "55",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "56"
+      "dest_warp_id": "56",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "57"
+      "dest_warp_id": "57",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "58"
+      "dest_warp_id": "58",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "59"
+      "dest_warp_id": "59",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "60"
+      "dest_warp_id": "60",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "61"
+      "dest_warp_id": "61",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 0,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_50",
-      "dest_warp_id": "62"
+      "dest_warp_id": "62",
+      "porta_original": [
+        0,
+        0,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     }
   ],
   "coord_events": [],

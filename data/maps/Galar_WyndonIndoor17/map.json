@@ -42,7 +42,13 @@
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_GALAR_WYNDON_INDOOR_17",
-      "dest_warp_id": "1"
+      "dest_warp_id": "1",
+      "porta_original": [
+        6,
+        2,
+        "fonte g01m76 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     }
   ],
   "coord_events": [],

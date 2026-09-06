@@ -97,11 +97,17 @@
   ],
   "warp_events": [
     {
-      "x": 11,
-      "y": 20,
+      "x": 39,
+      "y": 6,
       "elevation": 0,
-      "dest_map": "MAP_GALAR_ROUTE08_02",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_GALAR_ICE_DREAM_CAVE_01",
+      "dest_warp_id": "1",
+      "porta_original": [
+        11,
+        20,
+        "fonte g01m37 warp 2"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 39,
@@ -134,6 +140,15 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "GalarFala_G12M09_bg0"
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GalarPortaFechada",
+      "origem": "porta fechada (portas_mortas_galar.py)"
     }
   ],
   "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g12m09. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo."

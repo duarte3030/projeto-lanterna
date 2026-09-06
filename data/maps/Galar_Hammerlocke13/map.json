@@ -56,21 +56,39 @@
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_GALAR_HAMMERLOCKE_13",
-      "dest_warp_id": "3"
+      "dest_warp_id": "3",
+      "porta_original": [
+        4,
+        2,
+        "fonte g10m08 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 12,
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_GALAR_HAMMERLOCKE_13",
-      "dest_warp_id": "4"
+      "dest_warp_id": "4",
+      "porta_original": [
+        12,
+        2,
+        "fonte g10m08 warp 3"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 2,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_GALAR_HAMMERLOCKE_13",
-      "dest_warp_id": "5"
+      "dest_warp_id": "5",
+      "porta_original": [
+        2,
+        0,
+        "fonte g03m06 warp 11"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     }
   ],
   "coord_events": [],

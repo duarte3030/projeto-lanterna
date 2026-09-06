@@ -113,7 +113,13 @@
       "y": 11,
       "elevation": 0,
       "dest_map": "MAP_GALAR_UNDERWATER_01",
-      "dest_warp_id": "0"
+      "dest_warp_id": "0",
+      "porta_original": [
+        32,
+        11,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 57,

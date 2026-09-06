@@ -158,7 +158,13 @@
       "y": 86,
       "elevation": 0,
       "dest_map": "MAP_GALAR_CIRCHESTER_17",
-      "dest_warp_id": "12"
+      "dest_warp_id": "12",
+      "porta_original": [
+        9,
+        86,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 13,
@@ -270,7 +276,13 @@
       "y": 68,
       "elevation": 0,
       "dest_map": "MAP_GALAR_CIRCHESTER_17",
-      "dest_warp_id": "28"
+      "dest_warp_id": "28",
+      "porta_original": [
+        8,
+        68,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 13,
@@ -655,7 +667,13 @@
       "y": 43,
       "elevation": 0,
       "dest_map": "MAP_GALAR_CIRCHESTER_17",
-      "dest_warp_id": "83"
+      "dest_warp_id": "83",
+      "porta_original": [
+        9,
+        43,
+        "fonte g00m00 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 10,

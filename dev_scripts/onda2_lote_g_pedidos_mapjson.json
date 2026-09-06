@@ -1,0 +1,96 @@
+{
+ "gerado_por": "dev_scripts/portas_mortas_galar.py (lote G da onda 2, Frente A)",
+ "o_que_e": "Pedidos que o lote G NAO pode executar sozinho: eles caem fora do dono de arquivo dele (warp_events e bg_events de data/maps/Galar_*/map.json). Nenhum pedido aqui e de object_events ou coord_events: o lote G nao precisou de nenhum.",
+ "pedidos": [
+  {
+   "id": 1,
+   "titulo": "Registrar as 8 travas P1 novas da lente_portas em Galar",
+   "porque": "Fechar uma porta E deixar o tile de porta sem warp: a lente_portas cobra exatamente isso. As 45 portas fechadas por este lote viraram 45 achados novos, 37 deles P2 (falso positivo calibrado, mapa fechado) e 8 P1 trava (mapa ao ar livre). Sao da mesma natureza das 8 travas de Sinnoh que o ESTADO ja registra como portas do corte: consequencia do molde, nao regressao. As 8 tem placa `Closed for renovations.` na parede vizinha.",
+   "onde": "dev_scripts/qa/lente_portas.py, e o placar do ESTADO",
+   "lista": [
+    [
+     "Galar_CrownTundra09",
+     45,
+     5,
+     "MB_LADDER"
+    ],
+    [
+     "Galar_CrownTundra10",
+     39,
+     41,
+     "MB_LADDER"
+    ],
+    [
+     "Galar_CrownTundra11",
+     65,
+     7,
+     "MB_LADDER"
+    ],
+    [
+     "Galar_Hammerlocke01",
+     61,
+     39,
+     "MB_SOUTH_ARROW_WARP"
+    ],
+    [
+     "Galar_Postwick27",
+     70,
+     21,
+     "MB_ANIMATED_DOOR"
+    ],
+    [
+     "Galar_Route0102",
+     70,
+     21,
+     "MB_ANIMATED_DOOR"
+    ],
+    [
+     "Galar_Route0501",
+     36,
+     13,
+     "MB_ANIMATED_DOOR"
+    ],
+    [
+     "Galar_Route0802",
+     11,
+     20,
+     "MB_ANIMATED_DOOR"
+    ]
+   ]
+  },
+  {
+   "id": 2,
+   "titulo": "Galar_IsleOfArmor30 warp 1: porta compartilhada, precisa de retorno dinamico",
+   "porque": "Unica linha `porta_morta` que ficou ADIADA. O warp 1 (4,7) e a porta por onde DOIS mapas entram (Galar_IsleOfArmor28 warp 0 e Galar_IsleOfArmor33 warps 0 e 1). Devolver para um deles sortearia o destino; a volta certa e o mecanismo de predio compartilhado `DefinirRetornoPredioCompartilhado` (consertos 1 e 3 da rodada 13), que e SCRIPT e nao map.json.",
+   "onde": "src/ + data/maps/Galar_IsleOfArmor30/scripts.inc"
+  },
+  {
+   "id": 3,
+   "titulo": "As 131 medidas da lente_warps em Galar sao predio compartilhado, e nao indice errado",
+   "porque": "Medido: 106 das 131 tem destino que NAO devolve para a origem por warp nenhum, 24 devolvem fora da porta e 1 so tem candidato, e esse 1 (Galar_Turffield12 warp 2) tambem e predio compartilhado, com os dois candidatos em tile MB_NORMAL que nunca dispara. Ou seja ZERO sao consertaveis por trocar o indice de chegada. A causa e o padrao do demake de ter VARIAS versoes do mesmo mapa ao ar livre (Circhester06/16, Turffield03/12, Hammerlocke01/04, Spikemuth01..05 + Wyndon05) entrando no MESMO interior, cuja unica saida so pode nomear uma delas. Conserto: retorno dinamico, script.",
+   "onde": "dev_scripts/qa/lente_warps.py",
+   "mapas_com_predio_compartilhado": [
+    "Galar_Ballonlea10",
+    "Galar_Circhester16",
+    "Galar_Hammerlocke01",
+    "Galar_IsleOfArmor12",
+    "Galar_IsleOfArmor14",
+    "Galar_IsleOfArmor36",
+    "Galar_IsleOfArmor48",
+    "Galar_IsleOfArmor49"
+   ]
+  },
+  {
+   "id": 4,
+   "titulo": "warp de script para indice que nao existe: MAP_GALAR_WILD_AREA_09, 37",
+   "porque": "Achado de passagem, e PRE-EXISTENTE (nao e deste lote): ha um `warp MAP_GALAR_WILD_AREA_09, 37` num .inc, e o mapa tem 1 warp so. O valida_conectividade nao ve warp de script, entao ele nunca apareceu no placar.",
+   "onde": "grep -rn 'MAP_GALAR_WILD_AREA_09, 37' data/"
+  },
+  {
+   "id": 5,
+   "titulo": "bg_events de porta fechada nao podem ser varridos por outro gerador",
+   "porque": "As 45 placas deste lote sao bg_events com `origem: \"porta fechada (portas_mortas_galar.py)\"`. Gerador que regrave `bg_events` de Galar inteiro (placas_galar_c.py, objetos_galar.py) precisa preservar quem tem essa origem, senao a porta fechada fica muda na proxima geracao.",
+   "onde": "dev_scripts/placas_galar_c.py, dev_scripts/objetos_galar.py"
+  }
+ ]
+}

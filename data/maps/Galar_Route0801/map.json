@@ -216,30 +216,36 @@
       "origem_chave": "g12m08/objeto/8"
     }
   ],
-  "warp_events": [
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [
     {
+      "type": "sign",
       "x": 11,
-      "y": 41,
+      "y": 40,
       "elevation": 0,
-      "dest_map": "MAP_GALAR_ROUTE08_01",
-      "dest_warp_id": "0"
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GalarPortaFechada",
+      "origem": "porta fechada (portas_mortas_galar.py)"
     },
     {
+      "type": "sign",
       "x": 30,
-      "y": 7,
+      "y": 6,
       "elevation": 0,
-      "dest_map": "MAP_GALAR_ROUTE08_01",
-      "dest_warp_id": "1"
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GalarPortaFechada",
+      "origem": "porta fechada (portas_mortas_galar.py)"
     },
     {
-      "x": 15,
+      "type": "sign",
+      "x": 14,
       "y": 36,
       "elevation": 0,
-      "dest_map": "MAP_GALAR_ROUTE08_01",
-      "dest_warp_id": "2"
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GalarPortaFechada",
+      "origem": "porta fechada (portas_mortas_galar.py)"
     }
   ],
-  "coord_events": [],
-  "bg_events": [],
   "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g12m08. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo."
 }

@@ -70,7 +70,13 @@
       "y": 22,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_03",
-      "dest_warp_id": "0"
+      "dest_warp_id": "0",
+      "porta_original": [
+        4,
+        22,
+        "fonte g03m58 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     }
   ],
   "coord_events": [],

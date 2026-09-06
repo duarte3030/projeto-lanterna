@@ -80,8 +80,9 @@
       "x": 4,
       "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_GALAR_ISLE_OF_ARMOR_30",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_DYNAMIC",
+      "dest_warp_id": "0",
+      "porta_compartilhada": "dois mapas entram por este warp (IsleOfArmor28 warp 0, IsleOfArmor33 warps 0 e 1); o motor grava a origem em SetupWarp, src/field_control_avatar.c:1130"
     }
   ],
   "coord_events": [],

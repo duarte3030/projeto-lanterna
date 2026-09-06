@@ -247,7 +247,13 @@
       "y": 4,
       "elevation": 0,
       "dest_map": "MAP_GALAR_GALAR_MINE_01",
-      "dest_warp_id": "1"
+      "dest_warp_id": "1",
+      "porta_original": [
+        24,
+        4,
+        "fonte g42m09 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 9,
@@ -261,7 +267,13 @@
       "y": 10,
       "elevation": 0,
       "dest_map": "MAP_GALAR_GALAR_MINE_01",
-      "dest_warp_id": "3"
+      "dest_warp_id": "3",
+      "porta_original": [
+        5,
+        10,
+        "fonte g01m02 warp 6"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     }
   ],
   "coord_events": [],

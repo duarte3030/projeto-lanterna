@@ -28,7 +28,13 @@
       "y": 3,
       "elevation": 0,
       "dest_map": "MAP_GALAR_ROUTE16_04",
-      "dest_warp_id": "1"
+      "dest_warp_id": "1",
+      "porta_original": [
+        11,
+        3,
+        "fonte g03m34 warp 2"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 5,
@@ -42,14 +48,26 @@
       "y": 1,
       "elevation": 0,
       "dest_map": "MAP_GALAR_ROUTE16_04",
-      "dest_warp_id": "3"
+      "dest_warp_id": "3",
+      "porta_original": [
+        4,
+        1,
+        "fonte g03m34 warp 4"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 10,
       "y": 3,
       "elevation": 0,
       "dest_map": "MAP_GALAR_ROUTE16_04",
-      "dest_warp_id": "4"
+      "dest_warp_id": "4",
+      "porta_original": [
+        10,
+        3,
+        "fonte g25m02 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     }
   ],
   "coord_events": [],

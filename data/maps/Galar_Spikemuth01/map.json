@@ -35,7 +35,13 @@
       "y": 7,
       "elevation": 0,
       "dest_map": "MAP_GALAR_SPIKEMUTH_01",
-      "dest_warp_id": "0"
+      "dest_warp_id": "0",
+      "porta_original": [
+        3,
+        7,
+        "fonte g03m10 warp 4"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 4,
@@ -49,7 +55,13 @@
       "y": 7,
       "elevation": 0,
       "dest_map": "MAP_GALAR_SPIKEMUTH_01",
-      "dest_warp_id": "2"
+      "dest_warp_id": "2",
+      "porta_original": [
+        5,
+        7,
+        "fonte g03m10 warp 4"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     }
   ],
   "coord_events": [],

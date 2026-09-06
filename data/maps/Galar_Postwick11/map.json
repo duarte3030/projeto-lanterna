@@ -33,18 +33,30 @@
   ],
   "warp_events": [
     {
-      "x": 11,
-      "y": 7,
+      "x": 5,
+      "y": 9,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_11",
-      "dest_warp_id": "0"
+      "dest_warp_id": "1",
+      "porta_original": [
+        11,
+        7,
+        "fonte g01m115 warp 2"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 5,
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_GALAR_POSTWICK_11",
-      "dest_warp_id": "1"
+      "dest_warp_id": "1",
+      "porta_original": [
+        5,
+        9,
+        "fonte g01m119 warp 3"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     }
   ],
   "coord_events": [],
@@ -56,6 +68,15 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "GalarPlacaC_G01M120_bg0"
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GalarPortaFechada",
+      "origem": "porta fechada (portas_mortas_galar.py)"
     }
   ],
   "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g01m120. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo. nome de balde mantido: nenhum warp nem conexao limpa liga este mapa a um mapa de secao conhecida"

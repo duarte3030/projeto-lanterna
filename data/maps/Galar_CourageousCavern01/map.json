@@ -73,14 +73,26 @@
       "y": 17,
       "elevation": 0,
       "dest_map": "MAP_GALAR_COURAGEOUS_CAVERN_01",
-      "dest_warp_id": "3"
+      "dest_warp_id": "3",
+      "porta_original": [
+        39,
+        17,
+        "fonte g01m40 warp 4"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 34,
       "y": 18,
       "elevation": 0,
       "dest_map": "MAP_GALAR_COURAGEOUS_CAVERN_01",
-      "dest_warp_id": "4"
+      "dest_warp_id": "4",
+      "porta_original": [
+        34,
+        18,
+        "fonte g01m40 warp 8"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     }
   ],
   "coord_events": [],
