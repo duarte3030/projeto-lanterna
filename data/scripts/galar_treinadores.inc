@@ -275,7 +275,12 @@ GalarTrn_G11M11_o12_Derrota:
 
 @ ---- Galar_Circhester03 ----
 GalarTrn_G12M00_bg10::
-	trainerbattle_single TRAINER_GALAR_KARLA_215, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg10_Derrota
+	lock
+	goto_if_defeated TRAINER_GALAR_KARLA_215, GalarTrn_G12M00_bg10_Fim
+	msgbox GalarTrn_Intro_BEAUTY_FRLG, MSGBOX_DEFAULT
+	setvar VAR_LAST_TALKED, LOCALID_NONE
+	trainerbattle_no_intro TRAINER_GALAR_KARLA_215, GalarTrn_G12M00_bg10_Derrota
+GalarTrn_G12M00_bg10_Fim:
 	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
@@ -284,7 +289,12 @@ GalarTrn_G12M00_bg10_Derrota:
 	.string "Yowza!$"
 
 GalarTrn_G12M00_bg11::
-	trainerbattle_single TRAINER_GALAR_KARLA_215_2, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg11_Derrota
+	lock
+	goto_if_defeated TRAINER_GALAR_KARLA_215_2, GalarTrn_G12M00_bg11_Fim
+	msgbox GalarTrn_Intro_BEAUTY_FRLG, MSGBOX_DEFAULT
+	setvar VAR_LAST_TALKED, LOCALID_NONE
+	trainerbattle_no_intro TRAINER_GALAR_KARLA_215_2, GalarTrn_G12M00_bg11_Derrota
+GalarTrn_G12M00_bg11_Fim:
 	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
@@ -293,7 +303,12 @@ GalarTrn_G12M00_bg11_Derrota:
 	.string "Yowza!$"
 
 GalarTrn_G12M00_bg12::
-	trainerbattle_single TRAINER_GALAR_LANA_180, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg12_Derrota
+	lock
+	goto_if_defeated TRAINER_GALAR_LANA_180, GalarTrn_G12M00_bg12_Fim
+	msgbox GalarTrn_Intro_BEAUTY_FRLG, MSGBOX_DEFAULT
+	setvar VAR_LAST_TALKED, LOCALID_NONE
+	trainerbattle_no_intro TRAINER_GALAR_LANA_180, GalarTrn_G12M00_bg12_Derrota
+GalarTrn_G12M00_bg12_Fim:
 	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
@@ -302,7 +317,12 @@ GalarTrn_G12M00_bg12_Derrota:
 	.string "Oh!$"
 
 GalarTrn_G12M00_bg13::
-	trainerbattle_single TRAINER_GALAR_LANA_180_2, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg13_Derrota
+	lock
+	goto_if_defeated TRAINER_GALAR_LANA_180_2, GalarTrn_G12M00_bg13_Fim
+	msgbox GalarTrn_Intro_BEAUTY_FRLG, MSGBOX_DEFAULT
+	setvar VAR_LAST_TALKED, LOCALID_NONE
+	trainerbattle_no_intro TRAINER_GALAR_LANA_180_2, GalarTrn_G12M00_bg13_Derrota
+GalarTrn_G12M00_bg13_Fim:
 	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
@@ -311,7 +331,12 @@ GalarTrn_G12M00_bg13_Derrota:
 	.string "Oh!$"
 
 GalarTrn_G12M00_bg2::
-	trainerbattle_single TRAINER_GALAR_TALIA_213, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg2_Derrota
+	lock
+	goto_if_defeated TRAINER_GALAR_TALIA_213, GalarTrn_G12M00_bg2_Fim
+	msgbox GalarTrn_Intro_BEAUTY_FRLG, MSGBOX_DEFAULT
+	setvar VAR_LAST_TALKED, LOCALID_NONE
+	trainerbattle_no_intro TRAINER_GALAR_TALIA_213, GalarTrn_G12M00_bg2_Derrota
+GalarTrn_G12M00_bg2_Fim:
 	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
@@ -320,7 +345,12 @@ GalarTrn_G12M00_bg2_Derrota:
 	.string "Eu me rendo!$"
 
 GalarTrn_G12M00_bg3::
-	trainerbattle_single TRAINER_GALAR_TALIA_213_2, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg3_Derrota
+	lock
+	goto_if_defeated TRAINER_GALAR_TALIA_213_2, GalarTrn_G12M00_bg3_Fim
+	msgbox GalarTrn_Intro_BEAUTY_FRLG, MSGBOX_DEFAULT
+	setvar VAR_LAST_TALKED, LOCALID_NONE
+	trainerbattle_no_intro TRAINER_GALAR_TALIA_213_2, GalarTrn_G12M00_bg3_Derrota
+GalarTrn_G12M00_bg3_Fim:
 	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
@@ -329,7 +359,12 @@ GalarTrn_G12M00_bg3_Derrota:
 	.string "Eu me rendo!$"
 
 GalarTrn_G12M00_bg4::
-	trainerbattle_single TRAINER_GALAR_AVA_178, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg4_Derrota
+	lock
+	goto_if_defeated TRAINER_GALAR_AVA_178, GalarTrn_G12M00_bg4_Fim
+	msgbox GalarTrn_Intro_BEAUTY_FRLG, MSGBOX_DEFAULT
+	setvar VAR_LAST_TALKED, LOCALID_NONE
+	trainerbattle_no_intro TRAINER_GALAR_AVA_178, GalarTrn_G12M00_bg4_Derrota
+GalarTrn_G12M00_bg4_Fim:
 	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
@@ -338,7 +373,12 @@ GalarTrn_G12M00_bg4_Derrota:
 	.string "$"
 
 GalarTrn_G12M00_bg5::
-	trainerbattle_single TRAINER_GALAR_AVA_178_2, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg5_Derrota
+	lock
+	goto_if_defeated TRAINER_GALAR_AVA_178_2, GalarTrn_G12M00_bg5_Fim
+	msgbox GalarTrn_Intro_BEAUTY_FRLG, MSGBOX_DEFAULT
+	setvar VAR_LAST_TALKED, LOCALID_NONE
+	trainerbattle_no_intro TRAINER_GALAR_AVA_178_2, GalarTrn_G12M00_bg5_Derrota
+GalarTrn_G12M00_bg5_Fim:
 	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
@@ -347,7 +387,12 @@ GalarTrn_G12M00_bg5_Derrota:
 	.string "$"
 
 GalarTrn_G12M00_bg6::
-	trainerbattle_single TRAINER_GALAR_CLOTILDE_214, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg6_Derrota
+	lock
+	goto_if_defeated TRAINER_GALAR_CLOTILDE_214, GalarTrn_G12M00_bg6_Fim
+	msgbox GalarTrn_Intro_BEAUTY_FRLG, MSGBOX_DEFAULT
+	setvar VAR_LAST_TALKED, LOCALID_NONE
+	trainerbattle_no_intro TRAINER_GALAR_CLOTILDE_214, GalarTrn_G12M00_bg6_Derrota
+GalarTrn_G12M00_bg6_Fim:
 	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
@@ -356,7 +401,12 @@ GalarTrn_G12M00_bg6_Derrota:
 	.string "Quente demais!$"
 
 GalarTrn_G12M00_bg7::
-	trainerbattle_single TRAINER_GALAR_CLOTILDE_214_2, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg7_Derrota
+	lock
+	goto_if_defeated TRAINER_GALAR_CLOTILDE_214_2, GalarTrn_G12M00_bg7_Fim
+	msgbox GalarTrn_Intro_BEAUTY_FRLG, MSGBOX_DEFAULT
+	setvar VAR_LAST_TALKED, LOCALID_NONE
+	trainerbattle_no_intro TRAINER_GALAR_CLOTILDE_214_2, GalarTrn_G12M00_bg7_Derrota
+GalarTrn_G12M00_bg7_Fim:
 	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
@@ -365,7 +415,12 @@ GalarTrn_G12M00_bg7_Derrota:
 	.string "Quente demais!$"
 
 GalarTrn_G12M00_bg8::
-	trainerbattle_single TRAINER_GALAR_DELIA_179, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg8_Derrota
+	lock
+	goto_if_defeated TRAINER_GALAR_DELIA_179, GalarTrn_G12M00_bg8_Fim
+	msgbox GalarTrn_Intro_BEAUTY_FRLG, MSGBOX_DEFAULT
+	setvar VAR_LAST_TALKED, LOCALID_NONE
+	trainerbattle_no_intro TRAINER_GALAR_DELIA_179, GalarTrn_G12M00_bg8_Derrota
+GalarTrn_G12M00_bg8_Fim:
 	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end
@@ -374,7 +429,12 @@ GalarTrn_G12M00_bg8_Derrota:
 	.string "Ow!$"
 
 GalarTrn_G12M00_bg9::
-	trainerbattle_single TRAINER_GALAR_DELIA_179_2, GalarTrn_Intro_BEAUTY_FRLG, GalarTrn_G12M00_bg9_Derrota
+	lock
+	goto_if_defeated TRAINER_GALAR_DELIA_179_2, GalarTrn_G12M00_bg9_Fim
+	msgbox GalarTrn_Intro_BEAUTY_FRLG, MSGBOX_DEFAULT
+	setvar VAR_LAST_TALKED, LOCALID_NONE
+	trainerbattle_no_intro TRAINER_GALAR_DELIA_179_2, GalarTrn_G12M00_bg9_Derrota
+GalarTrn_G12M00_bg9_Fim:
 	msgbox GalarTrn_Depois_BEAUTY_FRLG, MSGBOX_AUTOCLOSE
 	release
 	end

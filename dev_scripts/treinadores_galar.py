@@ -676,26 +676,36 @@ def plano():
 
     d = [l for l in linhas if l["balde"] == "d_treinador"]
     aceitas, recusa, usados = [], collections.Counter(), {}
+    # MOTIVO POR LINHA DA FILA, e nao so a contagem. Acrescentado em
+    # 06/09/2026 pelo lote C da onda 1, pela mesma razao e no mesmo formato do
+    # `por_mapa_motivo` de cenas_galar.py: a fila cobra linha a linha, e sem o
+    # motivo dela a linha volta pendente e sem nada escrito a cada varredura.
+    motivos_de_linha = {}
     extra = collections.Counter()
     por_ginasio = collections.defaultdict(list)
 
     for l in sorted(d, key=lambda z: z["chave"]):
         if l["tipo"] == "script_objeto" and not l["no_mapa"]:
             recusa["objeto nao esta no mapa (descarte da condutora, 21/08)"] += 1
+            motivos_de_linha[l["chave"]] = "objeto nao esta no mapa (descarte da condutora, 21/08)"
             continue
         achado, motivo = batalha_da_linha(rom, tab,
                                           int(l["ponteiro_fonte"], 16), fonte_tr)
         if achado is None:
             recusa["nao da para afirmar qual batalha: " + motivo] += 1
+            motivos_de_linha[l["chave"]] = "nao da para afirmar qual batalha: " + motivo
             continue
         tipo, fid, ptrs, colapsadas = achado
         extra["variantes da mesma pessoa colapsadas"] += colapsadas
         tr = fonte_tr.get(fid)
         if tr is None:
             recusa["id de treinador %d fora da tabela da fonte" % fid] += 1
+            motivos_de_linha[l["chave"]] = "id de treinador %d fora da tabela da fonte" % fid
             continue
         if tr["falha"]:
             recusa["time da fonte ilegivel: " + tr["falha"]] += 1
+            motivos_de_linha[l["chave"]] = ("time da fonte ilegivel: "
+                                            + tr["falha"])
             continue
         time, ruim = [], None
         for m in tr["party"]:
@@ -706,6 +716,7 @@ def plano():
             time.append(nome)
         if ruim:
             recusa["especie sem equivalente: " + ruim] += 1
+            motivos_de_linha[l["chave"]] = "especie sem equivalente: " + ruim
             continue
         textos, ruim = [], None
         for p in ptrs[:TIPOS[tipo][2]]:
@@ -719,10 +730,12 @@ def plano():
             textos.append(t)
         if ruim:
             recusa["texto recusado: " + ruim] += 1
+            motivos_de_linha[l["chave"]] = "texto recusado: " + ruim
             continue
         molde = TIPOS[tipo][1]
         if molde == "double" and len(textos) < 3:
             recusa["batalha dupla sem os tres textos"] += 1
+            motivos_de_linha[l["chave"]] = "batalha dupla sem os tres textos"
             continue
         classe, mot_cls = cls_map[tr["classe"]]
         if fid not in usados:
@@ -738,7 +751,8 @@ def plano():
                             n_batalhas=len(todas)))
         if "Gym" in l["mapa"] or nomes_cls[tr["classe"]] == "Leader":
             por_ginasio[l["mapa"]].append((tr["nome"], len(todas)))
-    return aceitas, usados, recusa, novas, extra, por_ginasio
+    return (aceitas, usados, recusa, novas, extra, por_ginasio,
+            motivos_de_linha)
 
 
 # ---------------------------------------------------------------- escrita ---
@@ -986,7 +1000,67 @@ def corpo_inc(aceitas, usados, num):
             r = l["rotulo"]
             nid, const, fid = num[l["chave"]]
             r_in, r_dep = rotulos_classe(usados[fid]["classe"])
+            de_placa = l["chave"].split("/")[1] == "bg"
             out.append("%s::" % r)
+            # ------------------------------------------------------------
+            # C28, 06/09/2026: BATALHA PENDURADA EM PLACA NAO PODE TER FALA
+            # DE ABERTURA. Achado pela checagem C28 de
+            # dev_scripts/qa/checa_scripts.py (12 travas, todas neste
+            # arquivo, todas no Galar_Circhester03). `trainerbattle_single` e
+            # irmaos vao a `EventScript_TryDoNormalTrainerBattle`, que chama
+            # `special SetTrainerFacingDirection`; esse special assere em
+            # src/battle_setup.c:1258 que `gSelectedObjectEvent` NAO e o
+            # jogador. Num `bg_event` (placa) nao ha objeto selecionado:
+            # `ProcessPlayerFieldInput` zera `gSelectedObjectEvent` a cada
+            # quadro (src/field_control_avatar.c:169) e so
+            # `GetInteractedObjectEventScript` e o avistamento de treinador o
+            # reatribuem. Resultado no cartucho: TELA AZUL ao ler a placa.
+            #
+            # O caminho certo e o SEM intro: a fala de abertura sai por
+            # `msgbox` e a batalha entra por `trainerbattle_no_intro`, que cai
+            # em `EventScript_DoNoIntroTrainerBattle` e nao toca no special.
+            # Como esse molde NAO confere a flag de vitoria por dentro, o
+            # `goto_if_defeated` deixa de ser conforto e vira obrigacao (e o
+            # C23 cobra isso). O `setvar VAR_LAST_TALKED, LOCALID_NONE` e
+            # obrigatorio pelo mesmo motivo do conserto do Unova_LentimasGym:
+            # `EventScript_DoNoIntroTrainerBattle` faz `applymovement
+            # VAR_LAST_TALKED, Movement_RevealTrainer` sem perguntar, e numa
+            # placa a var carregaria o ultimo NPC com quem se falou, que
+            # faria OUTRO objeto do mapa fazer a animacao de avistamento.
+            # LOCALID_NONE nao e local id de objeto nenhum, entao
+            # `GetObjectEventIdByLocalId` devolve OBJECT_EVENTS_COUNT e o
+            # `applymovement` nao mexe em ninguem (mesmo idioma dos 196
+            # lugares vanilla que a propria C28 mediu e nao cobra).
+            if de_placa and l["molde"] in ("double", "rival"):
+                # Nao ha molde SEM intro que faca batalha dupla nem rival com
+                # texto de vitoria: `trainerbattle_no_intro` e sempre simples.
+                # Trocar calado mudaria a batalha, entao isto PARA e pede
+                # decisao. Medido em 06/09/2026: zero linha de placa cai aqui.
+                raise SystemExit("PARE: %s e batalha de placa no molde %r, que "
+                                 "nao tem versao sem fala de abertura (C28). "
+                                 "Precisa de decisao." % (r, l["molde"]))
+            if de_placa:
+                out.append("\tlock")
+                out.append("\tgoto_if_defeated %s, %s_Fim" % (const, r))
+                intro = ("%s_Intro" % r) if l["molde"] != "nointro" else r_in
+                out.append("\tmsgbox %s, MSGBOX_DEFAULT" % intro)
+                out.append("\tsetvar VAR_LAST_TALKED, LOCALID_NONE")
+                out.append("\ttrainerbattle_no_intro %s, %s_Derrota"
+                           % (const, r))
+                out.append("%s_Fim:" % r)
+                out.append("\tmsgbox %s, MSGBOX_AUTOCLOSE" % r_dep)
+                out.append("\trelease")
+                out.append("\tend")
+                out.append("")
+                sufixos = {"nointro": ["Derrota"],
+                           "double": ["Intro", "Derrota", "Poucos"],
+                           "rival": ["Derrota", "Vitoria"],
+                           "single": ["Intro", "Derrota"]}[l["molde"]]
+                for suf, txt in zip(sufixos, l["textos"]):
+                    out.append("%s_%s:" % (r, suf))
+                    out.append('\t.string "%s$"' % txt)
+                    out.append("")
+                continue
             # PORTAO DE "JA VENCI" para o molde que NAO o tem por dentro.
             # Medido no emulador em 22/08/2026 pelo T147.8, que nasceu VERMELHO:
             # `trainerbattle_earlyrival` cai em
@@ -1183,7 +1257,7 @@ def demo():
     caso("toda classe escolhida existe em trainers.h",
          all(("    %s," % c) in nossas for c, _ in mapa.values()))
 
-    aceitas, usados, recusa, novas, extra, gin = plano()
+    aceitas, usados, recusa, novas, extra, gin, motivos_linha = plano()
     caso("o plano aceita mais de 240 linhas", len(aceitas) > 240)
     caso("nenhum treinador aceito passa de 6 Pokemon",
          all(len(u["time"]) <= 6 for u in usados.values()))
@@ -1278,10 +1352,48 @@ def demo():
     return 0 if ok else 1
 
 
+# Motivo que nao muda sozinho. Mesma lei do bloco c6 em cenas_galar.py.
+MOTIVO_TERMINAL_TRN = (
+    "objeto nao esta no mapa (descarte da condutora",
+    "nao da para afirmar qual batalha",
+    "id de treinador",
+    "time da fonte ilegivel",
+    "texto recusado",
+)
+
+
+def devolve_para_fila(motivos_linha, gravar):
+    """Escreve na fila o motivo MEDIDO de cada linha de treinador recusada."""
+    fila = "%s/dev_scripts/fila_galar.json" % RAIZ
+    doc = json.load(open(fila))
+    n, quadro = 0, collections.Counter()
+    for l in doc["linhas"]:
+        if l["status"] != "pendente":
+            continue
+        m = motivos_linha.get(l["chave"])
+        if not m:
+            continue
+        st = ("descartada" if any(t in m for t in MOTIVO_TERMINAL_TRN)
+              else "adiada")
+        novo = st, ("balde d, lote C da onda 1, 06/09/2026: " + m)
+        if (l.get("status"), l.get("motivo_do_status")) != novo:
+            l["status"], l["motivo_do_status"] = novo
+            n += 1
+        quadro[st] += 1
+    if gravar and n:
+        with open(fila, "w") as f:
+            json.dump(doc, f, indent=1, ensure_ascii=False)
+            f.write("\n")
+    return n, quadro
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--aplicar", action="store_true")
     ap.add_argument("--demo", action="store_true")
+    ap.add_argument("--fila", action="store_true",
+                    help="devolve o motivo medido de cada linha recusada para "
+                         "dev_scripts/fila_galar.json (com --aplicar, grava)")
     a = ap.parse_args()
     if a.demo:
         return demo()
@@ -1289,7 +1401,7 @@ def main():
     st, quantos, total = stride_medido(rom)
     print("stride medido de gTrainers: %d B (%d de %d deltas)"
           % (st, quantos, total))
-    aceitas, usados, recusa, novas, extra, gin = plano()
+    aceitas, usados, recusa, novas, extra, gin, motivos_linha = plano()
     num = numera(aceitas, usados)
     ids = [v[0] for v in num.values()]
     print("batalhas portadas: %d em %d mapas; treinadores novos: %d (ids %d-%d)"
@@ -1312,6 +1424,18 @@ def main():
     for mapa in sorted(gin):
         for nome, n in gin[mapa]:
             print("  %-28s %-12s %d batalha(s) no script" % (mapa, nome, n))
+    if a.fila:
+        # `--fila` GRAVA a fila e NAO chama `aplica`, de proposito. O
+        # `--aplicar` deste arquivo reescreve `src/data/trainers.party`
+        # inteiro, inclusive os chefes, e tem ordem obrigatoria com o
+        # `fase_f_chefes.py` (ver a ARMADILHA DE ORDEM no
+        # PLANO-CONTEUDO-GALAR.md). Devolver motivo para a fila nao pode
+        # arrastar isso junto.
+        n, quadro = devolve_para_fila(motivos_linha, True)
+        print("fila: %d linhas ganharam motivo medido (gravado)" % n)
+        for st, c in sorted(quadro.items()):
+            print("   %-12s %d" % (st, c))
+        return 0
     mudou, rec = aplica(aceitas, usados, num, gravar=a.aplicar)
     escreve_classes_md(novas, usados, gravar=a.aplicar)
     print("\nmudaria: %s | recusas de colocacao: %d" % (dict(mudou), len(rec)))

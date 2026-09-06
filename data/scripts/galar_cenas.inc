@@ -3,6 +3,29 @@
 @ A cena vem do demake (fontes-mapas/galar-swsh), desmontada do
 @ bytecode do FireRed. O que nao coube saiu com motivo contado.
 
+@ ---- Galar_Motostoke01 (g00m06) ----
+GalarCena_G00M06_t5_x::
+	@ clearflag 0x90D da fonte: flag de motor do demake, sem leitor aqui (cenas_galar.py)
+	special InitUnionRoom
+	end
+
+
+@ ---- Galar_CrownTundra03 (g01m111) ----
+GalarCena_G01M111_t1_x::
+	special SetIcefallCaveCrackedIceMetatiles
+	end
+
+
+@ ---- Galar_TrainerTower01 (g02m10) ----
+GalarCena_G02M10_t7_x::
+	addobject 1
+	addobject 2
+	addobject 3
+	addobject 4
+	addobject 5
+	end
+
+
 @ ---- Galar_Hammerlocke01 (g03m05) ----
 GalarCena_G03M05_t2_v2::
 	lockall
@@ -46,6 +69,16 @@ GalarCena_G03M08_t2_v3_Mov0:
 @ ---- Galar_Postwick22 (g04m03) ----
 GalarCena_G04M03_t4_v1::
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	end
+
+
+@ ---- Galar_Wedgehurst03 (g05m04) ----
+GalarCena_G05M04_t5_x::
+	@ clearflag 0x90D da fonte: flag de motor do demake, sem leitor aqui (cenas_galar.py)
+	@ clearflag 0x255 da fonte: flag de motor do demake, sem leitor aqui (cenas_galar.py)
+	@ clearflag 0x904 da fonte: flag de motor do demake, sem leitor aqui (cenas_galar.py)
+	@ clearflag 0x90E da fonte: flag de motor do demake, sem leitor aqui (cenas_galar.py)
+	special InitUnionRoom
 	end
 
 
@@ -120,6 +153,8 @@ GalarCena_G05M05_t4_v8_b1::
 	end
 
 
+@ ---- Galar_Motostoke04 (g06m05) ----
+
 @ ---- Galar_WildArea03 (g06m27) ----
 GalarCena_G06M27_t3_x::
 	@ setflag 0x91A da fonte: flag de motor do demake, sem leitor aqui (cenas_galar.py)
@@ -172,11 +207,17 @@ GalarCena_G06M27_t3_x_b3::
 
 @ ---- Galar_WildArea06 (g06m31) ----
 
+@ ---- Galar_Turffield02 (g07m03) ----
+
+@ ---- Galar_Hulbury02 (g08m00) ----
+
 @ ---- Galar_WildArea07 (g08m22) ----
 
 @ ---- Galar_WildArea08 (g08m23) ----
 
 @ ---- Galar_WildArea09 (g08m24) ----
+
+@ ---- Galar_StowOnSide04 (g09m01) ----
 
 @ ---- Galar_Hammerlocke05 (g09m11) ----
 GalarCena_G09M11_t2_v0::
@@ -209,6 +250,32 @@ GalarCena_G09M11_t2_v0_Mov1:
 	.byte MOVEMENT_ACTION_STEP_END
 GalarCena_G09M11_t2_v0_Text2:
 	.string "rose:hora de eu comecar a trabalhar.\nEu devo me mexer logo antes que\pOleana decida me dar mais avisos,\n{PLAYER},sugiro que você vá para o\pcofre em seguida.Apenas siga em\ndirecão   Rota 6 do estádio e você\pencontrará o cofre sem problemas!$"
+
+@ ---- Galar_Hammerlocke15 (g10m12) ----
+
+@ ---- Galar_Route1601 (g10m23) ----
+GalarCena_G10M23_t4_v1::
+	special ForcePlayerOntoBike
+	end
+
+
+@ ---- Galar_Route1603 (g10m26) ----
+GalarCena_G10M26_t4_v1::
+	special ForcePlayerOntoBike
+	end
+
+
+@ ---- Galar_Ballonlea01 (g11m05) ----
+
+@ ---- Galar_Circhester05 (g12m05) ----
+
+@ ---- Galar_Wyndon02 (g13m00) ----
+GalarCena_G13M00_t5_x::
+	special InitUnionRoom
+	end
+
+
+@ ---- Galar_Spikemuth05 (g14m06) ----
 
 @ ---- Galar_Wedgehurst10 (g21m01) ----
 GalarCena_G21M01_t4_v1::
@@ -280,6 +347,14 @@ GalarCena_G21M01_t4_v8::
 GalarCena_G21M01_t4_v8_b1::
 	end
 
+
+@ ---- Galar_Wyndon06 (g33m02) ----
+
+@ ---- Galar_IsleOfArmor04 (g34m01) ----
+
+@ ---- Galar_CrownTundra06 (g36m00) ----
+
+@ ---- Galar_CrownTundra07 (g37m00) ----
 
 @ ---- Galar_WildArea10 (g42m02) ----
 

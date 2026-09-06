@@ -1004,11 +1004,78 @@ def demo():
     return 1 if falhas else 0
 
 
+# Motivo de recusa dos baldes a e b que NAO muda sozinho: o dado da fonte nao
+# existe ou nao decodifica. Vira `descartada`. Todo o resto vira `adiada`,
+# porque uma decisao futura destrava a linha. Mesma lei do
+# `MOTIVO_TERMINAL_OBJ` de objetos_galar.py.
+MOTIVO_TERMINAL_FALA = (
+    "mapa da fonte nao esta no de-para do G3",
+    "objeto foi para a sujeira do G0",
+    "NPC nao entrou no mapa no G4",
+)
+
+
+def devolve_para_fila(linhas, recusa, gravar):
+    """Escreve na fila o motivo MEDIDO de cada linha de balde a ou b recusada.
+
+    Acrescentado em 06/09/2026 pelo lote C da onda 1, no mesmo formato do
+    `devolve_para_fila` de objetos_galar.py e pela mesma razao: a fila cobra
+    linha a linha, e recusa que so vira contagem no relatorio deixa a linha
+    pendente para sempre, sem que ninguem saiba por que ela nao entrou.
+
+    Este modo NAO escreve mapa, .inc nem flag: so o motivo. Linha que ja tem
+    decisao (`feita`, `descartada`, `adiada`) nao e tocada, entao rodar de novo
+    nao reabre nada.
+
+    Onde o balde b recusou por "objeto ja entrou como NPC mudo", o motivo ganha
+    o SEGUNDO fato medido aqui: o id de item da fonte fora da tabela de itens
+    do FireRed (0..374). Os dois juntos sao a linha inteira, e sem o segundo a
+    proxima rodada acharia que basta escolher entre NPC e bola.
+    """
+    G = _gente()
+    itens_fr = G.itens_da_fonte()
+    por_chave = {l["chave"]: l for l in linhas}
+    fila = f"{RAIZ}/dev_scripts/fila_galar.json"
+    doc = json.load(open(fila))
+    motivos = {}
+    for r in recusa:
+        m = r["motivo"]
+        l = por_chave.get(r["chave"])
+        if l and l.get("balde") == "b_flag" and l.get("item"):
+            if itens_fr.get(l["item"]) is None:
+                m += ("; e o item %d da fonte esta fora da tabela de itens do "
+                      "FireRed (0..374): nao ha o que entregar" % l["item"])
+        motivos[r["chave"]] = m
+    n, quadro = 0, collections.Counter()
+    for l in doc["linhas"]:
+        if l["status"] in ("feita", "descartada", "adiada"):
+            continue
+        m = motivos.get(l["chave"])
+        if not m:
+            continue
+        st = ("descartada" if any(t in m for t in MOTIVO_TERMINAL_FALA)
+              else "adiada")
+        l["status"] = st
+        l["motivo_do_status"] = ("baldes a e b, lote C da onda 1, 06/09/2026: "
+                                 + m)
+        n += 1
+        quadro[st] += 1
+    if gravar and n:
+        with open(fila, "w") as f:
+            json.dump(doc, f, indent=1, ensure_ascii=False)
+            f.write("\n")
+    return n, quadro
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--gravar", action="store_true")
     ap.add_argument("--aplicar", action="store_true")
     ap.add_argument("--demo", action="store_true")
+    ap.add_argument("--fila", action="store_true",
+                    help="devolve o motivo medido de cada linha recusada para "
+                         "dev_scripts/fila_galar.json (com --gravar, escreve; "
+                         "NUNCA escreve map.json, .inc nem flag)")
     ap.add_argument("--amostra", type=int, default=0)
     a = ap.parse_args()
     if a.demo:
@@ -1022,6 +1089,14 @@ def main():
     mot = collections.Counter(r["motivo"].split(":")[0] for r in recusa)
     for m, c in mot.most_common(10):
         print("  recusado %5d  %s" % (c, m))
+    if a.fila:
+        # O interruptor aqui e `--gravar`, e NAO `--aplicar`: `--aplicar` deste
+        # arquivo escreve map.json, e na onda 1 o map.json de Galar tem outro
+        # dono. Devolver motivo para a fila nao precisa disso.
+        n, quadro = devolve_para_fila(linhas, recusa, a.gravar)
+        print("\nfila: %d linhas dos baldes a e b ganharam motivo medido" % n)
+        for st, c in sorted(quadro.items()):
+            print("   %-12s %d" % (st, c))
     if a.aplicar:
         escreve_inc(falas, placas, bolas, True)
         escreve_flags(bolas, True)

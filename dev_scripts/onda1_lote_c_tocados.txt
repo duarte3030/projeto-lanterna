@@ -1,0 +1,63 @@
+# Mapas TOCADOS pelo lote C da onda 1 da Frente A (Galar), 06/09/2026.
+# Gerado a partir de `git status` do worktree cartucho-2; nao editar a mao.
+#
+# O lote C so escreve `data/maps/Galar_*/scripts.inc` e
+# `data/scripts/galar_*.inc`. O `map.json` de Galar tem outro dono nesta
+# onda: o que o lote C precisa la esta pedido em
+# dev_scripts/onda1_lote_c_pedidos_mapjson.txt.
+
+## 1. mapas cujo scripts.inc o lote C reescreveu (38)
+
+Galar_Ballonlea01
+Galar_Circhester05
+Galar_Circhester16
+Galar_CrownTundra03
+Galar_CrownTundra06
+Galar_CrownTundra07
+Galar_Hammerlocke01
+Galar_Hammerlocke05
+Galar_Hammerlocke15
+Galar_Hulbury02
+Galar_IsleOfArmor04
+Galar_Motostoke01
+Galar_Motostoke04
+Galar_Postwick22
+Galar_Route1601
+Galar_Route1603
+Galar_Spikemuth05
+Galar_StowOnSide04
+Galar_TrainerTower01
+Galar_Turffield02
+Galar_Wedgehurst03
+Galar_Wedgehurst04
+Galar_Wedgehurst10
+Galar_WildArea03
+Galar_WildArea04
+Galar_WildArea05
+Galar_WildArea06
+Galar_WildArea07
+Galar_WildArea08
+Galar_WildArea09
+Galar_WildArea10
+Galar_WildArea12
+Galar_WildArea13
+Galar_WildArea14
+Galar_WildArea18
+Galar_WildArea19
+Galar_Wyndon02
+Galar_Wyndon06
+
+## 2. mapas que so esperam o bg_event da placa (pedido de map.json, 4)
+
+Galar_Motostoke23
+Galar_Postwick11
+Galar_TrainerTower01
+Galar_Wyndon08
+
+## 3. arquivos de script comuns tocados
+
+data/scripts/galar_cenas.inc
+data/scripts/galar_treinadores.inc
+data/scripts/galar_placas_c.inc
+data/event_scripts.s
+include/constants/vars.h

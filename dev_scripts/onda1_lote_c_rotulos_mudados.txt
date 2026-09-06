@@ -1,0 +1,35 @@
+# Rotulos de data/scripts/galar_*.inc que o lote C da onda 1 RENOMEOU ou cujo
+# TEXTO reescreveu, 06/09/2026.
+#
+# Este arquivo existe porque o aplicador do lote D
+# (dev_scripts/aplica_traducao_galar.py) casa bloco por ROTULO **e** pelo texto
+# em portugues que o de-para guarda: bloco cujo texto nao bate e recusado, e
+# sem esta lista a recusa apareceria sem dono.
+
+## Resultado medido: NENHUM.
+
+# Prova, rodada em 06/09/2026 depois do trabalho todo do lote C:
+#
+#   python3 dev_scripts/aplica_traducao_galar.py --dry-run
+#   entradas no JSON        : 849
+#   casam e seriam trocadas : 849
+#   ja aplicadas (idempot.) : 0
+#   NAO casam               : 0
+#
+# Por que deu zero, item a item do que o lote C mexeu:
+#
+# 1. C28 (12 blocos de GalarTrn_G12M00_* em data/scripts/galar_treinadores.inc):
+#    o conserto trocou o CORPO do script (trainerbattle_single com fala de
+#    abertura virou lock + goto_if_defeated + msgbox + trainerbattle_no_intro)
+#    e acrescentou o rotulo local `_Fim`. Nenhum rotulo de TEXTO foi renomeado
+#    e nenhum `.string` foi tocado: a fala continua saindo de
+#    GalarTrn_Intro_BEAUTY_FRLG e de GalarTrn_<chave>_Derrota, com os mesmos
+#    bytes.
+#
+# 2. Bloco c6 (map script) em data/scripts/galar_cenas.inc: os blocos novos sao
+#    ACRESCIMO, com rotulo novo (GalarCena_*_t1_*, _t5_*, _t7_*). Nenhum bloco
+#    que ja existia mudou de nome nem de texto.
+#
+# 3. As quatro placas novas (data/scripts/galar_placas_c.inc, prefixo
+#    GalarPlacaC_) nascem em INGLES, por decisao 32, e por isso nao entram no
+#    de-para de traducao: nao ha portugues nelas para casar.

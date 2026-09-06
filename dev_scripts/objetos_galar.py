@@ -397,23 +397,33 @@ def plano():
 
     docs, cobrar = {}, []
     recusa = collections.Counter()
+    # MOTIVO POR LINHA DA FILA, e nao so a contagem: a fila cobra linha a
+    # linha, e sem o motivo dela a linha volta pendente e sem nada escrito a
+    # cada varredura. Acrescentado em 06/09/2026 pelo lote C da onda 1, pela
+    # mesma razao e no mesmo formato do `por_mapa_motivo` de cenas_galar.py.
+    por_linha = collections.defaultdict(list)
     for l in sorted(linhas, key=lambda z: z["chave"]):
         if l["balde"] != "c_var_cena" or l["tipo"] not in ("script_objeto",
                                                            "placa"):
             continue
         if not l.get("ponteiro_fonte"):
             recusa["porta morta, e pendencia de mapa"] += 1
+            por_linha["porta morta, e pendencia de mapa"].append(l["chave"])
             continue
         if l["tipo"] == "script_objeto" and not l["no_mapa"]:
             recusa["objeto nao esta no mapa (descarte da condutora, 21/08)"] += 1
+            por_linha["objeto nao esta no mapa (descarte da condutora, "
+                      "21/08)"].append(l["chave"])
             continue
         dp = de_para.get(l["mapa_fonte"])
         if dp is None:
             recusa["mapa da fonte fora do de-para do G3"] += 1
+            por_linha["mapa da fonte fora do de-para do G3"].append(l["chave"])
             continue
         caminho = "%s/data/maps/%s/map.json" % (RAIZ, dp["nome"])
         if not os.path.exists(caminho):
             recusa["map.json do mapa nao existe"] += 1
+            por_linha["map.json do mapa nao existe"].append(l["chave"])
             continue
         docs.setdefault(caminho, json.load(open(caminho)))
         cobrar.append((l, dp, caminho))
@@ -436,6 +446,7 @@ def plano():
 
     def traduz(nome_flag_de, nome_var_de):
         fora, motivos = [], collections.Counter()
+        motivos_de_linha = {}
         usou_flag, usou_var = set(), set()
         for l, dp, caminho in cobrar:
             chave = l["mapa_fonte"]
@@ -455,6 +466,7 @@ def plano():
                 corpo, usadas = t.cena(int(l["ponteiro_fonte"], 16), base)
             except C3.Recusa as e:
                 motivos[str(e)] += 1
+                motivos_de_linha[l["chave"]] = str(e)
                 continue
             citadas = {f for f in esconde_glob
                        if nomes_flag[f] and nomes_flag[f] in "\n".join(corpo)}
@@ -465,10 +477,10 @@ def plano():
                              tipo=l["tipo"], x=l["x"], y=l["y"], base=base,
                              linhas=corpo, usadas=usadas, flags=citadas,
                              ordem=ordem_da_rota(dp["nome"])))
-        return fora, motivos, usou_flag, usou_var
+        return fora, motivos, usou_flag, usou_var, motivos_de_linha
 
-    _e, _m, quer_flag, quer_var = traduz(lambda f: "FLAG_GALAR_ENSAIO_%03X" % f,
-                                         lambda c: "VAR_GALAR_ENSAIO")
+    _e, _m, quer_flag, quer_var, _ml = traduz(
+        lambda f: "FLAG_GALAR_ENSAIO_%03X" % f, lambda c: "VAR_GALAR_ENSAIO")
 
     # A faixa 0x1C80-0x1CFE e COMPARTILHADA com o bloco de cena do
     # `cenas_galar.py`. Livre aqui e a flag que existe como FLAG_UNUSED e nao
@@ -514,10 +526,14 @@ def plano():
             return "VAR_GALAR_%s_CENA" % chave.upper()
         return variaveis[chave][0] if chave in variaveis else None
 
-    aceitas, motivos, _f, _v = traduz(
+    aceitas, motivos, _f, _v, motivos_de_linha = traduz(
         lambda f: flags[f][0] if f in flags else None, nome_var)
     recusa.update(motivos)
-    return aceitas, recusa, docs, flags, variaveis, esconde_glob
+    for m, chaves in por_linha.items():
+        for k in chaves:
+            motivos_de_linha.setdefault(k, m)
+    return (aceitas, recusa, docs, flags, variaveis, esconde_glob,
+            motivos_de_linha)
 
 
 def vars_do_c3():
@@ -838,7 +854,7 @@ def relatorio(aceitas, recusa, variaveis=None):
 
 def demo():
     falhas = []
-    aceitas, recusa, docs, flags, variaveis, esconde = plano()
+    aceitas, recusa, docs, flags, variaveis, esconde, motivos_linha = plano()
 
     # 1. PRECEDENCIA: nenhum objeto pode ficar com os dois scripts, e o rotulo
     #    daqui tem que ser o que sobrou no map.json.
@@ -859,7 +875,7 @@ def demo():
     if corpo1 != corpo_inc(aceitas):
         falhas.append("o .inc nao e estavel entre duas geracoes")
     if os.path.exists(INC) and open(INC).read() == corpo1:
-        aceitas2, _r2, docs2, f2, v2, e2 = plano()
+        aceitas2, _r2, docs2, f2, v2, e2, _ml2 = plano()
         mudou2, _rec2, _c2 = aplica(aceitas2, docs2, False, f2, v2, e2)
         if mudou2["mapa"]:
             falhas.append("segunda passada mexeria em %d mapas: nao e idempotente"
@@ -971,16 +987,82 @@ def demo():
     return 1 if falhas else 0
 
 
+# Motivo que nao muda sozinho: o dado da fonte nao existe, nao decodifica, ou
+# a condutora ja decidiu que a linha nao volta. Vira `descartada`. Todo o
+# resto vira `adiada`, porque uma decisao futura (um de-para de multichoice,
+# uma flag nossa, um special novo) destrava. Mesma lei do bloco c6 em
+# cenas_galar.py.
+MOTIVO_TERMINAL_OBJ = (
+    "objeto nao esta no mapa (descarte da condutora",
+    "porta morta, e pendencia de mapa",
+    "decodificacao incompleta",
+    "cena vira no-op depois da traducao",
+    "mapa da fonte fora do de-para do G3",
+    "map.json do mapa nao existe",
+    "texto recusado",
+    "ponteiro de texto fora da rom",
+    "ponteiro de movimento fora da rom",
+)
+
+
+def devolve_para_fila(aceitas, motivos_linha, gravar):
+    """Escreve na fila o motivo MEDIDO de cada linha de objeto recusada.
+
+    A fila calcula `feita` lendo o rotulo na arvore; o que ela nao sabe
+    calcular e POR QUE uma linha nao entrou. Sem isso ela volta pendente e
+    muda a cada varredura, e a proxima rodada remede tudo de novo. Aqui o
+    motivo volta como `status` + `motivo_do_status`, que
+    `fila_galar.decisoes_anteriores` preserva.
+
+    Linha ACEITA nao e tocada: quem manda nela e o rotulo na arvore.
+    """
+    fila = "%s/dev_scripts/fila_galar.json" % RAIZ
+    doc = json.load(open(fila))
+    # `aceitas` nao entra aqui: a chave dela e a do MAPA da fonte, e o corte
+    # de linha aceita ja e feito abaixo pelo status `feita`, que a propria
+    # fila calcula lendo o rotulo na arvore.
+    del aceitas
+    n, quadro = 0, collections.Counter()
+    for l in doc["linhas"]:
+        if l["tipo"] not in ("script_objeto", "placa"):
+            continue
+        if l["status"] in ("feita", "descartada", "adiada"):
+            continue
+        m = motivos_linha.get(l["chave"])
+        if not m:
+            continue
+        st = ("descartada" if any(t in m for t in MOTIVO_TERMINAL_OBJ)
+              else "adiada")
+        novo = st, ("bloco c4a, lote C da onda 1, 06/09/2026: " + m)
+        if (l.get("status"), l.get("motivo_do_status")) != novo:
+            l["status"], l["motivo_do_status"] = novo
+            n += 1
+        quadro[st] += 1
+    if gravar and n:
+        with open(fila, "w") as f:
+            json.dump(doc, f, indent=1, ensure_ascii=False)
+            f.write("\n")
+    return n, quadro
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--aplicar", action="store_true")
     ap.add_argument("--demo", action="store_true")
+    ap.add_argument("--fila", action="store_true",
+                    help="devolve o motivo medido de cada linha recusada para "
+                         "dev_scripts/fila_galar.json (com --aplicar, grava)")
     a = ap.parse_args()
     if a.demo:
         raise SystemExit(demo())
-    aceitas, recusa, docs, flags, variaveis, esconde = plano()
+    aceitas, recusa, docs, flags, variaveis, esconde, motivos_linha = plano()
     mudou, rec, _c = aplica(aceitas, docs, a.aplicar, flags, variaveis,
                             esconde)
+    if a.fila:
+        n, quadro = devolve_para_fila(aceitas, motivos_linha, a.aplicar)
+        print("fila: %d linhas de objeto/placa ganharam motivo medido" % n)
+        for st, c in sorted(quadro.items()):
+            print("   %-12s %d" % (st, c))
     relatorio(aceitas, recusa, variaveis)
     print("flags de esconder: %d | vars de etapa novas: %d"
           % (len(flags), len(variaveis)))

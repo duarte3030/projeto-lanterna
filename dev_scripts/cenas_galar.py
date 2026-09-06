@@ -126,8 +126,56 @@ ULTIMA_FLAG_CENA = 0x1CFE
 
 # Tipos de map script do FireRed, lidos do header da fonte em vez de digitados.
 TIPOS_TABELA = (2, 4)      # os que pedem `map_script_2 var, valor, script`
+
+# BLOCO c6, 06/09/2026 (lote C da onda 1 da Frente A). Até aqui só o tipo 3
+# entrava como bytecode direto, e os tipos 1, 5 e 7 saíam com o motivo "fora do
+# bloco c3", que era ESCOPO e não impossibilidade: `include/constants/map_scripts.h`
+# tem os MESMOS sete números nos dois motores (conferido linha a linha contra
+# `fontes-mapas/pokefirered/include/constants/map_scripts.h` em 06/09/2026), então
+# o tipo atravessa 1:1 e o que precisa de julgamento é o CORPO, não o número.
+TIPOS_DIRETOS = (1, 3, 5, 7)
+MACRO_DIRETO = {1: "MAP_SCRIPT_ON_LOAD", 3: "MAP_SCRIPT_ON_TRANSITION",
+                5: "MAP_SCRIPT_ON_RESUME", 7: "MAP_SCRIPT_ON_RETURN_TO_FIELD"}
+MACRO_TABELA = {2: "MAP_SCRIPT_ON_FRAME_TABLE",
+                4: "MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE"}
+
+# ON_LOAD roda ANTES de o mapa ser desenhado e ON_RESUME roda no fim da carga e
+# a cada volta ao campo (ver o comentário do próprio map_scripts.h). Nenhum dos
+# dois tem caixa de fala, câmera nem jogador andando: é lugar de arrumar o
+# cenário, não de contar cena. Comando que precisa do campo RODANDO recusa a
+# cena inteira nesses dois tipos, em vez de virar defeito calado na tela de
+# carregamento. O tipo 7 (ON_RETURN_TO_FIELD) entra na mesma lei pelo mesmo
+# motivo: ele roda logo depois do ON_RESUME.
+TIPOS_QUIETOS = (1, 5, 7)
+PRECISA_DO_CAMPO = {"lock", "lockall", "release", "releaseall", "faceplayer",
+                    "applymovement", "waitmovement", "fadescreen", "delay",
+                    "waitstate", "closemessage", "waitmessage",
+                    "waitbuttonpress", "playse", "waitse", "playfanfare",
+                    "waitfanfare", "playbgm", "fadedefaultbgm", "callstd",
+                    "hidemonpic", "waitmoncry", "waitdooranim", "doweather",
+                    "turnobject"}
+
 # Byte de enchimento de espaço livre da ROM do FireRed.
 ENCHIMENTO = 0xFF
+
+# DE-PARA de `special`: nome do FireRed -> nome daqui, para a MESMA função.
+# Conferido corpo a corpo em 22/08/2026 pelo bloco c4a, e não por semelhança de
+# nome. Ele MOROU em `dev_scripts/objetos_galar.py` até 06/09/2026 e subiu para
+# cá quando o c6 precisou do mesmo de-para em map script: duas cópias do mesmo
+# dicionário em dois arquivos é divergência esperando acontecer.
+#   StartLegendaryBattle    -> BattleSetup_StartLegendaryBattle (src/battle_setup.c)
+#   GetPartyMonSpecies      -> ScriptGetPartyMonSpecies         (src/field_specials.c)
+#   GetPokedexCount         -> GetFrlgPokedexCount              (src/birch_pc.c, cópia
+#                              linha a linha do prof_pc.c do FR)
+#   SelectMoveDeleterMove   -> MoveDeleterChooseMoveToForget    (src/party_menu.c)
+# Os no-ops de Quest Log e Help System NÃO entram aqui: eles ganharam o MESMO
+# nome em data/specials.inc, com corpo nulo (ver o bloco marcado lá).
+DE_PARA_SPECIAL = {
+    "StartLegendaryBattle": "BattleSetup_StartLegendaryBattle",
+    "GetPartyMonSpecies": "ScriptGetPartyMonSpecies",
+    "GetPokedexCount": "GetFrlgPokedexCount",
+    "SelectMoveDeleterMove": "MoveDeleterChooseMoveToForget",
+}
 
 
 # ----------------------------------------------------------------- leitura ---
@@ -177,6 +225,17 @@ def tabela_de_map_script_tipo2(rom, off, maxi=16):
     é SUJEIRA (a fonte tem tabelas lidas em cima de dado, e o G0 já viu isso nos
     eventos): ela entra na lista com offset None e é recusada com motivo, em vez
     de sumir calada.
+
+    A LEITURA PARA NO PRIMEIRO PONTEIRO SUJO, e isso foi medido em 06/09/2026,
+    no bloco c6. A tabela da `Galar_Route1601` (fonte `g10m23`, tabela em
+    0x71D238) tem UMA entrada e **nenhum terminador**: logo depois dela vem a
+    tabela EXTERNA de map script da `Galar_Route1603` (`g10m26`), e 24 bytes
+    adiante a tabela interna dela. Lendo até `var == 0` a leitura atravessava a
+    fronteira e trazia a entrada do mapa VIZINHO para dentro deste, com o mesmo
+    rótulo de cena; o autoteste pegou como "rotulo de cena repetido". Tabela de
+    verdade não tem ponteiro fora da ROM no meio, então o primeiro ponteiro sujo
+    é fim de tabela. Ele fica na lista, uma vez, para a recusa continuar sendo
+    contada em voz alta; o que vem depois dele é dado de outra pessoa.
     """
     fora = []
     for i in range(maxi):
@@ -188,8 +247,10 @@ def tabela_de_map_script_tipo2(rom, off, maxi=16):
             break
         valor = int.from_bytes(rom[p + 2:p + 4], "little")
         ptr = int.from_bytes(rom[p + 4:p + 8], "little")
-        fora.append((var, valor,
-                     ptr - BASE if BASE <= ptr < BASE + len(rom) else None))
+        if not (BASE <= ptr < BASE + len(rom)):
+            fora.append((var, valor, None))
+            break
+        fora.append((var, valor, ptr - BASE))
     return fora
 
 
@@ -274,7 +335,14 @@ IGUAIS_SEM_ARG = {"lock", "lockall", "release", "releaseall", "faceplayer",
                   "fadedefaultbgm", "hidemonpic", "waitmoncry", "waitdooranim",
                   "nop", "nop1"}
 IGUAIS_COM_ARG = {"delay": 1, "playse": 1, "playfanfare": 1, "waitmovement": 1,
-                  "fadescreen": 1, "textcolor": 1, "savebgm": 1, "random": 1}
+                  "fadescreen": 1, "textcolor": 1, "savebgm": 1, "random": 1,
+                  # `erasebox` existe neste motor com o CORPO COMENTADO
+                  # (`src/scrcmd.c:1973`, `Menu_EraseWindowRect` fora de uso):
+                  # ele le os quatro bytes e nao faz nada. Emitir e fiel ao
+                  # bytecode da fonte e nao muda pixel nenhum; por isso ele
+                  # tambem entra em MOLDURA logo abaixo, para nao contar como
+                  # efeito e deixar passar cena que virou no-op.
+                  "erasebox": 4}
 # Comando que mexe em objeto pelo id LOCAL da fonte.
 POR_ID = {"applymovement": 2, "addobject": 1, "removeobject": 1,
           "setobjectxyperm": 3, "setobjectxy": 3, "setobjectmovementtype": 2,
@@ -285,7 +353,8 @@ POR_ID = {"applymovement": 2, "addobject": 1, "removeobject": 1,
 MOLDURA = {"lock", "lockall", "release", "releaseall", "faceplayer", "end",
            "return", "delay", "waitstate", "closemessage", "waitmessage",
            "waitbuttonpress", "goto", "call", "goto_if", "call_if",
-           "compare_var_to_value", "textcolor", "waitmovement", "nop", "nop1"}
+           "compare_var_to_value", "textcolor", "waitmovement", "nop", "nop1",
+           "erasebox"}
 
 STD_MSGBOX = {2: "MSGBOX_NPC", 3: "MSGBOX_SIGN", 4: "MSGBOX_DEFAULT",
               5: "MSGBOX_YESNO", 6: "MSGBOX_AUTOCLOSE"}
@@ -325,6 +394,31 @@ class Tradutor:
             f"{PKFR}/include/constants/global.h", "DIR").items()}
         self.dir_nossas = set(re.findall(r"\bDIR_[A-Z]+\b",
                                         open(f"{RAIZ}/include/constants/global.h").read()))
+        # SPECIAL: índice do FireRed -> nome, e o nome tem que existir AQUI.
+        # As duas tabelas são listas ordenadas (`def_special`) e o índice NÃO é
+        # o mesmo nos dois motores; só o NOME atravessa. Mesma máquina que o
+        # bloco c4a já usava em `objetos_galar.py` desde 22/08/2026.
+        self.specials_fonte = re.findall(
+            r"^\s*def_special\s+(\w+)",
+            open(f"{PKFR}/data/specials.inc").read(), re.M)
+        self.specials_nossos = set(re.findall(
+            r"^\s*def_special\s+(\w+)",
+            open(f"{RAIZ}/data/specials.inc").read(), re.M))
+        # Tipo de map script desta cena, para o portão dos tipos quietos. Quem
+        # chama põe antes de `cena()`; sem ele o portão não morde, que é o
+        # comportamento de todo chamador que não é map script (o c4a).
+        self.tipo_map_script = None
+
+    def special_nome(self, idx):
+        """Nome do special do FireRed, se ele existir NESTE motor também."""
+        nome = (self.specials_fonte[idx] if idx < len(self.specials_fonte)
+                else None)
+        if nome is None:
+            raise Recusa("special 0x%03X fora da tabela do FireRed" % idx)
+        nome = DE_PARA_SPECIAL.get(nome, nome)
+        if nome not in self.specials_nossos:
+            raise Recusa("special %s do FireRed nao existe aqui" % nome)
+        return nome
 
     # -- pedaços ------------------------------------------------------------
     def macro(self, nome):
@@ -418,6 +512,20 @@ class Tradutor:
         bs, falha = blocos(self.rom, self.tab, inicio)
         if falha:
             raise Recusa("decodificacao incompleta: " + falha)
+        # PORTÃO DOS TIPOS QUIETOS (bloco c6). ON_LOAD roda antes de o mapa ser
+        # desenhado, ON_RESUME no fim da carga e a cada volta ao campo, e
+        # ON_RETURN_TO_FIELD logo depois: em nenhum dos três há caixa de fala
+        # nem jogador andando. Cena com comando que precisa do campo rodando
+        # sai INTEIRA com motivo, em vez de virar trava na tela de carga.
+        if self.tipo_map_script in TIPOS_QUIETOS:
+            for b in bs:
+                for nome, _args in b.ins:
+                    if nome in PRECISA_DO_CAMPO:
+                        raise Recusa(
+                            "map script de tipo %d (%s) com `%s`, que precisa do "
+                            "campo rodando" % (self.tipo_map_script,
+                                               MACRO_DIRETO[self.tipo_map_script],
+                                               nome))
         rotulo = {b.inicio: ("%s" % base if i == 0 else "%s_b%d" % (base, i))
                   for i, b in enumerate(bs)}
         corpo, extras, usadas = [], [], collections.Counter()
@@ -512,6 +620,43 @@ class Tradutor:
                         if nome == "removeobject":
                             corpo[-1:] = self._esconde(args[0]) + [corpo[-1]]
                             usadas["esconde"] += 1
+                elif nome == "setmetatile":
+                    # O ÍNDICE DE METATILE ATRAVESSA 1:1, e isso é medido e não
+                    # suposto: `dev_scripts/tileset_galar.py` importa o
+                    # `metatiles.bin` da fonte na MESMA ordem (o índice é a
+                    # posição no arquivo), e o corte primário/secundário do FRLG
+                    # (640, contra os 512 do pokeemerald) é resolvido pelo
+                    # próprio motor em `src/fieldmap.c:438`, que devolve
+                    # NUM_METATILES_IN_PRIMARY_FRLG quando o layout é `isFrlg`,
+                    # que é o caso de todos os 438 mapas de Galar. Traduzir o
+                    # número seria o erro; copiá-lo é o certo.
+                    corpo.append("\t%s %d, %d, %d, %d"
+                                 % (self.macro(nome), args[0], args[1],
+                                    args[2], args[3]))
+                elif nome == "special":
+                    alvo_sp = self.special_nome(args[0])
+                    if (alvo_sp == "InitUnionRoom"
+                            and self.tipo_map_script != 5):
+                        # `InitUnionRoom` (src/union_room.c:3293) cria uma task
+                        # e faz `AllocZeroed` de uma `WirelessLink_URoom` a
+                        # cada chamada, e o ponteiro anterior se perde. Neste
+                        # motor ele mora em UM lugar só: o `CableClub_OnResume`
+                        # dos 49 Centros Pokémon da árvore, sempre em
+                        # MAP_SCRIPT_ON_RESUME. A fonte chama o mesmo special
+                        # também no ON_TRANSITION do `Galar_Wedgehurst03`, o
+                        # que somaria uma segunda alocação na MESMA entrada de
+                        # mapa, e a cena não ganha nada com isso: aquele mapa
+                        # já recebe o ON_RESUME. Sai com motivo em vez de
+                        # entrar como risco novo por zero conteúdo.
+                        raise Recusa("InitUnionRoom fora de ON_RESUME: neste "
+                                     "motor ele so e chamado pelo "
+                                     "CableClub_OnResume, e ele aloca a cada "
+                                     "chamada")
+                    corpo.append("\t%s %s" % (self.macro(nome), alvo_sp))
+                elif nome == "specialvar":
+                    corpo.append("\t%s %s, %s" % (self.macro(nome),
+                                                  self.var(args[0]),
+                                                  self.special_nome(args[1])))
                 elif nome in ("goto", "call"):
                     corpo.append("\t%s %s" % (self.macro(nome), alvo(args[0])))
                 elif nome in ("goto_if", "call_if"):
@@ -751,6 +896,12 @@ def plano():
     recusa = collections.Counter()
     censo = collections.Counter()
     docs = {}
+    # Motivo por MAPA DA FONTE do que a etapa 1 (inventario) ja barra, antes de
+    # qualquer traducao. Junta com o `por_mapa_motivo` da etapa 4 no fim, e e
+    # esse par que a FILA recebe: sem ele um mapa recusado aqui sairia da fila
+    # sem motivo nenhum, que e o silencio que esta fase inteira existe para
+    # nao deixar acontecer.
+    pre_motivo = collections.defaultdict(list)
 
     # 1. inventário: cada linha da fila vira uma ou mais ENTRADAS de map script.
     entradas = []
@@ -759,10 +910,12 @@ def plano():
         dp = de_para.get(chave)
         if dp is None:
             recusa["mapa da fonte fora do de-para do G3"] += 1
+            pre_motivo[chave].append("mapa da fonte fora do de-para do G3")
             continue
         caminho = "%s/data/maps/%s/map.json" % (RAIZ, dp["nome"])
         if not os.path.exists(caminho):
             recusa["map.json do mapa nao existe"] += 1
+            pre_motivo[chave].append("map.json do mapa nao existe")
             continue
         if caminho not in docs:
             docs[caminho] = json.load(open(caminho))
@@ -770,17 +923,21 @@ def plano():
             censo["tipo %d" % tipo] += 1
             if off is None:
                 recusa["ponteiro de map script fora da rom"] += 1
+                pre_motivo[chave].append("ponteiro de map script fora da rom")
                 continue
             if tipo in TIPOS_TABELA:
                 itens = tabela_de_map_script_tipo2(rom, off)
                 if not itens:
                     recusa["tabela de tipo 2/4 vazia"] += 1
+                    pre_motivo[chave].append("tabela de tipo 2/4 vazia")
                 for var, valor, alvo in itens:
                     entradas.append((chave, dp, caminho, tipo, var, valor, alvo))
-            elif tipo == 3:
+            elif tipo in TIPOS_DIRETOS:
                 entradas.append((chave, dp, caminho, tipo, None, None, off))
             else:
-                recusa["tipo %d de map script fora do bloco c3" % tipo] += 1
+                recusa["tipo %d de map script sem macro neste motor" % tipo] += 1
+                pre_motivo[chave].append(
+                    "tipo %d de map script sem macro neste motor" % tipo)
 
     # 2. quem precisa de flag de esconder: flag_fonte de objeto que ENTROU, nos
     #    mapas que recebem cena. Nada é alocado "por via das dúvidas".
@@ -814,13 +971,19 @@ def plano():
     def traduz(nome_var_de, nome_flag_de):
         """(cenas, recusas, mapas que usaram var, {(chave, flag)} acesas)."""
         fora, motivos, com_var, acesas = [], collections.Counter(), set(), set()
+        # Mesmo motivo, guardado POR MAPA DA FONTE: o Counter acima serve ao
+        # relatorio, e este serve a FILA, que cobra por mapa e precisa saber o
+        # que travou AQUELE mapa, e nao quantas vezes cada motivo apareceu.
+        por_mapa_motivo = collections.defaultdict(list)
         compartilhado = {}
         for chave, dp, caminho, tipo, var, valor, alvo in entradas:
             if alvo is None:
                 motivos["entrada de map script com ponteiro sujo"] += 1
+                por_mapa_motivo[chave].append("entrada de map script com ponteiro sujo")
                 continue
             if tipo in TIPOS_TABELA and not (0x4010 <= var < 0x4200):
                 motivos["tabela aponta para var que nao e de save"] += 1
+                por_mapa_motivo[chave].append("tabela aponta para var que nao e de save")
                 continue
             if tipo in TIPOS_TABELA and var_escolhida.get(chave) != var:
                 # O PREÇO do desenho "uma var por MAPA", dito em voz alta: a
@@ -829,6 +992,8 @@ def plano():
                 # com a primeira, que é o defeito calado que isto evita.
                 motivos["segundo estado no mesmo mapa: o desenho e uma var por "
                         "MAPA"] += 1
+                por_mapa_motivo[chave].append("segundo estado no mesmo mapa: o desenho e uma var por "
+                        "MAPA")
                 continue
             esconde = esconde_por_mapa[chave]
             nome = nome_var_de(chave)
@@ -838,10 +1003,12 @@ def plano():
                          {f: nome_flag_de(chave, f) for f in esconde}, musica)
             base = rotulo_de(chave, "t%d_%s" % (tipo, "x" if valor is None
                                                 else "v%d" % valor))
+            t.tipo_map_script = tipo
             try:
                 linhas_inc, usadas = t.cena(alvo, base)
             except Recusa as e:
                 motivos[str(e)] += 1
+                por_mapa_motivo[chave].append(str(e))
                 continue
             acesas |= {(chave, f) for f in t.usou_flag}
             if tipo in TIPOS_TABELA:
@@ -860,12 +1027,25 @@ def plano():
                              base=corpo_dono or base,
                              linhas=[] if corpo_dono else linhas_inc,
                              usadas=usadas))
-        return fora, motivos, com_var, acesas
+        return fora, motivos, com_var, acesas, por_mapa_motivo
 
-    _ensaio, _mot, com_var, acesas = traduz(
+    _ensaio, _mot, com_var, acesas, _pm = traduz(
         lambda c: "VAR_GALAR_ENSAIO", lambda c, f: "FLAG_GALAR_ENSAIO_%03X" % f)
 
     livres = vars_livres()
+    # TIRAR DA LISTA O QUE O IRMÃO JÁ TOMOU, e isto nasceu de um REPROVA de
+    # `dev_scripts/guarda_colisao_vars.py` em 06/09/2026, no bloco c6.
+    # `vars_livres()` apaga TODOS os blocos "Fase de conteudo de Galar" do
+    # header antes de medir (é o que mantém a alocação estável entre rodadas),
+    # então as vars que o c4d (`objetos_galar.py`) já gravou voltam a aparecer
+    # como livres. `aloca_append_only` só sabe do teto dos nomes DESTA rodada,
+    # e a primeira var nova caiu em 0x4113, em cima de `VAR_GALAR_G00M17_OBJ`.
+    # Duas cenas dividindo a mesma casa de save é defeito calado: o portão
+    # pegou, e o conserto é aqui, na entrada da alocação, não no portão.
+    ja_de_outro = {e for n, e in FL.apelidos_gravados(
+        VARS_H, "VAR_GALAR_", "UNUSED_0x").items()
+        if n not in {"VAR_GALAR_%s_CENA" % c.upper() for c in com_var}}
+    livres = [e for e in livres if e not in ja_de_outro]
     if len(com_var) > min(ORCAMENTO_VARS, len(livres) - RESERVA_VARS):
         raise SystemExit("PARE: %d mapas pedem var, o orcamento e %d e ha %d "
                          "livres" % (len(com_var), ORCAMENTO_VARS, len(livres)))
@@ -912,15 +1092,17 @@ def plano():
                   for i, (c, f) in enumerate(novas)})
 
 
-    aceitas, motivos, _cv, _ac = traduz(
+    aceitas, motivos, _cv, _ac, por_mapa_motivo = traduz(
         lambda c: vars_alocadas[c][0] if c in vars_alocadas else None,
         lambda c, f: nomes[(c, f)][0] if (c, f) in nomes else None)
     recusa.update(motivos)
+    for chave, ms in pre_motivo.items():
+        por_mapa_motivo[chave].extend(ms)
     # So o que o c3 alocou entra no bloco do header: a flag reusada do c4b
     # ja esta declarada la, e declarar duas vezes e colisao de verdade.
     return (aceitas, recusa, vars_alocadas,
             sorted(v for v in nomes.values() if v[1] is not None),
-            censo, docs)
+            censo, docs, por_mapa_motivo)
 
 
 # ------------------------------------------------------------------ saída ----
@@ -947,10 +1129,10 @@ def corpo_inc(aceitas):
 
 def corpo_scripts_inc(nome, aceitas_do_mapa):
     """A tabela `Galar_X_MapScripts` do mapa, com as cenas que passaram."""
-    out = ["@ Gerado por dev_scripts/cenas_galar.py (bloco c3 da fase de",
-           "@ conteudo). Rodar dev_scripts/mundo_galar.py apaga este arquivo;",
-           "@ rodar cenas_galar.py --aplicar o repoe. Corpo das cenas em",
-           "@ data/scripts/galar_cenas.inc.", "",
+    out = ["@ Gerado por dev_scripts/cenas_galar.py (blocos c3 e c6 da fase",
+           "@ de conteudo). Rodar dev_scripts/mundo_galar.py apaga este",
+           "@ arquivo; rodar cenas_galar.py --aplicar o repoe. Corpo das",
+           "@ cenas em data/scripts/galar_cenas.inc.", "",
            "%s_MapScripts::" % nome]
     tabelas = collections.defaultdict(list)
     diretos = []
@@ -960,11 +1142,10 @@ def corpo_scripts_inc(nome, aceitas_do_mapa):
         else:
             diretos.append(a)
     for a in diretos:
-        out.append("\tmap_script MAP_SCRIPT_ON_TRANSITION, %s" % a["base"])
+        out.append("\tmap_script %s, %s" % (MACRO_DIRETO[a["tipo"]], a["base"]))
     for tipo in sorted(tabelas):
-        macro = ("MAP_SCRIPT_ON_FRAME_TABLE" if tipo == 2
-                 else "MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE")
-        out.append("\tmap_script %s, %s_Tabela%d" % (macro, nome, tipo))
+        out.append("\tmap_script %s, %s_Tabela%d"
+                   % (MACRO_TABELA[tipo], nome, tipo))
     out.append("\t.byte 0")
     for tipo in sorted(tabelas):
         out.append("")
@@ -1049,7 +1230,7 @@ def aplica(aceitas, vars_alocadas, usadas_flag, docs, gravar):
 # ------------------------------------------------------------------ demo -----
 def demo():
     falhas = []
-    aceitas, recusa, vars_alocadas, usadas_flag, censo, docs = plano()
+    aceitas, recusa, vars_alocadas, usadas_flag, censo, docs, motivos_mapa = plano()
 
     # 1. A CONSTANTE que o rascunho errou. Tipo 3 e ON_TRANSITION, tipo 2 e
     #    ON_FRAME_TABLE: se o header da fonte mudar, este caso cai antes de o
@@ -1180,15 +1361,90 @@ def relatorio(aceitas, recusa, vars_alocadas, usadas_flag, censo, livres=None):
         print("  %5d  %s" % (c, m))
 
 
+# Motivo que NUNCA vai mudar sozinho: o dado da fonte nao existe ou nao e
+# legivel, e nenhuma decisao nossa o traz de volta. Linha assim vira
+# `descartada`. Todo o resto vira `adiada`, porque uma decisao futura (um
+# de-para de heal location, um special novo, uma var por mapa a mais) destrava.
+MOTIVO_TERMINAL = (
+    "cena vira no-op depois da traducao",
+    "entrada de map script com ponteiro sujo",
+    "ponteiro de map script fora da rom",
+    "decodificacao incompleta",
+    "tabela de tipo 2/4 vazia",
+    "tabela aponta para var que nao e de save",
+    "nao esconde objeto importado",
+    "mapa da fonte fora do de-para do G3",
+    "map.json do mapa nao existe",
+)
+
+
+def devolve_para_fila(aceitas, motivos_mapa, gravar):
+    """Escreve na fila o motivo MEDIDO de cada mapa de map_script recusado.
+
+    A fila cobra POR MAPA (`<chave>/map_script`) e calcula `feita` lendo a
+    arvore. O que ela nao sabe calcular e por que um mapa NAO entrou, e sem
+    isso as linhas voltam pendentes a cada varredura, sem nada escrito, e a
+    proxima rodada remede tudo de novo. Aqui o motivo volta como `status` +
+    `motivo_do_status`, que `fila_galar.decisoes_anteriores` preserva.
+
+    Mapa que RECEBEU cena nao e tocado: quem manda nele e o rotulo na arvore.
+    Linha que JA TEM decisao (`descartada` ou `adiada`) tambem nao e tocada,
+    pela lei do cabecalho de `fila_galar.py`: "status que alguem escreveu nao
+    pode ser apagado por uma regeneracao". Ate 06/09/2026 este laco so pulava
+    `feita`, e uma decisao escrita a mao pela condutora seria sobrescrita pelo
+    motivo do gerador na rodada seguinte, calada.
+    """
+    import json as _json
+    fila = f"{RAIZ}/dev_scripts/fila_galar.json"
+    doc = _json.load(open(fila))
+    feitos = {a["chave"] for a in aceitas}
+    n, quadro = 0, collections.Counter()
+    for l in doc["linhas"]:
+        if (l["tipo"] != "map_script"
+                or l["status"] in ("feita", "descartada", "adiada")):
+            continue
+        chave = l["mapa_fonte"]
+        if chave in feitos:
+            continue
+        ms = motivos_mapa.get(chave)
+        if not ms:
+            continue
+        conta = collections.Counter(ms)
+        texto = "; ".join("%s (x%d)" % (m, k) if k > 1 else m
+                          for m, k in conta.most_common())
+        st = ("descartada"
+              if all(any(t in m for t in MOTIVO_TERMINAL) for m in conta)
+              else "adiada")
+        novo = st, ("bloco c6, lote C da onda 1, 06/09/2026: " + texto)
+        if (l.get("status"), l.get("motivo_do_status")) != novo:
+            l["status"], l["motivo_do_status"] = novo
+            n += 1
+        quadro[st] += 1
+    if gravar and n:
+        with open(fila, "w") as f:
+            _json.dump(doc, f, indent=1, ensure_ascii=False)
+            f.write("\n")
+    return n, quadro
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--aplicar", action="store_true")
     ap.add_argument("--demo", action="store_true")
+    ap.add_argument("--fila", action="store_true",
+                    help="devolve o motivo medido de cada mapa recusado para "
+                         "dev_scripts/fila_galar.json (use junto com --aplicar "
+                         "para gravar)")
     a = ap.parse_args()
     if a.demo:
         raise SystemExit(demo())
-    aceitas, recusa, vars_alocadas, usadas_flag, censo, docs = plano()
+    aceitas, recusa, vars_alocadas, usadas_flag, censo, docs, motivos_mapa = plano()
     mudou, _corpo = aplica(aceitas, vars_alocadas, usadas_flag, docs, a.aplicar)
+    if a.fila:
+        n, quadro = devolve_para_fila(aceitas, motivos_mapa, a.aplicar)
+        print("fila: %d linhas de map_script ganharam motivo medido" % n)
+        for st, c in sorted(quadro.items()):
+            print("   %-12s %d" % (st, c))
     relatorio(aceitas, recusa, vars_alocadas, usadas_flag, censo)
     if a.aplicar:
         print("\ngravado: %r" % dict(mudou))

@@ -1,5 +1,8 @@
-@ Gerado por dev_scripts/mundo_galar.py (G2). Sem cena: o ponteiro de
-@ map script da fonte (0x016EA5A) esta anotado no censo para a fase de conteudo.
+@ Gerado por dev_scripts/cenas_galar.py (blocos c3 e c6 da fase
+@ de conteudo). Rodar dev_scripts/mundo_galar.py apaga este
+@ arquivo; rodar cenas_galar.py --aplicar o repoe. Corpo das
+@ cenas em data/scripts/galar_cenas.inc.
 
 Galar_Wyndon02_MapScripts::
+	map_script MAP_SCRIPT_ON_RESUME, GalarCena_G13M00_t5_x
 	.byte 0

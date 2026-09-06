@@ -1,0 +1,25 @@
+# Pedidos de map.json do LOTE C da onda 1 (Galar), 06/09/2026.
+# Gerado por dev_scripts/placas_galar_c.py.
+#
+# O lote C e dono de scripts.inc e de data/scripts/galar_*.inc, e
+# NAO escreve map.json nesta onda. Cada linha abaixo e um bg_event
+# que o fechador precisa acrescentar para a placa aparecer no jogo.
+# Enquanto ele nao entrar, o texto existe na ROM e a placa nao.
+#
+# Toda coordenada abaixo foi medida: o tile ja e parede ou placa
+# (MB_SIGNPOST, ou MB_NORMAL com colisao), e nao ha bg_event nenhum
+# nela hoje. As que nao passaram nesse portao NAO estao aqui; elas
+# ficaram bloqueadas na fila, com o motivo na linha.
+#
+# mapa | tipo | x | y | elevation | player_facing_dir | script
+
+Galar_Postwick11 | sign | 7 | 2 | 0 | BG_EVENT_PLAYER_FACING_ANY | GalarPlacaC_G01M120_bg0
+Galar_TrainerTower01 | sign | 8 | 10 | 0 | BG_EVENT_PLAYER_FACING_ANY | GalarPlacaC_G02M10_bg0
+Galar_Motostoke23 | sign | 31 | 11 | 0 | BG_EVENT_PLAYER_FACING_ANY | GalarPlacaC_G03M02_bg0
+Galar_Wyndon08 | sign | 13 | 4 | 0 | BG_EVENT_PLAYER_FACING_ANY | GalarPlacaC_G13M10_bg0
+
+# json pronto para colar em bg_events, mapa a mapa:
+#   Galar_Motostoke23: {"type": "sign", "x": 31, "y": 11, "elevation": 0, "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY", "script": "GalarPlacaC_G03M02_bg0"}
+#   Galar_Postwick11: {"type": "sign", "x": 7, "y": 2, "elevation": 0, "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY", "script": "GalarPlacaC_G01M120_bg0"}
+#   Galar_TrainerTower01: {"type": "sign", "x": 8, "y": 10, "elevation": 0, "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY", "script": "GalarPlacaC_G02M10_bg0"}
+#   Galar_Wyndon08: {"type": "sign", "x": 13, "y": 4, "elevation": 0, "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY", "script": "GalarPlacaC_G13M10_bg0"}
