@@ -270,7 +270,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "GalarFalaI_G12M10_o27",
       "flag": "0"
     },
     {
@@ -309,7 +309,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "GalarFalaI_G12M10_o33",
       "flag": "0"
     },
     {
@@ -365,7 +365,13 @@
       "y": 33,
       "elevation": 0,
       "dest_map": "MAP_GALAR_CIRCHESTER_06",
-      "dest_warp_id": "1"
+      "dest_warp_id": "1",
+      "porta_original": [
+        42,
+        33,
+        "fonte g12m17 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 32,

@@ -94,12 +94,49 @@ import fala_galar as FALA                      # noqa: E402
 import cenas_galar as C3                       # noqa: E402
 import guarda_colisao_vars as GUARDA           # noqa: E402
 import flags_livres as FL                       # noqa: E402
+import texto_placas_sinnoh as TXT               # noqa: E402  (requebra por px)
 
 INC = f"{RAIZ}/data/scripts/galar_objetos.inc"
 EVENT_S = f"{RAIZ}/data/event_scripts.s"
 BASE = FALA.BASE
 WARP_ID_NONE = 0xFF
 SEM_COORD = 0xFFFF
+
+# PRECEDENCIA DE CAMPO `script` (pedido do lote F da onda 2, 07/09/2026).
+#
+# Um object_event tem UM campo `script`, e mais de um gerador quer escrever
+# nele. A regra ja existia entre este arquivo e `fala_galar.py`, so que escrita
+# a mao nos dois: la, `GalarObj_*` (a cena inteira) vence `GalarFala_*` (a fala
+# solta), porque a cena ja contem a fala e sobrescrever apagaria a cena calado.
+#
+# `dev_scripts/portas_script_galar.py` entrou na onda 2 e reaponta o `script` de
+# alguns objetos para `GalarPorta_*` (data/scripts/galar_portas_script.inc): sao
+# as portas que o demake abre por script, e o rotulo NAO e derivavel da fonte
+# que estes dois geradores leem. Quem escrever por cima apaga a porta, e a
+# unica pista seria o jogador batendo numa porta que nao abre mais.
+#
+# Por isso a lista virou UMA constante, lida pelos dois geradores: quem entrar
+# depois acrescenta o prefixo aqui e nao em dois lugares.
+#
+# Medido em 07/09/2026: `galar_portas_script.inc` tem 12 rotulos `GalarPorta_*`
+# e ZERO map.json aponta para eles ainda (o lote F tambem entrega por pedido, e
+# o fechador e que cola). A guarda e portanto PREVENTIVA, e e exatamente por
+# isso que ela precisa entrar ANTES de o fechador colar: depois, o estrago ja
+# teria acontecido na primeira geracao seguinte.
+MANDAM_MAIS = ("GalarPorta_",)
+
+
+def manda_mais(script):
+    """O prefixo com precedencia sobre este gerador, ou None.
+
+    Recebe o valor que o `script` do map.json JA tem. Devolver algo diferente
+    de None significa "nao escreva aqui".
+    """
+    s = str(script or "")
+    for p in MANDAM_MAIS:
+        if s.startswith(p):
+            return p
+    return None
 
 # Faixa de Galar para as flags de ESCONDER do bloco c4b. 0x1C00-0x1C20 sao os
 # itens escondidos do G4, 0x1C21-0x1C58 as bolas do fala_galar.py, 0x1C59 a
@@ -607,6 +644,11 @@ def aplica(aceitas, docs, gravar, flags=None, variaveis=None,
             achados = [b for b in doc.get("bg_events", [])
                        if b.get("x") == a["x"] and b.get("y") == a["y"]]
             if len(achados) == 1:
+                dono = manda_mais(achados[0].get("script"))
+                if dono:
+                    recusa.append((a["base"], "%s tem precedencia neste bg"
+                                   % dono))
+                    continue
                 achados[0]["script"] = a["base"]
             elif not achados:
                 doc.setdefault("bg_events", []).append({
@@ -622,6 +664,10 @@ def aplica(aceitas, docs, gravar, flags=None, variaveis=None,
         i, motivo = FALA.casa_objeto(doc, a["x"], a["y"])
         if i is None:
             recusa.append((a["base"], motivo))
+            continue
+        dono = manda_mais(doc["object_events"][i].get("script"))
+        if dono:
+            recusa.append((a["base"], "%s tem precedencia neste objeto" % dono))
             continue
         doc["object_events"][i]["script"] = a["base"]
         mudou["objeto"] += 1
@@ -1045,6 +1091,695 @@ def devolve_para_fila(aceitas, motivos_linha, gravar):
     return n, quadro
 
 
+# ======================================================================== #
+# ONDA 2, LOTE I (07/09/2026): A FALA DE RESGATE, e o molde de enfermeira.
+#
+# O bloco c4a acima porta a CENA INTEIRA do objeto, e recusa por inteiro
+# quando falta uma peca (flag de motor do demake, var sem dono, opcode fora
+# do filtro, objeto que o G4 nao pos no mapa). O que sobra dessa recusa e um
+# NPC MUDO: a coluna `script` da completude conta object_event com `script`
+# diferente de "0", e 514 dos 1.260 NPCs de Galar estao em "0".
+#
+# MEDIDO nesta rodada, e e o mapa inteiro da obra que sobrou:
+#
+#     514 NPCs mudos
+#     115 sao objeto NOSSO, sem registro casavel na fonte (marinheiro da
+#         travessia, bola do fala_galar, tile com mais de um objeto nosso)
+#      48 tem registro na fonte e a FONTE tambem nao lhes da script
+#     351 tem PONTEIRO de script na fonte -- e TODOS os 351 ja estao na fila
+#
+# Ou seja: **nao existe NPC mudo com fala na fonte fora da fila**. A fila
+# cobre a obra inteira, e a conta de "os 514 menos os 198" nao e uma lista
+# nova de trabalho, e a repartição acima.
+#
+# Dos 351, 78 tem ponteiro MORTO (o primeiro byte ja e o enchimento 0xFF da
+# fonte): nao ha script nenhum para portar, e eles ficam mudos por FIDELIDADE.
+#
+# ## O que esta secao faz, e o que ela NAO faz
+#
+# Ela nao conserta a cena. Ela da voz ao NPC com a FALA QUE A FONTE TEM,
+# traduzida para o ingles pela decisao 32, e deixa a linha ABERTA na fila com
+# o motivo original mais o aviso de que a cena inteira continua devendo. O
+# rotulo e `GalarFalaI_`, que o `fila_galar.feitas()` NAO reconhece de
+# proposito: assim a fila continua cobrando a cena e a completude ja conta o
+# NPC como falante, que e a verdade dos dois lados.
+#
+# Duas leis, e as duas sao para nao inventar:
+#
+#   1. **A fala e a da via padrao.** Anda-se o script a partir do ponteiro
+#      seguindo a queda e o `goto`, sem entrar em `goto_if`: e a fala que o
+#      jogador ouve na PRIMEIRA vez que fala com o NPC, com toda flag ainda
+#      desligada. So quando a via padrao nao tem fala nenhuma e que se pega a
+#      primeira fala legivel de qualquer ramo.
+#   2. **Nada de efeito e prometido.** Se a via padrao entrega item, dinheiro,
+#      Pokemon, loja, batalha ou warp ANTES da fala, a linha nao e resgatada:
+#      dar so a frase mudaria o que o NPC faz. Efeito DEPOIS da fala e
+#      registrado na fila (`resgatada_com_cena_devendo`), porque hoje o NPC
+#      nao entrega nada de qualquer jeito -- ele esta mudo.
+#
+# ## O molde de enfermeira, e por que ele e o unico molde de mecanica aqui
+#
+# Dezesseis dos mudos sao a enfermeira do Centro Pokemon (`OBJ_EVENT_GFX_
+# NURSE_FRLG` com os specials 0x169 e 0x187 da fonte, ASSINATURA MEDIDA e nao
+# suposta: as outras onze enfermeiras mudas, as do Union Room e do Trade
+# Corner, tem outros specials e NAO entram). Enfermeira muda e Centro Pokemon
+# que nao cura, e o repo ja tem o molde pronto e em ingles,
+# `Common_EventScript_PkmnCenterNurse` (data/scripts/pkmn_center_nurse.inc),
+# usado por Azalea, Oldale e o resto. Reusar o molde e mais fiel do que
+# copiar a fala: a fonte tambem CURA.
+#
+# ## Este bloco NAO escreve map.json, e nem o .inc do c4a
+#
+# O `script` de cada object_event vai como PEDIDO em
+# `dev_scripts/onda2_lote_i_pedidos_mapjson.json` (secao `object_events`),
+# porque nesta onda o map.json de Galar tem outros donos. E o corpo sai em
+# `data/scripts/galar_objetos_i.inc`, arquivo proprio: `corpo_inc()` do c4a
+# reescreve `galar_objetos.inc` inteiro a cada `--aplicar`, e rotulo novo
+# dentro dele seria varrido na rodada seguinte.
+# ======================================================================== #
+
+INC_I = f"{RAIZ}/data/scripts/galar_objetos_i.inc"
+TEXTO_I = f"{RAIZ}/dev_scripts/resgate_galar_texto.json"
+PEDIDOS_I = f"{RAIZ}/dev_scripts/onda2_lote_i_pedidos_mapjson.json"
+
+NURSE_GFX = "OBJ_EVENT_GFX_NURSE_FRLG"
+# Assinatura MEDIDA da enfermeira que cura, na ROM do demake.
+NURSE_SPECIALS = frozenset((0x169, 0x187))
+
+# `callstd` da fonte -> caixa nossa. O 5 (YESNO) cai em DEFAULT: sem a cena, a
+# pergunta nao teria resposta, e perguntar sem ouvir e pior do que so falar.
+CAIXA = {2: "MSGBOX_NPC", 3: "MSGBOX_SIGN", 4: "MSGBOX_DEFAULT",
+         5: "MSGBOX_DEFAULT", 6: "MSGBOX_AUTOCLOSE"}
+
+# Comando que muda o que o jogador leva consigo. Nenhum deles pode acontecer
+# ANTES da fala resgatada.
+EFEITO_FORTE = frozenset((
+    "givemon", "giveegg", "givemoney", "removemoney", "checkmoney",
+    "giveitem", "removeitem", "checkitem", "givedecoration", "givecoins",
+    "takecoins", "pokemart", "pokemartdecoration", "setwildbattle",
+    "dowildbattle", "trainerbattle", "warp", "warpsilent", "warphole",
+    "warpteleport", "warpdoor", "setberrytree", "callnative"))
+
+# Decisao da condutora que NAO se reabre aqui: quem foi descartado por ela
+# fica mudo, e a linha nao volta so porque agora existe um molde de resgate.
+DECISAO_FECHADA = "decisao da condutora"
+
+# Marcador deste lote no motivo da fila, e o embrulho que separa o motivo novo
+# do que ja estava la. Os dois sao CONSTANTES porque `grava_fila_i` tem de
+# saber se ja escreveu nesta linha: sem marcador estavel, cada passada escreve
+# de novo e a fila nunca fica quieta.
+MARCA_I = "onda 2, lote I, 07/09/2026: "
+EMBRULHO_I = " || motivo de antes: "
+
+# TETO DA FALA DE RESGATE, medido nos textos da fonte: acima disto o que esta
+# pendurado no NPC nao e fala, e ROTEIRO DE CENA (o discurso do Leon no
+# estadio tem 1.900 caracteres e vinte caixas). Despejar o roteiro inteiro numa
+# caixa de "oi" seria pior do que o NPC mudo, e a cena continua na fila para
+# ser portada de verdade.
+TETO_DA_FALA = 500
+
+# O charmap devolve kana e simbolo de tabela grafica quando o ponteiro cai em
+# DADO que nao e texto. Fala de Galar nao tem kana: a presenca de um so ja diz
+# que a leitura saiu do texto.
+KANA = re.compile(r"[぀-ヿ一-鿿]")
+
+
+def _idioma_do_texto(texto):
+    """"pt", "en" ou "neutro" pela regua do portao, nunca por uma copia dela.
+
+    Importa `dev_scripts/qa/checa_texto.py` e usa os MESMOS marcadores e o
+    MESMO criterio do T07. Uma segunda implementacao aqui poderia ficar verde
+    com o portao vermelho, que e o pior resultado possivel de um autoteste.
+    """
+    import importlib
+    import sys as _sys
+    qa = os.path.join(RAIZ, "dev_scripts", "qa")
+    if qa not in _sys.path:
+        _sys.path.insert(0, qa)
+    ct = importlib.import_module("checa_texto")
+    limpo = re.sub(r"\{[^}]*\}", " ", texto or "")
+    for c in ("\\n", "\\l", "\\p"):
+        limpo = limpo.replace(c, " ")
+    en = len(ct.EN_MARCADORES.findall(limpo))
+    pt = len(ct.PT_MARCADORES.findall(limpo))
+    if en >= 2 and en > pt:
+        return "en"
+    if pt >= 2 and pt > en:
+        return "pt"
+    return "neutro"
+
+
+def fala_sadia(texto):
+    """Motivo pelo qual esta leitura NAO e fala, ou None."""
+    if not texto or not texto.strip():
+        return "o ponteiro da fonte aponta para texto VAZIO"
+    if KANA.search(texto):
+        return ("a leitura devolve kana: o ponteiro cai em dado da fonte, nao "
+                "em texto")
+    if sum(c.isalpha() for c in texto) < 3:
+        return "a leitura nao tem tres letras: nao e texto"
+    if len(texto) > TETO_DA_FALA:
+        return ("roteiro de cena, nao fala: %d caracteres, teto de %d"
+                % (len(texto), TETO_DA_FALA))
+    return None
+
+
+def via_padrao(rom, tab, off, maxi=400):
+    """[(nome, args)] da via que o jogador ve na PRIMEIRA conversa.
+
+    Segue a queda e o `goto`; NAO entra em `goto_if`, `call_if` nem `call`.
+    Com toda flag desligada e toda var em zero, que e o estado de save nova,
+    e essa a via que roda. Devolve tambem o motivo de parada, se houver.
+    """
+    saida, vistos = [], set()
+    while True:
+        if off in vistos or not (0 <= off < len(rom)):
+            return saida, "ramo repetido ou fora da rom"
+        vistos.add(off)
+        for _ in range(maxi):
+            op = rom[off]
+            if op not in tab:
+                return saida, "opcode 0x%02X" % op
+            nome, tams = tab[op]
+            if tams is None or nome == "trainerbattle":
+                return saida, "macro de tamanho variavel: " + nome
+            args, p = [], off + 1
+            for s in tams:
+                if p + s > len(rom):
+                    return saida, "fim de rom"
+                args.append(int.from_bytes(rom[p:p + s], "little"))
+                p += s
+            saida.append((nome, args))
+            if nome == "goto":
+                off = args[0] - BASE
+                break
+            if nome in ("end", "return"):
+                return saida, None
+            off = p
+        else:
+            return saida, "script longo demais"
+
+
+def fala_da_via(ins):
+    """(ponteiro do texto, caixa, indice da instrucao) da PRIMEIRA fala."""
+    guardado = None
+    for i, (nome, args) in enumerate(ins):
+        if nome == "loadword" and args[0] == 0:
+            guardado = args[1]
+            continue
+        if nome == "callstd" and guardado is not None and args[0] in CAIXA:
+            return guardado, args[0], i
+        if nome == "message":
+            return args[0], 4, i
+        if nome == "msgbox":
+            return args[0], (args[1] if len(args) > 1 else 4), i
+        guardado = None
+    return None, None, None
+
+
+def fala_de_qualquer_ramo(rom, tab, cmap, off):
+    """(texto, ponteiro, caixa) da primeira fala LEGIVEL em qualquer ramo."""
+    ins, _falha = C3.blocos(rom, tab, off)
+    for b in ins:
+        guardado = None
+        for nome, args in b.ins:
+            ptr = caixa = None
+            if nome == "loadword" and args[0] == 0:
+                guardado = args[1]
+                continue
+            if nome == "callstd" and guardado is not None and args[0] in CAIXA:
+                ptr, caixa = guardado, args[0]
+            elif nome == "message":
+                ptr, caixa = args[0], 4
+            elif nome == "msgbox":
+                ptr, caixa = args[0], (args[1] if len(args) > 1 else 4)
+            guardado = None
+            if ptr and BASE <= ptr < BASE + len(rom):
+                t, recusa = FALA.texto(rom, cmap, ptr - BASE)
+                if not recusa and t.strip():
+                    return t, ptr, caixa
+    return None, None, None
+
+
+def mudos_com_fonte():
+    """[dict] de todo NPC MUDO no nosso mapa que tem ponteiro na fonte.
+
+    A ponte entre o object_event nosso e a linha da fonte e a COORDENADA, o
+    mesmo `de_para_de_objetos` do c3: casar por ordem erraria nos 9 mapas em
+    que um objeto nosso entrou no meio da lista.
+    """
+    mundo = json.load(open(f"{RAIZ}/dev_scripts/galar_mundo.json"))["de_para"]
+    gente = json.load(open(FALA.CENSO_GENTE))["linhas"]
+    por_mapa = collections.defaultdict(list)
+    for l in gente:
+        por_mapa[l["mapa"]].append(l)
+    fila = {l["chave"]: l
+            for l in json.load(open(FALA.FILA))["linhas"]}
+    fora = []
+    for chave, d in sorted(mundo.items()):
+        caminho = "%s/data/maps/%s/map.json" % (RAIZ, d.get("nome", ""))
+        if not os.path.exists(caminho):
+            continue
+        doc = json.load(open(caminho))
+        de_para = C3.de_para_de_objetos(chave, doc, por_mapa)
+        inverso = {nosso - 1: fonte - 1 for fonte, nosso in de_para.items()}
+        for i, o in enumerate(doc.get("object_events") or []):
+            if o.get("origem") == "estaticos_galar":
+                continue
+            if str(o.get("script") or "0") not in ("0", ""):
+                continue
+            if i not in inverso:
+                continue
+            linha = fila.get("%s/objeto/%d" % (chave, inverso[i]))
+            if not linha or not linha.get("ponteiro_fonte"):
+                continue
+            fora.append(dict(chave=linha["chave"], mapa=d["nome"],
+                             indice=i, local_id=i + 1,
+                             grafico=o["graphics_id"], x=o["x"], y=o["y"],
+                             ponteiro=linha["ponteiro_fonte"],
+                             status=linha.get("status", "pendente"),
+                             motivo=linha.get("motivo_do_status", "")))
+    return fora
+
+
+def rotulo_i(chave):
+    mapa, _tipo, i = chave.split("/")
+    return "GalarFalaI_%s_o%d" % (mapa.upper(), int(i))
+
+
+def textos_traduzidos():
+    """{portugues da fonte: ingles} escrito a mao, com o glossario."""
+    if not os.path.exists(TEXTO_I):
+        return {}
+    return {e["pt"]: e["en"] for e in json.load(open(TEXTO_I))["entradas"]}
+
+
+def plano_i():
+    """(resgatados, recusados, sem_traducao) do lote I."""
+    rom = open(FALA.ROM_FONTE, "rb").read()
+    tab = FALA.tabela_de_opcodes()
+    cmap = FALA.charmap()
+    de_para = textos_traduzidos()
+    resgatados, recusados, sem_traducao = [], [], []
+
+    for m in mudos_com_fonte():
+        off = int(m["ponteiro"], 16)
+        if DECISAO_FECHADA in m["motivo"]:
+            recusados.append(dict(m, porque="a condutora ja decidiu que este "
+                                            "NPC fica mudo"))
+            continue
+        if not (0 <= off < len(rom)):
+            recusados.append(dict(m, porque="ponteiro da fonte fora da rom"))
+            continue
+        if rom[off] == C3.ENCHIMENTO:
+            recusados.append(dict(m, porque="ponteiro MORTO: o primeiro byte "
+                                            "ja e o enchimento 0xFF da fonte, "
+                                            "nao ha script para portar"))
+            continue
+
+        todos, _f = C3.blocos(rom, tab, off)
+        # `special func` tem UM argumento; `specialvar destino, func` tem DOIS,
+        # e o id do special e o SEGUNDO (`0x26 specialvar [2, 2]`, medido na
+        # tabela de opcodes). Ler `a[0]` nos dois casos colhia o endereco da var
+        # como se fosse special. Nao mudou a conta das enfermeiras (16 dos 27
+        # mudos com sprite de enfermeira casam pelos dois caminhos, medido em
+        # 07/09/2026, porque a assinatura 0x169/0x187 aparece como `special`),
+        # mas a leitura errada esperava so a proxima assinatura para mentir.
+        especiais = set()
+        for b in todos:
+            for n, a in b.ins:
+                if n == "special":
+                    especiais.add(a[0])
+                elif n == "specialvar" and len(a) > 1:
+                    especiais.add(a[1])
+        if (m["grafico"] == NURSE_GFX
+                and NURSE_SPECIALS <= especiais):
+            resgatados.append(dict(m, molde="enfermeira", rotulo=rotulo_i(m["chave"]),
+                                   pt=None, en=None, caixa=None,
+                                   efeito_depois=False))
+            continue
+
+        ins, parada = via_padrao(rom, tab, off)
+        ptr, caixa, ate = fala_da_via(ins)
+        de_onde = "via padrao"
+        if ptr is None:
+            texto, ptr, caixa = fala_de_qualquer_ramo(rom, tab, cmap, off)
+            de_onde = "ramo condicional"
+            if texto is None:
+                recusados.append(dict(m, porque=(
+                    "nenhuma fala legivel em ramo nenhum (via padrao parou em: "
+                    "%s)" % (parada or "fim do script"))))
+                continue
+            ate = len(ins)
+        else:
+            texto, recusa = FALA.texto(rom, cmap, ptr - BASE)
+            if recusa:
+                recusados.append(dict(m, porque="texto recusado: " + recusa))
+                continue
+        doente = fala_sadia(texto)
+        if doente:
+            recusados.append(dict(m, porque=doente))
+            continue
+        antes = {n for n, _a in ins[:ate]}
+        if antes & EFEITO_FORTE:
+            recusados.append(dict(m, porque=(
+                "a via padrao ja entrega %s ANTES da fala: so a frase mudaria "
+                "o que o NPC faz" % ", ".join(sorted(antes & EFEITO_FORTE)))))
+            continue
+        todos_os_nomes = {n for b in todos for n, _a in b.ins}
+        en = de_para.get(texto)
+        if en is None:
+            sem_traducao.append(dict(m, pt=texto))
+            continue
+        resgatados.append(dict(m, molde="fala", rotulo=rotulo_i(m["chave"]),
+                               pt=texto, en=TXT.requebra(en),
+                               caixa=CAIXA[caixa], de_onde=de_onde,
+                               efeito_depois=bool(todos_os_nomes
+                                                  & EFEITO_FORTE)))
+    return resgatados, recusados, sem_traducao
+
+
+def corpo_inc_i(resgatados):
+    out = ["@ ONDA 2, LOTE I: a fala de resgate de Galar (07/09/2026).",
+           "@ Gerado por dev_scripts/objetos_galar.py --lote-i; NAO editar a mao.",
+           "@",
+           "@ Cada rotulo aqui e um NPC que estava MUDO porque a cena inteira",
+           "@ dele foi recusada pelo bloco c4a. A cena continua devendo (a",
+           "@ linha segue aberta em dev_scripts/fila_galar.json); o que entra e",
+           "@ a fala que a FONTE tem, traduzida para o ingles pela decisao 32.",
+           "@ O de-para do texto esta em dev_scripts/resgate_galar_texto.json.",
+           "@",
+           "@ `GalarFalaI_` nao e reconhecido por fila_galar.feitas() de",
+           "@ proposito: a fila tem de continuar cobrando a cena.",
+           "@",
+           "@ O campo `script` de cada object_event esta pedido em",
+           "@ dev_scripts/onda2_lote_i_pedidos_mapjson.json.",
+           ""]
+    por_mapa = collections.defaultdict(list)
+    for r in resgatados:
+        por_mapa[(ordem_da_rota(r["mapa"]), r["mapa"])].append(r)
+    for chave in sorted(por_mapa):
+        out.append("@ ---- %s ----" % chave[1])
+        for r in sorted(por_mapa[chave], key=lambda z: z["chave"]):
+            out.append("@ %s, objeto local %d em (%d,%d)"
+                       % (r["chave"], r["local_id"], r["x"], r["y"]))
+            if r["molde"] == "enfermeira":
+                out += ["%s::" % r["rotulo"],
+                        "\tsetvar VAR_0x800B, %d" % r["local_id"],
+                        "\tcall Common_EventScript_PkmnCenterNurse",
+                        "\twaitmessage",
+                        "\twaitbuttonpress",
+                        "\trelease",
+                        "\tend", ""]
+                continue
+            out += ["%s::" % r["rotulo"],
+                    "\tlock",
+                    "\tfaceplayer",
+                    "\tmsgbox %s_Text, %s" % (r["rotulo"], r["caixa"]),
+                    "\trelease",
+                    "\tend", "",
+                    "%s_Text:" % r["rotulo"]]
+            partes = re.split(r"(\\[nlp])", r["en"])
+            linha = ""
+            for pedaco in partes:
+                if re.fullmatch(r"\\[nlp]", pedaco):
+                    out.append('\t.string "%s%s"' % (linha, pedaco))
+                    linha = ""
+                else:
+                    linha += pedaco
+            out.append('\t.string "%s$"' % linha)
+            out.append("")
+    return "\n".join(out) + "\n"
+
+
+def pedido_i(resgatados):
+    """A secao `object_events` do pedido de map.json, sem tocar o do vizinho."""
+    doc = {}
+    if os.path.exists(PEDIDOS_I):
+        doc = json.load(open(PEDIDOS_I))
+    doc.setdefault("_leia", "")
+    doc["gerado_por"] = sorted(set(doc.get("gerado_por", []))
+                               | {"dev_scripts/objetos_galar.py --lote-i"})
+    itens = []
+    for r in sorted(resgatados, key=lambda z: z["chave"]):
+        mapa = json.load(open("%s/data/maps/%s/map.json" % (RAIZ, r["mapa"])))
+        alvo = (mapa.get("object_events") or [])[r["indice"]]
+        hoje = str(alvo.get("script") or "0")
+        itens.append(
+            {"mapa": r["mapa"], "chave_da_fonte": r["chave"],
+             "indice_em_object_events": r["indice"], "local_id": r["local_id"],
+             "x": r["x"], "y": r["y"], "grafico": r["grafico"],
+             "campo": "script", "valor_hoje": hoje, "valor": r["rotulo"],
+             "molde": r["molde"],
+             # `ja_no_mapa` e para o FECHADOR, e existe porque parte do lote
+             # pode ja ter sido colada por outro dono antes de ele chegar. Sem
+             # este campo o unico jeito de saber seria reler map.json item a
+             # item, e o caminho barato seria colar de novo.
+             "ja_no_mapa": hoje == r["rotulo"]})
+    doc["object_events"] = itens
+    return json.dumps(doc, indent=1, ensure_ascii=False) + "\n"
+
+
+def grava_fila_i(resgatados, recusados, sem_traducao, gravar):
+    """Devolve o motivo MEDIDO de cada linha do lote I para a fila."""
+    doc = json.load(open(FALA.FILA))
+    por_chave = {l["chave"]: l for l in doc["linhas"]}
+    n, quadro = 0, collections.Counter()
+    for r in resgatados:
+        l = por_chave.get(r["chave"])
+        if l is None or DECISAO_FECHADA in l.get("motivo_do_status", ""):
+            continue
+        # IDEMPOTENCIA (07/09/2026). O motivo novo EMBRULHA o antigo, e o
+        # `antigo` saia de um `re.sub` que arranca o prefixo ate o primeiro
+        # ":". Rodando de novo, o prefixo arrancado passava a ser o do proprio
+        # lote I, o embrulho ganhava mais uma volta e a fila era reescrita
+        # inteira a cada passada: 168 linhas "mudavam" sem nada ter mudado, e a
+        # prova de "segunda aplicacao grava 0" nunca poderia fechar. O corte
+        # agora e pelo MARCADOR deste lote, e o texto de dentro e o de antes
+        # dele.
+        motivo_atual = l.get("motivo_do_status", "")
+        if MARCA_I in motivo_atual:
+            antigo = motivo_atual.split(EMBRULHO_I, 1)[-1]
+        else:
+            antigo = re.sub(r"^[^:]*: ", "", motivo_atual)
+        antigo = antigo or "sem motivo anterior"
+        if r["molde"] == "enfermeira":
+            texto = (MARCA_I + "enfermeira do Centro Pokemon; ganhou o molde "
+                     "do repo (Common_EventScript_PkmnCenterNurse) e volta a "
+                     "CURAR. A cena da fonte segue devendo.")
+        else:
+            texto = (MARCA_I + "fala de resgate escrita (%s, %s). A CENA "
+                     "INTEIRA continua devendo."
+                     % (r["rotulo"],
+                        "a cena da fonte ainda entrega item, loja, batalha ou "
+                        "warp depois da fala" if r["efeito_depois"]
+                        else "a fala era o unico efeito visivel da via padrao"))
+        novo = "adiada", texto + EMBRULHO_I + antigo
+        if (l.get("status"), l.get("motivo_do_status")) != novo:
+            l["status"], l["motivo_do_status"] = novo
+            n += 1
+        quadro["resgatada"] += 1
+    for r in recusados:
+        l = por_chave.get(r["chave"])
+        if l is None or DECISAO_FECHADA in l.get("motivo_do_status", ""):
+            continue
+        # LINHA JA FECHADA NAO REABRE POR RECUSA (07/09/2026). A versao
+        # anterior escrevia o motivo do lote I por cima de qualquer status, e
+        # isso levava 43 linhas de `descartada` de volta para `adiada` --
+        # trocando o motivo MEDIDO que as fechou (o dado da fonte nao existe ou
+        # nao decodifica) por "o resgate nao achou fala nela", que e mais fraco
+        # e nao e novidade nenhuma. Resgate e noticia; recusa de quem ja estava
+        # fechado nao e.
+        if l.get("status") == "descartada":
+            quadro["descartada, ja fechada antes"] += 1
+            continue
+        terminal = r["porque"].startswith("ponteiro MORTO")
+        novo = (("descartada" if terminal else "adiada"),
+                MARCA_I + r["porque"])
+        if (l.get("status"), l.get("motivo_do_status")) != novo:
+            l["status"], l["motivo_do_status"] = novo
+            n += 1
+        quadro["descartada" if terminal else "adiada"] += 1
+    # TEXTO SEM TRADUCAO ESCRITA. Nao e defeito de codigo nem recusa medida: e
+    # decisao de CONTEUDO, e o de-para so cresce quando alguem escreve o ingles
+    # a mao com o GLOSSARIO-GALAR.md. A linha fica ADIADA e dizendo isso, senao
+    # a proxima rodada acha que o resgate a examinou e desistiu.
+    for r in sem_traducao:
+        l = por_chave.get(r["chave"])
+        if l is None or DECISAO_FECHADA in l.get("motivo_do_status", ""):
+            continue
+        novo = ("adiada",
+                MARCA_I + "a fonte tem fala e o de-para de "
+                "dev_scripts/resgate_galar_texto.json ainda nao tem o ingles "
+                "dela; texto sem traducao, decisao de conteudo para o Gui. "
+                "O texto pendente esta listado em "
+                "dev_scripts/onda2_lote_i_falta_traduzir.json.")
+        if (l.get("status"), l.get("motivo_do_status")) != novo:
+            l["status"], l["motivo_do_status"] = novo
+            n += 1
+        quadro["sem traducao"] += 1
+    if gravar and n:
+        with open(FALA.FILA, "w") as f:
+            json.dump(doc, f, indent=1, ensure_ascii=False)
+            f.write("\n")
+    return n, quadro
+
+
+def aplica_i(resgatados, recusados, sem_traducao, gravar):
+    mudou = collections.Counter()
+    corpo = corpo_inc_i(resgatados)
+    if not os.path.exists(INC_I) or open(INC_I).read() != corpo:
+        mudou["galar_objetos_i.inc"] += 1
+        if gravar:
+            open(INC_I, "w").write(corpo)
+    ped = pedido_i(resgatados)
+    if not os.path.exists(PEDIDOS_I) or open(PEDIDOS_I).read() != ped:
+        mudou["pedidos_onda2"] += 1
+        if gravar:
+            open(PEDIDOS_I, "w").write(ped)
+    linha = '\t.include "data/scripts/galar_objetos_i.inc"'
+    s = open(EVENT_S).read()
+    if linha not in s:
+        mudou["event_scripts.s"] += 1
+        if gravar:
+            open(EVENT_S, "w").write(s.rstrip("\n") + "\n" + linha + "\n")
+    n, quadro = grava_fila_i(resgatados, recusados, sem_traducao,
+                             gravar)
+    mudou.update({"fila: " + k: v for k, v in quadro.items()})
+    mudou["fila"] += n
+    return mudou
+
+
+def demo_i():
+    ok = True
+
+    def caso(nome, cond):
+        nonlocal ok
+        print("  %-66s %s" % (nome, "ok" if cond else "REPROVOU"))
+        ok = ok and cond
+
+    resgatados, recusados, sem = plano_i()
+    todos = resgatados + recusados + sem
+    caso("nenhuma chave aparece duas vezes",
+         len({t["chave"] for t in todos}) == len(todos))
+    caso("todo resgatado tem rotulo unico",
+         len({r["rotulo"] for r in resgatados}) == len(resgatados))
+    caso("toda recusa tem motivo escrito",
+         all(r["porque"].strip() for r in recusados))
+    caso("nenhum resgatado veio de linha fechada pela condutora",
+         all(DECISAO_FECHADA not in r["motivo"] for r in resgatados))
+    caso("nenhum resgatado tinha script no mapa (todos eram mudos)",
+         all(str(json.load(open("%s/data/maps/%s/map.json"
+                                % (RAIZ, r["mapa"])))["object_events"]
+                 [r["indice"]].get("script") or "0") in ("0", "")
+             for r in resgatados))
+    falas = [r for r in resgatados if r["molde"] == "fala"]
+    caso("toda fala tem corpo", all(r["en"] and r["en"].strip() for r in falas))
+    # A regua e a MESMA do portao (`dev_scripts/qa/checa_texto.py`, T07), e nao
+    # uma segunda opiniao escrita aqui: se ela reprovar depois, tem de reprovar
+    # agora.
+    #
+    # A assertiva que estava aqui era `en != pt`, e ela REPROVAVA por medir a
+    # coisa errada. Medido em 07/09/2026: 23 das 152 falas saem com o ingles
+    # IGUAL ao portugues da fonte, e as 23 estao certas, porque o texto ja era
+    # ingles no demake. Prova, e nao opiniao: nas 23 o `PT_MARCADORES` do
+    # checa_texto acha ZERO marcador de portugues e o `EN_MARCADORES` acha pelo
+    # menos um, e TODO acento do ingles emitido pelas 152 esta dentro de
+    # "Pokemon"/"Poke"/"Pokedex" (40 ocorrencias, nenhuma fora). Traduzir o que
+    # ja esta em ingles seria reescrever, nao traduzir.
+    caso("nenhuma fala emitida e portugues pela regua do checa_texto T07",
+         not [r for r in falas if _idioma_do_texto(r["en"]) == "pt"])
+    # MUTACAO PLANTADA: o portugues da FONTE tem de ser reprovado por esta
+    # mesma regua. Sem isto, "nenhuma e portugues" poderia querer dizer so que a
+    # regua nao sabe reconhecer portugues nenhum.
+    pt_de_verdade = [r["pt"] for r in falas
+                     if r["en"] != r["pt"] and _idioma_do_texto(r["pt"]) == "pt"]
+    caso("a regua reprova o portugues da fonte (mutacao plantada)",
+         bool(pt_de_verdade))
+    largas = [(r["rotulo"], ln) for r in falas
+              for ln in re.split(r"\\[nlp]", r["en"])
+              if TXT.largura_px(ln) > TXT.LARGURA_CAIXA]
+    caso("nenhuma linha de fala passa de 208 px", not largas)
+    for r, ln in largas[:5]:
+        print("      %s: %r (%d px)" % (r, ln, TXT.largura_px(ln)))
+    # A caixa do motor NAO tem teto de tres linhas: da terceira em diante o
+    # `\l` ROLA (o proprio `texto_placas_sinnoh.requebra` emite assim, e
+    # `data/scripts/contest_hall.inc`, que e do pokeemerald e nao nosso, tem
+    # quatro caixas de mais de tres linhas). A assertiva que estava aqui cobrava
+    # esse teto e reprovava 16 falas cujo PORTUGUES DA FONTE ja tinha mais
+    # linhas ainda: das 16, a fonte chegava a 17 linhas numa caixa onde o ingles
+    # ficou com 9. Ou seja, ela reprovava o acerto.
+    #
+    # O que importa de verdade sao tres coisas, e as tres continuam medidas: a
+    # LARGURA (208 px, acima), o NUMERO DE CAIXAS igual ao da fonte (`\p` e
+    # troca de pagina, e trocar de pagina onde a fonte nao trocava e reescrever
+    # a cena) e o ingles nao INCHAR dentro da caixa.
+    #
+    # O teto do inchaco e uma linha por caixa, e ele e MEDIDO, nao arbitrado:
+    # em 07/09/2026, de 152 falas, UMA cresce, e cresce exatamente uma linha
+    # (uma caixa de uma linha virou duas, que e o tamanho natural da caixa antes
+    # de comecar a rolar). Duas linhas a mais numa caixa que a fonte fechava em
+    # uma nao e a lingua ser mais longa: e traducao que virou parafrase.
+    def _altura(texto):
+        return [len(re.split(r"\\[nl]", c)) for c in texto.split("\\p")]
+
+    def _incha(en, pt, teto=1):
+        ae, ap = _altura(en), _altura(pt)
+        return len(ae) != len(ap) or any(e - p > teto
+                                         for e, p in zip(ae, ap))
+
+    inchadas = [r["rotulo"] for r in falas if _incha(r["en"], r["pt"])]
+    caso("nenhuma caixa em ingles incha mais de uma linha sobre a fonte",
+         not inchadas)
+    for rot in inchadas[:5]:
+        print("      caixa inchada: %s" % rot)
+    # MUTACAO PLANTADA: duas linhas a mais numa caixa tem de ser vistas, e uma
+    # caixa a mais (um `\p` que a fonte nao tinha) tambem.
+    if falas:
+        pedacos = falas[0]["en"].split("\\p")
+        caso("duas linhas a mais na caixa sao vistas (mutacao plantada)",
+             _incha("\\p".join([pedacos[0] + "\\l" + "x" * 5 + "\\l" + "y" * 5]
+                               + pedacos[1:]), falas[0]["pt"]))
+        caso("uma pagina a mais e vista (mutacao plantada)",
+             _incha(falas[0]["en"] + "\\pzz", falas[0]["pt"]))
+    corpo = corpo_inc_i(resgatados)
+    caso("todo rotulo aparece uma vez so no .inc",
+         all(corpo.count("\n%s::" % r["rotulo"]) == 1 for r in resgatados))
+    caso("o molde de enfermeira so foi dado a sprite de enfermeira",
+         all(r["grafico"] == NURSE_GFX
+             for r in resgatados if r["molde"] == "enfermeira"))
+    # PAR NEGATIVO da lei 2: um NPC que entrega item antes de falar nao pode
+    # ser resgatado, porque a frase sozinha mentiria sobre o que ele faz.
+    caso("nenhum resgatado entrega item, loja, batalha ou warp ANTES da fala",
+         all("ANTES da fala" not in r.get("porque", "") for r in resgatados))
+    caso("quem entrega antes da fala esta entre os RECUSADOS",
+         any("ANTES da fala" in r["porque"] for r in recusados))
+    de_novo, _r2, _s2 = plano_i()
+    caso("rodar duas vezes da o mesmo plano",
+         [r["rotulo"] for r in de_novo] == [r["rotulo"] for r in resgatados])
+    caso("aplicar seco nao grava nada",
+         aplica_i(resgatados, recusados, sem, False) is not None)
+    # O motivo deste lote EMBRULHA o de antes. Duas marcas na mesma linha
+    # querem dizer que ele se embrulhou a si mesmo, e e o rastro exato do
+    # defeito de 07/09/2026, em que cada passada reescrevia as 168 linhas
+    # resgatadas e a fila nunca ficava quieta.
+    fila_doc = json.load(open(FALA.FILA))
+    dobradas = [l["chave"] for l in fila_doc["linhas"]
+                if (l.get("motivo_do_status") or "").count(MARCA_I) > 1]
+    caso("nenhuma linha da fila tem a marca do lote I duas vezes", not dobradas)
+    # A prova de verdade: com o lote ja aplicado, aplicar de novo grava ZERO.
+    # Antes de o lote rodar pela primeira vez ela nao vale, e por isso ela olha
+    # se ha marca na fila antes de cobrar.
+    ja_aplicado = any(MARCA_I in (l.get("motivo_do_status") or "")
+                      and l.get("tipo") == "script_objeto"
+                      for l in fila_doc["linhas"])
+    if ja_aplicado:
+        n_seco, _q = grava_fila_i(resgatados, recusados, sem, False)
+        caso("segunda aplicacao na fila grava 0", n_seco == 0)
+    print("\n%s" % ("demo do lote I verde" if ok else "DEMO DO LOTE I REPROVOU"))
+    return 0 if ok else 1
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--aplicar", action="store_true")
@@ -1052,7 +1787,42 @@ def main():
     ap.add_argument("--fila", action="store_true",
                     help="devolve o motivo medido de cada linha recusada para "
                          "dev_scripts/fila_galar.json (com --aplicar, grava)")
+    ap.add_argument("--lote-i", action="store_true", dest="lote_i",
+                    help="ONDA 2, LOTE I: a fala de resgate. NAO toca map.json "
+                         "nem galar_objetos.inc; escreve galar_objetos_i.inc, "
+                         "o pedido de map.json e a fila")
+    ap.add_argument("--demo-i", action="store_true", dest="demo_lote_i",
+                    help="autoteste so do lote I")
     a = ap.parse_args()
+    if a.demo_lote_i:
+        raise SystemExit(demo_i())
+    if a.lote_i:
+        resgatados, recusados, sem = plano_i()
+        print("LOTE I, fala de resgate")
+        por_molde = collections.Counter(r["molde"] for r in resgatados)
+        print("  resgatados: %d  %s" % (len(resgatados), dict(por_molde)))
+        print("  sem traducao escrita: %d (%d textos distintos)"
+              % (len(sem), len({s["pt"] for s in sem})))
+        print("  recusados: %d" % len(recusados))
+        conta = collections.Counter(
+            re.sub(r"0x[0-9A-Fa-f]+", "0xNN", r["porque"].split(":")[0])
+            for r in recusados)
+        for m, n in conta.most_common(12):
+            print("    %4d  %s" % (n, m))
+        mudou = aplica_i(resgatados, recusados, sem, a.aplicar)
+        print("\n%s: %s" % ("gravado" if a.aplicar else "mudaria", dict(mudou)))
+        if sem:
+            fora = "%s/dev_scripts/onda2_lote_i_falta_traduzir.json" % RAIZ
+            distintos = {}
+            for s in sorted(sem, key=lambda z: z["chave"]):
+                distintos.setdefault(s["pt"], []).append(s["chave"])
+            json.dump({"_leia": "textos da fonte sem traducao escrita em "
+                                "dev_scripts/resgate_galar_texto.json",
+                       "distintos": [{"pt": p, "chaves": c}
+                                     for p, c in sorted(distintos.items())]},
+                      open(fora, "w"), indent=1, ensure_ascii=False)
+            print("faltam traduzir: %s" % fora)
+        raise SystemExit(0)
     if a.demo:
         raise SystemExit(demo())
     aceitas, recusa, docs, flags, variaveis, esconde, motivos_linha = plano()

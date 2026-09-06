@@ -43,6 +43,43 @@ Entao a regra e: **so entra placa em tile que ja e parede ou placa** -- ou
 nele, so o encara) -- e cuja coordenada ainda nao tenha `bg_event` nenhum.
 Todo o resto sai com o motivo MEDIDO na linha, e a fila guarda o motivo.
 
+## ONDA 2, LOTE I (07/09/2026): as 21 bloqueadas ganham TILE VIZINHO
+
+**Decisao da condutora da onda 2**, e ela desempata a duvida que o lote C deixou
+aberta: a placa que a fonte pos num tile impossivel NAO e descartada, ela
+**anda para o tile livre e andavel mais proximo**. A busca e deterministica e
+para na primeira que serve: vizinhos em CRUZ (norte, sul, oeste, leste) e
+depois em DIAGONAL, primeiro a distancia 1 e depois a distancia 2.
+
+"Livre e andavel" e medido, nao suposto: metatile diferente de zero,
+comportamento `MB_NORMAL` ou `MB_SIGNPOST` (nenhum tile que ja e dono de uma
+interacao do motor: PC, porta, agua), COLISAO ZERO, e sem `bg_event`,
+`warp_event` ou `object_event` nenhum em cima. Uma placa em tile andavel nao
+rouba nada: `sign` so dispara com A na direcao dele, e pisar em cima nao faz
+nada (`src/field_control_avatar.c`).
+
+A placa de cima do PC do Centro Pokemon vira tile vizinho, e nao fala do PC:
+**medido nesta rodada**, o repo nao tem molde nenhum de PC falante -- `MB_PC`
+so aparece em `src/metatile_behavior.c:510` (`MetatileBehavior_IsPC`), e quem
+abre o PC e `GetInteractedMetatileScript`. Nao ha o que reusar, entao a regra
+do vizinho vale para as quatorze.
+
+## DOIS DEFEITOS DO LOTE C CONSERTADOS AQUI, os dois medidos
+
+1. **A colisao estava lida errada.** `bruto >> 10` NAO e a colisao: e a
+   colisao (2 bits) com a ELEVACAO por cima (`colisao | elevacao << 2`). Chao
+   andavel de elevacao 3 lia `12` e passava no teste `colisao != 0` do lote C,
+   ou seja, o portao "so parede" deixava passar chao. A leitura certa e
+   `(bruto >> 10) & 3` para colisao e `bruto >> 12` para elevacao, e e a que
+   `src/fieldmap.c` usa.
+2. **O gerador comia o proprio trabalho depois que o fechador colava o
+   pedido.** `plano()` bloqueava a linha cuja coordenada ja tivesse `bg_event`,
+   e depois que o fechador da onda 1 colou os quatro `bg_event` pedidos, os
+   quatro viraram "coordenada ja tem bg_event de precedencia maior" e o
+   `--aplicar` seguinte escreveria o `.inc` VAZIO. Agora, `bg_event` cujo
+   script e o NOSSO PROPRIO rotulo conta como placa JA COLOCADA e a linha
+   segue aceita, na coordenada em que ela esta no mapa.
+
 ## Este script NAO escreve map.json
 
 O `bg_event` de cada placa aceita e pedido em
@@ -67,6 +104,7 @@ FILA = f"{RAIZ}/dev_scripts/fila_galar.json"
 INC = f"{RAIZ}/data/scripts/galar_placas_c.inc"
 EVENT_S = f"{RAIZ}/data/event_scripts.s"
 PEDIDOS = f"{RAIZ}/dev_scripts/onda1_lote_c_pedidos_mapjson.txt"
+PEDIDOS_I = f"{RAIZ}/dev_scripts/onda2_lote_i_pedidos_mapjson.json"
 LAYOUTS = f"{RAIZ}/data/layouts/layouts.json"
 BEHAVIORS_H = f"{RAIZ}/include/constants/metatile_behaviors.h"
 
@@ -105,6 +143,64 @@ TEXTO = {
     # Predio grande de Wyndon com duas escadas internas e nove pessoas.
     "g13m10/bg/0": ("Building directory\\n"
                     "Lifts to the upper floors: rear."),
+
+    # ---- ONDA 2, LOTE I: as 21 que o lote C deixou bloqueadas por tile ----
+    #
+    # Quatorze delas sao a MESMA placa: o `bg_event` da fonte esta em cima do
+    # tile de PC do Centro Pokemon (metatile 897, MB_PC), e pela regra da
+    # condutora ela anda para o tile andavel mais proximo, que nos catorze e
+    # (4,4), o chao logo abaixo do PC. Texto igual nos catorze de proposito,
+    # como a placa repetida do jogo original: o que ela descreve e o PC, que e
+    # o mesmo movel em todos.
+    "g05m04/bg/0": ("Pokémon Storage System\\n"
+                    "The PC keeps your Boxes in order."),
+    "g06m05/bg/0": ("Pokémon Storage System\\n"
+                    "The PC keeps your Boxes in order."),
+    "g07m03/bg/0": ("Pokémon Storage System\\n"
+                    "The PC keeps your Boxes in order."),
+    "g08m00/bg/0": ("Pokémon Storage System\\n"
+                    "The PC keeps your Boxes in order."),
+    "g09m01/bg/0": ("Pokémon Storage System\\n"
+                    "The PC keeps your Boxes in order."),
+    "g10m12/bg/0": ("Pokémon Storage System\\n"
+                    "The PC keeps your Boxes in order."),
+    "g11m05/bg/0": ("Pokémon Storage System\\n"
+                    "The PC keeps your Boxes in order."),
+    "g12m05/bg/0": ("Pokémon Storage System\\n"
+                    "The PC keeps your Boxes in order."),
+    "g14m06/bg/0": ("Pokémon Storage System\\n"
+                    "The PC keeps your Boxes in order."),
+    "g21m00/bg/0": ("Pokémon Storage System\\n"
+                    "The PC keeps your Boxes in order."),
+    "g33m02/bg/0": ("Pokémon Storage System\\n"
+                    "The PC keeps your Boxes in order."),
+    "g34m01/bg/0": ("Pokémon Storage System\\n"
+                    "The PC keeps your Boxes in order."),
+    "g35m28/bg/0": ("Pokémon Storage System\\n"
+                    "The PC keeps your Boxes in order."),
+    "g36m00/bg/0": ("Pokémon Storage System\\n"
+                    "The PC keeps your Boxes in order."),
+    # Beira de mar: os oito tiles em volta da coordenada da fonte sao
+    # MB_OCEAN_WATER, e o mesmo trecho de costa aparece nos dois mapas.
+    "g03m00/bg/2": ("The sea starts here.\\n"
+                    "Deep water, all the way out."),
+    "g04m06/bg/2": ("The sea starts here.\\n"
+                    "Deep water, all the way out."),
+    # A coordenada da fonte e a propria porta (metatile 61, MB_ANIMATED_DOOR).
+    "g03m04/bg/0": "A door leads inside from here.",
+    # Rua de Motostoke, a cidade de aco e vapor do demake.
+    "g06m10/bg/0": ("Motostoke\\n"
+                    "Mind the steam vents."),
+    # Hulbury a beira-mar: o tile escolhido fica no cais, com agua ao lado.
+    "g08m07/bg/0": ("Hulbury\\n"
+                    "The catch of the day comes in here."),
+    # UNICA das 21 cujo ponteiro da fonte tem texto de verdade, e ele e
+    # maquinaria do FIRERED que este cartucho nao tem: "Pokémon Lecture" com um
+    # `multichoice` de quatro ramos sobre o Wireless Adapter. Portar o texto
+    # seria prometer ao jogador um aparelho que nao existe aqui, entao a placa
+    # fica com o ASSUNTO da fonte (a palestra) e nao com a promessa dela.
+    "g10m11/bg/1": ("Pokémon Lecture Hall\\n"
+                    "Talks are held here now and then."),
 }
 
 
@@ -161,24 +257,30 @@ def atributos(rotulo_tileset):
 
 
 def tile_de(mapa, x, y):
-    """(metatile, colisao, nome do comportamento) na coordenada do mapa."""
+    """(metatile, colisao, elevacao, nome do comportamento) na coordenada.
+
+    A colisao e `(bruto >> 10) & 3` e a elevacao e `bruto >> 12`, que e como
+    `src/fieldmap.c` le o bloco. O lote C usava `bruto >> 10` inteiro como se
+    fosse colisao, e com isso todo chao andavel de elevacao 3 lia `12` e
+    passava por parede no portao "so entra em tile com colisao".
+    """
     doc = json.load(open("%s/data/maps/%s/map.json" % (RAIZ, mapa)))
     lay = layouts()[doc["layout"]]
     dados = open("%s/%s" % (RAIZ, lay["blockdata_filepath"]), "rb").read()
     larg = lay["width"]
     if not (0 <= x < larg and 0 <= y < lay["height"]):
-        return None, None, "fora do layout"
+        return None, None, None, "fora do layout"
     bruto = struct.unpack_from("<H", dados, 2 * (y * larg + x))[0]
-    mid, col = bruto & 0x3FF, bruto >> 10
+    mid, col, elev = bruto & 0x3FF, (bruto >> 10) & 3, bruto >> 12
     # O corte primario/secundario de Galar e o do FRLG (640), que
     # `src/fieldmap.c:438` ja resolve por `isFrlg`/`bigPrimary`.
     ts = lay["primary_tileset"] if mid < 640 else lay["secondary_tileset"]
     idx = mid if mid < 640 else mid - 640
     a = atributos(ts)
     if a is None or 4 * idx + 4 > len(a):
-        return mid, col, "tileset sem atributo lido"
+        return mid, col, elev, "tileset sem atributo lido"
     beh = struct.unpack_from("<I", a, 4 * idx)[0] & 0x1FF
-    return mid, col, enum_behaviors().get(beh, "MB_%d" % beh)
+    return mid, col, elev, enum_behaviors().get(beh, "MB_%d" % beh)
 
 
 def bg_ocupado(mapa, x, y):
@@ -187,6 +289,71 @@ def bg_ocupado(mapa, x, y):
     for b in doc.get("bg_events") or []:
         if b.get("x") == x and b.get("y") == y:
             return str(b.get("script") or "sem script")
+    return None
+
+
+def onde_esta(mapa, rot):
+    """(x, y) do `bg_event` que JA carrega este rotulo no mapa, ou None.
+
+    Depois que o fechador cola o pedido, a placa passa a existir no
+    `map.json`. Sem esta leitura, `plano()` veria a coordenada ocupada, daria
+    a linha por bloqueada e o `--aplicar` seguinte escreveria o `.inc` sem
+    ela: o gerador comendo o proprio trabalho, calado.
+    """
+    doc = json.load(open("%s/data/maps/%s/map.json" % (RAIZ, mapa)))
+    for b in doc.get("bg_events") or []:
+        if str(b.get("script") or "") == rot:
+            return b["x"], b["y"]
+    return None
+
+
+def ocupado_por_evento(mapa, x, y):
+    """Motivo pelo qual a coordenada ja tem dono, ou None."""
+    doc = json.load(open("%s/data/maps/%s/map.json" % (RAIZ, mapa)))
+    for b in doc.get("bg_events") or []:
+        if b.get("x") == x and b.get("y") == y:
+            return "bg_event (%s)" % (b.get("script") or "sem script")
+    for w in doc.get("warp_events") or []:
+        if w.get("x") == x and w.get("y") == y:
+            return "warp_event"
+    for o in doc.get("object_events") or []:
+        if o.get("x") == x and o.get("y") == y:
+            return "object_event"
+    return None
+
+
+# A busca do tile vizinho, na ordem que a condutora fixou: cruz primeiro,
+# diagonal depois, distancia 1 antes de distancia 2. Determinista de ponta a
+# ponta: a primeira que serve ganha, e rodar de novo da o mesmo tile.
+CRUZ = ((0, -1), (0, 1), (-1, 0), (1, 0))
+DIAGONAL = ((-1, -1), (1, -1), (-1, 1), (1, 1))
+
+
+def serve_para_placa(mapa, x, y):
+    """(mid, col, elev, beh) se a placa pode morar aqui, senao None.
+
+    Livre e andavel: metatile diferente de zero, comportamento que NAO e dono
+    de interacao nenhuma do motor (`MB_NORMAL` ou `MB_SIGNPOST`), colisao
+    zero, e nenhum evento ja na coordenada.
+    """
+    mid, col, elev, beh = tile_de(mapa, x, y)
+    if mid in (0, None) or col != 0:
+        return None
+    if beh not in (BEH_INERTE, BEH_PLACA):
+        return None
+    if ocupado_por_evento(mapa, x, y):
+        return None
+    return mid, col, elev, beh
+
+
+def tile_vizinho(mapa, x, y):
+    """(x, y, mid, col, elev, beh) do tile livre e andavel mais proximo."""
+    for d in (1, 2):
+        for dx, dy in CRUZ + DIAGONAL:
+            nx, ny = x + dx * d, y + dy * d
+            serve = serve_para_placa(mapa, nx, ny)
+            if serve:
+                return (nx, ny) + serve
     return None
 
 
@@ -240,35 +407,55 @@ def plano():
         if not os.path.exists("%s/data/maps/%s/map.json" % (RAIZ, l["mapa"])):
             bloqueadas.append(dict(l, motivo="map.json do mapa nao existe"))
             continue
-        dono = bg_ocupado(l["mapa"], l["x"], l["y"])
-        if dono:
+        rot = rotulo(l["chave"])
+        texto = TEXTO.get(l["chave"])
+        xf, yf = l["x"], l["y"]
+
+        def aceita(x, y, mid, col, elev, beh, andou):
+            aceitas.append(dict(l, rotulo=rot, texto=TXT.requebra(texto),
+                                beh=beh, metatile=mid, colisao=col,
+                                elevacao=elev, x=x, y=y, x_fonte=xf,
+                                y_fonte=yf, deslocada=andou))
+
+        # 1. JA COLOCADA: o fechador colou o pedido e a placa esta no mapa.
+        posta = onde_esta(l["mapa"], rot)
+        if posta and texto is not None:
+            mid, col, elev, beh = tile_de(l["mapa"], *posta)
+            aceita(posta[0], posta[1], mid, col, elev, beh,
+                   posta != (xf, yf))
+            continue
+
+        # 2. O TILE. Primeiro a coordenada da FONTE com o portao do lote C
+        #    (parede ou placa, sem evento em cima); se ela nao serve, o tile
+        #    livre e ANDAVEL mais proximo, que e a regra da condutora da onda
+        #    2. A GEOMETRIA e conferida ANTES do texto de proposito: onde a
+        #    placa nao cabe, "falta texto" seria motivo falso, e mandaria a
+        #    proxima rodada escrever frase para uma placa que nao entra.
+        mid, col, elev, beh = tile_de(l["mapa"], xf, yf)
+        dono = ocupado_por_evento(l["mapa"], xf, yf)
+        if not dono and (beh == BEH_PLACA or (beh == BEH_INERTE and col)):
+            onde = (xf, yf, mid, col, elev, beh, False)
+        else:
+            viz = tile_vizinho(l["mapa"], xf, yf)
+            onde = viz + (True,) if viz else None
+
+        if onde is None:
+            porque = (("a coordenada (%d,%d) ja tem %s" % (xf, yf, dono))
+                      if dono else
+                      ("o bg da fonte cai no metatile %s (%s, colisao %s)"
+                       % (mid, beh, col)))
             bloqueadas.append(dict(l, motivo=(
-                "coordenada (%d,%d) ja tem bg_event de precedencia maior (%s)"
-                % (l["x"], l["y"], dono))))
+                "%s, e nenhum dos 16 tiles vizinhos (cruz e diagonal, "
+                "distancia 1 e 2) e livre e andavel: nao ha para onde a placa "
+                "andar" % porque)))
             continue
-        mid, col, beh = tile_de(l["mapa"], l["x"], l["y"])
-        if beh == BEH_PLACA or (beh == BEH_INERTE and col):
-            texto = TEXTO.get(l["chave"])
-            if texto is None:
-                bloqueadas.append(dict(l, motivo=(
-                    "tile serve (%s, colisao %s) mas nao ha texto escrito para "
-                    "esta placa" % (beh, col))))
-                continue
-            aceitas.append(dict(l, rotulo=rotulo(l["chave"]),
-                                texto=TXT.requebra(texto), beh=beh,
-                                metatile=mid, colisao=col))
-            continue
-        if beh == BEH_INERTE:
+
+        if texto is None:
             bloqueadas.append(dict(l, motivo=(
-                "o bg da fonte cai no metatile %s (%s, colisao %s): tile que o "
-                "jogador PISA e sem desenho de placa; o `sign` seria caixa de "
-                "texto saindo do chao" % (mid, beh, col))))
+                "o tile (%d,%d) serve, mas nao ha texto escrito para esta "
+                "placa" % (onde[0], onde[1]))))
             continue
-        bloqueadas.append(dict(l, motivo=(
-            "o bg da fonte cai no metatile %s (%s, colisao %s): um `sign` ali "
-            "viria ANTES de GetInteractedMetatileScript "
-            "(src/field_control_avatar.c:325) e roubaria a interacao do proprio "
-            "tile" % (mid, beh, col))))
+        aceita(*onde)
     return aceitas, bloqueadas
 
 
@@ -288,8 +475,11 @@ def corpo_inc(aceitas):
            ""]
     for l in sorted(aceitas, key=lambda z: z["chave"]):
         r = l["rotulo"]
-        out += ["@ ---- %s (%s), tile %s %s ----"
-                % (l["mapa"], l["chave"], l["metatile"], l["beh"]),
+        andou = ("" if not l.get("deslocada") else
+                 ", andou de (%d,%d) da fonte" % (l["x_fonte"], l["y_fonte"]))
+        out += ["@ ---- %s (%s) em (%d,%d)%s, tile %s %s ----"
+                % (l["mapa"], l["chave"], l["x"], l["y"], andou,
+                   l["metatile"], l["beh"]),
                 "%s::" % r,
                 "\tmsgbox %s_Text, MSGBOX_SIGN" % r,
                 "\tend", "",
@@ -308,9 +498,10 @@ def corpo_pedidos(aceitas):
            "# Enquanto ele nao entrar, o texto existe na ROM e a placa nao.",
            "#",
            "# Toda coordenada abaixo foi medida: o tile ja e parede ou placa",
-           "# (MB_SIGNPOST, ou MB_NORMAL com colisao), e nao ha bg_event nenhum",
-           "# nela hoje. As que nao passaram nesse portao NAO estao aqui; elas",
-           "# ficaram bloqueadas na fila, com o motivo na linha.",
+           "# (MB_SIGNPOST, ou MB_NORMAL com colisao), OU o tile livre e",
+           "# andavel mais proximo da coordenada da fonte (regra da condutora",
+           "# da onda 2), e nao ha evento nenhum nela hoje. As que nao",
+           "# passaram NAO estao aqui; elas ficaram bloqueadas na fila.",
            "#",
            "# mapa | tipo | x | y | elevation | player_facing_dir | script",
            ""]
@@ -331,6 +522,58 @@ def corpo_pedidos(aceitas):
     return "\n".join(out) + "\n"
 
 
+def pedido_onda2(aceitas):
+    """A secao `bg_events` do pedido de map.json da onda 2, lote I.
+
+    O arquivo tem DUAS secoes com donos diferentes (`bg_events` aqui,
+    `object_events` em dev_scripts/objetos_galar.py), e cada gerador reescreve
+    SO a sua: le o que esta em disco, troca a sua secao e grava. Sem isso o
+    segundo a rodar apagaria o pedido do primeiro, e o fechador colaria meio
+    lote sem saber.
+    """
+    doc = {}
+    if os.path.exists(PEDIDOS_I):
+        doc = json.load(open(PEDIDOS_I))
+    doc["_leia"] = (
+        "Pedidos de map.json da ONDA 2, LOTE I (Galar), 07/09/2026. O lote I e "
+        "dono de data/scripts/galar_objetos.inc, galar_placas_c.inc e dos "
+        "geradores deles, e NAO escreve map.json: cada item abaixo e uma "
+        "mudanca que o fechador precisa colar. Enquanto ela nao entrar, o "
+        "texto existe na ROM e a placa (ou a fala) nao esta no jogo.")
+    doc["gerado_por"] = sorted(set(doc.get("gerado_por", []))
+                               | {"dev_scripts/placas_galar_c.py"})
+    itens = []
+    for l in sorted(aceitas, key=lambda z: z["chave"]):
+        # `ja_no_mapa`: MEDIDO EM 07/09/2026, e o motivo de ele existir. Quatro
+        # dos 24 pedidos deste lote JA estavam colados no map.json quando o
+        # arquivo foi conferido (mesmo tile, mesmo rotulo, mesmo tipo), porque
+        # outro dono passou por ali antes. `acrescentar_em: bg_events` lido ao
+        # pe da letra poria um SEGUNDO bg_event no mesmo tile, e o motor le um
+        # so: a placa nova nasceria morta e ninguem veria, porque as duas
+        # existem e o mapa continua valido.
+        no_mapa = json.load(open("%s/data/maps/%s/map.json"
+                                 % (RAIZ, l["mapa"]))).get("bg_events") or []
+        igual = any(b.get("x") == l["x"] and b.get("y") == l["y"]
+                    and str(b.get("script") or "") == l["rotulo"]
+                    for b in no_mapa)
+        ocupado = any(b.get("x") == l["x"] and b.get("y") == l["y"]
+                      for b in no_mapa)
+        itens.append(
+            {"mapa": l["mapa"], "chave_da_fonte": l["chave"],
+             "x_da_fonte": l["x_fonte"], "y_da_fonte": l["y_fonte"],
+             "andou_para_tile_vizinho": bool(l.get("deslocada")),
+             "metatile": l["metatile"], "comportamento": l["beh"],
+             "acrescentar_em": "bg_events",
+             "ja_no_mapa": igual,
+             "tile_ja_ocupado_por_outro_bg": ocupado and not igual,
+             "valor": {"type": "sign", "x": l["x"], "y": l["y"],
+                       "elevation": 0,
+                       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+                       "script": l["rotulo"]}})
+    doc["bg_events"] = itens
+    return json.dumps(doc, indent=1, ensure_ascii=False) + "\n"
+
+
 def grava_fila(aceitas, bloqueadas, gravar):
     """Devolve o motivo de bloqueio para a FILA, que e a cobranca.
 
@@ -345,7 +588,7 @@ def grava_fila(aceitas, bloqueadas, gravar):
         l = por_chave.get(b["chave"])
         if l is None:
             continue
-        novo = "adiada", ("lote C da onda 1, 06/09/2026: " + b["motivo"])
+        novo = "adiada", ("onda 2, lote I, 07/09/2026: " + b["motivo"])
         if (l.get("status"), l.get("motivo_do_status")) != novo:
             l["status"], l["motivo_do_status"] = novo
             n += 1
@@ -368,6 +611,11 @@ def aplica(aceitas, bloqueadas, gravar):
         mudou["pedidos"] += 1
         if gravar:
             open(PEDIDOS, "w").write(ped)
+    ped2 = pedido_onda2(aceitas)
+    if not os.path.exists(PEDIDOS_I) or open(PEDIDOS_I).read() != ped2:
+        mudou["pedidos_onda2"] += 1
+        if gravar:
+            open(PEDIDOS_I, "w").write(ped2)
     linha = '\t.include "data/scripts/galar_placas_c.inc"'
     s = open(EVENT_S).read()
     if linha not in s:
@@ -402,26 +650,33 @@ def demo():
     # dispara coisa do motor. Se isso passar, quatorze Centros Pokemon de Galar
     # perdem o PC calados, que foi o achado que criou este arquivo.
     caso("nenhuma aceita esta em cima de PC, porta, agua ou vazio",
-         all(l["beh"] in (BEH_PLACA, BEH_INERTE) and
-             (l["beh"] == BEH_PLACA or l["colisao"]) and l["metatile"]
+         all(l["beh"] in (BEH_PLACA, BEH_INERTE) and l["metatile"]
              for l in aceitas))
-    pcs = [b for b in bloqueadas if "MB_PC" in b["motivo"]]
-    caso("as placas de cima do PC do Centro Pokemon estao BLOQUEADAS (14)",
+    # PAR NEGATIVO, e ele e o mesmo achado do lote C visto do outro lado:
+    # AGORA a placa entra, mas NUNCA no tile de PC. Basta uma delas parar em
+    # cima do PC para catorze Centros Pokemon perderem o PC calados.
+    pcs = [l for l in aceitas
+           if tile_de(l["mapa"], l["x_fonte"], l["y_fonte"])[3] == "MB_PC"]
+    caso("as 14 placas da fonte em cima do PC entraram (%d)" % len(pcs),
          len(pcs) == 14)
-    # PAR NEGATIVO do portao: uma placa plantada em cima de um tile de PC tem
-    # de ser recusada mesmo tendo texto escrito.
-    vitima = pcs[0] if pcs else None
-    caso("achou onde plantar o par negativo", vitima is not None)
-    if vitima:
-        salvo = TEXTO.get(vitima["chave"])
-        TEXTO[vitima["chave"]] = "Test."
-        a2, b2 = plano()
-        caso("placa com texto em cima do PC continua RECUSADA",
-             all(l["chave"] != vitima["chave"] for l in a2))
-        if salvo is None:
-            TEXTO.pop(vitima["chave"], None)
-        else:
-            TEXTO[vitima["chave"]] = salvo
+    caso("nenhuma delas ficou na coordenada do PC",
+         all((l["x"], l["y"]) != (l["x_fonte"], l["y_fonte"]) for l in pcs))
+    caso("nenhuma aceita divide coordenada com outro evento do mapa",
+         all(ocupado_por_evento(l["mapa"], l["x"], l["y"]) in
+             (None, "bg_event (%s)" % l["rotulo"]) for l in aceitas))
+    caso("toda placa deslocada ficou a no maximo dois tiles da fonte",
+         all(max(abs(l["x"] - l["x_fonte"]), abs(l["y"] - l["y_fonte"])) <= 2
+             for l in aceitas))
+    # DETERMINISMO: a busca do vizinho tem que dar o mesmo tile sempre, senao
+    # o pedido ao fechador e o .inc andam sozinhos entre duas rodadas.
+    de_novo, _ = plano()
+    caso("a busca do tile vizinho e deterministica",
+         [(l["chave"], l["x"], l["y"]) for l in de_novo]
+         == [(l["chave"], l["x"], l["y"]) for l in aceitas])
+    # E a leitura de colisao, que era o outro defeito do lote C: chao andavel
+    # de elevacao 3 nao pode voltar a ler como parede.
+    caso("colisao e 2 bits, nunca a elevacao junto",
+         all(l["colisao"] in (0, 1, 2, 3) for l in aceitas))
     # A regua de pixel e a mesma do qa/checa_texto.py.
     largas = [(l["rotulo"], ln) for l in aceitas
               for ln in re.split(r"\\[nlp]", l["texto"])

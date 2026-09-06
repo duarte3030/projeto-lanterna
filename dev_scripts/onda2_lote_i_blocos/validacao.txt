@@ -1,0 +1,13 @@
+lote I, onda 2, Frente A: validacao
+total       109
+com_en      107
+sem_en      2
+ok          107
+token       0
+paragrafo   0
+charmap     0
+largura     0
+entradas em resgate_galar_texto.json: 0 -> 107
+
+indices com problema (indice, chaves, o que falhou)
+(nenhum)

@@ -31,7 +31,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "GalarFalaI_G14M06_o0",
       "flag": "0"
     },
     {
@@ -80,7 +80,13 @@
       "y": 8,
       "elevation": 0,
       "dest_map": "MAP_GALAR_SPIKEMUTH_05",
-      "dest_warp_id": "0"
+      "dest_warp_id": "0",
+      "porta_original": [
+        6,
+        8,
+        "fonte g03m10 warp 6"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 7,
@@ -94,10 +100,26 @@
       "y": 8,
       "elevation": 0,
       "dest_map": "MAP_GALAR_SPIKEMUTH_05",
-      "dest_warp_id": "2"
+      "dest_warp_id": "2",
+      "porta_original": [
+        8,
+        8,
+        "fonte g03m10 warp 6"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     }
   ],
   "coord_events": [],
-  "bg_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GalarPlacaC_G14M06_bg0",
+      "origem": "placa do lote I (placas_galar_c.py)"
+    }
+  ],
   "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g14m06. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo."
 }

@@ -31,7 +31,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "GalarFalaI_G34M01_o0",
       "flag": "0"
     },
     {
@@ -84,6 +84,16 @@
     }
   ],
   "coord_events": [],
-  "bg_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GalarPlacaC_G34M01_bg0",
+      "origem": "placa do lote I (placas_galar_c.py)"
+    }
+  ],
   "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g34m01. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo."
 }

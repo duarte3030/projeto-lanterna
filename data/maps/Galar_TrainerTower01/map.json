@@ -25,7 +25,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "GalarFalaI_G02M10_o0",
       "flag": "0"
     },
     {
@@ -87,7 +87,13 @@
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_GALAR_TRAINER_TOWER_01",
-      "dest_warp_id": "0"
+      "dest_warp_id": "0",
+      "porta_original": [
+        9,
+        2,
+        "fonte g02m01 warp 1"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 9,
@@ -97,11 +103,17 @@
       "dest_warp_id": "11"
     },
     {
-      "x": 17,
-      "y": 8,
+      "x": 9,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_GALAR_TRAINER_TOWER_01",
-      "dest_warp_id": "2"
+      "dest_warp_id": "0",
+      "porta_original": [
+        17,
+        8,
+        "fonte g02m11 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 9,
@@ -120,6 +132,15 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "GalarPlacaC_G02M10_bg0"
+    },
+    {
+      "type": "sign",
+      "x": 17,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GalarPortaFechada",
+      "origem": "porta fechada (portas_mortas_galar.py)"
     }
   ],
   "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g02m10. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo."

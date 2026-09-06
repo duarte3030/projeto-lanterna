@@ -1,0 +1,19 @@
+{
+ "_leia": "textos da fonte sem traducao escrita em dev_scripts/resgate_galar_texto.json",
+ "distintos": [
+  {
+   "pt": "Mãe: Oi filho, fez uma pausa pra\\nver sua mãe?\\pPor que não descansa\\num pouco?",
+   "chaves": [
+    "g04m00/objeto/0"
+   ]
+  },
+  {
+   "pt": "Para onde você quer ir?",
+   "chaves": [
+    "g03m66/objeto/0",
+    "g09m09/objeto/0",
+    "g13m06/objeto/0"
+   ]
+  }
+ ]
+}

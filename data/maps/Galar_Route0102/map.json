@@ -148,11 +148,17 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 70,
-      "y": 21,
+      "x": 53,
+      "y": 24,
       "elevation": 0,
-      "dest_map": "MAP_GALAR_ROUTE01_02",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_GALAR_TURFFIELD_INDOOR_21",
+      "dest_warp_id": "0",
+      "porta_original": [
+        70,
+        21,
+        "fonte g04m02 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 18,
@@ -221,6 +227,24 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "GalarFala_G04M06_bg1"
+    },
+    {
+      "type": "sign",
+      "x": 70,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GalarPortaFechada",
+      "origem": "porta fechada (portas_mortas_galar.py)"
+    },
+    {
+      "type": "sign",
+      "x": 38,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GalarPlacaC_G04M06_bg2",
+      "origem": "placa do lote I (placas_galar_c.py)"
     }
   ],
   "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g04m06. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo. renomeado no G3: o grafo liga este mapa a Route01 (votos {'Route01': 2, 'Hammerlocke': 1}); papel MAP_TYPE_ROUTE pelo map_type"

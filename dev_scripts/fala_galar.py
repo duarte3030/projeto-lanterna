@@ -712,6 +712,52 @@ def substitui_bloco(texto_arq, bloco):
     return texto_arq[:i] + bloco + texto_arq[j:]
 
 
+def _traduzido(corpo, arquivo="data/scripts/galar_fala.inc"):
+    """`corpo` com cada bloco trocado pelo ingles de traducao_galar.json.
+
+    Faz EM MEMORIA o que `dev_scripts/aplica_traducao_galar.py` faz no disco, e
+    reusa as funcoes DELE (`_bloco`, `corpo_do_bloco`, `escreve_bloco`) de
+    proposito: uma segunda implementacao poderia fechar verde aqui com o
+    aplicador de verdade escrevendo outra coisa. Bloco sem entrada no JSON, ou
+    cujo portugues nao bate byte a byte, fica como esta -- e e assim que um
+    bloco NOVO aparece como diferenca em vez de sumir calado.
+    """
+    import aplica_traducao_galar as TRAD
+    caminho = f"{RAIZ}/dev_scripts/traducao_galar.json"
+    if not os.path.exists(caminho):
+        return corpo
+    for e in json.load(open(caminho, encoding="utf-8"))["entradas"]:
+        if e["arquivo"] != arquivo:
+            continue
+        achados = list(TRAD._bloco(e["rotulo"]).finditer(corpo))
+        if len(achados) != 1:
+            continue
+        m = achados[0]
+        atual, _cifrao = TRAD.corpo_do_bloco(m.group(3))
+        if atual != e["pt"]:
+            continue
+        corpo = (corpo[:m.start()]
+                 + TRAD.escreve_bloco(m.group(1), m.group(2), e["en"])
+                 + corpo[m.end():])
+    return corpo
+
+
+def _manda_mais(script):
+    """O prefixo de `script` com precedencia sobre a fala solta, ou None.
+
+    `GalarObj_*` e a cena inteira do bloco c4a, e ja contem a fala. Os outros
+    vem de `objetos_galar.MANDAM_MAIS`, que e a lista unica: hoje so
+    `GalarPorta_*`, do lote F da onda 2. O import e tardio porque
+    `objetos_galar` importa ESTE modulo, e no topo daria ciclo.
+    """
+    import objetos_galar
+    s = str(script or "")
+    for p in ("GalarObj_",) + tuple(objetos_galar.MANDAM_MAIS):
+        if s.startswith(p):
+            return p
+    return None
+
+
 def casa_objeto(mapa_json, x, y):
     """Indice UNICO do object event naquele tile, ou (None, motivo).
 
@@ -759,9 +805,18 @@ def aplica(falas, placas, bolas, gravar):
             # conjuntos sao disjuntos por construcao (este balde so pega
             # a_fala/b_flag e o c4a so pega c_var_cena), entao esta guarda e
             # cinto de seguranca, nao conserto de defeito visto.
-            if str(doc["object_events"][i].get("script", "")).startswith("GalarObj_"):
+            #
+            # LOTE F DA ONDA 2 (07/09/2026): `GalarPorta_*` entrou na mesma
+            # regra. `dev_scripts/portas_script_galar.py` reaponta o `script`
+            # de alguns objetos para a porta que o demake abre por script, e
+            # esse rotulo NAO e derivavel da fonte que este gerador le: escrever
+            # por cima apagaria a porta sem deixar rastro. A lista dos prefixos
+            # que mandam mais mora em `objetos_galar.MANDAM_MAIS`, um lugar so.
+            dono = _manda_mais(doc["object_events"][i].get("script"))
+            if dono:
                 recusa.append({"chave": l["chave"],
-                               "motivo": "cena do c4a tem precedencia sobre a fala"})
+                               "motivo": "%s tem precedencia sobre a fala"
+                                         % dono})
                 continue
             doc["object_events"][i]["script"] = l["rotulo"]
             mudou["fala"] += 1
@@ -964,11 +1019,35 @@ def demo():
     if corpo1 != corpo2:
         falhas.append("o .inc nao e estavel entre duas geracoes")
     mudou, _r = aplica(falas, placas, bolas, gravar=False)
-    aplicado = os.path.exists(INC) and open(INC).read() == corpo1
+    # O .inc no disco NAO e a saida crua deste gerador, e nao e desde a decisao
+    # 32 (commit 2f16420f7c, 06/09/2026): entre os dois existe
+    # `dev_scripts/aplica_traducao_galar.py`, que troca o portugues de cada
+    # bloco pelo ingles de `dev_scripts/traducao_galar.json`, casando por
+    # ROTULO. Esta comparacao ignorava esse passo e por isso vinha REPROVANDO
+    # desde aquele commit: media a saida crua contra um arquivo ja traduzido.
+    # Medido em 07/09/2026, antes do conserto: os rotulos e todas as linhas que
+    # nao sao `.string` batiam exatamente; so o texto diferia, com 542 acentos
+    # do lado do gerador e 132 do lado do disco.
+    #
+    # A comparacao certa e do PIPELINE INTEIRO: gera, traduz em memoria,
+    # compara. Assim ela volta a medir o que interessa (o gerador saiu do
+    # lugar) sem cobrar do gerador um trabalho que nao e dele, e um bloco novo
+    # que a traducao ainda nao cobre aparece como diferenca, que e exatamente o
+    # aviso que se quer.
+    esperado = _traduzido(corpo1)
+    aplicado = os.path.exists(INC) and open(INC).read() == esperado
     if os.path.exists(INC) and not aplicado:
         falhas.append("data/scripts/galar_fala.inc gravado NAO e o que este "
-                      "gerador produz hoje (mutacao a mao, ou fonte mudou): "
-                      "rode --aplicar")
+                      "gerador produz hoje MAIS a traducao de "
+                      "dev_scripts/traducao_galar.json (mutacao a mao, fonte "
+                      "mudou, ou bloco novo sem traducao): rode --aplicar e "
+                      "depois aplica_traducao_galar.py --aplica")
+    # MUTACAO PLANTADA: sem a traducao, a comparacao TEM de reprovar. Sem esta
+    # linha, um `_traduzido` que devolvesse o arquivo do disco fecharia verde
+    # medindo a si mesmo.
+    if os.path.exists(INC) and esperado == corpo1:
+        falhas.append("a traducao nao mudou nada no corpo gerado: a comparacao "
+                      "do .inc esta medindo a si mesma")
     if aplicado and mudou["mapa"]:
         falhas.append("segunda passada ainda mexeria em %d mapas: nao e idempotente"
                       % mudou["mapa"])

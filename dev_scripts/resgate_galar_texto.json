@@ -1,0 +1,433 @@
+{
+ "_leia": "de-para escrito a mao para o lote I da onda 2 da Frente A, com o GLOSSARIO-GALAR.md; o ingles ja sai requebrado a 208 px",
+ "entradas": [
+  {
+   "pt": " elcome to the Pokémon Wireless\\nClub Union Room.\\pYou may interact directly with\\nother Trainers here, some of\\lwhom you may not even know.\\pWould you like to enter the Room?",
+   "en": " elcome to the Pokémon Wireless\\nClub Union Room.\\pYou may interact directly with\\nother Trainers here, some of\\lwhom you may not even know.\\pWould you like to enter the Room?"
+  },
+  {
+   "pt": "AM?você que jogar no cassino,\\nentão você vai precisar disso!",
+   "en": "AM?If you want to play at the casino,\\nthen you're going to need this!"
+  },
+  {
+   "pt": "Bem vindo de volta campeão agora\\ntemos mais opçoes para de torneios\\lpara você participar.",
+   "en": "Welcome back, Champion! Now we have\\nmore tournament options for you\\lto take part in."
+  },
+  {
+   "pt": "Bem-vindo à Estação de Trem!!!",
+   "en": "Welcome to the Train Station!!!"
+  },
+  {
+   "pt": "Ei treinador, tenho um pokemon bem\\ndiferente do padrão aqui,Por que\\lnão fica ele?",
+   "en": "Hey, Trainer, I have a Pokémon here\\nthat's quite different from the\\lusual. Why don't you keep it?"
+  },
+  {
+   "pt": "Ei, {PLAYER}, aqui tem uma boa\\nvista da Isle of armor quer da\\luma olhada com o kubfu?\\p{PLAYER}:Claro!",
+   "en": "Hey, {PLAYER}, there's a good view of\\nthe Isle of Armor from here. Want to\\ltake a look with Kubfu?\\p{PLAYER}: Sure!"
+  },
+  {
+   "pt": "Estou um pouco desgastado com a\\nvida de músico... você\\lconsideraria adquirir a minha\\lPoké Flute? Estou oferecendo por\\lum preço especial de apenas\\l¥5000.",
+   "en": "I'm a little worn out by the\\nmusician's life... would you\\lconsider buying my Poké Flute?\\lI'm offering it at a special price\\lof just ¥5000."
+  },
+  {
+   "pt": "Eu amo esse Falinks mas eu não sou\\num treinador muito bom\\lpor favor treine ele!",
+   "en": "I love this Falinks, but I'm not a\\nvery good Trainer. Please train\\lit for me!"
+  },
+  {
+   "pt": "Eu sou especialista em varios\\nataques pokemon, qual gostaria que\\leu ensiasse ao seu pokemon?",
+   "en": "I'm a specialist in all sorts of\\nPokémon moves. Which one would you\\llike me to teach your Pokémon?"
+  },
+  {
+   "pt": "Eu vou lutar com tudo!!!",
+   "en": "I'm going to fight with all I've got!!!"
+  },
+  {
+   "pt": "FNeto: Percorri um longo caminho\\npara lutar contra você, mas só\\lposso fazer isso depois que você\\lderrotar Leon primeiro.",
+   "en": "FNeto: I came a long way to battle\\nyou, but I can only do that after\\lyou beat Leon first."
+  },
+  {
+   "pt": "Go ahead! Laugh!\\nI’m flat-out busted!\\pNo more slots for me!\\nI’m going straight!\\pHere!\\nI won’t be needing this anymore!",
+   "en": "Go ahead! Laugh!\\nI'm flat-out busted!\\pNo more slots for me!\\nI'm going straight!\\pHere!\\nI won't be needing this anymore!"
+  },
+  {
+   "pt": "Gostaria de comprar Beast Balls?",
+   "en": "Would you like to buy Beast Balls?"
+  },
+  {
+   "pt": "Gostaria de comprar as Mega\\nStones?",
+   "en": "Would you like to buy Mega Stones?"
+  },
+  {
+   "pt": "Gostaria de comprar as Z crystal?",
+   "en": "Would you like to buy Z-Crystals?"
+  },
+  {
+   "pt": "Gostaria de trocar seu Boltund\\npelo meu Mudkip?",
+   "en": "Would you like to trade your Boltund\\nfor my Mudkip?"
+  },
+  {
+   "pt": "Gostaria de trocar seu Carkol\\npelo meu Cyndaquil?",
+   "en": "Would you like to trade your Carkol\\nfor my Cyndaquil?"
+  },
+  {
+   "pt": "Gostaria de trocar seu Corvsquire\\npelo meu Froakie?",
+   "en": "Would you like to trade your\\nCorvisquire for my Froakie?"
+  },
+  {
+   "pt": "Gostaria de trocar seu Diglett\\npelo meu Torchic?",
+   "en": "Would you like to trade your Diglett\\nfor my Torchic?"
+  },
+  {
+   "pt": "Gostaria de trocar seu Drakloak\\npelo meu Chespin?",
+   "en": "Would you like to trade your Drakloak\\nfor my Chespin?"
+  },
+  {
+   "pt": "Gostaria de trocar seu Drednaw\\npelo meu Totodile?",
+   "en": "Would you like to trade your Drednaw\\nfor my Totodile?"
+  },
+  {
+   "pt": "Gostaria de trocar seu Dubwool\\npelo meu Turtwig?",
+   "en": "Would you like to trade your Dubwool\\nfor my Turtwig?"
+  },
+  {
+   "pt": "Gostaria de trocar seu Eevee\\npelo meu Piplup?",
+   "en": "Would you like to trade your Eevee\\nfor my Piplup?"
+  },
+  {
+   "pt": "Gostaria de trocar seu Eevee\\npelo meu Tepig?",
+   "en": "Would you like to trade your Eevee\\nfor my Tepig?"
+  },
+  {
+   "pt": "Gostaria de trocar seu Eldegoss\\npelo minha Chikorita?",
+   "en": "Would you like to trade your Eldegoss\\nfor my Chikorita?"
+  },
+  {
+   "pt": "Gostaria de trocar seu Galarian-Yamask\\npelo meu Popplio?",
+   "en": "Would you like to trade your Galarian\\nYamask for my Popplio?"
+  },
+  {
+   "pt": "Gostaria de trocar seu Galarian-Zigzagoon\\npelo meu Litten?",
+   "en": "Would you like to trade your Galarian\\nZigzagoon for my Litten?"
+  },
+  {
+   "pt": "Gostaria de trocar seu Girafarig\\npelo meu Treecko?",
+   "en": "Would you like to trade your Girafarig\\nfor my Treecko?"
+  },
+  {
+   "pt": "Gostaria de trocar seu Greedent\\npelo meu Fennekin?",
+   "en": "Would you like to trade your Greedent\\nfor my Fennekin?"
+  },
+  {
+   "pt": "Gostaria de trocar seu Houndour\\npelo meu Oshawott?",
+   "en": "Would you like to trade your Houndour\\nfor my Oshawott?"
+  },
+  {
+   "pt": "Gostaria de trocar seu Leafeon\\npelo meu Rowlet?",
+   "en": "Would you like to trade your Leafeon\\nfor my Rowlet?"
+  },
+  {
+   "pt": "Gostaria de trocar seu Meowth\\npelo meu Snivy?",
+   "en": "Would you like to trade your Meowth\\nfor my Snivy?"
+  },
+  {
+   "pt": "Gostaria de trocar seu Rockruff\\npelo meu Chespin?",
+   "en": "Would you like to trade your Rockruff\\nfor my Chespin?"
+  },
+  {
+   "pt": "Gostaria de trocar seu Thievul\\npelo meu Mudkip?",
+   "en": "Would you like to trade your Thievul\\nfor my Mudkip?"
+  },
+  {
+   "pt": "Guarda:Ah, um desafiante de ginasio!\\nPermita-me verificar suas insignias!\\pA insignia da grama,a insignia da\\nagua e a insignia do fogo,\\pesta confirmado que voce derrotou\\nos tres lideres de ginasio, incluindo\\po lider de Motostoke!\\nEu Desejo-lhe boa sorte em suas\\pfuturas batalhas!",
+   "en": "Guard: Ah, a Gym Challenger!\\nLet me check your Badges!\\pThe Grass Badge, the Water Badge\\nand the Fire Badge,\\pit is confirmed that you have beaten\\nthe three Gym Leaders, including\\pthe Gym Leader of Motostoke!\\nI wish you good luck in your\\pfuture battles!"
+  },
+  {
+   "pt": "HOP:Isso é um absurdo ... Mesmo\\nLee nunca chega tão tarde. Algo\\lnão está certo.\\pEle sempre faz o que diz que fará.\\nQuando criança, ele me prometeu\\lque se tornaria campeão um dia, e\\lele foi e fez exatamente isso !\\pEle deve ser capaz de manter seus\\nproprios planos para o jantar!",
+   "en": "HOP: This is absurd... Even Lee is\\nnever this late. Something isn't\\lright.\\pHe always does what he says he'll do.\\nWhen we were kids, he promised me\\lhe'd become Champion one day, and\\lhe went and did exactly that!\\pHe ought to be able to keep his own\\ndinner plans!"
+  },
+  {
+   "pt": "Hello, {PLAYER}!\\pIt’s me, Teala, the Pokémon\\nCenter 2F attendant.\\pIs there something you needed to\\nask me about linking?",
+   "en": "Hello, {PLAYER}!\\pIt’s me, Teala, the Pokémon\\nCenter 2F attendant.\\pIs there something you needed to\\nask me about linking?"
+  },
+  {
+   "pt": "Hey!\\pYou have better things to do,\\nchamp in the making!\\pCeladon Gym’s Leader is Erika.\\pShe is a user of Grass-type\\nPokémon, and at one with nature.\\pShe might appear docile because of\\nher flower arranging…\\pBut she’s not one to be taken\\nlightly!",
+   "en": "Hey!\\pYou have better things to do,\\nchamp in the making!\\pCeladon Gym’s Leader is Erika.\\pShe is a user of Grass-type\\nPokémon, and at one with nature.\\pShe might appear docile because of\\nher flower arranging…\\pBut she’s not one to be taken\\nlightly!"
+  },
+  {
+   "pt": "Hey, what? You’re throwing me off!\\nHere are some Coins, so shoo!",
+   "en": "Hey, what? You’re throwing me off!\\nHere are some Coins, so shoo!"
+  },
+  {
+   "pt": "Hi, there!\\nMay I help you?",
+   "en": "Hi, there!\\nMay I help you?"
+  },
+  {
+   "pt": "Hop: Conseguiu o emblema do\\nginásio, {PLAYER}? Bom!",
+   "en": "Hop: Did you get the Gym Badge,\\n{PLAYER}? Nice!"
+  },
+  {
+   "pt": "Hop: O que há com esse nevoeiro!\\né ainda pior do que a primeira\\lvez que viemos aqui...",
+   "en": "Hop: What is up with this fog!\\nIt's even worse than the first time\\lwe came here..."
+  },
+  {
+   "pt": "Hop: Olha! Aí está o professor!",
+   "en": "Hop: Look! There's the Professor!"
+  },
+  {
+   "pt": "Hop: Você veio também?!\\pAh, o Motostoke Stadium. É aqui que\\na Cerimônia de Abertura vai acontecer!\\pTodos vão ver a abertura.\\nMinha mãe...sua mãe...todo mundo!\\pIsso me deixa nervoso, sério!\\nNa verdade, estou muito empolgado!\\pVamos, {PLAYER}!\\nÉ hora do mundo conhecer nossos \\lnomes.",
+   "en": "Hop: You came too?!\\pAh, the Motostoke Stadium. This is\\nwhere the Opening Ceremony will be!\\pEveryone is going to watch it.\\nMy mum...your mum...everyone!\\pIt makes me nervous, honestly!\\nActually, I'm really excited!\\pLet's go, {PLAYER}!\\nIt's time for the world to learn\\lour names."
+  },
+  {
+   "pt": "Hop:Arghhh!Eu perdi!Foi tudo por\\nágua a baixo!\\pDeve ter havido algo de errado com\\nminha estratégia,mas fiz\\lexatamente o que o Lee fazeria na\\lbatalha!\\pAqui! Pega!é o cartão da\\nliga do lider do ginásio.\\lVocê pode vê algumas informaçoes\\lsobre ele",
+   "en": "Hop: Arghhh! I lost! It was all for\\nnothing!\\pSomething must have been wrong with\\nmy strategy, but I did exactly what\\lLee would have done in the battle!\\pHere! Take it! It's the Gym Leader's\\nLeague Card.\\lYou can see some information about\\lthem on it"
+  },
+  {
+   "pt": "Hop:Primeiro aquela floresta,\\ndepois aquele teste maluco...Eu\\lme perdi em todos os sentidos da\\lpalavra!\\lMas parece que finalmente\\lo encontrei de novo.\\pVenha comigo\\lpara a Rota 7!Eu poderia usar um\\lpouco de competição para me\\lmotivar!",
+   "en": "Hop: First that forest, then that\\ncrazy test...I got lost in every\\lsense of the word!\\lBut it looks like I finally found\\lit again.\\pCome with me to Route 7! I could use\\na bit of competition to keep me\\lmotivated!"
+  },
+  {
+   "pt": "I’m the Day-Care Man.\\pI help take care of the precious\\nPokémon of Trainers.\\pIf you’d like me to raise your\\nPokémon, have a word with my wife.",
+   "en": "I’m the Day-Care Man.\\pI help take care of the precious\\nPokémon of Trainers.\\pIf you’d like me to raise your\\nPokémon, have a word with my wife."
+  },
+  {
+   "pt": "I’m the Fishing Guru’s older\\nbrother.\\pI simply looove fishing!\\nI can’t bear to go without.\\pTell me, do you like to fish?",
+   "en": "I’m the Fishing Guru’s older\\nbrother.\\pI simply looove fishing!\\nI can’t bear to go without.\\pTell me, do you like to fish?"
+  },
+  {
+   "pt": "I’m the Fishing Guru’s younger\\nbrother.\\pI simply looove fishing!\\nI can’t bear to go without.\\pTell me, do you like to fish?",
+   "en": "I’m the Fishing Guru’s younger\\nbrother.\\pI simply looove fishing!\\nI can’t bear to go without.\\pTell me, do you like to fish?"
+  },
+  {
+   "pt": "Jean Stars: Olá jogador, sou Jean\\nstars, eu criei esta versão\\lUltimate! quando você vencer o\\lLeon volte para ter uma batalha\\lde pokémon comigo!",
+   "en": "Jean Stars: Hello, player, I'm Jean\\nstars, I made this Ultimate version!\\lWhen you beat Leon, come back to\\lhave a Pokémon battle with me!"
+  },
+  {
+   "pt": "KJ: Olá meu nome é KJ,\\nvenha lutar comigo quando você\\lderrotar o Leon!",
+   "en": "KJ: Hello, my name is KJ, come and\\nbattle me once you have beaten\\lLeon!"
+  },
+  {
+   "pt": "Kid, do you want to play?",
+   "en": "Kid, do you want to play?"
+  },
+  {
+   "pt": "Leon: Como está o grande campeão?\\nAinda empolgada com tudo isso,\\lcomprei um presente para você!\\lVocê já ouviu falar da ilha de\\larmadura? É uma ilha incrível\\lcheia de desafios, eu fui lá\\lquando era mais novo e acho que\\lvocê deveria ir lá também, basta\\lapresentar este passe ao guarda\\lda estação de trem!",
+   "en": "Leon: How is the great Champion\\ndoing? Still buzzing about it all,\\lI bought you a present!\\lHave you heard of the Isle of Armor?\\lIt's an amazing island full of\\lchallenges. I went there when I was\\lyounger and I think you should go\\lthere too. Just show this pass to\\lthe guard at the Train Station!"
+  },
+  {
+   "pt": "Marnie:Olá,{PLAYER},acabei\\nde enfrentar a Opal.\\pGanhei tambem seu cart o da\\nLiga,Você já tem um dela?\\p{PLAYER}:Sim!\\pMarnie:Legal!\\pTenho varios, de muita gente.\\nPega uns aqui pra você!",
+   "en": "Marnie: Hello, {PLAYER}, I have just\\nfaced Opal.\\pI won her League Card too. Do you\\nalready have one of hers?\\p{PLAYER}: Yes!\\pMarnie: Cool!\\pI have loads of them, from lots of\\npeople. Take a few for yourself!"
+  },
+  {
+   "pt": "Minha Filha n o para de chorar.\\pEu não sei o que fazer...",
+   "en": "My daughter will not stop crying.\\pI do not know what to do..."
+  },
+  {
+   "pt": "Mr. Fuji: {PLAYER}…\\pYour Pokédex quest is one that\\nrequires strong dedication.\\pWithout deep love for Pokémon,\\nyour quest may fail.\\pI’m not sure if this will help you,\\nbut I’d like you to have it.",
+   "en": "Mr. Fuji: {PLAYER}…\\pYour Pokédex quest is one that\\nrequires strong dedication.\\pWithout deep love for Pokémon,\\nyour quest may fail.\\pI’m not sure if this will help you,\\nbut I’d like you to have it."
+  },
+  {
+   "pt": "Nessa: você deve ser o\\ndesafiante, certo? você é um dos\\lendossantes do leon você se\\ltornou um tópico muito quente\\lentre os líderes então senhor\\lfamoso estou pronto para você\\lentão me conheça melhor também me\\lsiga para o estádio eu amo pescar\\lmas eu amo mais batalhas de\\lpokemon e estou interessado em\\luma batalha contra você.",
+   "en": "Nessa: you must be the challenger,\\nright? You are one of Leon's\\lendorsees. You have become a very\\lhot topic among the Leaders, so,\\lmister famous, I am ready for you.\\lSo get to know me better and follow\\lme to the stadium. I love fishing,\\lbut I love Pokémon battles more,\\land I am interested in a battle\\lagainst you."
+  },
+  {
+   "pt": "Não me atrapalhe, estou no meio de\\numa batalha!",
+   "en": "Do not get in my way, I am in the\\nmiddle of a battle!"
+  },
+  {
+   "pt": "Não posso deixar voce passar!",
+   "en": "I cannot let you through!"
+  },
+  {
+   "pt": "O Hotel Budew está reservado\\npara os participantes dos \\pDesafios de Ginásio!",
+   "en": "The Budew Hotel is reserved for\\nthose taking part in the\\pGym Challenge!"
+  },
+  {
+   "pt": "O que Freezingtong pode te\\noferecer, jovem?",
+   "en": "What can Freezingtong offer you,\\nyoung one?"
+  },
+  {
+   "pt": "OAK: Agora, {PLAYER}.\\pDentro dessas POKé BOLAS\\ntem POKéMON.\\pQual delas que vai escolher\\npara você?    ",
+   "en": "OAK: Now, {PLAYER}.\\pInside these Poké Balls\\nthere are Pokémon.\\pWhich one will you choose\\nfor yourself?"
+  },
+  {
+   "pt": "Ola essa é a Wild area 4\\nou tambem Huge Hill ela tem 2\\lpartes aqui você encontra\\lesses pokemons.\\l",
+   "en": "Hello, this is Wild Area 4, also\\ncalled Huge Hill. It has 2 parts.\\lHere you can find these Pokémon."
+  },
+  {
+   "pt": "Ola jovem eu tenho um pokemon\\nmuito bom para treinadores\\liniciantes vocã quer ele?",
+   "en": "Hello, young one, I have a very good\\nPokémon for beginner Trainers.\\lDo you want it?"
+  },
+  {
+   "pt": "Olá jovem estou muito cançado\\npara andar, e meu Mudsdale fugiu,\\lvocê viu ele?",
+   "en": "Hello, young one, I am too tired to\\nwalk, and my Mudsdale ran off.\\lHave you seen it?"
+  },
+  {
+   "pt": "Olá! você gostaria de comprar\\ntodas as formas do Rotom por\\l¥10000?",
+   "en": "Hello! Would you like to buy all of\\nRotom's forms for ¥10000?"
+  },
+  {
+   "pt": "Olá, gostaria de trocar o seu\\npokémon pelo meu Hawlucha?",
+   "en": "Hello, would you like to trade your\\nPokémon for my Hawlucha?"
+  },
+  {
+   "pt": "Opal: Hammelock sempre uma cidade\\nempoeirada.\\pembora eu suponha que alguns pokemons\\nprefiram assim.",
+   "en": "Opal: Hammerlocke is always a dusty\\ncity.\\pThough I suppose some Pokémon\\nprefer it that way."
+  },
+  {
+   "pt": "PROF.MAG: Sinta-se a vontade para ver\\nalguns POKéMON raro no PC?\\pVá lá, veja em meu PC.   ",
+   "en": "PROF.MAG: Feel free to look at some\\nrare Pokémon on the PC?\\pGo ahead, take a look on my PC."
+  },
+  {
+   "pt": "Prefeito: que você está\\ninteressado em alguns livros\\lsobre sementes, meu jovem. Já que\\lvocê quer estudar este assunto,\\lacho melhor você ter isso.",
+   "en": "Mayor: So you're interested in some\\nbooks about seeds, young man. Since you\\lwant to study this subject, I think\\lyou'd better have this."
+  },
+  {
+   "pt": "Prepare-se para a encrenca,\\ne já avisamos que será em dobro.\\lPara proteger o mundo da\\ldevastação!\\lPara unir as pessoas de nossa\\lnação!\\lPara denunciar os males da\\lverdade e do amor!\\lPara estender o nosso poder  s\\lestrelas!\\lJesse!\\lJames!\\lEquipe Rocket decolando na\\lvelocidade da luz!\\lRenda-se agora ou preparem-se\\lPara lutar!\\lMeowth, é isso ai!",
+   "en": "Prepare for trouble, and we're warning\\nyou it will be double. To protect the\\lworld from devastation! To unite the\\lpeople of our nation! To denounce the\\levils of truth and love! To extend our\\lpower to the stars! Jessie! James! Team\\lRocket blasting off at the speed of\\llight! Surrender now or prepare to\\lfight! Meowth, that's right!"
+  },
+  {
+   "pt": "SONIA:Olá,  jogador ! Você\\ndeu uma boa surra em Raihan, e\\lisso significa que você completou\\lo Gym Challenge! Parabéns, do\\lfundo do meu coraç o! Eu\\lrealmente gostaria que pudéssemos\\lcomemorar, mas acho que há\\lalgumas coisas sobre as quais\\ldevemos conversar. Aquela luz que\\lcobria Hammerlocke... Era como o\\lDia Mais Sombrio, onde dizem que\\lPokémon gigantes explodiram e\\lquase destruíram toda a regi o de\\lGalar.",
+   "en": "SONIA:Hello, player! You gave Raihan a\\nreal beating, and that means you've\\lcompleted the Gym Challenge!\\lCongratulations, from the bottom of my\\lheart! I'd really love it if we could\\lcelebrate, but I think there are some\\lthings we should talk about. That light\\lthat covered Hammerlocke... It was like\\lthe Darkest Day, when they say giant\\lPokémon exploded and almost destroyed\\lthe whole Galar region."
+  },
+  {
+   "pt": "Sem batalhas por enquanto!",
+   "en": "No battles for now!"
+  },
+  {
+   "pt": "Sisu: Lute comigo quando vencer o\\nLeon.",
+   "en": "Sisu: Battle me when you beat Leon."
+  },
+  {
+   "pt": "Sônia: Ah, você está aqui.\\nBrilhantes, não são? é ótimo que\\lainda existam tapeçarias\\lpreciosas que podem nos contar\\lsobre a história de Galar.",
+   "en": "Sonia: Ah, you're here. Brilliant, aren't\\nthey? It's great that there are still\\lprecious tapestries that can tell us\\labout Galar's history."
+  },
+  {
+   "pt": "Thank you for accessing the\\nMystery Gift System.",
+   "en": "Thank you for accessing the Mystery\\nGift System."
+  },
+  {
+   "pt": "Uh …\\nAh, sim, sou o Move Deleter.\\pEu posso fazer Pokémon esquecer sua\\nmovimentos.\\pVocê gostaria que eu fizesse isso?.",
+   "en": "Uh... Ah, yes, I'm the Move Deleter.\\pI can make a Pokémon forget its moves.\\pWould you like me to do that?"
+  },
+  {
+   "pt": "Voce precisa de duas insiginias\\npara passar!",
+   "en": "You need two Badges to get through!"
+  },
+  {
+   "pt": "Vocês são desafiantes de ginasio\\ncerto?\\ppor hoje podem descansar\\n amanha sera a cerimonia de abertura.",
+   "en": "You're Gym Challengers, right?\\pYou can rest for today. Tomorrow will be\\nthe Opening Ceremony."
+  },
+  {
+   "pt": "Vou animar o publico, mesmo sem\\nusar o Dynamax!",
+   "en": "I'm going to fire up the crowd, even\\nwithout using Dynamax!"
+  },
+  {
+   "pt": "Vou derrotar o campeão, ganhar o\\ntorneio inteiro e provar ao mundo\\lo quão forte o grande Raihan\\lrealmente é!",
+   "en": "I'm going to beat the Champion, win the\\nwhole tournament and prove to the\\lworld just how strong the great Raihan\\lreally is!"
+  },
+  {
+   "pt": "We exchange your Coins for prizes.",
+   "en": "We exchange your Coins for prizes."
+  },
+  {
+   "pt": "Welcome to Rocket Game Corner!\\pDo you need some game Coins?\\nWould you like to buy some?",
+   "en": "Welcome to Rocket Game Corner!\\pDo you need some game Coins? Would you\\nlike to buy some?"
+  },
+  {
+   "pt": "Welcome to the Pokémon Wireless\\nClub Direct Corner.\\pYou may interact directly with\\nyour friends here.\\pWhich room would you like to\\nenter?",
+   "en": "Welcome to the Pokémon Wireless Club\\nDirect Corner.\\pYou may interact directly with your\\nfriends here.\\pWhich room would you like to enter?"
+  },
+  {
+   "pt": "Welcome to the S.S. Anne!",
+   "en": "Welcome to the S.S. Anne!"
+  },
+  {
+   "pt": "What’s up?\\nWant some Coins?",
+   "en": "What's up? Want some Coins?"
+  },
+  {
+   "pt": "Yo!\\nChamp in the making!\\pThe hotheaded Blaine is a Fire\\nPokémon pro.\\pDouse his spirits with water!\\pYou’d better take some\\nBurn Heals, too.",
+   "en": "Yo! Champ in the making!\\pThe hotheaded Blaine is a Fire Pokémon\\npro.\\pDouse his spirits with water!\\pYou'd better take some Burn Heals, too."
+  },
+  {
+   "pt": "You look tired.\\nYou should take a quick nap.",
+   "en": "You look tired. You should take a quick\\nnap."
+  },
+  {
+   "pt": "aquelas tape arias falam dos\\nHerois de galar do passado.\\lRaihan:Eu suponho se nos\\ltiversemos um heroi moderno ele\\lseria tipo o campeão Leon\\lesculte {PLAYER}\\pRaihan:Seu desafio é derrotar a\\nsuper estrela Leon.\\lentã va para a rota 6\\le treine pelo caminho todo!",
+   "en": "Those tapestries tell of the heroes of\\nGalar from the past. Raihan:I suppose if\\lwe had a modern hero, he would be like\\lChampion Leon. Listen, {PLAYER}\\pRaihan:Your challenge is to defeat the\\nsuperstar Leon. So head for Route 6 and\\ltrain the whole way there!"
+  },
+  {
+   "pt": "buááá\\p {PLAYER}:essa menina está chorando muito!",
+   "en": "Waaah\\p{PLAYER}:This girl is crying a lot!"
+  },
+  {
+   "pt": "o fly taxi ja esta disponivel.",
+   "en": "The Flying Taxi is available now."
+  },
+  {
+   "pt": "ola {PLAYER} como anda sua jornada?",
+   "en": "Hello, {PLAYER}, how is your journey\\ngoing?"
+  },
+  {
+   "pt": "ola {PLAYER} este é o laboratorio\\nda Sonia.\\pPoderia entregar isso pra ela?\\pTenho certeza q ela vai te\\nrecompensar!",
+   "en": "Hello, {PLAYER}, this is Sonia's lab.\\pCould you deliver this to her?\\pI'm sure she'll reward you!"
+  },
+  {
+   "pt": "ola, como posso ajudar voce?",
+   "en": "Hello, how can I help you?"
+  },
+  {
+   "pt": "oque Você quer?",
+   "en": "What do you want?"
+  },
+  {
+   "pt": "{COLOR BLUE}Bem vindo a minha venda, com o\\nque posso te ajudar?",
+   "en": "{COLOR BLUE}Welcome to my shop, how can I help\\nyou?"
+  },
+  {
+   "pt": "{COLOR BLUE}Deixe-me adivinhar!\\pVocê quer que eu ensine\\n{COLOR RED}Dragon Ascent{COLOR BLUE} ao seu Pokémon.\\pEstou correto?\\pO único Pokémon que pode aprender\\nesse movimento é {COLOR RED}Rayquaza{COLOR BLUE}.\\pVocê capturou esse lendário?",
+   "en": "{COLOR BLUE}Let me guess!\\pYou want me to teach {COLOR RED}Dragon Ascent{COLOR BLUE}\\nto your Pokémon.\\pAm I right?\\pThe only Pokémon that can learn that\\nmove is {COLOR RED}Rayquaza{COLOR BLUE}.\\pHave you caught that legendary?"
+  },
+  {
+   "pt": "{COLOR BLUE}O que posso fazer por você?",
+   "en": "{COLOR BLUE}What can I do for you?"
+  },
+  {
+   "pt": "{COLOR DARK_GRAY}Desculpe senhor você não pode...",
+   "en": "{COLOR DARK_GRAY}Sorry, sir, you can't..."
+  },
+  {
+   "pt": "{COLOR DARK_GRAY}Ei, esse cara não parece\\nestar bem!\\pEI! Ele está sufocando!\\pSerá que a vespiquen causou \\nisso nele?\\pPreciso pedir ajuda.",
+   "en": "{COLOR DARK_GRAY}Hey, this guy doesn't look well!\\pHEY! He's choking!\\pCould the Vespiquen have done this to\\nhim?\\pI need to get help."
+  },
+  {
+   "pt": "{COLOR DARK_GRAY}Essa mulher esta tocantando\\numa musica.\\pdeseja doa ¥1000?",
+   "en": "{COLOR DARK_GRAY}This woman is playing a song.\\pWould you like to donate ¥1000?"
+  },
+  {
+   "pt": "{COLOR DARK_GRAY}Olá, meu nome é {COLOR RED}Mudle{COLOR DARK_GRAY}.\\pSou a universitária da\\nregião e sou especialista em\\lreaviver {COLOR RED}fósseis{COLOR DARK_GRAY}.\\pSe você trouxer algum,\\nposso fazer isso para você.",
+   "en": "{COLOR DARK_GRAY}Hello, my name is {COLOR RED}Mudle{COLOR DARK_GRAY}.\\pI'm the region's university student and\\nI specialize in reviving {COLOR RED}Fossils{COLOR DARK_GRAY}.\\pIf you bring me one, I can do that for\\nyou."
+  },
+  {
+   "pt": "{COLOR DARK_GRAY}É um prazer recebe-la na minha\\nloja.\\lGostaria de comprar alguma coisa?",
+   "en": "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\\nWould you like to buy something?"
+  },
+  {
+   "pt": "{COLOR LIGHT_RED}Joy:Olá Bem vindo ao\\nCentro Pokemon.\\pAqui você pode curar seus\\npokemons e adiquiri diferente\\litens para eles.",
+   "en": "{COLOR LIGHT_RED}Joy:Hello, welcome to the Pokémon\\nCenter.\\pHere you can heal your Pokémon and get\\ndifferent items for them."
+  },
+  {
+   "pt": "{COLOR RED}Há meu Morpeko, ficou preso lá em\\ncima, não consigo pega-lo.\\pestou muito preocupada...",
+   "en": "{COLOR RED}Ah, my Morpeko got stuck up there, I\\ncan't get it down.\\pI'm so worried..."
+  },
+  {
+   "pt": "{COLOR RED}Peony: Niaaa!\\pNiaaaaa!\\pCadê você?\\pVocê viu a Nia por aí?",
+   "en": "{COLOR RED}Peony: Niaaa!\\pNiaaaaa!\\pWhere are you?\\pHave you seen Nia around?"
+  },
+  {
+   "pt": "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY}Mas o quê?...\\nesse homem está morto!\\pAqueles Pokémons...\\naqueles {COLOR RED}Trubbish{COLOR DARK_GRAY} e aquele {COLOR RED}Garbodor\\l{COLOR DARK_GRAY}estavam comendo ele?\\pArceus...\\pSe bem que ele me parece está\\nmorto há muito tempo, mas o que\\lexatamente aconteceu?\\pPera, o que é isso?",
+   "en": "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY}What the?... this man is dead!\\pThose Pokémon... those {COLOR RED}Trubbish{COLOR DARK_GRAY} and\\nthat {COLOR RED}Garbodor{COLOR DARK_GRAY} were eating him?\\pArceus...\\pThen again, he looks like he has been\\ndead for a long time, but what exactly\\lhappened?\\pWait, what is this?"
+  }
+ ]
+}

@@ -1,0 +1,4 @@
+# Lote I, onda 2, Frente A: itens NAO traduzidos.
+# indice global<TAB>bloco/item<TAB>chaves<TAB>motivo
+056	bloco_11.json item 1	g04m00/objeto/0	bloqueio na tentativa anterior (ja estava marcado na triagem do executor anterior)
+070	bloco_14.json item 0	g03m66/objeto/0, g09m09/objeto/0, g13m06/objeto/0	bloqueio na tentativa anterior

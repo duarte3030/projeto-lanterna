@@ -1,0 +1,54 @@
+# Lote I da onda 2, Frente A (Galar), cartucho 2. Arquivos tocados.
+# Fechado em 07/09/2026. Nenhum map.json foi escrito por este lote: o campo
+# `script` de object_event e o bg_event novo saem como PEDIDO, em
+# dev_scripts/onda2_lote_i_pedidos_mapjson.json.
+
+## Escritos por este lote
+
+data/scripts/galar_objetos_i.inc      NOVO. 168 rotulos GalarFalaI_* (152 de fala
+                                      + 16 do molde de enfermeira) e 152 blocos
+                                      _Text. Nasce em INGLES, direto do de-para
+                                      de dev_scripts/resgate_galar_texto.json:
+                                      NAO passa por aplica_traducao_galar.py e
+                                      nao tem entrada no traducao_galar.json.
+data/scripts/galar_placas_c.inc       reescrito pelo gerador, sem mudanca de
+                                      conteudo nesta rodada (a placa ja estava
+                                      resolvida pelo executor anterior).
+data/event_scripts.s                  UMA linha acrescentada no fim:
+                                      .include "data/scripts/galar_objetos_i.inc"
+                                      (as outras duas linhas novas do arquivo sao
+                                      do lote F).
+dev_scripts/objetos_galar.py          MANDAM_MAIS/manda_mais (precedencia de
+                                      GalarPorta_), leitura certa de specialvar,
+                                      MARCA_I/EMBRULHO_I (idempotencia da fila),
+                                      ja_no_mapa no pedido, e tres assertivas do
+                                      --demo-i trocadas por assertivas que medem.
+dev_scripts/fala_galar.py             _manda_mais (mesma precedencia, lista
+                                      unica) e _traduzido, que faz o --demo
+                                      comparar o .inc do disco com gerador MAIS
+                                      traducao, e nao com a saida crua.
+dev_scripts/placas_galar_c.py         ja_no_mapa e tile_ja_ocupado_por_outro_bg
+                                      no pedido de bg_event.
+dev_scripts/fila_galar.json           so linhas de tipo `script_objeto`: 168
+                                      resgatadas, 48 adiadas com motivo novo, 4
+                                      marcadas "texto sem traducao". Linha ja
+                                      `descartada` nao foi reaberta.
+dev_scripts/onda2_lote_i_pedidos_mapjson.json
+                                      as DUAS secoes: 24 bg_events (4 com
+                                      ja_no_mapa=true, ja colados por outro dono)
+                                      e 168 object_events.
+dev_scripts/onda2_lote_i_tocados.txt  este arquivo.
+
+## Lidos, e nao escritos
+
+fontes-mapas/galar-swsh/               fonte, so leitura.
+dev_scripts/resgate_galar_texto.json   107 entradas {pt,en}, do executor anterior.
+dev_scripts/onda2_lote_i_falta_traduzir.json
+                                       reescrito pelo gerador a cada --lote-i;
+                                       2 textos distintos, 4 linhas de fila.
+include/constants/flags.h              NAO tocado por este lote. A faixa
+                                       0x2300-0x237F continua inteira e livre: o
+                                       resgate nao precisou de flag nenhuma.
+include/constants/vars.h               NAO tocado. Nenhuma var nova.
+data/maps/*/map.json                   NAO tocados. 96 seguem modificados por
+                                       outros lotes, o mesmo numero de antes.

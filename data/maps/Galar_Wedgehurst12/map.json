@@ -75,7 +75,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "GalarFalaI_G03M01_o6",
       "flag": "0"
     },
     {
@@ -98,7 +98,13 @@
       "y": 12,
       "elevation": 0,
       "dest_map": "MAP_GALAR_WEDGEHURST_12",
-      "dest_warp_id": "0"
+      "dest_warp_id": "0",
+      "porta_original": [
+        29,
+        12,
+        "fonte g05m12 warp 1"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 14,

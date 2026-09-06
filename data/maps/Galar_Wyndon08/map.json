@@ -38,7 +38,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "GalarFalaI_G13M10_o1",
       "flag": "0"
     },
     {
@@ -139,7 +139,13 @@
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_GALAR_WYNDON_08",
-      "dest_warp_id": "0"
+      "dest_warp_id": "0",
+      "porta_original": [
+        9,
+        2,
+        "fonte g02m01 warp 1"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     },
     {
       "x": 13,
@@ -153,7 +159,13 @@
       "y": 8,
       "elevation": 0,
       "dest_map": "MAP_GALAR_WYNDON_08",
-      "dest_warp_id": "2"
+      "dest_warp_id": "2",
+      "porta_original": [
+        17,
+        8,
+        "fonte g02m11 warp 0"
+      ],
+      "fechado": "porta morta de Galar, ver dev_scripts/portas_mortas_galar.py"
     }
   ],
   "coord_events": [],
