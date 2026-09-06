@@ -72,6 +72,242 @@ do começo. Agora ele dá também ITEM_Z_POWER_RING e ITEM_TERA_ORB, custo de sa
 com quantidade 1 na bolsa do jogo novo e fica VERMELHO na ROM de antes em `item_0x2C0` e `item_0x304`; e de jogo novo um
 Wobbuffet com Firium Z disparou `gCurrentMove` 857 (Inferno Overdrive) numa selvagem. Build verde, SAVE COMPATIVEL, T11 3/3.
 
+### Povoamento: 10 NPCs por cidade, 07/09/2026 (frente de POVOAMENTO, executor Opus)
+
+**A lei, e ela é do Gui** (07/09/2026, pergunta 53): "cada cidade deve ter pelo menos uns 10 NPCs".
+Vale para as cidades EXTERIORES do cartucho 1, ou seja Kanto, Johto, Hoenn e Sinnoh.
+
+**A régua, e ela mede coisa diferente da lista que veio na pergunta.** NPC aqui é OBJETO QUE É
+GENTE. Ficam de fora o Pokémon de cenário nas três formas em que ele aparece nesta árvore (a macro
+`OBJ_EVENT_GFX_SPECIES(...)`, o gráfico velho que É nome de espécie como `OBJ_EVENT_GFX_MACHOP`, e a
+forma de lendário como `GROUDON_SIDE`), a bola de item, o pé de berry e o mobiliário que anda
+(caminhão, barco, pedra, placa-objeto). **E fica de fora o `OBJ_EVENT_GFX_LIGHT_SPRITE`, que é POSTE
+DE LUZ**: foi ele que fez a contagem da pergunta 53 divergir da desta frente, e a diferença é grande.
+VioletCity aparecia com 31 objetos e tem **6 pessoas**, porque 25 dos 31 são lampiões; Ecruteak tinha
+"25" e tem 9; Olivine tinha "18" e tem 6. Régua que conta lampião como gente diz que a cidade está
+povoada quando ela está vazia.
+
+Com essa régua, **43 das 58 cidades que a lei alcança estavam abaixo do piso**, e não as 20 da
+lista. As 15 que já passavam continuam intocadas. (58 e não 61 porque três das 61 TOWN/CITY do
+cartucho 1 saem por corte, e estão logo abaixo.)
+
+**O piso, medido e não escolhido a olho.** 10 é a lei. Sobe para 11 em cidade com 700 células secas
+alcançáveis ou mais, e para 12 com 1.000 ou mais (`GRANDE` em `povoa_cidades.py`). É área, não gosto:
+sem isso Slateport e Twinleaf teriam a mesma população.
+
+**Quem ficou de fora, e por quê.** `FightArea`, `SurvivalArea` e `ResortArea`: são a Battle Zone, que
+o Gui cortou do porte em 21/08/2026 (`completude.CORTES_DO_GUI`), e os três mapas são cotocos de
+**1x1 célula**. Nenhuma outra cidade exterior do cartucho 1 ficou fora.
+
+### O que entrou
+
+**210 NPCs em 43 cidades**, cada um com objeto próprio no `map.json` e roteiro próprio no
+`scripts.inc`: `lock` / `faceplayer` / `msgbox` / `release` / `end`, 1 a 3 páginas de inglês, sem
+flag, sem var, sem item e sem batalha. Nenhum `map.bin`, tileset ou `layouts.json` foi tocado (isso é
+da frente de ARTE, que rodou em paralelo).
+
+| região | cidades | NPCs | bytes |
+|---|---|---|---|
+| Kanto | 16 | 90 | 8.358 |
+| Johto | 9 | 42 | 3.899 |
+| Hoenn | 10 | 54 | 4.996 |
+| Sinnoh | 8 | 24 | 2.222 |
+| **total** | **43** | **210** | **19.475** |
+
+Os 19.475 B são a SOMA das cidades, lida do `pokeemerald.map` (cada `_EventScript_Povoa*` até o
+símbolo seguinte, que é o texto dele) mais 24 B por `ObjectEventTemplate`. A ROM cresceu de
+**32.364.776 B para 32.384.248 B**, ou seja **+19.472 B**, medidos build contra build no mesmo HEAD
+`348e4dbd22`: os 3 B de diferença são alinhamento. **EWRAM e IWRAM não mudaram um byte** (225.856 e
+28.404), e não podiam mudar: objeto e texto moram na ROM.
+
+### A tabela antes e depois, cidade a cidade
+
+| região | cidade | antes | depois | novos | bytes |
+|---|---|---|---|---|---|
+| Kanto | CeladonCity | 10 | 12 | +2 | 185 |
+| Kanto | CeruleanCity | 9 | 12 | +3 | 284 |
+| Kanto | CinnabarIsland | 3 | 10 | +7 | 646 |
+| Kanto | FiveIsland | 2 | 10 | +8 | 729 |
+| Kanto | FourIsland | 5 | 10 | +5 | 460 |
+| Kanto | FuchsiaCity | 7 | 11 | +4 | 384 |
+| Kanto | IndigoPlateau_Exterior | 2 | 10 | +8 | 733 |
+| Kanto | LavenderTown | 3 | 10 | +7 | 646 |
+| Kanto | OneIsland | 3 | 10 | +7 | 629 |
+| Kanto | PalletTown | 3 | 10 | +7 | 697 |
+| Kanto | PewterCity | 6 | 11 | +5 | 470 |
+| Kanto | SevenIsland | 3 | 10 | +7 | 637 |
+| Kanto | SixIsland | 2 | 10 | +8 | 732 |
+| Kanto | TwoIsland | 7 | 10 | +3 | 277 |
+| Kanto | VermilionCity | 8 | 12 | +4 | 384 |
+| Kanto | ViridianCity | 6 | 11 | +5 | 465 |
+| Johto | AzaleaTown | 6 | 10 | +4 | 390 |
+| Johto | BlackthornCity | 7 | 11 | +4 | 377 |
+| Johto | CherrygroveCity | 6 | 10 | +4 | 377 |
+| Johto | CianwoodCity | 6 | 11 | +5 | 465 |
+| Johto | EcruteakCity | 9 | 12 | +3 | 268 |
+| Johto | MahoganyTown | 4 | 10 | +6 | 533 |
+| Johto | NewBarkTown | 3 | 10 | +7 | 659 |
+| Johto | OlivineCity | 6 | 11 | +5 | 464 |
+| Johto | VioletCity | 6 | 10 | +4 | 366 |
+| Hoenn | DewfordTown | 4 | 10 | +6 | 544 |
+| Hoenn | EverGrandeCity | 0 | 10 | +10 | 921 |
+| Hoenn | FallarborTown | 3 | 10 | +7 | 651 |
+| Hoenn | FortreeCity | 6 | 10 | +4 | 390 |
+| Hoenn | LavaridgeTown | 9 | 10 | +1 | 86 |
+| Hoenn | LittlerootTown | 6 | 10 | +4 | 382 |
+| Hoenn | OldaleTown | 4 | 10 | +6 | 553 |
+| Hoenn | PacifidlogTown | 3 | 10 | +7 | 641 |
+| Hoenn | PetalburgCity | 7 | 10 | +3 | 269 |
+| Hoenn | VerdanturfTown | 4 | 10 | +6 | 559 |
+| Sinnoh | CanalaveCity | 7 | 10 | +3 | 285 |
+| Sinnoh | CelesticTown | 8 | 10 | +2 | 182 |
+| Sinnoh | FloaromaTown | 8 | 11 | +3 | 280 |
+| Sinnoh | SandgemTown | 6 | 10 | +4 | 375 |
+| Sinnoh | SnowpointCity | 8 | 11 | +3 | 265 |
+| Sinnoh | SolaceonTown | 9 | 12 | +3 | 279 |
+| Sinnoh | SunyshoreCity | 9 | 11 | +2 | 188 |
+| Sinnoh | TwinleafTown | 6 | 10 | +4 | 368 |
+
+`EverGrandeCity` tinha **zero** gente, e é o caso mais visível: a cidade da Liga era um portão e uma
+montanha, sem uma alma na praia.
+
+### A ferramenta, e por que a POSIÇÃO é dado congelado
+
+`dev_scripts/povoa_cidades.py` mais `dev_scripts/povoa_cidades.json`. A tabela (cidade, gráfico,
+posição, movimento, fala) mora no JSON; o script aplica, confere e tem `--demo` de 16 provas.
+`--aplica` é **idempotente**: a segunda passada muda 0 arquivos. Cada objeto carrega
+`"origem": "povoa_cidades"`, que é a mesma técnica que o `distribui_dex.py` usa desde 21/08/2026
+(`tools/mapjson` lê o objeto por chave e ignora chave que não conhece), e é por ela que a ferramenta
+reconhece e reescreve o próprio trabalho em vez de duplicá-lo.
+
+**A posição é PROPOSTA por `--sugere` e GRAVADA no JSON, não recalculada a cada rodada.** Isso
+importa porque a frente de arte redesenha cidade: posição recalculada em silêncio faria o NPC andar
+sozinho pelo mapa entre duas builds, e ninguém veria. `--confere` revalida o dado congelado contra o
+`map.bin` de hoje, e foi ele que pegou as sete posições que a arte invalidaria.
+
+**Sete regras de posição, todas conferidas em `--confere` e todas verdes nos 210:**
+
+1. célula andável (colisão 0) com comportamento de CHÃO COMUM, por **lista branca** de 8
+   comportamentos (`MB_NORMAL`, `MB_SAND`, `MB_DEEP_SAND`, `MB_SHORT_GRASS`, `MB_FOOTPRINTS`,
+   `MB_NO_RUNNING`, `MB_MOUNTAIN_TOP`, `MB_PUDDLE`). Lista branca e não lista negra: o enum tem 250
+   nomes e quase todos são mobília, porta, escada, gelo, água ou piso de puzzle, e comportamento
+   novo que apareça amanhã tem que entrar como suspeito, não como bom;
+2. alcançável a pé, com a regra de elevação do motor (`IsElevationMismatchAt`);
+3. não ilha ninguém: o alcance com os NPCs novos como PAREDE é o de antes menos as células deles;
+4. longe de porta, placa e gatilho: nem em cima nem na vizinhança-4 de warp, `bg_event` ou
+   `coord_event`, nem na FAIXA DA PORTA (os três tiles em linha reta abaixo de cada warp, que é por
+   onde quem sai de uma porta desce), nunca em cima de objeto que já existe, e nunca no ANEL DE BORDA
+   do mapa (célula de borda aparece dentro do mapa vizinho enquanto o jogador anda na rota);
+5. espalhados: Chebyshev 3 entre NPC novo e qualquer outra gente, caindo para 2 só onde a cidade não
+   tem chão para 3 (`PacifidlogTown` é passarela de troncos, `IndigoPlateau_Exterior` é trilha);
+6. `movement_range` que não invade porta: a caixa inteira passa pelas regras 1 e 4, e por isso o NPC
+   em beco recebe `FACE_*`/`LOOK_AROUND` de alcance 0 em vez de `WANDER_AROUND`;
+7. teto de sprite: nenhuma janela de 20x17 fica com mais de 15 objetos que gastam vaga.
+
+### As três medições que mudaram o desenho, e cada uma custou uma passada
+
+1. **ÁGUA TEM COLISÃO 0, e busca que só olha colisão atravessa o mar.** Quem barra o jogador na água
+   é a ELEVAÇÃO, e quem atravessa é o Surf. A primeira versão do alcance não sabia disso.
+2. **Objeto que já existe NÃO É SEMENTE de alcance.** Pokémon de cenário mora em praia e em penhasco
+   onde o jogador só chega surfando. Em `CianwoodCity`, semear a busca nos 22 objetos do mapa abria
+   **868 células contra as 404 que se alcançam a pé pelas portas**, e cinco NPCs foram parar na praia
+   oeste. **Quem pegou foi a lente C2 do `mapas_qa.py`** ("objeto com script inalcançável"), e ela
+   estava certa: seis achados novos, cinco de Cianwood e um de Solaceon. Corrigida a semente, a
+   ferramenta passou a recusar sozinha essas posições, e a lente voltou a zero achado novo.
+3. **NPC é sólido, e beco de largura 1 é comum em vila.** Sem a prova de ilhamento dentro do próprio
+   guloso (com a fila ORDENADA, para o segundo colocado entrar quando o primeiro fecha caminho),
+   Pacifidlog perdia 9 células atrás de um NPC no meio de um tronco, Fallarbor 4, SixIsland 2 e
+   FiveIsland 1.
+
+4. **A FAIXA DA PORTA é caminho, e caminho é parede para objeto novo.** Esta saiu da SUÍTE, e é a
+   quarta porque as três de cima não a pegariam. Um `WALK_UP_AND_DOWN` plantado em (31,19) de
+   `AzaleaTown` alcança (31,18), que é o terceiro tile abaixo da porta do Kurt, e o **T149.7 abriu
+   VERMELHO**: o roteiro descia dois tiles, o segundo DOWN esbarrava no velho, e a rota inteira saía
+   um tile do lugar (o jogador parava em (35,14) em vez de (34,15), com os quatro RIGHT andando em
+   vez de três, porque o esbarrão come o aperto que serviria para virar). Medido nos dois lados: o
+   caso é 14/14 na árvore sem o povoamento e era 13/14 com ele, três execuções seguidas, ou seja
+   determinístico e não instável. A regra que ficou é a mesma que o `distribui_dex.py` já aplica com
+   `rota_dos_lendarios_sinnoh`: **tile que um roteiro PISA é parede para objeto novo**, e aqui ela
+   virou geometria em vez de lista de casos. Reposicionou 15 NPCs em 5 cidades (Azalea, Cinnabar,
+   Oldale, One Island e Pacifidlog), sem mudar um byte de texto.
+
+A lição que fica das quatro: **a régua da ferramenta tem que ser pelo menos tão dura quanto a lente e
+o teste que vão auditá-la.** Enquanto ela era mais frouxa, a ferramenta dava tudo verde e quem
+acusava era a lente C2 e, depois dela, a suíte.
+
+### As provas
+
+- `povoa_cidades.py --demo`: **16 provas verdes**, entre elas a idempotência (2ª passada, 0 arquivos),
+  as sete regras nos 210, rótulo único por cidade, nenhuma linha de fala acima de 34 caracteres e
+  nenhum caractere fora do charmap nas 212 falas.
+- `povoa_cidades.py --censo`: **faltam 0 NPCs**, nas 58 cidades que a lei alcança.
+- **Build limpo verde** sobre o HEAD `348e4dbd22`, ROM 32.384.248 B (96,51% de 32 MB), EWRAM e IWRAM iguais
+  aos da build sem o povoamento. A ROM desta frente é
+  `roms/pokemon-claude-2026-09-07-povoamento.gba`, md5 `6d489511f0738eaa154691abffb55ef8`, com o
+  `.map` do linker ao lado.
+- `guarda_save.py`: **SAVE COMPATIVEL**. Objeto novo entra no FIM da lista de cada mapa, que é o que
+  a save exige (ela guarda ÍNDICE de objeto), e nenhuma flag nova foi gasta.
+- `valida_rom.py`: 2.404 mapas e 2.054 layouts, tudo que foi declarado entrou.
+- `valida_conectividade.py`: **0 warps quebrados**, alcance **1.969 de 2.293**, os MESMOS números da
+  árvore sem o povoamento (medido nas duas).
+- `valida_warp_tile.py --piso 60`: **5.937 de 6.893 (86,1%)**, Hoenn 93,4%, Kanto 79,4%, Sinnoh
+  98,1%, Johto 91,0%, Unova 100,0%. Idêntico à árvore sem o povoamento.
+- `completude.py`: nenhuma coluna caiu e a de objetos subiu nas quatro regiões: Kanto 101,2% ->
+  **106,7%**, Johto 100,8% -> **102,6%**, Hoenn 100,7% -> **102,7%**, Sinnoh 99,4% -> **100,6%**.
+  Unova e Galar intocadas.
+- `roda_qa.py --demo`: **verde nas sete lentes**. Varredura cheia: **14.661 achados com 323 travas**
+  contra **14.654 e as MESMAS 323 travas** da árvore sem o povoamento. Os 7 a mais são TODOS da lente
+  de texto (`checa_texto` T07, cosmético). Do lado do MAPA a árvore final tem **ZERO achado novo**,
+  conferido achado a achado contra a base (6.705 contra 6.705), e isso vale para as 15 regras de
+  objeto e de alcance, `B7` (janela de sprite) e `C2` (objeto inalcançável) incluídas.
+- **Suíte 1.084 de 1.084**, rodada bloco a bloco (116 blocos, o placar de cada um gravado em disco),
+  ZERO reprovado, o T11 à parte. Nem o T176.3, nem o T94.1, nem o T143.9, os três instáveis da rodada
+  13, abriram vermelho nesta passada.
+- **T11 3 de 3**, contra `roms/pokemon-claude-2026-08-18.gba` com a fonte velha na worktree de
+  `cf6786b2ae`.
+- A suíte foi rodada DUAS vezes inteiras: a primeira, ainda sem a regra da faixa da porta, deu
+  **1.077 de 1.078 com o T149.7 vermelho**, e foi ela que achou o defeito descrito acima. Rodar a
+  suíte cheia depois de mexer em 43 mapas não é zelo: era a única prova que pegava aquilo.
+
+### A prova no emulador, e ela anda até o NPC
+
+`dev_scripts/prova_povoamento.py`: warpa pelo menu de debug, ANDA até um NPC novo, aperta A, grava o
+framebuffer e lê da EWRAM onde o jogador parou. **5 de 5 casos pararam no tile de conversa** e os
+cinco PNGs foram abertos e olhados:
+
+| cidade | região | NPC | a caixa que abriu |
+|---|---|---|---|
+| PalletTown | Kanto | FISHERMAN (18,15) | "The sea opens up south of town. Without SURF you stop at the sand." |
+| NewBarkTown | Johto | LASS (12,14) | "Every house here knows every other house. Keep no secrets." |
+| OldaleTown | Hoenn | LASS (5,11) | "The MART clerk explains POTIONS to everyone. Every single time." |
+| SandgemTown | Sinnoh | WOMAN_4 (12,13) | "The MART here is small but it never runs out of POTIONS." |
+| SunyshoreCity | Sinnoh | SCIENTIST_1 (47,12) | "The LIGHTHOUSE lens is solar. The whole city runs on sun." |
+
+**O alvo de cada caso é escolhido pela ferramenta, não decorado**: o NPC mais perto da chegada de uma
+porta, entre os que NÃO ANDAM (`movement_range` 0), porque NPC que passeia não está onde o plano diz
+quando o roteiro chega lá (lição do T98.9). E o roteiro **se corrige sozinho**: roda, lê da EWRAM
+onde parou e, se não for o tile de conversa, RECALCULA o resto do caminho dali e roda de novo. Sem
+isso, Sandgem e Sunyshore paravam a um tile do alvo, porque o modelo de "trocar de direção custa um
+aperto" erra onde o motor engole aperto por esbarrão.
+
+**Medido de passagem, e vale para toda fala futura: 34 caracteres por linha CABEM na caixa.** A linha
+"Without SURF you stop at the sand." tem 34 e apareceu inteira no framebuffer de Pallet Town. E a
+primeira leva de PNGs foi tirada com a caixa AINDA DIGITANDO: 180 quadros de espera depois do A não
+bastam para uma página de duas linhas, 600 bastam.
+
+### O que fica aberto
+
+- **A lente T07 do `checa_texto.py` acusa inglês em Sinnoh, Unova e Galar** como se essas regiões
+  devessem estar em português. A regra contraria a decisão que vale hoje ("sem português no jogo") e
+  já acusava 1.124 vezes em Sinnoh antes desta frente; os 7 novos são meus. É cosmético e não é
+  trava, mas a régua está mentindo sobre a intenção e alguém vai acreditar nela um dia.
+- **`IndigoPlateau_Exterior` recebeu 8 NPCs numa trilha**, com distância mínima 2 em vez de 3, e é a
+  cidade mais apertada da leva. Se o Gui achar carregado, tirar é uma linha no JSON.
+- **Toda fala é de sabor e de dica verdadeira**, mas nenhuma foi lida pelo Gui ainda. As 212 páginas
+  estão no `povoa_cidades.json`, uma por linha, e é lá que ele muda o que não gostar.
+
+---
+
 ## 0.u O LETREIRO DE MAPA PARA DE DIZER "SINNOH WEST" E JOHTO PARA DE TOCAR CAVERNA: O NOME DO POPUP SAI DO MAPSEC, E O DE-PARA DE MÚSICA SAI DE PETALBURG WOODS, 05-07/09/2026 (rodada 13; o playtest do Gui, um executor Opus por frente, fechador Opus)
 
 ### PLACAR DA RODADA 13, fechado em 07/09/2026
