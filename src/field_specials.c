@@ -5823,3 +5823,59 @@ void NullFieldSpecial(void)
 {
 }
 // <<< Galar, conserto de motor: Quest Log e Help System do FireRed <<<
+
+// >>> Retorno dos prédios compartilhados entre Hoenn e Johto (rodada 13) >>>
+//
+// O Trainer Hill e as três Battle Tents são UM prédio cada, com DUAS portas de
+// entrada. A de Hoenn é a original (Route 111, Fallarbor, Verdanturf e
+// Slateport). A de Johto é a praça `TrainerHill_Courtyard`, que o demake de HGSS
+// põe ao norte da Route 40 e que a Fase F completou ligando à Battle Frontier
+// (item F5 da seção 0.j do ESTADO). Como a saída dos quatro prédios era
+// fixa de Hoenn, quem entrava por Olivine saía na Route 111: o defeito que o
+// Gui achou no playtest, e ele acontecia quatro vezes, não uma.
+//
+// O conserto é o `dynamicWarp`, que JÁ existe no SaveBlock1 (custo de save
+// ZERO): a porta de saída dos quatro passou a ser `MAP_DYNAMIC`, e o próprio
+// motor grava a origem. Em `SetupWarp` (src/field_control_avatar.c), quando o
+// warp de destino é dinâmico, ele chama `SetDynamicWarp` com o mapa e o id de
+// warp de onde o jogador veio, exatamente como faz nos elevadores.
+//
+// O que o motor NÃO faz é repor esse retorno depois que outra coisa reescreve o
+// `dynamicWarp`. Dentro das tendas isso acontece sempre: `InitFallarborTentChallenge`
+// e as duas irmãs (src/battle_tent.c) apontam o `dynamicWarp` para o PRÓPRIO
+// lobby, porque é dele que `SaveGameFrontier` tira o ponto de "Continuar" de
+// quem salva no meio do desafio. Sem reposição, ao voltar da sala de batalha a
+// porta do lobby devolveria o jogador para dentro do lobby, e ele não sairia
+// nunca mais.
+//
+// A reposição vem do `escapeWarp`, que é o registro que o próprio motor faz da
+// última entrada de mapa aberto para mapa fechado (`UpdateEscapeWarp`,
+// src/overworld.c:774): ele guarda o mapa de fora e o tile UMA LINHA ABAIXO da
+// porta, que é o retorno desejado, e nenhum passo dado dentro do prédio o
+// altera, porque lobby, corredor e sala de batalha são todos fechados.
+//
+// A guarda é a pergunta certa, e não "quem escreveu por último": a porta da rua
+// TEM que levar para fora, então retorno que aponta para mapa FECHADO está
+// velho e é reposto. Quando o jogador entrou pela praça ou pela cidade, o
+// retorno aponta para mapa ao ar livre, a guarda não toca em nada, e a saída
+// continua idêntica ao original, com animação de porta e tudo, porque nesse
+// caso quem manda é o `warpId` que o motor gravou e não uma coordenada crua.
+//
+// Chamado no ON_TRANSITION dos quatro mapas de entrada, que roda em toda
+// chegada por warp, inclusive na volta dos andares internos e no "Continuar" de
+// quem salvou no meio de um desafio.
+//
+// DÍVIDA DECLARADA: a frente das lojas compartilhadas de Sinnoh (Veilstone e
+// Oreburgh, que reaproveitam os prédios de Lilycove) escreveu na MESMA rodada
+// `DefinirSaidaPelaPortaDeEntrada` em src/retorno_dinamico.c, com esta mesma
+// regra e esta mesma guarda. As duas nasceram em paralelo e devem virar UMA;
+// quem consolidar não precisa reabrir a decisão, só escolher o nome.
+void DefinirRetornoPredioCompartilhado(void)
+{
+    enum MapType tipo = GetMapTypeByGroupAndId(gSaveBlock1Ptr->dynamicWarp.mapGroup,
+                                               gSaveBlock1Ptr->dynamicWarp.mapNum);
+
+    if (!IsMapTypeOutdoors(tipo))
+        gSaveBlock1Ptr->dynamicWarp = gSaveBlock1Ptr->escapeWarp;
+}
+// <<< Retorno dos prédios compartilhados entre Hoenn e Johto <<<

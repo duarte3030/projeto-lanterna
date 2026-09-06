@@ -674,3 +674,10 @@ gSpecials::
 	def_special SetUsedPkmnCenterQuestLogEvent
 	def_special NullFieldSpecial
 @ <<< Galar, conserto de motor: Quest Log e Help System do FireRed <<<
+
+@ >>> Retorno dos predios compartilhados entre Hoenn e Johto (rodada 13) >>>
+@ Corpo em src/field_specials.c. Chamado no ON_TRANSITION do TrainerHill_Entrance
+@ e dos tres lobbies de Battle Tent, cujas portas viraram MAP_DYNAMIC para
+@ devolver o jogador para o lado por onde ele entrou (praca de Johto ou Hoenn).
+	def_special DefinirRetornoPredioCompartilhado
+@ <<< Retorno dos predios compartilhados entre Hoenn e Johto <<<

@@ -203,6 +203,113 @@ no header e no driver de som, contra **1 de 9** na ROM `2026-09-05`.
    campo, e é esse passo que o `make` chama. Provado trocando o campo de `SunyshoreCity` por
    "PROVA DO CAMPO" e vendo o `.h` mudar sozinho.
 
+### O defeito dos prédios que Hoenn e Johto dividem: entrar por Johto e sair na Rota 111, 06/09/2026
+
+Relato do Gui: "entrei em Trainer Hill por Olivine City (Johto) e quando fui sair, saí na Rota 111, em
+Hoenn". Medido antes de tocar: a praça `TrainerHill_Courtyard`, que é a praça de instalações que o
+demake de HGSS põe ao norte da Route 40 (ligada a ela pela conexão e pelo
+`MAP_GATE_ROUTE40_TRAINER_HILL_COURTYARD`) e que o item **F5 da 0.j** completou com a porta para a
+Battle Frontier, tem cinco warps, e **quatro deles
+entram em prédios COMPARTILHADOS com Hoenn**: `MAP_TRAINER_HILL_ENTRANCE` em (12,10) e os três lobbies
+de Battle Tent, `FALLARBOR` em (27,19), `VERDANTURF` em (20,28) e `SLATEPORT` em (34,28). A saída dos
+quatro era warp FIXO de Hoenn (`TrainerHill_Entrance` (9,16) e (10,16) para `MAP_ROUTE111` warp 4, e
+cada lobby para a sua cidade), então **o mesmo defeito acontecia quatro vezes, e não uma**. O quinto
+warp, (24,29) para o `BattleFrontier_OutsideWest` warp 11, foi conferido e está CERTO: os dois lados
+são recíprocos e a volta é a seta ao sul, que o T126.3 já mede desde 21/08.
+
+#### O mecanismo: o retorno é o `dynamicWarp`, e quem o grava é o motor
+
+Nenhum mapa foi copiado e nenhum bit de save foi gasto. A saída dos quatro prédios virou
+`MAP_DYNAMIC` / `WARP_ID_DYNAMIC`, que é o mesmo idioma dos elevadores e do `InsideOfTruck`, e quem
+preenche o destino é o próprio motor: em `SetupWarp`
+(`src/field_control_avatar.c:1131`), quando o warp em que o jogador vai POUSAR é dinâmico, ele chama
+`SetDynamicWarp` com o mapa e o ÍNDICE do warp de onde o jogador veio. Ou seja, entrar já grava por
+onde sair, com a mesma animação de porta e o mesmo tile de chegada de antes, porque o retorno guarda
+`warpId` e não coordenada crua. `dynamicWarp` já existe no `SaveBlock1` desde o Emerald: **custo de
+save ZERO**.
+
+O que o motor NÃO faz é repor esse retorno depois que outra coisa reescreve o `dynamicWarp`, e dentro
+das tendas isso acontece sempre: `InitFallarborTentChallenge` e as duas irmãs (`src/battle_tent.c:115,
+178, 234`) apontam o `dynamicWarp` para o PRÓPRIO lobby, porque é dele que `SaveGameFrontier`
+(`src/frontier_util.c:2534`) tira o ponto de "Continuar" de quem salva no meio do desafio. Sem
+reposição, ao voltar da sala de batalha a porta do lobby devolveria o jogador para dentro do lobby, e
+ele não sairia nunca mais. Por isso os quatro mapas de entrada ganharam `MAP_SCRIPT_ON_TRANSITION`
+chamando o special novo `DefinirRetornoPredioCompartilhado` (`src/field_specials.c`), que **repõe o
+retorno a partir do `escapeWarp`** quando ele aponta para mapa fechado. O `escapeWarp` é o registro
+que o próprio motor faz da última entrada de mapa aberto para mapa fechado (`UpdateEscapeWarp`,
+`src/overworld.c:774`): ele guarda o mapa de fora e o tile uma linha abaixo da porta, e nenhum passo
+dado dentro do prédio o altera, porque lobby, corredor e sala de batalha são todos fechados.
+
+Conferido e sem volta fixa para Hoenn em lugar nenhum: as saídas por elevador, derrota e desistência
+do Trainer Hill (`data/scripts/trainer_hill.inc:40,52` e `TrainerHill_Elevator/scripts.inc:37`) voltam
+todas ao `Entrance`, cuja porta é a dinâmica; as salas de batalha das três tendas voltam ao LOBBY, não
+à cidade; e nenhum `HEAL_LOCATION` nem `setrespawn` aponta para esses prédios (a enfermeira do Trainer
+Hill cura e não marca respawn).
+
+#### A prova é do emulador, e o par negativo é a outra porta
+
+`dev_scripts/testes_criticos/171_predios_compartilhados.json`, **10 casos, 10 verdes**, todos lendo
+mapa e posição do `SaveBlock1`. **T171.1**: entra no Trainer Hill pela praça de Johto e sai em
+`MAP_TRAINER_HILL_COURTYARD` (12,11). **T171.2**, o par negativo, é o MESMO prédio com o MESMO
+roteiro entrando pela Route 111: sai em `MAP_ROUTE111` (31,114), que é a regressão zero de Hoenn.
+**T171.3**: entra por Johto, vai ao `TRAINER_HILL_1F`, volta ao `Entrance` e só então sai; cai na
+praça, o que prova que o retorno atravessa os andares de dentro. **T171.4**: o mesmo caminho menos os
+últimos passos, o jogador entra e FICA no capacho (9,16), o que separa "a porta funciona" de
+"qualquer tile devolve para a praça". **T171.5 a T171.8** fecham as três tendas: Verdanturf pela
+praça (20,29) e por Verdanturf Town (3,8), Fallarbor pela praça (27,20) e Slateport pela praça
+(34,29).
+
+E os PNGs foram abertos, porque memória não desenha tela. No último quadro do T171.1 o jogador está de
+pé embaixo do portal escuro do Trainer Hill, entre os dois postes acesos da praça, com o mato fechado
+à esquerda e o paredão à direita; no do T171.2, o MESMO prédio, o cenário é a rocha roxa da Route 111,
+sem poste nenhum. O T171.3 termina com o quadro idêntico ao do T171.1. No T171.5 o jogador está
+embaixo da cúpula da Battle Tent com a fileira de postes e a grade d'água da praça atrás; no T171.6, a
+MESMA cúpula, mas cercada pelo capim e pela cerca de Verdanturf Town, com dois NPCs da cidade. Dois
+mapas diferentes, o mesmo prédio, a mesma porta.
+
+O par **T171.9 e T171.10** é o adversarial, e existe porque os oito primeiros exercitam só o
+automático do motor: se o special fosse um `return` vazio, os oito passariam igual. Quem suja o
+`dynamicWarp` no jogo é o desafio da tenda, que este harness não joga até o fim, então o par usa um
+sujador equivalente e alcançável, o **elevador da loja de Lilycove**, cujo
+`setdynamicwarp MAP_LILYCOVE_CITY_DEPARTMENT_STORE_5F, 2, 1`
+(`LilycoveCity_DepartmentStoreElevator/scripts.inc:98`) aponta o retorno para um mapa FECHADO do outro
+lado do mundo. O **T171.9** é o controle: depois do elevador, sair pela porta dele cai mesmo em
+`MAP_LILYCOVE_CITY_DEPARTMENT_STORE_5F` (2,2), ou seja o retorno está sujo de verdade. O **T171.10**
+carrega esse mesmo estado para dentro do lobby da tenda e sai pela porta: cai na praça de Johto em
+(20,29), e não na loja. Sem a reposição, ele cairia na loja.
+
+#### O que fica aberto
+
+- **Duas funções com a MESMA regra nasceram na mesma rodada.** A frente das lojas compartilhadas de
+  Sinnoh (Veilstone e Oreburgh, que reaproveitam a loja e o museu de Lilycove) escreveu
+  `DefinirSaidaPelaPortaDeEntrada` em `src/retorno_dinamico.c` com a mesma guarda. As duas devem virar
+  UMA; quem consolidar não precisa reabrir a decisão, só escolher o nome.
+- **O "Continuar" de quem salva no meio de um desafio de tenda muda de tile.** Depois que o
+  `ON_TRANSITION` repõe o retorno, um `tent_save` feito DENTRO do lobby grava o ponto de continuação
+  fora da tenda, e não no lobby como no Emerald original. O jogador reaparece na praça (ou na cidade)
+  em frente à porta, com o desafio ainda pausado, e retoma entrando de novo. É diferença de tile, não
+  de estado: nada trava e nada se perde.
+- **O letreiro e o mapa da região continuam dizendo Hoenn dentro desses quatro prédios**, porque o
+  `region_map_section` deles é o de Hoenn e é ele que essas telas leem. Quem entra pela praça de Johto
+  vê "FALLARBOR TOWN" no lobby da tenda da esquerda. É dado de mapa, não deste mecanismo.
+
+#### Os portões desta frente
+
+Build verde numa worktree ISOLADA (`/private/tmp/claude-501/predios`, HEAD `fccccc0265` mais só este
+conserto), porque a árvore compartilhada estava com outra frente no meio de uma obra e não linkava.
+**ROM 32.360.292 B, 96,44% de 32 MB**, ou seja **+64 B** sobre os 32.360.228 B que a frente da música
+mediu neste mesmo HEAD, e é esse o custo inteiro do conserto; **EWRAM 86,16% e IWRAM 86,68%**,
+idênticos aos da 0.t e da 0.u. **SAVE COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B (94,3%), 2.400
+mapas, 2.252 ids de treinador e 1.716 apelidos conferidos: nenhuma flag, var, item, mapa ou índice
+novo. `valida_rom.py` com os 2.400 mapas declarados dentro da ROM. `valida_conectividade.py` com **0
+warps quebrados** e os mesmos 4 / 12 / 1.966 de 2.289 que a MESMA ferramenta dá na árvore SEM o
+conserto (medido numa worktree de `b7ef40f330`, o HEAD de antes da rodada): o campo
+`destinos_dinamicos` dos quatro `map.json` mantém o grafo de alcance honesto, já que a ferramenta pula
+`MAP_DYNAMIC` de propósito. `valida_warp_tile.py --piso 60` em 5.915 de 6.875 (86,0%), idêntico à
+0.t. `guarda_colisao_vars` com 23 colisões herdadas, 0 novas e 0 stub. `dev_scripts/qa/roda_qa.py
+--demo` verde nas quatro varreduras.
+
+
 ---
 
 ## 0.t A CAÇA A BUGS ANTES DO PLAYTEST: A RÉGUA PARA DE MEDIR PORCENTAGEM E PASSA A MEDIR DEFEITO, 23/08/2026 (rodada 12; condutor Opus, quatro executores Opus, fechador Opus)

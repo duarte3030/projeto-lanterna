@@ -100,15 +100,15 @@
       "x": 6,
       "y": 9,
       "elevation": 0,
-      "dest_map": "MAP_VERDANTURF_TOWN",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_DYNAMIC",
+      "dest_warp_id": "WARP_ID_DYNAMIC"
     },
     {
       "x": 7,
       "y": 9,
       "elevation": 0,
-      "dest_map": "MAP_VERDANTURF_TOWN",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_DYNAMIC",
+      "dest_warp_id": "WARP_ID_DYNAMIC"
     }
   ],
   "coord_events": [],
@@ -121,5 +121,9 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "VerdanturfTown_BattleTentLobby_EventScript_RulesBoard"
     }
+  ],
+  "destinos_dinamicos": [
+    "MAP_VERDANTURF_TOWN",
+    "MAP_TRAINER_HILL_COURTYARD"
   ]
 }

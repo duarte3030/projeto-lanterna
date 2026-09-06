@@ -1,7 +1,17 @@
 FallarborTown_BattleTentLobby_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, FallarborTown_BattleTentLobby_OnFrame
 	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, FallarborTown_BattleTentLobby_OnWarp
+	map_script MAP_SCRIPT_ON_TRANSITION, FallarborTown_BattleTentLobby_OnTransition
 	.byte 0
+
+@ A porta deste lobby e MAP_DYNAMIC: a tenda e compartilhada entre a cidade de
+@ Hoenn e a praca TrainerHill_Courtyard de Johto, e a saida tem que devolver o
+@ jogador para o lado por onde ele entrou. O motor grava a origem sozinho ao
+@ entrar; o special so repoe o retorno quando o desafio da tenda o reescreve
+@ para o proprio lobby. Ver src/field_specials.c.
+FallarborTown_BattleTentLobby_OnTransition:
+	special DefinirRetornoPredioCompartilhado
+	end
 
 FallarborTown_BattleTentLobby_OnWarp:
 	map_script_2 VAR_TEMP_1, 0, FallarborTown_BattleTentLobby_EventScript_TurnPlayerNorth
