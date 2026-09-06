@@ -1,0 +1,20 @@
+[
+ {
+  "id": "T184.1",
+  "nome": "OS QUATRO APARELHOS NASCEM NA MOCHILA DO JOGO NOVO, E DOIS DELES NUNCA NASCIAM. O T183.2 prova isto do lado do SALTO DE CAPÍTULO; este prova do lado de quem joga a história do começo, que é o caminho que 100% dos jogadores fazem e que ninguém media. Até 07/09/2026 `src/new_game.c` dava só ITEM_DYNAMAX_BAND e ITEM_MEGA_RING, então ITEM_Z_POWER_RING (704) e ITEM_TERA_ORB (772) não existiam em save nenhuma nascida de NEW GAME, e com isso `CanUseZMove` (src/battle_z_move.c:121) e `CanTerastallize` (src/battle_terastal.c:77) recusavam SEMPRE, em qualquer batalha, para qualquer jogador: duas mecânicas inteiras mortas, e nenhum teste pegava porque nenhum teste abria o menu de golpes num jogo novo. A prova é por quantidade DECIFRADA na bolsa inteira (`--bolsa` varre os cinco bolsos contíguos de `struct Bag`, então não depende de saber em que bolso cada aparelho mora): 0x2BF é o Mega Ring, 0x2C0 o Z-Power Ring, 0x2C1 a Dynamax Band e 0x304 a Tera Orb, um de cada. As duas flags do motor entram junto porque item sem flag não basta: `CanDynamax` exige B_FLAG_DYNAMAX_BATTLE além da pulseira (src/battle_dynamax.c:88) e `CanTerastallize` exige B_FLAG_TERA_ORB_CHARGED além da orbe (:86), e as duas já eram acesas aqui antes deste conserto. ABERTURA `novo`, ou seja NEW GAME com \"START FROM BEGINNING\" escolhido no seletor: o jogo para no quarto de Pallet Town, sem nenhum salto, e a mochila lida é a que o jogador de verdade recebe. Custo de save ZERO: item numa mochila que já existe.",
+  "roteiro": "300:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_PALLET_TOWN_PLAYERS_HOUSE_2F",
+   "flags_acesas": [
+    "FLAG_B8_DYNAMAX_LIBERADO",
+    "FLAG_B8_TERA_ORB_CARREGADO"
+   ],
+   "campos": {
+    "item_0x2BF": 1,
+    "item_0x2C0": 1,
+    "item_0x2C1": 1,
+    "item_0x304": 1
+   }
+  }
+ }
+]

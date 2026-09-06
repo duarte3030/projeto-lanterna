@@ -279,6 +279,15 @@ void NewGameInitData(void)
     // Vem depois de ClearBag() de proposito.
     AddBagItem(ITEM_DYNAMAX_BAND, 1);
     AddBagItem(ITEM_MEGA_RING, 1);
+    // As outras duas metades da mesma regra, e elas faltavam desde sempre:
+    // CanUseZMove exige ITEM_Z_POWER_RING (src/battle_z_move.c:121) e
+    // CanTerastallize exige ITEM_TERA_ORB (src/battle_terastal.c:77), as duas
+    // checagens só no lado do JOGADOR. Sem estes dois itens o Z-move e o
+    // Terastal recusavam SEMPRE para quem joga a história do começo, mesmo com
+    // B_FLAG_TERA_ORB_CHARGED acesa logo acima: eram duas mecânicas mortas.
+    // Só o salto de capítulo (src/chapter_jump.c) as entregava.
+    AddBagItem(ITEM_Z_POWER_RING, 1);
+    AddBagItem(ITEM_TERA_ORB, 1);
     // Conveniencias do jogador, so no JOGO NOVO. Esta funcao roda em um unico
     // lugar, CB2_NewGame (src/overworld.c), e carregar save existente passa por
     // CB2_ContinueSavedGame, que nao a chama: save antiga nao ganha nada disso,

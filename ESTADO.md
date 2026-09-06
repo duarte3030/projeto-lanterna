@@ -66,6 +66,12 @@ bicho novo, e o tapete de A do caso respondia SIM e caía na lista do time. O co
 passar pelo menu de OPTION e pôr BATTLE STYLE em SET antes do warp. Vale de aviso para o playtest: quem
 jogava com um Pokémon só nunca via essa pergunta, e agora ela aparece em toda batalha de treinador.
 
+**E o JOGO NOVO passa a dar os quatro aparelhos, não dois.** O achado acima era só do lado do SALTO: `src/new_game.c`
+seguia dando apenas Dynamax Band e Mega Ring, e por isso Z-move e Terastal continuavam mortos para quem joga a história
+do começo. Agora ele dá também ITEM_Z_POWER_RING e ITEM_TERA_ORB, custo de save ZERO. T184.1 (bloco novo) lê os quatro
+com quantidade 1 na bolsa do jogo novo e fica VERMELHO na ROM de antes em `item_0x2C0` e `item_0x304`; e de jogo novo um
+Wobbuffet com Firium Z disparou `gCurrentMove` 857 (Inferno Overdrive) numa selvagem. Build verde, SAVE COMPATIVEL, T11 3/3.
+
 ## 0.u O LETREIRO DE MAPA PARA DE DIZER "SINNOH WEST" E JOHTO PARA DE TOCAR CAVERNA: O NOME DO POPUP SAI DO MAPSEC, E O DE-PARA DE MÚSICA SAI DE PETALBURG WOODS, 05-07/09/2026 (rodada 13; o playtest do Gui, um executor Opus por frente, fechador Opus)
 
 ### PLACAR DA RODADA 13, fechado em 07/09/2026
