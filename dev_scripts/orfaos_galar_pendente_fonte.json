@@ -9,16 +9,16 @@
   "classes": {
     "porta_no_exterior": "o mapa SAI para um mapa vivo, com indice de chegada valido: sabemos exatamente em que exterior a porta entra. O que falta e o tile de warp no exterior, porque o indice que a fonte usou ja e de outro mapa vivo (as portas do demake sao compartilhadas).",
     "conexao_de_borda_de_mao_unica": "a conexao de borda da fonte esta escrita neste mapa, mas o vizinho nao conecta de volta. Falta a conexao reciproca no vizinho.",
-    "warp_morto_aponta_para_si": "o mapa tem tile de warp, e o warp aponta para o proprio mapa. A fonte nunca escreveu o par: falta a escada ou a porta dos DOIS lados, e nada diz onde ela entra.",
+    "warp_morto_aponta_para_si": "o mapa tem warp, e o warp aponta para o proprio mapa. CORRIGIDO pelo lote N da onda 4, 06/09/2026, que mediu tile a tile: o nome desta classe promete escada, e escada nao ha. Nenhum dos 78 warps mortos destes mapas esta sobre escada, escada rolante ou porta (73 em MB_NORMAL, 5 deles solidos; 2 em MB_CAVE), e em 11 dos 14 o mapa inteiro nao tem um unico tile que dispare warp. A fonte TAMBEM nao e omissa como se dizia: ela escreveu destino para 12 dos 17 warps mortos dos mapas de um warp so, mas o destino aponta para sobra de FireRed que nao importamos, ou para indice de chegada que nao existe. Ligar qualquer um exige DESENHAR tile de porta ou escada no blockdata, que e a decisao de desenho da resposta 40.",
     "sobra_vazia": "casca de 1x1 ou 2x2, zero warp, zero objeto: slot que o autor reservou na ROM e nunca desenhou. Sem correspondente em SwSh.",
     "sobra_sem_porta": "o mapa tem blockdata e as vezes NPC, mas zero warp e zero conexao em qualquer direcao. A fonte nao tem porta para dar.",
-    "ja_alcancado": "estava nesta lista quando ela foi gerada, mas HOJE a regua de `valida_conectividade.py` ja o alcanca. Fica marcado para nao sumir calado, e nao conta como pendencia de desenho."
+    "ja_alcancado": "estava nesta lista quando ela foi gerada, mas HOJE a regua de `valida_conectividade.py` ja o alcanca. Fica marcado para nao sumir calado, e nao conta como pendencia de desenho.",
+    "ligado_na_onda_4": "estava marcado como escada faltando e a onda 4 ligou o par, com ida e volta e o tile conferido pelo comportamento do metatile."
   },
-  "total": 42,
+  "total": 40,
   "ainda_orfaos": 40,
   "resumo_por_classe": {
     "conexao_de_borda_de_mao_unica": 2,
-    "ja_alcancado": 2,
     "porta_no_exterior": 10,
     "sobra_sem_porta": 7,
     "sobra_vazia": 7,
@@ -244,10 +244,42 @@
       ],
       "orfao_hoje": true,
       "classe": "warp_morto_aponta_para_si",
-      "custo_estimado": "escada ou porta dos dois lados: 1 warp morto aqui, e o par que a fonte nunca escreveu",
+      "custo_estimado": "desenhar tile de porta ou escada no blockdata: 1 warp morto aqui, e nenhum deles esta sobre tile que dispare (medido pelo lote N da onda 4)",
       "o_que_e_palpite": "sala grande de predio com 17 NPCs, tileset dos interiores de Turffield; o unico warp aponta para si mesmo",
       "motivo": "sem_entrada_na_fonte",
-      "data": "2026-09-06"
+      "data": "2026-09-06",
+      "escadas_onda4": {
+        "regra": "liga_orfaos_galar.py --escadas, onda 4 da Frente A",
+        "warps_mortos_medidos": [
+          {
+            "warp": 0,
+            "x": 7,
+            "y": 18,
+            "comportamento": "MB_NORMAL",
+            "colisao": 0,
+            "e_escada_ou_porta_que_dispara": false
+          }
+        ],
+        "destino_na_fonte": [
+          {
+            "warp": 0,
+            "x": 7,
+            "y": 18,
+            "fonte_destino": "g0m0",
+            "warp_de_chegada": 0,
+            "nosso_destino": null,
+            "por_que_nao_serve": "o destino nao foi importado para Galar (secao da fonte: 'Celadon Dept。')"
+          }
+        ],
+        "resultado": [
+          {
+            "warp": 0,
+            "motivo": "tile_nao_e_escada",
+            "evidencia": "Galar_Postwick06 ( 7,18) tile MB_NORMAL"
+          }
+        ],
+        "conclusao": "nao ligado nesta onda: tile_nao_e_escada"
+      }
     },
     {
       "pasta": "Galar_Postwick07",
@@ -287,10 +319,42 @@
       ],
       "orfao_hoje": true,
       "classe": "warp_morto_aponta_para_si",
-      "custo_estimado": "escada ou porta dos dois lados: 1 warp morto aqui, e o par que a fonte nunca escreveu",
+      "custo_estimado": "desenhar tile de porta ou escada no blockdata: 1 warp morto aqui, e nenhum deles esta sobre tile que dispare (medido pelo lote N da onda 4)",
       "o_que_e_palpite": "copia byte a byte de Postwick06, mesmo warp morto",
       "motivo": "sem_entrada_na_fonte",
-      "data": "2026-09-06"
+      "data": "2026-09-06",
+      "escadas_onda4": {
+        "regra": "liga_orfaos_galar.py --escadas, onda 4 da Frente A",
+        "warps_mortos_medidos": [
+          {
+            "warp": 0,
+            "x": 7,
+            "y": 18,
+            "comportamento": "MB_NORMAL",
+            "colisao": 0,
+            "e_escada_ou_porta_que_dispara": false
+          }
+        ],
+        "destino_na_fonte": [
+          {
+            "warp": 0,
+            "x": 7,
+            "y": 18,
+            "fonte_destino": "g0m0",
+            "warp_de_chegada": 0,
+            "nosso_destino": null,
+            "por_que_nao_serve": "o destino nao foi importado para Galar (secao da fonte: 'Celadon Dept。')"
+          }
+        ],
+        "resultado": [
+          {
+            "warp": 0,
+            "motivo": "tile_nao_e_escada",
+            "evidencia": "Galar_Postwick07 ( 7,18) tile MB_NORMAL"
+          }
+        ],
+        "conclusao": "nao ligado nesta onda: tile_nao_e_escada"
+      }
     },
     {
       "pasta": "Galar_Postwick11",
@@ -328,10 +392,64 @@
       "copia_parcial_de": [],
       "orfao_hoje": true,
       "classe": "warp_morto_aponta_para_si",
-      "custo_estimado": "escada ou porta dos dois lados: 2 warps mortos aqui, e o par que a fonte nunca escreveu",
+      "custo_estimado": "desenhar tile de porta ou escada no blockdata: 2 warps mortos aqui, e nenhum deles esta sobre tile que dispare (medido pelo lote N da onda 4)",
       "o_que_e_palpite": "sala pequena de caverna com dois warps mortos e dois itens escondidos",
       "motivo": "sem_entrada_na_fonte",
-      "data": "2026-09-06"
+      "data": "2026-09-06",
+      "escadas_onda4": {
+        "regra": "liga_orfaos_galar.py --escadas, onda 4 da Frente A",
+        "warps_mortos_medidos": [
+          {
+            "warp": 0,
+            "x": 5,
+            "y": 9,
+            "comportamento": "MB_CAVE",
+            "colisao": 0,
+            "e_escada_ou_porta_que_dispara": false
+          },
+          {
+            "warp": 1,
+            "x": 5,
+            "y": 9,
+            "comportamento": "MB_CAVE",
+            "colisao": 0,
+            "e_escada_ou_porta_que_dispara": false
+          }
+        ],
+        "destino_na_fonte": [
+          {
+            "warp": 0,
+            "x": 11,
+            "y": 7,
+            "fonte_destino": "g1m115",
+            "warp_de_chegada": 2,
+            "nosso_destino": null,
+            "por_que_nao_serve": "o destino nao foi importado para Galar (secao da fonte: 'Dotted Hole')"
+          },
+          {
+            "warp": 1,
+            "x": 5,
+            "y": 9,
+            "fonte_destino": "g1m119",
+            "warp_de_chegada": 3,
+            "nosso_destino": null,
+            "por_que_nao_serve": "o destino nao foi importado para Galar (secao da fonte: 'Dotted Hole')"
+          }
+        ],
+        "resultado": [
+          {
+            "warp": 0,
+            "motivo": "tile_nao_e_escada",
+            "evidencia": "Galar_Postwick11 ( 5, 9) tile MB_CAVE"
+          },
+          {
+            "warp": 1,
+            "motivo": "tile_nao_e_escada",
+            "evidencia": "Galar_Postwick11 ( 5, 9) tile MB_CAVE"
+          }
+        ],
+        "conclusao": "nao ligado nesta onda: tile_nao_e_escada"
+      }
     },
     {
       "pasta": "Galar_Postwick111",
@@ -368,10 +486,42 @@
       "copia_parcial_de": [],
       "orfao_hoje": true,
       "classe": "warp_morto_aponta_para_si",
-      "custo_estimado": "escada ou porta dos dois lados: 1 warp morto aqui, e o par que a fonte nunca escreveu",
+      "custo_estimado": "desenhar tile de porta ou escada no blockdata: 1 warp morto aqui, e nenhum deles esta sobre tile que dispare (medido pelo lote N da onda 4)",
       "o_que_e_palpite": "andar de caverna com 20 NPCs, copia byte a byte de Postwick03, Postwick112 e Postwick113; warp morto",
       "motivo": "sem_entrada_na_fonte",
-      "data": "2026-09-06"
+      "data": "2026-09-06",
+      "escadas_onda4": {
+        "regra": "liga_orfaos_galar.py --escadas, onda 4 da Frente A",
+        "warps_mortos_medidos": [
+          {
+            "warp": 0,
+            "x": 14,
+            "y": 23,
+            "comportamento": "MB_NORMAL",
+            "colisao": 1,
+            "e_escada_ou_porta_que_dispara": false
+          }
+        ],
+        "destino_na_fonte": [
+          {
+            "warp": 0,
+            "x": 14,
+            "y": 23,
+            "fonte_destino": "g3m58",
+            "warp_de_chegada": 0,
+            "nosso_destino": null,
+            "por_que_nao_serve": "o destino nao foi importado para Galar (secao da fonte: 'Outcast Island')"
+          }
+        ],
+        "resultado": [
+          {
+            "warp": 0,
+            "motivo": "tile_nao_e_escada",
+            "evidencia": "Galar_Postwick111 (14,23) tile MB_NORMAL SOLIDO"
+          }
+        ],
+        "conclusao": "nao ligado nesta onda: tile_nao_e_escada"
+      }
     },
     {
       "pasta": "Galar_Postwick112",
@@ -408,10 +558,42 @@
       "copia_parcial_de": [],
       "orfao_hoje": true,
       "classe": "warp_morto_aponta_para_si",
-      "custo_estimado": "escada ou porta dos dois lados: 1 warp morto aqui, e o par que a fonte nunca escreveu",
+      "custo_estimado": "desenhar tile de porta ou escada no blockdata: 1 warp morto aqui, e nenhum deles esta sobre tile que dispare (medido pelo lote N da onda 4)",
       "o_que_e_palpite": "copia byte a byte de Postwick111",
       "motivo": "sem_entrada_na_fonte",
-      "data": "2026-09-06"
+      "data": "2026-09-06",
+      "escadas_onda4": {
+        "regra": "liga_orfaos_galar.py --escadas, onda 4 da Frente A",
+        "warps_mortos_medidos": [
+          {
+            "warp": 0,
+            "x": 14,
+            "y": 23,
+            "comportamento": "MB_NORMAL",
+            "colisao": 1,
+            "e_escada_ou_porta_que_dispara": false
+          }
+        ],
+        "destino_na_fonte": [
+          {
+            "warp": 0,
+            "x": 14,
+            "y": 23,
+            "fonte_destino": "g3m58",
+            "warp_de_chegada": 0,
+            "nosso_destino": null,
+            "por_que_nao_serve": "o destino nao foi importado para Galar (secao da fonte: 'Outcast Island')"
+          }
+        ],
+        "resultado": [
+          {
+            "warp": 0,
+            "motivo": "tile_nao_e_escada",
+            "evidencia": "Galar_Postwick112 (14,23) tile MB_NORMAL SOLIDO"
+          }
+        ],
+        "conclusao": "nao ligado nesta onda: tile_nao_e_escada"
+      }
     },
     {
       "pasta": "Galar_Postwick113",
@@ -448,10 +630,42 @@
       "copia_parcial_de": [],
       "orfao_hoje": true,
       "classe": "warp_morto_aponta_para_si",
-      "custo_estimado": "escada ou porta dos dois lados: 1 warp morto aqui, e o par que a fonte nunca escreveu",
+      "custo_estimado": "desenhar tile de porta ou escada no blockdata: 1 warp morto aqui, e nenhum deles esta sobre tile que dispare (medido pelo lote N da onda 4)",
       "o_que_e_palpite": "copia byte a byte de Postwick111",
       "motivo": "sem_entrada_na_fonte",
-      "data": "2026-09-06"
+      "data": "2026-09-06",
+      "escadas_onda4": {
+        "regra": "liga_orfaos_galar.py --escadas, onda 4 da Frente A",
+        "warps_mortos_medidos": [
+          {
+            "warp": 0,
+            "x": 14,
+            "y": 23,
+            "comportamento": "MB_NORMAL",
+            "colisao": 1,
+            "e_escada_ou_porta_que_dispara": false
+          }
+        ],
+        "destino_na_fonte": [
+          {
+            "warp": 0,
+            "x": 14,
+            "y": 23,
+            "fonte_destino": "g3m58",
+            "warp_de_chegada": 0,
+            "nosso_destino": null,
+            "por_que_nao_serve": "o destino nao foi importado para Galar (secao da fonte: 'Outcast Island')"
+          }
+        ],
+        "resultado": [
+          {
+            "warp": 0,
+            "motivo": "tile_nao_e_escada",
+            "evidencia": "Galar_Postwick113 (14,23) tile MB_NORMAL SOLIDO"
+          }
+        ],
+        "conclusao": "nao ligado nesta onda: tile_nao_e_escada"
+      }
     },
     {
       "pasta": "Galar_Postwick172",
@@ -493,10 +707,42 @@
       ],
       "orfao_hoje": true,
       "classe": "warp_morto_aponta_para_si",
-      "custo_estimado": "escada ou porta dos dois lados: 1 warp morto aqui, e o par que a fonte nunca escreveu",
+      "custo_estimado": "desenhar tile de porta ou escada no blockdata: 1 warp morto aqui, e nenhum deles esta sobre tile que dispare (medido pelo lote N da onda 4)",
       "o_que_e_palpite": "variante 68% igual a Postwick06 e Postwick07, mesmo warp morto",
       "motivo": "sem_entrada_na_fonte",
-      "data": "2026-09-06"
+      "data": "2026-09-06",
+      "escadas_onda4": {
+        "regra": "liga_orfaos_galar.py --escadas, onda 4 da Frente A",
+        "warps_mortos_medidos": [
+          {
+            "warp": 0,
+            "x": 7,
+            "y": 18,
+            "comportamento": "MB_NORMAL",
+            "colisao": 0,
+            "e_escada_ou_porta_que_dispara": false
+          }
+        ],
+        "destino_na_fonte": [
+          {
+            "warp": 0,
+            "x": 7,
+            "y": 18,
+            "fonte_destino": "g0m0",
+            "warp_de_chegada": 0,
+            "nosso_destino": null,
+            "por_que_nao_serve": "o destino nao foi importado para Galar (secao da fonte: 'Celadon Dept。')"
+          }
+        ],
+        "resultado": [
+          {
+            "warp": 0,
+            "motivo": "tile_nao_e_escada",
+            "evidencia": "Galar_Postwick172 ( 7,18) tile MB_NORMAL"
+          }
+        ],
+        "conclusao": "nao ligado nesta onda: tile_nao_e_escada"
+      }
     },
     {
       "pasta": "Galar_Postwick23",
@@ -896,10 +1142,62 @@
       "copia_parcial_de": [],
       "orfao_hoje": true,
       "classe": "warp_morto_aponta_para_si",
-      "custo_estimado": "escada ou porta dos dois lados: 2 warps mortos aqui, e o par que a fonte nunca escreveu",
+      "custo_estimado": "desenhar tile de porta ou escada no blockdata: 2 warps mortos aqui, e nenhum deles esta sobre tile que dispare (medido pelo lote N da onda 4)",
       "o_que_e_palpite": "lasca da Wild Area 48x47 com sete NPCs e dois warps mortos; na fonte, e ela que aponta para Postwick50",
       "motivo": "sem_entrada_na_fonte",
-      "data": "2026-09-06"
+      "data": "2026-09-06",
+      "escadas_onda4": {
+        "regra": "liga_orfaos_galar.py --escadas, onda 4 da Frente A",
+        "warps_mortos_medidos": [
+          {
+            "warp": 0,
+            "x": 25,
+            "y": 6,
+            "comportamento": "MB_NORMAL",
+            "colisao": 1,
+            "e_escada_ou_porta_que_dispara": false
+          },
+          {
+            "warp": 1,
+            "x": 26,
+            "y": 6,
+            "comportamento": "MB_NORMAL",
+            "colisao": 1,
+            "e_escada_ou_porta_que_dispara": false
+          }
+        ],
+        "destino_na_fonte": [
+          {
+            "warp": 0,
+            "x": 25,
+            "y": 6,
+            "fonte_destino": "g8m13",
+            "warp_de_chegada": 0,
+            "nosso_destino": "Galar_Postwick50"
+          },
+          {
+            "warp": 1,
+            "x": 26,
+            "y": 6,
+            "fonte_destino": "g8m13",
+            "warp_de_chegada": 1,
+            "nosso_destino": "Galar_Postwick50"
+          }
+        ],
+        "resultado": [
+          {
+            "warp": 0,
+            "motivo": "tile_nao_e_escada",
+            "evidencia": "Galar_Postwick47 (25, 6) tile MB_NORMAL SOLIDO"
+          },
+          {
+            "warp": 1,
+            "motivo": "tile_nao_e_escada",
+            "evidencia": "Galar_Postwick47 (26, 6) tile MB_NORMAL SOLIDO"
+          }
+        ],
+        "conclusao": "nao ligado nesta onda: tile_nao_e_escada"
+      }
     },
     {
       "pasta": "Galar_Postwick49",
@@ -932,10 +1230,39 @@
       "copia_parcial_de": [],
       "orfao_hoje": true,
       "classe": "warp_morto_aponta_para_si",
-      "custo_estimado": "escada ou porta dos dois lados: 1 warp morto aqui, e o par que a fonte nunca escreveu",
+      "custo_estimado": "desenhar tile de porta ou escada no blockdata: 1 warp morto aqui, e nenhum deles esta sobre tile que dispare (medido pelo lote N da onda 4)",
       "o_que_e_palpite": "lasca da Wild Area 48x48 com um warp morto",
       "motivo": "sem_entrada_na_fonte",
-      "data": "2026-09-06"
+      "data": "2026-09-06",
+      "escadas_onda4": {
+        "regra": "liga_orfaos_galar.py --escadas, onda 4 da Frente A",
+        "warps_mortos_medidos": [
+          {
+            "warp": 0,
+            "x": 0,
+            "y": 0,
+            "comportamento": "MB_NORMAL",
+            "colisao": 0,
+            "e_escada_ou_porta_que_dispara": false
+          }
+        ],
+        "destino_na_fonte": [
+          {
+            "tabela_da_fonte": "LIXO",
+            "warps_na_fonte": 224,
+            "warps_no_nosso_map_json": 1,
+            "por_que_nao_serve": "a tabela de warps deste mapa foi lida fora do fim do vetor na extracao: as coordenadas saem da faixa do mapa (ex.: (-30648,-30624), (-16380,23331), (-32730,27941)) e os destinos apontam para grupo que nao existe. Nao ha destino que se possa usar."
+          }
+        ],
+        "resultado": [
+          {
+            "warp": 0,
+            "motivo": "tile_nao_e_escada",
+            "evidencia": "Galar_Postwick49 ( 0, 0) tile MB_NORMAL"
+          }
+        ],
+        "conclusao": "nao ligado nesta onda: tile_nao_e_escada"
+      }
     },
     {
       "pasta": "Galar_Postwick50",
@@ -1278,10 +1605,143 @@
       "copia_parcial_de": [],
       "orfao_hoje": true,
       "classe": "warp_morto_aponta_para_si",
-      "custo_estimado": "escada ou porta dos dois lados: 63 warps mortos aqui, e o par que a fonte nunca escreveu",
+      "custo_estimado": "desenhar tile de porta ou escada no blockdata: 63 warps mortos aqui, e nenhum deles esta sobre tile que dispare (medido pelo lote N da onda 4)",
       "o_que_e_palpite": "lasca da Wild Area 48x48 com 63 warps, TODOS apontando para si mesmos: a laje de covis que o autor nunca ligou",
       "motivo": "sem_entrada_na_fonte",
-      "data": "2026-09-06"
+      "data": "2026-09-06",
+      "escadas_onda4": {
+        "regra": "liga_orfaos_galar.py --escadas, onda 4 da Frente A",
+        "warps_mortos_medidos": {
+          "warps_mortos": 63,
+          "nenhum_em_escada_ou_porta": true,
+          "por_comportamento": {
+            "MB_NORMAL": 63
+          },
+          "primeiros": [
+            {
+              "warp": 0,
+              "x": 0,
+              "y": 0,
+              "comportamento": "MB_NORMAL",
+              "colisao": 0,
+              "e_escada_ou_porta_que_dispara": false
+            },
+            {
+              "warp": 1,
+              "x": 0,
+              "y": 0,
+              "comportamento": "MB_NORMAL",
+              "colisao": 0,
+              "e_escada_ou_porta_que_dispara": false
+            },
+            {
+              "warp": 2,
+              "x": 0,
+              "y": 0,
+              "comportamento": "MB_NORMAL",
+              "colisao": 0,
+              "e_escada_ou_porta_que_dispara": false
+            },
+            {
+              "warp": 3,
+              "x": 0,
+              "y": 0,
+              "comportamento": "MB_NORMAL",
+              "colisao": 0,
+              "e_escada_ou_porta_que_dispara": false
+            },
+            {
+              "warp": 4,
+              "x": 0,
+              "y": 0,
+              "comportamento": "MB_NORMAL",
+              "colisao": 0,
+              "e_escada_ou_porta_que_dispara": false
+            },
+            {
+              "warp": 5,
+              "x": 0,
+              "y": 0,
+              "comportamento": "MB_NORMAL",
+              "colisao": 0,
+              "e_escada_ou_porta_que_dispara": false
+            },
+            {
+              "warp": 6,
+              "x": 0,
+              "y": 0,
+              "comportamento": "MB_NORMAL",
+              "colisao": 0,
+              "e_escada_ou_porta_que_dispara": false
+            },
+            {
+              "warp": 7,
+              "x": 0,
+              "y": 0,
+              "comportamento": "MB_NORMAL",
+              "colisao": 0,
+              "e_escada_ou_porta_que_dispara": false
+            }
+          ]
+        },
+        "destino_na_fonte": [
+          {
+            "tabela_da_fonte": "LIXO",
+            "warps_na_fonte": 225,
+            "warps_no_nosso_map_json": 63,
+            "por_que_nao_serve": "a tabela de warps deste mapa foi lida fora do fim do vetor na extracao: as coordenadas saem da faixa do mapa (ex.: (30601,2439), (135,30606), (-27648,13107)) e os destinos apontam para grupo que nao existe. Nao ha destino que se possa usar."
+          }
+        ],
+        "resultado": {
+          "warps": 63,
+          "por_motivo": {
+            "tile_nao_e_escada": 63
+          },
+          "primeiros": [
+            {
+              "warp": 0,
+              "motivo": "tile_nao_e_escada",
+              "evidencia": "Galar_Postwick50 ( 0, 0) tile MB_NORMAL"
+            },
+            {
+              "warp": 1,
+              "motivo": "tile_nao_e_escada",
+              "evidencia": "Galar_Postwick50 ( 0, 0) tile MB_NORMAL"
+            },
+            {
+              "warp": 2,
+              "motivo": "tile_nao_e_escada",
+              "evidencia": "Galar_Postwick50 ( 0, 0) tile MB_NORMAL"
+            },
+            {
+              "warp": 3,
+              "motivo": "tile_nao_e_escada",
+              "evidencia": "Galar_Postwick50 ( 0, 0) tile MB_NORMAL"
+            },
+            {
+              "warp": 4,
+              "motivo": "tile_nao_e_escada",
+              "evidencia": "Galar_Postwick50 ( 0, 0) tile MB_NORMAL"
+            },
+            {
+              "warp": 5,
+              "motivo": "tile_nao_e_escada",
+              "evidencia": "Galar_Postwick50 ( 0, 0) tile MB_NORMAL"
+            },
+            {
+              "warp": 6,
+              "motivo": "tile_nao_e_escada",
+              "evidencia": "Galar_Postwick50 ( 0, 0) tile MB_NORMAL"
+            },
+            {
+              "warp": 7,
+              "motivo": "tile_nao_e_escada",
+              "evidencia": "Galar_Postwick50 ( 0, 0) tile MB_NORMAL"
+            }
+          ]
+        },
+        "conclusao": "nao ligado nesta onda: tile_nao_e_escada"
+      }
     },
     {
       "pasta": "Galar_Postwick53",
@@ -1721,52 +2181,6 @@
       "data": "2026-09-06"
     },
     {
-      "pasta": "Galar_WildArea18",
-      "mapa": "MAP_GALAR_WILD_AREA_18",
-      "mapsec": "MAPSEC_GALAR_WILD_AREA",
-      "mapsec_real": "MAPSEC_GALAR_CENTRAL",
-      "lugar_na_fonte": "WildArea",
-      "fonte": "g42m11",
-      "nome_antes_do_g3": null,
-      "map_type": "MAP_TYPE_ROUTE",
-      "largura": 29,
-      "altura": 83,
-      "area_em_tiles": 2407,
-      "warps": 1,
-      "warps_mortos": [],
-      "saidas": [
-        {
-          "warp": 0,
-          "x": 22,
-          "y": 69,
-          "sai_em": "Galar_WildAreaCave01",
-          "sai_em_id": "MAP_GALAR_WILD_AREA_CAVE_01",
-          "warp_de_chegada": "0",
-          "estado_do_destino": "vivo"
-        }
-      ],
-      "conexoes": [
-        {
-          "direcao": "right",
-          "vizinho": "Galar_WildArea17",
-          "estado_do_vizinho": "vivo"
-        }
-      ],
-      "objetos": 11,
-      "bg_events": 0,
-      "tileset_primario": "gTileset_Galar00",
-      "tileset_secundario": "gTileset_Galar41",
-      "musica": "MUS_RG_ROUTE11",
-      "copia_exata_de": [],
-      "copia_parcial_de": [],
-      "orfao_hoje": false,
-      "classe": "ja_alcancado",
-      "custo_estimado": "nenhum: a regua de hoje ja alcanca este mapa",
-      "o_que_e_palpite": "laje da Wild Area 29x83 que faz par com WildAreaCave01; HOJE ja e alcancada por script, ver o campo alcancado_hoje",
-      "motivo": "sem_entrada_na_fonte",
-      "data": "2026-09-06"
-    },
-    {
       "pasta": "Galar_WildArea23",
       "mapa": "MAP_GALAR_WILD_AREA_23",
       "mapsec": "MAPSEC_GALAR_POSTWICK",
@@ -1850,10 +2264,42 @@
       ],
       "orfao_hoje": true,
       "classe": "warp_morto_aponta_para_si",
-      "custo_estimado": "escada ou porta dos dois lados: 1 warp morto aqui, e o par que a fonte nunca escreveu",
+      "custo_estimado": "desenhar tile de porta ou escada no blockdata: 1 warp morto aqui, e nenhum deles esta sobre tile que dispare (medido pelo lote N da onda 4)",
       "o_que_e_palpite": "clareira 25x25 do tileset de Ballonlea, warp morto",
       "motivo": "sem_entrada_na_fonte",
-      "data": "2026-09-06"
+      "data": "2026-09-06",
+      "escadas_onda4": {
+        "regra": "liga_orfaos_galar.py --escadas, onda 4 da Frente A",
+        "warps_mortos_medidos": [
+          {
+            "warp": 0,
+            "x": 20,
+            "y": 21,
+            "comportamento": "MB_NORMAL",
+            "colisao": 0,
+            "e_escada_ou_porta_que_dispara": false
+          }
+        ],
+        "destino_na_fonte": [
+          {
+            "warp": 0,
+            "x": 20,
+            "y": 21,
+            "fonte_destino": "g6m27",
+            "warp_de_chegada": 13,
+            "nosso_destino": "Galar_WildArea03",
+            "por_que_nao_serve": "o indice de chegada 13 nao existe em Galar_WildArea03, que tem 7 warps"
+          }
+        ],
+        "resultado": [
+          {
+            "warp": 0,
+            "motivo": "tile_nao_e_escada",
+            "evidencia": "Galar_WildArea25 (20,21) tile MB_NORMAL"
+          }
+        ],
+        "conclusao": "nao ligado nesta onda: tile_nao_e_escada"
+      }
     },
     {
       "pasta": "Galar_WildArea26",
@@ -1899,10 +2345,42 @@
       ],
       "orfao_hoje": true,
       "classe": "warp_morto_aponta_para_si",
-      "custo_estimado": "escada ou porta dos dois lados: 1 warp morto aqui, e o par que a fonte nunca escreveu",
+      "custo_estimado": "desenhar tile de porta ou escada no blockdata: 1 warp morto aqui, e nenhum deles esta sobre tile que dispare (medido pelo lote N da onda 4)",
       "o_que_e_palpite": "clareira 25x25 do mesmo molde, 94% igual a WildArea25, warp morto",
       "motivo": "sem_entrada_na_fonte",
-      "data": "2026-09-06"
+      "data": "2026-09-06",
+      "escadas_onda4": {
+        "regra": "liga_orfaos_galar.py --escadas, onda 4 da Frente A",
+        "warps_mortos_medidos": [
+          {
+            "warp": 0,
+            "x": 20,
+            "y": 21,
+            "comportamento": "MB_NORMAL",
+            "colisao": 0,
+            "e_escada_ou_porta_que_dispara": false
+          }
+        ],
+        "destino_na_fonte": [
+          {
+            "warp": 0,
+            "x": 20,
+            "y": 21,
+            "fonte_destino": "g6m27",
+            "warp_de_chegada": 13,
+            "nosso_destino": "Galar_WildArea03",
+            "por_que_nao_serve": "o indice de chegada 13 nao existe em Galar_WildArea03, que tem 7 warps"
+          }
+        ],
+        "resultado": [
+          {
+            "warp": 0,
+            "motivo": "tile_nao_e_escada",
+            "evidencia": "Galar_WildArea26 (20,21) tile MB_NORMAL"
+          }
+        ],
+        "conclusao": "nao ligado nesta onda: tile_nao_e_escada"
+      }
     },
     {
       "pasta": "Galar_WildArea27",
@@ -1976,10 +2454,42 @@
       ],
       "orfao_hoje": true,
       "classe": "warp_morto_aponta_para_si",
-      "custo_estimado": "escada ou porta dos dois lados: 1 warp morto aqui, e o par que a fonte nunca escreveu",
+      "custo_estimado": "desenhar tile de porta ou escada no blockdata: 1 warp morto aqui, e nenhum deles esta sobre tile que dispare (medido pelo lote N da onda 4)",
       "o_que_e_palpite": "clareira 25x25, copia byte a byte de WildArea29, warp morto",
       "motivo": "sem_entrada_na_fonte",
-      "data": "2026-09-06"
+      "data": "2026-09-06",
+      "escadas_onda4": {
+        "regra": "liga_orfaos_galar.py --escadas, onda 4 da Frente A",
+        "warps_mortos_medidos": [
+          {
+            "warp": 0,
+            "x": 20,
+            "y": 21,
+            "comportamento": "MB_NORMAL",
+            "colisao": 0,
+            "e_escada_ou_porta_que_dispara": false
+          }
+        ],
+        "destino_na_fonte": [
+          {
+            "warp": 0,
+            "x": 20,
+            "y": 21,
+            "fonte_destino": "g6m27",
+            "warp_de_chegada": 13,
+            "nosso_destino": "Galar_WildArea03",
+            "por_que_nao_serve": "o indice de chegada 13 nao existe em Galar_WildArea03, que tem 7 warps"
+          }
+        ],
+        "resultado": [
+          {
+            "warp": 0,
+            "motivo": "tile_nao_e_escada",
+            "evidencia": "Galar_WildArea28 (20,21) tile MB_NORMAL"
+          }
+        ],
+        "conclusao": "nao ligado nesta onda: tile_nao_e_escada"
+      }
     },
     {
       "pasta": "Galar_WildArea29",
@@ -2023,50 +2533,48 @@
       ],
       "orfao_hoje": true,
       "classe": "warp_morto_aponta_para_si",
-      "custo_estimado": "escada ou porta dos dois lados: 1 warp morto aqui, e o par que a fonte nunca escreveu",
+      "custo_estimado": "desenhar tile de porta ou escada no blockdata: 1 warp morto aqui, e nenhum deles esta sobre tile que dispare (medido pelo lote N da onda 4)",
       "o_que_e_palpite": "clareira 25x25, copia byte a byte de WildArea28, warp morto",
       "motivo": "sem_entrada_na_fonte",
-      "data": "2026-09-06"
-    },
-    {
-      "pasta": "Galar_WildAreaCave01",
-      "mapa": "MAP_GALAR_WILD_AREA_CAVE_01",
-      "mapsec": "MAPSEC_GALAR_POSTWICK",
-      "mapsec_real": "MAPSEC_GALAR_SOUTH",
-      "lugar_na_fonte": "Postwick",
-      "fonte": "g42m01",
-      "nome_antes_do_g3": "Galar_Postwick170",
-      "map_type": "MAP_TYPE_UNDERGROUND",
-      "largura": 58,
-      "altura": 50,
-      "area_em_tiles": 2900,
-      "warps": 1,
-      "warps_mortos": [],
-      "saidas": [
-        {
-          "warp": 0,
-          "x": 23,
-          "y": 3,
-          "sai_em": "Galar_WildArea18",
-          "sai_em_id": "MAP_GALAR_WILD_AREA_18",
-          "warp_de_chegada": "0",
-          "estado_do_destino": "vivo"
-        }
-      ],
-      "conexoes": [],
-      "objetos": 3,
-      "bg_events": 0,
-      "tileset_primario": "gTileset_Galar00",
-      "tileset_secundario": "gTileset_Galar13",
-      "musica": "MUS_RG_SEVII_CAVE",
-      "copia_exata_de": [],
-      "copia_parcial_de": [],
-      "orfao_hoje": false,
-      "classe": "ja_alcancado",
-      "custo_estimado": "nenhum: a regua de hoje ja alcanca este mapa",
-      "o_que_e_palpite": "caverna 58x50 que faz par com WildArea18; HOJE ja e alcancada, ver o campo alcancado_hoje",
-      "motivo": "sem_entrada_na_fonte",
-      "data": "2026-09-06"
+      "data": "2026-09-06",
+      "escadas_onda4": {
+        "regra": "liga_orfaos_galar.py --escadas, onda 4 da Frente A",
+        "warps_mortos_medidos": [
+          {
+            "warp": 0,
+            "x": 20,
+            "y": 21,
+            "comportamento": "MB_NORMAL",
+            "colisao": 0,
+            "e_escada_ou_porta_que_dispara": false
+          }
+        ],
+        "destino_na_fonte": [
+          {
+            "warp": 0,
+            "x": 20,
+            "y": 21,
+            "fonte_destino": "g6m27",
+            "warp_de_chegada": 13,
+            "nosso_destino": "Galar_WildArea03",
+            "por_que_nao_serve": "o indice de chegada 13 nao existe em Galar_WildArea03, que tem 7 warps"
+          }
+        ],
+        "resultado": [
+          {
+            "warp": 0,
+            "motivo": "tile_nao_e_escada",
+            "evidencia": "Galar_WildArea29 (20,21) tile MB_NORMAL"
+          }
+        ],
+        "conclusao": "nao ligado nesta onda: tile_nao_e_escada"
+      }
     }
-  ]
+  ],
+  "onda_4": {
+    "data": "2026-09-06",
+    "modo": "dev_scripts/liga_orfaos_galar.py --escadas",
+    "o_que_foi_medido": "os 17 warps mortos das 14 marcadas como escada faltando foram medidos tile a tile: NENHUM esta sobre escada, escada rolante ou porta. 13 caem em MB_NORMAL (3 deles solidos), 4 em MB_CAVE ou piso de laje. Em 11 das 14 o mapa inteiro nao tem um unico tile que dispare warp. A fonte, ao contrario do que a classe dizia, ESCREVEU destino para 12 dos 17: 7 mapas apontam para sobra de FireRed que nao importamos (Celadon Dept., Outcast Island, Dotted Hole), 4 apontam para Galar_WildArea03 warp 13, que nao existe (ele tem 7 warps), e 2 tem tabela de warp lixo na fonte. Nenhuma foi ligada: ligar exige DESENHAR tile de escada ou porta no blockdata, que e a decisao de desenho que a resposta 40 do Gui adiou.",
+    "leitura_de_tile_conferida": "993 dos 1.468 warps de Galar (67,6%) caem em tile que dispara, com 44 MB_LADDER e 28 escadas diagonais: a leitura nao esta quebrada, o resultado e real."
+  }
 }

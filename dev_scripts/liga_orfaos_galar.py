@@ -7,6 +7,8 @@ Uso:
     python3 dev_scripts/liga_orfaos_galar.py --censo    # a medição do diagnóstico
     python3 dev_scripts/liga_orfaos_galar.py --demo     # autoteste, sai 1 se cair
     python3 dev_scripts/liga_orfaos_galar.py --pendentes  # so a marcacao dos sem fonte
+    python3 dev_scripts/liga_orfaos_galar.py --escadas --seco     # so lista
+    python3 dev_scripts/liga_orfaos_galar.py --escadas --aplicar  # grava os pares
 
 O QUE FOI MEDIDO, 06/09/2026 (lote AB da onda 1 da Frente A)
 ============================================================
@@ -98,6 +100,16 @@ P1. Marca os mapas que a fonte deixou SEM ENTRADA NENHUMA como pendentes de
     deles. Quem quiser conferir: rode o validador antes e depois, a contagem
     de Galar não muda.
 
+N1. `--escadas` (onda 4, 06/09/2026). Procura o par das 14 marcadas
+    `warp_morto_aponta_para_si`, pela regra de nome e geometria da condutora,
+    com o tile conferido pelo comportamento do metatile. RESULTADO MEDIDO:
+    liga zero. Nenhum dos 78 warps mortos delas está sobre escada ou porta, e
+    em 11 dos 14 o mapa inteiro não tem tile que dispare warp. A regra está
+    escrita por extenso no cabeçalho do próprio modo, junto com a medição que
+    derrubou a premissa e com o que a FONTE de fato escreveu para cada uma.
+    O modo não escreve `map.json` sem par válido; ele mede, recusa e registra
+    a medição em `orfaos_galar_pendente_fonte.json`.
+
 O QUE ESTE SCRIPT NÃO FAZ, E POR QUÊ
 ====================================
 - **Não mexe nas 4 `pendencias_warp` do tipo "chegada inexistente" que teriam
@@ -114,6 +126,7 @@ import argparse
 import collections
 import json
 import os
+import re
 import sys
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -358,7 +371,47 @@ def duplicadas(gravar):
         mudados.append((n, m, copia_de_vivo[m]))
     if atualizados:
         print("B5: texto do carimbo atualizado em %d mapas" % len(atualizados))
-    return mudados, prontos, None, sobra
+
+    # A SOBRA SAI PELA REGUA PUBLICA, e o carimbo continua pela estrita.
+    # ------------------------------------------------------------------
+    # Decisao da condutora da onda 4, 06/09/2026 (lote N). Sao duas perguntas
+    # diferentes e por isso duas reguas:
+    #
+    #   - CARIMBAR mapa como reserva do autor e irreversivel na pratica (some
+    #     do denominador), entao continua na regua ESTRITA, que nao aceita cena
+    #     de script como prova de alcance. E o cuidado que o lote AB2 escreveu.
+    #   - A LISTA `orfaos_galar_sem_saida.txt` e documento: ela existe para
+    #     explicar o numero de orfaos de Galar que o Gui LE em
+    #     `valida_conectividade.py`, e esse numero sai da regua PUBLICA, que
+    #     soma os `data/scripts/galar_*.inc`. Explicar um numero com outra
+    #     regua e mentir de boa fe, e era o que fazia `Galar_WildArea18` e
+    #     `Galar_WildAreaCave01` aparecerem como pendencia de desenho sendo que
+    #     a regua publica ja os alcanca (a classe `ja_alcancado`).
+    #
+    # Nada aqui muda carimbo nenhum: so a lista, e por tabela quem entra na
+    # marcacao de pendentes de fonte, que le esta lista.
+    orfaos_pub = set(orfaos_hoje(com_scripts_de_galar=True))
+    vivo_pub = {m for m in pasta if m not in orfaos_pub and m not in cortado}
+    copia_de_vivo_pub = {}
+    for iguais in md5.values():
+        fontes = sorted(x for x in iguais if x in vivo_pub)
+        if not fontes:
+            continue
+        for m in iguais:
+            if m in orfaos_pub:
+                copia_de_vivo_pub[m] = fontes
+    apontado_por_vivo_pub = set()
+    for f in dp:
+        if id_de[f] in orfaos_pub:
+            continue
+        for w in src[f].get("warps") or []:
+            d = "g%02dm%02d" % (w["grupo"], w["mapa"])
+            if d in dp and id_de[d] != id_de[f]:
+                apontado_por_vivo_pub.add(id_de[d])
+    sobra_pub = [(pasta[m], m) for m in sorted(orfaos_pub)
+                 if m not in alcancados and m not in apontado_por_vivo_pub
+                 and m not in copia_de_vivo_pub and m not in curas]
+    return mudados, prontos, None, sobra_pub
 
 
 def escreve_carimbados(mudados):
@@ -394,7 +447,13 @@ def escreve_sem_saida(sobra):
                 "# ÓRFÃO aponta warp para eles na fonte, nenhum script do demake os\n"
                 "# abre (dev_scripts/anda_scripts_galar.py) e o blockdata deles não\n"
                 "# é cópia byte a byte de mapa vivo. Ligar estes é DESENHO DE\n"
-                "# CONTEÚDO, não extração: a fonte não tem porta para dar.\n#\n")
+                "# CONTEÚDO, não extração: a fonte não tem porta para dar.\n"
+                "#\n"
+                "# A régua aqui é a PÚBLICA desde a onda 4 (06/09/2026): a mesma de\n"
+                "# valida_conectividade.py, que soma os data/scripts/galar_*.inc.\n"
+                "# Antes era a estrita, e por isso a lista trazia mapa que a régua\n"
+                "# do dia já alcançava. O carimbo de reserva do B5 continua na\n"
+                "# régua estrita, de propósito: são perguntas diferentes.\n#\n")
         f.write("# %d mapas.\n\n" % len(sobra))
         for n, m in sobra:
             f.write("%-34s %s\n" % (n, m))
@@ -476,9 +535,17 @@ CLASSES = {
         "a conexao de borda da fonte esta escrita neste mapa, mas o vizinho "
         "nao conecta de volta. Falta a conexao reciproca no vizinho."),
     "warp_morto_aponta_para_si": (
-        "o mapa tem tile de warp, e o warp aponta para o proprio mapa. A "
-        "fonte nunca escreveu o par: falta a escada ou a porta dos DOIS "
-        "lados, e nada diz onde ela entra."),
+        "o mapa tem warp, e o warp aponta para o proprio mapa. CORRIGIDO pelo "
+        "lote N da onda 4, 06/09/2026, que mediu tile a tile: o nome desta "
+        "classe promete escada, e escada nao ha. Nenhum dos 78 warps mortos "
+        "destes mapas esta sobre escada, escada rolante ou porta (73 em "
+        "MB_NORMAL, 5 deles solidos; 2 em MB_CAVE), e em 11 dos 14 o mapa "
+        "inteiro nao tem um unico tile que dispare warp. A fonte TAMBEM nao "
+        "e omissa como se dizia: ela escreveu destino para 12 dos 17 warps "
+        "mortos dos mapas de um warp so, mas o destino aponta para sobra de "
+        "FireRed que nao importamos, ou para indice de chegada que nao "
+        "existe. Ligar qualquer um exige DESENHAR tile de porta ou escada no "
+        "blockdata, que e a decisao de desenho da resposta 40."),
     "sobra_vazia": (
         "casca de 1x1 ou 2x2, zero warp, zero objeto: slot que o autor "
         "reservou na ROM e nunca desenhou. Sem correspondente em SwSh."),
@@ -616,8 +683,9 @@ def pendentes_de_fonte(gravar):
                      % ", ".join(c["vizinho"] for c in conexoes
                                  if c["estado_do_vizinho"] == "vivo"))
         elif classe == "warp_morto_aponta_para_si":
-            custo = ("escada ou porta dos dois lados: %s aqui, e o par que a "
-                     "fonte nunca escreveu"
+            custo = ("desenhar tile de porta ou escada no blockdata: %s "
+                     "aqui, e nenhum deles esta sobre tile que dispare "
+                     "(medido pelo lote N da onda 4)"
                      % ("1 warp morto" if len(mortos) == 1
                         else "%d warps mortos" % len(mortos)))
         elif classe == "sobra_vazia":
@@ -657,6 +725,29 @@ def pendentes_de_fonte(gravar):
             "data": DATA_PENDENTE,
         })
 
+    # ARMADILHA que este bloco tinha e o lote N da onda 4 fechou: esta funcao
+    # REMONTA o documento do zero a cada rodada. Sem as tres linhas abaixo, a
+    # proxima rodada em modo padrao apagaria calada tudo que o modo --escadas
+    # anotou (a medicao de tile, o que a fonte diz e o par escrito), e o
+    # arquivo voltaria a repetir a premissa que a medicao derrubou. O que a
+    # onda 4 escreveu e MEDICAO, nao derivado: ele viaja junto.
+    antes = {}
+    if os.path.exists(PENDENTE_FONTE):
+        try:
+            _velho = json.load(open(PENDENTE_FONTE, encoding="utf-8"))
+            antes = {m.get("pasta"): m for m in (_velho.get("mapas") or [])}
+        except (ValueError, OSError):
+            _velho, antes = {}, {}
+    else:
+        _velho = {}
+    for i in itens:
+        a = antes.get(i["pasta"]) or {}
+        for campo in ("escadas_onda4", "ligado_na_onda_4"):
+            if campo in a:
+                i[campo] = a[campo]
+        if a.get("classe") == CLASSE_LIGADO:
+            i["classe"] = CLASSE_LIGADO
+
     resumo = collections.Counter(i["classe"] for i in itens)
     doc = {
         "gerado_por": "dev_scripts/liga_orfaos_galar.py --pendentes",
@@ -679,11 +770,468 @@ def pendentes_de_fonte(gravar):
         "resumo_por_classe": dict(sorted(resumo.items())),
         "mapas": itens,
     }
+    if _velho.get("onda_4"):
+        doc["onda_4"] = _velho["onda_4"]
+    if CLASSE_LIGADO in (_velho.get("classes") or {}):
+        doc["classes"] = dict(doc["classes"])
+        doc["classes"][CLASSE_LIGADO] = _velho["classes"][CLASSE_LIGADO]
     if gravar:
         with open(PENDENTE_FONTE, "w", encoding="utf-8") as f:
             json.dump(doc, f, indent=2, ensure_ascii=False)
             f.write("\n")
     return doc
+
+
+# ----------------------------------------------------- as escadas da onda 4 --
+
+# A REGRA DO MODO `--escadas`, escrita antes de qualquer linha de codigo, e a
+# decisao da condutora da onda 4 da Frente A (06/09/2026):
+#
+#   As 14 marcadas `warp_morto_aponta_para_si` seriam interiores de varios
+#   andares em que o tile de escada existe mas o warp aponta para o proprio
+#   mapa, porque a fonte nunca escreveu o par. O par seria dedutivel pelo NOME
+#   (andar N <-> N+1 da mesma familia) e pela GEOMETRIA (escada na mesma
+#   coluna/linha, ou espelhada). Para cada warp morto, procurar o mapa irmao da
+#   mesma familia com numero adjacente que tambem tenha escada livre, e ligar
+#   os dois com ida e volta. Par ambiguo (dois candidatos) NAO se liga: fica
+#   registrado com os candidatos.
+#
+# Duas travas, e a primeira decide quase tudo:
+#
+#   1. TILE. Ninguem e ligado sem que o tile embaixo do warp seja da familia de
+#      escada ou porta pelo COMPORTAMENTO do metatile, e sem que ele DISPARE
+#      (`valida_warp_tile.warp_morto`, a mesma tabela da `lente_portas`). Ligar
+#      warp em cima de MB_NORMAL escreve um par que o motor nunca executa: o
+#      mapa continua inalcancavel e a regua passa a mentir que ele foi ligado.
+#   2. AMBIGUIDADE. Dois candidatos que passam na geometria e empate, e empate
+#      nao se resolve no chute.
+#
+# O QUE A MEDICAO DESTE LOTE DISSE, e ela derruba a premissa (06/09/2026) [V]
+# ------------------------------------------------------------------------
+# Nenhuma das 14 tem escada embaixo do warp. Medido tile a tile com a Grade da
+# `lente_portas`, os 17 warps mortos das 14 caem assim:
+#
+#     13 em MB_NORMAL (piso liso), 3 deles SOLIDO (colisao 1, o jogador nem
+#        pisa: Postwick111, 112, 113 e os dois de Postwick47)
+#      4 em MB_CAVE / MB_NORMAL de laje (Postwick11, Postwick49, Postwick50)
+#      0 em MB_LADDER, MB_*_STAIR_WARP, MB_*_ESCALATOR ou porta
+#
+# Mais forte ainda: em 11 das 14, o mapa INTEIRO nao tem um unico tile que
+# dispare warp. Nao e escada sem par; e mapa sem escada. So `Galar_Postwick11`
+# (1 tile MB_LADDER em (11,7)) e `Galar_Postwick47` (2 escadas e 1 porta) tem
+# tile de escada em algum lugar, e em nenhum dos dois o warp esta em cima dele.
+#
+# A leitura de tile nao esta quebrada: nos mesmos moldes, 993 dos 1.468 warps
+# de Galar (67,6%) caem em tile que dispara, com 44 MB_LADDER e 28 escadas
+# diagonais entre eles. Boa noticia suspeita conferida, e ela e real.
+#
+# E A FONTE TEM DESTINO, so que ele nao serve (medido em mapas.json) [V]
+# ----------------------------------------------------------------------
+# A classe dizia "a fonte nunca escreveu o par". Errado: a fonte escreveu
+# destino para 12 dos 17 warps mortos. O que a fonte nao tem e destino
+# UTILIZAVEL:
+#
+#   7 mapas apontam para mapa que NAO importamos, porque nao e de Galar:
+#     Postwick06, 07 e 172 -> g0m0, secao "Celadon Dept."; Postwick111, 112 e
+#     113 -> g3m58, "Outcast Island"; Postwick11 -> g1m115 e g1m119, "Dotted
+#     Hole". Sao sobras de FireRed dentro da ROM do demake, a mesma familia do
+#     carimbo B4. Ligar para elas era importar mapa de Kanto para dentro de
+#     Galar.
+#   4 apontam para `Galar_WildArea03` warp 13, e esse mapa tem 7 warps: o
+#     indice de chegada nao existe (WildArea25, 26, 28 e 29).
+#   2 tem tabela de warp LIXO na fonte, lida fora do fim do vetor (Postwick49 e
+#     Postwick50, com coordenadas do tipo (-30648,-30624) e 225 warps).
+#   Sobra 1 par que resolve dentro de Galar: Postwick47 -> Postwick50 warps 0 e
+#     1. Mas os dois warps de chegada de Postwick50 estao em (0,0), em
+#     MB_NORMAL, dentro dos 63 warps-lixo dele, e os dois de Postwick47 estao
+#     em tile SOLIDO. Ligar isso e escrever par que nao dispara em nenhuma das
+#     duas pontas.
+#
+# Conclusao medida: as 14 nao sao escada faltando. Sao mapa sem tile de escada,
+# com destino que aponta para fora de Galar ou para indice que nao existe.
+# Ligar qualquer uma delas exige DESENHAR tile de porta ou escada no blockdata,
+# que e a mesma decisao de desenho que a resposta 40 do Gui adiou, e este modo
+# nao faz. Ele mede, recusa e registra, que e o que a regra manda.
+ESCADA_MB = ("MB_LADDER", "MB_UP_ESCALATOR", "MB_DOWN_ESCALATOR",
+             "MB_UP_RIGHT_STAIR_WARP", "MB_UP_LEFT_STAIR_WARP",
+             "MB_DOWN_RIGHT_STAIR_WARP", "MB_DOWN_LEFT_STAIR_WARP")
+PORTA_MB = ("MB_ANIMATED_DOOR", "MB_NON_ANIMATED_DOOR", "MB_WATER_DOOR",
+            "MB_DEEP_SOUTH_WARP")
+CLASSE_ESCADA = "warp_morto_aponta_para_si"
+CLASSE_LIGADO = "ligado_na_onda_4"
+# Acima disto, a tabela da fonte ou a lista de warps mortos vira resumo.
+TETO_FONTE = 8
+
+
+def _familia(nome):
+    """'Galar_Postwick111' -> ('Galar_Postwick', 111); (nome, None) sem numero."""
+    m = re.match(r"^(.*?)(\d+)$", nome)
+    if not m:
+        return nome, None
+    return m.group(1), int(m.group(2))
+
+
+def _geometria_casa(a, b):
+    """A escada de `b` cai na mesma coluna/linha de `a`, ou na espelhada.
+
+    Espelhada de proposito: o 2F de um interior costuma ser desenhado como
+    imagem espelhada do 1F, e cravar so 'mesma coluna' perderia esse caso.
+    """
+    razoes = []
+    if a["x"] == b["x"]:
+        razoes.append("mesma coluna x=%d" % a["x"])
+    if a["y"] == b["y"]:
+        razoes.append("mesma linha y=%d" % a["y"])
+    if b["w"] and b["x"] == b["w"] - 1 - a["x"]:
+        razoes.append("coluna espelhada %d<->%d" % (a["x"], b["x"]))
+    if b["h"] and b["y"] == b["h"] - 1 - a["y"]:
+        razoes.append("linha espelhada %d<->%d" % (a["y"], b["y"]))
+    return razoes
+
+
+def par_de_escada(alvo, candidatos):
+    """A REGRA, pura: sem disco, sem json, testavel pelo --demo.
+
+    `alvo` e `candidatos` sao registros medidos:
+        nome, familia, numero, warp, x, y, w, h, comportamento, dispara, livre
+
+    Devolve (escolhido, motivo, considerados). `motivo` e um de:
+    'ligado', 'tile_nao_e_escada', 'sem_irmao', 'ambiguo'.
+    """
+    if not alvo.get("dispara"):
+        return None, "tile_nao_e_escada", []
+    vale = []
+    for c in candidatos:
+        if c["nome"] == alvo["nome"] or c["familia"] != alvo["familia"]:
+            continue
+        if alvo["numero"] is None or c["numero"] is None:
+            continue
+        if abs(c["numero"] - alvo["numero"]) != 1:
+            continue
+        if not c.get("dispara") or not c.get("livre"):
+            continue
+        razoes = _geometria_casa(alvo, c)
+        if not razoes:
+            continue
+        c = dict(c, geometria=razoes)
+        vale.append(c)
+    if not vale:
+        return None, "sem_irmao", []
+    if len(vale) > 1:
+        return None, "ambiguo", vale
+    return vale[0], "ligado", vale
+
+
+class _Tiles:
+    """Comportamento+colisao de cada celula, com cache. Usa a Grade da lente."""
+
+    def __init__(self):
+        qa = os.path.join(RAIZ, "dev_scripts/qa")
+        if qa not in sys.path:
+            sys.path.insert(0, qa)
+        if os.path.join(RAIZ, "dev_scripts") not in sys.path:
+            sys.path.insert(0, os.path.join(RAIZ, "dev_scripts"))
+        import valida_warp_tile as vwt
+        import lente_portas as lp
+        self.vwt = vwt
+        self.grade = lp.Grade(RAIZ)
+        self.de_familia = {vwt._MB[n] for n in ESCADA_MB + PORTA_MB if n in vwt._MB}
+        self.cache = {}
+
+    def celulas(self, nome, doc):
+        if nome not in self.cache:
+            self.cache[nome] = self.grade.de(doc) or {}
+        return self.cache[nome]
+
+    def em(self, nome, doc, x, y):
+        """(nome do comportamento, colisao, dispara_como_escada_ou_porta)."""
+        c = self.celulas(nome, doc).get((x, y))
+        if c is None:
+            return "fora do mapa", None, False
+        comp, col = c
+        morto, _ = self.vwt.warp_morto(comp, col)
+        nome_mb = self.vwt.NOME.get(comp, "comportamento %s" % comp)
+        return nome_mb, col, (comp in self.de_familia and not morto)
+
+
+def _destino_na_fonte(nome, cen, src, por_fonte):
+    """O que a FONTE escreveu para cada warp deste mapa, resolvido no nosso mundo."""
+    v = next((x for x in cen["de_para"].values() if x["nome"] == nome), None)
+    if v is None:
+        return []
+    m = src.get((v["fonte_grupo"], v["fonte_indice"]))
+    if m is None:
+        return []
+    # TABELA DE WARP LIXO: `Galar_Postwick49` e `Galar_Postwick50` tem 224 e 225
+    # warps na fonte, com coordenadas do tipo (-30648,-30624). O extrator leu
+    # fora do fim do vetor. Despejar as 449 entradas aqui enche o documento de
+    # ruido e esconde as 12 linhas que sao evidencia de verdade, entao a tabela
+    # que estoura o mapa vira resumo.
+    brutos = m.get("warps") or []
+    n_no_mapa = len(le(nome).get("warp_events") or [])
+    if len(brutos) > max(n_no_mapa, TETO_FONTE):
+        return [{"tabela_da_fonte": "LIXO",
+                 "warps_na_fonte": len(brutos),
+                 "warps_no_nosso_map_json": n_no_mapa,
+                 "por_que_nao_serve": (
+                     "a tabela de warps deste mapa foi lida fora do fim do "
+                     "vetor na extracao: as coordenadas saem da faixa do mapa "
+                     "(ex.: %s) e os destinos apontam para grupo que nao "
+                     "existe. Nao ha destino que se possa usar."
+                     % ", ".join("(%d,%d)" % (w["x"], w["y"])
+                                 for w in brutos[:3]))}]
+    fora = []
+    for i, w in enumerate(brutos):
+        alvo = por_fonte.get((w["grupo"], w["mapa"]))
+        d = {"warp": i, "x": w["x"], "y": w["y"],
+             "fonte_destino": "g%dm%d" % (w["grupo"], w["mapa"]),
+             "warp_de_chegada": w["warp_id"],
+             "nosso_destino": alvo["nome"] if alvo else None}
+        if alvo is None:
+            outro = src.get((w["grupo"], w["mapa"]))
+            d["por_que_nao_serve"] = (
+                "o destino nao foi importado para Galar (secao da fonte: %r)"
+                % (outro or {}).get("nome_secao"))
+        else:
+            n = len(le(alvo["nome"]).get("warp_events") or [])
+            if not 0 <= w["warp_id"] < n:
+                d["por_que_nao_serve"] = (
+                    "o indice de chegada %d nao existe em %s, que tem %d warps"
+                    % (w["warp_id"], alvo["nome"], n))
+        fora.append(d)
+    return fora
+
+
+def _resume_mortos(meus):
+    """A medicao de tile, um por warp; resumo quando sao dezenas (Postwick50)."""
+    linhas = [{"warp": r["warp"], "x": r["x"], "y": r["y"],
+               "comportamento": r["comportamento"], "colisao": r["colisao"],
+               "e_escada_ou_porta_que_dispara": r["dispara"]} for r in meus]
+    if len(linhas) <= TETO_FONTE:
+        return linhas
+    tipos = collections.Counter(
+        r["comportamento"] + (" SOLIDO" if r["colisao"] else "") for r in meus)
+    return {"warps_mortos": len(linhas),
+            "nenhum_em_escada_ou_porta": not any(r["dispara"] for r in meus),
+            "por_comportamento": dict(tipos.most_common()),
+            "primeiros": linhas[:TETO_FONTE]}
+
+
+def escadas(gravar):
+    """O modo `--escadas`. Devolve (ligados, ambiguos, sem_irmao, recusados).
+
+    Idempotente: um par ja escrito nao entra em `ligados` de novo.
+    """
+    tiles = _Tiles()
+    cen = json.load(open(CENSO, encoding="utf-8"))
+    por_fonte = {(v["fonte_grupo"], v["fonte_indice"]): v
+                 for v in cen["de_para"].values()}
+    FONTE = os.path.join(os.path.dirname(RAIZ),
+                         "fontes-mapas/galar-swsh/extraidos-ultimate")
+    src = {}
+    arq = os.path.join(FONTE, "mapas.json")
+    if os.path.exists(arq):
+        for g in json.load(open(arq, encoding="utf-8")):
+            for i, m in enumerate(g["mapas"]):
+                src[(g["grupo"], i)] = m
+
+    d = le_pendentes_documento()
+    alvos = [m for m in (d.get("mapas") or []) if m.get("classe") == CLASSE_ESCADA]
+
+    # Todo warp de todo mapa de Galar que esta LIVRE (aponta para o proprio
+    # mapa, ou para um indice que nao existe) e cujo tile e de escada/porta.
+    # E daqui que saem os candidatos a irmao.
+    livres = []
+    for v in cen["de_para"].values():
+        p = os.path.join(MAPAS, v["nome"], "map.json")
+        if not os.path.exists(p):
+            continue
+        doc = le(v["nome"])
+        fam, num = _familia(v["nome"])
+        for i, w in enumerate(doc.get("warp_events") or []):
+            proprio = w.get("dest_map") == doc.get("id")
+            if not proprio:
+                continue
+            mb, col, dispara = tiles.em(v["nome"], doc, w["x"], w["y"])
+            livres.append({"nome": v["nome"], "id": doc.get("id"),
+                           "familia": fam, "numero": num, "warp": i,
+                           "x": w["x"], "y": w["y"],
+                           "w": v.get("w") or 0, "h": v.get("h") or 0,
+                           "comportamento": mb, "colisao": col,
+                           "dispara": dispara, "livre": True})
+
+    ligados, ambiguos, sem_irmao, recusados = [], [], [], []
+    escritos = set()
+    for m in alvos:
+        nome = m["pasta"]
+        if not os.path.exists(os.path.join(MAPAS, nome, "map.json")):
+            continue
+        doc = le(nome)
+        fam, num = _familia(nome)
+        meus = [r for r in livres if r["nome"] == nome]
+        m["escadas_onda4"] = {
+            "regra": "liga_orfaos_galar.py --escadas, onda 4 da Frente A",
+            "warps_mortos_medidos": _resume_mortos(meus),
+            "destino_na_fonte": _destino_na_fonte(nome, cen, src, por_fonte),
+            "resultado": [],
+        }
+        for alvo in meus:
+            escolhido, motivo, considerados = par_de_escada(alvo, livres)
+            reg = {"warp": alvo["warp"], "motivo": motivo,
+                   "evidencia": "%s (%2d,%2d) tile %s%s" % (
+                       nome, alvo["x"], alvo["y"], alvo["comportamento"],
+                       " SOLIDO" if alvo["colisao"] else "")}
+            if motivo == "ambiguo":
+                reg["candidatos"] = ["%s warp %d (%d,%d) %s [%s]" % (
+                    c["nome"], c["warp"], c["x"], c["y"], c["comportamento"],
+                    "; ".join(c["geometria"])) for c in considerados]
+                ambiguos.append((nome, alvo["warp"], reg["candidatos"]))
+            elif motivo == "sem_irmao":
+                sem_irmao.append((nome, alvo["warp"]))
+            elif motivo == "tile_nao_e_escada":
+                recusados.append((nome, alvo["warp"], alvo["comportamento"],
+                                  bool(alvo["colisao"])))
+            else:
+                outro = le(escolhido["nome"])
+                doc["warp_events"][alvo["warp"]]["dest_map"] = escolhido["id"]
+                doc["warp_events"][alvo["warp"]]["dest_warp_id"] = str(escolhido["warp"])
+                outro["warp_events"][escolhido["warp"]]["dest_map"] = doc["id"]
+                outro["warp_events"][escolhido["warp"]]["dest_warp_id"] = str(alvo["warp"])
+                if gravar:
+                    grava(nome, doc)
+                    grava(escolhido["nome"], outro)
+                escritos.add(nome)
+                escritos.add(escolhido["nome"])
+                reg["par"] = "%s warp %d <-> %s warp %d" % (
+                    nome, alvo["warp"], escolhido["nome"], escolhido["warp"])
+                reg["geometria"] = escolhido["geometria"]
+                ligados.append((nome, alvo["warp"], escolhido["nome"],
+                                escolhido["warp"], escolhido["geometria"]))
+                m["classe"] = CLASSE_LIGADO
+                m["ligado_na_onda_4"] = reg["par"]
+            m["escadas_onda4"]["resultado"].append(reg)
+        # Mesma razao do resumo la de cima: 63 linhas iguais nao sao evidencia,
+        # sao ruido. O que decide (o motivo) fica; a repeticao vira contagem.
+        res = m["escadas_onda4"]["resultado"]
+        if len(res) > TETO_FONTE:
+            m["escadas_onda4"]["resultado"] = {
+                "warps": len(res),
+                "por_motivo": dict(collections.Counter(
+                    r["motivo"] for r in res).most_common()),
+                "primeiros": res[:TETO_FONTE]}
+            motivos = {r["motivo"] for r in res}
+        else:
+            motivos = {r["motivo"] for r in res}
+        if not ligados or m.get("classe") != CLASSE_LIGADO:
+            m["escadas_onda4"]["conclusao"] = (
+                "nao ligado nesta onda: " + ", ".join(sorted(motivos)))
+    if gravar:
+        _grava_pendentes(d)
+    return ligados, ambiguos, sem_irmao, recusados
+
+
+def le_pendentes_documento():
+    """O JSON dos pendentes inteiro, para o modo --escadas mexer nele."""
+    with open(PENDENTE_FONTE, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def _grava_pendentes(d):
+    """Regrava o JSON dos pendentes com o resumo por classe refeito."""
+    resumo = collections.Counter(m.get("classe") for m in (d.get("mapas") or []))
+    # Ordenado, igual ao que `pendentes_de_fonte` escreve. Sem o `sorted`, os
+    # dois modos escreviam o mesmo conteudo com as chaves em ordem diferente e
+    # o arquivo oscilava entre duas versoes a cada rodada, o que faz o `git
+    # diff` mentir que algo mudou.
+    d["resumo_por_classe"] = dict(sorted(resumo.items()))
+    d["classes"][CLASSE_LIGADO] = (
+        "estava marcado como escada faltando e a onda 4 ligou o par, com ida e "
+        "volta e o tile conferido pelo comportamento do metatile.")
+    d["onda_4"] = {
+        "data": "2026-09-06",
+        "modo": "dev_scripts/liga_orfaos_galar.py --escadas",
+        "o_que_foi_medido": (
+            "os 17 warps mortos das 14 marcadas como escada faltando foram "
+            "medidos tile a tile: NENHUM esta sobre escada, escada rolante ou "
+            "porta. 13 caem em MB_NORMAL (3 deles solidos), 4 em MB_CAVE ou "
+            "piso de laje. Em 11 das 14 o mapa inteiro nao tem um unico tile "
+            "que dispare warp. A fonte, ao contrario do que a classe dizia, "
+            "ESCREVEU destino para 12 dos 17: 7 mapas apontam para sobra de "
+            "FireRed que nao importamos (Celadon Dept., Outcast Island, Dotted "
+            "Hole), 4 apontam para Galar_WildArea03 warp 13, que nao existe "
+            "(ele tem 7 warps), e 2 tem tabela de warp lixo na fonte. Nenhuma "
+            "foi ligada: ligar exige DESENHAR tile de escada ou porta no "
+            "blockdata, que e a decisao de desenho que a resposta 40 do Gui "
+            "adiou."),
+        "leitura_de_tile_conferida": (
+            "993 dos 1.468 warps de Galar (67,6%) caem em tile que dispara, "
+            "com 44 MB_LADDER e 28 escadas diagonais: a leitura nao esta "
+            "quebrada, o resultado e real."),
+    }
+    with open(PENDENTE_FONTE, "w", encoding="utf-8") as f:
+        json.dump(d, f, indent=2, ensure_ascii=False)
+        f.write("\n")
+
+
+def demo_escadas():
+    """Autoteste da REGRA, com caso sintetico. Devolve lista de falhas."""
+    falhas = []
+
+    def base(nome, warp, x, y, dispara=True, livre=True, w=20, h=20):
+        fam, num = _familia(nome)
+        return {"nome": nome, "id": "MAP_" + nome.upper(), "familia": fam,
+                "numero": num, "warp": warp, "x": x, "y": y, "w": w, "h": h,
+                "comportamento": "MB_LADDER" if dispara else "MB_NORMAL",
+                "colisao": 0, "dispara": dispara, "livre": livre}
+
+    # 1. andar 1 e andar 2 da mesma familia, escada na mesma coluna: liga.
+    a1 = base("Demo_Torre01", 0, 5, 9)
+    a2 = base("Demo_Torre02", 0, 5, 3)
+    esc, mot, _ = par_de_escada(a1, [a1, a2])
+    if mot != "ligado" or esc["nome"] != "Demo_Torre02":
+        falhas.append("caso 1 (par obvio) deu %r" % mot)
+    # 1b. e a geometria espelhada tambem casa.
+    a2e = base("Demo_Torre02", 0, 14, 3)   # 20-1-5 = 14
+    esc, mot, _ = par_de_escada(a1, [a1, a2e])
+    if mot != "ligado":
+        falhas.append("caso 1b (coluna espelhada) deu %r" % mot)
+    # 2. dois candidatos adjacentes que passam: ambiguo, e NAO liga.
+    a0 = base("Demo_Torre00", 0, 5, 15)
+    esc, mot, cand = par_de_escada(a1, [a0, a1, a2])
+    if mot != "ambiguo" or esc is not None or len(cand) != 2:
+        falhas.append("caso 2 (ambiguo) deu %r com %d candidatos"
+                      % (mot, len(cand)))
+    # 3. tile que nao e escada: recusa antes de olhar irmao.
+    ruim = base("Demo_Torre01", 0, 5, 9, dispara=False)
+    esc, mot, _ = par_de_escada(ruim, [ruim, a2])
+    if mot != "tile_nao_e_escada":
+        falhas.append("caso 3 (tile de piso) deu %r" % mot)
+    # 4. irmao com numero distante nao vale.
+    longe = base("Demo_Torre05", 0, 5, 3)
+    esc, mot, _ = par_de_escada(a1, [a1, longe])
+    if mot != "sem_irmao":
+        falhas.append("caso 4 (numero distante) deu %r" % mot)
+    # 5. outra familia nao vale, nem com a geometria certa.
+    outra = base("Demo_Farol02", 0, 5, 3)
+    esc, mot, _ = par_de_escada(a1, [a1, outra])
+    if mot != "sem_irmao":
+        falhas.append("caso 5 (outra familia) deu %r" % mot)
+    # 6. irmao com escada JA pareada (nao livre) nao vale.
+    preso = base("Demo_Torre02", 0, 5, 3, livre=False)
+    esc, mot, _ = par_de_escada(a1, [a1, preso])
+    if mot != "sem_irmao":
+        falhas.append("caso 6 (irmao ja pareado) deu %r" % mot)
+    # 7. geometria que nao casa em nada nao vale.
+    torto = base("Demo_Torre02", 0, 2, 7)
+    esc, mot, _ = par_de_escada(a1, [a1, torto])
+    if mot != "sem_irmao":
+        falhas.append("caso 7 (geometria torta) deu %r" % mot)
+    for o_que, ok in (("regra de escada, 7 casos sinteticos", not falhas),):
+        print("  %-56s %s" % (o_que, "OK" if ok else "CAIU"))
+    for f in falhas:
+        print("     ! %s" % f)
+    return falhas
+
 
 
 def le_pendentes():
@@ -898,6 +1446,7 @@ def autoteste():
     confere("sobras carimbadas depois de rodar", len(m) + len(p), 16)
     mu, pr, re_ = liga(False)
     confere("portas recusadas", [(x[0]["exterior"], x[1]) for x in re_], [])
+    falhou.extend(demo_escadas())
     confere("portas no plano", len(mu) + len(pr), len(PORTAS))
     # A ressalva do B4, travada: as 5 sobras abaixo carregam 8 portas boas para
     # dentro da DLC (7 mapas distintos; CrownTundra10 recebe duas). Se este
@@ -978,6 +1527,40 @@ def autoteste():
     return 1 if falhou else 0
 
 
+def modo_escadas(gravar):
+    """Imprime o que o modo --escadas achou. Sem --aplicar, nao escreve nada."""
+    ligados, ambiguos, sem_irmao, recusados = escadas(gravar)
+    print("--escadas%s: %d pares ligados, %d ambiguos, %d sem irmao, "
+          "%d recusados pelo tile"
+          % (" --aplicar" if gravar else " (seco, nao escreveu nada)",
+             len(ligados), len(ambiguos), len(sem_irmao), len(recusados)))
+    for a, wa, b, wb, geo in ligados:
+        print("   + %s warp %d <-> %s warp %d  [%s]" % (a, wa, b, wb, "; ".join(geo)))
+    for nome, w, cands in ambiguos:
+        print("   ? %s warp %d: %d candidatos, nao se liga" % (nome, w, len(cands)))
+        for c in cands:
+            print("       %s" % c)
+    for nome, w in sem_irmao:
+        print("   - %s warp %d: nenhum irmao de numero adjacente com escada livre"
+              % (nome, w))
+    # Recusa se agrupa por mapa: Galar_Postwick50 sozinho tem 63 warps mortos,
+    # e imprimir um por linha enterra os outros treze mapas.
+    por_mapa = collections.OrderedDict()
+    for nome, w, mb, solido in recusados:
+        por_mapa.setdefault(nome, []).append((w, mb + (" SOLIDO" if solido else "")))
+    for nome, itens in por_mapa.items():
+        tipos = collections.Counter(mb for _, mb in itens)
+        print("   ! %-22s %2d warp(s) morto(s), nenhum em escada ou porta: %s"
+              % (nome, len(itens),
+                 ", ".join("%dx %s" % (q, mb) for mb, q in tipos.most_common())))
+    if recusados:
+        print("   (%d mapas, %d warps: a premissa de escada nao se sustenta; "
+              "ver o cabecalho do modo)" % (len(por_mapa), len(recusados)))
+    if gravar:
+        print("   marcacao regravada em %s" % os.path.relpath(PENDENTE_FONTE, RAIZ))
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -987,6 +1570,10 @@ def main():
     ap.add_argument("--pendentes", action="store_true",
                     help="so a marcacao dos mapas sem entrada na fonte")
     ap.add_argument("--autoteste", action="store_true", help="autoteste")
+    ap.add_argument("--escadas", action="store_true",
+                    help="o modo escada da onda 4: procura o par dos warps mortos")
+    ap.add_argument("--aplicar", action="store_true",
+                    help="com --escadas, grava os pares (sem ele, so relata)")
     args = ap.parse_args()
     if args.demo or args.autoteste:
         return autoteste()
@@ -1000,6 +1587,9 @@ def main():
             print("  %4d  %s" % (n, classe))
         print("  lista em %s" % os.path.relpath(PENDENTE_FONTE, RAIZ))
         return 0
+
+    if args.escadas:
+        return modo_escadas(args.aplicar and not args.seco)
 
     gravar = not args.seco
     m, p, s = carimba(gravar)

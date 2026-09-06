@@ -5,7 +5,13 @@
 # é cópia byte a byte de mapa vivo. Ligar estes é DESENHO DE
 # CONTEÚDO, não extração: a fonte não tem porta para dar.
 #
-# 42 mapas.
+# A régua aqui é a PÚBLICA desde a onda 4 (06/09/2026): a mesma de
+# valida_conectividade.py, que soma os data/scripts/galar_*.inc.
+# Antes era a estrita, e por isso a lista trazia mapa que a régua
+# do dia já alcançava. O carimbo de reserva do B5 continua na
+# régua estrita, de propósito: são perguntas diferentes.
+#
+# 40 mapas.
 
 Galar_GalarMine04                  MAP_GALAR_GALAR_MINE_04
 Galar_GalarMine05                  MAP_GALAR_GALAR_MINE_05
@@ -41,11 +47,9 @@ Galar_Wedgehurst15                 MAP_GALAR_WEDGEHURST_15
 Galar_WildArea01                   MAP_GALAR_WILD_AREA_01
 Galar_WildArea02                   MAP_GALAR_WILD_AREA_02
 Galar_WildArea12                   MAP_GALAR_WILD_AREA_12
-Galar_WildArea18                   MAP_GALAR_WILD_AREA_18
 Galar_WildArea23                   MAP_GALAR_WILD_AREA_23
 Galar_WildArea25                   MAP_GALAR_WILD_AREA_25
 Galar_WildArea26                   MAP_GALAR_WILD_AREA_26
 Galar_WildArea27                   MAP_GALAR_WILD_AREA_27
 Galar_WildArea28                   MAP_GALAR_WILD_AREA_28
 Galar_WildArea29                   MAP_GALAR_WILD_AREA_29
-Galar_WildAreaCave01               MAP_GALAR_WILD_AREA_CAVE_01
