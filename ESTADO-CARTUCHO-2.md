@@ -19,6 +19,292 @@ verdade, e é a única coisa que separa "continuar a onda anterior" de "reescrev
 dela". Esta branch tem worktree persistente e mais de uma sessão escrevendo perto, então
 `HEAD` local não é prova de nada até o `ls-remote` bater com ele.
 
+## Onda 3 (06/09/2026), FECHAMENTO: GALAR PASSA A NASCER EM INGLÊS, ABRE 33 PORTAS PRESAS NO BYTECODE E TROCA O MATO DO DEMAKE PELO DE SWORD E SHIELD (condutora Opus, cinco executores mais tradutor, fechador Opus)
+
+Fechamento da onda 3 da Frente A. Os lotes J, K, K2, L1, M e o tradutor deixaram o
+trabalho no disco; este fechador aplicou o que faltava (o L2), colou os pedidos do M,
+provou e commitou lote a lote. Tudo abaixo foi medido NESTA worktree, e `[V]` marca o
+que foi conferido nesta rodada.
+
+### Placar de Galar, antes e depois
+
+| medida | antes (fim da onda 2) | depois |
+|---|---|---|
+| completude, `script` | 72,9% | **73,3%** `[V]` |
+| NPC com fala | 933 de 1.279 | **945 de 1.289** `[V]` |
+| completude, `objetos` | 104,5% | **104,9%** `[V]` |
+| completude, `placas` | 104,5% | **104,5%** `[V]` |
+| fila `script_objeto` feita | 1.772 | **1.776** (adiadas 217 -> **213**) `[V]` |
+| fila pendente, todos os tipos | 0 de 3.195 | **0 de 3.195** `[V]` |
+| órfãos de Galar | 132 | **125** `[V]` |
+| pendentes de fonte, à vista na régua | não existia | **42**, dos quais 40 estão nos 125 `[V]` |
+| alcance geral | 2.061 de 2.289 | **2.068 de 2.289** `[V]` |
+| warps quebrados | 0 | **0** `[V]` |
+| becos sem saída | 14 | **14** `[V]` |
+| portas de script escritas | 6 | **39 de 77** (10 do balde A, 14 do C, 6 já escritas, 9 do D) `[V]` |
+| destinos cobertos por porta de script | 6 de 40 | **13 de 40** `[V]` |
+| censo da Dex, Galar | 631 | **631** `[V]` |
+| gen 8 com fonte DIRETA em Galar | 84 | **83** `[V]` |
+| colocações de Galar | 27 (12 mato) | **28** (13 mato, 10 estático, 5 presente) `[V]` |
+| `resgate_galar_texto.json` | 107 entradas | **188** (81 novas, 1 pulada) `[V]` |
+| textos sem tradução, caderno do L1 | 24 distintos | **12**, em 7 linhas da fila `[V]` |
+| textos sem tradução, caderno do M | 58 | **0** `[V]` |
+| blocos de Galar em português (`checa_texto` T07) | 1 | **1** `[V]` |
+| `checa_texto`, total de achados | 2.124 | **2.124** `[V]` |
+| travas do `checa_scripts` | 13, nenhuma em Galar | **13**, nenhuma em Galar; **C28 em 0** `[V]` |
+| placas de porta fechada no `map.json` | 45, em 23 mapas | **45, em 23 mapas** `[V]` |
+| `guarda_colisao_vars`, colisões novas | 0 | **0** `[V]` |
+
+`[V] python3 dev_scripts/completude.py --detalhe Galar`, `[V] python3 dev_scripts/fila_galar.py`,
+`[V] python3 dev_scripts/valida_conectividade.py`, `[V] python3 dev_scripts/portas_script_galar.py --aplicar`,
+`[V] python3 dev_scripts/censo_dex.py`, `[V] python3 dev_scripts/qa/checa_texto.py`,
+`[V] python3 dev_scripts/qa/checa_scripts.py`, `[V] python3 dev_scripts/guarda_colisao_vars.py`,
+`[V] grep -c 'porta fechada (portas_mortas_galar.py)' data/maps/*/map.json`
+
+**Encontros canônicos:** `importa_encontros_galar.py --aplicar` agora sobrepõe as tabelas
+do datamine de Sword/Shield sobre as do demake em **12 áreas** e **22 sub-mapas**, com
+**16 tabelas trocadas, 10 criadas e 5 mapas que ganharam encontro pela primeira vez** `[V]`.
+A pesca entrou junto, pelo mesmo maior-resto, sobre os 10 slots de `fishing_mons`.
+
+**O que NÃO andou, e é bom que esteja escrito:** a `lente_warps` de Galar continua em
+**128** (P2 48, P4 80, P1 e P3 zero) e a de Unova em 38 `[V]`; a `lente_portas` mede **273**
+travas em Galar (eram 276; as 3 que saíram são objeto novo que passou a ocupar tile de
+porta) e **8 no cartucho 1**, que é o número de sempre `[V]`. O `roda_qa.py --demo` fecha
+**verde nas seis varreduras** `[V]`.
+
+### As decisões da condutora, e como cada uma foi executada
+
+1. **Resposta 40 do Gui: os 42 mapas de Galar que a FONTE nunca ligou a nada ficam
+   marcados, e não cortados.** Eles entram em `dev_scripts/orfaos_galar_pendente_fonte.json`
+   e a `valida_conectividade.py` passa a imprimir a linha `pendentes de fonte: 42`, dizendo
+   quantos deles estão dentro dos órfãos do dia (hoje 40 dos 125) `[V]`. O julgamento por
+   mapa está em `fontes-mapas/galar-swsh/FONTES-ORFAOS.md`, no datamine, que nunca ganha
+   remote.
+2. **Resposta 41 do Gui: o encontro canônico de Sword/Shield SOBREPÕE o do demake** onde o
+   datamine chega, e o demake fica onde ele não chega. A sobreposição virou o PADRÃO do
+   gerador: quem quiser o demake puro pede `--sem-canonico` e leva o aviso junto. Com isso
+   a armadilha de "rodar `--aplicar` sozinho e apagar a sobreposição em silêncio" deixou de
+   existir.
+3. **Encontro de overworld vira mato, por média renormalizada.** Numa ROM de geração 3 não
+   existe encontro de overworld, então a `land_mons` de cada área é a UNIÃO das espécies das
+   colunas `grama` e `overworld`, com a porcentagem sendo a média das duas. **Sete das 26
+   colunas do Serebii não somam 100** (Rota 2 grama 120, Rota 3 overworld 115, Rota 4
+   overworld 93, Rota 5 grama 134 e overworld 130, Rota 8 overworld 115, Steamdrift
+   overworld 105), então cada coluna é renormalizada antes da média, senão a de soma maior
+   pesaria mais.
+4. **A White Hill Station se funde na Rota 10**, que é um mapa só no GBA e cujas duas listas
+   do Serebii são a mesma rota.
+5. **Duas espécies saem corrigidas, pelo mesmo motivo: Darumaka e Mr. Mime.** A transcrição
+   escreve o nome sem o `Galarian` que ela usa em Zigzagoon e Meowth, e a forma comum não
+   está na Pokédex de Galar. O Mr. Mime foi acrescentado por ESTE fechador, com a evidência
+   medida nos brutos: ele está nas DUAS listas da Rota 10 (a principal com 40 no `overworld`,
+   a White Hill Station com 30), e a média das duas alcança um slot `[V]`. **O Mr. Mime de
+   `MAP_GALAR_ISLE_OF_ARMOR_36` continua sendo o comum de propósito:** aquele mapa vem do
+   demake e está fora das 12 áreas do datamine, e na Ilha da Armadura o Kantoniano é
+   obtenível de verdade.
+6. **Axew fica de fora, e a conta é fechada:** os 5% dele na coluna `overworld` viram 2,5%
+   na média, e na Rota 6 há empate de três espécies em 2,5% disputando os dois últimos
+   slots; o desempate do maior-resto é a ordem da fonte, a `grama` vem antes, e ele fica em
+   terceiro. Ele tem fonte em Unova, então não some da Dex.
+7. **Os 10 táxis do lote M usam `OBJ_EVENT_GFX_SPECIES(CORVIKNIGHT)`**, e o sprite 145 da
+   fonte foi CONFERIDO por este fechador, não presumido. Ver a decisão (a) abaixo.
+8. **24 textos de objeto e 58 de porta traduzidos item a item**, 1 pulado (o mojibake já
+   documentado na seção 6 do `GLOSSARIO-GALAR.md`), com 0 estouro de caixa, 0 de charmap e
+   0 de token `[V] dev_scripts/onda3_traducao/validacao.txt`.
+
+### As decisões que ESTE fechador teve que tomar, com a medição de cada uma
+
+**(a) O sprite 145 da fonte É um Corviknight, e a tabela de gfx estava ERRADA.** A
+`tabela_gfx_galar.py` o descreve como "morcego rosa 64x64", e o pedido do lote M dizia, com
+todas as letras, que essa descrição era o único ponto em que a proposta podia estar errada.
+Foi medido: os dois gráficos foram renderizados da ROM do demake (primeiro quadro, 4bpp,
+paleta do próprio gráfico pela tabela em 0x0828FD30) e **o 145 é o MESMO pássaro de asas
+abertas do 232, em prata em vez de preto** `[V]`. Os dados de tile são diferentes (0x9017A1C
+contra 0x8F71360), então são duas artes e não um alias, mas a silhueta, o tamanho 64x64 e a
+`oam` (0x83A3720) são os mesmos. A linha 220 da tabela continua dizendo "morcego rosa": ela
+é comentário de leitura a olho e não entra em decisão nenhuma hoje, mas quem for confiar
+nela precisa saber que ela erra pelo menos uma vez.
+
+**(b) A alocação de var de `objetos_galar.py` estava DANDO O MESMO ENDEREÇO PARA DUAS
+FAMÍLIAS, e o guarda pegou.** `cenas_galar.vars_livres()` retira TODOS os blocos "Fase de
+conteudo de Galar" do header antes de medir, e tem de retirar, senão o gerador foge das
+próprias vagas a cada rodada. A consequência é que ele devolve como LIVRE o endereço que o
+bloco de motor do L1 e o gerador de PORTA de outro dono já apelidaram. Na mesma passada, o
+bloco c4d pediu 0x4117 para `VAR_GALAR_G06M35_OBJ` e o bloco de motor pediu 0x4117 para
+`VAR_GALAR_MOTOR_4060`, e `guarda_colisao_vars` reprovou `[V]`. Consertado com a mesma conta
+que o `proxima_var_livre` já usava: todo apelido gravado no header, menos os nomes que a
+própria chamada realoca. O header foi devolvido ao `HEAD` e regerado do zero, senão a
+colisão sobreviveria ao conserto (o `aloca_append_only` lê o de-para do disco e devolveria
+0x4117 de novo). Hoje são 0x4117 para o c4d, 0x4118 e 0x4119 para o motor e 0x411A a 0x411D
+para as portas `[V]`.
+
+**(c) A guarda de `correcao_de_especie` contava as trocas ACUMULADAS, e a segunda correção
+herdava o placar da primeira.** Ela existe para pegar linha envelhecida ("a correção X -> Y
+não achou UM slot"), e com um contador só a segunda passaria calada. Passou a ser por
+correção. Foi o que permitiu provar que a linha do Mr. Mime realmente morde.
+
+**(d) A régua de baldes do `portas_script_galar.py --demo` foi RECALIBRADA, e não é o
+movimento suspeito que parece.** O balde A caiu de 15 para 5 e o C subiu de 43 para 53,
+porque cada `object_events` novo tira 1 de A e põe 1 em C, e foram exatamente os 10 táxis
+colados. A recalibração entra porque **o próprio lote M escreveu a previsão ANTES da obra**,
+no comentário acima do `ESPERADO`: "a repartição do dia seguinte e A 5, B 2, C 53, D 17".
+Bateu na vírgula, e `A + B + C = 60` continua invariante `[V]`.
+
+**(e) O pedido de `coord_event` passou a sumir depois de colado.** O gerador tirava do
+arquivo de pedidos o objeto que já apontava para o rótulo dele, mas não o gatilho: depois
+de este fechador colar os 9, o arquivo continuava pedindo os mesmos 9, e a rodada seguinte
+os colaria em dobro. A chave do filtro é o RÓTULO, que é único por porta `[V]`.
+
+**(f) `galar_fala.inc` saiu BYTE A BYTE IGUAL ao do `HEAD` depois de o pipeline em inglês
+rodar, e isso é a melhor prova que a onda tem de que a troca não mexeu no jogo.** O gerador
+agora resolve o texto na hora, em vez de gerar português e deixar uma segunda passada
+traduzir por rótulo; o resultado é o mesmo arquivo que os dois passos da onda 2 produziram
+`[V] git diff data/scripts/galar_fala.inc` vazio.
+
+### As premissas que esta rodada DERRUBOU
+
+1. **"As colunas do Serebii somam 100."** Sete das 26 não somam. Sem renormalizar, a média
+   das duas colunas deixaria de ser média.
+2. **"`vars_livres()` devolve vaga que ninguém usa."** Ela devolve vaga que nenhum bloco
+   NÃO-Galar usa, o que é outra coisa. Ver a decisão (b).
+3. **"`treinadores_galar.py --aplicar` é seguro de rodar."** Ele repõe 148 blocos em
+   português no `galar_treinadores.inc`. Se alguém rodar, roda `aplica_traducao_galar.py
+   --aplica` em seguida e confere 0 "não casam". Nesta rodada ele NÃO foi rodado.
+4. **"`cenas_galar.py --aplicar` só reescreve o que ele mesmo escreveu."** Ele apagaria o
+   bloco da Dex em `Galar_Wedgehurst03/scripts.inc` e um comentário à mão no `vars.h`, e o
+   `galar_cenas.inc` sairia idêntico. NÃO foi rodado.
+5. **"A tabela de gfx do demake foi lida do desenho, então está certa."** O 145 está errado
+   nela. Ver a decisão (a).
+
+### O portão desta rodada
+
+`[V] export DEVKITARM=...; make -j8 > /tmp/build-cartucho2.log 2>&1; echo $?`
+
+| medida | antes (fim da onda 2) | depois |
+|---|---|---|
+| exit code do `make` | 0 | **0** |
+| ROM ocupada | 32.408.516 B, 96,58% | **32.422.972 B, 96,63%** (+14.456 B) |
+| EWRAM | 225.856 B, 86,16% | **225.856 B, 86,16%** |
+| IWRAM | 28.404 B, 86,68% | **28.404 B, 86,68%** |
+| md5 da ROM | `fb4e4c5a81298a52a4b827945ed4942d` | **`697bfda7899e036956649de13c9339bf`** |
+
+O lock (`mkdir /tmp/pokemon-claude-build.lock`) envolveu **só o `make`** e foi devolvido com
+`rm -rf` logo depois dele; T11 e suíte rodaram FORA do lock, sobre a cópia
+`/private/tmp/claude-501/c2-onda3rom/c2-onda3.gba` **com o `pokeemerald.map` copiado ao lado
+E RENOMEADO para `c2-onda3.map`**, que é o nome que o `testa_critico.py` procura (ele monta o
+caminho do `.map` trocando a extensão da ROM; copiar o arquivo com o nome original derruba o
+T11.3 com `FileNotFoundError`, e isso custou uma passada).
+
+`[V] python3 dev_scripts/guarda_save.py` -> **SAVE COMPATIVEL**. SaveBlock1 em 14.964 B de
+15.872 (94,3%), 2.400 mapas, 2.252 ids de treinador e **1.754** apelidos de flag/var (eram
+1.733; os 21 novos são 12 `FLAG_GALAR_MOTOR_*`, 2 `FLAG_GALAR_ESCONDE_*`, 1 var de etapa, 2
+`VAR_GALAR_MOTOR_*` e 4 `VAR_GALAR_PORTA_*`, e apelidar `FLAG_UNUSED`/`VAR_UNUSED` é
+ACRÉSCIMO, não mudança de índice).
+
+`[V] T11 3 de 3`, contra `/private/tmp/claude-501/c2-t11-antiga` (md5
+`ac8ed5419ab69cacece45ad6479e6063`, intacta no disco).
+
+`[V]` **Suíte inteira: 1.062 de 1.063**, com o T11.3 pulado (ele só prova algo com duas
+ROMs, e o bloco da suíte roda com uma) e **ZERO reprovados**, que é exatamente o piso.
+Rodada **bloco a bloco**, 115 blocos, com o placar gravado em disco a cada bloco em
+`/private/tmp/claude-501/c2-onda3-suite/placar.txt` e o log de cada bloco ao lado, sobre a
+cópia da ROM e FORA do lock. O total foi conferido de dois jeitos independentes, somando os
+`[OK]` de cada log (1.062) e somando as linhas `N/M passaram` (1.062 de 1.063). **Nenhum
+caso reprovou nesta rodada, e nenhuma régua precisou de recalibração no portão**; o T176.3,
+intermitente conhecido, passou. Nada foi escrito em `dev_scripts/testes_criticos/` enquanto
+a suíte rodava, que é a armadilha medida na onda 2.
+
+`[V]` Os `--demo` dos geradores: `portas_script_galar` (tudo de pé, depois da recalibração
+da decisão (d)), `objetos_galar`, `fala_galar`, `estaticos_galar`, `cenas_galar`,
+`valida_conectividade`, `importa_encontros_galar` (demo e demo canônico),
+`distribui_dex --demo-galar` e `--demo-galar-objetos`, e `qa/roda_qa.py --demo` nas seis
+varreduras.
+
+### Os commits desta rodada
+
+| # | hash | lote |
+|---|---|---|
+| 1 | `10daac8964` | J: os 42 pendentes de fonte e a régua que os mostra |
+| 2 | `1928baeb1e` | K: encontros canônicos de Sword e Shield, com Darumaka e Mr. Mime de Galar |
+| 3 | `dcb6ac1208` | L: os geradores escrevendo inglês na geração, mais as 81 traduções novas |
+| 4 | `a9bebaac24` | M: as portas presas no bytecode, os pedidos colados e a régua de baldes |
+| 5 | este commit | o diário |
+
+**A partição de arquivo foi por ÚLTIMO DONO**, como na onda 2: cada `map.json` entrou no
+commit do último lote que o tocou, para que nenhum commit tivesse mapa apontando para rótulo
+ainda não commitado. Os 18 mapas com rótulo `GalarPorta_` novo são do M; os 5 que só mudaram
+de posição de objeto da Dex são do K; os outros 24 são do L. **`include/constants/vars.h` foi
+o único partido de verdade**, com uma versão por commit feita com `git hash-object` mais
+`git update-index --cacheinfo`; a versão final bate byte a byte com a árvore `[V]`. O
+`flags.h` NÃO precisou ser partido: todas as 14 linhas novas dele são do `objetos_galar.py`,
+que é do L. Cada commit usou `GIT_INDEX_FILE` próprio e lista fechada, nunca `add -A`, e no
+fim a árvore de trabalho é IDÊNTICA ao `HEAD` `[V] git status --short` vazio.
+
+Do `dev_scripts/onda3_traducao/` ficaram versionados só `lista.json`, `validacao.txt` e
+`pulados.txt`; o `en/` foi apagado depois de conferido que o `resgate_galar_texto.json` tem
+as 188 entradas, e os três scripts do tradutor foram para
+`fontes-mapas/galar-swsh/onda3-traducao-scripts/`, no datamine, com um `LEIA.md` ao lado.
+Varredura de blob: nada acima de 5 MB, nenhum `.gba` e nenhum `.sav` no intervalo
+`origin/cartucho-2..HEAD` `[V]`.
+
+### O que ficou de fora, e por quê
+
+- **38 das 77 portas de script**, com motivo por linha `[V]`. As duas maiores famílias são
+  guarda de motor do demake que **ESCOLHE** entre portas em vez de esconder uma (18 portas):
+  os dois lados dela levam a `warp`, e tirar a condição seria escolher o destino por conta
+  própria. O resto é objeto que o G4 não pôs no mapa, tile não andável e decodificação
+  incompleta.
+- **14 escadas internas dedutíveis pelo nome do mapa** continuam fechadas. Elas são obra da
+  onda 4, não desta.
+- **12 portas em exterior vivo** exigem tile novo no tileset, que é obra de arte e não de
+  script.
+- **217 linhas `script_objeto` adiadas** viraram 213, e as **43 `multichoice` e 19
+  `playslotmachine`** continuam fora: a lista de opções do `multichoice` é um índice em
+  `gMultichoiceLists`, e a tabela deste motor tem outro conteúdo, então portar o índice poria
+  outro menu na tela.
+- **`cenas_galar.py --demo` continua vermelho por dois motivos pré-existentes**, e não foi
+  mexido: ele reprova em var salva da fonte sem dono nosso e em objeto local que não entrou
+  no mapa no G4, os dois herdados da onda 2.
+- **`distribui_dex.py --demo` GERAL continua vermelho**, pelo mesmo motivo da onda 2: ele
+  começa pelo `plano_congelado`, que compara a tabela das cinco regiões (de 21/08) com um
+  plano refeito do censo de hoje. Os `--demo-galar` e `--demo-galar-objetos` são verdes.
+- **A curva de nível de Galar continua fora do lugar.** Os encontros vão de 2 a 60 e os
+  treinadores estão em 255. Ninguém mediu ainda qual dos dois está errado.
+- **`dev_scripts/orfaos_galar_sem_saida.txt` está 2 DESATUALIZADO, e foi ANOTADO em vez de
+  regerado.** `Galar_WildArea18` e `Galar_WildAreaCave01` já são alcançados hoje `[V]`, e
+  continuam na lista. Regerá-lo pede rodar o `liga_orfaos_galar.py` fora do `--censo`, e esse
+  modo ESCREVE `map.json`: não é coisa de se fazer depois do portão fechado.
+- **10 portas `GalarTrn_*`** e **os 128 prédios compartilhados da `lente_warps`** continuam
+  como a onda 2 os deixou.
+- **A tela de créditos dentro do jogo** continua sendo pendência da fase de montagem.
+
+### Perguntas ao Gui
+
+As três da onda 1 (datamine canônico de encontros, os 42 mapas sem saída, os 27 de FireRed
+dentro dos grupos de Galar) e a 5 da onda 2 (o nível dos presentes e dos iniciais de Galar)
+continuam abertas. A 4 da onda 2 fica assim:
+
+42. **Os 2 textos do lote I da onda 2** (`dev_scripts/onda2_lote_i_pulados.txt`, índices 056
+    e 070) continuam sem tradução, e agora se juntam a eles **12 textos distintos em 7 linhas
+    da fila** (`dev_scripts/onda3_falta_traduzir.json`) e **1 pulado nesta onda**
+    (`g09m10/objeto/14`, o mojibake). O bloco que não tem inglês não é escrito, então nenhum
+    deles quebra nada hoje; o que eles custam é a cena que fica de fora.
+
+### Como retomar
+
+O primeiro comando continua sendo o da seção 0:
+
+```
+git ls-remote --heads origin cartucho-2
+```
+
+Antes desta rodada o `origin` estava em `82668b7c53`, que era o `HEAD` local `[V]`. Depois
+do push desta onda, `git ls-remote --heads origin cartucho-2` devolve o hash DESTE commit de
+diário, que é o último dos cinco. Se ele devolver `82668b7c53`, o push não subiu e a onda 3
+está só no disco.
+
+---
+
 ## Onda 2 (07/09/2026), FECHAMENTO: GALAR ESVAZIA A FILA INTEIRA, GANHA 168 NPCs COM FALA, FECHA A GERAÇÃO 8 DENTRO DE SI E PERDE 9 ÓRFÃOS (condutora Opus, quatro executores, fechador Opus)
 
 Fechamento da onda 2 da Frente A. Quatro lotes (F, G, H, I) deixaram o trabalho no
