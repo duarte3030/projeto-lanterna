@@ -47,6 +47,7 @@ dois são a MESMA frente.
 | 16 | O Contest Hall de Hearthome para de ser um posto de enfermagem | `9313e873f3` |
 | 17 | Os três cães acordam na Burned Tower, e o sábio sai da porta do ginásio de Ecruteak | `6c1e43f94c` |
 | 18 | Quem entra por uma porta sai por ela: a auditoria de ida e volta dos warps | `ed8698166c` |
+| 19 | As cinco meias portas fora do corte: três ganham o warp gêmeo, e o Slumbering Weald não é meia porta (depois do fechamento; a ROM consolidada NÃO tem) | `cfa0d30bd4` |
 
 **A fila do fechador, item a item.** Onze pendências foram anotadas pelos executores na madrugada de
 06/09. O que aconteceu com cada uma:
@@ -1674,13 +1675,78 @@ de scratchpad da sessão, que já é única por definição.
 - **Cinco meias portas do MESMO tipo, fora do corte**, achadas pela varredura de célula gêmea com
   comportamento de porta e sem warp: `FloaromaTown` (4,2)/(5,2), `MtSilver_2F` (25,36)/(26,36),
   `Galar_WarmUpTunnel01` (40,37)/(39,37) e `Galar_SlumberingWeald02` em (17,13) e (17,14). Não são
-  obra do corte, são da importação de cada fonte, e ficam para uma frente própria. As outras 8 que a
-  varredura levanta são falso positivo conhecido (o chão furado do ginásio de Ecruteak, `MB_MT_PYRE_HOLE`,
-  e duas pontes `MB_BRIDGE_OVER_OCEAN`).
+  obra do corte, são da importação de cada fonte. **FECHADAS em `cfa0d30bd4`, depois do fechamento da
+  rodada**: três ganharam o warp gêmeo e a do Weald não era meia porta; ver a seção seguinte. As outras
+  8 que a varredura levanta são falso positivo conhecido (o chão furado do ginásio de Ecruteak,
+  `MB_MT_PYRE_HOLE`, e duas pontes `MB_BRIDGE_OVER_OCEAN`).
 - **Galar ainda fala português em 310 textos de jogo** (mais 58 sem acento), medido por
   `dev_scripts/qa/checa_texto.py`. Nada disso é placa de porta fechada, e nada disso entrou nesta
   frente: é dado de Galar, e o censo de idioma da ferramenta ainda diz o contrário do que o projeto
   decidiu (ela classifica texto em inglês em Sinnoh, Unova e Galar como achado).
+
+### As cinco meias portas fora do corte: três ganham o warp gêmeo, e o Slumbering Weald não é meia porta, 06/09/2026 (depois do fechamento da rodada 13)
+
+Frente única, executada depois do placar acima, e por isso **a ROM consolidada
+`roms/pokemon-claude-2026-09-07.gba` NÃO tem este conserto**: quem consolidar a próxima leva junto.
+Mesma classe do defeito da igreja de Hearthome: célula gêmea com o mesmo metatile e o mesmo
+comportamento de porta do vizinho que tem warp, e sem warp nenhum em cima. As cinco vieram assim da
+importação de cada fonte, e nenhuma passou pelo `remove_mapas_cortados.py`.
+
+**Medido no blockdata antes de tocar**, célula a célula, com a tabela de atributos do
+`valida_warp_tile.py` (metatile, colisão e comportamento da célula viva, da gêmea e das quatro vizinhas):
+
+| mapa | viva | gêmea | metatile | comportamento | o que cerca a gêmea | veredito |
+|---|---|---|---|---|---|---|
+| `FloaromaTown` | (4,2), warp 5 | (5,2) | 539 | `MB_NORTH_ARROW_WARP` | parede em (3,2), (6,2) e (5,1) | **meia porta, warp 6 acrescentado** |
+| `MtSilver_2F` | (25,36), warp 0 | (26,36) | 647 | `MB_SOUTH_ARROW_WARP` | parede em (27,36) e (26,37), chão em (24,36) | **meia porta, warp 7 acrescentado** |
+| `Galar_WarmUpTunnel01` | (40,37), warp 1 | (39,37) | 647 | `MB_SOUTH_ARROW_WARP` | chão dos dois lados, (39,38) sólido | **meia porta, warp 2 acrescentado** |
+| `Galar_SlumberingWeald02` | (17,13) e (17,14), warps 1 e 2 | (18,13) e (18,14) | 799 | `MB_WEST_ARROW_WARP` | faixa de TRÊS colunas, (17..19, 13..14) | **não é meia porta, fica como está** |
+
+**O Weald é falso positivo da varredura, e o motivo é geometria.** Nas outras quatro (e nas duas de
+Hearthome) a gêmea fica lado a lado, PERPENDICULAR à seta: quem está nela aperta a direção da seta
+contra parede e fica. No Weald a seta aponta para oeste, AO LONGO da faixa: quem está em (18,y) ou
+(19,y) e aperta para a esquerda simplesmente anda até (17,y), onde o warp existe, e o aperto seguinte
+dispara (`TryArrowWarp` só olha a célula do jogador). A varredura de célula gêmea não distingue os
+dois casos; quem a rodar de novo vai ver o Weald outra vez, e a resposta é esta.
+
+**O conserto é um warp a mais no FIM de `warp_events`** de cada um dos três mapas (append, nunca
+inserção, porque `dest_warp_id` é índice e a save do Gui está congelada), repetindo destino e
+`dest_warp_id` do gêmeo vivo e marcado com a chave `gemea`, como em Hearthome. Nenhum índice se move:
+`guarda_save.py` diz **SAVE COMPATIVEL**. `valida_warp_tile.py` vai de 6.874 para **6.877** warps
+conferidos e de 5.918 para **5.921** que disparam, medido no HEAD limpo em worktree e na árvore
+alterada: exatamente os três.
+
+**A prova está no framebuffer, e a contraprova é exata.** Bloco novo
+`dev_scripts/testes_criticos/181_meias_portas.json`, **12 casos, 12 verdes** na ROM nova, PNG do quadro
+final aberto e olhado (o mato do Meadow, a sala da cachoeira do Mt. Silver, a grama da Isle of Armor).
+Para cada porta: o jogador nasce no warp vivo, dá um passo lateral para a gêmea e aperta a seta
+(T181.1, T181.4, T181.7); o par negativo aperta o sentido contrário e a POSIÇÃO final prova que o passo
+lateral aconteceu (T181.2, T181.5, T181.8); e a metade viva continua abrindo o mesmo lugar (T181.3,
+T181.6, T181.9). No Weald, T181.10 anda até o fundo da faixa e para em (19,13), e T181.11 e T181.12
+atravessam a faixa inteira de volta e saem pelo warp de sempre. Os mesmos 12 casos contra a ROM
+consolidada (`c0ea203b`) dão **9 de 12, e os três que caem são exatamente as três portas consertadas**,
+parando no mapa de origem.
+
+**A regra de roteiro que o par negativo ensinou, e que fica escrita nos casos.** A primeira versão dos
+roteiros supunha que um toque de 20 quadros é um passo. O par negativo caiu na ROM anterior e denunciou:
+o positivo estava passando SEM sair da célula viva. Medido: quem nasce num warp de seta olha CONTRA a
+seta (`GetAdjustedInitialDirection`: seta norte, olha sul; seta sul, olha norte; seta oeste, olha
+leste); um toque de 20 quadros só VIRA o jogador quando ele não olha naquela direção, e o seguinte é
+que anda; e a seta dispara pelo dpad, sem depender de para onde ele olha. Por isso os roteiros têm dois
+toques laterais (vira, anda), e o do Warm-Up Tunnel tem exatamente dois, porque (38,37) é chão e um
+terceiro passaria da porta.
+
+**Os portões.** Build verde com o lock envolvendo só o `make` (ROM md5 `496c4a8edb`), `T140` **11 de
+11** (a classe inteira, Hearthome incluída), `valida_rom.py` com os 2.400 mapas na ROM,
+`valida_conectividade.py` com **0 warps quebrados**, `valida_warp_tile --piso 60` verde (Sinnoh 98,1%,
+Unova 100,0%), `roda_qa.py --demo` verde nas seis varreduras, `remove_mapas_cortados.py --demo` verde,
+e `lente_warps --lista` e `lente_portas --lista` sem achado novo nos três mapas (os P2 que aparecem ali
+são os de antes, calibrados). **A suíte inteira, bloco a bloco com placar em disco: 1.062 de 1.063,
+com o T11.3 pulado** (precisa de `--rom2`) e **zero vermelho**, medida contando caso a caso contra os
+`*.json` (1.063 casos nos arquivos, 1.063 rodados). Armadilha do laço bloco a bloco, para quem repetir:
+`10_kanto.json`, `20_johto.json` e `30_hoenn_sinnoh.json` misturam prefixos (T2, T3, T5, T7, T8, T9),
+e um laço que tira o prefixo do PRIMEIRO caso do arquivo pula 59 casos calado; a conferência caso a
+caso é que pegou.
 
 ### O bloco preto de Pastoria: não era Pastoria, era CAMADA DE DESENHO na Route 212 South, 06/09/2026
 
