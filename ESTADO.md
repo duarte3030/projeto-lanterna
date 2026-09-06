@@ -261,6 +261,37 @@ MESMOS números**, o que é a prova de que a troca de constante não custou nada
 `roda_qa.py --demo` verde nas quatro varreduras e `prova_musica_johto.py` com **9 de 9** mapas certos
 no header e no driver de som, contra **1 de 9** na ROM `2026-09-05`.
 
+### As passarelas de Sunyshore param de comer o sprite: o cruzamento vira portão, 06/09/2026
+
+Terceiro defeito do playtest, capítulo "before Volkner": o Gui **subia nas passarelas elevadas direto
+do chão, sem escada**, e ao andar por elas **o corpo sumia atrás do piso cinza**. Medido em
+`data/layouts/SunyshoreCity/map.bin` (70x64): **68 células com elevação 15** (`ELEVATION_MULTI_LEVEL`),
+o idioma de PONTE do Emerald, em que `IsElevationMismatchAt` (`src/event_object_movement.c:10014`)
+devolve FALSE e o andarilho de elevação 3 pisa nos MESMOS tiles do de elevação 4. **O erro não era a
+elevação, era a MISTURA:** 35 das 68 usam metatile de corrimão, de camada de cima cheia e `layer_type`
+NORMAL, que `DrawMetatile` (`src/field_camera.c:287`) manda para o **BG1 de prioridade 1**, à frente de
+quem tem `sElevationToPriority[3] == 2`; as outras 33 são o piso liso 562, em que o mesmo jogador
+aparece inteiro. A passarela nunca foi invadida, e as três subidas legítimas são as ilhas de elevação 0
+da arte: o "subir sem escada" era subir no CRUZAMENTO.
+
+O conserto está no gerador `dev_scripts/conserta_passarelas_sinnoh.py` (`--demo`/`--aplica`,
+idempotente, com a medição inteira no topo do arquivo): por região conexa de elevação 15, acha o PORTÃO
+(colunas em que chão encosta na região dos dois lados, mais toda coluna com `object_event`), fora dele
+o piso vira elevação 4 e o corrimão vira parede, dentro dele mantém 15 e troca o corrimão pelo piso
+liso. Nenhuma coordenada cravada. **58 células mudaram** (25 viraram parede, 23 viraram elevação 4, 10
+trocaram de metatile), nenhum tileset foi tocado e a ROM tem o mesmo tamanho. Selar o cruzamento
+INTEIRO foi medido e recusado: cortaria o Pokécenter, a criadora e a Jasmine. A varredura de alcance
+semeada nos 12 warps dá o MESMO conjunto antes e depois, **2.801 tiles e nenhum warp fora**.
+
+**Par antes/depois no framebuffer**, mesma rota (warp 4, que entrega em (25,31)), PNG por passo aberto:
+na ROM `2026-09-05` cinco DOWN atravessavam o corrimão e paravam em (25,33), em cima da passarela, e em
+(27,10) e (27,13) só a ponta do boné aparecia; nesta build os mesmos DOWN param em **(25,31)**, o
+jogador aparece **inteiro** em (28,13) e (28,10) e sai em (28,8), quatro UP em (29,14) não sobem, o
+marinheiro de (25,17) fica visível de corpo inteiro, e a escada de (42..45, 20..23) leva de (42,24) a
+(43,19), já em cima da passarela. **Lição:** a primeira regra selou (26,10), onde mora
+`LOCALID_SUNYSHORE_RIVAL`, e o deixaria de pé em cima de uma parede; hoje toda coluna com objeto entra
+no portão e o `--demo` recusa gravar se algum objeto acabar em tile impassável.
+
 ### Duas lições
 
 1. **Pasta de `.sav` em `/tmp` é veredito falso esperando acontecer.** Seis casos de prova de save
