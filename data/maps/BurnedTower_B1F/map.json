@@ -115,6 +115,7 @@
       "origem": "distribui_dex"
     },
     {
+      "local_id": "LOCALID_BURNED_TOWER_B1F_ENTEI",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ENTEI)",
       "x": 18,
       "y": 8,
@@ -125,9 +126,10 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0"
+      "flag": "FLAG_JOHTO_CAES_LIBERTOS"
     },
     {
+      "local_id": "LOCALID_BURNED_TOWER_B1F_RAIKOU",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(RAIKOU)",
       "x": 14,
       "y": 8,
@@ -138,9 +140,10 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0"
+      "flag": "FLAG_JOHTO_CAES_LIBERTOS"
     },
     {
+      "local_id": "LOCALID_BURNED_TOWER_B1F_SUICUNE",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(SUICUNE)",
       "x": 16,
       "y": 9,
@@ -151,7 +154,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
-      "flag": "0"
+      "flag": "FLAG_JOHTO_CAES_LIBERTOS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(KOFFING)",
@@ -222,7 +225,98 @@
       "dest_warp_id": "2"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "BurnedTower_B1F_Trigger_Caes"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "BurnedTower_B1F_Trigger_Caes"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "BurnedTower_B1F_Trigger_Caes"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "BurnedTower_B1F_Trigger_Caes"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "BurnedTower_B1F_Trigger_Caes"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "BurnedTower_B1F_Trigger_Caes"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "BurnedTower_B1F_Trigger_Caes"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "BurnedTower_B1F_Trigger_Caes"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "BurnedTower_B1F_Trigger_Caes"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "BurnedTower_B1F_Trigger_Caes"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

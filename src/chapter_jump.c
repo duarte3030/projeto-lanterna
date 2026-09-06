@@ -81,6 +81,15 @@ struct GinasioDoHack
     // desafiar de novo nas regiões cujo ginásio pergunta `goto_if_defeated` em
     // vez de ler uma FLAG_DEFEATED_* própria (Johto, Sinnoh e Unova).
     u16 treinador;
+    // 0 quando o ginásio não tem trava de enredo FORA dele. Quando tem, é a
+    // flag do acontecimento que precisa ter acontecido para o jogador CHEGAR
+    // neste ginásio, e o salto a acende (e a apaga nos capítulos anteriores,
+    // para o par negativo continuar valendo). Entrou em 06/09/2026 com o
+    // ginásio de ECRUTEAK: quem pula para "Before MORTY" tem que achar a porta
+    // do ginásio aberta, e quem abre é a cena dos três cães da BURNED TOWER,
+    // que o seletor não roda. Campo no fim da struct de propósito: as outras
+    // 39 linhas não mudam uma vírgula e ficam com 0 por omissão.
+    u16 flagEnredo;
 };
 
 struct RegiaoDoHack
@@ -132,7 +141,7 @@ static const struct GinasioDoHack sGinasiosJohto[] =
     { COMPOUND_STRING("FALKNER"), CURA(HEAL_LOCATION_VIOLET_CITY),     FLAG_INSIGNIA_JOHTO_1, 0, TRAINER_JOHTO_LEADER_FALKNER },
     { COMPOUND_STRING("BUGSY"),   CURA(HEAL_LOCATION_AZALEA_TOWN),     FLAG_INSIGNIA_JOHTO_2, 0, TRAINER_JOHTO_LEADER_BUGSY },
     { COMPOUND_STRING("WHITNEY"), CURA(HEAL_LOCATION_GOLDENROD_CITY),  FLAG_INSIGNIA_JOHTO_3, 0, TRAINER_JOHTO_LEADER_WHITNEY },
-    { COMPOUND_STRING("MORTY"),   CURA(HEAL_LOCATION_ECRUTEAK_CITY),   FLAG_INSIGNIA_JOHTO_4, 0, TRAINER_JOHTO_LEADER_MORTY },
+    { COMPOUND_STRING("MORTY"),   CURA(HEAL_LOCATION_ECRUTEAK_CITY),   FLAG_INSIGNIA_JOHTO_4, 0, TRAINER_JOHTO_LEADER_MORTY, FLAG_JOHTO_CAES_LIBERTOS },
     { COMPOUND_STRING("JASMINE"), CURA(HEAL_LOCATION_OLIVINE_CITY),    FLAG_INSIGNIA_JOHTO_5, 0, TRAINER_JOHTO_LEADER_JASMINE },
     { COMPOUND_STRING("CHUCK"),   CURA(HEAL_LOCATION_CIANWOOD_CITY),   FLAG_INSIGNIA_JOHTO_6, 0, TRAINER_JOHTO_LEADER_CHUCK },
     { COMPOUND_STRING("PRYCE"),   CURA(HEAL_LOCATION_MAHOGANY_TOWN),   FLAG_INSIGNIA_JOHTO_7, 0, TRAINER_JOHTO_LEADER_PRYCE },
@@ -450,6 +459,22 @@ void ChapterJump_AplicaCapitulo(void)
         MarcaGinasioVencido(&regiao->ginasios[i]);
         if (i < 8)
             FlagSet(FLAG_BADGE01_GET + i);
+    }
+
+    // (b2) As travas de ENREDO que ficam FORA do ginásio, 06/09/2026. Aqui a
+    // conta é `i < capitulo` e não `i + 1 < capitulo`: a cena que abre a porta
+    // do ginásio i é pré-requisito DELE, não do seguinte, então "Before MORTY"
+    // (capítulo 4 de Johto) já precisa dela acesa. E apaga nos capítulos
+    // anteriores, senão pular de uma save adiantada para "Before FALKNER"
+    // deixaria Ecruteak sem o sábio que ainda deveria estar lá.
+    for (i = 0; i < regiao->numGinasios; i++)
+    {
+        if (regiao->ginasios[i].flagEnredo == 0)
+            continue;
+        if (i < capitulo)
+            FlagSet(regiao->ginasios[i].flagEnredo);
+        else
+            FlagClear(regiao->ginasios[i].flagEnredo);
     }
 
     // (c) Ninguém teleporta sem Pokémon (pedido do Gui, 18/08/2026): quem

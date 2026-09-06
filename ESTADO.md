@@ -2116,6 +2116,98 @@ de Kanto em 12/08/2026: o `gba_runner` ganhou `--palobj` para a PLTT de OBJ e um
 `palobj_presentes`; falta o gêmeo de BG. Enquanto ele não existir, paleta de tileset trocada em mapa
 que ninguém fotografar continua passando pela suíte inteira.
 
+### Ecruteak e Burned Tower: o sábio que trancava o ginásio, e a cena dos três cães que nunca existiu, 06/09/2026
+
+O Gui, no playtest: "em Ecruteak City não achei o evento que dispara os cães lendários, não achei o
+rival, não tem nada para fazer lá, e aí o ginásio fica travado". As três queixas são **um defeito só**,
+e ele é de FLAG, não de mapa.
+
+**A trava, medida antes de tocar.** O objeto 1 de `data/maps/EcruteakCity/map.json` é um
+`OBJ_EVENT_GFX_MR_FUJI` em **(20,49)** com `FLAG_HIDE_ECRUTEAK_CITY_SAGE` no campo `flag`. A porta do
+ginásio é **(20,48)**, e a linha 48 do `map.bin` de `LAYOUT_ECRUTEAK_CITY` é parede de x=19 a x=22:
+**(20,49) é o único tile de onde se entra**. E `FLAG_HIDE_ECRUTEAK_CITY_SAGE` **não era acesa nem
+apagada por nenhum script do repositório**: o único uso dela em `data/`, `src/` e `include/` era o
+campo `flag` do próprio objeto. Objeto é sólido, então o sábio nascia sempre e o ginásio do Morty
+ficava trancado **para sempre**.
+
+**Por que a corrente inteira estava rompida.** No hns o mesmo sábio sai do caminho em
+`BurnedTower_B1F/scripts.inc:123` (`setflag FLAG_HIDE_ECRUTEAK_CITY_SAGE`), no fim da cena em que os
+três cães acordam, e essa cena era `ON_FRAME_TABLE` em `VAR_ECRUTEAK_CITY_STATE`. Essa var foi CORTADA
+no import ("ponytail: o enredo de var do hns foi cortado", cabeçalho de `EcruteakCity_Gym/scripts.inc`),
+e com ela foram a cena, a flag e o destravamento. Sobraram no B1F três objetos de decoração parados
+(`ENTEI` em (18,8), `RAIKOU` em (14,8), `SUICUNE` em (16,9), as mesmas coordenadas do hns) com
+`script: 0` e `flag: 0`, dentro de uma **câmara selada** de paredes (x de 14 a 18, linhas 8 e 9).
+
+#### O conserto: UMA flag, e ela é o arco inteiro
+
+`FLAG_JOHTO_CAES_LIBERTOS` (`FLAG_UNUSED_0x4DB`, apelido novo em append; o bloco 0x270-0x28F do SILVER
+já estava cheio). **Zero var**, e a mesma flag faz três coisas: é o campo `flag` dos três objetos do
+trio no B1F (acesa, eles não nascem); é o que `EcruteakCity_OnTransition` lê para **RECALCULAR**
+`FLAG_HIDE_ECRUTEAK_CITY_SAGE` a cada entrada no mapa (técnica 2 do `SINNOH-PADRAO.md`, a mesma do
+SILVER que já morava duas linhas abaixo no arquivo); e é o que o seletor de capítulo acende ao pular
+para "Before MORTY".
+
+O fluxo, em cinco elos, e só o quarto é novo:
+
+1. **Ecruteak**: o sábio na porta manda o jogador à BURNED TOWER (fala do hns, já estava lá).
+2. **Burned Tower 1F**: o `ON_TRANSITION` já mostrava o SILVER entre a vitória de Azalea
+   (`TRAINER_JOHTO_RIVAL_SILVER_2`, 1359) e a daqui (`SILVER_3`, 1360). O objeto fica em (15,19)
+   virado para baixo com raio 3 e o warp de entrada larga o jogador em (15,22): três tiles dentro do
+   cone, o duelo dispara sozinho, sem roteiro de movimento.
+3. **O chão cede** depois do duelo: `ShakeCamera`, `SE_FALL` e `warp MAP_BURNED_TOWER_B1F, 16, 12`.
+   Por que `warp` de coordenada fixa e não `warphole`: MEDIDO em `src/scrcmd.c`, `warphole` com mapa
+   explícito leva o jogador para a coordenada em que ELE está, e depois da abordagem do SILVER ele
+   está por volta de (15,20); o B1F tem altura 19, então "a mesma coordenada" cairia FORA do mapa.
+4. **B1F**: `ON_FRAME_TABLE` em `VAR_TEMP_0 = 0` roda a cena na chegada; os três acordam, gritam,
+   fogem e somem, com os movimentos do hns. Dez `coord_event` em `VAR_TEMP_1 = 0` nas lajes de frente
+   para a câmara (x de 14 a 18, linhas 11 e 12) são a rede de segurança de quem chegar pela ESCADA de
+   (26,7) em vez de pela queda. **Zero var de save nas duas**, técnica do `SINNOH-PADRAO.md`.
+5. **De volta a Ecruteak**: o sábio não nasce, (20,49) fica livre, o ginásio abre.
+
+**O seletor de capítulo ganhou `flagEnredo`** (`src/chapter_jump.c`), um campo no FIM da
+`struct GinasioDoHack`, então as outras 39 linhas não mudaram uma vírgula e ficam com 0 por omissão. O
+laço novo usa `i < capitulo`, e não `i + 1 < capitulo`, porque a cena que abre a porta do ginásio `i` é
+pré-requisito DELE: "Before MORTY" já precisa dela acesa. Ele também **APAGA** a flag nos capítulos
+anteriores, senão pular de uma save adiantada para "Before FALKNER" deixaria Ecruteak sem o sábio que
+ainda deveria estar lá.
+
+**A armadilha do `ON_FRAME_TABLE`, que vale para a próxima rodada:** `TryRunOnFrameMapScript` é chamado
+A CADA QUADRO por `ProcessPlayerFieldInput` (`src/field_control_avatar.c:195`) e devolve `TRUE`, que
+congela o jogador. Roteiro de `ON_FRAME` que não mata a própria condição **na primeira instrução**
+trava o jogo. Por isso `setvar VAR_TEMP_0, 1` é a primeira linha do roteiro do porão.
+
+**Zero regressão no Raikou e no Entei de Dex do B1F**: são objetos DIFERENTES, em (26,12) e (24,4), com
+`FLAG_HIDE_DEX_*` própria, e continuam sendo batalha de lendário. E fica um **registro medido que
+desmente um comentário antigo** do `BurnedTower_1F/scripts.inc`: o buraco do hns existe nesta build
+(o offset do tileset secundário aqui é **640**, e não 512, então `0x37E` é o índice **254** de
+`gTileset_BurnedTower`, atributo `MB_MT_PYRE_HOLE`). Não foi usado porque `MB_MT_PYRE_HOLE` não passa
+pelo `warp_event` do mapa: ele chama `EventScript_FallDownHoleMtPyre`, que usa o warp de buraco FIXO
+(`setholewarp`), outro mecanismo. O `warp_event` de (16,12) do 1F continua inerte (metatile 0x280,
+`MB_CAVE`), e trocá-lo fica como polimento.
+
+#### A música do farol
+
+`MUS_HG_LIGHTHOUSE` apontava para `MUS_SLATEPORT`: o farol de OLIVINE tocava música de CIDADE DE PRAIA
+por dentro. Passou a `MUS_RG_POKE_TOWER` (518, faixa com número e `.s` próprios), interior de torre
+alta. **Uma linha.** O apelido também serve os **oito mapas de MT SILVER**, que pela mesma troca saem
+de música de cidade para música de torre.
+
+#### A prova é do emulador, e o par negativo está em quatro dos oito casos
+
+`prova_musica_johto.py` ganhou dois casos e fecha **11 de 11**: nesta build o `OlivineCity_Lighthouse`
+e o `MtSilver_2F` leem **518** no `gMapHeader.music` E no `gMPlayInfo_BGM.songHeader`, contra os **433**
+(Slateport) que a ROM `pokemon-claude-2026-09-06` lia, a que o Gui jogou. Os outros nove leem igual nas
+duas, `PetalburgCity` incluso, que é o controle de Hoenn.
+
+Os oito casos novos são `dev_scripts/testes_criticos/170_ecruteak_burned_tower.json`, **8 de 8**. O
+**T170.8 é o primeiro caso deste projeto que JOGA UMA BATALHA ATÉ O FIM**, o que o ESTADO 0.c
+registrava como limite do harness: o seletor entrega o PIKACHU nível 20 a quem salta com party vazia, a
+opção de teste **LV.5 TRAINERS** (byte 36 em `opcoes`) põe os cinco Pokémon do SILVER_3 em nível 5, e um
+tapete de apertos de A joga a luta inteira. Ele prova o fluxo de ponta a ponta num roteiro só: vitória,
+chão cedendo, queda em (16,12), cena dos cães, e `FLAG_JOHTO_CAES_LIBERTOS` acesa com o mapa final
+sendo o porão. O T170.1 mede a trava com o jogador parando em **(20,50)**, um tile abaixo do sábio, e o
+T170.2 muda UMA coisa (a flag) e o mesmo roteiro entra no ginásio.
+
 ## 0.t A CAÇA A BUGS ANTES DO PLAYTEST: A RÉGUA PARA DE MEDIR PORCENTAGEM E PASSA A MEDIR DEFEITO, 23/08/2026 (rodada 12; condutor Opus, quatro executores Opus, fechador Opus)
 
 Build verde, uma build só, e a primeira rodada em que **nenhuma coluna de completude era o alvo**: o

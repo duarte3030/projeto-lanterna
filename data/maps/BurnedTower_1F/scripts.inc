@@ -43,8 +43,47 @@ BurnedTower_1F_EventScript_Silver::
 	closemessage
 	setflag FLAG_HIDE_SILVER_BURNED_TOWER
 	removeobject LOCALID_BURNED_TOWER_1F_SILVER
+	goto_if_set FLAG_JOHTO_CAES_LIBERTOS, BurnedTower_1F_EventScript_SilverSemQueda
+	goto BurnedTower_1F_EventScript_ChaoCede
+BurnedTower_1F_EventScript_SilverSemQueda::
 	release
 	end
+
+@ >>> Burned Tower, 06/09/2026 (rodada 13) >>>
+@ O chao cede depois do duelo, como em HGSS. Por que warp com coordenada fixa e
+@ nao `warphole`: MEDIDO em src/scrcmd.c, `warphole` com mapa explicito leva o
+@ jogador para a coordenada em que ELE esta, e aqui ele acabou de ser abordado
+@ pelo raio de visao do SILVER, que para em (15,20) ou perto disso. O B1F tem
+@ altura 19 (y de 0 a 18), entao "a mesma coordenada" cairia FORA do mapa. A
+@ queda leva para (16,12), que e o tile do proprio buraco no B1F e fica de frente
+@ para a camara selada dos tres caes (x de 14 a 18, y 8 e 9, paredes em volta).
+@ O warp_event de (16,12) deste andar existe no map.json mas e INERTE, e isso
+@ foi MEDIDO: o metatile ali e 0x280, que na tabela de atributos de
+@ gTileset_BurnedTower e MB_CAVE (chao de caverna), igual ao dos vizinhos, e
+@ warp so dispara em metatile de porta, escada ou buraco. O buraco de verdade
+@ do hns EXISTE nesta build (metatile 0x37E, indice 254 do tileset secundario,
+@ atributo MB_MT_PYRE_HOLE; o offset do secundario aqui e 640, e nao 512, o que
+@ desmente o comentario antigo de que o id era chutado), mas MB_MT_PYRE_HOLE nao
+@ usa o warp_event do mapa: ele chama EventScript_FallDownHoleMtPyre, que cai no
+@ warp de buraco FIXO (`setholewarp`), outro mecanismo. Trocar o metatile fica
+@ como polimento, e nao como caminho: quem leva ao B1F pela porta da frente e a
+@ escada de (24,10), e quem leva pela historia e esta queda.
+BurnedTower_1F_EventScript_ChaoCede::
+	msgbox BurnedTower_1F_Text_ChaoCede, MSGBOX_DEFAULT
+	closemessage
+	setvar VAR_0x8004, 1
+	setvar VAR_0x8005, 1
+	setvar VAR_0x8006, 20
+	setvar VAR_0x8007, 6
+	special ShakeCamera
+	waitstate
+	playse SE_FALL
+	delay 40
+	warp MAP_BURNED_TOWER_B1F, 16, 12
+	waitstate
+	release
+	end
+@ <<< Burned Tower <<<
 
 BurnedTower_1F_EventScript_Nard::
 	trainerbattle_single TRAINER_FIREBREATHER_NARD, BurnedTower_Text_NardSeen, BurnedTower_Text_NardBeaten
@@ -96,6 +135,11 @@ BurnedTower_1F_Text_SilverBeaten:
 	.string "…Humph!\p"
 	.string "This is why I hate battling wimps.\p"
 	.string "There's no challenge in it.$"
+
+BurnedTower_1F_Text_ChaoCede:
+	.string "The scorched floorboards groan\n"
+	.string "under your feet…\p"
+	.string "CRACK!$"
 
 BurnedTower_1F_Text_SilverAfter:
 	.string "…Aw, whatever.\p"
