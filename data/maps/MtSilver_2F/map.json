@@ -286,6 +286,14 @@
       "elevation": 0,
       "dest_map": "MAP_MT_SILVER_SNOW",
       "dest_warp_id": "6"
+    },
+    {
+      "x": 26,
+      "y": 36,
+      "elevation": 0,
+      "dest_map": "MAP_MT_SILVER_1F_WATERFALL_ROOM",
+      "dest_warp_id": "2",
+      "gemea": "metade da mesma descida para o Waterfall Room do warp 0, célula (25,36); sem warp desde a importação da fonte; reaberta em 06/09/2026"
     }
   ],
   "coord_events": [],

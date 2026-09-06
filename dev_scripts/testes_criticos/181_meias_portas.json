@@ -1,0 +1,138 @@
+[
+ {
+  "id": "T181.1",
+  "nome": "A METADE DIREITA DA SAIDA DE FLOAROMA PARA O MEADOW VOLTA A ABRIR. Mesma classe do defeito da igreja de Hearthome (T140.7), fora do corte: LAYOUT_FLOAROMA_TOWN desenha a saida norte para o Floaroma Meadow em DUAS celulas, (4,2) e (5,2), as duas com o metatile 539 e MB_NORTH_ARROW_WARP, flanqueadas por parede solida em (3,2) e (6,2), e a importacao da fonte so pos warp em (4,2) (warp 5). Quem subisse pela coluna 5 apertava para cima contra (5,1), que e solido, e nada acontecia. O conserto e o warp 6, APPEND no fim da lista, repetindo destino e dest_warp_id do warp 5 (indice nenhum se move, a save do Gui continua valendo). O caso nasce no warp 5, da UM passo para a direita (a segunda celula; (6,2) e parede, entao nao ha como passar dela) e sobe. Na ROM anterior ele para em MAP_FLOAROMA_TOWN, que e a contraprova. ROTEIRO: nasce olhando contra a seta, entao o primeiro toque lateral so vira e o segundo anda; a seta dispara pelo dpad, sem depender de para onde o jogador olha.",
+  "warp": "MAP_FLOAROMA_TOWN",
+  "warp_id": 5,
+  "roteiro": "150:NADA,20:RIGHT,20:RIGHT,60:NADA,20:UP,20:UP,300:NADA",
+  "prova": {
+   "mapa": "MAP_FLOAROMA_MEADOW"
+  }
+ },
+ {
+  "id": "T181.2",
+  "nome": "PAR NEGATIVO do T181.1: mesmo warp 5, mesmo passo para a direita, e a UNICA diferenca e que desce em vez de subir. MB_NORTH_ARROW_WARP so dispara olhando para o norte, entao tres DOWN (o primeiro so vira, porque o passo lateral deixou o jogador olhando para leste) a partir de (5,2) tem que deixar o jogador em (5,4), dentro de Floaroma ((5,3) e (5,4) sao MB_NORMAL andaveis, medidos no blockdata). A posicao prova que o passo para a direita ACONTECEU: se o jogador nao tivesse saido de (4,2), pararia em (4,4).",
+  "warp": "MAP_FLOAROMA_TOWN",
+  "warp_id": 5,
+  "roteiro": "150:NADA,20:RIGHT,20:RIGHT,60:NADA,20:DOWN,20:DOWN,20:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_FLOAROMA_TOWN",
+   "pos": [
+    5,
+    4
+   ]
+  }
+ },
+ {
+  "id": "T181.3",
+  "nome": "A METADE QUE SEMPRE FUNCIONOU CONTINUA FUNCIONANDO: warp 5 de Floaroma, celula (4,2), sobe direto para o Meadow. Prova que o append nao roubou a porta boa e que as duas metades abrem no MESMO lugar.",
+  "warp": "MAP_FLOAROMA_TOWN",
+  "warp_id": 5,
+  "roteiro": "150:NADA,20:UP,20:UP,300:NADA",
+  "prova": {
+   "mapa": "MAP_FLOAROMA_MEADOW"
+  }
+ },
+ {
+  "id": "T181.4",
+  "nome": "A METADE DIREITA DA DESCIDA DO MT. SILVER 2F VOLTA A ABRIR. LAYOUT_MT_SILVER_2F desenha a descida para o Waterfall Room em (25,36) e (26,36), as duas com o metatile 647 e MB_SOUTH_ARROW_WARP, com parede em (27,36) e chao de caverna em (24,36); so (25,36) tinha warp (warp 0). Quem descesse pela coluna 26 apertava para baixo contra (26,37), solido, e ficava. O conserto e o warp 7, append no fim, copia do warp 0. O caso nasce no warp 0, da um passo para a direita e desce. Na ROM anterior para em MAP_MT_SILVER_2F. ROTEIRO: nasce olhando contra a seta, entao o primeiro toque lateral so vira e o segundo anda; a seta dispara pelo dpad, sem depender de para onde o jogador olha.",
+  "warp": "MAP_MT_SILVER_2F",
+  "warp_id": 0,
+  "roteiro": "150:NADA,20:RIGHT,20:RIGHT,60:NADA,20:DOWN,20:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_MT_SILVER_1F_WATERFALL_ROOM"
+  }
+ },
+ {
+  "id": "T181.5",
+  "nome": "PAR NEGATIVO do T181.4: mesmo passo para a direita, e sobe em vez de descer. (26,35) e (26,34) sao MB_CAVE andaveis, entao o jogador tem que parar em (26,34), dentro do Mt. Silver 2F. A coluna 26 na posicao final prova que o passo lateral aconteceu.",
+  "warp": "MAP_MT_SILVER_2F",
+  "warp_id": 0,
+  "roteiro": "150:NADA,20:RIGHT,20:RIGHT,60:NADA,20:UP,20:UP,20:UP,300:NADA",
+  "prova": {
+   "mapa": "MAP_MT_SILVER_2F",
+   "pos": [
+    26,
+    34
+   ]
+  }
+ },
+ {
+  "id": "T181.6",
+  "nome": "A METADE QUE SEMPRE FUNCIONOU NO MT. SILVER 2F: warp 0, celula (25,36), desce direto para o Waterfall Room.",
+  "warp": "MAP_MT_SILVER_2F",
+  "warp_id": 0,
+  "roteiro": "150:NADA,20:DOWN,20:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_MT_SILVER_1F_WATERFALL_ROOM"
+  }
+ },
+ {
+  "id": "T181.7",
+  "nome": "A METADE ESQUERDA DA SAIDA SUL DO WARM-UP TUNNEL (GALAR) VOLTA A ABRIR. LAYOUT_GALAR_WARM_UP_TUNNEL_01 desenha a saida para a Isle of Armor em (39,37) e (40,37), as duas com o metatile 647 e MB_SOUTH_ARROW_WARP, com chao de caverna dos dois lados; so (40,37) tinha warp (warp 1). Quem descesse pela coluna 39 apertava para baixo contra (39,38), solido, e ficava. O conserto e o warp 2, append no fim, copia do warp 1. O caso nasce no warp 1, da um passo para a ESQUERDA e desce. Na ROM anterior para em MAP_GALAR_WARM_UP_TUNNEL_01. Sao exatamente dois LEFT: (38,37) e chao andavel, e um terceiro passaria da porta. ROTEIRO: nasce olhando contra a seta, entao o primeiro toque lateral so vira e o segundo anda; a seta dispara pelo dpad, sem depender de para onde o jogador olha.",
+  "warp": "MAP_GALAR_WARM_UP_TUNNEL_01",
+  "warp_id": 1,
+  "roteiro": "150:NADA,20:LEFT,20:LEFT,60:NADA,20:DOWN,20:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_ISLE_OF_ARMOR_12"
+  }
+ },
+ {
+  "id": "T181.8",
+  "nome": "PAR NEGATIVO do T181.7: mesmo passo para a esquerda, e sobe em vez de descer. (39,36) e (39,35) sao MB_CAVE andaveis, entao o jogador para em (39,35), dentro do tunel. A coluna 39 na posicao final prova o passo lateral.",
+  "warp": "MAP_GALAR_WARM_UP_TUNNEL_01",
+  "warp_id": 1,
+  "roteiro": "150:NADA,20:LEFT,20:LEFT,60:NADA,20:UP,20:UP,20:UP,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_WARM_UP_TUNNEL_01",
+   "pos": [
+    39,
+    35
+   ]
+  }
+ },
+ {
+  "id": "T181.9",
+  "nome": "A METADE QUE SEMPRE FUNCIONOU NO WARM-UP TUNNEL: warp 1, celula (40,37), desce direto para a Isle of Armor.",
+  "warp": "MAP_GALAR_WARM_UP_TUNNEL_01",
+  "warp_id": 1,
+  "roteiro": "150:NADA,20:DOWN,20:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_ISLE_OF_ARMOR_12"
+  }
+ },
+ {
+  "id": "T181.10",
+  "nome": "O SLUMBERING WEALD 02 NAO E MEIA PORTA, E FALSO POSITIVO DA VARREDURA DE CELULA GEMEA. A varredura acusou (18,13) e (18,14) como gemeas sem warp de (17,13) e (17,14). Mas o metatile 799 (MB_WEST_ARROW_WARP) ali forma uma FAIXA de tres colunas, (17..19, 13..14), e a seta aponta para OESTE, ou seja ao longo da faixa e nao atravessado a ela: quem esta em (18,y) ou (19,y) e aperta para a esquerda simplesmente ANDA ate (17,y), onde o warp existe, e o aperto seguinte dispara. Em Hearthome, Floaroma, Mt. Silver e no Warm-Up Tunnel as gemeas ficam lado a lado PERPENDICULARES a seta, e por isso la o jogador fica preso. Este caso nasce no warp 1 (17,13), anda dois para a direita ate (19,13), o fundo da faixa, e para: tem que continuar no Weald 02 em (19,13), o que prova que a faixa e andavel e nao teleporta. Aqui o jogador nasce olhando para LESTE (contra a seta), entao os dois RIGHT andam os dois.",
+  "warp": "MAP_GALAR_SLUMBERING_WEALD_02",
+  "warp_id": 1,
+  "roteiro": "150:NADA,20:RIGHT,20:RIGHT,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_SLUMBERING_WEALD_02",
+   "pos": [
+    19,
+    13
+   ]
+  }
+ },
+ {
+  "id": "T181.11",
+  "nome": "PAR do T181.10: do fundo da faixa, quatro LEFT (o primeiro so vira) atravessam (18,13), chegam a (17,13), e o quarto aperto dispara o warp para o Weald 01. E o que prova que a faixa inteira funciona SEM warp nas colunas 18 e 19, e por isso o Weald 02 nao recebeu append nenhum. Passa na ROM anterior e na atual, de proposito.",
+  "warp": "MAP_GALAR_SLUMBERING_WEALD_02",
+  "warp_id": 1,
+  "roteiro": "150:NADA,20:RIGHT,20:RIGHT,60:NADA,20:LEFT,20:LEFT,20:LEFT,20:LEFT,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_SLUMBERING_WEALD_01"
+  }
+ },
+ {
+  "id": "T181.12",
+  "nome": "O MESMO na linha 14 do Weald: nasce no warp 2 (17,14), vai ao fundo da faixa e volta; o quarto LEFT dispara o warp 2, que leva ao Weald 01 pelo dest_warp_id 4.",
+  "warp": "MAP_GALAR_SLUMBERING_WEALD_02",
+  "warp_id": 2,
+  "roteiro": "150:NADA,20:RIGHT,20:RIGHT,60:NADA,20:LEFT,20:LEFT,20:LEFT,20:LEFT,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_SLUMBERING_WEALD_01"
+  }
+ }
+]
