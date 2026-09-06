@@ -2375,8 +2375,12 @@ def escreve_pedidos_galar(gravar):
         "ordem_de_rodagem": [
             "1. python3 dev_scripts/importa_encontros_galar.py --aplicar   "
             "(reescreve TODAS as entradas de Galar do wild_encounters.json a "
-            "partir da ROM do demake; roda SEMPRE antes do passo 2, senao "
-            "apaga as linhas de mato da Dex em silencio)",
+            "partir da ROM do demake E JA SOBREPOE as tabelas canonicas de "
+            "Sword/Shield; roda SEMPRE antes do passo 2, senao apaga as linhas "
+            "de mato da Dex em silencio. Desde a decisao 3 da condutora, em "
+            "06/09/2026, a sobreposicao canonica e o PADRAO: nao existe mais "
+            "`--canonico` a acrescentar, e quem quiser o demake puro precisa "
+            "pedir `--sem-canonico`, que sai com AVISO)",
             "2. python3 dev_scripts/distribui_dex.py --galar --aplica       "
             "(regrava as linhas de mato da Dex e este arquivo de pedidos)",
             "3. python3 dev_scripts/estaticos_galar.py --aplicar            "

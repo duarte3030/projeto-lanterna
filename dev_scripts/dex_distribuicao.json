@@ -9,10 +9,10 @@
     "evolucoes": 113,
     "chaves": 10,
     "formas": 5,
-    "galar_selvagens": 12,
+    "galar_selvagens": 13,
     "galar_estaticos": 10,
     "galar_presentes": 5,
-    "galar_evolucoes": 19
+    "galar_evolucoes": 20
   },
   "npcs_presente": [
     {
@@ -11421,6 +11421,22 @@
       "nota": "gen 8; tipos ELECTRIC/POISON; slot duplicado 1 de 12"
     },
     {
+      "especie": "SPECIES_SIZZLIPEDE",
+      "como": "selvagem",
+      "regiao": "Galar",
+      "mapa": "MAP_GALAR_MOTOSTOKE_18",
+      "metodo": "land_mons",
+      "slot": 1,
+      "nivel": [
+        18,
+        22
+      ],
+      "flag": "",
+      "origem": "bioma",
+      "substituido": "SPECIES_MAROWAK_ALOLA",
+      "nota": "gen 8; tipos FIRE/BUG; slot duplicado 1 de 12"
+    },
+    {
       "especie": "SPECIES_SINISTEA_ANTIQUE",
       "como": "selvagem",
       "regiao": "Galar",
@@ -11458,15 +11474,15 @@
       "regiao": "Galar",
       "mapa": "MAP_GALAR_ROUTE08_02",
       "metodo": "land_mons",
-      "slot": 9,
+      "slot": 2,
       "nivel": [
-        41,
-        45
+        38,
+        43
       ],
       "flag": "",
       "origem": "bioma",
-      "substituido": "SPECIES_DARUMAKA_GALAR",
-      "nota": "gen 8; tipos ICE; slot duplicado 9 de 12"
+      "substituido": "SPECIES_SNOM",
+      "nota": "gen 8; tipos ICE; slot duplicado 2 de 12"
     },
     {
       "especie": "SPECIES_INDEEDEE_M",
@@ -11488,17 +11504,17 @@
       "especie": "SPECIES_MORPEKO_FULL_BELLY",
       "como": "selvagem",
       "regiao": "Galar",
-      "mapa": "MAP_GALAR_ROUTE03_02",
+      "mapa": "MAP_GALAR_CROWN_TUNDRA_18",
       "metodo": "land_mons",
-      "slot": 7,
+      "slot": 8,
       "nivel": [
-        8,
-        13
+        63,
+        70
       ],
       "flag": "",
       "origem": "bioma",
       "substituido": "SPECIES_GRIMER_ALOLA",
-      "nota": "gen 8; tipos ELECTRIC/DARK; slot duplicado 7 de 12"
+      "nota": "gen 8; tipos ELECTRIC/DARK; slot duplicado 8 de 12"
     },
     {
       "especie": "SPECIES_URSALUNA",
@@ -11613,18 +11629,18 @@
       "origem": "lar canonico",
       "tile": [
         16,
-        9
+        16
       ],
       "nota": "gen 8; tipos FAIRY",
       "warp": 0,
       "dir": "RIGHT",
       "para": [
         15,
-        9
+        16
       ],
       "vazio": [
         18,
-        9
+        16
       ],
       "porta": [
         16,
@@ -11652,7 +11668,7 @@
         ],
         [
           "UP",
-          17,
+          10,
           false
         ],
         [
@@ -11679,18 +11695,18 @@
       "origem": "lar canonico",
       "tile": [
         16,
-        14
+        21
       ],
       "nota": "gen 8; tipos FIGHTING",
       "warp": 0,
       "dir": "UP",
       "para": [
         16,
-        15
+        22
       ],
       "vazio": [
         16,
-        10
+        17
       ],
       "porta": [
         16,
@@ -11708,7 +11724,7 @@
         ],
         [
           "UP",
-          17,
+          10,
           true
         ]
       ],
@@ -11729,19 +11745,19 @@
       "flag": "FLAG_HIDE_DEX_GALAR_ETERNATUS",
       "origem": "lar canonico",
       "tile": [
-        11,
-        15
+        15,
+        16
       ],
       "nota": "gen 8; tipos POISON/DRAGON",
       "warp": 0,
-      "dir": "UP",
+      "dir": "RIGHT",
       "para": [
-        11,
+        14,
         16
       ],
       "vazio": [
-        11,
-        14
+        16,
+        16
       ],
       "porta": [
         11,
@@ -11754,7 +11770,12 @@
       "rota": [
         [
           "UP",
-          3,
+          1,
+          true
+        ],
+        [
+          "RIGHT",
+          5,
           true
         ]
       ],
@@ -11776,18 +11797,18 @@
       "origem": "lar canonico",
       "tile": [
         88,
-        21
+        19
       ],
       "nota": "gen 8; tipos FIGHTING",
       "warp": 1,
       "dir": "LEFT",
       "para": [
         89,
-        21
+        19
       ],
       "vazio": [
         87,
-        21
+        19
       ],
       "porta": [
         91,
@@ -11802,6 +11823,11 @@
           "DOWN",
           0,
           false
+        ],
+        [
+          "UP",
+          2,
+          true
         ],
         [
           "LEFT",
@@ -11826,18 +11852,18 @@
       "flag": "FLAG_HIDE_DEX_GALAR_ZARUDE",
       "origem": "lar canonico",
       "tile": [
-        98,
+        96,
         55
       ],
       "nota": "gen 8; tipos DARK/GRASS",
       "warp": 1,
       "dir": "RIGHT",
       "para": [
-        97,
+        95,
         55
       ],
       "vazio": [
-        99,
+        97,
         55
       ],
       "porta": [
@@ -11856,7 +11882,7 @@
         ],
         [
           "RIGHT",
-          12,
+          10,
           true
         ]
       ],
@@ -11878,18 +11904,18 @@
       "origem": "lar canonico",
       "tile": [
         30,
-        41
+        48
       ],
       "nota": "gen 8; tipos ELECTRIC",
       "warp": 2,
-      "dir": "RIGHT",
+      "dir": "UP",
       "para": [
-        29,
-        41
+        30,
+        49
       ],
       "vazio": [
-        32,
-        41
+        30,
+        47
       ],
       "porta": [
         30,
@@ -11907,22 +11933,7 @@
         ],
         [
           "UP",
-          2,
-          false
-        ],
-        [
-          "LEFT",
-          20,
-          false
-        ],
-        [
-          "UP",
-          8,
-          true
-        ],
-        [
-          "RIGHT",
-          22,
+          4,
           true
         ]
       ],
@@ -11943,19 +11954,19 @@
       "flag": "FLAG_HIDE_DEX_GALAR_REGIDRAGO",
       "origem": "lar canonico",
       "tile": [
-        30,
-        46
+        8,
+        49
       ],
       "nota": "gen 8; tipos DRAGON",
       "warp": 2,
       "dir": "UP",
       "para": [
-        30,
-        47
+        8,
+        50
       ],
       "vazio": [
-        30,
-        42
+        8,
+        13
       ],
       "porta": [
         30,
@@ -11973,7 +11984,27 @@
         ],
         [
           "UP",
-          9,
+          2,
+          true
+        ],
+        [
+          "LEFT",
+          11,
+          false
+        ],
+        [
+          "DOWN",
+          20,
+          true
+        ],
+        [
+          "LEFT",
+          11,
+          true
+        ],
+        [
+          "UP",
+          56,
           true
         ]
       ],
@@ -11994,19 +12025,19 @@
       "flag": "FLAG_HIDE_DEX_GALAR_CALYREX_ICE",
       "origem": "lar canonico",
       "tile": [
-        1,
-        49
+        51,
+        50
       ],
       "nota": "gen 8; tipos PSYCHIC/ICE",
       "warp": 2,
-      "dir": "UP",
+      "dir": "RIGHT",
       "para": [
-        1,
+        50,
         50
       ],
       "vazio": [
-        1,
-        48
+        52,
+        50
       ],
       "porta": [
         30,
@@ -12024,27 +12055,12 @@
         ],
         [
           "UP",
-          2,
+          1,
           false
         ],
         [
-          "LEFT",
-          5,
-          false
-        ],
-        [
-          "DOWN",
-          3,
-          true
-        ],
-        [
-          "LEFT",
-          24,
-          false
-        ],
-        [
-          "UP",
-          4,
+          "RIGHT",
+          22,
           true
         ]
       ],
@@ -12065,18 +12081,18 @@
       "flag": "FLAG_HIDE_DEX_GALAR_CALYREX_SHADOW",
       "origem": "lar canonico",
       "tile": [
-        6,
+        13,
         49
       ],
       "nota": "gen 8; tipos PSYCHIC/GHOST",
       "warp": 2,
       "dir": "LEFT",
       "para": [
-        7,
+        14,
         49
       ],
       "vazio": [
-        2,
+        9,
         49
       ],
       "porta": [
@@ -12096,11 +12112,11 @@
         [
           "UP",
           2,
-          false
+          true
         ],
         [
           "LEFT",
-          28,
+          21,
           true
         ]
       ],
@@ -12121,19 +12137,19 @@
       "flag": "FLAG_HIDE_DEX_GALAR_ENAMORUS_INCARNATE",
       "origem": "lar canonico",
       "tile": [
-        51,
-        47
+        46,
+        49
       ],
       "nota": "gen 8; tipos FAIRY/FLYING",
       "warp": 2,
       "dir": "RIGHT",
       "para": [
-        50,
-        47
+        45,
+        49
       ],
       "vazio": [
-        52,
-        47
+        47,
+        49
       ],
       "porta": [
         30,
@@ -12151,12 +12167,12 @@
         ],
         [
           "UP",
-          4,
+          2,
           true
         ],
         [
           "RIGHT",
-          22,
+          17,
           true
         ]
       ],
@@ -12176,11 +12192,11 @@
       "flag": "FLAG_INICIAL_GALAR",
       "origem": "decisao",
       "tile": [
-        2,
+        3,
         5
       ],
-      "npc": "bola de inicial",
-      "nota": "inicial de Galar: bola no chao do Centro Pokemon de Wedgehurst, escolha de um dos tres, molde do Unova_NuvemaLab"
+      "npc": "iniciais",
+      "nota": "inicial de Galar: um NPC do Centro Pokemon de Wedgehurst entrega um dos tres a escolha, molde do laboratorio do Birch"
     },
     {
       "especie": "SPECIES_SCORBUNNY",
@@ -12196,8 +12212,8 @@
         3,
         5
       ],
-      "npc": "bola de inicial",
-      "nota": "inicial de Galar: bola no chao do Centro Pokemon de Wedgehurst, escolha de um dos tres, molde do Unova_NuvemaLab"
+      "npc": "iniciais",
+      "nota": "inicial de Galar: um NPC do Centro Pokemon de Wedgehurst entrega um dos tres a escolha, molde do laboratorio do Birch"
     },
     {
       "especie": "SPECIES_SOBBLE",
@@ -12210,11 +12226,11 @@
       "flag": "FLAG_INICIAL_GALAR",
       "origem": "decisao",
       "tile": [
-        4,
+        3,
         5
       ],
-      "npc": "bola de inicial",
-      "nota": "inicial de Galar: bola no chao do Centro Pokemon de Wedgehurst, escolha de um dos tres, molde do Unova_NuvemaLab"
+      "npc": "iniciais",
+      "nota": "inicial de Galar: um NPC do Centro Pokemon de Wedgehurst entrega um dos tres a escolha, molde do laboratorio do Birch"
     },
     {
       "especie": "SPECIES_ETERNATUS_ETERNAMAX",
@@ -12419,6 +12435,18 @@
       "flag": "",
       "origem": "censo",
       "nota": "sai de graca em Galar depois das colocacoes acima: SINISTEA_PHONY"
+    },
+    {
+      "especie": "SPECIES_PERRSERKER",
+      "como": "evolucao",
+      "regiao": "Galar",
+      "mapa": "",
+      "metodo": "",
+      "slot": null,
+      "nivel": 0,
+      "flag": "",
+      "origem": "censo",
+      "nota": "sai de graca em Galar depois das colocacoes acima: MEOWTH_GALAR"
     },
     {
       "especie": "SPECIES_CURSOLA",

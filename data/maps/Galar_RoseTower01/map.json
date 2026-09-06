@@ -31,8 +31,8 @@
     {
       "local_id": "LOCALID_DEX_GALAR_ETERNATUS",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ETERNATUS)",
-      "x": 11,
-      "y": 15,
+      "x": 15,
+      "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,

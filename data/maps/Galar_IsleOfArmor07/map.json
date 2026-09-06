@@ -52,7 +52,7 @@
     {
       "local_id": "LOCALID_DEX_GALAR_ZARUDE",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ZARUDE)",
-      "x": 98,
+      "x": 96,
       "y": 55,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",

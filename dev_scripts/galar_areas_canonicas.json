@@ -1,0 +1,495 @@
+{
+  "gerado_por": "escrito a mao no lote K da onda 3 da Frente A (Galar), 06/09/2026, ANTES de `importa_encontros_galar.py --canonico` existir",
+  "lei": "Decisao do Gui de 06/09/2026 (resposta 41): os encontros canonicos de Sword/Shield SOBREPOEM os do demake nas areas que o datamine cobre; o demake fica onde o datamine nao chega.",
+  "decisoes_da_condutora": {
+    "quando": "06/09/2026, fechamento do lote K (K2) da onda 3 da Frente A. São as três dúvidas que o executor do lote K deixou abertas.",
+    "1_overworld_entra": "Numa ROM de geração 3 não existe encontro de overworld: o que anda visível em Sword/Shield vira mato. Para cada área, a `land_mons` é a UNIÃO das espécies das colunas `grama` e `overworld` dos brutos; a porcentagem de cada espécie é a MÉDIA das duas colunas (espécie ausente numa coluna conta 0 nela); os níveis são a UNIÃO das faixas (menor mínimo, maior máximo, por espécie); e o mesmo maior-resto de sempre distribui o resultado nos 12 slots. Área com uma coluna só fica como estava. ADAPTAÇÃO MEDIDA, e não decisão nova: a decisão pressupõe que cada coluna soma 100, e SETE das 26 colunas do Serebii não somam (Rota 2 grama 120, Rota 3 overworld 115, Rota 4 overworld 93, Rota 5 grama 134 e overworld 130, Rota 8 overworld 115, Steamdrift overworld 105), então cada coluna é renormalizada para 100 antes da média, senão a coluna de soma maior pesaria mais e a média deixaria de ser média. META MEDIDA, com o resultado conferido espécie a espécie: CINCO das seis voltam a ter fonte direta de mato em Galar, Cubchoo (Rota 10 fundida), Gurdurr (Rota 8), Minccino (Rota 5), Perrserker (Rota 7) e Snorunt (Steamdrift Way). AXEW NÃO VOLTA, e a conta é fechada: os 5% dele na coluna `overworld` viram 2,5% na média, e na Rota 6 há um empate de TRÊS espécies em 2,5% (Durant e Torkoal, que vêm da `grama`, e Axew) disputando os DOIS últimos slots. O desempate do maior-resto é a ordem da fonte, que é a regra do `converte.py` e não se mexe aqui; a `grama` vem antes, e Axew fica em terceiro. Nenhuma outra leitura da decisão 1 muda isso, porque as duas colunas da Rota 6 já somam 100 e a renormalização não altera nada nela. O `--demo` trava os três 2,5% e a ordem dos dois últimos slots, para ninguém consertar por engano. Se o Gui quiser Axew em Galar, o caminho é outro (estático, presente ou evolução), e é decisão dele.",
+    "2_white_hill_funde": "A Rota 10 é um mapa só no GBA, então `MAP_GALAR_ROUTE_10_WHITE_HILL_STATION` entra no `Galar_Route1001` junto com a Rota 10 principal. As duas listas canônicas se fundem pela MESMA regra do item 1 (união das espécies, média das porcentagens das duas áreas, níveis por união, maior-resto nos 12 slots). Não é invenção: as duas listas são as espécies canônicas daquela mesma rota. Quem manda fundir é o campo `funde_com` da área `MAP_GALAR_ROUTE_10`, e o registro está no `sem_sub_mapa`.",
+    "3_canonico_e_o_padrao": "`importa_encontros_galar.py --aplicar` passa a aplicar a sobreposição canônica SEMPRE. Quem quiser o demake puro pede `--sem-canonico`, e leva o AVISO junto. Com isso a armadilha da onda 3 (rodar `--aplicar` sozinho e apagar a sobreposição em silêncio) deixou de existir, e a `ordem_de_rodagem` do `distribui_dex.py` voltou a dizer só `--aplicar`, seguido de `distribui_dex.py --galar --aplica`."
+  },
+  "fonte_canonica": "fontes-mapas/galar-swsh/preparados/wild_encounters_galar.json (13 areas, ja em slot do expansion, maior-resto sobre a taxa do Serebii). Desde a decisao 1 da condutora, so a `water_mons` vem deste arquivo: a `land_mons` das 13 areas nasce dos BRUTOS, da uniao de `grama` com `overworld`, porque o `converte.py` que gerou o preparado so olhava a `grama`.",
+  "fonte_de_mato": "fontes-mapas/galar-swsh/preparados/brutos/encontros.json, campos `grama` e `overworld`, unidos pela decisao 1 da condutora. Cada coluna e renormalizada para 100 antes da media, porque sete das 26 colunas do Serebii nao somam 100.",
+  "fonte_de_pesca": "fontes-mapas/galar-swsh/preparados/brutos/encontros.json, campo `pesca`. O `converte.py` deixou a pesca de fora de proposito (`mapear para fishing_mons quando a conversao dos mapas existir`); a conversao existe desde a onda 1, entao ela entra aqui pelo MESMO maior-resto, sobre os 10 slots de `fishing_mons` do repo.",
+  "regra": [
+    "1. UMA area canonica -> os `Galar_*` do repo cujo `region_map_section` no `map.json` e o MAPSEC daquela area. O MAPSEC e a palavra do repo sobre a que area o mapa pertence, e ele ja foi corrigido pelo `conserta_mapsec_galar.py`; o `galar_mundo.json` guarda o estado ANTES desse conserto e por isso nao serve de de-para sozinho.",
+    "2. Se a fonte canonica distingue sub-areas POR NOME (Route 8 x Route 8 (Steamdrift Way); Route 10 x Route 10 (White Hill Station)), casa por nome, e a prova do casamento e a tabela do demake daquele sub-mapa. Senao, TODOS os sub-mapas da area recebem a MESMA tabela canonica.",
+    "3. Metodo por metodo, o sub-mapa so recebe `land_mons`/`water_mons`/`fishing_mons` se (a) a area canonica tem aquele metodo E (b) o sub-mapa tem o terreno: tile de encontro em terra, tile de encontro surfavel, ou tile de agua pescavel no blockdata (comportamento lido do `metatile_attributes.bin`, formato FRLG de 4 bytes, primario ate 640). Sub-mapa sem agua NAO recebe `water_mons`.",
+    "4. EXCECAO MEDIDA a (b): se o blockdata nao mostra o terreno mas o DEMAKE ja escrevia aquele metodo naquele mapa, o metodo entra assim mesmo. Dois mapas caem aqui, `Galar_Route0601` e `Galar_Route0801`: os secundarios `gTileset_Galar06` e `gTileset_Galar23` sairam da conversao com o comportamento da grama zerado, e a ROM do demake e a testemunha de que aqueles mapas sao de mato. Aplicar (b) cru APAGARIA duas tabelas de mato, que e o contrario do que esta rodada faz. Consertar o atributo do tileset e obra de outro dono.",
+    "5. O que a area canonica NAO cobre continua sendo do demake, e nao e tocado. E por isso que `Galar_Route0302`, `Galar_Route0501`, `Galar_Route0802` e `Galar_Route1001` mantem a `water_mons`/`fishing_mons` que o demake escreveu: o datamine do Serebii nao tem agua nem pesca naquelas rotas.",
+    "6. `encounter_rate` (a FREQUENCIA do encontro) nao existe no datamine, que so traz porcentagem por especie. Ela vem, nesta ordem: a taxa que o demake ja escreveu naquele mapa e naquele metodo; a taxa de um sub-mapa IRMAO da mesma area; o padrao (land 20 e water 4, do proprio arquivo preparado, fishing 30, a taxa mais comum do `wild_encounters.json` do repo).",
+    "7. Nivel e o do datamine, sempre. Especie e o `SPECIES_*` do datamine, conferido contra o `include/constants/species.h` desta arvore (forma de Galar e `SPECIES_X_GALAR`, e nao `_GALARIAN`)."
+  ],
+  "correcao_de_especie": [
+    {
+      "de": "SPECIES_DARUMAKA",
+      "para": "SPECIES_DARUMAKA_GALAR",
+      "onde": [
+        "MAP_GALAR_ROUTE_8_STEAMDRIFT_WAY",
+        "MAP_GALAR_ROUTE_10",
+        "MAP_GALAR_ROUTE_10_WHITE_HILL_STATION"
+      ],
+      "motivo": "A pagina do Serebii escreve so `Darumaka` nos tres trechos de neve, sem o `Galarian` que ela usa em Zigzagoon e Meowth. Duas testemunhas dizem que ali e a forma de Galar: (1) o Darumaka comum, de Unova, nao esta na Pokedex de Galar, entao um `Darumaka` numa rota de Sword/Shield so pode ser o de gelo; (2) a ROM do demake, que e fonte independente desta, escreve `SPECIES_DARUMAKA_GALAR` exatamente nos mesmos mapas (`Galar_Route0802` e `Galar_Route1001`). Sem esta correcao a sobreposicao PIORARIA a fidelidade em dois slots, trocando a forma certa que o demake tinha pela errada da transcricao.",
+      "conferido_em": "06/09/2026, onda 3 lote K"
+    },
+    {
+      "de": "SPECIES_MR_MIME",
+      "para": "SPECIES_MR_MIME_GALAR",
+      "onde": [
+        "MAP_GALAR_ROUTE_10",
+        "MAP_GALAR_ROUTE_10_WHITE_HILL_STATION"
+      ],
+      "motivo": "A pagina do Serebii escreve so `Mr. Mime` nas DUAS listas da Rota 10 (a rota principal, taxa 40 no overworld, e a White Hill Station, taxa 30), sem o `Galarian` que ela usa em Zigzagoon e Meowth. Duas testemunhas dizem que ali e a forma de Galar: (1) o Mr. Mime comum, de Kanto, nao esta na Pokedex de Galar da base (quem esta e o de gelo, e o Mr. Rime que evolui dele), entao um `Mr. Mime` na subida nevada para Wyndon so pode ser o de Galar; (2) a MESMA rota ja recebe a correcao de Darumaka pela mesma razao, e o clima do trecho e o de neve dos dois. Sem esta correcao a Rota 10 entregaria um Pokemon que a Dex de Galar nao tem.",
+      "conferido_em": "06/09/2026, onda 3, fechamento (medido nos brutos: `Route 10` e `Route 10 (White Hill Station)`, campo `overworld`)"
+    }
+  ],
+  "medida_do_blockdata": "terra/agua/pescavel sao contagens de TILE do `map.bin` de cada layout, medidas em 06/09/2026 pelo proprio `importa_encontros_galar.py` (funcao `terreno_do_mapa`), e o `--demo` reprova se elas mudarem sem alguem reescrever este arquivo.",
+  "areas": [
+    {
+      "area": "MAP_GALAR_ROUTE_1",
+      "nome_na_fonte": "Route 1",
+      "mapsec": "MAPSEC_GALAR_ROUTE01",
+      "metodos_na_fonte": [
+        "land_mons"
+      ],
+      "sub_mapas": [
+        {
+          "mapa": "MAP_GALAR_ROUTE01_01",
+          "pasta": "Galar_Route0101",
+          "recebe": [
+            "land_mons"
+          ],
+          "cobertura": "inteira",
+          "blockdata": {
+            "terra": 204,
+            "agua": 0,
+            "pescavel": 3
+          },
+          "nota": "a rota de estreia; 204 tiles de grama alta"
+        },
+        {
+          "mapa": "MAP_GALAR_ROUTE01_02",
+          "pasta": "Galar_Route0102",
+          "recebe": [
+            "land_mons"
+          ],
+          "cobertura": "inteira",
+          "blockdata": {
+            "terra": 38,
+            "agua": 390,
+            "pescavel": 390
+          },
+          "nota": "o demake nao dava tabela nenhuma a este mapa; ele tem 38 tiles de grama e ganha o mato da Rota 1. A agua fica sem tabela porque a Rota 1 canonica nao tem encontro aquatico."
+        }
+      ]
+    },
+    {
+      "area": "MAP_GALAR_ROUTE_2",
+      "nome_na_fonte": "Route 2",
+      "mapsec": "MAPSEC_GALAR_ROUTE02",
+      "metodos_na_fonte": [
+        "land_mons",
+        "water_mons",
+        "fishing_mons"
+      ],
+      "sub_mapas": [
+        {
+          "mapa": "MAP_GALAR_ROUTE02_01",
+          "pasta": "Galar_Route0201",
+          "recebe": [],
+          "cobertura": "nenhuma",
+          "blockdata": {
+            "terra": 0,
+            "agua": 0,
+            "pescavel": 0
+          },
+          "nota": "20x20 com tileset de interior (Galar11/Galar29) e zero tile de encontro: e predio, nao rota"
+        },
+        {
+          "mapa": "MAP_GALAR_ROUTE02_02",
+          "pasta": "Galar_Route0202",
+          "recebe": [
+            "land_mons",
+            "water_mons",
+            "fishing_mons"
+          ],
+          "cobertura": "inteira",
+          "blockdata": {
+            "terra": 270,
+            "agua": 526,
+            "pescavel": 539
+          },
+          "nota": "o corpo da Rota 2, com o lago"
+        },
+        {
+          "mapa": "MAP_GALAR_ROUTE02_03",
+          "pasta": "Galar_Route0203",
+          "recebe": [],
+          "cobertura": "nenhuma",
+          "blockdata": {
+            "terra": 0,
+            "agua": 0,
+            "pescavel": 0
+          },
+          "nota": "gemeo do Route0201, mesmo tileset de interior"
+        },
+        {
+          "mapa": "MAP_GALAR_ROUTE02_04",
+          "pasta": "Galar_Route0204",
+          "recebe": [
+            "land_mons",
+            "water_mons",
+            "fishing_mons"
+          ],
+          "cobertura": "inteira",
+          "blockdata": {
+            "terra": 180,
+            "agua": 1831,
+            "pescavel": 1831
+          },
+          "nota": "o demake nao dava tabela nenhuma; 180 de grama e 1.831 de agua ficavam mudos"
+        }
+      ]
+    },
+    {
+      "area": "MAP_GALAR_ROUTE_3",
+      "nome_na_fonte": "Route 3",
+      "mapsec": "MAPSEC_GALAR_ROUTE03",
+      "metodos_na_fonte": [
+        "land_mons"
+      ],
+      "sub_mapas": [
+        {
+          "mapa": "MAP_GALAR_ROUTE03_01",
+          "pasta": "Galar_Route0301",
+          "recebe": [
+            "land_mons"
+          ],
+          "cobertura": "inteira",
+          "blockdata": {
+            "terra": 393,
+            "agua": 0,
+            "pescavel": 0
+          },
+          "nota": "a Galar Mine tem tabela propria na fonte e NAO entra aqui"
+        },
+        {
+          "mapa": "MAP_GALAR_ROUTE03_02",
+          "pasta": "Galar_Route0302",
+          "recebe": [
+            "land_mons"
+          ],
+          "cobertura": "inteira",
+          "blockdata": {
+            "terra": 126,
+            "agua": 69,
+            "pescavel": 69
+          },
+          "nota": "era `Galar_Postwick08`, renomeado no G3 por voto do grafo; o mato do demake aqui era um bloco de formas de Alola, que a lei manda substituir pela Rota 3 canonica. A `water_mons` do demake FICA: a Rota 3 canonica nao tem agua."
+        }
+      ]
+    },
+    {
+      "area": "MAP_GALAR_ROUTE_4",
+      "nome_na_fonte": "Route 4",
+      "mapsec": "MAPSEC_GALAR_ROUTE04",
+      "metodos_na_fonte": [
+        "land_mons",
+        "fishing_mons"
+      ],
+      "sub_mapas": [
+        {
+          "mapa": "MAP_GALAR_ROUTE04_01",
+          "pasta": "Galar_Route0401",
+          "recebe": [
+            "land_mons"
+          ],
+          "cobertura": "fatia",
+          "blockdata": {
+            "terra": 111,
+            "agua": 0,
+            "pescavel": 0
+          },
+          "nota": "FATIA: a Rota 4 canonica tem pesca (Magikarp/Chewtle/Goldeen 13-15), mas este mapa nao tem UM tile de agua pescavel e o demake nunca lhe deu `fishing_mons`. A pesca da Rota 4 fica sem casa, pela regra 3."
+        }
+      ]
+    },
+    {
+      "area": "MAP_GALAR_ROUTE_5",
+      "nome_na_fonte": "Route 5",
+      "mapsec": "MAPSEC_GALAR_ROUTE05",
+      "metodos_na_fonte": [
+        "land_mons",
+        "fishing_mons"
+      ],
+      "sub_mapas": [
+        {
+          "mapa": "MAP_GALAR_ROUTE05_01",
+          "pasta": "Galar_Route0501",
+          "recebe": [
+            "land_mons",
+            "fishing_mons"
+          ],
+          "cobertura": "inteira",
+          "blockdata": {
+            "terra": 176,
+            "agua": 128,
+            "pescavel": 128
+          },
+          "nota": "a `water_mons` do demake fica: a Rota 5 canonica nao tem surf, so pesca"
+        }
+      ]
+    },
+    {
+      "area": "MAP_GALAR_ROUTE_6",
+      "nome_na_fonte": "Route 6",
+      "mapsec": "MAPSEC_GALAR_ROUTE06",
+      "metodos_na_fonte": [
+        "land_mons",
+        "fishing_mons"
+      ],
+      "sub_mapas": [
+        {
+          "mapa": "MAP_GALAR_ROUTE06_01",
+          "pasta": "Galar_Route0601",
+          "recebe": [
+            "land_mons",
+            "fishing_mons"
+          ],
+          "cobertura": "inteira",
+          "blockdata": {
+            "terra": 0,
+            "agua": 11,
+            "pescavel": 11
+          },
+          "nota": "EXCECAO da regra 4: terra=0 porque o `gTileset_Galar06` saiu da conversao com o comportamento da grama zerado, e nao porque a rota seja de pedra. O demake escrevia `land_mons` aqui, e ela e substituida em vez de apagada."
+        }
+      ]
+    },
+    {
+      "area": "MAP_GALAR_ROUTE_7",
+      "nome_na_fonte": "Route 7",
+      "mapsec": "MAPSEC_GALAR_ROUTE07",
+      "metodos_na_fonte": [
+        "land_mons"
+      ],
+      "sub_mapas": [
+        {
+          "mapa": "MAP_GALAR_ROUTE07_01",
+          "pasta": "Galar_Route0701",
+          "recebe": [
+            "land_mons"
+          ],
+          "cobertura": "inteira",
+          "blockdata": {
+            "terra": 344,
+            "agua": 0,
+            "pescavel": 7
+          },
+          "nota": "os 7 tiles pescaveis nao sao tile de encontro (correnteza), e a Rota 7 canonica nao tem pesca"
+        }
+      ]
+    },
+    {
+      "area": "MAP_GALAR_ROUTE_8",
+      "nome_na_fonte": "Route 8",
+      "mapsec": "MAPSEC_GALAR_ROUTE08",
+      "metodos_na_fonte": [
+        "land_mons"
+      ],
+      "sub_mapas": [
+        {
+          "mapa": "MAP_GALAR_ROUTE08_01",
+          "pasta": "Galar_Route0801",
+          "recebe": [
+            "land_mons"
+          ],
+          "cobertura": "inteira",
+          "blockdata": {
+            "terra": 0,
+            "agua": 0,
+            "pescavel": 0
+          },
+          "nota": "CASADO POR NOME, e a prova e a tabela do demake: Sandaconda, Rhyhorn, Dusclops, Haunter, Bronzong, Hippowdon, Falinks, Golett, Gurdurr, Pawniard, Boldore, Solrock e Lunatone sao a lista canonica da Rota 8 principal, e nenhum bicho de neve aparece. EXCECAO da regra 4 pelo terra=0 (`gTileset_Galar06` de novo)."
+        },
+        {
+          "mapa": "MAP_GALAR_ROUTE08_03",
+          "pasta": "Galar_Route0803",
+          "recebe": [],
+          "cobertura": "nenhuma",
+          "blockdata": {
+            "terra": 0,
+            "agua": 0,
+            "pescavel": 0
+          },
+          "nota": "9x10 com tileset de interior (Galar11/Galar39) e warp para Hulbury: e o portao, nao a rota"
+        }
+      ]
+    },
+    {
+      "area": "MAP_GALAR_ROUTE_8_STEAMDRIFT_WAY",
+      "nome_na_fonte": "Route 8 (Steamdrift Way)",
+      "mapsec": "MAPSEC_GALAR_ROUTE08",
+      "metodos_na_fonte": [
+        "land_mons"
+      ],
+      "sub_mapas": [
+        {
+          "mapa": "MAP_GALAR_ROUTE08_02",
+          "pasta": "Galar_Route0802",
+          "recebe": [
+            "land_mons"
+          ],
+          "cobertura": "inteira",
+          "blockdata": {
+            "terra": 118,
+            "agua": 0,
+            "pescavel": 0
+          },
+          "nota": "CASADO POR NOME, e a prova e a tabela do demake: Snom, Sneasel, Snover, Delibird, Darumaka de Galar, Snorunt, Vanillish, Sawk e Throh sao exatamente as duas listas do trecho nevado. `water_mons` e `fishing_mons` do demake FICAM: o Steamdrift Way canonico nao tem nem uma nem outra."
+        }
+      ]
+    },
+    {
+      "area": "MAP_GALAR_ROUTE_9",
+      "nome_na_fonte": "Route 9",
+      "mapsec": "MAPSEC_GALAR_ROUTE09",
+      "metodos_na_fonte": [
+        "land_mons",
+        "water_mons",
+        "fishing_mons"
+      ],
+      "sub_mapas": [
+        {
+          "mapa": "MAP_GALAR_ROUTE09_01",
+          "pasta": "Galar_Route0901",
+          "recebe": [
+            "land_mons",
+            "water_mons",
+            "fishing_mons"
+          ],
+          "cobertura": "inteira",
+          "blockdata": {
+            "terra": 565,
+            "agua": 1634,
+            "pescavel": 1636
+          },
+          "nota": "a rota costeira, com Circhester Bay e o lado de fora de Spikemuth na mesma area da fonte"
+        }
+      ]
+    },
+    {
+      "area": "MAP_GALAR_ROUTE_10",
+      "nome_na_fonte": "Route 10",
+      "mapsec": "MAPSEC_GALAR_ROUTE10",
+      "metodos_na_fonte": [
+        "land_mons"
+      ],
+      "funde_com": [
+        "MAP_GALAR_ROUTE_10_WHITE_HILL_STATION"
+      ],
+      "sub_mapas": [
+        {
+          "mapa": "MAP_GALAR_ROUTE10_01",
+          "pasta": "Galar_Route1001",
+          "recebe": [
+            "land_mons"
+          ],
+          "cobertura": "inteira",
+          "blockdata": {
+            "terra": 331,
+            "agua": 0,
+            "pescavel": 0
+          },
+          "nota": "A Rota 10 principal (a subida nevada ate Wyndon) MAIS a White Hill Station, fundidas pela decisao 2 da condutora (`funde_com` acima): a rota e um mapa so no GBA, e as duas listas do Serebii sao a mesma rota. `water_mons` e `fishing_mons` do demake FICAM."
+        },
+        {
+          "mapa": "MAP_GALAR_ROUTE10_02",
+          "pasta": "Galar_Route1002",
+          "recebe": [],
+          "cobertura": "nenhuma",
+          "blockdata": {
+            "terra": 0,
+            "agua": 0,
+            "pescavel": 0
+          },
+          "nota": "28x17 com tileset de interior (Galar11/Galar15), warp para Route1001 e outro para Postwick35: e o PREDIO da estacao White Hill, e nao o trecho de mato de mesmo nome. Zero tile de encontro, entao nao recebe tabela nenhuma. Ver `sem_sub_mapa`."
+        }
+      ]
+    },
+    {
+      "area": "MAP_GALAR_SLUMBERING_WEALD_PARTE_INICIAL",
+      "nome_na_fonte": "Slumbering Weald (parte inicial)",
+      "mapsec": "MAPSEC_GALAR_SLUMBERING_WEALD",
+      "metodos_na_fonte": [
+        "land_mons"
+      ],
+      "sub_mapas": [
+        {
+          "mapa": "MAP_GALAR_SLUMBERING_WEALD_01",
+          "pasta": "Galar_SlumberingWeald01",
+          "recebe": [
+            "land_mons"
+          ],
+          "cobertura": "inteira",
+          "blockdata": {
+            "terra": 302,
+            "agua": 0,
+            "pescavel": 0
+          },
+          "nota": "o unico dos quatro que o demake tinha tabela, e ela era Caterpie/Weedle/Kakuna/Beedrill/Butterfree/Pikachu, que nao e o Weald de jogo nenhum"
+        },
+        {
+          "mapa": "MAP_GALAR_SLUMBERING_WEALD_02",
+          "pasta": "Galar_SlumberingWeald02",
+          "recebe": [
+            "land_mons"
+          ],
+          "cobertura": "inteira",
+          "blockdata": {
+            "terra": 313,
+            "agua": 0,
+            "pescavel": 0
+          },
+          "nota": "sem tabela no demake"
+        },
+        {
+          "mapa": "MAP_GALAR_SLUMBERING_WEALD_03",
+          "pasta": "Galar_SlumberingWeald03",
+          "recebe": [
+            "land_mons"
+          ],
+          "cobertura": "inteira",
+          "blockdata": {
+            "terra": 33,
+            "agua": 0,
+            "pescavel": 0
+          },
+          "nota": "sem tabela no demake"
+        },
+        {
+          "mapa": "MAP_GALAR_SLUMBERING_WEALD_04",
+          "pasta": "Galar_SlumberingWeald04",
+          "recebe": [
+            "land_mons"
+          ],
+          "cobertura": "inteira",
+          "blockdata": {
+            "terra": 313,
+            "agua": 0,
+            "pescavel": 0
+          },
+          "nota": "sem tabela no demake"
+        }
+      ],
+      "nota_da_area": "A fonte so tem a PARTE INICIAL (niveis 2-3). A parte interna do Weald (niveis 45-47, pos-jogo) tem tabela propria na mesma pagina do Serebii e NAO foi coletada, entao os quatro sub-mapas recebem a mesma tabela inicial pela regra 2. Quando a parte interna for coletada, o Weald vira um caso de casamento por nome."
+    }
+  ],
+  "sem_sub_mapa": [
+    {
+      "area": "MAP_GALAR_ROUTE_10_WHITE_HILL_STATION",
+      "nome_na_fonte": "Route 10 (White Hill Station)",
+      "motivo": "FUNDIDA no `Galar_Route1001` pela decisão 2 da condutora (06/09/2026), e por isso continua sem sub-mapa PRÓPRIO. O repo tem só DOIS mapas em MAPSEC_GALAR_ROUTE10: o `Galar_Route1001`, que é a Rota 10 principal, e o `Galar_Route1002`, que é o prédio da estação (tileset de interior, zero tile de encontro, tabela que o motor nunca sortearia). O trecho de mato de White Hill Station não virou mapa próprio na conversão, e o próprio demake já enfiava as duas listas dentro do `Galar_Route1001` (Rhydon, Glalie e Vanilluxe, que só existem em White Hill Station, apareciam no mato da Rota 10 principal). Como a Rota 10 é UM mapa no GBA, deixar a lista sem casa custaria espécies canônicas daquela mesma rota, e por isso a decisão foi fundir pela regra do item 1 em vez de descartar. A fusão é da DISTRIBUIÇÃO (união das espécies, média das porcentagens das duas áreas, níveis por união), e só depois o maior-resto escolhe os 12 slots; ela é executada pelo campo `funde_com` da área `MAP_GALAR_ROUTE_10`.",
+      "custo_medido": "Depois da fusão, Klang e Rhydon voltam a ter fonte de mato em Galar. Glalie e Vanilluxe continuam de fora, mas agora por ARITMÉTICA e não por falta de casa: com 2,5% cada depois da média, o maior-resto não alcança os dois nos 12 slots (o desempate de 2,5% sai pela ordem da fonte, e Darumaka de Galar e Snover chegam antes). Elas continuam com fonte em Galar por outro caminho, medido no arquivo final de 06/09/2026: Glalie no Crown Tundra 08 (1%) e na Wild Area 17 (10%), Vanilluxe no Crown Tundra 12 (5%) e na Ice Dream Cave 01 (1%). Klang e Rhydon, que a fusão trouxe, já tinham fonte também (Isle of Armor 12 e Wild Area/Isle of Armor 36)."
+    }
+  ]
+}
