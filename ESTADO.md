@@ -1601,6 +1601,37 @@ disso. E os portões de cidade são `MB_WEST/EAST/SOUTH_ARROW_WARP`: seta só
 dispara quando o jogador ANDA NA DIREÇÃO DELA (`TryArrowWarp`), então nascer em
 cima dela pelo menu de debug não warpa nada.
 
+#### O que foi rodado, e o que ficou pela metade
+
+- **Build verde** na worktree `/private/tmp/claude-501/colisao-r13b`, ROM em
+  `roms/pokemon-claude-2026-09-06r.gba` com `.map` ao lado, md5
+  `87f59f2912844fd05ff906ef605e6927`, 33.554.432 B.
+- `valida_rom.py`: **2.400 mapas e 2.054 layouts, tudo que foi declarado entrou**.
+- `guarda_save.py`: **SAVE COMPATIVEL**, `SaveBlock1` em 14.964 B de 15.872
+  (94,3%), inalterado (esta frente não encostou em nenhum `.c` nem `.h`).
+- `qa/roda_qa.py --demo`: **verde nas cinco varreduras** desta árvore.
+- `completude.py --detalhe sinnoh`: **100,0% mapas / 100,3% objetos / 103,7%
+  warps / 103,4% placas**, igual a antes do conserto.
+- **T11 completo 3/3**, contra a baseline certa: `--rom
+  roms/pokemon-claude-2026-08-15c.gba --src` uma worktree em `d6b8c9e898` com
+  `make generated` rodado e os binários de `tools/` copiados, mais `--abertura
+  intro_carvalho`. **Armadilha medida hoje**: o `.sav` do caso mora no `TMPDIR`, e
+  rodar o T11 duas vezes com `TMPDIR` sujo faz o T11.3 ler a save da execução
+  ANTERIOR e reprovar com a mensagem errada (aqui deu "obtido MAP_SANDGEM_TOWN"
+  com a flag acesa, que é o retrato de uma save que carregou). Apagar o `TMPDIR`
+  antes é parte do procedimento, não zelo.
+- **`dev_scripts/testes_criticos/176_colisao_sinnoh.json`, 12 de 12**.
+- **A suíte inteira NÃO fechou nesta sessão, e isso fica dito.** A máquina estava
+  com SEIS frentes rodando emulador ao mesmo tempo e o ritmo caiu de 5,4 para 1,6
+  casos por minuto; três execuções do `testa_critico.py` inteiro foram mortas por
+  fora (código 144) antes do fim, a mais longa em **135 casos, 0 reprovados**.
+  Ficou montado um jeito de retomar sem perder o andado, e ele é o que a próxima
+  sessão deve usar: `python3 -u /tmp/claude-501/suite_resumivel.py >>
+  /tmp/claude-501/suite-colisao.log`, que lê o log, pula todo caso que já tem
+  linha `[OK   ]` ou `[FALHA]` e roda só o resto; num laço, ele fecha a suíte em
+  quantas retomadas forem precisas. Até o ponto em que esta linha foi escrita:
+  **0 reprovados**.
+
 #### O que fica aberto
 
 - **A comparação com a fonte DPPt foi feita e não achou quase nada.** Os 62
