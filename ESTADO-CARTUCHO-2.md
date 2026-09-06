@@ -19,6 +19,242 @@ verdade, e é a única coisa que separa "continuar a onda anterior" de "reescrev
 dela". Esta branch tem worktree persistente e mais de uma sessão escrevendo perto, então
 `HEAD` local não é prova de nada até o `ls-remote` bater com ele.
 
+## Onda 2, abertura (07/09/2026): MERGE DO MASTER `80b064ee91`, A C28 VIRA NATIVA E O MOLDE DE PLACA FICA O DO CARTUCHO 1 (mesclador Opus)
+
+Abertura da onda 2 da Frente A, pela política da seção 2: enquanto o commit de remoção de
+Unova e Galar não existir na `master`, cada rodada começa com `git merge master`. **Conferido
+hoje, não presumido:** a `master` ainda tem 438 pastas `Galar_*`, então é MERGE e não
+cherry-pick. Tudo abaixo foi medido nesta worktree, com o comando ao lado, e `[V]` marca o
+que foi conferido nesta rodada.
+
+### Os conflitos, e a resolução de cada um
+
+O merge trouxe 233 arquivos. **Cinco foram tocados pelos dois lados**, e só um deu conflito
+de texto; os outros dois que precisaram de julgamento o git casou CALADO, que é o pior jeito
+de um conflito aparecer.
+
+| arquivo | o que houve | resolução |
+|---|---|---|
+| `data/scripts/galar_treinadores.inc` | 12 conflitos de texto, todos no `Galar_Circhester03`: as duas frentes consertaram o MESMO defeito C28 com moldes diferentes | ficou o do `master`, por medição e não por hierarquia (abaixo) |
+| `dev_scripts/treinadores_galar.py` | conflito SEMÂNTICO: o auto-merge empilhou os dois moldes de placa, o nosso (`de_placa`, com `continue`) ANTES do do `master` (`e_placa`) | o bloco nosso saiu, 60 linhas; o `motivos_de_linha` e o `--fila` da onda 1 ficaram |
+| `include/constants/vars.h` | colisão de ENDEREÇO sem conflito de texto: a rodada 13 deu `VAR_UNUSED_0x4114` a `VAR_ELEVADOR_GOLDENROD`, e a onda 1 já tinha dado o mesmo a `VAR_GALAR_G10M23_CENA` | a nossa var foi para `VAR_UNUSED_0x4116`, que estava livre `[V]` |
+| `src/chapter_jump.c` | auto-merge, conferido | o campo `flagEnredo` do `master` entrou no fim da `GinasioDoHack` e a nossa `ParadaDoHack` com o `sParadasGalar` ficou inteira `[V]` |
+| `data/event_scripts.s` | auto-merge, conferido | os 7 includes de Galar e o `portas_fechadas.inc` do `master` estão todos lá `[V]` |
+
+**Por que o molde do `master` e não o nosso.** Os dois escrevem `lock` + `goto_if_defeated` +
+`msgbox` + `trainerbattle_no_intro`; a diferença é uma linha. O nosso punha `setvar
+VAR_LAST_TALKED, LOCALID_NONE`, e `EventScript_DoNoIntroTrainerBattle` faz `applymovement
+VAR_LAST_TALKED, Movement_RevealTrainer` sem perguntar: com `LOCALID_NONE` o
+`GetObjectEventIdByLocalId` devolve `OBJECT_EVENTS_COUNT` e o `applymovement` escreve **um
+elemento depois do fim de `gObjectEvents`**. O `LOCALID_PLAYER` do `master` aponta para objeto
+que existe, e `reveal_trainer` em objeto que não é BURIED nem disfarce é no-op
+(`src/event_object_movement.c:8769`). O rótulo `_Fim` virou `_Depois` junto, porque é o que o
+gerador do `master` emite.
+
+**A armadilha que quase passou.** Se o gerador tivesse ficado como o auto-merge deixou, o
+`de_placa` (nosso, com `continue`) rodaria ANTES do `e_placa` e apagaria o molde do `master` na
+próxima geração, devolvendo o `LOCALID_NONE` ao arquivo em silêncio. Conflito que o git não
+marca é o que custa a rodada seguinte. Depois do conserto, `dev_scripts/treinadores_galar.py` é
+byte a byte o do `master` MAIS o que a onda 1 acrescentou `[V] diff`.
+
+**Nada de conflito sobrou:** zero marcadores na árvore inteira, e nenhum apelido de
+`VAR_UNUSED_*` aponta duas vezes para o mesmo endereço `[V]`. Nenhum `.inc` precisou mudar pela
+renumeração da var, porque os dois mapas (`Galar_Route1601` e `Galar_Route1603`) citam a var
+pelo nome.
+
+Só **um** `map.json` de Galar mudou pelo merge: `Galar_WarmUpTunnel01` ganhou o warp gêmeo de
+(39,37) para a Isle of Armor (`cfa0d30bd4`). O Slumbering Weald NÃO foi tocado, e isso é o que
+o próprio commit do `master` diz: ele saiu da lista de meias portas.
+
+### Os números do merge, antes e depois
+
+Tudo abaixo rodado DEPOIS do merge e ANTES do build, que é onde regressão de merge aparece.
+
+| medida | antes (diário da onda 1) | depois do merge | comando |
+|---|---|---|---|
+| fila `porta_morta` pendente | 226 | **226** `[V]` | `python3 dev_scripts/fila_galar.py` |
+| fila, total pendente | 226 de 3.195 | **226 de 3.195** `[V]` | idem |
+| completude Galar, `placas` | 72,3% | **72,3%** `[V]` | `python3 dev_scripts/completude.py --detalhe Galar` |
+| completude Galar, `script` | 59,2% | **59,2%** `[V]` | idem |
+| órfãos de Galar | 141 | **141** `[V]` | `python3 dev_scripts/valida_conectividade.py` |
+| warps quebrados | 0 | **0** `[V]` | idem |
+| alcance geral | 2.053 de 2.289 | **2.052 de 2.289** `[V]` | idem |
+| T07 de Galar (`checa_texto`) | 1 | **1** `[V]` | `python3 dev_scripts/qa/checa_texto.py` |
+| português em Galar | 1 | **1** `[V]` | idem |
+| total de achados do `checa_texto` | 2.124 | **2.124** `[V]` | idem |
+| `checa_scripts`, travas | 13, nenhuma em Galar | **13, nenhuma em Galar** `[V]` | `python3 dev_scripts/qa/checa_scripts.py` |
+| **C28** | não existia nesta branch | **NATIVA, 0 achados em TODAS as regiões** `[V]` | idem, e `--demo` verde com a C28 mordendo |
+| `lente_warps`, Galar | não existia aqui | **130** (P2 47, P4 83, P1 e P3 zero) `[V]` | `python3 dev_scripts/qa/lente_warps.py` |
+| `lente_warps`, Unova | não existia aqui | **38** `[V]` | idem |
+| `lente_portas`, travas em Galar | não existia aqui | **268** `[V]` | `python3 dev_scripts/qa/lente_portas.py` |
+| censo da dex, Galar | 592 | **592** `[V]` | `python3 dev_scripts/censo_dex.py` |
+
+**A ÚNICA queda é o alcance, de 2.053 para 2.052, e ela é HONESTA e do `master`, não nossa.**
+O mapa que saiu do grafo é o `MAP_LAKE_OF_RAGE_LOW_TIDE`, de JOHTO, e ele saiu porque a rodada
+13 tirou a conexão duplicada da Route 43. O `ESTADO.md` da `master` registra a mesma queda com
+a mesma causa (lá ela aparece como 1.966 -> 1.965, porque a régua dele conta outro
+denominador). Galar não perdeu um mapa `[V]`.
+
+Os números de `lente_warps` e `lente_portas` batem exatamente com os que o `ESTADO.md` da
+`master` mede (Unova 38 e Galar 130 na lente de warp, Galar 268 na varredura cheia), o que é a
+prova de que as ferramentas chegaram inteiras e estão medindo a mesma árvore.
+
+### O portão desta abertura
+
+`[V] export DEVKITARM=...; make -j8 > /tmp/build-cartucho2.log 2>&1; echo $?`
+
+| medida | antes (onda 1) | depois do merge |
+|---|---|---|
+| exit code do `make` | 0 | **0** |
+| ROM ocupada | 32.376.452 B, 96,49% | **32.387.740 B, 96,52%** (+11.288 B) |
+| EWRAM | 225.856 B, 86,16% | **225.856 B, 86,16%** |
+| IWRAM | 28.404 B, 86,68% | **28.404 B, 86,68%** |
+| md5 da ROM | `ea0c2858daf02807ad379a9be20502c5` | **`d9ecacb2d27bd84e99b1d07371305dd3`** |
+
+O lock (`mkdir /tmp/pokemon-claude-build.lock`) envolveu **só o `make`**, e foi devolvido logo
+depois dele; T11 e suíte rodaram FORA do lock, sobre cópia da ROM em
+`/private/tmp/claude-501/c2-onda2.gba`. **Armadilha medida hoje:** o `rmdir` do lock FALHA
+(`Directory not empty`) se alguém tiver escrito arquivo de dono dentro dele, e a mensagem passa
+despercebida no meio da saída do `make`. Quem escreve dono devolve com `rm -rf`; quem não escreve
+devolve com `rmdir`. Nesta rodada o `rmdir` falhou e o lock só saiu na chamada seguinte.
+
+`[V] python3 dev_scripts/guarda_save.py` -> **SAVE COMPATIVEL**. SaveBlock1 em 14.964 B de
+15.872 (94,3%), 2.400 mapas, 2.252 ids de treinador e **1.720** apelidos (eram 1.718: o merge
+trouxe os apelidos novos da rodada 13, que são ACRÉSCIMO e não mudança de índice).
+
+`[V] T11 3 de 3`, contra `/private/tmp/claude-501/c2-t11-antiga` (md5
+`ac8ed5419ab69cacece45ad6479e6063`, intacta no disco). **Detalhe que custou uma execução:** o
+T11.3 lê o `.map` do linker AO LADO da ROM2, então a cópia da ROM precisa do
+`pokeemerald.map` copiado junto com o mesmo nome de base, senão o caso morre com
+`FileNotFoundError` depois de o T11.1 e o T11.2 já terem passado.
+
+`[V] python3 dev_scripts/qa/roda_qa.py --demo` -> **verde nas SEIS varreduras**, agora com
+`lente_warps` e `lente_portas` dentro.
+
+`[V]` **Suíte inteira: 1.062 de 1.063**, com o T11.3 pulado (ele só prova algo com duas ROMs) e
+**ZERO reprovados**, o que é exatamente o piso que esta abertura tinha que segurar. Rodada
+**bloco a bloco** pela lição 2 da rodada 13, 115 blocos, com o placar gravado em disco a cada
+bloco em `/private/tmp/claude-501/c2-onda2-suite/placar.txt` e o log de cada bloco ao lado, sobre
+a cópia `/private/tmp/claude-501/c2-onda2.gba` e FORA do lock. O total foi conferido de dois
+jeitos independentes: somando os `[OK]` de cada log e somando as linhas `N/M passaram`, e os dois
+dão 1.062 de 1.063 `[V]`.
+
+**Não houve queda para diagnosticar.** A suspeita da abertura era a interação merge + onda 1, e
+ela não se realizou: os dois casos que a onda 1 recalibrou (T108.8 e T159.13) passaram na
+varredura completa desta vez, e nenhum caso novo do `master` sobre Galar (T175, T176, T180,
+T181 e o T171 dos prédios compartilhados) reprovou. Nada foi recalibrado nesta rodada, e é bom
+que fique escrito: recalibrar régua sem vermelho é como mexer em caso de teste sem motivo.
+Também não apareceu o intermitente T108.2 nem o T176.3, os dois instáveis conhecidos.
+
+`[V] git rev-list --objects origin/cartucho-2..HEAD | git cat-file --batch-check` -> o maior
+objeto do intervalo é `data/layouts/layouts.json` com 948 KB, e não há nenhum `.gba`, `.sav`
+nem nada acima de 5 MB.
+
+### As medições que a onda 2 pediu, e o que elas mudam no plano
+
+Cinco perguntas da condutora, todas respondidas com comando e número, nenhuma com memória.
+
+**(a) O que a coluna `script` da completude conta, exatamente.** O código está em
+`dev_scripts/completude.py:888`, e a conta é dos DOIS lados na NOSSA árvore, não na fonte:
+
+- **numerador** = `object_event` de `data/maps/Galar_*/map.json` cujo campo `script` não é
+  `"0"` nem vazio **e** cujo `origem` não é `estaticos_galar`: **746**.
+- **denominador** = todos os `object_event` de Galar (**2.278**) menos os **1.018** encontros
+  estáticos: **1.260**.
+- **746 de 1.260 = 59,2%** `[V]`, e os **514** que faltam são NPC colocado e MUDO.
+
+O que faz subir é UMA coisa só: escrever `script` num desses 514. Cada NPC vale **+0,079 pp**;
+os 198 `script_objeto` adiados da onda 1 valem **+15,7 pp** se todos entrarem, o que levaria a
+coluna a **74,9%**. Colocar NPC novo **não** faz subir: ele entra nos dois lados da fração e o
+denominador cresce junto.
+
+**A coluna `placas` é outra régua, e o denominador vem da FONTE**: 214 `bg` do demake, menos os
+que são "lixo de leitura" e os 12 "sem item traduzível", dão **202**; o numerador é o total de
+`bg_events` que os nossos `map.json` têm hoje, **146**. **146 de 202 = 72,3%** `[V]`. **Sim, as
+21 placas adiadas por tile ocupado contam no denominador** e não no numerador: escrevê-las
+levaria a coluna a **167 de 202 = 82,7%**.
+
+**(b) Os 40 órfãos com porta de script que parte de mapa VIVO.** São 40 destinos e **77 portas**
+(uma porta é um comando de `warp` dentro de um script da fonte). **Nenhuma das 77 está
+transcrita na nossa árvore: zero rótulo de `data/scripts/galar_*.inc` contém o `warp`** `[V]`.
+A transcrição é do zero em todos os casos, e o balde diz quanto trabalho é cada um:
+
+| situação na NOSSA árvore | portas | destinos |
+|---|---|---|
+| A. o objeto da fonte NÃO existe no nosso `map.json` (índice fora do array) | 31 | 22 |
+| B. o objeto existe e está MUDO (`script: "0"`) | 7 | 5 |
+| C. o objeto existe, mas com rótulo de OUTRA coisa (`GalarFala_*` 12, `GalarSelvagem_*` 9, `GalarEstatico_*` 1) | 22 | 15 |
+| D. gatilho de coordenada, e o nosso `map.json` de origem tem **zero** `coord_events` | 17 | 5 |
+
+O balde **B** é o mais barato (o objeto já está no lugar, falta o script), o **C** é o mais
+delicado (o objeto está lá com outro papel: mexer nele é decidir se a espécie selvagem vira
+porta), o **A** e o **D** pedem escrever objeto ou gatilho novo no `map.json`, que é dono
+diferente. Os destinos com mais portas são `STOW_ON_SIDE_01` (12, de 9 mapas diferentes),
+`HAMMERLOCKE_06` (6, todas gatilho), `UNDERWATER_01` (6) e `HULBURY_01` (5).
+
+**(c) As 226 `porta_morta`, por causa.** Duas causas, e as duas são obra de MAPA:
+
+| causa | linhas |
+|---|---|
+| destino é mapa vanilla do FireRed que o demake não redesenhou (não está entre os 438) | **188** |
+| warp de chegada não existe no mapa de destino (par que falta) | **38** |
+
+São **39 destinos distintos** no primeiro balde, e ele é MUITO concentrado: o destino `0.0` da
+fonte responde por **95** das 188, e o `1.76` por mais 25. Do nosso lado, **98 mapas** têm
+`porta_morta`, e `Galar_Postwick50` sozinho tem **63**. Todas as 226 têm `no_mapa: true`, ou
+seja **o warp EXISTE no nosso `map.json`**, e **225 das 226 apontam para o próprio mapa**
+(auto-warp): a porta abre e devolve o jogador para onde ele já estava.
+
+**Cruzamento com a `lente_warps`: a interseção é ZERO** `[V]`. As 130 travas de Galar da lente
+(47 P2 e 83 P4) e as 226 `porta_morta` da fila são conjuntos DISJUNTOS, e o motivo é
+mecânico: a lente cobra a VOLTA (porta que não devolve, escada que não devolve), e o auto-warp
+devolve certinho, para o mesmo lugar. Consertar uma lista não move a outra, e quem prometer
+"conserto de warp" tem que dizer qual das duas.
+
+**(d) `dev_scripts/onda1_lote_e_pedidos_scripts.txt`, em cinco linhas.** (1) O lote E já pôs
+Galar de 0 para 592 sem tocar em mapa, e nada do arquivo é pré-requisito disso. (2) Pedido 1:
+`dex_distribuicao.json` tem 362 colocações e ZERO em Galar, então os 31 pokémon de geração 8 que
+só têm fonte nas quatro regiões do cartucho 1 continuam indo para lá; abrir Galar no
+`distribui_dex.py` é do lote E, mas o objeto e o script de cada colocação `estatico`/`presente`
+são de quem manda em `map.json` e `scripts.inc`. (3) Pedido 2: `Galar_WildArea12`,
+`Galar_IsleOfArmor35` e `Galar_IsleOfArmor36` perderam a tabela de grama porque a fonte traz
+NÍVEL 0 nos 12 slots, e a decisão que falta é uma linha (que faixa de nível usar). (4) Pedido 3:
+7 slots costurados por forma repetida (Indeedee, Sandslash, Burmy, Gastrodon, Raichu, Lycanroc)
+mais cinco grafias tortas e o `.` das formas regionais, hoje corrigidos SÓ no
+`importa_encontros_galar.py`; levar para `estaticos_galar.py` recupera estático recusado. (5) O
+apêndice lista as 140 entradas de geração 8 sem fonte em Galar (de 197: 95 bases e 102 formas,
+57 já com fonte), e o arquivo diz em voz alta que o nível dos encontros de Galar é o da FONTE e
+nunca passou pelo `curva_selvagem.py`.
+
+**(e) O que o `ESTADO.md` da `master` (seção 0.u) tem de infra que vale para cá.** Sete lições,
+e cinco mudam como esta branch trabalha: **(1) lock furado é pior que lock nenhum**, ele envolve
+o `make` e nada mais, e frente com build própria usa worktree própria, que é exatamente o que
+esta branch já faz; **(2) suíte inteira num processo só é aposta** com várias frentes na
+máquina, então roda-se BLOCO A BLOCO com o placar gravado em disco a cada bloco (foi o que esta
+rodada fez, em `/private/tmp/claude-501/c2-onda2-suite/placar.txt`); **(3) `.sav` de teste em
+caminho absoluto compartilhado é veredito sorteado**, e a dívida continua aberta no
+`testa_critico.py`; **(4) índice do git é compartilhado**, então cada frente commita com
+`GIT_INDEX_FILE` próprio e lista fechada de arquivos, nunca `add -A`; **(5) sem `--offsets` o
+`gba_runner` usa os offsets do cabeçalho dele, e nesta build `vars[]` mora em `0x18B8` e não em
+`0x13E0`**, o que faz escrita de var cair no lugar errado em silêncio. As outras duas (nome
+genérico de ferramenta descartável, e `open(caminho, "w")` antes do `assert` truncando arquivo)
+valem como higiene. Nenhum commit da rodada 13 está marcado MOTOR de um jeito que peça
+cherry-pick: o merge trouxe tudo.
+
+### A fila da onda 2, depois destas medições
+
+A ordem da seção "A fila da ONDA 2" da onda 1 continua valendo, com três correções medidas hoje:
+
+1. As **95 portas de script** não têm transcrição nenhuma pronta: as 77 que partem de mapa vivo
+   são obra do zero, e o balde **B** (7 portas, 5 destinos) é por onde começar, porque o objeto
+   já está no mapa.
+2. As **226 `porta_morta`** e as **130 travas da `lente_warps`** são listas DISJUNTAS. São duas
+   obras, não uma.
+3. A coluna `script` sobe **+0,079 pp por NPC**, e os 198 adiados da onda 1 são **+15,7 pp**: é
+   a alavanca mais barata que existe hoje na completude de Galar.
+
+---
+
 ## Onda 1 (06/09/2026): GALAR PARA DE SE CHAMAR POSTWICK, PERDE 105 ÓRFÃOS, ESVAZIA A FILA E PASSA A FALAR INGLÊS (condutora Opus, cinco executores Opus, fechador Opus)
 
 Primeira onda de obra da Frente A. Cinco lotes com dono exclusivo por TIPO de arquivo, e
