@@ -95,11 +95,11 @@
  },
  {
   "id": "T108.8",
-  "nome": "PAR do T108.7: no menu de capitulos de GALAR, DOZE DOWN continuam caindo em 'Start of region', porque a lista tem UMA linha so. Galar entrou nesta obra sem ginasio com flag e sem Liga, entao NUM_CAPITULOS dela e 1, e oferecer 'Before Pokemon League' seria capitulo que nao leva a lugar nenhum (src/chapter_jump.c, TEM_LIGA). Este caso e o par do T108.9, que roda os MESMOS doze DOWN em UNOVA e termina na Liga de la: junto eles provam que os doze DOWN nao sao inertes e que a lista de Galar e mesmo curta.",
+  "nome": "PAR do T108.7: o seletor de GALAR oferece as PARADAS DE CURA, e os doze DOWN chegam à Crown Tundra. RECALIBRADO EM 06/09/2026, na onda 1 da Frente A: até então este caso afirmava que a lista de Galar tinha UMA linha só, e que os doze DOWN tinham de saturar em 'Start of region'. A onda pôs as ONZE paradas de cura de Galar em sParadasGalar (src/chapter_jump.c), porque valida_conectividade.py tira as sementes de alcance dos HEAL_LOCATION_* citados ali, e com uma semente só a Isle of Armor e a Crown Tundra inteiras contavam como órfãs. A lista agora tem DOZE linhas: 'Start of region' (Wedgehurst) mais as onze paradas, na ordem da campanha de Sword e Shield, com as duas ilhas de DLC no fim. Os doze DOWN saturam na última, CROWN TUNDRA, que é HEAL_LOCATION_GALAR_CROWN_TUNDRA, ou seja MAP_GALAR_CROWN_TUNDRA_06 (src/data/heal_locations.h:559). O par com o T108.9 continua valendo pelo mesmo motivo de antes: lá os MESMOS doze DOWN, em UNOVA, terminam na Liga, então eles não são inertes. Se alguém encurtar de novo a lista de Galar, este caso volta a terminar em MAP_GALAR_WEDGEHURST_03.",
   "abertura": "seletor",
   "roteiro": "20:DOWN*5,60:NADA,20:A,120:NADA,20:DOWN*12,60:NADA,20:A,300:NADA,120:NADA",
   "prova": {
-   "mapa": "MAP_GALAR_WEDGEHURST_03"
+   "mapa": "MAP_GALAR_CROWN_TUNDRA_06"
   }
  },
  {
