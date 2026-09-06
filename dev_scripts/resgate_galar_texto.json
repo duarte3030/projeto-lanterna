@@ -1,5 +1,5 @@
 {
- "_leia": "de-para escrito a mao para os lotes I (onda 2) e a onda 3 da Frente A, com o GLOSSARIO-GALAR.md; o ingles ja sai requebrado a 208 px",
+ "_leia": "de-para escrito a mao para o lote I (onda 2), a onda 3 e o lote O da onda 4 da Frente A, com o GLOSSARIO-GALAR.md; o ingles ja sai requebrado a 208 px",
  "entradas": [
   {
    "pt": " elcome to the Pokémon Wireless\\nClub Union Room.\\pYou may interact directly with\\nother Trainers here, some of\\lwhom you may not even know.\\pWould you like to enter the Room?",
@@ -752,6 +752,34 @@
   {
    "pt": "{COLOR DARK_GRAY}Ah, você não pode pagar...",
    "en": "{COLOR DARK_GRAY}Ah, you can't afford it..."
+  },
+  {
+   "pt": "Hop: Lee!!\\pLeon: Hop Então, meu fã\\nnúmero um do mundo começou sua\\ljornada! Olhe para você, Hop!\\lAcho que você cresceu... uma\\lpolegada e um quarto desde a\\lúltima vez que te vi!\\pHop: Lee Bingo! Esse é o tipo de\\nolho afiado que te manteve\\linvicto por tanto tempo, hein",
+   "en": "Hop: Lee!!\\pLeon: Hop So, my number one fan in the\\nwhole world has started his journey!\\lLook at you, Hop! I reckon you've\\lgrown... an inch and a quarter since the\\llast time I saw you!\\pHop: Lee Bingo! That's the kind of sharp\\neye that has kept you undefeated for\\lso long, huh"
+  },
+  {
+   "pt": "Mustard:Olá  {PLAYER},ja fez\\namizade com o Kubfu?\\p{PLAYER}:Sim\\pMustard:Otimo então\\pMustard: Escute {PLAYER} e Kubfu!\\nse quiserem ficar mais fortes\\lexistem campos de treinos\\lespeciais para o kubfu!\\pSe preparem para a...",
+   "en": "Mustard: Hello, {PLAYER}, have you made\\nfriends with Kubfu yet?\\p{PLAYER}: Yes\\pMustard: Splendid, then\\pMustard: Listen, {PLAYER} and Kubfu! If\\nyou want to get stronger, there are\\lspecial training grounds for Kubfu!\\pGet ready for the..."
+  },
+  {
+   "pt": "Mãe: Fico tão feliz que você veio\\nme ver, comprei um presente pra\\lvocê, aproveite",
+   "en": "Mom: I'm so glad you came to see me, I\\nbought you a present, enjoy"
+  },
+  {
+   "pt": "Pronto para sua segunda batalha?",
+   "en": "Ready for your second battle?"
+  },
+  {
+   "pt": "{COLOR RED}Oh, você não pode pagar por um.",
+   "en": "{COLOR RED}Oh, you can't afford one."
+  },
+  {
+   "pt": "Pronto para sua próxima batalha?",
+   "en": "Ready for your next battle?"
+  },
+  {
+   "pt": "Rose: Como vocês sabem, nossa\\nsociedade é capaz de prosperar\\lgraças  a ajuda dessas criaturas\\lmisteriosas que chamamos de\\lPokémon.\\pSim. os Pokémon estão a nossa\\nvolta em todos os lugares conosco.\\pE há aqueles entre nós que\\nescolhem em criar e treinar\\lpokémon para batalhar e competir.\\lchamamos de treinadores Pokémon!",
+   "en": "Rose: As you all know, our society is\\nable to thrive thanks to the help of\\lthese mysterious creatures we call\\lPokémon.\\pYes. Pokémon are all around us,\\neverywhere, together with us.\\pAnd there are those among us who\\nchoose to raise and train Pokémon to\\lbattle and compete. We call them\\lPokémon Trainers!"
   }
  ]
 }

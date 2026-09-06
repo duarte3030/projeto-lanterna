@@ -1,0 +1,15 @@
+onda 4, lote O, Frente A (Galar): validacao
+total       12
+com_en      12
+sem_en      0
+ok          12
+token       0
+paragrafo   0
+charmap     0
+largura     0
+cifrao      0
+ja_existia  10
+entradas em resgate_galar_texto.json: 193 -> 195
+
+indices com problema (indice, chaves, o que falhou)
+(nenhum)

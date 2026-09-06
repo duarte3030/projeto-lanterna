@@ -2,75 +2,9 @@
  "_leia": "textos da fonte sem traducao escrita em dev_scripts/traducao_galar.json (por rotulo) nem em dev_scripts/resgate_galar_texto.json (por texto). Enquanto estiverem aqui o bloco NAO e escrito, e a linha da fila fica adiada. Escrito pelos tres geradores de Galar (onda 3, lote L1).",
  "distintos": [
   {
-   "pt": "Hop: Lee!!\\pLeon: Hop Então, meu fã\\nnúmero um do mundo começou sua\\ljornada! Olhe para você, Hop!\\lAcho que você cresceu... uma\\lpolegada e um quarto desde a\\lúltima vez que te vi!\\pHop: Lee Bingo! Esse é o tipo de\\nolho afiado que te manteve\\linvicto por tanto tempo, hein",
-   "chaves": [
-    "g04m06/objeto/1"
-   ]
-  },
-  {
-   "pt": "Leon: Olá Postiwick! Seu campeão\\nLeon está de volta! Prometo que\\lcontinuarei dando o meu melhor\\lpara proporcionar as maiores\\lbatalhas para todos vocês\\lassistirem!\\pAudiência: É o nosso campeão\\nimbatível! Leon, você e Charizard\\lsão os melhores!\\pLeon: Bem, obrigado por isso!\\nEspero que todos continuem\\ltreinando seus Pokémon e nunca\\lfujam da batalha. Então venha me\\ldesafiar para o público do título\\pAudiência: Estamos todos\\ntrabalhando em nossas habilidades\\lde batalha, como você nos\\lensinou, Leon! Mas esse seu\\lCharizard é forte demais para\\lgente como nós.\\pLeon: É verdade que meu\\nCharizard é incrivelmente forte.\\lMas outros Pokémon também podem\\lser fortes! É por isso que eu\\lquero que o mais forte dos\\ltreinadores complete o Gym\\lChallenge e venha lutar comigo!\\lMeu desejo é que os treinadores\\lde Galar trabalhem juntos para se\\ltornarem campeões! o mais forte\\ldo mundo!",
-   "chaves": [
-    "g04m06/objeto/1"
-   ]
-  },
-  {
-   "pt": "Mustard:Bem-vindo de volta...\\pOh, e o que é esse clima tenso que\\neu detectei ao seu redor?\\p{PLAYER}:eu derrotei todos os\\nlideres!\\pMustard:Você fez isso agora? Já ?!\\pMustard:Hufufu! Você fez um otimo\\ntrabalho! Muito bem, {PLAYER}!\\pMustard:Bem, {PLAYER} , acho que\\nvocê aprendeu quase tudo que o\\lMaster Dojo tem para lhe ensinar.\\pO que significa que você e eu\\npodemos finalmente ter uma\\lbatalha adequada,sem\\labsolutamente nenhuma restrição!\\pEu não vou puxar nenhum saco dessa\\nvez, garoto.\\pSe você acha que está realmente\\npronto para mim quando eu estiver\\lsério, então venha para a arena\\ldo Master Dojo!",
-   "chaves": [
-    "g01m34/objeto/2"
-   ]
-  },
-  {
-   "pt": "Mustard:Olá  {PLAYER},ja fez\\namizade com o Kubfu?\\p{PLAYER}:Sim\\pMustard:Otimo então\\pMustard: Escute {PLAYER} e Kubfu!\\nse quiserem ficar mais fortes\\lexistem campos de treinos\\lespeciais para o kubfu!\\pSe preparem para a...",
-   "chaves": [
-    "g01m34/objeto/2"
-   ]
-  },
-  {
-   "pt": "Mãe: Fico tão feliz que você veio\\nme ver, comprei um presente pra\\lvocê, aproveite",
-   "chaves": [
-    "g04m00/objeto/0"
-   ]
-  },
-  {
-   "pt": "Mãe: Oi filho, fez uma pausa pra\\nver sua mãe?\\pPor que não descansa\\num pouco?",
-   "chaves": [
-    "g04m00/objeto/0"
-   ]
-  },
-  {
-   "pt": "Pronto para sua Primeira Batalha?",
-   "chaves": [
-    "g13m07/objeto/0"
-   ]
-  },
-  {
-   "pt": "Pronto para sua segunda batalha?",
-   "chaves": [
-    "g13m07/objeto/0"
-   ]
-  },
-  {
-   "pt": "Rose: Bem vindos ao maravilhoso\\nmundo dos Pokémon!\\pRose: Nossa amada região de Galar\\né um lugar maravilhoso, com uma\\lpróspera natureza.\\lbelas cidades e muitos Pokémon\\lcom os quais compartilhamos\\lnossas vidas!",
-   "chaves": [
-    "g43m00/map_script"
-   ]
-  },
-  {
    "pt": "Você ja viu o ginasio de\\nhammelock?ゅ Você ja viu o ginasio de\\nhammelock?",
    "chaves": [
     "g09m10/objeto/14"
-   ]
-  },
-  {
-   "pt": "{COLOR BLUE}Não está interessado?",
-   "chaves": [
-    "g10m12/objeto/3"
-   ]
-  },
-  {
-   "pt": "{COLOR RED}Oh, você não pode pagar por um.",
-   "chaves": [
-    "g10m12/objeto/3"
    ]
   }
  ]

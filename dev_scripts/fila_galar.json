@@ -3372,8 +3372,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 2771,
    "bloqueio": "",
-   "status": "adiada",
-   "motivo_do_status": "onda 3, lote L1, 08/09/2026: texto sem traducao: a fonte tem fala e nem dev_scripts/traducao_galar.json (por rotulo) nem dev_scripts/resgate_galar_texto.json (por texto) tem o ingles dela. O texto pendente esta em dev_scripts/onda3_falta_traduzir.json."
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g01m34/objeto/1",
@@ -6013,8 +6013,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 555,
    "bloqueio": "",
-   "status": "adiada",
-   "motivo_do_status": "onda 3, lote L1, 08/09/2026: texto sem traducao: a fonte tem fala e nem dev_scripts/traducao_galar.json (por rotulo) nem dev_scripts/resgate_galar_texto.json (por texto) tem o ingles dela. O texto pendente esta em dev_scripts/onda3_falta_traduzir.json."
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g03m05/objeto/9",
@@ -7806,8 +7806,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "adiada",
-   "motivo_do_status": "onda 3, lote L1, 08/09/2026: texto sem traducao: a fonte tem fala e nem dev_scripts/traducao_galar.json (por rotulo) nem dev_scripts/resgate_galar_texto.json (por texto) tem o ingles dela. O texto pendente esta em dev_scripts/onda3_falta_traduzir.json."
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g03m35/objeto/19",
@@ -14237,8 +14237,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 1535,
    "bloqueio": "",
-   "status": "adiada",
-   "motivo_do_status": "onda 3, lote L1, 08/09/2026: texto sem traducao: a fonte tem fala e nem dev_scripts/traducao_galar.json (por rotulo) nem dev_scripts/resgate_galar_texto.json (por texto) tem o ingles dela. O texto pendente esta em dev_scripts/onda3_falta_traduzir.json."
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g06m35/objeto/4",
@@ -25487,8 +25487,8 @@
    "trainer_type_fonte": 0,
    "flag_fonte": 0,
    "bloqueio": "",
-   "status": "adiada",
-   "motivo_do_status": "onda 3, lote L1, 08/09/2026: texto sem traducao: a fonte tem fala e nem dev_scripts/traducao_galar.json (por rotulo) nem dev_scripts/resgate_galar_texto.json (por texto) tem o ingles dela. O texto pendente esta em dev_scripts/onda3_falta_traduzir.json."
+   "status": "feita",
+   "motivo_do_status": "escrita por dev_scripts/objetos_galar.py (bloco c4a)"
   },
   {
    "chave": "g13m08/objeto/12",

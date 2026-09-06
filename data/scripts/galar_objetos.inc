@@ -3488,6 +3488,155 @@ GalarObj_G40M09_o0_Mart23:
 	.2byte ITEM_RED_SCARF
 	.2byte ITEM_NONE
 
+@ ---- Galar_Wyndon03 (g13m07) ----
+GalarObj_G13M07_o0::
+	lock
+	faceplayer
+	checkflag FLAG_GALAR_MOTOR_825
+	goto_if 1, GalarObj_G13M07_o0_b1
+	msgbox GalarObj_G13M07_o0_Text0, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarObj_G13M07_o0_b1::
+	lock
+	faceplayer
+	checkflag FLAG_GALAR_MOTOR_733
+	goto_if 1, GalarObj_G13M07_o0_b2
+	msgbox GalarObj_G13M07_o0_Text1, MSGBOX_AUTOCLOSE
+	warp MAP_GALAR_TURFFIELD_INDOOR_01, 7, 11
+	waitstate
+	release
+	end
+
+GalarObj_G13M07_o0_b2::
+	lock
+	faceplayer
+	checkflag FLAG_GALAR_MOTOR_302
+	goto_if 1, GalarObj_G13M07_o0_b3
+	msgbox GalarObj_G13M07_o0_Text2, MSGBOX_AUTOCLOSE
+	warp MAP_GALAR_TURFFIELD_INDOOR_02, 7, 11
+	waitstate
+	release
+	end
+
+GalarObj_G13M07_o0_b3::
+	lock
+	faceplayer
+	checkflag FLAG_GALAR_MOTOR_72D
+	goto_if 1, GalarObj_G13M07_o0_b4
+	msgbox GalarObj_G13M07_o0_Text3, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarObj_G13M07_o0_b4::
+	lock
+	faceplayer
+	checkflag FLAG_GALAR_MOTOR_310
+	goto_if 1, GalarObj_G13M07_o0_b5
+	msgbox GalarObj_G13M07_o0_Text4, MSGBOX_AUTOCLOSE
+	warp MAP_GALAR_TURFFIELD_INDOOR_03, 7, 10
+	waitstate
+	waitstate
+	release
+	end
+
+GalarObj_G13M07_o0_b5::
+	lock
+	faceplayer
+	checkflag FLAG_GALAR_MOTOR_312
+	goto_if 1, GalarObj_G13M07_o0_b6
+	msgbox GalarObj_G13M07_o0_Text5, MSGBOX_AUTOCLOSE
+	warp MAP_GALAR_TURFFIELD_INDOOR_04, 7, 11
+	waitstate
+	release
+	end
+
+GalarObj_G13M07_o0_b6::
+	lock
+	faceplayer
+	checkflag FLAG_GALAR_MOTOR_313
+	goto_if 1, GalarObj_G13M07_o0_b7
+	msgbox GalarObj_G13M07_o0_Text6, MSGBOX_AUTOCLOSE
+	warp MAP_GALAR_TURFFIELD_INDOOR_05, 7, 11
+	waitstate
+	release
+	end
+
+GalarObj_G13M07_o0_b7::
+	lock
+	faceplayer
+	checkflag FLAG_GALAR_MOTOR_314
+	goto_if 1, GalarObj_G13M07_o0_b8
+	msgbox GalarObj_G13M07_o0_Text7, MSGBOX_AUTOCLOSE
+	warp MAP_GALAR_TURFFIELD_INDOOR_06, 7, 11
+	waitstate
+	release
+	end
+
+GalarObj_G13M07_o0_b8::
+	lock
+	faceplayer
+	checkflag FLAG_GALAR_MOTOR_315
+	goto_if 1, GalarObj_G13M07_o0_b9
+	msgbox GalarObj_G13M07_o0_Text8, MSGBOX_AUTOCLOSE
+	warp MAP_GALAR_TURFFIELD_INDOOR_07, 7, 11
+	waitstate
+	release
+	end
+
+GalarObj_G13M07_o0_b9::
+	lock
+	faceplayer
+	checkflag FLAG_GALAR_MOTOR_737
+	goto_if 1, GalarObj_G13M07_o0_b10
+	msgbox GalarObj_G13M07_o0_Text9, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarObj_G13M07_o0_b10::
+	lock
+	faceplayer
+	checkflag FLAG_GALAR_MOTOR_320
+	goto_if 1, GalarObj_G13M07_o0_b11
+	msgbox GalarObj_G13M07_o0_Text10, MSGBOX_AUTOCLOSE
+	warp MAP_GALAR_TURFFIELD_INDOOR_08, 7, 11
+	waitstate
+	release
+	end
+
+GalarObj_G13M07_o0_b11::
+	lock
+	faceplayer
+	msgbox GalarObj_G13M07_o0_Text11, MSGBOX_AUTOCLOSE
+	release
+	end
+
+GalarObj_G13M07_o0_Text0:
+	.string "No battles for now!$"
+GalarObj_G13M07_o0_Text1:
+	.string "Ready for your First Battle?$"
+GalarObj_G13M07_o0_Text2:
+	.string "Ready for your second battle?$"
+GalarObj_G13M07_o0_Text3:
+	.string "No battles for now!$"
+GalarObj_G13M07_o0_Text4:
+	.string "Ready for your next battle?$"
+GalarObj_G13M07_o0_Text5:
+	.string "Ready for your next battle?$"
+GalarObj_G13M07_o0_Text6:
+	.string "Ready for your next battle?$"
+GalarObj_G13M07_o0_Text7:
+	.string "Ready for your next battle?$"
+GalarObj_G13M07_o0_Text8:
+	.string "Ready for your next battle?$"
+GalarObj_G13M07_o0_Text9:
+	.string "A batalha foi canselada!$"
+GalarObj_G13M07_o0_Text10:
+	.string "Ready for your next battle?$"
+GalarObj_G13M07_o0_Text11:
+	.string "As batalhas acabaram.$"
+
 @ ---- Galar_Wyndon07 (g40m11) ----
 GalarObj_G40M11_o0::
 	faceplayer

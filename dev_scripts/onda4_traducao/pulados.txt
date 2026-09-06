@@ -1,0 +1,25 @@
+# Lote O, onda 4, Frente A (Galar): itens NAO traduzidos.
+# indice na lista.json<TAB>chaves<TAB>motivo
+(nenhum: os 12 itens da lista.json sairam traduzidos)
+
+# FORA DA lista.json desde a montagem (monta_lista.py), por decisao anterior:
+-	g09m10/objeto/14	mojibake ja documentado na secao 6 do GLOSSARIO-GALAR.md e
+	em dev_scripts/onda3_traducao/pulados.txt; segue sem traducao de proposito,
+	e por isso o T07 de Galar fica em 1 e nao em 0.
+-	g04m00/objeto/0 (o texto curto)	um dos dois itens de
+	dev_scripts/onda2_lote_i_pulados.txt: decisao de conteudo do Gui, ainda
+	pendente. O OUTRO texto do mesmo objeto entrou como indice 004 e foi
+	traduzido. O segundo item de onda2_lote_i_pulados.txt (chaves
+	g03m66/objeto/0, g09m09/objeto/0, g13m06/objeto/0) nao aparecia em
+	dev_scripts/onda3_falta_traduzir.json e nao chegou a entrar na lista.
+
+# REGISTROS QUE NAO SAO PULO, mas explicam a contagem do fecha.py:
+# 1. 10 dos 12 itens JA TINHAM entrada em dev_scripts/resgate_galar_texto.json.
+#    O caderno onda3_falta_traduzir.json e grudento: so limpa a chave quando o
+#    gerador DONO dela roda, e por isso voltou a cobrar texto que a onda 3 ja
+#    tinha traduzido. fecha.py PRESERVA o ingles que ja estava la (nao
+#    sobrescreve), entao o merge somou 7 entradas e nao 12.
+# 2. Os indices 010 e 011 nasceram DEPOIS da montagem, quando outro executor
+#    regerou o caderno. monta_lista.py passou a apendar em vez de regerar, para
+#    nao trocar o indice dos itens ja traduzidos e casar en/NNN.txt com o pt
+#    errado.
