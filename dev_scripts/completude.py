@@ -821,6 +821,100 @@ def fmt_arte(a):
     return f"{meio:g} ({abaixo})"
 
 
+def galar_cortados(docs):
+    """{chave da fonte: motivo} dos mapas de Galar carimbados `cortado_por`.
+
+    LOTE Q, ONDA 4 (06/09/2026). O carimbo `cortado_por` já existia no
+    `map.json` desde a onda 1 (16 sobras de FireRed que o demake deixou dentro
+    dos grupos de Galar, mais 18 salas de reserva duplicadas), e a régua NÃO O
+    LIA: o lote AB da onda 1 mediu isso e ninguém consertou na causa. O efeito
+    é o de sempre nesta casa, completude BAIXA em vez de erro, porque a fonte
+    daqueles 34 mapas continuava no denominador de Galar cobrando obra que o
+    Gui já decidiu que nunca vai existir.
+
+    Aqui o corte é lido do PRÓPRIO `map.json`, e não de uma lista à parte, pelo
+    mesmo motivo que `remove_mapas_cortados.py` usa: quem carimba é o dono do
+    mapa, e lista paralela envelhece calada. `CORTES_DO_GUI` continua sendo o
+    lugar dos cortes das outras cinco regiões, que não têm carimbo.
+    """
+    return {c: d["cortado_por"] for c, d in docs.items() if d.get("cortado_por")}
+
+
+def galar_script(docs, gente_por_mapa):
+    """(numerador, denominador, notas) da coluna `script` de Galar.
+
+    A RÉGUA MUDOU EM 06/09/2026 (decisão da condutora da onda 4), e o que ela
+    passa a medir é FIDELIDADE À FONTE, não preenchimento. Até aqui o
+    denominador era "todo NPC não estático do nosso `map.json`", e isso cobrava
+    fala de NPC que o PRÓPRIO demake deixa sem script nenhum: transcrever a
+    fonte com fidelidade nunca levaria a coluna a 100%, e a régua ficava com um
+    teto que ninguém tinha decidido.
+
+    Agora cada NPC nosso é casado com o registro da fonte PELA COORDENADA, com
+    o mesmo `de_para_de_objetos` do bloco c3 (`dev_scripts/cenas_galar.py`), e
+    cai num de três baldes:
+
+      com script na fonte  -> ponteiro de script não nulo no registro. É o
+                              denominador, e o numerador é quanto disso já tem
+                              `script` no nosso `map.json`.
+      mudo na fonte        -> registro casado, ponteiro NULO. SAI dos DOIS
+                              lados, pela mesma conta de `corta_campo`: sai do
+                              denominador e, se alguém lhe der fala nossa, sai
+                              também do numerador, senão a coluna passaria de
+                              100% por obra que a régua diz não cobrar.
+      sem registro casável -> NPC nosso que nenhum registro da fonte explica.
+                              FICA nos dois lados por enquanto; a decisão de
+                              escopo sobre ele é do Gui e está no relatório do
+                              lote Q, com as categorias medidas.
+
+    `docs` é {chave da fonte: map.json já lido} e `gente_por_mapa` é
+    {chave da fonte: linhas de `galar_gente.json`}, para o `--demo` poder
+    plantar um caso em vez de depender da árvore.
+    """
+    sys.path.insert(0, os.path.join(RAIZ, "dev_scripts"))
+    import cenas_galar as C3
+    b = collections.Counter()
+    for chave, d in docs.items():
+        oe = d.get("object_events") or []
+        # {id nosso (1-based): id da fonte (1-based)}, o inverso do que o c3
+        # devolve. Casar por ORDEM erraria: ver o docstring de lá.
+        da_fonte = {n: f for f, n in
+                    C3.de_para_de_objetos(chave, d, gente_por_mapa).items()}
+        linhas = {l["i"] + 1: l for l in gente_por_mapa.get(chave, [])
+                  if l["tipo"] == "objeto"}
+        no_tile = collections.Counter((o["x"], o["y"]) for o in oe)
+        for i, o in enumerate(oe):
+            if o.get("origem") == "estaticos_galar":
+                continue
+            tem = "_feito" if str(o.get("script") or "0") not in ("0", "") else ""
+            f = da_fonte.get(i + 1)
+            if f is None:
+                # Duas causas, e elas pedem obra diferente: empate de tile é
+                # limite do CASADOR (o c3 recusa em vez de escolher, lição de
+                # Oreburgh), e "sem registro" é objeto que a fonte não tem.
+                cat = ("sem_registro_empate" if no_tile[(o["x"], o["y"])] > 1
+                       else "sem_registro")
+            elif str(linhas[f].get("script_fonte") or "0") in ("0", "0x0", ""):
+                cat = "mudo_na_fonte"
+            else:
+                cat = "com_script_na_fonte"
+            b[cat + tem] += 1
+    sem = b["sem_registro"] + b["sem_registro_feito"]
+    sem_empate = b["sem_registro_empate"] + b["sem_registro_empate_feito"]
+    mudos = b["mudo_na_fonte"] + b["mudo_na_fonte_feito"]
+    tem_fonte = b["com_script_na_fonte"] + b["com_script_na_fonte_feito"]
+    den = tem_fonte + sem + sem_empate
+    num = (b["com_script_na_fonte_feito"] + b["sem_registro_feito"]
+           + b["sem_registro_empate_feito"])
+    return num, den, {"mudos_na_fonte": mudos,
+                      "mudos_com_fala_nossa": b["mudo_na_fonte_feito"],
+                      "sem_registro": sem + sem_empate,
+                      "sem_registro_empate_de_tile": sem_empate,
+                      "com_script_na_fonte": tem_fonte,
+                      "com_script_na_fonte_feito":
+                          b["com_script_na_fonte_feito"]}
+
+
 def galar(cfg):
     """Galar medida no `map.json` de hoje, como toda região, com denominador filtrado.
 
@@ -840,13 +934,25 @@ def galar(cfg):
       placas  -> 202, que são os 214 bg da fonte menos os 12 sem item traduzível.
     A contagem do que ficou de fora sai em `--detalhe`, para o corte ser visível.
 
+    E desde 06/09/2026 os mapas carimbados `cortado_por` saem dos DOIS lados de
+    TODAS as colunas, ver `galar_cortados`.
+
     Devolve (nossos_mapas, {campo: (nosso, denominador)}, extras).
     """
     cen = json.load(open(cfg["censo"]))
     gente = json.load(open(cfg["gente"]))
-    nossos = [v["nome"] for v in cen["de_para"].values()]
-    obj = [l for l in gente["linhas"] if l["tipo"] == "objeto"]
-    bg = [l for l in gente["linhas"] if l["tipo"] == "bg"]
+    docs = {c: json.load(open(f"{RAIZ}/data/maps/{v['nome']}/map.json"))
+            for c, v in cen["de_para"].items()}
+    cortados = galar_cortados(docs)
+    vivos = {c for c in docs if c not in cortados}
+    est_cortado = sum(1 for c in cortados
+                      for o in (docs[c].get("object_events") or [])
+                      if o.get("origem") == "estaticos_galar")
+    docs = {c: d for c, d in docs.items() if c in vivos}
+    nossos = [v["nome"] for c, v in cen["de_para"].items() if c in vivos]
+    linhas = [l for l in gente["linhas"] if l["mapa"] in vivos]
+    obj = [l for l in linhas if l["tipo"] == "objeto"]
+    bg = [l for l in linhas if l["tipo"] == "bg"]
     # "NPC de obra" é o marinheiro da travessia, que não veio da fonte: ele não
     # entra em nenhum dos dois lados, senão inventa numerador sem denominador.
     fonte_obj = [l for l in obj if "nao vem da fonte" not in l["motivo"]]
@@ -856,16 +962,11 @@ def galar(cfg):
     fonte_bg = [l for l in bg if "lixo de leitura" not in l["motivo"]]
     placaveis = [l for l in fonte_bg if "sem item traduzivel" not in l["motivo"]]
 
-    n_obj = n_bg = n_script = n_estatico = n_script_npc = 0
-    for m in nossos:
-        d = json.load(open(f"{RAIZ}/data/maps/{m}/map.json"))
+    n_obj = n_bg = n_estatico = 0
+    for d in docs.values():
         oe = d.get("object_events") or []
         n_obj += len(oe)
         n_estatico += sum(1 for o in oe if o.get("origem") == "estaticos_galar")
-        n_script += sum(1 for o in oe if str(o.get("script") or "0") not in ("0", ""))
-        n_script_npc += sum(1 for o in oe
-                            if str(o.get("script") or "0") not in ("0", "")
-                            and o.get("origem") != "estaticos_galar")
         n_bg += len(d.get("bg_events") or [])
     # ENCONTRO ESTATICO (bloco c5, `dev_scripts/estaticos_galar.py`), 22/08/2026.
     #
@@ -881,21 +982,47 @@ def galar(cfg):
     # mesmos 795 dentro de `obj_impossiveis`, e com isso as partes deixavam de
     # somar o todo: o `--demo` desta ferramenta reprovava.)
     est = json.load(open(f"{RAIZ}/dev_scripts/galar_estaticos.json"))
-    colocaveis = list(colocaveis) + [None] * est["da_fonte"]
+    # RESÍDUO CONHECIDO do corte por `cortado_por`, e ele está aqui em voz alta
+    # porque é o único lugar em que o corte NÃO é exato: `galar_estaticos.json`
+    # guarda `da_fonte` como um número só, sem repartição por mapa, então o que
+    # dá para descontar do denominador é o que nós ACEITAMOS dentro dos mapas
+    # cortados, e os recusados (70 no total da região, por tile inalcançável ou
+    # mesa de raide) continuam lá dentro. O erro é para BAIXO, ou seja cobra
+    # obra a mais, que é o lado certo de errar numa régua. Some quando
+    # `estaticos_galar.py` (dono: outro lote) escrever a repartição por mapa.
+    est_fonte = est["da_fonte"] - est_cortado
+    colocaveis = list(colocaveis) + [None] * est_fonte
+    warps = cen["warps_gravados"] - sum(v["warps"] for c, v in
+                                        cen["de_para"].items() if c in cortados)
     # A coluna SCRIPT continua contando só NPC. Ela existe para dizer quanta FALA
     # falta em Galar, e todo estático já nasce com script próprio: misturá-los
     # levaria a coluna de 35,6% para 60,5% sem uma linha de fala nova.
-    extras = {"script": (n_script_npc, n_obj - n_estatico),
-              "estaticos": (n_estatico, est["da_fonte"]),
+    num, den, notas = galar_script(
+        docs, agrupa_por_mapa(linhas))
+    extras = {"script": (num, den),
+              "script_notas": notas,
+              "npc_nao_estatico": n_obj - n_estatico,
+              "cortados": {cen["de_para"][c]["nome"]: m
+                           for c, m in cortados.items()},
+              "estaticos": (n_estatico, est_fonte),
+              "estaticos_cortados": est_cortado,
               "obj_impossiveis": len(fonte_obj) - len(colocaveis),
               "obj_fonte": len(fonte_obj),
               "bg_sem_traducao": len(fonte_bg) - len(placaveis),
               "bg_fonte": len(fonte_bg)}
     return nossos, {
         "object_events": (n_obj, len(colocaveis)),
-        "warp_events": (cen["warps_gravados"], cen["warps_gravados"]),
+        "warp_events": (warps, warps),
         "bg_events": (n_bg, len(placaveis)),
     }, extras
+
+
+def agrupa_por_mapa(linhas):
+    """{chave da fonte: linhas de `galar_gente.json` daquele mapa}."""
+    por = collections.defaultdict(list)
+    for l in linhas:
+        por[l["mapa"]].append(l)
+    return por
 
 
 def confere_apelidos(tabela=None):
@@ -972,7 +1099,12 @@ def main():
           f"abaixo de {PISO_ARTE} entre parênteses.\n")
     print("A coluna SCRIPT só existe para Galar, e de propósito: lá a colocação "
           "está feita e o que\nfalta é fala. Nas outras cinco a colocação é que "
-          "está em jogo, e a coluna não diria nada.\n")
+          "está em jogo, e a coluna não diria nada.")
+    print("Ela mede FIDELIDADE À FONTE, e não preenchimento: só Galar tem "
+          "registro de fonte com\nponteiro de script por NPC, então só lá dá "
+          "para cobrar exatamente o que o demake fala.\nAs outras cinco colunas "
+          "medem preenchimento, que é quanto do que a fonte tem já está\nno "
+          "nosso mapa. Não são a mesma régua e não se comparam entre si.\n")
     print(f"{'região':8} {'mapas':>11} {'objetos':>11} {'warps':>11} "
           f"{'placas':>11} {'script':>11} {'arte':>11}")
 
@@ -1098,11 +1230,13 @@ def main():
         linha_da_dex()
 
     if not alvo or alvo.lower() == "galar":
-        g = galar(REGIOES["Galar"])[2]
+        nossos_g, pares_g, g = galar(REGIOES["Galar"])
         est_n, est_f = g["estaticos"]
-        print("\nGalar é GEOMETRIA INTEIRA e conteúdo em obra. Os 438 mapas "
-              "estão com tileset provado\npixel a pixel e 1.473 warps. As colunas "
-              "`objetos` e `placas` dividem pelo que é\nCOLOCÁVEL, não pelo total "
+        n_sc = g["script_notas"]
+        print(f"\nGalar é GEOMETRIA INTEIRA e conteúdo em obra. Os "
+              f"{len(nossos_g)} mapas VIVOS estão com tileset\nprovado pixel a "
+              f"pixel e {pares_g['warp_events'][0]} warps. As colunas `objetos` "
+              "e `placas` dividem pelo que é\nCOLOCÁVEL, não pelo total "
               f"da fonte (ver `--detalhe Galar`), porque {g['obj_impossiveis']} "
               "registros\nda fonte nunca podem virar objeto nosso (cenário de "
               "script, tile não andável, em cima de\nwarp). Dentro do denominador "
@@ -1112,6 +1246,11 @@ def main():
               "`dev_scripts/fila_galar.json`. A coluna `script`\nconta só NPC, "
               "porque encontro estático já nasce com script e misturá-los "
               "esconderia\na fala que falta. Sem treinador, ginásio nem Liga.")
+        print(f"   mudos na fonte: {n_sc['mudos_na_fonte']} (NPC nosso cujo "
+              "registro na fonte não tem script nenhum;\n   saem dos dois lados "
+              "da coluna `script`, ver `galar_script`). Mapas fora de escopo "
+              f"por\n   `cortado_por`: {len(g['cortados'])}, e eles saem das "
+              "SEIS colunas.")
 
     if alvo:
         for nome, (falta, piores) in faltando_total.items():
@@ -1197,8 +1336,25 @@ def main():
             print(f"      Sobram {g['bg_fonte'] - g['bg_sem_traducao']}, que são "
                   "o denominador da coluna `placas`.")
             a, b = g["script"]
+            n = g["script_notas"]
             print(f"   NPC COM script hoje: {a} de {b} ({100*a/b:.1f}%), sem "
                   "contar encontro estático.\n      É aqui que mora o trabalho.")
+            print(f"      o denominador são os {n['com_script_na_fonte']} NPC "
+                  "que TÊM script na fonte (casados por coordenada)")
+            print(f"      mais os {n['sem_registro']} sem registro casável, "
+                  f"dos quais {n['sem_registro_empate_de_tile']} são empate de "
+                  "tile;")
+            print(f"      mudos na fonte: {n['mudos_na_fonte']}, que saem dos "
+                  "DOIS lados (hoje "
+                  f"{n['mudos_com_fala_nossa']} deles têm fala nossa).")
+            print(f"   mapas cortados por `cortado_por`: {len(g['cortados'])}, "
+                  "fora das seis colunas.")
+            for m, motivo in sorted(g["cortados"].items()):
+                print(f"      {m}: {motivo.split(':')[0]}")
+            print(f"      resíduo conhecido: {g['estaticos_cortados']} "
+                  "encontros estáticos nossos saíram junto, mas os")
+            print("      recusados desses mapas continuam no denominador "
+                  "(o censo de estático não reparte por mapa).")
     else:
         print("\nuse --detalhe <região> para ver o que falta em cada uma")
     return 0
@@ -1222,21 +1378,81 @@ def demo():
     #    O censo é congelado; se o numerador voltar a sair dele, a linha para de
     #    se mexer quando a obra anda, que foi o defeito consertado em 21/08/2026.
     nossos, pares, extras = galar(REGIOES["Galar"])
-    assert len(nossos) == 438, len(nossos)
-    assert pares["warp_events"][0] == pares["warp_events"][1] == 1473
+    # 438 mapas MENOS os carimbados `cortado_por`, que saem das seis colunas
+    # desde 06/09/2026 (lote Q da onda 4). Ver `galar_cortados`.
+    assert len(nossos) == 438 - len(extras["cortados"]), len(nossos)
+    assert extras["cortados"], "o carimbo `cortado_por` sumiu dos map.json"
+    assert pares["warp_events"][0] == pares["warp_events"][1] < 1473
     gente = json.load(open(REGIOES["Galar"]["gente"]))
     assert pares["object_events"][0] != gente["objetos_gravados"], (
         "numerador de Galar voltou a sair do censo congelado")
-    # a coluna SCRIPT mede NPC, então o denominador dela é o nosso total de
-    # objetos MENOS os encontros estáticos, que já nascem com script
-    assert extras["script"][0] <= extras["script"][1] == (
+    # a coluna SCRIPT mede NPC, então ela nunca conta encontro estático, e o
+    # denominador dela é o nosso total de NPC menos os mudos na fonte
+    n = extras["script_notas"]
+    assert extras["npc_nao_estatico"] == (
         pares["object_events"][0] - extras["estaticos"][0])
+    assert extras["script"][1] == (extras["npc_nao_estatico"]
+                                   - n["mudos_na_fonte"])
+    assert extras["script"][0] <= extras["script"][1]
+    assert (n["com_script_na_fonte"] + n["sem_registro"]
+            + n["mudos_na_fonte"]) == extras["npc_nao_estatico"]
     # e o estático não pode passar do que a FONTE oferece: denominador feito da
     # nossa própria contagem leria 100% para sempre
     assert extras["estaticos"][0] <= extras["estaticos"][1]
     # o denominador é o COLOCÁVEL, não o total da fonte
     assert pares["object_events"][1] + extras["obj_impossiveis"] == extras["obj_fonte"]
     assert pares["bg_events"][1] + extras["bg_sem_traducao"] == extras["bg_fonte"]
+
+    # 5.1 A RÉGUA NOVA DA COLUNA `script` (06/09/2026), com caso PLANTADO: sem
+    #     isso o teste seria "o número de hoje é o número de hoje".
+    #     Três NPCs no mesmo mapa: um com script na fonte e fala nossa, um com
+    #     script na fonte e MUDO do nosso lado, e um que a fonte deixa sem
+    #     script nenhum. A régua tem que ler 1 de 2, e não 1 de 3.
+    def npc(x, y, script="0", **k):
+        return dict(x=x, y=y, script=script, graphics_id="OBJ_EVENT_GFX_MAN",
+                    **k)
+
+    def linha(i, x, y, sf):
+        return dict(mapa="gXXmYY", tipo="objeto", i=i, x=x, y=y, motivo="entrou "
+                    "mudo", script_fonte=sf, papel="plantado")
+    doc = {"object_events": [npc(1, 1, "PlantadoFala"), npc(2, 2), npc(3, 3)]}
+    fonte = {"gXXmYY": [linha(0, 1, 1, "0x800000"), linha(1, 2, 2, "0x800100"),
+                        linha(2, 3, 3, "0x0")]}
+    num, den, notas = galar_script({"gXXmYY": doc}, fonte)
+    assert (num, den) == (1, 2), (num, den)
+    assert notas["mudos_na_fonte"] == 1, notas
+    assert notas["com_script_na_fonte"] == 2, notas
+    #     mutação plantada: dar fala nossa ao MUDO NA FONTE não pode empurrar a
+    #     coluna acima de 100%. Ele sai dos DOIS lados, como em `corta_campo`.
+    doc2 = {"object_events": [npc(1, 1, "A"), npc(2, 2, "B"), npc(3, 3, "C")]}
+    num, den, notas = galar_script({"gXXmYY": doc2}, fonte)
+    assert (num, den) == (2, 2), (num, den)
+    assert notas["mudos_com_fala_nossa"] == 1
+    #     e o encontro estático continua fora dos dois lados
+    doc3 = {"object_events": doc["object_events"]
+            + [npc(9, 9, "Est", origem="estaticos_galar")]}
+    assert galar_script({"gXXmYY": doc3}, fonte)[:2] == (1, 2)
+    #     NPC nosso que a fonte não explica FICA nos dois lados, e vai contado
+    #     à parte: tirá-lo calado esconderia obra que existe no mapa.
+    doc4 = {"object_events": doc["object_events"] + [npc(8, 8)]}
+    num, den, notas = galar_script({"gXXmYY": doc4}, fonte)
+    assert (num, den) == (1, 3) and notas["sem_registro"] == 1, (num, den, notas)
+
+    # 5.2 O CARIMBO `cortado_por`, com caso plantado. `galar_cortados` lê o
+    #     campo do próprio `map.json`; a mutação é um mapa carimbado que
+    #     continuasse contando.
+    plantados = {"gAA": {"cortado_por": "decisão de escopo"},
+                 "gBB": {"object_events": []},
+                 "gCC": {"cortado_por": ""}}
+    assert galar_cortados(plantados) == {"gAA": "decisão de escopo"}, \
+        galar_cortados(plantados)
+    #     e na árvore de verdade: os 34 são os 16 de FireRed mais as 18 salas de
+    #     reserva, e nenhum deles sobrou no numerador
+    assert len(extras["cortados"]) == 34, extras["cortados"]
+    assert sum(1 for m in extras["cortados"]
+               if "sobra_firered" in extras["cortados"][m]) == 16
+    for m in extras["cortados"]:
+        assert m not in nossos, f"{m} está cortado e ainda conta"
 
     # 6. a tabela de apelidos tem que estar sã, e apelido errado tem que REPROVAR
     assert confere_apelidos() == [], confere_apelidos()
