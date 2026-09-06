@@ -39,35 +39,35 @@
  },
  {
   "id": "T175.4",
-  "nome": "Oreburgh, a cidade da MINA: as pedras soltas que o `enfeita_cidades.py` carimbou no chão de terra são sólidas. Do warp 6 (a porta do ginásio, em 30,22) sete passos para baixo e três para a direita deixam o jogador em (30,28), porque a pedra de (31,28) barra o primeiro passo para a direita; sem os enfeites ele chegaria a (32,28). Oreburgh é o caso em que o carimbo entrou pelo ATALHO DE COBERTURA (a pedra tapa 100% dos pixels do chão e a distância de cor para a terra é 29), então este caso também é a prova de que o atalho não solta enfeite errado. A rota vale para as duas hipóteses de pouso do warp de depuração, no próprio tile e um ao sul dele, e para as quatro direções iniciais de olhar.",
+  "nome": "Oreburgh, a cidade da MINA: o arbusto que o `enfeita_cidades.py` carimbou no chão de terra é SÓLIDO. Do warp 7 (a porta da casa 1, em 40,19) dois passos para baixo, nove para a direita e nove para baixo deixam o jogador em (48,22), porque o arbusto de (48,23) barra a descida; sem os enfeites ele desceria até (48,28). Oreburgh é o caso em que o carimbo entrou pelo ATALHO DE COBERTURA (o arbusto tapa mais de 90% dos pixels do chão do doador e por isso pode cair na terra, que é outro chão), então este caso também é a prova de que o atalho não solta enfeite errado. A rota vale para as duas hipóteses de pouso do warp de depuração, no próprio tile e um ao sul dele, e para as quatro direções iniciais de olhar. Ela foi REFEITA em 07/09/2026, pela poda da pergunta 47: a rota antiga media a pedra de (31,28), que era a terceira cópia do mesmo carimbo e saiu quando o teto por carimbo caiu para 2.",
   "warp": "MAP_OREBURGH_CITY",
-  "warp_id": 6,
-  "roteiro": "120:NADA,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:RIGHT,16:RIGHT,16:RIGHT,90:NADA",
+  "warp_id": 7,
+  "roteiro": "120:NADA,16:DOWN,16:DOWN,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,90:NADA",
   "prova": {
    "mapa": "MAP_OREBURGH_CITY",
    "pos": [
-    30,
-    28
+    48,
+    22
    ]
   }
  },
  {
   "id": "T175.5",
-  "nome": "Eterna, a cidade da floresta antiga: do warp 4 (a porta do MART, em 25,33) sete passos para baixo e três para a esquerda deixam o jogador em (25,39), porque a árvore de (24,39) barra o primeiro passo para a esquerda; sem os enfeites ele chegaria a (23,39), que é onde mora a segunda árvore do mesmo carimbo. Três cidades e três tilesets secundários provados no emulador, e não só renderizados em PNG. A rota foi ESCOLHIDA por busca, e não escrita à mão: ela dá a MESMA posição para as duas hipóteses de pouso do warp de depuração e para as quatro direções iniciais de olhar, e uma posição DIFERENTE na grade de antes do desenho.",
+  "nome": "Eterna, a cidade da floresta antiga: do warp 3 (a porta do Pokécenter, em 16,17) sete passos para baixo, cinco para a esquerda e oito para baixo deixam o jogador em (12,27), porque a placa de (12,28) barra o resto da descida; sem os enfeites ele chegaria a (12,30). Três cidades e três tilesets secundários provados no emulador, e não só renderizados em PNG. A rota foi ESCOLHIDA por busca, e não escrita à mão: ela dá a MESMA posição para as duas hipóteses de pouso do warp de depuração e para as quatro direções iniciais de olhar, e uma posição DIFERENTE na grade de antes do desenho. Ela foi REFEITA em 07/09/2026, pela poda da pergunta 47: a rota antiga media a árvore de (24,39), que saiu junto com as outras cópias do mesmo carimbo.",
   "warp": "MAP_ETERNA_CITY",
-  "warp_id": 4,
-  "roteiro": "120:NADA,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:LEFT,16:LEFT,16:LEFT,90:NADA",
+  "warp_id": 3,
+  "roteiro": "120:NADA,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,90:NADA",
   "prova": {
    "mapa": "MAP_ETERNA_CITY",
    "pos": [
-    25,
-    39
+    12,
+    27
    ]
   }
  },
  {
   "id": "T175.6",
-  "nome": "Oreburgh: entrar num prédio continua funcionando depois da enfeitada. O warp 6 larga o jogador na porta do ginásio (30,22); um passo para baixo sai dela e dois para cima pisam nela de novo, e o warp dispara. É o mesmo par do T175.3, agora na cidade em que a enfeitada foi mais pesada (51 células), porque a maneira mais barata de estragar uma cidade é fechar a calçada na frente de uma porta.",
+  "nome": "Oreburgh: entrar num prédio continua funcionando depois da enfeitada. O warp 6 larga o jogador na porta do ginásio (30,22); um passo para baixo sai dela e dois para cima pisam nela de novo, e o warp dispara. É o mesmo par do T175.3, agora na cidade em que a enfeitada foi mais pesada (12 células), porque a maneira mais barata de estragar uma cidade é fechar a calçada na frente de uma porta.",
   "warp": "MAP_OREBURGH_CITY",
   "warp_id": 6,
   "roteiro": "120:NADA,16:DOWN,16:UP,16:UP,180:NADA",

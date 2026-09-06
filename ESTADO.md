@@ -620,6 +620,20 @@ graça do ROM hack você podia dar uma enfeitada temática". Onze cidades e vila
 **388 células no total** (386 delas mudam byte de verdade; duas repintam o mesmo
 metatile), e Canalave ganhou um porto que não existia em tileset nenhum de Sinnoh.
 
+**PODADO em 07/09/2026: as 333 células do gerador viraram 80**, e com as 55 do porto, que não foram
+tocadas, o total sai de 388 para **135**. É a resposta do Gui à pergunta 47 ("manter e podar").
+Duas mudanças, as duas no gerador e nenhuma à mão: o teto por carimbo caiu de 6 para **2** e passou a
+contar pela ASSINATURA do desenho, porque contar por `id(e)` não segurava nada quando o mesmo carimbo
+chegava pelas duas chamadas de `catalogo()` (Celestic tinha 9 placas iguais, Solaceon 11 e Oreburgh 12,
+e foi isso que o Gui viu); e o RETALHO DE CHÃO, o quadrado de areia com borda de grama (metatiles 280 a
+298 do `gTileset_GeneralSinnoh` e 254 a 263 do `gTileset_JohtoNorthEast`), entrou em `RECUSADOS`, porque
+ele não desenha objeto nenhum e só troca o piso: ou vira remendo de outra cor (a areia na calçada de
+Eterna e no gramado de Solaceon), ou vira moldura de nada no meio da areia. Por cidade, de 333 para 80:
+Canalave 10→6, Celestic 21→6, Snowpoint 18→6, Solaceon 72→6, Oreburgh 51→12, Jubilife 30→10, Twinleaf
+14→8, Sandgem 21→10, Blackthorn 30→2, Eterna 36→6, Floaroma 30→8. O plano continua idempotente (três
+rodadas seguidas dão `map.bin`, tileset e os dois planos byte idênticos), e o T175.4 e o T175.5 foram
+recalibrados por busca, porque mediam cópias que a poda tirou.
+
 #### A régua: `dev_scripts/regua_cidades.py`
 
 A régua de arte que já existia (`completude.py`, `PISO_ARTE = 10`) conta metatiles DISTINTOS por mapa,
