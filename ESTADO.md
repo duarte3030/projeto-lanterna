@@ -4,13 +4,210 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 06/09/2026, na build da rodada 13, os dois primeiros consertos do playtest do Gui (o
-letreiro de mapa e a música de Johto). A seção 0.u abaixo é a passagem de bastão dela, e a 0.t é a da
-rodada 12.
+Última medição: 07/09/2026, na ROM CONSOLIDADA da rodada 13,
+`roms/pokemon-claude-2026-09-07.gba` (md5 `c0ea203b6fad9336bba410145fc0663d`), que é o HEAD
+`ed8698166c` mais os três consertos pequenos do fechador. Build limpo verde, **SAVE COMPATIVEL**,
+**suíte 1.047 de 1.048** (o único vermelho é instável e está nomeado) e **T11 3 de 3**. A seção 0.u
+abaixo é a passagem de bastão dela, e começa pelo placar; a 0.t é a da rodada 12.
 
 ---
 
-## 0.u O LETREIRO DE MAPA PARA DE DIZER "SINNOH WEST" E JOHTO PARA DE TOCAR CAVERNA: O NOME DO POPUP SAI DO MAPSEC, E O DE-PARA DE MÚSICA SAI DE PETALBURG WOODS, 05-06/09/2026 (rodada 13; os dois primeiros defeitos achados pelo Gui no playtest, um executor Opus cada)
+## 0.u O LETREIRO DE MAPA PARA DE DIZER "SINNOH WEST" E JOHTO PARA DE TOCAR CAVERNA: O NOME DO POPUP SAI DO MAPSEC, E O DE-PARA DE MÚSICA SAI DE PETALBURG WOODS, 05-07/09/2026 (rodada 13; o playtest do Gui, um executor Opus por frente, fechador Opus)
+
+### PLACAR DA RODADA 13, fechado em 07/09/2026
+
+**A ROM do Gui é `roms/pokemon-claude-2026-09-07.gba`**, md5
+`c0ea203b6fad9336bba410145fc0663d`, 33.554.432 B de arquivo com **32.371.748 B de conteúdo (96,48%
+de 32 MB)**, com o `.map` do linker ao lado. Ela é o HEAD `ed8698166c` **mais os três consertos
+pequenos da fila do fechador** (a lava de Blackthorn, a conexão duplicada da Route 43 e as duas lojas
+do Pokécenter da Liga), buildada LIMPA (`make clean && make -j8`) na árvore principal com o lock.
+
+Dezoito commits de código entraram, todos com push, mais cinco commits só de ESTADO. `5f3a4cb403` é
+a recalibração dos roteiros que a colisão de `bce66c4718` moveu, então os dois são a MESMA frente.
+
+| # | conserto | hash |
+|---|---|---|
+| 1 | O letreiro de mapa passa a dizer o lugar: `map_name_popup` em 1.332 mapas, tabela gerada no build | `b7ef40f330` |
+| 2 | Johto para de tocar caverna: 23 apelidos `MUS_HG_*` saem de `MUS_PETALBURG_WOODS` | `fccccc0265` |
+| 3 | Trainer Hill e as três Battle Tents devolvem o jogador para o lado por onde ele entrou | `40ebe8eedd` |
+| 4 | Toda porta entra: a lente `lente_portas` e o elevador da loja de Goldenrod | `bfe2b35a71` |
+| 5 | O Pokécenter de Sinnoh volta a ter uma enfermeira só: 25 corpos repetidos em 15 mapas | `9d63704a3a` |
+| 6 | Os portões da frente dos prédios compartilhados (só ESTADO) | `e2ea8fb537` |
+| 7 | A igreja de Hearthome abre pelos dois lados, e a placa de obras fala inglês | `95759c9b4f` |
+| 8 | Mahogany Town amanhece em neve, e nenhum vizinho respinga | `3711c3b036` |
+| 9 | As passarelas de Sunyshore param de comer o sprite: o cruzamento vira portão | `9539325fc3` |
+| 10 | Batalha de treinador chamada de gatilho ou de placa para de dar tela azul (lente C28) | `82b42f859c` |
+| 11 | O ginásio de Blackthorn para de travar: a ponte deixa de ser pintada de lava | `6b3effaa92` |
+| 12 | O jogador para de sumir dentro do brejo da Route 212 South (lente E3) | `7b9a11ce64` |
+| 13 | O jogador para de andar por dentro do cenário de Sinnoh, e três ginásios ganham porta | `bce66c4718` + `5f3a4cb403` |
+| 14 | As casas pretas de Goldenrod: a posição no array de paleta é o slot | `884c3f9516` |
+| 15 | As cidades sem graça ganham enfeite temático, e Canalave ganha um porto | `8c82badf58` |
+| 16 | O Contest Hall de Hearthome para de ser um posto de enfermagem | `9313e873f3` |
+| 17 | Os três cães acordam na Burned Tower, e o sábio sai da porta do ginásio de Ecruteak | `6c1e43f94c` |
+| 18 | Quem entra por uma porta sai por ela: a auditoria de ida e volta dos warps | `ed8698166c` |
+
+**A fila do fechador, item a item.** Onze pendências foram anotadas pelos executores na madrugada de
+06/09. O que aconteceu com cada uma:
+
+| item | veredito |
+|---|---|
+| 1. unificar os dois specials de "sair pela porta por onde entrou" | **FEITO na própria rodada** (`ed8698166c`): sobrou só `DefinirRetornoPredioCompartilhado`, e o T171 fecha 10/10 |
+| 2. lava do ginásio de Blackthorn, 429 células colisão 0 e elevação 2 | **FEITO pelo fechador**, `dev_scripts/fecha_lava_blackthorn.py` |
+| 3. lente E3, Sinnoh 33 e Johto 405 restantes | **ABERTO**, e é rodada própria: 33 são colisão de telhado e 405 são camada `NORMAL` -> `COVERED` como o brejo |
+| 4. Route 43 declara `up` duas vezes | **FEITO pelo fechador** |
+| 5. 31 portas decorativas de Johto | **ABERTO, e é pergunta 46 ao Gui** |
+| 6. `.sav` de teste em caminho absoluto compartilhado | **ABERTO**, e é dívida do `testa_critico.py` |
+| 7. lock de build furado e órfão | **ABERTO como regra**, ver as lições abaixo |
+| 8. ROM consolidada | **FEITA**, é esta seção |
+| 9. 31 corpos repetidos em 25 interiores de Sinnoh fora de Pokécenter | **ABERTO**, e pede estender `corpos_repetidos_pokecenter.py` |
+| 10. `PokemonLeagueNorthPokecenter1F`, as duas lojas com `script: "0"` | **FEITO pelo fechador** |
+| 11. `importa_npcs_sinnoh.py` e `valida_mapas_sinnoh.py` sem commit | **FEITO na própria rodada** (`9313e873f3`) |
+
+**O que ficou para o Gui, e só ele responde.**
+
+- **Pergunta 46: as 31 portas decorativas de Johto.** A `lente_portas` acha 40 achados na classe "sem
+  interior" em Johto: porta que o jogador vê, não abre, e para a qual não existe mapa de interior na
+  árvore. Nove são o portão de rota desenhado dos dois lados da emenda, e não são defeito. Sobram 31,
+  e fechar cada uma exige INVENTAR conteúdo (interior novo) ou apagar a porta do desenho. Nenhum
+  agente decide isso.
+- **Pergunta 47: o enfeite das 11 cidades.** As 388 células temáticas de `8c82badf58` são gosto, e o
+  gosto é dele: manter como está, podar onde ficou carregado, ou reverter. Cianwood, a 5ª mais sem
+  graça pela régua, ficou de fora de propósito e entra ou não na mesma resposta.
+
+**As lições de infra desta rodada, e elas valem para toda rodada com muitos agentes.**
+
+1. **Lock de build furado é pior que lock nenhum**, porque ensina a ignorar o rito. Ele foi furado e
+   ficou órfão duas vezes em 06/09. A regra que ficou: **o lock envolve o `make` e nada mais**, e
+   frente que precisa de build própria usa **worktree por frente** em vez de disputar a árvore.
+2. **Suíte inteira num processo só é aposta.** Com várias frentes na máquina, três execuções foram
+   mortas por fora no meio. O fechador rodou **bloco a bloco, com o placar gravado em disco a cada
+   bloco**: quem apanha perde um bloco, não a varredura, e a contagem final se soma dos arquivos.
+   Formato mantido mesmo com a máquina livre.
+3. **`.sav` de teste em caminho absoluto e compartilhado é veredito sorteado.** Os caminhos vivem
+   cravados nos `*.json` (`/tmp/claude-501/frenteA/...`), e duas suítes ao mesmo tempo escrevem no
+   mesmo arquivo. Três frentes contornaram com um `sed` NÃO commitado; o conserto de verdade é opção
+   no `testa_critico.py`, e continua aberto.
+4. **Índice do git é compartilhado, e `git add` de uma frente carrega arquivo de outra.** Foi assim
+   que o ESTADO de uma frente entrou de carona no commit de outra (`bfe2b35a71`). A regra: cada
+   frente commita com `GIT_INDEX_FILE` próprio e lista fechada de arquivos, nunca `add -A`.
+5. **Ferramenta descartável com nome genérico atropela a de outra frente.** Duas frentes escreveram
+   `patch_estado.py` na mesma pasta, meia hora uma da outra. Ferramenta de uma passada mora na pasta
+   da frente, com nome da frente.
+6. **`open(caminho, "w")` antes do `assert` trunca o arquivo quando o `assert` cai.** Foi assim que o
+   ESTADO perdeu 31 linhas e ganhou um bloco duplicado, o que custou três commits de conserto
+   (`b12658fd95`, `7a6e430d8a`, `b58dcbad7f`). Escreva em temporário e renomeie, ou valide ANTES de
+   abrir para escrita.
+7. **Sem `--offsets`, o `gba_runner` usa os offsets padrão do cabeçalho dele**, e nesta build `vars[]`
+   mora em `0x18B8`, não em `0x13E0`: escrita de var cai no lugar errado e o roteiro passa a testar
+   outro mundo, calado. O fechador pagou isso montando a prova das lojas da Liga.
+
+**A última medição desta rodada, contra a ROM `2026-09-07`.** Build limpo verde (`make clean && make
+-j8`, RC 0), **EWRAM e IWRAM sem mudança**. `valida_rom.py` com os **2.400 mapas e 2.054 layouts
+declarados dentro da ROM**. `guarda_save.py` **SAVE COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B
+(94,3%), 2.400 mapas, 2.252 ids de treinador e 1.718 apelidos: os três consertos do fechador são
+dado de mapa e de layout, e nenhum deles é índice de save. `valida_conectividade.py` com **0 warps
+quebrados**; o alcance caiu de 1.966 para **1.965 de 2.289** e a queda é HONESTA, é o
+`LakeOfRageLowTide` saindo do grafo (ver o conserto da Route 43 abaixo). `valida_warp_tile.py --piso
+60` em **5.918 de 6.874 (86,1%)**, Hoenn 93,3%, Kanto 79,4%, Sinnoh 98,1%, Johto 90,8% e Unova
+100,0%, nenhuma região abaixo do piso. `roda_qa.py --demo` **verde nas SEIS varreduras**, e a
+varredura cheia dá **14.663 achados com 323 travas** (Kanto 5, Johto 2, Hoenn 2, Sinnoh 8, Unova 25,
+Galar 268, comum 13). `completude.py`: mapas 100% nas seis regiões; objetos Kanto 101,2%, Johto
+100,8%, Hoenn 100,7%, **Sinnoh 99,4%**, Unova 102,3%, Galar 103,6%; Dex obtenível 1.571 de 1.571.
+
+**As lentes novas desta rodada, medidas no cartucho 1** (Kanto, Johto, Hoenn e Sinnoh): **C28 zero
+achados**, **E1 zero**, **E2 zero**, **E3 zero travas** (os 5.307 achados dela são todos classe
+"provável"), **lente_warps zero travas nas quatro regiões** (o que sobra é Unova 38 e Galar 130) e
+**lente_portas zero travas em Kanto, Johto e Hoenn**. A lente_portas **tem 8 travas em Sinnoh**, e
+elas não são desta rodada nem são regressão: são as portas do corte que já estão registradas
+(`JubilifeCity` 42,25; `Route208` 57,14; `Route212_North` 6,50; `Route214` 16,2; `Route221` 82,15;
+`SnowpointCity` 29,20; `SpearPillar_Distorted` 16,14; `VeilstoneCity` 31,47, esta última já listada
+como túmulo no retrato das 44). Quem disser "zero travas no cartucho 1" está arredondando: são zero
+em três regiões de quatro.
+
+**Suíte 1.047 de 1.048** no HEAD `ed8698166c`, rodada bloco a bloco (114 blocos, 1.048 casos, o T11 à
+parte), e **T11 3 de 3** contra `roms/pokemon-claude-2026-08-18.gba` com a fonte velha na worktree de
+`cf6786b2ae`. O único vermelho é o **T176.3, e ele é INSTÁVEL, não regressão**: medido pelo fechador
+em seis execuções seguidas da MESMA ROM, o roteiro entra no `MAP_HEARTHOME_CITY_GYM` em cinco e para
+uma célula à direita da porta na sexta, porque a perna `RIGHT*5` conta com o "primeiro toque numa
+direção nova só vira" e uma vez em cada seis esse toque anda. Uma pausa entre as pernas foi tentada e
+NÃO estabilizou, então o diagnóstico do roteiro ainda não está fechado e o caso fica na lista de
+instáveis, ao lado do T94.1 e do T143.9. **Depois dos três consertos do fechador**, os **13 blocos
+que passam pelos mapas tocados foram refeitos: 103 de 103, zero reprovado**, com o T176 fechando
+**12 de 12** nessa passada, que é a contraprova da instabilidade.
+
+### Os três consertos pequenos do fechador, 07/09/2026
+
+**1. A lava do ginásio de Blackthorn deixa de ser andável.** Eram **429 células com colisão 0 e
+elevação 2** no `data/layouts/BlackthornCity_Gym/map.bin`, herdadas do import. Ninguém pisava nelas
+hoje, e não por mérito do dado: quem barrava era `IsElevationMismatchAt`, porque o jogador anda em
+elevação 3. Era mina: ponte nova encostando na lava por uma célula de elevação 0
+(`ELEVATION_TRANSITION`, que casa com qualquer vizinho) deixaria o jogador entrar na elevação 2 e
+nunca mais sair. `porta_ginasios_johto.py` LÊ o `map.bin` e nunca o escreve, então o conserto é dado
+e mora em **`dev_scripts/fecha_lava_blackthorn.py`**, idempotente e com `--demo` de cinco provas.
+Ele muda **só os dois bits de colisão**: metatile e elevação saem byte a byte iguais. **Provas:** as
+64 células de ponte que o roteiro abre estão em colisão 1 e elevação 0, ou seja a interseção com o
+alvo é VAZIA; a BFS com a regra do motor a partir do tile de chegada do warp dá **31 antes e 31
+depois** com as pontes fechadas e **338 antes e 338 depois** com as quatro abertas, e a célula ao
+lado da Clair continua alcançável nos dois casos; o `T164` fecha **4 de 4** e o `T90`, que anda com
+os cinco Pokémon de overworld do ginásio, **14 de 14**. Os três Pokémon de enfeite que ficam em cima
+da lava (CHARIZARD 28,20 e DRAGONITE 11,15 em `WALK_IN_PLACE`, MAGCARGO 28,53 em `WANDER_AROUND` com
+alcance 0) não andam, então fechar a célula não prende ninguém que se mexia.
+
+**2. A Route 43 declarava `up` duas vezes, e a segunda era conexão morta.** `MAP_LAKE_OF_RAGE` e
+`MAP_LAKE_OF_RAGE_LOW_TIDE`, as duas com `offset: -16`. **O hns tem a mesma duplicata**, e o motivo
+está no `data/maps/LakeOfRage/scripts.inc` DELE: lá a maré baixa não é mapa vizinho, é **troca de
+layout no próprio LakeOfRage** (`setmaplayoutindex LAYOUT_LAKE_OF_RAGE_LOW_TIDE` dentro do
+`ON_TRANSITION`), e `LakeOfRageLowTide` só existe como casca do layout. Esse `ON_TRANSITION` nunca
+foi importado, porque a var de enredo do hns foi cortada.
+
+O motor trata as duas conexões de jeitos DIFERENTES, e é isso que fazia da duplicata uma armadilha:
+quem ANDA usa `GetMapConnection` (`src/fieldmap.c`), que para no PRIMEIRO casamento de direção, ou
+seja `LAKE_OF_RAGE`; quem DESENHA é `InitBackupMapLayoutConnections`, que preenche TODAS e deixa a
+ÚLTIMA por cima, ou seja `LAKE_OF_RAGE_LOW_TIDE`. Medido antes de tocar: nas 7 linhas de baixo do
+lago, que são a faixa que a Route 43 desenha, os dois layouts são **idênticos célula a célula**,
+então a divergência era invisível hoje e ia deixar de ser no dia em que alguém editasse um dos dois.
+Ficou **uma conexão**, a `MAP_LAKE_OF_RAGE`. **Provas:** o Lago da Fúria continua alcançável a pé
+(`valida_conectividade.py` com 0 warps quebrados, e o lago dentro do grafo); o alcance caiu de 1.966
+para 1.965 porque o `LakeOfRageLowTide` saiu, que é a ferramenta parando de mentir; a nota da
+`lente_portas` sobre as duas casas do lago de maré baixa foi reescrita para dizer o mecanismo certo,
+senão o comentário viraria mentira no primeiro leitor.
+
+**3. As duas lojas do Pokécenter norte da Liga estavam mudas.** `MART_EMPLOYEE` em (12,1) e `CLERK`
+em (12,3) tinham `script: "0"` enquanto `PokemonLeagueNorthPokecenter1F_EventScript_Loja1` e
+`_Loja2` já existiam no `scripts.inc`, escritos por `mudos_sinnoh.py --lojas-aplica` numa rodada
+anterior. O de-para saiu da FONTE e não de chute: em
+`res/field/scripts/scripts_pokemon_league_north_pokecenter_1f.s` do Platinum, a entrada 2 é
+`VendorCommon` e a 3 é `VendorSpecial`; no `events_*.json`, `LOCALID_LEAGUE_NORTH_CASHIER_F` tem
+`script: 2` e `CASHIER_M` tem `script: 3`; e no de-para de `valida_mapas_sinnoh.py`, `CASHIER_F` vira
+`MART_EMPLOYEE` e `CASHIER_M` vira `CLERK`. Logo `MART_EMPLOYEE` -> `Loja1` (lista comum) e `CLERK`
+-> `Loja2` (`MART_SPECIALTIES_ID_POKEMON_LEAGUE`). O gerador não conseguia refazer isso sozinho: com
+os dois corpos repetidos apagados por `corpos_repetidos_pokecenter.py`, o casamento com a fonte
+passou a dar `sem_casamento`, e a guarda `tem_loja` do próprio gerador pula o balconista comum em
+mapa que já tem `pokemart` escrito. **Prova no emulador:** o menu **BUY / SELL / QUIT** abre nos
+DOIS, com a saudação "Welcome! Take a look around, we've got everything a TRAINER needs.", e os PNGs
+foram abertos e olhados. A rota usa pernas saturantes de 20 apertos e desarma antes os três
+`coord_event` do rival gravando `VAR_SINNOH_RIVAL_VENCEU_SUNYSHORE`; o `T104`, que é o caso do rival
+deste mesmo mapa, continua **9 de 9**.
+
+### A fumaça da ROM consolidada, catorze itens, PNG por item aberto e olhado
+
+| item | o que apareceu na tela |
+|---|---|
+| letreiro de Sunyshore | "SUNYSHORE CITY" no alto, no lugar de "SINNOH EAST" |
+| letreiro de Azalea | "AZALEA TOWN" no alto, no lugar de "SINNOH WEST" |
+| música de Goldenrod | `prova_musica_johto.py` **11 de 11**: header e driver leem 521 (`MUS_RG_CELADON`), e o controle de Hoenn continua em 362 |
+| praça de Johto -> Trainer Hill -> praça | volta em `TrainerHill_Courtyard` (95.13) em (12,11), na frente da porta por onde entrou |
+| Veilstone -> loja -> Veilstone | `prova_portas_compartilhadas.py` **11 de 11**: sai em `VeilstoneCity` (75.9) em (25,31), e não em Lilycove |
+| emboscada do Lentimas Gym | caixa "You are challenged by HEX MANIAC SYLVIA!", oponente 2456, sem tela azul |
+| ponte do ginásio de Blackthorn | passarela AZUL sobre a lava vermelha, com o jogador em cima dela em (20,48) |
+| Mahogany em neve | cidade branca, telhado com cume, e o letreiro "MAHOGANY TOWN" na mesma tela |
+| Route 43, controle do vizinho | rocha marrom e grama verde, nenhum floco: o respingo não existiu |
+| passarela de Sunyshore | cinco DOWN param em (25,31), o corpo aparece inteiro e o corrimão barra |
+| porta da Radio Tower de Goldenrod | `prova_paletas_goldenrod.py` OK: **1,1% de preto** contra o teto de 12%, e o controle das Ruínas em 0,2% |
+| Hearthome, árvore e casa | o jogador para em (19,20) na banca, e a POFFIN HOUSE (123.31) entra pela porta |
+| Contest Hall | recepcionistas de uniforme e ninguém de touca de enfermeira no salão |
+| Ecruteak, o sábio | sem a flag o jogador fica em (20,50), na rua; com `FLAG_JOHTO_CAES_LIBERTOS` ele entra no `EcruteakCity_Gym` (90.8) |
+| Route 212 South, o brejo | o jogador continua VISÍVEL em cima do brejo, em (71,20) |
 
 O Gui jogou a ROM `23d` e trouxe o primeiro defeito do playtest: o letreiro que aparece ao entrar num
 mapa dizia **"SINNOH WEST", "SINNOH EAST", "SINNOH NORTH", "UNOVA EAST", "GALAR NORTH"** em centenas de
@@ -90,7 +287,7 @@ MESMA rota: `SunyshoreCity` (grupo 75, mapa 13) escrevia **"SINNOH EAST"** e `Ga
 `PetalburgCity` (0, 0), que é o controle de Hoenn e não tem campo nenhum, continua escrevendo
 "PETALBURG CITY".
 
-### O que fica aberto
+### O que fica aberto no letreiro de mapa
 
 - **Porymap não conhece o campo.** `tools/mapjson` ignora chave desconhecida, mas um editor gráfico que
   reserialize o `map.json` inteiro pode deixar `map_name_popup` para trás. Se algum mapa perder o
@@ -165,6 +362,27 @@ Bark, Olivine, Blackthorn, a Rota 29, o ginásio de Violet, a loja de Cherrygrov
 500**, cada um a sua. `PetalburgCity` é o controle de Hoenn e lê **362 nas duas ROMs**. O `gba_runner`
 ganhou `--mem16` e `--mem32`, leitura crua de endereço, porque nenhuma das duas provas passa por
 SaveBlock1.
+
+### Os portões das duas primeiras frentes: o letreiro e a música de Johto
+
+**Suíte 1.002 de 1.003**, com o T11.3 contado à parte, e **T11 3/3** contra a ROM
+`roms/pokemon-claude-2026-08-18.gba`, que é a última ANTES do `SAVE_LAYOUT_REVISION` de 19/08 (a fonte
+dela é a worktree de `cf6786b2ae` em `/private/tmp/claude-501/t11-r13`). Build verde com o lock,
+**ROM 96,44% de 32 MB** (32.360.228 B, **1.194.204 B livres**, 9.632 B a mais
+que a 0.t, que é o custo inteiro da tabela e das strings), **EWRAM 86,16% e IWRAM 86,68%**, idênticos
+aos da 0.t. **SAVE COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B (94,3%), 2.400 mapas, 2.252 ids de
+treinador e 1.716 apelidos conferidos: não há mudança de struct, de índice nem de flag nesta rodada, e
+o campo novo mora no `map.json`, que não entra na save. `valida_rom.py` com os 2.400 mapas declarados
+dentro da ROM. `dev_scripts/qa/roda_qa.py --demo` verde nas quatro varreduras, e
+`dev_scripts/nomes_popup.py --demo` com 25 casos.
+
+**Os portões foram REFEITOS INTEIROS depois do conserto da música de Johto (06/09/2026), e deram os
+MESMOS números**, o que é a prova de que a troca de constante não custou nada: build verde com o lock,
+**ROM 32.360.228 B, byte a byte o mesmo tamanho**, EWRAM 86,16% e IWRAM 86,68% iguais, **suíte 1.002 de
+1.003** com o T11.3 à parte, **T11 3/3** contra a mesma `roms/pokemon-claude-2026-08-18.gba`,
+**SAVE COMPATIVEL** (música não mora na save), `valida_rom.py` com os 2.400 mapas dentro da ROM,
+`roda_qa.py --demo` verde nas quatro varreduras e `prova_musica_johto.py` com **9 de 9** mapas certos
+no header e no driver de som, contra **1 de 9** na ROM `2026-09-05`.
 
 ### O terceiro defeito do playtest: batalha de treinador chamada de gatilho ou de placa dava tela azul, 06/09/2026
 
@@ -564,7 +782,7 @@ comparando com o `git show HEAD:` de cada arquivo, 386 células diferentes e ZER
 `map.json` foi aberto para escrita, então warp, `bg_event`, `coord_event`, NPC e item estão onde
 estavam.
 
-#### Os portões desta frente
+#### Os portões da frente das cidades enfeitadas
 
 Build verde numa worktree ISOLADA (`/private/tmp/claude-501/arte-r13b`, HEAD `884c3f9516` mais só esta
 frente), porque a árvore compartilhada tem outras frentes no meio da obra. **ROM 32.371.336 B, 96,47%
@@ -763,7 +981,7 @@ de `BlackthornCity_Gym`. `roda_qa.py --demo` verde nas quatro varreduras.
    T11 2/3 (o terceiro é o PULA), T120 10/10, T123 25/25, T127 10/10, T136 10/10, T139 6/6,
    T160 8/8, **zero falha**.
 
-#### O que fica aberto
+#### O que fica aberto no ginásio de Blackthorn
 
 - **A lava continua andável no `map.bin`: 429 células de colisão 0 em elevação 2.** Hoje ninguém
   chega nelas (a BFS com a regra do motor alcança 335 de 785 células andáveis a partir do warp, e
@@ -780,27 +998,6 @@ de `BlackthornCity_Gym`. `roda_qa.py --demo` verde nas quatro varreduras.
 - **Caminho de `.sav` de teste é absoluto e compartilhado.** Enquanto vários agentes rodarem a suíte
   ao mesmo tempo, todo par de save vai piscar vermelho sem defeito nenhum. Consertar é derivar a
   pasta do `.sav` do processo, e é conserto do `testa_critico`, não desta frente.
-
-### Os portões
-
-**Suíte 1.002 de 1.003**, com o T11.3 contado à parte, e **T11 3/3** contra a ROM
-`roms/pokemon-claude-2026-08-18.gba`, que é a última ANTES do `SAVE_LAYOUT_REVISION` de 19/08 (a fonte
-dela é a worktree de `cf6786b2ae` em `/private/tmp/claude-501/t11-r13`). Build verde com o lock,
-**ROM 96,44% de 32 MB** (32.360.228 B, **1.194.204 B livres**, 9.632 B a mais
-que a 0.t, que é o custo inteiro da tabela e das strings), **EWRAM 86,16% e IWRAM 86,68%**, idênticos
-aos da 0.t. **SAVE COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B (94,3%), 2.400 mapas, 2.252 ids de
-treinador e 1.716 apelidos conferidos: não há mudança de struct, de índice nem de flag nesta rodada, e
-o campo novo mora no `map.json`, que não entra na save. `valida_rom.py` com os 2.400 mapas declarados
-dentro da ROM. `dev_scripts/qa/roda_qa.py --demo` verde nas quatro varreduras, e
-`dev_scripts/nomes_popup.py --demo` com 25 casos.
-
-**Os portões foram REFEITOS INTEIROS depois do conserto da música de Johto (06/09/2026), e deram os
-MESMOS números**, o que é a prova de que a troca de constante não custou nada: build verde com o lock,
-**ROM 32.360.228 B, byte a byte o mesmo tamanho**, EWRAM 86,16% e IWRAM 86,68% iguais, **suíte 1.002 de
-1.003** com o T11.3 à parte, **T11 3/3** contra a mesma `roms/pokemon-claude-2026-08-18.gba`,
-**SAVE COMPATIVEL** (música não mora na save), `valida_rom.py` com os 2.400 mapas dentro da ROM,
-`roda_qa.py --demo` verde nas quatro varreduras e `prova_musica_johto.py` com **9 de 9** mapas certos
-no header e no driver de som, contra **1 de 9** na ROM `2026-09-05`.
 
 ### As passarelas de Sunyshore param de comer o sprite: o cruzamento vira portão, 06/09/2026
 
@@ -946,6 +1143,8 @@ frente de Johto. Contra a ROM entregue `2026-09-05`, com o `--src` casado numa w
 `b7ef40f330`, esses cinco passavam e outros três (T140.7, T140.8, T140.11) falhavam, ou seja a linha
 de base da árvore compartilhada se move sozinha enquanto várias frentes escrevem nela.
 
+**FECHADO PELO FECHADOR, 07/09/2026:** era mesmo obra alheia em curso. Na build limpa do HEAD `ed8698166c`, com a árvore parada, os seis passam e a suíte fecha em 1.047 de 1.048 (ver o placar no topo desta seção).
+
 **O mesmo defeito tem 31 irmãos fora do Pokécenter, e eles ficam abertos.** Passando as MESMAS cinco
 provas em todo interior de Sinnoh de planta reaproveitada, sobram **31 corpos mudos repetidos em 25
 mapas** (`VeilstoneStore2F` a `5F`, os seis Marts, `CanalaveLibrary1F/2F/3F`, `MiningMuseum`,
@@ -1088,7 +1287,7 @@ de mulheres de cabelo rosa e touca branca; nesta build não há nenhuma, e no lu
 recepcionistas de uniforme verde e a FANTINA de cabelo lilás. No `VeilstoneStore2F` da `23d` havia
 DUAS mulheres idênticas no canto de baixo; nesta build há uma.
 
-#### Os portões desta frente
+#### Os portões da frente do Contest Hall
 
 Build verde numa worktree ISOLADA (`/private/tmp/claude-501/sprites-r13`, HEAD `7b9a11ce64` mais só
 esta frente), porque a árvore compartilhada tem outras cinco frentes no meio da obra. **A ROM
@@ -1126,7 +1325,7 @@ Pokécenters (frente vizinha), três na rua de Eterna, dois no `Restaurant`, e u
 `ContestHallLobby`. No HEAD desta rodada o mesmo importador já queria **25 objetos em 14 mapas**, ou
 seja a fila encolheu; ela é de rodada de completude, e não desta.
 
-#### O que fica aberto
+#### O que fica aberto no elenco de Sinnoh
 
 1. **Os 21 objetos acima.** `importa_npcs_sinnoh.py --aplicar` escreve `map.json` de Pokécenter, e
    isso PRECISA ser combinado com a frente dos Pokécenters antes de rodar: parte do que ele quer pôr
@@ -1213,7 +1412,7 @@ lado do mundo. O **T171.9** é o controle: depois do elevador, sair pela porta d
 carrega esse mesmo estado para dentro do lobby da tenda e sai pela porta: cai na praça de Johto em
 (20,29), e não na loja. Sem a reposição, ele cairia na loja.
 
-#### O que fica aberto
+#### O que fica aberto nos prédios compartilhados
 
 - **Duas funções com a MESMA regra nasceram na mesma rodada, e viraram UMA no mesmo dia.** A frente
   das lojas compartilhadas de Sinnoh (Veilstone e Oreburgh, que reaproveitam a loja e o museu de
@@ -1230,7 +1429,7 @@ carrega esse mesmo estado para dentro do lobby da tenda e sai pela porta: cai na
   `region_map_section` deles é o de Hoenn e é ele que essas telas leem. Quem entra pela praça de Johto
   vê "FALLARBOR TOWN" no lobby da tenda da esquerda. É dado de mapa, não deste mecanismo.
 
-#### Os portões desta frente
+#### Os portões da frente dos prédios compartilhados
 
 Build verde numa worktree ISOLADA (`/private/tmp/claude-501/predios`, HEAD `fccccc0265` mais só este
 conserto), porque a árvore compartilhada estava com outra frente no meio de uma obra e não linkava.
@@ -1451,7 +1650,7 @@ aplicar a edição errada no `ESTADO.md`, e foi sorte, não desenho: o mesmo aci
 assinatura parecida edita o arquivo de outra frente sem avisar. Ferramenta descartável mora na pasta
 de scratchpad da sessão, que já é única por definição.
 
-### O que fica aberto
+### O que fica aberto nas 44 portas fechadas
 
 - **Cinco meias portas do MESMO tipo, fora do corte**, achadas pela varredura de célula gêmea com
   comportamento de porta e sem warp: `FloaromaTown` (4,2)/(5,2), `MtSilver_2F` (25,36)/(26,36),
@@ -1605,7 +1804,47 @@ auditoria de warps, Mahogany), e as outras reprovações são exatamente nos map
 Sunyshore, T140.x portas fechadas, T151.x interiores pobres, T100/T101 Twinleaf, Hearthome e
 Solaceon). Fica registrado para o fechador da rodada juntar as pontas.
 
-#### Os portões desta frente
+**PONTA JUNTADA PELO FECHADOR, 07/09/2026:** eram mesmo obra alheia em curso. Na build limpa do HEAD
+`ed8698166c`, com a árvore parada e uma frente só na máquina, a suíte fecha sem nenhuma dessas
+reprovações (o placar completo está no fim desta seção).
+
+### Toda porta entra: a lente de porta sem warp, e o elevador de Goldenrod volta a funcionar, 06/09/2026
+
+O Gui pediu no playtest: *"reveja se dá para entrar em TODAS as casas da ROM"*. O
+`valida_warp_tile.py` só respondia metade da pergunta, porque ele parte do WARP e pergunta se o tile
+embaixo dispara. A outra metade, partir do TILE e perguntar se existe warp em cima, nunca teve régua,
+e porta desenhada sem warp é justamente a casa em que o jogador anda até a porta e nada acontece.
+
+A lente nova é `dev_scripts/qa/lente_portas.py`, entra em `roda_qa.py` com as outras e tem três
+regras: **P1** porta ao ar livre sem warp, **P2** porta em mapa fechado sem warp e **P3** warp fora
+da célula da porta. A unidade é o BLOCO de células vizinhas de mesmo comportamento, porque porta de
+prédio no FRLG tem três tiles de largura e portão de Johto tem quatro, e só um deles carrega o warp.
+Porta que o roteiro abre sai da conta, e isso é LIDO do script: `setmetatile` (a escada escondida da
+loja de Mahogany) e `opendoor` (todo elevador de loja de departamento), seguindo o rótulo por um
+índice da árvore inteira, porque o `opendoor` do elevador mora no `.inc` de outro mapa.
+
+**A calibração é de identidade, rodando a MESMA lente nas fontes intocadas:** Hoenn dá 1 em 202
+mapas ao ar livre aqui e 1 em 202 no `pokeemerald`, Kanto dá 11 em 168 aqui e 11 em 168 no
+`pokefirered`, mapa a mapa e célula a célula. Não há o que consertar nas duas, e os 12 casos entram
+na lista branca um a um. Em Johto, todo `map.bin` e todo warp são byte a byte iguais aos do `hns`.
+
+**O único conserto é o elevador da loja de departamento de Goldenrod.** Os seis andares e o subsolo
+tinham a porta desenhada em (9,4), e em (10,6) no subsolo, e o warp uma célula ACIMA dela, em parede
+com colisão 1: warp em tile sólido nunca dispara e porta sem warp nunca abre, então a porta não fazia
+nada em nenhum andar. O mecanismo certo estava na fonte e não tinha sido importado, e ele não usa o
+mapa do elevador: um `coord_event` na frente da porta chama a cena, a cena abre a porta, entra com
+`applymovement`, mostra o menu de sete andares e usa `warp` de script. O warp de (9,3) **não foi
+movido**, porque índice de warp é promessa permanente de save e mover a célula não consertaria nada.
+Custo em save: **zero**. `coord_event` não entra na save e `VAR_ELEVADOR_GOLDENROD` é apelido de
+`VAR_UNUSED_0x4114`, então `VARS_COUNT` não muda.
+
+**Sobram 40 achados em Johto na classe "sem interior"**, que são decisão do Gui e não do agente:
+porta que o jogador vê, não abre, e para a qual não existe mapa de interior na árvore. Medido: Johto
+não tem um só mapa órfão, então não há interior cortado esperando ser religado, e consertar exigiria
+inventar conteúdo. Nove dos 40 nem são defeito, são o portão de rota desenhado dos dois lados da
+emenda. Os 31 restantes são a **pergunta 46** ao Gui.
+
+#### Os portões da frente do elevador de Goldenrod
 
 Build verde com o lock, **ROM 96,47% de 32 MB** (32.371.048 B), **EWRAM 86,16% e
 IWRAM 86,68%**. `valida_rom.py` com os **2.400 mapas** declarados dentro da ROM.
@@ -1637,6 +1876,8 @@ gerador de Sinnoh e o arco de Ecruteak), e nenhum arquivo desta frente encosta
 neles: o conserto daqui é a loja de departamento de Goldenrod, mais um apelido no
 fim de `vars.h` e uma entrada no FIM do enum de `script_menu.h`, que não desloca
 id de ninguém.
+
+**FECHADO PELO FECHADOR, 07/09/2026:** era mesmo obra alheia em curso. Na build limpa do HEAD `ed8698166c`, com a árvore parada, os seis passam e a suíte fecha em 1.047 de 1.048 (ver o placar no topo desta seção).
 
 ### A auditoria de ida e volta dos warps: quem entra por uma porta tem que sair por ela, 06/09/2026
 
@@ -1853,7 +2094,7 @@ da meia-volta é gasto virando. Andar N tiles para dentro e N de volta gasta tod
 na seta e nenhum a acionando, e o caso da Rota 218 abriu VERMELHO três vezes por isso, com o jogo
 certo. Porta não tem esse problema, porque dispara ao ser PISADA.
 
-#### Os portões desta frente
+#### Os portões da frente da auditoria de warps
 
 Build verde numa worktree ISOLADA (`/private/tmp/claude-501/warps-r13`, HEAD `7b9a11ce64` mais só os
 arquivos desta frente), porque a árvore compartilhada tem outras cinco frentes no meio da obra.
@@ -2118,7 +2359,7 @@ cima dela pelo menu de debug não warpa nada.
   quantas retomadas forem precisas. Até o ponto em que esta linha foi escrita:
   **0 reprovados**.
 
-#### O que fica aberto
+#### O que fica aberto na colisão de Sinnoh
 
 - **A comparação com a fonte DPPt foi feita e não achou quase nada.** Os 62
   layouts de Sinnoh que existem em `fontes-mapas/sinnoh/` com o mesmo tamanho e o
@@ -2138,6 +2379,8 @@ cima dela pelo menu de debug não warpa nada.
   trabalho ficou com a mescla (decoração da arte + os bits de colisão daqui), para
   que a frente de arte não perca o que ainda não commitou. Conferido: nas 8 que a
   arte mexeu, nenhuma célula minha caiu em metatile que ela trocou.
+  **FECHADO em 07/09/2026:** a frente de arte commitou em `8c82badf58` e a árvore
+  está limpa; a mescla que estava fora do controle de versão entrou inteira.
 - **`Route206_North` (0,5)**: é o mesmo vaso de planta de (0,2), e fica ANDÁVEL
   porque acima dele há chão. A régua recusa onde não consegue provar, e isso é de
   propósito.

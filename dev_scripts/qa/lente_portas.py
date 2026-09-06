@@ -213,9 +213,18 @@ SEM_INTERIOR = {
     ("BellchimeTrail", 54, 58): "Trilha do Sino, porta do prédio",
     ("IlexForest", 77, 39): "Floresta de Ilex, boca de caverna",
     ("LakeOfRageLowTide", 15, 4):
-        "Lago da Fúria MARÉ BAIXA, casa 1. O mapa inteiro e inalcançável: a "
-        "Route43 declara `up` DUAS vezes, para LAKE_OF_RAGE e para "
-        "LAKE_OF_RAGE_LOW_TIDE, e o motor para na primeira.",
+        "Lago da Fúria MARÉ BAIXA, casa 1. O mapa inteiro é inalcançável, e "
+        "isso é assim NA FONTE: no hns a maré baixa não é mapa vizinho, é "
+        "TROCA DE LAYOUT no próprio LakeOfRage (`setmaplayoutindex "
+        "LAYOUT_LAKE_OF_RAGE_LOW_TIDE` no ON_TRANSITION dele), e o mapa "
+        "LakeOfRageLowTide só existe como casca do layout. O import não trouxe "
+        "esse ON_TRANSITION, porque a var de enredo do hns foi cortada. Até "
+        "07/09/2026 a Route43 declarava `up` DUAS vezes, para LAKE_OF_RAGE e "
+        "para LAKE_OF_RAGE_LOW_TIDE: o motor anda pela PRIMEIRA "
+        "(`GetMapConnection` para no primeiro casamento) e DESENHA a última "
+        "(`InitBackupMapLayoutConnections` preenche as duas, e a segunda "
+        "sobrescreve), então a segunda era conexão morta e enganosa. O "
+        "fechador da rodada 13 tirou a duplicata.",
     ("LakeOfRageLowTide", 39, 41): "Lago da Fúria MARÉ BAIXA, casa 2, idem.",
     ("MtSilver_Outside", 14, 3): "Monte Prata, boca de caverna (1 de 3)",
     ("MtSilver_Outside", 34, 7): "Monte Prata, boca de caverna (2 de 3)",
