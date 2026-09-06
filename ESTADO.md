@@ -166,80 +166,6 @@ Bark, Olivine, Blackthorn, a Rota 29, o ginásio de Violet, a loja de Cherrygrov
 ganhou `--mem16` e `--mem32`, leitura crua de endereço, porque nenhuma das duas provas passa por
 SaveBlock1.
 
-### Mahogany em neve, o primeiro pedido de GOSTO do playtest, 06/09/2026
-
-O Gui perguntou "tem como colocar neve na cidade do ginásio de neve em Johto?" e emendou "ela TODA
-em neve seria tão fofo". Mahogany Town é o ginásio de gelo do Pryce, e agora é a única cidade nevada
-de Johto: chão branco, rocha nevada, árvore virada em bolo de neve, telhado com cume branco e
-**neve caindo** (`"weather": "WEATHER_SNOW"` no `map.json`, o mesmo de Snowpoint).
-
-**A trava, medida antes de tocar em nada:** o secundário `gTileset_MahoganyTown` é de SEIS layouts
-(`ROUTE42`, `ROUTE43`, `MAHOGANYTOWN`, `MT_SILVER_OUTSIDE`, `LAKE_OF_RAGE` e `LAKE_OF_RAGE_LOW_TIDE`),
-e o primário `gTileset_JohtoNorthEast` é de Johto inteira. Nada de neve podia entrar em nenhum dos
-dois. Por isso a cidade ganhou um secundário PRÓPRIO, `gTileset_MahoganyTownNeve`, cópia do outro,
-apontado só por `LAYOUT_MAHOGANYTOWN`. Os outros cinco mapas continuam byte a byte como estavam
-(`data/tilesets/secondary/mahogany_town/` não mudou um bit).
-
-**O mecanismo é TROCA DE PALETA, não arte nova.** Layout `"johto"` é `bigPrimary`: o primário tem 640
-tiles, 640 metatiles e 7 paletas, e ao secundário sobram 384/384 e as paletas 7 a 12. O mapa
-(44x28, 1.232 blocos mais 4 de borda) desenha **170 metatiles distintos**, 137 do primário e 33 do
-secundário, e as paletas que ele realmente usa são a 0, 1, 2, 3 e 5 do primário e a 8, 10, 11 e 12 do
-secundário. Sobravam a **7** e a **9**; a **8** foi liberada convertendo os dois únicos metatiles que
-a usavam (880 e 881, a árvore de frutinha). Com três slots na mão:
-
-| slot do secundário de neve | vira a versão nevada de | o que isso pinta |
-|---|---|---|
-| 7 | paleta 1 do primário | a rocha e o paredão da montanha |
-| 8 | paleta 5 do primário | o caminho de areia |
-| 9 | paleta 0 do primário (e a 8 do secundário, que é quase igual) | grama, arbusto e árvore |
-
-Cada cor nova é a cor velha projetada numa **rampa de neve de nove âncoras**, todas múltiplas de 8
-(que é o passo real de cor do GBA), copiadas da paleta 7 do `mt_silver_snow`, que é a neve que Johto
-já usava no Mt. Silver. O metatile nevado é o metatile de origem com os MESMOS tiles, os MESMOS
-espelhamentos e a MESMA ordem de camada: só o índice de paleta do quadrante muda. **158 metatiles de
-neve** entraram nos slots que o mapa não usava (o mapa ocupava 33 dos 384), e o `map.bin` trocou
-**1.219 dos 1.236 blocos**. Os 12 metatiles que ficaram de fora (99, 116, 155, 156, 202, 317, 326,
-347, 652, 685, 687 e 829) são parede e telhado puros, sem um quadrante de terreno.
-
-**A única arte desenhada é o cume dos telhados**, e ela é um algoritmo de três linhas: para cada
-coluna do tile, acha o primeiro pixel opaco de cima para baixo e pinta os 3 ou 4 seguintes com o
-branco da própria paleta do telhado (a 11 tinha os índices 10 a 15 livres e recebeu `E8E8F0` e
-`C8D8F0`; a do Centro Pokémon é a 2 do primário, que já tinha `F6F6FF`). São **11 tiles**: 8 do
-secundário (118 a 122 e 359 a 361, o cume das casas) e 3 COPIADOS do primário para slots livres do
-secundário (192, 193 e 194, o cume do Centro Pokémon), porque o primário é de Johto inteira e não
-pode ser tocado.
-
-**Colisão, elevação e comportamento, provados byte a byte** contra o `map.bin` do HEAD: **0 blocos com
-colisão ou elevação diferente** e **0 metatiles com atributo diferente** (o atributo do metatile de
-neve é copiado do de origem, então grama de encontro continua grama de encontro e porta continua
-porta). `valida_warp_tile.py --regiao Johto` fecha em **721 de 795 (90,7%)** e Mahogany não aparece na
-lista de quebrados.
-
-O gerador é `dev_scripts/mahogany_neve.py`, **idempotente** (a segunda passada não muda um byte,
-porque nenhum slot de destino é origem de outra troca) e com `--demo` de 5 checagens.
-
-**A prova é um par de PNG mais o framebuffer.** `dev_scripts/render_maps.py` antes e depois em
-`Pokemon Claude/amostras-tileset/mahogany-neve-antes-depois.png`, e o warp de debug para
-`MAP_MAHOGANYTOWN` (grupo 84, mapa 9) mostra a cidade branca **com os flocos caindo**; o mesmo warp
-para `MAP_ROUTE43` (grupo 84, mapa 25) mostra rocha marrom, grama verde e nenhum floco, que é a prova
-de que o respingo não existiu.
-
-**Conserto de raspão no `render_maps.py`:** ele cortava primário e secundário em **512 metatiles e 6
-paletas**, que é o número do Emerald. Layout `"johto"` e `"frlg"` têm 640 e 7 (`GetNumMetatilesInPrimary`
-e `GetNumPalsInPrimary` em `src/fieldmap.c`), então TODO mapa de Johto vinha renderizado com o
-metatile e a paleta errados, sem uma linha de erro. Agora o corte sai do `layout_version`.
-
-**O que fica aberto:**
-- **A transição de bioma na borda é de propósito.** Route 42, Route 43 e o Lago da Fúria chegam sem
-  neve, como Snowpoint faz com a Route 216. Se um dia isso incomodar, o caminho é o mesmo: secundário
-  próprio para a rota, nunca mexer no compartilhado.
-- **O tileset de neve é uma CÓPIA congelada.** Quem editar `mahogany_town` tem que rodar
-  `python3 dev_scripts/mahogany_neve.py` de novo para a cópia acompanhar.
-- **Porta de Johto não anima, e continua não animando.** `sDoorAnimGraphicsTable` (`src/field_door.c`)
-  não tem uma linha de Johto, então nenhuma porta da região tem animação hoje; a troca de id não
-  piorou nada, mas quem for ligar isso amanhã tem que usar os ids NOVOS e o tileset novo.
-
-
 ### O terceiro defeito do playtest: batalha de treinador chamada de gatilho ou de placa dava tela azul, 06/09/2026
 
 O Gui pisou na emboscada da Hex Maniac no `Unova_LentimasGym` (capítulo "before Shauntal") e a ROM
@@ -371,33 +297,229 @@ grade de colisão de cada mapa, nunca de chute.
    `oponente=3069`.
 
 E a prova do texto de derrota é de memória, na camada da afirmação: com a batalha aberta,
-`gTrainerBattleParameter` lido cru pelo `--mem32` do runner diz **`defeatTextA = 0x0842E2C5`**, que é
+`gTrainerBattleParameter` lido cru pelo `--mem32` do runner diz **`defeatTextA = 0x0842E2BD`**, que é
 exatamente o endereço de `Unova_LentimasGym_Text_Hex1Beaten` no `pokeemerald.map`, **`introTextA =
 0x00000000`** (o motor não tem fala de abertura, ela saiu pelo `msgbox`) e o byte de modo em
 `0x02000928` vale **52**, cujo nibble alto é **3 = `TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT`**.
 
+### Mahogany em neve, o primeiro pedido de GOSTO do playtest, 06/09/2026
 
-### Os portões desta correção, e a worktree que foi preciso abrir
+O Gui perguntou "tem como colocar neve na cidade do ginásio de neve em Johto?" e emendou "ela TODA
+em neve seria tão fofo". Mahogany Town é o ginásio de gelo do Pryce, e agora é a única cidade nevada
+de Johto: chão branco, rocha nevada, árvore virada em bolo de neve, telhado com cume branco e
+**neve caindo** (`"weather": "WEATHER_SNOW"` no `map.json`, o mesmo de Snowpoint).
 
-Build verde, **ROM 96,44% de 32 MB** (32.360.772 B), **EWRAM 86,16% e IWRAM 86,68%**, os três iguais
-aos da 0.u. **Suíte 1.012 de 1.013, ZERO reprovado**, com o T11.3 contado à parte (a marca subiu de 1.003 para 1.013 casos porque outros commits do dia acrescentaram dez, e nenhum é desta correção), e **T11 3/3** contra
-`roms/pokemon-claude-2026-08-18.gba`. **SAVE COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B (94,3%),
-2.400 mapas, 2.252 ids de treinador e 1.716 apelidos conferidos: `local_id` com nome não entra na
-save, porque ele já era a posição mais um. `valida_rom.py` com os 2.400 mapas declarados dentro da
-ROM. `dev_scripts/qa/roda_qa.py` com as quatro varreduras e o `--demo` verde, **22 travas, 1.972
-prováveis, 6.299 cosméticos e 61 falsos positivos**, os mesmos números da 0.t, e **C28 em zero**.
+**A trava, medida antes de tocar em nada:** o secundário `gTileset_MahoganyTown` é de SEIS layouts
+(`ROUTE42`, `ROUTE43`, `MAHOGANYTOWN`, `MT_SILVER_OUTSIDE`, `LAKE_OF_RAGE` e `LAKE_OF_RAGE_LOW_TIDE`),
+e o primário `gTileset_JohtoNorthEast` é de Johto inteira. Nada de neve podia entrar em nenhum dos
+dois. Por isso a cidade ganhou um secundário PRÓPRIO, `gTileset_MahoganyTownNeve`, cópia do outro,
+apontado só por `LAYOUT_MAHOGANYTOWN`. Os outros cinco mapas continuam byte a byte como estavam
+(`data/tilesets/secondary/mahogany_town/` não mudou um bit).
 
-**A build e os portões saíram de uma worktree isolada, e isso é lição, não capricho.** A árvore de
-trabalho é COMPARTILHADA por vários agentes ao mesmo tempo, e no meio da primeira passada destes
-portões **outra build sobrescreveu o `pokeemerald.gba` e REGEROU os headers de `include/constants`**
-(`layouts.h`, `map_groups.h`). A suíte estava rodando: os casos do começo mediram uma ROM e os do fim
-mediram outra, e dois deles (`T135.3` e `T135.4`, o Victini do Pokécenter da Victory Road de Unova)
-abriram vermelhos que não eram defeito de ninguém, só ROM trocada debaixo do teste. A segunda
-passada, contra a ROM congelada mas com os headers já regerados, caiu em outro lugar (`T108.9`,
-`mapLayoutId` fora da faixa) pelo mesmo motivo, do outro lado. **Portão medido em árvore que outro
-agente está escrevendo não é portão.** A saída foi `git worktree add --detach`, copiar para dentro
-dela SÓ os nove arquivos desta correção, e buildar e medir lá: a ROM entregue é exatamente o HEAD
-mais este commit, e o `.map` ao lado é o dela.
+**O mecanismo é TROCA DE PALETA, não arte nova.** Layout `"johto"` é `bigPrimary`: o primário tem 640
+tiles, 640 metatiles e 7 paletas, e ao secundário sobram 384/384 e as paletas 7 a 12. O mapa
+(44x28, 1.232 blocos mais 4 de borda) desenha **170 metatiles distintos**, 137 do primário e 33 do
+secundário, e as paletas que ele realmente usa são a 0, 1, 2, 3 e 5 do primário e a 8, 10, 11 e 12 do
+secundário. Sobravam a **7** e a **9**; a **8** foi liberada convertendo os dois únicos metatiles que
+a usavam (880 e 881, a árvore de frutinha). Com três slots na mão:
+
+| slot do secundário de neve | vira a versão nevada de | o que isso pinta |
+|---|---|---|
+| 7 | paleta 1 do primário | a rocha e o paredão da montanha |
+| 8 | paleta 5 do primário | o caminho de areia |
+| 9 | paleta 0 do primário (e a 8 do secundário, que é quase igual) | grama, arbusto e árvore |
+
+Cada cor nova é a cor velha projetada numa **rampa de neve de nove âncoras**, todas múltiplas de 8
+(que é o passo real de cor do GBA), copiadas da paleta 7 do `mt_silver_snow`, que é a neve que Johto
+já usava no Mt. Silver. O metatile nevado é o metatile de origem com os MESMOS tiles, os MESMOS
+espelhamentos e a MESMA ordem de camada: só o índice de paleta do quadrante muda. **158 metatiles de
+neve** entraram nos slots que o mapa não usava (o mapa ocupava 33 dos 384), e o `map.bin` trocou
+**1.219 dos 1.236 blocos**. Os 12 metatiles que ficaram de fora (99, 116, 155, 156, 202, 317, 326,
+347, 652, 685, 687 e 829) são parede e telhado puros, sem um quadrante de terreno.
+
+**A única arte desenhada é o cume dos telhados**, e ela é um algoritmo de três linhas: para cada
+coluna do tile, acha o primeiro pixel opaco de cima para baixo e pinta os 3 ou 4 seguintes com o
+branco da própria paleta do telhado (a 11 tinha os índices 10 a 15 livres e recebeu `E8E8F0` e
+`C8D8F0`; a do Centro Pokémon é a 2 do primário, que já tinha `F6F6FF`). São **11 tiles**: 8 do
+secundário (118 a 122 e 359 a 361, o cume das casas) e 3 COPIADOS do primário para slots livres do
+secundário (192, 193 e 194, o cume do Centro Pokémon), porque o primário é de Johto inteira e não
+pode ser tocado.
+
+**Colisão, elevação e comportamento, provados byte a byte** contra o `map.bin` do HEAD: **0 blocos com
+colisão ou elevação diferente** e **0 metatiles com atributo diferente** (o atributo do metatile de
+neve é copiado do de origem, então grama de encontro continua grama de encontro e porta continua
+porta). `valida_warp_tile.py --regiao Johto` fecha em **721 de 795 (90,7%)** e Mahogany não aparece na
+lista de quebrados.
+
+O gerador é `dev_scripts/mahogany_neve.py`, **idempotente** (a segunda passada não muda um byte,
+porque nenhum slot de destino é origem de outra troca) e com `--demo` de 5 checagens.
+
+**A prova é um par de PNG mais o framebuffer.** `dev_scripts/render_maps.py` antes e depois em
+`Pokemon Claude/amostras-tileset/mahogany-neve-antes-depois.png`, e o warp de debug para
+`MAP_MAHOGANYTOWN` (grupo 84, mapa 9) mostra a cidade branca **com os flocos caindo**; o mesmo warp
+para `MAP_ROUTE43` (grupo 84, mapa 25) mostra rocha marrom, grama verde e nenhum floco, que é a prova
+de que o respingo não existiu.
+
+**Conserto de raspão no `render_maps.py`:** ele cortava primário e secundário em **512 metatiles e 6
+paletas**, que é o número do Emerald. Layout `"johto"` e `"frlg"` têm 640 e 7 (`GetNumMetatilesInPrimary`
+e `GetNumPalsInPrimary` em `src/fieldmap.c`), então TODO mapa de Johto vinha renderizado com o
+metatile e a paleta errados, sem uma linha de erro. Agora o corte sai do `layout_version`.
+
+**O que fica aberto:**
+- **A transição de bioma na borda é de propósito.** Route 42, Route 43 e o Lago da Fúria chegam sem
+  neve, como Snowpoint faz com a Route 216. Se um dia isso incomodar, o caminho é o mesmo: secundário
+  próprio para a rota, nunca mexer no compartilhado.
+- **O tileset de neve é uma CÓPIA congelada.** Quem editar `mahogany_town` tem que rodar
+  `python3 dev_scripts/mahogany_neve.py` de novo para a cópia acompanhar.
+- **Porta de Johto não anima, e continua não animando.** `sDoorAnimGraphicsTable` (`src/field_door.c`)
+  não tem uma linha de Johto, então nenhuma porta da região tem animação hoje; a troca de id não
+  piorou nada, mas quem for ligar isso amanhã tem que usar os ids NOVOS e o tileset novo.
+
+### As cidades sem graça ganham tema, e a régua que as escolheu, 06/09/2026
+
+O Gui, no playtest: "a cidade está muito feia, é assim mesmo?" sobre `CanalaveCity`, e "as cidades sem
+graça do ROM hack você podia dar uma enfeitada temática". Onze cidades e vilas foram enfeitadas,
+**414 células no total**, e Canalave ganhou um porto que não existia em tileset nenhum de Sinnoh.
+
+#### A régua: `dev_scripts/regua_cidades.py`
+
+A régua de arte que já existia (`completude.py`, `PISO_ARTE = 10`) conta metatiles DISTINTOS por mapa,
+e essa conta **não enxerga o defeito que o Gui viu**: Canalave tem 201 metatiles distintos, muito acima
+do piso, e mesmo assim a praça dela é um tapete cinza liso. Vocabulário grande com repetição grande
+continua sendo mapa sem graça. A régua nova mede três coisas nas **58 cidades e vilas** de Kanto,
+Johto, Hoenn e Sinnoh (Unova e Galar são do cartucho 2 e ficam fora):
+
+| coluna | o que é | por que |
+|---|---|---|
+| `liso` | % das células andáveis com o metatile MAIS COMUM | é a coluna que casa com o olho: o tapete de chão repetido |
+| `liso3` | o mesmo somando os TRÊS mais comuns | separa o mapa de um chão só do de chão mais duas costuras, que é o caso do demake |
+| `d/100` | metatiles distintos por 100 células andáveis | densidade, não contagem: 250 distintos num mapa 70x64 é mais pobre que 100 numa vila 20x20 |
+
+**Duas armadilhas medidas, e as duas mudavam a lista.** (1) `map_type` sozinho não serve: o conversor
+do demake carimbou TOWN em `Route220`, `LakeValor`, `EternaForest` e `ValleyWindworks`, e os três
+cotocos 1x1 da Battle Zone entram como cidade. Saem por nome e por piso de células, e a lista de fora
+é impressa junto. (2) **A ÁGUA tem colisão 0** no Emerald (quem barra é a elevação, quem atravessa é o
+Surf), então contá-la como "andável" fazia o metatile mais comum de Canalave ser o RIO, com 477 das
+1.342 células: a régua lia 35,5% de chão liso que era canal. Com a água fora, Canalave marca 27,3% e
+**Snowpoint sobe para 87,5%**, que é o retrato certo.
+
+`--pobres` ainda separa NOSSO de VANILLA comparando o `map.bin` byte a byte com a fonte da região
+(pokefirered em Kanto, pokeemerald em Hoenn). A primeira versão perguntava ao `git log --follow`, e
+**errava**: `LittlerootTown/map.bin` só tem dois commits e o segundo é `89d35e82a2 Move 'map
+attributes' into 'layouts'`, que não está em nenhuma lista de assunto de upstream que dê para escrever
+sem chutar. Com ela, quatro mapas vanilla de Hoenn entravam na lista de intervenção.
+
+**As 10 mais pobres, medidas antes de tocar** (só as NOSSAS; Hoenn e Kanto vanilla ficam de fora):
+
+| # | mapa | liso | liso3 | d/100 | tema | feito |
+|---|---|---|---|---|---|---|
+| 1 | `SnowpointCity` | 87,5% | 97,8% | 15,9 | neve | sim |
+| 2 | `CelesticTown` | 71,8% | 80,1% | 26,1 | ruínas | sim |
+| 3 | `SolaceonTown` | 64,2% | 77,6% | 11,1 | rural | sim |
+| 4 | `OreburghCity` | 57,5% | 69,8% | 19,1 | mina | sim |
+| 5 | `CianwoodCity` | 54,5% | 83,0% | 18,1 | porto de pedra | **não**, ver abaixo |
+| 6 | `JubilifeCity` | 51,6% | 69,2% | 15,2 | cidade grande | sim |
+| 7 | `TwinleafTown` | 48,1% | 71,4% | 14,9 | vila natal | sim |
+| 8 | `BlackthornCity` | 47,7% | 70,2% | 22,9 | dragões | sim |
+| 9 | `SunyshoreCity` | 37,6% | 76,0% | 26,4 | orla | **não**: outro agente editando |
+| 10 | `VeilstoneCity` | 37,5% | 61,8% | 14,4 | meteorito | não, fila |
+
+Mais quatro entraram por decisão: **`CanalaveCity`** (27,3% de `liso`, `liso3` 51,6%; é a reclamação
+do Gui, e ela cai fora do top 10 justamente porque metade da área dela é canal), **`SandgemTown`**
+(37,5%), **`EternaCity`** (29,8%) e **`FloaromaTown`** (31,8%), que vêm logo depois e as duas últimas
+têm tema nomeado pelo Gui. Total: **11 cidades enfeitadas, 414 células escritas**.
+
+#### O gerador: `dev_scripts/enfeita_cidades.py`
+
+Nada de arte nova pixel a pixel e nada de metatile inventado: o catálogo de enfeites é EXTRAÍDO,
+medindo, de mapas NOSSOS que já são ricos e carregam **o mesmo PAR de tilesets** do alvo (as rotas em
+volta de cada cidade). Enfeite é grupo 4-conexo de metatiles raros naquele doador, retângulo cheio de
+até 3x3, longe de evento e da borda, com o anel de 8 em volta quase todo andável. São dois tipos, e
+eles pagam portões diferentes:
+
+- **Canteiro** (carimbo ANDÁVEL: flor, mato baixo, areia). Escreve só os 10 bits de baixo,
+  `(antigo & 0xFC00) | novo`, e só troca metatile por metatile de comportamento IDÊNTICO. Colisão,
+  elevação e andabilidade saem byte a byte iguais.
+- **Objeto** (carimbo SÓLIDO: árvore, pedra, cerca, placa). Esse MUDA colisão, e por isso só cai em
+  célula que é chão liso, **encosta em algo sólido de verdade** (por isso "enfeite de beira": ele fica
+  junto do prédio, do muro do canal ou da árvore, nunca plantado no meio da praça), não é evento nem
+  vizinha de um, está a 2 células da borda, e **não ilha ninguém**. Isso não é promessa: `alcance()`
+  faz busca em largura a partir de todos os warps e NPCs respeitando elevação, e roda **a cada
+  carimbo**, exigindo `depois == antes - células_solidificadas`. Carimbo que fecha um beco é desfeito e
+  o gerador segue (aconteceu em `CelesticTown`); um portão só no fim saberia dizer "recusado" e mais
+  nada.
+
+**Quatro travas que só entraram depois de o desenho sair errado, e todas foram vistas no PNG:**
+
+1. **Espalhar variante de piso, DESCARTADO.** A primeira ideia era trocar parte do chão liso por
+   metatiles de comportamento igual e luminância parecida. Em `SolaceonTown` o filtro deixou entrar os
+   metatiles de LAVOURA do `gTileset_Celestic`, e o resultado foram centenas de retalhos laranja
+   jogados no gramado inteiro: a régua melhorou de 64,2% para 33,6% de chão liso e o mapa ficou PIOR.
+   Número de régua melhor com desenho pior é exatamente o que a régua não vê.
+2. **Doador tem que ser do mesmo PAR, não só do mesmo primário.** Aprender pelo primário punha arbusto
+   de GRAMA verde na neve de Snowpoint, porque a camada de baixo do metatile 486 é grama.
+3. **Solidão e isenção.** O metatile tem que cair, na maioria das vezes, em mancha sólida de até 9
+   células, senão entram as lascas de PENHASCO (104, 106, 114, 116, 120, 128, 130, 136), que passam no
+   anel quando a ponta do penhasco cai na areia mas soltas no meio da praça viram mancha marrom.
+   Árvore, arbusto e cerca são isentos com motivo: no demake eles formam a MOLDURA de todo mapa, então
+   a mancha deles tem centenas de células.
+4. **Atalho de cobertura, com trava de COR.** Enfeite que troca 90% dos pixels do chão pode ir para um
+   chão diferente do do doador (é o que solta a pedra na terra de Oreburgh), **mas só se a cor bater**.
+   Medido: arbusto verde na neve de Snowpoint dá 253 de distância de cor, contra 29 da pedra na terra
+   de Oreburgh e 82 da árvore na grama de Celestic. O limite é 150.
+
+Também há **teto de 6 cópias do mesmo carimbo por cidade**: sem ele Snowpoint ganhava dez placas
+iguais, porque o catálogo de neve tem poucos objetos e o rodízio voltava sempre nele.
+
+**Idempotência precisa de arquivo, e é a diferença para o `arte_mapas_pobres.py`.** Lá as escolhas
+dependem só de colisão e comportamento, que o gerador não muda; aqui elas dependem do METATILE, que é
+justamente o que muda. Por isso o plano guarda o valor ANTIGO de cada célula em
+`dev_scripts/enfeita_cidades.json`: na rodada seguinte o script desfaz o próprio desenho em memória,
+replaneja sobre a base e escreve de novo. Rodar duas vezes dá byte idêntico, o `--demo` prova, e o
+mesmo arquivo é o **desfazer manual** (`--desfazer`) se o Gui não gostar de alguma.
+
+#### O porto de Canalave: `dev_scripts/porto_canalave.py`
+
+Canalave é cidade PORTUÁRIA no Diamante/Perola, e o demake trouxe a geometria (o canal, as duas
+margens, as duas pontes) **sem uma peça de porto**. Conferido metatile a metatile no atlas: o
+`gTileset_Canalave` inteiro é calçada, telhado e água, e Canalave é o ÚNICO layout que o usa, então
+não há mapa irmão de quem aprender. Quem tem porto desenhado nesta ROM é HOENN: o `gTileset_Slateport`
+guarda o bote, o poste de luz da orla e os tambores do cais.
+
+O script IMPORTA essas peças **sem desenhar um pixel**. Metatile do Emerald tem duas camadas de quatro
+tiles, e nesses objetos a de BAIXO é o chão de Slateport e a de CIMA é o objeto com fundo transparente.
+Então a camada de cima vem inteira da fonte (só trocando o índice do tile e o número da paleta) e a de
+**baixo é substituída pela de Canalave**: a calçada (metatile 521) nas peças de terra e a ÁGUA do
+`gTileset_GeneralSinnoh` (metatile 368) nos botes. Como a água é desenhada por tiles do PRIMÁRIO, que
+tem animação própria, **o bote flutua em água que se mexe de graça**. O comportamento do metatile novo
+é o do CHÃO que entrou embaixo, não o da fonte: a célula do canal continua sendo água para o motor, só
+que agora com colisão.
+
+Orçamento, medido antes de escrever: **33 tiles novos** (vagas 384 a 416 das 512 de um secundário; o
+`tiles.png` cresce de 128x192 para 128x256, o máximo), **3 paletas** (7, 8 e 9 de Slateport para as
+vagas livres 9, 10 e 11 de Canalave, que usava só até a 8) e **15 metatiles** nos locais 160 a 174
+(ids 672 a 686). "Vaga em branco" não serve como teste: as vagas livres do `metatiles.bin` de Canalave
+não são zero, são o padrão de enchimento do dumper (as oito entradas iguais a 1, ou a 2). O que vale é
+o mapa não usar o id, e o script recusa gravar se usar.
+
+No mapa entraram **25 peças, 55 células**: 6 botes atracados no muro do canal, 10 postes de luz e 9
+tambores no cais. O canal tem 6 células de largura e o bote tem 3, então sempre sobram 3 para quem
+surfa, e isso não é olhômetro: além do portão de alcance A PÉ, roda um portão de alcance DA ÁGUA
+(busca em largura pela água do canal) a cada peça.
+
+**Ordem de rodar:** `porto_canalave.py` ANTES de `enfeita_cidades.py`. O porto cria metatiles que não
+entram no "chão liso", então o outro nunca os escolhe; o inverso não vale.
+
+#### Cianwood ficou de fora, e o motivo está medido
+
+`CianwoodCity` é a 5ª mais sem graça e **não foi servida**. Os quatro irmãos de par dela (Route47,
+Route41, Route44, Route48) não guardam UM objeto solto, e o chão dela (metatile 113, a areia de praia
+de Johto) não aparece embaixo de nenhum enfeite dos mapas de mesmo primário: dos 31 carimbos que o
+catálogo achou, nenhum passa em `chão`/`cobertura` sem ficar com borda de grama ou de terra na areia.
+Servir Cianwood exige importar peça de outro tileset, como o `porto_canalave.py` fez, e isso é obra de
+outra rodada. Está escrito em `NAO_SERVIDAS`, dentro do gerador, para ninguém "consertar" achando que
+esqueceram.
+
 ### O ginásio de Blackthorn para de travar: a ponte era pintada de LAVA, 06/09/2026
 
 O Gui trouxe "está até bonito, mas está travando para andar, do nada trava na lava". A ponte existia,
@@ -579,6 +701,110 @@ no portão e o `--demo` recusa gravar se algum objeto acabar em tile impassável
    campo, e é esse passo que o `make` chama. Provado trocando o campo de `SunyshoreCity` por
    "PROVA DO CAMPO" e vendo o `.h` mudar sozinho.
 
+### O Pokécenter de Sinnoh tinha três enfermeiras, e a fonte tem uma, 06/09/2026
+
+Defeito do playtest na foto do `SunyshoreCityPokecenter1F` ("before Volkner"). O Gui
+apontou duas coisas na mesma tela, e **só uma era defeito**.
+
+**O piso NÃO é defeito, e a prova é o controle de Hoenn.** O "triângulo de bolinhas laranja e
+brancas" entre o balcão e o tapete é a **Poké Ball desenhada no chão do Pokécenter**, arte do
+Emerald original: um bloco de 4x4 metatiles (620-623, 560-563, 568-571, 576-579) em (5,4)-(8,7),
+metade de cima laranja e metade de baixo branca, com a faixa do meio deixada no piso xadrez. Ela
+aparece igual no `PetalburgCity_PokemonCenter_1F`, que foi o controle fotografado. Medido, e não
+deduzido: `data/layouts/OreburghCity_PokemonCenter_1F/map.bin` difere do
+`data/layouts/PokemonCenter_1F/map.bin` em **um único bloco**, o (13,6), que é a escada do B1F; e
+`data/tilesets/primary/building/` e `data/tilesets/secondary/pokemon_center/` são **byte a byte
+idênticos** ao `fontes-mapas/pokeemerald` (21 e 18 arquivos, md5 a md5). Layout igual mais tileset
+igual quer dizer que o que a ROM desenha ali é o que o Emerald desenha. Nada mudou no piso.
+
+**A gente é que estava repetida.** Contado nas 18 fontes de Pokécenter 1F do Platinum
+(`fontes-mapas/pokeplatinum/res/field/events/events_*_pokecenter_1f.json`): **cada uma tem
+exatamente UMA** `OBJ_EVENT_GFX_POKECENTER_NURSE`, sempre em (8,4) da grade de lá, sempre com
+script. Não existem as atendentes de Wi-Fi/Union/GTS que a suspeita inicial levantava, e não havia
+sprite errado: `OBJ_EVENT_GFX_NINJA_BOY` é byte a byte o `ninja_boy.png` do Emerald, e o menino do
+Emerald **tem cabelo rosa mesmo**. O que havia eram **corpos repetidos da mesma pessoa**, por duas
+portas distintas:
+
+1. **`fecha_portas_sinnoh.py`, na criação do mapa.** O arquétipo `pc1` copia o NPC funcional do
+   índice 0 de `OreburghCity_PokemonCenter_1F` (a enfermeira com o `Common_EventScript_PkmnCenterNurse`)
+   e o insere na posição 0, enquanto `conteudo_do_mapa` já tinha importado a enfermeira DA FONTE
+   como um objeto qualquer. Duas mulheres, a mesma pessoa: a importada ficou muda, de pé na frente
+   do balcão. É a enfermeira de (8,4) de onze mapas.
+2. **`importa_npcs_sinnoh.py`, nas rodadas de completude de 22 e 23/08.** A guarda de idempotência
+   dele reconhece "já importado" por VIZINHANÇA de até um tile. Nesses mapas a planta é
+   REAPROVEITADA do repo, então a coordenada da fonte não diz nada: a régua de escala mudou entre
+   rodadas, a mesma pessoa caiu em (8,4) numa passada e em (10,2) na seguinte, e nenhuma reclamou a
+   outra. Foi assim que nasceram a terceira enfermeira de Sunyshore e de Hearthome, o segundo
+   menino de cabelo rosa de Sunyshore, a segunda LASS de Canalave e de Snowpoint, a segunda WOMAN_3
+   de Eterna e as demais.
+
+As duas portas foram fechadas nos geradores: `fecha_portas_sinnoh.py` não importa mais o corpo mudo
+que tem o mesmo gráfico do NPC funcional, e `importa_npcs_sinnoh.reclama` passa a reclamar por
+IDENTIDADE (mesmo `graphics_id`, em qualquer lugar do mapa) quando o `map.json` diz
+`planta reaproveitada`. O que já estava escrito saiu por
+**`dev_scripts/corpos_repetidos_pokecenter.py`**, idempotente e com `--demo` de nove provas:
+**25 corpos em 15 mapas**, e cada um passou por cinco portões: mapa com fonte no Platinum; objeto
+MUDO e anônimo (script "0", flag "0", sem `local_id`, sem treinador); marca `pokeplatinum`; a
+pessoa continua no mapa e COM a fala dela (existe outro objeto do mesmo gráfico que tem script); e
+a fonte tem menos corpos daquele gráfico do que nós.
+
+| mapa | corpos apagados |
+|---|---|
+| SunyshoreCityPokecenter1F | 3 (NURSE 8,4; NINJA_BOY 13,4; NURSE 10,2) |
+| EternaCityPokecenter1F | 3 (NURSE 8,4; SCHOOL_KID_M 1,6; WOMAN_3 13,3) |
+| CanalaveCityPokecenter1F | 2 (NURSE 8,4; LASS 9,8) |
+| CelesticTownPokecenter1F | 2 (NURSE 8,4; EXPERT_F 13,4) |
+| HearthomeCityPokecenter1F | 2 (NURSE 8,4; NURSE 10,2) |
+| PokemonLeagueNorthPokecenter1F | 2 (NURSE 3,2; NURSE 0,2) |
+| SnowpointCityPokecenter1F | 2 (NURSE 8,4; LASS 0,2) |
+| SolaceonTownPokecenter1F | 2 (NURSE 8,4; OLD_MAN 13,3) |
+| Floaroma, Jubilife, Oreburgh, Pastoria, LeagueSouth, Sandgem, Veilstone | 1 cada (a enfermeira muda) |
+
+**A armadilha do apagar, desarmada antes e não depois.** Apagar objeto desloca o id de todos os
+seguintes do mesmo mapa (`tools/mapjson` gera `#define <local_id> <posição + 1>`). Os
+`LOCALID_*_PC_NURSE` destes 15 mapas apontam todos para a posição 0, que nunca sai, e os `#define`
+escritos à mão em `include/constants/sinnoh/*.h` para eles valem todos 1. O caso perigoso era um só
+e estava medido: `PokemonLeagueNorthPokecenter1F` chamava o rival por **`addobject 7`** cru, e as
+duas enfermeiras a apagar estavam ANTES dele. A ferramenta batiza o objeto antes de apagar qualquer
+coisa (`LOCALID_LEAGUE_NORTH_PC_RIVAL` no `map.json`, a constante no lugar do número no
+`scripts.inc`) e RECUSA o mapa inteiro se sobrar id cru sem batismo.
+
+**Três enfermeiras mudas continuam no repo, e é de propósito**: as de `FloaromaTown`,
+`JubilifeCity` e `OreburghCity` em (3,2) já estão atrás de `FLAG_SINNOH_NPC_DUPLICADO`, ou seja
+invisíveis em jogo novo desde a leva de 12/08. Corpo com flag não passa no portão 2 desta
+ferramenta, e mexer nelas seria refazer uma decisão já tomada.
+
+**Duas lições desta frente.**
+
+1. **Defeito relatado por foto pede CONTROLE antes de conserto.** O piso "errado" era arte do
+   Emerald, e bastou fotografar um Pokécenter de Hoenn no mesmo emulador para ver a mesma Poké Ball.
+   Sem esse par, o conserto teria sido reescrever um `map.bin` que está certo desde 2004.
+2. **Sprite estranho não é sprite errado.** As "figuras de cabelo rosa que parecem enfermeira" eram
+   o `OBJ_EVENT_GFX_NINJA_BOY` do Emerald, cujo `ninja_boy.png` é idêntico ao do upstream. O defeito
+   não estava no de-para, estava na CONTAGEM: eram dois meninos onde a fonte tem um.
+
+**Os portões desta frente.** Build verde com o lock (ROM 96,47% de 32 MB, 32.369.368 B; EWRAM
+86,16%, IWRAM 86,68%). `guarda_save.py` **SAVE COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B,
+2.400 mapas: apagar objeto NÃO é índice de save, o que a save guarda de mapa é `(mapGroup, mapNum)`,
+e nenhum deles andou. `valida_rom.py` com os 2.400 mapas declarados dentro da ROM.
+`valida_conectividade.py` com 0 warps quebrados, `valida_mapas_sinnoh.py` com `'sprite': 0` e 0 mapas
+com problema, `valida_warp_tile.py --piso 60` sem região abaixo do piso, `completude.py` com Sinnoh
+em 100,3% de objetos. **T11 3/3** contra `roms/pokemon-claude-2026-08-18.gba` (fonte na worktree de
+`cf6786b2ae`). Suíte **1.008 de 1.015** com o T11.3 à parte; os seis vermelhos são de obra ALHEIA em
+curso na mesma árvore, e isso foi medido, não suposto: T140.1/3/4 andam pelo `ContestHallLobby`, cujo
+`map.json` e `scripts.inc` outra frente está reescrevendo neste momento; T151.3/4 andam pela sala de
+treinador do ginásio D/P de Hearthome, cujo `map.bin` outra frente está redecorando; T170.4 é da
+frente de Johto. Contra a ROM entregue `2026-09-05`, com o `--src` casado numa worktree de
+`b7ef40f330`, esses cinco passavam e outros três (T140.7, T140.8, T140.11) falhavam, ou seja a linha
+de base da árvore compartilhada se move sozinha enquanto várias frentes escrevem nela.
+
+**O mesmo defeito tem 31 irmãos fora do Pokécenter, e eles ficam abertos.** Passando as MESMAS cinco
+provas em todo interior de Sinnoh de planta reaproveitada, sobram **31 corpos mudos repetidos em 25
+mapas** (`VeilstoneStore2F` a `5F`, os seis Marts, `CanalaveLibrary1F/2F/3F`, `MiningMuseum`,
+`PoffinHouse`, `Route222WestHouse`, `SunyshoreCityWestHouse`, `CycleShop`, e mais). Não entraram
+porque o `PARES` desta ferramenta é de Pokécenter, escrito à mão; estendê-lo pede o mesmo casamento
+mapa-a-fonte que `importa_npcs_sinnoh.headers_do_platinum()` já faz, e é rodada própria.
+
 ### O defeito dos prédios que Hoenn e Johto dividem: entrar por Johto e sair na Rota 111, 06/09/2026
 
 Relato do Gui: "entrei em Trainer Hill por Olivine City (Johto) e quando fui sair, saí na Rota 111, em
@@ -686,7 +912,6 @@ conserto (medido numa worktree de `b7ef40f330`, o HEAD de antes da rodada): o ca
 --demo` verde nas quatro varreduras. **Suíte 1.010 de 1.011, ZERO reprovado**, com o T11.3 pulado na
 varredura, e **T11 3/3 à parte** contra `roms/pokemon-claude-2026-08-18.gba` (worktree de `cf6786b2ae`
 em `/private/tmp/claude-501/t11-r13`), a mesma dupla que a 0.u usou.
-
 
 ### A meia porta da igreja de Hearthome, e o retrato das 44 portas fechadas do corte, 06/09/2026
 
@@ -813,6 +1038,147 @@ que precisa consertá-lo.
   frente: é dado de Galar, e o censo de idioma da ferramenta ainda diz o contrário do que o projeto
   decidiu (ela classifica texto em inglês em Sinnoh, Unova e Galar como achado).
 
+### O bloco preto de Pastoria: não era Pastoria, era CAMADA DE DESENHO na Route 212 South, 06/09/2026
+
+O Gui trouxe do playtest, no capítulo "before Crasher Wake", à noite e chovendo, "um retângulo de
+tiles pretos (azul-escuro sólido, ~6x4) encostado nas árvores, e o jogador entra embaixo dele: anda
+por dentro do bloco preto, que desenha por cima dele". A hipótese de entrada era o portão do Great
+Marsh, cortado em 21/08/2026, com metatile indefinido e sem colisão.
+
+**As duas partes da hipótese estavam erradas, e medir isso foi metade do trabalho.**
+
+1. **Não é Pastoria.** `PastoriaCity` tem **zero** célula preta: `render_maps.py` não pinta um pixel
+   de cor de fundo no mapa inteiro (o backdrop do `gTileset_GeneralSinnoh` é `(24,41,82)`, o
+   azul-escuro exato que a foto mostra, e ele não aparece em nenhum dos 4.080 blocos), os 182
+   metatiles distintos cabem todos nos tilesets (512 no primário, 392 no `LilycoveSinnoh`), e quatro
+   varreduras no emulador (os dez warps mais 115 passos de caminhada) não acharam nada escuro. O
+   corte do Great Marsh está LIMPO: `PastoriaCityObservatoryGate1F` tem placa
+   `PortaFechada` e nenhum warp para o `GreatMarsh6`, que é TÚMULO sem warp de entrada.
+2. **Não é metatile indefinido, e não é corte.** O mapa é a **Route 212 South**, a vizinha de
+   Pastoria e a ÚNICA das quatro que tem `"weather": "WEATHER_RAIN"` (Pastoria é `WEATHER_NONE`, e a
+   chuva da foto é que a denuncia). O que engole o jogador é o **brejo**, e o defeito é a CAMADA em
+   que a arte foi parar.
+
+### O mecanismo: `DrawMetatile` só tem três casos, e dois deles põem arte ACIMA do sprite
+
+Cada metatile tem duas camadas de quatro tiles, e o tipo de camada
+(`metatile_attributes.bin`, bits 12-15 no formato Emerald e 29-30 no de FRLG) decide em qual BG cada
+uma cai (`src/fieldmap.c`):
+
+| tipo | camada de baixo | camada de cima |
+|---|---|---|
+| `NORMAL` | BG2, **abaixo** do sprite | BG1, **acima** de todo sprite |
+| `COVERED` | BG3 | BG2, **abaixo** do sprite |
+| `SPLIT` | BG3 | BG1, **acima** do sprite |
+
+Os 13 metatiles do brejo (`gTileset_LilycoveSinnoh` locais 179, 180, 184-188, 192-194 e 200-202,
+ids 691, 692, 696-700, 704-706 e 712-714) trazem a arte inteira na camada de **cima**, 100% opaca,
+com tipo `NORMAL`. E o `map.bin` marca colisão 0 nas 405 células em que eles aparecem. Ou seja: o
+jogador entra, e o BG1 desenha o brejo inteiro por cima dele. À noite, com chuva, a cor média
+`(48,88,104)` fica quase preta, que foi como a foto mostrou.
+
+**Prova no framebuffer, antes e depois, o mesmo warp e a mesma rota:** warp 0 da `Route212_South`
+(grupo 75, mapa 30), 25 passos para a direita e 8 para baixo, `--dump-estado` confirmando o jogador
+em **(77,21)**, que é o metatile 705. Na ROM `2026-09-06` a tela mostra o retângulo escuro e
+**nenhum jogador**. Nesta build o mesmo passo mostra o jogador em pé sobre o brejo.
+
+### O conserto: 13 metatiles passam para `COVERED`, e nada mais muda
+
+`dev_scripts/conserta_camada_metatile.py` (novo, com `--demo`, `--regiao`, `--tileset` e `--aplica`)
+levanta os alvos pela lente E3 e reescreve o tipo de camada. Não muda um pixel de arte, não toca em
+`map.bin`, não toca em `map.json`, não mexe em mapa nenhum: são **dois bytes por metatile** no
+`metatile_attributes.bin`, e a mesma arte passa a ser desenhada no BG2, abaixo do sprite. Idempotente
+(a segunda passada com `--aplica` dá 0).
+
+Ele tem **duas travas**, e as duas nasceram de erro medido nesta rodada:
+
+- **Tileset que Hoenn ou Kanto usam não é tocado.** A mesma lente acusa **546 células em Hoenn** e as
+  MESMAS 546 na árvore do `pokeemerald` intocado, e as de Kanto têm atributo idêntico ao do
+  `pokefirered` (conferido byte a byte no `power_plant`: `metatiles.bin` e `tiles.png` iguais, e os
+  metatiles 673-677 com `0x01000008` nos dois). Lá é idioma do jogo original, não defeito nosso.
+- **Metatile que aparece em célula SÓLIDA não é tocado.** A lente acusa dois defeitos com a mesma
+  cara e que se consertam em lugares opostos. O do brejo é CAMADA (405 usos, nenhum sólido). O outro
+  é COLISÃO: os metatiles 12, 80-82, 89, 131 e 139 do `gTileset_GeneralSinnoh` são o telhado
+  vermelho e a fachada do Centro Pokémon, com **12 usos sólidos contra 1 andável**, e passá-los para
+  `COVERED` só trocaria "o jogador sumiu" por "o jogador andando por cima do telhado". Ali o
+  conserto é a colisão da célula, no mapa, e fica registrado abaixo.
+
+### A lente permanente: `E3` em `dev_scripts/qa/mapas_qa.py`
+
+"Bloco preto andável": célula **alcançável** (a BFS de `mapas_qa`, semeada por warp, heal location e
+conexão, com a regra de elevação do motor) cujo metatile **tapa o jogador por inteiro**: tipo
+`NORMAL` ou `SPLIT`, camada de cima 100% opaca, e camada de baixo VAZIA ou repetindo a de cima em
+**metade dos quadrantes**.
+
+Três decisões de régua, todas medidas:
+
+- **O alcance é o que separa defeito de enchimento.** Sem ele a regra acusava 4.581 células só no
+  grupo de Goldenrod: mapa importado tem centenas de células de metatile 0 (preto, colisão 0) FORA da
+  sala, atrás da parede, onde ninguém pisa.
+- **"Metade dos quadrantes", e não "as duas camadas iguais".** Os cantos do brejo (691 e 700)
+  repetem o miolo em 3 de 4 quadrantes e trocam um só; com a régua de "os quatro iguais" eles
+  escapavam e o conserto saía pela metade, com o miolo aparecendo e as bordas ainda engolindo o
+  jogador.
+- **Passagem por baixo de verdade não compartilha quadrante nenhum**, e por isso não é acusada: o
+  metatile 669 do `gTileset_Facility` (Aqua Hideout, vanilla) tem 0 de 4, com o chão na camada de
+  baixo e a máquina na de cima.
+
+`--vanilla` roda a mesma régua no `pokeemerald` intocado e dá **546 em Hoenn**, exatamente o que a
+nossa árvore dá: Hoenn está calibrado em zero acima do vanilla.
+
+### O que a lente achou, por região
+
+| região | antes | depois | veredito |
+|---|---|---|---|
+| Kanto | 240 | 240 | herdado do `pokefirered` (PowerPlant 141, salas da Elite dos Quatro, Saffron) |
+| Johto | 405 | 405 | **aberto**, ver abaixo |
+| Hoenn | 546 | 546 | **falso positivo calibrado**: o vanilla dá os mesmos 546 |
+| Sinnoh | 587 | **113** | os 405 da Route 212 South consertados |
+| Unova | 215 | 215 | outro cartucho, só listado |
+| Galar | 3.787 | 3.787 | outro cartucho, só listado |
+
+**Johto (405), aberto e NÃO consertado nesta frente**, porque não é o mesmo defeito e porque os mapas
+estão na mão de outros executores nesta rodada (Ecruteak, Goldenrod, Blackthorn, Mahogany):
+
+- `NewBarkTown_Lab` **312**, e é outra classe: o laboratório é 40x14 e só as 13 primeiras colunas são
+  sala; o resto é metatile 0 (preto) com colisão 0, e a BFS ENTRA nele a partir da linha 12. A sala
+  não está vedada, e o conserto é colisão no `map.bin`, não camada.
+- `EcruteakCity_Gym` 46 (metatile 811), `OlivineCity_Lighthouse` 20, `GoldenrodCity` 14, `Route26` 2,
+  `Route34` 2: assinatura de camada, do mesmo tipo do brejo, e cada um pede o mesmo conserto de dois
+  bytes.
+
+**Sinnoh, os 113 que sobraram** (nenhum é o defeito relatado, e nenhum passa pelas duas travas do
+conserto): 36 nas quatro salas da Liga (`gTileset_EliteFour` locais 7 e 8, tileset COMPARTILHADO com
+Hoenn, mesma célula e mesmo atributo do vanilla); `MtCoronet_1F_South` 26, `Route214` 19,
+`SunyshoreCity` 14 e o resto pingado em Veilstone, Eterna, os lagos e as torres, tudo de 1 a 3
+células. Os de telhado (Oreburgh, Eterna, Hearthome, Floaroma) são conserto de COLISÃO no mapa e
+estão nomeados acima.
+
+### Os portões desta frente
+
+Build verde com o lock, **ROM 32.371.048 B, 96,47% de 32 MB**. O conserto custa **zero byte**: o
+`metatile_attributes.bin` tem tamanho fixo e só 13 entradas de dois bytes mudaram, com os bits de
+comportamento intactos (`0x0000` -> `0x1000`, conferido byte a byte contra o `git show HEAD:`). O
+render de `Route212_South` sai **byte a byte idêntico** antes e depois (mesmo md5), que é a prova de
+que nenhum pixel de arte mudou: quem mudou foi o BG em que ele é desenhado.
+
+`valida_rom.py` com os **2.400 mapas declarados dentro da ROM**, `guarda_save.py` **SAVE COMPATIVEL**
+(SaveBlock1 em 14.964 de 15.872 B), **T11 3/3** contra a `roms/pokemon-claude-2026-08-18.gba`,
+`valida_warp_tile.py` em 6.875 warps conferidos, `roda_qa.py --demo` verde nas seis varreduras
+(as quatro antigas mais `lente_warps` e `lente_portas`) e `mapas_qa.py --demo` verde com o autoteste
+novo da E3. ROM entregue: `pokemon-claude-2026-09-06p.gba`, md5 `b9decf96a4bf93b0254983e2fe100f49`.
+
+**A suíte fechou 1.004 de 1.028 nesta árvore, e as 23 reprovações NÃO são desta frente**, o que está
+medido e não suposto: `gTileset_LilycoveSinnoh` é usado por **três mapas apenas**
+(`PastoriaCity`, `Route212_North` e `Route212_South`, conferido no `layouts.json`; o
+`metatile_attributes.bin` entra por `INCBIN_U16` direto, sem `ASSET_ALIAS`), e nenhum dos 23 casos
+passa por eles. Os sete casos de barco (T8.5, T10.1, T86.8 a T86.12) **passam 12 de 12 na ROM
+`2026-09-06`** e reprovam nesta build, ou seja o que os quebrou entrou entre `fccccc0265` e agora:
+esta rodada tem vários executores mexendo em Sinnoh ao mesmo tempo (Sunyshore, Pokécenters,
+auditoria de warps, Mahogany), e as outras reprovações são exatamente nos mapas deles (T125.9/10
+Sunyshore, T140.x portas fechadas, T151.x interiores pobres, T100/T101 Twinleaf, Hearthome e
+Solaceon). Fica registrado para o fechador da rodada juntar as pontas.
+
 #### Os portões desta frente
 
 Build verde com o lock, **ROM 96,47% de 32 MB** (32.371.048 B), **EWRAM 86,16% e
@@ -845,6 +1211,221 @@ gerador de Sinnoh e o arco de Ecruteak), e nenhum arquivo desta frente encosta
 neles: o conserto daqui é a loja de departamento de Goldenrod, mais um apelido no
 fim de `vars.h` e uma entrada no FIM do enum de `script_menu.h`, que não desloca
 id de ninguém.
+
+### As casas pretas de Goldenrod: a POSIÇÃO no array de paleta É o slot, 06/09/2026
+
+O Gui mandou a foto de uma cena noturna em Goldenrod City com um prédio de topo branco e corpo
+inteiro PRETO, só as janelas aparecendo, com os vizinhos normais. Não era arte, não era o DNS e não
+era o `metatiles.bin`: era a **ORDEM do array de paleta**. `LoadTilesetPalette`
+(`src/fieldmap.c:1035`) copia `tileset->palettes[numPalsInPrimary]` **em bloco**, então a POSIÇÃO da
+linha dentro de `gTilesetPalettes_X` É o slot de paleta que o jogo carrega. E
+`dev_scripts/importa_tilesets_johto.py` montava esse array com `sorted(os.listdir(...))`, emitindo
+também os `.pal` que NÃO são slot: a camada de luz noturna do hns (`08_over.pal`, `09_over.pal`,
+`10_over.pal`, `12_over.pal`) e o `bellchime_12.pal`.
+
+Em `gTileset_Goldenrod` o array tinha **20 linhas em vez de 16**, e `08_over.pal` caía na posição 9.
+Johto é `layout_version: "johto"`, ou seja `bigPrimary`, com 7 paletas no primário, então o
+secundário ocupa os slots 7 a 12. O que o motor carregava, medido linha a linha:
+
+| slot do jogo | arquivo que entrava | arquivo certo |
+|---|---|---|
+| 7 | `07.pal` | `07.pal` |
+| 8 | `08.pal` | `08.pal` |
+| **9** | **`08_over.pal`** (12 das 16 cores são `0 0 0`) | `09.pal` |
+| 10 | `09.pal` | `10.pal` |
+| **11** | **`09_over.pal`** (13 das 16 cores são `0 0 0`) | `11.pal` |
+| 12 | `10.pal` | `12.pal` |
+
+Preto é preto com qualquer tingimento, então o defeito **não depende da hora**: a foto do Gui é de
+noite porque ele jogou de noite. Medido no `LAYOUT_GOLDENROD_CITY` (58x46): **151 blocos de 2.668, em
+84 metatiles distintos, usam os slots 9 ou 11** e saíam pretos, e outros **1.061 blocos usam o slot
+12**, que saía com a cor do `10.pal`, errada mas não preta (é o toldo que estava branco em vez de
+amarelo). `Route34` e `Route35` compartilham o tileset e não colocam nenhum metatile dos slots
+pretos, e por isso ninguém tinha reclamado deles.
+
+**A varredura do repo inteiro achou quatro arrays desalinhados, e só um era defeito visível.**
+`Goldenrod` e `RuinsOfAlphOutside` divergem a partir da posição 9; `Route32` e `VioletCity` têm
+`bellchime_12.pal` na posição 13, que é além do `NUM_PALS_TOTAL` de 13 e por isso o motor nunca lê.
+`RuinsOfAlphOutside` estava desalinhado e mesmo assim correto na tela: **0 de 2.208 blocos** do mapa
+dele usam os slots pretos, e é por isso que ele virou o CONTROLE da prova, e não um segundo conserto.
+Os outros dois geradores de tileset (`tileset_gen2.py` e `tileset_galar.py`) emitem
+`palettes/{i:02d}.pal` com `range(16)` e nunca podiam cair nisso.
+
+**O conserto é na raiz, no gerador.** `importa_tilesets_johto.py` passou a aceitar só `NN.pal`,
+ordenar por NÚMERO e cobrar que a sequência comece em 00 e não tenha buraco, tanto na hora de copiar
+do hns quanto na hora de emitir o `INCGFX`. O `--demo` dele ganhou a invariante que faltava, e ela é
+sobre o `graphics.h` INTEIRO e não só sobre o bloco que o script escreve: posição tem que ser igual
+ao número do arquivo, nenhum array pode ter menos de 13 slots, e ela recusa rodar se examinar menos
+de 280 arrays. Calibrada dos dois lados: no `graphics.h` de `b7ef40f330` ela para no primeiro,
+`gTilesetPalettes_Goldenrod: a posicao nao e o slot; posicao 9 carrega '08_over.pal'`, e na árvore
+desta rodada passa. As 8
+linhas de `.pal` que não são slot saíram do `graphics.h` e os 8 arquivos saíram do disco (todos
+reprodutíveis a partir do hns em `fontes-mapas/hns`), para que o disco e a tabela digam a mesma coisa
+e nenhuma outra ferramenta tropece neles de novo. Custo de ROM medido no `.map`, e não deduzido:
+`gTilesetPalettes_Goldenrod` cai de `0x280` para `0x200` bytes (20 paletas para 16), e as 8 linhas
+das quatro tabelas somam **256 B a menos**.
+
+**A lente que parecia óbvia foi tentada, medida e RECUSADA**, e a medida está escrita dentro do
+`prova_paletas_goldenrod.py` para ninguém refazer o caminho: "procurar metatile colocado num mapa cujo
+slot de paleta sai TODO preto" **não pega este defeito**. Rodada com o `graphics.h` de `b7ef40f330`
+nos **2.053 layouts** que têm blockdata em disco, ela não acusa Goldenrod, porque `08_over.pal` tem
+12 cores pretas e **4 amarelas**, que são as janelas acesas, e portanto não é "toda preta". De quebra
+ela acusa **56 layouts de Kanto, Hoenn e Galar com tileset VANILLA**, que precisariam de calibração
+contra o `pret/pokeemerald` intocado antes de virarem cobrança. Duas razões para não existir: não
+acha o que esta rodada consertou, e acenderia vermelho permanente. Quem pega o defeito é a invariante
+de ORDEM, e ela examina os **286 arrays** de `graphics.h` mais `graphics.c`, nas três formas em uso
+(com e sem `ALIGNED(4)`, com o arquivo em `.pal` ou já em `.gbapal`); uma regex mais estreita
+examinaria 70 dos 286 e daria verde por não ter olhado.
+
+**A prova é do emulador, com par antes/depois e um controle**
+(`dev_scripts/prova_paletas_goldenrod.py`). Cor não mora em EWRAM que se leia por símbolo, então a
+prova é o PNG, medido e não olhado: o roteiro warpa por debug e a ferramenta conta quanto da metade
+de cima da tela é PRETO PURO. Na ROM `2026-09-05`, que é a que o Gui jogou, a porta da Radio Tower
+(warp 7) dá **38,4% de preto** e o Game Corner (warp 10) dá **13,1%**; nesta build dão **0,9%** e
+**0,3%**, com a MESMA hora de relógio e o mesmo tingimento noturno (o poste aceso está nos quatro
+PNGs). `RuinsOfAlph_Outside` mede **0,2% nas duas**, que é o controle.
+
+**E tem uma terceira camada, lida do BINÁRIO e não da tela.** `gTilesetPalettes_Goldenrod` está em
+`0x08f18a98` na ROM `2026-09-05` e em `0x08f1b598` nesta, os dois endereços tirados do `.map`. Lendo
+32 bytes por slot: na ROM velha o **slot 9 tem 12 das 16 cores em `0x0000`** e o **slot 11 tem 13**;
+nesta, os slots 9, 11 e 12 têm **zero** cor preta. É a mesma afirmação medida em três lugares
+diferentes, arquivo de dados, binário e framebuffer.
+
+**Efeito colateral, achado no caminho: `render_maps.py` nunca tinha conseguido desenhar Goldenrod.**
+Ele lia o nome do `.pal` com `int()` cru e morria com `invalid literal for int() with base 10:
+'12_over'`. Agora ele filtra por `^\d{2}\.pal$`, que é a mesma regra do gerador. Com ela, os dois
+tilesets voltaram a renderizar, e o render da árvore bate byte a byte com um render feito pela ordem
+do `graphics.h`, que é a prova de que as duas camadas passaram a concordar.
+
+### A auditoria de ida e volta dos warps: quem entra por uma porta tem que sair por ela, 06/09/2026
+
+Quarto defeito do playtest, e o pedido que veio junto: *"em Sinnoh fui para Veilstone, entrei no
+prédio da esquerda, e saí, e aí saí em Lilycove City"*, seguido de **"revisa todas essas entradas e
+saídas, se os links estão certos! TODAS!!!"**. A loja de Veilstone É a loja de Lilycove
+REAPROVEITADA, e a saída dela era fixa para Hoenn. O `valida_conectividade.py` dava verde no warp,
+porque ele confere se o ÍNDICE de destino existe, e existia: a camada que faltava era a VOLTA.
+
+#### A lente nova, e o recorte que a faz valer alguma coisa
+
+`dev_scripts/qa/lente_warps.py`, quinta varredura do `roda_qa.py`. Para cada warp A(x,y) -> B[k] ela
+olha o warp k de B, que é o tile em que o jogador POUSA, e cobra que ele devolva para A, na porta que
+o jogador usou.
+
+| regra | o que cobra |
+|---|---|
+| **P1** | destino inexistente: mapa ou id de warp que não existe |
+| **P2** | porta que não devolve: ao ar livre <-> fechado, e a volta cai em OUTRO mapa |
+| **P3** | volta para lugar errado: cai no mapa certo, mas fora da porta usada |
+| **P4** | escada interna que não devolve: mesmo prédio, e só em tile de escada ou porta |
+
+**A versão ampla dessa regra já tinha sido medida e REPROVADA** em 23/08/2026 (comentário no
+`valida_conectividade.py`): "todo warp tem que voltar" dava 427 casos aqui contra a MESMA taxa por 100
+mapas no pret/pokeemerald intocado. O que separa bug de idioma do motor é a **travessia de camada**,
+mais três recortes, cada um com a medida que o justifica:
+
+1. **Warp fora da grade do layout não tem ida e volta**, porque ninguém pisa nele. São 2 no cartucho
+   1, `TinTower_8F` warp 4 em **(-1,10)** e `Route26` warp 0 em **(12,-24)**, lixo do importador do
+   demake.
+2. **Warp cujo tile NUNCA DISPARA também não**, e essa camada já tem dono, o `valida_warp_tile.py`.
+   São **960 dos 6.875**. Sem este recorte a lente acusava `EcruteakCity` warps 4, 5 e 14 e
+   `NewBarkTown` warps 4 a 7, todos `MB_NORMAL` com colisão 1, ou seja portas que o motor nunca abre.
+3. **Porta larga é UMA porta.** Warps de A que apontam para o MESMO (mapa, warp) e ficam colados são
+   a mesma porta, e a volta pousar em qualquer um deles está certo. É o idioma dos portões de Johto
+   (4 tiles em `Route34` e no Parque Nacional) e das saídas de prédio de Kanto (3 tiles).
+
+O P4 só olha tile de **mão dupla** (escada, porta, escada rolante, escada diagonal), porque buraco do
+Mt. Pyre, redemoinho do esconderijo Aqua, chão falso dos ginásios de Lavaridge e Mossdeep e saída de
+sala de batalha são de mão única DE PROPÓSITO, e quem os separa é o COMPORTAMENTO DO METATILE, lido
+do enum do repo e não de número copiado.
+
+**A calibração é o vanilla**, como manda a lição 4.2: rodada antes de qualquer conserto, a lente dava
+**0 em Hoenn e 0 em Kanto** fora da lista branca. Os 14 casos de Hoenn e Kanto que ela levanta foram
+abertos um a um e comparados com `../fontes-mapas/pokeemerald` e `../fontes-mapas/pokefirered`:
+**`warp_events` IGUAL byte a byte nos 14**, então entram na lista branca com o motivo escrito, nunca
+"para baixar o número".
+
+#### O retrato, antes e depois
+
+| regra | Kanto | Johto | Hoenn | Sinnoh | Unova | Galar | total |
+|---|---|---|---|---|---|---|---|
+| P1 destino inexistente | 0 | 0 | 0 | 0 | 0 | 0 | **0** |
+| P2 porta que não devolve | 0 | 6 -> **0** | 0 | 3 -> **0** | 0 | 47 | 56 -> **47** |
+| P3 volta para lugar errado | 0 | 0 | 0 | 0 | 3 | 0 | **3** |
+| P4 escada que não devolve | 0 | 2 -> **0** | 0 | 0 | 35 | 83 | 120 -> **118** |
+| total | 0 | 8 -> **0** | 0 | 3 -> **0** | 38 | 130 | 179 -> **168** |
+
+**6.875 warps em 2.289 mapas vivos** (111 túmulos fora da conta), dos quais **4.318 passam por porta
+de prédio ou escada interna**, que é o denominador da regra. **O cartucho 1 fecha em ZERO**, e é isso
+que o `--demo` da lente cobra: ele reprova se Kanto, Johto, Hoenn ou Sinnoh voltarem a ter achado.
+Dos 11 do cartucho 1, **4 eram do Trainer Hill e das três Battle Tents** e já são da frente dos
+prédios compartilhados (subseção acima); os **7** desta frente estão na tabela de consertos.
+
+#### O mecanismo: `MAP_DYNAMIC` mais um special, e ZERO custo de save
+
+O interior de Hoenn que Sinnoh reaproveita **não foi copiado**. A porta de saída dele virou
+`MAP_DYNAMIC`, e o próprio motor grava de onde o jogador veio: em `SetupWarp`
+(`src/field_control_avatar.c:1131`), quando o warp em que o jogador vai POUSAR é dinâmico, ele chama
+`SetDynamicWarp` com o mapa e o índice do warp de origem, e com o `warpId` gravado a saída mantém a
+animação de porta e o tile de sempre. `dynamicWarp` já existe no SaveBlock1 desde o Emerald: **custo
+de save zero**.
+
+O que o motor NÃO faz é repor esse retorno depois que outra coisa reescreve o `dynamicWarp`, e dentro
+da loja de Lilycove isso acontece sempre, porque o **ELEVADOR** faz
+`setdynamicwarp MAP_LILYCOVE_CITY_DEPARTMENT_STORE_3F, 2, 1` a cada andar escolhido
+(`data/maps/LilycoveCity_DepartmentStoreElevator/scripts.inc:80`). Sem reposição, quem subisse de
+elevador e descesse a escada até o térreo sairia pela porta da rua e reapareceria no terceiro andar,
+para sempre.
+
+O conserto é `src/retorno_dinamico.c`, special `DefinirSaidaPelaPortaDeEntrada`, chamado no
+`ON_TRANSITION` do andar de ENTRADA. **A guarda é a pergunta certa, e não "quem escreveu por
+último"**: a porta da rua do térreo TEM que levar para fora, então se o retorno gravado aponta para um
+mapa que **não é ao ar livre** (`IsMapTypeOutdoors`), ele está velho e é reposto pelo `escapeWarp`,
+que é o registro que o motor faz da última entrada de mapa aberto para mapa fechado
+(`UpdateEscapeWarp`, `src/overworld.c:774`) e guarda o tile uma linha abaixo da porta. Quando o
+jogador entrou pela rua, o retorno aponta para a cidade, a guarda não toca em nada, e a saída fica
+idêntica ao original.
+
+**Existem hoje DOIS specials com esse papel**, este e o `DefinirRetornoPredioCompartilhado` da frente
+dos prédios de Johto (subseção acima), escritos em paralelo na mesma rodada. A guarda deste é um
+superconjunto da daquele: "o retorno aponta para o próprio mapa" (a assinatura das Battle Tents) é um
+caso particular de "o retorno não aponta para fora". **Unificar em um só é dívida aberta**, e o
+caminho é ficar com o daqui e reprovar os quatro casos das tendas de novo no emulador.
+
+#### Os sete consertos do cartucho 1
+
+| # | região | onde | o que era | o que ficou |
+|---|---|---|---|---|
+| 1 | Sinnoh | `VeilstoneCity` (25,30) -> loja de Lilycove | a saída da loja era fixa para `LilycoveCity` | os dois tiles de porta da `LilycoveCity_DepartmentStore_1F` viraram `MAP_DYNAMIC`, mais o special no `ON_TRANSITION` |
+| 2 | Sinnoh | `OreburghCity` (54,14) -> museu de Lilycove | a saída do museu era fixa para `LilycoveCity` | as duas portas da `LilycoveCity_LilycoveMuseum_1F` viraram `MAP_DYNAMIC`, mais o special |
+| 3 | Sinnoh | `Route218` (59,24), seta leste | levava a `MAP_ROUTE211_EAST` warp 0, do outro lado do mapa, perto do Mt. Coronet | `MAP_ROUTE218_EAST` warp 1, que é a porta oeste do portão, e o par fecha |
+| 4 | Johto | `ReceptionGate` (11,1) e (10,1), porta norte | `VICTORY_ROAD_1F` warp **0**, que é a ESCADA do 2F | warp **1**, que é a boca sul da Victory Road, e esse warp virou `MAP_DYNAMIC` |
+| 5 | Johto | `ReceptionGate` (20,9), porta leste | `MAP_ROUTE22` warp 0, que é o tile da PORTA do portão de Kanto: o jogador era cuspido em cima dela | `MAP_ROUTE22_NORTH_ENTRANCE` warp 0, que virou `MAP_DYNAMIC` |
+| 6 | Johto | `SafariZoneGate_SafariZoneEntrance` (9,1) | o Safari de Johto É o de Hoenn, e sair dele levava à Rota 121 | `SafariZone_South` warp 0 virou `MAP_DYNAMIC` |
+| 7 | Kanto/Hoenn | os lados originais de 1 a 6 | — | conferidos no emulador como REGRESSÃO, um par por conserto |
+
+Os warps 4 e 5 do `ReceptionGate` eram herança do importador do demake: no `../fontes-mapas/hns` eles
+apontam para `MAP_VICTORY_ROAD_KANTO_B2F` e para o `MAP_ROUTE22` **do próprio hns**, e nenhum dos dois
+foi importado; nesta ROM as duas constantes resolvem para mapas do FireRed, e o portão passou a
+desembocar na escada e em cima de outra porta.
+
+#### O que a auditoria achou e NÃO consertou, com o motivo
+
+- **Unova 38 e Galar 130**, listados pela lente e deixados de fora por escopo: as duas regiões vão
+  para OUTRO cartucho (memória `pokemon-claude-gens-6-9-escopo`). O grosso de Galar são os prédios
+  compartilhados de Hammerlocke, Circhester e Ballonlea, com a mesma assinatura do caso de Veilstone,
+  e o mesmo mecanismo resolve quando a frente de Galar abrir.
+- **`EcruteakCity` warps 4, 5 e 14 são WARP MORTO**, não link errado: os três estão sobre `MB_NORMAL`
+  com colisão 1, medido no blockdata. O warp 14 é a porta do Battle Tower de Ecruteak, e ela **não
+  abre**; consertar isso é mexer no metatile do mapa, que é obra da frente de Ecruteak, não deste
+  mecanismo. O link dele continua errado por baixo (a saída do lobby é fixa para
+  `BattleFrontier_OutsideEast`) e vai precisar do retorno dinâmico junto com a abertura da porta.
+- **`NewBarkTown` warps 4 a 7 também são warp morto**, e é por isso que os dois `WorldHub` aparecem
+  inalcançáveis: nenhuma das quatro portas dispara.
+- **O Safari de Johto não tem script de entrada nenhum**: não cobra taxa, não acende
+  `VAR_SAFARI_ZONE_STATE`, não dá bolas nem contador de passos. Quem entra por Johto entra sem modo
+  Safari, e sai andando pela porta, que agora devolve para o portão certo. A saída POR DIÁLOGO com o
+  atendente continua com `warp MAP_ROUTE121_SAFARI_ZONE_ENTRANCE, 2, 5` cravado em
+  `data/scripts/safari_zone.inc:25`, e cai em Hoenn: é conteúdo do Safari de Johto, não link de warp.
 
 ---
 
@@ -977,110 +1558,6 @@ então Deoxys continua pós-Liga. **T168.4 e T168.5.**
 ### O que a caça achou DENTRO do próprio ferramental
 
 Cinco vermelhos que ninguém via porque um `assert` anterior sempre caía primeiro. (a) **Três espécies
-### O Pokécenter de Sinnoh tinha três enfermeiras, e a fonte tem uma, 06/09/2026
-
-Defeito do playtest na foto do `SunyshoreCityPokecenter1F` ("before Volkner"). O Gui
-apontou duas coisas na mesma tela, e **só uma era defeito**.
-
-**O piso NÃO é defeito, e a prova é o controle de Hoenn.** O "triângulo de bolinhas laranja e
-brancas" entre o balcão e o tapete é a **Poké Ball desenhada no chão do Pokécenter**, arte do
-Emerald original: um bloco de 4x4 metatiles (620-623, 560-563, 568-571, 576-579) em (5,4)-(8,7),
-metade de cima laranja e metade de baixo branca, com a faixa do meio deixada no piso xadrez. Ela
-aparece igual no `PetalburgCity_PokemonCenter_1F`, que foi o controle fotografado. Medido, e não
-deduzido: `data/layouts/OreburghCity_PokemonCenter_1F/map.bin` difere do
-`data/layouts/PokemonCenter_1F/map.bin` em **um único bloco**, o (13,6), que é a escada do B1F; e
-`data/tilesets/primary/building/` e `data/tilesets/secondary/pokemon_center/` são **byte a byte
-idênticos** ao `fontes-mapas/pokeemerald` (21 e 18 arquivos, md5 a md5). Layout igual mais tileset
-igual quer dizer que o que a ROM desenha ali é o que o Emerald desenha. Nada mudou no piso.
-
-**A gente é que estava repetida.** Contado nas 18 fontes de Pokécenter 1F do Platinum
-(`fontes-mapas/pokeplatinum/res/field/events/events_*_pokecenter_1f.json`): **cada uma tem
-exatamente UMA** `OBJ_EVENT_GFX_POKECENTER_NURSE`, sempre em (8,4) da grade de lá, sempre com
-script. Não existem as atendentes de Wi-Fi/Union/GTS que a suspeita inicial levantava, e não havia
-sprite errado: `OBJ_EVENT_GFX_NINJA_BOY` é byte a byte o `ninja_boy.png` do Emerald, e o menino do
-Emerald **tem cabelo rosa mesmo**. O que havia eram **corpos repetidos da mesma pessoa**, por duas
-portas distintas:
-
-1. **`fecha_portas_sinnoh.py`, na criação do mapa.** O arquétipo `pc1` copia o NPC funcional do
-   índice 0 de `OreburghCity_PokemonCenter_1F` (a enfermeira com o `Common_EventScript_PkmnCenterNurse`)
-   e o insere na posição 0, enquanto `conteudo_do_mapa` já tinha importado a enfermeira DA FONTE
-   como um objeto qualquer. Duas mulheres, a mesma pessoa: a importada ficou muda, de pé na frente
-   do balcão. É a enfermeira de (8,4) de onze mapas.
-2. **`importa_npcs_sinnoh.py`, nas rodadas de completude de 22 e 23/08.** A guarda de idempotência
-   dele reconhece "já importado" por VIZINHANÇA de até um tile. Nesses mapas a planta é
-   REAPROVEITADA do repo, então a coordenada da fonte não diz nada: a régua de escala mudou entre
-   rodadas, a mesma pessoa caiu em (8,4) numa passada e em (10,2) na seguinte, e nenhuma reclamou a
-   outra. Foi assim que nasceram a terceira enfermeira de Sunyshore e de Hearthome, o segundo
-   menino de cabelo rosa de Sunyshore, a segunda LASS de Canalave e de Snowpoint, a segunda WOMAN_3
-   de Eterna e as demais.
-
-As duas portas foram fechadas nos geradores: `fecha_portas_sinnoh.py` não importa mais o corpo mudo
-que tem o mesmo gráfico do NPC funcional, e `importa_npcs_sinnoh.reclama` passa a reclamar por
-IDENTIDADE (mesmo `graphics_id`, em qualquer lugar do mapa) quando o `map.json` diz
-`planta reaproveitada`. O que já estava escrito saiu por
-**`dev_scripts/corpos_repetidos_pokecenter.py`**, idempotente e com `--demo` de nove provas:
-**25 corpos em 15 mapas**, e cada um passou por cinco portões: mapa com fonte no Platinum; objeto
-MUDO e anônimo (script "0", flag "0", sem `local_id`, sem treinador); marca `pokeplatinum`; a
-pessoa continua no mapa e COM a fala dela (existe outro objeto do mesmo gráfico que tem script); e
-a fonte tem menos corpos daquele gráfico do que nós.
-
-| mapa | corpos apagados |
-|---|---|
-| SunyshoreCityPokecenter1F | 3 (NURSE 8,4; NINJA_BOY 13,4; NURSE 10,2) |
-| EternaCityPokecenter1F | 3 (NURSE 8,4; SCHOOL_KID_M 1,6; WOMAN_3 13,3) |
-| CanalaveCityPokecenter1F | 2 (NURSE 8,4; LASS 9,8) |
-| CelesticTownPokecenter1F | 2 (NURSE 8,4; EXPERT_F 13,4) |
-| HearthomeCityPokecenter1F | 2 (NURSE 8,4; NURSE 10,2) |
-| PokemonLeagueNorthPokecenter1F | 2 (NURSE 3,2; NURSE 0,2) |
-| SnowpointCityPokecenter1F | 2 (NURSE 8,4; LASS 0,2) |
-| SolaceonTownPokecenter1F | 2 (NURSE 8,4; OLD_MAN 13,3) |
-| Floaroma, Jubilife, Oreburgh, Pastoria, LeagueSouth, Sandgem, Veilstone | 1 cada (a enfermeira muda) |
-
-**A armadilha do apagar, desarmada antes e não depois.** Apagar objeto desloca o id de todos os
-seguintes do mesmo mapa (`tools/mapjson` gera `#define <local_id> <posição + 1>`). Os
-`LOCALID_*_PC_NURSE` destes 15 mapas apontam todos para a posição 0, que nunca sai, e os `#define`
-escritos à mão em `include/constants/sinnoh/*.h` para eles valem todos 1. O caso perigoso era um só
-e estava medido: `PokemonLeagueNorthPokecenter1F` chamava o rival por **`addobject 7`** cru, e as
-duas enfermeiras a apagar estavam ANTES dele. A ferramenta batiza o objeto antes de apagar qualquer
-coisa (`LOCALID_LEAGUE_NORTH_PC_RIVAL` no `map.json`, a constante no lugar do número no
-`scripts.inc`) e RECUSA o mapa inteiro se sobrar id cru sem batismo.
-
-**Três enfermeiras mudas continuam no repo, e é de propósito**: as de `FloaromaTown`,
-`JubilifeCity` e `OreburghCity` em (3,2) já estão atrás de `FLAG_SINNOH_NPC_DUPLICADO`, ou seja
-invisíveis em jogo novo desde a leva de 12/08. Corpo com flag não passa no portão 2 desta
-ferramenta, e mexer nelas seria refazer uma decisão já tomada.
-
-**Duas lições desta frente.**
-
-1. **Defeito relatado por foto pede CONTROLE antes de conserto.** O piso "errado" era arte do
-   Emerald, e bastou fotografar um Pokécenter de Hoenn no mesmo emulador para ver a mesma Poké Ball.
-   Sem esse par, o conserto teria sido reescrever um `map.bin` que está certo desde 2004.
-2. **Sprite estranho não é sprite errado.** As "figuras de cabelo rosa que parecem enfermeira" eram
-   o `OBJ_EVENT_GFX_NINJA_BOY` do Emerald, cujo `ninja_boy.png` é idêntico ao do upstream. O defeito
-   não estava no de-para, estava na CONTAGEM: eram dois meninos onde a fonte tem um.
-
-**Os portões desta frente.** Build verde com o lock (ROM 96,47% de 32 MB, 32.369.368 B; EWRAM
-86,16%, IWRAM 86,68%). `guarda_save.py` **SAVE COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B,
-2.400 mapas: apagar objeto NÃO é índice de save, o que a save guarda de mapa é `(mapGroup, mapNum)`,
-e nenhum deles andou. `valida_rom.py` com os 2.400 mapas declarados dentro da ROM.
-`valida_conectividade.py` com 0 warps quebrados, `valida_mapas_sinnoh.py` com `'sprite': 0` e 0 mapas
-com problema, `valida_warp_tile.py --piso 60` sem região abaixo do piso, `completude.py` com Sinnoh
-em 100,3% de objetos. **T11 3/3** contra `roms/pokemon-claude-2026-08-18.gba` (fonte na worktree de
-`cf6786b2ae`). Suíte **1.008 de 1.015** com o T11.3 à parte; os seis vermelhos são de obra ALHEIA em
-curso na mesma árvore, e isso foi medido, não suposto: T140.1/3/4 andam pelo `ContestHallLobby`, cujo
-`map.json` e `scripts.inc` outra frente está reescrevendo neste momento; T151.3/4 andam pela sala de
-treinador do ginásio D/P de Hearthome, cujo `map.bin` outra frente está redecorando; T170.4 é da
-frente de Johto. Contra a ROM entregue `2026-09-05`, com o `--src` casado numa worktree de
-`b7ef40f330`, esses cinco passavam e outros três (T140.7, T140.8, T140.11) falhavam, ou seja a linha
-de base da árvore compartilhada se move sozinha enquanto várias frentes escrevem nela.
-
-**O mesmo defeito tem 31 irmãos fora do Pokécenter, e eles ficam abertos.** Passando as MESMAS cinco
-provas em todo interior de Sinnoh de planta reaproveitada, sobram **31 corpos mudos repetidos em 25
-mapas** (`VeilstoneStore2F` a `5F`, os seis Marts, `CanalaveLibrary1F/2F/3F`, `MiningMuseum`,
-`PoffinHouse`, `Route222WestHouse`, `SunyshoreCityWestHouse`, `CycleShop`, e mais). Não entraram
-porque o `PARES` desta ferramenta é de Pokécenter, escrito à mão; estendê-lo pede o mesmo casamento
-mapa-a-fonte que `importa_npcs_sinnoh.headers_do_platinum()` já faz, e é rodada própria.
-
 da Dex moradas em DOIS lugares**: a realocação de Johto pôs cópia nos mapas novos e deixou as
 originais na órfã Diglett's Cave, e como `encontros_base()` desfaz a escrita pela coluna
 `substituido`, o censo-base voltava a vê-las e o plano as dava por obtidas; os três slots voltaram a

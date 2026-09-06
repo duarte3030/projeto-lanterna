@@ -58,6 +58,44 @@ REPO = os.environ.get(
         os.path.abspath(__file__)))))
 VANILLA = os.path.join(os.path.dirname(REPO), "fontes-mapas", "pokeemerald")
 
+TILE_PX = 8               # tile de BG do GBA
+PX_POR_CAMADA = 4 * 8 * 8  # 4 quadrantes de 8x8: camada 100% opaca
+
+# ------------------------------------------------------- E3: quem tapa o herói
+#
+# Nasceu do playtest do Gui de 06/09/2026 ("um retângulo de tiles pretos em que
+# o jogador entra embaixo e some"). O mecanismo é `DrawMetatile` em
+# src/fieldmap.c, e ele só tem três casos:
+#
+#   NORMAL  -> camada de BAIXO no BG2 (abaixo do sprite) e a de CIMA no BG1,
+#              que é desenhado ACIMA de todo sprite de overworld.
+#   COVERED -> camada de baixo no BG3 e a de cima no BG2: as duas ficam ABAIXO.
+#   SPLIT   -> baixo no BG3, cima no BG1 (acima do sprite), meio vazio.
+#
+# Ou seja: metatile NORMAL ou SPLIT cuja camada de CIMA é 100% opaca apaga o
+# jogador inteiro enquanto ele estiver em pé ali. Isso é legítimo em passagem
+# por BAIXO de ponte ou de copa de árvore, e nesse caso a camada de baixo traz
+# o CHÃO por onde se anda, diferente do que está por cima. O defeito é o outro
+# caso: camada de baixo VAZIA (nada além do fundo) ou IDÊNTICA à de cima, que é
+# a assinatura de arte empurrada para a camada errada pelo conversor.
+#
+# "Idêntica" é METADE DOS QUADRANTES, não os quatro: os cantos do brejo da
+# Route 212 (metatiles 691 e 700) repetem a arte do miolo em 3 dos 4 quadrantes
+# e trocam só um, e com a régua de "os quatro iguais" eles escapavam, deixando o
+# conserto pela metade (o miolo aparecia e as bordas continuavam engolindo o
+# jogador). Passagem por baixo de verdade não compartilha quadrante nenhum:
+# medido em 06/09/2026, o metatile 669 do `gTileset_Facility` (Aqua Hideout,
+# vanilla) tem 0 de 4.
+
+
+def tapa_o_jogador(px_baixo, px_cima, quad_iguais, tipo):
+    """O metatile esconde o jogador POR INTEIRO, e não é passagem por baixo?"""
+    if tipo == 1:                     # COVERED: as duas camadas ficam abaixo
+        return False
+    if px_cima != PX_POR_CAMADA:      # camada de cima com furo: dá para ver
+        return False
+    return px_baixo == 0 or quad_iguais >= 2
+
 # ---------------------------------------------------------------- comportamento
 
 _MB_CACHE = {}
@@ -161,6 +199,10 @@ class Arvore:
         self._grade = {}
         self._attr = {}
         self._pastas = None
+        self._tiles = {}
+        self._meta = {}
+        self._camada = {}
+        self._desenho = {}
 
     # -- tilesets ---------------------------------------------------------
     def pastas(self):
@@ -241,6 +283,114 @@ class Arvore:
         elif ts == "0" or not ts:
             r = []
         self._attr[ts] = r
+        return r
+
+    # -- camada de desenho (E3) -------------------------------------------
+    def tiles_opacos(self, ts):
+        """[quantos pixels OPACOS cada tile 8x8 do tileset tem].
+
+        Opaco é índice de cor != 0: no GBA a cor 0 de qualquer paleta de BG é
+        transparente, e é ela que deixa ver a camada de baixo. Só o `tiles.png`
+        indexado é lido; paleta não entra, porque a pergunta aqui é "tapa ou
+        não tapa", não "de que cor".
+        """
+        if ts in self._tiles:
+            return self._tiles[ts]
+        fora = []
+        d = self.pastas().get(ts) if ts and ts != "0" else None
+        p = os.path.join(d, "tiles.png") if d else None
+        if p and os.path.exists(p):
+            try:
+                from PIL import Image
+                img = Image.open(p).convert("P")
+                W, H = img.size
+                px = img.load()
+                ncol = W // TILE_PX
+                for i in range(ncol * (H // TILE_PX)):
+                    cx, cy = (i % ncol) * TILE_PX, (i // ncol) * TILE_PX
+                    fora.append(sum(1 for y in range(TILE_PX) for x in range(TILE_PX)
+                                    if px[cx + x, cy + y]))
+            except Exception:
+                fora = []
+        self._tiles[ts] = fora
+        return fora
+
+    def metatiles(self, ts):
+        """Bytes crus do metatiles.bin (16 por metatile), ou b''."""
+        if ts in self._meta:
+            return self._meta[ts]
+        b = b""
+        d = self.pastas().get(ts) if ts and ts != "0" else None
+        if d:
+            p = os.path.join(d, "metatiles.bin")
+            if os.path.exists(p):
+                b = open(p, "rb").read()
+        self._meta[ts] = b
+        return b
+
+    def camadas(self, ts):
+        """[tipo de camada por metatile] (0 NORMAL, 1 COVERED, 2 SPLIT).
+
+        O tipo mora nos bits 12-15 do atributo de 2 bytes (Emerald) e nos bits
+        29-30 do de 4 bytes (FRLG), exatamente como `ExtractMetatileAttribute`
+        em src/fieldmap.c. `atributos()` acima só devolve o COMPORTAMENTO, e
+        por isso esta leitura é separada em vez de reaproveitá-la.
+        """
+        if ts in self._camada:
+            return self._camada[ts]
+        r = []
+        d = self.pastas().get(ts) if ts and ts != "0" else None
+        if d:
+            pa = os.path.join(d, "metatile_attributes.bin")
+            pm = os.path.join(d, "metatiles.bin")
+            if os.path.exists(pa) and os.path.exists(pm):
+                n = os.path.getsize(pm) // 16
+                b = open(pa, "rb").read()
+                if n:
+                    larg = len(b) // n
+                    if larg == 4:
+                        r = [(struct.unpack("<I", b[i:i + 4])[0] >> 29) & 3
+                             for i in range(0, n * 4, 4)]
+                    else:
+                        r = [(struct.unpack("<H", b[i:i + 2])[0] >> 12) & 0xF
+                             for i in range(0, n * 2, 2)]
+        self._camada[ts] = r
+        return r
+
+    def desenho_do_metatile(self, lid, mt):
+        """(px da camada de baixo, px da de cima, quadrantes iguais, tipo).
+
+        Devolve None quando o metatile não resolve (tileset sem pasta, id fora
+        do teto: isso é a regra E1, não esta).
+        """
+        L = self.layouts.get(lid)
+        if not L:
+            return None
+        pri, sec = L.get("primary_tileset"), L.get("secondary_tileset")
+        frlg = L.get("layout_version") in ("frlg", "johto")
+        corte_mt = 640 if frlg else 512
+        corte_tl = 640 if frlg else 512
+        chave = (pri, sec, corte_mt, mt)
+        if chave in self._desenho:
+            return self._desenho[chave]
+        ts_meta, idx = (pri, mt) if mt < corte_mt else (sec, mt - corte_mt)
+        bin_meta = self.metatiles(ts_meta)
+        tipos = self.camadas(ts_meta)
+        r = None
+        if bin_meta and idx < len(bin_meta) // 16 and idx < len(tipos):
+            tp = self.tiles_opacos(pri), self.tiles_opacos(sec)
+            px = [0, 0]
+            entradas = [[], []]
+            for c in (0, 1):
+                for q in range(4):
+                    v = struct.unpack_from("<H", bin_meta, idx * 16 + (c * 4 + q) * 2)[0]
+                    it = v & 0x3FF
+                    entradas[c].append(v)
+                    lista, j = (tp[0], it) if it < corte_tl else (tp[1], it - corte_tl)
+                    px[c] += lista[j] if 0 <= j < len(lista) else 0
+            iguais = sum(1 for q in range(4) if entradas[0][q] == entradas[1][q])
+            r = (px[0], px[1], iguais, tipos[idx])
+        self._desenho[chave] = r
         return r
 
     # -- grade ------------------------------------------------------------
@@ -357,7 +507,7 @@ CLASSE = {
     "B7": "provavel",   "B8": "provavel",  "B9": "provavel",
     "C1": "trava",      "C2": "provavel",  "C3": "cosmetico",
     "D1": "cosmetico",  "D2": "cosmetico",
-    "E1": "trava",      "E2": "provavel",
+    "E1": "trava",      "E2": "provavel",  "E3": "provavel",
 }
 TITULO = {
     "A2": "warp cuja CHEGADA cai em tile sólido (o jogador nasce dentro da parede)",
@@ -381,6 +531,7 @@ TITULO = {
     "D2": "tabela de encontro terrestre em mapa sem grama",
     "E1": "metatile fora do teto do tileset (o motor lê atributo fora do buffer)",
     "E2": "setmetatile que ABRE a célula pintando o metatile que ela já tem (mudança invisível)",
+    "E3": "bloco preto andável: célula alcançável cujo metatile tapa o jogador por inteiro",
 }
 
 
@@ -778,6 +929,22 @@ def varre(raiz, so_regra=None):
                 b = mb(x, y)
                 return any(b in s for s in HM_ABRE.values())
             comhm = bfs(W, H, linhas, sementes, abre)
+
+        # E3: bloco preto andável. Só célula ALCANÇÁVEL entra, e é essa condição
+        # que separa o defeito do enchimento: mapa de Johto tem centenas de
+        # células de metatile 0 (preto, colisão 0) FORA da sala, atrás da
+        # parede, onde ninguém pisa. Medido em 06/09/2026: sem o alcance a
+        # regra acusava 4.581 células só no grupo de Goldenrod, todas fantasma.
+        if liga("E3") and base:
+            vistos_e3 = {}
+            for (x, y) in base:
+                mt = linhas[y][x] & 0x3FF
+                if mt not in vistos_e3:
+                    des = A.desenho_do_metatile(d.get("layout"), mt)
+                    vistos_e3[mt] = bool(des) and tapa_o_jogador(*des)
+                if vistos_e3[mt]:
+                    ach.add("E3", CLASSE["E3"], reg, nome, (x, y),
+                            f"metatile {mt} desenha por cima do jogador")
 
         if liga("C1") and base is not None and anda >= 20 and not base:
             ach.add("C1", CLASSE["C1"], reg, nome, None,
