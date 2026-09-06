@@ -111,6 +111,76 @@ RE_WARP_DE_SCRIPT = re.compile(
     r"(?:silent|hole|door|teleport|whitefade)?\s+(MAP_[A-Z0-9_]+)")
 
 
+# Cabecalho que os geradores de Galar escrevem antes do bloco de cada mapa,
+# em `data/scripts/galar_*.inc`. Ele e a UNICA coisa que diz de qual mapa o
+# rotulo seguinte e: os `data/maps/Galar_*/scripts.inc` nao tem `.string` nem
+# `warp` nenhum, e o corpo inteiro mora nos arquivos compartilhados.
+RE_CABECA_GALAR = re.compile(r"^@ ---- (Galar_\w+)\b", re.M)
+
+LE_INC_GALAR = True
+EXIGE_CHAMADA = True
+
+
+def warps_de_script_de_galar(mapas):
+    """{mapa de Galar: {MAP_* que um script dele alcanca}}.
+
+    Por que isto existe: a varredura por `data/maps/<mapa>/scripts.inc` nao ve
+    NADA de Galar. Os 438 `scripts.inc` daquela regiao so tem o `MapScripts`; o
+    corpo esta em `data/scripts/galar_*.inc`, um arquivo por tipo de conteudo,
+    com todos os mapas dentro e um cabecalho `@ ---- Galar_X ----` separando os
+    blocos. Sem ler isso, toda porta que o demake abre por bytecode fica fora do
+    grafo e o mapa do outro lado aparece como orfao sem ter defeito nenhum.
+    """
+    fora = {}
+    if not LE_INC_GALAR:
+        return fora
+    # `mapas` e indexado pela constante MAP_*, e o cabecalho do .inc traz o nome
+    # da PASTA. Sem esta tabela a varredura casava zero linha e passava calada.
+    por_pasta = {info["dir"]: nome for nome, info in mapas.items()}
+    pasta = os.path.join(REPO, "data/scripts")
+    if not os.path.isdir(pasta):
+        return fora
+    # O rotulo so vale se o MAPA o chama. Rotulo escrito no .inc e nao
+    # pendurado em nenhum `script` de map.json e texto na ROM que o jogador
+    # nunca dispara, e credita-lo aqui apagaria um orfao de verdade da lista.
+    # Sao 10 portas `GalarTrn_*` nessa situacao hoje.
+    chamados = {}
+    for nome, info in mapas.items():
+        if not info["dir"].startswith("Galar_"):
+            continue
+        d = info["dados"]
+        alvo = set()
+        for chave in ("object_events", "bg_events", "coord_events"):
+            for e in d.get(chave) or []:
+                if isinstance(e.get("script"), str) and e["script"] != "0":
+                    alvo.add(e["script"])
+        inc_mapa = os.path.join(MAPS, info["dir"], "scripts.inc")
+        if os.path.exists(inc_mapa):
+            t = open(inc_mapa, encoding="utf-8", errors="replace").read()
+            alvo |= set(re.findall(r"\bGalar[A-Za-z]*_\w+", t))
+        chamados[info["dir"]] = alvo
+
+    for nome in sorted(os.listdir(pasta)):
+        if not (nome.startswith("galar_") and nome.endswith(".inc")):
+            continue
+        texto = open(os.path.join(pasta, nome), encoding="utf-8",
+                     errors="replace").read()
+        cortes = list(RE_CABECA_GALAR.finditer(texto))
+        for i, m in enumerate(cortes):
+            mapa = m.group(1)
+            if mapa not in por_pasta:
+                continue
+            fim = cortes[i + 1].start() if i + 1 < len(cortes) else len(texto)
+            bloco = texto[m.end():fim]
+            rotulos = set(re.findall(r"^(\w+)::", bloco, re.M))
+            if EXIGE_CHAMADA and not (rotulos & chamados.get(mapa, set())):
+                continue
+            for destino in RE_WARP_DE_SCRIPT.findall(bloco):
+                if destino in mapas:
+                    fora.setdefault(mapa, set()).add(destino)
+    return fora
+
+
 def transportes_por_special(mapas):
     """Conjuntos de mapas ligados por transporte que NAO e warp de script.
 
@@ -158,9 +228,65 @@ GRUPO_DE_REGIAO = (("Frlg", "Kanto"), ("Johto", "Johto"), ("Unova", "Unova"),
                    ("Galar", "Galar"), ("Sinnoh", "Sinnoh"), ("Galactic", "Sinnoh"))
 
 
-def main():
+def demo():
+    """MUTACAO PLANTADA: sem ler `data/scripts/galar_*.inc`, a conta de orfaos
+    de Galar tem que PIORAR. Se ela nao mudar, a varredura nova nao esta
+    pesando e quem confiar nela mede o jogo errado."""
+    global LE_INC_GALAR
     mapas = carrega()
-    partida = sys.argv[1] if len(sys.argv) > 1 else mapa_de_partida(mapas)
+    com = warps_de_script_de_galar(mapas)
+    pares = sum(len(v) for v in com.values())
+    falhas = []
+    if not com:
+        falhas.append("nenhum warp de script achado em data/scripts/galar_*.inc")
+    guarda = LE_INC_GALAR
+    try:
+        LE_INC_GALAR = False
+        if warps_de_script_de_galar(mapas):
+            falhas.append("a trava LE_INC_GALAR nao desliga a varredura")
+    finally:
+        LE_INC_GALAR = guarda
+    # O filtro de "rotulo que o mapa chama" nunca pode ACRESCENTAR par, e a
+    # demo diz em voz alta quanto ele tira hoje, para ninguem tratar como trava
+    # o que hoje nao morde.
+    global EXIGE_CHAMADA
+    guarda2 = EXIGE_CHAMADA
+    try:
+        EXIGE_CHAMADA = False
+        solto = warps_de_script_de_galar(mapas)
+    finally:
+        EXIGE_CHAMADA = guarda2
+    pares_solto = sum(len(v) for v in solto.values())
+    if pares > pares_solto:
+        falhas.append("o filtro de rotulo chamado ACRESCENTOU par, o que e "
+                      "impossivel: %d contra %d" % (pares, pares_solto))
+    # Todo destino citado e mapa que existe, e toda origem e pasta de Galar.
+    for mapa, destinos in com.items():
+        if not mapa.startswith("Galar_"):
+            falhas.append("origem que nao e de Galar: " + mapa)
+        for d in destinos:
+            if d not in mapas:
+                falhas.append(f"{mapa}: destino que nao existe, {d}")
+    print("demo conectividade: %s (%d mapas de Galar com warp de script, "
+          "%d pares mapa->destino; o filtro de rotulo chamado tira %d par(es) "
+          "de %d)"
+          % ("OK" if not falhas else "REPROVADO", len(com), pares,
+             pares_solto - pares, pares_solto))
+    for f in falhas:
+        print("  FALHA", f)
+    return 1 if falhas else 0
+
+
+def main():
+    global LE_INC_GALAR
+    argumentos = [a for a in sys.argv[1:] if not a.startswith("--")]
+    if "--demo" in sys.argv:
+        raise SystemExit(demo())
+    if "--sem-scripts-galar" in sys.argv:
+        # So para MEDIR quanto a varredura nova vale. Nao e modo de trabalho.
+        LE_INC_GALAR = False
+    mapas = carrega()
+    partida = argumentos[0] if argumentos else mapa_de_partida(mapas)
     if partida not in mapas:
         # cai para o que o modo de desenvolvimento usa hoje
         dbg = open(os.path.join(REPO, "include/config/debug.h")).read()
@@ -170,6 +296,7 @@ def main():
 
     quebrados = []
     saidas = {}
+    de_galar = warps_de_script_de_galar(mapas)
     for origem, info in mapas.items():
         vizinhos = set()
         for i, w in enumerate(info["dados"].get("warp_events", [])):
@@ -214,6 +341,10 @@ def main():
             for destino in RE_WARP_DE_SCRIPT.findall(texto):
                 if destino in mapas:
                     vizinhos.add(destino)
+        # Galar escreve o corpo em `data/scripts/galar_*.inc`, e nao no
+        # `scripts.inc` do mapa. Sem esta linha a regua media Galar com o
+        # bytecode do demake inteiro fora do grafo.
+        vizinhos |= de_galar.get(info["dir"], set())
         saidas[origem] = vizinhos
 
     # Transporte por `special` (a balsa das Sevii): liga o conjunto inteiro.

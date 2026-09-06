@@ -1,0 +1,25 @@
+# Onda 2, lote F: mapas e rotulos tocados.
+# Gerado por dev_scripts/portas_script_galar.py.
+
+## Rotulos escritos em data/scripts/galar_portas_script.inc
+  GalarPorta_G06M12_o7                   Galar_Motostoke06          -> MAP_GALAR_WEDGEHURST_09
+  GalarPorta_G09M10_o24                  Galar_Hammerlocke04        -> MAP_GALAR_STOW_ON_SIDE_01
+  GalarPorta_G38M01_o4                   Galar_IsleOfArmor05        -> MAP_GALAR_ISLE_OF_ARMOR_01
+  GalarPorta_G38M04_o13                  Galar_IsleOfArmor08        -> MAP_GALAR_ISLE_OF_ARMOR_01
+  GalarPorta_G38M05_o4                   Galar_IsleOfArmor09        -> MAP_GALAR_ISLE_OF_ARMOR_01
+  GalarPorta_G38M08_o3                   Galar_IsleOfArmor12        -> MAP_GALAR_ISLE_OF_ARMOR_01
+  GalarPorta_G42M15_o16                  Galar_WildArea22           -> MAP_GALAR_WILD_AREA_17
+
+## Pedidos de map.json: object_events (7)
+  Galar_Hammerlocke04
+  Galar_IsleOfArmor05
+  Galar_IsleOfArmor08
+  Galar_IsleOfArmor09
+  Galar_IsleOfArmor12
+  Galar_IsleOfArmor12
+  Galar_WildArea22
+
+## Pedidos de map.json: coord_events (0)
+
+## Pedidos de map.json: script_de_objeto (1)
+  Galar_Motostoke06

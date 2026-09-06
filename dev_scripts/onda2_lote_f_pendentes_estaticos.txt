@@ -1,0 +1,135 @@
+# Onda 2, lote F: portas de script que este lote NAO escreveu, e por que.
+# Gerado por dev_scripts/portas_script_galar.py; NAO editar a mao.
+#
+# O nome do arquivo vem da abertura da onda, que esperava achar as
+# portas do balde C em `galar_estaticos.inc` (rotulos GalarSelvagem_* e
+# GalarEstatico_*). MEDIDO em 07/09/2026, isso NAO acontece: nenhuma das
+# 77 portas cai em GalarSelvagem_*, GalarEstatico_* nem GalarFala_*. O
+# balde C real e GalarObj_* (ja escritas pelo c4a, com warp e tudo) e
+# GalarTrn_*, que mora em data/scripts/galar_treinadores.inc.
+#
+# Por que GalarTrn_* nao entra aqui: aquele arquivo e REGERADO por
+# dev_scripts/treinadores_galar.py, e o gerador de la escreve o campo
+# `script` do map.json SEM regra de precedencia (linha 1149). Escrever
+# no .inc ou repontar o objeto seria desfeito calado na proxima
+# geracao, que e exatamente o conflito que o git nao marca.
+
+## JA FEITAS pelo c4a (nada a fazer), 6 entradas
+  GalarObj_G03M08_o19                Galar_Circhester16         -> MAP_GALAR_HULBURY_01
+  GalarObj_G06M10_o15                Galar_Motostoke05          -> MAP_GALAR_UNDERWATER_01
+  GalarObj_G06M27_o20                Galar_WildArea03           -> MAP_GALAR_UNDERWATER_01
+  GalarObj_G08M24_o9                 Galar_WildArea09           -> MAP_GALAR_UNDERWATER_01
+  GalarObj_G12M10_o18                Galar_Circhester06         -> MAP_GALAR_HULBURY_01
+  GalarObj_G42M13_o9                 Galar_WildArea20           -> MAP_GALAR_UNDERWATER_01
+
+## PARA O DONO DE dev_scripts/treinadores_galar.py, 10 portas
+#
+# O objeto de origem ja tem rotulo GalarTrn_*; na fonte o
+# MESMO script faz a batalha e o warp. Acrescentar ao fim
+# do molde de treinador, depois do msgbox de derrota:
+#     warp <MAPA>, <x>, <y>
+#     waitstate
+# Os tres numeros de cada linha estao abaixo, lidos do
+# bytecode em 07/09/2026 (comando 0x39, argumento `map` +
+# indice de chegada 255 + x/y).
+  Galar_Motostoke06          0x88E4176   GalarTrn_G06M12_o2                 warp MAP_GALAR_WEDGEHURST_09, 7, 4
+  Galar_TurffieldIndoor09    0x889D154   GalarTrn_G35M08_o12                warp MAP_GALAR_TURFFIELD_INDOOR_10, 7, 5
+  Galar_TurffieldIndoor13    0x889D4D4   GalarTrn_G35M12_o12                warp MAP_GALAR_TURFFIELD_INDOOR_14, 7, 5
+  Galar_TurffieldIndoor17    0x889DA44   GalarTrn_G35M16_o12                warp MAP_GALAR_TURFFIELD_INDOOR_18, 7, 5
+  Galar_TurffieldIndoor21    0x889DED0   GalarTrn_G35M20_o12                warp MAP_GALAR_TURFFIELD_INDOOR_22, 7, 5
+  Galar_TurffieldIndoor25    0x88A4810   GalarTrn_G35M24_o12                warp MAP_GALAR_TURFFIELD_INDOOR_26, 7, 5
+  Galar_WildAreaIndoor01     0x88D10A8   GalarTrn_G39M16_o0                 warp MAP_GALAR_WYNDON_INDOOR_01, 6, 11
+  Galar_WyndonIndoor05       0x88D1680   GalarTrn_G39M21_o0                 warp MAP_GALAR_WYNDON_INDOOR_06, 6, 11
+  Galar_WyndonIndoor10       0x88D0140   GalarTrn_G39M28_o0                 warp MAP_GALAR_WYNDON_INDOOR_11, 6, 11
+  Galar_WyndonIndoor20       0x88D0C24   GalarTrn_G39M38_o0                 warp MAP_GALAR_WYNDON_INDOOR_21, 6, 11
+
+## RECUSADAS, 45 entradas de script, 63 portas
+
+### flag 0x825 da fonte nao esconde objeto importado (e flag de motor do demake)  (13 portas, 6 scripts)
+  balde D  Galar_Ballonlea05          0x89EE1CD   -> MAP_GALAR_HAMMERLOCKE_06 (54,28)
+  balde D  Galar_Ballonlea05          0x89EE9BF   -> MAP_GALAR_HAMMERLOCKE_06 (54,28)
+  balde D  Galar_Ballonlea05          0x89EE9CC   -> MAP_GALAR_HAMMERLOCKE_06 (54,28)
+  balde D  Galar_Circhester06         0x886CF40   -> MAP_GALAR_HULBURY_01 (12,27)
+  balde D  Galar_Circhester06         0x8AB913C   -> MAP_GALAR_HULBURY_01 (12,27)
+  balde B  Galar_Wyndon03             0x88C5B68   -> MAP_GALAR_TURFFIELD_INDOOR_01 (7,11), MAP_GALAR_TURFFIELD_INDOOR_02 (7,11), MAP_GALAR_TURFFIELD_INDOOR_03 (7,10), MAP_GALAR_TURFFIELD_INDOOR_04 (7,11), MAP_GALAR_TURFFIELD_INDOOR_05 (7,11), MAP_GALAR_TURFFIELD_INDOOR_06 (7,11), MAP_GALAR_TURFFIELD_INDOOR_07 (7,11), MAP_GALAR_TURFFIELD_INDOOR_08 (7,11)
+
+### flag 0x320 da fonte nao esconde objeto importado (e flag de motor do demake)  (10 portas, 1 scripts)
+  balde B  Galar_Wyndon02             0x82AB2C0   -> MAP_GALAR_TURFFIELD_INDOOR_61 (7,11), MAP_GALAR_TURFFIELD_INDOOR_58 (7,11), MAP_GALAR_TURFFIELD_INDOOR_55 (7,11), MAP_GALAR_TURFFIELD_INDOOR_52 (7,11), MAP_GALAR_TURFFIELD_INDOOR_49 (7,11), MAP_GALAR_TURFFIELD_INDOOR_43 (7,5), MAP_GALAR_TURFFIELD_INDOOR_40 (7,5), MAP_GALAR_TURFFIELD_INDOOR_37 (7,5), MAP_GALAR_TURFFIELD_INDOOR_34 (7,5), MAP_GALAR_TURFFIELD_INDOOR_46 (7,5)
+
+### var salva 0x5467 da fonte sem dono nosso  (10 portas, 9 scripts)
+  balde A  Galar_Ballonlea10          0x891C50A   -> MAP_GALAR_STOW_ON_SIDE_01 (2,2)
+  balde A  Galar_Hammerlocke01        0x891C50A   -> MAP_GALAR_STOW_ON_SIDE_01 (2,2), MAP_GALAR_STOW_ON_SIDE_01 (2,2)
+  balde A  Galar_Hammerlocke04        0x891C50A   -> MAP_GALAR_STOW_ON_SIDE_01 (2,2)
+  balde A  Galar_Hammerlocke23        0x891C50A   -> MAP_GALAR_STOW_ON_SIDE_01 (2,2)
+  balde A  Galar_Hulbury16            0x891C50A   -> MAP_GALAR_STOW_ON_SIDE_01 (2,2)
+  balde A  Galar_Motostoke23          0x882CC28   -> MAP_GALAR_STOW_ON_SIDE_01 (2,2)
+  balde A  Galar_Spikemuth09          0x891C50A   -> MAP_GALAR_STOW_ON_SIDE_01 (2,2)
+  balde A  Galar_Turffield12          0x891C50A   -> MAP_GALAR_STOW_ON_SIDE_01 (2,2)
+  balde A  Galar_Wedgehurst12         0x891C50A   -> MAP_GALAR_STOW_ON_SIDE_01 (2,2)
+
+### decodificacao incompleta: macro de tamanho variavel: trainerbattle  (7 portas, 7 scripts)
+  balde D  Galar_DynamaxAdventure02   0x81692E7   -> MAP_GALAR_POSTWICK_22 (14,31)
+  balde D  Galar_DynamaxAdventure02   0x81692F3   -> MAP_GALAR_POSTWICK_22 (14,31)
+  balde D  Galar_DynamaxAdventure02   0x81692FF   -> MAP_GALAR_POSTWICK_22 (14,31)
+  balde B  Galar_Route0202            0x8828554   -> MAP_GALAR_ROUTE02_03 (10,18)
+  balde D  Galar_Route0202            0x88299A0   -> MAP_GALAR_ROUTE02_03 (10,18)
+  balde D  Galar_Route0202            0x882ADEC   -> MAP_GALAR_ROUTE02_03 (10,18)
+  balde A  Galar_WyndonIndoor15       0x88D0690   -> MAP_GALAR_WYNDON_INDOOR_16 (6,11)
+
+### texto em portugues sem traducao na tabela do lote F: 'Leon: Vocês veio me ajudar apesar\\ndo perigo? Obrigado, Hop.'  (3 portas, 3 scripts)
+  balde D  Galar_Hammerlocke12        0x885E434   -> MAP_GALAR_POSTWICK_02 (16,26)
+  balde D  Galar_Hammerlocke12        0x885E8C4   -> MAP_GALAR_POSTWICK_02 (16,26)
+  balde D  Galar_Hammerlocke12        0x885ED64   -> MAP_GALAR_POSTWICK_02 (16,26)
+
+### decodificacao incompleta: opcode 0xFF  (2 portas, 2 scripts)
+  balde B  Galar_Route0202            0x891C1C0   -> MAP_GALAR_UNDERWATER_01 (48,53)
+  balde B  Galar_Route0901            0x8A40B40   -> MAP_GALAR_UNDERWATER_01 (43,28)
+
+### objeto novo em lugar onde o jogador nao fala com ele: (6,1): tile nao andavel  (2 portas, 1 scripts)
+  balde A  Galar_CrownTundra01        0x88EC61C   -> MAP_GALAR_POSTWICK_03 (4,22), MAP_GALAR_POSTWICK_03 (12,22)
+
+### var de gatilho da fonte fora da faixa de var do FireRed (0x6026): o que a fonte le ali e indefinido  (2 portas, 2 scripts)
+  balde D  Galar_Ballonlea10          0x8A41B41   -> MAP_GALAR_HAMMERLOCKE_06 (54,28)
+  balde D  Galar_Ballonlea10          0x8A48779   -> MAP_GALAR_HAMMERLOCKE_06 (54,28)
+
+### objeto novo em lugar onde o jogador nao fala com ele: (26,15): tile nao andavel  (1 portas, 1 scripts)
+  balde A  Galar_Hammerlocke03        0x88C11F4   -> MAP_GALAR_STOW_ON_SIDE_02 (5,20)
+
+### objeto novo em lugar onde o jogador nao fala com ele: (28,59): tile nao andavel  (1 portas, 1 scripts)
+  balde A  Galar_Circhester16         0x8A7E2AE   -> MAP_GALAR_STOW_ON_SIDE_01 (2,2)
+
+### rotulo de outro dono (GalarTrn_G06M12_o2) em arquivo REGERADO; vai como pendencia  (1 portas, 1 scripts)
+  balde C  Galar_Motostoke06          0x88E4176   -> MAP_GALAR_WEDGEHURST_09 (7,4)
+
+### rotulo de outro dono (GalarTrn_G35M08_o12) em arquivo REGERADO; vai como pendencia  (1 portas, 1 scripts)
+  balde C  Galar_TurffieldIndoor09    0x889D154   -> MAP_GALAR_TURFFIELD_INDOOR_10 (7,5)
+
+### rotulo de outro dono (GalarTrn_G35M12_o12) em arquivo REGERADO; vai como pendencia  (1 portas, 1 scripts)
+  balde C  Galar_TurffieldIndoor13    0x889D4D4   -> MAP_GALAR_TURFFIELD_INDOOR_14 (7,5)
+
+### rotulo de outro dono (GalarTrn_G35M16_o12) em arquivo REGERADO; vai como pendencia  (1 portas, 1 scripts)
+  balde C  Galar_TurffieldIndoor17    0x889DA44   -> MAP_GALAR_TURFFIELD_INDOOR_18 (7,5)
+
+### rotulo de outro dono (GalarTrn_G35M20_o12) em arquivo REGERADO; vai como pendencia  (1 portas, 1 scripts)
+  balde C  Galar_TurffieldIndoor21    0x889DED0   -> MAP_GALAR_TURFFIELD_INDOOR_22 (7,5)
+
+### rotulo de outro dono (GalarTrn_G35M24_o12) em arquivo REGERADO; vai como pendencia  (1 portas, 1 scripts)
+  balde C  Galar_TurffieldIndoor25    0x88A4810   -> MAP_GALAR_TURFFIELD_INDOOR_26 (7,5)
+
+### rotulo de outro dono (GalarTrn_G39M16_o0) em arquivo REGERADO; vai como pendencia  (1 portas, 1 scripts)
+  balde C  Galar_WildAreaIndoor01     0x88D10A8   -> MAP_GALAR_WYNDON_INDOOR_01 (6,11)
+
+### rotulo de outro dono (GalarTrn_G39M21_o0) em arquivo REGERADO; vai como pendencia  (1 portas, 1 scripts)
+  balde C  Galar_WyndonIndoor05       0x88D1680   -> MAP_GALAR_WYNDON_INDOOR_06 (6,11)
+
+### rotulo de outro dono (GalarTrn_G39M28_o0) em arquivo REGERADO; vai como pendencia  (1 portas, 1 scripts)
+  balde C  Galar_WyndonIndoor10       0x88D0140   -> MAP_GALAR_WYNDON_INDOOR_11 (6,11)
+
+### rotulo de outro dono (GalarTrn_G39M38_o0) em arquivo REGERADO; vai como pendencia  (1 portas, 1 scripts)
+  balde C  Galar_WyndonIndoor20       0x88D0C24   -> MAP_GALAR_WYNDON_INDOOR_21 (6,11)
+
+### var de gatilho da fonte fora da faixa de var do FireRed (0x0003): o que a fonte le ali e indefinido  (1 portas, 1 scripts)
+  balde D  Galar_Ballonlea10          0x8A4A1C5   -> MAP_GALAR_HAMMERLOCKE_06 (54,28)
+
+### var de gatilho da fonte fora da faixa de var do FireRed (0x6044): o que a fonte le ali e indefinido  (1 portas, 1 scripts)
+  balde D  Galar_Circhester16         0x8AB913C   -> MAP_GALAR_HULBURY_01 (12,27)

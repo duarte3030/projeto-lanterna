@@ -1,0 +1,167 @@
+{
+ "gerado_por": "dev_scripts/portas_script_galar.py",
+ "para": "o fechador da onda 2 (dono dos map.json)",
+ "leia_antes": "Este lote NAO edita map.json. Cada item abaixo esta no formato exato do repo. `script_de_objeto` reponta o campo `script` de um objeto que estava MUDO; `object_events` e `coord_events` sao eventos NOVOS, e entram no FIM da lista (a save guarda indice de object_event; ver ESTADO, 'Compatibilidade de save').",
+ "object_events": [
+  {
+   "mapa": "Galar_Hammerlocke04",
+   "onde": "append no FIM de object_events (a save guarda indice de object_event)",
+   "object_event": {
+    "graphics_id": "OBJ_EVENT_GFX_SPECIES(CORVIKNIGHT)",
+    "x": 6,
+    "y": 2,
+    "elevation": 0,
+    "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+    "movement_range_x": 0,
+    "movement_range_y": 0,
+    "trainer_type": "TRAINER_TYPE_NONE",
+    "trainer_sight_or_berry_tree_id": "0",
+    "script": "GalarPorta_G09M10_o24",
+    "flag": "0"
+   },
+   "gfx_da_fonte": 232,
+   "papel_da_fonte": "corvo de armadura 64x64; 30 usos",
+   "decisao_pendente": "PROPOSTA, precisa do sim da condutora: a tabela de gfx chama o 232 de 'corvo de armadura 64x64'; os 7 objetos deste gfx que abrem porta warpam para o balcao de taxi (Stow-on-Side 01, Isle of Armor 01, Wild Area 17), e as placas daquele balcao ja dizem 'This Corviknight takes you to ...' (GalarFala_G00M07_bg0 a bg5). Corviknight e o taxi voador de Sword/Shield e SPECIES_CORVIKNIGHT existe nesta build.",
+   "porque": "objeto da fonte que abre a porta para MAP_GALAR_STOW_ON_SIDE_01 e que o G4 nao pos no mapa"
+  },
+  {
+   "mapa": "Galar_IsleOfArmor05",
+   "onde": "append no FIM de object_events (a save guarda indice de object_event)",
+   "object_event": {
+    "graphics_id": "OBJ_EVENT_GFX_SPECIES(CORVIKNIGHT)",
+    "x": 88,
+    "y": 27,
+    "elevation": 0,
+    "movement_type": "MOVEMENT_TYPE_NONE",
+    "movement_range_x": 0,
+    "movement_range_y": 0,
+    "trainer_type": "TRAINER_TYPE_NONE",
+    "trainer_sight_or_berry_tree_id": "0",
+    "script": "GalarPorta_G38M01_o4",
+    "flag": "0"
+   },
+   "gfx_da_fonte": 232,
+   "papel_da_fonte": "corvo de armadura 64x64; 30 usos",
+   "decisao_pendente": "PROPOSTA, precisa do sim da condutora: a tabela de gfx chama o 232 de 'corvo de armadura 64x64'; os 7 objetos deste gfx que abrem porta warpam para o balcao de taxi (Stow-on-Side 01, Isle of Armor 01, Wild Area 17), e as placas daquele balcao ja dizem 'This Corviknight takes you to ...' (GalarFala_G00M07_bg0 a bg5). Corviknight e o taxi voador de Sword/Shield e SPECIES_CORVIKNIGHT existe nesta build.",
+   "porque": "objeto da fonte que abre a porta para MAP_GALAR_ISLE_OF_ARMOR_01 e que o G4 nao pos no mapa"
+  },
+  {
+   "mapa": "Galar_IsleOfArmor08",
+   "onde": "append no FIM de object_events (a save guarda indice de object_event)",
+   "object_event": {
+    "graphics_id": "OBJ_EVENT_GFX_SPECIES(CORVIKNIGHT)",
+    "x": 52,
+    "y": 51,
+    "elevation": 0,
+    "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+    "movement_range_x": 0,
+    "movement_range_y": 0,
+    "trainer_type": "TRAINER_TYPE_NONE",
+    "trainer_sight_or_berry_tree_id": "0",
+    "script": "GalarPorta_G38M04_o13",
+    "flag": "0"
+   },
+   "gfx_da_fonte": 232,
+   "papel_da_fonte": "corvo de armadura 64x64; 30 usos",
+   "decisao_pendente": "PROPOSTA, precisa do sim da condutora: a tabela de gfx chama o 232 de 'corvo de armadura 64x64'; os 7 objetos deste gfx que abrem porta warpam para o balcao de taxi (Stow-on-Side 01, Isle of Armor 01, Wild Area 17), e as placas daquele balcao ja dizem 'This Corviknight takes you to ...' (GalarFala_G00M07_bg0 a bg5). Corviknight e o taxi voador de Sword/Shield e SPECIES_CORVIKNIGHT existe nesta build.",
+   "porque": "objeto da fonte que abre a porta para MAP_GALAR_ISLE_OF_ARMOR_01 e que o G4 nao pos no mapa"
+  },
+  {
+   "mapa": "Galar_IsleOfArmor09",
+   "onde": "append no FIM de object_events (a save guarda indice de object_event)",
+   "object_event": {
+    "graphics_id": "OBJ_EVENT_GFX_SPECIES(CORVIKNIGHT)",
+    "x": 16,
+    "y": 24,
+    "elevation": 0,
+    "movement_type": "MOVEMENT_TYPE_NONE",
+    "movement_range_x": 0,
+    "movement_range_y": 0,
+    "trainer_type": "TRAINER_TYPE_NONE",
+    "trainer_sight_or_berry_tree_id": "0",
+    "script": "GalarPorta_G38M05_o4",
+    "flag": "0"
+   },
+   "gfx_da_fonte": 232,
+   "papel_da_fonte": "corvo de armadura 64x64; 30 usos",
+   "decisao_pendente": "PROPOSTA, precisa do sim da condutora: a tabela de gfx chama o 232 de 'corvo de armadura 64x64'; os 7 objetos deste gfx que abrem porta warpam para o balcao de taxi (Stow-on-Side 01, Isle of Armor 01, Wild Area 17), e as placas daquele balcao ja dizem 'This Corviknight takes you to ...' (GalarFala_G00M07_bg0 a bg5). Corviknight e o taxi voador de Sword/Shield e SPECIES_CORVIKNIGHT existe nesta build.",
+   "porque": "objeto da fonte que abre a porta para MAP_GALAR_ISLE_OF_ARMOR_01 e que o G4 nao pos no mapa"
+  },
+  {
+   "mapa": "Galar_IsleOfArmor12",
+   "onde": "append no FIM de object_events (a save guarda indice de object_event)",
+   "object_event": {
+    "graphics_id": "OBJ_EVENT_GFX_SPECIES(CORVIKNIGHT)",
+    "x": 26,
+    "y": 40,
+    "elevation": 0,
+    "movement_type": "MOVEMENT_TYPE_NONE",
+    "movement_range_x": 0,
+    "movement_range_y": 0,
+    "trainer_type": "TRAINER_TYPE_NONE",
+    "trainer_sight_or_berry_tree_id": "0",
+    "script": "GalarPorta_G38M08_o3",
+    "flag": "0"
+   },
+   "gfx_da_fonte": 232,
+   "papel_da_fonte": "corvo de armadura 64x64; 30 usos",
+   "decisao_pendente": "PROPOSTA, precisa do sim da condutora: a tabela de gfx chama o 232 de 'corvo de armadura 64x64'; os 7 objetos deste gfx que abrem porta warpam para o balcao de taxi (Stow-on-Side 01, Isle of Armor 01, Wild Area 17), e as placas daquele balcao ja dizem 'This Corviknight takes you to ...' (GalarFala_G00M07_bg0 a bg5). Corviknight e o taxi voador de Sword/Shield e SPECIES_CORVIKNIGHT existe nesta build.",
+   "porque": "objeto da fonte que abre a porta para MAP_GALAR_ISLE_OF_ARMOR_01 e que o G4 nao pos no mapa"
+  },
+  {
+   "mapa": "Galar_IsleOfArmor12",
+   "onde": "append no FIM de object_events (a save guarda indice de object_event)",
+   "object_event": {
+    "graphics_id": "OBJ_EVENT_GFX_SPECIES(CORVIKNIGHT)",
+    "x": 73,
+    "y": 52,
+    "elevation": 0,
+    "movement_type": "MOVEMENT_TYPE_NONE",
+    "movement_range_x": 0,
+    "movement_range_y": 0,
+    "trainer_type": "TRAINER_TYPE_NONE",
+    "trainer_sight_or_berry_tree_id": "0",
+    "script": "GalarPorta_G38M08_o3",
+    "flag": "0"
+   },
+   "gfx_da_fonte": 232,
+   "papel_da_fonte": "corvo de armadura 64x64; 30 usos",
+   "decisao_pendente": "PROPOSTA, precisa do sim da condutora: a tabela de gfx chama o 232 de 'corvo de armadura 64x64'; os 7 objetos deste gfx que abrem porta warpam para o balcao de taxi (Stow-on-Side 01, Isle of Armor 01, Wild Area 17), e as placas daquele balcao ja dizem 'This Corviknight takes you to ...' (GalarFala_G00M07_bg0 a bg5). Corviknight e o taxi voador de Sword/Shield e SPECIES_CORVIKNIGHT existe nesta build.",
+   "porque": "objeto da fonte que abre a porta para MAP_GALAR_ISLE_OF_ARMOR_01 e que o G4 nao pos no mapa"
+  },
+  {
+   "mapa": "Galar_WildArea22",
+   "onde": "append no FIM de object_events (a save guarda indice de object_event)",
+   "object_event": {
+    "graphics_id": "OBJ_EVENT_GFX_SPECIES(CORVIKNIGHT)",
+    "x": 39,
+    "y": 28,
+    "elevation": 0,
+    "movement_type": "MOVEMENT_TYPE_NONE",
+    "movement_range_x": 0,
+    "movement_range_y": 0,
+    "trainer_type": "TRAINER_TYPE_NONE",
+    "trainer_sight_or_berry_tree_id": "0",
+    "script": "GalarPorta_G42M15_o16",
+    "flag": "0"
+   },
+   "gfx_da_fonte": 232,
+   "papel_da_fonte": "corvo de armadura 64x64; 30 usos",
+   "decisao_pendente": "PROPOSTA, precisa do sim da condutora: a tabela de gfx chama o 232 de 'corvo de armadura 64x64'; os 7 objetos deste gfx que abrem porta warpam para o balcao de taxi (Stow-on-Side 01, Isle of Armor 01, Wild Area 17), e as placas daquele balcao ja dizem 'This Corviknight takes you to ...' (GalarFala_G00M07_bg0 a bg5). Corviknight e o taxi voador de Sword/Shield e SPECIES_CORVIKNIGHT existe nesta build.",
+   "porque": "objeto da fonte que abre a porta para MAP_GALAR_WILD_AREA_17 e que o G4 nao pos no mapa"
+  }
+ ],
+ "coord_events": [],
+ "script_de_objeto": [
+  {
+   "mapa": "Galar_Motostoke06",
+   "indice_do_object_event": 7,
+   "x": 1,
+   "y": 6,
+   "campo": "script",
+   "valor": "GalarPorta_G06M12_o7",
+   "era": "0",
+   "porque": "objeto mudo que na fonte abre a porta para MAP_GALAR_WEDGEHURST_09"
+  }
+ ]
+}

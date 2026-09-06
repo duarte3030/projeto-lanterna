@@ -3277,3 +3277,4 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/scripts/galar_placas.inc"
 	.include "data/scripts/galar_placas_c.inc"
 	.include "data/scripts/galar_portas_fechadas.inc"
+	.include "data/scripts/galar_portas_script.inc"

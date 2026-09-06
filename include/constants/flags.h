@@ -10877,3 +10877,11 @@
 #define FLAG_HIDE_LUGIA_NAVEL_ROCK                           FLAG_UNUSED_0x1BB6
 #define FLAG_HIDE_LUGIA_NAVEL_ROCK_FRLG                      FLAG_UNUSED_0x1BB7
 #define FLAG_HIDE_DEOXYS_FRLG                                FLAG_UNUSED_0x1BB8
+
+// >>> Fase de conteudo de Galar, onda 2 lote F: flags de porta de script (dev_scripts/portas_script_galar.py) >>>
+// Faixa EXCLUSIVA deste lote (0x2200-0x227F), dada na abertura da
+// onda 2. So entra flag que o PROPRIO script da fonte acende e le;
+// flag de esconder continua sendo do c4b, pelo nome dele.
+#define FLAG_GALAR_PORTA_G06M12_72C                FLAG_UNUSED_0x2200
+// <<< Fase de conteudo de Galar, onda 2 lote F, flags <<<
+
