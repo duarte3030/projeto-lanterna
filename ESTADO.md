@@ -1766,7 +1766,9 @@ caso é que pegou.
 
 Frente única, executada depois do placar acima e depois das cinco meias portas, e por isso **a ROM
 consolidada `roms/pokemon-claude-2026-09-07.gba` NÃO tem este conserto**. A ROM desta frente é
-`roms/pokemon-claude-2026-09-07c.gba`.
+`roms/pokemon-claude-2026-09-07c.gba`, md5 `d8068a6489cabf67bacdf5e5223ae7c2`, com o `.map` do linker
+ao lado, buildada LIMPA no commit `cb7dcb7505`, que é este conserto rebaseado em cima da poda das
+cidades enfeitadas (`eefed261ca`).
 
 A decisão do Gui foi: "as 31 ganham interior onde alguma fonte tiver; o que não tem em fonte nenhuma
 ganha placa `closed` em inglês". Para responder isso foi preciso MEDIR cinco fontes de Johto, e o
