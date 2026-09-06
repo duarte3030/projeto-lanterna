@@ -260,6 +260,17 @@ def proibidas(d, W=0, H=0):
             fora.add((e["x"], e["y"]))
             for dx, dy in N4:
                 fora.add((e["x"] + dx, e["y"] + dy))
+    # A FAIXA DA PORTA: os tres tiles em linha reta ABAIXO de cada warp. Quem
+    # sai de uma porta desce por ali, e e por ali que os roteiros de emulador
+    # desta casa andam. Medido em 06/09/2026: um `WALK_UP_AND_DOWN` plantado em
+    # (31,19) de AzaleaTown chegava a (31,18), que e o terceiro tile abaixo da
+    # porta do Kurt, e derrubou o T149.7 (o jogador parava um tile antes e a
+    # rota inteira saia do lugar). E a mesma regra que `distribui_dex.py` ja
+    # aplica com `rota_dos_lendarios_sinnoh`: tile que um roteiro PISA e parede
+    # para objeto novo.
+    for w in (d.get("warp_events") or []):
+        for k in (1, 2, 3):
+            fora.add((w["x"], w["y"] + k))
     return fora
 
 
