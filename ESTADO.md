@@ -1625,6 +1625,127 @@ cima dela pelo menu de debug não warpa nada.
   porque acima dele há chão. A régua recusa onde não consegue provar, e isso é de
   propósito.
 
+### As casas pretas de Goldenrod: a POSIÇÃO no array de paleta É o slot, 06/09/2026
+
+O Gui mandou a foto de uma cena noturna em Goldenrod City com um prédio de topo branco e corpo
+inteiro PRETO, só as janelas aparecendo, com os vizinhos normais. Não era arte, não era o DNS e não
+era o `metatiles.bin`: era a **ORDEM do array de paleta**. `LoadTilesetPalette`
+(`src/fieldmap.c:1035`) copia `tileset->palettes[numPalsInPrimary]` **em bloco**, então a POSIÇÃO da
+linha dentro de `gTilesetPalettes_X` É o slot de paleta que o jogo carrega. E
+`dev_scripts/importa_tilesets_johto.py` montava esse array com `sorted(os.listdir(...))`, emitindo
+também os `.pal` que NÃO são slot: a camada de luz noturna do hns (`08_over.pal`, `09_over.pal`,
+`10_over.pal`, `12_over.pal`) e o `bellchime_12.pal`.
+
+Em `gTileset_Goldenrod` o array tinha **20 linhas em vez de 16**, e `08_over.pal` caía na posição 9.
+Johto é `layout_version: "johto"`, ou seja `bigPrimary`, com 7 paletas no primário, então o
+secundário ocupa os slots 7 a 12. O que o motor carregava, medido linha a linha:
+
+| slot do jogo | arquivo que entrava | arquivo certo |
+|---|---|---|
+| 7 | `07.pal` | `07.pal` |
+| 8 | `08.pal` | `08.pal` |
+| **9** | **`08_over.pal`** (12 das 16 cores são `0 0 0`) | `09.pal` |
+| 10 | `09.pal` | `10.pal` |
+| **11** | **`09_over.pal`** (13 das 16 cores são `0 0 0`) | `11.pal` |
+| 12 | `10.pal` | `12.pal` |
+
+Preto é preto com qualquer tingimento, então o defeito **não depende da hora**: a foto do Gui é de
+noite porque ele jogou de noite. Medido no `LAYOUT_GOLDENROD_CITY` (58x46): **151 blocos de 2.668, em
+84 metatiles distintos, usam os slots 9 ou 11** e saíam pretos, e outros **1.061 blocos usam o slot
+12**, que saía com a cor do `10.pal`, errada mas não preta (é o toldo que estava branco em vez de
+amarelo). `Route34` e `Route35` compartilham o tileset e não colocam nenhum metatile dos slots
+pretos, e por isso ninguém tinha reclamado deles. Elas não saíram ilesas: contado bloco a bloco,
+`Route34` tem **389 de 5.400 blocos no slot 12 e 1 no slot 10**, ou seja cor trocada e não preto, e
+`Route35` usa o secundário em **1 bloco só**, nenhum dos slots deslocados. São esses três mapas, e
+mais nenhum, que mudam de cor com este conserto: `LAYOUT_GOLDENROD_CITY`, `LAYOUT_ROUTE34` e
+`LAYOUT_ROUTE35` são os únicos layouts do repo com `gTileset_Goldenrod` como secundário, e
+`LAYOUT_RUINS_OF_ALPH_OUTSIDE` é o único com `gTileset_RuinsOfAlphOutside`.
+
+**A varredura do repo inteiro achou quatro arrays desalinhados, e só um era defeito visível.**
+`Goldenrod` e `RuinsOfAlphOutside` divergem a partir da posição 9; `Route32` e `VioletCity` têm
+`bellchime_12.pal` na posição 13, que é além do `NUM_PALS_TOTAL` de 13 e por isso o motor nunca lê.
+`RuinsOfAlphOutside` estava desalinhado e mesmo assim correto na tela: **0 de 2.208 blocos** do mapa
+dele usam os slots pretos, e é por isso que ele virou o CONTROLE da prova, e não um segundo conserto.
+Os outros dois geradores de tileset (`tileset_gen2.py` e `tileset_galar.py`) emitem
+`palettes/{i:02d}.pal` com `range(16)` e nunca podiam cair nisso.
+
+**O conserto é na raiz, no gerador.** `importa_tilesets_johto.py` passou a aceitar só `NN.pal`,
+ordenar por NÚMERO e cobrar que a sequência comece em 00 e não tenha buraco, tanto na hora de copiar
+do hns quanto na hora de emitir o `INCGFX`. O `--demo` dele ganhou a invariante que faltava, e ela é
+sobre o `graphics.h` INTEIRO e não só sobre o bloco que o script escreve: posição tem que ser igual
+ao número do arquivo, nenhum array pode ter menos de 13 slots, e ela recusa rodar se examinar menos
+de 280 arrays. Calibrada dos dois lados: no `graphics.h` de `7b9a11ce64` ela para no primeiro,
+`gTilesetPalettes_Goldenrod: a posicao nao e o slot; posicao 9 carrega '08_over.pal'`, e na árvore
+desta rodada passa. As 8
+linhas de `.pal` que não são slot saíram do `graphics.h` e os 8 arquivos saíram do disco (todos
+reprodutíveis a partir do hns em `fontes-mapas/hns`), para que o disco e a tabela digam a mesma coisa
+e nenhuma outra ferramenta tropece neles de novo. Custo de ROM medido no `.map`, e não deduzido:
+`gTilesetPalettes_Goldenrod` cai de `0x280` para `0x200` bytes (20 paletas para 16), e as 8 linhas
+das quatro tabelas somam **256 B a menos**.
+
+**A lente que parecia óbvia foi tentada, medida e RECUSADA**, e a medida está escrita dentro do
+`prova_paletas_goldenrod.py` para ninguém refazer o caminho: "procurar metatile colocado num mapa cujo
+slot de paleta sai TODO preto" **não pega este defeito**. Rodada com o `graphics.h` de `7b9a11ce64`
+nos **2.053 layouts** que têm blockdata em disco, ela não acusa Goldenrod, porque `08_over.pal` tem
+12 cores pretas e **4 amarelas**, que são as janelas acesas, e portanto não é "toda preta". De quebra
+ela acusa **56 layouts de Kanto, Hoenn e Galar com tileset VANILLA**, que precisariam de calibração
+contra o `pret/pokeemerald` intocado antes de virarem cobrança. Duas razões para não existir: não
+acha o que esta rodada consertou, e acenderia vermelho permanente. Quem pega o defeito é a invariante
+de ORDEM, e ela examina os **288 arrays** de `graphics.h` mais `graphics.c`, nas três formas em uso
+(com e sem `ALIGNED(4)`, com o arquivo em `.pal` ou já em `.gbapal`); uma regex mais estreita
+examinaria 70 dos 288 e daria verde por não ter olhado. Contado nesta rodada: **70 declarações
+levam `ALIGNED(4)` e 227 não levam**, e **9 arrays entram por `INCBIN_U16` contra 279 por
+`INCGFX_U16`**, que são exatamente as três formas que a regex larga precisa cobrir.
+
+**A prova é do emulador, com par antes/depois e um controle**
+(`dev_scripts/prova_paletas_goldenrod.py`). Cor não mora em EWRAM que se leia por símbolo, então a
+prova é o PNG, medido e não olhado: o roteiro warpa por debug e a ferramenta conta quanto da metade
+de cima da tela é PRETO PURO. Na ROM `2026-09-05`, que é a que o Gui jogou, a porta da Radio Tower
+(warp 7) dá **38,5% de preto** e o Game Corner (warp 10) dá **13,0%**; nesta build dão **0,9%** e
+**0,3%**. `RuinsOfAlphOutside` mede **0,2% nas duas**, que é o controle. As quatro medidas saíram
+com minutos de diferença e portanto na mesma faixa de hora do DNS, que é o que fecha a comparação;
+o `gba_runner` não tem opção de relógio, então a hora é a da máquina, e **o defeito aparece de dia
+também**, porque preto continua preto depois de qualquer tingimento. Aviso para quem repetir: as
+frações variam cerca de **0,1 ponto** entre rodadas em horas diferentes, justamente por causa do
+tingimento, e por isso o teto do caso é 12% e não um valor colado na medida.
+
+**E tem uma terceira camada, lida do BINÁRIO e não da tela.** `gTilesetPalettes_Goldenrod` está em
+`0x08f18a98` na ROM `2026-09-05` e em `0x08f1b298` nesta, os dois endereços tirados do `.map`. Lendo
+32 bytes por slot: na ROM velha o **slot 9 tem 12 das 16 cores em `0x0000`** e o **slot 11 tem 13**;
+nesta, os slots 9, 11 e 12 têm **zero** cor preta. É a mesma afirmação medida em três lugares
+diferentes, arquivo de dados, binário e framebuffer.
+
+**Efeito colateral, achado no caminho: `render_maps.py` nunca tinha conseguido desenhar Goldenrod.**
+Ele lia o nome do `.pal` com `int()` cru e morria com `invalid literal for int() with base 10:
+'12_over'`. Agora ele filtra por `^\d{2}\.pal$`, que é a mesma regra do gerador. Medido dos dois
+lados, com os quatro `_over.pal` de volta no disco só para a medida: o script de `7b9a11ce64` morre
+com essa mensagem e desenha **0 mapas**, e o desta rodada desenha `GoldenrodCity` inteiro. O render
+de disco de `GoldenrodCity` tem **0,00% de preto puro** em 928x736 px, e é ele que separa as duas
+hipóteses do diagnóstico: a arte no disco sempre esteve certa, e quem errava era a tabela. O render
+lê a paleta pelo NÚMERO do arquivo e o jogo lê pela POSIÇÃO no array, e é a invariante de ORDEM que
+passou a garantir que as duas leituras digam a mesma coisa; enquanto ela estiver verde, render e ROM
+não podem mais divergir.
+
+**Os portões desta frente.** Build verde numa worktree própria (`/private/tmp/claude-501/goldenrod-wt/tree`,
+HEAD `7b9a11ce64` com só os arquivos desta frente por cima), **ROM 96,47% de 32 MB, EWRAM 86,16%,
+IWRAM 86,68%**. **Suíte 1.020 de 1.021**, com o T11.3 pulado na rodada normal e **T11 3/3 rodado à
+parte** contra `roms/pokemon-claude-2026-08-18.gba` (fonte na worktree de `cf6786b2ae`, em
+`/private/tmp/claude-501/t11-r13`). `guarda_save.py` **SAVE COMPATIVEL** (SaveBlock1 em 14.964 de
+15.872 B, 2.400 mapas), `valida_rom.py` com os **2.400 mapas declarados dentro da ROM**,
+`roda_qa.py --demo` verde nas cinco varreduras, `importa_tilesets_johto.py --demo` e
+`prova_paletas_goldenrod.py --demo` verdes. ROM entregue:
+`roms/pokemon-claude-2026-09-06v.gba`, md5 `19e10798c6e0029a86a4f0264c20f72c`, com o `.map` ao lado.
+A letra é `v` e não `k` porque `k` já era de outra frente da mesma rodada; confira a lista de `roms/`
+antes de escolher a sua.
+
+**O que fica aberto.** A cobrança desta classe é ESTÁTICA (a invariante de ordem no `--demo`) mais
+uma ferramenta de emulador rodada à mão (`prova_paletas_goldenrod.py`); ela **não** entrou na suíte
+crítica, porque `testa_critico.py` só afirma fato lido da EWRAM e cor de tileset mora na PLTT de BG
+(`0x05000000` a `0x050001FF`). O caminho pronto para fechar isso é o mesmo que fechou os NPCs verdes
+de Kanto em 12/08/2026: o `gba_runner` ganhou `--palobj` para a PLTT de OBJ e uma prova
+`palobj_presentes`; falta o gêmeo de BG. Enquanto ele não existir, paleta de tileset trocada em mapa
+que ninguém fotografar continua passando pela suíte inteira.
+
 ## 0.t A CAÇA A BUGS ANTES DO PLAYTEST: A RÉGUA PARA DE MEDIR PORCENTAGEM E PASSA A MEDIR DEFEITO, 23/08/2026 (rodada 12; condutor Opus, quatro executores Opus, fechador Opus)
 
 Build verde, uma build só, e a primeira rodada em que **nenhuma coluna de completude era o alvo**: o

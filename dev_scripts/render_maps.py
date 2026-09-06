@@ -94,13 +94,24 @@ def carregar_paleta(caminho_pal):
     return cores
 
 
+# So `NN.pal` e slot de paleta, e o filtro fica mesmo com o disco limpo: em
+# 06/09/2026 a pasta de `goldenrod` e a de `ruins_of_alph_outside` guardavam
+# `08_over.pal` e companhia (a camada de luz noturna do hns, que este motor nao
+# usa) e as de `route_32` e `violet_city` guardavam `bellchime_12.pal`. Com
+# `int(nome)` cru, renderizar GoldenrodCity morria com "invalid literal for
+# int() with base 10: '12_over'", ou seja o mapa NUNCA tinha sido desenhado. Os
+# oito arquivos sairam do repo na mesma rodada, junto com o conserto de raiz no
+# `importa_tilesets_johto.py`, mas o proximo import pode trazer outros.
+_PADRAO_SLOT_PAL = re.compile(r"^(\d{2})\.pal$")
+
+
 def carregar_paletas(pasta_tileset):
     paletas = {}
     pasta_pal = os.path.join(pasta_tileset, "palettes")
     for nome in os.listdir(pasta_pal):
-        if nome.endswith(".pal"):
-            idx = int(os.path.splitext(nome)[0])
-            paletas[idx] = carregar_paleta(os.path.join(pasta_pal, nome))
+        m = _PADRAO_SLOT_PAL.match(nome)
+        if m:
+            paletas[int(m.group(1))] = carregar_paleta(os.path.join(pasta_pal, nome))
     return paletas
 
 

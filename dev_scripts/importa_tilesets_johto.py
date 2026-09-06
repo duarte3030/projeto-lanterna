@@ -150,8 +150,11 @@ def main():
         os.makedirs(f"{dst}/palettes", exist_ok=True)
         for f in ("metatiles.bin", "metatile_attributes.bin", "tiles.png"):
             shutil.copy2(f"{src}/{f}", f"{dst}/{f}")
+        # so `NN.pal` e slot de paleta; `08_over.pal` e amigos sao camada de luz
+        # noturna do hns que este motor nao usa, e copiar arquivo que nao e slot
+        # e o que criou as casas pretas de Goldenrod (ver ARMADILHA 2 abaixo).
         for f in sorted(os.listdir(f"{src}/palettes")):
-            if f.endswith(".pal"):
+            if re.fullmatch(r"\d{2}\.pal", f):
                 shutil.copy2(f"{src}/palettes/{f}", f"{dst}/palettes/{f}")
 
     # 2. registrar em metatiles.h, graphics.h e headers.h
@@ -161,10 +164,24 @@ def main():
     for simbolo, sub, pasta, _, sec in sorted(plano.values()):
         n = simbolo.replace("gTileset_", "")
         d = f"data/tilesets/{sub}/{pasta}"
-        # ARMADILHA: nem todo tileset do hns tem as 16 paletas. Varios secundarios
+        # ARMADILHA 1: nem todo tileset do hns tem as 16 paletas. Varios secundarios
         # param na 12, que e a ultima que o motor le (NUM_PALS_TOTAL == 13).
         # Emitir INCGFX de arquivo que nao existe faz o gbagfx derrubar o build.
-        pals = sorted(f for f in os.listdir(f"{RAIZ}/{d}/palettes") if f.endswith(".pal"))
+        # ARMADILHA 2 (achada em 06/09/2026, casas pretas de Goldenrod): a POSICAO
+        # da linha dentro de `gTilesetPalettes_X` E o slot de paleta, porque
+        # `LoadTilesetPalette` copia `tileset->palettes[numPalsInPrimary]` em bloco.
+        # A pasta do hns guarda .pal que NAO sao slot (`08_over.pal`,
+        # `09_over.pal`, `12_over.pal`, a camada de luz noturna que este motor nao
+        # usa, e `bellchime_12.pal`), e `sorted()` do nome os intercalava: em
+        # `goldenrod`, `08_over.pal` caia no slot 9 e empurrava 09, 10, 11 e 12 um
+        # para cima, entao o jogo carregava PRETO nos slots 9 e 11. So `NN.pal`
+        # entra, ordenado por NUMERO, e a sequencia tem que comecar em 00 e nao
+        # ter buraco, senao a posicao volta a nao ser o slot.
+        so_slot = sorted(f for f in os.listdir(f"{RAIZ}/{d}/palettes")
+                         if re.fullmatch(r"\d{2}\.pal", f))
+        pals = sorted(so_slot, key=lambda f: int(f[:2]))
+        esperado = [f"{i:02d}.pal" for i in range(len(pals))]
+        assert pals == esperado, f"{n}: slots de paleta fora de ordem ou com buraco: {pals}"
         mt.append(f'const u16 gMetatiles_{n}[] = INCBIN_U16("{d}/metatiles.bin");')
         mt.append(f'const u16 gMetatileAttributes_{n}[] = INCBIN_U16("{d}/metatile_attributes.bin");')
         gx.append(f"const u16 ALIGNED(4) gTilesetPalettes_{n}[][16] =")
@@ -237,6 +254,32 @@ def demo():
     if MARCA in mt:
         for sim, d in re.findall(padrao, mt[mt.index(MARCA):]):
             assert d not in de_fora, f"{sim} sobrescreveu o tileset de {d}"
+    # INVARIANTE QUE JA FOI VIOLADA (06/09/2026, casas pretas de Goldenrod): a
+    # POSICAO da linha dentro de `gTilesetPalettes_X` E o slot de paleta que o
+    # motor carrega, entao ela tem que bater com o NUMERO do arquivo. Isso vale
+    # para o graphics.h inteiro, e nao so para o que este script escreveu,
+    # porque qualquer gerador de tileset pode cair na mesma armadilha.
+    # As tres formas em uso, todas medidas: com e sem `ALIGNED(4)`, e com o arquivo
+    # em `.pal` (JASC) ou ja em `.gbapal` (os tilesets de Sinnoh). Uma regex mais
+    # estreita examinaria 70 dos 288 arrays e daria verde por nao ter olhado.
+    gx = open(f"{RAIZ}/src/data/tilesets/graphics.h").read() + open(f"{RAIZ}/src/graphics.c").read()
+    bloco = re.compile(
+        r"const u16 (?:ALIGNED\(4\) )?gTilesetPalettes_(\w+)\[\]\[16\] =\s*\{(.*?)\};", re.S)
+    conferidos = 0
+    for nome, corpo in bloco.findall(gx):
+        arquivos = [e.rsplit("/", 1)[-1]
+                    for e in re.findall(r'INC(?:GFX|BIN)_U16\("([^"]+)"', corpo)]
+        if not arquivos:
+            continue
+        conferidos += 1
+        for i, a in enumerate(arquivos):
+            m = re.fullmatch(r"(\d{2})\.(?:pal|gbapal)", a)
+            assert m and int(m.group(1)) == i, (
+                f"gTilesetPalettes_{nome}: a posicao nao e o slot; "
+                f"posicao {i} carrega '{a}'")
+        assert len(arquivos) >= 13, f"gTilesetPalettes_{nome}: so {len(arquivos)} slots, motor le 13"
+    assert conferidos >= 280, f"invariante examinou so {conferidos} arrays de paleta"
+
     print("demo ok")
 
 
