@@ -186,6 +186,16 @@ def renderizar_mapa(nome_mapa, layouts, cache_tilesets):
     ts_pri = cache_tilesets[chave_pri]
     ts_sec = cache_tilesets[chave_sec]
 
+    # Layout "johto" (bigPrimary) e "frlg" (isFrlg) tem primario de 640 metatiles
+    # e 7 paletas, nao os 512/6 do Emerald: ver GetNumMetatilesInPrimary e
+    # GetNumPalsInPrimary em src/fieldmap.c. Sem isso, todo mapa de Johto
+    # renderizava o metatile e a paleta errados.
+    versao = layout.get("layout_version") or "emerald"
+    if versao in ("johto", "frlg"):
+        n_meta_pri, n_pal_pri = 640, 7
+    else:
+        n_meta_pri, n_pal_pri = 512, 6
+
     cor_fundo = ts_pri["paletas"][0][0]  # cor 0 da paleta 0 = backdrop compartilhado do BG
     canvas = Image.new("RGB", (largura * META_PX, altura * META_PX), cor_fundo)
     canvas_px = canvas.load()
@@ -196,10 +206,10 @@ def renderizar_mapa(nome_mapa, layouts, cache_tilesets):
         tx, ty = i % largura, i // largura
         x0, y0 = tx * META_PX, ty * META_PX
 
-        if idx_metatile < 512:
+        if idx_metatile < n_meta_pri:
             ts_meta, idx_local = ts_pri, idx_metatile
         else:
-            ts_meta, idx_local = ts_sec, idx_metatile - 512
+            ts_meta, idx_local = ts_sec, idx_metatile - n_meta_pri
 
         n_meta = len(ts_meta["metatiles"]) // 16
         if idx_local >= n_meta:
@@ -214,7 +224,7 @@ def renderizar_mapa(nome_mapa, layouts, cache_tilesets):
                     continue
                 # paletas 0-5 sao do tileset primario, 6-15 do secundario; os dois
                 # arquivos trazem os 16 slots, mas so um lado tem a cor real.
-                fonte_pal = ts_pri if idx_pal < NUM_PALETAS_PRIMARIO else ts_sec
+                fonte_pal = ts_pri if idx_pal < n_pal_pri else ts_sec
                 cores = fonte_pal["paletas"].get(idx_pal)
                 if cores is None:
                     continue

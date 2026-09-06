@@ -166,6 +166,80 @@ Bark, Olivine, Blackthorn, a Rota 29, o ginásio de Violet, a loja de Cherrygrov
 ganhou `--mem16` e `--mem32`, leitura crua de endereço, porque nenhuma das duas provas passa por
 SaveBlock1.
 
+### Mahogany em neve, o primeiro pedido de GOSTO do playtest, 06/09/2026
+
+O Gui perguntou "tem como colocar neve na cidade do ginásio de neve em Johto?" e emendou "ela TODA
+em neve seria tão fofo". Mahogany Town é o ginásio de gelo do Pryce, e agora é a única cidade nevada
+de Johto: chão branco, rocha nevada, árvore virada em bolo de neve, telhado com cume branco e
+**neve caindo** (`"weather": "WEATHER_SNOW"` no `map.json`, o mesmo de Snowpoint).
+
+**A trava, medida antes de tocar em nada:** o secundário `gTileset_MahoganyTown` é de SEIS layouts
+(`ROUTE42`, `ROUTE43`, `MAHOGANYTOWN`, `MT_SILVER_OUTSIDE`, `LAKE_OF_RAGE` e `LAKE_OF_RAGE_LOW_TIDE`),
+e o primário `gTileset_JohtoNorthEast` é de Johto inteira. Nada de neve podia entrar em nenhum dos
+dois. Por isso a cidade ganhou um secundário PRÓPRIO, `gTileset_MahoganyTownNeve`, cópia do outro,
+apontado só por `LAYOUT_MAHOGANYTOWN`. Os outros cinco mapas continuam byte a byte como estavam
+(`data/tilesets/secondary/mahogany_town/` não mudou um bit).
+
+**O mecanismo é TROCA DE PALETA, não arte nova.** Layout `"johto"` é `bigPrimary`: o primário tem 640
+tiles, 640 metatiles e 7 paletas, e ao secundário sobram 384/384 e as paletas 7 a 12. O mapa
+(44x28, 1.232 blocos mais 4 de borda) desenha **170 metatiles distintos**, 137 do primário e 33 do
+secundário, e as paletas que ele realmente usa são a 0, 1, 2, 3 e 5 do primário e a 8, 10, 11 e 12 do
+secundário. Sobravam a **7** e a **9**; a **8** foi liberada convertendo os dois únicos metatiles que
+a usavam (880 e 881, a árvore de frutinha). Com três slots na mão:
+
+| slot do secundário de neve | vira a versão nevada de | o que isso pinta |
+|---|---|---|
+| 7 | paleta 1 do primário | a rocha e o paredão da montanha |
+| 8 | paleta 5 do primário | o caminho de areia |
+| 9 | paleta 0 do primário (e a 8 do secundário, que é quase igual) | grama, arbusto e árvore |
+
+Cada cor nova é a cor velha projetada numa **rampa de neve de nove âncoras**, todas múltiplas de 8
+(que é o passo real de cor do GBA), copiadas da paleta 7 do `mt_silver_snow`, que é a neve que Johto
+já usava no Mt. Silver. O metatile nevado é o metatile de origem com os MESMOS tiles, os MESMOS
+espelhamentos e a MESMA ordem de camada: só o índice de paleta do quadrante muda. **158 metatiles de
+neve** entraram nos slots que o mapa não usava (o mapa ocupava 33 dos 384), e o `map.bin` trocou
+**1.219 dos 1.236 blocos**. Os 12 metatiles que ficaram de fora (99, 116, 155, 156, 202, 317, 326,
+347, 652, 685, 687 e 829) são parede e telhado puros, sem um quadrante de terreno.
+
+**A única arte desenhada é o cume dos telhados**, e ela é um algoritmo de três linhas: para cada
+coluna do tile, acha o primeiro pixel opaco de cima para baixo e pinta os 3 ou 4 seguintes com o
+branco da própria paleta do telhado (a 11 tinha os índices 10 a 15 livres e recebeu `E8E8F0` e
+`C8D8F0`; a do Centro Pokémon é a 2 do primário, que já tinha `F6F6FF`). São **11 tiles**: 8 do
+secundário (118 a 122 e 359 a 361, o cume das casas) e 3 COPIADOS do primário para slots livres do
+secundário (192, 193 e 194, o cume do Centro Pokémon), porque o primário é de Johto inteira e não
+pode ser tocado.
+
+**Colisão, elevação e comportamento, provados byte a byte** contra o `map.bin` do HEAD: **0 blocos com
+colisão ou elevação diferente** e **0 metatiles com atributo diferente** (o atributo do metatile de
+neve é copiado do de origem, então grama de encontro continua grama de encontro e porta continua
+porta). `valida_warp_tile.py --regiao Johto` fecha em **721 de 795 (90,7%)** e Mahogany não aparece na
+lista de quebrados.
+
+O gerador é `dev_scripts/mahogany_neve.py`, **idempotente** (a segunda passada não muda um byte,
+porque nenhum slot de destino é origem de outra troca) e com `--demo` de 5 checagens.
+
+**A prova é um par de PNG mais o framebuffer.** `dev_scripts/render_maps.py` antes e depois em
+`Pokemon Claude/amostras-tileset/mahogany-neve-antes-depois.png`, e o warp de debug para
+`MAP_MAHOGANYTOWN` (grupo 84, mapa 9) mostra a cidade branca **com os flocos caindo**; o mesmo warp
+para `MAP_ROUTE43` (grupo 84, mapa 25) mostra rocha marrom, grama verde e nenhum floco, que é a prova
+de que o respingo não existiu.
+
+**Conserto de raspão no `render_maps.py`:** ele cortava primário e secundário em **512 metatiles e 6
+paletas**, que é o número do Emerald. Layout `"johto"` e `"frlg"` têm 640 e 7 (`GetNumMetatilesInPrimary`
+e `GetNumPalsInPrimary` em `src/fieldmap.c`), então TODO mapa de Johto vinha renderizado com o
+metatile e a paleta errados, sem uma linha de erro. Agora o corte sai do `layout_version`.
+
+**O que fica aberto:**
+- **A transição de bioma na borda é de propósito.** Route 42, Route 43 e o Lago da Fúria chegam sem
+  neve, como Snowpoint faz com a Route 216. Se um dia isso incomodar, o caminho é o mesmo: secundário
+  próprio para a rota, nunca mexer no compartilhado.
+- **O tileset de neve é uma CÓPIA congelada.** Quem editar `mahogany_town` tem que rodar
+  `python3 dev_scripts/mahogany_neve.py` de novo para a cópia acompanhar.
+- **Porta de Johto não anima, e continua não animando.** `sDoorAnimGraphicsTable` (`src/field_door.c`)
+  não tem uma linha de Johto, então nenhuma porta da região tem animação hoje; a troca de id não
+  piorou nada, mas quem for ligar isso amanhã tem que usar os ids NOVOS e o tileset novo.
+
+
 ### Os portões
 
 **Suíte 1.002 de 1.003**, com o T11.3 contado à parte, e **T11 3/3** contra a ROM
