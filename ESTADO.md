@@ -307,7 +307,9 @@ conserto (medido numa worktree de `b7ef40f330`, o HEAD de antes da rodada): o ca
 `destinos_dinamicos` dos quatro `map.json` mantém o grafo de alcance honesto, já que a ferramenta pula
 `MAP_DYNAMIC` de propósito. `valida_warp_tile.py --piso 60` em 5.915 de 6.875 (86,0%), idêntico à
 0.t. `guarda_colisao_vars` com 23 colisões herdadas, 0 novas e 0 stub. `dev_scripts/qa/roda_qa.py
---demo` verde nas quatro varreduras.
+--demo` verde nas quatro varreduras. **Suíte 1.010 de 1.011, ZERO reprovado**, com o T11.3 pulado na
+varredura, e **T11 3/3 à parte** contra `roms/pokemon-claude-2026-08-18.gba` (worktree de `cf6786b2ae`
+em `/private/tmp/claude-501/t11-r13`), a mesma dupla que a 0.u usou.
 
 
 ### A meia porta da igreja de Hearthome, e o retrato das 44 portas fechadas do corte, 06/09/2026
