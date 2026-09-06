@@ -5824,7 +5824,13 @@ void NullFieldSpecial(void)
 }
 // <<< Galar, conserto de motor: Quest Log e Help System do FireRed <<<
 
-// >>> Retorno dos prédios compartilhados entre Hoenn e Johto (rodada 13) >>>
+// >>> Retorno dos prédios que duas regiões dividem (rodada 13) >>>
+//
+// SÃO SEIS PRÉDIOS, de duas frentes da mesma rodada, e um special só serve os
+// seis: o Trainer Hill e as três Battle Tents, que Hoenn e Johto dividem, mais a
+// LOJA e o MUSEU de Lilycove, que Sinnoh reaproveita em Veilstone e em Oreburgh.
+// A regra é a mesma nos seis, e a segunda parte deste comentário conta o que a
+// dupla de Sinnoh acrescenta.
 //
 // O Trainer Hill e as três Battle Tents são UM prédio cada, com DUAS portas de
 // entrada. A de Hoenn é a original (Route 111, Fallarbor, Verdanturf e
@@ -5865,11 +5871,28 @@ void NullFieldSpecial(void)
 // chegada por warp, inclusive na volta dos andares internos e no "Continuar" de
 // quem salvou no meio de um desafio.
 //
-// DÍVIDA DECLARADA: a frente das lojas compartilhadas de Sinnoh (Veilstone e
-// Oreburgh, que reaproveitam os prédios de Lilycove) escreveu na MESMA rodada
-// `DefinirSaidaPelaPortaDeEntrada` em src/retorno_dinamico.c, com esta mesma
-// regra e esta mesma guarda. As duas nasceram em paralelo e devem virar UMA;
-// quem consolidar não precisa reabrir a decisão, só escolher o nome.
+// A DUPLA DE SINNOH, mesma regra e mesma guarda. O defeito que o Gui achou no
+// playtest: em Veilstone ele entrou no prédio da esquerda, saiu, e apareceu em
+// Lilycove City, do outro lado do mundo. A loja de Veilstone é a loja de
+// Lilycove REAPROVEITADA, e a saída dela era fixa para Hoenn; o museu de
+// Oreburgh é o museu de Lilycove, com o mesmo defeito. O interior NÃO foi
+// copiado: os dois tiles de porta da `LilycoveCity_DepartmentStore_1F` e as duas
+// portas da rua da `LilycoveCity_LilycoveMuseum_1F` viraram `MAP_DYNAMIC`.
+//
+// O que a loja acrescenta é o ELEVADOR, e é ele que torna a reposição
+// OBRIGATÓRIA e não decorativa: `data/maps/LilycoveCity_DepartmentStoreElevator/
+// scripts.inc:80` faz `setdynamicwarp MAP_LILYCOVE_CITY_DEPARTMENT_STORE_3F, 2, 1`
+// a cada andar escolhido. Sem repor, quem subisse de elevador e descesse a
+// escada até o térreo sairia pela porta da rua e reapareceria no terceiro andar,
+// para sempre. O museu não tem elevador, e lá o special fica como rede, para a
+// partida carregada lá dentro com um retorno velho na save.
+//
+// Uma frase sobre o nome: até 06/09/2026 existiam DOIS specials com este corpo,
+// byte a byte, escritos em paralelo pelas duas frentes da rodada 13, e o segundo
+// se chamava `DefinirSaidaPelaPortaDeEntrada`, em `src/retorno_dinamico.c`. Eles
+// viraram este, porque a guarda daqui já cobria os dois casos: "o retorno aponta
+// para o próprio lobby", a assinatura das Battle Tents, é um caso particular de
+// "o retorno não aponta para fora".
 void DefinirRetornoPredioCompartilhado(void)
 {
     enum MapType tipo = GetMapTypeByGroupAndId(gSaveBlock1Ptr->dynamicWarp.mapGroup,
@@ -5878,4 +5901,4 @@ void DefinirRetornoPredioCompartilhado(void)
     if (!IsMapTypeOutdoors(tipo))
         gSaveBlock1Ptr->dynamicWarp = gSaveBlock1Ptr->escapeWarp;
 }
-// <<< Retorno dos prédios compartilhados entre Hoenn e Johto <<<
+// <<< Retorno dos prédios que duas regiões dividem <<<

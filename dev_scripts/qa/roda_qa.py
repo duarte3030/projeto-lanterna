@@ -8,7 +8,7 @@ Uso:
 
 Por que existe
 --------------
-As quatro ferramentas nasceram fora do repo, na auditoria de 23/08/2026, e cada
+As primeiras quatro nasceram fora do repo, na auditoria de 23/08/2026, e cada
 uma imprimia o resumo dela do seu jeito. Fora do repo, ferramenta de QA envelhece
 sem ninguem ver: ninguem roda o que nao esta ao lado do codigo. Aqui elas ficam
 juntas, com UMA contagem, e com um `--demo` unico que e o portao: cada varredura
@@ -25,6 +25,11 @@ O que cada uma mede, e o que ela NAO mede
                        MESMA regua rodada no vanilla (`--vanilla`) para separar
                        defeito nosso de idioma do motor.
     estado_jogo.py     flag, var, item, treinador e save.
+    lente_warps.py     ida e volta de warp (P1..P4): destino que nao existe,
+                       porta de predio que devolve para outra rua, volta que
+                       pousa fora da porta usada, e escada interna que nao
+                       devolve. Nasceu do playtest de 06/09/2026, em que sair
+                       da loja de Veilstone levava a Lilycove.
 
 NENHUMA delas roda o jogo. Prova de comportamento e da suite do emulador
 (`dev_scripts/testa_critico.py`); estas quatro so leem a arvore, e a divisao e
@@ -101,7 +106,7 @@ VEREDITOS_DE_CASO = {
 }
 
 FERRAMENTAS = ("checa_scripts", "checa_texto", "mapas_qa", "estado_jogo",
-               "lente_portas")
+               "lente_warps", "lente_portas")
 
 
 def roda_demos():
@@ -166,6 +171,13 @@ def achados_de_estado():
     return saida
 
 
+def achados_de_warps():
+    import lente_warps
+    ach, _censo = lente_warps.varre()
+    return [dict(ferramenta="warps", regra=a["regra"], classe=a["classe"],
+                 regiao=nome_de_regiao(a["regiao"])) for a in ach]
+
+
 def nome_de_regiao(r):
     r = (r or "").strip()
     if r in ("", "global", "comum"):
@@ -182,7 +194,7 @@ def achados_de_portas():
 
 COLETORES = (("scripts", achados_de_scripts), ("texto", achados_de_texto),
              ("mapas", achados_de_mapas), ("estado", achados_de_estado),
-             ("portas", achados_de_portas))
+             ("warps", achados_de_warps), ("portas", achados_de_portas))
 
 REGIOES = ("Kanto", "Johto", "Hoenn", "Sinnoh", "Unova", "Galar", "comum")
 

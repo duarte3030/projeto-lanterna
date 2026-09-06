@@ -1,5 +1,21 @@
 LilycoveCity_LilycoveMuseum_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, LilycoveCity_LilycoveMuseum_1F_OnTransition
 	.byte 0
+
+@ >>> Retorno dinamico de predio compartilhado (rodada 13) >>>
+@ As duas portas da rua deste andar sao MAP_DYNAMIC porque o museu de
+@ Oreburgh (Sinnoh) e o museu de Lilycove (Hoenn) REAPROVEITADO: Lilycove
+@ entra pelos warps 3 e 13 dela e Oreburgh pelo warp 4 dela, e a saida tem
+@ que devolver o jogador para a cidade de onde ele veio. Quem grava a origem
+@ e o motor, em SetupWarp. Este predio nao tem elevador, entao ninguem
+@ reescreve o retorno la dentro; o special fica como rede, para o caso de a
+@ partida ser carregada aqui dentro com um retorno velho na save. Corpo e
+@ motivo no bloco "Retorno dos predios que duas regioes dividem", em
+@ src/field_specials.c.
+LilycoveCity_LilycoveMuseum_1F_OnTransition:
+	special DefinirRetornoPredioCompartilhado
+	end
+@ <<< Retorno dinamico de predio compartilhado <<<
 
 LilycoveCity_LilycoveMuseum_1F_EventScript_Greeter::
 	msgbox LilycoveCity_LilycoveMuseum_1F_Text_WelcomeToLilycoveMuseum, MSGBOX_SIGN

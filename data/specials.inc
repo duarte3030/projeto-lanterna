@@ -675,9 +675,11 @@ gSpecials::
 	def_special NullFieldSpecial
 @ <<< Galar, conserto de motor: Quest Log e Help System do FireRed <<<
 
-@ >>> Retorno dos predios compartilhados entre Hoenn e Johto (rodada 13) >>>
-@ Corpo em src/field_specials.c. Chamado no ON_TRANSITION do TrainerHill_Entrance
-@ e dos tres lobbies de Battle Tent, cujas portas viraram MAP_DYNAMIC para
-@ devolver o jogador para o lado por onde ele entrou (praca de Johto ou Hoenn).
+@ >>> Retorno dos predios que duas regioes dividem (rodada 13) >>>
+@ Corpo em src/field_specials.c. Chamado no ON_TRANSITION do andar de ENTRADA de
+@ todo predio que duas regioes dividem, e cuja porta virou MAP_DYNAMIC para
+@ devolver o jogador para o lado por onde ele entrou: TrainerHill_Entrance e os
+@ tres lobbies de Battle Tent (praca de Johto ou cidade de Hoenn), mais a loja e
+@ o museu de Lilycove, que Sinnoh reaproveita em Veilstone e em Oreburgh.
 	def_special DefinirRetornoPredioCompartilhado
-@ <<< Retorno dos predios compartilhados entre Hoenn e Johto <<<
+@ <<< Retorno dos predios que duas regioes dividem <<<

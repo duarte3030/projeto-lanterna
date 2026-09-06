@@ -1215,10 +1215,12 @@ carrega esse mesmo estado para dentro do lobby da tenda e sai pela porta: cai na
 
 #### O que fica aberto
 
-- **Duas funções com a MESMA regra nasceram na mesma rodada.** A frente das lojas compartilhadas de
-  Sinnoh (Veilstone e Oreburgh, que reaproveitam a loja e o museu de Lilycove) escreveu
-  `DefinirSaidaPelaPortaDeEntrada` em `src/retorno_dinamico.c` com a mesma guarda. As duas devem virar
-  UMA; quem consolidar não precisa reabrir a decisão, só escolher o nome.
+- **Duas funções com a MESMA regra nasceram na mesma rodada, e viraram UMA no mesmo dia.** A frente
+  das lojas compartilhadas de Sinnoh (Veilstone e Oreburgh, que reaproveitam a loja e o museu de
+  Lilycove) tinha escrito `DefinirSaidaPelaPortaDeEntrada` em `src/retorno_dinamico.c`, com este corpo
+  byte a byte. Ficou o `DefinirRetornoPredioCompartilhado` daqui, a loja e o museu passaram a chamar
+  ele, e o arquivo duplicado foi apagado; a dívida está FECHADA, e a prova é este T171 continuar
+  **10 de 10** com os seis prédios servidos pela mesma função (subseção da auditoria de warps).
 - **O "Continuar" de quem salva no meio de um desafio de tenda muda de tile.** Depois que o
   `ON_TRANSITION` repõe o retorno, um `tent_save` feito DENTRO do lobby grava o ponto de continuação
   fora da tenda, e não no lobby como no Emerald original. O jogador reaparece na praça (ou na cidade)
@@ -1638,7 +1640,7 @@ id de ninguém.
 
 ### A auditoria de ida e volta dos warps: quem entra por uma porta tem que sair por ela, 06/09/2026
 
-Quarto defeito do playtest, e o pedido que veio junto: *"em Sinnoh fui para Veilstone, entrei no
+Mais um defeito do playtest, e o pedido que veio junto: *"em Sinnoh fui para Veilstone, entrei no
 prédio da esquerda, e saí, e aí saí em Lilycove City"*, seguido de **"revisa todas essas entradas e
 saídas, se os links estão certos! TODAS!!!"**. A loja de Veilstone É a loja de Lilycove
 REAPROVEITADA, e a saída dela era fixa para Hoenn. O `valida_conectividade.py` dava verde no warp,
@@ -1693,11 +1695,17 @@ abertos um a um e comparados com `../fontes-mapas/pokeemerald` e `../fontes-mapa
 | P4 escada que não devolve | 0 | 2 -> **0** | 0 | 0 | 35 | 83 | 120 -> **118** |
 | total | 0 | 8 -> **0** | 0 | 3 -> **0** | 38 | 130 | 179 -> **168** |
 
-**6.875 warps em 2.289 mapas vivos** (111 túmulos fora da conta), dos quais **4.318 passam por porta
-de prédio ou escada interna**, que é o denominador da regra. **O cartucho 1 fecha em ZERO**, e é isso
+**6.874 warps em 2.289 mapas vivos** (111 túmulos fora da conta; eram 6.875 antes de o warp morto do
+Battle Tower de Ecruteak sair), dos quais **4.321 passam por porta de prédio ou escada interna**, que
+é o denominador da regra, e **956 nunca disparam**, camada do `valida_warp_tile.py`. Esse censo é da
+ÁRVORE COMPARTILHADA, com as seis frentes da rodada 13 juntas; na worktree isolada desta frente ele dá
+959 e 4.318, porque as outras frentes consertaram metatile de porta e três warps passaram a disparar.
+O que NÃO muda entre as duas árvores é o que importa: **0 achados em Kanto, Johto, Hoenn e Sinnoh**,
+medido nas duas. **O cartucho 1 fecha em ZERO**, e é isso
 que o `--demo` da lente cobra: ele reprova se Kanto, Johto, Hoenn ou Sinnoh voltarem a ter achado.
 Dos 11 do cartucho 1, **4 eram do Trainer Hill e das três Battle Tents** e já são da frente dos
-prédios compartilhados (subseção acima); os **7** desta frente estão na tabela de consertos.
+prédios que Hoenn e Johto dividem, desta mesma rodada; os **7** desta frente estão na tabela de
+consertos.
 
 #### O mecanismo: `MAP_DYNAMIC` mais um special, e ZERO custo de save
 
@@ -1715,7 +1723,7 @@ da loja de Lilycove isso acontece sempre, porque o **ELEVADOR** faz
 elevador e descesse a escada até o térreo sairia pela porta da rua e reapareceria no terceiro andar,
 para sempre.
 
-O conserto é `src/retorno_dinamico.c`, special `DefinirSaidaPelaPortaDeEntrada`, chamado no
+O conserto é o special `DefinirRetornoPredioCompartilhado` (`src/field_specials.c`), chamado no
 `ON_TRANSITION` do andar de ENTRADA. **A guarda é a pergunta certa, e não "quem escreveu por
 último"**: a porta da rua do térreo TEM que levar para fora, então se o retorno gravado aponta para um
 mapa que **não é ao ar livre** (`IsMapTypeOutdoors`), ele está velho e é reposto pelo `escapeWarp`,
@@ -1724,13 +1732,19 @@ que é o registro que o motor faz da última entrada de mapa aberto para mapa fe
 jogador entrou pela rua, o retorno aponta para a cidade, a guarda não toca em nada, e a saída fica
 idêntica ao original.
 
-**Existem hoje DOIS specials com esse papel**, este e o `DefinirRetornoPredioCompartilhado` da frente
-dos prédios de Johto (subseção acima), escritos em paralelo na mesma rodada. A guarda deste é um
-superconjunto da daquele: "o retorno aponta para o próprio mapa" (a assinatura das Battle Tents) é um
-caso particular de "o retorno não aponta para fora". **Unificar em um só é dívida aberta**, e o
-caminho é ficar com o daqui e reprovar os quatro casos das tendas de novo no emulador.
+**Nasceram DOIS specials com esse papel na mesma rodada**, este e o
+`DefinirRetornoPredioCompartilhado` da frente dos quatro prédios que Hoenn e Johto dividem (Trainer
+Hill mais os três lobbies de Battle Tent), escritos em paralelo por duas frentes que não se viam. Os
+CORPOS eram iguais byte a byte, e a guarda cobre os dois casos: "o retorno aponta para o próprio
+mapa", a assinatura das Battle Tents, é um caso particular de "o retorno não aponta para fora".
+**Viraram UM em 06/09/2026**, e ficou o do `src/field_specials.c`, porque ele já estava no HEAD
+(`40ebe8eedd`): a loja e o museu de Lilycove passaram a chamar `DefinirRetornoPredioCompartilhado`,
+`src/retorno_dinamico.c` foi APAGADO e o `def_special` sobrando saiu do `data/specials.inc`. A prova
+não é "compilou": os **10 casos do T171**, que são das tendas e do Trainer Hill, foram rodados de novo
+nesta build e deram **10 de 10**, e a `prova_portas_compartilhadas.py` deu **11 de 11** com os dois
+prédios de Sinnoh chamando a função do outro. Um special, seis prédios.
 
-#### Os sete consertos do cartucho 1
+#### Os oito consertos do cartucho 1
 
 | # | região | onde | o que era | o que ficou |
 |---|---|---|---|---|
@@ -1740,7 +1754,8 @@ caminho é ficar com o daqui e reprovar os quatro casos das tendas de novo no em
 | 4 | Johto | `ReceptionGate` (11,1) e (10,1), porta norte | `VICTORY_ROAD_1F` warp **0**, que é a ESCADA do 2F | warp **1**, que é a boca sul da Victory Road, e esse warp virou `MAP_DYNAMIC` |
 | 5 | Johto | `ReceptionGate` (20,9), porta leste | `MAP_ROUTE22` warp 0, que é o tile da PORTA do portão de Kanto: o jogador era cuspido em cima dela | `MAP_ROUTE22_NORTH_ENTRANCE` warp 0, que virou `MAP_DYNAMIC` |
 | 6 | Johto | `SafariZoneGate_SafariZoneEntrance` (9,1) | o Safari de Johto É o de Hoenn, e sair dele levava à Rota 121 | `SafariZone_South` warp 0 virou `MAP_DYNAMIC` |
-| 7 | Kanto/Hoenn | os lados originais de 1 a 6 | — | conferidos no emulador como REGRESSÃO, um par por conserto |
+| 7 | Johto | `EcruteakCity` (39,46), warp 14 | `BattleFrontier_BattleTowerLobby` warp 0, ou seja Hoenn | o warp SAIU do mapa. Decisão do Gui: Olivine ganha depois a Battle Tower simples do Crystal, e até lá nenhum warp de Johto pode mandar para a Battle Frontier de Hoenn |
+| 8 | Kanto/Hoenn | os lados originais de 1 a 6 | (nada, é o controle) | conferidos no emulador como REGRESSÃO, um par por conserto |
 
 Os warps 4 e 5 do `ReceptionGate` eram herança do importador do demake: no `../fontes-mapas/hns` eles
 apontam para `MAP_VICTORY_ROAD_KANTO_B2F` e para o `MAP_ROUTE22` **do próprio hns**, e nenhum dos dois
@@ -1753,11 +1768,16 @@ desembocar na escada e em cima de outra porta.
   para OUTRO cartucho (memória `pokemon-claude-gens-6-9-escopo`). O grosso de Galar são os prédios
   compartilhados de Hammerlocke, Circhester e Ballonlea, com a mesma assinatura do caso de Veilstone,
   e o mesmo mecanismo resolve quando a frente de Galar abrir.
-- **`EcruteakCity` warps 4, 5 e 14 são WARP MORTO**, não link errado: os três estão sobre `MB_NORMAL`
-  com colisão 1, medido no blockdata. O warp 14 é a porta do Battle Tower de Ecruteak, e ela **não
-  abre**; consertar isso é mexer no metatile do mapa, que é obra da frente de Ecruteak, não deste
-  mecanismo. O link dele continua errado por baixo (a saída do lobby é fixa para
-  `BattleFrontier_OutsideEast`) e vai precisar do retorno dinâmico junto com a abertura da porta.
+- **`EcruteakCity` warps 4 e 5 são WARP MORTO**, não link errado: os dois estão sobre `MB_NORMAL` com
+  colisão 1, medido no blockdata (comportamento 0, `dispara=False`), e abrir essas portas é mexer no
+  metatile do mapa, que é obra da frente de Ecruteak. O warp **14 era o terceiro morto**, e ele era o
+  do Battle Tower: mesmo sem disparar, o link mandava para `BattleFrontier_BattleTowerLobby`, do outro
+  lado do mundo, e a saída do lobby é fixa para `BattleFrontier_OutsideEast`. O Gui decidiu que Olivine
+  vai ganhar a Battle Tower simples do Crystal mais para a frente, então o warp foi REMOVIDO em vez de
+  reapontado: ele era o ÚLTIMO da lista do mapa, ninguém apontava para o índice 14 (varridos os 2.400
+  `map.json`), e por isso a remoção não desloca índice de warp nenhum, que é promessa permanente de
+  save. Quando a Battle Tower de Olivine existir, ela entra como warp novo no fim da lista, com o
+  retorno dinâmico deste mesmo mecanismo.
 - **`NewBarkTown` warps 4 a 7 também são warp morto**, e é por isso que os dois `WorldHub` aparecem
   inalcançáveis: nenhuma das quatro portas dispara.
 - **O Safari de Johto não tem script de entrada nenhum**: não cobra taxa, não acende
@@ -1765,6 +1785,133 @@ desembocar na escada e em cima de outra porta.
   Safari, e sai andando pela porta, que agora devolve para o portão certo. A saída POR DIÁLOGO com o
   atendente continua com `warp MAP_ROUTE121_SAFARI_ZONE_ENTRANCE, 2, 5` cravado em
   `data/scripts/safari_zone.inc:25`, e cai em Hoenn: é conteúdo do Safari de Johto, não link de warp.
+
+#### A prova é do emulador, e cada conserto vem com o seu par negativo
+
+`dev_scripts/prova_portas_compartilhadas.py`, **11 de 11**. Ela warpa pela porta pelo menu de debug,
+ENTRA andando, SAI andando, e lê da EWRAM o `(grupo, num)` e o `(x, y)` em que o jogador parou. Cada
+conserto tem ao lado o LADO ORIGINAL do mesmo interior, porque sem o par um conserto que quebra o
+original passa verde.
+
+| caso | região | rota medida |
+|---|---|---|
+| `veilstone` | Sinnoh | Veilstone (25,31) -> porta (25,30) -> loja (8,7) -> **Veilstone (25,30) -> (25,31)** |
+| `lilycove_loja` | Hoenn | Lilycove (27,7) -> (27,6) -> loja (8,7) -> **Lilycove (27,7)** |
+| `oreburgh` | Sinnoh | Oreburgh (54,15) -> (54,14) -> museu (9,13) -> **Oreburgh (54,14) -> (54,15)** |
+| `lilycove_museu` | Hoenn | Lilycove (11,6) -> (11,5) -> museu (9,13) -> **Lilycove (11,5) -> (11,6)** |
+| `safari_johto` | Johto | portão (9,2) -> (9,1) -> Safari (32,34) -> **portão (9,1) -> (9,2)** |
+| `safari_hoenn` | Hoenn | Rota 121 (2,5) -> Safari (32,33) -> **Rota 121 (2,5)** |
+| `portao_victory` | Johto | portão (11,2) -> (11,1) -> Victory Road (11,20) -> **portão (11,1) -> (11,2)** |
+| `portao_rota22` | Johto | portão (20,9) -> portão de Kanto (7,2) -> (7,1) -> **portão (20,9)** |
+| `route218` | Sinnoh | Rota 218 (59,24) -> portão (1,5) -> (2,5) -> (1,5) -> **Rota 218 (59,24)** |
+| `victory_kanto` | Kanto | Rota 23 (5,29) -> (5,28) -> Victory Road (11,20) -> **Rota 23 (5,28) -> (5,29)** |
+| `elevador` | Sinnoh | ADVERSARIAL, abaixo |
+
+**O caso `elevador` é o adversarial, e sem ele os outros dez passariam com o special QUEBRADO**,
+porque o caminho curto (entra, sai) nunca chega a sujar o `dynamicWarp`. Ele entra na loja por
+Veilstone, ANDA ATÉ O ELEVADOR e entra nele, o que faz o próprio motor gravar
+`dynamicWarp = (loja 1F, warp 3)`, um mapa FECHADO; volta ao térreo sem escolher andar, atravessa a
+loja e sai pela porta da rua. Medido no traço passo a passo: Veilstone (25,31) -> loja (8,7) ->
+(2,5) -> **elevador** -> loja (2,2) -> (17,5) -> (4,6) -> (4,7) -> (13,7) -> porta (8,7) ->
+**Veilstone (25,31)**, o tile em frente à porta (25,30). Sem a reposição ele sairia em cima da porta
+do elevador, dentro da própria loja.
+
+**Segunda armadilha medida, e ela custou o dobro do que parecia:** dentro da loja NÃO se conta tile
+em corredor que uma NPC de andar alcança. São duas `MOVEMENT_TYPE_WANDER_AROUND` de alcance 1, em
+(4,4) e em (14,5), e a de (4,4) guarda justamente a única passagem para o lado oeste do salão, que é
+onde fica a porta do elevador. Um roteiro que contava tiles ali deu **11 de 11 numa rodada e 0 de 1
+na seguinte, com a MESMA ROM**: a NPC barrava a ida e o jogador subia a coluna 5 até (5,2), sem
+chegar ao elevador. O roteiro passou a andar de ÂNCORA em ÂNCORA, sempre com apertos de sobra, e as
+âncoras são de dois tipos, os dois imóveis: **parede** (oeste em (2,5) da linha 5, leste em (17,5),
+sul em (17,6), a borda do mapa) e **NPC PARADA** (as duas `LOOK_AROUND` de (2,6) e (3,6), que ancoram
+em (2,5) e em (4,6)). Só a última perna conta tiles, e ela mira uma **porta LARGA**: (8,7) e (9,7)
+são os dois tiles da mesma saída, então 5 ou 6 apertos acertam do mesmo jeito. Medido **4 vezes
+seguidas com o mesmo resultado**, e a suíte inteira duas vezes com 11 de 11.
+
+**Terceira armadilha, medida aqui e válida para qualquer roteiro futuro do harness: ESBARRAR
+DESREGULA A CADÊNCIA.** Cada aperto do roteiro são 20 quadros segurando mais 60 de folga, o que basta
+para UM PASSO, mas a animação de esbarrão é mais longa, então a perna seguinte começa no meio dela e
+perde apertos. Foi assim que uma versão já ancorada deu 11 de 11 numa rodada e 10 de 11 na outra: o
+jogador parou em (6,6) em vez de (8,6) porque três apertos foram engolidos pelo esbarrão anterior. O
+conserto é `espera` (240 quadros, de graça) DEPOIS de toda perna que termina esbarrando, porque ela
+devolve o jogador parado e virado, que é o único estado de onde contar tile vale.
+
+**Quarta armadilha, do mesmo tronco: TROCAR DE DIREÇÃO CUSTA UM APERTO.** Medido quadro a quadro: o
+jogador parado em (0,2) virado para cima recebeu RIGHT duas vezes e andou UM tile só; andar na
+direção que já se encara não cobra nada (UP,3 na coluna 8 andou os três). Por isso cada perna contada
+leva "um a mais", e a que termina em cima da porta leva 1 mais os tiles.
+
+Os PNGs foram abertos e olhados: no caso `veilstone`, o quadro da ida é a rua de Veilstone com o
+prédio de emblema de Poké Bola, o do meio é o salão de piso laranja da loja, e o da volta é a MESMA
+rua de Veilstone, com o jogador em frente à porta. No `lilycove_loja`, o quadro da volta traz o
+letreiro **"LILYCOVE CITY"** e a rua de Lilycove: o lado original não mexeu.
+
+**Armadilha medida no caminho, e ela vale para qualquer roteiro futuro:** seta de rota
+(`MB_*_ARROW_WARP`) só dispara com a direção SEGURADA e o jogador já VIRADO para ela
+(`input->heldDirection && input->dpadDirection == playerDirection`), então o primeiro aperto depois
+da meia-volta é gasto virando. Andar N tiles para dentro e N de volta gasta todos os apertos chegando
+na seta e nenhum a acionando, e o caso da Rota 218 abriu VERMELHO três vezes por isso, com o jogo
+certo. Porta não tem esse problema, porque dispara ao ser PISADA.
+
+#### Os portões desta frente
+
+Build verde numa worktree ISOLADA (`/private/tmp/claude-501/warps-r13`, HEAD `7b9a11ce64` mais só os
+arquivos desta frente), porque a árvore compartilhada tem outras cinco frentes no meio da obra.
+**ROM 32.370.128 B, 96,47% de 32 MB**, **EWRAM 86,16% e IWRAM 86,68%**, idênticos aos da 0.t e da 0.u.
+O tamanho NÃO é comparável com os 32.360.292 B que a primeira volta desta frente mediu: aquela era
+sobre `fccccc0265`, e entre um HEAD e o outro entraram os consertos de outras frentes; o custo desta
+frente em si é **negativo em código**, porque ela APAGOU um special duplicado, e o que sobra é
+`map.json` e comentário.
+
+**O HEAD andou dez commits entre a build e o commit desta frente** (de `7b9a11ce64` para
+`6c1e43f94c`), e a build NÃO foi refeita em cima. Isso é declarado e medido, não presumido:
+`git diff 7b9a11ce64..6c1e43f94c` sobre os quinze arquivos desta frente volta VAZIO, ou seja nenhuma
+das outras frentes encostou em nada que esta frente mudou. O que os dez commits mudaram em Ecruteak
+foi o `scripts.inc` (o sábio da porta do ginásio), e o que esta frente mudou lá foi o `map.json` (o
+warp morto do Battle Tower): arquivos diferentes do mesmo mapa.
+
+**SAVE COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B (94,3%), 2.400 mapas, 2.252 ids de treinador e
+1.717 apelidos: nenhuma flag, var, item, mapa ou índice novo, e `dynamicWarp` já existe no SaveBlock1
+desde o Emerald. O único índice que esta frente mexeu é o warp 14 de `EcruteakCity`, que era o ÚLTIMO
+da lista e não é destino de ninguém, então remover não desloca índice nenhum.
+
+**Suíte 1.020 de 1.021, ZERO reprovado**, com o T11.3 pulado na varredura (ele só prova algo com duas
+ROMs) e **T11 3 de 3 à parte** contra `roms/pokemon-claude-2026-08-18.gba`, cuja fonte velha está em
+`/private/tmp/claude-501/t11-r13` (`cf6786b2ae`). **T171 10 de 10** com o special unificado, que é a
+prova de que a consolidação não quebrou a frente dos prédios de Johto.
+
+**Como a suíte foi rodada, e por que isso vira lição:** em GRUPO, um `testa_critico.py T<n>` por vez,
+com o resultado de cada grupo gravado em disco antes do próximo, porque com seis frentes na máquina a
+varredura inteira num processo só foi MORTA por SIGTERM duas vezes no meio (a segunda aos 408 casos,
+com zero reprovado até ali). Rodar em grupo é RETOMÁVEL: quem apanha perde um grupo, não a varredura,
+e a contagem final se soma dos 110 arquivos de resultado. **Treze grupos abriram vermelho no lote**
+(T108, T139, T144, T145, T146, T147, T153, T156, T157, T159, T160, T161 e T162), e os 24 casos deles
+são TODOS de par de save, a contenção que a 0.t já tinha medido: o `testa_critico.py` crava o caminho
+do `.sav` em `/tmp/claude-501/frenteA/`, e com cinco outras suítes gravando no mesmo arquivo um par
+sempre perde. Repetidos com o `.sav` em pasta própria (`/tmp/claude-501/warps-sav/`, uma linha de
+`sed` na worktree isolada, NÃO commitada), os treze deram verde: 10/10, 6/6, 9/9, 10/10, 10/10,
+12/12, 21/21, 10/10, 11/11, 14/14, 8/8, 7/7 e 3/3. O T171.10, o T169.7 e o T169.8 caíram pelo mesmo
+motivo e passaram na repetição isolada. **A dívida continua sendo do `testa_critico.py`** e não desta
+frente: enquanto o caminho do `.sav` for absoluto e compartilhado, toda rodada paralela vai piscar
+vermelho sem defeito nenhum.
+`dev_scripts/prova_portas_compartilhadas.py` **11 de 11, duas rodadas seguidas**, e o caso adversarial
+do elevador **4 rodadas seguidas** com o mesmo resultado. `valida_rom.py` com os 2.400 mapas
+declarados dentro da ROM. `valida_warp_tile.py --piso 60` em **5.915 de 6.874 (86,0%)**, com Hoenn
+93,3%, Kanto 79,4%, Sinnoh 97,7%, Johto 90,8% e Unova 100% (o denominador caiu 1 e as duas
+porcentagens subiram 0,1 ponto porque o warp que saiu era MORTO). `valida_conectividade.py` com
+**0 warps quebrados** e os mesmos **1.966 de 2.289** mapas alcançáveis do HEAD: os cinco
+`destinos_dinamicos` novos mantêm o grafo honesto, já que a ferramenta pula `MAP_DYNAMIC` de
+propósito. `dev_scripts/qa/roda_qa.py --demo` verde nas SEIS varreduras (as quatro antigas, a
+`lente_portas` da frente das casas e a `lente_warps` desta).
+
+**A lente roda em 0 nas quatro regiões do cartucho 1 na árvore compartilhada E na worktree isolada.**
+Na primeira volta desta frente havia um aviso aqui, porque a worktree isolada de então não tinha o
+conserto do Trainer Hill e das três Battle Tents e a lente acusava 4 achados em Johto; esse conserto
+entrou no HEAD em `40ebe8eedd`, então o aviso morreu: as duas árvores fecham em **0 / 0 / 0 / 0**, e
+o que sobra é **Unova 38 e Galar 130**, de outro cartucho.
+
+**ROM de entrega:** `roms/pokemon-claude-2026-09-06n.gba`, md5
+`1247141d12eee1548ba2a3cf93ace3e3`, com o `.map` do linker ao lado.
 
 ---
 
