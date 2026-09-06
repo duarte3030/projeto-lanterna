@@ -185,3 +185,18 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 - [Data Files](https://www.pokecommunity.com/showthread.php?t=417909)
 - [Complete FireRed Upgrade](https://github.com/Skeli789/Complete-Fire-Red-Upgrade)
 - [pokeemerald](https://github.com/pret/pokeemerald/)
+
+## Arte de mapa importada de ROM hacks
+
+Este projeto é **privado e não monetizado**. A arte de base é da Nintendo/Game Freak; o
+crédito abaixo cobre a edição feita por cada autor de ROM hack, e vale para todo asset
+convertido que descende dela.
+
+### Kit de neve de `SnowpointCity` (`gTileset_Snowpoint`, metatiles 680 a 690)
+
+Os 14 tiles 8x8, a paleta 6 e os 11 metatiles de chão de neve (banco de neve, beirada,
+crista, rastro e muda de pinheiro) vieram do secundário `0x3DF7AC` da cidade de neve do
+**Pokémon Golden Glazed v2.6**, de **'Golden'**, que por sua vez é derivado do **Pokémon
+Glazed**, de **redriders180** e **Lucbui** (port decomp público em
+`github.com/TrainerX493/pokeglazed`). Nenhum id de flag, var, script ou música foi
+importado: só arte.
