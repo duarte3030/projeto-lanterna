@@ -110,8 +110,16 @@ def roda_demos():
     for nome in FERRAMENTAS:
         mod = importlib.import_module(nome)
         try:
-            mod.demo()
-            print(f"  {nome:16} DEMO VERDE")
+            # As quatro `demo()` DEVOLVEM 1 quando a mutação plantada não é
+            # mordida, e só algumas levantam. Até 06/09/2026 este laço olhava
+            # só a exceção, então um `return 1` imprimia DEMO VERDE e o portão
+            # passava com a lente cega. Agora o código de saída conta.
+            codigo = mod.demo()
+            if codigo:
+                ruim = 1
+                print(f"  {nome:16} DEMO REPROVOU (codigo {codigo})")
+            else:
+                print(f"  {nome:16} DEMO VERDE")
         except Exception:
             ruim = 1
             print(f"  {nome:16} DEMO REPROVOU")

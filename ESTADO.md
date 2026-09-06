@@ -240,6 +240,164 @@ metatile e a paleta errados, sem uma linha de erro. Agora o corte sai do `layout
   piorou nada, mas quem for ligar isso amanhã tem que usar os ids NOVOS e o tileset novo.
 
 
+### O terceiro defeito do playtest: batalha de treinador chamada de gatilho ou de placa dava tela azul, 06/09/2026
+
+O Gui pisou na emboscada da Hex Maniac no `Unova_LentimasGym` (capítulo "before Shauntal") e a ROM
+parou em azul com
+`SRC/BATTLE_SETUP.C:1258: TRAINER SCRIPT THAT NEEDS TO BE USED FROM AN OBJECT EVENT WAS CALLED FROM
+PLAYER`. Não é dado errado, é desenho: **os moldes de `trainerbattle` COM fala de abertura exigem um
+objeto de evento selecionado, e gatilho de chão, placa e script de mapa não têm um.**
+
+O caminho, medido no motor e não deduzido: `trainerbattle_single` e irmãos vão a
+`EventScript_TryDoNormalTrainerBattle` (`data/scripts/trainer_battle.inc:19`), que chama
+`special SetTrainerFacingDirection`; esse special (`src/battle_setup.c:1258`) abre com
+`assertf(gSelectedObjectEvent != gPlayerAvatar.objectEventId, ...)`. Quem preencheria
+`gSelectedObjectEvent` seria `SetMapVarsToTrainerA`, e ela só reatribui quando o comando traz local
+id, mas **todos os macros passam `LOCALID_NONE`**. E `ProcessPlayerFieldInput` zera
+`gSelectedObjectEvent` a cada quadro em que o jogador tem controle
+(`src/field_control_avatar.c:169`): só o caminho de OBJETO (linha 420) e o avistamento de treinador
+(`src/trainer_see.c:484`) o reatribuem. Gatilho, placa e script de mapa não passam por nenhum dos
+dois, então `gSelectedObjectEvent` é o jogador e o assert dispara **em qualquer região**.
+
+### A varredura, e ela é curta
+
+`dev_scripts/qa/checa_scripts.py` ganhou a checagem **C28**, que entra em `roda_qa.py` com as outras e
+é classe **trava**: ela caminha da entrada SEM objeto (todo `coord_event`, todo `bg_event` e todo
+alvo de `<Mapa>_MapScripts`, incluindo os de dentro das tabelas `ON_FRAME_TABLE` e
+`ON_WARP_INTO_MAP_TABLE`) e reprova qualquer `trainerbattle` dos oito modos que passam pelo special
+(`TRAINER_BATTLE_SINGLE`, `DOUBLE`, os quatro `CONTINUE_SCRIPT*`, `REMATCH` e `REMATCH_DOUBLE`),
+achado por `goto`/`call` transitivo. Na árvore de antes do conserto ela achou **18**, e o retrato é
+este:
+
+| região | gatilho (`coord_event`) | placa (`bg_event`) | script de mapa | total |
+|---|---|---|---|---|
+| Kanto | 0 | 0 | 0 | 0 |
+| Johto | 0 | 0 | 0 | 0 |
+| Hoenn | 0 | 0 | 0 | 0 |
+| Sinnoh | 0 | 0 | 0 | 0 |
+| Unova | 6 | 0 | 0 | **6** |
+| Galar | 0 | 12 | 0 | **12** |
+| total | 6 | 12 | 0 | **18** |
+
+Os 6 de Unova são as emboscadas dos dois ginásios do B5 (quatro Hex Maniac no `Unova_LentimasGym`,
+uma Youngster e uma Lass no `Unova_AspertiaGym`), o defeito que o Gui viu. Os **12 de Galar** são
+todos no `Galar_Circhester03` e ninguém tinha visto: são treinadores que a fonte guardava como
+BACKGROUND EVENT, e `treinadores_galar.py` os colocou como `bg_event` de tipo `sign`
+(`aplica`, ramo `tipo == "placa"`). Placa cai em `GetInteractedBackgroundEventScript`, que não toca
+em `gSelectedObjectEvent`: mesma tela azul, só que ao FALAR em vez de ao pisar. **Nenhum caso
+legitimamente diferente apareceu**, porque não existe comando de script que preencha
+`gSelectedObjectEvent`: `setvar VAR_LAST_TALKED` escreve `gSpecialVar_LastTalked`, que é outra coisa.
+
+### A regra, e ela já era do FireRed
+
+**Batalha de treinador que não vem de objeto usa o caminho SEM intro**, e o molde é este, igual ao de
+`Route24_EventScript_BattleRocket` do FireRed vanilla:
+
+```
+	lock
+	goto_if_defeated TRAINER_X, <fim>
+	applymovement <LOCALID da NPC>, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement <LOCALID da NPC>, Common_Movement_Face<lado do jogador>
+	waitmovement 0
+	msgbox <texto de abertura>, MSGBOX_DEFAULT
+	setvar VAR_LAST_TALKED, <LOCALID da NPC>
+	trainerbattle_no_intro TRAINER_X, <texto de derrota>
+	release
+	end
+```
+
+Três detalhes que não são enfeite. **(1) O `goto_if_defeated` deixa de ser conforto e vira
+obrigação**: `trainerbattle_no_intro` cai em `EventScript_DoNoIntroTrainerBattle`, que vai DIRETO ao
+`dotrainerbattle` sem o `specialvar GetTrainerFlag` que o caminho com intro tem na linha 16, então
+sem ele o gatilho rebate para sempre depois da vitória. **(2) O `setvar VAR_LAST_TALKED`** existe
+porque `EventScript_DoNoIntroTrainerBattle` faz `applymovement VAR_LAST_TALKED,
+Movement_RevealTrainer` sem perguntar, e numa entrada sem objeto essa var vale `LOCALID_NONE`, que não
+é local id de ninguém: `GetObjectEventIdByLocalId` devolve `OBJECT_EVENTS_COUNT` e o `applymovement`
+escreve um elemento depois do fim de `gObjectEvents`. Onde não há NPC (as 12 placas de Galar) vale
+`LOCALID_PLAYER`, porque `reveal_trainer` em objeto que não é BURIED nem disfarce é no-op
+(`src/event_object_movement.c:8769`). **(3) O `release` no fim continua sendo quem solta o jogador**:
+o pós-batalha volta pelo `gotopostbattlescript`, que é a linha seguinte ao comando.
+
+O texto de derrota **não sai por `msgbox`**: ele é impresso DENTRO da batalha, do `defeatTextA` que o
+`trainerbattle_no_intro` carrega, e é por isso que ele não some ao trocar de molde.
+
+**As quatro NPCs disfarçadas do Lentimas e as duas do Aspertia ganharam `local_id` com nome** no
+`map.json` (`LOCALID_UNOVA_LENTIMAS_GYM_HEX1..4`, `LOCALID_UNOVA_ASPERTIA_GYM_YOUNGSTER` e `_LASS`),
+que é só um `#define` gerado em `include/constants/map_event_ids.h`: **o header do mapa não muda um
+byte** e a save não sente nada, porque `local_id` sem nome já era a posição mais um e continua sendo.
+
+**O gerador de Galar foi consertado junto**, e não só o arquivo que ele escreve:
+`dev_scripts/treinadores_galar.py` passa a emitir o molde sem intro para toda linha de `tipo ==
+"placa"`, e RECUSA em voz alta placa com batalha dupla, que é o único caso para o qual não existe
+molde sem intro.
+
+### O que a lente NÃO cobra, e por que
+
+`EventScript_DoNoIntroTrainerBattle` faz aquele `applymovement VAR_LAST_TALKED` em **196 lugares da
+árvore** que caem em entrada sem objeto, e a maioria é **vanilla intocado**
+(`EverGrandeCity_ChampionsRoom`, `FiveIsland_LostCave_Room10`, `EcruteakCity_Theater`): as três linhas
+de `applymovement` de `trainer_battle.inc` são acréscimo da própria pokeemerald-expansion, para o
+seguidor, e o jogo roda com elas há anos. Cobrar isso seria 196 travas de falso positivo calibrado,
+pela lição 4.10, então ficou escrito dentro do C28 e não virou checagem. O conserto de hoje escreve o
+`setvar` mesmo assim, porque custa uma linha.
+
+Junto veio uma trinca no portão: `roda_qa.py --demo` chamava `mod.demo()` e olhava **só a exceção**,
+mas as quatro `demo()` DEVOLVEM 1 quando a mutação plantada não é mordida. Um `return 1` imprimia
+"DEMO VERDE" e o portão passava com a lente cega. Agora o código de saída conta.
+
+### A prova está no framebuffer, e são cinco rotas
+
+Todas com o `gba_runner`, warp pelo menu de debug, PNG por passo, abertos e olhados. As rotas saem da
+grade de colisão de cada mapa, nunca de chute.
+
+1. **`Unova_LentimasGym`, emboscada 1.** Do warp 0 (7,19) sobem-se 4 tiles até (7,15), porque (7,14)
+   é parede; anda-se para a esquerda até (2,15), porque (1,15) é parede; sobe-se até (2,13), porque
+   (2,12) é parede; um passo à esquerda para (1,13); e sobe-se a coluna 1 até **(1,8)**, o terceiro
+   tile do gatilho. **PNG: a NPC do alto da coluna faz o "!" e a caixa abre com "Eh he he… We have
+   trained with the spirits."**; depois dos A, a tela é a de batalha, com a sprite de HEX MANIAC e
+   **"You are challenged by HEX MANIAC SYLVIA!"**. Sem tela azul. `oponente=2456`, mapa
+   `MAP_UNOVA_LENTIMAS_GYM`, posição (1,8).
+2. **O mesmo, com a flag de vitória do motor acesa** (`0x500 + 2456 = 0xE98`): nenhuma batalha
+   (`oponente=0`) e o jogador **atravessa os três tiles do gatilho** e para em **(1,6)**, onde a
+   própria NPC de (1,5) o bloqueia. É esta que prova que o gatilho não rebate depois da vitória.
+3. **`Unova_AspertiaGym`.** Do warp 0 (4,21) sobe-se a coluna 4 até (4,17). **PNG: "You are challenged
+   by YOUNGSTER LAMAR!"**, `oponente=2449`.
+4. **O mesmo com `0xE91` acesa**: `oponente=0` e o jogador continua subindo.
+5. **`Galar_Circhester03`, a placa.** Do warp 2 (26,23) a coluna 26 é corredor limpo até (26,10), onde
+   a linha 9 é parede maciça e segura o excedente; três DOWN descem para (26,12), que é a linha SEM o
+   NPC de (25,11); os LEFT param em (22,12) porque x21 é parede; dois UP sobem para (22,11) e o
+   terceiro só vira, porque (22,10) é a própria placa. **PNG: "You are challenged by BEAUTY Talia!"**,
+   `oponente=3069`.
+
+E a prova do texto de derrota é de memória, na camada da afirmação: com a batalha aberta,
+`gTrainerBattleParameter` lido cru pelo `--mem32` do runner diz **`defeatTextA = 0x0842E2C5`**, que é
+exatamente o endereço de `Unova_LentimasGym_Text_Hex1Beaten` no `pokeemerald.map`, **`introTextA =
+0x00000000`** (o motor não tem fala de abertura, ela saiu pelo `msgbox`) e o byte de modo em
+`0x02000928` vale **52**, cujo nibble alto é **3 = `TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT`**.
+
+
+### Os portões desta correção, e a worktree que foi preciso abrir
+
+Build verde, **ROM 96,44% de 32 MB** (32.360.772 B), **EWRAM 86,16% e IWRAM 86,68%**, os três iguais
+aos da 0.u. **Suíte 1.012 de 1.013, ZERO reprovado**, com o T11.3 contado à parte (a marca subiu de 1.003 para 1.013 casos porque outros commits do dia acrescentaram dez, e nenhum é desta correção), e **T11 3/3** contra
+`roms/pokemon-claude-2026-08-18.gba`. **SAVE COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B (94,3%),
+2.400 mapas, 2.252 ids de treinador e 1.716 apelidos conferidos: `local_id` com nome não entra na
+save, porque ele já era a posição mais um. `valida_rom.py` com os 2.400 mapas declarados dentro da
+ROM. `dev_scripts/qa/roda_qa.py` com as quatro varreduras e o `--demo` verde, **22 travas, 1.972
+prováveis, 6.299 cosméticos e 61 falsos positivos**, os mesmos números da 0.t, e **C28 em zero**.
+
+**A build e os portões saíram de uma worktree isolada, e isso é lição, não capricho.** A árvore de
+trabalho é COMPARTILHADA por vários agentes ao mesmo tempo, e no meio da primeira passada destes
+portões **outra build sobrescreveu o `pokeemerald.gba` e REGEROU os headers de `include/constants`**
+(`layouts.h`, `map_groups.h`). A suíte estava rodando: os casos do começo mediram uma ROM e os do fim
+mediram outra, e dois deles (`T135.3` e `T135.4`, o Victini do Pokécenter da Victory Road de Unova)
+abriram vermelhos que não eram defeito de ninguém, só ROM trocada debaixo do teste. A segunda
+passada, contra a ROM congelada mas com os headers já regerados, caiu em outro lugar (`T108.9`,
+`mapLayoutId` fora da faixa) pelo mesmo motivo, do outro lado. **Portão medido em árvore que outro
+agente está escrevendo não é portão.** A saída foi `git worktree add --detach`, copiar para dentro
+dela SÓ os nove arquivos desta correção, e buildar e medir lá: a ROM entregue é exatamente o HEAD
+mais este commit, e o `.map` ao lado é o dela.
 ### Os portões
 
 **Suíte 1.002 de 1.003**, com o T11.3 contado à parte, e **T11 3/3** contra a ROM

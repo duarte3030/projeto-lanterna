@@ -24,6 +24,23 @@
 @ Cortado de proposito (nao muda o jogo): a coreografia de applymovement da
 @ fonte, em que o jogador anda dois passos e o treinador se vira. Volta junto com
 @ o bloco B6 se alguem quiser.
+@
+@ 06/09/2026: batalha por GATILHO não pode usar `trainerbattle_single`. O molde
+@ COM intro (TRAINER_BATTLE_SINGLE e irmãos) vai a
+@ `EventScript_TryDoNormalTrainerBattle`, que chama `special
+@ SetTrainerFacingDirection`; o assert de src/battle_setup.c:1258 exige que
+@ `gSelectedObjectEvent` NÃO seja o jogador, e num coord_event ele É o jogador
+@ (`field_control_avatar.c:169` zera a cada quadro), porque `SetMapVarsToTrainerA`
+@ só reatribui quando o comando traz local id, e o macro passa LOCALID_NONE.
+@ Resultado no cartucho: tela azul ao pisar. O caminho certo é o SEM intro:
+@ a NPC reage por `applymovement`, o texto de abertura sai por `msgbox` e a
+@ batalha entra por `trainerbattle_no_intro`, que cai em
+@ `EventScript_DoNoIntroTrainerBattle` e não toca no special. Como esse molde
+@ NÃO confere a flag de vitória por dentro, o `goto_if_defeated` de cima deixa
+@ de ser conforto e passa a ser obrigatório. O `setvar VAR_LAST_TALKED` também
+@ é obrigatório: `EventScript_DoNoIntroTrainerBattle` faz `applymovement
+@ VAR_LAST_TALKED, Movement_RevealTrainer` sem perguntar, e num gatilho essa var
+@ vale LOCALID_NONE, que não é local id de objeto nenhum.
 
 Unova_AspertiaGym_MapScripts::
 	.byte 0
@@ -31,14 +48,26 @@ Unova_AspertiaGym_MapScripts::
 Unova_AspertiaGym_EventScript_EmboscadaYoungster::
 	lock
 	goto_if_defeated TRAINER_UNOVA_YOUNGSTER_ASPERTIA_GYM, Unova_AspertiaGym_EventScript_EmboscadaFim
-	trainerbattle_single TRAINER_UNOVA_YOUNGSTER_ASPERTIA_GYM, Unova_AspertiaGym_Text_YoungsterSeen, Unova_AspertiaGym_Text_YoungsterBeaten
+	applymovement LOCALID_UNOVA_ASPERTIA_GYM_YOUNGSTER, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_UNOVA_ASPERTIA_GYM_YOUNGSTER, Common_Movement_FaceDown
+	waitmovement 0
+	msgbox Unova_AspertiaGym_Text_YoungsterSeen, MSGBOX_DEFAULT
+	setvar VAR_LAST_TALKED, LOCALID_UNOVA_ASPERTIA_GYM_YOUNGSTER
+	trainerbattle_no_intro TRAINER_UNOVA_YOUNGSTER_ASPERTIA_GYM, Unova_AspertiaGym_Text_YoungsterBeaten
 	release
 	end
 
 Unova_AspertiaGym_EventScript_EmboscadaLass::
 	lock
 	goto_if_defeated TRAINER_UNOVA_LASS_ASPERTIA_GYM, Unova_AspertiaGym_EventScript_EmboscadaFim
-	trainerbattle_single TRAINER_UNOVA_LASS_ASPERTIA_GYM, Unova_AspertiaGym_Text_LassSeen, Unova_AspertiaGym_Text_LassBeaten
+	applymovement LOCALID_UNOVA_ASPERTIA_GYM_LASS, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_UNOVA_ASPERTIA_GYM_LASS, Common_Movement_FaceDown
+	waitmovement 0
+	msgbox Unova_AspertiaGym_Text_LassSeen, MSGBOX_DEFAULT
+	setvar VAR_LAST_TALKED, LOCALID_UNOVA_ASPERTIA_GYM_LASS
+	trainerbattle_no_intro TRAINER_UNOVA_LASS_ASPERTIA_GYM, Unova_AspertiaGym_Text_LassBeaten
 	release
 	end
 

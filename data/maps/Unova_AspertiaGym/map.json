@@ -42,6 +42,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_UNOVA_ASPERTIA_GYM_YOUNGSTER",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
       "x": 5,
       "y": 15,
@@ -55,6 +56,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_UNOVA_ASPERTIA_GYM_LASS",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 5,
       "y": 9,

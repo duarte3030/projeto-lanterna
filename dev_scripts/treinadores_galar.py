@@ -964,6 +964,12 @@ def corpo_inc(aceitas, usados, num):
            "@ JOGADOR fica congelado pelo `lock` que o proprio molde poe, porque so",
            "@ `ScrCmd_release` chama `UnfreezeObjectEvents`; o `end` sozinho apenas",
            "@ solta `sLockFieldControls`. Era esta a trava dos 127 blocos de 23/08.",
+           "@",
+           "@ Bloco de PLACA (rótulo *_bgN) é outro molde: placa não tem objeto",
+           "@ selecionado, então `trainerbattle_single` bate no assert de",
+           "@ src/battle_setup.c:1258 e dá tela azul. Placa usa `lock` +",
+           "@ `goto_if_defeated` + `msgbox` + `setvar VAR_LAST_TALKED, LOCALID_PLAYER`",
+           "@ + `trainerbattle_no_intro`, que não chama `SetTrainerFacingDirection`.",
            ""]
     # Cadeias compartilhadas por classe, uma vez cada, no topo do arquivo.
     usadas = sorted({usados[num[l["chave"]][2]]["classe"] for l in aceitas})
@@ -1000,17 +1006,58 @@ def corpo_inc(aceitas, usados, num):
             # 23/08/2026: ele virou `trainerbattle_single` com fala de abertura
             # padrao por classe, que e o idioma vanilla e resolve as duas
             # coisas de uma vez (flag por dentro e soltura no fim).
+            #
+            # PLACA (bg_event) é o segundo portão, aberto em 06/09/2026: o
+            # script de uma placa NÃO tem objeto selecionado.
+            # `ProcessPlayerFieldInput` zera `gSelectedObjectEvent`
+            # (src/field_control_avatar.c:169) e só o caminho de OBJETO o
+            # reatribui (linha 420); a placa cai em
+            # `GetInteractedBackgroundEventScript`, que não mexe nele. Com
+            # isso o `special SetTrainerFacingDirection` que
+            # `EventScript_TryDoNormalTrainerBattle` chama bate no assert de
+            # src/battle_setup.c:1258 ("trainer script that needs to be used
+            # from an object event was called from player") e o cartucho para
+            # na tela azul. Placa então usa o caminho SEM intro
+            # (`trainerbattle_no_intro` -> `EventScript_DoNoIntroTrainerBattle`,
+            # que não toca no special), com o texto de abertura por `msgbox` e
+            # o `lock` explícito, porque esse molde também não tranca sozinho.
+            e_placa = l.get("tipo") == "placa"
+            if e_placa and l["molde"] == "double":
+                raise SystemExit(
+                    "placa com batalha DUPLA (%s): não há molde sem intro para "
+                    "dupla, e o molde com intro trava no assert de "
+                    "SetTrainerFacingDirection. Decida o desenho antes de "
+                    "gravar." % l["chave"])
             if l["molde"] == "rival":
                 out.append("\tlock")
                 out.append("\tfaceplayer")
                 out.append("\tgoto_if_set TRAINER_FLAGS_START + %s, %s_Fim"
                            % (const, r))
-            if l["molde"] == "double":
-                out.append("\ttrainerbattle_double %s, %s_Intro, %s_Derrota, "
-                           "%s_Poucos" % (const, r, r, r))
-            elif l["molde"] == "rival":
                 out.append("\ttrainerbattle_earlyrival %s, 0, %s_Derrota, "
                            "%s_Vitoria" % (const, r, r))
+            elif e_placa:
+                r_abre = r_in if l["molde"] == "nointro" else "%s_Intro" % r
+                out.append("\tlock")
+                out.append("\tgoto_if_defeated %s, %s_Depois" % (const, r))
+                out.append("\tmsgbox %s, MSGBOX_DEFAULT" % r_abre)
+                # `EventScript_DoNoIntroTrainerBattle` faz `applymovement
+                # VAR_LAST_TALKED, Movement_RevealTrainer` sem perguntar, e
+                # numa placa `gSpecialVar_LastTalked` vale LOCALID_NONE (0),
+                # que não é local id de objeto nenhum: `GetObjectEventIdByLocalId`
+                # devolve OBJECT_EVENTS_COUNT e o `applymovement` escreve UM
+                # elemento depois do fim de `gObjectEvents`. Apontar para o
+                # objeto do JOGADOR resolve sem efeito visível, porque
+                # `reveal_trainer` em objeto que não é BURIED nem disfarce é
+                # no-op (src/event_object_movement.c:8769). É o mesmo remendo
+                # que o FireRed usa em `Route24_EventScript_BattleRocket`, só
+                # que lá existe NPC para apontar.
+                out.append("\tsetvar VAR_LAST_TALKED, LOCALID_PLAYER")
+                out.append("\ttrainerbattle_no_intro %s, %s_Derrota"
+                           % (const, r))
+                out.append("%s_Depois:" % r)
+            elif l["molde"] == "double":
+                out.append("\ttrainerbattle_double %s, %s_Intro, %s_Derrota, "
+                           "%s_Poucos" % (const, r, r, r))
             elif l["molde"] == "nointro":
                 out.append("\ttrainerbattle_single %s, %s, %s_Derrota"
                            % (const, r_in, r))

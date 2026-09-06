@@ -17,6 +17,23 @@
 @ Custo: ZERO var e ZERO flag. Gatilho VAR_TEMP_0 valor 0 (tecnica 1 do
 @ SINNOH-PADRAO.md) e a memoria do "ja perdeu" e a flag de treinador do motor,
 @ lida por goto_if_defeated.
+@
+@ 06/09/2026: batalha por GATILHO não pode usar `trainerbattle_single`. O molde
+@ COM intro (TRAINER_BATTLE_SINGLE e irmãos) vai a
+@ `EventScript_TryDoNormalTrainerBattle`, que chama `special
+@ SetTrainerFacingDirection`; o assert de src/battle_setup.c:1258 exige que
+@ `gSelectedObjectEvent` NÃO seja o jogador, e num coord_event ele É o jogador
+@ (`field_control_avatar.c:169` zera a cada quadro), porque `SetMapVarsToTrainerA`
+@ só reatribui quando o comando traz local id, e o macro passa LOCALID_NONE.
+@ Resultado no cartucho: tela azul ao pisar. O caminho certo é o SEM intro:
+@ a NPC disfarçada reage por `applymovement`, o texto de abertura sai por
+@ `msgbox` e a batalha entra por `trainerbattle_no_intro`, que cai em
+@ `EventScript_DoNoIntroTrainerBattle` e não toca no special. Como esse molde
+@ NÃO confere a flag de vitória por dentro, o `goto_if_defeated` de cima deixa
+@ de ser conforto e passa a ser obrigatório. O `setvar VAR_LAST_TALKED` também
+@ é obrigatório: `EventScript_DoNoIntroTrainerBattle` faz `applymovement
+@ VAR_LAST_TALKED, Movement_RevealTrainer` sem perguntar, e num gatilho essa var
+@ vale LOCALID_NONE, que não é local id de objeto nenhum.
 
 Unova_LentimasGym_MapScripts::
 	.byte 0
@@ -24,28 +41,52 @@ Unova_LentimasGym_MapScripts::
 Unova_LentimasGym_EventScript_Emboscada1::
 	lock
 	goto_if_defeated TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_1, Unova_LentimasGym_EventScript_EmboscadaFim
-	trainerbattle_single TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_1, Unova_LentimasGym_Text_Hex1Seen, Unova_LentimasGym_Text_Hex1Beaten
+	applymovement LOCALID_UNOVA_LENTIMAS_GYM_HEX1, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_UNOVA_LENTIMAS_GYM_HEX1, Common_Movement_FaceDown
+	waitmovement 0
+	msgbox Unova_LentimasGym_Text_Hex1Seen, MSGBOX_DEFAULT
+	setvar VAR_LAST_TALKED, LOCALID_UNOVA_LENTIMAS_GYM_HEX1
+	trainerbattle_no_intro TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_1, Unova_LentimasGym_Text_Hex1Beaten
 	release
 	end
 
 Unova_LentimasGym_EventScript_Emboscada2::
 	lock
 	goto_if_defeated TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_2, Unova_LentimasGym_EventScript_EmboscadaFim
-	trainerbattle_single TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_2, Unova_LentimasGym_Text_Hex2Seen, Unova_LentimasGym_Text_Hex2Beaten
+	applymovement LOCALID_UNOVA_LENTIMAS_GYM_HEX2, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_UNOVA_LENTIMAS_GYM_HEX2, Common_Movement_FaceRight
+	waitmovement 0
+	msgbox Unova_LentimasGym_Text_Hex2Seen, MSGBOX_DEFAULT
+	setvar VAR_LAST_TALKED, LOCALID_UNOVA_LENTIMAS_GYM_HEX2
+	trainerbattle_no_intro TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_2, Unova_LentimasGym_Text_Hex2Beaten
 	release
 	end
 
 Unova_LentimasGym_EventScript_Emboscada3::
 	lock
 	goto_if_defeated TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_3, Unova_LentimasGym_EventScript_EmboscadaFim
-	trainerbattle_single TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_3, Unova_LentimasGym_Text_Hex3Seen, Unova_LentimasGym_Text_Hex3Beaten
+	applymovement LOCALID_UNOVA_LENTIMAS_GYM_HEX3, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_UNOVA_LENTIMAS_GYM_HEX3, Common_Movement_FaceRight
+	waitmovement 0
+	msgbox Unova_LentimasGym_Text_Hex3Seen, MSGBOX_DEFAULT
+	setvar VAR_LAST_TALKED, LOCALID_UNOVA_LENTIMAS_GYM_HEX3
+	trainerbattle_no_intro TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_3, Unova_LentimasGym_Text_Hex3Beaten
 	release
 	end
 
 Unova_LentimasGym_EventScript_Emboscada4::
 	lock
 	goto_if_defeated TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_4, Unova_LentimasGym_EventScript_EmboscadaFim
-	trainerbattle_single TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_4, Unova_LentimasGym_Text_Hex4Seen, Unova_LentimasGym_Text_Hex4Beaten
+	applymovement LOCALID_UNOVA_LENTIMAS_GYM_HEX4, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_UNOVA_LENTIMAS_GYM_HEX4, Common_Movement_FaceLeft
+	waitmovement 0
+	msgbox Unova_LentimasGym_Text_Hex4Seen, MSGBOX_DEFAULT
+	setvar VAR_LAST_TALKED, LOCALID_UNOVA_LENTIMAS_GYM_HEX4
+	trainerbattle_no_intro TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_4, Unova_LentimasGym_Text_Hex4Beaten
 	release
 	end
 
