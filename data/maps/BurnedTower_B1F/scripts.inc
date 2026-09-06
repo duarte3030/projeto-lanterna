@@ -16,7 +16,146 @@
 @ OBJ_EVENT_GFX_MON_BASE, que cai no fallback POKE_BALL nesta build).
 
 BurnedTower_B1F_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, BurnedTower_B1F_OnFrame
 	.byte 0
+
+@ >>> Burned Tower, 06/09/2026 (rodada 13) >>>
+@ A CENA DOS TRES CAES, que estava faltando e travava Johto inteira: sem ela
+@ FLAG_JOHTO_CAES_LIBERTOS nunca acendia, e sem essa flag o sabio de Ecruteak
+@ nunca saia da frente da porta do ginasio do MORTY.
+@
+@ Os tres objetos animados sao os que JA existiam no mapa como decoracao
+@ (ENTEI em (18,8), RAIKOU em (14,8), SUICUNE em (16,9), as mesmas coordenadas
+@ do hns), agora com local_id e com FLAG_JOHTO_CAES_LIBERTOS no campo `flag`:
+@ acesa a flag, eles nao nascem mais. NAO se mexeu nos objetos de Dex
+@ (LOCALID_DEX_RAIKOU em (26,12) e LOCALID_DEX_ENTEI em (24,4)), que tem flag
+@ propria e continuam sendo batalha de lendario.
+@
+@ ZERO var de save. Dois gatilhos, os dois com var TEMPORARIA:
+@   1. ON_FRAME_TABLE em VAR_TEMP_0 = 0, que e o caso normal: a queda do 1F
+@      poe o jogador em (16,12), de frente para a camara selada. A PRIMEIRA
+@      linha do roteiro e `setvar VAR_TEMP_0, 1`, e ela nao e enfeite:
+@      TryRunOnFrameMapScript e chamado A CADA QUADRO por
+@      ProcessPlayerFieldInput (src/field_control_avatar.c:195) e devolve TRUE,
+@      que congela o jogador; roteiro de ON_FRAME que nao mata a propria
+@      condicao na primeira instrucao trava o jogo.
+@   2. coord_event em VAR_TEMP_1 = 0 nas dez lajes de frente para a camara
+@      (x de 14 a 18, linhas 11 e 12), que e a rede de seguranca para quem
+@      chegar aqui pela ESCADA de (26,7) em vez de pela queda (reset no meio da
+@      cena, por exemplo): dali o trio fica fora da tela, e o ON_FRAME ja
+@      gastou a vez dele. Tecnica do SINNOH-PADRAO.md, secao "coord_event com
+@      gatilho VAR_TEMP_0 e valor 0": o motor zera VAR_TEMP_* a cada entrada de
+@      mapa, entao o gatilho esta sempre armado e quem lembra que a cena ja
+@      aconteceu e a FLAG.
+BurnedTower_B1F_OnFrame:
+	map_script_2 VAR_TEMP_0, 0, BurnedTower_B1F_EventScript_ChegouNoPorao
+	.2byte 0
+
+BurnedTower_B1F_EventScript_ChegouNoPorao::
+	setvar VAR_TEMP_0, 1
+	goto BurnedTower_B1F_EventScript_SoltaCaes
+
+BurnedTower_B1F_Trigger_Caes::
+	setvar VAR_TEMP_1, 1
+	goto BurnedTower_B1F_EventScript_SoltaCaes
+
+BurnedTower_B1F_EventScript_SoltaCaes::
+	goto_if_set FLAG_JOHTO_CAES_LIBERTOS, BurnedTower_B1F_EventScript_SoltaCaesFim
+	goto_if_not_defeated TRAINER_JOHTO_RIVAL_SILVER_3, BurnedTower_B1F_EventScript_SoltaCaesFim
+	lock
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	delay 30
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 30
+	msgbox BurnedTower_B1F_Text_CaesAcordam, MSGBOX_DEFAULT
+	closemessage
+
+	playmoncry SPECIES_ENTEI, CRY_MODE_NORMAL
+	applymovement LOCALID_BURNED_TOWER_B1F_ENTEI, BurnedTower_B1F_Movement_Acorda
+	waitmovement 0
+	waitmoncry
+	playmoncry SPECIES_RAIKOU, CRY_MODE_NORMAL
+	applymovement LOCALID_BURNED_TOWER_B1F_RAIKOU, BurnedTower_B1F_Movement_Acorda
+	waitmovement 0
+	waitmoncry
+	playmoncry SPECIES_SUICUNE, CRY_MODE_NORMAL
+	applymovement LOCALID_BURNED_TOWER_B1F_SUICUNE, BurnedTower_B1F_Movement_Acorda
+	waitmovement 0
+	waitmoncry
+
+	playse SE_LEDGE
+	applymovement LOCALID_BURNED_TOWER_B1F_ENTEI, BurnedTower_B1F_Movement_EnteiFoge
+	waitmovement 0
+	playse SE_LEDGE
+	applymovement LOCALID_BURNED_TOWER_B1F_RAIKOU, BurnedTower_B1F_Movement_RaikouFoge
+	waitmovement 0
+	playmoncry SPECIES_SUICUNE, CRY_MODE_NORMAL
+	applymovement LOCALID_BURNED_TOWER_B1F_SUICUNE, BurnedTower_B1F_Movement_SuicuneFoge
+	waitmovement 0
+	waitmoncry
+
+	setflag FLAG_JOHTO_CAES_LIBERTOS
+	removeobject LOCALID_BURNED_TOWER_B1F_ENTEI
+	removeobject LOCALID_BURNED_TOWER_B1F_RAIKOU
+	removeobject LOCALID_BURNED_TOWER_B1F_SUICUNE
+	delay 40
+	msgbox BurnedTower_B1F_Text_CaesFogem, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+BurnedTower_B1F_EventScript_SoltaCaesFim::
+	end
+
+BurnedTower_B1F_Movement_Acorda:
+	jump_in_place_down
+	jump_in_place_down
+	jump_in_place_down
+	step_end
+
+BurnedTower_B1F_Movement_EnteiFoge:
+	jump_down
+	jump_2_right
+	jump_2_right
+	jump_2_right
+	jump_2_right
+	step_end
+
+BurnedTower_B1F_Movement_RaikouFoge:
+	jump_down
+	jump_2_left
+	jump_2_left
+	jump_2_left
+	jump_2_left
+	step_end
+
+BurnedTower_B1F_Movement_SuicuneFoge:
+	jump_2_down
+	delay_8
+	jump_in_place_right_left
+	jump_in_place_right_left
+	jump_left
+	jump_2_down
+	jump_2_down
+	jump_2_down
+	step_end
+
+BurnedTower_B1F_Text_CaesAcordam:
+	.string "Three shapes stir in the sealed\n"
+	.string "chamber ahead…\p"
+	.string "They were sleeping in the ashes\n"
+	.string "all this time!$"
+
+BurnedTower_B1F_Text_CaesFogem:
+	.string "The three POKéMON scattered in\n"
+	.string "every direction and were gone.\p"
+	.string "They are loose in JOHTO now.\p"
+	.string "Back in ECRUTEAK, the old sage at\n"
+	.string "the GYM door will want to hear\l"
+	.string "about this.$"
+@ <<< Burned Tower <<<
 
 BurnedTower_B1F_EventScript_Raikou::
 	lock

@@ -2239,6 +2239,21 @@ const struct Tileset gTileset_MahoganyTown =
     .callback = NULL,
 };
 
+// Secundario so de LAYOUT_MAHOGANYTOWN: copia do gTileset_MahoganyTown com as
+// paletas 7, 8 e 9 viradas em neve e 158 metatiles nevados. Existe separado
+// porque o gTileset_MahoganyTown e compartilhado com Route 42, Route 43,
+// Lago da Furia e Mt. Silver Outside, que continuam sem neve.
+const struct Tileset gTileset_MahoganyTownNeve =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_MahoganyTownNeve,
+    .palettes = gTilesetPalettes_MahoganyTownNeve,
+    .metatiles = gMetatiles_MahoganyTownNeve,
+    .metatileAttributes = gMetatileAttributes_MahoganyTownNeve,
+    .callback = NULL,
+};
+
 const struct Tileset gTileset_MtSilverSnow =
 {
     .isCompressed = TRUE,

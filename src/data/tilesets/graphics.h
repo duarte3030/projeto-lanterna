@@ -3742,14 +3742,10 @@ const u16 ALIGNED(4) gTilesetPalettes_Goldenrod[][16] =
     INCGFX_U16("data/tilesets/secondary/goldenrod/palettes/06.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/goldenrod/palettes/07.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/goldenrod/palettes/08.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/goldenrod/palettes/08_over.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/goldenrod/palettes/09.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/goldenrod/palettes/09_over.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/goldenrod/palettes/10.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/goldenrod/palettes/10_over.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/goldenrod/palettes/11.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/goldenrod/palettes/12.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/goldenrod/palettes/12_over.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/goldenrod/palettes/13.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/goldenrod/palettes/14.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/goldenrod/palettes/15.pal", ".gbapal"),
@@ -4128,6 +4124,24 @@ const u16 ALIGNED(4) gTilesetPalettes_MahoganyTown[][16] =
 };
 const u32 gTilesetTiles_MahoganyTown[] = INCGFX_U32("data/tilesets/secondary/mahogany_town/tiles.png", ".4bpp.smol");
 
+const u16 ALIGNED(4) gTilesetPalettes_MahoganyTownNeve[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/12.pal", ".gbapal"),
+};
+const u32 gTilesetTiles_MahoganyTownNeve[] = INCGFX_U32("data/tilesets/secondary/mahogany_town_neve/tiles.png", ".4bpp.smol");
+
 const u16 ALIGNED(4) gTilesetPalettes_MtSilverSnow[][16] =
 {
     INCGFX_U16("data/tilesets/secondary/mt_silver_snow/palettes/00.pal", ".gbapal"),
@@ -4311,7 +4325,6 @@ const u16 ALIGNED(4) gTilesetPalettes_Route32[][16] =
     INCGFX_U16("data/tilesets/secondary/route_32/palettes/10.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/route_32/palettes/11.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/route_32/palettes/12.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/route_32/palettes/bellchime_12.pal", ".gbapal"),
 };
 const u32 gTilesetTiles_Route32[] = INCGFX_U32("data/tilesets/secondary/route_32/tiles.png", ".4bpp.smol");
 
@@ -4362,9 +4375,7 @@ const u16 ALIGNED(4) gTilesetPalettes_RuinsOfAlphOutside[][16] =
     INCGFX_U16("data/tilesets/secondary/ruins_of_alph_outside/palettes/06.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/ruins_of_alph_outside/palettes/07.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/ruins_of_alph_outside/palettes/08.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/ruins_of_alph_outside/palettes/08_over.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/ruins_of_alph_outside/palettes/09.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/ruins_of_alph_outside/palettes/09_over.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/ruins_of_alph_outside/palettes/10.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/ruins_of_alph_outside/palettes/11.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/ruins_of_alph_outside/palettes/12.pal", ".gbapal"),
@@ -4524,7 +4535,6 @@ const u16 ALIGNED(4) gTilesetPalettes_VioletCity[][16] =
     INCGFX_U16("data/tilesets/secondary/violet_city/palettes/10.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/violet_city/palettes/11.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/violet_city/palettes/12.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/violet_city/palettes/bellchime_12.pal", ".gbapal"),
 };
 const u32 gTilesetTiles_VioletCity[] = INCGFX_U32("data/tilesets/secondary/violet_city/tiles.png", ".4bpp.smol");
 

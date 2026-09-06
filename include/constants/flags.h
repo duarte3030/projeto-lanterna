@@ -8190,6 +8190,15 @@
 #define FLAG_HIDE_SILVER_GOLDENROD               FLAG_UNUSED_0x276
 #define FLAG_HIDE_SILVER_HIDEOUT_B3F             FLAG_UNUSED_0x277
 
+// Arco da BURNED TOWER (06/09/2026, rodada 13). Uma flag SO, e ela e o estado
+// inteiro de "os tres caes ja acordaram": esconde o trio no B1F, esconde o
+// sabio que trancava a porta do ginasio de Ecruteak, e e o que o seletor de
+// capitulo acende ao pular para "Before MORTY". Zero var.
+// O numero sai de 0x4DB porque a faixa 0x270-0x28F ja esta cheia (SILVER e as
+// 22 armadilhas de Mahogany); 0x4DB a 0x4DF estavam livres, depois das trocas
+// de Unova.
+#define FLAG_JOHTO_CAES_LIBERTOS                 FLAG_UNUSED_0x4DB
+
 // As 22 armadilhas de piso do B1F. Uma flag por armadilha porque cada uma so
 // explode UMA vez; sem isso o corredor vira batalha infinita e trava a passagem.
 #define FLAG_MAHOGANY_TRAP_1                     FLAG_UNUSED_0x278

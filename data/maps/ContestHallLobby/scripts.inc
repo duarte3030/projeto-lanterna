@@ -26,9 +26,6 @@ ContestHallLobby_Text_Npc3:
 
 @ >>> porta fechada (remove_mapas_cortados.py) >>>
 ContestHallLobby_EventScript_PortaFechada::
-	msgbox ContestHallLobby_Text_PortaFechada, MSGBOX_SIGN
+	msgbox Common_Text_PortaFechada, MSGBOX_SIGN
 	end
-
-ContestHallLobby_Text_PortaFechada:
-	.string "Fechado. Área em obras.$"
 @ <<< porta fechada <<<

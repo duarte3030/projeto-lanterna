@@ -138,9 +138,6 @@ Unova_CasteliaCitySouth_Text_CasteliaSouthMysticWaterGiver_AskScaleText::
 
 @ >>> porta fechada (remove_mapas_cortados.py) >>>
 Unova_CasteliaCitySouth_EventScript_PortaFechada::
-	msgbox Unova_CasteliaCitySouth_Text_PortaFechada, MSGBOX_SIGN
+	msgbox Common_Text_PortaFechada, MSGBOX_SIGN
 	end
-
-Unova_CasteliaCitySouth_Text_PortaFechada:
-	.string "Fechado. Área em obras.$"
 @ <<< porta fechada <<<

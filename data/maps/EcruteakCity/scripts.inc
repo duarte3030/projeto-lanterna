@@ -193,9 +193,25 @@ EcruteakCity_Trigger_Silver::
 	releaseall
 	end
 
+@ >>> Burned Tower, 06/09/2026 (rodada 13) >>>
+@ O sabio de MR_FUJI em (20,49) fica em cima do UNICO tile por onde se entra no
+@ ginasio: a porta e (20,48), a linha 48 e parede de x=19 a x=22, e objeto e
+@ solido. Ate aqui FLAG_HIDE_ECRUTEAK_CITY_SAGE nao era acesa nem apagada por
+@ NINGUEM (o unico uso dela no repo inteiro era o campo `flag` do objeto), entao
+@ ele nascia sempre e o ginasio do MORTY ficava trancado para sempre. Agora a
+@ flag e RECALCULADA aqui, como o SILVER logo abaixo: o sabio sai do caminho
+@ assim que os tres caes acordam no B1F da BURNED TOWER, que e o que a fala dele
+@ manda o jogador ir fazer.
 EcruteakCity_OnTransition::
 	setflag FLAG_HIDE_ECRUTEAK_SILVER
+	goto_if_set FLAG_JOHTO_CAES_LIBERTOS, EcruteakCity_OnTransition_SemSabio
+	clearflag FLAG_HIDE_ECRUTEAK_CITY_SAGE
 	end
+
+EcruteakCity_OnTransition_SemSabio:
+	setflag FLAG_HIDE_ECRUTEAK_CITY_SAGE
+	end
+@ <<< Burned Tower <<<
 
 EcruteakCity_Movement_Silver1::
 	delay_16

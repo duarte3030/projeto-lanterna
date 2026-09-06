@@ -8,7 +8,7 @@ Uso:
 
 Por que existe
 --------------
-As quatro ferramentas nasceram fora do repo, na auditoria de 23/08/2026, e cada
+As primeiras quatro nasceram fora do repo, na auditoria de 23/08/2026, e cada
 uma imprimia o resumo dela do seu jeito. Fora do repo, ferramenta de QA envelhece
 sem ninguem ver: ninguem roda o que nao esta ao lado do codigo. Aqui elas ficam
 juntas, com UMA contagem, e com um `--demo` unico que e o portao: cada varredura
@@ -25,6 +25,11 @@ O que cada uma mede, e o que ela NAO mede
                        MESMA regua rodada no vanilla (`--vanilla`) para separar
                        defeito nosso de idioma do motor.
     estado_jogo.py     flag, var, item, treinador e save.
+    lente_warps.py     ida e volta de warp (P1..P4): destino que nao existe,
+                       porta de predio que devolve para outra rua, volta que
+                       pousa fora da porta usada, e escada interna que nao
+                       devolve. Nasceu do playtest de 06/09/2026, em que sair
+                       da loja de Veilstone levava a Lilycove.
 
 NENHUMA delas roda o jogo. Prova de comportamento e da suite do emulador
 (`dev_scripts/testa_critico.py`); estas quatro so leem a arvore, e a divisao e
@@ -100,7 +105,8 @@ VEREDITOS_DE_CASO = {
         "applymovement de script NAO consulta colisao.",
 }
 
-FERRAMENTAS = ("checa_scripts", "checa_texto", "mapas_qa", "estado_jogo")
+FERRAMENTAS = ("checa_scripts", "checa_texto", "mapas_qa", "estado_jogo",
+               "lente_warps", "lente_portas")
 
 
 def roda_demos():
@@ -109,8 +115,16 @@ def roda_demos():
     for nome in FERRAMENTAS:
         mod = importlib.import_module(nome)
         try:
-            mod.demo()
-            print(f"  {nome:16} DEMO VERDE")
+            # As quatro `demo()` DEVOLVEM 1 quando a mutação plantada não é
+            # mordida, e só algumas levantam. Até 06/09/2026 este laço olhava
+            # só a exceção, então um `return 1` imprimia DEMO VERDE e o portão
+            # passava com a lente cega. Agora o código de saída conta.
+            codigo = mod.demo()
+            if codigo:
+                ruim = 1
+                print(f"  {nome:16} DEMO REPROVOU (codigo {codigo})")
+            else:
+                print(f"  {nome:16} DEMO VERDE")
         except Exception:
             ruim = 1
             print(f"  {nome:16} DEMO REPROVOU")
@@ -157,6 +171,13 @@ def achados_de_estado():
     return saida
 
 
+def achados_de_warps():
+    import lente_warps
+    ach, _censo = lente_warps.varre()
+    return [dict(ferramenta="warps", regra=a["regra"], classe=a["classe"],
+                 regiao=nome_de_regiao(a["regiao"])) for a in ach]
+
+
 def nome_de_regiao(r):
     r = (r or "").strip()
     if r in ("", "global", "comum"):
@@ -164,8 +185,16 @@ def nome_de_regiao(r):
     return r.capitalize() if r.islower() else r
 
 
+def achados_de_portas():
+    import lente_portas
+    ach, _censo = lente_portas.varre()
+    return [dict(ferramenta="portas", regra=a["regra"], classe=a["classe"],
+                 regiao=nome_de_regiao(a["regiao"])) for a in ach]
+
+
 COLETORES = (("scripts", achados_de_scripts), ("texto", achados_de_texto),
-             ("mapas", achados_de_mapas), ("estado", achados_de_estado))
+             ("mapas", achados_de_mapas), ("estado", achados_de_estado),
+             ("warps", achados_de_warps), ("portas", achados_de_portas))
 
 REGIOES = ("Kanto", "Johto", "Hoenn", "Sinnoh", "Unova", "Galar", "comum")
 
@@ -197,7 +226,11 @@ def main():
         print(f"{nome}: {len(itens)} achados")
 
     por = collections.Counter((x["classe"], x["regiao"]) for x in todos)
-    classes = [c for c in ("trava", "provável", "cosmético", "falso positivo")
+    # "sem interior" é classe da `lente_portas`: porta que o jogador vê, não
+    # abre, e cujo interior NÃO EXISTE na árvore. Não é trava porque consertar
+    # exigiria inventar mapa, e não é falso positivo porque o defeito é real.
+    classes = [c for c in ("trava", "provável", "sem interior", "cosmético",
+                           "falso positivo")
                if any(k[0] == c for k in por)]
     regioes = [r for r in REGIOES if any(k[1] == r for k in por)]
     extras = sorted({k[1] for k in por} - set(regioes))

@@ -53,9 +53,6 @@ CanalaveCityPokecenter1F_Text_Npc4:
 
 @ >>> porta fechada (remove_mapas_cortados.py) >>>
 CanalaveCityPokecenter1F_EventScript_PortaFechada::
-	msgbox CanalaveCityPokecenter1F_Text_PortaFechada, MSGBOX_SIGN
+	msgbox Common_Text_PortaFechada, MSGBOX_SIGN
 	end
-
-CanalaveCityPokecenter1F_Text_PortaFechada:
-	.string "Fechado. Área em obras.$"
 @ <<< porta fechada <<<

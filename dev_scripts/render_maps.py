@@ -94,13 +94,24 @@ def carregar_paleta(caminho_pal):
     return cores
 
 
+# So `NN.pal` e slot de paleta, e o filtro fica mesmo com o disco limpo: em
+# 06/09/2026 a pasta de `goldenrod` e a de `ruins_of_alph_outside` guardavam
+# `08_over.pal` e companhia (a camada de luz noturna do hns, que este motor nao
+# usa) e as de `route_32` e `violet_city` guardavam `bellchime_12.pal`. Com
+# `int(nome)` cru, renderizar GoldenrodCity morria com "invalid literal for
+# int() with base 10: '12_over'", ou seja o mapa NUNCA tinha sido desenhado. Os
+# oito arquivos sairam do repo na mesma rodada, junto com o conserto de raiz no
+# `importa_tilesets_johto.py`, mas o proximo import pode trazer outros.
+_PADRAO_SLOT_PAL = re.compile(r"^(\d{2})\.pal$")
+
+
 def carregar_paletas(pasta_tileset):
     paletas = {}
     pasta_pal = os.path.join(pasta_tileset, "palettes")
     for nome in os.listdir(pasta_pal):
-        if nome.endswith(".pal"):
-            idx = int(os.path.splitext(nome)[0])
-            paletas[idx] = carregar_paleta(os.path.join(pasta_pal, nome))
+        m = _PADRAO_SLOT_PAL.match(nome)
+        if m:
+            paletas[int(m.group(1))] = carregar_paleta(os.path.join(pasta_pal, nome))
     return paletas
 
 
@@ -186,6 +197,16 @@ def renderizar_mapa(nome_mapa, layouts, cache_tilesets):
     ts_pri = cache_tilesets[chave_pri]
     ts_sec = cache_tilesets[chave_sec]
 
+    # Layout "johto" (bigPrimary) e "frlg" (isFrlg) tem primario de 640 metatiles
+    # e 7 paletas, nao os 512/6 do Emerald: ver GetNumMetatilesInPrimary e
+    # GetNumPalsInPrimary em src/fieldmap.c. Sem isso, todo mapa de Johto
+    # renderizava o metatile e a paleta errados.
+    versao = layout.get("layout_version") or "emerald"
+    if versao in ("johto", "frlg"):
+        n_meta_pri, n_pal_pri = 640, 7
+    else:
+        n_meta_pri, n_pal_pri = 512, 6
+
     cor_fundo = ts_pri["paletas"][0][0]  # cor 0 da paleta 0 = backdrop compartilhado do BG
     canvas = Image.new("RGB", (largura * META_PX, altura * META_PX), cor_fundo)
     canvas_px = canvas.load()
@@ -196,10 +217,10 @@ def renderizar_mapa(nome_mapa, layouts, cache_tilesets):
         tx, ty = i % largura, i // largura
         x0, y0 = tx * META_PX, ty * META_PX
 
-        if idx_metatile < 512:
+        if idx_metatile < n_meta_pri:
             ts_meta, idx_local = ts_pri, idx_metatile
         else:
-            ts_meta, idx_local = ts_sec, idx_metatile - 512
+            ts_meta, idx_local = ts_sec, idx_metatile - n_meta_pri
 
         n_meta = len(ts_meta["metatiles"]) // 16
         if idx_local >= n_meta:
@@ -214,7 +235,7 @@ def renderizar_mapa(nome_mapa, layouts, cache_tilesets):
                     continue
                 # paletas 0-5 sao do tileset primario, 6-15 do secundario; os dois
                 # arquivos trazem os 16 slots, mas so um lado tem a cor real.
-                fonte_pal = ts_pri if idx_pal < NUM_PALETAS_PRIMARIO else ts_sec
+                fonte_pal = ts_pri if idx_pal < n_pal_pri else ts_sec
                 cores = fonte_pal["paletas"].get(idx_pal)
                 if cores is None:
                     continue

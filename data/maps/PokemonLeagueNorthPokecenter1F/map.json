@@ -30,20 +30,6 @@
       "origem": "arquetipo do repo"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_NURSE",
-      "x": 3,
-      "y": 2,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0",
-      "origem": "pokeplatinum"
-    },
-    {
       "graphics_id": "OBJ_EVENT_GFX_MAN_3",
       "x": 12,
       "y": 8,
@@ -67,9 +53,9 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "PokemonLeagueNorthPokecenter1F_EventScript_Loja1",
       "flag": "0",
-      "origem": "pokeplatinum"
+      "origem": "pokeplatinum: LOCALID_LEAGUE_NORTH_CASHIER_F, script 2 = VendorCommon (res/field/scripts/scripts_pokemon_league_north_pokecenter_1f.s). CASHIER_F vira MART_EMPLOYEE no de-para de valida_mapas_sinnoh.py."
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CLERK",
@@ -81,25 +67,12 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "PokemonLeagueNorthPokecenter1F_EventScript_Loja2",
       "flag": "0",
-      "origem": "pokeplatinum"
+      "origem": "pokeplatinum: LOCALID_LEAGUE_NORTH_CASHIER_M, script 3 = VendorSpecial (MART_SPECIALTIES_ID_POKEMON_LEAGUE). CASHIER_M vira CLERK no de-para."
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_NURSE",
-      "x": 0,
-      "y": 2,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0",
-      "origem": "pokeplatinum"
-    },
-    {
+      "local_id": "LOCALID_LEAGUE_NORTH_PC_RIVAL",
       "graphics_id": "OBJ_EVENT_GFX_RICH_BOY",
       "x": 10,
       "y": 3,

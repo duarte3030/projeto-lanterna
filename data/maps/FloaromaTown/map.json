@@ -212,6 +212,14 @@
       "dest_map": "MAP_FLOAROMA_MEADOW",
       "dest_warp_id": "0",
       "origem": "fonte"
+    },
+    {
+      "x": 5,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_FLOAROMA_MEADOW",
+      "dest_warp_id": "0",
+      "gemea": "metade da mesma saída para o Floaroma Meadow do warp 5, célula (4,2); sem warp desde a importação da fonte; reaberta em 06/09/2026"
     }
   ],
   "coord_events": [],

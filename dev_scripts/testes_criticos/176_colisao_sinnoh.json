@@ -1,0 +1,150 @@
+[
+  {
+    "id": "T176.1",
+    "nome": "Hearthome, o BALCÃO da banca de floreiras vira parede. 06/09/2026 o Gui andou até (20,20) e SUMIU: o metatile 673 de gTileset_Hearthome desenha 248 dos 256 px da metade de cima no Bg1, que é a camada que o motor põe POR CIMA do sprite (DrawMetatile, src/field_camera.c), e a célula vinha com colisão 0. O caso sai da porta do Pokécenter em (14,20) e aperta RIGHT vinte vezes na linha 20, que é uma perna SATURANTE: a linha só abre de x=6 a x=19 depois do conserto, então o jogador para em (19,20) e apertos a mais não mudam nada. ANTES do conserto ele parava em (20,20), DENTRO do balcão, porque (21,20) é que era a parede. A prova é a posição, e não a tela: (19,20) e (20,20) são um tile de distância e num PNG de 240x160 isso é discutível, na EWRAM não é.",
+    "warp": "MAP_HEARTHOME_CITY",
+    "warp_id": 5,
+    "roteiro": "60:NADA,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,120:NADA",
+    "prova": {
+      "mapa": "MAP_HEARTHOME_CITY",
+      "pos": [
+        19,
+        20
+      ]
+    }
+  },
+  {
+    "id": "T176.2",
+    "nome": "Hearthome, o ARBUSTO de (17,16) vira parede. Mesmo defeito do T176.1 com outro desenho: o metatile 542 cobre 152 px e o Gui parava dentro dele com só o alto do gorro aparecendo. A rota é feita de pernas SATURANTES de propósito, porque perna contada é frágil: LEFT*20 encosta em (6,20), UP*5 sobe a coluna 6 até a linha 15, RIGHT*20 encosta em (25,15) (x=26 é parede), LEFT*3 volta para (22,15), DOWN*3 cai em (22,16) e satura ali (a linha 17 é a fachada inteira), e o LEFT*20 final varre a linha 16 e ENCOSTA em (18,16). Antes do conserto esse último LEFT terminava em (17,16), dentro do arbusto. O primeiro toque numa direção NOVA só VIRA o jogador, não anda: por isso toda perna contada tem um toque a mais que a distância, e as pernas de 20 são saturantes justamente para não depender disso.",
+    "warp": "MAP_HEARTHOME_CITY",
+    "warp_id": 5,
+    "roteiro": "60:NADA,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,120:NADA",
+    "prova": {
+      "mapa": "MAP_HEARTHOME_CITY",
+      "pos": [
+        18,
+        16
+      ]
+    }
+  },
+  {
+    "id": "T176.3",
+    "nome": "Hearthome, o GINÁSIO da Fantina passa a ter porta. O warp 4 apontava para (29,26), chão de praça no meio da cidade, e o ginásio era inalcançável justamente no capítulo que o Gui está jogando. O warp foi movido para (10,31), o arco de pedra da fachada que escreve GYM, e o metatile 636 de gTileset_Hearthome (único no repo inteiro) virou MB_NON_ANIMATED_DOOR. A rota desce para a linha 32, ENCOSTA em (6,32) com LEFT*20, anda quatro para a direita até (10,32) e sobe: pisar no arco dispara o warp. A prova é o mapa, que só muda se a porta existir de verdade. O primeiro toque numa direção NOVA só VIRA o jogador, não anda: por isso toda perna contada tem um toque a mais que a distância, e as pernas de 20 são saturantes justamente para não depender disso.",
+    "warp": "MAP_HEARTHOME_CITY",
+    "warp_id": 5,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:UP,20:UP,20:UP,120:NADA",
+    "prova": {
+      "mapa": "MAP_HEARTHOME_CITY_GYM"
+    }
+  },
+  {
+    "id": "T176.4",
+    "nome": "Hearthome, a casa das floreiras (POFFIN HOUSE) entra E sai. O Gui reclamou de casa que não entra; este caso pisa na porta de (36,19) vindo de baixo, e depois desce de dentro para provar que a volta cai na rua e no MESMO tile de onde saiu. Ida e volta na mesma execução é o que separa 'a porta existe' de 'a porta funciona nos dois sentidos'.",
+    "warp": "MAP_HEARTHOME_CITY",
+    "warp_id": 13,
+    "roteiro": "60:NADA,20:UP,20:UP,20:UP,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,120:NADA",
+    "prova": {
+      "mapa": "MAP_HEARTHOME_CITY",
+      "pos": [
+        36,
+        20
+      ]
+    }
+  },
+  {
+    "id": "T176.5",
+    "nome": "Hearthome, a casa do noroeste entra e sai, mesmo teste do T176.4 com a porta de (37,30).",
+    "warp": "MAP_HEARTHOME_CITY",
+    "warp_id": 10,
+    "roteiro": "60:NADA,20:UP,20:UP,20:UP,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,120:NADA",
+    "prova": {
+      "mapa": "MAP_HEARTHOME_CITY",
+      "pos": [
+        37,
+        31
+      ]
+    }
+  },
+  {
+    "id": "T176.6",
+    "nome": "Hearthome, a casa do sudeste entra e sai, mesmo teste do T176.4 com a porta de (44,30).",
+    "warp": "MAP_HEARTHOME_CITY",
+    "warp_id": 11,
+    "roteiro": "60:NADA,20:UP,20:UP,20:UP,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,120:NADA",
+    "prova": {
+      "mapa": "MAP_HEARTHOME_CITY",
+      "pos": [
+        44,
+        31
+      ]
+    }
+  },
+  {
+    "id": "T176.7",
+    "nome": "Hearthome, o portão do OESTE (Route 208) leva. O tile de (4,45) é MB_WEST_ARROW_WARP, e seta só dispara quando o jogador ANDA NA DIREÇÃO DELA (TryArrowWarp): nascer em cima dela pelo menu de debug não warpa nada, e descer em cima também não. O caso anda dois para a leste e volta para o oeste, que é o único gesto que a seta aceita.",
+    "warp": "MAP_HEARTHOME_CITY",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:RIGHT,20:RIGHT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,120:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE208_ACCESS"
+    }
+  },
+  {
+    "id": "T176.8",
+    "nome": "Hearthome, o portão do LESTE (Route 209) leva. Mesmo mecanismo do T176.7 com MB_EAST_ARROW_WARP em (53,45): o jogador sai para o oeste e volta andando para o leste.",
+    "warp": "MAP_HEARTHOME_CITY",
+    "warp_id": 1,
+    "roteiro": "60:NADA,20:LEFT,20:LEFT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,120:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE209_ACCESS"
+    }
+  },
+  {
+    "id": "T176.9",
+    "nome": "Hearthome, o portão do SUL (Route 212) leva. MB_SOUTH_ARROW_WARP em (8,46): o jogador sobe dois e desce, e o DOWN*5 é saturante porque (8,47) é parede.",
+    "warp": "MAP_HEARTHOME_CITY",
+    "warp_id": 2,
+    "roteiro": "60:NADA,20:UP,20:UP,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,120:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE212_ACCESS"
+    }
+  },
+  {
+    "id": "T176.10",
+    "nome": "Snowpoint, o jogador para de entrar METADE dentro do prédio. Foi a frase do Gui em 06/09/2026, e ela é literal: a base do muro das duas casas do norte (metatiles 568, 569 e 573 de gTileset_Snowpoint) desenha neve embaixo e madeira em cima, e essa madeira cobre 128 dos 256 px do Bg1, ou seja EXATAMENTE metade do sprite. A célula vinha com colisão 0, então dava para parar ali com as pernas na neve e o tronco dentro da parede. As pernas são saturantes: DOWN*2 sai da porta, LEFT*20 encosta na parede oeste do pátio, UP*20 encosta na linha 8 (a linha 7 agora é parede), e só o RIGHT*3 é contado, para chegar em (13,8) por baixo da célula corrigida. O UP*3 final não sai do lugar; antes do conserto ele subia para (13,7). O primeiro toque numa direção NOVA só VIRA o jogador, não anda: por isso toda perna contada tem um toque a mais que a distância, e as pernas de 20 são saturantes justamente para não depender disso.",
+    "warp": "MAP_SNOWPOINT_CITY",
+    "warp_id": 4,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:UP,20:UP,20:UP,120:NADA",
+    "prova": {
+      "mapa": "MAP_SNOWPOINT_CITY",
+      "pos": [
+        13,
+        8
+      ]
+    }
+  },
+  {
+    "id": "T176.11",
+    "nome": "Snowpoint, a fachada do GINÁSIO também fecha. Mesmo defeito do T176.10 no metatile 597: (15,33) e (19,33) são a neve encostada nas duas pontas do prédio do ginásio e estavam andáveis. O caso vem da porta em (17,34), anda três para a esquerda, sobe até encostar em (14,33) e tenta ir para a direita: com o conserto ele não sai de (14,33), sem o conserto ele entrava em (15,33), dentro da parede. O primeiro toque numa direção NOVA só VIRA o jogador, não anda: por isso toda perna contada tem um toque a mais que a distância, e as pernas de 20 são saturantes justamente para não depender disso.",
+    "warp": "MAP_SNOWPOINT_CITY",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,120:NADA",
+    "prova": {
+      "mapa": "MAP_SNOWPOINT_CITY",
+      "pos": [
+        14,
+        33
+      ]
+    }
+  },
+  {
+    "id": "T176.12",
+    "nome": "Snowpoint, o GINÁSIO entra pela porta certa. O warp 0 estava em (17,34), um tile ABAIXO da porta animada, no MB_SAND da rua: não disparava nada. Foi movido para (17,33), a porta que o mapa já desenhava. O caso pisa nela vindo de baixo e prova pelo mapa.",
+    "warp": "MAP_SNOWPOINT_CITY",
+    "warp_id": 0,
+    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:UP,20:UP,20:UP,20:UP,120:NADA",
+    "prova": {
+      "mapa": "MAP_SNOWPOINT_CITY_GYM"
+    }
+  }
+]

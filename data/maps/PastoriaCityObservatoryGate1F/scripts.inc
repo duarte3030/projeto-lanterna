@@ -24,9 +24,6 @@ PastoriaCityObservatoryGate1F_Text_Npc2:
 
 @ >>> porta fechada (remove_mapas_cortados.py) >>>
 PastoriaCityObservatoryGate1F_EventScript_PortaFechada::
-	msgbox PastoriaCityObservatoryGate1F_Text_PortaFechada, MSGBOX_SIGN
+	msgbox Common_Text_PortaFechada, MSGBOX_SIGN
 	end
-
-PastoriaCityObservatoryGate1F_Text_PortaFechada:
-	.string "Fechado. Área em obras.$"
 @ <<< porta fechada <<<

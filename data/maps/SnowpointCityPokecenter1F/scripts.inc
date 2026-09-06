@@ -43,9 +43,6 @@ SnowpointCityPokecenter1F_Text_Npc3:
 
 @ >>> porta fechada (remove_mapas_cortados.py) >>>
 SnowpointCityPokecenter1F_EventScript_PortaFechada::
-	msgbox SnowpointCityPokecenter1F_Text_PortaFechada, MSGBOX_SIGN
+	msgbox Common_Text_PortaFechada, MSGBOX_SIGN
 	end
-
-SnowpointCityPokecenter1F_Text_PortaFechada:
-	.string "Fechado. Área em obras.$"
 @ <<< porta fechada <<<

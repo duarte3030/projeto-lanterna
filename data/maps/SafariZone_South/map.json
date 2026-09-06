@@ -116,10 +116,14 @@
       "x": 32,
       "y": 33,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE121_SAFARI_ZONE_ENTRANCE",
+      "dest_map": "MAP_DYNAMIC",
       "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "destinos_dinamicos": [
+    "MAP_ROUTE121_SAFARI_ZONE_ENTRANCE",
+    "MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE"
+  ]
 }

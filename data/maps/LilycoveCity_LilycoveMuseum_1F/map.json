@@ -153,15 +153,15 @@
       "x": 9,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_LILYCOVE_CITY",
-      "dest_warp_id": "3"
+      "dest_map": "MAP_DYNAMIC",
+      "dest_warp_id": "0"
     },
     {
       "x": 10,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_LILYCOVE_CITY",
-      "dest_warp_id": "13"
+      "dest_map": "MAP_DYNAMIC",
+      "dest_warp_id": "0"
     },
     {
       "x": 16,
@@ -301,5 +301,9 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "LilycoveCity_LilycoveMuseum_1F_EventScript_StoneTablet"
     }
+  ],
+  "destinos_dinamicos": [
+    "MAP_LILYCOVE_CITY",
+    "MAP_OREBURGH_CITY"
   ]
 }

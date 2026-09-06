@@ -156,6 +156,60 @@ TROCA_SPRITE = {
 SPRITE_PADRAO = "OBJ_EVENT_GFX_MAN_1"
 MOVIMENTO_PADRAO = "MOVEMENT_TYPE_LOOK_AROUND"
 
+# DE-PARA QUE OLHA O MAPA, E NAO SO O NOME DO SPRITE, 06/09/2026.
+#
+# `OBJ_EVENT_GFX_POKECENTER_NURSE` nao quer dizer "enfermeira" no Platinum:
+# quer dizer ATENDENTE DE BALCAO com aquele uniforme. Em Pokecenter ela e a
+# enfermeira mesmo; no lobby do Contest Hall de Hearthome ela e a
+# RECEPCIONISTA do concurso, e a linha fixa la em cima punha TRES enfermeiras
+# numa sala onde o jogo original nao tem nenhuma. Foi o primeiro defeito de
+# elenco que o Gui achou no playtest: "que tanto de enfermeira e essa?".
+#
+# Medido nos 499 mapas de Sinnoh casados com a fonte, antes de tocar em nada:
+# dos 21 objetos com esse grafico, 18 estao num `events_*_pokecenter_1f` e 3
+# estao em `events_contest_hall_lobby`. Por isso o par: o primeiro destino e o
+# do balcao de Pokecenter, o segundo e o de qualquer outro balcao.
+#
+# A chave continua em TROCA_SPRITE, com o destino de MAIORIA, de proposito:
+# quem consultar a tabela sem contexto (e `corpos_repetidos_pokecenter.py`
+# cobra exatamente isso) continua recebendo a resposta certa para 18 dos 21.
+TROCA_SPRITE_POR_BALCAO = {
+    "OBJ_EVENT_GFX_POKECENTER_NURSE": ("OBJ_EVENT_GFX_NURSE",
+                                       "OBJ_EVENT_GFX_CABLE_CLUB_RECEPTIONIST"),
+}
+
+
+def troca_de_sprite(gfx, pokecenter=True):
+    """Destino do de-para para um grafico DA FONTE, ja com o contexto do mapa.
+
+    `pokecenter` diz se o balcao daquele mapa e o de um Pokecenter. Quem nao
+    tem como saber passa o padrao e cai no destino de maioria.
+    """
+    par = TROCA_SPRITE_POR_BALCAO.get(gfx)
+    if par is not None:
+        return par[0] if pokecenter else par[1]
+    return TROCA_SPRITE.get(gfx)
+
+
+def sprite_de_balcao(gfx, pokecenter):
+    """Correcao de UM SO SENTIDO para `map.json` que ja foi escrito, ou None.
+
+    O de-para inteiro e MUITOS PARA UM, entao o inverso dele nao e funcao, e
+    reaplica-lo nos dois sentidos planta defeito novo. Medido em 06/09/2026, e
+    quase custou caro: `OBJ_EVENT_GFX_CABLE_CLUB_RECEPTIONIST` e o destino de
+    CINCO graficos da fonte (`RECEPTIONIST`, `WIFI_PLAZA_ATTENDANT_F` e os tres
+    `FRONTIER_*_ATTENDANT`), entao ler "recepcionista num Pokecenter" como
+    "enfermeira fora do lugar" poria QUINZE enfermeiras nos poroes de Union Room
+    dos Pokecenters de Sinnoh, onde a fonte tem a atendente de Wi-Fi.
+    `OBJ_EVENT_GFX_NURSE`, ao contrario, so tem UMA origem em todo o de-para, e
+    e por isso que so ele volta atras. O `--demo` de `de_para_sprites_sinnoh.py`
+    cobra as duas metades desta frase contra a tabela.
+    """
+    for balcao, outro in TROCA_SPRITE_POR_BALCAO.values():
+        if gfx == balcao and not pokecenter:
+            return outro
+    return None
+
 # ponytail: quem atende balcao FICA em tile bloqueado, de proposito, como no jogo
 # original. Enfermeira e vendedor sao avisados, nunca movidos.
 #
@@ -444,7 +498,10 @@ def confere_tabela_de_trocas(sprites):
     --corrigir PLANTAVA o crash em vez de tirar. Foi assim que 82 objetos em 44
     mapas voltaram depois de já terem sido consertados uma vez.
     """
-    ruins = sorted(d for d in TROCA_SPRITE.values() if d not in sprites)
+    destinos = set(TROCA_SPRITE.values())
+    for par in TROCA_SPRITE_POR_BALCAO.values():
+        destinos.update(par)
+    ruins = sorted(d for d in destinos if d not in sprites)
     if ruins:
         print("ABORTADO: TROCA_SPRITE aponta para sprite que esta build não desenha:")
         for d in ruins:

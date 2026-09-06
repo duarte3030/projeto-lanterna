@@ -9,6 +9,10 @@ TrainerHill_Entrance_MapScripts::
 TrainerHill_Entrance_OnTransition:
 	setflag FLAG_LANDMARK_TRAINER_HILL
 	getplayerxy VAR_TEMP_D, VAR_RESULT
+@ A porta deste predio e MAP_DYNAMIC: ele e compartilhado entre a Route 111 de
+@ Hoenn e a praca TrainerHill_Courtyard de Johto, e a saida tem que devolver o
+@ jogador para o lado por onde ele entrou. Ver src/field_specials.c.
+	special DefinirRetornoPredioCompartilhado
 	end
 
 @ Unused

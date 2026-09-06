@@ -34,9 +34,6 @@ SolaceonTownPokecenter1F_Text_Npc3:
 
 @ >>> porta fechada (remove_mapas_cortados.py) >>>
 SolaceonTownPokecenter1F_EventScript_PortaFechada::
-	msgbox SolaceonTownPokecenter1F_Text_PortaFechada, MSGBOX_SIGN
+	msgbox Common_Text_PortaFechada, MSGBOX_SIGN
 	end
-
-SolaceonTownPokecenter1F_Text_PortaFechada:
-	.string "Fechado. Área em obras.$"
 @ <<< porta fechada <<<

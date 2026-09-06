@@ -1,0 +1,88 @@
+[
+ {
+  "id": "T175.1",
+  "nome": "Canalave: o PORTO existe e ele PARA o jogador. O `porto_canalave.py` importou o bote, o poste e o tambor do `gTileset_Slateport` para dentro do `gTileset_Canalave`, e o que separa 'a arte apareceu' de 'a arte é sólida' é a posição em que o jogador fica preso. Do warp 1 (a porta do ginásio, em 19,32) onze passos para baixo e quatro para a esquerda: com o porto o jogador para em (17,43), porque a peça de (16,43) é sólida; SEM o porto ele iria até (16,43). A prova é a posição, e não a tela, porque um bote desenhado sem colisão passaria numa prova de screenshot e deixaria o jogador andar por cima da água. A rota desvia da coluna 19, que é CORREDOR DE TESTE: os sete casos de balsa (T8.5, T10.1 e T86.8 a T86.12) descem ela inteira, e a primeira versão deste caso pôs um poste no meio e derrubou os sete.",
+  "warp": "MAP_CANALAVE_CITY",
+  "warp_id": 1,
+  "roteiro": "120:NADA,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:LEFT,16:LEFT,16:LEFT,16:LEFT,90:NADA",
+  "prova": {
+   "mapa": "MAP_CANALAVE_CITY",
+   "pos": [
+    17,
+    43
+   ]
+  }
+ },
+ {
+  "id": "T175.2",
+  "nome": "Canalave, a margem leste: do warp 0 (a boca da Route 218, em 33,50) seis passos para a esquerda e sete para cima param o jogador em (27,46), contra (27,44) antes do porto. É outro trecho da cidade e outra peça, para o caso não passar por causa de uma peça só. A rota foi escolhida por ser a única que dá a MESMA posição com as duas hipóteses de pouso do warp de depuração (no próprio tile e um ao sul dele), então ela não depende de qual delas vale para este warp.",
+  "warp": "MAP_CANALAVE_CITY",
+  "warp_id": 0,
+  "roteiro": "120:NADA,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,90:NADA",
+  "prova": {
+   "mapa": "MAP_CANALAVE_CITY",
+   "pos": [
+    27,
+    46
+   ]
+  }
+ },
+ {
+  "id": "T175.3",
+  "nome": "Canalave: entrar num prédio continua funcionando depois da enfeitada. O warp 2 larga o jogador na porta do Pokécenter (28,22); um passo para baixo sai dela e dois para cima pisam nela de novo, e o warp dispara. Este caso existe porque o gerador MUDA COLISÃO de célula andável, e a maneira mais barata de estragar uma cidade é fechar a calçada na frente de uma porta: aqui a porta é atravessada de verdade, e não por leitura estática do `map.json`.",
+  "warp": "MAP_CANALAVE_CITY",
+  "warp_id": 2,
+  "roteiro": "120:NADA,16:DOWN,16:UP,16:UP,180:NADA",
+  "prova": {
+   "mapa": "MAP_CANALAVE_CITY_POKECENTER_1F"
+  }
+ },
+ {
+  "id": "T175.4",
+  "nome": "Oreburgh, a cidade da MINA: as pedras soltas que o `enfeita_cidades.py` carimbou no chão de terra são sólidas. Do warp 6 (a porta do ginásio, em 30,22) sete passos para baixo e três para a direita deixam o jogador em (30,28), porque a pedra de (31,28) barra o primeiro passo para a direita; sem os enfeites ele chegaria a (32,28). Oreburgh é o caso em que o carimbo entrou pelo ATALHO DE COBERTURA (a pedra tapa 100% dos pixels do chão e a distância de cor para a terra é 29), então este caso também é a prova de que o atalho não solta enfeite errado. A rota vale para as duas hipóteses de pouso do warp de depuração, no próprio tile e um ao sul dele, e para as quatro direções iniciais de olhar.",
+  "warp": "MAP_OREBURGH_CITY",
+  "warp_id": 6,
+  "roteiro": "120:NADA,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:RIGHT,16:RIGHT,16:RIGHT,90:NADA",
+  "prova": {
+   "mapa": "MAP_OREBURGH_CITY",
+   "pos": [
+    30,
+    28
+   ]
+  }
+ },
+ {
+  "id": "T175.5",
+  "nome": "Eterna, a cidade da floresta antiga: do warp 4 (a porta do MART, em 25,33) sete passos para baixo e três para a esquerda deixam o jogador em (25,39), porque a árvore de (24,39) barra o primeiro passo para a esquerda; sem os enfeites ele chegaria a (23,39), que é onde mora a segunda árvore do mesmo carimbo. Três cidades e três tilesets secundários provados no emulador, e não só renderizados em PNG. A rota foi ESCOLHIDA por busca, e não escrita à mão: ela dá a MESMA posição para as duas hipóteses de pouso do warp de depuração e para as quatro direções iniciais de olhar, e uma posição DIFERENTE na grade de antes do desenho.",
+  "warp": "MAP_ETERNA_CITY",
+  "warp_id": 4,
+  "roteiro": "120:NADA,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:LEFT,16:LEFT,16:LEFT,90:NADA",
+  "prova": {
+   "mapa": "MAP_ETERNA_CITY",
+   "pos": [
+    25,
+    39
+   ]
+  }
+ },
+ {
+  "id": "T175.6",
+  "nome": "Oreburgh: entrar num prédio continua funcionando depois da enfeitada. O warp 6 larga o jogador na porta do ginásio (30,22); um passo para baixo sai dela e dois para cima pisam nela de novo, e o warp dispara. É o mesmo par do T175.3, agora na cidade em que a enfeitada foi mais pesada (51 células), porque a maneira mais barata de estragar uma cidade é fechar a calçada na frente de uma porta.",
+  "warp": "MAP_OREBURGH_CITY",
+  "warp_id": 6,
+  "roteiro": "120:NADA,16:DOWN,16:UP,16:UP,180:NADA",
+  "prova": {
+   "mapa": "MAP_OREBURGH_CITY_GYM"
+  }
+ },
+ {
+  "id": "T175.7",
+  "nome": "Eterna: entrar num prédio continua funcionando depois da enfeitada. O warp 7 larga o jogador na porta do condomínio (39,22); um passo para baixo sai dela e dois para cima pisam nela de novo, e o warp dispara. Fecha as três cidades andadas no emulador com porta atravessada de verdade em cada uma, e não por leitura estática do `map.json`.",
+  "warp": "MAP_ETERNA_CITY",
+  "warp_id": 7,
+  "roteiro": "120:NADA,16:DOWN,16:UP,16:UP,180:NADA",
+  "prova": {
+   "mapa": "MAP_ETERNA_CITY_CONDOMINIUMS_1F"
+  }
+ }
+]

@@ -225,6 +225,14 @@
       "elevation": 0,
       "dest_map": "MAP_GALAR_ISLE_OF_ARMOR_12",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 39,
+      "y": 37,
+      "elevation": 0,
+      "dest_map": "MAP_GALAR_ISLE_OF_ARMOR_12",
+      "dest_warp_id": "0",
+      "gemea": "metade da mesma saída para a Isle of Armor do warp 1, célula (40,37); sem warp desde a importação da fonte; reaberta em 06/09/2026"
     }
   ],
   "coord_events": [],

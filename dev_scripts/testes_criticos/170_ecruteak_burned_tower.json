@@ -1,0 +1,134 @@
+[
+  {
+    "id": "T170.1",
+    "nome": "PAR NEGATIVO, e ele e o retrato do defeito que o Gui trouxe do playtest: o sabio de Ecruteak TRANCA o ginasio enquanto os tres caes nao acordaram. O objeto 1 de data/maps/EcruteakCity/map.json (OBJ_EVENT_GFX_MR_FUJI, script EcruteakCity_EventScript_SageGym) fica em (20,49), e (20,49) e o UNICO tile por onde se entra: a porta e (20,48) e a linha 48 e parede de x=19 a x=22 (medido no map.bin de LAYOUT_ECRUTEAK_CITY). Ate 06/09/2026 FLAG_HIDE_ECRUTEAK_CITY_SAGE nao era acesa nem apagada por NENHUM script do repo (o unico uso era o campo `flag` do proprio objeto), entao ele nascia sempre e nunca saia. Roteiro: o warp 13 larga o jogador na porta do ginasio, DOWN*8 desce a coluna 20 ate bater na parede da linha 52, e UP*8 volta. Com o sabio no lugar o jogador PARA um tile abaixo dele e o mapa continua sendo a cidade.",
+    "warp": "MAP_ECRUTEAK_CITY",
+    "warp_id": 13,
+    "roteiro": "20:DOWN*8,90:NADA,20:UP*8,120:NADA",
+    "prova": {
+      "mapa": "MAP_ECRUTEAK_CITY",
+      "layout": "LAYOUT_ECRUTEAK_CITY",
+      "andou": true,
+      "flags_apagadas": [
+        "FLAG_JOHTO_CAES_LIBERTOS"
+      ],
+      "pos": [
+        20,
+        50
+      ]
+    }
+  },
+  {
+    "id": "T170.2",
+    "nome": "O MESMO warp, o MESMO roteiro e o MESMO numero de quadros do T170.1, mudando UMA coisa: FLAG_JOHTO_CAES_LIBERTOS acesa antes do warp. EcruteakCity_OnTransition RECALCULA FLAG_HIDE_ECRUTEAK_CITY_SAGE a cada entrada no mapa (mesma tecnica do SILVER logo abaixo dela no arquivo), entao o sabio nao nasce, (20,49) fica livre e o UP entra no ginasio. A prova e mudanca de MAPA, que so acontece se o tile do sabio estiver vago.",
+    "flags": [
+      "FLAG_JOHTO_CAES_LIBERTOS"
+    ],
+    "warp": "MAP_ECRUTEAK_CITY",
+    "warp_id": 13,
+    "roteiro": "20:DOWN*8,90:NADA,20:UP*8,120:NADA",
+    "prova": {
+      "mapa": "MAP_ECRUTEAK_CITY_GYM",
+      "flags_acesas": [
+        "FLAG_JOHTO_CAES_LIBERTOS"
+      ]
+    }
+  },
+  {
+    "id": "T170.3",
+    "nome": "O rival SILVER esta na BURNED TOWER e DESAFIA sozinho. BurnedTower_1F_OnTransition so o mostra depois de TRAINER_JOHTO_RIVAL_SILVER_2 (Azalea, 1359) cair e antes de TRAINER_JOHTO_RIVAL_SILVER_3 (1360) cair, entao o caso acende so a flag de treinador do SILVER_2: TRAINER_FLAGS_START(0x500) + 1359 = 2639 = 0xA4F. O objeto (LOCALID_BURNED_TOWER_1F_SILVER) fica em (15,19) virado para baixo com raio 3, e o warp 0 do andar larga o jogador em (15,22), tres tiles ao sul e dentro do cone: por isso o roteiro NAO anda, so espera o laco de deteccao do proprio objeto (mesma emboscada do T90.5 em GoldenrodCity_UndergroundSwitches). Prova por NOME e por FAIXA: os quatro duelos do SILVER sao 1358 Cherrygrove, 1359 Azalea, 1360 Burned Tower e 1361 Goldenrod.",
+    "flags": [
+      "0xA4F"
+    ],
+    "warp": "MAP_BURNED_TOWER_1F",
+    "warp_id": 0,
+    "roteiro": "600:NADA",
+    "prova": {
+      "mapa": "MAP_BURNED_TOWER_1F",
+      "oponente": "TRAINER_JOHTO_RIVAL_SILVER_3",
+      "oponente_faixa": [
+        1358,
+        1361
+      ]
+    }
+  },
+  {
+    "id": "T170.4",
+    "nome": "A CENA DOS TRES CAES do B1F roda e acende FLAG_JOHTO_CAES_LIBERTOS, que e a chave inteira do arco: e ela que tira o sabio da porta do ginasio (T170.2). O caso acende a flag de treinador do SILVER_3, TRAINER_FLAGS_START(0x500) + 1360 = 2640 = 0xA50, que e EXATAMENTE o bit que o motor grava ao vencer o duelo do andar de cima; vencer a luta de verdade esta fora do alcance deste harness (o time do SILVER_3 tem cinco Pokemon de nivel 64 a 68, LUGIA entre eles) e isso e limite declarado, nao conserto. O warp 1 do B1F larga o jogador em (16,12), de frente para a camara selada (x de 14 a 18, linhas 8 e 9, parede em volta), e o ON_FRAME_TABLE em VAR_TEMP_0 = 0 dispara a cena na chegada. Os A's cobrem as duas msgbox.",
+    "flags": [
+      "0xA50"
+    ],
+    "warp": "MAP_BURNED_TOWER_B1F",
+    "warp_id": 1,
+    "roteiro": "300:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:DOWN*8,120:NADA",
+    "prova": {
+      "mapa": "MAP_BURNED_TOWER_B1F",
+      "flags_acesas": [
+        "FLAG_JOHTO_CAES_LIBERTOS"
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T170.5",
+    "nome": "PAR NEGATIVO DO T170.4: o MESMO warp, o MESMO roteiro e o MESMO numero de quadros, SEM a flag de treinador do SILVER_3. A cena nao pode rodar, porque em HGSS os caes so acordam depois do duelo, e FLAG_JOHTO_CAES_LIBERTOS tem que ficar APAGADA. Sem este caso o T170.4 passaria com uma cena que dispara sozinha ao entrar no porao, o que destrancaria o ginasio do MORTY sem o jogador ter feito nada.",
+    "warp": "MAP_BURNED_TOWER_B1F",
+    "warp_id": 1,
+    "roteiro": "300:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:DOWN*8,120:NADA",
+    "prova": {
+      "mapa": "MAP_BURNED_TOWER_B1F",
+      "andou": true,
+      "flags_apagadas": [
+        "FLAG_JOHTO_CAES_LIBERTOS"
+      ]
+    }
+  },
+  {
+    "id": "T170.6",
+    "nome": "O seletor de capitulo acende a trava de ENREDO do capitulo, e nao so as insignias anteriores. JOHTO e a terceira regiao da lista (HOENN, KANTO, JOHTO, ...) e 'Before MORTY' e o quarto capitulo da regiao (Start, Falkner, Bugsy, Whitney, MORTY, ...). O campo `flagEnredo` de src/chapter_jump.c, novo em 06/09/2026, e o que faz o salto acender FLAG_JOHTO_CAES_LIBERTOS: sem ele o jogador cairia em Ecruteak com o sabio ainda trancando a porta do ginasio que ele acabou de escolher testar. O destino e HEAL_LOCATION_ECRUTEAK_CITY, que e o balcao do Centro Pokemon da cidade.",
+    "abertura": "seletor",
+    "roteiro": "20:DOWN*2,60:NADA,20:A,120:NADA,20:DOWN*4,60:NADA,20:A,300:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_ECRUTEAK_CITY_POKEMON_CENTER",
+      "flags_acesas": [
+        "FLAG_JOHTO_CAES_LIBERTOS",
+        "FLAG_INSIGNIA_JOHTO_3"
+      ],
+      "flags_apagadas": [
+        "FLAG_INSIGNIA_JOHTO_4"
+      ]
+    }
+  },
+  {
+    "id": "T170.7",
+    "nome": "PAR NEGATIVO DO T170.6: o MESMO seletor, a MESMA regiao, e 'Start of region' em vez de 'Before MORTY'. O jogador tem que sair no Centro Pokemon de OLIVINE (o porto por onde se entra em Johto neste hack) com FLAG_JOHTO_CAES_LIBERTOS APAGADA. E ele prova a metade que falta do `flagEnredo`: o laco novo tambem APAGA a flag nos capitulos anteriores, senao pular de uma save adiantada para o comeco de Johto deixaria Ecruteak sem o sabio que ainda deveria estar la.",
+    "abertura": "seletor",
+    "roteiro": "20:DOWN*2,60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_OLIVINE_CITY_POKEMON_CENTER",
+      "flags_apagadas": [
+        "FLAG_JOHTO_CAES_LIBERTOS",
+        "FLAG_INSIGNIA_JOHTO_1"
+      ]
+    }
+  },
+  {
+    "id": "T170.8",
+    "nome": "FLUXO INTEIRO, com a batalha do SILVER JOGADA ATE O FIM: o seletor de capitulo entrega o PIKACHU nivel 20 (party vazia) em 'Before WHITNEY' de JOHTO, a opcao de teste LV.5 TRAINERS (byte 36) poe o time do SILVER_3 em nivel 5, o warp 0 da BURNED TOWER 1F larga o jogador dentro do cone de visao do rival, e o tapete de A joga a luta. Vencendo, o roteiro do SILVER acende a flag de treinador, tira o objeto do mapa, o chao CEDE (ShakeCamera + SE_FALL) e o `warp MAP_BURNED_TOWER_B1F, 16, 12` derruba o jogador na frente da camara selada, onde o ON_FRAME_TABLE roda a cena dos tres caes e acende FLAG_JOHTO_CAES_LIBERTOS. A prova e o mapa FINAL ser o porao e a flag estar acesa: nenhuma das duas coisas acontece sem a vitoria.",
+    "abertura": "seletor",
+    "opcoes": 36,
+    "flags": [
+      "0xA4F"
+    ],
+    "antes_do_warp": "20:DOWN*2,60:NADA,20:A,120:NADA,20:DOWN*3,60:NADA,20:A,300:NADA,120:NADA",
+    "warp": "MAP_BURNED_TOWER_1F",
+    "warp_id": 0,
+    "roteiro": "300:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_BURNED_TOWER_B1F",
+      "flags_acesas": [
+        "FLAG_JOHTO_CAES_LIBERTOS"
+      ]
+    }
+  }
+]

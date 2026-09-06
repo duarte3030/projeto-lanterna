@@ -61,6 +61,8 @@ CASOS = [
     ("MAP_VIOLET_CITY_GYM",       "MUS_GYM",            "ginasio"),
     ("MAP_CHERRYGROVE_CITY_MART", "MUS_POKE_MART",      "loja"),
     ("MAP_ICE_PATH_1F",           "MUS_RG_MT_MOON",     "caverna, que PODE ser caverna"),
+    ("MAP_OLIVINE_CITY_LIGHTHOUSE", "MUS_RG_POKE_TOWER", "farol, que tocava musica de CIDADE"),
+    ("MAP_MT_SILVER_2F",          "MUS_RG_POKE_TOWER",  "MT SILVER divide o apelido do farol"),
     ("MAP_PETALBURG_CITY",        "MUS_PETALBURG",      "CONTROLE de Hoenn, nao foi tocado"),
 ]
 

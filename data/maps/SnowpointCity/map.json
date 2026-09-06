@@ -166,10 +166,11 @@
   "warp_events": [
     {
       "x": 17,
-      "y": 34,
+      "y": 33,
       "elevation": 0,
       "dest_map": "MAP_SNOWPOINT_CITY_GYM",
-      "dest_warp_id": "0"
+      "dest_warp_id": "0",
+      "porta_movida": "warp posto em cima da porta desenhada, dev_scripts/conserta_portas_sinnoh.py"
     },
     {
       "x": 29,

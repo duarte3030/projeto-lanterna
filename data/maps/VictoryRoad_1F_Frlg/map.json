@@ -142,7 +142,7 @@
       "x": 11,
       "y": 20,
       "elevation": 3,
-      "dest_map": "MAP_ROUTE23",
+      "dest_map": "MAP_DYNAMIC",
       "dest_warp_id": "0"
     }
   ],
@@ -178,5 +178,9 @@
       "quantity": 1,
       "underfoot": false
     }
+  ],
+  "destinos_dinamicos": [
+    "MAP_ROUTE23",
+    "MAP_RECEPTION_GATE"
   ]
 }

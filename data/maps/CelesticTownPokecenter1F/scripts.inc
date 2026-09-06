@@ -34,9 +34,6 @@ CelesticTownPokecenter1F_Text_Npc2:
 
 @ >>> porta fechada (remove_mapas_cortados.py) >>>
 CelesticTownPokecenter1F_EventScript_PortaFechada::
-	msgbox CelesticTownPokecenter1F_Text_PortaFechada, MSGBOX_SIGN
+	msgbox Common_Text_PortaFechada, MSGBOX_SIGN
 	end
-
-CelesticTownPokecenter1F_Text_PortaFechada:
-	.string "Fechado. Área em obras.$"
 @ <<< porta fechada <<<

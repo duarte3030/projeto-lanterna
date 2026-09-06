@@ -67,6 +67,18 @@ Tres mapas nao tem doador porque TODOS os warps deles iam para cortado
 entrada e apagada de verdade, e o script confere antes que nenhum mapa VIVO
 aponte para indice deslocado.
 
+METADE DE PORTA NAO FECHA (regra nova de 06/09/2026, ver `gemea_viva`). Porta de
+duas celulas tem um warp em cada metade, e em HearthomeCity as duas metades da
+MESMA porta tinham destino diferente na fonte: (8,6) ia para o portao de Amity
+Square, cortado, e (9,6) ia para o ForeignBuilding, vivo. A primeira passada
+fechou so a metade cortada, e sobrou meia porta: quem encostasse na coluna da
+esquerda apertava para cima e nada acontecia, e ainda lia placa de obras na porta
+da igreja. Foi um dos defeitos que o Gui trouxe do playtest de 06/09/2026. Agora a metade
+cortada ADOTA o destino da metade viva, e nao ha placa nenhuma nesse mapa.
+
+A PLACA FALA INGLES E E UMA SO. O texto mora em `data/scripts/portas_fechadas.inc`
+(`Common_Text_PortaFechada`), e o rotulo de cada mapa so aponta para la.
+
 Idempotente: rodar duas vezes nao muda nada (o tumulo ja e tumulo, a lapide ja
 esta na coordenada do doador, a placa ja existe).
 """
@@ -82,7 +94,15 @@ sys.path.insert(0, os.path.join(RAIZ, "dev_scripts"))
 import completude as C                      # noqa: E402  a tabela CORTES_DO_GUI
 
 MAPS = f"{RAIZ}/data/maps"
-TEXTO_PLACA = "Fechado. Área em obras."
+# O texto da placa MORA EM UM LUGAR SO, `data/scripts/portas_fechadas.inc`, e
+# esta constante e a copia que o `--demo` cruza com ele. Ate 06/09/2026 cada
+# mapa carregava a sua propria copia da frase, e a frase estava EM PORTUGUES
+# ("Fechado. Área em obras.") dentro de um jogo que fala ingles do inicio ao
+# fim. Foi a unica fala em portugues que sobrou no jogo, e o Gui a encontrou no
+# playtest, na porta da igreja de Hearthome.
+TEXTO_PLACA = "Closed for renovations."
+ROTULO_TEXTO = "Common_Text_PortaFechada"
+INC_TEXTO = "data/scripts/portas_fechadas.inc"
 MARCA = "@ >>> porta fechada (remove_mapas_cortados.py) >>>"
 
 
@@ -428,19 +448,80 @@ def _tile_da_placa(d, wx, wy, ocupados):
     return wx, wy
 
 
+def celula_da_porta(d, ws, i):
+    """(x, y) da porta ORIGINAL do warp i, mesmo depois de ele virar lapide."""
+    o = ws[i].get("porta_original")
+    return (o[0], o[1]) if o else (ws[i]["x"], ws[i]["y"])
+
+
+def gemea_viva(d, ws, i, ccons):
+    """Indice do warp VIVO que divide a MESMA porta com o warp `i`, ou None.
+
+    ACHADO NO PLAYTEST DE 06/09/2026, e a razao desta regra existir. Porta de
+    DUAS celulas tem um warp em cada metade, e em HearthomeCity as duas metades
+    da mesma porta tinham destinos DIFERENTES na fonte: (8,6) ia para o portao
+    de Amity Square, que o Gui cortou, e (9,6) ia para o ForeignBuilding, que
+    esta vivo. Fechar so a metade cortada deixou meia porta: o jogador que
+    encostasse na coluna da esquerda apertava para cima e nao acontecia nada, e
+    ainda lia a placa de obras na porta da igreja. Ele reportou como "nao estou
+    entrando no castelo bonito da esquerda".
+
+    A metade cortada ADOTA o destino da metade viva em vez de virar lapide.
+    Gemea e a celula VIZINHA nas quatro direcoes que tem o MESMO metatile (e a
+    mesma porta desenhada, e nao duas portas encostadas) e um warp VIVO em cima.
+    """
+    import lendarios_sinnoh as LS
+    try:
+        W, H, g = LS.grade(d["layout"])
+    except Exception:
+        return None
+    x, y = celula_da_porta(d, ws, i)
+    if not (0 <= x < W and 0 <= y < H):
+        return None
+    meu = g[y][x] & 0x3FF
+    vivos = {}
+    for j, w in enumerate(ws):
+        if j == i or w.get("dest_map") in ccons or w.get("fechado"):
+            continue
+        vivos.setdefault((w["x"], w["y"]), j)
+    for dx, dy in ((-1, 0), (1, 0), (0, -1), (0, 1)):
+        p = (x + dx, y + dy)
+        if p in vivos and 0 <= p[0] < W and 0 <= p[1] < H \
+                and (g[p[1]][p[0]] & 0x3FF) == meu:
+            return vivos[p]
+    return None
+
+
 def fecha_portas(cort=None, const=None, aplicar=False):
     """Lapide no warp, placa ao lado. Devolve [(mapa, indices, modo, placa)]."""
     cort = set(cort or cortados())
     const = const or constantes()
+    ccons = {const[x] for x in cort if x in const}
     dentro = ponteiros_de_entrada(cort, const)
     feito = []
     for m, fecha, doador in portas_vivas(cort, const):
         d = le_mapa(m)
         ws = d["warp_events"]
+        # METADE DE PORTA VIVA ADOTA A GEMEA, e nunca vira lapide (ver
+        # `gemea_viva`): fechar meia porta e pior que fechar a porta inteira.
+        adotam = {}
+        for i in list(fecha):
+            j = gemea_viva(d, ws, i, ccons)
+            if j is not None:
+                adotam[i] = j
+        for i, j in adotam.items():
+            x, y = celula_da_porta(d, ws, i)
+            ws[i] = {"x": x, "y": y, "elevation": ws[j]["elevation"],
+                     "dest_map": ws[j]["dest_map"],
+                     "dest_warp_id": ws[j]["dest_warp_id"],
+                     "gemea": f"metade da mesma porta do warp {j}"}
+        fecha = [i for i in fecha if i not in adotam]
         ocupados = {(b["x"], b["y"]) for b in (d.get("bg_events") or [])}
         script = f"{m}_EventScript_PortaFechada"
         alvo = None
-        if doador is not None:
+        if not fecha:
+            modo = "gemea"
+        elif doador is not None:
             modo = "lapide"
             dx, dy = ws[doador]["x"], ws[doador]["y"]
             doa = ws[doador]
@@ -469,10 +550,11 @@ def fecha_portas(cort=None, const=None, aplicar=False):
             d["warp_events"] = [w for i, w in enumerate(ws) if i not in set(fecha)]
         if alvo:
             _placa_em(d, alvo[0], alvo[1], script)
-        feito.append((m, fecha, modo, alvo))
+        feito.append((m, fecha + sorted(adotam), modo, alvo))
         if aplicar:
             grava_json(f"{MAPS}/{m}/map.json", d)
-            _append_script_placa(m, script)
+            if alvo:
+                _append_script_placa(m, script)
     return feito
 
 
@@ -482,9 +564,7 @@ def _append_script_placa(m, script):
     if script in t:
         return
     t += (f"\n{MARCA}\n{script}::\n"
-          f"\tmsgbox {m}_Text_PortaFechada, MSGBOX_SIGN\n\tend\n\n"
-          f"{m}_Text_PortaFechada:\n"
-          f"\t.string \"{TEXTO_PLACA}$\"\n"
+          f"\tmsgbox {ROTULO_TEXTO}, MSGBOX_SIGN\n\tend\n"
           f"@ <<< porta fechada <<<\n")
     open(p, "w", encoding="utf-8").write(t)
 
@@ -703,11 +783,41 @@ def demo():
         assert mapa_da_cura[c] not in tumulos, \
             f"o capitulo de {c} larga o jogador em {mapa_da_cura[c]}, que e tumulo"
 
-    # 6. o texto da placa cabe no charmap do jogo (sem 'ã' nem 'õ').
-    cm = open(f"{RAIZ}/charmap.txt", encoding="utf-8").read()
-    for ch in set(TEXTO_PLACA):
-        if ch.isalpha() and not ch.isascii():
-            assert f"'{ch}'" in cm, ch
+    # 6. a placa e UMA SO, esta em INGLES, e o arquivo compartilhado tem
+    #    exatamente o texto que esta constante promete. Antes de 06/09/2026 a
+    #    checagem so perguntava se o acento cabia no charmap, e por isso ficou
+    #    muda enquanto a unica fala em portugues do jogo estava em 22 mapas.
+    inc = open(f"{RAIZ}/{INC_TEXTO}", encoding="utf-8").read()
+    assert f'{ROTULO_TEXTO}:\n\t.string "{TEXTO_PLACA}$"' in inc, INC_TEXTO
+    assert TEXTO_PLACA.isascii(), TEXTO_PLACA
+    for mapa in os.listdir(MAPS):
+        f = f"{MAPS}/{mapa}/scripts.inc"
+        if not os.path.isfile(f):
+            continue
+        corpo = open(f, encoding="utf-8", errors="replace").read()
+        if "_EventScript_PortaFechada" in corpo:
+            assert f"{mapa}_Text_PortaFechada" not in corpo, \
+                f"{mapa} ainda tem copia propria do texto da placa"
+
+    # 7. METADE DE PORTA VIVA NUNCA FECHA. Mutacao plantada: ponho de volta em
+    #    HearthomeCity o warp cortado de (8,6), que divide porta com o warp vivo
+    #    do ForeignBuilding em (9,6), e cobro que `gemea_viva` ache o vizinho.
+    #    Sem esta regra o mapa volta a ter meia porta, que foi o defeito do
+    #    playtest e nao aparece em nenhum validador estatico.
+    d = le_mapa("HearthomeCity")
+    ws = list(d["warp_events"])
+    alvo = next(i for i, w in enumerate(ws)
+                if w["dest_map"] == "MAP_FOREIGN_BUILDING" and (w["x"], w["y"]) == (9, 6))
+    ws.append({"x": 8, "y": 6, "elevation": 0,
+               "dest_map": "MAP_HEARTHOME_CITY_WEST_GATE_TO_AMITY_SQUARE",
+               "dest_warp_id": "0"})
+    ccons = {const[m] for m in cort if m in const}
+    assert gemea_viva(d, ws, len(ws) - 1, ccons) == alvo, "gemea_viva ficou cega"
+    #    contraprova: warp de porta SOLTA (sem vizinho de mesmo metatile) nao
+    #    pode achar gemea nenhuma, senao a regra reabriria porta que e corte.
+    ws[-1] = dict(ws[-1], x=29, y=26)
+    assert gemea_viva(d, ws, len(ws) - 1, ccons) is None, \
+        "gemea_viva casou porta que nao e a mesma"
     print("demo: ok")
     return 0
 

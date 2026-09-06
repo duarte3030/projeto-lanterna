@@ -36,8 +36,8 @@
       "x": 7,
       "y": 1,
       "elevation": 3,
-      "dest_map": "MAP_ROUTE23",
-      "dest_warp_id": "2"
+      "dest_map": "MAP_DYNAMIC",
+      "dest_warp_id": "0"
     },
     {
       "x": 6,
@@ -72,5 +72,9 @@
       "script": "Route22_NorthEntrance_EventScript_BoulderBadgeGuardTrigger"
     }
   ],
-  "bg_events": []
+  "bg_events": [],
+  "destinos_dinamicos": [
+    "MAP_ROUTE23",
+    "MAP_RECEPTION_GATE"
+  ]
 }

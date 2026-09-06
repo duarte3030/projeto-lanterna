@@ -196,6 +196,26 @@ GINASIOS = [
 VAR_PONTES = "VAR_BLACKTHORN_GYM_STATE"
 
 
+# O que sai JUNTO com a insígnia, além dela. Mora aqui porque este arquivo
+# REESCREVE o `scripts.inc` inteiro: em 06/09/2026 a linha da travessia estava
+# só no arquivo gerado, escrita à mão contra o aviso do cabeçalho, e a primeira
+# regeneração a apagou calada. Regra do projeto: conserto de gerado vai no
+# gerador, e o que precisa sobreviver a `make` também.
+DEPOIS_DA_INSIGNIA = {
+    "FLAG_INSIGNIA_JOHTO_8": [
+        "@ Travessia entre regioes: abre o porto de Slateport no menu dos cinco",
+        "@ cais. Esta ROM nao tem Elite dos Quatro de Johto (a Liga de gen 2 e o",
+        "@ mesmo Planalto Indigo de Kanto), entao o fim de Johto que existe de",
+        "@ verdade e a oitava insignia. Ver data/scripts/travessia_regioes.inc.",
+        "setflag FLAG_REGIAO_HOENN_LIBERADA",
+    ],
+}
+
+
+def depois_da_insignia(g):
+    return ["\t" + l for l in DEPOIS_DA_INSIGNIA.get(g["flag"], [])]
+
+
 def le(caminho):
     return open(caminho, encoding="utf-8", errors="replace").read()
 
@@ -411,7 +431,7 @@ def cena_choro(g, pre, obj_lider, novo_tr, t_intro, t_derrota, t_insignia,
     return linhas, coord
 
 
-def pontes_blackthorn(fonte, pre, piso, hns_json):
+def pontes_blackthorn(fonte, pre, piso, layout_id, hns_json):
     """Reconstrói o quebra-cabeça das quatro pontes de Blackthorn.
 
     ponytail: a primeira versão acendia as quatro pontes de uma vez no ON_LOAD,
@@ -422,10 +442,44 @@ def pontes_blackthorn(fonte, pre, piso, hns_json):
     mapa.
 
     O id de metatile do hns (0x35A) NÃO serve: o tileset foi trocado no import,
-    então usa-se o piso andável mais comum DESTE layout. Consequência conhecida e
-    aceita: a ponte funciona mas tem cara de chão comum, e só melhora com trabalho
-    de tileset, que é outra tarefa.
+    então o desenho da ponte é o do `piso_da_ponte` deste layout.
+
+    CADA LINHA É CONFERIDA CONTRA O `map.bin`, e é essa conferência que conserta
+    o defeito de 06/09/2026 (ver `piso_da_ponte`):
+
+      - célula que o script ABRE e que já está andável no `map.bin` não vira
+        linha nenhuma. Ela já é chão; repintá-la só apagaria a arte que o layout
+        tem ali (em Blackthorn são as 9 pedras azuis das pontas das pontes, que
+        o desenho de lava vinha cobrindo).
+      - célula que o script FECHA e que já está bloqueada também sai fora: era
+        `setmetatile` sem efeito nenhum.
+      - célula que o script fecha e está aberta mantém o próprio desenho e muda
+        só a colisão.
+      - e no fim, ABRIR pintando o metatile que a célula JÁ TEM é recusado com
+        erro: é exatamente a ponte invisível, e ela não pode voltar calada.
     """
+    W, H, grade_v = grade(layout_id)
+
+    def celula(x, y):
+        return grade_v[y * W + x] if 0 <= x < W and 0 <= y < H else None
+
+    invisiveis = []
+
+    def linha(x, y, flag):
+        c = celula(x, y)
+        if c is None:
+            sys.exit(f"ponte de {pre}: ({x},{y}) fora do layout {layout_id}")
+        aberta = ((c >> 10) & 3) == 0
+        if flag == "FALSE":
+            if aberta:
+                return None                      # já é chão: nada a acender
+            if (c & 0x3FF) == piso:
+                invisiveis.append((x, y))
+            return f"\tsetmetatile {x}, {y}, {piso}, FALSE"
+        if not aberta:
+            return None                          # já é parede: fechar é no-op
+        return f"\tsetmetatile {x}, {y}, {c & 0x3FF}, TRUE"
+
     # Cada BuildBridgeN do hns vira um bloco próprio, preservando o agrupamento:
     # sem isso as quatro pontes voltariam a acender juntas.
     blocos = {}
@@ -433,15 +487,25 @@ def pontes_blackthorn(fonte, pre, piso, hns_json):
             r"^(\w*BuildBridge(\d)\w*)::\n((?:\ttry\w+.*\n|\tsetmetatile .*\n)+)",
             fonte, re.M):
         n = int(m.group(2))
-        blocos[n] = [
-            f"\tsetmetatile {a}, {b}, {piso}, {c}"
+        blocos[n] = [l for l in (
+            linha(int(a), int(b), c)
             for a, b, c in re.findall(r"setmetatile (\d+), (\d+), 0x[0-9A-Fa-f]+, (\w+)",
-                                      m.group(3))
-        ]
+                                      m.group(3))) if l]
+    if invisiveis:
+        sys.exit(f"ABORTADO: em {pre} a ponte acenderia INVISÍVEL, pintando o "
+                 f"metatile {piso} sobre células que já o têm: {invisiveis[:5]} "
+                 f"({len(invisiveis)} no total). `piso_da_ponte` escolheu o "
+                 "desenho do obstáculo, não o do chão.")
+    vazios = [n for n, b in blocos.items() if not b]
+    if vazios:
+        sys.exit(f"ABORTADO: em {pre} as pontes {vazios} ficaram sem uma linha "
+                 "sequer: o map.bin já está todo aberto ou o hns mudou de forma.")
     if not blocos:  # o hns mudou de forma: cai no comportamento antigo, tudo de uma vez
         linhas = [f"{pre}_EventScript_Pontes::"]
         for m in re.finditer(r"setmetatile (\d+), (\d+), 0x[0-9A-Fa-f]+, (\w+)", fonte):
-            linhas.append(f"\tsetmetatile {m.group(1)}, {m.group(2)}, {piso}, {m.group(3)}")
+            l = linha(int(m.group(1)), int(m.group(2)), m.group(3))
+            if l:
+                linhas.append(l)
         return linhas + ["\tend", ""], []
 
     ordem = sorted(blocos)
@@ -476,17 +540,59 @@ def pontes_blackthorn(fonte, pre, piso, hns_json):
     return linhas, coord
 
 
-def piso_mais_comum(layout_id):
+def grade(layout_id):
+    """(largura, altura, [u16 do map.bin]) do layout."""
     import struct
     layouts = {l["id"]: l for l in json.load(
         open(os.path.join(REPO, "data/layouts/layouts.json")))["layouts"]}
     L = layouts[layout_id]
     b = open(os.path.join(REPO, L["blockdata_filepath"]), "rb").read()
+    n = L["width"] * L["height"]
+    return L["width"], L["height"], list(struct.unpack(f"<{n}H", b[:n * 2]))
+
+
+def piso_da_ponte(layout_id, mapa_json):
+    """Metatile do CHÃO em que o jogador anda neste layout.
+
+    ARMADILHA QUE ISTO PAGA, medida em 06/09/2026 no ginásio de Blackthorn.
+    A versão anterior chamava-se `piso_mais_comum` e devolvia o metatile mais
+    frequente entre as células de COLISÃO ZERO. Em Blackthorn isso deu 889, que
+    é LAVA PURA: a lava daquele mapa tem colisão zero no `map.bin` (429 células)
+    e só não é pisada porque está em elevação 2 enquanto o chão está em 3, então
+    ela ganha a contagem do chão de verdade (889 aparece 194 vezes, o chão 809
+    aparece 168). Com isso as quatro pontes eram pintadas de lava POR CIMA de
+    células que já eram lava: 46 dos 76 `setmetatile` repintavam o metatile
+    idêntico. A ponte acendia sem mudar um pixel, o jogador continuava vendo o
+    lago de lava inteiro e travava tentando andar onde não dava. Foi este o
+    defeito que o Gui trouxe do playtest ("do nada trava na lava").
+
+    A conta certa não é "andável", é "andável NA ELEVAÇÃO EM QUE O JOGADOR
+    ANDA". A elevação sai do tile de chegada do warp, que é onde ele nasce; a
+    lava de Blackthorn está noutra elevação e some da contagem sozinha.
+    """
+    W, H, v = grade(layout_id)
+    def cel(x, y):
+        return v[y * W + x] if 0 <= x < W and 0 <= y < H else None
+
+    elevs = {}
+    for w in mapa_json.get("warp_events") or []:
+        c = cel(w.get("x"), w.get("y"))
+        if c is None:
+            continue
+        e = (c >> 12) & 0xF
+        if e not in (0, 15):          # transição e multinível não dizem altura
+            elevs[e] = elevs.get(e, 0) + 1
+    if not elevs:
+        sys.exit(f"{layout_id}: nenhum warp em elevação de chão, não dá para "
+                 "deduzir o piso da ponte")
+    alvo = max(elevs, key=elevs.get)
+
     contagem = {}
-    for i in range(L["width"] * L["height"]):
-        v = struct.unpack("<H", b[i * 2:i * 2 + 2])[0]
-        if (v >> 10) & 3 == 0:
-            contagem[v & 0x3FF] = contagem.get(v & 0x3FF, 0) + 1
+    for c in v:
+        if (c >> 10) & 3 == 0 and (c >> 12) & 0xF == alvo:
+            contagem[c & 0x3FF] = contagem.get(c & 0x3FF, 0) + 1
+    if not contagem:
+        sys.exit(f"{layout_id}: nenhuma célula andável na elevação {alvo}")
     return max(contagem, key=contagem.get)
 
 
@@ -502,6 +608,7 @@ def main():
 
     localids = []
     resumo = []
+    avisos = []
 
     for g in GINASIOS:
         mapa, pre = g["mapa"], g["mapa"]
@@ -601,11 +708,12 @@ def main():
 
         coord_events = []
         if g.get("pontes"):
+            nosso_json = json.load(open(
+                os.path.join(REPO, "data/maps", mapa, "map.json")))
             extra, coord_events = pontes_blackthorn(
                 fonte, pre,
-                piso_mais_comum(json.load(open(
-                    os.path.join(REPO, "data/maps", mapa, "map.json")))["layout"]),
-                hns_json)
+                piso_da_ponte(nosso_json["layout"], nosso_json),
+                nosso_json["layout"], hns_json)
             linhas += extra
         if g.get("teias"):
             extra, coord_events = gatilhos_azalea(fonte, pre, hns_json)
@@ -669,6 +777,7 @@ def main():
                 "\tcall Common_EventScript_PlayGymBadgeFanfare",
                 f"\tmsgbox {t_insignia}, MSGBOX_DEFAULT",
                 f"\tsetflag {g['flag']}",
+                *depois_da_insignia(g),
                 "\tclosemessage",
                 "\trelease",
                 "\tend",
@@ -747,8 +856,24 @@ def main():
             linhas.append("")
 
         destino = os.path.join(REPO, "data/maps", mapa)
-        open(os.path.join(destino, "scripts.inc"), "w", encoding="utf-8").write(
-            "\n".join(linhas).rstrip("\n") + "\n")
+        novo = "\n".join(linhas).rstrip("\n") + "\n"
+        # Este arquivo REESCREVE o scripts.inc do zero, e outros geradores
+        # ESCREVEM DEPOIS dele (`porta_cenas_johto.py --pokemon` põe os Pokémon
+        # de enfeite, `arco_farol_johto.py` põe o ON_TRANSITION da Jasmine, e o
+        # quebra-cabeça de pedras de Cianwood entrou por outra frente). Rodar só
+        # este apaga tudo isso CALADO: em 06/09/2026 uma regeneração levou junto
+        # a Jasmine escondida de Olivine, as cinco pedras de Cianwood e os 16
+        # Pokémon de enfeite, e o build continuou verde. Aqui o gerador nomeia
+        # o que sumiu, para quem rodar saber o que precisa rodar em seguida.
+        caminho_inc = os.path.join(destino, "scripts.inc")
+        if os.path.exists(caminho_inc):
+            velho = le(caminho_inc)
+            perdidos = [b for b in re.findall(r"^@ >>> (.+?) >>>$", velho, re.M)
+                        if b not in novo]
+            if perdidos:
+                avisos.append(f"{mapa}: bloco de OUTRO gerador apagado, rode-o "
+                              "de novo -> " + "; ".join(perdidos))
+        open(caminho_inc, "w", encoding="utf-8").write(novo)
 
         caminho_json = os.path.join(destino, "map.json")
         d = json.load(open(caminho_json))
@@ -779,6 +904,8 @@ def main():
 
     for r in resumo:
         print(r)
+    for a in avisos:
+        print("AVISO: " + a)
     return 0
 
 

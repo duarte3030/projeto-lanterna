@@ -976,7 +976,7 @@
 #define VAR_GALAR_G04M03_CENA   VAR_UNUSED_0x4108  // mapa g04m03 da fonte
 #define VAR_GALAR_G05M05_CENA   VAR_UNUSED_0x4109  // mapa g05m05 da fonte
 #define VAR_GALAR_G09M11_CENA   VAR_UNUSED_0x4112  // mapa g09m11 da fonte
-#define VAR_GALAR_G10M23_CENA   VAR_UNUSED_0x4114  // mapa g10m23 da fonte
+#define VAR_GALAR_G10M23_CENA   VAR_UNUSED_0x4116  // mapa g10m23 da fonte (era 0x4114 ate 07/09/2026; o merge da rodada 13 deu 0x4114 a VAR_ELEVADOR_GOLDENROD)
 #define VAR_GALAR_G10M26_CENA   VAR_UNUSED_0x4115  // mapa g10m26 da fonte
 #define VAR_GALAR_G21M01_CENA   VAR_UNUSED_0x410A  // mapa g21m01 da fonte
 // <<< Fase de conteudo de Galar, bloco c1 <<<
@@ -1010,3 +1010,9 @@
 // PWT de Unova (dev_scripts/cenas_pwt_unova.py), autorizado em 22/08/2026.
 // Apelido de VAR_UNUSED que ja existe: VARS_COUNT nao muda, save intacta.
 #define VAR_UNOVA_PWT_DENTRO_CENA              VAR_UNUSED_0x417F  // cena de entrada do saguao do PWT, mesma regra
+
+// ELEVADOR DA LOJA DE DEPARTAMENTO DE GOLDENROD (dev_scripts/elevador_goldenrod.py)
+// Guarda "acabei de sair do elevador" entre o `warp` e o ON_FRAME do andar de
+// destino, que e a unica coisa que o `map_script_2` sabe comparar. Apelido de
+// VAR_UNUSED que ja existe: VARS_COUNT nao muda, save intacta.
+#define VAR_ELEVADOR_GOLDENROD                 VAR_UNUSED_0x4114  // 1 enquanto a cena de saida do elevador nao rodou

@@ -1,4 +1,5 @@
 GoldenrodCity_DepartmentStore_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, GoldenrodDeptElevator_OnFrame
 	.byte 0
 
 @ Placas trazidas do hns por dev_scripts/importa_placas_johto.py

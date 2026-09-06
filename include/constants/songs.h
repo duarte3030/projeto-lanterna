@@ -564,8 +564,12 @@
 #ifndef MUS_HG_ROCK_TUNNEL
 #define MUS_HG_ROCK_TUNNEL MUS_RG_SEVII_DUNGEON
 #endif
+// 06/09/2026 (rodada 13): era MUS_SLATEPORT, ou seja o farol de OLIVINE tocava
+// musica de CIDADE DE PRAIA por dentro. Agora e MUS_RG_POKE_TOWER (518, faixa
+// com numero e .s proprios), interior de torre alta. O apelido tambem serve os
+// oito mapas de MT SILVER, que trocam musica de cidade por musica de torre.
 #ifndef MUS_HG_LIGHTHOUSE
-#define MUS_HG_LIGHTHOUSE MUS_SLATEPORT
+#define MUS_HG_LIGHTHOUSE MUS_RG_POKE_TOWER
 #endif
 #ifndef MUS_HG_ROUTE47
 #define MUS_HG_ROUTE47 MUS_ROUTE119

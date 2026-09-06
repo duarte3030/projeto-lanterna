@@ -26,7 +26,7 @@
  },
  {
   "id": "T140.3",
-  "nome": "A PLACA DA PORTA FECHADA SE LE. O gerador poe um bg_event `sign` na PAREDE vizinha da porta que fechou (aqui (6,0), acima da porta do palco) apontando para ContestHallLobby_EventScript_PortaFechada, com o texto curto 'Fechado. Área em obras.'. Prova pelo mesmo caminho do T120.3, que e o unico jeito de provar leitura sem ler VRAM: a msgbox TRAVA a entrada, entao os tres DOWN do fim NAO andam e a posicao final continua (6,1). Mesma rota do T140.1 mais um A no fim, com o jogador ja virado para cima porque o ultimo passo foi UP",
+  "nome": "A PLACA DA PORTA FECHADA SE LE. O gerador poe um bg_event `sign` na PAREDE vizinha da porta que fechou (aqui (6,0), acima da porta do palco) apontando para ContestHallLobby_EventScript_PortaFechada, com o texto curto que agora e UM SO e esta em INGLES, `Common_Text_PortaFechada` em data/scripts/portas_fechadas.inc: 'Closed for renovations.' (ate 06/09/2026 cada mapa tinha a sua copia da frase, e a frase estava em portugues). Prova pelo mesmo caminho do T120.3, que e o unico jeito de provar leitura sem ler VRAM: a msgbox TRAVA a entrada, entao os tres DOWN do fim NAO andam e a posicao final continua (6,1). Mesma rota do T140.1 mais um A no fim, com o jogador ja virado para cima porque o ultimo passo foi UP",
   "warp": "MAP_CONTEST_HALL_LOBBY",
   "warp_id": 0,
   "roteiro": "120:NADA,16:UP*2,16:RIGHT,16:UP*4,16:RIGHT*2,16:UP*2,60:NADA,16:A,120:NADA,16:DOWN*3,120:NADA",
@@ -70,6 +70,64 @@
   "roteiro": "150:NADA,16:UP,240:NADA",
   "prova": {
    "mapa": "MAP_HEARTHOME_CITY_NORTHWEST_HOUSE"
+  }
+ },
+ {
+  "id": "T140.7",
+  "nome": "A METADE ESQUERDA DA PORTA DA IGREJA DE HEARTHOME VOLTA A ABRIR. Terceiro defeito que o Gui trouxe do playtest: 'nao estou entrando no castelo bonito na esquerda'. A porta do ForeignBuilding tem DUAS celulas, (8,6) e (9,6), as duas com MB_NORTH_ARROW_WARP e o mesmo metatile 484, e na fonte cada metade tinha um destino DIFERENTE: (9,6) ia para o ForeignBuilding, que esta vivo, e (8,6) ia para o portao oeste da Amity Square, que o Gui cortou. O corte de 22/08/2026 fechou so a metade da esquerda, e sobrou meia porta: quem encostasse por aquele lado apertava para cima e nao acontecia nada, e ainda lia uma placa de obras EM PORTUGUES na porta da igreja. Agora a metade cortada ADOTA o destino da gemea (regra `gemea_viva` de remove_mapas_cortados.py). O caso nasce EM CIMA de (8,6), que e o warp 7, e sobe. Na ROM 2026-09-06 ele para em MAP_HEARTHOME_CITY, que e a contraprova.",
+  "warp": "MAP_HEARTHOME_CITY",
+  "warp_id": 7,
+  "roteiro": "150:NADA,20:UP,20:UP,20:UP,300:NADA",
+  "prova": {
+   "mapa": "MAP_FOREIGN_BUILDING"
+  }
+ },
+ {
+  "id": "T140.8",
+  "nome": "PAR NEGATIVO do T140.7, e o que impede que ele passe por acidente. MESMO warp 7, MESMO ponto de partida, e a UNICA diferenca e a direcao: tres DOWN em vez de tres UP. MB_NORTH_ARROW_WARP so dispara com o jogador virado para o NORTE (IsArrowWarpMetatileBehavior, src/field_control_avatar.c), entao descer tem que deixar o jogador dentro de HearthomeCity, andando. Sem este par, o T140.7 passaria mesmo que o motor teleportasse por nascer na celula.",
+  "warp": "MAP_HEARTHOME_CITY",
+  "warp_id": 7,
+  "roteiro": "150:NADA,20:DOWN,20:DOWN,20:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_HEARTHOME_CITY",
+   "pos": [
+    8,
+    9
+   ]
+  }
+ },
+ {
+  "id": "T140.9",
+  "nome": "A METADE DIREITA, QUE SEMPRE FUNCIONOU, CONTINUA FUNCIONANDO. Warp 12 e a celula (9,6), a gemea viva de onde o warp 7 copiou o destino. Ele existe para provar que a reabertura nao roubou a porta boa: as duas metades abrem no MESMO predio, que e o que o desenho da porta promete.",
+  "warp": "MAP_HEARTHOME_CITY",
+  "warp_id": 12,
+  "roteiro": "150:NADA,20:UP,20:UP,20:UP,300:NADA",
+  "prova": {
+   "mapa": "MAP_FOREIGN_BUILDING"
+  }
+ },
+ {
+  "id": "T140.10",
+  "nome": "DENTRO DA IGREJA O NPC FALA, E A SAIDA DEVOLVE NA FRENTE DA PORTA. O ForeignBuilding tem 9 objetos e 9 falas do Platinum ja em ingles; o NINJA BOY do warp de entrada mora em (2,8), colado a esquerda da celula (3,8) onde o motor deposita quem entra. O roteiro vira para a esquerda (o objeto e solido, entao vira sem andar), aperta A e vence as duas paginas da fala, fecha com B e desce. A saida do interior e MB_SOUTH_ARROW_WARP e aponta para o warp 12 de HearthomeCity, entao a prova de posicao [9,6] diz as duas coisas ao mesmo tempo: que saiu, e que saiu NA PORTA e nao em outro canto da cidade.",
+  "warp": "MAP_FOREIGN_BUILDING",
+  "warp_id": 0,
+  "roteiro": "150:NADA,20:LEFT,60:NADA,20:A,180:NADA,20:A,180:NADA,20:A,120:NADA,20:B,90:NADA,20:DOWN,20:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_HEARTHOME_CITY",
+   "pos": [
+    9,
+    6
+   ]
+  }
+ },
+ {
+  "id": "T140.11",
+  "nome": "A OUTRA METADE REABERTA: a porta da NORTHEAST HOUSE de Hearthome, do outro lado da cidade, tinha exatamente o mesmo defeito. (50,6) ia para a casa, viva, e (51,6) ia para o portao LESTE da Amity Square, cortado. O warp 8 nasce em (51,6) e agora abre a casa. Ele prova que a regra `gemea_viva` nao e conserto pontual da igreja: e regra, e pegou os dois casos do mapa.",
+  "warp": "MAP_HEARTHOME_CITY",
+  "warp_id": 8,
+  "roteiro": "150:NADA,20:UP,20:UP,20:UP,300:NADA",
+  "prova": {
+   "mapa": "MAP_HEARTHOME_CITY_NORTHEAST_HOUSE_1F"
   }
  }
 ]

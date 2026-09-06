@@ -1,5 +1,20 @@
 LilycoveCity_DepartmentStore_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, LilycoveCity_DepartmentStore_1F_OnTransition
 	.byte 0
+
+@ >>> Retorno dinamico de predio compartilhado (rodada 13) >>>
+@ Os dois tiles de porta deste andar sao MAP_DYNAMIC porque a loja de
+@ Veilstone (Sinnoh) e a loja de Lilycove (Hoenn) REAPROVEITADA: as duas
+@ cidades entram pela mesma porta, e a saida tem que devolver o jogador para
+@ a cidade de onde ele veio. Quem grava a origem e o motor, em SetupWarp; o
+@ special so repoe o retorno depois que o ELEVADOR o reescreve com
+@ setdynamicwarp, que e o unico jeito de o jogador chegar ao terreo com o
+@ retorno apontando para dentro do predio. Corpo e motivo no bloco
+@ "Retorno dos predios que duas regioes dividem", em src/field_specials.c.
+LilycoveCity_DepartmentStore_1F_OnTransition:
+	special DefinirRetornoPredioCompartilhado
+	end
+@ <<< Retorno dinamico de predio compartilhado <<<
 
 LilycoveCity_DepartmentStore_1F_EventScript_Greeter::
 	msgbox LilycoveCity_DepartmentStore_1F_Text_WelcomeToDeptStore, MSGBOX_NPC

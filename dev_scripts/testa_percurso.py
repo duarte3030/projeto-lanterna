@@ -53,7 +53,14 @@ PERCURSOS = {
     "anda para o sul": "20:DOWN*20,60:NADA,20:DOWN*20,60:NADA,40:START!",
     "anda para leste": "20:RIGHT*20,60:NADA,20:RIGHT*20,60:NADA,40:START!",
     "abre menu e fecha": "40:START!,90:NADA,40:B,90:NADA,40:START!",
-    "fala com tudo em volta": "20:A*8,20:UP,20:A*8,20:RIGHT,20:A*8,20:DOWN,20:A*8,60:NADA,40:START!",
+    # Os `B` no fim NAO sao enfeite, e o conserto e de 07/09/2026, do fechador da
+    # rodada 13. Sem eles este percurso terminava com a caixa "RED played with
+    # the NES." ABERTA, e o START da prova de vida nao faz nada com caixa aberta:
+    # o passo "percurso no emulador" do antes_de_empurrar.sh ficava VERMELHO com
+    # o jogo inteiro certo. Medido, e nao deduzido: a mesma falha aparece nas ROMs
+    # 2026-08-23d e 2026-09-05, ou seja e antiga e nao e regressao. Portao que nao
+    # pode ficar verde ensina todo mundo a ignorar a saida (licao 4.3).
+    "fala com tudo em volta": "20:A*8,20:UP,20:A*8,20:RIGHT,20:A*8,20:DOWN,20:A*8,60:NADA,20:B*6,60:NADA,40:START!",
 }
 
 

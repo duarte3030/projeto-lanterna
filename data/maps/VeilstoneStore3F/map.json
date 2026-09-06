@@ -58,20 +58,6 @@
       "origem": "pokeplatinum"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_CABLE_CLUB_RECEPTIONIST",
-      "x": 9,
-      "y": 2,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0",
-      "origem": "pokeplatinum"
-    },
-    {
       "graphics_id": "OBJ_EVENT_GFX_TWIN",
       "x": 4,
       "y": 6,
@@ -86,12 +72,26 @@
       "origem": "pokeplatinum"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_3",
-      "x": 3,
-      "y": 2,
+      "graphics_id": "OBJ_EVENT_GFX_CLERK",
+      "x": 0,
+      "y": 7,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 2,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "0",
+      "origem": "pokeplatinum"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",
+      "x": 9,
+      "y": 7,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",

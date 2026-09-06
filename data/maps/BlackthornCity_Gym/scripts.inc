@@ -15,91 +15,79 @@ BlackthornCity_Gym_EventScript_Pontes::
 	end
 
 BlackthornCity_Gym_EventScript_Ponte1::
-	setmetatile 19, 47, 889, FALSE
-	setmetatile 19, 48, 889, FALSE
-	setmetatile 19, 49, 889, FALSE
-	setmetatile 19, 50, 889, FALSE
-	setmetatile 19, 51, 889, FALSE
-	setmetatile 19, 52, 889, FALSE
-	setmetatile 19, 53, 889, FALSE
-	setmetatile 19, 54, 889, FALSE
-	setmetatile 20, 47, 889, FALSE
-	setmetatile 20, 48, 889, FALSE
-	setmetatile 20, 49, 889, FALSE
-	setmetatile 20, 50, 889, FALSE
-	setmetatile 20, 51, 889, FALSE
-	setmetatile 20, 52, 889, FALSE
-	setmetatile 20, 53, 889, FALSE
-	setmetatile 20, 54, 889, FALSE
-	setmetatile 21, 47, 889, FALSE
-	setmetatile 21, 48, 889, FALSE
-	setmetatile 21, 49, 889, FALSE
-	setmetatile 21, 50, 889, FALSE
-	setmetatile 21, 51, 889, FALSE
-	setmetatile 21, 52, 889, FALSE
-	setmetatile 21, 53, 889, FALSE
-	setmetatile 21, 54, 889, FALSE
+	setmetatile 19, 47, 809, FALSE
+	setmetatile 19, 48, 809, FALSE
+	setmetatile 19, 49, 809, FALSE
+	setmetatile 19, 50, 809, FALSE
+	setmetatile 19, 51, 809, FALSE
+	setmetatile 19, 52, 809, FALSE
+	setmetatile 19, 53, 809, FALSE
+	setmetatile 20, 47, 809, FALSE
+	setmetatile 20, 48, 809, FALSE
+	setmetatile 20, 49, 809, FALSE
+	setmetatile 20, 50, 809, FALSE
+	setmetatile 20, 51, 809, FALSE
+	setmetatile 20, 52, 809, FALSE
+	setmetatile 20, 53, 809, FALSE
+	setmetatile 21, 47, 809, FALSE
+	setmetatile 21, 48, 809, FALSE
+	setmetatile 21, 49, 809, FALSE
+	setmetatile 21, 50, 809, FALSE
+	setmetatile 21, 51, 809, FALSE
+	setmetatile 21, 52, 809, FALSE
+	setmetatile 21, 53, 809, FALSE
 	return
 
 BlackthornCity_Gym_EventScript_Ponte2::
-	setmetatile 17, 35, 889, FALSE
-	setmetatile 17, 36, 889, FALSE
-	setmetatile 17, 37, 889, FALSE
-	setmetatile 17, 38, 889, FALSE
-	setmetatile 17, 39, 889, FALSE
-	setmetatile 17, 40, 889, FALSE
-	setmetatile 18, 35, 889, FALSE
-	setmetatile 18, 36, 889, FALSE
-	setmetatile 18, 37, 889, FALSE
-	setmetatile 18, 38, 889, FALSE
-	setmetatile 18, 39, 889, FALSE
-	setmetatile 18, 40, 889, FALSE
-	setmetatile 19, 35, 889, FALSE
-	setmetatile 19, 36, 889, FALSE
-	setmetatile 19, 37, 889, FALSE
-	setmetatile 19, 38, 889, FALSE
-	setmetatile 19, 39, 889, FALSE
-	setmetatile 19, 40, 889, FALSE
-	setmetatile 20, 32, 889, FALSE
-	setmetatile 21, 32, 889, FALSE
-	setmetatile 22, 32, 889, FALSE
-	setmetatile 20, 35, 889, TRUE
-	setmetatile 21, 35, 889, TRUE
-	setmetatile 22, 35, 889, TRUE
-	setmetatile 20, 33, 889, FALSE
-	setmetatile 20, 34, 889, FALSE
-	setmetatile 21, 33, 889, FALSE
-	setmetatile 21, 34, 889, FALSE
-	setmetatile 22, 33, 889, FALSE
-	setmetatile 22, 34, 889, FALSE
+	setmetatile 17, 35, 809, FALSE
+	setmetatile 17, 36, 809, FALSE
+	setmetatile 17, 37, 809, FALSE
+	setmetatile 17, 38, 809, FALSE
+	setmetatile 17, 39, 809, FALSE
+	setmetatile 18, 35, 809, FALSE
+	setmetatile 18, 36, 809, FALSE
+	setmetatile 18, 37, 809, FALSE
+	setmetatile 18, 38, 809, FALSE
+	setmetatile 18, 39, 809, FALSE
+	setmetatile 19, 35, 809, FALSE
+	setmetatile 19, 36, 809, FALSE
+	setmetatile 19, 37, 809, FALSE
+	setmetatile 19, 38, 809, FALSE
+	setmetatile 19, 39, 809, FALSE
+	setmetatile 20, 32, 809, FALSE
+	setmetatile 21, 32, 809, FALSE
+	setmetatile 22, 32, 809, FALSE
+	setmetatile 20, 33, 809, FALSE
+	setmetatile 20, 34, 809, FALSE
+	setmetatile 21, 33, 809, FALSE
+	setmetatile 21, 34, 809, FALSE
+	setmetatile 22, 33, 809, FALSE
+	setmetatile 22, 34, 809, FALSE
 	return
 
 BlackthornCity_Gym_EventScript_Ponte3::
-	setmetatile 17, 26, 889, FALSE
-	setmetatile 18, 26, 889, FALSE
-	setmetatile 19, 26, 889, FALSE
-	setmetatile 20, 26, 889, FALSE
-	setmetatile 21, 26, 889, FALSE
-	setmetatile 22, 26, 889, FALSE
-	setmetatile 23, 26, 889, FALSE
+	setmetatile 17, 26, 809, FALSE
+	setmetatile 18, 26, 809, FALSE
+	setmetatile 19, 26, 809, FALSE
+	setmetatile 20, 26, 809, FALSE
+	setmetatile 21, 26, 809, FALSE
+	setmetatile 22, 26, 809, FALSE
+	setmetatile 23, 26, 809, FALSE
 	return
 
 BlackthornCity_Gym_EventScript_Ponte4::
-	setmetatile 19, 11, 889, FALSE
-	setmetatile 19, 12, 889, FALSE
-	setmetatile 19, 13, 889, FALSE
-	setmetatile 19, 14, 889, FALSE
-	setmetatile 19, 15, 889, FALSE
-	setmetatile 20, 11, 889, FALSE
-	setmetatile 20, 12, 889, FALSE
-	setmetatile 20, 13, 889, FALSE
-	setmetatile 20, 14, 889, FALSE
-	setmetatile 20, 15, 889, FALSE
-	setmetatile 21, 11, 889, FALSE
-	setmetatile 21, 12, 889, FALSE
-	setmetatile 21, 13, 889, FALSE
-	setmetatile 21, 14, 889, FALSE
-	setmetatile 21, 15, 889, FALSE
+	setmetatile 19, 11, 809, FALSE
+	setmetatile 19, 12, 809, FALSE
+	setmetatile 19, 13, 809, FALSE
+	setmetatile 19, 14, 809, FALSE
+	setmetatile 20, 11, 809, FALSE
+	setmetatile 20, 12, 809, FALSE
+	setmetatile 20, 13, 809, FALSE
+	setmetatile 20, 14, 809, FALSE
+	setmetatile 21, 11, 809, FALSE
+	setmetatile 21, 12, 809, FALSE
+	setmetatile 21, 13, 809, FALSE
+	setmetatile 21, 14, 809, FALSE
 	return
 
 BlackthornCity_Gym_EventScript_AcendePonte1::

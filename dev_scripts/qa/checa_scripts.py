@@ -1033,6 +1033,137 @@ class Varredura(object):
                              "morre; o seguinte é %s)" % (nome, seg))
 
     # ---------------------------------------------------------------- execução
+    # ------------------------------------------------------------------ C28
+    # Modos de `trainerbattle` que passam por `special SetTrainerFacingDirection`
+    # (data/scripts/trainer_battle.inc, linhas 19, 34, 61 e 78). Esse special
+    # (src/battle_setup.c:1258) tem `assertf(gSelectedObjectEvent !=
+    # gPlayerAvatar.objectEventId)`, ou seja EXIGE um objeto de evento
+    # selecionado. Os demais modos caem em `EventScript_DoNoIntroTrainerBattle`
+    # e não o chamam.
+    MODO_PEDE_OBJETO = {
+        "TRAINER_BATTLE_SINGLE",
+        "TRAINER_BATTLE_DOUBLE",
+        "TRAINER_BATTLE_CONTINUE_SCRIPT",
+        "TRAINER_BATTLE_CONTINUE_SCRIPT_NO_MUSIC",
+        "TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE",
+        "TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC",
+        "TRAINER_BATTLE_REMATCH",
+        "TRAINER_BATTLE_REMATCH_DOUBLE",
+    }
+    MACRO_PEDE_OBJETO = {
+        "trainerbattle_single": "TRAINER_BATTLE_SINGLE/CONTINUE_SCRIPT",
+        "trainerbattle_double": "TRAINER_BATTLE_DOUBLE/CONTINUE_SCRIPT_DOUBLE",
+        "trainerbattle_rematch": "TRAINER_BATTLE_REMATCH",
+        "trainerbattle_rematch_double": "TRAINER_BATTLE_REMATCH_DOUBLE",
+    }
+    # Entradas do motor em que NÃO há objeto selecionado quando o script começa.
+    # `ProcessPlayerFieldInput` zera `gSelectedObjectEvent`
+    # (src/field_control_avatar.c:169) e só `GetInteractedObjectEventScript`
+    # (linha 420) e o avistamento de treinador (src/trainer_see.c:484) o
+    # reatribuem. Gatilho de chão, placa e script de mapa não passam por
+    # nenhum dos dois.
+    # Moldes que caem em `EventScript_DoNoIntroTrainerBattle`: não chamam o
+    # special, mas fazem `applymovement VAR_LAST_TALKED` do mesmo jeito.
+    MACRO_SEM_INTRO = {"trainerbattle_no_intro", "trainerbattle_earlyrival",
+                       "trainerbattle_two_trainers"}
+    ENTRADA_SEM_OBJETO = {
+        "coord_events": "gatilho de chão",
+        "bg_events": "placa",
+    }
+
+    def _entradas_sem_objeto(self, mapa):
+        """[(rótulo, de_onde)] das entradas do mapa que NÃO têm objeto."""
+        j = self.arv.mapas.get(mapa) or {}
+        out = []
+        for chave, comofala in self.ENTRADA_SEM_OBJETO.items():
+            for ev in j.get(chave) or []:
+                alvo = (ev.get("script") or "0").strip()
+                if alvo in ("", "0", "0x0", "NULL"):
+                    continue
+                out.append((alvo, "%s (%s,%s)" % (comofala, ev.get("x"),
+                                                  ev.get("y"))))
+        ms = self.bloco("%s_MapScripts" % mapa)
+        if ms is not None:
+            out += self._alvos_de_mapscripts(ms)
+        return out
+
+    def _alvos_de_mapscripts(self, bloco):
+        """[(rótulo, tipo)] de um `<Mapa>_MapScripts`, tabela por dentro."""
+        out = []
+        for (n, nome, args) in bloco.cmds:
+            if nome != "map_script" or len(args) < 2:
+                continue
+            tipo, alvo = args[0].strip(), args[1].strip()
+            tabela = self.bloco(alvo)
+            if tipo.endswith("_TABLE") and tabela is not None:
+                for (n2, nm2, ar2) in tabela.cmds:
+                    if nm2 == "map_script_2" and len(ar2) >= 3:
+                        out.append((ar2[2].strip(), "%s/%s" % (tipo, alvo)))
+            else:
+                out.append((alvo, tipo))
+        return out
+
+    def c28_batalha_sem_objeto(self):
+        """C28: batalha COM intro chamada de gatilho, placa ou script de mapa.
+
+        Achado em 06/09/2026 pelo playtest do Gui: pisar na emboscada do
+        `Unova_LentimasGym` dava TELA AZUL com
+        `SRC/BATTLE_SETUP.C:1258: TRAINER SCRIPT THAT NEEDS TO BE USED FROM AN
+        OBJECT EVENT WAS CALLED FROM PLAYER`. O motivo é de desenho, não de
+        dado: `trainerbattle_single` e irmãos vão a
+        `EventScript_TryDoNormalTrainerBattle`, que chama `special
+        SetTrainerFacingDirection`, e esse special assere que
+        `gSelectedObjectEvent` NÃO é o jogador. Num gatilho de chão, numa
+        placa ou num script de mapa não há objeto selecionado, e
+        `SetMapVarsToTrainerA` só reatribui quando o comando traz local id
+        (os macros passam `LOCALID_NONE`). Vale em qualquer região.
+
+        O conserto é o caminho SEM intro: `msgbox <intro>` +
+        `trainerbattle_no_intro`, que cai em
+        `EventScript_DoNoIntroTrainerBattle` e não toca no special. Como esse
+        molde não confere a flag de vitória por dentro, o `goto_if_defeated`
+        deixa de ser conforto e vira obrigação (e o C23 cobra isso).
+
+        O que NÃO virou checagem, e o motivo está medido:
+        `EventScript_DoNoIntroTrainerBattle` faz `applymovement
+        VAR_LAST_TALKED, Movement_RevealTrainer` sem perguntar, e numa entrada
+        sem objeto `gSpecialVar_LastTalked` vale `LOCALID_NONE`, que não é
+        local id de objeto nenhum (`GetObjectEventIdByLocalId` devolve
+        `OBJECT_EVENTS_COUNT`, src/event_object_movement.c:1490). São 196
+        lugares na árvore e a maioria é VANILLA intocado
+        (`EverGrandeCity_ChampionsRoom`, `FiveIsland_LostCave_Room10`,
+        `EcruteakCity_Theater`): as três linhas de `applymovement` são acréscimo
+        da pokeemerald-expansion para o seguidor, e o jogo roda com elas há
+        anos. Cobrar isso seria 196 travas de falso positivo calibrado, pela
+        regra da lição 4.10. O conserto de 06/09/2026 mesmo assim escreve
+        `setvar VAR_LAST_TALKED, LOCALID_X` antes do `trainerbattle_no_intro`,
+        porque é o idioma do FireRed vanilla
+        (`Route24_EventScript_BattleRocket`) e custa uma linha.
+        """
+        vistos = set()
+        for mapa in sorted(self.arv.mapas):
+            for (entrada, de_onde) in self._entradas_sem_objeto(mapa):
+                if self.bloco(entrada) is None:
+                    continue
+                for (n, nome, args) in self.caminha(entrada):
+                    motivo = self.MACRO_PEDE_OBJETO.get(nome)
+                    if motivo is None and nome == "trainerbattle" and args \
+                            and args[0].strip() in self.MODO_PEDE_OBJETO:
+                        motivo = args[0].strip()
+                    if motivo is None:
+                        continue
+                    b = self.bloco(entrada)
+                    dono = self.arv.blocos.get(entrada)
+                    chave = (mapa, entrada, n, nome)
+                    if chave in vistos:
+                        continue
+                    vistos.add(chave)
+                    self.add("C28", "trava", b.arquivo, b.linha, entrada,
+                             "%s (%s) alcançável de %s: sem objeto "
+                             "selecionado, SetTrainerFacingDirection assere "
+                             "em battle_setup.c:1258 (tela azul)"
+                             % (nome, motivo, de_onde), mapa=mapa)
+
     CHECAGENS = ["c01_lock_sem_release", "c02_release_faltando_num_ramo",
                  "c03_waitmovement_sem_applymovement", "c04_localid_inexistente",
                  "c05_goto_para_outro_mapa", "c06_return_sem_call",
@@ -1047,7 +1178,8 @@ class Varredura(object):
                  "c23_no_intro_sem_guarda", "c24_objeto_com_flag_intocada",
                  "c25_transicao_esconde_obrigatorio",
                  "c26_mexe_em_objeto_removido",
-                 "c27_checkflag_sem_consumidor"]
+                 "c27_checkflag_sem_consumidor",
+                 "c28_batalha_sem_objeto"]
 
     def roda(self, so=None):
         for nome in self.CHECAGENS:
@@ -1103,6 +1235,26 @@ QA_Demo_Warp::
 \trelease
 \tend
 
+QA_Demo_Gatilho::
+\tlock
+\tgoto_if_defeated TRAINER_QA_DEMO, QA_Demo_Gatilho_Fim
+\ttrainerbattle_single TRAINER_QA_DEMO, QA_Demo_Texto, QA_Demo_Texto
+QA_Demo_Gatilho_Fim:
+\trelease
+\tend
+
+QA_Demo_Tabela::
+\tmap_script_2 VAR_TEMP_1, 0, QA_Demo_Quadro
+\t.2byte 0
+
+QA_Demo_Quadro::
+\tcall QA_Demo_Indireto
+\tend
+
+QA_Demo_Indireto::
+\ttrainerbattle_rematch TRAINER_QA_DEMO, QA_Demo_Texto, QA_Demo_Texto
+\treturn
+
 QA_Demo_Texto:
 \t.string "oi$"
 
@@ -1111,27 +1263,54 @@ QA_Demo_Movimento:
 """)
     # a checagem C01 so olha script que o MAPA alcanca: pendura o defeito
     # num objeto de verdade, senao a mutacao fica invisivel de proposito.
+    # O C28 tem DOIS braços, e o de script de mapa não aparece no coord_event:
+    # planta também um MAP_SCRIPT_ON_FRAME_TABLE com a batalha atrás de um
+    # `call`, para a caminhada indireta ficar coberta.
+    with open(alvo, encoding="utf-8") as fh:
+        corpo = fh.read()
+    corpo = corpo.replace(
+        "LittlerootTown_MapScripts::\n",
+        "LittlerootTown_MapScripts::\n"
+        "\tmap_script MAP_SCRIPT_ON_FRAME_TABLE, QA_Demo_Tabela\n", 1)
+    with open(alvo, "w", encoding="utf-8") as fh:
+        fh.write(corpo)
+
     mj = os.path.join(tmp, "data", "maps", "LittlerootTown", "map.json")
     j = json.load(open(mj))
     j["object_events"][0] = dict(j["object_events"][0])
     j["object_events"][0]["script"] = "QA_Demo_Trava"
     j["object_events"][1] = dict(j["object_events"][1])
     j["object_events"][1]["script"] = "QA_Demo_Warp"
+    # C28 só morde o que o motor alcança SEM objeto: o gatilho de chão é a
+    # única forma de plantar a mutação dele.
+    j.setdefault("coord_events", []).append(
+        {"type": "trigger", "x": 9, "y": 9, "elevation": 0,
+         "var": "VAR_TEMP_0", "var_value": "0", "script": "QA_Demo_Gatilho"})
     json.dump(j, open(mj, "w"))
     v = Varredura(tmp)
     v.roda()
     por = collections.Counter(a.sigla for a in v.achados
                               if "QA_Demo" in a.rotulo or "QA_Demo" in a.texto)
-    esperado = {"C01", "C04", "C10", "C11"}
+    esperado = {"C01", "C04", "C10", "C11", "C28"}
     achou = set(por)
     print("demo: plantado em %s" % alvo)
     print("demo: siglas que morderam:", sorted(achou))
+    # O C28 tem que morder pelos DOIS braços, e não só pelo gatilho: sem esta
+    # cobrança, perder o braço de script de mapa passaria calado.
+    c28 = [a.texto for a in v.achados
+           if a.sigla == "C28" and "QA_Demo" in a.rotulo]
+    bracos = {("gatilho" if "gatilho" in t else
+               "mapscript" if "MAP_SCRIPT" in t else "?") for t in c28}
+    if bracos != {"gatilho", "mapscript"}:
+        print("DEMO VERMELHO: C28 mordeu só", sorted(bracos))
+        shutil.rmtree(tmp, ignore_errors=True)
+        return 1
     faltou = esperado - achou
     if faltou:
         print("DEMO VERMELHO: não mordeu", sorted(faltou))
         shutil.rmtree(tmp, ignore_errors=True)
         return 1
-    print("DEMO VERDE: as quatro famílias plantadas foram pegas")
+    print("DEMO VERDE: as cinco famílias plantadas foram pegas")
     shutil.rmtree(tmp, ignore_errors=True)
     return 0
 
