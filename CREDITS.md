@@ -41,6 +41,28 @@ este repositório já tinha, vindas do HnS):
 O que cada uma disse está registrado, fonte por fonte, no cabeçalho de
 `dev_scripts/abre_portas_johto.py` e na seção "As 31 portas de Johto ganham interior" do `ESTADO.md`.
 
+### O cais de CanalaveCity, arte importada do Golden Glazed
+
+Em 06/09/2026, na onda 1 do REFINO, a beira do canal de **CanalaveCity** ganhou
+cais de verdade: cabeços de amarração com cabo, boia salva-vidas e estacas. Essa
+arte foi extraída da ROM de **Pokémon Golden Glazed** v2.6, o tileset secundário
+`0x3DF74C` (a cidade portuária do hack), e são 9 tiles de 8x8 e uma paleta de 16
+cores, copiados sem alterar um pixel nem aproximar uma cor.
+
+- **Golden Glazed**, do hacker que assina como *Golden*, derivado do **Pokémon
+  Glazed**, de **redriders180** (com **Lucbui** no port decomp público
+  `TrainerX493/pokeglazed`). O Glazed original credita a comunidade de
+  hackers de tiles do fórum de onde a arte dele veio, e não declara licença.
+- A ROM é cópia privada de trabalho e nunca sai desta máquina: o que entrou aqui
+  é o **asset convertido**, como manda a regra 1 da seção 4 do `PRD-REFINO.md`.
+- O que cada peça é, de onde ela veio e por que ela cabe está no cabeçalho de
+  `dev_scripts/porto_canalave_arte.py`, e a medição que escolheu a fonte está em
+  `amostras-tileset/refino/novidade-porto.tsv`, fora deste repositório.
+
+O porto anterior da mesma cidade (o bote, o poste e os tambores, de
+`dev_scripts/porto_canalave.py`) não veio de hack nenhum: é arte de Hoenn que
+este repositório já tinha, do `gTileset_Slateport`.
+
 A arte de base é da Nintendo e da Game Freak. "Livre para usar com crédito" dito
 por um hacker cobre a edição dele, não o material original. Nada que descenda de
 hack com motor CFRU pode ser monetizado, nem por doação opcional.
