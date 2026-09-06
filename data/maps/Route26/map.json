@@ -272,5 +272,15 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 2,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Common_EventScript_BocaFechada",
+      "origem": "porta sem interior em fonte nenhuma (pergunta 46): boca da Route 26"
+    }
+  ]
 }

@@ -16,6 +16,35 @@ Arte de tiles do BW3G, creditada pelo autor no projeto de origem:
 este hack já tinha, de Hoenn e Sinnoh. O crédito de arte fica registrado porque
 a leitura da colisão veio dos arquivos de tileset do BW3G.)
 
+### Johto: a região inteira, e as portas da rodada 14
+
+Johto veio de **Pokémon Heart & Soul (HnS)**, o demake de HGSS em Modern Emerald
+decomp, aberto pelo autor como base para outros hacks. De lá saíram a planta, a
+colisão, os warps, os objetos e o texto dos mapas de Johto que este hack traz.
+A pasta de trabalho é privada e nunca sai desta máquina.
+
+Em 07/09/2026, para responder à pergunta das 31 portas decorativas de Johto,
+outras quatro fontes foram MEDIDAS (nenhum byte de arte ou de mapa foi copiado
+delas; o que entrou no hack foi o veredito "esta porta abre em fonte X, aquela
+não abre em fonte nenhuma", e as plantas de interior reaproveitadas são as que
+este repositório já tinha, vindas do HnS):
+
+- **GS Chronicles**, de Overlord Kaktus / G0LD, pelo decomp público
+  `G0LD/GS-Chronicles-Decomp`. O autor credita a Rom Hacking Hideout (RHH) e o
+  próprio pokemonHnS. Motor com base no CFRU, que proíbe qualquer monetização.
+- **Pokémon Liquid Crystal**, de Linkandzelda, com Zeikku (gráficos),
+  Jambo51 (asm) e Magnius (música).
+- **Pokémon FireGold** (autoria não confirmada pela ROM; o material local aponta
+  TheSnowPeople ou tzx211).
+- **Pokémon Scorched Silver**.
+
+O que cada uma disse está registrado, fonte por fonte, no cabeçalho de
+`dev_scripts/abre_portas_johto.py` e na seção "As 31 portas de Johto ganham interior" do `ESTADO.md`.
+
+A arte de base é da Nintendo e da Game Freak. "Livre para usar com crédito" dito
+por um hacker cobre a edição dele, não o material original. Nada que descenda de
+hack com motor CFRU pode ser monetizado, nem por doação opcional.
+
 ## Credits ✨
 
 

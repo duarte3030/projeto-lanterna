@@ -1,0 +1,57 @@
+{
+  "id": "MAP_BELLCHIME_TRAIL_HOUSE",
+  "name": "BellchimeTrail_House",
+  "layout": "LAYOUT_ECRUTEAK_CITY_HOUSE1",
+  "music": "MUS_HG_BELL_TOWER",
+  "region_map_section": "MAPSEC_ECRUTEAK_CITY",
+  "map_name_popup": "BELLCHIME TRAIL",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_5",
+      "x": 4,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BellchimeTrail_House_EventScript_Npc1",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
+      "x": 8,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BellchimeTrail_House_EventScript_Npc2",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 4,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_BELLCHIME_TRAIL",
+      "dest_warp_id": "4"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [],
+  "origem": "planta reaproveitada de EcruteakCity_House1. FONTE: FireGold, mapa 44.105 (9x8, 6 objetos): a casinha do sábio na Bellchime Trail, a única das cinco fontes que desenha a trilha como mapa próprio E abre o prédio dela. O Liquid Crystal tem o mesmo prédio (2.46, 9x9) ao lado da Tin Tower."
+}

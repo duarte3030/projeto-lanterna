@@ -1,0 +1,186 @@
+[
+ {
+  "id": "T182.1",
+  "nome": "A CASA DA TRILHA DO SINO ABRE. BellchimeTrail (54,58) era MB_ANIMATED_DOOR sem warp: o jogador andava ate a porta e nada acontecia. O warp 4, append no fim da lista, leva ao BellchimeTrail_House, mapa novo com a planta de EcruteakCity_House1 (fonte: FireGold 44.105, a casinha do sabio na Bellchime Trail). Na ROM anterior o caso para em MAP_BELLCHIME_TRAIL.",
+  "warp": "MAP_BELLCHIME_TRAIL",
+  "warp_id": 4,
+  "roteiro": "150:NADA,20:UP,20:UP,20:UP,300:NADA",
+  "prova": {
+   "mapa": "MAP_BELLCHIME_TRAIL_HOUSE",
+   "layout": "LAYOUT_ECRUTEAK_CITY_HOUSE1"
+  }
+ },
+ {
+  "id": "T182.2",
+  "nome": "E SAI PELA MESMA PORTA. O warp 0 do BellchimeTrail_House, em (4,8), devolve para o warp 4 da trilha, que e a porta por onde se entrou. E a regra de ida e volta do commit ed8698166c aplicada ao mapa novo.",
+  "warp": "MAP_BELLCHIME_TRAIL_HOUSE",
+  "warp_id": 0,
+  "roteiro": "150:NADA,20:DOWN,20:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_BELLCHIME_TRAIL"
+  }
+ },
+ {
+  "id": "T182.3",
+  "nome": "A CASA DA FAZENDA DA ROUTE 38 ABRE. Route38 (34,41) e a porta do predio da fazenda que o nosso desenho poe na rota; nenhuma das cinco fontes a abria, mas as cinco tem a planta da casa da fazenda (13x10, hns Route39_FarmHouse, Liquid Crystal 1.28, FireGold 44.109, Scorched Silver 17.0). Warp 1, append no fim.",
+  "warp": "MAP_ROUTE38",
+  "warp_id": 1,
+  "roteiro": "150:NADA,20:UP,20:UP,20:UP,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE38_FARM_HOUSE",
+   "layout": "LAYOUT_ROUTE39_FARM_HOUSE"
+  }
+ },
+ {
+  "id": "T182.4",
+  "nome": "E SAI PELA MESMA PORTA: o warp 0 da casa da fazenda devolve para o warp 1 da Route 38.",
+  "warp": "MAP_ROUTE38_FARM_HOUSE",
+  "warp_id": 0,
+  "roteiro": "150:NADA,20:DOWN,20:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE38"
+  }
+ },
+ {
+  "id": "T182.5",
+  "nome": "A CASA DE TELHADO AZUL DA ROUTE 34 ABRE. Route34 (23,50). A mesma casa existe no Liquid Crystal (4.7 e 4.9, 13x10) e na FireGold (45.56 e 45.57), nas duas na Route 26, que e de onde vem a planta reaproveitada (Route26_House1). Warp 6, append no fim.",
+  "warp": "MAP_ROUTE34",
+  "warp_id": 6,
+  "roteiro": "150:NADA,20:UP,20:UP,20:UP,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE34_HOUSE1",
+   "layout": "LAYOUT_ROUTE26_HOUSE1"
+  }
+ },
+ {
+  "id": "T182.6",
+  "nome": "E SAI PELA MESMA PORTA: o warp 0 da casa da Route 34 devolve para o warp 6 da rota.",
+  "warp": "MAP_ROUTE34_HOUSE1",
+  "warp_id": 0,
+  "roteiro": "150:NADA,20:DOWN,20:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE34"
+  }
+ },
+ {
+  "id": "T182.7",
+  "nome": "A TERCEIRA CASA DE ECRUTEAK ABRE. EcruteakCity (57,25), a porta lateral do predio do leste. Planta reaproveitada de EcruteakCity_House2, que e a casa de Ecruteak que o hns desenha. Warp 14, append no fim.",
+  "warp": "MAP_ECRUTEAK_CITY",
+  "warp_id": 14,
+  "roteiro": "150:NADA,20:UP,20:UP,20:UP,300:NADA",
+  "prova": {
+   "mapa": "MAP_ECRUTEAK_CITY_HOUSE3",
+   "layout": "LAYOUT_ECRUTEAK_CITY_HOUSE2"
+  }
+ },
+ {
+  "id": "T182.8",
+  "nome": "E SAI PELA MESMA PORTA: o warp 0 da casa 3 devolve para o warp 14 de Ecruteak.",
+  "warp": "MAP_ECRUTEAK_CITY_HOUSE3",
+  "warp_id": 0,
+  "roteiro": "150:NADA,20:DOWN,20:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_ECRUTEAK_CITY"
+  }
+ },
+ {
+  "id": "T182.9",
+  "nome": "A SEGUNDA PORTA DA CRECHE DA ROUTE 34 ABRE, E NAO PRECISOU DE MAPA NOVO. As duas pontas ja estavam desenhadas: (33,31) na fachada da rota e (3,9) DENTRO do Route34_DayCare, MB_SOUTH_ARROW_WARP orfa que a lente listava como falso positivo. So faltava o warp. O Liquid Crystal, a FireGold e o Scorched Silver abrem as duas portas da creche para o mesmo interior, com dest_warp diferente.",
+  "warp": "MAP_ROUTE34",
+  "warp_id": 5,
+  "roteiro": "150:NADA,20:UP,20:UP,20:UP,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE34_DAY_CARE"
+  }
+ },
+ {
+  "id": "T182.10",
+  "nome": "E A SAIDA DA FACHADA DEVOLVE PARA A FACHADA, nao para a porta lateral: o warp 1 da creche, em (3,9), aponta para o warp 5 da Route 34 e nao para o 4. Sem isso o jogador entraria pela frente e sairia pelo lado.",
+  "warp": "MAP_ROUTE34_DAY_CARE",
+  "warp_id": 1,
+  "roteiro": "150:NADA,20:DOWN,20:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE34"
+  }
+ },
+ {
+  "id": "T182.11",
+  "nome": "A SEGUNDA BOCA DA DARK CAVE, LADO DA ROUTE 45, ABRE. Route45 (45,6) tinha o metatile 169 (a boca) com colisao 1 e elevacao 0; a boca funcional da mesma rota, (14,4), tem o MESMO metatile com colisao 0. O conserto abre a celula (colisao 0, elevacao 0 = ELEVATION_TRANSITION) e liga ao (35,3) da DarkCave_NorthSide, que era boca orfa la dentro. O roteiro sai da boca e volta, porque nascer em cima do warp nao o dispara. ROTEIRO: o motor entrega o jogador UM TILE ABAIXO da boca ao sair do warp de debug, entao ele so sobe; sao quatro toques porque o primeiro apenas vira (ele nasce olhando para baixo) e um toque de 20 quadros nem sempre completa o passo.",
+  "warp": "MAP_ROUTE45",
+  "warp_id": 1,
+  "roteiro": "150:NADA,20:UP*4,300:NADA",
+  "prova": {
+   "mapa": "MAP_DARK_CAVE_NORTH_SIDE"
+  }
+ },
+ {
+  "id": "T182.12",
+  "nome": "E VOLTA PELA MESMA BOCA: o warp 2 da DarkCave_NorthSide, em (35,3), devolve para o warp 1 da Route 45. ROTEIRO: o motor entrega o jogador UM TILE ABAIXO da boca ao sair do warp de debug, entao ele so sobe; sao quatro toques porque o primeiro apenas vira (ele nasce olhando para baixo) e um toque de 20 quadros nem sempre completa o passo.",
+  "warp": "MAP_DARK_CAVE_NORTH_SIDE",
+  "warp_id": 2,
+  "roteiro": "150:NADA,20:UP*4,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE45"
+  }
+ },
+ {
+  "id": "T182.13",
+  "nome": "A SEGUNDA BOCA DA DARK CAVE, LADO DA ROUTE 46, ABRE. Route46 (25,33) ligada ao (64,4) da DarkCave_SouthSide, a outra boca orfa de dentro. ROTEIRO: o motor entrega o jogador UM TILE ABAIXO da boca ao sair do warp de debug, entao ele so sobe; sao quatro toques porque o primeiro apenas vira (ele nasce olhando para baixo) e um toque de 20 quadros nem sempre completa o passo.",
+  "warp": "MAP_ROUTE46",
+  "warp_id": 3,
+  "roteiro": "150:NADA,20:UP*4,300:NADA",
+  "prova": {
+   "mapa": "MAP_DARK_CAVE_SOUTH_SIDE"
+  }
+ },
+ {
+  "id": "T182.14",
+  "nome": "E VOLTA PELA MESMA BOCA: o warp 3 da DarkCave_SouthSide devolve para o warp 3 da Route 46. ROTEIRO: o motor entrega o jogador UM TILE ABAIXO da boca ao sair do warp de debug, entao ele so sobe; sao quatro toques porque o primeiro apenas vira (ele nasce olhando para baixo) e um toque de 20 quadros nem sempre completa o passo.",
+  "warp": "MAP_DARK_CAVE_SOUTH_SIDE",
+  "warp_id": 3,
+  "roteiro": "150:NADA,20:UP*4,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE46"
+  }
+ },
+ {
+  "id": "T182.15",
+  "nome": "MONTE PRATA, A TRAVESSIA, PRIMEIRA METADE: a boca (34,7) do MtSilver_Outside entra no 1F. Ela fica na MESMA linha da boca principal (17,7), e a boca orfa de dentro, (50,5) do MtSilver_1F_WaterfallRoom, fica a direita da (43,46) que e por onde a principal chega: as duas pontas ja estavam desenhadas, na posicao relativa que casa. ROTEIRO: o motor entrega o jogador UM TILE ABAIXO da boca ao sair do warp de debug, entao ele so sobe; sao quatro toques porque o primeiro apenas vira (ele nasce olhando para baixo) e um toque de 20 quadros nem sempre completa o passo.",
+  "warp": "MAP_MT_SILVER_OUTSIDE",
+  "warp_id": 2,
+  "roteiro": "150:NADA,20:UP*4,300:NADA",
+  "prova": {
+   "mapa": "MAP_MT_SILVER_1F_WATERFALL_ROOM"
+  }
+ },
+ {
+  "id": "T182.16",
+  "nome": "MONTE PRATA, A TRAVESSIA, SEGUNDA METADE: o warp 7 do 1F, em (50,5), sai na boca (34,7) do MtSilver_Outside. Com o T182.15 fecha o percurso boca -> caverna -> outra boca que o Gui pediu. ROTEIRO: o motor entrega o jogador UM TILE ABAIXO da boca ao sair do warp de debug, entao ele so sobe; sao quatro toques porque o primeiro apenas vira (ele nasce olhando para baixo) e um toque de 20 quadros nem sempre completa o passo.",
+  "warp": "MAP_MT_SILVER_1F_WATERFALL_ROOM",
+  "warp_id": 7,
+  "roteiro": "150:NADA,20:UP*4,300:NADA",
+  "prova": {
+   "mapa": "MAP_MT_SILVER_OUTSIDE"
+  }
+ },
+ {
+  "id": "T182.17",
+  "nome": "AS TRES BOCAS DA ENCOSTA DO MONTE PRATA JA ENTRAVAM, e este caso e a prova. (27,18) e MB_NON_ANIMATED_DOOR solido, mas a celula colada (28,18) e MB_WEST_ARROW_WARP com o warp 0: quem pisa nela e aperta para oeste entra pelo TryArrowWarp. A lente as chamava de sem interior so porque blocos() nao junta celulas de comportamento diferente. Nada foi mudado no jogo por causa deste caso; ele passa na ROM anterior tambem, de proposito.",
+  "warp": "MAP_MT_SILVER_MOUNTAIN_SIDE",
+  "warp_id": 0,
+  "roteiro": "150:NADA,20:LEFT,20:LEFT,300:NADA",
+  "prova": {
+   "mapa": "MAP_MT_SILVER_1F_WATERFALL_ROOM"
+  }
+ },
+ {
+  "id": "T182.18",
+  "nome": "PAR NEGATIVO DO T182.17: a seta da encosta do Monte Prata so dispara para OESTE. Do mesmo warp 0, (28,18), tres RIGHT (o primeiro so vira, porque o jogador nasce olhando para o lado da boca) tem que deixar o jogador PARADO dentro do MtSilver_MountainSide, e nao entrar em caverna nenhuma. Se este caso virar MAP_MT_SILVER_1F_WATERFALL_ROOM, alguem trocou o comportamento da celula.",
+  "warp": "MAP_MT_SILVER_MOUNTAIN_SIDE",
+  "warp_id": 0,
+  "roteiro": "150:NADA,20:RIGHT,20:RIGHT,20:RIGHT,300:NADA",
+  "prova": {
+   "mapa": "MAP_MT_SILVER_MOUNTAIN_SIDE"
+  }
+ }
+]

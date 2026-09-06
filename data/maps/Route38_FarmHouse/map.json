@@ -1,0 +1,57 @@
+{
+  "id": "MAP_ROUTE38_FARM_HOUSE",
+  "name": "Route38_FarmHouse",
+  "layout": "LAYOUT_ROUTE39_FARM_HOUSE",
+  "music": "MUS_HG_ROUTE38",
+  "region_map_section": "MAPSEC_ROUTE_38",
+  "map_name_popup": "ROUTE 38",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BALDING_MAN",
+      "x": 4,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route38_FarmHouse_EventScript_Npc1",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
+      "x": 8,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route38_FarmHouse_EventScript_Npc2",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 4,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE38",
+      "dest_warp_id": "1"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [],
+  "origem": "planta reaproveitada de Route39_FarmHouse. FONTE: A casa da fazenda existe nas cinco fontes, sempre com a mesma planta de 13x10: hns e GS Chronicles `Route39_FarmHouse`, Liquid Crystal 1.28 (13x10, cozinha e mesa), FireGold 44.109 (11x9), Scorched Silver 17.0 (12x9). Nas cinco ela está na Route 39; o NOSSO desenho põe uma segunda fazenda na Route 38, no mesmo tileset `gTileset_Route38Farmland`, e é essa que recebe a planta."
+}

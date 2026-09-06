@@ -3275,3 +3275,7 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/FloaromaMeadowHouse/scripts.inc"
 	.include "data/scripts/galar_treinadores.inc"
 	.include "data/scripts/galar_placas.inc"
+	.include "data/maps/BellchimeTrail_House/scripts.inc"
+	.include "data/maps/Route38_FarmHouse/scripts.inc"
+	.include "data/maps/Route34_House1/scripts.inc"
+	.include "data/maps/EcruteakCity_House3/scripts.inc"

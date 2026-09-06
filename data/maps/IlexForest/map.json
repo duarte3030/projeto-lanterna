@@ -646,6 +646,15 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "IlexForest_EventScript_Santuario"
+    },
+    {
+      "type": "sign",
+      "x": 77,
+      "y": 39,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Common_EventScript_BocaFechada",
+      "origem": "porta sem interior em fonte nenhuma (pergunta 46): boca da floresta"
     }
   ]
 }

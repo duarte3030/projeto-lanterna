@@ -326,5 +326,15 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 44,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Common_EventScript_BocaFechada",
+      "origem": "porta sem interior em fonte nenhuma (pergunta 46): Monte Prata, boca da encosta"
+    }
+  ]
 }
