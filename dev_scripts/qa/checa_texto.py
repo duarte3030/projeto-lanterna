@@ -130,6 +130,11 @@ PT_MARCADORES = re.compile(
     r"\b(que|para|com|uma|você|voce|não|nao|está|esta|meu|minha|seu|sua|"
     r"aqui|então|entao|também|tambem|muito|todos|quando|porque)\b", re.I)
 
+# Idioma que cada região DEVE falar. Região fora deste mapa não tem alvo e o
+# T07 não opina sobre ela. A justificativa de cada linha, e por que Galar virou
+# `en` em 06/09/2026, está no docstring de `Varredura._idioma`.
+IDIOMA_ALVO = {"Sinnoh": "pt", "Unova": "pt", "Galar": "en"}
+
 
 class Varredura(object):
     def __init__(self, raiz):
@@ -242,27 +247,72 @@ class Varredura(object):
                          "usa %s e o script que exibe não carrega buffer"
                          % ",".join(sorted(faltando)))
 
-        # T07/T08: idioma e acento
+        self._idioma(caminho, reg, b, corpo, pedacos)
+
+        if "ä" in corpo or "ö" in corpo:
+            self.add("T09", "provável", caminho, pedacos[0][0], b.rotulo,
+                     "trema sobrando (era para ser til)")
+
+    def _idioma(self, caminho, reg, b, corpo, pedacos):
+        """T07 (idioma errado) e T08 (português sem acento).
+
+        DECISÃO DE DESENHO, 06/09/2026, tomada pela condutora da Frente A
+        (Galar) do cartucho 2 e registrada aqui porque ela INVERTE a régua e
+        quem ler o relatório de QA sem este comentário vai achar que a
+        ferramenta enlouqueceu.
+
+        Até hoje a régua era uma só: Sinnoh, Unova e Galar deveriam falar
+        PORTUGUÊS, e T07 reprovava inglês nas três. A decisão 32 do Gui
+        (PRD-CARTUCHO-2.md) tirou Galar dessa lista: o cartucho 2 traduz o
+        português do demake para o INGLÊS, fielmente, com glossário fixo. Com a
+        régua velha a frente entregaria vermelho por acertar, porque traduzir os
+        310 blocos de português de Galar levaria o T07 de 28 para 338 achados.
+
+        Régua de hoje, por região (`IDIOMA_ALVO`):
+
+        - Sinnoh e Unova: alvo `pt`. T07 reprova INGLÊS. Não mudou nada.
+          Unova hoje fala inglês por herança do importador e o cartucho 2 ainda
+          não decidiu o idioma dela; mexer aqui seria decidir por tabela, então
+          ela fica como estava.
+        - Galar: alvo `en`. T07 reprova PORTUGUÊS, com ou sem acento, e aceita
+          inglês.
+        - As outras (Hoenn, Kanto, Johto, `comum`): sem alvo, T07 não opina.
+
+        T08 (português sem acento) IGNORA Galar de propósito, e SÓ Galar. Ele só
+        dispara dentro do ramo "este bloco é português", e em Galar esse ramo
+        agora já emite T07 no mesmo bloco: manter os dois faria o mesmo defeito
+        ser contado duas vezes, com o T08 dizendo "conserte o acento" de um
+        texto que a decisão 32 manda apagar e reescrever em inglês. Em toda
+        região que NÃO tem alvo `en` ele continua valendo inteiro, inclusive
+        Hoenn, Kanto, Johto e `comum`, que nunca tiveram alvo de idioma.
+
+        O CENSO (`self.contagem`) continua contando os dois idiomas em TODAS as
+        regiões, porque ele é medição, não julgamento: é por ele que a próxima
+        rodada mede quanto da tradução de Galar já andou.
+        """
         limpo = re.sub(r"\{[^}]*\}", " ", corpo).replace("\\n", " ") \
                   .replace("\\l", " ").replace("\\p", " ")
         en = len(EN_MARCADORES.findall(limpo))
         pt = len(PT_MARCADORES.findall(limpo))
+        alvo = IDIOMA_ALVO.get(reg)
         if en >= 2 and en > pt:
             self.contagem["ingles[%s]" % reg] += 1
-            if reg in ("Sinnoh", "Unova", "Galar"):
+            if alvo == "pt":
                 self.add("T07", "cosmético", caminho, pedacos[0][0], b.rotulo,
                          "texto em inglês numa região que deveria estar em "
                          "português: %r" % limpo[:60])
         elif pt >= 2 and pt > en:
             self.contagem["portugues[%s]" % reg] += 1
-            if PT_SEM_ACENTO.search(limpo):
+            sem_acento = PT_SEM_ACENTO.search(limpo)
+            if sem_acento:
                 self.contagem["pt_sem_acento[%s]" % reg] += 1
+            if alvo == "en":
+                self.add("T07", "cosmético", caminho, pedacos[0][0], b.rotulo,
+                         "texto em português numa região que deveria estar em "
+                         "inglês: %r" % limpo[:60])
+            elif sem_acento:
                 self.add("T08", "cosmético", caminho, pedacos[0][0], b.rotulo,
-                         "português sem acento: %r"
-                         % PT_SEM_ACENTO.search(limpo).group(0))
-        if "ä" in corpo or "ö" in corpo:
-            self.add("T09", "provável", caminho, pedacos[0][0], b.rotulo,
-                     "trema sobrando (era para ser til)")
+                         "português sem acento: %r" % sem_acento.group(0))
 
     @staticmethod
     def _linha_de(pedacos, corpo, trecho):

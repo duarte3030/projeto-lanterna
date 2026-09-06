@@ -188,49 +188,56 @@ GalarPlaca_G08M14_bg0::
 	end
 
 GalarPlaca_G08M14_bg0_Text:
-	.string "um botao\p pressionar?$"
+	.string "a button\p"
+	.string " press it?$"
 
 GalarPlaca_G08M14_bg1::
 	msgbox GalarPlaca_G08M14_bg1_Text, MSGBOX_SIGN
 	end
 
 GalarPlaca_G08M14_bg1_Text:
-	.string "um botao\p pressionar?$"
+	.string "a button\p"
+	.string " press it?$"
 
 GalarPlaca_G08M14_bg2::
 	msgbox GalarPlaca_G08M14_bg2_Text, MSGBOX_SIGN
 	end
 
 GalarPlaca_G08M14_bg2_Text:
-	.string "um botao\p pressionar?$"
+	.string "a button\p"
+	.string " press it?$"
 
 GalarPlaca_G08M14_bg3::
 	msgbox GalarPlaca_G08M14_bg3_Text, MSGBOX_SIGN
 	end
 
 GalarPlaca_G08M14_bg3_Text:
-	.string "um botao\p pressionar?$"
+	.string "a button\p"
+	.string " press it?$"
 
 GalarPlaca_G08M14_bg4::
 	msgbox GalarPlaca_G08M14_bg4_Text, MSGBOX_SIGN
 	end
 
 GalarPlaca_G08M14_bg4_Text:
-	.string "um botao\p pressionar?$"
+	.string "a button\p"
+	.string " press it?$"
 
 GalarPlaca_G08M14_bg5::
 	msgbox GalarPlaca_G08M14_bg5_Text, MSGBOX_SIGN
 	end
 
 GalarPlaca_G08M14_bg5_Text:
-	.string "um botao\p pressionar?$"
+	.string "a button\p"
+	.string " press it?$"
 
 GalarPlaca_G08M14_bg6::
 	msgbox GalarPlaca_G08M14_bg6_Text, MSGBOX_SIGN
 	end
 
 GalarPlaca_G08M14_bg6_Text:
-	.string "um botao\p pressionar?$"
+	.string "a button\p"
+	.string " press it?$"
 
 @ ---- Galar_IsleOfArmor20 ----
 GalarPlaca_G38M16_bg0::

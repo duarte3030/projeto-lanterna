@@ -12,244 +12,258 @@
 
 @ ---- fala padrao por classe (ver TEXTO_CLASSE no gerador) ----
 GalarTrn_Intro_AROMA_LADY_FRLG:
-	.string "Que tal uma batalha\nrápida?$"
+	.string "How about a quick battle?$"
 
 GalarTrn_Depois_AROMA_LADY_FRLG:
-	.string "Boa batalha. Obrigado!$"
+	.string "Good battle. Thank you!$"
 
 GalarTrn_Intro_BEAUTY_FRLG:
-	.string "Você tem estilo.\nMas eu tenho time.$"
+	.string "You have style.\n"
+	.string "But I have a team.$"
 
 GalarTrn_Depois_BEAUTY_FRLG:
-	.string "Perdi com elegância.$"
+	.string "I lost with elegance.$"
 
 GalarTrn_Intro_BIKER_FRLG:
-	.string "Que tal uma batalha\nrápida?$"
+	.string "How about a quick battle?$"
 
 GalarTrn_Depois_BIKER_FRLG:
-	.string "Boa batalha. Obrigado!$"
+	.string "Good battle. Thank you!$"
 
 GalarTrn_Intro_BLACK_BELT_FRLG:
 	.string "Força e treino!\nEncare-me!$"
 
 GalarTrn_Depois_BLACK_BELT_FRLG:
-	.string "Você treinou mais.$"
+	.string "You trained more.$"
 
 GalarTrn_Intro_BOSS_FRLG:
-	.string "Ninguém passa por mim.$"
+	.string "Nobody gets past me.$"
 
 GalarTrn_Depois_BOSS_FRLG:
-	.string "Isso não vai ficar assim.$"
+	.string "This isn't going to end like this.$"
 
 GalarTrn_Intro_BUG_CATCHER_FRLG:
-	.string "Peguei muito inseto\nhoje. Quer ver?$"
+	.string "I caught a lot of bugs today.\n"
+	.string "Want to see?$"
 
 GalarTrn_Depois_BUG_CATCHER_FRLG:
-	.string "Meus insetos cansaram.$"
+	.string "My bugs are worn out.$"
 
 GalarTrn_Intro_BUG_MANIAC:
-	.string "Que tal uma batalha\nrápida?$"
+	.string "How about a quick battle?$"
 
 GalarTrn_Depois_BUG_MANIAC:
-	.string "Boa batalha. Obrigado!$"
+	.string "Good battle. Thank you!$"
 
 GalarTrn_Intro_BURGLAR_FRLG:
-	.string "Que tal uma batalha\nrápida?$"
+	.string "How about a quick battle?$"
 
 GalarTrn_Depois_BURGLAR_FRLG:
-	.string "Boa batalha. Obrigado!$"
+	.string "Good battle. Thank you!$"
 
 GalarTrn_Intro_CAMPER_FRLG:
-	.string "Acampei aqui só pra\nachar um bom duelo.$"
+	.string "I camped out here just to find a good\n"
+	.string "match.$"
 
 GalarTrn_Depois_CAMPER_FRLG:
-	.string "Valeu pela batalha!$"
+	.string "Thanks for the battle!$"
 
 GalarTrn_Intro_CHAMPION_FRLG:
-	.string "O topo de Galar é aqui.\nVenha me buscar!$"
+	.string "The top of Galar is right here.\n"
+	.string "Come and get me!$"
 
 GalarTrn_Depois_CHAMPION_FRLG:
-	.string "Você chegou ao topo.$"
+	.string "You've reached the top.$"
 
 GalarTrn_Intro_CHANNELER_FRLG:
-	.string "Eu vi o seu futuro...\ne ele é uma batalha.$"
+	.string "I've seen your future...\n"
+	.string "and it is a battle.$"
 
 GalarTrn_Depois_CHANNELER_FRLG:
 	.string "O futuro me enganou.$"
 
 GalarTrn_Intro_COLLECTOR:
-	.string "Que tal uma batalha\nrápida?$"
+	.string "How about a quick battle?$"
 
 GalarTrn_Depois_COLLECTOR:
-	.string "Boa batalha. Obrigado!$"
+	.string "Good battle. Thank you!$"
 
 GalarTrn_Intro_COOLTRAINER_FRLG:
-	.string "Um duelo de verdade,\nque tal?$"
+	.string "A real match,\n"
+	.string "how about it?$"
 
 GalarTrn_Depois_COOLTRAINER_FRLG:
-	.string "Foi um bom duelo.$"
+	.string "That was a good match.$"
 
 GalarTrn_Intro_COOL_COUPLE_FRLG:
-	.string "Que tal uma batalha\nrápida?$"
+	.string "How about a quick battle?$"
 
 GalarTrn_Depois_COOL_COUPLE_FRLG:
-	.string "Boa batalha. Obrigado!$"
+	.string "Good battle. Thank you!$"
 
 GalarTrn_Intro_CRUSH_GIRL_FRLG:
-	.string "Que tal uma batalha\nrápida?$"
+	.string "How about a quick battle?$"
 
 GalarTrn_Depois_CRUSH_GIRL_FRLG:
-	.string "Boa batalha. Obrigado!$"
+	.string "Good battle. Thank you!$"
 
 GalarTrn_Intro_ELITE_FOUR_FRLG:
-	.string "Aqui a estrada aperta.\nMostre o seu time!$"
+	.string "The road narrows here.\n"
+	.string "Show me your team!$"
 
 GalarTrn_Depois_ELITE_FOUR_FRLG:
-	.string "Siga em frente,\ntreinador.$"
+	.string "Move along,\n"
+	.string "Trainer.$"
 
 GalarTrn_Intro_FISHERMAN_FRLG:
-	.string "Que tal uma batalha\nrápida?$"
+	.string "How about a quick battle?$"
 
 GalarTrn_Depois_FISHERMAN_FRLG:
-	.string "Boa batalha. Obrigado!$"
+	.string "Good battle. Thank you!$"
 
 GalarTrn_Intro_GENTLEMAN_FRLG:
-	.string "Com licença. Aceita\numa batalha?$"
+	.string "Excuse me. Care for a battle?$"
 
 GalarTrn_Depois_GENTLEMAN_FRLG:
-	.string "Foi um prazer.$"
+	.string "It was a pleasure.$"
 
 GalarTrn_Intro_GUITARIST:
-	.string "Toca aí! Digo,\nbatalha aí!$"
+	.string "High five! I mean,\n"
+	.string "battle me!$"
 
 GalarTrn_Depois_GUITARIST:
-	.string "Você afinou melhor.$"
+	.string "You were better tuned.$"
 
 GalarTrn_Intro_HIKER_FRLG:
-	.string "Subi essa trilha inteira!\nBora batalhar?$"
+	.string "I climbed this whole trail!\n"
+	.string "Shall we battle?$"
 
 GalarTrn_Depois_HIKER_FRLG:
-	.string "Que fôlego o seu!$"
+	.string "What stamina you have!$"
 
 GalarTrn_Intro_INTERVIEWER:
-	.string "Que tal uma batalha\nrápida?$"
+	.string "How about a quick battle?$"
 
 GalarTrn_Depois_INTERVIEWER:
-	.string "Boa batalha. Obrigado!$"
+	.string "Good battle. Thank you!$"
 
 GalarTrn_Intro_JUGGLER_FRLG:
-	.string "Que tal uma batalha\nrápida?$"
+	.string "How about a quick battle?$"
 
 GalarTrn_Depois_JUGGLER_FRLG:
-	.string "Boa batalha. Obrigado!$"
+	.string "Good battle. Thank you!$"
 
 GalarTrn_Intro_KINDLER:
-	.string "Que tal uma batalha\nrápida?$"
+	.string "How about a quick battle?$"
 
 GalarTrn_Depois_KINDLER:
-	.string "Boa batalha. Obrigado!$"
+	.string "Good battle. Thank you!$"
 
 GalarTrn_Intro_LADY_FRLG:
-	.string "Que tal uma batalha\nrápida?$"
+	.string "How about a quick battle?$"
 
 GalarTrn_Depois_LADY_FRLG:
-	.string "Boa batalha. Obrigado!$"
+	.string "Good battle. Thank you!$"
 
 GalarTrn_Intro_LASS_FRLG:
-	.string "Oi! Quer batalhar\ncomigo?$"
+	.string "Hi! Want to battle me?$"
 
 GalarTrn_Depois_LASS_FRLG:
-	.string "Você é forte mesmo!$"
+	.string "You really are strong!$"
 
 GalarTrn_Intro_LEADER_FRLG:
-	.string "Sou o líder daqui.\nMostre o seu valor!$"
+	.string "I'm the leader here.\n"
+	.string "Show me what you're worth!$"
 
 GalarTrn_Depois_LEADER_FRLG:
-	.string "Você lutou muito bem.$"
+	.string "You battled very well.$"
 
 GalarTrn_Intro_MAGMA_ADMIN:
-	.string "Área restrita.\nVolte por onde veio.$"
+	.string "Restricted area.\n"
+	.string "Go back the way you came.$"
 
 GalarTrn_Depois_MAGMA_ADMIN:
-	.string "Meu turno acabou mal.$"
+	.string "My turn ended badly.$"
 
 GalarTrn_Intro_PICNICKER_FRLG:
-	.string "Que tal uma batalha\nrápida?$"
+	.string "How about a quick battle?$"
 
 GalarTrn_Depois_PICNICKER_FRLG:
-	.string "Boa batalha. Obrigado!$"
+	.string "Good battle. Thank you!$"
 
 GalarTrn_Intro_PKMN_RANGER_FRLG:
-	.string "Que tal uma batalha\nrápida?$"
+	.string "How about a quick battle?$"
 
 GalarTrn_Depois_PKMN_RANGER_FRLG:
-	.string "Boa batalha. Obrigado!$"
+	.string "Good battle. Thank you!$"
 
 GalarTrn_Intro_PSYCHIC_FRLG:
-	.string "Que tal uma batalha\nrápida?$"
+	.string "How about a quick battle?$"
 
 GalarTrn_Depois_PSYCHIC_FRLG:
-	.string "Boa batalha. Obrigado!$"
+	.string "Good battle. Thank you!$"
 
 GalarTrn_Intro_RIVAL:
-	.string "De novo você? Então\nvamos resolver isso!$"
+	.string "You again? Then let's settle this!$"
 
 GalarTrn_Depois_RIVAL:
-	.string "Da próxima eu ganho!$"
+	.string "Next time I'll win!$"
 
 GalarTrn_Intro_SAILOR_FRLG:
-	.string "Marujo não recusa\nbriga boa!$"
+	.string "A sailor never turns down a good scrap!$"
 
 GalarTrn_Depois_SAILOR_FRLG:
-	.string "Ancorei de vez.$"
+	.string "I'm anchored for good.$"
 
 GalarTrn_Intro_SCHOOL_KID:
-	.string "Que tal uma batalha\nrápida?$"
+	.string "How about a quick battle?$"
 
 GalarTrn_Depois_SCHOOL_KID:
-	.string "Boa batalha. Obrigado!$"
+	.string "Good battle. Thank you!$"
 
 GalarTrn_Intro_SCIENTIST_FRLG:
-	.string "Minha hipótese:\neu venço. Vamos ver.$"
+	.string "My hypothesis:\n"
+	.string "I win. Let's see.$"
 
 GalarTrn_Depois_SCIENTIST_FRLG:
-	.string "Hipótese refutada.$"
+	.string "Hypothesis refuted.$"
 
 GalarTrn_Intro_SUPER_NERD_FRLG:
-	.string "Que tal uma batalha\nrápida?$"
+	.string "How about a quick battle?$"
 
 GalarTrn_Depois_SUPER_NERD_FRLG:
-	.string "Boa batalha. Obrigado!$"
+	.string "Good battle. Thank you!$"
 
 GalarTrn_Intro_SWIMMER_M_FRLG:
-	.string "A água é minha casa.\nVamos nessa!$"
+	.string "The water is my home.\n"
+	.string "Let's go!$"
 
 GalarTrn_Depois_SWIMMER_M_FRLG:
-	.string "Boa, você nada bem.$"
+	.string "Nice, you swim well.$"
 
 GalarTrn_Intro_TAMER_FRLG:
-	.string "Que tal uma batalha\nrápida?$"
+	.string "How about a quick battle?$"
 
 GalarTrn_Depois_TAMER_FRLG:
-	.string "Boa batalha. Obrigado!$"
+	.string "Good battle. Thank you!$"
 
 GalarTrn_Intro_TEAM_AQUA:
-	.string "Some daqui, moleque!$"
+	.string "Get lost, kid!$"
 
 GalarTrn_Depois_TEAM_AQUA:
-	.string "Tá, tá... eu já vou.$"
+	.string "All right, all right... I'm going.$"
 
 GalarTrn_Intro_YOUNGSTER_FRLG:
-	.string "Meu time é novo, mas\né bom. Vem!$"
+	.string "My team is new, but it's good. Come on!$"
 
 GalarTrn_Depois_YOUNGSTER_FRLG:
-	.string "Preciso treinar mais.$"
+	.string "I need to train more.$"
 
 GalarTrn_Intro_YOUNG_COUPLE_FRLG:
-	.string "Que tal uma batalha\nrápida?$"
+	.string "How about a quick battle?$"
 
 GalarTrn_Depois_YOUNG_COUPLE_FRLG:
-	.string "Boa batalha. Obrigado!$"
+	.string "Good battle. Thank you!$"
 
 @ ---- Galar_Ballonlea06 ----
 GalarTrn_G11M11_o11::
@@ -259,7 +273,8 @@ GalarTrn_G11M11_o11::
 	end
 
 GalarTrn_G11M11_o11_Derrota:
-	.string "Por que eu tive a infelicidade\nde nascer na mesma época que você?$"
+	.string "Why did I have the misfortune of being\n"
+	.string "born at the same time as you?$"
 
 GalarTrn_G11M11_o12::
 	trainerbattle_single TRAINER_GALAR_OPAL_418, GalarTrn_G11M11_o12_Intro, GalarTrn_G11M11_o12_Derrota
@@ -268,10 +283,18 @@ GalarTrn_G11M11_o12::
 	end
 
 GalarTrn_G11M11_o12_Intro:
-	.string "Opal:Suponho que seja um pouco\ntarde para me apresentar,mas...eu\lsou Opal,a lider do ginásio.Eu\ldei uma boa olhada em como você\llidou com esses testes.\lA última parte da missão sou eu...\lDeixe-me ver como você e seu\lparceiro pokémon se comportam!$"
+	.string "Opal: I suppose it's a little late to\n"
+	.string "introduce myself, but... I'm Opal, the\l"
+	.string "Gym Leader. I had a good look at how you\l"
+	.string "handled those tests. The last part of\l"
+	.string "the mission is me... Let me see how you\l"
+	.string "and your partner Pokémon carry\l"
+	.string "yourselves!$"
 
 GalarTrn_G11M11_o12_Derrota:
-	.string "Ainda falta rosa em você,mas\nvocê é um excelente treinador\lcom alguns bons pokémons.$"
+	.string "You're still lacking pink, but you're an\n"
+	.string "excellent Trainer with some good\l"
+	.string "Pokémon.$"
 
 @ ---- Galar_Circhester03 ----
 GalarTrn_G12M00_bg10::
@@ -398,7 +421,7 @@ GalarTrn_G12M00_bg6_Fim:
 	end
 
 GalarTrn_G12M00_bg6_Derrota:
-	.string "Quente demais!$"
+	.string "Too hot!$"
 
 GalarTrn_G12M00_bg7::
 	lock
@@ -412,7 +435,7 @@ GalarTrn_G12M00_bg7_Fim:
 	end
 
 GalarTrn_G12M00_bg7_Derrota:
-	.string "Quente demais!$"
+	.string "Too hot!$"
 
 GalarTrn_G12M00_bg8::
 	lock
@@ -449,7 +472,7 @@ GalarTrn_G12M00_o0::
 	end
 
 GalarTrn_G12M00_o0_Intro:
-	.string "Resposta errada jovenzinho$"
+	.string "Wrong answer, youngster.$"
 
 GalarTrn_G12M00_o0_Derrota:
 	.string "Eu me rendo!$"
@@ -461,10 +484,12 @@ GalarTrn_G12M00_o1::
 	end
 
 GalarTrn_G12M00_o1_Intro:
-	.string "Você sabe como os Pokémon fadas\nconseguem vencer os dragoes?$"
+	.string "Do you know how Fairy Pokémon manage\n"
+	.string "to beat Dragons?$"
 
 GalarTrn_G12M00_o1_Derrota:
-	.string "Uau!\nQuente quente quente!$"
+	.string "Wow!\n"
+	.string "Hot hot hot!$"
 
 GalarTrn_G12M00_o2::
 	trainerbattle_single TRAINER_GALAR_AVA_178_3, GalarTrn_G12M00_o2_Intro, GalarTrn_G12M00_o2_Derrota
@@ -473,10 +498,12 @@ GalarTrn_G12M00_o2::
 	end
 
 GalarTrn_G12M00_o2_Intro:
-	.string "Acho que sei de onde \nvem o poder das fadas!$"
+	.string "I think I know where the power of\n"
+	.string "Fairy-types comes from!$"
 
 GalarTrn_G12M00_o2_Derrota:
-	.string "Uau!\nMeus estudos foram insuficientes!$"
+	.string "Wow!\n"
+	.string "My studies weren't enough!$"
 
 GalarTrn_G12M00_o3::
 	trainerbattle_single TRAINER_GALAR_CLOTILDE_214_3, GalarTrn_G12M00_o3_Intro, GalarTrn_G12M00_o3_Derrota
@@ -485,10 +512,12 @@ GalarTrn_G12M00_o3::
 	end
 
 GalarTrn_G12M00_o3_Intro:
-	.string "Me informaram errado, achei\nque a Opal era treinadora\lde tipo fantasma.\painda bem, que tenho uma fada aqui.$"
+	.string "I was told wrong. I thought Opal was a\n"
+	.string "Ghost-type Trainer.\p"
+	.string "Good thing I have a Fairy-type here.$"
 
 GalarTrn_G12M00_o3_Derrota:
-	.string "Quente demais!$"
+	.string "Too hot!$"
 
 GalarTrn_G12M00_o4::
 	trainerbattle_single TRAINER_GALAR_DELIA_179_3, GalarTrn_G12M00_o4_Intro, GalarTrn_G12M00_o4_Derrota
@@ -497,7 +526,7 @@ GalarTrn_G12M00_o4::
 	end
 
 GalarTrn_G12M00_o4_Intro:
-	.string "Vamos dançar!$"
+	.string "Let's dance!$"
 
 GalarTrn_G12M00_o4_Derrota:
 	.string "Ow!$"
@@ -509,7 +538,7 @@ GalarTrn_G12M00_o5::
 	end
 
 GalarTrn_G12M00_o5_Intro:
-	.string "Gosta de fadas?$"
+	.string "Do you like Fairy-types?$"
 
 GalarTrn_G12M00_o5_Derrota:
 	.string "Yowza!$"
@@ -521,7 +550,7 @@ GalarTrn_G12M00_o6::
 	end
 
 GalarTrn_G12M00_o6_Intro:
-	.string "Sei que você vai querer ser\numa de nós…$"
+	.string "I know you'll want to be one of us…$"
 
 GalarTrn_G12M00_o6_Derrota:
 	.string "Oh!$"
@@ -541,10 +570,12 @@ GalarTrn_G12M10_o19_Fim:
 	end
 
 GalarTrn_G12M10_o19_Derrota:
-	.string "vamos lá$"
+	.string "let's go$"
 
 GalarTrn_G12M10_o19_Vitoria:
-	.string "Ainda não consigo derrotar\nvocê,meu verdadeiro rival.\lMas acho que estou come ando a ver\la luz no fim do t nel!$"
+	.string "I still can't beat you, my true rival. But\n"
+	.string "I think I'm starting to see the light at\l"
+	.string "the end of the tunnel!$"
 
 @ ---- Galar_Circhester08 ----
 GalarTrn_G12M12_o0::
@@ -554,7 +585,7 @@ GalarTrn_G12M12_o0::
 	end
 
 GalarTrn_G12M12_o0_Intro:
-	.string "Não tão rapido!$"
+	.string "Not so fast!$"
 
 GalarTrn_G12M12_o0_Derrota:
 	.string "...$"
@@ -566,7 +597,7 @@ GalarTrn_G12M12_o1::
 	end
 
 GalarTrn_G12M12_o1_Intro:
-	.string "Ei espera ai!$"
+	.string "Hey, wait up!$"
 
 GalarTrn_G12M12_o1_Derrota:
 	.string "...$"
@@ -578,7 +609,7 @@ GalarTrn_G12M12_o2::
 	end
 
 GalarTrn_G12M12_o2_Intro:
-	.string "Esta indo bem longe\nnão é?$"
+	.string "You're going quite far, aren't you?$"
 
 GalarTrn_G12M12_o2_Derrota:
 	.string "...$"
@@ -590,7 +621,7 @@ GalarTrn_G12M12_o3::
 	end
 
 GalarTrn_G12M12_o3_Intro:
-	.string "Não se eu poder impedir!$"
+	.string "Not if I can help it!$"
 
 GalarTrn_G12M12_o3_Derrota:
 	.string "...$"
@@ -603,7 +634,7 @@ GalarTrn_G12M13_o0::
 	end
 
 GalarTrn_G12M13_o0_Intro:
-	.string "Esta indo bem longe\nnão é?$"
+	.string "You're going quite far, aren't you?$"
 
 GalarTrn_G12M13_o0_Derrota:
 	.string "...$"
@@ -615,7 +646,7 @@ GalarTrn_G12M13_o1::
 	end
 
 GalarTrn_G12M13_o1_Intro:
-	.string "Não se eu poder impedir!$"
+	.string "Not if I can help it!$"
 
 GalarTrn_G12M13_o1_Derrota:
 	.string "...$"
@@ -627,7 +658,7 @@ GalarTrn_G12M13_o2::
 	end
 
 GalarTrn_G12M13_o2_Intro:
-	.string "Ei espera ai!$"
+	.string "Hey, wait up!$"
 
 GalarTrn_G12M13_o2_Derrota:
 	.string "...$"
@@ -639,7 +670,7 @@ GalarTrn_G12M13_o3::
 	end
 
 GalarTrn_G12M13_o3_Intro:
-	.string "Não tão rapido!$"
+	.string "Not so fast!$"
 
 GalarTrn_G12M13_o3_Derrota:
 	.string "...$"
@@ -652,7 +683,8 @@ GalarTrn_G12M14_o12::
 	end
 
 GalarTrn_G12M14_o12_Derrota:
-	.string "Eu acho que você interpretou\nquebrar o gelo um pouco\lliteralmente demais ...$"
+	.string "I think you took breaking the ice a\n"
+	.string "little too literally ...$"
 
 @ ---- Galar_Circhester11 ----
 GalarTrn_G12M15_o12::
@@ -662,10 +694,16 @@ GalarTrn_G12M15_o12::
 	end
 
 GalarTrn_G12M15_o12_Intro:
-	.string "Gordie:Olá Meu nome é Gordie.\nMe sinto um pouco mal por ter que\lacabar com os sonhos de um\ldesafiante de ginásio,mas...\lVou usar essa partida para mostrar\lá multidão que meus pokémons são\limbativeis e incriveis!\lEntão,vamos acabar logo com\lisso,Desafiante!$"
+	.string "Gordie: Hello, my name is Gordie. I feel a\n"
+	.string "little bad about having to end a Gym\l"
+	.string "Challenger's dreams, but... I'm going to\l"
+	.string "use this match to show the crowd that\l"
+	.string "my Pokémon are unbeatable and amazing!\l"
+	.string "So let's get this over with, Challenger!$"
 
 GalarTrn_G12M15_o12_Derrota:
-	.string "Parece que eu cair no fundo do poco$"
+	.string "Looks like I fell to the bottom of the\n"
+	.string "well.$"
 
 @ ---- Galar_Circhester17 ----
 GalarTrn_G13M12_o0::
@@ -675,7 +713,7 @@ GalarTrn_G13M12_o0::
 	end
 
 GalarTrn_G13M12_o0_Intro:
-	.string "Esta indo bem longe\nnão é?$"
+	.string "You're going quite far, aren't you?$"
 
 GalarTrn_G13M12_o0_Derrota:
 	.string "...$"
@@ -687,7 +725,7 @@ GalarTrn_G13M12_o1::
 	end
 
 GalarTrn_G13M12_o1_Intro:
-	.string "Não se eu poder impedir!$"
+	.string "Not if I can help it!$"
 
 GalarTrn_G13M12_o1_Derrota:
 	.string "...$"
@@ -699,7 +737,7 @@ GalarTrn_G13M12_o2::
 	end
 
 GalarTrn_G13M12_o2_Intro:
-	.string "Ei espera ai!$"
+	.string "Hey, wait up!$"
 
 GalarTrn_G13M12_o2_Derrota:
 	.string "...$"
@@ -711,7 +749,7 @@ GalarTrn_G13M12_o3::
 	end
 
 GalarTrn_G13M12_o3_Intro:
-	.string "Não tão rapido!$"
+	.string "Not so fast!$"
 
 GalarTrn_G13M12_o3_Derrota:
 	.string "...$"
@@ -743,10 +781,11 @@ GalarTrn_G37M06_o31::
 	end
 
 GalarTrn_G37M06_o31_Intro:
-	.string "Eu sou Tommy, Sou do anime de\ntwilight wings, e agora eu vou\lganhar!!!$"
+	.string "I'm Tommy. I'm from the Twilight Wings\n"
+	.string "anime, and now I'm going to win!!!$"
 
 GalarTrn_G37M06_o31_Derrota:
-	.string "Parabéns$"
+	.string "Congratulations$"
 
 GalarTrn_G37M06_o42::
 	trainerbattle_single TRAINER_GALAR_JON_299_2, GalarTrn_G37M06_o42_Intro, GalarTrn_G37M06_o42_Derrota
@@ -755,10 +794,13 @@ GalarTrn_G37M06_o42::
 	end
 
 GalarTrn_G37M06_o42_Intro:
-	.string "twilight wings foi um bom anime,\nnão é?\peu sou Jon finalmente me curei da\nminha doença e agora sou um grande\ltreinador!$"
+	.string "Twilight Wings was a good anime, wasn't\n"
+	.string "it?\p"
+	.string "I'm Jon. I finally got over my illness\n"
+	.string "and now I'm a great Trainer!$"
 
 GalarTrn_G37M06_o42_Derrota:
-	.string "Wow isso foi incrivel!!!$"
+	.string "Wow, that was incredible!!!$"
 
 @ ---- Galar_DynamaxAdventure01 ----
 GalarTrn_G34M04_o0::
@@ -768,7 +810,7 @@ GalarTrn_G34M04_o0::
 	end
 
 GalarTrn_G34M04_o0_Derrota:
-	.string "Wow, que incrivel!$"
+	.string "Wow, how incredible!$"
 
 @ ---- Galar_GalarMine02 ----
 GalarTrn_G06M28_o0::
@@ -778,10 +820,11 @@ GalarTrn_G06M28_o0::
 	end
 
 GalarTrn_G06M28_o0_Intro:
-	.string "Outro muleque na caverna?\nVocês estão juntos?$"
+	.string "Another kid in the cave?\n"
+	.string "Are you two together?$"
 
 GalarTrn_G06M28_o0_Derrota:
-	.string "Você me pegou!$"
+	.string "You got me!$"
 
 GalarTrn_G06M28_o1::
 	trainerbattle_single TRAINER_GALAR_JOVAN_169, GalarTrn_G06M28_o1_Intro, GalarTrn_G06M28_o1_Derrota
@@ -790,10 +833,11 @@ GalarTrn_G06M28_o1::
 	end
 
 GalarTrn_G06M28_o1_Intro:
-	.string "O que!\nNão se aproxime de mim$"
+	.string "What!\n"
+	.string "Don't come near me.$"
 
 GalarTrn_G06M28_o1_Derrota:
-	.string "Meu Pokémon não serve!$"
+	.string "My Pokémon is no good!$"
 
 GalarTrn_G06M28_o2::
 	trainerbattle_single TRAINER_GALAR_HANNAH_121, GalarTrn_G06M28_o2_Intro, GalarTrn_G06M28_o2_Derrota
@@ -802,10 +846,12 @@ GalarTrn_G06M28_o2::
 	end
 
 GalarTrn_G06M28_o2_Intro:
-	.string "O que?\pEstou esperando meus amigos\nencontrarem eu aqui.$"
+	.string "What?\p"
+	.string "I'm waiting for my friends to meet me\n"
+	.string "here.$"
 
 GalarTrn_G06M28_o2_Derrota:
-	.string "Eu perdi?$"
+	.string "I lost?$"
 
 @ ---- Galar_GalarMine03 ----
 GalarTrn_G08M20_o10::
@@ -815,10 +861,11 @@ GalarTrn_G08M20_o10::
 	end
 
 GalarTrn_G08M20_o10_Intro:
-	.string "Eek!\pNão tente nada engraçado no\nescuro!$"
+	.string "Eek!\p"
+	.string "Don't try anything funny in the dark!$"
 
 GalarTrn_G08M20_o10_Derrota:
-	.string "Estava muito escuro.$"
+	.string "It was too dark.$"
 
 GalarTrn_G08M20_o2::
 	trainerbattle_single TRAINER_GALAR_GRUNT_12, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G08M20_o2_Derrota
@@ -827,7 +874,7 @@ GalarTrn_G08M20_o2::
 	end
 
 GalarTrn_G08M20_o2_Derrota:
-	.string "realmente voce e forte$"
+	.string "you really are strong$"
 
 GalarTrn_G08M20_o3::
 	trainerbattle_single TRAINER_GALAR_GRUNT_12_2, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G08M20_o3_Derrota
@@ -836,7 +883,7 @@ GalarTrn_G08M20_o3::
 	end
 
 GalarTrn_G08M20_o3_Derrota:
-	.string "realmente voce e forte$"
+	.string "you really are strong$"
 
 GalarTrn_G08M20_o4::
 	trainerbattle_single TRAINER_GALAR_BEDE_11, GalarTrn_Intro_RIVAL, GalarTrn_G08M20_o4_Derrota
@@ -845,7 +892,7 @@ GalarTrn_G08M20_o4::
 	end
 
 GalarTrn_G08M20_o4_Derrota:
-	.string "realmente voce e forte$"
+	.string "you really are strong$"
 
 GalarTrn_G08M20_o8::
 	trainerbattle_single TRAINER_GALAR_DANA_474, GalarTrn_G08M20_o8_Intro, GalarTrn_G08M20_o8_Derrota
@@ -854,10 +901,11 @@ GalarTrn_G08M20_o8::
 	end
 
 GalarTrn_G08M20_o8_Intro:
-	.string "Eu vim até aqui procurando por\nalgum Pokémon selvagem.$"
+	.string "I came all the way here looking for a\n"
+	.string "wild Pokémon.$"
 
 GalarTrn_G08M20_o8_Derrota:
-	.string "Estou sem Pokémon!$"
+	.string "I'm out of Pokémon!$"
 
 GalarTrn_G08M20_o9::
 	trainerbattle_single TRAINER_GALAR_ARIANA_475, GalarTrn_G08M20_o9_Intro, GalarTrn_G08M20_o9_Derrota
@@ -866,10 +914,11 @@ GalarTrn_G08M20_o9::
 	end
 
 GalarTrn_G08M20_o9_Intro:
-	.string "Você tem Pokémon!\nVamos começar!$"
+	.string "You have Pokémon!\n"
+	.string "Let's get started!$"
 
 GalarTrn_G08M20_o9_Derrota:
-	.string "Essa brincadeira foi dificil$"
+	.string "That game was hard.$"
 
 @ ---- Galar_GalarMine05 ----
 GalarTrn_G07M10_o1::
@@ -891,10 +940,11 @@ GalarTrn_G07M10_o4::
 	end
 
 GalarTrn_G07M10_o4_Intro:
-	.string "Você veio batalhar contra o Milo,\ntambém?$"
+	.string "Did you come to battle Milo too?$"
 
 GalarTrn_G07M10_o4_Derrota:
-	.string "Perder fede!\nNo é nada legal.$"
+	.string "Losing stinks!\n"
+	.string "It's not cool at all.$"
 
 @ ---- Galar_GlimwoodTangle01 ----
 GalarTrn_G01M109_o0::
@@ -904,10 +954,12 @@ GalarTrn_G01M109_o0::
 	end
 
 GalarTrn_G01M109_o0_Intro:
-	.string "Estou me sentindo um pouco tonto.\nFaz algum tempo que não caminho.$"
+	.string "I'm feeling a little dizzy. It's been a\n"
+	.string "while since I walked this far.$"
 
 GalarTrn_G01M109_o0_Derrota:
-	.string "Eu estou muito cansado.\nnão estava preparado para isso.$"
+	.string "I'm very tired.\n"
+	.string "I wasn't ready for that.$"
 
 GalarTrn_G01M109_o14::
 	trainerbattle_single TRAINER_GALAR_JACQUELINE_188, GalarTrn_G01M109_o14_Intro, GalarTrn_G01M109_o14_Derrota
@@ -916,10 +968,11 @@ GalarTrn_G01M109_o14::
 	end
 
 GalarTrn_G01M109_o14_Intro:
-	.string "Ah!\nEsse ar daqui é uma delícia!$"
+	.string "Ah!\n"
+	.string "The air here is delightful!$"
 
 GalarTrn_G01M109_o14_Derrota:
-	.string "Isso clareou minha cabeça!$"
+	.string "That cleared my head!$"
 
 GalarTrn_G01M109_o15::
 	trainerbattle_single TRAINER_GALAR_JUDY_163, GalarTrn_G01M109_o15_Intro, GalarTrn_G01M109_o15_Derrota
@@ -928,10 +981,12 @@ GalarTrn_G01M109_o15::
 	end
 
 GalarTrn_G01M109_o15_Intro:
-	.string "Olá!\nQuer ver meu Pokémon?$"
+	.string "Hello!\n"
+	.string "Want to see my Pokémon?$"
 
 GalarTrn_G01M109_o15_Derrota:
-	.string "Oh não!\nMeu Pokémon!$"
+	.string "Oh no!\n"
+	.string "My Pokémon!$"
 
 GalarTrn_G01M109_o16::
 	trainerbattle_single TRAINER_GALAR_CLARK_187, GalarTrn_G01M109_o16_Intro, GalarTrn_G01M109_o16_Derrota
@@ -953,10 +1008,10 @@ GalarTrn_G04M08_o0::
 	end
 
 GalarTrn_G04M08_o0_Intro:
-	.string "Eu represento o Raihan.$"
+	.string "I represent Raihan.$"
 
 GalarTrn_G04M08_o0_Derrota:
-	.string "Perdi$"
+	.string "I lost.$"
 
 GalarTrn_G04M08_o1::
 	trainerbattle_single TRAINER_GALAR_GABRIEL_458, GalarTrn_G04M08_o1_Intro, GalarTrn_G04M08_o1_Derrota
@@ -965,10 +1020,10 @@ GalarTrn_G04M08_o1::
 	end
 
 GalarTrn_G04M08_o1_Intro:
-	.string "Eu represento o Raihan.$"
+	.string "I represent Raihan.$"
 
 GalarTrn_G04M08_o1_Derrota:
-	.string "Perdi$"
+	.string "I lost.$"
 
 GalarTrn_G04M08_o2::
 	trainerbattle_single TRAINER_GALAR_CARLOS_457, GalarTrn_G04M08_o2_Intro, GalarTrn_G04M08_o2_Derrota
@@ -977,10 +1032,10 @@ GalarTrn_G04M08_o2::
 	end
 
 GalarTrn_G04M08_o2_Intro:
-	.string "Eu represento o Raihan.$"
+	.string "I represent Raihan.$"
 
 GalarTrn_G04M08_o2_Derrota:
-	.string "Perdi$"
+	.string "I lost.$"
 
 @ ---- Galar_Hammerlocke10 ----
 GalarTrn_G09M17_o0::
@@ -990,7 +1045,10 @@ GalarTrn_G09M17_o0::
 	end
 
 GalarTrn_G09M17_o0_Derrota:
-	.string "Eu tinha esquecido como as\nbatalhas Pokémon são otimas!\pFaz tanto tempo que eu não luto...\nIsso com certeza foi satisfatorio.$"
+	.string "I'd forgotten how great Pokémon\n"
+	.string "battles are!\p"
+	.string "It's been so long since I fought... That\n"
+	.string "was definitely satisfying.$"
 
 @ ---- Galar_Hammerlocke23 ----
 GalarTrn_G03M06_o10::
@@ -1000,7 +1058,9 @@ GalarTrn_G03M06_o10::
 	end
 
 GalarTrn_G03M06_o10_Derrota:
-	.string "Minha estratégia vai direto ao buraco \nquando tenho todos esses pensamentos\lruins passando pela minha cabeça. $"
+	.string "My strategy goes straight down the\n"
+	.string "drain when I have all these bad\l"
+	.string "thoughts running through my head. $"
 
 GalarTrn_G03M06_o9::
 	trainerbattle_single TRAINER_GALAR_HOP_429_2, GalarTrn_Intro_RIVAL, GalarTrn_G03M06_o9_Derrota
@@ -1009,7 +1069,9 @@ GalarTrn_G03M06_o9::
 	end
 
 GalarTrn_G03M06_o9_Derrota:
-	.string "Minha estratégia vai direto ao buraco \nquando tenho todos esses pensamentos\lruins passando pela minha cabeça. $"
+	.string "My strategy goes straight down the\n"
+	.string "drain when I have all these bad\l"
+	.string "thoughts running through my head. $"
 
 @ ---- Galar_Hulbury06 ----
 GalarTrn_G08M07_o17::
@@ -1019,10 +1081,11 @@ GalarTrn_G08M07_o17::
 	end
 
 GalarTrn_G08M07_o17_Intro:
-	.string "{COLOR LIGHT_RED}Ei, está uma chatice isso aqui.\pQue tal uma batalha para\ndescontrair?$"
+	.string "{COLOR LIGHT_RED}Hey, it's dull around here.\p"
+	.string "How about a battle to loosen things up?$"
 
 GalarTrn_G08M07_o17_Derrota:
-	.string "{COLOR LIGHT_RED}É hora de voltar ao trabalho.$"
+	.string "{COLOR LIGHT_RED}It's time to get back to work.$"
 
 GalarTrn_G08M07_o39::
 	trainerbattle_single TRAINER_GALAR_ROBERT_656, GalarTrn_Intro_COLLECTOR, GalarTrn_G08M07_o39_Derrota
@@ -1031,7 +1094,7 @@ GalarTrn_G08M07_o39::
 	end
 
 GalarTrn_G08M07_o39_Derrota:
-	.string "Droga! Você ganhou...$"
+	.string "Darn! You won...$"
 
 @ ---- Galar_Hulbury07 ----
 GalarTrn_G08M08_o0::
@@ -1041,7 +1104,8 @@ GalarTrn_G08M08_o0::
 	end
 
 GalarTrn_G08M08_o0_Derrota:
-	.string "Team Yell: Gah ... Voce esmagou\nminha tentativa de esmaga$"
+	.string "Team Yell: Gah ... You crushed my attempt\n"
+	.string "to crush.$"
 
 GalarTrn_G08M08_o3::
 	trainerbattle_single TRAINER_GALAR_HOP_332, GalarTrn_Intro_RIVAL, GalarTrn_G08M08_o3_Derrota
@@ -1050,7 +1114,9 @@ GalarTrn_G08M08_o3::
 	end
 
 GalarTrn_G08M08_o3_Derrota:
-	.string "Nós dois conseguimos a insiguina\nde grama,entao como e que você e\pmuito mais forte?! $"
+	.string "We both got the Grass Badge, so how is\n"
+	.string "it that you are\p"
+	.string "so much stronger?! $"
 
 @ ---- Galar_Hulbury08 ----
 GalarTrn_G08M14_o0::
@@ -1097,7 +1163,8 @@ GalarTrn_G08M16_o12::
 	end
 
 GalarTrn_G08M16_o12_Derrota:
-	.string "Eu não entendo.\pO que eu tenho que fazer para\nvencer você, hein?$"
+	.string "I don't get it.\p"
+	.string "What do I have to do to beat you, huh?$"
 
 @ ---- Galar_Hulbury12 ----
 GalarTrn_G08M26_o0::
@@ -1107,7 +1174,8 @@ GalarTrn_G08M26_o0::
 	end
 
 GalarTrn_G08M26_o0_Derrota:
-	.string "Team Yell: Gah ... Voce esmagou\nminha tentativa de esmaga$"
+	.string "Team Yell: Gah ... You crushed my attempt\n"
+	.string "to crush.$"
 
 GalarTrn_G08M26_o3::
 	trainerbattle_single TRAINER_GALAR_HOP_332_2, GalarTrn_Intro_RIVAL, GalarTrn_G08M26_o3_Derrota
@@ -1116,7 +1184,9 @@ GalarTrn_G08M26_o3::
 	end
 
 GalarTrn_G08M26_o3_Derrota:
-	.string "Nós dois conseguimos a insiguina\nde grama,entao como e que você e\pmuito mais forte?! $"
+	.string "We both got the Grass Badge, so how is\n"
+	.string "it that you are\p"
+	.string "so much stronger?! $"
 
 @ ---- Galar_IsleOfArmor05 ----
 GalarTrn_G38M01_o0::
@@ -1126,7 +1196,8 @@ GalarTrn_G38M01_o0::
 	end
 
 GalarTrn_G38M01_o0_Derrota:
-	.string "Klara:Huh ?! Não, não! Não, não,\nnão!Deve haver algum tipo de\lengano!$"
+	.string "Klara: Huh?! No, no! No, no, no! There\n"
+	.string "must be some kind of mistake!$"
 
 @ ---- Galar_IsleOfArmor13 ----
 GalarTrn_G38M09_o30::
@@ -1136,10 +1207,14 @@ GalarTrn_G38M09_o30::
 	end
 
 GalarTrn_G38M09_o30_Intro:
-	.string "Clayton Santos:Wow, você me achou\nmesmo!\pachei que estava escondido\no suficiente, mas enfim ja que\lestamos aqui vamos batalhar!$"
+	.string "Clayton Santos: Wow, you really found\n"
+	.string "me!\p"
+	.string "I thought I was hidden well enough, but\n"
+	.string "anyway, since we're both here, let's\l"
+	.string "battle!$"
 
 GalarTrn_G38M09_o30_Derrota:
-	.string "Clayton Santos:Foi uma boa batalha$"
+	.string "Clayton Santos: That was a good battle.$"
 
 @ ---- Galar_IsleOfArmor19 ----
 GalarTrn_G38M15_o0::
@@ -1149,7 +1224,8 @@ GalarTrn_G38M15_o0::
 	end
 
 GalarTrn_G38M15_o0_Derrota:
-	.string "Vocês, jovens, crescem tão rápido!\pIsso nunca deixa de me\nsurpreender.$"
+	.string "You young people grow up so fast!\p"
+	.string "It never stops surprising me.$"
 
 @ ---- Galar_IsleOfArmor25 ----
 GalarTrn_G38M21_o5::
@@ -1159,7 +1235,8 @@ GalarTrn_G38M21_o5::
 	end
 
 GalarTrn_G38M21_o5_Derrota:
-	.string "Vocês, jovens, crescem tão rápido!\pIsso nunca deixa de me\nsurpreender.$"
+	.string "You young people grow up so fast!\p"
+	.string "It never stops surprising me.$"
 
 @ ---- Galar_IsleOfArmor32 ----
 GalarTrn_G38M28_o12::
@@ -1169,7 +1246,7 @@ GalarTrn_G38M28_o12::
 	end
 
 GalarTrn_G38M28_o12_Derrota:
-	.string "Lucas: MANO...ISSO FOI DEMAIS!!!$"
+	.string "Lucas: DUDE... THAT WAS AWESOME!!!$"
 
 @ ---- Galar_IsleOfArmor33 ----
 GalarTrn_G38M29_o12::
@@ -1189,7 +1266,9 @@ GalarTrn_G38M30_o12::
 	end
 
 GalarTrn_G38M30_o12_Derrota:
-	.string "Coronel.Phene: essa estratégia...\pessa alma de batalha...\pme lembra muito o boné vermelho,\nmas...$"
+	.string "Coronel.Phene: That strategy...\p"
+	.string "That battling spirit...\p"
+	.string "It reminds me a lot of the red cap, but...$"
 
 @ ---- Galar_Motostoke06 ----
 GalarTrn_G06M12_o2::
@@ -1199,7 +1278,8 @@ GalarTrn_G06M12_o2::
 	end
 
 GalarTrn_G06M12_o2_Derrota:
-	.string "Da um tempo ai!\nTeam Yell se vinguem por mim$"
+	.string "Give it a rest!\n"
+	.string "Team Yell, avenge me!$"
 
 @ ---- Galar_Motostoke16 ----
 GalarTrn_G06M26_o1::
@@ -1209,7 +1289,7 @@ GalarTrn_G06M26_o1::
 	end
 
 GalarTrn_G06M26_o1_Derrota:
-	.string "Nossa..$"
+	.string "Wow..$"
 
 @ ---- Galar_Motostoke18 ----
 GalarTrn_G06M33_o1::
@@ -1256,7 +1336,8 @@ GalarTrn_G06M34_o9::
 	end
 
 GalarTrn_G06M34_o9_Derrota:
-	.string "Bom Pokémon e um otimo Treinador!\pNão é nenhuma surpresa que você\nganhou!$"
+	.string "Good Pokémon and a great Trainer!\p"
+	.string "It's no surprise that you won!$"
 
 @ ---- Galar_Postwick10 ----
 GalarTrn_G01M110_o10::
@@ -1266,10 +1347,12 @@ GalarTrn_G01M110_o10::
 	end
 
 GalarTrn_G01M110_o10_Intro:
-	.string "Olá!\nQuer ver meu Pokémon?$"
+	.string "Hello!\n"
+	.string "Want to see my Pokémon?$"
 
 GalarTrn_G01M110_o10_Derrota:
-	.string "Oh não!\nMeu Pokémon!$"
+	.string "Oh no!\n"
+	.string "My Pokémon!$"
 
 GalarTrn_G01M110_o7::
 	trainerbattle_single TRAINER_GALAR_CLARK_187_2, GalarTrn_G01M110_o7_Intro, GalarTrn_G01M110_o7_Derrota
@@ -1290,10 +1373,12 @@ GalarTrn_G01M110_o8::
 	end
 
 GalarTrn_G01M110_o8_Intro:
-	.string "Estou me sentindo um pouco tonto.\nFaz algum tempo que não caminho.$"
+	.string "I'm feeling a little dizzy. It's been a\n"
+	.string "while since I walked this far.$"
 
 GalarTrn_G01M110_o8_Derrota:
-	.string "Eu estou muito cansado.\nnão estava preparado para isso.$"
+	.string "I'm very tired.\n"
+	.string "I wasn't ready for that.$"
 
 GalarTrn_G01M110_o9::
 	trainerbattle_single TRAINER_GALAR_JACQUELINE_188_2, GalarTrn_G01M110_o9_Intro, GalarTrn_G01M110_o9_Derrota
@@ -1302,10 +1387,11 @@ GalarTrn_G01M110_o9::
 	end
 
 GalarTrn_G01M110_o9_Intro:
-	.string "Ah!\nEsse ar daqui é uma delícia!$"
+	.string "Ah!\n"
+	.string "The air here is delightful!$"
 
 GalarTrn_G01M110_o9_Derrota:
-	.string "Isso clareou minha cabeça!$"
+	.string "That cleared my head!$"
 
 @ ---- Galar_Postwick166 ----
 GalarTrn_G39M41_o0::
@@ -1315,7 +1401,8 @@ GalarTrn_G39M41_o0::
 	end
 
 GalarTrn_G39M41_o0_Derrota:
-	.string "Martha Santos:poxa...\nfiz o meu melhor...$"
+	.string "Martha Santos: Aw...\n"
+	.string "I did my best...$"
 
 @ ---- Galar_Postwick40 ----
 GalarTrn_G07M07_o2::
@@ -1325,10 +1412,11 @@ GalarTrn_G07M07_o2::
 	end
 
 GalarTrn_G07M07_o2_Intro:
-	.string "Com licença!\nVocê olhou para mim, não foi?$"
+	.string "Excuse me!\n"
+	.string "You looked at me, didn't you?$"
 
 GalarTrn_G07M07_o2_Derrota:
-	.string "Você é mau!$"
+	.string "You're mean!$"
 
 GalarTrn_G07M07_o3::
 	trainerbattle_single TRAINER_GALAR_ANA_211_2, GalarTrn_G07M07_o3_Intro, GalarTrn_G07M07_o3_Derrota
@@ -1337,10 +1425,13 @@ GalarTrn_G07M07_o3::
 	end
 
 GalarTrn_G07M07_o3_Intro:
-	.string "Oi!\nEu gosto de All Stars!\pEles são deliciosamente confortáveis e\nfácil de usar!$"
+	.string "Hi!\n"
+	.string "I like All Stars!\p"
+	.string "They're delightfully comfortable and\n"
+	.string "easy to wear!$"
 
 GalarTrn_G07M07_o3_Derrota:
-	.string "Eu no acredito!$"
+	.string "I don't believe it!$"
 
 GalarTrn_G07M07_o5::
 	trainerbattle_single TRAINER_GALAR_ROBIN_118_2, GalarTrn_G07M07_o5_Intro, GalarTrn_G07M07_o5_Derrota
@@ -1349,10 +1440,11 @@ GalarTrn_G07M07_o5::
 	end
 
 GalarTrn_G07M07_o5_Intro:
-	.string "Eek!\nVocê me tocou?$"
+	.string "Eek!\n"
+	.string "You touched me?$"
 
 GalarTrn_G07M07_o5_Derrota:
-	.string "É isso?$"
+	.string "Is that it?$"
 
 GalarTrn_G07M07_o6::
 	trainerbattle_single TRAINER_GALAR_JAMES_107_2, GalarTrn_G07M07_o6_Intro, GalarTrn_G07M07_o6_Derrota
@@ -1361,10 +1453,11 @@ GalarTrn_G07M07_o6::
 	end
 
 GalarTrn_G07M07_o6_Intro:
-	.string "Eu vou lutar com você com o Pokémon\nAcabei de pegar.$"
+	.string "I'll battle you with the Pokémon I just\n"
+	.string "caught.$"
 
 GalarTrn_G07M07_o6_Derrota:
-	.string "Devia ter treinado mais...$"
+	.string "I should have trained more...$"
 
 @ ---- Galar_Postwick53 ----
 GalarTrn_G08M21_o0::
@@ -1374,7 +1467,8 @@ GalarTrn_G08M21_o0::
 	end
 
 GalarTrn_G08M21_o0_Derrota:
-	.string "Team Yell: Gah ... Voce esmagou\nminha tentativa de esmaga$"
+	.string "Team Yell: Gah ... You crushed my attempt\n"
+	.string "to crush.$"
 
 GalarTrn_G08M21_o3::
 	trainerbattle_single TRAINER_GALAR_JONH_5_3, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G08M21_o3_Derrota
@@ -1383,7 +1477,8 @@ GalarTrn_G08M21_o3::
 	end
 
 GalarTrn_G08M21_o3_Derrota:
-	.string "Team Yell: Gah ... Voce esmagou\nminha tentativa de esmaga$"
+	.string "Team Yell: Gah ... You crushed my attempt\n"
+	.string "to crush.$"
 
 @ ---- Galar_RixyChamber01 ----
 GalarTrn_G03M53_o0::
@@ -1460,7 +1555,7 @@ GalarTrn_G01M90_o1::
 	end
 
 GalarTrn_G01M90_o1_Intro:
-	.string "Sou pago para te impedir!$"
+	.string "I'm paid to stop you!$"
 
 GalarTrn_G01M90_o1_Derrota:
 	.string "Hmm?$"
@@ -1473,7 +1568,8 @@ GalarTrn_G01M91_o0::
 	end
 
 GalarTrn_G01M91_o0_Intro:
-	.string "Pare!\pIsso é pelo bem de galar!$"
+	.string "Stop!\p"
+	.string "This is for the good of Galar!$"
 
 GalarTrn_G01M91_o0_Derrota:
 	.string "What!$"
@@ -1485,10 +1581,10 @@ GalarTrn_G01M91_o1::
 	end
 
 GalarTrn_G01M91_o1_Intro:
-	.string "Que descuido!$"
+	.string "How careless!$"
 
 GalarTrn_G01M91_o1_Derrota:
-	.string "O que?$"
+	.string "What?$"
 
 @ ---- Galar_RoseTower03 ----
 GalarTrn_G01M92_o1::
@@ -1498,7 +1594,7 @@ GalarTrn_G01M92_o1::
 	end
 
 GalarTrn_G01M92_o1_Intro:
-	.string "SAIA DAQUI!$"
+	.string "GET OUT OF HERE!$"
 
 GalarTrn_G01M92_o1_Derrota:
 	.string "Gasp!$"
@@ -1511,7 +1607,9 @@ GalarTrn_G01M94_o1::
 	end
 
 GalarTrn_G01M94_o1_Derrota:
-	.string "  suspiro   Eu não consegui vencer\n... Oleana ... você realmente é\luma mulher sem esperança.$"
+	.string "  sigh   I couldn't win.\n"
+	.string "... Oleana ... you really are\l"
+	.string "a hopeless woman.$"
 
 @ ---- Galar_Route0202 ----
 GalarTrn_G05M12_o3::
@@ -1521,10 +1619,11 @@ GalarTrn_G05M12_o3::
 	end
 
 GalarTrn_G05M12_o3_Intro:
-	.string "Ei! Você tem Pokémon!\nVamos batalhar!$"
+	.string "Hey! You have Pokémon!\n"
+	.string "Let's battle!$"
 
 GalarTrn_G05M12_o3_Derrota:
-	.string "AHa, Cara...$"
+	.string "Aha, man...$"
 
 GalarTrn_G05M12_o5::
 	trainerbattle_single TRAINER_GALAR_SAMMY_104, GalarTrn_G05M12_o5_Intro, GalarTrn_G05M12_o5_Derrota
@@ -1533,10 +1632,12 @@ GalarTrn_G05M12_o5::
 	end
 
 GalarTrn_G05M12_o5_Intro:
-	.string "Ei, espere!\nQual é a pressa?$"
+	.string "Hey, wait!\n"
+	.string "What's the rush?$"
 
 GalarTrn_G05M12_o5_Derrota:
-	.string "Eu desisto!\nVocê é bom nisso!$"
+	.string "I give up!\n"
+	.string "You're good at this!$"
 
 GalarTrn_G05M12_o6::
 	trainerbattle_single TRAINER_GALAR_ANTHONY_531, GalarTrn_G05M12_o6_Intro, GalarTrn_G05M12_o6_Derrota
@@ -1545,10 +1646,12 @@ GalarTrn_G05M12_o6::
 	end
 
 GalarTrn_G05M12_o6_Intro:
-	.string "Posso ser pequeno, mas no vou\ngostar é se você pegar leve comigo!$"
+	.string "I may be small, but what I won't like is\n"
+	.string "you going easy on me!$"
 
 GalarTrn_G05M12_o6_Derrota:
-	.string "Ah, Certo.\ndeu erradio.$"
+	.string "Ah, right.\n"
+	.string "It went wrong.$"
 
 @ ---- Galar_Route0301 ----
 GalarTrn_G06M17_o2::
@@ -1558,10 +1661,11 @@ GalarTrn_G06M17_o2::
 	end
 
 GalarTrn_G06M17_o2_Intro:
-	.string "Com licença!\nVocê olhou para mim, não foi?$"
+	.string "Excuse me!\n"
+	.string "You looked at me, didn't you?$"
 
 GalarTrn_G06M17_o2_Derrota:
-	.string "Você é mau!$"
+	.string "You're mean!$"
 
 GalarTrn_G06M17_o3::
 	trainerbattle_single TRAINER_GALAR_ANA_211, GalarTrn_G06M17_o3_Intro, GalarTrn_G06M17_o3_Derrota
@@ -1570,10 +1674,13 @@ GalarTrn_G06M17_o3::
 	end
 
 GalarTrn_G06M17_o3_Intro:
-	.string "Oi!\nEu gosto de All Stars!\pEles são deliciosamente confortáveis e\nfácil de usar!$"
+	.string "Hi!\n"
+	.string "I like All Stars!\p"
+	.string "They're delightfully comfortable and\n"
+	.string "easy to wear!$"
 
 GalarTrn_G06M17_o3_Derrota:
-	.string "Eu no acredito!$"
+	.string "I don't believe it!$"
 
 GalarTrn_G06M17_o4::
 	trainerbattle_single TRAINER_GALAR_CALVIN_90, GalarTrn_G06M17_o4_Intro, GalarTrn_G06M17_o4_Derrota
@@ -1582,10 +1689,12 @@ GalarTrn_G06M17_o4::
 	end
 
 GalarTrn_G06M17_o4_Intro:
-	.string "Ei! Eu te vi na TV!\nO que você tem ai?$"
+	.string "Hey! I saw you on TV!\n"
+	.string "What have you got there?$"
 
 GalarTrn_G06M17_o4_Derrota:
-	.string "Perdido!\nPerdido! estou Perdido!$"
+	.string "Lost!\n"
+	.string "Lost! I'm Lost!$"
 
 GalarTrn_G06M17_o5::
 	trainerbattle_single TRAINER_GALAR_ROBIN_118, GalarTrn_G06M17_o5_Intro, GalarTrn_G06M17_o5_Derrota
@@ -1594,10 +1703,11 @@ GalarTrn_G06M17_o5::
 	end
 
 GalarTrn_G06M17_o5_Intro:
-	.string "Eek!\nVocê me tocou?$"
+	.string "Eek!\n"
+	.string "You touched me?$"
 
 GalarTrn_G06M17_o5_Derrota:
-	.string "É isso?$"
+	.string "Is that it?$"
 
 GalarTrn_G06M17_o6::
 	trainerbattle_single TRAINER_GALAR_JAMES_107, GalarTrn_G06M17_o6_Intro, GalarTrn_G06M17_o6_Derrota
@@ -1606,10 +1716,11 @@ GalarTrn_G06M17_o6::
 	end
 
 GalarTrn_G06M17_o6_Intro:
-	.string "Eu vou lutar com você com o Pokémon\nAcabei de pegar.$"
+	.string "I'll battle you with the Pokémon I just\n"
+	.string "caught.$"
 
 GalarTrn_G06M17_o6_Derrota:
-	.string "Devia ter treinado mais...$"
+	.string "I should have trained more...$"
 
 @ ---- Galar_Route0401 ----
 GalarTrn_G07M17_o2::
@@ -1619,10 +1730,11 @@ GalarTrn_G07M17_o2::
 	end
 
 GalarTrn_G07M17_o2_Intro:
-	.string "Você veio batalhar contra o Milo,\ntambém?$"
+	.string "Did you come to battle Milo too?$"
 
 GalarTrn_G07M17_o2_Derrota:
-	.string "Perder fede!\nNo é nada legal.$"
+	.string "Losing stinks!\n"
+	.string "It's not cool at all.$"
 
 @ ---- Galar_Route0501 ----
 GalarTrn_G08M06_o4::
@@ -1632,10 +1744,11 @@ GalarTrn_G08M06_o4::
 	end
 
 GalarTrn_G08M06_o4_Intro:
-	.string "Competir é a emoção final.\nEu ainda não me canso!$"
+	.string "Competing is the ultimate thrill.\n"
+	.string "I still can't get enough of it!$"
 
 GalarTrn_G08M06_o4_Derrota:
-	.string "Eu tive uma chance!$"
+	.string "I had a chance!$"
 
 @ ---- Galar_Route0601 ----
 GalarTrn_G10M20_o0::
@@ -1645,7 +1758,8 @@ GalarTrn_G10M20_o0::
 	end
 
 GalarTrn_G10M20_o0_Derrota:
-	.string "Ah, cara! O ar sofisticado daqui\ncortou meu barato!$"
+	.string "Ah, man! The posh air around here killed\n"
+	.string "my buzz!$"
 
 GalarTrn_G10M20_o1::
 	trainerbattle_single TRAINER_GALAR_GRUNT_13_2, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G10M20_o1_Derrota
@@ -1654,7 +1768,8 @@ GalarTrn_G10M20_o1::
 	end
 
 GalarTrn_G10M20_o1_Derrota:
-	.string "Ah, cara! O ar sofisticado daqui\ncortou meu barato!$"
+	.string "Ah, man! The posh air around here killed\n"
+	.string "my buzz!$"
 
 GalarTrn_G10M20_o10::
 	trainerbattle_single TRAINER_GALAR_DIANE_151, GalarTrn_G10M20_o10_Intro, GalarTrn_G10M20_o10_Derrota
@@ -1663,10 +1778,13 @@ GalarTrn_G10M20_o10::
 	end
 
 GalarTrn_G10M20_o10_Intro:
-	.string "Com licença!\nEsta é uma conversa privada!\lcomigo mesmo!$"
+	.string "Excuse me!\n"
+	.string "This is a private conversation!\l"
+	.string "With myself!$"
 
 GalarTrn_G10M20_o10_Derrota:
-	.string "Eca!\nEu odeio perder.$"
+	.string "Ugh!\n"
+	.string "I hate losing.$"
 
 GalarTrn_G10M20_o26::
 	trainerbattle_single TRAINER_GALAR_ISABELLE_152, GalarTrn_G10M20_o26_Intro, GalarTrn_G10M20_o26_Derrota
@@ -1675,10 +1793,11 @@ GalarTrn_G10M20_o26::
 	end
 
 GalarTrn_G10M20_o26_Intro:
-	.string "eu?\nBem, ok. Eu vou jogar!$"
+	.string "me?\n"
+	.string "Well, okay. I'll play!$"
 
 GalarTrn_G10M20_o26_Derrota:
-	.string "As coisas simplesmente não\nfuncionaram pra mim...$"
+	.string "Things just didn't work out for me...$"
 
 GalarTrn_G10M20_o6::
 	trainerbattle_single TRAINER_GALAR_HANNA_172, GalarTrn_G10M20_o6_Intro, GalarTrn_G10M20_o6_Derrota
@@ -1687,10 +1806,11 @@ GalarTrn_G10M20_o6::
 	end
 
 GalarTrn_G10M20_o6_Intro:
-	.string "Você deve estar informado.\nVocê precisa de estratégia\lpara vencer nisso!$"
+	.string "You have to be informed.\n"
+	.string "You need strategy to win at this!$"
 
 GalarTrn_G10M20_o6_Derrota:
-	.string "Não é lógico!$"
+	.string "That isn't logical!$"
 
 GalarTrn_G10M20_o7::
 	trainerbattle_single TRAINER_GALAR_RUTH_111, GalarTrn_G10M20_o7_Intro, GalarTrn_G10M20_o7_Derrota
@@ -1699,10 +1819,11 @@ GalarTrn_G10M20_o7::
 	end
 
 GalarTrn_G10M20_o7_Intro:
-	.string "Não há muitos insetos aqui.$"
+	.string "There aren't many bugs here.$"
 
 GalarTrn_G10M20_o7_Derrota:
-	.string "Não!\nVocê está brincando!$"
+	.string "No!\n"
+	.string "You're kidding!$"
 
 GalarTrn_G10M20_o9::
 	trainerbattle_single TRAINER_GALAR_IWAN_E_EVEL_145, GalarTrn_G10M20_o9_Intro, GalarTrn_G10M20_o9_Derrota
@@ -1711,10 +1832,10 @@ GalarTrn_G10M20_o9::
 	end
 
 GalarTrn_G10M20_o9_Intro:
-	.string "Quem está aí?$"
+	.string "Who's there?$"
 
 GalarTrn_G10M20_o9_Derrota:
-	.string "Eu simplesmente não consigo vencer!$"
+	.string "I just can't win!$"
 
 @ ---- Galar_Route0701 ----
 GalarTrn_G09M13_o0::
@@ -1724,10 +1845,12 @@ GalarTrn_G09M13_o0::
 	end
 
 GalarTrn_G09M13_o0_Intro:
-	.string "Quando eu assobio,\nposso invocar um Pokémon.$"
+	.string "When I whistle,\n"
+	.string "I can call a Pokémon.$"
 
 GalarTrn_G09M13_o0_Derrota:
-	.string "Ai!\nIsso é trágico!$"
+	.string "Ow!\n"
+	.string "That's tragic!$"
 
 GalarTrn_G09M13_o1::
 	trainerbattle_single TRAINER_GALAR_YAZMIN_478, GalarTrn_G09M13_o1_Intro, GalarTrn_G09M13_o1_Derrota
@@ -1736,10 +1859,10 @@ GalarTrn_G09M13_o1::
 	end
 
 GalarTrn_G09M13_o1_Intro:
-	.string "Quer brincar com meu Pokémon?$"
+	.string "Want to play with my Pokémon?$"
 
 GalarTrn_G09M13_o1_Derrota:
-	.string "Eu estava muito impaciente!$"
+	.string "I was far too impatient!$"
 
 GalarTrn_G09M13_o10::
 	trainerbattle_single TRAINER_GALAR_BRUCE_306, GalarTrn_G09M13_o10_Intro, GalarTrn_G09M13_o10_Derrota
@@ -1748,10 +1871,10 @@ GalarTrn_G09M13_o10::
 	end
 
 GalarTrn_G09M13_o10_Intro:
-	.string "Você é bom, não é?$"
+	.string "You're good, aren't you?$"
 
 GalarTrn_G09M13_o10_Derrota:
-	.string "Assim como pensei!$"
+	.string "Just as I thought!$"
 
 GalarTrn_G09M13_o9::
 	lock
@@ -1767,10 +1890,11 @@ GalarTrn_G09M13_o9_Fim:
 	end
 
 GalarTrn_G09M13_o9_Derrota:
-	.string "vamos batalhar!$"
+	.string "let's battle!$"
 
 GalarTrn_G09M13_o9_Vitoria:
-	.string "Que merda...Minha equipe não pode\nbatalhar bem se eu não conseguir\lcolocar minha cabeça no lugar.$"
+	.string "Damn it... My team can't battle well if I\n"
+	.string "can't get my head straight.$"
 
 @ ---- Galar_Route0801 ----
 GalarTrn_G12M08_o10::
@@ -1780,10 +1904,11 @@ GalarTrn_G12M08_o10::
 	end
 
 GalarTrn_G12M08_o10_Intro:
-	.string "Eu não vou perder.\pNão quando o vento sopra\nna minha direção!$"
+	.string "I'm not going to lose.\p"
+	.string "Not when the wind is blowing my way!$"
 
 GalarTrn_G12M08_o10_Derrota:
-	.string "O vento mudou!$"
+	.string "The wind has changed!$"
 
 GalarTrn_G12M08_o11::
 	trainerbattle_single TRAINER_GALAR_CHARLES_302, GalarTrn_G12M08_o11_Intro, GalarTrn_G12M08_o11_Derrota
@@ -1792,10 +1917,11 @@ GalarTrn_G12M08_o11::
 	end
 
 GalarTrn_G12M08_o11_Intro:
-	.string "Eu sempre vou com meus Pokémon\nEu me dediquei a eles.$"
+	.string "I always go with my Pokémon.\n"
+	.string "I've devoted myself to them.$"
 
 GalarTrn_G12M08_o11_Derrota:
-	.string "Fora do poder!$"
+	.string "Out of power!$"
 
 GalarTrn_G12M08_o7::
 	trainerbattle_single TRAINER_GALAR_JORDAN_469, GalarTrn_G12M08_o7_Intro, GalarTrn_G12M08_o7_Derrota
@@ -1804,10 +1930,11 @@ GalarTrn_G12M08_o7::
 	end
 
 GalarTrn_G12M08_o7_Intro:
-	.string "Meus Pokémon fofos desejam\nconhecer o seu.$"
+	.string "My cute Pokémon want to meet yours.$"
 
 GalarTrn_G12M08_o7_Derrota:
-	.string "Bom andamento!\nVocê ganhou totalmente!$"
+	.string "Good going!\n"
+	.string "You won outright!$"
 
 GalarTrn_G12M08_o9::
 	trainerbattle_single TRAINER_GALAR_JOANNA_195, GalarTrn_G12M08_o9_Intro, GalarTrn_G12M08_o9_Derrota
@@ -1816,10 +1943,10 @@ GalarTrn_G12M08_o9::
 	end
 
 GalarTrn_G12M08_o9_Intro:
-	.string "O que você está olhando?$"
+	.string "What are you looking at?$"
 
 GalarTrn_G12M08_o9_Derrota:
-	.string "Droga!$"
+	.string "Darn!$"
 
 @ ---- Galar_Route0802 ----
 GalarTrn_G12M09_o0::
@@ -1829,10 +1956,11 @@ GalarTrn_G12M09_o0::
 	end
 
 GalarTrn_G12M09_o0_Intro:
-	.string "Este é o meu território!\nSaia daqui!$"
+	.string "This is my territory!\n"
+	.string "Get out of here!$"
 
 GalarTrn_G12M09_o0_Derrota:
-	.string "Droga!$"
+	.string "Darn!$"
 
 @ ---- Galar_Route0901 ----
 GalarTrn_G14M11_o1::
@@ -1842,7 +1970,9 @@ GalarTrn_G14M11_o1::
 	end
 
 GalarTrn_G14M11_o1_Derrota:
-	.string "Como isso é possivel?!\nMeus pokémons não tiveram a chance\lnem de batalhar direito.Ugh!$"
+	.string "How is this possible?! My Pokémon didn't\n"
+	.string "even get the chance to battle properly.\l"
+	.string "Ugh!$"
 
 GalarTrn_G14M11_o10::
 	trainerbattle_single TRAINER_GALAR_OLIVIER_274, GalarTrn_G14M11_o10_Intro, GalarTrn_G14M11_o10_Derrota
@@ -1851,10 +1981,12 @@ GalarTrn_G14M11_o10::
 	end
 
 GalarTrn_G14M11_o10_Intro:
-	.string "Eu crio Pokémon para proteção\nporque moro sozinho.$"
+	.string "I raise Pokémon for protection because\n"
+	.string "I live alone.$"
 
 GalarTrn_G14M11_o10_Derrota:
-	.string "Pokémon não é sobre vencer ou\nperdendo para mim.$"
+	.string "To me, Pokémon isn't about winning or\n"
+	.string "losing.$"
 
 GalarTrn_G14M11_o11::
 	trainerbattle_single TRAINER_GALAR_GRACE_273, GalarTrn_G14M11_o11_Intro, GalarTrn_G14M11_o11_Derrota
@@ -1863,10 +1995,11 @@ GalarTrn_G14M11_o11::
 	end
 
 GalarTrn_G14M11_o11_Intro:
-	.string "Ah, você é uma gracinha!\ncomo um Pokémon!$"
+	.string "Ah, you're adorable!\n"
+	.string "Just like a Pokémon!$"
 
 GalarTrn_G14M11_o11_Derrota:
-	.string "Você parecia tão fofo antes!$"
+	.string "You looked so cute before!$"
 
 GalarTrn_G14M11_o13::
 	trainerbattle_single TRAINER_GALAR_ERNEST_197, GalarTrn_G14M11_o13_Intro, GalarTrn_G14M11_o13_Derrota
@@ -1875,10 +2008,10 @@ GalarTrn_G14M11_o13::
 	end
 
 GalarTrn_G14M11_o13_Intro:
-	.string "Ei! Vamos lá!$"
+	.string "Hey! Let's go!$"
 
 GalarTrn_G14M11_o13_Derrota:
-	.string "Por que não?$"
+	.string "Why not?$"
 
 GalarTrn_G14M11_o14::
 	trainerbattle_single TRAINER_GALAR_BECKY_480, GalarTrn_G14M11_o14_Intro, GalarTrn_G14M11_o14_Derrota
@@ -1887,10 +2020,11 @@ GalarTrn_G14M11_o14::
 	end
 
 GalarTrn_G14M11_o14_Intro:
-	.string "Você parece gentil, então acho\nque posso bater em você.\pVou tentar!$"
+	.string "You look nice, so I think I can beat you.\p"
+	.string "I'll give it a try!$"
 
 GalarTrn_G14M11_o14_Derrota:
-	.string "Não, errado!$"
+	.string "No, wrong!$"
 
 GalarTrn_G14M11_o16::
 	trainerbattle_single TRAINER_GALAR_ISAIAH_252, GalarTrn_G14M11_o16_Intro, GalarTrn_G14M11_o16_Derrota
@@ -1899,10 +2033,11 @@ GalarTrn_G14M11_o16::
 	end
 
 GalarTrn_G14M11_o16_Intro:
-	.string "Não há como ficar rico rapidamente\nlutando contra crianças.$"
+	.string "There's no getting rich quick by\n"
+	.string "battling children.$"
 
 GalarTrn_G14M11_o16_Derrota:
-	.string "Queima inferno!$"
+	.string "Burn, hellfire!$"
 
 GalarTrn_G14M11_o4::
 	trainerbattle_single TRAINER_GALAR_ANA_59, GalarTrn_Intro_TEAM_AQUA, GalarTrn_G14M11_o4_Derrota
@@ -1911,7 +2046,8 @@ GalarTrn_G14M11_o4::
 	end
 
 GalarTrn_G14M11_o4_Derrota:
-	.string "  suspiro   Eu quero voltar para\nSpikemuth.So isso.$"
+	.string "  sigh   I want to go back to\n"
+	.string "Spikemuth. That's all.$"
 
 GalarTrn_G14M11_o45::
 	trainerbattle_single TRAINER_GALAR_VIRGIL_470, GalarTrn_G14M11_o45_Intro, GalarTrn_G14M11_o45_Derrota
@@ -1920,10 +2056,10 @@ GalarTrn_G14M11_o45::
 	end
 
 GalarTrn_G14M11_o45_Intro:
-	.string "Você está indo para Spikemurth?$"
+	.string "Are you heading to Spikemuth?$"
 
 GalarTrn_G14M11_o45_Derrota:
-	.string "Bate e queima!$"
+	.string "Crash and burn!$"
 
 GalarTrn_G14M11_o9::
 	trainerbattle_single TRAINER_GALAR_KINDRA_479, GalarTrn_G14M11_o9_Intro, GalarTrn_G14M11_o9_Derrota
@@ -1932,10 +2068,11 @@ GalarTrn_G14M11_o9::
 	end
 
 GalarTrn_G14M11_o9_Intro:
-	.string "Acabei de receber alguns Pokémon\nem trocas.\pPosso experimentá-los em você?$"
+	.string "I just got some Pokémon in trades.\p"
+	.string "Can I try them out on you?$"
 
 GalarTrn_G14M11_o9_Derrota:
-	.string "Não esta bom o suficiente!$"
+	.string "That isn't good enough!$"
 
 @ ---- Galar_Route1001 ----
 GalarTrn_G03M28_o6::
@@ -1945,10 +2082,11 @@ GalarTrn_G03M28_o6::
 	end
 
 GalarTrn_G03M28_o6_Intro:
-	.string "Nadar é ótimo!\nMas no gelo não!$"
+	.string "Swimming is great!\n"
+	.string "But not on ice!$"
 
 GalarTrn_G03M28_o6_Derrota:
-	.string "Chocante!$"
+	.string "Shocking!$"
 
 GalarTrn_G03M28_o7::
 	trainerbattle_single TRAINER_GALAR_GILLI_E_CAM_278, GalarTrn_G03M28_o7_Intro, GalarTrn_G03M28_o7_Derrota
@@ -1957,10 +2095,10 @@ GalarTrn_G03M28_o7::
 	end
 
 GalarTrn_G03M28_o7_Intro:
-	.string "Que tal uma entrevista?$"
+	.string "How about an interview?$"
 
 GalarTrn_G03M28_o7_Derrota:
-	.string "isso deve bastar!$"
+	.string "that should do it!$"
 
 GalarTrn_G03M28_o8::
 	trainerbattle_single TRAINER_GALAR_GILLI_E_CAM_278_2, GalarTrn_G03M28_o8_Intro, GalarTrn_G03M28_o8_Derrota
@@ -1969,10 +2107,10 @@ GalarTrn_G03M28_o8::
 	end
 
 GalarTrn_G03M28_o8_Intro:
-	.string "Que tal uma entrevista?$"
+	.string "How about an interview?$"
 
 GalarTrn_G03M28_o8_Derrota:
-	.string "isso deve bastar!$"
+	.string "that should do it!$"
 
 @ ---- Galar_Route1601 ----
 GalarTrn_G10M23_o0::
@@ -1982,10 +2120,10 @@ GalarTrn_G10M23_o0::
 	end
 
 GalarTrn_G10M23_o0_Intro:
-	.string "Eu represento o Allister1$"
+	.string "I represent Allister!$"
 
 GalarTrn_G10M23_o0_Derrota:
-	.string "Você me derrotou..$"
+	.string "You beat me..$"
 
 GalarTrn_G10M23_o1::
 	trainerbattle_single TRAINER_GALAR_JENNIFER_453, GalarTrn_G10M23_o1_Intro, GalarTrn_G10M23_o1_Derrota
@@ -1994,10 +2132,10 @@ GalarTrn_G10M23_o1::
 	end
 
 GalarTrn_G10M23_o1_Intro:
-	.string "Eu represento o Allister1$"
+	.string "I represent Allister!$"
 
 GalarTrn_G10M23_o1_Derrota:
-	.string "Você me derrotou..$"
+	.string "You beat me..$"
 
 GalarTrn_G10M23_o2::
 	trainerbattle_single TRAINER_GALAR_ANGELICA_451, GalarTrn_G10M23_o2_Intro, GalarTrn_G10M23_o2_Derrota
@@ -2006,10 +2144,10 @@ GalarTrn_G10M23_o2::
 	end
 
 GalarTrn_G10M23_o2_Intro:
-	.string "Vamos batalhar$"
+	.string "Let's battle.$"
 
 GalarTrn_G10M23_o2_Derrota:
-	.string "Perdi$"
+	.string "I lost.$"
 
 @ ---- Galar_Route1603 ----
 GalarTrn_G10M26_o0::
@@ -2056,10 +2194,10 @@ GalarTrn_G14M10_o0::
 	end
 
 GalarTrn_G14M10_o0_Intro:
-	.string "Não são permitidas crianças aqui!$"
+	.string "Children aren't allowed in here!$"
 
 GalarTrn_G14M10_o0_Derrota:
-	.string "Difícil!$"
+	.string "Tough!$"
 
 GalarTrn_G14M10_o1::
 	trainerbattle_single TRAINER_GALAR_GRUNT_390_2, GalarTrn_G14M10_o1_Intro, GalarTrn_G14M10_o1_Derrota
@@ -2068,10 +2206,11 @@ GalarTrn_G14M10_o1::
 	end
 
 GalarTrn_G14M10_o1_Intro:
-	.string "Me desculpa por isso mas eu não\nposso te deixar passar!$"
+	.string "I'm sorry about this, but I can't let you\n"
+	.string "through!$"
 
 GalarTrn_G14M10_o1_Derrota:
-	.string "Eu errei!$"
+	.string "I messed up!$"
 
 GalarTrn_G14M10_o10::
 	trainerbattle_single TRAINER_GALAR_PIERS_419, GalarTrn_Intro_LEADER_FRLG, GalarTrn_G14M10_o10_Derrota
@@ -2080,7 +2219,8 @@ GalarTrn_G14M10_o10::
 	end
 
 GalarTrn_G14M10_o10_Derrota:
-	.string "Eu e minha equipe fizemos o\npossivel.Vamos nos encontrar para\lbatalhar novamente em alguma\lhora...$"
+	.string "My team and I did what we could. Let's\n"
+	.string "meet up and battle again sometime...$"
 
 GalarTrn_G14M10_o14::
 	trainerbattle_single TRAINER_GALAR_MARNIE_165, GalarTrn_Intro_RIVAL, GalarTrn_G14M10_o14_Derrota
@@ -2089,7 +2229,7 @@ GalarTrn_G14M10_o14::
 	end
 
 GalarTrn_G14M10_o14_Derrota:
-	.string "Você ganhou!$"
+	.string "You won!$"
 
 GalarTrn_G14M10_o2::
 	trainerbattle_single TRAINER_GALAR_GRUNT_375_2, GalarTrn_G14M10_o2_Intro, GalarTrn_G14M10_o2_Derrota
@@ -2098,10 +2238,10 @@ GalarTrn_G14M10_o2::
 	end
 
 GalarTrn_G14M10_o2_Intro:
-	.string "Pare de brincar com a gente, criança!$"
+	.string "Stop playing around with us, kid!$"
 
 GalarTrn_G14M10_o2_Derrota:
-	.string "Desisto!$"
+	.string "I give up!$"
 
 GalarTrn_G14M10_o3::
 	trainerbattle_single TRAINER_GALAR_GRUNT_379_2, GalarTrn_G14M10_o3_Intro, GalarTrn_G14M10_o3_Derrota
@@ -2110,7 +2250,7 @@ GalarTrn_G14M10_o3::
 	end
 
 GalarTrn_G14M10_o3_Intro:
-	.string "Mostre um pouco de respeito ao Team Yell!$"
+	.string "Show some respect for Team Yell!$"
 
 GalarTrn_G14M10_o3_Derrota:
 	.string "Cough…\nCough…$"
@@ -2122,7 +2262,8 @@ GalarTrn_G14M10_o4::
 	end
 
 GalarTrn_G14M10_o4_Intro:
-	.string "Ouvi dizer que uma criança estava\nvagando em volta.$"
+	.string "I heard a child was wandering around\n"
+	.string "here.$"
 
 GalarTrn_G14M10_o4_Derrota:
 	.string "Boom!$"
@@ -2135,10 +2276,10 @@ GalarTrn_G03M10_o0::
 	end
 
 GalarTrn_G03M10_o0_Intro:
-	.string "Não são permitidas crianças aqui!$"
+	.string "Children aren't allowed in here!$"
 
 GalarTrn_G03M10_o0_Derrota:
-	.string "Difícil!$"
+	.string "Tough!$"
 
 GalarTrn_G03M10_o1::
 	trainerbattle_single TRAINER_GALAR_GRUNT_390, GalarTrn_G03M10_o1_Intro, GalarTrn_G03M10_o1_Derrota
@@ -2147,10 +2288,11 @@ GalarTrn_G03M10_o1::
 	end
 
 GalarTrn_G03M10_o1_Intro:
-	.string "Me desculpa por isso mas eu não\nposso te deixar passar!$"
+	.string "I'm sorry about this, but I can't let you\n"
+	.string "through!$"
 
 GalarTrn_G03M10_o1_Derrota:
-	.string "Eu errei!$"
+	.string "I messed up!$"
 
 GalarTrn_G03M10_o2::
 	trainerbattle_single TRAINER_GALAR_GRUNT_375, GalarTrn_G03M10_o2_Intro, GalarTrn_G03M10_o2_Derrota
@@ -2159,10 +2301,10 @@ GalarTrn_G03M10_o2::
 	end
 
 GalarTrn_G03M10_o2_Intro:
-	.string "Pare de brincar com a gente, criança!$"
+	.string "Stop playing around with us, kid!$"
 
 GalarTrn_G03M10_o2_Derrota:
-	.string "Desisto!$"
+	.string "I give up!$"
 
 GalarTrn_G03M10_o3::
 	trainerbattle_single TRAINER_GALAR_GRUNT_379, GalarTrn_G03M10_o3_Intro, GalarTrn_G03M10_o3_Derrota
@@ -2171,7 +2313,7 @@ GalarTrn_G03M10_o3::
 	end
 
 GalarTrn_G03M10_o3_Intro:
-	.string "Mostre um pouco de respeito ao Team Yell!$"
+	.string "Show some respect for Team Yell!$"
 
 GalarTrn_G03M10_o3_Derrota:
 	.string "Cough…\nCough…$"
@@ -2183,7 +2325,8 @@ GalarTrn_G03M10_o4::
 	end
 
 GalarTrn_G03M10_o4_Intro:
-	.string "Ouvi dizer que uma criança estava\nvagando em volta.$"
+	.string "I heard a child was wandering around\n"
+	.string "here.$"
 
 GalarTrn_G03M10_o4_Derrota:
 	.string "Boom!$"
@@ -2196,7 +2339,9 @@ GalarTrn_G10M21_o10::
 	end
 
 GalarTrn_G10M21_o10_Derrota:
-	.string "Minha estratégia vai direto ao buraco \nquando tenho todos esses pensamentos\lruins passando pela minha cabeça. $"
+	.string "My strategy goes straight down the\n"
+	.string "drain when I have all these bad\l"
+	.string "thoughts running through my head. $"
 
 GalarTrn_G10M21_o9::
 	trainerbattle_single TRAINER_GALAR_HOP_429_4, GalarTrn_Intro_RIVAL, GalarTrn_G10M21_o9_Derrota
@@ -2205,7 +2350,9 @@ GalarTrn_G10M21_o9::
 	end
 
 GalarTrn_G10M21_o9_Derrota:
-	.string "Minha estratégia vai direto ao buraco \nquando tenho todos esses pensamentos\lruins passando pela minha cabeça. $"
+	.string "My strategy goes straight down the\n"
+	.string "drain when I have all these bad\l"
+	.string "thoughts running through my head. $"
 
 @ ---- Galar_StowOnSide09 ----
 GalarTrn_G10M25_o12::
@@ -2215,7 +2362,8 @@ GalarTrn_G10M25_o12::
 	end
 
 GalarTrn_G10M25_o12_Derrota:
-	.string "Estou feliz por ter minha máscara\n...Eu estava fazendo uma careta e\ltanto agora ...$"
+	.string "I'm glad I have my mask... I was pulling\n"
+	.string "quite a face just now ...$"
 
 @ ---- Galar_StowOnSide10 ----
 GalarTrn_G10M27_o12::
@@ -2225,10 +2373,22 @@ GalarTrn_G10M27_o12::
 	end
 
 GalarTrn_G10M27_o12_Intro:
-	.string "Bea:Bem-vindo,Desafiante\nEu sou Bea.\pVocê tem um espirito\ninabalável que não será\lquebrado,não importa como\lvocê seja atacado.\pAcho que vou testar isso,devo?$"
+	.string "Bea: Welcome, Challenger.\n"
+	.string "I'm Bea.\p"
+	.string "You have an unshakable spirit that will\n"
+	.string "not be broken, no matter how you are\l"
+	.string "attacked.\p"
+	.string "I think I'll test that, shall I?$"
 
 GalarTrn_G10M27_o12_Derrota:
-	.string "Bea:Obrigado pela batalha\nUfa...Enfrentar você me deu toda\la explicação que eu\lprecisava.\pLutando contra você e\nsua equipe Eu não\lesperava,mas,isso fez meu coração\ldançar. \pbom ser inabalavel diante da batalha.\nMas é também bom ser levado\lpela batalha.Mais uma vez obrigado.$"
+	.string "Bea: Thank you for the battle. Phew...\n"
+	.string "Facing you gave me all the explanation\l"
+	.string "I needed.\p"
+	.string "Fighting you and your team was not what\n"
+	.string "I expected, but it made my heart dance.\p"
+	.string "It's good to be unshakable in the face\n"
+	.string "of battle. But it's also good to be\l"
+	.string "carried away by it. Thank you again.$"
 
 @ ---- Galar_Turffield05 ----
 GalarTrn_G07M13_o2::
@@ -2250,10 +2410,11 @@ GalarTrn_G07M13_o4::
 	end
 
 GalarTrn_G07M13_o4_Intro:
-	.string "Hahaha!\nVocê não é um pouco durão!!$"
+	.string "Hahaha!\n"
+	.string "You're not tough at all!!$"
 
 GalarTrn_G07M13_o4_Derrota:
-	.string "O que é isso?$"
+	.string "What is this?$"
 
 GalarTrn_G07M13_o5::
 	trainerbattle_single TRAINER_GALAR_ALICIA_154, GalarTrn_G07M13_o5_Intro, GalarTrn_G07M13_o5_Derrota
@@ -2274,10 +2435,12 @@ GalarTrn_G07M13_o6::
 	end
 
 GalarTrn_G07M13_o6_Intro:
-	.string "Hahahaha!\nPode vir!$"
+	.string "Hahahaha!\n"
+	.string "Bring it on!$"
 
 GalarTrn_G07M13_o6_Derrota:
-	.string "Hahahaha!\nVocê me venceu de forma justa!$"
+	.string "Hahahaha!\n"
+	.string "You beat me fair and square!$"
 
 GalarTrn_G07M13_o7::
 	trainerbattle_single TRAINER_GALAR_JEREMY_465, GalarTrn_G07M13_o7_Intro, GalarTrn_G07M13_o7_Derrota
@@ -2286,10 +2449,13 @@ GalarTrn_G07M13_o7::
 	end
 
 GalarTrn_G07M13_o7_Intro:
-	.string "Bwahaha!\nÓtimo! Fiquei entediado, né!$"
+	.string "Bwahaha!\n"
+	.string "Great! I was getting bored!$"
 
 GalarTrn_G07M13_o7_Derrota:
-	.string "Continue assim, hein!\pOh espere.\nEstou sem Pokémon!$"
+	.string "Keep it up, huh!\p"
+	.string "Oh, wait.\n"
+	.string "I'm out of Pokémon!$"
 
 @ ---- Galar_Turffield06 ----
 GalarTrn_G07M14_o12::
@@ -2299,7 +2465,7 @@ GalarTrn_G07M14_o12::
 	end
 
 GalarTrn_G07M14_o12_Derrota:
-	.string "O poder da grama foi murchado...$"
+	.string "The power of Grass has withered...$"
 
 @ ---- Galar_TurffieldIndoor01 ----
 GalarTrn_G13M08_o12::
@@ -2309,10 +2475,19 @@ GalarTrn_G13M08_o12::
 	end
 
 GalarTrn_G13M08_o12_Intro:
-	.string "Marnie: heh...Sabia que você seria\ncapa de pegar todas as insignias\le me encontrar aqui.\ptambem sei que muitas coisas\nocorreram entre n s dois com meu\lirmão,com o team yell, a ajuda em\lspikemuth e tudo mais...\pMas a verdade é que quando tudo\nque foi dito for feito...\leu realmente quero me tornar a\lcampeãn por conta propria então\lnão leve pro pessoal quando eu te\lderrotar!$"
+	.string "Marnie: Heh... I knew you'd be able to\n"
+	.string "collect every Badge and meet me here.\p"
+	.string "I also know a lot went on between the\n"
+	.string "two of us, with my brother, with Team\l"
+	.string "Yell, the help in Spikemuth and all the\l"
+	.string "rest...\p"
+	.string "But the truth is that when all is said\n"
+	.string "and done... I really want to become the\l"
+	.string "Champion on my own, so don't take it\l"
+	.string "personally when I beat you!$"
 
 GalarTrn_G13M08_o12_Derrota:
-	.string "Você me derrotou$"
+	.string "You beat me$"
 
 @ ---- Galar_TurffieldIndoor02 ----
 GalarTrn_G13M09_o12::
@@ -2329,7 +2504,7 @@ GalarTrn_G13M09_o12_Fim:
 	end
 
 GalarTrn_G13M09_o12_Derrota:
-	.string "vamos lutar$"
+	.string "let's fight$"
 
 GalarTrn_G13M09_o12_Vitoria:
 	.string "You crushed me…$"
@@ -2342,10 +2517,13 @@ GalarTrn_G13M14_o12::
 	end
 
 GalarTrn_G13M14_o12_Intro:
-	.string "Twilight Wings foi um bom anime,\nnão é?\peu sou Jon finalmente me curei da\nminha doença e agora sou um grande\ltreinador!$"
+	.string "Twilight Wings was a good anime, wasn't\n"
+	.string "it?\p"
+	.string "I'm Jon. I finally got over my illness\n"
+	.string "and now I'm a great Trainer!$"
 
 GalarTrn_G13M14_o12_Derrota:
-	.string "Wow isso foi incrivel!!!$"
+	.string "Wow, that was incredible!!!$"
 
 @ ---- Galar_TurffieldIndoor05 ----
 GalarTrn_G13M15_o12::
@@ -2355,10 +2533,11 @@ GalarTrn_G13M15_o12::
 	end
 
 GalarTrn_G13M15_o12_Intro:
-	.string "Eu sou Tommy, Sou do anime de\nTwilight Wings, e agora eu vou\lganhar!!!$"
+	.string "I'm Tommy. I'm from the Twilight Wings\n"
+	.string "anime, and now I'm going to win!!!$"
 
 GalarTrn_G13M15_o12_Derrota:
-	.string "Parabéns!$"
+	.string "Congratulations!$"
 
 @ ---- Galar_TurffieldIndoor06 ----
 GalarTrn_G13M16_o12::
@@ -2368,10 +2547,12 @@ GalarTrn_G13M16_o12::
 	end
 
 GalarTrn_G13M16_o12_Intro:
-	.string "Olá... Meu nome é Isadora!\pE você terá que batalhar comigo\naqui, e agora!$"
+	.string "Hello... My name is Isadora!\p"
+	.string "And you'll have to battle me here and\n"
+	.string "now!$"
 
 GalarTrn_G13M16_o12_Derrota:
-	.string "Por sorte você conseguiu ganhar...$"
+	.string "You managed to win by luck...$"
 
 @ ---- Galar_TurffieldIndoor08 ----
 GalarTrn_G13M19_o12::
@@ -2381,10 +2562,17 @@ GalarTrn_G13M19_o12::
 	end
 
 GalarTrn_G13M19_o12_Intro:
-	.string "Agora que eu vi que tipo de força\nvocê possui como o maior dos\ldesafiadores ... esmagá-lo na\lsujeira mostrará a todos o quão\lforte seu campeão realmente é!$"
+	.string "Now that I have seen what kind of\n"
+	.string "strength you have as the greatest of\l"
+	.string "challengers... crushing you into the\l"
+	.string "dirt will show everyone how strong your\l"
+	.string "Champion really is!$"
 
 GalarTrn_G13M19_o12_Derrota:
-	.string "Meu tempo como campeão acabou ...\nMas que tempo de campeão tem sido!\p\nObrigado pela maior batalha\lque já tive!$"
+	.string "My time as Champion is over ...\n"
+	.string "But what a time as Champion it has been!\p"
+	.string "Thank you for the greatest battle I\n"
+	.string "have ever had!$"
 
 @ ---- Galar_TurffieldIndoor09 ----
 GalarTrn_G35M08_o12::
@@ -2394,7 +2582,8 @@ GalarTrn_G35M08_o12::
 	end
 
 GalarTrn_G35M08_o12_Derrota:
-	.string "Foi uma batalha incrivel,\nespere so, batalharemos de novo\lalgum outro dia!$"
+	.string "That was an incredible battle. Just\n"
+	.string "wait, we'll battle again some other day!$"
 
 @ ---- Galar_TurffieldIndoor10 ----
 GalarTrn_G35M09_o12::
@@ -2414,7 +2603,10 @@ GalarTrn_G35M10_o12::
 	end
 
 GalarTrn_G35M10_o12_Derrota:
-	.string "Uau, tenho que melhorar mais,\nafinal, nunca se sabe quando\lalguém forte como você vai estar\lna minha frente novamente.$"
+	.string "Wow, I have to get better. After all, you\n"
+	.string "never know when someone as strong as\l"
+	.string "you will be standing in front of me\l"
+	.string "again.$"
 
 @ ---- Galar_TurffieldIndoor13 ----
 GalarTrn_G35M12_o12::
@@ -2424,7 +2616,8 @@ GalarTrn_G35M12_o12::
 	end
 
 GalarTrn_G35M12_o12_Derrota:
-	.string "QUê! não pense que esse\nfoi nossa ultima batalha, eu\lainda terei uma revanche.$"
+	.string "WHAT! Don't think that was our last\n"
+	.string "battle, I'll still have a rematch.$"
 
 @ ---- Galar_TurffieldIndoor14 ----
 GalarTrn_G35M13_o12::
@@ -2434,7 +2627,9 @@ GalarTrn_G35M13_o12::
 	end
 
 GalarTrn_G35M13_o12_Derrota:
-	.string "Ora ora, parece que eu subestimei\nvocê, mas não fique tão convencido\lso porquê venceu uma vez.$"
+	.string "Well, well, it seems I underestimated\n"
+	.string "you, but don't get so full of yourself\l"
+	.string "just because you won once.$"
 
 @ ---- Galar_TurffieldIndoor16 ----
 GalarTrn_G35M15_o12::
@@ -2444,7 +2639,9 @@ GalarTrn_G35M15_o12::
 	end
 
 GalarTrn_G35M15_o12_Derrota:
-	.string "Minha nossa, INCRiVEL, ter a\noportunidade de batalhar contra\ltreinadores como você, é realmente\lanimador!$"
+	.string "My goodness, INCREDIBLE, getting the\n"
+	.string "chance to battle Trainers like you is\l"
+	.string "really exciting!$"
 
 @ ---- Galar_TurffieldIndoor17 ----
 GalarTrn_G35M16_o12::
@@ -2454,7 +2651,9 @@ GalarTrn_G35M16_o12::
 	end
 
 GalarTrn_G35M16_o12_Derrota:
-	.string "Oh...você é bem forte, agora o\nque me restou é torcer pela sua\lvitoria.$"
+	.string "Oh... you're really strong. All that's\n"
+	.string "left for me now is to root for your\l"
+	.string "victory.$"
 
 @ ---- Galar_TurffieldIndoor18 ----
 GalarTrn_G35M17_o12::
@@ -2464,7 +2663,10 @@ GalarTrn_G35M17_o12::
 	end
 
 GalarTrn_G35M17_o12_Derrota:
-	.string "...\p...\pFoi uma otima batalha, espero que\ntenhamos outra algum dia.$"
+	.string "...\p"
+	.string "...\p"
+	.string "That was a great battle. I hope we have\n"
+	.string "another one someday.$"
 
 @ ---- Galar_TurffieldIndoor19 ----
 GalarTrn_G35M18_o12::
@@ -2474,7 +2676,10 @@ GalarTrn_G35M18_o12::
 	end
 
 GalarTrn_G35M18_o12_Derrota:
-	.string "Então você é o atual campeão de\nGalar, de campeão para campeão, eu\lposso afirmar que essa foi umas\ldas melhores batalhas que eu\ljá fiz.$"
+	.string "So you're the current Champion of Galar.\n"
+	.string "Champion to Champion, I can say that\l"
+	.string "was one of the best battles I have ever\l"
+	.string "had.$"
 
 @ ---- Galar_TurffieldIndoor20 ----
 GalarTrn_G35M19_o12::
@@ -2484,7 +2689,9 @@ GalarTrn_G35M19_o12::
 	end
 
 GalarTrn_G35M19_o12_Derrota:
-	.string "NãO, NãO, NãO!!!\pEu esperava uma incrivel vitoria\nhoje, mas deveria ser a minha!!!$"
+	.string "NO, NO, NO!!!\p"
+	.string "I was expecting an incredible victory\n"
+	.string "today, but it was supposed to be mine!!!$"
 
 @ ---- Galar_TurffieldIndoor21 ----
 GalarTrn_G35M20_o12::
@@ -2494,7 +2701,9 @@ GalarTrn_G35M20_o12::
 	end
 
 GalarTrn_G35M20_o12_Derrota:
-	.string "Nossa, isso foi inesperado, mas\nnão pense que acaba aqui, ainda\ltenho tempo para ter outra batalha\lcontra você.$"
+	.string "Wow, that was unexpected, but don't\n"
+	.string "think it ends here. I still have time for\l"
+	.string "another battle against you.$"
 
 @ ---- Galar_TurffieldIndoor22 ----
 GalarTrn_G35M21_o12::
@@ -2504,7 +2713,9 @@ GalarTrn_G35M21_o12::
 	end
 
 GalarTrn_G35M21_o12_Derrota:
-	.string "Hmmm...nada mal, mas espere, um\ndia serei mais forte para outra\lbatalha.$"
+	.string "Hmmm... not bad, but just wait, one day\n"
+	.string "I'll be strong enough for another\l"
+	.string "battle.$"
 
 @ ---- Galar_TurffieldIndoor23 ----
 GalarTrn_G35M22_o12::
@@ -2514,7 +2725,8 @@ GalarTrn_G35M22_o12::
 	end
 
 GalarTrn_G35M22_o12_Derrota:
-	.string "Sera que foi errado ter quebrado\na quarta parede no começo das\lminhas falas?$"
+	.string "I wonder if it was wrong to break the\n"
+	.string "fourth wall at the start of my lines?$"
 
 @ ---- Galar_TurffieldIndoor24 ----
 GalarTrn_G35M23_o12::
@@ -2524,7 +2736,8 @@ GalarTrn_G35M23_o12::
 	end
 
 GalarTrn_G35M23_o12_Derrota:
-	.string "Incrivel, treinadores como você\nsão algo dificil de encontrar,\lespero ver você novamente.$"
+	.string "Amazing, Trainers like you are hard to\n"
+	.string "come by. I hope to see you again.$"
 
 @ ---- Galar_TurffieldIndoor25 ----
 GalarTrn_G35M24_o12::
@@ -2534,7 +2747,7 @@ GalarTrn_G35M24_o12::
 	end
 
 GalarTrn_G35M24_o12_Derrota:
-	.string "Nossa, isso foi...$"
+	.string "Wow, that was...$"
 
 @ ---- Galar_TurffieldIndoor26 ----
 GalarTrn_G35M25_o12::
@@ -2544,7 +2757,8 @@ GalarTrn_G35M25_o12::
 	end
 
 GalarTrn_G35M25_o12_Derrota:
-	.string "OH....eu não esperava por essa,\nainda tenho muito a aprender.$"
+	.string "OH.... I wasn't expecting that. I still\n"
+	.string "have a lot to learn.$"
 
 @ ---- Galar_TurffieldIndoor27 ----
 GalarTrn_G35M26_o12::
@@ -2554,7 +2768,9 @@ GalarTrn_G35M26_o12::
 	end
 
 GalarTrn_G35M26_o12_Derrota:
-	.string "Muito bom, foi uma otima batalha,\nque tenhamos outra igual a essa\lalgum dia.$"
+	.string "Very good, that was a great battle. May\n"
+	.string "we have another one just like it\l"
+	.string "someday.$"
 
 @ ---- Galar_TurffieldIndoor28 ----
 GalarTrn_G35M27_o12::
@@ -2564,7 +2780,8 @@ GalarTrn_G35M27_o12::
 	end
 
 GalarTrn_G35M27_o12_Derrota:
-	.string "Uma vitoria digna para um\ntreinador digno, meu parabéns\lgaroto.$"
+	.string "A worthy victory for a worthy Trainer.\n"
+	.string "My congratulations, lad.$"
 
 @ ---- Galar_TurffieldIndoor29 ----
 GalarTrn_G36M05_o12::
@@ -2574,7 +2791,8 @@ GalarTrn_G36M05_o12::
 	end
 
 GalarTrn_G36M05_o12_Derrota:
-	.string "Dessa vez não vou esconder meu\nrosto, Apenas espero que minha\lfilha ainda tenha orgulho de mim…$"
+	.string "This time I won't hide my face. I just\n"
+	.string "hope my daughter is still proud of me…$"
 
 @ ---- Galar_TurffieldIndoor30 ----
 GalarTrn_G36M06_o12::
@@ -2584,7 +2802,9 @@ GalarTrn_G36M06_o12::
 	end
 
 GalarTrn_G36M06_o12_Derrota:
-	.string "Eu fico bem assim mesmo quando\nperco. é uma verdadeira maldição.\pAcho que é hora de outra selfie!$"
+	.string "I look good even when I lose. It's a real\n"
+	.string "curse.\p"
+	.string "I think it's time for another selfie!$"
 
 @ ---- Galar_TurffieldIndoor31 ----
 GalarTrn_G36M07_o12::
@@ -2594,7 +2814,9 @@ GalarTrn_G36M07_o12::
 	end
 
 GalarTrn_G36M07_o12_Derrota:
-	.string "E então você escala em direção  \nvitoria, nos deixando para trás.\pIsso me irrita, mas ... bravo.$"
+	.string "And so you climb toward victory, leaving\n"
+	.string "us behind.\p"
+	.string "That irritates me, but... bravo.$"
 
 @ ---- Galar_TurffieldIndoor32 ----
 GalarTrn_G36M08_o12::
@@ -2604,7 +2826,8 @@ GalarTrn_G36M08_o12::
 	end
 
 GalarTrn_G36M08_o12_Derrota:
-	.string "Eu acho que você interpretou\nquebrar o gelo um pouco\lliteralmente demais ...$"
+	.string "I think you took breaking the ice a\n"
+	.string "little too literally ...$"
 
 @ ---- Galar_TurffieldIndoor33 ----
 GalarTrn_G36M09_o12::
@@ -2614,7 +2837,8 @@ GalarTrn_G36M09_o12::
 	end
 
 GalarTrn_G36M09_o12_Derrota:
-	.string "Eu fui arrasado!Tenho orgulho de\nmeu Pokémon solido,e ainda assim…$"
+	.string "I was crushed! I'm proud of my solid\n"
+	.string "Pokémon, and even so…$"
 
 @ ---- Galar_TurffieldIndoor34 ----
 GalarTrn_G36M10_o12::
@@ -2624,7 +2848,8 @@ GalarTrn_G36M10_o12::
 	end
 
 GalarTrn_G36M10_o12_Derrota:
-	.string "meu esforço aqui foi mais\ninutil do que tentar evoluir um\lcombee macho.$"
+	.string "my effort here was more useless than\n"
+	.string "trying to evolve a male Combee.$"
 
 @ ---- Galar_TurffieldIndoor35 ----
 GalarTrn_G36M11_o12::
@@ -2634,7 +2859,8 @@ GalarTrn_G36M11_o12::
 	end
 
 GalarTrn_G36M11_o12_Derrota:
-	.string "Eu não entendo.\pO que eu tenho que fazer para\nvencer você, hein?$"
+	.string "I don't get it.\p"
+	.string "What do I have to do to beat you, huh?$"
 
 @ ---- Galar_TurffieldIndoor36 ----
 GalarTrn_G36M12_o12::
@@ -2644,7 +2870,8 @@ GalarTrn_G36M12_o12::
 	end
 
 GalarTrn_G36M12_o12_Derrota:
-	.string "é isso?! Piers não faz bis, mas\nadmito que estou tentado agora!$"
+	.string "is that it?! Piers doesn't do encores,\n"
+	.string "but I admit I'm tempted now!$"
 
 @ ---- Galar_TurffieldIndoor37 ----
 GalarTrn_G36M13_o12::
@@ -2654,7 +2881,7 @@ GalarTrn_G36M13_o12::
 	end
 
 GalarTrn_G36M13_o12_Derrota:
-	.string "O poder da grama foi murchado...$"
+	.string "The power of Grass has withered...$"
 
 @ ---- Galar_TurffieldIndoor38 ----
 GalarTrn_G36M14_o12::
@@ -2664,7 +2891,7 @@ GalarTrn_G36M14_o12::
 	end
 
 GalarTrn_G36M14_o12_Derrota:
-	.string "que vontade de voar pra longe...$"
+	.string "I so want to fly far away...$"
 
 @ ---- Galar_TurffieldIndoor39 ----
 GalarTrn_G36M15_o12::
@@ -2674,7 +2901,8 @@ GalarTrn_G36M15_o12::
 	end
 
 GalarTrn_G36M15_o12_Derrota:
-	.string "Bom Pokémon e um otimo Treinador!\pNão é nenhuma surpresa que você\nganhou!$"
+	.string "Good Pokémon and a great Trainer!\p"
+	.string "It's no surprise that you won!$"
 
 @ ---- Galar_TurffieldIndoor40 ----
 GalarTrn_G36M16_o12::
@@ -2684,7 +2912,8 @@ GalarTrn_G36M16_o12::
 	end
 
 GalarTrn_G36M16_o12_Derrota:
-	.string "Estou feliz por ter minha máscara\n...Eu estava fazendo uma careta e\ltanto agora ...$"
+	.string "I'm glad I have my mask... I was pulling\n"
+	.string "quite a face just now ...$"
 
 @ ---- Galar_TurffieldIndoor41 ----
 GalarTrn_G36M17_o12::
@@ -2694,7 +2923,8 @@ GalarTrn_G36M17_o12::
 	end
 
 GalarTrn_G36M17_o12_Derrota:
-	.string "Por que eu tive a infelicidade\nde nascer na mesma época que você?$"
+	.string "Why did I have the misfortune of being\n"
+	.string "born at the same time as you?$"
 
 @ ---- Galar_TurffieldIndoor42 ----
 GalarTrn_G36M18_o12::
@@ -2704,7 +2934,7 @@ GalarTrn_G36M18_o12::
 	end
 
 GalarTrn_G36M18_o12_Derrota:
-	.string "parece que eu que foi enterrado...$"
+	.string "looks like I'm the one who got buried...$"
 
 @ ---- Galar_TurffieldIndoor43 ----
 GalarTrn_G36M19_o12::
@@ -2714,7 +2944,8 @@ GalarTrn_G36M19_o12::
 	end
 
 GalarTrn_G36M19_o12_Derrota:
-	.string "Há...que droga achei que ia ser\nfácil isso...$"
+	.string "Ha... darn, I thought this was going to\n"
+	.string "be easy...$"
 
 @ ---- Galar_TurffieldIndoor44 ----
 GalarTrn_G36M20_o12::
@@ -2724,7 +2955,8 @@ GalarTrn_G36M20_o12::
 	end
 
 GalarTrn_G36M20_o12_Derrota:
-	.string "Seus Pokémon...eles são tão\nfortes que são praticamente\lvertiginosos!$"
+	.string "Your Pokémon... they're so strong\n"
+	.string "they're practically dizzying!$"
 
 @ ---- Galar_TurffieldIndoor45 ----
 GalarTrn_G36M21_o12::
@@ -2734,7 +2966,10 @@ GalarTrn_G36M21_o12::
 	end
 
 GalarTrn_G36M21_o12_Derrota:
-	.string "Estou perdendo para você desde o\nGym Challenge, e estou ficando um\lpouco farto!\pé melhor você lutar comigo de novo$"
+	.string "I've been losing to you ever since the\n"
+	.string "Gym Challenge, and I'm getting a bit fed\l"
+	.string "up!\p"
+	.string "You had better battle me again.$"
 
 @ ---- Galar_TurffieldIndoor46 ----
 GalarTrn_G36M22_o12::
@@ -2744,7 +2979,8 @@ GalarTrn_G36M22_o12::
 	end
 
 GalarTrn_G36M22_o12_Derrota:
-	.string "Que vergonha perder assim, acho\nque vou passar em spikemuth$"
+	.string "How embarrassing to lose like that. I\n"
+	.string "think I'll stop by Spikemuth.$"
 
 @ ---- Galar_TurffieldIndoor47 ----
 GalarTrn_G36M23_o12::
@@ -2754,7 +2990,10 @@ GalarTrn_G36M23_o12::
 	end
 
 GalarTrn_G36M23_o12_Derrota:
-	.string "Fuhaha! Eu não segurei\nabsolutamente nada, e ainda assim\lvocê me derrotou!\pO aprendiz supera seu mestre ...\pUm verdadeiro momento de orgulho\npara o mestre!$"
+	.string "Fuhaha! I held absolutely nothing back,\n"
+	.string "and you still beat me!\p"
+	.string "The apprentice surpasses the master ...\p"
+	.string "A truly proud moment for the master!$"
 
 @ ---- Galar_TurffieldIndoor48 ----
 GalarTrn_G36M24_o12::
@@ -2764,7 +3003,10 @@ GalarTrn_G36M24_o12::
 	end
 
 GalarTrn_G36M24_o12_Derrota:
-	.string "Nossa, forte como sempre!\pMas acho que estou começando a\nentender...Ei, obrigado por me\lajudar.$"
+	.string "Wow, strong as ever!\p"
+	.string "But I think I'm starting to\n"
+	.string "understand... Hey, thanks for helping\l"
+	.string "me.$"
 
 @ ---- Galar_TurffieldIndoor49 ----
 GalarTrn_G39M01_o12::
@@ -2774,7 +3016,7 @@ GalarTrn_G39M01_o12::
 	end
 
 GalarTrn_G39M01_o12_Derrota:
-	.string "Você ganhou!$"
+	.string "You won!$"
 
 @ ---- Galar_TurffieldIndoor50 ----
 GalarTrn_G39M02_o12::
@@ -2784,7 +3026,7 @@ GalarTrn_G39M02_o12::
 	end
 
 GalarTrn_G39M02_o12_Derrota:
-	.string "Você ganhou!$"
+	.string "You won!$"
 
 @ ---- Galar_TurffieldIndoor51 ----
 GalarTrn_G39M03_o12::
@@ -2801,10 +3043,13 @@ GalarTrn_G39M03_o12_Fim:
 	end
 
 GalarTrn_G39M03_o12_Derrota:
-	.string "como eu disse a você antes ...\nHá verdadeiramente sem limites\lquando se trata de Pokémon!\pTodos nos vamos ter um tempo de\ncampeão!$"
+	.string "as I told you before ... There truly are\n"
+	.string "no limits when it comes to Pokémon!\p"
+	.string "We're all going to have a champion time!$"
 
 GalarTrn_G39M03_o12_Vitoria:
-	.string "Vamos - lembre-se de nossa\npartida final! Isso é realmente o\lmelhor que você pode fazer ?!$"
+	.string "Come on, remember our final match! Is\n"
+	.string "this really the best you can do?!$"
 
 @ ---- Galar_TurffieldIndoor52 ----
 GalarTrn_G39M04_o12::
@@ -2814,7 +3059,7 @@ GalarTrn_G39M04_o12::
 	end
 
 GalarTrn_G39M04_o12_Derrota:
-	.string "Você ganhou!$"
+	.string "You won!$"
 
 @ ---- Galar_TurffieldIndoor53 ----
 GalarTrn_G39M05_o12::
@@ -2824,7 +3069,7 @@ GalarTrn_G39M05_o12::
 	end
 
 GalarTrn_G39M05_o12_Derrota:
-	.string "Você ganhou!$"
+	.string "You won!$"
 
 @ ---- Galar_TurffieldIndoor54 ----
 GalarTrn_G39M06_o12::
@@ -2841,10 +3086,18 @@ GalarTrn_G39M06_o12_Fim:
 	end
 
 GalarTrn_G39M06_o12_Derrota:
-	.string "Ugh! Estripado! Você está sempre\num passo a frente de mim, cara!$"
+	.string "Ugh! Gutted! You're always one step\n"
+	.string "ahead of me, mate!$"
 
 GalarTrn_G39M06_o12_Vitoria:
-	.string "Mesmo as páginas que detalham\nminhas derrotas irão adicionar a\lhist ria da minha lenda\lbrilhante!\pMas não pretendo perder para você\nde novo!\pComo seu rival, prometo que\nvencerei da proxima vez!\pagora,{PLAYER},va para o hall da\nfama o leon vai te acompanhar!$"
+	.string "Even the pages that detail my defeats\n"
+	.string "will add to the story of my brilliant\l"
+	.string "legend!\p"
+	.string "But I don't intend to lose to you again!\p"
+	.string "As your rival, I promise I'll win next\n"
+	.string "time!\p"
+	.string "Now, {PLAYER}, go to the Hall of Fame.\n"
+	.string "Leon will go with you!$"
 
 @ ---- Galar_TurffieldIndoor55 ----
 GalarTrn_G39M07_o12::
@@ -2854,7 +3107,7 @@ GalarTrn_G39M07_o12::
 	end
 
 GalarTrn_G39M07_o12_Derrota:
-	.string "Você ganhou!$"
+	.string "You won!$"
 
 @ ---- Galar_TurffieldIndoor56 ----
 GalarTrn_G39M08_o12::
@@ -2864,7 +3117,7 @@ GalarTrn_G39M08_o12::
 	end
 
 GalarTrn_G39M08_o12_Derrota:
-	.string "Você ganhou!$"
+	.string "You won!$"
 
 @ ---- Galar_TurffieldIndoor57 ----
 GalarTrn_G39M09_o12::
@@ -2874,7 +3127,7 @@ GalarTrn_G39M09_o12::
 	end
 
 GalarTrn_G39M09_o12_Derrota:
-	.string "Você ganhou!$"
+	.string "You won!$"
 
 @ ---- Galar_TurffieldIndoor58 ----
 GalarTrn_G39M10_o12::
@@ -2884,7 +3137,7 @@ GalarTrn_G39M10_o12::
 	end
 
 GalarTrn_G39M10_o12_Derrota:
-	.string "Você ganhou!$"
+	.string "You won!$"
 
 @ ---- Galar_TurffieldIndoor60 ----
 GalarTrn_G39M12_o12::
@@ -2894,7 +3147,7 @@ GalarTrn_G39M12_o12::
 	end
 
 GalarTrn_G39M12_o12_Derrota:
-	.string "Você ganhou!$"
+	.string "You won!$"
 
 @ ---- Galar_TurffieldIndoor61 ----
 GalarTrn_G39M13_o12::
@@ -2904,7 +3157,7 @@ GalarTrn_G39M13_o12::
 	end
 
 GalarTrn_G39M13_o12_Derrota:
-	.string "Você ganhou!$"
+	.string "You won!$"
 
 @ ---- Galar_TurffieldIndoor62 ----
 GalarTrn_G39M14_o12::
@@ -2914,7 +3167,7 @@ GalarTrn_G39M14_o12::
 	end
 
 GalarTrn_G39M14_o12_Derrota:
-	.string "Você ganhou!$"
+	.string "You won!$"
 
 @ ---- Galar_TurffieldIndoor63 ----
 GalarTrn_G39M15_o12::
@@ -2924,7 +3177,7 @@ GalarTrn_G39M15_o12::
 	end
 
 GalarTrn_G39M15_o12_Derrota:
-	.string "Você ganhou!$"
+	.string "You won!$"
 
 @ ---- Galar_Wedgehurst08 ----
 GalarTrn_G05M16_o7::
@@ -3090,7 +3343,8 @@ GalarTrn_G39M16_o0::
 	end
 
 GalarTrn_G39M16_o0_Derrota:
-	.string "parabéns vc e o melhor treinador\npokemon continue assim$"
+	.string "congratulations, you're the best\n"
+	.string "Pokémon Trainer, keep it up$"
 
 @ ---- Galar_Wyndon01 ----
 GalarTrn_G03M09_o22::
@@ -3100,10 +3354,11 @@ GalarTrn_G03M09_o22::
 	end
 
 GalarTrn_G03M09_o22_Intro:
-	.string "Olá... Meu nome é Isadora! E você\nterá que batalhar comigo aqui, e\lagora!$"
+	.string "Hello... My name is Isadora! And you'll\n"
+	.string "have to battle me here and now!$"
 
 GalarTrn_G03M09_o22_Derrota:
-	.string "Por sorte você conseguiu ganhar...$"
+	.string "You managed to win by luck...$"
 
 GalarTrn_G03M09_o7::
 	trainerbattle_single TRAINER_GALAR_ERIC_77, GalarTrn_Intro_MAGMA_ADMIN, GalarTrn_G03M09_o7_Derrota
@@ -3140,10 +3395,11 @@ GalarTrn_G33M02_o4::
 	end
 
 GalarTrn_G33M02_o4_Intro:
-	.string "Olá... Meu nome é Isadora! E você\nterá que batalhar comigo aqui, e\lagora!$"
+	.string "Hello... My name is Isadora! And you'll\n"
+	.string "have to battle me here and now!$"
 
 GalarTrn_G33M02_o4_Derrota:
-	.string "Por sorte você conseguiu ganhar...$"
+	.string "You managed to win by luck...$"
 
 @ ---- Galar_Wyndon10 ----
 GalarTrn_G39M27_o0::
@@ -3153,7 +3409,8 @@ GalarTrn_G39M27_o0::
 	end
 
 GalarTrn_G39M27_o0_Derrota:
-	.string "Parece que você e mais forte do\nque eu esperava...$"
+	.string "It seems you're stronger than I\n"
+	.string "expected...$"
 
 @ ---- Galar_WyndonIndoor01 ----
 GalarTrn_G39M17_o0::
@@ -3163,7 +3420,8 @@ GalarTrn_G39M17_o0::
 	end
 
 GalarTrn_G39M17_o0_Derrota:
-	.string "Isso realmente foi fabuloso\nparabens$"
+	.string "That really was fabulous.\n"
+	.string "Congratulations.$"
 
 @ ---- Galar_WyndonIndoor02 ----
 GalarTrn_G39M18_o0::
@@ -3173,7 +3431,8 @@ GalarTrn_G39M18_o0::
 	end
 
 GalarTrn_G39M18_o0_Derrota:
-	.string "O que eu perdi,minha perda e uma\ndesonra para os Pokemon de tipo\lfada$"
+	.string "What have I lost. My defeat is a\n"
+	.string "disgrace to Fairy-type Pokémon.$"
 
 @ ---- Galar_WyndonIndoor03 ----
 GalarTrn_G39M19_o0::
@@ -3183,7 +3442,9 @@ GalarTrn_G39M19_o0::
 	end
 
 GalarTrn_G39M19_o0_Derrota:
-	.string "Pergunte ao Pikachu: Nossa\nimpressionante suas abilidades\lcomo treinador Pokémon não são\lnada mal até outro dia!!$"
+	.string "Ask Pikachu: Wow, impressive. Your skills\n"
+	.string "as a Pokémon Trainer aren't bad at all.\l"
+	.string "Until another day!!$"
 
 @ ---- Galar_WyndonIndoor04 ----
 GalarTrn_G39M20_o0::
@@ -3193,7 +3454,9 @@ GalarTrn_G39M20_o0::
 	end
 
 GalarTrn_G39M20_o0_Derrota:
-	.string "É, te subestimei, mas sua vitoria\nnão conta se usou o SaveState.$"
+	.string "Yeah, I underestimated you, but your\n"
+	.string "win doesn't count if you used a save\l"
+	.string "state.$"
 
 @ ---- Galar_WyndonIndoor05 ----
 GalarTrn_G39M21_o0::
@@ -3203,7 +3466,8 @@ GalarTrn_G39M21_o0::
 	end
 
 GalarTrn_G39M21_o0_Derrota:
-	.string "Ja entendi como você derrotou os\noutros membros.$"
+	.string "Now I see how you beat the other\n"
+	.string "members.$"
 
 @ ---- Galar_WyndonIndoor06 ----
 GalarTrn_G39M22_o0::
@@ -3213,7 +3477,9 @@ GalarTrn_G39M22_o0::
 	end
 
 GalarTrn_G39M22_o0_Derrota:
-	.string "Uau...isso foi ate relaxante\nfazia tempo q não tinha uma\lbatalha tão boa.$"
+	.string "Wow... that was even relaxing. It had\n"
+	.string "been a while since I had such a good\l"
+	.string "battle.$"
 
 @ ---- Galar_WyndonIndoor08 ----
 GalarTrn_G39M24_o0::
@@ -3223,7 +3489,9 @@ GalarTrn_G39M24_o0::
 	end
 
 GalarTrn_G39M24_o0_Derrota:
-	.string "Você usou savesate?\ncomo upou tanto?\lde qualquer forma parabens!!!$"
+	.string "Did you use a save state?\n"
+	.string "How did you level up so much?\l"
+	.string "Either way, congratulations!!!$"
 
 @ ---- Galar_WyndonIndoor09 ----
 GalarTrn_G39M26_o0::
@@ -3233,7 +3501,8 @@ GalarTrn_G39M26_o0::
 	end
 
 GalarTrn_G39M26_o0_Derrota:
-	.string "Você ja ouviu falar da minha\nhack rom Pokemon Naki?$"
+	.string "Have you ever heard of my hack ROM\n"
+	.string "Pokemon Naki?$"
 
 @ ---- Galar_WyndonIndoor10 ----
 GalarTrn_G39M28_o0::
@@ -3243,7 +3512,7 @@ GalarTrn_G39M28_o0::
 	end
 
 GalarTrn_G39M28_o0_Derrota:
-	.string "Parabens!!!$"
+	.string "Congratulations!!!$"
 
 @ ---- Galar_WyndonIndoor12 ----
 GalarTrn_G39M30_o0::
@@ -3253,7 +3522,8 @@ GalarTrn_G39M30_o0::
 	end
 
 GalarTrn_G39M30_o0_Derrota:
-	.string "Gahahaha... venceu dessa vez mas\nna proxima não terá chance.$"
+	.string "Gahahaha... You won this time, but next\n"
+	.string "time you won't stand a chance.$"
 
 @ ---- Galar_WyndonIndoor13 ----
 GalarTrn_G39M31_o0::
@@ -3263,7 +3533,7 @@ GalarTrn_G39M31_o0::
 	end
 
 GalarTrn_G39M31_o0_Derrota:
-	.string "Meus biscoitos estão amassados$"
+	.string "My biscuits are all squashed.$"
 
 @ ---- Galar_WyndonIndoor14 ----
 GalarTrn_G39M32_o0::
@@ -3273,7 +3543,7 @@ GalarTrn_G39M32_o0::
 	end
 
 GalarTrn_G39M32_o0_Derrota:
-	.string "Sasukezin69: nossa que doara essa\nbatalha!$"
+	.string "Sasukezin69: wow, that battle hurt!$"
 
 @ ---- Galar_WyndonIndoor16 ----
 GalarTrn_G39M34_o0::
@@ -3283,7 +3553,7 @@ GalarTrn_G39M34_o0::
 	end
 
 GalarTrn_G39M34_o0_Derrota:
-	.string "Lord: A cara parece que eu perdi.$"
+	.string "Lord: Man, looks like I lost.$"
 
 @ ---- Galar_WyndonIndoor17 ----
 GalarTrn_G39M35_o0::
@@ -3293,7 +3563,7 @@ GalarTrn_G39M35_o0::
 	end
 
 GalarTrn_G39M35_o0_Derrota:
-	.string "Eurico: Nossa que poder!!!$"
+	.string "Eurico: Wow, what power!!!$"
 
 @ ---- Galar_WyndonIndoor18 ----
 GalarTrn_G39M36_o0::
@@ -3303,7 +3573,7 @@ GalarTrn_G39M36_o0::
 	end
 
 GalarTrn_G39M36_o0_Derrota:
-	.string "Cloves: Parabéns campeão!$"
+	.string "Cloves: Congratulations, Champion!$"
 
 @ ---- Galar_WyndonIndoor19 ----
 GalarTrn_G39M37_o0::
@@ -3313,7 +3583,8 @@ GalarTrn_G39M37_o0::
 	end
 
 GalarTrn_G39M37_o0_Derrota:
-	.string "Juan: Quero ver sem usar item!$"
+	.string "Juan: Let's see you do it without using\n"
+	.string "items!$"
 
 @ ---- Galar_WyndonIndoor20 ----
 GalarTrn_G39M38_o0::
@@ -3323,7 +3594,7 @@ GalarTrn_G39M38_o0::
 	end
 
 GalarTrn_G39M38_o0_Derrota:
-	.string "Celina: adimito eu adoro pikachu$"
+	.string "Celina: I admit it, I love Pikachu.$"
 
 @ ---- Galar_WyndonIndoor21 ----
 GalarTrn_G39M39_o0::
@@ -3333,7 +3604,7 @@ GalarTrn_G39M39_o0::
 	end
 
 GalarTrn_G39M39_o0_Derrota:
-	.string "Ruan: Puts...$"
+	.string "Ruan: Aw, man...$"
 
 @ ---- Galar_WyndonIndoor22 ----
 GalarTrn_G39M40_o0::
@@ -3343,5 +3614,5 @@ GalarTrn_G39M40_o0::
 	end
 
 GalarTrn_G39M40_o0_Derrota:
-	.string "Planeta P.:Caraca, você está de\nparabéns!$"
+	.string "Planeta P.: Wow, congratulations to you!$"
 

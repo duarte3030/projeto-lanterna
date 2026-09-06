@@ -42,13 +42,17 @@ GalarObj_G40M12_o0_b3::
 	end
 
 GalarObj_G40M12_o0_Text0:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-lo na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M12_o0_Text1:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 GalarObj_G40M12_o0_Text2:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-la na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M12_o0_Text3:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 	.align 2
 GalarObj_G40M12_o0_Mart0:
 	.2byte ITEM_POKE_BALL
@@ -154,9 +158,10 @@ GalarObj_G04M03_o4_b2::
 GalarObj_G04M03_o4_Text0:
 	.string "{RIVAL}: What, it’s only {PLAYER}?\nGramps isn’t around.$"
 GalarObj_G04M03_o4_Text1:
-	.string "Hop: Meu pokémon parece ser\nforte!$"
+	.string "Hop: My Pokémon looks strong!$"
 GalarObj_G04M03_o4_Text2:
-	.string "Hop: Vamos, {PLAYER}!!!\nEscolha seu pokémon!!!$"
+	.string "Hop: Come on, {PLAYER}!!!\n"
+	.string "Pick your Pokémon!!!$"
 
 @ ---- Galar_SlumberingWeald03 (g04m11) ----
 GalarObj_G04M11_o6::
@@ -167,7 +172,10 @@ GalarObj_G04M11_o6::
 	end
 
 GalarObj_G04M11_o6_Text0:
-	.string "Hop:Dê uma olhada nisso, {PLAYER}!\nIsso é algo que você não vê todos\los dias ...\pEste lugar definitivamente parece\nsair de uma lenda.$"
+	.string "Hop: Take a look at this, {PLAYER}! This\n"
+	.string "is something you don't see every day ...\p"
+	.string "This place definitely looks like it came\n"
+	.string "straight out of a legend.$"
 
 @ ---- Galar_Wedgehurst02 (g05m02) ----
 GalarObj_G05M02_o0::
@@ -273,13 +281,13 @@ GalarObj_G05M11_o1_b3::
 	end
 
 GalarObj_G05M11_o1_Text0:
-	.string "Olá como posso ajudar você?$"
+	.string "Hello, how can I help you?$"
 GalarObj_G05M11_o1_Text1:
-	.string "Obrigado.$"
+	.string "Thank you.$"
 GalarObj_G05M11_o1_Text2:
-	.string "Olá como posso ajudar você?$"
+	.string "Hello, how can I help you?$"
 GalarObj_G05M11_o1_Text3:
-	.string "Obrigado.$"
+	.string "Thank you.$"
 	.align 2
 GalarObj_G05M11_o1_Mart0:
 	.2byte ITEM_POKE_BALL
@@ -336,7 +344,8 @@ GalarObj_G06M13_o0::
 	end
 
 GalarObj_G06M13_o0_Text0:
-	.string "Deixe-me levá-los à\ncerimônia de abertura!$"
+	.string "Let me take you to the opening\n"
+	.string "ceremony!$"
 
 GalarObj_G06M13_o1::
 	lock
@@ -346,7 +355,8 @@ GalarObj_G06M13_o1::
 	end
 
 GalarObj_G06M13_o1_Text0:
-	.string "Hop: Vamos, {PLAYER}! A cerimônia é \nagora!$"
+	.string "Hop: Come on, {PLAYER}! The ceremony is\n"
+	.string "starting now!$"
 
 @ ---- Galar_Wedgehurst11 (g40m07) ----
 GalarObj_G40M07_o0::
@@ -386,13 +396,17 @@ GalarObj_G40M07_o0_b3::
 	end
 
 GalarObj_G40M07_o0_Text0:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-lo na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M07_o0_Text1:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 GalarObj_G40M07_o0_Text2:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-la na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M07_o0_Text3:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 	.align 2
 GalarObj_G40M07_o0_Mart0:
 	.2byte ITEM_POKE_BALL
@@ -478,13 +492,17 @@ GalarObj_G40M08_o0_b3::
 	end
 
 GalarObj_G40M08_o0_Text0:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-lo na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M08_o0_Text1:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 GalarObj_G40M08_o0_Text2:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-la na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M08_o0_Text3:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 	.align 2
 GalarObj_G40M08_o0_Mart0:
 	.2byte ITEM_POKE_BALL
@@ -545,7 +563,7 @@ GalarObj_G05M13_o2::
 	end
 
 GalarObj_G05M13_o2_Text0:
-	.string "Nada nada além de livros. $"
+	.string "Nothing but books. $"
 GalarObj_G05M13_o2_Mov0:
 	.byte MOVEMENT_ACTION_EMOTE_EXCLAMATION_MARK
 	.byte MOVEMENT_ACTION_STEP_END
@@ -644,9 +662,10 @@ GalarObj_G06M10_o15_b3::
 	end
 
 GalarObj_G06M10_o15_Text0:
-	.string "Um local que da pra mergulhar\nmas precisa de equipamento$"
+	.string "A spot where you can dive, but you need\n"
+	.string "equipment.$"
 GalarObj_G06M10_o15_Text1:
-	.string "Mergulhar?$"
+	.string "Dive?$"
 
 @ ---- Galar_Motostoke06 (g06m12) ----
 GalarObj_G06M12_o0::
@@ -657,7 +676,8 @@ GalarObj_G06M12_o0::
 	end
 
 GalarObj_G06M12_o0_Text0:
-	.string "Melhor você ir se resgistrar\n {PLAYER}$"
+	.string "You had better go and register,\n"
+	.string " {PLAYER}$"
 
 GalarObj_G06M12_o1::
 	lock
@@ -700,11 +720,20 @@ GalarObj_G06M33_o0_b2::
 	end
 
 GalarObj_G06M33_o0_Text0:
-	.string "ola desafiante neste ginasio ha vaios\nmarowack vindos direto de alola,eles\pestao com um cartao capture um e pegue\no cartao dele e voce podera passar$"
+	.string "hello, challenger. In this Gym there are\n"
+	.string "several Marowak straight from Alola.\l"
+	.string "They\p"
+	.string "have a card. Catch one, take its card\n"
+	.string "and you'll be able to pass.$"
 GalarObj_G06M33_o0_Text1:
-	.string "ola desafiante neste ginasio ha vaios\nmarowack vindos direto de alola,eles\pestao com um cartao capture um e pegue\no cartao dele e voce podera passar$"
+	.string "hello, challenger. In this Gym there are\n"
+	.string "several Marowak straight from Alola.\l"
+	.string "They\p"
+	.string "have a card. Catch one, take its card\n"
+	.string "and you'll be able to pass.$"
 GalarObj_G06M33_o0_Text2:
-	.string "parabens voce conseguiu o cartao\nvoce ja pode passar!$"
+	.string "congratulations, you got the card. You\n"
+	.string "may pass now!$"
 
 @ ---- Galar_Motostoke20 (g06m35) ----
 GalarObj_G06M35_o4::
@@ -750,13 +779,17 @@ GalarObj_G40M02_o0_b3::
 	end
 
 GalarObj_G40M02_o0_Text0:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-lo na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M02_o0_Text1:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 GalarObj_G40M02_o0_Text2:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-la na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M02_o0_Text3:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 	.align 2
 GalarObj_G40M02_o0_Mart0:
 	.2byte ITEM_POKE_BALL
@@ -813,7 +846,8 @@ GalarObj_G03M42_o4::
 	end
 
 GalarObj_G03M42_o4_Text0:
-	.string "Você por acaso é o {PLAYER}?Ouvir\ndizer que você foi endoçado pelo\lcampeao$"
+	.string "Are you {PLAYER}, by any chance? I heard\n"
+	.string "you were endorsed by the Champion.$"
 
 @ ---- Galar_WildArea03 (g06m27) ----
 GalarObj_G06M27_o20::
@@ -841,9 +875,10 @@ GalarObj_G06M27_o20_b3::
 	end
 
 GalarObj_G06M27_o20_Text0:
-	.string "Um local que da pra mergulhar\nmas precisa de equipamento$"
+	.string "A spot where you can dive, but you need\n"
+	.string "equipment.$"
 GalarObj_G06M27_o20_Text1:
-	.string "Mergulhar?$"
+	.string "Dive?$"
 
 @ ---- Galar_WildArea06 (g06m31) ----
 GalarObj_G06M31_o1::
@@ -904,9 +939,10 @@ GalarObj_G08M24_o9_b3::
 	end
 
 GalarObj_G08M24_o9_Text0:
-	.string "Um local que da pra mergulhar\nmas precisa de equipamento$"
+	.string "A spot where you can dive, but you need\n"
+	.string "equipment.$"
 GalarObj_G08M24_o9_Text1:
-	.string "Mergulhar?$"
+	.string "Dive?$"
 
 @ ---- Galar_WildArea13 (g42m06) ----
 GalarObj_G42M06_o8::
@@ -981,9 +1017,10 @@ GalarObj_G42M10_o23_b3::
 	end
 
 GalarObj_G42M10_o23_Text0:
-	.string "Um local que da pra mergulhar\nmas precisa de equipamento$"
+	.string "A spot where you can dive, but you need\n"
+	.string "equipment.$"
 GalarObj_G42M10_o23_Text1:
-	.string "Mergulhar?$"
+	.string "Dive?$"
 
 @ ---- Galar_WildArea20 (g42m13) ----
 GalarObj_G42M13_o9::
@@ -1011,9 +1048,10 @@ GalarObj_G42M13_o9_b3::
 	end
 
 GalarObj_G42M13_o9_Text0:
-	.string "Um local que da pra mergulhar\nmas precisa de equipamento$"
+	.string "A spot where you can dive, but you need\n"
+	.string "equipment.$"
 GalarObj_G42M13_o9_Text1:
-	.string "Mergulhar?$"
+	.string "Dive?$"
 
 @ ---- Galar_WildArea27 (g08m11) ----
 GalarObj_G08M11_o1::
@@ -1041,9 +1079,10 @@ GalarObj_G08M11_o1_b3::
 	end
 
 GalarObj_G08M11_o1_Text0:
-	.string "Um local que da pra mergulhar\nmas precisa de equipamento$"
+	.string "A spot where you can dive, but you need\n"
+	.string "equipment.$"
 GalarObj_G08M11_o1_Text1:
-	.string "Mergulhar?$"
+	.string "Dive?$"
 
 @ ---- Galar_Turffield03 (g07m11) ----
 GalarObj_G07M11_o0::
@@ -1094,13 +1133,17 @@ GalarObj_G40M15_o0_b3::
 	end
 
 GalarObj_G40M15_o0_Text0:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-lo na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M15_o0_Text1:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 GalarObj_G40M15_o0_Text2:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-la na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M15_o0_Text3:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 	.align 2
 GalarObj_G40M15_o0_Mart0:
 	.2byte ITEM_POKE_BALL
@@ -1157,7 +1200,8 @@ GalarObj_G00M08_o0::
 	end
 
 GalarObj_G00M08_o0_Text0:
-	.string "Oi {PLAYER}, você veio tambem?!\pque tal batalhamos depois de comer$"
+	.string "Hi {PLAYER}, you came too?!\p"
+	.string "How about we battle after we eat?$"
 
 @ ---- Galar_Hulbury03 (g08m02) ----
 GalarObj_G08M02_bg0::
@@ -1213,7 +1257,10 @@ GalarObj_G08M07_o11::
 	end
 
 GalarObj_G08M07_o11_Text0:
-	.string " {COLOR DARK_GRAY}Me dê licença, o presidente Rose\nestá neste restaurante\pEu estou tentando fazer uma\nmatéria sobre isso.$"
+	.string "{COLOR DARK_GRAY}Excuse me, Chairman Rose is in this\n"
+	.string "restaurant.\p"
+	.string "I'm trying to put together a story\n"
+	.string "about it.$"
 
 GalarObj_G08M07_o13::
 	lock
@@ -1223,7 +1270,10 @@ GalarObj_G08M07_o13::
 	end
 
 GalarObj_G08M07_o13_Text0:
-	.string " {COLOR DARK_GRAY}É sempre bom passear com seus\nPokémons.\pA cada {COLOR RED}128 passos{COLOR DARK_GRAY}, eles\nficam cada vez mais felizes.$"
+	.string "{COLOR DARK_GRAY}It's always good to walk around with\n"
+	.string "your Pokémon.\p"
+	.string "Every {COLOR RED}128 steps{COLOR DARK_GRAY}, they get happier\n"
+	.string "and happier.$"
 
 GalarObj_G08M07_o14::
 	lock
@@ -1233,7 +1283,10 @@ GalarObj_G08M07_o14::
 	end
 
 GalarObj_G08M07_o14_Text0:
-	.string " {COLOR LIGHT_RED}Sério que você usa seus Pokémon\nem combate?\pEu nunca faria isso com meu\nZigzagoon, ele é um bebê.$"
+	.string "{COLOR LIGHT_RED}Do you really use your Pokémon in\n"
+	.string "battle?\p"
+	.string "I'd never do that to my Zigzagoon, he's\n"
+	.string "a baby.$"
 
 GalarObj_G08M07_o18::
 	lock
@@ -1243,7 +1296,11 @@ GalarObj_G08M07_o18::
 	end
 
 GalarObj_G08M07_o18_Text0:
-	.string " {COLOR DARK_GRAY}Juro pela luz que me ilumina que\nvi um {COLOR BLUE}eevee{COLOR DARK_GRAY}, nadando até o\lhorizonte.\po Bolt tentou pular atrás dele mas\neu segurei.$"
+	.string "{COLOR DARK_GRAY}I swear by the light that guides me\n"
+	.string "that I saw an {COLOR BLUE}Eevee{COLOR DARK_GRAY} swimming toward\l"
+	.string "the horizon.\p"
+	.string "Bolt tried to jump in after it, but I\n"
+	.string "held him back.$"
 
 GalarObj_G08M07_o3::
 	msgbox GalarObj_G08M07_o3_Text0, MSGBOX_AUTOCLOSE
@@ -1251,7 +1308,8 @@ GalarObj_G08M07_o3::
 	end
 
 GalarObj_G08M07_o3_Text0:
-	.string "{COLOR DARK_GRAY}Parece que hoje o mar não está\npara peixe...$"
+	.string "{COLOR DARK_GRAY}Looks like the sea isn't giving up any\n"
+	.string "fish today...$"
 
 GalarObj_G08M07_o31::
 	faceplayer
@@ -1272,9 +1330,10 @@ GalarObj_G08M07_o31_b1::
 	end
 
 GalarObj_G08M07_o31_Text0:
-	.string "{COLOR BLUE}Bem vindo a minha venda, com o\nque posso te ajudar?$"
+	.string "{COLOR BLUE}Welcome to my shop, what can I help\n"
+	.string "you with?$"
 GalarObj_G08M07_o31_Text1:
-	.string "{COLOR BLUE}Volte sempre!$"
+	.string "{COLOR BLUE}Come again!$"
 	.align 2
 GalarObj_G08M07_o31_Mart0:
 	.2byte ITEM_NET_BALL
@@ -1306,9 +1365,10 @@ GalarObj_G08M07_o32_b1::
 	end
 
 GalarObj_G08M07_o32_Text0:
-	.string "{COLOR BLUE}Bem vindo a minha venda, com o\nque posso te ajudar?$"
+	.string "{COLOR BLUE}Welcome to my shop, what can I help\n"
+	.string "you with?$"
 GalarObj_G08M07_o32_Text1:
-	.string "{COLOR BLUE}Volte sempre!$"
+	.string "{COLOR BLUE}Come again!$"
 	.align 2
 GalarObj_G08M07_o32_Mart0:
 	.2byte ITEM_SAFARI_BALL
@@ -1377,13 +1437,17 @@ GalarObj_G40M00_o1_b3::
 	end
 
 GalarObj_G40M00_o1_Text0:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-lo na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M00_o1_Text1:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 GalarObj_G40M00_o1_Text2:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-la na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M00_o1_Text3:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 	.align 2
 GalarObj_G40M00_o1_Mart0:
 	.2byte ITEM_POKE_BALL
@@ -1469,13 +1533,17 @@ GalarObj_G40M10_o0_b3::
 	end
 
 GalarObj_G40M10_o0_Text0:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-lo na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M10_o0_Text1:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 GalarObj_G40M10_o0_Text2:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-la na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M10_o0_Text3:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 	.align 2
 GalarObj_G40M10_o0_Mart0:
 	.2byte ITEM_POKE_BALL
@@ -1566,7 +1634,7 @@ GalarObj_G09M10_o3_Mov0:
 	.byte MOVEMENT_ACTION_EMOTE_EXCLAMATION_MARK
 	.byte MOVEMENT_ACTION_STEP_END
 GalarObj_G09M10_o3_Text0:
-	.string "Não atrapalhe nossa luta!$"
+	.string "Don't interrupt our fight!$"
 
 GalarObj_G09M10_o5::
 	lock
@@ -1580,7 +1648,7 @@ GalarObj_G09M10_o5_Mov0:
 	.byte MOVEMENT_ACTION_EMOTE_EXCLAMATION_MARK
 	.byte MOVEMENT_ACTION_STEP_END
 GalarObj_G09M10_o5_Text0:
-	.string "Não atrapalhe nossa luta!$"
+	.string "Don't interrupt our fight!$"
 
 @ ---- Galar_Hammerlocke05 (g09m11) ----
 GalarObj_G09M11_o1::
@@ -1601,9 +1669,25 @@ GalarObj_G09M11_o1::
 	end
 
 GalarObj_G09M11_o1_Text0:
-	.string "Rose:O estádio de Hammerlocke\nfunciona como uma usina de energia.\pAgora,dê uma olhada no meu tablet.$"
+	.string "Rose: Hammerlocke Stadium works as a\n"
+	.string "power plant.\p"
+	.string "Now, take a look at my tablet.$"
 GalarObj_G09M11_o1_Text1:
-	.string "Eu tenho todas as informacoes que\pvocê precisa vê.\pRose:Vejo?Uma descricão fácil de\nentender da usina de energia!Primeiro,\pa energia é absorvida na torre do\nestádio de Hammerlocke.Em seguida,\pé transformada em eletricidade na\nusina subterranea e entregue as\ppessoas de toda a região de Galar!\nNossas vidas e a sociedade exigem\pvários tipos de fontes de energia,\ncomo eletricidade,gás natural,Meus\pgrupos associados visam melhorar\na vida de todos, aproveitando o$"
+	.string "I have all the information\p"
+	.string "you need to see.\p"
+	.string "Rose: See? An easy to understand\n"
+	.string "description of the power plant! First,\p"
+	.string "the energy is absorbed in the tower of\n"
+	.string "Hammerlocke Stadium. Next,\p"
+	.string "it is turned into electricity in the\n"
+	.string "underground Power Plant and delivered\l"
+	.string "to\p"
+	.string "the people of the whole Galar region!\n"
+	.string "Our lives and our society demand\p"
+	.string "many kinds of energy sources, such as\n"
+	.string "electricity and natural gas. My\p"
+	.string "associated groups aim to improve\n"
+	.string "everyone's lives by harnessing the$"
 GalarObj_G09M11_o1_Mov0:
 	.byte MOVEMENT_ACTION_FACE_RIGHT
 	.byte MOVEMENT_ACTION_EMOTE_EXCLAMATION_MARK
@@ -1612,7 +1696,14 @@ GalarObj_G09M11_o1_Mov1:
 	.byte MOVEMENT_ACTION_EMOTE_EXCLAMATION_MARK
 	.byte MOVEMENT_ACTION_STEP_END
 GalarObj_G09M11_o1_Text2:
-	.string "rose:hora de eu comecar a trabalhar.\nEu devo me mexer logo antes que\pOleana decida me dar mais avisos,\n{PLAYER},sugiro que você vá para o\pcofre em seguida.Apenas siga em\ndirecão   Rota 6 do estádio e você\pencontrará o cofre sem problemas!$"
+	.string "Rose: time for me to get to work.\n"
+	.string "I should get moving before\p"
+	.string "Oleana decides to give me more\n"
+	.string "reminders. {PLAYER}, I suggest you head\l"
+	.string "to the\p"
+	.string "Vault next. Just go toward Route 6 from\n"
+	.string "the stadium and you'll\p"
+	.string "find the Vault with no trouble!$"
 
 GalarObj_G09M11_o4::
 	lock
@@ -1630,7 +1721,35 @@ GalarObj_G09M11_o4::
 	end
 
 GalarObj_G09M11_o4_Text0:
-	.string "G-Gym Challenger! Você deve me\najudar! E-eu quero dizer,\lpor favor, me ajude!\pMeu Pokémon de repente Dynamaxed\npor algum motivo e começou a\lcorrer enlouquecido no estádio ...\lRaihan ... quero dizer, o Sr.\lRaihan foi capaz de subjugar o\lPokémon Dynamax no estádio,mas...\pSe outro Pokémon também Dynamax e\nentrar em f ria ...\la usina subterr nea entraria em\lcolapso!\pMr. Rose está lá embaixo agora!\pEu sei que isso é egoismo da\nminha parte, mas devo implorar\lsua ajuda!\pQuero que você entre na usina\nsubterr nea e pare o Sr.Rose!\pMr. Rose despertou um Pokémon\nconhecido como Eternatus ...\pAparentemente,a energia emitida\npor seu corpo é o que causa o\lDynamaxing.\pNesse ritmo, todos os Pokémon na\nregião de Galar irão Dynamax e\lenlouquecer!\lSe isso acontecesse...\pPor favor, você deve salvar o\nSr.Rose!\pVocê pode pegar o elevador\naté lá para alcançá-lo.\pEu pedi a ajuda do irmão mais novo\ndo Campeão também, mas quem sabe o\lque está acontecendo ...Oh não\l... Eternatus é- Oh, Sr.Rose ...$"
+	.string "G-Gym Challenger! You have to help me!\n"
+	.string "I-I mean, please, help me!\p"
+	.string "My Pokémon suddenly Dynamaxed for\n"
+	.string "some reason and started running wild in\l"
+	.string "the stadium ... Raihan ... I mean, Mr.\l"
+	.string "Raihan was able to subdue the Dynamax\l"
+	.string "Pokémon in the stadium, but...\p"
+	.string "If another Pokémon Dynamaxes and goes\n"
+	.string "on a rampage ... the underground Power\l"
+	.string "Plant would collapse!\p"
+	.string "Mr. Rose is down there right now!\p"
+	.string "I know this is selfish of me, but I must\n"
+	.string "beg for your help!\p"
+	.string "I want you to go into the underground\n"
+	.string "Power Plant and stop Mr. Rose!\p"
+	.string "Mr. Rose has awakened a Pokémon known\n"
+	.string "as Eternatus ...\p"
+	.string "Apparently, the energy given off by its\n"
+	.string "body is what causes Dynamaxing.\p"
+	.string "At this rate, every Pokémon in the Galar\n"
+	.string "region will Dynamax and go wild! If that\l"
+	.string "were to happen...\p"
+	.string "Please, you have to save Mr. Rose!\p"
+	.string "You can take the elevator down there\n"
+	.string "to reach him.\p"
+	.string "I asked the Champion's little brother\n"
+	.string "for help too, but who knows what is\l"
+	.string "going on ...Oh no ... Eternatus is- Oh, Mr.\l"
+	.string "Rose ...$"
 
 @ ---- Galar_Hammerlocke08 (g09m15) ----
 GalarObj_G09M15_bg0::
@@ -1780,13 +1899,17 @@ GalarObj_G40M03_o0_b3::
 	end
 
 GalarObj_G40M03_o0_Text0:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-lo na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M03_o0_Text1:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 GalarObj_G40M03_o0_Text2:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-la na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M03_o0_Text3:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 	.align 2
 GalarObj_G40M03_o0_Mart0:
 	.2byte ITEM_POKE_BALL
@@ -1842,7 +1965,24 @@ GalarObj_G20M00_bg0::
 	end
 
 GalarObj_G20M00_bg0_Text0:
-	.string "{COLOR RED}XX.YY.ZZZZ\n{COLOR GREEN}HH.DD\p{COLOR BLUE}Querido Diário, eu não aguento\nmais...\pNão sei há quanto tempo isso\nacontece, dias? Meses? Anos?\pMinha vida não tem paz há muito\ntempo. Passo dias e dias em claro\ltendo visoes, vivendo com medo...\pNão como há um tempo...\pNão me lembro da última vez que\nbebi água...\pE toda vez que durmo, tenho os\nmesmos pesadelos, e cada vez\lpiores, cada vez mais longos...\pNão sei mais o que fazer...\pNão sei quanto tempo vou aguentar\nou se vou superar isso...\pOh, Arceus, me ajude...$"
+	.string "{COLOR RED}XX.YY.ZZZZ\n"
+	.string "{COLOR GREEN}HH.DD\p"
+	.string "{COLOR BLUE}Dear Diary, I can't take it anymore...\p"
+	.string "I don't know how long this has been\n"
+	.string "going on, days? Months? Years?\p"
+	.string "My life has had no peace for a long time.\n"
+	.string "I spend days on end awake, having\l"
+	.string "visions, living in fear...\p"
+	.string "I haven't eaten in a while...\p"
+	.string "I can't remember the last time I drank\n"
+	.string "water...\p"
+	.string "And every time I sleep, I have the same\n"
+	.string "nightmares, worse each time, longer\l"
+	.string "each time...\p"
+	.string "I don't know what to do anymore...\p"
+	.string "I don't know how long I can hold out, or\n"
+	.string "whether I'll get through this...\p"
+	.string "Oh, Arceus, help me...$"
 
 @ ---- Galar_StowOnSide02 (g00m10) ----
 GalarObj_G00M10_o3::
@@ -1855,7 +1995,14 @@ GalarObj_G00M10_o3::
 	end
 
 GalarObj_G00M10_o3_Text0:
-	.string "Hop: Estamos finalmente indo para\nWyndon! Tem muita coisa que eu\lquero conferir lá. Lá está aquela\lgrande torre... e o monotrilho...\lE o Estádio Wyndon, onde todo\lGalar... não, o mundo inteiro\lestará nos assistindo! Você\lentende, certo? Você e eu vamos\lfazer da nossa batalha a melhor\lque já existiu!$"
+	.string "Hop: We're finally heading to Wyndon!\n"
+	.string "There's so much I want to check out\l"
+	.string "there. There's that huge tower... and\l"
+	.string "the monorail... And Wyndon Stadium,\l"
+	.string "where all of Galar... no, the whole world\l"
+	.string "will be watching us! You get it, right?\l"
+	.string "You and I are going to make our battle\l"
+	.string "the best there has ever been!$"
 
 @ ---- Galar_StowOnSide03 (g09m00) ----
 GalarObj_G09M00_o3::
@@ -1868,7 +2015,15 @@ GalarObj_G09M00_o3::
 	end
 
 GalarObj_G09M00_o3_Text0:
-	.string "Estamos finalmente indo para\nWyndon!Há muita coisa que eu\lquero verificar lá.\pHá aquela grande torre ... e o\nmonotrilho... E o Estádio Wyndon,\londe Galar inteiro...não, o mundo\linteiro vai estar Nos assistindo!\pVocê entendeu, certo? Você e eu\nvamos fazer da nossa batalha a\lmelhor que já existiu!$"
+	.string "We're finally heading to Wyndon! There's\n"
+	.string "so much I want to check out there.\p"
+	.string "There's that huge tower... and the\n"
+	.string "monorail... And Wyndon Stadium, where all\l"
+	.string "of Galar... no, the whole world will be\l"
+	.string "watching us!\p"
+	.string "You get it, right? You and I are going to\n"
+	.string "make our battle the best there has ever\l"
+	.string "been!$"
 
 @ ---- Galar_StowOnSide12 (g40m01) ----
 GalarObj_G40M01_o0::
@@ -1908,13 +2063,17 @@ GalarObj_G40M01_o0_b3::
 	end
 
 GalarObj_G40M01_o0_Text0:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-lo na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M01_o0_Text1:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 GalarObj_G40M01_o0_Text2:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-la na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M01_o0_Text3:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 	.align 2
 GalarObj_G40M01_o0_Mart0:
 	.2byte ITEM_POKE_BALL
@@ -2000,13 +2159,17 @@ GalarObj_G40M05_o0_b3::
 	end
 
 GalarObj_G40M05_o0_Text0:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-lo na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M05_o0_Text1:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 GalarObj_G40M05_o0_Text2:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-la na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M05_o0_Text3:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 	.align 2
 GalarObj_G40M05_o0_Mart0:
 	.2byte ITEM_POKE_BALL
@@ -2073,7 +2236,14 @@ GalarObj_G12M10_o18_b1::
 	end
 
 GalarObj_G12M10_o18_Text0:
-	.string "Sonia:Sua batalha foi brilhante!\nO lider do ginásio era realmente\lforte,mas você não teve problemas\lem derrota-lo.\pCirchester tem otimos restaurantes\nTenho algumas coisas sobre que\lquero falar,então vamos a um\lrestaurante para comemorar sua\lvitoria!\lO nome do restaurante é\lBob’s Your Uncle!$"
+	.string "Sonia: Your battle was brilliant! The\n"
+	.string "Gym Leader was really strong, but you\l"
+	.string "had no trouble beating him.\p"
+	.string "Circhester has great restaurants.\n"
+	.string "There are a few things I want to talk\l"
+	.string "about, so let's go to a restaurant to\l"
+	.string "celebrate your victory! The restaurant\l"
+	.string "is called Bob’s Your Uncle!$"
 
 GalarObj_G12M10_o20::
 	lock
@@ -2083,7 +2253,8 @@ GalarObj_G12M10_o20::
 	end
 
 GalarObj_G12M10_o20_Text0:
-	.string "Hop: Olha {PLAYER}, esse é o\nbanho dos herois!$"
+	.string "Hop: Look, {PLAYER}, this is the bath of\n"
+	.string "heroes!$"
 
 @ ---- Galar_Circhester15 (g40m06) ----
 GalarObj_G40M06_o0::
@@ -2123,13 +2294,17 @@ GalarObj_G40M06_o0_b3::
 	end
 
 GalarObj_G40M06_o0_Text0:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-lo na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M06_o0_Text1:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 GalarObj_G40M06_o0_Text2:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-la na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M06_o0_Text3:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 	.align 2
 GalarObj_G40M06_o0_Mart0:
 	.2byte ITEM_POKE_BALL
@@ -2196,7 +2371,14 @@ GalarObj_G03M08_o19_b1::
 	end
 
 GalarObj_G03M08_o19_Text0:
-	.string "Sonia:Sua batalha foi brilhante!\nO lider do ginásio era realmente\lforte,mas você não teve problemas\lem derrota-lo.\pCirchester tem otimos restaurantes\nTenho algumas coisas sobre que\lquero falar,então vamos a um\lrestaurante para comemorar sua\lvitoria!\lO nome do restaurante é\lBob’s Your Uncle!$"
+	.string "Sonia: Your battle was brilliant! The\n"
+	.string "Gym Leader was really strong, but you\l"
+	.string "had no trouble beating him.\p"
+	.string "Circhester has great restaurants.\n"
+	.string "There are a few things I want to talk\l"
+	.string "about, so let's go to a restaurant to\l"
+	.string "celebrate your victory! The restaurant\l"
+	.string "is called Bob’s Your Uncle!$"
 
 @ ---- Galar_Spikemuth08 (g40m09) ----
 GalarObj_G40M09_o0::
@@ -2236,13 +2418,17 @@ GalarObj_G40M09_o0_b3::
 	end
 
 GalarObj_G40M09_o0_Text0:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-lo na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M09_o0_Text1:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 GalarObj_G40M09_o0_Text2:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-la na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M09_o0_Text3:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 	.align 2
 GalarObj_G40M09_o0_Mart0:
 	.2byte ITEM_POKE_BALL
@@ -2299,7 +2485,7 @@ GalarObj_G03M09_o10::
 	end
 
 GalarObj_G03M09_o10_Text0:
-	.string "Va logo {PLAYER}!!!$"
+	.string "Get going, {PLAYER}!!!$"
 
 GalarObj_G03M09_o12::
 	lock
@@ -2309,7 +2495,7 @@ GalarObj_G03M09_o12::
 	end
 
 GalarObj_G03M09_o12_Text0:
-	.string "Va logo {PLAYER}!!!$"
+	.string "Get going, {PLAYER}!!!$"
 
 @ ---- Galar_Wyndon02 (g13m00) ----
 GalarObj_G13M00_o7::
@@ -2320,7 +2506,7 @@ GalarObj_G13M00_o7::
 	end
 
 GalarObj_G13M00_o7_Text0:
-	.string "Hop: olha ,{PLAYER}, quem esta aqui!$"
+	.string "Hop: Look, {PLAYER}, who's here!$"
 
 @ ---- Galar_Wyndon07 (g40m11) ----
 GalarObj_G40M11_o0::
@@ -2360,13 +2546,17 @@ GalarObj_G40M11_o0_b3::
 	end
 
 GalarObj_G40M11_o0_Text0:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-lo na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M11_o0_Text1:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 GalarObj_G40M11_o0_Text2:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-la na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M11_o0_Text3:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 	.align 2
 GalarObj_G40M11_o0_Mart0:
 	.2byte ITEM_POKE_BALL
@@ -2434,7 +2624,7 @@ GalarObj_G01M94_o2::
 	end
 
 GalarObj_G01M94_o2_Text0:
-	.string "Hop: Ei {PLAYER}, olha quem eu achei\naqui!$"
+	.string "Hop: Hey {PLAYER}, look who I found here!$"
 
 @ ---- Galar_IsleOfArmor02 (g01m34) ----
 GalarObj_G01M34_o5::
@@ -2575,13 +2765,17 @@ GalarObj_G40M13_o0_b3::
 	end
 
 GalarObj_G40M13_o0_Text0:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-lo na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M13_o0_Text1:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 GalarObj_G40M13_o0_Text2:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-la na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M13_o0_Text3:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 	.align 2
 GalarObj_G40M13_o0_Mart0:
 	.2byte ITEM_POKE_BALL
@@ -2673,13 +2867,13 @@ GalarObj_G37M05_o24_b3::
 	end
 
 GalarObj_G37M05_o24_Text0:
-	.string "ola, como posso ajudar voce?$"
+	.string "hello, how can I help you?$"
 GalarObj_G37M05_o24_Text1:
-	.string "Volte sempre!$"
+	.string "Come again!$"
 GalarObj_G37M05_o24_Text2:
-	.string "ola, como posso ajudar voce?$"
+	.string "hello, how can I help you?$"
 GalarObj_G37M05_o24_Text3:
-	.string "Volte sempre!$"
+	.string "Come again!$"
 	.align 2
 GalarObj_G37M05_o24_Mart0:
 	.2byte ITEM_TM23
@@ -2761,13 +2955,17 @@ GalarObj_G40M14_o0_b3::
 	end
 
 GalarObj_G40M14_o0_Text0:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-lo na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M14_o0_Text1:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 GalarObj_G40M14_o0_Text2:
-	.string "{COLOR DARK_GRAY}É um prazer recebe-la na minha\nloja.\lGostaria de comprar alguma coisa?$"
+	.string "{COLOR DARK_GRAY}It's a pleasure to have you in my shop.\n"
+	.string "Would you like to buy something?$"
 GalarObj_G40M14_o0_Text3:
-	.string "{COLOR BLUE}Não basta simplesmente satifazer\nclientes é preciso encantá-los.$"
+	.string "{COLOR BLUE}It isn't enough to simply satisfy\n"
+	.string "customers, you have to delight them.$"
 	.align 2
 GalarObj_G40M14_o0_Mart0:
 	.2byte ITEM_POKE_BALL
@@ -2824,7 +3022,7 @@ GalarObj_G00M16_bg0::
 	end
 
 GalarObj_G00M16_bg0_Text0:
-	.string "{PLAYER}:Nada de interessante aqui!$"
+	.string "{PLAYER}: Nothing interesting here!$"
 
 GalarObj_G00M16_bg1::
 	lock
@@ -2834,7 +3032,16 @@ GalarObj_G00M16_bg1::
 	end
 
 GalarObj_G00M16_bg1_Text0:
-	.string "{PLAYER}: O que é isso? A HONRA\nMONTANHA DO REI: o pokémon cavalo\lque se uniu ao rei como um só e\lem uma única noite eles criaram\luma floresta, esse pokémon já foi\lselvagem, roubava as colheitas\ldas pessoas, mas o rei domou,\lsobre sua aparência alguns dizem\lque ele era branco como a neve, e\loutros dizem que ele era escuro\lcomo a noite, ninguém sabe ao\lcerto quem está certo.$"
+	.string "{PLAYER}: What is this? THE HONOR, THE\n"
+	.string "KING'S STEED: the horse Pokémon that\l"
+	.string "became one with the king, and in a\l"
+	.string "single night they created a forest.\l"
+	.string "This Pokémon was once wild and stole\l"
+	.string "people's harvests, but the king tamed\l"
+	.string "it. As for its appearance, some say it\l"
+	.string "was white as snow, and others say it was\l"
+	.string "dark as night; nobody knows for sure\l"
+	.string "who is right.$"
 
 GalarObj_G00M16_bg2::
 	lock
@@ -2844,7 +3051,22 @@ GalarObj_G00M16_bg2::
 	end
 
 GalarObj_G00M16_bg2_Text0:
-	.string "{PLAYER}: O que é isso? GUIA DE\nSEMENTES: tem algumas sementes\lbem curiosas na coroa tundra, se\las cenouras crescerem debaixo da\lneve elas viram Cenouras da Neve\le se crescerem perto dos\lcemitérios Viram Cenouras\lNegras,pokemon Tipo gelo adoram\lCenouras da Neve e os tipo\lfantasmas adoram as Cenouras\lNegras , de acordo com as lendas\lantigas a montaria do rei adora\las duas cenouras ou uma delas ou\la outra, as historias se\lcontradizem muitos relatos de uma\lmontaria branca que gostava de\lCenouras da Neve e outras\lhistorias de uma montaria preta\lque gostava de Cenouras Negras.$"
+	.string "{PLAYER}: What is this? SEED GUIDE:\n"
+	.string "there are some very curious seeds in\l"
+	.string "the Crown Tundra. If the carrots grow\l"
+	.string "under the snow they become Iceroot\l"
+	.string "Carrots, and if they grow near the\l"
+	.string "cemeteries they become Shaderoot\l"
+	.string "Carrots. Ice-type Pokémon love Iceroot\l"
+	.string "Carrots and Ghost-types love\l"
+	.string "Shaderoot Carrots. According to the old\l"
+	.string "legends the king's steed loves both\l"
+	.string "carrots, or one of them, or the other;\l"
+	.string "the stories contradict each other.\l"
+	.string "There are many accounts of a white\l"
+	.string "steed that liked Iceroot Carrots and\l"
+	.string "other stories of a black steed that\l"
+	.string "liked Shaderoot Carrots.$"
 
 GalarObj_G00M16_bg3::
 	lock
@@ -2854,7 +3076,7 @@ GalarObj_G00M16_bg3::
 	end
 
 GalarObj_G00M16_bg3_Text0:
-	.string "{PLAYER}:Nada de interessante aqui!$"
+	.string "{PLAYER}: Nothing interesting here!$"
 
 @ ---- Galar_DynamaxAdventure02 (g00m17) ----
 GalarObj_G00M17_o3::
@@ -2881,9 +3103,10 @@ GalarObj_G00M17_o3_b2::
 GalarObj_G00M17_o3_Text0:
 	.string "{RIVAL}: What, it’s only {PLAYER}?\nGramps isn’t around.$"
 GalarObj_G00M17_o3_Text1:
-	.string "Hop: Meu pokémon parece ser\nforte!$"
+	.string "Hop: My Pokémon looks strong!$"
 GalarObj_G00M17_o3_Text2:
-	.string "Hop: Vamos, {PLAYER}!!!\nEscolha seu pokémon!!!$"
+	.string "Hop: Come on, {PLAYER}!!!\n"
+	.string "Pick your Pokémon!!!$"
 
 GalarObj_G00M17_o6::
 	lock
@@ -2893,7 +3116,10 @@ GalarObj_G00M17_o6::
 	end
 
 GalarObj_G00M17_o6_Text0:
-	.string "Hop: {PLAYER}, aquela Wooloo sumiu.\nAcho que ela quebrou a cerca!!\pAcho…\nque devemos ir atrás dela …$"
+	.string "Hop: {PLAYER}, that Wooloo is gone. I\n"
+	.string "think it broke through the fence!!\p"
+	.string "I think…\n"
+	.string "we should go after it …$"
 
 @ ---- Galar_TrainerTower01 (g02m10) ----
 GalarObj_G02M10_o1::
@@ -2974,7 +3200,7 @@ GalarObj_G01M63_o0_b2::
 	end
 
 GalarObj_G01M63_o0_Text0:
-	.string "Emergir?$"
+	.string "Surface?$"
 
 GalarObj_G01M63_o1::
 	msgbox GalarObj_G01M63_o1_Text0, MSGBOX_YESNO
@@ -2993,7 +3219,7 @@ GalarObj_G01M63_o1_b2::
 	end
 
 GalarObj_G01M63_o1_Text0:
-	.string "Emergir?$"
+	.string "Surface?$"
 
 GalarObj_G01M63_o2::
 	msgbox GalarObj_G01M63_o2_Text0, MSGBOX_YESNO
@@ -3012,7 +3238,7 @@ GalarObj_G01M63_o2_b2::
 	end
 
 GalarObj_G01M63_o2_Text0:
-	.string "Emergir?$"
+	.string "Surface?$"
 
 GalarObj_G01M63_o3::
 	msgbox GalarObj_G01M63_o3_Text0, MSGBOX_YESNO
@@ -3031,7 +3257,7 @@ GalarObj_G01M63_o3_b2::
 	end
 
 GalarObj_G01M63_o3_Text0:
-	.string "Emergir?$"
+	.string "Surface?$"
 
 GalarObj_G01M63_o4::
 	msgbox GalarObj_G01M63_o4_Text0, MSGBOX_YESNO
@@ -3050,7 +3276,7 @@ GalarObj_G01M63_o4_b2::
 	end
 
 GalarObj_G01M63_o4_Text0:
-	.string "Emergir?$"
+	.string "Surface?$"
 
 GalarObj_G01M63_o5::
 	msgbox GalarObj_G01M63_o5_Text0, MSGBOX_YESNO
@@ -3069,7 +3295,7 @@ GalarObj_G01M63_o5_b2::
 	end
 
 GalarObj_G01M63_o5_Text0:
-	.string "Emergir?$"
+	.string "Surface?$"
 
 GalarObj_G01M63_o6::
 	msgbox GalarObj_G01M63_o6_Text0, MSGBOX_YESNO
@@ -3088,5 +3314,5 @@ GalarObj_G01M63_o6_b2::
 	end
 
 GalarObj_G01M63_o6_Text0:
-	.string "Emergir?$"
+	.string "Surface?$"
 

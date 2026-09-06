@@ -238,9 +238,25 @@ GalarCena_G09M11_t2_v0::
 	end
 
 GalarCena_G09M11_t2_v0_Text0:
-	.string "Rose:O estádio de Hammerlocke\nfunciona como uma usina de energia.\pAgora,dê uma olhada no meu tablet.$"
+	.string "Rose: Hammerlocke Stadium works as a\n"
+	.string "power plant.\p"
+	.string "Now, take a look at my tablet.$"
 GalarCena_G09M11_t2_v0_Text1:
-	.string "Eu tenho todas as informacoes que\pvocê precisa vê.\pRose:Vejo?Uma descricão fácil de\nentender da usina de energia!Primeiro,\pa energia é absorvida na torre do\nestádio de Hammerlocke.Em seguida,\pé transformada em eletricidade na\nusina subterranea e entregue as\ppessoas de toda a região de Galar!\nNossas vidas e a sociedade exigem\pvários tipos de fontes de energia,\ncomo eletricidade,gás natural,Meus\pgrupos associados visam melhorar\na vida de todos, aproveitando o$"
+	.string "I have all the information\p"
+	.string "you need to see.\p"
+	.string "Rose: See? An easy to understand\n"
+	.string "description of the power plant! First,\p"
+	.string "the energy is absorbed in the tower of\n"
+	.string "Hammerlocke Stadium. Next,\p"
+	.string "it is turned into electricity in the\n"
+	.string "underground Power Plant and delivered\l"
+	.string "to\p"
+	.string "the people of the whole Galar region!\n"
+	.string "Our lives and our society demand\p"
+	.string "many kinds of energy sources, such as\n"
+	.string "electricity and natural gas. My\p"
+	.string "associated groups aim to improve\n"
+	.string "everyone's lives by harnessing the$"
 GalarCena_G09M11_t2_v0_Mov0:
 	.byte MOVEMENT_ACTION_FACE_RIGHT
 	.byte MOVEMENT_ACTION_EMOTE_EXCLAMATION_MARK
@@ -249,7 +265,14 @@ GalarCena_G09M11_t2_v0_Mov1:
 	.byte MOVEMENT_ACTION_EMOTE_EXCLAMATION_MARK
 	.byte MOVEMENT_ACTION_STEP_END
 GalarCena_G09M11_t2_v0_Text2:
-	.string "rose:hora de eu comecar a trabalhar.\nEu devo me mexer logo antes que\pOleana decida me dar mais avisos,\n{PLAYER},sugiro que você vá para o\pcofre em seguida.Apenas siga em\ndirecão   Rota 6 do estádio e você\pencontrará o cofre sem problemas!$"
+	.string "Rose: time for me to get to work.\n"
+	.string "I should get moving before\p"
+	.string "Oleana decides to give me more\n"
+	.string "reminders. {PLAYER}, I suggest you head\l"
+	.string "to the\p"
+	.string "Vault next. Just go toward Route 6 from\n"
+	.string "the stadium and you'll\p"
+	.string "find the Vault with no trouble!$"
 
 @ ---- Galar_Hammerlocke15 (g10m12) ----
 

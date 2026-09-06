@@ -12,7 +12,7 @@ GalarFala_G00M06_o2::
 	end
 
 GalarFala_G00M06_o2_Text:
-	.string "Meus pokémons amam esse lugar!$"
+	.string "My Pokémon love this place!$"
 
 @ ---- Galar_StowOnSide01 (g00m07) ----
 GalarFala_G00M07_bg0::
@@ -20,70 +20,80 @@ GalarFala_G00M07_bg0::
 	end
 
 GalarFala_G00M07_bg0_Text:
-	.string "Este corviknight leva para\nWedgehurst$"
+	.string "This Corviknight takes you to\n"
+	.string "Wedgehurst.$"
 
 GalarFala_G00M07_bg1::
 	msgbox GalarFala_G00M07_bg1_Text, MSGBOX_SIGN
 	end
 
 GalarFala_G00M07_bg1_Text:
-	.string "Este corviknight leva para\nMotostoke$"
+	.string "This Corviknight takes you to\n"
+	.string "Motostoke.$"
 
 GalarFala_G00M07_bg2::
 	msgbox GalarFala_G00M07_bg2_Text, MSGBOX_SIGN
 	end
 
 GalarFala_G00M07_bg2_Text:
-	.string "Este corviknight leva para\nTurffield$"
+	.string "This Corviknight takes you to\n"
+	.string "Turffield.$"
 
 GalarFala_G00M07_bg3::
 	msgbox GalarFala_G00M07_bg3_Text, MSGBOX_SIGN
 	end
 
 GalarFala_G00M07_bg3_Text:
-	.string "Este corviknight leva para\nHulbury$"
+	.string "This Corviknight takes you to\n"
+	.string "Hulbury.$"
 
 GalarFala_G00M07_bg4::
 	msgbox GalarFala_G00M07_bg4_Text, MSGBOX_SIGN
 	end
 
 GalarFala_G00M07_bg4_Text:
-	.string "Este corviknight leva para\nHammerlock$"
+	.string "This Corviknight takes you to\n"
+	.string "Hammerlocke.$"
 
 GalarFala_G00M07_bg5::
 	msgbox GalarFala_G00M07_bg5_Text, MSGBOX_SIGN
 	end
 
 GalarFala_G00M07_bg5_Text:
-	.string "Este corviknight leva para\nSton-on-side$"
+	.string "This Corviknight takes you to\n"
+	.string "Stow-on-Side.$"
 
 GalarFala_G00M07_bg6::
 	msgbox GalarFala_G00M07_bg6_Text, MSGBOX_SIGN
 	end
 
 GalarFala_G00M07_bg6_Text:
-	.string "Este corviknight leva para\nBallonlea$"
+	.string "This Corviknight takes you to\n"
+	.string "Ballonlea.$"
 
 GalarFala_G00M07_bg7::
 	msgbox GalarFala_G00M07_bg7_Text, MSGBOX_SIGN
 	end
 
 GalarFala_G00M07_bg7_Text:
-	.string "Este corviknight leva para\nChicerster$"
+	.string "This Corviknight takes you to\n"
+	.string "Circhester.$"
 
 GalarFala_G00M07_bg8::
 	msgbox GalarFala_G00M07_bg8_Text, MSGBOX_SIGN
 	end
 
 GalarFala_G00M07_bg8_Text:
-	.string "Este corviknight leva para\nSpikemuth$"
+	.string "This Corviknight takes you to\n"
+	.string "Spikemuth.$"
 
 GalarFala_G00M07_bg9::
 	msgbox GalarFala_G00M07_bg9_Text, MSGBOX_SIGN
 	end
 
 GalarFala_G00M07_bg9_Text:
-	.string "Este corviknight leva para\nWyndon$"
+	.string "This Corviknight takes you to\n"
+	.string "Wyndon.$"
 
 GalarFala_G00M07_o10::
 	lock
@@ -93,7 +103,7 @@ GalarFala_G00M07_o10::
 	end
 
 GalarFala_G00M07_o10_Text:
-	.string "Este Corviknight não está pronto\npara voar!$"
+	.string "This Corviknight isn't ready to fly!$"
 
 GalarFala_G00M07_o11::
 	lock
@@ -103,7 +113,7 @@ GalarFala_G00M07_o11::
 	end
 
 GalarFala_G00M07_o11_Text:
-	.string "Este Corviknight não está pronto\npara voar!$"
+	.string "This Corviknight isn't ready to fly!$"
 
 GalarFala_G00M07_o12::
 	lock
@@ -113,7 +123,7 @@ GalarFala_G00M07_o12::
 	end
 
 GalarFala_G00M07_o12_Text:
-	.string "Este Corviknight não está pronto\npara voar!$"
+	.string "This Corviknight isn't ready to fly!$"
 
 GalarFala_G00M07_o13::
 	lock
@@ -123,7 +133,7 @@ GalarFala_G00M07_o13::
 	end
 
 GalarFala_G00M07_o13_Text:
-	.string "Este Corviknight não está pronto\npara voar!$"
+	.string "This Corviknight isn't ready to fly!$"
 
 GalarFala_G00M07_o14::
 	lock
@@ -133,7 +143,7 @@ GalarFala_G00M07_o14::
 	end
 
 GalarFala_G00M07_o14_Text:
-	.string "Este Corviknight não está pronto\npara voar!$"
+	.string "This Corviknight isn't ready to fly!$"
 
 GalarFala_G00M07_o15::
 	lock
@@ -143,7 +153,7 @@ GalarFala_G00M07_o15::
 	end
 
 GalarFala_G00M07_o15_Text:
-	.string "Este Corviknight não está pronto\npara voar!$"
+	.string "This Corviknight isn't ready to fly!$"
 
 GalarFala_G00M07_o16::
 	lock
@@ -153,7 +163,7 @@ GalarFala_G00M07_o16::
 	end
 
 GalarFala_G00M07_o16_Text:
-	.string "Este Corviknight não está pronto\npara voar!$"
+	.string "This Corviknight isn't ready to fly!$"
 
 GalarFala_G00M07_o17::
 	lock
@@ -163,7 +173,7 @@ GalarFala_G00M07_o17::
 	end
 
 GalarFala_G00M07_o17_Text:
-	.string "Este Corviknight não está pronto\npara voar!$"
+	.string "This Corviknight isn't ready to fly!$"
 
 GalarFala_G00M07_o18::
 	lock
@@ -173,7 +183,7 @@ GalarFala_G00M07_o18::
 	end
 
 GalarFala_G00M07_o18_Text:
-	.string "Este Corviknight não está pronto\npara voar!$"
+	.string "This Corviknight isn't ready to fly!$"
 
 @ ---- Galar_Hulbury01 (g00m08) ----
 GalarFala_G00M08_o0::
@@ -184,7 +194,8 @@ GalarFala_G00M08_o0::
 	end
 
 GalarFala_G00M08_o0_Text:
-	.string "Oi {PLAYER}, você veio tambem?!\pque tal batalhamos depois de comer$"
+	.string "Hi {PLAYER}, you came too?!\p"
+	.string "How about we battle after we eat?$"
 
 GalarFala_G00M08_o2::
 	lock
@@ -194,7 +205,8 @@ GalarFala_G00M08_o2::
 	end
 
 GalarFala_G00M08_o2_Text:
-	.string "Bem-vindo ao meu restaurante, ele\nestá aqui há cinco gerações da\lnossa família.$"
+	.string "Welcome to my restaurant. It has been\n"
+	.string "in our family for five generations.$"
 
 GalarFala_G00M08_o3::
 	lock
@@ -204,7 +216,8 @@ GalarFala_G00M08_o3::
 	end
 
 GalarFala_G00M08_o3_Text:
-	.string "Aqui tem curry de tudo.\ntem até de pizza.$"
+	.string "There's curry of every kind here.\n"
+	.string "There's even pizza curry.$"
 
 GalarFala_G00M08_o4::
 	lock
@@ -225,7 +238,9 @@ GalarFala_G00M10_o0::
 	end
 
 GalarFala_G00M10_o0_Text:
-	.string "Você sabia? Pokémon com a\nhabilidade Clear Body não serão\lafetados por movimentos de\lredução de estatisticas.$"
+	.string "Did you know? Pokémon with the Clear\n"
+	.string "Body Ability won't be affected by\l"
+	.string "stat-lowering moves.$"
 
 GalarFala_G00M10_o1::
 	lock
@@ -235,7 +250,8 @@ GalarFala_G00M10_o1::
 	end
 
 GalarFala_G00M10_o1_Text:
-	.string "Duraludons Selvagens habitam a\nrota 10. Ouvi dizer que são\ldificeis de capturar.$"
+	.string "Wild Duraludon live on Route 10. I hear\n"
+	.string "they are hard to catch.$"
 
 GalarFala_G00M10_o2::
 	lock
@@ -245,7 +261,8 @@ GalarFala_G00M10_o2::
 	end
 
 GalarFala_G00M10_o2_Text:
-	.string "Mesmo que algumas pessoas digam\nque os tipos de veneno são comuns,\leu acho que eles são legais!$"
+	.string "Even if some people say Poison-types\n"
+	.string "are common, I think they're cool!$"
 
 GalarFala_G00M10_o5::
 	lock
@@ -255,7 +272,8 @@ GalarFala_G00M10_o5::
 	end
 
 GalarFala_G00M10_o5_Text:
-	.string "Você sabia? Se você capturar um\nPokémon com uma Luxury Ball, ele\lgostará mais de você!$"
+	.string "Did you know? If you catch a Pokémon\n"
+	.string "with a Luxury Ball, it will like you more!$"
 
 GalarFala_G00M10_o6::
 	lock
@@ -265,7 +283,9 @@ GalarFala_G00M10_o6::
 	end
 
 GalarFala_G00M10_o6_Text:
-	.string "Lucas costumava ser o lider\nde ginásio, mas se mudou há\lalgun sanos.\lSeus Pokémon são tão dificeis!$"
+	.string "Lucas used to be the Gym Leader, but he\n"
+	.string "moved away some years ago. His Pokémon\l"
+	.string "are so tough!$"
 
 @ ---- Galar_CrownTundraIndoor01 (g00m16) ----
 GalarFala_G00M16_bg0::
@@ -273,28 +293,52 @@ GalarFala_G00M16_bg0::
 	end
 
 GalarFala_G00M16_bg0_Text:
-	.string "{PLAYER}:Nada de interessante aqui!$"
+	.string "{PLAYER}: Nothing interesting here!$"
 
 GalarFala_G00M16_bg1::
 	msgbox GalarFala_G00M16_bg1_Text, MSGBOX_SIGN
 	end
 
 GalarFala_G00M16_bg1_Text:
-	.string "{PLAYER}: O que é isso? A HONRA\nMONTANHA DO REI: o pokémon cavalo\lque se uniu ao rei como um só e\lem uma única noite eles criaram\luma floresta, esse pokémon já foi\lselvagem, roubava as colheitas\ldas pessoas, mas o rei domou,\lsobre sua aparência alguns dizem\lque ele era branco como a neve, e\loutros dizem que ele era escuro\lcomo a noite, ninguém sabe ao\lcerto quem está certo.$"
+	.string "{PLAYER}: What is this? THE HONOR, THE\n"
+	.string "KING'S STEED: the horse Pokémon that\l"
+	.string "became one with the king, and in a\l"
+	.string "single night they created a forest.\l"
+	.string "This Pokémon was once wild and stole\l"
+	.string "people's harvests, but the king tamed\l"
+	.string "it. As for its appearance, some say it\l"
+	.string "was white as snow, and others say it was\l"
+	.string "dark as night; nobody knows for sure\l"
+	.string "who is right.$"
 
 GalarFala_G00M16_bg2::
 	msgbox GalarFala_G00M16_bg2_Text, MSGBOX_SIGN
 	end
 
 GalarFala_G00M16_bg2_Text:
-	.string "{PLAYER}: O que é isso? GUIA DE\nSEMENTES: tem algumas sementes\lbem curiosas na coroa tundra, se\las cenouras crescerem debaixo da\lneve elas viram Cenouras da Neve\le se crescerem perto dos\lcemitérios Viram Cenouras\lNegras,pokemon Tipo gelo adoram\lCenouras da Neve e os tipo\lfantasmas adoram as Cenouras\lNegras , de acordo com as lendas\lantigas a montaria do rei adora\las duas cenouras ou uma delas ou\la outra, as historias se\lcontradizem muitos relatos de uma\lmontaria branca que gostava de\lCenouras da Neve e outras\lhistorias de uma montaria preta\lque gostava de Cenouras Negras.$"
+	.string "{PLAYER}: What is this? SEED GUIDE:\n"
+	.string "there are some very curious seeds in\l"
+	.string "the Crown Tundra. If the carrots grow\l"
+	.string "under the snow they become Iceroot\l"
+	.string "Carrots, and if they grow near the\l"
+	.string "cemeteries they become Shaderoot\l"
+	.string "Carrots. Ice-type Pokémon love Iceroot\l"
+	.string "Carrots and Ghost-types love\l"
+	.string "Shaderoot Carrots. According to the old\l"
+	.string "legends the king's steed loves both\l"
+	.string "carrots, or one of them, or the other;\l"
+	.string "the stories contradict each other.\l"
+	.string "There are many accounts of a white\l"
+	.string "steed that liked Iceroot Carrots and\l"
+	.string "other stories of a black steed that\l"
+	.string "liked Shaderoot Carrots.$"
 
 GalarFala_G00M16_bg3::
 	msgbox GalarFala_G00M16_bg3_Text, MSGBOX_SIGN
 	end
 
 GalarFala_G00M16_bg3_Text:
-	.string "{PLAYER}:Nada de interessante aqui!$"
+	.string "{PLAYER}: Nothing interesting here!$"
 
 @ ---- Galar_DynamaxAdventure02 (g00m17) ----
 GalarFala_G00M17_o6::
@@ -305,7 +349,10 @@ GalarFala_G00M17_o6::
 	end
 
 GalarFala_G00M17_o6_Text:
-	.string "Hop: {PLAYER}, aquela Wooloo sumiu.\nAcho que ela quebrou a cerca!!\pAcho…\nque devemos ir atrás dela …$"
+	.string "Hop: {PLAYER}, that Wooloo is gone. I\n"
+	.string "think it broke through the fence!!\p"
+	.string "I think…\n"
+	.string "we should go after it …$"
 
 @ ---- Galar_SlumberingWeald01 (g01m00) ----
 GalarFala_G01M00_o3::
@@ -316,7 +363,7 @@ GalarFala_G01M00_o3::
 	end
 
 GalarFala_G01M00_o3_Text:
-	.string "Sonia: Quanta neblina aqui.$"
+	.string "Sonia: So much fog here.$"
 
 @ ---- Galar_WarmUpTunnel01 (g01m01) ----
 GalarFala_G01M01_bg0::
@@ -419,7 +466,10 @@ GalarFala_G01M122_o0::
 	end
 
 GalarFala_G01M122_o0_Text:
-	.string "Ola me chamo hanna,eu estava\nescanvando fossies aqui e\lrevevendo-os mas acho que cometi\lalguns erros.\lvoce pode captura-los se quiser!$"
+	.string "Hello, my name is hanna. I was digging up\n"
+	.string "fossils here and reviving them, but I\l"
+	.string "think I made a few mistakes. You can\l"
+	.string "catch them if you want!$"
 
 @ ---- Galar_IsleOfArmor02 (g01m34) ----
 GalarFala_G01M34_o1::
@@ -430,7 +480,8 @@ GalarFala_G01M34_o1::
 	end
 
 GalarFala_G01M34_o1_Text:
-	.string "Hyde: Não tenho tempo pra você\nestou ocupado.$"
+	.string "Hyde: I don't have time for you, I'm\n"
+	.string "busy.$"
 
 GalarFala_G01M34_o3::
 	lock
@@ -440,7 +491,9 @@ GalarFala_G01M34_o3::
 	end
 
 GalarFala_G01M34_o3_Text:
-	.string "Esta é a entrada para a arena do\nDojo Master, você so pode entar\lcom autorização!$"
+	.string "This is the entrance to the Dojo\n"
+	.string "Master's arena. You can only go in with\l"
+	.string "permission!$"
 
 GalarFala_G01M34_o4::
 	lock
@@ -450,7 +503,7 @@ GalarFala_G01M34_o4::
 	end
 
 GalarFala_G01M34_o4_Text:
-	.string "Eu estou cuidando da cozinha.$"
+	.string "I'm looking after the kitchen.$"
 
 GalarFala_G01M34_o6::
 	lock
@@ -490,7 +543,7 @@ GalarFala_G01M94_o2::
 	end
 
 GalarFala_G01M94_o2_Text:
-	.string "Hop: Ei {PLAYER}, olha quem eu achei\naqui!$"
+	.string "Hop: Hey {PLAYER}, look who I found here!$"
 
 GalarFala_G01M94_o3::
 	lock
@@ -507,14 +560,18 @@ GalarFala_G02M10_o3::
 	end
 
 GalarFala_G02M10_o3_Text:
-	.string "Estou aqui para ver o quão bom sou.\pEu me pergunto que tipos de\ntreinadores estão esperando\lpor mim?\pÉ desesperador!$"
+	.string "I'm here to see how good I am.\p"
+	.string "I wonder what kinds of Trainers are\n"
+	.string "waiting for me?\p"
+	.string "It's nerve-racking!$"
 
 GalarFala_G02M10_o4::
 	msgbox GalarFala_G02M10_o4_Text, MSGBOX_NPC
 	end
 
 GalarFala_G02M10_o4_Text:
-	.string "Estas escadas…\nsão mais difíceis do\lque qualquer batalha.$"
+	.string "These stairs…\n"
+	.string "are harder than any battle.$"
 
 @ ---- Galar_LostCave10 (g02m22) ----
 GalarFala_G02M22_o0::
@@ -567,7 +624,8 @@ GalarFala_G03M02_o10::
 	end
 
 GalarFala_G03M02_o10_Text:
-	.string "Você é um treinador pokemon?\nJa se escreveu na liga pokemon?$"
+	.string "Are you a Pokémon Trainer? Have you\n"
+	.string "signed up for the Pokémon League yet?$"
 
 GalarFala_G03M02_o11::
 	lock
@@ -577,7 +635,7 @@ GalarFala_G03M02_o11::
 	end
 
 GalarFala_G03M02_o11_Text:
-	.string "Motostoke era um reino enorme!$"
+	.string "Motostoke was a huge kingdom!$"
 
 GalarFala_G03M02_o12::
 	lock
@@ -587,7 +645,9 @@ GalarFala_G03M02_o12::
 	end
 
 GalarFala_G03M02_o12_Text:
-	.string "Essa não é a cidade do primeiro\nginasio para chegar ate ele você\ldeve ir pela rota 3 que fica a\lesquerda da cidade.$"
+	.string "This isn't the town with the first Gym.\n"
+	.string "To reach it you have to take Route 3, on\l"
+	.string "the left side of town.$"
 
 GalarFala_G03M02_o15::
 	lock
@@ -597,7 +657,7 @@ GalarFala_G03M02_o15::
 	end
 
 GalarFala_G03M02_o15_Text:
-	.string "A ponte esta em reforma.$"
+	.string "The bridge is under repair.$"
 
 GalarFala_G03M02_o16::
 	lock
@@ -607,7 +667,9 @@ GalarFala_G03M02_o16::
 	end
 
 GalarFala_G03M02_o16_Text:
-	.string "Essa não é a cidade do primeiro\nginasio para chegar ate ele você\ldeve ir pela rota 3 que fica a\lesquerda da cidade.$"
+	.string "This isn't the town with the first Gym.\n"
+	.string "To reach it you have to take Route 3, on\l"
+	.string "the left side of town.$"
 
 GalarFala_G03M02_o17::
 	lock
@@ -617,7 +679,8 @@ GalarFala_G03M02_o17::
 	end
 
 GalarFala_G03M02_o17_Text:
-	.string "Você é um treinador pokemon?\nJa se escreveu na liga pokemon?$"
+	.string "Are you a Pokémon Trainer? Have you\n"
+	.string "signed up for the Pokémon League yet?$"
 
 GalarFala_G03M02_o18::
 	lock
@@ -627,7 +690,8 @@ GalarFala_G03M02_o18::
 	end
 
 GalarFala_G03M02_o18_Text:
-	.string "Eu estou tão animado com a\nserimonia de abertura!!!$"
+	.string "I'm so excited about the opening\n"
+	.string "ceremony!!!$"
 
 GalarFala_G03M02_o19::
 	lock
@@ -637,7 +701,7 @@ GalarFala_G03M02_o19::
 	end
 
 GalarFala_G03M02_o19_Text:
-	.string "Motostoke é uma cidade\nhistorica!!!$"
+	.string "Motostoke is a historic city!!!$"
 
 GalarFala_G03M02_o20::
 	lock
@@ -647,7 +711,8 @@ GalarFala_G03M02_o20::
 	end
 
 GalarFala_G03M02_o20_Text:
-	.string "Por que nunca fizeram uma rom que\nse passa em Kalos?$"
+	.string "Why has nobody ever made a ROM set in\n"
+	.string "Kalos?$"
 
 GalarFala_G03M02_o21::
 	lock
@@ -657,7 +722,8 @@ GalarFala_G03M02_o21::
 	end
 
 GalarFala_G03M02_o21_Text:
-	.string "Você é um treinador pokemon?\nJa se escreveu na liga pokemon?$"
+	.string "Are you a Pokémon Trainer? Have you\n"
+	.string "signed up for the Pokémon League yet?$"
 
 GalarFala_G03M02_o22::
 	lock
@@ -667,7 +733,8 @@ GalarFala_G03M02_o22::
 	end
 
 GalarFala_G03M02_o22_Text:
-	.string "Você ja viu o Motostoke Stadium?\nele é enorme!!!$"
+	.string "Have you seen Motostoke Stadium?\n"
+	.string "It's huge!!!$"
 
 GalarFala_G03M02_o23::
 	lock
@@ -677,7 +744,8 @@ GalarFala_G03M02_o23::
 	end
 
 GalarFala_G03M02_o23_Text:
-	.string "Você é um treinador pokemon?\nJa se escreveu na liga pokemon?$"
+	.string "Are you a Pokémon Trainer? Have you\n"
+	.string "signed up for the Pokémon League yet?$"
 
 GalarFala_G03M02_o24::
 	lock
@@ -687,7 +755,8 @@ GalarFala_G03M02_o24::
 	end
 
 GalarFala_G03M02_o24_Text:
-	.string "Você é um treinador pokemon?\nJa se escreveu na liga pokemon?$"
+	.string "Are you a Pokémon Trainer? Have you\n"
+	.string "signed up for the Pokémon League yet?$"
 
 GalarFala_G03M02_o4::
 	lock
@@ -697,7 +766,7 @@ GalarFala_G03M02_o4::
 	end
 
 GalarFala_G03M02_o4_Text:
-	.string "A ponte esta em reforma.$"
+	.string "The bridge is under repair.$"
 
 GalarFala_G03M02_o5::
 	lock
@@ -707,7 +776,7 @@ GalarFala_G03M02_o5::
 	end
 
 GalarFala_G03M02_o5_Text:
-	.string "A ponte esta em reforma.$"
+	.string "The bridge is under repair.$"
 
 GalarFala_G03M02_o9::
 	lock
@@ -717,7 +786,8 @@ GalarFala_G03M02_o9::
 	end
 
 GalarFala_G03M02_o9_Text:
-	.string "Kabu é bem severo com seus\npokemons treinando-os em cavernas$"
+	.string "Kabu is very strict with his Pokémon,\n"
+	.string "training them in caves.$"
 
 @ ---- Galar_Hammerlocke23 (g03m06) ----
 GalarFala_G03M06_o0::
@@ -741,7 +811,7 @@ GalarFala_G03M09_o10::
 	end
 
 GalarFala_G03M09_o10_Text:
-	.string "Va logo {PLAYER}!!!$"
+	.string "Get going, {PLAYER}!!!$"
 
 GalarFala_G03M09_o12::
 	lock
@@ -751,7 +821,7 @@ GalarFala_G03M09_o12::
 	end
 
 GalarFala_G03M09_o12_Text:
-	.string "Va logo {PLAYER}!!!$"
+	.string "Get going, {PLAYER}!!!$"
 
 GalarFala_G03M09_o13::
 	lock
@@ -761,7 +831,8 @@ GalarFala_G03M09_o13::
 	end
 
 GalarFala_G03M09_o13_Text:
-	.string "Eu prefiro usar Pokémon com\nestatisticas de alta velocidade.$"
+	.string "I prefer using Pokémon with high Speed\n"
+	.string "stats.$"
 
 GalarFala_G03M09_o14::
 	lock
@@ -771,7 +842,9 @@ GalarFala_G03M09_o14::
 	end
 
 GalarFala_G03M09_o14_Text:
-	.string "Eu amo viajar. Você já visitou\njotho?\pGostei muito de lá!$"
+	.string "I love traveling. Have you ever visited\n"
+	.string "Johto?\p"
+	.string "I liked it there a lot!$"
 
 GalarFala_G03M09_o15::
 	lock
@@ -781,7 +854,8 @@ GalarFala_G03M09_o15::
 	end
 
 GalarFala_G03M09_o15_Text:
-	.string "Kabu treina na galar mine todos\nos dias.\pSeus Pokémon são tão fortes!$"
+	.string "Kabu trains in the Galar Mine every day.\p"
+	.string "His Pokémon are so strong!$"
 
 GalarFala_G03M09_o16::
 	lock
@@ -791,7 +865,8 @@ GalarFala_G03M09_o16::
 	end
 
 GalarFala_G03M09_o16_Text:
-	.string "Gosto de usar Pokémon que outros\ntreinadores subestimarão!$"
+	.string "I like using Pokémon that other\n"
+	.string "Trainers will underestimate!$"
 
 GalarFala_G03M09_o18::
 	lock
@@ -801,7 +876,7 @@ GalarFala_G03M09_o18::
 	end
 
 GalarFala_G03M09_o18_Text:
-	.string "Gosto de usar movimentos que\ncausam paralisia.$"
+	.string "I like using moves that cause paralysis.$"
 
 GalarFala_G03M09_o19::
 	lock
@@ -811,7 +886,8 @@ GalarFala_G03M09_o19::
 	end
 
 GalarFala_G03M09_o19_Text:
-	.string "Eu treino na wild area por causa\ndos muitos Pokémon Poison\lselvagens.$"
+	.string "I train in the Wild Area because of all\n"
+	.string "the wild Poison-type Pokémon.$"
 
 GalarFala_G03M09_o20::
 	lock
@@ -821,7 +897,8 @@ GalarFala_G03M09_o20::
 	end
 
 GalarFala_G03M09_o20_Text:
-	.string "Esta cidade é popular entre os\nturistas e turistas por causa de\lsua rica historia.$"
+	.string "This city is popular with tourists\n"
+	.string "because of its rich history.$"
 
 @ ---- Galar_WildArea01 (g03m35) ----
 GalarFala_G03M35_o11::
@@ -832,7 +909,7 @@ GalarFala_G03M35_o11::
 	end
 
 GalarFala_G03M35_o11_Text:
-	.string "Estou procurando um Dratini.$"
+	.string "I'm looking for a Dratini.$"
 
 GalarFala_G03M35_o13::
 	lock
@@ -842,7 +919,7 @@ GalarFala_G03M35_o13::
 	end
 
 GalarFala_G03M35_o13_Text:
-	.string "eu tinha encontrado um shiny mas perdi.$"
+	.string "I had found a Shiny, but I lost it.$"
 
 GalarFala_G03M35_o6::
 	lock
@@ -852,7 +929,8 @@ GalarFala_G03M35_o6::
 	end
 
 GalarFala_G03M35_o6_Text:
-	.string "Ouviu falar que Mew carrega\no DNA de todos os pokémons?$"
+	.string "Have you heard that Mew carries the DNA\n"
+	.string "of every Pokémon?$"
 
 GalarFala_G03M35_o8::
 	lock
@@ -862,7 +940,7 @@ GalarFala_G03M35_o8::
 	end
 
 GalarFala_G03M35_o8_Text:
-	.string "Estou treinando$"
+	.string "I'm training.$"
 
 GalarFala_G03M35_o9::
 	lock
@@ -872,7 +950,7 @@ GalarFala_G03M35_o9::
 	end
 
 GalarFala_G03M35_o9_Text:
-	.string "acho que me perdi$"
+	.string "I think I got lost.$"
 
 @ ---- Galar_WildArea02 (g03m42) ----
 GalarFala_G03M42_o0::
@@ -883,7 +961,8 @@ GalarFala_G03M42_o0::
 	end
 
 GalarFala_G03M42_o0_Text:
-	.string " “Mas você nunca estará\nsozinho,eu estarei com você do\lanoitecer ao amanhecer”...$"
+	.string "“But you will never be alone, I will be\n"
+	.string "with you from dusk till dawn”...$"
 
 GalarFala_G03M42_o1::
 	lock
@@ -893,7 +972,8 @@ GalarFala_G03M42_o1::
 	end
 
 GalarFala_G03M42_o1_Text:
-	.string "Eu queria poder conhecer o Leon\npessoalmente ele é muito forte$"
+	.string "I wish I could meet Leon in person. He's\n"
+	.string "so strong.$"
 
 GalarFala_G03M42_o2::
 	lock
@@ -903,7 +983,9 @@ GalarFala_G03M42_o2::
 	end
 
 GalarFala_G03M42_o2_Text:
-	.string "Você já parou pra pensar no\nsentido da vida?Pra que fazemos\ltudo se no final...acabamos\lmorrendo$"
+	.string "Have you ever stopped to think about\n"
+	.string "the meaning of life? Why do we do it all\l"
+	.string "if in the end... we end up dying.$"
 
 GalarFala_G03M42_o3::
 	lock
@@ -913,7 +995,8 @@ GalarFala_G03M42_o3::
 	end
 
 GalarFala_G03M42_o3_Text:
-	.string "Gostei muito desse local,acho que\nvou até morar aqui$"
+	.string "I really liked this place. I think I might\n"
+	.string "even come and live here.$"
 
 GalarFala_G03M42_o4::
 	lock
@@ -923,7 +1006,8 @@ GalarFala_G03M42_o4::
 	end
 
 GalarFala_G03M42_o4_Text:
-	.string "Você por acaso é o {PLAYER}?Ouvir\ndizer que você foi endoçado pelo\lcampeao$"
+	.string "Are you {PLAYER}, by any chance? I heard\n"
+	.string "you were endorsed by the Champion.$"
 
 @ ---- Galar_Route0102 (g04m06) ----
 GalarFala_G04M06_bg0::
@@ -948,14 +1032,16 @@ GalarFala_G04M06_o2::
 	end
 
 GalarFala_G04M06_o2_Text:
-	.string "O Leon voltou!$"
+	.string "Leon is back!$"
 
 GalarFala_G04M06_o20::
 	msgbox GalarFala_G04M06_o20_Text, MSGBOX_AUTOCLOSE
 	end
 
 GalarFala_G04M06_o20_Text:
-	.string "A tecnologia é incrivel!\pAgora você pode armazenar e \nrecuperar itens e Pokémon como\ldados via PC.$"
+	.string "Technology is incredible!\p"
+	.string "Now you can store and retrieve items\n"
+	.string "and Pokémon as data through the PC.$"
 
 GalarFala_G04M06_o24::
 	lock
@@ -965,7 +1051,7 @@ GalarFala_G04M06_o24::
 	end
 
 GalarFala_G04M06_o24_Text:
-	.string "O Leon voltou!$"
+	.string "Leon is back!$"
 
 @ ---- Galar_SlumberingWeald03 (g04m11) ----
 GalarFala_G04M11_o6::
@@ -976,7 +1062,10 @@ GalarFala_G04M11_o6::
 	end
 
 GalarFala_G04M11_o6_Text:
-	.string "Hop:Dê uma olhada nisso, {PLAYER}!\nIsso é algo que você não vê todos\los dias ...\pEste lugar definitivamente parece\nsair de uma lenda.$"
+	.string "Hop: Take a look at this, {PLAYER}! This\n"
+	.string "is something you don't see every day ...\p"
+	.string "This place definitely looks like it came\n"
+	.string "straight out of a legend.$"
 
 @ ---- Galar_SlumberingWeald04 (g04m12) ----
 GalarFala_G04M12_o2::
@@ -987,7 +1076,7 @@ GalarFala_G04M12_o2::
 	end
 
 GalarFala_G04M12_o2_Text:
-	.string "Hop: Não consigo achar aquela\nWoolo em lugar nenhum!$"
+	.string "Hop: I can't find that Wooloo anywhere!$"
 
 @ ---- Galar_Wedgehurst01 (g05m00) ----
 GalarFala_G05M00_bg0::
@@ -1005,7 +1094,36 @@ GalarFala_G05M00_o0::
 	end
 
 GalarFala_G05M00_o0_Text:
-	.string "Sabe o que a pessoa fala quando\nela tá morrendo?\pEla não gruda na tua mão e diz\nassim, doutor, pelo amor de Deus,\ldeixa eu viver mais um dia que eu\lquero mandar em mais gente.\pDoutor, por favor, deixa eu viver\nmais uma hora que eu quero\lhumilhar mais algumas pessoas.\pDoutor, pelo amor de Deus, deixa\neu viver mais uma semana, que eu\lquero estragar um pouco mais o\lmeio ambiente.\pSabe o que as pessoas falam quando\nelas estão morrendo?\pela gruda na tua mão e fala,\ndoutor, pelo amor de Deus, deixa\leu ficar vivo mais um dia só pra\leu abraçar meu irmão, com quem eu\lbriguei faz 10 anos e a gente\lnunca mais se falou.\pDoutor, por favor, deixa eu ficar\nvivo mais um pouco, só pra eu\lpoder brincar com os meus filhos\lque eu achei que eu não tinha\ltempo.\pDoutor, por favor, deixa eu ficar\nvivo só mais um pouco só pra poder\ldizer pra minha mulher o quanto\lque eu amo.\pPorque eu achei que se eu falasse\nmuito isso ela ia ficar mal\lacostumada.\pNão espere o fim da vida para\npeceber o que é importante!$"
+	.string "Do you know what a person says when\n"
+	.string "they're dying?\p"
+	.string "They don't grab your hand and say,\n"
+	.string "doctor, for the love of God, let me live\l"
+	.string "one more day, because I want to boss\l"
+	.string "more people around.\p"
+	.string "Doctor, please, let me live one more\n"
+	.string "hour, because I want to humiliate a few\l"
+	.string "more people.\p"
+	.string "Doctor, for the love of God, let me live\n"
+	.string "one more week, because I want to ruin\l"
+	.string "the environment a little more.\p"
+	.string "Do you know what people say when\n"
+	.string "they're dying?\p"
+	.string "They grab your hand and say, doctor,\n"
+	.string "for the love of God, let me stay alive\l"
+	.string "one more day just so I can hug my\l"
+	.string "brother, the one I fought with 10 years\l"
+	.string "ago and never spoke to again.\p"
+	.string "Doctor, please, let me stay alive a\n"
+	.string "little longer, just so I can play with my\l"
+	.string "children, who I thought I had no time\l"
+	.string "for.\p"
+	.string "Doctor, please, let me stay alive just a\n"
+	.string "little longer, just so I can tell my wife\l"
+	.string "how much I love her.\p"
+	.string "Because I thought that if I said it too\n"
+	.string "often she would get spoiled.\p"
+	.string "Don't wait for the end of your life to\n"
+	.string "realize what matters!$"
 
 @ ---- Galar_Wedgehurst03 (g05m04) ----
 GalarFala_G05M04_o1::
@@ -1016,7 +1134,7 @@ GalarFala_G05M04_o1::
 	end
 
 GalarFala_G05M04_o1_Text:
-	.string "Este lugar é bom para descansar.$"
+	.string "This place is good for resting.$"
 
 @ ---- Galar_Wedgehurst05 (g05m06) ----
 GalarFala_G05M06_o0::
@@ -1027,7 +1145,10 @@ GalarFala_G05M06_o0::
 	end
 
 GalarFala_G05M06_o0_Text:
-	.string "Ei, é melhor você comprar POÇÕES\nantes de ir para essa rota.\pVocê pode comprá-las\nno Centro Pokémon!$"
+	.string "Hey, you had better buy some Potions\n"
+	.string "before you head onto that route.\p"
+	.string "You can buy them at the Pokémon\n"
+	.string "Center!$"
 
 GalarFala_G05M06_o3::
 	lock
@@ -1037,7 +1158,7 @@ GalarFala_G05M06_o3::
 	end
 
 GalarFala_G05M06_o3_Text:
-	.string "Passe no Centro Pokémon.$"
+	.string "Stop by the Pokémon Center.$"
 
 GalarFala_G05M06_o4::
 	lock
@@ -1047,7 +1168,7 @@ GalarFala_G05M06_o4::
 	end
 
 GalarFala_G05M06_o4_Text:
-	.string "Dream Eater é um ataque assustador!$"
+	.string "Dream Eater is a scary move!$"
 
 @ ---- Galar_Wedgehurst07 (g05m11) ----
 GalarFala_G05M11_o3::
@@ -1058,7 +1179,7 @@ GalarFala_G05M11_o3::
 	end
 
 GalarFala_G05M11_o3_Text:
-	.string "Cuidado com a Wild Area!$"
+	.string "Watch out for the Wild Area!$"
 
 @ ---- Galar_Route0202 (g05m12) ----
 GalarFala_G05M12_o15::
@@ -1097,7 +1218,7 @@ GalarFala_G05M14_o3::
 	end
 
 GalarFala_G05M14_o3_Text:
-	.string "Cuidado com a Wild Area!$"
+	.string "Watch out for the Wild Area!$"
 
 @ ---- Galar_Wedgehurst08 (g05m16) ----
 GalarFala_G05M16_bg0::
@@ -1115,7 +1236,13 @@ GalarFala_G05M16_o0::
 	end
 
 GalarFala_G05M16_o0_Text:
-	.string "Pcl.g: oi eu sou pcl.g o criador\ndessa rom, obrigado por estar\ljogando, isso significa muito pra\lmim, essa é a minha primeira rom.\pfoi muito esforço e suor pra isso\nacontecer mas espero ter sido\lrelevante nessa comunidade.\pPassa no meu canal: Pcl.g$"
+	.string "Pcl.g: Hi, I'm Pcl.g, the creator of this\n"
+	.string "ROM. Thank you for playing, it means a\l"
+	.string "lot to me. This is my first ROM.\p"
+	.string "It took a lot of effort and sweat to\n"
+	.string "make it happen, but I hope I've meant\l"
+	.string "something to this community.\p"
+	.string "Check out my channel: Pcl.g$"
 
 GalarFala_G05M16_o2::
 	lock
@@ -1125,7 +1252,13 @@ GalarFala_G05M16_o2::
 	end
 
 GalarFala_G05M16_o2_Text:
-	.string "Felipe Mx: Eu Sou o Felipe, nessa\nrom eu ajudei com decisoes e\lideias também sou um membro\limportante aqui, muita coisa so é\ldo jeito que é por minha causa,\lespero que se divirta jogando essa\lrom e tenho certeza que vamos nos\lver de novo.$"
+	.string "Felipe Mx: I'm Felipe. I helped with\n"
+	.string "decisions and ideas on this ROM, and I'm\l"
+	.string "an important member here too. A lot of\l"
+	.string "things are only the way they are\l"
+	.string "because of me. I hope you enjoy playing\l"
+	.string "this ROM, and I'm sure we'll see each\l"
+	.string "other again.$"
 
 @ ---- Galar_Motostoke04 (g06m05) ----
 GalarFala_G06M05_o1::
@@ -1151,7 +1284,7 @@ GalarFala_G06M10_o10::
 	end
 
 GalarFala_G06M10_o10_Text:
-	.string "Motostoke era um reino enorme!$"
+	.string "Motostoke was a huge kingdom!$"
 
 GalarFala_G06M10_o11::
 	lock
@@ -1161,7 +1294,9 @@ GalarFala_G06M10_o11::
 	end
 
 GalarFala_G06M10_o11_Text:
-	.string "Essa não é a cidade do primeiro\nginasio para chegar ate ele você\ldeve ir pela rota 3 que fica a\lesquerda da cidade.$"
+	.string "This isn't the town with the first Gym.\n"
+	.string "To reach it you have to take Route 3, on\l"
+	.string "the left side of town.$"
 
 GalarFala_G06M10_o16::
 	lock
@@ -1171,7 +1306,8 @@ GalarFala_G06M10_o16::
 	end
 
 GalarFala_G06M10_o16_Text:
-	.string "Você é um treinador pokemon?\nJa se escreveu na liga pokemon?$"
+	.string "Are you a Pokémon Trainer? Have you\n"
+	.string "signed up for the Pokémon League yet?$"
 
 GalarFala_G06M10_o17::
 	lock
@@ -1181,7 +1317,8 @@ GalarFala_G06M10_o17::
 	end
 
 GalarFala_G06M10_o17_Text:
-	.string "Estou tão animada para a\ncerimônia da abertura!!!$"
+	.string "I'm so excited for the opening\n"
+	.string "ceremony!!!$"
 
 GalarFala_G06M10_o18::
 	lock
@@ -1191,7 +1328,7 @@ GalarFala_G06M10_o18::
 	end
 
 GalarFala_G06M10_o18_Text:
-	.string "Motostoke é uma cidade\nhistorica!!!$"
+	.string "Motostoke is a historic city!!!$"
 
 GalarFala_G06M10_o20::
 	lock
@@ -1201,7 +1338,8 @@ GalarFala_G06M10_o20::
 	end
 
 GalarFala_G06M10_o20_Text:
-	.string "Você é um treinador pokemon?\nJa se escreveu na liga pokemon?$"
+	.string "Are you a Pokémon Trainer? Have you\n"
+	.string "signed up for the Pokémon League yet?$"
 
 GalarFala_G06M10_o21::
 	lock
@@ -1211,7 +1349,8 @@ GalarFala_G06M10_o21::
 	end
 
 GalarFala_G06M10_o21_Text:
-	.string "Você ja viu o Motostoke Stadium?\nele é enorme!!!$"
+	.string "Have you seen Motostoke Stadium?\n"
+	.string "It's huge!!!$"
 
 GalarFala_G06M10_o22::
 	lock
@@ -1221,7 +1360,8 @@ GalarFala_G06M10_o22::
 	end
 
 GalarFala_G06M10_o22_Text:
-	.string "Você é um treinador pokemon?\nJa se escreveu na liga pokemon?$"
+	.string "Are you a Pokémon Trainer? Have you\n"
+	.string "signed up for the Pokémon League yet?$"
 
 GalarFala_G06M10_o23::
 	lock
@@ -1231,7 +1371,8 @@ GalarFala_G06M10_o23::
 	end
 
 GalarFala_G06M10_o23_Text:
-	.string "Você é um treinador pokemon?\nJa se escreveu na liga pokemon?$"
+	.string "Are you a Pokémon Trainer? Have you\n"
+	.string "signed up for the Pokémon League yet?$"
 
 GalarFala_G06M10_o8::
 	lock
@@ -1241,7 +1382,8 @@ GalarFala_G06M10_o8::
 	end
 
 GalarFala_G06M10_o8_Text:
-	.string "Kabu é bem severo com seus\npokemons treinando-os em cavernas$"
+	.string "Kabu is very strict with his Pokémon,\n"
+	.string "training them in caves.$"
 
 GalarFala_G06M10_o9::
 	lock
@@ -1251,7 +1393,8 @@ GalarFala_G06M10_o9::
 	end
 
 GalarFala_G06M10_o9_Text:
-	.string "Você é um treinador pokemon?\nJa se escreveu na liga pokemon?$"
+	.string "Are you a Pokémon Trainer? Have you\n"
+	.string "signed up for the Pokémon League yet?$"
 
 @ ---- Galar_Motostoke06 (g06m12) ----
 GalarFala_G06M12_o0::
@@ -1262,7 +1405,8 @@ GalarFala_G06M12_o0::
 	end
 
 GalarFala_G06M12_o0_Text:
-	.string "Melhor você ir se resgistrar\n {PLAYER}$"
+	.string "You had better go and register,\n"
+	.string " {PLAYER}$"
 
 GalarFala_G06M12_o1::
 	lock
@@ -1312,7 +1456,7 @@ GalarFala_G06M12_o6::
 	end
 
 GalarFala_G06M12_o6_Text:
-	.string "Que lugar chique!$"
+	.string "What a posh place!$"
 
 @ ---- Galar_Wedgehurst09 (g06m13) ----
 GalarFala_G06M13_o1::
@@ -1323,7 +1467,8 @@ GalarFala_G06M13_o1::
 	end
 
 GalarFala_G06M13_o1_Text:
-	.string "Hop: Vamos, {PLAYER}! A cerimônia é \nagora!$"
+	.string "Hop: Come on, {PLAYER}! The ceremony is\n"
+	.string "starting now!$"
 
 @ ---- Galar_Motostoke07 (g06m14) ----
 GalarFala_G06M14_o11::
@@ -1334,7 +1479,7 @@ GalarFala_G06M14_o11::
 	end
 
 GalarFala_G06M14_o11_Text:
-	.string "Vá para o seu lugar$"
+	.string "Go to your place$"
 
 GalarFala_G06M14_o3::
 	lock
@@ -1344,7 +1489,7 @@ GalarFala_G06M14_o3::
 	end
 
 GalarFala_G06M14_o3_Text:
-	.string "Vá para o seu lugar$"
+	.string "Go to your place$"
 
 GalarFala_G06M14_o4::
 	lock
@@ -1354,7 +1499,7 @@ GalarFala_G06M14_o4::
 	end
 
 GalarFala_G06M14_o4_Text:
-	.string "Vá para o seu lugar$"
+	.string "Go to your place$"
 
 GalarFala_G06M14_o5::
 	lock
@@ -1364,7 +1509,7 @@ GalarFala_G06M14_o5::
 	end
 
 GalarFala_G06M14_o5_Text:
-	.string "Vá para o seu lugar$"
+	.string "Go to your place$"
 
 GalarFala_G06M14_o6::
 	lock
@@ -1374,7 +1519,7 @@ GalarFala_G06M14_o6::
 	end
 
 GalarFala_G06M14_o6_Text:
-	.string "Vá para o seu lugar$"
+	.string "Go to your place$"
 
 GalarFala_G06M14_o7::
 	lock
@@ -1384,7 +1529,7 @@ GalarFala_G06M14_o7::
 	end
 
 GalarFala_G06M14_o7_Text:
-	.string "Vá para o seu lugar$"
+	.string "Go to your place$"
 
 @ ---- Galar_Motostoke08 (g06m18) ----
 GalarFala_G06M18_o0::
@@ -1395,7 +1540,7 @@ GalarFala_G06M18_o0::
 	end
 
 GalarFala_G06M18_o0_Text:
-	.string "Meu sonho é ser um Lider de Ginásio!$"
+	.string "My dream is to be a Gym Leader!$"
 
 @ ---- Galar_Motostoke10 (g06m20) ----
 GalarFala_G06M20_o0::
@@ -1406,7 +1551,8 @@ GalarFala_G06M20_o0::
 	end
 
 GalarFala_G06M20_o0_Text:
-	.string "Ouvi falar que aqui em Galar\nexistem vários Pokémon incriveis!$"
+	.string "I hear there are all sorts of incredible\n"
+	.string "Pokémon here in Galar!$"
 
 @ ---- Galar_Motostoke11 (g06m21) ----
 GalarFala_G06M21_o0::
@@ -1417,7 +1563,7 @@ GalarFala_G06M21_o0::
 	end
 
 GalarFala_G06M21_o0_Text:
-	.string "Tô muito atrasada pra escola! $"
+	.string "I'm so late for school! $"
 
 @ ---- Galar_Motostoke13 (g06m23) ----
 GalarFala_G06M23_o0::
@@ -1428,7 +1574,7 @@ GalarFala_G06M23_o0::
 	end
 
 GalarFala_G06M23_o0_Text:
-	.string "Meus filhos foram no ginásio!$"
+	.string "My kids went off to the Gym!$"
 
 @ ---- Galar_Motostoke14 (g06m24) ----
 GalarFala_G06M24_o0::
@@ -1439,7 +1585,8 @@ GalarFala_G06M24_o0::
 	end
 
 GalarFala_G06M24_o0_Text:
-	.string "Passe no Centro Pokémon!\nSeus pokemón vão agradecer!$"
+	.string "Stop by the Pokémon Center!\n"
+	.string "Your Pokémon will thank you!$"
 
 @ ---- Galar_Motostoke15 (g06m25) ----
 GalarFala_G06M25_o0::
@@ -1450,7 +1597,7 @@ GalarFala_G06M25_o0::
 	end
 
 GalarFala_G06M25_o0_Text:
-	.string "Meu pokémon preferido é o Abra!$"
+	.string "My favorite Pokémon is Abra!$"
 
 @ ---- Galar_WildArea03 (g06m27) ----
 GalarFala_G06M27_bg0::
@@ -1489,7 +1636,8 @@ GalarFala_G06M27_o10::
 	end
 
 GalarFala_G06M27_o10_Text:
-	.string "sabia que o dragonite pode dar uma\nvolta ao mundo em 8 horas?$"
+	.string "did you know that Dragonite can fly\n"
+	.string "around the world in 8 hours?$"
 
 GalarFala_G06M27_o11::
 	lock
@@ -1499,7 +1647,7 @@ GalarFala_G06M27_o11::
 	end
 
 GalarFala_G06M27_o11_Text:
-	.string "Esse lugar é enorme!$"
+	.string "This place is huge!$"
 
 GalarFala_G06M27_o12::
 	lock
@@ -1590,7 +1738,7 @@ GalarFala_G06M30_o10::
 	end
 
 GalarFala_G06M30_o10_Text:
-	.string "Você tem um Nitendo Switch?$"
+	.string "Do you have a Nintendo Switch?$"
 
 GalarFala_G06M30_o11::
 	lock
@@ -1600,7 +1748,7 @@ GalarFala_G06M30_o11::
 	end
 
 GalarFala_G06M30_o11_Text:
-	.string "Quantos pokémons aqui!$"
+	.string "So many Pokémon here!$"
 
 GalarFala_G06M30_o2::
 	finditem ITEM_LUCKY_EGG
@@ -1618,7 +1766,7 @@ GalarFala_G06M30_o5::
 	end
 
 GalarFala_G06M30_o5_Text:
-	.string "Você precisa de 2 insiguias para\npassar.$"
+	.string "You need 2 Badges to pass.$"
 
 GalarFala_G06M30_o9::
 	lock
@@ -1628,7 +1776,7 @@ GalarFala_G06M30_o9::
 	end
 
 GalarFala_G06M30_o9_Text:
-	.string "Você gosta de Gigantamax?$"
+	.string "Do you like Gigantamax?$"
 
 @ ---- Galar_WildArea06 (g06m31) ----
 GalarFala_G06M31_bg0::
@@ -1660,7 +1808,7 @@ GalarFala_G06M31_o2::
 	end
 
 GalarFala_G06M31_o2_Text:
-	.string "Cuidado pra nao se perder.  $"
+	.string "Be careful not to get lost.  $"
 
 GalarFala_G06M31_o3::
 	lock
@@ -1670,7 +1818,7 @@ GalarFala_G06M31_o3::
 	end
 
 GalarFala_G06M31_o3_Text:
-	.string "Quantos pokemons aqui!$"
+	.string "So many Pokémon here!$"
 
 GalarFala_G06M31_o5::
 	lock
@@ -1680,7 +1828,7 @@ GalarFala_G06M31_o5::
 	end
 
 GalarFala_G06M31_o5_Text:
-	.string "Você tem um nitendo switch?$"
+	.string "Do you have a Nintendo Switch?$"
 
 GalarFala_G06M31_o6::
 	lock
@@ -1690,7 +1838,7 @@ GalarFala_G06M31_o6::
 	end
 
 GalarFala_G06M31_o6_Text:
-	.string "Esse lugar é enorme!$"
+	.string "This place is huge!$"
 
 @ ---- Galar_Motostoke18 (g06m33) ----
 GalarFala_G06M33_o4::
@@ -1701,7 +1849,11 @@ GalarFala_G06M33_o4::
 	end
 
 GalarFala_G06M33_o4_Text:
-	.string "ola desafiante neste ginasio ha vaios\nmarowack vindos direto de alola,eles\pestao com um cartao capture um e pegue\no cartao dele e voce podera passar$"
+	.string "hello, challenger. In this Gym there are\n"
+	.string "several Marowak straight from Alola.\l"
+	.string "They\p"
+	.string "have a card. Catch one, take its card\n"
+	.string "and you'll be able to pass.$"
 
 @ ---- Galar_Motostoke20 (g06m35) ----
 GalarFala_G06M35_o0::
@@ -1732,7 +1884,8 @@ GalarFala_G06M35_o2::
 	end
 
 GalarFala_G06M35_o2_Text:
-	.string "Seu registro ja foi feito.$"
+	.string "Your registration has already been\n"
+	.string "taken care of.$"
 
 @ ---- Galar_Turffield01 (g07m00) ----
 GalarFala_G07M00_o0::
@@ -1743,7 +1896,9 @@ GalarFala_G07M00_o0::
 	end
 
 GalarFala_G07M00_o0_Text:
-	.string "insignias são um simbolo de\nrespeito e poder!!!\pVocê ja tem quantas?$"
+	.string "Badges are a symbol of respect and\n"
+	.string "power!!!\p"
+	.string "How many do you have already?$"
 
 @ ---- Galar_Turffield02 (g07m03) ----
 GalarFala_G07M03_o1::
@@ -1754,7 +1909,7 @@ GalarFala_G07M03_o1::
 	end
 
 GalarFala_G07M03_o1_Text:
-	.string "Estou esperando o meu pokemon.$"
+	.string "I'm waiting for my Pokémon.$"
 
 GalarFala_G07M03_o2::
 	lock
@@ -1764,7 +1919,8 @@ GalarFala_G07M03_o2::
 	end
 
 GalarFala_G07M03_o2_Text:
-	.string "Voce Sabia que da pra chegar\nem kalos pelo mar?$"
+	.string "Did you know you can reach Kalos by\n"
+	.string "sea?$"
 
 @ ---- Galar_Turffield03 (g07m11) ----
 GalarFala_G07M11_o12::
@@ -1775,7 +1931,8 @@ GalarFala_G07M11_o12::
 	end
 
 GalarFala_G07M11_o12_Text:
-	.string "Estamos gravando uma reportagem\npode nos da licenca?!$"
+	.string "We're recording a report. Could you give\n"
+	.string "us some room?!$"
 
 GalarFala_G07M11_o3::
 	lock
@@ -1785,7 +1942,7 @@ GalarFala_G07M11_o3::
 	end
 
 GalarFala_G07M11_o3_Text:
-	.string "o fly taxi é bem veloz$"
+	.string "the Flying Taxi is really fast$"
 
 GalarFala_G07M11_o4::
 	lock
@@ -1795,7 +1952,7 @@ GalarFala_G07M11_o4::
 	end
 
 GalarFala_G07M11_o4_Text:
-	.string "o fly taxi é bem veloz$"
+	.string "the Flying Taxi is really fast$"
 
 GalarFala_G07M11_o5::
 	lock
@@ -1805,7 +1962,8 @@ GalarFala_G07M11_o5::
 	end
 
 GalarFala_G07M11_o5_Text:
-	.string "Sou so eu ou você tambem acha\nessas pedras bonitas?$"
+	.string "Is it just me or do you think these\n"
+	.string "rocks are beautiful too?$"
 
 GalarFala_G07M11_o6::
 	lock
@@ -1815,7 +1973,7 @@ GalarFala_G07M11_o6::
 	end
 
 GalarFala_G07M11_o6_Text:
-	.string "Minha familha tem uma fazenda.$"
+	.string "My family has a farm.$"
 
 GalarFala_G07M11_o7::
 	lock
@@ -1825,7 +1983,8 @@ GalarFala_G07M11_o7::
 	end
 
 GalarFala_G07M11_o7_Text:
-	.string "Estamos gravando uma reportagem\npode nos da licenca?!$"
+	.string "We're recording a report. Could you give\n"
+	.string "us some room?!$"
 
 GalarFala_G07M11_o8::
 	lock
@@ -1835,7 +1994,8 @@ GalarFala_G07M11_o8::
 	end
 
 GalarFala_G07M11_o8_Text:
-	.string "Estamos gravando uma reportagem\npode nos da licenca?!$"
+	.string "We're recording a report. Could you give\n"
+	.string "us some room?!$"
 
 GalarFala_G07M11_o9::
 	lock
@@ -1845,7 +2005,7 @@ GalarFala_G07M11_o9::
 	end
 
 GalarFala_G07M11_o9_Text:
-	.string "Eu queria viajar para kalos $"
+	.string "I'd like to travel to Kalos. $"
 
 @ ---- Galar_Turffield04 (g07m12) ----
 GalarFala_G07M12_o0::
@@ -1856,7 +2016,10 @@ GalarFala_G07M12_o0::
 	end
 
 GalarFala_G07M12_o0_Text:
-	.string "Bem vindo ao ginasio de\nturffield aqui voce encontrara o \plutador fazendeiro lider de \nginasio do tipo grama Milo$"
+	.string "Welcome to the Turffield Gym. Here you\n"
+	.string "will find the\p"
+	.string "fighting farmer, the Grass-type Gym\n"
+	.string "Leader Milo.$"
 
 GalarFala_G07M12_o1::
 	lock
@@ -1866,7 +2029,7 @@ GalarFala_G07M12_o1::
 	end
 
 GalarFala_G07M12_o1_Text:
-	.string "Eu estou me preparando para \nenfrentar o milo$"
+	.string "I'm getting ready to take on Milo.$"
 
 GalarFala_G07M12_o2::
 	lock
@@ -1876,7 +2039,7 @@ GalarFala_G07M12_o2::
 	end
 
 GalarFala_G07M12_o2_Text:
-	.string "Você ja pode passar$"
+	.string "You may pass now$"
 
 GalarFala_G07M12_o3::
 	lock
@@ -1886,7 +2049,7 @@ GalarFala_G07M12_o3::
 	end
 
 GalarFala_G07M12_o3_Text:
-	.string "Acabei de enfrentar o milo$"
+	.string "I just took on Milo.$"
 
 @ ---- Galar_Turffield05 (g07m13) ----
 GalarFala_G07M13_o1::
@@ -1897,7 +2060,11 @@ GalarFala_G07M13_o1::
 	end
 
 GalarFala_G07M13_o1_Text:
-	.string "Olá sou o guia\nneste ginasio voce deve empurrar\pessa pedra ate o ponto branco\npara abrir as paredes\pboa sorte!$"
+	.string "Hello, I'm the guide.\n"
+	.string "In this Gym you have to push\p"
+	.string "this rock to the white spot to open the\n"
+	.string "walls.\p"
+	.string "Good luck!$"
 
 @ ---- Galar_Turffield10 (g07m21) ----
 GalarFala_G07M21_o0::
@@ -1908,7 +2075,7 @@ GalarFala_G07M21_o0::
 	end
 
 GalarFala_G07M21_o0_Text:
-	.string "Eu gosto do charmander e você?$"
+	.string "I like Charmander. How about you?$"
 
 @ ---- Galar_Hulbury03 (g08m02) ----
 GalarFala_G08M02_bg1::
@@ -1934,7 +2101,7 @@ GalarFala_G08M03_o0::
 	end
 
 GalarFala_G08M03_o0_Text:
-	.string "Oi como vai?$"
+	.string "Hi, how are you?$"
 
 @ ---- Galar_Route0501 (g08m06) ----
 GalarFala_G08M06_o0::
@@ -1950,7 +2117,10 @@ GalarFala_G08M07_o11::
 	end
 
 GalarFala_G08M07_o11_Text:
-	.string " {COLOR DARK_GRAY}Me dê licença, o presidente Rose\nestá neste restaurante\pEu estou tentando fazer uma\nmatéria sobre isso.$"
+	.string "{COLOR DARK_GRAY}Excuse me, Chairman Rose is in this\n"
+	.string "restaurant.\p"
+	.string "I'm trying to put together a story\n"
+	.string "about it.$"
 
 GalarFala_G08M07_o13::
 	lock
@@ -1960,7 +2130,10 @@ GalarFala_G08M07_o13::
 	end
 
 GalarFala_G08M07_o13_Text:
-	.string " {COLOR DARK_GRAY}É sempre bom passear com seus\nPokémons.\pA cada {COLOR RED}128 passos{COLOR DARK_GRAY}, eles\nficam cada vez mais felizes.$"
+	.string "{COLOR DARK_GRAY}It's always good to walk around with\n"
+	.string "your Pokémon.\p"
+	.string "Every {COLOR RED}128 steps{COLOR DARK_GRAY}, they get happier\n"
+	.string "and happier.$"
 
 GalarFala_G08M07_o14::
 	lock
@@ -1970,7 +2143,10 @@ GalarFala_G08M07_o14::
 	end
 
 GalarFala_G08M07_o14_Text:
-	.string " {COLOR LIGHT_RED}Sério que você usa seus Pokémon\nem combate?\pEu nunca faria isso com meu\nZigzagoon, ele é um bebê.$"
+	.string "{COLOR LIGHT_RED}Do you really use your Pokémon in\n"
+	.string "battle?\p"
+	.string "I'd never do that to my Zigzagoon, he's\n"
+	.string "a baby.$"
 
 GalarFala_G08M07_o18::
 	lock
@@ -1980,7 +2156,11 @@ GalarFala_G08M07_o18::
 	end
 
 GalarFala_G08M07_o18_Text:
-	.string " {COLOR DARK_GRAY}Juro pela luz que me ilumina que\nvi um {COLOR BLUE}eevee{COLOR DARK_GRAY}, nadando até o\lhorizonte.\po Bolt tentou pular atrás dele mas\neu segurei.$"
+	.string "{COLOR DARK_GRAY}I swear by the light that guides me\n"
+	.string "that I saw an {COLOR BLUE}Eevee{COLOR DARK_GRAY} swimming toward\l"
+	.string "the horizon.\p"
+	.string "Bolt tried to jump in after it, but I\n"
+	.string "held him back.$"
 
 GalarFala_G08M07_o3::
 	msgbox GalarFala_G08M07_o3_Text, MSGBOX_AUTOCLOSE
@@ -1988,7 +2168,8 @@ GalarFala_G08M07_o3::
 	end
 
 GalarFala_G08M07_o3_Text:
-	.string "{COLOR DARK_GRAY}Parece que hoje o mar não está\npara peixe...$"
+	.string "{COLOR DARK_GRAY}Looks like the sea isn't giving up any\n"
+	.string "fish today...$"
 
 GalarFala_G08M07_o9::
 	lock
@@ -1998,7 +2179,7 @@ GalarFala_G08M07_o9::
 	end
 
 GalarFala_G08M07_o9_Text:
-	.string "A líder de ginásio Nessa não está.$"
+	.string "Gym Leader Nessa isn't here.$"
 
 @ ---- Galar_Hulbury07 (g08m08) ----
 GalarFala_G08M08_o1::
@@ -2009,7 +2190,8 @@ GalarFala_G08M08_o1::
 	end
 
 GalarFala_G08M08_o1_Text:
-	.string "Vamos pegar essa bike por bem\n ou por mau!$"
+	.string "We're taking that bike the easy way\n"
+	.string " or the hard way!$"
 
 GalarFala_G08M08_o2::
 	lock
@@ -2019,7 +2201,8 @@ GalarFala_G08M08_o2::
 	end
 
 GalarFala_G08M08_o2_Text:
-	.string "Vamos pegar essa bike por bem\n ou por mau!$"
+	.string "We're taking that bike the easy way\n"
+	.string " or the hard way!$"
 
 @ ---- Galar_Hulbury09 (g08m15) ----
 GalarFala_G08M15_o0::
@@ -2030,7 +2213,9 @@ GalarFala_G08M15_o0::
 	end
 
 GalarFala_G08M15_o0_Text:
-	.string "Bem vindo ao ginasio de Hulbury\naqui voce enfrentara a onda\lfuriosa,lider de ginasio do tipo\lagua Nessa.$"
+	.string "Welcome to the Hulbury Gym. Here you\n"
+	.string "will face the raging wave, the\l"
+	.string "Water-type Gym Leader Nessa.$"
 
 GalarFala_G08M15_o1::
 	lock
@@ -2040,7 +2225,8 @@ GalarFala_G08M15_o1::
 	end
 
 GalarFala_G08M15_o1_Text:
-	.string "Meu irmão foi enfrentar a Nessa\ne perdeu kkk.$"
+	.string "My brother went to take on Nessa and\n"
+	.string "lost, lol.$"
 
 GalarFala_G08M15_o2::
 	lock
@@ -2050,7 +2236,7 @@ GalarFala_G08M15_o2::
 	end
 
 GalarFala_G08M15_o2_Text:
-	.string "Nessa é bem forte!$"
+	.string "Nessa is really strong!$"
 
 GalarFala_G08M15_o3::
 	lock
@@ -2060,7 +2246,7 @@ GalarFala_G08M15_o3::
 	end
 
 GalarFala_G08M15_o3_Text:
-	.string "Eu perdi pra Nessa!$"
+	.string "I lost to Nessa!$"
 
 @ ---- Galar_Hulbury11 (g08m19) ----
 GalarFala_G08M19_o3::
@@ -2071,7 +2257,9 @@ GalarFala_G08M19_o3::
 	end
 
 GalarFala_G08M19_o3_Text:
-	.string "Tem uma torre imensa na wild area.\pmas apenas os campeoes de\ngalr apodem subir nela.$"
+	.string "There's a huge tower in the Wild Area.\p"
+	.string "But only the Champions of Galar can\n"
+	.string "climb it.$"
 
 GalarFala_G08M19_o4::
 	lock
@@ -2081,7 +2269,7 @@ GalarFala_G08M19_o4::
 	end
 
 GalarFala_G08M19_o4_Text:
-	.string "Este restaurante é otimo!$"
+	.string "This restaurant is great!$"
 
 GalarFala_G08M19_o5::
 	lock
@@ -2112,7 +2300,8 @@ GalarFala_G08M26_o1::
 	end
 
 GalarFala_G08M26_o1_Text:
-	.string "Vamos pegar essa bike por bem\n ou por mau!$"
+	.string "We're taking that bike the easy way\n"
+	.string " or the hard way!$"
 
 GalarFala_G08M26_o2::
 	lock
@@ -2122,7 +2311,8 @@ GalarFala_G08M26_o2::
 	end
 
 GalarFala_G08M26_o2_Text:
-	.string "Vamos pegar essa bike por bem\n ou por mau!$"
+	.string "We're taking that bike the easy way\n"
+	.string " or the hard way!$"
 
 @ ---- Galar_StowOnSide03 (g09m00) ----
 GalarFala_G09M00_o0::
@@ -2133,7 +2323,9 @@ GalarFala_G09M00_o0::
 	end
 
 GalarFala_G09M00_o0_Text:
-	.string "Você sabia? Pokémon com a\nhabilidade Clear Body não serão\lafetados por movimentos de\lredução de estatisticas.$"
+	.string "Did you know? Pokémon with the Clear\n"
+	.string "Body Ability won't be affected by\l"
+	.string "stat-lowering moves.$"
 
 GalarFala_G09M00_o1::
 	lock
@@ -2143,7 +2335,8 @@ GalarFala_G09M00_o1::
 	end
 
 GalarFala_G09M00_o1_Text:
-	.string "Duraludons Selvagens habitam a\nrota 10. Ouvi dizer que são\ldificeis de capturar.$"
+	.string "Wild Duraludon live on Route 10. I hear\n"
+	.string "they are hard to catch.$"
 
 GalarFala_G09M00_o2::
 	lock
@@ -2153,7 +2346,8 @@ GalarFala_G09M00_o2::
 	end
 
 GalarFala_G09M00_o2_Text:
-	.string "Mesmo que algumas pessoas digam\nque os tipos de veneno são comuns,\leu acho que eles são legais!$"
+	.string "Even if some people say Poison-types\n"
+	.string "are common, I think they're cool!$"
 
 GalarFala_G09M00_o5::
 	lock
@@ -2163,7 +2357,8 @@ GalarFala_G09M00_o5::
 	end
 
 GalarFala_G09M00_o5_Text:
-	.string "Você sabia? Se você capturar um\nPokémon com uma Luxury Ball, ele\lgostará mais de você!$"
+	.string "Did you know? If you catch a Pokémon\n"
+	.string "with a Luxury Ball, it will like you more!$"
 
 GalarFala_G09M00_o6::
 	lock
@@ -2183,7 +2378,10 @@ GalarFala_G09M01_o1::
 	end
 
 GalarFala_G09M01_o1_Text:
-	.string "Mesmo que sejam do mesmo nivel,\nPokémon podem ter diferentes\lestatisticas e habilidades.\pUm Pokémon criado por um\ntreinador é mais forte do que\lum na selva.$"
+	.string "Even at the same level, Pokémon can\n"
+	.string "have different stats and Abilities.\p"
+	.string "A Pokémon raised by a Trainer is\n"
+	.string "stronger than one in the wild.$"
 
 GalarFala_G09M01_o2::
 	lock
@@ -2193,7 +2391,12 @@ GalarFala_G09M01_o2::
 	end
 
 GalarFala_G09M01_o2_Text:
-	.string "É verdade que um nivel superior\nPokémon vai ser mais poderoso …\pMas, todos os Pokémon terão fracos\npontos contra tipos especificos.\pEntão, parece não haver\nPokémon universalmente forte.$"
+	.string "It's true that a higher-level Pokémon\n"
+	.string "will be more powerful …\p"
+	.string "But every Pokémon will have weak points\n"
+	.string "against specific types.\p"
+	.string "So there seems to be no universally\n"
+	.string "strong Pokémon.$"
 
 @ ---- Galar_Circhester01 (g09m03) ----
 GalarFala_G09M03_bg0::
@@ -2218,7 +2421,10 @@ GalarFala_G09M03_o0::
 	end
 
 GalarFala_G09M03_o0_Text:
-	.string "Olá jovem, seja bem vindo ao\pFã Clube Pokemon!!!\paqui demostramos o nosso afeto a\na todos pokemons.$"
+	.string "Hello, young one, welcome to the\p"
+	.string "Pokémon Fan Club!!!\p"
+	.string "Here we show our affection for all\n"
+	.string "Pokémon.$"
 
 GalarFala_G09M03_o1::
 	lock
@@ -2228,7 +2434,7 @@ GalarFala_G09M03_o1::
 	end
 
 GalarFala_G09M03_o1_Text:
-	.string "Nosso PRESIDENTE realmente adora\nseu Pokémon.$"
+	.string "Our CHAIRMAN really loves his Pokémon.$"
 
 GalarFala_G09M03_o4::
 	lock
@@ -2238,7 +2444,9 @@ GalarFala_G09M03_o4::
 	end
 
 GalarFala_G09M03_o4_Text:
-	.string "Eu adoro meu Morpeko!\ntão adorável!\pEle grita,“Uraraka“,\nquando eu o pego!$"
+	.string "I love my Morpeko!\n"
+	.string "So adorable!\p"
+	.string "It shouts “Uraraka“ when I pick it up!$"
 
 GalarFala_G09M03_o5::
 	lock
@@ -2248,7 +2456,7 @@ GalarFala_G09M03_o5::
 	end
 
 GalarFala_G09M03_o5_Text:
-	.string "Meu applin é uma gracinha não é?$"
+	.string "My Applin is adorable, isn't it?$"
 
 @ ---- Galar_Circhester02 (g09m08) ----
 GalarFala_G09M08_bg0::
@@ -2266,7 +2474,8 @@ GalarFala_G09M08_o0::
 	end
 
 GalarFala_G09M08_o0_Text:
-	.string "Estou fazendo meu Pidgey voar um\ncarta para Motostoke no sul. $"
+	.string "I'm having my Pidgey fly a letter to\n"
+	.string "Motostoke in the south. $"
 
 GalarFala_G09M08_o2::
 	lock
@@ -2276,7 +2485,10 @@ GalarFala_G09M08_o2::
 	end
 
 GalarFala_G09M08_o2_Text:
-	.string "Eu quero trocar Mail com todos\ntipos de pessoas.\pEu mando meu rookidee para\numa sala da União\lpara trocar Mail por mim.$"
+	.string "I want to trade Mail with all kinds of\n"
+	.string "people.\p"
+	.string "I send my Rookidee to a Union Room to\n"
+	.string "trade Mail for me.$"
 
 @ ---- Galar_Hammerlocke04 (g09m10) ----
 GalarFala_G09M10_o11::
@@ -2287,7 +2499,8 @@ GalarFala_G09M10_o11::
 	end
 
 GalarFala_G09M10_o11_Text:
-	.string "Nos do team Yell nao vamos te\ndeixa passar!    $"
+	.string "We of Team Yell aren't going to let you\n"
+	.string "through!    $"
 
 GalarFala_G09M10_o12::
 	lock
@@ -2297,7 +2510,7 @@ GalarFala_G09M10_o12::
 	end
 
 GalarFala_G09M10_o12_Text:
-	.string "Me cansei de subir essa montanha.$"
+	.string "I'm tired of climbing this mountain.$"
 
 GalarFala_G09M10_o14::
 	lock
@@ -2317,7 +2530,7 @@ GalarFala_G09M10_o15::
 	end
 
 GalarFala_G09M10_o15_Text:
-	.string "Essa cidade já foi um grande\nreino.$"
+	.string "This city was once a great kingdom.$"
 
 GalarFala_G09M10_o16::
 	lock
@@ -2327,7 +2540,7 @@ GalarFala_G09M10_o16::
 	end
 
 GalarFala_G09M10_o16_Text:
-	.string "Haammelock é uma cidade incrivel!$"
+	.string "Hammerlocke is an incredible city!$"
 
 GalarFala_G09M10_o17::
 	lock
@@ -2347,7 +2560,8 @@ GalarFala_G09M10_o9::
 	end
 
 GalarFala_G09M10_o9_Text:
-	.string "Nos do team Yell nao vamos te\ndeixa passar!    $"
+	.string "We of Team Yell aren't going to let you\n"
+	.string "through!    $"
 
 @ ---- Galar_Hammerlocke05 (g09m11) ----
 GalarFala_G09M11_o0::
@@ -2358,7 +2572,8 @@ GalarFala_G09M11_o0::
 	end
 
 GalarFala_G09M11_o0_Text:
-	.string "Para enfrentar o lider de Ginasio\nraihan é necessario ter 7 insignias$"
+	.string "To take on Gym Leader Raihan you need 7\n"
+	.string "Badges.$"
 
 GalarFala_G09M11_o2::
 	lock
@@ -2368,7 +2583,7 @@ GalarFala_G09M11_o2::
 	end
 
 GalarFala_G09M11_o2_Text:
-	.string "O presidente Rose quer falar\ncom você! $"
+	.string "Chairman Rose wants to talk to you! $"
 
 GalarFala_G09M11_o3::
 	lock
@@ -2378,7 +2593,7 @@ GalarFala_G09M11_o3::
 	end
 
 GalarFala_G09M11_o3_Text:
-	.string "Esta porta está fechada!$"
+	.string "This door is locked!$"
 
 GalarFala_G09M11_o5::
 	lock
@@ -2388,7 +2603,7 @@ GalarFala_G09M11_o5::
 	end
 
 GalarFala_G09M11_o5_Text:
-	.string "Haammelock é uma cidade incrivel!$"
+	.string "Hammerlocke is an incredible city!$"
 
 GalarFala_G09M11_o6::
 	lock
@@ -2398,7 +2613,7 @@ GalarFala_G09M11_o6::
 	end
 
 GalarFala_G09M11_o6_Text:
-	.string "Você ja viu o ginasio de\nhammelock?$"
+	.string "Have you seen the Hammerlocke Gym?$"
 
 GalarFala_G09M11_o7::
 	lock
@@ -2408,7 +2623,9 @@ GalarFala_G09M11_o7::
 	end
 
 GalarFala_G09M11_o7_Text:
-	.string "Bem vindo ao ginasio de Hammerlock\naqui voce enfrentara o escolhido dos\l Dragoes Raihan$"
+	.string "Welcome to the Hammerlocke Gym. Here\n"
+	.string "you will face the chosen one of\l"
+	.string "Dragons, Raihan.$"
 
 @ ---- Galar_Hammerlocke08 (g09m15) ----
 GalarFala_G09M15_o3::
@@ -2419,7 +2636,9 @@ GalarFala_G09M15_o3::
 	end
 
 GalarFala_G09M15_o3_Text:
-	.string "Bem vindo,ao cofre de hammerlock\naqui você pode encontar muitas\lcoisas sobre o passado de galar! $"
+	.string "Welcome to the Hammerlocke Vault. Here\n"
+	.string "you can find out a lot about Galar's\l"
+	.string "past! $"
 
 @ ---- Galar_Hammerlocke09 (g09m16) ----
 GalarFala_G09M16_bg0::
@@ -2445,7 +2664,7 @@ GalarFala_G09M17_o1::
 	end
 
 GalarFala_G09M17_o1_Text:
-	.string "Esta porta esta fechada!$"
+	.string "This door is locked!$"
 
 GalarFala_G09M17_o2::
 	lock
@@ -2455,7 +2674,8 @@ GalarFala_G09M17_o2::
 	end
 
 GalarFala_G09M17_o2_Text:
-	.string "Por motivos de segurança, este\nlocal não pode ser acessado.$"
+	.string "For safety reasons, this place cannot\n"
+	.string "be accessed.$"
 
 @ ---- Galar_StowOnSide06 (g09m18) ----
 GalarFala_G09M18_o2::
@@ -2466,7 +2686,10 @@ GalarFala_G09M18_o2::
 	end
 
 GalarFala_G09M18_o2_Text:
-	.string "Eu quero trocar Mail com todos\ntipos de pessoas.\pEu mando meu rookidee para\numa sala da União\lpara trocar Mail por mim.$"
+	.string "I want to trade Mail with all kinds of\n"
+	.string "people.\p"
+	.string "I send my Rookidee to a Union Room to\n"
+	.string "trade Mail for me.$"
 
 @ ---- Galar_Hammerlocke11 (g09m20) ----
 GalarFala_G09M20_bg1::
@@ -2509,7 +2732,9 @@ GalarFala_G10M12_o1::
 	end
 
 GalarFala_G10M12_o1_Text:
-	.string "Eu montei aqui de stow-on-side.\pÉ um passeio dificil no ciclismo\nEstrada, então estou exausta.$"
+	.string "I rode here from Stow-on-Side.\p"
+	.string "It's a hard ride on the cycling road, so\n"
+	.string "I'm exhausted.$"
 
 GalarFala_G10M12_o2::
 	lock
@@ -2519,7 +2744,8 @@ GalarFala_G10M12_o2::
 	end
 
 GalarFala_G10M12_o2_Text:
-	.string "A rota 6 é uma grande escalada,\nbem intensa.$"
+	.string "Route 6 is a big climb, a really intense\n"
+	.string "one.$"
 
 @ ---- Galar_Hammerlocke16 (g10m14) ----
 GalarFala_G10M14_bg16::
@@ -2552,7 +2778,9 @@ GalarFala_G10M18_o0::
 	end
 
 GalarFala_G10M18_o0_Text:
-	.string "Você sabia?\nSe um Pokémon do seu grupo\ltiver a habilidade Flame Body\lou Magma Armor, os ovos\leclodirão mais rapidamente!$"
+	.string "Did you know? If a Pokémon in your\n"
+	.string "party has the Flame Body or Magma Armor\l"
+	.string "Ability, Eggs will hatch faster!$"
 
 GalarFala_G10M18_o1::
 	lock
@@ -2562,7 +2790,8 @@ GalarFala_G10M18_o1::
 	end
 
 GalarFala_G10M18_o1_Text:
-	.string "Meu lugar favorito para estar \né Hulbury.\l Amo sentar na beira da água.$"
+	.string "My favorite place to be is Hulbury.\n"
+	.string " I love sitting by the water.$"
 
 GalarFala_G10M18_o2::
 	lock
@@ -2572,7 +2801,8 @@ GalarFala_G10M18_o2::
 	end
 
 GalarFala_G10M18_o2_Text:
-	.string "Eu adoro Pokémon que são \nincomuns e deixam outros \ltreinadores com inveja!$"
+	.string "I love Pokémon that are unusual and\n"
+	.string "make other Trainers jealous!$"
 
 @ ---- Galar_Hammerlocke19 (g10m19) ----
 GalarFala_G10M19_o0::
@@ -2583,7 +2813,9 @@ GalarFala_G10M19_o0::
 	end
 
 GalarFala_G10M19_o0_Text:
-	.string "Pokémon?\nNão, este é um hotel para pessoas.\lInfelizmente estamos cheio.$"
+	.string "Pokémon?\n"
+	.string "No, this is a hotel for people.\l"
+	.string "Unfortunately we're full.$"
 
 GalarFala_G10M19_o1::
 	lock
@@ -2593,7 +2825,9 @@ GalarFala_G10M19_o1::
 	end
 
 GalarFala_G10M19_o1_Text:
-	.string "Estou de férias com meu irmão e\nnamorado.\phammerlock é uma cidade\ntão bonita!$"
+	.string "I'm on vacation with my brother and my\n"
+	.string "boyfriend.\p"
+	.string "Hammerlocke is such a beautiful city!$"
 
 GalarFala_G10M19_o2::
 	lock
@@ -2603,7 +2837,8 @@ GalarFala_G10M19_o2::
 	end
 
 GalarFala_G10M19_o2_Text:
-	.string "Por quê?\nPor que ela trouxe o irmão?$"
+	.string "Why?\n"
+	.string "Why did she bring her brother?$"
 
 @ ---- Galar_Route0601 (g10m20) ----
 GalarFala_G10M20_o22::
@@ -2679,7 +2914,7 @@ GalarFala_G10M21_o8::
 	end
 
 GalarFala_G10M21_o8_Text:
-	.string "Que calor!$"
+	.string "So hot!$"
 
 @ ---- Galar_Hulbury13 (g10m22) ----
 GalarFala_G10M22_o1::
@@ -2708,7 +2943,9 @@ GalarFala_G11M05_o1::
 	end
 
 GalarFala_G11M05_o1_Text:
-	.string "You can’t become a goAgora você vai ter que ir!\nSe é o cofre que você quer,\pé la em cima subindo essas escadas$"
+	.string "You can’t become a goNow you'll have to\n"
+	.string "go! If it's the Vault you want,\p"
+	.string "it's up there, up these stairs.$"
 
 GalarFala_G11M05_o2::
 	msgbox GalarFala_G11M05_o2_Text, MSGBOX_NPC
@@ -2733,7 +2970,7 @@ GalarFala_G11M07_o1::
 	end
 
 GalarFala_G11M07_o1_Text:
-	.string "Nao atrapalhe minha conversa!$"
+	.string "Don't interrupt my conversation!$"
 
 @ ---- Galar_Ballonlea05 (g11m10) ----
 GalarFala_G11M10_o0::
@@ -2744,7 +2981,7 @@ GalarFala_G11M10_o0::
 	end
 
 GalarFala_G11M10_o0_Text:
-	.string "Frank?...esse é o nome do meu avo!$"
+	.string "Frank?... That's my grandfather's name!$"
 
 @ ---- Galar_Ballonlea07 (g11m12) ----
 GalarFala_G11M12_o0::
@@ -2755,7 +2992,9 @@ GalarFala_G11M12_o0::
 	end
 
 GalarFala_G11M12_o0_Text:
-	.string "Bem vindo ao ginasio de Ballonlea\naqui voce enfrentara a mestra\ldo teatro,semprecharmosa,Opal.$"
+	.string "Welcome to the Ballonlea Gym. Here you\n"
+	.string "will face the mistress of the theater,\l"
+	.string "the ever charming Opal.$"
 
 GalarFala_G11M12_o1::
 	lock
@@ -2765,7 +3004,7 @@ GalarFala_G11M12_o1::
 	end
 
 GalarFala_G11M12_o1_Text:
-	.string "Essa cidade é o lar da arte!$"
+	.string "This town is the home of art!$"
 
 GalarFala_G11M12_o2::
 	lock
@@ -2775,7 +3014,8 @@ GalarFala_G11M12_o2::
 	end
 
 GalarFala_G11M12_o2_Text:
-	.string "Ballonlea é uma cidade muito\nconfortavel de se morar!$"
+	.string "Ballonlea is a very comfortable town to\n"
+	.string "live in!$"
 
 GalarFala_G11M12_o3::
 	lock
@@ -2785,7 +3025,7 @@ GalarFala_G11M12_o3::
 	end
 
 GalarFala_G11M12_o3_Text:
-	.string "Qual será a idade da Opal?$"
+	.string "I wonder how old Opal is?$"
 
 @ ---- Galar_Ballonlea08 (g11m13) ----
 GalarFala_G11M13_o0::
@@ -2796,7 +3036,8 @@ GalarFala_G11M13_o0::
 	end
 
 GalarFala_G11M13_o0_Text:
-	.string "Meu Pokémon favorito é o\nPidgeot! É o melhor tipo de vôo!$"
+	.string "My favorite Pokémon is Pidgeot!\n"
+	.string "It's the best Flying-type!$"
 
 GalarFala_G11M13_o1::
 	lock
@@ -2806,7 +3047,8 @@ GalarFala_G11M13_o1::
 	end
 
 GalarFala_G11M13_o1_Text:
-	.string "Você sabia? Se você capturar\num Pokémon com uma Luxury Ball,\lele gostará mais de você!$"
+	.string "Did you know? If you catch a Pokémon\n"
+	.string "with a Luxury Ball, it will like you more!$"
 
 GalarFala_G11M13_o2::
 	lock
@@ -2816,7 +3058,8 @@ GalarFala_G11M13_o2::
 	end
 
 GalarFala_G11M13_o2_Text:
-	.string "Impidimp selvagens habitam \nglimwood tangle.\lOuvi dizer que são bastante comuns.$"
+	.string "Wild Impidimp live in Glimwood Tangle.\n"
+	.string "I hear they're quite common.$"
 
 @ ---- Galar_Circhester04 (g12m02) ----
 GalarFala_G12M02_o0::
@@ -2824,7 +3067,8 @@ GalarFala_G12M02_o0::
 	end
 
 GalarFala_G12M02_o0_Text:
-	.string "Bem vindo ao Hotel Cristal.\pFique a vontade para olhar nossos\nquartos.$"
+	.string "Welcome to the Hotel Crystal.\p"
+	.string "Feel free to look around our rooms.$"
 
 @ ---- Galar_Circhester05 (g12m05) ----
 GalarFala_G12M05_o1::
@@ -2835,7 +3079,12 @@ GalarFala_G12M05_o1::
 	end
 
 GalarFala_G12M05_o1_Text:
-	.string "Vim visitar o ginasiode\nCirchester, mas ele é muito\ldificil.\pDeve haver uma alguma forma mais\nfacil de passa-lo.\pvocê vai tentar passar?\pBoa sorte com isso!$"
+	.string "I came to visit the Circhester Gym, but\n"
+	.string "it's very hard.\p"
+	.string "There must be some easier way to get\n"
+	.string "through it.\p"
+	.string "Are you going to try?\p"
+	.string "Good luck with that!$"
 
 GalarFala_G12M05_o2::
 	lock
@@ -2845,7 +3094,13 @@ GalarFala_G12M05_o2::
 	end
 
 GalarFala_G12M05_o2_Text:
-	.string "Você tem muitos amigos?\pVisiti-os as vezes, é bem\ndivertido \nMas que tal\pvisitar a Wild area de vez em\lquando?Quem sabe, você pode\lacabar fazendo novos amigos lá.\lAcho que valeria a pena conferir\la Wild area.$"
+	.string "Do you have many friends?\p"
+	.string "Visit them sometimes, it's a lot of fun.\n"
+	.string "But how about\p"
+	.string "visiting the Wild Area every now and\n"
+	.string "then? Who knows, you might end up\l"
+	.string "making new friends there. I think the\l"
+	.string "Wild Area would be worth a look.$"
 
 GalarFala_G12M05_o3::
 	lock
@@ -2855,7 +3110,10 @@ GalarFala_G12M05_o3::
 	end
 
 GalarFala_G12M05_o3_Text:
-	.string "Pokémon ainda pode aprender\ntécnicas apos cancelar a evolução.\pA evolução pode esperar até que\nnovos movimentos sejam aprendidos.$"
+	.string "A Pokémon can still learn moves after\n"
+	.string "you cancel its evolution.\p"
+	.string "Evolution can wait until new moves have\n"
+	.string "been learned.$"
 
 @ ---- Galar_Route0801 (g12m08) ----
 GalarFala_G12M08_o0::
@@ -2891,7 +3149,9 @@ GalarFala_G12M10_o1::
 	end
 
 GalarFala_G12M10_o1_Text:
-	.string "Droga estou a uma semana tentado\nfazer o minigame do ginasio mas\lnunca consigo termina-lo$"
+	.string "Darn, I've spent a week trying to clear\n"
+	.string "the Gym mission and I can never finish\l"
+	.string "it.$"
 
 GalarFala_G12M10_o11::
 	lock
@@ -2901,7 +3161,8 @@ GalarFala_G12M10_o11::
 	end
 
 GalarFala_G12M10_o11_Text:
-	.string "Eu acho que o Gordie devia\nserguir com o manto da Melony.$"
+	.string "I think Gordie should carry on with\n"
+	.string "Melony's mantle.$"
 
 GalarFala_G12M10_o12::
 	lock
@@ -2911,7 +3172,7 @@ GalarFala_G12M10_o12::
 	end
 
 GalarFala_G12M10_o12_Text:
-	.string "Eu gosto do frio da cidade!$"
+	.string "I like how cold this city is!$"
 
 GalarFala_G12M10_o13::
 	lock
@@ -2921,7 +3182,8 @@ GalarFala_G12M10_o13::
 	end
 
 GalarFala_G12M10_o13_Text:
-	.string "Ja viu o fan-clube do Gordie?\nele é imenso!!!$"
+	.string "Have you seen Gordie's fan club?\n"
+	.string "It's huge!!!$"
 
 GalarFala_G12M10_o14::
 	lock
@@ -2931,7 +3193,8 @@ GalarFala_G12M10_o14::
 	end
 
 GalarFala_G12M10_o14_Text:
-	.string "ja viu a nova rainha de kalos?\no nome dela é Serena $"
+	.string "have you seen the new queen of Kalos?\n"
+	.string "her name is Serena $"
 
 GalarFala_G12M10_o15::
 	lock
@@ -2941,7 +3204,8 @@ GalarFala_G12M10_o15::
 	end
 
 GalarFala_G12M10_o15_Text:
-	.string "Você ja andou de fly taxi?\né muito divertido.$"
+	.string "Have you ever ridden the Flying Taxi?\n"
+	.string "It's a lot of fun.$"
 
 GalarFala_G12M10_o16::
 	lock
@@ -2951,7 +3215,8 @@ GalarFala_G12M10_o16::
 	end
 
 GalarFala_G12M10_o16_Text:
-	.string "Sabia que o criador dessa rom\nesta no hotel?$"
+	.string "Did you know the creator of this ROM is\n"
+	.string "at the hotel?$"
 
 GalarFala_G12M10_o17::
 	lock
@@ -2961,7 +3226,8 @@ GalarFala_G12M10_o17::
 	end
 
 GalarFala_G12M10_o17_Text:
-	.string "Ja reparou que a cidade é\nsimetrica?$"
+	.string "Have you noticed that this town is\n"
+	.string "symmetrical?$"
 
 GalarFala_G12M10_o20::
 	lock
@@ -2971,7 +3237,8 @@ GalarFala_G12M10_o20::
 	end
 
 GalarFala_G12M10_o20_Text:
-	.string "Hop: Olha {PLAYER}, esse é o\nbanho dos herois!$"
+	.string "Hop: Look, {PLAYER}, this is the bath of\n"
+	.string "heroes!$"
 
 GalarFala_G12M10_o3::
 	lock
@@ -2981,7 +3248,8 @@ GalarFala_G12M10_o3::
 	end
 
 GalarFala_G12M10_o3_Text:
-	.string "Eu acho que o Gordie tem o direito\nde ser lidere do tipo que ele\lquizer.$"
+	.string "I think Gordie has the right to be a\n"
+	.string "Leader of whatever type he wants.$"
 
 GalarFala_G12M10_o4::
 	lock
@@ -2991,7 +3259,8 @@ GalarFala_G12M10_o4::
 	end
 
 GalarFala_G12M10_o4_Text:
-	.string "Tem um lugar em galar ainda mais\nfrio do que chichester.$"
+	.string "There's a place in Galar even colder\n"
+	.string "than Circhester.$"
 
 GalarFala_G12M10_o5::
 	lock
@@ -3001,7 +3270,8 @@ GalarFala_G12M10_o5::
 	end
 
 GalarFala_G12M10_o5_Text:
-	.string "Durante uma grande nevasca um\ngigantamax coalossal aqueceu\la população de galar.$"
+	.string "During a great blizzard, a Gigantamax\n"
+	.string "Coalossal warmed the people of Galar.$"
 
 GalarFala_G12M10_o6::
 	lock
@@ -3011,7 +3281,8 @@ GalarFala_G12M10_o6::
 	end
 
 GalarFala_G12M10_o6_Text:
-	.string "As wooloos são tão macias que\nate podem pular de penhascos\lsem se machucarem.$"
+	.string "Wooloo are so fluffy that they can even\n"
+	.string "jump off cliffs without getting hurt.$"
 
 GalarFala_G12M10_o7::
 	lock
@@ -3021,7 +3292,8 @@ GalarFala_G12M10_o7::
 	end
 
 GalarFala_G12M10_o7_Text:
-	.string "Ja reparou que a cidade é\nsimetrica?$"
+	.string "Have you noticed that this town is\n"
+	.string "symmetrical?$"
 
 GalarFala_G12M10_o8::
 	lock
@@ -3031,7 +3303,7 @@ GalarFala_G12M10_o8::
 	end
 
 GalarFala_G12M10_o8_Text:
-	.string "Jogue uma moeda para o mr rime.$"
+	.string "Toss a coin to Mr. Rime.$"
 
 GalarFala_G12M10_o9::
 	lock
@@ -3041,7 +3313,8 @@ GalarFala_G12M10_o9::
 	end
 
 GalarFala_G12M10_o9_Text:
-	.string "O que você  prefere gigantamax\nou mega evolução?$"
+	.string "Which do you prefer, Gigantamax or Mega\n"
+	.string "Evolution?$"
 
 @ ---- Galar_Circhester07 (g12m11) ----
 GalarFala_G12M11_o2::
@@ -3072,7 +3345,7 @@ GalarFala_G12M11_o4::
 	end
 
 GalarFala_G12M11_o4_Text:
-	.string "Esse ginasio é dificil!$"
+	.string "This Gym is hard!$"
 
 GalarFala_G12M11_o5::
 	lock
@@ -3082,7 +3355,7 @@ GalarFala_G12M11_o5::
 	end
 
 GalarFala_G12M11_o5_Text:
-	.string "Estou em duvida sobre qua\nenftrentar$"
+	.string "I can't decide which one to take on.$"
 
 GalarFala_G12M11_o6::
 	lock
@@ -3092,7 +3365,8 @@ GalarFala_G12M11_o6::
 	end
 
 GalarFala_G12M11_o6_Text:
-	.string "Não acredito fiquei horas no\nmini game para  perder para a Melony$"
+	.string "I can't believe it, I spent hours on the\n"
+	.string "Gym mission just to lose to Melony.$"
 
 GalarFala_G12M11_o7::
 	lock
@@ -3102,7 +3376,7 @@ GalarFala_G12M11_o7::
 	end
 
 GalarFala_G12M11_o7_Text:
-	.string "Eu não esperava aquele max geyser$"
+	.string "I wasn't expecting that Max Geyser.$"
 
 @ ---- Galar_Circhester12 (g12m16) ----
 GalarFala_G12M16_o2::
@@ -3113,7 +3387,8 @@ GalarFala_G12M16_o2::
 	end
 
 GalarFala_G12M16_o2_Text:
-	.string "Bem vindo ao meu restaurante,\nele esta aqui a cinco geraçoes\lda nossa familha.$"
+	.string "Welcome to my restaurant. It has been\n"
+	.string "in our family for five generations.$"
 
 GalarFala_G12M16_o3::
 	lock
@@ -3123,7 +3398,8 @@ GalarFala_G12M16_o3::
 	end
 
 GalarFala_G12M16_o3_Text:
-	.string "Aqui tem curry de tudo.\ntem ate de pizza.$"
+	.string "There's curry of every kind here.\n"
+	.string "There's even pizza curry.$"
 
 @ ---- Galar_Circhester14 (g12m18) ----
 GalarFala_G12M18_o1::
@@ -3134,7 +3410,10 @@ GalarFala_G12M18_o1::
 	end
 
 GalarFala_G12M18_o1_Text:
-	.string "Meu marido gosta de trocar Pokémon\pVocê está coletando Pokémon para a\nsua Pokédex, não é?\pVocê poderia trocar com ele?$"
+	.string "My husband likes trading Pokémon.\p"
+	.string "You're collecting Pokémon for your\n"
+	.string "Pokédex, aren't you?\p"
+	.string "Could you trade with him?$"
 
 @ ---- Galar_Wyndon02 (g13m00) ----
 GalarFala_G13M00_o2::
@@ -3145,7 +3424,12 @@ GalarFala_G13M00_o2::
 	end
 
 GalarFala_G13M00_o2_Text:
-	.string "BallGuy: Bem vindo a liga pokemon\naqui você deve mostrar a todos os\ltreinadores quem voc  é.\pUm iniciante...?\pUm treinador poderoso...?\pou um expecialista...?$"
+	.string "Ball Guy: Welcome to the Pokémon\n"
+	.string "League! Here you have to show every\l"
+	.string "Trainer who you are.\p"
+	.string "A beginner...?\p"
+	.string "A powerful Trainer...?\p"
+	.string "Or a specialist...?$"
 
 GalarFala_G13M00_o3::
 	lock
@@ -3155,7 +3439,11 @@ GalarFala_G13M00_o3::
 	end
 
 GalarFala_G13M00_o3_Text:
-	.string "A partir daqui, você enfrenta os\nParticipantes um por um.\pSe você vencer, uma porta se abre\npara o proximo treinador.\pBoa sorte!$"
+	.string "From here on, you face the entrants one\n"
+	.string "by one.\p"
+	.string "If you win, a door opens to the next\n"
+	.string "Trainer.\p"
+	.string "Good luck!$"
 
 GalarFala_G13M00_o4::
 	lock
@@ -3165,7 +3453,12 @@ GalarFala_G13M00_o4::
 	end
 
 GalarFala_G13M00_o4_Text:
-	.string "Esta é a recepção!\nAcontece que fui o primeiro a me\linscrever para a Copa dos Campeoes\pEm outras palavras, já sou o\nnumero um. Está praticamente\lna bolsa que vou ganhar essa\lcoisa!$"
+	.string "This is the reception desk! As it\n"
+	.string "happens, I was the first to sign up for\l"
+	.string "the Champion Cup.\p"
+	.string "In other words, I'm already number one.\n"
+	.string "It's pretty much in the bag that I'm\l"
+	.string "going to win this thing!$"
 
 GalarFala_G13M00_o6::
 	lock
@@ -3175,7 +3468,8 @@ GalarFala_G13M00_o6::
 	end
 
 GalarFala_G13M00_o6_Text:
-	.string "Meu lugar favorito para estar é\nHulbury.\pAmo sentar na beira da água.$"
+	.string "My favorite place to be is Hulbury.\p"
+	.string "I love sitting by the water.$"
 
 GalarFala_G13M00_o7::
 	lock
@@ -3185,7 +3479,7 @@ GalarFala_G13M00_o7::
 	end
 
 GalarFala_G13M00_o7_Text:
-	.string "Hop: olha ,{PLAYER}, quem esta aqui!$"
+	.string "Hop: Look, {PLAYER}, who's here!$"
 
 @ ---- Galar_Spikemuth01 (g13m02) ----
 GalarFala_G13M02_o0::
@@ -3196,7 +3490,10 @@ GalarFala_G13M02_o0::
 	end
 
 GalarFala_G13M02_o0_Text:
-	.string "Esta cidade costumava ser uma\npequena vila de pescadores.\pSua população cresceu\nconstantemente.$"
+	.string "This town used to be a small fishing\n"
+	.string "village.\p"
+	.string "Its population has grown steadily ever\n"
+	.string "since.$"
 
 @ ---- Galar_Spikemuth02 (g13m03) ----
 GalarFala_G13M03_o0::
@@ -3207,7 +3504,8 @@ GalarFala_G13M03_o0::
 	end
 
 GalarFala_G13M03_o0_Text:
-	.string "Meu Pokémon favorito é Chansey!\nEles são tão bonitinhos!$"
+	.string "My favorite Pokémon is Chansey!\n"
+	.string "They're so cute!$"
 
 @ ---- Galar_Spikemuth03 (g13m04) ----
 GalarFala_G13M04_o0::
@@ -3218,7 +3516,8 @@ GalarFala_G13M04_o0::
 	end
 
 GalarFala_G13M04_o0_Text:
-	.string "Esta cidade foi construida apenas\nnos  ltimos trinta anos.$"
+	.string "This city was built only in the last\n"
+	.string "thirty years.$"
 
 @ ---- Galar_Spikemuth04 (g13m05) ----
 GalarFala_G13M05_o0::
@@ -3229,7 +3528,8 @@ GalarFala_G13M05_o0::
 	end
 
 GalarFala_G13M05_o0_Text:
-	.string "Você sabia? Se você capturar um\nPokémon com uma Luxury Ball, ele\lgostará mais de você!$"
+	.string "Did you know? If you catch a Pokémon\n"
+	.string "with a Luxury Ball, it will like you more!$"
 
 @ ---- Galar_Wyndon08 (g13m10) ----
 GalarFala_G13M10_o0::
@@ -3240,7 +3540,10 @@ GalarFala_G13M10_o0::
 	end
 
 GalarFala_G13M10_o0_Text:
-	.string "Você sabia? Pokémon com a\nhabilidade Pickup podem encontrar\litens no chão.\pNão dê a eles nenhum item\nretido, ou você pode perder!$"
+	.string "Did you know? Pokémon with the Pickup\n"
+	.string "Ability can find items on the ground.\p"
+	.string "Don't give them any held item, or you\n"
+	.string "might lose it!$"
 
 GalarFala_G13M10_o10::
 	lock
@@ -3250,7 +3553,7 @@ GalarFala_G13M10_o10::
 	end
 
 GalarFala_G13M10_o10_Text:
-	.string "Gosto de usar movimentos que\ncausam paralisia.$"
+	.string "I like using moves that cause paralysis.$"
 
 GalarFala_G13M10_o12::
 	lock
@@ -3270,7 +3573,9 @@ GalarFala_G13M10_o4::
 	end
 
 GalarFala_G13M10_o4_Text:
-	.string "Eu acho que Aguav Berries são\nfascinantes.\pEles recuperam HP perdido, mas\ncausam confusão para Pokémon\lcom certas\lnaturezas.$"
+	.string "I think Aguav Berries are fascinating.\p"
+	.string "They restore lost HP, but they confuse\n"
+	.string "Pokémon with certain natures.$"
 
 GalarFala_G13M10_o5::
 	lock
@@ -3280,7 +3585,8 @@ GalarFala_G13M10_o5::
 	end
 
 GalarFala_G13M10_o5_Text:
-	.string "Eu prefiro usar Pokémon com\nestatisticas de alta velocidade.$"
+	.string "I prefer using Pokémon with high Speed\n"
+	.string "stats.$"
 
 GalarFala_G13M10_o6::
 	lock
@@ -3290,7 +3596,8 @@ GalarFala_G13M10_o6::
 	end
 
 GalarFala_G13M10_o6_Text:
-	.string "Gosto de usar movimentos que\ncausam confusão.$"
+	.string "I like using moves that cause\n"
+	.string "confusion.$"
 
 GalarFala_G13M10_o7::
 	lock
@@ -3300,7 +3607,8 @@ GalarFala_G13M10_o7::
 	end
 
 GalarFala_G13M10_o7_Text:
-	.string "Gosto de usar Pokémon que outros\ntreinadores subestimarão!$"
+	.string "I like using Pokémon that other\n"
+	.string "Trainers will underestimate!$"
 
 GalarFala_G13M10_o8::
 	lock
@@ -3310,7 +3618,8 @@ GalarFala_G13M10_o8::
 	end
 
 GalarFala_G13M10_o8_Text:
-	.string "Gosto de usar Pokémon que outros\ntreinadores subestimarão!$"
+	.string "I like using Pokémon that other\n"
+	.string "Trainers will underestimate!$"
 
 @ ---- Galar_Hammerlocke20 (g13m18) ----
 GalarFala_G13M18_o0::
@@ -3349,7 +3658,9 @@ GalarFala_G13M20_o11::
 	end
 
 GalarFala_G13M20_o11_Text:
-	.string "Eu acho que Aguav Berries são\nfascinantes.\pEles recuperam HP perdido, mas\ncausam confusão para Pokémon\lcom certas\lnaturezas.$"
+	.string "I think Aguav Berries are fascinating.\p"
+	.string "They restore lost HP, but they confuse\n"
+	.string "Pokémon with certain natures.$"
 
 GalarFala_G13M20_o12::
 	lock
@@ -3359,7 +3670,8 @@ GalarFala_G13M20_o12::
 	end
 
 GalarFala_G13M20_o12_Text:
-	.string "Gosto de usar Pokémon que outros\ntreinadores subestimarão!$"
+	.string "I like using Pokémon that other\n"
+	.string "Trainers will underestimate!$"
 
 GalarFala_G13M20_o13::
 	lock
@@ -3369,7 +3681,8 @@ GalarFala_G13M20_o13::
 	end
 
 GalarFala_G13M20_o13_Text:
-	.string "Eu prefiro usar Pokémon com\nestatisticas de alta velocidade.$"
+	.string "I prefer using Pokémon with high Speed\n"
+	.string "stats.$"
 
 GalarFala_G13M20_o15::
 	lock
@@ -3449,7 +3762,8 @@ GalarFala_G13M20_o9::
 	end
 
 GalarFala_G13M20_o9_Text:
-	.string "Gosto de usar movimentos que\ncausam confusão.$"
+	.string "I like using moves that cause\n"
+	.string "confusion.$"
 
 @ ---- Galar_Wyndon04 (g14m00) ----
 GalarFala_G14M00_o0::
@@ -3460,7 +3774,10 @@ GalarFala_G14M00_o0::
 	end
 
 GalarFala_G14M00_o0_Text:
-	.string "Esta cidade costumava ser uma\npequena vila de pescadores.\pSua população cresceu\nconstantemente.$"
+	.string "This town used to be a small fishing\n"
+	.string "village.\p"
+	.string "Its population has grown steadily ever\n"
+	.string "since.$"
 
 GalarFala_G14M00_o1::
 	lock
@@ -3470,7 +3787,9 @@ GalarFala_G14M00_o1::
 	end
 
 GalarFala_G14M00_o1_Text:
-	.string "Embora algumas pessoas digam que\nos tipos Poison são feios, eu os\lacho legais!$"
+	.string "Even though some people say\n"
+	.string "Poison-types are ugly, I think they're\l"
+	.string "cool!$"
 
 @ ---- Galar_Wyndon05 (g14m04) ----
 GalarFala_G14M04_o0::
@@ -3481,7 +3800,9 @@ GalarFala_G14M04_o0::
 	end
 
 GalarFala_G14M04_o0_Text:
-	.string "Mesmo que a maioria das pessoas\ndissesse que os tipos lutadores\lsão todos iguais, acho que eles\lsão fortes!$"
+	.string "Even if most people said\n"
+	.string "Fighting-types are all the same, I think\l"
+	.string "they're strong!$"
 
 @ ---- Galar_Spikemuth05 (g14m06) ----
 GalarFala_G14M06_o1::
@@ -3492,7 +3813,9 @@ GalarFala_G14M06_o1::
 	end
 
 GalarFala_G14M06_o1_Text:
-	.string "Tem duas coisas que unem todos em\nspikemuth rock e o tipo dark.$"
+	.string "There are two things that unite\n"
+	.string "everyone in Spikemuth: rock and the\l"
+	.string "Dark type.$"
 
 GalarFala_G14M06_o2::
 	lock
@@ -3502,7 +3825,7 @@ GalarFala_G14M06_o2::
 	end
 
 GalarFala_G14M06_o2_Text:
-	.string "Nos não ivadimos a cidade nos\nmoramos aqui!$"
+	.string "We didn't invade the town, we live here!$"
 
 GalarFala_G14M06_o3::
 	lock
@@ -3512,7 +3835,8 @@ GalarFala_G14M06_o3::
 	end
 
 GalarFala_G14M06_o3_Text:
-	.string "Muita gente nem se lembra que essa\ncidade existe!$"
+	.string "A lot of people don't even remember this\n"
+	.string "town exists!$"
 
 @ ---- Galar_Spikemuth06 (g14m09) ----
 GalarFala_G14M09_o0::
@@ -3523,7 +3847,9 @@ GalarFala_G14M09_o0::
 	end
 
 GalarFala_G14M09_o0_Text:
-	.string "Quero inscrever meu Pokémon em um\nconcurso algum dia.\pVocê ganhou alguma fita?$"
+	.string "I want to enter my Pokémon in a contest\n"
+	.string "someday.\p"
+	.string "Have you won any Ribbons?$"
 
 GalarFala_G14M09_o1::
 	lock
@@ -3533,7 +3859,8 @@ GalarFala_G14M09_o1::
 	end
 
 GalarFala_G14M09_o1_Text:
-	.string "Mesmo que algumas pessoas digam\nque os tipos de insetos\lsão comuns, acho que eles são\ldificeis!$"
+	.string "Even if some people say Bug-types are\n"
+	.string "common, I think they're tough!$"
 
 @ ---- Galar_Spikemuth07 (g14m10) ----
 GalarFala_G14M10_o5::
@@ -3544,7 +3871,7 @@ GalarFala_G14M10_o5::
 	end
 
 GalarFala_G14M10_o5_Text:
-	.string "Team yell:A musica do Piers é a\nmelhor!!!$"
+	.string "Team Yell: Piers' music is the best!!!$"
 
 GalarFala_G14M10_o6::
 	lock
@@ -3554,7 +3881,7 @@ GalarFala_G14M10_o6::
 	end
 
 GalarFala_G14M10_o6_Text:
-	.string "Team yell:A musica do Piers é a\nmelhor!!!$"
+	.string "Team Yell: Piers' music is the best!!!$"
 
 GalarFala_G14M10_o8::
 	lock
@@ -3564,7 +3891,7 @@ GalarFala_G14M10_o8::
 	end
 
 GalarFala_G14M10_o8_Text:
-	.string "Team yell:A musica do Piers é a\nmelhor!!!$"
+	.string "Team Yell: Piers' music is the best!!!$"
 
 GalarFala_G14M10_o9::
 	lock
@@ -3574,7 +3901,7 @@ GalarFala_G14M10_o9::
 	end
 
 GalarFala_G14M10_o9_Text:
-	.string "Team yell:A musica do Piers é a\nmelhor!!!$"
+	.string "Team Yell: Piers' music is the best!!!$"
 
 @ ---- Galar_Route0901 (g14m11) ----
 GalarFala_G14M11_o2::
@@ -3585,7 +3912,8 @@ GalarFala_G14M11_o2::
 	end
 
 GalarFala_G14M11_o2_Text:
-	.string "Eles fecharam a entrada da cidade!$"
+	.string "They closed off the entrance to the\n"
+	.string "town!$"
 
 GalarFala_G14M11_o21::
 	finditem ITEM_HYPER_POTION
@@ -3627,7 +3955,8 @@ GalarFala_G14M11_o3::
 	end
 
 GalarFala_G14M11_o3_Text:
-	.string "Eles fecharam a entrada da cidade!$"
+	.string "They closed off the entrance to the\n"
+	.string "town!$"
 
 GalarFala_G14M11_o31::
 	finditem ITEM_CARBOS
@@ -3643,7 +3972,24 @@ GalarFala_G20M00_bg0::
 	end
 
 GalarFala_G20M00_bg0_Text:
-	.string "{COLOR RED}XX.YY.ZZZZ\n{COLOR GREEN}HH.DD\p{COLOR BLUE}Querido Diário, eu não aguento\nmais...\pNão sei há quanto tempo isso\nacontece, dias? Meses? Anos?\pMinha vida não tem paz há muito\ntempo. Passo dias e dias em claro\ltendo visoes, vivendo com medo...\pNão como há um tempo...\pNão me lembro da última vez que\nbebi água...\pE toda vez que durmo, tenho os\nmesmos pesadelos, e cada vez\lpiores, cada vez mais longos...\pNão sei mais o que fazer...\pNão sei quanto tempo vou aguentar\nou se vou superar isso...\pOh, Arceus, me ajude...$"
+	.string "{COLOR RED}XX.YY.ZZZZ\n"
+	.string "{COLOR GREEN}HH.DD\p"
+	.string "{COLOR BLUE}Dear Diary, I can't take it anymore...\p"
+	.string "I don't know how long this has been\n"
+	.string "going on, days? Months? Years?\p"
+	.string "My life has had no peace for a long time.\n"
+	.string "I spend days on end awake, having\l"
+	.string "visions, living in fear...\p"
+	.string "I haven't eaten in a while...\p"
+	.string "I can't remember the last time I drank\n"
+	.string "water...\p"
+	.string "And every time I sleep, I have the same\n"
+	.string "nightmares, worse each time, longer\l"
+	.string "each time...\p"
+	.string "I don't know what to do anymore...\p"
+	.string "I don't know how long I can hold out, or\n"
+	.string "whether I'll get through this...\p"
+	.string "Oh, Arceus, help me...$"
 
 @ ---- Galar_StowOnSide11 (g21m00) ----
 GalarFala_G21M00_o1::
@@ -3654,7 +4000,10 @@ GalarFala_G21M00_o1::
 	end
 
 GalarFala_G21M00_o1_Text:
-	.string "Mesmo que sejam do mesmo nivel,\nPokémon podem ter diferentes\lestatisticas e habilidades.\pUm Pokémon criado por um\ntreinador é mais forte do que\lum na selva.$"
+	.string "Even at the same level, Pokémon can\n"
+	.string "have different stats and Abilities.\p"
+	.string "A Pokémon raised by a Trainer is\n"
+	.string "stronger than one in the wild.$"
 
 GalarFala_G21M00_o2::
 	lock
@@ -3664,7 +4013,12 @@ GalarFala_G21M00_o2::
 	end
 
 GalarFala_G21M00_o2_Text:
-	.string "É verdade que um nivel superior\nPokémon vai ser mais poderoso …\pMas, todos os Pokémon terão fracos\npontos contra tipos especificos.\pEntão, parece não haver\nPokémon universalmente forte.$"
+	.string "It's true that a higher-level Pokémon\n"
+	.string "will be more powerful …\p"
+	.string "But every Pokémon will have weak points\n"
+	.string "against specific types.\p"
+	.string "So there seems to be no universally\n"
+	.string "strong Pokémon.$"
 
 @ ---- Galar_NewmoonIsland02 (g21m02) ----
 GalarFala_G21M02_bg0::
@@ -3697,7 +4051,9 @@ GalarFala_G27M00_o4::
 	end
 
 GalarFala_G27M00_o4_Text:
-	.string "Li que na pokedex, o Pidey é\ncategorizado como ”pokemon\lpassaro”\pmas afinal o que é um\npassaro?$"
+	.string "I read in the Pokédex that Pidgey is\n"
+	.string "categorized as a ”bird Pokémon”\p"
+	.string "but what is a bird, anyway?$"
 
 GalarFala_G27M00_o5::
 	lock
@@ -3707,7 +4063,15 @@ GalarFala_G27M00_o5::
 	end
 
 GalarFala_G27M00_o5_Text:
-	.string "Nunca mais aposto em batalhas\npokemon.\pacabei de perder 5000 pila.\pMas eu vou recuperar logo, acabei\nde baixar no meu Rotom Phone o\ljoguinho do Raikou.\pÉ só esperar o foguete multiplicar\nmeu dinheiro e eu vou ficar rico,\lhahaha.$"
+	.string "I'm never betting on Pokémon battles\n"
+	.string "again.\p"
+	.string "I just lost 5,000 bucks.\p"
+	.string "But I'll make it back soon, I just\n"
+	.string "downloaded the little Raikou game on my\l"
+	.string "Rotom Phone.\p"
+	.string "I only have to wait for the rocket to\n"
+	.string "multiply my money and I'll be rich,\l"
+	.string "hahaha.$"
 
 GalarFala_G27M00_o8::
 	lock
@@ -3717,7 +4081,14 @@ GalarFala_G27M00_o8::
 	end
 
 GalarFala_G27M00_o8_Text:
-	.string "Vi na TV que em Hoenn nasceram\ndois gêmeos siameses, mas não no\lcorpo, e sim na mente.\pEles são dois, mas compartilham a\nmesma mente.\pO que um pensa, o outro já sabe.\pQue loucura, não é?$"
+	.string "I saw on TV that two conjoined twins\n"
+	.string "were born in Hoenn, joined not at the\l"
+	.string "body but at the mind.\p"
+	.string "They are two, but they share the same\n"
+	.string "mind.\p"
+	.string "What one thinks, the other already\n"
+	.string "knows.\p"
+	.string "Crazy, isn't it?$"
 
 GalarFala_G27M00_o9::
 	lock
@@ -3727,7 +4098,8 @@ GalarFala_G27M00_o9::
 	end
 
 GalarFala_G27M00_o9_Text:
-	.string "Hahaha, acabei de ganhar 5000\npilas de um trouxa em apostas de\lbatalhas Pokémon.$"
+	.string "Hahaha, I just won 5,000 bucks off a\n"
+	.string "sucker betting on Pokémon battles.$"
 
 @ ---- Galar_Wyndon06 (g33m02) ----
 GalarFala_G33M02_o1::
@@ -3738,7 +4110,8 @@ GalarFala_G33M02_o1::
 	end
 
 GalarFala_G33M02_o1_Text:
-	.string "Eu prefiro usar Pokémon com\nestatisticas de alta velocidade.$"
+	.string "I prefer using Pokémon with high Speed\n"
+	.string "stats.$"
 
 GalarFala_G33M02_o2::
 	lock
@@ -3748,7 +4121,9 @@ GalarFala_G33M02_o2::
 	end
 
 GalarFala_G33M02_o2_Text:
-	.string "Eu amo viajar. Você já visitou\njotho?\pGostei muito de lá!$"
+	.string "I love traveling. Have you ever visited\n"
+	.string "Johto?\p"
+	.string "I liked it there a lot!$"
 
 @ ---- Galar_IsleOfArmor04 (g34m01) ----
 GalarFala_G34M01_o1::
@@ -3759,7 +4134,11 @@ GalarFala_G34M01_o1::
 	end
 
 GalarFala_G34M01_o1_Text:
-	.string "Ei, você ouviu as novidades?\pA rede de PC aqui agora pode se\nconectar a PCs em Galar.\pNão sei como isso aconteceu, mas é\nfantástico!$"
+	.string "Hey, did you hear the news?\p"
+	.string "The PC network here can now connect to\n"
+	.string "PCs in Galar.\p"
+	.string "I don't know how that happened, but it's\n"
+	.string "fantastic!$"
 
 GalarFala_G34M01_o2::
 	lock
@@ -3769,7 +4148,10 @@ GalarFala_G34M01_o2::
 	end
 
 GalarFala_G34M01_o2_Text:
-	.string "Vamos esmagar Berries!\n...Isso seria desperdiçar Berries?\pVocê sempre pode encontrar\nalgumas Berries nas arvores.$"
+	.string "Let's mash some Berries!\n"
+	.string "...Would that be wasting Berries?\p"
+	.string "You can always find some Berries on the\n"
+	.string "trees.$"
 
 GalarFala_G34M01_o3::
 	lock
@@ -3779,7 +4161,9 @@ GalarFala_G34M01_o3::
 	end
 
 GalarFala_G34M01_o3_Text:
-	.string "É impossivel surfar nos confins\nda ilha.\pAs marés estão muito rápidas e\ntraiçoeiras.$"
+	.string "It's impossible to surf at the far edges\n"
+	.string "of the island.\p"
+	.string "The tides are too fast and treacherous.$"
 
 @ ---- Galar_CrownTundra06 (g36m00) ----
 GalarFala_G36M00_o1::
@@ -3790,7 +4174,8 @@ GalarFala_G36M00_o1::
 	end
 
 GalarFala_G36M00_o1_Text:
-	.string "Nossa como é frio aqui devia ter\ncomprado um casaco extra.$"
+	.string "Wow, it's cold here. I should have\n"
+	.string "bought an extra coat.$"
 
 GalarFala_G36M00_o2::
 	lock
@@ -3800,7 +4185,9 @@ GalarFala_G36M00_o2::
 	end
 
 GalarFala_G36M00_o2_Text:
-	.string "Tive que juntar munito dinheiro\npra isso, mas finalmente estou\laqui na Crown Tundra!$"
+	.string "I had to save up a lot of money for this,\n"
+	.string "but I'm finally here in the Crown\l"
+	.string "Tundra!$"
 
 @ ---- Galar_CrownTundra07 (g37m00) ----
 GalarFala_G37M00_o1::
@@ -3818,7 +4205,9 @@ GalarFala_G37M00_o2::
 	end
 
 GalarFala_G37M00_o2_Text:
-	.string "Tive que juntar munito dinheiro\npra isso, mas finalmente estou\laqui na Crown Tundra!$"
+	.string "I had to save up a lot of money for this,\n"
+	.string "but I'm finally here in the Crown\l"
+	.string "Tundra!$"
 
 @ ---- Galar_CrownTundra08 (g37m05) ----
 GalarFala_G37M05_o19::
@@ -3829,7 +4218,7 @@ GalarFala_G37M05_o19::
 	end
 
 GalarFala_G37M05_o19_Text:
-	.string "Peony está em um controle mental$"
+	.string "Peony is under mind control.$"
 
 GalarFala_G37M05_o35::
 	lock
@@ -3839,7 +4228,9 @@ GalarFala_G37M05_o35::
 	end
 
 GalarFala_G37M05_o35_Text:
-	.string "Sinto muito jovem.\pEssa casa já foi alugada, só estou\nesperando o dono chegar!$"
+	.string "I'm sorry, young one.\p"
+	.string "This house has already been rented, I'm\n"
+	.string "just waiting for the owner to arrive!$"
 
 GalarFala_G37M05_o44::
 	lock
@@ -3849,7 +4240,8 @@ GalarFala_G37M05_o44::
 	end
 
 GalarFala_G37M05_o44_Text:
-	.string "A bea treina na Wild area todos\nos dias.\pSeus Pokémon são tão fortes!$"
+	.string "Bea trains in the Wild Area every day.\p"
+	.string "Her Pokémon are so strong!$"
 
 GalarFala_G37M05_o45::
 	lock
@@ -3859,7 +4251,8 @@ GalarFala_G37M05_o45::
 	end
 
 GalarFala_G37M05_o45_Text:
-	.string "Você sabia? Se você capturar um\nPokémon com uma Luxury Ball, ele\lgostará mais de você!$"
+	.string "Did you know? If you catch a Pokémon\n"
+	.string "with a Luxury Ball, it will like you more!$"
 
 GalarFala_G37M05_o46::
 	lock
@@ -3869,7 +4262,10 @@ GalarFala_G37M05_o46::
 	end
 
 GalarFala_G37M05_o46_Text:
-	.string "Você sabia? Pokémon com a\nhabilidade Pickup podem encontrar\litens no chão.\pNão dê a eles nenhum item retido,\nou você pode perder!\l$"
+	.string "Did you know? Pokémon with the Pickup\n"
+	.string "Ability can find items on the ground.\p"
+	.string "Don't give them any held item, or you\n"
+	.string "might lose it!$"
 
 GalarFala_G37M05_o47::
 	lock
@@ -3879,7 +4275,9 @@ GalarFala_G37M05_o47::
 	end
 
 GalarFala_G37M05_o47_Text:
-	.string "Eu gosto de usar o Sand-Attack\npara diminuir a precisão dos meus\loponentes.\pQual é o seu movimento favorito?$"
+	.string "I like using Sand Attack to lower my\n"
+	.string "opponents' accuracy.\p"
+	.string "What's your favorite move?$"
 
 GalarFala_G37M05_o48::
 	lock
@@ -3889,7 +4287,9 @@ GalarFala_G37M05_o48::
 	end
 
 GalarFala_G37M05_o48_Text:
-	.string "Embora a maioria das pessoas diga\nque os tipo Ground são feios,\lacho que eles são duroes!$"
+	.string "Even though most people say\n"
+	.string "Ground-types are ugly, I think they're\l"
+	.string "tough!$"
 
 @ ---- Galar_CrownTundra17 (g37m21) ----
 GalarFala_G37M21_o0::
@@ -3900,7 +4300,8 @@ GalarFala_G37M21_o0::
 	end
 
 GalarFala_G37M21_o0_Text:
-	.string "Duraludons Selvagens habitam a\nrota 10. Ouvi dizer que são\ldificeis de capturar.$"
+	.string "Wild Duraludon live on Route 10. I hear\n"
+	.string "they are hard to catch.$"
 
 GalarFala_G37M21_o1::
 	lock
@@ -3910,7 +4311,9 @@ GalarFala_G37M21_o1::
 	end
 
 GalarFala_G37M21_o1_Text:
-	.string "Você sabia?Pokémon com a\nhabilidade Clear Body não serão\lafetados por movimentos de\lredução de estatisticas.$"
+	.string "Did you know? Pokémon with the Clear\n"
+	.string "Body Ability won't be affected by\l"
+	.string "stat-lowering moves.$"
 
 @ ---- Galar_IsleOfArmor08 (g38m04) ----
 GalarFala_G38M04_o12::
@@ -3921,7 +4324,7 @@ GalarFala_G38M04_o12::
 	end
 
 GalarFala_G38M04_o12_Text:
-	.string "Somente treinadores dignos podem\nentrar aqui!!!$"
+	.string "Only worthy Trainers may enter here!!!$"
 
 @ ---- Galar_IsleOfArmor09 (g38m05) ----
 GalarFala_G38M05_o2::
@@ -3932,7 +4335,8 @@ GalarFala_G38M05_o2::
 	end
 
 GalarFala_G38M05_o2_Text:
-	.string "Para entar nessa torre você tem\nque ter a permição do\lDojo Master Mustard!!!$"
+	.string "To enter this tower you have to have\n"
+	.string "permission from Dojo Master Mustard!!!$"
 
 GalarFala_G38M05_o3::
 	lock
@@ -3942,7 +4346,7 @@ GalarFala_G38M05_o3::
 	end
 
 GalarFala_G38M05_o3_Text:
-	.string "Somente treinadores dignos podem\nentrar aqui!!!$"
+	.string "Only worthy Trainers may enter here!!!$"
 
 @ ---- Galar_IsleOfArmor12 (g38m08) ----
 GalarFala_G38M08_o2::
@@ -3953,7 +4357,8 @@ GalarFala_G38M08_o2::
 	end
 
 GalarFala_G38M08_o2_Text:
-	.string "Para entar nessa torre você tem\nque ter a permição do\lDojo Master Mustard!!!$"
+	.string "To enter this tower you have to have\n"
+	.string "permission from Dojo Master Mustard!!!$"
 
 @ ---- Galar_IsleOfArmor16 (g38m12) ----
 GalarFala_G38M12_o0::
@@ -3964,7 +4369,7 @@ GalarFala_G38M12_o0::
 	end
 
 GalarFala_G38M12_o0_Text:
-	.string "Agora você pode prossegir!!!$"
+	.string "You may proceed now!!!$"
 
 @ ---- Galar_IsleOfArmor17 (g38m13) ----
 GalarFala_G38M13_o0::
@@ -3975,7 +4380,7 @@ GalarFala_G38M13_o0::
 	end
 
 GalarFala_G38M13_o0_Text:
-	.string "Agora você pode prossegir!!!$"
+	.string "You may proceed now!!!$"
 
 @ ---- Galar_IsleOfArmor18 (g38m14) ----
 GalarFala_G38M14_o0::
@@ -3986,7 +4391,7 @@ GalarFala_G38M14_o0::
 	end
 
 GalarFala_G38M14_o0_Text:
-	.string "Agora você pode prossegir!!!$"
+	.string "You may proceed now!!!$"
 
 @ ---- Galar_IsleOfArmor21 (g38m17) ----
 GalarFala_G38M17_o0::
@@ -3997,7 +4402,7 @@ GalarFala_G38M17_o0::
 	end
 
 GalarFala_G38M17_o0_Text:
-	.string "Agora você pode prossegir!!!$"
+	.string "You may proceed now!!!$"
 
 @ ---- Galar_IsleOfArmor22 (g38m18) ----
 GalarFala_G38M18_o0::
@@ -4008,7 +4413,7 @@ GalarFala_G38M18_o0::
 	end
 
 GalarFala_G38M18_o0_Text:
-	.string "Agora você pode prossegir!!!$"
+	.string "You may proceed now!!!$"
 
 @ ---- Galar_IsleOfArmor23 (g38m19) ----
 GalarFala_G38M19_o0::
@@ -4019,7 +4424,7 @@ GalarFala_G38M19_o0::
 	end
 
 GalarFala_G38M19_o0_Text:
-	.string "Agora você pode prossegir!!!$"
+	.string "You may proceed now!!!$"
 
 @ ---- Galar_IsleOfArmor24 (g38m20) ----
 GalarFala_G38M20_o0::
@@ -4030,7 +4435,7 @@ GalarFala_G38M20_o0::
 	end
 
 GalarFala_G38M20_o0_Text:
-	.string "Agora você pode prossegir!!!$"
+	.string "You may proceed now!!!$"
 
 @ ---- Galar_IsleOfArmor26 (g38m22) ----
 GalarFala_G38M22_bg5::
@@ -4049,7 +4454,10 @@ GalarFala_G38M25_o0::
 	end
 
 GalarFala_G38M25_o0_Text:
-	.string "Bem vindo ao ginasio de\nturffield aqui voce encontrara o \plutador fazendeiro lider de \nginasio do tipo grama Milo$"
+	.string "Welcome to the Turffield Gym. Here you\n"
+	.string "will find the\p"
+	.string "fighting farmer, the Grass-type Gym\n"
+	.string "Leader Milo.$"
 
 GalarFala_G38M25_o1::
 	lock
@@ -4059,7 +4467,7 @@ GalarFala_G38M25_o1::
 	end
 
 GalarFala_G38M25_o1_Text:
-	.string "Eu estou me preparando para \nenfrentar o milo$"
+	.string "I'm getting ready to take on Milo.$"
 
 GalarFala_G38M25_o2::
 	lock
@@ -4069,7 +4477,7 @@ GalarFala_G38M25_o2::
 	end
 
 GalarFala_G38M25_o2_Text:
-	.string "Você ja pode passar.$"
+	.string "You may pass now.$"
 
 GalarFala_G38M25_o3::
 	lock
@@ -4079,7 +4487,7 @@ GalarFala_G38M25_o3::
 	end
 
 GalarFala_G38M25_o3_Text:
-	.string "Acabei de enfrentar o milo$"
+	.string "I just took on Milo.$"
 
 @ ---- Galar_IsleOfArmor30 (g38m26) ----
 GalarFala_G38M26_o0::
@@ -4090,7 +4498,10 @@ GalarFala_G38M26_o0::
 	end
 
 GalarFala_G38M26_o0_Text:
-	.string "Bem vindo ao ginasio de\nturffield aqui voce encontrara o \plutador fazendeiro lider de \nginasio do tipo grama Milo$"
+	.string "Welcome to the Turffield Gym. Here you\n"
+	.string "will find the\p"
+	.string "fighting farmer, the Grass-type Gym\n"
+	.string "Leader Milo.$"
 
 GalarFala_G38M26_o1::
 	lock
@@ -4100,7 +4511,7 @@ GalarFala_G38M26_o1::
 	end
 
 GalarFala_G38M26_o1_Text:
-	.string "Eu estou me preparando para \nenfrentar o milo$"
+	.string "I'm getting ready to take on Milo.$"
 
 GalarFala_G38M26_o2::
 	lock
@@ -4110,7 +4521,10 @@ GalarFala_G38M26_o2::
 	end
 
 GalarFala_G38M26_o2_Text:
-	.string "Bem vindo ao ginasio de\nturffield aqui voce encontrara o \plutador fazendeiro lider de \nginasio do tipo grama Milo$"
+	.string "Welcome to the Turffield Gym. Here you\n"
+	.string "will find the\p"
+	.string "fighting farmer, the Grass-type Gym\n"
+	.string "Leader Milo.$"
 
 GalarFala_G38M26_o3::
 	lock
@@ -4120,7 +4534,7 @@ GalarFala_G38M26_o3::
 	end
 
 GalarFala_G38M26_o3_Text:
-	.string "Acabei de enfrentar o milo$"
+	.string "I just took on Milo.$"
 
 @ ---- Galar_IsleOfArmor31 (g38m27) ----
 GalarFala_G38M27_o0::
@@ -4131,7 +4545,10 @@ GalarFala_G38M27_o0::
 	end
 
 GalarFala_G38M27_o0_Text:
-	.string "Bem vindo ao ginasio de\nturffield aqui voce encontrara o \plutador fazendeiro lider de \nginasio do tipo grama Milo$"
+	.string "Welcome to the Turffield Gym. Here you\n"
+	.string "will find the\p"
+	.string "fighting farmer, the Grass-type Gym\n"
+	.string "Leader Milo.$"
 
 GalarFala_G38M27_o1::
 	lock
@@ -4141,7 +4558,7 @@ GalarFala_G38M27_o1::
 	end
 
 GalarFala_G38M27_o1_Text:
-	.string "Eu estou me preparando para \nenfrentar o milo$"
+	.string "I'm getting ready to take on Milo.$"
 
 GalarFala_G38M27_o2::
 	lock
@@ -4151,7 +4568,10 @@ GalarFala_G38M27_o2::
 	end
 
 GalarFala_G38M27_o2_Text:
-	.string "Bem vindo ao ginasio de\nturffield aqui voce encontrara o \plutador fazendeiro lider de \nginasio do tipo grama Milo$"
+	.string "Welcome to the Turffield Gym. Here you\n"
+	.string "will find the\p"
+	.string "fighting farmer, the Grass-type Gym\n"
+	.string "Leader Milo.$"
 
 GalarFala_G38M27_o3::
 	lock
@@ -4161,7 +4581,7 @@ GalarFala_G38M27_o3::
 	end
 
 GalarFala_G38M27_o3_Text:
-	.string "Acabei de enfrentar o milo$"
+	.string "I just took on Milo.$"
 
 @ ---- Galar_IsleOfArmor48 (g38m41) ----
 GalarFala_G38M41_o0::
@@ -4205,7 +4625,8 @@ GalarFala_G42M02_o12::
 	end
 
 GalarFala_G42M02_o12_Text:
-	.string "Croconaw abre suas enormes\nmand bulas largas ao atacar.$"
+	.string "Croconaw opens its huge, wide jaws when\n"
+	.string "it attacks.$"
 
 GalarFala_G42M02_o2::
 	lock
@@ -4215,7 +4636,10 @@ GalarFala_G42M02_o2::
 	end
 
 GalarFala_G42M02_o2_Text:
-	.string "Togepi usa as boas energias como\nfonte do seu poder, ent ão\lquanto mais feliz e otimista for\lo seu treinador, mais forte ser \lo Togepi.$"
+	.string "Togepi uses good energy as the source\n"
+	.string "of its power, so the happier and more\l"
+	.string "optimistic its Trainer is, the stronger\l"
+	.string "Togepi becomes.$"
 
 GalarFala_G42M02_o5::
 	lock
@@ -4240,7 +4664,8 @@ GalarFala_G42M04_o12::
 	end
 
 GalarFala_G42M04_o12_Text:
-	.string "Você não pode passar aqui até o\nquinto ginásio.$"
+	.string "You can't come through here until the\n"
+	.string "fifth Gym.$"
 
 GalarFala_G42M04_o4::
 	finditem ITEM_ROOT_FOSSIL
@@ -4255,7 +4680,9 @@ GalarFala_G42M12_o30::
 	end
 
 GalarFala_G42M12_o30_Text:
-	.string "Essa wild area tem pokemons muito\npoderosos pra você, volte quando\lestiver mais forte!$"
+	.string "This part of the Wild Area has Pokémon\n"
+	.string "far too powerful for you. Come back\l"
+	.string "when you're stronger!$"
 
 @ ---- Galar_WildArea20 (g42m13) ----
 GalarFala_G42M13_o8::
@@ -4266,7 +4693,9 @@ GalarFala_G42M13_o8::
 	end
 
 GalarFala_G42M13_o8_Text:
-	.string "Essa wild area tem pokemons muito\npoderosos pra você, volte quando\lestiver mais forte!$"
+	.string "This part of the Wild Area has Pokémon\n"
+	.string "far too powerful for you. Come back\l"
+	.string "when you're stronger!$"
 
 @ ---- Galar_WildArea21 (g42m14) ----
 GalarFala_G42M14_o0::
@@ -4282,7 +4711,8 @@ GalarFala_G42M15_o17::
 	end
 
 GalarFala_G42M15_o17_Text:
-	.string "esse fly taxi pode te levar para\numa area especial da wild area.$"
+	.string "this Flying Taxi can take you to a\n"
+	.string "special part of the Wild Area.$"
 
 GalarFala_G42M15_o9::
 	lock
@@ -4292,5 +4722,5 @@ GalarFala_G42M15_o9::
 	end
 
 GalarFala_G42M15_o9_Text:
-	.string "acho que me perdi$"
+	.string "I think I got lost.$"
 
