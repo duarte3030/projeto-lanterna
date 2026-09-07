@@ -240,3 +240,27 @@ crista, rastro e muda de pinheiro) vieram do secundário `0x3DF7AC` da cidade de
 Glazed**, de **redriders180** e **Lucbui** (port decomp público em
 `github.com/TrainerX493/pokeglazed`). Nenhum id de flag, var, script ou música foi
 importado: só arte.
+
+### Segunda passada de `SnowpointCity`: pinheiros, boneco de neve e poste (`gTileset_Snowpoint`, metatiles 691 a 707)
+
+Em 07/09/2026, na onda 1c do REFINO, `SnowpointCity` ganhou duas silhuetas novas de
+pinheiro, um arbusto sob neve, um poste de ferro e um boneco de neve. São 35 tiles 8x8,
+17 metatiles e a vaga de paleta 10 do secundário. A arte vem de **duas** ROM hacks
+privadas, e o que entra neste repositório é sempre o **asset convertido**, nunca a ROM
+(regra 1 da seção 4 do `PRD-REFINO.md`). Nenhum id de flag, var, script ou música foi
+importado: só arte.
+
+- Os pinheiros (metatiles 13, 14, 21, 22, 133 e 141), o arbusto sob neve (25) e o poste
+  de ferro (159 e 230) saíram do secundário `0x3DF7AC` do **Pokémon Golden Glazed v2.6**
+  (md5 `f602010e5769fc0454fca4cc8eb77a4b`), do hacker que assina como **'Golden'**, que
+  por sua vez é derivado do **Pokémon Glazed**, de **redriders180** (com **Lucbui** no
+  port decomp público `github.com/TrainerX493/pokeglazed`). O Glazed original não declara
+  licença; o crédito segue a seção de créditos dele.
+- O boneco de neve (metatiles 70, 71 e 78) saiu do secundário `0x4924B4` do **Pokémon
+  Scorched Silver v1.3 Complete** (md5 `f7af51cecd3e170cc373fba01753053c`), de **Sloo**.
+  Esse hack não declara licença própria e a base dele pede crédito à **Rom Hacking
+  Hideout (RHH)**, pelo `pokeemerald-expansion`, que é o mesmo motor deste repositório.
+
+A arte de base continua sendo da **Nintendo/Game Freak**: o crédito acima cobre a edição
+feita por cada autor de ROM hack. Este projeto é privado, não monetizado, e distribui
+patch, nunca ROM.
