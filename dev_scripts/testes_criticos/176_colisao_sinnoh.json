@@ -29,20 +29,20 @@
   },
   {
     "id": "T176.3",
-    "nome": "Hearthome, o GINÁSIO da Fantina passa a ter porta. O warp 4 apontava para (29,26), chão de praça no meio da cidade, e o ginásio era inalcançável justamente no capítulo que o Gui está jogando. O warp foi movido para (10,31), o arco de pedra da fachada que escreve GYM, e o metatile 636 de gTileset_Hearthome (único no repo inteiro) virou MB_NON_ANIMATED_DOOR. A rota desce para a linha 32, ENCOSTA em (6,32) com LEFT*20, anda quatro para a direita até (10,32) e sobe: pisar no arco dispara o warp. A prova é o mapa, que só muda se a porta existir de verdade. O primeiro toque numa direção NOVA só VIRA o jogador, não anda: por isso toda perna contada tem um toque a mais que a distância, e as pernas de 20 são saturantes justamente para não depender disso.",
+    "nome": "Hearthome, o GINÁSIO da Fantina passa a ter porta. O warp 4 apontava para (29,26), chão de praça no meio da cidade, e o ginásio era inalcançável justamente no capítulo que o Gui está jogando. O warp foi movido para (10,31), o arco de pedra da fachada que escreve GYM, e o metatile 636 de gTileset_Hearthome (único no repo inteiro) virou MB_NON_ANIMATED_DOOR. A prova é o mapa, que só muda se a porta existir de verdade. ROTA REFEITA EM 07/09/2026, porque a antiga era INSTÁVEL de verdade: 5 rodadas seguidas na MESMA ROM deram 3 verdes e 2 vermelhos. Duas causas, as duas medidas no emulador. (a) Morador de MOVEMENT_TYPE_WANDER_AROUND para na frente do jogador por até 18 toques seguidos (medido: perna de 30 toques na linha 32 gastou 18 parada em (23,32) por causa do morador de (22,33)), e a rota velha atravessava a zona do morador de (13,23) e a de (22,33). Perna saturante NÃO salva disso: ela só encosta na parede se sobrar toque. (b) Depois de uma perna SATURANTE o jogador continua no estado de andar, e o primeiro toque da perna seguinte ANDA em vez de VIRAR, o que rouba um tile de toda perna contada que venha atrás. Medido nas duas pontas: 6 de 6 rodadas ANDAM sem espera e 6 de 6 VIRAM com `60:NADA` entre as pernas. Daí o `60:NADA` depois de cada perna deste roteiro. A rota nova desce pela COLUNA 16, que nenhuma zona de morador toca (as zonas são x=12..14 na linha 23, x=17..21 na linha 26, x=11..15 na linha 34 e x=21..23 nas linhas 31 a 35): RIGHT*3 sai da porta do Pokécenter e para em (16,20), DOWN*20 é SATURANTE e encosta em (16,34) (a linha 35 é a parede do quarteirão), UP*3 sobe para a linha 32, LEFT*20 é SATURANTE e encosta em (6,32) (x=5 é parede), RIGHT*5 anda os quatro tiles até (10,32) e UP*4 pisa no arco. FOLGA MEDIDA, 3 rodadas de cada variante: RIGHT*3 aceita 2, 3 ou 4 toques (as colunas 15, 16 e 17 descem igual); UP*3 e RIGHT*5 são EXATOS e a folga é ZERO dos dois lados, com o jogador parando em (16,30) com UP*2, em (19,31) com UP*4, em (9,32) com RIGHT*4 e em (11,32) com RIGHT*6. Com estes números, 12 de 12 rodadas terminaram dentro do ginásio.",
     "warp": "MAP_HEARTHOME_CITY",
     "warp_id": 5,
-    "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:UP,20:UP,20:UP,120:NADA",
+    "roteiro": "60:NADA,20:RIGHT,20:RIGHT,20:RIGHT,60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,60:NADA,20:UP,20:UP,20:UP,60:NADA,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,60:NADA,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,60:NADA,20:UP,20:UP,20:UP,20:UP,60:NADA,180:NADA",
     "prova": {
       "mapa": "MAP_HEARTHOME_CITY_GYM"
     }
   },
   {
     "id": "T176.4",
-    "nome": "Hearthome, a casa das floreiras (POFFIN HOUSE) entra E sai. O Gui reclamou de casa que não entra; este caso pisa na porta de (36,19) vindo de baixo, e depois desce de dentro para provar que a volta cai na rua e no MESMO tile de onde saiu. Ida e volta na mesma execução é o que separa 'a porta existe' de 'a porta funciona nos dois sentidos'.",
+    "nome": "Hearthome, a casa das floreiras (POFFIN HOUSE) entra E sai. O Gui reclamou de casa que não entra; este caso pisa na porta de (36,19) vindo de baixo, e depois desce de dentro para provar que a volta cai na rua e no MESMO tile de onde saiu, (36,20). Ida e volta na mesma execução é o que separa 'a porta existe' de 'a porta funciona nos dois sentidos'. ROTEIRO REFEITO EM 07/09/2026: a versão antiga apertava UP*3 e DOWN*6 em fila e passou a terminar UM TILE AO SUL do esperado quando a onda de música pendurou a MESMA faixa (MUS_DP_HEARTHOME_DAY) na cidade e no interior. Antes a cidade tocava MUS_SLATEPORT e a casa MUS_PETALBURG: eram faixas diferentes, a troca comia quadros e engolia o último toque. Com a mesma faixa dos dois lados não há troca, o toque sobrou e virou um passo. A causa é APERTAR DURANTE A TRANSIÇÃO, e não o número de toques, então aqui não se aperta durante transição nenhuma: dois toques de cada lado e 240 quadros de espera para a porta, o fade e a saída da porta acabarem sozinhos. SATURAR AQUI NÃO DÁ, e isso foi olhado antes de contar toque: o tile abaixo da volta é rua aberta (coluna 36 segue livre até a linha 26), então não existe parede que engula toque sobrando sem levar o jogador para longe da porta, que é justamente o que o caso tem de medir. FOLGA MEDIDA, 3 rodadas de cada variante: a entrada passa com 1, 2 ou 3 toques, porque o toque de 6 quadros vira o jogador e ainda segura UP tempo suficiente para o TryDoorWarp disparar no mesmo toque; a saída passa com 1 a 4 toques. O piso da saída é 2 DE PROPÓSITO: com 1 toque o jogador só viraria para o sul, e no dia em que a porta parasse de abrir ele ficaria parado em (36,20) e o caso daria VERDE sem nunca ter entrado. Com 2, porta quebrada termina em (36,21) e o caso fica VERMELHO. 8 de 8 rodadas terminaram em (36,20).",
     "warp": "MAP_HEARTHOME_CITY",
     "warp_id": 13,
-    "roteiro": "60:NADA,20:UP,20:UP,20:UP,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,120:NADA",
+    "roteiro": "60:NADA,20:UP,20:UP,240:NADA,20:DOWN,20:DOWN,240:NADA",
     "prova": {
       "mapa": "MAP_HEARTHOME_CITY",
       "pos": [
@@ -53,10 +53,10 @@
   },
   {
     "id": "T176.5",
-    "nome": "Hearthome, a casa do noroeste entra e sai, mesmo teste do T176.4 com a porta de (37,30).",
+    "nome": "Hearthome, a casa do noroeste entra e sai, mesmo teste do T176.4 com a porta de (37,30) e a volta em (37,31). Roteiro e motivo idênticos aos do T176.4, inclusive a folga medida (entrada de 1 a 3 toques, saída de 1 a 4, com o piso 2 para porta quebrada não passar): dois toques de cada lado e 240 quadros de espera, sem nenhum aperto durante o fade. 6 de 6 rodadas terminaram em (37,31).",
     "warp": "MAP_HEARTHOME_CITY",
     "warp_id": 10,
-    "roteiro": "60:NADA,20:UP,20:UP,20:UP,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,120:NADA",
+    "roteiro": "60:NADA,20:UP,20:UP,240:NADA,20:DOWN,20:DOWN,240:NADA",
     "prova": {
       "mapa": "MAP_HEARTHOME_CITY",
       "pos": [
@@ -67,10 +67,10 @@
   },
   {
     "id": "T176.6",
-    "nome": "Hearthome, a casa do sudeste entra e sai, mesmo teste do T176.4 com a porta de (44,30).",
+    "nome": "Hearthome, a casa do sudeste entra e sai, mesmo teste do T176.4 com a porta de (44,30) e a volta em (44,31). Roteiro e motivo idênticos aos do T176.4, inclusive a folga medida (entrada de 1 a 3 toques, saída de 1 a 4, com o piso 2 para porta quebrada não passar): dois toques de cada lado e 240 quadros de espera, sem nenhum aperto durante o fade. 6 de 6 rodadas terminaram em (44,31).",
     "warp": "MAP_HEARTHOME_CITY",
     "warp_id": 11,
-    "roteiro": "60:NADA,20:UP,20:UP,20:UP,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,120:NADA",
+    "roteiro": "60:NADA,20:UP,20:UP,240:NADA,20:DOWN,20:DOWN,240:NADA",
     "prova": {
       "mapa": "MAP_HEARTHOME_CITY",
       "pos": [
