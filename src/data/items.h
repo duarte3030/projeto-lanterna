@@ -15878,6 +15878,26 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_SootheBell,
     },
 
+    [ITEM_MAGNET_TRAIN_PASS] =
+    {
+        .name = ITEM_NAME("Rail Pass"),
+        .pluralName = ITEM_PLURAL_NAME("Rail Passes"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A pass to ride the\n"
+            "MAGNET TRAIN between\n"
+            "GOLDENROD and SAFFRON."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        // Icone EMPRESTADO do Tri-Pass, e esta escrito aqui de proposito: a
+        // fonte `hns` tem um `gItemIcon_Pass` proprio, que NAO foi portado
+        // nesta leva. Trocar o icone depois nao mexe em save nenhuma.
+        .iconPic = gItemIcon_TriPass,
+        .iconPalette = gItemIconPalette_TriPass,
+    },
+
     [ITEM_SECRET_POTION] =
     {
         .name = ITEM_NAME("SecretPotion"),

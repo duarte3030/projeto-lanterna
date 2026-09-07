@@ -238,3 +238,15 @@ SaffronCity_Text_HowCanClubNotRecognizeLance::
 	.string "He's cool, and yet passionate!\l"
 	.string "He's the greatest, LANCE!$"
 
+
+@ Estacao do trem magnetico, aberta em 07/09/2026. A porta esta em (18, 14), na
+@ casa da ESQUERDA do trio identico de x=17..28: as quatro celulas da porta sao
+@ copia literal da porta da casa da Copycat, que e a do meio e o mesmo desenho,
+@ entao nao entrou metatile novo nem tileset novo no mapa. A placa da fonte
+@ `hns` (SaffronCity_EventScript_MagnetTrainSign) veio junto.
+SaffronCity_EventScript_MagnetTrainSign::
+	msgbox SaffronCity_Text_MagnetTrainStationSign, MSGBOX_SIGN
+	end
+
+SaffronCity_Text_MagnetTrainStationSign:
+	.string "MAGNET TRAIN STATION$"

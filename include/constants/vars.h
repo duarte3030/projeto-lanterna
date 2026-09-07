@@ -1013,4 +1013,10 @@
 // Guarda "acabei de sair do elevador" entre o `warp` e o ON_FRAME do andar de
 // destino, que e a unica coisa que o `map_script_2` sabe comparar. Apelido de
 // VAR_UNUSED que ja existe: VARS_COUNT nao muda, save intacta.
-#define VAR_ELEVADOR_GOLDENROD                 VAR_UNUSED_0x4114  // 1 enquanto a cena de saida do elevador nao rodou
+#define VAR_ELEVADOR_GOLDENROD                 VAR_UNUSED_0x4114
+
+// Trem magnetico de Goldenrod <-> Saffron. Apelido de VAR_UNUSED que ja existe:
+// VARS_COUNT nao muda, save intacta. Ela vale 1 no intervalo entre o `warp` que
+// termina a cena de embarque e o ON_FRAME da estacao de destino, que roda a cena
+// de desembarque e a zera. Mesmo papel do `VAR_TRAIN` (0x406E) da fonte `hns`.
+#define VAR_TREM_MAGNETICO                     VAR_UNUSED_0x4083  // 1 enquanto a cena de saida do elevador nao rodou

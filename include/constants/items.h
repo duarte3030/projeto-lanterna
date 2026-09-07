@@ -1077,6 +1077,11 @@ enum __attribute__((packed)) Item
     // sinos acima: a bolsa guarda (itemId, quantidade), entao id novo
     // no fim nao mexe em struct de save.
     ITEM_SECRET_POTION = 880,
+    // Johto <-> Kanto, o trem magnetico de Goldenrod para Saffron. APPEND PURO
+    // como os itens acima: a bolsa guarda (itemId, quantidade), entao id novo no
+    // fim nao mexe em struct nenhuma de save. Ele e a CONDICAO do trem: os dois
+    // atendentes fazem `checkitem` nele antes de deixar embarcar.
+    ITEM_MAGNET_TRAIN_PASS = 881,
 
 
     ITEMS_COUNT,

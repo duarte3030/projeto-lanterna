@@ -13743,16 +13743,6 @@
       "blockdata_filepath": "data/layouts/LavenderTown_SoulHouse/map.bin"
     },
     {
-      "id": "LAYOUT_SAFFRON_CITY_TRAIN_STATION",
-      "name": "SaffronCity_TrainStation_Layout",
-      "width": 154,
-      "height": 28,
-      "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
-      "border_filepath": "data/layouts/SaffronCity_TrainStation/border.bin",
-      "blockdata_filepath": "data/layouts/SaffronCity_TrainStation/map.bin"
-    },
-    {
       "id": "LAYOUT_SAFFRON_CITY_FIGHTING_DOJO",
       "name": "SaffronCity_FightingDojo_Layout",
       "width": 29,
@@ -25498,6 +25488,17 @@
       "border_filepath": "data/layouts/FloaromaMeadowHouse/border.bin",
       "blockdata_filepath": "data/layouts/FloaromaMeadowHouse/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SAFFRON_CITY_TRAIN_STATION",
+      "name": "SaffronCity_TrainStation_Layout",
+      "width": 154,
+      "height": 28,
+      "primary_tileset": "gTileset_JohtoBuilding",
+      "secondary_tileset": "gTileset_GoldenrodStation",
+      "border_filepath": "data/layouts/SaffronCity_TrainStation/border.bin",
+      "blockdata_filepath": "data/layouts/SaffronCity_TrainStation/map.bin",
+      "layout_version": "johto"
     }
   ]
 }

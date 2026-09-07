@@ -10877,3 +10877,8 @@
 #define FLAG_HIDE_LUGIA_NAVEL_ROCK                           FLAG_UNUSED_0x1BB6
 #define FLAG_HIDE_LUGIA_NAVEL_ROCK_FRLG                      FLAG_UNUSED_0x1BB7
 #define FLAG_HIDE_DEOXYS_FRLG                                FLAG_UNUSED_0x1BB8
+
+// Trem magnetico: a Copycat de Saffron entrega o passe uma vez so, e esta flag e
+// o "uma vez so". Apelido de FLAG_UNUSED que ja existe, entao FLAGS_COUNT nao
+// muda e a save fica intacta (mesmo raciocinio dos apelidos acima).
+#define FLAG_RECEBEU_PASSE_DO_TREM                           FLAG_UNUSED_0x1BB9

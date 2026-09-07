@@ -17,9 +17,16 @@ SaffronCity_CopycatsHouse_2F_EventScript_Doll::
 	release
 	end
 
+@ O PASSE DO TREM MAGNETICO vem daqui, e a fonte `hns` e quem manda: la a
+@ Copycat entrega o `ITEM_PASS` depois que o jogador devolve o brinquedo perdido
+@ dela. Aqui ela ja e a dona do arco do POKE DOLL (ela ensina Mimic por ele), e
+@ por isso o passe entra no MESMO encontro, antes do tutor, uma vez so, travado
+@ pela FLAG_RECEBEU_PASSE_DO_TREM.
 SaffronCity_CopycatsHouse_2F_EventScript_Copycat::
 	lock
 	faceplayer
+	goto_if_unset FLAG_RECEBEU_PASSE_DO_TREM, SaffronCity_CopycatsHouse_2F_EventScript_DaPasse
+SaffronCity_CopycatsHouse_2F_EventScript_CopycatMimic::
 	checkitem ITEM_POKE_DOLL
 	goto_if_eq VAR_RESULT, TRUE, EventScript_MimicTutor
 	checkplayergender
@@ -27,6 +34,25 @@ SaffronCity_CopycatsHouse_2F_EventScript_Copycat::
 	call_if_eq VAR_RESULT, FEMALE, SaffronCity_CopycatsHouse_2F_EventScript_MimicPlayerFemale
 	release
 	end
+
+SaffronCity_CopycatsHouse_2F_EventScript_DaPasse::
+	msgbox SaffronCity_CopycatsHouse_2F_Text_DaPasse, MSGBOX_DEFAULT
+	giveitem ITEM_MAGNET_TRAIN_PASS
+	setflag FLAG_RECEBEU_PASSE_DO_TREM
+	msgbox SaffronCity_CopycatsHouse_2F_Text_ExplicaPasse, MSGBOX_DEFAULT
+	goto SaffronCity_CopycatsHouse_2F_EventScript_CopycatMimic
+	end
+
+SaffronCity_CopycatsHouse_2F_Text_DaPasse:
+	.string "COPYCAT: You collect POKéMON?\p"
+	.string "So do I! Here, take this.\n"
+	.string "I have two of them.$"
+
+SaffronCity_CopycatsHouse_2F_Text_ExplicaPasse:
+	.string "COPYCAT: It's a rail PASS for the\n"
+	.string "MAGNET TRAIN.\p"
+	.string "The station is right down the road.\n"
+	.string "It goes all the way to GOLDENROD!$"
 
 SaffronCity_CopycatsHouse_2F_EventScript_MimicPlayerMale::
 	msgbox SaffronCity_CopycatsHouse_2F_Text_MimickingFavoriteHobbyMale
