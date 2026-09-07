@@ -726,7 +726,19 @@ def demo():
     declarados = {m for x in C.CORTES_DO_GUI if x["modo"] == "deficit"
                   for m in x["alvo"]}
     assert set(cort) == {m for m in declarados if os.path.isdir(f"{MAPS}/{m}")}
-    assert len(cort) >= 100, len(cort)
+    # A LINHA DE BAIXO JA FOI `assert len(cort) >= 100`, e ela envelheceu do jeito
+    # que o comentario acima tinha acabado de proibir: em 07/09/2026 a decisao 48
+    # do Gui devolveu 32 mapas ao escopo (ver `ressuscita_mapas_sinnoh.py`), a
+    # conta caiu de 102 para 70 e o `--demo` reprovou por ENVELHECIMENTO, com a
+    # tabela sa e a ferramenta certa. O que esta trava precisa provar e que a
+    # lista nao se esvaziou nem virou outra coisa, e isso se prova por
+    # CRUZAMENTO: a Battle Zone e o maior bloco cortado e nenhuma decisao a
+    # revogou, entao ela tem que estar inteira aqui. Se um dia ela voltar
+    # tambem, esta linha muda junto com a tabela, e nao um ano depois.
+    zona = {m for x in C.CORTES_DO_GUI
+            if x["modo"] == "deficit" and x["grupo"].startswith("Battle Zone")
+            for m in x["alvo"]}
+    assert zona and zona <= set(cort), sorted(zona - set(cort))
 
     # 1. mapa que e PASSAGEM OBRIGATORIA entre dois vivos reprova.
     #    Planto um cortado no meio do unico caminho: se o BFS nao acusar, a
@@ -773,7 +785,16 @@ def demo():
     #    ignora warp.
     curas = re.findall(r"CURA\((HEAL_LOCATION_[A-Z0-9_]+)\)",
                        open(f"{RAIZ}/src/chapter_jump.c", encoding="utf-8").read())
-    assert len(curas) > 40, len(curas)
+    # ESTA LINHA JA FOI `assert len(curas) > 40`, e ela morreu ANTES desta onda:
+    # o commit 4aca7c5647 ("Cartucho 1, onda 1: o codigo para de conhecer Unova e
+    # Galar") tirou os capitulos daquelas duas regioes e a conta bateu em 40
+    # exatos, ou seja o `--demo` ja reprovava no commit base 7262639f25, por
+    # envelhecimento e nao por defeito. Numero decorado de novo, o terceiro
+    # deste arquivo. O que precisa ser verdade aqui e so que o regex continua
+    # casando alguma coisa: quem realmente trava o passo 5 e o laco abaixo, que
+    # confere CADA cura contra heal_locations.json e contra a lista de tumulos, e
+    # esse laco nao vale nada se a lista vier vazia por regex quebrado.
+    assert curas, "o regex de CURA() parou de casar em src/chapter_jump.c"
     mapa_da_cura = {h["id"]: h["map"] for h in json.load(
         open(f"{RAIZ}/src/data/heal_locations.json", encoding="utf-8")
     )["heal_locations"]}
