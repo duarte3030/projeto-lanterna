@@ -240,25 +240,3 @@ crista, rastro e muda de pinheiro) vieram do secundário `0x3DF7AC` da cidade de
 Glazed**, de **redriders180** e **Lucbui** (port decomp público em
 `github.com/TrainerX493/pokeglazed`). Nenhum id de flag, var, script ou música foi
 importado: só arte.
-
-### Calçada, pinheiro e arbusto de `SnowpointCity` (`gTileset_Snowpoint`, metatiles 691 a 714)
-
-Segunda passada de arte na mesma cidade, em 07/09/2026, e o mesmo par de tilesets do
-kit acima: primário `0x3DF704` e secundário `0x3DF7AC` do **Pokémon Golden Glazed
-v2.6**, de **'Golden'**, derivado do **Pokémon Glazed**, de **redriders180** e
-**Lucbui** (port decomp público em `github.com/TrainerX493/pokeglazed`). Entraram 28
-tiles 8x8, a paleta 11 do secundário do hack (na vaga 10 do nosso, a última livre) e 23
-metatiles:
-
-- **calçada de pedra sob neve**, o nove-fatias completo dos metatiles 256 a 274 do hack,
-  que é o piso das ruas e praças da cidade de neve dele;
-- **duas silhuetas novas de pinheiro nevado**, os metatiles 13, 14, 21 e 22 (o copado) e
-  133 e 141 espelhado (o esguio), que passam a se alternar com o pinheiro que já era
-  nosso;
-- **arbusto sob neve**, o metatile 25, que no hack usa quatro tiles do primário dele.
-
-A neve do fundo de toda peça importada é a NOSSA, do metatile 513: onde o hack pintava a
-neve dele ou deixava o fundo transparente, entra a entrada do 513 no mesmo quadrante.
-Nenhum id de flag, var, script ou música foi importado: só arte. A ROM do hack é cópia
-privada de trabalho e não entra neste repositório; o que entra é o asset convertido, em
-`dev_scripts/neve_snowpoint2_kit.json`.
