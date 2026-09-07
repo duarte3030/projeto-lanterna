@@ -1,12 +1,12 @@
 [
   {
     "id": "T136.1",
-    "nome": "PRIMEIRA METADE: uma flag de HIDE da DEX (faixa 0x31A0) sobrevive ao desligamento? Os 212 casos das ondas A e B acendem a FLAG_HIDE_DEX_* por escrita direta na EWRAM e leem o efeito no MESMO boot, exatamente como os vinte casos do F2 faziam antes do T123.21: isso prova o motor de object_event e NAO prova onde a flag mora. A faixa nova (0x31A0 a 0x3209, 106 flags) e OUTRA que a do lendarios_sinnoh.py (0x3220 a 0x322A), que foi a unica provada em 21/08, e nenhum caso desta rodada pergunta se ela cabe dentro de FLAGS_COUNT (12856 = 0x3238). Se qualquer uma delas tivesse caido na faixa temporaria (0x0 a 0x1F, zerada por ClearTempFieldEventData a cada carregamento de mapa) ou acima do teto, os 212 passariam do mesmo jeito e o lendario capturado RENASCERIA a cada boot, que e a pior falha possivel numa captura unica. Aqui o jogo entra no RuinsOfAlph_Outside com FLAG_HIDE_DEX_TING_LU acesa e SALVA pelo menu, com a mesma sequencia medida do T11.1 (START, dois DOWN ate SAVE, quatro A de confirmacao). Esta metade e so o controle; quem responde e o T136.2. A .sav e apagada no comeco para o caso nunca passar por sobra de rodada anterior. CONSERTO DE 22/08/2026 (fechador da rodada 7): este roteiro contava o menu de START DE CIMA para achar SAVE, e contar de cima e apostar em quantos itens o jogo ja liberou. BuildNormalStartMenu (src/start_menu.c:332) monta o TOPO conforme o estado (POKEDEX, DEXNAV, POKEMON, BAG, POKENAV entram ou nao) e so o RABO e fixo: PLAYER, SAVE, OPTION, EXIT. Menu_MoveCursor (src/menu.c:704) DA A VOLTA, entao tres UP a partir da linha 0 caem sempre em EXIT, OPTION e SAVE, quantos itens houver em cima. E o mesmo padrao do T11.1. Junto veio prova.sav_gravada: sem ela mapa, posicao e flags passam verdes com a flash inteira em 0xFF, ou seja com o SAVE nunca tendo rodado, que foi o verde falso medido no T11.1.",
+    "nome": "PRIMEIRA METADE: uma flag de HIDE da DEX (faixa 0x31A0) sobrevive ao desligamento? Os 212 casos das ondas A e B acendem a FLAG_HIDE_DEX_* por escrita direta na EWRAM e leem o efeito no MESMO boot, exatamente como os vinte casos do F2 faziam antes do T123.21: isso prova o motor de object_event e NAO prova onde a flag mora. A faixa nova (0x31A0 a 0x3209, 106 flags) e OUTRA que a do lendarios_sinnoh.py (0x3220 a 0x322A), que foi a unica provada em 21/08, e nenhum caso desta rodada pergunta se ela cabe dentro de FLAGS_COUNT (12856 = 0x3238). Se qualquer uma delas tivesse caido na faixa temporaria (0x0 a 0x1F, zerada por ClearTempFieldEventData a cada carregamento de mapa) ou acima do teto, os 212 passariam do mesmo jeito e o lendario capturado RENASCERIA a cada boot, que e a pior falha possivel numa captura unica. Aqui o jogo entra no RuinsOfAlph_Outside com FLAG_HIDE_DEX_CALYREX_SHADOW acesa e SALVA pelo menu, com a mesma sequencia medida do T11.1 (START, dois DOWN ate SAVE, quatro A de confirmacao). Esta metade e so o controle; quem responde e o T136.2. A .sav e apagada no comeco para o caso nunca passar por sobra de rodada anterior. CONSERTO DE 22/08/2026 (fechador da rodada 7): este roteiro contava o menu de START DE CIMA para achar SAVE, e contar de cima e apostar em quantos itens o jogo ja liberou. BuildNormalStartMenu (src/start_menu.c:332) monta o TOPO conforme o estado (POKEDEX, DEXNAV, POKEMON, BAG, POKENAV entram ou nao) e so o RABO e fixo: PLAYER, SAVE, OPTION, EXIT. Menu_MoveCursor (src/menu.c:704) DA A VOLTA, entao tres UP a partir da linha 0 caem sempre em EXIT, OPTION e SAVE, quantos itens houver em cima. E o mesmo padrao do T11.1. Junto veio prova.sav_gravada: sem ela mapa, posicao e flags passam verdes com a flash inteira em 0xFF, ou seja com o SAVE nunca tendo rodado, que foi o verde falso medido no T11.1. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e o tile (20, 9) do RuinsOfAlph_Outside deixou de ser do Ting-Lu (que mudou para (5, 28), warp 2) e passou a ser do CALYREX_SHADOW. O TILE, o warp, a rota, a parada e o escorregao continuam identicos, e por isso o par com o T132.38 continua valendo: mudou so a especie que mora ali e, com ela, a flag de HIDE que a save tem de guardar. Sem esta troca o T136.2 reprovava com o jogador parando em (20, 8), porque a flag do Ting-Lu nao esconde mais nada naquele tile.",
     "apaga_sav": true,
-    "sav": "/tmp/claude-501/fechador/t136-tinglu.sav",
+    "sav": "/tmp/claude-501/fechador/t136-calyrexshadow.sav",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
-      "FLAG_HIDE_DEX_TING_LU"
+      "FLAG_HIDE_DEX_CALYREX_SHADOW"
     ],
     "warp": "MAP_RUINS_OF_ALPH_OUTSIDE",
     "warp_id": 1,
@@ -15,14 +15,14 @@
       "sav_gravada": true,
       "mapa": "MAP_RUINS_OF_ALPH_OUTSIDE",
       "flags_acesas": [
-        "FLAG_HIDE_DEX_TING_LU"
+        "FLAG_HIDE_DEX_CALYREX_SHADOW"
       ]
     }
   },
   {
     "id": "T136.2",
-    "nome": "SEGUNDA METADE, E E ELA QUE RESPONDE: a save gravada pelo T136.1 e recarregada do zero (abertura `continuar`, NENHUMA escrita da flag do Ting-Lu na EWRAM) e o tile (20, 9) tem que continuar VAZIO. A rota e a MESMA do T132.38, o par negativo da onda B, e a chegada em (20, 13) e a segunda testemunha: com o Ting-Lu de pe o jogador pararia em (20, 8), sete tiles antes. O FLAG_SEM_ENCONTRO_SELVAGEM e reescrito porque ele E temporario de proposito e o time do harness e vazio. Depende do T136.1 ter rodado antes, e roda: o harness ordena os casos pelo numero do id.",
-    "sav": "/tmp/claude-501/fechador/t136-tinglu.sav",
+    "nome": "SEGUNDA METADE, E E ELA QUE RESPONDE: a save gravada pelo T136.1 e recarregada do zero (abertura `continuar`, NENHUMA escrita da flag do Calyrex Sombrio na EWRAM) e o tile (20, 9) tem que continuar VAZIO. A rota e a MESMA do T132.38, o par negativo da onda B, e a chegada em (20, 13) e a segunda testemunha: com o Calyrex Sombrio de pe o jogador pararia em (20, 8), sete tiles antes. O FLAG_SEM_ENCONTRO_SELVAGEM e reescrito porque ele E temporario de proposito e o time do harness e vazio. Depende do T136.1 ter rodado antes, e roda: o harness ordena os casos pelo numero do id. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e o tile (20, 9) do RuinsOfAlph_Outside deixou de ser do Ting-Lu (que mudou para (5, 28), warp 2) e passou a ser do CALYREX_SHADOW. O TILE, o warp, a rota, a parada e o escorregao continuam identicos, e por isso o par com o T132.38 continua valendo: mudou so a especie que mora ali e, com ela, a flag de HIDE que a save tem de guardar. Sem esta troca o T136.2 reprovava com o jogador parando em (20, 8), porque a flag do Ting-Lu nao esconde mais nada naquele tile.",
+    "sav": "/tmp/claude-501/fechador/t136-calyrexshadow.sav",
     "abertura": "continuar",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
@@ -38,7 +38,7 @@
       ],
       "andou": true,
       "flags_acesas": [
-        "FLAG_HIDE_DEX_TING_LU"
+        "FLAG_HIDE_DEX_CALYREX_SHADOW"
       ]
     }
   },

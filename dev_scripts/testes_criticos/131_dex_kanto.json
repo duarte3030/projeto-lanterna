@@ -37,7 +37,7 @@
   },
   {
     "id": "T131.3",
-    "nome": "KYUREM_BLACK EXISTE EM MAP_CERULEAN_CAVE_B1F (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (5,7), pousando em (5, 7), pela rota LEFT(zera) DOWN*1 LEFT*3. A última perna satura CONTRA o Pokémon em (3, 8) e para em (4, 8); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.4.",
+    "nome": "COBALION EXISTE EM MAP_CERULEAN_CAVE_B1F (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (5,7), pousando em (5, 7), pela rota LEFT(zera) DOWN*1 LEFT*3. A última perna satura CONTRA o Pokémon em (3, 8) e para em (4, 8); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.4. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e a ordem da lista de especies mudou quem senta em cada tile. O TILE, a rota e a prova continuam os mesmos; mudou a especie que mora nele, e com ela a flag de HIDE. Sem esta troca o par negativo reprovava sempre (a flag citada escondia um bicho que nao mora mais ali, entao o tile seguia solido) e o par positivo passava pelo motivo errado.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
@@ -54,10 +54,10 @@
   },
   {
     "id": "T131.4",
-    "nome": "PAR NEGATIVO DO T131.3: com FLAG_HIDE_DEX_KYUREM_BLACK ACESA o tile (3, 8) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (2, 8) em vez de parar em (4, 8). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "nome": "PAR NEGATIVO DO T131.3: com FLAG_HIDE_DEX_COBALION ACESA o tile (3, 8) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (2, 8) em vez de parar em (4, 8). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e a ordem da lista de especies mudou quem senta em cada tile. O TILE, a rota e a prova continuam os mesmos; mudou a especie que mora nele, e com ela a flag de HIDE. Sem esta troca o par negativo reprovava sempre (a flag citada escondia um bicho que nao mora mais ali, entao o tile seguia solido) e o par positivo passava pelo motivo errado.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
-      "FLAG_HIDE_DEX_KYUREM_BLACK"
+      "FLAG_HIDE_DEX_COBALION"
     ],
     "warp": "MAP_CERULEAN_CAVE_B1F",
     "warp_id": 0,
@@ -73,7 +73,7 @@
   },
   {
     "id": "T131.5",
-    "nome": "XERNEAS_NEUTRAL EXISTE EM MAP_VIRIDIAN_FOREST (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (29,62), pousando em (29, 62), pela rota UP*3. A última perna satura CONTRA o Pokémon em (29, 60) e para em (29, 61); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.6.",
+    "nome": "VIRIZION EXISTE EM MAP_VIRIDIAN_FOREST (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (29,62), pousando em (29, 62), pela rota UP*3. A última perna satura CONTRA o Pokémon em (29, 60) e para em (29, 61); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.6. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e a ordem da lista de especies mudou quem senta em cada tile. O TILE, a rota e a prova continuam os mesmos; mudou a especie que mora nele, e com ela a flag de HIDE. Sem esta troca o par negativo reprovava sempre (a flag citada escondia um bicho que nao mora mais ali, entao o tile seguia solido) e o par positivo passava pelo motivo errado.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
@@ -90,10 +90,10 @@
   },
   {
     "id": "T131.6",
-    "nome": "PAR NEGATIVO DO T131.5: com FLAG_HIDE_DEX_XERNEAS_NEUTRAL ACESA o tile (29, 60) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (29, 59) em vez de parar em (29, 61). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "nome": "PAR NEGATIVO DO T131.5: com FLAG_HIDE_DEX_VIRIZION ACESA o tile (29, 60) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (29, 59) em vez de parar em (29, 61). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e a ordem da lista de especies mudou quem senta em cada tile. O TILE, a rota e a prova continuam os mesmos; mudou a especie que mora nele, e com ela a flag de HIDE. Sem esta troca o par negativo reprovava sempre (a flag citada escondia um bicho que nao mora mais ali, entao o tile seguia solido) e o par positivo passava pelo motivo errado.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
-      "FLAG_HIDE_DEX_XERNEAS_NEUTRAL"
+      "FLAG_HIDE_DEX_VIRIZION"
     ],
     "warp": "MAP_VIRIDIAN_FOREST",
     "warp_id": 0,
@@ -145,7 +145,7 @@
   },
   {
     "id": "T131.9",
-    "nome": "TAPU_KOKO EXISTE EM MAP_POWER_PLANT (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 1 (5,38), pousando em (5, 38), pela rota UP*7. A última perna satura CONTRA o Pokémon em (5, 32) e para em (5, 33); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.10.",
+    "nome": "TORNADUS_INCARNATE EXISTE EM MAP_POWER_PLANT (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 1 (5,38), pousando em (5, 38), pela rota UP*7. A última perna satura CONTRA o Pokémon em (5, 32) e para em (5, 33); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.10. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e a ordem da lista de especies mudou quem senta em cada tile. O TILE, a rota e a prova continuam os mesmos; mudou a especie que mora nele, e com ela a flag de HIDE. Sem esta troca o par negativo reprovava sempre (a flag citada escondia um bicho que nao mora mais ali, entao o tile seguia solido) e o par positivo passava pelo motivo errado.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
@@ -162,10 +162,10 @@
   },
   {
     "id": "T131.10",
-    "nome": "PAR NEGATIVO DO T131.9: com FLAG_HIDE_DEX_TAPU_KOKO ACESA o tile (5, 32) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (5, 31) em vez de parar em (5, 33). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "nome": "PAR NEGATIVO DO T131.9: com FLAG_HIDE_DEX_TORNADUS_INCARNATE ACESA o tile (5, 32) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (5, 31) em vez de parar em (5, 33). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e a ordem da lista de especies mudou quem senta em cada tile. O TILE, a rota e a prova continuam os mesmos; mudou a especie que mora nele, e com ela a flag de HIDE. Sem esta troca o par negativo reprovava sempre (a flag citada escondia um bicho que nao mora mais ali, entao o tile seguia solido) e o par positivo passava pelo motivo errado.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
-      "FLAG_HIDE_DEX_TAPU_KOKO"
+      "FLAG_HIDE_DEX_TORNADUS_INCARNATE"
     ],
     "warp": "MAP_POWER_PLANT",
     "warp_id": 1,
@@ -217,7 +217,7 @@
   },
   {
     "id": "T131.13",
-    "nome": "MAGEARNA_ORIGINAL EXISTE EM MAP_CERULEAN_CAVE_B1F (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (5,7), pousando em (5, 7), pela rota LEFT(zera) RIGHT*1 UP*4 RIGHT*9. A última perna satura CONTRA o Pokémon em (14, 3) e para em (13, 3); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.14.",
+    "nome": "TERRAKION EXISTE EM MAP_CERULEAN_CAVE_B1F (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (5,7), pousando em (5, 7), pela rota LEFT(zera) RIGHT*1 UP*4 RIGHT*9. A última perna satura CONTRA o Pokémon em (14, 3) e para em (13, 3); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.14. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e a ordem da lista de especies mudou quem senta em cada tile. O TILE, a rota e a prova continuam os mesmos; mudou a especie que mora nele, e com ela a flag de HIDE. Sem esta troca o par negativo reprovava sempre (a flag citada escondia um bicho que nao mora mais ali, entao o tile seguia solido) e o par positivo passava pelo motivo errado.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
@@ -234,10 +234,10 @@
   },
   {
     "id": "T131.14",
-    "nome": "PAR NEGATIVO DO T131.13: com FLAG_HIDE_DEX_MAGEARNA_ORIGINAL ACESA o tile (14, 3) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (15, 3) em vez de parar em (13, 3). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "nome": "PAR NEGATIVO DO T131.13: com FLAG_HIDE_DEX_TERRAKION ACESA o tile (14, 3) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (15, 3) em vez de parar em (13, 3). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e a ordem da lista de especies mudou quem senta em cada tile. O TILE, a rota e a prova continuam os mesmos; mudou a especie que mora nele, e com ela a flag de HIDE. Sem esta troca o par negativo reprovava sempre (a flag citada escondia um bicho que nao mora mais ali, entao o tile seguia solido) e o par positivo passava pelo motivo errado.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
-      "FLAG_HIDE_DEX_MAGEARNA_ORIGINAL"
+      "FLAG_HIDE_DEX_TERRAKION"
     ],
     "warp": "MAP_CERULEAN_CAVE_B1F",
     "warp_id": 0,
@@ -253,7 +253,7 @@
   },
   {
     "id": "T131.15",
-    "nome": "STAKATAKA EXISTE EM MAP_CERULEAN_CAVE_1F (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (33,21), pousando em (33, 21), pela rota UP*7. A última perna satura CONTRA o Pokémon em (33, 15) e para em (33, 16); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.16.",
+    "nome": "CELESTEELA EXISTE EM MAP_CERULEAN_CAVE_1F (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (33,21), pousando em (33, 21), pela rota UP*7. A última perna satura CONTRA o Pokémon em (33, 15) e para em (33, 16); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.16. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e a ordem da lista de especies mudou quem senta em cada tile. O TILE, a rota e a prova continuam os mesmos; mudou a especie que mora nele, e com ela a flag de HIDE. Sem esta troca o par negativo reprovava sempre (a flag citada escondia um bicho que nao mora mais ali, entao o tile seguia solido) e o par positivo passava pelo motivo errado.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
@@ -270,10 +270,10 @@
   },
   {
     "id": "T131.16",
-    "nome": "PAR NEGATIVO DO T131.15: com FLAG_HIDE_DEX_STAKATAKA ACESA o tile (33, 15) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (33, 14) em vez de parar em (33, 16). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "nome": "PAR NEGATIVO DO T131.15: com FLAG_HIDE_DEX_CELESTEELA ACESA o tile (33, 15) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (33, 14) em vez de parar em (33, 16). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e a ordem da lista de especies mudou quem senta em cada tile. O TILE, a rota e a prova continuam os mesmos; mudou a especie que mora nele, e com ela a flag de HIDE. Sem esta troca o par negativo reprovava sempre (a flag citada escondia um bicho que nao mora mais ali, entao o tile seguia solido) e o par positivo passava pelo motivo errado.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
-      "FLAG_HIDE_DEX_STAKATAKA"
+      "FLAG_HIDE_DEX_CELESTEELA"
     ],
     "warp": "MAP_CERULEAN_CAVE_1F",
     "warp_id": 0,
@@ -289,7 +289,7 @@
   },
   {
     "id": "T131.17",
-    "nome": "ZERAORA EXISTE EM MAP_POWER_PLANT (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 1 (5,38), pousando em (5, 38), pela rota LEFT*4. A última perna satura CONTRA o Pokémon em (2, 38) e para em (3, 38); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.18.",
+    "nome": "TAPU_KOKO EXISTE EM MAP_POWER_PLANT (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 1 (5,38), pousando em (5, 38), pela rota LEFT*4. A última perna satura CONTRA o Pokémon em (2, 38) e para em (3, 38); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.18. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e a ordem da lista de especies mudou quem senta em cada tile. O TILE, a rota e a prova continuam os mesmos; mudou a especie que mora nele, e com ela a flag de HIDE. Sem esta troca o par negativo reprovava sempre (a flag citada escondia um bicho que nao mora mais ali, entao o tile seguia solido) e o par positivo passava pelo motivo errado.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
@@ -306,10 +306,10 @@
   },
   {
     "id": "T131.18",
-    "nome": "PAR NEGATIVO DO T131.17: com FLAG_HIDE_DEX_ZERAORA ACESA o tile (2, 38) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (1, 38) em vez de parar em (3, 38). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "nome": "PAR NEGATIVO DO T131.17: com FLAG_HIDE_DEX_TAPU_KOKO ACESA o tile (2, 38) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (1, 38) em vez de parar em (3, 38). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e a ordem da lista de especies mudou quem senta em cada tile. O TILE, a rota e a prova continuam os mesmos; mudou a especie que mora nele, e com ela a flag de HIDE. Sem esta troca o par negativo reprovava sempre (a flag citada escondia um bicho que nao mora mais ali, entao o tile seguia solido) e o par positivo passava pelo motivo errado.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
-      "FLAG_HIDE_DEX_ZERAORA"
+      "FLAG_HIDE_DEX_TAPU_KOKO"
     ],
     "warp": "MAP_POWER_PLANT",
     "warp_id": 1,
@@ -397,7 +397,7 @@
   },
   {
     "id": "T131.23",
-    "nome": "REGIDRAGO EXISTE EM MAP_CERULEAN_CAVE_1F (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 1 (34,2), pousando em (34, 2), pela rota UP(zera) RIGHT*3. A última perna satura CONTRA o Pokémon em (36, 2) e para em (35, 2); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.24.",
+    "nome": "MAGEARNA_ORIGINAL EXISTE EM MAP_CERULEAN_CAVE_1F (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 1 (34,2), pousando em (34, 2), pela rota UP(zera) RIGHT*3. A última perna satura CONTRA o Pokémon em (36, 2) e para em (35, 2); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.24. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e a ordem da lista de especies mudou quem senta em cada tile. O TILE, a rota e a prova continuam os mesmos; mudou a especie que mora nele, e com ela a flag de HIDE. Sem esta troca o par negativo reprovava sempre (a flag citada escondia um bicho que nao mora mais ali, entao o tile seguia solido) e o par positivo passava pelo motivo errado.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
@@ -414,10 +414,10 @@
   },
   {
     "id": "T131.24",
-    "nome": "PAR NEGATIVO DO T131.23: com FLAG_HIDE_DEX_REGIDRAGO ACESA o tile (36, 2) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (37, 2) em vez de parar em (35, 2). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "nome": "PAR NEGATIVO DO T131.23: com FLAG_HIDE_DEX_MAGEARNA_ORIGINAL ACESA o tile (36, 2) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (37, 2) em vez de parar em (35, 2). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e a ordem da lista de especies mudou quem senta em cada tile. O TILE, a rota e a prova continuam os mesmos; mudou a especie que mora nele, e com ela a flag de HIDE. Sem esta troca o par negativo reprovava sempre (a flag citada escondia um bicho que nao mora mais ali, entao o tile seguia solido) e o par positivo passava pelo motivo errado.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
-      "FLAG_HIDE_DEX_REGIDRAGO"
+      "FLAG_HIDE_DEX_MAGEARNA_ORIGINAL"
     ],
     "warp": "MAP_CERULEAN_CAVE_1F",
     "warp_id": 1,
@@ -433,7 +433,7 @@
   },
   {
     "id": "T131.25",
-    "nome": "ENAMORUS_INCARNATE EXISTE EM MAP_VIRIDIAN_FOREST (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (29,62), pousando em (29, 62), pela rota UP*1 LEFT*24. A última perna satura CONTRA o Pokémon em (9, 61) e para em (10, 61); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.26.",
+    "nome": "KARTANA EXISTE EM MAP_VIRIDIAN_FOREST (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (29,62), pousando em (29, 62), pela rota UP*1 LEFT*24. A última perna satura CONTRA o Pokémon em (9, 61) e para em (10, 61); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.26. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e a ordem da lista de especies mudou quem senta em cada tile. O TILE, a rota e a prova continuam os mesmos; mudou a especie que mora nele, e com ela a flag de HIDE. Sem esta troca o par negativo reprovava sempre (a flag citada escondia um bicho que nao mora mais ali, entao o tile seguia solido) e o par positivo passava pelo motivo errado.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
@@ -450,10 +450,10 @@
   },
   {
     "id": "T131.26",
-    "nome": "PAR NEGATIVO DO T131.25: com FLAG_HIDE_DEX_ENAMORUS_INCARNATE ACESA o tile (9, 61) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (5, 61) em vez de parar em (10, 61). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "nome": "PAR NEGATIVO DO T131.25: com FLAG_HIDE_DEX_KARTANA ACESA o tile (9, 61) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (5, 61) em vez de parar em (10, 61). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e a ordem da lista de especies mudou quem senta em cada tile. O TILE, a rota e a prova continuam os mesmos; mudou a especie que mora nele, e com ela a flag de HIDE. Sem esta troca o par negativo reprovava sempre (a flag citada escondia um bicho que nao mora mais ali, entao o tile seguia solido) e o par positivo passava pelo motivo errado.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
-      "FLAG_HIDE_DEX_ENAMORUS_INCARNATE"
+      "FLAG_HIDE_DEX_KARTANA"
     ],
     "warp": "MAP_VIRIDIAN_FOREST",
     "warp_id": 0,
@@ -469,7 +469,7 @@
   },
   {
     "id": "T131.27",
-    "nome": "MIRAIDON EXISTE EM MAP_POWER_PLANT (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 1 (5,38), pousando em (5, 38), pela rota RIGHT*4. A última perna satura CONTRA o Pokémon em (8, 38) e para em (7, 38); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.28.",
+    "nome": "ZERAORA EXISTE EM MAP_POWER_PLANT (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 1 (5,38), pousando em (5, 38), pela rota RIGHT*4. A última perna satura CONTRA o Pokémon em (8, 38) e para em (7, 38); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.28. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e a ordem da lista de especies mudou quem senta em cada tile. O TILE, a rota e a prova continuam os mesmos; mudou a especie que mora nele, e com ela a flag de HIDE. Sem esta troca o par negativo reprovava sempre (a flag citada escondia um bicho que nao mora mais ali, entao o tile seguia solido) e o par positivo passava pelo motivo errado.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
@@ -486,10 +486,10 @@
   },
   {
     "id": "T131.28",
-    "nome": "PAR NEGATIVO DO T131.27: com FLAG_HIDE_DEX_MIRAIDON ACESA o tile (8, 38) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (9, 38) em vez de parar em (7, 38). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "nome": "PAR NEGATIVO DO T131.27: com FLAG_HIDE_DEX_ZERAORA ACESA o tile (8, 38) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (9, 38) em vez de parar em (7, 38). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e a ordem da lista de especies mudou quem senta em cada tile. O TILE, a rota e a prova continuam os mesmos; mudou a especie que mora nele, e com ela a flag de HIDE. Sem esta troca o par negativo reprovava sempre (a flag citada escondia um bicho que nao mora mais ali, entao o tile seguia solido) e o par positivo passava pelo motivo errado.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
-      "FLAG_HIDE_DEX_MIRAIDON"
+      "FLAG_HIDE_DEX_ZERAORA"
     ],
     "warp": "MAP_POWER_PLANT",
     "warp_id": 1,
