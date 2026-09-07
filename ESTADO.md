@@ -5,8 +5,8 @@ projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
 Última medição: 07/09/2026, na ROM do CARTUCHO 1 depois da remoção de Unova e Galar,
-`roms/pokemon-claude-2026-09-08-c1-onda1.gba` (md5 `0d244af61d645ebb926e17f5ec4c8947`), HEAD
-`2c647ac999`. Build limpo verde, **SAVE COMPATIVEL**, **suíte 747 de 749** (o único vermelho é o
+`roms/pokemon-claude-2026-09-08-c1-onda1.gba` (md5 `0d244af61d645ebb926e17f5ec4c8947`), medida no
+HEAD `0003e88fbc` (esta seção é o commit seguinte, e não toca a ROM). Build limpo verde, **SAVE COMPATIVEL**, **suíte 747 de 749** (o único vermelho é o
 T176.3, instável e nomeado desde a rodada 13) e ROM em **88,17%**, com 3.969.304 B livres. A seção
 0.w abaixo é a passagem de bastão dela; a 0.v e a 0.u são as da rodada 13, e a 0.t a da rodada 12.
 
@@ -20,7 +20,7 @@ Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 
 ### Placar, medido nos dois lados
 
-| medida | antes (`41f54c50ef`) | depois (`2c647ac999`) |
+| medida | antes (`41f54c50ef`) | depois (`0003e88fbc`) |
 |---|---|---|
 | ROM usada | 32.384.728 B (96,51%) | **29.585.128 B (88,17%)** |
 | ROM livre | 1.169.704 B | **3.969.304 B** |
@@ -223,6 +223,9 @@ de overworld, então não podem virar encontro estático sem obra de arte.
   anterior CARREGUE; naquele dia o esperado volta a ser
   `MAP_PALLET_TOWN_PLAYERS_HOUSE_2F` com a `0x2BA` apagada. A instrução está
   escrita dentro do próprio caso, em `dev_scripts/testes_criticos/40_save.json`.
+- **`dev_scripts/antes_de_empurrar.sh` fechou VERDE nos nove passos** no HEAD
+  `0003e88fbc`, buildando o commit numa worktree isolada, e a ROM daquele build
+  tem o mesmo md5 da entrega. Pode empurrar.
 - Os geradores de Unova e de Galar continuam em `dev_scripts/`
   (`importa_unova.py`, `tileset_galar.py`, `mundo_galar.py`, `galar_*.json` e
   irmãos). Eles não custam ROM, mas rodá-los ressuscitaria as regiões: quem mexer
