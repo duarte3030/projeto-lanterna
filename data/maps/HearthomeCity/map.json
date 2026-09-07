@@ -466,17 +466,15 @@
       "x": 8,
       "y": 6,
       "elevation": 0,
-      "dest_map": "MAP_FOREIGN_BUILDING",
-      "dest_warp_id": "0",
-      "gemea": "metade da mesma porta do warp 12; reaberta em 06/09/2026"
+      "dest_map": "MAP_HEARTHOME_CITY_WEST_GATE_TO_AMITY_SQUARE",
+      "dest_warp_id": "0"
     },
     {
       "x": 51,
       "y": 6,
       "elevation": 0,
-      "dest_map": "MAP_HEARTHOME_CITY_NORTHEAST_HOUSE_1F",
-      "dest_warp_id": "0",
-      "gemea": "metade da mesma porta do warp 15; reaberta em 06/09/2026"
+      "dest_map": "MAP_HEARTHOME_CITY_EAST_GATE_TO_AMITY_SQUARE",
+      "dest_warp_id": "0"
     },
     {
       "x": 29,

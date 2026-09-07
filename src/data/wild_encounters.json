@@ -53753,6 +53753,160 @@
           }
         },
         {
+          "map": "MAP_SENDOFF_SPRING",
+          "base_label": "gSendoffSpring",
+          "land_mons": {
+            "encounter_rate": 30,
+            "mons": [
+              {
+                "min_level": 178,
+                "max_level": 178,
+                "species": "SPECIES_GRAVELER"
+              },
+              {
+                "min_level": 177,
+                "max_level": 177,
+                "species": "SPECIES_BIBAREL"
+              },
+              {
+                "min_level": 179,
+                "max_level": 179,
+                "species": "SPECIES_GRAVELER"
+              },
+              {
+                "min_level": 178,
+                "max_level": 178,
+                "species": "SPECIES_STARAVIA"
+              },
+              {
+                "min_level": 178,
+                "max_level": 178,
+                "species": "SPECIES_BIBAREL"
+              },
+              {
+                "min_level": 180,
+                "max_level": 180,
+                "species": "SPECIES_STARAVIA"
+              },
+              {
+                "min_level": 177,
+                "max_level": 177,
+                "species": "SPECIES_PALOSSAND"
+              },
+              {
+                "min_level": 177,
+                "max_level": 177,
+                "species": "SPECIES_CHINGLING"
+              },
+              {
+                "min_level": 180,
+                "max_level": 180,
+                "species": "SPECIES_DUSCLOPS"
+              },
+              {
+                "min_level": 179,
+                "max_level": 179,
+                "species": "SPECIES_RUNERIGUS"
+              },
+              {
+                "min_level": 180,
+                "max_level": 180,
+                "species": "SPECIES_DUSCLOPS"
+              },
+              {
+                "min_level": 179,
+                "max_level": 179,
+                "species": "SPECIES_CHINGLING"
+              }
+            ]
+          },
+          "water_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 158,
+                "max_level": 180,
+                "species": "SPECIES_GOLDUCK"
+              },
+              {
+                "min_level": 158,
+                "max_level": 180,
+                "species": "SPECIES_GOLDUCK"
+              },
+              {
+                "min_level": 158,
+                "max_level": 180,
+                "species": "SPECIES_GOLDUCK"
+              },
+              {
+                "min_level": 158,
+                "max_level": 180,
+                "species": "SPECIES_GOLDUCK"
+              },
+              {
+                "min_level": 158,
+                "max_level": 180,
+                "species": "SPECIES_GOLDUCK"
+              }
+            ]
+          },
+          "fishing_mons": {
+            "encounter_rate": 75,
+            "mons": [
+              {
+                "min_level": 141,
+                "max_level": 143,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 140,
+                "max_level": 144,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 153,
+                "max_level": 158,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 153,
+                "max_level": 158,
+                "species": "SPECIES_GOLDEEN"
+              },
+              {
+                "min_level": 148,
+                "max_level": 164,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 169,
+                "max_level": 180,
+                "species": "SPECIES_GYARADOS"
+              },
+              {
+                "min_level": 169,
+                "max_level": 180,
+                "species": "SPECIES_SEAKING"
+              },
+              {
+                "min_level": 180,
+                "max_level": 196,
+                "species": "SPECIES_GYARADOS"
+              },
+              {
+                "min_level": 180,
+                "max_level": 196,
+                "species": "SPECIES_SEAKING"
+              },
+              {
+                "min_level": 180,
+                "max_level": 196,
+                "species": "SPECIES_SEAKING"
+              }
+            ]
+          }
+        },
+        {
           "map": "MAP_SINNOH_LEAGUE_ENTRANCE",
           "base_label": "gSinnohLeagueEntrance",
           "water_mons": {

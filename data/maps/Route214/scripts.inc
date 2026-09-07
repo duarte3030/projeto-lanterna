@@ -172,9 +172,3 @@ Route214_EventScript_Placa2::
 
 Route214_Text_Placa2:
 	.string "Rt. 214\nLake Valor$"
-
-@ >>> porta fechada (remove_mapas_cortados.py) >>>
-Route214_EventScript_PortaFechada::
-	msgbox Common_Text_PortaFechada, MSGBOX_SIGN
-	end
-@ <<< porta fechada <<<

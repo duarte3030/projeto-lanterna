@@ -203,6 +203,32 @@ TODOS_OS_CAMPOS = tuple(c for c, _ in CAMPOS)
 # Route204North). Dos 7 `UNUSED_*` da fonte de Sinnoh que têm conteúdo, ficam
 # 3: os outros 4 (Battle Park e o mart do Resort) moram DENTRO da Battle Zone e
 # saem com ela, por correção do condutor em 21/08/2026.
+#
+# SAIU DAQUI EM 07/09/2026, pela DECISÃO 48 do Gui: parte do corte de Sinnoh
+# volta para o cartucho 1. Sete grupos foram apagados desta tabela, e os 32
+# mapas deles ressuscitaram do git em `dev_scripts/ressuscita_mapas_sinnoh.py`:
+#
+#   - "Turnback Cave, Sendoff Spring e Spring Path" (23 mapas)
+#   - "Great Marsh (o Safari de gen 4)" (GreatMarsh6)
+#   - "Great Marsh: as 5 áreas que só a fonte tem" (`mapa_fonte`)
+#   - "Amity Square" (3) e "Pal Park" (2)
+#   - "Palco de Contest" (ContestHallStageNoContest)
+#   - "Elevadores da Liga e corredor do Hall" (PokemonLeagueElevatorToAaronRoom)
+#   - "Game Corner de Veilstone"
+#
+# As CINCO ÁREAS DO GREAT MARSH (`GREAT_MARSH_1` a `_5`) saíram junto, e essa é
+# a única das sete que não voltou como mapa: elas nunca foram importadas, e
+# agora contam como DÉFICIT de verdade na coluna `mapas` de Sinnoh. Elas saem
+# porque o motivo escrito nelas era, literalmente, "mesmo motivo do
+# GreatMarsh6", e o GreatMarsh6 voltou: corte cujo motivo é um ponteiro para
+# outro corte revogado não é corte, é resto. Deixá-lo aqui manteria Sinnoh em
+# 100,0% de mapas escondendo cinco mapas que ninguém fez, que é exatamente a
+# mentira que esta tabela existe para impedir. Quem quiser fechar o buraco
+# importa as cinco áreas da fonte; até lá a régua acusa, e está certo.
+#
+# Os outros dois grupos `mapa_fonte` que ESBARRAM na decisão 48 ("Palco de
+# Contest em andamento" e "Elevadores da Liga (só a fonte)") FICAM, com motivo
+# reescrito e medido no lugar de cada um, logo abaixo.
 CORTES_DO_GUI = [
     # ---------------------------------------------------------------- Sinnoh
     dict(regiao="Sinnoh", grupo="Battle Zone: a ilha inteira de pós-Liga",
@@ -253,45 +279,32 @@ CORTES_DO_GUI = [
                 "diário de Pokémon e caça a estatueta",
          alvo=["PokemonMansion", "PokemonMansionMaidsRoom",
                "PokemonMansionOffice", "TrophyGarden"]),
-    dict(regiao="Sinnoh", grupo="Turnback Cave, Sendoff Spring e Spring Path",
-         modo="deficit", campos=TODOS_OS_CAMPOS, data="21/08/2026",
-         motivo="labirinto de pilares gerado por RNG, pós-jogo; o Giratina "
-                "passa a morar no Distortion World, que FICA no escopo",
-         alvo=["SendoffSpring", "SpringPath", "TurnbackCaveEntrance",
-               "TurnbackCavePillarRoom", "TurnbackCaveGiratinaRoom"]
-              + [f"TurnbackCavePillar{p}Room{s}"
-                 for p in (1, 2, 3) for s in range(1, 7)]),
-    dict(regiao="Sinnoh", grupo="Great Marsh (o Safari de gen 4)",
-         modo="deficit", campos=TODOS_OS_CAMPOS, data="21/08/2026",
-         motivo="Safari com bloco, lama e contador de passos de gen 4; o "
-                "Safari de Hoenn é outro jogo e continua na ROM",
-         alvo=["GreatMarsh6"]),
-    dict(regiao="Sinnoh", grupo="Great Marsh: as 5 áreas que só a fonte tem",
-         modo="mapa_fonte", campos=TODOS_OS_CAMPOS, data="21/08/2026",
-         motivo="mesmo motivo do GreatMarsh6", alvo=r"GREAT_MARSH"),
-    dict(regiao="Sinnoh", grupo="Amity Square", modo="deficit",
-         campos=TODOS_OS_CAMPOS, data="21/08/2026",
-         motivo="passear com o Pokémon seguindo; OW_FOLLOWERS_ENABLED é FALSE "
-                "em include/config/overworld.h (decisão 3, 16/08/2026)",
-         alvo=["AmitySquare", "HearthomeCityWestGateToAmitySquare",
-               "HearthomeCityEastGateToAmitySquare"]),
-    dict(regiao="Sinnoh", grupo="Pal Park", modo="deficit",
-         campos=TODOS_OS_CAMPOS, data="21/08/2026",
-         motivo="migração de GBA para DS; não há de onde migrar",
-         alvo=["PalPark", "PalParkLobby"]),
     dict(regiao="Sinnoh", grupo="Underground (mineração e base secreta)",
          modo="mapa_fonte", campos=TODOS_OS_CAMPOS, data="21/08/2026",
          motivo="subterrâneo é minigame de tela dupla mais troca local",
          alvo=r"UNDERGROUND"),
-    dict(regiao="Sinnoh", grupo="Palco de Contest", modo="deficit",
-         campos=TODOS_OS_CAMPOS, data="21/08/2026",
-         motivo="concurso de gen 4 (ritmo por toque) não tem motor aqui; o "
-                "Contest de Hoenn continua na ROM e o saguão fica de pé",
-         alvo=["ContestHallStageNoContest"]),
+    # FICA, e o motivo foi REESCRITO em 07/09/2026 para parar de se apoiar num
+    # corte que morreu. Até aqui ele dizia só "variante do palco com concurso
+    # rolando", o que era um apêndice do corte do palco sem concurso; com a
+    # decisão 48 o palco sem concurso VOLTOU, e um motivo que se apoia em corte
+    # revogado é corte sem motivo. O motivo abaixo se sustenta sozinho e foi
+    # medido: esta variante é o palco COM concurso de gen 4 rolando, e o
+    # concurso de gen 4 (ritmo por toque na tela de baixo) não tem motor aqui.
+    # Sem ele não existe caminho que leve a este mapa: ele só é destino da cena
+    # do concurso, e o Contest de Hoenn, que a ROM tem, é outro jogo e usa os
+    # mapas de Hoenn.
+    #
+    # A regex ficou mais APERTADA no mesmo dia: `CONTEST_HALL_STAGE` casava
+    # também o `..._NO_CONTEST`, que agora é nosso. Hoje isso não esconderia
+    # nada (`mapas_so_na_fonte` só lista o que a fonte tem e nós não), mas
+    # bastaria alguém renomear a nossa pasta para o buraco sumir calado.
     dict(regiao="Sinnoh", grupo="Palco de Contest em andamento (só a fonte)",
-         modo="mapa_fonte", campos=TODOS_OS_CAMPOS, data="21/08/2026",
-         motivo="variante do palco com concurso rolando",
-         alvo=r"CONTEST_HALL_STAGE"),
+         modo="mapa_fonte", campos=TODOS_OS_CAMPOS, data="07/09/2026",
+         motivo="o palco COM concurso de gen 4 rolando; o concurso de gen 4 é "
+                "ritmo por toque na tela de baixo e não tem motor aqui, então "
+                "nenhuma cena leva a este mapa. O palco SEM concurso voltou na "
+                "decisão 48 e não está mais cortado",
+         alvo=r"CONTEST_HALL_STAGE_ONGOING"),
     dict(regiao="Sinnoh", grupo="Pokétch Company", modo="deficit",
          campos=TODOS_OS_CAMPOS, data="21/08/2026",
          motivo="o Pokétch é a tela de baixo do DS (decisão 3, 16/08/2026)",
@@ -317,26 +330,36 @@ CORTES_DO_GUI = [
          motivo="multiplayer de DS: não existe em GBA de um jogador",
          alvo=r"UNION_ROOM|COMMUNICATION_CLUB|WIFI_PLAZA|GLOBAL_RANKING"
               r"|RECORD_MIXING"),
-    dict(regiao="Sinnoh", grupo="Elevadores da Liga e corredor do Hall",
-         modo="deficit", campos=TODOS_OS_CAMPOS, data="21/08/2026",
-         motivo="cena de elevador entre as salas da Elite; a nossa Liga liga "
-                "sala a sala por warp",
-         alvo=["PokemonLeagueElevatorToAaronRoom"]),
+    # FICA, com o motivo REESCRITO e MEDIDO em 07/09/2026, pela mesma razão do
+    # palco: ele se apoiava no corte dos elevadores, e a decisão 48 devolveu um
+    # deles (`PokemonLeagueElevatorToAaronRoom`).
+    #
+    # A medida que sustenta o corte dos outros quatro: a NOSSA Liga liga sala a
+    # sala por warp direto, e isso está nos `map.json` de hoje. Aaron -> Bertha
+    # -> Flint -> Lucian -> Campeão, cada um com o par de volta; a entrada
+    # (`SinnohLeague_Entrance`) leva à sala do Aaron por `warp` de script
+    # (scripts.inc:61), que é onde mora a checagem de acesso; e o Hall of Fame
+    # não tem warp nenhum, porque se entra nele por `special` depois de vencer
+    # o Campeão. Não sobra buraco para os quatro elevadores nem para o corredor
+    # do Hall of Fame preencherem.
+    #
+    # A regex ficou mais APERTADA: `POKEMON_LEAGUE_ELEVATOR` casava também o
+    # `..._TO_AARON_ROOM`, que voltou a ser nosso.
     dict(regiao="Sinnoh", grupo="Elevadores da Liga (só a fonte)",
-         modo="mapa_fonte", campos=TODOS_OS_CAMPOS, data="21/08/2026",
-         motivo="os outros quatro elevadores e o corredor do Hall of Fame",
-         alvo=r"POKEMON_LEAGUE_ELEVATOR|HALLWAY_TO_HALL_OF_FAME"),
+         modo="mapa_fonte", campos=TODOS_OS_CAMPOS, data="07/09/2026",
+         motivo="os outros quatro elevadores (Bertha, Flint, Lucian, Campeão) "
+                "e o corredor do Hall of Fame: a nossa Liga liga sala a sala "
+                "por warp direto e entra no Hall of Fame por `special`, então "
+                "não há vão para eles. O elevador do Aaron voltou na decisão "
+                "48 e não está mais cortado",
+         alvo=r"POKEMON_LEAGUE_ELEVATOR_TO_(BERTHA|CHAMPION|FLINT|LUCIAN)"
+              r"|HALLWAY_TO_HALL_OF_FAME"),
     dict(regiao="Sinnoh", grupo="Mapas de Mystery Gift", modo="mapa_fonte",
          campos=TODOS_OS_CAMPOS, data="21/08/2026",
          motivo="só abrem com item de distribuição, e Mystery Gift não existe "
                 "aqui (decisão 6 do plano de Sinnoh). Os lendários DELES não "
                 "são cortados: outro executor os realoca (ver PLANO-ESCOPO.md)",
          alvo=r"FULLMOON|NEWMOON|FLOWER_PARADISE|HALL_OF_ORIGIN|SEABREAK"),
-    dict(regiao="Sinnoh", grupo="Game Corner de Veilstone", modo="deficit",
-         campos=TODOS_OS_CAMPOS, data="21/08/2026",
-         motivo="caça-níquel de gen 4, minigame sem motor aqui. SÓ ELE: o Bug "
-                "Contest de Johto fica, por decisão do Gui no mesmo dia",
-         alvo=["GameCorner"]),
     # Os dois cortes de OBJETO de Sinnoh, decisão do Gui em 23/08/2026 ("vamos
     # completar Sinnoh" e "normalizar a porcentagem com base no que realmente
     # vai ficar"). Eles não tiram mapa nenhum do porte: tiram do denominador da

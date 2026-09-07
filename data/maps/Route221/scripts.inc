@@ -115,9 +115,3 @@ Route221_EventScript_Placa1::
 
 Route221_Text_Placa1:
 	.string "Pal Park\nA Place for New Beginnings$"
-
-@ >>> porta fechada (remove_mapas_cortados.py) >>>
-Route221_EventScript_PortaFechada::
-	msgbox Common_Text_PortaFechada, MSGBOX_SIGN
-	end
-@ <<< porta fechada <<<

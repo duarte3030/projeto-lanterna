@@ -137,17 +137,11 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 6,
-      "y": 8,
+      "x": 12,
+      "y": 1,
       "elevation": 0,
-      "dest_map": "MAP_SINNOH_LEAGUE_ENTRANCE",
-      "dest_warp_id": "3",
-      "fechado": "porta fechada, ver PLANO-ESCOPO.md",
-      "porta_original": [
-        12,
-        1,
-        "MAP_POKEMON_LEAGUE_ELEVATOR_TO_AARON_ROOM"
-      ]
+      "dest_map": "MAP_POKEMON_LEAGUE_ELEVATOR_TO_AARON_ROOM",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
