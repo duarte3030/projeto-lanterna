@@ -200,8 +200,8 @@
       "origem": "distribui_dex"
     },
     {
-      "local_id": "LOCALID_DEX_KYUREM_BLACK",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(KYUREM_BLACK)",
+      "local_id": "LOCALID_DEX_COBALION",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(COBALION)",
       "x": 3,
       "y": 8,
       "elevation": 0,
@@ -210,13 +210,13 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CeruleanCave_B1F_Frlg_EventScript_DexKyuremBlack",
-      "flag": "FLAG_HIDE_DEX_KYUREM_BLACK",
+      "script": "CeruleanCave_B1F_Frlg_EventScript_DexCobalion",
+      "flag": "FLAG_HIDE_DEX_COBALION",
       "origem": "distribui_dex"
     },
     {
-      "local_id": "LOCALID_DEX_MAGEARNA_ORIGINAL",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MAGEARNA_ORIGINAL)",
+      "local_id": "LOCALID_DEX_TERRAKION",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(TERRAKION)",
       "x": 14,
       "y": 3,
       "elevation": 0,
@@ -225,8 +225,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CeruleanCave_B1F_Frlg_EventScript_DexMagearnaOriginal",
-      "flag": "FLAG_HIDE_DEX_MAGEARNA_ORIGINAL",
+      "script": "CeruleanCave_B1F_Frlg_EventScript_DexTerrakion",
+      "flag": "FLAG_HIDE_DEX_TERRAKION",
       "origem": "distribui_dex"
     }
   ],

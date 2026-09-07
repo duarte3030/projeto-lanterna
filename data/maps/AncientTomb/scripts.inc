@@ -112,33 +112,61 @@ AncientTomb_EventScript_DexArticunoGalarSome::
 AncientTomb_Text_DexArticunoGalarIntro:
 	.string "ARTICUNO_GALAR appeared!$"
 
-AncientTomb_EventScript_DexGiratinaAltered::
+AncientTomb_EventScript_DexVictini::
 	lockall
-	msgbox AncientTomb_Text_DexGiratinaAlteredIntro, MSGBOX_DEFAULT
+	msgbox AncientTomb_Text_DexVictiniIntro, MSGBOX_DEFAULT
 	waitse
-	playmoncry SPECIES_GIRATINA_ALTERED, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_VICTINI, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_GIRATINA_ALTERED, 50
+	seteventmon SPECIES_VICTINI, 30
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_GIRATINA_ALTERED
+	setvar VAR_LAST_TALKED, LOCALID_DEX_VICTINI
 	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, AncientTomb_EventScript_DexGiratinaAlteredSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, AncientTomb_EventScript_DexGiratinaAlteredSome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, AncientTomb_EventScript_DexVictiniSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, AncientTomb_EventScript_DexVictiniSome
 	releaseall
 	end
 
-AncientTomb_EventScript_DexGiratinaAlteredSome::
+AncientTomb_EventScript_DexVictiniSome::
 	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_GIRATINA_ALTERED
-	setflag FLAG_HIDE_DEX_GIRATINA_ALTERED
+	removeobject LOCALID_DEX_VICTINI
+	setflag FLAG_HIDE_DEX_VICTINI
 	fadescreenswapbuffers FADE_FROM_BLACK
 	return
 
-AncientTomb_Text_DexGiratinaAlteredIntro:
-	.string "GIRATINA_ALTERED appeared!$"
+AncientTomb_Text_DexVictiniIntro:
+	.string "VICTINI appeared!$"
+
+AncientTomb_EventScript_DexYveltal::
+	lockall
+	msgbox AncientTomb_Text_DexYveltalIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_YVELTAL, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_YVELTAL, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_YVELTAL
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, AncientTomb_EventScript_DexYveltalSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, AncientTomb_EventScript_DexYveltalSome
+	releaseall
+	end
+
+AncientTomb_EventScript_DexYveltalSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_YVELTAL
+	setflag FLAG_HIDE_DEX_YVELTAL
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+AncientTomb_Text_DexYveltalIntro:
+	.string "YVELTAL appeared!$"
 
 AncientTomb_EventScript_DexDiancie::
 	lockall
@@ -196,6 +224,34 @@ AncientTomb_EventScript_DexTapuLeleSome::
 AncientTomb_Text_DexTapuLeleIntro:
 	.string "TAPU_LELE appeared!$"
 
+AncientTomb_EventScript_DexGuzzlord::
+	lockall
+	msgbox AncientTomb_Text_DexGuzzlordIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_GUZZLORD, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_GUZZLORD, 60
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_GUZZLORD
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, AncientTomb_EventScript_DexGuzzlordSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, AncientTomb_EventScript_DexGuzzlordSome
+	releaseall
+	end
+
+AncientTomb_EventScript_DexGuzzlordSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_GUZZLORD
+	setflag FLAG_HIDE_DEX_GUZZLORD
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+AncientTomb_Text_DexGuzzlordIntro:
+	.string "GUZZLORD appeared!$"
+
 AncientTomb_EventScript_DexNecrozmaDawnWings::
 	lockall
 	msgbox AncientTomb_Text_DexNecrozmaDawnWingsIntro, MSGBOX_DEFAULT
@@ -224,88 +280,32 @@ AncientTomb_EventScript_DexNecrozmaDawnWingsSome::
 AncientTomb_Text_DexNecrozmaDawnWingsIntro:
 	.string "NECROZMA_DAWN_WINGS appeared!$"
 
-AncientTomb_EventScript_DexNecrozmaDuskMane::
+AncientTomb_EventScript_DexRegidrago::
 	lockall
-	msgbox AncientTomb_Text_DexNecrozmaDuskManeIntro, MSGBOX_DEFAULT
+	msgbox AncientTomb_Text_DexRegidragoIntro, MSGBOX_DEFAULT
 	waitse
-	playmoncry SPECIES_NECROZMA_DUSK_MANE, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_REGIDRAGO, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_NECROZMA_DUSK_MANE, 70
+	seteventmon SPECIES_REGIDRAGO, 50
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_NECROZMA_DUSK_MANE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_REGIDRAGO
 	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, AncientTomb_EventScript_DexNecrozmaDuskManeSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, AncientTomb_EventScript_DexNecrozmaDuskManeSome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, AncientTomb_EventScript_DexRegidragoSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, AncientTomb_EventScript_DexRegidragoSome
 	releaseall
 	end
 
-AncientTomb_EventScript_DexNecrozmaDuskManeSome::
+AncientTomb_EventScript_DexRegidragoSome::
 	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_NECROZMA_DUSK_MANE
-	setflag FLAG_HIDE_DEX_NECROZMA_DUSK_MANE
+	removeobject LOCALID_DEX_REGIDRAGO
+	setflag FLAG_HIDE_DEX_REGIDRAGO
 	fadescreenswapbuffers FADE_FROM_BLACK
 	return
 
-AncientTomb_Text_DexNecrozmaDuskManeIntro:
-	.string "NECROZMA_DUSK_MANE appeared!$"
-
-AncientTomb_EventScript_DexCalyrex::
-	lockall
-	msgbox AncientTomb_Text_DexCalyrexIntro, MSGBOX_DEFAULT
-	waitse
-	playmoncry SPECIES_CALYREX, CRY_MODE_ENCOUNTER
-	delay 30
-	waitmoncry
-	seteventmon SPECIES_CALYREX, 70
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special BattleSetup_StartLegendaryBattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_CALYREX
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, AncientTomb_EventScript_DexCalyrexSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, AncientTomb_EventScript_DexCalyrexSome
-	releaseall
-	end
-
-AncientTomb_EventScript_DexCalyrexSome::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_CALYREX
-	setflag FLAG_HIDE_DEX_CALYREX
-	fadescreenswapbuffers FADE_FROM_BLACK
-	return
-
-AncientTomb_Text_DexCalyrexIntro:
-	.string "CALYREX appeared!$"
-
-AncientTomb_EventScript_DexCalyrexShadow::
-	lockall
-	msgbox AncientTomb_Text_DexCalyrexShadowIntro, MSGBOX_DEFAULT
-	waitse
-	playmoncry SPECIES_CALYREX_SHADOW, CRY_MODE_ENCOUNTER
-	delay 30
-	waitmoncry
-	seteventmon SPECIES_CALYREX_SHADOW, 70
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special BattleSetup_StartLegendaryBattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_CALYREX_SHADOW
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, AncientTomb_EventScript_DexCalyrexShadowSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, AncientTomb_EventScript_DexCalyrexShadowSome
-	releaseall
-	end
-
-AncientTomb_EventScript_DexCalyrexShadowSome::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_CALYREX_SHADOW
-	setflag FLAG_HIDE_DEX_CALYREX_SHADOW
-	fadescreenswapbuffers FADE_FROM_BLACK
-	return
-
-AncientTomb_Text_DexCalyrexShadowIntro:
-	.string "CALYREX_SHADOW appeared!$"
+AncientTomb_Text_DexRegidragoIntro:
+	.string "REGIDRAGO appeared!$"
 
 @ <<< Dex completa <<<

@@ -106,3 +106,33 @@ VictoryRoad_B2F_Text_DiannePostBattle:
 	.string "You do have guts! I like that!\n"
 	.string "Keep it going!$"
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+VictoryRoad_B2F_EventScript_DexIronCrown::
+	lockall
+	msgbox VictoryRoad_B2F_Text_DexIronCrownIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_IRON_CROWN, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_IRON_CROWN, 60
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_IRON_CROWN
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, VictoryRoad_B2F_EventScript_DexIronCrownSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, VictoryRoad_B2F_EventScript_DexIronCrownSome
+	releaseall
+	end
+
+VictoryRoad_B2F_EventScript_DexIronCrownSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_IRON_CROWN
+	setflag FLAG_HIDE_DEX_IRON_CROWN
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+VictoryRoad_B2F_Text_DexIronCrownIntro:
+	.string "IRON_CROWN appeared!$"
+
+@ <<< Dex completa <<<

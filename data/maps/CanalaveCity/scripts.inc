@@ -411,3 +411,286 @@ CanalaveCity_Text_Povoa3:
 	.string "This city was built for cargo.\nThe bridges lift for the ships.$"
 
 @ <<< Povoamento: fim do bloco gerado <<<
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+CanalaveCity_EventScript_DexZapdosGalar::
+	lockall
+	msgbox CanalaveCity_Text_DexZapdosGalarIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ZAPDOS_GALAR, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ZAPDOS_GALAR, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ZAPDOS_GALAR
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, CanalaveCity_EventScript_DexZapdosGalarSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, CanalaveCity_EventScript_DexZapdosGalarSome
+	releaseall
+	end
+
+CanalaveCity_EventScript_DexZapdosGalarSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ZAPDOS_GALAR
+	setflag FLAG_HIDE_DEX_ZAPDOS_GALAR
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+CanalaveCity_Text_DexZapdosGalarIntro:
+	.string "ZAPDOS_GALAR appeared!$"
+
+CanalaveCity_EventScript_DexPoipole::
+	lockall
+	msgbox CanalaveCity_Text_DexPoipoleIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_POIPOLE, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_POIPOLE, 60
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_POIPOLE
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, CanalaveCity_EventScript_DexPoipoleSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, CanalaveCity_EventScript_DexPoipoleSome
+	releaseall
+	end
+
+CanalaveCity_EventScript_DexPoipoleSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_POIPOLE
+	setflag FLAG_HIDE_DEX_POIPOLE
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+CanalaveCity_Text_DexPoipoleIntro:
+	.string "POIPOLE appeared!$"
+
+CanalaveCity_EventScript_DexNaganadel::
+	lockall
+	msgbox CanalaveCity_Text_DexNaganadelIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_NAGANADEL, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_NAGANADEL, 60
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_NAGANADEL
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, CanalaveCity_EventScript_DexNaganadelSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, CanalaveCity_EventScript_DexNaganadelSome
+	releaseall
+	end
+
+CanalaveCity_EventScript_DexNaganadelSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_NAGANADEL
+	setflag FLAG_HIDE_DEX_NAGANADEL
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+CanalaveCity_Text_DexNaganadelIntro:
+	.string "NAGANADEL appeared!$"
+
+CanalaveCity_EventScript_DexZamazentaHero::
+	lockall
+	msgbox CanalaveCity_Text_DexZamazentaHeroIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ZAMAZENTA_HERO, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ZAMAZENTA_HERO, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ZAMAZENTA_HERO
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, CanalaveCity_EventScript_DexZamazentaHeroSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, CanalaveCity_EventScript_DexZamazentaHeroSome
+	releaseall
+	end
+
+CanalaveCity_EventScript_DexZamazentaHeroSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ZAMAZENTA_HERO
+	setflag FLAG_HIDE_DEX_ZAMAZENTA_HERO
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+CanalaveCity_Text_DexZamazentaHeroIntro:
+	.string "ZAMAZENTA_HERO appeared!$"
+
+CanalaveCity_EventScript_DexEternatus::
+	lockall
+	msgbox CanalaveCity_Text_DexEternatusIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ETERNATUS, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ETERNATUS, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ETERNATUS
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, CanalaveCity_EventScript_DexEternatusSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, CanalaveCity_EventScript_DexEternatusSome
+	releaseall
+	end
+
+CanalaveCity_EventScript_DexEternatusSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ETERNATUS
+	setflag FLAG_HIDE_DEX_ETERNATUS
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+CanalaveCity_Text_DexEternatusIntro:
+	.string "ETERNATUS appeared!$"
+
+CanalaveCity_EventScript_DexKubfu::
+	lockall
+	msgbox CanalaveCity_Text_DexKubfuIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_KUBFU, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_KUBFU, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_KUBFU
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, CanalaveCity_EventScript_DexKubfuSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, CanalaveCity_EventScript_DexKubfuSome
+	releaseall
+	end
+
+CanalaveCity_EventScript_DexKubfuSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_KUBFU
+	setflag FLAG_HIDE_DEX_KUBFU
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+CanalaveCity_Text_DexKubfuIntro:
+	.string "KUBFU appeared!$"
+
+CanalaveCity_EventScript_DexUrshifuSingleStrike::
+	lockall
+	msgbox CanalaveCity_Text_DexUrshifuSingleStrikeIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_URSHIFU_SINGLE_STRIKE, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_URSHIFU_SINGLE_STRIKE, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_URSHIFU_SINGLE_STRIKE
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, CanalaveCity_EventScript_DexUrshifuSingleStrikeSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, CanalaveCity_EventScript_DexUrshifuSingleStrikeSome
+	releaseall
+	end
+
+CanalaveCity_EventScript_DexUrshifuSingleStrikeSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_URSHIFU_SINGLE_STRIKE
+	setflag FLAG_HIDE_DEX_URSHIFU_SINGLE_STRIKE
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+CanalaveCity_Text_DexUrshifuSingleStrikeIntro:
+	.string "URSHIFU_SINGLE_STRIKE appeared!$"
+
+CanalaveCity_EventScript_DexKoraidon::
+	lockall
+	msgbox CanalaveCity_Text_DexKoraidonIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_KORAIDON, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_KORAIDON, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_KORAIDON
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, CanalaveCity_EventScript_DexKoraidonSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, CanalaveCity_EventScript_DexKoraidonSome
+	releaseall
+	end
+
+CanalaveCity_EventScript_DexKoraidonSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_KORAIDON
+	setflag FLAG_HIDE_DEX_KORAIDON
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+CanalaveCity_Text_DexKoraidonIntro:
+	.string "KORAIDON appeared!$"
+
+CanalaveCity_EventScript_DexTerapagosNormal::
+	lockall
+	msgbox CanalaveCity_Text_DexTerapagosNormalIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_TERAPAGOS_NORMAL, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_TERAPAGOS_NORMAL, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_TERAPAGOS_NORMAL
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, CanalaveCity_EventScript_DexTerapagosNormalSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, CanalaveCity_EventScript_DexTerapagosNormalSome
+	releaseall
+	end
+
+CanalaveCity_EventScript_DexTerapagosNormalSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_TERAPAGOS_NORMAL
+	setflag FLAG_HIDE_DEX_TERAPAGOS_NORMAL
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+CanalaveCity_Text_DexTerapagosNormalIntro:
+	.string "TERAPAGOS_NORMAL appeared!$"
+
+CanalaveCity_EventScript_DexPecharunt::
+	lockall
+	msgbox CanalaveCity_Text_DexPecharuntIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_PECHARUNT, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_PECHARUNT, 30
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_PECHARUNT
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, CanalaveCity_EventScript_DexPecharuntSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, CanalaveCity_EventScript_DexPecharuntSome
+	releaseall
+	end
+
+CanalaveCity_EventScript_DexPecharuntSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_PECHARUNT
+	setflag FLAG_HIDE_DEX_PECHARUNT
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+CanalaveCity_Text_DexPecharuntIntro:
+	.string "PECHARUNT appeared!$"
+
+@ <<< Dex completa <<<

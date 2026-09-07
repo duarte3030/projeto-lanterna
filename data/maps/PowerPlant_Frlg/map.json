@@ -129,10 +129,25 @@
       "flag": "FLAG_HIDE_POWER_PLANT_ELECTRODE_1"
     },
     {
-      "local_id": "LOCALID_DEX_TAPU_KOKO",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(TAPU_KOKO)",
+      "local_id": "LOCALID_DEX_TORNADUS_INCARNATE",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(TORNADUS_INCARNATE)",
       "x": 5,
       "y": 32,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PowerPlant_Frlg_EventScript_DexTornadusIncarnate",
+      "flag": "FLAG_HIDE_DEX_TORNADUS_INCARNATE",
+      "origem": "distribui_dex"
+    },
+    {
+      "local_id": "LOCALID_DEX_TAPU_KOKO",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(TAPU_KOKO)",
+      "x": 2,
+      "y": 38,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -146,7 +161,7 @@
     {
       "local_id": "LOCALID_DEX_ZERAORA",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ZERAORA)",
-      "x": 2,
+      "x": 8,
       "y": 38,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -156,21 +171,6 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PowerPlant_Frlg_EventScript_DexZeraora",
       "flag": "FLAG_HIDE_DEX_ZERAORA",
-      "origem": "distribui_dex"
-    },
-    {
-      "local_id": "LOCALID_DEX_MIRAIDON",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MIRAIDON)",
-      "x": 8,
-      "y": 38,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "PowerPlant_Frlg_EventScript_DexMiraidon",
-      "flag": "FLAG_HIDE_DEX_MIRAIDON",
       "origem": "distribui_dex"
     }
   ],

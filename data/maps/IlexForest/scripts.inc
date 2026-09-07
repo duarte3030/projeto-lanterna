@@ -124,6 +124,34 @@ IlexForest_EventScript_DexTapuBuluSome::
 IlexForest_Text_DexTapuBuluIntro:
 	.string "TAPU_BULU appeared!$"
 
+IlexForest_EventScript_DexZacianHero::
+	lockall
+	msgbox IlexForest_Text_DexZacianHeroIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ZACIAN_HERO, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ZACIAN_HERO, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ZACIAN_HERO
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, IlexForest_EventScript_DexZacianHeroSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, IlexForest_EventScript_DexZacianHeroSome
+	releaseall
+	end
+
+IlexForest_EventScript_DexZacianHeroSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ZACIAN_HERO
+	setflag FLAG_HIDE_DEX_ZACIAN_HERO
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+IlexForest_Text_DexZacianHeroIntro:
+	.string "ZACIAN_HERO appeared!$"
+
 IlexForest_EventScript_DexZarude::
 	lockall
 	msgbox IlexForest_Text_DexZarudeIntro, MSGBOX_DEFAULT

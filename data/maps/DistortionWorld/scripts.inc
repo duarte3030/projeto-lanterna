@@ -46,3 +46,33 @@ DistortionWorld_EventScript_GiratinaSumiu::
 	releaseall
 	end
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+DistortionWorld_EventScript_DexGiratinaAltered::
+	lockall
+	msgbox DistortionWorld_Text_DexGiratinaAlteredIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_GIRATINA_ALTERED, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_GIRATINA_ALTERED, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_GIRATINA_ALTERED
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, DistortionWorld_EventScript_DexGiratinaAlteredSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, DistortionWorld_EventScript_DexGiratinaAlteredSome
+	releaseall
+	end
+
+DistortionWorld_EventScript_DexGiratinaAlteredSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_GIRATINA_ALTERED
+	setflag FLAG_HIDE_DEX_GIRATINA_ALTERED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+DistortionWorld_Text_DexGiratinaAlteredIntro:
+	.string "GIRATINA_ALTERED appeared!$"
+
+@ <<< Dex completa <<<

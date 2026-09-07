@@ -169,6 +169,34 @@ ViridianForest_Text_LeavingViridianForest::
 	.string "PEWTER CITY AHEAD$"
 
 @ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+ViridianForest_Frlg_EventScript_DexVirizion::
+	lockall
+	msgbox ViridianForest_Frlg_Text_DexVirizionIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_VIRIZION, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_VIRIZION, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_VIRIZION
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, ViridianForest_Frlg_EventScript_DexVirizionSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ViridianForest_Frlg_EventScript_DexVirizionSome
+	releaseall
+	end
+
+ViridianForest_Frlg_EventScript_DexVirizionSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_VIRIZION
+	setflag FLAG_HIDE_DEX_VIRIZION
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+ViridianForest_Frlg_Text_DexVirizionIntro:
+	.string "VIRIZION appeared!$"
+
 ViridianForest_Frlg_EventScript_DexXerneasNeutral::
 	lockall
 	msgbox ViridianForest_Frlg_Text_DexXerneasNeutralIntro, MSGBOX_DEFAULT
@@ -197,33 +225,33 @@ ViridianForest_Frlg_EventScript_DexXerneasNeutralSome::
 ViridianForest_Frlg_Text_DexXerneasNeutralIntro:
 	.string "XERNEAS_NEUTRAL appeared!$"
 
-ViridianForest_Frlg_EventScript_DexZacianHero::
+ViridianForest_Frlg_EventScript_DexKartana::
 	lockall
-	msgbox ViridianForest_Frlg_Text_DexZacianHeroIntro, MSGBOX_DEFAULT
+	msgbox ViridianForest_Frlg_Text_DexKartanaIntro, MSGBOX_DEFAULT
 	waitse
-	playmoncry SPECIES_ZACIAN_HERO, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_KARTANA, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_ZACIAN_HERO, 70
+	seteventmon SPECIES_KARTANA, 60
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_ZACIAN_HERO
+	setvar VAR_LAST_TALKED, LOCALID_DEX_KARTANA
 	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, ViridianForest_Frlg_EventScript_DexZacianHeroSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ViridianForest_Frlg_EventScript_DexZacianHeroSome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, ViridianForest_Frlg_EventScript_DexKartanaSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ViridianForest_Frlg_EventScript_DexKartanaSome
 	releaseall
 	end
 
-ViridianForest_Frlg_EventScript_DexZacianHeroSome::
+ViridianForest_Frlg_EventScript_DexKartanaSome::
 	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_ZACIAN_HERO
-	setflag FLAG_HIDE_DEX_ZACIAN_HERO
+	removeobject LOCALID_DEX_KARTANA
+	setflag FLAG_HIDE_DEX_KARTANA
 	fadescreenswapbuffers FADE_FROM_BLACK
 	return
 
-ViridianForest_Frlg_Text_DexZacianHeroIntro:
-	.string "ZACIAN_HERO appeared!$"
+ViridianForest_Frlg_Text_DexKartanaIntro:
+	.string "KARTANA appeared!$"
 
 ViridianForest_Frlg_EventScript_DexEnamorusIncarnate::
 	lockall

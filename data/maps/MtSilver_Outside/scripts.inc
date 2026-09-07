@@ -11,6 +11,34 @@ MtSilver_Outside_Text_Sign::
 	.string "MT. SILVER$"
 
 @ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+MtSilver_Outside_EventScript_DexThundurusIncarnate::
+	lockall
+	msgbox MtSilver_Outside_Text_DexThundurusIncarnateIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_THUNDURUS_INCARNATE, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_THUNDURUS_INCARNATE, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_THUNDURUS_INCARNATE
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, MtSilver_Outside_EventScript_DexThundurusIncarnateSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MtSilver_Outside_EventScript_DexThundurusIncarnateSome
+	releaseall
+	end
+
+MtSilver_Outside_EventScript_DexThundurusIncarnateSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_THUNDURUS_INCARNATE
+	setflag FLAG_HIDE_DEX_THUNDURUS_INCARNATE
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+MtSilver_Outside_Text_DexThundurusIncarnateIntro:
+	.string "THUNDURUS_INCARNATE appeared!$"
+
 MtSilver_Outside_EventScript_DexCosmog::
 	lockall
 	msgbox MtSilver_Outside_Text_DexCosmogIntro, MSGBOX_DEFAULT
@@ -94,5 +122,33 @@ MtSilver_Outside_EventScript_DexLunalaSome::
 
 MtSilver_Outside_Text_DexLunalaIntro:
 	.string "LUNALA appeared!$"
+
+MtSilver_Outside_EventScript_DexMiraidon::
+	lockall
+	msgbox MtSilver_Outside_Text_DexMiraidonIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_MIRAIDON, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_MIRAIDON, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_MIRAIDON
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, MtSilver_Outside_EventScript_DexMiraidonSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MtSilver_Outside_EventScript_DexMiraidonSome
+	releaseall
+	end
+
+MtSilver_Outside_EventScript_DexMiraidonSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_MIRAIDON
+	setflag FLAG_HIDE_DEX_MIRAIDON
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+MtSilver_Outside_Text_DexMiraidonIntro:
+	.string "MIRAIDON appeared!$"
 
 @ <<< Dex completa <<<

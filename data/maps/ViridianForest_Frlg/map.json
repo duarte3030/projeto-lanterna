@@ -171,10 +171,25 @@
       "flag": "FLAG_HIDE_VIRIDIAN_FOREST_POTION_2"
     },
     {
-      "local_id": "LOCALID_DEX_XERNEAS_NEUTRAL",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(XERNEAS_NEUTRAL)",
+      "local_id": "LOCALID_DEX_VIRIZION",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(VIRIZION)",
       "x": 29,
       "y": 60,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ViridianForest_Frlg_EventScript_DexVirizion",
+      "flag": "FLAG_HIDE_DEX_VIRIZION",
+      "origem": "distribui_dex"
+    },
+    {
+      "local_id": "LOCALID_DEX_XERNEAS_NEUTRAL",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(XERNEAS_NEUTRAL)",
+      "x": 4,
+      "y": 61,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -186,9 +201,9 @@
       "origem": "distribui_dex"
     },
     {
-      "local_id": "LOCALID_DEX_ZACIAN_HERO",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ZACIAN_HERO)",
-      "x": 4,
+      "local_id": "LOCALID_DEX_KARTANA",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(KARTANA)",
+      "x": 9,
       "y": 61,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -196,14 +211,14 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ViridianForest_Frlg_EventScript_DexZacianHero",
-      "flag": "FLAG_HIDE_DEX_ZACIAN_HERO",
+      "script": "ViridianForest_Frlg_EventScript_DexKartana",
+      "flag": "FLAG_HIDE_DEX_KARTANA",
       "origem": "distribui_dex"
     },
     {
       "local_id": "LOCALID_DEX_ENAMORUS_INCARNATE",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ENAMORUS_INCARNATE)",
-      "x": 9,
+      "x": 49,
       "y": 61,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",

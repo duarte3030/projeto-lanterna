@@ -191,10 +191,25 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_DEX_THUNDURUS_INCARNATE",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(THUNDURUS_INCARNATE)",
+      "x": 17,
+      "y": 21,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MtSilver_Outside_EventScript_DexThundurusIncarnate",
+      "flag": "FLAG_HIDE_DEX_THUNDURUS_INCARNATE",
+      "origem": "distribui_dex"
+    },
+    {
       "local_id": "LOCALID_DEX_COSMOG",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(COSMOG)",
       "x": 17,
-      "y": 21,
+      "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -208,8 +223,8 @@
     {
       "local_id": "LOCALID_DEX_SOLGALEO",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(SOLGALEO)",
-      "x": 17,
-      "y": 16,
+      "x": 13,
+      "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -223,7 +238,7 @@
     {
       "local_id": "LOCALID_DEX_LUNALA",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(LUNALA)",
-      "x": 13,
+      "x": 19,
       "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -233,6 +248,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MtSilver_Outside_EventScript_DexLunala",
       "flag": "FLAG_HIDE_DEX_LUNALA",
+      "origem": "distribui_dex"
+    },
+    {
+      "local_id": "LOCALID_DEX_MIRAIDON",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MIRAIDON)",
+      "x": 35,
+      "y": 20,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MtSilver_Outside_EventScript_DexMiraidon",
+      "flag": "FLAG_HIDE_DEX_MIRAIDON",
       "origem": "distribui_dex"
     }
   ],

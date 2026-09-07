@@ -143,8 +143,8 @@
       "flag": "FLAG_TEMP_17"
     },
     {
-      "local_id": "LOCALID_DEX_STAKATAKA",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(STAKATAKA)",
+      "local_id": "LOCALID_DEX_CELESTEELA",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(CELESTEELA)",
       "x": 33,
       "y": 15,
       "elevation": 0,
@@ -153,13 +153,13 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CeruleanCave_1F_Frlg_EventScript_DexStakataka",
-      "flag": "FLAG_HIDE_DEX_STAKATAKA",
+      "script": "CeruleanCave_1F_Frlg_EventScript_DexCelesteela",
+      "flag": "FLAG_HIDE_DEX_CELESTEELA",
       "origem": "distribui_dex"
     },
     {
-      "local_id": "LOCALID_DEX_REGIDRAGO",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(REGIDRAGO)",
+      "local_id": "LOCALID_DEX_MAGEARNA_ORIGINAL",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MAGEARNA_ORIGINAL)",
       "x": 36,
       "y": 2,
       "elevation": 0,
@@ -168,8 +168,23 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CeruleanCave_1F_Frlg_EventScript_DexRegidrago",
-      "flag": "FLAG_HIDE_DEX_REGIDRAGO",
+      "script": "CeruleanCave_1F_Frlg_EventScript_DexMagearnaOriginal",
+      "flag": "FLAG_HIDE_DEX_MAGEARNA_ORIGINAL",
+      "origem": "distribui_dex"
+    },
+    {
+      "local_id": "LOCALID_DEX_STAKATAKA",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(STAKATAKA)",
+      "x": 8,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CeruleanCave_1F_Frlg_EventScript_DexStakataka",
+      "flag": "FLAG_HIDE_DEX_STAKATAKA",
       "origem": "distribui_dex"
     }
   ],

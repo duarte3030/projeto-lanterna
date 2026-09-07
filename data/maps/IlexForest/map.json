@@ -546,10 +546,25 @@
       "origem": "distribui_dex"
     },
     {
-      "local_id": "LOCALID_DEX_ZARUDE",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ZARUDE)",
+      "local_id": "LOCALID_DEX_ZACIAN_HERO",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ZACIAN_HERO)",
       "x": 19,
       "y": 55,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "IlexForest_EventScript_DexZacianHero",
+      "flag": "FLAG_HIDE_DEX_ZACIAN_HERO",
+      "origem": "distribui_dex"
+    },
+    {
+      "local_id": "LOCALID_DEX_ZARUDE",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ZARUDE)",
+      "x": 22,
+      "y": 43,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -563,8 +578,8 @@
     {
       "local_id": "LOCALID_DEX_OKIDOGI",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(OKIDOGI)",
-      "x": 22,
-      "y": 43,
+      "x": 19,
+      "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -578,8 +593,8 @@
     {
       "local_id": "LOCALID_DEX_MUNKIDORI",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(MUNKIDORI)",
-      "x": 19,
-      "y": 17,
+      "x": 36,
+      "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -593,7 +608,7 @@
     {
       "local_id": "LOCALID_DEX_FEZANDIPITI",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(FEZANDIPITI)",
-      "x": 36,
+      "x": 31,
       "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",

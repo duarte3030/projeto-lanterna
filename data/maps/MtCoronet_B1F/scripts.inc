@@ -87,6 +87,146 @@ MtCoronet_B1F_Text_HeatranSome:
 @ <<< Lendarios de Sinnoh <<<
 
 @ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+MtCoronet_B1F_EventScript_DexReshiram::
+	lockall
+	msgbox MtCoronet_B1F_Text_DexReshiramIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_RESHIRAM, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_RESHIRAM, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_RESHIRAM
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, MtCoronet_B1F_EventScript_DexReshiramSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MtCoronet_B1F_EventScript_DexReshiramSome
+	releaseall
+	end
+
+MtCoronet_B1F_EventScript_DexReshiramSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_RESHIRAM
+	setflag FLAG_HIDE_DEX_RESHIRAM
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+MtCoronet_B1F_Text_DexReshiramIntro:
+	.string "RESHIRAM appeared!$"
+
+MtCoronet_B1F_EventScript_DexZekrom::
+	lockall
+	msgbox MtCoronet_B1F_Text_DexZekromIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ZEKROM, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ZEKROM, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ZEKROM
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, MtCoronet_B1F_EventScript_DexZekromSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MtCoronet_B1F_EventScript_DexZekromSome
+	releaseall
+	end
+
+MtCoronet_B1F_EventScript_DexZekromSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ZEKROM
+	setflag FLAG_HIDE_DEX_ZEKROM
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+MtCoronet_B1F_Text_DexZekromIntro:
+	.string "ZEKROM appeared!$"
+
+MtCoronet_B1F_EventScript_DexLandorusIncarnate::
+	lockall
+	msgbox MtCoronet_B1F_Text_DexLandorusIncarnateIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_LANDORUS_INCARNATE, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_LANDORUS_INCARNATE, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_LANDORUS_INCARNATE
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, MtCoronet_B1F_EventScript_DexLandorusIncarnateSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MtCoronet_B1F_EventScript_DexLandorusIncarnateSome
+	releaseall
+	end
+
+MtCoronet_B1F_EventScript_DexLandorusIncarnateSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_LANDORUS_INCARNATE
+	setflag FLAG_HIDE_DEX_LANDORUS_INCARNATE
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+MtCoronet_B1F_Text_DexLandorusIncarnateIntro:
+	.string "LANDORUS_INCARNATE appeared!$"
+
+MtCoronet_B1F_EventScript_DexKyurem::
+	lockall
+	msgbox MtCoronet_B1F_Text_DexKyuremIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_KYUREM, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_KYUREM, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_KYUREM
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, MtCoronet_B1F_EventScript_DexKyuremSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MtCoronet_B1F_EventScript_DexKyuremSome
+	releaseall
+	end
+
+MtCoronet_B1F_EventScript_DexKyuremSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_KYUREM
+	setflag FLAG_HIDE_DEX_KYUREM
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+MtCoronet_B1F_Text_DexKyuremIntro:
+	.string "KYUREM appeared!$"
+
+MtCoronet_B1F_EventScript_DexKyuremBlack::
+	lockall
+	msgbox MtCoronet_B1F_Text_DexKyuremBlackIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_KYUREM_BLACK, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_KYUREM_BLACK, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_KYUREM_BLACK
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, MtCoronet_B1F_EventScript_DexKyuremBlackSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MtCoronet_B1F_EventScript_DexKyuremBlackSome
+	releaseall
+	end
+
+MtCoronet_B1F_EventScript_DexKyuremBlackSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_KYUREM_BLACK
+	setflag FLAG_HIDE_DEX_KYUREM_BLACK
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+MtCoronet_B1F_Text_DexKyuremBlackIntro:
+	.string "KYUREM_BLACK appeared!$"
+
 MtCoronet_B1F_EventScript_DexKyuremWhite::
 	lockall
 	msgbox MtCoronet_B1F_Text_DexKyuremWhiteIntro, MSGBOX_DEFAULT
@@ -282,145 +422,5 @@ MtCoronet_B1F_EventScript_DexXurkitreeSome::
 
 MtCoronet_B1F_Text_DexXurkitreeIntro:
 	.string "XURKITREE appeared!$"
-
-MtCoronet_B1F_EventScript_DexCelesteela::
-	lockall
-	msgbox MtCoronet_B1F_Text_DexCelesteelaIntro, MSGBOX_DEFAULT
-	waitse
-	playmoncry SPECIES_CELESTEELA, CRY_MODE_ENCOUNTER
-	delay 30
-	waitmoncry
-	seteventmon SPECIES_CELESTEELA, 60
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special BattleSetup_StartLegendaryBattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_CELESTEELA
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, MtCoronet_B1F_EventScript_DexCelesteelaSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MtCoronet_B1F_EventScript_DexCelesteelaSome
-	releaseall
-	end
-
-MtCoronet_B1F_EventScript_DexCelesteelaSome::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_CELESTEELA
-	setflag FLAG_HIDE_DEX_CELESTEELA
-	fadescreenswapbuffers FADE_FROM_BLACK
-	return
-
-MtCoronet_B1F_Text_DexCelesteelaIntro:
-	.string "CELESTEELA appeared!$"
-
-MtCoronet_B1F_EventScript_DexKartana::
-	lockall
-	msgbox MtCoronet_B1F_Text_DexKartanaIntro, MSGBOX_DEFAULT
-	waitse
-	playmoncry SPECIES_KARTANA, CRY_MODE_ENCOUNTER
-	delay 30
-	waitmoncry
-	seteventmon SPECIES_KARTANA, 60
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special BattleSetup_StartLegendaryBattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_KARTANA
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, MtCoronet_B1F_EventScript_DexKartanaSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MtCoronet_B1F_EventScript_DexKartanaSome
-	releaseall
-	end
-
-MtCoronet_B1F_EventScript_DexKartanaSome::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_KARTANA
-	setflag FLAG_HIDE_DEX_KARTANA
-	fadescreenswapbuffers FADE_FROM_BLACK
-	return
-
-MtCoronet_B1F_Text_DexKartanaIntro:
-	.string "KARTANA appeared!$"
-
-MtCoronet_B1F_EventScript_DexGuzzlord::
-	lockall
-	msgbox MtCoronet_B1F_Text_DexGuzzlordIntro, MSGBOX_DEFAULT
-	waitse
-	playmoncry SPECIES_GUZZLORD, CRY_MODE_ENCOUNTER
-	delay 30
-	waitmoncry
-	seteventmon SPECIES_GUZZLORD, 60
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special BattleSetup_StartLegendaryBattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_GUZZLORD
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, MtCoronet_B1F_EventScript_DexGuzzlordSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MtCoronet_B1F_EventScript_DexGuzzlordSome
-	releaseall
-	end
-
-MtCoronet_B1F_EventScript_DexGuzzlordSome::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_GUZZLORD
-	setflag FLAG_HIDE_DEX_GUZZLORD
-	fadescreenswapbuffers FADE_FROM_BLACK
-	return
-
-MtCoronet_B1F_Text_DexGuzzlordIntro:
-	.string "GUZZLORD appeared!$"
-
-MtCoronet_B1F_EventScript_DexNecrozma::
-	lockall
-	msgbox MtCoronet_B1F_Text_DexNecrozmaIntro, MSGBOX_DEFAULT
-	waitse
-	playmoncry SPECIES_NECROZMA, CRY_MODE_ENCOUNTER
-	delay 30
-	waitmoncry
-	seteventmon SPECIES_NECROZMA, 70
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special BattleSetup_StartLegendaryBattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_NECROZMA
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, MtCoronet_B1F_EventScript_DexNecrozmaSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MtCoronet_B1F_EventScript_DexNecrozmaSome
-	releaseall
-	end
-
-MtCoronet_B1F_EventScript_DexNecrozmaSome::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_NECROZMA
-	setflag FLAG_HIDE_DEX_NECROZMA
-	fadescreenswapbuffers FADE_FROM_BLACK
-	return
-
-MtCoronet_B1F_Text_DexNecrozmaIntro:
-	.string "NECROZMA appeared!$"
-
-MtCoronet_B1F_EventScript_DexPoipole::
-	lockall
-	msgbox MtCoronet_B1F_Text_DexPoipoleIntro, MSGBOX_DEFAULT
-	waitse
-	playmoncry SPECIES_POIPOLE, CRY_MODE_ENCOUNTER
-	delay 30
-	waitmoncry
-	seteventmon SPECIES_POIPOLE, 60
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special BattleSetup_StartLegendaryBattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_POIPOLE
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, MtCoronet_B1F_EventScript_DexPoipoleSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MtCoronet_B1F_EventScript_DexPoipoleSome
-	releaseall
-	end
-
-MtCoronet_B1F_EventScript_DexPoipoleSome::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_POIPOLE
-	setflag FLAG_HIDE_DEX_POIPOLE
-	fadescreenswapbuffers FADE_FROM_BLACK
-	return
-
-MtCoronet_B1F_Text_DexPoipoleIntro:
-	.string "POIPOLE appeared!$"
 
 @ <<< Dex completa <<<

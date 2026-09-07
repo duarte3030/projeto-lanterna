@@ -86,60 +86,60 @@ CeruleanCave_B1F_Frlg_EventScript_DexJirachiSome::
 CeruleanCave_B1F_Frlg_Text_DexJirachiIntro:
 	.string "JIRACHI appeared!$"
 
-CeruleanCave_B1F_Frlg_EventScript_DexKyuremBlack::
+CeruleanCave_B1F_Frlg_EventScript_DexCobalion::
 	lockall
-	msgbox CeruleanCave_B1F_Frlg_Text_DexKyuremBlackIntro, MSGBOX_DEFAULT
+	msgbox CeruleanCave_B1F_Frlg_Text_DexCobalionIntro, MSGBOX_DEFAULT
 	waitse
-	playmoncry SPECIES_KYUREM_BLACK, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_COBALION, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_KYUREM_BLACK, 70
+	seteventmon SPECIES_COBALION, 50
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_KYUREM_BLACK
+	setvar VAR_LAST_TALKED, LOCALID_DEX_COBALION
 	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, CeruleanCave_B1F_Frlg_EventScript_DexKyuremBlackSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, CeruleanCave_B1F_Frlg_EventScript_DexKyuremBlackSome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, CeruleanCave_B1F_Frlg_EventScript_DexCobalionSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, CeruleanCave_B1F_Frlg_EventScript_DexCobalionSome
 	releaseall
 	end
 
-CeruleanCave_B1F_Frlg_EventScript_DexKyuremBlackSome::
+CeruleanCave_B1F_Frlg_EventScript_DexCobalionSome::
 	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_KYUREM_BLACK
-	setflag FLAG_HIDE_DEX_KYUREM_BLACK
+	removeobject LOCALID_DEX_COBALION
+	setflag FLAG_HIDE_DEX_COBALION
 	fadescreenswapbuffers FADE_FROM_BLACK
 	return
 
-CeruleanCave_B1F_Frlg_Text_DexKyuremBlackIntro:
-	.string "KYUREM_BLACK appeared!$"
+CeruleanCave_B1F_Frlg_Text_DexCobalionIntro:
+	.string "COBALION appeared!$"
 
-CeruleanCave_B1F_Frlg_EventScript_DexMagearnaOriginal::
+CeruleanCave_B1F_Frlg_EventScript_DexTerrakion::
 	lockall
-	msgbox CeruleanCave_B1F_Frlg_Text_DexMagearnaOriginalIntro, MSGBOX_DEFAULT
+	msgbox CeruleanCave_B1F_Frlg_Text_DexTerrakionIntro, MSGBOX_DEFAULT
 	waitse
-	playmoncry SPECIES_MAGEARNA_ORIGINAL, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_TERRAKION, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_MAGEARNA_ORIGINAL, 30
+	seteventmon SPECIES_TERRAKION, 50
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_MAGEARNA_ORIGINAL
+	setvar VAR_LAST_TALKED, LOCALID_DEX_TERRAKION
 	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, CeruleanCave_B1F_Frlg_EventScript_DexMagearnaOriginalSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, CeruleanCave_B1F_Frlg_EventScript_DexMagearnaOriginalSome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, CeruleanCave_B1F_Frlg_EventScript_DexTerrakionSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, CeruleanCave_B1F_Frlg_EventScript_DexTerrakionSome
 	releaseall
 	end
 
-CeruleanCave_B1F_Frlg_EventScript_DexMagearnaOriginalSome::
+CeruleanCave_B1F_Frlg_EventScript_DexTerrakionSome::
 	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_MAGEARNA_ORIGINAL
-	setflag FLAG_HIDE_DEX_MAGEARNA_ORIGINAL
+	removeobject LOCALID_DEX_TERRAKION
+	setflag FLAG_HIDE_DEX_TERRAKION
 	fadescreenswapbuffers FADE_FROM_BLACK
 	return
 
-CeruleanCave_B1F_Frlg_Text_DexMagearnaOriginalIntro:
-	.string "MAGEARNA_ORIGINAL appeared!$"
+CeruleanCave_B1F_Frlg_Text_DexTerrakionIntro:
+	.string "TERRAKION appeared!$"
 
 @ <<< Dex completa <<<

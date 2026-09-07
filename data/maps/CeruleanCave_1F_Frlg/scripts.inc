@@ -7,6 +7,62 @@ CeruleanCave_1F_OnTransition::
 	end
 
 @ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+CeruleanCave_1F_Frlg_EventScript_DexCelesteela::
+	lockall
+	msgbox CeruleanCave_1F_Frlg_Text_DexCelesteelaIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_CELESTEELA, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_CELESTEELA, 60
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_CELESTEELA
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, CeruleanCave_1F_Frlg_EventScript_DexCelesteelaSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, CeruleanCave_1F_Frlg_EventScript_DexCelesteelaSome
+	releaseall
+	end
+
+CeruleanCave_1F_Frlg_EventScript_DexCelesteelaSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_CELESTEELA
+	setflag FLAG_HIDE_DEX_CELESTEELA
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+CeruleanCave_1F_Frlg_Text_DexCelesteelaIntro:
+	.string "CELESTEELA appeared!$"
+
+CeruleanCave_1F_Frlg_EventScript_DexMagearnaOriginal::
+	lockall
+	msgbox CeruleanCave_1F_Frlg_Text_DexMagearnaOriginalIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_MAGEARNA_ORIGINAL, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_MAGEARNA_ORIGINAL, 30
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_MAGEARNA_ORIGINAL
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, CeruleanCave_1F_Frlg_EventScript_DexMagearnaOriginalSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, CeruleanCave_1F_Frlg_EventScript_DexMagearnaOriginalSome
+	releaseall
+	end
+
+CeruleanCave_1F_Frlg_EventScript_DexMagearnaOriginalSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_MAGEARNA_ORIGINAL
+	setflag FLAG_HIDE_DEX_MAGEARNA_ORIGINAL
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+CeruleanCave_1F_Frlg_Text_DexMagearnaOriginalIntro:
+	.string "MAGEARNA_ORIGINAL appeared!$"
+
 CeruleanCave_1F_Frlg_EventScript_DexStakataka::
 	lockall
 	msgbox CeruleanCave_1F_Frlg_Text_DexStakatakaIntro, MSGBOX_DEFAULT
@@ -34,33 +90,5 @@ CeruleanCave_1F_Frlg_EventScript_DexStakatakaSome::
 
 CeruleanCave_1F_Frlg_Text_DexStakatakaIntro:
 	.string "STAKATAKA appeared!$"
-
-CeruleanCave_1F_Frlg_EventScript_DexRegidrago::
-	lockall
-	msgbox CeruleanCave_1F_Frlg_Text_DexRegidragoIntro, MSGBOX_DEFAULT
-	waitse
-	playmoncry SPECIES_REGIDRAGO, CRY_MODE_ENCOUNTER
-	delay 30
-	waitmoncry
-	seteventmon SPECIES_REGIDRAGO, 50
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special BattleSetup_StartLegendaryBattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_REGIDRAGO
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, CeruleanCave_1F_Frlg_EventScript_DexRegidragoSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, CeruleanCave_1F_Frlg_EventScript_DexRegidragoSome
-	releaseall
-	end
-
-CeruleanCave_1F_Frlg_EventScript_DexRegidragoSome::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_REGIDRAGO
-	setflag FLAG_HIDE_DEX_REGIDRAGO
-	fadescreenswapbuffers FADE_FROM_BLACK
-	return
-
-CeruleanCave_1F_Frlg_Text_DexRegidragoIntro:
-	.string "REGIDRAGO appeared!$"
 
 @ <<< Dex completa <<<

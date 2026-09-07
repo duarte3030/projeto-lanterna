@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Distribui a dex inteira pelas 5 regioes: mato, estatico, presente, evolucao.
+"""Distribui a dex inteira pelas 4 regioes: mato, estatico, presente, evolucao.
 
     python3 dev_scripts/distribui_dex.py --tabela          # (re)escreve o JSON de decisao
     python3 dev_scripts/distribui_dex.py --selvagem        # aplica as linhas de mato
@@ -33,7 +33,14 @@ A regua, em dez linhas (PLANO-DEX.md secao 3, decidida pelo condutor)
     5.622 slots em que a mesma especie ocupa duas linhas da MESMA tabela. A
     especie nova entra na SEGUNDA ocorrencia, entao nenhuma especie que a fonte
     pos sai da tabela.
- 3. Gen 1 a 5 vai para a regiao da geracao. Sem excecao.
+ 3. Gen 1 a 4 vai para a região da geração. Gen 5 em diante se DISTRIBUI
+    pelas quatro regiões que ficaram, por bioma (régua 4) e com empate por
+    cota (régua 5), exatamente como gen 6 a 9 sempre fez. A régua velha dizia
+    "gen 1 a 5 vai para a regiao da geracao, sem excecao", e ela morreu com a
+    saída de Unova do cartucho 1 (onda 1, PRD-CARTUCHO-1.md): 171 entradas de
+    gen 5 moravam lá e ficariam sem casa nenhuma. Kanto, Johto, Hoenn e Sinnoh
+    continuam sendo o lar da PRÓPRIA geração; o que mudou é que a geração 5
+    deixou de ter lar próprio e passou a ser hóspede das quatro.
  4. Bioma sai do PERFIL DE TIPOS da propria tabela, nao de julgamento de mapa.
  5. Empate de bioma resolve por cota da regiao (a que recebeu menos leva).
  6. TYPE_WATER so em `water_mons`/`fishing_mons`; quem nao e agua so em
@@ -107,8 +114,17 @@ BASE_MATO = "0cb8724099"
 FLAG_PRESENTE_INICIAL = 0x319E
 FLAG_PRESENTE_EVENTO = 0x319F
 
-CINCO = ("Kanto", "Johto", "Hoenn", "Sinnoh", "Unova")
-REGIAO_DA_GEN = {1: "Kanto", 2: "Johto", 3: "Hoenn", 4: "Sinnoh", 5: "Unova"}
+# As regiões do CARTUCHO 1. Unova e Galar saíram do escopo na onda 1
+# (PRD-CARTUCHO-1.md): os 729 mapas viraram túmulo, sem evento e com layout
+# 1x1, e nenhuma linha de decisão pode apontar para lá. A constante se chamava
+# CINCO enquanto eram cinco.
+QUATRO = ("Kanto", "Johto", "Hoenn", "Sinnoh")
+# Gen 5 NÃO está aqui de propósito: sem Unova ela não tem região natal e cai na
+# distribuição por bioma. Ver régua 3 no cabeçalho.
+REGIAO_DA_GEN = {1: "Kanto", 2: "Johto", 3: "Hoenn", 4: "Sinnoh"}
+# A primeira geração SEM lar próprio. Quem for daqui para cima se espalha pelas
+# quatro regiões por bioma, e nunca por geração.
+GEN_SEM_LAR = 5
 AGUA = ("water_mons", "fishing_mons")
 TERRA = ("land_mons", "rock_smash_mons")
 
@@ -178,11 +194,17 @@ PARADOX = ("GREAT_TUSK", "SCREAM_TAIL", "BRUTE_BONNET", "FLUTTER_MANE",
 # (11 UBs numa caverna so) e Elite Redux (Paradox em duas salas de Victory
 # Road). Decisao do condutor de 21/08/2026, registrada em lendarios_referencia.
 ZONA_UB = ("MtCoronet_B1F",)
-SALA_PARADOX_ANTIGO = ("Unova_VictoryRoadCave2F",)
-# O `Unova_VictoryRoadCave3F` era a escolha obvia e foi MEDIDO com capacidade
-# ZERO (nenhum tile passa nos portoes de alcancabilidade e de nao-ilhar). As
-# duas salas do andar de baixo, que sao Victory Road do mesmo jeito, tem 9 cada.
-SALA_PARADOX_FUTURO = ("Unova_VictoryRoadCave1F", "Unova_VictoryRoadGrove")
+# As três salas eram `Unova_VictoryRoad*` e caíram com a região na onda 1. As
+# novas continuam sendo Victory Road, agora a de KANTO para o passado e a de
+# HOENN para o futuro, e a capacidade de cada uma foi MEDIDA em 06/09/2026 pela
+# mesma busca em largura do estático (`cabe()`), nunca chutada pelo tamanho:
+#   VictoryRoad_2F_Frlg 14   VictoryRoad_3F_Frlg 12   (Kanto, 10 antigos)
+#   VictoryRoad_B1F      9   VictoryRoad_B2F      9   (Hoenn, 10 do futuro)
+# Medido junto e recusado: `VictoryRoad_1F_Frlg` cabe ZERO, do mesmo jeito que
+# o `Unova_VictoryRoadCave3F` da rodada passada cabia zero. Nenhuma das quatro
+# está no `POOL`, então nenhum outro estático disputa tile com os Paradox.
+SALA_PARADOX_ANTIGO = ("VictoryRoad_2F_Frlg", "VictoryRoad_3F_Frlg")
+SALA_PARADOX_FUTURO = ("VictoryRoad_B1F", "VictoryRoad_B2F")
 
 # Reserva de mapas espacosos por regiao, para quando o mapa preferido nao tiver
 # tile que passe nos portoes. A capacidade de CADA um foi medida em 21/08/2026
@@ -198,9 +220,13 @@ POOL = ("RockTunnel_1F_Frlg", "SeafoamIslands_B1F_Frlg", "MtMoon_1F_Frlg",
         "ShoalCave_LowTideEntranceRoom", "GraniteCave_1F", "MarineCave_End",
         "EternaForest", "SinnohVictoryRoad1F", "SnowpointTempleB5F",
         "SnowpointCity", "MtCoronet_B1F",
-        "Unova_ChargestoneCave1F", "Unova_TwistMountain1F",
-        "Unova_RelicCastleB1F", "Unova_VictoryRoadCave1F",
-        "Unova_VictoryRoadCave2F", "Unova_VictoryRoadGrove")
+        # As seis reservas de Unova caíram com a região na onda 1. Em lugar
+        # delas entram quatro mapas VIVOS das quatro regiões, com capacidade
+        # medida em 06/09/2026 pelo mesmo `cabe()`, para a reserva não secar
+        # com os estáticos que voltaram de Unova:
+        #   BlackthornCity 14 (Johto), CanalaveCity 14 e SunyshoreCity 14
+        #   (Sinnoh), VictoryRoad_1F 8 (Hoenn).
+        "BlackthornCity", "CanalaveCity", "SunyshoreCity", "VictoryRoad_1F")
 
 # Bioma -> mapa de destino, por regiao. Tabela da secao 3 do PLANO-DEX.md, com
 # um mapa que EXISTE neste repo por celula (conferido em `demo`).
@@ -211,8 +237,13 @@ BIOMA = {
     "agua":      {"Hoenn": "MarineCave_End", "Johto": "WhirlIslands_B1F"},
     "neve":      {"Sinnoh": "SnowpointTempleB5F", "Johto": "IcePath_1F"},
     "vulcao":    {"Kanto": "MtEmber_Summit_Frlg", "Hoenn": "TerraCave_End"},
-    "ceu":       {"Unova": "Unova_DragonspiralTower1F", "Kanto": "PowerPlant_Frlg"},
-    "cidade":    {"Hoenn": "MtPyre_Summit", "Unova": "Unova_RelicCastleB1F"},
+    # As duas células de Unova ("ceu" e "cidade") mudaram de casa na onda 2,
+    # com capacidade medida em 06/09/2026: o cume do Mt. Silver (13) fica com o
+    # céu no lugar da Dragonspiral Tower, e Canalave (14) fica com a cidade no
+    # lugar do Relic Castle. `MtPyre_Summit` cabe 2 e continua na célula só
+    # porque a lista de preferência escorrega sozinha para a reserva.
+    "ceu":       {"Johto": "MtSilver_Outside", "Kanto": "PowerPlant_Frlg"},
+    "cidade":    {"Hoenn": "MtPyre_Summit", "Sinnoh": "CanalaveCity"},
 }
 TIPO_BIOMA = {
     "TYPE_GRASS": "floresta", "TYPE_BUG": "floresta", "TYPE_FAIRY": "floresta",
@@ -274,11 +305,27 @@ def mapas_cortados():
 
 
 def mapas_existentes():
-    """Pasta que existe E nao foi cortada do escopo. Regra 9: nada de mapa que
-    o jogador nunca vai alcancar."""
+    """Pasta que existe, não foi cortada do escopo e NÃO é túmulo. Regra 9:
+    nada de mapa que o jogador nunca vai alcançar.
+
+    O terceiro portão nasceu de um estrago medido em 06/09/2026: a onda 1 do
+    cartucho 1 não APAGOU as 729 pastas de Unova e Galar, ela as esvaziou (id
+    intacto, `region_map_section` MAPSEC_NONE, zero evento, layout 1x1) e
+    carimbou `cortado_por` no map.json. Para o `os.listdir` a pasta continua
+    existindo, então `_encaixa` escolhia `Unova_VictoryRoadCave2F`, e
+    `LS.planeja` estourava com `IndexError` no `warp_events[0]` de uma lista
+    vazia. Pasta com `cortado_por` é cadáver, e cadáver não hospeda lendário.
+    """
     cortados = mapas_cortados()
-    return {d for d in os.listdir(f"{RAIZ}/data/maps")
-            if os.path.isdir(f"{RAIZ}/data/maps/{d}") and d not in cortados}
+    fora = set()
+    for d in sorted(os.listdir(f"{RAIZ}/data/maps")):
+        cam = f"{RAIZ}/data/maps/{d}/map.json"
+        if d in cortados or not os.path.isfile(cam):
+            continue
+        if "cortado_por" in json.load(open(cam, encoding="utf-8")):
+            continue
+        fora.add(d)
+    return fora
 
 
 def pesquisa_lendarios(universo):
@@ -295,7 +342,7 @@ def pesquisa_lendarios(universo):
     fora = {}
     for r in csv.DictReader(open(PESQUISA, encoding="utf-8")):
         regiao = r["regiao_recomendada"].strip()
-        if regiao not in CINCO:
+        if regiao not in QUATRO:
             continue
         mapa = next((t for t in re.findall(r"[A-Za-z0-9_]+",
                                            r["mapa_recomendado_repo"])
@@ -378,7 +425,7 @@ def tabelas_de_encontro(mapa_regiao):
         for enc in grupo["encounters"]:
             mid = enc.get("map", enc.get("base_label", grupo["label"]))
             regiao = mapa_regiao.get(mid, (None, "?"))[1]
-            if regiao not in CINCO:
+            if regiao not in QUATRO:
                 continue
             for tipo in censo_dex.TIPOS_SELVAGEM:
                 if tipo not in enc:
@@ -1234,18 +1281,21 @@ def decide_selvagem(nomes, cat):
             permitidas, origem = [REPOE_NA_REGIAO[n]], "corte"
         elif eh_cosmetica(n):
             fam = _familia(n)
-            pin = [CINCO[ordem_cosmetica[fam] % len(CINCO)]]
+            pin = [QUATRO[ordem_cosmetica[fam] % len(QUATRO)]]
             ordem_cosmetica[fam] += 1
             permitidas, origem = pin, "bioma"
-        elif eh_regional(n) or e.gen >= 6:
-            permitidas, origem = list(CINCO), "bioma"
+        elif eh_regional(n) or e.gen >= GEN_SEM_LAR:
+            # RÉGUA 3 NOVA (onda 2 do cartucho 1): da gen 5 para cima não há
+            # região natal no cartucho, então a espécie se espalha pelas quatro
+            # por bioma e por cota, do mesmo jeito que gen 6 a 9 sempre fez.
+            permitidas, origem = list(QUATRO), "bioma"
         else:
             permitidas, origem = [REGIAO_DA_GEN[e.gen]], "censo"
         alvo = _melhor_tabela(tabelas, livres, usos, cota, permitidas, grupo, tipos)
-        if alvo is None and permitidas != list(CINCO):
+        if alvo is None and permitidas != list(QUATRO):
             # A regiao pedida nao tem tabela do tipo certo com slot livre.
             # Dito no `origem`, nunca em silencio.
-            alvo = _melhor_tabela(tabelas, livres, usos, cota, list(CINCO),
+            alvo = _melhor_tabela(tabelas, livres, usos, cota, list(QUATRO),
                                   grupo, tipos)
             origem = "bioma"
         if alvo is None:
@@ -1429,16 +1479,14 @@ MOTOR_INI = "    // >>> Dex completa: as outras regioes (dev_scripts/distribui_d
 MOTOR_FIM = "    // <<< Dex completa <<<"
 
 MOTOR_SECAO = """    // >>> Dex completa: as outras regioes (dev_scripts/distribui_dex.py) >>>
-    // MEDIDO em 21/08/2026, e nao lembrado: as tres faixas abaixo sao as unicas
-    // do enum de MAPSEC que pertencem a UMA regiao so. `MAPSEC_SS_AQUA` (entre
-    // Unova e Galar) fica de fora de proposito: e o barco, e ele liga Johto a
-    // Kanto.
+    // MEDIDO em 21/08/2026, e nao lembrado: a faixa abaixo e a unica do enum de
+    // MAPSEC que pertence a UMA regiao so. `MAPSEC_SS_AQUA` fica de fora de
+    // proposito: e o barco, e ele liga Johto a Kanto. As faixas de Unova e de
+    // Galar sairam com as duas regioes no cartucho 1 (07/09/2026); os slots do
+    // enum ficaram como MAPSEC_RESERVADO_*, sem mover indice, porque
+    // `regionMapSectionId` e gravado na save como local de captura.
     if (sectionId >= MAPSEC_SINNOH_WEST && sectionId <= MAPSEC_SINNOH_NORTH)
         return REGION_SINNOH;
-    if (sectionId >= MAPSEC_UNOVA_WEST && sectionId <= MAPSEC_UNOVA_NORTH)
-        return REGION_UNOVA;
-    if (sectionId >= MAPSEC_GALAR_SOUTH && sectionId <= MAPSEC_GALAR_OTHER)
-        return REGION_GALAR;
     // <<< Dex completa <<<
 """
 
@@ -1872,17 +1920,34 @@ def confere(t, cat):
     nomes = [l["especie"] for l in todas]
     if len(nomes) != len(set(nomes)):
         erros.append("especie repetida na tabela")
+    # RÉGUA das QUATRO regiões: nenhuma linha de balde nenhum pode apontar para
+    # fora do cartucho 1. É o portão mais barato e o que pega o erro mais caro
+    # (uma decisão apontando para túmulo de Unova ou de Galar).
+    for l in todas:
+        if l["regiao"] and l["regiao"] not in QUATRO:
+            erros.append(f"{l['especie']} foi para {l['regiao']}, que não é "
+                         f"região do cartucho 1 ({'/'.join(QUATRO)})")
     for l in t["selvagens"]:
         e = cat[l["especie"]]
         if _agua(l["especie"], cat) and l["metodo"] not in AGUA:
             erros.append(f"{l['especie']} e TYPE_WATER e caiu em {l['metodo']}")
         if not _agua(l["especie"], cat) and l["metodo"] in AGUA:
             erros.append(f"{l['especie']} nao e agua e caiu em {l['metodo']}")
-        if (e.gen <= 5 and not eh_regional(l["especie"])
+        # RÉGUA 3, metade velha: gen 1 a 4 continua indo para a região da
+        # própria geração quando a decisão saiu do censo.
+        if (e.gen < GEN_SEM_LAR and not eh_regional(l["especie"])
                 and not eh_cosmetica(l["especie"])
                 and l["origem"] == "censo"
                 and l["regiao"] != REGIAO_DA_GEN[e.gen]):
             erros.append(f"{l['especie']} e gen {e.gen} e foi para {l['regiao']}")
+        # RÉGUA 3, metade NOVA: da gen 5 para cima não existe região natal, e
+        # por isso a decisão NÃO pode ter saído do censo. `origem: censo` numa
+        # linha dessas só acontece se alguém ressuscitar `REGIAO_DA_GEN[5]`, e
+        # aí a espécie iria para uma região que este cartucho não tem.
+        if (e.gen >= GEN_SEM_LAR and not eh_cosmetica(l["especie"])
+                and l["origem"] == "censo"):
+            erros.append(f"{l['especie']} é gen {e.gen}, que não tem região "
+                         f"natal no cartucho 1, e a linha diz origem censo")
     for l in t["estaticos"]:
         if not cat[l["especie"]].lenda:
             erros.append(f"{l['especie']} nao e lenda e virou estatico")
@@ -1973,8 +2038,16 @@ def diff_do_mato(ref=None):
     # 22/08/2026) tira a tabela de mato do cortado POR CHAVE. Sumir e legitimo
     # SO para mapa cortado, e nascer nunca e legitimo; as duas coisas separadas,
     # porque "o conjunto mudou" sozinho aceitaria perda silenciosa de mapa vivo.
+    # DOIS jeitos de sair do escopo, e o segundo nasceu na onda 1 do cartucho 1
+    # (06/09/2026): além do corte que APAGA a pasta (`CORTES_DO_GUI`), Unova e
+    # Galar saíram virando TÚMULO, com a pasta e o id de pé e o `cortado_por`
+    # no map.json. Perguntar só pelo primeiro fazia este portão acusar as
+    # tabelas de `MAP_UNOVA_ASPERTIA_CITY` e `MAP_UNOVA_CASTELIA_CITY_SOUTH`
+    # como perda de mapa VIVO. `mapas_existentes()` já sabe das duas formas de
+    # morte, então a pergunta passa a ser pelo lado de cá: quem NÃO está vivo.
+    vivos = mapas_existentes()
     fora_do_escopo = {c for c, (pasta, _r) in censo_dex.mapas().items()
-                      if pasta in mapas_cortados()}
+                      if pasta not in vivos}
     # TABELA VAZIA NAO E CONTEUDO. A rodada 12 tirou `water_mons` e
     # `fishing_mons` da Diglett's Cave de Johto, e as duas eram placeholder:
     # `encounter_rate` 0 e SPECIES_NONE em todos os slots. Sumir com elas nao
@@ -2042,10 +2115,11 @@ def demo():
     # A TABELA GRAVADA e o sujeito da prova, e nao um plano recalculado. O plano
     # decide REGIAO por cota e por lotacao, e os dois dependem da arvore: depois
     # de `--estaticos --aplica` a arvore ja tem os 106 objetos, e recalcular do
-    # zero e um exercicio sobre outro jogo. Fora isso, duas linhas da tabela
-    # (Great Tusk e Scream Tail, no Unova_VictoryRoadCave2F) tiveram o tile
-    # movido A MAO depois da geracao, por linha de visao de treinador; um
-    # `--demo` que exigisse o plano nota por nota apagaria esse conserto.
+    # zero é um exercício sobre outro jogo. Fora isso, linha de tabela já teve
+    # tile movido À MÃO depois da geração (na rodada 12 foram o Great Tusk e o
+    # Scream Tail, por linha de visão de treinador, numa sala de Victory Road
+    # que a onda 1 do cartucho 1 depois enterrou junto com Unova); um `--demo`
+    # que exigisse o plano nota por nota apagaria esse conserto.
     t = plano_congelado()
     falhas = []
 
@@ -2110,7 +2184,7 @@ def demo():
     #     nada, entao aplicar duas vezes escreve o MESMO objeto. Antes ele
     #     rodava a busca de novo, via o proprio objeto ja escrito como parede e
     #     devolvia outro tile a cada rodada.
-    for r in CINCO:
+    for r in QUATRO:
         escolhas, sem_geometria = escolhe_tiles(r)
         falhas += sem_geometria[:3]
         assert not sem_geometria, sem_geometria[:3]
@@ -2148,6 +2222,39 @@ def demo():
     mutada["selvagens"] = mutada["selvagens"] + [lenda]
     assert any("regra 7" in x for x in confere(mutada, cat)), \
         "lenda no mato passou batido"
+
+    # 7b. MUTAÇÃO PLANTADA 3: a RÉGUA 3 NOVA. Uma linha de gen 5 mandada para
+    #     fora das quatro regiões, e outra com `origem: censo` (que só existe se
+    #     alguém ressuscitar REGIAO_DA_GEN[5]), tem que ser PEGA. Sem isto o
+    #     `confere` só mede o que o gerador já acertou, e a régua velha poderia
+    #     voltar calada.
+    assert 5 not in REGIAO_DA_GEN, \
+        "gen 5 voltou a ter região natal; Unova não existe no cartucho 1"
+    de_gen5 = [l for l in t["selvagens"] if cat[l["especie"]].gen == GEN_SEM_LAR
+               and not eh_cosmetica(l["especie"])]
+    assert de_gen5, ("nenhuma linha de mato de gen 5: a régua nova não está "
+                     "sendo exercida por tabela nenhuma")
+    mutada = {k: [dict(x) for x in t[k]] for k in BUCKETS}
+    alvo = next(l for l in mutada["selvagens"]
+                if l["especie"] == de_gen5[0]["especie"])
+    alvo["regiao"] = "Unova"
+    assert any("cartucho 1" in x for x in confere(mutada, cat)), \
+        "região fora das quatro passou batido"
+    mutada = {k: [dict(x) for x in t[k]] for k in BUCKETS}
+    alvo = next(l for l in mutada["selvagens"]
+                if l["especie"] == de_gen5[0]["especie"])
+    alvo["origem"] = "censo"
+    assert any("região natal" in x for x in confere(mutada, cat)), \
+        "gen 5 com origem censo passou batido"
+
+    # 7c. Nenhum estático sem gfx de overworld. Quem não tem gfx não pode ser
+    #     objeto: o motor não tem o que desenhar, e o sintoma é um mapa com um
+    #     buraco que interage. São 195 entradas no censo desmontado (39 no censo
+    #     vivo), e todas elas têm de sair por `givemon` (presente) ou pelo mato,
+    #     nunca por objeto.
+    sem_gfx = {x.nome for x in linhas if not x.ow}
+    de_objeto = sorted(sem_gfx & {l["especie"] for l in est})
+    assert not de_objeto, ("estático sem gfx de overworld: %s" % de_objeto[:6])
 
     # 8. Idempotencia do baseline: reconstruir a base a partir de `substituido`
     #    e reaplicar tem que dar o MESMO arquivo. E o que impede `--tabela` de
@@ -2275,12 +2382,14 @@ def demo():
             falhas.append(f"T129.18: {n} e de agua e foi para {linha['metodo']}")
         elif depois[n].categoria == "inobtenivel":
             falhas.append(f"T129.18: {n} tem linha e continua inobtenivel")
-    # A lista aceita ESTATICO desde 23/08/2026, e a razao e medida: o Masquerain
-    # ganhou um encontro estatico proprio na Galar_WildArea08 (bloco c5,
-    # 22/08/2026, `data/scripts/galar_estaticos.inc`), que e um caminho de
-    # obtencao tao bom quanto a evolucao. A pergunta deste bloco sempre foi "o
-    # Masquerain ficou sem caminho depois que a Route229 caiu?", e "estatico" e
-    # uma resposta SIM; recusa-lo era cobrar o caminho em vez do resultado.
+    # A lista aceita ESTÁTICO desde 23/08/2026: a pergunta deste bloco sempre
+    # foi "o Masquerain ficou sem caminho depois que a Route229 caiu?", e
+    # "estático" é uma resposta SIM; recusá-lo era cobrar o caminho em vez do
+    # resultado. O estático que motivou a abertura era o da `Galar_WildArea08`,
+    # e ele MORREU com Galar na onda 1 do cartucho 1 (07/09/2026); o caminho
+    # que sustenta o Masquerain hoje é a evolução por nível 22 a partir do
+    # Surskit, que o `REPOE_NA_REGIAO` devolveu à água de Sinnoh. O portão
+    # continua cobrando o RESULTADO, então ele não precisou mudar.
     if "SPECIES_MASQUERAIN" in depois and \
             depois["SPECIES_MASQUERAIN"].categoria == "inobtenivel":
         falhas.append("T129.18: o Masquerain ficou sem caminho nenhum; ele e "
@@ -2317,11 +2426,16 @@ SONDA = """
 _Static_assert(MAPSEC_NEW_BARK_TOWN == MAPSEC_SINNOH_WEST, "colisao_johto_sinnoh");
 _Static_assert(MAPSEC_ILEX_FOREST == MAPSEC_SINNOH_WEST, "colisao_johto_sinnoh2");
 
-// As tres faixas novas sao disjuntas entre si e disjuntas de Kanto.
+// A faixa de Sinnoh é a ÚNICA que sobrou no cartucho 1, e ela não encosta em
+// Kanto nem nos slots que Unova e Galar deixaram vagos. As duas regiões saíram
+// em 07/09/2026 e os apelidos `MAPSEC_UNOVA_*` e `MAPSEC_GALAR_*` sumiram do
+// cabeçalho: as afirmações que os citavam não "passavam a valer", elas paravam
+// de COMPILAR, e uma sonda que não compila reprova tudo. Os slots viraram
+// `MAPSEC_RESERVADO_*` de propósito, sem mover índice nenhum, porque
+// `regionMapSectionId` é gravado na save como local de captura de cada Pokémon.
 _Static_assert(MAPSEC_SINNOH_WEST <= MAPSEC_SINNOH_NORTH, "faixa_sinnoh");
-_Static_assert(MAPSEC_SINNOH_NORTH < MAPSEC_UNOVA_WEST, "sinnoh_antes_de_unova");
-_Static_assert(MAPSEC_UNOVA_NORTH < MAPSEC_GALAR_SOUTH, "unova_antes_de_galar");
-_Static_assert(MAPSEC_GALAR_SOUTH <= MAPSEC_GALAR_OTHER, "faixa_galar");
+_Static_assert(MAPSEC_SINNOH_NORTH < MAPSEC_RESERVADO_01, "sinnoh_antes_do_vago");
+_Static_assert(MAPSEC_RESERVADO_09 < MAPSEC_NONE, "vago_antes_do_none");
 _Static_assert(MAPSEC_SPECIAL_AREA < MAPSEC_SINNOH_WEST, "kanto_nao_encosta");
 
 // A faixa de GRUPO de Johto nao engole Hoenn nem Sinnoh nem Kanto.
@@ -2390,12 +2504,13 @@ def sonda_de_regiao():
         raise SystemExit("T129.6 REPROVADO: a sonda de regiao nao compila; as "
                          "faixas de mapsec ou de grupo estao erradas.")
     mutante = _compila_sonda(SONDA % (
-        '_Static_assert(MAPSEC_SINNOH_WEST > MAPSEC_GALAR_OTHER, "mutacao");'))
+        '_Static_assert(MAPSEC_SINNOH_WEST > MAPSEC_RESERVADO_01, "mutacao");'))
     if mutante:
         raise SystemExit("T129.6 REPROVADO: a mutacao plantada COMPILOU, entao "
                          "a sonda nao esta provando nada.")
     return ("T129.6 OK: mapsec de Johto == Sinnoh Oeste (por isso Johto sai por "
-            "grupo), faixas de Sinnoh/Unova/Galar disjuntas, e Hoenn, Kanto e "
+            "grupo), faixa de Sinnoh disjunta de Kanto e dos slots vagos de "
+            "Unova/Galar, e Hoenn, Kanto e "
             "Sinnoh fora da faixa de grupo de Johto; T129.14 OK: a Ilex Forest, "
             "onde mora o Okidogi, cairia em REGION_SINNOH pelo mapsec e so o "
             "ramo do GRUPO a devolve como REGION_JOHTO, com IF_REGION vivo e "
@@ -2429,7 +2544,7 @@ def main():
         saida += aplica_flags(a.aplica)
         saida += aplica_casos(a.aplica)
     if a.estaticos:
-        regioes = [a.regiao] if a.regiao else list(CINCO)
+        regioes = [a.regiao] if a.regiao else list(QUATRO)
         for r in regioes:
             if a.dry or not a.aplica:
                 escolhas, falhas = escolhe_tiles(r)
@@ -2640,7 +2755,7 @@ def casos_estaticos():
     """
     fora = []
     i = 7
-    for regiao in CINCO:
+    for regiao in QUATRO:
         l = _mais_longe(regiao)
         if l is None:
             continue

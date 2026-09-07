@@ -157,34 +157,6 @@ RuinsOfAlph_Outside_EventScript_DexMoltresGalarSome::
 RuinsOfAlph_Outside_Text_DexMoltresGalarIntro:
 	.string "MOLTRES_GALAR appeared!$"
 
-RuinsOfAlph_Outside_EventScript_DexYveltal::
-	lockall
-	msgbox RuinsOfAlph_Outside_Text_DexYveltalIntro, MSGBOX_DEFAULT
-	waitse
-	playmoncry SPECIES_YVELTAL, CRY_MODE_ENCOUNTER
-	delay 30
-	waitmoncry
-	seteventmon SPECIES_YVELTAL, 70
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special BattleSetup_StartLegendaryBattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_YVELTAL
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, RuinsOfAlph_Outside_EventScript_DexYveltalSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, RuinsOfAlph_Outside_EventScript_DexYveltalSome
-	releaseall
-	end
-
-RuinsOfAlph_Outside_EventScript_DexYveltalSome::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_YVELTAL
-	setflag FLAG_HIDE_DEX_YVELTAL
-	fadescreenswapbuffers FADE_FROM_BLACK
-	return
-
-RuinsOfAlph_Outside_Text_DexYveltalIntro:
-	.string "YVELTAL appeared!$"
-
 RuinsOfAlph_Outside_EventScript_DexCosmoem::
 	lockall
 	msgbox RuinsOfAlph_Outside_Text_DexCosmoemIntro, MSGBOX_DEFAULT
@@ -213,6 +185,90 @@ RuinsOfAlph_Outside_EventScript_DexCosmoemSome::
 RuinsOfAlph_Outside_Text_DexCosmoemIntro:
 	.string "COSMOEM appeared!$"
 
+RuinsOfAlph_Outside_EventScript_DexNecrozma::
+	lockall
+	msgbox RuinsOfAlph_Outside_Text_DexNecrozmaIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_NECROZMA, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_NECROZMA, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_NECROZMA
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, RuinsOfAlph_Outside_EventScript_DexNecrozmaSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, RuinsOfAlph_Outside_EventScript_DexNecrozmaSome
+	releaseall
+	end
+
+RuinsOfAlph_Outside_EventScript_DexNecrozmaSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_NECROZMA
+	setflag FLAG_HIDE_DEX_NECROZMA
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+RuinsOfAlph_Outside_Text_DexNecrozmaIntro:
+	.string "NECROZMA appeared!$"
+
+RuinsOfAlph_Outside_EventScript_DexNecrozmaDuskMane::
+	lockall
+	msgbox RuinsOfAlph_Outside_Text_DexNecrozmaDuskManeIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_NECROZMA_DUSK_MANE, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_NECROZMA_DUSK_MANE, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_NECROZMA_DUSK_MANE
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, RuinsOfAlph_Outside_EventScript_DexNecrozmaDuskManeSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, RuinsOfAlph_Outside_EventScript_DexNecrozmaDuskManeSome
+	releaseall
+	end
+
+RuinsOfAlph_Outside_EventScript_DexNecrozmaDuskManeSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_NECROZMA_DUSK_MANE
+	setflag FLAG_HIDE_DEX_NECROZMA_DUSK_MANE
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+RuinsOfAlph_Outside_Text_DexNecrozmaDuskManeIntro:
+	.string "NECROZMA_DUSK_MANE appeared!$"
+
+RuinsOfAlph_Outside_EventScript_DexCalyrex::
+	lockall
+	msgbox RuinsOfAlph_Outside_Text_DexCalyrexIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_CALYREX, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_CALYREX, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_CALYREX
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, RuinsOfAlph_Outside_EventScript_DexCalyrexSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, RuinsOfAlph_Outside_EventScript_DexCalyrexSome
+	releaseall
+	end
+
+RuinsOfAlph_Outside_EventScript_DexCalyrexSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_CALYREX
+	setflag FLAG_HIDE_DEX_CALYREX
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+RuinsOfAlph_Outside_Text_DexCalyrexIntro:
+	.string "CALYREX appeared!$"
+
 RuinsOfAlph_Outside_EventScript_DexCalyrexIce::
 	lockall
 	msgbox RuinsOfAlph_Outside_Text_DexCalyrexIceIntro, MSGBOX_DEFAULT
@@ -240,6 +296,34 @@ RuinsOfAlph_Outside_EventScript_DexCalyrexIceSome::
 
 RuinsOfAlph_Outside_Text_DexCalyrexIceIntro:
 	.string "CALYREX_ICE appeared!$"
+
+RuinsOfAlph_Outside_EventScript_DexCalyrexShadow::
+	lockall
+	msgbox RuinsOfAlph_Outside_Text_DexCalyrexShadowIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_CALYREX_SHADOW, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_CALYREX_SHADOW, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_CALYREX_SHADOW
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, RuinsOfAlph_Outside_EventScript_DexCalyrexShadowSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, RuinsOfAlph_Outside_EventScript_DexCalyrexShadowSome
+	releaseall
+	end
+
+RuinsOfAlph_Outside_EventScript_DexCalyrexShadowSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_CALYREX_SHADOW
+	setflag FLAG_HIDE_DEX_CALYREX_SHADOW
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+RuinsOfAlph_Outside_Text_DexCalyrexShadowIntro:
+	.string "CALYREX_SHADOW appeared!$"
 
 RuinsOfAlph_Outside_EventScript_DexWoChien::
 	lockall
