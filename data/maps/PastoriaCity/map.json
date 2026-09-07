@@ -2,7 +2,7 @@
   "id": "MAP_PASTORIA_CITY",
   "name": "PastoriaCity",
   "layout": "LAYOUT_PASTORIA_CITY",
-  "music": "MUS_LILYCOVE",
+  "music": "MUS_DP_SOLACEON_DAY",
   "region_map_section": "MAPSEC_SINNOH_EAST",
   "map_name_popup": "PASTORIA CITY",
   "requires_flash": false,

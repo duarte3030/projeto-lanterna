@@ -2,7 +2,7 @@
   "id": "MAP_SNOWPOINT_TEMPLE_B5F",
   "name": "SnowpointTempleB5F",
   "layout": "LAYOUT_SNOWPOINT_TEMPLE_B5F",
-  "music": "MUS_RG_MT_MOON",
+  "music": "MUS_DP_ETERNA_FOREST",
   "region_map_section": "MAPSEC_SINNOH_NORTH",
   "map_name_popup": "SNOWPOINT TEMPLE",
   "requires_flash": false,

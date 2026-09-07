@@ -1221,6 +1221,44 @@ static bool16 IsInfiltratedSpaceCenter(struct WarpData *warp)
     return FALSE;
 }
 
+// >>> musica de noite em Sinnoh (dev_scripts/musica_sinnoh.py) >>>
+#include "data/musica_noite.h"
+
+// DPPt guarda DUAS faixas por mapa (`.dayMusicID` e `.nightMusicID` em
+// fontes-mapas/pokeplatinum/include/data/map_headers.h). Esta base guarda UMA,
+// e mudar o struct do header custaria uma passada em 2.411 map.json. Entao o
+// map.json fica com a faixa de DIA e a troca acontece aqui, na hora em que a
+// musica do mapa e decidida.
+//
+// CUSTO DE SAVE: ZERO. Nada disto entra em SaveBlock; e uma tabela const na
+// ROM e uma leitura do relogio. A troca ao virar a hora espera o proximo
+// warp, que e como o proprio DPPt se comporta.
+//
+// POR QUE SO TIME_NIGHT, e nao TIME_EVENING junto: medido na fonte, nao
+// lembrado. `FieldBGM_GetForMapHeader` (fontes-mapas/pokeplatinum/
+// src/field_bgm.c:177) escolhe a faixa de noite quando `IsNight()` e verdade,
+// e `IsNight()` (src/rtc.c:134) so e verdade em TIMEOFDAY_NIGHT e
+// TIMEOFDAY_LATE_NIGHT. O crepusculo (TIMEOFDAY_TWILIGHT, horas 17 a 19 na
+// tabela de src/rtc.c:153) toca a faixa de DIA. Divergencia conhecida e
+// aceita: com OW_TIMES_OF_DAY = GEN_LATEST a nossa TIME_NIGHT vai ate as 6h e
+// a do DPPt para as 4h, entao das 4h as 6h tocamos noite onde o DS tocava dia.
+static u16 MusicaDeNoiteSeHouver(u16 musica)
+{
+    u32 i;
+
+    if (GetTimeOfDay() != TIME_NIGHT)
+        return musica;
+
+    for (i = 0; i < ARRAY_COUNT(sMusicaDiaNoiteSinnoh); i++)
+    {
+        if (sMusicaDiaNoiteSinnoh[i][0] == musica)
+            return sMusicaDiaNoiteSinnoh[i][1];
+    }
+
+    return musica;
+}
+// <<< musica de noite em Sinnoh <<<
+
 u16 GetLocationMusic(struct WarpData *warp)
 {
     if (NoMusicInSootopolisWithLegendaries(warp) == TRUE)
@@ -1232,7 +1270,8 @@ u16 GetLocationMusic(struct WarpData *warp)
     else if (IsInfiltratedWeatherInstitute(warp) == TRUE)
         return MUS_MT_CHIMNEY;
     else
-        return Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music;
+        return MusicaDeNoiteSeHouver(
+            Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music);
 }
 
 u16 GetCurrLocationDefaultMusic(void)

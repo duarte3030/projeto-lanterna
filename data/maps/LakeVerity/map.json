@@ -2,7 +2,7 @@
   "id": "MAP_LAKE_VERITY",
   "name": "LakeVerity",
   "layout": "LAYOUT_LAKE_VERITY",
-  "music": "MUS_RG_SURF",
+  "music": "MUS_DP_GALACTIC_ETERNA_BUILDING",
   "region_map_section": "MAPSEC_SINNOH_WEST",
   "map_name_popup": "LAKE VERITY",
   "requires_flash": false,

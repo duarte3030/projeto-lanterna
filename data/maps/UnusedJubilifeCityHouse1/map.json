@@ -2,7 +2,7 @@
   "id": "MAP_UNUSED_JUBILIFE_CITY_HOUSE_1",
   "name": "UnusedJubilifeCityHouse1",
   "layout": "LAYOUT_UNUSED_JUBILIFE_CITY_HOUSE_1",
-  "music": "MUS_PETALBURG",
+  "music": "MUS_DP_GYM",
   "region_map_section": "MAPSEC_SINNOH_WEST",
   "map_name_popup": "JUBILIFE CITY",
   "requires_flash": false,

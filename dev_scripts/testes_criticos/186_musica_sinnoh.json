@@ -1,0 +1,266 @@
+[
+  {
+    "id": "T186.1",
+    "nome": "Sinnoh toca DPPt: Twinleaf Town de DIA. Prova as duas camadas de uma vez: gMapHeader.music (a constante que dev_scripts/musica_sinnoh.py escreveu em data/maps/TwinleafTown/map.json chegou na ROM e no mapa certo) e gMPlayInfo_BGM.songHeader (o driver de som esta MESMO tocando aquilo, e nao a faixa do mapa anterior). A atribuicao nao veio de memoria: TWINLEAF_TOWN pede SEQ_TOWN01_D em fontes-mapas/pokeplatinum/include/data/map_headers.h, e SEQ_TOWN01_D e mus_dp_twinleaf_day pelo alinhamento SDAT x pacote documentado no topo de dev_scripts/musica_sinnoh.py. Sem `hora`, o relogio e o do Mac; o caso par (T186.11) forca a noite.",
+    "warp": "MAP_TWINLEAF_TOWN",
+    "hora": 12,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN",
+      "musica": "MUS_DP_TWINLEAF_DAY",
+      "musica_header": "MUS_DP_TWINLEAF_DAY"
+    }
+  },
+  {
+    "id": "T186.2",
+    "nome": "Sinnoh toca DPPt: Jubilife City de DIA (SEQ_CITY01_D). Cidade grande, o par de controle do T186.1 do outro lado do mapa-mundo de Sinnoh.",
+    "warp": "MAP_JUBILIFE_CITY",
+    "hora": 12,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_JUBILIFE_CITY",
+      "musica": "MUS_DP_JUBILIFE_DAY",
+      "musica_header": "MUS_DP_JUBILIFE_DAY"
+    }
+  },
+  {
+    "id": "T186.3",
+    "nome": "Sinnoh toca DPPt: Eterna City de DIA (SEQ_CITY04_D). Este caso e a metade honesta do T186.4: Eterna e Celestic tem de sair com a MESMA faixa, e este prova qual e ela.",
+    "warp": "MAP_ETERNA_CITY",
+    "hora": 12,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_ETERNA_CITY",
+      "musica": "MUS_DP_ETERNA_DAY",
+      "musica_header": "MUS_DP_ETERNA_DAY"
+    }
+  },
+  {
+    "id": "T186.4",
+    "nome": "O CONSERTO DO APELIDO ERRADO: Celestic Town de DIA toca o tema de ETERNA, nao o de Solaceon. Ate 07/09/2026 include/constants/songs.h dizia `#define MUS_DP_CELESTIC_DAY MUS_DP_SOLACEON_DAY`, herdado da onda de importacao. A fonte diz outra coisa: CELESTIC_TOWN pede SEQ_CITY04_D, exatamente a mesma sequencia de ETERNA_CITY (map_headers.h do pokeplatinum). Quem divide sequencia com Solaceon e PASTORIA_CITY, nao Celestic. Se este caso voltar a apontar para a faixa de Solaceon, o apelido velho ressuscitou.",
+    "warp": "MAP_CELESTIC_TOWN",
+    "hora": 12,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_CELESTIC_TOWN",
+      "musica": "MUS_DP_ETERNA_DAY",
+      "musica_header": "MUS_DP_ETERNA_DAY"
+    }
+  },
+  {
+    "id": "T186.5",
+    "nome": "Sinnoh toca DPPt: Solaceon Town de DIA. Buraco declarado e coberto: SEQ_CITY06 (a sequencia que o Platinum da a Solaceon E a Pastoria) NAO foi importada, o pacote de MIDIs pula ela. A substituta e MUS_DP_SOLACEON_*, que pelo alinhamento e a SEQ_TOWN04 do pacote, o tema que ele mesmo batizou de Solaceon. O T186.6 prova que Pastoria sai com a MESMA faixa, que e o que o Platinum faz.",
+    "warp": "MAP_SOLACEON_TOWN",
+    "hora": 12,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_SOLACEON_TOWN",
+      "musica": "MUS_DP_SOLACEON_DAY",
+      "musica_header": "MUS_DP_SOLACEON_DAY"
+    }
+  },
+  {
+    "id": "T186.6",
+    "nome": "Sinnoh toca DPPt: Pastoria City de DIA sai com a mesma faixa de Solaceon, e isso e a FONTE e nao economia: PASTORIA_CITY e SOLACEON_TOWN tem `.dayMusicID = SEQ_CITY06_D` identico nos map_headers do pokeplatinum. O dia em que alguem importar a SEQ_CITY06 de verdade, o apelido MUS_DP_PASTORIA_* (que continua inerte em songs.h) volta a valer e este caso e que muda.",
+    "warp": "MAP_PASTORIA_CITY",
+    "hora": 12,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_PASTORIA_CITY",
+      "musica": "MUS_DP_SOLACEON_DAY",
+      "musica_header": "MUS_DP_SOLACEON_DAY"
+    }
+  },
+  {
+    "id": "T186.7",
+    "nome": "Sinnoh toca DPPt: Route 201 de DIA (SEQ_ROAD_A_D). Rota, e nao cidade: prova que a familia ROAD do de-para tambem chegou. ROAD_A e usada por ROUTE_201, ROUTE_202, ROUTE_219 e VERITY_LAKEFRONT na fonte, e o pacote a chama de route201.",
+    "warp": "MAP_ROUTE201",
+    "hora": 12,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE201",
+      "musica": "MUS_DP_ROUTE201_DAY",
+      "musica_header": "MUS_DP_ROUTE201_DAY"
+    }
+  },
+  {
+    "id": "T186.8",
+    "nome": "Sinnoh toca DPPt: Route 216 de DIA (SEQ_ROAD_SNOW_D, a rota de neve). Segunda familia de rota, do outro extremo do mapa: se so uma linha do de-para tivesse pego, este caso separa.",
+    "warp": "MAP_ROUTE216",
+    "hora": 12,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE216",
+      "musica": "MUS_DP_ROUTE216_DAY",
+      "musica_header": "MUS_DP_ROUTE216_DAY"
+    }
+  },
+  {
+    "id": "T186.9",
+    "nome": "Sinnoh toca DPPt: Snowpoint City de DIA (SEQ_CITY09_D). Cidade do fim da linha principal, o mapa mais distante do inicio do jogo entre os casos deste bloco.",
+    "warp": "MAP_SNOWPOINT_CITY",
+    "hora": 12,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_SNOWPOINT_CITY",
+      "musica": "MUS_DP_SNOWPOINT_DAY",
+      "musica_header": "MUS_DP_SNOWPOINT_DAY"
+    }
+  },
+  {
+    "id": "T186.10",
+    "nome": "Sinnoh toca DPPt: Sunyshore City de DIA (SEQ_CITY08_D). Fecha os 10 mapas de dia pedidos pela encomenda.",
+    "warp": "MAP_SUNYSHORE_CITY",
+    "hora": 12,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_SUNYSHORE_CITY",
+      "musica": "MUS_DP_SUNYSHORE_DAY",
+      "musica_header": "MUS_DP_SUNYSHORE_DAY"
+    }
+  },
+  {
+    "id": "T186.11",
+    "nome": "A NOITE, o par: Twinleaf Town com o relogio do cartucho travado nas 22h toca MUS_DP_TWINLEAF_NIGHT. Este e o caso que prova o gancho novo de src/overworld.c (MusicaDeNoiteSeHouver): o map.json continua pedindo a faixa de DIA, e quem troca e a tabela sMusicaDiaNoiteSinnoh, gerada pelo mesmo dev_scripts/musica_sinnoh.py. `hora` vira --rtc-hora no gba_runner, que instala um mRTCSource do proprio mgba: o jogo LE 22h pelo GPIO como leria a hora de verdade, sem ninguem escrever em EWRAM. Custo de save: ZERO, nada disto passa por SaveBlock.",
+    "warp": "MAP_TWINLEAF_TOWN",
+    "hora": 22,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN",
+      "musica": "MUS_DP_TWINLEAF_NIGHT",
+      "musica_header": "MUS_DP_TWINLEAF_DAY"
+    }
+  },
+  {
+    "id": "T186.12",
+    "nome": "A NOITE: Jubilife City as 22h toca MUS_DP_JUBILIFE_NIGHT.",
+    "warp": "MAP_JUBILIFE_CITY",
+    "hora": 22,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_JUBILIFE_CITY",
+      "musica": "MUS_DP_JUBILIFE_NIGHT",
+      "musica_header": "MUS_DP_JUBILIFE_DAY"
+    }
+  },
+  {
+    "id": "T186.13",
+    "nome": "A NOITE: Eterna City as 22h toca MUS_DP_ETERNA_NIGHT.",
+    "warp": "MAP_ETERNA_CITY",
+    "hora": 22,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_ETERNA_CITY",
+      "musica": "MUS_DP_ETERNA_NIGHT",
+      "musica_header": "MUS_DP_ETERNA_DAY"
+    }
+  },
+  {
+    "id": "T186.14",
+    "nome": "A NOITE: Celestic Town as 22h toca MUS_DP_ETERNA_NIGHT, o par de noite do conserto do apelido. Cobre o buraco que so aparece de noite: consertar o lado do DIA em songs.h e esquecer o da NOITE deixaria Celestic tocando Solaceon depois das 20h e ninguem veria.",
+    "warp": "MAP_CELESTIC_TOWN",
+    "hora": 22,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_CELESTIC_TOWN",
+      "musica": "MUS_DP_ETERNA_NIGHT",
+      "musica_header": "MUS_DP_ETERNA_DAY"
+    }
+  },
+  {
+    "id": "T186.15",
+    "nome": "A NOITE: Solaceon Town as 22h toca MUS_DP_SOLACEON_NIGHT.",
+    "warp": "MAP_SOLACEON_TOWN",
+    "hora": 22,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_SOLACEON_TOWN",
+      "musica": "MUS_DP_SOLACEON_NIGHT",
+      "musica_header": "MUS_DP_SOLACEON_DAY"
+    }
+  },
+  {
+    "id": "T186.16",
+    "nome": "A NOITE: Pastoria City as 22h toca MUS_DP_SOLACEON_NIGHT, o mesmo par que Solaceon, como no Platinum.",
+    "warp": "MAP_PASTORIA_CITY",
+    "hora": 22,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_PASTORIA_CITY",
+      "musica": "MUS_DP_SOLACEON_NIGHT",
+      "musica_header": "MUS_DP_SOLACEON_DAY"
+    }
+  },
+  {
+    "id": "T186.17",
+    "nome": "A NOITE: Route 201 as 22h toca MUS_DP_ROUTE201_NIGHT.",
+    "warp": "MAP_ROUTE201",
+    "hora": 22,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE201",
+      "musica": "MUS_DP_ROUTE201_NIGHT",
+      "musica_header": "MUS_DP_ROUTE201_DAY"
+    }
+  },
+  {
+    "id": "T186.18",
+    "nome": "A NOITE: Route 216 as 22h toca MUS_DP_ROUTE216_NIGHT.",
+    "warp": "MAP_ROUTE216",
+    "hora": 22,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE216",
+      "musica": "MUS_DP_ROUTE216_NIGHT",
+      "musica_header": "MUS_DP_ROUTE216_DAY"
+    }
+  },
+  {
+    "id": "T186.19",
+    "nome": "A NOITE: Snowpoint City as 22h toca MUS_DP_SNOWPOINT_NIGHT.",
+    "warp": "MAP_SNOWPOINT_CITY",
+    "hora": 22,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_SNOWPOINT_CITY",
+      "musica": "MUS_DP_SNOWPOINT_NIGHT",
+      "musica_header": "MUS_DP_SNOWPOINT_DAY"
+    }
+  },
+  {
+    "id": "T186.20",
+    "nome": "A NOITE: Sunyshore City as 22h toca MUS_DP_SUNYSHORE_NIGHT. Fecha os 10 mapas de noite pedidos pela encomenda.",
+    "warp": "MAP_SUNYSHORE_CITY",
+    "hora": 22,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_SUNYSHORE_CITY",
+      "musica": "MUS_DP_SUNYSHORE_NIGHT",
+      "musica_header": "MUS_DP_SUNYSHORE_DAY"
+    }
+  },
+  {
+    "id": "T186.21",
+    "nome": "O gancho de noite NAO inventa par onde nao existe: Eterna Forest as 22h continua em MUS_DP_ETERNA_FOREST. Masmorra e interior tem faixa UNICA em DPPt (`.dayMusicID` igual a `.nightMusicID` no header da fonte) e por isso nao entram em sMusicaDiaNoiteSinnoh. Sem este caso, uma tabela grande demais trocaria a musica de caverna a noite e passaria verde nos 20 casos de cima.",
+    "warp": "MAP_ETERNA_FOREST",
+    "hora": 22,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_ETERNA_FOREST",
+      "musica": "MUS_DP_ETERNA_FOREST",
+      "musica_header": "MUS_DP_ETERNA_FOREST"
+    }
+  },
+  {
+    "id": "T186.22",
+    "nome": "CONTROLE de Hoenn: Petalburg City as 22h continua em MUS_PETALBURG. Prova que o gancho de noite so pega faixa que esta na tabela de Sinnoh e nao encostou em Hoenn, Kanto nem Johto. Petalburg era, ate esta onda, a faixa de 130 dos 430 mapas de Sinnoh: se a tabela vazasse, e aqui que apareceria.",
+    "warp": "MAP_PETALBURG_CITY",
+    "hora": 22,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_PETALBURG_CITY",
+      "musica": "MUS_PETALBURG",
+      "musica_header": "MUS_PETALBURG"
+    }
+  }
+]

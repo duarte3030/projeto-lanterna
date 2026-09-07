@@ -724,8 +724,12 @@
 #define MUS_HG_BLACKTHORN                  MUS_HG_AZALEA
 #define MUS_DP_PASTORIA_DAY                MUS_DP_SOLACEON_DAY
 #define MUS_DP_PASTORIA_NIGHT              MUS_DP_SOLACEON_NIGHT
-#define MUS_DP_CELESTIC_DAY                MUS_DP_SOLACEON_DAY
-#define MUS_DP_CELESTIC_NIGHT              MUS_DP_SOLACEON_NIGHT
+// 07/09/2026: Celestic apontava para Solaceon e isso estava ERRADO.
+// Lido em fontes-mapas/pokeplatinum/include/data/map_headers.h:
+// CELESTIC_TOWN pede SEQ_CITY04, a MESMA de ETERNA_CITY; quem divide
+// a SEQ_CITY06 com Solaceon e PASTORIA_CITY, nao Celestic.
+#define MUS_DP_CELESTIC_DAY                MUS_DP_ETERNA_DAY
+#define MUS_DP_CELESTIC_NIGHT              MUS_DP_ETERNA_NIGHT
 
 #ifndef MUS_HG_BELL_TOWER
 #define MUS_HG_BELL_TOWER MUS_MT_PYRE

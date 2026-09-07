@@ -2,7 +2,7 @@
   "id": "MAP_VERITY_CAVERN",
   "name": "VerityCavern",
   "layout": "LAYOUT_VERITY_CAVERN",
-  "music": "MUS_RG_MT_MOON",
+  "music": "MUS_DP_LAKE_CAVERNS",
   "region_map_section": "MAPSEC_SINNOH_NORTH",
   "map_name_popup": "VERITY CAVERN",
   "requires_flash": false,

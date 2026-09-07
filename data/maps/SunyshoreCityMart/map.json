@@ -2,7 +2,7 @@
   "id": "MAP_SUNYSHORE_CITY_MART",
   "name": "SunyshoreCityMart",
   "layout": "LAYOUT_OREBURGH_CITY_MART",
-  "music": "MUS_POKE_MART",
+  "music": "MUS_DP_POKE_MART",
   "region_map_section": "MAPSEC_SINNOH_WEST",
   "map_name_popup": "SUNYSHORE CITY",
   "requires_flash": false,

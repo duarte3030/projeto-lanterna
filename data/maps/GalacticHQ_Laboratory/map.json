@@ -2,7 +2,7 @@
   "id": "MAP_GALACTIC_HQ_LABORATORY",
   "name": "GalacticHQ_Laboratory",
   "layout": "LAYOUT_SLATEPORT_CITY_OCEANIC_MUSEUM_1F",
-  "music": "MUS_AQUA_MAGMA_HIDEOUT",
+  "music": "MUS_DP_GALACTIC_HQ_BASEMENT",
   "region_map_section": "MAPSEC_SINNOH_EAST",
   "map_name_popup": "VEILSTONE CITY",
   "requires_flash": false,

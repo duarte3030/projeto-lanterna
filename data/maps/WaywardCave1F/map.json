@@ -2,7 +2,7 @@
   "id": "MAP_WAYWARD_CAVE_1F",
   "name": "WaywardCave1F",
   "layout": "LAYOUT_WAYWARD_CAVE_1F",
-  "music": "MUS_RG_MT_MOON",
+  "music": "MUS_DP_OREBURGH_GATE",
   "region_map_section": "MAPSEC_SINNOH_NORTH",
   "map_name_popup": "WAYWARD CAVE",
   "requires_flash": false,

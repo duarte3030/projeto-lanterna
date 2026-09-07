@@ -68,6 +68,19 @@
  *   --oponente 0x02000928 endereco de gTrainerBattleParameter
  *   --offsets a,b,c,d,e,f,g  offsets dentro de SaveBlock1, medidos da fonte
  *   --sem-png             nao grava PNG nenhum (teste que so olha memoria)
+ *   --rtc-hora H          FORCA o relogio do cartucho na hora H (0..23),
+ *                         com os minutos em 0. Existe porque a musica de
+ *                         Sinnoh tem par dia/noite e nao da para provar a
+ *                         faixa de noite esperando anoitecer no relogio do
+ *                         Mac. Implementado como `mRTCSource` do proprio
+ *                         mgba: o jogo LE o horario forcado pelo GPIO, como
+ *                         leria o de verdade. Nao mexe em EWRAM nenhuma.
+ *                         Detalhe medido: numa partida NOVA o
+ *                         `localTimeOffset` do SaveBlock2 nasce zerado
+ *                         (`OW_USE_FAKE_RTC` e FALSE nesta build, entao a
+ *                         linha `RtcCalcLocalTimeOffset(0, 10, 0, 0)` de
+ *                         src/overworld.c nem compila), logo a hora do jogo
+ *                         E a hora do cartucho, sem deslocamento.
  *
  * POR QUE LER MEMORIA: teste que infere estado da tela e palpite. Dois crashes
  * da sessao de 05/08/2026 passaram por seis agentes porque todo teste olhava so
@@ -83,6 +96,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
+
+/* Relogio do cartucho forcado (--rtc-hora). -1 = usa a hora do Mac. */
+static int g_rtc_hora = -1;
+static time_t g_rtc_instante = 0;
+
+static void rtc_sample(struct mRTCSource *fonte) { (void)fonte; }
+
+static time_t rtc_unix(struct mRTCSource *fonte) {
+    (void)fonte;
+    return g_rtc_instante;
+}
+
+static struct mRTCSource g_rtc = { rtc_sample, rtc_unix, NULL, NULL };
 
 /* ---------------------------------------------------------------------------
  * Mapa da memoria do pokeemerald-expansion deste repo.
@@ -638,6 +665,13 @@ int main(int argc, char **argv) {
 
     for (int i = 5; i < argc; i++) {
         if (!strcmp(argv[i], "--dump-estado")) g_dump_estado = 1;
+        else if (!strcmp(argv[i], "--rtc-hora") && i + 1 < argc) {
+            g_rtc_hora = (int)strtol(argv[++i], NULL, 0);
+            if (g_rtc_hora < 0 || g_rtc_hora > 23) {
+                fprintf(stderr, "--rtc-hora precisa de 0 a 23\n");
+                return 1;
+            }
+        }
         else if (!strcmp(argv[i], "--sem-png")) g_sem_png = 1;
         else if (!strcmp(argv[i], "--flag") && i + 1 < argc) {
             if (g_n_flags < MAX_PEDIDOS) g_flags_pedidas[g_n_flags++] = (int)strtol(argv[++i], NULL, 0);
@@ -760,6 +794,22 @@ int main(int argc, char **argv) {
         struct VFile *vf = VFileOpen(caminho_sav, O_CREAT | O_RDWR);
         if (!vf) { fprintf(stderr, "nao consegui abrir sav: %s\n", caminho_sav); return 1; }
         if (!core->loadSave(core, vf)) { fprintf(stderr, "loadSave falhou\n"); return 1; }
+    }
+
+    /* O relogio forcado tem de estar de pe ANTES do reset: o jogo le a
+       data logo no boot e uma troca no meio apareceria como salto de
+       tempo. A data escolhida e a de hoje, so a HORA muda, para nao
+       inventar ano fora da faixa que o RTC do cartucho aceita. */
+    if (g_rtc_hora >= 0) {
+        time_t agora = time(NULL);
+        struct tm hoje;
+        localtime_r(&agora, &hoje);
+        hoje.tm_hour = g_rtc_hora;
+        hoje.tm_min = 0;
+        hoje.tm_sec = 0;
+        hoje.tm_isdst = -1;
+        g_rtc_instante = mktime(&hoje);
+        mCoreSetRTC(core, &g_rtc);
     }
 
     core->reset(core);

@@ -2,7 +2,7 @@
   "id": "MAP_TURNBACK_CAVE_PILLAR_2_ROOM_2",
   "name": "TurnbackCavePillar2Room2",
   "layout": "LAYOUT_TURNBACK_CAVE_PILLAR_1_ROOM_1",
-  "music": "MUS_RG_MT_MOON",
+  "music": "MUS_DP_OLD_CHATEAU",
   "region_map_section": "MAPSEC_SINNOH_NORTH",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

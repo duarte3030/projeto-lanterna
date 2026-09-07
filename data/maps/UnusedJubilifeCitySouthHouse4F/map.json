@@ -2,7 +2,7 @@
   "id": "MAP_UNUSED_JUBILIFE_CITY_SOUTH_HOUSE_4F",
   "name": "UnusedJubilifeCitySouthHouse4F",
   "layout": "LAYOUT_OREBURGHCITY_FLAT1_F2_PROPRIO",
-  "music": "MUS_PETALBURG",
+  "music": "MUS_DP_JUBILIFE_DAY",
   "region_map_section": "MAPSEC_SINNOH_WEST",
   "map_name_popup": "JUBILIFE CITY",
   "requires_flash": false,

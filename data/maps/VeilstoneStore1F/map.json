@@ -2,7 +2,7 @@
   "id": "MAP_VEILSTONE_STORE_1F",
   "name": "VeilstoneStore1F",
   "layout": "LAYOUT_VEILSTONESTORE1F",
-  "music": "MUS_POKE_MART",
+  "music": "MUS_DP_POKE_MART",
   "region_map_section": "MAPSEC_SINNOH_WEST",
   "map_name_popup": "VEILSTONE CITY",
   "requires_flash": false,

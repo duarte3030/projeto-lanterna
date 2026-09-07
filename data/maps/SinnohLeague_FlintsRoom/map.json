@@ -2,7 +2,7 @@
   "id": "MAP_SINNOH_LEAGUE_FLINTS_ROOM",
   "name": "SinnohLeague_FlintsRoom",
   "layout": "LAYOUT_EVER_GRANDE_CITY_GLACIAS_ROOM",
-  "music": "MUS_VICTORY_ROAD",
+  "music": "MUS_DP_INSIDE_POKEMON_LEAGUE",
   "region_map_section": "MAPSEC_SINNOH_EAST",
   "map_name_popup": "POKEMON LEAGUE",
   "requires_flash": false,

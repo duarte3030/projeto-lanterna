@@ -2,7 +2,7 @@
   "id": "MAP_SINNOH_VICTORY_ROAD_B1F",
   "name": "SinnohVictoryRoadB1F",
   "layout": "LAYOUT_SINNOH_VICTORY_ROAD_B1F",
-  "music": "MUS_RG_MT_MOON",
+  "music": "MUS_DP_VICTORY_ROAD",
   "region_map_section": "MAPSEC_SINNOH_NORTH",
   "map_name_popup": "VICTORY ROAD",
   "requires_flash": false,

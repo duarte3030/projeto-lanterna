@@ -145,9 +145,21 @@ def roda_caso(rom, simbolos, addr_music, addr_player, grupo, num, prefixo):
 
 def demo():
     """Autoteste do que da para autotestar sem emulador."""
+    # 07/09/2026: este autoteste estava VERMELHO desde a onda de importacao e
+    # ninguem tinha rodado. Ele cobrava `MUS_HG_AZALEA == MUS_VERDANTURF`, que
+    # era verdade enquanto o apelido de Azalea apontava para Hoenn. A onda de
+    # 06/09 importou `mus_hg_azalea` de verdade (songs.h:563, id 613) e o
+    # `#ifndef MUS_HG_AZALEA` do fim do arquivo ficou inerte, que era o
+    # OBJETIVO. Ou seja: o autoteste ficou obsoleto pelo sucesso, nao por
+    # defeito. O que ele tem de cobrar agora e o contrario, e continua cobrando
+    # a cadeia de apelidos, que e onde o defeito real morava.
     n = numero_da_faixa("MUS_HG_AZALEA")
-    assert n == numero_da_faixa("MUS_VERDANTURF"), "apelido nao bate com o alvo"
+    assert n != numero_da_faixa("MUS_VERDANTURF"), \
+        "MUS_HG_AZALEA voltou a ser apelido de Hoenn: a faixa real saiu de songs.h"
     assert n != numero_da_faixa("MUS_PETALBURG_WOODS"), "ainda em Petalburg Woods"
+    # o apelido que AINDA e apelido tem de continuar casando com o alvo
+    assert (numero_da_faixa("MUS_HG_BLACKTHORN")
+            == n), "MUS_HG_BLACKTHORN deixou de apontar para MUS_HG_AZALEA"
     assert numero_da_faixa("MUS_GYM") == 364, n
     assert conta_songs() > 500
     por_nome, _ = tc.carrega_mapas()

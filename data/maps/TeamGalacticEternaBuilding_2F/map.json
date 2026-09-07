@@ -2,7 +2,7 @@
   "id": "MAP_TEAM_GALACTIC_ETERNA_BUILDING_2F",
   "name": "TeamGalacticEternaBuilding_2F",
   "layout": "LAYOUT_MT_PYRE_3F",
-  "music": "MUS_AQUA_MAGMA_HIDEOUT",
+  "music": "MUS_DP_GALACTIC_ETERNA_BUILDING",
   "region_map_section": "MAPSEC_SINNOH_WEST",
   "map_name_popup": "ETERNA CITY",
   "requires_flash": false,

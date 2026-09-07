@@ -54,6 +54,12 @@ Formato de um caso
   "nome": "Ginásio de Pewter carrega",
   "flags": ["FLAG_BADGE01_GET", "0x2A0"],   # acesas por escrita direta na EWRAM
   "vars": {"0x4001": 3},                    # opcional
+  "hora": 22,                               # FORCA a hora do relogio do cartucho
+                                            # (0..23), opcional. Existe porque a
+                                            # musica de Sinnoh tem par dia/noite
+                                            # e nao da para provar a faixa de
+                                            # noite esperando anoitecer no Mac.
+                                            # Vai como --rtc-hora para o runner
   "opcoes": 32,                             # byte do modo de teste, opcional.
                                             # LV.5 TRAINERS nasce LIGADA desde
                                             # 19/08/2026, então quem mede nível
@@ -84,7 +90,25 @@ Formato de um caso
                                             # separa "a bola estava lá" de "não".
      "palobj_presentes": ["0x32B9"],        # cor de 15 bits presente na PLTT OBJ
                                             # (prova que a palette do sprite carregou)
-     "mapa_grupo": 79                       # quando só o grupo importa (região)
+     "mapa_grupo": 79,                      # quando só o grupo importa (região)
+     "musica": "MUS_DP_TWINLEAF_NIGHT",     # a faixa que o DRIVER DE SOM esta
+                                            # tocando no fim, lida de
+                                            # `gMPlayInfo_BGM.songHeader` e
+                                            # traduzida de volta pelo gSongTable
+                                            # da ROM. Esta e a resposta de "o
+                                            # que o mapa toca"
+     "musica_header": "MUS_DP_TWINLEAF_DAY" # a faixa CRUA de `gMapHeader.music`,
+                                            # opcional. Em Sinnoh ela diverge do
+                                            # driver DE PROPOSITO: o map.json
+                                            # guarda so o lado do DIA e o gancho
+                                            # de src/overworld.c troca para o da
+                                            # NOITE sem tocar no header.
+                                            # Os dois nomes sao resolvidos pelo
+                                            # PRE-PROCESSADOR, porque quase toda
+                                            # faixa desta base e apelido de
+                                            # outra e foi uma cadeia dessas que
+                                            # fez toda cidade de Johto tocar
+                                            # musica de caverna em 06/09/2026
   }
 }
 """
@@ -295,7 +319,8 @@ def carrega_layouts(src=None):
 # Símbolos que uma ROM ANTIGA pode não ter (o T11 roda contra o .map dela).
 # Faltar um deles não é erro: o caso que precisa dele é que reprova, dizendo o
 # nome, em vez de a suíte inteira morrer na carga.
-SIMBOLOS_OPCIONAIS = ("gSaveBlock2Ptr", "gBattleMons", "gBattleStruct")
+SIMBOLOS_OPCIONAIS = ("gSaveBlock2Ptr", "gBattleMons", "gBattleStruct",
+                      "gMapHeader", "gMPlayInfo_BGM", "gSongTable")
 
 
 def carrega_simbolos(mapfile):
@@ -313,6 +338,56 @@ def carrega_simbolos(mapfile):
     if faltando:
         raise SystemExit(f"símbolo não achado em {mapfile}: {faltando}")
     return {k: v for k, v in alvos.items() if v is not None}
+
+
+# offsetof(struct MapHeader, music), include/global.fieldmap.h. Medido pelo
+# comentario do proprio header e confirmado pela ordem dos quatro ponteiros que
+# vem antes; mesmo numero que dev_scripts/prova_musica_johto.py usa.
+OFF_MUSIC = 0x10
+TAM_ENTRADA_SONG = 8  # asm/macros/m4a.inc, macro `song`
+_FAIXAS_CACHE = {}
+
+
+def numero_da_faixa(nome, src=None):
+    """Nome de faixa -> numero, resolvido pelo PRE-PROCESSADOR.
+
+    Regex nao serve aqui: quase toda faixa desta base e APELIDO de outra
+    (`MUS_DP_CELESTIC_DAY` -> `MUS_DP_ETERNA_DAY` -> 684), e foi exatamente uma
+    cadeia dessas que fez toda cidade de Johto tocar musica de caverna em
+    06/09/2026. Quem responde qual numero sai no fim e o compilador.
+    """
+    src = src or RAIZ
+    chave = (src, nome)
+    if chave in _FAIXAS_CACHE:
+        return _FAIXAS_CACHE[chave]
+    inc = os.path.join(src, "include")
+    fonte = '#include "constants/songs.h"\nRESPOSTA %s\n' % nome
+    saida = subprocess.run(
+        ["cc", "-E", "-P", "-I", inc, "-I", os.path.join(inc, "constants"), "-"],
+        input=fonte, capture_output=True, text=True)
+    if saida.returncode:
+        raise RuntimeError("pre-processador recusou %s:\n%s" % (nome, saida.stderr))
+    m = re.search(r"RESPOSTA\s+(\S+)", saida.stdout)
+    if not m:
+        raise RuntimeError("nao achei a resposta de %s" % nome)
+    _FAIXAS_CACHE[chave] = int(m.group(1), 0)
+    return _FAIXAS_CACHE[chave]
+
+
+def conta_songs(src=None):
+    caminho = os.path.join(src or RAIZ, "sound", "song_table.inc")
+    return sum(1 for l in open(caminho) if re.match(r"\s*song\s+", l))
+
+
+def indice_por_ponteiro(rom, endereco_tabela, quantas):
+    """ponteiro de songHeader -> indice em gSongTable, lido do binario da ROM."""
+    dados = open(rom, "rb").read()
+    base = endereco_tabela - 0x08000000
+    saida = {}
+    for i in range(quantas):
+        off = base + i * TAM_ENTRADA_SONG
+        saida.setdefault(int.from_bytes(dados[off:off + 4], "little"), i)
+    return saida
 
 
 def offsets_da_fonte(src):
@@ -555,7 +630,7 @@ LINHA_ESTADO = re.compile(r"^ESTADO (\S+) (.*)$")
 
 def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=None,
          offsets=None, palobj_lidas=(), batalha=None, time_jogador=False,
-         itens_lidos=()):
+         itens_lidos=(), musica=False, hora=None, src=None):
     os.makedirs(SAIDA, exist_ok=True)
     for f in glob.glob(f"{SAIDA}/{prefixo}-*.png"):
         os.remove(f)
@@ -612,6 +687,24 @@ def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=Non
             "bolsa", "bolsa_n", "chave_cripto"))]
         for it in itens_lidos:
             cmd += ["--item", hex(it)]
+    # Musica: DUAS camadas. `gMapHeader.music` prova que a constante certa chegou
+    # na ROM e no mapa certo; `gMPlayInfo_BGM.songHeader` prova que o DRIVER esta
+    # tocando aquilo. Sem a segunda, um header certo com o driver tocando a
+    # musica anterior passaria verde.
+    addr_music = addr_player = None
+    if musica:
+        faltam = [k for k in ("gMapHeader", "gMPlayInfo_BGM", "gSongTable")
+                  if k not in simbolos]
+        if faltam:
+            raise RuntimeError("prova de musica precisa dos simbolos %s no "
+                               "pokeemerald.map" % faltam)
+        addr_music = int(simbolos["gMapHeader"], 16) + OFF_MUSIC
+        addr_player = int(simbolos["gMPlayInfo_BGM"], 16)
+        cmd += ["--mem16", hex(addr_music), "--mem32", hex(addr_player)]
+    # Relogio forcado (--rtc-hora): o jogo LE a hora pelo GPIO do cartucho, como
+    # leria a de verdade. Nao mexe em EWRAM nenhuma, entao nao briga com nada.
+    if hora is not None:
+        cmd += ["--rtc-hora", str(hora)]
     if sav:
         # A pasta do .sav mora em /tmp, e o sistema limpa /tmp: em 05/09/2026 seis
         # casos de prova de save deram VERMELHO com "nao consegui abrir sav" e
@@ -633,6 +726,17 @@ def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=Non
     if not estados:
         raise RuntimeError("gba_runner não imprimiu estado nenhum. stderr:\n"
                            + p.stderr[-800:])
+    if musica:
+        chave16 = "mem16_0x%08X" % addr_music
+        chave32 = "mem32_0x%08X" % addr_player
+        if chave16 not in estados[-1]:
+            raise RuntimeError("o runner nao reportou %s: recompile "
+                               "dev_scripts/gba_runner.c" % chave16)
+        por_ponteiro = indice_por_ponteiro(
+            rom, int(simbolos["gSongTable"], 16), conta_songs(src))
+        for e in estados:
+            e["musica_header"] = e.get(chave16, -1)
+            e["musica_driver"] = por_ponteiro.get(e.get(chave32, 0), -1)
     return estados
 
 
@@ -872,6 +976,28 @@ def confere(caso, estados, por_nome, por_id, tabela_flags, layouts, treinadores=
                               f"{esperado[0]}..{esperado[1]}")
         elif obtido != esperado:
             falhas.append(f"{chave}={obtido}, esperado {esperado}")
+
+    # `musica` cobra o DRIVER DE SOM, que e a resposta de "o que o mapa toca".
+    # `musica_header` cobra `gMapHeader.music`, que e a faixa CRUA do header.
+    # As duas existem separadas porque em Sinnoh elas divergem de proposito: o
+    # map.json guarda so a faixa de DIA e o gancho de src/overworld.c troca para
+    # a de NOITE ao decidir a musica, sem tocar no header. De noite, portanto,
+    # header e driver TEM de ser diferentes, e cobrar so um dos dois esconderia
+    # metade do defeito.
+    if "musica" in prova:
+        esperado = numero_da_faixa(prova["musica"], caso.get("_src"))
+        driver = final.get("musica_driver", -1)
+        if driver != esperado:
+            falhas.append(f"o DRIVER de som esta tocando a faixa {driver}, "
+                          f"esperado {prova['musica']}={esperado}: o header "
+                          f"pode estar certo e o som nao")
+    if "musica_header" in prova:
+        esperado = numero_da_faixa(prova["musica_header"], caso.get("_src"))
+        cabecalho = final.get("musica_header", -1)
+        if cabecalho != esperado:
+            falhas.append(f"gMapHeader.music={cabecalho}, esperado "
+                          f"{prova['musica_header']}={esperado}: o map.json ou "
+                          f"a constante de songs.h esta errada")
 
     if prova.get("sav_gravada"):
         falhas += confere_sav(caso.get("sav"))
@@ -1151,6 +1277,7 @@ def main():
         # varrer os 30 slots atras de nada.
         itens_lidos = [int(k[5:], 0) for k in prova.get("campos", {})
                        if k.startswith("item_0x")]
+        caso["_src"] = src2 if (caso.get("rom") == "rom2" and src2) else src
         try:
             roteiro = monta_roteiro(caso, por_nome, tabela_flags)
             estados = roda(rom_do_caso, simbolos_do_caso, roteiro,
@@ -1162,7 +1289,10 @@ def main():
                            if (prova.get("campos") or "opcoes" in caso
                                or caso.get("time_jogador")) else None,
                            time_jogador=caso.get("time_jogador", False),
-                           itens_lidos=itens_lidos)
+                           itens_lidos=itens_lidos,
+                           musica=("musica" in prova or "musica_header" in prova),
+                           hora=caso.get("hora"),
+                           src=src2 if (caso.get("rom") == "rom2" and src2) else src)
             falhas = confere(caso, estados, por_nome, por_id, tabela_flags, layouts,
                              treinadores)
         except Exception as e:                                  # noqa: BLE001

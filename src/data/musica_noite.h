@@ -1,0 +1,35 @@
+// GERADO por dev_scripts/musica_sinnoh.py. NAO EDITE A MAO.
+//
+// A tabela dia -> noite de Sinnoh. Ela sai do MESMO de-para que
+// pendura a faixa nos map.json (dev_scripts/musica_sinnoh_de_para.json)
+// justamente para nao existirem duas verdades: se um mapa ganhar par
+// dia/noite novo, os dois lados mudam na mesma rodada do script.
+//
+// Custo de save: ZERO. Nada disto entra em SaveBlock; e uma tabela
+// const na ROM lida em tempo de warp.
+
+static const u16 sMusicaDiaNoiteSinnoh[][2] =
+{
+    {MUS_DP_CANALAVE_DAY, MUS_DP_CANALAVE_NIGHT},
+    {MUS_DP_ETERNA_DAY, MUS_DP_ETERNA_NIGHT},
+    {MUS_DP_FLOAROMA_DAY, MUS_DP_FLOAROMA_NIGHT},
+    {MUS_DP_HEARTHOME_DAY, MUS_DP_HEARTHOME_NIGHT},
+    {MUS_DP_JUBILIFE_DAY, MUS_DP_JUBILIFE_NIGHT},
+    {MUS_DP_OREBURGH_DAY, MUS_DP_OREBURGH_NIGHT},
+    {MUS_DP_POKEMON_LEAGUE_DAY, MUS_DP_POKEMON_LEAGUE_NIGHT},
+    {MUS_DP_POKE_CENTER_DAY, MUS_DP_POKE_CENTER_NIGHT},
+    {MUS_DP_ROUTE201_DAY, MUS_DP_ROUTE201_NIGHT},
+    {MUS_DP_ROUTE203_DAY, MUS_DP_ROUTE203_NIGHT},
+    {MUS_DP_ROUTE205_DAY, MUS_DP_ROUTE205_NIGHT},
+    {MUS_DP_ROUTE206_DAY, MUS_DP_ROUTE206_NIGHT},
+    {MUS_DP_ROUTE209_DAY, MUS_DP_ROUTE209_NIGHT},
+    {MUS_DP_ROUTE210_DAY, MUS_DP_ROUTE210_NIGHT},
+    {MUS_DP_ROUTE216_DAY, MUS_DP_ROUTE216_NIGHT},
+    {MUS_DP_SANDGEM_DAY, MUS_DP_SANDGEM_NIGHT},
+    {MUS_DP_SNOWPOINT_DAY, MUS_DP_SNOWPOINT_NIGHT},
+    {MUS_DP_SOLACEON_DAY, MUS_DP_SOLACEON_NIGHT},
+    {MUS_DP_SUNYSHORE_DAY, MUS_DP_SUNYSHORE_NIGHT},
+    {MUS_DP_TWINLEAF_DAY, MUS_DP_TWINLEAF_NIGHT},
+    {MUS_DP_VALOR_LAKEFRONT_DAY, MUS_DP_VALOR_LAKEFRONT_NIGHT},
+    {MUS_DP_VEILSTONE_DAY, MUS_DP_VEILSTONE_NIGHT},
+};

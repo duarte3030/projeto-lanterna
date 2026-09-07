@@ -2,7 +2,7 @@
   "id": "MAP_MT_CORONET_1F_NORTH_ROOM2",
   "name": "MtCoronet_1F_North_Room2",
   "layout": "LAYOUT_MT_CORONET_1F_NORTH_ROOM2",
-  "music": "MUS_RG_MT_MOON",
+  "music": "MUS_DP_OREBURGH_GATE",
   "region_map_section": "MAPSEC_SINNOH_NORTH",
   "map_name_popup": "MT. CORONET",
   "requires_flash": false,

@@ -2,7 +2,7 @@
   "id": "MAP_ROUTE204",
   "name": "Route204",
   "layout": "LAYOUT_ROUTE204",
-  "music": "MUS_RG_ROUTE24",
+  "music": "MUS_DP_ROUTE203_DAY",
   "region_map_section": "MAPSEC_SINNOH_WEST",
   "map_name_popup": "ROUTE 204",
   "requires_flash": false,
