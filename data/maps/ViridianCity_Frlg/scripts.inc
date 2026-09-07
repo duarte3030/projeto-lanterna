@@ -357,3 +357,59 @@ ViridianCity_Text_GymSign::
 ViridianCity_Text_GymDoorsAreLocked::
 	.string "VIRIDIAN GYM's doors are locked…$"
 
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+ViridianCity_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox ViridianCity_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+ViridianCity_Text_Povoa1:
+	.string "The TRAINER SCHOOL teaches the\nbasics. I still go there.$"
+
+ViridianCity_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox ViridianCity_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+ViridianCity_Text_Povoa2:
+	.string "The GYM here has been shut for\nyears. Nobody knows the LEADER.$"
+
+ViridianCity_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox ViridianCity_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+ViridianCity_Text_Povoa3:
+	.string "ROUTE 22 runs west, toward the\nPOKéMON LEAGUE road.$"
+
+ViridianCity_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox ViridianCity_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+ViridianCity_Text_Povoa4:
+	.string "North of here the trees close in.\nThat is VIRIDIAN FOREST.$"
+
+ViridianCity_EventScript_Povoa5::
+	lock
+	faceplayer
+	msgbox ViridianCity_Text_Povoa5, MSGBOX_DEFAULT
+	release
+	end
+
+ViridianCity_Text_Povoa5:
+	.string "My back hurts. Yours will too,\nif you never sit down.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Roda as QUATRO varreduras de QA e imprime a contagem por classe e por regiao.
+"""Roda as varreduras de QA e imprime a contagem por classe e por regiao.
 
 Uso:
     python3 dev_scripts/qa/roda_qa.py            # as quatro, contagem consolidada
@@ -25,6 +25,12 @@ O que cada uma mede, e o que ela NAO mede
                        MESMA regua rodada no vanilla (`--vanilla`) para separar
                        defeito nosso de idioma do motor.
     estado_jogo.py     flag, var, item, treinador e save.
+    lente_carimbo.py   carimbo de comportamento (K1..K4): refino de arte que
+                       muda `behavior`, `layerType`, colisao ou elevacao de
+                       alguma celula de um mapa carimbado. Nasceu da onda 1 do
+                       PRD-REFINO, em 06/09/2026, porque conferir so os bits 10
+                       a 15 do `map.bin` deixa passar porta que deixa de ser
+                       porta e grama que para de gerar encontro.
     lente_warps.py     ida e volta de warp (P1..P4): destino que nao existe,
                        porta de predio que devolve para outra rua, volta que
                        pousa fora da porta usada, e escada interna que nao
@@ -106,7 +112,7 @@ VEREDITOS_DE_CASO = {
 }
 
 FERRAMENTAS = ("checa_scripts", "checa_texto", "mapas_qa", "estado_jogo",
-               "lente_warps", "lente_portas")
+               "lente_warps", "lente_portas", "lente_carimbo")
 
 
 def roda_demos():
@@ -192,9 +198,17 @@ def achados_de_portas():
                  regiao=nome_de_regiao(a["regiao"])) for a in ach]
 
 
+def achados_de_carimbo():
+    import lente_carimbo
+    ach, _censo = lente_carimbo.varre()
+    return [dict(ferramenta="carimbo", regra=a["regra"], classe=a["classe"],
+                 regiao=nome_de_regiao(a["regiao"])) for a in ach]
+
+
 COLETORES = (("scripts", achados_de_scripts), ("texto", achados_de_texto),
              ("mapas", achados_de_mapas), ("estado", achados_de_estado),
-             ("warps", achados_de_warps), ("portas", achados_de_portas))
+             ("warps", achados_de_warps), ("portas", achados_de_portas),
+             ("carimbo", achados_de_carimbo))
 
 REGIOES = ("Kanto", "Johto", "Hoenn", "Sinnoh", "Unova", "Galar", "comum")
 

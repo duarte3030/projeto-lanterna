@@ -212,3 +212,40 @@ SnowpointCity_Text_DexGlastrierIntro:
 	.string "GLASTRIER appeared!$"
 
 @ <<< Dex completa <<<
+
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+SnowpointCity_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox SnowpointCity_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+SnowpointCity_Text_Povoa1:
+	.string "The TEMPLE is north, and it is\ncolder inside than out.$"
+
+SnowpointCity_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox SnowpointCity_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+SnowpointCity_Text_Povoa2:
+	.string "No road comes here. Only the\nlakefront path west.$"
+
+SnowpointCity_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox SnowpointCity_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+SnowpointCity_Text_Povoa3:
+	.string "The snow never melts. I have\nnever seen the ground.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

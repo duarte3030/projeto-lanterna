@@ -216,3 +216,29 @@ CeladonCity_Text_SomeoneStoleSilphScope::
 	.string "But I lost sight of him!\n"
 	.string "Where'd he go?$"
 
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+CeladonCity_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox CeladonCity_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+CeladonCity_Text_Povoa1:
+	.string "The DEPARTMENT STORE has a floor\nfor almost everything.$"
+
+CeladonCity_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox CeladonCity_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+CeladonCity_Text_Povoa2:
+	.string "The GAME CORNER eats coins.\nI would know. Ask my wallet.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

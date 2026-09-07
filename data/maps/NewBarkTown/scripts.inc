@@ -97,3 +97,80 @@ NewBarkTown_Text_Sign::
 	.string "NEW BARK TOWN\p"
 	.string "The Town Where the Winds of\n"
 	.string "a New Beginning Blow$"
+
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+NewBarkTown_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox NewBarkTown_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+NewBarkTown_Text_Povoa1:
+	.string "PROF. ELM's lab is the reason\nanyone knows this town.$"
+
+NewBarkTown_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox NewBarkTown_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+NewBarkTown_Text_Povoa2:
+	.string "They call it the town where the\nwinds of a new beginning blow.$"
+
+NewBarkTown_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox NewBarkTown_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+NewBarkTown_Text_Povoa3:
+	.string "ROUTE 27 is east, and it is wet.\nROUTE 29 west is dry.$"
+
+NewBarkTown_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox NewBarkTown_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+NewBarkTown_Text_Povoa4:
+	.string "I watched three trainers leave\nfrom here. All came back changed.$"
+
+NewBarkTown_EventScript_Povoa5::
+	lock
+	faceplayer
+	msgbox NewBarkTown_Text_Povoa5, MSGBOX_DEFAULT
+	release
+	end
+
+NewBarkTown_Text_Povoa5:
+	.string "Every house here knows every\nother house. Keep no secrets.$"
+
+NewBarkTown_EventScript_Povoa6::
+	lock
+	faceplayer
+	msgbox NewBarkTown_Text_Povoa6, MSGBOX_DEFAULT
+	release
+	end
+
+NewBarkTown_Text_Povoa6:
+	.string "ROUTE 29 has soft grass and soft\nPokémon. Start there.$"
+
+NewBarkTown_EventScript_Povoa7::
+	lock
+	faceplayer
+	msgbox NewBarkTown_Text_Povoa7, MSGBOX_DEFAULT
+	release
+	end
+
+NewBarkTown_Text_Povoa7:
+	.string "Heal at the lab, stock up west.\nThen the road is yours.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

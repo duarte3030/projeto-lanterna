@@ -16,6 +16,57 @@ Arte de tiles do BW3G, creditada pelo autor no projeto de origem:
 este hack já tinha, de Hoenn e Sinnoh. O crédito de arte fica registrado porque
 a leitura da colisão veio dos arquivos de tileset do BW3G.)
 
+### Johto: a região inteira, e as portas da rodada 14
+
+Johto veio de **Pokémon Heart & Soul (HnS)**, o demake de HGSS em Modern Emerald
+decomp, aberto pelo autor como base para outros hacks. De lá saíram a planta, a
+colisão, os warps, os objetos e o texto dos mapas de Johto que este hack traz.
+A pasta de trabalho é privada e nunca sai desta máquina.
+
+Em 07/09/2026, para responder à pergunta das 31 portas decorativas de Johto,
+outras quatro fontes foram MEDIDAS (nenhum byte de arte ou de mapa foi copiado
+delas; o que entrou no hack foi o veredito "esta porta abre em fonte X, aquela
+não abre em fonte nenhuma", e as plantas de interior reaproveitadas são as que
+este repositório já tinha, vindas do HnS):
+
+- **GS Chronicles**, de Overlord Kaktus / G0LD, pelo decomp público
+  `G0LD/GS-Chronicles-Decomp`. O autor credita a Rom Hacking Hideout (RHH) e o
+  próprio pokemonHnS. Motor com base no CFRU, que proíbe qualquer monetização.
+- **Pokémon Liquid Crystal**, de Linkandzelda, com Zeikku (gráficos),
+  Jambo51 (asm) e Magnius (música).
+- **Pokémon FireGold** (autoria não confirmada pela ROM; o material local aponta
+  TheSnowPeople ou tzx211).
+- **Pokémon Scorched Silver**.
+
+O que cada uma disse está registrado, fonte por fonte, no cabeçalho de
+`dev_scripts/abre_portas_johto.py` e na seção "As 31 portas de Johto ganham interior" do `ESTADO.md`.
+
+### O cais de CanalaveCity, arte importada do Golden Glazed
+
+Em 06/09/2026, na onda 1 do REFINO, a beira do canal de **CanalaveCity** ganhou
+cais de verdade: cabeços de amarração com cabo, boia salva-vidas e estacas. Essa
+arte foi extraída da ROM de **Pokémon Golden Glazed** v2.6, o tileset secundário
+`0x3DF74C` (a cidade portuária do hack), e são 9 tiles de 8x8 e uma paleta de 16
+cores, copiados sem alterar um pixel nem aproximar uma cor.
+
+- **Golden Glazed**, do hacker que assina como *Golden*, derivado do **Pokémon
+  Glazed**, de **redriders180** (com **Lucbui** no port decomp público
+  `TrainerX493/pokeglazed`). O Glazed original credita a comunidade de
+  hackers de tiles do fórum de onde a arte dele veio, e não declara licença.
+- A ROM é cópia privada de trabalho e nunca sai desta máquina: o que entrou aqui
+  é o **asset convertido**, como manda a regra 1 da seção 4 do `PRD-REFINO.md`.
+- O que cada peça é, de onde ela veio e por que ela cabe está no cabeçalho de
+  `dev_scripts/porto_canalave_arte.py`, e a medição que escolheu a fonte está em
+  `amostras-tileset/refino/novidade-porto.tsv`, fora deste repositório.
+
+O porto anterior da mesma cidade (o bote, o poste e os tambores, de
+`dev_scripts/porto_canalave.py`) não veio de hack nenhum: é arte de Hoenn que
+este repositório já tinha, do `gTileset_Slateport`.
+
+A arte de base é da Nintendo e da Game Freak. "Livre para usar com crédito" dito
+por um hacker cobre a edição dele, não o material original. Nada que descenda de
+hack com motor CFRU pode ser monetizado, nem por doação opcional.
+
 ## Credits ✨
 
 
@@ -156,3 +207,18 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 - [Data Files](https://www.pokecommunity.com/showthread.php?t=417909)
 - [Complete FireRed Upgrade](https://github.com/Skeli789/Complete-Fire-Red-Upgrade)
 - [pokeemerald](https://github.com/pret/pokeemerald/)
+
+## Arte de mapa importada de ROM hacks
+
+Este projeto é **privado e não monetizado**. A arte de base é da Nintendo/Game Freak; o
+crédito abaixo cobre a edição feita por cada autor de ROM hack, e vale para todo asset
+convertido que descende dela.
+
+### Kit de neve de `SnowpointCity` (`gTileset_Snowpoint`, metatiles 680 a 690)
+
+Os 14 tiles 8x8, a paleta 6 e os 11 metatiles de chão de neve (banco de neve, beirada,
+crista, rastro e muda de pinheiro) vieram do secundário `0x3DF7AC` da cidade de neve do
+**Pokémon Golden Glazed v2.6**, de **'Golden'**, que por sua vez é derivado do **Pokémon
+Glazed**, de **redriders180** e **Lucbui** (port decomp público em
+`github.com/TrainerX493/pokeglazed`). Nenhum id de flag, var, script ou música foi
+importado: só arte.

@@ -533,3 +533,50 @@ VermilionCity_EventScript_SailToVirbank::
 VermilionCity_Text_SettingSailToVirbank:
 	.string "Setting sail for VIRBANK CITY\n"
 	.string "in UNOVA!$"
+
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+VermilionCity_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox VermilionCity_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+VermilionCity_Text_Povoa1:
+	.string "The harbour never sleeps.\nShips come in at every hour.$"
+
+VermilionCity_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox VermilionCity_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+VermilionCity_Text_Povoa2:
+	.string "The POKéMON FAN CLUB is here.\nMembers talk for hours.$"
+
+VermilionCity_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox VermilionCity_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+VermilionCity_Text_Povoa3:
+	.string "The GYM LEADER fights with\nelectricity. Ground shrugs it off.$"
+
+VermilionCity_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox VermilionCity_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+VermilionCity_Text_Povoa4:
+	.string "ROUTE 11 runs east from the gate.\nDIGLETT are said to live under it.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

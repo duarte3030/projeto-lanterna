@@ -1,0 +1,335 @@
+{
+ "aviso": "Gerado por dev_scripts/qa/lente_carimbo.py --carimba. Regravar isto sem um motivo escrito no commit desliga a lente.",
+ "mapas": {
+  "AcuityLakefront": {
+   "caminho": "4c8a8d5650b3366332021600aa03039720c4538559e126370638f8dfd8d07d73",
+   "celulas": 4224,
+   "comportamento": "518d19e59dcfe5e9b5ba11201c6b282c7ea54fb659fe94a594e2215b75a84de7",
+   "h": 66,
+   "layout": "LAYOUT_ACUITY_LAKEFRONT",
+   "primario": "gTileset_GeneralSinnoh",
+   "secundario": "gTileset_Snowpoint",
+   "w": 64
+  },
+  "AzaleaTown": {
+   "caminho": "af4ea5589589ffeb39941fc7d101f780b537f464d120a5d72069f5d615e6e8c1",
+   "celulas": 2232,
+   "comportamento": "46567b8390f6677575bda2246fb6e418f626b5cc5dd075a33c2792fa9289acbf",
+   "h": 36,
+   "layout": "LAYOUT_AZALEA_TOWN",
+   "primario": "gTileset_JohtoSouth",
+   "secundario": "gTileset_AzaleaTown",
+   "w": 62
+  },
+  "BlackthornCity": {
+   "caminho": "49fd41ee2364e7abdbcd5c4b577be69a6744898195c91510270861eed4bd526c",
+   "celulas": 3540,
+   "comportamento": "12ee654c25ee64153c3c15b6b5df96d3b27ff4dee535ff371beb29cd73a9ccf4",
+   "h": 60,
+   "layout": "LAYOUT_BLACKTHORN_CITY",
+   "primario": "gTileset_JohtoNorthEast",
+   "secundario": "gTileset_Blackthorn",
+   "w": 59
+  },
+  "CanalaveCity": {
+   "caminho": "c3deb1bcba19261861834079c1ee24fa2068ccd0cb79f89ff5c764b0727324b8",
+   "celulas": 2432,
+   "comportamento": "0e7c8b39b55300bf7cf474c6c15c6166d0f1e86ef78c3be09ebfccfaefaa9236",
+   "h": 64,
+   "layout": "LAYOUT_CANALAVE_CITY",
+   "primario": "gTileset_GeneralSinnoh",
+   "secundario": "gTileset_Canalave",
+   "w": 38
+  },
+  "CelesticTown": {
+   "caminho": "03af2503bd3064e36ec8883e35e1e23f1565ae1e08dfb3217294ccc549322637",
+   "celulas": 1330,
+   "comportamento": "939ab14db76a4b995e68ce79f24ccc2861b80ec1c2668922350d5862d5445263",
+   "h": 35,
+   "layout": "LAYOUT_CELESTIC_TOWN",
+   "primario": "gTileset_GeneralSinnoh",
+   "secundario": "gTileset_Celestic",
+   "w": 38
+  },
+  "CianwoodCity": {
+   "caminho": "da976d9732c8e598d6ee43c784c1a1ce91ca6f0f32f91d68926ee3e1677ec7f5",
+   "celulas": 2257,
+   "comportamento": "1398afa49bb4a1e73a9e16164d466f2effe7c8c099e6dce049683c02cdf8c1de",
+   "h": 61,
+   "layout": "LAYOUT_CIANWOOD_CITY",
+   "primario": "gTileset_JohtoNorthEast",
+   "secundario": "gTileset_CianwoodCity",
+   "w": 37
+  },
+  "EcruteakCity": {
+   "caminho": "c1bfde05af6be280e60a8cdd787ceebb6c54a4f0c70d365e0d40ecdbbe81d821",
+   "celulas": 4026,
+   "comportamento": "8981c4cd27dc0f55f29fe1618e3388fb73ba0a65e819f09b0fd198c884db3cd7",
+   "h": 61,
+   "layout": "LAYOUT_ECRUTEAK_CITY",
+   "primario": "gTileset_JohtoNorthWest",
+   "secundario": "gTileset_EcruteakCity",
+   "w": 66
+  },
+  "EternaCity": {
+   "caminho": "7096ed6dc4b53c2fcfcc06fb0d7f782dc3f63ec0ee0c78c6d682e7c2edf83f7b",
+   "celulas": 3300,
+   "comportamento": "10c4534ef42d132bafca81282f32c582a67a869706ca58b899df43018ef35660",
+   "h": 55,
+   "layout": "LAYOUT_ETERNA_CITY",
+   "primario": "gTileset_GeneralSinnoh",
+   "secundario": "gTileset_Jubilife",
+   "w": 60
+  },
+  "FloaromaTown": {
+   "caminho": "13d0b81f4fdca8181e355899e41ca0003ca072eb25e3af0cdd1b7d28a7e7bb4b",
+   "celulas": 1224,
+   "comportamento": "b5c4d8976b8e2381b451fb7251eabc3a6ed9f757939908469d90f3ec3585ddbd",
+   "h": 36,
+   "layout": "LAYOUT_FLOAROMA_TOWN",
+   "primario": "gTileset_GeneralSinnoh",
+   "secundario": "gTileset_MauvilleSinnoh",
+   "w": 34
+  },
+  "GoldenrodCity": {
+   "caminho": "fe1b1d76fc2a105ccc9e88300c854ad51384bf9d937494561e664ce5145ac61e",
+   "celulas": 2668,
+   "comportamento": "7e295aa49571f0297fed0d0ac5e6f956b8806c5df2ad7f5ad21e04c8bf7b9a12",
+   "h": 46,
+   "layout": "LAYOUT_GOLDENROD_CITY",
+   "primario": "gTileset_JohtoGeneral",
+   "secundario": "gTileset_Goldenrod",
+   "w": 58
+  },
+  "HearthomeCity": {
+   "caminho": "f7a4e2385cc17bfeb28bb5de94c0cf0d93b4730108ed1d0893c588636996235b",
+   "celulas": 3016,
+   "comportamento": "33111dbfdcd578a1ce077a6c08c8e952419f5b2507dc532c28490dbbec45f8c8",
+   "h": 52,
+   "layout": "LAYOUT_HEARTHOME_CITY",
+   "primario": "gTileset_GeneralSinnoh",
+   "secundario": "gTileset_Hearthome",
+   "w": 58
+  },
+  "JubilifeCity": {
+   "caminho": "0be5202c71b43b970450039eca388fc230f6c250f67b6e88555508a696e120a9",
+   "celulas": 4480,
+   "comportamento": "7be8abc32b2cf6872d36235c43e990f0844c5acbec1a34bb4a4b3b69bce502e9",
+   "h": 64,
+   "layout": "LAYOUT_JUBILIFE_CITY",
+   "primario": "gTileset_GeneralSinnoh",
+   "secundario": "gTileset_RustboroSinnoh",
+   "w": 70
+  },
+  "LakeAcuity": {
+   "caminho": "16a00a05ad887b0186aa5d1cf08c4e2c55bf89cf796d052f403eb43745adb6b4",
+   "celulas": 2496,
+   "comportamento": "3cdd0a08177df16b4a07c5038e1541ac37863b3336027d585ed0009a2bcf60d9",
+   "h": 52,
+   "layout": "LAYOUT_LAKE_ACUITY",
+   "primario": "gTileset_GeneralSinnoh",
+   "secundario": "gTileset_Snowpoint",
+   "w": 48
+  },
+  "Mahoganytown": {
+   "caminho": "74a00ef1dd2503ef40d5b3d237889826f436404e0e00a98cd008e34629b06ac6",
+   "celulas": 1232,
+   "comportamento": "833de14700bac06d17da6c726f9a418c36d48f1b71fc464c9182d7860f942690",
+   "h": 28,
+   "layout": "LAYOUT_MAHOGANYTOWN",
+   "primario": "gTileset_JohtoNorthEast",
+   "secundario": "gTileset_MahoganyTownNeve",
+   "w": 44
+  },
+  "MtSilver_MountainSide": {
+   "caminho": "dba451e2fe1c00c135d140c8af3ea0a3362b833cbdaa3fcc19115237c1371761",
+   "celulas": 3355,
+   "comportamento": "ba4f55dfe587e3fea2bfc788c912962b99fdd3fac317efac13baeee6c37b88df",
+   "h": 61,
+   "layout": "LAYOUT_MT_SILVER_MOUNTAIN_SIDE",
+   "primario": "gTileset_JohtoNorthEast",
+   "secundario": "gTileset_Blackthorn",
+   "w": 55
+  },
+  "OlivineCity": {
+   "caminho": "8aef77b43be18ac54d95a2eb939c2f88e87285a946cbc989d16407696fb592ac",
+   "celulas": 3744,
+   "comportamento": "cf00c7deb024cd59bb154b577711ec972eb93c139d7fb79490f450062022f9b3",
+   "h": 72,
+   "layout": "LAYOUT_OLIVINE_CITY",
+   "primario": "gTileset_JohtoGeneral",
+   "secundario": "gTileset_OlivineCity",
+   "w": 52
+  },
+  "OreburghCity": {
+   "caminho": "f512f24c2ab99e937f564e1dcb1177d36c3519e01571f54beaf1ff09986c74f4",
+   "celulas": 4130,
+   "comportamento": "6c18a1d4f61f2efd7e0e64c6f4bd8c2ff5adc4579691817084b560ef85b89da6",
+   "h": 59,
+   "layout": "LAYOUT_OREBURGH_CITY",
+   "primario": "gTileset_GeneralSinnoh",
+   "secundario": "gTileset_Jubilife",
+   "w": 70
+  },
+  "PastoriaCity": {
+   "caminho": "d2efde2df5f824f72ebdaac054d811dd2a1ab4d4bb5edd9788d4f8287b827040",
+   "celulas": 4080,
+   "comportamento": "ed591f2363b25a3eb1f1294a6c767bdfc3b7c93707a7e5f692c6d9dc16e7d45c",
+   "h": 60,
+   "layout": "LAYOUT_PASTORIA_CITY",
+   "primario": "gTileset_GeneralSinnoh",
+   "secundario": "gTileset_LilycoveSinnoh",
+   "w": 68
+  },
+  "Route216": {
+   "caminho": "97acec0b86c04b8460553debccdcfdd06f1c35fcbd8639fca729083f590fb07a",
+   "celulas": 3840,
+   "comportamento": "25f710d9764a3b3223831b82239b76fca82b72a660ffc48be3c1ba1ef27df8b9",
+   "h": 40,
+   "layout": "LAYOUT_ROUTE216",
+   "primario": "gTileset_GeneralSinnoh",
+   "secundario": "gTileset_Snowpoint",
+   "w": 96
+  },
+  "Route217": {
+   "caminho": "c4abd0b9ce03534f793abefaa724cfd2cae6f91bf7332d863b167934b73adb47",
+   "celulas": 4248,
+   "comportamento": "6e2e35bccbbb551204495e9a10bea9e9ac76e5e53eaa1d3c776579bea97d4b66",
+   "h": 118,
+   "layout": "LAYOUT_ROUTE217",
+   "primario": "gTileset_GeneralSinnoh",
+   "secundario": "gTileset_Snowpoint",
+   "w": 36
+  },
+  "Route26": {
+   "caminho": "0d195adb37dde62e8631cfed97f7f9b42eda329bca5ac52d2322de7136db36a2",
+   "celulas": 3159,
+   "comportamento": "ad9fe8ca43357c56d636692023ca22f551820d2d05c769475691b6e2a2918a99",
+   "h": 81,
+   "layout": "LAYOUT_ROUTE26",
+   "primario": "gTileset_JohtoGeneral",
+   "secundario": "gTileset_Blackthorn",
+   "w": 39
+  },
+  "Route41": {
+   "caminho": "b101f7b66b7b986455d68638377fcd4aa4654918f674a967811a9689b7bd6064",
+   "celulas": 6586,
+   "comportamento": "b01e6b79211165f2165c6f5d80b576d01c78d03c4ac8f4dcc69e830f24a61f13",
+   "h": 89,
+   "layout": "LAYOUT_ROUTE41",
+   "primario": "gTileset_JohtoNorthEast",
+   "secundario": "gTileset_CianwoodCity",
+   "w": 74
+  },
+  "Route44": {
+   "caminho": "173225fa1af5ecff4cb02a1c55e484cb45a702b927d7dade9f703d55725297e6",
+   "celulas": 2808,
+   "comportamento": "a0b138fc425fdcada89d01d686c15ee0a84f8122e331846c21a91e1f3ba3ec02",
+   "h": 36,
+   "layout": "LAYOUT_ROUTE44",
+   "primario": "gTileset_JohtoNorthEast",
+   "secundario": "gTileset_CianwoodCity",
+   "w": 78
+  },
+  "Route45": {
+   "caminho": "c2366b540e9a11316916362011346461cab335e00ec68c5b7468ec8182891c5e",
+   "celulas": 4600,
+   "comportamento": "09ff2883ee453bce607cbd88f216ded3c0c16aa3f026a9d13951c5dfdf199b87",
+   "h": 100,
+   "layout": "LAYOUT_ROUTE45",
+   "primario": "gTileset_JohtoNorthEast",
+   "secundario": "gTileset_Blackthorn",
+   "w": 46
+  },
+  "Route47": {
+   "caminho": "6a15f79de54c9def6ea63543efd64f856076250fd747a8580791e96ae5e2ca3d",
+   "celulas": 7320,
+   "comportamento": "c9e438cffb6ac4577470874cdb8726179861b8ac4b0f0ed43e1760f97f6b3a85",
+   "h": 61,
+   "layout": "LAYOUT_ROUTE47",
+   "primario": "gTileset_JohtoNorthEast",
+   "secundario": "gTileset_CianwoodCity",
+   "w": 120
+  },
+  "Route48": {
+   "caminho": "2bad154f9405d63ad654e87610da54a6cce144df2796748946c473226c3c42b8",
+   "celulas": 1760,
+   "comportamento": "3d4a0c00983ed10326efa0f6179f8290c00a62c317e9a5e775caece38990b607",
+   "h": 32,
+   "layout": "LAYOUT_ROUTE48",
+   "primario": "gTileset_JohtoNorthEast",
+   "secundario": "gTileset_CianwoodCity",
+   "w": 55
+  },
+  "SandgemTown": {
+   "caminho": "62d3a705aa5264d19a7f1121014bb4eb08e2930ce60c16c794a2dd5c84212fea",
+   "celulas": 1088,
+   "comportamento": "ee10561c11d6a0f2cd3ae80fd1c0526ce129c505bf98d886981d4ae245849ffe",
+   "h": 32,
+   "layout": "LAYOUT_SANDGEM_TOWN",
+   "primario": "gTileset_GeneralSinnoh",
+   "secundario": "gTileset_PetalburgSinnoh",
+   "w": 34
+  },
+  "SnowpointCity": {
+   "caminho": "6a36a775d284f598c77773af26f9043f82e7989243b5925474d70da487b7ce34",
+   "celulas": 2312,
+   "comportamento": "1946bb4097a9932ff52c8b8ddfef87a8b4bfe443b05fb4c7efc1a67b03141eff",
+   "h": 68,
+   "layout": "LAYOUT_SNOWPOINT_CITY",
+   "primario": "gTileset_GeneralSinnoh",
+   "secundario": "gTileset_Snowpoint",
+   "w": 34
+  },
+  "SolaceonTown": {
+   "caminho": "87497a653ea1fd9c8a136d2d04526ba426145409d66070e4ce74715ed09b52a9",
+   "celulas": 2904,
+   "comportamento": "db8ab7dbc636cfb66400d93280a122a34946e7d543c21838d7b02e4ed592e26a",
+   "h": 44,
+   "layout": "LAYOUT_SOLACEON_TOWN",
+   "primario": "gTileset_GeneralSinnoh",
+   "secundario": "gTileset_Celestic",
+   "w": 66
+  },
+  "SunyshoreCity": {
+   "caminho": "36ee94227ff194f82227cf1e040b4018aaa8ce7520faf3440b4e392e7dc6037c",
+   "celulas": 4480,
+   "comportamento": "d1cf2f10fbbf68489ab593aebcaa5fe008e7b290e15de8561d7350e4dfc06abe",
+   "h": 64,
+   "layout": "LAYOUT_SUNYSHORE_CITY",
+   "primario": "gTileset_GeneralSinnoh",
+   "secundario": "gTileset_Sunnyshore",
+   "w": 70
+  },
+  "TwinleafTown": {
+   "caminho": "cf6cc5641f934d6e76ff328f559dfd0502a6fead89919ee1289a8ac1e784f0c4",
+   "celulas": 720,
+   "comportamento": "2ce9acdfca1251b1183cd9c95524f984a104ad399c9b904d6d292487393ae3f9",
+   "h": 30,
+   "layout": "LAYOUT_TWINLEAF_TOWN",
+   "primario": "gTileset_GeneralSinnoh",
+   "secundario": "gTileset_PetalburgSinnoh",
+   "w": 24
+  },
+  "VeilstoneCity": {
+   "caminho": "36ab490cd1b6c05d4b114972e0a4bdbc48c9ec0b8d5aaedcc0b90767aabbc5e0",
+   "celulas": 4488,
+   "comportamento": "6262cb2220aa6ed061e08e5afb5a71814ede1591a66cd4dbdf02e17e7b387c05",
+   "h": 68,
+   "layout": "LAYOUT_VEILSTONE_CITY",
+   "primario": "gTileset_GeneralSinnoh",
+   "secundario": "gTileset_Veilstone",
+   "w": 66
+  },
+  "VioletCity": {
+   "caminho": "2df94e0ebd78ad5a7fc428e55d203dbb0e2f616695f30865294c2f93fadf6a4e",
+   "celulas": 2970,
+   "comportamento": "8c576456b1d30a0879590a1e12995536955cf335eac2685e32872d7572f523a2",
+   "h": 55,
+   "layout": "LAYOUT_VIOLET_CITY",
+   "primario": "gTileset_JohtoGeneral",
+   "secundario": "gTileset_VioletCity",
+   "w": 54
+  }
+ }
+}

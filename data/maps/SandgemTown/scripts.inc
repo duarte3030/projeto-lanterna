@@ -171,3 +171,50 @@ SandgemTown_EventScript_Placa2::
 
 SandgemTown_Text_Placa2:
 	.string "Sandgem Town\nTown of Sand!$"
+
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+SandgemTown_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox SandgemTown_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+SandgemTown_Text_Povoa1:
+	.string "PROF. ROWAN's lab studies how\nPokémon change as they grow.$"
+
+SandgemTown_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox SandgemTown_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+SandgemTown_Text_Povoa2:
+	.string "The beach south is ROUTE 219.\nAll sand and sea from there.$"
+
+SandgemTown_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox SandgemTown_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+SandgemTown_Text_Povoa3:
+	.string "The MART here is small but it\nnever runs out of POTIONS.$"
+
+SandgemTown_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox SandgemTown_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+SandgemTown_Text_Povoa4:
+	.string "ROUTE 202 north leads to\nJUBILIFE. Big city, loud city.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

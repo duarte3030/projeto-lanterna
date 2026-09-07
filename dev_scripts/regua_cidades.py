@@ -309,7 +309,7 @@ def main():
     linhas, fora = tabela()
     if "--json" in sys.argv:
         for m in linhas:
-            m["dono"] = "nosso" if _nosso(m["mapa"]) else "vanilla"
+            m["dono"] = "nosso" if _nosso(m["mapa"], m["regiao"]) else "vanilla"
         print(json.dumps(linhas, indent=1, ensure_ascii=False))
         return 0
     imprime(linhas, fora, so_pobres="--pobres" in sys.argv)

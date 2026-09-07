@@ -129,6 +129,13 @@ GRUPO_DE_REGIAO = (("Frlg", "Kanto"), ("Johto", "Johto"), ("Unova", "Unova"),
 REGIOES = ("Kanto", "Johto", "Hoenn", "Sinnoh", "Unova", "Galar")
 DO_CARTUCHO_1 = ("Kanto", "Johto", "Hoenn", "Sinnoh")
 
+# Placas comuns de porta que não abre. Célula com `bg_event` apontando para uma
+# delas sai das três regras: a porta continua fechada, mas o jogo passou a
+# EXPLICAR isso ao jogador, que era o defeito de verdade (`data/scripts/
+# portas_fechadas.inc`).
+SCRIPTS_DE_PLACA = {"Common_EventScript_PortaFechada",
+                    "Common_EventScript_BocaFechada"}
+
 # ---------------------------------------------------------------------------
 # LISTA BRANCA: porta sem warp que é DESENHO, não defeito. Uma linha por caso,
 # com o porque MEDIDO. Regra para entrar aqui: o caso foi aberto e conferido
@@ -179,6 +186,22 @@ LISTA_BRANCA = {
     ("Route8_Frlg", 0, 10): "Vanilla pokefirered (Route8 0,10).",
     ("BattleFrontier_OutsideWest", 26, 64):
         "Vanilla pokeemerald (BattleFrontier_OutsideWest 26,64).",
+
+    # --- Monte Prata, encosta: a boca É a arte, e o warp mora ao lado -------
+    # Medido em 07/09/2026 na pergunta 46. As três bocas de `MtSilver_
+    # MountainSide` são `MB_NON_ANIMATED_DOOR` sólido, e a célula colada à
+    # direita de cada uma é `MB_WEST_ARROW_WARP` com colisão 0 e COM warp:
+    # (27,18) tem o warp 0 em (28,18), (34,31) tem o 1 em (35,31) e (41,40) tem
+    # o 2 em (42,40), os três para `MT_SILVER_1F_WATERFALL_ROOM`. O jogador pisa
+    # na seta, aperta para oeste e `TryArrowWarp` (src/field_control_avatar.c)
+    # dispara. A lente só não juntava as duas células no mesmo bloco porque o
+    # comportamento delas é diferente, que é o limite conhecido de `blocos()`.
+    ("MtSilver_MountainSide", 27, 18):
+        "O warp é o 0, em (28,18), MB_WEST_ARROW_WARP: a porta entra.",
+    ("MtSilver_MountainSide", 34, 31):
+        "O warp é o 1, em (35,31), MB_WEST_ARROW_WARP: a porta entra.",
+    ("MtSilver_MountainSide", 41, 40):
+        "O warp é o 2, em (42,40), MB_WEST_ARROW_WARP: a porta entra.",
 }
 
 # ---------------------------------------------------------------------------
@@ -190,28 +213,6 @@ LISTA_BRANCA = {
 # Chave: (pasta do mapa, x, y) -> nome do prédio, para o Gui decidir.
 # ---------------------------------------------------------------------------
 SEM_INTERIOR = {
-    ("OlivineCity", 2, 15): "Olivine, galpão do porto (fileira norte, 1 de 6)",
-    ("OlivineCity", 6, 15): "Olivine, galpão do porto (2 de 6)",
-    ("OlivineCity", 10, 15): "Olivine, galpão do porto (3 de 6)",
-    ("OlivineCity", 27, 15): "Olivine, galpão do porto (4 de 6)",
-    ("OlivineCity", 31, 15): "Olivine, galpão do porto (5 de 6)",
-    ("OlivineCity", 35, 15): "Olivine, galpão do porto (6 de 6)",
-    ("EcruteakCity", 57, 25): "Ecruteak, porta lateral do prédio do leste",
-    ("EcruteakCity", 8, 54): "Ecruteak, boca de caverna no penhasco sudoeste",
-    ("BlackthornCity", 39, 18): "Blackthorn, boca de caverna no penhasco leste",
-    ("BlackthornCity", 5, 33): "Blackthorn, boca de caverna no penhasco oeste",
-    ("Route34", 33, 31): "Route 34, segunda porta do Day Care",
-    ("Route34", 23, 50): "Route 34, porta do prédio de telhado azul",
-    ("Route34", 53, 53): "Route 34, boca de caverna",
-    ("Route38", 34, 41): "Route 38, porta da casa da fazenda",
-    ("Route45", 45, 6): "Route 45, boca de caverna (1 de 3)",
-    ("Route45", 1, 7): "Route 45, boca de caverna (2 de 3)",
-    ("Route45", 39, 53): "Route 45, boca de caverna (3 de 3)",
-    ("Route46", 25, 33): "Route 46, boca de caverna",
-    ("Route26", 2, 20): "Route 26, boca de caverna",
-    ("Route26North", 21, 8): "Route 26 norte, boca de caverna",
-    ("BellchimeTrail", 54, 58): "Trilha do Sino, porta do prédio",
-    ("IlexForest", 77, 39): "Floresta de Ilex, boca de caverna",
     ("LakeOfRageLowTide", 15, 4):
         "Lago da Fúria MARÉ BAIXA, casa 1. O mapa inteiro é inalcançável, e "
         "isso é assim NA FONTE: no hns a maré baixa não é mapa vizinho, é "
@@ -226,13 +227,6 @@ SEM_INTERIOR = {
         "sobrescreve), então a segunda era conexão morta e enganosa. O "
         "fechador da rodada 13 tirou a duplicata.",
     ("LakeOfRageLowTide", 39, 41): "Lago da Fúria MARÉ BAIXA, casa 2, idem.",
-    ("MtSilver_Outside", 14, 3): "Monte Prata, boca de caverna (1 de 3)",
-    ("MtSilver_Outside", 34, 7): "Monte Prata, boca de caverna (2 de 3)",
-    ("MtSilver_Outside", 7, 16): "Monte Prata, boca de caverna (3 de 3)",
-    ("MtSilver_MountainSide", 44, 9): "Monte Prata, encosta, boca (1 de 4)",
-    ("MtSilver_MountainSide", 27, 18): "Monte Prata, encosta, boca (2 de 4)",
-    ("MtSilver_MountainSide", 34, 31): "Monte Prata, encosta, boca (3 de 4)",
-    ("MtSilver_MountainSide", 41, 40): "Monte Prata, encosta, boca (4 de 4)",
 
     # --- Portão de rota desenhado dos DOIS lados da emenda ----------------
     # Todo portão de Johto e desenhado inteiro nos dois mapas que ele liga, e
@@ -459,6 +453,8 @@ def varre(raiz=None):
         warps = dados.get("warp_events") or []
         onde_ha_warp = {(w.get("x", 0), w.get("y", 0)) for w in warps}
         do_script = celulas_de_script(raiz, nome, dados)
+        com_placa = {(b.get("x"), b.get("y")) for b in (dados.get("bg_events") or [])
+                     if b.get("script") in SCRIPTS_DE_PLACA}
 
         def anota(regra, classe, x, y, texto):
             achados.append(dict(regra=regra, classe=classe, regiao=reg,
@@ -473,6 +469,14 @@ def varre(raiz=None):
                 continue
             if any(c in do_script for c in bloco):
                 censo["porta_de_script"] += 1
+                continue
+            # PLACA: porta que o jogo EXPLICA. Medido no map.json, não em lista:
+            # a célula tem `bg_event` apontando para uma das duas placas comuns
+            # de porta fechada, então o jogador que anda até ela recebe uma
+            # resposta em inglês em vez de silêncio. Isso é a decisão do Gui de
+            # 07/09/2026 na pergunta 46, e é contado à parte, nunca reprovado.
+            if any(c in com_placa for c in bloco):
+                censo["placa"] += 1
                 continue
             x, y = bloco[0]
             mb = vwt.NOME.get(comportamento, str(comportamento))
@@ -540,6 +544,8 @@ def tabela(achados, censo):
           f"({censo['mapas_fora']} ao ar livre, {censo['mapas_dentro']} fechados), "
           f"túmulos fora do denominador: {censo['tumulos']}, "
           f"não medidos: {censo['mudos']}")
+    print(f"portas com PLACA que explica (bg_event), fora da conta: "
+          f"{censo['placa']}")
     print(f"portas que o ROTEIRO abre (setmetatile/opendoor), fora da conta: "
           f"{censo['porta_de_script']}; lista branca: {censo['lista_branca']}")
     travas = [a for a in achados if a["classe"] == "trava"]

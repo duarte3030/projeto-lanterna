@@ -282,3 +282,30 @@ SunyshoreCity_EventScript_Placa2::
 
 SunyshoreCity_Text_Placa2:
 	.string "Sunyshore City\nSolar Powered!$"
+
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+SunyshoreCity_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox SunyshoreCity_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+SunyshoreCity_Text_Povoa1:
+	.string "The walkways above the street\nkeep the sand off our feet.$"
+
+SunyshoreCity_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox SunyshoreCity_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+SunyshoreCity_Text_Povoa2:
+	.string "The LIGHTHOUSE lens is solar.\nThe whole city runs on sun.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

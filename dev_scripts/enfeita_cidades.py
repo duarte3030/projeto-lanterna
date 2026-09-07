@@ -45,10 +45,20 @@ enfeite. Duas travas a mais, as duas medidas e nao supostas:
     de Oreburgh), mas so se a cor bater. Medido: arbusto verde na neve de
     Snowpoint da 253 de distancia de cor, contra 29 da pedra na terra e 82 da
     arvore na grama. O limite e 150.
-  - **MARGEM de 2 celulas** da borda do mapa, e no maximo 6 copias do MESMO
+  - **MARGEM de 2 celulas** da borda do mapa, e no maximo 2 copias do MESMO
     carimbo por cidade: sem a primeira, Celestic ganhava objeto em (0,18); sem a
     segunda, Snowpoint ganhava dez placas iguais, porque o catalogo de neve tem
-    poucos objetos e o rodizio voltava sempre nele.
+    poucos objetos e o rodizio voltava sempre nele. O teto nasceu valendo 6 e
+    CONTANDO ERRADO, por `id(e)`, o que dava dois orcamentos ao mesmo desenho
+    quando ele chegava pelas duas chamadas de `catalogo()`; com isso Celestic
+    saiu com 9 placas iguais, Solaceon com 11 e Oreburgh com 12. O Gui viu no
+    playtest, e em 07/09/2026 mandou podar: a conta passou a ser pela
+    ASSINATURA do desenho e o teto caiu para 2.
+  - **RETALHO DE CHAO nao e enfeite**, e por isso o quadrado de areia com borda
+    de grama entrou na lista `RECUSADOS` na mesma poda. Ele nao desenha objeto,
+    so troca o piso: ou cai num chao de outra cor e vira remendo (a areia na
+    calcada de Eterna e no gramado de Solaceon que o Gui apontou), ou cai num
+    chao da mesma cor e vira uma moldura de nada no meio da areia.
 
 DOIS TIPOS DE ENFEITE, e eles pagam portoes diferentes:
 
@@ -145,7 +155,7 @@ ESPACO = 5         # distancia minima (Chebyshev) entre dois enfeites solidos
 ESPACO_CANTEIRO = 7
 TETO_ENFEITE = 40  # nunca mais que isso numa cidade, por maior que ela seja
 TETO_CANTEIRO = 14
-TETO_POR_CARIMBO = 6  # copias do MESMO enfeite numa cidade
+TETO_POR_CARIMBO = 2  # copias do MESMO enfeite numa cidade (decisao do Gui)
 FRACAO_LISO = 0.015  # metatile andavel com 1,5% ou mais das celulas e "chao liso"
 TAPA_TOTAL = 0.90  # enfeite que troca 90% dos pixels do chao cabe em qualquer chao
 LIMITE_COR = 150.0  # e so se a cor dele nao brigar com a do chao (verde na neve)
@@ -163,7 +173,27 @@ ISENTOS = {22, 23, 30, 31, 470, 471, 486, 487, 306, 307, 312, 313, 314, 321,
 # FloaromaTown (2 pecas), de EternaCity (5) e de OreburghCity (3). Nenhum portao
 # de colisao, alcance ou rota pega isso: e julgamento de desenho, e por isso a
 # lista e curta, escrita a mao e com o motivo ao lado.
-RECUSADOS = {175, 207}
+#
+# A SEGUNDA leva entrou em 07/09/2026, pela poda que o Gui pediu na pergunta 47
+# ("retalhos de chao de outra cor"). Sao os metatiles do RETALHO DE CHAO: o
+# quadrado de areia com a borda arredondada de grama. Eles nao desenham objeto
+# nenhum, so trocam o piso, e por isso o resultado e sempre um dos dois defeitos
+# que o Gui viu no render: caem num chao de outra cor e viram remendo (areia na
+# calcada de EternaCity, 83,7 de distancia de cor; areia no gramado de
+# SolaceonTown, TwinleafTown, SandgemTown, FloaromaTown e EternaCity, de 97 a
+# 111; areia no gramado de BlackthornCity, 99,4), ou caem no chao da MESMA cor e
+# viram uma moldura de nada no meio da areia (CelesticTown, SolaceonTown e
+# OreburghCity, entre 15,3 e 19,3 de distancia). Nos dois casos e peca de
+# LIGACAO, igual ao degrau: ela so faz sentido presa a regiao de chao que ela
+# contorna. Os ids sao lidos no PRIMARIO DO DOADOR; nos outros primarios do
+# cartucho 1 os mesmos numeros sao penhasco (254 a 263 no `gTileset_GeneralSinnoh`)
+# e parede de caverna (280 a 298 no `gTileset_JohtoNorthEast`), que nunca foram
+# enfeite valido, entao a lista pode ser plana sem tirar nada de ninguem.
+RECUSADOS = {175, 207,
+             # `gTileset_GeneralSinnoh`: o retalho de areia 3x3 com borda de grama
+             280, 281, 282, 288, 289, 290, 296, 297, 298,
+             # `gTileset_JohtoNorthEast`: o mesmo retalho, 2x2
+             254, 255, 262, 263}
 
 # As dez cidades, o tema de cada uma e de quem ela aprende. O tema e o do jogo de
 # origem, nao invencao: Canalave e cidade PORTUARIA no Diamante/Perola, Oreburgh
@@ -577,6 +607,15 @@ def cobertura(pri, sec, mt, chao):
 
 
 # -------------------------------------------------------------------- catalogo
+def assinatura_crua(w, h, solido, cel):
+    """O que faz DOIS carimbos serem 'o mesmo enfeite' aos olhos do jogador."""
+    return (w, h, solido, tuple((c[0], c[1], c[2]) for c in cel))
+
+
+def assinatura(e):
+    return assinatura_crua(e["w"], e["h"], e["solido"], e["cel"])
+
+
 def _solidao(primario, doadores, _c={}):
     """{metatile: fracao das ocorrencias que caem em MANCHA solida pequena}."""
     chave = (primario, tuple(doadores))
@@ -701,7 +740,7 @@ def catalogo(primario, doadores, so_primario=False, _c={}):
                 continue
             if any(c[2] in RECUSADOS for c in cel):
                 continue
-            marca = (w, h, solido, tuple((c[0], c[1], c[2]) for c in cel))
+            marca = assinatura_crua(w, h, solido, cel)
             if marca in vistos:
                 continue
             vistos.add(marca)
@@ -852,7 +891,17 @@ def plano(alvo, base=None):
                 # MESMA placa, porque o catalogo de neve tem poucos objetos e o
                 # rodizio voltava sempre nele. Dez placas iguais nao e
                 # decoracao, e repeticao.
-                if por_carimbo[id(e)] >= TETO_POR_CARIMBO:
+                #
+                # A conta era por `id(e)`, e ISSO NAO SEGURAVA NADA quando o
+                # mesmo desenho chegava por dois caminhos: `catalogo_de` soma
+                # duas chamadas de `catalogo()`, cada uma com o proprio `vistos`,
+                # entao a placa 3 entrava como DOIS objetos Python diferentes e
+                # ganhava dois orcamentos. Medido no plano de 06/09/2026, com o
+                # teto valendo 6: CelesticTown ficou com 9 copias da placa,
+                # SolaceonTown com 11 e OreburghCity com 12. E foi exatamente
+                # isso que o Gui viu no playtest. A chave agora e a ASSINATURA
+                # do desenho (forma mais metatiles), que e o que o jogador ve.
+                if por_carimbo[assinatura(e)] >= TETO_POR_CARIMBO:
                     continue
                 if not cabe(e, x, y):
                     continue
@@ -880,7 +929,7 @@ def plano(alvo, base=None):
                 for j, _velho, novo, _c in posto:
                     escritas[j] = novo
                 postos.append((x, y, tipo))
-                por_carimbo[id(e)] += 1
+                por_carimbo[assinatura(e)] += 1
                 contas[tipo] += 1
                 break
 
@@ -1106,7 +1155,13 @@ def demo():
         if distintos(saida) < distintos(v):
             mau.append("%s: vocabulario encolheu (%d -> %d)"
                        % (alvo, distintos(v), distintos(saida)))
-        if n_obj + n_can < 5:
+        # O piso era 5, e ele nasceu quando o teto por carimbo era 6: bastava um
+        # carimbo servir para a cidade passar. Com o teto em 2 (a poda que o Gui
+        # pediu em 07/09/2026) o piso passa a ser o proprio teto, porque
+        # BlackthornCity tem UMA assinatura util no catalogo e sai com 2. O que
+        # este caso ainda cobra e o que ele sempre cobrou de verdade: que o
+        # gerador nao tenha parado de desenhar calado.
+        if n_obj + n_can < TETO_POR_CARIMBO:
             mau.append("%s: so %d enfeites" % (alvo, n_obj + n_can))
 
         # 7. o catalogo tem que ter objeto solido, senao a cidade so ganha

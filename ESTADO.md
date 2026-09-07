@@ -12,6 +12,306 @@ abaixo é a passagem de bastão dela, e começa pelo placar; a 0.t é a da rodad
 
 ---
 
+## 0.v O SELETOR DE CAPÍTULO DEIXA DE ENTREGAR UM PIKACHU E PASSA A ENTREGAR UM TIME DE CINCO, 07/09/2026 (pedido direto do Gui; executor Opus)
+
+### Time de teste do seletor
+
+Quem salta de capítulo com a party VAZIA deixou de ganhar um Pikachu nível 20 sozinho e passou a ganhar
+**cinco Pokémon nível 50, um por mecânica moderna**, e o mesmo salto põe na mochila os quatro aparelhos
+(Mega Ring, Z-Power Ring, Dynamax Band, Tera Orb) e acende `FLAG_B8_DYNAMAX_LIBERADO` e
+`FLAG_B8_TERA_ORB_CARREGADO`. **O achado que não estava na fila e vale mais que o pedido:** `src/new_game.c`
+só dava a Dynamax Band e o Mega Ring, então **o Z-Power Ring e a Tera Orb nunca existiram em save nenhuma
+desta ROM**, e por isso `CanUseZMove` (`src/battle_z_move.c:121`) e `CanTerastallize`
+(`src/battle_terastal.c:77`) recusavam SEMPRE, para qualquer jogador, em qualquer batalha: duas mecânicas
+inteiras estavam mortas e nenhum teste pegava, porque nenhum teste abria o menu de golpes. O nível subiu de
+20 para 50 porque 20 não sobrevive a chefe de capítulo tardio, que é justamente onde o seletor mais serve, e
+o modo de teste LV.5 TRAINERS não rebaixa isto: ele mexe SÓ na party do TREINADOR (`src/battle_main.c:2003`).
+Custo de save ZERO em tudo: itens numa mochila que já existe, flags que já existem e um time que nasce na
+hora e nunca foi gravado em disco.
+
+| slot | Pokémon (nível 50) | segura | golpes | mecânica | prova lida da EWRAM |
+|---|---|---|---|---|---|
+| 0 | Raichu | Raichunite Y (859) | Thunderbolt, Surf, Rock Smash, Strength | Mega Raichu Y | `especie0` = 1554 |
+| 1 | Charizard, fator Gigantamax | nada | Flamethrower, Fly, Sunny Day | Gigantamax | `especie1` = 1491 e `gCurrentMove` = 903 (G-Max Wildfire) |
+| 2 | Mew | Mewnium Z (378) | Psychic, Cut, Flash | Z-move | `gCurrentMove` = 871 (Genesis Supernova) |
+| 3 | Incineroar, tera Dark | nada | Darkest Lariat, Flare Blitz, Bulk Up | Terastal | `FLAG_B8_TERA_ORB_CARREGADO` de 1 para 0 |
+| 4 | Lucario | Lucarionite Z (864) | Aura Sphere, Close Combat | Mega Lucario Z | `especie4` = 1559 |
+
+O Raichu é o slot 0 de propósito e carrega a suíte de HM inteira: `ScrCmd_checkfieldmove`
+(`src/scrcmd.c:2307`) varre a party do índice 0 para cima e PARA no primeiro que conhece o golpe, então toda
+rota de teste de Surf, Rock Smash e Strength continua valendo letra por letra.
+
+**O que o motor impõe e o time não conserta.** `AssignUsableGimmicks` (`src/battle_gimmick.c:20`) dá UMA
+mecânica por lutador, a PRIMEIRA da fila MEGA, ULTRA BURST, Z-MOVE, DYNAMAX, TERA, então Pokémon do jogador
+de mãos vazias SEMPRE cai no Dynamax, e **o Terastal do jogador só fica alcançável depois de o Dynamax ter
+sido gasto na mesma batalha**. Segurar Mega Stone ou Z-Crystal derruba o Dynamax, mas derruba o Terastal
+junto pela MESMA linha (`src/battle_terastal.c:102`), e isso foi TENTADO com uma Darkranite inerte na mão do
+Incineroar: ele ficou sem mecânica nenhuma. Não há item que resolva; é ordem de enum, e mexer nela é rodada
+própria. Mega também é uma vez por batalha por treinador, então o Mega Raichu Y e o Mega Lucario Z não cabem
+na mesma luta.
+
+**Portões.** Build verde (`make -j8`, RC 0) na worktree isolada `/private/tmp/claude-501/time-teste`, HEAD
+`7053780f27` mais só estes arquivos: **EWRAM 86,16%, IWRAM 86,68%, ROM 96,45% (32.364.776 B), idênticos aos
+do HEAD limpo**. `guarda_save.py` **SAVE COMPATIVEL**, SaveBlock1 em 14.964 de 15.872 B (94,3%).
+**T183 6 de 6** (bloco novo, `dev_scripts/testes_criticos/183_time_do_seletor.json`), **T11 3 de 3** contra
+`roms/pokemon-claude-2026-08-18.gba` com a fonte na worktree de `cf6786b2ae`, e **25 blocos verdes**, entre
+eles os treze que dependem de HM de campo ou liam o Pikachu (T90, T97, T98, T100, T101, T107, T112, T121,
+T124, T129, T136, T137, T148, T152, T157, T166, T169, T170) mais a amostra T2, T4, T20, T40, T82, T92, T95,
+T99, T116, T128, T143, T144, T153, T159, T176.
+
+**Dois casos foram RECALIBRADOS, e o time não.** T101.13 cobrava `time` 1 e passou a cobrar 5. T170.8
+travava em "Raichu is already in battle!", e o diagnóstico saiu do PNG final: com time de mais de um Pokémon
+o estilo de batalha SHIFT (o padrão) pergunta "quer trocar de POKEMON?" toda vez que o adversário manda um
+bicho novo, e o tapete de A do caso respondia SIM e caía na lista do time. O conserto é o `antes_do_warp`
+passar pelo menu de OPTION e pôr BATTLE STYLE em SET antes do warp. Vale de aviso para o playtest: quem
+jogava com um Pokémon só nunca via essa pergunta, e agora ela aparece em toda batalha de treinador.
+
+**E o JOGO NOVO passa a dar os quatro aparelhos, não dois.** O achado acima era só do lado do SALTO: `src/new_game.c`
+seguia dando apenas Dynamax Band e Mega Ring, e por isso Z-move e Terastal continuavam mortos para quem joga a história
+do começo. Agora ele dá também ITEM_Z_POWER_RING e ITEM_TERA_ORB, custo de save ZERO. T184.1 (bloco novo) lê os quatro
+com quantidade 1 na bolsa do jogo novo e fica VERMELHO na ROM de antes em `item_0x2C0` e `item_0x304`; e de jogo novo um
+Wobbuffet com Firium Z disparou `gCurrentMove` 857 (Inferno Overdrive) numa selvagem. Build verde, SAVE COMPATIVEL, T11 3/3.
+
+### Povoamento: 10 NPCs por cidade, 07/09/2026 (frente de POVOAMENTO, executor Opus)
+
+**A lei, e ela é do Gui** (07/09/2026, pergunta 53): "cada cidade deve ter pelo menos uns 10 NPCs".
+Vale para as cidades EXTERIORES do cartucho 1, ou seja Kanto, Johto, Hoenn e Sinnoh.
+
+**A régua, e ela mede coisa diferente da lista que veio na pergunta.** NPC aqui é OBJETO QUE É
+GENTE. Ficam de fora o Pokémon de cenário nas três formas em que ele aparece nesta árvore (a macro
+`OBJ_EVENT_GFX_SPECIES(...)`, o gráfico velho que É nome de espécie como `OBJ_EVENT_GFX_MACHOP`, e a
+forma de lendário como `GROUDON_SIDE`), a bola de item, o pé de berry e o mobiliário que anda
+(caminhão, barco, pedra, placa-objeto). **E fica de fora o `OBJ_EVENT_GFX_LIGHT_SPRITE`, que é POSTE
+DE LUZ**: foi ele que fez a contagem da pergunta 53 divergir da desta frente, e a diferença é grande.
+VioletCity aparecia com 31 objetos e tem **6 pessoas**, porque 25 dos 31 são lampiões; Ecruteak tinha
+"25" e tem 9; Olivine tinha "18" e tem 6. Régua que conta lampião como gente diz que a cidade está
+povoada quando ela está vazia.
+
+Com essa régua, **43 das 58 cidades que a lei alcança estavam abaixo do piso**, e não as 20 da
+lista. As 15 que já passavam continuam intocadas. (58 e não 61 porque três das 61 TOWN/CITY do
+cartucho 1 saem por corte, e estão logo abaixo.)
+
+**O piso, medido e não escolhido a olho.** 10 é a lei. Sobe para 11 em cidade com 700 células secas
+alcançáveis ou mais, e para 12 com 1.000 ou mais (`GRANDE` em `povoa_cidades.py`). É área, não gosto:
+sem isso Slateport e Twinleaf teriam a mesma população.
+
+**Quem ficou de fora, e por quê.** `FightArea`, `SurvivalArea` e `ResortArea`: são a Battle Zone, que
+o Gui cortou do porte em 21/08/2026 (`completude.CORTES_DO_GUI`), e os três mapas são cotocos de
+**1x1 célula**. Nenhuma outra cidade exterior do cartucho 1 ficou fora.
+
+### O que entrou
+
+**210 NPCs em 43 cidades**, cada um com objeto próprio no `map.json` e roteiro próprio no
+`scripts.inc`: `lock` / `faceplayer` / `msgbox` / `release` / `end`, 1 a 3 páginas de inglês, sem
+flag, sem var, sem item e sem batalha. Nenhum `map.bin`, tileset ou `layouts.json` foi tocado (isso é
+da frente de ARTE, que rodou em paralelo).
+
+| região | cidades | NPCs | bytes |
+|---|---|---|---|
+| Kanto | 16 | 90 | 8.358 |
+| Johto | 9 | 42 | 3.899 |
+| Hoenn | 10 | 54 | 4.996 |
+| Sinnoh | 8 | 24 | 2.222 |
+| **total** | **43** | **210** | **19.475** |
+
+Os 19.475 B são a SOMA das cidades, lida do `pokeemerald.map` (cada `_EventScript_Povoa*` até o
+símbolo seguinte, que é o texto dele) mais 24 B por `ObjectEventTemplate`. A ROM cresceu de
+**32.364.808 B para 32.384.280 B**, ou seja **+19.472 B**, medidos build contra build no mesmo HEAD
+`ac1b026f53`: os 3 B de diferença são alinhamento. O mesmo +19.472 saiu de duas medições anteriores,
+sobre `7053780f27` e sobre `348e4dbd22`, o que é o esperado de dado que só cresce por conta própria. **EWRAM e IWRAM não mudaram um byte** (225.856 e
+28.404), e não podiam mudar: objeto e texto moram na ROM.
+
+### A tabela antes e depois, cidade a cidade
+
+| região | cidade | antes | depois | novos | bytes |
+|---|---|---|---|---|---|
+| Kanto | CeladonCity | 10 | 12 | +2 | 185 |
+| Kanto | CeruleanCity | 9 | 12 | +3 | 284 |
+| Kanto | CinnabarIsland | 3 | 10 | +7 | 646 |
+| Kanto | FiveIsland | 2 | 10 | +8 | 729 |
+| Kanto | FourIsland | 5 | 10 | +5 | 460 |
+| Kanto | FuchsiaCity | 7 | 11 | +4 | 384 |
+| Kanto | IndigoPlateau_Exterior | 2 | 10 | +8 | 733 |
+| Kanto | LavenderTown | 3 | 10 | +7 | 646 |
+| Kanto | OneIsland | 3 | 10 | +7 | 629 |
+| Kanto | PalletTown | 3 | 10 | +7 | 697 |
+| Kanto | PewterCity | 6 | 11 | +5 | 470 |
+| Kanto | SevenIsland | 3 | 10 | +7 | 637 |
+| Kanto | SixIsland | 2 | 10 | +8 | 732 |
+| Kanto | TwoIsland | 7 | 10 | +3 | 277 |
+| Kanto | VermilionCity | 8 | 12 | +4 | 384 |
+| Kanto | ViridianCity | 6 | 11 | +5 | 465 |
+| Johto | AzaleaTown | 6 | 10 | +4 | 390 |
+| Johto | BlackthornCity | 7 | 11 | +4 | 377 |
+| Johto | CherrygroveCity | 6 | 10 | +4 | 377 |
+| Johto | CianwoodCity | 6 | 11 | +5 | 465 |
+| Johto | EcruteakCity | 9 | 12 | +3 | 268 |
+| Johto | MahoganyTown | 4 | 10 | +6 | 533 |
+| Johto | NewBarkTown | 3 | 10 | +7 | 659 |
+| Johto | OlivineCity | 6 | 11 | +5 | 464 |
+| Johto | VioletCity | 6 | 10 | +4 | 366 |
+| Hoenn | DewfordTown | 4 | 10 | +6 | 544 |
+| Hoenn | EverGrandeCity | 0 | 10 | +10 | 921 |
+| Hoenn | FallarborTown | 3 | 10 | +7 | 651 |
+| Hoenn | FortreeCity | 6 | 10 | +4 | 390 |
+| Hoenn | LavaridgeTown | 9 | 10 | +1 | 86 |
+| Hoenn | LittlerootTown | 6 | 10 | +4 | 382 |
+| Hoenn | OldaleTown | 4 | 10 | +6 | 553 |
+| Hoenn | PacifidlogTown | 3 | 10 | +7 | 641 |
+| Hoenn | PetalburgCity | 7 | 10 | +3 | 269 |
+| Hoenn | VerdanturfTown | 4 | 10 | +6 | 559 |
+| Sinnoh | CanalaveCity | 7 | 10 | +3 | 285 |
+| Sinnoh | CelesticTown | 8 | 10 | +2 | 182 |
+| Sinnoh | FloaromaTown | 8 | 11 | +3 | 280 |
+| Sinnoh | SandgemTown | 6 | 10 | +4 | 375 |
+| Sinnoh | SnowpointCity | 8 | 11 | +3 | 265 |
+| Sinnoh | SolaceonTown | 9 | 12 | +3 | 279 |
+| Sinnoh | SunyshoreCity | 9 | 11 | +2 | 188 |
+| Sinnoh | TwinleafTown | 6 | 10 | +4 | 368 |
+
+`EverGrandeCity` tinha **zero** gente, e é o caso mais visível: a cidade da Liga era um portão e uma
+montanha, sem uma alma na praia.
+
+### A ferramenta, e por que a POSIÇÃO é dado congelado
+
+`dev_scripts/povoa_cidades.py` mais `dev_scripts/povoa_cidades.json`. A tabela (cidade, gráfico,
+posição, movimento, fala) mora no JSON; o script aplica, confere e tem `--demo` de 16 provas.
+`--aplica` é **idempotente**: a segunda passada muda 0 arquivos. Cada objeto carrega
+`"origem": "povoa_cidades"`, que é a mesma técnica que o `distribui_dex.py` usa desde 21/08/2026
+(`tools/mapjson` lê o objeto por chave e ignora chave que não conhece), e é por ela que a ferramenta
+reconhece e reescreve o próprio trabalho em vez de duplicá-lo.
+
+**A posição é PROPOSTA por `--sugere` e GRAVADA no JSON, não recalculada a cada rodada.** Isso
+importa porque a frente de arte redesenha cidade: posição recalculada em silêncio faria o NPC andar
+sozinho pelo mapa entre duas builds, e ninguém veria. `--confere` revalida o dado congelado contra o
+`map.bin` de hoje, e foi ele que pegou as sete posições que a arte invalidaria.
+
+**Sete regras de posição, todas conferidas em `--confere` e todas verdes nos 210:**
+
+1. célula andável (colisão 0) com comportamento de CHÃO COMUM, por **lista branca** de 8
+   comportamentos (`MB_NORMAL`, `MB_SAND`, `MB_DEEP_SAND`, `MB_SHORT_GRASS`, `MB_FOOTPRINTS`,
+   `MB_NO_RUNNING`, `MB_MOUNTAIN_TOP`, `MB_PUDDLE`). Lista branca e não lista negra: o enum tem 250
+   nomes e quase todos são mobília, porta, escada, gelo, água ou piso de puzzle, e comportamento
+   novo que apareça amanhã tem que entrar como suspeito, não como bom;
+2. alcançável a pé, com a regra de elevação do motor (`IsElevationMismatchAt`);
+3. não ilha ninguém: o alcance com os NPCs novos como PAREDE é o de antes menos as células deles;
+4. longe de porta, placa e gatilho: nem em cima nem na vizinhança-4 de warp, `bg_event` ou
+   `coord_event`, nem na FAIXA DA PORTA (os três tiles em linha reta abaixo de cada warp, que é por
+   onde quem sai de uma porta desce), nunca em cima de objeto que já existe, e nunca no ANEL DE BORDA
+   do mapa (célula de borda aparece dentro do mapa vizinho enquanto o jogador anda na rota);
+5. espalhados: Chebyshev 3 entre NPC novo e qualquer outra gente, caindo para 2 só onde a cidade não
+   tem chão para 3 (`PacifidlogTown` é passarela de troncos, `IndigoPlateau_Exterior` é trilha);
+6. `movement_range` que não invade porta: a caixa inteira passa pelas regras 1 e 4, e por isso o NPC
+   em beco recebe `FACE_*`/`LOOK_AROUND` de alcance 0 em vez de `WANDER_AROUND`;
+7. teto de sprite: nenhuma janela de 20x17 fica com mais de 15 objetos que gastam vaga.
+
+### As três medições que mudaram o desenho, e cada uma custou uma passada
+
+1. **ÁGUA TEM COLISÃO 0, e busca que só olha colisão atravessa o mar.** Quem barra o jogador na água
+   é a ELEVAÇÃO, e quem atravessa é o Surf. A primeira versão do alcance não sabia disso.
+2. **Objeto que já existe NÃO É SEMENTE de alcance.** Pokémon de cenário mora em praia e em penhasco
+   onde o jogador só chega surfando. Em `CianwoodCity`, semear a busca nos 22 objetos do mapa abria
+   **868 células contra as 404 que se alcançam a pé pelas portas**, e cinco NPCs foram parar na praia
+   oeste. **Quem pegou foi a lente C2 do `mapas_qa.py`** ("objeto com script inalcançável"), e ela
+   estava certa: seis achados novos, cinco de Cianwood e um de Solaceon. Corrigida a semente, a
+   ferramenta passou a recusar sozinha essas posições, e a lente voltou a zero achado novo.
+3. **NPC é sólido, e beco de largura 1 é comum em vila.** Sem a prova de ilhamento dentro do próprio
+   guloso (com a fila ORDENADA, para o segundo colocado entrar quando o primeiro fecha caminho),
+   Pacifidlog perdia 9 células atrás de um NPC no meio de um tronco, Fallarbor 4, SixIsland 2 e
+   FiveIsland 1.
+
+4. **A FAIXA DA PORTA é caminho, e caminho é parede para objeto novo.** Esta saiu da SUÍTE, e é a
+   quarta porque as três de cima não a pegariam. Um `WALK_UP_AND_DOWN` plantado em (31,19) de
+   `AzaleaTown` alcança (31,18), que é o terceiro tile abaixo da porta do Kurt, e o **T149.7 abriu
+   VERMELHO**: o roteiro descia dois tiles, o segundo DOWN esbarrava no velho, e a rota inteira saía
+   um tile do lugar (o jogador parava em (35,14) em vez de (34,15), com os quatro RIGHT andando em
+   vez de três, porque o esbarrão come o aperto que serviria para virar). Medido nos dois lados: o
+   caso é 14/14 na árvore sem o povoamento e era 13/14 com ele, três execuções seguidas, ou seja
+   determinístico e não instável. A regra que ficou é a mesma que o `distribui_dex.py` já aplica com
+   `rota_dos_lendarios_sinnoh`: **tile que um roteiro PISA é parede para objeto novo**, e aqui ela
+   virou geometria em vez de lista de casos. Reposicionou 15 NPCs em 5 cidades (Azalea, Cinnabar,
+   Oldale, One Island e Pacifidlog), sem mudar um byte de texto.
+
+A lição que fica das quatro: **a régua da ferramenta tem que ser pelo menos tão dura quanto a lente e
+o teste que vão auditá-la.** Enquanto ela era mais frouxa, a ferramenta dava tudo verde e quem
+acusava era a lente C2 e, depois dela, a suíte.
+
+### As provas
+
+- `povoa_cidades.py --demo`: **16 provas verdes**, entre elas a idempotência (2ª passada, 0 arquivos),
+  as sete regras nos 210, rótulo único por cidade, nenhuma linha de fala acima de 34 caracteres e
+  nenhum caractere fora do charmap nas 212 falas.
+- `povoa_cidades.py --censo`: **faltam 0 NPCs**, nas 58 cidades que a lei alcança.
+- **Build limpo verde** sobre o HEAD `ac1b026f53`, ROM 32.384.280 B (96,51% de 32 MB), EWRAM e IWRAM iguais
+  aos da build sem o povoamento. A ROM desta frente é
+  `roms/pokemon-claude-2026-09-07-povoamento.gba`, md5 `ecfab6695463b6a8144fef13b6ee61a2`, com o
+  `.map` do linker ao lado.
+- `guarda_save.py`: **SAVE COMPATIVEL**. Objeto novo entra no FIM da lista de cada mapa, que é o que
+  a save exige (ela guarda ÍNDICE de objeto), e nenhuma flag nova foi gasta.
+- `valida_rom.py`: 2.404 mapas e 2.054 layouts, tudo que foi declarado entrou.
+- `valida_conectividade.py`: **0 warps quebrados**, alcance **1.969 de 2.293**, os MESMOS números da
+  árvore sem o povoamento (medido nas duas).
+- `valida_warp_tile.py --piso 60`: **5.937 de 6.893 (86,1%)**, Hoenn 93,4%, Kanto 79,4%, Sinnoh
+  98,1%, Johto 91,0%, Unova 100,0%. Idêntico à árvore sem o povoamento.
+- `completude.py`: nenhuma coluna caiu e a de objetos subiu nas quatro regiões: Kanto 101,2% ->
+  **106,7%**, Johto 100,8% -> **102,6%**, Hoenn 100,7% -> **102,7%**, Sinnoh 99,4% -> **100,6%**.
+  Unova e Galar intocadas.
+- `roda_qa.py --demo`: **verde nas sete lentes**. Varredura cheia: **14.661 achados com 323 travas**
+  contra **14.654 e as MESMAS 323 travas** da árvore sem o povoamento. Os 7 a mais são TODOS da lente
+  de texto (`checa_texto` T07, cosmético). Do lado do MAPA a árvore final tem **ZERO achado novo**,
+  conferido achado a achado contra a base (6.705 contra 6.705), e isso vale para as 15 regras de
+  objeto e de alcance, `B7` (janela de sprite) e `C2` (objeto inalcançável) incluídas.
+- **Suíte 1.084 de 1.084**, rodada bloco a bloco (116 blocos, o placar de cada um gravado em disco),
+  ZERO reprovado, o T11 à parte. Nem o T176.3, nem o T94.1, nem o T143.9, os três instáveis da rodada
+  13, abriram vermelho nesta passada. Ela rodou sobre a build de `348e4dbd22` mais esta frente; sobre
+  a build final (`ac1b026f53` mais esta frente) foram refeitos o **T149 (14 de 14)**, o **T11
+  (3 de 3)** e a prova no emulador (**5 de 5**), porque o que entrou entre os dois HEADs foi
+  `src/new_game.c` e um bloco de teste novo, e nada de dado de mapa.
+- **T11 3 de 3**, contra `roms/pokemon-claude-2026-08-18.gba` com a fonte velha na worktree de
+  `cf6786b2ae`.
+- A suíte foi rodada DUAS vezes inteiras: a primeira, ainda sem a regra da faixa da porta, deu
+  **1.077 de 1.078 com o T149.7 vermelho**, e foi ela que achou o defeito descrito acima. Rodar a
+  suíte cheia depois de mexer em 43 mapas não é zelo: era a única prova que pegava aquilo.
+
+### A prova no emulador, e ela anda até o NPC
+
+`dev_scripts/prova_povoamento.py`: warpa pelo menu de debug, ANDA até um NPC novo, aperta A, grava o
+framebuffer e lê da EWRAM onde o jogador parou. **5 de 5 casos pararam no tile de conversa** e os
+cinco PNGs foram abertos e olhados:
+
+| cidade | região | NPC | a caixa que abriu |
+|---|---|---|---|
+| PalletTown | Kanto | FISHERMAN (18,15) | "The sea opens up south of town. Without SURF you stop at the sand." |
+| NewBarkTown | Johto | LASS (12,14) | "Every house here knows every other house. Keep no secrets." |
+| OldaleTown | Hoenn | LASS (5,11) | "The MART clerk explains POTIONS to everyone. Every single time." |
+| SandgemTown | Sinnoh | WOMAN_4 (12,13) | "The MART here is small but it never runs out of POTIONS." |
+| SunyshoreCity | Sinnoh | SCIENTIST_1 (47,12) | "The LIGHTHOUSE lens is solar. The whole city runs on sun." |
+
+**O alvo de cada caso é escolhido pela ferramenta, não decorado**: o NPC mais perto da chegada de uma
+porta, entre os que NÃO ANDAM (`movement_range` 0), porque NPC que passeia não está onde o plano diz
+quando o roteiro chega lá (lição do T98.9). E o roteiro **se corrige sozinho**: roda, lê da EWRAM
+onde parou e, se não for o tile de conversa, RECALCULA o resto do caminho dali e roda de novo. Sem
+isso, Sandgem e Sunyshore paravam a um tile do alvo, porque o modelo de "trocar de direção custa um
+aperto" erra onde o motor engole aperto por esbarrão.
+
+**Medido de passagem, e vale para toda fala futura: 34 caracteres por linha CABEM na caixa.** A linha
+"Without SURF you stop at the sand." tem 34 e apareceu inteira no framebuffer de Pallet Town. E a
+primeira leva de PNGs foi tirada com a caixa AINDA DIGITANDO: 180 quadros de espera depois do A não
+bastam para uma página de duas linhas, 600 bastam.
+
+### O que fica aberto
+
+- **A lente T07 do `checa_texto.py` acusa inglês em Sinnoh, Unova e Galar** como se essas regiões
+  devessem estar em português. A regra contraria a decisão que vale hoje ("sem português no jogo") e
+  já acusava 1.124 vezes em Sinnoh antes desta frente; os 7 novos são meus. É cosmético e não é
+  trava, mas a régua está mentindo sobre a intenção e alguém vai acreditar nela um dia.
+- **`IndigoPlateau_Exterior` recebeu 8 NPCs numa trilha**, com distância mínima 2 em vez de 3, e é a
+  cidade mais apertada da leva. Se o Gui achar carregado, tirar é uma linha no JSON.
+- **Toda fala é de sabor e de dica verdadeira**, mas nenhuma foi lida pelo Gui ainda. As 212 páginas
+  estão no `povoa_cidades.json`, uma por linha, e é lá que ele muda o que não gostar.
+
+---
+
 ## 0.u O LETREIRO DE MAPA PARA DE DIZER "SINNOH WEST" E JOHTO PARA DE TOCAR CAVERNA: O NOME DO POPUP SAI DO MAPSEC, E O DE-PARA DE MÚSICA SAI DE PETALBURG WOODS, 05-07/09/2026 (rodada 13; o playtest do Gui, um executor Opus por frente, fechador Opus)
 
 ### PLACAR DA RODADA 13, fechado em 07/09/2026
@@ -619,6 +919,20 @@ O Gui, no playtest: "a cidade está muito feia, é assim mesmo?" sobre `Canalave
 graça do ROM hack você podia dar uma enfeitada temática". Onze cidades e vilas foram enfeitadas,
 **388 células no total** (386 delas mudam byte de verdade; duas repintam o mesmo
 metatile), e Canalave ganhou um porto que não existia em tileset nenhum de Sinnoh.
+
+**PODADO em 07/09/2026: as 333 células do gerador viraram 80**, e com as 55 do porto, que não foram
+tocadas, o total sai de 388 para **135**. É a resposta do Gui à pergunta 47 ("manter e podar").
+Duas mudanças, as duas no gerador e nenhuma à mão: o teto por carimbo caiu de 6 para **2** e passou a
+contar pela ASSINATURA do desenho, porque contar por `id(e)` não segurava nada quando o mesmo carimbo
+chegava pelas duas chamadas de `catalogo()` (Celestic tinha 9 placas iguais, Solaceon 11 e Oreburgh 12,
+e foi isso que o Gui viu); e o RETALHO DE CHÃO, o quadrado de areia com borda de grama (metatiles 280 a
+298 do `gTileset_GeneralSinnoh` e 254 a 263 do `gTileset_JohtoNorthEast`), entrou em `RECUSADOS`, porque
+ele não desenha objeto nenhum e só troca o piso: ou vira remendo de outra cor (a areia na calçada de
+Eterna e no gramado de Solaceon), ou vira moldura de nada no meio da areia. Por cidade, de 333 para 80:
+Canalave 10→6, Celestic 21→6, Snowpoint 18→6, Solaceon 72→6, Oreburgh 51→12, Jubilife 30→10, Twinleaf
+14→8, Sandgem 21→10, Blackthorn 30→2, Eterna 36→6, Floaroma 30→8. O plano continua idempotente (três
+rodadas seguidas dão `map.bin`, tileset e os dois planos byte idênticos), e o T175.4 e o T175.5 foram
+recalibrados por busca, porque mediam cópias que a poda tirou.
 
 #### A régua: `dev_scripts/regua_cidades.py`
 
@@ -1747,6 +2061,144 @@ com o T11.3 pulado** (precisa de `--rom2`) e **zero vermelho**, medida contando 
 `10_kanto.json`, `20_johto.json` e `30_hoenn_sinnoh.json` misturam prefixos (T2, T3, T5, T7, T8, T9),
 e um laço que tira o prefixo do PRIMEIRO caso do arquivo pula 59 casos calado; a conferência caso a
 caso é que pegou.
+
+### As 31 portas de Johto ganham interior: quatro casas novas, quatro ligações que já estavam desenhadas dos dois lados, e 18 placas, 07/09/2026 (pergunta 46, depois do fechamento da rodada 13)
+
+Frente única, executada depois do placar acima e depois das cinco meias portas, e por isso **a ROM
+consolidada `roms/pokemon-claude-2026-09-07.gba` NÃO tem este conserto**. A ROM desta frente é
+`roms/pokemon-claude-2026-09-07c.gba`, md5 `d8068a6489cabf67bacdf5e5223ae7c2`, com o `.map` do linker
+ao lado, buildada LIMPA no commit `cb7dcb7505`, que é este conserto rebaseado em cima da poda das
+cidades enfeitadas (`eefed261ca`).
+
+A decisão do Gui foi: "as 31 ganham interior onde alguma fonte tiver; o que não tem em fonte nenhuma
+ganha placa `closed` em inglês". Para responder isso foi preciso MEDIR cinco fontes de Johto, e o
+resultado desmonta a premissa em dois pontos. **Três das 31 nunca foram porta morta**, e **as três
+que o Gui deu como certas não são as três que a fonte tem**: a casa da trilha do sino tem fonte
+(FireGold), a MooMoo Farm da fonte está na Route 39 e já está aberta aqui há tempo (a fazenda da
+Route 38 é desenho NOSSO), e as bocas do Monte Prata em fonte nenhuma passam de UMA por lado.
+
+**As cinco fontes, e o que cada uma respondeu.** `fontes-mapas/hns` (Pokémon Heart & Soul, que é a
+fonte da nossa Johto), o decomp público do **GS Chronicles** (`G0LD/GS-Chronicles-Decomp`, clonado em
+`fontes-mapas/romhacks/gs-chronicles/decomp/`, e que absorve os mapas do HnS: os `map.json` dele
+chamam-se `*_hns` e batem com os nossos warp a warp), e as ROMs **Liquid Crystal**, **FireGold** e
+**Scorched Silver**, lidas com o `gbamap.py`. Crédito no `CREDITS.md`. Duas descobertas de método que
+valem para a próxima leitura de ROM: `liquid-crystal/` e `liquid-crystal-beta-3.3/` são o MESMO
+arquivo (md5 `3e72e2d767ed9e689c48692f2f00de7a`), e o `enumera()` do `gbamap.py` SUBCONTA mapas (424
+na Liquid Crystal contra 762 reais), porque a heurística de fim de banco e os filtros de clima e de
+número de eventos derrubam header válido.
+
+**A tabela das 31**, e a coluna "fonte" diz quem abre aquela porta lá:
+
+| # | porta | família | o que ficou | fonte |
+|---|---|---|---|---|
+| 1 | `MtSilver_MountainSide` (27,18) | já entrava | nada muda; foi para a lista branca da lente | a nossa, medida |
+| 2 | `MtSilver_MountainSide` (34,31) | já entrava | idem | a nossa, medida |
+| 3 | `MtSilver_MountainSide` (41,40) | já entrava | idem | a nossa, medida |
+| 4 | `Route34` (33,31) | ligação | warp 5 <-> `Route34_DayCare` warp 1, em (3,9) | Liquid Crystal, FireGold e Scorched Silver abrem as DUAS portas da creche |
+| 5 | `Route45` (45,6) | ligação | warp 1 <-> `DarkCave_NorthSide` warp 2, em (35,3) | as duas pontas já desenhadas na nossa árvore |
+| 6 | `Route46` (25,33) | ligação | warp 3 <-> `DarkCave_SouthSide` warp 3, em (64,4) | idem |
+| 7 | `MtSilver_Outside` (34,7) | ligação | warp 2 <-> `MtSilver_1F_WaterfallRoom` warp 7, em (50,5) | idem |
+| 8 | `BellchimeTrail` (54,58) | interior novo | `BellchimeTrail_House`, planta de `EcruteakCity_House1` | **FireGold 44.105**, a casinha do sábio na Bellchime Trail (9x8, 6 objetos); Liquid Crystal 2.46 tem o mesmo prédio ao lado da Tin Tower |
+| 9 | `Route38` (34,41) | interior novo | `Route38_FarmHouse`, planta de `Route39_FarmHouse` | a casa da fazenda existe nas CINCO (hns/GSC `Route39_FarmHouse` 13x10, LC 1.28 13x10, FG 44.109 11x9, SS 17.0 12x9), sempre na Route 39 |
+| 10 | `Route34` (23,50) | interior novo | `Route34_House1`, planta de `Route26_House1` | a casa de telhado azul existe no LC (4.7 e 4.9, 13x10) e na FG (45.56 e 45.57), nas duas na Route 26 |
+| 11 | `EcruteakCity` (57,25) | interior novo | `EcruteakCity_House3`, planta de `EcruteakCity_House2` | a casa de Ecruteak 13x10 é do hns; a TERCEIRA é desenho nosso |
+| 12 | `LakeOfRageLowTide` (15,4) | inalcançável | nada; o mapa inteiro está fora do grafo, e isso é da fonte | hns |
+| 13 | `LakeOfRageLowTide` (39,41) | inalcançável | idem | hns |
+| 14-19 | `OlivineCity` (2,15) (6,15) (10,15) (27,15) (31,15) (35,15) | placa | os seis galpões do porto | **nenhuma**: nas cinco o porto é cais mais terminal, e a fileira de galpões não tem warp |
+| 20 | `EcruteakCity` (8,54) | placa | boca no penhasco sudoeste | **nenhuma** |
+| 21 | `BlackthornCity` (39,18) | placa | boca no penhasco leste | **nenhuma** (no LC o penhasco leste tem duas bocas, mas as duas são Ice Path, que aqui já está ligada) |
+| 22 | `BlackthornCity` (5,33) | placa | boca no penhasco oeste | **nenhuma**: as cinco têm zero boca no oeste |
+| 23 | `IlexForest` (77,39) | placa | boca da floresta | **nenhuma** |
+| 24 | `Route26` (2,20) | placa | boca da Route 26 | **nenhuma** (Tohjo Falls é da Route 27) |
+| 25 | `Route26North` (21,8) | placa | boca da Route 26 norte | **nenhuma** |
+| 26 | `Route34` (53,53) | placa | boca da Route 34 | **nenhuma** |
+| 27 | `Route45` (1,7) | placa | boca oeste | **nenhuma**: as cinco têm UMA boca por rota, e ela é a Dark Cave |
+| 28 | `Route45` (39,53) | placa | boca sul | **nenhuma** |
+| 29 | `MtSilver_Outside` (14,3) | placa | boca norte | **nenhuma**: LC e FG têm UMA boca externa no Monte Prata |
+| 30 | `MtSilver_Outside` (7,16) | placa | boca oeste | **nenhuma** |
+| 31 | `MtSilver_MountainSide` (44,9) | placa | boca da encosta | **nenhuma** |
+
+**As três que já entravam, e por que a lente as via.** A boca da encosta do Monte Prata é
+`MB_NON_ANIMATED_DOOR` sólido, e a célula colada à direita é `MB_WEST_ARROW_WARP` com colisão 0 e COM
+warp: (27,18) tem o warp 0 em (28,18), (34,31) o 1 em (35,31) e (41,40) o 2 em (42,40), os três para
+`MT_SILVER_1F_WATERFALL_ROOM`. O jogador pisa na seta, aperta para oeste e o `TryArrowWarp`
+(`src/field_control_avatar.c`) dispara. A lente não juntava as duas células no mesmo bloco porque o
+comportamento delas é diferente, e `blocos()` só junta comportamento IGUAL: é o limite conhecido dela,
+não defeito do jogo. As três entraram na `LISTA_BRANCA` com a medida, e o **T182.17** prova que se
+entra e o **T182.18** prova que só para oeste.
+
+**A armadilha que custou a primeira versão: ligar não bastava.** Escrito o primeiro par de warps, dos
+8 novos só 2 disparavam, e o `valida_warp_tile` CAIU em vez de subir. A conta é do motor:
+`MB_ANIMATED_DOOR` é a única família de porta que dispara SENDO SÓLIDA, porque o motor abre a porta de
+prédio e atravessa; a boca de caverna, `MB_NON_ANIMATED_DOOR`, dispara quando o jogador PISA nela, e
+com colisão 1 ele nunca pisa. O censo fecha o diagnóstico: das 93 células de `MB_NON_ANIMATED_DOOR`
+com warp em Johto, as **87 que já existiam têm TODAS colisão 0**, e só as 6 recém-escritas tinham 1.
+Então a boca decorativa é ABERTA no `map.bin`, e só nos dois campos que o motor lê: colisão 0 e
+elevação 0. **O metatile não muda**, para o desenho continuar o mesmo (fora, o mesmo 169 da boca que
+funciona; dentro, o mesmo 660 do arco). Elevação 0 é `ELEVATION_TRANSITION`, e
+`IsElevationMismatchAt` (`src/event_object_movement.c`) devolve FALSE para ela sempre, o que resolve o
+caso real das três bocas de fora, que recebem o jogador vindo de elevação 5 (Route 45), 4 (Monte
+Prata) e 3 (Route 46). Seis palavras mudaram, e estão nomeadas no relatório do script:
+`0x04A9 -> 0x00A9` nas três de fora e `0x0694 -> 0x0294` nas três de dentro.
+
+**A ferramenta é `dev_scripts/abre_portas_johto.py`**, com tabela declarativa (uma linha por porta),
+`--aplicar` e conferência que roda sempre: célula fora da grade, comportamento que não dispara, warp
+duplicado no mesmo tile, falta de chão andável colado, e o par comportamento+colisão que nasceria
+morto. Mapa novo entra em `gMapGroup_JohtoPortas`, grupo NOVO no fim de `group_order`, e todo warp
+novo entra no FIM da lista do mapa que já existe: nenhum índice antigo anda, e o `guarda_save.py`
+continua dizendo **SAVE COMPATIVEL**.
+
+**Os quatro interiores novos não gastam blockdata.** O layout é REAPROVEITADO de interior de Johto que
+já está na árvore, do jeito que o `fecha_portas_sinnoh.py` fez em Sinnoh. O que é nosso é o NPC e a
+fala, dois por casa, os oito em inglês. Custo total da frente: **1.740 B de ROM** (32.371.772 para
+32.373.512), sendo zero de layout.
+
+**As 18 placas.** `bg_event` do tipo `sign` na célula da porta, apontando para um de dois scripts
+comuns de `data/scripts/portas_fechadas.inc`: o galpão de porto usa o `Common_EventScript_PortaFechada`
+que já existia ("Closed for renovations."), e a boca de caverna ganhou o
+`Common_EventScript_BocaFechada`, com frase própria ("The cave mouth is blocked by fallen rocks."),
+porque escrever "em obras" na frente de um buraco de pedra mentiria o mapa. A `lente_portas.py`
+aprendeu a regra por MEDIDA e não por lista: célula com `bg_event` apontando para uma das duas placas
+sai das três regras e é contada à parte.
+
+**O que a lente diz agora.** Em Johto, "sem interior" caiu de **40 para 11**, e os 11 são os 9 portões
+de rota desenhados dos dois lados da emenda mais as 2 casas do Lago da Fúria em maré baixa, ou seja o
+que não é defeito. `lente_portas` com **0 travas em Kanto, Johto e Hoenn** (Sinnoh continua com as 8
+do corte, que são de antes), lista branca de 18 para 21, e 18 portas na conta nova de placa.
+`lente_warps` com **zero achado em Johto**.
+
+**A prova está no framebuffer, e são 18 casos.** `dev_scripts/testes_criticos/182_johto_portas_31.json`,
+**18 de 18**, com entrada e saída de cada interior novo, entrada e saída de cada ligação, e o par
+positivo/negativo da seta do Monte Prata. O T182.16 mais o T182.15 são o percurso que o Gui pediu:
+entra pela boca (34,7) do Monte Prata, atravessa o 1F e sai pela (50,5). O T182.10 é o que separa
+"entrou pela fachada" de "saiu pelo lado": a saída da fachada da creche devolve para o warp 5 e não
+para o 4. Armadilha de roteiro medida aqui e que vale para o próximo: **o motor entrega o jogador UM
+TILE ABAIXO da boca** ao sair do warp de debug, e um toque de 20 quadros nem sempre completa o passo,
+então boca de caverna se prova com `20:UP*4` e não com descer e subir; com o roteiro errado quatro
+casos reprovavam com o jogo inteiro certo.
+
+**O que fica aberto.** As 18 placas NÃO foram provadas no emulador. As 18 ficam em porta que o jogador
+alcança pela BORDA do mapa, vindo da rota vizinha, e não a partir de nenhum warp do próprio mapa
+(medido com busca em largura a partir de cada saída de warp: nenhuma das 18 é alcançável por dentro),
+então prová-las custaria atravessar mapas inteiros com botão. O que está provado delas é o dado (o
+`bg_event` no `map.json`), o script (o build liga, e o `checa_scripts` do `roda_qa` confere o rótulo)
+e a leitura da lente. Segundo item aberto: a `Route45` (39,53) é a única das 18 cuja célula de porta
+tem colisão 0, ou seja o jogador PASSA por cima dela em vez de encostar; a placa dela só é lida por
+quem chegar de frente, e por isso ela é a mais fraca das 18.
+
+**A última medição desta frente**, contra a ROM `2026-09-07c`. Build limpo verde, EWRAM e IWRAM sem
+mudança, ROM 32.373.512 B (96,48% de 32 MB). `guarda_save.py` **SAVE COMPATIVEL**, SaveBlock1 em
+14.964 de 15.872 B, **2.404 mapas** (2.400 mais os quatro interiores novos). `valida_rom.py` com os
+2.404 mapas dentro da ROM. `valida_conectividade.py` com **0 warps quebrados**, e o alcance sobe de
+1.965 para **1.969 de 2.293**, que são exatamente os quatro mapas novos. `valida_warp_tile --piso 60`
+em **5.937 de 6.893 (86,1%)**, com Johto subindo de 90,8% para **91,0%** e nenhuma região abaixo do
+piso; os 16 warps novos disparam TODOS. `completude.py` de Johto: mapas 100,0%, objetos 100,8%,
+warps 100,1% para **101,7%**, placas 100,4% para **104,0%**. `roda_qa.py --demo` verde nas seis
+varreduras, e a varredura cheia dá **14.654 achados com as MESMAS 323 travas** (Kanto 5, Johto 2,
+Hoenn 2, Sinnoh 8, Unova 25, Galar 268, comum 13). `testa_percurso.py` sem problema nos 6 percursos.
+`prova_portas_compartilhadas.py` **11 de 11**. Suíte: **os 22 blocos que passam pelos mapas tocados,
+237 de 237**, mais o **T11 3 de 3** contra `roms/pokemon-claude-2026-08-18.gba` com a fonte velha da
+worktree `cf6786b2ae`.
 
 ### O bloco preto de Pastoria: não era Pastoria, era CAMADA DE DESENHO na Route 212 South, 06/09/2026
 

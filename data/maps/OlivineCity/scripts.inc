@@ -104,3 +104,60 @@ OlivineCity_Text_YoungsterPokegear::
 	.string "That thing you have--\n"
 	.string "it's a POKéGEAR, right?\l"
 	.string "Wow, that's cool.$"
+
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+OlivineCity_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox OlivineCity_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+OlivineCity_Text_Povoa1:
+	.string "The PORT is south. Ships leave\nfor far coasts from there.$"
+
+OlivineCity_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox OlivineCity_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+OlivineCity_Text_Povoa2:
+	.string "The LIGHTHOUSE keeps this whole\nharbour alive at night.$"
+
+OlivineCity_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox OlivineCity_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+OlivineCity_Text_Povoa3:
+	.string "The GYM here is steel.\nFire, Fighting and Ground bite it.$"
+
+OlivineCity_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox OlivineCity_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+OlivineCity_Text_Povoa4:
+	.string "The CAFE by the water is the\nbest thing in this city.$"
+
+OlivineCity_EventScript_Povoa5::
+	lock
+	faceplayer
+	msgbox OlivineCity_Text_Povoa5, MSGBOX_DEFAULT
+	release
+	end
+
+OlivineCity_Text_Povoa5:
+	.string "ROUTE 40 west is all sea.\nROUTE 39 north is all farmland.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

@@ -390,3 +390,40 @@ CanalaveCity_Text_CresseliaSome:
 	.string "The Pokemon flew off somewhere...$"
 
 @ <<< Lendarios de Sinnoh <<<
+
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+CanalaveCity_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox CanalaveCity_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+CanalaveCity_Text_Povoa1:
+	.string "The ferry from the dock reaches\nIRON ISLAND. Ask the sailor.$"
+
+CanalaveCity_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox CanalaveCity_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+CanalaveCity_Text_Povoa2:
+	.string "The LIBRARY holds every myth\nSINNOH ever wrote down.$"
+
+CanalaveCity_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox CanalaveCity_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+CanalaveCity_Text_Povoa3:
+	.string "This city was built for cargo.\nThe bridges lift for the ships.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

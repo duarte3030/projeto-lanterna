@@ -534,3 +534,39 @@ CeruleanCity_Text_GymSign::
 	.string "LEADER: MISTY\l"
 	.string "The Tomboyish Mermaid!$"
 
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+CeruleanCity_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox CeruleanCity_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+CeruleanCity_Text_Povoa1:
+	.string "The GYM here is all water.\nElectric moves cut it short.$"
+
+CeruleanCity_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox CeruleanCity_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+CeruleanCity_Text_Povoa2:
+	.string "The BIKE SHOP is famous.\nThe prices are famous too.$"
+
+CeruleanCity_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox CeruleanCity_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+CeruleanCity_Text_Povoa3:
+	.string "ROUTE 24 goes north, ROUTE 9 east.\nBoth are crawling with trainers.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

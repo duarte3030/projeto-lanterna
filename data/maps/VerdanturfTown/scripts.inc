@@ -123,3 +123,69 @@ VerdanturfTown_Text_RusturfTunnelSign:
 	.string "“The tunnel project has been\n"
 	.string "canceled.”$"
 
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+VerdanturfTown_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox VerdanturfTown_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+VerdanturfTown_Text_Povoa1:
+	.string "The air here is the cleanest in\nall of HOENN. Breathe it in.$"
+
+VerdanturfTown_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox VerdanturfTown_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+VerdanturfTown_Text_Povoa2:
+	.string "RUSTURF TUNNEL runs west from\nthe edge of town.$"
+
+VerdanturfTown_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox VerdanturfTown_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+VerdanturfTown_Text_Povoa3:
+	.string "The FRIENDSHIP RATER tells you\nhow much your Pokémon like you.$"
+
+VerdanturfTown_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox VerdanturfTown_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+VerdanturfTown_Text_Povoa4:
+	.string "The BATTLE TENT is here.\nThree battles, no healing between.$"
+
+VerdanturfTown_EventScript_Povoa5::
+	lock
+	faceplayer
+	msgbox VerdanturfTown_Text_Povoa5, MSGBOX_DEFAULT
+	release
+	end
+
+VerdanturfTown_Text_Povoa5:
+	.string "ROUTE 116 north, ROUTE 117 east.\nBoth are gentle walks.$"
+
+VerdanturfTown_EventScript_Povoa6::
+	lock
+	faceplayer
+	msgbox VerdanturfTown_Text_Povoa6, MSGBOX_DEFAULT
+	release
+	end
+
+VerdanturfTown_Text_Povoa6:
+	.string "My grandmother says the wind\nhere carries flower dust.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

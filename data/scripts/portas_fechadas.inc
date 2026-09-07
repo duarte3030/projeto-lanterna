@@ -20,3 +20,14 @@ Common_EventScript_PortaFechada::
 
 Common_Text_PortaFechada:
 	.string "Closed for renovations.$"
+
+@ Boca de caverna que nenhuma das cinco fontes de Johto abre (hns, GS
+@ Chronicles, Liquid Crystal, FireGold e Scorched Silver), medido em 07/09/2026
+@ na pergunta 46 do Gui. Frase própria porque a placa de prédio fala em obra,
+@ e buraco de pedra não está em obra nenhuma.
+Common_EventScript_BocaFechada::
+	msgbox Common_EventScript_BocaFechada_Text, MSGBOX_SIGN
+	end
+
+Common_EventScript_BocaFechada_Text:
+	.string "The cave mouth is blocked by fallen rocks.$"

@@ -758,3 +758,40 @@ PetalburgCity_Text_ImLookingForTalentedTrainers:
 	.string "I'm roaming the land in search of\n"
 	.string "talented TRAINERS.\p"
 	.string "I'm sorry to have taken your time.$"
+
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+PetalburgCity_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox PetalburgCity_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+PetalburgCity_Text_Povoa1:
+	.string "The GYM LEADER here trains\nNormal types, and trains hard.$"
+
+PetalburgCity_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox PetalburgCity_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+PetalburgCity_Text_Povoa2:
+	.string "PETALBURG WOODS are west,\nthrough ROUTE 104.$"
+
+PetalburgCity_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox PetalburgCity_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+PetalburgCity_Text_Povoa3:
+	.string "The river runs right through\ntown. Good water, good fish.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

@@ -974,3 +974,59 @@ PewterCity_Text_RunningShoesLetterFromMom::
 	.string "you! Don't ever give up!\p"
 	.string "From Mom$"
 
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+PewterCity_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox PewterCity_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+PewterCity_Text_Povoa1:
+	.string "The MUSEUM keeps fossils older\nthan any of us.$"
+
+PewterCity_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox PewterCity_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+PewterCity_Text_Povoa2:
+	.string "MT. MOON is east, past ROUTE 3.\nTake something that lights caves.$"
+
+PewterCity_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox PewterCity_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+PewterCity_Text_Povoa3:
+	.string "Rock Pokémon are so heavy.\nI can not even lift a GEODUDE.$"
+
+PewterCity_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox PewterCity_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+PewterCity_Text_Povoa4:
+	.string "Rock types hate Water and Grass.\nRemember that at the GYM.$"
+
+PewterCity_EventScript_Povoa5::
+	lock
+	faceplayer
+	msgbox PewterCity_Text_Povoa5, MSGBOX_DEFAULT
+	release
+	end
+
+PewterCity_Text_Povoa5:
+	.string "PEWTER CITY is grey as stone,\nbut the people here are warm.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

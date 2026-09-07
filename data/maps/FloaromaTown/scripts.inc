@@ -181,3 +181,40 @@ FloaromaTown_Text_DexShayminLandIntro:
 	.string "SHAYMIN_LAND appeared!$"
 
 @ <<< Dex completa <<<
+
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+FloaromaTown_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox FloaromaTown_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+FloaromaTown_Text_Povoa1:
+	.string "The MEADOW north is one long\nfield of flowers.$"
+
+FloaromaTown_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox FloaromaTown_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+FloaromaTown_Text_Povoa2:
+	.string "The FLOWER SHOP sells more than\nflowers. Ask about accessories.$"
+
+FloaromaTown_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox FloaromaTown_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+FloaromaTown_Text_Povoa3:
+	.string "Bees come with the flowers.\nSo do the Pokémon that eat bees.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

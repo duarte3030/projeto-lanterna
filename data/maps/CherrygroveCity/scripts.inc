@@ -89,3 +89,50 @@ CherryGroveCity_EventScript_Lass::
 CherrygroveCity_Text_TeacherHaveMapCard::
 	.string "When you're with POKéMON,\n"
 	.string "going anywhere is fun.$"
+
+@ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
+@ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.
+@ Bloco GERADO. Para mudar fala ou posicao, edite dev_scripts/povoa_cidades.json
+@ e rode `python3 dev_scripts/povoa_cidades.py --aplica`.
+
+CherrygroveCity_EventScript_Povoa1::
+	lock
+	faceplayer
+	msgbox CherrygroveCity_Text_Povoa1, MSGBOX_DEFAULT
+	release
+	end
+
+CherrygroveCity_Text_Povoa1:
+	.string "CHERRYGROVE is the first city\nmost trainers ever see.$"
+
+CherrygroveCity_EventScript_Povoa2::
+	lock
+	faceplayer
+	msgbox CherrygroveCity_Text_Povoa2, MSGBOX_DEFAULT
+	release
+	end
+
+CherrygroveCity_Text_Povoa2:
+	.string "The sea is right there. I have\nfished this shore for forty years.$"
+
+CherrygroveCity_EventScript_Povoa3::
+	lock
+	faceplayer
+	msgbox CherrygroveCity_Text_Povoa3, MSGBOX_DEFAULT
+	release
+	end
+
+CherrygroveCity_Text_Povoa3:
+	.string "The MART here has the basics.\nPOTIONS and BALLS, mostly.$"
+
+CherrygroveCity_EventScript_Povoa4::
+	lock
+	faceplayer
+	msgbox CherrygroveCity_Text_Povoa4, MSGBOX_DEFAULT
+	release
+	end
+
+CherrygroveCity_Text_Povoa4:
+	.string "ROUTE 30 goes north to VIOLET.\nROUTE 29 goes back east.$"
+
+@ <<< Povoamento: fim do bloco gerado <<<

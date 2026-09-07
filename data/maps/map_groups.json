@@ -127,7 +127,8 @@
     "gMapGroup_SinnohCavernas",
     "gMapGroup_IndoorSinnohPortas2",
     "gMapGroup_SinnohInteriores",
-    "gMapGroup_Galar"
+    "gMapGroup_Galar",
+    "gMapGroup_JohtoPortas"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -2784,5 +2785,11 @@
     "Galar_WildArea20",
     "Galar_WildArea21",
     "Galar_WildArea22"
+  ],
+  "gMapGroup_JohtoPortas": [
+    "BellchimeTrail_House",
+    "Route38_FarmHouse",
+    "Route34_House1",
+    "EcruteakCity_House3"
   ]
 }
