@@ -3,8 +3,7 @@
   "name": "Unova_ChampionsRoom",
   "layout": "LAYOUT_UNOVA_CHAMPIONS_ROOM",
   "music": "MUS_NONE",
-  "region_map_section": "MAPSEC_UNOVA_POKEMON_LEAGUE",
-  "map_name_popup": "POKEMON LEAGUE",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -13,116 +12,11 @@
   "allow_running": true,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [],
-  "object_events": [
-    {
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
-      "x": 7,
-      "y": 10,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_UNOVA_CENA_JUNIPER"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_DUSCLOPS",
-      "x": 7,
-      "y": 16,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_UNOVA_CENA_SOMBRAS"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_DUSCLOPS",
-      "x": 7,
-      "y": 16,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_UNOVA_CENA_SOMBRAS"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_DUSCLOPS",
-      "x": 7,
-      "y": 16,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_UNOVA_CENA_SOMBRAS"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_DEOXYS",
-      "x": 7,
-      "y": 12,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_UNOVA_CENA_GENESECT_2"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_DEOXYS",
-      "x": 7,
-      "y": 12,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_UNOVA_CENA_GENESECT_1"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_RAYQUAZA",
-      "x": 7,
-      "y": 10,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_UNOVA_CENA_GENESIS"
-    }
-  ],
-  "warp_events": [
-    {
-      "x": 7,
-      "y": 19,
-      "elevation": 0,
-      "dest_map": "MAP_UNOVA_CHAMPIONS_ROOM_ENTRANCE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 7,
-      "y": 4,
-      "elevation": 0,
-      "dest_map": "MAP_UNOVA_HALL_OF_FAME",
-      "dest_warp_id": "0"
-    }
-  ],
+  "connections": null,
+  "object_events": [],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "destinos_dinamicos": [],
+  "cortado_por": "cartucho 1: Unova e Galar sairam do escopo, ver PRD-CARTUCHO-1.md"
 }

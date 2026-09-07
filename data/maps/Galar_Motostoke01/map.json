@@ -3,8 +3,7 @@
   "name": "Galar_Motostoke01",
   "layout": "LAYOUT_GALAR_MOTOSTOKE_01",
   "music": "MUS_RG_POKE_CENTER",
-  "region_map_section": "MAPSEC_GALAR_MOTOSTOKE",
-  "map_name_popup": "MOTOSTOKE",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -13,98 +12,11 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [],
-  "object_events": [
-    {
-      "graphics_id": "OBJ_EVENT_GFX_NURSE_FRLG",
-      "x": 7,
-      "y": 2,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_BEAUTY_FRLG",
-      "x": 12,
-      "y": 5,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarFala_G00M06_o2",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_2_FRLG",
-      "x": 3,
-      "y": 3,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarObj_G00M06_o3",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_1_FRLG",
-      "x": 9,
-      "y": 7,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SIGN",
-      "x": 9,
-      "y": 6,
-      "elevation": 2,
-      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
-    }
-  ],
-  "warp_events": [
-    {
-      "x": 9,
-      "y": 9,
-      "elevation": 0,
-      "dest_map": "MAP_GALAR_MOTOSTOKE_23",
-      "dest_warp_id": "5"
-    },
-    {
-      "x": 10,
-      "y": 9,
-      "elevation": 0,
-      "dest_map": "MAP_GALAR_MOTOSTOKE_23",
-      "dest_warp_id": "5"
-    },
-    {
-      "x": 7,
-      "y": 8,
-      "elevation": 0,
-      "dest_map": "MAP_GALAR_MOTOSTOKE_05",
-      "dest_warp_id": "6"
-    }
-  ],
+  "connections": null,
+  "object_events": [],
+  "warp_events": [],
   "coord_events": [],
   "bg_events": [],
-  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g00m06. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo."
+  "destinos_dinamicos": [],
+  "cortado_por": "cartucho 1: Unova e Galar sairam do escopo, ver PRD-CARTUCHO-1.md"
 }

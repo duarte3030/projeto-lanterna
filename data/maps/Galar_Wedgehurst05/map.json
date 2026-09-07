@@ -3,8 +3,7 @@
   "name": "Galar_Wedgehurst05",
   "layout": "LAYOUT_GALAR_WEDGEHURST_05",
   "music": "MUS_RG_PEWTER",
-  "region_map_section": "MAPSEC_GALAR_WEDGEHURST",
-  "map_name_popup": "WEDGEHURST",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_TOWN",
@@ -13,183 +12,11 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_GALAR_ROUTE02_02",
-      "offset": -64,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_GALAR_ROUTE01_01",
-      "offset": -36,
-      "direction": "down"
-    }
-  ],
-  "object_events": [
-    {
-      "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER_FRLG",
-      "x": 42,
-      "y": 8,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarFala_G05M06_o0",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER_FRLG",
-      "x": 21,
-      "y": 29,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarFala_G05M06_o3",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER_FRLG",
-      "x": 13,
-      "y": 17,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarFala_G05M06_o4",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
-      "x": 32,
-      "y": 25,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
-      "x": 0,
-      "y": 1,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_BEAUTY_FRLG",
-      "x": 27,
-      "y": 25,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SIGN",
-      "x": 27,
-      "y": 24,
-      "elevation": 2,
-      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SAILOR",
-      "x": 23,
-      "y": 17,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Travessia_EventScript_MarinheiroGalar",
-      "flag": "0"
-    }
-  ],
-  "warp_events": [
-    {
-      "x": 29,
-      "y": 12,
-      "elevation": 0,
-      "dest_map": "MAP_GALAR_WEDGEHURST_05",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 14,
-      "y": 15,
-      "elevation": 0,
-      "dest_map": "MAP_GALAR_WEDGEHURST_02",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 24,
-      "y": 24,
-      "elevation": 0,
-      "dest_map": "MAP_GALAR_POSTWICK_166",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 18,
-      "y": 15,
-      "elevation": 0,
-      "dest_map": "MAP_GALAR_WEDGEHURST_01",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 27,
-      "y": 15,
-      "elevation": 0,
-      "dest_map": "MAP_GALAR_WEDGEHURST_03",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 32,
-      "y": 24,
-      "elevation": 0,
-      "dest_map": "MAP_GALAR_WEDGEHURST_06",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 17,
-      "y": 26,
-      "elevation": 0,
-      "dest_map": "MAP_GALAR_WEDGEHURST_07",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 10,
-      "y": 15,
-      "elevation": 0,
-      "dest_map": "MAP_GALAR_WEDGEHURST_08",
-      "dest_warp_id": "0"
-    }
-  ],
+  "connections": null,
+  "object_events": [],
+  "warp_events": [],
   "coord_events": [],
   "bg_events": [],
-  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g05m06. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo."
+  "destinos_dinamicos": [],
+  "cortado_por": "cartucho 1: Unova e Galar sairam do escopo, ver PRD-CARTUCHO-1.md"
 }

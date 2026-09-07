@@ -3,8 +3,7 @@
   "name": "Galar_Route0101",
   "layout": "LAYOUT_GALAR_ROUTE01_01",
   "music": "MUS_RG_ROUTE3",
-  "region_map_section": "MAPSEC_GALAR_ROUTE01",
-  "map_name_popup": "ROUTE 1",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",
@@ -13,76 +12,11 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_GALAR_WEDGEHURST_05",
-      "offset": 36,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_GALAR_ROUTE01_02",
-      "offset": -1,
-      "direction": "down"
-    }
-  ],
-  "object_events": [
-    {
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
-      "x": 38,
-      "y": 14,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_BEAUTY_FRLG",
-      "x": 62,
-      "y": 12,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SIGN",
-      "x": 62,
-      "y": 11,
-      "elevation": 2,
-      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MELOETTA)",
-      "x": 57,
-      "y": 11,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarSelvagem_MELOETTA_L50",
-      "flag": "0",
-      "origem": "estaticos_galar",
-      "origem_chave": "g03m19/objeto/2"
-    }
-  ],
+  "connections": null,
+  "object_events": [],
   "warp_events": [],
   "coord_events": [],
   "bg_events": [],
-  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g03m19. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo."
+  "destinos_dinamicos": [],
+  "cortado_por": "cartucho 1: Unova e Galar sairam do escopo, ver PRD-CARTUCHO-1.md"
 }

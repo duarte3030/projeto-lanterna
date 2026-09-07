@@ -3,8 +3,7 @@
   "name": "Galar_IsleOfArmor31",
   "layout": "LAYOUT_GALAR_ISLE_OF_ARMOR_31",
   "music": "MUS_RG_SEVII_123",
-  "region_map_section": "MAPSEC_GALAR_ISLE_OF_ARMOR",
-  "map_name_popup": "ISLE OF ARMOR",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",
@@ -13,78 +12,11 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [],
-  "object_events": [
-    {
-      "graphics_id": "OBJ_EVENT_GFX_PICNICKER_FRLG",
-      "x": 13,
-      "y": 10,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarFala_G38M27_o0",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_MAN",
-      "x": 3,
-      "y": 14,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarFala_G38M27_o1",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
-      "x": 5,
-      "y": 8,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarFala_G38M27_o2",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_2_FRLG",
-      "x": 15,
-      "y": 13,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarFala_G38M27_o3",
-      "flag": "0"
-    }
-  ],
-  "warp_events": [
-    {
-      "x": 11,
-      "y": 16,
-      "elevation": 0,
-      "dest_map": "MAP_GALAR_ISLE_OF_ARMOR_35",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 4,
-      "y": 7,
-      "elevation": 0,
-      "dest_map": "MAP_GALAR_ISLE_OF_ARMOR_27",
-      "dest_warp_id": "0"
-    }
-  ],
+  "connections": null,
+  "object_events": [],
+  "warp_events": [],
   "coord_events": [],
   "bg_events": [],
-  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g38m27. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo."
+  "destinos_dinamicos": [],
+  "cortado_por": "cartucho 1: Unova e Galar sairam do escopo, ver PRD-CARTUCHO-1.md"
 }

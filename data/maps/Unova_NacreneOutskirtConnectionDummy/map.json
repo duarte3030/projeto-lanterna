@@ -3,8 +3,7 @@
   "name": "Unova_NacreneOutskirtConnectionDummy",
   "layout": "LAYOUT_UNOVA_NACRENE_OUTSKIRT_CONNECTION_DUMMY",
   "music": "MUS_ROUTE101",
-  "region_map_section": "MAPSEC_UNOVA_PINWHEEL_FOREST",
-  "map_name_popup": "PINWHEEL FOREST",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",
@@ -13,15 +12,11 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_UNOVA_NACRENE_OUTSKIRT",
-      "offset": 0,
-      "direction": "left"
-    }
-  ],
+  "connections": null,
   "object_events": [],
   "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "destinos_dinamicos": [],
+  "cortado_por": "cartucho 1: Unova e Galar sairam do escopo, ver PRD-CARTUCHO-1.md"
 }

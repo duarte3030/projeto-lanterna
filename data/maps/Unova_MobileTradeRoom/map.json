@@ -3,7 +3,7 @@
   "name": "Unova_MobileTradeRoom",
   "layout": "LAYOUT_UNOVA_MOBILE_TRADE_ROOM",
   "music": "MUS_POKE_CENTER",
-  "region_map_section": "MAPSEC_UNOVA_SPECIAL_MAP",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -12,27 +12,11 @@
   "allow_running": true,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [],
+  "connections": null,
   "object_events": [],
   "warp_events": [],
   "coord_events": [],
-  "bg_events": [
-    {
-      "type": "sign",
-      "x": 4,
-      "y": 2,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Unova_MobileTradeRoom_EventScript_Placa0"
-    },
-    {
-      "type": "sign",
-      "x": 4,
-      "y": 7,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Unova_MobileTradeRoom_EventScript_PortaFechada",
-      "origem": "porta fechada (remove_mapas_cortados.py)"
-    }
-  ]
+  "bg_events": [],
+  "destinos_dinamicos": [],
+  "cortado_por": "cartucho 1: Unova e Galar sairam do escopo, ver PRD-CARTUCHO-1.md"
 }

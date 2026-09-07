@@ -1,5 +1,5 @@
-@ Gerado por dev_scripts/mundo_galar.py (G2). Sem cena: o ponteiro de
-@ map script da fonte (0x0955DB0) esta anotado no censo para a fase de conteudo.
+@ Mapa de regiao CORTADA do cartucho 1 (PRD-CARTUCHO-1.md). O rotulo
+@ abaixo fica porque header.inc, gerado, aponta para ele.
 
 Galar_Route0102_MapScripts::
 	.byte 0

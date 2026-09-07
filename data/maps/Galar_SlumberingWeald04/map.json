@@ -3,8 +3,7 @@
   "name": "Galar_SlumberingWeald04",
   "layout": "LAYOUT_GALAR_SLUMBERING_WEALD_04",
   "music": "MUS_RG_VIRIDIAN_FOREST",
-  "region_map_section": "MAPSEC_GALAR_POSTWICK",
-  "map_name_popup": "SLUMBERING WEALD",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_FOG_HORIZONTAL",
   "map_type": "MAP_TYPE_ROUTE",
@@ -13,53 +12,11 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [],
-  "object_events": [
-    {
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
-      "x": 58,
-      "y": 16,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarFala_G04M12_o2",
-      "flag": "0"
-    }
-  ],
-  "warp_events": [
-    {
-      "x": 58,
-      "y": 17,
-      "elevation": 0,
-      "dest_map": "MAP_GALAR_ROUTE01_02",
-      "dest_warp_id": "4"
-    },
-    {
-      "x": 19,
-      "y": 18,
-      "elevation": 0,
-      "dest_map": "MAP_GALAR_SLUMBERING_WEALD_01",
-      "dest_warp_id": "3"
-    },
-    {
-      "x": 17,
-      "y": 15,
-      "elevation": 0,
-      "dest_map": "MAP_GALAR_SLUMBERING_WEALD_01",
-      "dest_warp_id": "4"
-    },
-    {
-      "x": 59,
-      "y": 17,
-      "elevation": 0,
-      "dest_map": "MAP_GALAR_ROUTE01_02",
-      "dest_warp_id": "4"
-    }
-  ],
+  "connections": null,
+  "object_events": [],
+  "warp_events": [],
   "coord_events": [],
   "bg_events": [],
-  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g04m12. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo. renomeado no G3: o grafo liga este mapa a SlumberingWeald (votos {'SlumberingWeald': 2}); papel MAP_TYPE_ROUTE pelo map_type"
+  "destinos_dinamicos": [],
+  "cortado_por": "cartucho 1: Unova e Galar sairam do escopo, ver PRD-CARTUCHO-1.md"
 }

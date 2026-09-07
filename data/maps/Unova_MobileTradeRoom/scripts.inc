@@ -1,19 +1,5 @@
-@ MobileTradeRoom do BW3G (Azure_Keys). Gerado por dev_scripts/importa_unova.py; nao editar a mao.
+@ Mapa de regiao CORTADA do cartucho 1 (PRD-CARTUCHO-1.md). O rotulo
+@ abaixo fica porque header.inc, gerado, aponta para ele.
 
 Unova_MobileTradeRoom_MapScripts::
 	.byte 0
-
-Unova_MobileTradeRoom_EventScript_Placa0::
-	msgbox Unova_MobileTradeRoom_Text_MobileTradeRoom_EstablishingCommsText, MSGBOX_SIGN
-	end
-
-
-Unova_MobileTradeRoom_Text_MobileTradeRoom_EstablishingCommsText::
-	.string "Establishing"
-	.string "\ncommunications…$"
-
-@ >>> porta fechada (remove_mapas_cortados.py) >>>
-Unova_MobileTradeRoom_EventScript_PortaFechada::
-	msgbox Common_Text_PortaFechada, MSGBOX_SIGN
-	end
-@ <<< porta fechada <<<

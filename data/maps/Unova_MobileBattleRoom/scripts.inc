@@ -1,20 +1,5 @@
-@ MobileBattleRoom do BW3G (Azure_Keys). Gerado por dev_scripts/importa_unova.py; nao editar a mao.
+@ Mapa de regiao CORTADA do cartucho 1 (PRD-CARTUCHO-1.md). O rotulo
+@ abaixo fica porque header.inc, gerado, aponta para ele.
 
 Unova_MobileBattleRoom_MapScripts::
 	.byte 0
-
-Unova_MobileBattleRoom_EventScript_Placa0::
-	msgbox Unova_MobileBattleRoom_Text_MobileBattleRoom_HealText, MSGBOX_SIGN
-	end
-
-
-Unova_MobileBattleRoom_Text_MobileBattleRoom_HealText::
-	.string "Your POKéMON will"
-	.string "\nbe fully healed"
-	.string "\lbefore battle.$"
-
-@ >>> porta fechada (remove_mapas_cortados.py) >>>
-Unova_MobileBattleRoom_EventScript_PortaFechada::
-	msgbox Common_Text_PortaFechada, MSGBOX_SIGN
-	end
-@ <<< porta fechada <<<

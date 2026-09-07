@@ -3,8 +3,7 @@
   "name": "Unova_GiantChasm1F",
   "layout": "LAYOUT_UNOVA_GIANT_CHASM_1F",
   "music": "MUS_RG_MT_MOON",
-  "region_map_section": "MAPSEC_UNOVA_GIANT_CHASM",
-  "map_name_popup": "GIANT CHASM",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
@@ -13,116 +12,11 @@
   "allow_running": true,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [],
-  "object_events": [
-    {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 2,
-      "y": 16,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_PARALYZE_HEAL",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEMS_UNOVA_START + 0x001"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_MAXIE",
-      "x": 10,
-      "y": 17,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_TEMP_11"
-    },
-    {
-      "local_id": "LOCALID_DEX_TORNADUS_INCARNATE",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(TORNADUS_INCARNATE)",
-      "x": 15,
-      "y": 7,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Unova_GiantChasm1F_EventScript_DexTornadusIncarnate",
-      "flag": "FLAG_HIDE_DEX_TORNADUS_INCARNATE",
-      "origem": "distribui_dex"
-    },
-    {
-      "local_id": "LOCALID_DEX_THUNDURUS_INCARNATE",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(THUNDURUS_INCARNATE)",
-      "x": 2,
-      "y": 14,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Unova_GiantChasm1F_EventScript_DexThundurusIncarnate",
-      "flag": "FLAG_HIDE_DEX_THUNDURUS_INCARNATE",
-      "origem": "distribui_dex"
-    }
-  ],
-  "warp_events": [
-    {
-      "x": 15,
-      "y": 3,
-      "elevation": 0,
-      "dest_map": "MAP_UNOVA_R_22",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 7,
-      "y": 17,
-      "elevation": 0,
-      "dest_map": "MAP_UNOVA_R_13",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 3,
-      "y": 1,
-      "elevation": 0,
-      "dest_map": "MAP_UNOVA_R_23_EAST",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 11,
-      "y": 2,
-      "elevation": 0,
-      "dest_map": "MAP_UNOVA_GIANT_CHASM_ROOMS",
-      "dest_warp_id": "0"
-    }
-  ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 13,
-      "y": 17,
-      "elevation": 0,
-      "var": "VAR_UNOVA_GIANT_CHASM_CENA",
-      "var_value": "0",
-      "script": "Unova_GiantChasm1F_EventScript_GiantChasm_MeetInferScene"
-    }
-  ],
-  "bg_events": [
-    {
-      "type": "hidden_item",
-      "x": 5,
-      "y": 14,
-      "elevation": 3,
-      "item": "ITEM_FULL_HEAL",
-      "flag": "FLAG_ITEMS_UNOVA_START + 0x000",
-      "quantity": 1,
-      "underfoot": false
-    }
-  ]
+  "connections": null,
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [],
+  "destinos_dinamicos": [],
+  "cortado_por": "cartucho 1: Unova e Galar sairam do escopo, ver PRD-CARTUCHO-1.md"
 }

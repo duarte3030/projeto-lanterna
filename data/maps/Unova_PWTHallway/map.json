@@ -3,8 +3,7 @@
   "name": "Unova_PWTHallway",
   "layout": "LAYOUT_UNOVA_PWT_HALLWAY",
   "music": "MUS_ROUTE113",
-  "region_map_section": "MAPSEC_UNOVA_POKEMON_WORLD_TOURNAMENT",
-  "map_name_popup": "WORLD TOURNAMENT",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -13,57 +12,11 @@
   "allow_running": true,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [],
+  "connections": null,
   "object_events": [],
-  "warp_events": [
-    {
-      "x": 9,
-      "y": 5,
-      "elevation": 0,
-      "dest_map": "MAP_UNOVA_PWT_INSIDE",
-      "dest_warp_id": "2"
-    },
-    {
-      "x": 10,
-      "y": 5,
-      "elevation": 0,
-      "dest_map": "MAP_UNOVA_PWT_INSIDE",
-      "dest_warp_id": "2"
-    },
-    {
-      "x": 4,
-      "y": 0,
-      "elevation": 0,
-      "dest_map": "MAP_UNOVA_PWT_QUALIFIER_ROOM",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 14,
-      "y": 0,
-      "elevation": 0,
-      "dest_map": "MAP_UNOVA_PWT_BACK_ROOM",
-      "dest_warp_id": "0"
-    }
-  ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 4,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_UNOVA_PWT_CORREDOR_CENA",
-      "var_value": "0",
-      "script": "Unova_PWTHallway_EventScript_PwtEnterFromLeftScript"
-    },
-    {
-      "type": "trigger",
-      "x": 14,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_UNOVA_PWT_CORREDOR_CENA",
-      "var_value": "0",
-      "script": "Unova_PWTHallway_EventScript_PwtEnterFromRightScript"
-    }
-  ],
-  "bg_events": []
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [],
+  "destinos_dinamicos": [],
+  "cortado_por": "cartucho 1: Unova e Galar sairam do escopo, ver PRD-CARTUCHO-1.md"
 }

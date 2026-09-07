@@ -3,8 +3,7 @@
   "name": "Galar_Route0802",
   "layout": "LAYOUT_GALAR_ROUTE08_02",
   "music": "MUS_RG_UNION_ROOM",
-  "region_map_section": "MAPSEC_GALAR_ROUTE08",
-  "map_name_popup": "ROUTE 8",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_SNOW",
   "map_type": "MAP_TYPE_ROUTE",
@@ -13,128 +12,11 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_GALAR_CIRCHESTER_06",
-      "offset": 10,
-      "direction": "up"
-    }
-  ],
-  "object_events": [
-    {
-      "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
-      "x": 16,
-      "y": 5,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarTrn_G12M09_o0",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SNOM)",
-      "x": 29,
-      "y": 10,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarSelvagem_SNOM_L39",
-      "flag": "0",
-      "origem": "estaticos_galar",
-      "origem_chave": "g12m09/objeto/2"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DARUMAKA_GALAR)",
-      "x": 25,
-      "y": 27,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarSelvagem_DARUMAKA_GALAR_L39",
-      "flag": "0",
-      "origem": "estaticos_galar",
-      "origem_chave": "g12m09/objeto/3"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SNOM)",
-      "x": 30,
-      "y": 24,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarSelvagem_SNOM_L39",
-      "flag": "0",
-      "origem": "estaticos_galar",
-      "origem_chave": "g12m09/objeto/4"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SNOM)",
-      "x": 16,
-      "y": 25,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarSelvagem_SNOM_L39",
-      "flag": "0",
-      "origem": "estaticos_galar",
-      "origem_chave": "g12m09/objeto/5"
-    }
-  ],
-  "warp_events": [
-    {
-      "x": 11,
-      "y": 20,
-      "elevation": 0,
-      "dest_map": "MAP_GALAR_ROUTE08_02",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 39,
-      "y": 6,
-      "elevation": 0,
-      "dest_map": "MAP_GALAR_ICE_DREAM_CAVE_01",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 40,
-      "y": 15,
-      "elevation": 0,
-      "dest_map": "MAP_GALAR_ICE_DREAM_CAVE_01",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 26,
-      "y": 5,
-      "elevation": 0,
-      "dest_map": "MAP_GALAR_ROUTE08_03",
-      "dest_warp_id": "1"
-    }
-  ],
+  "connections": null,
+  "object_events": [],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": [
-    {
-      "type": "sign",
-      "x": 39,
-      "y": 37,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "GalarFala_G12M09_bg0"
-    }
-  ],
-  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g12m09. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo."
+  "bg_events": [],
+  "destinos_dinamicos": [],
+  "cortado_por": "cartucho 1: Unova e Galar sairam do escopo, ver PRD-CARTUCHO-1.md"
 }

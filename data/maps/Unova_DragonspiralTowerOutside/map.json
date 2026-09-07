@@ -3,8 +3,7 @@
   "name": "Unova_DragonspiralTowerOutside",
   "layout": "LAYOUT_UNOVA_DRAGONSPIRAL_TOWER_OUTSIDE",
   "music": "MUS_MT_PYRE",
-  "region_map_section": "MAPSEC_UNOVA_DRAGONSPIRAL_TOWER",
-  "map_name_popup": "DRAGONSPIRAL TOWER",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",
@@ -13,38 +12,11 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [],
+  "connections": null,
   "object_events": [],
-  "warp_events": [
-    {
-      "x": 6,
-      "y": 18,
-      "elevation": 0,
-      "dest_map": "MAP_UNOVA_ICIRRUS_CITY_NORTH",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 7,
-      "y": 18,
-      "elevation": 0,
-      "dest_map": "MAP_UNOVA_ICIRRUS_CITY_NORTH",
-      "dest_warp_id": "2"
-    },
-    {
-      "x": 6,
-      "y": 5,
-      "elevation": 0,
-      "dest_map": "MAP_UNOVA_DRAGONSPIRAL_TOWER_1F",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 7,
-      "y": 5,
-      "elevation": 0,
-      "dest_map": "MAP_UNOVA_DRAGONSPIRAL_TOWER_1F",
-      "dest_warp_id": "1"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "destinos_dinamicos": [],
+  "cortado_por": "cartucho 1: Unova e Galar sairam do escopo, ver PRD-CARTUCHO-1.md"
 }

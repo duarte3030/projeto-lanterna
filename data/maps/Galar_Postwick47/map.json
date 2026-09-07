@@ -3,8 +3,7 @@
   "name": "Galar_Postwick47",
   "layout": "LAYOUT_GALAR_POSTWICK_47",
   "music": "MUS_NONE",
-  "region_map_section": "MAPSEC_GALAR_POSTWICK",
-  "map_name_popup": "POSTWICK",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",
@@ -13,123 +12,11 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [],
-  "object_events": [
-    {
-      "graphics_id": "OBJ_EVENT_GFX_WORKER_F",
-      "x": 35,
-      "y": 34,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_WORKER_M",
-      "x": 32,
-      "y": 22,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_2_FRLG",
-      "x": 16,
-      "y": 10,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_MAN",
-      "x": 16,
-      "y": 28,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MELOETTA)",
-      "x": 23,
-      "y": 35,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarSelvagem_MELOETTA_L50",
-      "flag": "0",
-      "origem": "estaticos_galar",
-      "origem_chave": "g08m10/objeto/4"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MELOETTA)",
-      "x": 11,
-      "y": 15,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarSelvagem_MELOETTA_L50",
-      "flag": "0",
-      "origem": "estaticos_galar",
-      "origem_chave": "g08m10/objeto/5"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MELOETTA)",
-      "x": 30,
-      "y": 13,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "GalarSelvagem_MELOETTA_L50",
-      "flag": "0",
-      "origem": "estaticos_galar",
-      "origem_chave": "g08m10/objeto/6"
-    }
-  ],
-  "warp_events": [
-    {
-      "x": 25,
-      "y": 6,
-      "elevation": 0,
-      "dest_map": "MAP_GALAR_POSTWICK_47",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 26,
-      "y": 6,
-      "elevation": 0,
-      "dest_map": "MAP_GALAR_POSTWICK_47",
-      "dest_warp_id": "1"
-    }
-  ],
+  "connections": null,
+  "object_events": [],
+  "warp_events": [],
   "coord_events": [],
   "bg_events": [],
-  "origem": "demake Sword and Shield Ultimate Plus v1.2.1.2 (FireRed), mapa g08m10. Gerado por dev_scripts/mundo_galar.py (G2+G3) e dev_scripts/gente_galar.py (G4); nao editar a mao. coord_events fica vazio de proposito: gatilho de cena e fase de conteudo. object_events sao NPC MUDO (script \"0\") e bg_events sao item escondido; quem nao entrou esta em dev_scripts/galar_gente.json com motivo. nome de balde mantido: nenhum warp nem conexao limpa liga este mapa a um mapa de secao conhecida"
+  "destinos_dinamicos": [],
+  "cortado_por": "cartucho 1: Unova e Galar sairam do escopo, ver PRD-CARTUCHO-1.md"
 }
