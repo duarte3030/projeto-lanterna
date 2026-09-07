@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Dá a Canalave a SILHUETA de porto: farol, veleiros, pórtico e engradados.
+"""Dá a Canalave a SILHUETA de porto: farol, veleiros e engradados.
 
 O `porto_canalave.py` (rodada 13) resolveu a água com o bote e os tambores de
 Slateport. O `porto_canalave_arte.py` resolveu a BEIRA com os cabeços de
 amarração do Golden Glazed. Sobrou o que se vê de LONGE, e é justamente isso que
-faz uma cidade parecer porto: o farol, o barco grande atracado e o pórtico que
-cruza a doca. Canalave não tinha nada disso, e a razão não era gosto nem
-preguiça, era ORÇAMENTO DE PALETA.
+faz uma cidade parecer porto: o farol e o barco grande atracado. Canalave não
+tinha nada disso, e a razão não era gosto nem preguiça, era ORÇAMENTO DE
+PALETA.
 
 O QUE DESTRAVOU. O motor tem `NUM_PALS_TOTAL 13` (`include/fieldmap.h`), ou
 seja, sete vagas de paleta para o secundário no layout `emerald`, da 6 à 12.
@@ -24,40 +24,69 @@ para 82, com árvore e calçada de losango sem par. O laudo está em
 e não tira um pixel do lugar, o que o render antes/depois do commit anterior
 provou com 0 pixel de diferença em 622.592.
 
-AS QUATRO PEÇAS, E O QUE CADA UMA CUSTA. Medido tile a tile e cor a cor, não
+AS TRÊS PEÇAS, E O QUE CADA UMA CUSTA. Medido tile a tile e cor a cor, não
 estimado:
 
-  vaga 10  VELEIRO               15 cores, 16 células   Golden Glazed 0x3DF92C
-  vaga 11  FAROL                 15 cores, 39 células   Golden Glazed 0x3DF92C
-  vaga 12  PÓRTICO + ENGRADADO   11 cores, 15 células   Scorched Silver 0x4929B4
+  vaga 10  VELEIRO     15 cores, 16 células   Golden Glazed 0x3DF92C
+  vaga 11  FAROL       15 cores, 39 células   Golden Glazed 0x3DF92C
+  vaga 12  ENGRADADO    5 cores, 24 células   Scorched Silver 0x4929B4
 
-O VEREDITO DO GUINDASTE, que era a pergunta aberta da rodada. O
-`amostras-tileset/refino/kits/CATALOGO.md` dizia que o secundário `0x4929B4` do
-Scorched Silver tem guindaste; o `amostras-tileset/refino/novidade-porto.tsv`
-dizia que guindaste não existe em nenhum dos três hacks candidatos. O CATÁLOGO
-ESTÁ CERTO e o TSV está errado, e o erro é rastreável: as duas linhas de
-`scorched-silver` do TSV são os tilesets `0x4924E4` e `0x49255C`, ou seja, ele
-nunca abriu o `0x4929B4`. O `0x4929B4` foi desenhado direto da ROM e tem um
-PÓRTICO de doca completo, em aço vermelho: duas torres treliçadas, uma viga de
-travessa e um gancho pendurado no meio. A prova está em
-`amostras-tileset/refino/guindaste-scorched-silver.png`. Ele custa 6 cores e 22
-tiles, o mais barato do kit inteiro, e é a silhueta que nenhuma outra fonte dá.
+O PÓRTICO DE DOCA EXISTE, FOI INSTALADO, E FOI TIRADO. Ele é real: o secundário
+`0x4929B4` do Scorched Silver tem um pórtico completo em aço vermelho, com duas
+torres treliçadas, viga de travessa e gancho, por 6 cores e 22 tiles, e a prova
+está em `amostras-tileset/refino/guindaste-scorched-silver.png`. Ele entrou na
+baía do norte em (13, 7) e o render mostrou o defeito: as duas torres treliçadas
+terminam em MAR ABERTO, sem nada embaixo. Pórtico de doca corre sobre trilho no
+cais, não flutua, e na fonte ele está exatamente assim, com as pernas no
+concreto entre duas darsenas. Guindaste bonito na água lê como bug, não como
+arte, então ele saiu do mapa e do kit.
+
+AS TRÊS SAÍDAS FORAM MEDIDAS, E AS TRÊS REPROVAM. Nenhuma foi descartada de
+cabeça:
+
+  1. MUDAR DE LUGAR. Varridas as 1.980 posições do mapa de 38x64 para uma peça
+     de 6x5. Só 17 põem os DOIS pés fora da água com todas as células
+     sobreponíveis; 16 dessas 17 esbarram em célula já desenhada por outra
+     ferramenta, em evento ou no corredor da balsa. Sobra UMA, (6, 21), no
+     largo oeste, e o portão do próprio script a recusa: as duas torres
+     cortam o largo e os COMPONENTES de chão andável sobem de 8 para 9. Não
+     existe posição em que o pé caia sobre concreto JÁ SÓLIDO: toda borda de
+     cais deste mapa (517, 526, 563, 568, 569, 570, 400, 402) desenha na
+     camada de CIMA, e a regra de acréscimo proíbe apagar isso.
+  2. ATRAVESSAR O CANAL, que é a pose da fonte e pediria só alargar a viga de
+     6 para 8 células. Morre na geometria: o cais leste, x=20, tem POSTE de luz
+     (metatile 816) nas linhas 16, 19 e 22, e a maior corrida limpa de 525 é de
+     DUAS linhas, contra as CINCO que a torre precisa. O cais oeste, x=13, é
+     526 de ponta a ponta e nunca é sobreponível.
+  3. PÔR CHÃO EMBAIXO DAS PERNAS. O cais do `0x4929B4` não vem: as dezessete
+     células de cais e beira dele (112, 114, 121, 122, 393, 400, 402, 408, 410,
+     44, 60, 593, 664, 666, 672, 673, 674) dão 0 de 4 quadrantes sob a regra do
+     primário, porque a fonte pinta o cais dela com a paleta do PRIMÁRIO dela:
+     é chão dela, não é peça. Quebrando a regra e levando o chão cru, uma
+     plataforma mínima na água (piso 593, meios-fios 664 e 666, e as duas
+     beiras que encostam na água, 112 e 114) custa 13 cores, 12 delas NOVAS,
+     para as 4 vagas livres da paleta 12. Só o piso e os meios-fios já custam 6
+     cores, 5 novas: falta UMA, a mesma conta da passarela.
 
 O QUE FICOU DE FORA, E POR QUÊ. O CAIS DE MADEIRA do Golden Glazed foi pedido
 junto com o veleiro e o farol, e não coube, e o número é este: o cais inteiro
 custa 12 cores; as três células caras dele (os metatiles 722, 723 e 724, a
 sombra debaixo do deque, na paleta 10 da fonte) sozinhas levam 7 dessas 12, e
-sem elas sobra uma passarela magra de 5 cores. Só que a última vaga já tem o
-pórtico (6 cores) e o engradado (5), e passarela mais pórtico mais engradado dá
-16 cores para 15 lugares. Faltou UMA.
+sem elas sobra uma passarela magra de 5 cores. Enquanto o pórtico estava na
+vaga 12 ela não cabia: pórtico (6) mais engradado (5) mais passarela (5) dá 16
+cores para 15 lugares, e faltava UMA. Com o pórtico fora, a vaga 12 usa 5 das
+15 e a passarela CABE, com 5 cores de folga. Ela continua de fora porque este
+commit é um conserto pontual e não uma frente de arte nova; a conta fica aqui
+pronta para a próxima.
 
 A escolha entre a passarela e o engradado não foi de gosto, foi de PORTÃO. A
 régua da onda é o carimbo dominante da cidade, medido pela
 `dev_scripts/regua_cidades.py`, e ela conta só célula ANDÁVEL: o metatile 521
 ocupava 198 das 736 andáveis, 26,9%, e o teto de reprovação é 25%. Farol,
-veleiro, pórtico e passarela moram todos na ÁGUA, que não é andável e não entra
-no denominador: com os quatro instalados o carimbo continuava exatos 26,9%, e a
-rodada reprovava com a cidade linda. O engradado é a única peça que pisa em
+veleiro e passarela moram todos na ÁGUA, que não é andável e não entra no
+denominador: com eles instalados o carimbo continuava exatos 26,9%, e a rodada
+reprovava com a cidade linda. É também por isso que tirar o pórtico não mexe no
+carimbo: ele morava na água. O engradado é a única peça que pisa em
 calçada. Com seis montes de 2 por 2 o carimbo cai para 24,4% de 712. Por isso
 ele entrou e a passarela ficou de fora, com o custo dela anotado aqui para a
 próxima frente, que só precisa de 1 cor livre em qualquer vaga.
@@ -80,11 +109,6 @@ O ATRIBUTO do metatile novo é COPIADO INTEIRO do metatile antigo, então
 como reclamar de comportamento.
 
 COLISÃO: o que muda, e por que é seguro.
-  - As TORRES do pórtico ficam nas células de MURO do canal, que já são sólidas.
-    Zero mudança.
-  - A VIGA e o GANCHO ficam por CIMA da água e continuam com colisão 0, de
-    propósito: viga de pórtico é estrutura suspensa, e passar de surf por baixo
-    dela é o certo, não uma concessão.
   - O casco do veleiro e a base do farol viram SÓLIDOS (colisão 0 para 1)
     porque estão em cima de ÁGUA, que nunca foi andável a pé.
   - O engradado também vira sólido, e esse pisa em CALÇADA. É o único caso em
@@ -101,18 +125,16 @@ COLISÃO: o que muda, e por que é seguro.
   - Colisão 1 para 0 em ZERO células, sempre, e a conferência mede.
 
 ONDE CADA PEÇA ENCOSTA, e por que ali. As âncoras são FIXAS, escritas em
-`POSICOES` logo abaixo, e não heurísticas: são quatro estruturas grandes num
-mapa de geometria muito específica, e escolher a dedo é mais revisável do que
-uma regra que ninguém consegue conferir de cabeça.
+`POSICOES` logo abaixo, e não heurísticas: são três estruturas grandes num mapa
+de geometria muito específica, e escolher a dedo é mais revisável do que uma
+regra que ninguém consegue conferir de cabeça.
   - farol na baía do norte, encostado na costa oeste, onde há 5 por 9 de água
-    aberta e o pé do farol cai exatamente na linha de terra.
-  - dois veleiros na mesma baía, um de cada lado do eixo, longe do farol.
-  - pórtico na baía, com as pernas na água, à esquerda dos veleiros e ao lado da
-    barcaça de Hoenn que a rodada 13 deixou ali. Ele NÃO foi para dentro do
-    canal, e a razão é medida: a água aberta do canal tem só 4 colunas (a 15 à
-    18); as duas colunas de beirada, os metatiles 400 e 402, desenham a sombra
-    da parede na camada de CIMA delas, e a regra de acréscimo proíbe apagar
-    isso. Um pórtico de 4 colunas ficaria com a viga do tamanho de duas células.
+    aberta e o pé do farol cai exatamente na linha de terra. Ele é o contrário
+    do pórtico e é por isso que fica: a linha de baixo dele é uma SAIA de
+    concreto desenhada na própria arte, que encosta no muro da costa, e não uma
+    perna solta.
+  - dois veleiros na mesma baía, um de cada lado do eixo, longe do farol. Barco
+    em cima da água está certo: barco flutua.
   - engradados espalhados pela calçada perto da água, pela regra de
     `_postos_engradado`, que é a única peça sem âncora fixa.
 
@@ -208,29 +230,17 @@ PECAS = collections.OrderedDict([
         [840, 841, 842, 843, 844],
     ])),
     # o engradado e a unica peca que pisa em CALCADA, e e ela que quebra o
-    # carimbo: as outras quatro moram na agua e nao entram no denominador da
+    # carimbo: as outras duas moram na agua e nao entram no denominador da
     # regua_cidades.py, que so conta celula ANDAVEL.
     ("engradado", dict(fonte="scorched-silver", vaga=12, macicos="tudo", grade=[
         [589, 590],
         [597, 598],
     ])),
-    # so as PERNAS da torre sao materia. A viga (605, 613), o gancho (614) e o
-    # cabo (622) ficam SUSPENSOS por cima da agua e nao mudam colisao: porticos
-    # de doca sao estrutura aerea, e passar de surf por baixo e o certo.
-    ("portico", dict(fonte="scorched-silver", vaga=12, macicos=(604, 612, 620),
-                     grade=[
-                         [604, 605, 605, 605, 605, 604],
-                         [612, 613, 613, 614, 613, 612],
-                         [612, None, None, 622, None, 612],
-                         [612, None, None, None, None, 612],
-                         [620, None, None, None, None, 620],
-                     ])),
 ])
 
 # Onde cada instancia encosta: (peca, x do canto superior esquerdo, y).
 POSICOES = [
     ("farol", 5, 1),
-    ("portico", 13, 7),
     ("veleiro", 20, 1),
     ("veleiro", 25, 4),
 ]
@@ -867,8 +877,19 @@ def confere(t, saida=None, novos=None, attrs=None):
     #    o chao andavel nao pode ganhar componente nenhum. Se um monte de
     #    engradado partisse uma praca em duas, a contagem subiria e este teste
     #    reprova, mesmo que os dois pedacos continuem alcancaveis pelos warps.
+    #    O comportamento do lado DEPOIS sai do `beh` local, e não do
+    #    `beh_disco`: os metatiles do kit ainda NÃO existem no
+    #    `metatile_attributes.bin` quando a conferência roda, então ler do disco
+    #    devolve zero, e zero é MB_NORMAL, ou seja, chão. As seis células de
+    #    mastro e vela do veleiro, que são ÁGUA com colisão 0, viravam dois
+    #    componentes de chão do nada, e o portão reprovava a própria peça que
+    #    acabara de aprovar. Medido em 07/09/2026 rodando o script sobre a
+    #    árvore limpa: com `beh_disco` dos dois lados dá 8 para 10; com o `beh`
+    #    local dá 8 para 8. Antes de 07/09 o erro ficava escondido porque o
+    #    arquivo de atributos já trazia as vagas escritas pela rodada anterior,
+    #    ou seja, o portão só estava certo por acidente do estado do disco.
     ca = componentes_de_chao(v, W, H, beh_disco, AG)
-    cb = componentes_de_chao(saida, W, H, beh_disco, AG)
+    cb = componentes_de_chao(saida, W, H, beh, AG)
     if cb > ca:
         mau.append("os componentes de chao andavel subiram de %d para %d" % (ca, cb))
 

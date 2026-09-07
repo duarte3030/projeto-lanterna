@@ -241,11 +241,11 @@ Glazed**, de **redriders180** e **Lucbui** (port decomp público em
 `github.com/TrainerX493/pokeglazed`). Nenhum id de flag, var, script ou música foi
 importado: só arte.
 
-### Silhueta de porto de `CanalaveCity`: farol, veleiro, pórtico e engradado (`gTileset_Canalave`, metatiles 832 a 909)
+### Silhueta de porto de `CanalaveCity`: farol, veleiro e engradado (`gTileset_Canalave`, metatiles 832 a 890)
 
 Esta seção é auto-contida e cobre a onda 1c do REFINO, frente CANALAVE.
 
-Os 158 tiles 8x8 e as três paletas novas do `gTileset_Canalave` (vagas 10, 11 e 12,
+Os 136 tiles 8x8 e as três paletas novas do `gTileset_Canalave` (vagas 10, 11 e 12,
 liberadas pelo reempacotamento de paleta do `dev_scripts/compacta_paletas.py`) vieram
 de duas ROM hacks, e nada além de ARTE foi importado: nenhum id de flag, var, script,
 música, treinador ou espécie.
@@ -256,8 +256,8 @@ música, treinador ou espécie.
   **Pokémon Glazed**, de **redriders180** e **Lucbui** (port decomp público em
   `github.com/TrainerX493/pokeglazed`). Md5 da cópia privada de trabalho:
   `f602010e5769fc0454fca4cc8eb77a4b`.
-- O **pórtico de doca** (torres, viga, gancho e cabo) e o **engradado** 2 por 2
-  (15 células somadas, 11 cores, vaga 12) vieram do tileset secundário `0x4929B4` do
+- O **engradado** 2 por 2 (24 células, 5 cores, vaga 12) veio do tileset
+  secundário `0x4929B4` do
   **Pokémon Scorched Silver v1.3 Complete**, de **Sloo**, construído sobre o
   **pokeemerald-expansion** da **RHH (Rom Hacking Hideout)**, a quem a base pede
   crédito. Md5 da cópia privada de trabalho: `f7af51cecd3e170cc373fba01753053c`.
