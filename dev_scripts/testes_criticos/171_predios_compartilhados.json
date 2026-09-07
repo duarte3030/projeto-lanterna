@@ -1,22 +1,21 @@
 [
   {
     "id": "T171.1",
-    "nome": "O DEFEITO DO PLAYTEST, DO LADO CERTO: quem entra no Trainer Hill pela praça de JOHTO sai na praça de Johto. O Gui entrou por Olivine e saiu na Route 111 de Hoenn, porque TrainerHill_Entrance é UM prédio com DUAS portas (a Route 111 e a praça TrainerHill_Courtyard, que a Fase F ligou à Route 40) e a saída era o warp fixo MAP_ROUTE111. As duas saídas viraram MAP_DYNAMIC, e o motor grava a origem sozinho em SetupWarp (src/field_control_avatar.c). O caso começa no warp 0 da praça, que larga o jogador em (12,11), ao pé da porta; o primeiro UP só vira o boneco, o segundo pisa em (12,10) e entra; depois DOWN pisa de volta no capacho de (9,16) e sai. A prova é o MAPA: MAP_TRAINER_HILL_COURTYARD, e a posição (12,11), o mesmo tile por onde ele entrou.",
-    "warp": "MAP_TRAINER_HILL_COURTYARD",
-    "warp_id": 0,
+    "nome": "A LOJA DE DEPARTAMENTO PELA PORTA DE SINNOH: quem entra por VEILSTONE sai em Veilstone. O defeito que este bloco nasceu para cobrir (playtest do Gui: entrou por um lado e saiu do outro lado do mundo) mora em prédio que DUAS regiões dividem, e depois da onda 4 do cartucho 1 a praça de Johto não é mais um deles. O caso mais duro que sobrou é este: LilycoveCity_DepartmentStore_1F é UM mapa com os dois tiles de porta em MAP_DYNAMIC, e Sinnoh entra nele pelo warp 3 de VeilstoneCity, em (25,30). Quem grava a origem é o motor, em SetupWarp (src/field_control_avatar.c). O jogador nasce naquele warp, o motor o larga em (25,31); o primeiro UP só vira o boneco, o segundo pisa na porta; dentro, ele cai em (8,7) e desce pelo tile de embarque. A prova é o MAPA, MAP_VEILSTONE_CITY, e a posição (25,31), o mesmo tile por onde ele entrou.",
+    "warp": "MAP_VEILSTONE_CITY",
+    "warp_id": 3,
     "roteiro": "90:NADA,17:UP*3,300:NADA,17:DOWN*3,300:NADA",
     "prova": {
-      "mapa": "MAP_TRAINER_HILL_COURTYARD",
-      "layout": "LAYOUT_TRAINER_HILL_COURTYARD",
+      "mapa": "MAP_VEILSTONE_CITY",
       "pos": [
-        12,
-        11
+        25,
+        31
       ]
     }
   },
   {
     "id": "T171.2",
-    "nome": "PAR NEGATIVO DO T171.1, e é ele que prova que o conserto não trocou um lado fixo por outro: MESMO prédio, MESMO roteiro, MESMO número de quadros, mudando só a porta por onde se entra. Entrando pela Route 111 de Hoenn (warp 4, que larga o jogador em (31,114)), a saída tem que continuar sendo a Route 111, em (31,114), como sempre foi. Se o retorno tivesse virado a praça de Johto para todo mundo, este caso ficaria vermelho e a regressão em Hoenn apareceria aqui, e não no playtest.",
+    "nome": "O TRAINER HILL PELA PORTA DE HOENN: entra pela Route 111 e sai na Route 111. Este é o caso mais antigo do bloco e o único que atravessou a onda 4 sem trocar uma vírgula da medida (warp, roteiro e prova são os mesmos desde que ele foi escrito), porque o prédio tem DUAS saídas em MAP_DYNAMIC e a de Hoenn nunca foi tocada: a que saiu foi a da praça da Route 40, virada túmulo pela decisão 29 do Gui. O warp 4 da Route 111 larga o jogador em (31,114); o primeiro UP só vira o boneco, o segundo pisa na porta; dentro, ele cai no capacho de (9,16) e sai por ele. A prova é MAP_ROUTE111 em (31,114), o mesmo tile por onde ele entrou. Ele é a ÂNCORA do bloco: enquanto ele estiver verde, a regressão em Hoenn não passou.",
     "warp": "MAP_ROUTE111",
     "warp_id": 4,
     "roteiro": "90:NADA,17:UP*3,300:NADA,17:DOWN*3,300:NADA",
@@ -30,23 +29,23 @@
   },
   {
     "id": "T171.3",
-    "nome": "O RETORNO ATRAVESSA OS ANDARES DE DENTRO. Entra pela praça de Johto, vai ao TRAINER_HILL_1F e volta ao Entrance, e só então sai pela porta: tem que cair na praça. O que este caso cobre e o T171.1 não cobre é o ON_TRANSITION rodando com uma origem que NÃO é entrada nenhuma: o `special DefinirRetornoPredioCompartilhado` só repõe o retorno quando ele aponta para mapa fechado, e voltando do 1F ele aponta para a praça, que é aberta, então nada é tocado. Os dois saltos até o 1F e de volta usam o menu de debug de propósito: a escada do Entrance fica atrás do balcão e só abre dentro de um desafio do Trainer Hill, e o warp de debug (src/debug.c:1549, SetWarpDestinationToMapWarp + DoWarp) NÃO passa por SetupWarp, então ele não grava dynamicWarp nenhum: é exatamente o estímulo que este caso quer, chegar no Entrance sem que o motor reescreva o retorno.",
-    "warp": "MAP_TRAINER_HILL_COURTYARD",
-    "warp_id": 0,
+    "nome": "O RETORNO ATRAVESSA OS ANDARES DE DENTRO. Entra no Trainer Hill pela Route 111, vai ao TRAINER_HILL_1F e volta ao Entrance, e só então sai pela porta: tem que cair na Route 111. O que este caso cobre e o T171.2 não cobre é o ON_TRANSITION rodando com uma origem que NÃO é entrada nenhuma: o `special DefinirRetornoPredioCompartilhado` só repõe o retorno quando ele aponta para mapa fechado, e voltando do 1F ele aponta para a Route 111, que é aberta, então nada é tocado. Os dois saltos até o 1F e de volta usam o menu de debug de propósito: a escada do Entrance fica atrás do balcão e só abre dentro de um desafio do Trainer Hill, e o warp de debug (src/debug.c:1549, SetWarpDestinationToMapWarp + DoWarp) NÃO passa por SetupWarp, então ele não grava dynamicWarp nenhum: é exatamente o estímulo que este caso quer, chegar no Entrance sem que o motor reescreva o retorno.",
+    "warp": "MAP_ROUTE111",
+    "warp_id": 4,
     "roteiro": "90:NADA,17:UP*3,300:NADA,WARP=MAP_TRAINER_HILL_1F:0,300:NADA,WARP=MAP_TRAINER_HILL_ENTRANCE:0,300:NADA,17:DOWN*3,300:NADA",
     "prova": {
-      "mapa": "MAP_TRAINER_HILL_COURTYARD",
+      "mapa": "MAP_ROUTE111",
       "pos": [
-        12,
-        11
+        31,
+        114
       ]
     }
   },
   {
     "id": "T171.4",
-    "nome": "PAR NEGATIVO DE PORTA, e separa 'a saída funciona' de 'qualquer tile daquele prédio devolve para a praça'. MESMO warp e MESMO caminho do T171.1, menos os DOWN: o jogador entra e FICA, parado no capacho de (9,16) do MAP_TRAINER_HILL_ENTRANCE. Sem ele, um MAP_DYNAMIC declarado no tile errado passaria despercebido, porque a prova do T171.1 é só 'terminei na praça' e ficar na praça é o estado inicial dele.",
-    "warp": "MAP_TRAINER_HILL_COURTYARD",
-    "warp_id": 0,
+    "nome": "PAR NEGATIVO DE PORTA, e separa 'a saída funciona' de 'qualquer tile daquele prédio devolve para a rua'. MESMO warp e MESMO caminho do T171.2, menos os DOWN: o jogador entra e FICA, parado no capacho de (9,16) do MAP_TRAINER_HILL_ENTRANCE. Sem ele, um MAP_DYNAMIC declarado no tile errado passaria despercebido, porque a prova do T171.2 é só 'terminei na Route 111' e ficar na Route 111 é o estado inicial dele.",
+    "warp": "MAP_ROUTE111",
+    "warp_id": 4,
     "roteiro": "90:NADA,17:UP*3,300:NADA",
     "prova": {
       "mapa": "MAP_TRAINER_HILL_ENTRANCE",
@@ -58,21 +57,21 @@
   },
   {
     "id": "T171.5",
-    "nome": "A BATTLE TENT DO MEIO (a de VERDANTURF) pela praça de Johto: entra e sai na praça. O mesmo defeito do Trainer Hill acontecia nas três tendas, porque a praça de Johto tem warp para os TRÊS lobbies de Hoenn, e os três saíam para a cidade de Hoenn deles. O warp 2 da praça larga o jogador em (20,29), ao pé da porta da tenda do meio; ele entra em (20,28) e sai pelo capacho de (6,9) do lobby. A prova é MAP_TRAINER_HILL_COURTYARD em (20,29).",
-    "warp": "MAP_TRAINER_HILL_COURTYARD",
-    "warp_id": 2,
+    "nome": "A MESMA LOJA PELA PORTA DE HOENN, e é o par de região do T171.1: entra pelo warp 0 de LilycoveCity, em (27,6), e sai em Lilycove, em (27,7). Os dois casos rodam o MESMO mapa, o MESMO roteiro e o MESMO número de quadros, e terminam em REGIÕES diferentes: é isso, e não a leitura do código, que prova que o `dynamicWarp` está sendo gravado por ENTRADA e não uma vez só. Se alguém trocasse os dois tiles de MAP_DYNAMIC por um destino fixo, um dos dois casos ficaria vermelho na hora.",
+    "warp": "MAP_LILYCOVE_CITY",
+    "warp_id": 0,
     "roteiro": "90:NADA,17:UP*3,300:NADA,17:DOWN*3,300:NADA",
     "prova": {
-      "mapa": "MAP_TRAINER_HILL_COURTYARD",
+      "mapa": "MAP_LILYCOVE_CITY",
       "pos": [
-        20,
-        29
+        27,
+        7
       ]
     }
   },
   {
     "id": "T171.6",
-    "nome": "PAR NEGATIVO DO T171.5: a MESMA tenda, o MESMO roteiro, entrando por VERDANTURF TOWN. Tem que sair em Verdanturf, em (3,8). É a regressão zero do lado de Hoenn para as tendas, e é também a prova de que o `dynamicWarp` do lobby está sendo gravado por ENTRADA e não uma vez só: os dois casos rodam o mesmo prédio e terminam em regiões diferentes.",
+    "nome": "A BATTLE TENT DE VERDANTURF pela porta de Verdanturf, a primeira das três tendas. Medida intocada desde antes da onda 4 (warp, roteiro e prova são os mesmos), e por isso ela é a segunda âncora do bloco: a porta de Johto para as três tendas foi cortada com a praça, e esta prova que a de Hoenn continua de pé. O warp 0 de VerdanturfTown fica em (3,7) e larga o jogador em (3,8). Prova: MAP_VERDANTURF_TOWN em (3,8).",
     "warp": "MAP_VERDANTURF_TOWN",
     "warp_id": 0,
     "roteiro": "90:NADA,17:UP*3,300:NADA,17:DOWN*3,300:NADA",
@@ -86,37 +85,37 @@
   },
   {
     "id": "T171.7",
-    "nome": "A TENDA DA ESQUERDA (a de FALLARBOR) pela praça de Johto. Não é repetição do T171.5: são lobbies diferentes, com map.json e scripts.inc próprios, e o conserto teve que ser escrito três vezes. O warp 1 da praça larga o jogador em (27,20), ao pé da porta de (27,19). Prova: MAP_TRAINER_HILL_COURTYARD em (27,20).",
-    "warp": "MAP_TRAINER_HILL_COURTYARD",
+    "nome": "A BATTLE TENT DE FALLARBOR pela porta de Fallarbor. Não é repetição do T171.6: são lobbies diferentes, com map.json e scripts.inc próprios, e a chamada do `special DefinirRetornoPredioCompartilhado` teve que ser escrita três vezes, uma por tenda. O warp 1 de FallarborTown fica em (8,7) e larga o jogador em (8,8). Prova: MAP_FALLARBOR_TOWN em (8,8).",
+    "warp": "MAP_FALLARBOR_TOWN",
     "warp_id": 1,
     "roteiro": "90:NADA,17:UP*3,300:NADA,17:DOWN*3,300:NADA",
     "prova": {
-      "mapa": "MAP_TRAINER_HILL_COURTYARD",
+      "mapa": "MAP_FALLARBOR_TOWN",
       "pos": [
-        27,
-        20
+        8,
+        8
       ]
     }
   },
   {
     "id": "T171.8",
-    "nome": "A TENDA DA DIREITA (a de SLATEPORT) pela praça de Johto, o terceiro lobby. O warp 3 da praça larga o jogador em (34,29), ao pé da porta de (34,28). Prova: MAP_TRAINER_HILL_COURTYARD em (34,29). Com o T171.5 e o T171.7 fecham as três tendas, e com o T171.1 fecham os quatro prédios que a praça de Johto divide com Hoenn.",
-    "warp": "MAP_TRAINER_HILL_COURTYARD",
+    "nome": "A BATTLE TENT DE SLATEPORT pela porta de Slateport, o terceiro lobby. O warp 3 de SlateportCity fica em (10,12) e larga o jogador em (10,13). Prova: MAP_SLATEPORT_CITY em (10,13). Com o T171.6 e o T171.7 fecham as três tendas; com o T171.2, o T171.5 e o T171.11 fecham os SEIS prédios que o `DefinirRetornoPredioCompartilhado` serve (a lista sai de quem chama o special: Trainer Hill, as três tendas, a loja e o museu de Lilycove).",
+    "warp": "MAP_SLATEPORT_CITY",
     "warp_id": 3,
     "roteiro": "90:NADA,17:UP*3,300:NADA,17:DOWN*3,300:NADA",
     "prova": {
-      "mapa": "MAP_TRAINER_HILL_COURTYARD",
+      "mapa": "MAP_SLATEPORT_CITY",
       "pos": [
-        34,
-        29
+        10,
+        13
       ]
     }
   },
   {
     "id": "T171.9",
-    "nome": "CONTROLE DO PAR ADVERSARIAL, e ele existe para PROVAR que o dynamicWarp fica sujo. O jogador entra na tenda do meio pela praca de Johto (o que grava escapeWarp na praca), pula de debug para o elevador da loja de Lilycove, fala com a atendente e escolhe o 5o andar: `setdynamicwarp MAP_LILYCOVE_CITY_DEPARTMENT_STORE_5F, 2, 1` (data/maps/LilycoveCity_DepartmentStoreElevator/scripts.inc:98) reescreve o retorno para um mapa FECHADO do outro lado do mundo. Ao sair do elevador ele cai justamente la, em MAP_LILYCOVE_CITY_DEPARTMENT_STORE_5F (2,2). Esse e o estado que o T171.10 vai carregar para dentro da tenda.",
-    "warp": "MAP_TRAINER_HILL_COURTYARD",
-    "warp_id": 2,
+    "nome": "CONTROLE DO PAR ADVERSARIAL, e ele existe para PROVAR que o dynamicWarp fica sujo. O jogador entra na loja de departamento pela porta de VEILSTONE (o que grava o retorno em Veilstone), sobe ao elevador, fala com a atendente e escolhe o 5º andar: `setdynamicwarp MAP_LILYCOVE_CITY_DEPARTMENT_STORE_5F, 2, 1` (data/maps/LilycoveCity_DepartmentStoreElevator/scripts.inc:98) reescreve o retorno para um mapa FECHADO. Ao sair do elevador ele cai justamente lá, em MAP_LILYCOVE_CITY_DEPARTMENT_STORE_5F (2,2). Esse é o estado que o T171.10 vai carregar para o térreo. O salto de debug até o elevador é de propósito: o térreo tem dois NPCs de MOVEMENT_TYPE_WANDER_AROUND no caminho do balcão, e o debug NÃO passa por SetupWarp, então ele não grava retorno nenhum e não contamina a medida.",
+    "warp": "MAP_VEILSTONE_CITY",
+    "warp_id": 3,
     "roteiro": "90:NADA,17:UP*3,300:NADA,WARP=MAP_LILYCOVE_CITY_DEPARTMENT_STORE_ELEVATOR:0,300:NADA,17:LEFT,60:NADA,17:A,240:NADA,17:A,240:NADA,17:A,420:NADA,17:DOWN*3,300:NADA",
     "prova": {
       "mapa": "MAP_LILYCOVE_CITY_DEPARTMENT_STORE_5F",
@@ -128,15 +127,43 @@
   },
   {
     "id": "T171.10",
-    "nome": "O CASO ADVERSARIAL: o special repoe o retorno, e sem ele os outros oito casos passariam com uma funcao que nao faz nada. Ate aqui todo caso exercitava so o automatico do motor, que grava o retorno na ENTRADA; a reposicao do `DefinirRetornoPredioCompartilhado` so acorda quando alguem suja o dynamicWarp, e no jogo quem suja e o desafio da tenda (InitVerdanturfTentChallenge, src/battle_tent.c:115), que este harness nao consegue jogar ate o fim. O elevador de Lilycove suja do MESMO jeito, com um `setdynamicwarp` para mapa fechado, e e por isso que ele esta aqui. MESMO comeco do T171.9, e no fim o jogador volta para dentro do lobby da tenda e sai pela porta: se o special nao rodasse, ele reapareceria na loja de Lilycove (T171.9 mostra exatamente isso acontecendo). Tem que cair na praca de Johto, em (20,29), que e o escapeWarp gravado na entrada.",
-    "warp": "MAP_TRAINER_HILL_COURTYARD",
-    "warp_id": 2,
-    "roteiro": "90:NADA,17:UP*3,300:NADA,WARP=MAP_LILYCOVE_CITY_DEPARTMENT_STORE_ELEVATOR:0,300:NADA,17:LEFT,60:NADA,17:A,240:NADA,17:A,240:NADA,17:A,420:NADA,WARP=MAP_VERDANTURF_TOWN_BATTLE_TENT_LOBBY:0,300:NADA,17:DOWN*3,300:NADA",
+    "nome": "O CASO ADVERSARIAL: o special repõe o retorno, e sem ele os outros casos passariam com uma função que não faz nada. Todos os demais exercitam só o automático do motor, que grava o retorno na ENTRADA; a reposição do `DefinirRetornoPredioCompartilhado` só acorda quando alguém suja o dynamicWarp, e dentro deste prédio quem suja é o ELEVADOR, com um `setdynamicwarp` para mapa fechado. MESMO começo do T171.9, e no fim o jogador volta ao TÉRREO e sai pela porta da rua: se o special não rodasse, ele reapareceria no 5º andar da loja (o T171.9 mostra exatamente isso acontecendo). Tem que cair em VEILSTONE, em (25,31), que é o escapeWarp gravado na entrada, e não em Lilycove, que é onde o prédio mora.",
+    "warp": "MAP_VEILSTONE_CITY",
+    "warp_id": 3,
+    "roteiro": "90:NADA,17:UP*3,300:NADA,WARP=MAP_LILYCOVE_CITY_DEPARTMENT_STORE_ELEVATOR:0,300:NADA,17:LEFT,60:NADA,17:A,240:NADA,17:A,240:NADA,17:A,420:NADA,WARP=MAP_LILYCOVE_CITY_DEPARTMENT_STORE_1F:0,300:NADA,17:DOWN*3,300:NADA",
     "prova": {
-      "mapa": "MAP_TRAINER_HILL_COURTYARD",
+      "mapa": "MAP_VEILSTONE_CITY",
       "pos": [
-        20,
-        29
+        25,
+        31
+      ]
+    }
+  },
+  {
+    "id": "T171.11",
+    "nome": "O MUSEU DE LILYCOVE PELA PORTA DE SINNOH, o sexto e último prédio da lista do special. Sinnoh o reaproveita como museu de OREBURGH e entra por ele pelo warp 4 de OreburghCity, em (54,14). Ele não é repetição da loja: são mapas diferentes, e o museu NÃO tem elevador, então nada lá dentro reescreve o retorno e o special fica só como rede para partida carregada de dentro do prédio (é o que o comentário do LilycoveCity_LilycoveMuseum_1F_OnTransition diz). Prova: MAP_OREBURGH_CITY em (54,15).",
+    "warp": "MAP_OREBURGH_CITY",
+    "warp_id": 4,
+    "roteiro": "90:NADA,17:UP*3,300:NADA,17:DOWN*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_CITY",
+      "pos": [
+        54,
+        15
+      ]
+    }
+  },
+  {
+    "id": "T171.12",
+    "nome": "PAR DE REGIÃO DO T171.11: o MESMO museu pela porta de HOENN, o warp 3 de LilycoveCity em (11,5). Tem que sair em Lilycove, em (11,6). Vale a mesma regra do par loja/loja: um destino fixo em qualquer um dos dois tiles de MAP_DYNAMIC derruba um dos dois casos na hora, e nenhum dos dois sozinho pegaria isso.",
+    "warp": "MAP_LILYCOVE_CITY",
+    "warp_id": 3,
+    "roteiro": "90:NADA,17:UP*3,300:NADA,17:DOWN*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY",
+      "pos": [
+        11,
+        6
       ]
     }
   }
