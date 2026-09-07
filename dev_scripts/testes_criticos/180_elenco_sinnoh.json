@@ -6,7 +6,9 @@
     "roteiro": "120:NADA",
     "prova": {
       "mapa": "MAP_CONTEST_HALL_LOBBY",
-      "palobj_presentes": ["0x32B9"]
+      "palobj_presentes": [
+        "0x32B9"
+      ]
     }
   },
   {
@@ -16,17 +18,22 @@
     "roteiro": "120:NADA",
     "prova": {
       "mapa": "MAP_VEILSTONE_STORE_2F",
-      "palobj_presentes": ["0x32B9"]
+      "palobj_presentes": [
+        "0x32B9"
+      ]
     }
   },
   {
     "id": "T180.3",
-    "nome": "O CORREDOR DO LOBBY CONTINUA ANDAVEL DEPOIS DE O ELENCO CERTO ENTRAR. Tirar as enfermeiras a mais abriu vaga sob o teto da fonte, e o importador de NPC preencheu com quem o Platinum tem de verdade (FANTINA, uma beauty, uma picnicker). Objeto e SOLIDO: a MOM da fonte cai em (4,5), que e a quarta celula da subida da porta ate a porta fechada do palco, e `importa_npcs_sinnoh.corredores_de_teste()` a barrou por isso. Este caso e o par dessa guarda: mesma subida do T140.1, e o jogador tem que chegar em (6,1).",
+    "nome": "O CORREDOR DO LOBBY CONTINUA ANDÁVEL DEPOIS DE O ELENCO CERTO ENTRAR. Tirar as enfermeiras a mais abriu vaga sob o teto da fonte, e o importador de NPC preencheu com quem o Platinum tem de verdade (FANTINA, uma beauty, uma picnicker). Objeto é SÓLIDO: a MOM da fonte cai em (4,5), que é a quarta célula da subida da porta da rua até a porta do palco, e `importa_npcs_sinnoh.corredores_de_teste()` a barrou por isso. Este caso é o par dessa guarda. A rota é a de antes MENOS os dois últimos UP, e a razão está medida: até 06/09/2026 o warp do palco era lápide e (6,1) era um beco onde o jogador parava, mas a decisão 48 de 07/09 (commit ee86cc50f7) devolveu o warp ao índice 2 do ContestHallLobby, e subir até (6,1) agora TIRA o jogador do saguão, o que faria este caso medir a porta em vez do corredor (quem mede a porta é o T140.12). A prova passa a ser (6,2), o tile logo abaixo da porta do palco: a subida inteira, (4,5) inclusive, tem que estar livre, e o caso volta a medir só o que é dele.",
     "warp": "MAP_CONTEST_HALL_LOBBY",
-    "roteiro": "120:NADA,16:UP*2,16:RIGHT,16:UP*4,16:RIGHT*2,16:UP*2,180:NADA",
+    "roteiro": "120:NADA,16:UP*2,16:RIGHT,16:UP*4,16:RIGHT*2,180:NADA",
     "prova": {
       "mapa": "MAP_CONTEST_HALL_LOBBY",
-      "pos": [6, 1],
+      "pos": [
+        6,
+        2
+      ],
       "andou": true
     }
   }

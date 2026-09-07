@@ -1,133 +1,187 @@
 [
- {
-  "id": "T140.1",
-  "nome": "A PORTA FECHADA NAO WARPA. Em 22/08/2026 os 110 mapas cortados viraram tumulo (dev_scripts/remove_mapas_cortados.py) e o warp que levava a eles virou LAPIDE: a entrada continua no mesmo indice, para nao deslocar `dest_warp_id` de terceiro, mas passa a repetir a coordenada do warp DOADOR do proprio mapa, de modo que o tile da porta antiga fica sem warp nenhum. Quem prova que isso basta e o motor: `TryStartWarpEventScript` (src/field_control_avatar.c:988) so warpa se `GetWarpEventAtMapPosition` achar evento NAQUELA posicao. Aqui o jogador entra no CONTEST HALL LOBBY pela porta da rua, atravessa o saguao ate (6,1), que era a porta do palco de Contest (MAP_CONTEST_HALL_STAGE_NO_CONTEST, cortado), pisa nela e CONTINUA no saguao. O ultimo UP nao anda porque (6,0) e parede, entao a posicao final tambem prova que ele chegou ate la",
-  "warp": "MAP_CONTEST_HALL_LOBBY",
-  "warp_id": 0,
-  "roteiro": "120:NADA,16:UP*2,16:RIGHT,16:UP*4,16:RIGHT*2,16:UP*2,180:NADA",
-  "prova": {
-   "mapa": "MAP_CONTEST_HALL_LOBBY",
-   "pos": [
-    6,
-    1
-   ],
-   "andou": true
+  {
+    "id": "T140.1",
+    "nome": "A PORTA CORTADA NÃO WARPA, mesmo com o tile continuando a dizer que warpa. Em 22/08/2026 os mapas fora do escopo viraram túmulo (dev_scripts/remove_mapas_cortados.py) e o warp que levava a eles virou LÁPIDE: a entrada fica no MESMO índice, para não deslocar `dest_warp_id` de terceiro, mas passa a repetir a coordenada do warp DOADOR do próprio mapa, e o tile da porta antiga fica sem warp nenhum. Em 07/09/2026 a decisão 48 (commit ee86cc50f7) ressuscitou 32 mapas de Sinnoh e o exemplo que este caso usava até 06/09, a porta do palco do Contest Hall, voltou a abrir: quem prova a porta do palco AGORA é o T140.12, e este caso trocou de exemplo em vez de morrer, porque a lição continua viva. Medido nesta árvore: 812 map.json ainda têm `cortado_por` e sobram 15 lápides em 13 mapas vivos. O exemplo novo é a escada do 2F do Pokécenter de Hearthome: o warp 2 é lápide (repete (6,8), o tile do warp 0) e a `porta_original` dele era (1,6). O tile (1,6) CONTINUA sendo MB_UP_ESCALATOR, ou seja o comportamento ainda grita 'warpa aqui', e quem decide é `TryStartWarpEventScript` (src/field_control_avatar.c:988), que exige evento de warp NAQUELA posição E comportamento de warp: sem o evento ele devolve FALSE e nada acontece. O jogador entra pela porta da rua, sobe dois tiles e aperta LEFT oito vezes, das quais cinco andam; ele PARA em (1,6), de pé em cima da escada morta e ainda dentro do Pokécenter. Os LEFT que sobram não andam porque (0,6) é parede, então a posição final também prova que ele chegou até lá.",
+    "warp": "MAP_HEARTHOME_CITY_POKECENTER_1F",
+    "warp_id": 0,
+    "roteiro": "120:NADA,16:UP*2,16:LEFT*8,120:NADA",
+    "prova": {
+      "mapa": "MAP_HEARTHOME_CITY_POKECENTER_1F",
+      "pos": [
+        1,
+        6
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T140.2",
+    "nome": "PAR do T140.1, e ele prova as duas metades que o T140.1 sozinho não prova: que o mapa não ficou mudo (warp vivo do MESMO mapa continua disparando) e que a LÁPIDE não sombreia o doador. O tile (6,8) deste Pokécenter carrega DUAS entradas de warp, o índice 0 (vivo, sai para a cidade) e o índice 2 (a lápide, que copiou a coordenada dele); `GetWarpEventAtPosition` devolve a PRIMEIRA, e a primeira é a viva. Mesma entrada do T140.1, e a única diferença é o roteiro: (6,8) é MB_SOUTH_ARROW_WARP (medido no metatile 515 de LAYOUT_OREBURGH_CITY_POKEMON_CENTER_1F), então a saída não é pisar, e sim APERTAR PARA BAIXO em cima dela; o primeiro DOWN só vira o jogador, que nasce olhando para cima. Se o tile tivesse perdido o warp junto com a escada, ele ficaria dentro do Pokécenter. Tem que sair em MAP_HEARTHOME_CITY, em (14,20), que é o tile logo abaixo da porta do Pokécenter na cidade.",
+    "warp": "MAP_HEARTHOME_CITY_POKECENTER_1F",
+    "warp_id": 0,
+    "roteiro": "120:NADA,16:DOWN*2,240:NADA",
+    "prova": {
+      "mapa": "MAP_HEARTHOME_CITY",
+      "pos": [
+        14,
+        20
+      ]
+    }
+  },
+  {
+    "id": "T140.3",
+    "nome": "A PLACA DA PORTA FECHADA SE LÊ, e ela continua existindo em 16 mapas desta árvore. O gerador põe um bg_event `sign` na PAREDE vizinha da porta que fechou (aqui (0,6), à esquerda da escada morta do T140.1) apontando para HearthomeCityPokecenter1F_EventScript_PortaFechada (data/maps/HearthomeCityPokecenter1F/scripts.inc:42), que chama o texto que agora é UM SÓ e está em INGLÊS, `Common_Text_PortaFechada` em data/scripts/portas_fechadas.inc: 'Closed for renovations.' (até 06/09/2026 cada mapa tinha a sua cópia da frase, e a frase estava em português). Prova pelo mesmo caminho do T120.3, que é o único jeito de provar leitura sem ler VRAM: a msgbox TRAVA a entrada, então os três RIGHT do fim NÃO andam e a posição final continua (1,6). Mesma rota do T140.1 mais um A no fim, com o jogador já virado para a esquerda porque o último passo foi LEFT.",
+    "warp": "MAP_HEARTHOME_CITY_POKECENTER_1F",
+    "warp_id": 0,
+    "roteiro": "120:NADA,16:UP*2,16:LEFT*8,60:NADA,16:A,120:NADA,16:RIGHT*3,120:NADA",
+    "prova": {
+      "mapa": "MAP_HEARTHOME_CITY_POKECENTER_1F",
+      "pos": [
+        1,
+        6
+      ]
+    }
+  },
+  {
+    "id": "T140.4",
+    "nome": "PAR NEGATIVO do T140.3, e o que impede que ele passe por acidente. MESMO warp, MESMA rota, MESMOS três RIGHT do fim, e a ÚNICA diferença é que o A não é apertado. Sem msgbox aberta a entrada não trava e os RIGHT andam: a posição final é (3,6) (o primeiro RIGHT vira o jogador, que vinha andando para a esquerda, e os outros dois andam), e não (1,6). Se o T140.3 estivesse passando só porque o jogador não conseguia sair dali (parede, NPC, elevação), este caso falharia junto e denunciaria a prova. De quebra ele mede a elevação do canto: (1,6) é elevação 4 e (3,6) é elevação 3, e a passagem entre as duas só existe porque (2,6) é elevação 0.",
+    "warp": "MAP_HEARTHOME_CITY_POKECENTER_1F",
+    "warp_id": 0,
+    "roteiro": "120:NADA,16:UP*2,16:LEFT*8,60:NADA,120:NADA,16:RIGHT*3,120:NADA",
+    "prova": {
+      "mapa": "MAP_HEARTHOME_CITY_POKECENTER_1F",
+      "pos": [
+        3,
+        6
+      ]
+    }
+  },
+  {
+    "id": "T140.5",
+    "nome": "O VIZINHO VIVO CONTINUA COM OS OUTROS WARPS, índice por índice. HearthomeCity foi o pior caso medido do corte: entre 22/08 e 07/09/2026 os warps 7 e 8 de 16 (os dois portões da Amity Square) ficaram lápide, e o mapa tem 14 ponteiros de terceiros para índices DEPOIS deles, contados nesta árvore. Se o corte tivesse APAGADO as duas entradas em vez de virar lápide, todo `dest_warp_id` maior teria escorregado dois e cada porta de Hearthome abriria na porta errada, sem erro de compilação e sem warp quebrado: o jogo só levaria o jogador para o prédio ao lado. Foi por os índices nunca terem andado que a decisão 48 pôde devolver o destino de antes do corte no MESMO índice 7 e no MESMO índice 8 (T140.7 e T140.11). Aqui ele nasce no warp 9, que é a porta do CONTEST HALL, sai dela (o motor o deposita em (29,13), porque (29,12) é porta e não é andável) e volta a empurrar para cima. Tem que entrar no Contest Hall.",
+    "warp": "MAP_HEARTHOME_CITY",
+    "warp_id": 9,
+    "roteiro": "150:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_CONTEST_HALL_LOBBY"
+    }
+  },
+  {
+    "id": "T140.6",
+    "nome": "PAR do T140.5 no índice seguinte, e é o par que fecha o argumento: dois índices consecutivos DEPOIS dos dois que foram lápide têm que abrir em dois prédios DIFERENTES. Warp 10 de HearthomeCity é a NORTHWEST HOUSE. Mesma mecânica do T140.5 (nasce na porta, o motor deposita em (37,31), um UP entra). Se os índices tivessem escorregado, os dois casos cairiam no mesmo lugar ou trocariam de lugar entre si, e um só deles não pegaria isso.",
+    "warp": "MAP_HEARTHOME_CITY",
+    "warp_id": 10,
+    "roteiro": "150:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_HEARTHOME_CITY_NORTHWEST_HOUSE"
+    }
+  },
+  {
+    "id": "T140.7",
+    "nome": "O PORTÃO OESTE DA AMITY SQUARE VOLTA A ABRIR, e este caso é o inverso exato do que era até 06/09/2026. A porta do ForeignBuilding tem DUAS células, (8,6) e (9,6), as duas com MB_NORTH_ARROW_WARP e o mesmo metatile 484, e na fonte cada metade tem um destino DIFERENTE: (9,6) vai para o ForeignBuilding e (8,6) vai para o portão OESTE da Amity Square. Como o portão estava cortado, o warp 7 passou a ADOTAR o destino da gêmea viva (regra `gemea_viva` de remove_mapas_cortados.py), e era a adoção que este caso provava. A decisão 48 de 07/09/2026 ressuscitou MAP_HEARTHOME_CITY_WEST_GATE_TO_AMITY_SQUARE e devolveu ao índice 7 o warp LITERAL de antes do corte, então a adoção acabou e o que há para provar agora é a reabertura. O caso nasce EM CIMA de (8,6), que é o warp 7, e sobe: tem que chegar em MAP_HEARTHOME_CITY_WEST_GATE_TO_AMITY_SQUARE, em (1,5). Que a porta é porta de verdade, e não teleporte por nascer na célula, quem prova é o T140.8.",
+    "warp": "MAP_HEARTHOME_CITY",
+    "warp_id": 7,
+    "roteiro": "150:NADA,20:UP,20:UP,20:UP,300:NADA",
+    "prova": {
+      "mapa": "MAP_HEARTHOME_CITY_WEST_GATE_TO_AMITY_SQUARE",
+      "pos": [
+        1,
+        5
+      ]
+    }
+  },
+  {
+    "id": "T140.8",
+    "nome": "PAR NEGATIVO do T140.7, e o que impede que ele passe por acidente. MESMO warp 7, MESMO ponto de partida, e a ÚNICA diferença é a direção: três DOWN em vez de três UP. MB_NORTH_ARROW_WARP só dispara com o jogador virado para o NORTE (IsArrowWarpMetatileBehavior, src/field_control_avatar.c), então descer tem que deixar o jogador dentro de HearthomeCity, andando. Sem este par, o T140.7 passaria mesmo que o motor teleportasse por nascer na célula.",
+    "warp": "MAP_HEARTHOME_CITY",
+    "warp_id": 7,
+    "roteiro": "150:NADA,20:DOWN,20:DOWN,20:DOWN,300:NADA",
+    "prova": {
+      "mapa": "MAP_HEARTHOME_CITY",
+      "pos": [
+        8,
+        9
+      ]
+    }
+  },
+  {
+    "id": "T140.9",
+    "nome": "A PORTA DA IGREJA, VIZINHA DO PORTÃO, CONTINUA ABRINDO A IGREJA. Warp 12 é a célula (9,6), colada em (8,6) do warp 7: mesmo metatile 484, mesmo MB_NORTH_ARROW_WARP, e desde a ressurreição cada metade tem de volta o SEU destino, (8,6) o portão oeste e (9,6) o ForeignBuilding. Ele existe para provar que devolver o destino do portão não roubou a porta boa, que é o defeito simétrico do que a adoção da gêmea causava.",
+    "warp": "MAP_HEARTHOME_CITY",
+    "warp_id": 12,
+    "roteiro": "150:NADA,20:UP,20:UP,20:UP,300:NADA",
+    "prova": {
+      "mapa": "MAP_FOREIGN_BUILDING"
+    }
+  },
+  {
+    "id": "T140.10",
+    "nome": "DENTRO DA IGREJA O NPC FALA, E A SAÍDA DEVOLVE NA FRENTE DA PORTA. O ForeignBuilding tem 9 objetos e 9 falas do Platinum já em inglês; o NINJA BOY do warp de entrada mora em (2,8), colado à esquerda da célula (3,8) onde o motor deposita quem entra. O roteiro vira para a esquerda (o objeto é sólido, então vira sem andar), aperta A e vence as duas páginas da fala, fecha com B e desce. A saída do interior é MB_SOUTH_ARROW_WARP e aponta para o warp 12 de HearthomeCity, então a prova de posição [9,6] diz as duas coisas ao mesmo tempo: que saiu, e que saiu NA PORTA e não em outro canto da cidade.",
+    "warp": "MAP_FOREIGN_BUILDING",
+    "warp_id": 0,
+    "roteiro": "150:NADA,20:LEFT,60:NADA,20:A,180:NADA,20:A,180:NADA,20:A,120:NADA,20:B,90:NADA,20:DOWN,20:DOWN,300:NADA",
+    "prova": {
+      "mapa": "MAP_HEARTHOME_CITY",
+      "pos": [
+        9,
+        6
+      ]
+    }
+  },
+  {
+    "id": "T140.11",
+    "nome": "O PORTÃO LESTE DA AMITY SQUARE VOLTA A ABRIR. Par do T140.7 do outro lado da cidade, e o mesmo defeito: (50,6) vai para a NORTHEAST HOUSE, viva, e (51,6) vai para o portão LESTE da Amity Square, que estava cortado, então entre 22/08 e 06/09/2026 o warp 8 adotava o destino da gêmea e este caso provava a adoção. A decisão 48 devolveu o portão ao MESMO índice 8, e a adoção acabou. O caso nasce em (51,6), que é o warp 8, e sobe: tem que chegar em MAP_HEARTHOME_CITY_EAST_GATE_TO_AMITY_SQUARE, em (1,5). Ele prova, com o T140.7, que a ressurreição não foi conserto pontual de uma porta: pegou os dois portões, nos dois índices, e nenhum dos dois andou de lugar. A travessia do portão até a praça é o T140.14.",
+    "warp": "MAP_HEARTHOME_CITY",
+    "warp_id": 8,
+    "roteiro": "150:NADA,20:UP,20:UP,20:UP,300:NADA",
+    "prova": {
+      "mapa": "MAP_HEARTHOME_CITY_EAST_GATE_TO_AMITY_SQUARE",
+      "pos": [
+        1,
+        5
+      ]
+    }
+  },
+  {
+    "id": "T140.12",
+    "nome": "A PORTA DO PALCO ABRE, e é o inverso exato do que o T140.1 provava neste mapa até 06/09/2026. O warp 2 do ContestHallLobby, em (6,1), era lápide desde o corte de 22/08, e o caso provava que pisar ali NÃO tirava o jogador do saguão. A decisão 48 ressuscitou MAP_CONTEST_HALL_STAGE_NO_CONTEST e devolveu o warp ao MESMO índice 2, com o destino de antes do corte. O jogador entra no saguão pela porta da rua e sobe o corredor até (6,1), que é MB_NON_ANIMATED_DOOR: em vez de continuar no saguão, ele tem que aparecer em MAP_CONTEST_HALL_STAGE_NO_CONTEST, em (3,8), que é o tile do warp 0 do palco. A rota é LETRA POR LETRA a que o T140.1 usava, de propósito: o mesmo roteiro que provava a porta fechada agora prova a porta aberta, e os dois não podem passar ao mesmo tempo. Volta: T140.13.",
+    "warp": "MAP_CONTEST_HALL_LOBBY",
+    "warp_id": 0,
+    "roteiro": "120:NADA,16:UP*2,16:RIGHT,16:UP*4,16:RIGHT*2,16:UP*2,180:NADA",
+    "prova": {
+      "mapa": "MAP_CONTEST_HALL_STAGE_NO_CONTEST",
+      "pos": [
+        3,
+        8
+      ]
+    }
+  },
+  {
+    "id": "T140.13",
+    "nome": "QUEM ENTRA POR UMA PORTA SAI POR ELA, que é a regra que a lente `dev_scripts/qa/lente_warps.py` do commit ed8698166c passou a cobrar de todo warp do jogo. Volta do T140.12, e sem ela a ressurreição do palco estaria provada pela metade: mapa em que se entra e não se sai é beco, e beco com o jogador dentro é save perdida. O jogador nasce no warp 0 do palco, em (3,8), que é MB_SOUTH_ARROW_WARP, e aperta para baixo duas vezes (a primeira só vira, porque ele nasce olhando para cima). Tem que voltar para MAP_CONTEST_HALL_LOBBY em (6,2), que é o tile logo abaixo da porta (6,1) por onde entrou, e não em outro canto do saguão nem em outro prédio.",
+    "warp": "MAP_CONTEST_HALL_STAGE_NO_CONTEST",
+    "warp_id": 0,
+    "roteiro": "120:NADA,16:DOWN*2,240:NADA",
+    "prova": {
+      "mapa": "MAP_CONTEST_HALL_LOBBY",
+      "pos": [
+        6,
+        2
+      ]
+    }
+  },
+  {
+    "id": "T140.14",
+    "nome": "A AMITY SQUARE É ALCANÇÁVEL A PÉ, e é o portão leste que a alcança. A praça é um dos 32 mapas que a decisão 48 tirou do túmulo, e mapa ressuscitado sem caminho até ele é peso de ROM e nada mais, então a ressurreição só está provada quando alguém chega lá andando. O jogador nasce no warp 1 do portão leste, em (11,5), que é MB_EAST_ARROW_WARP (metatile 557 de LAYOUT_ROUTE208_ACCESS), e aperta para o leste três vezes, no mesmo formato do T140.7: seta de warp não dispara ao pisar, e sim com o jogador PARADO em cima dela e SEGURANDO a direção (`input->heldDirection && input->dpadDirection == playerDirection`, src/field_control_avatar.c:221), por isso são toques repetidos e não um passo. Tem que terminar em MAP_AMITY_SQUARE, em (1,5). Medido nesta árvore: esta é a ÚNICA entrada da praça, porque MAP_HEARTHOME_CITY_WEST_GATE_TO_AMITY_SQUARE tem um warp só e ele devolve para a cidade.",
+    "warp": "MAP_HEARTHOME_CITY_EAST_GATE_TO_AMITY_SQUARE",
+    "warp_id": 1,
+    "roteiro": "150:NADA,20:RIGHT,20:RIGHT,20:RIGHT,300:NADA",
+    "prova": {
+      "mapa": "MAP_AMITY_SQUARE",
+      "pos": [
+        1,
+        5
+      ]
+    }
   }
- },
- {
-  "id": "T140.2",
-  "nome": "PAR do T140.1, e ele prova as duas metades que o T140.1 sozinho nao prova: que o mapa nao ficou mudo (warp vivo do MESMO mapa continua disparando) e que a LAPIDE nao sombreia o doador. O warp 2 do ContestHallLobby agora repete a coordenada (3,8) do warp 0, entao ha DUAS entradas no mesmo tile; `GetWarpEventAtPosition` devolve a PRIMEIRA, e a primeira e a viva. Mesma entrada do T140.1, e a unica diferenca e o roteiro: (3,8) e MB_SOUTH_ARROW_WARP (medido no metatile 520 de ContestHallLobby_Layout), entao a saida nao e pisar, e APERTAR PARA BAIXO em cima dela; o primeiro DOWN so vira o jogador, que nasce olhando para cima. Se a lapide sombreasse, ele cairia no palco cortado; se o tile tivesse perdido o warp junto, ele ficaria no saguao. As duas falhas dariam mapa diferente de MAP_HEARTHOME_CITY",
-  "warp": "MAP_CONTEST_HALL_LOBBY",
-  "warp_id": 0,
-  "roteiro": "120:NADA,16:DOWN*2,240:NADA",
-  "prova": {
-   "mapa": "MAP_HEARTHOME_CITY"
-  }
- },
- {
-  "id": "T140.3",
-  "nome": "A PLACA DA PORTA FECHADA SE LE. O gerador poe um bg_event `sign` na PAREDE vizinha da porta que fechou (aqui (6,0), acima da porta do palco) apontando para ContestHallLobby_EventScript_PortaFechada, com o texto curto que agora e UM SO e esta em INGLES, `Common_Text_PortaFechada` em data/scripts/portas_fechadas.inc: 'Closed for renovations.' (ate 06/09/2026 cada mapa tinha a sua copia da frase, e a frase estava em portugues). Prova pelo mesmo caminho do T120.3, que e o unico jeito de provar leitura sem ler VRAM: a msgbox TRAVA a entrada, entao os tres DOWN do fim NAO andam e a posicao final continua (6,1). Mesma rota do T140.1 mais um A no fim, com o jogador ja virado para cima porque o ultimo passo foi UP",
-  "warp": "MAP_CONTEST_HALL_LOBBY",
-  "warp_id": 0,
-  "roteiro": "120:NADA,16:UP*2,16:RIGHT,16:UP*4,16:RIGHT*2,16:UP*2,60:NADA,16:A,120:NADA,16:DOWN*3,120:NADA",
-  "prova": {
-   "mapa": "MAP_CONTEST_HALL_LOBBY",
-   "pos": [
-    6,
-    1
-   ]
-  }
- },
- {
-  "id": "T140.4",
-  "nome": "PAR NEGATIVO do T140.3, e o que impede que ele passe por acidente. MESMO warp, MESMA rota, MESMOS tres DOWN do fim, e a UNICA diferenca e que o A nao e apertado. Sem msgbox aberta a entrada nao trava e os DOWN andam: a posicao final e (6,3) (o primeiro DOWN vira o jogador, que vinha subindo, e os outros dois andam), e nao (6,1). Se o T140.3 estivesse passando so porque o jogador nao conseguia descer (parede, NPC, elevacao), este caso falharia junto e denunciaria a prova",
-  "warp": "MAP_CONTEST_HALL_LOBBY",
-  "warp_id": 0,
-  "roteiro": "120:NADA,16:UP*2,16:RIGHT,16:UP*4,16:RIGHT*2,16:UP*2,60:NADA,120:NADA,16:DOWN*3,120:NADA",
-  "prova": {
-   "mapa": "MAP_CONTEST_HALL_LOBBY",
-   "pos": [
-    6,
-    3
-   ]
-  }
- },
- {
-  "id": "T140.5",
-  "nome": "O VIZINHO VIVO CONTINUA COM OS OUTROS WARPS, indice por indice. HearthomeCity e o pior caso medido: ela perdeu os warps 7 e 8 de 16 (os dois portoes da Amity Square) e tem 14 ponteiros de terceiros para indices DEPOIS deles. Se o corte tivesse APAGADO as duas entradas em vez de virar lapide, todo `dest_warp_id` maior teria escorregado dois e cada porta de Hearthome abriria na porta errada, sem erro de compilacao e sem warp quebrado: o jogo so levaria o jogador para o predio ao lado. Aqui ele nasce no warp 9, que e a porta do CONTEST HALL, sai dela (o motor o deposita em (29,13), porque (29,12) e porta e nao e andavel) e volta a empurrar para cima. Tem que entrar no Contest Hall",
-  "warp": "MAP_HEARTHOME_CITY",
-  "warp_id": 9,
-  "roteiro": "150:NADA,16:UP,240:NADA",
-  "prova": {
-   "mapa": "MAP_CONTEST_HALL_LOBBY"
-  }
- },
- {
-  "id": "T140.6",
-  "nome": "PAR do T140.5 no indice seguinte, e e o par que fecha o argumento: dois indices consecutivos DEPOIS do buraco tem que abrir em dois predios DIFERENTES. Warp 10 de HearthomeCity e a NORTHWEST HOUSE. Mesma mecanica do T140.5 (nasce na porta, o motor deposita em (37,31), um UP entra). Se os indices tivessem escorregado, os dois casos cairiam no mesmo lugar ou trocariam de lugar entre si, e um so deles nao pegaria isso",
-  "warp": "MAP_HEARTHOME_CITY",
-  "warp_id": 10,
-  "roteiro": "150:NADA,16:UP,240:NADA",
-  "prova": {
-   "mapa": "MAP_HEARTHOME_CITY_NORTHWEST_HOUSE"
-  }
- },
- {
-  "id": "T140.7",
-  "nome": "A METADE ESQUERDA DA PORTA DA IGREJA DE HEARTHOME VOLTA A ABRIR. Terceiro defeito que o Gui trouxe do playtest: 'nao estou entrando no castelo bonito na esquerda'. A porta do ForeignBuilding tem DUAS celulas, (8,6) e (9,6), as duas com MB_NORTH_ARROW_WARP e o mesmo metatile 484, e na fonte cada metade tinha um destino DIFERENTE: (9,6) ia para o ForeignBuilding, que esta vivo, e (8,6) ia para o portao oeste da Amity Square, que o Gui cortou. O corte de 22/08/2026 fechou so a metade da esquerda, e sobrou meia porta: quem encostasse por aquele lado apertava para cima e nao acontecia nada, e ainda lia uma placa de obras EM PORTUGUES na porta da igreja. Agora a metade cortada ADOTA o destino da gemea (regra `gemea_viva` de remove_mapas_cortados.py). O caso nasce EM CIMA de (8,6), que e o warp 7, e sobe. Na ROM 2026-09-06 ele para em MAP_HEARTHOME_CITY, que e a contraprova.",
-  "warp": "MAP_HEARTHOME_CITY",
-  "warp_id": 7,
-  "roteiro": "150:NADA,20:UP,20:UP,20:UP,300:NADA",
-  "prova": {
-   "mapa": "MAP_FOREIGN_BUILDING"
-  }
- },
- {
-  "id": "T140.8",
-  "nome": "PAR NEGATIVO do T140.7, e o que impede que ele passe por acidente. MESMO warp 7, MESMO ponto de partida, e a UNICA diferenca e a direcao: tres DOWN em vez de tres UP. MB_NORTH_ARROW_WARP so dispara com o jogador virado para o NORTE (IsArrowWarpMetatileBehavior, src/field_control_avatar.c), entao descer tem que deixar o jogador dentro de HearthomeCity, andando. Sem este par, o T140.7 passaria mesmo que o motor teleportasse por nascer na celula.",
-  "warp": "MAP_HEARTHOME_CITY",
-  "warp_id": 7,
-  "roteiro": "150:NADA,20:DOWN,20:DOWN,20:DOWN,300:NADA",
-  "prova": {
-   "mapa": "MAP_HEARTHOME_CITY",
-   "pos": [
-    8,
-    9
-   ]
-  }
- },
- {
-  "id": "T140.9",
-  "nome": "A METADE DIREITA, QUE SEMPRE FUNCIONOU, CONTINUA FUNCIONANDO. Warp 12 e a celula (9,6), a gemea viva de onde o warp 7 copiou o destino. Ele existe para provar que a reabertura nao roubou a porta boa: as duas metades abrem no MESMO predio, que e o que o desenho da porta promete.",
-  "warp": "MAP_HEARTHOME_CITY",
-  "warp_id": 12,
-  "roteiro": "150:NADA,20:UP,20:UP,20:UP,300:NADA",
-  "prova": {
-   "mapa": "MAP_FOREIGN_BUILDING"
-  }
- },
- {
-  "id": "T140.10",
-  "nome": "DENTRO DA IGREJA O NPC FALA, E A SAIDA DEVOLVE NA FRENTE DA PORTA. O ForeignBuilding tem 9 objetos e 9 falas do Platinum ja em ingles; o NINJA BOY do warp de entrada mora em (2,8), colado a esquerda da celula (3,8) onde o motor deposita quem entra. O roteiro vira para a esquerda (o objeto e solido, entao vira sem andar), aperta A e vence as duas paginas da fala, fecha com B e desce. A saida do interior e MB_SOUTH_ARROW_WARP e aponta para o warp 12 de HearthomeCity, entao a prova de posicao [9,6] diz as duas coisas ao mesmo tempo: que saiu, e que saiu NA PORTA e nao em outro canto da cidade.",
-  "warp": "MAP_FOREIGN_BUILDING",
-  "warp_id": 0,
-  "roteiro": "150:NADA,20:LEFT,60:NADA,20:A,180:NADA,20:A,180:NADA,20:A,120:NADA,20:B,90:NADA,20:DOWN,20:DOWN,300:NADA",
-  "prova": {
-   "mapa": "MAP_HEARTHOME_CITY",
-   "pos": [
-    9,
-    6
-   ]
-  }
- },
- {
-  "id": "T140.11",
-  "nome": "A OUTRA METADE REABERTA: a porta da NORTHEAST HOUSE de Hearthome, do outro lado da cidade, tinha exatamente o mesmo defeito. (50,6) ia para a casa, viva, e (51,6) ia para o portao LESTE da Amity Square, cortado. O warp 8 nasce em (51,6) e agora abre a casa. Ele prova que a regra `gemea_viva` nao e conserto pontual da igreja: e regra, e pegou os dois casos do mapa.",
-  "warp": "MAP_HEARTHOME_CITY",
-  "warp_id": 8,
-  "roteiro": "150:NADA,20:UP,20:UP,20:UP,300:NADA",
-  "prova": {
-   "mapa": "MAP_HEARTHOME_CITY_NORTHEAST_HOUSE_1F"
-  }
- }
 ]
