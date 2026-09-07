@@ -79,6 +79,10 @@ fi
 
 passo "build do HEAD limpo"        "make -j8"
 passo "guarda de save"             "python3 dev_scripts/guarda_save.py"
+# O indice deslocado de song_table.inc nao quebra o build nem emite warning:
+# so faz a cidade tocar a musica da caverna. Portao barato para o modo de
+# falha mais silencioso que a musica tem.
+passo "musica: indice e midi.cfg" "python3 dev_scripts/valida_musica.py"
 passo "o declarado entrou na ROM"  "python3 dev_scripts/valida_rom.py"
 # `struct WarpData` guardava mapGroup e mapNum como s8 (include/global.h): o mapa
 # de indice 128 de um grupo virava -128 dentro do warp e o jogo RESETAVA ao entrar

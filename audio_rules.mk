@@ -32,6 +32,14 @@ $(CRY_BIN_DIR)/uncomp_%.bin: $(CRY_SUBDIR)/uncomp_%.aif
 $(SOUND_BIN_DIR)/%.bin: sound/%.wav
 	$(WAV2AGB) -b $< $@
 
+# Amostras em AIFF. O pacote de faixas de HGSS e de DPPt (onda 5, 06/09/2026)
+# guarda as amostras como .aif, com o ponto de loop no bloco INST/MARK do
+# proprio arquivo; converter para .wav perderia esse ponto e o instrumento
+# sustentado pararia de emendar. Por isso o aif2pcm do pret voltou para
+# tools/aif2pcm em vez de convertermos os arquivos.
+$(SOUND_BIN_DIR)/%.bin: sound/%.aif
+	$(AIF) $< $@
+
 # For each line in midi.cfg, we do some trickery to convert it into a make rule for the `.mid` file described on the line
 # Data following the colon in said file corresponds to arguments passed into mid2agb
 MID_CFG_PATH := $(MID_SUBDIR)/midi.cfg

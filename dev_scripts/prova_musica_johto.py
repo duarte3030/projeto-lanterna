@@ -52,17 +52,26 @@ TAM_ENTRADA_SONG = 8  # asm/macros/m4a.inc, macro `song`
 
 # (mapa, faixa esperada, o que este caso cobre). O nome do mapa e resolvido pela
 # tabela de map_groups.h, nunca digitado como numero.
+# ATUALIZADO EM 06/09/2026 (onda 5, cartucho 1). Ate aqui cada apelido
+# `MUS_HG_*` resolvia para uma faixa de Hoenn ou de Kanto, porque a faixa de
+# HGSS nao existia nesta ROM. Agora existe: `mus_hg_goldenrod` e companhia
+# entraram de verdade (sound/songs/midi + song_table.inc + songs.h), o
+# `#ifndef` de cada apelido ficou inerte sozinho, e nenhum `map.json` mudou.
+# Se algum caso abaixo voltar a apontar para faixa de Hoenn, o `#define`
+# numerico saiu de songs.h e o apelido reassumiu: e defeito, nao evolucao.
+#
+# (mapa, faixa esperada, o que este caso cobre)
 CASOS = [
-    ("MAP_GOLDENROD_CITY",        "MUS_RG_CELADON",     "cidade grande"),
-    ("MAP_NEW_BARK_TOWN",         "MUS_LITTLEROOT",     "cidade inicial"),
-    ("MAP_OLIVINE_CITY",          "MUS_RG_VERMILLION",  "cidade que herdava a de Violet"),
-    ("MAP_BLACKTHORN_CITY",       "MUS_EVER_GRANDE",    "cidade que herdava a de Azalea"),
-    ("MAP_ROUTE29",               "MUS_ROUTE101",       "rota"),
-    ("MAP_VIOLET_CITY_GYM",       "MUS_GYM",            "ginasio"),
-    ("MAP_CHERRYGROVE_CITY_MART", "MUS_POKE_MART",      "loja"),
-    ("MAP_ICE_PATH_1F",           "MUS_RG_MT_MOON",     "caverna, que PODE ser caverna"),
-    ("MAP_OLIVINE_CITY_LIGHTHOUSE", "MUS_RG_POKE_TOWER", "farol, que tocava musica de CIDADE"),
-    ("MAP_MT_SILVER_2F",          "MUS_RG_POKE_TOWER",  "MT SILVER divide o apelido do farol"),
+    ("MAP_GOLDENROD_CITY",        "MUS_HG_GOLDENROD",   "cidade grande"),
+    ("MAP_NEW_BARK_TOWN",         "MUS_HG_NEW_BARK",    "cidade inicial"),
+    ("MAP_OLIVINE_CITY",          "MUS_HG_OLIVINE",     "cidade sem tema proprio em HGSS (herda o de Violet)"),
+    ("MAP_BLACKTHORN_CITY",       "MUS_HG_BLACKTHORN",  "cidade sem tema proprio em HGSS (herda o de Azalea)"),
+    ("MAP_ROUTE29",               "MUS_HG_ROUTE29",     "rota"),
+    ("MAP_VIOLET_CITY_GYM",       "MUS_HG_GYM",         "ginasio"),
+    ("MAP_CHERRYGROVE_CITY_MART", "MUS_HG_POKE_MART",   "loja"),
+    ("MAP_ICE_PATH_1F",           "MUS_HG_ICE_PATH",    "caverna"),
+    ("MAP_OLIVINE_CITY_LIGHTHOUSE", "MUS_HG_LIGHTHOUSE", "farol, faixa propria em HGSS"),
+    ("MAP_MT_SILVER_2F",          "MUS_HG_LIGHTHOUSE",  "MT SILVER divide o apelido do farol"),
     ("MAP_PETALBURG_CITY",        "MUS_PETALBURG",      "CONTROLE de Hoenn, nao foi tocado"),
 ]
 

@@ -38,25 +38,30 @@ static void CreateFanfareTask(void);
 static void RestoreBGMVolumeAfterPokemonCry(void);
 
 // The 1st argument in the table is the length of the fanfare, measured in frames. This is calculated by taking the duration of the midi file, multiplying by 59.72750056960583, and rounding up to the next nearest integer.
+// Jingles de HGSS (06/09/2026, onda 5 do cartucho 1). Decisao 24
+// do Gui: os jingles de Hoenn sao feios e os de HGSS valem para o
+// jogo inteiro. As duracoes vieram do sFanfares[] do Pokemon Heart
+// & Soul, que ja toca estas faixas; nao foram chutadas. Trocar
+// aqui e o unico ponto: PlayFanfare le esta tabela.
 static const struct Fanfare sFanfares[] = {
-    [FANFARE_LEVEL_UP]            = { MUS_LEVEL_UP,             80 },
-    [FANFARE_OBTAIN_ITEM]         = { MUS_OBTAIN_ITEM,         160 },
-    [FANFARE_EVOLVED]             = { MUS_EVOLVED,             220 },
-    [FANFARE_OBTAIN_TMHM]         = { MUS_OBTAIN_TMHM,         220 },
-    [FANFARE_HEAL]                = { MUS_HEAL,                160 },
-    [FANFARE_OBTAIN_BADGE]        = { MUS_OBTAIN_BADGE,        340 },
-    [FANFARE_MOVE_DELETED]        = { MUS_MOVE_DELETED,        180 },
-    [FANFARE_OBTAIN_BERRY]        = { MUS_OBTAIN_BERRY,        120 },
+    [FANFARE_LEVEL_UP]            = { MUS_HG_LEVEL_UP,             80 },
+    [FANFARE_OBTAIN_ITEM]         = { MUS_HG_OBTAIN_ITEM,         160 },
+    [FANFARE_EVOLVED]             = { MUS_HG_EVOLVED,             240 },
+    [FANFARE_OBTAIN_TMHM]         = { MUS_HG_OBTAIN_TMHM,         220 },
+    [FANFARE_HEAL]                = { MUS_HG_HEAL,                160 },
+    [FANFARE_OBTAIN_BADGE]        = { MUS_HG_OBTAIN_BADGE,        340 },
+    [FANFARE_MOVE_DELETED]        = { MUS_HG_MOVE_DELETED,        180 },
+    [FANFARE_OBTAIN_BERRY]        = { MUS_HG_OBTAIN_BERRY,        120 },
     [FANFARE_AWAKEN_LEGEND]       = { MUS_AWAKEN_LEGEND,       710 },
     [FANFARE_SLOTS_JACKPOT]       = { MUS_SLOTS_JACKPOT,       250 },
-    [FANFARE_SLOTS_WIN]           = { MUS_SLOTS_WIN,           150 },
-    [FANFARE_TOO_BAD]             = { MUS_TOO_BAD,             160 },
+    [FANFARE_SLOTS_WIN]           = { MUS_HG_WIN_MINIGAME,           230 },
+    [FANFARE_TOO_BAD]             = { MUS_HG_CARD_FLIP_GAME_OVER,             240 },
     [FANFARE_RG_POKE_FLUTE]       = { MUS_RG_POKE_FLUTE,       450 },
-    [FANFARE_RG_OBTAIN_KEY_ITEM]  = { MUS_RG_OBTAIN_KEY_ITEM,  170 },
-    [FANFARE_RG_DEX_RATING]       = { MUS_RG_DEX_RATING,       196 },
-    [FANFARE_OBTAIN_B_POINTS]     = { MUS_OBTAIN_B_POINTS,     313 },
-    [FANFARE_OBTAIN_SYMBOL]       = { MUS_OBTAIN_SYMBOL,       318 },
-    [FANFARE_REGISTER_MATCH_CALL] = { MUS_REGISTER_MATCH_CALL, 135 },
+    [FANFARE_RG_OBTAIN_KEY_ITEM]  = { MUS_HG_OBTAIN_KEY_ITEM,  170 },
+    [FANFARE_RG_DEX_RATING]       = { MUS_HG_DEX_RATING_4,       210 },
+    [FANFARE_OBTAIN_B_POINTS]     = { MUS_HG_OBTAIN_B_POINTS,     264 },
+    [FANFARE_OBTAIN_SYMBOL]       = { MUS_HG_OBTAIN_CASTLE_POINTS,       200 },
+    [FANFARE_REGISTER_MATCH_CALL] = { MUS_HG_POKEGEAR_REGISTERED, 185 },
 };
 
 void InitMapMusic(void)

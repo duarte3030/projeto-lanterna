@@ -203,6 +203,29 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 - [Complete FireRed Upgrade](https://github.com/Skeli789/Complete-Fire-Red-Upgrade)
 - [pokeemerald](https://github.com/pret/pokeemerald/)
 
+### Trilha sonora de Johto (HGSS) e de Sinnoh (DPPt/Platinum), 06/09/2026
+
+As 158 sequências `.mid`, os 83 voicegroups e as 324 amostras de som que fazem
+Johto tocar música de HeartGold/SoulSilver e Sinnoh tocar música de
+Diamond/Pearl/Platinum vieram do pacote de faixas de:
+
+- **CyanSMP64**, autor do porte das sequências de DS para o motor m4a do GBA.
+  Esse rearranjo faixa a faixa é o trabalho caro (a comunidade estima de 1 a 4
+  horas por faixa) e é dele que todo mundo copia;
+- **resetes12**, do **Modern Emerald**, que consolidou e numerou o pacote;
+- **Lil Dill**, do **Pokémon Heart & Soul (HnS)**, que é a cópia de onde este
+  hack importou de fato, e de onde também saíram as durações de cada jingle na
+  tabela `sFanfares[]` de `src/sound.c`.
+
+Os jingles de HGSS (subir de nível, item, item chave, insígnia, TM, evolução,
+cura, avaliação da Pokédex) substituem os de Hoenn no jogo inteiro.
+
+**Nenhuma dessas fontes declara licença, e a música é copyright de
+Nintendo/Game Freak/Creatures.** Vale aqui a mesma regra de todo o ecossistema
+pret e de todo o resto deste arquivo: **este projeto distribui patch, NUNCA
+ROM.** Uma ROM montada contém o áudio original e não pode ser compartilhada,
+publicada, vendida nem enviada a terceiros em nenhuma circunstância.
+
 ## Arte de mapa importada de ROM hacks
 
 Este projeto é **privado e não monetizado**. A arte de base é da Nintendo/Game Freak; o

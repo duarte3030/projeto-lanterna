@@ -555,6 +555,178 @@
 #define PHONEME_ID(song)            ((song) - FIRST_PHONEME_SONG)
 #define PHONEME_ID_NONE             0xFF
 
+
+// >>> faixas de HGSS e de DPPt (importa_musica_ds.py) >>>
+#define MUS_HG_NEW_BARK                    610
+#define MUS_HG_CHERRYGROVE                 611
+#define MUS_HG_VIOLET                      612
+#define MUS_HG_AZALEA                      613
+#define MUS_HG_GOLDENROD                   614
+#define MUS_HG_ECRUTEAK                    615
+#define MUS_HG_CIANWOOD                    616
+#define MUS_HG_ROUTE26                     617
+#define MUS_HG_ROUTE29                     618
+#define MUS_HG_ROUTE30                     619
+#define MUS_HG_ROUTE34                     620
+#define MUS_HG_ROUTE38                     621
+#define MUS_HG_ROUTE42                     622
+#define MUS_HG_ROUTE47                     623
+#define MUS_HG_SPROUT_TOWER                624
+#define MUS_HG_UNION_CAVE                  625
+#define MUS_HG_RUINS_OF_ALPH               626
+#define MUS_HG_NATIONAL_PARK               627
+#define MUS_HG_BURNED_TOWER                628
+#define MUS_HG_BELL_TOWER                  629
+#define MUS_HG_LIGHTHOUSE                  630
+#define MUS_HG_ICE_PATH                    631
+#define MUS_HG_DRAGONS_DEN                 632
+#define MUS_HG_ROCK_TUNNEL                 633
+#define MUS_HG_VICTORY_ROAD                634
+#define MUS_HG_POKE_CENTER                 635
+#define MUS_HG_POKE_MART                   636
+#define MUS_HG_GYM                         637
+#define MUS_HG_ELM_LAB                     638
+#define MUS_HG_DANCE_THEATER               639
+#define MUS_HG_GAME_CORNER                 640
+#define MUS_HG_SAFARI_ZONE_GATE            641
+#define MUS_HG_SS_AQUA                     642
+#define MUS_HG_POKEMON_LEAGUE              643
+#define MUS_HG_ROCKET_TAKEOVER             644
+#define MUS_HG_KIMONO_GIRL_DANCE           645
+#define MUS_HG_RIVAL_EXIT                  646
+#define MUS_HG_ENCOUNTER_RIVAL             647
+#define MUS_HG_VS_WILD                     648
+#define MUS_HG_VS_TRAINER                  649
+#define MUS_HG_VS_GYM_LEADER               650
+#define MUS_HG_VS_RIVAL                    651
+#define MUS_HG_VS_CHAMPION                 652
+#define MUS_HG_VS_ROCKET                   653
+#define MUS_HG_VS_HO_OH                    654
+#define MUS_HG_VS_LUGIA                    655
+#define MUS_HG_VICTORY_WILD                656
+#define MUS_HG_VICTORY_TRAINER             657
+#define MUS_HG_VICTORY_GYM_LEADER          658
+#define MUS_HG_LEVEL_UP                    659
+#define MUS_HG_OBTAIN_ITEM                 660
+#define MUS_HG_OBTAIN_KEY_ITEM             661
+#define MUS_HG_OBTAIN_TMHM                 662
+#define MUS_HG_OBTAIN_BADGE                663
+#define MUS_HG_OBTAIN_BERRY                664
+#define MUS_HG_OBTAIN_B_POINTS             665
+#define MUS_HG_OBTAIN_CASTLE_POINTS        666
+#define MUS_HG_EVOLVED                     667
+#define MUS_HG_HEAL                        668
+#define MUS_HG_MOVE_DELETED                669
+#define MUS_HG_POKEGEAR_REGISTERED         670
+#define MUS_HG_WIN_MINIGAME                671
+#define MUS_HG_CARD_FLIP_GAME_OVER         672
+#define MUS_HG_DEX_RATING_4                673
+#define MUS_DP_TWINLEAF_DAY                674
+#define MUS_DP_TWINLEAF_NIGHT              675
+#define MUS_DP_SANDGEM_DAY                 676
+#define MUS_DP_SANDGEM_NIGHT               677
+#define MUS_DP_JUBILIFE_DAY                678
+#define MUS_DP_JUBILIFE_NIGHT              679
+#define MUS_DP_OREBURGH_DAY                680
+#define MUS_DP_OREBURGH_NIGHT              681
+#define MUS_DP_FLOAROMA_DAY                682
+#define MUS_DP_FLOAROMA_NIGHT              683
+#define MUS_DP_ETERNA_DAY                  684
+#define MUS_DP_ETERNA_NIGHT                685
+#define MUS_DP_HEARTHOME_DAY               686
+#define MUS_DP_HEARTHOME_NIGHT             687
+#define MUS_DP_SOLACEON_DAY                688
+#define MUS_DP_SOLACEON_NIGHT              689
+#define MUS_DP_VEILSTONE_DAY               690
+#define MUS_DP_VEILSTONE_NIGHT             691
+#define MUS_DP_CANALAVE_DAY                692
+#define MUS_DP_CANALAVE_NIGHT              693
+#define MUS_DP_SNOWPOINT_DAY               694
+#define MUS_DP_SNOWPOINT_NIGHT             695
+#define MUS_DP_SUNYSHORE_DAY               696
+#define MUS_DP_SUNYSHORE_NIGHT             697
+#define MUS_DP_FIGHT_AREA_DAY              698
+#define MUS_DP_FIGHT_AREA_NIGHT            699
+#define MUS_DP_VALOR_LAKEFRONT_DAY         700
+#define MUS_DP_VALOR_LAKEFRONT_NIGHT       701
+#define MUS_DP_POKEMON_LEAGUE_DAY          702
+#define MUS_DP_POKEMON_LEAGUE_NIGHT        703
+#define MUS_DP_POKE_CENTER_DAY             704
+#define MUS_DP_POKE_CENTER_NIGHT           705
+#define MUS_DP_ROUTE201_DAY                706
+#define MUS_DP_ROUTE201_NIGHT              707
+#define MUS_DP_ROUTE203_DAY                708
+#define MUS_DP_ROUTE203_NIGHT              709
+#define MUS_DP_ROUTE205_DAY                710
+#define MUS_DP_ROUTE205_NIGHT              711
+#define MUS_DP_ROUTE206_DAY                712
+#define MUS_DP_ROUTE206_NIGHT              713
+#define MUS_DP_ROUTE209_DAY                714
+#define MUS_DP_ROUTE209_NIGHT              715
+#define MUS_DP_ROUTE210_DAY                716
+#define MUS_DP_ROUTE210_NIGHT              717
+#define MUS_DP_ROUTE216_DAY                718
+#define MUS_DP_ROUTE216_NIGHT              719
+#define MUS_DP_ROUTE225_DAY                720
+#define MUS_DP_ROUTE225_NIGHT              721
+#define MUS_DP_ROUTE228_DAY                722
+#define MUS_DP_ROUTE228_NIGHT              723
+#define MUS_DP_OREBURGH_GATE               724
+#define MUS_DP_OREBURGH_MINE               725
+#define MUS_DP_ETERNA_FOREST               726
+#define MUS_DP_OLD_CHATEAU                 727
+#define MUS_DP_MT_CORONET                  728
+#define MUS_DP_LAKE                        729
+#define MUS_DP_LAKE_CAVERNS                730
+#define MUS_DP_LAKE_EVENT                  731
+#define MUS_DP_STARK_MOUNTAIN              732
+#define MUS_DP_SPEAR_PILLAR                733
+#define MUS_DP_GALACTIC_HQ                 734
+#define MUS_DP_GALACTIC_HQ_BASEMENT        735
+#define MUS_DP_GALACTIC_ETERNA_BUILDING    736
+#define MUS_DP_VICTORY_ROAD                737
+#define MUS_DP_INSIDE_POKEMON_LEAGUE       738
+#define MUS_DP_HALL_OF_FAME_ROOM           739
+#define MUS_DP_POKE_MART                   740
+#define MUS_DP_GYM                         741
+#define MUS_DP_GAME_CORNER                 742
+#define MUS_DP_ROWAN_LAB                   743
+#define MUS_DP_VS_WILD                     744
+#define MUS_DP_VS_TRAINER                  745
+#define MUS_DP_VS_GYM_LEADER               746
+#define MUS_DP_VS_RIVAL                    747
+#define MUS_DP_VS_CHAMPION                 748
+#define MUS_DP_VS_ELITE_FOUR               749
+#define MUS_DP_VS_GALACTIC                 750
+#define MUS_DP_VS_GALACTIC_COMMANDER       751
+#define MUS_DP_VS_GALACTIC_BOSS            752
+#define MUS_DP_VS_DIALGA_PALKIA            753
+#define MUS_DP_VS_UXIE_MESPRIT_AZELF       754
+#define MUS_DP_VS_LEGEND                   755
+#define MUS_DP_VICTORY_WILD                756
+#define MUS_DP_VICTORY_TRAINER             757
+#define MUS_DP_VICTORY_GYM_LEADER          758
+#define MUS_DP_VICTORY_ELITE_FOUR          759
+#define MUS_DP_VICTORY_CHAMPION            760
+#define MUS_DP_VICTORY_GALACTIC            761
+#define MUS_PL_FIGHT_AREA_DAY              762
+#define MUS_PL_DISTORTION_WORLD            763
+#define MUS_PL_VS_GIRATINA                 764
+#define MUS_PL_GIRATINA_APPEARS_1          765
+#define MUS_PL_LOOKER                      766
+// <<< faixas de HGSS e de DPPt (importa_musica_ds.py) <<<
+
+// Apelidos das cidades sem tema próprio no jogo original.
+// A atribuição saiu do map.json da própria fonte, não de memória
+// (fontes-mapas/hns/data/maps/OlivineCity/map.json e vizinhos).
+#define MUS_HG_OLIVINE                     MUS_HG_VIOLET
+#define MUS_HG_MAHOGANY                    MUS_HG_CHERRYGROVE
+#define MUS_HG_BLACKTHORN                  MUS_HG_AZALEA
+#define MUS_DP_PASTORIA_DAY                MUS_DP_SOLACEON_DAY
+#define MUS_DP_PASTORIA_NIGHT              MUS_DP_SOLACEON_NIGHT
+#define MUS_DP_CELESTIC_DAY                MUS_DP_SOLACEON_DAY
+#define MUS_DP_CELESTIC_NIGHT              MUS_DP_SOLACEON_NIGHT
+
 #ifndef MUS_HG_BELL_TOWER
 #define MUS_HG_BELL_TOWER MUS_MT_PYRE
 #endif
@@ -735,5 +907,8 @@
 #endif  // GUARD_CONSTANTS_SONGS_H
 
 // >>> S.S. Aqua (dev_scripts/import_ssaqua.py) >>>
+// Inerte desde 06/09/2026: mus_hg_ss_aqua entrou como faixa real.
+#ifndef MUS_HG_SS_AQUA
 #define MUS_HG_SS_AQUA MUS_ABANDONED_SHIP
+#endif
 // <<< S.S. Aqua (dev_scripts/import_ssaqua.py) <<<
