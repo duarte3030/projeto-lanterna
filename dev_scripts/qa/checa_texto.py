@@ -249,7 +249,7 @@ class Varredura(object):
         pt = len(PT_MARCADORES.findall(limpo))
         if en >= 2 and en > pt:
             self.contagem["ingles[%s]" % reg] += 1
-            if reg in ("Sinnoh", "Unova", "Galar"):
+            if reg == "Sinnoh":
                 self.add("T07", "cosmético", caminho, pedacos[0][0], b.rotulo,
                          "texto em inglês numa região que deveria estar em "
                          "português: %r" % limpo[:60])

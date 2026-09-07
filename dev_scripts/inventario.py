@@ -626,28 +626,6 @@ def monta():
     ausentes = sorted(h for h in heads if I.chave(h) not in casadas)
     regioes.append(("Sinnoh", "pokeplatinum", linhas, ausentes))
 
-    # --- Unova: bw3g (gen 2) ---------------------------------------------
-    fonte = f"{FONTES}/bw3g"
-    enc_fonte = encontros_gen2(fonte)
-    std = corpos_std_gen2(fonte)
-    deles = {C.normaliza(os.path.basename(p)[:-4]): os.path.basename(p)[:-4]
-             for p in glob.glob(f"{fonte}/maps/*.asm")}
-    nossos = [m for m in C.nossos_da_regiao(mg, "Unova") if m not in sinnoh]
-    linhas, casadas = [], set()
-    for meu in sorted(nossos):
-        k = C.normaliza(meu)
-        seu = deles.get(k)
-        a = le_gen3(RAIZ, meu, idx_nosso, comp_nosso)
-        if a is None:
-            continue
-        b = le_gen2(fonte, seu, enc_fonte, std) if seu else None
-        if seu:
-            casadas.add(k)
-        linhas.append(linha("Unova", meu, a, b, seu, "bw3g", times,
-                            a["id"] in enc_nosso, bool(b) and b["encontro"]))
-    ausentes = sorted(m for k, m in deles.items()
-                      if k not in casadas and not C.LIXO.search(m))
-    regioes.append(("Unova", "bw3g", linhas, ausentes))
     return regioes
 
 
@@ -959,9 +937,9 @@ def demo():
     assert falta(l, "pessoas_n", "pessoas_f") == 0
     # 6. Fonte sem par não vira zero: some da conta em vez de mentir.
     assert falta({"pessoas_n": 3, "pessoas_f": None}, "pessoas_n", "pessoas_f") == 0
-    # 7. O mapa de Unova é `R22` na fonte e `Unova_R22` aqui: se a chave não
-    #    colapsar as duas grafias, 45 mapas somem do denominador.
-    assert C.normaliza("Unova_R22") == C.normaliza("R22")
+    # 7. A chave tem de colapsar grafias diferentes do mesmo mapa, senão dezenas
+    #    de mapas somem do denominador sem ninguém ver.
+    assert C.normaliza("Route_22") == C.normaliza("Route22")
     assert chave_simples("R_22") == chave_simples("R22")
     print("demo ok")
 

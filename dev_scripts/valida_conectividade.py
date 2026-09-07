@@ -13,27 +13,27 @@ porta, e 6 de 7 ginasios cuspindo o jogador numa rota ao sair.
 Reporta:
   1. warp cujo `dest_warp_id` nao existe no mapa de destino  (trava garantida)
   2. mapa alcancavel de onde NAO se volta                    (beco sem saida)
-  3. mapa de QUALQUER das seis regioes que nenhum caminho alcanca (conteudo morto)
+  3. mapa de QUALQUER das quatro regioes que nenhum caminho alcanca (conteudo morto)
 
 Tres buracos fechados em 23/08/2026, medidos pela auditoria de mapas
 -------------------------------------------------------------------
-1. **A checagem de orfao so olhava Sinnoh e Johto.** Kanto, Hoenn, Unova e Galar
-   nunca tinham sido medidas por ela. Agora `regiao()` classifica pelo GRUPO do
-   mapa, a mesma regra da auditoria, e as seis entram.
+1. **A checagem de orfao so olhava Sinnoh e Johto.** Kanto e Hoenn nunca tinham
+   sido medidas por ela. Agora `regiao()` classifica pelo GRUPO do mapa, a mesma
+   regra da auditoria, e as quatro entram.
 2. **O regex de warp de script perdia `setdivewarp`, `setescapewarp` e
    `warpwhitefade`.** Foi por essa fresta que Sootopolis inteira, a cidade que so
    se entra por mergulho, aparecia inalcancavel.
 3. **Transporte que NAO e warp de script ficava de fora**, e sao dois nesta ROM:
    a balsa Seagallop das Sevii (`special DoSeagallopFerryScene`, tabela `sSeag`
-   em src/seagallop.c) e o SELETOR DE CAPITULO (src/chapter_jump.c), que e a
-   unica porta de Galar por decisao registrada no PLANO-OBRAS-GALAR. Sem eles a
-   ferramenta acusava 162 mapas de Kanto e os 438 de Galar como conteudo morto,
-   e os dois numeros eram da MEDICAO, nao do jogo.
+   em src/seagallop.c) e o SELETOR DE CAPITULO (src/chapter_jump.c), que salta
+   por HEAL_LOCATION_*. Sem eles a ferramenta acusava 162 mapas de Kanto como
+   conteudo morto, e o numero era da MEDICAO, nao do jogo.
 
-Mapa com `cortado_por` no map.json e CORTE REGISTRADO (a CasteliaPlaza de Unova,
-por exemplo, PLANO-ESCOPO.md): ele sai da conta de orfao em vez de reaparecer
-toda rodada, e o mesmo vale para as tres tiras `*ConnectionDummy`, que sao sobra
-de recurso de motor e nao mapa perdido (ver a nota no corpo).
+Mapa com `cortado_por` no map.json e CORTE REGISTRADO (PLANO-ESCOPO.md e, desde
+07/09/2026, os 729 mapas de Unova e Galar da onda do PRD-CARTUCHO-1.md): ele sai
+da conta de orfao em vez de reaparecer toda rodada, e o mesmo vale para as tres
+tiras `*ConnectionDummy`, que sao sobra de recurso de motor e nao mapa perdido
+(ver a nota no corpo).
 """
 import json
 import os
@@ -139,10 +139,8 @@ def transportes_por_special(mapas):
 def sementes_do_seletor(mapas):
     """Mapas que o SELETOR DE CAPITULO alcanca sem warp nenhum.
 
-    src/chapter_jump.c pula por HEAL_LOCATION_*, e e a UNICA porta de Galar
-    (decisao registrada no PLANO-OBRAS-GALAR): nao existe warp nem conexao
-    ligando Galar as outras cinco regioes. Medir Galar sem isto so mede a
-    decisao de novo.
+    src/chapter_jump.c pula por HEAL_LOCATION_*. Medir alcance sem ler esta
+    tabela conta como conteudo morto todo mapa cuja unica porta e o seletor.
     """
     cj = os.path.join(REPO, "src/chapter_jump.c")
     hl = os.path.join(REPO, "src/data/heal_locations.json")
@@ -154,8 +152,8 @@ def sementes_do_seletor(mapas):
     return {por_id[i] for i in usados if por_id.get(i) in mapas}
 
 
-GRUPO_DE_REGIAO = (("Frlg", "Kanto"), ("Johto", "Johto"), ("Unova", "Unova"),
-                   ("Galar", "Galar"), ("Sinnoh", "Sinnoh"), ("Galactic", "Sinnoh"))
+GRUPO_DE_REGIAO = (("Frlg", "Kanto"), ("Johto", "Johto"),
+                   ("Sinnoh", "Sinnoh"), ("Galactic", "Sinnoh"))
 
 
 def main():
@@ -311,9 +309,7 @@ def main():
         Sinnoh e Johto; tudo mais caia em "outro" e sumia da conta. Grupo e o
         que map_groups.json ja declara, e nao envelhece com nome de mapa novo.
         """
-        nome, grupo = mapas[m]["dir"], mapas[m]["grupo"]
-        if nome.startswith("Galar_"):
-            return "Galar"
+        grupo = mapas[m]["grupo"]
         for chave, r in GRUPO_DE_REGIAO:
             if chave in grupo:
                 return r
@@ -322,8 +318,9 @@ def main():
     # `cortado_por` e CORTE REGISTRADO no map.json (PLANO-ESCOPO.md). Ele sai da
     # conta em vez de reaparecer toda rodada: acusar de novo o que o Gui ja
     # decidiu cortar e ruido, e ruido e o que faz validador deixar de ser lido.
-    # Medido em 23/08/2026: 68 mapas trazem o carimbo, entre eles as cinco da
-    # CasteliaPlaza de Unova, que sao tumulo de verdade (zero warp, zero objeto).
+    # Medido em 07/09/2026: 831 mapas trazem o carimbo, os 102 cortados de
+    # Sinnoh mais os 729 de Unova e Galar da onda do cartucho 1. Todos sao
+    # tumulo de verdade: zero warp, zero conexao, zero objeto.
     orfaos, cortados = {}, 0
     for m, info in mapas.items():
         if info["dados"].get("cortado_por"):

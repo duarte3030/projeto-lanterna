@@ -41,9 +41,9 @@ $(LAYOUTS_OUTDIR)/layouts.inc $(LAYOUTS_OUTDIR)/layouts_table.inc $(INCLUDECONST
 	@python3 dev_scripts/dedupe_blockdata.py $(LAYOUTS_OUTDIR)/layouts.inc
 
 # Nome do letreiro de mapa, destilado do campo `map_name_popup` dos map.json.
-# Existe porque MAPSEC e u8 e nao cabe uma secao por cidade: Johto, Sinnoh,
-# Unova e Galar tem um MAPSEC por GRUPO, e sem esta tabela o letreiro diz
-# "SINNOH WEST" em centenas de mapas. Ver dev_scripts/nomes_popup.py.
+# Existe porque MAPSEC e u8 e nao cabe uma secao por cidade: Johto e Sinnoh tem
+# um MAPSEC por GRUPO, e sem esta tabela o letreiro diz "SINNOH WEST" em
+# centenas de mapas. Ver dev_scripts/nomes_popup.py.
 $(DATA_SRC_SUBDIR)/map_popup_names.h: $(MAP_JSONS)
 	@python3 dev_scripts/nomes_popup.py --tabela
 	@echo "python3 dev_scripts/nomes_popup.py --tabela"

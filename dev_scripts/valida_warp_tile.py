@@ -21,9 +21,9 @@ Consertado por dev_scripts/importa_tilesets_johto.py; Johto foi a 701 (90,9%).
 
 Placar depois de o corte primario/secundario passar a sair da constante do motor
 e nao do tamanho do arquivo (ver a QUARTA ARMADILHA la embaixo):
-    Hoenn 91,0%   Johto 90,9%   Sinnoh 86,0%   Unova 78,6%   Kanto 69,9%
-Os numeros antigos de Hoenn (49,3%), Sinnoh (70,8%) e Unova (39,4%) eram desta
-ferramenta mentindo, nao do jogo.
+    Hoenn 91,0%   Johto 90,9%   Sinnoh 86,0%   Kanto 69,9%
+Os numeros antigos de Hoenn (49,3%) e Sinnoh (70,8%) eram desta ferramenta
+mentindo, nao do jogo.
 
 Terceira vez nesta sessao que a mesma familia de erro aparece: o validador
 conferia uma camada mais rasa que a da afirmacao. "O warp existe" nao e "o warp
@@ -157,9 +157,8 @@ def _mapa_de_pastas():
     # do tileset repetido por `extern ... ASSET_ALIAS(canonico)`, e a linha
     # some da varredura acima. O mapa ficava SEM PASTA e caia em `mudos`, ou
     # seja o validador ia CEGO nele em vez de acusar warp morto. Foi assim que
-    # Galar_Motostoke03 (gTileset_Galar19) e GoldenrodCity_BikeShop
-    # (gTileset_JohtoBikeShop) sairam da conta. O alias aponta para os MESMOS
-    # bytes, entao a pasta certa e a do canonico.
+    # GoldenrodCity_BikeShop (gTileset_JohtoBikeShop) saiu da conta. O alias
+    # aponta para os MESMOS bytes, entao a pasta certa e a do canonico.
     for apelido, canonico in re.findall(
             r'gMetatiles_(\w+)\[[^\]]*\]\s*ASSET_ALIAS\(gMetatiles_(\w+)\)', mt):
         sym2dir.setdefault(apelido, canonico)
@@ -230,8 +229,14 @@ PISO_PADRAO = 60  # por cento
 # muita porta de Hoenn e trocada por setmetatile em tempo de execucao). Exigir
 # 100% fazia o portao ficar vermelho para sempre, que e o mesmo que nao ter
 # portao. O que interessa e catastrofe: Johto estava em 1,6% e ninguem viu.
+#
+# Unova e Galar sairam do escopo em 07/09/2026 (PRD-CARTUCHO-1.md). Os mapas
+# delas viraram TUMULO (zero warp, MAPSEC_NONE, campo `cortado_por` no
+# map.json), entao o laco abaixo ja os pula no `if not warps`. O que NAO podia
+# ficar era a linha "Unova" aqui: sem warp nenhum para conferir, a regiao
+# marcava 0,0% e reprovava o piso todo dia por uma regiao que nao existe mais.
 REGIOES = {"Hoenn": "TownsAndRoutes", "Kanto": "Frlg", "Sinnoh": "Sinnoh",
-           "Johto": "Johto", "Unova": "Unova"}
+           "Johto": "Johto"}
 
 
 def main():

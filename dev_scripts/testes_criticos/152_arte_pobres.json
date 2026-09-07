@@ -36,37 +36,5 @@
       ],
       "andou": true
     }
-  },
-  {
-    "id": "T152.3",
-    "nome": "ARTE POBRE, UNOVA: depois de o celeiro do Floccesy Ranch ser reescrito pelo MESMO gerador (de 9 para 16 metatiles distintos, com piso de tábua, tapete, quadro na parede e feno), ele continua andável e as duas paredes que o gerador repintou continuam sólidas. ROTA em duas pernas saturantes, a partir do warp 0, em (3,7): UP saturante sobe a coluna 3 e para em (3,4), porque em (3,3) está o Pikachu do celeiro e corpo de NPC é sólido (os três objetos do mapa não têm flag e são TRAINER_TYPE_NONE, então não somem e não abrem batalha: não há sorteio a evitar aqui); RIGHT saturante corre a linha 4, que é livre de x=0 a x=7, e para em (7,4), contra a borda leste do mapa. A perna UP tem que vir ANTES, e isso é medido e não estético: (3,7) e (4,7) são as duas folhas da porta do celeiro, com comportamento MB_LADDER (96), e qualquer perna lateral na linha 7 pisaria na folha vizinha e mandaria o jogador de volta para o rancho no meio do caso. A PROVA é a posição final (7,4). O par negativo é o T152.4.",
-    "warp": "MAP_UNOVA_FLOCCESY_RANCH_BARN",
-    "warp_id": 0,
-    "roteiro": "150:NADA,17:UP*12,60:NADA,17:RIGHT*16,120:NADA",
-    "prova": {
-      "mapa": "MAP_UNOVA_FLOCCESY_RANCH_BARN",
-      "layout": "LAYOUT_UNOVA_FLOCCESY_RANCH_BARN",
-      "pos": [
-        7,
-        4
-      ],
-      "andou": true
-    }
-  },
-  {
-    "id": "T152.4",
-    "nome": "PAR NEGATIVO DO T152.3, e sem ele o T152.3 não prova nada. MESMO mapa, MESMO warp e MESMA primeira perna; a única diferença é que a perna RIGHT não é apertada. Com a colisão intacta o jogador fica onde a subida o deixou, em (3,4), e é isso que separa 'ele atravessou o celeiro para leste' de 'ele já estava no leste' ou 'ele não saiu do lugar nenhuma vez'. Este par também mede a subida sozinha: se o gerador tivesse aberto a parede de fundo, ou se o corpo do Pikachu tivesse deixado de ser sólido, a perna UP saturante não pararia em (3,4). É a família do T115.1 com o T115.2.",
-    "warp": "MAP_UNOVA_FLOCCESY_RANCH_BARN",
-    "warp_id": 0,
-    "roteiro": "150:NADA,17:UP*12,60:NADA,120:NADA",
-    "prova": {
-      "mapa": "MAP_UNOVA_FLOCCESY_RANCH_BARN",
-      "layout": "LAYOUT_UNOVA_FLOCCESY_RANCH_BARN",
-      "pos": [
-        3,
-        4
-      ],
-      "andou": true
-    }
   }
 ]

@@ -1106,8 +1106,8 @@ class Varredura(object):
     def c28_batalha_sem_objeto(self):
         """C28: batalha COM intro chamada de gatilho, placa ou script de mapa.
 
-        Achado em 06/09/2026 pelo playtest do Gui: pisar na emboscada do
-        `Unova_LentimasGym` dava TELA AZUL com
+        Achado em 06/09/2026 pelo playtest do Gui, num ginásio de Unova
+        (região cortada em 07/09/2026): pisar na emboscada dava TELA AZUL com
         `SRC/BATTLE_SETUP.C:1258: TRAINER SCRIPT THAT NEEDS TO BE USED FROM AN
         OBJECT EVENT WAS CALLED FROM PLAYER`. O motivo é de desenho, não de
         dado: `trainerbattle_single` e irmãos vão a

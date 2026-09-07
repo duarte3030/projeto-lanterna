@@ -1,26 +1,5 @@
 [
   {
-    "id": "T169.1",
-    "nome": "ADVERSARIAL 1, GALAR: vencer um treinador comum e FALAR COM ELE DE NOVO, com a fala de pos-batalha LIDA NA TELA. A rota e a do T163.3 (TRAINER_GALAR_TAMMY_447, id 3166, Galar_RoseTower03, warp 1, dois UP encarando o objeto de (18,9), flag 0x115E = 0x500 + 3166 PLANTADA, que e o estado de quem acabou de vencer), e a diferenca esta no que se cobra. MEDIDO e dito por inteiro: vencer de VERDADE um treinador comum de Galar dentro do harness NAO da, e o motivo esta em src/data/trainers.party: o time de Galar e de `Level: 255`, e o Pikachu nivel 20 do seletor de capitulo (src/chapter_jump.c, item (c)) nao ganha de seis mons no teto de nivel. Plantar a flag do id e o MESMO estado de save que vencer deixa, e e o que o motor le em `trainerbattle_single`. O que este caso acrescenta ao T163.3, e por isso ele existe, e a camada da AFIRMACAO: o T163.3 prova posicao, e posicao passaria com a caixa vazia na tela. Aqui o PNG final do framebuffer foi ABERTO E OLHADO pelo fechador em 23/08/2026, e a caixa de pos-batalha esta desenhada, com texto dentro e sem corte. Depois disso o segundo A fecha, e cinco LEFT levam de (18,10) a (14,10): o jogador ANDA, que era a metade da acusacao de trava.",
-    "flags": [
-      "FLAG_SEM_ENCONTRO_SELVAGEM",
-      "0x115E"
-    ],
-    "warp": "MAP_GALAR_ROSE_TOWER_03",
-    "warp_id": 1,
-    "roteiro": "300:NADA,16:UP*2,90:NADA,20:A,240:NADA,20:A,150:NADA,20:B,120:NADA,16:LEFT*5,120:NADA",
-    "prova": {
-      "mapa": "MAP_GALAR_ROSE_TOWER_03",
-      "pos": [
-        14,
-        10
-      ],
-      "flags_acesas": [
-        "0x115E"
-      ]
-    }
-  },
-  {
     "id": "T169.2",
     "nome": "ADVERSARIAL 2, JOHTO: capitulo ALTO e o jogador SURFA. O T166.2 provou Surf em SINNOH; a insignia por indice de src/chapter_jump.c e a MESMA linha para as seis regioes, entao a pergunta aberta era se Johto tambem acende. Menu: o cursor nasce em HOENN, DOWN*2 leva a JOHTO (a ordem da tabela sRegioes e HOENN, KANTO, JOHTO, SINNOH, UNOVA, GALAR), A abre a lista, DOWN*9 desce de 'Start of region' ate a LIGA (0=inicio, 1=FALKNER ... 8=CLAIR, 9=Liga), que e o capitulo mais alto que Johto tem: o laco marca os OITO ginasios e acende FLAG_BADGE01..08_GET. MAPA ESCOLHIDO POR MEDICAO: uma varredura dos 236 mapas de Johto atras de 'warp cuja linha reta bate em agua funda, com o corredor inteiro livre de objeto e a agua terminando em PAREDE' devolveu OlivineCity_PortOutside como o candidato limpo (zero object_event a menos de tres tiles do corredor inteiro; Route41, o candidato obvio, tem oito TILES DE WARP em fila na propria linha de caminhada, e pisar num deles jogaria o caso para a Route40). ROTA no LAYOUT: o warp 0 poe o jogador em (15,10); RIGHT*8 satura em (16,10), porque (17,10) e MB_OCEAN_WATER; quatro A abrem 'quer usar SURF?', respondem YES e passam o 'Pikachu used SURF!' (quatro, e nao dois, pela licao do T112.4); RIGHT*20 atravessa (17,10) a (26,10) e SATURA em (26,10), porque (27,10) e agua NAO andavel, o limite do mapa. `pos` em (26,10) diz as duas coisas: o motor aceitou o Surf e o Pikachu cruzou dez tiles de mar. Par negativo: T169.3.",
     "abertura": "seletor",
@@ -123,58 +102,6 @@
       "pos": [
         4,
         5
-      ]
-    }
-  },
-  {
-    "id": "T169.7",
-    "nome": "ADVERSARIAL 5, PRIMEIRA METADE: o GEMEO de Galar com id NOVO atravessa o desligamento. O objeto de Galar_Wyndon06 e TRAINER_GALAR_ISADORA_22_3, id 3250, um dos 60 ids novos da faixa 3208-3267 que a rodada criou para desfazer os 108 objetos que dividiam id. Este caso planta a flag do GEMEO PUBLICADO (0x10BE = 0x500 + 3006, ou seja o Isadora de OUTRO mapa ja vencido), anda ate o objeto SEM falar com ele e SALVA pelo menu, com a sequencia de baixo para cima do T11.1 (tres UP a partir da linha 0 caem em EXIT, OPTION e SAVE, porque so o rabo do BuildNormalStartMenu e fixo). Esta metade e o controle: a flag do gemeo esta acesa, NENHUMA batalha comecou (`oponente_faixa` [0,0]) e a flash tem um slot inteiro escrito (`sav_gravada`). Quem responde e o T169.8. A .sav e apagada no comeco para o par nunca passar por sobra de rodada anterior.",
-    "opcoes": 32,
-    "flags": [
-      "FLAG_SEM_ENCONTRO_SELVAGEM",
-      "0x10BE"
-    ],
-    "sav": "/tmp/claude-501/fechador12/t169-gemeo-galar.sav",
-    "apaga_sav": true,
-    "warp": "MAP_GALAR_WYNDON_06",
-    "warp_id": 0,
-    "roteiro": "300:NADA,16:RIGHT*4,60:NADA,16:UP*2,90:NADA,40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,180:NADA",
-    "prova": {
-      "sav_gravada": true,
-      "mapa": "MAP_GALAR_WYNDON_06",
-      "pos": [
-        10,
-        8
-      ],
-      "oponente_faixa": [
-        0,
-        0
-      ],
-      "flags_acesas": [
-        "0x10BE"
-      ],
-      "flags_apagadas": [
-        "0x11B2"
-      ]
-    }
-  },
-  {
-    "id": "T169.8",
-    "nome": "ADVERSARIAL 5, SEGUNDA METADE, E E ELA QUE RESPONDE: depois de DESLIGAR e voltar em CONTINUAR sobre o arquivo que o T169.7 gravou, o gemeo de id NOVO ainda tem batalha PROPRIA. Este caso NAO acende flag nenhuma a mao, e essa e a diferenca inteira: o que estiver aceso aqui veio da save. Ele entra pelo mesmo warp 0, faz o mesmo caminho e aperta A. Se os 108 gemeos ainda dividissem id, a flag 0x10BE que veio da save teria desviado o `trainerbattle_single` para o rabo de pos-batalha e nenhuma batalha abriria; se o id novo nao sobrevivesse a serializacao, o oponente seria outro. A prova le gTrainerBattleParameter pelo NOME da constante, TRAINER_GALAR_ISADORA_22_3, que e o que separa 'abriu alguma batalha' de 'abriu a batalha DESTE objeto'.",
-    "opcoes": 32,
-    "flags": [
-      "FLAG_SEM_ENCONTRO_SELVAGEM"
-    ],
-    "sav": "/tmp/claude-501/fechador12/t169-gemeo-galar.sav",
-    "abertura": "continuar",
-    "warp": "MAP_GALAR_WYNDON_06",
-    "warp_id": 0,
-    "roteiro": "300:NADA,16:RIGHT*4,60:NADA,16:UP*2,90:NADA,20:A,300:NADA",
-    "prova": {
-      "mapa": "MAP_GALAR_WYNDON_06",
-      "oponente": "TRAINER_GALAR_ISADORA_22_3",
-      "flags_acesas": [
-        "0x10BE"
       ]
     }
   }

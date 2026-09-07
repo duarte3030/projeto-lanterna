@@ -246,9 +246,6 @@ def regiao_de(nome):
         tabela = lente_warps.tabela_de_constantes()
         _REGIOES = {}
         for mapa, (_const, grupo) in tabela.items():
-            if mapa.startswith("Galar_"):
-                _REGIOES[mapa] = "Galar"
-                continue
             _REGIOES[mapa] = "Hoenn"
             for chave, r in lente_warps.GRUPO_DE_REGIAO:
                 if chave in grupo:

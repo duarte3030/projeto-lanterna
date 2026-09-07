@@ -21,14 +21,11 @@ import comum
 
 RAIZ = comum.RAIZ
 
-# Região por prefixo de pasta de mapa. Serve para agrupar achado por região; o
-# que não casa cai em "hoenn" porque a base é pokeemerald.
 # Região de um mapa: sai do GRUPO em que ele está declarado
 # (`data/maps/map_groups.json`), e não de palpite pelo nome da pasta. O nome da
 # pasta mente (`Route110` existe em Hoenn e `Route210` em Sinnoh); o grupo é o
 # mesmo dado que o motor usa.
-_MARCA = [("galar", "Galar"), ("unova", "Unova"), ("unova", "Pwt"),
-          ("sinnoh", "Sinnoh"), ("sinnoh", "Galactic"),
+_MARCA = [("sinnoh", "Sinnoh"), ("sinnoh", "Galactic"),
           ("johto", "Johto"), ("kanto", "Frlg")]
 
 
@@ -43,15 +40,16 @@ def _tabela_de_regiao():
                 break
         for m in g.get(grupo, []):
             fora[m] = r
-    # ARMADILHA que `dev_scripts/completude.py` já registra e que esta
-    # ferramenta repetiu: **Galar não se filtra por grupo**. O alocador de mapa
-    # espalhou 344 dos mapas de Galar em append dentro de grupos de Hoenn
-    # (`gMapGroup_IndoorRoute116` e irmãos), porque a política é não criar grupo
-    # novo. Só aqui o NOME manda mais que o grupo, e foi MEDIDO: Galar é a única
-    # região em que os dois critérios discordam (344 mapas; as outras cinco, 0).
-    for m in list(fora):
-        if m.startswith("Galar"):
-            fora[m] = "galar"
+    # TÚMULO de mapa fora de escopo. Unova e Galar saíram em 07/09/2026
+    # (PRD-CARTUCHO-1.md) e os 729 mapas delas ficaram na tabela só para não
+    # deslocar índice de save, carimbados com `cortado_por` no map.json. O grupo
+    # deles NÃO diz isso: o alocador espalhou boa parte em append dentro de
+    # grupos de Hoenn, porque a política é não criar grupo novo. Sem esta volta,
+    # todo túmulo entraria em "hoenn" e a auditoria cobraria de Hoenn o que o
+    # Gui cortou de propósito.
+    for m, dados in comum.mapas():
+        if m in fora and dados.get("cortado_por"):
+            fora[m] = "cortado"
     return fora
 
 
@@ -75,8 +73,8 @@ def rotulo_para_mapa():
     """rótulo de script -> mapas que o citam no `map.json`.
 
     `data/scripts/*.inc` não tem mapa no caminho, e é lá que moram os roteiros
-    gerados de Galar. Sem esta ponte, 35 batalhas de Galar apareciam como "mapa
-    None" e a checagem de id repetido POR MAPA ficava cega.
+    gerados pelo importador do demake. Sem esta ponte, 35 batalhas apareciam
+    como "mapa None" e a checagem de id repetido POR MAPA ficava cega.
     """
     fora = collections.defaultdict(set)
     for nome, m in comum.mapas():
@@ -1159,7 +1157,7 @@ def auditoria_save(ctx):
     for addr, antes, agora in trocados:
         fora["achados"].append(dict(
             id="6b", classe="provável",
-            regiao="galar" if any("GALAR" in x for x in antes + agora) else "global",
+            regiao="global",
             o_que="endereço de save trocou de DONO entre a ROM 22f e a de hoje "
                   "(o guarda_save não vê: ele mede tamanho, não atribuição)",
             onde=addr, detalhe={"22f": antes, "hoje": agora}))

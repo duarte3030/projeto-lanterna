@@ -293,12 +293,14 @@ static void SetUpWarpExitTask(void)
     // da grade, e o interior fica inutilizavel: de la ele so consegue voltar
     // para cima, pisa de novo na porta e e mandado de volta para a rua.
     //
-    // MEDIDO no emulador em 12/08/2026, entrando no Unova_NuvemaLab pelo warp 0:
-    // o warp fica em (2,11), a EWRAM mostra o jogador em (2,12) e o mapa tem 12
-    // linhas (0 a 11). Varrendo o repo inteiro: 265 warps de porta nao animada
-    // em 137 mapas caem FORA da grade e outros 187 caem em tile com colisao,
-    // TODOS de Unova menos 9 interiores de Sinnoh. Nenhum mapa de Hoenn, Kanto
-    // ou Johto cai em nenhum dos dois casos, e os 1106 warps sadios continuam
+    // MEDIDO no emulador em 12/08/2026, num interior cujo warp de porta caia
+    // fora da grade: o warp ficava na ultima linha do mapa e a EWRAM mostrava o
+    // jogador uma linha abaixo dela. Varrendo o repo inteiro naquele dia, 265
+    // warps de porta nao animada em 137 mapas caiam FORA da grade e outros 187
+    // caiam em tile com colisao, quase todos numa regiao que saiu do cartucho 1
+    // em 07/09/2026; os 9 que ficam sao interiores de Sinnoh, e e para eles que
+    // esta guarda continua existindo. Nenhum mapa de Hoenn, Kanto ou Johto cai
+    // em nenhum dos dois casos, e os 1106 warps sadios continuam
     // com colisao 0 embaixo, entao esta guarda e inerte para tudo que ja
     // funciona.
     //

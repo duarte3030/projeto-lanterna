@@ -1,225 +1,125 @@
 [
- {
-  "id": "T149.1",
-  "nome": "FAROL DE OLIVINE, PRIMEIRO ENCONTRO. A JASMINE existe como OBJETO no alto do farol desde 22/08/2026 (antes a cena era um bilhete numa placa, porque `OBJ_EVENT_GFX_JASMINE` nao existe nesta build e ninguem tinha decidido o equivalente). O warp 14 do mapa cai em (156,14); quatro UP levam a (156,10), e o quinto UP esbarra NELA, em (156,9), com a AMPHY logo atras em (156,8). O A abre as duas msgbox e a cena grava VAR_OLIVINE_CITY_STATE em 3, que e o estado `ela pediu o remedio`. A var e apelido de VAR_UNUSED, escrita por dev_scripts/arco_farol_johto.py; o endereco vai conferido pelo proprio arquivo de teste na chave `vars`.",
-  "warp": "MAP_OLIVINE_CITY_LIGHTHOUSE",
-  "warp_id": 14,
-  "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
-  "prova": {
-   "mapa": "MAP_OLIVINE_CITY_LIGHTHOUSE",
-   "vars": {
-    "0x4110": 3
-   }
-  }
- },
- {
-  "id": "T149.2",
-  "nome": "PAR NEGATIVO DO T149.1, e ele separa duas coisas que dariam o mesmo verde. Mesmo mapa, mesmo warp, ZERO tecla: a var tem que continuar em 0. Sem este caso, o T149.1 passaria igual se a var fosse acesa pelo ON_TRANSITION do mapa (que existe, e e quem decide se a JASMINE aparece) em vez de pela conversa. `a var mudou` nao e `o jogador falou com ela`.",
-  "warp": "MAP_OLIVINE_CITY_LIGHTHOUSE",
-  "warp_id": 14,
-  "roteiro": "300:NADA",
-  "prova": {
-   "mapa": "MAP_OLIVINE_CITY_LIGHTHOUSE",
-   "vars": {
-    "0x4110": 0
-   }
-  }
- },
- {
-  "id": "T149.3",
-  "nome": "A FARMACIA DE CIANWOOD ENTREGA A SECRETPOTION. Com a var em 3, o balconista da loja de Cianwood passa a entregar o remedio ANTES de abrir o balcao (no hns este mapa nao tem loja e o unico NPC dele E o farmaceutico; aqui ele ja era balconista, entao o remedio vem antes e a loja continua). O warp cai em (8,11); dois UP param em (8,9), porque (8,8) e o balcao, e o A fala atraves dele. A cena grava a var em 4, que e o estado `o remedio esta com o jogador`.",
-  "vars": {
-   "0x4110": 3
+  {
+    "id": "T149.1",
+    "nome": "FAROL DE OLIVINE, PRIMEIRO ENCONTRO. A JASMINE existe como OBJETO no alto do farol desde 22/08/2026 (antes a cena era um bilhete numa placa, porque `OBJ_EVENT_GFX_JASMINE` nao existe nesta build e ninguem tinha decidido o equivalente). O warp 14 do mapa cai em (156,14); quatro UP levam a (156,10), e o quinto UP esbarra NELA, em (156,9), com a AMPHY logo atras em (156,8). O A abre as duas msgbox e a cena grava VAR_OLIVINE_CITY_STATE em 3, que e o estado `ela pediu o remedio`. A var e apelido de VAR_UNUSED, escrita por dev_scripts/arco_farol_johto.py; o endereco vai conferido pelo proprio arquivo de teste na chave `vars`.",
+    "warp": "MAP_OLIVINE_CITY_LIGHTHOUSE",
+    "warp_id": 14,
+    "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_OLIVINE_CITY_LIGHTHOUSE",
+      "vars": {
+        "0x4110": 3
+      }
+    }
   },
-  "warp": "MAP_CIANWOOD_SHOP",
-  "warp_id": 0,
-  "roteiro": "150:NADA,20:UP,20:UP,20:UP,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
-  "prova": {
-   "mapa": "MAP_CIANWOOD_SHOP",
-   "vars": {
-    "0x4110": 4
-   }
-  }
- },
- {
-  "id": "T149.4",
-  "nome": "A AMPHY E CURADA E A JASMINE SAI DO FAROL. Com a var em 4, a mesma conversa do T149.1 abre a pergunta `esse remedio vai curar a AMPHY?`; o SIM e o primeiro item do menu, entao A responde sim. A cena tira a JASMINE do mapa (`removeobject` no indice LIDO do map.json pelo gerador, nunca cravado), acende FLAG_AMPHAROS_HEALED, poe a var em 5 e LIBERA a JASMINE do ginasio. As duas provas do mesmo caso, var e flag, existem porque a cena e longa e pode morrer no meio: var em 5 sem a flag seria cena cortada.",
-  "vars": {
-   "0x4110": 4
+  {
+    "id": "T149.2",
+    "nome": "PAR NEGATIVO DO T149.1, e ele separa duas coisas que dariam o mesmo verde. Mesmo mapa, mesmo warp, ZERO tecla: a var tem que continuar em 0. Sem este caso, o T149.1 passaria igual se a var fosse acesa pelo ON_TRANSITION do mapa (que existe, e e quem decide se a JASMINE aparece) em vez de pela conversa. `a var mudou` nao e `o jogador falou com ela`.",
+    "warp": "MAP_OLIVINE_CITY_LIGHTHOUSE",
+    "warp_id": 14,
+    "roteiro": "300:NADA",
+    "prova": {
+      "mapa": "MAP_OLIVINE_CITY_LIGHTHOUSE",
+      "vars": {
+        "0x4110": 0
+      }
+    }
   },
-  "warp": "MAP_OLIVINE_CITY_LIGHTHOUSE",
-  "warp_id": 14,
-  "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
-  "prova": {
-   "mapa": "MAP_OLIVINE_CITY_LIGHTHOUSE",
-   "vars": {
-    "0x4110": 5
-   },
-   "flags_acesas": [
-    "FLAG_AMPHAROS_HEALED"
-   ]
-  }
- },
- {
-  "id": "T149.5",
-  "nome": "A JASMINE ESTA NO GINASIO DEPOIS DA CURA. Com a var em 5, o ON_TRANSITION de OlivineCity_Gym APAGA FLAG_HIDE_OLIVINE_CITY_GYM_JASMINE, e o objeto dela em (8,4) volta a existir. A prova e de FLAG e nao de pixel: flag escondendo objeto e exatamente o que o motor le em `TrySpawnObjectEvents`. O ON_TRANSITION deriva a flag da var toda vez que o jogador entra, e e por isso que este arco nao precisa de gancho de inicio de jogo (flag nasce apagada, e objeto com flag apagada nasce VISIVEL: sem o ON_TRANSITION a JASMINE estaria no ginasio e no farol ao mesmo tempo desde o primeiro minuto).",
-  "vars": {
-   "0x4110": 5
+  {
+    "id": "T149.3",
+    "nome": "A FARMACIA DE CIANWOOD ENTREGA A SECRETPOTION. Com a var em 3, o balconista da loja de Cianwood passa a entregar o remedio ANTES de abrir o balcao (no hns este mapa nao tem loja e o unico NPC dele E o farmaceutico; aqui ele ja era balconista, entao o remedio vem antes e a loja continua). O warp cai em (8,11); dois UP param em (8,9), porque (8,8) e o balcao, e o A fala atraves dele. A cena grava a var em 4, que e o estado `o remedio esta com o jogador`.",
+    "vars": {
+      "0x4110": 3
+    },
+    "warp": "MAP_CIANWOOD_SHOP",
+    "warp_id": 0,
+    "roteiro": "150:NADA,20:UP,20:UP,20:UP,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_CIANWOOD_SHOP",
+      "vars": {
+        "0x4110": 4
+      }
+    }
   },
-  "warp": "MAP_OLIVINE_CITY_GYM",
-  "warp_id": 0,
-  "roteiro": "240:NADA",
-  "prova": {
-   "mapa": "MAP_OLIVINE_CITY_GYM",
-   "flags_apagadas": [
-    "FLAG_HIDE_OLIVINE_CITY_GYM_JASMINE"
-   ]
-  }
- },
- {
-  "id": "T149.6",
-  "nome": "PAR NEGATIVO DO T149.5, e o que ele barra e o pior defeito possivel deste arco: a JASMINE duplicada. Mesmo mapa, mesmo warp, e a UNICA diferenca e a var em 0. A flag tem que estar ACESA, ou seja ela NAO esta no ginasio enquanto a AMPHY estiver doente. Sem este caso o T149.5 passaria com um ON_TRANSITION que so limpasse a flag e nunca a acendesse, que e o erro que a versao ingenua deste arco comete.",
-  "vars": {
-   "0x4110": 0
+  {
+    "id": "T149.4",
+    "nome": "A AMPHY E CURADA E A JASMINE SAI DO FAROL. Com a var em 4, a mesma conversa do T149.1 abre a pergunta `esse remedio vai curar a AMPHY?`; o SIM e o primeiro item do menu, entao A responde sim. A cena tira a JASMINE do mapa (`removeobject` no indice LIDO do map.json pelo gerador, nunca cravado), acende FLAG_AMPHAROS_HEALED, poe a var em 5 e LIBERA a JASMINE do ginasio. As duas provas do mesmo caso, var e flag, existem porque a cena e longa e pode morrer no meio: var em 5 sem a flag seria cena cortada.",
+    "vars": {
+      "0x4110": 4
+    },
+    "warp": "MAP_OLIVINE_CITY_LIGHTHOUSE",
+    "warp_id": 14,
+    "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_OLIVINE_CITY_LIGHTHOUSE",
+      "vars": {
+        "0x4110": 5
+      },
+      "flags_acesas": [
+        "FLAG_AMPHAROS_HEALED"
+      ]
+    }
   },
-  "warp": "MAP_OLIVINE_CITY_GYM",
-  "warp_id": 0,
-  "roteiro": "240:NADA",
-  "prova": {
-   "mapa": "MAP_OLIVINE_CITY_GYM",
-   "flags_acesas": [
-    "FLAG_HIDE_OLIVINE_CITY_GYM_JASMINE"
-   ]
-  }
- },
- {
-  "id": "T149.7",
-  "nome": "OBJETO DESAMBIGUADO 1: o SLOWPOKE SEM RABO de Azalea. A fonte poe cinco SLOWPOKE_NO_TAIL na cidade e nenhum deles existia aqui; `completa_objetos_johto.py` os criou e a tabela SPRITE resolveu o grafico para OBJ_EVENT_GFX_SPECIES(SLOWPOKE), que e o mais proximo que este motor desenha (nenhum sprite daqui tem Slowpoke sem rabo; o rabo e justamente o enredo de Azalea, e desenhar um e obra de arte, nao de importador). A prova e de COLISAO, que e o unico jeito de provar que o objeto esta no mapa sem olhar pixel: o warp 3 cai em (31,15), um DOWN alcanca a rua em (31,16), tres RIGHT chegam a (34,16), e o UP saturante para em (34,15) porque (34,14) esta ocupado pelo bicho. Tile (34,14) tem colisao 0 no map.bin, medido: quem barra e o objeto.",
-  "warp": "MAP_AZALEA_TOWN",
-  "warp_id": 3,
-  "roteiro": "180:NADA,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,60:NADA,17:UP*12,180:NADA",
-  "prova": {
-   "mapa": "MAP_AZALEA_TOWN",
-   "pos": [
-    34,
-    15
-   ],
-   "andou": true
-  }
- },
- {
-  "id": "T149.8",
-  "nome": "OBJETO DESAMBIGUADO 2, PELO LADO NEGATIVO: o POLICIAL da Torre Radio 2F que o gerador RECUSOU. A fonte poe um POLICEMAN em (10,5), que e o TILE DA ESCADA para o 3F, e la ele e o bloqueio do arco da Rocket. Aqui a `FLAG_HIDE_*` que o tira de la nao existe, entao por-lo trancaria os andares 3F a 5F PARA SEMPRE, e warp trancado nao aparece como erro de compilacao, aparece como andar inalcancavel. Esta e a UNICA regra de recusa geometrica do gerador (`julga()`), e este caso e a prova dela: o jogador nasce em cima do warp, sai um tile e volta, e o jogador TEM que conseguir VOLTAR para (10,5). Se algum dia o policial entrar, o passo de volta bate nele e para em (10,6), e este teste fica vermelho no mesmo instante. A prova e de posicao e nao de mapa porque o warp desta escada e um dos que `valida_warp_tile` mede como MB_NORMAL, ou seja ele nao dispara sozinho ao pisar: provar pelo mapa mediria o warp, e o que esta em julgamento aqui e o OBJETO.",
-  "warp": "MAP_GOLDENROD_CITY_RADIO_TOWER_2F",
-  "warp_id": 1,
-  "roteiro": "180:NADA,20:DOWN,20:DOWN,60:NADA,17:UP*6,300:NADA",
-  "prova": {
-   "mapa": "MAP_GOLDENROD_CITY_RADIO_TOWER_2F",
-   "pos": [
-    10,
-    5
-   ],
-   "andou": true
-  }
- },
- {
-  "id": "T149.9",
-  "nome": "UNOVA, O PORTAO ENTRE AS ROTAS 1 E 17, COM ENTRADA E SAIDA. `Unova_Rt1Rt17Gate` esta jogavel desde a importacao, com os quatro warps e o guarda, e o que faltava era a REGUA enxergar: `completude.normaliza()` nao casava `Rt1Rt17Gate` com o `R1R17Gate` da fonte, e o mapa contava como faltando. O caso prova a travessia de verdade: entrando pelo lado da Rota 1 (warp 2, que o motor entrega em (9,5), MEDIDO e nao presumido), o LEFT saturante atravessa o corredor da linha 4 e sai no warp de (0,4), que leva a MAP_UNOVA_R_17. Um mapa que a regua conta e que o jogador nao atravessa seria numero sem jogo.",
-  "warp": "MAP_UNOVA_R_1_R_17_GATE",
-  "warp_id": 2,
-  "roteiro": "180:NADA,17:LEFT*14,300:NADA",
-  "prova": {
-   "mapa": "MAP_UNOVA_R_17",
-   "pos": [
-    39,
-    29
-   ]
-  }
- },
- {
-  "id": "T149.10",
-  "nome": "PAR NEGATIVO DO T149.9: o mesmo warp, o mesmo mapa, e ZERO tecla. O jogador tem que CONTINUAR em MAP_UNOVA_R_1_R_17_GATE. Sem ele, o T149.9 passaria igual se o warp de entrada estivesse quicando sozinho (warp em cima de warp, o defeito que o `valida_warp_tile` mede em 6.829 warps), porque `chegou na Rota 17` nao e `atravessou o portao`.",
-  "warp": "MAP_UNOVA_R_1_R_17_GATE",
-  "warp_id": 2,
-  "roteiro": "300:NADA",
-  "prova": {
-   "mapa": "MAP_UNOVA_R_1_R_17_GATE"
-  }
- },
- {
-  "id": "T149.11",
-  "nome": "PWT DE UNOVA, A CENA DO CORREDOR DISPARA. Era uma das 9 linhas de fila com bloqueio residual, e a medicao de 22/08/2026 mostrou que o bloqueio nao era enredo: o corpo da cena na fonte e `applymovement PLAYER` mais `warpcheck`, sem uma linha de historia. O que a segurava e que o gatilho de (4,1) fica EXATAMENTE embaixo da porta da sala de qualificacao, em (4,0): sem var de cena ele dispara toda vez que o jogador sobe para entrar naquela porta e o arrasta embora, ou seja TRANCA a sala. Com VAR_UNOVA_PWT_CORREDOR_CENA (0x417E, autorizada pelo condutor em 22/08/2026 e escrita na tabela do PLANO-OBRAS-UNOVA.md) o gatilho tem var_value 0 e a cena grava a var em 1 na primeira linha. O roteiro sai do gatilho e volta (tres UP e nao dois: virar custa uma tecla, armadilha ja documentada no ESTADO), a cena anda os 15 passos da fonte e deixa o jogador em (14,0), o tile do warp da sala dos fundos. O `warpcheck` do gen 2 NAO existe neste motor (medido: `grep -n \"macro warpcheck\" asm/macros/event.inc` volta vazio), entao quem entra na porta e o jogador, num passo.",
-  "warp": "MAP_UNOVA_PWT_HALLWAY",
-  "warp_id": 2,
-  "roteiro": "180:NADA,20:DOWN,20:DOWN,120:NADA,20:UP,20:UP,20:UP,2400:NADA",
-  "prova": {
-   "mapa": "MAP_UNOVA_PWT_HALLWAY",
-   "pos": [
-    14,
-    0
-   ],
-   "andou": true,
-   "vars": {
-    "0x417E": 1
-   }
-  }
- },
- {
-  "id": "T149.12",
-  "nome": "PAR NEGATIVO DO T149.11, e ele e o criterio de aceite do condutor: A CENA NAO REPETE. Mesmo mapa, mesmo warp, MESMO roteiro tecla por tecla, e a unica diferenca e a var ja em 1. O jogador pisa no gatilho de (4,1) e NADA acontece: ele para ali mesmo. Sem este caso, o T149.11 passaria igual com um gatilho que dispara para sempre, que e exatamente a armadilha que trancava a sala de qualificacao.",
-  "vars": {
-   "0x417E": 1
+  {
+    "id": "T149.5",
+    "nome": "A JASMINE ESTA NO GINASIO DEPOIS DA CURA. Com a var em 5, o ON_TRANSITION de OlivineCity_Gym APAGA FLAG_HIDE_OLIVINE_CITY_GYM_JASMINE, e o objeto dela em (8,4) volta a existir. A prova e de FLAG e nao de pixel: flag escondendo objeto e exatamente o que o motor le em `TrySpawnObjectEvents`. O ON_TRANSITION deriva a flag da var toda vez que o jogador entra, e e por isso que este arco nao precisa de gancho de inicio de jogo (flag nasce apagada, e objeto com flag apagada nasce VISIVEL: sem o ON_TRANSITION a JASMINE estaria no ginasio e no farol ao mesmo tempo desde o primeiro minuto).",
+    "vars": {
+      "0x4110": 5
+    },
+    "warp": "MAP_OLIVINE_CITY_GYM",
+    "warp_id": 0,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_OLIVINE_CITY_GYM",
+      "flags_apagadas": [
+        "FLAG_HIDE_OLIVINE_CITY_GYM_JASMINE"
+      ]
+    }
   },
-  "warp": "MAP_UNOVA_PWT_HALLWAY",
-  "warp_id": 2,
-  "roteiro": "180:NADA,20:DOWN,20:DOWN,120:NADA,20:UP,20:UP,20:UP,2400:NADA",
-  "prova": {
-   "mapa": "MAP_UNOVA_PWT_HALLWAY",
-   "pos": [
-    4,
-    1
-   ],
-   "vars": {
-    "0x417E": 1
-   }
-  }
- },
- {
-  "id": "T149.13",
-  "nome": "PWT DE UNOVA, A CENA DO SAGUAO DISPARA. Mesma familia da anterior e a terceira das tres que sairam da fila. Aqui a cena mexe em DOIS bonecos: o recepcionista de (7,3) sai da frente, o jogador desce os tres passos da fonte ate (7,4) e o recepcionista volta. O indice do recepcionista e LIDO do map.json pelo gerador (`localid`), nunca cravado: `applymovement` com id errado nao da erro de compilacao, mexe no boneco errado dentro do jogo.",
-  "warp": "MAP_UNOVA_PWT_INSIDE",
-  "warp_id": 2,
-  "roteiro": "180:NADA,20:DOWN,20:DOWN,120:NADA,20:UP,20:UP,1800:NADA",
-  "prova": {
-   "mapa": "MAP_UNOVA_PWT_INSIDE",
-   "pos": [
-    7,
-    4
-   ],
-   "andou": true,
-   "vars": {
-    "0x417F": 1
-   }
-  }
- },
- {
-  "id": "T149.14",
-  "nome": "PAR NEGATIVO DO T149.13, mesma regra do T149.12: com a var ja em 1 o gatilho de (7,1) fica mudo e o jogador para nele. Prova que quem fecha a cena e a propria cena, e nao o enredo do torneio que esta ROM nao tem (na fonte quem devolve a cena e o PwtBlockerScript, que depende de EVENT_FINISHED_PWT).",
-  "vars": {
-   "0x417F": 1
+  {
+    "id": "T149.6",
+    "nome": "PAR NEGATIVO DO T149.5, e o que ele barra e o pior defeito possivel deste arco: a JASMINE duplicada. Mesmo mapa, mesmo warp, e a UNICA diferenca e a var em 0. A flag tem que estar ACESA, ou seja ela NAO esta no ginasio enquanto a AMPHY estiver doente. Sem este caso o T149.5 passaria com um ON_TRANSITION que so limpasse a flag e nunca a acendesse, que e o erro que a versao ingenua deste arco comete.",
+    "vars": {
+      "0x4110": 0
+    },
+    "warp": "MAP_OLIVINE_CITY_GYM",
+    "warp_id": 0,
+    "roteiro": "240:NADA",
+    "prova": {
+      "mapa": "MAP_OLIVINE_CITY_GYM",
+      "flags_acesas": [
+        "FLAG_HIDE_OLIVINE_CITY_GYM_JASMINE"
+      ]
+    }
   },
-  "warp": "MAP_UNOVA_PWT_INSIDE",
-  "warp_id": 2,
-  "roteiro": "180:NADA,20:DOWN,20:DOWN,120:NADA,20:UP,20:UP,1800:NADA",
-  "prova": {
-   "mapa": "MAP_UNOVA_PWT_INSIDE",
-   "pos": [
-    7,
-    1
-   ],
-   "vars": {
-    "0x417F": 1
-   }
+  {
+    "id": "T149.7",
+    "nome": "OBJETO DESAMBIGUADO 1: o SLOWPOKE SEM RABO de Azalea. A fonte poe cinco SLOWPOKE_NO_TAIL na cidade e nenhum deles existia aqui; `completa_objetos_johto.py` os criou e a tabela SPRITE resolveu o grafico para OBJ_EVENT_GFX_SPECIES(SLOWPOKE), que e o mais proximo que este motor desenha (nenhum sprite daqui tem Slowpoke sem rabo; o rabo e justamente o enredo de Azalea, e desenhar um e obra de arte, nao de importador). A prova e de COLISAO, que e o unico jeito de provar que o objeto esta no mapa sem olhar pixel: o warp 3 cai em (31,15), um DOWN alcanca a rua em (31,16), tres RIGHT chegam a (34,16), e o UP saturante para em (34,15) porque (34,14) esta ocupado pelo bicho. Tile (34,14) tem colisao 0 no map.bin, medido: quem barra e o objeto.",
+    "warp": "MAP_AZALEA_TOWN",
+    "warp_id": 3,
+    "roteiro": "180:NADA,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,60:NADA,17:UP*12,180:NADA",
+    "prova": {
+      "mapa": "MAP_AZALEA_TOWN",
+      "pos": [
+        34,
+        15
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T149.8",
+    "nome": "OBJETO DESAMBIGUADO 2, PELO LADO NEGATIVO: o POLICIAL da Torre Radio 2F que o gerador RECUSOU. A fonte poe um POLICEMAN em (10,5), que e o TILE DA ESCADA para o 3F, e la ele e o bloqueio do arco da Rocket. Aqui a `FLAG_HIDE_*` que o tira de la nao existe, entao por-lo trancaria os andares 3F a 5F PARA SEMPRE, e warp trancado nao aparece como erro de compilacao, aparece como andar inalcancavel. Esta e a UNICA regra de recusa geometrica do gerador (`julga()`), e este caso e a prova dela: o jogador nasce em cima do warp, sai um tile e volta, e o jogador TEM que conseguir VOLTAR para (10,5). Se algum dia o policial entrar, o passo de volta bate nele e para em (10,6), e este teste fica vermelho no mesmo instante. A prova e de posicao e nao de mapa porque o warp desta escada e um dos que `valida_warp_tile` mede como MB_NORMAL, ou seja ele nao dispara sozinho ao pisar: provar pelo mapa mediria o warp, e o que esta em julgamento aqui e o OBJETO.",
+    "warp": "MAP_GOLDENROD_CITY_RADIO_TOWER_2F",
+    "warp_id": 1,
+    "roteiro": "180:NADA,20:DOWN,20:DOWN,60:NADA,17:UP*6,300:NADA",
+    "prova": {
+      "mapa": "MAP_GOLDENROD_CITY_RADIO_TOWER_2F",
+      "pos": [
+        10,
+        5
+      ],
+      "andou": true
+    }
   }
- }
 ]

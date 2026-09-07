@@ -140,9 +140,9 @@ static void ClearFrontierRecord(void)
 static void WarpToTruck(void)
 {
     // O jogo novo comeca em Pallet Town, no quarto do jogador. Decisao do dono
-    // do projeto em 05/08/2026: a ordem das cinco regioes e cronologica, Kanto,
-    // Johto, Hoenn, Sinnoh, Unova. Antes comecava em Twinleaf porque Sinnoh era
-    // a unica regiao montada.
+    // do projeto em 05/08/2026: a ordem das regioes e cronologica, Kanto,
+    // Johto, Hoenn, Sinnoh. Antes comecava em Twinleaf porque Sinnoh era a
+    // unica regiao montada.
     //
     // A abertura de Kanto nao precisou ser escrita: o roteiro do laboratorio do
     // Oak ja existe inteiro em data/maps/PalletTown_ProfessorOaksLab_Frlg, com

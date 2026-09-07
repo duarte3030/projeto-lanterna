@@ -1,122 +1,79 @@
 [
- {
-  "id": "T155.1",
-  "nome": "DIFICULDADE COLAPSADA, O LADO DO CHEFE: O TIME DE UMA LIDER SAI IGUAL ANTES E DEPOIS, E O 'ANTES' FOI RODADO. O B10 desta rodada tirou de gTrainers as fatias EASY e HARD (include/constants/difficulty.h): com B_VAR_DIFFICULTY == 0 a GetCurrentDifficultyLevel() devolve DIFFICULTY_NORMAL sempre, entao aquelas fatias eram 277.160 B de zeros INALCANCAVEIS, e o designador [DIFFICULTY_NORMAL] virou [0]. O T154.5 ja mediu isso num treinador COMUM de Galar, de seis slots iguais; este caso mede onde o erro de indice teria a maior distancia para percorrer, que e um CHEFE: a entrada de TRAINER_SINNOH_LEADER_CANDICE em dev_scripts/fase_f_chefes.json tem seis especies DIFERENTES, seis niveis em ESCADA (178, 178, 179, 180, 181, 182) e item por slot, e uma leitura deslocada em uma fatia devolveria struct zerada, nao 'quase certo'. A cena e a do T125.11 (arte_ginasios_sinnoh.py, autor de cena diferente do autor deste caso): warp 0 do Snowpoint Gym, UP saturante ate colar na lider de (11,2) e dois A. A prova sao doze campos lidos de gParties pelo --timeinimigo, mais o ITEM do ace: especie5 = 460 (SPECIES_ABOMASNOW) com item5 = 335 (ITEM_ABOMASITE), que e o slot de gimmick MEGA declarado na fonte, e especie4 = 1232 (SPECIES_CALYREX_ICE), o lendario dela. `opcoes` 32 declara LV.5 TRAINERS DESLIGADO: com 36 os seis niveis viriam 5 e a escada de 178 a 182, que e o que separa este caso de um par negativo, desapareceria. O 'ANTES' NAO E ARGUMENTO, FOI MEDIDO: este mesmo caso foi rodado tambem contra a ROM oficial da rodada anterior, roms/pokemon-claude-2026-08-22e.gba (md5 bba1d16835302015348c7bc374b66127, com as tres dificuldades ainda na ROM), com --rom e --src apontando para esta arvore, e passou VERDE com os mesmos doze campos. Antes e depois do colapso a EWRAM diz a mesma coisa.",
-  "opcoes": 32,
-  "warp": "MAP_SNOWPOINT_CITY_GYM",
-  "warp_id": 0,
-  "roteiro": "150:NADA,24:UP*24,90:NADA,20:A,180:NADA,20:A,300:NADA",
-  "prova": {
-   "mapa": "MAP_SNOWPOINT_CITY_GYM",
-   "oponente": "TRAINER_SINNOH_LEADER_CANDICE",
-   "campos": {
+  {
+    "id": "T155.1",
+    "nome": "DIFICULDADE COLAPSADA, O LADO DO CHEFE: O TIME DE UMA LIDER SAI IGUAL ANTES E DEPOIS, E O 'ANTES' FOI RODADO. O B10 desta rodada tirou de gTrainers as fatias EASY e HARD (include/constants/difficulty.h): com B_VAR_DIFFICULTY == 0 a GetCurrentDifficultyLevel() devolve DIFFICULTY_NORMAL sempre, entao aquelas fatias eram 277.160 B de zeros INALCANCAVEIS, e o designador [DIFFICULTY_NORMAL] virou [0]. O T154.5 ja mediu isso num treinador COMUM de Galar, de seis slots iguais; este caso mede onde o erro de indice teria a maior distancia para percorrer, que e um CHEFE: a entrada de TRAINER_SINNOH_LEADER_CANDICE em dev_scripts/fase_f_chefes.json tem seis especies DIFERENTES, seis niveis em ESCADA (178, 178, 179, 180, 181, 182) e item por slot, e uma leitura deslocada em uma fatia devolveria struct zerada, nao 'quase certo'. A cena e a do T125.11 (arte_ginasios_sinnoh.py, autor de cena diferente do autor deste caso): warp 0 do Snowpoint Gym, UP saturante ate colar na lider de (11,2) e dois A. A prova sao doze campos lidos de gParties pelo --timeinimigo, mais o ITEM do ace: especie5 = 460 (SPECIES_ABOMASNOW) com item5 = 335 (ITEM_ABOMASITE), que e o slot de gimmick MEGA declarado na fonte, e especie4 = 1232 (SPECIES_CALYREX_ICE), o lendario dela. `opcoes` 32 declara LV.5 TRAINERS DESLIGADO: com 36 os seis niveis viriam 5 e a escada de 178 a 182, que e o que separa este caso de um par negativo, desapareceria. O 'ANTES' NAO E ARGUMENTO, FOI MEDIDO: este mesmo caso foi rodado tambem contra a ROM oficial da rodada anterior, roms/pokemon-claude-2026-08-22e.gba (md5 bba1d16835302015348c7bc374b66127, com as tres dificuldades ainda na ROM), com --rom e --src apontando para esta arvore, e passou VERDE com os mesmos doze campos. Antes e depois do colapso a EWRAM diz a mesma coisa.",
     "opcoes": 32,
-    "especie0": 461,
-    "especie1": 473,
-    "especie2": 478,
-    "especie3": 471,
-    "especie4": 1232,
-    "especie5": 460,
-    "nivelinimigo": 178,
-    "nivelinimigo1": 178,
-    "nivelinimigo2": 179,
-    "nivelinimigo3": 180,
-    "nivelinimigo4": 181,
-    "nivelinimigo5": 182,
-    "item0": 510,
-    "item5": 335
-   }
-  }
- },
- {
-  "id": "T155.2",
-  "nome": "BLOCKDATA ALIASADO ATRAVESSADO DE PONTA A PONTA, E COM PLACA LIDA NO MEIO. O dedupe de layout (dev_scripts/dedupe_blockdata.py, chamado pelo map_data_rules.mk) fez 2.373 dos 4.108 blobs de layouts.inc virarem referencia ao primeiro de conteudo igual. LAYOUT_OREBURGHCITY_FLAT1_F2_PROPRIO, que e o layout do CanalaveLibrary2F, e um desses: ele esta num grupo de tres (o canonico e LAYOUT_OREBURGH_CITY_FLAT2_F2, e o terceiro e LAYOUT_ETERNACITYCONDOMINIUMS3F) e perdeu o proprio .incbin. O T154.2 ja mediu um alias com uma perna so; aqui a sala de 14 por 8 e cruzada INTEIRA, e o que se acrescenta e a coisa que colisao nao prova: uma PLACA. Entrada pelo warp 0 em (2,1); DOWN saturante para em (2,3), porque (2,4) e estante; RIGHT saturante corre a linha 3 inteira ate (13,3); UP saturante sobe um tile e para em (13,2), porque a linha 1 so tem (2,1) e (4,1); um LEFT solto so VIRA o jogador para (12,2), onde mora CanalaveLibrary2F_EventScript_Placa13; e o A abre a caixa. A PROVA e a POSICAO, e ela e desenhada para separar 'a placa abriu' de 'a placa nao abriu': com a caixa aberta o jogador esta TRAVADO, entao a perna seguinte, LEFT saturante de vinte apertos, e ENGOLIDA e ele continua em (13,2); o B fecha a caixa e a perna final, DOWN saturante, desce a coluna 13 ate (13,7). Sem a caixa, a mesma perna de LEFT teria corrido a linha 2 inteira ate (0,2) e a de DOWN acabaria em (0,7). O par negativo T155.3 e exatamente isso, e existe porque a primeira versao deste caso terminava as duas historias no mesmo tile e portanto nao provava nada.",
-  "opcoes": 32,
-  "warp": "MAP_CANALAVE_LIBRARY_2F",
-  "warp_id": 0,
-  "roteiro": "150:NADA,16:DOWN*6,90:NADA,16:RIGHT*16,90:NADA,16:UP*4,90:NADA,20:LEFT,30:NADA,20:A,150:NADA,16:LEFT*20,90:NADA,20:B,90:NADA,16:DOWN*20,150:NADA",
-  "prova": {
-   "mapa": "MAP_CANALAVE_LIBRARY_2F",
-   "pos": [
-    13,
-    7
-   ]
-  }
- },
- {
-  "id": "T155.3",
-  "nome": "PAR NEGATIVO DO T155.2: o MESMO mapa aliasado, o MESMO caminho, o MESMO numero de pernas, e um unico aperto a menos, o A que abre a placa. Sem a caixa aberta o jogador nao fica travado: a perna de LEFT corre a linha 2 inteira de (13,2) a (0,2) e a de DOWN desce a coluna 0 ate (0,7). Ele carrega duas provas de uma vez. A primeira: o (13,7) do T155.2 vem de o jogador ter ficado PARADO, e nao de o harness parar sempre ali. A segunda, que e de graca e interessa ao B10: as duas rotas atravessam o mesmo blockdata compartilhado em direcoes opostas e as duas param onde o map.bin manda, o que so acontece se o ponteiro do layout aliasado estiver lendo os bytes certos.",
-  "opcoes": 32,
-  "warp": "MAP_CANALAVE_LIBRARY_2F",
-  "warp_id": 0,
-  "roteiro": "150:NADA,16:DOWN*6,90:NADA,16:RIGHT*16,90:NADA,16:UP*4,90:NADA,20:LEFT,30:NADA,16:LEFT*20,90:NADA,20:B,90:NADA,16:DOWN*20,150:NADA",
-  "prova": {
-   "mapa": "MAP_CANALAVE_LIBRARY_2F",
-   "pos": [
-    0,
-    7
-   ]
-  }
- },
- {
-  "id": "T155.4",
-  "nome": "MAPA DE GALAR COM O TILESET INTEIRO ALIASADO ENTRA, SAI E VOLTA A ENTRAR. O dedupe_assets.py achou 20 familias novas nesta rodada (37,8 KB), e o gTileset_Galar19 e a mais funda das tres: metatiles, ATRIBUTOS DE METATILE e paletas viraram os tres ASSET_ALIAS (gMetatiles_BurgledHouse, gMetatileAttributes_BurgledHouse e gTilesetPalettes_PewterGym), ou seja o tileset nao tem mais nada proprio alem dos tiles. O unico mapa que o usa e o Galar_Motostoke03. O T154.4 mediu um alias em UMA entrada de mapa; aqui o que se mede e a SEGUNDA carga: o jogador entra, anda, SAI para o Galar_Motostoke17 pelo menu de debug (`WARP=` no roteiro) e VOLTA, e anda de novo. Descompressao de tileset a partir de endereco aliasado que so funcionasse na primeira carga passaria por qualquer caso de entrada unica. As duas voltas andam a mesma rota: UP saturante para em (3,6), porque (3,5) e parede; RIGHT saturante corre a linha 6 ate (9,6); UP saturante sobe a coluna 9 e para em (9,4), porque (9,3) e parede. O QUE ESTE CASO NAO AFIRMA, e esta dito de proposito: pixel identico nao se prova por EWRAM. Quem prova isso e o `dedupe_assets.py --demo`, que confere md5 do asset e endereco DENTRO DA ROM (428 aliases no mesmo endereco do canonico, 0 problemas). MEDIDO E ANOTADO no caminho: o unico warp do Galar_Motostoke03, em (3,7), esta em metatile 327 do tileset PRIMARIO (gTileset_Galar11) e tem comportamento MB_NORMAL, ou seja e um dos warps mortos que o valida_warp_tile ja contabiliza em Galar. Foi por isso que a saida a pe reprovou e o `WARP=` entrou: a saida a pe nao existe neste mapa, e nenhum dos 17 warps de Galar em tileset aliasado tem comportamento de warp.",
-  "opcoes": 32,
-  "warp": "MAP_GALAR_MOTOSTOKE_03",
-  "warp_id": 0,
-  "roteiro": "180:NADA,16:UP*8,90:NADA,16:RIGHT*14,90:NADA,16:UP*8,90:NADA,WARP=MAP_GALAR_MOTOSTOKE_17,240:NADA,WARP=MAP_GALAR_MOTOSTOKE_03,240:NADA,16:UP*8,90:NADA,16:RIGHT*14,90:NADA,16:UP*8,150:NADA",
-  "prova": {
-   "mapa": "MAP_GALAR_MOTOSTOKE_03",
-   "pos": [
-    9,
-    4
-   ]
-  }
- },
- {
-  "id": "T155.5",
-  "nome": "TRAINER SLIDE: A BATALHA DO TREINADOR DE MAIOR ID DA ROM ABRE, COM AS DUAS TABELAS DE FALA FORA DA ROM. O B10 trocou sTrainerSlides[DIFFICULTY_COUNT][TRAINERS_ARRAY_COUNT + PARTNER_COUNT][TRAINER_SLIDE_COUNT] e sFrontierTrainerSlides, 448.056 B + 50.400 B de zeros, por uma unica linha nula de 56 B (src/trainer_slide.c). GetTrainerSlideArray continua sendo chamada em toda batalha de treinador, porque ShouldDoTrainerSlide (src/trainer_slide.c:280) so devolve NONE cedo para TRAINER_SECRET_BASE, TRAINER_LINK_OPPONENT e TRAINER_UNION_ROOM (IsSpecialTrainer, include/data.h:275): batalha de Frontier NAO e desviada ali, ela chega na funcao. O que ficou de pe da versao antiga e a chamada a TrainerIdToSlideSlot, mantida de proposito porque e ela que carrega o assert de id valido que a tabela cobrava a cada consulta. Por isso o alvo deste caso e TRAINER_GALAR_LEON_739, que e o id 3205, o MAIOR de opponents.h: e o pior caso do assert e o que estava na ultima linha da tabela que saiu. Cena: warp 0 do Galar_TurffieldIndoor08 em (7,12), UP saturante ate (7,4), tres DOWN soltos (o primeiro so vira) ate (7,6), um RIGHT solto para encarar o Leon de (8,6) e A. MEDIDO E QUE CUSTOU QUATRO VERSOES: este NPC usa `trainerbattle_single` (data/scripts/galar_treinadores.inc:2069), e nao `trainerbattle_no_intro` como os treinadores de 371 a 374 do T153 e do T154; o texto de introducao tem cinco linhas com \\p e \\l, e com um, dois ou quatro A a batalha AINDA NAO COMECOU: gParties fica zerado e gTrainerBattleParameter.opponentA JA ESTA cravado no Leon, o que faz uma prova so de `oponente` passar com a batalha fechada. Sao precisos OITO A. A prova, portanto, e o time lido de gParties: seis niveis 255 e as seis especies, 681 (Aegislash), 887 (Dragapult), 612 (Haxorus), 464 (Rhyperior), 6 (Charizard, com item4 = 293, ITEM_CHARIZARDITE_X) e 890 (Eternatus). Batalha que travasse na consulta de fala nao chegaria a escrever nada disso.",
-  "opcoes": 32,
-  "warp": "MAP_GALAR_TURFFIELD_INDOOR_08",
-  "warp_id": 0,
-  "roteiro": "180:NADA,16:UP*12,90:NADA,20:DOWN,14:NADA,20:DOWN,14:NADA,20:DOWN,90:NADA,20:RIGHT,30:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,400:NADA",
-  "prova": {
-   "mapa": "MAP_GALAR_TURFFIELD_INDOOR_08",
-   "oponente": "TRAINER_GALAR_LEON_739",
-   "campos": {
+    "warp": "MAP_SNOWPOINT_CITY_GYM",
+    "warp_id": 0,
+    "roteiro": "150:NADA,24:UP*24,90:NADA,20:A,180:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_SNOWPOINT_CITY_GYM",
+      "oponente": "TRAINER_SINNOH_LEADER_CANDICE",
+      "campos": {
+        "opcoes": 32,
+        "especie0": 461,
+        "especie1": 473,
+        "especie2": 478,
+        "especie3": 471,
+        "especie4": 1232,
+        "especie5": 460,
+        "nivelinimigo": 178,
+        "nivelinimigo1": 178,
+        "nivelinimigo2": 179,
+        "nivelinimigo3": 180,
+        "nivelinimigo4": 181,
+        "nivelinimigo5": 182,
+        "item0": 510,
+        "item5": 335
+      }
+    }
+  },
+  {
+    "id": "T155.2",
+    "nome": "BLOCKDATA ALIASADO ATRAVESSADO DE PONTA A PONTA, E COM PLACA LIDA NO MEIO. O dedupe de layout (dev_scripts/dedupe_blockdata.py, chamado pelo map_data_rules.mk) fez 2.373 dos 4.108 blobs de layouts.inc virarem referencia ao primeiro de conteudo igual. LAYOUT_OREBURGHCITY_FLAT1_F2_PROPRIO, que e o layout do CanalaveLibrary2F, e um desses: ele esta num grupo de tres (o canonico e LAYOUT_OREBURGH_CITY_FLAT2_F2, e o terceiro e LAYOUT_ETERNACITYCONDOMINIUMS3F) e perdeu o proprio .incbin. O T154.2 ja mediu um alias com uma perna so; aqui a sala de 14 por 8 e cruzada INTEIRA, e o que se acrescenta e a coisa que colisao nao prova: uma PLACA. Entrada pelo warp 0 em (2,1); DOWN saturante para em (2,3), porque (2,4) e estante; RIGHT saturante corre a linha 3 inteira ate (13,3); UP saturante sobe um tile e para em (13,2), porque a linha 1 so tem (2,1) e (4,1); um LEFT solto so VIRA o jogador para (12,2), onde mora CanalaveLibrary2F_EventScript_Placa13; e o A abre a caixa. A PROVA e a POSICAO, e ela e desenhada para separar 'a placa abriu' de 'a placa nao abriu': com a caixa aberta o jogador esta TRAVADO, entao a perna seguinte, LEFT saturante de vinte apertos, e ENGOLIDA e ele continua em (13,2); o B fecha a caixa e a perna final, DOWN saturante, desce a coluna 13 ate (13,7). Sem a caixa, a mesma perna de LEFT teria corrido a linha 2 inteira ate (0,2) e a de DOWN acabaria em (0,7). O par negativo T155.3 e exatamente isso, e existe porque a primeira versao deste caso terminava as duas historias no mesmo tile e portanto nao provava nada.",
     "opcoes": 32,
-    "nivelinimigo": 255,
-    "nivelinimigo1": 255,
-    "nivelinimigo2": 255,
-    "nivelinimigo3": 255,
-    "nivelinimigo4": 255,
-    "nivelinimigo5": 255,
-    "especie0": 681,
-    "especie1": 887,
-    "especie2": 612,
-    "especie3": 464,
-    "especie4": 6,
-    "especie5": 890,
-    "item4": 293
-   }
+    "warp": "MAP_CANALAVE_LIBRARY_2F",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:DOWN*6,90:NADA,16:RIGHT*16,90:NADA,16:UP*4,90:NADA,20:LEFT,30:NADA,20:A,150:NADA,16:LEFT*20,90:NADA,20:B,90:NADA,16:DOWN*20,150:NADA",
+    "prova": {
+      "mapa": "MAP_CANALAVE_LIBRARY_2F",
+      "pos": [
+        13,
+        7
+      ]
+    }
+  },
+  {
+    "id": "T155.3",
+    "nome": "PAR NEGATIVO DO T155.2: o MESMO mapa aliasado, o MESMO caminho, o MESMO numero de pernas, e um unico aperto a menos, o A que abre a placa. Sem a caixa aberta o jogador nao fica travado: a perna de LEFT corre a linha 2 inteira de (13,2) a (0,2) e a de DOWN desce a coluna 0 ate (0,7). Ele carrega duas provas de uma vez. A primeira: o (13,7) do T155.2 vem de o jogador ter ficado PARADO, e nao de o harness parar sempre ali. A segunda, que e de graca e interessa ao B10: as duas rotas atravessam o mesmo blockdata compartilhado em direcoes opostas e as duas param onde o map.bin manda, o que so acontece se o ponteiro do layout aliasado estiver lendo os bytes certos.",
+    "opcoes": 32,
+    "warp": "MAP_CANALAVE_LIBRARY_2F",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:DOWN*6,90:NADA,16:RIGHT*16,90:NADA,16:UP*4,90:NADA,20:LEFT,30:NADA,16:LEFT*20,90:NADA,20:B,90:NADA,16:DOWN*20,150:NADA",
+    "prova": {
+      "mapa": "MAP_CANALAVE_LIBRARY_2F",
+      "pos": [
+        0,
+        7
+      ]
+    }
+  },
+  {
+    "id": "T155.6",
+    "nome": "DISTORTION WORLD: OS NOVE ANDARES DESCIDOS A PE, DE UMA VEZ SO, ATE O SPEAR PILLAR. Este e o caso que a simetria consertada nesta rodada pede. Ate 22/08/2026 todo `dest_warp_id` da corrente era \"0\", que e o que o `poe` do cria_mapas_sinnoh.py escreve na criacao (nessa hora o mapa de destino ainda nem tem warp), e quem descia caia sempre no PRIMEIRO warp do andar de baixo, que e a escada de SUBIDA dele. Ninguem ficava preso e nenhum caso da suite reprovava, porque os tres casos do T153 provam UM warp cada, um andar so. O `simetriza` corrigiu nove `dest_warp_id` em oito map.json, e a unica maneira de medir isso e ENCADEAR: se um par estiver torto, o jogador chega no tile errado do andar seguinte e a rota daquele andar, que foi calculada na grade de colisao do map.bin, quebra na hora. ROTA: entra pelo warp 0 do DistortionWorld1F, em (19,44), e desce 1F, B1F, B2F, B3F, B4F, B5F, B6F, B7F e a sala do Giratina, 27 pernas saturantes e cerca de 345 tiles, com a entrada de cada warp feita com apertos SOLTOS. As duas regras que a rota respeita, e que sao as licoes de 22/08: perna saturante NUNCA pode pisar um tile de warp, porque o warp dispara no meio dela e os apertos que sobram caem ja dentro do mapa de destino; e a primeira acao de cada andar TEM que ser perna saturante, porque a direcao que o jogador encara ao chegar de warp e desconhecida e um aperto solto a partir dali pode ANDAR em vez de virar. Passagens medidas que valem a pena: no B3F, 64 por 64, a descida vai pela coluna 0 e a travessia pela linha 62, e nao pela 63, porque a perna da linha 63 acabaria EM CIMA do warp de (63,63); no B4F a coluna 21 nao serve pelo mesmo motivo e a rota desce pela 22 e entra no warp por baixo. A PROVA e o fim da corrente: MAP_SPEAR_PILLAR, tile (14,12). O warp 3 do Spear Pillar esta em (14,11) e o jogador para um tile ao SUL dele, porque o metatile 588 daquele mapa tem comportamento 96, MB_NON_ANIMATED_DOOR, e porta empurra um tile na chegada; (14,12) e o tile 588 vizinho, e chegar la so acontece atravessando os nove andares. FLAG_SEM_ENCONTRO_SELVAGEM entra por seguranca e nao por necessidade: nenhum mapa do Distortion World tem entrada em src/data/wild_encounters.json, medido nesta rodada.",
+    "opcoes": 32,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_DISTORTION_WORLD_1F",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*28,90:NADA,16:RIGHT*28,90:NADA,20:LEFT,14:NADA,20:LEFT,14:NADA,20:DOWN,14:NADA,20:DOWN,14:NADA,240:NADA,16:DOWN*7,90:NADA,16:LEFT*24,90:NADA,16:DOWN*7,90:NADA,16:RIGHT*32,90:NADA,16:DOWN*3,90:NADA,16:LEFT*12,90:NADA,16:DOWN*5,90:NADA,16:LEFT*22,90:NADA,20:UP,14:NADA,20:UP,14:NADA,20:RIGHT,14:NADA,20:RIGHT,14:NADA,240:NADA,16:RIGHT*4,90:NADA,20:LEFT,14:NADA,20:LEFT,14:NADA,20:DOWN,14:NADA,20:DOWN,14:NADA,240:NADA,16:DOWN*65,90:NADA,20:UP,14:NADA,20:UP,14:NADA,16:RIGHT*65,90:NADA,20:DOWN,14:NADA,20:DOWN,14:NADA,240:NADA,16:DOWN*11,90:NADA,16:LEFT*14,90:NADA,20:RIGHT,14:NADA,20:RIGHT,14:NADA,16:DOWN*17,90:NADA,20:UP,14:NADA,20:UP,14:NADA,20:LEFT,14:NADA,20:LEFT,14:NADA,240:NADA,16:DOWN*45,90:NADA,16:RIGHT*25,90:NADA,20:UP,14:NADA,20:UP,14:NADA,20:LEFT,14:NADA,20:LEFT,14:NADA,240:NADA,16:DOWN*15,90:NADA,16:RIGHT*6,90:NADA,16:DOWN*12,90:NADA,16:LEFT*8,90:NADA,16:DOWN*6,90:NADA,20:UP,14:NADA,20:UP,14:NADA,20:RIGHT,14:NADA,20:RIGHT,14:NADA,240:NADA,16:DOWN*38,90:NADA,16:LEFT*7,90:NADA,16:DOWN*6,90:NADA,20:UP,14:NADA,20:UP,14:NADA,20:RIGHT,14:NADA,20:RIGHT,14:NADA,240:NADA,16:UP*7,90:NADA,20:LEFT,14:NADA,20:LEFT,14:NADA,20:LEFT,14:NADA,20:LEFT,14:NADA,20:LEFT,14:NADA,16:UP*16,90:NADA,20:LEFT,14:NADA,20:LEFT,14:NADA,240:NADA",
+    "prova": {
+      "mapa": "MAP_SPEAR_PILLAR",
+      "pos": [
+        14,
+        12
+      ]
+    }
   }
- },
- {
-  "id": "T155.6",
-  "nome": "DISTORTION WORLD: OS NOVE ANDARES DESCIDOS A PE, DE UMA VEZ SO, ATE O SPEAR PILLAR. Este e o caso que a simetria consertada nesta rodada pede. Ate 22/08/2026 todo `dest_warp_id` da corrente era \"0\", que e o que o `poe` do cria_mapas_sinnoh.py escreve na criacao (nessa hora o mapa de destino ainda nem tem warp), e quem descia caia sempre no PRIMEIRO warp do andar de baixo, que e a escada de SUBIDA dele. Ninguem ficava preso e nenhum caso da suite reprovava, porque os tres casos do T153 provam UM warp cada, um andar so. O `simetriza` corrigiu nove `dest_warp_id` em oito map.json, e a unica maneira de medir isso e ENCADEAR: se um par estiver torto, o jogador chega no tile errado do andar seguinte e a rota daquele andar, que foi calculada na grade de colisao do map.bin, quebra na hora. ROTA: entra pelo warp 0 do DistortionWorld1F, em (19,44), e desce 1F, B1F, B2F, B3F, B4F, B5F, B6F, B7F e a sala do Giratina, 27 pernas saturantes e cerca de 345 tiles, com a entrada de cada warp feita com apertos SOLTOS. As duas regras que a rota respeita, e que sao as licoes de 22/08: perna saturante NUNCA pode pisar um tile de warp, porque o warp dispara no meio dela e os apertos que sobram caem ja dentro do mapa de destino; e a primeira acao de cada andar TEM que ser perna saturante, porque a direcao que o jogador encara ao chegar de warp e desconhecida e um aperto solto a partir dali pode ANDAR em vez de virar. Passagens medidas que valem a pena: no B3F, 64 por 64, a descida vai pela coluna 0 e a travessia pela linha 62, e nao pela 63, porque a perna da linha 63 acabaria EM CIMA do warp de (63,63); no B4F a coluna 21 nao serve pelo mesmo motivo e a rota desce pela 22 e entra no warp por baixo. A PROVA e o fim da corrente: MAP_SPEAR_PILLAR, tile (14,12). O warp 3 do Spear Pillar esta em (14,11) e o jogador para um tile ao SUL dele, porque o metatile 588 daquele mapa tem comportamento 96, MB_NON_ANIMATED_DOOR, e porta empurra um tile na chegada; (14,12) e o tile 588 vizinho, e chegar la so acontece atravessando os nove andares. FLAG_SEM_ENCONTRO_SELVAGEM entra por seguranca e nao por necessidade: nenhum mapa do Distortion World tem entrada em src/data/wild_encounters.json, medido nesta rodada.",
-  "opcoes": 32,
-  "flags": [
-   "FLAG_SEM_ENCONTRO_SELVAGEM"
-  ],
-  "warp": "MAP_DISTORTION_WORLD_1F",
-  "warp_id": 0,
-  "roteiro": "150:NADA,16:UP*28,90:NADA,16:RIGHT*28,90:NADA,20:LEFT,14:NADA,20:LEFT,14:NADA,20:DOWN,14:NADA,20:DOWN,14:NADA,240:NADA,16:DOWN*7,90:NADA,16:LEFT*24,90:NADA,16:DOWN*7,90:NADA,16:RIGHT*32,90:NADA,16:DOWN*3,90:NADA,16:LEFT*12,90:NADA,16:DOWN*5,90:NADA,16:LEFT*22,90:NADA,20:UP,14:NADA,20:UP,14:NADA,20:RIGHT,14:NADA,20:RIGHT,14:NADA,240:NADA,16:RIGHT*4,90:NADA,20:LEFT,14:NADA,20:LEFT,14:NADA,20:DOWN,14:NADA,20:DOWN,14:NADA,240:NADA,16:DOWN*65,90:NADA,20:UP,14:NADA,20:UP,14:NADA,16:RIGHT*65,90:NADA,20:DOWN,14:NADA,20:DOWN,14:NADA,240:NADA,16:DOWN*11,90:NADA,16:LEFT*14,90:NADA,20:RIGHT,14:NADA,20:RIGHT,14:NADA,16:DOWN*17,90:NADA,20:UP,14:NADA,20:UP,14:NADA,20:LEFT,14:NADA,20:LEFT,14:NADA,240:NADA,16:DOWN*45,90:NADA,16:RIGHT*25,90:NADA,20:UP,14:NADA,20:UP,14:NADA,20:LEFT,14:NADA,20:LEFT,14:NADA,240:NADA,16:DOWN*15,90:NADA,16:RIGHT*6,90:NADA,16:DOWN*12,90:NADA,16:LEFT*8,90:NADA,16:DOWN*6,90:NADA,20:UP,14:NADA,20:UP,14:NADA,20:RIGHT,14:NADA,20:RIGHT,14:NADA,240:NADA,16:DOWN*38,90:NADA,16:LEFT*7,90:NADA,16:DOWN*6,90:NADA,20:UP,14:NADA,20:UP,14:NADA,20:RIGHT,14:NADA,20:RIGHT,14:NADA,240:NADA,16:UP*7,90:NADA,20:LEFT,14:NADA,20:LEFT,14:NADA,20:LEFT,14:NADA,20:LEFT,14:NADA,20:LEFT,14:NADA,16:UP*16,90:NADA,20:LEFT,14:NADA,20:LEFT,14:NADA,240:NADA",
-  "prova": {
-   "mapa": "MAP_SPEAR_PILLAR",
-   "pos": [
-    14,
-    12
-   ]
-  }
- }
 ]

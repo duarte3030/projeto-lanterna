@@ -360,27 +360,8 @@ def relatorio_unova():
 
 def main():
     alvos = [a for a in sys.argv[1:] if not a.startswith("-")] or \
-        ["Kanto", "Johto", "Hoenn", "Unova"]
+        ["Kanto", "Johto", "Hoenn"]
     for r in alvos:
-        if r == "Unova":
-            d = relatorio_unova()
-            print(f"\n=== Unova (fonte bw3g) ===")
-            print(f"  fonte: {len(d['fonte_chaves'])} treinadores distintos "
-                  f"em {sum(len(v) for v in d['fonte_chaves'].values())} objetos")
-            print(f"  aqui:  {len(d['aqui'])} citados, {len(d['com_time'])} com time")
-            print(f"  LACUNA: {len(d['falta'])}")
-            print(f"  EXCESSO (aqui e nao na fonte): {len(d['excesso'])}")
-            print(f"  lider/E4 provados por `loadtrainer`: {len(d['por_carga'])}")
-            print(f"  fonte fora de Unova (mapa de Johto do BW3G): "
-                  f"{len(d['fora_da_regiao'])}: {', '.join(d['fora_da_regiao'])}")
-            if d["citado_sem_time"]:
-                print(f"  citados SEM time: {sorted(d['citado_sem_time'])[:10]}")
-            for k in d["falta"]:
-                print(f"    FALTA  {k:44s} "
-                      f"{', '.join(o[0] for o in d['fonte_chaves'][k])}")
-            for k in d["excesso"]:
-                print(f"    SOBRA  {k}")
-            continue
         d = relatorio_gen3(r)
         nf = sum(len(v) for v in d["falta"].values())
         na = sum(len(v) for v in d["so_em_mapa_ausente"].values())
@@ -439,22 +420,6 @@ def demo():
     cru = ("\ttrainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_COLE, "
            "LOCALID_COLE, T1, T2, S, OBJ_ID_NONE, TRAINER_NONE\n")
     assert trainerbattles(cru) == {"TRAINER_COLE"}, trainerbattles(cru)
-    # 4. Unova: os 12 "de excesso" que o INVENTARIO acusa (360 aqui contra 348 na
-    #    fonte) sao os 8 lideres e os 4 da Elite dos Quatro, e cada um esta na
-    #    fonte, provado por `loadtrainer`. Sem essa prova o veredito seria
-    #    "treinador inventado" e 12 pessoas legitimas seriam apagadas.
-    u = relatorio_unova()
-    assert len(u["por_carga"]) == 12, u["por_carga"]
-    assert not u["excesso"], f"Unova com excesso de verdade: {u['excesso']}"
-    assert not u["falta"], f"Unova com lacuna: {u['falta']}"
-    carga = u["loadtrainer"]
-    for k in u["por_carga"]:
-        assert k.split("_", 1)[1] in carga, k
-    # 4b. e os 4 que sobram na fonte sao do National Park, que e mapa de JOHTO
-    #     dentro do BW3G (hack de pokecrystal), nao divida de Unova.
-    assert u["fora_da_regiao"] == ["BEVERLY1", "JACK1", "KRISE", "WILLIAM"], \
-        u["fora_da_regiao"]
-
     # 5. a excecao deliberada tem que continuar sendo excecao, e nada alem dela.
     #    Se alguem ligar um dos 15 (ou se a fonte deixar de te-lo), este assert
     #    cai e a nota do PRD e revisitada em vez de envelhecer calada.

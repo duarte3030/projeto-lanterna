@@ -78,7 +78,6 @@ VEREDITOS_DE_CALIBRACAO = {
     "B9": "falso positivo (18,7 por 100 no vanilla contra 4,33 aqui)",
     "D2": "falso positivo",
     "C2": "so vale o recorte de fracao alcancada ridicula; em bloco, empata",
-    "D1": "em Galar nao e defeito: a regiao tem grama e Dex 0 por escopo",
     "C15": "idioma normal do motor (flag de esconder acesa e nunca apagada)",
     "C24": "idioma normal do motor (flag de esconder que ninguem toca)",
 }
@@ -167,10 +166,11 @@ def achados_de_estado():
     saida = []
     for a in ach:
         # `estado_jogo` escreve a regiao em minuscula e JUNTA as regioes de um
-        # achado que toca mais de uma ("galar+kanto": o Ho-Oh que divide flag de
-        # esconder entre tres mapas de tres regioes). Aqui ele conta em CADA
-        # uma, que e como o relatorio da auditoria conta, senao aparece uma
-        # coluna nova por combinacao e a tabela deixa de ser lida.
+        # achado que toca mais de uma (medido em 07/09/2026: "hoenn+kanto" em
+        # 8 achados, flag de esconder compartilhada por mapas de duas regioes).
+        # Aqui ele conta em CADA uma, que e como o relatorio da auditoria conta,
+        # senao aparece uma coluna nova por combinacao e a tabela deixa de ser
+        # lida.
         for r in str(a.get("regiao") or "comum").split("+"):
             saida.append(dict(ferramenta="estado", regra=a.get("id", "?"),
                               classe=a["classe"], regiao=nome_de_regiao(r)))
@@ -210,7 +210,11 @@ COLETORES = (("scripts", achados_de_scripts), ("texto", achados_de_texto),
              ("warps", achados_de_warps), ("portas", achados_de_portas),
              ("carimbo", achados_de_carimbo))
 
-REGIOES = ("Kanto", "Johto", "Hoenn", "Sinnoh", "Unova", "Galar", "comum")
+# As quatro regioes do cartucho 1. Unova e Galar sairam do escopo em 07/09/2026
+# (PRD-CARTUCHO-1.md) e os mapas delas viraram TUMULO: id intacto na tabela,
+# zero evento, MAPSEC_NONE e o campo `cortado_por` no map.json. Tumulo nao entra
+# em coluna nenhuma, nem na de Hoenn, que e o balde padrao das ferramentas.
+REGIOES = ("Kanto", "Johto", "Hoenn", "Sinnoh", "comum")
 
 
 def normaliza(c):

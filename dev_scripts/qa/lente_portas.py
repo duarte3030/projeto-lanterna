@@ -120,14 +120,16 @@ for _n in NOMES_SETA:
 # comportamento (número) -> família
 DE_FAMILIA = {vwt._MB[n]: f for n, f in FAMILIA.items() if n in vwt._MB}
 
-GRUPO_DE_REGIAO = (("Frlg", "Kanto"), ("Johto", "Johto"), ("Unova", "Unova"),
-                   ("Galar", "Galar"), ("Sinnoh", "Sinnoh"), ("Galactic", "Sinnoh"),
+GRUPO_DE_REGIAO = (("Frlg", "Kanto"), ("Johto", "Johto"),
+                   ("Sinnoh", "Sinnoh"), ("Galactic", "Sinnoh"),
                    ("IndoorTwinleaf", "Sinnoh"), ("IndoorSandgem", "Sinnoh"),
                    ("IndoorJubilife", "Sinnoh"), ("IndoorOreburgh", "Sinnoh"),
                    ("IndoorFloaroma", "Sinnoh"))
 
-REGIOES = ("Kanto", "Johto", "Hoenn", "Sinnoh", "Unova", "Galar")
-DO_CARTUCHO_1 = ("Kanto", "Johto", "Hoenn", "Sinnoh")
+# Unova e Galar sairam do escopo em 07/09/2026 (PRD-CARTUCHO-1.md): sobraram as
+# quatro do cartucho 1, e as duas listas passaram a ser a mesma.
+REGIOES = ("Kanto", "Johto", "Hoenn", "Sinnoh")
+DO_CARTUCHO_1 = REGIOES
 
 # Placas comuns de porta que não abre. Célula com `bg_event` apontando para uma
 # delas sai das três regras: a porta continua fechada, mas o jogo passou a
@@ -274,8 +276,6 @@ def carrega_mapas(raiz):
 
 
 def regiao_de(nome, grupo):
-    if nome.startswith("Galar_"):
-        return "Galar"
     for chave, r in GRUPO_DE_REGIAO:
         if chave in grupo:
             return r
@@ -434,10 +434,14 @@ def varre(raiz=None):
     for nome in sorted(mapas):
         dados, grupo = mapas[nome]
         # TUMULO: mapa cortado que ficou na tabela só para não deslocar índice
-        # de save. Sem warp, sem conexão e MAPSEC_NONE, os três juntos.
-        if (str(dados.get("region_map_section")) == "MAPSEC_NONE"
-                and not dados.get("warp_events")
-                and not dados.get("connections")):
+        # de save. Sem warp, sem conexão e MAPSEC_NONE, os três juntos, ou com o
+        # carimbo `cortado_por` que a onda do cartucho 1 (07/09/2026) deixou nos
+        # 729 mapas de Unova e Galar. Túmulo NÃO cai no balde padrão de Hoenn:
+        # sai da conta antes de a região ser decidida.
+        if (dados.get("cortado_por")
+                or (str(dados.get("region_map_section")) == "MAPSEC_NONE"
+                    and not dados.get("warp_events")
+                    and not dados.get("connections"))):
             censo["tumulos"] += 1
             continue
         celulas = grade.de(dados)
@@ -614,8 +618,10 @@ def demo():
         falso("celulas_de_script nao seguiu o rotulo ate o `opendoor 9, 4` do elevador")
 
     achados, censo = varre()
-    if censo["mapas"] < 2000:
-        falso(f"so {censo['mapas']} mapas medidos, a arvore tem mais de 2.300")
+    # Piso de cegueira. Medido em 07/09/2026, ja sem Unova e Galar: 1.573 mapas
+    # vivos. O numero antigo era 2.300, de quando as seis regioes existiam.
+    if censo["mapas"] < 1500:
+        falso(f"so {censo['mapas']} mapas medidos, a arvore tem mais de 1.500")
     if censo["mudos"]:
         falso(f"{censo['mudos']} mapas nao medidos: a lente esta cega neles")
 

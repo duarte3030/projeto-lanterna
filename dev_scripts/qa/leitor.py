@@ -189,7 +189,6 @@ GRUPO_REGIAO = [
                 "SinnohInteriores", "SinnohTownsRoutes", "SpecialAreasSinnoh",
                 "DungeonsSinnoh", "IndoorTwinleaf", "IndoorSandgem",
                 "IndoorJubilife", "IndoorOreburgh", "IndoorFloaroma")),
-    ("Unova", ("Unova",)),
     ("Johto", ("Johto",)),
     ("Kanto", ("Frlg",)),
 ]
@@ -254,8 +253,13 @@ class Arvore(object):
             except Exception:
                 continue
             g = do_grupo.get(nome, "")
-            if nome.startswith("Galar_"):
-                self.regiao[nome] = "Galar"
+            # TUMULO de mapa fora de escopo: Unova e Galar sairam em 07/09/2026
+            # (PRD-CARTUCHO-1.md) e os 729 mapas delas ficaram na tabela so para
+            # nao deslocar indice de save, carimbados com `cortado_por`. Sem
+            # esta linha eles cairiam em "Hoenn", que e o balde padrao, e a
+            # auditoria passaria a cobrar de Hoenn o que o Gui cortou.
+            if self.mapas[nome].get("cortado_por"):
+                self.regiao[nome] = "cortado"
                 continue
             reg = "Hoenn"
             for r, chaves in GRUPO_REGIAO:
@@ -287,8 +291,7 @@ class Arvore(object):
                     self.specials.add(m.group(1))
 
     # ------------------------------------------------------------- utilidades
-    ARQUIVO_REGIAO = [("galar_", "Galar"), ("sinnoh_", "Sinnoh"),
-                      ("unova", "Unova"), ("johto", "Johto"),
+    ARQUIVO_REGIAO = [("sinnoh_", "Sinnoh"), ("johto", "Johto"),
                       ("_frlg", "Kanto"), ("sinnoh", "Sinnoh")]
 
     def regiao_do_arquivo(self, caminho):

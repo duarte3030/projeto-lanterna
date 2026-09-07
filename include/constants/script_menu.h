@@ -251,7 +251,7 @@ enum
 // hack (Canalave, Olivine, Slateport, Vermilion) fazem `switch` em case 0, 1 e
 // 2, ou seja, a terceira opcao nunca existiu no menu e a segunda era "Sair".
 // O menu do barco entre regioes estava mentindo desde que foi escrito.
-// Medido em 05/08/2026, ao acrescentar Unova como quarto destino.
+// Medido em 05/08/2026, ao acrescentar um quarto destino.
 //
 // PAROU DE SER USADA EM 11/08/2026. Menu estatico nao sabe esconder destino, e
 // o desenho pedia que a regiao ainda nao liberada nem aparecesse. O menu dos
@@ -260,7 +260,12 @@ enum
 // linha escolhida: por isso os `case` dos cinco portos continuam sendo os
 // indices desta lista, mesmo com o menu encolhendo. A lista e o apelido ficam
 // aqui porque nao custam ROM enquanto ninguem os cita, e porque documentam a
-// numeracao que os `case` ainda usam. Nao apagar sem reescrever os cinco portos.
+// numeracao que os `case` ainda usam. Nao apagar sem reescrever os portos.
+//
+// CARTUCHO 1, 07/09/2026: os destinos 3 (VIRBANK, Unova) e 6 (WEDGEHURST,
+// Galar) sairam do menu com as duas regioes. Os IDS 3 e 6 ficaram VAGOS e a
+// lista abaixo NAO foi renumerada de proposito: e ela que documenta por que os
+// `case` dos quatro portos continuam sendo 0, 1, 2, 4 e 5.
 #ifndef MULTI_BOAT_DESTINATIONS
 #define MULTI_BOAT_DESTINATIONS MULTI_CINCO_REGIOES_BARCO
 #endif

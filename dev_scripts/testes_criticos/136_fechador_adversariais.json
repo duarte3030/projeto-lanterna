@@ -85,35 +85,6 @@
     }
   },
   {
-    "id": "T136.5",
-    "nome": "PRIMEIRA METADE: a cena de objeto do bloco c4a de Galar aguenta um desligamento? Os oito casos do T130 rodam a cena no MESMO boot em que o mapa foi carregado pela primeira vez, e cena portada de outro motor e exatamente onde se planta um travamento que so aparece na segunda vida da save. Aqui o jogo entra na sala de aula de Galar_Wedgehurst02 e SALVA pelo menu, com a sequencia medida do T11.1. Quem responde e o T136.6. A .sav e propria e apagada no comeco, para nao depender das do T123 nem das do T127. CONSERTO DE 22/08/2026 (fechador da rodada 7): este roteiro contava o menu de START DE CIMA para achar SAVE, e contar de cima e apostar em quantos itens o jogo ja liberou. BuildNormalStartMenu (src/start_menu.c:332) monta o TOPO conforme o estado (POKEDEX, DEXNAV, POKEMON, BAG, POKENAV entram ou nao) e so o RABO e fixo: PLAYER, SAVE, OPTION, EXIT. Menu_MoveCursor (src/menu.c:704) DA A VOLTA, entao tres UP a partir da linha 0 caem sempre em EXIT, OPTION e SAVE, quantos itens houver em cima. E o mesmo padrao do T11.1. Junto veio prova.sav_gravada: sem ela mapa, posicao e flags passam verdes com a flash inteira em 0xFF, ou seja com o SAVE nunca tendo rodado, que foi o verde falso medido no T11.1.",
-    "apaga_sav": true,
-    "sav": "/tmp/claude-501/fechador/t136-galar-c4a.sav",
-    "warp": "MAP_GALAR_WEDGEHURST_02",
-    "warp_id": 1,
-    "roteiro": "300:NADA,40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
-    "prova": {
-      "sav_gravada": true,
-      "mapa": "MAP_GALAR_WEDGEHURST_02"
-    }
-  },
-  {
-    "id": "T136.6",
-    "nome": "SEGUNDA METADE: a save do T136.5 e recarregada do zero, o jogador ENTRA DE NOVO no mapa por warp e roda a cena inteira do c4a, com os DOIS apertos de A do T130.3. A prova e a mesma do T130.3, o `release` devolvendo o jogador a (4, 7) depois do applymovement, so que agora depois de um boot frio: se o script portado dependesse de estado de RAM que so o primeiro carregamento monta, ou se o `applymovement` sobre o proprio NPC deixasse o jogador preso, o caso pararia em (4, 6) e ninguem na suite atual notaria. Trocar o T130.3 por este seria perder o par de mesmo boot; os dois convivem porque medem coisas diferentes.",
-    "sav": "/tmp/claude-501/fechador/t136-galar-c4a.sav",
-    "abertura": "continuar",
-    "warp": "MAP_GALAR_WEDGEHURST_02",
-    "warp_id": 1,
-    "roteiro": "240:NADA,16:UP*3,90:NADA,16:A,180:NADA,16:A,180:NADA,16:DOWN*2,150:NADA",
-    "prova": {
-      "mapa": "MAP_GALAR_WEDGEHURST_02",
-      "pos": [
-        4,
-        7
-      ]
-    }
-  },
-  {
     "id": "T136.7",
     "nome": "DA PARA FALAR COM A GARDENIA DEPOIS DA DECORACAO DO GINASIO DE ETERNA, e a prova e a BATALHA e nao a posicao. O T125 media os oito ginasios que o F4 decorou; Eterna e Canalave sao os DOIS que o corte do Gui nao pegou e que so ganharam tileset nesta rodada (FortreeGym e Lab), e para eles nao havia caso nenhum, nem de chegada nem de conversa. Entre o objeto e o dialogo ha um atributo de METATILE, e nenhuma medida de arte o enxerga: colisao igual byte a byte nao promete que o tile em frente a lider continua sendo tile em que se PARA. O jogador entra pelo unico warp (11, 26), da um toque de DOWN contra a parede so para fixar a direcao (o warp de debug nao promete para onde ele olha) e sobe a coluna 11 com 40 toques, SATURANDO contra a Gardenia de (11, 2) e parando em (11, 3). Os 40 toques nao sao enfeite: 23 tiles mais o toque que vira dariam 24, e MEDIDO em 21/08/2026 o jogador para em (11, 10) com 25; a subida so fecha com folga larga, e como a ultima perna satura, toque a mais e inofensivo. Os dois A abrem o `lock`+`faceplayer`, passam a msgbox de introducao e o `trainerbattle_no_intro` abre a batalha, com `oponente` cravado em TRAINER_SINNOH_LEADER_GARDENIA. Par negativo: T136.8.",
     "flags": [

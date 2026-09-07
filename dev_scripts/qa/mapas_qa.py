@@ -470,19 +470,23 @@ def bfs(W, H, linhas, sementes, extra_andavel=None):
 
 # ---------------------------------------------------------------------- região
 
-def regiao_de(nome_mapa, grupo):
-    if nome_mapa.startswith("Galar_"):
-        return "Galar"
+def regiao_de(nome_mapa, grupo, dados=None):
+    """Região do mapa. "cortado" para o TÚMULO de mapa fora de escopo.
+
+    Unova e Galar saíram em 07/09/2026 (PRD-CARTUCHO-1.md) e os 729 mapas delas
+    ficaram na tabela como túmulo, para não deslocar índice de save: id intacto,
+    zero evento, `MAPSEC_NONE` e o campo `cortado_por` no map.json. Sem o
+    primeiro `if`, todo túmulo cairia no balde padrão de Hoenn e a auditoria
+    passaria a cobrar de Hoenn o que o Gui cortou de propósito.
+    """
+    if dados is not None and dados.get("cortado_por"):
+        return "cortado"
     if grupo.endswith("_Frlg") or "Frlg" in grupo:
         return "Kanto"
     if "Johto" in grupo:
         return "Johto"
-    if "Unova" in grupo:
-        return "Unova"
     if "Sinnoh" in grupo or "Galactic" in grupo:
         return "Sinnoh"
-    if "Galar" in grupo:
-        return "Galar"
     return "Hoenn"
 
 
@@ -596,7 +600,7 @@ def varre(raiz, so_regra=None):
             except Exception:
                 continue
             c = por_valor.get((gi, mi)) or d.get("id")
-            mapas[mn] = dict(const=c, grupo=gn, regiao=regiao_de(mn, gn), d=d)
+            mapas[mn] = dict(const=c, grupo=gn, regiao=regiao_de(mn, gn, d), d=d)
             if c:
                 const_de[c] = mn
 
@@ -627,10 +631,11 @@ def varre(raiz, so_regra=None):
             except (TypeError, ValueError):
                 continue
             # WARP QUE APONTA PARA SI MESMO nao e chegada de ninguem: e lixo do
-            # importador do demake. `Galar_Postwick47` tem dois assim, os dois
-            # em tile solido cercado de parede, e conta-los como "chegada"
-            # inventava trava onde nunca chega jogador. Medido: 22 dos 24 casos
-            # da primeira versao de A2 eram isso ou geometria de script.
+            # importador do demake, e conta-lo como "chegada" inventava trava
+            # onde nunca chega jogador. Medido: 22 dos 24 casos da primeira
+            # versao de A2 eram isso ou geometria de script. (Os dois exemplos
+            # de origem eram de Galar, regiao que saiu do escopo em 07/09/2026;
+            # a guarda fica porque o padrao vale para qualquer mapa importado.)
             if alvo == info_o["const"] and j == i_o:
                 continue
             warps_de_entrada[alvo].add(j)
@@ -694,8 +699,9 @@ def varre(raiz, so_regra=None):
         # `Task_ExitNonAnimDoor`, que e quem empurra um tile ao sul, quando
         # `MapGridGetCollisionAt(x, y + 1) == 0`. Com o tile de baixo bloqueado
         # ou fora da grade ele cai em `Task_ExitNonDoor` e o jogador FICA na
-        # propria porta. A primeira versao deste arquivo acusou 442 casos
-        # (430 de Unova) sem ler essa guarda, que existe desde 12/08/2026.
+        # propria porta. A primeira versao deste arquivo acusou 442 casos sem
+        # ler essa guarda, que existe desde 12/08/2026 (430 deles eram de Unova,
+        # regiao que saiu do escopo em 07/09/2026).
         #
         # Sobra o que a guarda NAO cobre, e sao dois:
         #   A7 = porta ANIMADA (`MetatileBehavior_IsDoor`: MB_ANIMATED_DOOR e
@@ -1316,8 +1322,10 @@ def demo():
     assert janela([(i, 0) for i in range(15)]) == 15
     assert janela([(i * 21, 0) for i in range(16)]) == 1, "a janela não desliza"
 
-    # (6) região: o prefixo do NOME manda, porque Galar mora em vários grupos
-    assert regiao_de("Galar_Postwick50", "gMapGroup_Dungeons") == "Galar"
+    # (6) região: sai do GRUPO, e o túmulo de mapa cortado sai das quatro antes
+    #     disso, para não engordar Hoenn, que é o balde padrão
+    assert regiao_de("Galar_Postwick50", "gMapGroup_Dungeons",
+                     {"cortado_por": "cartucho 1"}) == "cortado"
     assert regiao_de("PalletTown", "gMapGroup_TownsAndRoutes_Frlg") == "Kanto"
     assert regiao_de("Route101", "gMapGroup_TownsAndRoutes") == "Hoenn"
     assert regiao_de("AcuityCavern", "gMapGroup_SinnohCavernas") == "Sinnoh"

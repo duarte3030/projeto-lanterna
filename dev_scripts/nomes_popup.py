@@ -10,11 +10,11 @@ Uso:
 Por que existe
 --------------
 MAPSEC e `u8` e divide o espaco de valores com METLOC_SPECIAL_EGG (0xFD), entao
-Johto, Sinnoh, Unova e Galar NAO tem uma secao por cidade: cada lugar e apelido
-de um MAPSEC de GRUPO (ver src/data/region_map/region_map_sections.constants.json.txt).
+Johto e Sinnoh NAO tem uma secao por cidade: cada lugar e apelido de um MAPSEC de
+GRUPO (ver src/data/region_map/region_map_sections.constants.json.txt).
 Como `GetPopUpMapName` copiava `gRegionMapEntries[mapsec].name`, o letreiro de
-centenas de mapas dizia "SINNOH WEST", "UNOVA EAST" ou "GALAR SOUTH" em vez do
-nome do lugar. O Gui pegou isso no playtest da ROM 2026-08-23d.
+centenas de mapas dizia "SINNOH WEST" em vez do nome do lugar. O Gui pegou isso
+no playtest da ROM 2026-08-23d.
 
 O conserto DESACOPLA o nome do letreiro do MAPSEC, sem tocar em MAPSEC nem no
 "met location" do sumario do Pokemon (que continua por grupo, e isso e aceito):
@@ -30,15 +30,16 @@ dicionario de radicais, so o que esta escrito no map.json. E por isso que editar
 De onde sai o nome, nesta ordem
 -------------------------------
     (a) o NOME DA PASTA, por dicionario de radicais (RADICAIS_*), que e a unica
-        fonte que sobreviveu em Sinnoh (398 mapas com o MAPSEC de grupo cru) e
-        em Galar (172 mapas com MAPSEC_GALAR_POSTWICK por valor padrao errado);
+        fonte que sobreviveu em Sinnoh (398 mapas com o MAPSEC de grupo cru);
     (b) o APELIDO do `region_map_section`, transformado, que e a fonte boa em
-        Johto e Unova, onde o demake carregou o apelido certo em cada mapa;
+        Johto, onde o demake carregou o apelido certo em cada mapa;
     (c) o que nao resolver vai para dev_scripts/qa/nomes_popup_revisao.csv e NAO
         recebe campo, caindo no comportamento antigo.
 
 Interior herda o lugar da cidade, como no jogo original. Mapa TUMULO
-(`MAPSEC_NONE`) fica fora. Kanto e Hoenn ficam fora: tem MAPSEC proprio.
+(`MAPSEC_NONE`) fica fora, e e por isso que os 729 mapas de Unova e Galar
+cortados em 07/09/2026 (PRD-CARTUCHO-1.md) saem sozinhos: todos ficaram com
+`region_map_section: MAPSEC_NONE`. Kanto e Hoenn ficam fora: tem MAPSEC proprio.
 
 O script e idempotente: rodar de novo sobre a arvore ja escrita nao muda byte.
 """
@@ -130,10 +131,6 @@ def le_apelidos(raiz):
     for linha in linhas:
         if "Sinnoh region map sections" in linha:
             secao = "Sinnoh"
-        elif "Apelidos de MAPSEC de Unova" in linha:
-            secao = "Unova"
-        elif "Apelidos de MAPSEC de Galar" in linha:
-            secao = "Galar"
         achou = re.match(r"#define\s+(MAPSEC_\w+)\s+(MAPSEC_\w+)\s*$", linha)
         if achou:
             apelido[achou.group(1)] = achou.group(2)
@@ -145,11 +142,7 @@ GRUPOS_SINNOH = ("MAPSEC_SINNOH_WEST", "MAPSEC_SINNOH_EAST", "MAPSEC_SINNOH_NORT
 
 
 def regiao_do_mapsec(mapsec, regiao_do_apelido):
-    """Qual das quatro regioes sem MAPSEC proprio o mapa pertence, ou None."""
-    if mapsec.startswith("MAPSEC_GALAR"):
-        return "Galar"
-    if mapsec.startswith("MAPSEC_UNOVA"):
-        return "Unova"
+    """Qual das duas regioes sem MAPSEC proprio o mapa pertence, ou None."""
     if mapsec in GRUPOS_SINNOH:
         return "Sinnoh"
     return regiao_do_apelido.get(mapsec)
@@ -162,19 +155,11 @@ APELIDO_ESPECIAL = {
     "MAPSEC_MT_SILVER": "MT. SILVER",
     "MAPSEC_MT_MORTAR": "MT. MORTAR",
     "MAPSEC_SS_AQUA": "S.S. AQUA",
-    "MAPSEC_UNOVA_POKEMON_WORLD_TOURNAMENT": "WORLD TOURNAMENT",
-    "MAPSEC_UNOVA_POKEMON_LEAGUE": "POKEMON LEAGUE",
-    "MAPSEC_UNOVA_LENTIMAS_OUTSKIRTS": "LENTIMAS TOWN",
-    "MAPSEC_UNOVA_DRIFTVEIL_DRAWBRIDGE": "DRIFTVEIL BRIDGE",
-    "MAPSEC_UNOVA_CASTELIA_SEWERS": "CASTELIA SEWERS",
-    "MAPSEC_UNOVA_SPECIAL_MAP": None,      # sala de link, sem lugar no mundo
-    "MAPSEC_GALAR_DYNAMAX_ADVENTURE": "MAX LAIR",
-    "MAPSEC_GALAR_STOW_ON_SIDE": "STOW-ON-SIDE",
 }
 
 
 def nome_do_apelido(mapsec, apelidos=None):
-    """MAPSEC_UNOVA_CASTELIA_CITY -> "CASTELIA CITY"; MAPSEC_GALAR_ROUTE01 -> "ROUTE 1".
+    """MAPSEC_AZALEA_TOWN -> "AZALEA TOWN"; MAPSEC_ROUTE_205_NORTH -> "ROUTE 205".
 
     MAPSEC que NAO e apelido nao serve: e o MAPSEC de GRUPO, e o nome dele e
     justamente o "SINNOH WEST" que este conserto veio tirar do letreiro.
@@ -184,16 +169,12 @@ def nome_do_apelido(mapsec, apelidos=None):
     if mapsec in APELIDO_ESPECIAL:
         return APELIDO_ESPECIAL[mapsec]
     corpo = mapsec
-    for prefixo in ("MAPSEC_UNOVA_", "MAPSEC_GALAR_", "MAPSEC_"):
-        if corpo.startswith(prefixo):
-            corpo = corpo[len(prefixo):]
-            break
-    achou = re.match(r"^ROUTE0*(\d+)$", corpo)
-    if achou:
-        return "ROUTE %d" % int(achou.group(1))
-    achou = re.match(r"^R_0*(\d+)$", corpo)
-    if achou:
-        return "ROUTE %d" % int(achou.group(1))
+    if corpo.startswith("MAPSEC_"):
+        corpo = corpo[len("MAPSEC_"):]
+    # As formas `ROUTE01` e `R_11`, sem sublinhado, eram a grafia dos MAPSEC de
+    # Galar e de Unova. Sairam em 07/09/2026 com as duas regioes: hoje o unico
+    # MAPSEC de rota que sobrou e `MAPSEC_ROUTE_<n>`, com o sufixo de metade em
+    # Sinnoh (`_NORTH`, `_SOUTH`).
     achou = re.match(r"^ROUTE_0*(\d+)(?:_(?:NORTH|SOUTH|EAST|WEST))?$", corpo)
     if achou:
         return "ROUTE %d" % int(achou.group(1))
@@ -203,8 +184,8 @@ def nome_do_apelido(mapsec, apelidos=None):
 # -------------------------------------------------- nome a partir da pasta ----
 
 # Radical de PASTA -> lugar. Vence o prefixo mais longo. So entra aqui radical
-# que a pasta resolve melhor que o apelido: em Johto e Unova o apelido ja e o
-# lugar, e o dicionario cobre so a excecao.
+# que a pasta resolve melhor que o apelido: em Johto o apelido ja e o lugar, e o
+# dicionario cobre so a excecao.
 RADICAIS_SINNOH = {
     "AcuityCavern": "ACUITY CAVERN",
     "AcuityLakefront": "ACUITY LAKEFRONT",
@@ -291,26 +272,9 @@ RADICAIS_JOHTO = {
     "BellchimeTrail": "BELLCHIME TRAIL",
 }
 
-RADICAIS_UNOVA = {}
-
-# Galar e regular: `Galar_<Lugar><NN>`. O radical sai do CamelCase e o
-# dicionario so corrige o que a quebra mecanica erraria.
-RADICAIS_GALAR = {
-    "CrownTundraIndoor": "CROWN TUNDRA",
-    "DynamaxAdventure": "MAX LAIR",
-    "GalarMine": "GALAR MINE",
-    "StowOnSide": "STOW-ON-SIDE",
-    "TurffieldIndoor": "TURFFIELD",
-    "WildAreaCave": "WILD AREA",
-    "WildAreaIndoor": "WILD AREA",
-    "WyndonIndoor": "WYNDON",
-}
-
 RADICAIS = {
     "Sinnoh": RADICAIS_SINNOH,
     "Johto": RADICAIS_JOHTO,
-    "Unova": RADICAIS_UNOVA,
-    "Galar": RADICAIS_GALAR,
 }
 
 # Pasta que nao resolve nem por radical nem por apelido, e que tambem nao tem
@@ -327,33 +291,20 @@ def quebra_camel(palavra):
 
 
 def nome_da_pasta(pasta, regiao):
-    """Aplica o dicionario de radicais e, em Galar, a quebra mecanica."""
+    """Aplica o dicionario de radicais ao nome da pasta."""
     if pasta in PASTA_SEM_LUGAR:
         return None
     nu = pasta
     if nu.startswith("Unused"):
         nu = nu[len("Unused"):]
-    for prefixo in ("Galar_", "Unova_"):
-        if nu.startswith(prefixo):
-            nu = nu[len(prefixo):]
     tabela = RADICAIS[regiao]
     for radical in sorted(tabela, key=len, reverse=True):
         if nu.startswith(radical):
             return tabela[radical]
-    if regiao == "Galar":
-        # Galar numera a pasta com quatro digitos: Route0803 e o terceiro mapa
-        # da rota 8, e nao a rota 803.
-        achou = re.match(r"^Route(\d\d)\d\d$", nu)
-        if achou:
-            return "ROUTE %d" % int(achou.group(1))
-    elif regiao == "Sinnoh":
+    if regiao == "Sinnoh":
         achou = re.match(r"^Route0*(\d+)", nu)
         if achou:
             return "ROUTE %d" % int(achou.group(1))
-    if regiao == "Galar":
-        raiz = re.sub(r"\d+$", "", nu)
-        if raiz:
-            return quebra_camel(raiz)
     return None
 
 
@@ -470,9 +421,9 @@ AVISO = """//
 // ou apenas `make`, que o passo de map_data_rules.mk regenera este arquivo a
 // partir do campo `map_name_popup` de cada data/maps/*/map.json.
 //
-// Existe porque MAPSEC e u8 e nao cabe uma secao por cidade: Johto, Sinnoh,
-// Unova e Galar tem um MAPSEC por GRUPO, e o letreiro de mapa dizia "SINNOH
-// WEST" no lugar do nome. Aqui o nome do letreiro fica desacoplado do MAPSEC.
+// Existe porque MAPSEC e u8 e nao cabe uma secao por cidade: Johto e Sinnoh
+// tem um MAPSEC por GRUPO, e o letreiro de mapa dizia "SINNOH WEST" no lugar
+// do nome. Aqui o nome do letreiro fica desacoplado do MAPSEC.
 //
 """
 
@@ -556,24 +507,23 @@ def gera_csv(revisao):
 
 def autoteste():
     falhas = []
+    casos = [0]
 
     def confere(o_que, deu, esperado):
+        casos[0] += 1
         if deu != esperado:
             falhas.append("%s: deu %r, esperava %r" % (o_que, deu, esperado))
 
-    confere("apelido de rota de Unova", nome_do_apelido("MAPSEC_UNOVA_R_11"), "ROUTE 11")
-    confere("apelido de rota de Galar", nome_do_apelido("MAPSEC_GALAR_ROUTE01"), "ROUTE 1")
+    confere("apelido de rota", nome_do_apelido("MAPSEC_ROUTE_29"), "ROUTE 29")
     confere("apelido de rota partida", nome_do_apelido("MAPSEC_ROUTE_205_NORTH"), "ROUTE 205")
-    confere("apelido de cidade", nome_do_apelido("MAPSEC_UNOVA_CASTELIA_CITY"), "CASTELIA CITY")
+    confere("apelido de cidade", nome_do_apelido("MAPSEC_AZALEA_TOWN"), "AZALEA TOWN")
     confere("apelido com ponto", nome_do_apelido("MAPSEC_MT_SILVER"), "MT. SILVER")
     confere("pasta de Sinnoh", nome_da_pasta("SunyshoreCityPokecenter1F", "Sinnoh"), "SUNYSHORE CITY")
     confere("pasta de rota de Sinnoh", nome_da_pasta("Route221House", "Sinnoh"), "ROUTE 221")
     confere("pasta de ruina", nome_da_pasta("SolaceonRuinsRoom3", "Sinnoh"), "SOLACEON RUINS")
     confere("pasta de monte", nome_da_pasta("MtCoronet4FRoom3", "Sinnoh"), "MT. CORONET")
     confere("pasta Unused", nome_da_pasta("UnusedJubilifeCityHouse1", "Sinnoh"), "JUBILIFE CITY")
-    confere("pasta de Galar", nome_da_pasta("Galar_TurffieldIndoor42", "Galar"), "TURFFIELD")
-    confere("pasta de Galar por camel", nome_da_pasta("Galar_SlumberingWeald03", "Galar"), "SLUMBERING WEALD")
-    confere("rota de Galar", nome_da_pasta("Galar_Route0803", "Galar"), "ROUTE 8")
+    confere("pasta de Johto", nome_da_pasta("BellchimeTrail", "Johto"), "BELLCHIME TRAIL")
     confere("pasta sem lugar", nome_da_pasta("Restaurant", "Sinnoh"), None)
     confere("sufixo de subsolo", sufixo_de_andar(-1), " B1F")
     confere("sufixo de andar", sufixo_de_andar(2), " 2F")
@@ -588,7 +538,8 @@ def autoteste():
     confere("Johto e apelido de grupo de Sinnoh",
             apelido.get("MAPSEC_AZALEA_TOWN"), "MAPSEC_SINNOH_WEST")
     confere("regiao do apelido de Johto", regiao_do_apelido.get("MAPSEC_AZALEA_TOWN"), "Johto")
-    confere("regiao do apelido de Galar", regiao_do_apelido.get("MAPSEC_GALAR_POSTWICK"), "Galar")
+    confere("apelido de Unova nao existe mais",
+            regiao_do_apelido.get("MAPSEC_UNOVA_POSTWICK"), None)
     confere("regiao do grupo cru de Sinnoh",
             regiao_do_mapsec("MAPSEC_SINNOH_NORTH", regiao_do_apelido), "Sinnoh")
     confere("Hoenn fica de fora", regiao_do_mapsec("MAPSEC_LITTLEROOT_TOWN", regiao_do_apelido), None)
@@ -597,7 +548,7 @@ def autoteste():
         for f in falhas:
             print("FALHOU:", f)
         return 1
-    print("autoteste de nomes_popup: %d casos, todos verdes" % 25)
+    print("autoteste de nomes_popup: %d casos, todos verdes" % (casos[0] + 1))
     return 0
 
 
@@ -652,7 +603,7 @@ def main():
         if mapa.regiao:
             chave = (mapa.regiao, bool(mapa.nome))
             por_regiao[chave] = por_regiao.get(chave, 0) + 1
-    for regiao in ("Johto", "Sinnoh", "Unova", "Galar"):
+    for regiao in ("Johto", "Sinnoh"):
         print("%-7s com nome: %4d   sem nome: %3d"
               % (regiao, por_regiao.get((regiao, True), 0), por_regiao.get((regiao, False), 0)))
     print("linhas no CSV de revisao: %d" % len(revisao))

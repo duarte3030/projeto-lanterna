@@ -197,41 +197,5 @@
       ],
       "andou": true
     }
-  },
-  {
-    "id": "T129.15",
-    "nome": "BRUTE_BONNET EXISTE EM MAP_UNOVA_VICTORY_ROAD_CAVE_2F (Unova) E A INTERACAO TRAVA O JOGADOR. Fumaca da onda B1 da dex: sao 106 estaticos novos e este e o de Unova MAIS LONGE do warp de chegada, que e o caso mais caro de andar. O tile (5, 38) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: RIGHT(zera) DOWN*2 LEFT*4 DOWN*2 LEFT*4 UP*6 LEFT*11 DOWN*8, a partir do warp 10 (24,33), pousando em (24, 34). A ultima perna satura CONTRA o Pokemon e para em (5, 37). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T129.16.",
-    "flags": [
-      "FLAG_SEM_ENCONTRO_SELVAGEM"
-    ],
-    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
-    "warp_id": 10,
-    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*6,40:NADA,17:UP*7,40:NADA,17:LEFT*12,40:NADA,17:DOWN*10,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
-    "prova": {
-      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
-      "pos": [
-        5,
-        37
-      ]
-    }
-  },
-  {
-    "id": "T129.16",
-    "nome": "PAR NEGATIVO DO T129.15: com FLAG_HIDE_DEX_BRUTE_BONNET ACESA o tile (5, 38) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (5, 40) em vez de parar em (5, 37). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
-    "flags": [
-      "FLAG_SEM_ENCONTRO_SELVAGEM",
-      "FLAG_HIDE_DEX_BRUTE_BONNET"
-    ],
-    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
-    "warp_id": 10,
-    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*6,40:NADA,17:UP*7,40:NADA,17:LEFT*12,40:NADA,17:DOWN*10,90:NADA",
-    "prova": {
-      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
-      "pos": [
-        5,
-        40
-      ],
-      "andou": true
-    }
   }
 ]

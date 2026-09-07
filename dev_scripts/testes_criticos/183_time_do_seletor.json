@@ -1,126 +1,52 @@
 [
- {
-  "id": "T183.1",
-  "nome": "O SELETOR DE CAPÍTULO ENTREGA UM TIME DE CINCO, E CADA UM CARREGA UMA MECÂNICA. Pedido do Gui em 07/09/2026: no lugar do Pikachu nível 20 solitário, um time nível 50 com Mega, Gigantamax, Z-move e Terastal para o playtest exercitar as quatro de uma vez. A prova NÃO é 'o time tem cinco': cinco Pokémon quaisquer passariam nisso. O que se cobra é a IDENTIDADE de cada slot lida de gParties do JOGADOR (`time_jogador`, que troca a fatia decifrada do adversário pela do jogador), e junto com ela o ITEM segurado, que é metade da mecânica: sem a Raichunite Y na mão do Raichu não há Mega, sem a Mewnium Z na do Mew não há Genesis Supernova, sem a Lucarionite Z na do Lucario não há Mega Z. `tera3` é o tipo tera GRAVADO do Incineroar, e ele entra porque MON_DATA_TERA_TYPE não gravado sairia da PERSONALITY do bicho (src/pokemon.c:2445), ou seja daria um tipo qualquer sem ninguém notar: 18 é TYPE_DARK. `nivelinimigo` com `time_jogador` é o nível do slot 0, e cobra o 50 que substituiu o 20 (nível 20 não sobrevive a chefe de capítulo tardio, que é onde o seletor mais serve). O Charizard aparece sem item de propósito: o fator Gigantamax dele não é item, é campo do mon, e quem prova esse é o T183.4. ROTA do menu, a mesma já medida do T166.1: SINNOH / 'Before CANDICE'.",
-  "abertura": "seletor",
-  "roteiro": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,240:NADA",
-  "time_jogador": true,
-  "prova": {
-   "mapa": "MAP_SNOWPOINT_CITY_POKECENTER_1F",
-   "time": 5,
-   "flags_acesas": [
-    "FLAG_SYS_POKEMON_GET"
-   ],
-   "campos": {
-    "especie0": 26,
-    "item0": 859,
-    "especie1": 6,
-    "item1": 0,
-    "especie2": 151,
-    "item2": 378,
-    "especie3": 727,
-    "item3": 0,
-    "tera3": 18,
-    "especie4": 448,
-    "item4": 864,
-    "especie5": 0,
-    "nivelinimigo": 50,
-    "nivelinimigo4": 50,
-    "nivelinimigo5": 0
-   }
+  {
+    "id": "T183.1",
+    "nome": "O SELETOR DE CAPÍTULO ENTREGA UM TIME DE CINCO, E CADA UM CARREGA UMA MECÂNICA. Pedido do Gui em 07/09/2026: no lugar do Pikachu nível 20 solitário, um time nível 50 com Mega, Gigantamax, Z-move e Terastal para o playtest exercitar as quatro de uma vez. A prova NÃO é 'o time tem cinco': cinco Pokémon quaisquer passariam nisso. O que se cobra é a IDENTIDADE de cada slot lida de gParties do JOGADOR (`time_jogador`, que troca a fatia decifrada do adversário pela do jogador), e junto com ela o ITEM segurado, que é metade da mecânica: sem a Raichunite Y na mão do Raichu não há Mega, sem a Mewnium Z na do Mew não há Genesis Supernova, sem a Lucarionite Z na do Lucario não há Mega Z. `tera3` é o tipo tera GRAVADO do Incineroar, e ele entra porque MON_DATA_TERA_TYPE não gravado sairia da PERSONALITY do bicho (src/pokemon.c:2445), ou seja daria um tipo qualquer sem ninguém notar: 18 é TYPE_DARK. `nivelinimigo` com `time_jogador` é o nível do slot 0, e cobra o 50 que substituiu o 20 (nível 20 não sobrevive a chefe de capítulo tardio, que é onde o seletor mais serve). O Charizard aparece sem item de propósito: o fator Gigantamax dele não é item, é campo do mon, e quem prova esse é o T183.4. ROTA do menu, a mesma já medida do T166.1: SINNOH / 'Before CANDICE'.",
+    "abertura": "seletor",
+    "roteiro": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,240:NADA",
+    "time_jogador": true,
+    "prova": {
+      "mapa": "MAP_SNOWPOINT_CITY_POKECENTER_1F",
+      "time": 5,
+      "flags_acesas": [
+        "FLAG_SYS_POKEMON_GET"
+      ],
+      "campos": {
+        "especie0": 26,
+        "item0": 859,
+        "especie1": 6,
+        "item1": 0,
+        "especie2": 151,
+        "item2": 378,
+        "especie3": 727,
+        "item3": 0,
+        "tera3": 18,
+        "especie4": 448,
+        "item4": 864,
+        "especie5": 0,
+        "nivelinimigo": 50,
+        "nivelinimigo4": 50,
+        "nivelinimigo5": 0
+      }
+    }
+  },
+  {
+    "id": "T183.2",
+    "nome": "OS QUATRO APARELHOS ENTRAM NA MOCHILA NO SALTO, E DOIS DELES NUNCA TINHAM ENTRADO EM LUGAR NENHUM. MEDIDO em 07/09/2026 lendo src/new_game.c: o jogo novo dava ITEM_DYNAMAX_BAND e ITEM_MEGA_RING e mais nada, então ITEM_Z_POWER_RING e ITEM_TERA_ORB não existiam em save nenhuma desta ROM, e com isso `CanUseZMove` (src/battle_z_move.c:121) e `CanTerastallize` (src/battle_terastal.c:77) recusavam SEMPRE, em qualquer batalha, para qualquer jogador. Duas mecânicas inteiras estavam mortas e nenhum teste pegava, porque nenhum teste abria o menu de golpes. O conserto é o salto pôr os quatro na mochila, e esta é a prova por quantidade decifrada: 0x2BF é o Mega Ring, 0x2C0 o Z-Power Ring, 0x2C1 a Dynamax Band e 0x304 a Tera Orb, um de cada. As duas flags do motor entram junto porque item sem flag não basta: `CanDynamax` exige B_FLAG_DYNAMAX_BATTLE além da pulseira (src/battle_dynamax.c:88) e `CanTerastallize` exige B_FLAG_TERA_ORB_CHARGED além da orbe (:86). Custo de save ZERO nos dois casos: item na mochila que já existe e flag que já existe.",
+    "abertura": "seletor",
+    "roteiro": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,240:NADA",
+    "prova": {
+      "mapa": "MAP_SNOWPOINT_CITY_POKECENTER_1F",
+      "flags_acesas": [
+        "FLAG_B8_DYNAMAX_LIBERADO",
+        "FLAG_B8_TERA_ORB_CARREGADO"
+      ],
+      "campos": {
+        "item_0x2BF": 1,
+        "item_0x2C0": 1,
+        "item_0x2C1": 1,
+        "item_0x304": 1
+      }
+    }
   }
- },
- {
-  "id": "T183.2",
-  "nome": "OS QUATRO APARELHOS ENTRAM NA MOCHILA NO SALTO, E DOIS DELES NUNCA TINHAM ENTRADO EM LUGAR NENHUM. MEDIDO em 07/09/2026 lendo src/new_game.c: o jogo novo dava ITEM_DYNAMAX_BAND e ITEM_MEGA_RING e mais nada, então ITEM_Z_POWER_RING e ITEM_TERA_ORB não existiam em save nenhuma desta ROM, e com isso `CanUseZMove` (src/battle_z_move.c:121) e `CanTerastallize` (src/battle_terastal.c:77) recusavam SEMPRE, em qualquer batalha, para qualquer jogador. Duas mecânicas inteiras estavam mortas e nenhum teste pegava, porque nenhum teste abria o menu de golpes. O conserto é o salto pôr os quatro na mochila, e esta é a prova por quantidade decifrada: 0x2BF é o Mega Ring, 0x2C0 o Z-Power Ring, 0x2C1 a Dynamax Band e 0x304 a Tera Orb, um de cada. As duas flags do motor entram junto porque item sem flag não basta: `CanDynamax` exige B_FLAG_DYNAMAX_BATTLE além da pulseira (src/battle_dynamax.c:88) e `CanTerastallize` exige B_FLAG_TERA_ORB_CHARGED além da orbe (:86). Custo de save ZERO nos dois casos: item na mochila que já existe e flag que já existe.",
-  "abertura": "seletor",
-  "roteiro": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,240:NADA",
-  "prova": {
-   "mapa": "MAP_SNOWPOINT_CITY_POKECENTER_1F",
-   "flags_acesas": [
-    "FLAG_B8_DYNAMAX_LIBERADO",
-    "FLAG_B8_TERA_ORB_CARREGADO"
-   ],
-   "campos": {
-    "item_0x2BF": 1,
-    "item_0x2C0": 1,
-    "item_0x2C1": 1,
-    "item_0x304": 1
-   }
-  }
- },
- {
-  "id": "T183.3",
-  "nome": "MEGA RAICHU Y DE VERDADE, DENTRO DE UMA BATALHA. Item na mochila é afirmação de inventário; isto é a afirmação na camada do motor. O que se lê é `especie0`, ou seja gParties[JOGADOR][0], e ele vira 1554 porque `TryBattleFormChange` grava a forma NO MON do time e não só em gBattleMons (src/battle_util.c:8662): a leitura seria impossível se a Mega fosse só cosmética de batalha. 1554 é SPECIES_RAICHU_MEGA_Y, a entrada do Raichunite Y na tabela de formas (src/data/pokemon/form_change_tables.h:97). ROTA, medida em PNG passo a passo: o capítulo entrega o time, o warp cai no Galar_WyndonIndoor21 (mesma sala do T153), dez UP saturantes param em (6,6) diante do treinador, dois A abrem a batalha, e a INTRODUÇÃO DA BATALHA PEDE DOIS A (a caixa 'You are challenged by' e a 'Go! Raichu!' esperam botão, e foi tropeçando nisso que a primeira versão desta prova gastou os apertos do menu na introdução). No menu de golpes, START é quem arma a mecânica (src/battle_controller_player.c:926, `JOY_NEW(START_BUTTON)`), e o A seguinte escolhe o Thunderbolt. `opcoes` fica no repouso 36, ou seja o adversário de Galar cai para o nível 5 e a batalha não vira sorteio.",
-  "abertura": "seletor",
-  "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,240:NADA",
-  "warp": "MAP_GALAR_WYNDON_INDOOR_21",
-  "warp_id": 0,
-  "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,240:NADA,20:A,600:NADA,600:NADA,20:A,300:NADA,20:A,300:NADA,20:A,300:NADA,20:START,300:NADA,20:A,600:NADA,600:NADA,600:NADA,600:NADA",
-  "time_jogador": true,
-  "prova": {
-   "mapa": "MAP_GALAR_WYNDON_INDOOR_21",
-   "campos": {
-    "especie0": 1554,
-    "bespecie": 815
-   }
-  }
- },
- {
-  "id": "T183.4",
-  "nome": "GIGANTAMAX CHARIZARD, E O QUE SE PROVA É O FATOR, NÃO A PULSEIRA. `FORM_CHANGE_BATTLE_GIGANTAMAX` só dispara quando o mon tem o fator gravado (src/pokemon.c:6277, `if (ctx.gmaxFactor)`), e o fator é MON_DATA_GIGANTAMAX_FACTOR, campo do mon que o salto grava com SetMonData. Sem ele o Charizard Dynamaxaria normal e `especie1` continuaria 6; com ele vira 1491, SPECIES_CHARIZARD_GMAX. A rota é a do T183.3 com uma troca no meio: do menu de ação, DOWN cai em POKéMON, A abre a lista, um DOWN desce para o Charizard e dois A o mandam para o campo (SHIFT). O `bespecie` 815 no fim é o controle de que a batalha continua de pé contra o MESMO adversário, e não que o roteiro caiu fora dela.",
-  "abertura": "seletor",
-  "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,240:NADA",
-  "warp": "MAP_GALAR_WYNDON_INDOOR_21",
-  "warp_id": 0,
-  "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,240:NADA,20:A,600:NADA,600:NADA,20:A,300:NADA,20:A,300:NADA,20:DOWN,90:NADA,20:A,300:NADA,20:DOWN*1,90:NADA,20:A,180:NADA,20:A,600:NADA,600:NADA,600:NADA,600:NADA,20:A,300:NADA,20:START,300:NADA,20:A,600:NADA,600:NADA,600:NADA,600:NADA",
-  "time_jogador": true,
-  "prova": {
-   "mapa": "MAP_GALAR_WYNDON_INDOOR_21",
-   "campos": {
-    "especie1": 1491,
-    "bespecie": 815
-   }
-  }
- },
- {
-  "id": "T183.5",
-  "nome": "MEGA LUCARIO Z, E ELE É O PAR QUE PROVA QUE A MEGA NÃO É DO RAICHU. Mesmo mapa, mesmo treinador, mesma introdução, mesma tecla START: muda só quem está no campo. `especie4` vira 1559, SPECIES_LUCARIO_MEGA_Z, a entrada da Lucarionite Z (form_change_tables.h:880). Sem este caso o T183.3 passaria também num mundo em que o START mandasse qualquer Pokémon para uma forma qualquer. ATENÇÃO, e isto é do MOTOR e não deste time: Mega é UMA VEZ POR BATALHA por treinador (`HasTrainerUsedGimmick`, src/battle_gimmick.c:88), então o Mega Raichu Y e o Mega Lucario Z NÃO cabem na mesma luta, e é por isso que são dois casos e não um.",
-  "abertura": "seletor",
-  "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,240:NADA",
-  "warp": "MAP_GALAR_WYNDON_INDOOR_21",
-  "warp_id": 0,
-  "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,240:NADA,20:A,600:NADA,600:NADA,20:A,300:NADA,20:A,300:NADA,20:DOWN,90:NADA,20:A,300:NADA,20:DOWN*4,90:NADA,20:A,180:NADA,20:A,600:NADA,600:NADA,600:NADA,600:NADA,20:A,300:NADA,20:START,300:NADA,20:A,600:NADA,600:NADA,600:NADA,600:NADA",
-  "time_jogador": true,
-  "prova": {
-   "mapa": "MAP_GALAR_WYNDON_INDOOR_21",
-   "campos": {
-    "especie4": 1559,
-    "bespecie": 815
-   }
-  }
- },
- {
-  "id": "T183.6",
-  "nome": "TERASTAL DARK NO INCINEROAR, PROVADO PELA CARGA DA ORBE QUE SOME. Terastalizar CONSOME B_FLAG_TERA_ORB_CHARGED (B_FLAG_TERA_ORB_NO_COST é 0 nesta ROM, include/config/battle.h:265), então a flag sair APAGADA no fim da luta é fato de EWRAM que só acontece se a mecânica disparou de verdade. Ela entra ACESA no salto (T183.2) e sai apagada aqui: é a mesma flag medida duas vezes, em dois estados. A ROTA É LONGA POR UM MOTIVO MEDIDO, e ele é o achado desta rodada: `AssignUsableGimmicks` (src/battle_gimmick.c:20) dá a cada lutador UMA mecânica só, a primeira da fila MEGA, ULTRA BURST, Z-MOVE, DYNAMAX, TERA, e Pokémon do jogador de mãos vazias SEMPRE cai no DYNAMAX, que vem antes do TERA. Segurar Mega Stone ou Z-Crystal derruba o Dynamax mas derruba o Terastal junto, pela mesma linha (src/battle_terastal.c:102), então não há item que resolva. O Terastal do jogador só fica alcançável DEPOIS de o Dynamax ter sido gasto na mesma batalha. Daí a rota: o Charizard entra, Dynamaxa e escolhe o Sunny Day, que sob Dynamax vira MAX GUARD e não machuca ninguém (sem isso o adversário morre e a batalha acaba antes da prova); o jogador troca para o Incineroar, e aí sim o gatilho oferecido é o Tera. Os três DOWN separados da segunda troca não são enfeite: `20:DOWN*3` num passo só NÃO move o cursor da lista do time depois do Dynamax, e foi medido em PNG.",
-  "abertura": "seletor",
-  "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,240:NADA",
-  "warp": "MAP_GALAR_WYNDON_INDOOR_21",
-  "warp_id": 0,
-  "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,240:NADA,20:A,600:NADA,600:NADA,20:A,300:NADA,20:A,300:NADA,20:DOWN,90:NADA,20:A,300:NADA,20:DOWN*1,90:NADA,20:A,180:NADA,20:A,600:NADA,600:NADA,600:NADA,600:NADA,20:UP,90:NADA,20:A,300:NADA,20:DOWN,180:NADA,20:START,300:NADA,20:A,600:NADA,600:NADA,600:NADA,600:NADA,600:NADA,600:NADA,20:DOWN,90:NADA,20:A,300:NADA,300:NADA,16:DOWN,60:NADA,16:DOWN,60:NADA,16:DOWN,120:NADA,20:A,180:NADA,20:A,600:NADA,600:NADA,600:NADA,600:NADA,20:UP,90:NADA,20:A,300:NADA,20:START,300:NADA,20:A,600:NADA,600:NADA,600:NADA,600:NADA",
-  "time_jogador": true,
-  "prova": {
-   "mapa": "MAP_GALAR_WYNDON_INDOOR_21",
-   "flags_acesas": [
-    "FLAG_B8_DYNAMAX_LIBERADO"
-   ],
-   "flags_apagadas": [
-    "FLAG_B8_TERA_ORB_CARREGADO"
-   ],
-   "campos": {
-    "especie3": 727,
-    "bespecie": 815
-   }
-  }
- }
 ]

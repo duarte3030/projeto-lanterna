@@ -563,9 +563,9 @@ static bool32 IsCeladonDeptStore(const struct MapHeader *mapHeader)
 
 // O nome do letreiro de (grupo, mapa), ou NULL quando o mapa nao tem um proprio.
 //
-// MAPSEC e u8 e nao cabe uma secao por cidade, entao Johto, Sinnoh, Unova e
-// Galar tem UM MAPSEC por grupo de regiao e o nome dele e "SINNOH WEST",
-// "UNOVA EAST", "GALAR SOUTH". Esta tabela desacopla o nome do letreiro do
+// MAPSEC e u8 e nao cabe uma secao por cidade, entao Johto e Sinnoh tem UM
+// MAPSEC por grupo de regiao e o nome dele e "SINNOH WEST". Esta tabela
+// desacopla o nome do letreiro do
 // MAPSEC; o "met location" do sumario do Pokemon segue por grupo, de proposito.
 // Ela e gerada de data/maps/*/map.json por dev_scripts/nomes_popup.py.
 static const u8 *GetPopUpMapNameOverride(s32 mapGroup, s32 mapNum)

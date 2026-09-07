@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Confere que os cinco portos e a lista unica de destinos continuam batendo.
+"""Confere que os quatro portos e a lista unica de destinos continuam batendo.
 
 Roda sem ROM e sem emulador: e fato de compilacao, lido da fonte.
 
 Por que existe
 --------------
-O barco que liga as cinco regioes usa UMA lista de destinos,
+O barco que liga as regioes usa UMA lista de destinos,
 `MULTI_CINCO_REGIOES_BARCO` (apelidada `MULTI_BOAT_DESTINATIONS`), e cada porto
 faz `switch VAR_RESULT` com os `case` da lista, pulando o proprio indice. Nada
 no compilador liga uma coisa a outra: se alguem acrescentar um destino no meio
-da lista, os cinco `switch` passam a mandar o jogador para o lugar errado, em
+da lista, os `switch` passam a mandar o jogador para o lugar errado, em
 silencio, e so um teste de emulador por travessia pegaria.
 
 Foi assim que o bug original nasceu: o menu apontava para
@@ -20,13 +20,20 @@ destino errado.
 Desde 11/08/2026 a lista deixou de ser estatica: o menu e montado em
 `data/scripts/travessia_regioes.inc` com `dynmultipush NOME, ID`, e o ID
 empilhado e o que cai em VAR_RESULT, nao a linha escolhida. Por isso os `case`
-dos cinco portos continuam sendo os indices antigos mesmo com o menu encolhendo,
+dos portos continuam sendo os indices antigos mesmo com o menu encolhendo,
 e e exatamente esse par (ID empilhado x case) que este validador guarda.
 
+CARTUCHO 1, 07/09/2026 (PRD-CARTUCHO-1.md): Unova e Galar sairam do escopo e com
+elas os destinos 3 (VIRBANK) e 6 (WEDGEHURST). Os ids 3 e 6 ficam VAGOS de
+proposito e NADA foi renumerado, porque o id e o que o `dynmultipush` empilha e
+nao a posicao na lista. Por isso `DESTINOS` aqui e um dicionario indexado pelo
+id, e nao uma lista: trocar por lista voltaria a amarrar id a posicao, que e
+exatamente o bug que este validador guarda.
+
 Este validador afirma, item a item:
-  1. o menu empilha os cinco destinos com os IDs certos, Kanto sem porteiro e
-     cada um dos outros quatro atras da flag de regiao que o libera;
-  2. cada porto tem exatamente os `case` dos OUTROS quatro destinos, e nenhum
+  1. o menu empilha os quatro destinos com os IDs certos, Kanto sem porteiro e
+     cada um dos outros tres atras da flag de regiao que o libera;
+  2. cada porto tem exatamente os `case` dos OUTROS tres destinos, e nenhum
      `case` para si mesmo;
   3. o script de cada `case` desembarca no mapa que o nome do item promete;
   4. todo `warpsilent` tem `waitstate` logo depois (sem ele o script termina
@@ -38,14 +45,16 @@ import sys
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# indice -> (nome no menu, mapa de desembarque)
-DESTINOS = [
-    ("OLIVINE",   "MAP_OLIVINE_CITY_PORT_INSIDE"),
-    ("SLATEPORT", "MAP_SLATEPORT_CITY_HARBOR"),
-    ("VERMILION", "MAP_VERMILION_CITY"),
-    ("VIRBANK",   "MAP_UNOVA_VIRBANK_PORT"),
-    ("CANALAVE",  "MAP_CANALAVE_CITY"),
-]
+# id empilhado pelo `dynmultipush` -> (nome no menu, mapa de desembarque).
+# O id 3 (VIRBANK, Unova) e o 6 (WEDGEHURST, Galar) sairam em 07/09/2026 e ficam
+# vagos: os `case` dos portos NAO mudaram um caractere.
+DESTINOS = {
+    0: ("OLIVINE",   "MAP_OLIVINE_CITY_PORT_INSIDE"),
+    1: ("SLATEPORT", "MAP_SLATEPORT_CITY_HARBOR"),
+    2: ("VERMILION", "MAP_VERMILION_CITY"),
+    4: ("CANALAVE",  "MAP_CANALAVE_CITY"),
+}
+ID_SAIR = 5
 
 # Quem libera cada porto no menu. Kanto e a regiao onde o jogo comeca, entao o
 # porto dela nunca fica escondido: e por isso que o valor dele e None.
@@ -53,14 +62,15 @@ PORTEIROS = {
     "Olivine":   "FLAG_REGIAO_JOHTO_LIBERADA",
     "Slateport": "FLAG_REGIAO_HOENN_LIBERADA",
     "Vermilion": None,
-    "Virbank":   "FLAG_ELITE_SINNOH_VENCIDA",
     "Canalave":  "FLAG_REGIAO_SINNOH_LIBERADA",
 }
 
-# Onde cada flag e acesa. FLAG_ELITE_SINNOH_VENCIDA ja era acesa pela Cynthia
-# antes desta mudanca. Johto nao tem Elite dos Quatro nesta ROM (a Liga de gen 2
-# e o mesmo Planalto Indigo de Kanto), entao quem fecha Johto e a oitava
-# insignia, na Clair.
+# Onde cada flag e acesa. Johto nao tem Elite dos Quatro nesta ROM (a Liga de
+# gen 2 e o mesmo Planalto Indigo de Kanto), entao quem fecha Johto e a oitava
+# insignia, na Clair. FLAG_ELITE_SINNOH_VENCIDA saiu desta tabela em 07/09/2026:
+# ela era o porteiro do destino VIRBANK, que foi cortado com Unova. A Cynthia
+# continua acendendo a flag, que ainda marca o fim de Sinnoh, mas nenhum porto
+# do barco depende dela, e conferi-la aqui seria conferir portao que nao existe.
 #
 # O terceiro valor e a ANCORA: a batalha que tem que vir ANTES do setflag no
 # arquivo. Existe porque esta e a unica parte do portao que o emulador nao
@@ -80,8 +90,6 @@ ACENDEM = {
                                     "TRAINER_JOHTO_LEADER_CLAIR"),
     "FLAG_REGIAO_SINNOH_LIBERADA": ("EverGrandeCity_ChampionsRoom",
                                     "TRAINER_WALLACE"),
-    "FLAG_ELITE_SINNOH_VENCIDA":   ("SinnohLeague_ChampionsRoom",
-                                    "TRAINER_SINNOH_CHAMPION_CYNTHIA"),
 }
 
 # A travessia Olivine <-> Vermilion passa POR DENTRO do S.S. Aqua desde
@@ -104,7 +112,6 @@ PORTOS = {
     "OlivineCity_PortInside": 0,
     "SlateportCity_Harbor": 1,
     "VermilionCity_Frlg": 2,
-    "Unova_VirbankPort": 3,
     "CanalaveCity": 4,
 }
 
@@ -122,13 +129,13 @@ def main():
                 encoding="utf-8").read()
     empilhados = {int(i): n for n, i in
                   re.findall(r"dynmultipush Travessia_Text_(\w+), (\d+)", menu)}
-    esperado = {i: n.capitalize() for i, (n, _) in enumerate(DESTINOS)}
-    esperado[len(DESTINOS)] = "Sair"
+    esperado = {i: n.capitalize() for i, (n, _) in DESTINOS.items()}
+    esperado[ID_SAIR] = "Sair"
     if empilhados != esperado:
         falha(erros, f"o menu empilha {empilhados}, esperado {esperado}")
     if not re.search(r"dynmultistack\b", menu):
         falha(erros, "o menu nao termina em dynmultistack: nada abriria")
-    # cada destino atras da flag certa; Kanto (indice 2) nunca tem porteiro
+    # cada destino atras da flag certa; Kanto (id 2) nunca tem porteiro
     for nome, flag in PORTEIROS.items():
         alvo = f"Travessia_EventScript_Empilha{nome}"
         if flag is None:
@@ -165,13 +172,13 @@ def main():
             continue
         casos = {int(n): r for n, r in re.findall(r"\tcase (\d+), (\w+)", bloco.group(1))}
 
-        esperados = {i for i in range(len(DESTINOS))} - {proprio}
+        esperados = set(DESTINOS) - {proprio}
         if set(casos) != esperados:
             falha(erros, f"{pasta}: os case sao {sorted(casos)}, esperado {sorted(esperados)} "
                          f"(todos os destinos menos o indice {proprio}, que e ele mesmo)")
 
         for idx, rotulo in casos.items():
-            if idx >= len(DESTINOS):
+            if idx not in DESTINOS:
                 continue
             nome, mapa = DESTINOS[idx]
             corpo = re.search(rf"^{rotulo}::\n(.*?)\n\tend\n", texto, re.S | re.M)

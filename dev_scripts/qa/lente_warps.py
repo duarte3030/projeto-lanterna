@@ -108,8 +108,8 @@ NOMES_MAO_DUPLA = (
 )
 MAO_DUPLA = {vwt._MB[n] for n in NOMES_MAO_DUPLA if n in vwt._MB}
 
-GRUPO_DE_REGIAO = (("Frlg", "Kanto"), ("Johto", "Johto"), ("Unova", "Unova"),
-                   ("Galar", "Galar"), ("Sinnoh", "Sinnoh"), ("Galactic", "Sinnoh"))
+GRUPO_DE_REGIAO = (("Frlg", "Kanto"), ("Johto", "Johto"),
+                   ("Sinnoh", "Sinnoh"), ("Galactic", "Sinnoh"))
 
 # ---------------------------------------------------------------------------
 # LISTA BRANCA: mao unica DE PROPOSITO, uma linha por caso, com o porque.
@@ -226,9 +226,7 @@ def carrega(raiz=None):
 
 
 def regiao(mapas, m):
-    nome, grupo = mapas[m]["dir"], mapas[m]["grupo"]
-    if nome.startswith("Galar_"):
-        return "Galar"
+    grupo = mapas[m]["grupo"]
     for chave, r in GRUPO_DE_REGIAO:
         if chave in grupo:
             return r
@@ -311,11 +309,15 @@ def varre(raiz=None):
         return mapas[m]["dados"].get("map_type") in AO_AR_LIVRE
 
     # TUMULO: mapa cortado que ficou na tabela so para nao deslocar indice de
-    # save. Sem warp, sem conexao e MAPSEC_NONE, os tres juntos.
+    # save. Sem warp, sem conexao e MAPSEC_NONE, os tres juntos, ou com o
+    # carimbo `cortado_por` que a onda do cartucho 1 (07/09/2026) deixou nos 729
+    # mapas de Unova e Galar. Tumulo sai da conta ANTES de a regiao ser
+    # decidida: contar tumulo no balde padrao de Hoenn seria pior que nao medir.
     tumulos = {m for m, i in mapas.items()
-               if str(i["dados"].get("region_map_section")) == "MAPSEC_NONE"
-               and not i["dados"].get("warp_events")
-               and not i["dados"].get("connections")}
+               if i["dados"].get("cortado_por")
+               or (str(i["dados"].get("region_map_section")) == "MAPSEC_NONE"
+                   and not i["dados"].get("warp_events")
+                   and not i["dados"].get("connections"))}
 
     # Quem entra em cada mapa fechado, vindo de fora. So mapa AO AR LIVRE conta
     # como origem: contar porta interna aqui fazia todo predio de dois andares
@@ -449,8 +451,10 @@ def varre(raiz=None):
     return achados, censo
 
 
-REGIOES = ("Kanto", "Johto", "Hoenn", "Sinnoh", "Unova", "Galar")
-DO_CARTUCHO_1 = ("Kanto", "Johto", "Hoenn", "Sinnoh")
+# Unova e Galar sairam do escopo em 07/09/2026 (PRD-CARTUCHO-1.md): sobraram as
+# quatro do cartucho 1, e as duas listas passaram a ser a mesma.
+REGIOES = ("Kanto", "Johto", "Hoenn", "Sinnoh")
+DO_CARTUCHO_1 = REGIOES
 
 
 def demo():
@@ -467,8 +471,11 @@ def demo():
         print(f"  lente_warps DEMO: {msg}")
 
     achados, censo = varre()
-    if censo["warps"] < 6000:
-        falso(f"so {censo['warps']} warps lidos, a arvore tem mais de 6.000")
+    # Piso de cegueira. Medido em 07/09/2026, ja sem Unova e Galar: 4.377 warps
+    # em mapa vivo. O numero antigo era 6.000, de quando as seis regioes
+    # existiam.
+    if censo["warps"] < 4000:
+        falso(f"so {censo['warps']} warps lidos, a arvore tem mais de 4.000")
     if censo["com_porta"] < 1000:
         falso(f"so {censo['com_porta']} warps de porta, esperava mais de 1.000")
 
