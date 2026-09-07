@@ -1,0 +1,165 @@
+[
+ {
+  "id": "T187.1",
+  "nome": "SELVAGEM EM JOHTO TOCA HGSS. O GYARADOS VERMELHO do Lago da Furia abre batalha SELVAGEM de verdade (dowildbattle, data/maps/LakeOfRage/scripts.inc:158), e a prova nao e o header do mapa: musica de batalha nunca chega a gMapHeader.music, ela e escolhida em C por GetBattleBGM e entregue direto ao driver. O que se le e gMPlayInfo_BGM.songHeader, o ponteiro que o driver de som esta tocando no ultimo quadro, traduzido de volta pela gSongTable da ROM. Antes desta rodada a resposta aqui era MUS_VS_WILD, a faixa de Hoenn, porque GetBattleBGM so distinguia Kanto do resto. Rota herdada do T107.4.",
+  "opcoes": 32,
+  "abertura": "seletor",
+  "antes_do_warp": "20:DOWN,60:NADA,20:A,120:NADA,20:DOWN*12,60:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_LAKE_OF_RAGE",
+  "warp_id": 0,
+  "roteiro": "16:LEFT*20,60:NADA,16:UP*20,60:NADA,16:RIGHT*4,60:NADA,16:UP*20,60:NADA,20:A,150:NADA,20:A,150:NADA,20:A,200:NADA,20:A,300:NADA,300:NADA,16:UP*8,90:NADA,16:RIGHT*5,90:NADA,16:UP,60:NADA,20:A,200:NADA,20:A,900:NADA",
+  "prova": {
+   "mapa": "MAP_LAKE_OF_RAGE",
+   "musica": "MUS_HG_VS_WILD"
+  }
+ },
+ {
+  "id": "T187.2",
+  "nome": "SELVAGEM EM SINNOH TOCA DPPt. A grama da ETERNA FOREST cospe um encontro comum, e nenhum A e apertado depois que ele comeca: os LEFT/RIGHT que sobram do vaivem sao inertes dentro da batalha, entao o ultimo quadro cai com a batalha ainda de pe. Rota herdada do T95.2, que ja media a curva de nivel neste mesmo mato.",
+  "opcoes": 32,
+  "warp": "MAP_ETERNA_FOREST",
+  "warp_id": 4,
+  "roteiro": "40:R+START!,60:NADA,20:A,40:NADA,20:DOWN*6,20:A,240:NADA,20:B,90:NADA,16:DOWN,16:DOWN,16:DOWN,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,600:NADA",
+  "prova": {
+   "mapa": "MAP_ETERNA_FOREST",
+   "musica": "MUS_DP_VS_WILD"
+  }
+ },
+ {
+  "id": "T187.3",
+  "nome": "TREINADOR COMUM EM SINNOH TOCA DPPt. O Youngster Darius do ginasio de OREBURGH e treinador de classe comum (nem lider, nem Elite, nem equipe), entao ele cai na coluna BATTLE_MUSIC_TRAINER da linha de Sinnoh. E o caso que separa 'a regiao mudou a faixa' de 'a classe do treinador mudou a faixa': o Darius nao tem classe especial nenhuma. Rota herdada do T115.6. APERTOS: o que avanca a fala e B, nao A. B fecha caixa de texto igual a A, e o que sobra depois que a batalha comeca e INERTE no menu de acao da batalha, enquanto A sobrando viraria turno e turno demais viraria vitoria, que e outra faixa. Medido em 07/09/2026: com A sobrando o driver aparecia tocando MUS_ENCOUNTER_* ou faixa de mapa.",
+  "warp": "MAP_OREBURGH_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "150:NADA,24:UP*3,60:NADA,24:LEFT*4,60:NADA,24:UP*7,60:NADA,24:RIGHT*4,60:NADA,24:UP*5,60:NADA,24:RIGHT*2,240:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,900:NADA",
+  "prova": {
+   "mapa": "MAP_OREBURGH_CITY_GYM",
+   "oponente": "TRAINER_SINNOH_YOUNGSTER_DARIUS",
+   "musica": "MUS_DP_VS_TRAINER"
+  }
+ },
+ {
+  "id": "T187.4",
+  "nome": "LIDER DE GINASIO EM JOHTO TOCA HGSS. O Falkner do ginasio de VIOLET CITY usa TRAINER_CLASS_LEADER, a MESMA classe dos lideres de Hoenn e de Sinnoh: e por isso que so a regiao pode separar as tres faixas, e e isso que a tabela faz. As duas flags de treinador (0x9FB e 0x9FC, TRAINER_FLAGS_START 0x500 mais os ids 1275 e 1276) entram ACESAS de proposito: o Rod ve os tiles (7..10, 13) e o Abe ve os (8..11, 9), e a unica rota ate o Falkner passa pelos dois (busca em largura sobre data/layouts/VioletCity_Gym/map.bin). Com as flags acesas os dois viram NPC de fala e a rota chega inteira. Caminho: (9,19) ate (9,5), 22 passos, e o UP final esbarra no Falkner de (9,4). O roteiro tem UM APERTO A MAIS por virada, e isso foi MEDIDO em 07/09/2026, nao suposto: o primeiro aperto numa direcao nova so VIRA o personagem, sem andar. A versao sem essa folga descarrilava em (7,13) com o oponente em 0. APERTOS: o que avanca a fala e B, nao A. B fecha caixa de texto igual a A, e o que sobra depois que a batalha comeca e INERTE no menu de acao da batalha, enquanto A sobrando viraria turno e turno demais viraria vitoria, que e outra faixa. Medido em 07/09/2026: com A sobrando o driver aparecia tocando MUS_ENCOUNTER_* ou faixa de mapa.",
+  "flags": [
+   "0x9FB",
+   "0x9FC"
+  ],
+  "warp": "MAP_VIOLET_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:UP*6,60:NADA,16:RIGHT*3,60:NADA,16:UP*3,60:NADA,16:LEFT*5,60:NADA,16:UP*3,60:NADA,16:RIGHT*2,60:NADA,16:UP*5,60:NADA,16:RIGHT*2,60:NADA,16:UP*4,150:NADA,20:A,200:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,900:NADA",
+  "prova": {
+   "mapa": "MAP_VIOLET_CITY_GYM",
+   "oponente": "TRAINER_JOHTO_LEADER_FALKNER",
+   "musica": "MUS_HG_VS_GYM_LEADER"
+  }
+ },
+ {
+  "id": "T187.5",
+  "nome": "LIDER DE GINASIO EM SINNOH TOCA DPPt. O Byron de CANALAVE tem a MESMA TRAINER_CLASS_LEADER do Falkner do T187.4 e do Norman de Hoenn: tres faixas diferentes saindo da mesma classe e exatamente o que a tabela por regiao existe para fazer. Rota herdada do T116.1, que ja abria esta batalha para medir o modo LV.5.",
+  "flags": [
+   "0x85f",
+   "0x863",
+   "0x8a7",
+   "0x8b7",
+   "0x9d5",
+   "0x9d6",
+   "0x9d8"
+  ],
+  "antes_do_warp": "60:START,60:NADA,20:UP,20:UP,30:NADA,20:A,120:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:RIGHT,30:NADA,16:RIGHT,30:NADA,20:B,180:NADA,20:B,90:NADA",
+  "warp": "MAP_CANALAVE_CITY_GYM",
+  "roteiro": "120:NADA,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:UP,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:LEFT,16:UP,16:UP,16:UP,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:UP,16:RIGHT,16:RIGHT,16:UP,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:UP,16:UP,16:UP,60:NADA,20:A,120:NADA,20:A,900:NADA",
+  "prova": {
+   "mapa": "MAP_CANALAVE_CITY_GYM",
+   "oponente": "TRAINER_SINNOH_LEADER_BYRON",
+   "musica": "MUS_DP_VS_GYM_LEADER"
+  }
+ },
+ {
+  "id": "T187.6",
+  "nome": "ELITE DOS QUATRO EM SINNOH TOCA A FAIXA DE ELITE DE DPPt, e nao a de Hoenn. O Aaron usa TRAINER_CLASS_ELITE_FOUR, a mesma dos quatro de Hoenn. Rota herdada do T82.1. APERTOS: o que avanca a fala e B, nao A. B fecha caixa de texto igual a A, e o que sobra depois que a batalha comeca e INERTE no menu de acao da batalha, enquanto A sobrando viraria turno e turno demais viraria vitoria, que e outra faixa. Medido em 07/09/2026: com A sobrando o driver aparecia tocando MUS_ENCOUNTER_* ou faixa de mapa.",
+  "warp": "MAP_SINNOH_LEAGUE_AARONS_ROOM",
+  "roteiro": "16:UP*9,60:NADA,20:A,200:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,900:NADA",
+  "prova": {
+   "mapa": "MAP_SINNOH_LEAGUE_AARONS_ROOM",
+   "oponente_faixa": [
+    1258,
+    1262
+   ],
+   "musica": "MUS_DP_VS_ELITE_FOUR"
+  }
+ },
+ {
+  "id": "T187.7",
+  "nome": "VILAO EM SINNOH TOCA A FAIXA DA EQUIPE GALACTICA. O Saturn da sala de controle do QG usa TRAINER_CLASS_MAGMA_ADMIN, que e como o demake escreveu os comandantes (medido em src/data/trainers_sinnoh.party: 13 blocos de Magma Admin, nenhum deles da Equipe Magma de Hoenn). O mecanismo de vilao e o que ja existia, a classe de treinador; o que mudou e que agora a REGIAO escolhe a faixa, entao a mesma classe toca MUS_VS_AQUA_MAGMA em Hoenn e MUS_DP_VS_GALACTIC_COMMANDER em Sinnoh. Rota herdada do T102.9. APERTOS: o que avanca a fala e B, nao A. B fecha caixa de texto igual a A, e o que sobra depois que a batalha comeca e INERTE no menu de acao da batalha, enquanto A sobrando viraria turno e turno demais viraria vitoria, que e outra faixa. Medido em 07/09/2026: com A sobrando o driver aparecia tocando MUS_ENCOUNTER_* ou faixa de mapa. O gatilho do Saturn e de FALA, e nao de coordenada: o coord_event dele esta DESARMADO (VAR_SINNOH_QG_SALA_CONTROLE_ESTADO em 0, como o T102.9 documenta), entao o primeiro aperto tem de ser A.",
+  "vars": {
+   "0x4136": 0
+  },
+  "warp": "MAP_GALACTIC_HQ_CONTROL_ROOM",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,240:NADA,20:A,200:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,900:NADA",
+  "prova": {
+   "mapa": "MAP_GALACTIC_HQ_CONTROL_ROOM",
+   "oponente": "TRAINER_SINNOH_COMMANDER_SATURN_GALACTIC_HQ",
+   "musica": "MUS_DP_VS_GALACTIC_COMMANDER"
+  }
+ },
+ {
+  "id": "T187.8",
+  "nome": "LENDARIO EM SINNOH TOCA A FAIXA DE LENDARIO DE DPPt. O DARKRAI de CANALAVE abre BattleSetup_StartLegendaryBattle (data/maps/CanalaveCity/scripts.inc:292) e NAO tem faixa por especie na tabela de override, entao quem responde e a coluna BATTLE_MUSIC_LEGENDARY da linha de Sinnoh. Ate esta rodada a resposta era MUS_RG_VS_LEGEND, a faixa de Kanto, para lendario de qualquer regiao. Exatamente DOIS apertos de A: um para falar, um para fechar a caixa de uma pagina so (CanalaveCity_Text_DarkraiIntro). A terceiro seria turno de batalha contra um bicho de nivel 50, e o time do seletor nao sobrevive a turno nenhum. Rota herdada do T123.15.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_CANALAVE_CITY",
+  "warp_id": 10,
+  "roteiro": "60:NADA,16:LEFT*2,40:NADA,16:DOWN*6,90:NADA,16:A,240:NADA,20:A,900:NADA",
+  "prova": {
+   "mapa": "MAP_CANALAVE_CITY",
+   "musica": "MUS_DP_VS_LEGEND"
+  }
+ },
+ {
+  "id": "T187.9",
+  "nome": "CHEFE DE EQUIPE EM SINNOH TOCA A FAIXA DE CHEFE DA GALACTICA. O Cyrus do 4o andar do QG usa TRAINER_CLASS_MAGMA_LEADER, o degrau que o motor JA distinguia do capanga antes desta rodada (era ele que trocava MUS_VS_AQUA_MAGMA por MUS_VS_AQUA_MAGMA_LEADER). O degrau foi preservado como coluna da tabela, nao apagado: por isso o Cyrus toca faixa diferente do Saturn do T187.7. Rota herdada do T138.1. APERTOS: o que avanca a fala e B, nao A. B fecha caixa de texto igual a A, e o que sobra depois que a batalha comeca e INERTE no menu de acao da batalha, enquanto A sobrando viraria turno e turno demais viraria vitoria, que e outra faixa. Medido em 07/09/2026: com A sobrando o driver aparecia tocando MUS_ENCOUNTER_* ou faixa de mapa. O gatilho do Cyrus e de COORDENADA (o T138.2 mede isso), entao nao ha aperto de A.",
+  "vars": {
+   "0x4135": 0
+  },
+  "warp": "MAP_GALACTIC_HQ_4F",
+  "warp_id": 1,
+  "roteiro": "60:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,240:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,900:NADA",
+  "prova": {
+   "mapa": "MAP_GALACTIC_HQ_4F",
+   "oponente": "TRAINER_SINNOH_GALACTIC_BOSS_CYRUS_GALACTIC_HQ",
+   "musica": "MUS_DP_VS_GALACTIC_BOSS"
+  }
+ },
+ {
+  "id": "T187.10",
+  "nome": "CONTROLE DE HOENN: o MAXIE continua tocando MUS_VS_AQUA_MAGMA_LEADER, faixa por faixa igual ao que a ROM tocava antes da tabela existir. Sem este caso os nove de cima provariam que Johto e Sinnoh mudaram, e nao que Hoenn ficou parada: tabela que conserta uma regiao quebrando outra passa verde em prova de regiao nova. Rota herdada do T143.1. APERTOS: o que avanca a fala e B, nao A. B fecha caixa de texto igual a A, e o que sobra depois que a batalha comeca e INERTE no menu de acao da batalha, enquanto A sobrando viraria turno e turno demais viraria vitoria, que e outra faixa. Medido em 07/09/2026: com A sobrando o driver aparecia tocando MUS_ENCOUNTER_* ou faixa de mapa.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 36,
+  "warp": "MAP_MAGMA_HIDEOUT_4F",
+  "warp_id": 1,
+  "roteiro": "300:NADA,17:LEFT*8,120:NADA,20:A,200:NADA,20:B,150:NADA,20:B,150:NADA,20:B,150:NADA,20:B,150:NADA,20:B,150:NADA,20:B,150:NADA,20:B,150:NADA,20:B,150:NADA,20:B,150:NADA,20:B,150:NADA,20:B,150:NADA,20:B,150:NADA,20:B,150:NADA,20:B,150:NADA,20:B,150:NADA,20:B,150:NADA,20:B,150:NADA,20:B,150:NADA,20:B,150:NADA,20:B,150:NADA,20:B,150:NADA,20:B,150:NADA,20:B,150:NADA,20:B,150:NADA,20:B,150:NADA,900:NADA",
+  "prova": {
+   "mapa": "MAP_MAGMA_HIDEOUT_4F",
+   "oponente": "TRAINER_MAXIE_MAGMA_HIDEOUT",
+   "musica": "MUS_VS_AQUA_MAGMA_LEADER"
+  }
+ },
+ {
+  "id": "T187.11",
+  "nome": "A MUSICA DE VITORIA TAMBEM E DA REGIAO, e este e o unico caso da suite que prova a SEGUNDA coluna da tabela. A vitoria nunca passou por GetBattleBGM: quem toca a faixa de vitoria selvagem e um PlayBGM cravado em src/battle_script_commands.c (o trecho que dispara quando o ultimo Pokemon selvagem cai) e quem toca a de treinador e o switch de HandleEndTurn_BattleWon, em src/battle_main.c. Os dois eram cegos a regiao, entao Sinnoh comemorava com MUS_VICTORY_WILD, a faixa de Hoenn. Mesma grama do T187.2, e depois DEZ apertos de A para ganhar a batalha. AVISO A QUEM FOR MEXER: dez e MEDIDO, e a janela e ESTREITA. Varri o roteiro lendo o driver em 07/09/2026 e o resultado por numero de apertos foi 8 = MUS_DP_VS_WILD (a batalha ainda corre), 10 = MUS_DP_VICTORY_WILD, 12 e 14 = MUS_DP_VS_WILD de novo, 16 e 18 = MUS_PETALBURG_WOODS (a musica do mapa; a batalha ja acabou). O emulador e deterministico, entao dez e reprodutivel, mas qualquer mudanca que mexa em dano, em nivel da grama ou no numero de quadros do roteiro muda a contagem de turnos e obriga a REMEDIR a escada. O caso nao morre calado: a falha diz qual faixa estava tocando, e e por ai que se acha o novo numero. O campo `opcoes` esta FORA de proposito: declarar `opcoes` faz o harness passar --opcoes ao runner, o que muda a semente e desloca a janela inteira.",
+  "warp": "MAP_ETERNA_FOREST",
+  "warp_id": 4,
+  "roteiro": "40:R+START!,60:NADA,20:A,40:NADA,20:DOWN*6,20:A,240:NADA,20:B,90:NADA,16:DOWN,16:DOWN,16:DOWN,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,300:NADA,20:A,110:NADA,20:A,110:NADA,20:A,110:NADA,20:A,110:NADA,20:A,110:NADA,20:A,110:NADA,20:A,110:NADA,20:A,110:NADA,20:A,110:NADA,20:A,110:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_ETERNA_FOREST",
+   "musica": "MUS_DP_VICTORY_WILD"
+  }
+ }
+]

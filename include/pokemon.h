@@ -887,6 +887,13 @@ bool32 IsSpeciesInRegionalDex(enum Species species);
 bool32 IsSpeciesInKantoDex(enum Species species);
 bool32 IsSpeciesInHoennDex(enum Species species);
 u16 GetBattleBGM(void);
+// Musica de VITORIA por regiao (frente MUSICA-C, 07/09/2026). A vitoria
+// nunca passou por GetBattleBGM: quem toca e HandleEndTurn_BattleWon
+// (src/battle_main.c) e o fim de batalha selvagem
+// (src/battle_script_commands.c). Estas duas leem a MESMA tabela
+// sBattleMusic de src/pokemon.c.
+u16 GetTrainerVictoryBGM(u16 trainerId);
+u16 GetWildVictoryBGM(void);
 void PlayBattleBGM(void);
 void PlayMapChosenOrBattleBGM(u16 songId);
 void CreateTask_PlayMapChosenOrBattleBGM(u16 songId);

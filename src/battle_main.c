@@ -5356,27 +5356,12 @@ static void HandleEndTurn_BattleWon(void)
         BattleStopLowHpSound();
         gBattlescriptCurrInstr = BattleScript_LocalTrainerBattleWon;
 
-        switch (GetTrainerClassFromId(TRAINER_BATTLE_PARAM.opponentA))
-        {
-        case TRAINER_CLASS_ELITE_FOUR:
-        case TRAINER_CLASS_CHAMPION:
-            PlayBGM(MUS_VICTORY_LEAGUE);
-            break;
-        case TRAINER_CLASS_TEAM_AQUA:
-        case TRAINER_CLASS_TEAM_MAGMA:
-        case TRAINER_CLASS_AQUA_ADMIN:
-        case TRAINER_CLASS_AQUA_LEADER:
-        case TRAINER_CLASS_MAGMA_ADMIN:
-        case TRAINER_CLASS_MAGMA_LEADER:
-            PlayBGM(MUS_VICTORY_AQUA_MAGMA);
-            break;
-        case TRAINER_CLASS_LEADER:
-            PlayBGM(MUS_VICTORY_GYM_LEADER);
-            break;
-        default:
-            PlayBGM(MUS_VICTORY_TRAINER);
-            break;
-        }
+        // A escolha da faixa de vitoria saiu deste `switch` e foi para a
+        // tabela sBattleMusic[regiao][situacao] de src/pokemon.c (frente
+        // MUSICA-C, 07/09/2026). A classe de treinador continua sendo o
+        // mecanismo que decide a SITUACAO; o que mudou e que a REGIAO decide a
+        // faixa. Em Hoenn e em Kanto o resultado e faixa por faixa o mesmo.
+        PlayBGM(GetTrainerVictoryBGM(TRAINER_BATTLE_PARAM.opponentA));
     }
     else
     {

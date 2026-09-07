@@ -544,33 +544,45 @@ void BattleSetup_StartLegendaryBattle(void)
     gMain.savedCallback = CB2_EndScriptedWildBattle;
     gBattleTypeFlags = BATTLE_TYPE_LEGENDARY;
 
+    // MEDIDO em 07/09/2026 (frente MUSICA-C): este switch escolhia a TRANSICAO
+    // E a MUSICA, e a musica dele NAO passava por GetBattleBGM. Era ele, e nao
+    // o `switch` de src/pokemon.c, que respondia em toda batalha de lendario de
+    // script: o Darkrai de Canalave tocava MUS_RG_VS_LEGEND, faixa de Kanto, em
+    // pleno Sinnoh, e nenhuma mudanca em GetBattleBGM chegava aqui.
+    //
+    // Agora o segundo argumento e 0 em todos os ramos, e 0 quer dizer
+    // "pergunte a GetBattleBGM" (PlayMapChosenOrBattleBGM, src/pokemon.c). A
+    // TRANSICAO continua sendo escolhida por especie aqui, que e o que este
+    // switch sempre soube fazer; a MUSICA passou a ter uma fonte so. As faixas
+    // por especie que viviam nesta lista (Groudon/Kyogre, Rayquaza, Deoxys,
+    // Mew) foram para GetLegendaryBattleBGM, entao nenhuma se perdeu.
     switch (GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_SPECIES))
     {
     case SPECIES_GROUDON:
     case SPECIES_GROUDON_PRIMAL:
-        CreateBattleStartTask(B_TRANSITION_GROUDON, MUS_VS_KYOGRE_GROUDON);
+        CreateBattleStartTask(B_TRANSITION_GROUDON, 0);
         break;
     case SPECIES_KYOGRE:
     case SPECIES_KYOGRE_PRIMAL:
-        CreateBattleStartTask(B_TRANSITION_KYOGRE, MUS_VS_KYOGRE_GROUDON);
+        CreateBattleStartTask(B_TRANSITION_KYOGRE, 0);
         break;
     case SPECIES_RAYQUAZA:
     case SPECIES_RAYQUAZA_MEGA:
-        CreateBattleStartTask(B_TRANSITION_RAYQUAZA, MUS_VS_RAYQUAZA);
+        CreateBattleStartTask(B_TRANSITION_RAYQUAZA, 0);
         break;
     case SPECIES_DEOXYS_NORMAL:
     case SPECIES_DEOXYS_ATTACK:
     case SPECIES_DEOXYS_DEFENSE:
     case SPECIES_DEOXYS_SPEED:
-        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_DEOXYS);
+        CreateBattleStartTask(B_TRANSITION_BLUR, 0);
         break;
     case SPECIES_LUGIA:
     case SPECIES_HO_OH:
     default:
-        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
+        CreateBattleStartTask(B_TRANSITION_BLUR, 0);
         break;
     case SPECIES_MEW:
-        CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_VS_MEW);
+        CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, 0);
         break;
     }
 

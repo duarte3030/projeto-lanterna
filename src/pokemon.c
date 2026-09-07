@@ -5260,27 +5260,245 @@ bool32 IsSpeciesInHoennDex(enum Species species)
         return TRUE;
 }
 
+// >>> Musica de batalha por REGIAO (frente MUSICA-C, 07/09/2026) >>>
+// A faixa de batalha e a de vitoria saiam de tres lugares diferentes: o
+// `switch` de classe de treinador daqui, o `switch` de HandleEndTurn_BattleWon
+// (src/battle_main.c) e o PlayBGM cravado da vitoria selvagem
+// (src/battle_script_commands.c). Nenhum deles olhava a regiao, entao Johto e
+// Sinnoh lutavam com a trilha de Hoenn mesmo depois de as 157 faixas de HGSS e
+// DPPt entrarem na ROM.
+//
+// Agora existe UMA tabela, `sBattleMusic[regiao][situacao]`, com a faixa da
+// batalha e a da vitoria lado a lado. Regras que valem para quem mexer aqui:
+//
+// - A tabela e o PADRAO, nao a lei. Caso especial que ja funcionava continua
+//   ANTES dela: as faixas por ESPECIE do lendario, o MUS_VS_FRONTIER_BRAIN dos
+//   sete Brains, o MUS_VS_TRAINER do link e o Wally da classe RIVAL, que nunca
+//   teve tema de rival. Tabela nao apaga comportamento medido.
+// - Kanto e Hoenn repetem, faixa por faixa, o que a ROM ja tocava antes desta
+//   mudanca (conferido linha a linha contra o `switch` antigo). A novidade e
+//   Johto (HGSS) e Sinnoh (DPPt/Platinum).
+// - Regiao sem linha propria (REGION_NONE e as que nao estao no cartucho) cai
+//   na linha de Hoenn, que e o padrao historico do motor.
+// - Custo de save ZERO: nada aqui e gravado, nenhuma flag e nenhuma var nova.
+//   A regiao sai de `GetCurrentRegion()`, que so LE `location.mapGroup` e
+//   `gMapHeader`, campos que o motor ja mantinha.
+//
+// O vilao entra em tres degraus porque o motor ja distinguia dois (capanga e
+// admin tocavam MUS_VS_AQUA_MAGMA, o chefe tocava MUS_VS_AQUA_MAGMA_LEADER) e
+// DPPt distingue os tres. Colapsar em um degrau so apagaria o tema do chefe de
+// equipe, que e comportamento que ja funciona.
+enum BattleMusicSituation
+{
+    BATTLE_MUSIC_WILD,
+    BATTLE_MUSIC_TRAINER,
+    BATTLE_MUSIC_GYM_LEADER,
+    BATTLE_MUSIC_ELITE_FOUR,
+    BATTLE_MUSIC_CHAMPION,
+    BATTLE_MUSIC_RIVAL,
+    BATTLE_MUSIC_VILLAIN,        // capanga de equipe (Rocket, Aqua/Magma, Galactico)
+    BATTLE_MUSIC_VILLAIN_ADMIN,  // comandante/admin
+    BATTLE_MUSIC_VILLAIN_BOSS,   // chefe da equipe
+    BATTLE_MUSIC_LEGENDARY,
+    BATTLE_MUSIC_SITUATIONS_COUNT,
+};
+
+struct BattleMusicEntry
+{
+    u16 batalha;
+    u16 vitoria;
+};
+
+static const struct BattleMusicEntry sBattleMusic[REGIONS_COUNT][BATTLE_MUSIC_SITUATIONS_COUNT] =
+{
+    // Kanto (FRLG): identico ao que o `switch` antigo ja devolvia. FRLG nao tem
+    // tema proprio de rival, de Elite dos Quatro nem de Rocket: o motor mandava
+    // rival e Rocket para MUS_RG_VS_TRAINER (o `default` com GetCurrentRegion)
+    // e a Elite dos Quatro para MUS_RG_VS_GYM_LEADER. Fica como estava.
+    [REGION_KANTO] = {
+        [BATTLE_MUSIC_WILD]           = { MUS_RG_VS_WILD,        MUS_VICTORY_WILD },
+        [BATTLE_MUSIC_TRAINER]        = { MUS_RG_VS_TRAINER,     MUS_VICTORY_TRAINER },
+        [BATTLE_MUSIC_GYM_LEADER]     = { MUS_RG_VS_GYM_LEADER,  MUS_VICTORY_GYM_LEADER },
+        [BATTLE_MUSIC_ELITE_FOUR]     = { MUS_RG_VS_GYM_LEADER,  MUS_VICTORY_LEAGUE },
+        [BATTLE_MUSIC_CHAMPION]       = { MUS_RG_VS_CHAMPION,    MUS_VICTORY_LEAGUE },
+        [BATTLE_MUSIC_RIVAL]          = { MUS_RG_VS_TRAINER,     MUS_VICTORY_TRAINER },
+        [BATTLE_MUSIC_VILLAIN]        = { MUS_RG_VS_TRAINER,     MUS_VICTORY_TRAINER },
+        [BATTLE_MUSIC_VILLAIN_ADMIN]  = { MUS_RG_VS_TRAINER,     MUS_VICTORY_TRAINER },
+        [BATTLE_MUSIC_VILLAIN_BOSS]   = { MUS_RG_VS_TRAINER,     MUS_VICTORY_TRAINER },
+        [BATTLE_MUSIC_LEGENDARY]      = { MUS_RG_VS_LEGEND,      MUS_VICTORY_WILD },
+    },
+    // Johto (HGSS). O import de 05/09/2026 nao trouxe tema de Elite dos Quatro
+    // nem tema generico de lendario de HGSS: a Elite herda o MUS_HG_VS_CHAMPION
+    // e o lendario generico herda o MUS_HG_VS_LUGIA. Ho-Oh e Lugia continuam
+    // com faixa por ESPECIE, entao o generico so pega o resto.
+    [REGION_JOHTO] = {
+        [BATTLE_MUSIC_WILD]           = { MUS_HG_VS_WILD,        MUS_HG_VICTORY_WILD },
+        [BATTLE_MUSIC_TRAINER]        = { MUS_HG_VS_TRAINER,     MUS_HG_VICTORY_TRAINER },
+        [BATTLE_MUSIC_GYM_LEADER]     = { MUS_HG_VS_GYM_LEADER,  MUS_HG_VICTORY_GYM_LEADER },
+        [BATTLE_MUSIC_ELITE_FOUR]     = { MUS_HG_VS_CHAMPION,    MUS_HG_VICTORY_GYM_LEADER },
+        [BATTLE_MUSIC_CHAMPION]       = { MUS_HG_VS_CHAMPION,    MUS_HG_VICTORY_GYM_LEADER },
+        [BATTLE_MUSIC_RIVAL]          = { MUS_HG_VS_RIVAL,       MUS_HG_VICTORY_TRAINER },
+        [BATTLE_MUSIC_VILLAIN]        = { MUS_HG_VS_ROCKET,      MUS_HG_VICTORY_TRAINER },
+        [BATTLE_MUSIC_VILLAIN_ADMIN]  = { MUS_HG_VS_ROCKET,      MUS_HG_VICTORY_TRAINER },
+        [BATTLE_MUSIC_VILLAIN_BOSS]   = { MUS_HG_VS_ROCKET,      MUS_HG_VICTORY_GYM_LEADER },
+        [BATTLE_MUSIC_LEGENDARY]      = { MUS_HG_VS_LUGIA,       MUS_HG_VICTORY_WILD },
+    },
+    // Hoenn (RSE): identico ao que o `switch` antigo ja devolvia.
+    [REGION_HOENN] = {
+        [BATTLE_MUSIC_WILD]           = { MUS_VS_WILD,               MUS_VICTORY_WILD },
+        [BATTLE_MUSIC_TRAINER]        = { MUS_VS_TRAINER,            MUS_VICTORY_TRAINER },
+        [BATTLE_MUSIC_GYM_LEADER]     = { MUS_VS_GYM_LEADER,         MUS_VICTORY_GYM_LEADER },
+        [BATTLE_MUSIC_ELITE_FOUR]     = { MUS_VS_ELITE_FOUR,         MUS_VICTORY_LEAGUE },
+        [BATTLE_MUSIC_CHAMPION]       = { MUS_VS_CHAMPION,           MUS_VICTORY_LEAGUE },
+        [BATTLE_MUSIC_RIVAL]          = { MUS_VS_RIVAL,              MUS_VICTORY_TRAINER },
+        [BATTLE_MUSIC_VILLAIN]        = { MUS_VS_AQUA_MAGMA,         MUS_VICTORY_AQUA_MAGMA },
+        [BATTLE_MUSIC_VILLAIN_ADMIN]  = { MUS_VS_AQUA_MAGMA,         MUS_VICTORY_AQUA_MAGMA },
+        [BATTLE_MUSIC_VILLAIN_BOSS]   = { MUS_VS_AQUA_MAGMA_LEADER,  MUS_VICTORY_AQUA_MAGMA },
+        [BATTLE_MUSIC_LEGENDARY]      = { MUS_RG_VS_LEGEND,          MUS_VICTORY_WILD },
+    },
+    // Sinnoh (DPPt). E a unica regiao que tem faixa de vitoria propria para
+    // Elite, campeao e equipe, e a unica com os tres degraus de vilao.
+    [REGION_SINNOH] = {
+        [BATTLE_MUSIC_WILD]           = { MUS_DP_VS_WILD,                 MUS_DP_VICTORY_WILD },
+        [BATTLE_MUSIC_TRAINER]        = { MUS_DP_VS_TRAINER,              MUS_DP_VICTORY_TRAINER },
+        [BATTLE_MUSIC_GYM_LEADER]     = { MUS_DP_VS_GYM_LEADER,           MUS_DP_VICTORY_GYM_LEADER },
+        [BATTLE_MUSIC_ELITE_FOUR]     = { MUS_DP_VS_ELITE_FOUR,           MUS_DP_VICTORY_ELITE_FOUR },
+        [BATTLE_MUSIC_CHAMPION]       = { MUS_DP_VS_CHAMPION,             MUS_DP_VICTORY_CHAMPION },
+        [BATTLE_MUSIC_RIVAL]          = { MUS_DP_VS_RIVAL,                MUS_DP_VICTORY_TRAINER },
+        [BATTLE_MUSIC_VILLAIN]        = { MUS_DP_VS_GALACTIC,             MUS_DP_VICTORY_GALACTIC },
+        [BATTLE_MUSIC_VILLAIN_ADMIN]  = { MUS_DP_VS_GALACTIC_COMMANDER,   MUS_DP_VICTORY_GALACTIC },
+        [BATTLE_MUSIC_VILLAIN_BOSS]   = { MUS_DP_VS_GALACTIC_BOSS,        MUS_DP_VICTORY_GALACTIC },
+        [BATTLE_MUSIC_LEGENDARY]      = { MUS_DP_VS_LEGEND,               MUS_DP_VICTORY_WILD },
+    },
+};
+
+// Regiao com linha na tabela. Linha vazia (MUS_DUMMY e 0, e nenhuma faixa de
+// verdade e 0) cai em Hoenn, que e o padrao historico do motor.
+static enum Region GetBattleMusicRegion(void)
+{
+    enum Region regiao = GetCurrentRegion();
+
+    if (regiao >= REGIONS_COUNT || sBattleMusic[regiao][BATTLE_MUSIC_WILD].batalha == MUS_DUMMY)
+        return REGION_HOENN;
+    return regiao;
+}
+
+static u16 GetBattleMusicFor(enum BattleMusicSituation situacao, bool32 vitoria)
+{
+    enum Region regiao = GetBattleMusicRegion();
+    u16 faixa = vitoria ? sBattleMusic[regiao][situacao].vitoria
+                        : sBattleMusic[regiao][situacao].batalha;
+
+    if (faixa == MUS_DUMMY)  // buraco na linha da regiao: Hoenn e a rede
+        faixa = vitoria ? sBattleMusic[REGION_HOENN][situacao].vitoria
+                        : sBattleMusic[REGION_HOENN][situacao].batalha;
+    return faixa;
+}
+
+// Classe de treinador -> situacao. E o MESMO mecanismo que o motor ja usava
+// para escolher musica (a classe de `src/data/trainers.party`), so que agora
+// ele devolve a SITUACAO e quem escolhe a faixa e a tabela. As classes de
+// Johto e de Sinnoh nao sao novas: o demake reaproveitou as que existiam
+// (Rocket de Johto usa TRAINER_CLASS_TEAM_ROCKET_FRLG, Galacticos de Sinnoh
+// usam TEAM_MAGMA / MAGMA_ADMIN / MAGMA_LEADER, medido em
+// src/data/trainers_johto.party e src/data/trainers_sinnoh.party).
+static enum BattleMusicSituation GetBattleMusicSituation(enum TrainerClassID trainerClass)
+{
+    switch (trainerClass)
+    {
+    case TRAINER_CLASS_LEADER:
+    case TRAINER_CLASS_LEADER_FRLG:
+        return BATTLE_MUSIC_GYM_LEADER;
+    case TRAINER_CLASS_ELITE_FOUR:
+    case TRAINER_CLASS_ELITE_FOUR_FRLG:
+        return BATTLE_MUSIC_ELITE_FOUR;
+    case TRAINER_CLASS_CHAMPION:
+    case TRAINER_CLASS_CHAMPION_FRLG:
+        return BATTLE_MUSIC_CHAMPION;
+    case TRAINER_CLASS_RIVAL:
+        // Caso especial PRESERVADO do `switch` antigo: fora do Frontier, o
+        // Wally usa a classe RIVAL e mesmo assim nunca teve tema de rival.
+        if (!(gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
+            && !StringCompare(GetTrainerNameFromId(TRAINER_BATTLE_PARAM.opponentA), gText_BattleWallyName))
+            return BATTLE_MUSIC_TRAINER;
+        return BATTLE_MUSIC_RIVAL;
+    case TRAINER_CLASS_RIVAL_EARLY_FRLG:
+    case TRAINER_CLASS_RIVAL_LATE_FRLG:
+        return BATTLE_MUSIC_RIVAL;
+    case TRAINER_CLASS_TEAM_AQUA:
+    case TRAINER_CLASS_TEAM_MAGMA:
+    case TRAINER_CLASS_TEAM_ROCKET_FRLG:
+        return BATTLE_MUSIC_VILLAIN;
+    case TRAINER_CLASS_AQUA_ADMIN:
+    case TRAINER_CLASS_MAGMA_ADMIN:
+        return BATTLE_MUSIC_VILLAIN_ADMIN;
+    case TRAINER_CLASS_AQUA_LEADER:
+    case TRAINER_CLASS_MAGMA_LEADER:
+    case TRAINER_CLASS_BOSS_FRLG:
+        return BATTLE_MUSIC_VILLAIN_BOSS;
+    default:
+        return BATTLE_MUSIC_TRAINER;
+    }
+}
+
+// Faixa por ESPECIE do lendario. Fica ANTES da tabela porque e mais fina que
+// ela: o tema do Rayquaza e do Rayquaza em qualquer regiao. As quatro
+// primeiras entradas ja existiam; Dialga/Palkia, o trio dos lagos, o Giratina,
+// o Lugia e o Ho-Oh entram agora que as faixas existem na ROM. Especie sem
+// tema proprio cai na coluna de lendario da regiao.
+static u16 GetLegendaryBattleBGM(enum Species species)
+{
+    switch (species)
+    {
+    case SPECIES_RAYQUAZA:
+    case SPECIES_RAYQUAZA_MEGA:
+        return MUS_VS_RAYQUAZA;
+    case SPECIES_KYOGRE:
+    case SPECIES_KYOGRE_PRIMAL:
+    case SPECIES_GROUDON:
+    case SPECIES_GROUDON_PRIMAL:
+        return MUS_VS_KYOGRE_GROUDON;
+    // As tres de baixo estavam SO no switch de BattleSetup_StartLegendaryBattle
+    // (src/battle_setup.c), que escolhia musica por fora de GetBattleBGM. Como
+    // aquele switch passou a pedir a faixa aqui, elas tem de existir aqui,
+    // senao Deoxys, Mew e as formas perderiam o tema em silencio.
+    case SPECIES_DEOXYS_NORMAL:
+    case SPECIES_DEOXYS_ATTACK:
+    case SPECIES_DEOXYS_DEFENSE:
+    case SPECIES_DEOXYS_SPEED:
+        return MUS_RG_VS_DEOXYS;
+    case SPECIES_MEW:
+        return MUS_VS_MEW;
+    case SPECIES_REGIROCK:
+    case SPECIES_REGICE:
+    case SPECIES_REGISTEEL:
+    case SPECIES_REGIGIGAS:
+    case SPECIES_REGIELEKI:
+    case SPECIES_REGIDRAGO:
+        return MUS_VS_REGI;
+    case SPECIES_LUGIA:
+        return MUS_HG_VS_LUGIA;
+    case SPECIES_HO_OH:
+        return MUS_HG_VS_HO_OH;
+    case SPECIES_DIALGA:
+    case SPECIES_PALKIA:
+        return MUS_DP_VS_DIALGA_PALKIA;
+    case SPECIES_UXIE:
+    case SPECIES_MESPRIT:
+    case SPECIES_AZELF:
+        return MUS_DP_VS_UXIE_MESPRIT_AZELF;
+    case SPECIES_GIRATINA:
+        return MUS_PL_VS_GIRATINA;
+    default:
+        return GetBattleMusicFor(BATTLE_MUSIC_LEGENDARY, FALSE);
+    }
+}
+
 u16 GetBattleBGM(void)
 {
     if (gBattleTypeFlags & BATTLE_TYPE_LEGENDARY)
     {
-        switch (GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_SPECIES))
-        {
-        case SPECIES_RAYQUAZA:
-            return MUS_VS_RAYQUAZA;
-        case SPECIES_KYOGRE:
-        case SPECIES_GROUDON:
-            return MUS_VS_KYOGRE_GROUDON;
-        case SPECIES_REGIROCK:
-        case SPECIES_REGICE:
-        case SPECIES_REGISTEEL:
-        case SPECIES_REGIGIGAS:
-        case SPECIES_REGIELEKI:
-        case SPECIES_REGIDRAGO:
-            return MUS_VS_REGI;
-        default:
-            return MUS_RG_VS_LEGEND;
-        }
+        return GetLegendaryBattleBGM(GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_SPECIES));
     }
     else if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
     {
@@ -5297,33 +5515,10 @@ u16 GetBattleBGM(void)
         else
             trainerClass = GetTrainerClassFromId(TRAINER_BATTLE_PARAM.opponentA);
 
+        // Caso especial PRESERVADO: os sete Frontier Brains tem tema proprio, e
+        // ele nao e de regiao nenhuma. Fica antes da tabela.
         switch (trainerClass)
         {
-        case TRAINER_CLASS_AQUA_LEADER:
-        case TRAINER_CLASS_MAGMA_LEADER:
-            return MUS_VS_AQUA_MAGMA_LEADER;
-        case TRAINER_CLASS_TEAM_AQUA:
-        case TRAINER_CLASS_TEAM_MAGMA:
-        case TRAINER_CLASS_AQUA_ADMIN:
-        case TRAINER_CLASS_MAGMA_ADMIN:
-            return MUS_VS_AQUA_MAGMA;
-        case TRAINER_CLASS_LEADER:
-            return MUS_VS_GYM_LEADER;
-        case TRAINER_CLASS_CHAMPION:
-            return MUS_VS_CHAMPION;
-        case TRAINER_CLASS_RIVAL:
-            if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
-                return MUS_VS_RIVAL;
-            if (!StringCompare(GetTrainerNameFromId(TRAINER_BATTLE_PARAM.opponentA), gText_BattleWallyName))
-                return MUS_VS_TRAINER;
-            return MUS_VS_RIVAL;
-        case TRAINER_CLASS_ELITE_FOUR:
-            return MUS_VS_ELITE_FOUR;
-        case TRAINER_CLASS_CHAMPION_FRLG:
-            return MUS_RG_VS_CHAMPION;
-        case TRAINER_CLASS_LEADER_FRLG:
-        case TRAINER_CLASS_ELITE_FOUR_FRLG:
-            return MUS_RG_VS_GYM_LEADER;
         case TRAINER_CLASS_SALON_MAIDEN:
         case TRAINER_CLASS_DOME_ACE:
         case TRAINER_CLASS_PALACE_MAVEN:
@@ -5333,20 +5528,34 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_PYRAMID_KING:
             return MUS_VS_FRONTIER_BRAIN;
         default:
-            if (GetCurrentRegion() == REGION_KANTO)
-                return MUS_RG_VS_TRAINER;
-            else
-                return MUS_VS_TRAINER;
+            break;
         }
+
+        return GetBattleMusicFor(GetBattleMusicSituation(trainerClass), FALSE);
     }
     else
     {
-        if (GetCurrentRegion() == REGION_KANTO)
-            return MUS_RG_VS_WILD;
-        else
-            return MUS_VS_WILD;
+        return GetBattleMusicFor(BATTLE_MUSIC_WILD, FALSE);
     }
 }
+
+// Vitoria contra treinador local. Chamada por HandleEndTurn_BattleWon
+// (src/battle_main.c): a vitoria NAO passa por GetBattleBGM, o gancho dela e
+// outro, e era ele que mantinha MUS_VICTORY_TRAINER tocando em Sinnoh.
+u16 GetTrainerVictoryBGM(u16 trainerId)
+{
+    return GetBattleMusicFor(GetBattleMusicSituation(GetTrainerClassFromId(trainerId)), TRUE);
+}
+
+// Vitoria em batalha selvagem, chamada por src/battle_script_commands.c quando
+// o ultimo Pokemon selvagem cai. Lendario derrotado tambem passa por aqui, e a
+// coluna de lendario e que responde.
+u16 GetWildVictoryBGM(void)
+{
+    return GetBattleMusicFor((gBattleTypeFlags & BATTLE_TYPE_LEGENDARY)
+                             ? BATTLE_MUSIC_LEGENDARY : BATTLE_MUSIC_WILD, TRUE);
+}
+// <<< Musica de batalha por REGIAO (frente MUSICA-C) <<<
 
 void PlayBattleBGM(void)
 {
