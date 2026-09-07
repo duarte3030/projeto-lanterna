@@ -4,11 +4,226 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 07/09/2026, na ROM CONSOLIDADA da rodada 13,
-`roms/pokemon-claude-2026-09-07.gba` (md5 `c0ea203b6fad9336bba410145fc0663d`), que é o HEAD
-`ed8698166c` mais os três consertos pequenos do fechador. Build limpo verde, **SAVE COMPATIVEL**,
-**suíte 1.047 de 1.048** (o único vermelho é instável e está nomeado) e **T11 3 de 3**. A seção 0.u
-abaixo é a passagem de bastão dela, e começa pelo placar; a 0.t é a da rodada 12.
+Última medição: 07/09/2026, na ROM do CARTUCHO 1 depois da remoção de Unova e Galar,
+`roms/pokemon-claude-2026-09-08-c1-onda1.gba` (md5 `0d244af61d645ebb926e17f5ec4c8947`), HEAD
+`517322bedd`. Build limpo verde, **SAVE COMPATIVEL**, **suíte 745 de 747** (o único vermelho é o
+T176.3, instável e nomeado desde a rodada 13) e ROM em **88,17%**, com 3.969.304 B livres. A seção
+0.w abaixo é a passagem de bastão dela; a 0.v e a 0.u são as da rodada 13, e a 0.t a da rodada 12.
+
+**Este repositório é o CARTUCHO 1: Kanto, Johto, Hoenn e Sinnoh, e o jogo termina na Cynthia.**
+Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
+`pre-remocao-unova-galar`. Nenhuma das duas volta aqui.
+
+---
+
+## 0.w CARTUCHO 1, ONDA 1: UNOVA E GALAR SAEM DO JOGO, E A ROM DEVOLVE 2,80 MB, 07/09/2026 (PRD-CARTUCHO-1.md; condutor Opus, dois executores Opus)
+
+### Placar, medido nos dois lados
+
+| medida | antes (`41f54c50ef`) | depois (`517322bedd`) |
+|---|---|---|
+| ROM usada | 32.384.728 B (96,51%) | **29.585.128 B (88,17%)** |
+| ROM livre | 1.169.704 B | **3.969.304 B** |
+| EWRAM | 225.856 B (86,16%) | 225.856 B (86,16%) |
+| IWRAM | 28.400 B (86,67%) | 28.392 B (86,65%) |
+| arquivos versionados | 39.805 | **36.081** (menos 3.724) |
+| `guarda_save.py` | SAVE COMPATIVEL | **SAVE COMPATIVEL** |
+| `valida_rom.py` | 2.404 mapas, 2.054 layouts | 2.404 mapas, 2.054 layouts |
+| warps quebrados | 0 | **0** |
+| `valida_warp_tile --piso 60` | Hoenn 93,4 Kanto 79,4 Sinnoh 98,1 Johto 91,0 | idênticos, e sem a linha de Unova |
+| travas do `roda_qa.py` | Kanto 5, Johto 2, Hoenn 2, Sinnoh 8, comum 13, Unova 25, Galar 268 | **Kanto 5, Johto 2, Hoenn 2, Sinnoh 8, comum 13** |
+| casos na suíte | 1.088 | 747 |
+| suíte | 1.085 de 1.088 | **745 de 747** |
+| T11 (save da ROM anterior na nova) | não se aplica (é o par das duas ROMs) | **3 de 3** |
+| Dex obtenível | 1.571 de 1.571 | **1.315 de 1.571** |
+
+A ROM devolveu **2.799.600 B (2,80 MB, 2,67 MiB)**, contra os 2.405.300 B que o
+`PRD-GENS-6-9.md` tinha projetado. A diferença para mais é o texto e o script dos
+729 mapas, que a projeção contou símbolo a símbolo e aqui saiu inteiro.
+
+**As duas suítes foram rodadas na mesma máquina e comparadas CASO A CASO, não por
+placar**: 341 casos sumiram (os de Unova e de Galar), **zero caso novo, e ZERO
+regressão**, ou seja nenhum caso que passava antes reprova agora. O único vermelho
+de hoje é o **T176.3, o instável já nomeado na seção 0.u**. O antes tinha um
+segundo vermelho, o T183.5, e ele era um dos casos que rodavam em mapa de Galar,
+então saiu com a região.
+
+**T11 3 de 3, e ele é a prova mais forte desta onda.** Rodado com a ROM ANTERIOR
+(`41f54c50ef`, md5 `3a1703f00940222e2ded028d19a60796`) de um lado e a ROM nova do
+outro: a save gravada na antiga **abre na nova em `MAP_SANDGEM_TOWN`, com o layout
+de Sandgem e a flag `0x2BA` acesa**. O caso T11.3 estava INVERTIDO desde 18/08/2026
+(ele exigia que a save fosse RECUSADA, que era o esperado da janela ABERTA), e o
+texto dele já dizia quando voltar ao normal: "na próxima onda de janela FECHADA,
+quando a ROM oficial nova virar baseline". É agora. **A onda de quebra de save tem
+de inverter o T11.3 de novo, no MESMO commit que subir `SAVE_LAYOUT_REVISION` para
+2**, e isso está escrito dentro do próprio caso.
+
+### A decisão que manda nesta onda: TÚMULO, e não `rm`
+
+**Os 729 mapas de Unova e Galar não foram apagados. Eles viraram TÚMULO**, no
+molde que o projeto já usa para os 111 cortes de Sinnoh
+(`dev_scripts/remove_mapas_cortados.py`, commit `721c77fb63`): o `map.json`
+continua existindo com o id intacto, mas sem evento nenhum, com
+`region_map_section` em `MAPSEC_NONE` e com um campo `cortado_por` que diz de onde
+veio o corte; o `scripts.inc` fica só com o rótulo `<Mapa>_MapScripts:: .byte 0`,
+que o `header.inc` gerado exige.
+
+**Por quê, medido e não lembrado.** A regra dura desta onda é `guarda_save.py`
+dizendo SAVE COMPATIVEL, e a save guarda ÍNDICE, não nome. Apagar as 729 entradas
+mata dois índices de uma vez:
+
+1. `SaveBlock1.location.mapGroup` / `mapNum` (0x04). O guarda acusou as 729
+   quebras, uma por mapa, na primeira tentativa desta onda.
+2. `SaveBlock1.mapLayoutId` (0x32), que é a POSIÇÃO do layout dentro de
+   `layouts.json` contando só quem tem `border_filepath` no disco
+   (`tools/mapjson/mapjson.cpp:895`). **Os 729 layouts de Unova e Galar são os
+   numerados 1171 a 2026**, com 127 layouts das quatro regiões INTERCALADOS e mais
+   28 de Sinnoh DEPOIS deles. Apagar a entrada deslocaria o número de 155 layouts
+   vivos, e `LoadSaveblockMapHeader` (`src/overworld.c:682`) carrega a geometria
+   por esse número: a save do Gui abriria no mapa certo com o desenho de outro.
+   **Este é o mesmo ponto cego que o `remove_mapas_cortados.py` já tinha
+   documentado**, e a resposta dele vale igual aqui.
+
+O que SAI do túmulo é o peso: a geometria (`border.bin` e `map.bin`, que é onde
+moram os 1,43 MB de blockdata), todos os eventos, as conexões, o script e o texto.
+A entrada do layout continua numerada, encolhida para 1x1 e apontando para
+`data/layouts/TocoVago` (8 B de borda e 2 B de bloco, compartilhados pelos 729).
+
+**O que isso ainda custa: 38.621 B (37,7 KB)** somados no `pokeemerald.map` sobre
+os 2.214 símbolos com nome de Unova ou de Galar que sobraram (cabeçalho de mapa,
+struct de eventos vazia, tabela de layout). **É exatamente esse o valor que a onda
+de quebra de save recupera**, quando as 729 pastas e os 23 grupos vazios puderem
+sumir de verdade.
+
+Pela mesma razão ficaram como BURACO, sem andar índice nenhum:
+
+- **os 23 grupos de mapa** que ficaram vazios (22 de Unova e `gMapGroup_Galar`)
+  continuam em `group_order`. O `mapjson` já sabe: escreve `.4byte NULL` em
+  `gMapGroups` e não emite o símbolo do grupo, e o contador `group_num` anda por
+  grupo DECLARADO, então os grupos 123 a 128 (Sinnoh e Johto) mantêm o número.
+  Medido: os três mapas presos nos grupos que Galar ocupou
+  (`Route116_TunnelersRestHouse`, `Route117_PokemonDayCare`,
+  `Route121_SafariZoneEntrance`) estão todos na POSIÇÃO 0, então nenhum `mapNum`
+  se moveu.
+- **os 679 ids de treinador** (411 de Unova, 268 de Galar) continuam definidos em
+  `opponents.h`. O que saiu foi o TIME, em `trainers.party`. A flag de vitória é
+  `TRAINER_FLAGS_START + id`, então apagar o `#define` seria quebra de save; e
+  `testa_critico.py --treinadores` só reprova apelido USADO por script, então 679
+  ids sem time são inertes.
+- **as 382 flags e as 44 vars** com nome das duas regiões continuam como estão.
+  Elas já eram apelido de `FLAG_UNUSED_*` / `VAR_UNUSED_*`, custam ZERO byte de
+  ROM, e apagar o apelido faz o `guarda_save.py` acusar uma quebra por nome (a
+  save guarda o BIT, e o slot passaria a ter outro dono). As 39 `FLAG_HIDE_DEX_*`
+  de lendário plantado em mapa de Unova também ficam, porque a onda da Dex vai
+  precisar delas para replantar o bicho em outra região.
+- **os 9 slots de MAPSEC** viraram `MAPSEC_RESERVADO_01` a `09` em vez de sumir.
+  `regionMapSectionId` é gravado na save como local de captura do Pokémon;
+  apagá-los empurraria `MAPSEC_SS_AQUA` em três e `MAPSEC_NONE` em nove. Os 112
+  apelidos (`MAPSEC_UNOVA_*`, `MAPSEC_GALAR_*`) saíram do template.
+
+### O que saiu de verdade, item por item
+
+| item | Unova | Galar | total |
+|---|---|---|---|
+| mapas viraram túmulo | 291 | 438 | 729 |
+| layouts encolhidos para 1x1 | 291 | 438 | 729 |
+| pastas de geometria apagadas | 291 | 438 | 729 |
+| pastas de tileset apagadas | 58 | 47 (45 secundários e os primários `galar_00` e `galar_11`) | 105 |
+| entradas em `trainers.party` | 411 | 268 | 679 |
+| chefes de Fase F | 36 | 38 | 74 (de 236 para 162) |
+| heal locations | 18 | 12 | 30 (de 93 para 63) |
+| tabelas de mato | 87 | 0 | 87 |
+| trocas in-game | 9 | 0 | 9 (eram as últimas do enum) |
+| linhas de script dedicado | 0 | 17.625 em 6 arquivos | 17.625 |
+| apelidos de MAPSEC | 70 | 42 | 112 |
+| casos de teste | 114 | 227 | 341 (de 1.088 para 747) |
+
+Mais: o motor de animação de tileset de Unova e o gerado `anims_unova.h`; os 30
+protótipos de `InitTilesetAnim_Unova*`; os seis `def_special` de Quest Log e Help
+System do FireRed, que existiam só para o tradutor de Galar não recusar cena; as
+duas entradas de `sRegioes` no seletor de capítulo e o array `sGinasiosUnova`; e
+as duas faixas de `GetRegionForSectionId` em `include/regions.h`.
+
+### O menu do barco, e por que nenhum `case` foi renumerado
+
+Os destinos 3 (VIRBANK, Unova) e 6 (WEDGEHURST, Galar) saíram de
+`data/scripts/travessia_regioes.inc` e dos quatro portos que ficam. **Os ids 3 e 6
+ficaram VAGOS de propósito**: quem manda é o id que o `dynmultipush` empilha, não a
+posição na lista, então `case 0`, `1`, `2`, `4` e `5` continuam valendo sem um
+caractere de diferença. O tamanho máximo do `dynmultistack` caiu de 7 para 5.
+
+**O que MUDOU foi a contagem de DOWN**, porque o menu encolheu: CANALAVE deixou de
+ser o quarto item visível e passou a ser o terceiro. Três casos foram corrigidos
+(T8.3, T86.2, T86.4) e quatro foram apagados porque a rota deles ATRAVESSAVA o
+Porto de Virbank (T10.2, T86.10, T86.11, T86.12).
+
+### O que NÃO foi tocado, e é decisão medida
+
+- **`include/constants/regions.h` continua com `REGION_UNOVA` e `REGION_GALAR`.**
+  Aquele enum não é a lista de regiões do hack, é a do universo Pokémon, e
+  `REGION_GALAR` é infraestrutura de FORMA REGIONAL: `src/pokemon.c:6772`
+  (`isGalarianForm`), a evolução de Koffing e de Mime Jr. em
+  `gen_1_families.h`, `test/daycare.c:107` e o rótulo da Dex em
+  `pokedex_plus_hgss.c`. Tirar de lá quebraria Pokémon, não região.
+- **`charmap.txt` continua com `Ã Õ ã õ` em F1, F2, F4 e F5.** A mudança nasceu por
+  causa da fonte de Galar, mas os glifos de `graphics/fonts/latin_*.png` já foram
+  redesenhados e essas são letras do português. Reverter seria trabalho sem ganho.
+- **Nenhuma faixa de música saiu.** Medido varrendo os 2.404 `map.json` do commit
+  anterior: só **5 faixas** eram usadas exclusivamente por mapa de Unova ou Galar
+  (`MUS_CABLE_CAR`, `MUS_DESERT`, `MUS_RG_CYCLING`, `MUS_RG_FOLLOW_ME`,
+  `MUS_RG_VS_GYM_LEADER`), e as cinco são faixas de base do pokeemerald e do
+  FireRed, com uso fora de mapa (`MUS_RG_VS_GYM_LEADER` é `GetBattleBGM`). O
+  orçamento da onda de música é inteiro novo, como o PRD já dizia.
+- **`WorldHub` e `WorldHub2` ficam inteiros.** Medido: um warp cada, os dois para
+  `MAP_NEW_BARK_TOWN`, `region_map_section` `MAPSEC_NEW_BARK_TOWN`. São mapas de
+  Johto e não apontavam para lugar nenhum das duas regiões.
+- **A fala final da Cynthia continua a mesma.** Ela não cita Unova; o que ela diz é
+  "Carry that with you wherever you go next", e a reescrita é a decisão 26, de uma
+  onda posterior. O que esta onda precisava provar é que nada depois do Hall da
+  Fama aponta para as duas regiões, e não aponta: o barco perdeu os dois destinos e
+  `FLAG_SYS_GAME_CLEAR` continua abrindo o Battle Frontier de Hoenn.
+
+### A Dex caiu, e isso é a próxima onda
+
+`censo_dex.py` mediu **1.315 de 1.571 obteníveis**, contra os 1.314 projetados. As
+**256 espécies e formas que perderam toda fonte** estão concentradas na geração 5
+(**171 delas**), e são o insumo da onda de redistribuição: 39 delas nem têm sprite
+de overworld, então não podem virar encontro estático sem obra de arte.
+
+### Armadilhas achadas nesta onda, para quem vier depois
+
+1. **`mapLayoutId` é índice de save e quase ninguém lembra dele.** Foi o achado
+   caro desta onda: a primeira tentativa apagou as entradas de layout e o
+   `guarda_save.py` só reclamou dos mapas, porque o lado velho do número de layout
+   vem de um commit de referência e o deslocamento aparecia lá. Quem apagar layout
+   sem encolher a entrada quebra a save de quem está parado em OUTRA região.
+2. **Filtrar túmulo por nome de pasta não basta.** Toda ferramenta de medição
+   precisa ignorar mapa com `cortado_por`, senão os 729 caem no balde padrão de
+   Hoenn e envenenam a coluna de arte, que mede TODOS os mapas nossos e não só os
+   casados com a fonte.
+3. **Backtick em mensagem de commit é substituição de comando.** O `git commit -m`
+   com a mensagem inline comeu oito nomes de arquivo e o commit saiu com buracos.
+   Mensagem longa vai em arquivo, com `-F`.
+4. **`treinadores_faltantes_b4.py --demo` já estava VERMELHO antes desta onda**, no
+   assert de excesso de Unova. Depois da limpeza ele para no assert seguinte, que é
+   outra defasagem antiga (`RIVAL_CHIKORITA_4` deixou de ser exceção de Johto e o
+   assert manda revisitar a seção 9 do PRD). Nenhum portão roda esse arquivo; fica
+   registrado para não ser confundido com regressão desta onda.
+
+### O que fica aberto
+
+- A onda de quebra de save (`SAVE_LAYOUT_REVISION` 1 para 2) é quem apaga as 729
+  pastas de verdade, compacta os 23 grupos vazios e os 679 ids de treinador, e
+  recupera os 37,7 KB dos túmulos. **Ela não é desta encomenda.**
+- **O T11.3 tem de ser invertido de novo pela onda de quebra de save**, no mesmo
+  commit que subir `SAVE_LAYOUT_REVISION` para 2. Ele hoje exige que a save da ROM
+  anterior CARREGUE; naquele dia o esperado volta a ser
+  `MAP_PALLET_TOWN_PLAYERS_HOUSE_2F` com a `0x2BA` apagada. A instrução está
+  escrita dentro do próprio caso, em `dev_scripts/testes_criticos/40_save.json`.
+- Os geradores de Unova e de Galar continuam em `dev_scripts/`
+  (`importa_unova.py`, `tileset_galar.py`, `mundo_galar.py`, `galar_*.json` e
+  irmãos). Eles não custam ROM, mas rodá-los ressuscitaria as regiões: quem mexer
+  em tileset ou em mapa NÃO deve chamá-los. Apagá-los é decisão do Gui.
 
 ---
 
