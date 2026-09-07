@@ -8,6 +8,184 @@ Aberto em 06/09/2026 pelo preparador da Frente A (Galar), sobre a base `fccccc02
 
 ---
 
+## Sincronia final com o master (07/09/2026): merge de `41f54c50ef`, e A PARTIR DAQUI NUNCA MAIS `git merge master` (mesclador Opus)
+
+**MUDANÇA DE POLÍTICA, e é a coisa mais importante deste arquivo hoje.** Este foi o
+**ÚLTIMO** `git merge master` da branch `cartucho-2`. O condutor do cartucho 1 avisou que a
+remoção de Unova e Galar do `master` começa agora, e merge a partir daqui arrastaria a
+própria remoção para dentro desta branch, que é exatamente o que ela existe para impedir.
+
+**De hoje em diante, conserto de motor entra por `git cherry-pick` seletivo**, conferido no
+começo de cada rodada pela lista de commits **MOTOR** do `ESTADO.md` do `master`. A seção 2
+deste arquivo, que descrevia a política antiga, agora aponta para cá.
+
+O merge foi feito ANTES de qualquer commit de remoção chegar ao `master`, e isso foi
+CONFERIDO no próprio commit, não presumido: `git show 41f54c50ef:data/maps/map_groups.json`
+tem **440 citações de Galar e 335 de Unova**, e a árvore mesclada tem as **438 pastas
+`Galar_*`** de sempre `[V]`.
+
+### O que veio
+
+`41f54c50ef` ("Canalave ganha cais de verdade"), 16 commits à frente da base comum
+`80b064ee91`, **171 arquivos** tocados pelo merge. É a rodada 13 inteira do cartucho 1: as 31
+portas de Johto, o povoamento das 43 cidades, o time de cinco do seletor de capítulo, os
+quatro aparelhos no jogo novo, a compactação de tileset, a lente de carimbo de comportamento
+e os kits de arte de Snowpoint e Canalave.
+
+### Os conflitos, e a resolução de cada um
+
+**Só DOIS arquivos foram tocados pelos dois lados** (`comm` entre `80b064ee91..f7b528aceb` e
+`80b064ee91..41f54c50ef`), e um deles o git casou calado:
+
+| arquivo | o que houve | resolução |
+|---|---|---|
+| `data/event_scripts.s` | conflito de texto, um só: os dois lados anexaram `.include` no FIM da mesma lista | **ficaram os dois lados**, o nosso primeiro (`galar_placas_c.inc`, `galar_portas_fechadas.inc`, `galar_portas_script.inc`, `galar_objetos_i.inc`) e depois os quatro do `master` (`BellchimeTrail_House`, `Route38_FarmHouse`, `Route34_House1`, `EcruteakCity_House3`). Os oito arquivos existem no disco `[V]` |
+| `src/chapter_jump.c` | auto-merge, CONFERIDO campo a campo nos dois sentidos | o time de cinco do `master` (que APAGOU o bloco do Pikachu solo) entrou inteiro, e a nossa `struct ParadaDoHack`, o `sParadasGalar` com as onze paradas e o `NUM_CAPITULOS` que soma paradas ficaram de pé `[V]` |
+
+`ESTADO.md` não deu conflito porque só o `master` o tocou: ficou **byte a byte o do
+`master`** `[V] git show 41f54c50ef:ESTADO.md | diff - ESTADO.md`, que é a regra desta branch.
+
+**Nada a renumerar em var nem em flag.** O `master` NÃO tocou `include/constants/vars.h` nem
+`include/constants/flags.h` nesta faixa de 16 commits `[V] git diff --name-only`, ao
+contrário do merge da onda 2, onde a rodada 13 colidiu de endereço com a onda 1. O
+`guarda_colisao_vars.py` confirma: **0 colisão nova**, 23 herdadas, 0 stub `[V]`.
+
+**Gerador e `dev_scripts/qa/*`: nenhum foi tocado pelos dois lados.** O `master` mexeu em 28
+arquivos de `dev_scripts/` (entre eles `qa/lente_portas.py`, `qa/roda_qa.py`, a nova
+`qa/lente_carimbo.py` e os blocos de teste 182, 183 e 184) e esta branch em nenhum deles, então
+os dois conjuntos entraram inteiros, sem escolha a fazer. Zero marcador de conflito na árvore
+depois da resolução `[V]`.
+
+### A regressão que não era: 4 warps "quebrados" de cabeçalho velho
+
+Rodado logo depois do merge e ANTES do build, o `valida_conectividade.py` acusou **4 warps
+quebrados** onde antes havia 0, todos apontando para as quatro casas novas de Johto
+(`MAP_BELLCHIME_TRAIL_HOUSE`, `MAP_ECRUTEAK_CITY_HOUSE3`, `MAP_ROUTE34_HOUSE1`,
+`MAP_ROUTE38_FARM_HOUSE`) com "mapa de destino nao existe".
+
+**Não era regressão, e a causa é uma armadilha que vale registrar.** O validador lê as
+constantes de `include/constants/map_groups.h` (`tabela_de_constantes`), e esse arquivo é
+**GERADO pelo build e ignorado pelo git** (`include/constants/.gitignore:2`). Depois de um
+merge que acrescenta mapa, ele fica velho no disco: `map_groups.json` já tinha os quatro, o
+cabeçalho ainda não. Depois do `make`, o mesmo comando volta a dizer **0 warps quebrados**
+`[V]`. **Lição para a próxima rodada: métrica que depende de arquivo gerado só vale DEPOIS do
+build; medi-la antes do build acusa defeito que não existe.**
+
+### Os números, antes e depois
+
+Antes = HEAD `f7b528aceb` com o worktree já limpo (a onda 5 saiu para o stash antes de tudo).
+Depois = a árvore mesclada, com as duas linhas de conectividade refeitas depois do build,
+pelo motivo acima.
+
+| medida | antes do merge | depois do merge | comando |
+|---|---|---|---|
+| fila `fila_galar`, pendente | 0 de 3.195 | **0 de 3.195** `[V]` | `python3 dev_scripts/fila_galar.py` |
+| completude Galar, `script` | 76,3% | **76,3%** `[V]` | `python3 dev_scripts/completude.py --detalhe Galar` |
+| completude Galar, `objetos` | 104,9% | **104,9%** `[V]` | idem |
+| completude Galar, `placas` | 103,5% | **103,5%** `[V]` | idem |
+| completude Galar, `mapas` e `warps` | 100,0% | **100,0%** `[V]` | idem |
+| completude Galar, `arte` | 48 (22) | **48 (22)** `[V]` | idem |
+| warps quebrados | 0 | **0** `[V]` (4 antes do build, cabeçalho velho) | `python3 dev_scripts/valida_conectividade.py` |
+| órfãos de Galar | 117 | **117** `[V]` | idem |
+| pendentes de fonte à vista | 40 | **40** `[V]` | idem |
+| alcance geral | 2.076 de 2.289 | **2.080 de 2.293** `[V]` (as 4 casas de Johto do `master`) | idem |
+| becos sem saída | 14 | **14** `[V]` | idem |
+| `checa_scripts`, travas | 13, nenhuma em Galar | **13, nenhuma em Galar** `[V]` | `python3 dev_scripts/qa/checa_scripts.py` |
+| `checa_scripts`, **C28** em Galar | 0 | **0** `[V]` (C28 não aparece na saída: zero achado em TODAS as regiões) | idem |
+| `checa_scripts`, Galar | 296 | **296** `[V]` | idem |
+| `checa_scripts`, total | 4.440 | **4.440** `[V]` | idem |
+| `checa_texto`, T07 de Galar | 1 | **1** `[V]` | `python3 dev_scripts/qa/checa_texto.py` |
+| `checa_texto`, português em Galar | 1 | **1** `[V]` | idem |
+| `checa_texto`, total | 2.125 | **2.143** `[V]` | idem |
+| censo da Dex, Galar | 631 | **631** `[V]` | `python3 dev_scripts/censo_dex.py` |
+| `guarda_colisao_vars`, colisões novas | 0 | **0** `[V]` | `python3 dev_scripts/guarda_colisao_vars.py` |
+| pastas `Galar_*` | 438 | **438** `[V]` | `ls data/maps \| grep -c '^Galar_'` |
+| `lente_warps`, Galar | 128 (P2 48, P4 80) | **128** (P2 48, P4 80) `[V]` | `python3 dev_scripts/qa/lente_warps.py` |
+| `lente_portas`, travas de Galar | 273 | **273**; cartucho 1 em **8** `[V]` | `python3 dev_scripts/qa/lente_portas.py` |
+| `roda_qa --demo` | verde nas SEIS varreduras | **verde nas SETE** `[V]` (a `lente_carimbo` do `master` entrou) | `python3 dev_scripts/qa/roda_qa.py --demo` |
+
+**Os únicos dois números que mexeram são do `master` e estão explicados**, e nenhum é de
+Galar: o alcance subiu 4 porque as 31 portas de Johto trouxeram 4 mapas novos, e o
+`checa_texto` subiu 18 (T01 de 9 para 20, com os 10 novos em Johto; T07 de 1.737 para 1.744,
+com os 7 novos em Sinnoh), tudo do conteúdo que o cartucho 1 escreveu na rodada 13. **Zero
+regressão em Galar.**
+
+### O portão
+
+`[V]` **Build verde**, `EXIT=0`, com o lock tomado por `mkdir` e devolvido com `rm -rf` logo
+depois do `make`. ROM em **96,68% de 32 MB** (EWRAM 86,16%, IWRAM 86,68%), md5
+`b1d10b7f48d2e4f42c16361d3ac8a2cf`.
+
+`[V] python3 dev_scripts/guarda_save.py` -> **SAVE COMPATIVEL**. SaveBlock1 em 14.964 B de
+15.872 (94,3%), **2.404 mapas** (eram 2.377 no lado velho, 27 novos, todos ACRÉSCIMO), 2.261
+ids de treinador e 1.764 apelidos de flag/var conferidos. **O `master` NÃO subiu
+`SAVE_LAYOUT_REVISION` nesta faixa**, então não houve decisão a levar para a condutora.
+
+`[V] python3 dev_scripts/guarda_party.py` -> os **236** chefes da Fase F conferidos em
+`src/data/trainers.party`, todos como a tabela manda.
+
+`[V] T11 3 de 3`, contra `/private/tmp/claude-501/c2-t11-antiga` (md5
+`ac8ed5419ab69cacece45ad6479e6063`, intacta), rodado FORA do lock sobre a cópia da ROM em
+`/private/tmp/claude-501/c2-merge-final/`, com o `pokeemerald.map` copiado ao lado e com o
+MESMO nome de base, que é o que o T11.3 lê.
+
+`[V]` **Suíte inteira: 1.087 de 1.088, ZERO reprovados**, com o T11.3 pulado como sempre (ele
+só prova algo com duas ROMs). **O piso mudou de tamanho, e comparar 1.087 com o 1.061 da onda
+4 é comparar suítes diferentes:** o `master` trouxe 25 casos novos, e o total saiu de 1.063
+para 1.088. Os três blocos novos são o **T182** (as 31 portas de Johto), o **T183** (o time de
+cinco do seletor, com Mega, Z-move, Dynamax, Gigantamax e Terastal) e o **T184** (os quatro
+aparelhos no jogo novo), e os três passaram inteiros nesta árvore `[V]`. **Nem o T176.3, o
+instável conhecido, caiu nesta passada.**
+
+Rodada **bloco a bloco** (118 blocos), fora do lock, sobre a cópia
+`/private/tmp/claude-501/c2-merge-final/pokeemerald.gba`, com o log de cada bloco e o placar
+gravados em `/private/tmp/claude-501/c2-suite-merge/`. O total foi conferido de **três** jeitos
+independentes, e os três deram 1.087: somando os `ok=` do placar, somando os `[OK]` de todos
+os logs e somando as linhas `N/M passaram`. Nenhum log tem `[FALHOU]` nem `[ERRO]` `[V]`.
+
+`[V]` **Varredura de blob antes do push**: o merge não trouxe binário nenhum. O maior arquivo
+acrescentado é `dev_scripts/povoa_cidades.json`, com 3.128 linhas de texto, e não há `.gba`,
+`.sav`, `.nds` nem `.zip` rastreado na árvore. Os arquivos acima de 1 MB são todos herdados do
+upstream (GIF de tutorial, `mgba-rom-test`, `wild_encounters.json`) e do próprio Galar
+(`galar_roteiros.json`), nenhum novo.
+
+`[V]` Os **438 `map.json` de Galar** carregam, 0 falhas.
+
+**O `antes_de_empurrar.sh` NÃO foi rodado nesta passada, e a razão é medida, não preguiça.**
+Ele existe para provar que a ROM buildada é a do COMMIT e não a de um instante da árvore
+suja, e aqui isso já está provado sem ele: entre o build e o commit do diário, o
+`git status --short` tinha **uma linha só**, `ESTADO-CARTUCHO-2.md`, que é documentação e não
+entra em `make`. A ROM `b1d10b7f48d2e4f42c16361d3ac8a2cf` é, portanto, byte a byte a do HEAD.
+Rodá-lo custaria um build limpo inteiro dentro do lock justamente enquanto a sessão do
+cartucho 1 precisa dele para a remoção. Vale lembrar, para quem for rodá-lo na próxima
+rodada, que o portão desta branch já nasceu em **oito verdes de nove**: o vermelho do
+`testa_percurso.py` ("fala com tudo em volta") foi medido na base `8a9ebcb692` e não é de onda
+nenhuma.
+
+---
+
+## PAUSA da onda 5 (06/09/2026, pedido do Gui): trabalho no disco, sem commit
+
+O Gui mandou pausar a onda 5 com os lotes R e S prontos no disco e o fechador
+interrompido antes de aplicar qualquer gerador (sem build, sem lock, sem commit).
+HEAD continua `f7b528aceb` (= origin). O que está sujo no worktree:
+
+- Lote S (pronto): `dev_scripts/liga_orfaos_galar.py` (modo `--escadas --vivos`),
+  `dev_scripts/cenas_galar.py` (`de_para_de_objetos` casa empate de tile por ordem),
+  `dev_scripts/treinadores_galar.py` (`--falta`), `data/maps/Galar_Route1601/map.json` e
+  `Galar_Route1603/map.json` (3 pares de escada com ida e volta), `dev_scripts/onda5_lote_s_pedidos.json`.
+- Lote R (pronto, NADA aplicado nos mapas): `dev_scripts/tabela_gfx_galar.py` (50 gfx
+  destravados, 8 sem arte OVERWORLD), `dev_scripts/onda5_gfx_galar/` (58 PNG e laudo.json;
+  os PNG não entram no commit), `dev_scripts/onda5_lote_r_pedidos.json`.
+- Fechador (INTERROMPIDO no meio): `dev_scripts/gente_galar.py` com a regra "objeto cujo
+  script da fonte tem setwildbattle é do c5, não do G4" PELA METADE. Conferir `--demo` antes
+  de usar; se estiver quebrado, `git checkout dev_scripts/gente_galar.py` e reescrever.
+
+Para retomar: terminar a regra no G4, depois a ordem G4 -> c5 (`estaticos_galar --aplicar`,
+esperado 1.018 ou mais, nunca menos) -> cenas -> objetos -> fala -> `objetos --lote-i` ->
+treinadores -> `fase_f_chefes --aplicar` (obrigatório) -> portas -> `aplica_traducao --dry-run`,
+depois build, T11, suíte (piso 1.061 com T176.3 instável), commits por lote, push, ROM.
+
 ## 0. O PRIMEIRO COMANDO DE TODA RODADA
 
 ```
@@ -1587,10 +1765,20 @@ remote (decisão 39 do Gui).
 
 ## 2. DECISÃO DE DESENHO: como esta branch se sincroniza com a `master`
 
+> **VENCIDA EM 07/09/2026, e o que vale hoje está no topo deste arquivo**, na seção
+> "Sincronia final com o master (07/09/2026): merge de `41f54c50ef`". Resumo de uma linha:
+> **o merge acabou**. O último `git merge master` desta branch já foi feito, antes de a
+> remoção de Unova e Galar entrar na `master`, e daqui em diante conserto de motor entra
+> **só por `git cherry-pick` seletivo**, conferido no começo de cada rodada pela lista de
+> commits **MOTOR** do `ESTADO.md` do `master`. O texto abaixo fica como registro do que
+> valia antes; a metade dele que manda mesclar NÃO vale mais, e quem seguir ela puxa a
+> remoção de Galar para dentro da branch que existe para impedi-la.
+
 Registrada aqui em 06/09/2026, na abertura da branch, porque ela muda o custo de toda
 rodada e não pode ficar na cabeça de ninguém.
 
-**Enquanto o commit de remoção de Unova e Galar NÃO existir na `master`:**
+**Enquanto o commit de remoção de Unova e Galar NÃO existir na `master`** (situação que
+acabou em 07/09/2026)**:**
 
 ```
 git merge master
@@ -1616,7 +1804,8 @@ Galar para dentro desta branch, que é exatamente o que ela existe para impedir.
 `src/battle_setup.c:1258`) **não existe nesta branch**, porque ela mora no working tree
 ainda não commitado da rodada 13 da `master`. Esta branch tem C01 a C27. O primeiro
 `git merge master` depois do commit da rodada 13 traz a C28 junto, e ela é o portão do
-conserto das 12 travas de Galar listadas na seção 3.
+conserto das 12 travas de Galar listadas na seção 3. **Aconteceu:** a C28 entrou no merge da
+onda 2 (`80b064ee91`) e hoje é nativa, com 0 achado em todas as regiões.
 
 ---
 
