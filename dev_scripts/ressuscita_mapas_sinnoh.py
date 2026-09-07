@@ -461,11 +461,25 @@ def demo():
         teste(f"{m} tem map.json em {ANTES} sem `cortado_por`",
               v is not None and "cortado_por" not in json.loads(v))
 
+    # O QUE A SAVE INDEXA NÃO É A LISTA CRUA, e este teste já mediu a lista crua
+    # uma vez, em 07/09/2026, e reprovou sozinho. `mapLayoutId` conta SÓ os
+    # layouts cujo `border_filepath` existe no disco (mapjson.cpp:895), e o
+    # arquivo carrega mais de cem FANTASMAS declarados sem `.bin`, restos da
+    # importação de Johto, que não gastam número. Tirar um fantasma do meio (foi
+    # o que a estação de Saffron exigiu, para a entrada de verdade poder entrar
+    # no fim) muda a lista crua e não move ordinal nenhum. Medir a lista crua
+    # aqui acusaria uma quebra que não existe, que é o jeito mais caro de errar.
     print("3. o ordinal do layout não anda")
-    L = [x["id"] for x in le_json(f"{RAIZ}/data/layouts/layouts.json")["layouts"]]
-    O = [x["id"] for x in json.loads(
-        git_texto("data/layouts/layouts.json"))["layouts"]]
-    teste("layouts.json de hoje começa com a lista inteira de antes do corte",
+    def numerados(js, existe):
+        return [x["id"] for x in json.loads(js)["layouts"]
+                if existe(x["border_filepath"])]
+    L = numerados(open(f"{RAIZ}/data/layouts/layouts.json", encoding="utf-8").read(),
+                  lambda p: os.path.exists(f"{RAIZ}/{p}"))
+    tinha = set(subprocess.run(
+        ["git", "-C", RAIZ, "ls-tree", "-r", "--name-only", ANTES, "data/layouts/"],
+        capture_output=True, text=True).stdout.split())
+    O = numerados(git_texto("data/layouts/layouts.json"), lambda p: p in tinha)
+    teste("os ordinais de antes do corte continuam os mesmos, um a um",
           L[:len(O)] == O)
     teste("nenhum layout a desencolher ficou fora de layouts.json",
           all(i in L for i, _w, _h in layouts_a_desencolher()))
