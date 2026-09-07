@@ -272,9 +272,9 @@
    "w": 34
   },
   "SnowpointCity": {
-   "caminho": "6a36a775d284f598c77773af26f9043f82e7989243b5925474d70da487b7ce34",
+   "caminho": "c2afce56d670dd7c959418fb8572b6220d2459c36466330e002b8a498a3327e9",
    "celulas": 2312,
-   "comportamento": "1946bb4097a9932ff52c8b8ddfef87a8b4bfe443b05fb4c7efc1a67b03141eff",
+   "comportamento": "5bd37e1b48e142e9ce345ce21b21ff6574668cdf9de9b3231107eeb7a0245fd3",
    "h": 68,
    "layout": "LAYOUT_SNOWPOINT_CITY",
    "primario": "gTileset_GeneralSinnoh",
