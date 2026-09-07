@@ -566,8 +566,35 @@ def base_de(guardado):
     return v
 
 
+def _paleta_ainda_e_a_do_kit(kit):
+    """A vaga 12 ainda guarda a paleta deste kit?
+
+    GUARDA acrescentada em 07/09/2026. O `dev_scripts/compacta_paletas.py`
+    reempacotou as sete vagas secundarias de Canalave em quatro, e as cores
+    deste kit, que moravam na vaga 12, foram para a 9 com a ordem trocada; os
+    nibbles dos tiles do kit foram remapeados junto. Reaplicar este script por
+    cima disso escreveria a paleta velha na vaga 12 (onde hoje mora o kit do
+    `porto_canalave_silhueta.py`) e apontaria os metatiles do cais para uma
+    paleta que nao e mais a dele: o cais sairia com as cores erradas, calado.
+    Entao aqui e recusa dura, e o caminho e `--desfazer`, `compacta_paletas.py
+    gTileset_Canalave --desfazer` e refazer a ordem.
+    """
+    caminho = f"{DESTINO}/palettes/%02d.pal" % PAL_NOVA
+    if not os.path.exists(caminho):
+        return False
+    linhas = [l.strip() for l in open(caminho, encoding="utf-8") if l.strip()]
+    cores = [[int(x) for x in l.split()] for l in linhas[3:3 + 16]]
+    return cores == [list(c) for c in kit["paleta"]]
+
+
 def roda(aplicar):
     kit = carrega_kit()
+    if aplicar and not _paleta_ainda_e_a_do_kit(kit):
+        raise SystemExit(
+            "a vaga de paleta %d nao guarda mais a paleta deste kit: o "
+            "compacta_paletas.py ja reempacotou o gTileset_Canalave e as cores "
+            "do cais mudaram de vaga. Reaplicar aqui estragaria o desenho. "
+            "Desfaca na ordem inversa antes de mexer." % PAL_NOVA)
     nosso = Nosso()
     guardado = carrega_plano()
     base_tile, _cols = orcamento(kit, guardado)
