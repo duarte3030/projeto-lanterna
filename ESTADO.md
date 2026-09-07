@@ -6,7 +6,7 @@ inteiras. Detalhe fica nos documentos apontados no fim.
 
 Última medição: 07/09/2026, na ROM do CARTUCHO 1 depois da remoção de Unova e Galar,
 `roms/pokemon-claude-2026-09-08-c1-onda1.gba` (md5 `0d244af61d645ebb926e17f5ec4c8947`), HEAD
-`517322bedd`. Build limpo verde, **SAVE COMPATIVEL**, **suíte 745 de 747** (o único vermelho é o
+`2c647ac999`. Build limpo verde, **SAVE COMPATIVEL**, **suíte 747 de 749** (o único vermelho é o
 T176.3, instável e nomeado desde a rodada 13) e ROM em **88,17%**, com 3.969.304 B livres. A seção
 0.w abaixo é a passagem de bastão dela; a 0.v e a 0.u são as da rodada 13, e a 0.t a da rodada 12.
 
@@ -20,20 +20,20 @@ Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 
 ### Placar, medido nos dois lados
 
-| medida | antes (`41f54c50ef`) | depois (`517322bedd`) |
+| medida | antes (`41f54c50ef`) | depois (`2c647ac999`) |
 |---|---|---|
 | ROM usada | 32.384.728 B (96,51%) | **29.585.128 B (88,17%)** |
 | ROM livre | 1.169.704 B | **3.969.304 B** |
 | EWRAM | 225.856 B (86,16%) | 225.856 B (86,16%) |
 | IWRAM | 28.400 B (86,67%) | 28.392 B (86,65%) |
-| arquivos versionados | 39.805 | **36.081** (menos 3.724) |
+| arquivos versionados | 39.805 | **36.082** (menos 3.723) |
 | `guarda_save.py` | SAVE COMPATIVEL | **SAVE COMPATIVEL** |
 | `valida_rom.py` | 2.404 mapas, 2.054 layouts | 2.404 mapas, 2.054 layouts |
 | warps quebrados | 0 | **0** |
 | `valida_warp_tile --piso 60` | Hoenn 93,4 Kanto 79,4 Sinnoh 98,1 Johto 91,0 | idênticos, e sem a linha de Unova |
 | travas do `roda_qa.py` | Kanto 5, Johto 2, Hoenn 2, Sinnoh 8, comum 13, Unova 25, Galar 268 | **Kanto 5, Johto 2, Hoenn 2, Sinnoh 8, comum 13** |
-| casos na suíte | 1.088 | 747 |
-| suíte | 1.085 de 1.088 | **745 de 747** |
+| casos na suíte | 1.088 | 749 (747 herdados mais os dois novos do T185) |
+| suíte | 1.085 de 1.088 | **747 de 749** |
 | T11 (save da ROM anterior na nova) | não se aplica (é o par das duas ROMs) | **3 de 3** |
 | Dex obtenível | 1.571 de 1.571 | **1.315 de 1.571** |
 
@@ -42,8 +42,11 @@ A ROM devolveu **2.799.600 B (2,80 MB, 2,67 MiB)**, contra os 2.405.300 B que o
 729 mapas, que a projeção contou símbolo a símbolo e aqui saiu inteiro.
 
 **As duas suítes foram rodadas na mesma máquina e comparadas CASO A CASO, não por
-placar**: 341 casos sumiram (os de Unova e de Galar), **zero caso novo, e ZERO
-regressão**, ou seja nenhum caso que passava antes reprova agora. O único vermelho
+placar**, e o placar bloco a bloco está gravado em
+`roms/c1-placar-bloco-a-bloco.txt`: 341 casos sumiram (os de Unova e de Galar),
+**ZERO regressão**, ou seja nenhum caso que passava antes reprova agora. Depois
+dessa comparação entraram os dois casos novos do bloco T185, o par adversarial do
+menu do barco, rodados à parte: 2 de 2. O único vermelho
 de hoje é o **T176.3, o instável já nomeado na seção 0.u**. O antes tinha um
 segundo vermelho, o T183.5, e ele era um dos casos que rodavam em mapa de Galar,
 então saiu com a região.
