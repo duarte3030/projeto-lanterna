@@ -23,11 +23,6 @@
       "map": "MAP_ROUTE41",
       "offset": -25,
       "direction": "down"
-    },
-    {
-      "map": "MAP_TRAINER_HILL_COURTYARD",
-      "offset": -2,
-      "direction": "up"
     }
   ],
   "object_events": [
@@ -360,31 +355,20 @@
       "x": 11,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_GATE_ROUTE40_TRAINER_HILL_COURTYARD",
+      "dest_map": "MAP_ROUTE40_BATTLE_TOWER",
       "dest_warp_id": "0"
-    },
-    {
-      "x": 11,
-      "y": 5,
-      "elevation": 0,
-      "dest_map": "MAP_GATE_ROUTE40_TRAINER_HILL_COURTYARD",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 12,
-      "y": 5,
-      "elevation": 0,
-      "dest_map": "MAP_GATE_ROUTE40_TRAINER_HILL_COURTYARD",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 10,
-      "y": 5,
-      "elevation": 0,
-      "dest_map": "MAP_GATE_ROUTE40_TRAINER_HILL_COURTYARD",
-      "dest_warp_id": "1"
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Common_EventScript_PortaFechada",
+      "origem": "face norte da guarita cortada (decisao 29 do Gui, onda 4)"
+    }
+  ]
 }

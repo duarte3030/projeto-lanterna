@@ -39,10 +39,16 @@ SevenIsland_TrainerTower_Text_RodettePostBattle::
 	.string "Could it be that they're waiting\n"
 	.string "for you?$"
 
+@ A TORRE saiu do escopo (decisão 28 do Gui, cartucho 1 onda 4): os onze mapas
+@ de dentro viraram túmulo e o warp da porta foi apagado. A ILHA fica, e o
+@ prédio continua desenhado, então a placa deixou de convidar para um desafio
+@ que não existe mais. A porta em si (58,7) leva à placa ÚNICA do projeto,
+@ `Common_EventScript_PortaFechada`.
 SevenIsland_TrainerTower_Text_TrainerTowerSign::
 	.string "TRAINER TOWER ENTRANCE\n"
-	.string "Rise to the Challenge, TRAINERS!$"
+	.string "Closed. No challenges are being held.$"
 
 SevenIsland_TrainerTower_Text_TrainerTowerAhead::
-	.string "TRAINER TOWER AHEAD$"
+	.string "TRAINER TOWER AHEAD\n"
+	.string "The doors are shut.$"
 

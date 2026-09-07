@@ -10882,3 +10882,17 @@
 // o "uma vez so". Apelido de FLAG_UNUSED que ja existe, entao FLAGS_COUNT nao
 // muda e a save fica intacta (mesmo raciocinio dos apelidos acima).
 #define FLAG_RECEBEU_PASSE_DO_TREM                           FLAG_UNUSED_0x1BB9
+// >>> Battle Tower de Olivine (cartucho 1, onda 4, decisão 30 do Gui) >>>
+// UMA flag, e ela existe por UMA linha: o `warp` do fim da série de sete lutas,
+// em `BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobby`, era o
+// único ponto do motor de Battle Tower do Emerald que cravava o saguão de
+// Hoenn. Todo o resto do motor já perguntava ao `dynamicWarp`, que
+// `InitTowerChallenge` (`src/battle_tower.c:722`) grava com o saguão de onde o
+// jogador entrou. O atendente de Olivine acende esta flag e os quatro
+// atendentes de Hoenn a apagam, então quem sai da sétima luta volta para a
+// porta por onde entrou.
+// Apelido de FLAG_UNUSED, medida livre por dev_scripts/flags_livres.py em
+// 07/09/2026 (faixa 0x2180 a 0x319D, 4.126 flags): não mexe em FLAGS_COUNT,
+// logo custo ZERO de save, e a janela de save está FECHADA nesta onda.
+#define FLAG_TORRE_OLIVINE_EM_DESAFIO                        FLAG_UNUSED_0x2180
+// <<< Battle Tower de Olivine <<<

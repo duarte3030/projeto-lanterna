@@ -130,7 +130,6 @@
     }
   ],
   "destinos_dinamicos": [
-    "MAP_ROUTE111",
-    "MAP_TRAINER_HILL_COURTYARD"
+    "MAP_ROUTE111"
   ]
 }

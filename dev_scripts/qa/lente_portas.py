@@ -136,7 +136,8 @@ DO_CARTUCHO_1 = REGIOES
 # EXPLICAR isso ao jogador, que era o defeito de verdade (`data/scripts/
 # portas_fechadas.inc`).
 SCRIPTS_DE_PLACA = {"Common_EventScript_PortaFechada",
-                    "Common_EventScript_BocaFechada"}
+                    "Common_EventScript_BocaFechada",
+                    "Common_EventScript_CaisFechado"}
 
 # ---------------------------------------------------------------------------
 # LISTA BRANCA: porta sem warp que é DESENHO, não defeito. Uma linha por caso,

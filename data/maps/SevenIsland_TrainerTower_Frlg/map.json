@@ -51,18 +51,8 @@
       "flag": "0"
     }
   ],
-  "warp_events": [
-    {
-      "x": 58,
-      "y": 7,
-      "elevation": 3,
-      "dest_map": "MAP_TRAINER_TOWER_LOBBY",
-      "dest_warp_id": "1"
-    }
-  ],
-  "coord_events": [
-
-  ],
+  "warp_events": [],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "hidden_item",
@@ -109,6 +99,15 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SevenIsland_TrainerTower_EventScript_TrainerTowerAheadSign"
+    },
+    {
+      "type": "sign",
+      "x": 58,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Common_EventScript_PortaFechada",
+      "origem": "porta fechada (onda4_torre_e_praca.py)"
     }
   ]
 }

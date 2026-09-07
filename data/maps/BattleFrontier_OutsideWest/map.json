@@ -419,13 +419,6 @@
       "elevation": 0,
       "dest_map": "MAP_ARTISAN_CAVE_B1F",
       "dest_warp_id": "0"
-    },
-    {
-      "x": 20,
-      "y": 68,
-      "elevation": 0,
-      "dest_map": "MAP_TRAINER_HILL_COURTYARD",
-      "dest_warp_id": "4"
     }
   ],
   "coord_events": [],
@@ -469,6 +462,15 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Common_EventScript_ShowPokemartSign"
+    },
+    {
+      "type": "sign",
+      "x": 20,
+      "y": 68,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Common_EventScript_CaisFechado",
+      "origem": "cais sem barco: a praca da Route 40 saiu (decisao 29 do Gui, onda 4)"
     }
   ]
 }

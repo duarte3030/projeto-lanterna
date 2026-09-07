@@ -1895,7 +1895,8 @@
     "SafariZoneGate_PokemonCenter",
     "SafariZoneGate_SafariZoneEntrance",
     "Route27_House",
-    "MtSilver_PokemonCenter"
+    "MtSilver_PokemonCenter",
+    "Route40_BattleTower"
   ],
   "gMapGroup_IndoorKantoRoutes_Johto": [
     "Route26_House1",

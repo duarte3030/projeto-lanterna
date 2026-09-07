@@ -110,7 +110,6 @@
     }
   ],
   "destinos_dinamicos": [
-    "MAP_SLATEPORT_CITY",
-    "MAP_TRAINER_HILL_COURTYARD"
+    "MAP_SLATEPORT_CITY"
   ]
 }

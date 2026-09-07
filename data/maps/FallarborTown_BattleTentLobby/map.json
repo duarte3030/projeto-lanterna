@@ -110,7 +110,6 @@
     }
   ],
   "destinos_dinamicos": [
-    "MAP_FALLARBOR_TOWN",
-    "MAP_TRAINER_HILL_COURTYARD"
+    "MAP_FALLARBOR_TOWN"
   ]
 }

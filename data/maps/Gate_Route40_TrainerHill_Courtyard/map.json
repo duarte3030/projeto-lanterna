@@ -3,7 +3,7 @@
   "name": "Gate_Route40_TrainerHill_Courtyard",
   "layout": "LAYOUT_GATE_ROUTE40_TRAINER_HILL_COURTYARD",
   "music": "MUS_HG_ROUTE38",
-  "region_map_section": "MAPSEC_ROUTE_40",
+  "region_map_section": "MAPSEC_NONE",
   "map_name_popup": "ROUTE 40",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -13,38 +13,11 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
-  "object_events": [
-    {
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
-      "x": 9,
-      "y": 4,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
-      "movement_range_x": 1,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "LilycoveCity_DepartmentStoreRooftop_EventScript_SubstituteTutor",
-      "flag": "0"
-    }
-  ],
-  "warp_events": [
-    {
-      "x": 7,
-      "y": 9,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE40",
-      "dest_warp_id": "9"
-    },
-    {
-      "x": 7,
-      "y": 1,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE40",
-      "dest_warp_id": "10"
-    }
-  ],
+  "connections": null,
+  "object_events": [],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "destinos_dinamicos": [],
+  "cortado_por": "decisoes 28 e 29 do Gui, cartucho 1 onda 4 (torre de Sevii e praca da Route 40)"
 }

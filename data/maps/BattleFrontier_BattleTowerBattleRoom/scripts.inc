@@ -401,12 +401,28 @@ BattleFrontier_BattleTowerBattleRoom_Movement_AnabelEnter:
 	face_left
 	step_end
 
+@ A ÚNICA linha do motor de Battle Tower que cravava um saguão. Tudo o mais
+@ já perguntava ao `dynamicWarp`, que `InitTowerChallenge`
+@ (`src/battle_tower.c:722`) grava com o mapa e o TILE de onde o desafio
+@ começou. Como a Battle Tower de Olivine (`MAP_ROUTE40_BATTLE_TOWER`, decisão
+@ 30 do Gui) roda por este mesmo motor, a volta passou a perguntar de qual das
+@ duas portas o jogador entrou. Só o caminho de SINGLES pergunta, porque
+@ Olivine só oferece singles; duplas, multi e multi por cabo continuam sendo
+@ coisa de Hoenn e continuam voltando cravadas.
 BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobby::
 	copyvar VAR_RESULT, VAR_FRONTIER_BATTLE_MODE
 	goto_if_eq VAR_RESULT, FRONTIER_MODE_DOUBLES, BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobbyDoubles
 	goto_if_eq VAR_RESULT, FRONTIER_MODE_MULTIS, BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobbyMultis
 	goto_if_eq VAR_RESULT, FRONTIER_MODE_LINK_MULTIS, BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobbyLinkMultis
+	goto_if_set FLAG_TORRE_OLIVINE_EM_DESAFIO, BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToOlivineTower
 	warp MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY, 6, 6
+	waitstate
+	end
+
+@ (6,6) é o tile em frente ao atendente, o mesmo do saguão de Hoenn: os dois
+@ mapas dividem `LAYOUT_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY`.
+BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToOlivineTower::
+	warp MAP_ROUTE40_BATTLE_TOWER, 6, 6
 	waitstate
 	end
 

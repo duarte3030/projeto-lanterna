@@ -166,10 +166,20 @@ BattleFrontier_BattleTowerLobby_EventScript_SetBravoTrainerOn::
 	setvar VAR_BRAVO_TRAINER_BATTLE_TOWER_ON, TRUE
 	return
 
+@ >>> Battle Tower de Olivine (onda 4) >>>
+@ Os quatro atendentes daqui APAGAM `FLAG_TORRE_OLIVINE_EM_DESAFIO`, e o
+@ atendente de `Route40_BattleTower` a acende. É por essa flag que
+@ `BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobby` sabe para
+@ qual das duas portas devolver o jogador no fim da série de sete lutas.
+@ Apagar aqui é o que garante que quem entra por Hoenn sai por Hoenn,
+@ mesmo tendo passado antes pela torre de Olivine.
+@ <<< Battle Tower de Olivine <<<
+
 BattleFrontier_BattleTowerLobby_EventScript_SinglesAttendant::
 	lock
 	faceplayer
 	setvar VAR_FRONTIER_FACILITY, FRONTIER_FACILITY_TOWER
+	clearflag FLAG_TORRE_OLIVINE_EM_DESAFIO
 	special SavePlayerParty
 	msgbox BattleFrontier_BattleTowerLobby_Text_WelcomSingleBattle, MSGBOX_DEFAULT
 BattleFrontier_BattleTowerLobby_EventScript_AskEnterSinglesChallenge::
@@ -233,6 +243,7 @@ BattleFrontier_BattleTowerLobby_EventScript_DoublesAttendant::
 	lock
 	faceplayer
 	setvar VAR_FRONTIER_FACILITY, FRONTIER_FACILITY_TOWER
+	clearflag FLAG_TORRE_OLIVINE_EM_DESAFIO
 	special SavePlayerParty
 	msgbox BattleFrontier_BattleTowerLobby_Text_WelcomeDoubleBattle, MSGBOX_DEFAULT
 BattleFrontier_BattleTowerLobby_EventScript_AskEnterDoublesChallenge::
@@ -296,6 +307,7 @@ BattleFrontier_BattleTowerLobby_EventScript_MultisAttendant::
 	lock
 	faceplayer
 	setvar VAR_FRONTIER_FACILITY, FRONTIER_FACILITY_TOWER
+	clearflag FLAG_TORRE_OLIVINE_EM_DESAFIO
 	clearflag FLAG_CHOSEN_MULTI_BATTLE_NPC_PARTNER
 	special SavePlayerParty
 	msgbox BattleFrontier_BattleTowerLobby_Text_WelcomeMultiBattle, MSGBOX_DEFAULT
@@ -360,6 +372,7 @@ BattleFrontier_BattleTowerLobby_EventScript_LinkMultisAttendant::
 	lock
 	faceplayer
 	setvar VAR_FRONTIER_FACILITY, FRONTIER_FACILITY_TOWER
+	clearflag FLAG_TORRE_OLIVINE_EM_DESAFIO
 	special SavePlayerParty
 	msgbox BattleFrontier_BattleTowerLobby_Text_WelcomeLinkMultiBattle, MSGBOX_DEFAULT
 BattleFrontier_BattleTowerLobby_EventScript_AskEnterLinkMultisChallenge::

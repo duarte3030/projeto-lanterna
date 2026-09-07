@@ -31,3 +31,17 @@ Common_EventScript_BocaFechada::
 
 Common_EventScript_BocaFechada_Text:
 	.string "The cave mouth is blocked by fallen rocks.$"
+
+@ Cais sem barco (07/09/2026, cartucho 1 onda 4). O píer oeste da Battle
+@ Frontier embarcava para a praça `TrainerHill_Courtyard`, ao norte da Route 40,
+@ que a decisão 29 do Gui tirou do jogo: prédio em Johto não leva a facility de
+@ Hoenn, e o caminho valia nos dois sentidos. O tile de embarque continua
+@ desenhado e agora explica por que ninguém embarca. Frase própria, e não a
+@ placa de obras, pela mesma razão que a boca de caverna tem a dela: píer não
+@ está em obra.
+Common_EventScript_CaisFechado::
+	msgbox Common_Text_CaisFechado, MSGBOX_SIGN
+	end
+
+Common_Text_CaisFechado:
+	.string "No ferry runs from this berth.$"

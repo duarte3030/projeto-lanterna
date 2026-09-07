@@ -1962,6 +1962,7 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/Route39_Barn/scripts.inc"
 	.include "data/maps/Route39_FarmHouse/scripts.inc"
 	.include "data/maps/Route40/scripts.inc"
+	.include "data/maps/Route40_BattleTower/scripts.inc"
 	.include "data/maps/Route41/scripts.inc"
 	.include "data/maps/Route42/scripts.inc"
 	.include "data/maps/Route43/scripts.inc"

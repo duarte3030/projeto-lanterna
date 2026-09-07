@@ -4,7 +4,7 @@
   "layout": "LAYOUT_TRAINER_TOWER_ELEVATOR",
   "music": "MUS_RG_TRAINER_TOWER",
   "region": "REGION_KANTO",
-  "region_map_section": "MAPSEC_TRAINER_TOWER_2",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -16,24 +16,9 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
   "object_events": [],
-  "warp_events": [
-    {
-      "x": 2,
-      "y": 5,
-      "elevation": 3,
-      "dest_map": "MAP_DYNAMIC",
-      "dest_warp_id": "WARP_ID_DYNAMIC"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": [
-    {
-      "type": "sign",
-      "x": 0,
-      "y": 2,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "TrainerTower_Elevator_EventScript_FloorSelect"
-    }
-  ]
+  "bg_events": [],
+  "destinos_dinamicos": [],
+  "cortado_por": "decisoes 28 e 29 do Gui, cartucho 1 onda 4 (torre de Sevii e praca da Route 40)"
 }
