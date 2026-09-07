@@ -32,7 +32,7 @@
 //
 // PARA QUE SERVE
 //
-// Retestar qualquer trecho das cinco regiões sem recomeçar save. O jogador
+// Retestar qualquer trecho das quatro regiões sem recomeçar save. O jogador
 // escolhe região e depois capítulo, e o jogo o coloca na cidade daquele
 // capítulo com o estado mínimo de quem acabou de chegar lá: as insígnias e os
 // líderes ANTERIORES resolvidos, nada mais.
@@ -47,8 +47,8 @@
 //
 // POR QUE UMA TABELA E NÃO UM ROTEIRO POR CAPÍTULO
 //
-// São 50 capítulos (5 regiões x (1 início + 8 ginásios + 1 Liga)). Escritos à
-// mão em .inc seriam 50 blocos quase iguais, e capítulo novo custaria um bloco
+// São 40 capítulos (4 regiões x (1 início + 8 ginásios + 1 Liga)). Escritos à
+// mão em .inc seriam 40 blocos quase iguais, e capítulo novo custaria um bloco
 // novo. Aqui cada ginásio é UMA LINHA, e a lista dos menus é gerada dela: o
 // nome do capítulo, o destino e as flags saem todos do mesmo lugar, então não
 // existe o erro clássico de acrescentar o capítulo na lista e esquecer da flag.
@@ -88,7 +88,7 @@ struct GinasioDoHack
     u16 flagDerrotado;
     // TRAINER_*, ou 0. Acender a flag do treinador é o que faz o líder parar de
     // desafiar de novo nas regiões cujo ginásio pergunta `goto_if_defeated` em
-    // vez de ler uma FLAG_DEFEATED_* própria (Johto, Sinnoh e Unova).
+    // vez de ler uma FLAG_DEFEATED_* própria (Johto e Sinnoh).
     u16 treinador;
     // 0 quando o ginásio não tem trava de enredo FORA dele. Quando tem, é a
     // flag do acontecimento que precisa ter acontecido para o jogador CHEGAR
@@ -106,10 +106,10 @@ struct RegiaoDoHack
     const u8 *nome;
     // Onde a região começa NESTE hack. Ver a nota de cada região.
     struct DestinoDeCapitulo inicio;
-    // A Liga daquela região, ou healLocation 0 quando a região ainda NÃO TEM
-    // Liga nesta ROM. É o caso de Galar, que entrou só com a geometria (a fase
-    // de conteúdo é que traz ginásios e Liga): oferecer "Before Pokémon League"
-    // ali seria capítulo mentiroso, então o menu dela tem uma linha só.
+    // A Liga daquela região, ou healLocation 0 quando a região NÃO TEM Liga
+    // nesta ROM. No cartucho 1 as quatro regiões têm Liga, e o campo continua
+    // porque oferecer "Before Pokémon League" numa região sem Liga seria
+    // capítulo mentiroso.
     struct DestinoDeCapitulo liga;
     const struct GinasioDoHack *ginasios;
     u8 numGinasios;
@@ -197,36 +197,14 @@ static const struct GinasioDoHack sGinasiosSinnoh[] =
 };
 
 // ----------------------------------------------------------------------------
-// UNOVA
-// ----------------------------------------------------------------------------
-// Insígnias: FLAG_BADGE_UNOVA_*, uma por cidade, sem numeração no nome. A ORDEM
-// abaixo é a que a própria ROM declara na Rota 23, onde oito guardas conferem
-// uma insígnia cada, em fila: Rt23East pergunta LENTIMAS, CASTELIA, VIRBANK,
-// ASPERTIA, STRIATON e MISTRALTON (rótulos R23Badge1..6), Rt23West pergunta
-// OPELUCID (R23Badge7) e o portão pergunta HUMILAU (a oitava, que também é a
-// que o bloqueio de Undella Town cobra).
-// Sem FLAG_DEFEATED_* por líder: os ginásios usam `goto_if_defeated`.
-static const struct GinasioDoHack sGinasiosUnova[] =
-{
-    { COMPOUND_STRING("SHAUNTAL"), CURA(HEAL_LOCATION_UNOVA_LENTIMAS),   FLAG_BADGE_UNOVA_LENTIMAS,   0, TRAINER_UNOVA_LEADER_SHAUNTAL },
-    { COMPOUND_STRING("BURGH"),    CURA(HEAL_LOCATION_UNOVA_CASTELIA),   FLAG_BADGE_UNOVA_CASTELIA,   0, TRAINER_UNOVA_LEADER_BURGH },
-    { COMPOUND_STRING("ROXIE"),    CURA(HEAL_LOCATION_UNOVA_VIRBANK),    FLAG_BADGE_UNOVA_VIRBANK,    0, TRAINER_UNOVA_LEADER_ROXIE },
-    { COMPOUND_STRING("CHEREN"),   CURA(HEAL_LOCATION_UNOVA_ASPERTIA),   FLAG_BADGE_UNOVA_ASPERTIA,   0, TRAINER_UNOVA_LEADER_CHEREN },
-    { COMPOUND_STRING("CILAN"),    CURA(HEAL_LOCATION_UNOVA_STRIATON),   FLAG_BADGE_UNOVA_STRIATON,   0, TRAINER_UNOVA_LEADER_CILAN },
-    { COMPOUND_STRING("SKYLA"),    CURA(HEAL_LOCATION_UNOVA_MISTRALTON), FLAG_BADGE_UNOVA_MISTRALTON, 0, TRAINER_UNOVA_LEADER_SKYLA },
-    { COMPOUND_STRING("DRAYDEN"),  CURA(HEAL_LOCATION_UNOVA_OPELUCID),   FLAG_BADGE_UNOVA_OPELUCID,   0, TRAINER_UNOVA_LEADER_DRAYDEN },
-    { COMPOUND_STRING("MARLON"),   CURA(HEAL_LOCATION_UNOVA_HUMILAU),    FLAG_BADGE_UNOVA_HUMILAU,    0, TRAINER_UNOVA_LEADER_MARLON },
-};
-
-// ----------------------------------------------------------------------------
-// As cinco regiões, na ordem em que aparecem no menu
+// As quatro regiões, na ordem em que aparecem no menu
 // ----------------------------------------------------------------------------
 //
 // "Start of region" é o ponto por onde o jogador ENTRA na região NESTE hack, e
 // não a cidade natal do jogo original. Kanto é onde o jogo começa (Pallet Town,
-// src/new_game.c); as outras quatro se alcançam de barco, e os portos estão
+// src/new_game.c); as outras três se alcançam de barco, e os portos estão
 // escritos em data/scripts/travessia_regioes.inc: OLIVINE (Johto), SLATEPORT
-// (Hoenn), CANALAVE (Sinnoh) e VIRBANK (Unova).
+// (Hoenn) e CANALAVE (Sinnoh).
 //
 // A Liga de JOHTO é o mesmo Planalto Índigo de Kanto, e isso não é descuido:
 // data/scripts/travessia_regioes.inc registra que esta ROM não tem uma Elite
@@ -257,32 +235,13 @@ static const struct RegiaoDoHack sRegioes[] =
         CURA(HEAL_LOCATION_POKEMON_LEAGUE_SOUTH),
         sGinasiosSinnoh, ARRAY_COUNT(sGinasiosSinnoh),
     },
-    {
-        COMPOUND_STRING("UNOVA"),
-        CURA(HEAL_LOCATION_UNOVA_VIRBANK),
-        CURA(HEAL_LOCATION_UNOVA_PKMN_LEAGUE),
-        sGinasiosUnova, ARRAY_COUNT(sGinasiosUnova),
-    },
-    // GALAR, 18/08/2026 (G5, decisão 11 do PLANO-OBRAS-GALAR.md). Nesta obra
-    // entrou só a GEOMETRIA da região: zero ginásio com flag e zero Liga, então
-    // o menu dela tem uma linha só, "Start of region". O destino é o Centro
-    // Pokémon de Wedgehurst, que o G3 achou por impressão de layout
-    // (HEAL_LOCATION_GALAR_WEDGEHURST, MAP_GALAR_WEDGEHURST_03): sair pela
-    // porta dele cai na praça de WEDGEHURST_05, que é onde mora o marinheiro da
-    // travessia e de onde se alcança a pé o resto da região.
-    {
-        COMPOUND_STRING("GALAR"),
-        CURA(HEAL_LOCATION_GALAR_WEDGEHURST),
-        CURA(0),
-        NULL, 0,
-    },
 };
 
 #define NUM_REGIOES ARRAY_COUNT(sRegioes)
 
 // Capítulos de uma região: o início, um por ginásio, e a Liga QUANDO EXISTE.
-// Região sem Liga nesta ROM (Galar, por enquanto) tem um capítulo a menos, em
-// vez de uma linha que levaria a lugar nenhum.
+// Região sem Liga teria um capítulo a menos, em vez de uma linha que levaria a
+// lugar nenhum. No cartucho 1 as quatro têm Liga.
 #define TEM_LIGA(r) ((r)->liga.healLocation != 0)
 #define NUM_CAPITULOS(r) ((r)->numGinasios + 1 + (TEM_LIGA(r) ? 1 : 0))
 
@@ -350,7 +309,7 @@ static void EmpilhaCapitulo(const struct RegiaoDoHack *regiao, u32 capitulo)
     MultichoiceDynamic_PushElement(item);
 }
 
-// Nível 1: as cinco regiões e a saída. A última entrada muda de nome conforme a
+// Nível 1: as quatro regiões e a saída. A última entrada muda de nome conforme a
 // porta de entrada: pelo item ela é "EXIT", e no jogo novo ela é
 // "START FROM BEGINNING", que é o que aquele menu significa ali.
 void ChapterJump_MontaListaDeRegioes(void)
@@ -452,8 +411,8 @@ void ChapterJump_AplicaCapitulo(void)
     // constante de compilação e vale 0 aqui (include/constants/global.h:76, o
     // ramo Emerald), então Rock Smash pede a 03 em Kanto também, Strength pede a
     // 04 e Surf a 05, no mapa que for. `flagInsignia` só É a insígnia do
-    // motor em KANTO; Hoenn, Johto e Sinnoh acendem FLAG_INSIGNIA_*, Unova
-    // FLAG_BADGE_UNOVA_* e Galar nada, e nenhuma dessas destrava golpe de campo.
+    // motor em KANTO; Hoenn, Johto e Sinnoh acendem FLAG_INSIGNIA_*, e nenhuma
+    // dessas destrava golpe de campo.
     // Consequência que o playtest batia de frente: pular para "Before CANDICE"
     // entregava um Pikachu com Surf, Rock Smash e Strength que o motor RECUSA, e
     // o jogador de teste não atravessava lago nem quebrava pedra em cinco das

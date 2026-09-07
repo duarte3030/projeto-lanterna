@@ -13,16 +13,14 @@ static inline enum Region GetRegionForSectionId(u32 sectionId)
     if (sectionId >= KANTO_MAPSEC_START && sectionId < MAPSEC_SPECIAL_AREA)
         return REGION_KANTO;
     // >>> Dex completa: as outras regioes (dev_scripts/distribui_dex.py) >>>
-    // MEDIDO em 21/08/2026, e nao lembrado: as tres faixas abaixo sao as unicas
-    // do enum de MAPSEC que pertencem a UMA regiao so. `MAPSEC_SS_AQUA` (entre
-    // Unova e Galar) fica de fora de proposito: e o barco, e ele liga Johto a
-    // Kanto.
+    // MEDIDO em 21/08/2026, e nao lembrado: a faixa abaixo e a unica do enum de
+    // MAPSEC que pertence a UMA regiao so. `MAPSEC_SS_AQUA` fica de fora de
+    // proposito: e o barco, e ele liga Johto a Kanto. As faixas de Unova e de
+    // Galar sairam com as duas regioes no cartucho 1 (07/09/2026); os slots do
+    // enum ficaram como MAPSEC_RESERVADO_*, sem mover indice, porque
+    // `regionMapSectionId` e gravado na save como local de captura.
     if (sectionId >= MAPSEC_SINNOH_WEST && sectionId <= MAPSEC_SINNOH_NORTH)
         return REGION_SINNOH;
-    if (sectionId >= MAPSEC_UNOVA_WEST && sectionId <= MAPSEC_UNOVA_NORTH)
-        return REGION_UNOVA;
-    if (sectionId >= MAPSEC_GALAR_SOUTH && sectionId <= MAPSEC_GALAR_OTHER)
-        return REGION_GALAR;
     // <<< Dex completa <<<
     return REGION_HOENN;
 }

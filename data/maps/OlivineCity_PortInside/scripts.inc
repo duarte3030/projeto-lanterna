@@ -12,11 +12,7 @@ OlivinePort_EventScript_Sailor::
 	switch VAR_RESULT
 	case 1, OlivinePort_EventScript_SailToSlateport
 	case 2, OlivinePort_EventScript_SailToVermilion
-	case 3, OlivinePort_EventScript_SailToVirbank
 	case 4, OlivinePort_EventScript_SailToCanalave
-	@ G5 de Galar: destino 6, atras de FLAG_GALAR_QA_ANDAR. O roteiro e um so,
-	@ compartilhado pelos cinco portos (data/scripts/travessia_regioes.inc).
-	case 6, Travessia_EventScript_ZarparParaGalar
 	msgbox OlivinePort_Text_ComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -69,18 +65,6 @@ OlivinePort_Text_SettingSailToCanalave:
 
 OlivinePort_Text_ComeAgain:
 	.string "Come see me whenever you want to\nsail between the regions.$"
-
-OlivinePort_EventScript_SailToVirbank::
-	msgbox OlivinePort_Text_SettingSailToVirbank, MSGBOX_DEFAULT
-	closemessage
-	warpsilent MAP_UNOVA_VIRBANK_PORT, 4, 6
-	waitstate
-	release
-	end
-
-OlivinePort_Text_SettingSailToVirbank:
-	.string "Setting sail for VIRBANK CITY\n"
-	.string "in UNOVA!$"
 
 @ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
 

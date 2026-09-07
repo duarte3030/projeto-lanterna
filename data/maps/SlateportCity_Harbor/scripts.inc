@@ -276,11 +276,7 @@ SlateportCity_Harbor_EventScript_Sailor::
 	switch VAR_RESULT
 	case 0, SlateportCity_Harbor_EventScript_SailToOlivine
 	case 2, SlateportCity_Harbor_EventScript_SailToVermilion
-	case 3, SlateportCity_Harbor_EventScript_SailToVirbank
 	case 4, SlateportCity_Harbor_EventScript_SailToCanalave
-	@ G5 de Galar: destino 6, atras de FLAG_GALAR_QA_ANDAR. O roteiro e um so,
-	@ compartilhado pelos cinco portos (data/scripts/travessia_regioes.inc).
-	case 6, Travessia_EventScript_ZarparParaGalar
 	msgbox SlateportCity_Harbor_Text_ComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -579,14 +575,3 @@ SlateportCity_Harbor_Text_ThisWillHelpResearch:
 	.string "CAPT. STERN: Thanks, {PLAYER}{KUN}!\n"
 	.string "This will help our research a lot!$"
 
-SlateportCity_Harbor_EventScript_SailToVirbank::
-	msgbox SlateportCity_Harbor_Text_SettingSailToVirbank, MSGBOX_DEFAULT
-	closemessage
-	warpsilent MAP_UNOVA_VIRBANK_PORT, 4, 6
-	waitstate
-	release
-	end
-
-SlateportCity_Harbor_Text_SettingSailToVirbank:
-	.string "Setting sail for VIRBANK CITY\n"
-	.string "in UNOVA!$"

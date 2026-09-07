@@ -330,11 +330,7 @@ VermilionCity_EventScript_FerryMenu::
 	switch VAR_RESULT
 	case 0, VermilionCity_EventScript_SailToOlivine
 	case 1, VermilionCity_EventScript_SailToSlateport
-	case 3, VermilionCity_EventScript_SailToVirbank
 	case 4, VermilionCity_EventScript_SailToCanalave
-	@ G5 de Galar: destino 6, atras de FLAG_GALAR_QA_ANDAR. O roteiro e um so,
-	@ compartilhado pelos cinco portos (data/scripts/travessia_regioes.inc).
-	case 6, Travessia_EventScript_ZarparParaGalar
 	msgbox VermilionCity_Text_ComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -521,18 +517,6 @@ VermilionCity_Text_Route2AideHasPackageForYou::
 	.string "ROUTE 2, {PLAYER}.\p"
 	.string "If you're in the ROUTE 2 area,\n"
 	.string "please look for him.$"
-
-VermilionCity_EventScript_SailToVirbank::
-	msgbox VermilionCity_Text_SettingSailToVirbank, MSGBOX_DEFAULT
-	closemessage
-	warpsilent MAP_UNOVA_VIRBANK_PORT, 4, 6
-	waitstate
-	release
-	end
-
-VermilionCity_Text_SettingSailToVirbank:
-	.string "Setting sail for VIRBANK CITY\n"
-	.string "in UNOVA!$"
 
 @ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
 @ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.

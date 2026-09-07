@@ -1072,7 +1072,7 @@
     },
     {
       "id": "MAPSEC_POKEMON_MANSION",
-      "name": "POKéMON MANSION",
+      "name": "POK\u00e9MON MANSION",
       "x": 4,
       "y": 14,
       "width": 1,
@@ -1088,7 +1088,7 @@
     },
     {
       "id": "MAPSEC_POKEMON_LEAGUE",
-      "name": "POKéMON LEAGUE",
+      "name": "POK\u00e9MON LEAGUE",
       "x": 2,
       "y": 3,
       "width": 1,
@@ -1112,7 +1112,7 @@
     },
     {
       "id": "MAPSEC_POKEMON_TOWER",
-      "name": "POKéMON TOWER",
+      "name": "POK\u00e9MON TOWER",
       "x": 18,
       "y": 6,
       "width": 1,
@@ -1656,24 +1656,24 @@
       "height": 1
     },
     {
-      "id": "MAPSEC_UNOVA_WEST",
-      "name": "UNOVA WEST",
+      "id": "MAPSEC_RESERVADO_01",
+      "name": "RESERVED",
       "x": 0,
       "y": 0,
       "width": 1,
       "height": 1
     },
     {
-      "id": "MAPSEC_UNOVA_EAST",
-      "name": "UNOVA EAST",
+      "id": "MAPSEC_RESERVADO_02",
+      "name": "RESERVED",
       "x": 0,
       "y": 0,
       "width": 1,
       "height": 1
     },
     {
-      "id": "MAPSEC_UNOVA_NORTH",
-      "name": "UNOVA NORTH",
+      "id": "MAPSEC_RESERVADO_03",
+      "name": "RESERVED",
       "x": 0,
       "y": 0,
       "width": 1,
@@ -1688,48 +1688,48 @@
       "height": 1
     },
     {
-      "id": "MAPSEC_GALAR_SOUTH",
-      "name": "GALAR SOUTH",
+      "id": "MAPSEC_RESERVADO_04",
+      "name": "RESERVED",
       "x": 0,
       "y": 0,
       "width": 1,
       "height": 1
     },
     {
-      "id": "MAPSEC_GALAR_CENTRAL",
-      "name": "GALAR CENTRAL",
+      "id": "MAPSEC_RESERVADO_05",
+      "name": "RESERVED",
       "x": 0,
       "y": 0,
       "width": 1,
       "height": 1
     },
     {
-      "id": "MAPSEC_GALAR_NORTH",
-      "name": "GALAR NORTH",
+      "id": "MAPSEC_RESERVADO_06",
+      "name": "RESERVED",
       "x": 0,
       "y": 0,
       "width": 1,
       "height": 1
     },
     {
-      "id": "MAPSEC_GALAR_ISLE_OF_ARMOR",
-      "name": "ISLE OF ARMOR",
+      "id": "MAPSEC_RESERVADO_07",
+      "name": "RESERVED",
       "x": 0,
       "y": 0,
       "width": 1,
       "height": 1
     },
     {
-      "id": "MAPSEC_GALAR_CROWN_TUNDRA",
-      "name": "CROWN TUNDRA",
+      "id": "MAPSEC_RESERVADO_08",
+      "name": "RESERVED",
       "x": 0,
       "y": 0,
       "width": 1,
       "height": 1
     },
     {
-      "id": "MAPSEC_GALAR_OTHER",
-      "name": "GALAR",
+      "id": "MAPSEC_RESERVADO_09",
+      "name": "RESERVED",
       "x": 0,
       "y": 0,
       "width": 1,
