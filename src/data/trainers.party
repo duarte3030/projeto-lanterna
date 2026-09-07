@@ -46059,17 +46059,15 @@ SPECIES_PORYGON
 Level: 89
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-/*=== Treinadores de dentro dos ginasios de Unova (bloco B5, 12/08/2026) ===
-   Os 11 do BW3G que o B4 nao viu, porque na fonte eles sao OBJECTTYPE_SCRIPT com
-   loadtrainer dentro de script de coord_event, e nao OBJECTTYPE_TRAINER.
-   Times: fontes-mapas/bw3g/data/trainers/parties.asm, na ordem da fonte.
-   Nivel = nivel da fonte + 189 (conversao ja usada em Unova; ancorada em
-   TRAINER_UNOVA_YOUNGSTER_R2, cuja fonte 30 e 32 viraram 219 e 221).
-   Sem moves listados, igual aos outros treinadores comuns de Unova: o motor
-   escolhe pelo nivel. Trocas de classe, pelo mesmo criterio do
-   dev_scripts/gera_treinadores_unova.py (a classe mais parecida em papel e
-   visual, porque gen 3 nao tem as classes de gen 5): WAITER vira Gentleman e
-   WAITRESS vira Lady, que sao as duas classes de garcom formal desta build. */
+/*=== SENTINELA VAZIA (era o bloco B5 de Unova, 12/08/2026) ===
+   ESTE MARCADOR ESTA VAZIO DESDE 07/09/2026 E FICA AQUI DE PROPOSITO. Ele
+   guardava os 11 treinadores de dentro dos ginasios de Unova, e eles sairam com
+   a regiao na onda 1 do cartucho 1 (PRD-CARTUCHO-1.md). O marcador NAO pode ser
+   apagado: `troca_acervo()` (dev_scripts/importa_treinadores_johto.py:218) corta
+   do marcador pedido ate o PROXIMO `/*===`, entao sem esta linha o corte do
+   acervo anterior engoliria o TRAINER_JOHTO_EUSINE e tudo que vem depois dele,
+   em silencio. E o mesmo risco que a sentinela do bloco B6, logo abaixo, existe
+   para evitar. Quem apagar isto tem de conferir os dois importadores antes. */
 
 === TRAINER_JOHTO_EUSINE ===
 Name: Eusine
@@ -46326,13 +46324,14 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - MOVE_SHADOW_BALL
 - MOVE_ENDEAVOR
 
-/*=== ACERVO CENAS SINNOH E CAMPEA DE UNOVA (bloco B6, 12/08/2026) ===
+/*=== ACERVO CENAS SINNOH (bloco B6, 12/08/2026; a Campea de Unova saiu em 07/09/2026) ===
    Sentinela acrescentada em 15/08/2026, e ela nao e enfeite: os oito blocos
    abaixo tinham sido apensados DEPOIS do acervo de cenas de Johto sem
    marcador proprio, e `troca_acervo()` corta do marcador pedido ate o
    PROXIMO `/*===`, ou ate o fim do arquivo se nao houver. Sem esta linha, a
    proxima rodada de `porta_cenas_johto.py --treinadores --aplica` apagaria os
-   cinco treinadores de cena de Sinnoh e as tres Campeas de Unova em silencio.
+   cinco treinadores de cena de Sinnoh em silencio. As tres Campeas de Unova, que
+   moravam neste bloco, sairam com a regiao em 07/09/2026.
    O assert de contagem de blocos daquela ferramenta pegou isso antes.
    Comentario em bloco porque o formato .party nao aceita //. */
 
