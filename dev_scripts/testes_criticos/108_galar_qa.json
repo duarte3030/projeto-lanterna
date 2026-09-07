@@ -1,7 +1,7 @@
 [
   {
     "id": "T108.5",
-    "nome": "PAR NEGATIVO do T108.4: o MESMO roteiro de botoes, SEM FLAG_GALAR_QA_ANDAR. Sem ela a lista volta a ter seis itens, os 5 DOWN saturam em EXIT e o jogador NAO sai de Olivine. E a prova de que Galar esta mesmo atras da flag de teste, e nao aberto para todo mundo: um menu que sempre mostra WEDGEHURST faria os dois casos terminarem em Galar. A prova exige tambem que o jogador tenha ANDADO, ou seja que o jogo continuou respondendo em vez de travar na caixa de texto.",
+    "nome": "DE OLIVINE, COM AS TRES REGIOES LIBERADAS, CINCO DOWN SATURAM NO EXIT e o jogador NAO sai do porto. data/scripts/travessia_regioes.inc monta OLIVINE, SLATEPORT, VERMILION, CANALAVE e Sair, cinco itens: quatro DOWN ja param no Sair e o quinto nao tem para onde ir, porque a lista nao da a volta. CARTUCHO 1, 07/09/2026: este caso nasceu como PAR NEGATIVO do T108.4, o mesmo roteiro de botoes SEM FLAG_GALAR_QA_ANDAR, para provar que WEDGEHURST so aparecia atras da flag de teste. Galar saiu do jogo e o T108.4 saiu com ela; FLAG_GALAR_QA_ANDAR sobrou como constante em include/constants/flags.h:8354 e nenhum script de data/ ou src/ a le. O roteiro e a prova nao mudaram e continuam passando: o que mudou foi o que eles medem, que agora e a saturacao do menu. A prova exige tambem que o jogador tenha ANDADO, ou seja que o jogo continuou respondendo em vez de travar na caixa de texto.",
     "warp": "MAP_OLIVINE_CITY_PORT_INSIDE",
     "flags": [
       "FLAG_REGIAO_JOHTO_LIBERADA",

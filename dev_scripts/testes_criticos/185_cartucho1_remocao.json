@@ -1,0 +1,39 @@
+[
+  {
+    "id": "T185.1",
+    "nome": "CARTUCHO 1: COM O MENU CHEIO, O QUARTO DOWN NAO LEVA A LUGAR NENHUM, porque VIRBANK saiu com Unova. Este e o caso adversarial da onda de remocao, e ele mede a coisa que mais podia quebrar calada: o menu do barco entre regioes encolheu de seis destinos para quatro, e os `case` dos quatro portos NAO foram renumerados, porque quem manda e o id que o dynmultipush empilha e nao a posicao na lista. As CINCO flags entram acesas de proposito, inclusive a FLAG_ELITE_SINNOH_VENCIDA, que era exatamente a que abria o destino de Unova: com ela acesa o menu mostra o maximo que este cartucho consegue mostrar, ou seja OLIVINE, SLATEPORT, VERMILION, CANALAVE e Sair. O roteiro e o do T86.2 com um DOWN a mais. ATE 07/09/2026 este mesmo roteiro desembarcava no Porto de Virbank, e era o caso T86.3, que saiu junto com a regiao. Hoje o quarto item e o Sair, entao o A confirma Sair e o jogador CONTINUA em Vermilion. A prova e o mapa somado ao `andou`: sem o `andou` este caso passaria tambem num mundo em que o jogo tivesse travado no menu.",
+    "warp": "MAP_VERMILION_CITY",
+    "warp_id": 4,
+    "flags": [
+      "FLAG_SYS_GAME_CLEAR",
+      "FLAG_REGIAO_JOHTO_LIBERADA",
+      "FLAG_REGIAO_HOENN_LIBERADA",
+      "FLAG_REGIAO_SINNOH_LIBERADA",
+      "FLAG_ELITE_SINNOH_VENCIDA"
+    ],
+    "roteiro": "16:DOWN*3,30:NADA,16:RIGHT,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,60:NADA,16:DOWN,30:NADA,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*4,60:NADA,20:A,900:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERMILION_CITY",
+      "layout": "LAYOUT_VERMILION_CITY",
+      "andou": true
+    }
+  },
+  {
+    "id": "T185.2",
+    "nome": "PAR POSITIVO DO T185.1, e sem ele o outro nao separa `o quarto item e o Sair` de `o menu nem abriu`. MESMO porto, MESMAS cinco flags, MESMO roteiro com UM DOWN A MENOS: tres DOWN param em CANALAVE e o jogador desembarca em Canalave City. Os dois casos juntos fixam o tamanho da lista de hoje: se um destino voltasse a aparecer no meio dela, o T185.2 cairia em outro porto e o T185.1 deixaria de terminar em Vermilion. E o mesmo par que o T87.3 e o T87.4 fazem com o menu FILTRADO por flag; aqui o menu esta CHEIO.",
+    "warp": "MAP_VERMILION_CITY",
+    "warp_id": 4,
+    "flags": [
+      "FLAG_SYS_GAME_CLEAR",
+      "FLAG_REGIAO_JOHTO_LIBERADA",
+      "FLAG_REGIAO_HOENN_LIBERADA",
+      "FLAG_REGIAO_SINNOH_LIBERADA",
+      "FLAG_ELITE_SINNOH_VENCIDA"
+    ],
+    "roteiro": "16:DOWN*3,30:NADA,16:RIGHT,30:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:A,150:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,8:B,120:NADA,60:NADA,16:DOWN,30:NADA,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*3,60:NADA,20:A,900:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_CANALAVE_CITY",
+      "layout": "LAYOUT_CANALAVE_CITY"
+    }
+  }
+]

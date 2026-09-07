@@ -48,7 +48,7 @@
   },
   {
     "id": "T87.4",
-    "nome": "UNOVA CONTINUA FECHADA depois de Sinnoh abrir, que e o bug que este portao existe para matar: sem portao dava para zarpar de Kanto direto para o Porto de Virbank e enfrentar nivel 195 a 255 com time de Kanto. Mesmas flags do T87.3 (so Sinnoh liberada), e o roteiro usa 3 DOWN, que e a posicao de VIRBANK na lista cheia e a que o T86.3 usa para chegar em Unova. Com tres itens no menu o 3 DOWN satura em Sair e o jogador fica em Vermilion. Sem este caso, um portao que filtrasse Canalave certo e deixasse Virbank vazando passaria no T87.2 e no T87.3.",
+    "nome": "TRES DOWN SATURAM NO SAIR quando o menu tem tres itens, e o jogador NAO zarpa de Vermilion. Mesmas flags do T87.3 (so FLAG_REGIAO_SINNOH_LIBERADA acesa), entao data/scripts/travessia_regioes.inc monta uma lista de tres: VERMILION, CANALAVE e Sair. O primeiro DOWN cai em CANALAVE, o segundo no Sair e o terceiro nao tem para onde ir, porque a lista nao da a volta. E o par de saturacao do T87.3, que no MESMO porto e com as MESMAS flags desembarca em Canalave City com UM DOWN: dois roteiros iguais em tudo menos o numero de setas, e so um deles zarpa. CARTUCHO 1, 07/09/2026: ate aqui este caso se chamava 'UNOVA CONTINUA FECHADA depois de Sinnoh abrir' e os 3 DOWN eram a posicao de VIRBANK na lista cheia, o portao que impedia zarpar de Kanto direto para nivel 195 a 255 com time de Kanto. Unova saiu do jogo, o destino VIRBANK saiu do menu e o id 3 ficou vago. O roteiro e a prova nao mudaram e continuam passando: o que mudou foi o que eles medem.",
     "warp": "MAP_VERMILION_CITY",
     "warp_id": 4,
     "flags": [

@@ -85,3 +85,6 @@ data/mb_*.gba
 *.3ds
 *.nds
 *.cia
+
+# ROMs de entrega e seus .map (locais, nunca versionados)
+roms/
