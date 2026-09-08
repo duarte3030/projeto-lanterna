@@ -164,27 +164,139 @@ nenhuma.
 
 ---
 
-## PAUSA da onda 5 (06/09/2026, pedido do Gui): trabalho no disco, sem commit
+## Onda 5 PAUSADA e COMMITADA (07/09/2026): o trabalho do disco vira quatro commits, e a regra do G4 fica pela metade DE PROPÓSITO
 
-O Gui mandou pausar a onda 5 com os lotes R e S prontos no disco e o fechador
-interrompido antes de aplicar qualquer gerador (sem build, sem lock, sem commit).
-HEAD continua `f7b528aceb` (= origin). O que está sujo no worktree:
+Substitui a nota de pausa de 06/09/2026, que dizia que a onda 5 estava só no disco. Ela não
+está mais: o Gui mandou commitar tudo e anotar o estado, e é isto. **Nenhum gerador de conteúdo
+foi rodado com `--aplicar` nesta passada**, então o placar de Galar é o mesmo do merge final,
+e a única coisa que mudou dentro da ROM são seis warps de duas rotas.
 
-- Lote S (pronto): `dev_scripts/liga_orfaos_galar.py` (modo `--escadas --vivos`),
-  `dev_scripts/cenas_galar.py` (`de_para_de_objetos` casa empate de tile por ordem),
-  `dev_scripts/treinadores_galar.py` (`--falta`), `data/maps/Galar_Route1601/map.json` e
-  `Galar_Route1603/map.json` (3 pares de escada com ida e volta), `dev_scripts/onda5_lote_s_pedidos.json`.
-- Lote R (pronto, NADA aplicado nos mapas): `dev_scripts/tabela_gfx_galar.py` (50 gfx
-  destravados, 8 sem arte OVERWORLD), `dev_scripts/onda5_gfx_galar/` (58 PNG e laudo.json;
-  os PNG não entram no commit), `dev_scripts/onda5_lote_r_pedidos.json`.
-- Fechador (INTERROMPIDO no meio): `dev_scripts/gente_galar.py` com a regra "objeto cujo
-  script da fonte tem setwildbattle é do c5, não do G4" PELA METADE. Conferir `--demo` antes
-  de usar; se estiver quebrado, `git checkout dev_scripts/gente_galar.py` e reescrever.
+### Os quatro commits, e o que cada um leva
 
-Para retomar: terminar a regra no G4, depois a ordem G4 -> c5 (`estaticos_galar --aplicar`,
-esperado 1.018 ou mais, nunca menos) -> cenas -> objetos -> fala -> `objetos --lote-i` ->
-treinadores -> `fase_f_chefes --aplicar` (obrigatório) -> portas -> `aplica_traducao --dry-run`,
-depois build, T11, suíte (piso 1.061 com T176.3 instável), commits por lote, push, ROM.
+| commit | o que leva |
+|---|---|
+| `ed697f6a60` | **Lote S.** As escadas da Rota 16 (`Galar_Route1601` e `Galar_Route1603`): os três pares apontavam todos para o warp 0 do outro mapa, e agora casam ida e volta nos warps 1, 2 e 3. Mais `liga_orfaos_galar.py` (modo `--escadas --vivos`), `cenas_galar.py` (`de_para_de_objetos` desempata por ordem quando dois objetos batem no mesmo tile), `treinadores_galar.py` (modo `--falta`) e `onda5_lote_s_pedidos.json` |
+| `61aa657588` | **Lote R.** `tabela_gfx_galar.py` com **50 gráficos destravados** dos 58 olhados (8 ficam fora por não haver arte `OVERWORLD` correspondente), mais `onda5_gfx_galar/laudo.json`, o `LEIA.md` que aponta os PNG e `onda5_lote_r_pedidos.json`. **Nada aplicado nos mapas** |
+| `79b0d83b75` | **`gente_galar.py`, PELA METADE.** A regra do G4 (abaixo), com o `--demo` verde e o `--aplicar` inexistente |
+| este | Este diário |
+
+**Os 58 PNG do lote R não estão no repositório**, e é decisão, não esquecimento: são prova de
+trabalho, nada em `make` os lê, e binário de imagem não entra nesta árvore. Eles moram em
+`/Users/duarte/Projetos/pokemon-claude/fontes-mapas/galar-swsh/onda5-gfx/` (58 arquivos
+`gfx_NNN.png` `[V]`), e o `dev_scripts/onda5_gfx_galar/LEIA.md` diz isso de dentro do repo. O
+`laudo.json`, que é a conclusão em texto, esse sim está commitado.
+
+### O que está pela metade, e a trava contra rodá-lo assim
+
+`dev_scripts/gente_galar.py` traz o **filtro 6**, a régua que separa o encontro estático do
+enfeite mudo: *objeto cuja arte é de Pokémon **E** cujo script da fonte executa `setwildbattle`
+ou `seteventmon` é do bloco c5 (`estaticos_galar.py`), não do G4*. A função `chaves_do_c5()` lê
+a ROM da fonte pelo MESMO decodificador que o c5 usa, para os dois lados nunca discordarem
+sobre quem é o dono da linha. **O `--demo` passa, `EXIT=0`** `[V]`: 1.451 objetos, 33 itens
+escondidos, 4.277 linhas de censo, 33 flags de 0x1C00 a 0x1C20.
+
+**Falta o essencial para usá-la:**
+
+- o modo `--aplicar` está descrito no cabeçalho do arquivo e **NÃO EXISTE no `argparse`**.
+  Quem chamar recebe erro de argumento, e essa é a única boa notícia: não há como ele
+  escrever calado;
+- as três constantes de teto acrescentadas (`TETO_OBJETOS` 64, `JANELA_SPRITE` (20, 17),
+  `TETO_SPRITE` 15) estão declaradas e **ninguém as lê**. Elas existem porque o `--aplicar`
+  cirúrgico precisa cobrá-las: do 16º template dentro de uma janela de sprite o motor desiste
+  CALADO, e acrescentar objeto sem cobrar os dois tetos gravaria fantasma que nenhuma
+  compilação acusa.
+
+**NÃO rodar `gente_galar.py --aplicar` até a regra terminar.** Terminar significa escrever o
+`--aplicar` cirúrgico (ler o `map.json` que existe, preservar byte a byte tudo o que já está
+lá e só ACRESCENTAR no fim da lista) com os dois tetos ligados.
+
+### A RÉGUA QUE NÃO PODE SER ESQUECIDA: 520 objetos com `setwildbattle` são do c5
+
+É a medição que justifica o filtro 6 inteiro, e quem retomar sem ela desfaz o trabalho de uma
+onda inteira. Com a tabela de gfx nova do lote R, o G4 passaria a gravar **1.982 objetos em vez
+de 1.204**, mas **531 desses 778 novos JÁ são encontro do c5**, e o c5 larga o que o G4 já pôs
+no mapa (`if l["no_mapa"]: continue`). Sem o filtro, o placar de estáticos **cairia de 1.018
+para 498**: trocaria **520 encontros jogáveis por 520 enfeites mudos**. Com o filtro, o ganho é
+limpo: 247 objetos que são Pokémon de cenário ou têm script que não é batalha, mais até 11 que
+o c5 recusava e agora pode aceitar.
+
+**As duas condições são necessárias, e a segunda também.** Quatro objetos de arte de GENTE
+(nadadora, mulher, piquenique, operário) têm `setwildbattle` no script da fonte e estão no mapa
+desde a onda 1. Cobrar só o `setwildbattle` apagaria esses quatro sem que o c5 os repusesse,
+porque ele os recusa por espécie sem nome e por opcode indecodificável.
+
+### A ordem de retomada, na íntegra
+
+1. **Terminar a regra do G4** (`--aplicar` cirúrgico com os dois tetos), e só então:
+2. `gente_galar.py --aplicar` (G4);
+3. `estaticos_galar.py --aplicar` (c5), **esperado 1.018 ou mais, NUNCA menos**. Número menor
+   que 1.018 significa que a regra do G4 comeu encontro, e a resposta é desfazer, não seguir;
+4. `cenas_galar.py --aplicar`;
+5. objetos;
+6. fala;
+7. `objetos --lote-i`;
+8. `treinadores_galar.py --aplicar`;
+9. `fase_f_chefes.py --aplicar`, **obrigatório atrás dos treinadores**;
+10. portas;
+11. `aplica_traducao.py --dry-run`;
+12. build com lock, T11, suíte (**piso 1.087 de 1.088**, com o T11.3 pulado), commits por lote,
+    push, e a ROM `06e`.
+
+### Placar de Galar hoje, para quem abrir a próxima sessão
+
+`[V] python3 dev_scripts/completude.py --detalhe Galar`, nesta árvore, hoje:
+
+```
+região         mapas     objetos       warps      placas      script        arte
+Galar         100.0%      104.9%      100.0%      103.5%      76.7%      48 (22)
+```
+
+| medida | valor hoje | comando |
+|---|---|---|
+| completude `script` | **76,7%**, 919 de 1.198 `[V]` | `completude.py --detalhe Galar` |
+| completude `objetos`, `placas`, `mapas`, `warps` | 104,9%, 103,5%, 100,0%, 100,0% `[V]` | idem |
+| completude `arte` | 48 (22) `[V]` | idem |
+| encontros estáticos da fonte já no mapa | **992 de 1.062** `[V]` | idem |
+| fila `fila_galar`, pendente | **0 de 3.195** (feitas 2.183, descartadas 774, adiadas 238) `[V]` | `fila_galar.py` |
+| órfãos de Galar | **117** `[V]` | `valida_conectividade.py` |
+| pendentes de fonte, dentro dos 117 | **40** `[V]` | idem |
+| warps quebrados | **0** `[V]` | idem |
+| alcance geral | **2.080 de 2.293** `[V]` | idem |
+| becos sem saída | **14** `[V]` | idem |
+| censo da Dex, Galar | **631** `[V]` | `censo_dex.py` |
+| `resgate_galar_texto.json` | **195 entradas** `[V]` | leitura direta |
+| portas de script escritas | **39 de 77**, não mexidas nesta onda; os 77 e os quatro baldes (A 5, B 2, C 53, D 17) reconferidos `[V]` | `portas_script_galar.py --demo` |
+| `checa_scripts`, Galar | **296**, total 4.440, 13 travas, nenhuma em Galar, **C28 em 0** `[V]` | `qa/checa_scripts.py` |
+| `checa_texto`, T07 de Galar | **1**, total 2.143 `[V]` | `qa/checa_texto.py` |
+| pastas `Galar_*` | **438**, e os 438 `map.json` carregam, 0 falhas `[V]` | `ls` e leitura em Python |
+
+**A única linha que se mexeu desde o merge final é a `script`, de 76,3% para 76,7%, e não é
+conteúdo novo: é o DENOMINADOR.** Ele caiu de 1.204 para 1.198 porque a tabela de gfx do lote R
+reclassificou seis objetos, que saíram da conta de NPC. O numerador continua **919**. Comparar
+os dois números como se fossem progresso é o mesmo erro da régua nova da onda 4.
+
+### Perguntas abertas ao Gui
+
+As três da onda 1 e a 5 da onda 2 continuam abertas, e a 42 continua como está escrita mais
+abaixo (os **2** textos bloqueados, e a recomendação de os **48 NPCs mudos na fonte** ficarem
+mudos aqui também, saindo dos dois lados da coluna `script`). Somam-se duas:
+
+44. **Abrir as frentes B a E?** A Frente A (Galar) está com a geometria inteira e o conteúdo em
+    obra, e as outras quatro do `PRD-CARTUCHO-2.md` nunca começaram: **B** Unova (Pokécenter
+    largo, estações, trilha própria), **C** Paldea (36 mapas de mundo e os nomes oficiais),
+    **D** Kalos (extrair do XY Demake, e a primeira rodada é de MEDIÇÃO) e **E** Alola (batalha
+    e Dex). É decisão de prioridade sua, não de execução.
+
+45. **Retomar ou descartar a onda 5?** Ela está commitada e reversível: descartar é reverter os
+    três commits de lote; retomar é a lista de doze passos acima, começando por terminar a
+    regra do G4. Enquanto você não disser, ninguém roda `--aplicar` nenhum.
+
+### A política, que não mudou e não muda
+
+**Nunca mais `git merge master` nesta branch.** Conserto de motor entra por `git cherry-pick`
+seletivo, conferido no começo de cada rodada pela lista de commits **MOTOR** do `ESTADO.md` do
+`master`. A seção logo acima explica por quê: o `master` está removendo Unova e Galar, e merge
+arrastaria a remoção para dentro da branch que existe para impedi-la.
 
 ## 0. O PRIMEIRO COMANDO DE TODA RODADA
 
