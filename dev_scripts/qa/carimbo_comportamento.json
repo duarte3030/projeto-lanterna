@@ -42,9 +42,9 @@
    "w": 38
   },
   "CelesticTown": {
-   "caminho": "03af2503bd3064e36ec8883e35e1e23f1565ae1e08dfb3217294ccc549322637",
+   "caminho": "0fbeae27c750500a27e504e473aab4dbe5ab355877840399f98e41805ca2f564",
    "celulas": 1330,
-   "comportamento": "939ab14db76a4b995e68ce79f24ccc2861b80ec1c2668922350d5862d5445263",
+   "comportamento": "fcbf8b769b1948dd076fbc8a10415b0c8a49b9949a9eefe0bad7f9498231925d",
    "h": 35,
    "layout": "LAYOUT_CELESTIC_TOWN",
    "primario": "gTileset_GeneralSinnoh",
@@ -282,9 +282,9 @@
    "w": 34
   },
   "SolaceonTown": {
-   "caminho": "87497a653ea1fd9c8a136d2d04526ba426145409d66070e4ce74715ed09b52a9",
+   "caminho": "6f28cf616cdbd997c2e6360680a5c1afc55a6ad75a10c75de149930b09db0e58",
    "celulas": 2904,
-   "comportamento": "db8ab7dbc636cfb66400d93280a122a34946e7d543c21838d7b02e4ed592e26a",
+   "comportamento": "e52a65353efaee62f0888b5d140f2f525411b227affe1e9c84e2a09432314f8d",
    "h": 44,
    "layout": "LAYOUT_SOLACEON_TOWN",
    "primario": "gTileset_GeneralSinnoh",
