@@ -32,7 +32,31 @@
 // SaveBlock1/2/3 (FLAGS_COUNT, VARS_COUNT, campo novo no meio, reordenação de
 // SPECIES/ITEM/MOVE). Quem diz o que desloca é `dev_scripts/guarda_save.py`.
 // Revisão 1 = onda de janela aberta de 18/08/2026 (FLAGS_COUNT 8248 -> 12856).
-#define SAVE_LAYOUT_REVISION 1
+//
+// Revisão 2 = QUEBRA ÚNICA DE SAVE do cartucho 1, 08/09/2026. Ela junta todas as
+// quebras que o projeto tinha pendentes numa só, de propósito, para matar a save
+// do Gui UMA vez em vez de três, e a promessa que vem junto é que **nenhuma onda
+// posterior tem licença para quebrar de novo**. O que andou, medido por
+// `guarda_save.py` e colado na seção 0.z do ESTADO.md:
+//
+//   - os 812 mapas túmulo saíram do disco: 1.330 mapas mudaram de
+//     `location.mapGroup`/`mapNum` e 565 layouts mudaram de `mapLayoutId`;
+//   - `group_order` virou bloco contíguo por região (Hoenn, Kanto, Johto,
+//     Sinnoh, comum), de 129 grupos para 103;
+//   - os ids de treinador foram compactados e `MAX_TRAINERS_COUNT` caiu de 4.000
+//     para 2.200, o que encolhe `flags[]`;
+//   - a reserva de 467 flags dos itens de Unova saiu, e `FLAGS_COUNT` foi de
+//     12.856 para 10.584;
+//   - os 9 `MAPSEC_RESERVADO_*` saíram, então `regionMapSectionId` (o local de
+//     captura gravado dentro do Pokémon) deslizou;
+//   - `BERRY_TREES_COUNT` subiu de 128 para 178 pelos canteiros de Sinnoh, e
+//     `berryTrees[]` cresceu 400 B, empurrando tudo que vem depois dele.
+//
+// A última ROM que ainda abre a save antiga é
+// `roms/pokemon-claude-2026-09-08-c1-consolidada.gba`
+// (md5 bc5f411d54ba26ade79fd7653a1f082f). Da revisão 2 em diante ela abre em
+// NEW GAME, e o Chapter Jump repõe o progresso.
+#define SAVE_LAYOUT_REVISION 2
 #define SECTOR_SIGNATURE (0x8012025 + SAVE_LAYOUT_REVISION)
 
 #define SPECIAL_SECTOR_SENTINEL 0xB39D

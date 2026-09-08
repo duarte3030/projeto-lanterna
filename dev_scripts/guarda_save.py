@@ -199,10 +199,28 @@ def layouts_do_git(ref=REF_LAYOUT):
     return numeros_de_layout(js, lambda p: p in tinha)
 
 
-# Commit da ROM oficial ANTERIOR (2026-08-19b / rodada 8). Lado velho dos ids
-# de treinador: e o header que a ROM publicada e qualquer save feita nela
-# conhecem.
-REF_TREINADOR = "e5224a3d67"
+# Lado velho dos ids de treinador e dos apelidos de flag e var: o commit cujo
+# leiaute a save GRAVADA conhece.
+#
+# Era `e5224a3d67` (ROM oficial 2026-08-19b, rodada 8) e passou a ser o passo 4
+# da QUEBRA UNICA DE SAVE de 08/09/2026, porque ali a base mudou de propósito:
+# os 679 ids de Unova e Galar sairam, os que ficaram foram renumerados densos e
+# 422 apelidos voltaram ao pool. Manter a referencia velha deixaria este guarda
+# reprovando 1.074 achados PARA SEMPRE, e guarda que sempre reprova nao e
+# guarda: vira barulho que o proximo leitor aprende a ignorar.
+#
+# SO se mexe neste numero em dia de quebra de save ACEITA, junto com
+# `SAVE_LAYOUT_REVISION`. Fora disso, mover a referencia e apagar a prova.
+REF_TREINADOR = "82f70eed39"
+
+# Os ids vivem em DOIS cabecalhos, e este guarda era cego para o segundo ate
+# 08/09/2026: os treinadores de Kanto moram em `opponents_frlg.h` e usam numeros
+# do MESMO espaco de `opponents.h` (1653, 1400, ...). Ler so o primeiro deixava
+# 623 ids fora da conta, ou seja um quarto do espaco sem guarda nenhum.
+CABECALHOS_DE_TREINADOR = (
+    "include/constants/opponents.h",
+    "include/constants/opponents_frlg.h",
+)
 
 
 def ids_de_treinador(texto):
@@ -221,12 +239,26 @@ def ids_de_treinador(texto):
                         texto, re.M)}
 
 
+def ids_de_treinador_do_disco():
+    """{TRAINER_*: id} dos DOIS cabecalhos, como estao na arvore."""
+    saida = {}
+    for arq in CABECALHOS_DE_TREINADOR:
+        saida.update(ids_de_treinador(
+            open(f"{RAIZ}/{arq}", encoding="utf-8").read()))
+    return saida
+
+
 def treinadores_do_git(ref=REF_TREINADOR):
     """Os ids de treinador COMO ERAM no commit de referencia, ou None."""
     import subprocess
-    r = subprocess.run(["git", "show", f"{ref}:include/constants/opponents.h"],
-                       cwd=RAIZ, capture_output=True, text=True)
-    return ids_de_treinador(r.stdout) if r.returncode == 0 else None
+    saida = {}
+    for arq in CABECALHOS_DE_TREINADOR:
+        r = subprocess.run(["git", "show", f"{ref}:{arq}"],
+                           cwd=RAIZ, capture_output=True, text=True)
+        if r.returncode != 0:
+            return None
+        saida.update(ids_de_treinador(r.stdout))
+    return saida
 
 
 def apelidos_de_estado(flags_h, vars_h):
@@ -654,8 +686,7 @@ def main():
     # Ids de treinador: os DOIS lados sao lidos na hora (git + disco), e por
     # isso nao entram na impressao gravada. Impressao velha nao envelhece um
     # de-para de 3 mil linhas, e o commit de referencia e o da ROM publicada.
-    nova["treinadores"] = ids_de_treinador(
-        open(f"{RAIZ}/include/constants/opponents.h", encoding="utf-8").read())
+    nova["treinadores"] = ids_de_treinador_do_disco()
     velha["treinadores"] = treinadores_do_git()
     if velha["treinadores"] is None:
         print(f"AVISO: sem `git show {REF_TREINADOR}:include/constants/"
@@ -747,10 +778,11 @@ def demo():
     assert compara(v, fim) == [], compara(v, fim)
     # MUTACAO PLANTADA NO ARQUIVO DE VERDADE: o defeito de 23/08/2026 tal como
     # aconteceu, dois ids empurrados por uma insercao no meio.
-    real = ids_de_treinador(
-        open(f"{RAIZ}/include/constants/opponents.h", encoding="utf-8").read())
+    real = ids_de_treinador_do_disco()
     assert len(real) > 2000, "opponents.h com poucos ids: leitura errada"
-    empurrados = ("TRAINER_GALAR_LEON_736", "TRAINER_GALAR_LEON_739")
+    # Os dois nomes plantados eram de Galar ate 08/09/2026 e sumiram com a
+    # compactacao; agora sao dois de Johto, que ficam.
+    empurrados = ("TRAINER_JOHTO_KIYO", "TRAINER_JOHTO_EUSINE")
     mutante = {k: (v_ + 2 if k in empurrados else v_) for k, v_ in real.items()}
     q = compara({**base, "treinadores": real}, {**base, "treinadores": mutante})
     assert sum("TREINADOR MOVIDO" in x for x in q) == 2, q[:3]
