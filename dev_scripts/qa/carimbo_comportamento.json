@@ -42,9 +42,9 @@
    "w": 38
   },
   "CelesticTown": {
-   "caminho": "03af2503bd3064e36ec8883e35e1e23f1565ae1e08dfb3217294ccc549322637",
+   "caminho": "0fbeae27c750500a27e504e473aab4dbe5ab355877840399f98e41805ca2f564",
    "celulas": 1330,
-   "comportamento": "939ab14db76a4b995e68ce79f24ccc2861b80ec1c2668922350d5862d5445263",
+   "comportamento": "fcbf8b769b1948dd076fbc8a10415b0c8a49b9949a9eefe0bad7f9498231925d",
    "h": 35,
    "layout": "LAYOUT_CELESTIC_TOWN",
    "primario": "gTileset_GeneralSinnoh",

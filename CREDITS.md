@@ -291,3 +291,33 @@ versionado é o kit já CONVERTIDO, em
 `dev_scripts/porto_canalave_silhueta_kit.json` (paleta em RGB e tile em nibble), e o
 script que o instala. A arte de base é da Nintendo/Game Freak; o crédito acima cobre a
 edição feita por cada autor de ROM hack. Projeto privado e não monetizado.
+
+### Ruína de `CelesticTown` e campo de `SolaceonTown` (`gTileset_Celestic`, metatiles 774 a 832)
+
+Esta seção é auto-contida e cobre a onda 2 do REFINO, frente CELESTIC e SOLACEON.
+
+Os 100 tiles 8x8 e as duas vagas de paleta novas do `gTileset_Celestic` (a vaga 10, que
+já estava livre, e a vaga 7, liberada pela fusão das cinco cores dela dentro dos dois
+índices ociosos da vaga 9) vieram de UMA ROM hack, e nada além de ARTE foi importado:
+nenhum id de flag, var, script, música, treinador ou espécie.
+
+- **Pokémon Light Platinum**, de **WesleyFG** (versão Final de 2012, base Ruby/AXVE,
+  md5 da cópia privada de trabalho `7fd2c08735459d99fa23fdaa9b755486`). O hack não
+  declara licença formal; o tópico "WesleyFG Tile's" na PokéCommunity libera os tiles
+  **com crédito**, e é isso que esta seção faz.
+  - O tema de **ruína** de `CelesticTown` (laje solta, cascalho, pedra rachada,
+    pedregulho, monte de pedra, árvore morta, muro caído e a laje do altar: 10 cores
+    não-zero na vaga de paleta 10) saiu do tileset secundário `0x286F64`, o da montanha
+    do templo, com o primário `0x286CF4`.
+  - O tema de **campo** de `SolaceonTown` (broto de plantação, terra batida, tufo de
+    capim, medão de feno, fardo de palha, fardo redondo em três tons, monte de palha,
+    palheiro largo e duas árvores douradas: 15 cores não-zero na vaga de paleta 7) saiu
+    do tileset secundário `0x286DE4`, o da vila verde, com o mesmo primário.
+
+A ROM não entra neste repositório, nem em parte nem em dump: o que está versionado é o
+kit já CONVERTIDO, em `dev_scripts/campo_celestic_kit.json` (paleta em RGB e tile em
+nibble, já reindexado para a vaga nova), e o script que o instala,
+`dev_scripts/campo_celestic.py`. A arte de base é rip de Diamond/Pearl/Platinum, ou
+seja da **Nintendo/Game Freak**: o crédito acima cobre a edição feita pelo autor do
+hack, não o material original. Projeto privado, não monetizado, que distribui patch e
+nunca ROM.
