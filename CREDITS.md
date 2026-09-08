@@ -321,3 +321,32 @@ nibble, já reindexado para a vaga nova), e o script que o instala,
 seja da **Nintendo/Game Freak**: o crédito acima cobre a edição feita pelo autor do
 hack, não o material original. Projeto privado, não monetizado, que distribui patch e
 nunca ROM.
+
+### Pedreira de `OreburghCity` e mato de `EternaCity` (`gTileset_Jubilife`, metatiles 899 a 939)
+
+Esta seção é auto-contida e cobre a onda 2 do REFINO, frente MINA + FLORESTA.
+
+Os 82 tiles 8x8 novos do `gTileset_Jubilife` e as cores novas das vagas de paleta 7,
+8 e 11 vieram de UMA ROM hack, e nada além de ARTE foi importado: nenhum id de flag,
+var, script, música, treinador ou espécie, e o comportamento de todo metatile novo
+entra ZERADO.
+
+- O **chão de cascalho** de Oreburgh (nove variantes de piso), as **pedras**, os
+  **pedregulhos**, as **pilhas de minério**, os **engradados**, as **vigas de
+  madeira** e o **matação** 2 por 2 vieram do tileset secundário `0x286E8C` do
+  **Pokémon Light Platinum**, de **WesleyFG**, sobre base **Pokémon Ruby (AXVE)**.
+  É o par da pedreira a céu aberto do grupo 24 do hack (mapa de amostra g24m09,
+  44 por 80). Md5 da cópia privada de trabalho:
+  `7fd2c08735459d99fa23fdaa9b755486`.
+- O **tronco caído** e o **galho caído** de Eterna vieram do tileset secundário
+  `0x286FAC` da mesma ROM, o par da floresta densa (mapa de amostra g24m04).
+- O resto do mato de Eterna (tufos, moitas, flores, pedras de mato, copa) NÃO é
+  importado: são metatiles que o próprio `gTileset_GeneralSinnoh` deste repositório
+  já tinha desenhados e que nenhum mapa usava.
+
+O **Light Platinum** não declara licença própria. A arte de base é da
+**Nintendo/Game Freak**; o crédito acima cobre a edição feita pelo autor da ROM hack.
+
+Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está versionado
+é o kit já CONVERTIDO, em `dev_scripts/mina_oreburgh_kit.json` (paleta em RGB e tile
+em nibble), e o script que o instala. Projeto privado e não monetizado.
