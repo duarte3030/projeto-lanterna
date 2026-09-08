@@ -291,6 +291,48 @@ mudos aqui também, saindo dos dois lados da coluna `script`). Somam-se duas:
     três commits de lote; retomar é a lista de doze passos acima, começando por terminar a
     regra do G4. Enquanto você não disser, ninguém roda `--aplicar` nenhum.
 
+### O T183 É INSTÁVEL, e isso foi provado com ROM DE CONTROLE, não deduzido
+
+**A suíte inteira deu 1.086 de 1.088 na primeira passada, um ABAIXO do piso de 1.087, e o
+único reprovado foi o `T183.6`** (Terastal Dark no Incineroar, "flag
+`FLAG_B8_TERA_ORB_CARREGADO` deveria estar apagada e está 1"). Antes de qualquer conclusão,
+duas coisas foram medidas.
+
+**Primeiro, o mecanismo.** Os quatro commits desta onda **não tocam uma linha de `src/`, de
+`include/` nem de dado de batalha** `[V] git diff --name-only 181398c832..HEAD -- src/ include/`.
+O único arquivo que o compilador vê são os seis destinos de warp das duas rotas de Galar. Não
+há caminho físico entre isso e a carga da orbe Tera.
+
+**Depois, o controle.** O `T183` foi rodado **seis vezes**, quatro na ROM desta onda e duas na
+ROM do merge final (`/private/tmp/claude-501/c2-merge-final/pokeemerald.gba`, md5
+`b1d10b7f48d2e4f42c16361d3ac8a2cf`, **a mesma ROM, byte a byte, em que o portão de 06/09 mediu
+`T183` 6 de 6**), na mesma máquina e no mesmo dia:
+
+| passada | ROM | reprovados |
+|---|---|---|
+| 1 | desta onda | `T183.6` |
+| 2 | desta onda | `T183.5` |
+| 3 | desta onda | `T183.4` |
+| 4 | desta onda | **nenhum, 6 de 6** `[V]` |
+| controle 1 | merge final | `T183.4` e `T183.5` |
+| controle 2 | merge final | `T183.5` e `T183.6` |
+
+**Três casos diferentes caem em passadas diferentes, a nossa ROM fecha 6 de 6 e a de controle
+não fecha nenhuma vez.** Se fosse regressão desta onda, o controle passaria e o nosso
+reprovaria sempre no mesmo caso; é o contrário dos dois lados.
+
+**Recalibração, e é só de leitura, não de teste:** o `T183` entra na lista de **instáveis
+conhecidos**, ao lado do `T176.3`. Ele é bloco do cartucho 1 (veio de `348e4dbd22`, a rodada
+13), a rota dele é longa e cheia de menu (o Charizard Dynamaxa, escolhe Sunny Day, o jogador
+troca para o Incineroar e só então o gatilho oferecido é o Tera), e rota assim é sensível a
+tempo. **Nenhum arquivo de teste foi tocado aqui**: recalibrar a rota é obra de quem escreveu
+o bloco, e sai desta branch. **O aviso é para a sessão do cartucho 1: o `T183` do `master`
+oscila, e o 6 de 6 de 06/09 foi sorte, não estabilidade.**
+
+Portanto o piso desta rodada se lê assim: **1.087 de 1.088** (o `T11.3` pula, como sempre),
+alcançado com o `T183` repetido, e o único vermelho da primeira passada é instabilidade
+herdada, provada em ROM de controle.
+
 ### A política, que não mudou e não muda
 
 **Nunca mais `git merge master` nesta branch.** Conserto de motor entra por `git cherry-pick`
