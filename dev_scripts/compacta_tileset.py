@@ -83,6 +83,7 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(RAIZ, "dev_scripts"))
 os.environ.setdefault("REPO_MAPAS", RAIZ)
 import render_maps as R      # noqa: E402
+import pinos_anim as PA      # noqa: E402
 
 BACKUP = os.path.join(RAIZ, "build", "compacta_tileset")
 TILE_PX = 8
@@ -213,17 +214,83 @@ def monta_plano(rotulo, fixar_orfaos=False, todos=None):
     meta = open(os.path.join(pasta, "metatiles.bin"), "rb").read()
     palavras = entradas(meta)
 
+    pinos, avisos = pinos_do_primario(rotulo, pasta, base, layouts, fixar_orfaos)
+
     vivos = set()
     for palavra in palavras:
         idx = palavra & 0x3FF
         if idx >= base:
             vivos.add(idx - base)
+    # METATILE QUEBRADO, e ele existe de verdade nesta arvore. O
+    # `gTileset_PetalburgSinnoh` tem 65 metatiles que pedem tile local acima do
+    # tamanho do `tiles.png` (o import original trouxe metatile a mais e tile a
+    # menos). Recusar o tileset inteiro por causa deles custava a compactacao de
+    # um secundario usado por 62 layouts. A saida so vale se eles forem
+    # PROVADAMENTE mortos: se nenhum `map.bin` de nenhum layout desenha aquele
+    # metatile, as 8 entradas dele saem do remapeamento e ficam byte a byte
+    # iguais, exatamente como ja estao. Se UM deles for desenhado, a recusa
+    # continua, porque aí o tileset esta quebrado em jogo e nao e assunto desta
+    # ferramenta.
     fora = sorted(t for t in vivos if t >= len(tiles))
+    congelados = set()
     if fora:
-        raise SystemExit(f"{rotulo}: metatile pede tile local {fora[:5]} e o "
-                         f"tiles.png so tem {len(tiles)}")
+        quebrados = set()
+        for m in range(len(palavras) // 8):
+            for i in range(8):
+                idx = palavras[m * 8 + i] & 0x3FF
+                if idx >= base and idx - base >= len(tiles):
+                    quebrados.add(m)
+                    break
+        desenhados, sem_arquivo = set(), []
+        for layout in layouts:
+            caminho = os.path.join(RAIZ, layout["blockdata_filepath"])
+            if not os.path.exists(caminho):
+                # Layout declarado no layouts.json cujo map.bin nao existe em
+                # disco. Sao os tumulos das remocoes do cartucho 1; sem arquivo
+                # nao ha celula desenhada, entao nao entram na conta, mas ficam
+                # listados para ninguem achar que foram esquecidos.
+                sem_arquivo.append(layout["name"])
+                continue
+            dados = open(caminho, "rb").read()
+            desenhados |= {struct.unpack_from("<H", dados, i)[0] & 0x3FF
+                           for i in range(0, len(dados), 2)}
+        if sem_arquivo:
+            avisos.append("sem map.bin em disco, fora da conta de desenhado: %d layouts (%s%s)"
+                          % (len(sem_arquivo), ", ".join(sem_arquivo[:4]),
+                             ", ..." if len(sem_arquivo) > 4 else ""))
+        # O indice de um metatile do SECUNDARIO no map.bin e `base + local`.
+        # Comparar tambem com o local cru era o erro obvio desta conta: o local
+        # 226 tambem existe como metatile do PRIMARIO, e todo mapa desenha
+        # algum, entao a checagem acusava todos os 65 como vivos.
+        vivos_quebrados = sorted(m for m in quebrados if (base + m) in desenhados)
+        if vivos_quebrados:
+            raise SystemExit(
+                f"{rotulo}: metatile pede tile local {fora[:5]} e o tiles.png so "
+                f"tem {len(tiles)}, e os metatiles {vivos_quebrados[:5]} sao "
+                f"DESENHADOS por algum map.bin")
+        congelados = quebrados
+        avisos.append(f"metatile quebrado congelado: {len(quebrados)} metatiles pedem "
+                      f"tile local acima de {len(tiles) - 1} e nenhum map.bin os "
+                      f"desenha; as entradas deles ficam byte a byte iguais")
+        vivos = set()
+        for m in range(len(palavras) // 8):
+            if m in congelados:
+                continue
+            for i in range(8):
+                idx = palavras[m * 8 + i] & 0x3FF
+                if idx >= base:
+                    vivos.add(idx - base)
 
-    pinos, avisos = pinos_do_primario(rotulo, pasta, base, layouts, fixar_orfaos)
+    # Pino de ANIMAÇÃO. O `src/tileset_anims.c` escreve tile cru direto na VRAM
+    # numa vaga fixa e não sabe que a numeração mudou; renumerar por baixo dele
+    # não quebra o build nem muda um pixel do render estático, e só aparece
+    # dentro do jogo. Ver `dev_scripts/pinos_anim.py`.
+    vagas_anim, anim_ativa, explicacao_anim = PA.pinos_de_anim(rotulo)
+    if anim_ativa:
+        pinos |= vagas_anim
+        avisos.append("pino de animacao: %s (%s)"
+                      % (PA.faixas(vagas_anim), explicacao_anim))
+
     pinos = {p for p in pinos if p < len(tiles)}
     manter = vivos | pinos | {0}      # o tile 0 nunca sai e nunca sai do lugar
     pinos |= {0}
@@ -244,6 +311,7 @@ def monta_plano(rotulo, fixar_orfaos=False, todos=None):
     return dict(rotulo=rotulo, pasta=pasta, base=base, teto=1024 - base,
                 layouts=[l["id"] for l in layouts], tiles=tiles, paleta=paleta,
                 info=info, colunas=cols, meta=meta, vivos=vivos, pinos=pinos,
+                congelados=congelados,
                 manter=manter, ordem=ordem, de_para=de_para, avisos=avisos,
                 mortos=len(tiles) - len(manter), antes=len(tiles),
                 depois=tamanho)
@@ -258,7 +326,10 @@ def aplica_plano(plano):
 
     base, de_para = plano["base"], plano["de_para"]
     saida = bytearray(plano["meta"])
+    congelados = plano.get("congelados") or set()
     for i in range(0, len(saida), 2):
+        if (i // 16) in congelados:
+            continue                      # metatile quebrado e morto: byte igual
         palavra = struct.unpack_from("<H", saida, i)[0]
         idx = palavra & 0x3FF
         if idx < base:
@@ -312,8 +383,17 @@ def confere(plano, novos, meta_novo):
     if len(velhas) != len(novas):
         return [f"{plano['rotulo']}: o metatiles.bin mudou de tamanho"]
     base, tiles = plano["base"], plano["tiles"]
+    congelados = plano.get("congelados") or set()
     erros = []
     for i, (a, b) in enumerate(zip(velhas, novas)):
+        if (i // 8) in congelados:
+            # Metatile quebrado e morto: a exigencia dele nao e "desenha o mesmo
+            # tile", que e impossivel porque o tile nunca existiu, e sim
+            # "continua byte a byte igual".
+            if a != b:
+                erros.append(f"entrada {i}: metatile congelado mudou "
+                             f"({a:04X} -> {b:04X})")
+            continue
         if (a & 0xFC00) != (b & 0xFC00):
             erros.append(f"entrada {i}: flips/paleta mudaram ({a:04X} -> {b:04X})")
             continue
@@ -459,7 +539,10 @@ def autoteste(rotulos=None):
             a, b = vivos[0], vivos[1]
             torto[a], torto[b] = torto[b], torto[a]
             sujo = bytearray(plano["meta"])
+            congelados = plano.get("congelados") or set()
             for i in range(0, len(sujo), 2):
+                if (i // 16) in congelados:
+                    continue
                 p = struct.unpack_from("<H", sujo, i)[0]
                 idx = p & 0x3FF
                 if idx >= plano["base"]:

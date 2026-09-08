@@ -121,7 +121,8 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(RAIZ, "dev_scripts"))
 os.environ.setdefault("REPO_MAPAS", RAIZ)
 import compacta_tileset as C     # noqa: E402
-import render_maps as R          # noqa: E402
+import render_maps as R
+import pinos_anim as PA          # noqa: E402
 
 BACKUP = os.path.join(RAIZ, "build", "compacta_paletas")
 NUM_PALS_TOTAL = 13              # include/fieldmap.h
@@ -335,11 +336,23 @@ def _agrupa_guloso(retrato, livres, presas):
 
 def monta_plano(rotulo, alvo=None, todos=None, forcar=False):
     """Mede, agrupa e monta o de-para completo. Não escreve nada."""
-    if tem_callback(rotulo) and not forcar:
-        raise SystemExit("%s tem .callback de animacao em headers.h: o "
-                         "tileset_anims.c escreve tile e paleta crus em vaga "
-                         "fixa e o remapeamento passaria por baixo dele. Use "
-                         "--forcar se souber o que esta fazendo." % rotulo)
+    # ANIMAÇÃO. A recusa antiga era por `.callback` no headers.h, e isso é grosso
+    # nos dois sentidos: `gTileset_PetalburgSinnoh` e `gTileset_LilycoveSinnoh`
+    # têm `.callback` e a função de init deles põe o ponteiro em NULL, ou seja
+    # não escrevem vaga nenhuma e estavam sendo recusados à toa; e quando a
+    # animação existe de verdade "recusa tudo" não diz QUAIS vagas são
+    # intocáveis. Agora quem responde é o `dev_scripts/pinos_anim.py`, que segue
+    # a cadeia init -> passo -> AppendTilesetAnimToBuffer e devolve as vagas.
+    vagas_anim, anim_ativa, explicacao_anim = PA.pinos_de_anim(rotulo)
+    if anim_ativa and not forcar:
+        raise SystemExit(
+            "%s tem animacao ATIVA (%s) e ela escreve tile cru nas vagas %s em "
+            "tempo de execucao: o reempacotamento reindexa o nibble desses "
+            "tiles e o motor escreveria por cima com o nibble antigo, o que nao "
+            "aparece em render estatico e so aparece dentro do jogo. Use "
+            "--forcar so depois de CONGELAR esses tiles e PINAR a vaga de "
+            "paleta de todo metatile que os usa." % (
+                rotulo, explicacao_anim, PA.faixas(vagas_anim)))
     retrato = mede(rotulo, todos)
     grupos, presas = agrupa(retrato, alvo)
 
