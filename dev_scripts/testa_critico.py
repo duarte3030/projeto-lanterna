@@ -127,7 +127,7 @@ RUNNER = os.environ.get("GBA_RUNNER") or os.path.join(RAIZ, "dev_scripts", "gba_
 if not os.path.exists(RUNNER):
     RUNNER = ("/Users/duarte/Documents/ANTIGRAVITY/Pokemon Claude/Pokemon Claude"
               "/ferramentas/gba_runner")
-SAIDA = "/tmp/claude-501/frenteA/testes"
+SAIDA = os.environ.get("SAIDA_TESTES", "/tmp/claude-501/frenteA/testes")
 CASOS_DIR = os.path.join(RAIZ, "dev_scripts", "testes_criticos")
 
 # Abertura até o jogador ter o controle no overworld.
